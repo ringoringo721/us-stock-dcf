@@ -391,12 +391,13 @@
   // ================= 多通道高速載入與保底機制 =================
 async function loadMarketData() {
     const statusEl = document.getElementById('data-status');
-    statusEl.innerText = "⚡ 正在連線全市場即時資料庫...";
+    statusEl.innerText = "⚡ 正在連線全市場資料庫...";
 
     const bustToken = new Date().getTime();
+    // 雙路徑讀取：同網域部署路徑 + GitHub Raw 官方 CDN
     const urls = [
-      `full_market_dcf.json?t=${bustToken}`,
-      `https://raw.githubusercontent.com/ringoringo721/us-stock-dcf/main/full_market_dcf.json?t=${bustToken}`
+      `full_market_dcf.json?_nocache=${bustToken}`,
+      `https://raw.githubusercontent.com/ringoringo721/us-stock-dcf/main/full_market_dcf.json?_nocache=${bustToken}`
     ];
 
     let loaded = false;
@@ -408,14 +409,21 @@ async function loadMarketData() {
           const count = Object.keys(data).length;
           if (data && count > 0) {
             stockUniverse = data;
-            statusEl.innerHTML = `🟢 已成功載入全市場 ${count} 檔最新美股真實數據 (NYSE, NASDAQ, AMEX)`;
+            statusEl.innerHTML = `🟢 已成功載入全市場 ${count} 檔美股最新數據 (NYSE, NASDAQ, AMEX)`;
             loaded = true;
             syncStateWithUrl();
             break;
           }
         }
-      } catch (err) {}
+      } catch (err) {
+        console.warn("載入嘗試失敗:", u, err);
+      }
     }
+
+    if (!loaded) {
+      statusEl.innerHTML = `⚠️️ 正在等待 Actions 初次生成檔案，請前往 Actions 手動觸發運行...`;
+    }
+  }
 
     if (!loaded) {
       statusEl.innerHTML = `⚠️ 正在等待 GitHub Actions 產出全市場數據，請至 Actions 觸發運行...`;
