@@ -7,6 +7,8 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 jobs:
   refresh-market:
@@ -31,5 +33,13 @@ jobs:
           git config --global user.name "Market-DCF-Bot"
           git config --global user.email "bot@dcf.local"
           git add full_market_dcf.json
-          git commit -m "Auto refresh full market DCF with real fundamentals" || exit 0
+          git commit -m "Auto refresh full market DCF" || exit 0
           git push
+
+      - name: Trigger GitHub Pages Build
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
