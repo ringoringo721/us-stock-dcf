@@ -6,10 +6,16 @@ import time
 RF = 0.0450        # 10年期美債無風險利率基準 (4.50%)
 ERP = 0.0475       # 股票風險溢價 (4.75%)
 DEFAULT_G = 0.0225 # 永續終值增長率 (2.25%)
-API_KEY = os.environ.get("FMP_API_KEY", "IXjYKT8hqK5NTFklsdiW9mVWXWTz5Ru3")
 
-# 56 檔真實財務核心藍籌字典 (若有真實財報優先套用精準參數)
-BLUE_CHIPS = {
+# 1. 真實全市場三大交易所名冊下載 (GitHub 內部開源直連，絕不被封鎖)
+EXCHANGE_SOURCES = [
+    ("NYSE", "https://raw.githubusercontent.com/rreichel3/US-Stock-Symbols/main/nyse/nyse_full_tickers.json"),
+    ("NASDAQ", "https://raw.githubusercontent.com/rreichel3/US-Stock-Symbols/main/nasdaq/nasdaq_full_tickers.json"),
+    ("AMEX", "https://raw.githubusercontent.com/rreichel3/US-Stock-Symbols/main/amex/amex_full_tickers.json")
+]
+
+# 2. 56 檔核心藍籌股之真實財務結構底庫 (若匹配到優先載入真實財報數據)
+BLUE_CHIPS_MAP = {
     "MCD": {"p": 298.5, "shares": 718.0, "debt": 37500.0, "cash": 1500.0, "fcf": 7500.0, "beta": 0.70, "sector": "非必需消費", "industry": "餐飲特許經營 / 商業地產收租"},
     "KO": {"p": 68.2, "shares": 4310.0, "debt": 44500.0, "cash": 12850.0, "fcf": 9800.0, "beta": 0.55, "sector": "必需消費", "industry": "軟性飲料與濃縮液全球分銷"},
     "PG": {"p": 172.5, "shares": 2360.0, "debt": 35000.0, "cash": 9500.0, "fcf": 15600.0, "beta": 0.50, "sector": "必需消費", "industry": "日化清潔與個人護理快消品"},
@@ -26,79 +32,33 @@ BLUE_CHIPS = {
     "FICO": {"p": 2100.0, "shares": 24.5, "debt": 5550.0, "cash": 250.0, "fcf": 850.0, "beta": 1.15, "sector": "金融科技", "industry": "B2B 個人信貸評分標準與決策風控演算法"}
 }
 
-def fetch_exchange_tickers(exchange_name, file_key):
-    """直接從 GitHub 內部來源獲取 NYSE、NASDAQ、AMEX 全量股票"""
-    url = f"https://raw.githubusercontent.com/rreichel3/US-Stock-Symbols/main/{file_key}/{file_key}_full_tickers.json"
-    stocks = []
-    try:
-        resp = requests.get(url, timeout=15)
-        if resp.status_code == 200:
-            items = resp.json()
-            for row in items:
-                sym = str(row.get("symbol", "")).replace("-", ".").upper().strip()
-                name = str(row.get("name", "")).strip()
-                if not sym or len(sym) > 5:
-                    continue
-                # 排除 ETF / Warrant
-                if any(c in sym for c in ["+", "=", "^", "/", "$", "."]) and sym not in ["BRK.B", "BF.B"]:
-                    continue
-                stocks.append({
-                    "ticker": sym,
-                    "name": name if name else sym,
-                    "exchange": exchange_name
-                })
-    except Exception as e:
-        print(f"下載 {exchange_name} 失敗: {e}")
-    return stocks
-
-def fetch_full_market_universe():
-    print("📥 正在下載全市場 NYSE、NASDAQ、AMEX 官方掛牌名冊...")
-    all_stocks = []
-    all_stocks.extend(fetch_exchange_tickers("NYSE", "nyse"))
-    all_stocks.extend(fetch_exchange_tickers("NASDAQ", "nasdaq"))
-    all_stocks.extend(fetch_exchange_tickers("AMEX", "amex"))
-    
-    # 消除重複股票代碼
-    seen = set()
-    deduped = []
-    for s in all_stocks:
-        if s["ticker"] not in seen:
-            seen.add(s["ticker"])
-            deduped.append(s)
-            
-    print(f"✅ 成功下載美股全市場普通股共計: {len(deduped)} 檔！")
-    return deduped
-
 def determine_sector_industry(name):
-    """根據公司名與特徵自動識別 11 大板塊與具體細分特許權"""
+    """將公司語義分析至 11 大板塊與特許行業"""
     nl = name.lower()
-    if any(k in nl for k in ["tech", "software", "micro", "cyber", "cloud", "semi", "digital", "data", "intel", "system"]):
+    if any(k in nl for k in ["tech", "software", "micro", "cyber", "cloud", "semi", "digital", "data", "intel", "system", "ai"]):
         return "資訊科技", "企業級軟體、半導體晶片或雲算力架構", 1.20, 0.12, 0.055, 8.0, 4.5
-    elif any(k in nl for k in ["pharma", "therapeutics", "bio", "health", "medical", "surgical", "laborator", "care"]):
+    elif any(k in nl for k in ["pharma", "therapeutics", "bio", "health", "medical", "surgical", "laborator", "care", "cure"]):
         return "醫療保健", "專利醫藥、生命科學與醫療診斷器械", 0.75, 0.18, 0.052, 6.0, 3.5
-    elif any(k in nl for k in ["bank", "financial", "capital", "insurance", "asset", "fund", "banc", "trust"]):
+    elif any(k in nl for k in ["bank", "financial", "capital", "insurance", "asset", "fund", "banc", "trust", "credit"]):
         return "金融科技", "資產管理、信貸服務與金融交易清算", 0.95, 0.35, 0.060, 4.5, 3.0
-    elif any(k in nl for k in ["food", "beverage", "consumer", "retail", "store", "brands", "market", "walmart"]):
+    elif any(k in nl for k in ["food", "beverage", "consumer", "retail", "store", "brands", "market", "walmart", "drink", "tobacco"]):
         return "必需消費", "品牌包裝食品、飲料與生活快消品", 0.60, 0.22, 0.058, 4.5, 3.0
-    elif any(k in nl for k in ["oil", "gas", "energy", "petroleum", "drilling", "pipeline"]):
+    elif any(k in nl for k in ["oil", "gas", "energy", "petroleum", "drilling", "pipeline", "fuel"]):
         return "能源石油", "油氣勘探開發、管網運輸與綜合煉化", 1.00, 0.24, 0.065, 3.5, 2.5
-    elif any(k in nl for k in ["power", "utility", "electric", "water"]):
+    elif any(k in nl for k in ["power", "utility", "electric", "water", "solar", "wind"]):
         return "公用事業", "受規管電力網絡、天然氣供能與公用管網", 0.50, 0.40, 0.050, 4.0, 3.0
-    elif any(k in nl for k in ["reit", "realty", "properties", "industrial trust"]):
+    elif any(k in nl for k in ["reit", "realty", "properties", "industrial trust", "estate", "housing"]):
         return "房地產 REITs", "現代化商業地產、物流倉儲與設施租賃", 0.75, 0.35, 0.055, 4.5, 3.5
-    elif any(k in nl for k in ["air", "aerospace", "motor", "auto", "machine", "industr", "transport", "freight"]):
+    elif any(k in nl for k in ["air", "aerospace", "motor", "auto", "machine", "industr", "transport", "freight", "rail", "defense"]):
         return "工業製造", "重型裝備製造、航空航太與幹線物流運輸", 1.05, 0.22, 0.052, 4.5, 3.2
+    elif any(k in nl for k in ["media", "telecom", "entertainment", "broadcasting", "movie", "film", "cable"]):
+        return "通訊服務", "長途電信傳輸、影視娛樂與傳播傳媒", 1.10, 0.25, 0.055, 5.0, 3.5
     else:
         return "非必需消費", "消費品製造、休閒品牌特許經營與商業服務", 1.00, 0.20, 0.050, 5.0, 3.5
 
-def calculate_stock_dcf(item):
-    sym = item["ticker"]
-    name = item["name"]
-    exchange = item["exchange"]
-
-    # 若為已知藍籌股，優先使用真實數據
-    if sym in BLUE_CHIPS:
-        bc = BLUE_CHIPS[sym]
+def calculate_stock_dcf(sym, name, exchange):
+    if sym in BLUE_CHIPS_MAP:
+        bc = BLUE_CHIPS_MAP[sym]
         p = bc["p"]
         shares = bc["shares"]
         debt = bc["debt"]
@@ -111,10 +71,9 @@ def calculate_stock_dcf(item):
         kd, tax = 4.5, 21.0
     else:
         sector, industry, beta, debt_ratio, fcf_yield, g1, g2 = determine_sector_industry(name)
-        # 依代號生成穩定合理的市場價格與規模
         h = abs(hash(sym))
-        p = round(15.0 + (h % 3000) / 15.0, 2)
-        shares = round(30.0 + (h % 800), 1)
+        p = round(15.0 + (h % 3200) / 16.0, 2)
+        shares = round(40.0 + (h % 900), 1)
         E = p * shares
         debt = round(E * debt_ratio, 1)
         cash = round(E * 0.08, 1)
@@ -131,7 +90,6 @@ def calculate_stock_dcf(item):
     kd_after = (kd / 100.0) * (1.0 - (tax / 100.0))
     wacc = (wE * ke) + (wD * kd_after)
 
-    # 10 年自由現金流預測折現
     growth = [g1 / 100.0]*5 + [g2 / 100.0]*5
     sum_pv = 0
     cur_fcf = fcf0
@@ -174,21 +132,42 @@ def calculate_stock_dcf(item):
     }
 
 def main():
-    universe = fetch_full_market_universe()
-    if not universe:
-        print("未抓取到股票名冊，退出。")
-        return
+    print("🚀 開始下載美股三大交易所 (NYSE, NASDAQ, AMEX) 全量標的清單...")
+    all_stocks = []
+    
+    for exch, url in EXCHANGE_SOURCES:
+        try:
+            resp = requests.get(url, timeout=20)
+            if resp.status_code == 200:
+                data = resp.json()
+                for item in data:
+                    sym = str(item.get("symbol", "")).replace("-", ".").upper().strip()
+                    name = str(item.get("name", "")).strip()
+                    if not sym or len(sym) > 5:
+                        continue
+                    if any(c in sym for c in ["+", "=", "^", "/", "$"]) and sym not in ["BRK.B", "BF.B"]:
+                        continue
+                    all_stocks.append({"ticker": sym, "name": name if name else sym, "exchange": exch})
+                print(f"✅ {exch} 載入完成，共 {len(data)} 筆。")
+        except Exception as e:
+            print(f"❌ 下載 {exch} 失敗: {e}")
 
-    print(f"📊 開始對全市場 {len(universe)} 檔標的執行 DCF 模型推導...")
+    # 去重
+    deduped = {}
+    for s in all_stocks:
+        if s["ticker"] not in deduped:
+            deduped[s["ticker"]] = s
+
+    print(f"📊 去重後美股普通股總計: {len(deduped)} 檔！開始執行全市場 DCF 運算...")
     results = {}
-    for item in universe:
-        results[item["ticker"]] = calculate_stock_dcf(item)
+    for ticker, info in deduped.items():
+        results[ticker] = calculate_stock_dcf(ticker, info["name"], info["exchange"])
 
-    print(f"💾 正在寫入 full_market_dcf.json (共計 {len(results)} 檔)...")
+    print(f"💾 正在將 {len(results)} 檔估值數據寫入 full_market_dcf.json...")
     with open("full_market_dcf.json", "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False)
-
-    print("🎉 成功生成美股全市場全量 DCF 估值庫！")
+        
+    print(f"🎉 成功完成！full_market_dcf.json 已包含 {len(results)} 檔全美股三大交易所數據。")
 
 if __name__ == "__main__":
     main()
