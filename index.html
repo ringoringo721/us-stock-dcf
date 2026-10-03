@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>美股全市場 DCF 估值雷達 (NYSE & NASDAQ 全景版)</title>
+  <title>美股全市場 DCF 估值雷達 (NYSE, NASDAQ, AMEX 全景版)</title>
   <style>
     :root {
       --bg: #0b1120;
@@ -19,6 +19,7 @@
       --red-bg: rgba(248, 113, 113, 0.12);
       --nyse-blue: #3b82f6;
       --nasdaq-purple: #a855f7;
+      --amex-yellow: #facc15;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
     body { background-color: var(--bg); color: var(--text); padding: 20px; line-height: 1.5; }
@@ -56,6 +57,7 @@
     .badge-overvalued { background: var(--red-bg); color: var(--red); border: 1px solid rgba(248, 113, 113, 0.3); }
     .badge-exch-nyse { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.4); font-size: 10px; }
     .badge-exch-nasdaq { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.4); font-size: 10px; }
+    .badge-exch-amex { background: rgba(250, 204, 21, 0.15); color: #facc15; border: 1px solid rgba(250, 204, 21, 0.4); font-size: 10px; }
     .text-green { color: var(--green); font-weight: 600; }
     .text-red { color: var(--red); font-weight: 600; }
 
@@ -90,10 +92,10 @@
 <div class="container">
   <header>
     <div>
-      <h1>美股全市場 DCF 估值雷達 (NYSE & NASDAQ 全景版)</h1>
-      <span style="font-size: 13px; color: var(--text-muted);">涵蓋 11 大板塊龍頭 · 實時收盤價 · 產業細分 (Industry Breakdown) 與 DCF 敏感度矩陣</span>
+      <h1>美股全市場 DCF 估值雷達 (NYSE, NASDAQ, AMEX 全景版)</h1>
+      <span style="font-size: 13px; color: var(--text-muted);">全市場三大交易所 · 11 大板塊 · 細分產業特許權 · 每日盤後自動折現</span>
     </div>
-    <div class="status-badge" id="data-status">正在載入資料庫...</div>
+    <div class="status-badge" id="data-status">正在載入全市場資料庫...</div>
   </header>
 
   <!-- ==================== 頁面 1：全市場雷達總表 ==================== -->
@@ -127,7 +129,7 @@
           <button class="f-btn" onclick="setValFilter('UNDERVALUED')">🟢 具安全邊際 (低估)</button>
           <button class="f-btn" onclick="setValFilter('OVERVALUED')">🔴 溢價過高 (高估)</button>
         </div>
-        <input type="text" class="search-input" id="search-ticker" placeholder="搜尋代碼、公司名稱或細分行業..." oninput="onSearchChange()">
+        <input type="text" class="search-input" id="search-ticker" placeholder="搜尋代號、名稱、細分特許權..." oninput="onSearchChange()">
       </div>
 
       <!-- 交易所 -->
@@ -135,12 +137,13 @@
         <span class="filter-title">交易所：</span>
         <div class="filter-btns" id="exch-filters">
           <button class="f-btn active" onclick="setExchFilter('ALL')">全部市場</button>
-          <button class="f-btn" onclick="setExchFilter('NYSE')">🏛️ NYSE 紐約證券交易所</button>
+          <button class="f-btn" onclick="setExchFilter('NYSE')">🏛️ NYSE 紐約證交所</button>
           <button class="f-btn" onclick="setExchFilter('NASDAQ')">💻 NASDAQ 那斯達克</button>
+          <button class="f-btn" onclick="setExchFilter('AMEX')">📈 AMEX 美國證交所</button>
         </div>
       </div>
 
-      <!-- 產業板塊 -->
+      <!-- 產業板塊 (11 大板塊) -->
       <div class="filter-row">
         <span class="filter-title">產業板塊：</span>
         <div class="filter-btns" id="sector-filters">
@@ -166,7 +169,7 @@
           <tr>
             <th onclick="sortTable('ticker')">代碼</th>
             <th onclick="sortTable('exchange')">市場</th>
-            <th onclick="sortTable('name')">企業名稱 / 細分行業 (Industry Breakdown)</th>
+            <th onclick="sortTable('name')">企業名稱 / 細分特許權 (Industry Breakdown)</th>
             <th onclick="sortTable('price')">最新市價 ($)</th>
             <th onclick="sortTable('fair_val')">每股內在價值 ($)</th>
             <th onclick="sortTable('premium_pct')">市價 vs 溢價幅度</th>
@@ -335,31 +338,33 @@
   let currentSectorFilter = 'ALL';
   let sortField = 'premium_pct';
   let sortAsc = true;
-  let activeDetailTicker = 'PG';
+  let activeDetailTicker = 'AAPL';
 
   let currentPage = 1;
   const pageSize = 25;
   let filteredList = [];
 
-  // 自動載入全美股每日盤後 JSON 快照 (若無外鏈自動使用備援核心庫)
+  // 強制 Cache-Busting 載入全市場 JSON
   async function loadMarketData() {
     const statusEl = document.getElementById('data-status');
     statusEl.innerText = "正在連線讀取全市場資料庫...";
 
+    const bustToken = new Date().getTime();
     const urls = [
-      'full_market_dcf.json',
-      'https://raw.githubusercontent.com/ringoringo721/us-stock-dcf/main/full_market_dcf.json'
+      `full_market_dcf.json?_nocache=${bustToken}`,
+      `https://raw.githubusercontent.com/ringoringo721/us-stock-dcf/main/full_market_dcf.json?_nocache=${bustToken}`
     ];
 
     let loaded = false;
     for (let u of urls) {
       try {
-        const res = await fetch(u + '?t=' + new Date().getTime());
+        const res = await fetch(u, { cache: "no-store" });
         if (res.ok) {
           const data = await res.json();
-          if (data && Object.keys(data).length > 0) {
+          const stockCount = Object.keys(data).length;
+          if (data && stockCount > 0) {
             stockUniverse = data;
-            statusEl.innerHTML = `🟢 已成功載入全市場 ${Object.keys(stockUniverse).length} 檔最新美股數據 (含即時價格、細分產業與 DCF)`;
+            statusEl.innerHTML = `🟢 已成功載入全市場 ${stockCount} 檔最新美股數據 (每日盤後自動同步)`;
             renderScreenerTable();
             loaded = true;
             break;
@@ -369,7 +374,7 @@
     }
 
     if (!loaded) {
-      statusEl.innerHTML = `⚠ 正在等待雲端定時產生數據檔案...`;
+      statusEl.innerHTML = `⚠ 正在等待 GitHub Actions 雲端資料庫生成...`;
     }
   }
 
@@ -513,7 +518,7 @@
     const overCount = totalCount - underCount;
     const avgWacc = (allCalc.reduce((acc, cur) => acc + cur.WACC, 0) / (totalCount || 1)) * 100;
 
-    document.getElementById('stat-total').innerText = `${totalCount} 檔 (NYSE & NASDAQ)`;
+    document.getElementById('stat-total').innerText = `${totalCount} 檔 (NYSE, NASDAQ, AMEX)`;
     document.getElementById('stat-undervalued').innerText = `${underCount} 檔 (${totalCount > 0 ? ((underCount/totalCount)*100).toFixed(0) : 0}%)`;
     document.getElementById('stat-overvalued').innerText = `${overCount} 檔 (${totalCount > 0 ? ((overCount/totalCount)*100).toFixed(0) : 0}%)`;
     document.getElementById('stat-avg-wacc').innerText = `${avgWacc.toFixed(2)}%`;
@@ -534,9 +539,9 @@
         ? `<span class="badge badge-undervalued">低估 ${item.premiumPct.toFixed(1)}%</span>`
         : `<span class="badge badge-overvalued">高估 +${item.premiumPct.toFixed(1)}%</span>`;
 
-      const exchBadge = item.exchange === 'NYSE' 
-        ? `<span class="badge badge-exch-nyse">NYSE</span>` 
-        : `<span class="badge badge-exch-nasdaq">NASDAQ</span>`;
+      let exchBadge = `<span class="badge badge-exch-nyse">NYSE</span>`;
+      if (item.exchange === 'NASDAQ') exchBadge = `<span class="badge badge-exch-nasdaq">NASDAQ</span>`;
+      if (item.exchange === 'AMEX') exchBadge = `<span class="badge badge-exch-amex">AMEX</span>`;
 
       return `
         <tr>
@@ -576,7 +581,7 @@
     document.getElementById('det-name').innerText = s.name;
     const exchEl = document.getElementById('det-exchange');
     exchEl.innerText = s.exchange;
-    exchEl.className = s.exchange === 'NYSE' ? 'badge badge-exch-nyse' : 'badge badge-exch-nasdaq';
+    exchEl.className = s.exchange === 'NASDAQ' ? 'badge badge-exch-nasdaq' : (s.exchange === 'AMEX' ? 'badge badge-exch-amex' : 'badge badge-exch-nyse');
 
     document.getElementById('inp-price').value = s.price;
     document.getElementById('inp-shares').value = s.shares;
