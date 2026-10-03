@@ -1,0 +1,1 @@
+window.FULL_MARKET_DATA = {};
