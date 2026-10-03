@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>美股全市場 DCF 估值與 TTM 財務雷達 (NYSE, NASDAQ, AMEX)</title>
+  <title>美股全市場 DCF 估值與 TTM 財務雷達 (NYSE, NASDAQ, AMEX 全景版)</title>
   <style>
     :root {
       --bg: #0b1120;
@@ -156,7 +156,7 @@
       </div>
     </div>
 
-    <!-- 總表 (含 EV、WACC/g 與 13 項 TTM 指標) -->
+    <!-- 總表 -->
     <div class="table-container">
       <table id="screener-table">
         <thead>
@@ -538,7 +538,7 @@
       let va = a[sortField];
       let vb = b[sortField];
       if (typeof va === 'string') return sortAsc ? va.localeCompare(vb) : vb.localeCompare(va);
-      return sortAsc ? va - vb : vb - va;
+      return sortAsc ? (va || 0) - (vb || 0) : (vb || 0) - (va || 0);
     });
 
     filteredList = list;
@@ -589,20 +589,20 @@
             <div>${(item.WACC * 100).toFixed(2)}%</div>
             <div style="font-size: 11px; color: var(--text-muted);">g: ${item.g.toFixed(2)}%</div>
           </td>
-          <td style="font-weight: 600;">$${(item.EV || 0).toLocaleString(undefined, {maximumFractionDigits: 0})} M</td>
+          <td style="font-weight: 600;">$${(item.ev || item.EV || 0).toLocaleString(undefined, {maximumFractionDigits: 0})} M</td>
           <td>$${(item.mcap || 0).toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
-          <td>${item.pe_trailing || '--'}</td>
-          <td>${item.pe_forward || '--'}</td>
-          <td>${item.pb_trailing || '--'}</td>
-          <td>${item.pb_forward || '--'}</td>
-          <td>${item.div_yield ? item.div_yield.toFixed(2) + '%' : '0.00%'}</td>
-          <td>${item.ps_ratio || '--'}</td>
-          <td>${item.pcash_ratio || '--'}</td>
-          <td>${item.liab_to_assets ? item.liab_to_assets.toFixed(1) + '%' : '--'}</td>
-          <td>${item.current_ratio || '--'}</td>
+          <td>${item.pe_trailing !== null && item.pe_trailing !== undefined ? item.pe_trailing : '--'}</td>
+          <td>${item.pe_forward !== null && item.pe_forward !== undefined ? item.pe_forward : '--'}</td>
+          <td>${item.pb_trailing !== null && item.pb_trailing !== undefined ? item.pb_trailing : '--'}</td>
+          <td>${item.pb_forward !== null && item.pb_forward !== undefined ? item.pb_forward : '--'}</td>
+          <td>${item.div_yield !== null && item.div_yield !== undefined ? item.div_yield.toFixed(2) + '%' : '0.00%'}</td>
+          <td>${item.ps_ratio !== null && item.ps_ratio !== undefined ? item.ps_ratio : '--'}</td>
+          <td>${item.pcash_ratio !== null && item.pcash_ratio !== undefined ? item.pcash_ratio : '--'}</td>
+          <td>${item.liab_to_assets !== null && item.liab_to_assets !== undefined ? item.liab_to_assets.toFixed(1) + '%' : '--'}</td>
+          <td>${item.current_ratio !== null && item.current_ratio !== undefined ? item.current_ratio : '--'}</td>
           <td class="${(item.cash_minus_liab || 0) >= 0 ? 'text-green' : 'text-red'}">$${(item.cash_minus_liab || 0).toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
-          <td>${item.roe ? item.roe.toFixed(1) + '%' : '--'}</td>
-          <td>${item.roa ? item.roa.toFixed(1) + '%' : '--'}</td>
+          <td>${item.roe !== null && item.roe !== undefined ? item.roe.toFixed(1) + '%' : '--'}</td>
+          <td>${item.roa !== null && item.roa !== undefined ? item.roa.toFixed(1) + '%' : '--'}</td>
           <td style="text-align: center;">
             <button class="btn-nav" onclick="navigateToDetail('${item.ticker}')">深度模型 →</button>
           </td>
