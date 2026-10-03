@@ -4,8 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>美股全市場 DCF 估值與 TTM 財務雷達 (NYSE, NASDAQ, AMEX 全景版)</title>
-  <!-- 直接透過 script 載入數據變數，絕不卡死在 fetch 404 -->
-  <script src="market_data.js"></script>
   <style>
     :root {
       --bg: #0b1120;
@@ -94,7 +92,7 @@
       <h1>美股全市場 DCF 估值與 TTM 財務雷達 (NYSE, NASDAQ, AMEX 全景版)</h1>
       <span style="font-size: 13px; color: var(--text-muted);">收錄三大交易所 · 內建 EV、WACC/g、13 項 TTM 指標 · 支援原生瀏覽器返回導航</span>
     </div>
-    <div class="status-badge" id="data-status">正在載入全市場資料庫...</div>
+    <div class="status-badge" id="data-status">⚡ 正在連線全市場資料庫...</div>
   </header>
 
   <!-- 頁面 1：全市場雷達總表 -->
@@ -354,20 +352,24 @@
   let filteredList = [];
 
   function syncStateWithUrl() {
-    const hash = window.location.hash.replace('#', '');
-    const params = new URLSearchParams(hash);
-    const view = params.get('view') || 'screener';
-    const ticker = params.get('ticker');
+    try {
+      const hash = window.location.hash.replace('#', '');
+      const params = new URLSearchParams(hash);
+      const view = params.get('view') || 'screener';
+      const ticker = params.get('ticker');
 
-    if (view === 'detail' && ticker && stockUniverse[ticker]) {
-      activeDetailTicker = ticker;
-      renderDetailDom(ticker);
-      document.getElementById('screener-view').style.display = 'none';
-      document.getElementById('detail-view').style.display = 'block';
-    } else {
-      document.getElementById('screener-view').style.display = 'block';
-      document.getElementById('detail-view').style.display = 'none';
-      renderScreenerTable();
+      if (view === 'detail' && ticker && stockUniverse[ticker]) {
+        activeDetailTicker = ticker;
+        renderDetailDom(ticker);
+        document.getElementById('screener-view').style.display = 'none';
+        document.getElementById('detail-view').style.display = 'block';
+      } else {
+        document.getElementById('screener-view').style.display = 'block';
+        document.getElementById('detail-view').style.display = 'none';
+        renderScreenerTable();
+      }
+    } catch(e) {
+      console.error("狀態同步錯誤:", e);
     }
   }
 
@@ -389,43 +391,40 @@
     }
   }
 
-  // 雙重載入保證：優先採用 window.FULL_MARKET_DATA，其次 fetch
+  // 安全多通道非同步載入
   async function loadMarketData() {
     const statusEl = document.getElementById('data-status');
-    
-    // 方案 A：直接使用 market_data.js 宣告的全域變數
-    if (window.FULL_MARKET_DATA && Object.keys(window.FULL_MARKET_DATA).length > 0) {
-      stockUniverse = window.FULL_MARKET_DATA;
-      statusEl.innerHTML = `🟢 已成功載入全市場 ${Object.keys(stockUniverse).length} 檔最新美股數據 (NYSE, NASDAQ, AMEX)`;
-      syncStateWithUrl();
-      return;
-    }
-
-    // 方案 B：若 script 尚未載入完成，透過 fetch 連線
-    statusEl.innerText = "⚡ 正在連線全市場資料庫...";
     const bustToken = new Date().getTime();
+    
+    // 同時探測同網域與 GitHub 官方 Raw CDN
     const urls = [
       `full_market_dcf.json?t=${bustToken}`,
       `https://raw.githubusercontent.com/ringoringo721/us-stock-dcf/main/full_market_dcf.json?t=${bustToken}`
     ];
 
+    let success = false;
     for (let u of urls) {
       try {
         const res = await fetch(u, { cache: "no-store" });
         if (res.ok) {
           const data = await res.json();
           const count = Object.keys(data).length;
-          if (data && count > 0) {
+          if (count > 0) {
             stockUniverse = data;
-            statusEl.innerHTML = `🟢 已成功載入全市場 ${count} 檔最新美股真實數據 (NYSE, NASDAQ, AMEX)`;
+            statusEl.innerHTML = `🟢 已成功載入全市場 ${count} 檔最新美股數據 (NYSE, NASDAQ, AMEX)`;
+            success = true;
             syncStateWithUrl();
-            return;
+            break;
           }
         }
-      } catch (err) {}
+      } catch (err) {
+        console.warn("節點連線測試跳過:", u);
+      }
     }
 
-    statusEl.innerHTML = `⚠️ 正在等待 Actions 產生資料庫，請至 GitHub Actions 觸發運行...`;
+    if (!success) {
+      statusEl.innerHTML = `⚠️ 正在等待 Actions 初次生成檔案，請前往 GitHub Actions 觸發運行...`;
+    }
   }
 
   function computeDCF(s) {
