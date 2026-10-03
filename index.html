@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>美股全市場 6,000+ 檔 DCF 內在價值雷達</title>
+  <title>美股全市場 DCF 內在價值雷達 (NYSE, NASDAQ, AMEX)</title>
   <style>
     :root {
       --bg: #0b1120;
@@ -17,8 +17,6 @@
       --green-bg: rgba(74, 222, 128, 0.12);
       --red: #f87171;
       --red-bg: rgba(248, 113, 113, 0.12);
-      --nyse-blue: #3b82f6;
-      --nasdaq-purple: #a855f7;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
     body { background-color: var(--bg); color: var(--text); padding: 20px; line-height: 1.5; }
@@ -26,7 +24,7 @@
     
     header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid var(--card-border); padding-bottom: 16px; flex-wrap: wrap; gap: 14px; }
     h1 { font-size: 22px; font-weight: 700; color: #fff; }
-    .status-badge { font-size: 12px; background: rgba(56, 189, 248, 0.15); color: var(--accent); padding: 4px 10px; border-radius: 4px; border: 1px solid var(--accent); }
+    .status-badge { font-size: 12px; background: rgba(56, 189, 248, 0.15); color: var(--accent); padding: 6px 12px; border-radius: 4px; border: 1px solid var(--accent); font-weight: 600; }
 
     .top-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 20px; }
     .stat-box { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; padding: 14px 18px; }
@@ -36,7 +34,7 @@
     .filter-panel { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; padding: 14px 18px; margin-bottom: 20px; display: flex; flex-direction: column; gap: 10px; }
     .filter-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
     .filter-title { font-size: 12px; color: var(--text-muted); min-width: 80px; font-weight: 600; }
-    .f-btn { background: #0f172a; border: 1px solid var(--card-border); color: #cbd5e1; padding: 4px 12px; border-radius: 4px; font-size: 12px; cursor: pointer; font-weight: 600; }
+    .f-btn { background: #0f172a; border: 1px solid var(--card-border); color: #cbd5e1; padding: 5px 12px; border-radius: 4px; font-size: 12px; cursor: pointer; font-weight: 600; transition: 0.2s; }
     .f-btn.active { border-color: var(--accent); color: var(--accent); background: rgba(56, 189, 248, 0.12); }
     .search-input { background: #0f172a; border: 1px solid var(--card-border); color: #fff; padding: 6px 12px; border-radius: 6px; font-size: 13px; width: 320px; margin-left: auto; }
     .search-input:focus { border-color: var(--accent); outline: none; }
@@ -56,6 +54,7 @@
     .badge-overvalued { background: var(--red-bg); color: var(--red); border: 1px solid rgba(248, 113, 113, 0.3); }
     .badge-exch-nyse { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.4); font-size: 10px; }
     .badge-exch-nasdaq { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.4); font-size: 10px; }
+    .badge-exch-amex { background: rgba(234, 179, 8, 0.15); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.4); font-size: 10px; }
     .text-green { color: var(--green); font-weight: 600; }
     .text-red { color: var(--red); font-weight: 600; }
 
@@ -90,8 +89,8 @@
 <div class="container">
   <header>
     <div>
-      <h1>美股全市場 6,000+ 檔 DCF 內在價值雷達</h1>
-      <span style="font-size: 13px; color: var(--text-muted);">NYSE & NASDAQ 全量收盤資料庫 · 每日盤後自動快照 · 零 API 額度限制</span>
+      <h1>美股全市場 DCF 內在價值雷達 (NYSE / NASDAQ / AMEX)</h1>
+      <span style="font-size: 13px; color: var(--text-muted);">官方交易所全量收盤資料庫 · 每日盤後自動快照 · 零 API 額度限制</span>
     </div>
     <div class="status-badge" id="data-status">正在載入全市場資料庫...</div>
   </header>
@@ -126,15 +125,16 @@
           <button class="f-btn" onclick="setValFilter('UNDERVALUED')">🟢 具安全邊際 (低估)</button>
           <button class="f-btn" onclick="setValFilter('OVERVALUED')">🔴 溢價過高 (高估)</button>
         </div>
-        <input type="text" class="search-input" id="search-ticker" placeholder="搜尋 6,000+ 檔美股代號、名稱或市場..." oninput="onSearchChange()">
+        <input type="text" class="search-input" id="search-ticker" placeholder="搜尋代號 (如 AAPL)、公司名稱或交易所..." oninput="onSearchChange()">
       </div>
 
       <div class="filter-row">
         <span class="filter-title">交易所：</span>
         <div class="filter-btns" id="exch-filters">
           <button class="f-btn active" onclick="setExchFilter('ALL')">全部市場</button>
-          <button class="f-btn" onclick="setExchFilter('NYSE')">🏛️ NYSE 紐約證券交易所</button>
+          <button class="f-btn" onclick="setExchFilter('NYSE')">🏛️ NYSE 紐約證交所</button>
           <button class="f-btn" onclick="setExchFilter('NASDAQ')">💻 NASDAQ 那斯達克</button>
+          <button class="f-btn" onclick="setExchFilter('AMEX')">📈 AMEX 美國證交所</button>
         </div>
       </div>
     </div>
@@ -320,35 +320,54 @@
   const pageSize = 25;
   let filteredList = [];
 
-  // 自動載入全美股每日盤後 JSON 快照 (若無外鏈自動使用備援核心庫)
+  // 雙重自適應載入機制
   async function loadMarketData() {
     const statusEl = document.getElementById('data-status');
     statusEl.innerText = "正在連線讀取全市場資料庫...";
 
-    try {
-      // 讀取同一目錄或 GitHub 雲端上的 full_market_dcf.json
-      const res = await fetch('full_market_dcf.json');
-      if (res.ok) {
-        stockUniverse = await res.json();
-        statusEl.innerHTML = `🟢 已成功載入全市場 ${Object.keys(stockUniverse).length} 檔最新美股數據 (每日盤後自動同步)`;
-        renderScreenerTable();
-        return;
-      }
-    } catch(e) {}
+    const urls = [
+      'full_market_dcf.json',
+      'https://raw.githubusercontent.com/ringoringo721/us-stock-dcf/main/full_market_dcf.json'
+    ];
 
-    // 本機測試時的備援資料庫
-    stockUniverse = {
-      MCD: { name: "麥當勞 (McDonald's)", exchange: "NYSE", price: 233.0, shares: 708.0, debt: 37500.0, cash: 1500.0, fcf0: 7186.0, beta: 0.70, kd: 5.45, tax: 20.0, g1: 5.0, g2: 3.5, g: 2.25 },
-      KO: { name: "可口可樂 (Coca-Cola)", exchange: "NYSE", price: 85.65, shares: 4302.0, debt: 44500.0, cash: 12850.0, fcf0: 9500.0, beta: 0.55, kd: 4.00, tax: 20.0, g1: 5.0, g2: 3.5, g: 2.25 },
-      PG: { name: "寶僑 (Procter & Gamble)", exchange: "NYSE", price: 146.20, shares: 2360.0, debt: 35000.0, cash: 9500.0, fcf0: 15100.0, beta: 0.50, kd: 4.00, tax: 21.0, g1: 4.5, g2: 3.5, g: 2.25 },
-      AAPL: { name: "蘋果 (Apple)", exchange: "NASDAQ", price: 228.0, shares: 15200.0, debt: 104000.0, cash: 65000.0, fcf0: 108000.0, beta: 1.05, kd: 4.20, tax: 16.0, g1: 6.0, g2: 4.0, g: 2.25 },
-      MSFT: { name: "微軟 (Microsoft)", exchange: "NASDAQ", price: 440.0, shares: 7430.0, debt: 79000.0, cash: 75500.0, fcf0: 74000.0, beta: 1.10, kd: 3.80, tax: 18.0, g1: 10.0, g2: 5.0, g: 2.25 },
-      NVDA: { name: "輝達 (NVIDIA)", exchange: "NASDAQ", price: 125.0, shares: 24500.0, debt: 11000.0, cash: 31000.0, fcf0: 39000.0, beta: 1.65, kd: 4.50, tax: 15.0, g1: 15.0, g2: 6.0, g: 2.25 },
-      FICO: { name: "費埃哲 (Fair Isaac)", exchange: "NYSE", price: 600.0, shares: 21.6, debt: 5550.0, cash: 250.0, fcf0: 820.0, beta: 1.15, kd: 5.60, tax: 23.0, g1: 3.0, g2: 4.0, g: 2.25 },
-      UNH: { name: "聯合健康 (UnitedHealth)", exchange: "NYSE", price: 570.0, shares: 920.0, debt: 68000.0, cash: 32000.0, fcf0: 25000.0, beta: 0.60, kd: 4.40, tax: 21.0, g1: 7.0, g2: 4.5, g: 2.25 }
-    };
-    statusEl.innerHTML = `🟢 備援資料庫載入完成 (可搭配雲端 JSON 擴充至 6,000+ 檔)`;
-    renderScreenerTable();
+    let loaded = false;
+    for (let u of urls) {
+      try {
+        const res = await fetch(u + '?t=' + new Date().getTime());
+        if (res.ok) {
+          const data = await res.json();
+          if (data && Object.keys(data).length > 0) {
+            stockUniverse = data;
+            statusEl.innerHTML = `🟢 已成功載入全市場 ${Object.keys(stockUniverse).length} 檔最新美股數據 (每日盤後自動同步)`;
+            renderScreenerTable();
+            loaded = true;
+            break;
+          }
+        }
+      } catch (err) {}
+    }
+
+    // 若 GitHub Actions 的 JSON 尚未產生或快取未更新，立即自動載入核心龍頭池
+    if (!loaded) {
+      stockUniverse = {
+        MCD: { name: "McDonald's Corp", exchange: "NYSE", price: 298.5, shares: 718, debt: 37500, cash: 1500, fcf0: 7500, beta: 0.70, kd: 5.45, tax: 20.0, g1: 5.0, g2: 3.5, g: 2.25 },
+        KO: { name: "Coca-Cola Co", exchange: "NYSE", price: 68.2, shares: 4310, debt: 44500, cash: 12850, fcf0: 9800, beta: 0.55, kd: 4.00, tax: 20.0, g1: 5.0, g2: 3.5, g: 2.25 },
+        PG: { name: "Procter & Gamble", exchange: "NYSE", price: 172.5, shares: 2360, debt: 35000, cash: 9500, fcf0: 15600, beta: 0.50, kd: 4.00, tax: 21.0, g1: 4.5, g2: 3.5, g: 2.25 },
+        WMT: { name: "Walmart Inc", exchange: "NYSE", price: 80.5, shares: 8050, debt: 61000, cash: 9800, fcf0: 15100, beta: 0.50, kd: 4.10, tax: 23.0, g1: 4.5, g2: 3.0, g: 2.25 },
+        COST: { name: "Costco Wholesale", exchange: "NASDAQ", price: 910.0, shares: 443, debt: 7000, cash: 10500, fcf0: 7200, beta: 0.75, kd: 3.90, tax: 24.0, g1: 8.0, g2: 5.0, g: 2.25 },
+        AAPL: { name: "Apple Inc", exchange: "NASDAQ", price: 232.0, shares: 15200, debt: 104000, cash: 65000, fcf0: 108000, beta: 1.05, kd: 4.20, tax: 16.0, g1: 6.0, g2: 4.0, g: 2.25 },
+        MSFT: { name: "Microsoft Corp", exchange: "NASDAQ", price: 445.0, shares: 7430, debt: 79000, cash: 75500, fcf0: 74000, beta: 1.10, kd: 3.80, tax: 18.0, g1: 10.0, g2: 5.0, g: 2.25 },
+        NVDA: { name: "NVIDIA Corp", exchange: "NASDAQ", price: 138.0, shares: 24500, debt: 11000, cash: 31000, fcf0: 45000, beta: 1.65, kd: 4.50, tax: 15.0, g1: 15.0, g2: 6.0, g: 2.25 },
+        GOOGL: { name: "Alphabet Inc", exchange: "NASDAQ", price: 182.0, shares: 12350, debt: 29000, cash: 110000, fcf0: 71000, beta: 1.05, kd: 3.50, tax: 16.0, g1: 8.0, g2: 4.5, g: 2.25 },
+        AMZN: { name: "Amazon.com Inc", exchange: "NASDAQ", price: 190.0, shares: 10400, debt: 68000, cash: 86000, fcf0: 55000, beta: 1.15, kd: 4.20, tax: 17.0, g1: 11.0, g2: 5.5, g: 2.25 },
+        FICO: { name: "Fair Isaac Corp", exchange: "NYSE", price: 2100.0, shares: 24.5, debt: 5550, cash: 250, fcf0: 850, beta: 1.15, kd: 5.60, tax: 23.0, g1: 3.0, g2: 4.0, g: 2.25 },
+        UNH: { name: "UnitedHealth Group", exchange: "NYSE", price: 590.0, shares: 920, debt: 68000, cash: 32000, fcf0: 26000, beta: 0.60, kd: 4.40, tax: 21.0, g1: 7.0, g2: 4.5, g: 2.25 },
+        JNJ: { name: "Johnson & Johnson", exchange: "NYSE", price: 165.0, shares: 2400, debt: 34000, cash: 23000, fcf0: 18500, beta: 0.55, kd: 4.00, tax: 16.0, g1: 4.0, g2: 3.0, g: 2.25 },
+        XOM: { name: "Exxon Mobil Corp", exchange: "NYSE", price: 122.0, shares: 3950, debt: 41000, cash: 26000, fcf0: 37000, beta: 0.95, kd: 4.30, tax: 25.0, g1: 3.5, g2: 2.5, g: 2.25 }
+      };
+      statusEl.innerHTML = `🟢 備援底庫就緒 (共 ${Object.keys(stockUniverse).length} 檔，等待雲端資料更新)`;
+      renderScreenerTable();
+    }
   }
 
   function computeDCF(s) {
@@ -381,7 +400,8 @@
 
     const g = s.g / 100;
     const fcf11 = fcfList[9] * (1 + g);
-    const tv = (WACC > g) ? (fcf11 / (WACC - g)) : 0;
+    const safe_wacc = Math.max(WACC, g + 0.015);
+    const tv = fcf11 / (safe_wacc - g);
     const pvTV = tv * dfList[9];
     const EV = sumPV + pvTV;
     const EquityVal = EV - NetDebt;
@@ -479,7 +499,7 @@
     const overCount = totalCount - underCount;
     const avgWacc = (allCalc.reduce((acc, cur) => acc + cur.WACC, 0) / (totalCount || 1)) * 100;
 
-    document.getElementById('stat-total').innerText = `${totalCount} 檔 (NYSE & NASDAQ)`;
+    document.getElementById('stat-total').innerText = `${totalCount} 檔 (NYSE / NASDAQ / AMEX)`;
     document.getElementById('stat-undervalued').innerText = `${underCount} 檔 (${totalCount > 0 ? ((underCount/totalCount)*100).toFixed(0) : 0}%)`;
     document.getElementById('stat-overvalued').innerText = `${overCount} 檔 (${totalCount > 0 ? ((overCount/totalCount)*100).toFixed(0) : 0}%)`;
     document.getElementById('stat-avg-wacc').innerText = `${avgWacc.toFixed(2)}%`;
@@ -500,9 +520,9 @@
         ? `<span class="badge badge-undervalued">低估 ${item.premiumPct.toFixed(1)}%</span>`
         : `<span class="badge badge-overvalued">高估 +${item.premiumPct.toFixed(1)}%</span>`;
 
-      const exchBadge = item.exchange === 'NYSE' 
-        ? `<span class="badge badge-exch-nyse">NYSE</span>`
-        : `<span class="badge badge-exch-nasdaq">NASDAQ</span>`;
+      let exchBadge = `<span class="badge badge-exch-nyse">NYSE</span>`;
+      if (item.exchange === 'NASDAQ') exchBadge = `<span class="badge badge-exch-nasdaq">NASDAQ</span>`;
+      if (item.exchange === 'AMEX') exchBadge = `<span class="badge badge-exch-amex">AMEX</span>`;
 
       return `
         <tr>
@@ -539,7 +559,7 @@
     document.getElementById('det-name').innerText = s.name;
     const exchEl = document.getElementById('det-exchange');
     exchEl.innerText = s.exchange;
-    exchEl.className = s.exchange === 'NYSE' ? 'badge badge-exch-nyse' : 'badge badge-exch-nasdaq';
+    exchEl.className = s.exchange === 'NASDAQ' ? 'badge badge-exch-nasdaq' : (s.exchange === 'AMEX' ? 'badge badge-exch-amex' : 'badge badge-exch-nyse');
 
     document.getElementById('inp-price').value = s.price;
     document.getElementById('inp-shares').value = s.shares;
@@ -654,8 +674,9 @@
             recomputedSumPV += tempFCF / Math.pow(1 + w, t);
           }
           const fcf11 = tempFCF * (1 + gVal);
-          const tv = fcf11 / (w - gVal);
-          const pvTV = tv / Math.pow(1 + w, 10);
+          const safe_w = Math.max(w, gVal + 0.015);
+          const tv = fcf11 / (safe_w - gVal);
+          const pvTV = tv / Math.pow(1 + safe_w, 10);
           const eqVal = (recomputedSumPV + pvTV) - netDebt;
           cellVal = eqVal / shares;
         }
