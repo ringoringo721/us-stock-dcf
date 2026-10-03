@@ -1,13 +1,11 @@
 import requests
 import json
 import time
-import os
 
 RF = 0.0450        # 10年期美債無風險基準 (4.50%)
 ERP = 0.0475       # 股票風險溢價 (4.75%)
 DEFAULT_G = 0.0225 # 永續終值增長率 (2.25%)
 
-# 美股三大交易所全量官方代碼來源
 EXCHANGE_SOURCES = [
     ("NYSE", "https://raw.githubusercontent.com/rreichel3/US-Stock-Symbols/main/nyse/nyse_full_tickers.json"),
     ("NASDAQ", "https://raw.githubusercontent.com/rreichel3/US-Stock-Symbols/main/nasdaq/nasdaq_full_tickers.json"),
@@ -15,7 +13,7 @@ EXCHANGE_SOURCES = [
 ]
 
 def load_all_market_symbols():
-    print("📥 下載 NYSE、NASDAQ、AMEX 全市場名冊...")
+    print("📥 正在下載 NYSE、NASDAQ、AMEX 全市場名冊...")
     all_stocks = []
     for exch, url in EXCHANGE_SOURCES:
         try:
@@ -36,17 +34,11 @@ def load_all_market_symbols():
     return list(deduped.values())
 
 def fetch_live_quotes_batch(symbol_list):
-    """
-    透過 Yahoo 批量查詢端點，一次請求 50 檔股票，快速取得最新市場價格與 TTM 估值指標
-    """
     quotes_map = {}
-    batch_size = 50
+    batch_size = 60
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
     }
-
-    total_chunks = (len(symbol_list) + batch_size - 1) // batch_size
-    print(f"📊 開始平行拉取最新收盤報價 (共 {len(symbol_list)} 檔標的，分為 {total_chunks} 批)...")
 
     for i in range(0, len(symbol_list), batch_size):
         chunk = symbol_list[i:i + batch_size]
@@ -62,9 +54,9 @@ def fetch_live_quotes_batch(symbol_list):
                     quotes_map[sym] = q
         except Exception:
             pass
-        time.sleep(0.08) # 保持溫和請求速率
+        time.sleep(0.08)
 
-    print(f"✅ 成功獲取 {len(quotes_map)} 檔真實市場行情與 TTM 數據！")
+    print(f"✅ 成功獲取 {len(quotes_map)} 檔真實市場報價！")
     return quotes_map
 
 def classify_industry(name):
@@ -96,7 +88,6 @@ def compute_dcf_and_ratios(item, q):
     exchange = item["exchange"]
     sector, industry = classify_industry(name)
 
-    # 1. 真實最新收盤價與股本
     price = q.get("regularMarketPrice") or q.get("regularMarketPreviousClose") or 0.0
     if price <= 0.05:
         return None
@@ -108,22 +99,18 @@ def compute_dcf_and_ratios(item, q):
 
     mcap = round(price * shares, 1)
 
-    # 2. 獲利性指標
     eps_ttm = q.get("epsTrailingTwelveMonths")
     eps_fwd = q.get("epsForward")
     pe_trailing = round(q.get("trailingPE"), 2) if q.get("trailingPE") else (round(price / eps_ttm, 2) if (eps_ttm and eps_ttm > 0) else None)
     pe_forward = round(q.get("forwardPE"), 2) if q.get("forwardPE") else (round(price / eps_fwd, 2) if (eps_fwd and eps_fwd > 0) else None)
 
-    # 3. 帳面淨資產與 P/B
     bvps = q.get("bookValue")
     pb_trailing = round(q.get("priceToBook"), 2) if q.get("priceToBook") else (round(price / bvps, 2) if (bvps and bvps > 0) else None)
     pb_forward = round(pb_trailing * 0.94, 2) if pb_trailing else None
 
-    # 4. 股息率 (Dividend Yield)
     div_rate = q.get("trailingAnnualDividendRate") or 0.0
     div_yield = round(q.get("trailingAnnualDividendYield") * 100.0, 2) if q.get("trailingAnnualDividendYield") else (round((div_rate / price) * 100.0, 2) if (price > 0 and div_rate > 0) else 0.0)
 
-    # 5. 資產負債推算 (基於各標的真實市值與獲利能力)
     net_income = (eps_ttm * shares) if (eps_ttm and eps_ttm > 0) else (mcap * 0.05)
     total_equity = (bvps * shares) if (bvps and bvps > 0) else (mcap * 0.35)
     total_assets = max(total_equity * 1.6, mcap * 0.85)
@@ -143,7 +130,6 @@ def compute_dcf_and_ratios(item, q):
     roe = round((net_income / total_equity) * 100.0, 2) if total_equity > 0 else None
     roa = round((net_income / total_assets) * 100.0, 2) if total_assets > 0 else None
 
-    # 6. WACC 與 兩階段 DCF
     beta = q.get("beta") or 1.0
     if beta <= 0.1 or beta > 3.5: beta = 1.0
 
@@ -215,7 +201,6 @@ def main():
     market_list = load_all_market_symbols()
     quotes = fetch_live_quotes_batch(market_list)
 
-    print("🚀 正在執行各股獨立估值模型推導...")
     results = {}
     for item in market_list:
         sym = item["ticker"]
@@ -224,11 +209,16 @@ def main():
             if res:
                 results[sym] = res
 
-    print(f"💾 寫入 full_market_dcf.json (共收錄 {len(results)} 檔美股)...")
+    # 1. 輸出 JSON 檔案
     with open("full_market_dcf.json", "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, separators=(',', ':'))
 
-    print("🎉 全市場數據庫生成完成！")
+    # 2. 同時輸出 market_data.js（前端可直接同步載入，完全避免 fetch 失敗）
+    js_content = f"window.FULL_MARKET_DATA = {json.dumps(results, ensure_ascii=False, separators=(',', ':'))};"
+    with open("market_data.js", "w", encoding="utf-8") as f:
+        f.write(js_content)
+
+    print(f"🎉 成功完成！共輸出 {len(results)} 檔美股真實數據！")
 
 if __name__ == "__main__":
     main()
