@@ -1,265 +1,1290 @@
-import requests
-import json
-import time
-
-RF = 0.0450        # 10年期美債無風險利率基準 (4.50%)
-ERP = 0.0475       # 股票風險溢價 (4.75%)
-DEFAULT_G = 0.0225 # 永續終值增長率 (2.25%)
-
-# 經典產業 SIC 代碼對照字典 (自動將 SEC 官方代碼轉為中文板塊與特許行業)
-SIC_SECTORS = {
-    # 科技 / 晶片 / 通訊
-    "3571": ("資訊科技", "電子計算機與伺服器硬體"),
-    "3572": ("資訊科技", "電腦儲存設備與資料架構"),
-    "3674": ("資訊科技", "半導體元件與積體電路 (GPU/CPU)"),
-    "7370": ("資訊科技", "電腦軟體與雲端運算架構"),
-    "7371": ("資訊科技", "客製化電腦軟體設計與整合"),
-    "7372": ("資訊科技", "預封裝套裝軟體與 SaaS 服務"),
-    "7374": ("資訊科技", "資料處理、主機託管與 AI 算力基礎設施"),
-    "4813": ("通訊服務", "長途電話與寬頻電信傳輸網絡"),
-    "4899": ("通訊服務", "通訊服務與多媒體串流傳播"),
-    "7311": ("通訊服務", "數位精準廣告代理與演算法行銷"),
-    # 消費品 / 餐飲 / 零售
-    "2080": ("必需消費", "飲料製造與全球分銷"),
-    "2086": ("必需消費", "瓶裝與罐裝軟性碳酸飲料"),
-    "2111": ("必需消費", "菸草特許專賣與新型尼古丁製品"),
-    "2844": ("必需消費", "香水、化妝品與個人清潔護理快消品"),
-    "5411": ("必需消費", "超級市場量販店與全渠道食品零售"),
-    "5812": ("非必需消費", "品牌連鎖餐飲與特許經營商業地產"),
-    "3711": ("非必需消費", "乘用車整車製造與智慧電動汽車"),
-    "5311": ("非必需消費", "連鎖百貨商場與全渠道零售"),
-    "5961": ("非必需消費", "電子商務網購與直銷型零售物流"),
-    # 醫療保健
-    "2834": ("醫療保健", "專利處方製藥與創新化學藥研發"),
-    "2836": ("醫療保健", "生物製品與免疫抗腫瘤靶向藥物"),
-    "3841": ("醫療保健", "手術醫療儀器、植入物與監測耗材"),
-    "6324": ("醫療保健", "商業健康保險與醫療數據網絡"),
-    # 金融服務
-    "6021": ("金融科技", "全功能商業銀行與企業信貸承銷"),
-    "6199": ("金融科技", "多元化金融服務與數位清算網絡"),
-    "6211": ("金融科技", "證券經紀、投行諮詢與造市交易"),
-    "6331": ("金融科技", "財產與意外傷害保險浮存金運營"),
-    # 工業 / 航太 / 能源
-    "3721": ("工業製造", "民航客機與軍用飛行器機體製造"),
-    "3724": ("工業製造", "航空噴射發動機與飛機零件維修"),
-    "3531": ("工業製造", "建築施工機械與重型採礦推土裝備"),
-    "4011": ("工業製造", "一級幹線幹線貨運鐵路壟斷網絡"),
-    "1311": ("能源石油", "原油與天然氣勘探開發 (上游)"),
-    "2911": ("能源石油", "石油精煉化工與加油站終端零售"),
-    # 公用事業 / 房地產
-    "4911": ("公用事業", "基載核電、風光綠能與受規管電網"),
-    "4931": ("公用事業", "電力與天然氣綜合受規管公用事業"),
-    "6798": ("房地產 REITs", "不動產投資信託基金 (現代物流倉儲/電塔/商業租賃)")
+{
+  "PG": {
+    "name": "Procter & Gamble",
+    "exchange": "NYSE",
+    "sector": "必需消費",
+    "industry": "日化清潔與個人護理快消品",
+    "price": 172.5,
+    "shares": 2360.0,
+    "debt": 35000.0,
+    "cash": 9500.0,
+    "fcf0": 15600.0,
+    "beta": 0.5,
+    "kd": 4.0,
+    "tax": 21.0,
+    "g1": 4.5,
+    "g2": 3.5,
+    "g": 2.25,
+    "wacc": 6.58,
+    "ev": 426532.0,
+    "net_debt": 25500.0,
+    "fair_val": 169.93,
+    "premium_pct": 1.5,
+    "is_undervalued": false
+  },
+  "KO": {
+    "name": "Coca-Cola",
+    "exchange": "NYSE",
+    "sector": "必需消費",
+    "industry": "軟性飲料與濃縮液全球分銷",
+    "price": 85.65,
+    "shares": 4310.0,
+    "debt": 44500.0,
+    "cash": 12850.0,
+    "fcf0": 9800.0,
+    "beta": 0.55,
+    "kd": 4.0,
+    "tax": 20.0,
+    "g1": 5.0,
+    "g2": 3.5,
+    "g": 2.25,
+    "wacc": 6.69,
+    "ev": 266988.7,
+    "net_debt": 31650.0,
+    "fair_val": 54.6,
+    "premium_pct": 56.9,
+    "is_undervalued": false
+  },
+  "PEP": {
+    "name": "PepsiCo",
+    "exchange": "NASDAQ",
+    "sector": "必需消費",
+    "industry": "休閒零食 (樂事) 與碳酸飲料",
+    "price": 125.89,
+    "shares": 1370.0,
+    "debt": 44000.0,
+    "cash": 6500.0,
+    "fcf0": 8800.0,
+    "beta": 0.55,
+    "kd": 4.1,
+    "tax": 21.0,
+    "g1": 4.5,
+    "g2": 3.5,
+    "g": 2.25,
+    "wacc": 6.33,
+    "ev": 256011.2,
+    "net_debt": 37500.0,
+    "fair_val": 159.5,
+    "premium_pct": -21.1,
+    "is_undervalued": true
+  },
+  "WMT": {
+    "name": "Walmart",
+    "exchange": "NYSE",
+    "sector": "必需消費",
+    "industry": "實體全渠道量販連鎖超市",
+    "price": 104.26,
+    "shares": 8050.0,
+    "debt": 61000.0,
+    "cash": 9800.0,
+    "fcf0": 15100.0,
+    "beta": 0.5,
+    "kd": 4.1,
+    "tax": 23.0,
+    "g1": 4.5,
+    "g2": 3.0,
+    "g": 2.25,
+    "wacc": 6.62,
+    "ev": 401332.7,
+    "net_debt": 51200.0,
+    "fair_val": 43.49,
+    "premium_pct": 139.7,
+    "is_undervalued": false
+  },
+  "COST": {
+    "name": "Costco Wholesale",
+    "exchange": "NASDAQ",
+    "sector": "必需消費",
+    "industry": "高周轉付費會員制倉儲批發",
+    "price": 920.65,
+    "shares": 443.0,
+    "debt": 7000.0,
+    "cash": 10500.0,
+    "fcf0": 7200.0,
+    "beta": 0.75,
+    "kd": 3.9,
+    "tax": 24.0,
+    "g1": 8.0,
+    "g2": 5.0,
+    "g": 2.25,
+    "wacc": 7.98,
+    "ev": 181103.3,
+    "net_debt": -3500.0,
+    "fair_val": 416.71,
+    "premium_pct": 120.9,
+    "is_undervalued": false
+  },
+  "PM": {
+    "name": "Philip Morris",
+    "exchange": "NYSE",
+    "sector": "必需消費",
+    "industry": "菸草特許與無煙加熱菸 (IQOS)",
+    "price": 128.0,
+    "shares": 1550.0,
+    "debt": 47000.0,
+    "cash": 3200.0,
+    "fcf0": 10200.0,
+    "beta": 0.65,
+    "kd": 4.5,
+    "tax": 21.0,
+    "g1": 4.0,
+    "g2": 3.0,
+    "g": 2.25,
+    "wacc": 6.82,
+    "ev": 253829.9,
+    "net_debt": 43800.0,
+    "fair_val": 135.5,
+    "premium_pct": -5.5,
+    "is_undervalued": true
+  },
+  "CL": {
+    "name": "Colgate-Palmolive",
+    "exchange": "NYSE",
+    "sector": "必需消費",
+    "industry": "口腔護理與個人清潔用品",
+    "price": 101.0,
+    "shares": 820.0,
+    "debt": 8900.0,
+    "cash": 1100.0,
+    "fcf0": 3200.0,
+    "beta": 0.45,
+    "kd": 4.1,
+    "tax": 22.0,
+    "g1": 4.0,
+    "g2": 3.0,
+    "g": 2.25,
+    "wacc": 6.3,
+    "ev": 89822.8,
+    "net_debt": 7800.0,
+    "fair_val": 100.03,
+    "premium_pct": 1.0,
+    "is_undervalued": false
+  },
+  "MDLZ": {
+    "name": "Mondelez",
+    "exchange": "NASDAQ",
+    "sector": "必需消費",
+    "industry": "巧克力、餅乾與休閒零食",
+    "price": 72.0,
+    "shares": 1350.0,
+    "debt": 21000.0,
+    "cash": 1800.0,
+    "fcf0": 3700.0,
+    "beta": 0.6,
+    "kd": 4.2,
+    "tax": 21.0,
+    "g1": 4.5,
+    "g2": 3.5,
+    "g": 2.25,
+    "wacc": 6.63,
+    "ev": 99922.7,
+    "net_debt": 19200.0,
+    "fair_val": 59.79,
+    "premium_pct": 20.4,
+    "is_undervalued": false
+  },
+  "MCD": {
+    "name": "McDonald's",
+    "exchange": "NYSE",
+    "sector": "非必需消費",
+    "industry": "餐飲特許經營 / 商業地產收租",
+    "price": 298.5,
+    "shares": 718.0,
+    "debt": 37500.0,
+    "cash": 1500.0,
+    "fcf0": 7500.0,
+    "beta": 0.7,
+    "kd": 5.45,
+    "tax": 20.0,
+    "g1": 5.0,
+    "g2": 3.5,
+    "g": 2.25,
+    "wacc": 7.31,
+    "ev": 178853.1,
+    "net_debt": 36000.0,
+    "fair_val": 198.96,
+    "premium_pct": 50.0,
+    "is_undervalued": false
+  },
+  "AMZN": {
+    "name": "Amazon.com",
+    "exchange": "NASDAQ",
+    "sector": "非必需消費",
+    "industry": "電商零售、Prime 物流與 AWS 雲計算",
+    "price": 251.52,
+    "shares": 10400.0,
+    "debt": 68000.0,
+    "cash": 86000.0,
+    "fcf0": 55000.0,
+    "beta": 1.15,
+    "kd": 4.2,
+    "tax": 17.0,
+    "g1": 11.0,
+    "g2": 5.5,
+    "g": 2.25,
+    "wacc": 9.8,
+    "ev": 1186466.4,
+    "net_debt": -18000.0,
+    "fair_val": 115.81,
+    "premium_pct": 117.2,
+    "is_undervalued": false
+  },
+  "TSLA": {
+    "name": "Tesla",
+    "exchange": "NASDAQ",
+    "sector": "非必需消費",
+    "industry": "電動車製造、儲能系統與自動駕駛",
+    "price": 370.59,
+    "shares": 3180.0,
+    "debt": 5200.0,
+    "cash": 30000.0,
+    "fcf0": 4500.0,
+    "beta": 2.1,
+    "kd": 4.5,
+    "tax": 15.0,
+    "g1": 14.0,
+    "g2": 6.0,
+    "g": 2.25,
+    "wacc": 14.43,
+    "ev": 65198.7,
+    "net_debt": -24800.0,
+    "fair_val": 28.3,
+    "premium_pct": 1209.4,
+    "is_undervalued": false
+  },
+  "HD": {
+    "name": "Home Depot",
+    "exchange": "NYSE",
+    "sector": "非必需消費",
+    "industry": "家居裝修修繕連鎖量販",
+    "price": 395.0,
+    "shares": 990.0,
+    "debt": 53000.0,
+    "cash": 3800.0,
+    "fcf0": 16500.0,
+    "beta": 0.95,
+    "kd": 4.4,
+    "tax": 23.0,
+    "g1": 4.5,
+    "g2": 3.5,
+    "g": 2.25,
+    "wacc": 8.34,
+    "ev": 318293.3,
+    "net_debt": 49200.0,
+    "fair_val": 271.81,
+    "premium_pct": 45.3,
+    "is_undervalued": false
+  },
+  "NKE": {
+    "name": "Nike",
+    "exchange": "NYSE",
+    "sector": "非必需消費",
+    "industry": "運動鞋服與運動生活用品設計製造",
+    "price": 33.87,
+    "shares": 1510.0,
+    "debt": 12000.0,
+    "cash": 11000.0,
+    "fcf0": 5800.0,
+    "beta": 1.05,
+    "kd": 4.3,
+    "tax": 15.0,
+    "g1": 4.5,
+    "g2": 3.5,
+    "g": 2.25,
+    "wacc": 8.38,
+    "ev": 111175.6,
+    "net_debt": 1000.0,
+    "fair_val": 72.96,
+    "premium_pct": -53.6,
+    "is_undervalued": true
+  },
+  "SBUX": {
+    "name": "Starbucks",
+    "exchange": "NASDAQ",
+    "sector": "非必需消費",
+    "industry": "全球精品連鎖咖啡廳與包裝食品授權",
+    "price": 94.71,
+    "shares": 1130.0,
+    "debt": 25000.0,
+    "cash": 3400.0,
+    "fcf0": 3800.0,
+    "beta": 0.95,
+    "kd": 4.6,
+    "tax": 22.0,
+    "g1": 5.0,
+    "g2": 3.5,
+    "g": 2.25,
+    "wacc": 7.99,
+    "ev": 79679.8,
+    "net_debt": 21600.0,
+    "fair_val": 51.4,
+    "premium_pct": 84.3,
+    "is_undervalued": false
+  },
+  "AAPL": {
+    "name": "Apple",
+    "exchange": "NASDAQ",
+    "sector": "資訊科技",
+    "industry": "消費電子、智慧硬體與服務生態圈",
+    "price": 333.69,
+    "shares": 15200.0,
+    "debt": 104000.0,
+    "cash": 65000.0,
+    "fcf0": 108000.0,
+    "beta": 1.05,
+    "kd": 4.2,
+    "tax": 16.0,
+    "g1": 6.0,
+    "g2": 4.0,
+    "g": 2.25,
+    "wacc": 9.37,
+    "ev": 1921915.1,
+    "net_debt": 39000.0,
+    "fair_val": 123.88,
+    "premium_pct": 169.4,
+    "is_undervalued": false
+  },
+  "MSFT": {
+    "name": "Microsoft",
+    "exchange": "NASDAQ",
+    "sector": "資訊科技",
+    "industry": "Azure 企業雲計算、Windows、Office 與 AI",
+    "price": 517.53,
+    "shares": 7430.0,
+    "debt": 79000.0,
+    "cash": 75500.0,
+    "fcf0": 74000.0,
+    "beta": 1.1,
+    "kd": 3.8,
+    "tax": 18.0,
+    "g1": 10.0,
+    "g2": 5.0,
+    "g": 2.25,
+    "wacc": 9.59,
+    "ev": 1553907.4,
+    "net_debt": 3500.0,
+    "fair_val": 208.67,
+    "premium_pct": 148.0,
+    "is_undervalued": false
+  },
+  "NVDA": {
+    "name": "NVIDIA",
+    "exchange": "NASDAQ",
+    "sector": "資訊科技",
+    "industry": "生成式 AI 資料中心 GPU 與晶片算力生態",
+    "price": 233.95,
+    "shares": 24500.0,
+    "debt": 11000.0,
+    "cash": 31000.0,
+    "fcf0": 45000.0,
+    "beta": 1.65,
+    "kd": 4.5,
+    "tax": 15.0,
+    "g1": 15.0,
+    "g2": 6.0,
+    "g": 2.25,
+    "wacc": 12.32,
+    "ev": 839862.4,
+    "net_debt": -20000.0,
+    "fair_val": 35.1,
+    "premium_pct": 566.6,
+    "is_undervalued": false
+  },
+  "AVGO": {
+    "name": "Broadcom",
+    "exchange": "NASDAQ",
+    "sector": "資訊科技",
+    "industry": "雲端通訊客製化 ASIC 晶片與虛擬化軟體",
+    "price": 182.0,
+    "shares": 4680.0,
+    "debt": 74000.0,
+    "cash": 12000.0,
+    "fcf0": 21000.0,
+    "beta": 1.15,
+    "kd": 4.5,
+    "tax": 14.0,
+    "g1": 9.0,
+    "g2": 5.0,
+    "g": 2.25,
+    "wacc": 9.48,
+    "ev": 430451.6,
+    "net_debt": 62000.0,
+    "fair_val": 78.73,
+    "premium_pct": 131.2,
+    "is_undervalued": false
+  },
+  "TSM": {
+    "name": "TSMC ADR",
+    "exchange": "NYSE",
+    "sector": "資訊科技",
+    "industry": "純晶圓代工與先進製程 EUV 半導體製造",
+    "price": 472.78,
+    "shares": 5180.0,
+    "debt": 31000.0,
+    "cash": 54000.0,
+    "fcf0": 28000.0,
+    "beta": 1.2,
+    "kd": 3.6,
+    "tax": 15.0,
+    "g1": 12.0,
+    "g2": 5.5,
+    "g": 2.25,
+    "wacc": 10.11,
+    "ev": 601884.1,
+    "net_debt": -23000.0,
+    "fair_val": 120.63,
+    "premium_pct": 291.9,
+    "is_undervalued": false
+  },
+  "ORCL": {
+    "name": "Oracle",
+    "exchange": "NYSE",
+    "sector": "資訊科技",
+    "industry": "企業級資料庫軟體與 OCI 雲端算力基礎架構",
+    "price": 175.0,
+    "shares": 2780.0,
+    "debt": 87000.0,
+    "cash": 10500.0,
+    "fcf0": 12500.0,
+    "beta": 1.1,
+    "kd": 4.6,
+    "tax": 17.0,
+    "g1": 8.5,
+    "g2": 4.5,
+    "g": 2.25,
+    "wacc": 8.83,
+    "ev": 272738.2,
+    "net_debt": 76500.0,
+    "fair_val": 70.59,
+    "premium_pct": 147.9,
+    "is_undervalued": false
+  },
+  "ADBE": {
+    "name": "Adobe",
+    "exchange": "NASDAQ",
+    "sector": "資訊科技",
+    "industry": "創意內容生成軟體 (Creative Cloud)",
+    "price": 237.69,
+    "shares": 445.0,
+    "debt": 6200.0,
+    "cash": 7800.0,
+    "fcf0": 7500.0,
+    "beta": 1.25,
+    "kd": 4.0,
+    "tax": 18.0,
+    "g1": 8.0,
+    "g2": 4.5,
+    "g": 2.25,
+    "wacc": 10.04,
+    "ev": 134013.6,
+    "net_debt": -1600.0,
+    "fair_val": 304.75,
+    "premium_pct": -22.0,
+    "is_undervalued": true
+  },
+  "CSCO": {
+    "name": "Cisco Systems",
+    "exchange": "NASDAQ",
+    "sector": "資訊科技",
+    "industry": "企業網路路由器、交換機與網路安全架構",
+    "price": 112.2,
+    "shares": 4010.0,
+    "debt": 32000.0,
+    "cash": 18000.0,
+    "fcf0": 12800.0,
+    "beta": 0.85,
+    "kd": 4.2,
+    "tax": 18.0,
+    "g1": 4.0,
+    "g2": 3.0,
+    "g": 2.25,
+    "wacc": 8.2,
+    "ev": 243426.0,
+    "net_debt": 14000.0,
+    "fair_val": 57.21,
+    "premium_pct": 96.1,
+    "is_undervalued": false
+  },
+  "QCOM": {
+    "name": "Qualcomm",
+    "exchange": "NASDAQ",
+    "sector": "資訊科技",
+    "industry": "智慧手機 SoC 晶片與 5G 通訊專利授權",
+    "price": 172.0,
+    "shares": 1110.0,
+    "debt": 15000.0,
+    "cash": 13000.0,
+    "fcf0": 11000.0,
+    "beta": 1.25,
+    "kd": 4.2,
+    "tax": 14.0,
+    "g1": 6.5,
+    "g2": 4.0,
+    "g": 2.25,
+    "wacc": 9.94,
+    "ev": 184390.6,
+    "net_debt": 2000.0,
+    "fair_val": 164.32,
+    "premium_pct": 4.7,
+    "is_undervalued": false
+  },
+  "TXN": {
+    "name": "Texas Instruments",
+    "exchange": "NASDAQ",
+    "sector": "資訊科技",
+    "industry": "車載與工業模擬半導體與嵌入式處理器",
+    "price": 208.0,
+    "shares": 910.0,
+    "debt": 14000.0,
+    "cash": 8500.0,
+    "fcf0": 4500.0,
+    "beta": 1.0,
+    "kd": 4.2,
+    "tax": 14.0,
+    "g1": 5.0,
+    "g2": 3.5,
+    "g": 2.25,
+    "wacc": 8.86,
+    "ev": 81528.1,
+    "net_debt": 5500.0,
+    "fair_val": 83.55,
+    "premium_pct": 149.0,
+    "is_undervalued": false
+  },
+  "IBM": {
+    "name": "IBM",
+    "exchange": "NYSE",
+    "sector": "資訊科技",
+    "industry": "混合雲架構 (Red Hat) 與大型商業諮詢服務",
+    "price": 225.0,
+    "shares": 920.0,
+    "debt": 59000.0,
+    "cash": 13500.0,
+    "fcf0": 12200.0,
+    "beta": 0.7,
+    "kd": 4.5,
+    "tax": 16.0,
+    "g1": 4.5,
+    "g2": 3.5,
+    "g": 2.25,
+    "wacc": 6.93,
+    "ev": 308342.4,
+    "net_debt": 45500.0,
+    "fair_val": 285.7,
+    "premium_pct": -21.2,
+    "is_undervalued": true
+  },
+  "GOOGL": {
+    "name": "Alphabet (Google)",
+    "exchange": "NASDAQ",
+    "sector": "通訊服務",
+    "industry": "全球搜尋引擎、YouTube 串流影音與雲平台",
+    "price": 343.5,
+    "shares": 12350.0,
+    "debt": 29000.0,
+    "cash": 110000.0,
+    "fcf0": 71000.0,
+    "beta": 1.05,
+    "kd": 3.5,
+    "tax": 16.0,
+    "g1": 8.0,
+    "g2": 4.5,
+    "g": 2.25,
+    "wacc": 9.44,
+    "ev": 1380611.4,
+    "net_debt": -81000.0,
+    "fair_val": 118.35,
+    "premium_pct": 190.2,
+    "is_undervalued": false
+  },
+  "META": {
+    "name": "Meta Platforms",
+    "exchange": "NASDAQ",
+    "sector": "通訊服務",
+    "industry": "社交平台 (Instagram/FB) 數位精準廣告",
+    "price": 728.08,
+    "shares": 2540.0,
+    "debt": 37000.0,
+    "cash": 58000.0,
+    "fcf0": 48000.0,
+    "beta": 1.2,
+    "kd": 4.3,
+    "tax": 16.0,
+    "g1": 9.0,
+    "g2": 5.0,
+    "g": 2.25,
+    "wacc": 10.07,
+    "ev": 904002.2,
+    "net_debt": -21000.0,
+    "fair_val": 364.17,
+    "premium_pct": 99.9,
+    "is_undervalued": false
+  },
+  "NFLX": {
+    "name": "Netflix",
+    "exchange": "NASDAQ",
+    "sector": "通訊服務",
+    "industry": "全球訂閱制原創影視串流娛樂平台",
+    "price": 67.06,
+    "shares": 430.0,
+    "debt": 14000.0,
+    "cash": 7000.0,
+    "fcf0": 7200.0,
+    "beta": 1.25,
+    "kd": 4.5,
+    "tax": 16.0,
+    "g1": 9.0,
+    "g2": 5.0,
+    "g": 2.25,
+    "wacc": 8.26,
+    "ev": 179480.6,
+    "net_debt": 7000.0,
+    "fair_val": 401.12,
+    "premium_pct": -83.3,
+    "is_undervalued": true
+  },
+  "DIS": {
+    "name": "Walt Disney",
+    "exchange": "NYSE",
+    "sector": "通訊服務",
+    "industry": "主題樂園度假區、IP 影視內容與串流 Disney+",
+    "price": 102.19,
+    "shares": 1820.0,
+    "debt": 47000.0,
+    "cash": 6000.0,
+    "fcf0": 8200.0,
+    "beta": 1.3,
+    "kd": 4.6,
+    "tax": 22.0,
+    "g1": 5.0,
+    "g2": 3.5,
+    "g": 2.25,
+    "wacc": 9.25,
+    "ev": 140180.7,
+    "net_debt": 41000.0,
+    "fair_val": 54.49,
+    "premium_pct": 87.5,
+    "is_undervalued": false
+  },
+  "FICO": {
+    "name": "Fair Isaac",
+    "exchange": "NYSE",
+    "sector": "金融科技",
+    "industry": "B2B 個人信貸評分標準與決策風控演算法",
+    "price": 2100.0,
+    "shares": 24.5,
+    "debt": 5550.0,
+    "cash": 250.0,
+    "fcf0": 850.0,
+    "beta": 1.15,
+    "kd": 5.6,
+    "tax": 23.0,
+    "g1": 3.0,
+    "g2": 4.0,
+    "g": 2.25,
+    "wacc": 9.41,
+    "ev": 13226.0,
+    "net_debt": 5300.0,
+    "fair_val": 323.51,
+    "premium_pct": 549.1,
+    "is_undervalued": false
+  },
+  "BRK.B": {
+    "name": "Berkshire Hathaway",
+    "exchange": "NYSE",
+    "sector": "金融科技",
+    "industry": "產險浮存金商業模式與多元實業控股",
+    "price": 460.0,
+    "shares": 2160.0,
+    "debt": 120000.0,
+    "cash": 189000.0,
+    "fcf0": 36000.0,
+    "beta": 0.85,
+    "kd": 4.2,
+    "tax": 21.0,
+    "g1": 5.0,
+    "g2": 3.5,
+    "g": 2.25,
+    "wacc": 7.98,
+    "ev": 756249.3,
+    "net_debt": -69000.0,
+    "fair_val": 382.06,
+    "premium_pct": 20.4,
+    "is_undervalued": false
+  },
+  "V": {
+    "name": "Visa",
+    "exchange": "NYSE",
+    "sector": "金融科技",
+    "industry": "全球數位非現金支付清算網路過路費",
+    "price": 360.66,
+    "shares": 2040.0,
+    "debt": 22000.0,
+    "cash": 16000.0,
+    "fcf0": 21500.0,
+    "beta": 0.95,
+    "kd": 3.9,
+    "tax": 19.0,
+    "g1": 8.0,
+    "g2": 5.0,
+    "g": 2.25,
+    "wacc": 8.84,
+    "ev": 465977.5,
+    "net_debt": 6000.0,
+    "fair_val": 225.48,
+    "premium_pct": 60.0,
+    "is_undervalued": false
+  },
+  "MA": {
+    "name": "Mastercard",
+    "exchange": "NYSE",
+    "sector": "金融科技",
+    "industry": "跨國信用卡與金融卡交易交換清算處理",
+    "price": 505.0,
+    "shares": 930.0,
+    "debt": 17000.0,
+    "cash": 9000.0,
+    "fcf0": 13800.0,
+    "beta": 1.0,
+    "kd": 4.0,
+    "tax": 18.0,
+    "g1": 9.0,
+    "g2": 5.5,
+    "g": 2.25,
+    "wacc": 9.04,
+    "ev": 307179.7,
+    "net_debt": 8000.0,
+    "fair_val": 321.7,
+    "premium_pct": 57.0,
+    "is_undervalued": false
+  },
+  "JNJ": {
+    "name": "Johnson & Johnson",
+    "exchange": "NYSE",
+    "sector": "醫療保健",
+    "industry": "手術微創醫療器械與創新生物專利藥",
+    "price": 256.03,
+    "shares": 2400.0,
+    "debt": 34000.0,
+    "cash": 23000.0,
+    "fcf0": 18500.0,
+    "beta": 0.55,
+    "kd": 4.0,
+    "tax": 16.0,
+    "g1": 4.0,
+    "g2": 3.0,
+    "g": 2.25,
+    "wacc": 6.92,
+    "ev": 450315.2,
+    "net_debt": 11000.0,
+    "fair_val": 183.05,
+    "premium_pct": 39.9,
+    "is_undervalued": false
+  },
+  "UNH": {
+    "name": "UnitedHealth Group",
+    "exchange": "NYSE",
+    "sector": "醫療保健",
+    "industry": "商業健康保險與 Optum 醫療數據管理科技",
+    "price": 371.9,
+    "shares": 920.0,
+    "debt": 68000.0,
+    "cash": 32000.0,
+    "fcf0": 26000.0,
+    "beta": 0.6,
+    "kd": 4.4,
+    "tax": 21.0,
+    "g1": 7.0,
+    "g2": 4.5,
+    "g": 2.25,
+    "wacc": 6.71,
+    "ev": 799490.7,
+    "net_debt": 36000.0,
+    "fair_val": 829.88,
+    "premium_pct": -55.2,
+    "is_undervalued": true
+  },
+  "ABBV": {
+    "name": "AbbVie",
+    "exchange": "NYSE",
+    "sector": "醫療保健",
+    "industry": "免疫疾病、抗腫瘤處方藥與醫療美容 (Botox)",
+    "price": 262.82,
+    "shares": 1760.0,
+    "debt": 65000.0,
+    "cash": 14000.0,
+    "fcf0": 22500.0,
+    "beta": 0.65,
+    "kd": 4.8,
+    "tax": 15.0,
+    "g1": 4.5,
+    "g2": 3.5,
+    "g": 2.25,
+    "wacc": 7.16,
+    "ev": 541730.5,
+    "net_debt": 51000.0,
+    "fair_val": 278.82,
+    "premium_pct": -5.7,
+    "is_undervalued": true
+  },
+  "LLY": {
+    "name": "Eli Lilly",
+    "exchange": "NYSE",
+    "sector": "醫療保健",
+    "industry": "GLP-1 減重瘦身藥 (Mounjaro) 與糖尿病專利療法",
+    "price": 920.0,
+    "shares": 950.0,
+    "debt": 25000.0,
+    "cash": 4000.0,
+    "fcf0": 8500.0,
+    "beta": 0.65,
+    "kd": 4.2,
+    "tax": 16.0,
+    "g1": 15.0,
+    "g2": 6.0,
+    "g": 2.25,
+    "wacc": 7.47,
+    "ev": 327275.7,
+    "net_debt": 21000.0,
+    "fair_val": 322.4,
+    "premium_pct": 185.4,
+    "is_undervalued": false
+  },
+  "PFE": {
+    "name": "Pfizer",
+    "exchange": "NYSE",
+    "sector": "醫療保健",
+    "industry": "疫苗研發、抗腫瘤免疫與心血管處方藥物",
+    "price": 27.8,
+    "shares": 5650.0,
+    "debt": 64000.0,
+    "cash": 7000.0,
+    "fcf0": 9800.0,
+    "beta": 0.6,
+    "kd": 4.6,
+    "tax": 15.0,
+    "g1": 3.0,
+    "g2": 2.5,
+    "g": 2.25,
+    "wacc": 6.35,
+    "ev": 254929.6,
+    "net_debt": 57000.0,
+    "fair_val": 35.03,
+    "premium_pct": -20.6,
+    "is_undervalued": true
+  },
+  "MRK": {
+    "name": "Merck",
+    "exchange": "NYSE",
+    "sector": "醫療保健",
+    "industry": "腫瘤免疫療法 (Keytruda) 與成人及兒童疫苗",
+    "price": 115.0,
+    "shares": 2530.0,
+    "debt": 34000.0,
+    "cash": 8500.0,
+    "fcf0": 13800.0,
+    "beta": 0.4,
+    "kd": 4.3,
+    "tax": 15.0,
+    "g1": 4.5,
+    "g2": 3.0,
+    "g": 2.25,
+    "wacc": 6.11,
+    "ev": 415983.6,
+    "net_debt": 25500.0,
+    "fair_val": 154.34,
+    "premium_pct": -25.5,
+    "is_undervalued": true
+  },
+  "TMO": {
+    "name": "Thermo Fisher",
+    "exchange": "NYSE",
+    "sector": "醫療保健",
+    "industry": "生命科學分析儀器、實驗室耗材與 CDMO 代工",
+    "price": 595.0,
+    "shares": 382.0,
+    "debt": 35000.0,
+    "cash": 8200.0,
+    "fcf0": 7300.0,
+    "beta": 0.85,
+    "kd": 4.2,
+    "tax": 14.0,
+    "g1": 6.5,
+    "g2": 4.0,
+    "g": 2.25,
+    "wacc": 7.88,
+    "ev": 169329.7,
+    "net_debt": 26800.0,
+    "fair_val": 373.11,
+    "premium_pct": 59.5,
+    "is_undervalued": false
+  },
+  "ABT": {
+    "name": "Abbott Laboratories",
+    "exchange": "NYSE",
+    "sector": "醫療保健",
+    "industry": "心血管支架、體外連續血糖監測與醫藥營養品",
+    "price": 118.0,
+    "shares": 1740.0,
+    "debt": 15000.0,
+    "cash": 7500.0,
+    "fcf0": 6400.0,
+    "beta": 0.7,
+    "kd": 4.1,
+    "tax": 15.0,
+    "g1": 5.5,
+    "g2": 3.5,
+    "g": 2.25,
+    "wacc": 7.53,
+    "ev": 149310.4,
+    "net_debt": 7500.0,
+    "fair_val": 81.5,
+    "premium_pct": 44.8,
+    "is_undervalued": false
+  },
+  "CAT": {
+    "name": "Caterpillar",
+    "exchange": "NYSE",
+    "sector": "工業製造",
+    "industry": "大型工程推土機、重型採礦設備與柴油發電機",
+    "price": 395.0,
+    "shares": 490.0,
+    "debt": 38000.0,
+    "cash": 6000.0,
+    "fcf0": 11000.0,
+    "beta": 1.1,
+    "kd": 4.5,
+    "tax": 22.0,
+    "g1": 4.5,
+    "g2": 3.0,
+    "g": 2.25,
+    "wacc": 8.71,
+    "ev": 196711.4,
+    "net_debt": 32000.0,
+    "fair_val": 336.15,
+    "premium_pct": 17.5,
+    "is_undervalued": false
+  },
+  "UNP": {
+    "name": "Union Pacific",
+    "exchange": "NYSE",
+    "sector": "工業製造",
+    "industry": "橫跨美西一級幹線貨運鐵路路網壟斷經營",
+    "price": 245.0,
+    "shares": 605.0,
+    "debt": 33000.0,
+    "cash": 1200.0,
+    "fcf0": 6000.0,
+    "beta": 0.85,
+    "kd": 4.6,
+    "tax": 23.0,
+    "g1": 4.0,
+    "g2": 3.0,
+    "g": 2.25,
+    "wacc": 7.63,
+    "ev": 126439.3,
+    "net_debt": 31800.0,
+    "fair_val": 156.43,
+    "premium_pct": 56.6,
+    "is_undervalued": false
+  },
+  "HON": {
+    "name": "Honeywell",
+    "exchange": "NASDAQ",
+    "sector": "工業製造",
+    "industry": "商用航空電子、建築自動化控制與特種化學品",
+    "price": 210.0,
+    "shares": 650.0,
+    "debt": 22000.0,
+    "cash": 8000.0,
+    "fcf0": 5500.0,
+    "beta": 0.9,
+    "kd": 4.2,
+    "tax": 21.0,
+    "g1": 4.5,
+    "g2": 3.5,
+    "g": 2.25,
+    "wacc": 8.02,
+    "ev": 112203.9,
+    "net_debt": 14000.0,
+    "fair_val": 151.08,
+    "premium_pct": 39.0,
+    "is_undervalued": false
+  },
+  "GE": {
+    "name": "GE Aerospace",
+    "exchange": "NYSE",
+    "sector": "工業製造",
+    "industry": "商用民航飛機噴射引擎研發製造與售後維修",
+    "price": 309.56,
+    "shares": 1090.0,
+    "debt": 21000.0,
+    "cash": 13000.0,
+    "fcf0": 5800.0,
+    "beta": 1.2,
+    "kd": 4.5,
+    "tax": 20.0,
+    "g1": 7.0,
+    "g2": 4.5,
+    "g": 2.25,
+    "wacc": 9.81,
+    "ev": 102593.5,
+    "net_debt": 8000.0,
+    "fair_val": 86.78,
+    "premium_pct": 256.7,
+    "is_undervalued": false
+  },
+  "DE": {
+    "name": "Deere & Company",
+    "exchange": "NYSE",
+    "sector": "工業製造",
+    "industry": "精準農業耕作機械、收割機與林業施工裝備",
+    "price": 415.0,
+    "shares": 275.0,
+    "debt": 58000.0,
+    "cash": 5200.0,
+    "fcf0": 7000.0,
+    "beta": 1.05,
+    "kd": 4.6,
+    "tax": 22.0,
+    "g1": 4.0,
+    "g2": 3.0,
+    "g": 2.25,
+    "wacc": 7.5,
+    "ev": 151174.1,
+    "net_debt": 52800.0,
+    "fair_val": 357.72,
+    "premium_pct": 16.0,
+    "is_undervalued": false
+  },
+  "RTX": {
+    "name": "RTX Corp",
+    "exchange": "NYSE",
+    "sector": "工業製造",
+    "industry": "普惠航空引擎 (P&W) 與防務飛彈防禦系統",
+    "price": 125.0,
+    "shares": 1330.0,
+    "debt": 43000.0,
+    "cash": 5500.0,
+    "fcf0": 5500.0,
+    "beta": 0.8,
+    "kd": 4.4,
+    "tax": 19.0,
+    "g1": 5.5,
+    "g2": 3.5,
+    "g": 2.25,
+    "wacc": 7.33,
+    "ev": 133576.1,
+    "net_debt": 37500.0,
+    "fair_val": 72.24,
+    "premium_pct": 73.0,
+    "is_undervalued": false
+  },
+  "XOM": {
+    "name": "Exxon Mobil",
+    "exchange": "NYSE",
+    "sector": "能源石油",
+    "industry": "深海頁岩油氣勘探開發與石化煉油一體化運營",
+    "price": 164.01,
+    "shares": 3950.0,
+    "debt": 41000.0,
+    "cash": 26000.0,
+    "fcf0": 37000.0,
+    "beta": 0.95,
+    "kd": 4.3,
+    "tax": 25.0,
+    "g1": 3.5,
+    "g2": 2.5,
+    "g": 2.25,
+    "wacc": 8.67,
+    "ev": 627278.2,
+    "net_debt": 15000.0,
+    "fair_val": 155.01,
+    "premium_pct": 5.8,
+    "is_undervalued": false
+  },
+  "CVX": {
+    "name": "Chevron",
+    "exchange": "NYSE",
+    "sector": "能源石油",
+    "industry": "全球跨國油氣特許權與液化天然氣 (LNG) 貿易",
+    "price": 206.77,
+    "shares": 1840.0,
+    "debt": 23000.0,
+    "cash": 9000.0,
+    "fcf0": 20500.0,
+    "beta": 0.9,
+    "kd": 4.2,
+    "tax": 24.0,
+    "g1": 3.5,
+    "g2": 2.5,
+    "g": 2.25,
+    "wacc": 8.46,
+    "ev": 359486.3,
+    "net_debt": 14000.0,
+    "fair_val": 187.76,
+    "premium_pct": 10.1,
+    "is_undervalued": false
+  },
+  "COP": {
+    "name": "ConocoPhillips",
+    "exchange": "NYSE",
+    "sector": "能源石油",
+    "industry": "獨立低成本非常規頁岩油氣勘探開發",
+    "price": 110.0,
+    "shares": 1160.0,
+    "debt": 19000.0,
+    "cash": 6200.0,
+    "fcf0": 11000.0,
+    "beta": 1.15,
+    "kd": 4.5,
+    "tax": 23.0,
+    "g1": 4.0,
+    "g2": 2.5,
+    "g": 2.25,
+    "wacc": 9.12,
+    "ev": 177858.6,
+    "net_debt": 12800.0,
+    "fair_val": 142.29,
+    "premium_pct": -22.7,
+    "is_undervalued": true
+  },
+  "NEE": {
+    "name": "NextEra Energy",
+    "exchange": "NYSE",
+    "sector": "公用事業",
+    "industry": "佛州法規保障電網與風力太陽能綠色發電龍頭",
+    "price": 85.0,
+    "shares": 2050.0,
+    "debt": 76000.0,
+    "cash": 3000.0,
+    "fcf0": 8800.0,
+    "beta": 0.55,
+    "kd": 4.6,
+    "tax": 18.0,
+    "g1": 6.5,
+    "g2": 4.0,
+    "g": 2.25,
+    "wacc": 6.1,
+    "ev": 302403.6,
+    "net_debt": 73000.0,
+    "fair_val": 111.9,
+    "premium_pct": -24.0,
+    "is_undervalued": true
+  },
+  "SO": {
+    "name": "Southern Company",
+    "exchange": "NYSE",
+    "sector": "公用事業",
+    "industry": "美東南基載核電與天然氣電力管網公用事業",
+    "price": 92.0,
+    "shares": 1090.0,
+    "debt": 61000.0,
+    "cash": 2000.0,
+    "fcf0": 4300.0,
+    "beta": 0.45,
+    "kd": 4.5,
+    "tax": 20.0,
+    "g1": 4.0,
+    "g2": 3.0,
+    "g": 2.25,
+    "wacc": 5.49,
+    "ev": 151476.9,
+    "net_debt": 59000.0,
+    "fair_val": 84.84,
+    "premium_pct": 8.4,
+    "is_undervalued": false
+  },
+  "DUK": {
+    "name": "Duke Energy",
+    "exchange": "NYSE",
+    "sector": "公用事業",
+    "industry": "受規管電力公用事業網絡與天然氣基礎設施",
+    "price": 116.0,
+    "shares": 770.0,
+    "debt": 79000.0,
+    "cash": 1500.0,
+    "fcf0": 3900.0,
+    "beta": 0.45,
+    "kd": 4.6,
+    "tax": 18.0,
+    "g1": 4.0,
+    "g2": 3.0,
+    "g": 2.25,
+    "wacc": 5.29,
+    "ev": 146334.2,
+    "net_debt": 77500.0,
+    "fair_val": 89.4,
+    "premium_pct": 29.8,
+    "is_undervalued": false
+  },
+  "PLD": {
+    "name": "Prologis REIT",
+    "exchange": "NYSE",
+    "sector": "房地產 REITs",
+    "industry": "全球海空港核心樞紐現代化供應鏈物流倉儲",
+    "price": 126.0,
+    "shares": 925.0,
+    "debt": 31000.0,
+    "cash": 1500.0,
+    "fcf0": 4200.0,
+    "beta": 0.9,
+    "kd": 4.4,
+    "tax": 5.0,
+    "g1": 6.0,
+    "g2": 4.0,
+    "g": 2.25,
+    "wacc": 7.81,
+    "ev": 96601.3,
+    "net_debt": 29500.0,
+    "fair_val": 72.54,
+    "premium_pct": 73.7,
+    "is_undervalued": false
+  },
+  "O": {
+    "name": "Realty Income",
+    "exchange": "NYSE",
+    "sector": "房地產 REITs",
+    "industry": "月月配息防禦性商業地產單一租戶淨租賃 (Net Lease)",
+    "price": 63.5,
+    "shares": 870.0,
+    "debt": 25000.0,
+    "cash": 800.0,
+    "fcf0": 3500.0,
+    "beta": 0.7,
+    "kd": 4.5,
+    "tax": 5.0,
+    "g1": 4.5,
+    "g2": 3.5,
+    "g": 2.25,
+    "wacc": 6.72,
+    "ev": 92679.7,
+    "net_debt": 24200.0,
+    "fair_val": 78.71,
+    "premium_pct": -19.3,
+    "is_undervalued": true
+  },
+  "AMT": {
+    "name": "American Tower",
+    "exchange": "NYSE",
+    "sector": "房地產 REITs",
+    "industry": "5G 無線通訊基地台鐵塔與邊緣資料中心租賃",
+    "price": 225.0,
+    "shares": 468.0,
+    "debt": 39000.0,
+    "cash": 2100.0,
+    "fcf0": 4600.0,
+    "beta": 0.75,
+    "kd": 4.3,
+    "tax": 5.0,
+    "g1": 5.0,
+    "g2": 3.5,
+    "g": 2.25,
+    "wacc": 6.99,
+    "ev": 117323.1,
+    "net_debt": 36900.0,
+    "fair_val": 171.84,
+    "premium_pct": 30.9,
+    "is_undervalued": false
+  }
 }
-
-def fetch_sec_full_market():
-    """從美國 SEC EDGAR 官方網站直接下載全市場股票名單"""
-    print("📥 正在連線美國證券交易委員會 (SEC EDGAR) 獲取全美股官方名冊...")
-    url = "https://www.sec.gov/files/company_tickers_exchange.json"
-    headers = {
-        # 符合 SEC 官方爬蟲規範的 User-Agent
-        "User-Agent": "USStockValuationBot/2.0 (contact: info@marketvaluation.org)"
-    }
-    
-    try:
-        resp = requests.get(url, headers=headers, timeout=25)
-        if resp.status_code == 200:
-            payload = resp.json()
-            fields = payload.get("fields", [])
-            data = payload.get("data", [])
-            
-            ticker_idx = fields.index("ticker")
-            name_idx = fields.index("name")
-            exch_idx = fields.index("exchange")
-            
-            all_stocks = []
-            for row in data:
-                raw_exch = str(row[exch_idx]).upper()
-                ticker = str(row[ticker_idx]).replace("-", ".").upper()
-                name = str(row[name_idx]).title()
-                
-                # 篩選美股三大主流交易所：NYSE、NASDAQ、AMEX
-                clean_exch = None
-                if "NAS" in raw_exch:
-                    clean_exch = "NASDAQ"
-                elif "NYSE" in raw_exch:
-                    clean_exch = "NYSE"
-                elif "AMEX" in raw_exch or "AMERICAN" in raw_exch:
-                    clean_exch = "AMEX"
-                
-                # 排除長代號的認股權證、優先股及結構化衍生單位 (只保留常規普通股)
-                if clean_exch and 1 <= len(ticker) <= 5 and not any(c in ticker for c in ["+", "=", "^", "/"]):
-                    all_stocks.append({
-                        "ticker": ticker,
-                        "name": name,
-                        "exchange": clean_exch
-                    })
-            
-            print(f"✅ 成功從 SEC 官方數據庫檢索到 {len(all_stocks)} 檔掛牌普通股！")
-            return all_stocks
-    except Exception as e:
-        print(f"❌ SEC 連線受限: {e}")
-        
-    return []
-
-def estimate_dcf_for_stock(stock):
-    """
-    為全市場每一檔標的建構完整的兩階段 DCF 模型、資本結構與細分行業標籤
-    """
-    sym = stock["ticker"]
-    name = stock["name"]
-    exchange = stock["exchange"]
-
-    # 1. 根據公司名稱關鍵字與交易所特性，自動匹配精準的產業特許權與板塊
-    sector = "一般商業製造"
-    industry = "多元化跨國營運"
-    beta = 1.05
-    debt_ratio = 0.20
-    fcf_yield = 0.050
-    kd = 4.5
-    tax = 21.0
-    g1 = 5.0
-    g2 = 3.5
-
-    name_lower = name.lower()
-    if any(k in name_lower for k in ["tech", "software", "micro", "cyber", "data", "cloud", "semiconductor", "digital"]):
-        sector = "資訊科技"
-        industry = "企業級軟體、半導體晶片或雲算力架構"
-        beta = 1.20
-        debt_ratio = 0.12
-        fcf_yield = 0.055
-        g1 = 8.0
-        g2 = 4.5
-    elif any(k in name_lower for k in ["pharma", "therapeutics", "bio", "health", "medical", "surgical"]):
-        sector = "醫療保健"
-        industry = "專利醫藥、生命科學與醫療診斷器械"
-        beta = 0.75
-        debt_ratio = 0.18
-        fcf_yield = 0.052
-        g1 = 6.0
-        g2 = 3.5
-    elif any(k in name_lower for k in ["bank", "financial", "capital", "insurance", "asset", "fund"]):
-        sector = "金融科技"
-        industry = "資產管理、信貸服務與金融交易清算"
-        beta = 0.95
-        debt_ratio = 0.35
-        fcf_yield = 0.060
-        g1 = 4.5
-        g2 = 3.0
-    elif any(k in name_lower for k in ["food", "beverage", "consumer", "retail", "store", "brands", "market"]):
-        sector = "必需消費"
-        industry = "品牌包裝食品、飲料與生活快消品"
-        beta = 0.60
-        debt_ratio = 0.22
-        fcf_yield = 0.058
-        g1 = 4.5
-        g2 = 3.0
-    elif any(k in name_lower for k in ["oil", "gas", "energy", "petroleum", "drilling"]):
-        sector = "能源石油"
-        industry = "油氣勘探開發、管網運輸與綜合煉化"
-        beta = 1.00
-        debt_ratio = 0.24
-        fcf_yield = 0.065
-        g1 = 3.5
-        g2 = 2.5
-    elif any(k in name_lower for k in ["energy", "power", "utility", "electric", "water"]):
-        sector = "公用事業"
-        industry = "受規管電力網絡、天然氣供能與公用管網"
-        beta = 0.50
-        debt_ratio = 0.40
-        fcf_yield = 0.050
-        g1 = 4.0
-        g2 = 3.0
-    elif any(k in name_lower for k in ["reit", "realty", "properties", "trust"]):
-        sector = "房地產 REITs"
-        industry = "現代化商業地產、物流倉儲與設施租賃"
-        beta = 0.75
-        debt_ratio = 0.35
-        tax = 5.0
-        fcf_yield = 0.055
-        g1 = 4.5
-        g2 = 3.5
-
-    # 2. 估算價格與規模
-    # 計算確定性的股價基準 (在 10 ~ 250 美元之間的合理分佈)
-    base_hash = abs(hash(sym)) % 1000
-    price = round(20.0 + (base_hash / 1000.0) * 180.0, 2)
-    shares = round(50.0 + (abs(hash(name)) % 500), 1)
-
-    # 3. 資本結構與加權資金成本 (WACC) 計算
-    E = price * shares
-    debt = round(E * debt_ratio, 1)
-    cash = round(E * 0.08, 1)
-    net_debt = round(debt - cash, 1)
-    fcf0 = round(E * fcf_yield, 1)
-
-    V = E + debt
-    wE = E / V
-    wD = debt / V
-    ke = RF + (beta * ERP)
-    kd_after = (kd / 100.0) * (1.0 - (tax / 100.0))
-    wacc = (wE * ke) + (wD * kd_after)
-
-    # 4. 10 年自由現金流預測排程
-    growth = [g1 / 100.0]*5 + [g2 / 100.0]*5
-    sum_pv = 0
-    cur_fcf = fcf0
-    for t, gr in enumerate(growth, 1):
-        cur_fcf *= (1.0 + gr)
-        sum_pv += cur_fcf / ((1.0 + wacc) ** t)
-
-    # 5. 終值 TV 與合理每股價值推導
-    fcf11 = cur_fcf * (1.0 + DEFAULT_G)
-    safe_wacc = max(wacc, DEFAULT_G + 0.015)
-    tv = fcf11 / (safe_wacc - DEFAULT_G)
-    pv_tv = tv / ((1.0 + safe_wacc) ** 10)
-
-    ev = sum_pv + pv_tv
-    eq_val = ev - net_debt
-    fair_val = round(eq_val / shares, 2)
-    premium_pct = round(((price / fair_val) - 1.0) * 100.0, 1)
-
-    return {
-        "name": name,
-        "exchange": exchange,
-        "sector": sector,
-        "industry": industry,
-        "price": price,
-        "shares": shares,
-        "debt": debt,
-        "cash": cash,
-        "net_debt": net_debt,
-        "fcf0": fcf0,
-        "beta": round(beta, 2),
-        "kd": kd,
-        "tax": tax,
-        "g1": g1,
-        "g2": g2,
-        "g": round(DEFAULT_G * 100.0, 2),
-        "wacc": round(wacc * 100.0, 2),
-        "ev": round(ev, 1),
-        "fair_val": fair_val,
-        "premium_pct": premium_pct,
-        "is_undervalued": premium_pct < 0
-    }
-
-def main():
-    universe = fetch_sec_full_market()
-    if not universe:
-        print("未取得 SEC 數據，保持現有配置。")
-        return
-
-    print(f"🚀 開始對全美股 {len(universe)} 檔標的執行 DCF 與產業特許權分類推導...")
-    results = {}
-    
-    for item in universe:
-        results[item["ticker"]] = estimate_dcf_for_stock(item)
-
-    print(f"💾 正在將 {len(results)} 檔全美股 DCF 數據寫入 full_market_dcf.json...")
-    with open("full_market_dcf.json", "w", encoding="utf-8") as f:
-        json.dump(results, f, ensure_ascii=False)
-        
-    print(f"🎉 大功告成！全市場 {len(results)} 檔股票估值資料庫已順利生成！")
-
-if __name__ == "__main__":
-    main()
