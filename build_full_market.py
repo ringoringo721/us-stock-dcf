@@ -1,20 +1,16 @@
 import requests
 import json
-import time
 
-RF = 0.0450        # 10年期美債無風險利率基準 (4.50%)
-ERP = 0.0475       # 股票風險溢價 (4.75%)
-DEFAULT_G = 0.0225 # 永續終值增長率 (2.25%)
+RF = 0.0450
+ERP = 0.0475
+DEFAULT_G = 0.0225
 
 def fetch_sec_all_us_stocks():
-    """從美國 SEC EDGAR 官方下載 NYSE / NASDAQ / AMEX 所有掛牌股票"""
-    print("📥 正在連線美國證監會 SEC EDGAR 獲取全市場清單 (NYSE, NASDAQ, AMEX)...")
+    print("📥 正在下載美國 SEC EDGAR 官方交易所名冊...")
     url = "https://www.sec.gov/files/company_tickers_exchange.json"
     headers = {
-        # SEC 要求請求必須包含合規自訂 User-Agent
-        "User-Agent": "USMarketDCFResearch tool@dcfmarket.org"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) USMarketDCF/1.0 (contact: admin@dcf.local)"
     }
-    
     try:
         resp = requests.get(url, headers=headers, timeout=20)
         if resp.status_code == 200:
@@ -22,9 +18,8 @@ def fetch_sec_all_us_stocks():
             fields = payload.get("fields", [])
             data = payload.get("data", [])
             
-            cik_idx = fields.index("cik")
-            name_idx = fields.index("name")
             ticker_idx = fields.index("ticker")
+            name_idx = fields.index("name")
             exch_idx = fields.index("exchange")
             
             stock_list = []
@@ -33,27 +28,21 @@ def fetch_sec_all_us_stocks():
                 ticker = str(row[ticker_idx]).replace("-", ".").upper()
                 name = str(row[name_idx]).title()
                 
-                # 只保留三大主流交易所：NYSE、Nasdaq、AMEX (NYSE American)
                 clean_exch = None
-                if "NAS" in raw_exch:
-                    clean_exch = "NASDAQ"
-                elif "NYSE" in raw_exch:
-                    clean_exch = "NYSE"
-                elif "AMEX" in raw_exch or "AMERICAN" in raw_exch:
-                    clean_exch = "AMEX"
+                if "NAS" in raw_exch: clean_exch = "NASDAQ"
+                elif "NYSE" in raw_exch: clean_exch = "NYSE"
+                elif "AMEX" in raw_exch or "AMERICAN" in raw_exch: clean_exch = "AMEX"
                 
-                # 排除認股權證(Warrant)、單位(Unit)等特殊標的
                 if clean_exch and len(ticker) <= 5 and not any(c in ticker for c in ["+", "=", "^"]):
                     stock_list.append({
                         "ticker": ticker,
                         "name": name,
                         "exchange": clean_exch
                     })
-            
-            print(f"✅ 成功從 SEC 載入 {len(stock_list)} 檔美股標的！")
+            print(f"✅ 成功從 SEC 獲取 {len(stock_list)} 檔標的！")
             return stock_list
     except Exception as e:
-        print(f"❌ SEC 下載失敗: {e}，切換備用主要核心標的")
+        print(f"SEC 連線略過: {e}")
         
     return [
         {"ticker": "MCD", "name": "McDonald's Corp", "exchange": "NYSE"},
@@ -61,31 +50,15 @@ def fetch_sec_all_us_stocks():
         {"ticker": "PG", "name": "Procter & Gamble Co", "exchange": "NYSE"},
         {"ticker": "AAPL", "name": "Apple Inc", "exchange": "NASDAQ"},
         {"ticker": "MSFT", "name": "Microsoft Corp", "exchange": "NASDAQ"},
-        {"ticker": "NVDA", "name": "Nvidia Corp", "exchange": "NASDAQ"},
-        {"ticker": "BRK.B", "name": "Berkshire Hathaway Inc", "exchange": "NYSE"}
+        {"ticker": "NVDA", "name": "Nvidia Corp", "exchange": "NASDAQ"}
     ]
 
-def compute_dcf_for_item(item, price_hint=None):
-    ticker = item["ticker"]
-    name = item["name"]
+def compute_dcf(item):
     exchange = item["exchange"]
-    
-    # 決定基礎基準價格 (若無實時行情，採用常態化動態中位數模型)
-    price = price_hint if price_hint and price_hint > 0 else 100.0
-    
-    # 根據交易所與行業特性評估 Beta 與資本結構
-    if exchange == "NASDAQ":
-        beta = 1.15
-        debt_ratio = 0.15
-        fcf_yield = 0.050
-    elif exchange == "AMEX":
-        beta = 1.25
-        debt_ratio = 0.25
-        fcf_yield = 0.045
-    else: # NYSE
-        beta = 0.90
-        debt_ratio = 0.25
-        fcf_yield = 0.055
+    price = 100.0
+    beta = 1.15 if exchange == "NASDAQ" else (1.25 if exchange == "AMEX" else 0.90)
+    debt_ratio = 0.15 if exchange == "NASDAQ" else 0.25
+    fcf_yield = 0.050 if exchange == "NASDAQ" else 0.055
 
     shares_m = 1000.0
     mkt_cap_m = price * shares_m
@@ -94,7 +67,6 @@ def compute_dcf_for_item(item, price_hint=None):
     net_debt_m = debt_m - cash_m
     fcf0_m = mkt_cap_m * fcf_yield
 
-    # 計算 WACC (CAPM 模型)
     E = mkt_cap_m
     V = E + debt_m
     wE = E / V
@@ -103,7 +75,6 @@ def compute_dcf_for_item(item, price_hint=None):
     kd_after = 0.045 * (1 - 0.21)
     wacc = (wE * ke) + (wD * kd_after)
 
-    # 10 年自由現金流預測折現 (前5年 5.0%, 後5年 3.5%)
     growth = [0.05]*5 + [0.035]*5
     sum_pv = 0
     cur_fcf = fcf0_m
@@ -111,7 +82,6 @@ def compute_dcf_for_item(item, price_hint=None):
         cur_fcf *= (1 + gr)
         sum_pv += cur_fcf / ((1 + wacc) ** t)
 
-    # 永續終值 TV
     fcf11 = cur_fcf * (1 + DEFAULT_G)
     safe_wacc = max(wacc, DEFAULT_G + 0.015)
     tv = fcf11 / (safe_wacc - DEFAULT_G)
@@ -123,7 +93,7 @@ def compute_dcf_for_item(item, price_hint=None):
     premium_pct = ((price / fair_val) - 1) * 100
 
     return {
-        "name": name,
+        "name": item["name"],
         "exchange": exchange,
         "price": round(price, 2),
         "shares": round(shares_m, 1),
@@ -144,18 +114,15 @@ def compute_dcf_for_item(item, price_hint=None):
     }
 
 def main():
-    stock_universe = fetch_sec_all_us_stocks()
-    print(f"📊 開始對全市場 {len(stock_universe)} 檔標的執行 DCF 模型推導...")
-    
+    universe = fetch_sec_all_us_stocks()
     results = {}
-    for item in stock_universe:
-        results[item["ticker"]] = compute_dcf_for_item(item)
+    for item in universe:
+        results[item["ticker"]] = compute_dcf(item)
 
-    print(f"💾 正在儲存全市場 DCF 數據 (共 {len(results)} 檔)...")
+    print(f"💾 寫入 full_market_dcf.json (共 {len(results)} 檔)...")
     with open("full_market_dcf.json", "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False)
-        
-    print(f"🎉 成功生成 full_market_dcf.json！覆蓋全美股三大交易所。")
+    print("✅ 儲存完成！")
 
 if __name__ == "__main__":
     main()
