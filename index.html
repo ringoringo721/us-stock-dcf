@@ -20,7 +20,7 @@
     }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
     body { background-color: var(--bg); color: var(--text); padding: 20px; line-height: 1.5; }
-    .container { max-width: 1720px; margin: 0 auto; }
+    .container { max-width: 1820px; margin: 0 auto; }
     
     header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid var(--card-border); padding-bottom: 16px; flex-wrap: wrap; gap: 14px; }
     h1 { font-size: 22px; font-weight: 700; color: #fff; }
@@ -90,7 +90,7 @@
   <header>
     <div>
       <h1>美股全市場 DCF 估值與 TTM 財務雷達 (NYSE, NASDAQ, AMEX 全景版)</h1>
-      <span style="font-size: 13px; color: var(--text-muted);">收錄三大交易所 · 整合 13 項 TTM 估值財務指標 · 每日盤後自動向量化運算</span>
+      <span style="font-size: 13px; color: var(--text-muted);">收錄三大交易所 · 內建 EV、WACC/g、13 項 TTM 指標 · 支援原生瀏覽器返回導航</span>
     </div>
     <div class="status-badge" id="data-status">正在載入全市場資料庫...</div>
   </header>
@@ -156,7 +156,7 @@
       </div>
     </div>
 
-    <!-- 總表 (含 13 項 TTM 指標) -->
+    <!-- 總表 (含 EV、WACC/g 與 13 項 TTM 指標) -->
     <div class="table-container">
       <table id="screener-table">
         <thead>
@@ -167,6 +167,8 @@
             <th onclick="sortTable('price')">最新股價 ($)</th>
             <th onclick="sortTable('fair_val')">公允價值 ($)</th>
             <th onclick="sortTable('premium_pct')">市價 vs 溢價</th>
+            <th onclick="sortTable('wacc')">加權成本 WACC / 終值 g</th>
+            <th onclick="sortTable('ev')">企業價值 EV ($M)</th>
             <th onclick="sortTable('mcap')">市值 ($M)</th>
             <th onclick="sortTable('pe_trailing')">靜態 P/E</th>
             <th onclick="sortTable('pe_forward')">動態 P/E</th>
@@ -180,7 +182,6 @@
             <th onclick="sortTable('cash_minus_liab')">現金淨額 ($M)</th>
             <th onclick="sortTable('roe')">ROE (%)</th>
             <th onclick="sortTable('roa')">ROA (%)</th>
-            <th onclick="sortTable('wacc')">WACC (%)</th>
             <th style="text-align: center;">操作</th>
           </tr>
         </thead>
@@ -208,7 +209,7 @@
         <span id="det-name" style="font-size: 16px; color: #cbd5e1;">麥當勞</span>
         <span id="det-badge" class="badge badge-overvalued">--</span>
       </div>
-      <button class="btn-back" onclick="showView('screener')">← 返回全市場篩選雷達</button>
+      <button class="btn-back" onclick="navigateBackToScreener()">← 返回全市場篩選雷達</button>
     </div>
 
     <div class="top-stats">
@@ -350,6 +351,43 @@
   const pageSize = 25;
   let filteredList = [];
 
+  // ================= 瀏覽器原生「返回上一頁」歷史控制 =================
+  function syncStateWithUrl() {
+    const hash = window.location.hash.replace('#', '');
+    const params = new URLSearchParams(hash);
+    const view = params.get('view') || 'screener';
+    const ticker = params.get('ticker');
+
+    if (view === 'detail' && ticker && stockUniverse[ticker]) {
+      activeDetailTicker = ticker;
+      renderDetailDom(ticker);
+      document.getElementById('screener-view').style.display = 'none';
+      document.getElementById('detail-view').style.display = 'block';
+    } else {
+      document.getElementById('screener-view').style.display = 'block';
+      document.getElementById('detail-view').style.display = 'none';
+      renderScreenerTable();
+    }
+  }
+
+  window.addEventListener('popstate', function() {
+    syncStateWithUrl();
+  });
+
+  function navigateToDetail(ticker) {
+    activeDetailTicker = ticker;
+    window.location.hash = `view=detail&ticker=${ticker}`;
+  }
+
+  function navigateBackToScreener() {
+    if (window.location.hash.includes('view=detail')) {
+      window.history.back();
+    } else {
+      window.location.hash = '';
+      syncStateWithUrl();
+    }
+  }
+
   async function loadMarketData() {
     const statusEl = document.getElementById('data-status');
     statusEl.innerText = "正在連線讀取全市場資料庫...";
@@ -369,9 +407,9 @@
           const count = Object.keys(data).length;
           if (data && count > 0) {
             stockUniverse = data;
-            statusEl.innerHTML = `🟢 已成功載入全市場 ${count} 檔最新美股數據 (含 13 項 TTM 指標與 DCF)`;
-            renderScreenerTable();
+            statusEl.innerHTML = `🟢 已成功載入全市場 ${count} 檔最新美股數據 (含 EV, WACC/g, 13 項 TTM 指標)`;
             loaded = true;
+            syncStateWithUrl();
             break;
           }
         }
@@ -427,18 +465,6 @@
       fcf11, tv, pvTV, EV, EquityVal, fairVal, premiumPct,
       isUndervalued: premiumPct < 0
     };
-  }
-
-  function showView(viewName) {
-    if (viewName === 'screener') {
-      document.getElementById('screener-view').style.display = 'block';
-      document.getElementById('detail-view').style.display = 'none';
-      renderScreenerTable();
-    } else {
-      document.getElementById('screener-view').style.display = 'none';
-      document.getElementById('detail-view').style.display = 'block';
-      loadDetailTicker(activeDetailTicker);
-    }
   }
 
   function setValFilter(val) {
@@ -550,7 +576,7 @@
 
       return `
         <tr>
-          <td><a class="ticker-link" onclick="openDetail('${item.ticker}')">${item.ticker}</a></td>
+          <td><a class="ticker-link" onclick="navigateToDetail('${item.ticker}')">${item.ticker}</a></td>
           <td>${exchBadge}</td>
           <td>
             <div style="font-weight: 600; color: #fff;">${item.name}</div>
@@ -559,6 +585,11 @@
           <td style="font-weight: 700; color: var(--accent);">$${item.price.toFixed(2)}</td>
           <td class="text-green" style="font-size: 13px; font-weight: 700;">$${item.fairVal.toFixed(2)}</td>
           <td>${badgeHtml}</td>
+          <td>
+            <div>${(item.WACC * 100).toFixed(2)}%</div>
+            <div style="font-size: 11px; color: var(--text-muted);">g: ${item.g.toFixed(2)}%</div>
+          </td>
+          <td style="font-weight: 600;">$${(item.EV || 0).toLocaleString(undefined, {maximumFractionDigits: 0})} M</td>
           <td>$${(item.mcap || 0).toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
           <td>${item.pe_trailing || '--'}</td>
           <td>${item.pe_forward || '--'}</td>
@@ -572,21 +603,15 @@
           <td class="${(item.cash_minus_liab || 0) >= 0 ? 'text-green' : 'text-red'}">$${(item.cash_minus_liab || 0).toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
           <td>${item.roe ? item.roe.toFixed(1) + '%' : '--'}</td>
           <td>${item.roa ? item.roa.toFixed(1) + '%' : '--'}</td>
-          <td>${(item.WACC * 100).toFixed(2)}%</td>
           <td style="text-align: center;">
-            <button class="btn-nav" onclick="openDetail('${item.ticker}')">深度模型 →</button>
+            <button class="btn-nav" onclick="navigateToDetail('${item.ticker}')">深度模型 →</button>
           </td>
         </tr>
       `;
     }).join('');
   }
 
-  function openDetail(ticker) {
-    activeDetailTicker = ticker;
-    showView('detail');
-  }
-
-  function loadDetailTicker(ticker) {
+  function renderDetailDom(ticker) {
     const s = stockUniverse[ticker];
     document.getElementById('det-ticker').innerText = ticker;
     document.getElementById('det-name').innerText = s.name;
