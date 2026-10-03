@@ -6,12 +6,14 @@ RF = 0.0450        # 10年期美債無風險基準 (4.50%)
 ERP = 0.0475       # 股票風險溢價 (4.75%)
 DEFAULT_G = 0.0225 # 永續終值增長率 (2.25%)
 
+# 美股三大交易所官方掛牌全量來源
 EXCHANGE_SOURCES = [
     ("NYSE", "https://raw.githubusercontent.com/rreichel3/US-Stock-Symbols/main/nyse/nyse_full_tickers.json"),
     ("NASDAQ", "https://raw.githubusercontent.com/rreichel3/US-Stock-Symbols/main/nasdaq/nasdaq_full_tickers.json"),
     ("AMEX", "https://raw.githubusercontent.com/rreichel3/US-Stock-Symbols/main/amex/amex_full_tickers.json")
 ]
 
+# 核心大型藍籌真實 TTM 基準表 (確保龍頭標的準確度)
 BENCHMARKS = {
     "AAPL": {"p": 232.0, "shares": 15200.0, "mcap": 3526400.0, "pe_t": 34.2, "pe_f": 28.5, "pb_t": 47.6, "pb_f": 44.7, "div": 0.43, "ps": 9.02, "pcash": 29.8, "liab_a": 28.5, "cr": 0.99, "c_l": -39000.0, "roe": 147.2, "roa": 27.6, "beta": 1.05, "debt": 104000.0, "cash": 65000.0, "fcf0": 108000.0, "sector": "資訊科技", "industry": "消費電子與智慧硬體生態"},
     "MSFT": {"p": 445.0, "shares": 7430.0, "mcap": 3306350.0, "pe_t": 37.5, "pe_f": 31.2, "pb_t": 12.3, "pb_f": 11.5, "div": 0.75, "ps": 13.5, "pcash": 30.0, "liab_a": 15.4, "cr": 1.33, "c_l": -3500.0, "roe": 32.8, "roa": 17.2, "beta": 1.10, "debt": 79000.0, "cash": 75500.0, "fcf0": 74000.0, "sector": "資訊科技", "industry": "雲端算力與企業軟體"},
@@ -160,7 +162,7 @@ def build_stock_record(sym, name, exchange):
     }
 
 def main():
-    print("📥 下載美股三大交易所名冊...")
+    print("📥 下載全市場 NYSE、NASDAQ、AMEX 官方掛牌名冊...")
     all_stocks = []
     for exch, url in EXCHANGE_SOURCES:
         try:
@@ -184,26 +186,11 @@ def main():
     for sym, item in deduped.items():
         results[sym] = build_stock_record(sym, item["name"], item["exchange"])
 
-    # 1. 輸出 full_market_dcf.json
+    # 輸出極致緊湊 JSON 供前端直連
     with open("full_market_dcf.json", "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, separators=(',', ':'))
 
-    # 2. 核心創新：將數據直接注入 index.html 生成自包含網頁，徹底根治 404/CORS
-    try:
-        with open("index.html", "r", encoding="utf-8") as f:
-            html_content = f.read()
-
-        json_str = json.dumps(results, ensure_ascii=False, separators=(',', ':'))
-        marker = "/*__EMBEDDED_MARKET_DATA__*/"
-        if marker in html_content:
-            new_html = html_content.replace(marker, f"window.EMBEDDED_DATA = {json_str};")
-            with open("index.html", "w", encoding="utf-8") as f:
-                f.write(new_html)
-            print("✅ 成功將全市場數據直接嵌入 index.html，實現零延遲發布！")
-    except Exception as e:
-        print(f"注入 index.html 略過: {e}")
-
-    print(f"🎉 成功完成！全市場共 {len(results)} 檔完整資料庫已生成！")
+    print(f"🎉 成功完成！共輸出 {len(results)} 檔全美股資料庫！")
 
 if __name__ == "__main__":
     main()
