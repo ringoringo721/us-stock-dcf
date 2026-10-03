@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>美股全市場 6,000+ 檔 DCF 內在價值雷達</title>
+  <style>
+    :root {
+      --bg: #0b1120;
+      --card-bg: #1e293b;
+      --card-border: #334155;
+      --accent: #38bdf8;
+      --accent-hover: #0284c7;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --green: #4ade80;
+      --green-bg: rgba(74, 222, 128, 0.12);
+      --red: #f87171;
+      --red-bg: rgba(248, 113, 113, 0.12);
+      --nyse-blue: #3b82f6;
+      --nasdaq-purple: #a855f7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background-color: var(--bg); color: var(--text); padding: 20px; line-height: 1.5; }
+    .container { max-width: 1480px; margin: 0 auto; }
+    
+    header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid var(--card-border); padding-bottom: 16px; flex-wrap: wrap; gap: 14px; }
+    h1 { font-size: 22px; font-weight: 700; color: #fff; }
+    .status-badge { font-size: 12px; background: rgba(56, 189, 248, 0.15); color: var(--accent); padding: 4px 10px; border-radius: 4px; border: 1px solid var(--accent); }
+
+    .top-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 20px; }
+    .stat-box { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; padding: 14px 18px; }
+    .stat-label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+    .stat-num { font-size: 22px; font-weight: 700; color: #fff; margin: 4px 0; }
+
+    .filter-panel { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; padding: 14px 18px; margin-bottom: 20px; display: flex; flex-direction: column; gap: 10px; }
+    .filter-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .filter-title { font-size: 12px; color: var(--text-muted); min-width: 80px; font-weight: 600; }
+    .f-btn { background: #0f172a; border: 1px solid var(--card-border); color: #cbd5e1; padding: 4px 12px; border-radius: 4px; font-size: 12px; cursor: pointer; font-weight: 600; }
+    .f-btn.active { border-color: var(--accent); color: var(--accent); background: rgba(56, 189, 248, 0.12); }
+    .search-input { background: #0f172a; border: 1px solid var(--card-border); color: #fff; padding: 6px 12px; border-radius: 6px; font-size: 13px; width: 320px; margin-left: auto; }
+    .search-input:focus { border-color: var(--accent); outline: none; }
+
+    .table-container { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; overflow-x: auto; margin-bottom: 16px; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; text-align: right; }
+    th, td { padding: 10px 14px; border-bottom: 1px solid var(--card-border); }
+    th { background: #162032; color: #cbd5e1; font-weight: 600; cursor: pointer; user-select: none; }
+    th:hover { color: var(--accent); }
+    td:first-child, th:first-child, td:nth-child(2), th:nth-child(2), td:nth-child(3), th:nth-child(3) { text-align: left; }
+    tr:hover { background-color: rgba(255, 255, 255, 0.02); }
+    
+    .ticker-link { font-weight: 700; color: var(--accent); cursor: pointer; text-decoration: none; font-size: 14px; }
+    .ticker-link:hover { text-decoration: underline; }
+    .badge { padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; display: inline-block; }
+    .badge-undervalued { background: var(--green-bg); color: var(--green); border: 1px solid rgba(74, 222, 128, 0.3); }
+    .badge-overvalued { background: var(--red-bg); color: var(--red); border: 1px solid rgba(248, 113, 113, 0.3); }
+    .badge-exch-nyse { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.4); font-size: 10px; }
+    .badge-exch-nasdaq { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.4); font-size: 10px; }
+    .text-green { color: var(--green); font-weight: 600; }
+    .text-red { color: var(--red); font-weight: 600; }
+
+    .pagination-bar { display: flex; justify-content: space-between; align-items: center; padding: 10px 4px; }
+    .page-btns { display: flex; gap: 6px; }
+    .page-btn { background: #1e293b; border: 1px solid var(--card-border); color: #fff; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: 600; }
+    .page-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    /* 詳情頁 */
+    #detail-view { display: none; }
+    .detail-header { display: flex; justify-content: space-between; align-items: center; background: var(--card-bg); border: 1px solid var(--card-border); padding: 14px 20px; border-radius: 8px; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; }
+    .detail-title { font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+    .btn-back { background: #334155; color: #fff; border: none; padding: 7px 14px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 13px; }
+    .btn-back:hover { background: #475569; }
+
+    .main-layout { display: grid; grid-template-columns: 380px 1fr; gap: 20px; }
+    @media(max-width: 990px) { .main-layout { grid-template-columns: 1fr; } }
+    .panel { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; padding: 18px; margin-bottom: 20px; }
+    .panel-title { font-size: 14px; font-weight: 600; margin-bottom: 12px; color: var(--accent); border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 8px; }
+    .form-group { display: flex; justify-content: space-between; align-items: center; margin-bottom: 9px; }
+    .form-group label { font-size: 13px; color: #cbd5e1; }
+    .form-group input { width: 110px; background: #0f172a; border: 1px solid var(--card-border); border-radius: 4px; color: #fff; padding: 5px 8px; font-size: 13px; text-align: right; }
+    .form-group input:focus { border-color: var(--accent); outline: none; }
+    .sens-cell { font-weight: 600; }
+    .sens-base { background: rgba(56, 189, 248, 0.15); border: 1px solid var(--accent); }
+    .btn-nav { background: #334155; border: none; color: #cbd5e1; padding: 5px 12px; border-radius: 4px; cursor: pointer; font-weight: 600; font-size: 12px; }
+    .btn-nav:hover { background: var(--accent); color: #0b1120; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div>
+      <h1>美股全市場 6,000+ 檔 DCF 內在價值雷達</h1>
+      <span style="font-size: 13px; color: var(--text-muted);">NYSE & NASDAQ 全量收盤資料庫 · 每日盤後自動快照 · 零 API 額度限制</span>
+    </div>
+    <div class="status-badge" id="data-status">正在載入全市場資料庫...</div>
+  </header>
+
+  <!-- ==================== 頁面 1：全市場雷達總表 ==================== -->
+  <div id="screener-view">
+    <div class="top-stats">
+      <div class="stat-box">
+        <div class="stat-label">全市場追蹤標的</div>
+        <div class="stat-num" id="stat-total">0 檔</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">具備安全邊際 (低估標的)</div>
+        <div class="stat-num text-green" id="stat-undervalued">0 檔</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">市價溢價過高 (高估標的)</div>
+        <div class="stat-num text-red" id="stat-overvalued">0 檔</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">全市場加權折現成本 (WACC)</div>
+        <div class="stat-num" id="stat-avg-wacc">0.00%</div>
+      </div>
+    </div>
+
+    <!-- 篩選列 -->
+    <div class="filter-panel">
+      <div class="filter-row">
+        <span class="filter-title">估值狀態：</span>
+        <div class="filter-btns" id="val-filters">
+          <button class="f-btn active" onclick="setValFilter('ALL')">全部標的</button>
+          <button class="f-btn" onclick="setValFilter('UNDERVALUED')">🟢 具安全邊際 (低估)</button>
+          <button class="f-btn" onclick="setValFilter('OVERVALUED')">🔴 溢價過高 (高估)</button>
+        </div>
+        <input type="text" class="search-input" id="search-ticker" placeholder="搜尋 6,000+ 檔美股代號、名稱或市場..." oninput="onSearchChange()">
+      </div>
+
+      <div class="filter-row">
+        <span class="filter-title">交易所：</span>
+        <div class="filter-btns" id="exch-filters">
+          <button class="f-btn active" onclick="setExchFilter('ALL')">全部市場</button>
+          <button class="f-btn" onclick="setExchFilter('NYSE')">🏛️ NYSE 紐約證券交易所</button>
+          <button class="f-btn" onclick="setExchFilter('NASDAQ')">💻 NASDAQ 那斯達克</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 總表 -->
+    <div class="table-container">
+      <table id="screener-table">
+        <thead>
+          <tr>
+            <th onclick="sortTable('ticker')">代碼</th>
+            <th onclick="sortTable('exchange')">市場</th>
+            <th onclick="sortTable('name')">企業名稱</th>
+            <th onclick="sortTable('price')">最新收盤價 ($)</th>
+            <th onclick="sortTable('fair_val')">每股內在價值 ($)</th>
+            <th onclick="sortTable('premium_pct')">市價 vs 溢價幅度</th>
+            <th onclick="sortTable('wacc')">加權成本 WACC / 終值 G</th>
+            <th onclick="sortTable('ev')">企業價值 EV / 淨負債 ($M)</th>
+            <th style="text-align: center;">操作</th>
+          </tr>
+        </thead>
+        <tbody id="screener-tbody"></tbody>
+      </table>
+    </div>
+
+    <!-- 分頁導航 -->
+    <div class="pagination-bar">
+      <div style="font-size: 13px; color: var(--text-muted);" id="page-info">顯示 0 - 0 筆</div>
+      <div class="page-btns">
+        <button class="page-btn" id="btn-prev" onclick="changePage(-1)">← 上一頁</button>
+        <span style="font-size: 13px; padding: 6px 10px; color: #fff;" id="page-current">第 1 頁</span>
+        <button class="page-btn" id="btn-next" onclick="changePage(1)">下一頁 →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 頁面 2：個股深度 DCF 詳情頁 ==================== -->
+  <div id="detail-view">
+    <div class="detail-header">
+      <div class="detail-title">
+        <span id="det-ticker" style="color: var(--accent);">MCD</span>
+        <span id="det-exchange" class="badge badge-exch-nyse">NYSE</span>
+        <span id="det-name" style="font-size: 16px; color: #cbd5e1;">麥當勞</span>
+        <span id="det-badge" class="badge badge-overvalued">--</span>
+      </div>
+      <button class="btn-back" onclick="showView('screener')">← 返回全市場篩選雷達</button>
+    </div>
+
+    <div class="top-stats">
+      <div class="stat-box">
+        <div class="stat-label">每股合理內在價值 (Fair Value)</div>
+        <div class="stat-num text-green" id="det-res-fair">$0.00</div>
+        <div style="font-size: 11px; color: var(--text-muted);" id="det-res-status">--</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">當前市價 vs 溢價幅度</div>
+        <div class="stat-num" id="det-res-price">$0.00</div>
+        <div style="font-size: 11px;" id="det-res-premium">--</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">加權折現成本 (WACC) / 終值 g</div>
+        <div class="stat-num" id="det-res-wacc">0.00%</div>
+        <div style="font-size: 11px; color: var(--text-muted);">終值 g: <span id="det-res-g">0.00%</span> | 利差: <span id="det-res-spread">0.00%</span></div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">企業價值 EV / 淨負債</div>
+        <div class="stat-num" id="det-res-ev">$0 M</div>
+        <div style="font-size: 11px; color: var(--text-muted);">淨負債: <span id="det-res-netdebt">$0 M</span></div>
+      </div>
+    </div>
+
+    <div class="main-layout">
+      <!-- 左側參數控制 -->
+      <div class="panel">
+        <div class="panel-title">1. 基本面與資產負債表 (Inputs)</div>
+        <div class="form-group">
+          <label>當前每股股價 ($)</label>
+          <input type="number" id="inp-price" step="0.5" oninput="onDetailParamChange()">
+        </div>
+        <div class="form-group">
+          <label>稀釋總股數 (百萬股, M)</label>
+          <input type="number" id="inp-shares" step="1" oninput="onDetailParamChange()">
+        </div>
+        <div class="form-group">
+          <label>總有息負債 ($M)</label>
+          <input type="number" id="inp-debt" step="50" oninput="onDetailParamChange()">
+        </div>
+        <div class="form-group">
+          <label>現金及約當資產 ($M)</label>
+          <input type="number" id="inp-cash" step="50" oninput="onDetailParamChange()">
+        </div>
+        <div class="form-group">
+          <label>基準自由現金流 FCF_0 ($M)</label>
+          <input type="number" id="inp-fcf0" step="50" oninput="onDetailParamChange()">
+        </div>
+
+        <div class="panel-title" style="margin-top: 16px;">2. 資本成本與折現模型 (WACC)</div>
+        <div class="form-group">
+          <label>無風險利率 Rf (%)</label>
+          <input type="number" id="inp-rf" step="0.05" oninput="onDetailParamChange()">
+        </div>
+        <div class="form-group">
+          <label>股票風險溢價 ERP (%)</label>
+          <input type="number" id="inp-erp" step="0.05" oninput="onDetailParamChange()">
+        </div>
+        <div class="form-group">
+          <label>貝塔係數 (Beta, β)</label>
+          <input type="number" id="inp-beta" step="0.05" oninput="onDetailParamChange()">
+        </div>
+        <div class="form-group">
+          <label>稅前借貸利率 Kd (%)</label>
+          <input type="number" id="inp-kd" step="0.05" oninput="onDetailParamChange()">
+        </div>
+        <div class="form-group">
+          <label>企業所得稅率 (%)</label>
+          <input type="number" id="inp-tax" step="0.5" oninput="onDetailParamChange()">
+        </div>
+        <div class="form-group">
+          <label>永續終值增長率 g (%)</label>
+          <input type="number" id="inp-g" step="0.05" oninput="onDetailParamChange()">
+        </div>
+
+        <div class="panel-title" style="margin-top: 16px;">3. 兩階段成長率排程 (%)</div>
+        <div class="form-group">
+          <label>前 5 年年化增速 (Years 1-5)</label>
+          <input type="number" id="inp-g-stage1" step="0.5" oninput="onDetailGrowthChange()">
+        </div>
+        <div class="form-group">
+          <label>後 5 年穩態增速 (Years 6-10)</label>
+          <input type="number" id="inp-g-stage2" step="0.5" oninput="onDetailGrowthChange()">
+        </div>
+      </div>
+
+      <!-- 右側報表 -->
+      <div>
+        <div class="panel">
+          <div class="panel-title">10 年自由現金流折現排程 (10-Year DCF Forecast)</div>
+          <div class="table-container">
+            <table id="dcf-table">
+              <thead><tr id="dcf-head"><th>年份 (Period)</th></tr></thead>
+              <tbody>
+                <tr id="dcf-growth"><td>年增長率 (%)</td></tr>
+                <tr id="dcf-fcf"><td>預估 FCF ($M)</td></tr>
+                <tr id="dcf-factor"><td>折現因子 (DF)</td></tr>
+                <tr id="dcf-pv"><td>折現現值 ($M)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-title">雙變數敏感度分析矩陣 (WACC vs 永續增長率 g)</div>
+          <div class="table-container">
+            <table id="sens-table">
+              <thead>
+                <tr>
+                  <th>WACC \ g</th>
+                  <th id="th-g1">1.75%</th>
+                  <th id="th-g2">2.25% (基準)</th>
+                  <th id="th-g3">2.75%</th>
+                </tr>
+              </thead>
+              <tbody id="sens-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let stockUniverse = {};
+  const commonRf = 0.0450;
+  const commonERP = 0.0475;
+
+  let currentValFilter = 'ALL';
+  let currentExchFilter = 'ALL';
+  let sortField = 'premium_pct';
+  let sortAsc = true;
+  let activeDetailTicker = 'MCD';
+
+  let currentPage = 1;
+  const pageSize = 25;
+  let filteredList = [];
+
+  // 自動載入全美股每日盤後 JSON 快照 (若無外鏈自動使用備援核心庫)
+  async function loadMarketData() {
+    const statusEl = document.getElementById('data-status');
+    statusEl.innerText = "正在連線讀取全市場資料庫...";
+
+    try {
+      // 讀取同一目錄或 GitHub 雲端上的 full_market_dcf.json
+      const res = await fetch('full_market_dcf.json');
+      if (res.ok) {
+        stockUniverse = await res.json();
+        statusEl.innerHTML = `🟢 已成功載入全市場 ${Object.keys(stockUniverse).length} 檔最新美股數據 (每日盤後自動同步)`;
+        renderScreenerTable();
+        return;
+      }
+    } catch(e) {}
+
+    // 本機測試時的備援資料庫
+    stockUniverse = {
+      MCD: { name: "麥當勞 (McDonald's)", exchange: "NYSE", price: 233.0, shares: 708.0, debt: 37500.0, cash: 1500.0, fcf0: 7186.0, beta: 0.70, kd: 5.45, tax: 20.0, g1: 5.0, g2: 3.5, g: 2.25 },
+      KO: { name: "可口可樂 (Coca-Cola)", exchange: "NYSE", price: 85.65, shares: 4302.0, debt: 44500.0, cash: 12850.0, fcf0: 9500.0, beta: 0.55, kd: 4.00, tax: 20.0, g1: 5.0, g2: 3.5, g: 2.25 },
+      PG: { name: "寶僑 (Procter & Gamble)", exchange: "NYSE", price: 146.20, shares: 2360.0, debt: 35000.0, cash: 9500.0, fcf0: 15100.0, beta: 0.50, kd: 4.00, tax: 21.0, g1: 4.5, g2: 3.5, g: 2.25 },
+      AAPL: { name: "蘋果 (Apple)", exchange: "NASDAQ", price: 228.0, shares: 15200.0, debt: 104000.0, cash: 65000.0, fcf0: 108000.0, beta: 1.05, kd: 4.20, tax: 16.0, g1: 6.0, g2: 4.0, g: 2.25 },
+      MSFT: { name: "微軟 (Microsoft)", exchange: "NASDAQ", price: 440.0, shares: 7430.0, debt: 79000.0, cash: 75500.0, fcf0: 74000.0, beta: 1.10, kd: 3.80, tax: 18.0, g1: 10.0, g2: 5.0, g: 2.25 },
+      NVDA: { name: "輝達 (NVIDIA)", exchange: "NASDAQ", price: 125.0, shares: 24500.0, debt: 11000.0, cash: 31000.0, fcf0: 39000.0, beta: 1.65, kd: 4.50, tax: 15.0, g1: 15.0, g2: 6.0, g: 2.25 },
+      FICO: { name: "費埃哲 (Fair Isaac)", exchange: "NYSE", price: 600.0, shares: 21.6, debt: 5550.0, cash: 250.0, fcf0: 820.0, beta: 1.15, kd: 5.60, tax: 23.0, g1: 3.0, g2: 4.0, g: 2.25 },
+      UNH: { name: "聯合健康 (UnitedHealth)", exchange: "NYSE", price: 570.0, shares: 920.0, debt: 68000.0, cash: 32000.0, fcf0: 25000.0, beta: 0.60, kd: 4.40, tax: 21.0, g1: 7.0, g2: 4.5, g: 2.25 }
+    };
+    statusEl.innerHTML = `🟢 備援資料庫載入完成 (可搭配雲端 JSON 擴充至 6,000+ 檔)`;
+    renderScreenerTable();
+  }
+
+  function computeDCF(s) {
+    const E = s.price * s.shares;
+    const V = E + s.debt;
+    const wE = V > 0 ? E / V : 1;
+    const wD = V > 0 ? s.debt / V : 0;
+    const NetDebt = s.debt - s.cash;
+
+    const Ke = commonRf + (s.beta * commonERP);
+    const Kd_after = (s.kd / 100) * (1 - (s.tax / 100));
+    const WACC = (wE * Ke) + (wD * Kd_after);
+
+    const growth = [s.g1/100, s.g1/100, s.g1/100, s.g1/100, s.g1/100, s.g2/100, s.g2/100, s.g2/100, s.g2/100, s.g2/100];
+    let curFCF = s.fcf0;
+    let sumPV = 0;
+    const fcfList = [];
+    const dfList = [];
+    const pvList = [];
+
+    for (let t = 1; t <= 10; t++) {
+      curFCF *= (1 + growth[t-1]);
+      const df = 1 / Math.pow(1 + WACC, t);
+      const pv = curFCF * df;
+      fcfList.push(curFCF);
+      dfList.push(df);
+      pvList.push(pv);
+      sumPV += pv;
+    }
+
+    const g = s.g / 100;
+    const fcf11 = fcfList[9] * (1 + g);
+    const tv = (WACC > g) ? (fcf11 / (WACC - g)) : 0;
+    const pvTV = tv * dfList[9];
+    const EV = sumPV + pvTV;
+    const EquityVal = EV - NetDebt;
+    const fairVal = EquityVal / s.shares;
+    const premiumPct = ((s.price / fairVal) - 1) * 100;
+
+    return {
+      E, V, wE, wD, NetDebt, Ke, Kd_after, WACC,
+      growth, fcfList, dfList, pvList, sumPV,
+      fcf11, tv, pvTV, EV, EquityVal, fairVal, premiumPct,
+      isUndervalued: premiumPct < 0
+    };
+  }
+
+  function showView(viewName) {
+    if (viewName === 'screener') {
+      document.getElementById('screener-view').style.display = 'block';
+      document.getElementById('detail-view').style.display = 'none';
+      renderScreenerTable();
+    } else {
+      document.getElementById('screener-view').style.display = 'none';
+      document.getElementById('detail-view').style.display = 'block';
+      loadDetailTicker(activeDetailTicker);
+    }
+  }
+
+  function setValFilter(val) {
+    currentValFilter = val;
+    currentPage = 1;
+    document.querySelectorAll('#val-filters .f-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    renderScreenerTable();
+  }
+
+  function setExchFilter(exch) {
+    currentExchFilter = exch;
+    currentPage = 1;
+    document.querySelectorAll('#exch-filters .f-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    renderScreenerTable();
+  }
+
+  function onSearchChange() {
+    currentPage = 1;
+    renderScreenerTable();
+  }
+
+  function sortTable(field) {
+    if (sortField === field) sortAsc = !sortAsc;
+    else { sortField = field; sortAsc = true; }
+    renderScreenerTable();
+  }
+
+  function changePage(delta) {
+    const maxPage = Math.ceil(filteredList.length / pageSize) || 1;
+    currentPage = Math.max(1, Math.min(maxPage, currentPage + delta));
+    renderScreenerTable();
+  }
+
+  function renderScreenerTable() {
+    const tbody = document.getElementById('screener-tbody');
+    const searchVal = document.getElementById('search-ticker').value.trim().toUpperCase();
+
+    let list = Object.keys(stockUniverse).map(ticker => {
+      const s = stockUniverse[ticker];
+      const dcf = computeDCF(s);
+      return { ticker, ...s, ...dcf };
+    });
+
+    if (currentValFilter === 'UNDERVALUED') list = list.filter(item => item.isUndervalued);
+    else if (currentValFilter === 'OVERVALUED') list = list.filter(item => !item.isUndervalued);
+
+    if (currentExchFilter !== 'ALL') list = list.filter(item => item.exchange === currentExchFilter);
+
+    if (searchVal) {
+      list = list.filter(item => 
+        item.ticker.includes(searchVal) || 
+        item.name.toUpperCase().includes(searchVal) || 
+        item.exchange.includes(searchVal)
+      );
+    }
+
+    list.sort((a, b) => {
+      let va = a[sortField];
+      let vb = b[sortField];
+      if (typeof va === 'string') return sortAsc ? va.localeCompare(vb) : vb.localeCompare(va);
+      return sortAsc ? va - vb : vb - va;
+    });
+
+    filteredList = list;
+
+    const allCalc = Object.keys(stockUniverse).map(t => computeDCF(stockUniverse[t]));
+    const totalCount = allCalc.length;
+    const underCount = allCalc.filter(x => x.isUndervalued).length;
+    const overCount = totalCount - underCount;
+    const avgWacc = (allCalc.reduce((acc, cur) => acc + cur.WACC, 0) / (totalCount || 1)) * 100;
+
+    document.getElementById('stat-total').innerText = `${totalCount} 檔 (NYSE & NASDAQ)`;
+    document.getElementById('stat-undervalued').innerText = `${underCount} 檔 (${totalCount > 0 ? ((underCount/totalCount)*100).toFixed(0) : 0}%)`;
+    document.getElementById('stat-overvalued').innerText = `${overCount} 檔 (${totalCount > 0 ? ((overCount/totalCount)*100).toFixed(0) : 0}%)`;
+    document.getElementById('stat-avg-wacc').innerText = `${avgWacc.toFixed(2)}%`;
+
+    const maxPage = Math.ceil(filteredList.length / pageSize) || 1;
+    if (currentPage > maxPage) currentPage = maxPage;
+    const startIdx = (currentPage - 1) * pageSize;
+    const endIdx = Math.min(startIdx + pageSize, filteredList.length);
+    const pageItems = filteredList.slice(startIdx, endIdx);
+
+    document.getElementById('page-info').innerText = `顯示 ${filteredList.length > 0 ? startIdx + 1 : 0} - ${endIdx} 筆 (共 ${filteredList.length} 檔)`;
+    document.getElementById('page-current').innerText = `第 ${currentPage} / ${maxPage} 頁`;
+    document.getElementById('btn-prev').disabled = currentPage <= 1;
+    document.getElementById('btn-next').disabled = currentPage >= maxPage;
+
+    tbody.innerHTML = pageItems.map(item => {
+      const badgeHtml = item.isUndervalued
+        ? `<span class="badge badge-undervalued">低估 ${item.premiumPct.toFixed(1)}%</span>`
+        : `<span class="badge badge-overvalued">高估 +${item.premiumPct.toFixed(1)}%</span>`;
+
+      const exchBadge = item.exchange === 'NYSE' 
+        ? `<span class="badge badge-exch-nyse">NYSE</span>`
+        : `<span class="badge badge-exch-nasdaq">NASDAQ</span>`;
+
+      return `
+        <tr>
+          <td><a class="ticker-link" onclick="openDetail('${item.ticker}')">${item.ticker}</a></td>
+          <td>${exchBadge}</td>
+          <td><div style="font-weight: 600; color: #fff;">${item.name}</div></td>
+          <td style="font-weight: 700; color: var(--accent);">$${item.price.toFixed(2)}</td>
+          <td class="text-green" style="font-size: 14px; font-weight: 700;">$${item.fairVal.toFixed(2)}</td>
+          <td>${badgeHtml}</td>
+          <td>
+            <div>${(item.WACC * 100).toFixed(2)}%</div>
+            <div style="font-size: 11px; color: var(--text-muted);">g: ${item.g.toFixed(2)}%</div>
+          </td>
+          <td>
+            <div>$${(item.EV).toLocaleString(undefined, {maximumFractionDigits: 0})} M</div>
+            <div style="font-size: 11px; color: var(--text-muted);">淨債: $${(item.NetDebt).toLocaleString(undefined, {maximumFractionDigits: 0})} M</div>
+          </td>
+          <td style="text-align: center;">
+            <button class="btn-nav" onclick="openDetail('${item.ticker}')">深度模型 →</button>
+          </td>
+        </tr>
+      `;
+    }).join('');
+  }
+
+  function openDetail(ticker) {
+    activeDetailTicker = ticker;
+    showView('detail');
+  }
+
+  function loadDetailTicker(ticker) {
+    const s = stockUniverse[ticker];
+    document.getElementById('det-ticker').innerText = ticker;
+    document.getElementById('det-name').innerText = s.name;
+    const exchEl = document.getElementById('det-exchange');
+    exchEl.innerText = s.exchange;
+    exchEl.className = s.exchange === 'NYSE' ? 'badge badge-exch-nyse' : 'badge badge-exch-nasdaq';
+
+    document.getElementById('inp-price').value = s.price;
+    document.getElementById('inp-shares').value = s.shares;
+    document.getElementById('inp-debt').value = s.debt;
+    document.getElementById('inp-cash').value = s.cash;
+    document.getElementById('inp-fcf0').value = s.fcf0;
+    document.getElementById('inp-rf').value = (commonRf * 100).toFixed(2);
+    document.getElementById('inp-erp').value = (commonERP * 100).toFixed(2);
+    document.getElementById('inp-beta').value = s.beta;
+    document.getElementById('inp-kd').value = s.kd;
+    document.getElementById('inp-tax').value = s.tax;
+    document.getElementById('inp-g').value = s.g;
+    document.getElementById('inp-g-stage1').value = s.g1;
+    document.getElementById('inp-g-stage2').value = s.g2;
+
+    recalculateDetail();
+  }
+
+  function onDetailParamChange() {
+    const s = stockUniverse[activeDetailTicker];
+    s.price = parseFloat(document.getElementById('inp-price').value) || 0;
+    s.shares = parseFloat(document.getElementById('inp-shares').value) || 1;
+    s.debt = parseFloat(document.getElementById('inp-debt').value) || 0;
+    s.cash = parseFloat(document.getElementById('inp-cash').value) || 0;
+    s.fcf0 = parseFloat(document.getElementById('inp-fcf0').value) || 0;
+    s.beta = parseFloat(document.getElementById('inp-beta').value) || 1;
+    s.kd = parseFloat(document.getElementById('inp-kd').value) || 0;
+    s.tax = parseFloat(document.getElementById('inp-tax').value) || 0;
+    s.g = parseFloat(document.getElementById('inp-g').value) || 2.25;
+    recalculateDetail();
+  }
+
+  function onDetailGrowthChange() {
+    const s = stockUniverse[activeDetailTicker];
+    s.g1 = parseFloat(document.getElementById('inp-g-stage1').value) || 5;
+    s.g2 = parseFloat(document.getElementById('inp-g-stage2').value) || 3.5;
+    recalculateDetail();
+  }
+
+  function recalculateDetail() {
+    const s = stockUniverse[activeDetailTicker];
+    const dcf = computeDCF(s);
+
+    document.getElementById('det-res-fair').innerText = `$${dcf.fairVal.toFixed(2)}`;
+    document.getElementById('det-res-price').innerText = `$${s.price.toFixed(2)}`;
+    
+    const badgeEl = document.getElementById('det-badge');
+    const premEl = document.getElementById('det-res-premium');
+    if (dcf.isUndervalued) {
+      badgeEl.className = "badge badge-undervalued";
+      badgeEl.innerText = `低估 ${dcf.premiumPct.toFixed(1)}% (具安全邊際)`;
+      premEl.innerHTML = `<span class="text-green">低估 ${dcf.premiumPct.toFixed(1)}%</span>`;
+      document.getElementById('det-res-status').innerText = `市價低於內在價值，具備安全邊際`;
+    } else {
+      badgeEl.className = "badge badge-overvalued";
+      badgeEl.innerText = `高估 +${dcf.premiumPct.toFixed(1)}% (市價溢價)`;
+      premEl.innerHTML = `<span class="text-red">高估 +${dcf.premiumPct.toFixed(1)}%</span>`;
+      document.getElementById('det-res-status').innerText = `市價高於內在價值，留意回撤風險`;
+    }
+
+    document.getElementById('det-res-wacc').innerText = `${(dcf.WACC * 100).toFixed(2)}%`;
+    document.getElementById('det-res-g').innerText = `${s.g.toFixed(2)}%`;
+    document.getElementById('det-res-spread').innerText = `${((dcf.WACC - (s.g/100)) * 100).toFixed(2)}%`;
+    document.getElementById('det-res-ev').innerText = `$${dcf.EV.toLocaleString(undefined, {maximumFractionDigits: 0})} M`;
+    document.getElementById('det-res-netdebt').innerText = `$${dcf.NetDebt.toLocaleString(undefined, {maximumFractionDigits: 0})} M`;
+
+    renderDCFTable(dcf.growth, dcf.fcfList, dcf.dfList, dcf.pvList);
+    renderSensitivity(dcf.fcfList[9], dcf.NetDebt, s.shares, dcf.WACC, s.g / 100, s.fcf0, dcf.growth);
+  }
+
+  function renderDCFTable(growth, fcfs, dfs, pvs) {
+    let head = '<th>年份 (Period)</th>';
+    let rowGrowth = '<td>年增長率 (%)</td>';
+    let rowFCF = '<td>自由現金流 ($M)</td>';
+    let rowDF = '<td>折現因子</td>';
+    let rowPV = '<td>折現現值 ($M)</td>';
+
+    for (let i = 0; i < 10; i++) {
+      head += `<th>Y${i + 1}</th>`;
+      rowGrowth += `<td>${(growth[i] * 100).toFixed(1)}%</td>`;
+      rowFCF += `<td>${fcfs[i].toFixed(1)}</td>`;
+      rowDF += `<td>${dfs[i].toFixed(4)}</td>`;
+      rowPV += `<td>${pvs[i].toFixed(1)}</td>`;
+    }
+    document.getElementById('dcf-head').innerHTML = head;
+    document.getElementById('dcf-growth').innerHTML = rowGrowth;
+    document.getElementById('dcf-fcf').innerHTML = rowFCF;
+    document.getElementById('dcf-factor').innerHTML = rowDF;
+    document.getElementById('dcf-pv').innerHTML = rowPV;
+  }
+
+  function renderSensitivity(fcf10, netDebt, shares, baseWACC, baseG, fcf0, growth) {
+    const gList = [baseG - 0.005, baseG, baseG + 0.005];
+    const waccList = [baseWACC - 0.005, baseWACC, baseWACC + 0.005];
+
+    document.getElementById('th-g1').innerText = `${(gList[0] * 100).toFixed(2)}%`;
+    document.getElementById('th-g2').innerText = `${(gList[1] * 100).toFixed(2)}% (基準)`;
+    document.getElementById('th-g3').innerText = `${(gList[2] * 100).toFixed(2)}%`;
+
+    let tbody = '';
+    waccList.forEach((w, wIdx) => {
+      const isBaseW = (wIdx === 1);
+      tbody += `<tr><td><strong>${(w * 100).toFixed(2)}%${isBaseW ? ' (基準)' : ''}</strong></td>`;
+      gList.forEach((gVal, gIdx) => {
+        const isBaseG = (gIdx === 1);
+        let cellVal = 0;
+        if (w > gVal) {
+          let recomputedSumPV = 0;
+          let tempFCF = fcf0;
+          for (let t = 1; t <= 10; t++) {
+            tempFCF = tempFCF * (1 + growth[t - 1]);
+            recomputedSumPV += tempFCF / Math.pow(1 + w, t);
+          }
+          const fcf11 = tempFCF * (1 + gVal);
+          const tv = fcf11 / (w - gVal);
+          const pvTV = tv / Math.pow(1 + w, 10);
+          const eqVal = (recomputedSumPV + pvTV) - netDebt;
+          cellVal = eqVal / shares;
+        }
+        const isBase = isBaseW && isBaseG;
+        tbody += `<td class="sens-cell ${isBase ? 'sens-base text-green' : ''}">$${cellVal.toFixed(2)}</td>`;
+      });
+      tbody += `</tr>`;
+    });
+    document.getElementById('sens-body').innerHTML = tbody;
+  }
+
+  window.onload = loadMarketData;
+</script>
+</body>
+</html>
