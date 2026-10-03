@@ -389,9 +389,9 @@
   }
 
   // ================= 多通道高速載入與保底機制 =================
-  async function loadMarketData() {
+async function loadMarketData() {
     const statusEl = document.getElementById('data-status');
-    statusEl.innerText = "⚡ 正在連線全市場資料庫...";
+    statusEl.innerText = "⚡ 正在連線全市場即時資料庫...";
 
     const bustToken = new Date().getTime();
     const urls = [
@@ -408,7 +408,7 @@
           const count = Object.keys(data).length;
           if (data && count > 0) {
             stockUniverse = data;
-            statusEl.innerHTML = `🟢 已成功載入全市場 ${count} 檔最新美股數據 (每日盤後自動同步)`;
+            statusEl.innerHTML = `🟢 已成功載入全市場 ${count} 檔最新美股真實數據 (NYSE, NASDAQ, AMEX)`;
             loaded = true;
             syncStateWithUrl();
             break;
@@ -416,6 +416,11 @@
         }
       } catch (err) {}
     }
+
+    if (!loaded) {
+      statusEl.innerHTML = `⚠️ 正在等待 GitHub Actions 產出全市場數據，請至 Actions 觸發運行...`;
+    }
+  }
 
     if (!loaded) {
       // 容錯保底：直接載入真實藍籌核心庫，絕不呈現 0 檔
