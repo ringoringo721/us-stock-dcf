@@ -2,9 +2,8 @@ name: Daily US Stock Market DCF Auto-Refresh
 
 on:
   schedule:
-    # 每天美東時間 17:30 (UTC 21:30) 美股盤後自動執行一次
     - cron: '30 21 * * 1-5'
-  workflow_dispatch: # 支援在 GitHub 網頁上手動點擊立即刷新
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -22,11 +21,9 @@ jobs:
           python-version: '3.10'
 
       - name: Install Packages
-        run: pip install pandas requests yfinance
+        run: pip install requests
 
       - name: Run Market Engine
-        env:
-          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
         run: python build_full_market.py
 
       - name: Commit & Push New JSON
@@ -34,5 +31,5 @@ jobs:
           git config --global user.name "Market-DCF-Bot"
           git config --global user.email "bot@dcf.local"
           git add full_market_dcf.json
-          git commit -m "Auto refresh full market DCF with real fundamentals" || echo "No changes"
+          git commit -m "Auto refresh full market DCF with real fundamentals" || exit 0
           git push
