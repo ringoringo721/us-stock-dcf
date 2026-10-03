@@ -431,6 +431,7 @@
 
   // 前端即時抓取最新收盤股價並重新推導 DCF
 // 前端即時抓取最新收盤股價並自動重算 DCF
+// 前端點擊按鈕即時抓取最新成交市價並自動重算 DCF
   async function refreshCurrentPageQuotes() {
     const btn = document.getElementById('btn-refresh-quotes');
     const statusEl = document.getElementById('data-status');
@@ -448,36 +449,37 @@
     }
 
     let updatedCount = 0;
-    const tickers = currentPageItems.map(item => item.ticker.replace('.', '-')).join(',');
+    const stooqQuery = currentPageItems.map(item => `${item.ticker.toLowerCase().replace('.', '-')}.us`).join('+');
 
     try {
-      // 透過官方直接查詢與備用節點
-      const targetApi = `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${tickers}&fields=regularMarketPrice`;
-      const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(targetApi)}`;
+      const url = `https://stooq.com/q/l/?s=${stooqQuery}&f=sd2t2ohlcv&h&e=csv`;
+      const res = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`, { cache: "no-store" });
       
-      const res = await fetch(proxyUrl, { cache: "no-store" });
       if (res.ok) {
-        const data = await res.json();
-        const quotes = data.quoteResponse ? data.quoteResponse.result : [];
-
-        quotes.forEach(q => {
-          const sym = q.symbol.replace('-', '.').toUpperCase();
-          const newPrice = q.regularMarketPrice;
-          if (newPrice && newPrice > 0 && stockUniverse[sym]) {
-            stockUniverse[sym].price = Math.round(newPrice * 100) / 100;
-            // 連帶重算市值
-            if (stockUniverse[sym].shares) {
-              stockUniverse[sym].mcap = Math.round(stockUniverse[sym].price * stockUniverse[sym].shares * 10) / 10;
+        const text = await res.text();
+        const lines = text.trim().split('\n');
+        
+        for (let i = 1; i < lines.length; i++) {
+          const cols = lines[i].split(',');
+          if (cols.length >= 7) {
+            const sym = cols[0].toUpperCase().replace('.US', '').replace('-', '.');
+            const closePrice = parseFloat(cols[6]);
+            
+            if (!isNaN(closePrice) && closePrice > 0 && stockUniverse[sym]) {
+              stockUniverse[sym].price = Math.round(closePrice * 100) / 100;
+              if (stockUniverse[sym].shares) {
+                stockUniverse[sym].mcap = Math.round(stockUniverse[sym].price * stockUniverse[sym].shares * 10) / 10;
+              }
+              updatedCount++;
             }
-            updatedCount++;
           }
-        });
+        }
 
         renderScreenerTable();
-        statusEl.innerHTML = `🟢 成功同步當頁 ${updatedCount} 檔最新真實成交股價！`;
+        statusEl.innerHTML = `🟢 成功同步當頁 ${updatedCount} 檔最新真實市場成交價！`;
       }
     } catch (err) {
-      statusEl.innerHTML = `⚠️ 即時報價拉取逾時，已保留資料庫當前最新價`;
+      statusEl.innerHTML = `⚠️ 即時行情連線延遲，維持當前資料庫報價`;
     } finally {
       btn.disabled = false;
       btn.innerText = "🔄 即時刷新當頁最新股價";
