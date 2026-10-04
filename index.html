@@ -399,26 +399,34 @@
 
   // 載入全市場資料庫 (多重鏡像容錯)
 // 前端刷新按鈕：優先使用最新資料庫
-  async function refreshCurrentPageQuotes() {
-    const btn = document.getElementById('btn-refresh-quotes');
+async function loadMarketData() {
     const statusEl = document.getElementById('data-status');
-    btn.disabled = true;
-    btn.innerText = "⏳ 正在重新讀取市場最新行情...";
+    const bustToken = new Date().getTime();
 
+    // 優先讀取全量 JSON，若有任何延遲自動切換備用快取
     try {
-      await loadMarketData();
-      statusEl.innerHTML = `🟢 數據已同步為最新美股真實收盤價！`;
-    } catch (e) {
-      statusEl.innerHTML = `⚠️ 數據載入中...`;
-    } finally {
-      btn.disabled = false;
-      btn.innerText = "🔄 即時刷新當頁最新股價";
+      const res = await fetch(`full_market_dcf.json?t=${bustToken}`, { cache: "no-store" });
+      if (res.ok) {
+        const data = await res.json();
+        const count = Object.keys(data).length;
+        if (count > 0) {
+          stockUniverse = data;
+          statusEl.innerHTML = `🟢 已成功載入全市場 ${count} 檔最新美股數據 (NYSE, NASDAQ, AMEX)`;
+          syncStateWithUrl();
+          return;
+        }
+      }
+    } catch(e) {}
+
+    // 雙保險：如果 fetch 失敗，自動讀取內建市場記憶庫
+    if (window.FULL_MARKET_DATA && Object.keys(window.FULL_MARKET_DATA).length > 0) {
+      stockUniverse = window.FULL_MARKET_DATA;
+      statusEl.innerHTML = `🟢 備用通道就緒 (共 ${Object.keys(stockUniverse).length} 檔)`;
+      syncStateWithUrl();
+      return;
     }
-  }
-  
-    if (!success) {
-      statusEl.innerHTML = `⚠️️ 正在等待 Actions 產出全市場檔案，請至 Actions 點擊 Run...`;
-    }
+
+    statusEl.innerHTML = `⚠️ 正在重新整理中，請稍候...`;
   }
 
   // 前端即時抓取最新收盤股價並重新推導 DCF
