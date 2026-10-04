@@ -92,29 +92,25 @@ def fetch_stock_full_data(sym, default_shares, default_g1):
         cur_liab = float(bs.get("totalCurrentLiabilities") or 1.0)
 
         liab_r = round((total_liab / total_assets) * 100.0, 1)
-        # 動態計算 Cash / Total Assets (%)
         cash_to_assets = round((tot_cash / total_assets) * 100.0, 1) if total_assets > 0 else 0.0
         cr = round(cur_assets / cur_liab, 2)
 
-    # 靜態 P/B = 總市值 / 股東權益
     pb_trailing = round((mcap * 1e6) / equity, 1) if equity > 0 else 8.5
     pb_forward = round(pb_trailing * 0.90, 1)
 
     time.sleep(0.08)
 
-    # 3. 最新 TTM 利潤表 (提取 4 季累計淨利潤)
+    # 3. 最新 TTM 利潤表
     inc_data = fetch_stable_json("income-statement", {"symbol": sym, "period": "quarter", "limit": 4})
     ttm_net_income = 0.0
     if inc_data and isinstance(inc_data, list) and len(inc_data) > 0:
         ttm_net_income = sum(float(item.get("netIncome") or 0.0) for item in inc_data)
 
-    # 靜態 P/E = 市值 / TTM 淨利潤
     if ttm_net_income > 0:
         pe_trailing = round((mcap * 1e6) / ttm_net_income, 1)
     else:
         pe_trailing = 30.0
 
-    # 動態計算 ROE 與 ROA
     roe = round((ttm_net_income / equity) * 100.0, 1) if equity > 0 and ttm_net_income > 0 else 25.0
     roa = round((ttm_net_income / total_assets) * 100.0, 1) if total_assets > 0 and ttm_net_income > 0 else 12.0
 
@@ -131,7 +127,7 @@ def fetch_stock_full_data(sym, default_shares, default_g1):
 
     time.sleep(0.08)
 
-    # 5. 分析師預估端點 (動態 P/E 與成長率 g1)
+    # 5. 分析師預估端點
     est_data = fetch_stable_json("analyst-estimates", {"symbol": sym, "limit": 4})
     g1 = default_g1
     pe_forward = 0.0
@@ -179,7 +175,7 @@ def fetch_stock_full_data(sym, default_shares, default_g1):
 
 def main():
     print("=" * 65)
-    print("🚀 FMP 官方財報三張表與現金/資產比率計算啟動")
+    print("🚀 FMP 官方財報三張表與 FCF/EV、FCF/Mcap 自動化計算啟動")
     print("=" * 65)
 
     results = {}
@@ -225,6 +221,10 @@ def main():
         fair_val = round(eq_val / shares, 2)
         premium_pct = round(((price / fair_val) - 1.0) * 100.0, 1)
 
+        # ===== 新增：計算 FCF/EV 與 FCF/Market Cap (%) =====
+        fcf_to_ev = round((fcf0 / ev) * 100.0, 2) if ev > 0 else 0.0
+        fcf_to_mcap = round((fcf0 / mcap) * 100.0, 2) if mcap > 0 else 0.0
+
         results[sym] = {
             "name": item["name"],
             "exchange": "NASDAQ",
@@ -254,6 +254,8 @@ def main():
             "pb_forward": data["pb_forward"],
             "div_yield": data["div_yield"],
             "ps_ratio": data["ps_ratio"],
+            "fcf_to_ev": fcf_to_ev,
+            "fcf_to_mcap": fcf_to_mcap,
             "liab_to_assets": data["liab_to_assets"],
             "cash_to_assets": data["cash_to_assets"],
             "current_ratio": data["current_ratio"],
@@ -262,7 +264,7 @@ def main():
             "roa": data["roa"]
         }
 
-        print(f"✅ {sym}: 股價=${price} | 現金/資產={data['cash_to_assets']}% | ROE={data['roe']}% | ROA={data['roa']}%")
+        print(f"✅ {sym}: 股價=${price} | FCF/EV={fcf_to_ev}% | FCF/Mcap={fcf_to_mcap}% | 現金/資產={data['cash_to_assets']}%")
 
     with open("full_market_dcf.json", "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
@@ -270,7 +272,7 @@ def main():
     with open("market_data.js", "w", encoding="utf-8") as f:
         f.write(f"window.FULL_MARKET_DATA = {json.dumps(results, ensure_ascii=False, indent=2)};")
 
-    print("\n🎉 完成！已移除 P/Cash 並寫入 Cash/Total Assets。")
+    print("\n🎉 完成！已成功將 FCF/EV 與 FCF/Mcap 寫入 market_data.js。")
 
 if __name__ == "__main__":
     main()
