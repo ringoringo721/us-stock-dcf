@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>美股旗艦 DCF 估值雷達 (200 檔全覆蓋 · EV/EBITDA · F-Score)</title>
+  <title>美股旗艦 DCF 估值雷達 (200 檔 · EV/EBITDA · 槓桿比率 · F-Score)</title>
   <script src="market_data.js"></script>
   <style>
     :root {
@@ -55,7 +55,7 @@
     .search-input { background: #0f172a; border: 1px solid var(--card-border); color: #fff; padding: 6px 12px; border-radius: 6px; font-size: 13px; width: 320px; margin-left: auto; }
     .search-input:focus { border-color: var(--accent); outline: none; }
 
-    /* 滑動按鈕條 */
+    /* 滑動提示條 */
     .scroll-hint-bar {
       display: flex;
       justify-content: space-between;
@@ -81,7 +81,7 @@
     }
     .scroll-arrow-btn:hover { background: var(--accent); color: #0b1120; }
 
-    /* 表格橫向捲動盒 */
+    /* 寬幅表格滾動容器 (3800px 容納所有槓桿指標) */
     .table-scroll-wrapper {
       width: 100% !important;
       max-width: 100% !important;
@@ -100,8 +100,8 @@
     .table-scroll-wrapper::-webkit-scrollbar-thumb { background: #38bdf8; border-radius: 6px; border: 3px solid #0f172a; }
 
     table#screener-table {
-      width: 3400px !important;
-      min-width: 3400px !important;
+      width: 3800px !important;
+      min-width: 3800px !important;
       border-collapse: separate !important;
       border-spacing: 0;
       font-size: 12px;
@@ -135,7 +135,7 @@
     .badge-overvalued { background: var(--red-bg); color: var(--red); border: 1px solid rgba(248, 113, 113, 0.3); }
     .badge-target { background: var(--gold-bg); color: var(--gold); border: 1px solid rgba(251, 191, 36, 0.4); font-weight: 700; }
     
-    /* F-Score 專用標籤 */
+    /* F-Score 徽章 */
     .badge-fscore { cursor: pointer; text-decoration: none; padding: 4px 8px; font-weight: 700; border-radius: 4px; font-size: 11px; }
     .badge-fscore:hover { transform: scale(1.1); filter: brightness(1.2); }
     .fscore-green { background: rgba(74, 222, 128, 0.2); color: var(--green); border: 1px solid rgba(74, 222, 128, 0.5); }
@@ -151,7 +151,7 @@
     .text-gold { color: var(--gold); font-weight: 700; }
     .text-pink { color: var(--fav-pink); font-weight: 700; }
 
-    /* 詳細視圖樣式 */
+    /* 頁面切換架構 */
     #detail-view, #fscore-view { display: none; }
     .detail-header { display: flex; justify-content: space-between; align-items: center; background: var(--card-bg); border: 1px solid var(--card-border); padding: 14px 20px; border-radius: 8px; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; }
     .detail-title { font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
@@ -190,7 +190,7 @@
   <header>
     <div>
       <h1>美股旗艦 DCF 估值雷達 (200 檔)</h1>
-      <span style="font-size: 13px; color: var(--text-muted);">NYSE · NASDAQ · AMEX · EV/EBITDA 倍數 · Piotroski 9 分健康診斷</span>
+      <span style="font-size: 13px; color: var(--text-muted);">NYSE · NASDAQ · AMEX · EV/EBITDA · Debt/EBITDA 槓桿指標 · Piotroski 9 分診斷</span>
     </div>
     <div class="status-badge">
       🟢 FMP 官方財報已完成同步 (全市場覆蓋)
@@ -280,7 +280,9 @@
             <th class="col-fixed-2" onclick="sortTable('exchange')">市場</th>
             <th class="col-fixed-3" onclick="sortTable('name')">企業名稱</th>
             <th onclick="sortTable('f_score')" style="width: 105px; text-align: center;">F-Score 評分</th>
-            <th onclick="sortTable('ev_to_ebitda')" style="width: 110px;">EV/EBITDA</th>
+            <th onclick="sortTable('ev_to_ebitda')" style="width: 110px;">EV / EBITDA</th>
+            <th onclick="sortTable('debt_to_ebitda')" style="width: 115px;">Debt / EBITDA</th>
+            <th onclick="sortTable('net_debt_to_ebitda')" style="width: 130px;">Net Debt / EBITDA</th>
             <th onclick="sortTable('sector')" style="text-align: left; width: 120px;">主板塊</th>
             <th onclick="sortTable('industry')" style="text-align: left; width: 180px;">細分子行業</th>
             <th onclick="sortTable('price')" style="width: 110px;">最新股價 ($)</th>
@@ -347,9 +349,9 @@
         <div style="font-size: 11px; color: var(--text-muted);">終值 g: <span id="det-res-g">0.00%</span> | 利差: <span id="det-res-spread">0.00%</span></div>
       </div>
       <div class="stat-box">
-        <div class="stat-label">企業價值 EV / EV/EBITDA</div>
+        <div class="stat-label">企業價值 EV / 槓桿比率</div>
         <div class="stat-num" id="det-res-ev">$0 M</div>
-        <div style="font-size: 11px; color: var(--text-muted);">倍數: <span id="det-res-evebitda">--</span> | 淨負債: <span id="det-res-netdebt">$0 M</span></div>
+        <div style="font-size: 11px; color: var(--text-muted);">EV/EBITDA: <span id="det-res-evebitda">--</span> | Net Debt/EBITDA: <span id="det-res-nde">--</span></div>
       </div>
     </div>
 
@@ -786,9 +788,16 @@
       if (fScoreVal >= 7) fScoreClass = "fscore-green";
       else if (fScoreVal <= 3) fScoreClass = "fscore-red";
 
+      // Net Debt / EBITDA 顏色判定 (負值表示淨現金，極安全)
+      let ndeColor = "color: #cbd5e1;";
+      if (item.net_debt_to_ebitda !== undefined) {
+        if (item.net_debt_to_ebitda <= 0) ndeColor = "color: var(--green); font-weight: 700;";
+        else if (item.net_debt_to_ebitda > 3.5) ndeColor = "color: var(--red); font-weight: 700;";
+      }
+
       const netCashColor = item.cash_minus_liab >= 0 ? 'color: var(--green);' : 'color: var(--red);';
       const exchClass = `badge-exch-${item.exchange || 'NASDAQ'}`;
-      const favHeart = item.isFav ? '❤️' : '♡';
+      const favHeart = item.isFav ? '❤️️' : '♡';
       const favActiveClass = item.isFav ? 'active' : '';
 
       return `
@@ -802,7 +811,9 @@
           <td style="text-align: center;">
             <span class="badge-fscore ${fScoreClass}" onclick="openFScore('${item.ticker}')" title="點擊查看皮氏 9 分明細">${fScoreVal} / 9</span>
           </td>
-          <td style="font-weight: 700; color: #38bdf8;">${item.ev_to_ebitda ? item.ev_to_ebitda.toFixed(1) + 'x' : '--'}</td>
+          <td style="font-weight: 700; color: #38bdf8;">${item.ev_to_ebitda !== undefined ? item.ev_to_ebitda.toFixed(1) + 'x' : '--'}</td>
+          <td style="color: #cbd5e1;">${item.debt_to_ebitda !== undefined ? item.debt_to_ebitda.toFixed(2) + 'x' : '--'}</td>
+          <td style="${ndeColor}">${item.net_debt_to_ebitda !== undefined ? item.net_debt_to_ebitda.toFixed(2) + 'x' : '--'}</td>
           <td style="color: #cbd5e1; text-align: left;">${item.sector}</td>
           <td style="color: #94a3b8; font-size: 11px; text-align: left;">${item.industry}</td>
           <td style="font-weight: 700; color: var(--accent);">$${item.price.toFixed(2)}</td>
@@ -1020,7 +1031,8 @@
     document.getElementById('det-res-g').innerText = `${s.g.toFixed(2)}%`;
     document.getElementById('det-res-spread').innerText = `${((dcf.WACC - (s.g/100)) * 100).toFixed(2)}%`;
     document.getElementById('det-res-ev').innerText = `$${dcf.EV.toLocaleString(undefined, {maximumFractionDigits: 0})} M`;
-    document.getElementById('det-res-evebitda').innerText = s.ev_to_ebitda ? `${s.ev_to_ebitda.toFixed(1)}x` : '--';
+    document.getElementById('det-res-evebitda').innerText = s.ev_to_ebitda !== undefined ? `${s.ev_to_ebitda.toFixed(1)}x` : '--';
+    document.getElementById('det-res-nde').innerText = s.net_debt_to_ebitda !== undefined ? `${s.net_debt_to_ebitda.toFixed(2)}x` : '--';
     document.getElementById('det-res-netdebt').innerText = `$${dcf.NetDebt.toLocaleString(undefined, {maximumFractionDigits: 0})} M`;
 
     renderDCFTable(dcf.growth, dcf.fcfList, dcf.dfList, dcf.pvList);
