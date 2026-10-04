@@ -351,16 +351,17 @@ def calculate_piotroski_score(roa, fcf0, cr, liab_r, ttm_net_income):
     return score, items
 
 def main():
-    print(f"🚀 啟動 200 檔美股 DCF + EV/EBITDA + 槓桿指標 (Debt/EBITDA) 引擎...")
+    print(f"🚀 啟動 200 檔美股 DCF + 真實股息率 + EV/EBITDA + 槓桿指標引擎...")
     results = {}
 
     for idx, item in enumerate(UNIQUE_STOCKS, 1):
         sym = item["ticker"]
         fmp_sym = sym.replace(".", "")
 
-        # 1. 抓取真實即時報價
+        # 1. 抓取真實即時報價與股息率
         q_data = fetch_json("quote", {"symbol": fmp_sym})
         price, mcap, shares = 0.0, 0.0, 0.0
+        div_yield_real = 0.0
         if q_data and isinstance(q_data, list) and len(q_data) > 0:
             q = q_data[0]
             price = float(q.get("price") or 0.0)
@@ -370,6 +371,10 @@ def main():
                 shares = round(mcap_raw / price / 1e6, 2)
             else:
                 shares = float(q.get("sharesOutstanding") or 0.0) / 1e6
+            
+            # 真實股息率讀取 (FMP quote 中通常為 dividendYield 或 yield)
+            raw_yield = q.get("dividendYield") or q.get("yield") or 0.0
+            div_yield_real = round(float(raw_yield), 2)
 
         if price <= 0: price = 150.0
         if mcap <= 0: mcap = 100000.0
@@ -412,13 +417,20 @@ def main():
         roa = round((ttm_net_income / total_assets) * 100.0, 1) if total_assets > 0 and ttm_net_income > 0 else 8.0
         time.sleep(0.04)
 
-        # 4. 現金流量表 (TTM FCF)
+        # 4. 現金流量表 (TTM FCF 及 真實現金分紅)
         cf_data = fetch_json("cash-flow-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 4})
         fcf0 = 0.0
+        ttm_dividends_paid = 0.0
         if cf_data and isinstance(cf_data, list) and len(cf_data) > 0:
             fcf_sum = sum(float(x.get("freeCashFlow") or 0.0) for x in cf_data)
             fcf0 = round(fcf_sum / 1e6, 1)
+            # 現金流量表中的現金分紅 (通常為負值)
+            ttm_dividends_paid = abs(sum(float(x.get("dividendsPaid") or x.get("commonStockDividendsPaid") or 0.0) for x in cf_data))
         if fcf0 <= 0: fcf0 = round(mcap * 0.038, 1)
+        
+        # 若 quote 中沒有股息率，使用近四季真實支付現金股息/市值進行兜底計算
+        if div_yield_real <= 0 and mcap > 0 and ttm_dividends_paid > 0:
+            div_yield_real = round((ttm_dividends_paid / (mcap * 1e6)) * 100.0, 2)
         time.sleep(0.04)
 
         # 5. 分析師預測
@@ -455,7 +467,7 @@ def main():
         fair_val = round(eq_val / shares, 2)
         premium_pct = round(((price / fair_val) - 1.0) * 100.0, 1)
 
-        # 核心槓桿指標計算 (EV/EBITDA, Debt/EBITDA, Net Debt/EBITDA)
+        # 槓桿與倍數
         ebitda_m = ttm_ebitda / 1e6
         if ebitda_m > 0:
             ev_to_ebitda = round(ev / ebitda_m, 1)
@@ -466,7 +478,7 @@ def main():
             debt_to_ebitda = round(debt / max(fcf0, 1.0), 2)
             net_debt_to_ebitda = round(net_debt / max(fcf0, 1.0), 2)
 
-        # Piotroski F-Score 9 分明細計算
+        # Piotroski F-Score
         f_score, f_score_breakdown = calculate_piotroski_score(roa, fcf0, cr, liab_r, ttm_net_income)
 
         fcf_to_ev = round((fcf0 / ev) * 100.0, 2) if ev > 0 else 0.0
@@ -505,7 +517,7 @@ def main():
             "pe_forward": pe_forward,
             "pb_trailing": pb_trailing,
             "pb_forward": pb_forward,
-            "div_yield": 1.25 if item["sector"] in ["公用事業", "必需消費", "能源"] else 0.45,
+            "div_yield": div_yield_real,
             "ps_ratio": round(mcap / max(fcf0 * 4.0, 1.0), 1),
             "fcf_to_ev": fcf_to_ev,
             "fcf_to_mcap": fcf_to_mcap,
@@ -517,7 +529,7 @@ def main():
             "roa": roa
         }
 
-        print(f"[{idx:03d}/200] ✅ {sym} ({item['exchange']}) - 股價=${price} | EV/EBITDA={ev_to_ebitda}x | Debt/EBITDA={debt_to_ebitda}x | F-Score={f_score}/9")
+        print(f"[{idx:03d}/200] ✅ {sym} ({item['exchange']}) - 股息率={div_yield_real}% | EV/EBITDA={ev_to_ebitda}x | F-Score={f_score}/9")
 
     with open("full_market_dcf.json", "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
@@ -525,7 +537,7 @@ def main():
     with open("market_data.js", "w", encoding="utf-8") as f:
         f.write(f"window.FULL_MARKET_DATA = {json.dumps(results, ensure_ascii=False, indent=2)};")
 
-    print(f"\n🎉 成功！全市場 200 檔完整財務模型、Debt/EBITDA 槓桿指標已全數寫入！")
+    print(f"\n🎉 成功！全市場 200 檔真實股息率與槓桿指標已全數寫入！")
 
 if __name__ == "__main__":
     main()
