@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>美股旗艦 DCF 估值雷達 (200 檔全覆蓋 · 巴菲特護城河評分與診斷)</title>
-  <script src="market_data.js?v=20261004_v10"></script>
+  <title>美股旗艦 DCF 估值雷達 (200 檔全覆蓋 · 巴菲特護城河評分修正版)</title>
+  <script src="market_data.js?v=20261004_v11"></script>
   <style>
     :root {
       --bg: #0b1120;
@@ -610,8 +610,8 @@
     "LOW": 1.85, "HON": 2.10, "LMT": 2.65, "DE": 1.50, "EPD": 7.15
   };
 
-  // ==================== 巴菲特 10 大護城河深度資料庫 (含權威依據與評語) ====================
-  const MOAT_SCORES_DATABASE = {
+  // ==================== 全域巴菲特護城河權威資料庫 (徹底離散化) ====================
+  const GLOBAL_MOAT_SCORES = {
     // 🏆 頂級收稅站與壟斷城堡 (88 - 95 分)
     "AAPL": {
       m: [10, 9, 10, 9, 9, 8, 10, 10, 9, 10],
@@ -791,40 +791,34 @@
     }
   };
 
-  function evaluateMoat(s) {
-    const sym = s.ticker;
-    const sec = s.sector;
-    const roe = s.roe || 12;
-    const roa = s.roa || 6;
+  // 防呆智慧匹配函式（保證 100% 正確抓到代號與資料庫）
+  function evaluateMoat(s, explicitTicker) {
+    const rawSym = explicitTicker || (s && s.ticker) || "";
+    const sym = rawSym.toUpperCase().trim();
+    const sec = (s && s.sector) || "其他";
+    const roe = (s && s.roe) || 12;
+    const roa = (s && s.roa) || 6;
 
     let m = [6, 6, 6, 5, 6, 6, 6, 6, 6, 6];
     let ref = "巴菲特價值投資模型 · 綜合研究評估";
     let comment = "";
 
-    if (MOAT_SCORES_DATABASE[sym]) {
-      m = MOAT_SCORES_DATABASE[sym].m;
-      ref = MOAT_SCORES_DATABASE[sym].ref || ref;
-      comment = MOAT_SCORES_DATABASE[sym].note;
+    // 1. 強制精準命中全域資料庫
+    if (GLOBAL_MOAT_SCORES[sym]) {
+      m = GLOBAL_MOAT_SCORES[sym].m;
+      ref = GLOBAL_MOAT_SCORES[sym].ref || ref;
+      comment = GLOBAL_MOAT_SCORES[sym].note;
     } else {
-      if (sec === "資訊科技") {
-        m = [7, 7, 7, 6, 6, 5, 7, 6, 5, 6]; // ~62分
-      } else if (sec === "醫療保健") {
-        m = [7, 8, 6, 4, 6, 6, 7, 7, 6, 6]; // ~63分
-      } else if (sec === "金融") {
-        m = [6, 6, 6, 6, 6, 6, 6, 6, 6, 6]; // ~60分
-      } else if (sec === "必需消費") {
-        m = [7, 6, 5, 4, 7, 6, 6, 7, 7, 6]; // ~61分
-      } else if (sec === "非必需消費") {
-        m = [6, 5, 5, 4, 6, 5, 5, 5, 5, 5]; // ~51分
-      } else if (sec === "工業") {
-        m = [6, 6, 6, 4, 6, 6, 6, 6, 6, 6]; // ~58分
-      } else if (sec === "公用事業") {
-        m = [5, 5, 5, 3, 6, 8, 5, 6, 7, 5]; // ~55分
-      } else if (sec === "能源" || sec === "原物料") {
-        m = [5, 4, 4, 3, 6, 6, 5, 5, 5, 5]; // ~48分
-      } else {
-        m = [5, 5, 5, 4, 5, 5, 5, 5, 5, 5]; // ~49分
-      }
+      // 2. 未收錄者依板塊壁壘給分
+      if (sec === "資訊科技") m = [7, 7, 7, 6, 6, 5, 7, 6, 5, 6]; // ~62分
+      else if (sec === "醫療保健") m = [7, 8, 6, 4, 6, 6, 7, 7, 6, 6]; // ~63分
+      else if (sec === "金融") m = [6, 6, 6, 6, 6, 6, 6, 6, 6, 6]; // ~60分
+      else if (sec === "必需消費") m = [7, 6, 5, 4, 7, 6, 6, 7, 7, 6]; // ~61分
+      else if (sec === "非必需消費") m = [6, 5, 5, 4, 6, 5, 5, 5, 5, 5]; // ~51分
+      else if (sec === "工業") m = [6, 6, 6, 4, 6, 6, 6, 6, 6, 6]; // ~58分
+      else if (sec === "公用事業") m = [5, 5, 5, 3, 6, 8, 5, 6, 7, 5]; // ~55分
+      else if (sec === "能源" || sec === "原物料") m = [5, 4, 4, 3, 6, 6, 5, 5, 5, 5]; // ~48分
+      else m = [5, 5, 5, 4, 5, 5, 5, 5, 5, 5]; // ~49分
 
       if (roe > 28 && roa > 14) {
         m[0] = Math.min(10, m[0] + 1);
@@ -920,11 +914,12 @@
     }
   }
 
-  function computeDCF(s) {
+  function computeDCF(s, explicitTicker) {
+    const sym = explicitTicker || (s && s.ticker) || "";
     let localDebt = s.debt;
     let localCash = s.cash;
     let localFCF0 = s.fcf0;
-    if (s.ticker === "TSM" && localFCF0 > 50000) {
+    if (sym === "TSM" && localFCF0 > 50000) {
       const fx = 32.0;
       localDebt = Math.round(localDebt / fx);
       localCash = Math.round(localCash / fx);
@@ -983,13 +978,14 @@
     const net_debt_to_ebitda = s.net_debt_to_ebitda !== undefined ? s.net_debt_to_ebitda : Math.round((NetDebt / estimatedEbitda) * 100) / 100;
 
     let div_yield = 0.00;
-    if (BENCHMARK_DIV_YIELDS[s.ticker] !== undefined) {
-      div_yield = BENCHMARK_DIV_YIELDS[s.ticker];
+    if (BENCHMARK_DIV_YIELDS[sym] !== undefined) {
+      div_yield = BENCHMARK_DIV_YIELDS[sym];
     } else if (s.div_yield && s.div_yield > 0 && s.div_yield !== 0.45 && s.div_yield !== 1.25) {
       div_yield = s.div_yield;
     }
 
-    const moat = evaluateMoat(s);
+    // 呼叫護城河引擎 (明確帶入代號)
+    const moat = evaluateMoat(s, sym);
 
     let f_score = s.f_score;
     let f_score_breakdown = s.f_score_breakdown;
@@ -1156,7 +1152,7 @@
 
     let list = Object.keys(stockUniverse).map(ticker => {
       const s = stockUniverse[ticker];
-      const dcf = computeDCF(s);
+      const dcf = computeDCF(s, ticker);
       const isSaved = !!savedModels[ticker];
       const isFav = favs.includes(ticker);
       const target_price = isSaved ? savedModels[ticker].targetPrice : null;
@@ -1189,7 +1185,7 @@
       return sortAsc ? (va || 0) - (vb || 0) : (vb || 0) - (va || 0);
     });
 
-    const allCalc = Object.keys(stockUniverse).map(t => computeDCF(stockUniverse[t]));
+    const allCalc = Object.keys(stockUniverse).map(t => computeDCF(stockUniverse[t], t));
     const totalCount = allCalc.length;
     const underCount = allCalc.filter(x => x.isUndervalued).length;
     const overCount = totalCount - underCount;
@@ -1340,7 +1336,7 @@
     exchEl.innerText = s.exchange;
     exchEl.className = `badge badge-exch-${s.exchange || 'NASDAQ'}`;
 
-    const dcf = computeDCF(s);
+    const dcf = computeDCF(s, ticker);
     const moatBadge = document.getElementById('det-moat-badge');
     moatBadge.innerText = `護城河: ${dcf.moat.total}/100 🏆`;
     moatBadge.className = `badge-moat ${dcf.moat.badgeClass}`;
@@ -1404,7 +1400,7 @@
   function recalculateDetail() {
     const s = stockUniverse[activeDetailTicker];
     if (!s) return;
-    const dcf = computeDCF(s);
+    const dcf = computeDCF(s, activeDetailTicker);
 
     document.getElementById('det-res-fair').innerText = `$${dcf.fairVal.toFixed(2)}`;
     document.getElementById('det-res-price').innerText = `$${s.price.toFixed(2)}`;
@@ -1505,7 +1501,7 @@
     exchEl.innerText = s.exchange;
     exchEl.className = `badge badge-exch-${s.exchange || 'NASDAQ'}`;
 
-    const dcf = computeDCF(s);
+    const dcf = computeDCF(s, ticker);
     const moat = dcf.moat;
 
     document.getElementById('moat-total-score').innerText = `${moat.total} / 100`;
@@ -1560,7 +1556,7 @@
     exchEl.innerText = s.exchange;
     exchEl.className = `badge badge-exch-${s.exchange || 'NASDAQ'}`;
 
-    const dcf = computeDCF(s);
+    const dcf = computeDCF(s, ticker);
     const score = dcf.f_score;
     document.getElementById('fsc-total-score').innerText = `${score} / 9 分`;
 
@@ -1614,7 +1610,7 @@
   function saveCustomModel() {
     const s = stockUniverse[activeDetailTicker];
     if (!s) return;
-    const dcf = computeDCF(s);
+    const dcf = computeDCF(s, activeDetailTicker);
     const models = getSavedModels();
 
     models[activeDetailTicker] = {
