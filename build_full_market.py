@@ -11,7 +11,7 @@ DEFAULT_G = 0.0225
 KD = 4.5
 TAX_RATE = 21.0
 
-# 滿額 200 檔美股高市值名冊
+# 200 檔美股高市值名冊
 RAW_STOCK_LIST = [
     # 資訊科技 (38檔)
     {"ticker": "NVDA", "name": "NVIDIA", "exchange": "NASDAQ", "sector": "資訊科技", "industry": "Semiconductors", "default_g1": 22.0},
@@ -31,7 +31,7 @@ RAW_STOCK_LIST = [
     {"ticker": "INTU", "name": "Intuit", "exchange": "NASDAQ", "sector": "資訊科技", "industry": "Application Software", "default_g1": 12.0},
     {"ticker": "NOW", "name": "ServiceNow", "exchange": "NYSE", "sector": "資訊科技", "industry": "Systems Software", "default_g1": 18.0},
     {"ticker": "AMAT", "name": "Applied Materials", "exchange": "NASDAQ", "sector": "資訊科技", "industry": "Semiconductor Materials & Equipment", "default_g1": 10.0},
-    {"ticker": "LRCX", "name": "Lam Research", "exchange": "NASDAQ", "sector": "資訊科技", "industry": "Semiconductor Materials & Equipment", "default_g1": 11.0},
+    {"ticker": "LRCX", "name": "Lam Research", "exchange": "NASDAQ", "sector": "資訊科技", "industry": "Semiconductors", "default_g1": 11.0},
     {"ticker": "MU", "name": "Micron Technology", "exchange": "NASDAQ", "sector": "資訊科技", "industry": "Semiconductors", "default_g1": 15.0},
     {"ticker": "TSM", "name": "TSMC (台積電 ADR)", "exchange": "NYSE", "sector": "資訊科技", "industry": "Semiconductors", "default_g1": 20.0},
     {"ticker": "FICO", "name": "Fair Isaac", "exchange": "NYSE", "sector": "資訊科技", "industry": "Application Software", "default_g1": 14.0},
@@ -298,6 +298,16 @@ def fetch_json(endpoint, params):
             time.sleep(0.5)
     return None
 
+def get_usdtwd_rate():
+    fx_data = fetch_json("quote", {"symbol": "USDTWD"})
+    if fx_data and isinstance(fx_data, list) and len(fx_data) > 0:
+        rate = float(fx_data[0].get("price") or 0.0)
+        if rate > 20.0:
+            print(f"💱 成功獲取最新 USD/TWD 匯率: {rate:.2f}")
+            return rate
+    print("⚠️ 匯率 API 未回應，使用基準匯率: 32.0")
+    return 32.0
+
 def build_10y_growth_schedule(est_data, default_g1, terminal_g):
     fmp_rates = []
     if est_data and isinstance(est_data, list) and len(est_data) >= 2:
@@ -351,17 +361,17 @@ def calculate_piotroski_score(roa, fcf0, cr, liab_r, ttm_net_income):
     return score, items
 
 def main():
-    print(f"🚀 啟動 200 檔美股 DCF + 真實股息率 + EV/EBITDA + 槓桿指標引擎...")
+    print(f"🚀 啟動 200 檔美股 DCF + TSM 匯率對齊引擎...")
+    usd_twd_rate = get_usdtwd_rate()
     results = {}
 
     for idx, item in enumerate(UNIQUE_STOCKS, 1):
         sym = item["ticker"]
         fmp_sym = sym.replace(".", "")
 
-        # 1. 抓取真實即時報價與股息率
+        # 1. 抓取真實即時報價
         q_data = fetch_json("quote", {"symbol": fmp_sym})
         price, mcap, shares = 0.0, 0.0, 0.0
-        div_yield_real = 0.0
         if q_data and isinstance(q_data, list) and len(q_data) > 0:
             q = q_data[0]
             price = float(q.get("price") or 0.0)
@@ -371,10 +381,6 @@ def main():
                 shares = round(mcap_raw / price / 1e6, 2)
             else:
                 shares = float(q.get("sharesOutstanding") or 0.0) / 1e6
-            
-            # 真實股息率讀取 (FMP quote 中通常為 dividendYield 或 yield)
-            raw_yield = q.get("dividendYield") or q.get("yield") or 0.0
-            div_yield_real = round(float(raw_yield), 2)
 
         if price <= 0: price = 150.0
         if mcap <= 0: mcap = 100000.0
@@ -400,8 +406,6 @@ def main():
             cash_to_assets = round((tot_cash / total_assets) * 100.0, 1) if total_assets > 0 else 0.0
             cr = round(cur_assets / cur_liab, 2)
 
-        pb_trailing = round((mcap * 1e6) / equity, 1) if equity > 0 else 5.0
-        pb_forward = round(pb_trailing * 0.90, 1)
         time.sleep(0.04)
 
         # 3. 損益表 (TTM 淨利潤與 EBITDA)
@@ -412,9 +416,6 @@ def main():
             ttm_net_income = sum(float(x.get("netIncome") or 0.0) for x in inc_data)
             ttm_ebitda = sum(float(x.get("ebitda") or x.get("operatingIncome") or 0.0) for x in inc_data)
 
-        pe_trailing = round((mcap * 1e6) / ttm_net_income, 1) if ttm_net_income > 0 else 24.0
-        roe = round((ttm_net_income / equity) * 100.0, 1) if equity > 0 and ttm_net_income > 0 else 18.0
-        roa = round((ttm_net_income / total_assets) * 100.0, 1) if total_assets > 0 and ttm_net_income > 0 else 8.0
         time.sleep(0.04)
 
         # 4. 現金流量表 (TTM FCF 及 真實現金分紅)
@@ -424,17 +425,33 @@ def main():
         if cf_data and isinstance(cf_data, list) and len(cf_data) > 0:
             fcf_sum = sum(float(x.get("freeCashFlow") or 0.0) for x in cf_data)
             fcf0 = round(fcf_sum / 1e6, 1)
-            # 提取近四季支付的現金股息（FMP 欄位為 dividendsPaid 或 netDividendsPaid，數值通常為負）
             for quarter_cf in cf_data:
                 div_val = quarter_cf.get("dividendsPaid") or quarter_cf.get("netDividendsPaid") or quarter_cf.get("commonStockDividendsPaid") or 0.0
                 ttm_dividends_paid += abs(float(div_val))
         
+        # 關鍵折算：台積電 (TSM) 為台幣財報申報，全數除以即時 USD/TWD 匯率換算為 USD
+        if sym == "TSM":
+            debt = round(debt / usd_twd_rate, 1)
+            cash = round(cash / usd_twd_rate, 1)
+            equity = equity / usd_twd_rate
+            total_assets = total_assets / usd_twd_rate
+            ttm_net_income = ttm_net_income / usd_twd_rate
+            ttm_ebitda = ttm_ebitda / usd_twd_rate
+            fcf0 = round(fcf0 / usd_twd_rate, 1)
+            ttm_dividends_paid = ttm_dividends_paid / usd_twd_rate
+
         if fcf0 <= 0: fcf0 = round(mcap * 0.038, 1)
 
-        # 計算真實 TTM 股息率 (%)
         div_yield_real = 0.0
         if mcap > 0 and ttm_dividends_paid > 0:
             div_yield_real = round((ttm_dividends_paid / (mcap * 1e6)) * 100.0, 2)
+
+        pb_trailing = round((mcap * 1e6) / equity, 1) if equity > 0 else 5.0
+        pb_forward = round(pb_trailing * 0.90, 1)
+        pe_trailing = round((mcap * 1e6) / ttm_net_income, 1) if ttm_net_income > 0 else 24.0
+        roe = round((ttm_net_income / equity) * 100.0, 1) if equity > 0 and ttm_net_income > 0 else 18.0
+        roa = round((ttm_net_income / total_assets) * 100.0, 1) if total_assets > 0 and ttm_net_income > 0 else 8.0
+        time.sleep(0.04)
 
         # 5. 分析師預測
         est_data = fetch_json("analyst-estimates", {"symbol": fmp_sym, "limit": 4})
@@ -470,7 +487,6 @@ def main():
         fair_val = round(eq_val / shares, 2)
         premium_pct = round(((price / fair_val) - 1.0) * 100.0, 1)
 
-        # 槓桿與倍數
         ebitda_m = ttm_ebitda / 1e6
         if ebitda_m > 0:
             ev_to_ebitda = round(ev / ebitda_m, 1)
@@ -481,7 +497,6 @@ def main():
             debt_to_ebitda = round(debt / max(fcf0, 1.0), 2)
             net_debt_to_ebitda = round(net_debt / max(fcf0, 1.0), 2)
 
-        # Piotroski F-Score
         f_score, f_score_breakdown = calculate_piotroski_score(roa, fcf0, cr, liab_r, ttm_net_income)
 
         fcf_to_ev = round((fcf0 / ev) * 100.0, 2) if ev > 0 else 0.0
@@ -532,7 +547,7 @@ def main():
             "roa": roa
         }
 
-        print(f"[{idx:03d}/200] ✅ {sym} ({item['exchange']}) - 股息率={div_yield_real}% | EV/EBITDA={ev_to_ebitda}x | F-Score={f_score}/9")
+        print(f"[{idx:03d}/200] ✅ {sym} ({item['exchange']}) - 股價=${price} | 公允價值=${fair_val} | 股息率={div_yield_real}%")
 
     with open("full_market_dcf.json", "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
@@ -540,7 +555,7 @@ def main():
     with open("market_data.js", "w", encoding="utf-8") as f:
         f.write(f"window.FULL_MARKET_DATA = {json.dumps(results, ensure_ascii=False, indent=2)};")
 
-    print(f"\n🎉 成功！全市場 200 檔真實股息率與槓桿指標已全數寫入！")
+    print(f"\n🎉 成功！全市場 200 檔標的已 100% 寫入完畢！")
 
 if __name__ == "__main__":
     main()
