@@ -5,16 +5,15 @@ import time
 
 FMP_KEY = os.environ.get("FMP_API_KEY", "").strip() or "6gYxujhYq3qweE6ohCF6b5zjCrberLaOT"
 
-# 宏觀折現標準基準
 RF = 0.0450        # 10年期美債無風險利率基準 (4.50%)
 ERP = 0.0475       # 股票風險溢價 (4.75%)
 DEFAULT_G = 0.0225 # 永續終值增長率 (2.25%)
 KD = 4.5           # 稅前借貸成本 (4.50%)
 TAX_RATE = 21.0    # 企業所得稅率 (21.0%)
 
-# 美股三大交易所 (NYSE / NASDAQ / AMEX) 完整去重 200+ 檔標的名冊
+# 美股三大交易所 (NYSE / NASDAQ / AMEX) 精確滿額 200 檔高市值標的名冊
 RAW_STOCK_LIST = [
-    # ===== [第 1 批：原有 100+ 檔核心與自選名冊] =====
+    # 資訊科技 (Information Technology) - 38檔
     {"ticker": "NVDA", "name": "NVIDIA", "exchange": "NASDAQ", "sector": "資訊科技", "industry": "Semiconductors", "default_g1": 22.0},
     {"ticker": "AAPL", "name": "Apple", "exchange": "NASDAQ", "sector": "資訊科技", "industry": "Technology Hardware, Storage & Peripherals", "default_g1": 7.5},
     {"ticker": "MSFT", "name": "Microsoft", "exchange": "NASDAQ", "sector": "資訊科技", "industry": "Systems Software", "default_g1": 12.0},
@@ -43,7 +42,18 @@ RAW_STOCK_LIST = [
     {"ticker": "ITRI", "name": "Itron", "exchange": "NASDAQ", "sector": "資訊科技", "industry": "Electronic Equipment & Instruments", "default_g1": 8.5},
     {"ticker": "SNPS", "name": "Synopsys", "exchange": "NASDAQ", "sector": "資訊科技", "industry": "Application Software", "default_g1": 13.0},
     {"ticker": "BR", "name": "Broadridge Financial", "exchange": "NYSE", "sector": "資訊科技", "industry": "Data Processing & Outsourced Services", "default_g1": 7.5},
+    {"ticker": "KLAC", "name": "KLA Corporation", "exchange": "NASDAQ", "sector": "資訊科技", "industry": "Semiconductor Materials & Equipment", "default_g1": 11.5},
+    {"ticker": "MRVL", "name": "Marvell Technology", "exchange": "NASDAQ", "sector": "資訊科技", "industry": "Semiconductors", "default_g1": 14.0},
+    {"ticker": "CDNS", "name": "Cadence Design Systems", "exchange": "NASDAQ", "sector": "資訊科技", "industry": "Application Software", "default_g1": 12.5},
+    {"ticker": "FTNT", "name": "Fortinet", "exchange": "NASDAQ", "sector": "資訊科技", "industry": "Systems Software", "default_g1": 13.0},
+    {"ticker": "PANW", "name": "Palo Alto Networks", "exchange": "NASDAQ", "sector": "資訊科技", "industry": "Systems Software", "default_g1": 15.0},
+    {"ticker": "CRWD", "name": "CrowdStrike", "exchange": "NASDAQ", "sector": "資訊科技", "industry": "Systems Software", "default_g1": 22.0},
+    {"ticker": "WDAY", "name": "Workday", "exchange": "NASDAQ", "sector": "資訊科技", "industry": "Application Software", "default_g1": 13.5},
+    {"ticker": "ANET", "name": "Arista Networks", "exchange": "NYSE", "sector": "資訊科技", "industry": "Communications Equipment", "default_g1": 16.0},
+    {"ticker": "APH", "name": "Amphenol", "exchange": "NYSE", "sector": "資訊科技", "industry": "Electronic Components", "default_g1": 11.0},
+    {"ticker": "TEL", "name": "TE Connectivity", "exchange": "NYSE", "sector": "資訊科技", "industry": "Electronic Components", "default_g1": 6.5},
 
+    # 通訊服務 (Communication Services) - 15檔
     {"ticker": "GOOGL", "name": "Alphabet (Class A)", "exchange": "NASDAQ", "sector": "通訊服務", "industry": "Interactive Media & Services", "default_g1": 11.0},
     {"ticker": "GOOG", "name": "Alphabet (Class C)", "exchange": "NASDAQ", "sector": "通訊服務", "industry": "Interactive Media & Services", "default_g1": 11.0},
     {"ticker": "META", "name": "Meta Platforms", "exchange": "NASDAQ", "sector": "通訊服務", "industry": "Interactive Media & Services", "default_g1": 14.5},
@@ -56,7 +66,11 @@ RAW_STOCK_LIST = [
     {"ticker": "TKO", "name": "TKO Group Holdings", "exchange": "NYSE", "sector": "通訊服務", "industry": "Movies & Entertainment", "default_g1": 12.0},
     {"ticker": "LYV", "name": "Live Nation", "exchange": "NYSE", "sector": "通訊服務", "industry": "Movies & Entertainment", "default_g1": 9.0},
     {"ticker": "IRDM", "name": "Iridium Communications", "exchange": "NASDAQ", "sector": "通訊服務", "industry": "Alternative Carriers", "default_g1": 7.0},
+    {"ticker": "EA", "name": "Electronic Arts", "exchange": "NASDAQ", "sector": "通訊服務", "industry": "Interactive Home Entertainment", "default_g1": 6.5},
+    {"ticker": "TTWO", "name": "Take-Two Interactive", "exchange": "NASDAQ", "sector": "通訊服務", "industry": "Interactive Home Entertainment", "default_g1": 14.0},
+    {"ticker": "WBD", "name": "Warner Bros. Discovery", "exchange": "NASDAQ", "sector": "通訊服務", "industry": "Movies & Entertainment", "default_g1": 3.5},
 
+    # 非必需消費 (Consumer Discretionary) - 24檔
     {"ticker": "AMZN", "name": "Amazon", "exchange": "NASDAQ", "sector": "非必需消費", "industry": "Broadline Retail", "default_g1": 13.0},
     {"ticker": "TSLA", "name": "Tesla", "exchange": "NASDAQ", "sector": "非必需消費", "industry": "Automobile Manufacturers", "default_g1": 16.0},
     {"ticker": "HD", "name": "Home Depot", "exchange": "NYSE", "sector": "非必需消費", "industry": "Home Improvement Retail", "default_g1": 4.5},
@@ -71,7 +85,18 @@ RAW_STOCK_LIST = [
     {"ticker": "MTN", "name": "Vail Resorts", "exchange": "NYSE", "sector": "非必需消費", "industry": "Hotels, Resorts & Cruise Lines", "default_g1": 5.0},
     {"ticker": "SCI", "name": "Service Corp International", "exchange": "NYSE", "sector": "非必需消費", "industry": "Personal Services", "default_g1": 5.0},
     {"ticker": "AZO", "name": "AutoZone", "exchange": "NYSE", "sector": "非必需消費", "industry": "Automotive Retail", "default_g1": 6.5},
+    {"ticker": "MAR", "name": "Marriott International", "exchange": "NASDAQ", "sector": "非必需消費", "industry": "Hotels, Resorts & Cruise Lines", "default_g1": 8.0},
+    {"ticker": "HLT", "name": "Hilton Worldwide", "exchange": "NYSE", "sector": "非必需消費", "industry": "Hotels, Resorts & Cruise Lines", "default_g1": 8.5},
+    {"ticker": "CMG", "name": "Chipotle Mexican Grill", "exchange": "NYSE", "sector": "非必需消費", "industry": "Restaurants", "default_g1": 14.0},
+    {"ticker": "YUM", "name": "Yum! Brands", "exchange": "NYSE", "sector": "非必需消費", "industry": "Restaurants", "default_g1": 6.5},
+    {"ticker": "ORLY", "name": "O'Reilly Automotive", "exchange": "NASDAQ", "sector": "非必需消費", "industry": "Automotive Retail", "default_g1": 7.5},
+    {"ticker": "ROST", "name": "Ross Stores", "exchange": "NASDAQ", "sector": "非必需消費", "industry": "Apparel Retail", "default_g1": 6.5},
+    {"ticker": "LULU", "name": "Lululemon Athletica", "exchange": "NASDAQ", "sector": "非必需消費", "industry": "Apparel Retail", "default_g1": 11.5},
+    {"ticker": "F", "name": "Ford Motor Company", "exchange": "NYSE", "sector": "非必需消費", "industry": "Automobile Manufacturers", "default_g1": 3.5},
+    {"ticker": "GM", "name": "General Motors", "exchange": "NYSE", "sector": "非必需消費", "industry": "Automobile Manufacturers", "default_g1": 4.0},
+    {"ticker": "EBAY", "name": "eBay", "exchange": "NASDAQ", "sector": "非必需消費", "industry": "Broadline Retail", "default_g1": 4.0},
 
+    # 金融 (Financials) - 30檔
     {"ticker": "BRK.B", "name": "Berkshire Hathaway (Class B)", "exchange": "NYSE", "sector": "金融", "industry": "Multi-Sector Holdings", "default_g1": 6.0},
     {"ticker": "JPM", "name": "JPMorgan Chase", "exchange": "NYSE", "sector": "金融", "industry": "Diversified Banks", "default_g1": 5.5},
     {"ticker": "V", "name": "Visa", "exchange": "NYSE", "sector": "金融", "industry": "Transaction & Payment Processing Services", "default_g1": 10.0},
@@ -91,7 +116,19 @@ RAW_STOCK_LIST = [
     {"ticker": "CME", "name": "CME Group", "exchange": "NASDAQ", "sector": "金融", "industry": "Financial Exchanges & Data", "default_g1": 6.0},
     {"ticker": "MSCI", "name": "MSCI Inc.", "exchange": "NYSE", "sector": "金融", "industry": "Financial Exchanges & Data", "default_g1": 9.0},
     {"ticker": "MCO", "name": "Moody's", "exchange": "NYSE", "sector": "金融", "industry": "Financial Exchanges & Data", "default_g1": 9.5},
+    {"ticker": "ICE", "name": "Intercontinental Exchange", "exchange": "NYSE", "sector": "金融", "industry": "Financial Exchanges & Data", "default_g1": 7.5},
+    {"ticker": "AIG", "name": "American International Group", "exchange": "NYSE", "sector": "金融", "industry": "Multi-line Insurance", "default_g1": 4.5},
+    {"ticker": "MET", "name": "MetLife", "exchange": "NYSE", "sector": "金融", "industry": "Life & Health Insurance", "default_g1": 4.5},
+    {"ticker": "PRU", "name": "Prudential Financial", "exchange": "NYSE", "sector": "金融", "industry": "Life & Health Insurance", "default_g1": 4.0},
+    {"ticker": "TRV", "name": "The Travelers Companies", "exchange": "NYSE", "sector": "金融", "industry": "Property & Casualty Insurance", "default_g1": 5.5},
+    {"ticker": "AFL", "name": "Aflac", "exchange": "NYSE", "sector": "金融", "industry": "Life & Health Insurance", "default_g1": 4.0},
+    {"ticker": "ALL", "name": "Allstate", "exchange": "NYSE", "sector": "金融", "industry": "Property & Casualty Insurance", "default_g1": 6.0},
+    {"ticker": "AON", "name": "Aon plc", "exchange": "NYSE", "sector": "金融", "industry": "Insurance Brokers", "default_g1": 7.0},
+    {"ticker": "AJG", "name": "Arthur J. Gallagher", "exchange": "NYSE", "sector": "金融", "industry": "Insurance Brokers", "default_g1": 8.5},
+    {"ticker": "MMC", "name": "Marsh McLennan", "exchange": "NYSE", "sector": "金融", "industry": "Insurance Brokers", "default_g1": 7.5},
+    {"ticker": "USB", "name": "U.S. Bancorp", "exchange": "NYSE", "sector": "金融", "industry": "Diversified Banks", "default_g1": 4.0},
 
+    # 醫療保健 (Health Care) - 30檔
     {"ticker": "LLY", "name": "Eli Lilly", "exchange": "NYSE", "sector": "醫療保健", "industry": "Pharmaceuticals", "default_g1": 24.0},
     {"ticker": "UNH", "name": "UnitedHealth Group", "exchange": "NYSE", "sector": "醫療保健", "industry": "Managed Healthcare", "default_g1": 8.0},
     {"ticker": "JNJ", "name": "Johnson & Johnson", "exchange": "NYSE", "sector": "醫療保健", "industry": "Pharmaceuticals", "default_g1": 4.5},
@@ -120,7 +157,10 @@ RAW_STOCK_LIST = [
     {"ticker": "SYK", "name": "Stryker", "exchange": "NYSE", "sector": "醫療保健", "industry": "Health Care Equipment", "default_g1": 9.5},
     {"ticker": "VEEV", "name": "Veeva Systems", "exchange": "NYSE", "sector": "醫療保健", "industry": "Health Care Technology", "default_g1": 13.5},
     {"ticker": "LH", "name": "Labcorp", "exchange": "NYSE", "sector": "醫療保健", "industry": "Health Care Services", "default_g1": 5.5},
+    {"ticker": "REGN", "name": "Regeneron", "exchange": "NASDAQ", "sector": "醫療保健", "industry": "Biotechnology", "default_g1": 8.0},
+    {"ticker": "VRTX", "name": "Vertex Pharmaceuticals", "exchange": "NASDAQ", "sector": "醫療保健", "industry": "Biotechnology", "default_g1": 10.5},
 
+    # 必需消費 (Consumer Staples) - 18檔
     {"ticker": "WMT", "name": "Walmart", "exchange": "NYSE", "sector": "必需消費", "industry": "Consumer Staples Merchandise Retail", "default_g1": 5.0},
     {"ticker": "COST", "name": "Costco Wholesale", "exchange": "NASDAQ", "sector": "必需消費", "industry": "Consumer Staples Merchandise Retail", "default_g1": 7.5},
     {"ticker": "PG", "name": "Procter & Gamble", "exchange": "NYSE", "sector": "必需消費", "industry": "Household Products", "default_g1": 4.0},
@@ -134,15 +174,13 @@ RAW_STOCK_LIST = [
     {"ticker": "HSY", "name": "Hershey Company", "exchange": "NYSE", "sector": "必需消費", "industry": "Packaged Foods & Meats", "default_g1": 4.0},
     {"ticker": "ADM", "name": "Archer-Daniels-Midland", "exchange": "NYSE", "sector": "必需消費", "industry": "Agricultural Products & Services", "default_g1": 3.5},
     {"ticker": "CHD", "name": "Church & Dwight", "exchange": "NYSE", "sector": "必需消費", "industry": "Household Products", "default_g1": 5.0},
+    {"ticker": "TGT", "name": "Target", "exchange": "NYSE", "sector": "必需消費", "industry": "Consumer Staples Merchandise Retail", "default_g1": 4.5},
+    {"ticker": "KMB", "name": "Kimberly-Clark", "exchange": "NYSE", "sector": "必需消費", "industry": "Household Products", "default_g1": 3.5},
+    {"ticker": "MNST", "name": "Monster Beverage", "exchange": "NASDAQ", "sector": "必需消費", "industry": "Soft Drinks & Non-alcoholic Beverages", "default_g1": 10.0},
+    {"ticker": "GIS", "name": "General Mills", "exchange": "NYSE", "sector": "必需消費", "industry": "Packaged Foods & Meats", "default_g1": 3.5},
+    {"ticker": "KHC", "name": "Kraft Heinz", "exchange": "NASDAQ", "sector": "必需消費", "industry": "Packaged Foods & Meats", "default_g1": 3.0},
 
-    {"ticker": "XOM", "name": "ExxonMobil", "exchange": "NYSE", "sector": "能源", "industry": "Integrated Oil & Gas", "default_g1": 4.0},
-    {"ticker": "CVX", "name": "Chevron", "exchange": "NYSE", "sector": "能源", "industry": "Integrated Oil & Gas", "default_g1": 4.0},
-    {"ticker": "COP", "name": "ConocoPhillips", "exchange": "NYSE", "sector": "能源", "industry": "Oil & Gas Exploration & Production", "default_g1": 4.5},
-    {"ticker": "SLB", "name": "Schlumberger", "exchange": "NYSE", "sector": "能源", "industry": "Oil & Gas Equipment & Services", "default_g1": 6.5},
-    {"ticker": "EOG", "name": "EOG Resources", "exchange": "NYSE", "sector": "能源", "industry": "Oil & Gas Exploration & Production", "default_g1": 4.0},
-    {"ticker": "EPD", "name": "Enterprise Products", "exchange": "NYSE", "sector": "能源", "industry": "Oil & Gas Storage & Transportation", "default_g1": 5.0},
-    {"ticker": "ENB", "name": "Enbridge", "exchange": "NYSE", "sector": "能源", "industry": "Oil & Gas Storage & Transportation", "default_g1": 5.0},
-
+    # 工業製造 (Industrials) - 30檔
     {"ticker": "GE", "name": "GE Aerospace", "exchange": "NYSE", "sector": "工業", "industry": "Aerospace & Defense", "default_g1": 12.0},
     {"ticker": "CAT", "name": "Caterpillar", "exchange": "NYSE", "sector": "工業", "industry": "Construction Machinery & Heavy Transportation Equipment", "default_g1": 5.0},
     {"ticker": "UNP", "name": "Union Pacific", "exchange": "NYSE", "sector": "工業", "industry": "Rail Transportation", "default_g1": 4.5},
@@ -173,13 +211,25 @@ RAW_STOCK_LIST = [
     {"ticker": "ITW", "name": "Illinois Tool Works", "exchange": "NYSE", "sector": "工業", "industry": "Industrial Machinery", "default_g1": 4.5},
     {"ticker": "CNI", "name": "Canadian National Railway", "exchange": "NYSE", "sector": "工業", "industry": "Rail Transportation", "default_g1": 5.5},
     {"ticker": "WM", "name": "Waste Management", "exchange": "NYSE", "sector": "工業", "industry": "Environmental & Facilities Services", "default_g1": 6.5},
-    {"ticker": "IEX", "name": "IDEX Corp", "exchange": "NYSE", "sector": "工業", "industry": "Industrial Machinery", "default_g1": 6.0},
-    {"ticker": "RSG", "name": "Republic Services", "exchange": "NYSE", "sector": "工業", "industry": "Environmental & Facilities Services", "default_g1": 7.0},
-    {"ticker": "HEI", "name": "HEICO", "exchange": "NYSE", "sector": "工業", "industry": "Aerospace & Defense", "default_g1": 14.0},
-    {"ticker": "LECO", "name": "Lincoln Electric", "exchange": "NASDAQ", "sector": "工業", "industry": "Industrial Machinery", "default_g1": 5.0},
-    {"ticker": "CR", "name": "Crane Company", "exchange": "NYSE", "sector": "工業", "industry": "Industrial Machinery", "default_g1": 6.5},
-    {"ticker": "CTAS", "name": "Cintas", "exchange": "NASDAQ", "sector": "工業", "industry": "Diversified Support Services", "default_g1": 8.5},
 
+    # 能源 (Energy) - 15檔
+    {"ticker": "XOM", "name": "ExxonMobil", "exchange": "NYSE", "sector": "能源", "industry": "Integrated Oil & Gas", "default_g1": 4.0},
+    {"ticker": "CVX", "name": "Chevron", "exchange": "NYSE", "sector": "能源", "industry": "Integrated Oil & Gas", "default_g1": 4.0},
+    {"ticker": "COP", "name": "ConocoPhillips", "exchange": "NYSE", "sector": "能源", "industry": "Oil & Gas Exploration & Production", "default_g1": 4.5},
+    {"ticker": "SLB", "name": "Schlumberger", "exchange": "NYSE", "sector": "能源", "industry": "Oil & Gas Equipment & Services", "default_g1": 6.5},
+    {"ticker": "EOG", "name": "EOG Resources", "exchange": "NYSE", "sector": "能源", "industry": "Oil & Gas Exploration & Production", "default_g1": 4.0},
+    {"ticker": "EPD", "name": "Enterprise Products", "exchange": "NYSE", "sector": "能源", "industry": "Oil & Gas Storage & Transportation", "default_g1": 5.0},
+    {"ticker": "ENB", "name": "Enbridge", "exchange": "NYSE", "sector": "能源", "industry": "Oil & Gas Storage & Transportation", "default_g1": 5.0},
+    {"ticker": "MPC", "name": "Marathon Petroleum", "exchange": "NYSE", "sector": "能源", "industry": "Oil & Gas Refining & Marketing", "default_g1": 4.0},
+    {"ticker": "VLO", "name": "Valero Energy", "exchange": "NYSE", "sector": "能源", "industry": "Oil & Gas Refining & Marketing", "default_g1": 4.0},
+    {"ticker": "PSX", "name": "Phillips 66", "exchange": "NYSE", "sector": "能源", "industry": "Oil & Gas Refining & Marketing", "default_g1": 4.0},
+    {"ticker": "OXY", "name": "Occidental Petroleum", "exchange": "NYSE", "sector": "能源", "industry": "Oil & Gas Exploration & Production", "default_g1": 5.0},
+    {"ticker": "KMI", "name": "Kinder Morgan", "exchange": "NYSE", "sector": "能源", "industry": "Oil & Gas Storage & Transportation", "default_g1": 4.5},
+    {"ticker": "WMB", "name": "Williams Companies", "exchange": "NYSE", "sector": "能源", "industry": "Oil & Gas Storage & Transportation", "default_g1": 5.5},
+    {"ticker": "HAL", "name": "Halliburton", "exchange": "NYSE", "sector": "能源", "industry": "Oil & Gas Equipment & Services", "default_g1": 5.5},
+    {"ticker": "BKR", "name": "Baker Hughes", "exchange": "NASDAQ", "sector": "能源", "industry": "Oil & Gas Equipment & Services", "default_g1": 6.5},
+
+    # 原物料 (Materials - 包含 AMEX / NYSE 特色標的) - 15檔
     {"ticker": "LIN", "name": "Linde", "exchange": "NYSE", "sector": "原物料", "industry": "Industrial Gases", "default_g1": 6.5},
     {"ticker": "SHW", "name": "Sherwin-Williams", "exchange": "NYSE", "sector": "原物料", "industry": "Specialty Chemicals", "default_g1": 5.5},
     {"ticker": "FCX", "name": "Freeport-McMoRan", "exchange": "NYSE", "sector": "原物料", "industry": "Copper", "default_g1": 7.0},
@@ -190,140 +240,33 @@ RAW_STOCK_LIST = [
     {"ticker": "VMC", "name": "Vulcan Materials", "exchange": "NYSE", "sector": "原物料", "industry": "Construction Materials", "default_g1": 7.0},
     {"ticker": "BCPC", "name": "Balchem", "exchange": "NASDAQ", "sector": "原物料", "industry": "Specialty Chemicals", "default_g1": 7.0},
     {"ticker": "APD", "name": "Air Products & Chemicals", "exchange": "NYSE", "sector": "原物料", "industry": "Industrial Gases", "default_g1": 6.5},
+    {"ticker": "ECL", "name": "Ecolab", "exchange": "NYSE", "sector": "原物料", "industry": "Specialty Chemicals", "default_g1": 8.0},
+    {"ticker": "CTVA", "name": "Corteva", "exchange": "NYSE", "sector": "原物料", "industry": "Fertilizers & Agricultural Chemicals", "default_g1": 5.5},
+    {"ticker": "DOW", "name": "Dow Inc.", "exchange": "NYSE", "sector": "原物料", "industry": "Commodity Chemicals", "default_g1": 3.5},
+    {"ticker": "DD", "name": "DuPont", "exchange": "NYSE", "sector": "原物料", "industry": "Specialty Chemicals", "default_g1": 4.5},
+    {"ticker": "MLM", "name": "Martin Marietta", "exchange": "NYSE", "sector": "原物料", "industry": "Construction Materials", "default_g1": 7.0},
 
+    # 公用事業 (Utilities) - 8檔
     {"ticker": "NEE", "name": "NextEra Energy", "exchange": "NYSE", "sector": "公用事業", "industry": "Electric Utilities", "default_g1": 7.5},
     {"ticker": "SO", "name": "Southern Company", "exchange": "NYSE", "sector": "公用事業", "industry": "Electric Utilities", "default_g1": 4.0},
     {"ticker": "DUK", "name": "Duke Energy", "exchange": "NYSE", "sector": "公用事業", "industry": "Electric Utilities", "default_g1": 4.0},
     {"ticker": "CEG", "name": "Constellation Energy", "exchange": "NASDAQ", "sector": "公用事業", "industry": "Multi-Utilities", "default_g1": 15.0},
     {"ticker": "AWK", "name": "American Water Works", "exchange": "NYSE", "sector": "公用事業", "industry": "Water Utilities", "default_g1": 6.0},
+    {"ticker": "SRE", "name": "Sempra", "exchange": "NYSE", "sector": "公用事業", "industry": "Multi-Utilities", "default_g1": 5.5},
+    {"ticker": "AEP", "name": "American Electric Power", "exchange": "NASDAQ", "sector": "公用事業", "industry": "Electric Utilities", "default_g1": 4.5},
+    {"ticker": "D", "name": "Dominion Energy", "exchange": "NYSE", "sector": "公用事業", "industry": "Multi-Utilities", "default_g1": 4.0},
 
+    # 房地產 (Real Estate) - 7檔
     {"ticker": "PLD", "name": "Prologis", "exchange": "NYSE", "sector": "房地產", "industry": "Industrial REITs", "default_g1": 7.0},
     {"ticker": "AMT", "name": "American Tower", "exchange": "NYSE", "sector": "房地產", "industry": "Telecom Tower REITs", "default_g1": 5.5},
     {"ticker": "EQIX", "name": "Equinix", "exchange": "NASDAQ", "sector": "房地產", "industry": "Data Center REITs", "default_g1": 8.5},
     {"ticker": "SPG", "name": "Simon Property Group", "exchange": "NYSE", "sector": "房地產", "industry": "Retail REITs", "default_g1": 4.5},
     {"ticker": "CSGP", "name": "CoStar Group", "exchange": "NASDAQ", "sector": "房地產", "industry": "Real Estate Services", "default_g1": 11.0},
     {"ticker": "VICI", "name": "VICI Properties", "exchange": "NYSE", "sector": "房地產", "industry": "Hotel & Resort REITs", "default_g1": 5.5},
-
-    # ===== [第 2 批：全新補齊 100 檔高市值美股巨頭 (完全去重)] =====
-    {"ticker": "KLAC", "name": "KLA Corporation", "exchange": "NASDAQ", "sector": "資訊科技", "industry": "Semiconductor Materials & Equipment", "default_g1": 11.5},
-    {"ticker": "MRVL", "name": "Marvell Technology", "exchange": "NASDAQ", "sector": "資訊科技", "industry": "Semiconductors", "default_g1": 14.0},
-    {"ticker": "CDNS", "name": "Cadence Design Systems", "exchange": "NASDAQ", "sector": "資訊科技", "industry": "Application Software", "default_g1": 12.5},
-    {"ticker": "FTNT", "name": "Fortinet", "exchange": "NASDAQ", "sector": "資訊科技", "industry": "Systems Software", "default_g1": 13.0},
-    {"ticker": "PANW", "name": "Palo Alto Networks", "exchange": "NASDAQ", "sector": "資訊科技", "industry": "Systems Software", "default_g1": 15.0},
-    {"ticker": "CRWD", "name": "CrowdStrike", "exchange": "NASDAQ", "sector": "資訊科技", "industry": "Systems Software", "default_g1": 22.0},
-    {"ticker": "WDAY", "name": "Workday", "exchange": "NASDAQ", "sector": "資訊科技", "industry": "Application Software", "default_g1": 13.5},
-    {"ticker": "ANET", "name": "Arista Networks", "exchange": "NYSE", "sector": "資訊科技", "industry": "Communications Equipment", "default_g1": 16.0},
-    {"ticker": "APH", "name": "Amphenol", "exchange": "NYSE", "sector": "資訊科技", "industry": "Electronic Components", "default_g1": 11.0},
-    {"ticker": "TEL", "name": "TE Connectivity", "exchange": "NYSE", "sector": "資訊科技", "industry": "Electronic Components", "default_g1": 6.5},
-    {"ticker": "HPQ", "name": "HP Inc.", "exchange": "NYSE", "sector": "資訊科技", "industry": "Technology Hardware, Storage & Peripherals", "default_g1": 4.0},
-    {"ticker": "KEYS", "name": "Keysight Technologies", "exchange": "NYSE", "sector": "資訊科技", "industry": "Electronic Equipment & Instruments", "default_g1": 7.0},
-    {"ticker": "GLW", "name": "Corning", "exchange": "NYSE", "sector": "資訊科技", "industry": "Electronic Components", "default_g1": 6.5},
-
-    {"ticker": "REGN", "name": "Regeneron Pharmaceuticals", "exchange": "NASDAQ", "sector": "醫療保健", "industry": "Biotechnology", "default_g1": 8.0},
-    {"ticker": "VRTX", "name": "Vertex Pharmaceuticals", "exchange": "NASDAQ", "sector": "醫療保健", "industry": "Biotechnology", "default_g1": 10.5},
-    {"ticker": "BSX", "name": "Boston Scientific", "exchange": "NYSE", "sector": "醫療保健", "industry": "Health Care Equipment", "default_g1": 11.0},
-    {"ticker": "ELV", "name": "Elevance Health", "exchange": "NYSE", "sector": "醫療保健", "industry": "Managed Healthcare", "default_g1": 7.5},
-    {"ticker": "CI", "name": "The Cigna Group", "exchange": "NYSE", "sector": "醫療保健", "industry": "Managed Healthcare", "default_g1": 6.5},
-    {"ticker": "HCA", "name": "HCA Healthcare", "exchange": "NYSE", "sector": "醫療保健", "industry": "Health Care Facilities", "default_g1": 7.5},
-    {"ticker": "HUM", "name": "Humana", "exchange": "NYSE", "sector": "醫療保健", "industry": "Managed Healthcare", "default_g1": 5.5},
-    {"ticker": "IDXX", "name": "IDEXX Laboratories", "exchange": "NASDAQ", "sector": "醫療保健", "industry": "Health Care Equipment", "default_g1": 9.5},
-    {"ticker": "IQV", "name": "IQVIA Holdings", "exchange": "NYSE", "sector": "醫療保健", "industry": "Life Sciences Tools & Services", "default_g1": 7.5},
-    {"ticker": "MTD", "name": "Mettler-Toledo", "exchange": "NYSE", "sector": "醫療保健", "industry": "Life Sciences Tools & Services", "default_g1": 6.0},
-    {"ticker": "EW", "name": "Edwards Lifesciences", "exchange": "NYSE", "sector": "醫療保健", "industry": "Health Care Equipment", "default_g1": 8.5},
-    {"ticker": "BAX", "name": "Baxter International", "exchange": "NYSE", "sector": "醫療保健", "industry": "Health Care Equipment", "default_g1": 4.0},
-    {"ticker": "A", "name": "Agilent Technologies", "exchange": "NYSE", "sector": "醫療保健", "industry": "Life Sciences Tools & Services", "default_g1": 6.5},
-
-    {"ticker": "ICE", "name": "Intercontinental Exchange", "exchange": "NYSE", "sector": "金融", "industry": "Financial Exchanges & Data", "default_g1": 7.5},
-    {"ticker": "AIG", "name": "American International Group", "exchange": "NYSE", "sector": "金融", "industry": "Multi-line Insurance", "default_g1": 4.5},
-    {"ticker": "MET", "name": "MetLife", "exchange": "NYSE", "sector": "金融", "industry": "Life & Health Insurance", "default_g1": 4.5},
-    {"ticker": "PRU", "name": "Prudential Financial", "exchange": "NYSE", "sector": "金融", "industry": "Life & Health Insurance", "default_g1": 4.0},
-    {"ticker": "TRV", "name": "The Travelers Companies", "exchange": "NYSE", "sector": "金融", "industry": "Property & Casualty Insurance", "default_g1": 5.5},
-    {"ticker": "AFL", "name": "Aflac", "exchange": "NYSE", "sector": "金融", "industry": "Life & Health Insurance", "default_g1": 4.0},
-    {"ticker": "ALL", "name": "Allstate", "exchange": "NYSE", "sector": "金融", "industry": "Property & Casualty Insurance", "default_g1": 6.0},
-    {"ticker": "AON", "name": "Aon plc", "exchange": "NYSE", "sector": "金融", "industry": "Insurance Brokers", "default_g1": 7.0},
-    {"ticker": "AJG", "name": "Arthur J. Gallagher", "exchange": "NYSE", "sector": "金融", "industry": "Insurance Brokers", "default_g1": 8.5},
-    {"ticker": "MMC", "name": "Marsh McLennan", "exchange": "NYSE", "sector": "金融", "industry": "Insurance Brokers", "default_g1": 7.5},
-    {"ticker": "COF", "name": "Capital One", "exchange": "NYSE", "sector": "金融", "industry": "Consumer Finance", "default_g1": 5.5},
-    {"ticker": "DFS", "name": "Discover Financial", "exchange": "NYSE", "sector": "金融", "industry": "Consumer Finance", "default_g1": 5.0},
-    {"ticker": "USB", "name": "U.S. Bancorp", "exchange": "NYSE", "sector": "金融", "industry": "Diversified Banks", "default_g1": 4.0},
-    {"ticker": "PNC", "name": "PNC Financial Services", "exchange": "NYSE", "sector": "金融", "industry": "Diversified Banks", "default_g1": 4.5},
-    {"ticker": "TFC", "name": "Truist Financial", "exchange": "NYSE", "sector": "金融", "industry": "Diversified Banks", "default_g1": 4.0},
-    {"ticker": "BK", "name": "BNY Mellon", "exchange": "NYSE", "sector": "金融", "industry": "Asset Management & Custody Banks", "default_g1": 4.5},
-    {"ticker": "STT", "name": "State Street", "exchange": "NYSE", "sector": "金融", "industry": "Asset Management & Custody Banks", "default_g1": 4.5},
-
-    {"ticker": "ETN", "name": "Eaton Corporation", "exchange": "NYSE", "sector": "工業", "industry": "Electrical Components & Equipment", "default_g1": 9.5},
-    {"ticker": "EMR", "name": "Emerson Electric", "exchange": "NYSE", "sector": "工業", "industry": "Electrical Components & Equipment", "default_g1": 6.5},
-    {"ticker": "PH", "name": "Parker-Hannifin", "exchange": "NYSE", "sector": "工業", "industry": "Industrial Machinery", "default_g1": 7.5},
-    {"ticker": "PCAR", "name": "PACCAR", "exchange": "NASDAQ", "sector": "工業", "industry": "Construction Machinery & Heavy Transportation Equipment", "default_g1": 5.0},
-    {"ticker": "CMI", "name": "Cummins", "exchange": "NYSE", "sector": "工業", "industry": "Industrial Machinery", "default_g1": 5.5},
-    {"ticker": "NSC", "name": "Norfolk Southern", "exchange": "NYSE", "sector": "工業", "industry": "Rail Transportation", "default_g1": 4.5},
-    {"ticker": "CSX", "name": "CSX Corporation", "exchange": "NASDAQ", "sector": "工業", "industry": "Rail Transportation", "default_g1": 4.5},
-    {"ticker": "FDX", "name": "FedEx", "exchange": "NYSE", "sector": "工業", "industry": "Air Freight & Logistics", "default_g1": 5.0},
-    {"ticker": "GD", "name": "General Dynamics", "exchange": "NYSE", "sector": "工業", "industry": "Aerospace & Defense", "default_g1": 6.0},
-    {"ticker": "NOC", "name": "Northrop Grumman", "exchange": "NYSE", "sector": "工業", "industry": "Aerospace & Defense", "default_g1": 5.5},
-    {"ticker": "CARR", "name": "Carrier Global", "exchange": "NYSE", "sector": "工業", "industry": "Building Products", "default_g1": 7.0},
-    {"ticker": "TT", "name": "Trane Technologies", "exchange": "NYSE", "sector": "工業", "industry": "Building Products", "default_g1": 8.0},
-    {"ticker": "FAST", "name": "Fastenal", "exchange": "NASDAQ", "sector": "工業", "industry": "Trading Companies & Distributors", "default_g1": 7.0},
-    {"ticker": "GWW", "name": "W.W. Grainger", "exchange": "NYSE", "sector": "工業", "industry": "Trading Companies & Distributors", "default_g1": 7.5},
-    {"ticker": "EXPD", "name": "Expeditors International", "exchange": "NASDAQ", "sector": "工業", "industry": "Air Freight & Logistics", "default_g1": 4.5},
-
-    {"ticker": "MAR", "name": "Marriott International", "exchange": "NASDAQ", "sector": "非必需消費", "industry": "Hotels, Resorts & Cruise Lines", "default_g1": 8.0},
-    {"ticker": "HLT", "name": "Hilton Worldwide", "exchange": "NYSE", "sector": "非必需消費", "industry": "Hotels, Resorts & Cruise Lines", "default_g1": 8.5},
-    {"ticker": "CMG", "name": "Chipotle Mexican Grill", "exchange": "NYSE", "sector": "非必需消費", "industry": "Restaurants", "default_g1": 14.0},
-    {"ticker": "YUM", "name": "Yum! Brands", "exchange": "NYSE", "sector": "非必需消費", "industry": "Restaurants", "default_g1": 6.5},
-    {"ticker": "ORLY", "name": "O'Reilly Automotive", "exchange": "NASDAQ", "sector": "非必需消費", "industry": "Automotive Retail", "default_g1": 7.5},
-    {"ticker": "ROST", "name": "Ross Stores", "exchange": "NASDAQ", "sector": "非必需消費", "industry": "Apparel Retail", "default_g1": 6.5},
-    {"ticker": "LULU", "name": "Lululemon Athletica", "exchange": "NASDAQ", "sector": "非必需消費", "industry": "Apparel Retail", "default_g1": 11.5},
-    {"ticker": "F", "name": "Ford Motor Company", "exchange": "NYSE", "sector": "非必需消費", "industry": "Automobile Manufacturers", "default_g1": 3.5},
-    {"ticker": "GM", "name": "General Motors", "exchange": "NYSE", "sector": "非必需消費", "industry": "Automobile Manufacturers", "default_g1": 4.0},
-    {"ticker": "EBAY", "name": "eBay", "exchange": "NASDAQ", "sector": "非必需消費", "industry": "Broadline Retail", "default_g1": 4.0},
-
-    {"ticker": "TGT", "name": "Target", "exchange": "NYSE", "sector": "必需消費", "industry": "Consumer Staples Merchandise Retail", "default_g1": 4.5},
-    {"ticker": "DG", "name": "Dollar General", "exchange": "NYSE", "sector": "必需消費", "industry": "Consumer Staples Merchandise Retail", "default_g1": 5.0},
-    {"ticker": "DLTR", "name": "Dollar Tree", "exchange": "NASDAQ", "sector": "必需消費", "industry": "Consumer Staples Merchandise Retail", "default_g1": 5.5},
-    {"ticker": "KMB", "name": "Kimberly-Clark", "exchange": "NYSE", "sector": "必需消費", "industry": "Household Products", "default_g1": 3.5},
-    {"ticker": "MNST", "name": "Monster Beverage", "exchange": "NASDAQ", "sector": "必需消費", "industry": "Soft Drinks & Non-alcoholic Beverages", "default_g1": 10.0},
-    {"ticker": "STZ", "name": "Constellation Brands", "exchange": "NYSE", "sector": "必需消費", "industry": "Distillers & Vintners", "default_g1": 6.0},
-    {"ticker": "GIS", "name": "General Mills", "exchange": "NYSE", "sector": "必需消費", "industry": "Packaged Foods & Meats", "default_g1": 3.5},
-    {"ticker": "KHC", "name": "Kraft Heinz", "exchange": "NASDAQ", "sector": "必需消費", "industry": "Packaged Foods & Meats", "default_g1": 3.0},
-    {"ticker": "SYY", "name": "Sysco", "exchange": "NYSE", "sector": "必需消費", "industry": "Consumer Staples Distributors", "default_g1": 4.5},
-    {"ticker": "KR", "name": "Kroger", "exchange": "NYSE", "sector": "必需消費", "industry": "Consumer Staples Merchandise Retail", "default_g1": 3.5},
-
-    {"ticker": "MPC", "name": "Marathon Petroleum", "exchange": "NYSE", "sector": "能源", "industry": "Oil & Gas Refining & Marketing", "default_g1": 4.0},
-    {"ticker": "VLO", "name": "Valero Energy", "exchange": "NYSE", "sector": "能源", "industry": "Oil & Gas Refining & Marketing", "default_g1": 4.0},
-    {"ticker": "PSX", "name": "Phillips 66", "exchange": "NYSE", "sector": "能源", "industry": "Oil & Gas Refining & Marketing", "default_g1": 4.0},
-    {"ticker": "OXY", "name": "Occidental Petroleum", "exchange": "NYSE", "sector": "能源", "industry": "Oil & Gas Exploration & Production", "default_g1": 5.0},
-    {"ticker": "KMI", "name": "Kinder Morgan", "exchange": "NYSE", "sector": "能源", "industry": "Oil & Gas Storage & Transportation", "default_g1": 4.5},
-    {"ticker": "WMB", "name": "Williams Companies", "exchange": "NYSE", "sector": "能源", "industry": "Oil & Gas Storage & Transportation", "default_g1": 5.5},
-    {"ticker": "HAL", "name": "Halliburton", "exchange": "NYSE", "sector": "能源", "industry": "Oil & Gas Equipment & Services", "default_g1": 5.5},
-    {"ticker": "BKR", "name": "Baker Hughes", "exchange": "NASDAQ", "sector": "能源", "industry": "Oil & Gas Equipment & Services", "default_g1": 6.5},
-
-    {"ticker": "ECL", "name": "Ecolab", "exchange": "NYSE", "sector": "原物料", "industry": "Specialty Chemicals", "default_g1": 8.0},
-    {"ticker": "CTVA", "name": "Corteva", "exchange": "NYSE", "sector": "原物料", "industry": "Fertilizers & Agricultural Chemicals", "default_g1": 5.5},
-    {"ticker": "DOW", "name": "Dow Inc.", "exchange": "NYSE", "sector": "原物料", "industry": "Commodity Chemicals", "default_g1": 3.5},
-    {"ticker": "DD", "name": "DuPont de Nemours", "exchange": "NYSE", "sector": "原物料", "industry": "Specialty Chemicals", "default_g1": 4.5},
-    {"ticker": "MLM", "name": "Martin Marietta Materials", "exchange": "NYSE", "sector": "原物料", "industry": "Construction Materials", "default_g1": 7.0},
-    {"ticker": "NUE", "name": "Nucor", "exchange": "NYSE", "sector": "原物料", "industry": "Steel", "default_g1": 4.5},
-    {"ticker": "ALB", "name": "Albemarle", "exchange": "NYSE", "sector": "原物料", "industry": "Specialty Chemicals", "default_g1": 8.5},
-
-    {"ticker": "SRE", "name": "Sempra", "exchange": "NYSE", "sector": "公用事業", "industry": "Multi-Utilities", "default_g1": 5.5},
-    {"ticker": "AEP", "name": "American Electric Power", "exchange": "NASDAQ", "sector": "公用事業", "industry": "Electric Utilities", "default_g1": 4.5},
-    {"ticker": "D", "name": "Dominion Energy", "exchange": "NYSE", "sector": "公用事業", "industry": "Multi-Utilities", "default_g1": 4.0},
-    {"ticker": "EXC", "name": "Exelon", "exchange": "NASDAQ", "sector": "公用事業", "industry": "Electric Utilities", "default_g1": 4.0},
-    {"ticker": "XEL", "name": "Xcel Energy", "exchange": "NASDAQ", "sector": "公用事業", "industry": "Electric Utilities", "default_g1": 4.5},
-    {"ticker": "ED", "name": "Consolidated Edison", "exchange": "NYSE", "sector": "公用事業", "industry": "Multi-Utilities", "default_g1": 3.5},
-    {"ticker": "WEC", "name": "WEC Energy Group", "exchange": "NYSE", "sector": "公用事業", "industry": "Multi-Utilities", "default_g1": 4.0},
-
-    {"ticker": "CCI", "name": "Crown Castle", "exchange": "NYSE", "sector": "房地產", "industry": "Telecom Tower REITs", "default_g1": 4.0},
-    {"ticker": "PSA", "name": "Public Storage", "exchange": "NYSE", "sector": "房地產", "industry": "Self-Storage REITs", "default_g1": 5.5},
-    {"ticker": "O", "name": "Realty Income", "exchange": "NYSE", "sector": "房地產", "industry": "Retail REITs", "default_g1": 5.0},
-    {"ticker": "WELL", "name": "Welltower", "exchange": "NYSE", "sector": "房地產", "industry": "Health Care REITs", "default_g1": 7.5},
-    {"ticker": "DLR", "name": "Digital Realty", "exchange": "NYSE", "sector": "房地產", "industry": "Data Center REITs", "default_g1": 8.0},
-    {"ticker": "AVB", "name": "AvalonBay Communities", "exchange": "NYSE", "sector": "房地產", "industry": "Multi-Family Residential REITs", "default_g1": 4.5},
-    {"ticker": "EQR", "name": "Equity Residential", "exchange": "NYSE", "sector": "房地產", "industry": "Multi-Family Residential REITs", "default_g1": 4.5}
+    {"ticker": "O", "name": "Realty Income", "exchange": "NYSE", "sector": "房地產", "industry": "Retail REITs", "default_g1": 5.0}
 ]
 
-# 嚴格去重處理
+# 精確去重
 seen = set()
 UNIQUE_STOCKS = []
 for item in RAW_STOCK_LIST:
@@ -331,6 +274,9 @@ for item in RAW_STOCK_LIST:
     if sym not in seen:
         seen.add(sym)
         UNIQUE_STOCKS.append(item)
+
+# 截取恰好 200 檔
+UNIQUE_STOCKS = UNIQUE_STOCKS[:200]
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
@@ -354,7 +300,6 @@ def fetch_stable_json(endpoint, params):
     return None
 
 def fetch_batch_quotes(symbol_list):
-    """50 檔批次抓取最新報價與市值，大幅減少 API 呼叫次數"""
     quotes_map = {}
     chunk_size = 50
     for i in range(0, len(symbol_list), chunk_size):
@@ -398,7 +343,7 @@ def build_10y_growth_schedule(est_data, default_g1, terminal_g):
 
 def main():
     print("=" * 75)
-    print("🚀 美股全市場擴充標的 (去重整合 200+ 檔) 自動化 DCF 引擎啟動")
+    print("🚀 美股全市場擴充標的 (滿額 200 檔) 自動化 DCF 引擎啟動")
     print(f"📊 標的總數：{len(UNIQUE_STOCKS)} 檔 (涵蓋三大交易所與 11 大板塊)")
     print("=" * 75)
 
@@ -472,13 +417,11 @@ def main():
         growth_10y = build_10y_growth_schedule(est_data, item["default_g1"], DEFAULT_G)
         pe_forward = round(pe_trailing * 0.88, 1)
 
-        # Beta 與產業基準
         beta = 1.15
         if item["sector"] in ["公用事業", "必需消費"]: beta = 0.75
         elif item["sector"] in ["資訊科技"]: beta = 1.35
         elif item["sector"] in ["金融"]: beta = 1.05
 
-        # WACC 計算
         tax = TAX_RATE
         ke = RF + (beta * ERP)
         kd_after = (KD / 100.0) * (1.0 - (tax / 100.0))
@@ -487,7 +430,6 @@ def main():
         wD = debt / V if V > 0 else 0.05
         wacc = (wE * ke) + (wD * kd_after)
 
-        # DCF 折現運算
         net_debt = round(debt - cash, 1)
         cash_minus_liab = round(cash - debt, 1)
         sum_pv = 0
@@ -559,7 +501,7 @@ def main():
     with open("market_data.js", "w", encoding="utf-8") as f:
         f.write(f"window.FULL_MARKET_DATA = {json.dumps(results, ensure_ascii=False, indent=2)};")
 
-    print(f"\n🎉 成功！全市場 200+ 檔標的已全數由 FMP 最新 Stable API 運算並寫入 market_data.js (共 {len(results)} 檔)。")
+    print(f"\n🎉 成功！全市場滿額 200 檔標的已全數由 FMP 最新 Stable API 運算並寫入 market_data.js (共 {len(results)} 檔)。")
 
 if __name__ == "__main__":
     main()
