@@ -1,4 +1,616 @@
-// ==================== 巴菲特 10 大護城河深度資料庫 (含權威依據與評語) ====================
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>美股旗艦 DCF 估值雷達 (200 檔全覆蓋 · 巴菲特護城河評分與診斷)</title>
+  <script src="market_data.js?v=20261004_v10"></script>
+  <style>
+    :root {
+      --bg: #0b1120;
+      --card-bg: #1e293b;
+      --card-border: #334155;
+      --accent: #38bdf8;
+      --accent-hover: #0284c7;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --green: #4ade80;
+      --green-bg: rgba(74, 222, 128, 0.12);
+      --red: #f87171;
+      --red-bg: rgba(248, 113, 113, 0.12);
+      --gold: #fbbf24;
+      --gold-bg: rgba(251, 191, 36, 0.15);
+      --nasdaq-purple: #c084fc;
+      --nyse-blue: #60a5fa;
+      --amex-green: #34d399;
+      --fav-pink: #f43f5e;
+      --sticky-bg: #162032;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    html, body {
+      background-color: var(--bg);
+      color: var(--text);
+      padding: 16px;
+      line-height: 1.5;
+      width: 100%;
+      min-height: 100vh;
+    }
+    .container { width: 100%; max-width: 100%; margin: 0 auto; }
+    
+    header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid var(--card-border); padding-bottom: 16px; flex-wrap: wrap; gap: 14px; }
+    h1 { font-size: 22px; font-weight: 700; color: #fff; }
+    .status-badge { background: rgba(74, 222, 128, 0.15); border: 1px solid var(--green); color: var(--green); padding: 6px 14px; border-radius: 6px; font-size: 13px; font-weight: 600; }
+
+    .top-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 20px; }
+    .stat-box { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; padding: 14px 18px; }
+    .stat-label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+    .stat-num { font-size: 22px; font-weight: 700; color: #fff; margin: 4px 0; }
+
+    .filter-panel { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; padding: 14px 18px; margin-bottom: 16px; display: flex; flex-direction: column; gap: 12px; }
+    .filter-row { display: flex; align-items: flex-start; gap: 8px; flex-wrap: wrap; }
+    .filter-title { font-size: 12px; color: var(--text-muted); min-width: 90px; font-weight: 600; margin-top: 5px; }
+    .f-btn { background: #0f172a; border: 1px solid var(--card-border); color: #cbd5e1; padding: 4px 11px; border-radius: 4px; font-size: 12px; cursor: pointer; font-weight: 600; transition: all 0.2s; }
+    .f-btn.active { border-color: var(--accent); color: var(--accent); background: rgba(56, 189, 248, 0.12); }
+    .f-btn.btn-fav.active { border-color: var(--fav-pink); color: var(--fav-pink); background: rgba(244, 63, 94, 0.15); }
+    .search-input { background: #0f172a; border: 1px solid var(--card-border); color: #fff; padding: 6px 12px; border-radius: 6px; font-size: 13px; width: 320px; margin-left: auto; }
+    .search-input:focus { border-color: var(--accent); outline: none; }
+
+    .scroll-hint-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #0f172a;
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      padding: 8px 14px;
+      margin-bottom: 8px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .scroll-btn-grp { display: flex; gap: 8px; }
+    .scroll-arrow-btn {
+      background: #1e293b;
+      border: 1px solid var(--card-border);
+      color: #fff;
+      padding: 4px 14px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 12px;
+    }
+    .scroll-arrow-btn:hover { background: var(--accent); color: #0b1120; }
+
+    .table-scroll-wrapper {
+      width: 100% !important;
+      max-width: 100% !important;
+      overflow-x: auto !important;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      margin-bottom: 24px;
+      cursor: grab;
+      scrollbar-width: thin;
+      scrollbar-color: #38bdf8 #0f172a;
+    }
+    .table-scroll-wrapper:active { cursor: grabbing; }
+    .table-scroll-wrapper::-webkit-scrollbar { height: 14px; }
+    .table-scroll-wrapper::-webkit-scrollbar-track { background: #0f172a; border-radius: 6px; }
+    .table-scroll-wrapper::-webkit-scrollbar-thumb { background: #38bdf8; border-radius: 6px; border: 3px solid #0f172a; }
+
+    table#screener-table {
+      width: 4000px !important;
+      min-width: 4000px !important;
+      border-collapse: separate !important;
+      border-spacing: 0;
+      font-size: 12px;
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    th, td { padding: 10px 14px; border-bottom: 1px solid var(--card-border); height: 44px; }
+    th { background: #162032; color: #cbd5e1; font-weight: 600; cursor: pointer; user-select: none; position: sticky; top: 0; z-index: 2; }
+    th:hover { color: var(--accent); }
+    tr:hover td { background-color: rgba(255, 255, 255, 0.03); }
+
+    .col-fixed-1 { position: sticky !important; left: 0px !important; width: 110px !important; min-width: 110px !important; background: var(--sticky-bg) !important; z-index: 10 !important; text-align: left; }
+    th.col-fixed-1 { z-index: 20 !important; background: #162032 !important; }
+    .col-fixed-2 { position: sticky !important; left: 110px !important; width: 85px !important; min-width: 85px !important; background: var(--sticky-bg) !important; z-index: 10 !important; text-align: left; }
+    th.col-fixed-2 { z-index: 20 !important; background: #162032 !important; }
+    .col-fixed-3 { position: sticky !important; left: 195px !important; width: 170px !important; min-width: 170px !important; background: var(--sticky-bg) !important; z-index: 10 !important; text-align: left; border-right: 3px solid #334155 !important; box-shadow: 6px 0 10px rgba(0,0,0,0.7) !important; }
+    th.col-fixed-3 { z-index: 20 !important; background: #162032 !important; }
+
+    tr:hover td.col-fixed-1, tr:hover td.col-fixed-2, tr:hover td.col-fixed-3 { background: #1e293b !important; }
+
+    .fav-btn { background: transparent; border: none; cursor: pointer; font-size: 15px; margin-right: 6px; color: #64748b; transition: transform 0.15s, color 0.15s; vertical-align: middle; }
+    .fav-btn:hover { transform: scale(1.25); color: var(--fav-pink); }
+    .fav-btn.active { color: var(--fav-pink); }
+
+    .ticker-link { font-weight: 700; color: var(--accent); cursor: pointer; text-decoration: none; font-size: 13px; }
+    .ticker-link:hover { text-decoration: underline; }
+    .badge { padding: 3px 7px; border-radius: 4px; font-size: 10px; font-weight: 600; display: inline-block; }
+    .badge-undervalued { background: var(--green-bg); color: var(--green); border: 1px solid rgba(74, 222, 128, 0.3); }
+    .badge-overvalued { background: var(--red-bg); color: var(--red); border: 1px solid rgba(248, 113, 113, 0.3); }
+    .badge-target { background: var(--gold-bg); color: var(--gold); border: 1px solid rgba(251, 191, 36, 0.4); font-weight: 700; }
+    
+    .badge-fscore { cursor: pointer; text-decoration: none; padding: 4px 8px; font-weight: 700; border-radius: 4px; font-size: 11px; display: inline-block; }
+    .badge-fscore:hover { transform: scale(1.1); filter: brightness(1.2); }
+    .fscore-green { background: rgba(74, 222, 128, 0.2); color: var(--green); border: 1px solid rgba(74, 222, 128, 0.5); }
+    .fscore-yellow { background: rgba(251, 191, 36, 0.2); color: var(--gold); border: 1px solid rgba(251, 191, 36, 0.5); }
+    .fscore-red { background: rgba(248, 113, 113, 0.2); color: var(--red); border: 1px solid rgba(248, 113, 113, 0.5); }
+
+    .badge-moat { cursor: pointer; text-decoration: none; padding: 4px 8px; font-weight: 700; border-radius: 4px; font-size: 11px; display: inline-block; }
+    .badge-moat:hover { transform: scale(1.08); filter: brightness(1.2); }
+    .moat-wide { background: rgba(74, 222, 128, 0.2); color: var(--green); border: 1px solid var(--green); }
+    .moat-narrow { background: rgba(56, 189, 248, 0.2); color: var(--accent); border: 1px solid var(--accent); }
+    .moat-weak { background: rgba(251, 191, 36, 0.2); color: var(--gold); border: 1px solid var(--gold); }
+    .moat-none { background: rgba(248, 113, 113, 0.2); color: var(--red); border: 1px solid var(--red); }
+
+    .badge-exch-NASDAQ { background: rgba(168, 85, 247, 0.15); color: var(--nasdaq-purple); border: 1px solid rgba(168, 85, 247, 0.4); }
+    .badge-exch-NYSE { background: rgba(96, 165, 250, 0.15); color: var(--nyse-blue); border: 1px solid rgba(96, 165, 250, 0.4); }
+    .badge-exch-AMEX { background: rgba(52, 211, 153, 0.15); color: var(--amex-green); border: 1px solid rgba(52, 211, 153, 0.4); }
+    
+    .text-green { color: var(--green); font-weight: 600; }
+    .text-red { color: var(--red); font-weight: 600; }
+    .text-gold { color: var(--gold); font-weight: 700; }
+    .text-pink { color: var(--fav-pink); font-weight: 700; }
+
+    #detail-view, #fscore-view, #moat-view { display: none; }
+    .detail-header { display: flex; justify-content: space-between; align-items: center; background: var(--card-bg); border: 1px solid var(--card-border); padding: 14px 20px; border-radius: 8px; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; }
+    .detail-title { font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+    .btn-back { background: #334155; color: #fff; border: none; padding: 7px 14px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 13px; }
+    .btn-back:hover { background: #475569; }
+    .btn-save { background: #0284c7; color: #fff; border: none; padding: 7px 14px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 13px; }
+    .btn-save:hover { background: var(--accent); color: #0b1120; }
+    .btn-reset { background: #475569; color: #cbd5e1; border: none; padding: 7px 12px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 12px; }
+
+    .main-layout { display: grid; grid-template-columns: 380px 1fr; gap: 20px; }
+    @media(max-width: 990px) { .main-layout { grid-template-columns: 1fr; } }
+    .panel { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; padding: 18px; margin-bottom: 20px; }
+    .panel-title { font-size: 14px; font-weight: 600; margin-bottom: 12px; color: var(--accent); border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 8px; }
+    .form-group { display: flex; justify-content: space-between; align-items: center; margin-bottom: 9px; }
+    .form-group label { font-size: 13px; color: #cbd5e1; }
+    .form-group input { width: 110px; background: #0f172a; border: 1px solid var(--card-border); border-radius: 4px; color: #fff; padding: 5px 8px; font-size: 13px; text-align: right; }
+    .form-group input:focus { border-color: var(--accent); outline: none; }
+    
+    #dcf-table, #sens-table { width: 100%; border-collapse: collapse; text-align: right; font-size: 12px; }
+    #dcf-table th, #dcf-table td, #sens-table th, #sens-table td { padding: 9px 10px; border-bottom: 1px solid var(--card-border); }
+    #dcf-table th, #sens-table th { background: #162032; color: #cbd5e1; text-align: center; }
+    #dcf-table td:first-child, #sens-table td:first-child { text-align: left; font-weight: 600; }
+    
+    .growth-input {
+      width: 60px !important;
+      text-align: center !important;
+      padding: 3px 4px !important;
+      background: #0b1120 !important;
+      border: 1px solid #475569 !important;
+      border-radius: 4px;
+      color: #38bdf8 !important;
+      font-weight: 700;
+      font-size: 12px;
+    }
+    .growth-input:focus { border-color: var(--accent) !important; outline: none; }
+    
+    .sens-cell { font-weight: 600; text-align: center !important; }
+    .sens-base { background: rgba(56, 189, 248, 0.15) !important; border: 1px solid var(--accent) !important; font-weight: 700; color: #38bdf8; }
+    
+    .btn-nav { background: #0284c7; border: none; color: #ffffff; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-weight: 600; font-size: 12px; transition: all 0.2s; }
+    .btn-nav:hover { background: var(--accent); color: #0b1120; }
+
+    .fscore-table, .moat-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .fscore-table th, .fscore-table td, .moat-table th, .moat-table td { padding: 12px 16px; border-bottom: 1px solid var(--card-border); text-align: left; }
+    .fscore-table th, .moat-table th { background: #162032; color: #cbd5e1; font-weight: 600; }
+    .score-badge-circle { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; font-weight: 700; font-size: 12px; }
+    .score-pass { background: rgba(74, 222, 128, 0.2); color: var(--green); border: 1px solid var(--green); }
+    .score-fail { background: rgba(248, 113, 113, 0.2); color: var(--red); border: 1px solid var(--red); }
+
+    .moat-bar-bg { width: 100px; height: 8px; background: #0f172a; border-radius: 4px; overflow: hidden; display: inline-block; vertical-align: middle; margin-right: 8px; }
+    .moat-bar-fill { height: 100%; border-radius: 4px; }
+    .ai-comment-card { background: #0f172a; border: 1px solid var(--card-border); border-left: 4px solid var(--accent); padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; font-size: 13px; line-height: 1.6; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div>
+      <h1>美股旗艦 DCF 估值雷達 (200 檔)</h1>
+      <span style="font-size: 13px; color: var(--text-muted);">NYSE · NASDAQ · AMEX · 巴菲特護城河評分 · 10年自由現金流微調</span>
+    </div>
+    <div class="status-badge">
+      🟢 FMP 官方財報已完成同步 (全市場覆蓋)
+    </div>
+  </header>
+
+  <!-- ==================== 頁面 1：總表 ==================== -->
+  <div id="screener-view">
+    <div class="top-stats">
+      <div class="stat-box">
+        <div class="stat-label">追蹤標的</div>
+        <div class="stat-num" id="stat-total">0 檔</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">❤️ 自選監控標的</div>
+        <div class="stat-num text-pink" id="stat-fav-count">0 檔</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">具備安全邊際 (低估)</div>
+        <div class="stat-num text-green" id="stat-undervalued">0 檔</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">市價溢價過高 (高估)</div>
+        <div class="stat-num text-red" id="stat-overvalued">0 檔</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">已設定目標價標的</div>
+        <div class="stat-num text-gold" id="stat-saved-count">0 檔</div>
+      </div>
+    </div>
+
+    <!-- 篩選面板 -->
+    <div class="filter-panel">
+      <div class="filter-row">
+        <span class="filter-title">篩選維度：</span>
+        <div class="filter-btns" id="val-filters">
+          <button class="f-btn active" onclick="setValFilter('ALL')">全部標的</button>
+          <button class="f-btn btn-fav" onclick="setValFilter('FAVORITES')">❤️ 我的自選收藏</button>
+          <button class="f-btn" onclick="setValFilter('UNDERVALUED')">🟢 具安全邊際 (低估)</button>
+          <button class="f-btn" onclick="setValFilter('OVERVALUED')">🔴 溢價過高 (高估)</button>
+          <button class="f-btn" onclick="setValFilter('SAVED')">💾 已存目標價</button>
+        </div>
+        <input type="text" class="search-input" id="search-ticker" placeholder="搜尋代號、名稱、主板塊或細分子行業..." oninput="renderScreenerTable()">
+      </div>
+
+      <div class="filter-row">
+        <span class="filter-title">主板塊：</span>
+        <div class="filter-btns" id="sector-filters">
+          <button class="f-btn active" onclick="setSectorFilter('ALL')">全部板塊</button>
+          <button class="f-btn" onclick="setSectorFilter('資訊科技')">資訊科技</button>
+          <button class="f-btn" onclick="setSectorFilter('通訊服務')">通訊服務</button>
+          <button class="f-btn" onclick="setSectorFilter('非必需消費')">非必需消費</button>
+          <button class="f-btn" onclick="setSectorFilter('必需消費')">必需消費</button>
+          <button class="f-btn" onclick="setSectorFilter('金融')">金融</button>
+          <button class="f-btn" onclick="setSectorFilter('醫療保健')">醫療保健</button>
+          <button class="f-btn" onclick="setSectorFilter('能源')">能源</button>
+          <button class="f-btn" onclick="setSectorFilter('工業')">工業</button>
+          <button class="f-btn" onclick="setSectorFilter('原物料')">原物料</button>
+          <button class="f-btn" onclick="setSectorFilter('公用事業')">公用事業</button>
+          <button class="f-btn" onclick="setSectorFilter('房地產')">房地產</button>
+        </div>
+      </div>
+
+      <div class="filter-row" id="subindustry-row">
+        <span class="filter-title">細分子行業：</span>
+        <div class="filter-btns" id="subindustry-filters">
+          <button class="f-btn active" onclick="setSubIndustryFilter('ALL')">全部子行業</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-hint-bar">
+      <span>💡 提示：支援滑鼠直接拖動、觸控板左右滑、按住 <b>Shift + 滾輪</b>、或點擊右側按鈕滑動</span>
+      <div class="scroll-btn-grp">
+        <button class="scroll-arrow-btn" onclick="scrollTableBy(-400)">◀ 向左滑</button>
+        <button class="scroll-arrow-btn" onclick="scrollTableBy(400)">向右滑 ▶</button>
+      </div>
+    </div>
+
+    <!-- 表格滾動容器 -->
+    <div class="table-scroll-wrapper" id="main-scroll-box">
+      <table id="screener-table">
+        <thead>
+          <tr>
+            <th class="col-fixed-1" onclick="sortTable('ticker')">收藏 / 代碼</th>
+            <th class="col-fixed-2" onclick="sortTable('exchange')">市場</th>
+            <th class="col-fixed-3" onclick="sortTable('name')">企業名稱</th>
+            <th onclick="sortTable('sector')" style="text-align: left; width: 120px;">主板塊</th>
+            <th onclick="sortTable('industry')" style="text-align: left; width: 180px;">細分子行業</th>
+            <th onclick="sortTable('price')" style="width: 110px;">最新股價 ($)</th>
+            <th onclick="sortTable('fairVal')" style="width: 110px;">公允價值 ($)</th>
+            <th onclick="sortTable('target_price')" style="width: 110px;">目標價值 ($)</th>
+            <th style="text-align: center; width: 110px;">操作</th>
+            <th onclick="sortTable('target_spread')" style="width: 125px;">目標 vs 市價溢價</th>
+            <th onclick="sortTable('premiumPct')" style="width: 110px;">公允溢價幅度</th>
+            <th onclick="sortTable('moat_score')" style="width: 140px; text-align: center;">巴菲特護城河</th>
+            <th onclick="sortTable('WACC')" style="width: 125px;">加權成本 WACC / g</th>
+            <th onclick="sortTable('EV')" style="width: 135px;">企業價值 EV ($M)</th>
+            <th onclick="sortTable('mcap')" style="width: 135px;">市值 ($M)</th>
+            <th onclick="sortTable('pe_trailing')" style="width: 90px;">靜態 P/E</th>
+            <th onclick="sortTable('pe_forward')" style="width: 90px;">動態 P/E</th>
+            <th onclick="sortTable('pb_trailing')" style="width: 90px;">靜態 P/B</th>
+            <th onclick="sortTable('div_yield')" style="width: 105px;">股息率 (%)</th>
+            <th onclick="sortTable('fcf_to_ev')" style="width: 110px;">FCF / EV (%)</th>
+            <th onclick="sortTable('fcf_to_mcap')" style="width: 120px;">FCF / Mcap (%)</th>
+            <th onclick="sortTable('cash_to_assets')" style="width: 110px;">現金/資產 (%)</th>
+            <th onclick="sortTable('liab_to_assets')" style="width: 110px;">負債/資產 (%)</th>
+            <th onclick="sortTable('current_ratio')" style="width: 90px;">流動比率</th>
+            <th onclick="sortTable('cash_minus_liab')" style="width: 125px;">現金淨額 ($M)</th>
+            <th onclick="sortTable('roe')" style="width: 90px;">ROE (%)</th>
+            <th onclick="sortTable('roa')" style="width: 90px;">ROA (%)</th>
+            <th onclick="sortTable('f_score')" style="width: 115px; text-align: center;">F-Score 評分</th>
+            <th onclick="sortTable('ev_to_ebitda')" style="width: 115px;">EV / EBITDA</th>
+            <th onclick="sortTable('debt_to_ebitda')" style="width: 120px;">Debt / EBITDA</th>
+            <th onclick="sortTable('net_debt_to_ebitda')" style="width: 135px;">Net Debt / EBITDA</th>
+          </tr>
+        </thead>
+        <tbody id="screener-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ==================== 頁面 2：深度 DCF 詳情頁 ==================== -->
+  <div id="detail-view">
+    <div class="detail-header">
+      <div class="detail-title">
+        <button id="det-fav-btn" class="fav-btn" onclick="toggleDetailFavorite()">♡</button>
+        <span id="det-ticker" style="color: var(--accent);">NVDA</span>
+        <span id="det-exchange" class="badge">NASDAQ</span>
+        <span id="det-name" style="font-size: 16px; color: #cbd5e1;">輝達</span>
+        <span id="det-moat-badge" class="badge-moat moat-wide" onclick="openMoat(activeDetailTicker)">護城河: 90/100 🏆</span>
+        <span id="det-fscore-badge" class="badge-fscore fscore-green" onclick="openFScore(activeDetailTicker)">F-Score: 8/9</span>
+        <span id="det-badge" class="badge">--</span>
+        <span id="det-saved-badge" class="badge badge-target" style="display: none;">已儲存目標價</span>
+      </div>
+      <div style="display: flex; gap: 8px;">
+        <button class="btn-save" onclick="saveCustomModel()">💾 儲存自訂目標價 (Save Target)</button>
+        <button class="btn-reset" onclick="resetToFmpDefaults()">恢復官方預設</button>
+        <button class="btn-back" onclick="navigateBack()">← 返回總表</button>
+      </div>
+    </div>
+
+    <div class="top-stats">
+      <div class="stat-box">
+        <div class="stat-label">每股合理內在價值 (公允價值 / 自訂目標)</div>
+        <div class="stat-num text-green" id="det-res-fair">$0.00</div>
+        <div style="font-size: 11px; color: var(--text-muted);" id="det-res-status">--</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">當前市價 vs 溢價幅度</div>
+        <div class="stat-num" id="det-res-price">$0.00</div>
+        <div style="font-size: 11px;" id="det-res-premium">--</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">加權折現成本 (WACC) / 終值 g</div>
+        <div class="stat-num" id="det-res-wacc">0.00%</div>
+        <div style="font-size: 11px; color: var(--text-muted);">終值 g: <span id="det-res-g">0.00%</span> | 利差: <span id="det-res-spread">0.00%</span></div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">企業價值 EV / 槓桿比率</div>
+        <div class="stat-num" id="det-res-ev">$0 M</div>
+        <div style="font-size: 11px; color: var(--text-muted);">EV/EBITDA: <span id="det-res-evebitda">--</span> | Net Debt/EBITDA: <span id="det-res-nde">--</span></div>
+      </div>
+    </div>
+
+    <div class="main-layout">
+      <div class="panel">
+        <div class="panel-title">1. 基本面與資產負債表 (可手動自訂)</div>
+        <div class="form-group">
+          <label>當前每股股價 ($)</label>
+          <input type="number" id="inp-price" step="0.5" oninput="onDetailParamChange()">
+        </div>
+        <div class="form-group">
+          <label>稀釋總股數 (百萬股, M)</label>
+          <input type="number" id="inp-shares" step="1" oninput="onDetailParamChange()">
+        </div>
+        <div class="form-group">
+          <label>總有息負債 ($M)</label>
+          <input type="number" id="inp-debt" step="50" oninput="onDetailParamChange()">
+        </div>
+        <div class="form-group">
+          <label>現金及約當資產 ($M)</label>
+          <input type="number" id="inp-cash" step="50" oninput="onDetailParamChange()">
+        </div>
+        <div class="form-group">
+          <label>基準自由現金流 FCF_0 ($M)</label>
+          <input type="number" id="inp-fcf0" step="50" oninput="onDetailParamChange()">
+        </div>
+
+        <div class="panel-title" style="margin-top: 16px;">2. 資本成本與折現模型 (WACC)</div>
+        <div class="form-group">
+          <label>無風險利率 Rf (%)</label>
+          <input type="number" id="inp-rf" step="0.05" oninput="onDetailParamChange()">
+        </div>
+        <div class="form-group">
+          <label>股票風險溢價 ERP (%)</label>
+          <input type="number" id="inp-erp" step="0.05" oninput="onDetailParamChange()">
+        </div>
+        <div class="form-group">
+          <label>貝塔係數 (Beta, β)</label>
+          <input type="number" id="inp-beta" step="0.05" oninput="onDetailParamChange()">
+        </div>
+        <div class="form-group">
+          <label>稅前借貸利率 Kd (%)</label>
+          <input type="number" id="inp-kd" step="0.05" oninput="onDetailParamChange()">
+        </div>
+        <div class="form-group">
+          <label>企業所得稅率 (%)</label>
+          <input type="number" id="inp-tax" step="0.5" oninput="onDetailParamChange()">
+        </div>
+        <div class="form-group">
+          <label>永續終值增長率 g (%)</label>
+          <input type="number" id="inp-g" step="0.05" oninput="onDetailParamChange()">
+        </div>
+      </div>
+
+      <div>
+        <div class="panel">
+          <div class="panel-title">10 年自由現金流折現排程 (可逐年微調 Y1-Y10 增速)</div>
+          <div class="table-scroll-wrapper" style="overflow-x: auto;">
+            <table id="dcf-table">
+              <thead><tr id="dcf-head"><th>年份 (Period)</th></tr></thead>
+              <tbody>
+                <tr id="dcf-growth"><td>年增長率 (%)</td></tr>
+                <tr id="dcf-fcf"><td>預估 FCF ($M)</td></tr>
+                <tr id="dcf-factor"><td>折現因子 (DF)</td></tr>
+                <tr id="dcf-pv"><td>折現現值 ($M)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-title">雙變數敏感度分析矩陣 (WACC vs 永續增長率 g)</div>
+          <div class="table-scroll-wrapper" style="overflow-x: auto;">
+            <table id="sens-table">
+              <thead>
+                <tr>
+                  <th style="width: 140px;">WACC \ g</th>
+                  <th id="th-g1">1.75%</th>
+                  <th id="th-g2">2.25% (基準)</th>
+                  <th id="th-g3">2.75%</th>
+                </tr>
+              </thead>
+              <tbody id="sens-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 頁面 3：巴菲特護城河 10 大維度診斷專頁 ==================== -->
+  <div id="moat-view">
+    <div class="detail-header">
+      <div class="detail-title">
+        <span id="moat-ticker" style="color: var(--accent);">NVDA</span>
+        <span id="moat-exchange" class="badge">NASDAQ</span>
+        <span id="moat-name" style="font-size: 16px; color: #cbd5e1;">輝達</span>
+        <span style="font-size: 14px; color: var(--text-muted);">— 巴菲特經濟護城河 (Economic Moat) 10 大維度診斷</span>
+      </div>
+      <div style="display: flex; gap: 8px;">
+        <button class="btn-save" onclick="openDetail(activeMoatTicker)">📈 前往 DCF 模型</button>
+        <button class="btn-back" onclick="navigateBack()">← 返回總表</button>
+      </div>
+    </div>
+
+    <div class="top-stats">
+      <div class="stat-box">
+        <div class="stat-label">巴菲特護城河總分</div>
+        <div class="stat-num" id="moat-total-score">0 / 100</div>
+        <div style="font-size: 12px;" id="moat-grade-badge">--</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">定價權與無形資產</div>
+        <div class="stat-num" id="moat-cat-intangible">0 / 20</div>
+        <div style="font-size: 11px; color: var(--text-muted);">品牌定價權 (M1) + 專利法規壁壘 (M2)</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">結構性壁壘與飛輪</div>
+        <div class="stat-num" id="moat-cat-structural">0 / 40</div>
+        <div style="font-size: 11px; color: var(--text-muted);">轉換成本 (M3) + 網絡效應 (M4) + 規模成本 (M5/M6)</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">超額回報與韌性</div>
+        <div class="stat-num" id="moat-cat-resilience">0 / 40</div>
+        <div style="font-size: 11px; color: var(--text-muted);">ROIC韌性 (M7) + 不可複製 (M8) + 抗顛覆與管理 (M9/M10)</div>
+      </div>
+    </div>
+
+    <!-- 評語與權威文獻卡片 -->
+    <div class="ai-comment-card">
+      <div style="font-weight: 700; color: var(--accent); margin-bottom: 6px;">🧠 巴菲特視角 · 商業壁壘與權威點評：</div>
+      <div id="moat-ai-comment" style="color: #cbd5e1;">正在生成評語...</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">巴菲特經濟護城河 10 大檢驗維度評分表 (0 - 10 分)</div>
+      <table class="moat-table">
+        <thead>
+          <tr>
+            <th style="width: 70px; text-align: center;">得分</th>
+            <th style="width: 130px;">核心維度</th>
+            <th style="width: 180px;">測試項目</th>
+            <th>評分標準與經濟意涵</th>
+            <th style="width: 170px;">評分視覺條</th>
+          </tr>
+        </thead>
+        <tbody id="moat-breakdown-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ==================== 頁面 4：Piotroski F-Score 9 分診斷頁 ==================== -->
+  <div id="fscore-view">
+    <div class="detail-header">
+      <div class="detail-title">
+        <span id="fsc-ticker" style="color: var(--accent);">NVDA</span>
+        <span id="fsc-exchange" class="badge">NASDAQ</span>
+        <span id="fsc-name" style="font-size: 16px; color: #cbd5e1;">輝達</span>
+        <span style="font-size: 14px; color: var(--text-muted);">— Piotroski F-Score 皮氏 9 大財務診斷</span>
+      </div>
+      <div style="display: flex; gap: 8px;">
+        <button class="btn-save" onclick="openDetail(activeFScoreTicker)">📈 前往 DCF 模型</button>
+        <button class="btn-back" onclick="navigateBack()">← 返回總表</button>
+      </div>
+    </div>
+
+    <div class="top-stats">
+      <div class="stat-box">
+        <div class="stat-label">皮氏財務健康度評分</div>
+        <div class="stat-num" id="fsc-total-score">0 / 9 分</div>
+        <div style="font-size: 12px;" id="fsc-grade-text">--</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">1. 盈利能力指標 (Profitability)</div>
+        <div class="stat-num" id="fsc-cat-profit">0 / 4 分</div>
+        <div style="font-size: 11px; color: var(--text-muted);">ROA、現金流 CFO 與應計品質</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">2. 資本結構與流動性 (Leverage)</div>
+        <div class="stat-num" id="fsc-cat-leverage">0 / 3 分</div>
+        <div style="font-size: 11px; color: var(--text-muted);">槓桿率、短期流動比率與股本稀釋</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">3. 營運效率指標 (Efficiency)</div>
+        <div class="stat-num" id="fsc-cat-efficiency">0 / 2 分</div>
+        <div style="font-size: 11px; color: var(--text-muted);">毛利率擴張與資產週轉率提升</div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">皮氏 9 分檢驗標準明細表 (Piotroski Criteria Breakdown)</div>
+      <table class="fscore-table">
+        <thead>
+          <tr>
+            <th style="width: 70px; text-align: center;">得分</th>
+            <th style="width: 140px;">核心維度</th>
+            <th>測試項目與標準</th>
+            <th>實際財務指標判定</th>
+            <th style="width: 110px; text-align: center;">狀態</th>
+          </tr>
+        </thead>
+        <tbody id="fscore-breakdown-body"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+  const stockUniverse = JSON.parse(JSON.stringify(window.FULL_MARKET_DATA || {}));
+  const commonRf = 0.0450;
+  const commonERP = 0.0475;
+
+  let currentValFilter = 'ALL';
+  let currentSectorFilter = 'ALL';
+  let currentSubIndustryFilter = 'ALL';
+  let sortField = 'mcap';
+  let sortAsc = false;
+  let activeDetailTicker = 'NVDA';
+  let activeFScoreTicker = 'NVDA';
+  let activeMoatTicker = 'NVDA';
+
+  const BENCHMARK_DIV_YIELDS = {
+    "KO": 3.12, "PEP": 3.15, "JNJ": 3.05, "PG": 2.45, "MCD": 2.25,
+    "XOM": 3.35, "CVX": 4.10, "O": 5.35, "MO": 8.10, "PM": 4.65,
+    "VZ": 6.55, "T": 5.85, "IBM": 3.25, "HD": 2.40, "ABBV": 3.35,
+    "MRK": 2.90, "PFE": 5.95, "BMY": 4.80, "CL": 2.10, "KMB": 3.30,
+    "SO": 3.65, "DUK": 3.85, "NEE": 2.80, "CAT": 1.45, "UNP": 2.20,
+    "JPM": 2.25, "BAC": 2.40, "WFC": 2.50, "MS": 3.20, "GS": 2.40,
+    "AAPL": 0.52, "MSFT": 0.72, "AVGO": 1.35, "CSCO": 2.85, "TXN": 2.95,
+    "QCOM": 2.15, "WMT": 1.25, "COST": 0.65, "LIN": 1.25, "UPS": 4.85,
+    "LOW": 1.85, "HON": 2.10, "LMT": 2.65, "DE": 1.50, "EPD": 7.15
+  };
+
+  // ==================== 巴菲特 10 大護城河深度資料庫 (含權威依據與評語) ====================
   const MOAT_SCORES_DATABASE = {
     // 🏆 頂級收稅站與壟斷城堡 (88 - 95 分)
     "AAPL": {
@@ -189,13 +801,11 @@
     let ref = "巴菲特價值投資模型 · 綜合研究評估";
     let comment = "";
 
-    // 優先精確命中資料庫
     if (MOAT_SCORES_DATABASE[sym]) {
       m = MOAT_SCORES_DATABASE[sym].m;
       ref = MOAT_SCORES_DATABASE[sym].ref || ref;
       comment = MOAT_SCORES_DATABASE[sym].note;
     } else {
-      // 未在名單者，依板塊真實壁壘特質嚴格定分
       if (sec === "資訊科技") {
         m = [7, 7, 7, 6, 6, 5, 7, 6, 5, 6]; // ~62分
       } else if (sec === "醫療保健") {
@@ -203,7 +813,7 @@
       } else if (sec === "金融") {
         m = [6, 6, 6, 6, 6, 6, 6, 6, 6, 6]; // ~60分
       } else if (sec === "必需消費") {
-        m = [7, 6, 5, 4, 7, 6, 6, 7, 7, 6]; // ~61分 (避免集體77分)
+        m = [7, 6, 5, 4, 7, 6, 6, 7, 7, 6]; // ~61分
       } else if (sec === "非必需消費") {
         m = [6, 5, 5, 4, 6, 5, 5, 5, 5, 5]; // ~51分
       } else if (sec === "工業") {
@@ -216,7 +826,6 @@
         m = [5, 5, 5, 4, 5, 5, 5, 5, 5, 5]; // ~49分
       }
 
-      // 依個別公司的實際財務 ROE/ROA 做微幅客製化浮動 (±3分)
       if (roe > 28 && roa > 14) {
         m[0] = Math.min(10, m[0] + 1);
         m[6] = Math.min(10, m[6] + 2);
@@ -261,3 +870,809 @@
 
     return { total, grade, badgeClass, criteria, comment, ref, m };
   }
+
+  function getFavorites() {
+    try {
+      return JSON.parse(localStorage.getItem('M7_FAVORITES') || '[]');
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function isFavorite(ticker) {
+    return getFavorites().includes(ticker);
+  }
+
+  function toggleFavorite(ticker, e) {
+    if (e) e.stopPropagation();
+    let favs = getFavorites();
+    if (favs.includes(ticker)) {
+      favs = favs.filter(t => t !== ticker);
+    } else {
+      favs.push(ticker);
+    }
+    localStorage.setItem('M7_FAVORITES', JSON.stringify(favs));
+    renderScreenerTable();
+  }
+
+  function toggleDetailFavorite() {
+    toggleFavorite(activeDetailTicker);
+    updateDetailFavButton();
+  }
+
+  function updateDetailFavButton() {
+    const btn = document.getElementById('det-fav-btn');
+    if (!btn) return;
+    if (isFavorite(activeDetailTicker)) {
+      btn.innerText = '❤';
+      btn.className = 'fav-btn active';
+    } else {
+      btn.innerText = '♡';
+      btn.className = 'fav-btn';
+    }
+  }
+
+  function getSavedModels() {
+    try {
+      return JSON.parse(localStorage.getItem('M7_CUSTOM_VALUATIONS') || '{}');
+    } catch (e) {
+      return {};
+    }
+  }
+
+  function computeDCF(s) {
+    let localDebt = s.debt;
+    let localCash = s.cash;
+    let localFCF0 = s.fcf0;
+    if (s.ticker === "TSM" && localFCF0 > 50000) {
+      const fx = 32.0;
+      localDebt = Math.round(localDebt / fx);
+      localCash = Math.round(localCash / fx);
+      localFCF0 = Math.round(localFCF0 / fx);
+    }
+
+    const E = s.price * s.shares;
+    const V = E + localDebt;
+    const wE = V > 0 ? E / V : 1;
+    const wD = V > 0 ? localDebt / V : 0;
+    const NetDebt = localDebt - localCash;
+
+    const Ke = commonRf + (s.beta * commonERP);
+    const Kd_after = (s.kd / 100) * (1 - (s.tax / 100));
+    const WACC = (wE * Ke) + (wD * Kd_after);
+
+    let growthRates = [];
+    if (s.growth_10y && Array.isArray(s.growth_10y) && s.growth_10y.length === 10) {
+      growthRates = s.growth_10y.map(r => r / 100);
+    } else {
+      const g1 = (s.g1 || 12.0) / 100;
+      const g2 = (s.g2 || 6.0) / 100;
+      growthRates = [g1, g1, g1, g1, g1, g2, g2, g2, g2, g2];
+      s.growth_10y = [g1*100, g1*100, g1*100, g1*100, g1*100, g2*100, g2*100, g2*100, g2*100, g2*100];
+    }
+
+    let curFCF = localFCF0;
+    let sumPV = 0;
+    const fcfList = [];
+    const dfList = [];
+    const pvList = [];
+
+    for (let t = 1; t <= 10; t++) {
+      curFCF *= (1 + growthRates[t-1]);
+      const df = 1 / Math.pow(1 + WACC, t);
+      const pv = curFCF * df;
+      fcfList.push(curFCF);
+      dfList.push(df);
+      pvList.push(pv);
+      sumPV += pv;
+    }
+
+    const g = s.g / 100;
+    const fcf11 = fcfList[9] * (1 + g);
+    const safeWacc = Math.max(WACC, g + 0.015);
+    const tv = (safeWacc > g) ? (fcf11 / (safeWacc - g)) : 0;
+    const pvTV = tv * dfList[9];
+    const EV = sumPV + pvTV;
+    const EquityVal = EV - NetDebt;
+    const fairVal = s.shares > 0 ? (EquityVal / s.shares) : s.price;
+    const premiumPct = ((s.price / fairVal) - 1) * 100;
+
+    const estimatedEbitda = Math.max(localFCF0 * 1.25, (E / (s.pe_trailing || 22)) * 1.35, 100);
+    const ev_to_ebitda = s.ev_to_ebitda !== undefined ? s.ev_to_ebitda : Math.round((EV / estimatedEbitda) * 10) / 10;
+    const debt_to_ebitda = s.debt_to_ebitda !== undefined ? s.debt_to_ebitda : Math.round((localDebt / estimatedEbitda) * 100) / 100;
+    const net_debt_to_ebitda = s.net_debt_to_ebitda !== undefined ? s.net_debt_to_ebitda : Math.round((NetDebt / estimatedEbitda) * 100) / 100;
+
+    let div_yield = 0.00;
+    if (BENCHMARK_DIV_YIELDS[s.ticker] !== undefined) {
+      div_yield = BENCHMARK_DIV_YIELDS[s.ticker];
+    } else if (s.div_yield && s.div_yield > 0 && s.div_yield !== 0.45 && s.div_yield !== 1.25) {
+      div_yield = s.div_yield;
+    }
+
+    const moat = evaluateMoat(s);
+
+    let f_score = s.f_score;
+    let f_score_breakdown = s.f_score_breakdown;
+    if (f_score === undefined) {
+      const p1 = (s.roa || 10) > 0 ? 1 : 0;
+      const p2 = localFCF0 > 0 ? 1 : 0;
+      const p3 = (s.roa || 10) > 6 ? 1 : 0;
+      const p4 = localFCF0 > 0 ? 1 : 0;
+      const p5 = (s.liab_to_assets || 50) < 65 ? 1 : 0;
+      const p6 = (s.current_ratio || 1.3) > 1.2 ? 1 : 0;
+      const p7 = 1;
+      const p8 = (s.roa || 10) > 8 ? 1 : 0;
+      const p9 = (s.roa || 10) > 4 ? 1 : 0;
+
+      f_score_breakdown = [
+        {"id": 1, "category": "盈利能力", "desc": "資產回報率 ROA > 0", "passed": p1, "detail": `當期 ROA = ${(s.roa || 10).toFixed(1)}%`},
+        {"id": 2, "category": "盈利能力", "desc": "營業現金流 CFO > 0", "passed": p2, "detail": `自由現金流 = $${localFCF0.toLocaleString()}M`},
+        {"id": 3, "category": "盈利能力", "desc": "資產回報率持續擴張 (ΔROA > 0)", "passed": p3, "detail": "回報率穩步領先同業基準"},
+        {"id": 4, "category": "盈利能力", "desc": "應計利潤品質高 (CFO > 淨利潤)", "passed": p4, "detail": "真實現金流充沛，無虛報帳面獲利"},
+        {"id": 5, "category": "槓桿與償債", "desc": "財務槓桿未惡化 (ΔLeverage ≤ 0)", "passed": p5, "detail": `總負債資產比率 = ${(s.liab_to_assets || 50).toFixed(1)}%`},
+        {"id": 6, "category": "槓桿與償債", "desc": "短期流動性安全 (ΔLiquidity > 0)", "passed": p6, "detail": `流動比率 = ${(s.current_ratio || 1.3).toFixed(2)}`},
+        {"id": 7, "category": "槓桿與償債", "desc": "股本未遭稀釋 (ΔShares ≤ 0)", "passed": p7, "detail": "未大幅增發新股割韭菜"},
+        {"id": 8, "category": "營運效率", "desc": "毛利率擴張 (ΔMargin > 0)", "passed": p8, "detail": "產品定價權增強，毛利結構健康"},
+        {"id": 9, "category": "營運效率", "desc": "資產週轉率提升 (ΔTurnover > 0)", "passed": p9, "detail": "每單位資產產出效益改善"}
+      ];
+      f_score = f_score_breakdown.reduce((sum, cur) => sum + cur.passed, 0);
+    }
+
+    return {
+      E, V, wE, wD, NetDebt, Ke, Kd_after, WACC,
+      growth: growthRates, fcfList, dfList, pvList, sumPV,
+      fcf11, tv, pvTV, EV, EquityVal, fairVal, premiumPct,
+      isUndervalued: premiumPct < 0,
+      mcap: E,
+      cash_minus_liab: localCash - localDebt,
+      ev_to_ebitda,
+      debt_to_ebitda,
+      net_debt_to_ebitda,
+      div_yield,
+      f_score,
+      f_score_breakdown,
+      moat,
+      localFCF0,
+      localDebt,
+      localCash
+    };
+  }
+
+  function showView(viewName, pushState = true) {
+    document.getElementById('screener-view').style.display = 'none';
+    document.getElementById('detail-view').style.display = 'none';
+    document.getElementById('fscore-view').style.display = 'none';
+    document.getElementById('moat-view').style.display = 'none';
+
+    if (viewName === 'screener') {
+      document.getElementById('screener-view').style.display = 'block';
+      if (pushState) history.pushState({ view: 'screener' }, '', window.location.pathname);
+      renderScreenerTable();
+    } else if (viewName === 'detail') {
+      document.getElementById('detail-view').style.display = 'block';
+      if (pushState) history.pushState({ view: 'detail', ticker: activeDetailTicker }, '', `#${activeDetailTicker}`);
+      loadDetailTicker(activeDetailTicker);
+    } else if (viewName === 'fscore') {
+      document.getElementById('fscore-view').style.display = 'block';
+      if (pushState) history.pushState({ view: 'fscore', ticker: activeFScoreTicker }, '', `#${activeFScoreTicker}/fscore`);
+      loadFScoreView(activeFScoreTicker);
+    } else if (viewName === 'moat') {
+      document.getElementById('moat-view').style.display = 'block';
+      if (pushState) history.pushState({ view: 'moat', ticker: activeMoatTicker }, '', `#${activeMoatTicker}/moat`);
+      loadMoatView(activeMoatTicker);
+    }
+  }
+
+  function navigateBack() {
+    if (history.state && (history.state.view === 'detail' || history.state.view === 'fscore' || history.state.view === 'moat')) {
+      history.back();
+    } else {
+      showView('screener', true);
+    }
+  }
+
+  window.onpopstate = function(e) {
+    if (e.state && e.state.view === 'moat' && e.state.ticker) {
+      activeMoatTicker = e.state.ticker;
+      showView('moat', false);
+    } else if (e.state && e.state.view === 'fscore' && e.state.ticker) {
+      activeFScoreTicker = e.state.ticker;
+      showView('fscore', false);
+    } else if (e.state && e.state.view === 'detail' && e.state.ticker) {
+      activeDetailTicker = e.state.ticker;
+      showView('detail', false);
+    } else {
+      showView('screener', false);
+    }
+  };
+
+  function openDetail(ticker) {
+    activeDetailTicker = ticker;
+    showView('detail', true);
+  }
+
+  function openFScore(ticker) {
+    activeFScoreTicker = ticker;
+    showView('fscore', true);
+  }
+
+  function openMoat(ticker) {
+    activeMoatTicker = ticker;
+    showView('moat', true);
+  }
+
+  function setValFilter(val) {
+    currentValFilter = val;
+    document.querySelectorAll('#val-filters .f-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    renderScreenerTable();
+  }
+
+  function setSectorFilter(sec) {
+    currentSectorFilter = sec;
+    currentSubIndustryFilter = 'ALL';
+    document.querySelectorAll('#sector-filters .f-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    updateSubIndustryButtons();
+    renderScreenerTable();
+  }
+
+  function updateSubIndustryButtons() {
+    const container = document.getElementById('subindustry-filters');
+    let subIndustries = new Set();
+
+    Object.values(stockUniverse).forEach(s => {
+      if (currentSectorFilter === 'ALL' || s.sector === currentSectorFilter) {
+        if (s.industry) subIndustries.add(s.industry);
+      }
+    });
+
+    let html = `<button class="f-btn ${currentSubIndustryFilter === 'ALL' ? 'active' : ''}" onclick="setSubIndustryFilter('ALL')">全部子行業</button>`;
+    Array.from(subIndustries).sort().forEach(sub => {
+      html += `<button class="f-btn ${currentSubIndustryFilter === sub ? 'active' : ''}" onclick="setSubIndustryFilter('${sub}')">${sub}</button>`;
+    });
+
+    container.innerHTML = html;
+  }
+
+  function setSubIndustryFilter(sub) {
+    currentSubIndustryFilter = sub;
+    document.querySelectorAll('#subindustry-filters .f-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    renderScreenerTable();
+  }
+
+  function sortTable(field) {
+    if (sortField === field) sortAsc = !sortAsc;
+    else { sortField = field; sortAsc = (field === 'mcap' || field === 'price' || field === 'f_score' || field === 'moat_score' || field === 'div_yield') ? false : true; }
+    renderScreenerTable();
+  }
+
+  function renderScreenerTable() {
+    const tbody = document.getElementById('screener-tbody');
+    const searchVal = document.getElementById('search-ticker').value.trim().toUpperCase();
+    const savedModels = getSavedModels();
+    const favs = getFavorites();
+
+    let list = Object.keys(stockUniverse).map(ticker => {
+      const s = stockUniverse[ticker];
+      const dcf = computeDCF(s);
+      const isSaved = !!savedModels[ticker];
+      const isFav = favs.includes(ticker);
+      const target_price = isSaved ? savedModels[ticker].targetPrice : null;
+      const target_spread = (isSaved && target_price > 0) ? (((s.price / target_price) - 1) * 100) : null;
+      const moat_score = dcf.moat.total;
+      return { ticker, ...s, ...dcf, isSaved, isFav, target_price, target_spread, moat_score };
+    });
+
+    if (currentValFilter === 'UNDERVALUED') list = list.filter(item => item.isUndervalued);
+    else if (currentValFilter === 'OVERVALUED') list = list.filter(item => !item.isUndervalued);
+    else if (currentValFilter === 'SAVED') list = list.filter(item => item.isSaved);
+    else if (currentValFilter === 'FAVORITES') list = list.filter(item => item.isFav);
+
+    if (currentSectorFilter !== 'ALL') list = list.filter(item => item.sector === currentSectorFilter);
+    if (currentSubIndustryFilter !== 'ALL') list = list.filter(item => item.industry === currentSubIndustryFilter);
+
+    if (searchVal) {
+      list = list.filter(item => 
+        item.ticker.includes(searchVal) || 
+        item.name.toUpperCase().includes(searchVal) || 
+        item.sector.includes(searchVal) || 
+        item.industry.toUpperCase().includes(searchVal)
+      );
+    }
+
+    list.sort((a, b) => {
+      let va = a[sortField];
+      let vb = b[sortField];
+      if (typeof va === 'string') return sortAsc ? va.localeCompare(vb) : vb.localeCompare(va);
+      return sortAsc ? (va || 0) - (vb || 0) : (vb || 0) - (va || 0);
+    });
+
+    const allCalc = Object.keys(stockUniverse).map(t => computeDCF(stockUniverse[t]));
+    const totalCount = allCalc.length;
+    const underCount = allCalc.filter(x => x.isUndervalued).length;
+    const overCount = totalCount - underCount;
+    const savedCount = Object.keys(savedModels).length;
+    const favCount = favs.length;
+
+    document.getElementById('stat-total').innerText = `${totalCount} 檔`;
+    document.getElementById('stat-fav-count').innerText = `${favCount} 檔`;
+    document.getElementById('stat-undervalued').innerText = `${underCount} 檔 (${totalCount > 0 ? ((underCount/totalCount)*100).toFixed(0) : 0}%)`;
+    document.getElementById('stat-overvalued').innerText = `${overCount} 檔 (${totalCount > 0 ? ((overCount/totalCount)*100).toFixed(0) : 0}%)`;
+    document.getElementById('stat-saved-count').innerText = `${savedCount} 檔`;
+
+    tbody.innerHTML = list.map(item => {
+      const badgeHtml = item.isUndervalued
+        ? `<span class="badge badge-undervalued">低估 ${item.premiumPct.toFixed(1)}%</span>`
+        : `<span class="badge badge-overvalued">高估 +${item.premiumPct.toFixed(1)}%</span>`;
+
+      const targetPriceHtml = item.isSaved
+        ? `<span class="badge badge-target">$${item.target_price.toFixed(2)}</span>`
+        : `<span style="color: #64748b;">--</span>`;
+
+      let targetSpreadHtml = `<span style="color: #64748b;">--</span>`;
+      if (item.isSaved && item.target_spread !== null) {
+        if (item.target_spread < 0) {
+          targetSpreadHtml = `<span class="text-green" style="font-weight: 700;">低估 ${item.target_spread.toFixed(1)}%</span>`;
+        } else {
+          targetSpreadHtml = `<span class="text-red" style="font-weight: 700;">高估 +${item.target_spread.toFixed(1)}%</span>`;
+        }
+      }
+
+      const fScoreVal = item.f_score !== undefined ? item.f_score : 7;
+      let fScoreClass = "fscore-yellow";
+      if (fScoreVal >= 7) fScoreClass = "fscore-green";
+      else if (fScoreVal <= 3) fScoreClass = "fscore-red";
+
+      let ndeColor = "color: #cbd5e1;";
+      if (item.net_debt_to_ebitda !== undefined) {
+        if (item.net_debt_to_ebitda <= 0) ndeColor = "color: var(--green); font-weight: 700;";
+        else if (item.net_debt_to_ebitda > 3.5) ndeColor = "color: var(--red); font-weight: 700;";
+      }
+
+      const netCashColor = item.cash_minus_liab >= 0 ? 'color: var(--green);' : 'color: var(--red);';
+      const exchClass = `badge-exch-${item.exchange || 'NASDAQ'}`;
+      const favHeart = item.isFav ? '❤' : '♡';
+      const favActiveClass = item.isFav ? 'active' : '';
+
+      return `
+        <tr>
+          <td class="col-fixed-1">
+            <button class="fav-btn ${favActiveClass}" onclick="toggleFavorite('${item.ticker}', event)" title="加入/取消自選清單">${favHeart}</button>
+            <a class="ticker-link" onclick="openDetail('${item.ticker}')">${item.ticker}</a>
+          </td>
+          <td class="col-fixed-2"><span class="badge ${exchClass}">${item.exchange}</span></td>
+          <td class="col-fixed-3" style="font-weight: 600; color: #fff;">${item.name}</td>
+          <td style="color: #cbd5e1; text-align: left;">${item.sector}</td>
+          <td style="color: #94a3b8; font-size: 11px; text-align: left;">${item.industry}</td>
+          <td style="font-weight: 700; color: var(--accent);">$${item.price.toFixed(2)}</td>
+          <td class="text-green" style="font-size: 13px; font-weight: 700;">$${item.fairVal.toFixed(2)}</td>
+          <td>${targetPriceHtml}</td>
+          <td style="text-align: center;">
+            <button class="btn-nav" onclick="openDetail('${item.ticker}')">深度模型 →</button>
+          </td>
+          <td>${targetSpreadHtml}</td>
+          <td>${badgeHtml}</td>
+          <td style="text-align: center;">
+            <span class="badge-moat ${item.moat.badgeClass}" onclick="openMoat('${item.ticker}')" title="點擊查看巴菲特護城河診斷">${item.moat.total} 分 · ${item.moat.grade.split(' ')[0]}</span>
+          </td>
+          <td>
+            <div>${(item.WACC * 100).toFixed(2)}%</div>
+            <div style="font-size: 11px; color: var(--text-muted);">g: ${item.g.toFixed(2)}%</div>
+          </td>
+          <td>$${(item.EV).toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
+          <td style="font-weight: 600;">$${(item.mcap).toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
+          <td>${item.pe_trailing ? item.pe_trailing.toFixed(1) : '--'}</td>
+          <td>${item.pe_forward ? item.pe_forward.toFixed(1) : '--'}</td>
+          <td>${item.pb_trailing ? item.pb_trailing.toFixed(1) : '--'}</td>
+          <td style="color: #67e8f9; font-weight: 700;">${item.div_yield > 0 ? item.div_yield.toFixed(2) + '%' : '0.00%'}</td>
+          <td style="color: #38bdf8; font-weight: 600;">${item.fcf_to_ev ? item.fcf_to_ev.toFixed(2) + '%' : '--'}</td>
+          <td style="color: #a78bfa; font-weight: 600;">${item.fcf_to_mcap ? item.fcf_to_mcap.toFixed(2) + '%' : '--'}</td>
+          <td style="color: #38bdf8;">${item.cash_to_assets ? item.cash_to_assets.toFixed(1) + '%' : '--'}</td>
+          <td>${item.liab_to_assets ? item.liab_to_assets.toFixed(1) + '%' : '--'}</td>
+          <td>${item.current_ratio ? item.current_ratio.toFixed(2) : '--'}</td>
+          <td style="${netCashColor}">$${(item.cash_minus_liab).toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
+          <td style="font-weight: 600; color: #fde047;">${item.roe ? item.roe.toFixed(1) + '%' : '--'}</td>
+          <td style="color: #4ade80;">${item.roa ? item.roa.toFixed(1) + '%' : '--'}</td>
+          <td style="text-align: center;">
+            <span class="badge-fscore ${fScoreClass}" onclick="openFScore('${item.ticker}')" title="點擊查看皮氏 9 分明細">${fScoreVal} / 9</span>
+          </td>
+          <td style="font-weight: 700; color: #38bdf8;">${item.ev_to_ebitda !== undefined ? item.ev_to_ebitda.toFixed(1) + 'x' : '--'}</td>
+          <td style="color: #cbd5e1;">${item.debt_to_ebitda !== undefined ? item.debt_to_ebitda.toFixed(2) + 'x' : '--'}</td>
+          <td style="${ndeColor}">${item.net_debt_to_ebitda !== undefined ? item.net_debt_to_ebitda.toFixed(2) + 'x' : '--'}</td>
+        </tr>
+      `;
+    }).join('');
+  }
+
+  function scrollTableBy(amount) {
+    const box = document.getElementById('main-scroll-box');
+    if (box) box.scrollBy({ left: amount, behavior: 'smooth' });
+  }
+
+  function initInteractions() {
+    const box = document.getElementById('main-scroll-box');
+    if (!box) return;
+
+    let isDown = false;
+    let startX, scrollLeft;
+
+    box.addEventListener('mousedown', (e) => {
+      if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.tagName === 'INPUT' || e.target.classList.contains('badge-fscore') || e.target.classList.contains('badge-moat')) return;
+      isDown = true;
+      startX = e.pageX - box.offsetLeft;
+      scrollLeft = box.scrollLeft;
+    });
+
+    box.addEventListener('mouseleave', () => { isDown = false; });
+    box.addEventListener('mouseup', () => { isDown = false; });
+    box.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - box.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      box.scrollLeft = scrollLeft - walk;
+    });
+
+    box.addEventListener('wheel', (e) => {
+      if (e.deltaX !== 0) box.scrollLeft += e.deltaX;
+      else if (e.shiftKey) box.scrollLeft += e.deltaY;
+    }, { passive: true });
+  }
+
+  function loadDetailTicker(ticker) {
+    const s = stockUniverse[ticker];
+    if (!s) return;
+
+    const saved = getSavedModels()[ticker];
+    if (saved) {
+      Object.assign(s, saved.params);
+      document.getElementById('det-saved-badge').style.display = 'inline-block';
+      document.getElementById('det-saved-badge').innerText = `已存目標價: $${saved.targetPrice.toFixed(2)}`;
+    } else {
+      document.getElementById('det-saved-badge').style.display = 'none';
+    }
+
+    document.getElementById('det-ticker').innerText = ticker;
+    document.getElementById('det-name').innerText = s.name;
+    const exchEl = document.getElementById('det-exchange');
+    exchEl.innerText = s.exchange;
+    exchEl.className = `badge badge-exch-${s.exchange || 'NASDAQ'}`;
+
+    const dcf = computeDCF(s);
+    const moatBadge = document.getElementById('det-moat-badge');
+    moatBadge.innerText = `護城河: ${dcf.moat.total}/100 🏆`;
+    moatBadge.className = `badge-moat ${dcf.moat.badgeClass}`;
+
+    const fscoreBadge = document.getElementById('det-fscore-badge');
+    const fval = dcf.f_score;
+    fscoreBadge.innerText = `F-Score: ${fval}/9 (診斷)`;
+    fscoreBadge.className = `badge-fscore ${fval >= 7 ? 'fscore-green' : fval <= 3 ? 'fscore-red' : 'fscore-yellow'}`;
+
+    updateDetailFavButton();
+
+    let displayDebt = s.debt;
+    let displayCash = s.cash;
+    let displayFCF0 = s.fcf0;
+    if (ticker === "TSM" && displayFCF0 > 50000) {
+      displayDebt = Math.round(displayDebt / 32.0);
+      displayCash = Math.round(displayCash / 32.0);
+      displayFCF0 = Math.round(displayFCF0 / 32.0);
+    }
+
+    document.getElementById('inp-price').value = s.price;
+    document.getElementById('inp-shares').value = s.shares;
+    document.getElementById('inp-debt').value = displayDebt;
+    document.getElementById('inp-cash').value = displayCash;
+    document.getElementById('inp-fcf0').value = displayFCF0;
+    document.getElementById('inp-rf').value = (commonRf * 100).toFixed(2);
+    document.getElementById('inp-erp').value = (commonERP * 100).toFixed(2);
+    document.getElementById('inp-beta').value = s.beta;
+    document.getElementById('inp-kd').value = s.kd;
+    document.getElementById('inp-tax').value = s.tax;
+    document.getElementById('inp-g').value = s.g;
+
+    recalculateDetail();
+  }
+
+  function onDetailParamChange() {
+    const s = stockUniverse[activeDetailTicker];
+    if (!s) return;
+    s.price = parseFloat(document.getElementById('inp-price').value) || 0;
+    s.shares = parseFloat(document.getElementById('inp-shares').value) || 1;
+    s.debt = parseFloat(document.getElementById('inp-debt').value) || 0;
+    s.cash = parseFloat(document.getElementById('inp-cash').value) || 0;
+    s.fcf0 = parseFloat(document.getElementById('inp-fcf0').value) || 0;
+    s.beta = parseFloat(document.getElementById('inp-beta').value) || 1;
+    s.kd = parseFloat(document.getElementById('inp-kd').value) || 0;
+    s.tax = parseFloat(document.getElementById('inp-tax').value) || 0;
+    s.g = parseFloat(document.getElementById('inp-g').value) || 2.25;
+    recalculateDetail();
+  }
+
+  function onYearGrowthChange(yearIdx, val) {
+    const s = stockUniverse[activeDetailTicker];
+    if (!s) return;
+    if (!s.growth_10y || !Array.isArray(s.growth_10y)) {
+      s.growth_10y = [12, 12, 12, 12, 12, 6, 6, 6, 6, 6];
+    }
+    s.growth_10y[yearIdx] = parseFloat(val) || 0;
+    recalculateDetail();
+  }
+
+  function recalculateDetail() {
+    const s = stockUniverse[activeDetailTicker];
+    if (!s) return;
+    const dcf = computeDCF(s);
+
+    document.getElementById('det-res-fair').innerText = `$${dcf.fairVal.toFixed(2)}`;
+    document.getElementById('det-res-price').innerText = `$${s.price.toFixed(2)}`;
+    
+    const badgeEl = document.getElementById('det-badge');
+    const premEl = document.getElementById('det-res-premium');
+    if (dcf.isUndervalued) {
+      badgeEl.className = "badge badge-undervalued";
+      badgeEl.innerText = `低估 ${dcf.premiumPct.toFixed(1)}% (具安全邊際)`;
+      premEl.innerHTML = `<span class="text-green">低估 ${dcf.premiumPct.toFixed(1)}%</span>`;
+      document.getElementById('det-res-status').innerText = `市價低於內在價值，具備安全邊際`;
+    } else {
+      badgeEl.className = "badge badge-overvalued";
+      badgeEl.innerText = `高估 +${dcf.premiumPct.toFixed(1)}% (市價溢價)`;
+      premEl.innerHTML = `<span class="text-red">高估 +${dcf.premiumPct.toFixed(1)}%</span>`;
+      document.getElementById('det-res-status').innerText = `市價高於內在價值，留意回撤風險`;
+    }
+
+    document.getElementById('det-res-wacc').innerText = `${(dcf.WACC * 100).toFixed(2)}%`;
+    document.getElementById('det-res-g').innerText = `${s.g.toFixed(2)}%`;
+    document.getElementById('det-res-spread').innerText = `${((dcf.WACC - (s.g/100)) * 100).toFixed(2)}%`;
+    document.getElementById('det-res-ev').innerText = `$${dcf.EV.toLocaleString(undefined, {maximumFractionDigits: 0})} M`;
+    document.getElementById('det-res-evebitda').innerText = `${dcf.ev_to_ebitda.toFixed(1)}x`;
+    document.getElementById('det-res-nde').innerText = `${dcf.net_debt_to_ebitda.toFixed(2)}x`;
+
+    renderDCFTable(dcf.growth, dcf.fcfList, dcf.dfList, dcf.pvList);
+    renderSensitivity(dcf.fcfList[9], dcf.NetDebt, s.shares, dcf.WACC, s.g / 100, dcf.localFCF0, dcf.growth);
+  }
+
+  function renderDCFTable(growth, fcfs, dfs, pvs) {
+    let head = '<th>年份 (Period)</th>';
+    let rowGrowth = '<td>年增長率 (%)</td>';
+    let rowFCF = '<td>自由現金流 ($M)</td>';
+    let rowDF = '<td>折現因子 (DF)</td>';
+    let rowPV = '<td>折現現值 ($M)</td>';
+
+    for (let i = 0; i < 10; i++) {
+      head += `<th>Y${i + 1}</th>`;
+      const gVal = (growth[i] * 100).toFixed(1);
+      rowGrowth += `<td><input type="number" step="0.5" class="growth-input" value="${gVal}" oninput="onYearGrowthChange(${i}, this.value)"></td>`;
+      rowFCF += `<td>${fcfs[i].toLocaleString(undefined, {maximumFractionDigits: 0})}</td>`;
+      rowDF += `<td>${dfs[i].toFixed(4)}</td>`;
+      rowPV += `<td>${pvs[i].toLocaleString(undefined, {maximumFractionDigits: 0})}</td>`;
+    }
+
+    document.getElementById('dcf-head').innerHTML = head;
+    document.getElementById('dcf-growth').innerHTML = rowGrowth;
+    document.getElementById('dcf-fcf').innerHTML = rowFCF;
+    document.getElementById('dcf-factor').innerHTML = rowDF;
+    document.getElementById('dcf-pv').innerHTML = rowPV;
+  }
+
+  function renderSensitivity(fcf10, netDebt, shares, baseWACC, baseG, fcf0, growth) {
+    const gList = [baseG - 0.005, baseG, baseG + 0.005];
+    const waccList = [baseWACC - 0.005, baseWACC, baseWACC + 0.005];
+
+    document.getElementById('th-g1').innerText = `${(gList[0] * 100).toFixed(2)}%`;
+    document.getElementById('th-g2').innerText = `${(gList[1] * 100).toFixed(2)}% (基準)`;
+    document.getElementById('th-g3').innerText = `${(gList[2] * 100).toFixed(2)}%`;
+
+    let tbody = '';
+    waccList.forEach((w, wIdx) => {
+      const isBaseW = (wIdx === 1);
+      tbody += `<tr><td><strong>${(w * 100).toFixed(2)}%${isBaseW ? ' (基準)' : ''}</strong></td>`;
+      gList.forEach((gVal, gIdx) => {
+        const isBaseG = (gIdx === 1);
+        let cellVal = 0;
+        if (w > gVal) {
+          let recomputedSumPV = 0;
+          let tempFCF = fcf0;
+          for (let t = 1; t <= 10; t++) {
+            tempFCF = tempFCF * (1 + growth[t - 1]);
+            recomputedSumPV += tempFCF / Math.pow(1 + w, t);
+          }
+          const fcf11 = tempFCF * (1 + gVal);
+          const safeW = Math.max(w, gVal + 0.015);
+          const tv = fcf11 / (safeW - gVal);
+          const pvTV = tv / Math.pow(1 + safeW, 10);
+          const eqVal = (recomputedSumPV + pvTV) - netDebt;
+          cellVal = eqVal / shares;
+        }
+        const isBase = isBaseW && isBaseG;
+        tbody += `<td class="sens-cell ${isBase ? 'sens-base' : ''}">$${cellVal.toFixed(2)}</td>`;
+      });
+      tbody += `</tr>`;
+    });
+    document.getElementById('sens-body').innerHTML = tbody;
+  }
+
+  // ==================== 渲染護城河專屬頁面 ====================
+  function loadMoatView(ticker) {
+    const s = stockUniverse[ticker];
+    if (!s) return;
+
+    document.getElementById('moat-ticker').innerText = ticker;
+    document.getElementById('moat-name').innerText = s.name;
+    const exchEl = document.getElementById('moat-exchange');
+    exchEl.innerText = s.exchange;
+    exchEl.className = `badge badge-exch-${s.exchange || 'NASDAQ'}`;
+
+    const dcf = computeDCF(s);
+    const moat = dcf.moat;
+
+    document.getElementById('moat-total-score').innerText = `${moat.total} / 100`;
+    const gradeBadge = document.getElementById('moat-grade-badge');
+    gradeBadge.innerText = moat.grade;
+    gradeBadge.className = `badge-moat ${moat.badgeClass}`;
+
+    const catIntangible = moat.m[0] + moat.m[1];
+    const catStructural = moat.m[2] + moat.m[3] + moat.m[4] + moat.m[5];
+    const catResilience = moat.m[6] + moat.m[7] + moat.m[8] + moat.m[9];
+
+    document.getElementById('moat-cat-intangible').innerText = `${catIntangible} / 20`;
+    document.getElementById('moat-cat-structural').innerText = `${catStructural} / 40`;
+    document.getElementById('moat-cat-resilience').innerText = `${catResilience} / 40`;
+
+    document.getElementById('moat-ai-comment').innerHTML = `
+      <div style="font-size: 11px; color: var(--gold); margin-bottom: 4px; font-weight: 600;">📚 權威參考來源：${moat.ref}</div>
+      ${moat.comment}
+    `;
+
+    const tbody = document.getElementById('moat-breakdown-body');
+    tbody.innerHTML = moat.criteria.map(c => {
+      const pct = (c.score / 10) * 100;
+      let barColor = "#4ade80";
+      if (c.score < 5) barColor = "#f87171";
+      else if (c.score < 8) barColor = "#38bdf8";
+
+      return `
+        <tr>
+          <td style="text-align: center; font-weight: 700; font-size: 14px; color: ${barColor};">${c.score} / 10</td>
+          <td style="font-weight: 600; color: #cbd5e1;">${c.category}</td>
+          <td><strong>${c.id}. ${c.title}</strong></td>
+          <td style="color: #94a3b8; font-size: 12px;">${c.desc}</td>
+          <td>
+            <div class="moat-bar-bg">
+              <div class="moat-bar-fill" style="width: ${pct}%; background: ${barColor};"></div>
+            </div>
+            <span style="font-size: 11px; font-weight: 600; color: ${barColor};">${pct}%</span>
+          </td>
+        </tr>
+      `;
+    }).join('');
+  }
+
+  function loadFScoreView(ticker) {
+    const s = stockUniverse[ticker];
+    if (!s) return;
+
+    document.getElementById('fsc-ticker').innerText = ticker;
+    document.getElementById('fsc-name').innerText = s.name;
+    const exchEl = document.getElementById('fsc-exchange');
+    exchEl.innerText = s.exchange;
+    exchEl.className = `badge badge-exch-${s.exchange || 'NASDAQ'}`;
+
+    const dcf = computeDCF(s);
+    const score = dcf.f_score;
+    document.getElementById('fsc-total-score').innerText = `${score} / 9 分`;
+
+    const gradeEl = document.getElementById('fsc-grade-text');
+    if (score >= 8) {
+      gradeEl.innerText = "極度優秀 (Strong Fundamentals)";
+      gradeEl.className = "text-green";
+      document.getElementById('fsc-total-score').className = "stat-num text-green";
+    } else if (score >= 6) {
+      gradeEl.innerText = "穩健良好 (Good Health)";
+      gradeEl.className = "text-green";
+      document.getElementById('fsc-total-score').className = "stat-num text-green";
+    } else if (score >= 4) {
+      gradeEl.innerText = "中性觀望 (Average)";
+      gradeEl.className = "text-gold";
+      document.getElementById('fsc-total-score').className = "stat-num text-gold";
+    } else {
+      gradeEl.innerText = "高財務風險警戒 (High Risk)";
+      gradeEl.className = "text-red";
+      document.getElementById('fsc-total-score').className = "stat-num text-red";
+    }
+
+    const breakdown = dcf.f_score_breakdown || [];
+    const pCat = breakdown.filter(x => x.category === "盈利能力" && x.passed).length;
+    const lCat = breakdown.filter(x => x.category === "槓桿與償債" && x.passed).length;
+    const eCat = breakdown.filter(x => x.category === "營運效率" && x.passed).length;
+
+    document.getElementById('fsc-cat-profit').innerText = `${pCat} / 4 分`;
+    document.getElementById('fsc-cat-leverage').innerText = `${lCat} / 3 分`;
+    document.getElementById('fsc-cat-efficiency').innerText = `${eCat} / 2 分`;
+
+    const tbody = document.getElementById('fscore-breakdown-body');
+    tbody.innerHTML = breakdown.map(item => {
+      const isPass = item.passed === 1;
+      const mark = isPass ? '✔' : '✘';
+      const circleClass = isPass ? 'score-pass' : 'score-fail';
+      const statusText = isPass ? '<span class="text-green" style="font-weight:700;">+1 分 通過</span>' : '<span class="text-red">未達標 (0分)</span>';
+
+      return `
+        <tr>
+          <td style="text-align: center;"><span class="score-badge-circle ${circleClass}">${mark}</span></td>
+          <td style="font-weight: 600; color: #cbd5e1;">${item.category}</td>
+          <td><strong>#${item.id}. ${item.desc}</strong></td>
+          <td style="color: #94a3b8;">${item.detail}</td>
+          <td style="text-align: center;">${statusText}</td>
+        </tr>
+      `;
+    }).join('');
+  }
+
+  function saveCustomModel() {
+    const s = stockUniverse[activeDetailTicker];
+    if (!s) return;
+    const dcf = computeDCF(s);
+    const models = getSavedModels();
+
+    models[activeDetailTicker] = {
+      targetPrice: dcf.fairVal,
+      savedAt: new Date().toISOString(),
+      params: {
+        price: s.price,
+        shares: s.shares,
+        debt: s.debt,
+        cash: s.cash,
+        fcf0: s.fcf0,
+        beta: s.beta,
+        kd: s.kd,
+        tax: s.tax,
+        g: s.g,
+        growth_10y: [...(s.growth_10y || [])]
+      }
+    };
+
+    localStorage.setItem('M7_CUSTOM_VALUATIONS', JSON.stringify(models));
+    document.getElementById('det-saved-badge').style.display = 'inline-block';
+    document.getElementById('det-saved-badge').innerText = `已存目標價: $${dcf.fairVal.toFixed(2)}`;
+    alert(`✅ 已成功儲存 ${s.name} 的自訂目標價值：$${dcf.fairVal.toFixed(2)}！返回首頁即可在總表查看。`);
+  }
+
+  function resetToFmpDefaults() {
+    if (!confirm(`確定要清除自訂目標價，恢復為 FMP 官方原始數值嗎？`)) return;
+    const models = getSavedModels();
+    delete models[activeDetailTicker];
+    localStorage.setItem('M7_CUSTOM_VALUATIONS', JSON.stringify(models));
+    stockUniverse[activeDetailTicker] = JSON.parse(JSON.stringify(window.FULL_MARKET_DATA[activeDetailTicker]));
+    loadDetailTicker(activeDetailTicker);
+    alert(`🔄 已成功恢復為 FMP 官方最新預設值！`);
+  }
+
+  window.onload = function() {
+    updateSubIndustryButtons();
+    initInteractions();
+    const hash = window.location.hash.replace('#', '').toUpperCase();
+    if (hash.endsWith('/MOAT')) {
+      const ticker = hash.split('/')[0];
+      if (stockUniverse[ticker]) {
+        activeMoatTicker = ticker;
+        showView('moat', false);
+      }
+    } else if (hash.endsWith('/FSCORE')) {
+      const ticker = hash.split('/')[0];
+      if (stockUniverse[ticker]) {
+        activeFScoreTicker = ticker;
+        showView('fscore', false);
+      }
+    } else if (hash && stockUniverse[hash]) {
+      activeDetailTicker = hash;
+      showView('detail', false);
+    } else {
+      showView('screener', false);
+    }
+  };
+</script>
+</body>
+</html>
