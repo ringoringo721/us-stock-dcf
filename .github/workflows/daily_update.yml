@@ -2,7 +2,9 @@ name: Daily US Stock Market DCF Auto-Refresh
 
 on:
   schedule:
+    # 每個美股交易日（週一至週五）收盤後自動觸發更新 (UTC 21:30)
     - cron: '30 21 * * 1-5'
+  # 支援在 GitHub 介面上一鍵手動點擊 Run workflow
   workflow_dispatch:
 
 permissions:
@@ -12,24 +14,29 @@ jobs:
   refresh-market:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup Python
+      - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
 
-      - name: Install Packages
-        run: pip install requests
+      - name: Install Dependencies
+        run: |
+          pip install requests
 
-      - name: Run Market Engine
-        run: python build_full_market.py
+      - name: Run Market Engine with FMP Key
+        env:
+          # 從 GitHub Secrets 注入你的 FMP Unlimited API Key
+          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+        run: |
+          python build_full_market.py
 
-      - name: Commit & Push New Data
+      - name: Commit & Push New DCF Dataset
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add full_market_dcf.json
-          git commit -m "Auto refresh full market data" || echo "No changes"
+          git commit -m "Auto refresh US stock DCF data with FMP [skip ci]" || echo "No changes to commit"
           git push
