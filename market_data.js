@@ -28,12 +28,12 @@ window.FULL_MARKET_DATA = {
     "pb_forward": 6.4,
     "div_yield": 0.35,
     "ps_ratio": 10.8,
-    "pcash_ratio": 20.5,
     "liab_to_assets": 41.9,
+    "cash_to_assets": 20.1,
     "current_ratio": 2.23,
     "cash_minus_liab": -22058.0,
-    "roe": 35.0,
-    "roa": 18.0
+    "roe": 26.1,
+    "roa": 15.1
   },
   "NVDA": {
     "name": "輝達 (NVIDIA)",
@@ -64,12 +64,12 @@ window.FULL_MARKET_DATA = {
     "pb_forward": 22.2,
     "div_yield": 0.03,
     "ps_ratio": 10.6,
-    "pcash_ratio": 57.0,
     "liab_to_assets": 28.5,
+    "cash_to_assets": 31.0,
     "current_ratio": 4.59,
     "cash_minus_liab": 60509.0,
-    "roe": 35.0,
-    "roa": 18.0
+    "roe": 84.2,
+    "roa": 60.2
   },
   "AAPL": {
     "name": "蘋果 (Apple)",
@@ -100,12 +100,12 @@ window.FULL_MARKET_DATA = {
     "pb_forward": 41.0,
     "div_yield": 0.45,
     "ps_ratio": 8.5,
-    "pcash_ratio": 78.5,
     "liab_to_assets": 71.9,
+    "cash_to_assets": 16.3,
     "current_ratio": 1.0,
     "cash_minus_liab": -21908.0,
-    "roe": 35.0,
-    "roa": 18.0
+    "roe": 119.9,
+    "roa": 33.6
   },
   "MSFT": {
     "name": "微軟 (Microsoft)",
@@ -136,12 +136,12 @@ window.FULL_MARKET_DATA = {
     "pb_forward": 7.8,
     "div_yield": 0.72,
     "ps_ratio": 13.7,
-    "pcash_ratio": 50.0,
     "liab_to_assets": 41.7,
+    "cash_to_assets": 10.1,
     "current_ratio": 1.23,
     "cash_minus_liab": -51965.3,
-    "roe": 35.0,
-    "roa": 18.0
+    "roe": 30.2,
+    "roa": 17.6
   },
   "GOOGL": {
     "name": "Alphabet (谷歌 Class A)",
@@ -172,12 +172,12 @@ window.FULL_MARKET_DATA = {
     "pb_forward": 5.9,
     "div_yield": 0.45,
     "ps_ratio": 18.6,
-    "pcash_ratio": 17.1,
     "liab_to_assets": 30.5,
+    "cash_to_assets": 26.3,
     "current_ratio": 2.72,
     "cash_minus_liab": 129718.0,
-    "roe": 35.0,
-    "roa": 18.0
+    "roe": 38.1,
+    "roa": 26.5
   },
   "AMZN": {
     "name": "亞馬遜 (Amazon)",
@@ -208,12 +208,12 @@ window.FULL_MARKET_DATA = {
     "pb_forward": 4.4,
     "div_yield": 0.0,
     "ps_ratio": 6.8,
-    "pcash_ratio": 22.0,
     "liab_to_assets": 49.7,
+    "cash_to_assets": 11.2,
     "current_ratio": 1.03,
     "cash_minus_liab": -100244.0,
-    "roe": 35.0,
-    "roa": 18.0
+    "roe": 24.5,
+    "roa": 12.3
   },
   "TSLA": {
     "name": "特斯拉 (Tesla)",
@@ -244,11 +244,11 @@ window.FULL_MARKET_DATA = {
     "pb_forward": 15.2,
     "div_yield": 0.0,
     "ps_ratio": 60.5,
-    "pcash_ratio": 33.6,
     "liab_to_assets": 41.1,
+    "cash_to_assets": 29.3,
     "current_ratio": 1.94,
     "cash_minus_liab": 34182.0,
-    "roe": 35.0,
-    "roa": 18.0
+    "roe": 4.4,
+    "roa": 2.6
   }
 };
