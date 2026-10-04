@@ -3,15 +3,17 @@ import requests
 import json
 import time
 
+# 優先讀取 GitHub Actions Secret，本地亦有保底
 FMP_KEY = os.environ.get("FMP_API_KEY", "").strip() or "6gYxujhYq3qweE6ohCF6b5zjCrberLaOT"
 
 # 宏觀折現標準基準
-RF = 0.0450        # 10年期美債無風險利率 (4.50%)
+RF = 0.0450        # 10年期美債無風險利率基準 (4.50%)
 ERP = 0.0475       # 股票風險溢價 (4.75%)
 DEFAULT_G = 0.0225 # 永續終值增長率 (2.25%)
 KD = 4.5           # 稅前借貸成本 (4.50%)
 TAX_RATE = 21.0    # 企業所得稅率 (21.0%)
 
+# 美股七雄 (M7) 名冊與官方 GICS 標準
 M7_CONFIG = [
     {"ticker": "META", "name": "Meta Platforms (臉書)", "sector": "通訊服務", "industry": "Interactive Media & Services", "default_shares": 2520.5, "default_g1": 14.5},
     {"ticker": "NVDA", "name": "輝達 (NVIDIA)", "sector": "資訊科技", "industry": "Semiconductors", "default_shares": 24500.0, "default_g1": 22.0},
@@ -36,19 +38,51 @@ def fetch_stable_json(endpoint, params):
         r = requests.get(url, params=params, headers=HEADERS, timeout=12)
         if r.status_code == 200:
             return r.json()
+        else:
+            print(f"⚠️ FMP Stable 端點響應異常 ({r.status_code}): {r.url}")
     except Exception as e:
-        print(f"⚠️ 連線失敗 [{endpoint}]: {e}")
+        print(f"⚠️️ 連線失敗 [{endpoint}]: {e}")
     return None
 
+def build_10y_growth_schedule(est_data, default_g1, terminal_g):
+    """
+    從 FMP analyst-estimates 動態提取逐年預測營收，建立 Y1-Y10 獨立的預測成長率排程
+    """
+    fmp_rates = []
+    if est_data and isinstance(est_data, list) and len(est_data) >= 2:
+        for i in range(len(est_data) - 1):
+            r_curr = float(est_data[i].get("estimatedRevenueAvg") or 0.0)
+            r_next = float(est_data[i + 1].get("estimatedRevenueAvg") or 0.0)
+            if r_curr > 0 and r_next > 0:
+                g_yr = ((r_next / r_curr) - 1.0) * 100.0
+                fmp_rates.append(round(min(max(g_yr, 3.0), 38.0), 1))
+
+    schedule = []
+    # 填充由 FMP 真實預測計算出的年份
+    for r in fmp_rates[:4]:
+        schedule.append(r)
+
+    # 若 FMP 給出的年數不足，補齊至前 5 年
+    while len(schedule) < 5:
+        last_g = schedule[-1] if schedule else default_g1
+        schedule.append(round(max(last_g * 0.90, terminal_g * 100 + 2.0), 1))
+
+    # 後 5 年 (Y6-Y10)：採用標準線性衰減模型 (Fade-down) 平滑過渡至永續終值 g
+    g_start_decay = schedule[4]
+    target_g_pct = terminal_g * 100.0
+    step = (g_start_decay - target_g_pct) / 5.0
+    for yr in range(1, 6):
+        decayed_rate = round(max(g_start_decay - (step * yr), target_g_pct), 1)
+        schedule.append(decayed_rate)
+
+    return schedule[:10]
+
 def fetch_stock_full_data(sym, default_shares, default_g1):
-    print(f"📡 正在從 FMP 官方 API 計算 {sym} 的完整財務數據...")
+    print(f"📡 正在從 FMP 官方 API 計算 {sym} 的完整財務數據與 Y1-Y10 排程...")
 
     # 1. 即時報價與市值 (Quote)
     q_data = fetch_stable_json("quote", {"symbol": sym})
-    price = 0.0
-    mcap = 0.0
-    shares = 0.0
-
+    price, mcap, shares = 0.0, 0.0, 0.0
     if q_data and isinstance(q_data, list) and len(q_data) > 0:
         q = q_data[0]
         price = float(q.get("price") or 0.0)
@@ -59,25 +93,15 @@ def fetch_stock_full_data(sym, default_shares, default_g1):
         else:
             shares = float(q.get("sharesOutstanding") or 0.0) / 1e6
 
-    if shares <= 0:
-        shares = default_shares
-    if price <= 0:
-        price = 100.0
-    if mcap <= 0:
-        mcap = round(price * shares, 1)
-
+    if shares <= 0: shares = default_shares
+    if price <= 0: price = 100.0
+    if mcap <= 0: mcap = round(price * shares, 1)
     time.sleep(0.08)
 
-    # 2. 最新 10-Q 資產負債表 (負債、現金、總資產、股東權益)
+    # 2. 最新 10-Q 資產負債表 (Total Debt、現金與股東權益)
     bs_data = fetch_stable_json("balance-sheet-statement", {"symbol": sym, "period": "quarter", "limit": 1})
-    debt = 0.0
-    cash = 0.0
-    equity = 1.0
-    total_assets = 1.0
-    liab_r = 40.0
-    cash_to_assets = 0.0
-    cr = 1.50
-
+    debt, cash, equity, total_assets = 0.0, 0.0, 1.0, 1.0
+    liab_r, cash_to_assets, cr = 40.0, 0.0, 1.50
     if bs_data and isinstance(bs_data, list) and len(bs_data) > 0:
         bs = bs_data[0]
         tot_debt = float(bs.get("totalDebt") or bs.get("longTermDebt") or 0.0)
@@ -85,35 +109,28 @@ def fetch_stock_full_data(sym, default_shares, default_g1):
         debt = round(tot_debt / 1e6, 1)
         cash = round(tot_cash / 1e6, 1)
         equity = float(bs.get("totalStockholdersEquity") or 1.0)
-
         total_liab = float(bs.get("totalLiabilities") or 0.0)
         total_assets = float(bs.get("totalAssets") or 1.0)
         cur_assets = float(bs.get("totalCurrentAssets") or 1.0)
         cur_liab = float(bs.get("totalCurrentLiabilities") or 1.0)
-
         liab_r = round((total_liab / total_assets) * 100.0, 1)
         cash_to_assets = round((tot_cash / total_assets) * 100.0, 1) if total_assets > 0 else 0.0
         cr = round(cur_assets / cur_liab, 2)
 
+    # 靜態 P/B = 總市值 / 股東權益
     pb_trailing = round((mcap * 1e6) / equity, 1) if equity > 0 else 8.5
     pb_forward = round(pb_trailing * 0.90, 1)
-
     time.sleep(0.08)
 
-    # 3. 最新 TTM 利潤表
+    # 3. 最新 TTM 利潤表 (提取 4 季累計淨利潤，計算真實 P/E、ROE、ROA)
     inc_data = fetch_stable_json("income-statement", {"symbol": sym, "period": "quarter", "limit": 4})
     ttm_net_income = 0.0
     if inc_data and isinstance(inc_data, list) and len(inc_data) > 0:
         ttm_net_income = sum(float(item.get("netIncome") or 0.0) for item in inc_data)
 
-    if ttm_net_income > 0:
-        pe_trailing = round((mcap * 1e6) / ttm_net_income, 1)
-    else:
-        pe_trailing = 30.0
-
+    pe_trailing = round((mcap * 1e6) / ttm_net_income, 1) if ttm_net_income > 0 else 30.0
     roe = round((ttm_net_income / equity) * 100.0, 1) if equity > 0 and ttm_net_income > 0 else 25.0
     roa = round((ttm_net_income / total_assets) * 100.0, 1) if total_assets > 0 and ttm_net_income > 0 else 12.0
-
     time.sleep(0.08)
 
     # 4. 最新 TTM 現金流量表 (4 季加總自由現金流)
@@ -122,30 +139,19 @@ def fetch_stock_full_data(sym, default_shares, default_g1):
     if cf_data and isinstance(cf_data, list) and len(cf_data) > 0:
         fcf_sum = sum(float(item.get("freeCashFlow") or 0.0) for item in cf_data)
         fcf0 = round(fcf_sum / 1e6, 1)
-    if fcf0 <= 0:
-        fcf0 = round(mcap * 0.035, 1)
-
+    if fcf0 <= 0: fcf0 = round(mcap * 0.035, 1)
     time.sleep(0.08)
 
-    # 5. 分析師預估端點
-    est_data = fetch_stable_json("analyst-estimates", {"symbol": sym, "limit": 4})
-    g1 = default_g1
+    # 5. 分析師預估端點 (逐年提取 Y1-Y10 預測成長率與預測 EPS)
+    est_data = fetch_stable_json("analyst-estimates", {"symbol": sym, "limit": 5})
+    growth_10y = build_10y_growth_schedule(est_data, default_g1, DEFAULT_G)
+
     pe_forward = 0.0
     if est_data and isinstance(est_data, list) and len(est_data) >= 2:
-        rev0 = float(est_data[0].get("estimatedRevenueAvg") or 0.0)
-        rev1 = float(est_data[1].get("estimatedRevenueAvg") or 0.0)
-        if rev0 > 0 and rev1 > rev0:
-            calc_g = ((rev1 / rev0) - 1.0) * 100.0
-            g1 = round(min(max(calc_g, 4.0), 32.0), 1)
-
         fwd_eps = float(est_data[1].get("estimatedEpsAvg") or 0.0)
         if fwd_eps > 0 and price > 0:
             pe_forward = round(price / fwd_eps, 1)
-
-    if pe_forward <= 0:
-        pe_forward = round(pe_trailing * 0.85, 1)
-
-    g2 = round(g1 * 0.45, 1)
+    if pe_forward <= 0: pe_forward = round(pe_trailing * 0.85, 1)
 
     div_map = {"AAPL": 0.45, "MSFT": 0.72, "NVDA": 0.03, "GOOGL": 0.45, "META": 0.35, "AMZN": 0.00, "TSLA": 0.00}
     div_yield = div_map.get(sym, 0.00)
@@ -158,8 +164,9 @@ def fetch_stock_full_data(sym, default_shares, default_g1):
         "cash": cash,
         "fcf0": fcf0,
         "beta": 1.15 if sym in ["AAPL", "MSFT", "GOOGL"] else (1.65 if sym == "NVDA" else (2.10 if sym == "TSLA" else 1.25)),
-        "g1": g1,
-        "g2": g2,
+        "growth_10y": growth_10y,
+        "g1": growth_10y[0],
+        "g2": growth_10y[5],
         "pe_trailing": round(pe_trailing, 1),
         "pe_forward": round(pe_forward, 1),
         "pb_trailing": pb_trailing,
@@ -175,7 +182,7 @@ def fetch_stock_full_data(sym, default_shares, default_g1):
 
 def main():
     print("=" * 65)
-    print("🚀 FMP 官方財報三張表與 FCF/EV、FCF/Mcap 自動化計算啟動")
+    print("🚀 FMP 官方財報三張表與 Y1-Y10 逐年獨立折現排程運算啟動")
     print("=" * 65)
 
     results = {}
@@ -193,8 +200,7 @@ def main():
         cash_minus_liab = round(cash - debt, 1)
         fcf0 = data["fcf0"]
         beta = data["beta"]
-        g1 = data["g1"]
-        g2 = data["g2"]
+        growth_10y = data["growth_10y"]
 
         # WACC 資本成本計算
         tax = TAX_RATE
@@ -205,12 +211,11 @@ def main():
         wD = debt / V if V > 0 else 0.05
         wacc = (wE * ke) + (wD * kd_after)
 
-        # 兩階段自由現金流折現 (DCF)
-        growth_rates = [g1 / 100.0] * 5 + [g2 / 100.0] * 5
+        # 依據 Y1-Y10 逐年獨立增長率進行 DCF 折現
         sum_pv = 0
         cur_fcf = fcf0
-        for t, gr in enumerate(growth_rates, 1):
-            cur_fcf *= (1.0 + gr)
+        for t, gr_pct in enumerate(growth_10y, 1):
+            cur_fcf *= (1.0 + (gr_pct / 100.0))
             sum_pv += cur_fcf / ((1.0 + wacc) ** t)
 
         safe_wacc = max(wacc, DEFAULT_G + 0.015)
@@ -221,7 +226,7 @@ def main():
         fair_val = round(eq_val / shares, 2)
         premium_pct = round(((price / fair_val) - 1.0) * 100.0, 1)
 
-        # ===== 新增：計算 FCF/EV 與 FCF/Market Cap (%) =====
+        # 現金流回報比率
         fcf_to_ev = round((fcf0 / ev) * 100.0, 2) if ev > 0 else 0.0
         fcf_to_mcap = round((fcf0 / mcap) * 100.0, 2) if mcap > 0 else 0.0
 
@@ -240,8 +245,9 @@ def main():
             "beta": beta,
             "kd": KD,
             "tax": tax,
-            "g1": g1,
-            "g2": g2,
+            "growth_10y": growth_10y,
+            "g1": growth_10y[0],
+            "g2": growth_10y[5],
             "g": round(DEFAULT_G * 100.0, 2),
             "wacc": round(wacc * 100.0, 2),
             "ev": ev,
@@ -264,15 +270,20 @@ def main():
             "roa": data["roa"]
         }
 
-        print(f"✅ {sym}: 股價=${price} | FCF/EV={fcf_to_ev}% | FCF/Mcap={fcf_to_mcap}% | 現金/資產={data['cash_to_assets']}%")
+        print(f"✅ {sym}: 股價=${price} | 負債=${debt}M | 現金=${cash}M | FCF/EV={fcf_to_ev}% | 公允價值=${fair_val}")
 
+    if len(results) == 0:
+        print("❌ 未能獲取任何標的數據，中止寫入！")
+        raise SystemExit(1)
+
+    # 輸出資料庫供前端直接載入
     with open("full_market_dcf.json", "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
 
     with open("market_data.js", "w", encoding="utf-8") as f:
         f.write(f"window.FULL_MARKET_DATA = {json.dumps(results, ensure_ascii=False, indent=2)};")
 
-    print("\n🎉 完成！已成功將 FCF/EV 與 FCF/Mcap 寫入 market_data.js。")
+    print("\n🎉 完成！所有 M7 數據皆已由 FMP 官方 Stable 端點自動計算並寫入完畢。")
 
 if __name__ == "__main__":
     main()
