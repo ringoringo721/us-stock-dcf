@@ -22,7 +22,7 @@
     }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
     body { background-color: var(--bg); color: var(--text); padding: 20px; line-height: 1.5; }
-    .container { max-width: 1720px; margin: 0 auto; }
+    .container { max-width: 1850px; margin: 0 auto; }
     
     header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid var(--card-border); padding-bottom: 16px; flex-wrap: wrap; gap: 14px; }
     h1 { font-size: 22px; font-weight: 700; color: #fff; }
@@ -46,7 +46,7 @@
     /* 表格樣式 */
     .table-container { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; overflow-x: auto; margin-bottom: 16px; }
     table { width: 100%; border-collapse: collapse; font-size: 12px; text-align: right; white-space: nowrap; }
-    th, td { padding: 11px 14px; border-bottom: 1px solid var(--card-border); }
+    th, td { padding: 11px 13px; border-bottom: 1px solid var(--card-border); }
     th { background: #162032; color: #cbd5e1; font-weight: 600; cursor: pointer; user-select: none; position: sticky; top: 0; z-index: 2; }
     th:hover { color: var(--accent); }
     td:first-child, th:first-child, td:nth-child(2), th:nth-child(2), td:nth-child(3), th:nth-child(3) { text-align: left; }
@@ -159,6 +159,9 @@
             <th onclick="sortTable('pb_forward')">動態 P/B</th>
             <th onclick="sortTable('div_yield')">股息率 (%)</th>
             <th onclick="sortTable('ps_ratio')">P/S</th>
+            <!-- 新增核心現金流指標 -->
+            <th onclick="sortTable('fcf_to_ev')">FCF / EV (%)</th>
+            <th onclick="sortTable('fcf_to_mcap')">FCF / Mcap (%)</th>
             <th onclick="sortTable('cash_to_assets')">現金/資產 (%)</th>
             <th onclick="sortTable('liab_to_assets')">負債/資產 (%)</th>
             <th onclick="sortTable('current_ratio')">流動比率</th>
@@ -474,8 +477,11 @@
           <td>${item.pb_forward ? item.pb_forward.toFixed(1) : '--'}</td>
           <td style="color: #67e8f9;">${item.div_yield ? item.div_yield.toFixed(2) + '%' : '0.00%'}</td>
           <td>${item.ps_ratio ? item.ps_ratio.toFixed(1) : '--'}</td>
-          <!-- 替換 P/Cash 為現金/資產比率 -->
-          <td style="color: #38bdf8; font-weight: 600;">${item.cash_to_assets ? item.cash_to_assets.toFixed(1) + '%' : '--'}</td>
+          <!-- 新增 FCF/EV 與 FCF/Mcap 欄位 -->
+          <td style="color: #38bdf8; font-weight: 600;">${item.fcf_to_ev ? item.fcf_to_ev.toFixed(2) + '%' : '--'}</td>
+          <td style="color: #a78bfa; font-weight: 600;">${item.fcf_to_mcap ? item.fcf_to_mcap.toFixed(2) + '%' : '--'}</td>
+          <!-- 現金/資產比率 -->
+          <td style="color: #38bdf8;">${item.cash_to_assets ? item.cash_to_assets.toFixed(1) + '%' : '--'}</td>
           <td>${item.liab_to_assets ? item.liab_to_assets.toFixed(1) + '%' : '--'}</td>
           <td>${item.current_ratio ? item.current_ratio.toFixed(2) : '--'}</td>
           <td style="${netCashColor}">$${(item.cash_minus_liab).toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
