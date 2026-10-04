@@ -23,16 +23,17 @@
       --nasdaq-purple: #c084fc;
       --nyse-blue: #60a5fa;
       --amex-green: #34d399;
+      --fav-pink: #f43f5e;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    body { background-color: var(--bg); color: var(--text); padding: 20px; line-height: 1.5; }
-    .container { max-width: 1950px; margin: 0 auto; }
+    body { background-color: var(--bg); color: var(--text); padding: 16px; line-height: 1.5; overflow-x: hidden; }
+    .container { width: 100%; max-width: 100%; margin: 0 auto; }
     
     header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid var(--card-border); padding-bottom: 16px; flex-wrap: wrap; gap: 14px; }
     h1 { font-size: 22px; font-weight: 700; color: #fff; }
     .status-badge { background: rgba(74, 222, 128, 0.15); border: 1px solid var(--green); color: var(--green); padding: 6px 14px; border-radius: 6px; font-size: 13px; font-weight: 600; }
 
-    .top-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 20px; }
+    .top-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 20px; }
     .stat-box { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; padding: 14px 18px; }
     .stat-label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
     .stat-num { font-size: 22px; font-weight: 700; color: #fff; margin: 4px 0; }
@@ -40,19 +41,117 @@
     .filter-panel { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; padding: 14px 18px; margin-bottom: 20px; display: flex; flex-direction: column; gap: 12px; }
     .filter-row { display: flex; align-items: flex-start; gap: 8px; flex-wrap: wrap; }
     .filter-title { font-size: 12px; color: var(--text-muted); min-width: 90px; font-weight: 600; margin-top: 5px; }
-    .f-btn { background: #0f172a; border: 1px solid var(--card-border); color: #cbd5e1; padding: 4px 11px; border-radius: 4px; font-size: 12px; cursor: pointer; font-weight: 600; }
+    .f-btn { background: #0f172a; border: 1px solid var(--card-border); color: #cbd5e1; padding: 4px 11px; border-radius: 4px; font-size: 12px; cursor: pointer; font-weight: 600; transition: all 0.2s; }
     .f-btn.active { border-color: var(--accent); color: var(--accent); background: rgba(56, 189, 248, 0.12); }
+    .f-btn.btn-fav.active { border-color: var(--fav-pink); color: var(--fav-pink); background: rgba(244, 63, 94, 0.15); }
     .search-input { background: #0f172a; border: 1px solid var(--card-border); color: #fff; padding: 6px 12px; border-radius: 6px; font-size: 13px; width: 320px; margin-left: auto; }
     .search-input:focus { border-color: var(--accent); outline: none; }
 
-    .table-container { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; overflow-x: auto; margin-bottom: 16px; }
-    table { width: 100%; border-collapse: collapse; font-size: 12px; text-align: right; white-space: nowrap; }
-    th, td { padding: 10px 13px; border-bottom: 1px solid var(--card-border); }
-    th { background: #162032; color: #cbd5e1; font-weight: 600; cursor: pointer; user-select: none; position: sticky; top: 0; z-index: 2; }
+    /* ===== 表格與左右捲動核心樣式 ===== */
+    .table-container {
+      width: 100%;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      overflow-x: auto;
+      overflow-y: visible;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .table-container::-webkit-scrollbar {
+      height: 12px;
+    }
+    .table-container::-webkit-scrollbar-track {
+      background: #0f172a;
+      border-radius: 6px;
+    }
+    .table-container::-webkit-scrollbar-thumb {
+      background: #475569;
+      border-radius: 6px;
+      border: 2px solid #0f172a;
+    }
+    .table-container::-webkit-scrollbar-thumb:hover {
+      background: var(--accent);
+    }
+
+    table {
+      width: max-content;
+      min-width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 12px;
+      text-align: right;
+      white-space: nowrap;
+    }
+    th, td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--card-border);
+    }
+    th {
+      background: #162032;
+      color: #cbd5e1;
+      font-weight: 600;
+      cursor: pointer;
+      user-select: none;
+      position: sticky;
+      top: 0;
+      z-index: 5;
+    }
     th:hover { color: var(--accent); }
-    td:first-child, th:first-child, td:nth-child(2), th:nth-child(2), td:nth-child(3), th:nth-child(3) { text-align: left; }
-    tr:hover { background-color: rgba(255, 255, 255, 0.02); }
-    
+    tr:hover td { background-color: rgba(255, 255, 255, 0.03); }
+
+    /* ===== 鎖定前三欄，橫向滑動時不跑位 ===== */
+    .col-sticky-1 {
+      position: sticky;
+      left: 0;
+      z-index: 6;
+      background: #1e293b;
+      text-align: left;
+      min-width: 100px;
+    }
+    th.col-sticky-1 { background: #162032; z-index: 8; }
+
+    .col-sticky-2 {
+      position: sticky;
+      left: 100px;
+      z-index: 6;
+      background: #1e293b;
+      text-align: left;
+      min-width: 80px;
+    }
+    th.col-sticky-2 { background: #162032; z-index: 8; }
+
+    .col-sticky-3 {
+      position: sticky;
+      left: 180px;
+      z-index: 6;
+      background: #1e293b;
+      text-align: left;
+      border-right: 2px solid #334155;
+      min-width: 140px;
+    }
+    th.col-sticky-3 { background: #162032; z-index: 8; }
+
+    /* 愛心收藏樣式 */
+    .fav-btn {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+      margin-right: 6px;
+      color: #64748b;
+      transition: transform 0.15s, color 0.15s;
+      vertical-align: middle;
+    }
+    .fav-btn:hover {
+      transform: scale(1.25);
+      color: var(--fav-pink);
+    }
+    .fav-btn.active {
+      color: var(--fav-pink);
+    }
+
     .ticker-link { font-weight: 700; color: var(--accent); cursor: pointer; text-decoration: none; font-size: 13px; }
     .ticker-link:hover { text-decoration: underline; }
     .badge { padding: 3px 7px; border-radius: 4px; font-size: 10px; font-weight: 600; display: inline-block; }
@@ -66,6 +165,7 @@
     .text-green { color: var(--green); font-weight: 600; }
     .text-red { color: var(--red); font-weight: 600; }
     .text-gold { color: var(--gold); font-weight: 700; }
+    .text-pink { color: var(--fav-pink); font-weight: 700; }
 
     #detail-view { display: none; }
     .detail-header { display: flex; justify-content: space-between; align-items: center; background: var(--card-bg); border: 1px solid var(--card-border); padding: 14px 20px; border-radius: 8px; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; }
@@ -97,7 +197,7 @@
   <header>
     <div>
       <h1>美股 100 強 (Top 100) DCF 估值雷達</h1>
-      <span style="font-size: 13px; color: var(--text-muted);">NYSE · NASDAQ · AMEX · GICS 完整板塊與細分子行業樹 · 雙軌目標價</span>
+      <span style="font-size: 13px; color: var(--text-muted);">NYSE · NASDAQ · AMEX · GICS 完整板塊樹 · 愛心自選清單 · 雙軌目標價</span>
     </div>
     <div class="status-badge">
       🟢 FMP 官方財報已完成同步 (Stage 2: 100 檔標的全覆蓋)
@@ -112,29 +212,34 @@
         <div class="stat-num" id="stat-total">100 檔</div>
       </div>
       <div class="stat-box">
-        <div class="stat-label">具備安全邊際 (低估標的)</div>
+        <div class="stat-label">❤️ 自選監控標的</div>
+        <div class="stat-num text-pink" id="stat-fav-count">0 檔</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">具備安全邊際 (低估)</div>
         <div class="stat-num text-green" id="stat-undervalued">0 檔</div>
       </div>
       <div class="stat-box">
-        <div class="stat-label">市價溢價過高 (高估標的)</div>
+        <div class="stat-label">市價溢價過高 (高估)</div>
         <div class="stat-num text-red" id="stat-overvalued">0 檔</div>
       </div>
       <div class="stat-box">
-        <div class="stat-label">已設定自訂目標價標的</div>
+        <div class="stat-label">已設定目標價標的</div>
         <div class="stat-num text-gold" id="stat-saved-count">0 檔</div>
       </div>
     </div>
 
     <!-- 雙層階梯篩選列 -->
     <div class="filter-panel">
-      <!-- 1. 估值狀態與搜尋 -->
+      <!-- 1. 估值與自選狀態 -->
       <div class="filter-row">
-        <span class="filter-title">估值狀態：</span>
+        <span class="filter-title">篩選維度：</span>
         <div class="filter-btns" id="val-filters">
           <button class="f-btn active" onclick="setValFilter('ALL')">全部 100 強</button>
+          <button class="f-btn btn-fav" onclick="setValFilter('FAVORITES')">❤️ 我的自選收藏</button>
           <button class="f-btn" onclick="setValFilter('UNDERVALUED')">🟢 具安全邊際 (低估)</button>
           <button class="f-btn" onclick="setValFilter('OVERVALUED')">🔴 溢價過高 (高估)</button>
-          <button class="f-btn" onclick="setValFilter('SAVED')">💾 已存自訂目標價</button>
+          <button class="f-btn" onclick="setValFilter('SAVED')">💾 已存目標價</button>
         </div>
         <input type="text" class="search-input" id="search-ticker" placeholder="搜尋代號、名稱、主板塊或細分子行業..." oninput="renderScreenerTable()">
       </div>
@@ -167,14 +272,14 @@
       </div>
     </div>
 
-    <!-- 總表 -->
+    <!-- 總表 (支援橫向滑動與前三欄鎖定) -->
     <div class="table-container">
       <table id="screener-table">
         <thead>
           <tr>
-            <th onclick="sortTable('ticker')">代碼</th>
-            <th onclick="sortTable('exchange')">市場</th>
-            <th onclick="sortTable('name')">企業名稱</th>
+            <th class="col-sticky-1" onclick="sortTable('ticker')">收藏 / 代碼</th>
+            <th class="col-sticky-2" onclick="sortTable('exchange')">市場</th>
+            <th class="col-sticky-3" onclick="sortTable('name')">企業名稱</th>
             <th onclick="sortTable('sector')">主板塊 (Sector)</th>
             <th onclick="sortTable('industry')">細分子行業 (Industry)</th>
             <th onclick="sortTable('price')">最新股價 ($)</th>
@@ -209,6 +314,7 @@
   <div id="detail-view">
     <div class="detail-header">
       <div class="detail-title">
+        <button id="det-fav-btn" class="fav-btn" onclick="toggleDetailFavorite()">♡</button>
         <span id="det-ticker" style="color: var(--accent);">NVDA</span>
         <span id="det-exchange" class="badge">NASDAQ</span>
         <span id="det-name" style="font-size: 16px; color: #cbd5e1;">輝達</span>
@@ -246,7 +352,6 @@
     </div>
 
     <div class="main-layout">
-      <!-- 左側參數控制 -->
       <div class="panel">
         <div class="panel-title">1. 基本面與資產負債表 (可手動自訂)</div>
         <div class="form-group">
@@ -297,12 +402,11 @@
         </div>
       </div>
 
-      <!-- 右側報表 -->
       <div>
         <div class="panel">
           <div class="panel-title">10 年自由現金流折現排程 (可逐年微調 Y1-Y10 增速)</div>
-          <div class="table-container">
-            <table id="dcf-table">
+          <div class="table-container" style="overflow-x: auto;">
+            <table id="dcf-table" style="width: 100%;">
               <thead><tr id="dcf-head"><th>年份 (Period)</th></tr></thead>
               <tbody>
                 <tr id="dcf-growth"><td>年增長率 (%)</td></tr>
@@ -316,8 +420,8 @@
 
         <div class="panel">
           <div class="panel-title">雙變數敏感度分析矩陣 (WACC vs 永續增長率 g)</div>
-          <div class="table-container">
-            <table id="sens-table">
+          <div class="table-container" style="overflow-x: auto;">
+            <table id="sens-table" style="width: 100%;">
               <thead>
                 <tr>
                   <th>WACC \ g</th>
@@ -347,6 +451,48 @@
   let sortAsc = false;
   let activeDetailTicker = 'NVDA';
 
+  // ===== 愛心收藏清單 LocalStorage 模組 =====
+  function getFavorites() {
+    try {
+      return JSON.parse(localStorage.getItem('M7_FAVORITES') || '[]');
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function isFavorite(ticker) {
+    return getFavorites().includes(ticker);
+  }
+
+  function toggleFavorite(ticker, e) {
+    if (e) e.stopPropagation();
+    let favs = getFavorites();
+    if (favs.includes(ticker)) {
+      favs = favs.filter(t => t !== ticker);
+    } else {
+      favs.push(ticker);
+    }
+    localStorage.setItem('M7_FAVORITES', JSON.stringify(favs));
+    renderScreenerTable();
+  }
+
+  function toggleDetailFavorite() {
+    toggleFavorite(activeDetailTicker);
+    updateDetailFavButton();
+  }
+
+  function updateDetailFavButton() {
+    const btn = document.getElementById('det-fav-btn');
+    if (isFavorite(activeDetailTicker)) {
+      btn.innerText = '❤️';
+      btn.className = 'fav-btn active';
+    } else {
+      btn.innerText = '♡';
+      btn.className = 'fav-btn';
+    }
+  }
+
+  // ===== 目標價 LocalStorage 模組 =====
   function getSavedModels() {
     try {
       return JSON.parse(localStorage.getItem('M7_CUSTOM_VALUATIONS') || '{}');
@@ -452,7 +598,6 @@
     renderScreenerTable();
   }
 
-  // ===== 雙層聯動篩選核心邏輯 =====
   function setSectorFilter(sec) {
     currentSectorFilter = sec;
     currentSubIndustryFilter = 'ALL';
@@ -497,19 +642,22 @@
     const tbody = document.getElementById('screener-tbody');
     const searchVal = document.getElementById('search-ticker').value.trim().toUpperCase();
     const savedModels = getSavedModels();
+    const favs = getFavorites();
 
     let list = Object.keys(stockUniverse).map(ticker => {
       const s = stockUniverse[ticker];
       const dcf = computeDCF(s);
       const isSaved = !!savedModels[ticker];
+      const isFav = favs.includes(ticker);
       const target_price = isSaved ? savedModels[ticker].targetPrice : null;
       const target_spread = (isSaved && target_price > 0) ? (((s.price / target_price) - 1) * 100) : null;
-      return { ticker, ...s, ...dcf, isSaved, target_price, target_spread };
+      return { ticker, ...s, ...dcf, isSaved, isFav, target_price, target_spread };
     });
 
     if (currentValFilter === 'UNDERVALUED') list = list.filter(item => item.isUndervalued);
     else if (currentValFilter === 'OVERVALUED') list = list.filter(item => !item.isUndervalued);
     else if (currentValFilter === 'SAVED') list = list.filter(item => item.isSaved);
+    else if (currentValFilter === 'FAVORITES') list = list.filter(item => item.isFav);
 
     if (currentSectorFilter !== 'ALL') list = list.filter(item => item.sector === currentSectorFilter);
     if (currentSubIndustryFilter !== 'ALL') list = list.filter(item => item.industry === currentSubIndustryFilter);
@@ -535,8 +683,10 @@
     const underCount = allCalc.filter(x => x.isUndervalued).length;
     const overCount = totalCount - underCount;
     const savedCount = Object.keys(savedModels).length;
+    const favCount = favs.length;
 
     document.getElementById('stat-total').innerText = `${totalCount} 檔 (Top 100)`;
+    document.getElementById('stat-fav-count').innerText = `${favCount} 檔`;
     document.getElementById('stat-undervalued').innerText = `${underCount} 檔 (${totalCount > 0 ? ((underCount/totalCount)*100).toFixed(0) : 0}%)`;
     document.getElementById('stat-overvalued').innerText = `${overCount} 檔 (${totalCount > 0 ? ((overCount/totalCount)*100).toFixed(0) : 0}%)`;
     document.getElementById('stat-saved-count').innerText = `${savedCount} 檔`;
@@ -561,14 +711,19 @@
 
       const netCashColor = item.cash_minus_liab >= 0 ? 'color: var(--green);' : 'color: var(--red);';
       const exchClass = `badge-exch-${item.exchange || 'NASDAQ'}`;
+      const favHeart = item.isFav ? '❤️' : '♡';
+      const favActiveClass = item.isFav ? 'active' : '';
 
       return `
         <tr>
-          <td><a class="ticker-link" onclick="openDetail('${item.ticker}')">${item.ticker}</a></td>
-          <td><span class="badge ${exchClass}">${item.exchange}</span></td>
-          <td style="font-weight: 600; color: #fff;">${item.name}</td>
-          <td style="color: #cbd5e1;">${item.sector}</td>
-          <td style="color: #94a3b8; font-size: 11px;">${item.industry}</td>
+          <td class="col-sticky-1">
+            <button class="fav-btn ${favActiveClass}" onclick="toggleFavorite('${item.ticker}', event)" title="加入/取消自選清單">${favHeart}</button>
+            <a class="ticker-link" onclick="openDetail('${item.ticker}')">${item.ticker}</a>
+          </td>
+          <td class="col-sticky-2"><span class="badge ${exchClass}">${item.exchange}</span></td>
+          <td class="col-sticky-3" style="font-weight: 600; color: #fff;">${item.name}</td>
+          <td style="color: #cbd5e1; text-align: left;">${item.sector}</td>
+          <td style="color: #94a3b8; font-size: 11px; text-align: left;">${item.industry}</td>
           <td style="font-weight: 700; color: var(--accent);">$${item.price.toFixed(2)}</td>
           <td class="text-green" style="font-size: 13px; font-weight: 700;">$${item.fairVal.toFixed(2)}</td>
           <td>${targetPriceHtml}</td>
@@ -618,6 +773,8 @@
     const exchEl = document.getElementById('det-exchange');
     exchEl.innerText = s.exchange;
     exchEl.className = `badge badge-exch-${s.exchange || 'NASDAQ'}`;
+
+    updateDetailFavButton();
 
     document.getElementById('inp-price').value = s.price;
     document.getElementById('inp-shares').value = s.shares;
