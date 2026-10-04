@@ -312,7 +312,6 @@ def get_fx_to_usd_rate(currency):
         "EUR": 1.08, "GBP": 1.28, "JPY": 1.0 / 152.0, "CAD": 1.0 / 1.37
     }
 
-    # 嘗試 FMP 匯率報價端點
     try:
         data = fetch_json("quote", {"symbol": f"USD{curr}"})
         if data and isinstance(data, list) and len(data) > 0:
