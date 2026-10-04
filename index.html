@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>美股七雄 (Magnificent 7) DCF 估值雷達與 TTM 財務分析</title>
+  <title>美股 100 強 (Top 100) DCF 估值雷達與 GICS 產業分析</title>
   <script src="market_data.js"></script>
   <style>
     :root {
@@ -20,11 +20,13 @@
       --red-bg: rgba(248, 113, 113, 0.12);
       --gold: #fbbf24;
       --gold-bg: rgba(251, 191, 36, 0.15);
-      --nasdaq-purple: #a855f7;
+      --nasdaq-purple: #c084fc;
+      --nyse-blue: #60a5fa;
+      --amex-green: #34d399;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
     body { background-color: var(--bg); color: var(--text); padding: 20px; line-height: 1.5; }
-    .container { max-width: 1920px; margin: 0 auto; }
+    .container { max-width: 1950px; margin: 0 auto; }
     
     header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid var(--card-border); padding-bottom: 16px; flex-wrap: wrap; gap: 14px; }
     h1 { font-size: 22px; font-weight: 700; color: #fff; }
@@ -35,29 +37,32 @@
     .stat-label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
     .stat-num { font-size: 22px; font-weight: 700; color: #fff; margin: 4px 0; }
 
-    .filter-panel { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; padding: 14px 18px; margin-bottom: 20px; display: flex; flex-direction: column; gap: 10px; }
-    .filter-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-    .filter-title { font-size: 12px; color: var(--text-muted); min-width: 80px; font-weight: 600; }
-    .f-btn { background: #0f172a; border: 1px solid var(--card-border); color: #cbd5e1; padding: 4px 12px; border-radius: 4px; font-size: 12px; cursor: pointer; font-weight: 600; }
+    .filter-panel { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; padding: 14px 18px; margin-bottom: 20px; display: flex; flex-direction: column; gap: 12px; }
+    .filter-row { display: flex; align-items: flex-start; gap: 8px; flex-wrap: wrap; }
+    .filter-title { font-size: 12px; color: var(--text-muted); min-width: 90px; font-weight: 600; margin-top: 5px; }
+    .f-btn { background: #0f172a; border: 1px solid var(--card-border); color: #cbd5e1; padding: 4px 11px; border-radius: 4px; font-size: 12px; cursor: pointer; font-weight: 600; }
     .f-btn.active { border-color: var(--accent); color: var(--accent); background: rgba(56, 189, 248, 0.12); }
-    .search-input { background: #0f172a; border: 1px solid var(--card-border); color: #fff; padding: 6px 12px; border-radius: 6px; font-size: 13px; width: 300px; margin-left: auto; }
+    .search-input { background: #0f172a; border: 1px solid var(--card-border); color: #fff; padding: 6px 12px; border-radius: 6px; font-size: 13px; width: 320px; margin-left: auto; }
     .search-input:focus { border-color: var(--accent); outline: none; }
 
     .table-container { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; overflow-x: auto; margin-bottom: 16px; }
     table { width: 100%; border-collapse: collapse; font-size: 12px; text-align: right; white-space: nowrap; }
-    th, td { padding: 11px 13px; border-bottom: 1px solid var(--card-border); }
+    th, td { padding: 10px 13px; border-bottom: 1px solid var(--card-border); }
     th { background: #162032; color: #cbd5e1; font-weight: 600; cursor: pointer; user-select: none; position: sticky; top: 0; z-index: 2; }
     th:hover { color: var(--accent); }
     td:first-child, th:first-child, td:nth-child(2), th:nth-child(2), td:nth-child(3), th:nth-child(3) { text-align: left; }
     tr:hover { background-color: rgba(255, 255, 255, 0.02); }
     
-    .ticker-link { font-weight: 700; color: var(--accent); cursor: pointer; text-decoration: none; font-size: 14px; }
+    .ticker-link { font-weight: 700; color: var(--accent); cursor: pointer; text-decoration: none; font-size: 13px; }
     .ticker-link:hover { text-decoration: underline; }
-    .badge { padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; display: inline-block; }
+    .badge { padding: 3px 7px; border-radius: 4px; font-size: 10px; font-weight: 600; display: inline-block; }
     .badge-undervalued { background: var(--green-bg); color: var(--green); border: 1px solid rgba(74, 222, 128, 0.3); }
     .badge-overvalued { background: var(--red-bg); color: var(--red); border: 1px solid rgba(248, 113, 113, 0.3); }
     .badge-target { background: var(--gold-bg); color: var(--gold); border: 1px solid rgba(251, 191, 36, 0.4); font-weight: 700; }
-    .badge-exch-nasdaq { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.4); font-size: 10px; }
+    .badge-exch-NASDAQ { background: rgba(168, 85, 247, 0.15); color: var(--nasdaq-purple); border: 1px solid rgba(168, 85, 247, 0.4); }
+    .badge-exch-NYSE { background: rgba(96, 165, 250, 0.15); color: var(--nyse-blue); border: 1px solid rgba(96, 165, 250, 0.4); }
+    .badge-exch-AMEX { background: rgba(52, 211, 153, 0.15); color: var(--amex-green); border: 1px solid rgba(52, 211, 153, 0.4); }
+    
     .text-green { color: var(--green); font-weight: 600; }
     .text-red { color: var(--red); font-weight: 600; }
     .text-gold { color: var(--gold); font-weight: 700; }
@@ -79,7 +84,7 @@
     .form-group label { font-size: 13px; color: #cbd5e1; }
     .form-group input { width: 110px; background: #0f172a; border: 1px solid var(--card-border); border-radius: 4px; color: #fff; padding: 5px 8px; font-size: 13px; text-align: right; }
     .form-group input:focus { border-color: var(--accent); outline: none; }
-    .growth-input { width: 68px !important; text-align: center !important; padding: 3px !important; background: #0b1120 !important; border: 1px solid #475569 !important; border-radius: 4px; color: #38bdf8 !important; font-weight: 600; }
+    .growth-input { width: 66px !important; text-align: center !important; padding: 3px !important; background: #0b1120 !important; border: 1px solid #475569 !important; border-radius: 4px; color: #38bdf8 !important; font-weight: 600; }
     .sens-cell { font-weight: 600; }
     .sens-base { background: rgba(56, 189, 248, 0.15); border: 1px solid var(--accent); }
     .btn-nav { background: #334155; border: none; color: #cbd5e1; padding: 5px 12px; border-radius: 4px; cursor: pointer; font-weight: 600; font-size: 12px; }
@@ -91,20 +96,20 @@
 <div class="container">
   <header>
     <div>
-      <h1>美股七雄 (Magnificent 7) DCF 估值雷達</h1>
-      <span style="font-size: 13px; color: var(--text-muted);">NVDA · AAPL · MSFT · GOOGL · AMZN · META · TSLA · 官方 GICS 標準 · 公允價值與自訂目標價連動</span>
+      <h1>美股 100 強 (Top 100) DCF 估值雷達</h1>
+      <span style="font-size: 13px; color: var(--text-muted);">NYSE · NASDAQ · AMEX · GICS 完整板塊與細分子行業樹 · 雙軌目標價</span>
     </div>
     <div class="status-badge">
-      🟢 FMP 官方財報已完成同步 (即時行情 · 逐年預測 · 雙軌目標價)
+      🟢 FMP 官方財報已完成同步 (Stage 2: 100 檔標的全覆蓋)
     </div>
   </header>
 
-  <!-- ==================== 頁面 1：M7 估值雷達總表 ==================== -->
+  <!-- ==================== 頁面 1：總表 ==================== -->
   <div id="screener-view">
     <div class="top-stats">
       <div class="stat-box">
-        <div class="stat-label">M7 追蹤標的</div>
-        <div class="stat-num" id="stat-total">7 檔</div>
+        <div class="stat-label">追蹤標的</div>
+        <div class="stat-num" id="stat-total">100 檔</div>
       </div>
       <div class="stat-box">
         <div class="stat-label">具備安全邊際 (低估標的)</div>
@@ -120,38 +125,58 @@
       </div>
     </div>
 
-    <!-- 篩選列 -->
+    <!-- 雙層階梯篩選列 -->
     <div class="filter-panel">
+      <!-- 1. 估值狀態與搜尋 -->
       <div class="filter-row">
         <span class="filter-title">估值狀態：</span>
         <div class="filter-btns" id="val-filters">
-          <button class="f-btn active" onclick="setValFilter('ALL')">全部 M7</button>
+          <button class="f-btn active" onclick="setValFilter('ALL')">全部 100 強</button>
           <button class="f-btn" onclick="setValFilter('UNDERVALUED')">🟢 具安全邊際 (低估)</button>
           <button class="f-btn" onclick="setValFilter('OVERVALUED')">🔴 溢價過高 (高估)</button>
           <button class="f-btn" onclick="setValFilter('SAVED')">💾 已存自訂目標價</button>
         </div>
-        <input type="text" class="search-input" id="search-ticker" placeholder="搜尋代號、名稱、GICS 細分行業..." oninput="renderScreenerTable()">
+        <input type="text" class="search-input" id="search-ticker" placeholder="搜尋代號、名稱、主板塊或細分子行業..." oninput="renderScreenerTable()">
       </div>
 
+      <!-- 2. 主板塊 (Sector) -->
       <div class="filter-row">
-        <span class="filter-title">產業板塊：</span>
+        <span class="filter-title">主板塊：</span>
         <div class="filter-btns" id="sector-filters">
           <button class="f-btn active" onclick="setSectorFilter('ALL')">全部板塊</button>
-          <button class="f-btn" onclick="setSectorFilter('資訊科技')">資訊科技 (NVDA, AAPL, MSFT)</button>
-          <button class="f-btn" onclick="setSectorFilter('通訊服務')">通訊服務 (GOOGL, META)</button>
-          <button class="f-btn" onclick="setSectorFilter('非必需消費')">非必需消費 (AMZN, TSLA)</button>
+          <button class="f-btn" onclick="setSectorFilter('資訊科技')">資訊科技</button>
+          <button class="f-btn" onclick="setSectorFilter('通訊服務')">通訊服務</button>
+          <button class="f-btn" onclick="setSectorFilter('非必需消費')">非必需消費</button>
+          <button class="f-btn" onclick="setSectorFilter('必需消費')">必需消費</button>
+          <button class="f-btn" onclick="setSectorFilter('金融')">金融</button>
+          <button class="f-btn" onclick="setSectorFilter('醫療保健')">醫療保健</button>
+          <button class="f-btn" onclick="setSectorFilter('能源')">能源</button>
+          <button class="f-btn" onclick="setSectorFilter('工業')">工業</button>
+          <button class="f-btn" onclick="setSectorFilter('原物料')">原物料</button>
+          <button class="f-btn" onclick="setSectorFilter('公用事業')">公用事業</button>
+          <button class="f-btn" onclick="setSectorFilter('房地產')">房地產</button>
+        </div>
+      </div>
+
+      <!-- 3. 動態細分子行業 (Sub-Industry) -->
+      <div class="filter-row" id="subindustry-row">
+        <span class="filter-title">細分子行業：</span>
+        <div class="filter-btns" id="subindustry-filters">
+          <button class="f-btn active" onclick="setSubIndustryFilter('ALL')">全部子行業</button>
         </div>
       </div>
     </div>
 
-    <!-- 總表：首頁同時顯示公允價值與目標價值 -->
+    <!-- 總表 -->
     <div class="table-container">
       <table id="screener-table">
         <thead>
           <tr>
             <th onclick="sortTable('ticker')">代碼</th>
             <th onclick="sortTable('exchange')">市場</th>
-            <th onclick="sortTable('name')">企業名稱 / GICS 細分行業</th>
+            <th onclick="sortTable('name')">企業名稱</th>
+            <th onclick="sortTable('sector')">主板塊 (Sector)</th>
+            <th onclick="sortTable('industry')">細分子行業 (Industry)</th>
             <th onclick="sortTable('price')">最新股價 ($)</th>
             <th onclick="sortTable('fairVal')">公允價值 ($)</th>
             <th onclick="sortTable('target_price')">目標價值 ($)</th>
@@ -163,9 +188,7 @@
             <th onclick="sortTable('pe_trailing')">靜態 P/E</th>
             <th onclick="sortTable('pe_forward')">動態 P/E</th>
             <th onclick="sortTable('pb_trailing')">靜態 P/B</th>
-            <th onclick="sortTable('pb_forward')">動態 P/B</th>
             <th onclick="sortTable('div_yield')">股息率 (%)</th>
-            <th onclick="sortTable('ps_ratio')">P/S</th>
             <th onclick="sortTable('fcf_to_ev')">FCF / EV (%)</th>
             <th onclick="sortTable('fcf_to_mcap')">FCF / Mcap (%)</th>
             <th onclick="sortTable('cash_to_assets')">現金/資產 (%)</th>
@@ -182,14 +205,14 @@
     </div>
   </div>
 
-  <!-- ==================== 頁面 2：M7 個股深度 DCF 詳情頁 ==================== -->
+  <!-- ==================== 頁面 2：深度 DCF 詳情頁 ==================== -->
   <div id="detail-view">
     <div class="detail-header">
       <div class="detail-title">
         <span id="det-ticker" style="color: var(--accent);">NVDA</span>
-        <span id="det-exchange" class="badge badge-exch-nasdaq">NASDAQ</span>
+        <span id="det-exchange" class="badge">NASDAQ</span>
         <span id="det-name" style="font-size: 16px; color: #cbd5e1;">輝達</span>
-        <span id="det-badge" class="badge badge-overvalued">--</span>
+        <span id="det-badge" class="badge">--</span>
         <span id="det-saved-badge" class="badge badge-target" style="display: none;">已儲存目標價</span>
       </div>
       <div style="display: flex; gap: 8px;">
@@ -319,8 +342,9 @@
 
   let currentValFilter = 'ALL';
   let currentSectorFilter = 'ALL';
-  let sortField = 'premiumPct';
-  let sortAsc = true;
+  let currentSubIndustryFilter = 'ALL';
+  let sortField = 'mcap';
+  let sortAsc = false;
   let activeDetailTicker = 'NVDA';
 
   function getSavedModels() {
@@ -428,16 +452,44 @@
     renderScreenerTable();
   }
 
+  // ===== 雙層聯動篩選核心邏輯 =====
   function setSectorFilter(sec) {
     currentSectorFilter = sec;
+    currentSubIndustryFilter = 'ALL';
     document.querySelectorAll('#sector-filters .f-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    updateSubIndustryButtons();
+    renderScreenerTable();
+  }
+
+  function updateSubIndustryButtons() {
+    const container = document.getElementById('subindustry-filters');
+    let subIndustries = new Set();
+
+    Object.values(stockUniverse).forEach(s => {
+      if (currentSectorFilter === 'ALL' || s.sector === currentSectorFilter) {
+        if (s.industry) subIndustries.add(s.industry);
+      }
+    });
+
+    let html = `<button class="f-btn ${currentSubIndustryFilter === 'ALL' ? 'active' : ''}" onclick="setSubIndustryFilter('ALL')">全部子行業</button>`;
+    Array.from(subIndustries).sort().forEach(sub => {
+      html += `<button class="f-btn ${currentSubIndustryFilter === sub ? 'active' : ''}" onclick="setSubIndustryFilter('${sub}')">${sub}</button>`;
+    });
+
+    container.innerHTML = html;
+  }
+
+  function setSubIndustryFilter(sub) {
+    currentSubIndustryFilter = sub;
+    document.querySelectorAll('#subindustry-filters .f-btn').forEach(btn => btn.classList.remove('active'));
     event.target.classList.add('active');
     renderScreenerTable();
   }
 
   function sortTable(field) {
     if (sortField === field) sortAsc = !sortAsc;
-    else { sortField = field; sortAsc = true; }
+    else { sortField = field; sortAsc = (field === 'mcap' || field === 'price') ? false : true; }
     renderScreenerTable();
   }
 
@@ -460,6 +512,7 @@
     else if (currentValFilter === 'SAVED') list = list.filter(item => item.isSaved);
 
     if (currentSectorFilter !== 'ALL') list = list.filter(item => item.sector === currentSectorFilter);
+    if (currentSubIndustryFilter !== 'ALL') list = list.filter(item => item.industry === currentSubIndustryFilter);
 
     if (searchVal) {
       list = list.filter(item => 
@@ -483,7 +536,7 @@
     const overCount = totalCount - underCount;
     const savedCount = Object.keys(savedModels).length;
 
-    document.getElementById('stat-total').innerText = `${totalCount} 檔 (M7)`;
+    document.getElementById('stat-total').innerText = `${totalCount} 檔 (Top 100)`;
     document.getElementById('stat-undervalued').innerText = `${underCount} 檔 (${totalCount > 0 ? ((underCount/totalCount)*100).toFixed(0) : 0}%)`;
     document.getElementById('stat-overvalued').innerText = `${overCount} 檔 (${totalCount > 0 ? ((overCount/totalCount)*100).toFixed(0) : 0}%)`;
     document.getElementById('stat-saved-count').innerText = `${savedCount} 檔`;
@@ -493,12 +546,10 @@
         ? `<span class="badge badge-undervalued">低估 ${item.premiumPct.toFixed(1)}%</span>`
         : `<span class="badge badge-overvalued">高估 +${item.premiumPct.toFixed(1)}%</span>`;
 
-      // 目標價值標籤
       const targetPriceHtml = item.isSaved
         ? `<span class="badge badge-target">$${item.target_price.toFixed(2)}</span>`
         : `<span style="color: #64748b;">--</span>`;
 
-      // 目標 vs 市價溢價
       let targetSpreadHtml = `<span style="color: #64748b;">--</span>`;
       if (item.isSaved && item.target_spread !== null) {
         if (item.target_spread < 0) {
@@ -509,15 +560,15 @@
       }
 
       const netCashColor = item.cash_minus_liab >= 0 ? 'color: var(--green);' : 'color: var(--red);';
+      const exchClass = `badge-exch-${item.exchange || 'NASDAQ'}`;
 
       return `
         <tr>
           <td><a class="ticker-link" onclick="openDetail('${item.ticker}')">${item.ticker}</a></td>
-          <td><span class="badge badge-exch-nasdaq">${item.exchange}</span></td>
-          <td>
-            <div style="font-weight: 600; color: #fff;">${item.name}</div>
-            <div style="font-size: 11px; color: var(--text-muted);">${item.sector} · <span style="color:#94a3b8">${item.industry}</span></div>
-          </td>
+          <td><span class="badge ${exchClass}">${item.exchange}</span></td>
+          <td style="font-weight: 600; color: #fff;">${item.name}</td>
+          <td style="color: #cbd5e1;">${item.sector}</td>
+          <td style="color: #94a3b8; font-size: 11px;">${item.industry}</td>
           <td style="font-weight: 700; color: var(--accent);">$${item.price.toFixed(2)}</td>
           <td class="text-green" style="font-size: 13px; font-weight: 700;">$${item.fairVal.toFixed(2)}</td>
           <td>${targetPriceHtml}</td>
@@ -532,9 +583,7 @@
           <td>${item.pe_trailing ? item.pe_trailing.toFixed(1) : '--'}</td>
           <td>${item.pe_forward ? item.pe_forward.toFixed(1) : '--'}</td>
           <td>${item.pb_trailing ? item.pb_trailing.toFixed(1) : '--'}</td>
-          <td>${item.pb_forward ? item.pb_forward.toFixed(1) : '--'}</td>
           <td style="color: #67e8f9;">${item.div_yield ? item.div_yield.toFixed(2) + '%' : '0.00%'}</td>
-          <td>${item.ps_ratio ? item.ps_ratio.toFixed(1) : '--'}</td>
           <td style="color: #38bdf8; font-weight: 600;">${item.fcf_to_ev ? item.fcf_to_ev.toFixed(2) + '%' : '--'}</td>
           <td style="color: #a78bfa; font-weight: 600;">${item.fcf_to_mcap ? item.fcf_to_mcap.toFixed(2) + '%' : '--'}</td>
           <td style="color: #38bdf8;">${item.cash_to_assets ? item.cash_to_assets.toFixed(1) + '%' : '--'}</td>
@@ -566,7 +615,9 @@
 
     document.getElementById('det-ticker').innerText = ticker;
     document.getElementById('det-name').innerText = s.name;
-    document.getElementById('det-exchange').innerText = s.exchange;
+    const exchEl = document.getElementById('det-exchange');
+    exchEl.innerText = s.exchange;
+    exchEl.className = `badge badge-exch-${s.exchange || 'NASDAQ'}`;
 
     document.getElementById('inp-price').value = s.price;
     document.getElementById('inp-shares').value = s.shares;
@@ -694,7 +745,6 @@
     document.getElementById('sens-body').innerHTML = tbody;
   }
 
-  // 儲存自訂模型為目標價
   function saveCustomModel() {
     const s = stockUniverse[activeDetailTicker];
     if (!s) return;
@@ -735,6 +785,7 @@
   }
 
   window.onload = function() {
+    updateSubIndustryButtons();
     const hash = window.location.hash.replace('#', '').toUpperCase();
     if (hash && stockUniverse[hash]) {
       activeDetailTicker = hash;
