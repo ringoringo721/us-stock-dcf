@@ -424,14 +424,17 @@ def main():
         if cf_data and isinstance(cf_data, list) and len(cf_data) > 0:
             fcf_sum = sum(float(x.get("freeCashFlow") or 0.0) for x in cf_data)
             fcf0 = round(fcf_sum / 1e6, 1)
-            # 現金流量表中的現金分紅 (通常為負值)
-            ttm_dividends_paid = abs(sum(float(x.get("dividendsPaid") or x.get("commonStockDividendsPaid") or 0.0) for x in cf_data))
-        if fcf0 <= 0: fcf0 = round(mcap * 0.038, 1)
+            # 提取近四季支付的現金股息（FMP 欄位為 dividendsPaid 或 netDividendsPaid，數值通常為負）
+            for quarter_cf in cf_data:
+                div_val = quarter_cf.get("dividendsPaid") or quarter_cf.get("netDividendsPaid") or quarter_cf.get("commonStockDividendsPaid") or 0.0
+                ttm_dividends_paid += abs(float(div_val))
         
-        # 若 quote 中沒有股息率，使用近四季真實支付現金股息/市值進行兜底計算
-        if div_yield_real <= 0 and mcap > 0 and ttm_dividends_paid > 0:
+        if fcf0 <= 0: fcf0 = round(mcap * 0.038, 1)
+
+        # 計算真實 TTM 股息率 (%)
+        div_yield_real = 0.0
+        if mcap > 0 and ttm_dividends_paid > 0:
             div_yield_real = round((ttm_dividends_paid / (mcap * 1e6)) * 100.0, 2)
-        time.sleep(0.04)
 
         # 5. 分析師預測
         est_data = fetch_json("analyst-estimates", {"symbol": fmp_sym, "limit": 4})
