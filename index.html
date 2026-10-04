@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>美股旗艦 DCF 估值雷達 (200 檔全覆蓋 · 10年排程與敏感度矩陣修復)</title>
-  <script src="market_data.js?v=20261004_v4"></script>
+  <script src="market_data.js?v=20261004_v5"></script>
   <style>
     :root {
       --bg: #0b1120;
@@ -165,7 +165,6 @@
     .form-group input { width: 110px; background: #0f172a; border: 1px solid var(--card-border); border-radius: 4px; color: #fff; padding: 5px 8px; font-size: 13px; text-align: right; }
     .form-group input:focus { border-color: var(--accent); outline: none; }
     
-    /* 10 年排程輸入框與表格設定 */
     #dcf-table, #sens-table { width: 100%; border-collapse: collapse; text-align: right; font-size: 12px; }
     #dcf-table th, #dcf-table td, #sens-table th, #sens-table td { padding: 9px 10px; border-bottom: 1px solid var(--card-border); }
     #dcf-table th, #sens-table th { background: #162032; color: #cbd5e1; text-align: center; }
@@ -297,7 +296,6 @@
             <th onclick="sortTable('price')" style="width: 110px;">最新股價 ($)</th>
             <th onclick="sortTable('fairVal')" style="width: 110px;">公允價值 ($)</th>
             <th onclick="sortTable('target_price')" style="width: 110px;">目標價值 ($)</th>
-            <!-- 「操作」緊接在「目標價值」旁 -->
             <th style="text-align: center; width: 110px;">操作</th>
             <th onclick="sortTable('target_spread')" style="width: 125px;">目標 vs 市價溢價</th>
             <th onclick="sortTable('premiumPct')" style="width: 110px;">公允溢價幅度</th>
@@ -586,7 +584,6 @@
     }
   }
 
-  // 健全核心計算引擎
   function computeDCF(s) {
     const E = s.price * s.shares;
     const V = E + s.debt;
@@ -598,7 +595,6 @@
     const Kd_after = (s.kd / 100) * (1 - (s.tax / 100));
     const WACC = (wE * Ke) + (wD * Kd_after);
 
-    // 確保 10 年增速陣列健全存在
     let growthRates = [];
     if (s.growth_10y && Array.isArray(s.growth_10y) && s.growth_10y.length === 10) {
       growthRates = s.growth_10y.map(r => r / 100);
@@ -975,6 +971,12 @@
     exchEl.innerText = s.exchange;
     exchEl.className = `badge badge-exch-${s.exchange || 'NASDAQ'}`;
 
+    const dcf = computeDCF(s);
+    const fscoreBadge = document.getElementById('det-fscore-badge');
+    const fval = dcf.f_score;
+    fscoreBadge.innerText = `F-Score: ${fval}/9 (診斷)`;
+    fscoreBadge.className = `badge-fscore ${fval >= 7 ? 'fscore-green' : fval <= 3 ? 'fscore-red' : 'fscore-yellow'}`;
+
     updateDetailFavButton();
 
     document.getElementById('inp-price').value = s.price;
@@ -1017,7 +1019,6 @@
     recalculateDetail();
   }
 
-  // 核心重算與表格還原渲染
   function recalculateDetail() {
     const s = stockUniverse[activeDetailTicker];
     if (!s) return;
@@ -1052,10 +1053,7 @@
     fscoreBadge.innerText = `F-Score: ${fval}/9 (診斷)`;
     fscoreBadge.className = `badge-fscore ${fval >= 7 ? 'fscore-green' : fval <= 3 ? 'fscore-red' : 'fscore-yellow'}`;
 
-    // 100% 還原渲染 10 年自由現金流折現排程
     renderDCFTable(dcf.growth, dcf.fcfList, dcf.dfList, dcf.pvList);
-
-    // 100% 還原渲染雙變數敏感度分析矩陣
     renderSensitivity(dcf.fcfList[9], dcf.NetDebt, s.shares, dcf.WACC, s.g / 100, s.fcf0, dcf.growth);
   }
 
