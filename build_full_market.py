@@ -41,7 +41,7 @@ def fetch_stable_json(endpoint, params):
     return None
 
 def fetch_stock_full_data(sym, default_shares, default_g1):
-    print(f"📡 正在從 FMP 官方 API 計算 {sym} 的真實行情、P/E、P/B 與 10-Q 財報...")
+    print(f"📡 正在從 FMP 官方 API 計算 {sym} 的完整財務數據...")
 
     # 1. 即時報價與市值 (Quote)
     q_data = fetch_stable_json("quote", {"symbol": sym})
@@ -68,12 +68,14 @@ def fetch_stock_full_data(sym, default_shares, default_g1):
 
     time.sleep(0.08)
 
-    # 2. 最新 10-Q 資產負債表 (Total Debt、現金與股東權益，用於計算真實 P/B)
+    # 2. 最新 10-Q 資產負債表 (負債、現金、總資產、股東權益)
     bs_data = fetch_stable_json("balance-sheet-statement", {"symbol": sym, "period": "quarter", "limit": 1})
     debt = 0.0
     cash = 0.0
     equity = 1.0
+    total_assets = 1.0
     liab_r = 40.0
+    cash_to_assets = 0.0
     cr = 1.50
 
     if bs_data and isinstance(bs_data, list) and len(bs_data) > 0:
@@ -88,26 +90,33 @@ def fetch_stock_full_data(sym, default_shares, default_g1):
         total_assets = float(bs.get("totalAssets") or 1.0)
         cur_assets = float(bs.get("totalCurrentAssets") or 1.0)
         cur_liab = float(bs.get("totalCurrentLiabilities") or 1.0)
+
         liab_r = round((total_liab / total_assets) * 100.0, 1)
+        # 動態計算 Cash / Total Assets (%)
+        cash_to_assets = round((tot_cash / total_assets) * 100.0, 1) if total_assets > 0 else 0.0
         cr = round(cur_assets / cur_liab, 2)
 
-    # 精確計算真實靜態 P/B = 總市值 / 股東權益
+    # 靜態 P/B = 總市值 / 股東權益
     pb_trailing = round((mcap * 1e6) / equity, 1) if equity > 0 else 8.5
     pb_forward = round(pb_trailing * 0.90, 1)
 
     time.sleep(0.08)
 
-    # 3. 最新 TTM 利潤表 (提取最近 4 季 Net Income，精確計算真實靜態 P/E)
+    # 3. 最新 TTM 利潤表 (提取 4 季累計淨利潤)
     inc_data = fetch_stable_json("income-statement", {"symbol": sym, "period": "quarter", "limit": 4})
     ttm_net_income = 0.0
     if inc_data and isinstance(inc_data, list) and len(inc_data) > 0:
         ttm_net_income = sum(float(item.get("netIncome") or 0.0) for item in inc_data)
 
-    # 靜態 P/E = 市值 / TTM 淨利潤 (最權威公認公式)
+    # 靜態 P/E = 市值 / TTM 淨利潤
     if ttm_net_income > 0:
         pe_trailing = round((mcap * 1e6) / ttm_net_income, 1)
     else:
         pe_trailing = 30.0
+
+    # 動態計算 ROE 與 ROA
+    roe = round((ttm_net_income / equity) * 100.0, 1) if equity > 0 and ttm_net_income > 0 else 25.0
+    roa = round((ttm_net_income / total_assets) * 100.0, 1) if total_assets > 0 and ttm_net_income > 0 else 12.0
 
     time.sleep(0.08)
 
@@ -122,7 +131,7 @@ def fetch_stock_full_data(sym, default_shares, default_g1):
 
     time.sleep(0.08)
 
-    # 5. 分析師預估端點 (提取未來 1 年預估 EPS 計算真實動態 P/E，並提取 g1)
+    # 5. 分析師預估端點 (動態 P/E 與成長率 g1)
     est_data = fetch_stable_json("analyst-estimates", {"symbol": sym, "limit": 4})
     g1 = default_g1
     pe_forward = 0.0
@@ -142,7 +151,6 @@ def fetch_stock_full_data(sym, default_shares, default_g1):
 
     g2 = round(g1 * 0.45, 1)
 
-    # 股息率判斷
     div_map = {"AAPL": 0.45, "MSFT": 0.72, "NVDA": 0.03, "GOOGL": 0.45, "META": 0.35, "AMZN": 0.00, "TSLA": 0.00}
     div_yield = div_map.get(sym, 0.00)
 
@@ -156,19 +164,22 @@ def fetch_stock_full_data(sym, default_shares, default_g1):
         "beta": 1.15 if sym in ["AAPL", "MSFT", "GOOGL"] else (1.65 if sym == "NVDA" else (2.10 if sym == "TSLA" else 1.25)),
         "g1": g1,
         "g2": g2,
-        "pe_trailing": pe_trailing,
-        "pe_forward": pe_forward,
+        "pe_trailing": round(pe_trailing, 1),
+        "pe_forward": round(pe_forward, 1),
         "pb_trailing": pb_trailing,
         "pb_forward": pb_forward,
         "div_yield": div_yield,
         "ps_ratio": round(mcap / max(fcf0 * 4.2, 1.0), 1),
         "liab_to_assets": liab_r,
-        "current_ratio": cr
+        "cash_to_assets": cash_to_assets,
+        "current_ratio": cr,
+        "roe": roe,
+        "roa": roa
     }
 
 def main():
     print("=" * 65)
-    print("🚀 FMP 官方財報三張表與真實 P/E、P/B 計算啟動")
+    print("🚀 FMP 官方財報三張表與現金/資產比率計算啟動")
     print("=" * 65)
 
     results = {}
@@ -198,7 +209,7 @@ def main():
         wD = debt / V if V > 0 else 0.05
         wacc = (wE * ke) + (wD * kd_after)
 
-        # 兩階段自由現金流折現模型 (DCF)
+        # 兩階段自由現金流折現 (DCF)
         growth_rates = [g1 / 100.0] * 5 + [g2 / 100.0] * 5
         sum_pv = 0
         cur_fcf = fcf0
@@ -243,15 +254,15 @@ def main():
             "pb_forward": data["pb_forward"],
             "div_yield": data["div_yield"],
             "ps_ratio": data["ps_ratio"],
-            "pcash_ratio": round(mcap / max(cash, 1.0), 1),
             "liab_to_assets": data["liab_to_assets"],
+            "cash_to_assets": data["cash_to_assets"],
             "current_ratio": data["current_ratio"],
             "cash_minus_liab": cash_minus_liab,
-            "roe": 35.0,
-            "roa": 18.0
+            "roe": data["roe"],
+            "roa": data["roa"]
         }
 
-        print(f"✅ {sym}: 股價=${price} | 靜態 P/E={data['pe_trailing']} | 動態 P/E={data['pe_forward']} | 靜態 P/B={data['pb_trailing']} | 動態 P/B={data['pb_forward']}")
+        print(f"✅ {sym}: 股價=${price} | 現金/資產={data['cash_to_assets']}% | ROE={data['roe']}% | ROA={data['roa']}%")
 
     with open("full_market_dcf.json", "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
@@ -259,7 +270,7 @@ def main():
     with open("market_data.js", "w", encoding="utf-8") as f:
         f.write(f"window.FULL_MARKET_DATA = {json.dumps(results, ensure_ascii=False, indent=2)};")
 
-    print("\n🎉 成功！真實 P/E 與 P/B 比率已全數計算並寫入完畢。")
+    print("\n🎉 完成！已移除 P/Cash 並寫入 Cash/Total Assets。")
 
 if __name__ == "__main__":
     main()
