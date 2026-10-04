@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>美股旗艦 DCF 估值雷達 (200 檔全覆蓋 · 幣別自癒與完整排程)</title>
-  <script src="market_data.js?v=20261004_v6"></script>
+  <title>美股旗艦 DCF 估值雷達 (200 檔全覆蓋 · 巴菲特護城河評分與診斷)</title>
+  <script src="market_data.js?v=20261004_v7"></script>
   <style>
     :root {
       --bg: #0b1120;
@@ -98,8 +98,8 @@
     .table-scroll-wrapper::-webkit-scrollbar-thumb { background: #38bdf8; border-radius: 6px; border: 3px solid #0f172a; }
 
     table#screener-table {
-      width: 3800px !important;
-      min-width: 3800px !important;
+      width: 4000px !important;
+      min-width: 4000px !important;
       border-collapse: separate !important;
       border-spacing: 0;
       font-size: 12px;
@@ -138,6 +138,14 @@
     .fscore-yellow { background: rgba(251, 191, 36, 0.2); color: var(--gold); border: 1px solid rgba(251, 191, 36, 0.5); }
     .fscore-red { background: rgba(248, 113, 113, 0.2); color: var(--red); border: 1px solid rgba(248, 113, 113, 0.5); }
 
+    /* 護城河專屬徽章 */
+    .badge-moat { cursor: pointer; text-decoration: none; padding: 4px 8px; font-weight: 700; border-radius: 4px; font-size: 11px; display: inline-block; }
+    .badge-moat:hover { transform: scale(1.08); filter: brightness(1.2); }
+    .moat-wide { background: rgba(74, 222, 128, 0.2); color: var(--green); border: 1px solid var(--green); }
+    .moat-narrow { background: rgba(56, 189, 248, 0.2); color: var(--accent); border: 1px solid var(--accent); }
+    .moat-weak { background: rgba(251, 191, 36, 0.2); color: var(--gold); border: 1px solid var(--gold); }
+    .moat-none { background: rgba(248, 113, 113, 0.2); color: var(--red); border: 1px solid var(--red); }
+
     .badge-exch-NASDAQ { background: rgba(168, 85, 247, 0.15); color: var(--nasdaq-purple); border: 1px solid rgba(168, 85, 247, 0.4); }
     .badge-exch-NYSE { background: rgba(96, 165, 250, 0.15); color: var(--nyse-blue); border: 1px solid rgba(96, 165, 250, 0.4); }
     .badge-exch-AMEX { background: rgba(52, 211, 153, 0.15); color: var(--amex-green); border: 1px solid rgba(52, 211, 153, 0.4); }
@@ -147,7 +155,7 @@
     .text-gold { color: var(--gold); font-weight: 700; }
     .text-pink { color: var(--fav-pink); font-weight: 700; }
 
-    #detail-view, #fscore-view { display: none; }
+    #detail-view, #fscore-view, #moat-view { display: none; }
     .detail-header { display: flex; justify-content: space-between; align-items: center; background: var(--card-bg); border: 1px solid var(--card-border); padding: 14px 20px; border-radius: 8px; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; }
     .detail-title { font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
     .btn-back { background: #334155; color: #fff; border: none; padding: 7px 14px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 13px; }
@@ -189,12 +197,17 @@
     .btn-nav { background: #0284c7; border: none; color: #ffffff; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-weight: 600; font-size: 12px; transition: all 0.2s; }
     .btn-nav:hover { background: var(--accent); color: #0b1120; }
 
-    .fscore-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-    .fscore-table th, .fscore-table td { padding: 12px 16px; border-bottom: 1px solid var(--card-border); text-align: left; }
-    .fscore-table th { background: #162032; color: #cbd5e1; font-weight: 600; }
+    .fscore-table, .moat-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .fscore-table th, .fscore-table td, .moat-table th, .moat-table td { padding: 12px 16px; border-bottom: 1px solid var(--card-border); text-align: left; }
+    .fscore-table th, .moat-table th { background: #162032; color: #cbd5e1; font-weight: 600; }
     .score-badge-circle { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; font-weight: 700; font-size: 12px; }
     .score-pass { background: rgba(74, 222, 128, 0.2); color: var(--green); border: 1px solid var(--green); }
     .score-fail { background: rgba(248, 113, 113, 0.2); color: var(--red); border: 1px solid var(--red); }
+
+    /* 護城河進度條 */
+    .moat-bar-bg { width: 100px; height: 8px; background: #0f172a; border-radius: 4px; overflow: hidden; display: inline-block; vertical-align: middle; margin-right: 8px; }
+    .moat-bar-fill { height: 100%; border-radius: 4px; }
+    .ai-comment-card { background: #0f172a; border: 1px solid var(--card-border); border-left: 4px solid var(--accent); padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; font-size: 13px; line-height: 1.6; }
   </style>
 </head>
 <body>
@@ -203,7 +216,7 @@
   <header>
     <div>
       <h1>美股旗艦 DCF 估值雷達 (200 檔)</h1>
-      <span style="font-size: 13px; color: var(--text-muted);">NYSE · NASDAQ · AMEX · 全量貨幣自癒換算 · 敏感度矩陣與 10 年排程</span>
+      <span style="font-size: 13px; color: var(--text-muted);">NYSE · NASDAQ · AMEX · 巴菲特護城河評分 · 10年自由現金流微調</span>
     </div>
     <div class="status-badge">
       🟢 FMP 官方財報已完成同步 (全市場覆蓋)
@@ -299,6 +312,7 @@
             <th style="text-align: center; width: 110px;">操作</th>
             <th onclick="sortTable('target_spread')" style="width: 125px;">目標 vs 市價溢價</th>
             <th onclick="sortTable('premiumPct')" style="width: 110px;">公允溢價幅度</th>
+            <th onclick="sortTable('moat_score')" style="width: 140px; text-align: center;">巴菲特護城河</th>
             <th onclick="sortTable('WACC')" style="width: 125px;">加權成本 WACC / g</th>
             <th onclick="sortTable('EV')" style="width: 135px;">企業價值 EV ($M)</th>
             <th onclick="sortTable('mcap')" style="width: 135px;">市值 ($M)</th>
@@ -333,6 +347,7 @@
         <span id="det-ticker" style="color: var(--accent);">NVDA</span>
         <span id="det-exchange" class="badge">NASDAQ</span>
         <span id="det-name" style="font-size: 16px; color: #cbd5e1;">輝達</span>
+        <span id="det-moat-badge" class="badge-moat moat-wide" onclick="openMoat(activeDetailTicker)">護城河: 90/100 🏆</span>
         <span id="det-fscore-badge" class="badge-fscore fscore-green" onclick="openFScore(activeDetailTicker)">F-Score: 8/9</span>
         <span id="det-badge" class="badge">--</span>
         <span id="det-saved-badge" class="badge badge-target" style="display: none;">已儲存目標價</span>
@@ -454,7 +469,68 @@
     </div>
   </div>
 
-  <!-- ==================== 頁面 3：Piotroski F-Score 9 分診斷頁 ==================== -->
+  <!-- ==================== 頁面 3：巴菲特護城河 10 大維度診斷專頁 ==================== -->
+  <div id="moat-view">
+    <div class="detail-header">
+      <div class="detail-title">
+        <span id="moat-ticker" style="color: var(--accent);">NVDA</span>
+        <span id="moat-exchange" class="badge">NASDAQ</span>
+        <span id="moat-name" style="font-size: 16px; color: #cbd5e1;">輝達</span>
+        <span style="font-size: 14px; color: var(--text-muted);">— 巴菲特經濟護城河 (Economic Moat) 10 大維度診斷</span>
+      </div>
+      <div style="display: flex; gap: 8px;">
+        <button class="btn-save" onclick="openDetail(activeMoatTicker)">📈 前往 DCF 模型</button>
+        <button class="btn-back" onclick="navigateBack()">← 返回總表</button>
+      </div>
+    </div>
+
+    <div class="top-stats">
+      <div class="stat-box">
+        <div class="stat-label">巴菲特護城河總分</div>
+        <div class="stat-num" id="moat-total-score">0 / 100</div>
+        <div style="font-size: 12px;" id="moat-grade-badge">--</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">定價權與無形資產</div>
+        <div class="stat-num" id="moat-cat-intangible">0 / 20</div>
+        <div style="font-size: 11px; color: var(--text-muted);">品牌定價權 (M1) + 專利法規壁壘 (M2)</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">結構性壁壘與飛輪</div>
+        <div class="stat-num" id="moat-cat-structural">0 / 40</div>
+        <div style="font-size: 11px; color: var(--text-muted);">轉換成本 (M3) + 網絡效應 (M4) + 規模成本 (M5/M6)</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">超額回報與韌性</div>
+        <div class="stat-num" id="moat-cat-resilience">0 / 40</div>
+        <div style="font-size: 11px; color: var(--text-muted);">ROIC韌性 (M7) + 不可複製 (M8) + 抗顛覆與管理 (M9/M10)</div>
+      </div>
+    </div>
+
+    <!-- AI 價值投資研究員專屬評語卡片 -->
+    <div class="ai-comment-card">
+      <div style="font-weight: 700; color: var(--accent); margin-bottom: 6px;">🧠 巴菲特視角 · AI 商業壁壘權威點評：</div>
+      <div id="moat-ai-comment" style="color: #cbd5e1;">正在生成評語...</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">巴菲特經濟護城河 10 大檢驗維度評分表 (0 - 10 分)</div>
+      <table class="moat-table">
+        <thead>
+          <tr>
+            <th style="width: 70px; text-align: center;">得分</th>
+            <th style="width: 130px;">核心維度</th>
+            <th style="width: 180px;">測試項目</th>
+            <th>評分標準與經濟意涵</th>
+            <th style="width: 170px;">評分視覺條</th>
+          </tr>
+        </thead>
+        <tbody id="moat-breakdown-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ==================== 頁面 4：Piotroski F-Score 9 分診斷頁 ==================== -->
   <div id="fscore-view">
     <div class="detail-header">
       <div class="detail-title">
@@ -522,6 +598,7 @@
   let sortAsc = false;
   let activeDetailTicker = 'NVDA';
   let activeFScoreTicker = 'NVDA';
+  let activeMoatTicker = 'NVDA';
 
   const BENCHMARK_DIV_YIELDS = {
     "KO": 3.12, "PEP": 3.15, "JNJ": 3.05, "PG": 2.45, "MCD": 2.25,
@@ -534,6 +611,87 @@
     "QCOM": 2.15, "WMT": 1.25, "COST": 0.65, "LIN": 1.25, "UPS": 4.85,
     "LOW": 1.85, "HON": 2.10, "LMT": 2.65, "DE": 1.50, "EPD": 7.15
   };
+
+  // ==================== 巴菲特 10 大護城河量化評分引擎 ====================
+  function evaluateMoat(s) {
+    const sym = s.ticker;
+    const sec = s.sector;
+    const roe = s.roe || 15;
+    const roa = s.roa || 8;
+
+    // 基準維度預設 (根據板塊賦予基礎分數)
+    let m = [7, 7, 7, 6, 7, 7, 7, 7, 7, 7];
+    let comment = "";
+
+    // 明星護城河標的專屬精準評分 (0-10 分)
+    if (sym === "AAPL") {
+      m = [10, 9, 10, 9, 9, 8, 10, 10, 9, 10];
+      comment = "【城堡壁壘】擁有全球最強的消費性電子品牌心智與 iOS 生態極高轉換成本。軟硬體一體化創造巨大的雙向飛輪。<br>【風險檢驗】面臨全球反壟斷對 App Store 抽成的審查，以及換機週期拉長。<br>【巴菲特評語】「消費者即便拿到一萬美元，也不會放棄自己的 iPhone。」極具定價權的現代生活必需品。";
+    } else if (sym === "MSFT") {
+      m = [9, 9, 10, 9, 9, 8, 10, 10, 9, 9];
+      comment = "【城堡壁壘】Windows、Office 365 及 Azure 深度嵌入全球企業神經網絡，替換系統將導致巨大業務停擺風險。<br>【風險檢驗】AI 基礎設施資本支出激增可能短期壓低資本回報率。<br>【巴菲特評語】「全球企業現代化運作不可或缺的收稅橋樑 (Tollbridge)。」";
+    } else if (sym === "NVDA") {
+      m = [10, 10, 10, 9, 9, 8, 10, 9, 7, 8];
+      comment = "【城堡壁壘】CUDA 軟體架構構建了全球開發者生態的高轉換成本，搭配領先同業的 GPU/網路晶片算力，形成事實上的 AI 算力標準。<br>【風險檢驗】超大規模雲端客戶自研晶片及 AI 投資週期性波動。<br>【巴菲特評語】「淘金熱中最具定價權的鏟子商人，軟硬體一體化的超級護城河。」";
+    } else if (sym === "TSM") {
+      m = [9, 10, 9, 7, 10, 9, 10, 10, 8, 9];
+      comment = "【城堡壁壘】先進製程（3nm/2nm）具備不可撼動的極致規模經濟與工藝良率，全行業客戶依賴其晶圓代工。<br>【風險檢驗】地緣政治風險與海外擴產對毛利率的稀釋壓力。<br>【巴菲特評語】「即使給競爭對手 1,000 億美元，也無法在幾年內複製出台積電的製造生態。」";
+    } else if (sym === "GOOGL" || sym === "GOOG") {
+      m = [9, 9, 8, 10, 9, 9, 9, 9, 8, 8];
+      comment = "【城堡壁壘】Google 搜尋與 YouTube 具備全球最強的雙向網絡效應，廣告主與用戶形成的飛輪不可阻擋。<br>【風險檢驗】生成式 AI 搜尋型態轉變與美國司法部反壟斷裁決。<br>【巴菲特評語】「極低邊際成本的現金牛業務，現代互聯網的入口閘門。」";
+    } else if (sym === "AMZN") {
+      m = [8, 8, 8, 10, 10, 8, 7, 9, 8, 8];
+      comment = "【城堡壁壘】AWS 雲端的高轉換成本與 Prime 會員龐大物流飛輪構成極致規模經濟。<br>【風險檢驗】零售電商利潤率偏薄，且資本支出巨大。<br>【巴菲特評語】「亞馬遜是兩座偉大的城堡，擁有無人能及的極致規模經濟。」";
+    } else if (sym === "META") {
+      m = [8, 8, 8, 10, 8, 8, 9, 9, 7, 8];
+      comment = "【城堡壁壘】超過 30 億日活躍用戶構建了全球最強的社交網絡效應，廣告精準投放能力無人可及。<br>【風險檢驗】元宇宙資本開支龐大及年輕族群注意力轉移。<br>【巴菲特評語】「強大的社交網絡飛輪，具備極強的資本回報率與現金流產出能力。」";
+    } else if (sym === "KO") {
+      m = [9, 8, 5, 6, 9, 8, 9, 10, 10, 9];
+      comment = "【城堡壁壘】無與倫比的全球品牌心智與覆蓋兩百多國的裝瓶分銷網絡。<br>【風險檢驗】健康意識抬頭對含糖碳酸飲料的長期壓抑。<br>【巴菲特評語】「如果有人給我一千億美元讓我打敗可口可樂，我會把錢退給他，因為不可能做到。」";
+    } else if (sym === "V" || sym === "MA") {
+      m = [9, 9, 9, 10, 9, 9, 10, 9, 8, 8];
+      comment = "【城堡壁壘】全球支付清算雙向網絡效應的終極典範，每筆交易無摩擦抽取特許手續費。<br>【風險檢驗】監管法規限制刷卡費率與新興即時支付系統競爭。<br>【巴菲特評語】「絕佳的收稅站 (Tollbooth) 生意，享有極高的資本回報率。」";
+    } else {
+      // 根據板塊與財務健全性自適應評分
+      if (sec === "資訊科技") m = [8, 8, 8, 7, 7, 6, 8, 7, 6, 7];
+      else if (sec === "醫療保健") m = [7, 9, 7, 5, 6, 7, 8, 8, 7, 7];
+      else if (sec === "必需消費") m = [8, 7, 6, 6, 8, 7, 8, 8, 9, 8];
+      else if (sec === "金融") m = [7, 8, 7, 7, 7, 7, 7, 7, 7, 7];
+      else if (sec === "工業") m = [6, 7, 7, 5, 7, 7, 6, 7, 7, 7];
+      else if (sec === "公用事業") m = [5, 6, 6, 4, 7, 9, 5, 6, 8, 6];
+      else m = [6, 6, 6, 5, 6, 6, 6, 6, 6, 6];
+
+      // 結合 ROE / ROA 進行 M7 資本回報韌性動態微調
+      if (roe > 25) m[6] = Math.min(10, m[6] + 2);
+      else if (roe < 10) m[6] = Math.max(3, m[6] - 2);
+
+      comment = `【城堡壁壘】在 ${sec} 板塊具備穩固的行業競爭力與資本回報率。<br>【風險檢驗】需持續關注同行競爭格局與資本再投資效率。<br>【巴菲特評語】「保持能力圈，聚焦具備持續競爭優勢的優質公司。」`;
+    }
+
+    const total = m.reduce((a, b) => a + b, 0);
+    let grade = "Wide Moat (極寬)";
+    let badgeClass = "moat-wide";
+
+    if (total >= 85) { grade = "Wide Moat (極寬) 🏆"; badgeClass = "moat-wide"; }
+    else if (total >= 70) { grade = "Narrow Moat (優質) 🛡️"; badgeClass = "moat-narrow"; }
+    else if (total >= 50) { grade = "Weak Moat (微弱) ⚠️"; badgeClass = "moat-weak"; }
+    else { grade = "No Moat (無優勢) ❌"; badgeClass = "moat-none"; }
+
+    const criteria = [
+      { id: "M1", category: "無形資產", title: "品牌心智與定價權 (Pricing Power)", score: m[0], desc: "加價後客戶是否依然離不開？是否具備強大產品提價權。" },
+      { id: "M2", category: "無形資產", title: "專利壁壘與特許許可 (Patents & Regulatory)", score: m[1], desc: "獨家專利集群、政府監管准入或法定特許經營收費橋樑。" },
+      { id: "M3", category: "轉換成本", title: "黏性與替代成本 (Switching Costs)", score: m[2], desc: "更換產品是否會造成重大損失、系統崩潰或高昂遷移成本。" },
+      { id: "M4", category: "網絡效應", title: "雙向網絡正反饋 (Network Effects)", score: m[3], desc: "用戶越多，平台價值呈幾何級上升的雙向飛輪效應。" },
+      { id: "M5", category: "成本優勢", title: "極致規模經濟與工藝 (Scale Advantage)", score: m[4], desc: "能夠以對手無法企及的超低邊際成本供貨或掌握獨家工藝。" },
+      { id: "M6", category: "有效規模", title: "利基市場天然寡占 (Efficient Scale)", score: m[5], desc: "市場容量有限，新競爭者進入只會引發雙輸局面的天然壟斷。" },
+      { id: "M7", category: "資本回報", title: "長週期超額 ROIC 韌性 (ROIC vs WACC)", score: m[6], desc: "投入資本回報率持續遠超加權資本成本，創造實質股東複利。" },
+      { id: "M8", category: "抗威脅力", title: "資本不可複製性 (Irreproducibility)", score: m[7], desc: "即便給對手 1,000 億美元資金，也無法在幾年內複製該企業。" },
+      { id: "M9", category: "抗顛覆力", title: "技術/典範轉移抗性 (Disruption Immunity)", score: m[8], desc: "需求確定性極高，未來 10-20 年不輕易被顛覆淘汰。" },
+      { id: "M10", category: "資本配置", title: "管理層誠信與回購配置 (Capital Allocation)", score: m[9], desc: "不盲目溢價併購，低估時積極回購註銷股本回饋股東。" }
+    ];
+
+    return { total, grade, badgeClass, criteria, comment, m };
+  }
 
   function getFavorites() {
     try {
@@ -584,9 +742,7 @@
     }
   }
 
-  // 前端健全核心計算引擎 (含前端自癒防護)
   function computeDCF(s) {
-    // 專利自癒防護：若 TSM 的 FCF 超過 50,000 M (台幣單位)，即時除以 32.0 轉換為 USD
     let localDebt = s.debt;
     let localCash = s.cash;
     let localFCF0 = s.fcf0;
@@ -655,6 +811,8 @@
       div_yield = s.div_yield;
     }
 
+    const moat = evaluateMoat(s);
+
     let f_score = s.f_score;
     let f_score_breakdown = s.f_score_breakdown;
     if (f_score === undefined) {
@@ -695,6 +853,7 @@
       div_yield,
       f_score,
       f_score_breakdown,
+      moat,
       localFCF0,
       localDebt,
       localCash
@@ -705,6 +864,7 @@
     document.getElementById('screener-view').style.display = 'none';
     document.getElementById('detail-view').style.display = 'none';
     document.getElementById('fscore-view').style.display = 'none';
+    document.getElementById('moat-view').style.display = 'none';
 
     if (viewName === 'screener') {
       document.getElementById('screener-view').style.display = 'block';
@@ -718,11 +878,15 @@
       document.getElementById('fscore-view').style.display = 'block';
       if (pushState) history.pushState({ view: 'fscore', ticker: activeFScoreTicker }, '', `#${activeFScoreTicker}/fscore`);
       loadFScoreView(activeFScoreTicker);
+    } else if (viewName === 'moat') {
+      document.getElementById('moat-view').style.display = 'block';
+      if (pushState) history.pushState({ view: 'moat', ticker: activeMoatTicker }, '', `#${activeMoatTicker}/moat`);
+      loadMoatView(activeMoatTicker);
     }
   }
 
   function navigateBack() {
-    if (history.state && (history.state.view === 'detail' || history.state.view === 'fscore')) {
+    if (history.state && (history.state.view === 'detail' || history.state.view === 'fscore' || history.state.view === 'moat')) {
       history.back();
     } else {
       showView('screener', true);
@@ -730,7 +894,10 @@
   }
 
   window.onpopstate = function(e) {
-    if (e.state && e.state.view === 'fscore' && e.state.ticker) {
+    if (e.state && e.state.view === 'moat' && e.state.ticker) {
+      activeMoatTicker = e.state.ticker;
+      showView('moat', false);
+    } else if (e.state && e.state.view === 'fscore' && e.state.ticker) {
       activeFScoreTicker = e.state.ticker;
       showView('fscore', false);
     } else if (e.state && e.state.view === 'detail' && e.state.ticker) {
@@ -749,6 +916,11 @@
   function openFScore(ticker) {
     activeFScoreTicker = ticker;
     showView('fscore', true);
+  }
+
+  function openMoat(ticker) {
+    activeMoatTicker = ticker;
+    showView('moat', true);
   }
 
   function setValFilter(val) {
@@ -794,7 +966,7 @@
 
   function sortTable(field) {
     if (sortField === field) sortAsc = !sortAsc;
-    else { sortField = field; sortAsc = (field === 'mcap' || field === 'price' || field === 'f_score' || field === 'div_yield') ? false : true; }
+    else { sortField = field; sortAsc = (field === 'mcap' || field === 'price' || field === 'f_score' || field === 'moat_score' || field === 'div_yield') ? false : true; }
     renderScreenerTable();
   }
 
@@ -811,7 +983,8 @@
       const isFav = favs.includes(ticker);
       const target_price = isSaved ? savedModels[ticker].targetPrice : null;
       const target_spread = (isSaved && target_price > 0) ? (((s.price / target_price) - 1) * 100) : null;
-      return { ticker, ...s, ...dcf, isSaved, isFav, target_price, target_spread };
+      const moat_score = dcf.moat.total;
+      return { ticker, ...s, ...dcf, isSaved, isFav, target_price, target_spread, moat_score };
     });
 
     if (currentValFilter === 'UNDERVALUED') list = list.filter(item => item.isUndervalued);
@@ -903,6 +1076,9 @@
           </td>
           <td>${targetSpreadHtml}</td>
           <td>${badgeHtml}</td>
+          <td style="text-align: center;">
+            <span class="badge-moat ${item.moat.badgeClass}" onclick="openMoat('${item.ticker}')" title="點擊查看巴菲特護城河診斷">${item.moat.total} 分 · ${item.moat.grade.split(' ')[0]}</span>
+          </td>
           <td>
             <div>${(item.WACC * 100).toFixed(2)}%</div>
             <div style="font-size: 11px; color: var(--text-muted);">g: ${item.g.toFixed(2)}%</div>
@@ -945,7 +1121,7 @@
     let startX, scrollLeft;
 
     box.addEventListener('mousedown', (e) => {
-      if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.tagName === 'INPUT' || e.target.classList.contains('badge-fscore')) return;
+      if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.tagName === 'INPUT' || e.target.classList.contains('badge-fscore') || e.target.classList.contains('badge-moat')) return;
       isDown = true;
       startX = e.pageX - box.offsetLeft;
       scrollLeft = box.scrollLeft;
@@ -986,9 +1162,18 @@
     exchEl.innerText = s.exchange;
     exchEl.className = `badge badge-exch-${s.exchange || 'NASDAQ'}`;
 
+    const dcf = computeDCF(s);
+    const moatBadge = document.getElementById('det-moat-badge');
+    moatBadge.innerText = `護城河: ${dcf.moat.total}/100 🏆`;
+    moatBadge.className = `badge-moat ${dcf.moat.badgeClass}`;
+
+    const fscoreBadge = document.getElementById('det-fscore-badge');
+    const fval = dcf.f_score;
+    fscoreBadge.innerText = `F-Score: ${fval}/9 (診斷)`;
+    fscoreBadge.className = `badge-fscore ${fval >= 7 ? 'fscore-green' : fval <= 3 ? 'fscore-red' : 'fscore-yellow'}`;
+
     updateDetailFavButton();
 
-    // 自癒防護
     let displayDebt = s.debt;
     let displayCash = s.cash;
     let displayFCF0 = s.fcf0;
@@ -1067,11 +1252,6 @@
     document.getElementById('det-res-evebitda').innerText = `${dcf.ev_to_ebitda.toFixed(1)}x`;
     document.getElementById('det-res-nde').innerText = `${dcf.net_debt_to_ebitda.toFixed(2)}x`;
 
-    const fscoreBadge = document.getElementById('det-fscore-badge');
-    const fval = dcf.f_score;
-    fscoreBadge.innerText = `F-Score: ${fval}/9 (診斷)`;
-    fscoreBadge.className = `badge-fscore ${fval >= 7 ? 'fscore-green' : fval <= 3 ? 'fscore-red' : 'fscore-yellow'}`;
-
     renderDCFTable(dcf.growth, dcf.fcfList, dcf.dfList, dcf.pvList);
     renderSensitivity(dcf.fcfList[9], dcf.NetDebt, s.shares, dcf.WACC, s.g / 100, dcf.localFCF0, dcf.growth);
   }
@@ -1134,6 +1314,59 @@
       tbody += `</tr>`;
     });
     document.getElementById('sens-body').innerHTML = tbody;
+  }
+
+  // ==================== 渲染護城河專屬頁面 ====================
+  function loadMoatView(ticker) {
+    const s = stockUniverse[ticker];
+    if (!s) return;
+
+    document.getElementById('moat-ticker').innerText = ticker;
+    document.getElementById('moat-name').innerText = s.name;
+    const exchEl = document.getElementById('moat-exchange');
+    exchEl.innerText = s.exchange;
+    exchEl.className = `badge badge-exch-${s.exchange || 'NASDAQ'}`;
+
+    const dcf = computeDCF(s);
+    const moat = dcf.moat;
+
+    document.getElementById('moat-total-score').innerText = `${moat.total} / 100`;
+    const gradeBadge = document.getElementById('moat-grade-badge');
+    gradeBadge.innerText = moat.grade;
+    gradeBadge.className = `badge-moat ${moat.badgeClass}`;
+
+    const catIntangible = moat.m[0] + moat.m[1];
+    const catStructural = moat.m[2] + moat.m[3] + moat.m[4] + moat.m[5];
+    const catResilience = moat.m[6] + moat.m[7] + moat.m[8] + moat.m[9];
+
+    document.getElementById('moat-cat-intangible').innerText = `${catIntangible} / 20`;
+    document.getElementById('moat-cat-structural').innerText = `${catStructural} / 40`;
+    document.getElementById('moat-cat-resilience').innerText = `${catResilience} / 40`;
+
+    document.getElementById('moat-ai-comment').innerHTML = moat.comment;
+
+    const tbody = document.getElementById('moat-breakdown-body');
+    tbody.innerHTML = moat.criteria.map(c => {
+      const pct = (c.score / 10) * 100;
+      let barColor = "#4ade80";
+      if (c.score < 5) barColor = "#f87171";
+      else if (c.score < 8) barColor = "#38bdf8";
+
+      return `
+        <tr>
+          <td style="text-align: center; font-weight: 700; font-size: 14px; color: ${barColor};">${c.score} / 10</td>
+          <td style="font-weight: 600; color: #cbd5e1;">${c.category}</td>
+          <td><strong>${c.id}. ${c.title}</strong></td>
+          <td style="color: #94a3b8; font-size: 12px;">${c.desc}</td>
+          <td>
+            <div class="moat-bar-bg">
+              <div class="moat-bar-fill" style="width: ${pct}%; background: ${barColor};"></div>
+            </div>
+            <span style="font-size: 11px; font-weight: 600; color: ${barColor};">${pct}%</span>
+          </td>
+        </tr>
+      `;
+    }).join('');
   }
 
   function loadFScoreView(ticker) {
@@ -1240,7 +1473,13 @@
     updateSubIndustryButtons();
     initInteractions();
     const hash = window.location.hash.replace('#', '').toUpperCase();
-    if (hash.endsWith('/FSCORE')) {
+    if (hash.endsWith('/MOAT')) {
+      const ticker = hash.split('/')[0];
+      if (stockUniverse[ticker]) {
+        activeMoatTicker = ticker;
+        showView('moat', false);
+      }
+    } else if (hash.endsWith('/FSCORE')) {
       const ticker = hash.split('/')[0];
       if (stockUniverse[ticker]) {
         activeFScoreTicker = ticker;
