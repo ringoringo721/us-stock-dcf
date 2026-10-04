@@ -32,6 +32,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 10.86,
     "ev": 3054955.2,
     "ev_to_ebitda": 13.1,
+    "debt_to_ebitda": 0.17,
+    "net_debt_to_ebitda": -0.26,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -149,6 +151,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 10.79,
     "ev": 1937383.8,
     "ev_to_ebitda": 11.5,
+    "debt_to_ebitda": 0.5,
+    "net_debt_to_ebitda": 0.13,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -266,6 +270,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 10.67,
     "ev": 1136045.9,
     "ev_to_ebitda": 5.5,
+    "debt_to_ebitda": 0.62,
+    "net_debt_to_ebitda": 0.25,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -383,6 +389,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 10.66,
     "ev": 781584.7,
     "ev_to_ebitda": 15.0,
+    "debt_to_ebitda": 1.14,
+    "net_debt_to_ebitda": 0.68,
     "f_score": 9,
     "f_score_breakdown": [
       {
@@ -500,6 +508,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.88,
     "ev": 334213.5,
     "ev_to_ebitda": 8.9,
+    "debt_to_ebitda": 4.13,
+    "net_debt_to_ebitda": 3.15,
     "f_score": 5,
     "f_score_breakdown": [
       {
@@ -617,6 +627,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.6,
     "ev": 270105.8,
     "ev_to_ebitda": 17.1,
+    "debt_to_ebitda": 2.64,
+    "net_debt_to_ebitda": 1.92,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -734,6 +746,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 10.88,
     "ev": 168152.4,
     "ev_to_ebitda": 15.7,
+    "debt_to_ebitda": 0.4,
+    "net_debt_to_ebitda": -0.82,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -851,6 +865,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 10.45,
     "ev": 186042.4,
     "ev_to_ebitda": 9.3,
+    "debt_to_ebitda": 1.48,
+    "net_debt_to_ebitda": 0.68,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -968,6 +984,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 10.31,
     "ev": 168254.1,
     "ev_to_ebitda": 12.0,
+    "debt_to_ebitda": 0.77,
+    "net_debt_to_ebitda": -0.14,
     "f_score": 9,
     "f_score_breakdown": [
       {
@@ -1085,6 +1103,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 10.42,
     "ev": 181695.9,
     "ev_to_ebitda": 17.7,
+    "debt_to_ebitda": 0.66,
+    "net_debt_to_ebitda": 0.11,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -1202,6 +1222,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 10.38,
     "ev": 158486.2,
     "ev_to_ebitda": 11.8,
+    "debt_to_ebitda": 1.13,
+    "net_debt_to_ebitda": 0.52,
     "f_score": 9,
     "f_score_breakdown": [
       {
@@ -1319,6 +1341,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 10.55,
     "ev": 76486.1,
     "ev_to_ebitda": 8.4,
+    "debt_to_ebitda": 1.54,
+    "net_debt_to_ebitda": 0.77,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -1436,6 +1460,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.17,
     "ev": 220364.8,
     "ev_to_ebitda": 13.6,
+    "debt_to_ebitda": 4.02,
+    "net_debt_to_ebitda": 3.52,
     "f_score": 6,
     "f_score_breakdown": [
       {
@@ -1553,6 +1579,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 10.34,
     "ev": 40194.0,
     "ev_to_ebitda": 10.9,
+    "debt_to_ebitda": 13.76,
+    "net_debt_to_ebitda": 5.67,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -1670,6 +1698,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 10.19,
     "ev": 155620.1,
     "ev_to_ebitda": 21.5,
+    "debt_to_ebitda": 1.16,
+    "net_debt_to_ebitda": 0.17,
     "f_score": 9,
     "f_score_breakdown": [
       {
@@ -1787,6 +1817,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 10.49,
     "ev": 99794.3,
     "ev_to_ebitda": 28.6,
+    "debt_to_ebitda": 2.42,
+    "net_debt_to_ebitda": 1.09,
     "f_score": 6,
     "f_score_breakdown": [
       {
@@ -1904,6 +1936,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 10.79,
     "ev": 87450.9,
     "ev_to_ebitda": 7.7,
+    "debt_to_ebitda": 0.65,
+    "net_debt_to_ebitda": -0.17,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -2021,6 +2055,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 10.84,
     "ev": 78476.1,
     "ev_to_ebitda": 9.0,
+    "debt_to_ebitda": 0.47,
+    "net_debt_to_ebitda": -0.17,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -2138,6 +2174,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 10.88,
     "ev": 983387.2,
     "ev_to_ebitda": 9.0,
+    "debt_to_ebitda": 0.05,
+    "net_debt_to_ebitda": -0.35,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -2255,6 +2293,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.68,
     "ev": 36726799.4,
     "ev_to_ebitda": 11.5,
+    "debt_to_ebitda": 0.33,
+    "net_debt_to_ebitda": -0.77,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -2372,6 +2412,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.84,
     "ev": 23732.2,
     "ev_to_ebitda": 18.7,
+    "debt_to_ebitda": 4.42,
+    "net_debt_to_ebitda": 4.22,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -2489,6 +2531,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 10.35,
     "ev": 45633.8,
     "ev_to_ebitda": 19.8,
+    "debt_to_ebitda": 1.61,
+    "net_debt_to_ebitda": -0.19,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -2606,6 +2650,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 10.18,
     "ev": 11761.9,
     "ev_to_ebitda": 24.6,
+    "debt_to_ebitda": 3.05,
+    "net_debt_to_ebitda": 1.02,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -2723,6 +2769,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 10.88,
     "ev": 5577.9,
     "ev_to_ebitda": 26.9,
+    "debt_to_ebitda": 0.17,
+    "net_debt_to_ebitda": -0.9,
     "f_score": 9,
     "f_score_breakdown": [
       {
@@ -2840,6 +2888,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 10.72,
     "ev": 10005.2,
     "ev_to_ebitda": 33.6,
+    "debt_to_ebitda": 0.37,
+    "net_debt_to_ebitda": -2.85,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -2957,6 +3007,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 10.64,
     "ev": 5738.3,
     "ev_to_ebitda": 14.4,
+    "debt_to_ebitda": 0.37,
+    "net_debt_to_ebitda": -1.5,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -3074,6 +3126,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 10.15,
     "ev": 52759.5,
     "ev_to_ebitda": 14.9,
+    "debt_to_ebitda": 3.07,
+    "net_debt_to_ebitda": 2.05,
     "f_score": 6,
     "f_score_breakdown": [
       {
@@ -3191,6 +3245,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.72,
     "ev": 21340.1,
     "ev_to_ebitda": 11.2,
+    "debt_to_ebitda": 1.85,
+    "net_debt_to_ebitda": 1.64,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -3308,6 +3364,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 10.75,
     "ev": 62335.9,
     "ev_to_ebitda": 10.8,
+    "debt_to_ebitda": 1.07,
+    "net_debt_to_ebitda": 0.22,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -3425,6 +3483,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 10.75,
     "ev": 31439.8,
     "ev_to_ebitda": 6.6,
+    "debt_to_ebitda": 1.11,
+    "net_debt_to_ebitda": 0.28,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -3542,6 +3602,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 10.73,
     "ev": 28884.4,
     "ev_to_ebitda": 13.2,
+    "debt_to_ebitda": 1.14,
+    "net_debt_to_ebitda": 0.48,
     "f_score": 9,
     "f_score_breakdown": [
       {
@@ -3659,6 +3721,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 10.89,
     "ev": 53637.4,
     "ev_to_ebitda": 18.5,
+    "debt_to_ebitda": 0.17,
+    "net_debt_to_ebitda": -1.23,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -3776,6 +3840,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 10.86,
     "ev": 81769.0,
     "ev_to_ebitda": 152.6,
+    "debt_to_ebitda": 4.66,
+    "net_debt_to_ebitda": -1.07,
     "f_score": 5,
     "f_score_breakdown": [
       {
@@ -3893,6 +3959,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 10.89,
     "ev": 37696.2,
     "ev_to_ebitda": 86.3,
+    "debt_to_ebitda": 1.88,
+    "net_debt_to_ebitda": -9.6,
     "f_score": 6,
     "f_score_breakdown": [
       {
@@ -4010,6 +4078,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 10.38,
     "ev": 53246.4,
     "ev_to_ebitda": 31.9,
+    "debt_to_ebitda": 2.26,
+    "net_debt_to_ebitda": 0.22,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -4127,6 +4197,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 10.91,
     "ev": 99071.8,
     "ev_to_ebitda": 19.4,
+    "debt_to_ebitda": 0.0,
+    "net_debt_to_ebitda": -2.61,
     "f_score": 9,
     "f_score_breakdown": [
       {
@@ -4244,6 +4316,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 10.32,
     "ev": 80792.1,
     "ev_to_ebitda": 8.6,
+    "debt_to_ebitda": 2.01,
+    "net_debt_to_ebitda": 1.43,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -4361,6 +4435,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 10.32,
     "ev": 52623.1,
     "ev_to_ebitda": 10.6,
+    "debt_to_ebitda": 1.14,
+    "net_debt_to_ebitda": 0.89,
     "f_score": 9,
     "f_score_breakdown": [
       {
@@ -4478,6 +4554,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.79,
     "ev": 979878.0,
     "ev_to_ebitda": 3.0,
+    "debt_to_ebitda": 0.35,
+    "net_debt_to_ebitda": -0.4,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -4595,6 +4673,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.79,
     "ev": 980022.3,
     "ev_to_ebitda": 3.0,
+    "debt_to_ebitda": 0.35,
+    "net_debt_to_ebitda": -0.4,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -4712,6 +4792,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.6,
     "ev": 887671.6,
     "ev_to_ebitda": 8.3,
+    "debt_to_ebitda": 1.05,
+    "net_debt_to_ebitda": 0.21,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -4829,6 +4911,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.65,
     "ev": 222823.9,
     "ev_to_ebitda": 7.3,
+    "debt_to_ebitda": 0.47,
+    "net_debt_to_ebitda": 0.17,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -4946,6 +5030,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.64,
     "ev": 149666.3,
     "ev_to_ebitda": 6.4,
+    "debt_to_ebitda": 1.98,
+    "net_debt_to_ebitda": 1.76,
     "f_score": 5,
     "f_score_breakdown": [
       {
@@ -5035,9 +5121,9 @@ window.FULL_MARKET_DATA = {
     "exchange": "NASDAQ",
     "sector": "通訊服務",
     "industry": "Wireless Telecommunication Services",
-    "price": 163.64,
-    "shares": 1072.67,
-    "mcap": 175532.0,
+    "price": 150.0,
+    "shares": 666.7,
+    "mcap": 100000.0,
     "debt": 116000.0,
     "cash": 2825.0,
     "net_debt": 113175.0,
@@ -5060,9 +5146,11 @@ window.FULL_MARKET_DATA = {
     "g1": 5.0,
     "g2": 3.5,
     "g": 2.25,
-    "wacc": 7.41,
-    "ev": 339699.7,
-    "ev_to_ebitda": 12.0,
+    "wacc": 6.52,
+    "ev": 411543.2,
+    "ev_to_ebitda": 14.5,
+    "debt_to_ebitda": 4.1,
+    "net_debt_to_ebitda": 4.0,
     "f_score": 5,
     "f_score_breakdown": [
       {
@@ -5129,17 +5217,17 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 211.18,
-    "premium_pct": -22.5,
+    "fair_val": 447.53,
+    "premium_pct": -66.5,
     "is_undervalued": true,
-    "pe_trailing": 16.6,
-    "pe_forward": 14.6,
-    "pb_trailing": 3.1,
-    "pb_forward": 2.8,
+    "pe_trailing": 9.5,
+    "pe_forward": 8.4,
+    "pb_trailing": 1.8,
+    "pb_forward": 1.6,
     "div_yield": 0.45,
-    "ps_ratio": 2.9,
-    "fcf_to_ev": 4.52,
-    "fcf_to_mcap": 8.74,
+    "ps_ratio": 1.6,
+    "fcf_to_ev": 3.73,
+    "fcf_to_mcap": 15.35,
     "liab_to_assets": 73.7,
     "cash_to_assets": 1.3,
     "current_ratio": 0.92,
@@ -5180,6 +5268,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 6.79,
     "ev": 530035.7,
     "ev_to_ebitda": 11.1,
+    "debt_to_ebitda": 3.93,
+    "net_debt_to_ebitda": 3.89,
     "f_score": 4,
     "f_score_breakdown": [
       {
@@ -5297,6 +5387,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 6.79,
     "ev": 435975.0,
     "ev_to_ebitda": 8.1,
+    "debt_to_ebitda": 3.03,
+    "net_debt_to_ebitda": 2.7,
     "f_score": 4,
     "f_score_breakdown": [
       {
@@ -5414,6 +5506,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 6.49,
     "ev": 541119.3,
     "ev_to_ebitda": 15.9,
+    "debt_to_ebitda": 2.65,
+    "net_debt_to_ebitda": 2.42,
     "f_score": 5,
     "f_score_breakdown": [
       {
@@ -5531,6 +5625,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.21,
     "ev": 40773.7,
     "ev_to_ebitda": 26.7,
+    "debt_to_ebitda": 3.24,
+    "net_debt_to_ebitda": 2.23,
     "f_score": 5,
     "f_score_breakdown": [
       {
@@ -5648,6 +5744,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.53,
     "ev": 28284.4,
     "ev_to_ebitda": 16.5,
+    "debt_to_ebitda": 6.57,
+    "net_debt_to_ebitda": 1.29,
     "f_score": 4,
     "f_score_breakdown": [
       {
@@ -5765,6 +5863,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.34,
     "ev": 5648.0,
     "ev_to_ebitda": 13.3,
+    "debt_to_ebitda": 4.15,
+    "net_debt_to_ebitda": 3.72,
     "f_score": 5,
     "f_score_breakdown": [
       {
@@ -5882,6 +5982,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.79,
     "ev": 31931.7,
     "ev_to_ebitda": 18.2,
+    "debt_to_ebitda": 0.85,
+    "net_debt_to_ebitda": -0.52,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -5999,6 +6101,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.5,
     "ev": 7022.5,
     "ev_to_ebitda": 7.1,
+    "debt_to_ebitda": 2.99,
+    "net_debt_to_ebitda": 1.13,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -6116,6 +6220,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.09,
     "ev": 41759.0,
     "ev_to_ebitda": 6.9,
+    "debt_to_ebitda": 5.29,
+    "net_debt_to_ebitda": 4.74,
     "f_score": 6,
     "f_score_breakdown": [
       {
@@ -6233,6 +6339,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.47,
     "ev": 2137370.9,
     "ev_to_ebitda": 8.4,
+    "debt_to_ebitda": 0.88,
+    "net_debt_to_ebitda": 0.39,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -6350,6 +6458,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.92,
     "ev": 126233.5,
     "ev_to_ebitda": 10.5,
+    "debt_to_ebitda": 0.78,
+    "net_debt_to_ebitda": -2.84,
     "f_score": 6,
     "f_score_breakdown": [
       {
@@ -6467,6 +6577,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.8,
     "ev": 258031.2,
     "ev_to_ebitda": 10.8,
+    "debt_to_ebitda": 2.62,
+    "net_debt_to_ebitda": 2.53,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -6584,6 +6696,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.37,
     "ev": 143046.3,
     "ev_to_ebitda": 9.5,
+    "debt_to_ebitda": 3.63,
+    "net_debt_to_ebitda": 3.58,
     "f_score": 6,
     "f_score_breakdown": [
       {
@@ -6701,6 +6815,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.04,
     "ev": 181098.5,
     "ev_to_ebitda": 16.8,
+    "debt_to_ebitda": 1.92,
+    "net_debt_to_ebitda": 0.32,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -6818,6 +6934,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.8,
     "ev": 35876.6,
     "ev_to_ebitda": 8.2,
+    "debt_to_ebitda": 2.52,
+    "net_debt_to_ebitda": 0.61,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -6935,6 +7053,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.86,
     "ev": 62745.7,
     "ev_to_ebitda": 10.7,
+    "debt_to_ebitda": 3.82,
+    "net_debt_to_ebitda": 3.21,
     "f_score": 6,
     "f_score_breakdown": [
       {
@@ -7052,6 +7172,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.08,
     "ev": 134215.8,
     "ev_to_ebitda": 11.0,
+    "debt_to_ebitda": 3.45,
+    "net_debt_to_ebitda": 3.17,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -7169,6 +7291,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.39,
     "ev": 96218.6,
     "ev_to_ebitda": 10.6,
+    "debt_to_ebitda": 1.58,
+    "net_debt_to_ebitda": 0.92,
     "f_score": 6,
     "f_score_breakdown": [
       {
@@ -7286,6 +7410,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 6.92,
     "ev": 10264.6,
     "ev_to_ebitda": 9.2,
+    "debt_to_ebitda": 4.29,
+    "net_debt_to_ebitda": 4.11,
     "f_score": 4,
     "f_score_breakdown": [
       {
@@ -7403,6 +7529,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.13,
     "ev": 6130.3,
     "ev_to_ebitda": 3.2,
+    "debt_to_ebitda": 3.42,
+    "net_debt_to_ebitda": 3.3,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -7520,6 +7648,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 7.37,
     "ev": 6890.3,
     "ev_to_ebitda": 15.9,
+    "debt_to_ebitda": 7.91,
+    "net_debt_to_ebitda": 7.29,
     "f_score": 4,
     "f_score_breakdown": [
       {
@@ -7637,6 +7767,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 7.82,
     "ev": 14325.4,
     "ev_to_ebitda": 11.5,
+    "debt_to_ebitda": 4.24,
+    "net_debt_to_ebitda": 4.03,
     "f_score": 4,
     "f_score_breakdown": [
       {
@@ -7754,6 +7886,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.59,
     "ev": 20750.9,
     "ev_to_ebitda": 5.0,
+    "debt_to_ebitda": 2.97,
+    "net_debt_to_ebitda": 2.89,
     "f_score": 6,
     "f_score_breakdown": [
       {
@@ -7871,6 +8005,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.94,
     "ev": 58208.8,
     "ev_to_ebitda": 12.3,
+    "debt_to_ebitda": 3.77,
+    "net_debt_to_ebitda": 3.67,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -7988,6 +8124,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.92,
     "ev": 38068.1,
     "ev_to_ebitda": 12.3,
+    "debt_to_ebitda": 4.53,
+    "net_debt_to_ebitda": 4.21,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -8105,6 +8243,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.22,
     "ev": 35219.8,
     "ev_to_ebitda": 15.5,
+    "debt_to_ebitda": 2.38,
+    "net_debt_to_ebitda": 2.08,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -8222,6 +8362,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.38,
     "ev": 32106.2,
     "ev_to_ebitda": 11.1,
+    "debt_to_ebitda": 4.26,
+    "net_debt_to_ebitda": 4.02,
     "f_score": 6,
     "f_score_breakdown": [
       {
@@ -8339,6 +8481,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.19,
     "ev": 37781.6,
     "ev_to_ebitda": 9.4,
+    "debt_to_ebitda": 2.38,
+    "net_debt_to_ebitda": 2.31,
     "f_score": 6,
     "f_score_breakdown": [
       {
@@ -8456,6 +8600,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.57,
     "ev": 44539.3,
     "ev_to_ebitda": 10.9,
+    "debt_to_ebitda": 1.15,
+    "net_debt_to_ebitda": 0.1,
     "f_score": 9,
     "f_score_breakdown": [
       {
@@ -8573,6 +8719,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.9,
     "ev": 29007.2,
     "ev_to_ebitda": 11.3,
+    "debt_to_ebitda": 0.84,
+    "net_debt_to_ebitda": 0.29,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -8690,6 +8838,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 5.02,
     "ev": 296702.8,
     "ev_to_ebitda": 18.0,
+    "debt_to_ebitda": 22.43,
+    "net_debt_to_ebitda": 18.13,
     "f_score": 6,
     "f_score_breakdown": [
       {
@@ -8807,6 +8957,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 5.84,
     "ev": 516992.5,
     "ev_to_ebitda": 39.1,
+    "debt_to_ebitda": 9.67,
+    "net_debt_to_ebitda": 7.8,
     "f_score": 4,
     "f_score_breakdown": [
       {
@@ -8924,6 +9076,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.12,
     "ev": 39448.2,
     "ev_to_ebitda": 13.0,
+    "debt_to_ebitda": 2.35,
+    "net_debt_to_ebitda": 1.26,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -9041,6 +9195,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 7.87,
     "ev": 454812.4,
     "ev_to_ebitda": 18.0,
+    "debt_to_ebitda": 1.48,
+    "net_debt_to_ebitda": -0.05,
     "f_score": 6,
     "f_score_breakdown": [
       {
@@ -9158,6 +9314,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 6.04,
     "ev": 1024865.4,
     "ev_to_ebitda": 11.0,
+    "debt_to_ebitda": 13.29,
+    "net_debt_to_ebitda": -14.86,
     "f_score": 3,
     "f_score_breakdown": [
       {
@@ -9275,6 +9433,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.28,
     "ev": 399852.2,
     "ev_to_ebitda": 13.7,
+    "debt_to_ebitda": 0.82,
+    "net_debt_to_ebitda": 0.35,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -9392,6 +9552,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.2,
     "ev": 329567.9,
     "ev_to_ebitda": 14.9,
+    "debt_to_ebitda": 1.11,
+    "net_debt_to_ebitda": 0.59,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -9509,6 +9671,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 5.59,
     "ev": 3202086.2,
     "ev_to_ebitda": 70.2,
+    "debt_to_ebitda": 16.04,
+    "net_debt_to_ebitda": 15.41,
     "f_score": 4,
     "f_score_breakdown": [
       {
@@ -9626,6 +9790,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 5.61,
     "ev": 642299.2,
     "ev_to_ebitda": 19.4,
+    "debt_to_ebitda": 13.86,
+    "net_debt_to_ebitda": -14.51,
     "f_score": 3,
     "f_score_breakdown": [
       {
@@ -9743,6 +9909,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 5.71,
     "ev": 373748.1,
     "ev_to_ebitda": 12.7,
+    "debt_to_ebitda": 17.87,
+    "net_debt_to_ebitda": -11.64,
     "f_score": 3,
     "f_score_breakdown": [
       {
@@ -9860,6 +10028,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 5.12,
     "ev": 405085.7,
     "ev_to_ebitda": 12.9,
+    "debt_to_ebitda": 23.63,
+    "net_debt_to_ebitda": -0.14,
     "f_score": 3,
     "f_score_breakdown": [
       {
@@ -9977,6 +10147,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.16,
     "ev": 323226.1,
     "ev_to_ebitda": 13.1,
+    "debt_to_ebitda": 2.39,
+    "net_debt_to_ebitda": 0.55,
     "f_score": 5,
     "f_score_breakdown": [
       {
@@ -10066,12 +10238,12 @@ window.FULL_MARKET_DATA = {
     "exchange": "NYSE",
     "sector": "金融",
     "industry": "Asset Management & Custody Banks",
-    "price": 1059.63,
-    "shares": 154.99,
-    "mcap": 164237.4,
-    "debt": 14968.0,
-    "cash": 25636.0,
-    "net_debt": -10668.0,
+    "price": 150.0,
+    "shares": 666.7,
+    "mcap": 100000.0,
+    "debt": 0.0,
+    "cash": 0.0,
+    "net_debt": 0.0,
     "fcf0": 2321.0,
     "beta": 1.05,
     "kd": 4.5,
@@ -10091,17 +10263,19 @@ window.FULL_MARKET_DATA = {
     "g1": 6.8,
     "g2": 4.0,
     "g": 2.25,
-    "wacc": 8.99,
-    "ev": 41916.0,
-    "ev_to_ebitda": 3.9,
-    "f_score": 5,
+    "wacc": 9.49,
+    "ev": 38979.1,
+    "ev_to_ebitda": 18.0,
+    "debt_to_ebitda": 0.0,
+    "net_debt_to_ebitda": 0.0,
+    "f_score": 8,
     "f_score_breakdown": [
       {
         "id": 1,
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 3.7%"
+        "detail": "當期 ROA = 8.0%"
       },
       {
         "id": 2,
@@ -10114,14 +10288,14 @@ window.FULL_MARKET_DATA = {
         "id": 3,
         "category": "盈利能力",
         "desc": "資產回報率持續擴張 (ΔROA > 0)",
-        "passed": 0,
+        "passed": 1,
         "detail": "回報率穩步領先同業基準"
       },
       {
         "id": 4,
         "category": "盈利能力",
         "desc": "應計利潤品質高 (CFO > 淨利潤)",
-        "passed": 0,
+        "passed": 1,
         "detail": "真實現金流充沛，無虛報帳面獲利"
       },
       {
@@ -10129,14 +10303,14 @@ window.FULL_MARKET_DATA = {
         "category": "槓桿與償債",
         "desc": "財務槓桿未惡化 (ΔLeverage ≤ 0)",
         "passed": 1,
-        "detail": "總負債資產比率 = 63.3%"
+        "detail": "總負債資產比率 = 40.0%"
       },
       {
         "id": 6,
         "category": "槓桿與償債",
         "desc": "短期流動性安全 (ΔLiquidity > 0)",
         "passed": 1,
-        "detail": "流動比率 = 1.35"
+        "detail": "流動比率 = 1.50"
       },
       {
         "id": 7,
@@ -10156,27 +10330,27 @@ window.FULL_MARKET_DATA = {
         "id": 9,
         "category": "營運效率",
         "desc": "資產週轉率提升 (ΔTurnover > 0)",
-        "passed": 0,
+        "passed": 1,
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 339.27,
-    "premium_pct": 212.3,
+    "fair_val": 58.47,
+    "premium_pct": 156.5,
     "is_undervalued": false,
-    "pe_trailing": 25.0,
-    "pe_forward": 22.0,
-    "pb_trailing": 2.9,
-    "pb_forward": 2.6,
+    "pe_trailing": 24.0,
+    "pe_forward": 21.1,
+    "pb_trailing": 100000000000.0,
+    "pb_forward": 90000000000.0,
     "div_yield": 0.45,
-    "ps_ratio": 17.7,
-    "fcf_to_ev": 5.54,
-    "fcf_to_mcap": 1.41,
-    "liab_to_assets": 63.3,
-    "cash_to_assets": 14.6,
-    "current_ratio": 1.35,
-    "cash_minus_liab": 10668.0,
-    "roe": 11.4,
-    "roa": 3.7
+    "ps_ratio": 10.8,
+    "fcf_to_ev": 5.95,
+    "fcf_to_mcap": 2.32,
+    "liab_to_assets": 40.0,
+    "cash_to_assets": 0.0,
+    "current_ratio": 1.5,
+    "cash_minus_liab": 0.0,
+    "roe": 18.0,
+    "roa": 8.0
   },
   "SPGI": {
     "name": "S&P Global",
@@ -10211,6 +10385,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.77,
     "ev": 108208.9,
     "ev_to_ebitda": 13.2,
+    "debt_to_ebitda": 1.91,
+    "net_debt_to_ebitda": 1.41,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -10328,6 +10504,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 4.82,
     "ev": 367705.2,
     "ev_to_ebitda": 12.6,
+    "debt_to_ebitda": 27.88,
+    "net_debt_to_ebitda": -6.26,
     "f_score": 3,
     "f_score_breakdown": [
       {
@@ -10445,6 +10623,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.11,
     "ev": 299844.3,
     "ev_to_ebitda": 19.5,
+    "debt_to_ebitda": 0.54,
+    "net_debt_to_ebitda": -5.61,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -10562,6 +10742,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.75,
     "ev": 289763.4,
     "ev_to_ebitda": 23.8,
+    "debt_to_ebitda": 1.49,
+    "net_debt_to_ebitda": 0.81,
     "f_score": 4,
     "f_score_breakdown": [
       {
@@ -10679,6 +10861,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.66,
     "ev": 12942.8,
     "ev_to_ebitda": 14.1,
+    "debt_to_ebitda": 1.69,
+    "net_debt_to_ebitda": 1.39,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -10796,6 +10980,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.45,
     "ev": 21573.7,
     "ev_to_ebitda": 14.2,
+    "debt_to_ebitda": 0.1,
+    "net_debt_to_ebitda": -1.26,
     "f_score": 9,
     "f_score_breakdown": [
       {
@@ -10913,6 +11099,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.28,
     "ev": 69022.2,
     "ev_to_ebitda": 12.9,
+    "debt_to_ebitda": 0.64,
+    "net_debt_to_ebitda": 0.21,
     "f_score": 3,
     "f_score_breakdown": [
       {
@@ -11030,6 +11218,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.63,
     "ev": 32333.9,
     "ev_to_ebitda": 15.8,
+    "debt_to_ebitda": 3.2,
+    "net_debt_to_ebitda": 3.02,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -11147,6 +11337,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.96,
     "ev": 66596.0,
     "ev_to_ebitda": 16.6,
+    "debt_to_ebitda": 1.88,
+    "net_debt_to_ebitda": 1.51,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -11264,6 +11456,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.33,
     "ev": 97383.9,
     "ev_to_ebitda": 13.9,
+    "debt_to_ebitda": 2.94,
+    "net_debt_to_ebitda": 2.66,
     "f_score": 4,
     "f_score_breakdown": [
       {
@@ -11381,6 +11575,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.38,
     "ev": 70359.8,
     "ev_to_ebitda": 9.4,
+    "debt_to_ebitda": 1.21,
+    "net_debt_to_ebitda": -9.91,
     "f_score": 5,
     "f_score_breakdown": [
       {
@@ -11498,6 +11694,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.0,
     "ev": 322966.5,
     "ev_to_ebitda": 54.2,
+    "debt_to_ebitda": 3.4,
+    "net_debt_to_ebitda": -53.44,
     "f_score": 5,
     "f_score_breakdown": [
       {
@@ -11615,6 +11813,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 7.44,
     "ev": 236886.7,
     "ev_to_ebitda": 44.8,
+    "debt_to_ebitda": 3.9,
+    "net_debt_to_ebitda": -62.11,
     "f_score": 5,
     "f_score_breakdown": [
       {
@@ -11732,6 +11932,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.85,
     "ev": 190285.7,
     "ev_to_ebitda": 16.8,
+    "debt_to_ebitda": 0.8,
+    "net_debt_to_ebitda": 0.34,
     "f_score": 5,
     "f_score_breakdown": [
       {
@@ -11849,6 +12051,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.7,
     "ev": 45868.8,
     "ev_to_ebitda": 6.6,
+    "debt_to_ebitda": 1.26,
+    "net_debt_to_ebitda": -12.3,
     "f_score": 5,
     "f_score_breakdown": [
       {
@@ -11966,6 +12170,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.8,
     "ev": 215507.3,
     "ev_to_ebitda": 12.2,
+    "debt_to_ebitda": 0.42,
+    "net_debt_to_ebitda": 0.1,
     "f_score": 6,
     "f_score_breakdown": [
       {
@@ -12083,6 +12289,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.2,
     "ev": 65156.8,
     "ev_to_ebitda": 10.3,
+    "debt_to_ebitda": 2.52,
+    "net_debt_to_ebitda": 2.32,
     "f_score": 5,
     "f_score_breakdown": [
       {
@@ -12200,6 +12408,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.29,
     "ev": 41021.1,
     "ev_to_ebitda": 10.3,
+    "debt_to_ebitda": 0.51,
+    "net_debt_to_ebitda": 0.16,
     "f_score": 4,
     "f_score_breakdown": [
       {
@@ -12317,6 +12527,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.3,
     "ev": 96106.8,
     "ev_to_ebitda": 13.5,
+    "debt_to_ebitda": 3.15,
+    "net_debt_to_ebitda": 2.91,
     "f_score": 6,
     "f_score_breakdown": [
       {
@@ -12434,6 +12646,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 6.42,
     "ev": 333712.4,
     "ev_to_ebitda": 30.7,
+    "debt_to_ebitda": 8.84,
+    "net_debt_to_ebitda": 2.72,
     "f_score": 5,
     "f_score_breakdown": [
       {
@@ -12551,6 +12765,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.65,
     "ev": 615031.3,
     "ev_to_ebitda": 14.2,
+    "debt_to_ebitda": 1.27,
+    "net_debt_to_ebitda": 1.06,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -12668,6 +12884,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.82,
     "ev": 447193.2,
     "ev_to_ebitda": 17.4,
+    "debt_to_ebitda": 2.85,
+    "net_debt_to_ebitda": 1.62,
     "f_score": 5,
     "f_score_breakdown": [
       {
@@ -12785,6 +13003,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.49,
     "ev": 288684.8,
     "ev_to_ebitda": 8.6,
+    "debt_to_ebitda": 1.45,
+    "net_debt_to_ebitda": 0.84,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -12902,6 +13122,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.11,
     "ev": 330395.6,
     "ev_to_ebitda": 15.6,
+    "debt_to_ebitda": 3.33,
+    "net_debt_to_ebitda": 3.03,
     "f_score": 5,
     "f_score_breakdown": [
       {
@@ -13019,6 +13241,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.12,
     "ev": 266078.0,
     "ev_to_ebitda": 19.2,
+    "debt_to_ebitda": 3.89,
+    "net_debt_to_ebitda": 3.38,
     "f_score": 5,
     "f_score_breakdown": [
       {
@@ -13136,6 +13360,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.0,
     "ev": 126840.2,
     "ev_to_ebitda": 11.6,
+    "debt_to_ebitda": 3.89,
+    "net_debt_to_ebitda": 3.52,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -13253,6 +13479,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.92,
     "ev": 150614.6,
     "ev_to_ebitda": 15.1,
+    "debt_to_ebitda": 3.28,
+    "net_debt_to_ebitda": 2.72,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -13370,6 +13598,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.0,
     "ev": 93321.3,
     "ev_to_ebitda": 13.1,
+    "debt_to_ebitda": 3.71,
+    "net_debt_to_ebitda": 3.11,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -13487,6 +13717,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.96,
     "ev": 63847.2,
     "ev_to_ebitda": 14.2,
+    "debt_to_ebitda": 0.0,
+    "net_debt_to_ebitda": -1.16,
     "f_score": 9,
     "f_score_breakdown": [
       {
@@ -13604,6 +13836,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.14,
     "ev": 208799.2,
     "ev_to_ebitda": 16.5,
+    "debt_to_ebitda": 5.01,
+    "net_debt_to_ebitda": 4.08,
     "f_score": 6,
     "f_score_breakdown": [
       {
@@ -13721,6 +13955,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.63,
     "ev": 179824.1,
     "ev_to_ebitda": 10.9,
+    "debt_to_ebitda": 3.47,
+    "net_debt_to_ebitda": 2.62,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -13838,6 +14074,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.32,
     "ev": 210794.0,
     "ev_to_ebitda": 12.6,
+    "debt_to_ebitda": 2.59,
+    "net_debt_to_ebitda": 1.92,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -13955,6 +14193,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.66,
     "ev": 106843.6,
     "ev_to_ebitda": 11.3,
+    "debt_to_ebitda": 2.98,
+    "net_debt_to_ebitda": 2.05,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -14072,6 +14312,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.15,
     "ev": 213640.1,
     "ev_to_ebitda": 335.9,
+    "debt_to_ebitda": 41.27,
+    "net_debt_to_ebitda": 36.27,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -14189,6 +14431,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.59,
     "ev": 16123.6,
     "ev_to_ebitda": 11.8,
+    "debt_to_ebitda": 1.85,
+    "net_debt_to_ebitda": 1.0,
     "f_score": 9,
     "f_score_breakdown": [
       {
@@ -14306,6 +14550,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.42,
     "ev": 46760.1,
     "ev_to_ebitda": 12.1,
+    "debt_to_ebitda": 2.38,
+    "net_debt_to_ebitda": 1.95,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -14423,6 +14669,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.89,
     "ev": 11745.7,
     "ev_to_ebitda": 14.9,
+    "debt_to_ebitda": 0.15,
+    "net_debt_to_ebitda": -1.25,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -14540,6 +14788,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 6.9,
     "ev": 42823.0,
     "ev_to_ebitda": 12.5,
+    "debt_to_ebitda": 3.2,
+    "net_debt_to_ebitda": 2.78,
     "f_score": 5,
     "f_score_breakdown": [
       {
@@ -14657,6 +14907,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.32,
     "ev": 48963.3,
     "ev_to_ebitda": 12.6,
+    "debt_to_ebitda": 4.31,
+    "net_debt_to_ebitda": 4.13,
     "f_score": 5,
     "f_score_breakdown": [
       {
@@ -14774,6 +15026,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.01,
     "ev": 35610.1,
     "ev_to_ebitda": 18.2,
+    "debt_to_ebitda": 3.82,
+    "net_debt_to_ebitda": 3.61,
     "f_score": 6,
     "f_score_breakdown": [
       {
@@ -14891,6 +15145,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.7,
     "ev": 30596.3,
     "ev_to_ebitda": 19.6,
+    "debt_to_ebitda": 0.9,
+    "net_debt_to_ebitda": -0.35,
     "f_score": 9,
     "f_score_breakdown": [
       {
@@ -15008,6 +15264,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.8,
     "ev": 49170.7,
     "ev_to_ebitda": 22.9,
+    "debt_to_ebitda": 0.38,
+    "net_debt_to_ebitda": -0.3,
     "f_score": 9,
     "f_score_breakdown": [
       {
@@ -15103,7 +15361,7 @@ window.FULL_MARKET_DATA = {
     "debt": 11723.2,
     "cash": 2815.3,
     "net_debt": 8907.9,
-    "fcf0": 4060.1,
+    "fcf0": 2284.9,
     "beta": 1.15,
     "kd": 4.5,
     "tax": 21.0,
@@ -15123,29 +15381,31 @@ window.FULL_MARKET_DATA = {
     "g2": 3.7,
     "g": 2.25,
     "wacc": 8.92,
-    "ev": 72504.2,
-    "ev_to_ebitda": 14.1,
-    "f_score": 4,
+    "ev": 40803.2,
+    "ev_to_ebitda": 18.0,
+    "debt_to_ebitda": 5.13,
+    "net_debt_to_ebitda": 3.9,
+    "f_score": 6,
     "f_score_breakdown": [
       {
         "id": 1,
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 3.1%"
+        "detail": "當期 ROA = 8.0%"
       },
       {
         "id": 2,
         "category": "盈利能力",
         "desc": "營業現金流 CFO > 0",
         "passed": 1,
-        "detail": "自由現金流 = $4,060M"
+        "detail": "自由現金流 = $2,285M"
       },
       {
         "id": 3,
         "category": "盈利能力",
         "desc": "資產回報率持續擴張 (ΔROA > 0)",
-        "passed": 0,
+        "passed": 1,
         "detail": "回報率穩步領先同業基準"
       },
       {
@@ -15187,27 +15447,27 @@ window.FULL_MARKET_DATA = {
         "id": 9,
         "category": "營運效率",
         "desc": "資產週轉率提升 (ΔTurnover > 0)",
-        "passed": 0,
+        "passed": 1,
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 326.87,
-    "premium_pct": -5.5,
-    "is_undervalued": true,
-    "pe_trailing": 22.9,
-    "pe_forward": 20.2,
+    "fair_val": 163.94,
+    "premium_pct": 88.5,
+    "is_undervalued": false,
+    "pe_trailing": 24.0,
+    "pe_forward": 21.1,
     "pb_trailing": 19.7,
     "pb_forward": 17.7,
     "div_yield": 0.45,
-    "ps_ratio": 3.7,
+    "ps_ratio": 6.6,
     "fcf_to_ev": 5.6,
-    "fcf_to_mcap": 6.75,
+    "fcf_to_mcap": 3.8,
     "liab_to_assets": 96.1,
     "cash_to_assets": 3.4,
     "current_ratio": 0.93,
     "cash_minus_liab": -8907.9,
-    "roe": 86.0,
-    "roa": 3.1
+    "roe": 18.0,
+    "roa": 8.0
   },
   "STE": {
     "name": "STERIS",
@@ -15242,6 +15502,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.38,
     "ev": 15441.7,
     "ev_to_ebitda": 8.5,
+    "debt_to_ebitda": 1.13,
+    "net_debt_to_ebitda": 0.86,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -15359,6 +15621,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.32,
     "ev": 108550.2,
     "ev_to_ebitda": 15.2,
+    "debt_to_ebitda": 1.64,
+    "net_debt_to_ebitda": 0.91,
     "f_score": 5,
     "f_score_breakdown": [
       {
@@ -15476,6 +15740,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.17,
     "ev": 89230.3,
     "ev_to_ebitda": 14.3,
+    "debt_to_ebitda": 2.39,
+    "net_debt_to_ebitda": 1.83,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -15593,6 +15859,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.94,
     "ev": 32637.8,
     "ev_to_ebitda": 23.8,
+    "debt_to_ebitda": 0.11,
+    "net_debt_to_ebitda": -5.16,
     "f_score": 9,
     "f_score_breakdown": [
       {
@@ -15710,6 +15978,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.61,
     "ev": 20695.6,
     "ev_to_ebitda": 9.6,
+    "debt_to_ebitda": 3.14,
+    "net_debt_to_ebitda": 3.08,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -15827,6 +16097,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.8,
     "ev": 57812.8,
     "ev_to_ebitda": 10.1,
+    "debt_to_ebitda": 0.35,
+    "net_debt_to_ebitda": -1.04,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -15944,6 +16216,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.87,
     "ev": 67869.2,
     "ev_to_ebitda": 12.5,
+    "debt_to_ebitda": 0.36,
+    "net_debt_to_ebitda": -1.08,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -16061,6 +16335,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 7.69,
     "ev": 280227.5,
     "ev_to_ebitda": 6.5,
+    "debt_to_ebitda": 1.72,
+    "net_debt_to_ebitda": 1.45,
     "f_score": 6,
     "f_score_breakdown": [
       {
@@ -16178,6 +16454,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 7.97,
     "ev": 200620.0,
     "ev_to_ebitda": 14.0,
+    "debt_to_ebitda": 0.6,
+    "net_debt_to_ebitda": -0.89,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -16295,6 +16573,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 7.65,
     "ev": 330234.8,
     "ev_to_ebitda": 15.5,
+    "debt_to_ebitda": 1.65,
+    "net_debt_to_ebitda": 1.18,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -16412,6 +16692,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 7.59,
     "ev": 300673.5,
     "ev_to_ebitda": 15.2,
+    "debt_to_ebitda": 2.2,
+    "net_debt_to_ebitda": 1.37,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -16529,6 +16811,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 7.0,
     "ev": 219735.7,
     "ev_to_ebitda": 11.8,
+    "debt_to_ebitda": 2.85,
+    "net_debt_to_ebitda": 2.28,
     "f_score": 6,
     "f_score_breakdown": [
       {
@@ -16646,6 +16930,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 7.41,
     "ev": 281547.5,
     "ev_to_ebitda": 15.5,
+    "debt_to_ebitda": 2.7,
+    "net_debt_to_ebitda": 2.37,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -16763,6 +17049,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 7.03,
     "ev": 72522.3,
     "ev_to_ebitda": 11.7,
+    "debt_to_ebitda": 3.57,
+    "net_debt_to_ebitda": 3.29,
     "f_score": 5,
     "f_score_breakdown": [
       {
@@ -16880,6 +17168,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 7.59,
     "ev": 80889.6,
     "ev_to_ebitda": 21.1,
+    "debt_to_ebitda": 2.05,
+    "net_debt_to_ebitda": 1.69,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -16997,6 +17287,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 6.89,
     "ev": 25638.1,
     "ev_to_ebitda": 17.6,
+    "debt_to_ebitda": 2.91,
+    "net_debt_to_ebitda": 2.69,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -17114,6 +17406,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 6.43,
     "ev": 10882.9,
     "ev_to_ebitda": 11.8,
+    "debt_to_ebitda": 5.99,
+    "net_debt_to_ebitda": 5.84,
     "f_score": 5,
     "f_score_breakdown": [
       {
@@ -17231,6 +17525,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 7.4,
     "ev": 55383.6,
     "ev_to_ebitda": 21.2,
+    "debt_to_ebitda": 2.15,
+    "net_debt_to_ebitda": 1.85,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -17348,6 +17644,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 7.19,
     "ev": 38080.8,
     "ev_to_ebitda": 8.6,
+    "debt_to_ebitda": 2.12,
+    "net_debt_to_ebitda": -0.06,
     "f_score": 5,
     "f_score_breakdown": [
       {
@@ -17465,6 +17763,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 7.62,
     "ev": 23457.8,
     "ev_to_ebitda": 19.3,
+    "debt_to_ebitda": 1.99,
+    "net_debt_to_ebitda": 1.78,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -17582,6 +17882,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 7.12,
     "ev": 104963.9,
     "ev_to_ebitda": 12.4,
+    "debt_to_ebitda": 2.21,
+    "net_debt_to_ebitda": 1.57,
     "f_score": 6,
     "f_score_breakdown": [
       {
@@ -17699,6 +18001,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 7.29,
     "ev": 56999.3,
     "ev_to_ebitda": 18.7,
+    "debt_to_ebitda": 2.13,
+    "net_debt_to_ebitda": 1.82,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -17816,6 +18120,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.06,
     "ev": 48646.5,
     "ev_to_ebitda": 16.3,
+    "debt_to_ebitda": 0.0,
+    "net_debt_to_ebitda": -1.15,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -17933,6 +18239,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 6.06,
     "ev": 45583.9,
     "ev_to_ebitda": 15.1,
+    "debt_to_ebitda": 4.5,
+    "net_debt_to_ebitda": 4.35,
     "f_score": 6,
     "f_score_breakdown": [
       {
@@ -18050,6 +18358,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 6.17,
     "ev": 109353.5,
     "ev_to_ebitda": 18.0,
+    "debt_to_ebitda": 4.98,
+    "net_debt_to_ebitda": 4.28,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -18167,6 +18477,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.6,
     "ev": 164331.6,
     "ev_to_ebitda": 13.5,
+    "debt_to_ebitda": 1.57,
+    "net_debt_to_ebitda": 0.8,
     "f_score": 5,
     "f_score_breakdown": [
       {
@@ -18284,6 +18596,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.3,
     "ev": 143612.5,
     "ev_to_ebitda": 8.3,
+    "debt_to_ebitda": 2.59,
+    "net_debt_to_ebitda": 2.21,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -18401,6 +18715,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.95,
     "ev": 108659.2,
     "ev_to_ebitda": 8.2,
+    "debt_to_ebitda": 2.34,
+    "net_debt_to_ebitda": 2.18,
     "f_score": 6,
     "f_score_breakdown": [
       {
@@ -18518,6 +18834,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.1,
     "ev": 208870.2,
     "ev_to_ebitda": 13.0,
+    "debt_to_ebitda": 2.42,
+    "net_debt_to_ebitda": 1.9,
     "f_score": 6,
     "f_score_breakdown": [
       {
@@ -18635,6 +18953,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 7.82,
     "ev": 82890.2,
     "ev_to_ebitda": 6.6,
+    "debt_to_ebitda": 2.71,
+    "net_debt_to_ebitda": 1.98,
     "f_score": 6,
     "f_score_breakdown": [
       {
@@ -18752,6 +19072,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.48,
     "ev": 120553.8,
     "ev_to_ebitda": 17.3,
+    "debt_to_ebitda": 6.6,
+    "net_debt_to_ebitda": 3.72,
     "f_score": 4,
     "f_score_breakdown": [
       {
@@ -18869,6 +19191,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.0,
     "ev": 144578.8,
     "ev_to_ebitda": 14.7,
+    "debt_to_ebitda": 2.08,
+    "net_debt_to_ebitda": 1.7,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -18986,6 +19310,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.32,
     "ev": 71290.6,
     "ev_to_ebitda": 6.4,
+    "debt_to_ebitda": 5.79,
+    "net_debt_to_ebitda": 4.86,
     "f_score": 4,
     "f_score_breakdown": [
       {
@@ -19103,6 +19429,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.26,
     "ev": 102119.5,
     "ev_to_ebitda": 9.6,
+    "debt_to_ebitda": 2.7,
+    "net_debt_to_ebitda": 2.27,
     "f_score": 6,
     "f_score_breakdown": [
       {
@@ -19220,6 +19548,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.36,
     "ev": 22908.8,
     "ev_to_ebitda": 12.1,
+    "debt_to_ebitda": 2.88,
+    "net_debt_to_ebitda": 2.79,
     "f_score": 6,
     "f_score_breakdown": [
       {
@@ -19337,6 +19667,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 7.93,
     "ev": 16574.2,
     "ev_to_ebitda": 9.1,
+    "debt_to_ebitda": 3.09,
+    "net_debt_to_ebitda": 2.63,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -19454,6 +19786,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.94,
     "ev": 21155.3,
     "ev_to_ebitda": 10.2,
+    "debt_to_ebitda": 0.04,
+    "net_debt_to_ebitda": -2.13,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -19571,6 +19905,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.22,
     "ev": 33338.9,
     "ev_to_ebitda": 10.8,
+    "debt_to_ebitda": 1.5,
+    "net_debt_to_ebitda": 1.2,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -19688,6 +20024,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.45,
     "ev": 10092.4,
     "ev_to_ebitda": 13.7,
+    "debt_to_ebitda": 0.92,
+    "net_debt_to_ebitda": 0.67,
     "f_score": 9,
     "f_score_breakdown": [
       {
@@ -19805,6 +20143,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 4.64,
     "ev": 13496.1,
     "ev_to_ebitda": 0.7,
+    "debt_to_ebitda": 1.81,
+    "net_debt_to_ebitda": 1.2,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -19922,6 +20262,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.23,
     "ev": 16724.6,
     "ev_to_ebitda": 9.0,
+    "debt_to_ebitda": 1.64,
+    "net_debt_to_ebitda": 0.96,
     "f_score": 6,
     "f_score_breakdown": [
       {
@@ -20039,6 +20381,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.51,
     "ev": 10765.2,
     "ev_to_ebitda": 12.5,
+    "debt_to_ebitda": 1.29,
+    "net_debt_to_ebitda": 1.16,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -20156,6 +20500,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.26,
     "ev": 32913.7,
     "ev_to_ebitda": 13.6,
+    "debt_to_ebitda": 3.66,
+    "net_debt_to_ebitda": 3.33,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -20245,12 +20591,12 @@ window.FULL_MARKET_DATA = {
     "exchange": "NASDAQ",
     "sector": "工業",
     "industry": "Research & Consulting Services",
-    "price": 163.88,
-    "shares": 130.16,
-    "mcap": 21330.0,
-    "debt": 4617.1,
-    "cash": 551.4,
-    "net_debt": 4065.7,
+    "price": 150.0,
+    "shares": 666.7,
+    "mcap": 100000.0,
+    "debt": 0.0,
+    "cash": 0.0,
+    "net_debt": 0.0,
     "fcf0": 1236.5,
     "beta": 1.15,
     "kd": 4.5,
@@ -20270,17 +20616,19 @@ window.FULL_MARKET_DATA = {
     "g1": 6.8,
     "g2": 4.0,
     "g": 2.25,
-    "wacc": 8.82,
-    "ev": 22920.6,
-    "ev_to_ebitda": 13.8,
-    "f_score": 7,
+    "wacc": 9.96,
+    "ev": 19455.6,
+    "ev_to_ebitda": 18.0,
+    "debt_to_ebitda": 0.0,
+    "net_debt_to_ebitda": 0.0,
+    "f_score": 8,
     "f_score_breakdown": [
       {
         "id": 1,
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 19.7%"
+        "detail": "當期 ROA = 8.0%"
       },
       {
         "id": 2,
@@ -20307,15 +20655,15 @@ window.FULL_MARKET_DATA = {
         "id": 5,
         "category": "槓桿與償債",
         "desc": "財務槓桿未惡化 (ΔLeverage ≤ 0)",
-        "passed": 0,
-        "detail": "總負債資產比率 = 126.4%"
+        "passed": 1,
+        "detail": "總負債資產比率 = 40.0%"
       },
       {
         "id": 6,
         "category": "槓桿與償債",
         "desc": "短期流動性安全 (ΔLiquidity > 0)",
-        "passed": 0,
-        "detail": "流動比率 = 1.01"
+        "passed": 1,
+        "detail": "流動比率 = 1.50"
       },
       {
         "id": 7,
@@ -20328,7 +20676,7 @@ window.FULL_MARKET_DATA = {
         "id": 8,
         "category": "營運效率",
         "desc": "毛利率擴張 (ΔMargin > 0)",
-        "passed": 1,
+        "passed": 0,
         "detail": "產品定價權增強，毛利結構健康"
       },
       {
@@ -20339,23 +20687,23 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 144.86,
-    "premium_pct": 13.1,
+    "fair_val": 29.18,
+    "premium_pct": 414.1,
     "is_undervalued": false,
-    "pe_trailing": 24.1,
-    "pe_forward": 21.2,
-    "pb_trailing": 5.0,
-    "pb_forward": 4.5,
+    "pe_trailing": 24.0,
+    "pe_forward": 21.1,
+    "pb_trailing": 100000000000.0,
+    "pb_forward": 90000000000.0,
     "div_yield": 0.45,
-    "ps_ratio": 4.3,
-    "fcf_to_ev": 5.39,
-    "fcf_to_mcap": 5.8,
-    "liab_to_assets": 126.4,
-    "cash_to_assets": 12.3,
-    "current_ratio": 1.01,
-    "cash_minus_liab": -4065.7,
+    "ps_ratio": 20.2,
+    "fcf_to_ev": 6.36,
+    "fcf_to_mcap": 1.24,
+    "liab_to_assets": 40.0,
+    "cash_to_assets": 0.0,
+    "current_ratio": 1.5,
+    "cash_minus_liab": 0.0,
     "roe": 18.0,
-    "roa": 19.7
+    "roa": 8.0
   },
   "MIDD": {
     "name": "Middleby",
@@ -20390,6 +20738,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.07,
     "ev": 9608.1,
     "ev_to_ebitda": 18.0,
+    "debt_to_ebitda": 3.99,
+    "net_debt_to_ebitda": 3.67,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -20507,6 +20857,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.65,
     "ev": 78639.1,
     "ev_to_ebitda": 12.4,
+    "debt_to_ebitda": 0.83,
+    "net_debt_to_ebitda": 0.16,
     "f_score": 6,
     "f_score_breakdown": [
       {
@@ -20624,6 +20976,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.57,
     "ev": 6704.1,
     "ev_to_ebitda": 6.0,
+    "debt_to_ebitda": 2.63,
+    "net_debt_to_ebitda": 2.62,
     "f_score": 5,
     "f_score_breakdown": [
       {
@@ -20741,6 +21095,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.42,
     "ev": 5776.7,
     "ev_to_ebitda": 11.1,
+    "debt_to_ebitda": 1.24,
+    "net_debt_to_ebitda": 0.85,
     "f_score": 9,
     "f_score_breakdown": [
       {
@@ -20858,6 +21214,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 7.7,
     "ev": 50781.3,
     "ev_to_ebitda": 10.2,
+    "debt_to_ebitda": 6.71,
+    "net_debt_to_ebitda": 6.15,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -20975,6 +21333,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 7.98,
     "ev": 9403.5,
     "ev_to_ebitda": 7.8,
+    "debt_to_ebitda": 3.96,
+    "net_debt_to_ebitda": 3.6,
     "f_score": 6,
     "f_score_breakdown": [
       {
@@ -21092,6 +21452,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.94,
     "ev": 9117.9,
     "ev_to_ebitda": 12.4,
+    "debt_to_ebitda": 0.06,
+    "net_debt_to_ebitda": -0.63,
     "f_score": 9,
     "f_score_breakdown": [
       {
@@ -21209,6 +21571,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.2,
     "ev": 6977.0,
     "ev_to_ebitda": 11.2,
+    "debt_to_ebitda": 2.22,
+    "net_debt_to_ebitda": 1.82,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -21326,6 +21690,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.23,
     "ev": 46753.6,
     "ev_to_ebitda": 10.1,
+    "debt_to_ebitda": 2.09,
+    "net_debt_to_ebitda": 1.91,
     "f_score": 6,
     "f_score_breakdown": [
       {
@@ -21443,6 +21809,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.44,
     "ev": 65395.2,
     "ev_to_ebitda": 7.2,
+    "debt_to_ebitda": 2.5,
+    "net_debt_to_ebitda": 2.47,
     "f_score": 6,
     "f_score_breakdown": [
       {
@@ -21560,6 +21928,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.54,
     "ev": 66607.1,
     "ev_to_ebitda": 8.8,
+    "debt_to_ebitda": 3.1,
+    "net_debt_to_ebitda": 3.03,
     "f_score": 6,
     "f_score_breakdown": [
       {
@@ -21677,6 +22047,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.59,
     "ev": 464318.2,
     "ev_to_ebitda": 6.5,
+    "debt_to_ebitda": 0.59,
+    "net_debt_to_ebitda": 0.44,
     "f_score": 6,
     "f_score_breakdown": [
       {
@@ -21794,6 +22166,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.43,
     "ev": 419405.3,
     "ev_to_ebitda": 7.5,
+    "debt_to_ebitda": 0.66,
+    "net_debt_to_ebitda": 0.51,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -21911,6 +22285,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.12,
     "ev": 318806.2,
     "ev_to_ebitda": 11.5,
+    "debt_to_ebitda": 0.84,
+    "net_debt_to_ebitda": 0.56,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -22028,6 +22404,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.0,
     "ev": 78997.8,
     "ev_to_ebitda": 11.0,
+    "debt_to_ebitda": 1.79,
+    "net_debt_to_ebitda": 1.22,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -22145,6 +22523,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.33,
     "ev": 105982.2,
     "ev_to_ebitda": 7.5,
+    "debt_to_ebitda": 0.58,
+    "net_debt_to_ebitda": 0.24,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -22262,6 +22642,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.02,
     "ev": 67655.6,
     "ev_to_ebitda": 6.4,
+    "debt_to_ebitda": 3.21,
+    "net_debt_to_ebitda": 3.18,
     "f_score": 6,
     "f_score_breakdown": [
       {
@@ -22379,6 +22761,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 6.58,
     "ev": 41832.2,
     "ev_to_ebitda": 2.5,
+    "debt_to_ebitda": 6.64,
+    "net_debt_to_ebitda": 6.47,
     "f_score": 3,
     "f_score_breakdown": [
       {
@@ -22496,6 +22880,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.57,
     "ev": 228143.2,
     "ev_to_ebitda": 13.1,
+    "debt_to_ebitda": 1.97,
+    "net_debt_to_ebitda": 1.52,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -22613,6 +22999,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 9.4,
     "ev": 157965.1,
     "ev_to_ebitda": 11.9,
+    "debt_to_ebitda": 0.86,
+    "net_debt_to_ebitda": 0.26,
     "f_score": 9,
     "f_score_breakdown": [
       {
@@ -22730,6 +23118,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.92,
     "ev": 107006.1,
     "ev_to_ebitda": 8.3,
+    "debt_to_ebitda": 1.6,
+    "net_debt_to_ebitda": 1.28,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -22847,6 +23237,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.67,
     "ev": 93263.7,
     "ev_to_ebitda": 6.7,
+    "debt_to_ebitda": 1.05,
+    "net_debt_to_ebitda": 0.75,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -22964,6 +23356,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 7.93,
     "ev": 76401.9,
     "ev_to_ebitda": 9.5,
+    "debt_to_ebitda": 4.0,
+    "net_debt_to_ebitda": 3.99,
     "f_score": 6,
     "f_score_breakdown": [
       {
@@ -23081,6 +23475,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.28,
     "ev": 62034.4,
     "ev_to_ebitda": 8.3,
+    "debt_to_ebitda": 4.13,
+    "net_debt_to_ebitda": 4.1,
     "f_score": 5,
     "f_score_breakdown": [
       {
@@ -23198,6 +23594,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.45,
     "ev": 31698.6,
     "ev_to_ebitda": 7.6,
+    "debt_to_ebitda": 1.98,
+    "net_debt_to_ebitda": 1.48,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -23315,6 +23713,8 @@ window.FULL_MARKET_DATA = {
     "wacc": 8.51,
     "ev": 58551.6,
     "ev_to_ebitda": 12.3,
+    "debt_to_ebitda": 3.42,
+    "net_debt_to_ebitda": -0.17,
     "f_score": 7,
     "f_score_breakdown": [
       {
