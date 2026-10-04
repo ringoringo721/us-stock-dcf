@@ -39,7 +39,7 @@ def fetch_live_quotes(symbol_list, key):
     quotes_map = {}
     batch_size = 80
     total_batches = (len(symbol_list) + batch_size - 1) // batch_size
-    print(f"📊 2. 從 FMP 批次獲取全市場最新真實報價與指標 (共 {total_batches} 批)...")
+    print(f"📊 2. 從 FMP 批次拉取全市場最新真實報價與市值 (共 {total_batches} 批)...")
 
     for i in range(0, len(symbol_list), batch_size):
         chunk = symbol_list[i:i + batch_size]
@@ -58,7 +58,7 @@ def fetch_live_quotes(symbol_list, key):
             pass
         time.sleep(0.08)
 
-    print(f"✅ 成功獲取 {len(quotes_map)} 檔最新真實收盤行情！")
+    print(f"✅ 成功獲取 {len(quotes_map)} 檔真實行情！")
     return quotes_map
 
 def classify_profile(sym, name):
@@ -66,7 +66,7 @@ def classify_profile(sym, name):
     sl = sym.upper()
 
     if sl in ["NVDA", "AMD", "AVGO", "QCOM", "INTC", "TSM", "ARM", "MU"] or any(k in nl for k in ["semiconductor", "chip"]):
-        return "資訊科技", "生成式 AI 與半導體算力晶片", 1.85, 0.04, 0.015, 20.0, 8.0, 32.0, 14.0, 3.5, 55.0, 32.0
+        return "資訊科技", "生成式 AI 與半導體算力晶片", 1.85, 0.04, 0.015, 20.0, 8.0, 30.0, 14.0, 3.5, 55.0, 32.0
     elif sl in ["AAPL", "MSFT", "GOOGL", "GOOG", "META", "AMZN"] or any(k in nl for k in ["software", "cloud", "tech"]):
         return "資訊科技", "企業級軟體與雲端生態體系", 1.15, 0.08, 0.025, 12.0, 6.0, 30.0, 9.0, 1.8, 30.0, 15.0
     elif any(k in nl for k in ["pharma", "therapeutics", "bio", "health", "medical"]):
@@ -91,10 +91,13 @@ def build_record(sym, name, exchange, q):
         mcap_raw = float(q.get("marketCap") or 0.0)
         mcap = round(mcap_raw / 1e6, 1) if mcap_raw > 0 else round(p * 50.0, 1)
         
+        # 關鍵防護：股數必須與市值、股價自洽（徹底防止股數變成 70 導致算出一萬多美元）
         shares_raw = q.get("sharesOutstanding")
-        shares = round(float(shares_raw) / 1e6, 2) if shares_raw else round(mcap / p, 2)
+        if shares_raw and float(shares_raw) > 1e6:
+            shares = round(float(shares_raw) / 1e6, 2)
+        else:
+            shares = round(mcap / p, 2) if (p > 0 and mcap > 0) else 50.0
 
-        # 真實 P/E、Beta、股息
         pe_trailing = round(float(q.get("pe") or q.get("trailingPE")), 2) if (q.get("pe") or q.get("trailingPE")) else round(base_pe, 2)
         pe_forward = round(float(q.get("forwardPE")), 2) if q.get("forwardPE") else round(pe_trailing * 0.88, 2)
         pb_trailing = round(float(q.get("priceToBook")), 2) if q.get("priceToBook") else round(base_pb, 2)
@@ -111,21 +114,21 @@ def build_record(sym, name, exchange, q):
         div_yield = 0.0
         beta = beta_def
 
-    # 2. 資產負債表校準（避免數千億美元的假負債膨脹）
-    debt = round(min(mcap * debt_r, 45000.0 if sym == "NVDA" else mcap * debt_r), 1)
-    cash = round(min(mcap * 0.08, 55000.0 if sym == "NVDA" else mcap * 0.08), 1)
+    # 2. NVDA 專項真實最新財報（10-K/TTM）對齊
+    if sym == "NVDA":
+        debt = 10500.0         # 總有息負債 $10.5B
+        cash = 34800.0         # 現金及約當 $34.8B
+        fcf0 = 60800.0         # TTM 自由現金流 $60.8B
+        shares = 24500.0       # 稀釋總股數 24,500 百萬股 (245億股)
+        mcap = round(p * shares, 1)
+        beta = 1.85
+    else:
+        debt = round(mcap * debt_r, 1)
+        cash = round(mcap * 0.08, 1)
+        fcf0 = max(10.0, round(mcap * fcf_y, 1))
+
     net_debt = round(debt - cash, 1)
     cash_minus_liab = round(cash - debt, 1)
-
-    # 自由現金流校準（NVDA 真實 TTM FCF 約 60,000 M，不再出現 200,000 M）
-    if sym == "NVDA":
-        fcf0 = 60800.0
-        debt = 10500.0
-        cash = 34800.0
-        net_debt = round(debt - cash, 1)
-        cash_minus_liab = round(cash - debt, 1)
-    else:
-        fcf0 = max(10.0, round(mcap * fcf_y, 1))
 
     # 3. 資本成本 WACC
     kd = 4.5
