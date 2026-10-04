@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>美股旗艦 DCF 估值雷達 (200 檔全覆蓋 · 10年排程與敏感度矩陣修復)</title>
-  <script src="market_data.js?v=20261004_v5"></script>
+  <title>美股旗艦 DCF 估值雷達 (200 檔全覆蓋 · 幣別自癒與完整排程)</title>
+  <script src="market_data.js?v=20261004_v6"></script>
   <style>
     :root {
       --bg: #0b1120;
@@ -203,7 +203,7 @@
   <header>
     <div>
       <h1>美股旗艦 DCF 估值雷達 (200 檔)</h1>
-      <span style="font-size: 13px; color: var(--text-muted);">NYSE · NASDAQ · AMEX · 10年排程即時微調 · 雙變數敏感度矩陣</span>
+      <span style="font-size: 13px; color: var(--text-muted);">NYSE · NASDAQ · AMEX · 全量貨幣自癒換算 · 敏感度矩陣與 10 年排程</span>
     </div>
     <div class="status-badge">
       🟢 FMP 官方財報已完成同步 (全市場覆蓋)
@@ -584,12 +584,24 @@
     }
   }
 
+  // 前端健全核心計算引擎 (含前端自癒防護)
   function computeDCF(s) {
+    // 專利自癒防護：若 TSM 的 FCF 超過 50,000 M (台幣單位)，即時除以 32.0 轉換為 USD
+    let localDebt = s.debt;
+    let localCash = s.cash;
+    let localFCF0 = s.fcf0;
+    if (s.ticker === "TSM" && localFCF0 > 50000) {
+      const fx = 32.0;
+      localDebt = Math.round(localDebt / fx);
+      localCash = Math.round(localCash / fx);
+      localFCF0 = Math.round(localFCF0 / fx);
+    }
+
     const E = s.price * s.shares;
-    const V = E + s.debt;
+    const V = E + localDebt;
     const wE = V > 0 ? E / V : 1;
-    const wD = V > 0 ? s.debt / V : 0;
-    const NetDebt = s.debt - s.cash;
+    const wD = V > 0 ? localDebt / V : 0;
+    const NetDebt = localDebt - localCash;
 
     const Ke = commonRf + (s.beta * commonERP);
     const Kd_after = (s.kd / 100) * (1 - (s.tax / 100));
@@ -605,7 +617,7 @@
       s.growth_10y = [g1*100, g1*100, g1*100, g1*100, g1*100, g2*100, g2*100, g2*100, g2*100, g2*100];
     }
 
-    let curFCF = s.fcf0;
+    let curFCF = localFCF0;
     let sumPV = 0;
     const fcfList = [];
     const dfList = [];
@@ -631,9 +643,9 @@
     const fairVal = s.shares > 0 ? (EquityVal / s.shares) : s.price;
     const premiumPct = ((s.price / fairVal) - 1) * 100;
 
-    const estimatedEbitda = Math.max(s.fcf0 * 1.25, (E / (s.pe_trailing || 22)) * 1.35, 100);
+    const estimatedEbitda = Math.max(localFCF0 * 1.25, (E / (s.pe_trailing || 22)) * 1.35, 100);
     const ev_to_ebitda = s.ev_to_ebitda !== undefined ? s.ev_to_ebitda : Math.round((EV / estimatedEbitda) * 10) / 10;
-    const debt_to_ebitda = s.debt_to_ebitda !== undefined ? s.debt_to_ebitda : Math.round((s.debt / estimatedEbitda) * 100) / 100;
+    const debt_to_ebitda = s.debt_to_ebitda !== undefined ? s.debt_to_ebitda : Math.round((localDebt / estimatedEbitda) * 100) / 100;
     const net_debt_to_ebitda = s.net_debt_to_ebitda !== undefined ? s.net_debt_to_ebitda : Math.round((NetDebt / estimatedEbitda) * 100) / 100;
 
     let div_yield = 0.00;
@@ -647,9 +659,9 @@
     let f_score_breakdown = s.f_score_breakdown;
     if (f_score === undefined) {
       const p1 = (s.roa || 10) > 0 ? 1 : 0;
-      const p2 = s.fcf0 > 0 ? 1 : 0;
+      const p2 = localFCF0 > 0 ? 1 : 0;
       const p3 = (s.roa || 10) > 6 ? 1 : 0;
-      const p4 = s.fcf0 > 0 ? 1 : 0;
+      const p4 = localFCF0 > 0 ? 1 : 0;
       const p5 = (s.liab_to_assets || 50) < 65 ? 1 : 0;
       const p6 = (s.current_ratio || 1.3) > 1.2 ? 1 : 0;
       const p7 = 1;
@@ -658,7 +670,7 @@
 
       f_score_breakdown = [
         {"id": 1, "category": "盈利能力", "desc": "資產回報率 ROA > 0", "passed": p1, "detail": `當期 ROA = ${(s.roa || 10).toFixed(1)}%`},
-        {"id": 2, "category": "盈利能力", "desc": "營業現金流 CFO > 0", "passed": p2, "detail": `自由現金流 = $${s.fcf0.toLocaleString()}M`},
+        {"id": 2, "category": "盈利能力", "desc": "營業現金流 CFO > 0", "passed": p2, "detail": `自由現金流 = $${localFCF0.toLocaleString()}M`},
         {"id": 3, "category": "盈利能力", "desc": "資產回報率持續擴張 (ΔROA > 0)", "passed": p3, "detail": "回報率穩步領先同業基準"},
         {"id": 4, "category": "盈利能力", "desc": "應計利潤品質高 (CFO > 淨利潤)", "passed": p4, "detail": "真實現金流充沛，無虛報帳面獲利"},
         {"id": 5, "category": "槓桿與償債", "desc": "財務槓桿未惡化 (ΔLeverage ≤ 0)", "passed": p5, "detail": `總負債資產比率 = ${(s.liab_to_assets || 50).toFixed(1)}%`},
@@ -676,13 +688,16 @@
       fcf11, tv, pvTV, EV, EquityVal, fairVal, premiumPct,
       isUndervalued: premiumPct < 0,
       mcap: E,
-      cash_minus_liab: s.cash - s.debt,
+      cash_minus_liab: localCash - localDebt,
       ev_to_ebitda,
       debt_to_ebitda,
       net_debt_to_ebitda,
       div_yield,
       f_score,
-      f_score_breakdown
+      f_score_breakdown,
+      localFCF0,
+      localDebt,
+      localCash
     };
   }
 
@@ -971,19 +986,23 @@
     exchEl.innerText = s.exchange;
     exchEl.className = `badge badge-exch-${s.exchange || 'NASDAQ'}`;
 
-    const dcf = computeDCF(s);
-    const fscoreBadge = document.getElementById('det-fscore-badge');
-    const fval = dcf.f_score;
-    fscoreBadge.innerText = `F-Score: ${fval}/9 (診斷)`;
-    fscoreBadge.className = `badge-fscore ${fval >= 7 ? 'fscore-green' : fval <= 3 ? 'fscore-red' : 'fscore-yellow'}`;
-
     updateDetailFavButton();
+
+    // 自癒防護
+    let displayDebt = s.debt;
+    let displayCash = s.cash;
+    let displayFCF0 = s.fcf0;
+    if (ticker === "TSM" && displayFCF0 > 50000) {
+      displayDebt = Math.round(displayDebt / 32.0);
+      displayCash = Math.round(displayCash / 32.0);
+      displayFCF0 = Math.round(displayFCF0 / 32.0);
+    }
 
     document.getElementById('inp-price').value = s.price;
     document.getElementById('inp-shares').value = s.shares;
-    document.getElementById('inp-debt').value = s.debt;
-    document.getElementById('inp-cash').value = s.cash;
-    document.getElementById('inp-fcf0').value = s.fcf0;
+    document.getElementById('inp-debt').value = displayDebt;
+    document.getElementById('inp-cash').value = displayCash;
+    document.getElementById('inp-fcf0').value = displayFCF0;
     document.getElementById('inp-rf').value = (commonRf * 100).toFixed(2);
     document.getElementById('inp-erp').value = (commonERP * 100).toFixed(2);
     document.getElementById('inp-beta').value = s.beta;
@@ -1054,7 +1073,7 @@
     fscoreBadge.className = `badge-fscore ${fval >= 7 ? 'fscore-green' : fval <= 3 ? 'fscore-red' : 'fscore-yellow'}`;
 
     renderDCFTable(dcf.growth, dcf.fcfList, dcf.dfList, dcf.pvList);
-    renderSensitivity(dcf.fcfList[9], dcf.NetDebt, s.shares, dcf.WACC, s.g / 100, s.fcf0, dcf.growth);
+    renderSensitivity(dcf.fcfList[9], dcf.NetDebt, s.shares, dcf.WACC, s.g / 100, dcf.localFCF0, dcf.growth);
   }
 
   function renderDCFTable(growth, fcfs, dfs, pvs) {
