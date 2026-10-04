@@ -24,11 +24,23 @@
       --nyse-blue: #60a5fa;
       --amex-green: #34d399;
       --fav-pink: #f43f5e;
-      --sticky-bg: #162032; /* 實心深色，100% 阻隔後方文字 */
+      --sticky-bg: #141f32;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    html, body { background-color: var(--bg); color: var(--text); padding: 16px; line-height: 1.5; width: 100%; min-height: 100vh; }
-    .container { width: 100%; max-width: 100%; margin: 0 auto; }
+    html, body {
+      background-color: var(--bg);
+      color: var(--text);
+      padding: 16px;
+      line-height: 1.5;
+      width: 100%;
+      min-height: 100vh;
+      overflow-x: hidden; /* 防止整個網頁晃動 */
+    }
+    .container {
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+    }
     
     header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid var(--card-border); padding-bottom: 16px; flex-wrap: wrap; gap: 14px; }
     h1 { font-size: 22px; font-weight: 700; color: #fff; }
@@ -48,67 +60,78 @@
     .search-input { background: #0f172a; border: 1px solid var(--card-border); color: #fff; padding: 6px 12px; border-radius: 6px; font-size: 13px; width: 320px; margin-left: auto; }
     .search-input:focus { border-color: var(--accent); outline: none; }
 
-    /* ===== 頂部同步雙向橫向捲動軸 (解決必須滑到頁面底部問題) ===== */
-    .top-scroll-wrapper {
-      width: 100%;
-      overflow-x: auto;
-      overflow-y: hidden;
-      height: 16px;
-      margin-bottom: 4px;
+    /* ===== 頂部滑桿控制提示區 ===== */
+    .scroll-hint-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       background: #0f172a;
-      border-radius: 6px;
       border: 1px solid var(--card-border);
-      position: sticky;
-      top: 0;
-      z-index: 20;
-    }
-    .top-scroll-dummy {
-      height: 1px;
-    }
-    .top-scroll-wrapper::-webkit-scrollbar,
-    .table-container::-webkit-scrollbar {
-      height: 12px;
-    }
-    .top-scroll-wrapper::-webkit-scrollbar-track,
-    .table-container::-webkit-scrollbar-track {
-      background: #0f172a;
       border-radius: 6px;
+      padding: 6px 14px;
+      margin-bottom: 8px;
+      font-size: 12px;
+      color: var(--text-muted);
     }
-    .top-scroll-wrapper::-webkit-scrollbar-thumb,
-    .table-container::-webkit-scrollbar-thumb {
-      background: #475569;
-      border-radius: 6px;
-      border: 2px solid #0f172a;
+    .scroll-hint-bar span { display: flex; align-items: center; gap: 6px; }
+    .scroll-btn-grp { display: flex; gap: 6px; }
+    .scroll-arrow-btn {
+      background: #1e293b;
+      border: 1px solid var(--card-border);
+      color: #fff;
+      padding: 3px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 700;
     }
-    .top-scroll-wrapper::-webkit-scrollbar-thumb:hover,
-    .table-container::-webkit-scrollbar-thumb:hover {
-      background: var(--accent);
-    }
+    .scroll-arrow-btn:hover { background: var(--accent); color: #0b1120; }
 
-    /* ===== 表格與左右捲動核心結構 ===== */
-    .table-container {
+    /* ===== 核心：徹底解決無法捲動的視窗容器 ===== */
+    .table-viewport-box {
       width: 100%;
+      max-width: 100%;
+      overflow-x: scroll !important; /* 強制生成捲軸 */
+      overflow-y: visible;
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 8px;
-      overflow-x: auto;
-      overflow-y: visible;
       margin-bottom: 20px;
       position: relative;
+      cursor: grab;
+      scrollbar-width: thin;
+      scrollbar-color: #38bdf8 #0f172a;
+    }
+    .table-viewport-box:active {
+      cursor: grabbing;
+    }
+    .table-viewport-box::-webkit-scrollbar {
+      height: 14px;
+    }
+    .table-viewport-box::-webkit-scrollbar-track {
+      background: #0f172a;
+      border-radius: 6px;
+    }
+    .table-viewport-box::-webkit-scrollbar-thumb {
+      background: #38bdf8;
+      border-radius: 6px;
+      border: 3px solid #0f172a;
     }
 
-    table {
-      width: max-content;
-      min-width: 100%;
-      border-collapse: separate;
+    /* 表格樣式：固定欄寬與強制單行不折行 */
+    table#screener-table {
+      width: 2800px !important; /* 明確指定總寬度，觸發必然溢出橫向捲動 */
+      min-width: 2800px !important;
+      border-collapse: separate !important;
       border-spacing: 0;
       font-size: 12px;
-      text-align: right;
       white-space: nowrap;
+      text-align: right;
     }
+
     th, td {
-      padding: 11px 14px;
+      padding: 10px 14px;
       border-bottom: 1px solid var(--card-border);
+      height: 44px;
     }
     th {
       background: #162032;
@@ -117,56 +140,57 @@
       cursor: pointer;
       user-select: none;
       position: sticky;
-      top: 16px; /* 與頂部捲軸微幅錯開 */
-      z-index: 5;
+      top: 0;
+      z-index: 2;
     }
     th:hover { color: var(--accent); }
     tr:hover td { background-color: rgba(255, 255, 255, 0.03); }
 
-    /* ===== 徹底解決重疊陰影 (Sticky Solid Backgrounds & Precise Offsets) ===== */
-    .col-sticky-1 {
-      position: sticky;
-      left: 0;
-      z-index: 10;
-      background-color: var(--sticky-bg) !important;
+    /* ===== 徹底解決陰影文字重疊 (固定前三欄 + 實心無透明遮罩) ===== */
+    .col-fixed-1 {
+      position: sticky !important;
+      left: 0px !important;
+      width: 110px !important;
+      min-width: 110px !important;
+      max-width: 110px !important;
+      background: var(--sticky-bg) !important;
+      z-index: 10 !important;
       text-align: left;
-      min-width: 110px;
-      width: 110px;
     }
-    th.col-sticky-1 { z-index: 15; }
+    th.col-fixed-1 { z-index: 20 !important; background: #162032 !important; }
 
-    .col-sticky-2 {
-      position: sticky;
-      left: 110px;
-      z-index: 10;
-      background-color: var(--sticky-bg) !important;
+    .col-fixed-2 {
+      position: sticky !important;
+      left: 110px !important;
+      width: 85px !important;
+      min-width: 85px !important;
+      max-width: 85px !important;
+      background: var(--sticky-bg) !important;
+      z-index: 10 !important;
       text-align: left;
-      min-width: 85px;
-      width: 85px;
     }
-    th.col-sticky-2 { z-index: 15; }
+    th.col-fixed-2 { z-index: 20 !important; background: #162032 !important; }
 
-    .col-sticky-3 {
-      position: sticky;
-      left: 195px;
-      z-index: 10;
-      background-color: var(--sticky-bg) !important;
+    .col-fixed-3 {
+      position: sticky !important;
+      left: 195px !important;
+      width: 160px !important;
+      min-width: 160px !important;
+      max-width: 160px !important;
+      background: var(--sticky-bg) !important;
+      z-index: 10 !important;
       text-align: left;
-      min-width: 170px;
-      width: 170px;
-      box-shadow: 4px 0 8px -2px rgba(0, 0, 0, 0.6); /* 實心陰影遮斷後方所有字體 */
-      border-right: 2px solid #334155;
+      border-right: 3px solid #334155 !important;
+      box-shadow: 6px 0 10px rgba(0,0,0,0.7) !important;
     }
-    th.col-sticky-3 { z-index: 15; }
+    th.col-fixed-3 { z-index: 20 !important; background: #162032 !important; }
 
-    /* 滑鼠懸停時固定欄位背景維持實心 */
-    tr:hover td.col-sticky-1,
-    tr:hover td.col-sticky-2,
-    tr:hover td.col-sticky-3 {
-      background-color: #1e293b !important;
+    tr:hover td.col-fixed-1,
+    tr:hover td.col-fixed-2,
+    tr:hover td.col-fixed-3 {
+      background: #1e293b !important;
     }
 
-    /* 愛心圖示 */
     .fav-btn {
       background: transparent;
       border: none;
@@ -177,13 +201,8 @@
       transition: transform 0.15s, color 0.15s;
       vertical-align: middle;
     }
-    .fav-btn:hover {
-      transform: scale(1.25);
-      color: var(--fav-pink);
-    }
-    .fav-btn.active {
-      color: var(--fav-pink);
-    }
+    .fav-btn:hover { transform: scale(1.25); color: var(--fav-pink); }
+    .fav-btn.active { color: var(--fav-pink); }
 
     .ticker-link { font-weight: 700; color: var(--accent); cursor: pointer; text-decoration: none; font-size: 13px; }
     .ticker-link:hover { text-decoration: underline; }
@@ -230,7 +249,7 @@
   <header>
     <div>
       <h1>美股旗艦 DCF 估值雷達</h1>
-      <span style="font-size: 13px; color: var(--text-muted);">NYSE · NASDAQ · AMEX · 頂部與底部同步橫向捲動 · 零陰影干擾</span>
+      <span style="font-size: 13px; color: var(--text-muted);">NYSE · NASDAQ · AMEX · 流暢左右滑動 · 凍結前三欄 · 零重疊穿透</span>
     </div>
     <div class="status-badge">
       🟢 FMP 官方財報已完成同步 (全市場覆蓋)
@@ -262,7 +281,7 @@
       </div>
     </div>
 
-    <!-- 篩選控制面板 -->
+    <!-- 篩選面板 -->
     <div class="filter-panel">
       <div class="filter-row">
         <span class="filter-title">篩選維度：</span>
@@ -302,42 +321,46 @@
       </div>
     </div>
 
-    <!-- 頂部吸頂懸浮橫向捲動軸 (不用滑到最底就能直接在頂部左右滑) -->
-    <div class="top-scroll-wrapper" id="top-scroll-wrapper">
-      <div class="top-scroll-dummy" id="top-scroll-dummy"></div>
+    <!-- 頂部滑動提示與快速滾動鍵 (直接點擊平滑滑動) -->
+    <div class="scroll-hint-bar">
+      <span>💡 提示：支援直接用滑鼠按住拖曳、觸控板雙指左右滑、或按住 <b>Shift + 滾輪</b> 左右滑動</span>
+      <div class="scroll-btn-grp">
+        <button class="scroll-arrow-btn" onclick="scrollTableBy(-350)">◀ 向左滑</button>
+        <button class="scroll-arrow-btn" onclick="scrollTableBy(350)">向右滑 ▶</button>
+      </div>
     </div>
 
-    <!-- 總表容器 -->
-    <div class="table-container" id="main-table-container">
+    <!-- 核心強制橫向捲動容器 -->
+    <div class="table-viewport-box" id="table-box">
       <table id="screener-table">
         <thead>
           <tr>
-            <th class="col-sticky-1" onclick="sortTable('ticker')">收藏 / 代碼</th>
-            <th class="col-sticky-2" onclick="sortTable('exchange')">市場</th>
-            <th class="col-sticky-3" onclick="sortTable('name')">企業名稱</th>
-            <th onclick="sortTable('sector')">主板塊 (Sector)</th>
-            <th onclick="sortTable('industry')">細分子行業 (Industry)</th>
-            <th onclick="sortTable('price')">最新股價 ($)</th>
-            <th onclick="sortTable('fairVal')">公允價值 ($)</th>
-            <th onclick="sortTable('target_price')">目標價值 ($)</th>
-            <th onclick="sortTable('target_spread')">目標 vs 市價溢價</th>
-            <th onclick="sortTable('premiumPct')">公允溢價幅度</th>
-            <th onclick="sortTable('WACC')">加權成本 WACC / 終值 g</th>
-            <th onclick="sortTable('EV')">企業價值 EV ($M)</th>
-            <th onclick="sortTable('mcap')">市值 ($M)</th>
-            <th onclick="sortTable('pe_trailing')">靜態 P/E</th>
-            <th onclick="sortTable('pe_forward')">動態 P/E</th>
-            <th onclick="sortTable('pb_trailing')">靜態 P/B</th>
-            <th onclick="sortTable('div_yield')">股息率 (%)</th>
-            <th onclick="sortTable('fcf_to_ev')">FCF / EV (%)</th>
-            <th onclick="sortTable('fcf_to_mcap')">FCF / Mcap (%)</th>
-            <th onclick="sortTable('cash_to_assets')">現金/資產 (%)</th>
-            <th onclick="sortTable('liab_to_assets')">負債/資產 (%)</th>
-            <th onclick="sortTable('current_ratio')">流動比率</th>
-            <th onclick="sortTable('cash_minus_liab')">現金淨額 ($M)</th>
-            <th onclick="sortTable('roe')">ROE (%)</th>
-            <th onclick="sortTable('roa')">ROA (%)</th>
-            <th style="text-align: center;">操作</th>
+            <th class="col-fixed-1" onclick="sortTable('ticker')">收藏 / 代碼</th>
+            <th class="col-fixed-2" onclick="sortTable('exchange')">市場</th>
+            <th class="col-fixed-3" onclick="sortTable('name')">企業名稱</th>
+            <th onclick="sortTable('sector')" style="text-align: left; width: 110px;">主板塊</th>
+            <th onclick="sortTable('industry')" style="text-align: left; width: 170px;">細分子行業</th>
+            <th onclick="sortTable('price')" style="width: 100px;">最新股價 ($)</th>
+            <th onclick="sortTable('fairVal')" style="width: 110px;">公允價值 ($)</th>
+            <th onclick="sortTable('target_price')" style="width: 110px;">目標價值 ($)</th>
+            <th onclick="sortTable('target_spread')" style="width: 120px;">目標 vs 市價溢價</th>
+            <th onclick="sortTable('premiumPct')" style="width: 110px;">公允溢價幅度</th>
+            <th onclick="sortTable('WACC')" style="width: 120px;">加權成本 WACC / g</th>
+            <th onclick="sortTable('EV')" style="width: 130px;">企業價值 EV ($M)</th>
+            <th onclick="sortTable('mcap')" style="width: 130px;">市值 ($M)</th>
+            <th onclick="sortTable('pe_trailing')" style="width: 85px;">靜態 P/E</th>
+            <th onclick="sortTable('pe_forward')" style="width: 85px;">動態 P/E</th>
+            <th onclick="sortTable('pb_trailing')" style="width: 85px;">靜態 P/B</th>
+            <th onclick="sortTable('div_yield')" style="width: 90px;">股息率 (%)</th>
+            <th onclick="sortTable('fcf_to_ev')" style="width: 105px;">FCF / EV (%)</th>
+            <th onclick="sortTable('fcf_to_mcap')" style="width: 115px;">FCF / Mcap (%)</th>
+            <th onclick="sortTable('cash_to_assets')" style="width: 110px;">現金/資產 (%)</th>
+            <th onclick="sortTable('liab_to_assets')" style="width: 110px;">負債/資產 (%)</th>
+            <th onclick="sortTable('current_ratio')" style="width: 85px;">流動比率</th>
+            <th onclick="sortTable('cash_minus_liab')" style="width: 120px;">現金淨額 ($M)</th>
+            <th onclick="sortTable('roe')" style="width: 85px;">ROE (%)</th>
+            <th onclick="sortTable('roa')" style="width: 85px;">ROA (%)</th>
+            <th style="text-align: center; width: 95px;">操作</th>
           </tr>
         </thead>
         <tbody id="screener-tbody"></tbody>
@@ -440,7 +463,7 @@
       <div>
         <div class="panel">
           <div class="panel-title">10 年自由現金流折現排程 (可逐年微調 Y1-Y10 增速)</div>
-          <div class="table-container" style="overflow-x: auto;">
+          <div class="table-viewport-box" style="overflow-x: auto;">
             <table id="dcf-table" style="width: 100%;">
               <thead><tr id="dcf-head"><th>年份 (Period)</th></tr></thead>
               <tbody>
@@ -455,7 +478,7 @@
 
         <div class="panel">
           <div class="panel-title">雙變數敏感度分析矩陣 (WACC vs 永續增長率 g)</div>
-          <div class="table-container" style="overflow-x: auto;">
+          <div class="table-viewport-box" style="overflow-x: auto;">
             <table id="sens-table" style="width: 100%;">
               <thead>
                 <tr>
@@ -750,12 +773,12 @@
 
       return `
         <tr>
-          <td class="col-sticky-1">
+          <td class="col-fixed-1">
             <button class="fav-btn ${favActiveClass}" onclick="toggleFavorite('${item.ticker}', event)" title="加入/取消自選清單">${favHeart}</button>
             <a class="ticker-link" onclick="openDetail('${item.ticker}')">${item.ticker}</a>
           </td>
-          <td class="col-sticky-2"><span class="badge ${exchClass}">${item.exchange}</span></td>
-          <td class="col-sticky-3" style="font-weight: 600; color: #fff;">${item.name}</td>
+          <td class="col-fixed-2"><span class="badge ${exchClass}">${item.exchange}</span></td>
+          <td class="col-fixed-3" style="font-weight: 600; color: #fff;">${item.name}</td>
           <td style="color: #cbd5e1; text-align: left;">${item.sector}</td>
           <td style="color: #94a3b8; font-size: 11px; text-align: left;">${item.industry}</td>
           <td style="font-weight: 700; color: var(--accent);">$${item.price.toFixed(2)}</td>
@@ -787,51 +810,51 @@
         </tr>
       `;
     }).join('');
-
-    // 同步頂部橫向捲動軸寬度
-    syncScrollbars();
   }
 
-  // ===== 雙向捲軸同步與原地 Shift 左右滑動控制 =====
-  function syncScrollbars() {
-    const table = document.getElementById('screener-table');
-    const dummy = document.getElementById('top-scroll-dummy');
-    if (table && dummy) {
-      dummy.style.width = table.scrollWidth + 'px';
+  // ===== 左右按鈕點擊與滑鼠拖曳捲動事件 =====
+  function scrollTableBy(amount) {
+    const box = document.getElementById('table-box');
+    if (box) {
+      box.scrollBy({ left: amount, behavior: 'smooth' });
     }
   }
 
-  function setupScrollSync() {
-    const topScroll = document.getElementById('top-scroll-wrapper');
-    const mainTable = document.getElementById('main-table-container');
+  function initMouseDragScroll() {
+    const box = document.getElementById('table-box');
+    if (!box) return;
 
-    let isSyncingTop = false;
-    let isSyncingMain = false;
+    let isDown = false;
+    let startX;
+    let scrollLeft;
 
-    topScroll.addEventListener('scroll', function() {
-      if (!isSyncingTop) {
-        isSyncingMain = true;
-        mainTable.scrollLeft = topScroll.scrollLeft;
-      }
-      isSyncingTop = false;
+    box.addEventListener('mousedown', (e) => {
+      // 點擊按鈕或連結時不觸發拖拽
+      if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.tagName === 'INPUT') return;
+      isDown = true;
+      startX = e.pageX - box.offsetLeft;
+      scrollLeft = box.scrollLeft;
     });
 
-    mainTable.addEventListener('scroll', function() {
-      if (!isSyncingMain) {
-        isSyncingTop = true;
-        topScroll.scrollLeft = mainTable.scrollLeft;
-      }
-      isSyncingMain = false;
+    box.addEventListener('mouseleave', () => { isDown = false; });
+    box.addEventListener('mouseup', () => { isDown = false; });
+
+    box.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - box.offsetLeft;
+      const walk = (x - startX) * 1.5; // 滑動靈敏度
+      box.scrollLeft = scrollLeft - walk;
     });
 
-    // 支援直接使用 Shift + 滑鼠滾輪 在表格任意位置橫向捲動
-    mainTable.addEventListener('wheel', function(e) {
-      if (e.shiftKey || Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
-        return; // 原生橫向捲動
+    // 支援 Shift + 滾輪 或 橫向滾輪原生滑動
+    box.addEventListener('wheel', (e) => {
+      if (e.deltaX !== 0) {
+        box.scrollLeft += e.deltaX;
+      } else if (e.shiftKey) {
+        box.scrollLeft += e.deltaY;
       }
     }, { passive: true });
-
-    window.addEventListener('resize', syncScrollbars);
   }
 
   function loadDetailTicker(ticker) {
@@ -1022,7 +1045,7 @@
 
   window.onload = function() {
     updateSubIndustryButtons();
-    setupScrollSync();
+    initMouseDragScroll();
     const hash = window.location.hash.replace('#', '').toUpperCase();
     if (hash && stockUniverse[hash]) {
       activeDetailTicker = hash;
