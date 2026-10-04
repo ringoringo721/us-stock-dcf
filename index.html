@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>美股旗艦 DCF 估值雷達 (200 檔全覆蓋 · 槓桿與 F-Score 診斷)</title>
+  <title>美股旗艦 DCF 估值雷達 (200 檔 · 槓桿與 F-Score 診斷)</title>
   <script src="market_data.js"></script>
   <style>
     :root {
@@ -81,7 +81,7 @@
     }
     .scroll-arrow-btn:hover { background: var(--accent); color: #0b1120; }
 
-    /* 寬幅表格滾動容器 (3800px 完整容納所有槓桿指標) */
+    /* 表格滾動容器 */
     .table-scroll-wrapper {
       width: 100% !important;
       max-width: 100% !important;
@@ -190,7 +190,7 @@
   <header>
     <div>
       <h1>美股旗艦 DCF 估值雷達 (200 檔)</h1>
-      <span style="font-size: 13px; color: var(--text-muted);">NYSE · NASDAQ · AMEX · EV/EBITDA · Debt/EBITDA 槓桿指標 · Piotroski 9 分診斷</span>
+      <span style="font-size: 13px; color: var(--text-muted);">NYSE · NASDAQ · AMEX · DCF 合理價值 ➔ 深度模型 ➔ F-Score / 槓桿指標</span>
     </div>
     <div class="status-badge">
       🟢 FMP 官方財報已完成同步 (全市場覆蓋)
@@ -279,10 +279,6 @@
             <th class="col-fixed-1" onclick="sortTable('ticker')">收藏 / 代碼</th>
             <th class="col-fixed-2" onclick="sortTable('exchange')">市場</th>
             <th class="col-fixed-3" onclick="sortTable('name')">企業名稱</th>
-            <th onclick="sortTable('f_score')" style="width: 105px; text-align: center;">F-Score 評分</th>
-            <th onclick="sortTable('ev_to_ebitda')" style="width: 110px;">EV / EBITDA</th>
-            <th onclick="sortTable('debt_to_ebitda')" style="width: 115px;">Debt / EBITDA</th>
-            <th onclick="sortTable('net_debt_to_ebitda')" style="width: 130px;">Net Debt / EBITDA</th>
             <th onclick="sortTable('sector')" style="text-align: left; width: 120px;">主板塊</th>
             <th onclick="sortTable('industry')" style="text-align: left; width: 180px;">細分子行業</th>
             <th onclick="sortTable('price')" style="width: 110px;">最新股價 ($)</th>
@@ -306,6 +302,11 @@
             <th onclick="sortTable('roe')" style="width: 90px;">ROE (%)</th>
             <th onclick="sortTable('roa')" style="width: 90px;">ROA (%)</th>
             <th style="text-align: center; width: 100px;">操作</th>
+            <!-- 依需求移至 ROA 與 操作 之後的右側指標 -->
+            <th onclick="sortTable('f_score')" style="width: 115px; text-align: center;">F-Score 評分</th>
+            <th onclick="sortTable('ev_to_ebitda')" style="width: 115px;">EV / EBITDA</th>
+            <th onclick="sortTable('debt_to_ebitda')" style="width: 120px;">Debt / EBITDA</th>
+            <th onclick="sortTable('net_debt_to_ebitda')" style="width: 135px;">Net Debt / EBITDA</th>
           </tr>
         </thead>
         <tbody id="screener-tbody"></tbody>
@@ -560,7 +561,6 @@
     }
   }
 
-  // 前端健全性運算核心 (若後端尚未更新此四項，前端自動即時動態補算)
   function computeDCF(s) {
     const E = s.price * s.shares;
     const V = E + s.debt;
@@ -852,12 +852,6 @@
           </td>
           <td class="col-fixed-2"><span class="badge ${exchClass}">${item.exchange}</span></td>
           <td class="col-fixed-3" style="font-weight: 600; color: #fff;">${item.name}</td>
-          <td style="text-align: center;">
-            <span class="badge-fscore ${fScoreClass}" onclick="openFScore('${item.ticker}')" title="點擊查看皮氏 9 分明細">${fScoreVal} / 9</span>
-          </td>
-          <td style="font-weight: 700; color: #38bdf8;">${item.ev_to_ebitda !== undefined ? item.ev_to_ebitda.toFixed(1) + 'x' : '--'}</td>
-          <td style="color: #cbd5e1;">${item.debt_to_ebitda !== undefined ? item.debt_to_ebitda.toFixed(2) + 'x' : '--'}</td>
-          <td style="${ndeColor}">${item.net_debt_to_ebitda !== undefined ? item.net_debt_to_ebitda.toFixed(2) + 'x' : '--'}</td>
           <td style="color: #cbd5e1; text-align: left;">${item.sector}</td>
           <td style="color: #94a3b8; font-size: 11px; text-align: left;">${item.industry}</td>
           <td style="font-weight: 700; color: var(--accent);">$${item.price.toFixed(2)}</td>
@@ -886,6 +880,13 @@
           <td style="text-align: center;">
             <button class="btn-nav" onclick="openDetail('${item.ticker}')">深度模型 →</button>
           </td>
+          <!-- 移至右側的 4 大量化診斷欄位 -->
+          <td style="text-align: center;">
+            <span class="badge-fscore ${fScoreClass}" onclick="openFScore('${item.ticker}')" title="點擊查看皮氏 9 分明細">${fScoreVal} / 9</span>
+          </td>
+          <td style="font-weight: 700; color: #38bdf8;">${item.ev_to_ebitda !== undefined ? item.ev_to_ebitda.toFixed(1) + 'x' : '--'}</td>
+          <td style="color: #cbd5e1;">${item.debt_to_ebitda !== undefined ? item.debt_to_ebitda.toFixed(2) + 'x' : '--'}</td>
+          <td style="${ndeColor}">${item.net_debt_to_ebitda !== undefined ? item.net_debt_to_ebitda.toFixed(2) + 'x' : '--'}</td>
         </tr>
       `;
     }).join('');
