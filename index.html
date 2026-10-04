@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>美股 100 強 (Top 100) DCF 估值雷達與 GICS 產業分析</title>
+  <title>美股旗艦 DCF 估值雷達與 GICS 產業分析</title>
   <script src="market_data.js"></script>
   <style>
     :root {
@@ -26,7 +26,7 @@
       --fav-pink: #f43f5e;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    body { background-color: var(--bg); color: var(--text); padding: 16px; line-height: 1.5; overflow-x: hidden; }
+    html, body { background-color: var(--bg); color: var(--text); padding: 16px; line-height: 1.5; width: 100%; min-height: 100vh; }
     .container { width: 100%; max-width: 100%; margin: 0 auto; }
     
     header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid var(--card-border); padding-bottom: 16px; flex-wrap: wrap; gap: 14px; }
@@ -47,29 +47,33 @@
     .search-input { background: #0f172a; border: 1px solid var(--card-border); color: #fff; padding: 6px 12px; border-radius: 6px; font-size: 13px; width: 320px; margin-left: auto; }
     .search-input:focus { border-color: var(--accent); outline: none; }
 
-    /* ===== 表格與左右捲動核心樣式 ===== */
+    /* ===== 表格與左右捲動核心修復 (可自適應螢幕，並帶有固定前三欄) ===== */
     .table-container {
       width: 100%;
+      max-width: 100%;
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 8px;
-      overflow-x: auto;
+      overflow-x: scroll; /* 強制開啟橫向捲軸 */
       overflow-y: visible;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
       position: relative;
+      scrollbar-width: thin;
+      scrollbar-color: #64748b #0f172a;
     }
 
+    /* Webkit 專屬高對比橫向捲軸 */
     .table-container::-webkit-scrollbar {
-      height: 12px;
+      height: 14px;
     }
     .table-container::-webkit-scrollbar-track {
       background: #0f172a;
-      border-radius: 6px;
+      border-radius: 8px;
     }
     .table-container::-webkit-scrollbar-thumb {
       background: #475569;
-      border-radius: 6px;
-      border: 2px solid #0f172a;
+      border-radius: 8px;
+      border: 3px solid #0f172a;
     }
     .table-container::-webkit-scrollbar-thumb:hover {
       background: var(--accent);
@@ -85,7 +89,7 @@
       white-space: nowrap;
     }
     th, td {
-      padding: 10px 14px;
+      padding: 11px 14px;
       border-bottom: 1px solid var(--card-border);
     }
     th {
@@ -101,39 +105,39 @@
     th:hover { color: var(--accent); }
     tr:hover td { background-color: rgba(255, 255, 255, 0.03); }
 
-    /* ===== 鎖定前三欄，橫向滑動時不跑位 ===== */
+    /* ===== 鎖定前三欄 (Sticky Columns) ===== */
     .col-sticky-1 {
       position: sticky;
       left: 0;
       z-index: 6;
       background: #1e293b;
       text-align: left;
-      min-width: 100px;
+      min-width: 105px;
     }
-    th.col-sticky-1 { background: #162032; z-index: 8; }
+    th.col-sticky-1 { background: #162032; z-index: 9; }
 
     .col-sticky-2 {
       position: sticky;
-      left: 100px;
+      left: 105px;
       z-index: 6;
       background: #1e293b;
       text-align: left;
       min-width: 80px;
     }
-    th.col-sticky-2 { background: #162032; z-index: 8; }
+    th.col-sticky-2 { background: #162032; z-index: 9; }
 
     .col-sticky-3 {
       position: sticky;
-      left: 180px;
+      left: 185px;
       z-index: 6;
       background: #1e293b;
       text-align: left;
       border-right: 2px solid #334155;
-      min-width: 140px;
+      min-width: 150px;
     }
-    th.col-sticky-3 { background: #162032; z-index: 8; }
+    th.col-sticky-3 { background: #162032; z-index: 9; }
 
-    /* 愛心收藏樣式 */
+    /* 愛心圖示 */
     .fav-btn {
       background: transparent;
       border: none;
@@ -196,11 +200,11 @@
 <div class="container">
   <header>
     <div>
-      <h1>美股 100 強 (Top 100) DCF 估值雷達</h1>
-      <span style="font-size: 13px; color: var(--text-muted);">NYSE · NASDAQ · AMEX · GICS 完整板塊樹 · 愛心自選清單 · 雙軌目標價</span>
+      <h1>美股旗艦 DCF 估值雷達</h1>
+      <span style="font-size: 13px; color: var(--text-muted);">NYSE · NASDAQ · AMEX · GICS 完整產業樹 · 鎖定前三欄 · 雙軌目標價</span>
     </div>
     <div class="status-badge">
-      🟢 FMP 官方財報已完成同步 (Stage 2: 100 檔標的全覆蓋)
+      🟢 FMP 官方財報已完成同步 (全市場覆蓋)
     </div>
   </header>
 
@@ -209,7 +213,7 @@
     <div class="top-stats">
       <div class="stat-box">
         <div class="stat-label">追蹤標的</div>
-        <div class="stat-num" id="stat-total">100 檔</div>
+        <div class="stat-num" id="stat-total">0 檔</div>
       </div>
       <div class="stat-box">
         <div class="stat-label">❤️ 自選監控標的</div>
@@ -229,14 +233,13 @@
       </div>
     </div>
 
-    <!-- 雙層階梯篩選列 -->
+    <!-- 篩選控制面板 -->
     <div class="filter-panel">
-      <!-- 1. 估值與自選狀態 -->
       <div class="filter-row">
         <span class="filter-title">篩選維度：</span>
         <div class="filter-btns" id="val-filters">
-          <button class="f-btn active" onclick="setValFilter('ALL')">全部 100 強</button>
-          <button class="f-btn btn-fav" onclick="setValFilter('FAVORITES')">❤️ 我的自選收藏</button>
+          <button class="f-btn active" onclick="setValFilter('ALL')">全部標的</button>
+          <button class="f-btn btn-fav" onclick="setValFilter('FAVORITES')">❤️️ 我的自選收藏</button>
           <button class="f-btn" onclick="setValFilter('UNDERVALUED')">🟢 具安全邊際 (低估)</button>
           <button class="f-btn" onclick="setValFilter('OVERVALUED')">🔴 溢價過高 (高估)</button>
           <button class="f-btn" onclick="setValFilter('SAVED')">💾 已存目標價</button>
@@ -244,7 +247,6 @@
         <input type="text" class="search-input" id="search-ticker" placeholder="搜尋代號、名稱、主板塊或細分子行業..." oninput="renderScreenerTable()">
       </div>
 
-      <!-- 2. 主板塊 (Sector) -->
       <div class="filter-row">
         <span class="filter-title">主板塊：</span>
         <div class="filter-btns" id="sector-filters">
@@ -263,7 +265,6 @@
         </div>
       </div>
 
-      <!-- 3. 動態細分子行業 (Sub-Industry) -->
       <div class="filter-row" id="subindustry-row">
         <span class="filter-title">細分子行業：</span>
         <div class="filter-btns" id="subindustry-filters">
@@ -272,7 +273,7 @@
       </div>
     </div>
 
-    <!-- 總表 (支援橫向滑動與前三欄鎖定) -->
+    <!-- 總表 (完美左右捲動與鎖定前三欄) -->
     <div class="table-container">
       <table id="screener-table">
         <thead>
@@ -451,7 +452,6 @@
   let sortAsc = false;
   let activeDetailTicker = 'NVDA';
 
-  // ===== 愛心收藏清單 LocalStorage 模組 =====
   function getFavorites() {
     try {
       return JSON.parse(localStorage.getItem('M7_FAVORITES') || '[]');
@@ -483,8 +483,9 @@
 
   function updateDetailFavButton() {
     const btn = document.getElementById('det-fav-btn');
+    if (!btn) return;
     if (isFavorite(activeDetailTicker)) {
-      btn.innerText = '❤️';
+      btn.innerText = '❤️️';
       btn.className = 'fav-btn active';
     } else {
       btn.innerText = '♡';
@@ -492,7 +493,6 @@
     }
   }
 
-  // ===== 目標價 LocalStorage 模組 =====
   function getSavedModels() {
     try {
       return JSON.parse(localStorage.getItem('M7_CUSTOM_VALUATIONS') || '{}');
@@ -685,7 +685,7 @@
     const savedCount = Object.keys(savedModels).length;
     const favCount = favs.length;
 
-    document.getElementById('stat-total').innerText = `${totalCount} 檔 (Top 100)`;
+    document.getElementById('stat-total').innerText = `${totalCount} 檔`;
     document.getElementById('stat-fav-count').innerText = `${favCount} 檔`;
     document.getElementById('stat-undervalued').innerText = `${underCount} 檔 (${totalCount > 0 ? ((underCount/totalCount)*100).toFixed(0) : 0}%)`;
     document.getElementById('stat-overvalued').innerText = `${overCount} 檔 (${totalCount > 0 ? ((overCount/totalCount)*100).toFixed(0) : 0}%)`;
