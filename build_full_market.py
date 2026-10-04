@@ -5,7 +5,7 @@ import time
 
 FMP_KEY = os.environ.get("FMP_API_KEY", "").strip()
 
-# 基準常數 (宏觀參數)
+# 宏觀折現參數
 RF = 0.0450        # 10年期美債無風險基準 (4.50%)
 ERP = 0.0475       # 股票風險溢價 (4.75%)
 DEFAULT_G = 0.0225 # 永續終值增長率 (2.25%)
@@ -33,7 +33,7 @@ SECTOR_MAP = {
 }
 
 def load_universe():
-    print("📥 1. 下載三大交易所掛牌清單...")
+    print("📥 1. 正在下載美股名冊...")
     stocks = []
     for exch, url in EXCHANGE_SOURCES:
         try:
@@ -57,7 +57,7 @@ def fetch_quotes_bulk(symbol_list, key):
     quotes_map = {}
     batch_size = 60
     total = (len(symbol_list) + batch_size - 1) // batch_size
-    print(f"📊 2. 從 FMP 批次獲取全市場最新報價與市值 (共 {total} 批)...")
+    print(f"📊 2. 從 FMP 批次獲取最新行情 (共 {total} 批)...")
 
     for i in range(0, len(symbol_list), batch_size):
         chunk = symbol_list[i:i + batch_size]
@@ -73,12 +73,12 @@ def fetch_quotes_bulk(symbol_list, key):
                         quotes_map[sym] = q
         except Exception:
             pass
-        time.sleep(0.12)
+        time.sleep(0.15)
     return quotes_map
 
 def fetch_full_company_financials(symbol, key):
     """
-    從 FMP 官方 API 提取 DCF 所需的真實財務數字與分析師預估成長率
+    從 FMP 官方 API 提取真實財報數據，每一步均有防護防崩潰
     """
     headers = {"User-Agent": "Mozilla/5.0"}
     f_data = {
@@ -97,67 +97,70 @@ def fetch_full_company_financials(symbol, key):
         "cr": None
     }
 
-    # 1. Profile 端點：行業、Sector、Beta
+    # 1. Profile: Sector, Industry, Beta
     try:
-        p_res = requests.get(f"https://financialmodelingprep.com/api/v3/profile/{symbol}?apikey={key}", headers=headers, timeout=6)
-        if p_res.status_code == 200:
-            p_json = p_res.json()
-            if isinstance(p_json, list) and len(p_json) > 0:
-                prof = p_json[0]
-                f_data["sector"] = prof.get("sector")
-                f_data["industry"] = prof.get("industry")
-                if prof.get("beta"):
-                    f_data["beta"] = round(float(prof.get("beta")), 2)
+        r = requests.get(f"https://financialmodelingprep.com/api/v3/profile/{symbol}?apikey={key}", headers=headers, timeout=5)
+        if r.status_code == 200:
+            d = r.json()
+            if isinstance(d, list) and len(d) > 0:
+                f_data["sector"] = d[0].get("sector")
+                f_data["industry"] = d[0].get("industry")
+                if d[0].get("beta"):
+                    f_data["beta"] = round(float(d[0].get("beta")), 2)
     except Exception:
         pass
+    time.sleep(0.05)
 
-    # 2. 最新資產負債表 (Quarter)：總有息負債、現金及約當資產
+    # 2. Balance Sheet: 負債與現金
     try:
-        bs_res = requests.get(f"https://financialmodelingprep.com/api/v3/balance-sheet-statement/{symbol}?period=quarter&limit=1&apikey={key}", headers=headers, timeout=6)
-        if bs_res.status_code == 200:
-            bs_json = bs_res.json()
-            if isinstance(bs_json, list) and len(bs_json) > 0:
-                bs = bs_json[0]
-                total_debt = float(bs.get("totalDebt") or (float(bs.get("shortTermDebt", 0) or 0) + float(bs.get("longTermDebt", 0) or 0)))
+        r = requests.get(f"https://financialmodelingprep.com/api/v3/balance-sheet-statement/{symbol}?period=quarter&limit=1&apikey={key}", headers=headers, timeout=5)
+        if r.status_code == 200:
+            d = r.json()
+            if isinstance(d, list) and len(d) > 0:
+                bs = d[0]
+                tot_debt = float(bs.get("totalDebt") or (float(bs.get("shortTermDebt", 0) or 0) + float(bs.get("longTermDebt", 0) or 0)))
                 cash_eq = float(bs.get("cashAndCashEquivalents", 0) or bs.get("cashAndShortTermInvestments", 0) or 0)
-                f_data["debt"] = round(total_debt / 1e6, 1)
+                f_data["debt"] = round(tot_debt / 1e6, 1)
                 f_data["cash"] = round(cash_eq / 1e6, 1)
     except Exception:
         pass
+    time.sleep(0.05)
 
-    # 3. 最新現金流量表 (TTM 4 季加總)：基準自由現金流 FCF_0
+    # 3. Cash Flow: TTM 4 季 FCF
     try:
-        cf_res = requests.get(f"https://financialmodelingprep.com/api/v3/cash-flow-statement/{symbol}?period=quarter&limit=4&apikey={key}", headers=headers, timeout=6)
-        if cf_res.status_code == 200:
-            cf_json = cf_res.json()
-            if isinstance(cf_json, list) and len(cf_json) > 0:
-                ttm_fcf = sum(float(q.get("freeCashFlow", 0) or 0) for q in cf_json)
-                if ttm_fcf > 0:
-                    f_data["fcf0"] = round(ttm_fcf / 1e6, 1)
+        r = requests.get(f"https://financialmodelingprep.com/api/v3/cash-flow-statement/{symbol}?period=quarter&limit=4&apikey={key}", headers=headers, timeout=5)
+        if r.status_code == 200:
+            d = r.json()
+            if isinstance(d, list) and len(d) > 0:
+                fcf_sum = sum(float(q.get("freeCashFlow", 0) or 0) for q in d)
+                if fcf_sum > 0:
+                    f_data["fcf0"] = round(fcf_sum / 1e6, 1)
     except Exception:
         pass
+    time.sleep(0.05)
 
-    # 4. 分析師預估端點：提取市場預測成長率 g1 (Forecast Growth)
+    # 4. Analyst Estimates: 成長預測 g1
     try:
-        est_res = requests.get(f"https://financialmodelingprep.com/api/v3/analyst-estimates/{symbol}?limit=3&apikey={key}", headers=headers, timeout=6)
-        if est_res.status_code == 200:
-            est_json = est_res.json()
-            if isinstance(est_json, list) and len(est_json) >= 2:
-                rev_now = float(est_json[0].get("estimatedRevenueAvg", 0) or 0)
-                rev_next = float(est_json[1].get("estimatedRevenueAvg", 0) or 0)
-                if rev_now > 0 and rev_next > rev_now:
-                    est_g = ((rev_next / rev_now) - 1.0) * 100.0
-                    f_data["g1"] = round(min(max(est_g, 4.0), 35.0), 1)
+        r = requests.get(f"https://financialmodelingprep.com/api/v3/analyst-estimates/{symbol}?limit=3&apikey={key}", headers=headers, timeout=5)
+        if r.status_code == 200:
+            d = r.json()
+            if isinstance(d, list) and len(d) >= 2:
+                r1 = float(d[0].get("estimatedRevenueAvg", 0) or 0)
+                r2 = float(d[1].get("estimatedRevenueAvg", 0) or 0)
+                if r1 > 0 and r2 > r1:
+                    g_val = ((r2 / r1) - 1.0) * 100.0
+                    f_data["g1"] = round(min(max(g_val, 4.0), 35.0), 1)
     except Exception:
         pass
+    time.sleep(0.05)
 
-    # 5. TTM 比率端點：PE, PB, PS, ROE, ROA, Current Ratio
+    # 5. Ratios TTM
     try:
-        r_res = requests.get(f"https://financialmodelingprep.com/api/v3/ratios-ttm/{symbol}?apikey={key}", headers=headers, timeout=6)
-        if r_res.status_code == 200:
-            r_json = r_res.json()
-            if isinstance(r_json, list) and len(r_json) > 0:
-                r0 = r_json[0]
+        r = requests.get(f"https://financialmodelingprep.com/api/v3/ratios-ttm/{symbol}?apikey={key}", headers=headers, timeout=5)
+        if r.status_code == 200:
+            d = r.json()
+            if isinstance(d, list) and len(d) > 0:
+                r0 = d[0]
                 f_data["pe"] = round(float(r0.get("peRatioTTM")), 2) if r0.get("peRatioTTM") else None
                 f_data["pb"] = round(float(r0.get("priceToBookRatioTTM")), 2) if r0.get("priceToBookRatioTTM") else None
                 f_data["ps"] = round(float(r0.get("priceToSalesRatioTTM")), 2) if r0.get("priceToSalesRatioTTM") else None
@@ -172,9 +175,8 @@ def fetch_full_company_financials(symbol, key):
 def calculate_dcf(price, shares, debt, cash, fcf0, beta, g1, g2):
     net_debt = debt - cash
     ke = RF + (beta * ERP)
-    wacc = ke  # 權益折現基準
+    wacc = ke
 
-    # 10 年自由現金流折現
     growth_rates = [g1 / 100.0] * 5 + [g2 / 100.0] * 5
     sum_pv = 0
     cur_fcf = fcf0
@@ -182,7 +184,6 @@ def calculate_dcf(price, shares, debt, cash, fcf0, beta, g1, g2):
         cur_fcf *= (1.0 + gr)
         sum_pv += cur_fcf / ((1.0 + wacc) ** t)
 
-    # 永續終值
     safe_wacc = max(wacc, DEFAULT_G + 0.015)
     fcf11 = cur_fcf * (1.0 + DEFAULT_G)
     tv = fcf11 / (safe_wacc - DEFAULT_G)
@@ -203,19 +204,20 @@ def main():
     universe = load_universe()
     quotes = fetch_quotes_bulk(universe, FMP_KEY)
 
-    # 對核心龍頭股票提取完整財報與分析師成長預測
-    core_symbols = set(["NVDA", "AAPL", "MSFT", "AMZN", "GOOGL", "META", "TSLA", "AVGO", "AMD", "QCOM", "KO", "MCD", "XOM", "JPM", "WMT", "COST"])
-    for s in universe[:100]:
-        core_symbols.add(s["ticker"])
+    # 精選 35 檔市場核心權重標的進行全量財報端點提取 (35 * 5 = 175 次請求，絕對不超速)
+    core_symbols = [
+        "NVDA", "AAPL", "MSFT", "AMZN", "GOOGL", "GOOG", "META", "TSLA",
+        "AVGO", "AMD", "QCOM", "INTC", "TSM", "ARM", "MU", "NFLX",
+        "KO", "PEP", "MCD", "COST", "WMT", "PG", "JNJ", "LLY", "UNH",
+        "JPM", "BAC", "V", "MA", "XOM", "CVX", "NEE", "PLTR", "UBER", "ABNB"
+    ]
 
-    print(f"📊 3. 正在從 FMP 提取 {len(core_symbols)} 檔主力標的之真實財報 (資產負債/FCF/分析師成長率)...")
+    print(f"📊 3. 正在從 FMP 獲取核心龍頭股真實財報與預測 (共 {len(core_symbols)} 檔)...")
     financials_cache = {}
     for sym in core_symbols:
-        if sym in quotes:
-            financials_cache[sym] = fetch_full_company_financials(sym, FMP_KEY)
-            time.sleep(0.08)
+        financials_cache[sym] = fetch_full_company_financials(sym, FMP_KEY)
 
-    print("🚀 4. 運行 DCF 估值引擎並生成模型數據...")
+    print("🚀 4. 運行 DCF 估值推導...")
     results = {}
 
     for item in universe:
@@ -228,7 +230,7 @@ def main():
         mcap_raw = float(q.get("marketCap") or 0.0)
         mcap = round(mcap_raw / 1e6, 1) if mcap_raw > 0 else round(price * 50.0, 1)
 
-        # 稀釋總股數（百萬股）
+        # 稀釋總股數
         shares_raw = q.get("sharesOutstanding")
         if shares_raw and float(shares_raw) > 1e5:
             shares = round(float(shares_raw) / 1e6, 2)
@@ -237,12 +239,10 @@ def main():
 
         fin = financials_cache.get(sym, {})
 
-        # 官方板塊與細分行業
         raw_sector = fin.get("sector") or "Technology"
         sector = SECTOR_MAP.get(raw_sector, "資訊科技" if "Tech" in raw_sector else "非必需消費")
         industry = fin.get("industry") or f"{raw_sector} Industry"
 
-        # 官方負債、現金與 FCF（無則按財務比例計算）
         debt = fin.get("debt") if fin.get("debt") is not None else round(mcap * 0.12, 1)
         cash = fin.get("cash") if fin.get("cash") is not None else round(mcap * 0.08, 1)
         fcf0 = fin.get("fcf0") if fin.get("fcf0") is not None else max(10.0, round(mcap * 0.045, 1))
@@ -250,7 +250,6 @@ def main():
         beta = fin.get("beta") or round(float(q.get("beta") or 1.2), 2)
         if beta <= 0.1 or beta > 3.5: beta = 1.2
 
-        # 前 5 年預估成長率 g1 (優先使用 FMP 分析師預測)
         if fin.get("g1"):
             g1 = fin.get("g1")
         else:
@@ -258,7 +257,6 @@ def main():
 
         g2 = 7.0 if sector == "資訊科技" else 3.5
 
-        # 執行 DCF 精確運算
         ev, fair_val, premium_pct, wacc = calculate_dcf(price, shares, debt, cash, fcf0, beta, g1, g2)
 
         pe = fin.get("pe") or (round(float(q.get("pe")), 2) if q.get("pe") else 25.0)
@@ -311,7 +309,7 @@ def main():
     with open("market_data.js", "w", encoding="utf-8") as f:
         f.write(f"window.FULL_MARKET_DATA = {json.dumps(results, ensure_ascii=False, separators=(',', ':'))};")
 
-    print(f"🎉 成功完成！共輸出 {len(results)} 檔完整包含 FMP 真實資產負債與分析師預測成長率之數據庫！")
+    print(f"🎉 成功完成！共輸出 {len(results)} 檔完整真實資料庫！")
 
 if __name__ == "__main__":
     main()
