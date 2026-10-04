@@ -266,7 +266,7 @@ RAW_STOCK_LIST = [
     {"ticker": "O", "name": "Realty Income", "exchange": "NYSE", "sector": "房地產", "industry": "Retail REITs", "default_g1": 5.0}
 ]
 
-# 精確去重
+# 嚴格去重
 seen = set()
 UNIQUE_STOCKS = []
 for item in RAW_STOCK_LIST:
@@ -351,7 +351,7 @@ def calculate_piotroski_score(roa, fcf0, cr, liab_r, ttm_net_income):
     return score, items
 
 def main():
-    print(f"🚀 啟動 200 檔美股 DCF + EV/EBITDA + F-Score 全模組引擎 (標的總數: {len(UNIQUE_STOCKS)} 檔)...")
+    print(f"🚀 啟動 200 檔美股 DCF + EV/EBITDA + 槓桿指標 (Debt/EBITDA) 引擎...")
     results = {}
 
     for idx, item in enumerate(UNIQUE_STOCKS, 1):
@@ -376,7 +376,7 @@ def main():
         if shares <= 0: shares = round(mcap / price, 1)
         time.sleep(0.04)
 
-        # 2. 資產負債表
+        # 2. 10-Q 資產負債表
         bs_data = fetch_json("balance-sheet-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 1})
         debt, cash, equity, total_assets = 0.0, 0.0, 1.0, 1.0
         liab_r, cash_to_assets, cr = 40.0, 0.0, 1.50
@@ -399,7 +399,7 @@ def main():
         pb_forward = round(pb_trailing * 0.90, 1)
         time.sleep(0.04)
 
-        # 3. 損益表 (TTM Net Income & EBITDA)
+        # 3. 損益表 (TTM 淨利潤與 EBITDA)
         inc_data = fetch_json("income-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 4})
         ttm_net_income = 0.0
         ttm_ebitda = 0.0
@@ -455,9 +455,16 @@ def main():
         fair_val = round(eq_val / shares, 2)
         premium_pct = round(((price / fair_val) - 1.0) * 100.0, 1)
 
-        # EV / EBITDA 計算
+        # 核心槓桿指標計算 (EV/EBITDA, Debt/EBITDA, Net Debt/EBITDA)
         ebitda_m = ttm_ebitda / 1e6
-        ev_to_ebitda = round(ev / ebitda_m, 1) if ebitda_m > 0 else round(pe_trailing * 0.75, 1)
+        if ebitda_m > 0:
+            ev_to_ebitda = round(ev / ebitda_m, 1)
+            debt_to_ebitda = round(debt / ebitda_m, 2)
+            net_debt_to_ebitda = round(net_debt / ebitda_m, 2)
+        else:
+            ev_to_ebitda = round(pe_trailing * 0.75, 1)
+            debt_to_ebitda = round(debt / max(fcf0, 1.0), 2)
+            net_debt_to_ebitda = round(net_debt / max(fcf0, 1.0), 2)
 
         # Piotroski F-Score 9 分明細計算
         f_score, f_score_breakdown = calculate_piotroski_score(roa, fcf0, cr, liab_r, ttm_net_income)
@@ -487,6 +494,8 @@ def main():
             "wacc": round(wacc * 100.0, 2),
             "ev": ev,
             "ev_to_ebitda": ev_to_ebitda,
+            "debt_to_ebitda": debt_to_ebitda,
+            "net_debt_to_ebitda": net_debt_to_ebitda,
             "f_score": f_score,
             "f_score_breakdown": f_score_breakdown,
             "fair_val": fair_val,
@@ -508,7 +517,7 @@ def main():
             "roa": roa
         }
 
-        print(f"[{idx:03d}/200] ✅ {sym} ({item['exchange']}) - 股價=${price} | EV/EBITDA={ev_to_ebitda}x | F-Score={f_score}/9")
+        print(f"[{idx:03d}/200] ✅ {sym} ({item['exchange']}) - 股價=${price} | EV/EBITDA={ev_to_ebitda}x | Debt/EBITDA={debt_to_ebitda}x | F-Score={f_score}/9")
 
     with open("full_market_dcf.json", "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
@@ -516,7 +525,7 @@ def main():
     with open("market_data.js", "w", encoding="utf-8") as f:
         f.write(f"window.FULL_MARKET_DATA = {json.dumps(results, ensure_ascii=False, indent=2)};")
 
-    print(f"\n🎉 成功！全市場 200 檔完整財務模型、EV/EBITDA 與 F-Score 9 分明細已全數寫入！")
+    print(f"\n🎉 成功！全市場 200 檔完整財務模型、Debt/EBITDA 槓桿指標已全數寫入！")
 
 if __name__ == "__main__":
     main()
