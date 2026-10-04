@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>美股旗艦 DCF 估值雷達 (200 檔全覆蓋)</title>
+  <title>美股旗艦 DCF 估值雷達 (200 檔全覆蓋 · EV/EBITDA · F-Score)</title>
   <script src="market_data.js"></script>
   <style>
     :root {
@@ -24,7 +24,7 @@
       --nyse-blue: #60a5fa;
       --amex-green: #34d399;
       --fav-pink: #f43f5e;
-      --sticky-bg: #162032; /* 實心深色，100% 阻隔後方文字 */
+      --sticky-bg: #162032;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
     html, body {
@@ -35,11 +35,7 @@
       width: 100%;
       min-height: 100vh;
     }
-    .container {
-      width: 100%;
-      max-width: 100%;
-      margin: 0 auto;
-    }
+    .container { width: 100%; max-width: 100%; margin: 0 auto; }
     
     header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid var(--card-border); padding-bottom: 16px; flex-wrap: wrap; gap: 14px; }
     h1 { font-size: 22px; font-weight: 700; color: #fff; }
@@ -59,7 +55,7 @@
     .search-input { background: #0f172a; border: 1px solid var(--card-border); color: #fff; padding: 6px 12px; border-radius: 6px; font-size: 13px; width: 320px; margin-left: auto; }
     .search-input:focus { border-color: var(--accent); outline: none; }
 
-    /* ===== 頂部滑動提示與快速滾動鍵 ===== */
+    /* 滑動按鈕條 */
     .scroll-hint-bar {
       display: flex;
       justify-content: space-between;
@@ -85,12 +81,11 @@
     }
     .scroll-arrow-btn:hover { background: var(--accent); color: #0b1120; }
 
-    /* ===== 徹底修復滾動容器 (支援滑鼠拖動、觸控板與滾輪) ===== */
+    /* 表格橫向捲動盒 */
     .table-scroll-wrapper {
       width: 100% !important;
       max-width: 100% !important;
       overflow-x: auto !important;
-      overflow-y: visible !important;
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 8px;
@@ -99,25 +94,14 @@
       scrollbar-width: thin;
       scrollbar-color: #38bdf8 #0f172a;
     }
-    .table-scroll-wrapper:active {
-      cursor: grabbing;
-    }
-    .table-scroll-wrapper::-webkit-scrollbar {
-      height: 14px;
-    }
-    .table-scroll-wrapper::-webkit-scrollbar-track {
-      background: #0f172a;
-      border-radius: 6px;
-    }
-    .table-scroll-wrapper::-webkit-scrollbar-thumb {
-      background: #38bdf8;
-      border-radius: 6px;
-      border: 3px solid #0f172a;
-    }
+    .table-scroll-wrapper:active { cursor: grabbing; }
+    .table-scroll-wrapper::-webkit-scrollbar { height: 14px; }
+    .table-scroll-wrapper::-webkit-scrollbar-track { background: #0f172a; border-radius: 6px; }
+    .table-scroll-wrapper::-webkit-scrollbar-thumb { background: #38bdf8; border-radius: 6px; border: 3px solid #0f172a; }
 
     table#screener-table {
-      width: 3200px !important;
-      min-width: 3200px !important;
+      width: 3400px !important;
+      min-width: 3400px !important;
       border-collapse: separate !important;
       border-spacing: 0;
       font-size: 12px;
@@ -125,76 +109,22 @@
       text-align: right;
     }
 
-    th, td {
-      padding: 10px 14px;
-      border-bottom: 1px solid var(--card-border);
-      height: 44px;
-    }
-    th {
-      background: #162032;
-      color: #cbd5e1;
-      font-weight: 600;
-      cursor: pointer;
-      user-select: none;
-      position: sticky;
-      top: 0;
-      z-index: 2;
-    }
+    th, td { padding: 10px 14px; border-bottom: 1px solid var(--card-border); height: 44px; }
+    th { background: #162032; color: #cbd5e1; font-weight: 600; cursor: pointer; user-select: none; position: sticky; top: 0; z-index: 2; }
     th:hover { color: var(--accent); }
     tr:hover td { background-color: rgba(255, 255, 255, 0.03); }
 
-    /* ===== 固定前三欄 (Sticky 且 100% 不透明) ===== */
-    .col-fixed-1 {
-      position: sticky !important;
-      left: 0px !important;
-      width: 110px !important;
-      min-width: 110px !important;
-      background: var(--sticky-bg) !important;
-      z-index: 10 !important;
-      text-align: left;
-    }
+    /* 固定前三欄 */
+    .col-fixed-1 { position: sticky !important; left: 0px !important; width: 110px !important; min-width: 110px !important; background: var(--sticky-bg) !important; z-index: 10 !important; text-align: left; }
     th.col-fixed-1 { z-index: 20 !important; background: #162032 !important; }
-
-    .col-fixed-2 {
-      position: sticky !important;
-      left: 110px !important;
-      width: 85px !important;
-      min-width: 85px !important;
-      background: var(--sticky-bg) !important;
-      z-index: 10 !important;
-      text-align: left;
-    }
+    .col-fixed-2 { position: sticky !important; left: 110px !important; width: 85px !important; min-width: 85px !important; background: var(--sticky-bg) !important; z-index: 10 !important; text-align: left; }
     th.col-fixed-2 { z-index: 20 !important; background: #162032 !important; }
-
-    .col-fixed-3 {
-      position: sticky !important;
-      left: 195px !important;
-      width: 170px !important;
-      min-width: 170px !important;
-      background: var(--sticky-bg) !important;
-      z-index: 10 !important;
-      text-align: left;
-      border-right: 3px solid #334155 !important;
-      box-shadow: 6px 0 10px rgba(0,0,0,0.7) !important;
-    }
+    .col-fixed-3 { position: sticky !important; left: 195px !important; width: 170px !important; min-width: 170px !important; background: var(--sticky-bg) !important; z-index: 10 !important; text-align: left; border-right: 3px solid #334155 !important; box-shadow: 6px 0 10px rgba(0,0,0,0.7) !important; }
     th.col-fixed-3 { z-index: 20 !important; background: #162032 !important; }
 
-    tr:hover td.col-fixed-1,
-    tr:hover td.col-fixed-2,
-    tr:hover td.col-fixed-3 {
-      background: #1e293b !important;
-    }
+    tr:hover td.col-fixed-1, tr:hover td.col-fixed-2, tr:hover td.col-fixed-3 { background: #1e293b !important; }
 
-    .fav-btn {
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      font-size: 15px;
-      margin-right: 6px;
-      color: #64748b;
-      transition: transform 0.15s, color 0.15s;
-      vertical-align: middle;
-    }
+    .fav-btn { background: transparent; border: none; cursor: pointer; font-size: 15px; margin-right: 6px; color: #64748b; transition: transform 0.15s, color 0.15s; vertical-align: middle; }
     .fav-btn:hover { transform: scale(1.25); color: var(--fav-pink); }
     .fav-btn.active { color: var(--fav-pink); }
 
@@ -204,6 +134,14 @@
     .badge-undervalued { background: var(--green-bg); color: var(--green); border: 1px solid rgba(74, 222, 128, 0.3); }
     .badge-overvalued { background: var(--red-bg); color: var(--red); border: 1px solid rgba(248, 113, 113, 0.3); }
     .badge-target { background: var(--gold-bg); color: var(--gold); border: 1px solid rgba(251, 191, 36, 0.4); font-weight: 700; }
+    
+    /* F-Score 專用標籤 */
+    .badge-fscore { cursor: pointer; text-decoration: none; padding: 4px 8px; font-weight: 700; border-radius: 4px; font-size: 11px; }
+    .badge-fscore:hover { transform: scale(1.1); filter: brightness(1.2); }
+    .fscore-green { background: rgba(74, 222, 128, 0.2); color: var(--green); border: 1px solid rgba(74, 222, 128, 0.5); }
+    .fscore-yellow { background: rgba(251, 191, 36, 0.2); color: var(--gold); border: 1px solid rgba(251, 191, 36, 0.5); }
+    .fscore-red { background: rgba(248, 113, 113, 0.2); color: var(--red); border: 1px solid rgba(248, 113, 113, 0.5); }
+
     .badge-exch-NASDAQ { background: rgba(168, 85, 247, 0.15); color: var(--nasdaq-purple); border: 1px solid rgba(168, 85, 247, 0.4); }
     .badge-exch-NYSE { background: rgba(96, 165, 250, 0.15); color: var(--nyse-blue); border: 1px solid rgba(96, 165, 250, 0.4); }
     .badge-exch-AMEX { background: rgba(52, 211, 153, 0.15); color: var(--amex-green); border: 1px solid rgba(52, 211, 153, 0.4); }
@@ -213,7 +151,8 @@
     .text-gold { color: var(--gold); font-weight: 700; }
     .text-pink { color: var(--fav-pink); font-weight: 700; }
 
-    #detail-view { display: none; }
+    /* 詳細視圖樣式 */
+    #detail-view, #fscore-view { display: none; }
     .detail-header { display: flex; justify-content: space-between; align-items: center; background: var(--card-bg); border: 1px solid var(--card-border); padding: 14px 20px; border-radius: 8px; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; }
     .detail-title { font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
     .btn-back { background: #334155; color: #fff; border: none; padding: 7px 14px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 13px; }
@@ -235,6 +174,14 @@
     .sens-base { background: rgba(56, 189, 248, 0.15); border: 1px solid var(--accent); }
     .btn-nav { background: #334155; border: none; color: #cbd5e1; padding: 5px 12px; border-radius: 4px; cursor: pointer; font-weight: 600; font-size: 12px; }
     .btn-nav:hover { background: var(--accent); color: #0b1120; }
+
+    /* F-Score 9 分診斷表格樣式 */
+    .fscore-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .fscore-table th, .fscore-table td { padding: 12px 16px; border-bottom: 1px solid var(--card-border); text-align: left; }
+    .fscore-table th { background: #162032; color: #cbd5e1; font-weight: 600; }
+    .score-badge-circle { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; font-weight: 700; font-size: 12px; }
+    .score-pass { background: rgba(74, 222, 128, 0.2); color: var(--green); border: 1px solid var(--green); }
+    .score-fail { background: rgba(248, 113, 113, 0.2); color: var(--red); border: 1px solid var(--red); }
   </style>
 </head>
 <body>
@@ -242,8 +189,8 @@
 <div class="container">
   <header>
     <div>
-      <h1>美股旗艦 DCF 估值雷達 (200 檔標的)</h1>
-      <span style="font-size: 13px; color: var(--text-muted);">NYSE · NASDAQ · AMEX · 全新橫向滑軌 · 凍結前三欄 · 零重疊穿透</span>
+      <h1>美股旗艦 DCF 估值雷達 (200 檔)</h1>
+      <span style="font-size: 13px; color: var(--text-muted);">NYSE · NASDAQ · AMEX · EV/EBITDA 倍數 · Piotroski 9 分健康診斷</span>
     </div>
     <div class="status-badge">
       🟢 FMP 官方財報已完成同步 (全市場覆蓋)
@@ -317,14 +264,14 @@
 
     <!-- 頂部滑動提示與快速滾動鍵 -->
     <div class="scroll-hint-bar">
-      <span>💡 提示：支援滑鼠直接按住拖動、觸控板左右滑、按住 <b>Shift + 滾輪</b>、或點擊右側按鈕滑動</span>
+      <span>💡 提示：支援滑鼠直接拖動、觸控板左右滑、按住 <b>Shift + 滾輪</b>、或點擊右側按鈕滑動</span>
       <div class="scroll-btn-grp">
         <button class="scroll-arrow-btn" onclick="scrollTableBy(-400)">◀ 向左滑</button>
         <button class="scroll-arrow-btn" onclick="scrollTableBy(400)">向右滑 ▶</button>
       </div>
     </div>
 
-    <!-- 強制水平滾動容器 -->
+    <!-- 表格滾動容器 -->
     <div class="table-scroll-wrapper" id="main-scroll-box">
       <table id="screener-table">
         <thead>
@@ -332,6 +279,8 @@
             <th class="col-fixed-1" onclick="sortTable('ticker')">收藏 / 代碼</th>
             <th class="col-fixed-2" onclick="sortTable('exchange')">市場</th>
             <th class="col-fixed-3" onclick="sortTable('name')">企業名稱</th>
+            <th onclick="sortTable('f_score')" style="width: 105px; text-align: center;">F-Score 評分</th>
+            <th onclick="sortTable('ev_to_ebitda')" style="width: 110px;">EV/EBITDA</th>
             <th onclick="sortTable('sector')" style="text-align: left; width: 120px;">主板塊</th>
             <th onclick="sortTable('industry')" style="text-align: left; width: 180px;">細分子行業</th>
             <th onclick="sortTable('price')" style="width: 110px;">最新股價 ($)</th>
@@ -370,6 +319,7 @@
         <span id="det-ticker" style="color: var(--accent);">NVDA</span>
         <span id="det-exchange" class="badge">NASDAQ</span>
         <span id="det-name" style="font-size: 16px; color: #cbd5e1;">輝達</span>
+        <span id="det-fscore-badge" class="badge-fscore fscore-green" onclick="openFScore(activeDetailTicker)">F-Score: 8/9</span>
         <span id="det-badge" class="badge">--</span>
         <span id="det-saved-badge" class="badge badge-target" style="display: none;">已儲存目標價</span>
       </div>
@@ -397,9 +347,9 @@
         <div style="font-size: 11px; color: var(--text-muted);">終值 g: <span id="det-res-g">0.00%</span> | 利差: <span id="det-res-spread">0.00%</span></div>
       </div>
       <div class="stat-box">
-        <div class="stat-label">企業價值 EV / 淨負債</div>
+        <div class="stat-label">企業價值 EV / EV/EBITDA</div>
         <div class="stat-num" id="det-res-ev">$0 M</div>
-        <div style="font-size: 11px; color: var(--text-muted);">淨負債: <span id="det-res-netdebt">$0 M</span></div>
+        <div style="font-size: 11px; color: var(--text-muted);">倍數: <span id="det-res-evebitda">--</span> | 淨負債: <span id="det-res-netdebt">$0 M</span></div>
       </div>
     </div>
 
@@ -489,6 +439,61 @@
       </div>
     </div>
   </div>
+
+  <!-- ==================== 頁面 3：Piotroski F-Score 9 分診斷頁 ==================== -->
+  <div id="fscore-view">
+    <div class="detail-header">
+      <div class="detail-title">
+        <span id="fsc-ticker" style="color: var(--accent);">NVDA</span>
+        <span id="fsc-exchange" class="badge">NASDAQ</span>
+        <span id="fsc-name" style="font-size: 16px; color: #cbd5e1;">輝達</span>
+        <span style="font-size: 14px; color: var(--text-muted);">— Piotroski F-Score 皮氏 9 大財務診斷</span>
+      </div>
+      <div style="display: flex; gap: 8px;">
+        <button class="btn-save" onclick="openDetail(activeFScoreTicker)">📈 前往 DCF 模型</button>
+        <button class="btn-back" onclick="navigateBack()">← 返回總表</button>
+      </div>
+    </div>
+
+    <div class="top-stats">
+      <div class="stat-box">
+        <div class="stat-label">皮氏財務健康度評分</div>
+        <div class="stat-num" id="fsc-total-score">0 / 9 分</div>
+        <div style="font-size: 12px;" id="fsc-grade-text">--</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">1. 盈利能力指標 (Profitability)</div>
+        <div class="stat-num" id="fsc-cat-profit">0 / 4 分</div>
+        <div style="font-size: 11px; color: var(--text-muted);">ROA、現金流 CFO 與應計品質</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">2. 資本結構與流動性 (Leverage)</div>
+        <div class="stat-num" id="fsc-cat-leverage">0 / 3 分</div>
+        <div style="font-size: 11px; color: var(--text-muted);">槓桿率、短期流動比率與股本稀釋</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">3. 營運效率指標 (Efficiency)</div>
+        <div class="stat-num" id="fsc-cat-efficiency">0 / 2 分</div>
+        <div style="font-size: 11px; color: var(--text-muted);">毛利率擴張與資產週轉率提升</div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">皮氏 9 分檢驗標準明細表 (Piotroski Criteria Breakdown)</div>
+      <table class="fscore-table">
+        <thead>
+          <tr>
+            <th style="width: 70px; text-align: center;">得分</th>
+            <th style="width: 140px;">核心維度</th>
+            <th>測試項目與標準</th>
+            <th>實際財務指標判定</th>
+            <th style="width: 110px; text-align: center;">狀態</th>
+          </tr>
+        </thead>
+        <tbody id="fscore-breakdown-body"></tbody>
+      </table>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -502,6 +507,7 @@
   let sortField = 'mcap';
   let sortAsc = false;
   let activeDetailTicker = 'NVDA';
+  let activeFScoreTicker = 'NVDA';
 
   function getFavorites() {
     try {
@@ -607,21 +613,27 @@
   }
 
   function showView(viewName, pushState = true) {
+    document.getElementById('screener-view').style.display = 'none';
+    document.getElementById('detail-view').style.display = 'none';
+    document.getElementById('fscore-view').style.display = 'none';
+
     if (viewName === 'screener') {
       document.getElementById('screener-view').style.display = 'block';
-      document.getElementById('detail-view').style.display = 'none';
       if (pushState) history.pushState({ view: 'screener' }, '', window.location.pathname);
       renderScreenerTable();
-    } else {
-      document.getElementById('screener-view').style.display = 'none';
+    } else if (viewName === 'detail') {
       document.getElementById('detail-view').style.display = 'block';
       if (pushState) history.pushState({ view: 'detail', ticker: activeDetailTicker }, '', `#${activeDetailTicker}`);
       loadDetailTicker(activeDetailTicker);
+    } else if (viewName === 'fscore') {
+      document.getElementById('fscore-view').style.display = 'block';
+      if (pushState) history.pushState({ view: 'fscore', ticker: activeFScoreTicker }, '', `#${activeFScoreTicker}/fscore`);
+      loadFScoreView(activeFScoreTicker);
     }
   }
 
   function navigateBack() {
-    if (history.state && history.state.view === 'detail') {
+    if (history.state && (history.state.view === 'detail' || history.state.view === 'fscore')) {
       history.back();
     } else {
       showView('screener', true);
@@ -629,7 +641,10 @@
   }
 
   window.onpopstate = function(e) {
-    if (e.state && e.state.view === 'detail' && e.state.ticker) {
+    if (e.state && e.state.view === 'fscore' && e.state.ticker) {
+      activeFScoreTicker = e.state.ticker;
+      showView('fscore', false);
+    } else if (e.state && e.state.view === 'detail' && e.state.ticker) {
       activeDetailTicker = e.state.ticker;
       showView('detail', false);
     } else {
@@ -640,6 +655,11 @@
   function openDetail(ticker) {
     activeDetailTicker = ticker;
     showView('detail', true);
+  }
+
+  function openFScore(ticker) {
+    activeFScoreTicker = ticker;
+    showView('fscore', true);
   }
 
   function setValFilter(val) {
@@ -685,7 +705,7 @@
 
   function sortTable(field) {
     if (sortField === field) sortAsc = !sortAsc;
-    else { sortField = field; sortAsc = (field === 'mcap' || field === 'price') ? false : true; }
+    else { sortField = field; sortAsc = (field === 'mcap' || field === 'price' || field === 'f_score') ? false : true; }
     renderScreenerTable();
   }
 
@@ -760,6 +780,12 @@
         }
       }
 
+      // F-Score 徽章顏色判定
+      const fScoreVal = item.f_score !== undefined ? item.f_score : 7;
+      let fScoreClass = "fscore-yellow";
+      if (fScoreVal >= 7) fScoreClass = "fscore-green";
+      else if (fScoreVal <= 3) fScoreClass = "fscore-red";
+
       const netCashColor = item.cash_minus_liab >= 0 ? 'color: var(--green);' : 'color: var(--red);';
       const exchClass = `badge-exch-${item.exchange || 'NASDAQ'}`;
       const favHeart = item.isFav ? '❤️' : '♡';
@@ -773,6 +799,10 @@
           </td>
           <td class="col-fixed-2"><span class="badge ${exchClass}">${item.exchange}</span></td>
           <td class="col-fixed-3" style="font-weight: 600; color: #fff;">${item.name}</td>
+          <td style="text-align: center;">
+            <span class="badge-fscore ${fScoreClass}" onclick="openFScore('${item.ticker}')" title="點擊查看皮氏 9 分明細">${fScoreVal} / 9</span>
+          </td>
+          <td style="font-weight: 700; color: #38bdf8;">${item.ev_to_ebitda ? item.ev_to_ebitda.toFixed(1) + 'x' : '--'}</td>
           <td style="color: #cbd5e1; text-align: left;">${item.sector}</td>
           <td style="color: #94a3b8; font-size: 11px; text-align: left;">${item.industry}</td>
           <td style="font-weight: 700; color: var(--accent);">$${item.price.toFixed(2)}</td>
@@ -808,9 +838,7 @@
 
   function scrollTableBy(amount) {
     const box = document.getElementById('main-scroll-box');
-    if (box) {
-      box.scrollBy({ left: amount, behavior: 'smooth' });
-    }
+    if (box) box.scrollBy({ left: amount, behavior: 'smooth' });
   }
 
   function initInteractions() {
@@ -818,11 +846,10 @@
     if (!box) return;
 
     let isDown = false;
-    let startX;
-    let scrollLeft;
+    let startX, scrollLeft;
 
     box.addEventListener('mousedown', (e) => {
-      if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.tagName === 'INPUT') return;
+      if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.tagName === 'INPUT' || e.target.classList.contains('badge-fscore')) return;
       isDown = true;
       startX = e.pageX - box.offsetLeft;
       scrollLeft = box.scrollLeft;
@@ -830,7 +857,6 @@
 
     box.addEventListener('mouseleave', () => { isDown = false; });
     box.addEventListener('mouseup', () => { isDown = false; });
-
     box.addEventListener('mousemove', (e) => {
       if (!isDown) return;
       e.preventDefault();
@@ -840,11 +866,8 @@
     });
 
     box.addEventListener('wheel', (e) => {
-      if (e.deltaX !== 0) {
-        box.scrollLeft += e.deltaX;
-      } else if (e.shiftKey) {
-        box.scrollLeft += e.deltaY;
-      }
+      if (e.deltaX !== 0) box.scrollLeft += e.deltaX;
+      else if (e.shiftKey) box.scrollLeft += e.deltaY;
     }, { passive: true });
   }
 
@@ -867,6 +890,11 @@
     exchEl.innerText = s.exchange;
     exchEl.className = `badge badge-exch-${s.exchange || 'NASDAQ'}`;
 
+    const fscoreBadge = document.getElementById('det-fscore-badge');
+    const fval = s.f_score !== undefined ? s.f_score : 7;
+    fscoreBadge.innerText = `F-Score: ${fval}/9 (診斷)`;
+    fscoreBadge.className = `badge-fscore ${fval >= 7 ? 'fscore-green' : fval <= 3 ? 'fscore-red' : 'fscore-yellow'}`;
+
     updateDetailFavButton();
 
     document.getElementById('inp-price').value = s.price;
@@ -882,6 +910,66 @@
     document.getElementById('inp-g').value = s.g;
 
     recalculateDetail();
+  }
+
+  function loadFScoreView(ticker) {
+    const s = stockUniverse[ticker];
+    if (!s) return;
+
+    document.getElementById('fsc-ticker').innerText = ticker;
+    document.getElementById('fsc-name').innerText = s.name;
+    const exchEl = document.getElementById('fsc-exchange');
+    exchEl.innerText = s.exchange;
+    exchEl.className = `badge badge-exch-${s.exchange || 'NASDAQ'}`;
+
+    const score = s.f_score !== undefined ? s.f_score : 7;
+    document.getElementById('fsc-total-score').innerText = `${score} / 9 分`;
+
+    const gradeEl = document.getElementById('fsc-grade-text');
+    if (score >= 8) {
+      gradeEl.innerText = "極度優秀 (Strong Fundamentals)";
+      gradeEl.className = "text-green";
+      document.getElementById('fsc-total-score').className = "stat-num text-green";
+    } else if (score >= 6) {
+      gradeEl.innerText = "穩健良好 (Good Health)";
+      gradeEl.className = "text-green";
+      document.getElementById('fsc-total-score').className = "stat-num text-green";
+    } else if (score >= 4) {
+      gradeEl.innerText = "中性觀望 (Average)";
+      gradeEl.className = "text-gold";
+      document.getElementById('fsc-total-score').className = "stat-num text-gold";
+    } else {
+      gradeEl.innerText = "高財務風險警戒 (High Risk)";
+      gradeEl.className = "text-red";
+      document.getElementById('fsc-total-score').className = "stat-num text-red";
+    }
+
+    const breakdown = s.f_score_breakdown || [];
+    const pCat = breakdown.filter(x => x.category === "盈利能力" && x.passed).length;
+    const lCat = breakdown.filter(x => x.category === "槓桿與償債" && x.passed).length;
+    const eCat = breakdown.filter(x => x.category === "營運效率" && x.passed).length;
+
+    document.getElementById('fsc-cat-profit').innerText = `${pCat} / 4 分`;
+    document.getElementById('fsc-cat-leverage').innerText = `${lCat} / 3 分`;
+    document.getElementById('fsc-cat-efficiency').innerText = `${eCat} / 2 分`;
+
+    const tbody = document.getElementById('fscore-breakdown-body');
+    tbody.innerHTML = breakdown.map(item => {
+      const isPass = item.passed === 1;
+      const mark = isPass ? '✔' : '✘';
+      const circleClass = isPass ? 'score-pass' : 'score-fail';
+      const statusText = isPass ? '<span class="text-green" style="font-weight:700;">+1 分 通過</span>' : '<span class="text-red">未達標 (0分)</span>';
+
+      return `
+        <tr>
+          <td style="text-align: center;"><span class="score-badge-circle ${circleClass}">${mark}</span></td>
+          <td style="font-weight: 600; color: #cbd5e1;">${item.category}</td>
+          <td><strong>#${item.id}. ${item.desc}</strong></td>
+          <td style="color: #94a3b8;">${item.detail}</td>
+          <td style="text-align: center;">${statusText}</td>
+        </tr>
+      `;
+    }).join('');
   }
 
   function onDetailParamChange() {
@@ -932,6 +1020,7 @@
     document.getElementById('det-res-g').innerText = `${s.g.toFixed(2)}%`;
     document.getElementById('det-res-spread').innerText = `${((dcf.WACC - (s.g/100)) * 100).toFixed(2)}%`;
     document.getElementById('det-res-ev').innerText = `$${dcf.EV.toLocaleString(undefined, {maximumFractionDigits: 0})} M`;
+    document.getElementById('det-res-evebitda').innerText = s.ev_to_ebitda ? `${s.ev_to_ebitda.toFixed(1)}x` : '--';
     document.getElementById('det-res-netdebt').innerText = `$${dcf.NetDebt.toLocaleString(undefined, {maximumFractionDigits: 0})} M`;
 
     renderDCFTable(dcf.growth, dcf.fcfList, dcf.dfList, dcf.pvList);
@@ -1038,7 +1127,13 @@
     updateSubIndustryButtons();
     initInteractions();
     const hash = window.location.hash.replace('#', '').toUpperCase();
-    if (hash && stockUniverse[hash]) {
+    if (hash.endsWith('/FSCORE')) {
+      const ticker = hash.split('/')[0];
+      if (stockUniverse[ticker]) {
+        activeFScoreTicker = ticker;
+        showView('fscore', false);
+      }
+    } else if (hash && stockUniverse[hash]) {
       activeDetailTicker = hash;
       showView('detail', false);
     } else {
