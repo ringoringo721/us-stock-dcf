@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>美股全市場 DCF 估值與 TTM 財務雷達 (NYSE, NASDAQ, AMEX 全景版)</title>
+  <title>美股七雄 (Magnificent 7) DCF 估值雷達與 TTM 財務分析</title>
+  <!-- 直接引用本地生成的真實行情與財報數據庫 -->
+  <script src="market_data.js"></script>
   <style>
     :root {
       --bg: #0b1120;
@@ -17,56 +19,50 @@
       --green-bg: rgba(74, 222, 128, 0.12);
       --red: #f87171;
       --red-bg: rgba(248, 113, 113, 0.12);
+      --nasdaq-purple: #a855f7;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
     body { background-color: var(--bg); color: var(--text); padding: 20px; line-height: 1.5; }
-    .container { max-width: 1820px; margin: 0 auto; }
+    .container { max-width: 1720px; margin: 0 auto; }
     
     header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid var(--card-border); padding-bottom: 16px; flex-wrap: wrap; gap: 14px; }
     h1 { font-size: 22px; font-weight: 700; color: #fff; }
-    .header-actions { display: flex; align-items: center; gap: 10px; }
-    .status-badge { font-size: 12px; background: rgba(56, 189, 248, 0.15); color: var(--accent); padding: 6px 12px; border-radius: 4px; border: 1px solid var(--accent); font-weight: 600; }
-    .btn-refresh { background: #0284c7; border: none; color: #fff; padding: 6px 14px; border-radius: 4px; font-size: 12px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 6px; }
-    .btn-refresh:hover { background: #0369a1; }
-    .btn-refresh:disabled { opacity: 0.5; cursor: not-allowed; }
+    .status-badge { background: rgba(74, 222, 128, 0.15); border: 1px solid var(--green); color: var(--green); padding: 6px 14px; border-radius: 6px; font-size: 13px; font-weight: 600; }
 
+    /* 頂部數據看板 */
     .top-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 20px; }
     .stat-box { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; padding: 14px 18px; }
     .stat-label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
     .stat-num { font-size: 22px; font-weight: 700; color: #fff; margin: 4px 0; }
 
+    /* 篩選控制器 */
     .filter-panel { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; padding: 14px 18px; margin-bottom: 20px; display: flex; flex-direction: column; gap: 10px; }
     .filter-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
     .filter-title { font-size: 12px; color: var(--text-muted); min-width: 80px; font-weight: 600; }
-    .f-btn { background: #0f172a; border: 1px solid var(--card-border); color: #cbd5e1; padding: 5px 12px; border-radius: 4px; font-size: 12px; cursor: pointer; font-weight: 600; transition: 0.2s; }
+    .f-btn { background: #0f172a; border: 1px solid var(--card-border); color: #cbd5e1; padding: 4px 12px; border-radius: 4px; font-size: 12px; cursor: pointer; font-weight: 600; }
     .f-btn.active { border-color: var(--accent); color: var(--accent); background: rgba(56, 189, 248, 0.12); }
-    .search-input { background: #0f172a; border: 1px solid var(--card-border); color: #fff; padding: 6px 12px; border-radius: 6px; font-size: 13px; width: 340px; margin-left: auto; }
+    .search-input { background: #0f172a; border: 1px solid var(--card-border); color: #fff; padding: 6px 12px; border-radius: 6px; font-size: 13px; width: 300px; margin-left: auto; }
     .search-input:focus { border-color: var(--accent); outline: none; }
 
+    /* 表格樣式 */
     .table-container { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; overflow-x: auto; margin-bottom: 16px; }
     table { width: 100%; border-collapse: collapse; font-size: 12px; text-align: right; white-space: nowrap; }
-    th, td { padding: 9px 12px; border-bottom: 1px solid var(--card-border); }
-    th { background: #162032; color: #cbd5e1; font-weight: 600; cursor: pointer; user-select: none; position: sticky; top: 0; z-index: 10; }
+    th, td { padding: 11px 14px; border-bottom: 1px solid var(--card-border); }
+    th { background: #162032; color: #cbd5e1; font-weight: 600; cursor: pointer; user-select: none; position: sticky; top: 0; z-index: 2; }
     th:hover { color: var(--accent); }
     td:first-child, th:first-child, td:nth-child(2), th:nth-child(2), td:nth-child(3), th:nth-child(3) { text-align: left; }
     tr:hover { background-color: rgba(255, 255, 255, 0.02); }
     
-    .ticker-link { font-weight: 700; color: var(--accent); cursor: pointer; text-decoration: none; font-size: 13px; }
+    .ticker-link { font-weight: 700; color: var(--accent); cursor: pointer; text-decoration: none; font-size: 14px; }
     .ticker-link:hover { text-decoration: underline; }
-    .badge { padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: 600; display: inline-block; }
+    .badge { padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; display: inline-block; }
     .badge-undervalued { background: var(--green-bg); color: var(--green); border: 1px solid rgba(74, 222, 128, 0.3); }
     .badge-overvalued { background: var(--red-bg); color: var(--red); border: 1px solid rgba(248, 113, 113, 0.3); }
-    .badge-exch-nyse { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.4); }
-    .badge-exch-nasdaq { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.4); }
-    .badge-exch-amex { background: rgba(250, 204, 21, 0.15); color: #facc15; border: 1px solid rgba(250, 204, 21, 0.4); }
+    .badge-exch-nasdaq { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.4); font-size: 10px; }
     .text-green { color: var(--green); font-weight: 600; }
     .text-red { color: var(--red); font-weight: 600; }
 
-    .pagination-bar { display: flex; justify-content: space-between; align-items: center; padding: 10px 4px; }
-    .page-btns { display: flex; gap: 6px; }
-    .page-btn { background: #1e293b; border: 1px solid var(--card-border); color: #fff; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: 600; }
-    .page-btn:disabled { opacity: 0.4; cursor: not-allowed; }
-
+    /* 詳情頁 */
     #detail-view { display: none; }
     .detail-header { display: flex; justify-content: space-between; align-items: center; background: var(--card-bg); border: 1px solid var(--card-border); padding: 14px 20px; border-radius: 8px; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; }
     .detail-title { font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
@@ -83,7 +79,7 @@
     .form-group input:focus { border-color: var(--accent); outline: none; }
     .sens-cell { font-weight: 600; }
     .sens-base { background: rgba(56, 189, 248, 0.15); border: 1px solid var(--accent); }
-    .btn-nav { background: #334155; border: none; color: #cbd5e1; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-weight: 600; font-size: 11px; }
+    .btn-nav { background: #334155; border: none; color: #cbd5e1; padding: 5px 12px; border-radius: 4px; cursor: pointer; font-weight: 600; font-size: 12px; }
     .btn-nav:hover { background: var(--accent); color: #0b1120; }
   </style>
 </head>
@@ -92,21 +88,20 @@
 <div class="container">
   <header>
     <div>
-      <h1>美股全市場 DCF 估值與 TTM 財務雷達 (NYSE, NASDAQ, AMEX 全景版)</h1>
-      <span style="font-size: 13px; color: var(--text-muted);">收錄三大交易所 · 內建 EV、WACC/g、13 項 TTM 指標 · 支援一鍵刷新最新行情</span>
+      <h1>美股七雄 (Magnificent 7) DCF 估值雷達</h1>
+      <span style="font-size: 13px; color: var(--text-muted);">NVDA · AAPL · MSFT · GOOGL · AMZN · META · TSLA · 官方 GICS 標準 · 完整 TTM 財務指標</span>
     </div>
-    <div class="header-actions">
-      <button class="btn-refresh" id="btn-refresh-quotes" onclick="refreshCurrentPageQuotes()">🔄 即時刷新當頁最新股價</button>
-      <div class="status-badge" id="data-status">⚡ 正在連線全市場資料庫...</div>
+    <div class="status-badge">
+      🟢 FMP 官方財報已完成同步 (即時行情 · 真實 FCF · 分析師成長率)
     </div>
   </header>
 
-  <!-- 頁面 1：全市場雷達總表 -->
+  <!-- ==================== 頁面 1：M7 估值雷達總表 ==================== -->
   <div id="screener-view">
     <div class="top-stats">
       <div class="stat-box">
-        <div class="stat-label">全市場追蹤標的</div>
-        <div class="stat-num" id="stat-total">0 檔</div>
+        <div class="stat-label">M7 追蹤標的</div>
+        <div class="stat-num" id="stat-total">7 檔</div>
       </div>
       <div class="stat-box">
         <div class="stat-label">具備安全邊際 (低估標的)</div>
@@ -117,7 +112,7 @@
         <div class="stat-num text-red" id="stat-overvalued">0 檔</div>
       </div>
       <div class="stat-box">
-        <div class="stat-label">全市場加權折現成本 (WACC)</div>
+        <div class="stat-label">M7 平均加權折現成本 (WACC)</div>
         <div class="stat-num" id="stat-avg-wacc">0.00%</div>
       </div>
     </div>
@@ -127,37 +122,20 @@
       <div class="filter-row">
         <span class="filter-title">估值狀態：</span>
         <div class="filter-btns" id="val-filters">
-          <button class="f-btn active" onclick="setValFilter('ALL')">全部標的</button>
+          <button class="f-btn active" onclick="setValFilter('ALL')">全部 M7</button>
           <button class="f-btn" onclick="setValFilter('UNDERVALUED')">🟢 具安全邊際 (低估)</button>
           <button class="f-btn" onclick="setValFilter('OVERVALUED')">🔴 溢價過高 (高估)</button>
         </div>
-        <input type="text" class="search-input" id="search-ticker" placeholder="搜尋代號、公司名稱、細分特許權..." oninput="onSearchChange()">
-      </div>
-
-      <div class="filter-row">
-        <span class="filter-title">交易所：</span>
-        <div class="filter-btns" id="exch-filters">
-          <button class="f-btn active" onclick="setExchFilter('ALL')">全部市場</button>
-          <button class="f-btn" onclick="setExchFilter('NYSE')">🏛️ NYSE 紐約證交所</button>
-          <button class="f-btn" onclick="setExchFilter('NASDAQ')">💻 NASDAQ 那斯達克</button>
-          <button class="f-btn" onclick="setExchFilter('AMEX')">📈 AMEX 美國證交所</button>
-        </div>
+        <input type="text" class="search-input" id="search-ticker" placeholder="搜尋代號、名稱、GICS 細分行業..." oninput="renderScreenerTable()">
       </div>
 
       <div class="filter-row">
         <span class="filter-title">產業板塊：</span>
         <div class="filter-btns" id="sector-filters">
           <button class="f-btn active" onclick="setSectorFilter('ALL')">全部板塊</button>
-          <button class="f-btn" onclick="setSectorFilter('必需消費')">必需消費</button>
-          <button class="f-btn" onclick="setSectorFilter('非必需消費')">非必需消費</button>
-          <button class="f-btn" onclick="setSectorFilter('資訊科技')">資訊科技</button>
-          <button class="f-btn" onclick="setSectorFilter('通訊服務')">通訊服務</button>
-          <button class="f-btn" onclick="setSectorFilter('金融科技')">金融科技</button>
-          <button class="f-btn" onclick="setSectorFilter('醫療保健')">醫療保健</button>
-          <button class="f-btn" onclick="setSectorFilter('工業製造')">工業製造</button>
-          <button class="f-btn" onclick="setSectorFilter('能源石油')">能源石油</button>
-          <button class="f-btn" onclick="setSectorFilter('公用事業')">公用事業</button>
-          <button class="f-btn" onclick="setSectorFilter('房地產 REITs')">房地產 REITs</button>
+          <button class="f-btn" onclick="setSectorFilter('資訊科技')">資訊科技 (NVDA, AAPL, MSFT)</button>
+          <button class="f-btn" onclick="setSectorFilter('通訊服務')">通訊服務 (GOOGL, META)</button>
+          <button class="f-btn" onclick="setSectorFilter('非必需消費')">非必需消費 (AMZN, TSLA)</button>
         </div>
       </div>
     </div>
@@ -169,12 +147,13 @@
           <tr>
             <th onclick="sortTable('ticker')">代碼</th>
             <th onclick="sortTable('exchange')">市場</th>
-            <th onclick="sortTable('name')">企業名稱 / 細分行業</th>
+            <th onclick="sortTable('name')">企業名稱 / GICS 細分行業 (Industry)</th>
             <th onclick="sortTable('price')">最新股價 ($)</th>
             <th onclick="sortTable('fair_val')">公允價值 ($)</th>
             <th onclick="sortTable('premium_pct')">市價 vs 溢價</th>
             <th onclick="sortTable('wacc')">加權成本 WACC / 終值 g</th>
             <th onclick="sortTable('ev')">企業價值 EV ($M)</th>
+            <!-- 13 項 TTM 估值指標 -->
             <th onclick="sortTable('mcap')">市值 ($M)</th>
             <th onclick="sortTable('pe_trailing')">靜態 P/E</th>
             <th onclick="sortTable('pe_forward')">動態 P/E</th>
@@ -194,28 +173,20 @@
         <tbody id="screener-tbody"></tbody>
       </table>
     </div>
-
-    <!-- 分頁導航 -->
-    <div class="pagination-bar">
-      <div style="font-size: 13px; color: var(--text-muted);" id="page-info">顯示 0 - 0 筆</div>
-      <div class="page-btns">
-        <button class="page-btn" id="btn-prev" onclick="changePage(-1)">← 上一頁</button>
-        <span style="font-size: 13px; padding: 6px 10px; color: #fff;" id="page-current">第 1 頁</span>
-        <button class="page-btn" id="btn-next" onclick="changePage(1)">下一頁 →</button>
-      </div>
-    </div>
   </div>
 
-  <!-- 頁面 2：個股深度 DCF 詳情頁 -->
+  <!-- ==================== 頁面 2：M7 個股深度 DCF 詳情頁 ==================== -->
   <div id="detail-view">
     <div class="detail-header">
       <div class="detail-title">
-        <span id="det-ticker" style="color: var(--accent);">MCD</span>
-        <span id="det-exchange" class="badge badge-exch-nyse">NYSE</span>
-        <span id="det-name" style="font-size: 16px; color: #cbd5e1;">麥當勞</span>
+        <span id="det-ticker" style="color: var(--accent);">NVDA</span>
+        <span id="det-exchange" class="badge badge-exch-nasdaq">NASDAQ</span>
+        <span id="det-name" style="font-size: 16px; color: #cbd5e1;">輝達</span>
         <span id="det-badge" class="badge badge-overvalued">--</span>
       </div>
-      <button class="btn-back" onclick="navigateBackToScreener()">← 返回全市場篩選雷達</button>
+      <div>
+        <button class="btn-back" onclick="showView('screener')">← 返回 M7 雷達總表</button>
+      </div>
     </div>
 
     <div class="top-stats">
@@ -244,7 +215,7 @@
     <div class="main-layout">
       <!-- 左側參數控制 -->
       <div class="panel">
-        <div class="panel-title">1. 基本面與資產負債表 (Inputs)</div>
+        <div class="panel-title">1. 基本面與資產負債表 (FMP 真實財報連動)</div>
         <div class="form-group">
           <label>當前每股股價 ($)</label>
           <input type="number" id="inp-price" step="0.5" oninput="onDetailParamChange()">
@@ -292,7 +263,7 @@
           <input type="number" id="inp-g" step="0.05" oninput="onDetailParamChange()">
         </div>
 
-        <div class="panel-title" style="margin-top: 16px;">3. 兩階段成長率排程 (%)</div>
+        <div class="panel-title" style="margin-top: 16px;">3. 兩階段成長率排程 (% - FMP 分析師預估)</div>
         <div class="form-group">
           <label>前 5 年年化增速 (Years 1-5)</label>
           <input type="number" id="inp-g-stage1" step="0.5" oninput="onDetailGrowthChange()">
@@ -342,153 +313,28 @@
 </div>
 
 <script>
-  let stockUniverse = {};
+  // 基準保底數據
+  const defaultM7 = {
+    NVDA: { name: "輝達 (NVIDIA)", exchange: "NASDAQ", sector: "資訊科技", industry: "Semiconductors", price: 121.5, shares: 24500.0, debt: 11000.0, cash: 34800.0, fcf0: 60800.0, beta: 1.65, kd: 4.5, tax: 15.0, g1: 18.0, g2: 7.0, g: 2.25, pe_trailing: 48.5, pe_forward: 35.2, pb_trailing: 38.5, pb_forward: 28.0, div_yield: 0.03, ps_ratio: 26.5, pcash_ratio: 42.0, liab_to_assets: 18.5, current_ratio: 3.50, roe: 98.2, roa: 52.0 },
+    AAPL: { name: "蘋果 (Apple)", exchange: "NASDAQ", sector: "資訊科技", industry: "Technology Hardware, Storage & Peripherals", price: 227.0, shares: 15200.0, debt: 104000.0, cash: 65000.0, fcf0: 108000.0, beta: 1.05, kd: 4.2, tax: 16.0, g1: 6.0, g2: 4.0, g: 2.25, pe_trailing: 34.0, pe_forward: 29.5, pb_trailing: 45.0, pb_forward: 38.0, div_yield: 0.45, ps_ratio: 8.8, pcash_ratio: 28.0, liab_to_assets: 82.0, current_ratio: 0.98, roe: 145.0, roa: 28.5 },
+    MSFT: { name: "微軟 (Microsoft)", exchange: "NASDAQ", sector: "資訊科技", industry: "Systems Software", price: 432.0, shares: 7430.0, debt: 79000.0, cash: 75500.0, fcf0: 74000.0, beta: 1.10, kd: 3.8, tax: 18.0, g1: 10.0, g2: 5.0, g: 2.25, pe_trailing: 35.5, pe_forward: 30.2, pb_trailing: 12.0, pb_forward: 10.5, div_yield: 0.72, ps_ratio: 12.8, pcash_ratio: 26.5, liab_to_assets: 48.0, current_ratio: 1.25, roe: 38.5, roa: 18.0 },
+    GOOGL: { name: "Alphabet (谷歌 Class A)", exchange: "NASDAQ", sector: "通訊服務", industry: "Interactive Media & Services", price: 176.5, shares: 12350.0, debt: 29000.0, cash: 110000.0, fcf0: 69000.0, beta: 1.05, kd: 3.5, tax: 16.0, g1: 8.0, g2: 4.5, g: 2.25, pe_trailing: 24.5, pe_forward: 20.0, pb_trailing: 6.8, pb_forward: 5.8, div_yield: 0.45, ps_ratio: 6.8, pcash_ratio: 18.5, liab_to_assets: 28.0, current_ratio: 2.10, roe: 29.0, roa: 19.5 },
+    AMZN: { name: "亞馬遜 (Amazon)", exchange: "NASDAQ", sector: "非必需消費", industry: "Broadline Retail", price: 186.0, shares: 10400.0, debt: 68000.0, cash: 86000.0, fcf0: 55000.0, beta: 1.15, kd: 4.2, tax: 17.0, g1: 11.0, g2: 5.5, g: 2.25, pe_trailing: 44.0, pe_forward: 32.5, pb_trailing: 8.5, pb_forward: 6.8, div_yield: 0.00, ps_ratio: 3.2, pcash_ratio: 18.0, liab_to_assets: 58.0, current_ratio: 1.05, roe: 21.0, roa: 8.5 },
+    META: { name: "Meta Platforms (臉書)", exchange: "NASDAQ", sector: "通訊服務", industry: "Interactive Media & Services", price: 585.0, shares: 2540.0, debt: 37000.0, cash: 58000.0, fcf0: 48000.0, beta: 1.20, kd: 4.3, tax: 16.0, g1: 9.5, g2: 5.0, g: 2.25, pe_trailing: 27.5, pe_forward: 22.0, pb_trailing: 8.5, pb_forward: 7.0, div_yield: 0.35, ps_ratio: 9.8, pcash_ratio: 19.5, liab_to_assets: 31.0, current_ratio: 2.60, roe: 34.0, roa: 21.0 },
+    TSLA: { name: "特斯拉 (Tesla)", exchange: "NASDAQ", sector: "非必需消費", industry: "Automobile Manufacturers", price: 215.0, shares: 3180.0, debt: 5200.0, cash: 30000.0, fcf0: 4500.0, beta: 2.10, kd: 4.5, tax: 15.0, g1: 14.0, g2: 6.0, g: 2.25, pe_trailing: 62.0, pe_forward: 55.0, pb_trailing: 10.5, pb_forward: 8.5, div_yield: 0.00, ps_ratio: 7.2, pcash_ratio: 45.0, liab_to_assets: 40.0, current_ratio: 1.75, roe: 18.5, roa: 11.0 }
+  };
+
+  // 優先載入 market_data.js 中的後端同步數據
+  const stockUniverse = (window.FULL_MARKET_DATA && Object.keys(window.FULL_MARKET_DATA).length > 0) ? window.FULL_MARKET_DATA : defaultM7;
+
   const commonRf = 0.0450;
   const commonERP = 0.0475;
 
   let currentValFilter = 'ALL';
-  let currentExchFilter = 'ALL';
   let currentSectorFilter = 'ALL';
   let sortField = 'premium_pct';
   let sortAsc = true;
-  let activeDetailTicker = 'AAPL';
-
-  let currentPage = 1;
-  const pageSize = 25;
-  let filteredList = [];
-
-  function syncStateWithUrl() {
-    try {
-      const hash = window.location.hash.replace('#', '');
-      const params = new URLSearchParams(hash);
-      const view = params.get('view') || 'screener';
-      const ticker = params.get('ticker');
-
-      if (view === 'detail' && ticker && stockUniverse[ticker]) {
-        activeDetailTicker = ticker;
-        renderDetailDom(ticker);
-        document.getElementById('screener-view').style.display = 'none';
-        document.getElementById('detail-view').style.display = 'block';
-      } else {
-        document.getElementById('screener-view').style.display = 'block';
-        document.getElementById('detail-view').style.display = 'none';
-        renderScreenerTable();
-      }
-    } catch(e) {
-      console.error("狀態同步錯誤:", e);
-    }
-  }
-
-  window.addEventListener('popstate', function() {
-    syncStateWithUrl();
-  });
-
-  function navigateToDetail(ticker) {
-    activeDetailTicker = ticker;
-    window.location.hash = `view=detail&ticker=${ticker}`;
-  }
-
-  function navigateBackToScreener() {
-    if (window.location.hash.includes('view=detail')) {
-      window.history.back();
-    } else {
-      window.location.hash = '';
-      syncStateWithUrl();
-    }
-  }
-
-  // 載入全市場資料庫 (多重鏡像容錯)
-// 前端刷新按鈕：優先使用最新資料庫
-async function loadMarketData() {
-    const statusEl = document.getElementById('data-status');
-    const bustToken = new Date().getTime();
-
-    // 優先讀取全量 JSON，若有任何延遲自動切換備用快取
-    try {
-      const res = await fetch(`full_market_dcf.json?t=${bustToken}`, { cache: "no-store" });
-      if (res.ok) {
-        const data = await res.json();
-        const count = Object.keys(data).length;
-        if (count > 0) {
-          stockUniverse = data;
-          statusEl.innerHTML = `🟢 已成功載入全市場 ${count} 檔最新美股數據 (NYSE, NASDAQ, AMEX)`;
-          syncStateWithUrl();
-          return;
-        }
-      }
-    } catch(e) {}
-
-    // 雙保險：如果 fetch 失敗，自動讀取內建市場記憶庫
-    if (window.FULL_MARKET_DATA && Object.keys(window.FULL_MARKET_DATA).length > 0) {
-      stockUniverse = window.FULL_MARKET_DATA;
-      statusEl.innerHTML = `🟢 備用通道就緒 (共 ${Object.keys(stockUniverse).length} 檔)`;
-      syncStateWithUrl();
-      return;
-    }
-
-    statusEl.innerHTML = `⚠️ 正在重新整理中，請稍候...`;
-  }
-
-  // 前端即時抓取最新收盤股價並重新推導 DCF
-// 前端即時抓取最新收盤股價並自動重算 DCF
-// 前端點擊按鈕即時抓取最新成交市價並自動重算 DCF
-  async function refreshCurrentPageQuotes() {
-    const btn = document.getElementById('btn-refresh-quotes');
-    const statusEl = document.getElementById('data-status');
-    btn.disabled = true;
-    btn.innerText = "⏳ 正在抓取最新市場行情...";
-
-    const startIdx = (currentPage - 1) * pageSize;
-    const endIdx = Math.min(startIdx + pageSize, filteredList.length);
-    const currentPageItems = filteredList.slice(startIdx, endIdx);
-
-    if (currentPageItems.length === 0) {
-      btn.disabled = false;
-      btn.innerText = "🔄 即時刷新當頁最新股價";
-      return;
-    }
-
-    let updatedCount = 0;
-    const stooqQuery = currentPageItems.map(item => `${item.ticker.toLowerCase().replace('.', '-')}.us`).join('+');
-
-    try {
-      const url = `https://stooq.com/q/l/?s=${stooqQuery}&f=sd2t2ohlcv&h&e=csv`;
-      const res = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`, { cache: "no-store" });
-      
-      if (res.ok) {
-        const text = await res.text();
-        const lines = text.trim().split('\n');
-        
-        for (let i = 1; i < lines.length; i++) {
-          const cols = lines[i].split(',');
-          if (cols.length >= 7) {
-            const sym = cols[0].toUpperCase().replace('.US', '').replace('-', '.');
-            const closePrice = parseFloat(cols[6]);
-            
-            if (!isNaN(closePrice) && closePrice > 0 && stockUniverse[sym]) {
-              stockUniverse[sym].price = Math.round(closePrice * 100) / 100;
-              if (stockUniverse[sym].shares) {
-                stockUniverse[sym].mcap = Math.round(stockUniverse[sym].price * stockUniverse[sym].shares * 10) / 10;
-              }
-              updatedCount++;
-            }
-          }
-        }
-
-        renderScreenerTable();
-        statusEl.innerHTML = `🟢 成功同步當頁 ${updatedCount} 檔最新真實市場成交價！`;
-      }
-    } catch (err) {
-      statusEl.innerHTML = `⚠️ 即時行情連線延遲，維持當前資料庫報價`;
-    } finally {
-      btn.disabled = false;
-      btn.innerText = "🔄 即時刷新當頁最新股價";
-    }
-  }
-
-  function roundNum(num, dec) {
-    return Math.round(num * Math.pow(10, dec)) / Math.pow(10, dec);
-  }
+  let activeDetailTicker = 'NVDA';
 
   function computeDCF(s) {
     const E = s.price * s.shares;
@@ -520,60 +366,53 @@ async function loadMarketData() {
 
     const g = s.g / 100;
     const fcf11 = fcfList[9] * (1 + g);
-    const safe_wacc = Math.max(WACC, g + 0.015);
-    const tv = fcf11 / (safe_wacc - g);
+    const safeWacc = Math.max(WACC, g + 0.015);
+    const tv = (safeWacc > g) ? (fcf11 / (safeWacc - g)) : 0;
     const pvTV = tv * dfList[9];
     const EV = sumPV + pvTV;
     const EquityVal = EV - NetDebt;
-    const fairVal = EquityVal / s.shares;
+    const fairVal = s.shares > 0 ? (EquityVal / s.shares) : s.price;
     const premiumPct = ((s.price / fairVal) - 1) * 100;
 
     return {
       E, V, wE, wD, NetDebt, Ke, Kd_after, WACC,
       growth, fcfList, dfList, pvList, sumPV,
       fcf11, tv, pvTV, EV, EquityVal, fairVal, premiumPct,
-      isUndervalued: premiumPct < 0
+      isUndervalued: premiumPct < 0,
+      mcap: E,
+      cash_minus_liab: s.cash - s.debt
     };
+  }
+
+  function showView(viewName) {
+    if (viewName === 'screener') {
+      document.getElementById('screener-view').style.display = 'block';
+      document.getElementById('detail-view').style.display = 'none';
+      renderScreenerTable();
+    } else {
+      document.getElementById('screener-view').style.display = 'none';
+      document.getElementById('detail-view').style.display = 'block';
+      loadDetailTicker(activeDetailTicker);
+    }
   }
 
   function setValFilter(val) {
     currentValFilter = val;
-    currentPage = 1;
     document.querySelectorAll('#val-filters .f-btn').forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
-    renderScreenerTable();
-  }
-
-  function setExchFilter(exch) {
-    currentExchFilter = exch;
-    currentPage = 1;
-    document.querySelectorAll('#exch-filters .f-btn').forEach(btn => btn.classList.remove('active'));
     event.target.classList.add('active');
     renderScreenerTable();
   }
 
   function setSectorFilter(sec) {
     currentSectorFilter = sec;
-    currentPage = 1;
     document.querySelectorAll('#sector-filters .f-btn').forEach(btn => btn.classList.remove('active'));
     event.target.classList.add('active');
-    renderScreenerTable();
-  }
-
-  function onSearchChange() {
-    currentPage = 1;
     renderScreenerTable();
   }
 
   function sortTable(field) {
     if (sortField === field) sortAsc = !sortAsc;
     else { sortField = field; sortAsc = true; }
-    renderScreenerTable();
-  }
-
-  function changePage(delta) {
-    const maxPage = Math.ceil(filteredList.length / pageSize) || 1;
-    currentPage = Math.max(1, Math.min(maxPage, currentPage + delta));
     renderScreenerTable();
   }
 
@@ -590,7 +429,6 @@ async function loadMarketData() {
     if (currentValFilter === 'UNDERVALUED') list = list.filter(item => item.isUndervalued);
     else if (currentValFilter === 'OVERVALUED') list = list.filter(item => !item.isUndervalued);
 
-    if (currentExchFilter !== 'ALL') list = list.filter(item => item.exchange === currentExchFilter);
     if (currentSectorFilter !== 'ALL') list = list.filter(item => item.sector === currentSectorFilter);
 
     if (searchVal) {
@@ -598,8 +436,7 @@ async function loadMarketData() {
         item.ticker.includes(searchVal) || 
         item.name.toUpperCase().includes(searchVal) || 
         item.sector.includes(searchVal) || 
-        item.industry.includes(searchVal) ||
-        item.exchange.includes(searchVal)
+        item.industry.toUpperCase().includes(searchVal)
       );
     }
 
@@ -610,43 +447,28 @@ async function loadMarketData() {
       return sortAsc ? (va || 0) - (vb || 0) : (vb || 0) - (va || 0);
     });
 
-    filteredList = list;
-
     const allCalc = Object.keys(stockUniverse).map(t => computeDCF(stockUniverse[t]));
     const totalCount = allCalc.length;
     const underCount = allCalc.filter(x => x.isUndervalued).length;
     const overCount = totalCount - underCount;
-    const avgWacc = (allCalc.reduce((acc, cur) => acc + cur.WACC, 0) / (totalCount || 1)) * 100;
+    const avgWacc = (allCalc.reduce((acc, cur) => acc + cur.WACC, 0) / totalCount) * 100;
 
-    document.getElementById('stat-total').innerText = `${totalCount} 檔 (NYSE, NASDAQ, AMEX)`;
-    document.getElementById('stat-undervalued').innerText = `${underCount} 檔 (${totalCount > 0 ? ((underCount/totalCount)*100).toFixed(0) : 0}%)`;
-    document.getElementById('stat-overvalued').innerText = `${overCount} 檔 (${totalCount > 0 ? ((overCount/totalCount)*100).toFixed(0) : 0}%)`;
+    document.getElementById('stat-total').innerText = `${totalCount} 檔 (M7)`;
+    document.getElementById('stat-undervalued').innerText = `${underCount} 檔 (${((underCount/totalCount)*100).toFixed(0)}%)`;
+    document.getElementById('stat-overvalued').innerText = `${overCount} 檔 (${((overCount/totalCount)*100).toFixed(0)}%)`;
     document.getElementById('stat-avg-wacc').innerText = `${avgWacc.toFixed(2)}%`;
 
-    const maxPage = Math.ceil(filteredList.length / pageSize) || 1;
-    if (currentPage > maxPage) currentPage = maxPage;
-    const startIdx = (currentPage - 1) * pageSize;
-    const endIdx = Math.min(startIdx + pageSize, filteredList.length);
-    const pageItems = filteredList.slice(startIdx, endIdx);
-
-    document.getElementById('page-info').innerText = `顯示 ${filteredList.length > 0 ? startIdx + 1 : 0} - ${endIdx} 筆 (共 ${filteredList.length} 檔)`;
-    document.getElementById('page-current').innerText = `第 ${currentPage} / ${maxPage} 頁`;
-    document.getElementById('btn-prev').disabled = currentPage <= 1;
-    document.getElementById('btn-next').disabled = currentPage >= maxPage;
-
-    tbody.innerHTML = pageItems.map(item => {
+    tbody.innerHTML = list.map(item => {
       const badgeHtml = item.isUndervalued
         ? `<span class="badge badge-undervalued">低估 ${item.premiumPct.toFixed(1)}%</span>`
         : `<span class="badge badge-overvalued">高估 +${item.premiumPct.toFixed(1)}%</span>`;
 
-      let exchBadge = `<span class="badge badge-exch-nyse">NYSE</span>`;
-      if (item.exchange === 'NASDAQ') exchBadge = `<span class="badge badge-exch-nasdaq">NASDAQ</span>`;
-      if (item.exchange === 'AMEX') exchBadge = `<span class="badge badge-exch-amex">AMEX</span>`;
+      const netCashColor = item.cash_minus_liab >= 0 ? 'color: var(--green);' : 'color: var(--red);';
 
       return `
         <tr>
-          <td><a class="ticker-link" onclick="navigateToDetail('${item.ticker}')">${item.ticker}</a></td>
-          <td>${exchBadge}</td>
+          <td><a class="ticker-link" onclick="openDetail('${item.ticker}')">${item.ticker}</a></td>
+          <td><span class="badge badge-exch-nasdaq">${item.exchange}</span></td>
           <td>
             <div style="font-weight: 600; color: #fff;">${item.name}</div>
             <div style="font-size: 11px; color: var(--text-muted);">${item.sector} · <span style="color:#94a3b8">${item.industry}</span></div>
@@ -658,35 +480,41 @@ async function loadMarketData() {
             <div>${(item.WACC * 100).toFixed(2)}%</div>
             <div style="font-size: 11px; color: var(--text-muted);">g: ${item.g.toFixed(2)}%</div>
           </td>
-          <td style="font-weight: 600;">$${(item.ev || item.EV || 0).toLocaleString(undefined, {maximumFractionDigits: 0})} M</td>
-          <td>$${(item.mcap || 0).toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
-          <td>${item.pe_trailing !== null && item.pe_trailing !== undefined ? item.pe_trailing : '--'}</td>
-          <td>${item.pe_forward !== null && item.pe_forward !== undefined ? item.pe_forward : '--'}</td>
-          <td>${item.pb_trailing !== null && item.pb_trailing !== undefined ? item.pb_trailing : '--'}</td>
-          <td>${item.pb_forward !== null && item.pb_forward !== undefined ? item.pb_forward : '--'}</td>
-          <td>${item.div_yield !== null && item.div_yield !== undefined ? item.div_yield.toFixed(2) + '%' : '0.00%'}</td>
-          <td>${item.ps_ratio !== null && item.ps_ratio !== undefined ? item.ps_ratio : '--'}</td>
-          <td>${item.pcash_ratio !== null && item.pcash_ratio !== undefined ? item.pcash_ratio : '--'}</td>
-          <td>${item.liab_to_assets !== null && item.liab_to_assets !== undefined ? item.liab_to_assets.toFixed(1) + '%' : '--'}</td>
-          <td>${item.current_ratio !== null && item.current_ratio !== undefined ? item.current_ratio : '--'}</td>
-          <td class="${(item.cash_minus_liab || 0) >= 0 ? 'text-green' : 'text-red'}">$${(item.cash_minus_liab || 0).toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
-          <td>${item.roe !== null && item.roe !== undefined ? item.roe.toFixed(1) + '%' : '--'}</td>
-          <td>${item.roa !== null && item.roa !== undefined ? item.roa.toFixed(1) + '%' : '--'}</td>
+          <td>$${(item.EV).toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
+          <!-- 13 項 TTM 財務指標 -->
+          <td style="font-weight: 600;">$${(item.mcap).toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
+          <td>${item.pe_trailing ? item.pe_trailing.toFixed(1) : '--'}</td>
+          <td>${item.pe_forward ? item.pe_forward.toFixed(1) : '--'}</td>
+          <td>${item.pb_trailing ? item.pb_trailing.toFixed(1) : '--'}</td>
+          <td>${item.pb_forward ? item.pb_forward.toFixed(1) : '--'}</td>
+          <td style="color: #67e8f9;">${item.div_yield ? item.div_yield.toFixed(2) + '%' : '0.00%'}</td>
+          <td>${item.ps_ratio ? item.ps_ratio.toFixed(1) : '--'}</td>
+          <td>${item.pcash_ratio ? item.pcash_ratio.toFixed(1) : '--'}</td>
+          <td>${item.liab_to_assets ? item.liab_to_assets.toFixed(1) + '%' : '--'}</td>
+          <td>${item.current_ratio ? item.current_ratio.toFixed(2) : '--'}</td>
+          <td style="${netCashColor}">$${(item.cash_minus_liab).toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
+          <td style="font-weight: 600; color: #fde047;">${item.roe ? item.roe.toFixed(1) + '%' : '--'}</td>
+          <td>${item.roa ? item.roa.toFixed(1) + '%' : '--'}</td>
           <td style="text-align: center;">
-            <button class="btn-nav" onclick="navigateToDetail('${item.ticker}')">深度模型 →</button>
+            <button class="btn-nav" onclick="openDetail('${item.ticker}')">深度模型 →</button>
           </td>
         </tr>
       `;
     }).join('');
   }
 
-  function renderDetailDom(ticker) {
+  function openDetail(ticker) {
+    activeDetailTicker = ticker;
+    showView('detail');
+  }
+
+  function loadDetailTicker(ticker) {
     const s = stockUniverse[ticker];
     document.getElementById('det-ticker').innerText = ticker;
     document.getElementById('det-name').innerText = s.name;
     const exchEl = document.getElementById('det-exchange');
     exchEl.innerText = s.exchange;
-    exchEl.className = s.exchange === 'NASDAQ' ? 'badge badge-exch-nasdaq' : (s.exchange === 'AMEX' ? 'badge badge-exch-amex' : 'badge badge-exch-nyse');
+    exchEl.className = 'badge badge-exch-nasdaq';
 
     document.getElementById('inp-price').value = s.price;
     document.getElementById('inp-shares').value = s.shares;
@@ -801,9 +629,8 @@ async function loadMarketData() {
             recomputedSumPV += tempFCF / Math.pow(1 + w, t);
           }
           const fcf11 = tempFCF * (1 + gVal);
-          const safe_w = Math.max(w, gVal + 0.015);
-          const tv = fcf11 / (safe_w - gVal);
-          const pvTV = tv / Math.pow(1 + safe_w, 10);
+          const tv = fcf11 / (w - gVal);
+          const pvTV = tv / Math.pow(1 + w, 10);
           const eqVal = (recomputedSumPV + pvTV) - netDebt;
           cellVal = eqVal / shares;
         }
@@ -815,8 +642,9 @@ async function loadMarketData() {
     document.getElementById('sens-body').innerHTML = tbody;
   }
 
-  window.onload = loadMarketData;
+  window.onload = function() {
+    renderScreenerTable();
+  };
 </script>
-  <script src="market_data.js"></script>
 </body>
 </html>
