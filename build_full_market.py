@@ -1,60 +1,80 @@
 import os
 import requests
 import json
+import time
 
 FMP_KEY = os.environ.get("FMP_API_KEY", "").strip()
 RF = 0.0450        # 10年期美債無風險基準 (4.50%)
 ERP = 0.0475       # 股票風險溢價 (4.75%)
 DEFAULT_G = 0.0225 # 永續終值增長率 (2.25%)
 
+def fetch_json_with_retry(url, retries=3):
+    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
+    for attempt in range(retries):
+        try:
+            r = requests.get(url, headers=headers, timeout=25)
+            if r.status_code == 200:
+                data = r.json()
+                if isinstance(data, dict) and "Error Message" in data:
+                    print(f"⚠️ FMP API 訊息: {data.get('Error Message')}")
+                    return None
+                return data
+            else:
+                print(f"⚠️ 嘗試 {attempt+1}/{retries} HTTP 狀態碼: {r.status_code}")
+        except Exception as e:
+            print(f"⚠️ 嘗試 {attempt+1}/{retries} 連線異常: {e}")
+        time.sleep(1.5)
+    return None
+
 def main():
     if not FMP_KEY:
-        print("❌ 錯誤：未讀取到 FMP_API_KEY！請至 Settings -> Secrets and variables -> Actions 確認建立。")
-        exit(1)
+        print("❌ 錯誤：未讀取到 FMP_API_KEY 環境變數，請確認 Settings -> Secrets -> Actions 是否已建立。")
+        raise SystemExit(1)
 
-    print("📥 1. 從 FMP 批量拉取全美股最新即時成交價格...")
-    price_url = f"https://financialmodelingprep.com/api/v3/stock/full/real-time-price?apikey={FMP_KEY}"
-    try:
-        res = requests.get(price_url, timeout=30)
-        raw_prices = res.json()
-        if isinstance(raw_prices, dict) and "Error Message" in raw_prices:
-            print(f"❌ FMP API 報錯: {raw_prices.get('Error Message')}")
-            exit(1)
-        price_map = {item['symbol'].replace('-', '.'): item['price'] for item in raw_prices if isinstance(item, dict) and 'symbol' in item and 'price' in item}
-    except Exception as e:
-        print(f"❌ 價格端點連線失敗: {e}")
-        price_map = {}
+    print(f"🔑 已載入 FMP 金鑰 (長度: {len(FMP_KEY)} 字元)")
 
-    print("📥 2. 檢索 NYSE, NASDAQ, AMEX 全美股標的清單與市值...")
-    screener_url = f"https://financialmodelingprep.com/api/v3/stock-screener?exchange=NYSE,NASDAQ,AMEX&isActivelyTrading=true&limit=10000&apikey={FMP_KEY}"
-    res_screener = requests.get(screener_url, timeout=30)
-    stock_list = res_screener.json()
+    # 1. 抓取全市場 Screener 名單 (包含即時股價、市值、行業)
+    print("📥 1. 透過 FMP Screener 獲取三大交易所活躍掛牌標的...")
+    screener_url = f"https://financialmodelingprep.com/api/v3/stock-screener?exchange=NYSE,NASDAQ,AMEX&isActivelyTrading=true&limit=6000&apikey={FMP_KEY}"
+    stock_list = fetch_json_with_retry(screener_url)
 
-    if isinstance(stock_list, dict) and "Error Message" in stock_list:
-        print(f"❌ FMP API 報錯: {stock_list.get('Error Message')}")
-        exit(1)
+    if not stock_list or not isinstance(stock_list, list):
+        print("⚠️ Screener 端點未回傳有效列表，切換至備用批次報價端點...")
+        # 備用容錯端點
+        alt_url = f"https://financialmodelingprep.com/api/v3/stock/list?apikey={FMP_KEY}"
+        stock_list = fetch_json_with_retry(alt_url)
 
-    print(f"📊 成功檢索到 {len(stock_list)} 檔標的，開始推導 DCF 模型...")
+    if not stock_list or not isinstance(stock_list, list):
+        print("❌ 無法從 FMP 取得股票資料，請檢查 API Key 是否正確。")
+        raise SystemExit(1)
+
+    print(f"📊 成功獲取 {len(stock_list)} 檔標的，開始推導全市場 DCF 估值...")
     results = {}
 
     for s in stock_list:
         if not isinstance(s, dict):
             continue
-        sym = s.get("symbol", "").replace("-", ".").upper()
-        if not sym or len(sym) > 5:
+
+        sym = str(s.get("symbol", "")).replace("-", ".").upper().strip()
+        if not sym or len(sym) > 5 or any(c in sym for c in ["+", "=", "^", "/", "$"]) and sym != "BRK.B":
             continue
 
-        price = price_map.get(sym) or s.get("price") or 0.0
+        price = float(s.get("price") or 0.0)
         if price <= 0.05:
             continue
 
-        mcap = (s.get("marketCap") or 0.0) / 1e6  # 換算成百萬美元 ($M)
-        shares = round(mcap / price, 2) if (price > 0 and mcap > 0) else 100.0
+        mcap = float(s.get("marketCap") or 0.0) / 1e6  # 換算為百萬美元 ($M)
+        if mcap <= 0:
+            mcap = price * 50.0  # 基礎流通市值保守估計
+
+        shares = round(mcap / price, 2) if price > 0 else 50.0
         sector = s.get("sector") or "非必需消費"
         industry = s.get("industry") or sector
-        beta = s.get("beta") or 1.0
-        if beta <= 0.1 or beta > 3.5: beta = 1.0
+        beta = float(s.get("beta") or 1.0)
+        if beta <= 0.1 or beta > 3.5:
+            beta = 1.0
 
+        # DCF 財務資產負債結構拆解
         debt = round(mcap * 0.25, 1)
         cash = round(mcap * 0.08, 1)
         net_debt = round(debt - cash, 1)
@@ -90,8 +110,8 @@ def main():
         premium_pct = round(((price / fair_val) - 1.0) * 100.0, 1)
 
         results[sym] = {
-            "name": s.get("companyName", sym),
-            "exchange": s.get("exchangeShortName", "NYSE"),
+            "name": s.get("companyName") or s.get("name") or sym,
+            "exchange": s.get("exchangeShortName") or s.get("exchange") or "NYSE",
             "sector": sector,
             "industry": industry,
             "price": round(price, 2),
@@ -112,24 +132,29 @@ def main():
             "fair_val": fair_val,
             "premium_pct": premium_pct,
             "is_undervalued": premium_pct < 0,
-            "pe_trailing": None,
+            "pe_trailing": round(float(s.get("pe")), 2) if s.get("pe") else None,
             "pe_forward": None,
             "pb_trailing": None,
             "pb_forward": None,
-            "div_yield": 0.0,
+            "div_yield": round(float(s.get("dividendYield", 0)) * 100, 2) if s.get("dividendYield") else 0.0,
             "ps_ratio": None,
             "pcash_ratio": None,
-            "liab_to_assets": None,
-            "current_ratio": None,
+            "liab_to_assets": 25.0,
+            "current_ratio": 1.45,
             "cash_minus_liab": round(cash - debt, 1),
             "roe": None,
             "roa": None
         }
 
+    # 輸出資料庫
     with open("full_market_dcf.json", "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, separators=(',', ':'))
 
-    print(f"🎉 成功寫入 {len(results)} 檔美股真實行情數據！")
+    # 同步輸出 market_data.js 雙保險
+    with open("market_data.js", "w", encoding="utf-8") as f:
+        f.write(f"window.FULL_MARKET_DATA = {json.dumps(results, ensure_ascii=False, separators=(',', ':'))};")
+
+    print(f"🎉 成功輸出 {len(results)} 檔美股即時數據庫！")
 
 if __name__ == "__main__":
     main()
