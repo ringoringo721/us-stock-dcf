@@ -5,13 +5,14 @@ import time
 
 FMP_KEY = os.environ.get("FMP_API_KEY", "").strip()
 
-# 宏觀參數基準
+# 宏觀折現基準
 RF = 0.0450        # 10年期美債無風險基準 (4.50%)
 ERP = 0.0475       # 股票風險溢價 (4.75%)
 DEFAULT_G = 0.0225 # 永續終值增長率 (2.25%)
 KD = 4.5           # 稅前借貸利率 (4.5%)
 TAX_RATE = 21.0    # 企業所得稅率 (21%)
 
+# FMP 官方行業板塊對照
 SECTOR_MAP = {
     "Technology": "資訊科技",
     "Healthcare": "醫療保健",
@@ -26,109 +27,24 @@ SECTOR_MAP = {
     "Basic Materials": "基礎材料"
 }
 
-def get_market_universe(key):
+def load_universe(key):
     """
-    符合 FMP 官方文檔最高通用權限端點：/api/v3/symbol/available-traded
-    保證不觸發 403，一次拉取所有活躍交易美股標的
+    從 FMP 官方 stock/list 下載美股掛牌名冊，若連線不順自動走開源交易所名冊雙保險
     """
-    url = f"https://financialmodelingprep.com/api/v3/symbol/available-traded?apikey={key}"
-    print("📥 1. 正在從 FMP available-traded 獲取三大交易所掛牌名冊...")
+    print("📥 1. 獲取全市場掛牌標的名冊...")
     headers = {"User-Agent": "Mozilla/5.0"}
+    url = f"https://financialmodelingprep.com/api/v3/stock/list?apikey={key}"
     try:
         r = requests.get(url, headers=headers, timeout=25)
         if r.status_code == 200:
             data = r.json()
-            if isinstance(data, list):
-                valid = []
-                allowed_exchanges = set(["NYSE", "NASDAQ", "AMEX"])
-                for item in data:
-                    sym = str(item.get("symbol", "")).replace("-", ".").upper().strip()
-                    exch = str(item.get("exchangeShortName", "")).upper()
-                    t_type = str(item.get("type", "")).lower()
-                    if sym and len(sym) <= 5 and exch in allowed_exchanges and ("stock" in t_type or t_type == ""):
-                        valid.append({"ticker": sym, "name": item.get("name", sym), "exchange": exch})
-                print(f"✅ 成功獲取 {len(valid)} 檔正規美股標的！")
-                return valid
-    except Exception as e:
-        print(f"⚠️ 標的名冊下載逾時: {e}")
-
-    # 若網路波動則使用精選名單容錯保底
-    return [
-        {"ticker": "NVDA", "name": "NVIDIA Corporation", "exchange": "NASDAQ"},
-        {"ticker": "AAPL", "name": "Apple Inc.", "exchange": "NASDAQ"},
-        {"ticker": "MSFT", "name": "Microsoft Corporation", "exchange": "NASDAQ"},
-        {"ticker": "AMZN", "name": "Amazon.com, Inc.", "exchange": "NASDAQ"},
-        {"ticker": "GOOGL", "name": "Alphabet Inc.", "exchange": "NASDAQ"},
-        {"ticker": "META", "name": "Meta Platforms, Inc.", "exchange": "NASDAQ"},
-        {"ticker": "TSLA", "name": "Tesla, Inc.", "exchange": "NASDAQ"},
-        {"ticker": "AVGO", "name": "Broadcom Inc.", "exchange從最新的截圖可以看到：在執行第 12–14 行請求 `stock-screener` 時，程序在 2 秒內就退出了，並且回傳了 **`0 筆資料`**。
-
-### 為什麼呼叫 Screener 也會回傳 0 筆？
-對照 FMP 官方 API 規範：
-1. **端點參數限制**：`/api/v3/stock-screener` 端點在未傳入市值/價格篩選範圍時，對交易所字串大小寫極為敏感，且部分基本方案禁止單次 `limit=4000` 查詢，直接拒絕或回傳空陣列 `[]`。
-2. **FMP 最穩定、全方案 100% 開放的股票清單端點**：
-   FMP 官方文檔中專門用於獲取所有掛牌股票名冊且**保證任何付費等級均可正常讀取**的端點是：
-   `https://financialmodelingprep.com/api/v3/stock/list?apikey=...`
-   這個端點會一次回傳包含美股所有代號、公司名稱、官方 Sector、交易所與當前價格的完整清單。
-3. **即時真實價格與財務比率**：
-   取得名冊後，使用 FMP 官方批次端點 `/api/v3/quote/{symbols}` 獲取即時成交價、市值與 P/E。
-
----
-
-### 徹底修復：替換 `build_full_market.py`
-
-在 GitHub 倉庫打開 **`build_full_market.py`** 點鉛筆 ✏️ 編輯，**清空並貼上以下代碼**：
-
-```python
-import os
-import requests
-import json
-import time
-
-FMP_KEY = os.environ.get("FMP_API_KEY", "").strip()
-
-# 宏觀折現參數基準
-RF = 0.0450        # 10年期美債無風險基準 (4.50%)
-ERP = 0.0475       # 股票風險溢價 (4.75%)
-DEFAULT_G = 0.0225 # 永續終值增長率 (2.25%)
-KD = 4.5           # 稅前借貸利率 (4.5%)
-TAX_RATE = 21.0    # 企業所得稅率 (21%)
-
-# FMP 官方板塊標準對照
-SECTOR_MAP = {
-    "Technology": "資訊科技",
-    "Healthcare": "醫療保健",
-    "Financial Services": "金融科技",
-    "Consumer Cyclical": "非必需消費",
-    "Consumer Defensive": "必需消費",
-    "Energy": "能源石油",
-    "Utilities": "公用事業",
-    "Real Estate": "房地產 REITs",
-    "Industrials": "工業製造",
-    "Communication Services": "通訊服務",
-    "Basic Materials": "基礎材料"
-}
-
-def load_fmp_stock_list(key):
-    """
-    調用 FMP 官方 /api/v3/stock/list 端點 (全方案皆具完整權限)
-    """
-    url = f"[https://financialmodelingprep.com/api/v3/stock/list?apikey=](https://financialmodelingprep.com/api/v3/stock/list?apikey=){key}"
-    print("📥 1. 正在從 FMP 獲取全市場掛牌股票清單...")
-    headers = {"User-Agent": "Mozilla/5.0"}
-    try:
-        r = requests.get(url, headers=headers, timeout=30)
-        if r.status_code == 200:
-            data = r.json()
             if isinstance(data, list) and len(data) > 0:
-                print(f"✅ 成功從 FMP 下載 {len(data)} 檔全球標的，正在篩選美股三大交易所...")
                 target_exchanges = set(["NASDAQ", "NEW YORK STOCK EXCHANGE", "NYSE", "AMERICAN STOCK EXCHANGE", "AMEX", "NYSE AMERICAN"])
                 stocks = []
                 for item in data:
                     sym = str(item.get("symbol", "")).replace("-", ".").upper().strip()
                     exch = str(item.get("exchange", "") or item.get("exchangeShortName", "")).upper()
                     t_type = str(item.get("type", "")).lower()
-                    
                     if sym and len(sym) <= 5 and not any(c in sym for c in ["+", "=", "^", "/", "$"]) or sym == "BRK.B":
                         if any(e in exch for e in target_exchanges) and ("stock" in t_type or t_type == ""):
                             mapped_exch = "NASDAQ" if "NASDAQ" in exch else ("AMEX" if "AMEX" in exch else "NYSE")
@@ -138,17 +54,18 @@ def load_fmp_stock_list(key):
                                 "exchange": mapped_exch,
                                 "price": float(item.get("price") or 0.0)
                             })
-                print(f"✅ 篩選完成，共計 {len(stocks)} 檔 NYSE / NASDAQ / AMEX 標的！")
-                return stocks
+                if len(stocks) > 500:
+                    print(f"✅ 成功從 FMP 下載並篩選出 {len(stocks)} 檔主要美股標的！")
+                    return stocks
     except Exception as e:
         print(f"⚠️ FMP stock/list 請求異常: {e}")
 
     # 備用保全來源：三大交易所名冊
     print("🔄 啟用官方開源交易所名冊通道...")
     backup_sources = [
-        ("NYSE", "[https://raw.githubusercontent.com/rreichel3/US-Stock-Symbols/main/nyse/nyse_full_tickers.json](https://raw.githubusercontent.com/rreichel3/US-Stock-Symbols/main/nyse/nyse_full_tickers.json)"),
-        ("NASDAQ", "[https://raw.githubusercontent.com/rreichel3/US-Stock-Symbols/main/nasdaq/nasdaq_full_tickers.json](https://raw.githubusercontent.com/rreichel3/US-Stock-Symbols/main/nasdaq/nasdaq_full_tickers.json)"),
-        ("AMEX", "[https://raw.githubusercontent.com/rreichel3/US-Stock-Symbols/main/amex/amex_full_tickers.json](https://raw.githubusercontent.com/rreichel3/US-Stock-Symbols/main/amex/amex_full_tickers.json)")
+        ("NYSE", "https://raw.githubusercontent.com/rreichel3/US-Stock-Symbols/main/nyse/nyse_full_tickers.json"),
+        ("NASDAQ", "https://raw.githubusercontent.com/rreichel3/US-Stock-Symbols/main/nasdaq/nasdaq_full_tickers.json"),
+        ("AMEX", "https://raw.githubusercontent.com/rreichel3/US-Stock-Symbols/main/amex/amex_full_tickers.json")
     ]
     backup_stocks = []
     for exch, b_url in backup_sources:
@@ -162,21 +79,22 @@ def load_fmp_stock_list(key):
                         backup_stocks.append({"ticker": s_sym, "name": s_name if s_name else s_sym, "exchange": exch, "price": 0.0})
         except Exception:
             pass
+    print(f"✅ 備用通道就緒，共 {len(backup_stocks)} 檔標的。")
     return backup_stocks
 
 def fetch_live_quotes_batched(symbol_list, key):
     """
-    透過 FMP 官方 /api/v3/quote/{TICKERS} 批次獲取即時成交價、市值、流通股數、PE
+    透過 FMP 官方批次端點 /api/v3/quote/{TICKERS} 獲取即時成交價、市值、流通股數、PE
     """
     quotes_map = {}
     batch_size = 60
     total = (len(symbol_list) + batch_size - 1) // batch_size
-    print(f"📊 2. 從 FMP 批次獲取最新即時報價 (共 {len(symbol_list)} 檔，分 {total} 批)...")
+    print(f"📊 2. 從 FMP 批次獲取全市場最新報價 (共 {len(symbol_list)} 檔，分 {total} 批)...")
 
     for i in range(0, len(symbol_list), batch_size):
         chunk = symbol_list[i:i + batch_size]
         syms_str = ",".join([s["ticker"].replace(".", "-") for s in chunk])
-        url = f"[https://financialmodelingprep.com/api/v3/quote/](https://financialmodelingprep.com/api/v3/quote/){syms_str}?apikey={key}"
+        url = f"https://financialmodelingprep.com/api/v3/quote/{syms_str}?apikey={key}"
         try:
             r = requests.get(url, timeout=12)
             if r.status_code == 200:
@@ -199,11 +117,10 @@ def fetch_core_profiles_and_dcf(tickers, key):
     prof_map = {}
     dcf_map = {}
     headers = {"User-Agent": "Mozilla/5.0"}
-    print(f"📈 3. 正在調用 FMP 官方端點拉取核心標的 Profile 與 DCF...")
+    print(f"📈 3. 調用 FMP 官方端點同步核心龍頭標的 Profile 與 DCF...")
     for sym in tickers:
-        # Profile 端點
         try:
-            p_res = requests.get(f"[https://financialmodelingprep.com/api/v3/profile/](https://financialmodelingprep.com/api/v3/profile/){sym}?apikey={key}", headers=headers, timeout=5)
+            p_res = requests.get(f"https://financialmodelingprep.com/api/v3/profile/{sym}?apikey={key}", headers=headers, timeout=5)
             if p_res.status_code == 200:
                 p_data = p_res.json()
                 if isinstance(p_data, list) and len(p_data) > 0:
@@ -211,9 +128,8 @@ def fetch_core_profiles_and_dcf(tickers, key):
         except Exception:
             pass
 
-        # DCF 官方公允價值端點
         try:
-            d_res = requests.get(f"[https://financialmodelingprep.com/api/v3/discounted-cash-flow/](https://financialmodelingprep.com/api/v3/discounted-cash-flow/){sym}?apikey={key}", headers=headers, timeout=5)
+            d_res = requests.get(f"https://financialmodelingprep.com/api/v3/discounted-cash-flow/{sym}?apikey={key}", headers=headers, timeout=5)
             if d_res.status_code == 200:
                 d_data = d_res.json()
                 if isinstance(d_data, list) and len(d_data) > 0:
@@ -254,7 +170,7 @@ def main():
         print("❌ 錯誤：未讀取到 FMP_API_KEY！")
         raise SystemExit(1)
 
-    stocks = load_fmp_stock_list(FMP_KEY)
+    stocks = load_universe(FMP_KEY)
     if not stocks:
         print("❌ 未能獲取任何標的清單！")
         raise SystemExit(1)
@@ -391,6 +307,7 @@ def main():
             "roa": base_roa
         }
 
+    # 寫入全市場資料庫檔案
     with open("full_market_dcf.json", "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, separators=(',', ':'))
 
