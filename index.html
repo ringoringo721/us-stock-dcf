@@ -24,6 +24,7 @@
       --nyse-blue: #60a5fa;
       --amex-green: #34d399;
       --fav-pink: #f43f5e;
+      --sticky-bg: #162032; /* 實心深色，100% 阻隔後方文字 */
     }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
     html, body { background-color: var(--bg); color: var(--text); padding: 16px; line-height: 1.5; width: 100%; min-height: 100vh; }
@@ -38,7 +39,7 @@
     .stat-label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
     .stat-num { font-size: 22px; font-weight: 700; color: #fff; margin: 4px 0; }
 
-    .filter-panel { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; padding: 14px 18px; margin-bottom: 20px; display: flex; flex-direction: column; gap: 12px; }
+    .filter-panel { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; padding: 14px 18px; margin-bottom: 16px; display: flex; flex-direction: column; gap: 12px; }
     .filter-row { display: flex; align-items: flex-start; gap: 8px; flex-wrap: wrap; }
     .filter-title { font-size: 12px; color: var(--text-muted); min-width: 90px; font-weight: 600; margin-top: 5px; }
     .f-btn { background: #0f172a; border: 1px solid var(--card-border); color: #cbd5e1; padding: 4px 11px; border-radius: 4px; font-size: 12px; cursor: pointer; font-weight: 600; transition: all 0.2s; }
@@ -47,36 +48,53 @@
     .search-input { background: #0f172a; border: 1px solid var(--card-border); color: #fff; padding: 6px 12px; border-radius: 6px; font-size: 13px; width: 320px; margin-left: auto; }
     .search-input:focus { border-color: var(--accent); outline: none; }
 
-    /* ===== 表格與左右捲動核心修復 (可自適應螢幕，並帶有固定前三欄) ===== */
+    /* ===== 頂部同步雙向橫向捲動軸 (解決必須滑到頁面底部問題) ===== */
+    .top-scroll-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      height: 16px;
+      margin-bottom: 4px;
+      background: #0f172a;
+      border-radius: 6px;
+      border: 1px solid var(--card-border);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+    .top-scroll-dummy {
+      height: 1px;
+    }
+    .top-scroll-wrapper::-webkit-scrollbar,
+    .table-container::-webkit-scrollbar {
+      height: 12px;
+    }
+    .top-scroll-wrapper::-webkit-scrollbar-track,
+    .table-container::-webkit-scrollbar-track {
+      background: #0f172a;
+      border-radius: 6px;
+    }
+    .top-scroll-wrapper::-webkit-scrollbar-thumb,
+    .table-container::-webkit-scrollbar-thumb {
+      background: #475569;
+      border-radius: 6px;
+      border: 2px solid #0f172a;
+    }
+    .top-scroll-wrapper::-webkit-scrollbar-thumb:hover,
+    .table-container::-webkit-scrollbar-thumb:hover {
+      background: var(--accent);
+    }
+
+    /* ===== 表格與左右捲動核心結構 ===== */
     .table-container {
       width: 100%;
-      max-width: 100%;
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 8px;
-      overflow-x: scroll; /* 強制開啟橫向捲軸 */
+      overflow-x: auto;
       overflow-y: visible;
       margin-bottom: 20px;
       position: relative;
-      scrollbar-width: thin;
-      scrollbar-color: #64748b #0f172a;
-    }
-
-    /* Webkit 專屬高對比橫向捲軸 */
-    .table-container::-webkit-scrollbar {
-      height: 14px;
-    }
-    .table-container::-webkit-scrollbar-track {
-      background: #0f172a;
-      border-radius: 8px;
-    }
-    .table-container::-webkit-scrollbar-thumb {
-      background: #475569;
-      border-radius: 8px;
-      border: 3px solid #0f172a;
-    }
-    .table-container::-webkit-scrollbar-thumb:hover {
-      background: var(--accent);
     }
 
     table {
@@ -99,43 +117,54 @@
       cursor: pointer;
       user-select: none;
       position: sticky;
-      top: 0;
+      top: 16px; /* 與頂部捲軸微幅錯開 */
       z-index: 5;
     }
     th:hover { color: var(--accent); }
     tr:hover td { background-color: rgba(255, 255, 255, 0.03); }
 
-    /* ===== 鎖定前三欄 (Sticky Columns) ===== */
+    /* ===== 徹底解決重疊陰影 (Sticky Solid Backgrounds & Precise Offsets) ===== */
     .col-sticky-1 {
       position: sticky;
       left: 0;
-      z-index: 6;
-      background: #1e293b;
+      z-index: 10;
+      background-color: var(--sticky-bg) !important;
       text-align: left;
-      min-width: 105px;
+      min-width: 110px;
+      width: 110px;
     }
-    th.col-sticky-1 { background: #162032; z-index: 9; }
+    th.col-sticky-1 { z-index: 15; }
 
     .col-sticky-2 {
       position: sticky;
-      left: 105px;
-      z-index: 6;
-      background: #1e293b;
+      left: 110px;
+      z-index: 10;
+      background-color: var(--sticky-bg) !important;
       text-align: left;
-      min-width: 80px;
+      min-width: 85px;
+      width: 85px;
     }
-    th.col-sticky-2 { background: #162032; z-index: 9; }
+    th.col-sticky-2 { z-index: 15; }
 
     .col-sticky-3 {
       position: sticky;
-      left: 185px;
-      z-index: 6;
-      background: #1e293b;
+      left: 195px;
+      z-index: 10;
+      background-color: var(--sticky-bg) !important;
       text-align: left;
+      min-width: 170px;
+      width: 170px;
+      box-shadow: 4px 0 8px -2px rgba(0, 0, 0, 0.6); /* 實心陰影遮斷後方所有字體 */
       border-right: 2px solid #334155;
-      min-width: 150px;
     }
-    th.col-sticky-3 { background: #162032; z-index: 9; }
+    th.col-sticky-3 { z-index: 15; }
+
+    /* 滑鼠懸停時固定欄位背景維持實心 */
+    tr:hover td.col-sticky-1,
+    tr:hover td.col-sticky-2,
+    tr:hover td.col-sticky-3 {
+      background-color: #1e293b !important;
+    }
 
     /* 愛心圖示 */
     .fav-btn {
@@ -201,7 +230,7 @@
   <header>
     <div>
       <h1>美股旗艦 DCF 估值雷達</h1>
-      <span style="font-size: 13px; color: var(--text-muted);">NYSE · NASDAQ · AMEX · GICS 完整產業樹 · 鎖定前三欄 · 雙軌目標價</span>
+      <span style="font-size: 13px; color: var(--text-muted);">NYSE · NASDAQ · AMEX · 頂部與底部同步橫向捲動 · 零陰影干擾</span>
     </div>
     <div class="status-badge">
       🟢 FMP 官方財報已完成同步 (全市場覆蓋)
@@ -239,7 +268,7 @@
         <span class="filter-title">篩選維度：</span>
         <div class="filter-btns" id="val-filters">
           <button class="f-btn active" onclick="setValFilter('ALL')">全部標的</button>
-          <button class="f-btn btn-fav" onclick="setValFilter('FAVORITES')">❤️️ 我的自選收藏</button>
+          <button class="f-btn btn-fav" onclick="setValFilter('FAVORITES')">❤️ 我的自選收藏</button>
           <button class="f-btn" onclick="setValFilter('UNDERVALUED')">🟢 具安全邊際 (低估)</button>
           <button class="f-btn" onclick="setValFilter('OVERVALUED')">🔴 溢價過高 (高估)</button>
           <button class="f-btn" onclick="setValFilter('SAVED')">💾 已存目標價</button>
@@ -273,8 +302,13 @@
       </div>
     </div>
 
-    <!-- 總表 (完美左右捲動與鎖定前三欄) -->
-    <div class="table-container">
+    <!-- 頂部吸頂懸浮橫向捲動軸 (不用滑到最底就能直接在頂部左右滑) -->
+    <div class="top-scroll-wrapper" id="top-scroll-wrapper">
+      <div class="top-scroll-dummy" id="top-scroll-dummy"></div>
+    </div>
+
+    <!-- 總表容器 -->
+    <div class="table-container" id="main-table-container">
       <table id="screener-table">
         <thead>
           <tr>
@@ -485,7 +519,7 @@
     const btn = document.getElementById('det-fav-btn');
     if (!btn) return;
     if (isFavorite(activeDetailTicker)) {
-      btn.innerText = '❤️️';
+      btn.innerText = '❤️';
       btn.className = 'fav-btn active';
     } else {
       btn.innerText = '♡';
@@ -753,6 +787,51 @@
         </tr>
       `;
     }).join('');
+
+    // 同步頂部橫向捲動軸寬度
+    syncScrollbars();
+  }
+
+  // ===== 雙向捲軸同步與原地 Shift 左右滑動控制 =====
+  function syncScrollbars() {
+    const table = document.getElementById('screener-table');
+    const dummy = document.getElementById('top-scroll-dummy');
+    if (table && dummy) {
+      dummy.style.width = table.scrollWidth + 'px';
+    }
+  }
+
+  function setupScrollSync() {
+    const topScroll = document.getElementById('top-scroll-wrapper');
+    const mainTable = document.getElementById('main-table-container');
+
+    let isSyncingTop = false;
+    let isSyncingMain = false;
+
+    topScroll.addEventListener('scroll', function() {
+      if (!isSyncingTop) {
+        isSyncingMain = true;
+        mainTable.scrollLeft = topScroll.scrollLeft;
+      }
+      isSyncingTop = false;
+    });
+
+    mainTable.addEventListener('scroll', function() {
+      if (!isSyncingMain) {
+        isSyncingTop = true;
+        topScroll.scrollLeft = mainTable.scrollLeft;
+      }
+      isSyncingMain = false;
+    });
+
+    // 支援直接使用 Shift + 滑鼠滾輪 在表格任意位置橫向捲動
+    mainTable.addEventListener('wheel', function(e) {
+      if (e.shiftKey || Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+        return; // 原生橫向捲動
+      }
+    }, { passive: true });
+
+    window.addEventListener('resize', syncScrollbars);
   }
 
   function loadDetailTicker(ticker) {
@@ -943,6 +1022,7 @@
 
   window.onload = function() {
     updateSubIndustryButtons();
+    setupScrollSync();
     const hash = window.location.hash.replace('#', '').toUpperCase();
     if (hash && stockUniverse[hash]) {
       activeDetailTicker = hash;
