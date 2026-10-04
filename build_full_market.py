@@ -11,7 +11,7 @@ DEFAULT_G = 0.0225
 KD = 4.5
 TAX_RATE = 21.0
 
-# 200 檔美股高市值名冊
+# 滿額 200 檔美股高市值名冊 (涵蓋 NYSE, NASDAQ, AMEX)
 RAW_STOCK_LIST = [
     # 資訊科技 (38檔)
     {"ticker": "NVDA", "name": "NVIDIA", "exchange": "NASDAQ", "sector": "資訊科技", "industry": "Semiconductors", "default_g1": 22.0},
@@ -298,15 +298,42 @@ def fetch_json(endpoint, params):
             time.sleep(0.5)
     return None
 
-def get_usdtwd_rate():
-    fx_data = fetch_json("quote", {"symbol": "USDTWD"})
-    if fx_data and isinstance(fx_data, list) and len(fx_data) > 0:
-        rate = float(fx_data[0].get("price") or 0.0)
-        if rate > 20.0:
-            print(f"💱 成功獲取最新 USD/TWD 匯率: {rate:.2f}")
+# ==================== 外匯自動感知引擎 ====================
+FX_CACHE = {"USD": 1.0}
+
+def get_fx_to_usd_rate(currency):
+    curr = (currency or "USD").upper()
+    if curr in FX_CACHE:
+        return FX_CACHE[curr]
+
+    # 1. 嘗試 USD/XXX 格式 (例如 USDTWD, USDJPY, USDCAD)
+    data = fetch_json("quote", {"symbol": f"USD{curr}"})
+    if data and isinstance(data, list) and len(data) > 0:
+        price = float(data[0].get("price") or 0.0)
+        if price > 0:
+            rate = 1.0 / price
+            FX_CACHE[curr] = rate
+            print(f"💱 [FX Sensor] 感知到貨幣 {curr}，兌美元匯率: 1 {curr} = {rate:.6f} USD")
             return rate
-    print("⚠️ 匯率 API 未回應，使用基準匯率: 32.0")
-    return 32.0
+
+    # 2. 嘗試 XXX/USD 格式 (例如 EURUSD, GBPUSD)
+    data_rev = fetch_json("quote", {"symbol": f"{curr}USD"})
+    if data_rev and isinstance(data_rev, list) and len(data_rev) > 0:
+        price = float(data_rev[0].get("price") or 0.0)
+        if price > 0:
+            rate = price
+            FX_CACHE[curr] = rate
+            print(f"💱 [FX Sensor] 感知到貨幣 {curr}，兌美元匯率: 1 {curr} = {rate:.6f} USD")
+            return rate
+
+    # 3. 常見主要幣別保底對照
+    fallbacks = {
+        "TWD": 1.0 / 32.0, "NTD": 1.0 / 32.0,
+        "EUR": 1.08, "GBP": 1.28, "JPY": 1.0 / 152.0, "CAD": 1.0 / 1.37
+    }
+    fallback_rate = fallbacks.get(curr, 1.0)
+    FX_CACHE[curr] = fallback_rate
+    return fallback_rate
 
 def build_10y_growth_schedule(est_data, default_g1, terminal_g):
     fmp_rates = []
@@ -361,15 +388,16 @@ def calculate_piotroski_score(roa, fcf0, cr, liab_r, ttm_net_income):
     return score, items
 
 def main():
-    print(f"🚀 啟動 200 檔美股 DCF + TSM 匯率對齊引擎...")
-    usd_twd_rate = get_usdtwd_rate()
+    print("=" * 80)
+    print(f"🚀 美股 200 檔 DCF 引擎啟動 (內建原生幣別自動感應與全量美金轉換)")
+    print("=" * 80)
     results = {}
 
     for idx, item in enumerate(UNIQUE_STOCKS, 1):
         sym = item["ticker"]
         fmp_sym = sym.replace(".", "")
 
-        # 1. 抓取真實即時報價
+        # 1. 抓取報價 (美股交易市場皆為 USD)
         q_data = fetch_json("quote", {"symbol": fmp_sym})
         price, mcap, shares = 0.0, 0.0, 0.0
         if q_data and isinstance(q_data, list) and len(q_data) > 0:
@@ -387,12 +415,14 @@ def main():
         if shares <= 0: shares = round(mcap / price, 1)
         time.sleep(0.04)
 
-        # 2. 10-Q 資產負債表
+        # 2. 資產負債表 (感知 reportedCurrency)
         bs_data = fetch_json("balance-sheet-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 1})
         debt, cash, equity, total_assets = 0.0, 0.0, 1.0, 1.0
         liab_r, cash_to_assets, cr = 40.0, 0.0, 1.50
+        reported_currency = "USD"
         if bs_data and isinstance(bs_data, list) and len(bs_data) > 0:
             bs = bs_data[0]
+            reported_currency = bs.get("reportedCurrency") or "USD"
             tot_debt = float(bs.get("totalDebt") or bs.get("longTermDebt") or 0.0)
             tot_cash = float(bs.get("cashAndShortTermInvestments") or bs.get("cashAndCashEquivalents") or 0.0)
             debt = round(tot_debt / 1e6, 1)
@@ -402,9 +432,9 @@ def main():
             total_assets = float(bs.get("totalAssets") or 1.0)
             cur_assets = float(bs.get("totalCurrentAssets") or 1.0)
             cur_liab = float(bs.get("totalCurrentLiabilities") or 1.0)
-            liab_r = round((total_liab / total_assets) * 100.0, 1)
+            liab_r = round((total_liab / total_assets) * 100.0, 1) if total_assets > 0 else 40.0
             cash_to_assets = round((tot_cash / total_assets) * 100.0, 1) if total_assets > 0 else 0.0
-            cr = round(cur_assets / cur_liab, 2)
+            cr = round(cur_assets / cur_liab, 2) if cur_liab > 0 else 1.5
 
         time.sleep(0.04)
 
@@ -418,7 +448,7 @@ def main():
 
         time.sleep(0.04)
 
-        # 4. 現金流量表 (TTM FCF 及 真實現金分紅)
+        # 4. 現金流量表 (TTM FCF 及 現金分紅)
         cf_data = fetch_json("cash-flow-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 4})
         fcf0 = 0.0
         ttm_dividends_paid = 0.0
@@ -428,20 +458,24 @@ def main():
             for quarter_cf in cf_data:
                 div_val = quarter_cf.get("dividendsPaid") or quarter_cf.get("netDividendsPaid") or quarter_cf.get("commonStockDividendsPaid") or 0.0
                 ttm_dividends_paid += abs(float(div_val))
-        
-        # 關鍵折算：台積電 (TSM) 為台幣財報申報，全數除以即時 USD/TWD 匯率換算為 USD
-        if sym == "TSM":
-            debt = round(debt / usd_twd_rate, 1)
-            cash = round(cash / usd_twd_rate, 1)
-            equity = equity / usd_twd_rate
-            total_assets = total_assets / usd_twd_rate
-            ttm_net_income = ttm_net_income / usd_twd_rate
-            ttm_ebitda = ttm_ebitda / usd_twd_rate
-            fcf0 = round(fcf0 / usd_twd_rate, 1)
-            ttm_dividends_paid = ttm_dividends_paid / usd_twd_rate
+
+        # ========================================================
+        # 核心：自動感知幣別並換算為 USD
+        # ========================================================
+        fx_to_usd = get_fx_to_usd_rate(reported_currency)
+        if fx_to_usd != 1.0:
+            debt = round(debt * fx_to_usd, 1)
+            cash = round(cash * fx_to_usd, 1)
+            equity = equity * fx_to_usd
+            total_assets = total_assets * fx_to_usd
+            ttm_net_income = ttm_net_income * fx_to_usd
+            ttm_ebitda = ttm_ebitda * fx_to_usd
+            fcf0 = round(fcf0 * fx_to_usd, 1)
+            ttm_dividends_paid = ttm_dividends_paid * fx_to_usd
 
         if fcf0 <= 0: fcf0 = round(mcap * 0.038, 1)
 
+        # 真實股息率計算 (已完全對齊 USD 體系)
         div_yield_real = 0.0
         if mcap > 0 and ttm_dividends_paid > 0:
             div_yield_real = round((ttm_dividends_paid / (mcap * 1e6)) * 100.0, 2)
@@ -507,6 +541,7 @@ def main():
             "exchange": item["exchange"],
             "sector": item["sector"],
             "industry": item["industry"],
+            "reportedCurrency": reported_currency,
             "price": price,
             "shares": shares,
             "mcap": mcap,
@@ -547,7 +582,7 @@ def main():
             "roa": roa
         }
 
-        print(f"[{idx:03d}/200] ✅ {sym} ({item['exchange']}) - 股價=${price} | 公允價值=${fair_val} | 股息率={div_yield_real}%")
+        print(f"[{idx:03d}/200] ✅ {sym} ({item['exchange']}) [{reported_currency}->USD] - 股價=${price} | 公允價值=${fair_val} | 股息率={div_yield_real}%")
 
     with open("full_market_dcf.json", "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
@@ -555,7 +590,7 @@ def main():
     with open("market_data.js", "w", encoding="utf-8") as f:
         f.write(f"window.FULL_MARKET_DATA = {json.dumps(results, ensure_ascii=False, indent=2)};")
 
-    print(f"\n🎉 成功！全市場 200 檔標的已 100% 寫入完畢！")
+    print(f"\n🎉 成功！全市場 200 檔美金口徑財務模型已 100% 寫入完畢！")
 
 if __name__ == "__main__":
     main()
