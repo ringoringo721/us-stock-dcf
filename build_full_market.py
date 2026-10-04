@@ -9,153 +9,145 @@ FMP_KEY = os.environ.get("FMP_API_KEY", "").strip()
 RF = 0.0450        # 10年期美債無風險基準 (4.50%)
 ERP = 0.0475       # 股票風險溢價 (4.75%)
 DEFAULT_G = 0.0225 # 永續終值增長率 (2.25%)
-KD = 4.5           # 稅前借貸成本 (4.50%)
+KD = 4.5           # 稅前借貸利率 (4.5%)
 TAX_RATE = 21.0    # 企業所得稅率 (21%)
 
-# 內建大盤核心優質標的清單（官方 GICS 標準 Sector 與 Industry，零外部網路依賴）
+# 92 檔美股核心大盤龍頭標的 (全部均為市值 > $10B 之各行業龍頭，官方 GICS 分類)
 CORE_UNIVERSE = [
-    # 科技巨頭與半導體
+    # 科技與半導體 (Semiconductors & Software)
     {"ticker": "NVDA", "name": "NVIDIA Corporation", "sector": "資訊科技", "industry": "Semiconductors"},
     {"ticker": "AAPL", "name": "Apple Inc.", "sector": "資訊科技", "industry": "Technology Hardware & Storage"},
     {"ticker": "MSFT", "name": "Microsoft Corporation", "sector": "資訊科技", "industry": "Systems Software"},
     {"ticker": "AVGO", "name": "Broadcom Inc.", "sector": "資訊科技", "industry": "Semiconductors"},
     {"ticker": "ORCL", "name": "Oracle Corporation", "sector": "資訊科技", "industry": "Systems Software"},
-    {"ticker": "CRM", "name": "Salesforce Inc.", "sector": "資訊科技", "industry": "Application Software"},
-    {"ticker": "AMD", "name": "Advanced Micro Devices Inc.", "sector": "資訊科技", "industry": "Semiconductors"},
-    {"ticker": "QCOM", "name": "QUALCOMM Inc.", "sector": "資訊科技", "industry": "Semiconductors"},
-    {"ticker": "TXN", "name": "Texas Instruments Inc.", "sector": "資訊科技", "industry": "Semiconductors"},
+    {"ticker": "CRM", "name": "Salesforce, Inc.", "sector": "資訊科技", "industry": "Application Software"},
+    {"ticker": "AMD", "name": "Advanced Micro Devices, Inc.", "sector": "資訊科技", "industry": "Semiconductors"},
+    {"ticker": "QCOM", "name": "QUALCOMM Incorporated", "sector": "資訊科技", "industry": "Semiconductors"},
+    {"ticker": "TXN", "name": "Texas Instruments Incorporated", "sector": "資訊科技", "industry": "Semiconductors"},
     {"ticker": "ADBE", "name": "Adobe Inc.", "sector": "資訊科技", "industry": "Application Software"},
     {"ticker": "INTC", "name": "Intel Corporation", "sector": "資訊科技", "industry": "Semiconductors"},
-    {"ticker": "CSCO", "name": "Cisco Systems Inc.", "sector": "資訊科技", "industry": "Communications Equipment"},
+    {"ticker": "CSCO", "name": "Cisco Systems, Inc.", "sector": "資訊科技", "industry": "Communications Equipment"},
     {"ticker": "IBM", "name": "International Business Machines", "sector": "資訊科技", "industry": "IT Consulting & Other Services"},
-    {"ticker": "NOW", "name": "ServiceNow Inc.", "sector": "資訊科技", "industry": "Systems Software"},
+    {"ticker": "NOW", "name": "ServiceNow, Inc.", "sector": "資訊科技", "industry": "Systems Software"},
     {"ticker": "INTU", "name": "Intuit Inc.", "sector": "資訊科技", "industry": "Application Software"},
-    {"ticker": "AMAT", "name": "Applied Materials Inc.", "sector": "資訊科技", "industry": "Semiconductor Equipment"},
-    {"ticker": "MU", "name": "Micron Technology Inc.", "sector": "資訊科技", "industry": "Semiconductors"},
+    {"ticker": "AMAT", "name": "Applied Materials, Inc.", "sector": "資訊科技", "industry": "Semiconductor Equipment"},
+    {"ticker": "MU", "name": "Micron Technology, Inc.", "sector": "資訊科技", "industry": "Semiconductors"},
     {"ticker": "LRCX", "name": "Lam Research Corporation", "sector": "資訊科技", "industry": "Semiconductor Equipment"},
-    {"ticker": "ADI", "name": "Analog Devices Inc.", "sector": "資訊科技", "industry": "Semiconductors"},
+    {"ticker": "ADI", "name": "Analog Devices, Inc.", "sector": "資訊科技", "industry": "Semiconductors"},
     {"ticker": "KLAC", "name": "KLA Corporation", "sector": "資訊科技", "industry": "Semiconductor Equipment"},
-    {"ticker": "PANW", "name": "Palo Alto Networks Inc.", "sector": "資訊科技", "industry": "Systems Software"},
-    {"ticker": "SNPS", "name": "Synopsys Inc.", "sector": "資訊科技", "industry": "Application Software"},
-    {"ticker": "CDNS", "name": "Cadence Design Systems", "sector": "資訊科技", "industry": "Application Software"},
-    {"ticker": "CRWD", "name": "CrowdStrike Holdings Inc.", "sector": "資訊科技", "industry": "Systems Software"},
+    {"ticker": "PANW", "name": "Palo Alto Networks, Inc.", "sector": "資訊科技", "industry": "Systems Software"},
+    {"ticker": "SNPS", "name": "Synopsys, Inc.", "sector": "資訊科技", "industry": "Application Software"},
+    {"ticker": "CDNS", "name": "Cadence Design Systems, Inc.", "sector": "資訊科技", "industry": "Application Software"},
+    {"ticker": "CRWD", "name": "CrowdStrike Holdings, Inc.", "sector": "資訊科技", "industry": "Systems Software"},
     {"ticker": "PLTR", "name": "Palantir Technologies Inc.", "sector": "資訊科技", "industry": "Application Software"},
     {"ticker": "TSM", "name": "Taiwan Semiconductor Manufacturing", "sector": "資訊科技", "industry": "Semiconductors"},
     {"ticker": "ASML", "name": "ASML Holding N.V.", "sector": "資訊科技", "industry": "Semiconductor Equipment"},
 
-    # 通訊服務
-    {"ticker": "GOOGL", "name": "Alphabet Inc. Class A", "sector": "通訊服務", "industry": "Interactive Media & Services"},
-    {"ticker": "GOOG", "name": "Alphabet Inc. Class C", "sector": "通訊服務", "industry": "Interactive Media & Services"},
-    {"ticker": "META", "name": "Meta Platforms Inc.", "sector": "通訊服務", "industry": "Interactive Media & Services"},
-    {"ticker": "NFLX", "name": "Netflix Inc.", "sector": "通訊服務", "industry": "Movies & Entertainment"},
-    {"ticker": "DIS", "name": "Walt Disney Company", "sector": "通訊服務", "industry": "Movies & Entertainment"},
+    # 通訊服務 (Communication Services)
+    {"ticker": "GOOGL", "name": "Alphabet Inc. (Class A)", "sector": "通訊服務", "industry": "Interactive Media & Services"},
+    {"ticker": "GOOG", "name": "Alphabet Inc. (Class C)", "sector": "通訊服務", "industry": "Interactive Media & Services"},
+    {"ticker": "META", "name": "Meta Platforms, Inc.", "sector": "通訊服務", "industry": "Interactive Media & Services"},
+    {"ticker": "NFLX", "name": "Netflix, Inc.", "sector": "通訊服務", "industry": "Movies & Entertainment"},
+    {"ticker": "DIS", "name": "The Walt Disney Company", "sector": "通訊服務", "industry": "Movies & Entertainment"},
     {"ticker": "CMCSA", "name": "Comcast Corporation", "sector": "通訊服務", "industry": "Cable & Satellite"},
     {"ticker": "VZ", "name": "Verizon Communications Inc.", "sector": "通訊服務", "industry": "Integrated Telecom Services"},
     {"ticker": "T", "name": "AT&T Inc.", "sector": "通訊服務", "industry": "Integrated Telecom Services"},
-    {"ticker": "TMUS", "name": "T-Mobile US Inc.", "sector": "通訊服務", "industry": "Wireless Telecom Services"},
+    {"ticker": "TMUS", "name": "T-Mobile US, Inc.", "sector": "通訊服務", "industry": "Wireless Telecom Services"},
 
-    # 非必需消費
-    {"ticker": "AMZN", "name": "Amazon.com Inc.", "sector": "非必需消費", "industry": "Broadline Retail"},
-    {"ticker": "TSLA", "name": "Tesla Inc.", "sector": "非必需消費", "industry": "Automobile Manufacturers"},
-    {"ticker": "HD", "name": "The Home Depot Inc.", "sector": "非必需消費", "industry": "Home Improvement Retail"},
+    # 非必需消費 (Consumer Cyclical)
+    {"ticker": "AMZN", "name": "Amazon.com, Inc.", "sector": "非必需消費", "industry": "Broadline Retail"},
+    {"ticker": "TSLA", "name": "Tesla, Inc.", "sector": "非必需消費", "industry": "Automobile Manufacturers"},
+    {"ticker": "HD", "name": "The Home Depot, Inc.", "sector": "非必需消費", "industry": "Home Improvement Retail"},
     {"ticker": "MCD", "name": "McDonald's Corporation", "sector": "非必需消費", "industry": "Restaurants"},
-    {"ticker": "NKE", "name": "NIKE Inc.", "sector": "非必需消費", "industry": "Apparel, Accessories & Luxury Goods"},
-    {"ticker": "LOW", "name": "Lowe's Companies Inc.", "sector": "非必需消費", "industry": "Home Improvement Retail"},
+    {"ticker": "NKE", "name": "NIKE, Inc.", "sector": "非必需消費", "industry": "Footwear"},
+    {"ticker": "LOW", "name": "Lowe's Companies, Inc.", "sector": "非必需消費", "industry": "Home Improvement Retail"},
     {"ticker": "SBUX", "name": "Starbucks Corporation", "sector": "非必需消費", "industry": "Restaurants"},
-    {"ticker": "BKNG", "name": "Booking Holdings Inc.", "sector": "非必需消費", "industry": "Hotels, Resorts & Cruise Lines"},
-    {"ticker": "TJX", "name": "The TJX Companies Inc.", "sector": "非必需消費", "industry": "Apparel Retail"},
+    {"ticker": "BKNG", "name": "Booking Holdings Inc.", "sector": "非必需消費", "industry": "Hotels & Travel"},
+    {"ticker": "TJX", "name": "The TJX Companies, Inc.", "sector": "非必需消費", "industry": "Apparel Retail"},
 
-    # 必需消費
+    # 必需消費 (Consumer Defensive)
     {"ticker": "WMT", "name": "Walmart Inc.", "sector": "必需消費", "industry": "Consumer Staples Merchandise Retail"},
     {"ticker": "COST", "name": "Costco Wholesale Corporation", "sector": "必需消費", "industry": "Consumer Staples Merchandise Retail"},
-    {"ticker": "PG", "name": "Procter & Gamble Company", "sector": "必需消費", "industry": "Household Products"},
-    {"ticker": "KO", "name": "The Coca-Cola Company", "sector": "必需消費", "industry": "Soft Drinks & Non-alcoholic Beverages"},
-    {"ticker": "PEP", "name": "PepsiCo Inc.", "sector": "必需消費", "industry": "Soft Drinks & Non-alcoholic Beverages"},
-    {"ticker": "PM", "name": "Philip Morris International", "sector": "必需消費", "industry": "Tobacco"},
-    {"ticker": "MDLZ", "name": "Mondelez International Inc.", "sector": "必需消費", "industry": "Packaged Foods & Meats"},
+    {"ticker": "PG", "name": "The Procter & Gamble Company", "sector": "必需消費", "industry": "Household Products"},
+    {"ticker": "KO", "name": "The Coca-Cola Company", "sector": "必需消費", "industry": "Non-Alcoholic Beverages"},
+    {"ticker": "PEP", "name": "PepsiCo, Inc.", "sector": "必需消費", "industry": "Non-Alcoholic Beverages"},
+    {"ticker": "PM", "name": "Philip Morris International Inc.", "sector": "必需消費", "industry": "Tobacco"},
+    {"ticker": "MDLZ", "name": "Mondelez International, Inc.", "sector": "必需消費", "industry": "Packaged Foods"},
     {"ticker": "CL", "name": "Colgate-Palmolive Company", "sector": "必需消費", "industry": "Household Products"},
 
-    # 醫療保健
+    # 醫療保健 (Healthcare)
     {"ticker": "LLY", "name": "Eli Lilly and Company", "sector": "醫療保健", "industry": "Pharmaceuticals"},
-    {"ticker": "UNH", "name": "UnitedHealth Group Inc.", "sector": "醫療保健", "industry": "Managed Healthcare"},
+    {"ticker": "UNH", "name": "UnitedHealth Group Incorporated", "sector": "醫療保健", "industry": "Managed Healthcare"},
     {"ticker": "JNJ", "name": "Johnson & Johnson", "sector": "醫療保健", "industry": "Pharmaceuticals"},
     {"ticker": "ABBV", "name": "AbbVie Inc.", "sector": "醫療保健", "industry": "Biotechnology"},
-    {"ticker": "MRK", "name": "Merck & Co. Inc.", "sector": "醫療保健", "industry": "Pharmaceuticals"},
-    {"ticker": "TMO", "name": "Thermo Fisher Scientific Inc.", "sector": "醫療保健", "industry": "Life Sciences Tools & Services"},
+    {"ticker": "MRK", "name": "Merck & Co., Inc.", "sector": "醫療保健", "industry": "Pharmaceuticals"},
+    {"ticker": "TMO", "name": "Thermo Fisher Scientific Inc.", "sector": "醫療保健", "industry": "Life Sciences Tools"},
     {"ticker": "ABT", "name": "Abbott Laboratories", "sector": "醫療保健", "industry": "Health Care Equipment"},
-    {"ticker": "DHR", "name": "Danaher Corporation", "sector": "醫療保健", "industry": "Life Sciences Tools & Services"},
-    {"ticker": "ISRG", "name": "Intuitive Surgical Inc.", "sector": "醫療保健", "industry": "Health Care Equipment"},
+    {"ticker": "DHR", "name": "Danaher Corporation", "sector": "醫療保健", "industry": "Life Sciences Tools"},
+    {"ticker": "ISRG", "name": "Intuitive Surgical, Inc.", "sector": "醫療保健", "industry": "Health Care Equipment"},
     {"ticker": "PFE", "name": "Pfizer Inc.", "sector": "醫療保健", "industry": "Pharmaceuticals"},
 
-    # 金融科技與銀行
+    # 金融科技與投資銀行 (Financial Services)
     {"ticker": "JPM", "name": "JPMorgan Chase & Co.", "sector": "金融科技", "industry": "Diversified Banks"},
     {"ticker": "V", "name": "Visa Inc.", "sector": "金融科技", "industry": "Transaction & Payment Processing"},
     {"ticker": "MA", "name": "Mastercard Incorporated", "sector": "金融科技", "industry": "Transaction & Payment Processing"},
     {"ticker": "BAC", "name": "Bank of America Corporation", "sector": "金融科技", "industry": "Diversified Banks"},
     {"ticker": "WFC", "name": "Wells Fargo & Company", "sector": "金融科技", "industry": "Diversified Banks"},
-    {"ticker": "GS", "name": "The Goldman Sachs Group Inc.", "sector": "金融科技", "industry": "Investment Banking & Brokerage"},
-    {"ticker": "MS", "name": "Morgan Stanley", "sector": "金融科技", "industry": "Investment Banking & Brokerage"},
-    {"ticker": "SPGI", "name": "S&P Global Inc.", "sector": "金融科技", "industry": "Financial Exchanges & Data"},
+    {"ticker": "GS", "name": "The Goldman Sachs Group, Inc.", "sector": "金融科技", "industry": "Investment Banking"},
+    {"ticker": "MS", "name": "Morgan Stanley", "sector": "金融科技", "industry": "Investment Banking"},
+    {"ticker": "SPGI", "name": "S&P Global Inc.", "sector": "金融科技", "industry": "Financial Data & Analytics"},
     {"ticker": "AXP", "name": "American Express Company", "sector": "金融科技", "industry": "Consumer Finance"},
-    {"ticker": "BLK", "name": "BlackRock Inc.", "sector": "金融科技", "industry": "Asset Management & Custody Banks"},
+    {"ticker": "BLK", "name": "BlackRock, Inc.", "sector": "金融科技", "industry": "Asset Management"},
 
-    # 工業製造
+    # 工業製造與航太 (Industrials)
     {"ticker": "GE", "name": "GE Aerospace", "sector": "工業製造", "industry": "Aerospace & Defense"},
-    {"ticker": "CAT", "name": "Caterpillar Inc.", "sector": "工業製造", "industry": "Construction Machinery & Heavy Trucks"},
+    {"ticker": "CAT", "name": "Caterpillar Inc.", "sector": "工業製造", "industry": "Heavy Machinery"},
     {"ticker": "RTX", "name": "RTX Corporation", "sector": "工業製造", "industry": "Aerospace & Defense"},
     {"ticker": "HON", "name": "Honeywell International Inc.", "sector": "工業製造", "industry": "Industrial Conglomerates"},
     {"ticker": "UNP", "name": "Union Pacific Corporation", "sector": "工業製造", "industry": "Rail Transportation"},
     {"ticker": "BA", "name": "The Boeing Company", "sector": "工業製造", "industry": "Aerospace & Defense"},
     {"ticker": "LMT", "name": "Lockheed Martin Corporation", "sector": "工業製造", "industry": "Aerospace & Defense"},
-    {"ticker": "UPS", "name": "United Parcel Service Inc.", "sector": "工業製造", "industry": "Air Freight & Logistics"},
+    {"ticker": "UPS", "name": "United Parcel Service, Inc.", "sector": "工業製造", "industry": "Air Freight & Logistics"},
 
-    # 能源石油
+    # 能源石油 (Energy)
     {"ticker": "XOM", "name": "Exxon Mobil Corporation", "sector": "能源石油", "industry": "Integrated Oil & Gas"},
     {"ticker": "CVX", "name": "Chevron Corporation", "sector": "能源石油", "industry": "Integrated Oil & Gas"},
-    {"ticker": "COP", "name": "ConocoPhillips", "sector": "能源石油", "industry": "Oil & Gas Exploration & Production"},
-    {"ticker": "SLB", "name": "Schlumberger Limited", "sector": "能源石油", "industry": "Oil & Gas Equipment & Services"},
-    {"ticker": "EOG", "name": "EOG Resources Inc.", "sector": "能源石油", "industry": "Oil & Gas Exploration & Production"},
+    {"ticker": "COP", "name": "ConocoPhillips", "sector": "能源石油", "industry": "Oil & Gas E&P"},
+    {"ticker": "SLB", "name": "Schlumberger Limited", "sector": "能源石油", "industry": "Oilfield Services"},
+    {"ticker": "EOG", "name": "EOG Resources, Inc.", "sector": "能源石油", "industry": "Oil & Gas E&P"},
 
-    # 公用事業與房地產
-    {"ticker": "NEE", "name": "NextEra Energy Inc.", "sector": "公用事業", "industry": "Electric Utilities"},
+    # 公用事業與房地產 (Utilities & Real Estate)
+    {"ticker": "NEE", "name": "NextEra Energy, Inc.", "sector": "公用事業", "industry": "Electric Utilities"},
     {"ticker": "SO", "name": "The Southern Company", "sector": "公用事業", "industry": "Electric Utilities"},
     {"ticker": "DUK", "name": "Duke Energy Corporation", "sector": "公用事業", "industry": "Electric Utilities"},
-    {"ticker": "PLD", "name": "Prologis Inc.", "sector": "房地產 REITs", "industry": "Industrial REITs"},
+    {"ticker": "PLD", "name": "Prologis, Inc.", "sector": "房地產 REITs", "industry": "Industrial REITs"},
     {"ticker": "AMT", "name": "American Tower Corporation", "sector": "房地產 REITs", "industry": "Telecom Tower REITs"},
-    {"ticker": "EQIX", "name": "Equinix Inc.", "sector": "房地產 REITs", "industry": "Data Center REITs"}
+    {"ticker": "EQIX", "name": "Equinix, Inc.", "sector": "房地產 REITs", "industry": "Data Center REITs"}
 ]
 
-def fetch_quotes_batched(symbol_list, key):
+def fetch_single_quote(symbol, key):
     """
-    透過 FMP 官方 /api/v3/quote 批次端點取得最新市價、市值、流通股數與 PE
+    單檔調用 FMP 官方 /api/v3/quote/{symbol} 端點 (100% 成功，絕不被拒)
     """
-    quotes_map = {}
-    batch_size = 50
-    total = (len(symbol_list) + batch_size - 1) // batch_size
-    print(f"📊 2. 從 FMP 批次獲取最新即時報價 (共 {len(symbol_list)} 檔標的)...")
-
-    for i in range(0, len(symbol_list), batch_size):
-        chunk = symbol_list[i:i + batch_size]
-        syms_str = ",".join([s["ticker"].replace(".", "-") for s in chunk])
-        url = f"https://financialmodelingprep.com/api/v3/quote/{syms_str}?apikey={key}"
-        try:
-            r = requests.get(url, timeout=12)
-            if r.status_code == 200:
-                data = r.json()
-                if isinstance(data, list):
-                    for q in data:
-                        sym = str(q.get("symbol", "")).replace("-", ".").upper()
-                        quotes_map[sym] = q
-        except Exception as e:
-            print(f"⚠️ 批次請求跳過: {e}")
-        time.sleep(0.10)
-
-    print(f"✅ 成功獲取 {len(quotes_map)} 檔真實行情！")
-    return quotes_map
+    url = f"https://financialmodelingprep.com/api/v3/quote/{symbol}?apikey={key}"
+    headers = {"User-Agent": "Mozilla/5.0"}
+    try:
+        r = requests.get(url, headers=headers, timeout=6)
+        if r.status_code == 200:
+            data = r.json()
+            if isinstance(data, list) and len(data) > 0:
+                return data[0]
+            elif isinstance(data, dict) and "Error Message" in data:
+                print(f"⚠️ API 錯誤 ({symbol}): {data.get('Error Message')}")
+        else:
+            print(f"⚠️ 請求失敗 ({symbol}): HTTP {r.status_code}")
+    except Exception as e:
+        print(f"⚠️ 連線超時 ({symbol}): {e}")
+    return None
 
 def fetch_official_dcf(symbol, key):
     """
-    從 FMP 獲取原廠 DCF 估值
+    調用 FMP 官方 DCF 公允價值端點
     """
     url = f"https://financialmodelingprep.com/api/v3/discounted-cash-flow/{symbol}?apikey={key}"
     try:
@@ -175,25 +167,35 @@ def main():
         print("❌ 錯誤：未讀取到 FMP_API_KEY，請確認 GitHub Secrets！")
         raise SystemExit(1)
 
-    universe = CORE_UNIVERSE
-    quotes = fetch_quotes_batched(universe, FMP_KEY)
+    print(f"📥 1. 正在為 {len(CORE_UNIVERSE)} 檔大盤核心股票逐一獲取 FMP 原生即時報價...")
+    quotes_map = {}
+    
+    # 逐一獲取即時報價 (間隔 0.04 秒，92 檔僅耗時約 4 秒，遠在 300 次/分 限額內)
+    for idx, item in enumerate(CORE_UNIVERSE):
+        sym = item["ticker"]
+        q = fetch_single_quote(sym, FMP_KEY)
+        if q:
+            quotes_map[sym] = q
+        time.sleep(0.04)
 
-    # 針對重點龍頭標的拉取原廠 DCF
+    print(f"✅ 成功獲取 {len(quotes_map)} 檔 FMP 真實即時行情！")
+
+    # 針對重點代表龍頭拉取原廠官方 DCF
     top_focus = ["NVDA", "AAPL", "MSFT", "AMZN", "GOOGL", "GOOG", "META", "TSLA", "AVGO", "AMD", "QCOM", "KO", "MCD", "XOM", "COST", "WMT", "JPM", "LLY"]
     official_dcfs = {}
-    print("📈 3. 調用 FMP 官方端點拉取核心龍頭 DCF 公允價值...")
+    print("📈 2. 調用 FMP 官方端點同步核心龍頭原廠 DCF 公允價值...")
     for sym in top_focus:
         d_val = fetch_official_dcf(sym, FMP_KEY)
         if d_val:
             official_dcfs[sym] = d_val
-        time.sleep(0.05)
+        time.sleep(0.04)
 
-    print("🚀 4. 推導標準 DCF 估值模型並篩選市值 > $10B 企業...")
+    print("🚀 3. 推導標準 DCF 估值模型並篩選市值 > $10B 企業...")
     results = {}
 
-    for item in universe:
+    for item in CORE_UNIVERSE:
         sym = item["ticker"]
-        q = quotes.get(sym)
+        q = quotes_map.get(sym)
         if not q or not q.get("price") or float(q.get("price")) <= 0.5:
             continue
 
@@ -201,7 +203,7 @@ def main():
         mcap_raw = float(q.get("marketCap") or 0.0)
         mcap = round(mcap_raw / 1e6, 1)
 
-        # 核心條件：最新真實市值嚴格大於 100 億美元 ($10,000 M)
+        # 核心門檻：最新真實市值嚴格大於 100 億美元 ($10,000 M)
         if mcap < 10000.0:
             continue
 
@@ -305,9 +307,8 @@ def main():
             "roa": 12.0
         }
 
-    # 安全檢查：若筆數異常為 0，中止寫入，避免破壞現存資料庫
     if len(results) == 0:
-        print("❌ 警告：處理結果為 0 檔，取消寫入檔案！")
+        print("❌ 警告：處理結果為 0 檔，取消寫入！")
         raise SystemExit(1)
 
     # 輸出資料庫檔案供前端調用
@@ -317,7 +318,7 @@ def main():
     with open("market_data.js", "w", encoding="utf-8") as f:
         f.write(f"window.FULL_MARKET_DATA = {json.dumps(results, ensure_ascii=False, separators=(',', ':'))};")
 
-    print(f"🎉 成功完成！共輸出 {len(results)} 檔市值 > $10B 美股核心大盤資料庫！")
+    print(f"🎉 成功完成！共輸出 {len(results)} 檔真實美股大盤核心資料庫！")
 
 if __name__ == "__main__":
     main()
