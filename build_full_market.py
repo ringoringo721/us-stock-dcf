@@ -2,31 +2,44 @@ import os
 import requests
 import json
 
-FMP_KEY = os.environ.get("FMP_API_KEY")
+FMP_KEY = os.environ.get("FMP_API_KEY", "").strip()
 RF = 0.0450        # 10年期美債無風險基準 (4.50%)
 ERP = 0.0475       # 股票風險溢價 (4.75%)
 DEFAULT_G = 0.0225 # 永續終值增長率 (2.25%)
 
 def main():
     if not FMP_KEY:
-        raise ValueError("請先在 GitHub Secrets 設定 FMP_API_KEY！")
+        print("❌ 錯誤：未讀取到 FMP_API_KEY！請至 Settings -> Secrets and variables -> Actions 確認建立。")
+        exit(1)
 
-    print("📥 1. 從 FMP 一鍵獲取全美股實時行情快照...")
-    # FMP 原生端點：一次請求回傳全市場所有活躍標的實時報價
+    print("📥 1. 從 FMP 批量拉取全美股最新即時成交價格...")
     price_url = f"https://financialmodelingprep.com/api/v3/stock/full/real-time-price?apikey={FMP_KEY}"
-    res = requests.get(price_url, timeout=30)
-    raw_prices = res.json()
-    price_map = {item['symbol'].replace('-', '.'): item['price'] for item in raw_prices if 'symbol' in item and 'price' in item}
+    try:
+        res = requests.get(price_url, timeout=30)
+        raw_prices = res.json()
+        if isinstance(raw_prices, dict) and "Error Message" in raw_prices:
+            print(f"❌ FMP API 報錯: {raw_prices.get('Error Message')}")
+            exit(1)
+        price_map = {item['symbol'].replace('-', '.'): item['price'] for item in raw_prices if isinstance(item, dict) and 'symbol' in item and 'price' in item}
+    except Exception as e:
+        print(f"❌ 價格端點連線失敗: {e}")
+        price_map = {}
 
-    print("📥 2. 獲取 NYSE, NASDAQ, AMEX 活躍交易標的名冊與市值...")
+    print("📥 2. 檢索 NYSE, NASDAQ, AMEX 全美股標的清單與市值...")
     screener_url = f"https://financialmodelingprep.com/api/v3/stock-screener?exchange=NYSE,NASDAQ,AMEX&isActivelyTrading=true&limit=10000&apikey={FMP_KEY}"
     res_screener = requests.get(screener_url, timeout=30)
     stock_list = res_screener.json()
 
-    print(f"📊 成功檢索到 {len(stock_list)} 檔標的，開始推導全市場 DCF 模型...")
+    if isinstance(stock_list, dict) and "Error Message" in stock_list:
+        print(f"❌ FMP API 報錯: {stock_list.get('Error Message')}")
+        exit(1)
+
+    print(f"📊 成功檢索到 {len(stock_list)} 檔標的，開始推導 DCF 模型...")
     results = {}
 
     for s in stock_list:
+        if not isinstance(s, dict):
+            continue
         sym = s.get("symbol", "").replace("-", ".").upper()
         if not sym or len(sym) > 5:
             continue
@@ -35,21 +48,20 @@ def main():
         if price <= 0.05:
             continue
 
-        mcap = s.get("marketCap", 0) / 1e6  # 換算成百萬美元 ($M)
+        mcap = (s.get("marketCap") or 0.0) / 1e6  # 換算成百萬美元 ($M)
         shares = round(mcap / price, 2) if (price > 0 and mcap > 0) else 100.0
         sector = s.get("sector") or "非必需消費"
         industry = s.get("industry") or sector
         beta = s.get("beta") or 1.0
         if beta <= 0.1 or beta > 3.5: beta = 1.0
 
-        # DCF 模型參數
         debt = round(mcap * 0.25, 1)
         cash = round(mcap * 0.08, 1)
         net_debt = round(debt - cash, 1)
         fcf0 = max(1.0, round(mcap * 0.05, 1))
 
         kd = 4.5
-        tax = 5.0 if "Real Estate" in sector or "REIT" in sector else 21.0
+        tax = 5.0 if ("Real Estate" in str(sector) or "REIT" in str(sector)) else 21.0
         E = mcap
         V = E + debt
         wE = E / V if V > 0 else 1.0
