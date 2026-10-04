@@ -8935,7 +8935,7 @@
     "debt": 127697.0,
     "cash": 24719.0,
     "net_debt": 102978.0,
-    "fcf0": 16499.0,
+    "fcf0": 2690.1,
     "beta": 1.15,
     "kd": 4.5,
     "tax": 21.0,
@@ -8955,31 +8955,31 @@
     "g2": 3.5,
     "g": 2.25,
     "wacc": 5.84,
-    "ev": 516992.5,
-    "ev_to_ebitda": 39.1,
-    "debt_to_ebitda": 9.67,
-    "net_debt_to_ebitda": 7.8,
-    "f_score": 4,
+    "ev": 84293.7,
+    "ev_to_ebitda": 18.0,
+    "debt_to_ebitda": 47.47,
+    "net_debt_to_ebitda": 38.28,
+    "f_score": 6,
     "f_score_breakdown": [
       {
         "id": 1,
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 0.7%"
+        "detail": "當期 ROA = 8.0%"
       },
       {
         "id": 2,
         "category": "盈利能力",
         "desc": "營業現金流 CFO > 0",
         "passed": 1,
-        "detail": "自由現金流 = $16,499M"
+        "detail": "自由現金流 = $2,690M"
       },
       {
         "id": 3,
         "category": "盈利能力",
         "desc": "資產回報率持續擴張 (ΔROA > 0)",
-        "passed": 0,
+        "passed": 1,
         "detail": "回報率穩步領先同業基準"
       },
       {
@@ -9021,40 +9021,40 @@
         "id": 9,
         "category": "營運效率",
         "desc": "資產週轉率提升 (ΔTurnover > 0)",
-        "passed": 0,
+        "passed": 1,
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 457.75,
-    "premium_pct": -82.9,
+    "fair_val": -20.66,
+    "premium_pct": -478.8,
     "is_undervalued": true,
-    "pe_trailing": 36.9,
-    "pe_forward": 32.5,
+    "pe_trailing": 24.0,
+    "pe_forward": 21.1,
     "pb_trailing": 1.1,
     "pb_forward": 1.0,
     "div_yield": 0.45,
-    "ps_ratio": 1.1,
+    "ps_ratio": 6.6,
     "fcf_to_ev": 3.19,
-    "fcf_to_mcap": 23.31,
+    "fcf_to_mcap": 3.8,
     "liab_to_assets": 77.5,
     "cash_to_assets": 8.7,
     "current_ratio": 1.14,
     "cash_minus_liab": -102978.0,
-    "roe": 3.1,
-    "roa": 0.7
+    "roe": 18.0,
+    "roa": 8.0
   },
   "EBAY": {
     "name": "eBay",
     "exchange": "NASDAQ",
     "sector": "非必需消費",
     "industry": "Broadline Retail",
-    "price": 106.4,
-    "shares": 444.0,
-    "mcap": 47241.6,
-    "debt": 7130.0,
-    "cash": 3307.0,
-    "net_debt": 3823.0,
-    "fcf0": 2429.0,
+    "price": 150.0,
+    "shares": 666.7,
+    "mcap": 100000.0,
+    "debt": 0.0,
+    "cash": 0.0,
+    "net_debt": 0.0,
+    "fcf0": 3800.0,
     "beta": 1.15,
     "kd": 4.5,
     "tax": 21.0,
@@ -9073,26 +9073,26 @@
     "g1": 3.8,
     "g2": 3.5,
     "g": 2.25,
-    "wacc": 9.12,
-    "ev": 39448.2,
-    "ev_to_ebitda": 13.0,
-    "debt_to_ebitda": 2.35,
-    "net_debt_to_ebitda": 1.26,
-    "f_score": 7,
+    "wacc": 9.96,
+    "ev": 54889.5,
+    "ev_to_ebitda": 18.0,
+    "debt_to_ebitda": 0.0,
+    "net_debt_to_ebitda": 0.0,
+    "f_score": 8,
     "f_score_breakdown": [
       {
         "id": 1,
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 12.4%"
+        "detail": "當期 ROA = 8.0%"
       },
       {
         "id": 2,
         "category": "盈利能力",
         "desc": "營業現金流 CFO > 0",
         "passed": 1,
-        "detail": "自由現金流 = $2,429M"
+        "detail": "自由現金流 = $3,800M"
       },
       {
         "id": 3,
@@ -9112,15 +9112,15 @@
         "id": 5,
         "category": "槓桿與償債",
         "desc": "財務槓桿未惡化 (ΔLeverage ≤ 0)",
-        "passed": 0,
-        "detail": "總負債資產比率 = 74.0%"
+        "passed": 1,
+        "detail": "總負債資產比率 = 40.0%"
       },
       {
         "id": 6,
         "category": "槓桿與償債",
         "desc": "短期流動性安全 (ΔLiquidity > 0)",
-        "passed": 0,
-        "detail": "流動比率 = 1.02"
+        "passed": 1,
+        "detail": "流動比率 = 1.50"
       },
       {
         "id": 7,
@@ -9133,7 +9133,7 @@
         "id": 8,
         "category": "營運效率",
         "desc": "毛利率擴張 (ΔMargin > 0)",
-        "passed": 1,
+        "passed": 0,
         "detail": "產品定價權增強，毛利結構健康"
       },
       {
@@ -9144,23 +9144,23 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 80.24,
-    "premium_pct": 32.6,
+    "fair_val": 82.33,
+    "premium_pct": 82.2,
     "is_undervalued": false,
-    "pe_trailing": 21.3,
-    "pe_forward": 18.7,
-    "pb_trailing": 10.1,
-    "pb_forward": 9.1,
+    "pe_trailing": 24.0,
+    "pe_forward": 21.1,
+    "pb_trailing": 100000000000.0,
+    "pb_forward": 90000000000.0,
     "div_yield": 0.45,
-    "ps_ratio": 4.9,
-    "fcf_to_ev": 6.16,
-    "fcf_to_mcap": 5.14,
-    "liab_to_assets": 74.0,
-    "cash_to_assets": 18.4,
-    "current_ratio": 1.02,
-    "cash_minus_liab": -3823.0,
-    "roe": 47.6,
-    "roa": 12.4
+    "ps_ratio": 6.6,
+    "fcf_to_ev": 6.92,
+    "fcf_to_mcap": 3.8,
+    "liab_to_assets": 40.0,
+    "cash_to_assets": 0.0,
+    "current_ratio": 1.5,
+    "cash_minus_liab": 0.0,
+    "roe": 18.0,
+    "roa": 8.0
   },
   "BRK.B": {
     "name": "Berkshire Hathaway (Class B)",
@@ -14284,13 +14284,13 @@
     "exchange": "NASDAQ",
     "sector": "醫療保健",
     "industry": "Biotechnology",
-    "price": 144.74,
-    "shares": 1239.96,
-    "mcap": 179471.1,
-    "debt": 26246.0,
-    "cash": 3179.0,
-    "net_debt": 23067.0,
-    "fcf0": 13199.0,
+    "price": 150.0,
+    "shares": 666.7,
+    "mcap": 100000.0,
+    "debt": 0.0,
+    "cash": 0.0,
+    "net_debt": 0.0,
+    "fcf0": 3800.0,
     "beta": 1.15,
     "kd": 4.5,
     "tax": 21.0,
@@ -14309,12 +14309,12 @@
     "g1": 3.8,
     "g2": 3.5,
     "g": 2.25,
-    "wacc": 9.15,
-    "ev": 213640.1,
-    "ev_to_ebitda": 335.9,
-    "debt_to_ebitda": 41.27,
-    "net_debt_to_ebitda": 36.27,
-    "f_score": 7,
+    "wacc": 9.96,
+    "ev": 54889.5,
+    "ev_to_ebitda": 18.0,
+    "debt_to_ebitda": 0.0,
+    "net_debt_to_ebitda": 0.0,
+    "f_score": 8,
     "f_score_breakdown": [
       {
         "id": 1,
@@ -14328,7 +14328,7 @@
         "category": "盈利能力",
         "desc": "營業現金流 CFO > 0",
         "passed": 1,
-        "detail": "自由現金流 = $13,199M"
+        "detail": "自由現金流 = $3,800M"
       },
       {
         "id": 3,
@@ -14348,15 +14348,15 @@
         "id": 5,
         "category": "槓桿與償債",
         "desc": "財務槓桿未惡化 (ΔLeverage ≤ 0)",
-        "passed": 0,
-        "detail": "總負債資產比率 = 76.2%"
+        "passed": 1,
+        "detail": "總負債資產比率 = 40.0%"
       },
       {
         "id": 6,
         "category": "槓桿與償債",
         "desc": "短期流動性安全 (ΔLiquidity > 0)",
         "passed": 1,
-        "detail": "流動比率 = 1.27"
+        "detail": "流動比率 = 1.50"
       },
       {
         "id": 7,
@@ -14380,21 +14380,21 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 153.69,
-    "premium_pct": -5.8,
-    "is_undervalued": true,
+    "fair_val": 82.33,
+    "premium_pct": 82.2,
+    "is_undervalued": false,
     "pe_trailing": 24.0,
     "pe_forward": 21.1,
-    "pb_trailing": 15.2,
-    "pb_forward": 13.7,
+    "pb_trailing": 100000000000.0,
+    "pb_forward": 90000000000.0,
     "div_yield": 0.45,
-    "ps_ratio": 3.4,
-    "fcf_to_ev": 6.18,
-    "fcf_to_mcap": 7.35,
-    "liab_to_assets": 76.2,
-    "cash_to_assets": 6.4,
-    "current_ratio": 1.27,
-    "cash_minus_liab": -23067.0,
+    "ps_ratio": 6.6,
+    "fcf_to_ev": 6.92,
+    "fcf_to_mcap": 3.8,
+    "liab_to_assets": 40.0,
+    "cash_to_assets": 0.0,
+    "current_ratio": 1.5,
+    "cash_minus_liab": 0.0,
     "roe": 18.0,
     "roa": 8.0
   },
@@ -14403,12 +14403,12 @@
     "exchange": "NASDAQ",
     "sector": "醫療保健",
     "industry": "Life Sciences Tools & Services",
-    "price": 273.04,
-    "shares": 151.3,
-    "mcap": 41311.0,
-    "debt": 2527.0,
-    "cash": 1168.0,
-    "net_debt": 1359.0,
+    "price": 150.0,
+    "shares": 666.7,
+    "mcap": 100000.0,
+    "debt": 0.0,
+    "cash": 0.0,
+    "net_debt": 0.0,
     "fcf0": 939.0,
     "beta": 1.15,
     "kd": 4.5,
@@ -14428,11 +14428,11 @@
     "g1": 7.7,
     "g2": 4.5,
     "g": 2.25,
-    "wacc": 9.59,
-    "ev": 16123.6,
-    "ev_to_ebitda": 11.8,
-    "debt_to_ebitda": 1.85,
-    "net_debt_to_ebitda": 1.0,
+    "wacc": 9.96,
+    "ev": 15328.0,
+    "ev_to_ebitda": 11.2,
+    "debt_to_ebitda": 0.0,
+    "net_debt_to_ebitda": 0.0,
     "f_score": 9,
     "f_score_breakdown": [
       {
@@ -14440,7 +14440,7 @@
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 12.4%"
+        "detail": "當期 ROA = 82500000000.0%"
       },
       {
         "id": 2,
@@ -14468,14 +14468,14 @@
         "category": "槓桿與償債",
         "desc": "財務槓桿未惡化 (ΔLeverage ≤ 0)",
         "passed": 1,
-        "detail": "總負債資產比率 = 57.3%"
+        "detail": "總負債資產比率 = 40.0%"
       },
       {
         "id": 6,
         "category": "槓桿與償債",
         "desc": "短期流動性安全 (ΔLiquidity > 0)",
         "passed": 1,
-        "detail": "流動比率 = 1.80"
+        "detail": "流動比率 = 1.50"
       },
       {
         "id": 7,
@@ -14499,23 +14499,23 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 97.58,
-    "premium_pct": 179.8,
+    "fair_val": 22.99,
+    "premium_pct": 552.5,
     "is_undervalued": false,
-    "pe_trailing": 50.1,
-    "pe_forward": 44.1,
-    "pb_trailing": 14.6,
-    "pb_forward": 13.1,
+    "pe_trailing": 121.2,
+    "pe_forward": 106.7,
+    "pb_trailing": 100000000000.0,
+    "pb_forward": 90000000000.0,
     "div_yield": 0.45,
-    "ps_ratio": 11.0,
-    "fcf_to_ev": 5.82,
-    "fcf_to_mcap": 2.27,
-    "liab_to_assets": 57.3,
-    "cash_to_assets": 17.6,
-    "current_ratio": 1.8,
-    "cash_minus_liab": -1359.0,
-    "roe": 29.1,
-    "roa": 12.4
+    "ps_ratio": 26.6,
+    "fcf_to_ev": 6.13,
+    "fcf_to_mcap": 0.94,
+    "liab_to_assets": 40.0,
+    "cash_to_assets": 0.0,
+    "current_ratio": 1.5,
+    "cash_minus_liab": 0.0,
+    "roe": 82500000000.0,
+    "roa": 82500000000.0
   },
   "ZTS": {
     "name": "Zoetis",
@@ -19523,10 +19523,10 @@
     "price": 140.0,
     "shares": 117.48,
     "mcap": 16447.9,
-    "debt": 5467.1,
-    "cash": 170.1,
-    "net_debt": 5297.0,
-    "fcf0": 1105.0,
+    "debt": 0.0,
+    "cash": 0.0,
+    "net_debt": 0.0,
+    "fcf0": 625.0,
     "beta": 1.15,
     "kd": 4.5,
     "tax": 21.0,
@@ -19545,32 +19545,32 @@
     "g1": 7.7,
     "g2": 4.5,
     "g": 2.25,
-    "wacc": 8.36,
-    "ev": 22908.8,
-    "ev_to_ebitda": 12.1,
-    "debt_to_ebitda": 2.88,
-    "net_debt_to_ebitda": 2.79,
-    "f_score": 6,
+    "wacc": 9.96,
+    "ev": 10202.3,
+    "ev_to_ebitda": 18.0,
+    "debt_to_ebitda": 0.0,
+    "net_debt_to_ebitda": 0.0,
+    "f_score": 8,
     "f_score_breakdown": [
       {
         "id": 1,
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 5.8%"
+        "detail": "當期 ROA = 8.0%"
       },
       {
         "id": 2,
         "category": "盈利能力",
         "desc": "營業現金流 CFO > 0",
         "passed": 1,
-        "detail": "自由現金流 = $1,105M"
+        "detail": "自由現金流 = $625M"
       },
       {
         "id": 3,
         "category": "盈利能力",
         "desc": "資產回報率持續擴張 (ΔROA > 0)",
-        "passed": 0,
+        "passed": 1,
         "detail": "回報率穩步領先同業基準"
       },
       {
@@ -19585,14 +19585,14 @@
         "category": "槓桿與償債",
         "desc": "財務槓桿未惡化 (ΔLeverage ≤ 0)",
         "passed": 1,
-        "detail": "總負債資產比率 = 62.3%"
+        "detail": "總負債資產比率 = 40.0%"
       },
       {
         "id": 6,
         "category": "槓桿與償債",
         "desc": "短期流動性安全 (ΔLiquidity > 0)",
-        "passed": 0,
-        "detail": "流動比率 = 0.60"
+        "passed": 1,
+        "detail": "流動比率 = 1.50"
       },
       {
         "id": 7,
@@ -19616,36 +19616,36 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 149.91,
-    "premium_pct": -6.6,
-    "is_undervalued": true,
-    "pe_trailing": 23.8,
-    "pe_forward": 20.9,
-    "pb_trailing": 3.8,
-    "pb_forward": 3.4,
+    "fair_val": 86.84,
+    "premium_pct": 61.2,
+    "is_undervalued": false,
+    "pe_trailing": 24.0,
+    "pe_forward": 21.1,
+    "pb_trailing": 16447900000.0,
+    "pb_forward": 14803110000.0,
     "div_yield": 0.45,
-    "ps_ratio": 3.7,
-    "fcf_to_ev": 4.82,
-    "fcf_to_mcap": 6.72,
-    "liab_to_assets": 62.3,
-    "cash_to_assets": 1.4,
-    "current_ratio": 0.6,
-    "cash_minus_liab": -5297.0,
-    "roe": 15.8,
-    "roa": 5.8
+    "ps_ratio": 6.6,
+    "fcf_to_ev": 6.13,
+    "fcf_to_mcap": 3.8,
+    "liab_to_assets": 40.0,
+    "cash_to_assets": 0.0,
+    "current_ratio": 1.5,
+    "cash_minus_liab": 0.0,
+    "roe": 18.0,
+    "roa": 8.0
   },
   "TRU": {
     "name": "TransUnion",
     "exchange": "NYSE",
     "sector": "工業",
     "industry": "Research & Consulting Services",
-    "price": 63.44,
-    "shares": 191.6,
-    "mcap": 12155.1,
-    "debt": 5659.0,
-    "cash": 839.1,
-    "net_debt": 4819.9,
-    "fcf0": 787.9,
+    "price": 150.0,
+    "shares": 666.7,
+    "mcap": 100000.0,
+    "debt": 0.0,
+    "cash": 0.0,
+    "net_debt": 0.0,
+    "fcf0": 3800.0,
     "beta": 1.15,
     "kd": 4.5,
     "tax": 21.0,
@@ -19664,26 +19664,26 @@
     "g1": 6.3,
     "g2": 3.7,
     "g": 2.25,
-    "wacc": 7.93,
-    "ev": 16574.2,
-    "ev_to_ebitda": 9.1,
-    "debt_to_ebitda": 3.09,
-    "net_debt_to_ebitda": 2.63,
-    "f_score": 7,
+    "wacc": 9.96,
+    "ev": 58481.3,
+    "ev_to_ebitda": 18.0,
+    "debt_to_ebitda": 0.0,
+    "net_debt_to_ebitda": 0.0,
+    "f_score": 8,
     "f_score_breakdown": [
       {
         "id": 1,
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 7.0%"
+        "detail": "當期 ROA = 8.0%"
       },
       {
         "id": 2,
         "category": "盈利能力",
         "desc": "營業現金流 CFO > 0",
         "passed": 1,
-        "detail": "自由現金流 = $788M"
+        "detail": "自由現金流 = $3,800M"
       },
       {
         "id": 3,
@@ -19696,7 +19696,7 @@
         "id": 4,
         "category": "盈利能力",
         "desc": "應計利潤品質高 (CFO > 淨利潤)",
-        "passed": 0,
+        "passed": 1,
         "detail": "真實現金流充沛，無虛報帳面獲利"
       },
       {
@@ -19704,14 +19704,14 @@
         "category": "槓桿與償債",
         "desc": "財務槓桿未惡化 (ΔLeverage ≤ 0)",
         "passed": 1,
-        "detail": "總負債資產比率 = 59.0%"
+        "detail": "總負債資產比率 = 40.0%"
       },
       {
         "id": 6,
         "category": "槓桿與償債",
         "desc": "短期流動性安全 (ΔLiquidity > 0)",
         "passed": 1,
-        "detail": "流動比率 = 1.90"
+        "detail": "流動比率 = 1.50"
       },
       {
         "id": 7,
@@ -19735,23 +19735,23 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 61.35,
-    "premium_pct": 3.4,
+    "fair_val": 87.72,
+    "premium_pct": 71.0,
     "is_undervalued": false,
-    "pe_trailing": 14.3,
-    "pe_forward": 12.6,
-    "pb_trailing": 2.5,
-    "pb_forward": 2.2,
+    "pe_trailing": 24.0,
+    "pe_forward": 21.1,
+    "pb_trailing": 100000000000.0,
+    "pb_forward": 90000000000.0,
     "div_yield": 0.45,
-    "ps_ratio": 3.9,
-    "fcf_to_ev": 4.75,
-    "fcf_to_mcap": 6.48,
-    "liab_to_assets": 59.0,
-    "cash_to_assets": 6.9,
-    "current_ratio": 1.9,
-    "cash_minus_liab": -4819.9,
-    "roe": 17.5,
-    "roa": 7.0
+    "ps_ratio": 6.6,
+    "fcf_to_ev": 6.5,
+    "fcf_to_mcap": 3.8,
+    "liab_to_assets": 40.0,
+    "cash_to_assets": 0.0,
+    "current_ratio": 1.5,
+    "cash_minus_liab": 0.0,
+    "roe": 18.0,
+    "roa": 8.0
   },
   "CPRT": {
     "name": "Copart",
