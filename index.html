@@ -398,32 +398,24 @@
   }
 
   // 載入全市場資料庫 (多重鏡像容錯)
-  async function loadMarketData() {
+// 前端刷新按鈕：優先使用最新資料庫
+  async function refreshCurrentPageQuotes() {
+    const btn = document.getElementById('btn-refresh-quotes');
     const statusEl = document.getElementById('data-status');
-    const bustToken = new Date().getTime();
-    const urls = [
-      `full_market_dcf.json?t=${bustToken}`,
-      `https://raw.githubusercontent.com/ringoringo721/us-stock-dcf/main/full_market_dcf.json?t=${bustToken}`
-    ];
+    btn.disabled = true;
+    btn.innerText = "⏳ 正在重新讀取市場最新行情...";
 
-    let success = false;
-    for (let u of urls) {
-      try {
-        const res = await fetch(u, { cache: "no-store" });
-        if (res.ok) {
-          const data = await res.json();
-          const count = Object.keys(data).length;
-          if (count > 0) {
-            stockUniverse = data;
-            statusEl.innerHTML = `🟢 已成功載入全市場 ${count} 檔美股數據 (NYSE, NASDAQ, AMEX)`;
-            success = true;
-            syncStateWithUrl();
-            break;
-          }
-        }
-      } catch (err) {}
+    try {
+      await loadMarketData();
+      statusEl.innerHTML = `🟢 數據已同步為最新美股真實收盤價！`;
+    } catch (e) {
+      statusEl.innerHTML = `⚠️ 數據載入中...`;
+    } finally {
+      btn.disabled = false;
+      btn.innerText = "🔄 即時刷新當頁最新股價";
     }
-
+  }
+  
     if (!success) {
       statusEl.innerHTML = `⚠️️ 正在等待 Actions 產出全市場檔案，請至 Actions 點擊 Run...`;
     }
