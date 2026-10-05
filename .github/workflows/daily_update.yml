@@ -37,8 +37,9 @@ jobs:
         env:
           FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
         run: |
-          python build_full_market.py
+          python -u build_full_market.py
 
       - name: Commit & Push New DCF Dataset
         run: |
