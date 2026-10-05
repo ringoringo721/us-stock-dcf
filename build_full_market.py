@@ -17,28 +17,33 @@ except ImportError:
 # API Keys 配置
 FMP_KEY = os.environ.get("FMP_API_KEY", "").strip() or "6gYxujhYq3qweE6ohCF6b5zjCrberLaOT"
 GEMINI_KEY = os.environ.get("GEMINI_API_KEY", "").strip()
+GCP_SA_KEY = os.environ.get("GCP_SA_KEY", "").strip()
 
-# 初始化 Gemini Client
+# 初始化 Gemini / Vertex AI Client
 gemini_client = None
-if HAS_GENAI and GEMINI_KEY:
+PRIMARY_MODEL = "gemini-2.5-flash"
+
+if HAS_GENAI:
     try:
-        # 判斷是否使用 Vertex AI 企業通道
-if os.getenv("GCP_SA_KEY"):
-    key_path = "/tmp/gcp_sa_key.json"
-    with open(key_path, "w", encoding="utf-8") as f:
-        f.write(os.getenv("GCP_SA_KEY"))
-    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = key_path
-    
-    # 啟用 Vertex AI 原生高速模式 (直接扣抵 Google Cloud 額度，無 15 RPM 限制)
-    gemini_client = genai.Client(
-        vertexai=True,
-        project="dcf-moat-ai",
-        location="us-central1"
-    )
-    PRIMARY_MODEL = "gemini-2.5-flash"
-else:
-    gemini_client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
-    PRIMARY_MODEL = "gemini-3.8-flash"
+        if GCP_SA_KEY:
+            # 優先使用 Vertex AI 企業通道 (高速無 15 RPM 限制，直接扣抵 GCP 額度)
+            key_path = "/tmp/gcp_sa_key.json"
+            with open(key_path, "w", encoding="utf-8") as f:
+                f.write(GCP_SA_KEY)
+            os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = key_path
+
+            gemini_client = genai.Client(
+                vertexai=True,
+                project="dcf-moat-ai",
+                location="us-central1"
+            )
+            PRIMARY_MODEL = "gemini-2.5-flash"
+            print("🚀 已成功啟用 Vertex AI 企業級高速模式 (專案: dcf-moat-ai)")
+        elif GEMINI_KEY:
+            # 回退使用一般 API Key
+            gemini_client = genai.Client(api_key=GEMINI_KEY)
+            PRIMARY_MODEL = "gemini-3.8-flash"
+            print("ℹ️ 使用一般 Gemini API Key 模式")
     except Exception as e:
         print(f"⚠️ Gemini Client 初始化失敗: {e}")
 
@@ -119,10 +124,6 @@ def analyze_stock_moat(
     """
 
     # 4. 指數退避重試
-# 支援自動容錯切換的模型清單
-# 4. 呼叫官方標準穩定模型 (已啟用 Pay-as-you-go 高配額)
-# 4. 呼叫官方最新模型 (已啟用 Pay-as-you-go 商業高配額)
-# 4. 呼叫官方模型 (Vertex AI 模式下延遲極低、不需強制 sleep 等待)
     for attempt in range(3):
         try:
             response = gemini_client.models.generate_content(
@@ -575,7 +576,6 @@ def main():
 
         if bs_data and isinstance(bs_data, list) and len(bs_data) > 0:
             bs = bs_data[0]
-            # 取得最新財報季標籤 (如 2024Q3)
             yr = bs.get("calendarYear") or bs.get("fiscalYear") or ""
             prd = bs.get("period") or ""
             if yr and prd:
@@ -631,7 +631,7 @@ def main():
         fx_rate = get_fx_to_usd_rate(reported_currency)
         if fx_rate != 1.0 or sym == "TSM":
             if sym == "TSM" and fx_rate == 1.0:
-                fx_rate = 1.0 / 32.0  # 強效保護
+                fx_rate = 1.0 / 32.0
             debt = round(debt * fx_rate, 1)
             cash = round(cash * fx_rate, 1)
             equity = equity * fx_rate
@@ -771,7 +771,7 @@ def main():
             "cash_minus_liab": cash_minus_liab,
             "roe": roe,
             "roa": roa,
-            "moat": moat_data  # 護城河 M1-M10 評分與 200 字短評
+            "moat": moat_data
         }
 
         print(f"[{idx:03d}/200] ✅ {sym} ({item['exchange']}) [{reported_currency} -> USD] - 股價=${price} | 公允價值=${fair_val} | 護城河綜合: {moat_data.get('overall_moat_verdict', '')[:30]}...")
