@@ -729,6 +729,7 @@
   };
 
   // 防呆智慧匹配函式（優先使用 Gemini 生成的真實 JSON 數據）
+// 防呆智慧匹配函式（精準對接 Python 後端輸出的深度評語）
   function evaluateMoat(s, explicitTicker) {
     const rawSym = explicitTicker || (s && s.ticker) || "";
     const sym = rawSym.toUpperCase().trim();
@@ -737,37 +738,48 @@
     const roa = (s && s.roa) || 6;
 
     const moatObj = (s && s.moat) || {};
-    const hasAiMoat = !!(moatObj.m1_brand_pricing && moatObj.m1_brand_pricing.score !== undefined);
+    
+    // 檢查 Python 產生的結構化資料
+    const hasAiMoat = !!(moatObj.m1_brand_pricing && (moatObj.m1_brand_pricing.comment || moatObj.m1_brand_pricing.score !== undefined));
 
     let m = [6, 6, 6, 5, 6, 6, 6, 6, 6, 6];
     let comments = Array(10).fill("");
     let ref = "巴菲特價值投資模型 · 綜合研究評估";
     let overallComment = "";
 
-    if (hasAiMoat) {
-      // 1. 優先使用 AI 批次引擎生成結果
-      ref = `Vertex AI 企業級分析 (基準季: ${moatObj.period || '最新'})`;
-      overallComment = moatObj.overall_moat_verdict || "具備明確的商業競爭壁壘與巴菲特護城河特徵。";
-      
-      const keys = [
-        "m1_brand_pricing", "m2_patents_regulatory", "m3_high_switching_costs",
-        "m4_network_effects", "m5_cost_advantage_scale", "m6_unique_geography_assets",
-        "m7_operational_efficiency", "m8_capital_allocation", "m9_customer_retention", "m10_durability"
-      ];
+    // 定義 Python 後端欄位與 M1-M10 索引的對應清單
+    const dimKeys = [
+      "m1_brand_pricing",
+      "m2_patents_regulatory",
+      "m3_high_switching_costs",
+      "m4_network_effects",
+      "m5_cost_advantage_scale",
+      "m6_unique_geography_assets",
+      "m7_operational_efficiency",
+      "m8_capital_allocation",
+      "m9_customer_retention",
+      "m10_durability"
+    ];
 
-      keys.forEach((k, idx) => {
-        if (moatObj[k]) {
-          m[idx] = Number(moatObj[k].score) || 5;
-          comments[idx] = moatObj[k].comment || "";
+    if (hasAiMoat) {
+      // 1. 成功讀取後端 Gemini / Vertex AI 生成的深度評語
+      ref = `Vertex AI 企業級深度分析 (基準季: ${moatObj.period || '最新'})`;
+      overallComment = moatObj.overall_moat_verdict || "具備明確的商業競爭壁壘與巴菲特護城河特徵。";
+
+      dimKeys.forEach((key, idx) => {
+        const item = moatObj[key];
+        if (item) {
+          if (item.score !== undefined) m[idx] = Number(item.score);
+          if (item.comment) comments[idx] = item.comment;
         }
       });
     } else if (GLOBAL_MOAT_SCORES[sym]) {
-      // 2. 命中內建權威評估庫
+      // 2. 命中內置兜底庫
       m = GLOBAL_MOAT_SCORES[sym].m;
       ref = GLOBAL_MOAT_SCORES[sym].ref || ref;
       overallComment = GLOBAL_MOAT_SCORES[sym].note;
     } else {
-      // 3. 根據板塊估算兜底
+      // 3. 產業板塊估算兜底
       if (sec === "資訊科技") m = [7, 7, 7, 6, 6, 5, 7, 6, 5, 6];
       else if (sec === "醫療保健") m = [7, 8, 6, 4, 6, 6, 7, 7, 6, 6];
       else if (sec === "金融") m = [6, 6, 6, 6, 6, 6, 6, 6, 6, 6];
@@ -806,30 +818,17 @@
       badgeClass = "moat-none";
     }
 
-    const defaultComments = [
-      "具備品牌辨識度與提價彈性，客戶黏著力穩固。",
-      "持有專利組合或監管許可執照，構築准入護城河。",
-      "轉換成本具一定摩擦力，客戶替換需承擔遷移成本。",
-      "具備網絡正反饋循環，用戶增加帶動生態價值擴張。",
-      "規模效應明顯，採購議價與供應鏈成本領先同業。",
-      "利基市場或獨佔地理資產，同業難以重複建設。",
-      "長期投入資本回報率（ROIC）高於加權資金成本。",
-      "資本複製壁壘高，對手即便斥巨資短期內亦難以替代。",
-      "核心需求具高確定性，不易受技術典範轉移完全顛覆。",
-      "管理層善於輕資產配置，持續回購並創造股東價值。"
-    ];
-
     const criteria = [
-      { id: "M1", category: "無形資產", title: "品牌心智與定價權 (Pricing Power)", score: m[0], desc: "加價後客戶是否依然離不開？是否具備強大產品提價權且不失銷量。", comment: comments[0] || defaultComments[0] },
-      { id: "M2", category: "無形資產", title: "專利壁壘與特許許可 (Patents & Regulatory)", score: m[1], desc: "獨家專利集群、政府監管准入或法定特許經營收費橋樑。", comment: comments[1] || defaultComments[1] },
-      { id: "M3", category: "轉換成本", title: "黏性與替代成本 (Switching Costs)", score: m[2], desc: "更換產品是否會造成重大財務損失、營運中斷或高昂遷移成本。", comment: comments[2] || defaultComments[2] },
-      { id: "M4", category: "網絡效應", title: "雙向網絡正反饋 (Network Effects)", score: m[3], desc: "每多一個用戶加入，整個生態系統對所有參與者的價值呈幾何級上升。", comment: comments[3] || defaultComments[3] },
-      { id: "M5", category: "成本優勢", title: "極致規模經濟與工藝 (Scale Advantage)", score: m[4], desc: "能夠以對手無法企及的超低邊際成本供貨或掌握獨家工藝良率。", comment: comments[4] || defaultComments[4] },
-      { id: "M6", category: "有效規模", title: "利基市場天然寡占 (Efficient Scale)", score: m[5], desc: "市場容量有限，新競爭者進入只會引發雙輸局面的天然理性寡占。", comment: comments[5] || defaultComments[5] },
-      { id: "M7", category: "資本回報", title: "長週期超額 ROIC 韌性 (ROIC vs WACC)", score: m[6], desc: "投入資本回報率持續遠超加權資本成本，創造實質股東複利能力。", comment: comments[6] || defaultComments[6] },
-      { id: "M8", category: "抗威脅力", title: "資本不可複製性 (Irreproducibility)", score: m[7], desc: "即便給對手 1,000 億美元資金，也無法在幾年內複製該企業。", comment: comments[7] || defaultComments[7] },
-      { id: "M9", category: "抗顛覆力", title: "技術/典範轉移抗性 (Disruption Immunity)", score: m[8], desc: "需求確定性極高，對技術變革或 AI 顛覆具備強大免疫力。", comment: comments[8] || defaultComments[8] },
-      { id: "M10", category: "資本配置", title: "管理層誠信與回購配置 (Capital Allocation)", score: m[9], desc: "不盲目溢價併購，低估時積極回購註銷股本以最大化股東利益。", comment: comments[9] || defaultComments[9] }
+      { id: "M1", category: "無形資產", title: "品牌心智與定價權 (Pricing Power)", score: m[0], desc: "加價後客戶是否依然離不開？是否具備強大產品提價權且不失銷量。", comment: comments[0] || "暫無詳細分析數據。" },
+      { id: "M2", category: "無形資產", title: "專利壁壘與特許許可 (Patents & Regulatory)", score: m[1], desc: "獨家專利集群、政府監管准入或法定特許經營收費橋樑。", comment: comments[1] || "暫無詳細分析數據。" },
+      { id: "M3", category: "轉換成本", title: "黏性與替代成本 (Switching Costs)", score: m[2], desc: "更換產品是否會造成重大財務損失、營運中斷或高昂遷移成本。", comment: comments[2] || "暫無詳細分析數據。" },
+      { id: "M4", category: "網絡效應", title: "雙向網絡正反饋 (Network Effects)", score: m[3], desc: "每多一個用戶加入，整個生態系統對所有參與者的價值呈幾何級上升。", comment: comments[3] || "暫無詳細分析數據。" },
+      { id: "M5", category: "成本優勢", title: "極致規模經濟與工藝 (Scale Advantage)", score: m[4], desc: "能夠以對手無法企及的超低邊際成本供貨或掌握獨家工藝良率。", comment: comments[4] || "暫無詳細分析數據。" },
+      { id: "M6", category: "有效規模", title: "利基市場天然寡占 (Efficient Scale)", score: m[5], desc: "市場容量有限，新競爭者進入只會引發雙輸局面的天然理性寡占。", comment: comments[5] || "暫無詳細分析數據。" },
+      { id: "M7", category: "資本回報", title: "長週期超額 ROIC 韌性 (ROIC vs WACC)", score: m[6], desc: "投入資本回報率持續遠超加權資本成本，創造實質股東複利能力。", comment: comments[6] || "暫無詳細分析數據。" },
+      { id: "M8", category: "抗威脅力", title: "資本不可複製性 (Irreproducibility)", score: m[7], desc: "即便給對手 1,000 億美元資金，也無法在幾年內複製該企業。", comment: comments[7] || "暫無詳細分析數據。" },
+      { id: "M9", category: "抗顛覆力", title: "技術/典範轉移抗性 (Disruption Immunity)", score: m[8], desc: "需求確定性極高，對技術變革或 AI 顛覆具備強大免疫力。", comment: comments[8] || "暫無詳細分析數據。" },
+      { id: "M10", category: "資本配置", title: "管理層誠信與回購配置 (Capital Allocation)", score: m[9], desc: "不盲目溢價併購，低估時積極回購註銷股本以最大化股東利益。", comment: comments[9] || "暫無詳細分析數據。" }
     ];
 
     return { total, grade, badgeClass, criteria, comment: overallComment, ref, m };
