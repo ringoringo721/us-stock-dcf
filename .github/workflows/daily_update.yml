@@ -29,9 +29,14 @@ jobs:
         run: |
           pip install requests
 
+      - name: Install Dependencies
+        run: |
+          pip install requests pydantic google-genai
+
       - name: Run Market Engine with FMP Key
         env:
           FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           python build_full_market.py
 
