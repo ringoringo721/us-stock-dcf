@@ -104,35 +104,29 @@ def analyze_stock_moat(
 
     # 4. 指數退避重試
 # 支援自動容錯切換的模型清單
-    CANDIDATE_MODELS = [
-        "gemini-3.8-flash",
-        "gemini-3.5-flash",
-        "gemini-2.5-flash-lite"
-    ]
+# 4. 呼叫官方標準穩定模型 (已啟用 Pay-as-you-go 高配額)
+    for attempt in range(3):
+        try:
+            response = gemini_client.models.generate_content(
+                model="gemini-2.5-flash",
+                contents=prompt,
+                config=types.GenerateContentConfig(
+                    response_mime_type="application/json",
+                    response_schema=StockMoatReport,
+                    temperature=0.2,
+                ),
+            )
+            data = json.loads(response.text)
 
-    for model_name in CANDIDATE_MODELS:
-        for attempt in range(2):
-            try:
-                response = gemini_client.models.generate_content(
-                    model=model_name,
-                    contents=prompt,
-                    config=types.GenerateContentConfig(
-                        response_mime_type="application/json",
-                        response_schema=StockMoatReport,
-                        temperature=0.2,
-                    ),
-                )
-                data = json.loads(response.text)
+            # 寫入本機快取
+            with open(cache_file, "w", encoding="utf-8") as f:
+                json.dump(data, f, ensure_ascii=False, indent=2)
 
-                # 寫入本機快取
-                with open(cache_file, "w", encoding="utf-8") as f:
-                    json.dump(data, f, ensure_ascii=False, indent=2)
-
-                return data
-            except Exception as err:
-                # 若為 503 伺服器忙碌，稍等 3 秒後嘗試切換備援模型
-                time.sleep(3)
-                print(f"⚠️ [{ticker}] {model_name} 負載中，嘗試重試或切換模型...")
+            return data
+        except Exception as err:
+            wait_time = (attempt + 1) * 2
+            print(f"⚠️ [{ticker}] API 呼叫異常 (第 {attempt+1}/3 次): {err}. 等待 {wait_time} 秒...")
+            time.sleep(wait_time)
 
     return _build_fallback_moat(ticker, safe_period)
 
