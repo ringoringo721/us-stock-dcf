@@ -22,7 +22,23 @@ GEMINI_KEY = os.environ.get("GEMINI_API_KEY", "").strip()
 gemini_client = None
 if HAS_GENAI and GEMINI_KEY:
     try:
-        gemini_client = genai.Client(api_key=GEMINI_KEY)
+        # 判斷是否使用 Vertex AI 企業通道
+if os.getenv("GCP_SA_KEY"):
+    key_path = "/tmp/gcp_sa_key.json"
+    with open(key_path, "w", encoding="utf-8") as f:
+        f.write(os.getenv("GCP_SA_KEY"))
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = key_path
+    
+    # 啟用 Vertex AI 原生高速模式 (直接扣抵 Google Cloud 額度，無 15 RPM 限制)
+    gemini_client = genai.Client(
+        vertexai=True,
+        project="dcf-moat-ai",
+        location="us-central1"
+    )
+    PRIMARY_MODEL = "gemini-2.5-flash"
+else:
+    gemini_client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+    PRIMARY_MODEL = "gemini-3.8-flash"
     except Exception as e:
         print(f"⚠️ Gemini Client 初始化失敗: {e}")
 
@@ -106,10 +122,11 @@ def analyze_stock_moat(
 # 支援自動容錯切換的模型清單
 # 4. 呼叫官方標準穩定模型 (已啟用 Pay-as-you-go 高配額)
 # 4. 呼叫官方最新模型 (已啟用 Pay-as-you-go 商業高配額)
+# 4. 呼叫官方模型 (Vertex AI 模式下延遲極低、不需強制 sleep 等待)
     for attempt in range(3):
         try:
             response = gemini_client.models.generate_content(
-                model="gemini-3.8-flash",
+                model=PRIMARY_MODEL,
                 contents=prompt,
                 config=types.GenerateContentConfig(
                     response_mime_type="application/json",
@@ -126,7 +143,7 @@ def analyze_stock_moat(
             return data
         except Exception as err:
             wait_time = (attempt + 1) * 3
-            print(f"⚠️ [{ticker}] API 呼叫異常 (第 {attempt+1}/3 次): {err}. 等待 {wait_time} 秒...")
+            print(f"⚠️ [{ticker}] API 異常 ({attempt+1}/3): {err}，等待 {wait_time} 秒...")
             time.sleep(wait_time)
 
     return _build_fallback_moat(ticker, safe_period)
