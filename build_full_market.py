@@ -38,14 +38,14 @@ if HAS_GENAI:
                 location="us-central1"
             )
             PRIMARY_MODEL = "gemini-2.5-flash"
-            print("🚀 已成功啟用 Vertex AI 企業級高速模式 (專案: dcf-moat-ai)")
+            print("🚀 已成功啟用 Vertex AI 企業級高速模式 (專案: dcf-moat-ai)", flush=True)
         elif GEMINI_KEY:
             # 回退使用一般 API Key
             gemini_client = genai.Client(api_key=GEMINI_KEY)
-            PRIMARY_MODEL = "gemini-3.8-flash"
-            print("ℹ️ 使用一般 Gemini API Key 模式")
+            PRIMARY_MODEL = "gemini-2.5-flash"
+            print("ℹ️ 使用一般 Gemini API Key 模式", flush=True)
     except Exception as e:
-        print(f"⚠️ Gemini Client 初始化失敗: {e}")
+        print(f"⚠️ Gemini Client 初始化失敗: {e}", flush=True)
 
 # 快取目錄設置
 CACHE_DIR = "cache/moat"
@@ -60,22 +60,22 @@ TAX_RATE = 21.0
 # ==================== Pydantic Schema 定義 ====================
 class MoatDimension(BaseModel):
     score: int = Field(..., ge=0, le=10, description="0到10整數打分")
-    comment: str = Field(..., description="200字以內深度評語，包含量化指標、核心優勢或結構性劣勢")
+    comment: str = Field(..., description="120至180字深入透徹評語，緊扣巴菲特投資哲學，點出具體商業壁壘、競對差異或數據佐證")
 
 class StockMoatReport(BaseModel):
     ticker: str
-    period: str = Field(..., description="財報基準季，例如 2024Q3")
-    m1_brand_pricing: MoatDimension = Field(..., description="M1 品牌定價權 (無形資產)")
-    m2_patents_regulatory: MoatDimension = Field(..., description="M2 專利與法規/特許准入壁壘")
-    m3_high_switching_costs: MoatDimension = Field(..., description="M3 客戶轉換成本")
-    m4_network_effects: MoatDimension = Field(..., description="M4 雙向/單向網絡效應")
-    m5_cost_advantage_scale: MoatDimension = Field(..., description="M5 規模經濟與單位成本優勢")
-    m6_unique_geography_assets: MoatDimension = Field(..., description="M6 獨佔性地理區位或核心自然資源/戰略資產")
-    m7_operational_efficiency: MoatDimension = Field(..., description="M7 營運效率與獨特文化")
-    m8_capital_allocation: MoatDimension = Field(..., description="M8 管理層資本配置能力 (ROIC vs WACC, 股票回購/配息/再投資)")
-    m9_customer_retention: MoatDimension = Field(..., description="M9 顧客黏著度、續約率與淨留存率")
-    m10_durability: MoatDimension = Field(..., description="M10 商業模式抗破壞性創新能力與長期耐久性")
-    overall_moat_verdict: str = Field(..., description="200字以內的巴菲特護城河綜合評斷與核心競爭壁壘總結")
+    period: str = Field(..., description="財報基準季，例如 2026Q2")
+    m1_brand_pricing: MoatDimension = Field(..., description="M1. 品牌心智與定價權 (Pricing Power)")
+    m2_patents_regulatory: MoatDimension = Field(..., description="M2. 專利壁壘與特許許可 (Patents & Regulatory)")
+    m3_high_switching_costs: MoatDimension = Field(..., description="M3. 黏性與替代成本 (Switching Costs)")
+    m4_network_effects: MoatDimension = Field(..., description="M4. 雙向網絡正反饋 (Network Effects)")
+    m5_cost_advantage_scale: MoatDimension = Field(..., description="M5. 極致規模經濟與工藝 (Scale Advantage)")
+    m6_unique_geography_assets: MoatDimension = Field(..., description="M6. 利基市場天然寡占 / 獨佔性地理區位 (Efficient Scale)")
+    m7_operational_efficiency: MoatDimension = Field(..., description="M7. 長週期超額 ROIC 韌性與極致營運 (ROIC vs WACC)")
+    m8_capital_allocation: MoatDimension = Field(..., description="M8. 資本不可複製性與重置壁壘 (Irreproducibility)")
+    m9_customer_retention: MoatDimension = Field(..., description="M9. 技術/典範轉移抗性與需求確定性 (Disruption Immunity)")
+    m10_durability: MoatDimension = Field(..., description="M10. 管理層誠信與資本配置 (Capital Allocation)")
+    overall_moat_verdict: str = Field(..., description="150至200字的巴菲特護城河綜合評斷與核心競爭壁壘總結")
 
 # ==================== Gemini 護城河季度快取分析引擎 ====================
 def analyze_stock_moat(
@@ -86,7 +86,7 @@ def analyze_stock_moat(
 ) -> Dict[str, Any]:
     """
     依據 ticker 與財報季度檢查快取。
-    若快取不存在或強制更新，則調用 Gemini API 進行評分與 200 字內短評。
+    若快取不存在或強制更新，則調用 Gemini API 進行深入評分與短評。
     """
     # 確保季度標籤有效；若無有效季度則採用當前西元年與季度防護
     if not latest_period or latest_period == "LATEST":
@@ -103,8 +103,11 @@ def analyze_stock_moat(
     if not force_refresh and os.path.exists(cache_file):
         try:
             with open(cache_file, "r", encoding="utf-8") as f:
-                print(f"⚡ [{ticker}] 命中 {safe_period} 季度快取，直接讀取本機數據 (不消耗額度)")
-                return json.load(f)
+                cached_data = json.load(f)
+                # 確保非 fallback 預設值才命中快取
+                if "暫未取得" not in cached_data.get("overall_moat_verdict", ""):
+                    print(f"⚡ [{ticker}] 命中 {safe_period} 季度快取，直接讀取本機數據 (不消耗額度)", flush=True)
+                    return cached_data
         except Exception:
             pass
 
@@ -112,28 +115,41 @@ def analyze_stock_moat(
     if not gemini_client:
         return _build_fallback_moat(ticker, safe_period)
 
-    # 3. 未命中快取時才調用 Gemini (印出計費提示)
-    print(f"💰 [{ticker}] 新季度財報發布或首次分析 ({safe_period})，調用 Vertex AI 護城河分析...")
+    # 3. 未命中快取時才調用 Gemini
+    print(f"💰 [{ticker}] 新季度財報發布或首次分析 ({safe_period})，調用 Vertex AI 深入護城河分析...", flush=True)
     prompt = f"""
-    請針對美股上市公司 【{ticker}】 進行巴菲特 10 大經濟護城河（M1 至 M10）深度評估與評分。
+    請以沃倫·巴菲特（Warren Buffett）與查理·蒙格（Charlie Munger）的長期價值投資哲學視角，對美股上市公司 【{ticker}】 的 10 大經濟護城河（M1 至 M10）進行客觀、深度評估與嚴格打分。
     當前分析基準季度：{safe_period}
 
     【公司基本面與財務參考數據】
     - 公司名稱: {fin_context.get('name', ticker)}
     - 所屬板塊與產業: {fin_context.get('sector', 'N/A')} / {fin_context.get('industry', 'N/A')}
     - 市值 (USD): ${fin_context.get('mcap', 0):,.1f} M
-    - ROE / ROA: ROE {fin_context.get('roe', 0)}%, ROA {fin_context.get('roa', 0)}%
+    - ROE: {fin_context.get('roe', 0)}% | ROA: {fin_context.get('roa', 0)}%
     - 皮氏 F-Score (9分制): {fin_context.get('f_score', 0)} / 9
     - 自由現金流 (FCF TTM): ${fin_context.get('fcf0', 0):,.1f} M
     - 現金與負債: 現金 ${fin_context.get('cash', 0):,.1f}M / 總負債 ${fin_context.get('debt', 0):,.1f}M
 
+    【必須評估的 10 大維度標準 (M1 - M10)】
+    M1. 品牌心智與定價權 (Pricing Power): 加價後客戶是否依然離不開？是否具備強大產品提價權且不失銷量。
+    M2. 專利壁壘與特許許可 (Patents & Regulatory): 獨家專利集群、政府監管准入或法定特許經營收費橋樑。
+    M3. 黏性與替代成本 (Switching Costs): 更換產品是否會造成重大財務損失、營運中斷或高昂遷移成本。
+    M4. 雙向網絡正反饋 (Network Effects): 每多一個用戶加入，整個生態系統對所有參與者的價值呈幾何級上升。
+    M5. 極致規模經濟與工藝 (Scale Advantage): 能夠以對手無法企及的超低邊際成本供貨或掌握獨家工藝良率。
+    M6. 利基市場天然寡占 (Efficient Scale): 市場容量有限或具備獨佔性地理區位，新競爭者進入只會引發雙輸局面的天然理性寡占。
+    M7. 長週期超額 ROIC 韌性 (ROIC vs WACC): 投入資本回報率持續遠超加權資本成本，創造實質股東複利能力。
+    M8. 資本不可複製性 (Irreproducibility): 即便給對手 1,000 億美元資金，也無法在幾年內複製該企業核心戰略資產。
+    M9. 技術/典範轉移抗性 (Disruption Immunity): 需求確定性極高，對技術變革或 AI 顛覆具備強大免疫力。
+    M10. 管理層誠信與回購配置 (Capital Allocation): 不盲目溢價併購，低估時積極回購註銷股本以最大化股東利益。
+
     【評估規則與要求】
     1. 評分標準：0 到 10 分整數（0-3分：極弱或無護城河；4-6分：中等壁壘；7-8分：堅固護城河；9-10分：全球罕見定價權或壟斷級壁壘）。
-    2. 點評要求：每條護城河的 comment 以及 overall_moat_verdict 必須深入透徹，字數嚴格控制在 **200 字以內**。必須點出具體商業模式邏輯、競爭對手差異或財務數字佐證。
-    3. 必須回傳指定 JSON Schema 結構。
+    2. 點評要求：每一條護城河 (M1~M10) 的 comment 必須深入透徹，字數嚴格控制在 **120 至 180 字以內**。必須明確點出具體商業模式優勢、同業競爭對手差異或財務數字佐證。
+    3. overall_moat_verdict 必須對該企業的本質做出巴菲特式的精準定性（例如定性為特許經營權平台、收費橋樑或商品型企業），字數在 150～200 字以內。
+    4. 必須回傳指定 JSON Schema 結構。
     """
 
-    # 4. 指數退避重試
+    # 4. 指數退避重試 (加入保護)
     for attempt in range(3):
         try:
             response = gemini_client.models.generate_content(
@@ -154,71 +170,7 @@ def analyze_stock_moat(
             return data
         except Exception as err:
             wait_time = (attempt + 1) * 3
-            print(f"⚠️ [{ticker}] API 異常 ({attempt+1}/3): {err}，等待 {wait_time} 秒...")
-            time.sleep(wait_time)
-
-    return _build_fallback_moat(ticker, safe_period)
-    """
-    依據 ticker 與財報季度檢查快取。
-    若快取不存在或強制更新，則調用 Gemini API 進行評分與 200 字內短評。
-    """
-    safe_period = str(latest_period).replace("/", "_").strip() if latest_period else "LATEST"
-    cache_file = os.path.join(CACHE_DIR, f"{ticker}_{safe_period}.json")
-
-    # 1. 命中季度快取：直接讀取，完全不消耗 API Token
-    if not force_refresh and os.path.exists(cache_file):
-        try:
-            with open(cache_file, "r", encoding="utf-8") as f:
-                return json.load(f)
-        except Exception:
-            pass
-
-    # 2. 缺少 Client 的降級預設資料
-    if not gemini_client:
-        return _build_fallback_moat(ticker, safe_period)
-
-    # 3. 構建 Prompt
-    prompt = f"""
-    請針對美股上市公司 【{ticker}】 進行巴菲特 10 大經濟護城河（M1 至 M10）深度評估與評分。
-    當前分析基準季度：{safe_period}
-
-    【公司基本面與財務參考數據】
-    - 公司名稱: {fin_context.get('name', ticker)}
-    - 所屬板塊與產業: {fin_context.get('sector', 'N/A')} / {fin_context.get('industry', 'N/A')}
-    - 市值 (USD): ${fin_context.get('mcap', 0):,.1f} M
-    - ROE / ROA: ROE {fin_context.get('roe', 0)}%, ROA {fin_context.get('roa', 0)}%
-    - 皮氏 F-Score (9分制): {fin_context.get('f_score', 0)} / 9
-    - 自由現金流 (FCF TTM): ${fin_context.get('fcf0', 0):,.1f} M
-    - 現金與負債: 現金 ${fin_context.get('cash', 0):,.1f}M / 總負債 ${fin_context.get('debt', 0):,.1f}M
-
-    【評估規則與要求】
-    1. 評分標準：0 到 10 分整數（0-3分：極弱或無護城河；4-6分：中等壁壘；7-8分：堅固護城河；9-10分：全球罕見定價權或壟斷級壁壘）。
-    2. 點評要求：每條護城河的 comment 以及 overall_moat_verdict 必須深入透徹，字數嚴格控制在 **200 字以內**。必須點出具體商業模式邏輯、競爭對手差異或財務數字佐證。
-    3. 必須回傳指定 JSON Schema 結構。
-    """
-
-    # 4. 指數退避重試
-    for attempt in range(3):
-        try:
-            response = gemini_client.models.generate_content(
-                model=PRIMARY_MODEL,
-                contents=prompt,
-                config=types.GenerateContentConfig(
-                    response_mime_type="application/json",
-                    response_schema=StockMoatReport,
-                    temperature=0.2,
-                ),
-            )
-            data = json.loads(response.text)
-
-            # 寫入本機快取
-            with open(cache_file, "w", encoding="utf-8") as f:
-                json.dump(data, f, ensure_ascii=False, indent=2)
-
-            return data
-        except Exception as err:
-            wait_time = (attempt + 1) * 3
-            print(f"⚠️ [{ticker}] API 異常 ({attempt+1}/3): {err}，等待 {wait_time} 秒...")
+            print(f"⚠️ [{ticker}] API 異常 ({attempt+1}/3): {err}，等待 {wait_time} 秒...", flush=True)
             time.sleep(wait_time)
 
     return _build_fallback_moat(ticker, safe_period)
@@ -519,7 +471,8 @@ def fetch_json(endpoint, params):
     url = f"{BASE_URL}/{endpoint}"
     for _ in range(3):
         try:
-            r = requests.get(url, params=params, headers=HEADERS, timeout=9)
+            # 設定連線 5 秒、讀取 10 秒超時，避免卡死
+            r = requests.get(url, params=params, headers=HEADERS, timeout=(5, 10))
             if r.status_code == 200:
                 return r.json()
             elif r.status_code == 429:
@@ -548,14 +501,14 @@ def get_fx_to_usd_rate(currency):
             if price > 0:
                 rate = 1.0 / price
                 FX_CACHE[curr] = rate
-                print(f"💱 [FX] 成功取得匯率: 1 {curr} = {rate:.6f} USD")
+                print(f"💱 [FX] 成功取得匯率: 1 {curr} = {rate:.6f} USD", flush=True)
                 return rate
     except Exception:
         pass
 
     fallback_rate = fallbacks.get(curr, 1.0)
     FX_CACHE[curr] = fallback_rate
-    print(f"💱 [FX] 使用基準匯率對照: 1 {curr} = {fallback_rate:.6f} USD")
+    print(f"💱 [FX] 使用基準匯率對照: 1 {curr} = {fallback_rate:.6f} USD", flush=True)
     return fallback_rate
 
 def build_10y_growth_schedule(est_data, default_g1, terminal_g):
@@ -611,9 +564,9 @@ def calculate_piotroski_score(roa, fcf0, cr, liab_r, ttm_net_income):
     return score, items
 
 def main():
-    print("=" * 80)
-    print("🚀 美股 200 檔 DCF + Gemini 護城河雙核心引擎啟動")
-    print("=" * 80)
+    print("=" * 80, flush=True)
+    print("🚀 美股 200 檔 DCF + Gemini 護城河雙核心引擎啟動", flush=True)
+    print("=" * 80, flush=True)
     results = {}
 
     for idx, item in enumerate(UNIQUE_STOCKS, 1):
@@ -793,7 +746,7 @@ def main():
             "cash": cash
         }
 
-        print(f"🏰 [{sym}] 檢查/執行護城河分析 (季度: {latest_period})...")
+        print(f"🏰 [{sym}] 檢查/執行護城河分析 (季度: {latest_period})...", flush=True)
         moat_data = analyze_stock_moat(
             ticker=sym,
             latest_period=latest_period,
@@ -848,7 +801,7 @@ def main():
             "moat": moat_data
         }
 
-        print(f"[{idx:03d}/200] ✅ {sym} ({item['exchange']}) [{reported_currency} -> USD] - 股價=${price} | 公允價值=${fair_val} | 護城河綜合: {moat_data.get('overall_moat_verdict', '')[:30]}...")
+        print(f"[{idx:03d}/200] ✅ {sym} ({item['exchange']}) [{reported_currency} -> USD] - 股價=${price} | 公允價值=${fair_val} | 護城河綜合: {moat_data.get('overall_moat_verdict', '')[:30]}...", flush=True)
 
     with open("full_market_dcf.json", "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
@@ -856,7 +809,7 @@ def main():
     with open("market_data.js", "w", encoding="utf-8") as f:
         f.write(f"window.FULL_MARKET_DATA = {json.dumps(results, ensure_ascii=False, indent=2)};")
 
-    print("\n🎉 成功！全市場 200 檔標的已全部完成 DCF 與 Gemini 護城河分析！")
+    print("\n🎉 成功！全市場 200 檔標的已全部完成 DCF 與 Gemini 護城河分析！", flush=True)
 
 if __name__ == "__main__":
     main()
