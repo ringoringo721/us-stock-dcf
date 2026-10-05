@@ -88,6 +88,80 @@ def analyze_stock_moat(
     依據 ticker 與財報季度檢查快取。
     若快取不存在或強制更新，則調用 Gemini API 進行評分與 200 字內短評。
     """
+    # 確保季度標籤有效；若無有效季度則採用當前西元年與季度防護
+    if not latest_period or latest_period == "LATEST":
+        import datetime
+        now = datetime.datetime.now()
+        q = (now.month - 1) // 3 + 1
+        safe_period = f"{now.year}Q{q}"
+    else:
+        safe_period = str(latest_period).replace("/", "_").strip()
+
+    cache_file = os.path.join(CACHE_DIR, f"{ticker}_{safe_period}.json")
+
+    # 1. 命中季度快取：完全不消耗 API Token，直接回傳
+    if not force_refresh and os.path.exists(cache_file):
+        try:
+            with open(cache_file, "r", encoding="utf-8") as f:
+                print(f"⚡ [{ticker}] 命中 {safe_period} 季度快取，直接讀取本機數據 (不消耗額度)")
+                return json.load(f)
+        except Exception:
+            pass
+
+    # 2. 缺少 Client 的降級預設資料
+    if not gemini_client:
+        return _build_fallback_moat(ticker, safe_period)
+
+    # 3. 未命中快取時才調用 Gemini (印出計費提示)
+    print(f"💰 [{ticker}] 新季度財報發布或首次分析 ({safe_period})，調用 Vertex AI 護城河分析...")
+    prompt = f"""
+    請針對美股上市公司 【{ticker}】 進行巴菲特 10 大經濟護城河（M1 至 M10）深度評估與評分。
+    當前分析基準季度：{safe_period}
+
+    【公司基本面與財務參考數據】
+    - 公司名稱: {fin_context.get('name', ticker)}
+    - 所屬板塊與產業: {fin_context.get('sector', 'N/A')} / {fin_context.get('industry', 'N/A')}
+    - 市值 (USD): ${fin_context.get('mcap', 0):,.1f} M
+    - ROE / ROA: ROE {fin_context.get('roe', 0)}%, ROA {fin_context.get('roa', 0)}%
+    - 皮氏 F-Score (9分制): {fin_context.get('f_score', 0)} / 9
+    - 自由現金流 (FCF TTM): ${fin_context.get('fcf0', 0):,.1f} M
+    - 現金與負債: 現金 ${fin_context.get('cash', 0):,.1f}M / 總負債 ${fin_context.get('debt', 0):,.1f}M
+
+    【評估規則與要求】
+    1. 評分標準：0 到 10 分整數（0-3分：極弱或無護城河；4-6分：中等壁壘；7-8分：堅固護城河；9-10分：全球罕見定價權或壟斷級壁壘）。
+    2. 點評要求：每條護城河的 comment 以及 overall_moat_verdict 必須深入透徹，字數嚴格控制在 **200 字以內**。必須點出具體商業模式邏輯、競爭對手差異或財務數字佐證。
+    3. 必須回傳指定 JSON Schema 結構。
+    """
+
+    # 4. 指數退避重試
+    for attempt in range(3):
+        try:
+            response = gemini_client.models.generate_content(
+                model=PRIMARY_MODEL,
+                contents=prompt,
+                config=types.GenerateContentConfig(
+                    response_mime_type="application/json",
+                    response_schema=StockMoatReport,
+                    temperature=0.2,
+                ),
+            )
+            data = json.loads(response.text)
+
+            # 寫入本機快取
+            with open(cache_file, "w", encoding="utf-8") as f:
+                json.dump(data, f, ensure_ascii=False, indent=2)
+
+            return data
+        except Exception as err:
+            wait_time = (attempt + 1) * 3
+            print(f"⚠️ [{ticker}] API 異常 ({attempt+1}/3): {err}，等待 {wait_time} 秒...")
+            time.sleep(wait_time)
+
+    return _build_fallback_moat(ticker, safe_period)
+    """
+    依據 ticker 與財報季度檢查快取。
+    若快取不存在或強制更新，則調用 Gemini API 進行評分與 200 字內短評。
+    """
     safe_period = str(latest_period).replace("/", "_").strip() if latest_period else "LATEST"
     cache_file = os.path.join(CACHE_DIR, f"{ticker}_{safe_period}.json")
 
