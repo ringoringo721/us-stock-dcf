@@ -105,10 +105,11 @@ def analyze_stock_moat(
     # 4. 指數退避重試
 # 支援自動容錯切換的模型清單
 # 4. 呼叫官方標準穩定模型 (已啟用 Pay-as-you-go 高配額)
+# 4. 呼叫官方最新模型 (已啟用 Pay-as-you-go 商業高配額)
     for attempt in range(3):
         try:
             response = gemini_client.models.generate_content(
-                model="gemini-2.5-flash",
+                model="gemini-3.8-flash",
                 contents=prompt,
                 config=types.GenerateContentConfig(
                     response_mime_type="application/json",
@@ -124,7 +125,7 @@ def analyze_stock_moat(
 
             return data
         except Exception as err:
-            wait_time = (attempt + 1) * 2
+            wait_time = (attempt + 1) * 3
             print(f"⚠️ [{ticker}] API 呼叫異常 (第 {attempt+1}/3 次): {err}. 等待 {wait_time} 秒...")
             time.sleep(wait_time)
 
