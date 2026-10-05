@@ -197,15 +197,25 @@
     .btn-nav:hover { background: var(--accent); color: #0b1120; }
 
     .fscore-table, .moat-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-    .fscore-table th, .fscore-table td, .moat-table th, .moat-table td { padding: 12px 16px; border-bottom: 1px solid var(--card-border); text-align: left; }
+    .fscore-table th, .fscore-table td, .moat-table th, .moat-table td { padding: 12px 14px; border-bottom: 1px solid var(--card-border); text-align: left; }
     .fscore-table th, .moat-table th { background: #162032; color: #cbd5e1; font-weight: 600; }
     .score-badge-circle { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; font-weight: 700; font-size: 12px; }
     .score-pass { background: rgba(74, 222, 128, 0.2); color: var(--green); border: 1px solid var(--green); }
     .score-fail { background: rgba(248, 113, 113, 0.2); color: var(--red); border: 1px solid var(--red); }
 
-    .moat-bar-bg { width: 100px; height: 8px; background: #0f172a; border-radius: 4px; overflow: hidden; display: inline-block; vertical-align: middle; margin-right: 8px; }
+    .moat-bar-bg { width: 90px; height: 7px; background: #0f172a; border-radius: 4px; overflow: hidden; display: inline-block; vertical-align: middle; margin-right: 6px; }
     .moat-bar-fill { height: 100%; border-radius: 4px; }
     .ai-comment-card { background: #0f172a; border: 1px solid var(--card-border); border-left: 4px solid var(--accent); padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; font-size: 13px; line-height: 1.6; }
+    .moat-comment-cell {
+      background: rgba(15, 23, 42, 0.45);
+      border-left: 1px solid var(--card-border);
+      color: #e2e8f0;
+      font-size: 12.5px;
+      line-height: 1.65;
+      padding: 10px 14px !important;
+      white-space: normal;
+      word-break: break-word;
+    }
   </style>
 </head>
 <body>
@@ -229,7 +239,7 @@
         <div class="stat-num" id="stat-total">0 檔</div>
       </div>
       <div class="stat-box">
-        <div class="stat-label">❤️ 自選監控標的</div>
+        <div class="stat-label">❤️️ 自選監控標的</div>
         <div class="stat-num text-pink" id="stat-fav-count">0 檔</div>
       </div>
       <div class="stat-box">
@@ -513,18 +523,22 @@
 
     <div class="panel">
       <div class="panel-title">巴菲特經濟護城河 10 大檢驗維度評分表 (0 - 10 分)</div>
-      <table class="moat-table">
-        <thead>
-          <tr>
-            <th style="width: 70px; text-align: center;">得分</th>
-            <th style="width: 130px;">核心維度</th>
-            <th style="width: 180px;">測試項目</th>
-            <th>評分標準與經濟意涵</th>
-            <th style="width: 170px;">評分視覺條</th>
-          </tr>
-        </thead>
-        <tbody id="moat-breakdown-body"></tbody>
-      </table>
+      <div class="table-scroll-wrapper" style="overflow-x: auto;">
+        <table class="moat-table">
+          <thead>
+            <tr>
+              <th style="width: 75px; text-align: center;">得分</th>
+              <th style="width: 100px;">核心維度</th>
+              <th style="width: 190px;">測試項目</th>
+              <th style="width: 260px;">評分標準與經濟意涵</th>
+              <th style="width: 150px;">評分視覺條</th>
+              <!-- 右側深度專欄 -->
+              <th style="min-width: 380px;">巴菲特視角深度剖析</th>
+            </tr>
+          </thead>
+          <tbody id="moat-breakdown-body"></tbody>
+        </table>
+      </div>
     </div>
   </div>
 
@@ -610,9 +624,8 @@
     "LOW": 1.85, "HON": 2.10, "LMT": 2.65, "DE": 1.50, "EPD": 7.15
   };
 
-  // ==================== 全域巴菲特護城河權威資料庫 (徹底離散化) ====================
+  // ==================== 全域巴菲特護城河權威資料庫 (備用退避) ====================
   const GLOBAL_MOAT_SCORES = {
-    // 🏆 頂級收稅站與壟斷城堡 (88 - 95 分)
     "AAPL": {
       m: [10, 9, 10, 9, 9, 8, 10, 10, 9, 10],
       ref: "Warren Buffett (2023 年股東大會)",
@@ -663,8 +676,6 @@
       ref: "Morningstar 評級機構分析",
       note: "【城堡壁壘】標普指數與標普評級是全球金融市場的核心基礎設施，定價權極強。"
     },
-
-    // 🛡️ 強勢優質龍頭 (75 - 87 分)
     "KO": {
       m: [9, 8, 5, 6, 9, 8, 9, 10, 10, 9],
       ref: "Warren Buffett (1994 年股東大會原話)",
@@ -710,88 +721,14 @@
       ref: "Warren Buffett (談菸草特許定價權)",
       note: "【城堡壁壘】無煙產品（IQOS/ZYN）的高成癮黏性與定價權（M1=9）。"
     },
-
-    // ⚖️ 激烈競爭 / 資本開支較大 (55 - 74 分)
-    "WMT": {
-      m: [6, 5, 6, 7, 10, 8, 7, 8, 9, 8],
-      ref: "Bruce Greenwald 競爭優勢模型",
-      note: "【城堡壁壘】全美最大實體零售網絡與極致供應鏈規模（M5=10），但價格戰壓低定價權（M1=6）。"
-    },
-    "AMD": {
-      m: [7, 8, 7, 6, 7, 6, 7, 6, 6, 7],
-      ref: "半導體產業鏈競爭分析",
-      note: "【城堡壁壘】x86 CPU 與 AI 晶片第二大廠商，但長期處於 NVIDIA 與 Intel 夾擊之中，缺乏絕對定價權（M1=7）。"
-    },
-    "QCOM": {
-      m: [8, 9, 7, 6, 7, 6, 8, 6, 5, 6],
-      ref: "SEC 10-K 專利授權調研",
-      note: "【城堡壁壘】CDMA/5G 核心專利池壁壘深厚（M2=9），但面臨客戶自研晶片威脅（M9=5）。"
-    },
-    "SBUX": {
-      m: [7, 6, 5, 5, 7, 6, 7, 7, 8, 7],
-      ref: "Morningstar 餐飲行業分析",
-      note: "【城堡壁壘】第三空間品牌心智，但面臨平價咖啡崛起與消費降級衝擊。"
-    },
-    "NKE": {
-      m: [7, 6, 4, 5, 7, 6, 7, 7, 8, 6],
-      ref: "體育服飾競爭研究",
-      note: "【城堡壁壘】全球運動品牌號召力，但面臨新興品牌（On/Hoka）快速瓜分市佔率。"
-    },
-    "CL": {
-      m: [7, 6, 5, 4, 7, 7, 7, 7, 8, 7],
-      ref: "口腔護理全球調研",
-      note: "【城堡壁壘】牙膏全球高市佔率，但市場增長緩慢，缺乏超額定價暴利。"
-    },
-    "CLX": {
-      m: [6, 5, 4, 3, 7, 6, 6, 6, 8, 6],
-      ref: "Morningstar 日用品護城河報告",
-      note: "【城堡壁壘】漂白水具備知名度，但同質化嚴重（Commodity），消費者容易轉向白牌（M3=4）。"
-    },
-    "HSY": {
-      m: [7, 5, 4, 3, 7, 6, 7, 7, 8, 6],
-      ref: "食品與原物料週期調研",
-      note: "【城堡壁壘】北美巧克力品牌心智，但面臨可可原物料暴漲衝擊利潤率。"
-    },
-    "CAT": {
-      m: [7, 6, 6, 4, 7, 7, 6, 6, 7, 6],
-      ref: "工程機械經銷商調研",
-      note: "【城堡壁壘】經銷商通路與售後網絡完善，但受制於重工業景氣循環波動。"
-    },
-    "XOM": {
-      m: [5, 5, 4, 3, 8, 7, 6, 7, 7, 7],
-      ref: "Warren Buffett (談大宗商品業務本質)",
-      note: "【城堡壁壘】垂直整合具備規模優勢，但本質為 Commodity，定價權受制於國際油價（M1=5）。"
-    },
-
-    // ⚠️ 弱護城河 / 商品型競爭 (30 - 54 分)
-    "INTC": {
-      m: [4, 7, 6, 3, 6, 6, 3, 6, 4, 4],
-      ref: "Warren Buffett 商業壁壘侵蝕法則",
-      note: "【城堡壁壘】x86 生態壁壘遭 ARM 與 GPU 快速侵蝕，代工虧損巨大，ROIC 跌破 WACC（M7=3）。<br>【巴菲特評語】「失去成本與定價優勢的受困巨人。」"
-    },
-    "F": {
-      m: [4, 4, 4, 2, 6, 5, 3, 4, 5, 4],
-      ref: "Warren Buffett (談汽車行業價格戰)",
-      note: "【城堡壁壘】汽車製造屬於高重資產、低資本回報的價格戰市場（M1=4，M7=3）。"
-    },
-    "GM": {
-      m: [4, 4, 4, 2, 6, 5, 3, 4, 5, 4],
-      ref: "汽車行業長期資本回報調研",
-      note: "【城堡壁壘】重資產與工會包袱沉重，客戶缺乏轉換成本。"
-    },
-    "WBD": {
-      m: [5, 5, 4, 4, 5, 4, 3, 4, 4, 3],
-      ref: "串流媒體內容生命週期調研",
-      note: "【城堡壁壘】串流媒體燒錢大戰，內容壽命短暫且債務沉重，持續摧毀股東資本（M7=3）。"
-    },
-    "BA": {
-      m: [6, 7, 7, 3, 6, 8, 3, 7, 5, 2],
-      ref: "民航客機雙寡頭競爭分析",
-      note: "【城堡壁壘】大客機雙寡頭壁壘深厚，但品控與管理嚴重失控，現金流承壓（M10=2）。"
+    "MCD": {
+      m: [8, 5, 4, 6, 10, 10, 9, 9, 8, 8],
+      ref: "沃倫·巴菲特護城河準則 · 麥當勞深度專題",
+      note: "【城堡壁壘】並非單純快餐，本質為「頂級商業地產出租商 + 全球供應鏈特許平台」。<br>【巴菲特評語】「極致規模採購優勢與不可複製的十字路口黃金地產，構築堅固的成本壕溝。」"
     }
   };
 
-  // 防呆智慧匹配函式（保證 100% 正確抓到代號與資料庫）
+  // 防呆智慧匹配函式（優先使用 Gemini 生成的真實 JSON 數據）
   function evaluateMoat(s, explicitTicker) {
     const rawSym = explicitTicker || (s && s.ticker) || "";
     const sym = rawSym.toUpperCase().trim();
@@ -799,26 +736,47 @@
     const roe = (s && s.roe) || 12;
     const roa = (s && s.roa) || 6;
 
-    let m = [6, 6, 6, 5, 6, 6, 6, 6, 6, 6];
-    let ref = "巴菲特價值投資模型 · 綜合研究評估";
-    let comment = "";
+    const moatObj = (s && s.moat) || {};
+    const hasAiMoat = !!(moatObj.m1_brand_pricing && moatObj.m1_brand_pricing.score !== undefined);
 
-    // 1. 強制精準命中全域資料庫
-    if (GLOBAL_MOAT_SCORES[sym]) {
+    let m = [6, 6, 6, 5, 6, 6, 6, 6, 6, 6];
+    let comments = Array(10).fill("");
+    let ref = "巴菲特價值投資模型 · 綜合研究評估";
+    let overallComment = "";
+
+    if (hasAiMoat) {
+      // 1. 優先使用 AI 批次引擎生成結果
+      ref = `Vertex AI 企業級分析 (基準季: ${moatObj.period || '最新'})`;
+      overallComment = moatObj.overall_moat_verdict || "具備明確的商業競爭壁壘與巴菲特護城河特徵。";
+      
+      const keys = [
+        "m1_brand_pricing", "m2_patents_regulatory", "m3_high_switching_costs",
+        "m4_network_effects", "m5_cost_advantage_scale", "m6_unique_geography_assets",
+        "m7_operational_efficiency", "m8_capital_allocation", "m9_customer_retention", "m10_durability"
+      ];
+
+      keys.forEach((k, idx) => {
+        if (moatObj[k]) {
+          m[idx] = Number(moatObj[k].score) || 5;
+          comments[idx] = moatObj[k].comment || "";
+        }
+      });
+    } else if (GLOBAL_MOAT_SCORES[sym]) {
+      // 2. 命中內建權威評估庫
       m = GLOBAL_MOAT_SCORES[sym].m;
       ref = GLOBAL_MOAT_SCORES[sym].ref || ref;
-      comment = GLOBAL_MOAT_SCORES[sym].note;
+      overallComment = GLOBAL_MOAT_SCORES[sym].note;
     } else {
-      // 2. 未收錄者依板塊壁壘給分
-      if (sec === "資訊科技") m = [7, 7, 7, 6, 6, 5, 7, 6, 5, 6]; // ~62分
-      else if (sec === "醫療保健") m = [7, 8, 6, 4, 6, 6, 7, 7, 6, 6]; // ~63分
-      else if (sec === "金融") m = [6, 6, 6, 6, 6, 6, 6, 6, 6, 6]; // ~60分
-      else if (sec === "必需消費") m = [7, 6, 5, 4, 7, 6, 6, 7, 7, 6]; // ~61分
-      else if (sec === "非必需消費") m = [6, 5, 5, 4, 6, 5, 5, 5, 5, 5]; // ~51分
-      else if (sec === "工業") m = [6, 6, 6, 4, 6, 6, 6, 6, 6, 6]; // ~58分
-      else if (sec === "公用事業") m = [5, 5, 5, 3, 6, 8, 5, 6, 7, 5]; // ~55分
-      else if (sec === "能源" || sec === "原物料") m = [5, 4, 4, 3, 6, 6, 5, 5, 5, 5]; // ~48分
-      else m = [5, 5, 5, 4, 5, 5, 5, 5, 5, 5]; // ~49分
+      // 3. 根據板塊估算兜底
+      if (sec === "資訊科技") m = [7, 7, 7, 6, 6, 5, 7, 6, 5, 6];
+      else if (sec === "醫療保健") m = [7, 8, 6, 4, 6, 6, 7, 7, 6, 6];
+      else if (sec === "金融") m = [6, 6, 6, 6, 6, 6, 6, 6, 6, 6];
+      else if (sec === "必需消費") m = [7, 6, 5, 4, 7, 6, 6, 7, 7, 6];
+      else if (sec === "非必需消費") m = [6, 5, 5, 4, 6, 5, 5, 5, 5, 5];
+      else if (sec === "工業") m = [6, 6, 6, 4, 6, 6, 6, 6, 6, 6];
+      else if (sec === "公用事業") m = [5, 5, 5, 3, 6, 8, 5, 6, 7, 5];
+      else if (sec === "能源" || sec === "原物料") m = [5, 4, 4, 3, 6, 6, 5, 5, 5, 5];
+      else m = [5, 5, 5, 4, 5, 5, 5, 5, 5, 5];
 
       if (roe > 28 && roa > 14) {
         m[0] = Math.min(10, m[0] + 1);
@@ -827,8 +785,7 @@
         m[0] = Math.max(2, m[0] - 2);
         m[6] = Math.max(2, m[6] - 2);
       }
-
-      comment = `【城堡壁壘】在 ${sec} 行業具備標準化競爭力，但面臨同業替代威脅。<br>【風險檢驗】需關注週期波動與同業價格戰對資本回報率的侵蝕。<br>【巴菲特評語】「屬於常規業務，尚未展現壓倒性的定價權優勢。」`;
+      overallComment = `【城堡壁壘】在 ${sec} 行業具備標準化競爭力，但面臨同業替代威脅。<br>【風險檢驗】需關注週期波動與同業價格戰對資本回報率的侵蝕。<br>【巴菲特評語】「屬於常規業務，尚未展現壓倒性的定價權優勢。」`;
     }
 
     const total = m.reduce((a, b) => a + b, 0);
@@ -849,20 +806,33 @@
       badgeClass = "moat-none";
     }
 
-    const criteria = [
-      { id: "M1", category: "無形資產", title: "品牌心智與定價權 (Pricing Power)", score: m[0], desc: "加價後客戶是否依然離不開？是否具備強大產品提價權且不失銷量。" },
-      { id: "M2", category: "無形資產", title: "專利壁壘與特許許可 (Patents & Regulatory)", score: m[1], desc: "獨家專利集群、政府監管准入或法定特許經營收費橋樑。" },
-      { id: "M3", category: "轉換成本", title: "黏性與替代成本 (Switching Costs)", score: m[2], desc: "更換產品是否會造成重大財務損失、營運中斷或高昂遷移成本。" },
-      { id: "M4", category: "網絡效應", title: "雙向網絡正反饋 (Network Effects)", score: m[3], desc: "每多一個用戶加入，整個生態系統對所有參與者的價值呈幾何級上升。" },
-      { id: "M5", category: "成本優勢", title: "極致規模經濟與工藝 (Scale Advantage)", score: m[4], desc: "能夠以對手無法企及的超低邊際成本供貨或掌握獨家工藝良率。" },
-      { id: "M6", category: "有效規模", title: "利基市場天然寡占 (Efficient Scale)", score: m[5], desc: "市場容量有限，新競爭者進入只會引發雙輸局面的天然理性寡占。" },
-      { id: "M7", category: "資本回報", title: "長週期超額 ROIC 韌性 (ROIC vs WACC)", score: m[6], desc: "投入資本回報率持續遠超加權資本成本，創造實質股東複利能力。" },
-      { id: "M8", category: "抗威脅力", title: "資本不可複製性 (Irreproducibility)", score: m[7], desc: "即便給對手 1,000 億美元資金，也無法在幾年內複製該企業。" },
-      { id: "M9", category: "抗顛覆力", title: "技術/典範轉移抗性 (Disruption Immunity)", score: m[8], desc: "需求確定性極高，對技術變革或 AI 顛覆具備強大免疫力。" },
-      { id: "M10", category: "資本配置", title: "管理層誠信與回購配置 (Capital Allocation)", score: m[9], desc: "不盲目溢價併購，低估時積極回購註銷股本以最大化股東利益。" }
+    const defaultComments = [
+      "具備品牌辨識度與提價彈性，客戶黏著力穩固。",
+      "持有專利組合或監管許可執照，構築准入護城河。",
+      "轉換成本具一定摩擦力，客戶替換需承擔遷移成本。",
+      "具備網絡正反饋循環，用戶增加帶動生態價值擴張。",
+      "規模效應明顯，採購議價與供應鏈成本領先同業。",
+      "利基市場或獨佔地理資產，同業難以重複建設。",
+      "長期投入資本回報率（ROIC）高於加權資金成本。",
+      "資本複製壁壘高，對手即便斥巨資短期內亦難以替代。",
+      "核心需求具高確定性，不易受技術典範轉移完全顛覆。",
+      "管理層善於輕資產配置，持續回購並創造股東價值。"
     ];
 
-    return { total, grade, badgeClass, criteria, comment, ref, m };
+    const criteria = [
+      { id: "M1", category: "無形資產", title: "品牌心智與定價權 (Pricing Power)", score: m[0], desc: "加價後客戶是否依然離不開？是否具備強大產品提價權且不失銷量。", comment: comments[0] || defaultComments[0] },
+      { id: "M2", category: "無形資產", title: "專利壁壘與特許許可 (Patents & Regulatory)", score: m[1], desc: "獨家專利集群、政府監管准入或法定特許經營收費橋樑。", comment: comments[1] || defaultComments[1] },
+      { id: "M3", category: "轉換成本", title: "黏性與替代成本 (Switching Costs)", score: m[2], desc: "更換產品是否會造成重大財務損失、營運中斷或高昂遷移成本。", comment: comments[2] || defaultComments[2] },
+      { id: "M4", category: "網絡效應", title: "雙向網絡正反饋 (Network Effects)", score: m[3], desc: "每多一個用戶加入，整個生態系統對所有參與者的價值呈幾何級上升。", comment: comments[3] || defaultComments[3] },
+      { id: "M5", category: "成本優勢", title: "極致規模經濟與工藝 (Scale Advantage)", score: m[4], desc: "能夠以對手無法企及的超低邊際成本供貨或掌握獨家工藝良率。", comment: comments[4] || defaultComments[4] },
+      { id: "M6", category: "有效規模", title: "利基市場天然寡占 (Efficient Scale)", score: m[5], desc: "市場容量有限，新競爭者進入只會引發雙輸局面的天然理性寡占。", comment: comments[5] || defaultComments[5] },
+      { id: "M7", category: "資本回報", title: "長週期超額 ROIC 韌性 (ROIC vs WACC)", score: m[6], desc: "投入資本回報率持續遠超加權資本成本，創造實質股東複利能力。", comment: comments[6] || defaultComments[6] },
+      { id: "M8", category: "抗威脅力", title: "資本不可複製性 (Irreproducibility)", score: m[7], desc: "即便給對手 1,000 億美元資金，也無法在幾年內複製該企業。", comment: comments[7] || defaultComments[7] },
+      { id: "M9", category: "抗顛覆力", title: "技術/典範轉移抗性 (Disruption Immunity)", score: m[8], desc: "需求確定性極高，對技術變革或 AI 顛覆具備強大免疫力。", comment: comments[8] || defaultComments[8] },
+      { id: "M10", category: "資本配置", title: "管理層誠信與回購配置 (Capital Allocation)", score: m[9], desc: "不盲目溢價併購，低估時積極回購註銷股本以最大化股東利益。", comment: comments[9] || defaultComments[9] }
+    ];
+
+    return { total, grade, badgeClass, criteria, comment: overallComment, ref, m };
   }
 
   function getFavorites() {
@@ -984,7 +954,6 @@
       div_yield = s.div_yield;
     }
 
-    // 呼叫護城河引擎 (明確帶入代號)
     const moat = evaluateMoat(s, sym);
 
     let f_score = s.f_score;
@@ -1490,7 +1459,7 @@
     document.getElementById('sens-body').innerHTML = tbody;
   }
 
-  // ==================== 渲染護城河專屬頁面 ====================
+  // ==================== 渲染護城河專屬頁面 (含深度短評專欄) ====================
   function loadMoatView(ticker) {
     const s = stockUniverse[ticker];
     if (!s) return;
@@ -1541,6 +1510,7 @@
             </div>
             <span style="font-size: 11px; font-weight: 600; color: ${barColor};">${pct}%</span>
           </td>
+          <td class="moat-comment-cell">${c.comment}</td>
         </tr>
       `;
     }).join('');
