@@ -628,7 +628,14 @@
 </div>
 
 <script>
-  const stockUniverse = JSON.parse(JSON.stringify(window.FULL_MARKET_DATA || {}));
+  // 防呆：無論是 window.FULL_MARKET_DATA 還是直接宣告，都能安全取得
+  let rawData = {};
+  if (typeof window.FULL_MARKET_DATA !== 'undefined' && window.FULL_MARKET_DATA) {
+    rawData = window.FULL_MARKET_DATA;
+  } else if (typeof FULL_MARKET_DATA !== 'undefined' && FULL_MARKET_DATA) {
+    rawData = FULL_MARKET_DATA;
+  }
+  const stockUniverse = JSON.parse(JSON.stringify(rawData));
   const commonRf = 0.0450;
   const commonERP = 0.0475;
 
