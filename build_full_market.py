@@ -5,21 +5,17 @@ import time
 from typing import Dict, Any, Optional
 from pydantic import BaseModel, Field
 
-# 嘗試引入 google-genai SDK
 try:
     from google import genai
     from google.genai import types
     HAS_GENAI = True
 except ImportError:
     HAS_GENAI = False
-    print("⚠️ 提示: 尚未安裝 google-genai，若需 AI 分析請執行: pip install google-genai pydantic")
 
-# API Keys 配置
 FMP_KEY = os.environ.get("FMP_API_KEY", "").strip() or "6gYxujhYq3qweE6ohCF6b5zjCrberLaOT"
 GEMINI_KEY = os.environ.get("GEMINI_API_KEY", "").strip()
 GCP_SA_KEY = os.environ.get("GCP_SA_KEY", "").strip()
 
-# 初始化 Gemini / Vertex AI Client
 gemini_client = None
 PRIMARY_MODEL = "gemini-2.5-flash"
 
@@ -37,7 +33,7 @@ if HAS_GENAI:
                 location="us-central1"
             )
             PRIMARY_MODEL = "gemini-2.5-flash"
-            print("🚀 已成功啟用 Vertex AI 企業級高速模式 (專案: dcf-moat-ai)", flush=True)
+            print("🚀 已啟用 Vertex AI 企業級高速模式 (專案: dcf-moat-ai)", flush=True)
         elif GEMINI_KEY:
             gemini_client = genai.Client(api_key=GEMINI_KEY)
             PRIMARY_MODEL = "gemini-2.5-flash"
@@ -45,7 +41,6 @@ if HAS_GENAI:
     except Exception as e:
         print(f"⚠️ Gemini Client 初始化失敗: {e}", flush=True)
 
-# 快取目錄設置
 CACHE_DIR = "cache/moat"
 os.makedirs(CACHE_DIR, exist_ok=True)
 
@@ -55,7 +50,6 @@ DEFAULT_G = 0.0225
 KD = 4.5
 TAX_RATE = 21.0
 
-# ==================== Pydantic Schema 定義 ====================
 class MoatDimension(BaseModel):
     score: int = Field(..., ge=0, le=10, description="0到10整數打分")
     comment: str = Field(..., description="120至180字深入透徹評語，緊扣巴菲特投資哲學，點出具體商業壁壘、競對差異或數據佐證")
@@ -75,13 +69,7 @@ class StockMoatReport(BaseModel):
     m10_durability: MoatDimension = Field(..., description="M10. 管理層誠信與資本配置 (Capital Allocation)")
     overall_moat_verdict: str = Field(..., description="150至200字的巴菲特護城河綜合評斷與核心競爭壁壘總結")
 
-# ==================== Gemini 護城河季度快取分析引擎 ====================
-def analyze_stock_moat(
-    ticker: str,
-    latest_period: str,
-    fin_context: Dict[str, Any],
-    force_refresh: bool = False
-) -> Dict[str, Any]:
+def analyze_stock_moat(ticker: str, latest_period: str, fin_context: Dict[str, Any], force_refresh: bool = False) -> Dict[str, Any]:
     if not latest_period or latest_period == "LATEST":
         import datetime
         now = datetime.datetime.now()
@@ -133,7 +121,7 @@ def analyze_stock_moat(
 
     【評估規則與要求】
     1. 評分標準：0 到 10 分整數（0-3分：極弱或無護城河；4-6分：中等壁壘；7-8分：堅固護城河；9-10分：全球罕見定價權或壟斷級壁壘）。
-    2. 點評要求：每一條護城河 (M1~M10) 的 comment 必須深入透徹，字數嚴格控制在 **120 至 180 字以內**。必須明確點出具體商業模式優勢、同業競爭對手差異或財務數字佐證。
+    2. 點評要求：每一條護城河 (M1~M10) 的 comment 必須深入透徹，字數嚴格控制在 120 至 180 字以內。必須明確點出具體商業模式優勢、同業競爭對手差異或財務數字佐證。
     3. overall_moat_verdict 必須對該企業的本質做出巴菲特式的精準定性（例如定性為特許經營權平台、收費橋樑或商品型企業），字數在 150～200 字以內。
     4. 必須回傳指定 JSON Schema 結構。
     """
@@ -482,14 +470,12 @@ def get_fx_to_usd_rate(currency):
             if price > 0:
                 rate = 1.0 / price
                 FX_CACHE[curr] = rate
-                print(f"💱 [FX] 成功取得匯率: 1 {curr} = {rate:.6f} USD", flush=True)
                 return rate
     except Exception:
         pass
 
     fallback_rate = fallbacks.get(curr, 1.0)
     FX_CACHE[curr] = fallback_rate
-    print(f"💱 [FX] 使用基準匯率對照: 1 {curr} = {fallback_rate:.6f} USD", flush=True)
     return fallback_rate
 
 def build_10y_growth_schedule(est_data, default_g1, terminal_g):
@@ -554,7 +540,7 @@ def main():
         sym = item["ticker"]
         fmp_sym = sym.replace(".", "")
 
-        # 1. 抓取報價與市值
+        # 1. 抓取即時報價與市值
         q_data = fetch_json("quote", {"symbol": fmp_sym})
         price, mcap, shares = 0.0, 0.0, 0.0
         if q_data and isinstance(q_data, list) and len(q_data) > 0:
@@ -572,9 +558,10 @@ def main():
         if shares <= 0: shares = round(mcap / price, 1)
         time.sleep(0.04)
 
-        # 2. 資產負債表
+        # 2. 資產負債表 (精確計算 TBV)
         bs_data = fetch_json("balance-sheet-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 1})
         debt, cash, equity, total_assets = 0.0, 0.0, 1.0, 1.0
+        goodwill_and_intangibles = 0.0
         liab_r, cash_to_assets, cr = 40.0, 0.0, 1.50
         reported_currency = "USD"
         latest_period = "LATEST"
@@ -596,6 +583,12 @@ def main():
             debt = round(tot_debt / 1e6, 1)
             cash = round(tot_cash / 1e6, 1)
             equity = float(bs.get("totalStockholdersEquity") or 1.0)
+            
+            # 商譽與無形資產
+            gw = float(bs.get("goodwill") or 0.0)
+            intangibles = float(bs.get("intangibleAssets") or bs.get("goodwillAndIntangibleAssets") or 0.0)
+            goodwill_and_intangibles = max(gw + intangibles, float(bs.get("goodwillAndIntangibleAssets") or 0.0))
+
             total_liab = float(bs.get("totalLiabilities") or 0.0)
             total_assets = float(bs.get("totalAssets") or 1.0)
             cur_assets = float(bs.get("totalCurrentAssets") or 1.0)
@@ -636,7 +629,6 @@ def main():
                 bb_val = quarter_cf.get("commonStockRepurchased") or 0.0
                 ttm_buybacks_paid += abs(float(bb_val))
 
-        # 匯率轉換至 USD
         fx_rate = get_fx_to_usd_rate(reported_currency)
         if fx_rate != 1.0 or sym == "TSM":
             if sym == "TSM" and fx_rate == 1.0:
@@ -644,6 +636,7 @@ def main():
             debt = round(debt * fx_rate, 1)
             cash = round(cash * fx_rate, 1)
             equity = equity * fx_rate
+            goodwill_and_intangibles = goodwill_and_intangibles * fx_rate
             total_assets = total_assets * fx_rate
             ttm_net_income = ttm_net_income * fx_rate
             ttm_ebitda = ttm_ebitda * fx_rate
@@ -711,7 +704,7 @@ def main():
         f_score, f_score_breakdown = calculate_piotroski_score(roa, fcf0, cr, liab_r, ttm_net_income)
 
         # ========================================================
-        # 金融專屬雙軌模型 (銀行 / 保險 / 消費金融，排除 BRK.B)
+        # 金融專屬雙軌模型 (核心修復：精確計算 TBVPS 與標準化分紅)
         # ========================================================
         FINANCIAL_SPECIAL_INDUSTRIES = [
             "Diversified Banks", "Consumer Finance", "Investment Banking & Brokerage",
@@ -725,26 +718,30 @@ def main():
 
         fin_valuation = {"is_financial": False}
         if is_financial_model:
-            km_data = fetch_json("key-metrics", {"symbol": fmp_sym, "period": "quarter", "limit": 1})
-            bvps = float(km_data[0].get("bookValuePerShare") or 0.0) if km_data else 0.0
-            tbvps = float(km_data[0].get("tangibleBookValuePerShare") or 0.0) if km_data else bvps
-            if tbvps <= 0: tbvps = max(bvps * 0.82, 12.0)
+            # 1. 真實每股有形資產 TBVPS 計算
+            tangible_equity = max(equity - goodwill_and_intangibles, equity * 0.85)
+            shares_count = shares * 1e6
+            tbvps = round(tangible_equity / shares_count, 2) if shares_count > 0 else 50.0
+            bvps = round(equity / shares_count, 2) if shares_count > 0 else 60.0
 
-            total_shareholder_yield = (ttm_dividends_paid + ttm_buybacks_paid) / 1e6
-            dps_total = total_shareholder_yield / shares if shares > 0 else (price * 0.035)
+            # 2. 標準化每股分紅 (股息 100% 計入 + 回購設定常態上限，防止極端高估)
+            dps_div = (ttm_dividends_paid / shares_count) if shares_count > 0 else (price * 0.02)
+            dps_bb = (ttm_buybacks_paid / shares_count) if shares_count > 0 else 0.0
+            # 回購上限不超過股息的 1.5 倍
+            dps_total = round(dps_div + min(dps_bb, dps_div * 1.5), 2)
 
             ke_rate = max(ke, 0.09)
             rote_rate = max(roe / 100.0, 0.06)
 
-            # 1. 超額回報模型 (Excess Return on TBV)
+            # 超額回報法 (Excess Return on TBV)
             spread = rote_rate - ke_rate
             excess_return_val = tbvps + (tbvps * spread) / max(ke_rate - DEFAULT_G, 0.02)
             excess_return_val = round(max(excess_return_val, tbvps * 0.65), 2)
 
-            # 2. 股利與回購折現 (DDM 模型)
+            # 股利與回購 DDM 折現模型
             ddm_sum = 0.0
             cur_dps = dps_total
-            g_dps = min(item["default_g1"] / 100.0, 0.075)
+            g_dps = min(item["default_g1"] / 100.0, 0.065)
             for t in range(1, 6):
                 cur_dps *= (1.0 + g_dps)
                 ddm_sum += cur_dps / ((1.0 + ke_rate) ** t)
@@ -752,23 +749,24 @@ def main():
             pv_tv_ddm = tv_ddm / ((1.0 + ke_rate) ** 5)
             ddm_val = round(ddm_sum + pv_tv_ddm, 2)
 
-            # 綜合公允價值切換為金融雙軌加權
+            # 雙軌加權綜合公允價值
             fair_val = round((excess_return_val * 0.55) + (ddm_val * 0.45), 2)
             premium_pct = round(((price / fair_val) - 1.0) * 100.0, 1)
 
             fin_valuation = {
                 "is_financial": True,
-                "tbvps": round(tbvps, 2),
-                "bvps": round(bvps, 2),
+                "tbvps": tbvps,
+                "bvps": bvps,
                 "rote": round(rote_rate * 100.0, 1),
                 "ke": round(ke_rate * 100.0, 2),
-                "dps_total": round(dps_total, 2),
+                "g": round(DEFAULT_G * 100.0, 2),
+                "dps_total": dps_total,
                 "excess_return_fair": excess_return_val,
                 "ddm_fair": ddm_val,
                 "pb_tangible": round(price / tbvps, 2) if tbvps > 0 else 1.0
             }
 
-        # 6. Gemini 巴菲特護城河深度分析
+        # 6. Gemini 護城河分析
         fin_context = {
             "name": item["name"],
             "sector": item["sector"],
@@ -782,7 +780,6 @@ def main():
             "cash": cash
         }
 
-        print(f"🏰 [{sym}] 檢查/執行護城河分析 (季度: {latest_period})...", flush=True)
         moat_data = analyze_stock_moat(
             ticker=sym,
             latest_period=latest_period,
@@ -838,7 +835,7 @@ def main():
             "fin_valuation": fin_valuation
         }
 
-        print(f"[{idx:03d}/200] ✅ {sym} ({item['exchange']}) - 股價=${price} | 公允價值=${fair_val} | 護城河綜合: {moat_data.get('overall_moat_verdict', '')[:30]}...", flush=True)
+        print(f"[{idx:03d}/200] ✅ {sym} ({item['exchange']}) - 股價=${price} | 公允價值=${fair_val} | 護城河: {moat_data.get('overall_moat_verdict', '')[:30]}...", flush=True)
 
     with open("full_market_dcf.json", "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
