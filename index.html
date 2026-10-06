@@ -4,7 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>美股旗艦 DCF 估值雷達 (200 檔全覆蓋 · 金融雙軌/巴菲特護城河修正版)</title>
-  <script src="market_data.js?v=20261006_v12"></script>
+  <!-- 加入動態時間戳防止瀏覽器死鎖快取 -->
+  <script>
+    const script = document.createElement('script');
+    script.src = 'market_data.js?t=' + new Date().getTime();
+    document.head.appendChild(script);
+  </script>
   <style>
     :root {
       --bg: #0b1120;
@@ -226,8 +231,8 @@
       <h1>美股旗艦 DCF 估值雷達 (200 檔)</h1>
       <span style="font-size: 13px; color: var(--text-muted);">NYSE · NASDAQ · AMEX · 銀行保險專屬雙軌模型 · 巴菲特護城河深度分析</span>
     </div>
-    <div class="status-badge">
-      🟢 FMP 官方財報已完成同步 (全市場覆蓋)
+    <div class="status-badge" id="app-status">
+      🟢 系統載入中...
     </div>
   </header>
 
@@ -347,7 +352,7 @@
     </div>
   </div>
 
-  <!-- ==================== 頁面 2：深度估值詳情頁 (含金融雙軌模型) ==================== -->
+  <!-- ==================== 頁面 2：深度估值詳情頁 ==================== -->
   <div id="detail-view">
     <div class="detail-header">
       <div class="detail-title">
@@ -390,7 +395,7 @@
       </div>
     </div>
 
-    <!-- 金融專屬雙軌模型卡片 (自動切換) -->
+    <!-- 金融專屬雙軌模型卡片 -->
     <div id="panel-fin-models" style="display: none; margin-bottom: 20px;">
       <div class="panel">
         <div class="panel-title">🏛️ 金融機構專屬估值矩陣 (Excess Return on Tangible Book + DDM)</div>
@@ -628,14 +633,7 @@
 </div>
 
 <script>
-  // 防呆：無論是 window.FULL_MARKET_DATA 還是直接宣告，都能安全取得
-  let rawData = {};
-  if (typeof window.FULL_MARKET_DATA !== 'undefined' && window.FULL_MARKET_DATA) {
-    rawData = window.FULL_MARKET_DATA;
-  } else if (typeof FULL_MARKET_DATA !== 'undefined' && FULL_MARKET_DATA) {
-    rawData = FULL_MARKET_DATA;
-  }
-  const stockUniverse = JSON.parse(JSON.stringify(rawData));
+  let stockUniverse = {};
   const commonRf = 0.0450;
   const commonERP = 0.0475;
 
@@ -667,6 +665,26 @@
     "NVDA": { m: [10, 10, 10, 9, 9, 8, 10, 9, 7, 8], ref: "Bruce Greenwald 教授 (《競爭優勢》理論)", note: "【城堡壁壘】CUDA 軟體架構構建了全球開發者生態的高轉換成本。" },
     "MCD": { m: [8, 5, 4, 6, 10, 10, 9, 9, 8, 8], ref: "沃倫·巴菲特護城河準則 · 麥當勞深度專題", note: "【城堡壁壘】披著快餐外衣的「頂級商業地產出租商 + 全球供應鏈特許平台」。" }
   };
+
+  // 全相容安全資料載入引擎
+  function initDataFeed() {
+    let raw = {};
+    if (typeof window.FULL_MARKET_DATA !== 'undefined' && window.FULL_MARKET_DATA && Object.keys(window.FULL_MARKET_DATA).length > 0) {
+      raw = window.FULL_MARKET_DATA;
+    } else if (typeof FULL_MARKET_DATA !== 'undefined' && FULL_MARKET_DATA && Object.keys(FULL_MARKET_DATA).length > 0) {
+      raw = FULL_MARKET_DATA;
+    }
+
+    if (Object.keys(raw).length > 0) {
+      stockUniverse = JSON.parse(JSON.stringify(raw));
+      document.getElementById('app-status').innerText = '🟢 FMP 官方財報已完成同步 (全市場覆蓋)';
+      updateSubIndustryButtons();
+      initInteractions();
+      renderScreenerTable();
+      return true;
+    }
+    return false;
+  }
 
   function evaluateMoat(s, explicitTicker) {
     const rawSym = explicitTicker || (s && s.ticker) || "";
@@ -715,7 +733,7 @@
     let badgeClass = "moat-weak";
     if (total >= 88) { grade = "Wide Moat (極寬) 🏆"; badgeClass = "moat-wide"; }
     else if (total >= 75) { grade = "Narrow Moat (優質) 🛡️"; badgeClass = "moat-narrow"; }
-    else if (total >= 55) { grade = "Moderate Moat (中等) ⚖️"; badgeClass = "moat-weak"; }
+    else if (total >= 55) { grade = "Moderate Moat (中等) ⚖️️"; badgeClass = "moat-weak"; }
     else { grade = "Weak / No Moat (微弱) ⚠️"; badgeClass = "moat-none"; }
 
     const criteria = [
@@ -765,32 +783,39 @@
   }
 
   function computeDCF(s, explicitTicker) {
-    const sym = explicitTicker || (s && s.ticker) || "";
-    let localDebt = s.debt;
-    let localCash = s.cash;
-    let localFCF0 = s.fcf0;
+    if (!s) return null;
+    const sym = explicitTicker || s.ticker || "";
+    let localDebt = Number(s.debt) || 0;
+    let localCash = Number(s.cash) || 0;
+    let localFCF0 = Number(s.fcf0) || 100;
+    const price = Number(s.price) || 1;
+    const shares = Number(s.shares) || 1;
+
     if (sym === "TSM" && localFCF0 > 50000) {
       localDebt = Math.round(localDebt / 32.0);
       localCash = Math.round(localCash / 32.0);
       localFCF0 = Math.round(localFCF0 / 32.0);
     }
 
-    const E = s.price * s.shares;
+    const E = price * shares;
     const V = E + localDebt;
     const wE = V > 0 ? E / V : 1;
     const wD = V > 0 ? localDebt / V : 0;
     const NetDebt = localDebt - localCash;
 
-    const Ke = commonRf + (s.beta * commonERP);
-    const Kd_after = (s.kd / 100) * (1 - (s.tax / 100));
+    const beta = Number(s.beta) || 1.0;
+    const kd = Number(s.kd) || 4.5;
+    const tax = Number(s.tax) || 21.0;
+    const Ke = commonRf + (beta * commonERP);
+    const Kd_after = (kd / 100) * (1 - (tax / 100));
     const WACC = (wE * Ke) + (wD * Kd_after);
 
     let growthRates = [];
     if (s.growth_10y && Array.isArray(s.growth_10y) && s.growth_10y.length === 10) {
-      growthRates = s.growth_10y.map(r => r / 100);
+      growthRates = s.growth_10y.map(r => (Number(r) || 5) / 100);
     } else {
-      const g1 = (s.g1 || 12.0) / 100;
-      const g2 = (s.g2 || 6.0) / 100;
+      const g1 = (Number(s.g1) || 10.0) / 100;
+      const g2 = (Number(s.g2) || 5.0) / 100;
       growthRates = [g1, g1, g1, g1, g1, g2, g2, g2, g2, g2];
       s.growth_10y = [g1*100, g1*100, g1*100, g1*100, g1*100, g2*100, g2*100, g2*100, g2*100, g2*100];
     }
@@ -811,7 +836,7 @@
       sumPV += pv;
     }
 
-    const g = s.g / 100;
+    const g = (Number(s.g) || 2.25) / 100;
     const fcf11 = fcfList[9] * (1 + g);
     const safeWacc = Math.max(WACC, g + 0.015);
     const tv = (safeWacc > g) ? (fcf11 / (safeWacc - g)) : 0;
@@ -819,25 +844,30 @@
     const EV = sumPV + pvTV;
     const EquityVal = EV - NetDebt;
 
-    // 若為金融專屬模型則使用後端給予之公允價值
-    const fairVal = (s.fin_valuation && s.fin_valuation.is_financial) ? s.fair_val : (s.shares > 0 ? (EquityVal / s.shares) : s.price);
-    const premiumPct = ((s.price / fairVal) - 1) * 100;
+    // 金融專屬模型雙軌安全判定
+    const isFin = !!(s.fin_valuation && s.fin_valuation.is_financial);
+    const fairVal = (isFin && Number(s.fair_val) > 0)
+      ? Number(s.fair_val)
+      : (shares > 0 ? (EquityVal / shares) : price);
 
-    const estimatedEbitda = Math.max(localFCF0 * 1.25, (E / (s.pe_trailing || 22)) * 1.35, 100);
-    const ev_to_ebitda = s.ev_to_ebitda !== undefined ? s.ev_to_ebitda : Math.round((EV / estimatedEbitda) * 10) / 10;
-    const debt_to_ebitda = s.debt_to_ebitda !== undefined ? s.debt_to_ebitda : Math.round((localDebt / estimatedEbitda) * 100) / 100;
-    const net_debt_to_ebitda = s.net_debt_to_ebitda !== undefined ? s.net_debt_to_ebitda : Math.round((NetDebt / estimatedEbitda) * 100) / 100;
+    const safeFairVal = Math.max(fairVal, 0.01);
+    const premiumPct = ((price / safeFairVal) - 1) * 100;
+
+    const estimatedEbitda = Math.max(localFCF0 * 1.25, (E / (Number(s.pe_trailing) || 22)) * 1.35, 100);
+    const ev_to_ebitda = s.ev_to_ebitda !== undefined ? Number(s.ev_to_ebitda) : Math.round((EV / estimatedEbitda) * 10) / 10;
+    const debt_to_ebitda = s.debt_to_ebitda !== undefined ? Number(s.debt_to_ebitda) : Math.round((localDebt / estimatedEbitda) * 100) / 100;
+    const net_debt_to_ebitda = s.net_debt_to_ebitda !== undefined ? Number(s.net_debt_to_ebitda) : Math.round((NetDebt / estimatedEbitda) * 100) / 100;
 
     let div_yield = 0.00;
     if (BENCHMARK_DIV_YIELDS[sym] !== undefined) { div_yield = BENCHMARK_DIV_YIELDS[sym]; }
-    else if (s.div_yield && s.div_yield > 0) { div_yield = s.div_yield; }
+    else if (s.div_yield && Number(s.div_yield) > 0) { div_yield = Number(s.div_yield); }
 
     const moat = evaluateMoat(s, sym);
 
     return {
       E, V, wE, wD, NetDebt, Ke, Kd_after, WACC,
       growth: growthRates, fcfList, dfList, pvList, sumPV,
-      fcf11, tv, pvTV, EV, EquityVal, fairVal, premiumPct,
+      fcf11, tv, pvTV, EV, EquityVal, fairVal: safeFairVal, premiumPct,
       isUndervalued: premiumPct < 0,
       mcap: E,
       cash_minus_liab: localCash - localDebt,
@@ -916,6 +946,7 @@
 
   function updateSubIndustryButtons() {
     const container = document.getElementById('subindustry-filters');
+    if (!container) return;
     let subIndustries = new Set();
     Object.values(stockUniverse).forEach(s => {
       if (currentSectorFilter === 'ALL' || s.sector === currentSectorFilter) {
@@ -944,6 +975,7 @@
 
   function renderScreenerTable() {
     const tbody = document.getElementById('screener-tbody');
+    if (!tbody) return;
     const searchVal = document.getElementById('search-ticker').value.trim().toUpperCase();
     const savedModels = getSavedModels();
     const favs = getFavorites();
@@ -951,13 +983,14 @@
     let list = Object.keys(stockUniverse).map(ticker => {
       const s = stockUniverse[ticker];
       const dcf = computeDCF(s, ticker);
+      if (!dcf) return null;
       const isSaved = !!savedModels[ticker];
       const isFav = favs.includes(ticker);
       const target_price = isSaved ? savedModels[ticker].targetPrice : null;
       const target_spread = (isSaved && target_price > 0) ? (((s.price / target_price) - 1) * 100) : null;
       const moat_score = dcf.moat.total;
       return { ticker, ...s, ...dcf, isSaved, isFav, target_price, target_spread, moat_score };
-    });
+    }).filter(x => x !== null);
 
     if (currentValFilter === 'UNDERVALUED') list = list.filter(item => item.isUndervalued);
     else if (currentValFilter === 'OVERVALUED') list = list.filter(item => !item.isUndervalued);
@@ -970,9 +1003,9 @@
     if (searchVal) {
       list = list.filter(item => 
         item.ticker.includes(searchVal) || 
-        item.name.toUpperCase().includes(searchVal) || 
-        item.sector.includes(searchVal) || 
-        item.industry.toUpperCase().includes(searchVal)
+        (item.name && item.name.toUpperCase().includes(searchVal)) || 
+        (item.sector && item.sector.includes(searchVal)) || 
+        (item.industry && item.industry.toUpperCase().includes(searchVal))
       );
     }
 
@@ -983,7 +1016,7 @@
       return sortAsc ? (va || 0) - (vb || 0) : (vb || 0) - (va || 0);
     });
 
-    const allCalc = Object.keys(stockUniverse).map(t => computeDCF(stockUniverse[t], t));
+    const allCalc = Object.keys(stockUniverse).map(t => computeDCF(stockUniverse[t], t)).filter(x => x !== null);
     const totalCount = allCalc.length;
     const underCount = allCalc.filter(x => x.isUndervalued).length;
     const overCount = totalCount - underCount;
@@ -1040,7 +1073,8 @@
           <td class="col-fixed-3" style="font-weight: 600; color: #fff;">${item.name}</td>
           <td style="color: #cbd5e1; text-align: left;">${item.sector}</td>
           <td style="color: #94a3b8; font-size: 11px; text-align: left;">${item.industry}</td>
-          <td style="font-weight: 700; color: var(--accent);">$${item.price.toFixed(2)}</td>           <td class="text-green" style="font-size: 13px; font-weight: 700;">$${item.fairVal.toFixed(2)}</td>
+          <td style="font-weight: 700; color: var(--accent);">$${Number(item.price).toFixed(2)}</td>
+          <td class="text-green" style="font-size: 13px; font-weight: 700;">$${Number(item.fairVal).toFixed(2)}</td>
           <td>${targetPriceHtml}</td>
           <td style="text-align: center;">
             <button class="btn-nav" onclick="openDetail('${item.ticker}')">深度模型 →</button>
@@ -1052,11 +1086,443 @@
           </td>
           <td>
             <div>${(item.WACC * 100).toFixed(2)}%</div>
-            <div style="font-size: 11px; color: var(--text-muted);">g: ${item.g.toFixed(2)}%</div>
+            <div style="font-size: 11px; color: var(--text-muted);">g: ${Number(item.g).toFixed(2)}%</div>
           </td>
-          <td>$${(item.EV).toLocaleString(undefined, {maximumFractionDigits: 0})}</td>           <td style="font-weight: 600;">$${(item.mcap).toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
-          <td>${item.pe_trailing ? item.pe_trailing.toFixed(1) : '--'}</td>
-          <td>${item.pe_forward ? item.pe_forward.toFixed(1) : '--'}</td>
-          <td>${item.pb_trailing ? item.pb_trailing.toFixed(1) : '--'}</td>
-          <td style="color: #67e8f9; font-weight: 700;">${item.div_yield > 0 ? item.div_yield.toFixed(2) + '%' : '0.00%'}</td>
-          <td style="
+          <td>$${(item.EV).toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
+          <td style="font-weight: 600;">$${(item.mcap).toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
+          <td>${item.pe_trailing ? Number(item.pe_trailing).toFixed(1) : '--'}</td>
+          <td>${item.pe_forward ? Number(item.pe_forward).toFixed(1) : '--'}</td>
+          <td>${item.pb_trailing ? Number(item.pb_trailing).toFixed(1) : '--'}</td>
+          <td style="color: #67e8f9; font-weight: 700;">${item.div_yield > 0 ? Number(item.div_yield).toFixed(2) + '%' : '0.00%'}</td>
+          <td style="color: #38bdf8; font-weight: 600;">${item.fcf_to_ev ? Number(item.fcf_to_ev).toFixed(2) + '%' : '--'}</td>
+          <td style="color: #a78bfa; font-weight: 600;">${item.fcf_to_mcap ? Number(item.fcf_to_mcap).toFixed(2) + '%' : '--'}</td>
+          <td style="color: #38bdf8;">${item.cash_to_assets ? Number(item.cash_to_assets).toFixed(1) + '%' : '--'}</td>
+          <td>${item.liab_to_assets ? Number(item.liab_to_assets).toFixed(1) + '%' : '--'}</td>
+          <td>${item.current_ratio ? Number(item.current_ratio).toFixed(2) : '--'}</td>
+          <td style="${netCashColor}">$${(item.cash_minus_liab).toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
+          <td style="font-weight: 600; color: #fde047;">${item.roe ? Number(item.roe).toFixed(1) + '%' : '--'}</td>
+          <td style="color: #4ade80;">${item.roa ? Number(item.roa).toFixed(1) + '%' : '--'}</td>
+          <td style="text-align: center;">
+            <span class="badge-fscore ${fScoreClass}" onclick="openFScore('${item.ticker}')" title="點擊查看皮氏 9 分明細">${fScoreVal} / 9</span>
+          </td>
+          <td style="font-weight: 700; color: #38bdf8;">${item.ev_to_ebitda !== undefined ? Number(item.ev_to_ebitda).toFixed(1) + 'x' : '--'}</td>
+          <td style="color: #cbd5e1;">${item.debt_to_ebitda !== undefined ? Number(item.debt_to_ebitda).toFixed(2) + 'x' : '--'}</td>
+          <td style="${ndeColor}">${item.net_debt_to_ebitda !== undefined ? Number(item.net_debt_to_ebitda).toFixed(2) + 'x' : '--'}</td>
+        </tr>
+      `;
+    }).join('');
+  }
+
+  function scrollTableBy(amount) {
+    const box = document.getElementById('main-scroll-box');
+    if (box) box.scrollBy({ left: amount, behavior: 'smooth' });
+  }
+
+  function initInteractions() {
+    const box = document.getElementById('main-scroll-box');
+    if (!box) return;
+
+    let isDown = false;
+    let startX, scrollLeft;
+
+    box.addEventListener('mousedown', (e) => {
+      if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.tagName === 'INPUT' || e.target.classList.contains('badge-fscore') || e.target.classList.contains('badge-moat')) return;
+      isDown = true;
+      startX = e.pageX - box.offsetLeft;
+      scrollLeft = box.scrollLeft;
+    });
+
+    box.addEventListener('mouseleave', () => { isDown = false; });
+    box.addEventListener('mouseup', () => { isDown = false; });
+    box.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - box.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      box.scrollLeft = scrollLeft - walk;
+    });
+
+    box.addEventListener('wheel', (e) => {
+      if (e.deltaX !== 0) box.scrollLeft += e.deltaX;
+      else if (e.shiftKey) box.scrollLeft += e.deltaY;
+    }, { passive: true });
+  }
+
+  function loadDetailTicker(ticker) {
+    const s = stockUniverse[ticker];
+    if (!s) return;
+
+    const saved = getSavedModels()[ticker];
+    if (saved) {
+      Object.assign(s, saved.params);
+      document.getElementById('det-saved-badge').style.display = 'inline-block';
+      document.getElementById('det-saved-badge').innerText = `已存目標價: $${Number(saved.targetPrice).toFixed(2)}`;
+    } else {
+      document.getElementById('det-saved-badge').style.display = 'none';
+    }
+
+    document.getElementById('det-ticker').innerText = ticker;
+    document.getElementById('det-name').innerText = s.name;
+    const exchEl = document.getElementById('det-exchange');
+    exchEl.innerText = s.exchange;
+    exchEl.className = `badge badge-exch-${s.exchange || 'NASDAQ'}`;
+
+    const dcf = computeDCF(s, ticker);
+    const moatBadge = document.getElementById('det-moat-badge');
+    moatBadge.innerText = `護城河: ${dcf.moat.total}/100 🏆`;
+    moatBadge.className = `badge-moat ${dcf.moat.badgeClass}`;
+
+    const fscoreBadge = document.getElementById('det-fscore-badge');
+    const fval = dcf.f_score;
+    fscoreBadge.innerText = `F-Score: ${fval}/9 (診斷)`;
+    fscoreBadge.className = `badge-fscore ${fval >= 7 ? 'fscore-green' : fval <= 3 ? 'fscore-red' : 'fscore-yellow'}`;
+
+    updateDetailFavButton();
+
+    const isFinancial = !!(s.fin_valuation && s.fin_valuation.is_financial);
+    const finPanel = document.getElementById('panel-fin-models');
+    const genLayout = document.getElementById('panel-general-dcf');
+
+    if (isFinancial) {
+      if (finPanel) finPanel.style.display = 'block';
+      if (genLayout) genLayout.style.display = 'none';
+
+      const fin = s.fin_valuation;
+      document.getElementById('fin-excess-val').innerText = `$${Number(fin.excess_return_fair).toFixed(2)}`;
+      document.getElementById('fin-ddm-val').innerText = `$${Number(fin.ddm_fair).toFixed(2)}`;
+      document.getElementById('fin-tbvps').innerText = `$${Number(fin.tbvps).toFixed(2)}`;
+      document.getElementById('fin-ptbv').innerText = `${Number(fin.pb_tangible).toFixed(2)}x`;
+      document.getElementById('fin-rote').innerText = `${Number(fin.rote).toFixed(1)}%`;
+      document.getElementById('fin-ke').innerText = `${Number(fin.ke).toFixed(2)}%`;
+      document.getElementById('fin-dps').innerText = `$${Number(fin.dps_total).toFixed(2)}`;
+    } else {
+      if (finPanel) finPanel.style.display = 'none';
+      if (genLayout) genLayout.style.display = 'grid';
+    }
+
+    let displayDebt = s.debt;
+    let displayCash = s.cash;
+    let displayFCF0 = s.fcf0;
+    if (ticker === "TSM" && displayFCF0 > 50000) {
+      displayDebt = Math.round(displayDebt / 32.0);
+      displayCash = Math.round(displayCash / 32.0);
+      displayFCF0 = Math.round(displayFCF0 / 32.0);
+    }
+
+    document.getElementById('inp-price').value = s.price;
+    document.getElementById('inp-shares').value = s.shares;
+    document.getElementById('inp-debt').value = displayDebt;
+    document.getElementById('inp-cash').value = displayCash;
+    document.getElementById('inp-fcf0').value = displayFCF0;
+    document.getElementById('inp-rf').value = (commonRf * 100).toFixed(2);
+    document.getElementById('inp-erp').value = (commonERP * 100).toFixed(2);
+    document.getElementById('inp-beta').value = s.beta;
+    document.getElementById('inp-kd').value = s.kd;
+    document.getElementById('inp-tax').value = s.tax;
+    document.getElementById('inp-g').value = s.g;
+
+    recalculateDetail();
+  }
+
+  function onDetailParamChange() {
+    const s = stockUniverse[activeDetailTicker];
+    if (!s) return;
+    s.price = parseFloat(document.getElementById('inp-price').value) || 0;
+    s.shares = parseFloat(document.getElementById('inp-shares').value) || 1;
+    s.debt = parseFloat(document.getElementById('inp-debt').value) || 0;
+    s.cash = parseFloat(document.getElementById('inp-cash').value) || 0;
+    s.fcf0 = parseFloat(document.getElementById('inp-fcf0').value) || 0;
+    s.beta = parseFloat(document.getElementById('inp-beta').value) || 1;
+    s.kd = parseFloat(document.getElementById('inp-kd').value) || 0;
+    s.tax = parseFloat(document.getElementById('inp-tax').value) || 0;
+    s.g = parseFloat(document.getElementById('inp-g').value) || 2.25;
+    recalculateDetail();
+  }
+
+  function onYearGrowthChange(yearIdx, val) {
+    const s = stockUniverse[activeDetailTicker];
+    if (!s) return;
+    if (!s.growth_10y || !Array.isArray(s.growth_10y)) {
+      s.growth_10y = [12, 12, 12, 12, 12, 6, 6, 6, 6, 6];
+    }
+    s.growth_10y[yearIdx] = parseFloat(val) || 0;
+    recalculateDetail();
+  }
+
+  function recalculateDetail() {
+    const s = stockUniverse[activeDetailTicker];
+    if (!s) return;
+    const dcf = computeDCF(s, activeDetailTicker);
+
+    document.getElementById('det-res-fair').innerText = `$${dcf.fairVal.toFixed(2)}`;
+    document.getElementById('det-res-price').innerText = `$${Number(s.price).toFixed(2)}`;
+    
+    const badgeEl = document.getElementById('det-badge');
+    const premEl = document.getElementById('det-res-premium');
+    if (dcf.isUndervalued) {
+      badgeEl.className = "badge badge-undervalued";
+      badgeEl.innerText = `低估 ${dcf.premiumPct.toFixed(1)}% (具安全邊際)`;
+      premEl.innerHTML = `<span class="text-green">低估 ${dcf.premiumPct.toFixed(1)}%</span>`;
+      document.getElementById('det-res-status').innerText = `市價低於內在價值，具備安全邊際`;
+    } else {
+      badgeEl.className = "badge badge-overvalued";
+      badgeEl.innerText = `高估 +${dcf.premiumPct.toFixed(1)}% (市價溢價)`;
+      premEl.innerHTML = `<span class="text-red">高估 +${dcf.premiumPct.toFixed(1)}%</span>`;
+      document.getElementById('det-res-status').innerText = `市價高於內在價值，留意回撤風險`;
+    }
+
+    document.getElementById('det-res-wacc').innerText = `${(dcf.WACC * 100).toFixed(2)}%`;
+    document.getElementById('det-res-g').innerText = `${Number(s.g).toFixed(2)}%`;
+    document.getElementById('det-res-spread').innerText = `${((dcf.WACC - (Number(s.g)/100)) * 100).toFixed(2)}%`;
+    document.getElementById('det-res-ev').innerText = `$${dcf.EV.toLocaleString(undefined, {maximumFractionDigits: 0})} M`;
+    document.getElementById('det-res-evebitda').innerText = `${Number(dcf.ev_to_ebitda).toFixed(1)}x`;
+    document.getElementById('det-res-nde').innerText = `${Number(dcf.net_debt_to_ebitda).toFixed(2)}x`;
+
+    renderDCFTable(dcf.growth, dcf.fcfList, dcf.dfList, dcf.pvList);
+    renderSensitivity(dcf.fcfList[9], dcf.NetDebt, s.shares, dcf.WACC, Number(s.g) / 100, dcf.localFCF0, dcf.growth);
+  }
+
+  function renderDCFTable(growth, fcfs, dfs, pvs) {
+    let head = '<th>年份 (Period)</th>';
+    let rowGrowth = '<td>年增長率 (%)</td>';
+    let rowFCF = '<td>自由現金流 ($M)</td>';
+    let rowDF = '<td>折現因子 (DF)</td>';
+    let rowPV = '<td>折現現值 ($M)</td>';
+
+    for (let i = 0; i < 10; i++) {
+      head += `<th>Y${i + 1}</th>`;
+      const gVal = (growth[i] * 100).toFixed(1);
+      rowGrowth += `<td><input type="number" step="0.5" class="growth-input" value="${gVal}" oninput="onYearGrowthChange(${i}, this.value)"></td>`;
+      rowFCF += `<td>${fcfs[i].toLocaleString(undefined, {maximumFractionDigits: 0})}</td>`;
+      rowDF += `<td>${dfs[i].toFixed(4)}</td>`;
+      rowPV += `<td>${pvs[i].toLocaleString(undefined, {maximumFractionDigits: 0})}</td>`;
+    }
+
+    document.getElementById('dcf-head').innerHTML = head;
+    document.getElementById('dcf-growth').innerHTML = rowGrowth;
+    document.getElementById('dcf-fcf').innerHTML = rowFCF;
+    document.getElementById('dcf-factor').innerHTML = rowDF;
+    document.getElementById('dcf-pv').innerHTML = rowPV;
+  }
+
+  function renderSensitivity(fcf10, netDebt, shares, baseWACC, baseG, fcf0, growth) {
+    const gList = [baseG - 0.005, baseG, baseG + 0.005];
+    const waccList = [baseWACC - 0.005, baseWACC, baseWACC + 0.005];
+
+    document.getElementById('th-g1').innerText = `${(gList[0] * 100).toFixed(2)}%`;
+    document.getElementById('th-g2').innerText = `${(gList[1] * 100).toFixed(2)}% (基準)`;
+    document.getElementById('th-g3').innerText = `${(gList[2] * 100).toFixed(2)}%`;
+
+    let tbody = '';
+    waccList.forEach((w, wIdx) => {
+      const isBaseW = (wIdx === 1);
+      tbody += `<tr><td><strong>${(w * 100).toFixed(2)}%${isBaseW ? ' (基準)' : ''}</strong></td>`;
+      gList.forEach((gVal, gIdx) => {
+        const isBaseG = (gIdx === 1);
+        let cellVal = 0;
+        if (w > gVal) {
+          let recomputedSumPV = 0;
+          let tempFCF = fcf0;
+          for (let t = 1; t <= 10; t++) {
+            tempFCF = tempFCF * (1 + growth[t - 1]);
+            recomputedSumPV += tempFCF / Math.pow(1 + w, t);
+          }
+          const fcf11 = tempFCF * (1 + gVal);
+          const safeW = Math.max(w, gVal + 0.015);
+          const tv = fcf11 / (safeW - gVal);
+          const pvTV = tv / Math.pow(1 + safeW, 10);
+          const eqVal = (recomputedSumPV + pvTV) - netDebt;
+          cellVal = eqVal / shares;
+        }
+        const isBase = isBaseW && isBaseG;
+        tbody += `<td class="sens-cell ${isBase ? 'sens-base' : ''}">$${cellVal.toFixed(2)}</td>`;
+      });
+      tbody += `</tr>`;
+    });
+    document.getElementById('sens-body').innerHTML = tbody;
+  }
+
+  function loadMoatView(ticker) {
+    const s = stockUniverse[ticker];
+    if (!s) return;
+
+    document.getElementById('moat-ticker').innerText = ticker;
+    document.getElementById('moat-name').innerText = s.name;
+    const exchEl = document.getElementById('moat-exchange');
+    exchEl.innerText = s.exchange;
+    exchEl.className = `badge badge-exch-${s.exchange || 'NASDAQ'}`;
+
+    const dcf = computeDCF(s, ticker);
+    const moat = dcf.moat;
+
+    document.getElementById('moat-total-score').innerText = `${moat.total} / 100`;
+    const gradeBadge = document.getElementById('moat-grade-badge');
+    gradeBadge.innerText = moat.grade;
+    gradeBadge.className = `badge-moat ${moat.badgeClass}`;
+
+    const catIntangible = moat.m[0] + moat.m[1];
+    const catStructural = moat.m[2] + moat.m[3] + moat.m[4] + moat.m[5];
+    const catResilience = moat.m[6] + moat.m[7] + moat.m[8] + moat.m[9];
+
+    document.getElementById('moat-cat-intangible').innerText = `${catIntangible} / 20`;
+    document.getElementById('moat-cat-structural').innerText = `${catStructural} / 40`;
+    document.getElementById('moat-cat-resilience').innerText = `${catResilience} / 40`;
+
+    document.getElementById('moat-ai-comment').innerHTML = `
+      <div style="font-size: 11px; color: var(--gold); margin-bottom: 4px; font-weight: 600;">📚 權威參考來源：${moat.ref}</div>
+      ${moat.comment}
+    `;
+
+    const tbody = document.getElementById('moat-breakdown-body');
+    tbody.innerHTML = moat.criteria.map(c => {
+      const pct = (c.score / 10) * 100;
+      let barColor = "#4ade80";
+      if (c.score < 5) barColor = "#f87171";
+      else if (c.score < 8) barColor = "#38bdf8";
+
+      return `
+        <tr>
+          <td style="text-align: center; font-weight: 700; font-size: 14px; color: ${barColor};">${c.score} / 10</td>
+          <td style="font-weight: 600; color: #cbd5e1;">${c.category}</td>
+          <td><strong>${c.id}. ${c.title}</strong></td>
+          <td style="color: #94a3b8; font-size: 12px;">${c.desc}</td>
+          <td>
+            <div class="moat-bar-bg">
+              <div class="moat-bar-fill" style="width: ${pct}%; background: ${barColor};"></div>
+            </div>
+            <span style="font-size: 11px; font-weight: 600; color: ${barColor};">${pct}%</span>
+          </td>
+          <td class="moat-comment-cell">${c.comment}</td>
+        </tr>
+      `;
+    }).join('');
+  }
+
+  function loadFScoreView(ticker) {
+    const s = stockUniverse[ticker];
+    if (!s) return;
+
+    document.getElementById('fsc-ticker').innerText = ticker;
+    document.getElementById('fsc-name').innerText = s.name;
+    const exchEl = document.getElementById('fsc-exchange');
+    exchEl.innerText = s.exchange;
+    exchEl.className = `badge badge-exch-${s.exchange || 'NASDAQ'}`;
+
+    const dcf = computeDCF(s, ticker);
+    const score = dcf.f_score;
+    document.getElementById('fsc-total-score').innerText = `${score} / 9 分`;
+
+    const gradeEl = document.getElementById('fsc-grade-text');
+    if (score >= 8) {
+      gradeEl.innerText = "極度優秀 (Strong Fundamentals)";
+      gradeEl.className = "text-green";
+      document.getElementById('fsc-total-score').className = "stat-num text-green";
+    } else if (score >= 6) {
+      gradeEl.innerText = "穩健良好 (Good Health)";
+      gradeEl.className = "text-green";
+      document.getElementById('fsc-total-score').className = "stat-num text-green";
+    } else if (score >= 4) {
+      gradeEl.innerText = "中性觀望 (Average)";
+      gradeEl.className = "text-gold";
+      document.getElementById('fsc-total-score').className = "stat-num text-gold";
+    } else {
+      gradeEl.innerText = "高財務風險警戒 (High Risk)";
+      gradeEl.className = "text-red";
+      document.getElementById('fsc-total-score').className = "stat-num text-red";
+    }
+
+    const breakdown = dcf.f_score_breakdown || [];
+    const pCat = breakdown.filter(x => x.category === "盈利能力" && x.passed).length;
+    const lCat = breakdown.filter(x => x.category === "槓桿與償債" && x.passed).length;
+    const eCat = breakdown.filter(x => x.category === "營運效率" && x.passed).length;
+
+    document.getElementById('fsc-cat-profit').innerText = `${pCat} / 4 分`;
+    document.getElementById('fsc-cat-leverage').innerText = `${lCat} / 3 分`;
+    document.getElementById('fsc-cat-efficiency').innerText = `${eCat} / 2 分`;
+
+    const tbody = document.getElementById('fscore-breakdown-body');
+    tbody.innerHTML = breakdown.map(item => {
+      const isPass = item.passed === 1;
+      const mark = isPass ? '✔' : '✘';
+      const circleClass = isPass ? 'score-pass' : 'score-fail';
+      const statusText = isPass ? '<span class="text-green" style="font-weight:700;">+1 分 通過</span>' : '<span class="text-red">未達標 (0分)</span>';
+
+      return `
+        <tr>
+          <td style="text-align: center;"><span class="score-badge-circle ${circleClass}">${mark}</span></td>
+          <td style="font-weight: 600; color: #cbd5e1;">${item.category}</td>
+          <td><strong>#${item.id}. ${item.desc}</strong></td>
+          <td style="color: #94a3b8;">${item.detail}</td>
+          <td style="text-align: center;">${statusText}</td>
+        </tr>
+      `;
+    }).join('');
+  }
+
+  function saveCustomModel() {
+    const s = stockUniverse[activeDetailTicker];
+    if (!s) return;
+    const dcf = computeDCF(s, activeDetailTicker);
+    const models = getSavedModels();
+
+    models[activeDetailTicker] = {
+      targetPrice: dcf.fairVal,
+      savedAt: new Date().toISOString(),
+      params: {
+        price: s.price,
+        shares: s.shares,
+        debt: s.debt,
+        cash: s.cash,
+        fcf0: s.fcf0,
+        beta: s.beta,
+        kd: s.kd,
+        tax: s.tax,
+        g: s.g,
+        growth_10y: [...(s.growth_10y || [])]
+      }
+    };
+
+    localStorage.setItem('M7_CUSTOM_VALUATIONS', JSON.stringify(models));
+    document.getElementById('det-saved-badge').style.display = 'inline-block';
+    document.getElementById('det-saved-badge').innerText = `已存目標價: $${dcf.fairVal.toFixed(2)}`;
+    alert(`✅ 已成功儲存 ${s.name} 的自訂目標價值：$${dcf.fairVal.toFixed(2)}！`);
+  }
+
+  function resetToFmpDefaults() {
+    if (!confirm(`確定要清除自訂目標價，恢復為 FMP 官方原始數值嗎？`)) return;
+    const models = getSavedModels();
+    delete models[activeDetailTicker];
+    localStorage.setItem('M7_CUSTOM_VALUATIONS', JSON.stringify(models));
+    location.reload();
+  }
+
+  // 循環偵測直至數據載入成功
+  let retryCount = 0;
+  const pollInterval = setInterval(() => {
+    retryCount++;
+    if (initDataFeed() || retryCount > 40) {
+      clearInterval(pollInterval);
+      if (retryCount > 40 && Object.keys(stockUniverse).length === 0) {
+        document.getElementById('app-status').innerText = '⚠️ 數據檔案載入逾時，請按 Ctrl+F5 強制重新整理';
+      }
+    }
+  }, 100);
+
+  window.onload = function() {
+    const hash = window.location.hash.replace('#', '').toUpperCase();
+    if (hash.endsWith('/MOAT')) {
+      const ticker = hash.split('/')[0];
+      if (stockUniverse[ticker]) { activeMoatTicker = ticker; showView('moat', false); }
+    } else if (hash.endsWith('/FSCORE')) {
+      const ticker = hash.split('/')[0];
+      if (stockUniverse[ticker]) { activeFScoreTicker = ticker; showView('fscore', false); }
+    } else if (hash && stockUniverse[hash]) {
+      activeDetailTicker = hash;
+      showView('detail', false);
+    } else {
+      showView('screener', false);
+    }
+  };
+</script>
+</body>
+</html>
