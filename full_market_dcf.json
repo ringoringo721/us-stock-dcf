@@ -3200,10 +3200,10 @@
     "price": 485.8,
     "shares": 5186.48,
     "mcap": 2519592.0,
-    "debt": 33664.9,
-    "cash": 110835.0,
-    "net_debt": -77170.1,
-    "fcf0": 35731.4,
+    "debt": 33628.9,
+    "cash": 110716.4,
+    "net_debt": -77087.5,
+    "fcf0": 35693.1,
     "beta": 1.35,
     "kd": 4.5,
     "tax": 21.0,
@@ -3223,7 +3223,7 @@
     "g2": 9.9,
     "g": 2.25,
     "wacc": 10.82,
-    "ev": 804365.4,
+    "ev": 803492.6,
     "ev_to_ebitda": 8.0,
     "debt_to_ebitda": 0.33,
     "net_debt_to_ebitda": -0.77,
@@ -3241,7 +3241,7 @@
         "category": "盈利能力",
         "desc": "營業現金流 CFO > 0",
         "passed": 1,
-        "detail": "自由現金流 = $35,731M"
+        "detail": "自由現金流 = $35,693M"
       },
       {
         "id": 3,
@@ -3293,8 +3293,8 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 169.97,
-    "premium_pct": 185.8,
+    "fair_val": 169.78,
+    "premium_pct": 186.1,
     "is_undervalued": false,
     "pe_trailing": 35.7,
     "pe_forward": 31.4,
@@ -3307,7 +3307,7 @@
     "liab_to_assets": 30.9,
     "cash_to_assets": 37.5,
     "current_ratio": 2.46,
-    "cash_minus_liab": 77170.1,
+    "cash_minus_liab": 77087.5,
     "roe": 34.9,
     "roa": 23.9,
     "moat": {
@@ -7229,9 +7229,9 @@
     "sector": "通訊服務",
     "industry": "Wireless Telecommunication Services",
     "reportedCurrency": "USD",
-    "price": 164.64,
-    "shares": 1072.67,
-    "mcap": 176604.7,
+    "price": 150.0,
+    "shares": 666.7,
+    "mcap": 100000.0,
     "debt": 116000.0,
     "cash": 2825.0,
     "net_debt": 113175.0,
@@ -7254,9 +7254,9 @@
     "g1": 5.0,
     "g2": 3.5,
     "g": 2.25,
-    "wacc": 7.42,
-    "ev": 339077.8,
-    "ev_to_ebitda": 12.0,
+    "wacc": 6.52,
+    "ev": 411543.2,
+    "ev_to_ebitda": 14.5,
     "debt_to_ebitda": 4.1,
     "net_debt_to_ebitda": 4.0,
     "f_score": 5,
@@ -7325,17 +7325,17 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 210.6,
-    "premium_pct": -21.8,
+    "fair_val": 447.53,
+    "premium_pct": -66.5,
     "is_undervalued": true,
-    "pe_trailing": 16.7,
-    "pe_forward": 14.7,
-    "pb_trailing": 3.1,
-    "pb_forward": 2.8,
-    "div_yield": 2.46,
-    "ps_ratio": 2.9,
-    "fcf_to_ev": 4.53,
-    "fcf_to_mcap": 8.69,
+    "pe_trailing": 9.5,
+    "pe_forward": 8.4,
+    "pb_trailing": 1.8,
+    "pb_forward": 1.6,
+    "div_yield": 4.34,
+    "ps_ratio": 1.6,
+    "fcf_to_ev": 3.73,
+    "fcf_to_mcap": 15.35,
     "liab_to_assets": 73.7,
     "cash_to_assets": 1.3,
     "current_ratio": 0.92,
@@ -13205,8 +13205,8 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 147.21,
-    "premium_pct": 125.8,
+    "fair_val": 254.65,
+    "premium_pct": 30.5,
     "is_undervalued": false,
     "pe_trailing": 13.7,
     "pe_forward": 12.1,
@@ -13269,14 +13269,15 @@
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 12.0,
-      "bvps": 0.0,
+      "tbvps": 118.83,
+      "bvps": 139.8,
       "rote": 17.4,
       "ke": 9.49,
-      "dps_total": 18.28,
-      "excess_return_fair": 25.12,
-      "ddm_fair": 296.43,
-      "pb_tangible": 27.7
+      "g": 2.25,
+      "dps_total": 16.15,
+      "excess_return_fair": 248.74,
+      "ddm_fair": 261.88,
+      "pb_tangible": 2.8
     }
   },
   "V": {
@@ -13717,8 +13718,8 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 42.29,
-    "premium_pct": 27.7,
+    "fair_val": 48.59,
+    "premium_pct": 11.1,
     "is_undervalued": false,
     "pe_trailing": 11.4,
     "pe_forward": 10.0,
@@ -13781,14 +13782,15 @@
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 12.0,
-      "bvps": 0.0,
+      "tbvps": 36.06,
+      "bvps": 42.43,
       "rote": 11.2,
       "ke": 9.49,
-      "dps_total": 4.88,
-      "excess_return_fair": 14.84,
-      "ddm_fair": 75.85,
-      "pb_tangible": 4.5
+      "g": 2.25,
+      "dps_total": 3.44,
+      "excess_return_fair": 44.59,
+      "ddm_fair": 53.48,
+      "pb_tangible": 1.5
     }
   },
   "WFC": {
@@ -13893,8 +13895,8 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 58.3,
-    "premium_pct": 39.7,
+    "fair_val": 77.03,
+    "premium_pct": 5.7,
     "is_undervalued": false,
     "pe_trailing": 10.9,
     "pe_forward": 9.6,
@@ -13957,14 +13959,15 @@
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 12.0,
-      "bvps": 0.0,
+      "tbvps": 50.65,
+      "bvps": 59.59,
       "rote": 12.6,
       "ke": 9.49,
-      "dps_total": 7.13,
-      "excess_return_fair": 17.16,
-      "ddm_fair": 108.59,
-      "pb_tangible": 6.79
+      "g": 2.25,
+      "dps_total": 5.43,
+      "excess_return_fair": 72.43,
+      "ddm_fair": 82.65,
+      "pb_tangible": 1.61
     }
   },
   "MS": {
@@ -14069,8 +14072,8 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 88.51,
-    "premium_pct": 114.9,
+    "fair_val": 146.45,
+    "premium_pct": 29.9,
     "is_undervalued": false,
     "pe_trailing": 14.8,
     "pe_forward": 13.0,
@@ -14133,14 +14136,15 @@
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 12.0,
-      "bvps": 0.0,
+      "tbvps": 59.5,
+      "bvps": 70.0,
       "rote": 18.3,
       "ke": 9.49,
+      "g": 2.25,
       "dps_total": 10.34,
-      "excess_return_fair": 26.61,
-      "ddm_fair": 164.16,
-      "pb_tangible": 15.85
+      "excess_return_fair": 131.95,
+      "ddm_fair": 164.18,
+      "pb_tangible": 3.2
     }
   },
   "GS": {
@@ -14245,8 +14249,8 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 511.44,
-    "premium_pct": 74.7,
+    "fair_val": 813.13,
+    "premium_pct": 9.9,
     "is_undervalued": false,
     "pe_trailing": 12.6,
     "pe_forward": 11.1,
@@ -14309,14 +14313,15 @@
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 12.0,
-      "bvps": 0.0,
+      "tbvps": 384.63,
+      "bvps": 416.06,
       "rote": 17.1,
       "ke": 9.49,
-      "dps_total": 68.23,
-      "excess_return_fair": 24.62,
-      "ddm_fair": 1106.45,
-      "pb_tangible": 74.45
+      "g": 2.25,
+      "dps_total": 51.95,
+      "excess_return_fair": 789.19,
+      "ddm_fair": 842.39,
+      "pb_tangible": 2.32
     }
   },
   "AXP": {
@@ -14421,8 +14426,8 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 144.47,
-    "premium_pct": 110.4,
+    "fair_val": 188.26,
+    "premium_pct": 61.5,
     "is_undervalued": false,
     "pe_trailing": 17.9,
     "pe_forward": 15.8,
@@ -14485,14 +14490,15 @@
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 12.0,
-      "bvps": 0.0,
+      "tbvps": 50.76,
+      "bvps": 50.76,
       "rote": 33.4,
       "ke": 9.49,
-      "dps_total": 14.63,
-      "excess_return_fair": 51.65,
-      "ddm_fair": 257.92,
-      "pb_tangible": 25.33
+      "g": 2.25,
+      "dps_total": 8.95,
+      "excess_return_fair": 218.47,
+      "ddm_fair": 151.33,
+      "pb_tangible": 5.99
     }
   },
   "BLK": {
@@ -14501,13 +14507,13 @@
     "sector": "金融",
     "industry": "Asset Management & Custody Banks",
     "reportedCurrency": "USD",
-    "price": 1066.45,
-    "shares": 155.0,
-    "mcap": 165294.4,
-    "debt": 14968.0,
-    "cash": 25636.0,
-    "net_debt": -10668.0,
-    "fcf0": 2321.0,
+    "price": 150.0,
+    "shares": 666.7,
+    "mcap": 100000.0,
+    "debt": 0.0,
+    "cash": 0.0,
+    "net_debt": 0.0,
+    "fcf0": 3800.0,
     "beta": 1.05,
     "kd": 4.5,
     "tax": 21.0,
@@ -14526,39 +14532,39 @@
     "g1": 6.8,
     "g2": 4.0,
     "g": 2.25,
-    "wacc": 8.99,
-    "ev": 41897.5,
-    "ev_to_ebitda": 3.9,
-    "debt_to_ebitda": 1.4,
-    "net_debt_to_ebitda": -1.0,
-    "f_score": 5,
+    "wacc": 9.49,
+    "ev": 63817.6,
+    "ev_to_ebitda": 18.0,
+    "debt_to_ebitda": 0.0,
+    "net_debt_to_ebitda": 0.0,
+    "f_score": 8,
     "f_score_breakdown": [
       {
         "id": 1,
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 3.7%"
+        "detail": "當期 ROA = 8.0%"
       },
       {
         "id": 2,
         "category": "盈利能力",
         "desc": "營業現金流 CFO > 0",
         "passed": 1,
-        "detail": "自由現金流 = $2,321M"
+        "detail": "自由現金流 = $3,800M"
       },
       {
         "id": 3,
         "category": "盈利能力",
         "desc": "資產回報率持續擴張 (ΔROA > 0)",
-        "passed": 0,
+        "passed": 1,
         "detail": "回報率穩步領先同業基準"
       },
       {
         "id": 4,
         "category": "盈利能力",
         "desc": "應計利潤品質高 (CFO > 淨利潤)",
-        "passed": 0,
+        "passed": 1,
         "detail": "真實現金流充沛，無虛報帳面獲利"
       },
       {
@@ -14566,14 +14572,14 @@
         "category": "槓桿與償債",
         "desc": "財務槓桿未惡化 (ΔLeverage ≤ 0)",
         "passed": 1,
-        "detail": "總負債資產比率 = 63.3%"
+        "detail": "總負債資產比率 = 40.0%"
       },
       {
         "id": 6,
         "category": "槓桿與償債",
         "desc": "短期流動性安全 (ΔLiquidity > 0)",
         "passed": 1,
-        "detail": "流動比率 = 1.35"
+        "detail": "流動比率 = 1.50"
       },
       {
         "id": 7,
@@ -14593,71 +14599,71 @@
         "id": 9,
         "category": "營運效率",
         "desc": "資產週轉率提升 (ΔTurnover > 0)",
-        "passed": 0,
+        "passed": 1,
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 339.13,
-    "premium_pct": 214.5,
+    "fair_val": 95.72,
+    "premium_pct": 56.7,
     "is_undervalued": false,
-    "pe_trailing": 25.1,
-    "pe_forward": 22.1,
-    "pb_trailing": 2.9,
-    "pb_forward": 2.6,
-    "div_yield": 2.77,
-    "ps_ratio": 17.8,
-    "fcf_to_ev": 5.54,
-    "fcf_to_mcap": 1.4,
-    "liab_to_assets": 63.3,
-    "cash_to_assets": 14.6,
-    "current_ratio": 1.35,
-    "cash_minus_liab": 10668.0,
-    "roe": 11.4,
-    "roa": 3.7,
+    "pe_trailing": 24.0,
+    "pe_forward": 21.1,
+    "pb_trailing": 100000000000.0,
+    "pb_forward": 90000000000.0,
+    "div_yield": 0.0,
+    "ps_ratio": 6.6,
+    "fcf_to_ev": 5.95,
+    "fcf_to_mcap": 3.8,
+    "liab_to_assets": 40.0,
+    "cash_to_assets": 0.0,
+    "current_ratio": 1.5,
+    "cash_minus_liab": 0.0,
+    "roe": 18.0,
+    "roa": 8.0,
     "moat": {
       "ticker": "BLK",
-      "period": "2026Q2",
+      "period": "2026Q4",
       "m1_brand_pricing": {
-        "score": 8,
-        "comment": "BlackRock憑藉其全球領先的品牌聲譽，特別是iShares ETF系列，在投資者心中建立了極高的信任度。這種品牌心智讓公司在市場波動時仍能保持資產管理規模的穩定，並賦予其一定的定價權。儘管資產管理行業競爭激烈，費率壓力普遍存在，但BlackRock的規模效應使其能提供極具競爭力的產品，同時其品牌溢價也體現在機構客戶對其專業服務的依賴上。客戶對其投資解決方案的信心，使其在不顯著流失客戶的前提下，能夠維持或微調服務費用，這正是巴菲特所看重的品牌護城河體現。"
+        "score": 9,
+        "comment": "BlackRock作為全球最大資產管理公司，其品牌在機構與零售客戶心中建立了無可比擬的信任與權威。iShares ETF的市場領導地位賦予其強大定價影響力，儘管被動投資費率競爭激烈，但其規模與品牌效應使其能有效維持市場份額與盈利能力。客戶對其專業性與穩定性的高度認可，使其在面對競爭時仍能保持優勢，不易因微小價差而流失，展現出巴菲特所推崇的品牌護城河。"
       },
       "m2_patents_regulatory": {
-        "score": 7,
-        "comment": "資產管理行業受到嚴格的監管，這本身就構成了一道進入壁壘，需要龐大的合規投入和專業知識。BlackRock作為行業巨頭，擁有完善的全球監管許可和豐富的合規經驗，這對新進入者而言是巨大的挑戰。此外，其核心技術平台Aladdin雖然不完全是專利，但其複雜性、整合度和廣泛應用已使其成為行業標準，具備了類似專利的獨佔性。這種監管和技術壁壘確保了BlackRock在市場中的領先地位，使其免受輕易的競爭侵蝕。"
+        "score": 8,
+        "comment": "資產管理行業受嚴格監管，BlackRock在全球範圍內取得並維持各類牌照與合規體系本身就是一道高聳的進入壁壘。其專有風險管理平台Aladdin雖非傳統專利，卻是其核心競爭力，為全球數百家機構客戶提供服務，形成技術與數據壁壘。新進者難以在短時間內複製其複雜的合規架構與技術生態，這為公司提供了強大的監管與技術雙重護城河。"
       },
       "m3_high_switching_costs": {
-        "score": 8,
-        "comment": "BlackRock為機構客戶提供的Aladdin風險管理和投資組合管理平台，具有極高的轉換成本。一旦機構客戶將其投資流程、數據和決策系統深度整合到Aladdin中，轉換到其他平台將涉及巨大的財務支出、數據遷移風險、員工培訓以及潛在的營運中斷。這種深度嵌入的服務模式，使得客戶即便對價格敏感，也難以輕易更換供應商。對於大型機構而言，其投資組合的複雜性也增加了轉換資產管理人的難度，形成了強大的客戶黏性。"
+        "score": 9,
+        "comment": "對於BlackRock的機構客戶而言，轉換資產管理機構涉及巨大的操作複雜性、潛在的稅務影響、投資組合再平衡成本及法律審查。其Aladdin平台深度整合客戶的投資流程，一旦採用，遷移成本極高。這種深度嵌入式的服務模式，使得客戶即便對費用略有不滿，也難以輕易轉換，確保了客戶的高度黏性，是典型的巴菲特式高轉換成本護城河。"
       },
       "m4_network_effects": {
         "score": 7,
-        "comment": "BlackRock的網絡效應主要體現在其龐大的資產管理規模（AUM）和Aladdin平台的廣泛採用。AUM的增長吸引了更多投資者，因為更大的基金規模通常意味著更低的費用和更好的流動性，形成正向循環。Aladdin平台作為行業領先的風險管理工具，其用戶群體的擴大使其數據庫和分析能力不斷增強，吸引更多機構採用，進一步鞏固其市場地位。這種雙重網絡效應使得BlackRock的服務對所有參與者都更具價值，提升了其競爭優勢。"
+        "comment": "BlackRock的網絡效應體現在其Aladdin平台和iShares ETF的流動性上。Aladdin服務的客戶越多，其數據集越龐大，風險模型與投資洞察越精準，進而吸引更多機構使用。iShares ETF因其龐大資產規模而具備極佳流動性，吸引更多交易者，形成正向循環。這種規模帶來的數據與流動性優勢，使其生態系統對所有參與者價值遞增，強化了其市場地位。"
       },
       "m5_cost_advantage_scale": {
         "score": 9,
-        "comment": "BlackRock作為全球最大的資產管理公司，其規模優勢是無與倫比的護城河。高達數萬億美元的資產管理規模（AUM）使其能夠在交易成本、研究資源和技術投入上實現巨大的規模經濟。這使得BlackRock能夠提供極低費率的ETF產品，例如iShares系列，對小型競爭者構成難以逾越的成本壁壘。這種成本優勢不僅吸引了大量資金流入，也鞏固了其市場領導地位，形成良性循環。對手即便投入巨資，也難以在短期內複製其龐大的AUM和由此帶來的成本效益，這正是巴菲特所強調的規模經濟護城河。"
+        "comment": "作為全球最大的資產管理公司，BlackRock享有無與倫比的規模經濟。其龐大的資產管理規模（AUM）使其能將固定成本（如技術研發、合規、研究）攤薄到極致，從而提供極具競爭力的費率，尤其是在被動投資領域。這種成本優勢是小型競爭者無法企及的，使其能在保持高利潤率的同時，有效吸引並留住客戶，是典型的成本領先護城河。"
       },
       "m6_unique_geography_assets": {
-        "score": 6,
-        "comment": "資產管理行業本身並無地理上的天然寡占，但BlackRock在全球範圍內的市場份額和品牌滲透率，使其在特定市場和產品類別中形成了事實上的「高效規模」寡占。例如，在ETF市場，iShares的領導地位使其擁有巨大的議價能力和品牌認知度。新競爭者進入全球資產管理市場，不僅需要龐大資金，更需要時間建立信任和規模，這使得BlackRock在現有市場中享有類似利基市場的優勢，新進入者難以撼動其核心地位。"
+        "score": 7,
+        "comment": "BlackRock並非依賴地理位置，但在全球機構資產管理和ETF市場中，其已形成一種「有效規模」的寡占格局。市場容量雖大，但能有效管理數萬億美元資產並贏得全球機構信任的參與者屈指可數。新競爭者即便擁有資金，也難以在短時間內建立起同等規模的信任、品牌和運營能力，這導致了市場的天然理性寡占，避免了惡性競爭。"
       },
       "m7_operational_efficiency": {
         "score": 8,
-        "comment": "BlackRock的商業模式是典型的資本輕型、費用驅動型業務，這使其能夠持續產生強勁的自由現金流（FCF TTM $2,321.0 M）。其ROA為3.7%，ROE為11.4%，在金融服務業中表現穩健。公司通過Aladdin平台實現了高度自動化和標準化的投資管理流程，極大地提升了營運效率並降低了邊際成本。這種高效的營運能力確保了其投入資本回報率（ROIC）能夠持續超越加權平均資本成本（WACC），為股東創造長期複利價值，符合巴菲特對優質企業的定義。"
+        "comment": "BlackRock展現出卓越的營運效率與資本配置能力。其18.0%的ROE和8.0%的ROA，以及38億美元的自由現金流，均遠超行業平均水平。這表明公司能持續將投入資本轉化為豐厚利潤，且無需大量資本開支。其資產輕量化模式結合高效的風險管理與技術平台，確保了長期超額的投入資本回報率（ROIC），為股東創造了持續的複利價值。"
       },
       "m8_capital_allocation": {
-        "score": 7,
-        "comment": "BlackRock在資本配置方面展現出穩健和戰略性。公司通過持續的研發投入，不斷強化Aladdin平台的功能和市場領導力，這是一項極具價值的無形資產。同時，BlackRock也進行了戰略性收購，例如收購eFront以擴展另類投資技術，有效補充了其產品線。公司擁有健康的現金儲備（$25,636.0M）遠超總負債（$14,968.0M），顯示其財務紀律。在適當時機，公司也通過股息和股票回購回饋股東，體現了對股東利益的重視。"
+        "score": 9,
+        "comment": "BlackRock的管理層在資本配置上展現出巴菲特式的智慧。歷史上成功的戰略性收購（如收購BGI的iShares業務）極大地擴展了其護城河。公司持續通過股息和股票回購將資本返還股東，尤其在股價被低估時積極回購，最大化股東價值。高達8/9的皮氏F-Score也印證了其穩健的財務管理和高效的資本運用，值得投資者信賴。"
       },
       "m9_customer_retention": {
         "score": 8,
-        "comment": "BlackRock的客戶保留率極高，這主要歸因於其提供的綜合性解決方案和高度專業化的服務。對於機構投資者而言，將數十億甚至數百億美元的資產委託給BlackRock，不僅是基於其卓越的投資表現，更是對其風險管理能力、合規體系和客戶服務的信任。Aladdin平台的深度整合進一步鎖定了客戶，使其轉換成本高昂。這種高客戶黏性確保了穩定的管理費收入，即使市場波動，客戶也傾向於留在BlackRock，這為公司提供了強大的收入可預測性。"
+        "comment": "BlackRock的業務本質決定了其對技術變革具有較強的抗性。儘管金融科技不斷演進，但機構客戶對資產管理、風險控制和投資策略的根本需求依然存在。BlackRock憑藉其規模優勢，有能力投入巨資研發和整合新技術（如AI），將其轉化為提升服務效率和客戶價值的工具，而非顛覆性威脅。其在被動投資領域的領導地位也順應了市場趨勢，而非被動應對。"
       },
       "m10_durability": {
-        "score": 8,
-        "comment": "BlackRock的商業模式具有極強的抗顛覆性。儘管金融科技和AI不斷發展，但對專業資產管理的需求是永恆的。BlackRock不僅沒有被動投資趨勢顛覆，反而通過iShares引領了這一趨勢。Aladdin平台則將AI和數據分析融入其核心業務，使其成為技術變革的受益者而非受害者。人類對財富增值的基本需求不會改變，而BlackRock作為全球領先的資產管理人，其規模、品牌和技術優勢使其能夠持續適應並引領行業發展，確保了其護城河的長期穩固性。"
+        "score": 9,
+        "comment": "BlackRock的護城河極具耐久性。其品牌信任、規模經濟、高轉換成本和Aladdin技術平台共同構建了一個難以被複製的商業模式。即使給予競爭對手千億美元，也無法在短期內建立起BlackRock在全球機構市場的深厚關係、運營經驗和技術生態。這種核心戰略資產的不可複製性，確保了公司在未來數十年內仍能保持其行業領導地位，持續為股東創造價值。"
       },
-      "overall_moat_verdict": "BlackRock的核心護城河是一座由規模、品牌和技術平台共同構築的「收費橋樑」。其作為全球最大的資產管理公司，憑藉iShares的品牌影響力與Aladdin技術平台的黏性，形成了強大的客戶鎖定效應與成本優勢。這使其能夠在競爭激烈的市場中，持續收取管理費，並保持穩定的現金流。儘管行業面臨費率壓力與被動投資趨勢，BlackRock已成功轉型並引領潮流。其龐大的資產規模與不可複製的技術基礎，使其具備了巴菲特所推崇的特許經營權特徵，為股東創造長期價值。"
+      "overall_moat_verdict": "BlackRock本質上是一個全球性的「收費橋樑」或「特許經營權平台」，在資本市場中扮演著不可或缺的角色。其核心競爭壁壘在於無與倫比的品牌信任、規模經濟帶來的成本優勢，以及Aladdin平台所構築的高轉換成本。公司受益於全球財富增長和被動投資趨勢，以極低的邊際成本管理著天文數字般的資產。這種結合了品牌、技術、規模和客戶黏性的商業模式，使其能夠持續產生強勁的自由現金流，並在任何市場環境下都保持其作為全球資本市場基礎設施提供者的地位，是巴菲特眼中極具吸引力的「好生意」。"
     },
     "fin_valuation": {
       "is_financial": false
@@ -14933,8 +14939,8 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 110.15,
-    "premium_pct": 16.7,
+    "fair_val": 104.35,
+    "premium_pct": 23.2,
     "is_undervalued": false,
     "pe_trailing": 12.4,
     "pe_forward": 10.9,
@@ -14997,14 +15003,15 @@
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 12.0,
-      "bvps": 0.0,
+      "tbvps": 109.63,
+      "bvps": 123.63,
       "rote": 8.4,
       "ke": 9.49,
-      "dps_total": 15.59,
-      "excess_return_fair": 10.2,
-      "ddm_fair": 232.32,
-      "pb_tangible": 10.71
+      "g": 2.25,
+      "dps_total": 7.92,
+      "excess_return_fair": 93.16,
+      "ddm_fair": 118.02,
+      "pb_tangible": 1.17
     }
   },
   "PGR": {
@@ -15109,8 +15116,8 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 342.56,
-    "premium_pct": -37.9,
+    "fair_val": 273.53,
+    "premium_pct": -22.3,
     "is_undervalued": true,
     "pe_trailing": 10.6,
     "pe_forward": 9.3,
@@ -15173,14 +15180,15 @@
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 12.0,
-      "bvps": 0.0,
+      "tbvps": 8.44,
+      "bvps": 8.44,
       "rote": 238.2,
       "ke": 9.49,
+      "g": 2.25,
       "dps_total": 16.06,
-      "excess_return_fair": 391.21,
-      "ddm_fair": 283.09,
-      "pb_tangible": 17.72
+      "excess_return_fair": 275.15,
+      "ddm_fair": 271.54,
+      "pb_tangible": 25.19
     }
   },
   "CB": {
@@ -15285,8 +15293,8 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 130.37,
-    "premium_pct": 153.5,
+    "fair_val": 235.19,
+    "premium_pct": 40.5,
     "is_undervalued": false,
     "pe_trailing": 11.4,
     "pe_forward": 10.0,
@@ -15349,14 +15357,15 @@
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 12.0,
-      "bvps": 0.0,
+      "tbvps": 166.06,
+      "bvps": 195.37,
       "rote": 14.9,
       "ke": 9.49,
-      "dps_total": 15.62,
-      "excess_return_fair": 20.97,
-      "ddm_fair": 264.09,
-      "pb_tangible": 27.54
+      "g": 2.25,
+      "dps_total": 9.93,
+      "excess_return_fair": 290.25,
+      "ddm_fair": 167.9,
+      "pb_tangible": 1.99
     }
   },
   "FDS": {
@@ -16469,8 +16478,8 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 57.04,
-    "premium_pct": 31.7,
+    "fair_val": 57.72,
+    "premium_pct": 30.1,
     "is_undervalued": false,
     "pe_trailing": 13.4,
     "pe_forward": 11.8,
@@ -16533,14 +16542,15 @@
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 12.0,
-      "bvps": 0.0,
+      "tbvps": 65.1,
+      "bvps": 76.58,
       "rote": 7.3,
       "ke": 9.49,
-      "dps_total": 7.5,
-      "excess_return_fair": 8.37,
-      "ddm_fair": 116.53,
-      "pb_tangible": 6.26
+      "g": 2.25,
+      "dps_total": 4.68,
+      "excess_return_fair": 45.42,
+      "ddm_fair": 72.76,
+      "pb_tangible": 1.15
     }
   },
   "MET": {
@@ -16645,8 +16655,8 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 54.87,
-    "premium_pct": 76.6,
+    "fair_val": 75.09,
+    "premium_pct": 29.0,
     "is_undervalued": false,
     "pe_trailing": 17.2,
     "pe_forward": 15.1,
@@ -16709,14 +16719,15 @@
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 12.0,
-      "bvps": 0.0,
+      "tbvps": 36.1,
+      "bvps": 42.47,
       "rote": 13.3,
       "ke": 9.49,
+      "g": 2.25,
       "dps_total": 6.4,
-      "excess_return_fair": 18.32,
-      "ddm_fair": 99.55,
-      "pb_tangible": 8.07
+      "excess_return_fair": 55.12,
+      "ddm_fair": 99.5,
+      "pb_tangible": 2.68
     }
   },
   "PRU": {
@@ -16821,9 +16832,9 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 67.23,
-    "premium_pct": 68.8,
-    "is_undervalued": false,
+    "fair_val": 126.17,
+    "premium_pct": -10.1,
+    "is_undervalued": true,
     "pe_trailing": 10.2,
     "pe_forward": 9.0,
     "pb_trailing": 1.2,
@@ -16885,14 +16896,15 @@
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 12.0,
-      "bvps": 0.0,
+      "tbvps": 89.95,
+      "bvps": 91.0,
       "rote": 12.2,
       "ke": 9.49,
+      "g": 2.25,
       "dps_total": 8.49,
-      "excess_return_fair": 16.5,
+      "excess_return_fair": 123.66,
       "ddm_fair": 129.23,
-      "pb_tangible": 9.46
+      "pb_tangible": 1.26
     }
   },
   "TRV": {
@@ -16997,8 +17009,8 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 242.95,
-    "premium_pct": 48.5,
+    "fair_val": 325.7,
+    "premium_pct": 10.7,
     "is_undervalued": false,
     "pe_trailing": 9.1,
     "pe_forward": 8.0,
@@ -17061,14 +17073,15 @@
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 12.0,
-      "bvps": 0.0,
+      "tbvps": 137.77,
+      "bvps": 158.79,
       "rote": 25.1,
       "ke": 9.49,
-      "dps_total": 30.44,
-      "excess_return_fair": 37.89,
-      "ddm_fair": 493.58,
-      "pb_tangible": 30.06
+      "g": 2.25,
+      "dps_total": 11.85,
+      "excess_return_fair": 434.96,
+      "ddm_fair": 192.15,
+      "pb_tangible": 2.62
     }
   },
   "AFL": {
@@ -17173,8 +17186,8 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 79.55,
-    "premium_pct": 41.3,
+    "fair_val": 102.36,
+    "premium_pct": 9.8,
     "is_undervalued": false,
     "pe_trailing": 11.8,
     "pe_forward": 10.4,
@@ -17237,14 +17250,15 @@
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 12.0,
-      "bvps": 0.0,
+      "tbvps": 59.55,
+      "bvps": 59.55,
       "rote": 16.0,
       "ke": 9.49,
-      "dps_total": 9.78,
-      "excess_return_fair": 22.8,
-      "ddm_fair": 148.9,
-      "pb_tangible": 9.37
+      "g": 2.25,
+      "dps_total": 5.86,
+      "excess_return_fair": 113.13,
+      "ddm_fair": 89.2,
+      "pb_tangible": 1.89
     }
   },
   "ALL": {
@@ -17349,9 +17363,9 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 139.45,
-    "premium_pct": 61.1,
-    "is_undervalued": false,
+    "fair_val": 400.74,
+    "premium_pct": -43.9,
+    "is_undervalued": true,
     "pe_trailing": 4.3,
     "pe_forward": 3.8,
     "pb_trailing": 1.7,
@@ -17413,14 +17427,15 @@
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 12.0,
-      "bvps": 0.0,
+      "tbvps": 111.27,
+      "bvps": 130.91,
       "rote": 39.5,
       "ke": 9.49,
-      "dps_total": 14.16,
-      "excess_return_fair": 61.76,
-      "ddm_fair": 234.4,
-      "pb_tangible": 18.73
+      "g": 2.25,
+      "dps_total": 11.51,
+      "excess_return_fair": 572.68,
+      "ddm_fair": 190.59,
+      "pb_tangible": 2.02
     }
   },
   "AON": {
@@ -18029,8 +18044,8 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 27.67,
-    "premium_pct": 107.0,
+    "fair_val": 46.24,
+    "premium_pct": 23.9,
     "is_undervalued": false,
     "pe_trailing": 10.9,
     "pe_forward": 9.6,
@@ -18093,14 +18108,15 @@
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 12.0,
-      "bvps": 0.0,
+      "tbvps": 36.8,
+      "bvps": 43.29,
       "rote": 12.1,
       "ke": 9.49,
+      "g": 2.25,
       "dps_total": 2.73,
-      "excess_return_fair": 16.33,
-      "ddm_fair": 41.54,
-      "pb_tangible": 4.77
+      "excess_return_fair": 50.08,
+      "ddm_fair": 41.55,
+      "pb_tangible": 1.56
     }
   },
   "LLY": {
@@ -20968,10 +20984,10 @@
     "price": 22.65,
     "shares": 537.13,
     "mcap": 12166.0,
-    "debt": 12351.6,
-    "cash": 1632.9,
-    "net_debt": 10718.7,
-    "fcf0": 1994.4,
+    "debt": 12340.5,
+    "cash": 1631.5,
+    "net_debt": 10709.0,
+    "fcf0": 1992.6,
     "beta": 1.15,
     "kd": 4.5,
     "tax": 21.0,
@@ -20990,8 +21006,8 @@
     "g1": 4.0,
     "g2": 3.5,
     "g": 2.25,
-    "wacc": 6.73,
-    "ev": 50013.7,
+    "wacc": 6.74,
+    "ev": 49952.3,
     "ev_to_ebitda": 13.0,
     "debt_to_ebitda": 3.2,
     "net_debt_to_ebitda": 2.78,
@@ -21009,7 +21025,7 @@
         "category": "盈利能力",
         "desc": "營業現金流 CFO > 0",
         "passed": 1,
-        "detail": "自由現金流 = $1,994M"
+        "detail": "自由現金流 = $1,993M"
       },
       {
         "id": 3,
@@ -21061,7 +21077,7 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 73.16,
+    "fair_val": 73.06,
     "premium_pct": -69.0,
     "is_undervalued": true,
     "pe_trailing": 11.5,
@@ -21071,11 +21087,11 @@
     "div_yield": 0.02,
     "ps_ratio": 1.5,
     "fcf_to_ev": 3.99,
-    "fcf_to_mcap": 16.39,
+    "fcf_to_mcap": 16.38,
     "liab_to_assets": 56.8,
     "cash_to_assets": 4.6,
     "current_ratio": 1.07,
-    "cash_minus_liab": -10718.7,
+    "cash_minus_liab": -10709.0,
     "roe": 7.5,
     "roa": 3.0,
     "moat": {
@@ -21973,12 +21989,12 @@
     "sector": "醫療保健",
     "industry": "Health Care Equipment",
     "reportedCurrency": "USD",
-    "price": 211.07,
-    "shares": 97.46,
-    "mcap": 20570.4,
-    "debt": 2044.5,
-    "cash": 482.3,
-    "net_debt": 1562.2,
+    "price": 150.0,
+    "shares": 666.7,
+    "mcap": 100000.0,
+    "debt": 0.0,
+    "cash": 0.0,
+    "net_debt": 0.0,
     "fcf0": 925.6,
     "beta": 1.15,
     "kd": 4.5,
@@ -21998,19 +22014,19 @@
     "g1": 6.3,
     "g2": 3.7,
     "g": 2.25,
-    "wacc": 9.38,
-    "ev": 15427.5,
-    "ev_to_ebitda": 8.5,
-    "debt_to_ebitda": 1.13,
-    "net_debt_to_ebitda": 0.86,
-    "f_score": 8,
+    "wacc": 9.96,
+    "ev": 14244.8,
+    "ev_to_ebitda": 7.9,
+    "debt_to_ebitda": 0.0,
+    "net_debt_to_ebitda": 0.0,
+    "f_score": 9,
     "f_score_breakdown": [
       {
         "id": 1,
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 7.5%"
+        "detail": "當期 ROA = 80510000000.0%"
       },
       {
         "id": 2,
@@ -22038,14 +22054,14 @@
         "category": "槓桿與償債",
         "desc": "財務槓桿未惡化 (ΔLeverage ≤ 0)",
         "passed": 1,
-        "detail": "總負債資產比率 = 32.7%"
+        "detail": "總負債資產比率 = 40.0%"
       },
       {
         "id": 6,
         "category": "槓桿與償債",
         "desc": "短期流動性安全 (ΔLiquidity > 0)",
         "passed": 1,
-        "detail": "流動比率 = 1.91"
+        "detail": "流動比率 = 1.50"
       },
       {
         "id": 7,
@@ -22058,7 +22074,7 @@
         "id": 8,
         "category": "營運效率",
         "desc": "毛利率擴張 (ΔMargin > 0)",
-        "passed": 0,
+        "passed": 1,
         "detail": "產品定價權增強，毛利結構健康"
       },
       {
@@ -22069,67 +22085,67 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 142.27,
-    "premium_pct": 48.4,
+    "fair_val": 21.37,
+    "premium_pct": 601.9,
     "is_undervalued": false,
-    "pe_trailing": 25.6,
-    "pe_forward": 22.5,
-    "pb_trailing": 2.9,
-    "pb_forward": 2.6,
-    "div_yield": 1.2,
-    "ps_ratio": 5.6,
-    "fcf_to_ev": 6.0,
-    "fcf_to_mcap": 4.5,
-    "liab_to_assets": 32.7,
-    "cash_to_assets": 4.5,
-    "current_ratio": 1.91,
-    "cash_minus_liab": -1562.2,
-    "roe": 11.2,
-    "roa": 7.5,
+    "pe_trailing": 124.2,
+    "pe_forward": 109.3,
+    "pb_trailing": 100000000000.0,
+    "pb_forward": 90000000000.0,
+    "div_yield": 0.25,
+    "ps_ratio": 27.0,
+    "fcf_to_ev": 6.5,
+    "fcf_to_mcap": 0.93,
+    "liab_to_assets": 40.0,
+    "cash_to_assets": 0.0,
+    "current_ratio": 1.5,
+    "cash_minus_liab": 0.0,
+    "roe": 80510000000.0,
+    "roa": 80510000000.0,
     "moat": {
       "ticker": "STE",
-      "period": "2027Q1",
+      "period": "2026Q4",
       "m1_brand_pricing": {
-        "score": 8,
-        "comment": "STERIS在醫療保健領域建立了強大的品牌信譽，其感染預防和手術解決方案對醫院營運至關重要。客戶對產品的可靠性和安全性有極高要求，這使得STERIS能夠在不犧牲銷量的前提下，維持穩健的定價權。其品牌代表著品質與合規，讓醫療機構在採購時更傾向於選擇已知且值得信賴的供應商，而非僅僅追求低價。這種信任壁壘，如同巴菲特所言的「特許經營權」，為公司帶來了持續的超額利潤能力。"
+        "score": 9,
+        "comment": "STERIS在醫療保健領域建立了卓越的品牌信譽，其滅菌與感染控制產品對醫院和生命科學客戶而言至關重要。這不僅是設備，更是患者安全與法規遵循的基石。客戶對其產品的依賴性極高，因為任何故障都可能導致災難性後果。這種信任壁壘賦予STERIS強大的定價權，使其能夠在不顯著影響銷量的情況下轉嫁成本，如同巴菲特所言，擁有「特許經營權」的企業，其產品是客戶「必須擁有」而非「可有可無」的。競爭對手難以在短期內建立同等信任，確保了其利潤率的穩定性。"
       },
       "m2_patents_regulatory": {
-        "score": 9,
-        "comment": "醫療設備與感染控制領域受到嚴格的政府監管，如FDA的審批。STERIS在專有滅菌技術和醫療設備方面擁有大量專利組合，這些知識產權構成了強大的法律壁壘。更重要的是，通過冗長且昂貴的監管審批流程本身就是一道難以逾越的護城河，新進入者不僅需要巨額研發投入，還需耗費數年時間才能獲得市場准入。這使得STERIS在特定市場中享有近乎壟斷的地位，如同收費橋樑般穩定。"
+        "score": 8,
+        "comment": "STERIS在醫療設備領域受益於嚴格的監管環境和其累積的專利組合。其產品需通過FDA等機構的嚴苛審批，這本身就是一道高聳的進入壁壘，新進者需投入巨額資金與時間。公司擁有的專有滅菌技術和流程專利，進一步鞏固了其市場地位。這種「政府特許」般的准入障礙，使得競爭對手難以複製其核心業務，確保了其在關鍵市場的領先地位。巴菲特深知，受監管保護的企業往往能享受更穩定的現金流與更低的競爭壓力，STERIS正是如此。"
       },
       "m3_high_switching_costs": {
-        "score": 8,
-        "comment": "對於醫院和醫療機構而言，更換STERIS的滅菌設備、手術台或相關服務會帶來巨大的轉換成本。這不僅包括新設備的採購與安裝費用，更涉及員工培訓、工作流程調整、系統驗證以及潛在的營運中斷風險。醫療環境對穩定性和可靠性要求極高，任何中斷都可能影響患者安全。這種高昂的轉換成本，使得客戶一旦採用STERIS的解決方案，便會形成高度黏性，確保了穩定的收入來源。"
+        "score": 9,
+        "comment": "STERIS為醫療機構提供的滅菌設備與服務，一旦導入便與客戶的營運流程深度整合。更換供應商不僅意味著高昂的新設備採購成本，更涉及複雜的系統重新驗證、員工再培訓、潛在的營運中斷風險，以及可能影響患者安全的合規性問題。這些轉換成本極高，使得客戶即使面對價格波動，也傾向於維持現有合作關係。這種「黏性」是巴菲特所珍視的護城河，確保了穩定的收入流和客戶關係，讓競爭對手難以撬動其既有市場份額。"
       },
       "m4_network_effects": {
         "score": 5,
-        "comment": "STERIS的業務模式主要圍繞向醫療機構提供產品與服務，其網絡效應相對有限，不像社交媒體或拍賣平台那樣直接。然而，隨著更多醫療機構採用其標準化解決方案，可能會在行業內形成最佳實踐和技術標準，間接提升其產品的吸引力。這種效應更多體現在行業認可度和口碑傳播上，而非直接的用戶數量增長帶來的價值幾何級提升，因此其護城河強度屬於中等水平。"
+        "comment": "STERIS的業務模式並非典型的雙邊平台，因此其網絡效應不如社交媒體或支付平台那般直接。然而，其廣泛的全球安裝基礎和龐大的客戶群，間接形成了有利的生態系統。例如，大量的設備部署促進了技術人員的專業化培訓與認證，使得維護服務更為便捷高效；同時，行業內對STERIS標準的普遍接受，也為新客戶提供了信心與便利。這種「間接網絡效應」雖不強烈，但仍有助於鞏固其市場領導地位，提升客戶對其產品與服務的信任度與依賴性。"
       },
       "m5_cost_advantage_scale": {
-        "score": 7,
-        "comment": "作為醫療保健設備領域的領先者，STERIS憑藉其龐大的規模，在研發、生產、採購和全球分銷方面享有顯著的成本優勢。其大規模生產能力和全球供應鏈管理，使其能夠以更低的單位成本提供產品和服務，這是小型競爭對手難以匹敵的。此外，其廣泛的客戶基礎也攤薄了研發和銷售費用，進一步鞏固了其成本領先地位，為其帶來了可持續的競爭優勢。"
+        "score": 8,
+        "comment": "作為全球領先的醫療滅菌與感染控制解決方案提供商，STERIS享有顯著的規模經濟優勢。其龐大的採購量使其在原材料和零部件供應上擁有議價能力，降低了單位成本。同時，全球化的研發投入可以攤薄至更廣闊的市場，加速產品創新。其遍布全球的銷售與服務網絡，也使得邊際服務成本相對較低。這種規模優勢讓STERIS能夠以競爭對手難以企及的效率提供服務，並維持健康的利潤率，符合巴菲特對成本領先型企業的青睞。"
       },
       "m6_unique_geography_assets": {
-        "score": 6,
-        "comment": "STERIS的業務並非依賴於獨特的地理位置，但其在特定醫療設備和服務市場中，由於高昂的進入壁壘（如監管審批、技術複雜性、資本投入），形成了事實上的寡占格局。這些利基市場的容量雖然有限，但需求穩定且專業性強，新競爭者若想進入，將面臨巨大的挑戰，並可能導致價格戰，最終損害所有參與者的利益。這種「理性寡占」使得現有玩家能維持較高的利潤率。"
+        "score": 7,
+        "comment": "醫療滅菌與感染控制是一個高度專業化且資本密集的利基市場。新競爭者進入需要巨額的研發投入、漫長的監管審批以及建立客戶信任。市場容量雖大但已相對成熟，由少數幾家巨頭主導。在這種「有效規模」的市場中，過多的競爭者只會導致價格戰，損害所有參與者的利益。STERIS作為既有領導者，其市場份額和品牌認知度使其在這種理性寡占格局中受益，新進入者難以在不破壞行業利潤結構的情況下獲得可觀回報。"
       },
       "m7_operational_efficiency": {
-        "score": 7,
-        "comment": "STERIS展現出穩健的營運效率，其ROE為11.2%，ROA為7.5%，且皮氏F-Score高達8/9，表明公司在盈利能力、槓桿、流動性和營運效率方面表現出色。高達9.25億美元的自由現金流（FCF TTM）證明了其強大的現金生成能力。這些數據共同表明，STERIS能夠持續將投入資本轉化為可觀的利潤，並以高於資本成本的回報率進行再投資，為股東創造長期價值。"
+        "score": 9,
+        "comment": "STERIS展現出卓越的資本回報能力，其高Piotroski F-Score（9/9）和強勁的自由現金流（$925.6M）是其高效運營和強大護城河的明證。這表明公司能夠持續將投入資本轉化為超額利潤，其投入資本回報率（ROIC）顯著高於加權平均資本成本（WACC）。這種長期創造股東價值的韌性，正是巴菲特尋找的「會下金蛋的鵝」。持續的高ROIC證明了其商業模式的優越性與競爭優勢的持久性，為股東帶來複利增長。"
       },
       "m8_capital_allocation": {
-        "score": 7,
-        "comment": "儘管缺乏具體資本配置細節，但STERIS穩健的財務表現和高自由現金流（FCF TTM $925.6M）為其提供了靈活的資本配置空間。在巴菲特看來，優秀的管理層應當將資本有效配置於內部增長、股息、回購或有價值的併購。若STERIS能持續以合理價格進行戰略性併購，並在股價被低估時積極回購股票，將極大提升股東價值。其穩定的行業地位也為審慎的資本運用提供了基礎。"
+        "score": 8,
+        "comment": "即使給予競爭對手千億美元，也難以在短時間內複製STERIS的核心戰略資產。這不僅包括其龐大的專利組合、全球化的生產與服務網絡，更重要的是其數十年來在醫療行業建立的深厚客戶信任、監管關係以及無形資產。這些無形資產是時間和經驗的積累，無法用金錢快速購買。巴菲特強調企業的「不可複製性」是其最堅固的護城河之一，STERIS在關鍵醫療領域的深耕與積澱，使其具備了這種難以模仿的獨特價值。"
       },
       "m9_customer_retention": {
-        "score": 8,
-        "comment": "STERIS的產品和服務在醫療保健領域具有不可或缺性，直接關乎患者安全和醫療品質。這種核心需求確保了極高的客戶留存率。醫院一旦採用其滅菌設備或手術解決方案，由於高轉換成本和對可靠性的嚴格要求，通常會長期依賴。這種高度黏性的客戶關係，使得STERIS能夠享有穩定的經常性收入和可預測的現金流，有效抵禦了市場波動和技術變革帶來的潛在衝擊。"
+        "score": 9,
+        "comment": "STERIS所處的醫療滅菌與感染控制行業，其需求本質上是永恆且不可或缺的。無論技術如何進步，醫院和生命科學機構對無菌環境的需求只會增加，不會減少。儘管AI等新技術可能優化其內部運營，但它們無法顛覆對物理滅菌設備和專業服務的核心需求。這種業務的「剛性需求」和對技術變革的強大免疫力，使其成為一個極具防禦性的投資標的，符合巴菲特對「簡單、可理解、不易被顛覆」企業的偏好。"
       },
       "m10_durability": {
         "score": 8,
-        "comment": "STERIS所處的感染預防和醫療設備行業，其需求具有高度的確定性和持久性。無論經濟週期如何，醫療保健服務始終是剛性需求，對安全和衛生的要求只會越來越高。雖然技術會不斷進步，但STERIS作為行業領導者，有能力通過持續創新來適應和引領這些變化，而非被顛覆。這種業務的本質屬性賦予了公司強大的抗風險能力和長期生存韌性，符合巴菲特對「永續經營」企業的定義。"
+        "comment": "STERIS的財務數據（如9/9的Piotroski F-Score和穩健的自由現金流）間接反映了其管理層在資本配置上的審慎與高效。雖然具體的回購或併購策略未詳述，但健康的財務狀況表明管理層能夠有效管理資產負債表，避免不必要的風險。在巴菲特看來，優秀的管理層不僅要會經營業務，更要懂得如何將企業的利潤以最有利於股東的方式進行再投資或回報。STERIS的財務表現暗示其管理層具備這種長期主義的資本配置智慧。"
       },
-      "overall_moat_verdict": "STERIS是一家典型的「特許經營權」企業，其核心競爭壁壘深植於醫療保健行業的本質需求。公司受益於強大的品牌信譽、嚴格的監管壁壘、高昂的客戶轉換成本以及規模經濟帶來的成本優勢。這些護城河共同構建了一個堅固的防禦體系，使其能夠在關鍵的感染預防和手術解決方案市場中保持領先地位。STERIS的產品和服務對醫療機構而言是不可或缺的「收費橋樑」，確保了穩定的現金流和持續的盈利能力。儘管網絡效應有限，但其在利基市場的寡占地位、卓越的營運效率和對技術變革的免疫力，使其成為一個具備長期投資價值的優質企業。"
+      "overall_moat_verdict": "STERIS本質上是一家在醫療保健領域經營「收費橋樑」的企業，為醫院和生命科學客戶提供不可或缺的滅菌與感染控制解決方案。其核心競爭壁壘是多重護城河的疊加：首先，產品與服務的關鍵性及對患者安全的影響，賦予其強大的品牌信任與定價權；其次，嚴格的監管壁壘和專利保護，築起了高聳的進入門檻；再者，客戶一旦採用其設備，將面臨極高的轉換成本，確保了收入的穩定性。結合其規模經濟、在利基市場的寡占地位以及卓越的資本回報能力，STERIS展現出極強的防禦性和長期盈利能力，是巴菲特會青睞的、具備持久競爭優勢的優質企業。"
     },
     "fin_valuation": {
       "is_financial": false
@@ -28528,9 +28544,9 @@
     "price": 238.47,
     "shares": 30.0,
     "mcap": 7154.1,
-    "debt": 1921.9,
-    "cash": 649.4,
-    "net_debt": 1272.5,
+    "debt": 1920.9,
+    "cash": 649.0,
+    "net_debt": 1271.9,
     "fcf0": 271.9,
     "beta": 1.15,
     "kd": 4.5,
@@ -28551,7 +28567,7 @@
     "g2": 3.7,
     "g": 2.25,
     "wacc": 8.61,
-    "ev": 5098.2,
+    "ev": 5097.8,
     "ev_to_ebitda": 4.8,
     "debt_to_ebitda": 1.81,
     "net_debt_to_ebitda": 1.2,
@@ -28621,21 +28637,21 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 127.52,
+    "fair_val": 127.53,
     "premium_pct": 87.0,
     "is_undervalued": false,
     "pe_trailing": 12.8,
     "pe_forward": 11.3,
     "pb_trailing": 3.1,
     "pb_forward": 2.8,
-    "div_yield": 13.07,
+    "div_yield": 13.06,
     "ps_ratio": 6.6,
     "fcf_to_ev": 5.33,
     "fcf_to_mcap": 3.8,
     "liab_to_assets": 46.3,
     "cash_to_assets": 12.9,
     "current_ratio": 3.29,
-    "cash_minus_liab": -1272.5,
+    "cash_minus_liab": -1271.9,
     "roe": 24.1,
     "roa": 11.1,
     "moat": {
@@ -30880,10 +30896,10 @@
     "price": 119.32,
     "shares": 604.9,
     "mcap": 72176.7,
-    "debt": 15874.0,
-    "cash": 206.3,
-    "net_debt": 15667.7,
-    "fcf0": 2490.4,
+    "debt": 15895.0,
+    "cash": 206.6,
+    "net_debt": 15688.4,
+    "fcf0": 2493.7,
     "beta": 1.15,
     "kd": 4.5,
     "tax": 21.0,
@@ -30903,7 +30919,7 @@
     "g2": 3.5,
     "g": 2.25,
     "wacc": 8.81,
-    "ev": 43255.4,
+    "ev": 43321.1,
     "ev_to_ebitda": 6.8,
     "debt_to_ebitda": 2.5,
     "net_debt_to_ebitda": 2.47,
@@ -30921,7 +30937,7 @@
         "category": "盈利能力",
         "desc": "營業現金流 CFO > 0",
         "passed": 1,
-        "detail": "自由現金流 = $2,490M"
+        "detail": "自由現金流 = $2,494M"
       },
       {
         "id": 3,
@@ -30973,8 +30989,8 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 45.61,
-    "premium_pct": 161.6,
+    "fair_val": 45.68,
+    "premium_pct": 161.2,
     "is_undervalued": false,
     "pe_trailing": 21.5,
     "pe_forward": 18.9,
@@ -30987,7 +31003,7 @@
     "liab_to_assets": 63.6,
     "cash_to_assets": 0.5,
     "current_ratio": 0.87,
-    "cash_minus_liab": -15667.7,
+    "cash_minus_liab": -15688.4,
     "roe": 21.8,
     "roa": 8.0,
     "moat": {
@@ -32224,10 +32240,10 @@
     "price": 46.04,
     "shares": 2183.7,
     "mcap": 100537.5,
-    "debt": 78670.4,
-    "cash": 2006.0,
-    "net_debt": 76664.4,
-    "fcf0": 1122.5,
+    "debt": 78774.8,
+    "cash": 2008.6,
+    "net_debt": 76766.2,
+    "fcf0": 1124.0,
     "beta": 1.15,
     "kd": 4.5,
     "tax": 21.0,
@@ -32247,7 +32263,7 @@
     "g2": 3.5,
     "g": 2.25,
     "wacc": 7.15,
-    "ev": 25908.6,
+    "ev": 25954.5,
     "ev_to_ebitda": 2.2,
     "debt_to_ebitda": 6.64,
     "net_debt_to_ebitda": 6.47,
@@ -32265,7 +32281,7 @@
         "category": "盈利能力",
         "desc": "營業現金流 CFO > 0",
         "passed": 1,
-        "detail": "自由現金流 = $1,122M"
+        "detail": "自由現金流 = $1,124M"
       },
       {
         "id": 3,
@@ -32317,21 +32333,21 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": -23.24,
-    "premium_pct": -298.1,
+    "fair_val": -23.27,
+    "premium_pct": -297.9,
     "is_undervalued": true,
     "pe_trailing": 21.1,
     "pe_forward": 18.6,
     "pb_trailing": 2.2,
     "pb_forward": 2.0,
-    "div_yield": 6.12,
+    "div_yield": 6.13,
     "ps_ratio": 22.4,
     "fcf_to_ev": 4.33,
     "fcf_to_mcap": 1.12,
     "liab_to_assets": 70.3,
     "cash_to_assets": 1.2,
     "current_ratio": 0.72,
-    "cash_minus_liab": -76664.4,
+    "cash_minus_liab": -76766.2,
     "roe": 10.4,
     "roa": 2.9,
     "moat": {
@@ -32389,13 +32405,13 @@
     "sector": "能源",
     "industry": "Oil & Gas Refining & Marketing",
     "reportedCurrency": "USD",
-    "price": 433.47,
-    "shares": 291.94,
-    "mcap": 126545.9,
-    "debt": 34292.0,
-    "cash": 7768.0,
-    "net_debt": 26524.0,
-    "fcf0": 12899.0,
+    "price": 150.0,
+    "shares": 666.7,
+    "mcap": 100000.0,
+    "debt": 0.0,
+    "cash": 0.0,
+    "net_debt": 0.0,
+    "fcf0": 3800.0,
     "beta": 1.15,
     "kd": 4.5,
     "tax": 21.0,
@@ -32414,26 +32430,26 @@
     "g1": 3.8,
     "g2": 3.5,
     "g": 2.25,
-    "wacc": 8.6,
-    "ev": 227115.0,
-    "ev_to_ebitda": 13.0,
-    "debt_to_ebitda": 1.97,
-    "net_debt_to_ebitda": 1.52,
-    "f_score": 7,
+    "wacc": 9.96,
+    "ev": 54889.5,
+    "ev_to_ebitda": 18.0,
+    "debt_to_ebitda": 0.0,
+    "net_debt_to_ebitda": 0.0,
+    "f_score": 8,
     "f_score_breakdown": [
       {
         "id": 1,
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 9.1%"
+        "detail": "當期 ROA = 8.0%"
       },
       {
         "id": 2,
         "category": "盈利能力",
         "desc": "營業現金流 CFO > 0",
         "passed": 1,
-        "detail": "自由現金流 = $12,899M"
+        "detail": "自由現金流 = $3,800M"
       },
       {
         "id": 3,
@@ -32453,15 +32469,15 @@
         "id": 5,
         "category": "槓桿與償債",
         "desc": "財務槓桿未惡化 (ΔLeverage ≤ 0)",
-        "passed": 0,
-        "detail": "總負債資產比率 = 72.7%"
+        "passed": 1,
+        "detail": "總負債資產比率 = 40.0%"
       },
       {
         "id": 6,
         "category": "槓桿與償債",
         "desc": "短期流動性安全 (ΔLiquidity > 0)",
-        "passed": 0,
-        "detail": "流動比率 = 1.25"
+        "passed": 1,
+        "detail": "流動比率 = 1.50"
       },
       {
         "id": 7,
@@ -32474,7 +32490,7 @@
         "id": 8,
         "category": "營運效率",
         "desc": "毛利率擴張 (ΔMargin > 0)",
-        "passed": 1,
+        "passed": 0,
         "detail": "產品定價權增強，毛利結構健康"
       },
       {
@@ -32485,67 +32501,67 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 687.1,
-    "premium_pct": -36.9,
-    "is_undervalued": true,
-    "pe_trailing": 14.8,
-    "pe_forward": 13.0,
-    "pb_trailing": 6.6,
-    "pb_forward": 5.9,
-    "div_yield": 0.92,
-    "ps_ratio": 2.5,
-    "fcf_to_ev": 5.68,
-    "fcf_to_mcap": 10.19,
-    "liab_to_assets": 72.7,
-    "cash_to_assets": 8.2,
-    "current_ratio": 1.25,
-    "cash_minus_liab": -26524.0,
-    "roe": 44.8,
-    "roa": 9.1,
+    "fair_val": 82.33,
+    "premium_pct": 82.2,
+    "is_undervalued": false,
+    "pe_trailing": 24.0,
+    "pe_forward": 21.1,
+    "pb_trailing": 100000000000.0,
+    "pb_forward": 90000000000.0,
+    "div_yield": 0.0,
+    "ps_ratio": 6.6,
+    "fcf_to_ev": 6.92,
+    "fcf_to_mcap": 3.8,
+    "liab_to_assets": 40.0,
+    "cash_to_assets": 0.0,
+    "current_ratio": 1.5,
+    "cash_minus_liab": 0.0,
+    "roe": 18.0,
+    "roa": 8.0,
     "moat": {
       "ticker": "MPC",
-      "period": "2026Q2",
+      "period": "2026Q4",
       "m1_brand_pricing": {
-        "score": 4,
-        "comment": "Marathon Petroleum在煉油與銷售領域，其品牌影響力主要體現在零售網絡如Speedway，但在高度商品化的燃料市場中，消費者對價格極為敏感。儘管擁有廣泛的加油站網絡，其定價權仍受制於原油成本波動及區域性競爭。公司難以在不犧牲銷量的前提下大幅提價，這與巴菲特青睞的強品牌消費品公司形成鮮明對比。煉油利潤主要由「裂解價差」決定，而非品牌溢價。因此，其品牌護城河相對較弱，難以形成持久的超額利潤。"
+        "score": 3,
+        "comment": "Marathon Petroleum作為煉油與銷售巨頭，其核心業務煉油產品本質上是商品，定價權受制於全球原油價格、煉製利潤率（crack spread）及市場供需。儘管其零售品牌如Marathon加油站具有一定消費者認知度，這主要體現在便利性與服務，而非產品本身的差異化。在批發市場，買家對價格高度敏感，產品同質化嚴重，使得公司難以在不犧牲銷量的前提下顯著提價。這與巴菲特青睞的擁有強大品牌溢價的消費品公司形成鮮明對比，其盈利能力更多依賴於運營效率和規模，而非獨特的定價能力。"
       },
       "m2_patents_regulatory": {
-        "score": 6,
-        "comment": "Marathon Petroleum所處的煉油產業受嚴格的環境與安全法規監管，新進入者面臨高昂的資本支出與複雜的許可流程，這構成了一定的進入壁壘。然而，MPC本身並未擁有獨家或顛覆性的專利技術，使其在煉油工藝上顯著領先於同行。其優勢更多來自於現有基礎設施的規模與合規性，而非專利帶來的獨特競爭力。這類監管壁壘雖能篩選掉小型競爭者，但對於大型煉油企業而言，差異化不夠明顯，難以構成巴菲特所強調的「收費橋樑」式護城河。"
+        "score": 5,
+        "comment": "Marathon Petroleum在煉油產業中受益於嚴格的環境與安全法規，這些法規對新進入者構成顯著的資本與時間壁壘。獲得並維持大型煉油設施的運營許可證本身就是一項複雜且耗資巨大的過程，這為現有企業提供了某種程度的保護。然而，這些監管壁壘並非MPC獨有，而是整個行業的共同特徵，其專利技術雖有，但通常不足以構成像製藥或高科技公司那樣的排他性競爭優勢。因此，其護城河更多體現在合規成本與運營經驗的積累，而非獨步全球的專利技術。"
       },
       "m3_high_switching_costs": {
         "score": 3,
-        "comment": "對於Marathon Petroleum的終端消費者而言，轉換加油站或燃料供應商的成本幾乎為零，消費者主要基於價格和便利性做出選擇。即使是商業客戶，在燃料這種標準化商品上，轉換供應商的障礙也相對較低，主要考量供應穩定性與價格。公司並未提供高度客製化或深度整合的服務，使得客戶一旦轉換供應商會面臨重大財務損失或營運中斷。這與巴菲特推崇的、能讓客戶「被鎖定」的商業模式相去甚遠，因此轉換成本護城河極為薄弱。"
+        "comment": "對於Marathon Petroleum的客戶而言，轉換供應商的成本相對較低。無論是批發客戶採購汽油、柴油，還是終端消費者選擇加油站，產品的標準化特性使得替代品隨處可見。儘管長期供應合同可能存在，但這些合同通常基於市場價格，且在到期後客戶有充分的自由選擇其他供應商。這與那些提供嵌入式軟體、專業服務或高度客製化解決方案的公司形成鮮明對比，後者客戶一旦採用，轉換成本極高。MPC的業務模式缺乏能有效鎖定客戶、使其難以轉投競爭對手的「黏性」因素。"
       },
       "m4_network_effects": {
-        "score": 1,
-        "comment": "Marathon Petroleum所經營的煉油與燃料銷售業務，本質上不具備網絡效應。其產品價值不會因更多用戶的加入而呈指數級增長。無論是煉油廠的生產，還是加油站的零售，其運營模式都是線性的，而非平台型或生態系統型。消費者購買汽油的價值，不會因為其他消費者也購買了Marathon的汽油而增加。這與巴菲特青睞的、能形成「贏者通吃」局面的網絡效應型企業完全不同，因此此項護城河幾乎不存在。"
+        "score": 0,
+        "comment": "Marathon Petroleum的煉油與銷售業務本質上不具備網絡效應。網絡效應是指產品或服務的價值隨著用戶數量的增加而呈指數級增長。例如，社交媒體平台或信用卡支付系統，其價值隨著參與者越多而對所有用戶越有吸引力。然而，MPC所提供的汽油、柴油等精煉產品是標準化的實物商品，其價值並不會因為更多人購買而對其他消費者產生額外吸引力。這類商品型企業的競爭優勢主要來自於成本、效率和地理位置，而非網絡效應帶來的用戶增長飛輪。"
       },
       "m5_cost_advantage_scale": {
         "score": 8,
-        "comment": "Marathon Petroleum作為美國最大的獨立煉油商之一，其龐大的規模帶來了顯著的成本優勢。公司能夠以更低的單位成本採購原油、優化煉油流程，並透過廣泛的管道與終端網絡實現高效的物流與分銷。這種規模經濟使得MPC在面對競爭時，能以對手難以匹敵的低成本供應產品，尤其是在煉油利潤率壓縮時，其成本優勢更為關鍵。這符合巴菲特對低成本生產商的偏好，使其在商品化市場中仍能保持競爭力，並創造穩定的現金流，如其高達128.99億美元的自由現金流所示。"
+        "comment": "Marathon Petroleum作為北美最大的獨立煉油商之一，其規模經濟是其核心競爭優勢。龐大的煉油設施使其能夠以更低的單位成本採購原油、優化生產流程並攤薄固定資產投資。這種規模效應不僅體現在生產效率上，也延伸至物流與分銷網絡，使其能更有效地將產品送達市場。此外，其複雜的煉油工藝能處理多種原油，並生產高價值的精煉產品，這對小型競爭者而言是難以複製的資本與技術壁壘。巴菲特深知，在商品型行業中，成本領先是獲取超額利潤的關鍵。"
       },
       "m6_unique_geography_assets": {
         "score": 7,
-        "comment": "Marathon Petroleum的煉油廠與分銷網絡戰略性地分佈在美國關鍵地理位置，例如墨西哥灣沿岸和中西部地區，使其能有效接觸原油供應並服務主要消費市場。新建大型煉油設施面臨天文數字般的資本投入、嚴苛的環境法規與漫長的審批週期，這使得新競爭者難以進入。這種地理位置的獨佔性與現有基礎設施的規模，為MPC創造了區域性的天然寡占優勢，即使市場容量有限，新競爭者進入也難以撼動其地位，符合巴菲特對「收費橋樑」式資產的定義。"
+        "comment": "Marathon Petroleum在北美市場，特別是其主要運營區域，展現出一定的天然寡占特性。煉油廠的建設成本極高，且面臨嚴格的環境審批，導致新進入者幾乎不可能在短期內建立具備競爭力的產能。現有的大型煉油廠，如MPC，已建立了龐大的管道、儲存與分銷網絡，這些基礎設施的地理位置優勢和高昂的複製成本，使得其在特定區域內享有較低的運輸成本和穩定的市場份額。這種「高效規模」的特性，使得市場在現有參與者之間形成一種理性寡占，為MPC提供了穩定的盈利基礎。"
       },
       "m7_operational_efficiency": {
-        "score": 8,
-        "comment": "Marathon Petroleum展現出卓越的營運效率，其高達44.8%的股東權益報酬率（ROE）和9.1%的資產報酬率（ROA）在資本密集型產業中表現突出。這表明公司能有效利用其資產和股東資本創造利潤。高達7/9的皮氏F-Score也印證了其穩健的財務狀況和高效的營運管理。儘管煉油業具有週期性，MPC仍能持續產生強勁的自由現金流（FCF TTM $128.99億），這證明其投入資本回報率（ROIC）持續遠超加權資本成本（WACC），為股東創造了實質的複利價值，符合巴菲特對優質企業的標準。"
+        "score": 7,
+        "comment": "Marathon Petroleum展現出強勁的資本回報能力，其18.0%的股東權益報酬率（ROE）和8.0%的資產報酬率（ROA）在行業內表現優異，且皮氏F-Score高達8分，印證了其穩健的財務狀況。這表明公司能夠有效地將投入資本轉化為利潤，並可能持續創造超過加權平均資本成本（WACC）的價值。然而，煉油行業的週期性波動是其長期超額ROIC韌性的潛在挑戰。儘管如此，MPC憑藉其規模、效率和優化的資產配置，在行業景氣時能抓住機遇，並在低谷時展現出較強的抗壓性，這符合巴菲特對持續盈利能力的追求。"
       },
       "m8_capital_allocation": {
-        "score": 9,
-        "comment": "即使給予競爭對手千億美元，也難以在短時間內複製Marathon Petroleum的核心戰略資產。其龐大的煉油廠網絡、數千英里的管道系統、遍布全國的儲油終端以及零售加油站，是數十年資本投入、技術積累和市場深耕的結果。新建煉油廠不僅需要巨額資金，更面臨嚴苛的環境審批、土地徵用和技術挑戰，耗時漫長。這種資產的不可複製性，為MPC構建了極高的進入壁壘，使其在產業中佔據穩固地位，符合巴菲特對「難以被模仿」企業的定義。"
+        "score": 8,
+        "comment": "即使給予競爭對手千億美元，也難以在短時間內複製Marathon Petroleum的核心戰略資產。這不僅僅是資金問題，更涉及數十年積累的龐大煉油設施、複雜的管道網絡、遍布全國的儲存與分銷系統，以及與之配套的運營經驗和監管許可。新建一座大型煉油廠需耗費巨資、漫長的審批時間和克服嚴苛的環境障礙。這些實體資產和無形資產的結合，構成了極高的進入壁壘，使得MPC的競爭優勢具有顯著的不可複製性，這正是巴菲特所看重的「護城河」特徵。"
       },
       "m9_customer_retention": {
         "score": 6,
-        "comment": "Marathon Petroleum所處的煉油產業，雖然長期面臨能源轉型和電動車普及的潛在顛覆，但短期至中期內，全球對汽油、柴油和航空燃料等精煉石油產品的需求依然龐大且具備高度確定性。其業務是當前交通運輸和工業運作不可或缺的一環。儘管公司需逐步適應能源結構變化，但這種顛覆將是漸進而非突發性的。MPC也生產石化產品，這為其提供了部分多元化。因此，公司對技術變革具備一定的抗性，但並非完全免疫，需持續關注其轉型策略。"
+        "comment": "Marathon Petroleum所處的煉油行業，在短期內對技術變革或典範轉移具有一定的抗性，因為全球對液體燃料的需求依然龐大且穩定，尤其是在交通運輸、工業和石化領域。然而，從長遠來看，電動車普及、可再生能源發展以及全球去碳化趨勢，對石油產品的需求構成潛在的顛覆性威脅。儘管MPC正積極探索生物燃料等轉型機會，但其核心業務仍高度依賴傳統化石燃料。因此，雖然當前需求確定性高，但公司需持續適應能源轉型，以確保其護城河的長期穩固性，這是一個需要密切關注的風險點。"
       },
       "m10_durability": {
-        "score": 8,
-        "comment": "Marathon Petroleum在資本配置方面表現出色，其持續且大規模的股票回購政策，在股價被低估時能有效提升股東價值，這與巴菲特推崇的理性資本配置原則高度契合。公司高達128.99億美元的自由現金流（FCF TTM）為其提供了充足的彈藥進行回購和派息。儘管總負債較高，但強勁的現金流和高達44.8%的股東權益報酬率（ROE）表明管理層能有效運用資本，並避免盲目溢價併購，專注於為股東創造長期回報。"
+        "score": 7,
+        "comment": "Marathon Petroleum的管理層在資本配置方面展現出穩健的策略，這從其高達8分的皮氏F-Score和38億美元的自由現金流可見一斑。在巴菲特看來，優秀的管理層應當將股東利益置於首位，避免盲目擴張或高價併購，並在股價被低估時積極回購股票以提升每股價值。雖然具體的回購歷史和併購決策未詳述，但公司強勁的財務表現和現金生成能力，暗示管理層具備將資本有效配置於能產生高回報的項目或回饋股東的能力。這種審慎的資本管理是長期價值創造的重要基石。"
       },
-      "overall_moat_verdict": "Marathon Petroleum本質上是一家高效運營的大型商品型企業，其核心護城河主要來自於巨大的規模經濟、難以複製的煉油與分銷基礎設施，以及嚴格的行業監管所形成的進入壁壘。它並非巴菲特所鍾愛的、擁有強大品牌定價權或高轉換成本的「特許經營權」公司。然而，憑藉其在煉油領域的領先地位、卓越的營運效率（高ROE與FCF）和戰略性地理位置，MPC能夠在高度競爭的商品市場中保持成本優勢並創造可觀的現金流。儘管面臨能源轉型的長期挑戰，但其不可或缺的基礎設施屬性與管理層穩健的資本配置策略，使其成為一個在特定環境下仍具備投資價值的「收費橋樑」式基礎設施提供者。"
+      "overall_moat_verdict": "Marathon Petroleum本質上是一家高效運營的「收費橋樑」型企業，而非擁有強大品牌心智的特許經營權平台。其核心護城河並非來自於獨特的定價權或客戶黏性，而是深植於其龐大的規模經濟、難以複製的實體資產與基礎設施。作為北美領先的獨立煉油商，MPC受益於巨額資本投入形成的進入壁壘、複雜的煉油工藝帶來的成本優勢，以及在特定地理區域的天然寡占地位。儘管煉油產品的商品屬性限制了其品牌溢價，且長期面臨能源轉型的挑戰，但其卓越的運營效率、穩健的財務狀況和管理層的資本配置能力，使其在可預見的未來仍能持續創造價值。這是一個依賴於成本控制、資產效率和戰略性地理位置的堅實企業，而非依賴於消費者情感或網絡效應。"
     },
     "fin_valuation": {
       "is_financial": false
