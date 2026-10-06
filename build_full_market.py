@@ -26,7 +26,6 @@ PRIMARY_MODEL = "gemini-2.5-flash"
 if HAS_GENAI:
     try:
         if GCP_SA_KEY:
-            # 優先使用 Vertex AI 企業通道 (高速無 15 RPM 限制，直接扣抵 GCP 額度)
             key_path = "/tmp/gcp_sa_key.json"
             with open(key_path, "w", encoding="utf-8") as f:
                 f.write(GCP_SA_KEY)
@@ -40,7 +39,6 @@ if HAS_GENAI:
             PRIMARY_MODEL = "gemini-2.5-flash"
             print("🚀 已成功啟用 Vertex AI 企業級高速模式 (專案: dcf-moat-ai)", flush=True)
         elif GEMINI_KEY:
-            # 回退使用一般 API Key
             gemini_client = genai.Client(api_key=GEMINI_KEY)
             PRIMARY_MODEL = "gemini-2.5-flash"
             print("ℹ️ 使用一般 Gemini API Key 模式", flush=True)
@@ -84,11 +82,6 @@ def analyze_stock_moat(
     fin_context: Dict[str, Any],
     force_refresh: bool = False
 ) -> Dict[str, Any]:
-    """
-    依據 ticker 與財報季度檢查快取。
-    若快取不存在或強制更新，則調用 Gemini API 進行深入評分與短評。
-    """
-    # 確保季度標籤有效；若無有效季度則採用當前西元年與季度防護
     if not latest_period or latest_period == "LATEST":
         import datetime
         now = datetime.datetime.now()
@@ -99,23 +92,19 @@ def analyze_stock_moat(
 
     cache_file = os.path.join(CACHE_DIR, f"{ticker}_{safe_period}.json")
 
-    # 1. 命中季度快取：完全不消耗 API Token，直接回傳
     if not force_refresh and os.path.exists(cache_file):
         try:
             with open(cache_file, "r", encoding="utf-8") as f:
                 cached_data = json.load(f)
-                # 確保非 fallback 預設值才命中快取
                 if "暫未取得" not in cached_data.get("overall_moat_verdict", ""):
                     print(f"⚡ [{ticker}] 命中 {safe_period} 季度快取，直接讀取本機數據 (不消耗額度)", flush=True)
                     return cached_data
         except Exception:
             pass
 
-    # 2. 缺少 Client 的降級預設資料
     if not gemini_client:
         return _build_fallback_moat(ticker, safe_period)
 
-    # 3. 未命中快取時才調用 Gemini
     print(f"💰 [{ticker}] 新季度財報發布或首次分析 ({safe_period})，調用 Vertex AI 深入護城河分析...", flush=True)
     prompt = f"""
     請以沃倫·巴菲特（Warren Buffett）與查理·蒙格（Charlie Munger）的長期價值投資哲學視角，對美股上市公司 【{ticker}】 的 10 大經濟護城河（M1 至 M10）進行客觀、深度評估與嚴格打分。
@@ -149,7 +138,6 @@ def analyze_stock_moat(
     4. 必須回傳指定 JSON Schema 結構。
     """
 
-    # 4. 指數退避重試 (加入保護)
     for attempt in range(3):
         try:
             response = gemini_client.models.generate_content(
@@ -162,11 +150,8 @@ def analyze_stock_moat(
                 ),
             )
             data = json.loads(response.text)
-
-            # 寫入本機快取
             with open(cache_file, "w", encoding="utf-8") as f:
                 json.dump(data, f, ensure_ascii=False, indent=2)
-
             return data
         except Exception as err:
             wait_time = (attempt + 1) * 3
@@ -193,7 +178,6 @@ def _build_fallback_moat(ticker: str, period: str) -> Dict[str, Any]:
         "overall_moat_verdict": "暫未取得 Gemini 深度護城河分析報告。"
     }
 
-# 滿額 200 檔美股高市值名冊
 RAW_STOCK_LIST = [
     # 資訊科技 (38檔)
     {"ticker": "NVDA", "name": "NVIDIA", "exchange": "NASDAQ", "sector": "資訊科技", "industry": "Semiconductors", "default_g1": 22.0},
@@ -448,7 +432,6 @@ RAW_STOCK_LIST = [
     {"ticker": "O", "name": "Realty Income", "exchange": "NYSE", "sector": "房地產", "industry": "Retail REITs", "default_g1": 5.0}
 ]
 
-# 嚴格去重
 seen = set()
 UNIQUE_STOCKS = []
 for item in RAW_STOCK_LIST:
@@ -471,7 +454,6 @@ def fetch_json(endpoint, params):
     url = f"{BASE_URL}/{endpoint}"
     for _ in range(3):
         try:
-            # 設定連線 5 秒、讀取 10 秒超時，避免卡死
             r = requests.get(url, params=params, headers=HEADERS, timeout=(5, 10))
             if r.status_code == 200:
                 return r.json()
@@ -481,7 +463,6 @@ def fetch_json(endpoint, params):
             time.sleep(0.5)
     return None
 
-# ==================== 穩健外匯換算引擎 ====================
 FX_CACHE = {"USD": 1.0}
 
 def get_fx_to_usd_rate(currency):
@@ -565,7 +546,7 @@ def calculate_piotroski_score(roa, fcf0, cr, liab_r, ttm_net_income):
 
 def main():
     print("=" * 80, flush=True)
-    print("🚀 美股 200 檔 DCF + Gemini 護城河雙核心引擎啟動", flush=True)
+    print("🚀 美股 200 檔 DCF/金融雙軌模型 + Gemini 護城河雙核心引擎啟動", flush=True)
     print("=" * 80, flush=True)
     results = {}
 
@@ -573,7 +554,7 @@ def main():
         sym = item["ticker"]
         fmp_sym = sym.replace(".", "")
 
-        # 1. 抓取美股即時報價 (USD)
+        # 1. 抓取報價與市值
         q_data = fetch_json("quote", {"symbol": fmp_sym})
         price, mcap, shares = 0.0, 0.0, 0.0
         if q_data and isinstance(q_data, list) and len(q_data) > 0:
@@ -638,10 +619,11 @@ def main():
 
         time.sleep(0.04)
 
-        # 4. 現金流量表 (TTM FCF 及 分紅)
+        # 4. 現金流量表 (TTM FCF 及 分紅/回購)
         cf_data = fetch_json("cash-flow-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 4})
         fcf0 = 0.0
         ttm_dividends_paid = 0.0
+        ttm_buybacks_paid = 0.0
         if cf_data and isinstance(cf_data, list) and len(cf_data) > 0:
             if not reported_currency or reported_currency == "USD":
                 if cf_data[0].get("reportedCurrency"):
@@ -651,10 +633,10 @@ def main():
             for quarter_cf in cf_data:
                 div_val = quarter_cf.get("dividendsPaid") or quarter_cf.get("netDividendsPaid") or quarter_cf.get("commonStockDividendsPaid") or 0.0
                 ttm_dividends_paid += abs(float(div_val))
+                bb_val = quarter_cf.get("commonStockRepurchased") or 0.0
+                ttm_buybacks_paid += abs(float(bb_val))
 
-        # ========================================================
-        # 核心：執行匯率轉換，全數歸納至 USD (百萬美元)
-        # ========================================================
+        # 匯率轉換至 USD
         fx_rate = get_fx_to_usd_rate(reported_currency)
         if fx_rate != 1.0 or sym == "TSM":
             if sym == "TSM" and fx_rate == 1.0:
@@ -667,6 +649,7 @@ def main():
             ttm_ebitda = ttm_ebitda * fx_rate
             fcf0 = round(fcf0 * fx_rate, 1)
             ttm_dividends_paid = ttm_dividends_paid * fx_rate
+            ttm_buybacks_paid = ttm_buybacks_paid * fx_rate
 
         if fcf0 <= 0: fcf0 = round(mcap * 0.038, 1)
 
@@ -681,7 +664,7 @@ def main():
         roa = round((ttm_net_income / total_assets) * 100.0, 1) if total_assets > 0 and ttm_net_income > 0 else 8.0
         time.sleep(0.04)
 
-        # 5. 分析師預測
+        # 5. 分析師預測與折現排程
         est_data = fetch_json("analyst-estimates", {"symbol": fmp_sym, "limit": 4})
         growth_10y = build_10y_growth_schedule(est_data, item["default_g1"], DEFAULT_G)
         pe_forward = round(pe_trailing * 0.88, 1)
@@ -727,12 +710,65 @@ def main():
 
         f_score, f_score_breakdown = calculate_piotroski_score(roa, fcf0, cr, liab_r, ttm_net_income)
 
-        fcf_to_ev = round((fcf0 / ev) * 100.0, 2) if ev > 0 else 0.0
-        fcf_to_mcap = round((fcf0 / mcap) * 100.0, 2) if mcap > 0 else 0.0
+        # ========================================================
+        # 金融專屬雙軌模型 (銀行 / 保險 / 消費金融，排除 BRK.B)
+        # ========================================================
+        FINANCIAL_SPECIAL_INDUSTRIES = [
+            "Diversified Banks", "Consumer Finance", "Investment Banking & Brokerage",
+            "Property & Casualty Insurance", "Life & Health Insurance", "Multi-line Insurance"
+        ]
+        is_financial_model = (
+            item["sector"] == "金融" 
+            and item["industry"] in FINANCIAL_SPECIAL_INDUSTRIES 
+            and sym != "BRK.B"
+        )
 
-        # ========================================================
-        # 6. 調用 Gemini 分析巴菲特 10 大護城河 (含季度快取)
-        # ========================================================
+        fin_valuation = {"is_financial": False}
+        if is_financial_model:
+            km_data = fetch_json("key-metrics", {"symbol": fmp_sym, "period": "quarter", "limit": 1})
+            bvps = float(km_data[0].get("bookValuePerShare") or 0.0) if km_data else 0.0
+            tbvps = float(km_data[0].get("tangibleBookValuePerShare") or 0.0) if km_data else bvps
+            if tbvps <= 0: tbvps = max(bvps * 0.82, 12.0)
+
+            total_shareholder_yield = (ttm_dividends_paid + ttm_buybacks_paid) / 1e6
+            dps_total = total_shareholder_yield / shares if shares > 0 else (price * 0.035)
+
+            ke_rate = max(ke, 0.09)
+            rote_rate = max(roe / 100.0, 0.06)
+
+            # 1. 超額回報模型 (Excess Return on TBV)
+            spread = rote_rate - ke_rate
+            excess_return_val = tbvps + (tbvps * spread) / max(ke_rate - DEFAULT_G, 0.02)
+            excess_return_val = round(max(excess_return_val, tbvps * 0.65), 2)
+
+            # 2. 股利與回購折現 (DDM 模型)
+            ddm_sum = 0.0
+            cur_dps = dps_total
+            g_dps = min(item["default_g1"] / 100.0, 0.075)
+            for t in range(1, 6):
+                cur_dps *= (1.0 + g_dps)
+                ddm_sum += cur_dps / ((1.0 + ke_rate) ** t)
+            tv_ddm = (cur_dps * (1.0 + DEFAULT_G)) / max(ke_rate - DEFAULT_G, 0.02)
+            pv_tv_ddm = tv_ddm / ((1.0 + ke_rate) ** 5)
+            ddm_val = round(ddm_sum + pv_tv_ddm, 2)
+
+            # 綜合公允價值切換為金融雙軌加權
+            fair_val = round((excess_return_val * 0.55) + (ddm_val * 0.45), 2)
+            premium_pct = round(((price / fair_val) - 1.0) * 100.0, 1)
+
+            fin_valuation = {
+                "is_financial": True,
+                "tbvps": round(tbvps, 2),
+                "bvps": round(bvps, 2),
+                "rote": round(rote_rate * 100.0, 1),
+                "ke": round(ke_rate * 100.0, 2),
+                "dps_total": round(dps_total, 2),
+                "excess_return_fair": excess_return_val,
+                "ddm_fair": ddm_val,
+                "pb_tangible": round(price / tbvps, 2) if tbvps > 0 else 1.0
+            }
+
+        # 6. Gemini 巴菲特護城河深度分析
         fin_context = {
             "name": item["name"],
             "sector": item["sector"],
@@ -790,18 +826,19 @@ def main():
             "pb_forward": pb_forward,
             "div_yield": div_yield_real,
             "ps_ratio": round(mcap / max(fcf0 * 4.0, 1.0), 1),
-            "fcf_to_ev": fcf_to_ev,
-            "fcf_to_mcap": fcf_to_mcap,
+            "fcf_to_ev": round((fcf0 / ev) * 100.0, 2) if ev > 0 else 0.0,
+            "fcf_to_mcap": round((fcf0 / mcap) * 100.0, 2) if mcap > 0 else 0.0,
             "liab_to_assets": liab_r,
             "cash_to_assets": cash_to_assets,
             "current_ratio": cr,
             "cash_minus_liab": cash_minus_liab,
             "roe": roe,
             "roa": roa,
-            "moat": moat_data
+            "moat": moat_data,
+            "fin_valuation": fin_valuation
         }
 
-        print(f"[{idx:03d}/200] ✅ {sym} ({item['exchange']}) [{reported_currency} -> USD] - 股價=${price} | 公允價值=${fair_val} | 護城河綜合: {moat_data.get('overall_moat_verdict', '')[:30]}...", flush=True)
+        print(f"[{idx:03d}/200] ✅ {sym} ({item['exchange']}) - 股價=${price} | 公允價值=${fair_val} | 護城河綜合: {moat_data.get('overall_moat_verdict', '')[:30]}...", flush=True)
 
     with open("full_market_dcf.json", "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
@@ -809,7 +846,7 @@ def main():
     with open("market_data.js", "w", encoding="utf-8") as f:
         f.write(f"window.FULL_MARKET_DATA = {json.dumps(results, ensure_ascii=False, indent=2)};")
 
-    print("\n🎉 成功！全市場 200 檔標的已全部完成 DCF 與 Gemini 護城河分析！", flush=True)
+    print("\n🎉 成功！全市場 200 檔標的已全部完成估值與護城河分析！", flush=True)
 
 if __name__ == "__main__":
     main()
