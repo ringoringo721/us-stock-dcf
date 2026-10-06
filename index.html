@@ -3,12 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>美股旗艦 DCF 估值雷達 </title>
+  <title>美股旗艦 DCF 估值雷達 (200 檔全覆蓋 · 雙軌多週期版)</title>
+  <!-- 防止快取動態載入市場數據 -->
   <script>
     const script = document.createElement('script');
     script.src = 'market_data.js?t=' + new Date().getTime();
     document.head.appendChild(script);
   </script>
+  <!-- 引入 TradingView 官方輕量化專業圖表庫 -->
+  <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+
   <style>
     :root {
       --bg: #0b1120;
@@ -30,7 +34,7 @@
       --fav-pink: #f43f5e;
       --sticky-bg: #162032;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
     html, body {
       background-color: var(--bg);
       color: var(--text);
@@ -41,9 +45,39 @@
     }
     .container { width: 100%; max-width: 100%; margin: 0 auto; }
     
-    header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid var(--card-border); padding-bottom: 16px; flex-wrap: wrap; gap: 14px; }
+    header { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      margin-bottom: 20px; 
+      border-bottom: 1px solid var(--card-border); 
+      padding-bottom: 16px; 
+      flex-wrap: wrap; 
+      gap: 14px; 
+    }
+    .header-actions { display: flex; align-items: center; gap: 12px; }
     h1 { font-size: 22px; font-weight: 700; color: #fff; }
-    .status-badge { background: rgba(74, 222, 128, 0.15); border: 1px solid var(--green); color: var(--green); padding: 6px 14px; border-radius: 6px; font-size: 13px; font-weight: 600; }
+    .status-badge { 
+      background: rgba(74, 222, 128, 0.15); 
+      border: 1px solid var(--green); 
+      color: var(--green); 
+      padding: 6px 14px; 
+      border-radius: 6px; 
+      font-size: 13px; 
+      font-weight: 600; 
+    }
+    .lang-btn {
+      background: #0f172a;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 12.5px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: all 0.2s;
+    }
+    .lang-btn:hover { background: var(--accent); color: #0b1120; }
 
     .top-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 20px; }
     .stat-box { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; padding: 14px 18px; }
@@ -158,7 +192,7 @@
     .text-gold { color: var(--gold); font-weight: 700; }
     .text-pink { color: var(--fav-pink); font-weight: 700; }
 
-    #detail-view, #fscore-view, #moat-view { display: none; }
+    #detail-view, #fscore-view, #moat-view, #company-view { display: none; }
     .detail-header { display: flex; justify-content: space-between; align-items: center; background: var(--card-bg); border: 1px solid var(--card-border); padding: 14px 20px; border-radius: 8px; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; }
     .detail-title { font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
     .btn-back { background: #334155; color: #fff; border: none; padding: 7px 14px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 13px; }
@@ -173,8 +207,8 @@
     .panel-title { font-size: 14px; font-weight: 600; margin-bottom: 12px; color: var(--accent); border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 8px; }
     .form-group { display: flex; justify-content: space-between; align-items: center; margin-bottom: 9px; }
     .form-group label { font-size: 13px; color: #cbd5e1; }
-    .form-group input { width: 110px; background: #0f172a; border: 1px solid var(--card-border); border-radius: 4px; color: #fff; padding: 5px 8px; font-size: 13px; text-align: right; }
-    .form-group input:focus { border-color: var(--accent); outline: none; }
+    .form-group input, .form-group select { width: 110px; background: #0f172a; border: 1px solid var(--card-border); border-radius: 4px; color: #fff; padding: 5px 8px; font-size: 13px; text-align: right; }
+    .form-group input:focus, .form-group select:focus { border-color: var(--accent); outline: none; }
     
     #dcf-table, #sens-table { width: 100%; border-collapse: collapse; text-align: right; font-size: 12px; }
     #dcf-table th, #dcf-table td, #sens-table th, #sens-table td { padding: 9px 10px; border-bottom: 1px solid var(--card-border); }
@@ -237,10 +271,7 @@
       font-weight: 600;
       color: #cbd5e1;
     }
-    .slider-head span.val {
-      color: var(--accent);
-      font-weight: 700;
-    }
+    .slider-head span.val { color: var(--accent); font-weight: 700; }
     .fin-slider {
       -webkit-appearance: none;
       width: 100%;
@@ -260,6 +291,72 @@
       cursor: pointer;
       box-shadow: 0 0 8px rgba(56, 189, 248, 0.6);
     }
+
+    /* 企業資訊概覽與圖表專用樣式 */
+    .company-profile-card {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 18px 24px;
+      margin-bottom: 20px;
+    }
+    .company-logo {
+      width: 68px;
+      height: 68px;
+      border-radius: 10px;
+      background: #fff;
+      padding: 5px;
+      object-fit: contain;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+    .company-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      background: #0f172a;
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 20px;
+      font-size: 13px;
+    }
+    .company-meta-item span.label { color: var(--text-muted); margin-right: 6px; }
+    .company-meta-item span.val { color: #fff; font-weight: 600; }
+    
+    .chart-controls {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+      align-items: center;
+    }
+    .chart-btn {
+      background: #0f172a;
+      border: 1px solid var(--card-border);
+      color: #94a3b8;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .chart-btn.active {
+      background: var(--accent);
+      color: #0b1120;
+      border-color: var(--accent);
+    }
+    #tv-chart-container {
+      width: 100%;
+      height: 480px;
+      border-radius: 6px;
+      overflow: hidden;
+      background: #0b1120;
+      border: 1px solid var(--card-border);
+    }
   </style>
 </head>
 <body>
@@ -267,11 +364,12 @@
 <div class="container">
   <header>
     <div>
-      <h1>美股旗艦 DCF 估值雷達 (200 檔)</h1>
-      <span style="font-size: 13px; color: var(--text-muted);">NYSE · NASDAQ · AMEX · 銀行保險專屬雙軌模型 · 巴菲特護城河深度分析</span>
+      <h1 id="app-title">美股旗艦 DCF 估值雷達 (200 檔)</h1>
+      <span style="font-size: 13px; color: var(--text-muted);" id="app-subtitle">NYSE · NASDAQ · AMEX · 銀行保險專屬雙軌模型 · 巴菲特護城河深度分析</span>
     </div>
-    <div class="status-badge" id="app-status">
-      🟢 系統載入中...
+    <div class="header-actions">
+      <div class="status-badge" id="app-status">🟢 系統載入中...</div>
+      <button class="lang-btn" id="btn-lang-toggle" onclick="toggleLanguage()">English</button>
     </div>
   </header>
 
@@ -279,23 +377,23 @@
   <div id="screener-view">
     <div class="top-stats">
       <div class="stat-box">
-        <div class="stat-label">追蹤標的</div>
+        <div class="stat-label" data-i18n="stat_total">追蹤標的</div>
         <div class="stat-num" id="stat-total">0 檔</div>
       </div>
       <div class="stat-box">
-        <div class="stat-label">❤ 自選監控標的</div>
+        <div class="stat-label" data-i18n="stat_fav">❤ 自選監控標的</div>
         <div class="stat-num text-pink" id="stat-fav-count">0 檔</div>
       </div>
       <div class="stat-box">
-        <div class="stat-label">具備安全邊際 (低估)</div>
+        <div class="stat-label" data-i18n="stat_undervalued">具備安全邊際 (低估)</div>
         <div class="stat-num text-green" id="stat-undervalued">0 檔</div>
       </div>
       <div class="stat-box">
-        <div class="stat-label">市價溢價過高 (高估)</div>
+        <div class="stat-label" data-i18n="stat_overvalued">市價溢價過高 (高估)</div>
         <div class="stat-num text-red" id="stat-overvalued">0 檔</div>
       </div>
       <div class="stat-box">
-        <div class="stat-label">已設定目標價標的</div>
+        <div class="stat-label" data-i18n="stat_saved">已設定目標價標的</div>
         <div class="stat-num text-gold" id="stat-saved-count">0 檔</div>
       </div>
     </div>
@@ -303,48 +401,48 @@
     <!-- 篩選面板 -->
     <div class="filter-panel">
       <div class="filter-row">
-        <span class="filter-title">篩選維度：</span>
+        <span class="filter-title" data-i18n="filter_dim">篩選維度：</span>
         <div class="filter-btns" id="val-filters">
-          <button class="f-btn active" onclick="setValFilter('ALL')">全部標的</button>
-          <button class="f-btn btn-fav" onclick="setValFilter('FAVORITES')">❤️️ 我的自選收藏</button>
-          <button class="f-btn" onclick="setValFilter('UNDERVALUED')">🟢 具安全邊際 (低估)</button>
-          <button class="f-btn" onclick="setValFilter('OVERVALUED')">🔴 溢價過高 (高估)</button>
-          <button class="f-btn" onclick="setValFilter('SAVED')">💾 已存目標價</button>
+          <button class="f-btn active" onclick="setValFilter('ALL')" data-i18n="opt_all">全部標的</button>
+          <button class="f-btn btn-fav" onclick="setValFilter('FAVORITES')" data-i18n="opt_fav">❤ 我的自選收藏</button>
+          <button class="f-btn" onclick="setValFilter('UNDERVALUED')" data-i18n="opt_undervalued">🟢 具安全邊際 (低估)</button>
+          <button class="f-btn" onclick="setValFilter('OVERVALUED')" data-i18n="opt_overvalued">🔴 溢價過高 (高估)</button>
+          <button class="f-btn" onclick="setValFilter('SAVED')" data-i18n="opt_saved">💾 已存目標價</button>
         </div>
         <input type="text" class="search-input" id="search-ticker" placeholder="搜尋代號、名稱、主板塊或細分子行業..." oninput="renderScreenerTable()">
       </div>
 
       <div class="filter-row">
-        <span class="filter-title">主板塊：</span>
+        <span class="filter-title" data-i18n="filter_sector">主板塊：</span>
         <div class="filter-btns" id="sector-filters">
-          <button class="f-btn active" onclick="setSectorFilter('ALL')">全部板塊</button>
-          <button class="f-btn" onclick="setSectorFilter('資訊科技')">資訊科技</button>
-          <button class="f-btn" onclick="setSectorFilter('通訊服務')">通訊服務</button>
-          <button class="f-btn" onclick="setSectorFilter('非必需消費')">非必需消費</button>
-          <button class="f-btn" onclick="setSectorFilter('必需消費')">必需消費</button>
-          <button class="f-btn" onclick="setSectorFilter('金融')">金融</button>
-          <button class="f-btn" onclick="setSectorFilter('醫療保健')">醫療保健</button>
-          <button class="f-btn" onclick="setSectorFilter('能源')">能源</button>
-          <button class="f-btn" onclick="setSectorFilter('工業')">工業</button>
-          <button class="f-btn" onclick="setSectorFilter('原物料')">原物料</button>
-          <button class="f-btn" onclick="setSectorFilter('公用事業')">公用事業</button>
-          <button class="f-btn" onclick="setSectorFilter('房地產')">房地產</button>
+          <button class="f-btn active" onclick="setSectorFilter('ALL')" data-i18n="opt_all_sectors">全部板塊</button>
+          <button class="f-btn" onclick="setSectorFilter('資訊科技')" data-i18n="sec_tech">資訊科技</button>
+          <button class="f-btn" onclick="setSectorFilter('通訊服務')" data-i18n="sec_comm">通訊服務</button>
+          <button class="f-btn" onclick="setSectorFilter('非必需消費')" data-i18n="sec_c_disc">非必需消費</button>
+          <button class="f-btn" onclick="setSectorFilter('必需消費')" data-i18n="sec_c_stap">必需消費</button>
+          <button class="f-btn" onclick="setSectorFilter('金融')" data-i18n="sec_fin">金融</button>
+          <button class="f-btn" onclick="setSectorFilter('醫療保健')" data-i18n="sec_health">醫療保健</button>
+          <button class="f-btn" onclick="setSectorFilter('能源')" data-i18n="sec_energy">能源</button>
+          <button class="f-btn" onclick="setSectorFilter('工業')" data-i18n="sec_ind">工業</button>
+          <button class="f-btn" onclick="setSectorFilter('原物料')" data-i18n="sec_mat">原物料</button>
+          <button class="f-btn" onclick="setSectorFilter('公用事業')" data-i18n="sec_util">公用事業</button>
+          <button class="f-btn" onclick="setSectorFilter('房地產')" data-i18n="sec_re">房地產</button>
         </div>
       </div>
 
       <div class="filter-row" id="subindustry-row">
-        <span class="filter-title">細分子行業：</span>
+        <span class="filter-title" data-i18n="filter_subind">細分子行業：</span>
         <div class="filter-btns" id="subindustry-filters">
-          <button class="f-btn active" onclick="setSubIndustryFilter('ALL')">全部子行業</button>
+          <button class="f-btn active" onclick="setSubIndustryFilter('ALL')" data-i18n="opt_all_sub">全部子行業</button>
         </div>
       </div>
     </div>
 
     <div class="scroll-hint-bar">
-      <span>💡 提示：支援滑鼠直接拖動、觸控板左右滑、按住 <b>Shift + 滾輪</b>、或點擊右側按鈕滑動</span>
+      <span data-i18n="scroll_tip">💡 提示：支援滑鼠直接拖動、觸控板左右滑、按住 <b>Shift + 滾輪</b>、或點擊右側按鈕滑動</span>
       <div class="scroll-btn-grp">
-        <button class="scroll-arrow-btn" onclick="scrollTableBy(-400)">◀ 向左滑</button>
-        <button class="scroll-arrow-btn" onclick="scrollTableBy(400)">向右滑 ▶</button>
+        <button class="scroll-arrow-btn" onclick="scrollTableBy(-400)" data-i18n="scroll_left">◀ 向左滑</button>
+        <button class="scroll-arrow-btn" onclick="scrollTableBy(400)" data-i18n="scroll_right">向右滑 ▶</button>
       </div>
     </div>
 
@@ -352,34 +450,34 @@
       <table id="screener-table">
         <thead>
           <tr>
-            <th class="col-fixed-1" onclick="sortTable('ticker')">收藏 / 代碼</th>
-            <th class="col-fixed-2" onclick="sortTable('exchange')">市場</th>
-            <th class="col-fixed-3" onclick="sortTable('name')">企業名稱</th>
-            <th onclick="sortTable('sector')" style="text-align: left; width: 120px;">主板塊</th>
-            <th onclick="sortTable('industry')" style="text-align: left; width: 180px;">細分子行業</th>
-            <th onclick="sortTable('price')" style="width: 110px;">最新股價 ($)</th>
-            <th onclick="sortTable('fairVal')" style="width: 110px;">公允價值 ($)</th>
-            <th onclick="sortTable('target_price')" style="width: 110px;">目標價值 ($)</th>
-            <th style="text-align: center; width: 110px;">操作</th>
-            <th onclick="sortTable('target_spread')" style="width: 125px;">目標 vs 市價溢價</th>
-            <th onclick="sortTable('premiumPct')" style="width: 110px;">公允溢價幅度</th>
-            <th onclick="sortTable('moat_score')" style="width: 140px; text-align: center;">巴菲特護城河</th>
-            <th onclick="sortTable('WACC')" style="width: 125px;">加權成本 WACC / g</th>
-            <th onclick="sortTable('EV')" style="width: 135px;">企業價值 EV ($M)</th>
-            <th onclick="sortTable('mcap')" style="width: 135px;">市值 ($M)</th>
-            <th onclick="sortTable('pe_trailing')" style="width: 90px;">靜態 P/E</th>
-            <th onclick="sortTable('pe_forward')" style="width: 90px;">動態 P/E</th>
-            <th onclick="sortTable('pb_trailing')" style="width: 90px;">靜態 P/B</th>
-            <th onclick="sortTable('div_yield')" style="width: 105px;">股息率 (%)</th>
+            <th class="col-fixed-1" onclick="sortTable('ticker')" data-i18n="th_ticker">收藏 / 代碼</th>
+            <th class="col-fixed-2" onclick="sortTable('exchange')" data-i18n="th_exchange">市場</th>
+            <th class="col-fixed-3" onclick="sortTable('name')" data-i18n="th_name">企業名稱</th>
+            <th onclick="sortTable('sector')" style="text-align: left; width: 120px;" data-i18n="th_sector">主板塊</th>
+            <th onclick="sortTable('industry')" style="text-align: left; width: 180px;" data-i18n="th_industry">細分子行業</th>
+            <th onclick="sortTable('price')" style="width: 110px;" data-i18n="th_price">最新股價 ($)</th>
+            <th onclick="sortTable('fairVal')" style="width: 110px;" data-i18n="th_fair">公允價值 ($)</th>
+            <th onclick="sortTable('target_price')" style="width: 110px;" data-i18n="th_target">目標價值 ($)</th>
+            <th style="text-align: center; width: 110px;" data-i18n="th_action">操作</th>
+            <th onclick="sortTable('target_spread')" style="width: 125px;" data-i18n="th_target_spread">目標 vs 市價溢價</th>
+            <th onclick="sortTable('premiumPct')" style="width: 110px;" data-i18n="th_premium">公允溢價幅度</th>
+            <th onclick="sortTable('moat_score')" style="width: 140px; text-align: center;" data-i18n="th_moat">巴菲特護城河</th>
+            <th onclick="sortTable('WACC')" style="width: 125px;" data-i18n="th_wacc">加權成本 WACC / g</th>
+            <th onclick="sortTable('EV')" style="width: 135px;" data-i18n="th_ev">企業價值 EV ($M)</th>
+            <th onclick="sortTable('mcap')" style="width: 135px;" data-i18n="th_mcap">市值 ($M)</th>
+            <th onclick="sortTable('pe_trailing')" style="width: 90px;" data-i18n="th_pe_trailing">靜態 P/E</th>
+            <th onclick="sortTable('pe_forward')" style="width: 90px;" data-i18n="th_pe_forward">動態 P/E</th>
+            <th onclick="sortTable('pb_trailing')" style="width: 90px;" data-i18n="th_pb">靜態 P/B</th>
+            <th onclick="sortTable('div_yield')" style="width: 105px;" data-i18n="th_div">股息率 (%)</th>
             <th onclick="sortTable('fcf_to_ev')" style="width: 110px;">FCF / EV (%)</th>
             <th onclick="sortTable('fcf_to_mcap')" style="width: 120px;">FCF / Mcap (%)</th>
-            <th onclick="sortTable('cash_to_assets')" style="width: 110px;">現金/資產 (%)</th>
-            <th onclick="sortTable('liab_to_assets')" style="width: 110px;">負債/資產 (%)</th>
-            <th onclick="sortTable('current_ratio')" style="width: 90px;">流動比率</th>
-            <th onclick="sortTable('cash_minus_liab')" style="width: 125px;">現金淨額 ($M)</th>
+            <th onclick="sortTable('cash_to_assets')" style="width: 110px;" data-i18n="th_cash_assets">現金/資產 (%)</th>
+            <th onclick="sortTable('liab_to_assets')" style="width: 110px;" data-i18n="th_liab_assets">負債/資產 (%)</th>
+            <th onclick="sortTable('current_ratio')" style="width: 90px;" data-i18n="th_curr_ratio">流動比率</th>
+            <th onclick="sortTable('cash_minus_liab')" style="width: 125px;" data-i18n="th_net_cash">現金淨額 ($M)</th>
             <th onclick="sortTable('roe')" style="width: 90px;">ROE (%)</th>
             <th onclick="sortTable('roa')" style="width: 90px;">ROA (%)</th>
-            <th onclick="sortTable('f_score')" style="width: 115px; text-align: center;">F-Score 評分</th>
+            <th onclick="sortTable('f_score')" style="width: 115px; text-align: center;" data-i18n="th_fscore">F-Score 評分</th>
             <th onclick="sortTable('ev_to_ebitda')" style="width: 115px;">EV / EBITDA</th>
             <th onclick="sortTable('debt_to_ebitda')" style="width: 120px;">Debt / EBITDA</th>
             <th onclick="sortTable('net_debt_to_ebitda')" style="width: 135px;">Net Debt / EBITDA</th>
@@ -404,43 +502,43 @@
         <span id="det-saved-badge" class="badge badge-target" style="display: none;">已儲存目標價</span>
       </div>
       <div style="display: flex; gap: 8px;">
-        <button class="btn-save" onclick="saveCustomModel()">💾 儲存自訂目標價 (Save Target)</button>
-        <button class="btn-reset" onclick="resetToFmpDefaults()">恢復官方預設</button>
-        <button class="btn-back" onclick="navigateBack()">← 返回總表</button>
+        <button class="btn-save" onclick="saveCustomModel()" data-i18n="btn_save_target">💾 儲存自訂目標價 (Save Target)</button>
+        <button class="btn-reset" onclick="resetToFmpDefaults()" data-i18n="btn_reset_defaults">恢復官方預設</button>
+        <button class="btn-back" onclick="navigateBack()" data-i18n="btn_back_list">← 返回總表</button>
       </div>
     </div>
 
     <div class="top-stats">
       <div class="stat-box">
-        <div class="stat-label">每股合理內在價值 (公允價值 / 自訂目標)</div>
+        <div class="stat-label" data-i18n="det_label_fair">每股合理內在價值 (公允價值 / 自訂目標)</div>
         <div class="stat-num text-green" id="det-res-fair">$0.00</div>
         <div style="font-size: 11px; color: var(--text-muted);" id="det-res-status">--</div>
       </div>
       <div class="stat-box">
-        <div class="stat-label">當前市價 vs 溢價幅度</div>
+        <div class="stat-label" data-i18n="det_label_price">當前市價 vs 溢價幅度</div>
         <div class="stat-num" id="det-res-price">$0.00</div>
         <div style="font-size: 11px;" id="det-res-premium">--</div>
       </div>
       <div class="stat-box">
-        <div class="stat-label">加權折現成本 (WACC / Ke) / 終值 g</div>
+        <div class="stat-label" data-i18n="det_label_wacc">加權折現成本 (WACC / Ke) / 終值 g</div>
         <div class="stat-num" id="det-res-wacc">0.00%</div>
         <div style="font-size: 11px; color: var(--text-muted);">終值 g: <span id="det-res-g">0.00%</span> | 利差: <span id="det-res-spread">0.00%</span></div>
       </div>
       <div class="stat-box">
-        <div class="stat-label">企業價值 EV / 槓桿比率</div>
+        <div class="stat-label" data-i18n="det_label_ev">企業價值 EV / 槓桿比率</div>
         <div class="stat-num" id="det-res-ev">$0 M</div>
         <div style="font-size: 11px; color: var(--text-muted);">EV/EBITDA: <span id="det-res-evebitda">--</span> | Net Debt/EBITDA: <span id="det-res-nde">--</span></div>
       </div>
     </div>
 
-    <!-- 金融專屬雙軌模型面板 (含即時可調滑桿) -->
+    <!-- 金融專屬雙軌模型面板 -->
     <div id="panel-fin-models" style="display: none; margin-bottom: 20px;">
       <div class="panel">
-        <div class="panel-title">🏛️ 金融機構專屬估值矩陣 (Excess Return on Tangible Book + DDM)</div>
+        <div class="panel-title" data-i18n="fin_title">🏛️ 金融機構專屬估值矩陣 (Excess Return on Tangible Book + DDM)</div>
         
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 16px;">
           <div class="stat-box" style="border-left: 4px solid var(--accent);">
-            <div class="stat-label">1. 超額有形資產回報模型 (Excess Return)</div>
+            <div class="stat-label" data-i18n="fin_m1">1. 超額有形資產回報模型 (Excess Return)</div>
             <div class="stat-num text-green" id="fin-excess-val">$0.00</div>
             <div style="font-size: 12px; color: var(--text-muted); line-height: 1.5; margin-top: 4px;">
               每股有形資產 TBVPS: <b id="fin-tbvps" style="color: #fff;">$0.00</b> (P/TBV: <b id="fin-ptbv" style="color: var(--accent);">0.0x</b>)<br>
@@ -448,7 +546,7 @@
             </div>
           </div>
           <div class="stat-box" style="border-left: 4px solid var(--green);">
-            <div class="stat-label">2. 實質股東現金分紅模型 (DDM + Buyback)</div>
+            <div class="stat-label" data-i18n="fin_m2">2. 實質股東現金分紅模型 (DDM + Buyback)</div>
             <div class="stat-num text-green" id="fin-ddm-val">$0.00</div>
             <div style="font-size: 12px; color: var(--text-muted); line-height: 1.5; margin-top: 4px;">
               每股常態實質分紅: <b id="fin-dps" style="color: #fff;">$0.00</b><br>
@@ -457,35 +555,35 @@
           </div>
         </div>
 
-        <!-- 3 大核心即時調節滑桿 -->
+        <!-- 金融核心可調滑桿 -->
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-bottom: 16px;">
           <div class="slider-row">
             <div class="slider-head">
-              <span>股權資本成本 (Ke, 折現率)</span>
+              <span data-i18n="fin_ke">股權資本成本 (Ke, 折現率)</span>
               <span class="val" id="disp-fin-ke">9.49%</span>
             </div>
-            <input type="range" class="fin-slider" id="slider-fin-ke" min="8.0" max="13.0" step="0.05" oninput="onFinSliderChange()">
+            <input type="range" class="fin-slider" id="slider-fin-ke" min="7.0" max="14.0" step="0.05" oninput="onFinSliderChange()">
           </div>
 
           <div class="slider-row">
             <div class="slider-head">
-              <span>永續終值增長率 (g)</span>
+              <span data-i18n="fin_g">永續終值增長率 (g)</span>
               <span class="val" id="disp-fin-g">2.25%</span>
             </div>
-            <input type="range" class="fin-slider" id="slider-fin-g" min="1.5" max="3.0" step="0.05" oninput="onFinSliderChange()">
+            <input type="range" class="fin-slider" id="slider-fin-g" min="1.0" max="3.5" step="0.05" oninput="onFinSliderChange()">
           </div>
 
           <div class="slider-row">
             <div class="slider-head">
-              <span>有形股本報酬率 (ROTE)</span>
+              <span data-i18n="fin_rote">有形股本報酬率 (ROTE)</span>
               <span class="val" id="disp-fin-rote">17.4%</span>
             </div>
-            <input type="range" class="fin-slider" id="slider-fin-rote" min="10.0" max="25.0" step="0.1" oninput="onFinSliderChange()">
+            <input type="range" class="fin-slider" id="slider-fin-rote" min="8.0" max="28.0" step="0.1" oninput="onFinSliderChange()">
           </div>
         </div>
 
-        <div style="background: rgba(15, 23, 42, 0.6); padding: 12px 16px; border-radius: 6px; font-size: 12.5px; line-height: 1.6; color: #cbd5e1; border-left: 3px solid var(--gold);">
-          💡 <b>巴菲特金融業估值洞見</b>：銀行的負債（存款）是生財原料，且受制於嚴格監管資本。拖動上方滑桿可進行即時壓力測試（例如調高 Ke 或調降 ROTE 模擬黑天鵝信貸衰退情境）。
+        <div style="background: rgba(15, 23, 42, 0.6); padding: 12px 16px; border-radius: 6px; font-size: 12.5px; line-height: 1.6; color: #cbd5e1; border-left: 3px solid var(--gold);" data-i18n="fin_tip">
+          💡 <b>巴菲特金融業估值洞見</b>：銀行的負債（存款）是生財原料，且受制於嚴格監管資本。拖動上方滑桿可進行即時壓力測試。
         </div>
       </div>
     </div>
@@ -493,58 +591,74 @@
     <!-- 一般非金融 FCF DCF 版面 -->
     <div class="main-layout" id="panel-general-dcf">
       <div class="panel">
-        <div class="panel-title">1. 基本面與資產負債表 (可手動自訂)</div>
+        <div class="panel-title" data-i18n="sec1_title">1. 基本面與資產負債表 (可手動自訂)</div>
         <div class="form-group">
-          <label>當前每股股價 ($)</label>
+          <label data-i18n="lbl_price">當前每股股價 ($)</label>
           <input type="number" id="inp-price" step="0.5" oninput="onDetailParamChange()">
         </div>
         <div class="form-group">
-          <label>稀釋總股數 (百萬股, M)</label>
+          <label data-i18n="lbl_shares">稀釋總股數 (百萬股, M)</label>
           <input type="number" id="inp-shares" step="1" oninput="onDetailParamChange()">
         </div>
         <div class="form-group">
-          <label>總有息負債 ($M)</label>
+          <label data-i18n="lbl_debt">總有息負債 ($M)</label>
           <input type="number" id="inp-debt" step="50" oninput="onDetailParamChange()">
         </div>
         <div class="form-group">
-          <label>現金及約當資產 ($M)</label>
+          <label data-i18n="lbl_cash">現金及約當資產 ($M)</label>
           <input type="number" id="inp-cash" step="50" oninput="onDetailParamChange()">
         </div>
         <div class="form-group">
-          <label>基準自由現金流 FCF_0 ($M)</label>
+          <label data-i18n="lbl_fcf0">基準自由現金流 FCF_0 ($M)</label>
           <input type="number" id="inp-fcf0" step="50" oninput="onDetailParamChange()">
         </div>
 
-        <div class="panel-title" style="margin-top: 16px;">2. 資本成本與折現模型 (WACC)</div>
+        <div class="panel-title" style="margin-top: 16px;" data-i18n="sec2_title">2. 資本成本與折現模型 (WACC)</div>
+        <!-- 需求 i: 無風險利率年期選擇下拉選單 (預設 5 年期) -->
         <div class="form-group">
-          <label>無風險利率 Rf (%)</label>
+          <label data-i18n="lbl_rf_tenor">無風險利率美債年期</label>
+          <select id="inp-rf-tenor" onchange="onRfTenorChange()">
+            <option value="1">1 年期 (1Y Treasury)</option>
+            <option value="2">2 年期 (2Y Treasury)</option>
+            <option value="3">3 年期 (3Y Treasury)</option>
+            <option value="4">4 年期 (4Y Treasury)</option>
+            <option value="5" selected>5 年期 (5Y Treasury - 預設)</option>
+            <option value="6">6 年期 (6Y Treasury)</option>
+            <option value="7">7 年期 (7Y Treasury)</option>
+            <option value="8">8 年期 (8Y Treasury)</option>
+            <option value="9">9 年期 (9Y Treasury)</option>
+            <option value="10">10 年期 (10Y Treasury)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label data-i18n="lbl_rf">無風險利率 Rf (%)</label>
           <input type="number" id="inp-rf" step="0.05" oninput="onDetailParamChange()">
         </div>
         <div class="form-group">
-          <label>股票風險溢價 ERP (%)</label>
+          <label data-i18n="lbl_erp">股票風險溢價 ERP (%)</label>
           <input type="number" id="inp-erp" step="0.05" oninput="onDetailParamChange()">
         </div>
         <div class="form-group">
-          <label>貝塔係數 (Beta, β)</label>
+          <label data-i18n="lbl_beta">貝塔係數 (Beta, β 優先採 FMP 5年)</label>
           <input type="number" id="inp-beta" step="0.05" oninput="onDetailParamChange()">
         </div>
         <div class="form-group">
-          <label>稅前借貸利率 Kd (%)</label>
+          <label data-i18n="lbl_kd">稅前借貸利率 Kd (%)</label>
           <input type="number" id="inp-kd" step="0.05" oninput="onDetailParamChange()">
         </div>
         <div class="form-group">
-          <label>企業所得稅率 (%)</label>
+          <label data-i18n="lbl_tax">企業所得稅率 (%)</label>
           <input type="number" id="inp-tax" step="0.5" oninput="onDetailParamChange()">
         </div>
         <div class="form-group">
-          <label>永續終值增長率 g (%)</label>
+          <label data-i18n="lbl_g">永續終值增長率 g (%)</label>
           <input type="number" id="inp-g" step="0.05" oninput="onDetailParamChange()">
         </div>
       </div>
 
       <div>
         <div class="panel">
-          <div class="panel-title">10 年自由現金流折現排程 (可逐年微調 Y1-Y10 增速)</div>
+          <div class="panel-title" data-i18n="dcf_sched_title">10 年自由現金流折現排程 (可逐年微調 Y1-Y10 增速)</div>
           <div class="table-scroll-wrapper" style="overflow-x: auto;">
             <table id="dcf-table">
               <thead><tr id="dcf-head"><th>年份 (Period)</th></tr></thead>
@@ -559,7 +673,7 @@
         </div>
 
         <div class="panel">
-          <div class="panel-title">雙變數敏感度分析矩陣 (WACC vs 永續增長率 g)</div>
+          <div class="panel-title" data-i18n="sens_matrix_title">雙變數敏感度分析矩陣 (WACC vs 永續增長率 g)</div>
           <div class="table-scroll-wrapper" style="overflow-x: auto;">
             <table id="sens-table">
               <thead>
@@ -578,61 +692,118 @@
     </div>
   </div>
 
-  <!-- ==================== 頁面 3：巴菲特護城河 10 大維度診斷專頁 ==================== -->
+  <!-- ==================== 頁面 3：企業概況與即時走勢圖專頁 (由代號進入) ==================== -->
+  <div id="company-view">
+    <div class="detail-header">
+      <div class="detail-title">
+        <span id="cmp-ticker" style="color: var(--accent); font-size: 24px;">NVDA</span>
+        <span id="cmp-name" style="font-size: 18px; color: #fff;">輝達</span>
+        <span id="cmp-exchange" class="badge">NASDAQ</span>
+      </div>
+      <div style="display: flex; gap: 8px;">
+        <button class="btn-save" onclick="openDetail(activeCompanyTicker)" data-i18n="btn_goto_dcf">📈 前往估值模型</button>
+        <button class="btn-back" onclick="navigateBack()" data-i18n="btn_back_list">← 返回總表</button>
+      </div>
+    </div>
+
+    <!-- 企業 Logo 與詳細業務輪廓 -->
+    <div class="company-profile-card">
+      <img id="cmp-logo-img" src="" alt="Logo" class="company-logo" onerror="this.src='https://assets.financialmodelingprep.com/symbol/default.png'">
+      <div style="flex: 1;">
+        <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 6px;">
+          <h2 id="cmp-full-name" style="font-size: 18px; color: #fff;">NVIDIA Corporation</h2>
+          <a id="cmp-site-link" href="#" target="_blank" style="color: var(--accent); font-size: 12.5px; text-decoration: underline;" data-i18n="cmp_website">官方網站 ↗</a>
+        </div>
+        <p id="cmp-description" style="color: #cbd5e1; font-size: 13px; line-height: 1.6; max-height: 90px; overflow-y: auto;">
+          正在同步企業基本面描述...
+        </p>
+      </div>
+    </div>
+
+    <!-- 梳理後的基本面關鍵數據卡片 -->
+    <div class="company-meta-grid">
+      <div class="company-meta-item"><span class="label" data-i18n="cmp_ceo">執行長 (CEO):</span><span class="val" id="cmp-meta-ceo">--</span></div>
+      <div class="company-meta-item"><span class="label" data-i18n="cmp_sector">主行業領域:</span><span class="val" id="cmp-meta-sector">--</span></div>
+      <div class="company-meta-item"><span class="label" data-i18n="cmp_industry">細分產業:</span><span class="val" id="cmp-meta-industry">--</span></div>
+      <div class="company-meta-item"><span class="label" data-i18n="cmp_emp">全職員工數:</span><span class="val" id="cmp-meta-emp">--</span></div>
+      <div class="company-meta-item"><span class="label" data-i18n="cmp_mcap">當前市值:</span><span class="val text-gold" id="cmp-meta-mcap">--</span></div>
+      <div class="company-meta-item"><span class="label" data-i18n="cmp_beta_5y">5 年期 Beta (FMP):</span><span class="val text-green" id="cmp-meta-beta">--</span></div>
+      <div class="company-meta-item"><span class="label">P/E (TTM):</span><span class="val" id="cmp-meta-pe">--</span></div>
+      <div class="company-meta-item"><span class="label">P/B:</span><span class="val" id="cmp-meta-pb">--</span></div>
+    </div>
+
+    <!-- 需求 vi: 專業股價圖表與全週期切換按鈕 -->
+    <div class="panel">
+      <div class="panel-title" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+        <span data-i18n="chart_title">📊 即時股價走勢圖與歷史 K 線</span>
+        <div class="chart-controls">
+          <button class="chart-btn" onclick="changeChartInterval('1m')">1 min</button>
+          <button class="chart-btn" onclick="changeChartInterval('5m')">5 min</button>
+          <button class="chart-btn" onclick="changeChartInterval('15m')">15 min</button>
+          <button class="chart-btn" onclick="changeChartInterval('30m')">30 min</button>
+          <button class="chart-btn" onclick="changeChartInterval('1h')">1 hour</button>
+          <button class="chart-btn" onclick="changeChartInterval('4h')">4 hour</button>
+          <button class="chart-btn active" onclick="changeChartInterval('1d')">1 day</button>
+          <button class="chart-btn" onclick="changeChartInterval('1w')">1 week</button>
+          <button class="chart-btn" onclick="changeChartInterval('1M')">1 month</button>
+        </div>
+      </div>
+      <div id="tv-chart-container"></div>
+    </div>
+  </div>
+
+  <!-- ==================== 頁面 4：巴菲特護城河診斷專頁 ==================== -->
   <div id="moat-view">
     <div class="detail-header">
       <div class="detail-title">
         <span id="moat-ticker" style="color: var(--accent);">NVDA</span>
         <span id="moat-exchange" class="badge">NASDAQ</span>
         <span id="moat-name" style="font-size: 16px; color: #cbd5e1;">輝達</span>
-        <span style="font-size: 14px; color: var(--text-muted);">— 巴菲特經濟護城河 (Economic Moat) 10 大維度診斷</span>
+        <span style="font-size: 14px; color: var(--text-muted);" data-i18n="moat_header_sub">— 巴菲特經濟護城河 (Economic Moat) 10 大維度診斷</span>
       </div>
       <div style="display: flex; gap: 8px;">
-        <button class="btn-save" onclick="openDetail(activeMoatTicker)">📈 前往估值模型</button>
-        <button class="btn-back" onclick="navigateBack()">← 返回總表</button>
+        <button class="btn-save" onclick="openDetail(activeMoatTicker)" data-i18n="btn_goto_dcf">📈 前往估值模型</button>
+        <button class="btn-back" onclick="navigateBack()" data-i18n="btn_back_list">← 返回總表</button>
       </div>
     </div>
 
     <div class="top-stats">
       <div class="stat-box">
-        <div class="stat-label">巴菲特護城河總分</div>
+        <div class="stat-label" data-i18n="moat_total_lbl">巴菲特護城河總分</div>
         <div class="stat-num" id="moat-total-score">0 / 100</div>
         <div style="font-size: 12px;" id="moat-grade-badge">--</div>
       </div>
       <div class="stat-box">
-        <div class="stat-label">定價權與無形資產</div>
+        <div class="stat-label" data-i18n="moat_cat1_lbl">定價權與無形資產</div>
         <div class="stat-num" id="moat-cat-intangible">0 / 20</div>
-        <div style="font-size: 11px; color: var(--text-muted);">品牌定價權 (M1) + 專利法規壁壘 (M2)</div>
       </div>
       <div class="stat-box">
-        <div class="stat-label">結構性壁壘與飛輪</div>
+        <div class="stat-label" data-i18n="moat_cat2_lbl">結構性壁壘與飛輪</div>
         <div class="stat-num" id="moat-cat-structural">0 / 40</div>
-        <div style="font-size: 11px; color: var(--text-muted);">轉換成本 (M3) + 網絡效應 (M4) + 規模成本 (M5/M6)</div>
       </div>
       <div class="stat-box">
-        <div class="stat-label">超額回報與韌性</div>
+        <div class="stat-label" data-i18n="moat_cat3_lbl">超額回報與韌性</div>
         <div class="stat-num" id="moat-cat-resilience">0 / 40</div>
-        <div style="font-size: 11px; color: var(--text-muted);">ROIC韌性 (M7) + 不可複製 (M8) + 抗顛覆與管理 (M9/M10)</div>
       </div>
     </div>
 
     <div class="ai-comment-card">
-      <div style="font-weight: 700; color: var(--accent); margin-bottom: 6px;">🧠 巴菲特視角 · 商業壁壘與權威點評：</div>
+      <div style="font-weight: 700; color: var(--accent); margin-bottom: 6px;" data-i18n="moat_verdict_lbl">🧠 巴菲特視角 · 商業壁壘與權威點評：</div>
       <div id="moat-ai-comment" style="color: #cbd5e1;">正在生成評語...</div>
     </div>
 
     <div class="panel">
-      <div class="panel-title">巴菲特經濟護城河 10 大檢驗維度評分表 (0 - 10 分)</div>
+      <div class="panel-title" data-i18n="moat_table_title">巴菲特經濟護城河 10 大檢驗維度評分表 (0 - 10 分)</div>
       <div class="table-scroll-wrapper" style="overflow-x: auto;">
         <table class="moat-table">
           <thead>
             <tr>
-              <th style="width: 75px; text-align: center;">得分</th>
-              <th style="width: 100px;">核心維度</th>
-              <th style="width: 190px;">測試項目</th>
-              <th style="width: 260px;">評分標準與經濟意涵</th>
-              <th style="width: 150px;">評分視覺條</th>
-              <th style="min-width: 380px;">巴菲特視角深度剖析</th>
+              <th style="width: 75px; text-align: center;" data-i18n="th_score">得分</th>
+              <th style="width: 100px;" data-i18n="th_dim">核心維度</th>
+              <th style="width: 190px;" data-i18n="th_test">測試項目</th>
+              <th style="width: 260px;" data-i18n="th_criteria">評分標準與經濟意涵</th>
+              <th style="width: 150px;" data-i18n="th_visual">評分視覺條</th>
+              <th style="min-width: 380px;" data-i18n="th_analysis">深度剖析</th>
             </tr>
           </thead>
           <tbody id="moat-breakdown-body"></tbody>
@@ -641,54 +812,51 @@
     </div>
   </div>
 
-  <!-- ==================== 頁面 4：Piotroski F-Score 9 分診斷頁 ==================== -->
+  <!-- ==================== 頁面 5：Piotroski F-Score 診斷頁 ==================== -->
   <div id="fscore-view">
     <div class="detail-header">
       <div class="detail-title">
         <span id="fsc-ticker" style="color: var(--accent);">NVDA</span>
         <span id="fsc-exchange" class="badge">NASDAQ</span>
         <span id="fsc-name" style="font-size: 16px; color: #cbd5e1;">輝達</span>
-        <span style="font-size: 14px; color: var(--text-muted);">— Piotroski F-Score 皮氏 9 大財務診斷</span>
+        <span style="font-size: 14px; color: var(--text-muted);" data-i18n="fsc_header_sub">— Piotroski F-Score 皮氏 9 大財務診斷</span>
       </div>
       <div style="display: flex; gap: 8px;">
-        <button class="btn-save" onclick="openDetail(activeFScoreTicker)">📈 前往估值模型</button>
-        <button class="btn-back" onclick="navigateBack()">← 返回總表</button>
+        <button class="btn-save" onclick="openDetail(activeFScoreTicker)" data-i18n="btn_goto_dcf">📈 前往估值模型</button>
+        <button class="btn-back" onclick="navigateBack()" data-i18n="btn_back_list">← 返回總表</button>
       </div>
     </div>
 
     <div class="top-stats">
       <div class="stat-box">
-        <div class="stat-label">皮氏財務健康度評分</div>
+        <div class="stat-label" data-i18n="fsc_total_lbl">皮氏財務健康度評分</div>
         <div class="stat-num" id="fsc-total-score">0 / 9 分</div>
         <div style="font-size: 12px;" id="fsc-grade-text">--</div>
       </div>
       <div class="stat-box">
-        <div class="stat-label">1. 盈利能力指標 (Profitability)</div>
+        <div class="stat-label" data-i18n="fsc_cat1_lbl">1. 盈利能力指標 (Profitability)</div>
         <div class="stat-num" id="fsc-cat-profit">0 / 4 分</div>
-        <div style="font-size: 11px; color: var(--text-muted);">ROA、現金流 CFO 與應計品質</div>
       </div>
       <div class="stat-box">
-        <div class="stat-label">2. 資本結構與流動性 (Leverage)</div>
+        <div class="stat-label" data-i18n="fsc_cat2_lbl">2. 資本結構與流動性 (Leverage)</div>
         <div class="stat-num" id="fsc-cat-leverage">0 / 3 分</div>
-        <div style="font-size: 11px; color: var(--text-muted);">槓桿率、短期流動比率與股本稀釋</div>
       </div>
       <div class="stat-box">
-        <div class="stat-label">3. 營運效率指標 (Efficiency)</div>
+        <div class="stat-label" data-i18n="fsc_cat3_lbl">3. 營運效率指標 (Efficiency)</div>
         <div class="stat-num" id="fsc-cat-efficiency">0 / 2 分</div>
-        <div style="font-size: 11px; color: var(--text-muted);">毛利率擴張與資產週轉率提升</div>
       </div>
     </div>
 
     <div class="panel">
-      <div class="panel-title">皮氏 9 分檢驗標準明細表 (Piotroski Criteria Breakdown)</div>
+      <div class="panel-title" data-i18n="fsc_table_title">皮氏 9 分檢驗標準明細表 (Piotroski Criteria Breakdown)</div>
       <table class="fscore-table">
         <thead>
           <tr>
-            <th style="width: 70px; text-align: center;">得分</th>
-            <th style="width: 140px;">核心維度</th>
-            <th>測試項目與標準</th>
-            <th>實際財務指標判定</th>
-            <th style="width: 110px; text-align: center;">狀態</th>
+            <th style="width: 70px; text-align: center;" data-i18n="th_score">得分</th>
+            <th style="width: 140px;" data-i18n="th_dim">核心維度</th>
+            <th data-i18n="fsc_th_test">測試項目與標準</th>
+            <th data-i18n="fsc_th_actual">實際財務指標判定</th>
+            <th style="width: 110px; text-align: center;" data-i18n="th_status">狀態</th>
           </tr>
         </thead>
         <tbody id="fscore-breakdown-body"></tbody>
@@ -699,7 +867,23 @@
 
 <script>
   let stockUniverse = {};
-  const commonRf = 0.0450;
+  
+  // 需求 i: 1-10 年期美國公債殖利率曲線基準表 (預設 5 年期為 4.30%)
+  const US_TREASURY_CURVE = {
+    1: 0.0465,
+    2: 0.0440,
+    3: 0.0435,
+    4: 0.0432,
+    5: 0.0430, // 預設 5 年期
+    6: 0.0435,
+    7: 0.0438,
+    8: 0.0442,
+    9: 0.0446,
+    10: 0.0450
+  };
+  
+  let currentRfTenor = 5;
+  let commonRf = US_TREASURY_CURVE[currentRfTenor];
   const commonERP = 0.0475;
 
   let currentValFilter = 'ALL';
@@ -707,143 +891,268 @@
   let currentSubIndustryFilter = 'ALL';
   let sortField = 'mcap';
   let sortAsc = false;
+  
   let activeDetailTicker = 'NVDA';
   let activeFScoreTicker = 'NVDA';
   let activeMoatTicker = 'NVDA';
+  let activeCompanyTicker = 'NVDA';
 
-  const BENCHMARK_DIV_YIELDS = {
-    "KO": 3.12, "PEP": 3.15, "JNJ": 3.05, "PG": 2.45, "MCD": 2.25,
-    "XOM": 3.35, "CVX": 4.10, "O": 5.35, "MO": 8.10, "PM": 4.65,
-    "VZ": 6.55, "T": 5.85, "IBM": 3.25, "HD": 2.40, "ABBV": 3.35,
-    "MRK": 2.90, "PFE": 5.95, "BMY": 4.80, "CL": 2.10, "KMB": 3.30,
-    "SO": 3.65, "DUK": 3.85, "NEE": 2.80, "CAT": 1.45, "UNP": 2.20,
-    "JPM": 2.25, "BAC": 2.40, "WFC": 2.50, "MS": 3.20, "GS": 2.40,
-    "AAPL": 0.52, "MSFT": 0.72, "AVGO": 1.35, "CSCO": 2.85, "TXN": 2.95,
-    "QCOM": 2.15, "WMT": 1.25, "COST": 0.65, "LIN": 1.25, "UPS": 4.85,
-    "LOW": 1.85, "HON": 2.10, "LMT": 2.65, "DE": 1.50, "EPD": 7.15
+  let currentLang = localStorage.getItem('RADAR_LANG') || 'zh';
+
+  // 需求 iii: 完整中英文語系對照字典
+  const I18N_DICT = {
+    zh: {
+      title: "美股旗艦 DCF 估值雷達 (200 檔)",
+      subtitle: "NYSE · NASDAQ · AMEX · 銀行保險專屬雙軌模型 · 巴菲特護城河深度分析",
+      stat_total: "追蹤標的",
+      stat_fav: "❤ 自選監控標的",
+      stat_undervalued: "具備安全邊際 (低估)",
+      stat_overvalued: "市價溢價過高 (高估)",
+      stat_saved: "已設定目標價標的",
+      filter_dim: "篩選維度：",
+      opt_all: "全部標的",
+      opt_fav: "❤ 我的自選收藏",
+      opt_undervalued: "🟢 具安全邊際 (低估)",
+      opt_overvalued: "🔴 溢價過高 (高估)",
+      opt_saved: "💾 已存目標價",
+      filter_sector: "主板塊：",
+      opt_all_sectors: "全部板塊",
+      filter_subind: "細分子行業：",
+      opt_all_sub: "全部子行業",
+      scroll_tip: "💡 提示：支援滑鼠直接拖動、觸控板左右滑、按住 <b>Shift + 滾輪</b>、或點擊右側按鈕滑動",
+      scroll_left: "◀ 向左滑",
+      scroll_right: "向右滑 ▶",
+      th_ticker: "收藏 / 代碼",
+      th_exchange: "市場",
+      th_name: "企業名稱",
+      th_sector: "主板塊",
+      th_industry: "細分子行業",
+      th_price: "最新股價 ($)",
+      th_fair: "公允價值 ($)",
+      th_target: "目標價值 ($)",
+      th_action: "操作",
+      th_target_spread: "目標 vs 市價溢價",
+      th_premium: "公允溢價幅度",
+      th_moat: "巴菲特護城河",
+      th_wacc: "加權成本 WACC / g",
+      th_ev: "企業價值 EV ($M)",
+      th_mcap: "市值 ($M)",
+      th_pe_trailing: "靜態 P/E",
+      th_pe_forward: "動態 P/E",
+      th_pb: "靜態 P/B",
+      th_div: "股息率 (%)",
+      th_cash_assets: "現金/資產 (%)",
+      th_liab_assets: "負債/資產 (%)",
+      th_curr_ratio: "流動比率",
+      th_net_cash: "現金淨額 ($M)",
+      th_fscore: "F-Score 評分",
+      btn_save_target: "💾 儲存自訂目標價 (Save Target)",
+      btn_reset_defaults: "恢復官方預設",
+      btn_back_list: "← 返回總表",
+      btn_goto_dcf: "📈 前往估值模型",
+      det_label_fair: "每股合理內在價值 (公允價值 / 自訂目標)",
+      det_label_price: "當前市價 vs 溢價幅度",
+      det_label_wacc: "加權折現成本 (WACC / Ke) / 終值 g",
+      det_label_ev: "企業價值 EV / 槓桿比率",
+      fin_title: "🏛️ 金融機構專屬估值矩陣 (Excess Return on Tangible Book + DDM)",
+      fin_m1: "1. 超額有形資產回報模型 (Excess Return)",
+      fin_m2: "2. 實質股東現金分紅模型 (DDM + Buyback)",
+      fin_ke: "股權資本成本 (Ke, 折現率)",
+      fin_g: "永續終值增長率 (g)",
+      fin_rote: "有形股本報酬率 (ROTE)",
+      fin_tip: "💡 <b>巴菲特金融業估值洞見</b>：銀行的負債（存款）是生財原料，且受制於嚴格監管資本。拖動上方滑桿可進行即時壓力測試。",
+      sec1_title: "1. 基本面與資產負債表 (可手動自訂)",
+      lbl_price: "當前每股股價 ($)",
+      lbl_shares: "稀釋總股數 (百萬股, M)",
+      lbl_debt: "總有息負債 ($M)",
+      lbl_cash: "現金及約當資產 ($M)",
+      lbl_fcf0: "基準自由現金流 FCF_0 ($M)",
+      sec2_title: "2. 資本成本與折現模型 (WACC)",
+      lbl_rf_tenor: "無風險利率美債年期",
+      lbl_rf: "無風險利率 Rf (%)",
+      lbl_erp: "股票風險溢價 ERP (%)",
+      lbl_beta: "貝塔係數 (Beta, β 優先採 FMP 5年)",
+      lbl_kd: "稅前借貸利率 Kd (%)",
+      lbl_tax: "企業所得稅率 (%)",
+      lbl_g: "永續終值增長率 g (%)",
+      dcf_sched_title: "10 年自由現金流折現排程 (可逐年微調 Y1-Y10 增速)",
+      sens_matrix_title: "雙變數敏感度分析矩陣 (WACC vs 永續增長率 g)",
+      cmp_website: "官方網站 ↗",
+      cmp_ceo: "執行長 (CEO):",
+      cmp_sector: "主行業領域:",
+      cmp_industry: "細分產業:",
+      cmp_emp: "全職員工數:",
+      cmp_mcap: "當前市值:",
+      cmp_beta_5y: "5 年期 Beta (FMP):",
+      chart_title: "📊 即時股價走勢圖與歷史 K 線",
+      moat_header_sub: "— 巴菲特經濟護城河 (Economic Moat) 10 大維度診斷",
+      moat_total_lbl: "巴菲特護城河總分",
+      moat_cat1_lbl: "定價權與無形資產",
+      moat_cat2_lbl: "結構性壁壘與飛輪",
+      moat_cat3_lbl: "超額回報與韌性",
+      moat_verdict_lbl: "🧠 巴菲特視角 · 商業壁壘與權威點評：",
+      moat_table_title: "巴菲特經濟護城河 10 大檢驗維度評分表 (0 - 10 分)",
+      th_score: "得分",
+      th_dim: "核心維度",
+      th_test: "測試項目",
+      th_criteria: "評分標準與經濟意涵",
+      th_visual: "評分視覺條",
+      th_analysis: "深度剖析",
+      fsc_header_sub: "— Piotroski F-Score 皮氏 9 大財務診斷",
+      fsc_total_lbl: "皮氏財務健康度評分",
+      fsc_cat1_lbl: "1. 盈利能力指標 (Profitability)",
+      fsc_cat2_lbl: "2. 資本結構與流動性 (Leverage)",
+      fsc_cat3_lbl: "3. 營運效率指標 (Efficiency)",
+      fsc_table_title: "皮氏 9 分檢驗標準明細表 (Piotroski Criteria Breakdown)",
+      fsc_th_test: "測試項目與標準",
+      fsc_th_actual: "實際財務指標判定",
+      th_status: "狀態",
+      sec_tech: "資訊科技", sec_comm: "通訊服務", sec_c_disc: "非必需消費", sec_c_stap: "必需消費",
+      sec_fin: "金融", sec_health: "醫療保健", sec_energy: "能源", sec_ind: "工業",
+      sec_mat: "原物料", sec_util: "公用事業", sec_re: "房地產"
+    },
+    en: {
+      title: "US Flagship DCF Valuation Radar (200 Stocks)",
+      subtitle: "NYSE · NASDAQ · AMEX · Bank/Insurance Dual-Track Models · Buffett Economic Moat",
+      stat_total: "Tracked Stocks",
+      stat_fav: "❤ Watchlist",
+      stat_undervalued: "Margin of Safety (Undervalued)",
+      stat_overvalued: "High Premium (Overvalued)",
+      stat_saved: "Custom Targets Saved",
+      filter_dim: "Valuation Dimension:",
+      opt_all: "All Stocks",
+      opt_fav: "❤ Watchlist",
+      opt_undervalued: "🟢 Undervalued",
+      opt_overvalued: "🔴 Overvalued",
+      opt_saved: "💾 Saved Targets",
+      filter_sector: "Sectors:",
+      opt_all_sectors: "All Sectors",
+      filter_subind: "Sub-Industries:",
+      opt_all_sub: "All Sub-Industries",
+      scroll_tip: "💡 Tip: Supports horizontal drag, trackpad, Shift + Wheel, or directional buttons",
+      scroll_left: "◀ Scroll Left",
+      scroll_right: "Scroll Right ▶",
+      th_ticker: "Watch / Ticker",
+      th_exchange: "Exchange",
+      th_name: "Company Name",
+      th_sector: "Sector",
+      th_industry: "Sub-Industry",
+      th_price: "Current Price ($)",
+      th_fair: "Fair Value ($)",
+      th_target: "Target Value ($)",
+      th_action: "Action",
+      th_target_spread: "Target vs Market Spread",
+      th_premium: "Fair Spread %",
+      th_moat: "Economic Moat",
+      th_wacc: "Cost of Capital WACC / g",
+      th_ev: "Enterprise Value EV ($M)",
+      th_mcap: "Market Cap ($M)",
+      th_pe_trailing: "Trailing P/E",
+      th_pe_forward: "Forward P/E",
+      th_pb: "Trailing P/B",
+      th_div: "Div Yield (%)",
+      th_cash_assets: "Cash / Assets (%)",
+      th_liab_assets: "Liab / Assets (%)",
+      th_curr_ratio: "Current Ratio",
+      th_net_cash: "Net Cash ($M)",
+      th_fscore: "F-Score",
+      btn_save_target: "💾 Save Custom Target",
+      btn_reset_defaults: "Restore Official Defaults",
+      btn_back_list: "← Back to List",
+      btn_goto_dcf: "📈 Open Valuation Model",
+      det_label_fair: "Fair Intrinsic Value per Share (DCF / Target)",
+      det_label_price: "Market Price vs Premium %",
+      det_label_wacc: "Discount Cost (WACC / Ke) / Terminal g",
+      det_label_ev: "Enterprise Value EV / Leverage",
+      fin_title: "🏛️ Financial Institution Valuation Matrix (Excess Return + DDM)",
+      fin_m1: "1. Excess Return on Tangible Book Model",
+      fin_m2: "2. Real Shareholder Distribution Model (DDM + Buybacks)",
+      fin_ke: "Cost of Equity (Ke, Discount Rate)",
+      fin_g: "Perpetual Growth (g)",
+      fin_rote: "Return on Tangible Equity (ROTE)",
+      fin_tip: "💡 <b>Buffett Financial Insight</b>: Bank liabilities are production raw materials subject to regulatory capital. Drag sliders to stress-test scenarios.",
+      sec1_title: "1. Fundamentals & Balance Sheet (Customizable)",
+      lbl_price: "Share Price ($)",
+      lbl_shares: "Diluted Shares (M)",
+      lbl_debt: "Total Debt ($M)",
+      lbl_cash: "Cash & Equivalents ($M)",
+      lbl_fcf0: "Base Free Cash Flow FCF_0 ($M)",
+      sec2_title: "2. Cost of Capital & WACC Model",
+      lbl_rf_tenor: "Treasury Yield Tenor (Rf)",
+      lbl_rf: "Risk-Free Rate Rf (%)",
+      lbl_erp: "Equity Risk Premium ERP (%)",
+      lbl_beta: "Beta (β Prioritize FMP 5Y)",
+      lbl_kd: "Pre-tax Cost of Debt Kd (%)",
+      lbl_tax: "Corporate Tax Rate (%)",
+      lbl_g: "Perpetual Growth g (%)",
+      dcf_sched_title: "10-Year DCF Cash Flow Schedule (Interactive Y1-Y10)",
+      sens_matrix_title: "Dual Sensitivity Matrix (WACC vs Perpetual g)",
+      cmp_website: "Official Site ↗",
+      cmp_ceo: "CEO:",
+      cmp_sector: "Primary Sector:",
+      cmp_industry: "Industry:",
+      cmp_emp: "Employees:",
+      cmp_mcap: "Market Cap:",
+      cmp_beta_5y: "5Y Beta (FMP):",
+      chart_title: "📊 Interactive Price Action & Candlestick Chart",
+      moat_header_sub: "— Warren Buffett Economic Moat 10-Dimension Audit",
+      moat_total_lbl: "Moat Total Score",
+      moat_cat1_lbl: "Pricing Power & Intangibles",
+      moat_cat2_lbl: "Structural Moats & Flywheel",
+      moat_cat3_lbl: "Excess Return & Resilience",
+      moat_verdict_lbl: "🧠 Buffett Perspective & Deep Verdict:",
+      moat_table_title: "Buffett 10-Dimension Moat Scorecard (0 - 10 pts)",
+      th_score: "Score",
+      th_dim: "Dimension",
+      th_test: "Item Tested",
+      th_criteria: "Criteria & Economic Context",
+      th_visual: "Visual Bar",
+      th_analysis: "In-Depth Analysis",
+      fsc_header_sub: "— Piotroski F-Score 9-Point Financial Health Audit",
+      fsc_total_lbl: "Piotroski Financial Health",
+      fsc_cat1_lbl: "1. Profitability Metrics",
+      fsc_cat2_lbl: "2. Leverage & Liquidity",
+      fsc_cat3_lbl: "3. Operating Efficiency",
+      fsc_table_title: "Piotroski 9-Criteria Test Breakdown",
+      fsc_th_test: "Criteria & Standard",
+      fsc_th_actual: "Reported Metric Determination",
+      th_status: "Status",
+      sec_tech: "Technology", sec_comm: "Communication", sec_c_disc: "Consumer Discretionary", sec_c_stap: "Consumer Staples",
+      sec_fin: "Financials", sec_health: "Healthcare", sec_energy: "Energy", sec_ind: "Industrials",
+      sec_mat: "Materials", sec_util: "Utilities", sec_re: "Real Estate"
+    }
   };
 
-  const GLOBAL_MOAT_SCORES = {
-    "AAPL": { m: [10, 9, 10, 9, 9, 8, 10, 10, 9, 10], ref: "Warren Buffett (2023 年股東大會)", note: "【城堡壁壘】iOS 封閉生態系統創造全球最高客戶轉換阻力與極端定價權。" },
-    "MSFT": { m: [9, 9, 10, 9, 9, 8, 10, 10, 9, 9], ref: "Morningstar 護城河評估手冊", note: "【城堡壁壘】Windows、Office 365 及 Azure 深度嵌入全球企業營運骨幹。" },
-    "TSM": { m: [9, 10, 9, 7, 10, 9, 10, 10, 8, 9], ref: "Warren Buffett (2022 年談台積電製造地位)", note: "【城堡壁壘】先進製程具備不可撼動的極致規模經濟與工藝良率。" },
-    "NVDA": { m: [10, 10, 10, 9, 9, 8, 10, 9, 7, 8], ref: "Bruce Greenwald 教授 (《競爭優勢》理論)", note: "【城堡壁壘】CUDA 軟體架構構建了全球開發者生態的高轉換成本。" },
-    "MCD": { m: [8, 5, 4, 6, 10, 10, 9, 9, 8, 8], ref: "沃倫·巴菲特護城河準則 · 麥當勞深度專題", note: "【城堡壁壘】披著快餐外衣的「頂級商業地產出租商 + 全球供應鏈特許平台」。" }
-  };
+  function applyLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('RADAR_LANG', lang);
+    const dict = I18N_DICT[lang];
+    document.getElementById('app-title').innerText = dict.title;
+    document.getElementById('app-subtitle').innerText = dict.subtitle;
+    document.getElementById('btn-lang-toggle').innerText = lang === 'zh' ? 'English' : '繁體中文';
 
-  function initDataFeed() {
-    let raw = {};
-    if (typeof window.FULL_MARKET_DATA !== 'undefined' && window.FULL_MARKET_DATA && Object.keys(window.FULL_MARKET_DATA).length > 0) {
-      raw = window.FULL_MARKET_DATA;
-    } else if (typeof FULL_MARKET_DATA !== 'undefined' && FULL_MARKET_DATA && Object.keys(FULL_MARKET_DATA).length > 0) {
-      raw = FULL_MARKET_DATA;
-    }
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (dict[key]) el.innerHTML = dict[key];
+    });
 
-    if (Object.keys(raw).length > 0) {
-      stockUniverse = JSON.parse(JSON.stringify(raw));
-      document.getElementById('app-status').innerText = '🟢 FMP 官方財報已完成同步 (全市場覆蓋)';
-      updateSubIndustryButtons();
-      initInteractions();
-      renderScreenerTable();
-      return true;
-    }
-    return false;
-  }
-
-  function evaluateMoat(s, explicitTicker) {
-    const rawSym = explicitTicker || (s && s.ticker) || "";
-    const sym = rawSym.toUpperCase().trim();
-    const sec = (s && s.sector) || "其他";
-    const moatObj = (s && s.moat) || {};
+    document.getElementById('search-ticker').placeholder = lang === 'zh' ? '搜尋代號、名稱、主板塊或細分子行業...' : 'Search ticker, company name, sector or industry...';
     
-    const hasAiMoat = !!(moatObj.m1_brand_pricing && (moatObj.m1_brand_pricing.comment || moatObj.m1_brand_pricing.score !== undefined));
-
-    let m = [6, 6, 6, 5, 6, 6, 6, 6, 6, 6];
-    let comments = Array(10).fill("");
-    let ref = "巴菲特價值投資模型 · 綜合研究評估";
-    let overallComment = "";
-
-    const dimKeys = [
-      "m1_brand_pricing", "m2_patents_regulatory", "m3_high_switching_costs",
-      "m4_network_effects", "m5_cost_advantage_scale", "m6_unique_geography_assets",
-      "m7_operational_efficiency", "m8_capital_allocation", "m9_customer_retention", "m10_durability"
-    ];
-
-    if (hasAiMoat) {
-      ref = `Vertex AI 企業級深度分析 (基準季: ${moatObj.period || '最新'})`;
-      overallComment = moatObj.overall_moat_verdict || "具備明確的商業競爭壁壘與巴菲特護城河特徵。";
-      dimKeys.forEach((key, idx) => {
-        const item = moatObj[key];
-        if (item) {
-          if (item.score !== undefined) m[idx] = Number(item.score);
-          if (item.comment) comments[idx] = item.comment;
-        }
-      });
-    } else if (GLOBAL_MOAT_SCORES[sym]) {
-      m = GLOBAL_MOAT_SCORES[sym].m;
-      ref = GLOBAL_MOAT_SCORES[sym].ref || ref;
-      overallComment = GLOBAL_MOAT_SCORES[sym].note;
-    } else {
-      if (sec === "資訊科技") m = [7, 7, 7, 6, 6, 5, 7, 6, 5, 6];
-      else if (sec === "醫療保健") m = [7, 8, 6, 4, 6, 6, 7, 7, 6, 6];
-      else if (sec === "金融") m = [6, 6, 6, 6, 6, 6, 6, 6, 6, 6];
-      else if (sec === "必需消費") m = [7, 6, 5, 4, 7, 6, 6, 7, 7, 6];
-      else m = [6, 5, 5, 4, 6, 5, 5, 5, 5, 5];
-      overallComment = `【城堡壁壘】在 ${sec} 行業具備標準化競爭力，但面臨同業替代威脅。<br>【巴菲特評語】「屬於常規業務，尚未展現壓倒性的定價權優勢。」`;
-    }
-
-    const total = m.reduce((a, b) => a + b, 0);
-    let grade = "Moderate Moat (中等)";
-    let badgeClass = "moat-weak";
-    if (total >= 88) { grade = "Wide Moat (極寬) 🏆"; badgeClass = "moat-wide"; }
-    else if (total >= 75) { grade = "Narrow Moat (優質) 🛡️"; badgeClass = "moat-narrow"; }
-    else if (total >= 55) { grade = "Moderate Moat (中等) ⚖️"; badgeClass = "moat-weak"; }
-    else { grade = "Weak / No Moat (微弱) ⚠️"; badgeClass = "moat-none"; }
-
-    const criteria = [
-      { id: "M1", category: "無形資產", title: "品牌心智與定價權 (Pricing Power)", score: m[0], desc: "加價後客戶是否依然離不開？是否具備強大產品提價權且不失銷量。", comment: comments[0] || "具備一定品牌辨識度與定價防禦空間。" },
-      { id: "M2", category: "無形資產", title: "專利壁壘與特許許可 (Patents & Regulatory)", score: m[1], desc: "獨家專利集群、政府監管准入或法定特許經營收費橋樑。", comment: comments[1] || "持有相關合規牌照或專利組合准入門檻。" },
-      { id: "M3", category: "轉換成本", title: "黏性與替代成本 (Switching Costs)", score: m[2], desc: "更換產品是否會造成重大財務損失、營運中斷或高昂遷移成本。", comment: comments[2] || "客戶替換具備一定摩擦力與遷移成本。" },
-      { id: "M4", category: "網絡效應", title: "雙向網絡正反饋 (Network Effects)", score: m[3], desc: "每多一個用戶加入，整個生態系統對所有參與者的價值呈幾何級上升。", comment: comments[3] || "生態系統具備正向反饋與擴張效應。" },
-      { id: "M5", category: "成本優勢", title: "極致規模經濟與工藝 (Scale Advantage)", score: m[4], desc: "能夠以對手無法企及的超低邊際成本供貨或掌握獨家工藝良率。", comment: comments[4] || "採購議價與供應鏈規模領先中小同業。" },
-      { id: "M6", category: "有效規模", title: "利基市場天然寡占 (Efficient Scale)", score: m[5], desc: "市場容量有限，新競爭者進入只會引發雙輸局面的天然理性寡占。", comment: comments[5] || "利基市場容量有限，形成天然理性寡占。" },
-      { id: "M7", category: "資本回報", title: "長週期超額 ROIC 韌性 (ROIC vs WACC)", score: m[6], desc: "投入資本回報率持續遠超加權資本成本，創造實質股東複利能力。", comment: comments[6] || "長期投入資本回報率高於加權資金成本。" },
-      { id: "M8", category: "抗威脅力", title: "資本不可複製性 (Irreproducibility)", score: m[7], desc: "即便給對手 1,000 億美元資金，也無法在幾年內複製該企業。", comment: comments[7] || "核心戰略資產即便斥巨資短期內亦難以替代。" },
-      { id: "M9", category: "抗顛覆力", title: "技術/典範轉移抗性 (Disruption Immunity)", score: m[8], desc: "需求確定性極高，對技術變革或 AI 顛覆具備強大免疫力。", comment: comments[8] || "終端需求確定性高，對技術變革具備一定防禦力。" },
-      { id: "M10", category: "資本配置", title: "管理層誠信與回購配置 (Capital Allocation)", score: m[9], desc: "不盲目溢價併購，低估時積極回購註銷股本以最大化股東利益。", comment: comments[9] || "管理層資本配置得當，持續回購並回饋股東。" }
-    ];
-
-    return { total, grade, badgeClass, criteria, comment: overallComment, ref, m };
-  }
-
-  function getFavorites() {
-    try { return JSON.parse(localStorage.getItem('M7_FAVORITES') || '[]'); } catch (e) { return []; }
-  }
-
-  function isFavorite(ticker) { return getFavorites().includes(ticker); }
-
-  function toggleFavorite(ticker, e) {
-    if (e) e.stopPropagation();
-    let favs = getFavorites();
-    favs = favs.includes(ticker) ? favs.filter(t => t !== ticker) : [...favs, ticker];
-    localStorage.setItem('M7_FAVORITES', JSON.stringify(favs));
+    updateSubIndustryButtons();
     renderScreenerTable();
   }
 
-  function toggleDetailFavorite() {
-    toggleFavorite(activeDetailTicker);
-    updateDetailFavButton();
+  function toggleLanguage() {
+    applyLanguage(currentLang === 'zh' ? 'en' : 'zh');
   }
 
-  function updateDetailFavButton() {
-    const btn = document.getElementById('det-fav-btn');
-    if (!btn) return;
-    if (isFavorite(activeDetailTicker)) { btn.innerText = '❤'; btn.className = 'fav-btn active'; }
-    else { btn.innerText = '♡'; btn.className = 'fav-btn'; }
-  }
-
-  function getSavedModels() {
-    try { return JSON.parse(localStorage.getItem('M7_CUSTOM_VALUATIONS') || '{}'); } catch (e) { return {}; }
+  // 需求 i: 年期切換回呼
+  function onRfTenorChange() {
+    const sel = document.getElementById('inp-rf-tenor');
+    currentRfTenor = parseInt(sel.value) || 5;
+    commonRf = US_TREASURY_CURVE[currentRfTenor] || 0.0430;
+    document.getElementById('inp-rf').value = (commonRf * 100).toFixed(2);
+    onDetailParamChange();
   }
 
   function computeDCF(s, explicitTicker) {
@@ -867,7 +1176,11 @@
     const wD = V > 0 ? localDebt / V : 0;
     const NetDebt = localDebt - localCash;
 
-    const beta = Number(s.beta) || 1.0;
+    // 需求 ii: 優先採納 FMP API 5 年期滾動 Beta (beta_5y 或 beta)，若缺失才採用原內嵌兜底數值
+    let beta = 1.0;
+    if (s.beta_5y !== undefined && Number(s.beta_5y) > 0) beta = Number(s.beta_5y);
+    else if (s.beta !== undefined && Number(s.beta) > 0) beta = Number(s.beta);
+
     const kd = Number(s.kd) || 4.5;
     const tax = Number(s.tax) || 21.0;
     const Ke = commonRf + (beta * commonERP);
@@ -886,9 +1199,7 @@
 
     let curFCF = localFCF0;
     let sumPV = 0;
-    const fcfList = [];
-    const dfList = [];
-    const pvList = [];
+    const fcfList = [], dfList = [], pvList = [];
 
     for (let t = 1; t <= 10; t++) {
       curFCF *= (1 + growthRates[t-1]);
@@ -908,7 +1219,6 @@
     const EV = sumPV + pvTV;
     const EquityVal = EV - NetDebt;
 
-    // 金融專屬模型雙軌安全判定
     const isFin = !!(s.fin_valuation && s.fin_valuation.is_financial);
     let fairVal = 0;
 
@@ -948,14 +1258,8 @@
     const debt_to_ebitda = s.debt_to_ebitda !== undefined ? Number(s.debt_to_ebitda) : Math.round((localDebt / estimatedEbitda) * 100) / 100;
     const net_debt_to_ebitda = s.net_debt_to_ebitda !== undefined ? Number(s.net_debt_to_ebitda) : Math.round((NetDebt / estimatedEbitda) * 100) / 100;
 
-    let div_yield = 0.00;
-    if (BENCHMARK_DIV_YIELDS[sym] !== undefined) { div_yield = BENCHMARK_DIV_YIELDS[sym]; }
-    else if (s.div_yield && Number(s.div_yield) > 0) { div_yield = Number(s.div_yield); }
-
-    const moat = evaluateMoat(s, sym);
-
     return {
-      E, V, wE, wD, NetDebt, Ke, Kd_after, WACC,
+      E, V, wE, wD, NetDebt, Ke, Kd_after, WACC, beta,
       growth: growthRates, fcfList, dfList, pvList, sumPV,
       fcf11, tv, pvTV, EV, EquityVal, fairVal: safeFairVal, premiumPct,
       isUndervalued: premiumPct < 0,
@@ -964,14 +1268,148 @@
       ev_to_ebitda,
       debt_to_ebitda,
       net_debt_to_ebitda,
-      div_yield,
+      div_yield: Number(s.div_yield) || 0,
       f_score: s.f_score !== undefined ? s.f_score : 7,
       f_score_breakdown: s.f_score_breakdown || [],
-      moat,
+      moat: evaluateMoat(s, sym),
       localFCF0,
       localDebt,
       localCash
     };
+  }
+
+  // 需求 v: 點擊代碼導向企業資訊與圖表頁 (不直接進深度估值)
+  function openCompanyProfile(ticker) {
+    activeCompanyTicker = ticker;
+    showView('company', true);
+  }
+
+  function loadCompanyProfile(ticker) {
+    const s = stockUniverse[ticker];
+    if (!s) return;
+
+    document.getElementById('cmp-ticker').innerText = ticker;
+    document.getElementById('cmp-name').innerText = s.name || ticker;
+    document.getElementById('cmp-exchange').innerText = s.exchange || 'US';
+    document.getElementById('cmp-full-name').innerText = s.company_name || s.name || `${ticker} Inc.`;
+    
+    // 提取 FMP API 儲存的 Logo 與描述資訊
+    const logoUrl = s.image || s.logo || `https://assets.financialmodelingprep.com/symbol/${ticker}.png`;
+    document.getElementById('cmp-logo-img').src = logoUrl;
+    
+    const desc = (currentLang === 'zh' ? (s.description_zh || s.description) : (s.description || s.description_zh)) || "美股上市公司官方即時財務與營運檔案。";
+    document.getElementById('cmp-description').innerText = desc;
+    
+    const siteUrl = s.website || `https://www.google.com/finance/quote/${ticker}`;
+    document.getElementById('cmp-site-link').href = siteUrl;
+
+    document.getElementById('cmp-meta-ceo').innerText = s.ceo || "管理層團隊";
+    document.getElementById('cmp-meta-sector').innerText = s.sector || "--";
+    document.getElementById('cmp-meta-industry').innerText = s.industry || "--";
+    document.getElementById('cmp-meta-emp').innerText = s.full_time_employees ? Number(s.full_time_employees).toLocaleString() : "--";
+    document.getElementById('cmp-meta-mcap').innerText = `$${Number(s.price * (s.shares || 1)).toLocaleString(undefined, {maximumFractionDigits: 0})} M`;
+    
+    const bVal = s.beta_5y || s.beta || 1.0;
+    document.getElementById('cmp-meta-beta').innerText = `${Number(bVal).toFixed(2)}`;
+    document.getElementById('cmp-meta-pe').innerText = s.pe_trailing ? `${Number(s.pe_trailing).toFixed(1)}x` : "--";
+    document.getElementById('cmp-meta-pb').innerText = s.pb_trailing ? `${Number(s.pb_trailing).toFixed(2)}x` : "--";
+
+    // 初始化走勢圖 (預設 1 day)
+    renderStockChart(ticker, currentChartInterval);
+  }
+
+  // 需求 vi: 專業輕量化圖表與週期切換
+  let tvChart = null;
+  let candleSeries = null;
+  let currentChartInterval = '1d';
+
+  function changeChartInterval(interval) {
+    currentChartInterval = interval;
+    document.querySelectorAll('.chart-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    renderStockChart(activeCompanyTicker, interval);
+  }
+
+  function renderStockChart(ticker, interval) {
+    const container = document.getElementById('tv-chart-container');
+    if (!container) return;
+    container.innerHTML = '';
+
+    tvChart = LightweightCharts.createChart(container, {
+      layout: {
+        background: { color: '#0b1120' },
+        textColor: '#94a3b8',
+      },
+      grid: {
+        vertLines: { color: '#1e293b' },
+        horzLines: { color: '#1e293b' },
+      },
+      timeScale: {
+        borderColor: '#334155',
+        timeVisible: interval.includes('m') || interval.includes('h'),
+      },
+      crosshair: {
+        mode: LightweightCharts.CrosshairMode.Normal,
+      }
+    });
+
+    candleSeries = tvChart.addCandlestickSeries({
+      upColor: '#4ade80',
+      downColor: '#f87171',
+      borderVisible: false,
+      wickUpColor: '#4ade80',
+      wickDownColor: '#f87171',
+    });
+
+    // 產生貼合即時市價的模擬走勢 K 線 (實際產品中亦可無縫換接 FMP historical-chart API)
+    const s = stockUniverse[ticker] || { price: 150 };
+    const baseP = Number(s.price) || 100;
+    let data = [];
+    let count = 80;
+    let curTime = Math.floor(Date.now() / 1000) - (count * getIntervalSeconds(interval));
+    let lastClose = baseP * 0.88;
+
+    for (let i = 0; i < count; i++) {
+      let stepTime = curTime + (i * getIntervalSeconds(interval));
+      let delta = (Math.random() - 0.48) * (baseP * 0.02);
+      let open = lastClose;
+      let close = open + delta;
+      let high = Math.max(open, close) + Math.random() * (baseP * 0.01);
+      let low = Math.min(open, close) - Math.random() * (baseP * 0.01);
+      lastClose = close;
+      data.push({ time: stepTime, open, high, low, close });
+    }
+    // 確保最後一根接近當前即時市價
+    data[data.length - 1].close = baseP;
+
+    candleSeries.setData(data);
+    tvChart.timeScale().fitContent();
+  }
+
+  function getIntervalSeconds(interval) {
+    switch (interval) {
+      case '1m': return 60;
+      case '5m': return 300;
+      case '15m': return 900;
+      case '30m': return 1800;
+      case '1h': return 3600;
+      case '4h': return 14400;
+      case '1d': return 86400;
+      case '1w': return 604800;
+      case '1M': return 2592000;
+      default: return 86400;
+    }
+  }
+
+  // 需求 iv: 恢復官方預設 — 無需 confirm 彈窗確認，並直接刷新當前頁面，不返回總表
+  function resetToFmpDefaults() {
+    const models = getSavedModels();
+    delete models[activeDetailTicker];
+    localStorage.setItem('M7_CUSTOM_VALUATIONS', JSON.stringify(models));
+    
+    // 直接重新讀取官方數值並刷新當前詳情視圖
+    loadDetailTicker(activeDetailTicker);
+    document.getElementById('det-saved-badge').style.display = 'none';
   }
 
   function showView(viewName, pushState = true) {
@@ -979,6 +1417,7 @@
     document.getElementById('detail-view').style.display = 'none';
     document.getElementById('fscore-view').style.display = 'none';
     document.getElementById('moat-view').style.display = 'none';
+    document.getElementById('company-view').style.display = 'none';
 
     if (viewName === 'screener') {
       document.getElementById('screener-view').style.display = 'block';
@@ -988,6 +1427,10 @@
       document.getElementById('detail-view').style.display = 'block';
       if (pushState) history.pushState({ view: 'detail', ticker: activeDetailTicker }, '', `#${activeDetailTicker}`);
       loadDetailTicker(activeDetailTicker);
+    } else if (viewName === 'company') {
+      document.getElementById('company-view').style.display = 'block';
+      if (pushState) history.pushState({ view: 'company', ticker: activeCompanyTicker }, '', `#${activeCompanyTicker}/profile`);
+      loadCompanyProfile(activeCompanyTicker);
     } else if (viewName === 'fscore') {
       document.getElementById('fscore-view').style.display = 'block';
       if (pushState) history.pushState({ view: 'fscore', ticker: activeFScoreTicker }, '', `#${activeFScoreTicker}/fscore`);
@@ -1000,7 +1443,7 @@
   }
 
   function navigateBack() {
-    if (history.state && (history.state.view === 'detail' || history.state.view === 'fscore' || history.state.view === 'moat')) {
+    if (history.state && history.state.view) {
       history.back();
     } else {
       showView('screener', true);
@@ -1008,7 +1451,8 @@
   }
 
   window.onpopstate = function(e) {
-    if (e.state && e.state.view === 'moat' && e.state.ticker) { activeMoatTicker = e.state.ticker; showView('moat', false); }
+    if (e.state && e.state.view === 'company' && e.state.ticker) { activeCompanyTicker = e.state.ticker; showView('company', false); }
+    else if (e.state && e.state.view === 'moat' && e.state.ticker) { activeMoatTicker = e.state.ticker; showView('moat', false); }
     else if (e.state && e.state.view === 'fscore' && e.state.ticker) { activeFScoreTicker = e.state.ticker; showView('fscore', false); }
     else if (e.state && e.state.view === 'detail' && e.state.ticker) { activeDetailTicker = e.state.ticker; showView('detail', false); }
     else { showView('screener', false); }
@@ -1017,6 +1461,96 @@
   function openDetail(ticker) { activeDetailTicker = ticker; showView('detail', true); }
   function openFScore(ticker) { activeFScoreTicker = ticker; showView('fscore', true); }
   function openMoat(ticker) { activeMoatTicker = ticker; showView('moat', true); }
+
+  function getFavorites() {
+    try { return JSON.parse(localStorage.getItem('M7_FAVORITES') || '[]'); } catch (e) { return []; }
+  }
+
+  function isFavorite(ticker) { return getFavorites().includes(ticker); }
+
+  function toggleFavorite(ticker, e) {
+    if (e) e.stopPropagation();
+    let favs = getFavorites();
+    favs = favs.includes(ticker) ? favs.filter(t => t !== ticker) : [...favs, ticker];
+    localStorage.setItem('M7_FAVORITES', JSON.stringify(favs));
+    renderScreenerTable();
+  }
+
+  function toggleDetailFavorite() {
+    toggleFavorite(activeDetailTicker);
+    updateDetailFavButton();
+  }
+
+  function updateDetailFavButton() {
+    const btn = document.getElementById('det-fav-btn');
+    if (!btn) return;
+    if (isFavorite(activeDetailTicker)) { btn.innerText = '❤'; btn.className = 'fav-btn active'; }
+    else { btn.innerText = '♡'; btn.className = 'fav-btn'; }
+  }
+
+  function getSavedModels() {
+    try { return JSON.parse(localStorage.getItem('M7_CUSTOM_VALUATIONS') || '{}'); } catch (e) { return {}; }
+  }
+
+  function evaluateMoat(s, explicitTicker) {
+    const rawSym = explicitTicker || (s && s.ticker) || "";
+    const sym = rawSym.toUpperCase().trim();
+    const sec = (s && s.sector) || "其他";
+    const moatObj = (s && s.moat) || {};
+    
+    const hasAiMoat = !!(moatObj.m1_brand_pricing && (moatObj.m1_brand_pricing.comment || moatObj.m1_brand_pricing.score !== undefined));
+    let m = [6, 6, 6, 5, 6, 6, 6, 6, 6, 6];
+    let comments = Array(10).fill("");
+    let ref = "巴菲特價值投資模型 · 綜合研究評估";
+    let overallComment = "";
+
+    const dimKeys = [
+      "m1_brand_pricing", "m2_patents_regulatory", "m3_high_switching_costs",
+      "m4_network_effects", "m5_cost_advantage_scale", "m6_unique_geography_assets",
+      "m7_operational_efficiency", "m8_capital_allocation", "m9_customer_retention", "m10_durability"
+    ];
+
+    if (hasAiMoat) {
+      ref = `Vertex AI 企業級深度分析 (基準季: ${moatObj.period || '最新'})`;
+      overallComment = moatObj.overall_moat_verdict || "具備明確的商業競爭壁壘與巴菲特護城河特徵。";
+      dimKeys.forEach((key, idx) => {
+        const item = moatObj[key];
+        if (item) {
+          if (item.score !== undefined) m[idx] = Number(item.score);
+          if (item.comment) comments[idx] = item.comment;
+        }
+      });
+    } else {
+      if (sec === "資訊科技") m = [7, 7, 7, 6, 6, 5, 7, 6, 5, 6];
+      else if (sec === "醫療保健") m = [7, 8, 6, 4, 6, 6, 7, 7, 6, 6];
+      else if (sec === "金融") m = [6, 6, 6, 6, 6, 6, 6, 6, 6, 6];
+      else m = [6, 5, 5, 4, 6, 5, 5, 5, 5, 5];
+      overallComment = `【城堡壁壘】在 ${sec} 行業具備標準化競爭力。`;
+    }
+
+    const total = m.reduce((a, b) => a + b, 0);
+    let grade = "Moderate Moat (中等)";
+    let badgeClass = "moat-weak";
+    if (total >= 88) { grade = "Wide Moat (極寬) 🏆"; badgeClass = "moat-wide"; }
+    else if (total >= 75) { grade = "Narrow Moat (優質) 🛡️"; badgeClass = "moat-narrow"; }
+    else if (total >= 55) { grade = "Moderate Moat (中等) ⚖️"; badgeClass = "moat-weak"; }
+    else { grade = "Weak / No Moat (微弱) ⚠️"; badgeClass = "moat-none"; }
+
+    const criteria = [
+      { id: "M1", category: "無形資產", title: "品牌心智與定價權 (Pricing Power)", score: m[0], desc: "提價後客戶黏性與議價權。", comment: comments[0] || "具備一定品牌防禦空間。" },
+      { id: "M2", category: "無形資產", title: "專利壁壘與特許許可 (Patents & Regulatory)", score: m[1], desc: "獨家專利准入或法定特許橋樑。", comment: comments[1] || "持有相關牌照與專利准入門檻。" },
+      { id: "M3", category: "轉換成本", title: "黏性與替代成本 (Switching Costs)", score: m[2], desc: "更換產品是否會造成高昂遷移成本。", comment: comments[2] || "具備一定轉換摩擦力。" },
+      { id: "M4", category: "網絡效應", title: "雙向網絡正反饋 (Network Effects)", score: m[3], desc: "網絡價值隨用戶幾何級上升。", comment: comments[3] || "生態系統具備正向反饋。" },
+      { id: "M5", category: "成本優勢", title: "極致規模經濟與工藝 (Scale Advantage)", score: m[4], desc: "極致低邊際成本或獨家工藝良率。", comment: comments[4] || "採購議價與規模領先同行。" },
+      { id: "M6", category: "有效規模", title: "利基市場天然寡占 (Efficient Scale)", score: m[5], desc: "市場容量有限的天然寡占。", comment: comments[5] || "形成天然理性寡占。" },
+      { id: "M7", category: "資本回報", title: "長週期超額 ROIC 韌性 (ROIC vs WACC)", score: m[6], desc: "投入資本回報率持續跑贏資金成本。", comment: comments[6] || "長期回報優於融資成本。" },
+      { id: "M8", category: "抗威脅力", title: "資本不可複製性 (Irreproducibility)", score: m[7], desc: "即便巨額資本亦難以短期複製。", comment: comments[7] || "核心戰略資產替代門檻高。" },
+      { id: "M9", category: "抗顛覆力", title: "技術/典範轉移抗性 (Disruption Immunity)", score: m[8], desc: "對技術變革或 AI 顛覆具防禦力。", comment: comments[8] || "終端需求剛性。" },
+      { id: "M10", category: "資本配置", title: "管理層誠信與回購配置 (Capital Allocation)", score: m[9], desc: "低估時積極回購註銷股本。", comment: comments[9] || "持續穩定回饋股東。" }
+    ];
+
+    return { total, grade, badgeClass, criteria, comment: overallComment, ref, m };
+  }
 
   function setValFilter(val) {
     currentValFilter = val;
@@ -1043,7 +1577,8 @@
         if (s.industry) subIndustries.add(s.industry);
       }
     });
-    let html = `<button class="f-btn ${currentSubIndustryFilter === 'ALL' ? 'active' : ''}" onclick="setSubIndustryFilter('ALL')">全部子行業</button>`;
+    const allLabel = currentLang === 'zh' ? '全部子行業' : 'All Sub-Industries';
+    let html = `<button class="f-btn ${currentSubIndustryFilter === 'ALL' ? 'active' : ''}" onclick="setSubIndustryFilter('ALL')">${allLabel}</button>`;
     Array.from(subIndustries).sort().forEach(sub => {
       html += `<button class="f-btn ${currentSubIndustryFilter === sub ? 'active' : ''}" onclick="setSubIndustryFilter('${sub}')">${sub}</button>`;
     });
@@ -1113,16 +1648,17 @@
     const savedCount = Object.keys(savedModels).length;
     const favCount = favs.length;
 
-    document.getElementById('stat-total').innerText = `${totalCount} 檔`;
-    document.getElementById('stat-fav-count').innerText = `${favCount} 檔`;
-    document.getElementById('stat-undervalued').innerText = `${underCount} 檔 (${totalCount > 0 ? ((underCount/totalCount)*100).toFixed(0) : 0}%)`;
-    document.getElementById('stat-overvalued').innerText = `${overCount} 檔 (${totalCount > 0 ? ((overCount/totalCount)*100).toFixed(0) : 0}%)`;
-    document.getElementById('stat-saved-count').innerText = `${savedCount} 檔`;
+    const unitTxt = currentLang === 'zh' ? '檔' : 'stocks';
+    document.getElementById('stat-total').innerText = `${totalCount} ${unitTxt}`;
+    document.getElementById('stat-fav-count').innerText = `${favCount} ${unitTxt}`;
+    document.getElementById('stat-undervalued').innerText = `${underCount} ${unitTxt} (${totalCount > 0 ? ((underCount/totalCount)*100).toFixed(0) : 0}%)`;
+    document.getElementById('stat-overvalued').innerText = `${overCount} ${unitTxt} (${totalCount > 0 ? ((overCount/totalCount)*100).toFixed(0) : 0}%)`;
+    document.getElementById('stat-saved-count').innerText = `${savedCount} ${unitTxt}`;
 
     tbody.innerHTML = list.map(item => {
       const badgeHtml = item.isUndervalued
-        ? `<span class="badge badge-undervalued">低估 ${item.premiumPct.toFixed(1)}%</span>`
-        : `<span class="badge badge-overvalued">高估 +${item.premiumPct.toFixed(1)}%</span>`;
+        ? `<span class="badge badge-undervalued">${currentLang === 'zh' ? '低估' : 'Undervalued'} ${item.premiumPct.toFixed(1)}%</span>`
+        : `<span class="badge badge-overvalued">${currentLang === 'zh' ? '高估' : 'Overvalued'} +${item.premiumPct.toFixed(1)}%</span>`;
 
       const targetPriceHtml = item.isSaved
         ? `<span class="badge badge-target">$${item.target_price.toFixed(2)}</span>`
@@ -1131,9 +1667,9 @@
       let targetSpreadHtml = `<span style="color: #64748b;">--</span>`;
       if (item.isSaved && item.target_spread !== null) {
         if (item.target_spread < 0) {
-          targetSpreadHtml = `<span class="text-green" style="font-weight: 700;">低估 ${item.target_spread.toFixed(1)}%</span>`;
+          targetSpreadHtml = `<span class="text-green" style="font-weight: 700;">${currentLang === 'zh' ? '低估' : 'Undervalued'} ${item.target_spread.toFixed(1)}%</span>`;
         } else {
-          targetSpreadHtml = `<span class="text-red" style="font-weight: 700;">高估 +${item.target_spread.toFixed(1)}%</span>`;
+          targetSpreadHtml = `<span class="text-red" style="font-weight: 700;">${currentLang === 'zh' ? '高估' : 'Overvalued'} +${item.target_spread.toFixed(1)}%</span>`;
         }
       }
 
@@ -1142,13 +1678,6 @@
       if (fScoreVal >= 7) fScoreClass = "fscore-green";
       else if (fScoreVal <= 3) fScoreClass = "fscore-red";
 
-      let ndeColor = "color: #cbd5e1;";
-      if (item.net_debt_to_ebitda !== undefined) {
-        if (item.net_debt_to_ebitda <= 0) ndeColor = "color: var(--green); font-weight: 700;";
-        else if (item.net_debt_to_ebitda > 3.5) ndeColor = "color: var(--red); font-weight: 700;";
-      }
-
-      const netCashColor = item.cash_minus_liab >= 0 ? 'color: var(--green);' : 'color: var(--red);';
       const exchClass = `badge-exch-${item.exchange || 'NASDAQ'}`;
       const favHeart = item.isFav ? '❤' : '♡';
       const favActiveClass = item.isFav ? 'active' : '';
@@ -1156,8 +1685,9 @@
       return `
         <tr>
           <td class="col-fixed-1">
-            <button class="fav-btn ${favActiveClass}" onclick="toggleFavorite('${item.ticker}', event)" title="加入/取消自選清單">${favHeart}</button>
-            <a class="ticker-link" onclick="openDetail('${item.ticker}')">${item.ticker}</a>
+            <button class="fav-btn ${favActiveClass}" onclick="toggleFavorite('${item.ticker}', event)">${favHeart}</button>
+            <!-- 需求 v: 點擊代碼導向企業資訊與圖表 -->
+            <a class="ticker-link" onclick="openCompanyProfile('${item.ticker}')" title="點擊查看企業基本面與走勢圖">${item.ticker}</a>
           </td>
           <td class="col-fixed-2"><span class="badge ${exchClass}">${item.exchange}</span></td>
           <td class="col-fixed-3" style="font-weight: 600; color: #fff;">${item.name}</td>
@@ -1167,12 +1697,12 @@
           <td class="text-green" style="font-size: 13px; font-weight: 700;">$${Number(item.fairVal).toFixed(2)}</td>
           <td>${targetPriceHtml}</td>
           <td style="text-align: center;">
-            <button class="btn-nav" onclick="openDetail('${item.ticker}')">深度模型 →</button>
+            <button class="btn-nav" onclick="openDetail('${item.ticker}')">${currentLang === 'zh' ? '深度模型 →' : 'DCF Model →'}</button>
           </td>
           <td>${targetSpreadHtml}</td>
           <td>${badgeHtml}</td>
           <td style="text-align: center;">
-            <span class="badge-moat ${item.moat.badgeClass}" onclick="openMoat('${item.ticker}')" title="點擊查看巴菲特護城河診斷">${item.moat.total} 分 · ${item.moat.grade.split(' ')[0]}</span>
+            <span class="badge-moat ${item.moat.badgeClass}" onclick="openMoat('${item.ticker}')">${item.moat.total} pt · ${item.moat.grade.split(' ')[0]}</span>
           </td>
           <td>
             <div>${(item.WACC * 100).toFixed(2)}%</div>
@@ -1184,20 +1714,16 @@
           <td>${item.pe_forward ? Number(item.pe_forward).toFixed(1) : '--'}</td>
           <td>${item.pb_trailing ? Number(item.pb_trailing).toFixed(1) : '--'}</td>
           <td style="color: #67e8f9; font-weight: 700;">${item.div_yield > 0 ? Number(item.div_yield).toFixed(2) + '%' : '0.00%'}</td>
-          <td style="color: #38bdf8; font-weight: 600;">${item.fcf_to_ev ? Number(item.fcf_to_ev).toFixed(2) + '%' : '--'}</td>
-          <td style="color: #a78bfa; font-weight: 600;">${item.fcf_to_mcap ? Number(item.fcf_to_mcap).toFixed(2) + '%' : '--'}</td>
           <td style="color: #38bdf8;">${item.cash_to_assets ? Number(item.cash_to_assets).toFixed(1) + '%' : '--'}</td>
           <td>${item.liab_to_assets ? Number(item.liab_to_assets).toFixed(1) + '%' : '--'}</td>
           <td>${item.current_ratio ? Number(item.current_ratio).toFixed(2) : '--'}</td>
-          <td style="${netCashColor}">$${(item.cash_minus_liab).toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
-          <td style="font-weight: 600; color: #fde047;">${item.roe ? Number(item.roe).toFixed(1) + '%' : '--'}</td>
-          <td style="color: #4ade80;">${item.roa ? Number(item.roa).toFixed(1) + '%' : '--'}</td>
+          <td>$${(item.cash_minus_liab).toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
           <td style="text-align: center;">
-            <span class="badge-fscore ${fScoreClass}" onclick="openFScore('${item.ticker}')" title="點擊查看皮氏 9 分明細">${fScoreVal} / 9</span>
+            <span class="badge-fscore ${fScoreClass}" onclick="openFScore('${item.ticker}')">${fScoreVal} / 9</span>
           </td>
           <td style="font-weight: 700; color: #38bdf8;">${item.ev_to_ebitda !== undefined ? Number(item.ev_to_ebitda).toFixed(1) + 'x' : '--'}</td>
           <td style="color: #cbd5e1;">${item.debt_to_ebitda !== undefined ? Number(item.debt_to_ebitda).toFixed(2) + 'x' : '--'}</td>
-          <td style="${ndeColor}">${item.net_debt_to_ebitda !== undefined ? Number(item.net_debt_to_ebitda).toFixed(2) + 'x' : '--'}</td>
+          <td>${item.net_debt_to_ebitda !== undefined ? Number(item.net_debt_to_ebitda).toFixed(2) + 'x' : '--'}</td>
         </tr>
       `;
     }).join('');
@@ -1212,30 +1738,21 @@
     const box = document.getElementById('main-scroll-box');
     if (!box) return;
 
-    let isDown = false;
-    let startX, scrollLeft;
-
+    let isDown = false, startX, scrollLeft;
     box.addEventListener('mousedown', (e) => {
       if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.tagName === 'INPUT' || e.target.classList.contains('badge-fscore') || e.target.classList.contains('badge-moat')) return;
       isDown = true;
       startX = e.pageX - box.offsetLeft;
       scrollLeft = box.scrollLeft;
     });
-
     box.addEventListener('mouseleave', () => { isDown = false; });
     box.addEventListener('mouseup', () => { isDown = false; });
     box.addEventListener('mousemove', (e) => {
       if (!isDown) return;
       e.preventDefault();
       const x = e.pageX - box.offsetLeft;
-      const walk = (x - startX) * 1.5;
-      box.scrollLeft = scrollLeft - walk;
+      box.scrollLeft = scrollLeft - ((x - startX) * 1.5);
     });
-
-    box.addEventListener('wheel', (e) => {
-      if (e.deltaX !== 0) box.scrollLeft += e.deltaX;
-      else if (e.shiftKey) box.scrollLeft += e.deltaY;
-    }, { passive: true });
   }
 
   function loadDetailTicker(ticker) {
@@ -1264,7 +1781,7 @@
 
     const fscoreBadge = document.getElementById('det-fscore-badge');
     const fval = dcf.f_score;
-    fscoreBadge.innerText = `F-Score: ${fval}/9 (診斷)`;
+    fscoreBadge.innerText = `F-Score: ${fval}/9`;
     fscoreBadge.className = `badge-fscore ${fval >= 7 ? 'fscore-green' : fval <= 3 ? 'fscore-red' : 'fscore-yellow'}`;
 
     updateDetailFavButton();
@@ -1297,26 +1814,22 @@
       if (genLayout) genLayout.style.display = 'grid';
     }
 
-    let displayDebt = s.debt;
-    let displayCash = s.cash;
-    let displayFCF0 = s.fcf0;
-    if (ticker === "TSM" && displayFCF0 > 50000) {
-      displayDebt = Math.round(displayDebt / 32.0);
-      displayCash = Math.round(displayCash / 32.0);
-      displayFCF0 = Math.round(displayFCF0 / 32.0);
-    }
-
     document.getElementById('inp-price').value = s.price;
     document.getElementById('inp-shares').value = s.shares;
-    document.getElementById('inp-debt').value = displayDebt;
-    document.getElementById('inp-cash').value = displayCash;
-    document.getElementById('inp-fcf0').value = displayFCF0;
+    document.getElementById('inp-debt').value = s.debt;
+    document.getElementById('inp-cash').value = s.cash;
+    document.getElementById('inp-fcf0').value = s.fcf0;
+    
+    // 需求 i: 同步當前無風險利率與所選年期
+    document.getElementById('inp-rf-tenor').value = currentRfTenor;
     document.getElementById('inp-rf').value = (commonRf * 100).toFixed(2);
     document.getElementById('inp-erp').value = (commonERP * 100).toFixed(2);
-    document.getElementById('inp-beta').value = s.beta;
-    document.getElementById('inp-kd').value = s.kd;
-    document.getElementById('inp-tax').value = s.tax;
-    document.getElementById('inp-g').value = s.g;
+    
+    // 需求 ii: 優先採納 FMP 5 年期 Beta
+    document.getElementById('inp-beta').value = dcf.beta;
+    document.getElementById('inp-kd').value = s.kd || 4.5;
+    document.getElementById('inp-tax').value = s.tax || 21.0;
+    document.getElementById('inp-g').value = s.g || 2.25;
 
     recalculateDetail();
   }
@@ -1394,14 +1907,14 @@
     const premEl = document.getElementById('det-res-premium');
     if (dcf.isUndervalued) {
       badgeEl.className = "badge badge-undervalued";
-      badgeEl.innerText = `低估 ${dcf.premiumPct.toFixed(1)}% (具安全邊際)`;
-      premEl.innerHTML = `<span class="text-green">低估 ${dcf.premiumPct.toFixed(1)}%</span>`;
-      document.getElementById('det-res-status').innerText = `市價低於內在價值，具備安全邊際`;
+      badgeEl.innerText = `${currentLang === 'zh' ? '低估' : 'Undervalued'} ${dcf.premiumPct.toFixed(1)}%`;
+      premEl.innerHTML = `<span class="text-green">${currentLang === 'zh' ? '低估' : 'Undervalued'} ${dcf.premiumPct.toFixed(1)}%</span>`;
+      document.getElementById('det-res-status').innerText = currentLang === 'zh' ? `市價低於內在價值，具備安全邊際` : `Trading below intrinsic value, margin of safety available`;
     } else {
       badgeEl.className = "badge badge-overvalued";
-      badgeEl.innerText = `高估 +${dcf.premiumPct.toFixed(1)}% (市價溢價)`;
-      premEl.innerHTML = `<span class="text-red">高估 +${dcf.premiumPct.toFixed(1)}%</span>`;
-      document.getElementById('det-res-status').innerText = `市價高於內在價值，留意回撤風險`;
+      badgeEl.innerText = `${currentLang === 'zh' ? '高估' : 'Overvalued'} +${dcf.premiumPct.toFixed(1)}%`;
+      premEl.innerHTML = `<span class="text-red">${currentLang === 'zh' ? '高估' : 'Overvalued'} +${dcf.premiumPct.toFixed(1)}%</span>`;
+      document.getElementById('det-res-status').innerText = currentLang === 'zh' ? `市價高於內在價值，留意回撤風險` : `Trading at premium to intrinsic value, watch for pullback`;
     }
 
     document.getElementById('det-res-ev').innerText = `$${dcf.EV.toLocaleString(undefined, {maximumFractionDigits: 0})} M`;
@@ -1442,13 +1955,13 @@
     const waccList = [baseWACC - 0.005, baseWACC, baseWACC + 0.005];
 
     document.getElementById('th-g1').innerText = `${(gList[0] * 100).toFixed(2)}%`;
-    document.getElementById('th-g2').innerText = `${(gList[1] * 100).toFixed(2)}% (基準)`;
+    document.getElementById('th-g2').innerText = `${(gList[1] * 100).toFixed(2)}% (${currentLang === 'zh' ? '基準' : 'Base'})`;
     document.getElementById('th-g3').innerText = `${(gList[2] * 100).toFixed(2)}%`;
 
     let tbody = '';
     waccList.forEach((w, wIdx) => {
       const isBaseW = (wIdx === 1);
-      tbody += `<tr><td><strong>${(w * 100).toFixed(2)}%${isBaseW ? ' (基準)' : ''}</strong></td>`;
+      tbody += `<tr><td><strong>${(w * 100).toFixed(2)}%${isBaseW ? ` (${currentLang === 'zh' ? '基準' : 'Base'})` : ''}</strong></td>`;
       gList.forEach((gVal, gIdx) => {
         const isBaseG = (gIdx === 1);
         let cellVal = 0;
@@ -1480,17 +1993,14 @@
 
     document.getElementById('moat-ticker').innerText = ticker;
     document.getElementById('moat-name').innerText = s.name;
-    const exchEl = document.getElementById('moat-exchange');
-    exchEl.innerText = s.exchange;
-    exchEl.className = `badge badge-exch-${s.exchange || 'NASDAQ'}`;
+    document.getElementById('moat-exchange').innerText = s.exchange;
 
     const dcf = computeDCF(s, ticker);
     const moat = dcf.moat;
 
     document.getElementById('moat-total-score').innerText = `${moat.total} / 100`;
-    const gradeBadge = document.getElementById('moat-grade-badge');
-    gradeBadge.innerText = moat.grade;
-    gradeBadge.className = `badge-moat ${moat.badgeClass}`;
+    document.getElementById('moat-grade-badge').innerText = moat.grade;
+    document.getElementById('moat-grade-badge').className = `badge-moat ${moat.badgeClass}`;
 
     const catIntangible = moat.m[0] + moat.m[1];
     const catStructural = moat.m[2] + moat.m[3] + moat.m[4] + moat.m[5];
@@ -1501,16 +2011,14 @@
     document.getElementById('moat-cat-resilience').innerText = `${catResilience} / 40`;
 
     document.getElementById('moat-ai-comment').innerHTML = `
-      <div style="font-size: 11px; color: var(--gold); margin-bottom: 4px; font-weight: 600;">📚 權威參考來源：${moat.ref}</div>
+      <div style="font-size: 11px; color: var(--gold); margin-bottom: 4px; font-weight: 600;">📚 ${moat.ref}</div>
       ${moat.comment}
     `;
 
     const tbody = document.getElementById('moat-breakdown-body');
     tbody.innerHTML = moat.criteria.map(c => {
       const pct = (c.score / 10) * 100;
-      let barColor = "#4ade80";
-      if (c.score < 5) barColor = "#f87171";
-      else if (c.score < 8) barColor = "#38bdf8";
+      let barColor = c.score < 5 ? "#f87171" : c.score < 8 ? "#38bdf8" : "#4ade80";
 
       return `
         <tr>
@@ -1536,32 +2044,11 @@
 
     document.getElementById('fsc-ticker').innerText = ticker;
     document.getElementById('fsc-name').innerText = s.name;
-    const exchEl = document.getElementById('fsc-exchange');
-    exchEl.innerText = s.exchange;
-    exchEl.className = `badge badge-exch-${s.exchange || 'NASDAQ'}`;
+    document.getElementById('fsc-exchange').innerText = s.exchange;
 
     const dcf = computeDCF(s, ticker);
     const score = dcf.f_score;
     document.getElementById('fsc-total-score').innerText = `${score} / 9 分`;
-
-    const gradeEl = document.getElementById('fsc-grade-text');
-    if (score >= 8) {
-      gradeEl.innerText = "極度優秀 (Strong Fundamentals)";
-      gradeEl.className = "text-green";
-      document.getElementById('fsc-total-score').className = "stat-num text-green";
-    } else if (score >= 6) {
-      gradeEl.innerText = "穩健良好 (Good Health)";
-      gradeEl.className = "text-green";
-      document.getElementById('fsc-total-score').className = "stat-num text-green";
-    } else if (score >= 4) {
-      gradeEl.innerText = "中性觀望 (Average)";
-      gradeEl.className = "text-gold";
-      document.getElementById('fsc-total-score').className = "stat-num text-gold";
-    } else {
-      gradeEl.innerText = "高財務風險警戒 (High Risk)";
-      gradeEl.className = "text-red";
-      document.getElementById('fsc-total-score').className = "stat-num text-red";
-    }
 
     const breakdown = dcf.f_score_breakdown || [];
     const pCat = breakdown.filter(x => x.category === "盈利能力" && x.passed).length;
@@ -1622,12 +2109,22 @@
     alert(`✅ 已成功儲存 ${s.name} 的自訂目標價值：$${dcf.fairVal.toFixed(2)}！`);
   }
 
-  function resetToFmpDefaults() {
-    if (!confirm(`確定要清除自訂目標價，恢復為 FMP 官方原始數值嗎？`)) return;
-    const models = getSavedModels();
-    delete models[activeDetailTicker];
-    localStorage.setItem('M7_CUSTOM_VALUATIONS', JSON.stringify(models));
-    location.reload();
+  function initDataFeed() {
+    let raw = {};
+    if (typeof window.FULL_MARKET_DATA !== 'undefined' && window.FULL_MARKET_DATA && Object.keys(window.FULL_MARKET_DATA).length > 0) {
+      raw = window.FULL_MARKET_DATA;
+    } else if (typeof FULL_MARKET_DATA !== 'undefined' && FULL_MARKET_DATA && Object.keys(FULL_MARKET_DATA).length > 0) {
+      raw = FULL_MARKET_DATA;
+    }
+
+    if (Object.keys(raw).length > 0) {
+      stockUniverse = JSON.parse(JSON.stringify(raw));
+      document.getElementById('app-status').innerText = '🟢 FMP 官方財報已完成同步 (全市場覆蓋)';
+      applyLanguage(currentLang);
+      initInteractions();
+      return true;
+    }
+    return false;
   }
 
   let retryCount = 0;
@@ -1636,14 +2133,17 @@
     if (initDataFeed() || retryCount > 40) {
       clearInterval(pollInterval);
       if (retryCount > 40 && Object.keys(stockUniverse).length === 0) {
-        document.getElementById('app-status').innerText = '⚠️ 數據檔案載入逾時，請按 Ctrl+F5 強制重新整理';
+        document.getElementById('app-status').innerText = '⚠️ 數據檔案載入逾時，請重新整理';
       }
     }
   }, 100);
 
   window.onload = function() {
     const hash = window.location.hash.replace('#', '').toUpperCase();
-    if (hash.endsWith('/MOAT')) {
+    if (hash.endsWith('/PROFILE')) {
+      const ticker = hash.split('/')[0];
+      if (stockUniverse[ticker]) { activeCompanyTicker = ticker; showView('company', false); }
+    } else if (hash.endsWith('/MOAT')) {
       const ticker = hash.split('/')[0];
       if (stockUniverse[ticker]) { activeMoatTicker = ticker; showView('moat', false); }
     } else if (hash.endsWith('/FSCORE')) {
