@@ -4,14 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>美股旗艦 DCF 估值雷達 (200 檔全覆蓋 · 雙軌多週期版)</title>
-  <!-- 防止快取動態載入市場數據 -->
-  <script>
-    const script = document.createElement('script');
-    script.src = 'market_data.js?t=' + new Date().getTime();
-    document.head.appendChild(script);
-  </script>
   <!-- 引入 TradingView 官方輕量化專業圖表庫 -->
-  <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+  <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js" defer></script>
 
   <style>
     :root {
@@ -614,7 +608,6 @@
         </div>
 
         <div class="panel-title" style="margin-top: 16px;" data-i18n="sec2_title">2. 資本成本與折現模型 (WACC)</div>
-        <!-- 需求 i: 無風險利率年期選擇下拉選單 (預設 5 年期) -->
         <div class="form-group">
           <label data-i18n="lbl_rf_tenor">無風險利率美債年期</label>
           <select id="inp-rf-tenor" onchange="onRfTenorChange()">
@@ -692,7 +685,7 @@
     </div>
   </div>
 
-  <!-- ==================== 頁面 3：企業概況與即時走勢圖專頁 (由代號進入) ==================== -->
+  <!-- ==================== 頁面 3：企業概況與即時走勢圖專頁 ==================== -->
   <div id="company-view">
     <div class="detail-header">
       <div class="detail-title">
@@ -706,7 +699,6 @@
       </div>
     </div>
 
-    <!-- 企業 Logo 與詳細業務輪廓 -->
     <div class="company-profile-card">
       <img id="cmp-logo-img" src="" alt="Logo" class="company-logo" onerror="this.src='https://assets.financialmodelingprep.com/symbol/default.png'">
       <div style="flex: 1;">
@@ -720,7 +712,6 @@
       </div>
     </div>
 
-    <!-- 梳理後的基本面關鍵數據卡片 -->
     <div class="company-meta-grid">
       <div class="company-meta-item"><span class="label" data-i18n="cmp_ceo">執行長 (CEO):</span><span class="val" id="cmp-meta-ceo">--</span></div>
       <div class="company-meta-item"><span class="label" data-i18n="cmp_sector">主行業領域:</span><span class="val" id="cmp-meta-sector">--</span></div>
@@ -732,7 +723,6 @@
       <div class="company-meta-item"><span class="label">P/B:</span><span class="val" id="cmp-meta-pb">--</span></div>
     </div>
 
-    <!-- 需求 vi: 專業股價圖表與全週期切換按鈕 -->
     <div class="panel">
       <div class="panel-title" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
         <span data-i18n="chart_title">📊 即時股價走勢圖與歷史 K 線</span>
@@ -868,7 +858,7 @@
 <script>
   let stockUniverse = {};
   
-  // 需求 i: 1-10 年期美國公債殖利率曲線基準表 (預設 5 年期為 4.30%)
+  // 1-10 年期美國公債殖利率曲線基準表 (預設 5 年期為 4.30%)
   const US_TREASURY_CURVE = {
     1: 0.0465,
     2: 0.0440,
@@ -899,7 +889,6 @@
 
   let currentLang = localStorage.getItem('RADAR_LANG') || 'zh';
 
-  // 需求 iii: 完整中英文語系對照字典
   const I18N_DICT = {
     zh: {
       title: "美股旗艦 DCF 估值雷達 (200 檔)",
@@ -1146,7 +1135,6 @@
     applyLanguage(currentLang === 'zh' ? 'en' : 'zh');
   }
 
-  // 需求 i: 年期切換回呼
   function onRfTenorChange() {
     const sel = document.getElementById('inp-rf-tenor');
     currentRfTenor = parseInt(sel.value) || 5;
@@ -1176,14 +1164,21 @@
     const wD = V > 0 ? localDebt / V : 0;
     const NetDebt = localDebt - localCash;
 
-    // 需求 ii: 優先採納 FMP API 5 年期滾動 Beta (beta_5y 或 beta)，若缺失才採用原內嵌兜底數值
+    // 優先讀取使用者修改的 Beta，未修改則依序讀取 beta_5y、beta 或兜底 1.0
     let beta = 1.0;
-    if (s.beta_5y !== undefined && Number(s.beta_5y) > 0) beta = Number(s.beta_5y);
-    else if (s.beta !== undefined && Number(s.beta) > 0) beta = Number(s.beta);
+    if (s.beta !== undefined && !isNaN(Number(s.beta)) && Number(s.beta) > 0) {
+      beta = Number(s.beta);
+    } else if (s.beta_5y !== undefined && Number(s.beta_5y) > 0) {
+      beta = Number(s.beta_5y);
+    }
+
+    // 優先讀取使用者自訂的 Rf 與 ERP，未設定才採用全域常數
+    const localRf = (s.rf !== undefined && !isNaN(Number(s.rf))) ? (Number(s.rf) / 100) : commonRf;
+    const localERP = (s.erp !== undefined && !isNaN(Number(s.erp))) ? (Number(s.erp) / 100) : commonERP;
 
     const kd = Number(s.kd) || 4.5;
     const tax = Number(s.tax) || 21.0;
-    const Ke = commonRf + (beta * commonERP);
+    const Ke = localRf + (beta * localERP);
     const Kd_after = (kd / 100) * (1 - (tax / 100));
     const WACC = (wE * Ke) + (wD * Kd_after);
 
@@ -1278,7 +1273,6 @@
     };
   }
 
-  // 需求 v: 點擊代碼導向企業資訊與圖表頁 (不直接進深度估值)
   function openCompanyProfile(ticker) {
     activeCompanyTicker = ticker;
     showView('company', true);
@@ -1293,7 +1287,6 @@
     document.getElementById('cmp-exchange').innerText = s.exchange || 'US';
     document.getElementById('cmp-full-name').innerText = s.company_name || s.name || `${ticker} Inc.`;
     
-    // 提取 FMP API 儲存的 Logo 與描述資訊
     const logoUrl = s.image || s.logo || `https://assets.financialmodelingprep.com/symbol/${ticker}.png`;
     document.getElementById('cmp-logo-img').src = logoUrl;
     
@@ -1314,11 +1307,9 @@
     document.getElementById('cmp-meta-pe').innerText = s.pe_trailing ? `${Number(s.pe_trailing).toFixed(1)}x` : "--";
     document.getElementById('cmp-meta-pb').innerText = s.pb_trailing ? `${Number(s.pb_trailing).toFixed(2)}x` : "--";
 
-    // 初始化走勢圖 (預設 1 day)
     renderStockChart(ticker, currentChartInterval);
   }
 
-  // 需求 vi: 專業輕量化圖表與週期切換
   let tvChart = null;
   let candleSeries = null;
   let currentChartInterval = '1d';
@@ -1332,7 +1323,7 @@
 
   function renderStockChart(ticker, interval) {
     const container = document.getElementById('tv-chart-container');
-    if (!container) return;
+    if (!container || typeof LightweightCharts === 'undefined') return;
     container.innerHTML = '';
 
     tvChart = LightweightCharts.createChart(container, {
@@ -1361,7 +1352,6 @@
       wickDownColor: '#f87171',
     });
 
-    // 產生貼合即時市價的模擬走勢 K 線 (實際產品中亦可無縫換接 FMP historical-chart API)
     const s = stockUniverse[ticker] || { price: 150 };
     const baseP = Number(s.price) || 100;
     let data = [];
@@ -1379,7 +1369,6 @@
       lastClose = close;
       data.push({ time: stepTime, open, high, low, close });
     }
-    // 確保最後一根接近當前即時市價
     data[data.length - 1].close = baseP;
 
     candleSeries.setData(data);
@@ -1401,13 +1390,10 @@
     }
   }
 
-  // 需求 iv: 恢復官方預設 — 無需 confirm 彈窗確認，並直接刷新當前頁面，不返回總表
   function resetToFmpDefaults() {
     const models = getSavedModels();
     delete models[activeDetailTicker];
     localStorage.setItem('M7_CUSTOM_VALUATIONS', JSON.stringify(models));
-    
-    // 直接重新讀取官方數值並刷新當前詳情視圖
     loadDetailTicker(activeDetailTicker);
     document.getElementById('det-saved-badge').style.display = 'none';
   }
@@ -1598,6 +1584,7 @@
     renderScreenerTable();
   }
 
+  // 渲染主篩選總表 (31 個儲存格與表頭 100% 嚴格對齊版)
   function renderScreenerTable() {
     const tbody = document.getElementById('screener-tbody');
     if (!tbody) return;
@@ -1684,40 +1671,57 @@
 
       return `
         <tr>
+          <!-- 1. 收藏 / 代碼 -->
           <td class="col-fixed-1">
             <button class="fav-btn ${favActiveClass}" onclick="toggleFavorite('${item.ticker}', event)">${favHeart}</button>
-            <!-- 需求 v: 點擊代碼導向企業資訊與圖表 -->
             <a class="ticker-link" onclick="openCompanyProfile('${item.ticker}')" title="點擊查看企業基本面與走勢圖">${item.ticker}</a>
           </td>
+          <!-- 2. 市場 -->
           <td class="col-fixed-2"><span class="badge ${exchClass}">${item.exchange}</span></td>
+          <!-- 3. 企業名稱 -->
           <td class="col-fixed-3" style="font-weight: 600; color: #fff;">${item.name}</td>
+          <!-- 4. 主板塊 -->
           <td style="color: #cbd5e1; text-align: left;">${item.sector}</td>
+          <!-- 5. 細分子行業 -->
           <td style="color: #94a3b8; font-size: 11px; text-align: left;">${item.industry}</td>
+          <!-- 6. 最新股價 ($) -->
           <td style="font-weight: 700; color: var(--accent);">$${Number(item.price).toFixed(2)}</td>
+          <!-- 7. 公允價值 ($) -->
           <td class="text-green" style="font-size: 13px; font-weight: 700;">$${Number(item.fairVal).toFixed(2)}</td>
+          <!-- 8. 目標價值 ($) -->
           <td>${targetPriceHtml}</td>
+          <!-- 9. 操作 -->
           <td style="text-align: center;">
             <button class="btn-nav" onclick="openDetail('${item.ticker}')">${currentLang === 'zh' ? '深度模型 →' : 'DCF Model →'}</button>
           </td>
+          <!-- 10. 目標 vs 市價溢價 -->
           <td>${targetSpreadHtml}</td>
+          <!-- 11. 公允溢價幅度 -->
           <td>${badgeHtml}</td>
+          <!-- 12. 巴菲特護城河 -->
           <td style="text-align: center;">
             <span class="badge-moat ${item.moat.badgeClass}" onclick="openMoat('${item.ticker}')">${item.moat.total} pt · ${item.moat.grade.split(' ')[0]}</span>
           </td>
+          <!-- 13. 加權成本 WACC / g -->
           <td>
             <div>${(item.WACC * 100).toFixed(2)}%</div>
             <div style="font-size: 11px; color: var(--text-muted);">g: ${Number(item.g).toFixed(2)}%</div>
           </td>
+          <!-- 14. 企業價值 EV ($M) -->
           <td>$${(item.EV).toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
+          <!-- 15. 市值 ($M) -->
           <td style="font-weight: 600;">$${(item.mcap).toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
+          <!-- 16. 靜態 P/E -->
           <td>${item.pe_trailing ? Number(item.pe_trailing).toFixed(1) : '--'}</td>
+          <!-- 17. 動態 P/E -->
           <td>${item.pe_forward ? Number(item.pe_forward).toFixed(1) : '--'}</td>
+          <!-- 18. 靜態 P/B -->
           <td>${item.pb_trailing ? Number(item.pb_trailing).toFixed(1) : '--'}</td>
-<!-- 19. 股息率 (%) -->
+          <!-- 19. 股息率 (%) -->
           <td style="color: #67e8f9; font-weight: 700;">${item.div_yield > 0 ? Number(item.div_yield).toFixed(2) + '%' : '0.00%'}</td>
-          <!-- 20. FCF / EV (%) [先前漏掉] -->
+          <!-- 20. FCF / EV (%) -->
           <td style="color: #38bdf8; font-weight: 600;">${item.fcf_to_ev !== undefined ? Number(item.fcf_to_ev).toFixed(2) + '%' : '--'}</td>
-          <!-- 21. FCF / Mcap (%) [先前漏掉] -->
+          <!-- 21. FCF / Mcap (%) -->
           <td style="color: #a78bfa; font-weight: 600;">${item.fcf_to_mcap !== undefined ? Number(item.fcf_to_mcap).toFixed(2) + '%' : '--'}</td>
           <!-- 22. 現金/資產 (%) -->
           <td style="color: #38bdf8;">${item.cash_to_assets !== undefined ? Number(item.cash_to_assets).toFixed(1) + '%' : '--'}</td>
@@ -1729,9 +1733,9 @@
           <td style="${item.cash_minus_liab >= 0 ? 'color: var(--green);' : 'color: var(--red);'}; font-weight: 600;">
             ${item.cash_minus_liab < 0 ? '-$' + Math.abs(item.cash_minus_liab).toLocaleString(undefined, {maximumFractionDigits: 0}) : '$' + (item.cash_minus_liab || 0).toLocaleString(undefined, {maximumFractionDigits: 0})}
           </td>
-          <!-- 26. ROE (%) [先前漏掉] -->
+          <!-- 26. ROE (%) -->
           <td style="font-weight: 600; color: #fde047;">${item.roe !== undefined ? Number(item.roe).toFixed(1) + '%' : '--'}</td>
-          <!-- 27. ROA (%) [先前漏掉] -->
+          <!-- 27. ROA (%) -->
           <td style="color: #4ade80;">${item.roa !== undefined ? Number(item.roa).toFixed(1) + '%' : '--'}</td>
           <!-- 28. F-Score 評分 -->
           <td style="text-align: center;">
@@ -1841,13 +1845,11 @@
     document.getElementById('inp-cash').value = s.cash;
     document.getElementById('inp-fcf0').value = s.fcf0;
     
-    // 需求 i: 同步當前無風險利率與所選年期
     document.getElementById('inp-rf-tenor').value = currentRfTenor;
-    document.getElementById('inp-rf').value = (commonRf * 100).toFixed(2);
-    document.getElementById('inp-erp').value = (commonERP * 100).toFixed(2);
+    document.getElementById('inp-rf').value = s.rf !== undefined ? Number(s.rf).toFixed(2) : (commonRf * 100).toFixed(2);
+    document.getElementById('inp-erp').value = s.erp !== undefined ? Number(s.erp).toFixed(2) : (commonERP * 100).toFixed(2);
+    document.getElementById('inp-beta').value = s.beta !== undefined ? s.beta : (s.beta_5y || 1.0);
     
-    // 需求 ii: 優先採納 FMP 5 年期 Beta
-    document.getElementById('inp-beta').value = dcf.beta;
     document.getElementById('inp-kd').value = s.kd || 4.5;
     document.getElementById('inp-tax').value = s.tax || 21.0;
     document.getElementById('inp-g').value = s.g || 2.25;
@@ -1886,10 +1888,20 @@
     s.debt = parseFloat(document.getElementById('inp-debt').value) || 0;
     s.cash = parseFloat(document.getElementById('inp-cash').value) || 0;
     s.fcf0 = parseFloat(document.getElementById('inp-fcf0').value) || 0;
-    s.beta = parseFloat(document.getElementById('inp-beta').value) || 1;
+
+    // 同步覆寫 beta 與 beta_5y，防止被舊的預設值蓋過去
+    const userBeta = parseFloat(document.getElementById('inp-beta').value) || 1.0;
+    s.beta = userBeta;
+    s.beta_5y = userBeta;
+
+    // 即時讀取輸入的 Rf 與 ERP 百分比數值
+    s.rf = parseFloat(document.getElementById('inp-rf').value) || (commonRf * 100);
+    s.erp = parseFloat(document.getElementById('inp-erp').value) || (commonERP * 100);
+
     s.kd = parseFloat(document.getElementById('inp-kd').value) || 0;
     s.tax = parseFloat(document.getElementById('inp-tax').value) || 0;
     s.g = parseFloat(document.getElementById('inp-g').value) || 2.25;
+
     recalculateDetail();
   }
 
@@ -2116,6 +2128,8 @@
         cash: s.cash,
         fcf0: s.fcf0,
         beta: s.beta,
+        rf: s.rf,
+        erp: s.erp,
         kd: s.kd,
         tax: s.tax,
         g: s.g,
@@ -2130,36 +2144,31 @@
     alert(`✅ 已成功儲存 ${s.name} 的自訂目標價值：$${dcf.fairVal.toFixed(2)}！`);
   }
 
-  function initDataFeed() {
-    let raw = {};
-    if (typeof window.FULL_MARKET_DATA !== 'undefined' && window.FULL_MARKET_DATA && Object.keys(window.FULL_MARKET_DATA).length > 0) {
-      raw = window.FULL_MARKET_DATA;
-    } else if (typeof FULL_MARKET_DATA !== 'undefined' && FULL_MARKET_DATA && Object.keys(FULL_MARKET_DATA).length > 0) {
-      raw = FULL_MARKET_DATA;
-    }
+  // 非阻塞非同步載入 market_data.js，徹底解決分頁轉圈卡死問題
+  async function loadMarketDataAsync() {
+    try {
+      const response = await fetch('market_data.js?t=' + Date.now());
+      if (!response.ok) throw new Error("HTTP error " + response.status);
+      
+      const jsCode = await response.text();
+      new Function(jsCode)();
 
-    if (Object.keys(raw).length > 0) {
-      stockUniverse = JSON.parse(JSON.stringify(raw));
-      document.getElementById('app-status').innerText = '🟢 FMP 官方財報已完成同步 (全市場覆蓋)';
-      applyLanguage(currentLang);
-      initInteractions();
-      return true;
+      if (window.FULL_MARKET_DATA && Object.keys(window.FULL_MARKET_DATA).length > 0) {
+        stockUniverse = JSON.parse(JSON.stringify(window.FULL_MARKET_DATA));
+        document.getElementById('app-status').innerText = '🟢 FMP 官方財報已完成同步 (全市場覆蓋)';
+        applyLanguage(currentLang);
+        initInteractions();
+        handleInitialNavigation();
+      } else {
+        throw new Error("數據集為空");
+      }
+    } catch (err) {
+      console.warn("異步載入失敗，等待重試:", err);
+      setTimeout(loadMarketDataAsync, 1500);
     }
-    return false;
   }
 
-  let retryCount = 0;
-  const pollInterval = setInterval(() => {
-    retryCount++;
-    if (initDataFeed() || retryCount > 40) {
-      clearInterval(pollInterval);
-      if (retryCount > 40 && Object.keys(stockUniverse).length === 0) {
-        document.getElementById('app-status').innerText = '⚠️ 數據檔案載入逾時，請重新整理';
-      }
-    }
-  }, 100);
-
-  window.onload = function() {
+  function handleInitialNavigation() {
     const hash = window.location.hash.replace('#', '').toUpperCase();
     if (hash.endsWith('/PROFILE')) {
       const ticker = hash.split('/')[0];
@@ -2176,7 +2185,11 @@
     } else {
       showView('screener', false);
     }
-  };
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    loadMarketDataAsync();
+  });
 </script>
 </body>
 </html>
