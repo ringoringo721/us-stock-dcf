@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>美股旗艦 DCF 估值雷達 (200 檔全覆蓋 · 金融雙軌即時滑桿版)</title>
-  <!-- 加入動態時間戳防止瀏覽器死鎖快取 -->
+  <title>美股旗艦 DCF 估值雷達 </title>
   <script>
     const script = document.createElement('script');
     script.src = 'market_data.js?t=' + new Date().getTime();
@@ -222,7 +221,6 @@
       word-break: break-word;
     }
 
-    /* 金融專屬互動滑桿面板樣式 */
     .slider-row {
       display: flex;
       flex-direction: column;
@@ -308,7 +306,7 @@
         <span class="filter-title">篩選維度：</span>
         <div class="filter-btns" id="val-filters">
           <button class="f-btn active" onclick="setValFilter('ALL')">全部標的</button>
-          <button class="f-btn btn-fav" onclick="setValFilter('FAVORITES')">❤️ 我的自選收藏</button>
+          <button class="f-btn btn-fav" onclick="setValFilter('FAVORITES')">❤️️ 我的自選收藏</button>
           <button class="f-btn" onclick="setValFilter('UNDERVALUED')">🟢 具安全邊際 (低估)</button>
           <button class="f-btn" onclick="setValFilter('OVERVALUED')">🔴 溢價過高 (高估)</button>
           <button class="f-btn" onclick="setValFilter('SAVED')">💾 已存目標價</button>
@@ -676,4 +674,988 @@
       </div>
       <div class="stat-box">
         <div class="stat-label">3. 營運效率指標 (Efficiency)</div>
-        <div class="stat-num" id="fsc-
+        <div class="stat-num" id="fsc-cat-efficiency">0 / 2 分</div>
+        <div style="font-size: 11px; color: var(--text-muted);">毛利率擴張與資產週轉率提升</div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">皮氏 9 分檢驗標準明細表 (Piotroski Criteria Breakdown)</div>
+      <table class="fscore-table">
+        <thead>
+          <tr>
+            <th style="width: 70px; text-align: center;">得分</th>
+            <th style="width: 140px;">核心維度</th>
+            <th>測試項目與標準</th>
+            <th>實際財務指標判定</th>
+            <th style="width: 110px; text-align: center;">狀態</th>
+          </tr>
+        </thead>
+        <tbody id="fscore-breakdown-body"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+  let stockUniverse = {};
+  const commonRf = 0.0450;
+  const commonERP = 0.0475;
+
+  let currentValFilter = 'ALL';
+  let currentSectorFilter = 'ALL';
+  let currentSubIndustryFilter = 'ALL';
+  let sortField = 'mcap';
+  let sortAsc = false;
+  let activeDetailTicker = 'NVDA';
+  let activeFScoreTicker = 'NVDA';
+  let activeMoatTicker = 'NVDA';
+
+  const BENCHMARK_DIV_YIELDS = {
+    "KO": 3.12, "PEP": 3.15, "JNJ": 3.05, "PG": 2.45, "MCD": 2.25,
+    "XOM": 3.35, "CVX": 4.10, "O": 5.35, "MO": 8.10, "PM": 4.65,
+    "VZ": 6.55, "T": 5.85, "IBM": 3.25, "HD": 2.40, "ABBV": 3.35,
+    "MRK": 2.90, "PFE": 5.95, "BMY": 4.80, "CL": 2.10, "KMB": 3.30,
+    "SO": 3.65, "DUK": 3.85, "NEE": 2.80, "CAT": 1.45, "UNP": 2.20,
+    "JPM": 2.25, "BAC": 2.40, "WFC": 2.50, "MS": 3.20, "GS": 2.40,
+    "AAPL": 0.52, "MSFT": 0.72, "AVGO": 1.35, "CSCO": 2.85, "TXN": 2.95,
+    "QCOM": 2.15, "WMT": 1.25, "COST": 0.65, "LIN": 1.25, "UPS": 4.85,
+    "LOW": 1.85, "HON": 2.10, "LMT": 2.65, "DE": 1.50, "EPD": 7.15
+  };
+
+  const GLOBAL_MOAT_SCORES = {
+    "AAPL": { m: [10, 9, 10, 9, 9, 8, 10, 10, 9, 10], ref: "Warren Buffett (2023 年股東大會)", note: "【城堡壁壘】iOS 封閉生態系統創造全球最高客戶轉換阻力與極端定價權。" },
+    "MSFT": { m: [9, 9, 10, 9, 9, 8, 10, 10, 9, 9], ref: "Morningstar 護城河評估手冊", note: "【城堡壁壘】Windows、Office 365 及 Azure 深度嵌入全球企業營運骨幹。" },
+    "TSM": { m: [9, 10, 9, 7, 10, 9, 10, 10, 8, 9], ref: "Warren Buffett (2022 年談台積電製造地位)", note: "【城堡壁壘】先進製程具備不可撼動的極致規模經濟與工藝良率。" },
+    "NVDA": { m: [10, 10, 10, 9, 9, 8, 10, 9, 7, 8], ref: "Bruce Greenwald 教授 (《競爭優勢》理論)", note: "【城堡壁壘】CUDA 軟體架構構建了全球開發者生態的高轉換成本。" },
+    "MCD": { m: [8, 5, 4, 6, 10, 10, 9, 9, 8, 8], ref: "沃倫·巴菲特護城河準則 · 麥當勞深度專題", note: "【城堡壁壘】披著快餐外衣的「頂級商業地產出租商 + 全球供應鏈特許平台」。" }
+  };
+
+  function initDataFeed() {
+    let raw = {};
+    if (typeof window.FULL_MARKET_DATA !== 'undefined' && window.FULL_MARKET_DATA && Object.keys(window.FULL_MARKET_DATA).length > 0) {
+      raw = window.FULL_MARKET_DATA;
+    } else if (typeof FULL_MARKET_DATA !== 'undefined' && FULL_MARKET_DATA && Object.keys(FULL_MARKET_DATA).length > 0) {
+      raw = FULL_MARKET_DATA;
+    }
+
+    if (Object.keys(raw).length > 0) {
+      stockUniverse = JSON.parse(JSON.stringify(raw));
+      document.getElementById('app-status').innerText = '🟢 FMP 官方財報已完成同步 (全市場覆蓋)';
+      updateSubIndustryButtons();
+      initInteractions();
+      renderScreenerTable();
+      return true;
+    }
+    return false;
+  }
+
+  function evaluateMoat(s, explicitTicker) {
+    const rawSym = explicitTicker || (s && s.ticker) || "";
+    const sym = rawSym.toUpperCase().trim();
+    const sec = (s && s.sector) || "其他";
+    const moatObj = (s && s.moat) || {};
+    
+    const hasAiMoat = !!(moatObj.m1_brand_pricing && (moatObj.m1_brand_pricing.comment || moatObj.m1_brand_pricing.score !== undefined));
+
+    let m = [6, 6, 6, 5, 6, 6, 6, 6, 6, 6];
+    let comments = Array(10).fill("");
+    let ref = "巴菲特價值投資模型 · 綜合研究評估";
+    let overallComment = "";
+
+    const dimKeys = [
+      "m1_brand_pricing", "m2_patents_regulatory", "m3_high_switching_costs",
+      "m4_network_effects", "m5_cost_advantage_scale", "m6_unique_geography_assets",
+      "m7_operational_efficiency", "m8_capital_allocation", "m9_customer_retention", "m10_durability"
+    ];
+
+    if (hasAiMoat) {
+      ref = `Vertex AI 企業級深度分析 (基準季: ${moatObj.period || '最新'})`;
+      overallComment = moatObj.overall_moat_verdict || "具備明確的商業競爭壁壘與巴菲特護城河特徵。";
+      dimKeys.forEach((key, idx) => {
+        const item = moatObj[key];
+        if (item) {
+          if (item.score !== undefined) m[idx] = Number(item.score);
+          if (item.comment) comments[idx] = item.comment;
+        }
+      });
+    } else if (GLOBAL_MOAT_SCORES[sym]) {
+      m = GLOBAL_MOAT_SCORES[sym].m;
+      ref = GLOBAL_MOAT_SCORES[sym].ref || ref;
+      overallComment = GLOBAL_MOAT_SCORES[sym].note;
+    } else {
+      if (sec === "資訊科技") m = [7, 7, 7, 6, 6, 5, 7, 6, 5, 6];
+      else if (sec === "醫療保健") m = [7, 8, 6, 4, 6, 6, 7, 7, 6, 6];
+      else if (sec === "金融") m = [6, 6, 6, 6, 6, 6, 6, 6, 6, 6];
+      else if (sec === "必需消費") m = [7, 6, 5, 4, 7, 6, 6, 7, 7, 6];
+      else m = [6, 5, 5, 4, 6, 5, 5, 5, 5, 5];
+      overallComment = `【城堡壁壘】在 ${sec} 行業具備標準化競爭力，但面臨同業替代威脅。<br>【巴菲特評語】「屬於常規業務，尚未展現壓倒性的定價權優勢。」`;
+    }
+
+    const total = m.reduce((a, b) => a + b, 0);
+    let grade = "Moderate Moat (中等)";
+    let badgeClass = "moat-weak";
+    if (total >= 88) { grade = "Wide Moat (極寬) 🏆"; badgeClass = "moat-wide"; }
+    else if (total >= 75) { grade = "Narrow Moat (優質) 🛡️"; badgeClass = "moat-narrow"; }
+    else if (total >= 55) { grade = "Moderate Moat (中等) ⚖️"; badgeClass = "moat-weak"; }
+    else { grade = "Weak / No Moat (微弱) ⚠️"; badgeClass = "moat-none"; }
+
+    const criteria = [
+      { id: "M1", category: "無形資產", title: "品牌心智與定價權 (Pricing Power)", score: m[0], desc: "加價後客戶是否依然離不開？是否具備強大產品提價權且不失銷量。", comment: comments[0] || "具備一定品牌辨識度與定價防禦空間。" },
+      { id: "M2", category: "無形資產", title: "專利壁壘與特許許可 (Patents & Regulatory)", score: m[1], desc: "獨家專利集群、政府監管准入或法定特許經營收費橋樑。", comment: comments[1] || "持有相關合規牌照或專利組合准入門檻。" },
+      { id: "M3", category: "轉換成本", title: "黏性與替代成本 (Switching Costs)", score: m[2], desc: "更換產品是否會造成重大財務損失、營運中斷或高昂遷移成本。", comment: comments[2] || "客戶替換具備一定摩擦力與遷移成本。" },
+      { id: "M4", category: "網絡效應", title: "雙向網絡正反饋 (Network Effects)", score: m[3], desc: "每多一個用戶加入，整個生態系統對所有參與者的價值呈幾何級上升。", comment: comments[3] || "生態系統具備正向反饋與擴張效應。" },
+      { id: "M5", category: "成本優勢", title: "極致規模經濟與工藝 (Scale Advantage)", score: m[4], desc: "能夠以對手無法企及的超低邊際成本供貨或掌握獨家工藝良率。", comment: comments[4] || "採購議價與供應鏈規模領先中小同業。" },
+      { id: "M6", category: "有效規模", title: "利基市場天然寡占 (Efficient Scale)", score: m[5], desc: "市場容量有限，新競爭者進入只會引發雙輸局面的天然理性寡占。", comment: comments[5] || "利基市場容量有限，形成天然理性寡占。" },
+      { id: "M7", category: "資本回報", title: "長週期超額 ROIC 韌性 (ROIC vs WACC)", score: m[6], desc: "投入資本回報率持續遠超加權資本成本，創造實質股東複利能力。", comment: comments[6] || "長期投入資本回報率高於加權資金成本。" },
+      { id: "M8", category: "抗威脅力", title: "資本不可複製性 (Irreproducibility)", score: m[7], desc: "即便給對手 1,000 億美元資金，也無法在幾年內複製該企業。", comment: comments[7] || "核心戰略資產即便斥巨資短期內亦難以替代。" },
+      { id: "M9", category: "抗顛覆力", title: "技術/典範轉移抗性 (Disruption Immunity)", score: m[8], desc: "需求確定性極高，對技術變革或 AI 顛覆具備強大免疫力。", comment: comments[8] || "終端需求確定性高，對技術變革具備一定防禦力。" },
+      { id: "M10", category: "資本配置", title: "管理層誠信與回購配置 (Capital Allocation)", score: m[9], desc: "不盲目溢價併購，低估時積極回購註銷股本以最大化股東利益。", comment: comments[9] || "管理層資本配置得當，持續回購並回饋股東。" }
+    ];
+
+    return { total, grade, badgeClass, criteria, comment: overallComment, ref, m };
+  }
+
+  function getFavorites() {
+    try { return JSON.parse(localStorage.getItem('M7_FAVORITES') || '[]'); } catch (e) { return []; }
+  }
+
+  function isFavorite(ticker) { return getFavorites().includes(ticker); }
+
+  function toggleFavorite(ticker, e) {
+    if (e) e.stopPropagation();
+    let favs = getFavorites();
+    favs = favs.includes(ticker) ? favs.filter(t => t !== ticker) : [...favs, ticker];
+    localStorage.setItem('M7_FAVORITES', JSON.stringify(favs));
+    renderScreenerTable();
+  }
+
+  function toggleDetailFavorite() {
+    toggleFavorite(activeDetailTicker);
+    updateDetailFavButton();
+  }
+
+  function updateDetailFavButton() {
+    const btn = document.getElementById('det-fav-btn');
+    if (!btn) return;
+    if (isFavorite(activeDetailTicker)) { btn.innerText = '❤'; btn.className = 'fav-btn active'; }
+    else { btn.innerText = '♡'; btn.className = 'fav-btn'; }
+  }
+
+  function getSavedModels() {
+    try { return JSON.parse(localStorage.getItem('M7_CUSTOM_VALUATIONS') || '{}'); } catch (e) { return {}; }
+  }
+
+  function computeDCF(s, explicitTicker) {
+    if (!s) return null;
+    const sym = explicitTicker || s.ticker || "";
+    let localDebt = Number(s.debt) || 0;
+    let localCash = Number(s.cash) || 0;
+    let localFCF0 = Number(s.fcf0) || 100;
+    const price = Number(s.price) || 1;
+    const shares = Number(s.shares) || 1;
+
+    if (sym === "TSM" && localFCF0 > 50000) {
+      localDebt = Math.round(localDebt / 32.0);
+      localCash = Math.round(localCash / 32.0);
+      localFCF0 = Math.round(localFCF0 / 32.0);
+    }
+
+    const E = price * shares;
+    const V = E + localDebt;
+    const wE = V > 0 ? E / V : 1;
+    const wD = V > 0 ? localDebt / V : 0;
+    const NetDebt = localDebt - localCash;
+
+    const beta = Number(s.beta) || 1.0;
+    const kd = Number(s.kd) || 4.5;
+    const tax = Number(s.tax) || 21.0;
+    const Ke = commonRf + (beta * commonERP);
+    const Kd_after = (kd / 100) * (1 - (tax / 100));
+    const WACC = (wE * Ke) + (wD * Kd_after);
+
+    let growthRates = [];
+    if (s.growth_10y && Array.isArray(s.growth_10y) && s.growth_10y.length === 10) {
+      growthRates = s.growth_10y.map(r => (Number(r) || 5) / 100);
+    } else {
+      const g1 = (Number(s.g1) || 10.0) / 100;
+      const g2 = (Number(s.g2) || 5.0) / 100;
+      growthRates = [g1, g1, g1, g1, g1, g2, g2, g2, g2, g2];
+      s.growth_10y = [g1*100, g1*100, g1*100, g1*100, g1*100, g2*100, g2*100, g2*100, g2*100, g2*100];
+    }
+
+    let curFCF = localFCF0;
+    let sumPV = 0;
+    const fcfList = [];
+    const dfList = [];
+    const pvList = [];
+
+    for (let t = 1; t <= 10; t++) {
+      curFCF *= (1 + growthRates[t-1]);
+      const df = 1 / Math.pow(1 + WACC, t);
+      const pv = curFCF * df;
+      fcfList.push(curFCF);
+      dfList.push(df);
+      pvList.push(pv);
+      sumPV += pv;
+    }
+
+    const g = (Number(s.g) || 2.25) / 100;
+    const fcf11 = fcfList[9] * (1 + g);
+    const safeWacc = Math.max(WACC, g + 0.015);
+    const tv = (safeWacc > g) ? (fcf11 / (safeWacc - g)) : 0;
+    const pvTV = tv * dfList[9];
+    const EV = sumPV + pvTV;
+    const EquityVal = EV - NetDebt;
+
+    // 金融專屬模型雙軌安全判定
+    const isFin = !!(s.fin_valuation && s.fin_valuation.is_financial);
+    let fairVal = 0;
+
+    if (isFin) {
+      const fin = s.fin_valuation;
+      const ke_val = (fin.ke || (Ke * 100)) / 100;
+      const g_val = (fin.g || s.g || 2.25) / 100;
+      const rote_val = (fin.rote || s.roe || 15) / 100;
+      const tbvps = fin.tbvps || 80;
+      const dps = fin.dps_total || 6.5;
+
+      const spread = rote_val - ke_val;
+      const exVal = tbvps + (tbvps * spread) / Math.max(ke_val - g_val, 0.02);
+
+      let ddmSum = 0;
+      let curD = dps;
+      const g_dps = 0.065;
+      for (let t = 1; t <= 5; t++) {
+        curD *= (1 + g_dps);
+        ddmSum += curD / Math.pow(1 + ke_val, t);
+      }
+      const tvDDM = (curD * (1 + g_val)) / Math.max(ke_val - g_val, 0.02);
+      const ddmVal = ddmSum + (tvDDM / Math.pow(1 + ke_val, 5));
+
+      fairVal = Number(((exVal * 0.55) + (ddmVal * 0.45)).toFixed(2));
+      fin.excess_return_fair = Number(exVal.toFixed(2));
+      fin.ddm_fair = Number(ddmVal.toFixed(2));
+    } else {
+      fairVal = (shares > 0 ? (EquityVal / shares) : price);
+    }
+
+    const safeFairVal = Math.max(fairVal, 0.01);
+    const premiumPct = ((price / safeFairVal) - 1) * 100;
+
+    const estimatedEbitda = Math.max(localFCF0 * 1.25, (E / (Number(s.pe_trailing) || 22)) * 1.35, 100);
+    const ev_to_ebitda = s.ev_to_ebitda !== undefined ? Number(s.ev_to_ebitda) : Math.round((EV / estimatedEbitda) * 10) / 10;
+    const debt_to_ebitda = s.debt_to_ebitda !== undefined ? Number(s.debt_to_ebitda) : Math.round((localDebt / estimatedEbitda) * 100) / 100;
+    const net_debt_to_ebitda = s.net_debt_to_ebitda !== undefined ? Number(s.net_debt_to_ebitda) : Math.round((NetDebt / estimatedEbitda) * 100) / 100;
+
+    let div_yield = 0.00;
+    if (BENCHMARK_DIV_YIELDS[sym] !== undefined) { div_yield = BENCHMARK_DIV_YIELDS[sym]; }
+    else if (s.div_yield && Number(s.div_yield) > 0) { div_yield = Number(s.div_yield); }
+
+    const moat = evaluateMoat(s, sym);
+
+    return {
+      E, V, wE, wD, NetDebt, Ke, Kd_after, WACC,
+      growth: growthRates, fcfList, dfList, pvList, sumPV,
+      fcf11, tv, pvTV, EV, EquityVal, fairVal: safeFairVal, premiumPct,
+      isUndervalued: premiumPct < 0,
+      mcap: E,
+      cash_minus_liab: localCash - localDebt,
+      ev_to_ebitda,
+      debt_to_ebitda,
+      net_debt_to_ebitda,
+      div_yield,
+      f_score: s.f_score !== undefined ? s.f_score : 7,
+      f_score_breakdown: s.f_score_breakdown || [],
+      moat,
+      localFCF0,
+      localDebt,
+      localCash
+    };
+  }
+
+  function showView(viewName, pushState = true) {
+    document.getElementById('screener-view').style.display = 'none';
+    document.getElementById('detail-view').style.display = 'none';
+    document.getElementById('fscore-view').style.display = 'none';
+    document.getElementById('moat-view').style.display = 'none';
+
+    if (viewName === 'screener') {
+      document.getElementById('screener-view').style.display = 'block';
+      if (pushState) history.pushState({ view: 'screener' }, '', window.location.pathname);
+      renderScreenerTable();
+    } else if (viewName === 'detail') {
+      document.getElementById('detail-view').style.display = 'block';
+      if (pushState) history.pushState({ view: 'detail', ticker: activeDetailTicker }, '', `#${activeDetailTicker}`);
+      loadDetailTicker(activeDetailTicker);
+    } else if (viewName === 'fscore') {
+      document.getElementById('fscore-view').style.display = 'block';
+      if (pushState) history.pushState({ view: 'fscore', ticker: activeFScoreTicker }, '', `#${activeFScoreTicker}/fscore`);
+      loadFScoreView(activeFScoreTicker);
+    } else if (viewName === 'moat') {
+      document.getElementById('moat-view').style.display = 'block';
+      if (pushState) history.pushState({ view: 'moat', ticker: activeMoatTicker }, '', `#${activeMoatTicker}/moat`);
+      loadMoatView(activeMoatTicker);
+    }
+  }
+
+  function navigateBack() {
+    if (history.state && (history.state.view === 'detail' || history.state.view === 'fscore' || history.state.view === 'moat')) {
+      history.back();
+    } else {
+      showView('screener', true);
+    }
+  }
+
+  window.onpopstate = function(e) {
+    if (e.state && e.state.view === 'moat' && e.state.ticker) { activeMoatTicker = e.state.ticker; showView('moat', false); }
+    else if (e.state && e.state.view === 'fscore' && e.state.ticker) { activeFScoreTicker = e.state.ticker; showView('fscore', false); }
+    else if (e.state && e.state.view === 'detail' && e.state.ticker) { activeDetailTicker = e.state.ticker; showView('detail', false); }
+    else { showView('screener', false); }
+  };
+
+  function openDetail(ticker) { activeDetailTicker = ticker; showView('detail', true); }
+  function openFScore(ticker) { activeFScoreTicker = ticker; showView('fscore', true); }
+  function openMoat(ticker) { activeMoatTicker = ticker; showView('moat', true); }
+
+  function setValFilter(val) {
+    currentValFilter = val;
+    document.querySelectorAll('#val-filters .f-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    renderScreenerTable();
+  }
+
+  function setSectorFilter(sec) {
+    currentSectorFilter = sec;
+    currentSubIndustryFilter = 'ALL';
+    document.querySelectorAll('#sector-filters .f-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    updateSubIndustryButtons();
+    renderScreenerTable();
+  }
+
+  function updateSubIndustryButtons() {
+    const container = document.getElementById('subindustry-filters');
+    if (!container) return;
+    let subIndustries = new Set();
+    Object.values(stockUniverse).forEach(s => {
+      if (currentSectorFilter === 'ALL' || s.sector === currentSectorFilter) {
+        if (s.industry) subIndustries.add(s.industry);
+      }
+    });
+    let html = `<button class="f-btn ${currentSubIndustryFilter === 'ALL' ? 'active' : ''}" onclick="setSubIndustryFilter('ALL')">全部子行業</button>`;
+    Array.from(subIndustries).sort().forEach(sub => {
+      html += `<button class="f-btn ${currentSubIndustryFilter === sub ? 'active' : ''}" onclick="setSubIndustryFilter('${sub}')">${sub}</button>`;
+    });
+    container.innerHTML = html;
+  }
+
+  function setSubIndustryFilter(sub) {
+    currentSubIndustryFilter = sub;
+    document.querySelectorAll('#subindustry-filters .f-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    renderScreenerTable();
+  }
+
+  function sortTable(field) {
+    if (sortField === field) sortAsc = !sortAsc;
+    else { sortField = field; sortAsc = (field === 'mcap' || field === 'price' || field === 'f_score' || field === 'moat_score' || field === 'div_yield') ? false : true; }
+    renderScreenerTable();
+  }
+
+  function renderScreenerTable() {
+    const tbody = document.getElementById('screener-tbody');
+    if (!tbody) return;
+    const searchVal = document.getElementById('search-ticker').value.trim().toUpperCase();
+    const savedModels = getSavedModels();
+    const favs = getFavorites();
+
+    let list = Object.keys(stockUniverse).map(ticker => {
+      const s = stockUniverse[ticker];
+      const dcf = computeDCF(s, ticker);
+      if (!dcf) return null;
+      const isSaved = !!savedModels[ticker];
+      const isFav = favs.includes(ticker);
+      const target_price = isSaved ? savedModels[ticker].targetPrice : null;
+      const target_spread = (isSaved && target_price > 0) ? (((s.price / target_price) - 1) * 100) : null;
+      const moat_score = dcf.moat.total;
+      return { ticker, ...s, ...dcf, isSaved, isFav, target_price, target_spread, moat_score };
+    }).filter(x => x !== null);
+
+    if (currentValFilter === 'UNDERVALUED') list = list.filter(item => item.isUndervalued);
+    else if (currentValFilter === 'OVERVALUED') list = list.filter(item => !item.isUndervalued);
+    else if (currentValFilter === 'SAVED') list = list.filter(item => item.isSaved);
+    else if (currentValFilter === 'FAVORITES') list = list.filter(item => item.isFav);
+
+    if (currentSectorFilter !== 'ALL') list = list.filter(item => item.sector === currentSectorFilter);
+    if (currentSubIndustryFilter !== 'ALL') list = list.filter(item => item.industry === currentSubIndustryFilter);
+
+    if (searchVal) {
+      list = list.filter(item => 
+        item.ticker.includes(searchVal) || 
+        (item.name && item.name.toUpperCase().includes(searchVal)) || 
+        (item.sector && item.sector.includes(searchVal)) || 
+        (item.industry && item.industry.toUpperCase().includes(searchVal))
+      );
+    }
+
+    list.sort((a, b) => {
+      let va = a[sortField];
+      let vb = b[sortField];
+      if (typeof va === 'string') return sortAsc ? va.localeCompare(vb) : vb.localeCompare(va);
+      return sortAsc ? (va || 0) - (vb || 0) : (vb || 0) - (va || 0);
+    });
+
+    const allCalc = Object.keys(stockUniverse).map(t => computeDCF(stockUniverse[t], t)).filter(x => x !== null);
+    const totalCount = allCalc.length;
+    const underCount = allCalc.filter(x => x.isUndervalued).length;
+    const overCount = totalCount - underCount;
+    const savedCount = Object.keys(savedModels).length;
+    const favCount = favs.length;
+
+    document.getElementById('stat-total').innerText = `${totalCount} 檔`;
+    document.getElementById('stat-fav-count').innerText = `${favCount} 檔`;
+    document.getElementById('stat-undervalued').innerText = `${underCount} 檔 (${totalCount > 0 ? ((underCount/totalCount)*100).toFixed(0) : 0}%)`;
+    document.getElementById('stat-overvalued').innerText = `${overCount} 檔 (${totalCount > 0 ? ((overCount/totalCount)*100).toFixed(0) : 0}%)`;
+    document.getElementById('stat-saved-count').innerText = `${savedCount} 檔`;
+
+    tbody.innerHTML = list.map(item => {
+      const badgeHtml = item.isUndervalued
+        ? `<span class="badge badge-undervalued">低估 ${item.premiumPct.toFixed(1)}%</span>`
+        : `<span class="badge badge-overvalued">高估 +${item.premiumPct.toFixed(1)}%</span>`;
+
+      const targetPriceHtml = item.isSaved
+        ? `<span class="badge badge-target">$${item.target_price.toFixed(2)}</span>`
+        : `<span style="color: #64748b;">--</span>`;
+
+      let targetSpreadHtml = `<span style="color: #64748b;">--</span>`;
+      if (item.isSaved && item.target_spread !== null) {
+        if (item.target_spread < 0) {
+          targetSpreadHtml = `<span class="text-green" style="font-weight: 700;">低估 ${item.target_spread.toFixed(1)}%</span>`;
+        } else {
+          targetSpreadHtml = `<span class="text-red" style="font-weight: 700;">高估 +${item.target_spread.toFixed(1)}%</span>`;
+        }
+      }
+
+      const fScoreVal = item.f_score !== undefined ? item.f_score : 7;
+      let fScoreClass = "fscore-yellow";
+      if (fScoreVal >= 7) fScoreClass = "fscore-green";
+      else if (fScoreVal <= 3) fScoreClass = "fscore-red";
+
+      let ndeColor = "color: #cbd5e1;";
+      if (item.net_debt_to_ebitda !== undefined) {
+        if (item.net_debt_to_ebitda <= 0) ndeColor = "color: var(--green); font-weight: 700;";
+        else if (item.net_debt_to_ebitda > 3.5) ndeColor = "color: var(--red); font-weight: 700;";
+      }
+
+      const netCashColor = item.cash_minus_liab >= 0 ? 'color: var(--green);' : 'color: var(--red);';
+      const exchClass = `badge-exch-${item.exchange || 'NASDAQ'}`;
+      const favHeart = item.isFav ? '❤' : '♡';
+      const favActiveClass = item.isFav ? 'active' : '';
+
+      return `
+        <tr>
+          <td class="col-fixed-1">
+            <button class="fav-btn ${favActiveClass}" onclick="toggleFavorite('${item.ticker}', event)" title="加入/取消自選清單">${favHeart}</button>
+            <a class="ticker-link" onclick="openDetail('${item.ticker}')">${item.ticker}</a>
+          </td>
+          <td class="col-fixed-2"><span class="badge ${exchClass}">${item.exchange}</span></td>
+          <td class="col-fixed-3" style="font-weight: 600; color: #fff;">${item.name}</td>
+          <td style="color: #cbd5e1; text-align: left;">${item.sector}</td>
+          <td style="color: #94a3b8; font-size: 11px; text-align: left;">${item.industry}</td>
+          <td style="font-weight: 700; color: var(--accent);">$${Number(item.price).toFixed(2)}</td>
+          <td class="text-green" style="font-size: 13px; font-weight: 700;">$${Number(item.fairVal).toFixed(2)}</td>
+          <td>${targetPriceHtml}</td>
+          <td style="text-align: center;">
+            <button class="btn-nav" onclick="openDetail('${item.ticker}')">深度模型 →</button>
+          </td>
+          <td>${targetSpreadHtml}</td>
+          <td>${badgeHtml}</td>
+          <td style="text-align: center;">
+            <span class="badge-moat ${item.moat.badgeClass}" onclick="openMoat('${item.ticker}')" title="點擊查看巴菲特護城河診斷">${item.moat.total} 分 · ${item.moat.grade.split(' ')[0]}</span>
+          </td>
+          <td>
+            <div>${(item.WACC * 100).toFixed(2)}%</div>
+            <div style="font-size: 11px; color: var(--text-muted);">g: ${Number(item.g).toFixed(2)}%</div>
+          </td>
+          <td>$${(item.EV).toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
+          <td style="font-weight: 600;">$${(item.mcap).toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
+          <td>${item.pe_trailing ? Number(item.pe_trailing).toFixed(1) : '--'}</td>
+          <td>${item.pe_forward ? Number(item.pe_forward).toFixed(1) : '--'}</td>
+          <td>${item.pb_trailing ? Number(item.pb_trailing).toFixed(1) : '--'}</td>
+          <td style="color: #67e8f9; font-weight: 700;">${item.div_yield > 0 ? Number(item.div_yield).toFixed(2) + '%' : '0.00%'}</td>
+          <td style="color: #38bdf8; font-weight: 600;">${item.fcf_to_ev ? Number(item.fcf_to_ev).toFixed(2) + '%' : '--'}</td>
+          <td style="color: #a78bfa; font-weight: 600;">${item.fcf_to_mcap ? Number(item.fcf_to_mcap).toFixed(2) + '%' : '--'}</td>
+          <td style="color: #38bdf8;">${item.cash_to_assets ? Number(item.cash_to_assets).toFixed(1) + '%' : '--'}</td>
+          <td>${item.liab_to_assets ? Number(item.liab_to_assets).toFixed(1) + '%' : '--'}</td>
+          <td>${item.current_ratio ? Number(item.current_ratio).toFixed(2) : '--'}</td>
+          <td style="${netCashColor}">$${(item.cash_minus_liab).toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
+          <td style="font-weight: 600; color: #fde047;">${item.roe ? Number(item.roe).toFixed(1) + '%' : '--'}</td>
+          <td style="color: #4ade80;">${item.roa ? Number(item.roa).toFixed(1) + '%' : '--'}</td>
+          <td style="text-align: center;">
+            <span class="badge-fscore ${fScoreClass}" onclick="openFScore('${item.ticker}')" title="點擊查看皮氏 9 分明細">${fScoreVal} / 9</span>
+          </td>
+          <td style="font-weight: 700; color: #38bdf8;">${item.ev_to_ebitda !== undefined ? Number(item.ev_to_ebitda).toFixed(1) + 'x' : '--'}</td>
+          <td style="color: #cbd5e1;">${item.debt_to_ebitda !== undefined ? Number(item.debt_to_ebitda).toFixed(2) + 'x' : '--'}</td>
+          <td style="${ndeColor}">${item.net_debt_to_ebitda !== undefined ? Number(item.net_debt_to_ebitda).toFixed(2) + 'x' : '--'}</td>
+        </tr>
+      `;
+    }).join('');
+  }
+
+  function scrollTableBy(amount) {
+    const box = document.getElementById('main-scroll-box');
+    if (box) box.scrollBy({ left: amount, behavior: 'smooth' });
+  }
+
+  function initInteractions() {
+    const box = document.getElementById('main-scroll-box');
+    if (!box) return;
+
+    let isDown = false;
+    let startX, scrollLeft;
+
+    box.addEventListener('mousedown', (e) => {
+      if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.tagName === 'INPUT' || e.target.classList.contains('badge-fscore') || e.target.classList.contains('badge-moat')) return;
+      isDown = true;
+      startX = e.pageX - box.offsetLeft;
+      scrollLeft = box.scrollLeft;
+    });
+
+    box.addEventListener('mouseleave', () => { isDown = false; });
+    box.addEventListener('mouseup', () => { isDown = false; });
+    box.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - box.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      box.scrollLeft = scrollLeft - walk;
+    });
+
+    box.addEventListener('wheel', (e) => {
+      if (e.deltaX !== 0) box.scrollLeft += e.deltaX;
+      else if (e.shiftKey) box.scrollLeft += e.deltaY;
+    }, { passive: true });
+  }
+
+  function loadDetailTicker(ticker) {
+    const s = stockUniverse[ticker];
+    if (!s) return;
+
+    const saved = getSavedModels()[ticker];
+    if (saved) {
+      Object.assign(s, saved.params);
+      document.getElementById('det-saved-badge').style.display = 'inline-block';
+      document.getElementById('det-saved-badge').innerText = `已存目標價: $${Number(saved.targetPrice).toFixed(2)}`;
+    } else {
+      document.getElementById('det-saved-badge').style.display = 'none';
+    }
+
+    document.getElementById('det-ticker').innerText = ticker;
+    document.getElementById('det-name').innerText = s.name;
+    const exchEl = document.getElementById('det-exchange');
+    exchEl.innerText = s.exchange;
+    exchEl.className = `badge badge-exch-${s.exchange || 'NASDAQ'}`;
+
+    const dcf = computeDCF(s, ticker);
+    const moatBadge = document.getElementById('det-moat-badge');
+    moatBadge.innerText = `護城河: ${dcf.moat.total}/100 🏆`;
+    moatBadge.className = `badge-moat ${dcf.moat.badgeClass}`;
+
+    const fscoreBadge = document.getElementById('det-fscore-badge');
+    const fval = dcf.f_score;
+    fscoreBadge.innerText = `F-Score: ${fval}/9 (診斷)`;
+    fscoreBadge.className = `badge-fscore ${fval >= 7 ? 'fscore-green' : fval <= 3 ? 'fscore-red' : 'fscore-yellow'}`;
+
+    updateDetailFavButton();
+
+    const isFinancial = !!(s.fin_valuation && s.fin_valuation.is_financial);
+    const finPanel = document.getElementById('panel-fin-models');
+    const genLayout = document.getElementById('panel-general-dcf');
+
+    if (isFinancial) {
+      if (finPanel) finPanel.style.display = 'block';
+      if (genLayout) genLayout.style.display = 'none';
+
+      const fin = s.fin_valuation;
+      document.getElementById('slider-fin-ke').value = (fin.ke || 9.49).toFixed(2);
+      document.getElementById('slider-fin-g').value = (fin.g || 2.25).toFixed(2);
+      document.getElementById('slider-fin-rote').value = (fin.rote || 17.4).toFixed(1);
+
+      document.getElementById('disp-fin-ke').innerText = `${Number(document.getElementById('slider-fin-ke').value).toFixed(2)}%`;
+      document.getElementById('disp-fin-g').innerText = `${Number(document.getElementById('slider-fin-g').value).toFixed(2)}%`;
+      document.getElementById('disp-fin-rote').innerText = `${Number(document.getElementById('slider-fin-rote').value).toFixed(1)}%`;
+
+      document.getElementById('fin-tbvps').innerText = `$${Number(fin.tbvps).toFixed(2)}`;
+      document.getElementById('fin-ptbv').innerText = `${Number(fin.pb_tangible).toFixed(2)}x`;
+      document.getElementById('fin-dps').innerText = `$${Number(fin.dps_total).toFixed(2)}`;
+
+      const spreadVal = Number(document.getElementById('slider-fin-rote').value) - Number(document.getElementById('slider-fin-ke').value);
+      document.getElementById('fin-spread-disp').innerText = `${spreadVal > 0 ? '+' : ''}${spreadVal.toFixed(2)}%`;
+    } else {
+      if (finPanel) finPanel.style.display = 'none';
+      if (genLayout) genLayout.style.display = 'grid';
+    }
+
+    let displayDebt = s.debt;
+    let displayCash = s.cash;
+    let displayFCF0 = s.fcf0;
+    if (ticker === "TSM" && displayFCF0 > 50000) {
+      displayDebt = Math.round(displayDebt / 32.0);
+      displayCash = Math.round(displayCash / 32.0);
+      displayFCF0 = Math.round(displayFCF0 / 32.0);
+    }
+
+    document.getElementById('inp-price').value = s.price;
+    document.getElementById('inp-shares').value = s.shares;
+    document.getElementById('inp-debt').value = displayDebt;
+    document.getElementById('inp-cash').value = displayCash;
+    document.getElementById('inp-fcf0').value = displayFCF0;
+    document.getElementById('inp-rf').value = (commonRf * 100).toFixed(2);
+    document.getElementById('inp-erp').value = (commonERP * 100).toFixed(2);
+    document.getElementById('inp-beta').value = s.beta;
+    document.getElementById('inp-kd').value = s.kd;
+    document.getElementById('inp-tax').value = s.tax;
+    document.getElementById('inp-g').value = s.g;
+
+    recalculateDetail();
+  }
+
+  function onFinSliderChange() {
+    const s = stockUniverse[activeDetailTicker];
+    if (!s || !s.fin_valuation) return;
+
+    const valKe = parseFloat(document.getElementById('slider-fin-ke').value);
+    const valG = parseFloat(document.getElementById('slider-fin-g').value);
+    const valRote = parseFloat(document.getElementById('slider-fin-rote').value);
+
+    document.getElementById('disp-fin-ke').innerText = `${valKe.toFixed(2)}%`;
+    document.getElementById('disp-fin-g').innerText = `${valG.toFixed(2)}%`;
+    document.getElementById('disp-fin-rote').innerText = `${valRote.toFixed(1)}%`;
+
+    const spreadVal = valRote - valKe;
+    document.getElementById('fin-spread-disp').innerText = `${spreadVal > 0 ? '+' : ''}${spreadVal.toFixed(2)}%`;
+
+    s.fin_valuation.ke = valKe;
+    s.fin_valuation.g = valG;
+    s.fin_valuation.rote = valRote;
+    s.g = valG;
+
+    recalculateDetail();
+  }
+
+  function onDetailParamChange() {
+    const s = stockUniverse[activeDetailTicker];
+    if (!s) return;
+    s.price = parseFloat(document.getElementById('inp-price').value) || 0;
+    s.shares = parseFloat(document.getElementById('inp-shares').value) || 1;
+    s.debt = parseFloat(document.getElementById('inp-debt').value) || 0;
+    s.cash = parseFloat(document.getElementById('inp-cash').value) || 0;
+    s.fcf0 = parseFloat(document.getElementById('inp-fcf0').value) || 0;
+    s.beta = parseFloat(document.getElementById('inp-beta').value) || 1;
+    s.kd = parseFloat(document.getElementById('inp-kd').value) || 0;
+    s.tax = parseFloat(document.getElementById('inp-tax').value) || 0;
+    s.g = parseFloat(document.getElementById('inp-g').value) || 2.25;
+    recalculateDetail();
+  }
+
+  function onYearGrowthChange(yearIdx, val) {
+    const s = stockUniverse[activeDetailTicker];
+    if (!s) return;
+    if (!s.growth_10y || !Array.isArray(s.growth_10y)) {
+      s.growth_10y = [12, 12, 12, 12, 12, 6, 6, 6, 6, 6];
+    }
+    s.growth_10y[yearIdx] = parseFloat(val) || 0;
+    recalculateDetail();
+  }
+
+  function recalculateDetail() {
+    const s = stockUniverse[activeDetailTicker];
+    if (!s) return;
+    const dcf = computeDCF(s, activeDetailTicker);
+
+    document.getElementById('det-res-fair').innerText = `$${dcf.fairVal.toFixed(2)}`;
+    document.getElementById('det-res-price').innerText = `$${Number(s.price).toFixed(2)}`;
+    
+    const isFin = !!(s.fin_valuation && s.fin_valuation.is_financial);
+    if (isFin) {
+      document.getElementById('fin-excess-val').innerText = `$${Number(s.fin_valuation.excess_return_fair).toFixed(2)}`;
+      document.getElementById('fin-ddm-val').innerText = `$${Number(s.fin_valuation.ddm_fair).toFixed(2)}`;
+      document.getElementById('det-res-wacc').innerText = `${Number(s.fin_valuation.ke).toFixed(2)}% (Ke)`;
+      document.getElementById('det-res-g').innerText = `${Number(s.fin_valuation.g).toFixed(2)}%`;
+      document.getElementById('det-res-spread').innerText = `${(Number(s.fin_valuation.ke) - Number(s.fin_valuation.g)).toFixed(2)}%`;
+    } else {
+      document.getElementById('det-res-wacc').innerText = `${(dcf.WACC * 100).toFixed(2)}%`;
+      document.getElementById('det-res-g').innerText = `${Number(s.g).toFixed(2)}%`;
+      document.getElementById('det-res-spread').innerText = `${((dcf.WACC - (Number(s.g)/100)) * 100).toFixed(2)}%`;
+    }
+
+    const badgeEl = document.getElementById('det-badge');
+    const premEl = document.getElementById('det-res-premium');
+    if (dcf.isUndervalued) {
+      badgeEl.className = "badge badge-undervalued";
+      badgeEl.innerText = `低估 ${dcf.premiumPct.toFixed(1)}% (具安全邊際)`;
+      premEl.innerHTML = `<span class="text-green">低估 ${dcf.premiumPct.toFixed(1)}%</span>`;
+      document.getElementById('det-res-status').innerText = `市價低於內在價值，具備安全邊際`;
+    } else {
+      badgeEl.className = "badge badge-overvalued";
+      badgeEl.innerText = `高估 +${dcf.premiumPct.toFixed(1)}% (市價溢價)`;
+      premEl.innerHTML = `<span class="text-red">高估 +${dcf.premiumPct.toFixed(1)}%</span>`;
+      document.getElementById('det-res-status').innerText = `市價高於內在價值，留意回撤風險`;
+    }
+
+    document.getElementById('det-res-ev').innerText = `$${dcf.EV.toLocaleString(undefined, {maximumFractionDigits: 0})} M`;
+    document.getElementById('det-res-evebitda').innerText = `${Number(dcf.ev_to_ebitda).toFixed(1)}x`;
+    document.getElementById('det-res-nde').innerText = `${Number(dcf.net_debt_to_ebitda).toFixed(2)}x`;
+
+    if (!isFin) {
+      renderDCFTable(dcf.growth, dcf.fcfList, dcf.dfList, dcf.pvList);
+      renderSensitivity(dcf.fcfList[9], dcf.NetDebt, s.shares, dcf.WACC, Number(s.g) / 100, dcf.localFCF0, dcf.growth);
+    }
+  }
+
+  function renderDCFTable(growth, fcfs, dfs, pvs) {
+    let head = '<th>年份 (Period)</th>';
+    let rowGrowth = '<td>年增長率 (%)</td>';
+    let rowFCF = '<td>自由現金流 ($M)</td>';
+    let rowDF = '<td>折現因子 (DF)</td>';
+    let rowPV = '<td>折現現值 ($M)</td>';
+
+    for (let i = 0; i < 10; i++) {
+      head += `<th>Y${i + 1}</th>`;
+      const gVal = (growth[i] * 100).toFixed(1);
+      rowGrowth += `<td><input type="number" step="0.5" class="growth-input" value="${gVal}" oninput="onYearGrowthChange(${i}, this.value)"></td>`;
+      rowFCF += `<td>${fcfs[i].toLocaleString(undefined, {maximumFractionDigits: 0})}</td>`;
+      rowDF += `<td>${dfs[i].toFixed(4)}</td>`;
+      rowPV += `<td>${pvs[i].toLocaleString(undefined, {maximumFractionDigits: 0})}</td>`;
+    }
+
+    document.getElementById('dcf-head').innerHTML = head;
+    document.getElementById('dcf-growth').innerHTML = rowGrowth;
+    document.getElementById('dcf-fcf').innerHTML = rowFCF;
+    document.getElementById('dcf-factor').innerHTML = rowDF;
+    document.getElementById('dcf-pv').innerHTML = rowPV;
+  }
+
+  function renderSensitivity(fcf10, netDebt, shares, baseWACC, baseG, fcf0, growth) {
+    const gList = [baseG - 0.005, baseG, baseG + 0.005];
+    const waccList = [baseWACC - 0.005, baseWACC, baseWACC + 0.005];
+
+    document.getElementById('th-g1').innerText = `${(gList[0] * 100).toFixed(2)}%`;
+    document.getElementById('th-g2').innerText = `${(gList[1] * 100).toFixed(2)}% (基準)`;
+    document.getElementById('th-g3').innerText = `${(gList[2] * 100).toFixed(2)}%`;
+
+    let tbody = '';
+    waccList.forEach((w, wIdx) => {
+      const isBaseW = (wIdx === 1);
+      tbody += `<tr><td><strong>${(w * 100).toFixed(2)}%${isBaseW ? ' (基準)' : ''}</strong></td>`;
+      gList.forEach((gVal, gIdx) => {
+        const isBaseG = (gIdx === 1);
+        let cellVal = 0;
+        if (w > gVal) {
+          let recomputedSumPV = 0;
+          let tempFCF = fcf0;
+          for (let t = 1; t <= 10; t++) {
+            tempFCF = tempFCF * (1 + growth[t - 1]);
+            recomputedSumPV += tempFCF / Math.pow(1 + w, t);
+          }
+          const fcf11 = tempFCF * (1 + gVal);
+          const safeW = Math.max(w, gVal + 0.015);
+          const tv = fcf11 / (safeW - gVal);
+          const pvTV = tv / Math.pow(1 + safeW, 10);
+          const eqVal = (recomputedSumPV + pvTV) - netDebt;
+          cellVal = eqVal / shares;
+        }
+        const isBase = isBaseW && isBaseG;
+        tbody += `<td class="sens-cell ${isBase ? 'sens-base' : ''}">$${cellVal.toFixed(2)}</td>`;
+      });
+      tbody += `</tr>`;
+    });
+    document.getElementById('sens-body').innerHTML = tbody;
+  }
+
+  function loadMoatView(ticker) {
+    const s = stockUniverse[ticker];
+    if (!s) return;
+
+    document.getElementById('moat-ticker').innerText = ticker;
+    document.getElementById('moat-name').innerText = s.name;
+    const exchEl = document.getElementById('moat-exchange');
+    exchEl.innerText = s.exchange;
+    exchEl.className = `badge badge-exch-${s.exchange || 'NASDAQ'}`;
+
+    const dcf = computeDCF(s, ticker);
+    const moat = dcf.moat;
+
+    document.getElementById('moat-total-score').innerText = `${moat.total} / 100`;
+    const gradeBadge = document.getElementById('moat-grade-badge');
+    gradeBadge.innerText = moat.grade;
+    gradeBadge.className = `badge-moat ${moat.badgeClass}`;
+
+    const catIntangible = moat.m[0] + moat.m[1];
+    const catStructural = moat.m[2] + moat.m[3] + moat.m[4] + moat.m[5];
+    const catResilience = moat.m[6] + moat.m[7] + moat.m[8] + moat.m[9];
+
+    document.getElementById('moat-cat-intangible').innerText = `${catIntangible} / 20`;
+    document.getElementById('moat-cat-structural').innerText = `${catStructural} / 40`;
+    document.getElementById('moat-cat-resilience').innerText = `${catResilience} / 40`;
+
+    document.getElementById('moat-ai-comment').innerHTML = `
+      <div style="font-size: 11px; color: var(--gold); margin-bottom: 4px; font-weight: 600;">📚 權威參考來源：${moat.ref}</div>
+      ${moat.comment}
+    `;
+
+    const tbody = document.getElementById('moat-breakdown-body');
+    tbody.innerHTML = moat.criteria.map(c => {
+      const pct = (c.score / 10) * 100;
+      let barColor = "#4ade80";
+      if (c.score < 5) barColor = "#f87171";
+      else if (c.score < 8) barColor = "#38bdf8";
+
+      return `
+        <tr>
+          <td style="text-align: center; font-weight: 700; font-size: 14px; color: ${barColor};">${c.score} / 10</td>
+          <td style="font-weight: 600; color: #cbd5e1;">${c.category}</td>
+          <td><strong>${c.id}. ${c.title}</strong></td>
+          <td style="color: #94a3b8; font-size: 12px;">${c.desc}</td>
+          <td>
+            <div class="moat-bar-bg">
+              <div class="moat-bar-fill" style="width: ${pct}%; background: ${barColor};"></div>
+            </div>
+            <span style="font-size: 11px; font-weight: 600; color: ${barColor};">${pct}%</span>
+          </td>
+          <td class="moat-comment-cell">${c.comment}</td>
+        </tr>
+      `;
+    }).join('');
+  }
+
+  function loadFScoreView(ticker) {
+    const s = stockUniverse[ticker];
+    if (!s) return;
+
+    document.getElementById('fsc-ticker').innerText = ticker;
+    document.getElementById('fsc-name').innerText = s.name;
+    const exchEl = document.getElementById('fsc-exchange');
+    exchEl.innerText = s.exchange;
+    exchEl.className = `badge badge-exch-${s.exchange || 'NASDAQ'}`;
+
+    const dcf = computeDCF(s, ticker);
+    const score = dcf.f_score;
+    document.getElementById('fsc-total-score').innerText = `${score} / 9 分`;
+
+    const gradeEl = document.getElementById('fsc-grade-text');
+    if (score >= 8) {
+      gradeEl.innerText = "極度優秀 (Strong Fundamentals)";
+      gradeEl.className = "text-green";
+      document.getElementById('fsc-total-score').className = "stat-num text-green";
+    } else if (score >= 6) {
+      gradeEl.innerText = "穩健良好 (Good Health)";
+      gradeEl.className = "text-green";
+      document.getElementById('fsc-total-score').className = "stat-num text-green";
+    } else if (score >= 4) {
+      gradeEl.innerText = "中性觀望 (Average)";
+      gradeEl.className = "text-gold";
+      document.getElementById('fsc-total-score').className = "stat-num text-gold";
+    } else {
+      gradeEl.innerText = "高財務風險警戒 (High Risk)";
+      gradeEl.className = "text-red";
+      document.getElementById('fsc-total-score').className = "stat-num text-red";
+    }
+
+    const breakdown = dcf.f_score_breakdown || [];
+    const pCat = breakdown.filter(x => x.category === "盈利能力" && x.passed).length;
+    const lCat = breakdown.filter(x => x.category === "槓桿與償債" && x.passed).length;
+    const eCat = breakdown.filter(x => x.category === "營運效率" && x.passed).length;
+
+    document.getElementById('fsc-cat-profit').innerText = `${pCat} / 4 分`;
+    document.getElementById('fsc-cat-leverage').innerText = `${lCat} / 3 分`;
+    document.getElementById('fsc-cat-efficiency').innerText = `${eCat} / 2 分`;
+
+    const tbody = document.getElementById('fscore-breakdown-body');
+    tbody.innerHTML = breakdown.map(item => {
+      const isPass = item.passed === 1;
+      const mark = isPass ? '✔' : '✘';
+      const circleClass = isPass ? 'score-pass' : 'score-fail';
+      const statusText = isPass ? '<span class="text-green" style="font-weight:700;">+1 分 通過</span>' : '<span class="text-red">未達標 (0分)</span>';
+
+      return `
+        <tr>
+          <td style="text-align: center;"><span class="score-badge-circle ${circleClass}">${mark}</span></td>
+          <td style="font-weight: 600; color: #cbd5e1;">${item.category}</td>
+          <td><strong>#${item.id}. ${item.desc}</strong></td>
+          <td style="color: #94a3b8;">${item.detail}</td>
+          <td style="text-align: center;">${statusText}</td>
+        </tr>
+      `;
+    }).join('');
+  }
+
+  function saveCustomModel() {
+    const s = stockUniverse[activeDetailTicker];
+    if (!s) return;
+    const dcf = computeDCF(s, activeDetailTicker);
+    const models = getSavedModels();
+
+    const isFin = !!(s.fin_valuation && s.fin_valuation.is_financial);
+    models[activeDetailTicker] = {
+      targetPrice: dcf.fairVal,
+      savedAt: new Date().toISOString(),
+      params: {
+        price: s.price,
+        shares: s.shares,
+        debt: s.debt,
+        cash: s.cash,
+        fcf0: s.fcf0,
+        beta: s.beta,
+        kd: s.kd,
+        tax: s.tax,
+        g: s.g,
+        growth_10y: [...(s.growth_10y || [])],
+        fin_valuation: isFin ? { ...s.fin_valuation } : undefined
+      }
+    };
+
+    localStorage.setItem('M7_CUSTOM_VALUATIONS', JSON.stringify(models));
+    document.getElementById('det-saved-badge').style.display = 'inline-block';
+    document.getElementById('det-saved-badge').innerText = `已存目標價: $${dcf.fairVal.toFixed(2)}`;
+    alert(`✅ 已成功儲存 ${s.name} 的自訂目標價值：$${dcf.fairVal.toFixed(2)}！`);
+  }
+
+  function resetToFmpDefaults() {
+    if (!confirm(`確定要清除自訂目標價，恢復為 FMP 官方原始數值嗎？`)) return;
+    const models = getSavedModels();
+    delete models[activeDetailTicker];
+    localStorage.setItem('M7_CUSTOM_VALUATIONS', JSON.stringify(models));
+    location.reload();
+  }
+
+  let retryCount = 0;
+  const pollInterval = setInterval(() => {
+    retryCount++;
+    if (initDataFeed() || retryCount > 40) {
+      clearInterval(pollInterval);
+      if (retryCount > 40 && Object.keys(stockUniverse).length === 0) {
+        document.getElementById('app-status').innerText = '⚠️ 數據檔案載入逾時，請按 Ctrl+F5 強制重新整理';
+      }
+    }
+  }, 100);
+
+  window.onload = function() {
+    const hash = window.location.hash.replace('#', '').toUpperCase();
+    if (hash.endsWith('/MOAT')) {
+      const ticker = hash.split('/')[0];
+      if (stockUniverse[ticker]) { activeMoatTicker = ticker; showView('moat', false); }
+    } else if (hash.endsWith('/FSCORE')) {
+      const ticker = hash.split('/')[0];
+      if (stockUniverse[ticker]) { activeFScoreTicker = ticker; showView('fscore', false); }
+    } else if (hash && stockUniverse[hash]) {
+      activeDetailTicker = hash;
+      showView('detail', false);
+    } else {
+      showView('screener', false);
+    }
+  };
+</script>
+</body>
+</html>
