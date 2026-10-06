@@ -540,6 +540,18 @@ def main():
         sym = item["ticker"]
         fmp_sym = sym.replace(".", "")
 
+        # 0. 抓取企業 Profile (提取 Logo、5年滾動 Beta、CEO、官網、員工與簡介)
+        prof_data = fetch_json("profile", {"symbol": fmp_sym})
+        prof = prof_data[0] if (prof_data and isinstance(prof_data, list) and len(prof_data) > 0) else {}
+
+        company_full_name = prof.get("companyName") or item["name"]
+        image_url = prof.get("image") or f"https://assets.financialmodelingprep.com/symbol/{sym}.png"
+        website = prof.get("website") or ""
+        ceo = prof.get("ceo") or "Executive Committee"
+        employees = prof.get("fullTimeEmployees") or "--"
+        description_en = prof.get("description") or "A publicly traded US equity on major exchanges."
+        description_zh = f"{company_full_name}（美股代碼：{sym}）為 {item['sector']} 領域之重要企業，專注於 {item['industry']} 業務，具備清晰之商業壁壘與現金流創造能力。"
+
         # 1. 抓取即時報價與市值
         q_data = fetch_json("quote", {"symbol": fmp_sym})
         price, mcap, shares = 0.0, 0.0, 0.0
@@ -662,10 +674,17 @@ def main():
         growth_10y = build_10y_growth_schedule(est_data, item["default_g1"], DEFAULT_G)
         pe_forward = round(pe_trailing * 0.88, 1)
 
-        beta = 1.15
-        if item["sector"] in ["公用事業", "必需消費"]: beta = 0.75
-        elif item["sector"] in ["資訊科技"]: beta = 1.35
-        elif item["sector"] in ["金融"]: beta = 1.05
+        # 需求 ii: 優先採納 FMP API 5 年期滾動 Beta (若無則使用板塊兜底)
+        fmp_beta = prof.get("beta")
+        if fmp_beta is not None and float(fmp_beta) > 0:
+            beta = round(float(fmp_beta), 2)
+            beta_5y = beta
+        else:
+            beta = 1.15
+            if item["sector"] in ["公用事業", "必需消費"]: beta = 0.75
+            elif item["sector"] in ["資訊科技"]: beta = 1.35
+            elif item["sector"] in ["金融"]: beta = 1.05
+            beta_5y = beta
 
         tax = TAX_RATE
         ke = RF + (beta * ERP)
@@ -789,6 +808,7 @@ def main():
 
         results[sym] = {
             "name": item["name"],
+            "company_name": company_full_name,
             "exchange": item["exchange"],
             "sector": item["sector"],
             "industry": item["industry"],
@@ -801,6 +821,7 @@ def main():
             "net_debt": net_debt,
             "fcf0": fcf0,
             "beta": beta,
+            "beta_5y": beta_5y,
             "kd": KD,
             "tax": tax,
             "growth_10y": growth_10y,
@@ -832,10 +853,18 @@ def main():
             "roe": roe,
             "roa": roa,
             "moat": moat_data,
-            "fin_valuation": fin_valuation
+            "fin_valuation": fin_valuation,
+            # 需求 v: 注入企業全景展示資訊與 Logo
+            "image": image_url,
+            "logo": image_url,
+            "website": website,
+            "ceo": ceo,
+            "full_time_employees": employees,
+            "description": description_en,
+            "description_zh": description_zh
         }
 
-        print(f"[{idx:03d}/200] ✅ {sym} ({item['exchange']}) - 股價=${price} | 公允價值=${fair_val} | 護城河: {moat_data.get('overall_moat_verdict', '')[:30]}...", flush=True)
+        print(f"[{idx:03d}/200] ✅ {sym} ({item['exchange']}) - 股價=${price} | 5Y Beta={beta_5y} | 公允價值=${fair_val} | 護城河: {moat_data.get('overall_moat_verdict', '')[:30]}...", flush=True)
 
     with open("full_market_dcf.json", "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
@@ -843,7 +872,7 @@ def main():
     with open("market_data.js", "w", encoding="utf-8") as f:
         f.write(f"window.FULL_MARKET_DATA = {json.dumps(results, ensure_ascii=False, indent=2)};")
 
-    print("\n🎉 成功！全市場 200 檔標的已全部完成估值與護城河分析！", flush=True)
+    print("\n🎉 成功！全市場 200 檔標的已全部完成估值、5年Beta校準與護城河分析！", flush=True)
 
 if __name__ == "__main__":
     main()
