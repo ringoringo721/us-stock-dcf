@@ -816,6 +816,8 @@ def main():
             "reportedCurrency": reported_currency,
             "price": price,
             "shares": shares,
+            "shares_outstanding": int(shares * 1e6) if shares > 0 else 0,
+            "shares_display": f"{shares:,.2f} M",
             "mcap": mcap,
             "debt": debt,
             "cash": cash,
