@@ -711,7 +711,8 @@
         <div class="company-meta-item">
           <span class="label">市值:</span><span class="val text-gold" id="cmp-card-mcap">--</span> | 
           <span class="label">P/E (TTM):</span><span class="val" id="cmp-card-pe">--</span> | 
-          <span class="label">產業:</span><span class="val" id="cmp-card-ind">--</span>
+          <span class="label">產業:</span><span class="val" id="cmp-card-ind">--</span> | 
+          <span class="label">總股本:</span><span class="val text-green" id="cmp-card-shares">--</span>
         </div>
       </div>
     </div>
@@ -743,6 +744,7 @@
           <div class="company-meta-item"><span class="label">細分產業:</span><span class="val" id="cmp-meta-industry">--</span></div>
           <div class="company-meta-item"><span class="label">全職員工數:</span><span class="val" id="cmp-meta-emp">--</span></div>
           <div class="company-meta-item"><span class="label">5 年期 Beta:</span><span class="val text-green" id="cmp-meta-beta">--</span></div>
+          <div class="company-meta-item"><span class="label">總股本 (Shares Out):</span><span class="val text-gold" id="cmp-meta-shares">--</span></div>
           <div class="company-meta-item"><span class="label">P/B:</span><span class="val" id="cmp-meta-pb">--</span></div>
         </div>
       </div>
@@ -1413,7 +1415,17 @@
     document.getElementById('cmp-card-mcap').innerText = `$${(s.mcap || (s.price * (s.shares || 1))).toLocaleString()} M`;
     document.getElementById('cmp-card-pe').innerText = s.pe_trailing ? `${Number(s.pe_trailing).toFixed(1)}x` : '--';
     document.getElementById('cmp-card-ind').innerText = s.industry || '--';
+    // 總股本計算與顯示 (格式化為百萬股 M 及精確股數)
+    const sharesTotalM = Number(s.shares) || 0;
+    const exactShares = s.shares_outstanding ? Number(s.shares_outstanding).toLocaleString() : `${(sharesTotalM * 1e6).toLocaleString()} 股`;
+    const sharesDisplayStr = `${sharesTotalM.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} M 股 (${exactShares})`;
+    
+    const cardSharesEl = document.getElementById('cmp-card-shares');
+    if (cardSharesEl) cardSharesEl.innerText = `${sharesTotalM.toLocaleString(undefined, {maximumFractionDigits: 2})} M 股`;
 
+    const metaSharesEl = document.getElementById('cmp-meta-shares');
+    if (metaSharesEl) metaSharesEl.innerText = sharesDisplayStr;
+    
     const desc = (currentLang === 'zh' ? (s.description_zh || s.description) : (s.description || s.description_zh)) || "美股上市公司官方即時財務檔案。";
     document.getElementById('cmp-description').innerText = desc;
     
