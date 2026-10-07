@@ -806,6 +806,7 @@ def main():
             force_refresh=False
         )
 
+# 7. 補充 5 年歷史與 Peers 數據給前端 7 大子頁面使用
         results[sym] = {
             "name": item["name"],
             "company_name": company_full_name,
@@ -854,14 +855,15 @@ def main():
             "roa": roa,
             "moat": moat_data,
             "fin_valuation": fin_valuation,
-            # 需求 v: 注入企業全景展示資訊與 Logo
             "image": image_url,
             "logo": image_url,
             "website": website,
             "ceo": ceo,
             "full_time_employees": employees,
             "description": description_en,
-            "description_zh": description_zh
+            "description_zh": description_zh,
+            # 新增：供 7 大子頁面呼叫之歷史摘要與 FMP 符號
+            "fmp_symbol": fmp_sym
         }
 
         print(f"[{idx:03d}/200] ✅ {sym} ({item['exchange']}) - 股價=${price} | 5Y Beta={beta_5y} | 公允價值=${fair_val} | 護城河: {moat_data.get('overall_moat_verdict', '')[:30]}...", flush=True)
