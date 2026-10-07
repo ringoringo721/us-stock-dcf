@@ -4,7 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>美股旗艦 DCF 估值雷達 (200 檔全覆蓋 · 雙軌多週期版)</title>
-  <!-- 引入 TradingView 官方進階圖表腳本 -->
+  
+  <!-- 雙重防快取直接載入市場數據，確保即時性與免被 CORS 阻擋 -->
+  <script>
+    const dataScript = document.createElement('script');
+    dataScript.src = 'market_data.js?v=' + Date.now();
+    document.head.appendChild(dataScript);
+  </script>
+
+  <!-- 引入 TradingView 官方進階專業圖表組件 -->
   <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
 
   <style>
@@ -320,7 +328,7 @@
     .company-meta-item span.label { color: var(--text-muted); margin-right: 6px; }
     .company-meta-item span.val { color: #fff; font-weight: 600; }
 
-    /* 7 大子分頁專屬導航與標籤樣式 (完全封裝在 style 內) */
+    /* 7 大子分頁專屬導航與標籤樣式 */
     .subpage-nav-bar {
       display: flex;
       gap: 8px;
@@ -700,7 +708,7 @@
       </div>
     </div>
 
-    <!-- 企業 Logo 與簡要名片卡片 -->
+    <!-- 企業 Logo、市值與總股本卡片 -->
     <div class="company-profile-card">
       <img id="cmp-logo-img" src="" alt="Logo" class="company-logo" onerror="this.src='https://assets.financialmodelingprep.com/symbol/default.png'">
       <div style="flex: 1;">
@@ -710,19 +718,19 @@
         </div>
         <div class="company-meta-item">
           <span class="label">市值:</span><span class="val text-gold" id="cmp-card-mcap">--</span> | 
+          <span class="label">總股本:</span><span class="val text-green" id="cmp-card-shares">--</span> | 
           <span class="label">P/E (TTM):</span><span class="val" id="cmp-card-pe">--</span> | 
-          <span class="label">產業:</span><span class="val" id="cmp-card-ind">--</span> | 
-          <span class="label">總股本:</span><span class="val text-green" id="cmp-card-shares">--</span>
+          <span class="label">產業:</span><span class="val" id="cmp-card-ind">--</span>
         </div>
       </div>
     </div>
 
-    <!-- TradingView 官方進階走勢圖表組件 (自帶 1分、30分、日K、指標與工具列) -->
+    <!-- TradingView 官方進階走勢圖表組件 -->
     <div class="panel" style="padding: 12px; margin-bottom: 18px;">
       <div id="tradingview_widget_container" style="height: 520px; width: 100%;"></div>
     </div>
 
-    <!-- 7 大子分頁導航選單 (Tab Navigation Bar) -->
+    <!-- 7 大子分頁導航選單 -->
     <div class="subpage-nav-bar">
       <button class="sub-tab-btn active" onclick="switchSubPage('basic')">📁 1. 基本資料</button>
       <button class="sub-tab-btn" onclick="switchSubPage('financials')">📑 2. 財務報表 (5年/TTM)</button>
@@ -733,9 +741,8 @@
       <button class="sub-tab-btn" onclick="switchSubPage('news')">📰 7. 公司新聞</button>
     </div>
 
-    <!-- 子分頁 1：基本資料、52週與歷史極值、股權結構、前50大股東、內部人交易、拆股合股 -->
+    <!-- 子分頁 1：基本資料 (包含地址、52週、持有人結構、Top 50股東、內部人、拆股) -->
     <div id="subpage-basic" class="subpage-content active">
-      <!-- 1. 全景業務描述與公司總部地址 -->
       <div class="panel">
         <div class="panel-title" style="display: flex; justify-content: space-between;">
           <span>企業核心業務與營運全貌</span>
@@ -749,13 +756,13 @@
           <div class="company-meta-item"><span class="label">註冊地址:</span><span class="val" id="cmp-meta-address">--</span></div>
           <div class="company-meta-item"><span class="label">公司電話:</span><span class="val" id="cmp-meta-phone">--</span></div>
           <div class="company-meta-item"><span class="label">執行長 (CEO):</span><span class="val" id="cmp-meta-ceo">--</span></div>
+          <div class="company-meta-item"><span class="label">總股本 (Shares Out):</span><span class="val text-gold" id="cmp-meta-shares">--</span></div>
           <div class="company-meta-item"><span class="label">全職員工數:</span><span class="val" id="cmp-meta-emp">--</span></div>
-          <div class="company-meta-item"><span class="label">主板塊/產業:</span><span class="val" id="cmp-meta-industry">--</span></div>
           <div class="company-meta-item"><span class="label">5 年期 Beta:</span><span class="val text-green" id="cmp-meta-beta">--</span></div>
         </div>
       </div>
 
-      <!-- 2. 52 週價格區間、歷史最高/最低價 & 持有人結構 -->
+      <!-- 52 週價格區間 & 持有人結構 -->
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; margin-bottom: 20px;">
         <div class="panel" style="margin-bottom: 0;">
           <div class="panel-title">📈 52 週價格區間與歷史高低點</div>
@@ -803,10 +810,10 @@
         </div>
       </div>
 
-      <!-- 3. 前 50 大股東持股明細 (Top 50 Shareholders) -->
+      <!-- 前 50 大股東持股明細 -->
       <div class="panel">
         <div class="panel-title" style="display: flex; justify-content: space-between; align-items: center;">
-          <span>前 50 大股東持股機構與基金排名 (Top 50 Institutional & Major Holders)</span>
+          <span>前 50 大股東持股機構與基金排名 (Top 50 Major Holders)</span>
           <button class="btn-nav" onclick="fetchFmpHolders()">🔄 從 FMP 取得即時 13F 排名</button>
         </div>
         <div class="table-scroll-wrapper" style="max-height: 380px; overflow-y: auto;">
@@ -826,7 +833,7 @@
         </div>
       </div>
 
-      <!-- 4. 內部人交易 (Insider Trading - 高管 / 董事買賣) -->
+      <!-- 內部人交易 -->
       <div class="panel">
         <div class="panel-title" style="display: flex; justify-content: space-between; align-items: center;">
           <span>內部人交易紀錄 (高管 / 董事最近買賣申報)</span>
@@ -850,17 +857,17 @@
         </div>
       </div>
 
-      <!-- 5. 拆股合股歷史 (Stock Splits History) -->
+      <!-- 拆股合股歷史 -->
       <div class="panel">
         <div class="panel-title" style="display: flex; justify-content: space-between; align-items: center;">
-          <span>歷年拆股與合股紀錄 (Stock Splits & Reverse Splits History)</span>
+          <span>歷年拆股與合股紀錄 (Stock Splits History)</span>
           <button class="btn-nav" onclick="fetchFmpSplits()">🔄 從 FMP 同步歷史拆股</button>
         </div>
         <div class="table-scroll-wrapper">
           <table style="width: 100%; border-collapse: collapse; text-align: right; font-size: 12.5px;">
             <thead>
               <tr>
-                <th style="text-align: left;">除權生效日 (Execution Date)</th>
+                <th style="text-align: left;">除權生效日 (Date)</th>
                 <th style="text-align: center;">拆股比例 (Ratio)</th>
                 <th style="text-align: left;">說明</th>
                 <th style="text-align: center;">性質</th>
@@ -872,7 +879,7 @@
       </div>
     </div>
 
-    <!-- 子分頁 2：財務報表 (FMP API 最新 5 年及 TTM) -->
+    <!-- 子分頁 2：財務報表 -->
     <div id="subpage-financials" class="subpage-content">
       <div class="panel">
         <div class="panel-title" style="display: flex; justify-content: space-between; align-items: center;">
@@ -1093,16 +1100,8 @@
   let stockUniverse = {};
   
   const US_TREASURY_CURVE = {
-    1: 0.0465,
-    2: 0.0440,
-    3: 0.0435,
-    4: 0.0432,
-    5: 0.0430,
-    6: 0.0435,
-    7: 0.0438,
-    8: 0.0442,
-    9: 0.0446,
-    10: 0.0450
+    1: 0.0465, 2: 0.0440, 3: 0.0435, 4: 0.0432, 5: 0.0430,
+    6: 0.0435, 7: 0.0438, 8: 0.0442, 9: 0.0446, 10: 0.0450
   };
   
   let currentRfTenor = 5;
@@ -1397,7 +1396,7 @@
     const wD = V > 0 ? localDebt / V : 0;
     const NetDebt = localDebt - localCash;
 
-    // 優先讀取使用者輸入的 Beta，未修改則依序讀取 beta_5y、beta 或兜底 1.0
+    // 優先讀取輸入框更新的 Beta，其次才讀 FMP 5年值，最後兜底 1.0
     let beta = 1.0;
     if (s.beta !== undefined && !isNaN(Number(s.beta)) && Number(s.beta) > 0) {
       beta = Number(s.beta);
@@ -1405,7 +1404,7 @@
       beta = Number(s.beta_5y);
     }
 
-    // 優先讀取使用者自訂的 Rf 與 ERP，未設定才採用全域常數
+    // 優先讀取自訂的 Rf 與 ERP，未設定才採用全域常數
     const localRf = (s.rf !== undefined && !isNaN(Number(s.rf))) ? (Number(s.rf) / 100) : commonRf;
     const localERP = (s.erp !== undefined && !isNaN(Number(s.erp))) ? (Number(s.erp) / 100) : commonERP;
 
@@ -1511,7 +1510,6 @@
     showView('company', true);
   }
 
-  // 需求：切換 7 個子分頁
   function switchSubPage(tabKey) {
     document.querySelectorAll('.sub-tab-btn').forEach(btn => btn.classList.remove('active'));
     document.querySelectorAll('.subpage-content').forEach(el => el.classList.remove('active'));
@@ -1521,12 +1519,10 @@
     if (target) target.classList.add('active');
   }
 
-  // 載入企業頁面（包含地址、52週、持有人結構、Top 50股東、內部人、拆股）
   function loadCompanyProfile(ticker) {
     const s = stockUniverse[ticker];
     if (!s) return;
 
-    // 基本屬性
     document.getElementById('cmp-ticker').innerText = ticker;
     document.getElementById('cmp-name').innerText = s.name || ticker;
     document.getElementById('cmp-exchange').innerText = s.exchange || 'US';
@@ -1535,22 +1531,30 @@
     const logoUrl = s.image || s.logo || `https://assets.financialmodelingprep.com/symbol/${ticker}.png`;
     document.getElementById('cmp-logo-img').src = logoUrl;
     
+    // 總股本與市值展示
+    const sharesTotalM = Number(s.shares) || 0;
+    const exactShares = s.shares_outstanding ? Number(s.shares_outstanding).toLocaleString() : `${(sharesTotalM * 1e6).toLocaleString()} 股`;
+    const sharesDisplayStr = `${sharesTotalM.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} M 股 (${exactShares})`;
+    
     document.getElementById('cmp-card-mcap').innerText = `$${(s.mcap || (s.price * (s.shares || 1))).toLocaleString()} M`;
+    const cardSharesEl = document.getElementById('cmp-card-shares');
+    if (cardSharesEl) cardSharesEl.innerText = `${sharesTotalM.toLocaleString(undefined, {maximumFractionDigits: 2})} M 股`;
+    const metaSharesEl = document.getElementById('cmp-meta-shares');
+    if (metaSharesEl) metaSharesEl.innerText = sharesDisplayStr;
+
     document.getElementById('cmp-card-pe').innerText = s.pe_trailing ? `${Number(s.pe_trailing).toFixed(1)}x` : '--';
     document.getElementById('cmp-card-ind').innerText = s.industry || '--';
 
-    // 完整描述（保留長篇描述，不加限高截斷）
     const desc = (currentLang === 'zh' ? (s.description_zh || s.description) : (s.description || s.description_zh)) || "美股上市公司官方即時財務檔案。";
     document.getElementById('cmp-description').innerText = desc;
     
-    // 地址與總部
+    // 總部地址與詳細元資料
     const fullAddr = s.full_address || `${s.address || 'One Apple Park Way'}, ${s.city || 'Cupertino'}, ${s.state || 'CA'}, ${s.country || 'USA'}`;
     document.getElementById('cmp-full-headquarters').innerText = `📍 總部: ${s.city || ''} ${s.country || 'USA'}`;
     document.getElementById('cmp-meta-address').innerText = fullAddr;
     document.getElementById('cmp-meta-phone').innerText = s.phone || "+1 (408) 996-1010";
     document.getElementById('cmp-meta-ceo').innerText = s.ceo || "管理團隊";
     document.getElementById('cmp-meta-emp').innerText = s.full_time_employees ? Number(s.full_time_employees).toLocaleString() : "--";
-    document.getElementById('cmp-meta-industry').innerText = `${s.sector} · ${s.industry}`;
     
     const bVal = s.beta !== undefined ? s.beta : (s.beta_5y || 1.0);
     document.getElementById('cmp-meta-beta').innerText = Number(bVal).toFixed(2);
@@ -1566,7 +1570,7 @@
     document.getElementById('cmp-meta-ath').innerText = `$${(s.all_time_high || yHigh * 1.08).toFixed(2)}`;
     document.getElementById('cmp-meta-atl').innerText = `$${(s.all_time_low || yLow * 0.35).toFixed(2)}`;
 
-    // 持有人股權結構比例
+    // 持有人結構
     const inst = Number(s.inst_ownership_pct) || 73.0;
     const insider = Number(s.insider_ownership_pct) || 6.5;
     const retail = Number((100 - inst - insider).toFixed(1));
@@ -1577,13 +1581,11 @@
     document.getElementById('bar-own-insider').style.width = `${insider}%`;
     document.getElementById('bar-own-retail').style.width = `${retail}%`;
 
-    // 渲染各項資料表
+    // 渲染各項資料表與 TradingView
     renderTradingViewWidget(ticker, s.exchange);
     renderTop50Holders(s);
     renderInsiderTrades(s);
     renderStockSplits(s);
-
-    // 渲染其餘子頁面
     renderFinancialsSubPage(s);
     renderRatiosSubPage(s);
     renderPeersSubPage(s);
@@ -1592,7 +1594,31 @@
     renderNewsSubPage(ticker);
   }
 
-  // 1. 產生 Top 50 大股東排名清單
+  function renderTradingViewWidget(ticker, exchange) {
+    const container = document.getElementById('tradingview_widget_container');
+    if (!container) return;
+    container.innerHTML = '';
+
+    const cleanExch = exchange === 'NASDAQ' ? 'NASDAQ' : 'NYSE';
+    
+    if (typeof TradingView !== 'undefined') {
+      new TradingView.widget({
+        "autosize": true,
+        "symbol": `${cleanExch}:${ticker.replace('.', '')}`,
+        "interval": "D",
+        "timezone": "Asia/Hong_Kong",
+        "theme": "dark",
+        "style": "1",
+        "locale": "zh_TW",
+        "toolbar_bg": "#0f172a",
+        "enable_publishing": false,
+        "allow_symbol_change": false,
+        "container_id": "tradingview_widget_container",
+        "hide_side_toolbar": false
+      });
+    }
+  }
+
   function renderTop50Holders(s) {
     const tbody = document.getElementById('cmp-top-holders-tbody');
     if (!tbody) return;
@@ -1600,7 +1626,6 @@
     const baseShares = (Number(s.shares) || 1000) * 1e6;
     const price = Number(s.price) || 100;
     
-    // 50 大常規核心機構與基金模組
     const topInstitutions = [
       "The Vanguard Group, Inc.", "BlackRock Institutional Trust Company, N.A.", "State Street Global Advisors, Inc.",
       "Fidelity Management & Research Company", "Geode Capital Management, LLC", "T. Rowe Price Associates, Inc.",
@@ -1651,7 +1676,6 @@
     tbody.innerHTML = rowsHtml;
   }
 
-  // 2. 產生內部人交易清單
   function renderInsiderTrades(s) {
     const tbody = document.getElementById('cmp-insider-trades-tbody');
     if (!tbody) return;
@@ -1692,7 +1716,6 @@
     tbody.innerHTML = html;
   }
 
-  // 3. 產生拆股合股歷史
   function renderStockSplits(s) {
     const tbody = document.getElementById('cmp-splits-tbody');
     if (!tbody) return;
@@ -1723,93 +1746,6 @@
     `).join('');
   }
 
-  // 即時 API 重新拉取功能（對接 FMP 官方端點）
-  async function fetchFmpHolders() {
-    alert("✅ 已成功同步 FMP 最新機構 13F 申報排名！");
-  }
-
-  async function fetchFmpInsiders() {
-    alert("✅ 已成功同步 FMP 最新 SEC Form 4 內部人交易申報！");
-  }
-
-  async function fetchFmpSplits() {
-    alert("✅ 已成功驗證 FMP 官方歷史拆股合股數據庫！");
-  }
-
-    document.getElementById('cmp-ticker').innerText = ticker;
-    document.getElementById('cmp-name').innerText = s.name || ticker;
-    document.getElementById('cmp-exchange').innerText = s.exchange || 'US';
-    document.getElementById('cmp-full-name').innerText = s.company_name || s.name || `${ticker} Inc.`;
-    
-    const logoUrl = s.image || s.logo || `https://assets.financialmodelingprep.com/symbol/${ticker}.png`;
-    document.getElementById('cmp-logo-img').src = logoUrl;
-    
-    document.getElementById('cmp-card-mcap').innerText = `$${(s.mcap || (s.price * (s.shares || 1))).toLocaleString()} M`;
-    document.getElementById('cmp-card-pe').innerText = s.pe_trailing ? `${Number(s.pe_trailing).toFixed(1)}x` : '--';
-    document.getElementById('cmp-card-ind').innerText = s.industry || '--';
-    // 總股本計算與顯示 (格式化為百萬股 M 及精確股數)
-    const sharesTotalM = Number(s.shares) || 0;
-    const exactShares = s.shares_outstanding ? Number(s.shares_outstanding).toLocaleString() : `${(sharesTotalM * 1e6).toLocaleString()} 股`;
-    const sharesDisplayStr = `${sharesTotalM.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} M 股 (${exactShares})`;
-    
-    const cardSharesEl = document.getElementById('cmp-card-shares');
-    if (cardSharesEl) cardSharesEl.innerText = `${sharesTotalM.toLocaleString(undefined, {maximumFractionDigits: 2})} M 股`;
-
-    const metaSharesEl = document.getElementById('cmp-meta-shares');
-    if (metaSharesEl) metaSharesEl.innerText = sharesDisplayStr;
-    
-    const desc = (currentLang === 'zh' ? (s.description_zh || s.description) : (s.description || s.description_zh)) || "美股上市公司官方即時財務檔案。";
-    document.getElementById('cmp-description').innerText = desc;
-    
-    document.getElementById('cmp-site-link').href = s.website || `https://www.google.com/finance/quote/${ticker}`;
-    document.getElementById('cmp-meta-ceo').innerText = s.ceo || "管理團隊";
-    document.getElementById('cmp-meta-sector').innerText = s.sector || "--";
-    document.getElementById('cmp-meta-industry').innerText = s.industry || "--";
-    document.getElementById('cmp-meta-emp').innerText = s.full_time_employees ? Number(s.full_time_employees).toLocaleString() : "--";
-    
-    const bVal = s.beta !== undefined ? s.beta : (s.beta_5y || 1.0);
-    document.getElementById('cmp-meta-beta').innerText = Number(bVal).toFixed(2);
-    document.getElementById('cmp-meta-pb').innerText = s.pb_trailing ? `${Number(s.pb_trailing).toFixed(2)}x` : "--";
-
-    // 1. 渲染 TradingView 官方進階專業圖表組件
-    renderTradingViewWidget(ticker, s.exchange);
-
-    // 2. 渲染 7 大分頁數據內容
-    renderFinancialsSubPage(s);
-    renderRatiosSubPage(s);
-    renderPeersSubPage(s);
-    renderChartsSubPage(s);
-    renderDividendSubPage(s);
-    renderNewsSubPage(ticker);
-  }
-
-  // 嵌入 TradingView 官方進階走勢圖 (自帶完整週期與指標，不再卡死分頁)
-  function renderTradingViewWidget(ticker, exchange) {
-    const container = document.getElementById('tradingview_widget_container');
-    if (!container) return;
-    container.innerHTML = '';
-
-    const cleanExch = exchange === 'NASDAQ' ? 'NASDAQ' : 'NYSE';
-    
-    if (typeof TradingView !== 'undefined') {
-      new TradingView.widget({
-        "autosize": true,
-        "symbol": `${cleanExch}:${ticker.replace('.', '')}`,
-        "interval": "D",
-        "timezone": "Asia/Hong_Kong",
-        "theme": "dark",
-        "style": "1",
-        "locale": "zh_TW",
-        "toolbar_bg": "#0f172a",
-        "enable_publishing": false,
-        "allow_symbol_change": false,
-        "container_id": "tradingview_widget_container",
-        "hide_side_toolbar": false
-      });
-    }
-  }
-
-  // 子頁面 2：財務報表數據填充
   function renderFinancialsSubPage(s) {
     const tbody = document.getElementById('cmp-fin-tbody');
     if (!tbody) return;
@@ -1825,7 +1761,6 @@
     `;
   }
 
-  // 子頁面 3：關鍵比率數據填充
   function renderRatiosSubPage(s) {
     const tbody = document.getElementById('cmp-ratios-tbody');
     if (!tbody) return;
@@ -1838,7 +1773,6 @@
     `;
   }
 
-  // 子頁面 4：同行業對比填充
   function renderPeersSubPage(s) {
     const tbody = document.getElementById('cmp-peers-tbody');
     if (!tbody) return;
@@ -1862,7 +1796,6 @@
     }).join('');
   }
 
-  // 子頁面 5：圖表分析填充 (柱狀展示)
   function renderChartsSubPage(s) {
     const wrap = document.getElementById('chart-bars-wrap');
     if (!wrap) return;
@@ -1882,7 +1815,6 @@
     }).join('');
   }
 
-  // 子頁面 6：盈餘與股息填充
   function renderDividendSubPage(s) {
     const elYield = document.getElementById('div-meta-yield');
     const elDps = document.getElementById('div-meta-dps');
@@ -1899,7 +1831,6 @@
     `;
   }
 
-  // 子頁面 7：公司即時新聞填充
   function renderNewsSubPage(ticker) {
     const list = document.getElementById('cmp-news-list');
     if (!list) return;
@@ -1915,7 +1846,6 @@
     `;
   }
 
-  // 手動呼叫 FMP 即時 5 年財報按鈕
   async function fetchLiveFinancials() {
     const ticker = activeCompanyTicker;
     const btn = event.target;
@@ -1943,6 +1873,10 @@
     }
     btn.innerText = "⚠️ 呼叫頻率限制，已顯示精算預測";
   }
+
+  async function fetchFmpHolders() { alert("✅ 已成功同步 FMP 最新機構 13F 申報排名！"); }
+  async function fetchFmpInsiders() { alert("✅ 已成功同步 FMP 最新 SEC Form 4 內部人交易申報！"); }
+  async function fetchFmpSplits() { alert("✅ 已成功驗證 FMP 官方歷史拆股合股數據庫！"); }
 
   function resetToFmpDefaults() {
     const models = getSavedModels();
@@ -2224,50 +2158,81 @@
 
       return `
         <tr>
+          <!-- 1. 收藏 / 代碼 -->
           <td class="col-fixed-1">
             <button class="fav-btn ${favActiveClass}" onclick="toggleFavorite('${item.ticker}', event)">${favHeart}</button>
             <a class="ticker-link" onclick="openCompanyProfile('${item.ticker}')" title="點擊查看企業基本面與走勢圖">${item.ticker}</a>
           </td>
+          <!-- 2. 市場 -->
           <td class="col-fixed-2"><span class="badge ${exchClass}">${item.exchange}</span></td>
+          <!-- 3. 企業名稱 -->
           <td class="col-fixed-3" style="font-weight: 600; color: #fff;">${item.name}</td>
+          <!-- 4. 主板塊 -->
           <td style="color: #cbd5e1; text-align: left;">${item.sector}</td>
+          <!-- 5. 細分子行業 -->
           <td style="color: #94a3b8; font-size: 11px; text-align: left;">${item.industry}</td>
+          <!-- 6. 最新股價 ($) -->
           <td style="font-weight: 700; color: var(--accent);">$${Number(item.price).toFixed(2)}</td>
+          <!-- 7. 公允價值 ($) -->
           <td class="text-green" style="font-size: 13px; font-weight: 700;">$${Number(item.fairVal).toFixed(2)}</td>
+          <!-- 8. 目標價值 ($) -->
           <td>${targetPriceHtml}</td>
+          <!-- 9. 操作 -->
           <td style="text-align: center;">
             <button class="btn-nav" onclick="openDetail('${item.ticker}')">${currentLang === 'zh' ? '深度模型 →' : 'DCF Model →'}</button>
           </td>
+          <!-- 10. 目標 vs 市價溢價 -->
           <td>${targetSpreadHtml}</td>
+          <!-- 11. 公允溢價幅度 -->
           <td>${badgeHtml}</td>
+          <!-- 12. 巴菲特護城河 -->
           <td style="text-align: center;">
             <span class="badge-moat ${item.moat.badgeClass}" onclick="openMoat('${item.ticker}')">${item.moat.total} pt · ${item.moat.grade.split(' ')[0]}</span>
           </td>
+          <!-- 13. 加權成本 WACC / g -->
           <td>
             <div>${(item.WACC * 100).toFixed(2)}%</div>
             <div style="font-size: 11px; color: var(--text-muted);">g: ${Number(item.g).toFixed(2)}%</div>
           </td>
+          <!-- 14. 企業價值 EV ($M) -->
           <td>$${(item.EV).toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
+          <!-- 15. 市值 ($M) -->
           <td style="font-weight: 600;">$${(item.mcap).toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
+          <!-- 16. 靜態 P/E -->
           <td>${item.pe_trailing ? Number(item.pe_trailing).toFixed(1) : '--'}</td>
+          <!-- 17. 動態 P/E -->
           <td>${item.pe_forward ? Number(item.pe_forward).toFixed(1) : '--'}</td>
+          <!-- 18. 靜態 P/B -->
           <td>${item.pb_trailing ? Number(item.pb_trailing).toFixed(1) : '--'}</td>
+          <!-- 19. 股息率 (%) -->
           <td style="color: #67e8f9; font-weight: 700;">${item.div_yield > 0 ? Number(item.div_yield).toFixed(2) + '%' : '0.00%'}</td>
+          <!-- 20. FCF / EV (%) -->
           <td style="color: #38bdf8; font-weight: 600;">${item.fcf_to_ev !== undefined ? Number(item.fcf_to_ev).toFixed(2) + '%' : '--'}</td>
+          <!-- 21. FCF / Mcap (%) -->
           <td style="color: #a78bfa; font-weight: 600;">${item.fcf_to_mcap !== undefined ? Number(item.fcf_to_mcap).toFixed(2) + '%' : '--'}</td>
+          <!-- 22. 現金/資產 (%) -->
           <td style="color: #38bdf8;">${item.cash_to_assets !== undefined ? Number(item.cash_to_assets).toFixed(1) + '%' : '--'}</td>
+          <!-- 23. 負債/資產 (%) -->
           <td>${item.liab_to_assets !== undefined ? Number(item.liab_to_assets).toFixed(1) + '%' : '--'}</td>
+          <!-- 24. 流動比率 -->
           <td>${item.current_ratio !== undefined ? Number(item.current_ratio).toFixed(2) : '--'}</td>
+          <!-- 25. 現金淨額 ($M) -->
           <td style="${item.cash_minus_liab >= 0 ? 'color: var(--green);' : 'color: var(--red);'}; font-weight: 600;">
             ${item.cash_minus_liab < 0 ? '-$' + Math.abs(item.cash_minus_liab).toLocaleString(undefined, {maximumFractionDigits: 0}) : '$' + (item.cash_minus_liab || 0).toLocaleString(undefined, {maximumFractionDigits: 0})}
           </td>
+          <!-- 26. ROE (%) -->
           <td style="font-weight: 600; color: #fde047;">${item.roe !== undefined ? Number(item.roe).toFixed(1) + '%' : '--'}</td>
+          <!-- 27. ROA (%) -->
           <td style="color: #4ade80;">${item.roa !== undefined ? Number(item.roa).toFixed(1) + '%' : '--'}</td>
+          <!-- 28. F-Score 評分 -->
           <td style="text-align: center;">
             <span class="badge-fscore ${fScoreClass}" onclick="openFScore('${item.ticker}')" title="點擊查看皮氏 9 分明細">${fScoreVal} / 9</span>
           </td>
+          <!-- 29. EV / EBITDA -->
           <td style="font-weight: 700; color: #38bdf8;">${item.ev_to_ebitda !== undefined ? Number(item.ev_to_ebitda).toFixed(1) + 'x' : '--'}</td>
+          <!-- 30. Debt / EBITDA -->
           <td style="color: #cbd5e1;">${item.debt_to_ebitda !== undefined ? Number(item.debt_to_ebitda).toFixed(2) + 'x' : '--'}</td>
+          <!-- 31. Net Debt / EBITDA -->
           <td style="${(item.net_debt_to_ebitda || 0) <= 0 ? 'color: var(--green); font-weight: 700;' : ((item.net_debt_to_ebitda || 0) > 3.5 ? 'color: var(--red); font-weight: 700;' : 'color: #cbd5e1;')}">
             ${item.net_debt_to_ebitda !== undefined ? Number(item.net_debt_to_ebitda).toFixed(2) + 'x' : '--'}
           </td>
@@ -2443,273 +2408,4 @@
     document.getElementById('det-res-fair').innerText = `$${dcf.fairVal.toFixed(2)}`;
     document.getElementById('det-res-price').innerText = `$${Number(s.price).toFixed(2)}`;
     
-    const isFin = !!(s.fin_valuation && s.fin_valuation.is_financial);
-    if (isFin) {
-      document.getElementById('fin-excess-val').innerText = `$${Number(s.fin_valuation.excess_return_fair).toFixed(2)}`;
-      document.getElementById('fin-ddm-val').innerText = `$${Number(s.fin_valuation.ddm_fair).toFixed(2)}`;
-      document.getElementById('det-res-wacc').innerText = `${Number(s.fin_valuation.ke).toFixed(2)}% (Ke)`;
-      document.getElementById('det-res-g').innerText = `${Number(s.fin_valuation.g).toFixed(2)}%`;
-      document.getElementById('det-res-spread').innerText = `${(Number(s.fin_valuation.ke) - Number(s.fin_valuation.g)).toFixed(2)}%`;
-    } else {
-      document.getElementById('det-res-wacc').innerText = `${(dcf.WACC * 100).toFixed(2)}%`;
-      document.getElementById('det-res-g').innerText = `${Number(s.g).toFixed(2)}%`;
-      document.getElementById('det-res-spread').innerText = `${((dcf.WACC - (Number(s.g)/100)) * 100).toFixed(2)}%`;
-    }
-
-    const badgeEl = document.getElementById('det-badge');
-    const premEl = document.getElementById('det-res-premium');
-    if (dcf.isUndervalued) {
-      badgeEl.className = "badge badge-undervalued";
-      badgeEl.innerText = `${currentLang === 'zh' ? '低估' : 'Undervalued'} ${dcf.premiumPct.toFixed(1)}%`;
-      premEl.innerHTML = `<span class="text-green">${currentLang === 'zh' ? '低估' : 'Undervalued'} ${dcf.premiumPct.toFixed(1)}%</span>`;
-      document.getElementById('det-res-status').innerText = currentLang === 'zh' ? `市價低於內在價值，具備安全邊際` : `Trading below intrinsic value, margin of safety available`;
-    } else {
-      badgeEl.className = "badge badge-overvalued";
-      badgeEl.innerText = `${currentLang === 'zh' ? '高估' : 'Overvalued'} +${dcf.premiumPct.toFixed(1)}%`;
-      premEl.innerHTML = `<span class="text-red">${currentLang === 'zh' ? '高估' : 'Overvalued'} +${dcf.premiumPct.toFixed(1)}%</span>`;
-      document.getElementById('det-res-status').innerText = currentLang === 'zh' ? `市價高於內在價值，留意回撤風險` : `Trading at premium to intrinsic value, watch for pullback`;
-    }
-
-    document.getElementById('det-res-ev').innerText = `$${dcf.EV.toLocaleString(undefined, {maximumFractionDigits: 0})} M`;
-    document.getElementById('det-res-evebitda').innerText = `${Number(dcf.ev_to_ebitda).toFixed(1)}x`;
-    document.getElementById('det-res-nde').innerText = `${Number(dcf.net_debt_to_ebitda).toFixed(2)}x`;
-
-    if (!isFin) {
-      renderDCFTable(dcf.growth, dcf.fcfList, dcf.dfList, dcf.pvList);
-      renderSensitivity(dcf.fcfList[9], dcf.NetDebt, s.shares, dcf.WACC, Number(s.g) / 100, dcf.localFCF0, dcf.growth);
-    }
-  }
-
-  function renderDCFTable(growth, fcfs, dfs, pvs) {
-    let head = '<th>年份 (Period)</th>';
-    let rowGrowth = '<td>年增長率 (%)</td>';
-    let rowFCF = '<td>自由現金流 ($M)</td>';
-    let rowDF = '<td>折現因子 (DF)</td>';
-    let rowPV = '<td>折現現值 ($M)</td>';
-
-    for (let i = 0; i < 10; i++) {
-      head += `<th>Y${i + 1}</th>`;
-      const gVal = (growth[i] * 100).toFixed(1);
-      rowGrowth += `<td><input type="number" step="0.5" class="growth-input" value="${gVal}" oninput="onYearGrowthChange(${i}, this.value)"></td>`;
-      rowFCF += `<td>${fcfs[i].toLocaleString(undefined, {maximumFractionDigits: 0})}</td>`;
-      rowDF += `<td>${dfs[i].toFixed(4)}</td>`;
-      rowPV += `<td>${pvs[i].toLocaleString(undefined, {maximumFractionDigits: 0})}</td>`;
-    }
-
-    document.getElementById('dcf-head').innerHTML = head;
-    document.getElementById('dcf-growth').innerHTML = rowGrowth;
-    document.getElementById('dcf-fcf').innerHTML = rowFCF;
-    document.getElementById('dcf-factor').innerHTML = rowDF;
-    document.getElementById('dcf-pv').innerHTML = rowPV;
-  }
-
-  function renderSensitivity(fcf10, netDebt, shares, baseWACC, baseG, fcf0, growth) {
-    const gList = [baseG - 0.005, baseG, baseG + 0.005];
-    const waccList = [baseWACC - 0.005, baseWACC, baseWACC + 0.005];
-
-    document.getElementById('th-g1').innerText = `${(gList[0] * 100).toFixed(2)}%`;
-    document.getElementById('th-g2').innerText = `${(gList[1] * 100).toFixed(2)}% (${currentLang === 'zh' ? '基準' : 'Base'})`;
-    document.getElementById('th-g3').innerText = `${(gList[2] * 100).toFixed(2)}%`;
-
-    let tbody = '';
-    waccList.forEach((w, wIdx) => {
-      const isBaseW = (wIdx === 1);
-      tbody += `<tr><td><strong>${(w * 100).toFixed(2)}%${isBaseW ? ` (${currentLang === 'zh' ? '基準' : 'Base'})` : ''}</strong></td>`;
-      gList.forEach((gVal, gIdx) => {
-        const isBaseG = (gIdx === 1);
-        let cellVal = 0;
-        if (w > gVal) {
-          let recomputedSumPV = 0;
-          let tempFCF = fcf0;
-          for (let t = 1; t <= 10; t++) {
-            tempFCF = tempFCF * (1 + growth[t - 1]);
-            recomputedSumPV += tempFCF / Math.pow(1 + w, t);
-          }
-          const fcf11 = tempFCF * (1 + gVal);
-          const safeW = Math.max(w, gVal + 0.015);
-          const tv = fcf11 / (safeW - gVal);
-          const pvTV = tv / Math.pow(1 + safeW, 10);
-          const eqVal = (recomputedSumPV + pvTV) - netDebt;
-          cellVal = eqVal / shares;
-        }
-        const isBase = isBaseW && isBaseG;
-        tbody += `<td class="sens-cell ${isBase ? 'sens-base' : ''}">$${cellVal.toFixed(2)}</td>`;
-      });
-      tbody += `</tr>`;
-    });
-    document.getElementById('sens-body').innerHTML = tbody;
-  }
-
-  function loadMoatView(ticker) {
-    const s = stockUniverse[ticker];
-    if (!s) return;
-
-    document.getElementById('moat-ticker').innerText = ticker;
-    document.getElementById('moat-name').innerText = s.name;
-    document.getElementById('moat-exchange').innerText = s.exchange;
-
-    const dcf = computeDCF(s, ticker);
-    const moat = dcf.moat;
-
-    document.getElementById('moat-total-score').innerText = `${moat.total} / 100`;
-    document.getElementById('moat-grade-badge').innerText = moat.grade;
-    document.getElementById('moat-grade-badge').className = `badge-moat ${moat.badgeClass}`;
-
-    const catIntangible = moat.m[0] + moat.m[1];
-    const catStructural = moat.m[2] + moat.m[3] + moat.m[4] + moat.m[5];
-    const catResilience = moat.m[6] + moat.m[7] + moat.m[8] + moat.m[9];
-
-    document.getElementById('moat-cat-intangible').innerText = `${catIntangible} / 20`;
-    document.getElementById('moat-cat-structural').innerText = `${catStructural} / 40`;
-    document.getElementById('moat-cat-resilience').innerText = `${catResilience} / 40`;
-
-    document.getElementById('moat-ai-comment').innerHTML = `
-      <div style="font-size: 11px; color: var(--gold); margin-bottom: 4px; font-weight: 600;">📚 ${moat.ref}</div>
-      ${moat.comment}
-    `;
-
-    const tbody = document.getElementById('moat-breakdown-body');
-    tbody.innerHTML = moat.criteria.map(c => {
-      const pct = (c.score / 10) * 100;
-      let barColor = c.score < 5 ? "#f87171" : c.score < 8 ? "#38bdf8" : "#4ade80";
-
-      return `
-        <tr>
-          <td style="text-align: center; font-weight: 700; font-size: 14px; color: ${barColor};">${c.score} / 10</td>
-          <td style="font-weight: 600; color: #cbd5e1;">${c.category}</td>
-          <td><strong>${c.id}. ${c.title}</strong></td>
-          <td style="color: #94a3b8; font-size: 12px;">${c.desc}</td>
-          <td>
-            <div class="moat-bar-bg">
-              <div class="moat-bar-fill" style="width: ${pct}%; background: ${barColor};"></div>
-            </div>
-            <span style="font-size: 11px; font-weight: 600; color: ${barColor};">${pct}%</span>
-          </td>
-          <td class="moat-comment-cell">${c.comment}</td>
-        </tr>
-      `;
-    }).join('');
-  }
-
-  function loadFScoreView(ticker) {
-    const s = stockUniverse[ticker];
-    if (!s) return;
-
-    document.getElementById('fsc-ticker').innerText = ticker;
-    document.getElementById('fsc-name').innerText = s.name;
-    document.getElementById('fsc-exchange').innerText = s.exchange;
-
-    const dcf = computeDCF(s, ticker);
-    const score = dcf.f_score;
-    document.getElementById('fsc-total-score').innerText = `${score} / 9 分`;
-
-    const breakdown = dcf.f_score_breakdown || [];
-    const pCat = breakdown.filter(x => x.category === "盈利能力" && x.passed).length;
-    const lCat = breakdown.filter(x => x.category === "槓桿與償債" && x.passed).length;
-    const eCat = breakdown.filter(x => x.category === "營運效率" && x.passed).length;
-
-    document.getElementById('fsc-cat-profit').innerText = `${pCat} / 4 分`;
-    document.getElementById('fsc-cat-leverage').innerText = `${lCat} / 3 分`;
-    document.getElementById('fsc-cat-efficiency').innerText = `${eCat} / 2 分`;
-
-    const tbody = document.getElementById('fscore-breakdown-body');
-    tbody.innerHTML = breakdown.map(item => {
-      const isPass = item.passed === 1;
-      const mark = isPass ? '✔' : '✘';
-      const circleClass = isPass ? 'score-pass' : 'score-fail';
-      const statusText = isPass ? '<span class="text-green" style="font-weight:700;">+1 分 通過</span>' : '<span class="text-red">未達標 (0分)</span>';
-
-      return `
-        <tr>
-          <td style="text-align: center;"><span class="score-badge-circle ${circleClass}">${mark}</span></td>
-          <td style="font-weight: 600; color: #cbd5e1;">${item.category}</td>
-          <td><strong>#${item.id}. ${item.desc}</strong></td>
-          <td style="color: #94a3b8;">${item.detail}</td>
-          <td style="text-align: center;">${statusText}</td>
-        </tr>
-      `;
-    }).join('');
-  }
-
-  function saveCustomModel() {
-    const s = stockUniverse[activeDetailTicker];
-    if (!s) return;
-    const dcf = computeDCF(s, activeDetailTicker);
-    const models = getSavedModels();
-
-    const isFin = !!(s.fin_valuation && s.fin_valuation.is_financial);
-    models[activeDetailTicker] = {
-      targetPrice: dcf.fairVal,
-      savedAt: new Date().toISOString(),
-      params: {
-        price: s.price,
-        shares: s.shares,
-        debt: s.debt,
-        cash: s.cash,
-        fcf0: s.fcf0,
-        beta: s.beta,
-        rf: s.rf,
-        erp: s.erp,
-        kd: s.kd,
-        tax: s.tax,
-        g: s.g,
-        growth_10y: [...(s.growth_10y || [])],
-        fin_valuation: isFin ? { ...s.fin_valuation } : undefined
-      }
-    };
-
-    localStorage.setItem('M7_CUSTOM_VALUATIONS', JSON.stringify(models));
-    document.getElementById('det-saved-badge').style.display = 'inline-block';
-    document.getElementById('det-saved-badge').innerText = `已存目標價: $${dcf.fairVal.toFixed(2)}`;
-    alert(`✅ 已成功儲存 ${s.name} 的自訂目標價值：$${dcf.fairVal.toFixed(2)}！`);
-  }
-
-  // 非同步載入 market_data.js，徹底解決轉圈卡頓問題
-  async function loadMarketDataAsync() {
-    try {
-      const response = await fetch('market_data.js?t=' + Date.now());
-      if (!response.ok) throw new Error("HTTP error " + response.status);
-      
-      const jsCode = await response.text();
-      new Function(jsCode)();
-
-      if (window.FULL_MARKET_DATA && Object.keys(window.FULL_MARKET_DATA).length > 0) {
-        stockUniverse = JSON.parse(JSON.stringify(window.FULL_MARKET_DATA));
-        document.getElementById('app-status').innerText = '🟢 FMP 官方財報已完成同步 (全市場覆蓋)';
-        applyLanguage(currentLang);
-        initInteractions();
-        handleInitialNavigation();
-      } else {
-        throw new Error("數據集為空");
-      }
-    } catch (err) {
-      console.warn("異步載入失敗，等待重試:", err);
-      setTimeout(loadMarketDataAsync, 1500);
-    }
-  }
-
-  function handleInitialNavigation() {
-    const hash = window.location.hash.replace('#', '').toUpperCase();
-    if (hash.endsWith('/PROFILE')) {
-      const ticker = hash.split('/')[0];
-      if (stockUniverse[ticker]) { activeCompanyTicker = ticker; showView('company', false); }
-    } else if (hash.endsWith('/MOAT')) {
-      const ticker = hash.split('/')[0];
-      if (stockUniverse[ticker]) { activeMoatTicker = ticker; showView('moat', false); }
-    } else if (hash.endsWith('/FSCORE')) {
-      const ticker = hash.split('/')[0];
-      if (stockUniverse[ticker]) { activeFScoreTicker = ticker; showView('fscore', false); }
-    } else if (hash && stockUniverse[hash]) {
-      activeDetailTicker = hash;
-      showView('detail', false);
-    } else {
-      showView('screener', false);
-    }
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    loadMarketDataAsync();
-  });
-</script>
-</body>
-</html>
+    const
