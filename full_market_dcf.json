@@ -3391,10 +3391,10 @@
     "price": 482.3,
     "shares": 5186.48,
     "mcap": 2501439.3,
-    "debt": 33565.5,
-    "cash": 110507.7,
-    "net_debt": -76942.2,
-    "fcf0": 35625.9,
+    "debt": 33553.9,
+    "cash": 110469.5,
+    "net_debt": -76915.6,
+    "fcf0": 35613.6,
     "beta": 1.38,
     "beta_5y": 1.38,
     "kd": 4.5,
@@ -3415,7 +3415,7 @@
     "g2": 9.9,
     "g": 2.25,
     "wacc": 10.96,
-    "ev": 787739.0,
+    "ev": 787463.6,
     "ev_to_ebitda": 7.8,
     "debt_to_ebitda": 0.33,
     "net_debt_to_ebitda": -0.77,
@@ -3433,7 +3433,7 @@
         "category": "盈利能力",
         "desc": "營業現金流 CFO > 0",
         "passed": 1,
-        "detail": "自由現金流 = $35,626M"
+        "detail": "自由現金流 = $35,614M"
       },
       {
         "id": 3,
@@ -3485,8 +3485,8 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 166.72,
-    "premium_pct": 189.3,
+    "fair_val": 166.66,
+    "premium_pct": 189.4,
     "is_undervalued": false,
     "pe_trailing": 35.5,
     "pe_forward": 31.2,
@@ -3499,7 +3499,7 @@
     "liab_to_assets": 30.9,
     "cash_to_assets": 37.5,
     "current_ratio": 2.46,
-    "cash_minus_liab": 76942.2,
+    "cash_minus_liab": 76915.6,
     "roe": 34.9,
     "roa": 23.9,
     "moat": {
@@ -6765,20 +6765,20 @@
   },
   "GOOGL": {
     "name": "Alphabet (Class A)",
-    "company_name": "Alphabet (Class A)",
+    "company_name": "Alphabet Inc.",
     "exchange": "NASDAQ",
     "sector": "通訊服務",
     "industry": "Interactive Media & Services",
     "reportedCurrency": "USD",
-    "price": 150.0,
-    "shares": 666.7,
-    "mcap": 100000.0,
-    "debt": 0.0,
-    "cash": 0.0,
-    "net_debt": 0.0,
+    "price": 347.68,
+    "shares": 12102.11,
+    "mcap": 4207662.1,
+    "debt": 112756.0,
+    "cash": 242474.0,
+    "net_debt": -129718.0,
     "fcf0": 53273.0,
-    "beta": 1.15,
-    "beta_5y": 1.15,
+    "beta": 1.21,
+    "beta_5y": 1.21,
     "kd": 4.5,
     "tax": 21.0,
     "growth_10y": [
@@ -6796,11 +6796,11 @@
     "g1": 9.9,
     "g2": 5.7,
     "g": 2.25,
-    "wacc": 9.96,
-    "ev": 957384.6,
-    "ev_to_ebitda": 3.0,
-    "debt_to_ebitda": 0.0,
-    "net_debt_to_ebitda": 0.0,
+    "wacc": 10.07,
+    "ev": 943245.6,
+    "ev_to_ebitda": 2.9,
+    "debt_to_ebitda": 0.35,
+    "net_debt_to_ebitda": -0.4,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -6808,7 +6808,7 @@
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 24420500000000.0%"
+        "detail": "當期 ROA = 26.5%"
       },
       {
         "id": 2,
@@ -6836,14 +6836,14 @@
         "category": "槓桿與償債",
         "desc": "財務槓桿未惡化 (ΔLeverage ≤ 0)",
         "passed": 1,
-        "detail": "總負債資產比率 = 40.0%"
+        "detail": "總負債資產比率 = 30.5%"
       },
       {
         "id": 6,
         "category": "槓桿與償債",
         "desc": "短期流動性安全 (ΔLiquidity > 0)",
         "passed": 1,
-        "detail": "流動比率 = 1.50"
+        "detail": "流動比率 = 2.72"
       },
       {
         "id": 7,
@@ -6867,78 +6867,78 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 1436.01,
-    "premium_pct": -89.6,
-    "is_undervalued": true,
-    "pe_trailing": 0.4,
-    "pe_forward": 0.4,
-    "pb_trailing": 100000000000.0,
-    "pb_forward": 90000000000.0,
-    "div_yield": 10.3,
-    "ps_ratio": 0.5,
-    "fcf_to_ev": 5.56,
-    "fcf_to_mcap": 53.27,
-    "liab_to_assets": 40.0,
-    "cash_to_assets": 0.0,
-    "current_ratio": 1.5,
-    "cash_minus_liab": 0.0,
-    "roe": 24420500000000.0,
-    "roa": 24420500000000.0,
+    "fair_val": 88.66,
+    "premium_pct": 292.1,
+    "is_undervalued": false,
+    "pe_trailing": 17.2,
+    "pe_forward": 15.1,
+    "pb_trailing": 6.6,
+    "pb_forward": 5.9,
+    "div_yield": 0.24,
+    "ps_ratio": 19.7,
+    "fcf_to_ev": 5.65,
+    "fcf_to_mcap": 1.27,
+    "liab_to_assets": 30.5,
+    "cash_to_assets": 26.3,
+    "current_ratio": 2.72,
+    "cash_minus_liab": 129718.0,
+    "roe": 38.1,
+    "roa": 26.5,
     "moat": {
       "ticker": "GOOGL",
-      "period": "2026Q4",
+      "period": "2026Q2",
       "m1_brand_pricing": {
         "score": 9,
-        "comment": "Google品牌在全球消費者心中已是「搜尋」的代名詞，其近乎壟斷的搜尋市場份額賦予了其無與倫比的定價權。廣告商為觸及Google龐大的用戶群體，尤其是在高意圖搜尋關鍵字上，願意支付高昂費用。YouTube作為全球最大的影音平台，也為廣告主提供了獨特的觸及渠道。這種心智佔領與市場主導地位，使得Google即便在經濟下行時，也能維持廣告收入的韌性，因為其廣告投放效率和覆蓋面是其他平台難以匹敵的，客戶轉換成本極高，充分體現了巴菲特所推崇的「特許經營權」特徵。"
+        "comment": "Google's brand dominance in search and advertising grants it significant pricing power. Advertisers, seeking unparalleled reach and targeting capabilities, are willing to pay premium rates for Google Ads, making it an indispensable platform. The sheer volume of daily searches and YouTube's video consumption creates an unmatched audience, allowing Google to dictate terms without substantial loss of business. This strong brand loyalty and market leadership ensure that even with price adjustments, customers remain tethered to Google's ecosystem, reflecting a robust economic moat akin to a toll bridge for digital attention."
       },
       "m2_patents_regulatory": {
-        "score": 8,
-        "comment": "Alphabet擁有龐大且不斷增長的專利組合，尤其在人工智慧、機器學習、搜尋演算法、行動作業系統（Android）及自動駕駛（Waymo）等前沿領域。這些專利構成了一道技術護城河，阻礙了潛在競爭者。雖然Google並非傳統意義上的受政府特許經營，但其在搜尋領域的技術領先和市場標準制定能力，使其獲得了類似於「事實上」的許可地位。然而，其市場主導地位也引來了各國監管機構的審查，這是一把雙刃劍，需持續關注其合規性與潛在的法律風險。"
+        "score": 7,
+        "comment": "Alphabet possesses an extensive portfolio of patents covering its foundational technologies, including search algorithms, AI, and mobile operating systems. These proprietary innovations create a formidable barrier to entry, making it exceedingly difficult for competitors to replicate Google's core functionalities. While facing increasing regulatory scrutiny, this oversight paradoxically underscores Google's market dominance and the essential nature of its services. The legal and technological complexities inherent in its intellectual property act as a powerful deterrent, protecting its competitive advantage from direct imitation."
       },
       "m3_high_switching_costs": {
-        "score": 9,
-        "comment": "Google生態系統為消費者和企業用戶創造了極高的轉換成本。對於個人用戶，Gmail、Google Drive、Google Photos、Android手機等服務的深度整合，使得轉換到其他平台意味著數據遷移的複雜性、學習新介面的時間成本以及失去無縫協同的便利性。對於企業客戶，Google Workspace和Google Cloud的深度整合與客製化，一旦採用，其數據遷移、員工培訓及系統重構的成本將極為高昂，這使得客戶即便面對價格波動，也傾向於留在Google的服務體系內，形成強大的客戶黏性。"
+        "score": 8,
+        "comment": "Google's ecosystem creates high switching costs for both users and advertisers. For consumers, migrating from Android to another OS means abandoning familiar interfaces, app purchases, and deeply integrated services like Gmail, Drive, and Photos. For businesses, shifting advertising spend from Google Ads entails losing access to unparalleled audience data, sophisticated targeting tools, and the largest digital marketplace, leading to significant operational disruption, retraining costs, and potential revenue loss. These embedded dependencies ensure customer stickiness, reinforcing Google's competitive position."
       },
       "m4_network_effects": {
-        "score": 10,
-        "comment": "Google是網絡效應的典範。Google搜尋引擎的用戶越多，其收集的數據就越豐富，演算法優化就越精準，進而吸引更多用戶，形成強大的正向循環。YouTube平台亦然，更多的創作者帶來更多內容，吸引更多觀眾，再吸引更多創作者。Android系統的龐大用戶基礎吸引了海量開發者，豐富的應用程式又進一步鞏固了用戶忠誠度。這種自我強化的網絡效應，使得新進入者幾乎不可能在短時間內建立起可與之抗衡的生態系統，是其最堅不可摧的護城河之一。"
+        "score": 9,
+        "comment": "Google exemplifies powerful network effects. In search, more users generate more data, which refines algorithms, leading to better search results, attracting even more users and, consequently, more advertisers. YouTube operates similarly: more creators attract more viewers, which entices more advertisers and creators, creating a virtuous cycle. The Android ecosystem also thrives on this, with a vast user base attracting developers, who build more apps, further attracting users. This self-reinforcing growth exponentially increases the platform's value for all participants."
       },
       "m5_cost_advantage_scale": {
-        "score": 9,
-        "comment": "Alphabet在全球範圍內部署了龐大的數據中心基礎設施和光纖網絡，這使得其在處理海量搜尋請求、影片串流和雲端運算時，能夠實現極低的單位成本。其廣告平台受益於全球數十億用戶的數據累積，能夠提供無與倫比的廣告投放精準度和效率，這是小型競爭者無法企及的。這種規模優勢不僅降低了營運成本，也提升了服務品質，形成了巨大的成本壁壘，讓競爭對手難以在價格或效率上與之匹敵，符合巴菲特對低成本生產者的讚賞。"
+        "score": 8,
+        "comment": "Alphabet's immense scale provides a significant cost advantage. Its global network of data centers and fiber optic infrastructure allows it to deliver services at a per-unit cost that smaller competitors cannot match. The colossal R&D investments in AI, quantum computing, and other advanced technologies are amortized across billions of users, yielding superior product performance and efficiency. This unparalleled operational scale enables Google to innovate faster and offer services more cost-effectively, creating an insurmountable barrier for new entrants."
       },
       "m6_unique_geography_assets": {
-        "score": 8,
-        "comment": "雖然Google的市場並非傳統意義上的「利基」，但全球搜尋引擎市場已形成高度集中的寡占格局，Google佔據主導地位。建立一個能與Google抗衡的搜尋引擎，需要天文數字般的資本投入、數十年數據積累和用戶習慣培養，這使得新競爭者進入的門檻極高且不具經濟效益。在這種「贏者通吃」或「贏者通大部分」的市場結構中，新增競爭者只會導致市場份額的碎片化和利潤率的下降，因此現有參與者傾向於維持現狀，形成一種天然的理性寡占。"
+        "score": 6,
+        "comment": "While not a traditional \"efficient scale\" in terms of limited physical resources, the digital advertising and search market exhibits winner-take-most dynamics. The cost and complexity of building a competitive search engine or video platform from scratch, coupled with the challenge of overcoming Google's established user base and data advantage, are prohibitive. This creates a natural oligopoly where new entrants struggle to gain traction, and even well-funded competitors find it difficult to achieve profitability, leading to a rational avoidance of direct competition in core areas."
       },
       "m7_operational_efficiency": {
-        "score": 9,
-        "comment": "Alphabet憑藉其核心廣告業務的強大盈利能力和龐大的自由現金流（TTM達532.73億美元），展現出卓越的投入資本回報率。其商業模式的輕資產特性（相對於傳統製造業）和高邊際利潤，使其能夠持續將資本再投資於研發、基礎設施和戰略性收購，並獲得遠超加權平均資本成本的回報。這種持續創造超額利潤的能力，是企業內在價值的核心驅動力，也是巴菲特衡量企業質量的關鍵指標，證明了其護城河的有效性與持久性。"
+        "score": 8,
+        "comment": "Alphabet consistently demonstrates exceptional returns on invested capital, evidenced by its robust ROE of 38.1% and ROA of 26.5%. The company's ability to generate substantial free cash flow ($53.273 billion TTM) and maintain a massive cash reserve ($242.474 billion) underscores its superior capital allocation and operational efficiency. These figures indicate that Google can continually reinvest in its business at highly profitable rates, far exceeding its cost of capital, thereby compounding shareholder wealth over the long term, a hallmark of a truly great business."
       },
       "m8_capital_allocation": {
-        "score": 10,
-        "comment": "即使給予競爭對手數千億美元的資金，也無法在短時間內複製Alphabet的核心戰略資產。這不僅包括其全球數十億用戶的品牌認知、龐大的數據集、領先的AI技術和演算法，更包括其經過二十多年沉澱形成的網絡效應、生態系統黏性以及全球化的基礎設施。這些無形資產和複雜的相互作用，是時間和規模的累積，而非單純的資本投入可以買到的。這種不可複製性是其最深厚的護城河，確保了其長期競爭優勢。"
+        "score": 9,
+        "comment": "Alphabet's core strategic assets are virtually irreproducible. Even with hundreds of billions of dollars, a competitor could not replicate Google's decades of accumulated user data, its proprietary, constantly evolving AI algorithms, its global infrastructure, or the deep-seated brand trust and habituation of billions of users. The intricate web of network effects, technological superiority, and ecosystem integration represents an intangible yet impenetrable barrier that cannot be bought or built overnight, making it a truly unique and enduring competitive advantage."
       },
       "m9_customer_retention": {
-        "score": 8,
-        "comment": "Alphabet在技術變革面前展現出強大的適應性和引領能力。它不僅是AI技術的早期投資者和領導者，更將AI深度整合到其核心產品中，不斷進化搜尋、雲端和自動駕駛等業務。雖然任何技術巨頭都面臨潛在顛覆風險，但Google透過持續的研發投入、多元化的業務佈局（如Google Cloud、Waymo、DeepMind）以及對新興技術的積極擁抱，使其能夠在典範轉移中保持領先地位，而非被動應對。其需求確定性高，且能主動塑造未來技術趨勢。"
+        "score": 7,
+        "comment": "While operating in a dynamic technological landscape, Google exhibits strong resistance to disruption. Its core services, like search and YouTube, address fundamental human needs for information and entertainment, ensuring stable demand. Furthermore, Google is a leading innovator in AI, actively integrating advanced capabilities into its products, which positions it to adapt and evolve rather than be displaced by technological shifts. While constant innovation is required, its proactive stance and foundational utility provide a significant buffer against obsolescence."
       },
       "m10_durability": {
         "score": 8,
-        "comment": "Alphabet的管理層在資本配置上展現出相對審慎和股東友好的態度。公司持續進行大規模股票回購，尤其是在股價被認為低估時，有效提升了每股收益，體現了對股東價值的重視。其併購策略也多圍繞核心業務的強化和戰略性拓展，例如對Mandiant的收購以增強Google Cloud的安全性，而非盲目追求規模。雖然偶有投資失誤，但整體而言，其資本配置策略符合巴菲特對管理層應將股東資金視為己有的期望。"
+        "comment": "Alphabet's management has a commendable record of capital allocation. Strategic acquisitions like YouTube and Android have proven to be transformative, significantly expanding its ecosystem and market reach. The company's substantial free cash flow and robust balance sheet allow for continued investment in high-growth areas and share buybacks, which have steadily increased, demonstrating a commitment to maximizing shareholder value. While some experimental ventures have not yielded significant returns, the overall capital deployment strategy reflects a disciplined approach focused on long-term growth and shareholder returns."
       },
-      "overall_moat_verdict": "Alphabet本質上是一個由多個「特許經營權」組成的平台型企業，其核心是全球資訊的「收費橋樑」與「數位地產」。Google搜尋引擎憑藉其無可匹敵的品牌心智、強大的網絡效應和規模經濟，構建了難以逾越的護城河，使其在數位廣告市場中擁有絕對的定價權。YouTube則是一個內容與社群的雙向網絡平台，同樣具備強大黏性。Android生態系統則透過高轉換成本鎖定用戶。這些核心業務共同創造了巨額自由現金流，並能以高於資本成本的效率進行再投資。儘管面臨監管壓力與技術變革，Alphabet憑藉其深厚的技術積累、持續創新能力和不可複製的生態系統，使其護城河依然堅固，是典型的「好生意」。"
+      "overall_moat_verdict": "Alphabet, at its core, operates as a digital toll bridge and a powerful franchise. Its primary economic moat stems from the unparalleled network effects of Google Search and YouTube, where each additional user or content creator exponentially enhances value for all participants. This is buttressed by an indispensable brand, high switching costs for both users and advertisers, and a scale advantage in infrastructure and R&D that is virtually impossible to replicate. While facing regulatory headwinds and the constant need for innovation in AI, Google's deep integration into daily digital life and its ability to consistently generate superior returns on capital firmly establish it as a business with a wide and enduring economic moat, akin to a modern-day railroad or utility."
     },
     "fin_valuation": {
       "is_financial": false
     },
-    "image": "https://assets.financialmodelingprep.com/symbol/GOOGL.png",
-    "logo": "https://assets.financialmodelingprep.com/symbol/GOOGL.png",
-    "website": "",
-    "ceo": "Executive Committee",
-    "full_time_employees": "--",
-    "description": "A publicly traded US equity on major exchanges.",
-    "description_zh": "Alphabet (Class A)（美股代碼：GOOGL）為 通訊服務 領域之重要企業，專注於 Interactive Media & Services 業務，具備清晰之商業壁壘與現金流創造能力。",
+    "image": "https://images.financialmodelingprep.com/symbol/GOOGL.png",
+    "logo": "https://images.financialmodelingprep.com/symbol/GOOGL.png",
+    "website": "https://www.abc.xyz",
+    "ceo": "Sundar Pichai",
+    "full_time_employees": "198933",
+    "description": "Alphabet Inc. provides a diverse range of products and digital platforms to consumers across multiple global regions, including North and South America, Europe, the Middle East, Africa, and the Asia-Pacific. The company's operations are organized into three primary divisions: Google Services, Google Cloud, and \"Other Bets.\" The Google Services segment delivers core offerings such as its advertising solutions, the Android operating system, the Chrome browser, and various hardware. It also features popular applications like Gmail, Google Drive, Google Maps, Google Photos, Google Play, Search, and YouTube. This division further handles the sale of applications, in-app purchases, and digital content via the Google Play store, alongside marketing devices such as Fitbit wearables, Google Nest smart home products, Pixel smartphones, and other proprietary hardware. It also provides non-advertising services for YouTube. The Google Cloud segment offers a comprehensive suite of infrastructure, platform, and other cloud computing services for businesses. This includes Google Workspace, a collection of cloud-native collaboration tools for enterprises, featuring applications like Gmail, Docs, Drive, Calendar, and Meet, among other specialized services for corporate clients. Lastly, the \"Other Bets\" segment is engaged in developing and selling health technology and internet services. Established in 1998, Alphabet Inc. maintains its principal executive offices in Mountain View, California.",
+    "description_zh": "Alphabet Inc.（美股代碼：GOOGL）為 通訊服務 領域之重要企業，專注於 Interactive Media & Services 業務，具備清晰之商業壁壘與現金流創造能力。",
     "fmp_symbol": "GOOGL"
   },
   "GOOG": {
@@ -13356,12 +13356,12 @@
     "sector": "非必需消費",
     "industry": "Automobile Manufacturers",
     "reportedCurrency": "USD",
-    "price": 82.01,
-    "shares": 904.45,
-    "mcap": 74174.1,
-    "debt": 127697.0,
-    "cash": 24719.0,
-    "net_debt": 102978.0,
+    "price": 150.0,
+    "shares": 666.7,
+    "mcap": 100000.0,
+    "debt": 0.0,
+    "cash": 0.0,
+    "net_debt": 0.0,
     "fcf0": 16499.0,
     "beta": 1.4,
     "beta_5y": 1.4,
@@ -13382,19 +13382,19 @@
     "g1": 3.8,
     "g2": 3.5,
     "g": 2.25,
-    "wacc": 6.35,
-    "ev": 452602.2,
-    "ev_to_ebitda": 34.3,
-    "debt_to_ebitda": 9.67,
-    "net_debt_to_ebitda": 7.8,
-    "f_score": 4,
+    "wacc": 11.15,
+    "ev": 206012.7,
+    "ev_to_ebitda": 18.0,
+    "debt_to_ebitda": 0.0,
+    "net_debt_to_ebitda": 0.0,
+    "f_score": 8,
     "f_score_breakdown": [
       {
         "id": 1,
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 0.7%"
+        "detail": "當期 ROA = 8.0%"
       },
       {
         "id": 2,
@@ -13407,7 +13407,7 @@
         "id": 3,
         "category": "盈利能力",
         "desc": "資產回報率持續擴張 (ΔROA > 0)",
-        "passed": 0,
+        "passed": 1,
         "detail": "回報率穩步領先同業基準"
       },
       {
@@ -13421,15 +13421,15 @@
         "id": 5,
         "category": "槓桿與償債",
         "desc": "財務槓桿未惡化 (ΔLeverage ≤ 0)",
-        "passed": 0,
-        "detail": "總負債資產比率 = 77.5%"
+        "passed": 1,
+        "detail": "總負債資產比率 = 40.0%"
       },
       {
         "id": 6,
         "category": "槓桿與償債",
         "desc": "短期流動性安全 (ΔLiquidity > 0)",
-        "passed": 0,
-        "detail": "流動比率 = 1.14"
+        "passed": 1,
+        "detail": "流動比率 = 1.50"
       },
       {
         "id": 7,
@@ -13449,71 +13449,71 @@
         "id": 9,
         "category": "營運效率",
         "desc": "資產週轉率提升 (ΔTurnover > 0)",
-        "passed": 0,
+        "passed": 1,
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 386.56,
-    "premium_pct": -78.8,
+    "fair_val": 309.0,
+    "premium_pct": -51.5,
     "is_undervalued": true,
-    "pe_trailing": 38.7,
-    "pe_forward": 34.1,
-    "pb_trailing": 1.2,
-    "pb_forward": 1.1,
-    "div_yield": 1.58,
-    "ps_ratio": 1.1,
-    "fcf_to_ev": 3.65,
-    "fcf_to_mcap": 22.24,
-    "liab_to_assets": 77.5,
-    "cash_to_assets": 8.7,
-    "current_ratio": 1.14,
-    "cash_minus_liab": -102978.0,
-    "roe": 3.1,
-    "roa": 0.7,
+    "pe_trailing": 24.0,
+    "pe_forward": 21.1,
+    "pb_trailing": 100000000000.0,
+    "pb_forward": 90000000000.0,
+    "div_yield": 1.17,
+    "ps_ratio": 1.5,
+    "fcf_to_ev": 8.01,
+    "fcf_to_mcap": 16.5,
+    "liab_to_assets": 40.0,
+    "cash_to_assets": 0.0,
+    "current_ratio": 1.5,
+    "cash_minus_liab": 0.0,
+    "roe": 18.0,
+    "roa": 8.0,
     "moat": {
       "ticker": "GM",
-      "period": "2026Q2",
+      "period": "2026Q4",
       "m1_brand_pricing": {
-        "score": 4,
-        "comment": "GM擁有雪佛蘭、凱迪拉克等知名品牌，具備一定的市場認知度。然而，汽車產業競爭激烈，消費者對價格敏感，品牌忠誠度相對較低。GM難以像可口可樂或蘋果那樣，在不影響銷量的前提下大幅提價。其定價權主要來自於產品線的多樣性與市場份額，而非獨特的品牌溢價。電動車轉型期間，定價策略更受成本與市場接受度雙重壓力，難以形成強大護城河。"
+        "score": 5,
+        "comment": "通用汽車擁有雪佛蘭、凱迪拉克等知名品牌，在消費者心中佔有一席之地，尤其在北美卡車和SUV市場具備較強的品牌忠誠度。這使得公司在特定細分市場擁有一定的定價權，能夠在一定程度上轉嫁成本。然而，全球汽車市場競爭激烈，消費者選擇眾多，且電動車轉型帶來新興競爭者，使得整體定價權受限。品牌認知度雖高，但不足以形成可持續的超額利潤壁壘，客戶在面對替代品時仍有較高彈性，難以像可口可樂般無可替代。"
       },
       "m2_patents_regulatory": {
-        "score": 6,
-        "comment": "GM在電動車、自動駕駛（如Cruise）及電池技術領域投入巨資，累積了大量專利組合，形成一定的技術壁壘。汽車製造業本身也受到嚴格的政府安全與環保法規監管，這對新進者構成高昂的准入門檻。然而，這些專利多為技術改進而非顛覆性壟斷，且汽車產業的技術迭代迅速，專利保護期有限。監管雖高，但同時也增加了營運成本，並非純粹的競爭優勢。"
+        "score": 4,
+        "comment": "汽車產業擁有大量專利，涵蓋動力系統、安全技術、電動車平台等，通用汽車亦不例外。這些專利有助於保護其研發成果，但多數為漸進式創新，而非顛覆性或難以複製的獨家技術。同時，汽車製造業面臨嚴格的政府安全與環保法規，這雖構成行業進入門檻，但對所有參與者一視同仁，並未賦予通用汽車獨特的特許經營權或壟斷優勢。專利壁壘更多是維持競爭力而非建立獨佔地位。"
       },
       "m3_high_switching_costs": {
         "score": 3,
-        "comment": "對於汽車消費者而言，更換品牌或車型的轉換成本相對較低。儘管GM透過OnStar服務、售後網絡及品牌忠誠度計劃試圖增加客戶黏性，但這些不足以構成強大的護城河。消費者在下次購車時，可以輕易選擇其他品牌的車輛，而不會面臨重大的財務損失或營運中斷。汽車本質上仍是高價值商品，而非高度嵌入客戶日常運作的服務，因此轉換成本壁壘薄弱。"
+        "comment": "對於汽車消費者而言，更換品牌或車型所產生的轉換成本相對較低。儘管部分車主可能因熟悉度、經銷商服務或品牌忠誠度而傾向於重複購買，但這並未構成重大的財務損失或營運中斷。消費者可以相對容易地選擇其他品牌的車輛，市場上替代品豐富。因此，通用汽車在客戶黏性方面不具備高轉換成本的護城河，難以鎖定客戶，這與巴菲特青睞的軟體或金融服務業形成鮮明對比。"
       },
       "m4_network_effects": {
         "score": 2,
-        "comment": "傳統汽車製造業本質上不具備網絡效應。一位GM車主的增加並不會顯著提升其他GM車輛或服務對其他用戶的價值。儘管其自動駕駛子公司Cruise可能透過數據累積來提升其AI系統，進而產生潛在的網絡效應，但這仍處於發展初期，且尚未對GM整體業務形成堅實的護城河。汽車銷售主要依賴產品本身性能、品牌和價格，而非用戶間的互動價值。"
+        "comment": "汽車製造業本質上不具備強大的網絡效應。通用汽車的銷量增加並不會直接導致其產品對現有或潛在客戶的價值呈幾何級數增長。儘管龐大的保有量可能支持更廣泛的售後服務網絡或零件供應，但這與社交媒體或支付平台那種「每多一個用戶，整個生態系統價值倍增」的網絡效應截然不同。電動車充電網絡可能具備潛在網絡效應，但通用汽車的Ultium平台仍在發展初期，尚未形成決定性優勢。"
       },
       "m5_cost_advantage_scale": {
         "score": 8,
-        "comment": "作為全球領先的汽車製造商之一，GM享有顯著的規模經濟優勢。其龐大的生產量和全球供應鏈使其在原材料採購上擁有強大的議價能力，有效降低單位成本。此外，研發投入、生產線自動化以及遍布全球的經銷網絡，都因規模化而攤薄成本，形成小型競爭者難以企及的成本壁壘。這使得GM能夠以更具競爭力的價格提供產品，或在相同價格下獲得更高利潤。"
+        "comment": "通用汽車作為全球領先的汽車製造商，擁有巨大的規模經濟優勢。其龐大的全球生產基地、採購量以及研發投入，使其能夠在原材料採購、零部件供應鏈管理和生產效率方面獲得顯著的成本優勢。這種規模使其能夠以對手難以匹敵的低邊際成本生產車輛，並將研發費用攤薄到數百萬輛汽車上。這是一個典型的巴菲特式護城河，使得小型競爭者難以望其項背，是其核心競爭力之一。"
       },
       "m6_unique_geography_assets": {
-        "score": 3,
-        "comment": "汽車產業是一個全球性、競爭極其激烈的龐大市場，而非利基市場。儘管GM在北美市場佔據主導地位，但這並非源於市場容量有限或獨佔性地理區位所形成的天然寡占。全球範圍內，GM面臨來自眾多國際巨頭和新興電動車品牌的激烈競爭。新競爭者進入雖有挑戰，但市場規模足以容納多個參與者，並未形成「雙輸」局面，因此不具備高效規模的護城河特徵。"
+        "score": 7,
+        "comment": "汽車製造業的進入門檻極高，需要巨額的資本投入、複雜的全球供應鏈和分銷網絡。通用汽車在北美市場，特別是全尺寸卡車和SUV領域，擁有長期建立的市場領導地位和品牌忠誠度，這在一定程度上形成了區域性的寡佔格局。新競爭者即便擁有充裕資金，也難以在短時間內複製其遍布全球的製造設施、經銷商網絡和數十年的市場積累。這使得通用汽車在特定市場區隔中享有「有效規模」帶來的競爭優勢。"
       },
       "m7_operational_efficiency": {
-        "score": 2,
-        "comment": "GM的資本回報率表現不佳，ROE僅3.1%，ROA為0.7%，遠低於一般企業的資本成本。這表明GM在長期內難以持續創造超額的股東價值。汽車製造業是資本密集型產業，需要不斷投入巨額資金進行研發、生產線升級和電動化轉型，這使得維持高ROIC極具挑戰性。缺乏持續超越加權資本成本的能力，是其護城河薄弱的關鍵指標。"
+        "score": 7,
+        "comment": "通用汽車展現出良好的營運效率，其18.0%的股東權益報酬率（ROE）和8.0%的資產報酬率（ROA），以及高達8/9的皮氏F-Score，都表明公司在資本運用和盈利能力方面表現出色。儘管汽車產業是資本密集型且具備週期性，但通用汽車在當前階段能夠持續產生可觀的自由現金流（FCF TTM $16.499M），並將投入資本回報率維持在較高水平，超越加權平均資本成本，顯示其具備創造股東價值的韌性。然而，產業轉型帶來的挑戰仍需持續關注。"
       },
       "m8_capital_allocation": {
         "score": 7,
-        "comment": "即使給予競爭對手千億美元，也難以在短時間內複製GM龐大的全球製造基地、遍布各地的經銷網絡、數十年累積的品牌資產以及複雜且成熟的供應鏈體系。這些戰略資產是長期投入和市場深耕的結果，涉及數百萬員工、供應商和客戶關係。雖然新興車企可以從零開始建立部分能力，但要達到GM的規模和市場滲透率，需要極其漫長的時間和天文數字般的資本投入，因此具備較高的不可複製性。"
+        "comment": "通用汽車的管理層在資本配置方面表現出一定的紀律性。公司擁有強勁的自由現金流，並在適當時機進行股票回購，以提升股東價值。其高F-Score和健康的ROE/ROA數據也反映了對資本的有效利用。在面對電動化和自動駕駛的巨大投資需求時，管理層的決策至關重要。目前來看，其在研發投入和戰略合作方面的配置相對審慎，避免了盲目溢價併購，顯示出對股東利益的考量，符合巴菲特對優秀管理層的期望。"
       },
       "m9_customer_retention": {
-        "score": 3,
-        "comment": "汽車產業正經歷前所未有的技術與典範轉移，電動化、自動駕駛和共享出行模式對傳統車企構成巨大挑戰。GM雖積極投入電動車平台（如Ultium）和自動駕駛技術（Cruise），但這是一種應對顛覆的策略，而非具備免疫力。市場需求、技術標準和競爭格局都在快速演變，GM必須持續投入巨資並承擔轉型風險，其業務模式遠非對技術變革具備強大抗性。"
+        "score": 2,
+        "comment": "汽車產業正經歷前所未有的技術變革，電動化、自動駕駛和共享出行模式正在顛覆傳統。通用汽車雖然積極投資於Ultium電動車平台和Cruise自動駕駛技術，但其核心燃油車業務面臨結構性衰退，且新興電動車品牌帶來巨大競爭壓力。這是一個高度不確定的轉型時期，而非具備技術變革抗性的階段。公司必須不斷創新和適應，才能避免被顛覆，因此其對典範轉移的免疫力非常弱。"
       },
       "m10_durability": {
-        "score": 5,
-        "comment": "GM管理層在電動化轉型上展現了戰略決心，並透過回購股票來回饋股東。然而，汽車產業的資本密集特性和高額債務（總負債1277億美元）對資本配置構成持續挑戰。歷史上，汽車業的資本配置記錄參差不齊，GM仍需證明其在面對巨大轉型成本時，能持續高效地為股東創造價值，而非盲目擴張或過度投資。其皮氏F-Score為4/9，也暗示財務效率有待提升。"
+        "score": 7,
+        "comment": "通用汽車的全球規模、深厚的製造經驗、廣泛的經銷商網絡以及在北美市場的強大品牌影響力，是其難以被複製的核心資產。即便給予競爭對手千億美元，也難以在短時間內建立起如此龐大的全球生產體系、供應鏈和品牌認知度。然而，在電動車和自動駕駛等新興技術領域，新創公司展現出驚人的追趕速度，部分技術甚至超越傳統車企。因此，通用汽車的「不可複製性」主要體現在其傳統工業資產上，而非新興技術領域。"
       },
-      "overall_moat_verdict": "GM作為一家百年汽車巨頭，其護城河主要體現在巨大的規模經濟和難以複製的全球製造與分銷網絡。然而，其品牌定價權薄弱，轉換成本低，且缺乏網絡效應。更關鍵的是，汽車產業正經歷電動化和自動駕駛的顛覆性變革，GM雖積極應對，但這使其業務模式面臨巨大不確定性，而非免疫。其資本回報率長期低迷，顯示其難以持續創造超額價值。從巴菲特視角看，GM本質上仍是一個資本密集、競爭激烈的商品型企業，而非具備強大特許經營權的「收費橋樑」。其護城河不足以抵禦產業變革的洪流。"
+      "overall_moat_verdict": "通用汽車是一家典型的資本密集型工業巨頭，其核心護城河主要來自於無與倫比的全球規模經濟、深厚的製造工藝積累以及在北美市場，特別是卡車和SUV領域的強大品牌影響力。這些優勢使其在成本控制和市場份額上具備顯著優勢，形成了一道難以被新進入者在短期內複製的壁壘。然而，汽車產業正處於電動化和自動駕駛的劇烈變革之中，這對通用汽車的傳統商業模式構成了嚴峻挑戰，其對技術顛覆的免疫力極低。儘管公司展現出良好的營運效率和資本配置能力，但其本質更接近於一個具有規模優勢的「商品型企業」，而非巴菲特所青睞的擁有強大定價權或特許經營權的「收費橋樑」。公司能否成功轉型，將決定其護城河的長期韌性。"
     },
     "fin_valuation": {
       "is_financial": false
@@ -16463,13 +16463,13 @@
     "sector": "金融",
     "industry": "Financial Exchanges & Data",
     "reportedCurrency": "USD",
-    "price": 150.0,
-    "shares": 666.7,
-    "mcap": 100000.0,
-    "debt": 0.0,
-    "cash": 0.0,
-    "net_debt": 0.0,
-    "fcf0": 3800.0,
+    "price": 107.54,
+    "shares": 212.89,
+    "mcap": 22893.8,
+    "debt": 150.3,
+    "cash": 2057.9,
+    "net_debt": -1907.6,
+    "fcf0": 1054.5,
     "beta": 0.61,
     "beta_5y": 0.61,
     "kd": 4.5,
@@ -16489,26 +16489,26 @@
     "g1": 11.2,
     "g2": 6.4,
     "g": 2.25,
-    "wacc": 7.4,
-    "ev": 110431.1,
-    "ev_to_ebitda": 18.0,
-    "debt_to_ebitda": 0.0,
-    "net_debt_to_ebitda": 0.0,
-    "f_score": 8,
+    "wacc": 7.37,
+    "ev": 30800.8,
+    "ev_to_ebitda": 20.3,
+    "debt_to_ebitda": 0.1,
+    "net_debt_to_ebitda": -1.26,
+    "f_score": 9,
     "f_score_breakdown": [
       {
         "id": 1,
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 8.0%"
+        "detail": "當期 ROA = 10.9%"
       },
       {
         "id": 2,
         "category": "盈利能力",
         "desc": "營業現金流 CFO > 0",
         "passed": 1,
-        "detail": "自由現金流 = $3,800M"
+        "detail": "自由現金流 = $1,054M"
       },
       {
         "id": 3,
@@ -16529,14 +16529,14 @@
         "category": "槓桿與償債",
         "desc": "財務槓桿未惡化 (ΔLeverage ≤ 0)",
         "passed": 1,
-        "detail": "總負債資產比率 = 40.0%"
+        "detail": "總負債資產比率 = 11.1%"
       },
       {
         "id": 6,
         "category": "槓桿與償債",
         "desc": "短期流動性安全 (ΔLiquidity > 0)",
         "passed": 1,
-        "detail": "流動比率 = 1.50"
+        "detail": "流動比率 = 6.05"
       },
       {
         "id": 7,
@@ -16549,7 +16549,7 @@
         "id": 8,
         "category": "營運效率",
         "desc": "毛利率擴張 (ΔMargin > 0)",
-        "passed": 0,
+        "passed": 1,
         "detail": "產品定價權增強，毛利結構健康"
       },
       {
@@ -16560,67 +16560,67 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 165.64,
-    "premium_pct": -9.4,
+    "fair_val": 153.64,
+    "premium_pct": -30.0,
     "is_undervalued": true,
-    "pe_trailing": 24.0,
-    "pe_forward": 21.1,
-    "pb_trailing": 100000000000.0,
-    "pb_forward": 90000000000.0,
-    "div_yield": 0.0,
-    "ps_ratio": 6.6,
-    "fcf_to_ev": 3.44,
-    "fcf_to_mcap": 3.8,
-    "liab_to_assets": 40.0,
-    "cash_to_assets": 0.0,
-    "current_ratio": 1.5,
-    "cash_minus_liab": 0.0,
-    "roe": 18.0,
-    "roa": 8.0,
+    "pe_trailing": 25.5,
+    "pe_forward": 22.4,
+    "pb_trailing": 3.5,
+    "pb_forward": 3.1,
+    "div_yield": 0.48,
+    "ps_ratio": 5.4,
+    "fcf_to_ev": 3.42,
+    "fcf_to_mcap": 4.61,
+    "liab_to_assets": 11.1,
+    "cash_to_assets": 24.9,
+    "current_ratio": 6.05,
+    "cash_minus_liab": 1907.6,
+    "roe": 13.5,
+    "roa": 10.9,
     "moat": {
       "ticker": "TW",
-      "period": "2026Q4",
+      "period": "2026Q2",
       "m1_brand_pricing": {
         "score": 8,
-        "comment": "Tradeweb作為機構電子交易平台，其品牌心智體現在對效率、流動性和可靠性的高度信任。客戶一旦將其交易工作流程深度整合，轉換成本高昂，賦予Tradeweb穩固的定價權。儘管其服務費用看似微小，但對於數萬億美元的交易量而言，即使微幅提價也能帶來可觀收益，且客戶為確保交易順暢與最佳執行，對此類成本敏感度相對較低，展現了其作為金融市場基礎設施的特許經營性質。"
+        "comment": "Tradeweb作為機構級電子交易平台，其品牌心智體現在為全球大型金融機構提供不可或缺的流動性與交易效率。儘管非消費品牌，但在固定收益、衍生品等市場，其平台已成為行業標準，客戶對其服務的依賴度高。這種深厚的機構信任與平台整合度，賦予其穩健的定價能力，使其能在不顯著影響交易量的前提下，維持或適度提升交易費用與訂閱費率，展現出巴菲特所重視的「收費橋樑」特徵。"
       },
       "m2_patents_regulatory": {
-        "score": 8,
-        "comment": "Tradeweb在電子交易領域的專有技術和交易協議構成了重要的技術壁壘。更關鍵的是，其作為受監管的金融市場基礎設施，需獲得多項特許經營許可，並遵守嚴格的監管要求。這些監管門檻極高，有效限制了新競爭者的進入，使其享有類似「收費橋樑」的地位。其平台提供的透明度與效率，也符合監管機構對市場公平性的要求，進一步鞏固了其市場地位。"
+        "score": 7,
+        "comment": "Tradeweb的護城河並非來自傳統意義上的專利集群，而是源於其在高度監管的金融市場中獲得的運營許可與長期建立的信任。作為受監管的電子交易平台，其業務需符合嚴格的金融法規，這本身就是一道難以逾越的進入壁壘。新競爭者不僅需要巨額資本投入，更需耗費數年時間建立監管關係、獲取牌照並贏得機構客戶的信任，這構成了一種「特許經營」性質的無形資產。"
       },
       "m3_high_switching_costs": {
         "score": 9,
-        "comment": "對於機構投資者而言，將Tradeweb平台深度整合至其交易系統、風險管理與合規流程中，已形成極高的轉換成本。更換平台不僅意味著巨大的IT重新配置投入、員工培訓，還可能導致交易中斷、流動性受損及歷史數據遷移的複雜性。這種深度嵌入性使得客戶即便面對潛在的替代方案，也因轉換成本過高而難以輕易離開，確保了Tradeweb穩定的客戶基礎與收入流。"
+        "comment": "Tradeweb為機構客戶提供的電子交易平台，其黏性極高。大型資產管理公司、銀行等將其系統深度整合至內部交易流程、風險管理與數據分析架構中。轉換至其他平台不僅涉及高昂的技術遷移成本、員工再培訓費用，更可能導致交易效率下降、數據連續性中斷及潛在的市場機會損失。這種深層次的業務嵌入，使得客戶即使面對輕微漲價，也寧願承受，因為轉換成本遠超其收益，是典型的巴菲特式「高轉換成本」護城河。"
       },
       "m4_network_effects": {
         "score": 9,
-        "comment": "Tradeweb的核心護城河之一是其強大的網絡效應。隨著更多買方和賣方機構加入其電子交易平台，市場流動性顯著提升，交易執行效率與價格發現能力也隨之增強。這種流動性的增加反過來吸引更多參與者，形成一個正向循環。每個新用戶的加入都提升了整個生態系統對所有參與者的價值，使得Tradeweb成為機構交易者不可或缺的平台，競爭對手難以複製。"
+        "comment": "Tradeweb的核心競爭優勢之一即是強大的網絡效應。其電子交易平台匯聚了全球眾多買方與賣方機構，形成龐大的流動性池。隨著更多交易者加入，平台上的訂單深度與廣度隨之增加，提供更優的價格發現機制和更低的交易成本，進而吸引更多參與者，形成正向循環。這種「贏者通吃」的特性，使得領先平台能持續鞏固其市場地位，對新進入者構成極高的壁壘。"
       },
       "m5_cost_advantage_scale": {
         "score": 8,
-        "comment": "Tradeweb作為電子交易平台，其運營模式具備顯著的規模經濟效應。平台開發、維護及監管合規等前期固定成本高昂，但每增加一筆交易的邊際成本卻極低。隨著交易量不斷擴大，其平均交易成本持續下降，營運效率大幅提升，這使得Tradeweb能夠以競爭對手難以匹敵的成本優勢提供服務。高達38億美元的自由現金流，正是其規模優勢轉化為強勁盈利能力的有力證明。"
+        "comment": "Tradeweb作為電子交易平台，具備顯著的規模經濟優勢。其核心技術基礎設施與全球網絡的建置成本高昂，但一旦投入運營，處理額外交易的邊際成本極低。隨著交易量的增長，其單位成本持續攤薄，營運槓桿效益顯著。這使得Tradeweb能夠以更低的成本提供服務，並將部分成本優勢轉化為更具競爭力的交易條件，進一步吸引客戶，形成良性循環，對潛在競爭者構成成本壁壘。"
       },
       "m6_unique_geography_assets": {
         "score": 7,
-        "comment": "Tradeweb所處的機構電子交易市場，特別是固定收益和衍生品領域，具有天然的寡占特性。該市場對流動性深度、技術可靠性及監管合規性要求極高，使得新進入者難以在短時間內建立起足夠的信任和交易網絡。市場容量雖大，但能夠有效服務並獲利的平台數量有限。這種「贏者通吃」或「少數贏家」的市場結構，為Tradeweb提供了穩定的市場份額和盈利空間，有效抵禦了潛在競爭。"
+        "comment": "Tradeweb在機構級固定收益、衍生品及ETF電子交易市場中，已形成天然寡占格局。這些市場對流動性、信任度與技術穩定性要求極高，新進入者難以在短時間內建立起足以挑戰現有巨頭的生態系統。市場雖非絕對容量有限，但由於網絡效應與高轉換成本，已形成少數幾家主導的局面。新競爭者若盲目投入，只會稀釋市場流動性，導致所有參與者利益受損，從而形成一種「理性寡占」的穩定結構。"
       },
       "m7_operational_efficiency": {
         "score": 9,
-        "comment": "Tradeweb展現出卓越的投入資本回報率（ROIC）韌性。18.0%的股東權益報酬率（ROE）和8.0%的資產報酬率（ROA）均遠超行業平均水平。更值得注意的是，公司幾乎零負債的資本結構意味著其加權平均資本成本（WACC）極低。這兩者之間的巨大差距，證明Tradeweb能夠持續高效地將投入資本轉化為豐厚利潤，為股東創造實質性的複利增長，是典型的優質特許經營企業特徵。"
+        "comment": "Tradeweb展現出卓越的資本回報韌性。其高達13.5%的股東權益報酬率（ROE）和10.9%的資產報酬率（ROA），結合高達9/9的皮氏F-Score，強烈表明公司能持續以遠超加權平均資本成本（WACC）的效率運用資本。每年超過10億美元的自由現金流，以及充裕的現金儲備與極低的負債，證明其業務模式具有強大的盈利能力和現金生成能力，為股東創造了持續的複利價值。"
       },
       "m8_capital_allocation": {
         "score": 9,
-        "comment": "即使給予競爭對手千億美元資金，也難以在短時間內複製Tradeweb的核心戰略資產。其不可複製性不僅在於技術平台本身，更在於其多年來與全球頂級金融機構建立的深厚信任關係、龐大的流動性網絡、複雜的監管許可及高度嵌入客戶工作流程的系統。這些無形資產的累積需要時間、信譽和市場認可，是純粹的資本投入無法迅速堆砌的堅實壁壘。"
+        "comment": "即使給予競爭對手千億美元，也難以在短時間內複製Tradeweb的核心戰略資產。其護城河不僅是技術平台本身，更是數十年來與全球頂級金融機構建立的深厚信任關係、龐大的流動性網絡、複雜的監管合規體系以及高度整合的客戶工作流程。這些無形資產的累積需要時間、信譽和市場認可，而非單純的資本投入。這種不可複製性是其長期競爭優勢的基石，符合巴菲特對「特許經營權」的定義。"
       },
       "m9_customer_retention": {
         "score": 8,
-        "comment": "Tradeweb作為金融市場的基礎設施，其核心業務——機構電子交易——具有極高的需求確定性。儘管金融科技不斷演進，但機構對高效、透明、受監管的交易平台需求是永恆的。新技術如區塊鏈可能會被整合，但不太可能完全顛覆其作為流動性樞紐和交易執行者的核心地位。其業務模式的本質決定了對技術典範轉移具有強大免疫力，確保了長期穩定性。"
+        "comment": "Tradeweb所處的機構交易市場對技術變革具有較強的抗性。儘管金融科技不斷演進，但機構對高效、透明、具備深度流動性的交易平台需求本質不變。Tradeweb作為行業領導者，持續投入研發以整合新技術（如AI、區塊鏈）來優化其平台，而非被動地被顛覆。其核心業務是提供市場基礎設施，這種基礎性需求不易被根本性取代，使其對典範轉移具備較強的免疫力。"
       },
       "m10_durability": {
         "score": 8,
-        "comment": "儘管缺乏具體回購數據，但Tradeweb高達38億美元的自由現金流以及幾乎零負債的穩健財務狀況，暗示其管理層在資本配置上極為審慎高效。高F-Score（8/9）進一步佐證了其卓越的財務健康與經營效率。巴菲特強調管理層應將資本視為稀缺資源，避免盲目擴張或高價併購。Tradeweb的財務表現表明其管理層有能力將盈餘有效再投資於業務增長或以其他方式回饋股東，而非浪費於低效項目。"
+        "comment": "Tradeweb的管理層展現出穩健的資本配置策略。公司擁有超過20億美元的現金儲備，而總負債僅1.5億美元，顯示其財務紀律嚴明，避免了過度槓桿。強勁的自由現金流（超過10億美元）為其提供了充足的靈活性，用於內部投資、潛在的戰略性併購或股東回報。儘管缺乏具體回購數據，但其卓越的財務健康狀況和高F-Score表明管理層在資源配置上極為審慎，致力於最大化股東長期價值。"
       },
-      "overall_moat_verdict": "Tradeweb Markets本質上是一個具備強大「收費橋樑」特徵的特許經營權平台。其核心競爭壁壘源於多重護城河的疊加效應：首先，在機構電子交易領域建立的強大網絡效應，吸引了海量買賣雙方，形成難以複製的流動性優勢；其次，客戶將其平台深度整合至交易流程，產生極高的轉換成本；再者，專有技術與嚴格的監管准入構成堅實壁壘。這些因素共同賦予Tradeweb穩固的定價權與卓越的資本回報能力，使其能夠持續產生豐沛的自由現金流，是典型的巴菲特式優質企業。"
+      "overall_moat_verdict": "Tradeweb Markets本質上是一家具備強大「收費橋樑」特徵的特許經營權平台。其核心競爭壁壘源於在機構級電子交易市場中建立的深厚網絡效應、極高的客戶轉換成本以及難以複製的信任與監管許可。公司在固定收益、衍生品等關鍵領域已形成寡占格局，為全球金融機構提供不可或缺的流動性與交易效率。卓越的財務表現，如持續高ROIC、充沛的自由現金流和健康的資產負債表，進一步印證了其護城河的堅固性。這使得Tradeweb能夠在長期內持續創造超額利潤，並有效抵禦潛在競爭與技術顛覆，是典型的巴菲特式優質企業。"
     },
     "fin_valuation": {
       "is_financial": false
@@ -22225,10 +22225,10 @@
     "price": 22.42,
     "shares": 537.13,
     "mcap": 12042.4,
-    "debt": 12253.6,
-    "cash": 1620.0,
-    "net_debt": 10633.6,
-    "fcf0": 1978.5,
+    "debt": 12252.2,
+    "cash": 1619.8,
+    "net_debt": 10632.4,
+    "fcf0": 1978.3,
     "beta": 0.72,
     "beta_5y": 0.72,
     "kd": 4.5,
@@ -22249,7 +22249,7 @@
     "g2": 3.5,
     "g": 2.25,
     "wacc": 5.72,
-    "ev": 64315.8,
+    "ev": 64307.0,
     "ev_to_ebitda": 16.8,
     "debt_to_ebitda": 3.2,
     "net_debt_to_ebitda": 2.78,
@@ -22319,7 +22319,7 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 99.94,
+    "fair_val": 99.93,
     "premium_pct": -77.6,
     "is_undervalued": true,
     "pe_trailing": 11.5,
@@ -22333,7 +22333,7 @@
     "liab_to_assets": 56.8,
     "cash_to_assets": 4.6,
     "current_ratio": 1.07,
-    "cash_minus_liab": -10633.6,
+    "cash_minus_liab": -10632.4,
     "roe": 7.5,
     "roa": 3.0,
     "moat": {
@@ -23296,7 +23296,7 @@
     "debt": 2044.5,
     "cash": 482.3,
     "net_debt": 1562.2,
-    "fcf0": 772.7,
+    "fcf0": 925.6,
     "beta": 0.93,
     "beta_5y": 0.93,
     "kd": 4.5,
@@ -23317,10 +23317,10 @@
     "g2": 3.7,
     "g": 2.25,
     "wacc": 8.43,
-    "ev": 14914.2,
-    "ev_to_ebitda": 18.0,
-    "debt_to_ebitda": 2.65,
-    "net_debt_to_ebitda": 2.02,
+    "ev": 17865.4,
+    "ev_to_ebitda": 9.9,
+    "debt_to_ebitda": 1.13,
+    "net_debt_to_ebitda": 0.86,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -23328,14 +23328,14 @@
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 8.0%"
+        "detail": "當期 ROA = 7.5%"
       },
       {
         "id": 2,
         "category": "盈利能力",
         "desc": "營業現金流 CFO > 0",
         "passed": 1,
-        "detail": "自由現金流 = $773M"
+        "detail": "自由現金流 = $926M"
       },
       {
         "id": 3,
@@ -23387,23 +23387,23 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 137.0,
-    "premium_pct": 52.3,
+    "fair_val": 167.28,
+    "premium_pct": 24.7,
     "is_undervalued": false,
-    "pe_trailing": 24.0,
-    "pe_forward": 21.1,
+    "pe_trailing": 25.3,
+    "pe_forward": 22.3,
     "pb_trailing": 2.8,
     "pb_forward": 2.5,
-    "div_yield": 0.0,
-    "ps_ratio": 6.6,
+    "div_yield": 1.21,
+    "ps_ratio": 5.5,
     "fcf_to_ev": 5.18,
-    "fcf_to_mcap": 3.8,
+    "fcf_to_mcap": 4.55,
     "liab_to_assets": 32.7,
     "cash_to_assets": 4.5,
     "current_ratio": 1.91,
     "cash_minus_liab": -1562.2,
-    "roe": 18.0,
-    "roa": 8.0,
+    "roe": 11.2,
+    "roa": 7.5,
     "moat": {
       "ticker": "STE",
       "period": "2027Q1",
@@ -23463,20 +23463,20 @@
   },
   "MCK": {
     "name": "McKesson",
-    "company_name": "McKesson",
+    "company_name": "McKesson Corporation",
     "exchange": "NYSE",
     "sector": "醫療保健",
     "industry": "Health Care Distributors",
     "reportedCurrency": "USD",
-    "price": 150.0,
-    "shares": 666.7,
-    "mcap": 100000.0,
+    "price": 921.67,
+    "shares": 117.08,
+    "mcap": 107907.3,
     "debt": 11701.0,
     "cash": 5164.0,
     "net_debt": 6537.0,
     "fcf0": 6185.0,
-    "beta": 1.15,
-    "beta_5y": 1.15,
+    "beta": 0.3,
+    "beta_5y": 0.3,
     "kd": 4.5,
     "tax": 21.0,
     "growth_10y": [
@@ -23494,9 +23494,9 @@
     "g1": 7.2,
     "g2": 4.3,
     "g": 2.25,
-    "wacc": 9.29,
-    "ev": 109061.2,
-    "ev_to_ebitda": 15.3,
+    "wacc": 5.69,
+    "ev": 226509.5,
+    "ev_to_ebitda": 31.7,
     "debt_to_ebitda": 1.64,
     "net_debt_to_ebitda": 0.91,
     "f_score": 5,
@@ -23565,17 +23565,17 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 153.78,
-    "premium_pct": -2.5,
+    "fair_val": 1878.82,
+    "premium_pct": -50.9,
     "is_undervalued": true,
-    "pe_trailing": 21.8,
-    "pe_forward": 19.2,
+    "pe_trailing": 23.5,
+    "pe_forward": 20.7,
     "pb_trailing": 5.0,
     "pb_forward": 4.5,
-    "div_yield": 0.39,
-    "ps_ratio": 4.0,
-    "fcf_to_ev": 5.67,
-    "fcf_to_mcap": 6.19,
+    "div_yield": 0.36,
+    "ps_ratio": 4.4,
+    "fcf_to_ev": 2.73,
+    "fcf_to_mcap": 5.73,
     "liab_to_assets": 104.4,
     "cash_to_assets": 5.8,
     "current_ratio": 0.89,
@@ -23630,13 +23630,13 @@
     "fin_valuation": {
       "is_financial": false
     },
-    "image": "https://assets.financialmodelingprep.com/symbol/MCK.png",
-    "logo": "https://assets.financialmodelingprep.com/symbol/MCK.png",
-    "website": "",
-    "ceo": "Executive Committee",
-    "full_time_employees": "--",
-    "description": "A publicly traded US equity on major exchanges.",
-    "description_zh": "McKesson（美股代碼：MCK）為 醫療保健 領域之重要企業，專注於 Health Care Distributors 業務，具備清晰之商業壁壘與現金流創造能力。",
+    "image": "https://images.financialmodelingprep.com/symbol/MCK.png",
+    "logo": "https://images.financialmodelingprep.com/symbol/MCK.png",
+    "website": "https://www.mckesson.com",
+    "ceo": "Brian S. Tyler",
+    "full_time_employees": "42300",
+    "description": "McKesson Corporation is a prominent global provider of healthcare services, operating extensively in both the United States and international markets. Its diverse operations are strategically organized into four key business segments. The U.S. Pharmaceutical division plays a crucial role in the distribution of a comprehensive array of pharmaceutical products, encompassing branded, generic, specialty, biosimilar, and over-the-counter medications, alongside other health-related merchandise. This segment also delivers specialized support to community-based oncology and other specialty medical practices through practice management tools, technology solutions, clinical guidance, and broader business services. Furthermore, it assists pharmacies with consulting, outsourcing, and technology services, while also furnishing financial, operational, and clinical software solutions. Internationally, the company's dedicated segment provides distribution and support services to wholesale, institutional, and retail clients across 13 European nations and Canada. The Medical-Surgical Solutions unit is focused on supplying healthcare providers with essential medical-surgical products, sophisticated logistics management, and a variety of associated services. Finally, the Prescription Technology Solutions (RxTS) segment is designed to address complex medication challenges for patients. It collaborates with biopharmaceutical companies and life sciences partners to improve patient journeys, leveraging innovative solutions for medication access and adherence by connecting pharmacies, healthcare providers, payers, and biopharma entities. This segment further offers third-party logistics and wholesale distribution assistance. Founded in 1833, McKesson Corporation maintains its corporate headquarters in Irving, Texas.",
+    "description_zh": "McKesson Corporation（美股代碼：MCK）為 醫療保健 領域之重要企業，專注於 Health Care Distributors 業務，具備清晰之商業壁壘與現金流創造能力。",
     "fmp_symbol": "MCK"
   },
   "SYK": {
@@ -24709,20 +24709,20 @@
   },
   "COST": {
     "name": "Costco Wholesale",
-    "company_name": "Costco Wholesale Corporation",
+    "company_name": "Costco Wholesale",
     "exchange": "NASDAQ",
     "sector": "必需消費",
     "industry": "Consumer Staples Merchandise Retail",
     "reportedCurrency": "USD",
-    "price": 935.68,
-    "shares": 443.48,
-    "mcap": 414954.4,
-    "debt": 8576.0,
-    "cash": 21301.0,
-    "net_debt": -12725.0,
+    "price": 150.0,
+    "shares": 666.7,
+    "mcap": 100000.0,
+    "debt": 0.0,
+    "cash": 0.0,
+    "net_debt": 0.0,
     "fcf0": 9390.0,
-    "beta": 0.87,
-    "beta_5y": 0.87,
+    "beta": 0.75,
+    "beta_5y": 0.75,
     "kd": 4.5,
     "tax": 21.0,
     "growth_10y": [
@@ -24740,19 +24740,19 @@
     "g1": 6.8,
     "g2": 4.0,
     "g": 2.25,
-    "wacc": 8.53,
-    "ev": 182361.1,
-    "ev_to_ebitda": 12.7,
-    "debt_to_ebitda": 0.6,
-    "net_debt_to_ebitda": -0.89,
-    "f_score": 8,
+    "wacc": 8.06,
+    "ev": 197352.3,
+    "ev_to_ebitda": 13.7,
+    "debt_to_ebitda": 0.0,
+    "net_debt_to_ebitda": 0.0,
+    "f_score": 9,
     "f_score_breakdown": [
       {
         "id": 1,
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 10.4%"
+        "detail": "當期 ROA = 922600000000.0%"
       },
       {
         "id": 2,
@@ -24780,14 +24780,14 @@
         "category": "槓桿與償債",
         "desc": "財務槓桿未惡化 (ΔLeverage ≤ 0)",
         "passed": 1,
-        "detail": "總負債資產比率 = 59.8%"
+        "detail": "總負債資產比率 = 40.0%"
       },
       {
         "id": 6,
         "category": "槓桿與償債",
         "desc": "短期流動性安全 (ΔLiquidity > 0)",
-        "passed": 0,
-        "detail": "流動比率 = 1.06"
+        "passed": 1,
+        "detail": "流動比率 = 1.50"
       },
       {
         "id": 7,
@@ -24811,23 +24811,23 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 439.9,
-    "premium_pct": 112.7,
-    "is_undervalued": false,
-    "pe_trailing": 45.0,
-    "pe_forward": 39.6,
-    "pb_trailing": 11.6,
-    "pb_forward": 10.4,
-    "div_yield": 0.59,
-    "ps_ratio": 11.0,
-    "fcf_to_ev": 5.15,
-    "fcf_to_mcap": 2.26,
-    "liab_to_assets": 59.8,
-    "cash_to_assets": 23.9,
-    "current_ratio": 1.06,
-    "cash_minus_liab": 12725.0,
-    "roe": 25.8,
-    "roa": 10.4,
+    "fair_val": 296.01,
+    "premium_pct": -49.3,
+    "is_undervalued": true,
+    "pe_trailing": 10.8,
+    "pe_forward": 9.5,
+    "pb_trailing": 100000000000.0,
+    "pb_forward": 90000000000.0,
+    "div_yield": 2.46,
+    "ps_ratio": 2.7,
+    "fcf_to_ev": 4.76,
+    "fcf_to_mcap": 9.39,
+    "liab_to_assets": 40.0,
+    "cash_to_assets": 0.0,
+    "current_ratio": 1.5,
+    "cash_minus_liab": 0.0,
+    "roe": 922600000000.0,
+    "roa": 922600000000.0,
     "moat": {
       "ticker": "COST",
       "period": "2026Q4",
@@ -24876,13 +24876,13 @@
     "fin_valuation": {
       "is_financial": false
     },
-    "image": "https://images.financialmodelingprep.com/symbol/COST.png",
-    "logo": "https://images.financialmodelingprep.com/symbol/COST.png",
-    "website": "https://www.costco.com",
-    "ceo": "Ron Vachris",
-    "full_time_employees": "341000",
-    "description": "Costco Wholesale Corporation, alongside its group entities, operates membership-based retail warehouses across a broad international scope, spanning the United States, Puerto Rico, Canada, the United Kingdom, Mexico, Japan, South Korea, Australia, Spain, France, Iceland, China, and Taiwan. These outlets provide customers with an extensive array of both well-known branded and proprietary private-label products. Their vast inventory includes household staples, shelf-stable groceries, confectionery, chilled and frozen items, alcoholic beverages, tobacco, and deli selections. Furthermore, the stores stock major appliances, consumer electronics, health and beauty aids, hardware, garden and patio furniture, sporting goods, vehicle tires, toys, seasonal merchandise, office supplies, automotive maintenance products, postage services, event tickets, apparel, small kitchen appliances, home furnishings, domestic textiles, kitchenware, custom-order kiosks, and fine jewelry. Fresh departments offer meat, produce, a service deli, and bakery items. Beyond retail goods, Costco provides in-store amenities such as pharmacies, optical clinics, food courts, hearing aid centers, and tire installation facilities, in addition to managing 636 gas stations. The company also extends its offerings online through business delivery, travel booking, and same-day grocery fulfillment in various countries. As of August 29, 2021, Costco maintained a global network of 815 membership warehouses, with 564 located in the United States and Puerto Rico, 105 in Canada, 39 in Mexico, 30 in Japan, 29 in the United Kingdom, 16 in South Korea, 14 in Taiwan, 12 in Australia, 3 in Spain, and one each in Iceland, France, and China. Digital storefronts facilitate e-commerce operations in the United States, Canada, the United Kingdom, Mexico, South Korea, Taiwan, Japan, and Australia. Founded in 1976, the enterprise was originally known as Costco Companies, Inc. before officially adopting the name Costco Wholesale Corporation in August 1999. Its corporate headquarters are situated in Issaquah, Washington.",
-    "description_zh": "Costco Wholesale Corporation（美股代碼：COST）為 必需消費 領域之重要企業，專注於 Consumer Staples Merchandise Retail 業務，具備清晰之商業壁壘與現金流創造能力。",
+    "image": "https://assets.financialmodelingprep.com/symbol/COST.png",
+    "logo": "https://assets.financialmodelingprep.com/symbol/COST.png",
+    "website": "",
+    "ceo": "Executive Committee",
+    "full_time_employees": "--",
+    "description": "A publicly traded US equity on major exchanges.",
+    "description_zh": "Costco Wholesale（美股代碼：COST）為 必需消費 領域之重要企業，專注於 Consumer Staples Merchandise Retail 業務，具備清晰之商業壁壘與現金流創造能力。",
     "fmp_symbol": "COST"
   },
   "PG": {
@@ -30227,20 +30227,20 @@
   },
   "ASR": {
     "name": "Grupo Aeroportuario",
-    "company_name": "Grupo Aeroportuario",
+    "company_name": "Grupo Aeroportuario del Sureste, S. A. B. de C. V.",
     "exchange": "NYSE",
     "sector": "工業",
     "industry": "Airport Services",
-    "reportedCurrency": "USD",
-    "price": 150.0,
-    "shares": 666.7,
-    "mcap": 100000.0,
-    "debt": 0.0,
-    "cash": 0.0,
-    "net_debt": 0.0,
-    "fcf0": 3800.0,
-    "beta": 1.15,
-    "beta_5y": 1.15,
+    "reportedCurrency": "MXN",
+    "price": 240.79,
+    "shares": 30.0,
+    "mcap": 7223.7,
+    "debt": 1905.6,
+    "cash": 643.9,
+    "net_debt": 1261.7,
+    "fcf0": 274.5,
+    "beta": 0.18,
+    "beta_5y": 0.18,
     "kd": 4.5,
     "tax": 21.0,
     "growth_10y": [
@@ -30258,11 +30258,11 @@
     "g1": 6.3,
     "g2": 3.7,
     "g": 2.25,
-    "wacc": 9.96,
-    "ev": 58481.3,
-    "ev_to_ebitda": 18.0,
-    "debt_to_ebitda": 0.0,
-    "net_debt_to_ebitda": 0.0,
+    "wacc": 4.98,
+    "ev": 12130.8,
+    "ev_to_ebitda": 11.5,
+    "debt_to_ebitda": 1.81,
+    "net_debt_to_ebitda": 1.2,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -30270,14 +30270,14 @@
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 8.0%"
+        "detail": "當期 ROA = 11.1%"
       },
       {
         "id": 2,
         "category": "盈利能力",
         "desc": "營業現金流 CFO > 0",
         "passed": 1,
-        "detail": "自由現金流 = $3,800M"
+        "detail": "自由現金流 = $274M"
       },
       {
         "id": 3,
@@ -30290,7 +30290,7 @@
         "id": 4,
         "category": "盈利能力",
         "desc": "應計利潤品質高 (CFO > 淨利潤)",
-        "passed": 1,
+        "passed": 0,
         "detail": "真實現金流充沛，無虛報帳面獲利"
       },
       {
@@ -30298,14 +30298,14 @@
         "category": "槓桿與償債",
         "desc": "財務槓桿未惡化 (ΔLeverage ≤ 0)",
         "passed": 1,
-        "detail": "總負債資產比率 = 40.0%"
+        "detail": "總負債資產比率 = 46.3%"
       },
       {
         "id": 6,
         "category": "槓桿與償債",
         "desc": "短期流動性安全 (ΔLiquidity > 0)",
         "passed": 1,
-        "detail": "流動比率 = 1.50"
+        "detail": "流動比率 = 3.29"
       },
       {
         "id": 7,
@@ -30318,7 +30318,7 @@
         "id": 8,
         "category": "營運效率",
         "desc": "毛利率擴張 (ΔMargin > 0)",
-        "passed": 0,
+        "passed": 1,
         "detail": "產品定價權增強，毛利結構健康"
       },
       {
@@ -30329,78 +30329,78 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 87.72,
-    "premium_pct": 71.0,
-    "is_undervalued": false,
-    "pe_trailing": 24.0,
-    "pe_forward": 21.1,
-    "pb_trailing": 100000000000.0,
-    "pb_forward": 90000000000.0,
-    "div_yield": 0.0,
+    "fair_val": 362.3,
+    "premium_pct": -33.5,
+    "is_undervalued": true,
+    "pe_trailing": 13.1,
+    "pe_forward": 11.5,
+    "pb_trailing": 3.2,
+    "pb_forward": 2.9,
+    "div_yield": 12.83,
     "ps_ratio": 6.6,
-    "fcf_to_ev": 6.5,
+    "fcf_to_ev": 2.26,
     "fcf_to_mcap": 3.8,
-    "liab_to_assets": 40.0,
-    "cash_to_assets": 0.0,
-    "current_ratio": 1.5,
-    "cash_minus_liab": 0.0,
-    "roe": 18.0,
-    "roa": 8.0,
+    "liab_to_assets": 46.3,
+    "cash_to_assets": 12.9,
+    "current_ratio": 3.29,
+    "cash_minus_liab": -1261.7,
+    "roe": 24.1,
+    "roa": 11.1,
     "moat": {
       "ticker": "ASR",
-      "period": "2026Q4",
+      "period": "2026Q2",
       "m1_brand_pricing": {
-        "score": 9,
-        "comment": "Grupo Aeroportuario作為關鍵航空樞紐的運營商，享有顯著的定價權。其機場是特定區域內航空運輸的門戶，航空公司和旅客幾乎沒有替代選擇。這使得公司能夠對著陸費、停機費、旅客服務費以及特許經營租金等進行有效定價，且不至於顯著影響需求。這種定價能力源於其作為基礎設施提供者的壟斷地位，類似於收費公路，即使提價，客戶也難以規避。穩定的客流量和貨運量確保了其收入的韌性，即使在經濟波動時也能維持較高的利潤率，這正是巴菲特所看重的「好生意」特徵。"
+        "score": 8,
+        "comment": "Grupo Aeroportuario (ASR) 作為機場服務提供商，在特定區域內享有顯著的定價權。其核心業務是提供不可或缺的航空基礎設施，航空公司和旅客在特定地理位置上幾乎沒有替代選擇。這種區域性壟斷地位，使得ASR能夠對著陸費、停機費、租賃空間及特許經營權等服務進行有效定價，且需求彈性較低。即使提高價格，由於航空旅行的必要性及缺乏替代機場，客戶仍會繼續使用其服務，這體現了強大的商業壁壘。"
       },
       "m2_patents_regulatory": {
-        "score": 10,
-        "comment": "ASR的核心護城河在於其政府授予的特許經營權和嚴格的監管壁壘。機場的建設、擴建和運營需要巨額資本投入、漫長的審批流程以及複雜的政治協調，這使得新競爭者幾乎不可能進入。這些特許權本質上是法律賦予的壟斷地位，確保了公司在特定地理區域內的獨家經營權。這種由政府背書的「專利」比傳統意義上的專利更為堅固，因為它幾乎無法被複製或繞過，為公司提供了極其穩定的現金流和可預測的長期收益，完全符合巴菲特對「特許經營權」的定義。"
+        "score": 9,
+        "comment": "ASR 的護城河核心在於其政府特許經營權和嚴格的監管壁壘。機場的建設與運營需要巨額資本投入、漫長的審批流程以及政府授予的獨家經營許可。這些許可通常是長期且排他性的，有效阻止了新競爭者的進入。這不僅是專利保護，更是國家層面的戰略性基礎設施壟斷，為ASR提供了極其穩固且幾乎無法被複製的競爭優勢，確保了其在市場中的主導地位和穩定收益。"
       },
       "m3_high_switching_costs": {
-        "score": 9,
-        "comment": "對於航空公司而言，轉換機場的成本極高。這不僅涉及重新規劃航線、調整機組人員和地勤服務，還可能導致失去寶貴的起降時段和既有客戶群。機場作為航空公司的運營基地，其基礎設施投資、物流鏈整合以及與當地供應商的關係都構成了巨大的轉換壁壘。對於旅客而言，選擇其他機場通常意味著更長的通勤時間和更高的交通成本。這種高昂的轉換成本確保了ASR的客戶黏性，使其能夠在不流失客戶的前提下保持穩定的收入來源，是典型的巴菲特式護城河。"
+        "score": 8,
+        "comment": "對於航空公司而言，更換服務機場會產生極高的轉換成本。這包括重新規劃航線、調整地面服務人員、遷移設備、重新談判合同以及潛在的旅客流失。這些沉沒成本和運營中斷風險，使得航空公司一旦在ASR運營的機場建立起業務，便難以輕易轉移。雖然旅客可以選擇不同航空公司，但機場本身作為區域性樞紐的地位，使得其對整體航空生態系統的黏性極強，為ASR帶來穩定的收入流。"
       },
       "m4_network_effects": {
         "score": 8,
-        "comment": "ASR運營的機場展現出強大的網絡效應。隨著更多航空公司選擇其機場作為樞紐，提供的航線和航班頻次增加，這會吸引更多旅客。反過來，更多的旅客流量又會吸引更多航空公司開設新航線，並吸引更多零售商和服務提供商入駐機場，形成良性循環。這種網絡效應使得機場的價值隨著用戶數量的增加而呈指數級增長，進一步鞏固了其市場地位。新進入者難以在短時間內建立如此龐大且相互依存的生態系統，為ASR提供了堅實的競爭優勢。"
+        "comment": "ASR 運營的機場展現出強大的網絡效應。隨著更多航空公司選擇其機場，航班數量和目的地選擇增加，吸引更多旅客。旅客量的增長反過來又吸引更多零售商、餐飲服務商和廣告商入駐，提升了機場的非航空收入。這種良性循環使得機場對所有參與者（航空公司、旅客、商家）的價值呈指數級增長，進一步鞏固了ASR作為區域航空樞紐的地位，形成難以打破的競爭優勢。"
       },
       "m5_cost_advantage_scale": {
         "score": 8,
-        "comment": "機場運營具有顯著的規模經濟效應。跑道、航站樓、空管系統等基礎設施的建設成本巨大，但一旦建成，其邊際運營成本相對較低。隨著客流量和貨運量的增加，單位旅客或貨物的平均成本會顯著下降。ASR作為大型機場集團，能夠通過集中採購、優化資源配置和標準化運營流程來降低成本，並在與供應商和特許經營商的談判中獲得更優條件。這種規模優勢使得小型競爭者難以望其項背，確保了ASR在成本結構上的領先地位，進而提升其盈利能力。"
+        "comment": "機場運營具有顯著的規模經濟效應。跑道、航站樓、塔台等基礎設施的建設和維護成本是巨大的固定成本。一旦這些設施投入使用，隨著航班和旅客吞吐量的增加，每單位服務的邊際成本會大幅下降。ASR 作為大型機場運營商，能夠通過優化資源配置和提高設施利用率，實現比潛在小型競爭者更低的單位運營成本，從而獲得成本優勢和更高的盈利能力。"
       },
       "m6_unique_geography_assets": {
-        "score": 10,
-        "comment": "ASR的機場資產具有不可替代的地理位置優勢和天然寡占特性。在大多數大都市區，由於土地稀缺、環境限制和居民反對，新建大型機場幾乎是不可能的任務。現有機場的地理位置通常是經過長期規劃和發展的結果，與城市交通網絡緊密結合，成為區域經濟的關鍵節點。這種獨特的地理區位創造了天然的進入壁壘，使得ASR在特定市場中享有近乎壟斷的地位。即使有充足資金，也無法在短期內複製其核心資產，這正是巴菲特所推崇的「護城河」典範。"
+        "score": 9,
+        "comment": "機場服務市場在特定地理區域內呈現天然寡占或壟斷特性。建設一個新機場不僅需要天文數字般的資金投入，還面臨嚴格的土地徵用、環境評估和政府審批等重重障礙，耗時數十年。現有市場容量通常只能高效支持少數大型機場。ASR 憑藉其獨特的地理位置和已建成的基礎設施，有效阻止了新競爭者的進入，形成了一個新進入者只會導致雙輸局面的理性寡占市場。"
       },
       "m7_operational_efficiency": {
         "score": 8,
-        "comment": "ASR展現出卓越的運營效率和資本回報能力。其18.0%的ROE和8.0%的ROA表明公司能夠有效地利用股東權益和總資產創造利潤。在機場服務這種資本密集型行業中，持續產生38億美元的自由現金流（FCF TTM）更是其高效運營的有力證明。高於行業平均水平的ROIC（假設遠超WACC）意味著公司能夠持續為股東創造超額價值。這種穩健的財務表現和高效的資本配置能力，是巴菲特衡量企業質量的關鍵指標，預示著其護城河的堅韌性。"
+        "comment": "ASR 展現出卓越的資本回報能力，其 ROE 達 24.1%，ROA 為 11.1%，且皮氏 F-Score 高達 8/9，表明公司財務狀況穩健，運營效率高。這些數據強烈暗示其投入資本回報率（ROIC）持續顯著高於加權平均資本成本（WACC）。儘管機場是資本密集型業務，ASR 仍能有效利用資本創造超額收益，並產生 $272.9M 的自由現金流，證明其具備長期為股東創造複利價值的韌性。"
       },
       "m8_capital_allocation": {
-        "score": 8,
-        "comment": "ASR的資本配置策略似乎穩健且以股東利益為導向。Piotroski F-Score高達8/9，表明公司在盈利能力、槓桿、流動性和運營效率方面表現出色，這通常與審慎的管理層決策相關。在機場這種基礎設施行業，穩定的自由現金流（$3,800.0 M FCF TTM）為公司提供了靈活的資本配置空間，可用於必要的基礎設施升級、擴建或股東回報。雖然具體回購或併購數據未提供，但強勁的財務指標暗示管理層能夠有效利用資本，避免盲目擴張，符合巴菲特對理性資本配置的期望。"
+        "score": 9,
+        "comment": "即使給予競爭對手數千億美元，也無法在短期內複製 ASR 的核心戰略資產。這不僅僅是資金問題，更涉及獲得政府特許經營權、大規模土地徵用、複雜的基礎設施規劃與建設、以及建立成熟的航空網絡和運營體系。這些要素的累積需要數十年時間和巨大的政治、社會資本。ASR 的護城河是時間、資本、監管和地理位置等多重因素共同作用的結果，具有極高的不可複製性。"
       },
       "m9_customer_retention": {
-        "score": 9,
-        "comment": "ASR的客戶保留率極高，這主要源於其作為航空運輸基礎設施的不可或缺性。對於航空公司而言，一旦在特定機場建立起運營基地和航線網絡，其轉換成本極高，因此會保持長期合作關係。對於旅客而言，機場是出行的起點和終點，其選擇往往基於地理便利性和航班可達性，而非品牌忠誠度。這種「被動」的客戶保留機制，使得ASR無需投入巨額營銷費用來爭奪客戶，而是依靠其核心服務的必要性來鎖定客戶，確保了收入的穩定性和可預測性。"
+        "score": 8,
+        "comment": "航空旅行作為長途運輸的核心方式，其需求具有高度確定性，難以被根本性顛覆。儘管技術進步會優化機場運營效率和旅客體驗，但機場作為物理基礎設施和航空樞紐的本質不會改變。AI 或其他新興技術可能提升管理水平，但無法取代跑道、航站樓等實體資產。ASR 的業務模式對技術變革和典範轉移具有強大的免疫力，確保了其長期需求的穩定性。"
       },
       "m10_durability": {
-        "score": 9,
-        "comment": "ASR的業務模式具有極強的抗顛覆性。航空旅行作為現代社會和經濟活動的基石，其需求具有長期且高度的確定性。儘管遠程會議等技術可能影響部分商務旅行，但休閒旅行和全球物流對航空運輸的需求依然旺盛且難以被替代。機場作為實體基礎設施，對技術變革或AI顛覆具有強大免疫力，其核心功能不會被輕易取代。這種業務的耐久性，加上其特許經營權的長期性，使得ASR能夠在數十年甚至更長的時間內持續產生穩定的現金流，是巴菲特眼中理想的「永續經營」企業。"
+        "score": 7,
+        "comment": "ASR 的財務數據，如 24.1% 的 ROE 和 8/9 的皮氏 F-Score，間接反映了管理層在資本配置上的審慎與高效。公司擁有 $644.5M 現金，總負債 $1,907.5M，債務水平可控。雖然缺乏具體回購或併購細節，但穩健的財務表現和持續的自由現金流生成，表明管理層傾向於將資本投入到能夠產生高回報的項目中，或在適當時機回饋股東，符合巴菲特對優秀管理層的期望。"
       },
-      "overall_moat_verdict": "Grupo Aeroportuario (ASR) 本質上是一家由政府特許經營權賦予的「收費橋樑」型企業，其護城河極其寬廣且堅固。其核心競爭壁壘在於其作為關鍵航空基礎設施的天然壟斷地位，輔以政府監管壁壘、高昂的轉換成本和強大的網絡效應。ASR的機場資產具有不可複製的地理優勢，即使給予競爭對手千億美元，也無法在短期內複製其核心戰略資產。公司展現出卓越的定價權和規模經濟效益，並能持續產生豐厚的自由現金流。這使得ASR成為一家具有極高可預測性和抗顛覆性的企業，完全符合巴菲特對優質企業的定義：簡單易懂、擁有持久競爭優勢且管理層穩健。"
+      "overall_moat_verdict": "Grupo Aeroportuario (ASR) 本質上是一個由政府特許經營權保護的「收費橋樑」或「特許經營平台」。其核心競爭壁壘來自於不可複製的地理位置、極高的進入門檻、政府授予的長期壟斷經營權，以及由此衍生的強大定價權。航空公司和旅客對其服務的依賴性創造了高轉換成本和顯著的網絡效應。ASR 憑藉其規模經濟和資本不可複製性，能夠持續產生超額的投入資本回報。這是一個典型的巴菲特式「好生意」，擁有深厚且持久的經濟護城河，使其能夠在長期內抵禦競爭並為股東創造豐厚價值。"
     },
     "fin_valuation": {
       "is_financial": false
     },
-    "image": "https://assets.financialmodelingprep.com/symbol/ASR.png",
-    "logo": "https://assets.financialmodelingprep.com/symbol/ASR.png",
-    "website": "",
-    "ceo": "Executive Committee",
-    "full_time_employees": "--",
-    "description": "A publicly traded US equity on major exchanges.",
-    "description_zh": "Grupo Aeroportuario（美股代碼：ASR）為 工業 領域之重要企業，專注於 Airport Services 業務，具備清晰之商業壁壘與現金流創造能力。",
+    "image": "https://images.financialmodelingprep.com/symbol/ASR.png",
+    "logo": "https://images.financialmodelingprep.com/symbol/ASR.png",
+    "website": "https://www.asur.com.mx",
+    "ceo": "Adolfo Castro Rivas",
+    "full_time_employees": "1950",
+    "description": "Grupo Aeroportuario del Sureste, S. A. B. de C. V., frequently known as ASUR, holds significant agreements for the management, upkeep, and future expansion of numerous airports located in Mexico's southeastern territory. This includes overseeing nine different airport facilities situated in key cities such as Cancún, Cozumel, Mérida, Huatulco, Oaxaca, Veracruz, Villahermosa, Tapachula, and Minatitlan. The company delivers a broad spectrum of services. Its aviation-related offerings encompass crucial elements like passenger processing, aircraft ground handling (including landing and parking), provision of jet bridges, and comprehensive airport security. In addition to these, ASUR generates revenue from various non-aviation services. These involve renting out commercial areas within its airports to a diverse range of occupants, including retail stores, dining establishments, and airlines. Essential support services such as catering, baggage handling, and surface transportation are also provided. Extending its global reach, ASUR is also responsible for the operation of the Luis Muñoz Marín International Airport in San Juan, Puerto Rico. Furthermore, it possesses operational rights through concessions for several airports across Colombia, notably major hubs like the Enrique Olaya Herrera Airport in Medellín and the José María Córdova International Airport in Rionegro. Other Colombian facilities under its management include Los Garzones Airport in Montería, Antonio Roldán Betancourt Airport in Carepa, El Caraño Airport in Quibdó, and Las Brujas Airport in Corozal. Founded in 1998, the firm's main administrative offices are located in Mexico City, Mexico.",
+    "description_zh": "Grupo Aeroportuario del Sureste, S. A. B. de C. V.（美股代碼：ASR）為 工業 領域之重要企業，專注於 Airport Services 業務，具備清晰之商業壁壘與現金流創造能力。",
     "fmp_symbol": "ASR"
   },
   "XYL": {
@@ -31473,20 +31473,20 @@
   },
   "HII": {
     "name": "Huntington Ingalls",
-    "company_name": "Huntington Ingalls Industries, Inc.",
+    "company_name": "Huntington Ingalls",
     "exchange": "NYSE",
     "sector": "工業",
     "industry": "Aerospace & Defense",
     "reportedCurrency": "USD",
-    "price": 263.75,
-    "shares": 39.4,
-    "mcap": 10393.0,
-    "debt": 2935.0,
-    "cash": 12.0,
-    "net_debt": 2923.0,
+    "price": 150.0,
+    "shares": 666.7,
+    "mcap": 100000.0,
+    "debt": 0.0,
+    "cash": 0.0,
+    "net_debt": 0.0,
     "fcf0": 376.0,
-    "beta": 0.21,
-    "beta_5y": 0.21,
+    "beta": 1.15,
+    "beta_5y": 1.15,
     "kd": 4.5,
     "tax": 21.0,
     "growth_10y": [
@@ -31504,19 +31504,19 @@
     "g1": 4.5,
     "g2": 3.5,
     "g": 2.25,
-    "wacc": 5.07,
-    "ev": 15162.2,
-    "ev_to_ebitda": 13.6,
-    "debt_to_ebitda": 2.63,
-    "net_debt_to_ebitda": 2.62,
-    "f_score": 5,
+    "wacc": 9.96,
+    "ev": 5477.6,
+    "ev_to_ebitda": 4.9,
+    "debt_to_ebitda": 0.0,
+    "net_debt_to_ebitda": 0.0,
+    "f_score": 8,
     "f_score_breakdown": [
       {
         "id": 1,
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 5.2%"
+        "detail": "當期 ROA = 66100000000.0%"
       },
       {
         "id": 2,
@@ -31529,7 +31529,7 @@
         "id": 3,
         "category": "盈利能力",
         "desc": "資產回報率持續擴張 (ΔROA > 0)",
-        "passed": 0,
+        "passed": 1,
         "detail": "回報率穩步領先同業基準"
       },
       {
@@ -31544,14 +31544,14 @@
         "category": "槓桿與償債",
         "desc": "財務槓桿未惡化 (ΔLeverage ≤ 0)",
         "passed": 1,
-        "detail": "總負債資產比率 = 58.1%"
+        "detail": "總負債資產比率 = 40.0%"
       },
       {
         "id": 6,
         "category": "槓桿與償債",
         "desc": "短期流動性安全 (ΔLiquidity > 0)",
-        "passed": 0,
-        "detail": "流動比率 = 1.23"
+        "passed": 1,
+        "detail": "流動比率 = 1.50"
       },
       {
         "id": 7,
@@ -31564,7 +31564,7 @@
         "id": 8,
         "category": "營運效率",
         "desc": "毛利率擴張 (ΔMargin > 0)",
-        "passed": 0,
+        "passed": 1,
         "detail": "產品定價權增強，毛利結構健康"
       },
       {
@@ -31575,78 +31575,78 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 310.64,
-    "premium_pct": -15.1,
-    "is_undervalued": true,
-    "pe_trailing": 15.7,
-    "pe_forward": 13.8,
-    "pb_trailing": 2.0,
-    "pb_forward": 1.8,
-    "div_yield": 2.08,
-    "ps_ratio": 6.9,
-    "fcf_to_ev": 2.48,
-    "fcf_to_mcap": 3.62,
-    "liab_to_assets": 58.1,
-    "cash_to_assets": 0.1,
-    "current_ratio": 1.23,
-    "cash_minus_liab": -2923.0,
-    "roe": 12.4,
-    "roa": 5.2,
+    "fair_val": 8.22,
+    "premium_pct": 1724.8,
+    "is_undervalued": false,
+    "pe_trailing": 151.3,
+    "pe_forward": 133.1,
+    "pb_trailing": 100000000000.0,
+    "pb_forward": 90000000000.0,
+    "div_yield": 0.22,
+    "ps_ratio": 66.5,
+    "fcf_to_ev": 6.86,
+    "fcf_to_mcap": 0.38,
+    "liab_to_assets": 40.0,
+    "cash_to_assets": 0.0,
+    "current_ratio": 1.5,
+    "cash_minus_liab": 0.0,
+    "roe": 66100000000.0,
+    "roa": 66100000000.0,
     "moat": {
       "ticker": "HII",
-      "period": "2026Q2",
+      "period": "2026Q4",
       "m1_brand_pricing": {
         "score": 8,
-        "comment": "Huntington Ingalls作為美國海軍核動力航空母艦與潛艇的獨家或主要建造商，其產品對國家安全至關重要，賦予其顯著的議價能力。儘管定價受政府採購流程制約，但由於其提供的服務無可替代，且涉及極高的技術壁壘與長期信任關係，客戶（美國政府）在關鍵項目上幾乎沒有其他選擇。這種獨特的地位使其能夠在長期合同中維持合理的利潤空間，並在成本上升時具備一定的轉嫁能力，確保了穩定的收入流和盈利基礎，符合巴菲特對特許經營權企業的定義。"
+        "comment": "Huntington Ingalls在美國軍用造船領域擁有無可匹敵的專業聲譽與技術實力，尤其在核動力航空母艦和潛艇建造方面，幾乎是美國政府的唯一選擇。這種獨特的地位賦予其強大的議價能力，使其能夠在與政府的長期合同中維持合理的利潤率。儘管客戶單一，但由於其產品的戰略重要性、技術複雜性及極高的進入壁壘，政府對其服務的依賴性極高，使其能夠有效轉嫁成本並保持穩定的定價權，而非被視為普通商品供應商。"
       },
       "m2_patents_regulatory": {
         "score": 9,
-        "comment": "HII的護城河並非傳統意義上的商業專利，而是深植於嚴格的政府監管、獨特的核動力技術認證以及數十年累積的專有設計與製造工藝。建造核動力艦艇需要極高的安全標準、機密許可和專業知識，這些都是新競爭者難以逾越的巨大壁壘。政府對國防工業的嚴格准入與審批，實際上為HII創造了一個受保護的市場環境，使其在特定領域享有近乎壟斷的地位，確保了其在關鍵國防項目中的不可或缺性。"
+        "comment": "HII的護城河並非僅限於傳統專利，更深層次的是其在高度管制的國防工業中，所累積的數十年專業知識、獨特設施與政府認證。建造核動力艦艇所需的嚴格安全標準、技術規範及國家級安全許可，構成了一道幾乎無法逾越的監管壁壘。這些「特許經營」般的准入條件，使得任何潛在競爭者都難以在短時間內複製其業務，確保了HII在關鍵國防項目中的壟斷地位，有效排除了新進入者的威脅。"
       },
       "m3_high_switching_costs": {
         "score": 9,
-        "comment": "對於美國海軍而言，更換HII作為核動力航空母艦或潛艇的建造商，將導致天文數字般的財務損失、數十年的項目延誤和無法承受的國家安全風險。這些艦艇的設計、建造和維護涉及極其複雜的系統整合、高度專業化的勞動力和專用設施。一旦選定供應商，其與客戶的關係便深度綁定，任何轉換都意味著巨大的學習曲線、兼容性問題和信任重建成本，使得HII在核心業務上擁有極高的客戶黏性，幾乎沒有替代選項。"
+        "comment": "對於美國海軍而言，更換像HII這樣具備建造核動力航空母艦和潛艇能力的供應商，其轉換成本幾乎是天文數字。這不僅涉及尋找具備同等技術和設施的替代者（幾乎不存在），更包括巨大的知識轉移成本、生產線重新認證、人員培訓以及可能導致的國家安全風險和項目延誤。HII與客戶的關係是數十年甚至跨世紀的長期合作，從設計、建造到維護升級，這種深度綁定使得客戶的轉換成本高到令人望而卻步，確保了其業務的極高黏性。"
       },
       "m4_network_effects": {
-        "score": 3,
-        "comment": "HII的商業模式主要基於與美國政府的直接合同關係，而非通過多邊平台或生態系統來實現價值增長。其價值來自於提供高度專業化的國防產品，而非用戶數量增加帶來的網絡效應。儘管在供應鏈內部可能存在一定的協同效應，但這與巴菲特所指的、用戶越多價值越高的傳統網絡效路概念相去甚遠。因此，此維度對HII的護城河貢獻較小，不構成其核心競爭優勢。"
+        "score": 0,
+        "comment": "Huntington Ingalls的商業模式主要為B2G，服務於單一且高度專業化的客戶——美國政府。其價值增長並非來自於用戶數量的幾何級擴張所帶來的網絡效應。HII的競爭優勢源於其獨特的技術專長、生產能力和與政府的長期合作關係，而非通過連接大量用戶來提升平台價值。因此，從巴菲特對網絡效應的定義來看，HII不具備此類護城河，其業務本質上不依賴於用戶間的互動或生態系統的擴展來創造額外價值。"
       },
       "m5_cost_advantage_scale": {
         "score": 8,
-        "comment": "建造航空母艦和核潛艇需要龐大的資本投入、專業的船塢設施和數萬名高度熟練的工程師與技術工人。HII在這些領域的規模和專業化程度是無與倫比的。其巨大的固定成本被長期、大規模的政府訂單攤薄，形成了顯著的成本優勢。新進入者不僅需要巨額資金，更需要數十年時間來積累相應的技術、人才和基礎設施，這使得HII能夠以競爭對手無法匹敵的效率和成本來完成複雜的造艦任務。"
+        "comment": "HII在軍用造船領域享有顯著的規模經濟優勢。建造航空母艦和潛艇需要龐大的專用基礎設施、高度專業化的勞動力以及複雜的供應鏈管理。這些巨大的固定成本和學習曲線效應，使得HII能夠以其他競爭者無法比擬的效率和成本來執行大型項目。其長期累積的建造經驗和優化流程，使其在生產複雜艦艇時具備獨特的工藝良率和成本控制能力，有效阻止了新進入者在規模上與之競爭，形成堅實的成本壁壘。"
       },
       "m6_unique_geography_assets": {
         "score": 9,
-        "comment": "美國海軍核動力艦艇市場是一個典型的天然寡占市場。需求方僅限於美國政府，市場容量有限，且進入壁壘極高。HII作為核動力航空母艦的唯一建造商，以及核潛艇的兩大建造商之一，其市場地位幾乎是壟斷性的。在這樣一個市場中，任何新競爭者的進入都將導致產能過剩和利潤率下降，最終損害所有參與者的利益，因此形成了理性的寡頭格局，為HII提供了穩固的市場份額和盈利能力。"
+        "comment": "HII所處的軍用造船市場是典型的「有效規模」利基市場。美國海軍對核動力航空母艦和潛艇的需求量有限且高度特定，而建造這些艦艇所需的資本投入和技術門檻極高。在這樣一個市場中，僅有少數幾家企業能夠生存並盈利。若有新競爭者試圖進入，將導致市場供過於求，所有參與者都將面臨利潤率下降的困境。這種天然的市場結構促成了HII在該領域的理性寡占地位，新競爭者缺乏進入的經濟誘因。"
       },
       "m7_operational_efficiency": {
         "score": 7,
-        "comment": "HII的ROE為12.4%，ROA為5.2%，顯示其能夠持續產生高於資本成本的回報。儘管國防合同的利潤率可能受到政府審查的限制，但其長期、穩定的訂單流和關鍵性地位確保了資本投入的持續回報。在資本密集型行業中，HII能夠維持穩健的盈利能力，並將自由現金流（FCF TTM $376.0M）用於再投資或回報股東，證明其具備創造股東價值的韌性，符合巴菲特對企業持續盈利能力的期望。"
+        "comment": "儘管提供的財務數據存在異常，但從HII的業務性質來看，其與美國政府簽訂的長期、高價值國防合同，應能確保其投入資本回報率（ROIC）持續穩定地超越加權平均資本成本（WACC）。在高度專業化且進入壁壘極高的軍工行業中，HII能夠有效利用其資本，創造可觀的經濟利潤。這種穩定的盈利能力和資本效率，是其在漫長項目週期中保持競爭力的關鍵，體現了其創造股東複利價值的韌性。"
       },
       "m8_capital_allocation": {
         "score": 9,
-        "comment": "即使給予競爭對手千億美元，也無法在短時間內複製HII的核心戰略資產。這不僅包括其獨特的造船設施、專有技術和數十年積累的工程經驗，更重要的是與美國海軍建立的深厚信任關係、嚴格的質量控制體系以及高度專業化且難以培養的勞動力隊伍。這些無形資產和組織能力是時間和經驗的結晶，無法通過簡單的資本投入來快速複製，構成了極其堅固的競爭壁壘。"
+        "comment": "即使給予競爭對手千億美元資金，也幾乎不可能在數年內複製HII的核心戰略資產。這不僅包括其龐大的專業造船設施、獨特的重型機械，更關鍵的是其數十年累積的機構知識、高度專業化的技術工人隊伍（特別是核工程師和造船專家），以及與美國海軍建立的深厚信任關係。這些無形資產和複雜的技術壁壘，加上嚴格的政府監管和安全許可，使得HII的競爭優勢具有極高的不可複製性，是其最堅固的護城河之一。"
       },
       "m9_customer_retention": {
         "score": 8,
-        "comment": "HII所處的國防造船行業，其核心需求源於國家安全戰略，具有極高的確定性和穩定性。儘管造船技術會不斷演進，但對大型、複雜海軍艦艇的需求本質上不會被顛覆性技術（如AI或軟體）所取代。HII的業務是提供實體、高價值、長壽命的軍事資產，這使得它對快速的技術典範轉移具有強大的免疫力，確保了其長期業務的穩定性和可預測性。"
+        "comment": "HII所處的國防工業對技術變革和典範轉移具有較強的抗性。儘管新技術如AI和自動化會影響設計與生產效率，但國家對實體軍艦（尤其是核動力航母和潛艇）的戰略需求是長期且穩定的。這些核心產品的生命週期長，技術迭代緩慢且受嚴格控制，不會像消費電子產品那樣面臨顛覆性衝擊。HII作為關鍵供應商，其業務需求確定性極高，能夠逐步整合新技術而非被其取代，展現出強大的免疫力。"
       },
       "m10_durability": {
         "score": 7,
-        "comment": "鑑於HII所處的資本密集型行業特性，其管理層在資本配置上的審慎至關重要。雖然具體回購數據未提供，但穩健的資產負債表（現金$12.0M，總負債$2,935.0M）和持續的自由現金流表明管理層在平衡投資、債務管理和股東回報方面採取了務實的策略。在國防工業中，避免盲目溢價併購，專注於核心能力並適時回購股票，是最大化股東長期利益的關鍵，這與巴菲特的價值投資理念相符。"
+        "comment": "評估HII的管理層資本配置策略，需考量其在國防工業的特殊性。在缺乏具體併購、股息或回購數據的情況下，其高Piotroski F-Score暗示了穩健的財務管理。對於這類資本密集型企業，有效的資本配置意味著對研發的審慎投入、對大型項目風險的精準評估，以及在適當時機通過回購或股息回饋股東。一個負責任的管理層應避免盲目擴張，專注於核心競爭力，並在股價被低估時積極回購，以最大化長期股東價值。"
       },
-      "overall_moat_verdict": "Huntington Ingalls本質上是一家為美國國家安全提供不可或缺服務的「特許經營權」企業，其護城河深厚且多維。它並非傳統意義上的品牌消費品公司，而是憑藉其在核動力艦艇建造領域的獨家技術、龐大且難以複製的基礎設施、高度專業化的勞動力以及與美國政府建立的長期信任關係，築起了極高的進入壁壘。這是一個典型的「收費橋樑」業務，美國海軍別無選擇，必須通過HII這座橋樑來獲取其核心軍事資產。儘管定價權受政府制約，但其業務的關鍵性、高轉換成本和天然寡占市場地位，確保了長期穩定的盈利能力和持續的超額資本回報，使其成為巴菲特眼中具備持久競爭優勢的優質企業。"
+      "overall_moat_verdict": "Huntington Ingalls本質上是一家在美國國防工業中享有「特許經營權」地位的企業，其核心護城河是為美國海軍建造和維護核動力艦艇的獨特能力。這並非傳統意義上的品牌或網絡效應，而是由極高的監管壁壘、天文數字般的轉換成本、以及在有限市場中形成的天然寡占所共同構築。HII的戰略資產，包括其專業造船廠、數十年累積的技術知識和高度專業化的勞動力，幾乎是不可複製的。它如同一個國家安全層面的「收費橋樑」，為美國提供不可或缺的防禦能力，確保了其長期穩定的需求與盈利能力，使其成為巴菲特眼中具備深厚且持久競爭優勢的企業。"
     },
     "fin_valuation": {
       "is_financial": false
     },
-    "image": "https://images.financialmodelingprep.com/symbol/HII.png",
-    "logo": "https://images.financialmodelingprep.com/symbol/HII.png",
-    "website": "https://www.hii.com",
-    "ceo": "Christopher Douglas Kastner",
-    "full_time_employees": "45000",
-    "description": "Huntington Ingalls Industries, Inc. (HII) stands as a prominent American enterprise specializing in the comprehensive lifecycle management of military vessels, encompassing their design, construction, modernization, and maintenance. The company's diverse operations are segmented into three core divisions: Ingalls Shipbuilding, Newport News Shipbuilding, and Technical Solutions. HII is a primary builder of non-nuclear ships, delivering amphibious assault ships, expeditionary warfare vessels, surface combatants, and national security cutters to both the U.S. Navy and U.S. Coast Guard. Furthermore, it plays a critical role in providing nuclear-powered ships, including aircraft carriers and submarines, along with essential associated services such as refueling, extensive overhauls, and inactivation procedures. Beyond direct shipbuilding, Huntington Ingalls Industries offers specialized naval nuclear support services, covering the full spectrum from design and construction to maintenance and disposal for active U.S. Navy nuclear fleets, in addition to maintaining nuclear reactor prototypes. Its broader technical and support portfolio includes life-cycle sustainment services for the U.S. Navy fleet and other maritime clients; sophisticated information technology and mission-specific solutions for defense, intelligence, and federal civilian agencies; nuclear facility management, operational support, and environmental remediation services for various government bodies and private sector entities; comprehensive defense and federal solutions; and the development of cutting-edge unmanned systems. Established in 1886, Huntington Ingalls Industries, Inc. is headquartered in Newport News, Virginia.",
-    "description_zh": "Huntington Ingalls Industries, Inc.（美股代碼：HII）為 工業 領域之重要企業，專注於 Aerospace & Defense 業務，具備清晰之商業壁壘與現金流創造能力。",
+    "image": "https://assets.financialmodelingprep.com/symbol/HII.png",
+    "logo": "https://assets.financialmodelingprep.com/symbol/HII.png",
+    "website": "",
+    "ceo": "Executive Committee",
+    "full_time_employees": "--",
+    "description": "A publicly traded US equity on major exchanges.",
+    "description_zh": "Huntington Ingalls（美股代碼：HII）為 工業 領域之重要企業，專注於 Aerospace & Defense 業務，具備清晰之商業壁壘與現金流創造能力。",
     "fmp_symbol": "HII"
   },
   "MSA": {
@@ -32727,10 +32727,10 @@
     "price": 118.41,
     "shares": 604.9,
     "mcap": 71626.2,
-    "debt": 15851.5,
-    "cash": 206.0,
-    "net_debt": 15645.5,
-    "fcf0": 2486.9,
+    "debt": 15859.7,
+    "cash": 206.2,
+    "net_debt": 15653.5,
+    "fcf0": 2488.2,
     "beta": 0.97,
     "beta_5y": 0.97,
     "kd": 4.5,
@@ -32751,7 +32751,7 @@
     "g2": 3.5,
     "g": 2.25,
     "wacc": 8.1,
-    "ev": 48488.0,
+    "ev": 48516.9,
     "ev_to_ebitda": 7.7,
     "debt_to_ebitda": 2.5,
     "net_debt_to_ebitda": 2.47,
@@ -32769,7 +32769,7 @@
         "category": "盈利能力",
         "desc": "營業現金流 CFO > 0",
         "passed": 1,
-        "detail": "自由現金流 = $2,487M"
+        "detail": "自由現金流 = $2,488M"
       },
       {
         "id": 3,
@@ -32821,8 +32821,8 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 54.29,
-    "premium_pct": 118.1,
+    "fair_val": 54.33,
+    "premium_pct": 117.9,
     "is_undervalued": false,
     "pe_trailing": 21.4,
     "pe_forward": 18.8,
@@ -32835,7 +32835,7 @@
     "liab_to_assets": 63.6,
     "cash_to_assets": 0.5,
     "current_ratio": 0.87,
-    "cash_minus_liab": -15645.5,
+    "cash_minus_liab": -15653.5,
     "roe": 21.8,
     "roa": 8.0,
     "moat": {
@@ -34151,10 +34151,10 @@
     "price": 46.54,
     "shares": 2183.7,
     "mcap": 101629.4,
-    "debt": 78559.0,
-    "cash": 2003.1,
-    "net_debt": 76555.9,
-    "fcf0": 1121.0,
+    "debt": 78599.8,
+    "cash": 2004.2,
+    "net_debt": 76595.6,
+    "fcf0": 1121.5,
     "beta": 0.77,
     "beta_5y": 0.77,
     "kd": 4.5,
@@ -34175,7 +34175,7 @@
     "g2": 3.5,
     "g": 2.25,
     "wacc": 6.15,
-    "ev": 32581.3,
+    "ev": 32600.8,
     "ev_to_ebitda": 2.8,
     "debt_to_ebitda": 6.64,
     "net_debt_to_ebitda": 6.47,
@@ -34193,7 +34193,7 @@
         "category": "盈利能力",
         "desc": "營業現金流 CFO > 0",
         "passed": 1,
-        "detail": "自由現金流 = $1,121M"
+        "detail": "自由現金流 = $1,122M"
       },
       {
         "id": 3,
@@ -34245,11 +34245,11 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": -20.14,
-    "premium_pct": -331.1,
+    "fair_val": -20.15,
+    "premium_pct": -331.0,
     "is_undervalued": true,
-    "pe_trailing": 21.4,
-    "pe_forward": 18.8,
+    "pe_trailing": 21.3,
+    "pe_forward": 18.7,
     "pb_trailing": 2.2,
     "pb_forward": 2.0,
     "div_yield": 6.05,
@@ -34259,7 +34259,7 @@
     "liab_to_assets": 70.3,
     "cash_to_assets": 1.2,
     "current_ratio": 0.72,
-    "cash_minus_liab": -76555.9,
+    "cash_minus_liab": -76595.6,
     "roe": 10.4,
     "roa": 2.9,
     "moat": {
