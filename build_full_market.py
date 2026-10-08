@@ -82,17 +82,33 @@ def analyze_stock_moat(ticker: str, latest_period: str, fin_context: Dict[str, A
     else:
         safe_period = str(latest_period).replace("/", "_").strip()
 
-    cache_file = os.path.join(CACHE_DIR, f"{ticker}_{safe_period}.json")
+cache_file = os.path.join(CACHE_DIR, f"{ticker}_{safe_period}.json")
 
     if not force_refresh and os.path.exists(cache_file):
         try:
             with open(cache_file, "r", encoding="utf-8") as f:
                 cached_data = json.load(f)
-                if "暫未取得" not in cached_data.get("overall_moat_verdict_zh", "") and "暫未取得" not in cached_data.get("overall_moat_verdict", ""):
-                    print(f"⚡ [{ticker}] 命中 {safe_period} 季度快取，直接讀取本機數據 (不消耗額度)", flush=True)
+                
+                # 嚴格校正：檢查是否具備雙語完整結構 (comment_zh 與 comment_en)
+                m1_data = cached_data.get("m1_brand_pricing", {})
+                has_bilingual = (
+                    "comment_zh" in m1_data 
+                    and "comment_en" in m1_data 
+                    and "overall_moat_verdict_zh" in cached_data
+                )
+                
+                is_valid_text = (
+                    "暫未取得" not in cached_data.get("overall_moat_verdict_zh", "") 
+                    and "暫未取得" not in cached_data.get("overall_moat_verdict", "")
+                )
+
+                if has_bilingual and is_valid_text:
+                    print(f"⚡ [{ticker}] 命中雙語完整快取 ({safe_period})，直接讀取本機數據", flush=True)
                     return cached_data
-        except Exception:
-            pass
+                else:
+                    print(f"⚠️ [{ticker}] 偵測到舊版單語或不完整快取，自動作廢並重新調用 Gemini 生成雙語分析...", flush=True)
+        except Exception as e:
+            print(f"[{ticker}] 快取讀取異常，重新生成: {e}", flush=True)
 
     if not gemini_client:
         return _build_fallback_moat(ticker, safe_period)
