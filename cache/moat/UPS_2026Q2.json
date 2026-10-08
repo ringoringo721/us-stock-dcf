@@ -3,43 +3,54 @@
   "period": "2026Q2",
   "m1_brand_pricing": {
     "score": 7,
-    "comment": "UPS憑藉其百年歷史和遍布全球的“棕色”品牌形象，在物流行業建立了強大的客戶心智。儘管面臨FedEx和USPS的競爭，其卓越的服務可靠性和廣泛的網絡覆蓋，賦予了公司一定的定價權。對於企業客戶而言，包裹的準時送達和可追溯性遠比微小的運費差異更重要，這使得UPS在關鍵時刻能夠轉嫁成本或實施溫和提價而不顯著流失客戶。其品牌代表著信任與效率，是其核心競爭力之一。"
+    "comment_zh": "UPS作為全球領先的物流巨頭，其棕色品牌形象深入人心，代表著可靠與高效。對於企業而言，準時送達的穩定性至關重要，使其在一定程度上具備定價權。儘管面臨FedEx等強勁競爭，但其廣泛的網絡覆蓋和品牌信任度，讓客戶在價格敏感度之外，更看重服務品質與時效性，使其能將部分成本轉嫁給客戶，維持盈利能力。",
+    "comment_en": "UPS, as a global logistics giant, boasts a deeply ingrained brown brand image synonymous with reliability and efficiency. For businesses, the stability of on-time delivery is paramount, granting UPS a degree of pricing power. Despite fierce competition from rivals like FedEx, its extensive network coverage and brand trust lead customers to prioritize service quality and timeliness over mere price, enabling it to pass on some costs and maintain profitability."
   },
   "m2_patents_regulatory": {
     "score": 7,
-    "comment": "UPS的護城河並非來自專利，而是其在全球範圍內建立和運營複雜物流網絡所必需的龐大監管許可和合規體系。航空運輸、國際清關、卡車運輸等各環節均受嚴格法規約束，新進入者難以在短時間內獲得所有必要的運營資質和許可。這種高度管制的環境，加上其在各國海關和政府機構建立的長期關係，構成了一道無形的進入壁壘，有效限制了潛在競爭者的規模化挑戰。"
+    "comment_zh": "UPS的護城河並非來自獨家專利，而是源於其在全球範圍內建立的複雜且高度受監管的運營體系。航空、海關、勞工等各國法規構成巨大的進入壁壘，新進者難以在短時間內取得所有必要的許可和資質。這種嚴格的監管環境，加上其龐大的基礎設施投資，共同築起了保護其市場地位的特許經營權性質的壁壘，使其免受小型競爭者的侵蝕。",
+    "comment_en": "UPS's moat isn't derived from exclusive patents but from its complex and highly regulated global operating system. Aviation, customs, and labor laws across various nations form substantial entry barriers, making it difficult for new entrants to acquire all necessary permits and qualifications quickly. This stringent regulatory environment, coupled with massive infrastructure investments, collectively creates a franchise-like barrier protecting its market position from smaller competitors."
   },
   "m3_high_switching_costs": {
     "score": 8,
-    "comment": "對於大型企業客戶而言，轉換物流供應商的成本極高。企業通常會將UPS的運輸管理系統深度整合到其ERP或電商平台中，涉及API接口、倉儲流程、員工培訓及供應鏈協調。一旦更換，不僅需要投入大量時間和金錢重新配置IT系統，還可能面臨運營中斷和客戶滿意度下降的風險。這種深度嵌入式的服務模式，使得客戶即使面對輕微的價格波動，也傾向於維持與UPS的合作關係，形成了強大的客戶黏性。"
+    "comment_zh": "對於大型企業客戶而言，轉換物流供應商的成本極高。企業通常會將UPS的物流系統深度整合至其供應鏈管理、倉儲及訂單處理流程中。更換供應商不僅涉及IT系統的重新配置、員工培訓，更可能導致供應鏈中斷、發貨延誤等重大營運風險與財務損失。這種深度嵌入的合作關係，使得客戶即使面對輕微的價格波動，也傾向於維持現有合作，形成強大的客戶黏性。",
+    "comment_en": "For large enterprise clients, switching logistics providers entails extremely high costs. Businesses typically integrate UPS's logistics systems deeply into their supply chain management, warehousing, and order processing workflows. Changing providers involves not only reconfiguring IT systems and retraining staff but also potential supply chain disruptions, shipping delays, and significant operational and financial losses. This deeply embedded partnership ensures that clients, even when facing minor price fluctuations, tend to maintain their current collaboration, creating strong customer stickiness."
   },
   "m4_network_effects": {
-    "score": 7,
-    "comment": "UPS的全球物流網絡展現出一定的網絡效應特徵。隨著其服務範圍和包裹量的增加，其運輸路線規劃、分揀中心效率及末端配送密度均能得到優化。更密集的網絡意味著更快的送達速度和更低的單位成本，這反過來吸引更多客戶使用其服務，進一步強化網絡優勢。儘管不如社交媒體那般直接，但這種規模帶來的網絡密度和效率提升，使得新進入者難以在短時間內複製其廣度和深度，為現有客戶提供同等水平的服務。"
+    "score": 8,
+    "comment_zh": "UPS的全球物流網絡展現出顯著的網絡效應。隨著客戶數量和包裹量的增加，其運輸路線密度更高，優化了包裹集散效率，降低了單位包裹的運輸成本。同時，更廣泛的服務覆蓋範圍和更頻繁的班次，又吸引更多客戶加入，進一步鞏固其網絡優勢。這種正向循環使得UPS能夠提供更具競爭力的價格和服務，對新進入者構成難以逾越的壁壘。",
+    "comment_en": "UPS's global logistics network exhibits significant network effects. As the number of customers and package volume increases, its transportation routes become denser, optimizing package consolidation efficiency and lowering per-package shipping costs. Concurrently, broader service coverage and more frequent schedules attract even more customers, further solidifying its network advantage. This positive feedback loop enables UPS to offer more competitive pricing and services, forming an insurmountable barrier for new entrants."
   },
   "m5_cost_advantage_scale": {
     "score": 9,
-    "comment": "UPS在全球範圍內建立了無與倫比的規模經濟優勢。其龐大的機隊、卡車車隊、自動化分揀中心以及全球數十萬員工，構成了巨大的固定資產和運營網絡。這使得UPS能夠將每件包裹的邊際成本降至極低，遠非小型競爭對手所能企及。這種規模優勢不僅體現在成本控制上，也體現在其能夠處理海量包裹並提供多樣化服務的能力上，為其帶來了顯著的成本領先和市場份額優勢，是其最堅固的護城河之一。"
+    "comment_zh": "UPS在規模經濟方面擁有無與倫比的優勢。其龐大的全球基礎設施，包括數百架飛機、數十萬輛運輸車輛及遍布全球的包裹分揀中心，使其能夠處理天文數字般的包裹量。這種規模效應使得其單位包裹成本遠低於任何潛在競爭者。高效的自動化分揀系統和優化的物流路線規劃，更是其獨家工藝的體現，讓新進者即使投入巨資也難以在成本效率上匹敵。",
+    "comment_en": "UPS possesses an unparalleled advantage in economies of scale. Its vast global infrastructure, encompassing hundreds of aircraft, hundreds of thousands of vehicles, and package sorting centers worldwide, enables it to handle an astronomical volume of packages. This scale effect results in a unit cost per package significantly lower than any potential competitor. Highly efficient automated sorting systems and optimized logistics route planning further exemplify its unique operational expertise, making it incredibly difficult for new entrants, even with substantial investment, to match its cost efficiency."
   },
   "m6_unique_geography_assets": {
     "score": 8,
-    "comment": "全球包裹遞送和物流行業是一個典型的寡頭壟斷市場，由UPS、FedEx等少數巨頭主導。建立一個能夠與UPS匹敵的全球性、高效率物流網絡，所需的資本投入是天文數字，包括飛機、卡車、分揀中心、IT系統及全球許可證。任何新進入者試圖大規模複製此網絡，都將面臨巨大的資金壓力，並可能引發毀滅性的價格戰，導致所有參與者利潤受損。這種「有效規模」的市場特性，使得行業自然形成寡占格局，有效阻止了潛在競爭者的進入。"
+    "comment_zh": "全球航空貨運與物流市場本質上是一個天然寡占的領域。建立一個能夠與UPS匹敵的全球網絡，需要天文數字般的資本投入、數十年的時間積累以及複雜的監管批准。市場容量雖大，但已由少數幾家巨頭高效瓜分。任何新競爭者試圖進入，都將面臨巨大的資本壓力，並可能引發價格戰，導致所有參與者利潤受損，因此形成了一種理性寡占的局面，保護了現有巨頭的市場份額。",
+    "comment_en": "The global air freight and logistics market is inherently an efficient oligopoly. Establishing a global network comparable to UPS requires astronomical capital investment, decades of accumulation, and complex regulatory approvals. While the market capacity is large, it is efficiently divided among a few major players. Any new competitor attempting to enter would face immense capital pressure and likely trigger price wars, harming all participants' profits. This creates a rational oligopoly, protecting the market share of existing giants."
   },
   "m7_operational_efficiency": {
-    "score": 8,
-    "comment": "UPS的財務數據顯示其具備強大的資本回報能力。30.3%的股東權益報酬率（ROE）和6.4%的資產報酬率（ROA），以及高達54.85億美元的自由現金流，都表明公司能夠持續高效地利用其投入資本。儘管未直接提供ROIC數據，但這些指標強烈暗示UPS長期以來能夠實現遠超加權平均資本成本（WACC）的回報，為股東創造了可觀的複利價值。這正是堅固護城河的財務體現，證明其核心業務具有持久的盈利能力。"
+    "score": 7,
+    "comment_zh": "UPS長期以來展現出穩健的資本回報能力，其30.3%的股東權益報酬率（ROE）和6.4%的資產報酬率（ROA）證明了其高效利用資本的能力。儘管物流業是資本密集型產業，但其強大的規模經濟、網絡效應和客戶黏性護城河，使其能夠持續產生超越加權平均資本成本（WACC）的投資回報。這不僅為股東創造了實質的複利價值，也反映了其商業模式的韌性與盈利能力。",
+    "comment_en": "UPS has consistently demonstrated robust capital returns, with a 30.3% Return on Equity (ROE) and 6.4% Return on Assets (ROA), affirming its efficient capital utilization. Despite the logistics industry being capital-intensive, its strong moats of economies of scale, network effects, and customer stickiness enable it to consistently generate returns on invested capital (ROIC) that exceed its weighted average cost of capital (WACC). This not only creates substantial compounding value for shareholders but also reflects the resilience and profitability of its business model."
   },
   "m8_capital_allocation": {
     "score": 9,
-    "comment": "即使給予競爭對手1000億美元的資金，也無法在短短幾年內複製UPS的核心戰略資產。這不僅包括其遍布全球的數百個分揀中心、數十萬輛運輸車輛和數百架飛機等實體基礎設施，更重要的是其數十年積累的運營經驗、與各國政府建立的監管關係、龐大的客戶群體以及深入人心的品牌信任。這些無形資產和複雜的全球網絡，需要漫長的時間和持續的投入才能建立，使其具備極高的不可複製性。"
+    "comment_zh": "即使給予競爭對手千億美元，也無法在短時間內複製UPS的核心戰略資產。這不僅僅是資金問題，更涉及數十年積累的全球物流網絡、遍布各地的基礎設施、與各國政府建立的監管關係、數百萬客戶的品牌信任，以及高度優化的運營流程和專業人才隊伍。這些無形資產和複雜的實體網絡，是時間和經驗的結晶，構成了一個幾乎不可複製的商業壁壘。",
+    "comment_en": "Even with a hundred billion dollars, a competitor could not replicate UPS's core strategic assets in a short period. This isn't merely a matter of capital; it involves decades of accumulated global logistics networks, ubiquitous infrastructure, established regulatory relationships with governments worldwide, brand trust from millions of customers, and highly optimized operational processes and skilled personnel. These intangible assets and complex physical networks are the culmination of time and experience, forming an almost irreproducible business barrier."
   },
   "m9_customer_retention": {
     "score": 8,
-    "comment": "儘管物流行業不斷引入自動化和AI技術以提升效率，但包裹從A點到B點的物理運輸需求本質上是永恆且不可替代的。UPS的核心業務——實物遞送——對技術典範轉移具有強大抗性。雖然無人機和自動駕駛等新技術可能改變部分配送模式，但其大規模、經濟高效的應用仍需時日，且UPS本身也在積極投資和整合這些技術。因此，其基本需求確定性極高，不易被顛覆性技術完全取代，展現出強勁的免疫力。"
+    "comment_zh": "儘管物流行業會不斷引入新技術如AI和自動化，但包裹從A點到B點的實體運輸需求本質上是永恆且不可替代的。UPS作為行業領導者，積極投資於這些技術以優化其運營效率和服務質量，而非被顛覆。其核心業務——實體交付——具有極高的需求確定性，對技術典範轉移具備強大抗性。這使得其商業模式在面對未來技術變革時，仍能保持穩固的護城河。",
+    "comment_en": "While the logistics industry continuously adopts new technologies like AI and automation, the fundamental need for physical package transportation from point A to point B is inherently timeless and irreplaceable. As an industry leader, UPS actively invests in these technologies to optimize its operational efficiency and service quality, rather than being disrupted by them. Its core business—physical delivery—possesses extremely high demand certainty, demonstrating strong immunity to technological paradigm shifts. This ensures its business model maintains a robust moat when facing future technological changes."
   },
   "m10_durability": {
     "score": 7,
-    "comment": "UPS作為一家成熟的藍籌公司，其管理層在資本配置上通常表現出穩健性。公司擁有健康的自由現金流（FCF TTM達54.85億美元），這為其提供了充足的資金進行股息派發和股票回購。在市場低估時進行的戰略性回購，能夠有效提升每股收益，最大化股東價值。雖然具體併購歷史需進一步審視，但其穩定的財務表現和對股東回報的承諾，表明管理層傾向於採取負責任的資本配置策略，符合巴菲特對管理層誠信和效率的要求。"
+    "comment_zh": "UPS的管理層在資本配置方面展現出穩健的策略。公司持續產生強勁的自由現金流（FCF），並通過股息和股票回購將價值回饋股東。在併購方面，通常採取審慎態度，避免盲目溢價收購，而是專注於提升核心業務效率和擴大網絡優勢。這種以股東利益為導向的資本管理方式，有助於長期提升每股價值，是巴菲特所推崇的優質企業特徵。",
+    "comment_en": "UPS's management demonstrates a prudent capital allocation strategy. The company consistently generates strong free cash flow (FCF) and returns value to shareholders through dividends and share buybacks. Regarding M&A, it generally adopts a cautious approach, avoiding blind overpaying acquisitions, and instead focuses on enhancing core business efficiency and expanding network advantages. This shareholder-oriented capital management approach contributes to long-term per-share value appreciation, a characteristic of high-quality businesses favored by Buffett."
   },
-  "overall_moat_verdict": "UPS本質上是一家全球貿易的「收費橋樑」型企業，其核心護城河源於無與倫比的規模經濟、遍布全球的密集網絡以及對企業客戶而言極高的轉換成本。複製其龐大的實體基礎設施、數十年積累的運營經驗、複雜的監管關係和深入人心的品牌信任，即使投入巨額資本也幾乎不可能在短期內實現。儘管面臨競爭，但UPS的服務可靠性和在供應鏈中的深度嵌入，賦予其顯著的定價權。其核心物理遞送業務對技術顛覆具有強大抗性，持續穩健的盈利能力和現金流，證明了這些競爭優勢的持久性。"
+  "overall_moat_verdict_zh": "UPS本質上是一個全球商業的「收費橋樑」或「特許經營權平台」。其護城河深且廣，主要建立在無與倫比的全球物流網絡、極致的規模經濟、企業客戶的高轉換成本以及嚴格的監管壁壘之上。強大的品牌信任和卓越的運營效率進一步鞏固其市場地位。儘管面臨競爭，但複製其龐大資產和數十年積累的經驗幾乎不可能。這是一個受益於全球供應鏈日益複雜化的企業，確保了對其核心服務的持久需求。",
+  "overall_moat_verdict_en": "UPS fundamentally operates as a \"toll bridge\" or \"franchise platform\" for global commerce. Its deep and wide moats are primarily built upon an unparalleled global logistics network, extreme economies of scale, high switching costs for enterprise clients, and significant regulatory barriers. Strong brand trust and superior operational efficiency further solidify its market position. Despite competition, replicating its vast assets and decades of accumulated experience is nearly impossible. This is a business that benefits from the increasing complexity of global supply chains, ensuring durable demand for its essential services."
 }

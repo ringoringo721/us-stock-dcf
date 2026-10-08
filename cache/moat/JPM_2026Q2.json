@@ -3,43 +3,54 @@
   "period": "2026Q2",
   "m1_brand_pricing": {
     "score": 9,
-    "comment": "摩根大通憑藉其百年歷史積澱與全球頂級的品牌聲譽，在金融服務領域享有顯著的定價權。無論是零售銀行、財富管理還是投資銀行業務，客戶因其卓越的服務品質、廣泛的產品線及無可比擬的信任度，即便面對較高費用也傾向於選擇JPM。這種品牌忠誠度與心智佔有率，使其能夠在競爭激烈的市場中維持健康的利潤率，並有效抵禦價格戰，確保了穩定的收益流，是典型的巴菲特式「特許經營權」特徵。"
+    "comment_zh": "摩根大通作為全球頂級金融機構，其品牌聲譽與客戶信任度無與倫比。這使其在投資銀行、資產管理及商業銀行等高階服務領域擁有強大定價權，能吸引全球最優質的企業與高淨值客戶。即使在競爭激烈的市場中，客戶仍願意為其專業服務、全球網絡及穩定性支付溢價，這正是巴菲特所推崇的「特許經營權」特徵，使其能有效轉嫁成本並維持高利潤率，遠超一般商品化銀行服務。",
+    "comment_en": "JPMorgan Chase, as a premier global financial institution, possesses an unparalleled brand reputation and client trust. This grants it significant pricing power in high-end services like investment banking, asset management, and commercial banking, attracting top-tier corporations and high-net-worth individuals globally. Even in competitive markets, clients are willing to pay a premium for its expertise, global network, and stability, embodying Buffett's 'franchise' characteristics. This enables JPM to effectively pass on costs and maintain high-profit margins, far exceeding commodity banking services."
   },
   "m2_patents_regulatory": {
     "score": 9,
-    "comment": "銀行業的本質決定了其高度受監管的特性，這對摩根大通而言構成了一道堅不可摧的護城河。獲得並維持在全球範圍內經營的銀行牌照本身就是巨大的進入壁壘，新競爭者難以逾越。嚴格的資本要求、複雜的合規體系以及「大到不能倒」的隱性支持，共同賦予JPM一種政府特許經營權的地位。這些監管壁壘不僅限制了新進入者，也為現有巨頭提供了穩定的競爭環境，確保了其市場份額與盈利能力。"
+    "comment_zh": "金融業是全球監管最嚴格的行業之一，摩根大通作為系統重要性金融機構，其運營許可、資本要求及合規成本構成了極高的進入壁壘。新競爭者幾乎不可能在短時間內獲得如此廣泛的全球牌照與監管信任。這種由政府監管所形成的「特許經營權」性質，為其提供了強大的保護，使其免受新興競爭者的直接衝擊，確保了其市場地位的穩定性與持續盈利能力。",
+    "comment_en": "The financial industry is among the most heavily regulated globally. As a systemically important financial institution, JPMorgan Chase's operating licenses, capital requirements, and compliance costs form an extremely high barrier to entry. New competitors find it nearly impossible to acquire such extensive global licenses and regulatory trust quickly. This 'franchise' nature, stemming from government regulation, provides robust protection against direct disruption from emerging rivals, ensuring its stable market position and sustained profitability."
   },
   "m3_high_switching_costs": {
     "score": 8,
-    "comment": "摩根大通的服務與客戶的金融生活和企業運營深度綁定，形成了極高的轉換成本。對於個人客戶，更換銀行涉及修改自動扣款、薪資入賬等繁瑣流程；對於企業客戶，轉換貸款銀行、支付系統或投資銀行合作夥伴，則可能導致巨大的操作中斷、系統整合成本及潛在的業務風險。這種「嵌入式」的服務模式，使得客戶一旦選擇JPM，便難以輕易轉投他行，確保了穩定的客戶基礎和持續的收入來源。"
+    "comment_zh": "對於大型企業客戶而言，將其複雜的金融業務（如現金管理、貿易融資、投資銀行服務）從摩根大通轉移至其他銀行，將涉及巨大的營運中斷風險、系統整合成本及潛在的財務損失。即使是零售客戶，更換主要銀行帳戶、信用卡或貸款服務也存在一定的不便與時間成本。摩根大通提供的綜合性金融解決方案，使其客戶深度嵌入其生態系統，有效提高了客戶轉換成本，鞏固了其客戶基礎。",
+    "comment_en": "For large corporate clients, migrating complex financial operations (e.g., cash management, trade finance, investment banking services) from JPMorgan Chase to another bank entails significant operational disruption risks, system integration costs, and potential financial losses. Even for retail customers, switching primary bank accounts, credit cards, or loan services involves considerable inconvenience and time costs. JPM's comprehensive financial solutions deeply embed clients within its ecosystem, effectively raising switching costs and solidifying its customer base."
   },
   "m4_network_effects": {
     "score": 7,
-    "comment": "摩根大通的網絡效應主要體現在其龐大的客戶生態系統和多元化的業務板塊。作為全球領先的投資銀行，其參與的交易越多，吸引的企業客戶和人才就越多，進而強化其在資本市場的領導地位。其廣泛的支付網絡和龐大的存款基礎，也為所有參與者提供了流動性和便利性。儘管不如科技平台那樣直接，但JPM的規模和多樣性創造了一個自我強化的金融生態圈，提升了對所有用戶的價值。"
+    "comment_zh": "摩根大通的網絡效應主要體現在其龐大的客戶基礎和全球業務網絡上。在投資銀行領域，其作為頂級承銷商和交易對手，吸引了更多發行方和機構投資者，形成良性循環。在支付和商業銀行領域，其廣泛的客戶群和基礎設施提高了交易效率和流動性，對所有參與者都更有價值。這種規模和連接性使得其服務對新客戶更具吸引力，進一步強化了其市場領導地位。",
+    "comment_en": "JPMorgan Chase's network effects are primarily evident in its vast client base and global operational network. In investment banking, its role as a top underwriter and counterparty attracts more issuers and institutional investors, creating a virtuous cycle. In payments and commercial banking, its extensive customer base and infrastructure enhance transaction efficiency and liquidity, adding value for all participants. This scale and connectivity make its services more appealing to new clients, further strengthening its market leadership."
   },
   "m5_cost_advantage_scale": {
     "score": 9,
-    "comment": "作為全球最大的銀行之一，摩根大通在規模經濟上擁有無與倫比的優勢。其龐大的存款基礎提供了低成本的資金來源，使其在貸款業務中具備成本優勢。在科技投入、合規成本和市場營銷方面，JPM能將巨額固定成本分攤到海量的客戶和交易上，實現單位成本的顯著降低。這種規模優勢使其能夠提供更具競爭力的產品和服務，同時保持更高的利潤率，是其護城河的核心組成部分。"
+    "comment_zh": "作為全球最大的銀行之一，摩根大通享有無與倫比的規模經濟。其龐大的資產負債表使其能以更低的資金成本獲取資金，這對銀行業至關重要。同時，其在技術、合規和風險管理方面的巨大投入，可以攤銷到數萬億美元的資產和收入基礎上，形成單位成本優勢。這種規模優勢使其能夠提供更具競爭力的產品和服務，同時保持高盈利能力，是小型競爭者難以企及的壁壘。",
+    "comment_en": "As one of the world's largest banks, JPMorgan Chase enjoys unparalleled economies of scale. Its massive balance sheet allows it to access funding at a lower cost, which is crucial in banking. Concurrently, its substantial investments in technology, compliance, and risk management can be amortized across trillions of dollars in assets and revenue, creating a unit cost advantage. This scale enables JPM to offer more competitive products and services while maintaining high profitability, a barrier difficult for smaller competitors to overcome."
   },
   "m6_unique_geography_assets": {
     "score": 8,
-    "comment": "全球大型多元化銀行市場本質上是一個寡頭壟斷的市場。摩根大通身處其中，受益於「有效規模」的護城河。由於進入該市場所需的巨額資本、複雜的監管要求和建立信任所需的時間，新競爭者幾乎不可能在短期內達到JPM的規模和影響力。即使有新進入者，也只會導致市場競爭加劇，所有參與者利潤受損。這種市場結構使得現有巨頭能夠維持理性競爭，享受超額利潤。"
+    "comment_zh": "摩根大通在全球主要金融中心擁有廣泛的實體網絡和深厚的本地關係，這不僅包括其遍布全球的辦事處，更重要的是其在各國監管體系下的運營許可和長期建立的客戶信任。在某些高度專業化或資本密集型的金融服務領域，市場容量有限，且進入門檻極高，形成天然的寡占格局。新競爭者若想進入，將面臨巨大的資本、監管和信任挑戰，難以撼動其既有地位。",
+    "comment_en": "JPMorgan Chase possesses an extensive physical network and deep local relationships across major global financial centers. This includes not only its worldwide offices but, more critically, its operating licenses under various national regulatory frameworks and long-established client trust. In certain highly specialized or capital-intensive financial service sectors, market capacity is limited, and entry barriers are extremely high, creating a natural oligopoly. New competitors would face immense capital, regulatory, and trust challenges, making it difficult to dislodge JPM's entrenched position."
   },
   "m7_operational_efficiency": {
     "score": 8,
-    "comment": "摩根大通長期以來展現出卓越的資本配置能力，其17.4%的股東權益報酬率（ROE）遠超其加權平均資本成本（WACC），這證明了公司持續為股東創造價值的實力。在高度競爭且受監管的金融業中，能長期保持如此高的資本回報率，表明其擁有強大的競爭優勢和高效的運營能力。這種持續的超額回報是巴菲特衡量企業護城河深度的關鍵指標，體現了其盈利模式的韌性。"
+    "comment_zh": "摩根大通持續展現出卓越的資本配置效率，其17.4%的股東權益報酬率（ROE）遠超行業平均水平，並持續高於其加權平均資本成本（WACC），這證明了其管理層在風險控制、成本管理和業務拓展方面的卓越能力。這種長週期超額回報的韌性，是其強大護城河的直接體現，表明公司能夠持續為股東創造價值，而非僅僅是資本的商品化運用。",
+    "comment_en": "JPMorgan Chase consistently demonstrates superior capital allocation efficiency, with a 17.4% Return on Equity (ROE) significantly above industry averages and persistently exceeding its Weighted Average Cost of Capital (WACC). This attests to management's exceptional capabilities in risk control, cost management, and business expansion. Such long-term resilience in generating excess returns is a direct manifestation of its strong moat, indicating the company's ability to continuously create shareholder value beyond mere commoditized capital deployment."
   },
   "m8_capital_allocation": {
     "score": 9,
-    "comment": "即使給予競爭對手數千億美元，也無法在短時間內複製摩根大通的核心戰略資產。這包括其遍布全球的龐大分支網絡、數十年積累的客戶信任與品牌聲譽、複雜且高效的技術基礎設施、深厚的監管關係以及頂尖的人才儲備。這些無形資產和組織能力是長期投入和經驗積累的結果，無法通過簡單的資本投入來複製，構成了其極高的不可複製性護城河。"
+    "comment_zh": "摩根大通在首席執行官傑米·戴蒙的領導下，以其審慎的風險管理和卓越的資本配置能力而聞名。公司在市場低估時積極回購股票，並通過穩定的股息回報股東，這體現了管理層對股東價值的承諾。其高達336億美元的自由現金流（FCF TTM）為這些資本配置策略提供了堅實基礎，確保了公司在成長投資與股東回報之間取得平衡，避免了盲目擴張或高價併購。",
+    "comment_en": "Under CEO Jamie Dimon's leadership, JPMorgan Chase is renowned for its prudent risk management and exceptional capital allocation. The company actively repurchases shares when undervalued and consistently returns capital to shareholders through dividends, demonstrating management's commitment to shareholder value. Its robust Free Cash Flow (FCF TTM) of $33.6 billion provides a solid foundation for these capital allocation strategies, ensuring a balance between growth investments and shareholder returns, while avoiding reckless expansion or overpriced acquisitions."
   },
   "m9_customer_retention": {
-    "score": 7,
-    "comment": "儘管金融科技（FinTech）帶來了顛覆性挑戰，摩根大通展現出強大的適應性和抗性。公司積極投資於新技術、數字化轉型，並戰略性地收購創新企業，以應對行業變革。其核心業務，如企業貸款、支付清算和投資銀行服務，是經濟運行的基石，需求穩定。JPM的規模和多元化使其能夠有效吸收和整合新技術，而非被其取代，確保了其在金融服務領域的長期相關性。"
+    "score": 8,
+    "comment_zh": "摩根大通的客戶保留能力極強，這得益於其廣泛的產品線和服務深度。無論是個人儲蓄、貸款、信用卡，還是企業的現金管理、投資銀行、資產管理，客戶一旦與摩根大通建立關係，往往會因為便利性、信任和服務質量而長期留存。這種高客戶保留率不僅降低了獲客成本，也為公司提供了穩定的收入流和交叉銷售機會，是其護城河的重要組成部分。",
+    "comment_en": "JPMorgan Chase exhibits strong customer retention, attributed to its extensive product lines and service depth. Whether for individual savings, loans, credit cards, or corporate cash management, investment banking, and asset management, once clients establish a relationship with JPM, they tend to remain long-term due to convenience, trust, and service quality. This high retention rate not only reduces customer acquisition costs but also provides the company with stable revenue streams and cross-selling opportunities, forming a crucial part of its moat."
   },
   "m10_durability": {
-    "score": 9,
-    "comment": "在首席執行官傑米·戴蒙的領導下，摩根大通的管理層以其卓越的資本配置能力和對股東利益的承諾而聞名。公司在市場低估時積極回購股票，有效提升了每股價值，並通過穩定的股息派發回報股東。同時，其戰略性併購決策也展現了對長期價值的追求，而非盲目擴張。這種紀律嚴明的資本管理策略，與巴菲特和蒙格所推崇的價值投資理念高度契合，是企業護城河的重要組成部分。"
+    "score": 8,
+    "comment_zh": "摩根大通的業務本質決定了其對技術變革和經濟週期的強大抗性。儘管金融科技帶來挑戰，但人類對存款、貸款、支付和投資等基本金融服務的需求是永恆的。摩根大通憑藉其規模、品牌和監管優勢，能夠有效整合新技術或應對顛覆性創新。其多元化的業務組合也使其在不同經濟環境下具備更強的韌性，確保了其長期生存和盈利能力，符合巴菲特對「永恆」企業的定義。",
+    "comment_en": "JPMorgan Chase's business nature grants it strong resilience against technological shifts and economic cycles. Despite fintech challenges, the fundamental human need for basic financial services like deposits, loans, payments, and investments is enduring. Leveraging its scale, brand, and regulatory advantages, JPM can effectively integrate new technologies or adapt to disruptive innovations. Its diversified business portfolio also provides greater resilience across various economic environments, ensuring its long-term survival and profitability, aligning with Buffett's definition of an 'eternal' enterprise."
   },
-  "overall_moat_verdict": "摩根大通本質上是一個在全球金融體系中扮演「收費橋樑」角色的特許經營權平台。其護城河深邃而廣闊，主要由無與倫比的品牌信任、龐大的規模經濟、極高的監管壁壘以及客戶轉換成本共同構築。作為全球領先的多元化銀行，JPM不僅擁有低成本的資金來源，還能將巨額固定成本攤薄，實現卓越的資本回報率。儘管金融業面臨技術變革，但其核心服務的不可替代性與管理層卓越的資本配置能力，使其能夠持續抵禦競爭並為股東創造長期價值。這是一個典型的、難以被複製的金融巨頭，具備長期投資的吸引力。"
+  "overall_moat_verdict_zh": "摩根大通本質上是一個由多重堅固護城河環繞的「金融特許經營權平台」。其核心競爭優勢源於無可匹敵的全球品牌聲譽、極高的監管進入壁壘、客戶轉換成本、以及規模經濟帶來的成本優勢。這些因素共同構築了一個難以複製的商業模式，使其能夠在高度競爭的金融市場中持續獲得超額利潤。在傑米·戴蒙的卓越領導下，公司不僅能有效抵禦外部衝擊，還能通過審慎的資本配置為股東創造長期價值。這是一個典型的巴菲特式「收費橋樑」企業，深深嵌入全球經濟的運作之中，具備極強的長期投資價值。",
+  "overall_moat_verdict_en": "JPMorgan Chase is fundamentally a 'financial franchise platform' encircled by multiple robust economic moats. Its core competitive advantages stem from an unparalleled global brand reputation, extremely high regulatory barriers to entry, significant customer switching costs, and cost advantages derived from economies of scale. These factors collectively forge an irreplicable business model, enabling it to consistently generate excess profits in the highly competitive financial market. Under Jamie Dimon's exceptional leadership, the company not only effectively withstands external shocks but also creates long-term shareholder value through prudent capital allocation. This is a quintessential Buffett-style 'toll bridge' business, deeply embedded in the functioning of the global economy, possessing extremely strong long-term investment value."
 }

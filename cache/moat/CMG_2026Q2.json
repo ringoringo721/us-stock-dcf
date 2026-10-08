@@ -3,43 +3,54 @@
   "period": "2026Q2",
   "m1_brand_pricing": {
     "score": 8,
-    "comment": "Chipotle憑藉其「新鮮、健康、客製化」的品牌定位，在快休閒餐飲市場建立了強大的消費者心智。儘管餐飲業競爭激烈，Chipotle仍能成功實施價格上漲，且客流量未受顯著影響，這證明了其卓越的定價權。消費者願意為其高品質食材和獨特用餐體驗支付溢價，形成堅實的品牌忠誠度，使其在同業中脫穎而出，有效抵禦價格競爭。"
+    "comment_zh": "Chipotle憑藉其「新鮮、客製化、健康」的品牌形象，在快休閒餐飲市場建立了強大的心智佔有率。消費者願意為其高品質食材和透明的製作過程支付溢價，使其具備顯著的定價權。即使面對通脹壓力，公司也能有效轉嫁成本，維持利潤率，且未見客流量大幅下滑，這證明了其品牌忠誠度與市場差異化優勢，遠超一般速食連鎖。",
+    "comment_en": "Chipotle has cultivated a powerful brand image centered on \"fresh, customizable, and healthy\" fast-casual dining. Consumers are willing to pay a premium for its high-quality ingredients and transparent preparation process, granting it significant pricing power. Even amidst inflationary pressures, the company has effectively passed on costs, maintaining margins without substantial declines in customer traffic. This demonstrates strong brand loyalty and market differentiation, surpassing typical fast-food chains."
   },
   "m2_patents_regulatory": {
     "score": 2,
-    "comment": "作為一家餐飲連鎖企業，Chipotle不具備專利或獨家特許經營權等形式的護城河。其營運主要受標準的食品安全和衛生法規約束，這些法規對所有競爭者一視同仁，並未構成獨特的進入壁壘。因此，Chipotle無法像製藥或科技公司那樣，透過法律保護來建立競爭優勢，這方面缺乏巴菲特所推崇的「收費橋樑」特徵。"
+    "comment_zh": "作為一家餐飲連鎖企業，Chipotle的商業模式並非建立在專利或獨家特許經營權之上。其菜單和製作流程雖有特色，但難以形成法律上的專利壁壘。行業內的食品安全與衛生法規是所有參與者必須遵守的標準，而非Chipotle獨有的准入優勢。因此，此維度對其護城河貢獻極小，競爭者可輕易模仿其產品。",
+    "comment_en": "As a restaurant chain, Chipotle's business model is not built upon patents or exclusive regulatory licenses. While its menu and preparation processes are distinctive, they do not form legal patent barriers. Industry-standard food safety and hygiene regulations apply to all participants, not providing a unique entry advantage for Chipotle. Consequently, this dimension contributes minimally to its moat, as competitors can easily replicate its product offerings."
   },
   "m3_high_switching_costs": {
     "score": 4,
-    "comment": "對於餐飲業而言，顧客轉換成本通常較低，消費者可以輕易選擇其他餐廳。Chipotle的「黏性」更多來自於其獨特的口味、品牌偏好和用餐習慣，而非高昂的財務或營運轉換成本。雖然忠實顧客可能因習慣而難以割捨，但從巴菲特對「高轉換成本」的嚴格定義來看，Chipotle並未對顧客造成實質性的經濟或操作負擔，因此壁壘相對有限。"
+    "comment_zh": "對於餐飲業而言，顧客轉換成本通常較低，消費者可輕易選擇其他餐廳。然而，Chipotle透過其獨特的口味、客製化體驗及對新鮮食材的堅持，為部分忠實顧客建立了「習慣性」的黏性。一旦習慣了Chipotle的風味和用餐模式，其他替代品可能顯得不那麼吸引人。儘管這並非高昂的財務或營運轉換成本，但仍能有效留住核心客群。",
+    "comment_en": "In the restaurant industry, customer switching costs are typically low, as consumers can easily choose alternative dining options. However, Chipotle has cultivated a \"habitual\" stickiness among some loyal customers through its unique flavors, customizable experience, and commitment to fresh ingredients. Once accustomed to Chipotle's taste and dining model, other alternatives may seem less appealing. While this doesn't represent high financial or operational switching costs, it effectively retains its core customer base."
   },
   "m4_network_effects": {
     "score": 1,
-    "comment": "餐飲業的商業模式本質上不具備網絡效應。Chipotle的顧客數量增加並不會直接提升其他顧客的用餐體驗或產品價值。網絡效應通常出現在平台型或社交型業務中，其價值隨用戶增長呈指數級提升。Chipotle的成功依賴於單一門店的營運效率和品牌吸引力，而非用戶間的互動，因此在此維度上幾乎沒有護城河。"
+    "comment_zh": "Chipotle作為一家餐飲連鎖店，其商業模式本質上不具備雙向網絡效應。網絡效應通常發生在平台型業務中，即每增加一個用戶，會顯著提升所有其他參與者的價值。Chipotle的顧客數量增長，並不會直接讓現有顧客的用餐體驗呈幾何級數提升，也不會對其產品或服務產生實質性的增值。因此，此維度對其護城河幾乎沒有貢獻。",
+    "comment_en": "As a restaurant chain, Chipotle's business model inherently lacks two-sided network effects. Network effects typically occur in platform businesses where each additional user significantly enhances the value for all other participants. An increase in Chipotle's customer base does not geometrically improve the dining experience for existing customers, nor does it substantially add value to its products or services. Therefore, this dimension contributes almost nothing to its economic moat."
   },
   "m5_cost_advantage_scale": {
-    "score": 6,
-    "comment": "作為一家大型連鎖餐飲企業，Chipotle透過其龐大的採購量和優化的供應鏈，確實實現了成本優勢。這使其在食材採購和物流方面能獲得比小型競爭者更低的成本，並維持較高的毛利率。然而，這種規模經濟並非「極致」到讓其他大型餐飲集團無法複製。許多同業也擁有類似的採購和營運規模，因此這項優勢雖存在，但並非不可逾越的壁壘。"
+    "score": 7,
+    "comment_zh": "Chipotle憑藉其龐大的門店網絡和採購規模，在食材採購和供應鏈管理上具備顯著的成本優勢。相較於小型競爭者，公司能以更優惠的價格獲取高品質食材，並透過標準化的中央廚房和物流體系，實現營運效率。這種規模經濟使其在成本控制上優於許多新進入者，儘管餐飲業的單位變動成本仍高，但其規模效應仍是重要的競爭壁壘。",
+    "comment_en": "With its extensive store network and purchasing volume, Chipotle possesses a significant cost advantage in ingredient sourcing and supply chain management. Compared to smaller competitors, the company can acquire high-quality ingredients at more favorable prices and achieve operational efficiency through standardized central kitchens and logistics systems. This scale economy allows it to control costs better than many new entrants. Although the restaurant industry still has high variable costs per unit, its scale effect remains a crucial competitive barrier."
   },
   "m6_unique_geography_assets": {
     "score": 3,
-    "comment": "餐飲市場高度分散且競爭激烈，Chipotle所處的快休閒墨西哥餐飲領域並非天然寡占市場。儘管Chipotle在某些黃金地段擁有優勢，但這些地理位置並非獨佔，新競爭者仍可進入。市場容量並未小到足以阻止新玩家進入，或導致「雙輸」局面。因此，Chipotle不具備巴菲特所指的，因市場結構限制而形成的「天然寡占」護城河。"
+    "comment_zh": "餐飲業是一個高度分散且競爭激烈的市場，Chipotle雖在快休閒墨西哥菜領域佔據領先地位，但該市場並非天然寡占。新競爭者仍可不斷進入，推出類似或創新的餐飲概念。Chipotle的成功更多是基於品牌和營運，而非市場容量有限或獨佔性地理區位所形成的壁壘。因此，此維度對其護城河的貢獻較為有限，無法阻止新競爭者。",
+    "comment_en": "The restaurant industry is a highly fragmented and competitive market. While Chipotle holds a leading position in the fast-casual Mexican segment, this market is not a natural oligopoly. New competitors can continuously enter, introducing similar or innovative dining concepts. Chipotle's success is based more on brand and operations rather than barriers formed by limited market capacity or exclusive geographical locations. Therefore, this dimension contributes relatively little to its economic moat, as it cannot prevent new competitors."
   },
   "m7_operational_efficiency": {
-    "score": 9,
-    "comment": "Chipotle展現出卓越的資本回報能力，其64.5%的ROE和16.0%的ROA遠超行業平均水平和其加權平均資本成本（WACC）。這強烈表明公司能夠持續高效地運用資本，為股東創造豐厚的回報。這種長期且穩定的超額ROIC韌性，是其強大競爭優勢的直接體現，也是巴菲特衡量企業護城河深度的關鍵指標之一。"
+    "score": 8,
+    "comment_zh": "Chipotle高達64.5%的股東權益報酬率（ROE）和16.0%的資產報酬率（ROA），強烈暗示其投入資本回報率（ROIC）遠超加權平均資本成本（WACC）。這表明公司能夠持續高效地運用資本，為股東創造超額價值。這種長期且穩定的高資本回報能力，是巴菲特衡量企業護城河深度的關鍵指標，證明其商業模式具有強大的盈利韌性與競爭優勢。",
+    "comment_en": "Chipotle's impressive 64.5% Return on Equity (ROE) and 16.0% Return on Assets (ROA) strongly suggest its Return on Invested Capital (ROIC) significantly exceeds its Weighted Average Cost of Capital (WACC). This indicates the company consistently deploys capital efficiently, generating substantial excess value for shareholders. Such long-term and stable high capital returns are a key metric for Buffett in assessing the depth of a company's moat, proving its business model possesses robust profitability and competitive advantages."
   },
   "m8_capital_allocation": {
-    "score": 4,
-    "comment": "儘管Chipotle的品牌、企業文化和營運體系是其成功的關鍵，但其快休閒餐飲的商業模式並非完全不可複製。給予競爭對手足夠的資金和時間，他們可以建立類似的供應鏈、品牌形象和門店網絡。雖然複製其「新鮮、健康」的品牌心智和高效營運需要時間，但本質上並非像某些科技或基礎設施企業那樣，擁有無法被資本重現的核心戰略資產。"
+    "score": 7,
+    "comment_zh": "即使給予競爭對手千億美元資金，要在短時間內複製Chipotle的核心戰略資產，包括其深植人心的品牌形象、遍布全國的供應鏈網絡、標準化且高效的營運體系，以及龐大的忠實顧客群，幾乎是不可能的任務。這不僅是資金問題，更涉及時間積累、企業文化塑造和執行力。這些無形資產的不可複製性，構成了其堅實的護城河。",
+    "comment_en": "Even with a hundred billion dollars, it would be nearly impossible for a competitor to replicate Chipotle's core strategic assets in a short period. These include its deeply ingrained brand image, nationwide supply chain network, standardized and efficient operating system, and large loyal customer base. This isn't merely a matter of capital; it involves accumulated time, corporate culture development, and execution prowess. The irreproducibility of these intangible assets forms a robust economic moat."
   },
   "m9_customer_retention": {
-    "score": 8,
-    "comment": "作為一家提供基本飲食需求的餐飲企業，Chipotle對技術變革和典範轉移具有強大的免疫力。人類對食物的需求是永恆的，無論科技如何發展，實體餐飲體驗和外帶服務仍將存在。雖然數位點餐和外送服務改變了消費模式，但Chipotle已成功適應這些趨勢。其核心產品和服務不易被AI或顛覆性技術取代，展現出高度的業務穩定性。"
+    "score": 9,
+    "comment_zh": "人類對食物，尤其是方便、健康且美味餐飲的需求是永恆且高度確定的。Chipotle所提供的快休閒餐飲服務，滿足了這一基本需求，使其對技術變革或典範轉移具備強大免疫力。儘管外送平台和線上點餐改變了消費模式，Chipotle已成功整合這些新技術，並未被顛覆。AI或未來科技難以取代實體用餐體驗或對新鮮食材的追求，其需求確定性極高。",
+    "comment_en": "The fundamental human need for food, especially convenient, healthy, and delicious dining, is eternal and highly certain. Chipotle's fast-casual dining service fulfills this basic need, granting it strong immunity to technological changes or paradigm shifts. Although delivery platforms and online ordering have altered consumption patterns, Chipotle has successfully integrated these new technologies without being disrupted. AI or future technologies are unlikely to replace the physical dining experience or the demand for fresh ingredients, ensuring extremely high demand certainty."
   },
   "m10_durability": {
     "score": 8,
-    "comment": "Chipotle的管理層在資本配置方面表現出色。公司擁有強勁的自由現金流（FCF TTM $1,569.0 M），並透過有機增長和股票回購來回報股東，而非盲目進行高溢價併購。其Piotroski F-Score達7/9，顯示財務管理穩健。這種專注於內生增長和股東回報的策略，與巴菲特強調的理性資本配置原則高度契合，有助於長期價值創造。"
+    "comment_zh": "Chipotle的管理層在資本配置方面展現出審慎與股東友善的態度。公司歷史上曾進行股票回購，這在股價被低估時能有效提升股東價值。其強勁的自由現金流（FCF TTM $1,569.0 M）為此提供了堅實基礎。儘管總負債高於現金，但高ROA和ROE表明管理層能高效運用資本，並未盲目進行高溢價併購，而是專注於核心業務增長與回報。",
+    "comment_en": "Chipotle's management has demonstrated prudence and shareholder-friendly capital allocation. The company has a history of share buybacks, which effectively enhances shareholder value when the stock is undervalued. Its robust free cash flow (FCF TTM $1,569.0 M) provides a solid foundation for this. Although total debt exceeds cash, high ROA and ROE indicate management's efficient use of capital, focusing on core business growth and returns rather than blind, high-premium acquisitions."
   },
-  "overall_moat_verdict": "Chipotle Mexican Grill本質上是一家擁有強大品牌心智和卓越營運效率的「特許經營權」型企業，而非傳統意義上的「收費橋樑」或具備專利壟斷的企業。其核心護城河主要來自於M1的品牌忠誠度與定價權，以及M7所示的長期超額資本回報能力。公司在快休閒餐飲領域建立了「新鮮、健康」的差異化形象，使其能夠在競爭激烈的市場中脫穎而出，並有效抵禦價格戰。儘管缺乏技術或監管壁壘，但其對基本人類需求的滿足、對營運細節的精準把控，以及管理層穩健的資本配置策略，共同構建了一個堅實的競爭優勢，使其能夠持續為股東創造價值。這是一個執行力極強的「好生意」，而非擁有天然壟斷地位的「偉大生意」。"
+  "overall_moat_verdict_zh": "Chipotle本質上是一家擁有堅實「特許經營權」特徵的餐飲企業，其護城河主要建立在強大的品牌心智與定價權（M1）之上。公司成功將「新鮮、健康、客製化」的理念深植人心，使其能持續獲得超額的投入資本回報（M7）。儘管餐飲業競爭激烈，但Chipotle的規模經濟（M5）和難以複製的營運體系（M8），使其成為快休閒墨西哥菜市場的「收費橋樑」。消費者願意為其獨特價值支付溢價，且對技術顛覆具備高度免疫力（M9），確保了其長期盈利的韌性。",
+  "overall_moat_verdict_en": "Chipotle fundamentally operates as a restaurant enterprise with strong \"franchise-like\" characteristics, its moat primarily built upon powerful brand equity and pricing power (M1). The company has successfully ingrained the concept of \"fresh, healthy, and customizable\" food in consumers' minds, allowing it to consistently generate superior returns on invested capital (M7). Despite intense competition in the dining sector, Chipotle's scale advantages (M5) and difficult-to-replicate operational system (M8) position it as a \"toll bridge\" in the fast-casual Mexican food market. Consumers are willing to pay a premium for its unique value, and it possesses high immunity to technological disruption (M9), ensuring its long-term profitability resilience."
 }

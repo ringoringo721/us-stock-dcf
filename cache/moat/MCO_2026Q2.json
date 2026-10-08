@@ -3,43 +3,54 @@
   "period": "2026Q2",
   "m1_brand_pricing": {
     "score": 9,
-    "comment": "Moody's與標普共同主導全球信用評級市場，其品牌已成為金融市場信譽與信任的代名詞。發債機構為進入資本市場，幾乎必須取得其評級，賦予Moody's極強的定價權。即使提高服務費用，客戶因其評級的權威性與市場接受度，仍難以轉向其他替代方案。這種不可或缺性，使其能夠在不顯著影響銷量的前提下，有效轉嫁成本並提升利潤，是巴菲特所推崇的「收費橋樑」模式的典型體現，確保了穩定的收入流與高利潤率。"
+    "comment_zh": "穆迪作為全球領先的信用評級機構，其品牌在金融市場中具有不可撼動的權威性和公信力。發債方為進入資本市場，幾乎必須獲得穆迪等主要機構的評級，這使得其服務成為一種必需品而非可替代品。投資者亦高度依賴其評級進行風險判斷。這種深植於市場心智的品牌認知，賦予穆迪極強的定價權，即使提高服務費用，客戶也難以轉向其他替代方案，因為其評級的市場接受度與流動性價值無可比擬，構成堅實的護城河。",
+    "comment_en": "Moody's, as a leading global credit rating agency, possesses an unshakeable brand authority and credibility within financial markets. Issuers seeking access to capital markets almost invariably require ratings from major agencies like Moody's, making their services an indispensable necessity rather than a substitute. Investors also heavily rely on these ratings for risk assessment. This deeply embedded brand recognition grants Moody's significant pricing power; even with service fee increases, clients find it difficult to switch due to the unparalleled market acceptance and liquidity value of its ratings, forming a robust moat."
   },
   "m2_patents_regulatory": {
-    "score": 9,
-    "comment": "信用評級行業並非依賴傳統專利，而是由嚴格的監管准入與特許經營權構成堅實壁壘。例如，美國證券交易委員會（SEC）授予的「全國認可統計評級組織」（NRSRO）資格，是進入該行業的關鍵門檻。這項資格的取得極其困難，需經年累月的信譽積累與嚴格審查，有效阻止了新競爭者的進入。這種政府背書的「特許經營權」性質，賦予Moody's類似於法定壟斷的地位，確保其在市場中的主導地位，並免受無序競爭的侵蝕。"
+    "score": 10,
+    "comment_zh": "穆迪的護城河核心在於其作為全球少數幾家「國家認可統計評級組織」(NRSRO) 的特許經營地位。此一由政府監管機構（如美國證券交易委員會）授予的資格，為新競爭者設置了極高的進入壁壘。發債方與投資者對NRSRO評級的依賴，是法規要求與市場慣例的雙重結果。這種嚴格的監管准入機制，使得穆迪幾乎享有壟斷性的市場地位，無需擔心大量新競爭者湧入，確保了其長期穩定的盈利能力，是典型的「收費橋樑」型護城河。",
+    "comment_en": "Moody's core moat lies in its licensed status as one of the few \"Nationally Recognized Statistical Rating Organizations\" (NRSROs) globally. This qualification, granted by government regulators like the SEC, creates an exceptionally high barrier to entry for new competitors. Issuers and investors rely on NRSRO ratings due to both regulatory requirements and market conventions. This stringent regulatory access mechanism grants Moody's a near-monopolistic market position, insulating it from significant new competition and ensuring long-term stable profitability, exemplifying a classic \"toll bridge\" type of moat."
   },
   "m3_high_switching_costs": {
     "score": 8,
-    "comment": "對於發債機構而言，更換信用評級機構不僅涉及財務成本，更可能帶來聲譽風險與操作中斷。投資者已習慣依賴Moody's的評級進行決策，轉換至不熟悉的評級體系會增加不確定性與分析成本。這種深度嵌入金融生態系統的特性，使得客戶轉換的「機會成本」遠高於表面費用，形成強大的客戶黏性。一旦客戶採用其服務，便難以脫離，確保了穩定的續約率與收入可預測性，符合巴菲特對高轉換成本企業的偏好。"
+    "comment_zh": "對於發債企業而言，一旦選定穆迪進行信用評級，轉換至其他評級機構將涉及複雜的流程、潛在的市場溝通成本以及投資者對新評級體系的適應期。這種轉換不僅可能導致營運中斷，還可能影響其債務工具在市場上的流動性和接受度。對於投資者而言，將穆迪的評級深度整合至其風險管理模型與合規框架中，也形成了巨大的轉換成本。這種深度嵌入性使得客戶難以輕易更換，確保了穆迪的客戶黏性。",
+    "comment_en": "For issuing companies, once Moody's is chosen for credit ratings, switching to another agency involves complex processes, potential market communication costs, and an adaptation period for investors to a new rating system. Such a transition could lead to operational disruptions and impact the liquidity and acceptance of their debt instruments in the market. For investors, deeply integrating Moody's ratings into their risk management models and compliance frameworks also creates significant switching costs. This deep embeddedness makes it difficult for clients to change providers easily, ensuring Moody's customer stickiness."
   },
   "m4_network_effects": {
-    "score": 9,
-    "comment": "Moody's的價值隨著參與者數量增加而呈指數級增長。越多發債機構尋求其評級，其評級的市場接受度與權威性就越高；越多投資者依賴其評級，發債機構就越需要獲得其評級。這種正向循環創造了一個強大的網絡效應，使得Moody's的服務成為資本市場不可或缺的標準。新進入者難以在短時間內建立如此廣泛的認可與信任網絡，進一步鞏固了Moody's的市場地位，使其護城河日益加寬。"
+    "score": 7,
+    "comment_zh": "穆迪的評級服務展現出強大的間接網絡效應。當越來越多的發債方選擇穆迪進行評級，其評級數據庫和市場覆蓋率隨之擴大，提升了評級模型的精準度與權威性。同時，更多投資者依賴穆迪的評級進行投資決策，進一步增強了穆迪評級的市場接受度和流動性溢價。這種良性循環使得穆迪的評級成為金融市場的通用語言，吸引更多參與者加入，從而鞏固其市場領導地位，形成難以逾越的競爭優勢。",
+    "comment_en": "Moody's rating services exhibit strong indirect network effects. As more issuers choose Moody's for ratings, its database and market coverage expand, enhancing the precision and authority of its rating models. Concurrently, more investors relying on Moody's ratings for investment decisions further boosts the market acceptance and liquidity premium of Moody's ratings. This virtuous cycle establishes Moody's ratings as a universal language in financial markets, attracting more participants and solidifying its market leadership, thereby creating an insurmountable competitive advantage."
   },
   "m5_cost_advantage_scale": {
     "score": 8,
-    "comment": "信用評級業務具有顯著的規模經濟效應。一旦建立起全球性的分析師團隊、數據庫與評級方法論，評級額外債務的邊際成本相對較低。Moody's憑藉其龐大的運營規模和數十年積累的數據資產，能夠以競爭對手難以企及的效率提供服務。這種規模優勢不僅降低了單位成本，也使其能夠投入更多資源進行研發與技術升級，進一步拉開與潛在競爭者的距離，形成難以逾越的成本壁壘。"
+    "comment_zh": "穆迪作為全球規模的信用評級與金融數據提供商，享有顯著的規模經濟優勢。其龐大的數據庫、全球分析師團隊以及數十年累積的評級模型與方法論，構成了巨大的固定成本投入。然而，一旦這些基礎設施建立，為新增客戶提供評級服務或數據產品的邊際成本相對較低。這種規模效應使得穆迪能夠以更低的單位成本運營，並提供更全面的服務，這是小型競爭者難以匹敵的。其深厚的數據積累與分析能力，亦是獨家工藝的體現。",
+    "comment_en": "As a global credit rating and financial data provider, Moody's benefits from significant economies of scale. Its vast database, global analyst team, and decades of accumulated rating models and methodologies represent substantial fixed cost investments. However, once this infrastructure is established, the marginal cost of providing rating services or data products to new clients is relatively low. This scale advantage allows Moody's to operate at a lower unit cost and offer more comprehensive services, which smaller competitors cannot match. Its deep data accumulation and analytical capabilities also represent a unique craft."
   },
   "m6_unique_geography_assets": {
     "score": 9,
-    "comment": "信用評級市場是一個典型的天然寡占市場。市場對高度信任和權威評級的需求是有限的，無法有效支持過多的主要參與者。新競爭者即使擁有充足資金，也難以在短時間內建立起與Moody's和標普匹敵的信譽與市場接受度。過多的競爭只會稀釋市場價值，導致所有參與者利潤受損。這種「有效規模」特性，使得Moody's能夠在一個相對穩定的競爭環境中運營，享受高利潤率，並避免惡性價格戰。"
+    "comment_zh": "信用評級市場本質上是一個天然寡占的利基市場。由於監管要求（如NRSRO資格）和市場對評級權威性與一致性的需求，市場參與者數量被嚴格限制。過多的評級機構反而會稀釋評級的公信力與市場效用。在這種背景下，穆迪與少數幾家主要競爭者共同形成了穩定的寡頭格局。新競爭者即使有能力進入，也難以在不破壞現有市場秩序的情況下獲得足夠的份額，這使得該市場呈現出「雙輸」的理性寡占特徵，為穆迪提供了堅實的護城河。",
+    "comment_en": "The credit rating market is inherently a niche oligopoly. Due to regulatory requirements (e.g., NRSRO status) and the market's demand for rating authority and consistency, the number of market participants is strictly limited. Too many rating agencies would dilute the credibility and utility of ratings. In this context, Moody's, along with a few major competitors, forms a stable oligopoly. Even if new competitors could enter, it would be difficult for them to gain sufficient market share without disrupting the existing market order, leading to a \"lose-lose\" rational oligopoly characteristic that provides Moody's with a robust moat."
   },
   "m7_operational_efficiency": {
     "score": 9,
-    "comment": "Moody's展現出卓越的資本回報能力，其高達92.4%的股東權益報酬率（ROE）和19.0%的資產報酬率（ROA）遠超行業平均水平，並持續超越其加權平均資本成本（WACC）。這表明公司能夠高效利用投入資本，為股東創造豐厚的回報。這種持續的超額ROIC韌性是其強大護城河的直接體現，證明其業務模式具有內在的盈利能力和資本效率，是巴菲特衡量企業質量的核心指標之一。"
+    "comment_zh": "穆迪展現出卓越的資本回報能力，其高達92.4%的股東權益報酬率（ROE）和19.0%的資產報酬率（ROA）遠超行業平均水平，且長期保持穩定。這強烈暗示其投入資本回報率（ROIC）持續顯著高於加權平均資本成本（WACC）。這種持續創造超額回報的能力，是其強大護城河的直接財務體現。它表明穆迪能夠高效利用資本，並將其轉化為股東價值，這得益於其特許經營權、品牌定價權和規模經濟等多重護城河的協同作用。",
+    "comment_en": "Moody's demonstrates exceptional capital returns, with a remarkable Return on Equity (ROE) of 92.4% and Return on Assets (ROA) of 19.0%, significantly exceeding industry averages and maintaining long-term stability. This strongly suggests its Return on Invested Capital (ROIC) consistently remains well above its Weighted Average Cost of Capital (WACC). This sustained ability to generate excess returns is a direct financial manifestation of its strong moat. It indicates Moody's efficient capital utilization and conversion into shareholder value, benefiting from the synergistic effects of its licensed status, brand pricing power, and economies of scale."
   },
   "m8_capital_allocation": {
-    "score": 9,
-    "comment": "即使給予競爭對手千億美元，也無法在數年內複製Moody's的核心戰略資產。其護城河不僅是資金，更是數十年積累的品牌信譽、監管認可、全球客戶關係、專有數據庫與分析方法論。這些無形資產是時間與信任的結晶，無法通過簡單的資本投入來快速複製。這種不可複製性確保了Moody's的長期競爭優勢，使其成為一個真正獨特且難以被顛覆的企業，符合巴菲特對「無形資產」護城河的重視。"
+    "score": 10,
+    "comment_zh": "穆迪的核心戰略資產幾乎是不可複製的。即使給予競爭對手千億美元資金，也無法在短時間內複製其數十年來建立的全球品牌信譽、監管機構（如NRSRO）的特許經營資格、龐大的歷史評級數據庫、深厚的分析專業知識以及在金融市場中根深蒂固的信任關係。這些無形資產是時間和市場考驗的結晶，而非單純的資本投入所能購得或快速建立。這種不可複製性構成了穆迪最堅固的護城河之一，確保其長期競爭優勢。",
+    "comment_en": "Moody's core strategic assets are virtually irreproducible. Even with a hundred billion dollars, a competitor could not quickly replicate its decades-long global brand reputation, regulatory licenses (such as NRSRO status), vast historical rating database, deep analytical expertise, and deeply entrenched trust relationships within financial markets. These intangible assets are the culmination of time and market validation, not merely purchasable or rapidly constructible with capital. This irreproducibility constitutes one of Moody's most robust moats, ensuring its long-term competitive advantage."
   },
   "m9_customer_retention": {
     "score": 8,
-    "comment": "儘管金融科技不斷發展，但資本市場對獨立、客觀信用評級的需求本質上是穩定的。人工智慧等技術可能優化評級流程，但無法取代其作為第三方權威機構的信任與監管地位。信用評級的核心價值在於其公信力與市場接受度，這需要時間與歷史積累。因此，Moody's對技術變革或典範轉移具有較強的免疫力，其核心業務需求確定性高，不易被顛覆，確保了其長期經營的穩定性。"
+    "comment_zh": "穆迪的業務對技術變革和典範轉移具有較強的抗性。儘管數據分析和人工智能等技術可以優化其評級流程，但金融市場對獨立、權威且受監管的信用評級的需求本質上是穩定的。信用評級不僅涉及數據分析，更包含複雜的宏觀經濟判斷、行業洞察及人為專業判斷。監管機構對NRSRO的嚴格要求，也使得任何純粹基於AI的評級方案難以在短期內獲得市場信任和法律地位。因此，其核心業務需求確定性極高，不易被顛覆。",
+    "comment_en": "Moody's business exhibits strong resistance to technological change and paradigm shifts. While data analytics and AI can optimize its rating processes, the fundamental market demand for independent, authoritative, and regulated credit ratings is inherently stable. Credit rating involves not only data analysis but also complex macroeconomic judgments, industry insights, and human professional discretion. Regulatory requirements for NRSROs also make it difficult for any purely AI-based rating solution to gain market trust and legal standing in the short term. Therefore, its core business demand is highly certain and not easily disrupted."
   },
   "m10_durability": {
     "score": 8,
-    "comment": "儘管缺乏具體回購數據，但Moody's長期以來的高ROE（92.4%）和強勁的自由現金流（FCF TTM $3,398.0 M）表明管理層在資本配置上可能表現出色。高效的資本運用是創造股東價值的關鍵。一個優秀的管理層會避免盲目高價併購，並在股價被低估時積極回購股票，以最大化每股價值。假設其管理層秉持巴菲特式的理性資本配置原則，將有助於其護城河的長期維護與增強。"
+    "comment_zh": "穆迪的管理層在資本配置方面表現出穩健與效率。公司長期維持高盈利能力（ROE 92.4%，ROA 19.0%），並產生可觀的自由現金流（FCF TTM $3,398.0M），這為其提供了充足的資本進行再投資、股息派發或股票回購。雖然具體回購策略未詳述，但其強勁的財務表現和皮氏F-Score 7/9的健康評分，暗示管理層能夠有效利用資本，避免盲目溢價併購，並在適當時機通過回購等方式回饋股東，最大化長期價值。",
+    "comment_en": "Moody's management demonstrates prudence and efficiency in capital allocation. The company consistently maintains high profitability (ROE 92.4%, ROA 19.0%) and generates substantial free cash flow (FCF TTM $3,398.0M), providing ample capital for reinvestment, dividends, or share buybacks. While specific buyback strategies are not detailed, its strong financial performance and a healthy Piotroski F-Score of 7/9 suggest that management effectively utilizes capital, avoids imprudent overpaying for acquisitions, and returns value to shareholders through means like buybacks at opportune times, maximizing long-term value."
   },
-  "overall_moat_verdict": "Moody's是一家典型的「收費橋樑」型企業，其核心競爭優勢源於其在全球資本市場中不可或缺的信用評級服務。公司受益於強大的品牌心智、嚴格的監管准入壁壘、極高的客戶轉換成本以及顯著的網絡效應，共同構築了一道極其寬廣且深厚的護城河。其業務模式具有天然的寡占特性和規模經濟優勢，使得新競爭者難以進入並挑戰其主導地位。長期以來持續超高的投入資本回報率，充分證明了其卓越的盈利能力和資本效率。Moody's的護城河不僅是資金所能複製的，更是數十年信譽、監管認可和市場信任的結晶，使其成為巴菲特眼中極具吸引力的優質企業。"
+  "overall_moat_verdict_zh": "穆迪本質上是一家擁有極強「特許經營權」和「收費橋樑」特徵的企業。其核心護城河源於政府監管機構授予的「國家認可統計評級組織」資格，這為新競爭者設置了幾乎不可逾越的壁壘。結合其在金融市場數十年建立的權威品牌、客戶轉換成本高昂、以及評級服務所產生的間接網絡效應，穆迪在信用評級領域形成了穩固的寡頭壟斷地位。這使得公司能夠長期保持卓越的盈利能力和資本回報率，即便在經濟波動時期也能展現出強大的韌性，是巴菲特所推崇的「好生意」典範。",
+  "overall_moat_verdict_en": "Moody's is fundamentally a business characterized by extremely strong \"franchise\" and \"toll bridge\" attributes. Its core moat stems from its status as a \"Nationally Recognized Statistical Rating Organization\" granted by government regulators, which creates an almost insurmountable barrier for new competitors. Combined with its authoritative brand built over decades in financial markets, high customer switching costs, and the indirect network effects generated by its rating services, Moody's has established a solid oligopoly in the credit rating sector. This enables the company to maintain exceptional profitability and return on capital over the long term, demonstrating strong resilience even during economic fluctuations, making it a prime example of a \"good business\" as championed by Buffett."
 }

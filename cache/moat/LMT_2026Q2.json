@@ -3,43 +3,54 @@
   "period": "2026Q2",
   "m1_brand_pricing": {
     "score": 9,
-    "comment": "Lockheed Martin憑藉其在國防領域的關鍵地位，享有極高的品牌心智與定價權。其產品如F-35戰鬥機、導彈防禦系統等，對國家安全至關重要，客戶（各國政府）在採購時，性能、可靠性與技術領先性遠比價格敏感度更高。長期且複雜的採購合約，加上產品的獨特性與不可替代性，使得LMT即使在成本上升時也能有效轉嫁，維持利潤率。這種「非彈性需求」的特性，賦予公司強大的議價能力，確保其在市場中的領導地位，符合巴菲特對特許經營權企業的定義。"
+    "comment_zh": "洛克希德馬丁在國防工業中享有極高的品牌聲譽，其產品如F-35戰鬥機、愛國者導彈系統等，是各國軍事力量不可或缺的核心裝備。由於涉及國家安全與尖端科技，客戶（各國政府）對價格敏感度相對較低，更重視產品的可靠性、性能與供應鏈的穩定性。這種獨特的客戶關係和產品關鍵性，賦予了公司強大的定價權，使其能夠在長期合約中維持健康利潤率，並將研發成本轉嫁給客戶，形成難以撼動的商業壁壘。",
+    "comment_en": "Lockheed Martin commands an exceptional brand reputation in the defense industry, with products like the F-35 fighter jet and Patriot missile systems being indispensable core equipment for national militaries. Due to the critical nature of national security and advanced technology involved, customers (governments) exhibit relatively low price sensitivity, prioritizing reliability, performance, and supply chain stability over marginal cost savings. This unique customer relationship and product criticality grant the company significant pricing power, enabling it to maintain healthy profit margins on long-term contracts and pass on R&D costs to clients, forming an unassailable business moat."
   },
   "m2_patents_regulatory": {
     "score": 10,
-    "comment": "Lockheed Martin的護城河在於其無可比擬的專利集群、高度機密的技術以及嚴格的政府監管與特許許可。國防工業的進入門檻極高，涉及數十年累積的專有技術、複雜的認證流程和國家安全審查。LMT不僅擁有大量尖端技術專利，更與美國政府建立了深厚的合作關係，獲得了眾多獨家或優先的開發與生產許可。這些無形資產和政府背書，構成了一道幾乎無法逾越的壁壘，確保了其在關鍵防禦系統領域的壟斷地位，新進者幾乎不可能在短期內複製。"
+    "comment_zh": "洛克希德馬丁在國防領域擁有無數專利與核心技術，這些技術往往是數十年研發投入的結晶，且許多是與政府合作開發，受到嚴格的知識產權保護。更重要的是，國防工業受到各國政府的嚴格監管，進入門檻極高，需要複雜的許可證、安全認證和漫長的審批流程。這種高度管制的環境，加上公司在關鍵技術上的壟斷地位，為其構築了幾乎無法逾越的專利與監管壁壘，確保了其在市場上的獨特地位，使潛在競爭者望而卻步。",
+    "comment_en": "Lockheed Martin holds countless patents and core technologies in the defense sector, often the culmination of decades of R&D, many developed in collaboration with governments and protected by stringent intellectual property rights. Crucially, the defense industry is heavily regulated by governments worldwide, presenting extremely high barriers to entry, requiring complex licenses, security certifications, and lengthy approval processes. This highly regulated environment, coupled with the company's monopolistic position in critical technologies, constructs an almost insurmountable patent and regulatory moat, securing its unique market position and deterring potential competitors."
   },
   "m3_high_switching_costs": {
-    "score": 9,
-    "comment": "Lockheed Martin的產品具有極高的客戶黏性與替代成本。一旦各國軍方採用其複雜的武器系統，如F-35戰機或C-130運輸機，轉換至其他供應商的成本將是天文數字。這不僅包括巨額的硬體採購費用，更涵蓋了飛行員與維修人員的重新培訓、後勤供應鏈的重建、基礎設施的改造以及與現有系統的互操作性問題。這種深度嵌入客戶作戰體系的特性，使得客戶即使面對潛在的替代方案，也因轉換成本過高而難以割捨，確保了LMT長期穩定的訂單與服務收入。"
+    "score": 10,
+    "comment_zh": "洛克希德馬丁的產品，如F-35戰鬥機或導彈防禦系統，一旦被國家軍隊採用，其轉換成本幾乎是天文數字。這不僅包括採購新系統的巨額開支，更涉及飛行員、維修人員的重新培訓、現有基礎設施的改造、備件供應鏈的重建，以及與盟友系統的互操作性問題。任何轉換都可能導致嚴重的作戰能力中斷和國家安全風險。這種深度整合和高昂的替換成本，使得客戶對洛克希德馬丁的產品產生極強的黏性，確保了長期穩定的訂單與服務收入。",
+    "comment_en": "Once adopted by national militaries, Lockheed Martin's products, such as the F-35 fighter jets or missile defense systems, entail astronomical switching costs. This encompasses not only the immense expense of procuring new systems but also retraining pilots and maintenance personnel, reconfiguring existing infrastructure, rebuilding spare parts supply chains, and addressing interoperability issues with allied systems. Any transition could lead to severe operational disruptions and national security risks. This deep integration and prohibitive replacement cost create extremely high customer stickiness for Lockheed Martin's products, ensuring long-term stable orders and service revenues."
   },
   "m4_network_effects": {
-    "score": 7,
-    "comment": "儘管Lockheed Martin不像社交媒體那樣具備直接的網絡效應，但在國防領域，其產品生態系統仍展現出間接的網絡優勢。例如，F-35戰機被多個盟國廣泛採用，這促進了共同的訓練標準、維護協議和零部件供應鏈，降低了各國的運營成本並增強了聯合作戰能力。這種廣泛的採用基礎，使得更多國家傾向於加入此生態系統，進一步鞏固了LMT的市場地位。此外，龐大的用戶群也吸引了頂尖人才和供應商，形成良性循環，提升了整體價值。"
+    "score": 8,
+    "comment_zh": "洛克希德馬丁的產品雖然不具備典型的消費級網絡效應，但在國防領域卻存在獨特的「聯盟網絡效應」。當多個盟國採用相同的LMT系統（例如F-35戰鬥機），這會極大地增強盟友間的互操作性、簡化聯合訓練與維護流程，並形成更大的備件與升級共享池。每個新加入的國家都使得該系統對所有參與者更有價值，因為它提升了集體防禦能力和效率。這種效應鞏固了LMT在國際軍事合作中的核心地位，使其產品更具吸引力。",
+    "comment_en": "While not exhibiting typical consumer-level network effects, Lockheed Martin's products possess a unique \"alliance network effect\" in the defense sector. When multiple allied nations adopt the same LMT system (e.g., the F-35 fighter jet), it significantly enhances interoperability among allies, streamlines joint training and maintenance processes, and creates a larger shared pool for spare parts and upgrades. Each new participating nation makes the system more valuable to all involved, as it boosts collective defense capabilities and efficiency. This effect solidifies LMT's central role in international military cooperation, making its products even more attractive."
   },
   "m5_cost_advantage_scale": {
-    "score": 8,
-    "comment": "Lockheed Martin在國防工業中享有顯著的規模經濟優勢。其龐大的研發投入（如F-35項目耗資數千億美元）和大規模生產能力，使其能夠分攤高昂的固定成本，並以更低的單位成本生產複雜的軍事裝備。這種規模效應不僅體現在製造環節，也延伸至全球供應鏈管理和技術創新。小型競爭者難以匹配LMT的資金實力與生產規模，無法在成本上與之抗衡。這使得LMT能夠在競標大型政府合約時佔據優勢，並維持其在市場中的領導地位。"
+    "score": 9,
+    "comment_zh": "作為全球最大的國防承包商之一，洛克希德馬丁享有無與倫比的規模經濟優勢。其龐大的體量使其能夠投入巨額資金進行尖端研發，並在全球範圍內建立高效的供應鏈，以更低的成本採購原材料和組件。對於F-35這類複雜的軍事項目，其生產規模和技術積累是小型競爭對手無法望其項背的。這種規模優勢不僅降低了單位成本，也使其能夠承接其他公司無法完成的超大型、高風險項目，進一步鞏固其市場領導地位。",
+    "comment_en": "As one of the world's largest defense contractors, Lockheed Martin enjoys unparalleled economies of scale. Its immense size allows for massive investments in cutting-edge R&D and the establishment of highly efficient global supply chains, procuring raw materials and components at lower costs. For complex military projects like the F-35, its production scale and technological accumulation are unmatched by smaller competitors. This scale advantage not only reduces unit costs but also enables it to undertake super-large, high-risk projects that other companies cannot, further solidifying its market leadership."
   },
   "m6_unique_geography_assets": {
-    "score": 9,
-    "comment": "Lockheed Martin所處的國防工業，特別是高端武器系統領域，是一個典型的天然寡占市場。由於產品的極端複雜性、高昂的研發成本、漫長的開發週期以及嚴格的政府監管，市場容量有限且進入壁壘極高。只有少數幾家公司具備足夠的技術、資金和經驗參與競爭。新競爭者進入只會導致市場份額被稀釋，利潤率下降，形成雙輸局面。這種「高效規模」的特性，使得LMT能夠在有限的市場中保持穩定的高份額和盈利能力，避免了過度競爭。"
+    "score": 10,
+    "comment_zh": "洛克希德馬丁所處的國防工業，特別是尖端武器系統領域，本身就是一個天然的寡頭市場。全球具備採購能力和需求的國家數量有限，且對特定高性能軍事裝備的需求也相對固定。在這種市場中，新競爭者若要投入數百億美元、耗費數十年時間來開發類似F-35的產品，不僅風險巨大，更可能導致市場供過於求，最終損害所有參與者的利益。這種「高效規模」的特性，使得現有少數幾家巨頭能夠維持穩定的市場份額和利潤，形成堅不可摧的寡占格局。",
+    "comment_en": "Lockheed Martin operates within the defense industry, particularly in advanced weapon systems, which is inherently a natural oligopoly. The number of nations with procurement capabilities and demand is limited, and the need for specific high-performance military equipment is relatively fixed. In such a market, a new competitor investing tens of billions of dollars and decades to develop a product similar to the F-35 would face immense risks and likely lead to market oversupply, ultimately harming all participants. This \"efficient scale\" characteristic allows a few existing giants to maintain stable market share and profits, forming an unshakeable oligopolistic structure."
   },
   "m7_operational_efficiency": {
-    "score": 8,
-    "comment": "Lockheed Martin展現出卓越的長週期超額投入資本回報率韌性。其高達71.7%的股東權益報酬率（ROE）和10.1%的資產報酬率（ROA），遠超行業平均水平和其加權平均資本成本（WACC），證明了公司能夠持續為股東創造價值。這得益於其穩定的政府訂單、高利潤率的服務合約以及強大的定價權。即使在國防預算波動時期，LMT也能憑藉其核心產品的不可或缺性，維持穩健的現金流和盈利能力，體現了其護城河的深度和持久性。"
+    "score": 9,
+    "comment_zh": "洛克希德馬丁展現出卓越的資本回報能力，其高達71.7%的股東權益報酬率（ROE）和10.1%的資產報酬率（ROA）在資本密集型產業中表現突出。儘管未提供加權平均資本成本（WACC），但憑藉其穩定的政府合約和強健的財務狀況，其資本成本預計相對較低。公司能夠長期將投入資本回報率（ROIC）維持在遠高於WACC的水平，這證明了其強大的定價權、規模經濟和運營效率，使其能夠持續為股東創造超額價值，體現了其護城河的韌性。",
+    "comment_en": "Lockheed Martin demonstrates exceptional capital return capabilities, with an impressive Return on Equity (ROE) of 71.7% and Return on Assets (ROA) of 10.1% for a capital-intensive industry. Although the Weighted Average Cost of Capital (WACC) is not provided, given its stable government contracts and robust financial health, its cost of capital is likely relatively low. The company consistently maintains a Return on Invested Capital (ROIC) significantly above its WACC over the long term, proving its strong pricing power, economies of scale, and operational efficiency. This enables it to continuously create excess value for shareholders, reflecting the resilience of its economic moat."
   },
   "m8_capital_allocation": {
     "score": 10,
-    "comment": "Lockheed Martin的核心戰略資產幾乎不可複製。即使給予競爭對手千億美元，也無法在短時間內複製其數十年積累的尖端技術、高度專業化的工程師團隊、與政府建立的深厚信任關係、全球化的供應鏈網絡以及機密設施。這些無形資產是LMT長期投入巨額研發、人才培養和戰略合作的結晶。其獨特的技術知識、運營經驗和政府認證，構成了極高的進入壁壘，使得任何潛在競爭者都難以望其項背，確保了LMT的長期競爭優勢。"
+    "comment_zh": "即使給予競爭對手千億美元資金，也幾乎不可能在數年內複製洛克希德馬丁的核心戰略資產。這不僅包括其數十年累積的尖端知識產權、高度專業化的工程師團隊、與全球各國政府建立的深厚信任關係，還有其複雜且高度整合的全球供應鏈和製造基礎設施。國防工業的嚴格監管、漫長的產品開發與認證週期，以及對國家安全至關重要的歷史聲譽，都使得其護城河具有極高的不可複製性，是時間和經驗的結晶，而非單純資本投入可及。",
+    "comment_en": "Even with a hundred billion dollars, it would be virtually impossible for a competitor to replicate Lockheed Martin's core strategic assets within a few years. This includes its decades of accumulated cutting-edge intellectual property, highly specialized engineering teams, deep trust relationships established with governments worldwide, and its complex, highly integrated global supply chain and manufacturing infrastructure. The stringent regulations of the defense industry, the lengthy product development and certification cycles, and the historical reputation crucial for national security all contribute to an extremely high irreproducibility of its moat, a culmination of time and experience, not merely capital investment."
   },
   "m9_customer_retention": {
-    "score": 8,
-    "comment": "Lockheed Martin在技術/典範轉移方面具有較強的抗性。雖然國防技術不斷演進，但國家安全的需求本質上是持久且不斷升級的。LMT作為行業領導者，本身就是技術創新的主要推動者，而非被動應對者。例如，人工智慧和量子計算等新興技術，更多是被整合到其現有產品中，提升性能，而非完全顛覆對實體武器系統的需求。其產品的生命週期長，且升級換代過程緩慢而審慎，使得公司有充足時間適應和引領技術變革，確保其市場地位。"
+    "score": 9,
+    "comment_zh": "洛克希德馬丁所處的國防領域，對技術變革或典範轉移具有強大的抗性。儘管技術不斷演進，但國家安全的核心需求是永恆且高度確定的，不會像消費品市場那樣受到快速顛覆。公司本身就是許多尖端技術（包括AI在國防應用）的引領者和整合者。其產品的超長生命週期、嚴格的測試驗證流程以及政府客戶對穩定性和可靠性的極高要求，使得其業務對突發性技術顛覆具有天然的免疫力，確保了長期穩定的需求。",
+    "comment_en": "Lockheed Martin operates in the defense sector, which exhibits strong resistance to technological shifts or paradigm changes. While technology continuously evolves, the core demand for national security is eternal and highly certain, unlike consumer markets that face rapid disruption. The company itself is a leader and integrator of many cutting-edge technologies, including AI in defense applications. The ultra-long lifecycle of its products, stringent testing and validation processes, and government clients' extremely high demands for stability and reliability provide its business with natural immunity against sudden technological disruption, ensuring long-term stable demand."
   },
   "m10_durability": {
     "score": 8,
-    "comment": "Lockheed Martin的管理層在資本配置方面表現出穩健與誠信。公司擁有強勁的自由現金流（FCF TTM $8,729.0 M），並持續通過派發股息和股票回購來回報股東。其歷史上避免了盲目溢價併購，而是專注於核心業務的有機增長和戰略性小型收購，以強化技術優勢。儘管負債總額較高（$20,538.0M），但穩定的政府合約確保了現金流的可靠性，使得債務管理在可控範圍內。這種審慎的資本管理策略，符合巴菲特對股東利益最大化的期望。"
+    "comment_zh": "洛克希德馬丁的管理層在資本配置方面表現出穩健與對股東負責的態度。公司長期以來維持穩定的股息發放，並在適當時機進行股票回購，以提升股東價值。其高達87億美元的自由現金流（FCF TTM）為這些行動提供了堅實基礎。儘管國防產業存在併購，但通常是戰略性且受政府監督的，而非盲目溢價。公司在維持強勁財務狀況（現金37億美元，總負債205億美元，對其規模而言可控）的同時，有效利用資本創造高回報，顯示出其管理層的誠信與審慎。",
+    "comment_en": "Lockheed Martin's management demonstrates a steady and shareholder-responsible approach to capital allocation. The company has a long history of consistent dividend payments and opportunistic share buybacks to enhance shareholder value. Its substantial Free Cash Flow (FCF TTM) of $8.7 billion provides a strong foundation for these actions. While M&A occurs in the defense industry, it is typically strategic and government-supervised, not blind overpaying. The company effectively utilizes capital to generate high returns while maintaining a robust financial position (cash $3.7B, total debt $20.5B, manageable for its scale), indicating management's integrity and prudence."
   },
-  "overall_moat_verdict": "Lockheed Martin是一家具備極深護城河的「特許經營權」企業，其核心競爭壁壘源於其在國家安全領域的不可或缺性。公司如同一個收取「國家安全稅」的收費橋樑，憑藉其獨特的尖端技術、高度機密的專利集群和與政府的深厚關係，構築了幾乎無法逾越的進入壁壘。極高的客戶轉換成本、規模經濟優勢以及在高端國防市場的天然寡占地位，確保了其強大的定價權和穩定的超額資本回報。LMT的護城河不僅是技術和資本的堆砌，更是數十年信任、經驗和戰略合作的結晶，使其能夠長期抵禦競爭和技術變革的衝擊，為股東創造持續的價值。"
+  "overall_moat_verdict_zh": "洛克希德馬丁本質上是一家在國防領域擁有「特許經營權」的企業，其護城河堅不可摧。這家公司不僅是尖端科技的領導者，更與全球各國政府建立了數十年如一日的深厚信任與合作關係。其產品涉及國家安全核心利益，使得客戶轉換成本高昂，且市場進入壁壘極高，新競爭者幾乎無法立足。公司憑藉其規模經濟、專利技術和嚴格的監管環境，在一個天然寡占的市場中享有強大的定價權和穩定的需求。這是一個政府「必須」依賴的關鍵供應商，其核心資產幾乎無法被複製，確保了其長期穩定的超額回報能力。",
+  "overall_moat_verdict_en": "Lockheed Martin is fundamentally a \"franchise\" business within the defense sector, possessing an unassailable economic moat. This company is not only a leader in cutting-edge technology but has also cultivated decades-long, deep trust and cooperative relationships with governments worldwide. Its products involve core national security interests, leading to prohibitively high customer switching costs and extremely high barriers to market entry, making it nearly impossible for new competitors to establish themselves. Leveraging its economies of scale, proprietary technology, and stringent regulatory environment, the company enjoys strong pricing power and stable demand in a natural oligopoly market. It is a critical supplier that governments \"must\" rely on, with core assets that are virtually irreproducible, ensuring its long-term ability to generate superior returns."
 }

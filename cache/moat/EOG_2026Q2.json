@@ -3,43 +3,54 @@
   "period": "2026Q2",
   "m1_brand_pricing": {
     "score": 3,
-    "comment": "EOG身處高度商品化的石油與天然氣產業，其產品價格主要受全球供需與地緣政治影響，而非品牌認知度。儘管EOG在業界以卓越的營運效率和執行力著稱，這有助於其成本控制，但對終端消費者而言，原油與天然氣並無品牌忠誠度可言。因此，EOG缺乏巴菲特所推崇的、能讓客戶即使加價也離不開的強大定價權，其盈利能力更多依賴於成本優勢而非品牌溢價。"
+    "comment_zh": "EOG Resources身處高度商品化的石油與天然氣產業，其產品價格主要受全球供需關係影響，而非公司自身品牌或定價策略。儘管EOG以其卓越的營運效率和優質的儲備資產聞名，使其能成為低成本生產者，但這並未賦予其超越市場的定價權。消費者或煉油廠購買的是標準化的原油或天然氣，而非EOG的「品牌」產品。因此，其定價能力極為有限，難以在不犧牲銷量的前提下提高價格，這與巴菲特青睞的特許經營權企業形成鮮明對比。",
+    "comment_en": "EOG Resources operates in the highly commoditized oil and natural gas industry, where product prices are primarily dictated by global supply and demand, not by the company's brand or pricing strategy. While EOG is recognized for its operational excellence and high-quality reserve assets, enabling it to be a low-cost producer, this does not grant it pricing power beyond market rates. Consumers or refineries purchase standardized crude oil or natural gas, not a \"branded\" EOG product. Consequently, its ability to unilaterally raise prices without sacrificing sales is extremely limited, contrasting sharply with Buffett's preferred franchise-like businesses."
   },
   "m2_patents_regulatory": {
-    "score": 6,
-    "comment": "石油與天然氣產業的進入門檻主要體現在嚴格的環境法規、鑽探許可與龐大的資本支出。EOG在獲取優質鑽探區塊（如Permian盆地）的長期租賃權與開發許可方面具備優勢，這些許可證構成了一種區域性的特許經營權。雖然其鑽探技術可能不具備絕對專利壁壘，但複雜的監管環境與取得關鍵資產的難度，確實為新進者設置了顯著障礙，使其能相對穩定地經營。"
+    "score": 5,
+    "comment_zh": "EOG Resources在石油與天然氣勘探生產領域，其核心競爭力更多體現在技術應用與營運效率上，而非獨家專利壁壘。雖然公司在水平鑽井和壓裂技術方面擁有豐富經驗和優勢，但這些技術在行業內已相對普及，競爭對手亦可學習或採用類似方法。主要的「特許」來自於油氣租賃權和政府許可，這些是進入行業的必要條件，但通常不構成EOG獨有的、難以複製的壟斷性優勢。嚴格的環境法規雖提高行業門檻，但對所有參與者一視同仁，並非EOG的專屬護城河。",
+    "comment_en": "EOG Resources' core competitive edge in oil and gas exploration and production lies more in its technological application and operational efficiency rather than exclusive patent barriers. While the company possesses extensive experience and advantages in horizontal drilling and hydraulic fracturing, these techniques are relatively widespread within the industry, and competitors can adopt similar methods. The primary \"regulatory\" aspect stems from oil and gas leases and government permits, which are necessary for industry entry but typically do not confer a unique, irreplicable monopolistic advantage to EOG. Strict environmental regulations, while raising industry barriers, apply equally to all participants and do not serve as an exclusive moat for EOG."
   },
   "m3_high_switching_costs": {
-    "score": 2,
-    "comment": "對於EOG的客戶（煉油廠、天然氣分銷商）而言，原油和天然氣是標準化商品，轉換供應商的成本極低，幾乎可以忽略不計。客戶選擇供應商主要基於價格、供應穩定性與物流效率。EOG的優勢在於其可靠的供應能力和具競爭力的成本結構，而非讓客戶因轉換成本過高而無法離開。這與巴菲特青睞的、能鎖定客戶的商業模式存在本質差異。"
+    "score": 3,
+    "comment_zh": "對於EOG Resources的客戶，主要是煉油廠或中游管道公司而言，其採購的是標準化的原油或天然氣商品。儘管可能存在長期供應合約，但從一家生產商轉換到另一家，只要產品品質和物流條件相似，其轉換成本相對較低。買家並不需要承擔因更換供應商而導致的重大營運中斷或高昂的技術遷移費用。這與軟體或服務業中常見的客戶黏性截然不同，EOG的產品本質決定了其客戶轉換成本護城河極為薄弱。",
+    "comment_en": "For EOG Resources' customers, primarily refineries or midstream pipeline companies, they are purchasing standardized crude oil or natural gas commodities. While long-term supply contracts may exist, the switching cost for a buyer to transition from one producer to another is relatively low, assuming comparable product quality and logistical conditions. Buyers do not incur significant operational disruptions or high technical migration costs due to changing suppliers. This differs sharply from the customer stickiness often seen in software or service industries; the commodity nature of EOG's product dictates a very weak switching cost moat."
   },
   "m4_network_effects": {
     "score": 0,
-    "comment": "EOG所處的油氣勘探與生產行業，其商業模式不具備網絡效應。公司的價值不會因更多用戶或生產者加入而呈幾何級數增長。網絡效應通常存在於平台型、社交媒體或科技生態系統中，而EOG的核心業務是從地下提取並銷售商品，其價值創造與網絡規模無關。因此，此維度對EOG而言不適用，亦無任何護城河可言。"
+    "comment_zh": "EOG Resources作為一家石油與天然氣勘探生產公司，其商業模式本質上不具備網絡效應。網絡效應通常存在於平台型或服務型企業，即每增加一個用戶，會顯著提升整個生態系統對所有參與者的價值。然而，EOG的價值創造來自於其勘探、鑽井和生產油氣的能力，而非用戶之間的互動或連接。其產品是實體商品，不依賴於用戶群體的規模來增強其吸引力或效用。因此，網絡效應對EOG而言，並非其護城河的來源。",
+    "comment_en": "As an oil and natural gas exploration and production company, EOG Resources' business model inherently lacks network effects. Network effects typically exist in platform or service-oriented businesses, where each additional user significantly enhances the value of the entire ecosystem for all participants. However, EOG's value creation stems from its ability to explore, drill, and produce oil and gas, not from interactions or connections among users. Its products are physical commodities and do not rely on the size of a user base to augment their attractiveness or utility. Therefore, network effects do not serve as a source of moat for EOG."
   },
   "m5_cost_advantage_scale": {
     "score": 8,
-    "comment": "EOG在主要產區（如Permian和Eagle Ford）擁有大規模的優質資產組合，使其能實現顯著的規模經濟。公司透過標準化作業流程、優化鑽井技術與供應鏈管理，持續降低單位生產成本。其卓越的「工藝」體現在高效的鑽探與完井技術，能以行業領先的低邊際成本開採油氣，即使在油價波動時也能保持盈利。這種成本優勢是其核心競爭力，難以被小型競爭者複製。"
+    "comment_zh": "EOG Resources憑藉其龐大的規模和在多個核心盆地的優質資產，實現了顯著的規模經濟。公司能夠大規模部署先進的鑽井和完井技術，優化供應鏈，並與服務供應商談判更優惠的條款，從而有效降低單位生產成本。其「優質鑽井」策略和卓越的營運執行力，使其在行業中保持領先的成本優勢，能夠在油價波動時依然保持盈利能力。這種規模帶來的成本領先，是小型競爭者難以複製的，構成了一道堅實的護城河，符合巴菲特對低成本生產者的青睞。",
+    "comment_en": "EOG Resources, leveraging its substantial scale and high-quality assets across multiple core basins, has achieved significant economies of scale. The company can deploy advanced drilling and completion technologies on a large scale, optimize its supply chain, and negotiate more favorable terms with service providers, thereby effectively reducing its unit production costs. Its \"premium drilling\" strategy and superior operational execution enable it to maintain a leading cost advantage in the industry, allowing it to remain profitable even during oil price fluctuations. This scale-driven cost leadership is difficult for smaller competitors to replicate, forming a robust moat that aligns with Buffett's preference for low-cost producers."
   },
   "m6_unique_geography_assets": {
     "score": 7,
-    "comment": "儘管全球油氣市場龐大，但優質、低成本的「甜點區塊」是有限的。EOG透過長期策略性地獲取並鞏固了這些高回報的鑽探資產，形成了區域性的「有效規模」優勢。在這些特定盆地，新競爭者若想進入並與EOG競爭，將面臨極高的土地獲取成本和開發風險，很難達到EOG的成本效益。這種對稀缺優質資源的佔有，創造了一種天然的寡占壁壘。"
+    "comment_zh": "儘管全球石油與天然氣市場競爭激烈，但EOG Resources透過策略性地集中其在北美主要頁岩盆地（如Permian、Eagle Ford）的優質資產，形成了區域性的「高效規模」優勢。公司在這些核心區域擁有大量高品位儲量和成熟的基礎設施，使其能夠以更低的成本和更高的效率進行勘探與生產。這種對特定地理區位優質資源的控制，使得新進入者難以在同等條件下競爭，因為最佳的鑽探地點已被EOG等領先者佔據。這雖非傳統意義上的寡占，卻是資源稀缺性帶來的強大壁壘。",
+    "comment_en": "Although the global oil and natural gas market is highly competitive, EOG Resources has established a regional \"efficient scale\" advantage by strategically concentrating its high-quality assets in major North American shale basins (e.g., Permian, Eagle Ford). The company possesses substantial premium reserves and mature infrastructure in these core areas, enabling it to conduct exploration and production at lower costs and higher efficiency. This control over prime resources in specific geographical locations makes it difficult for new entrants to compete on equal terms, as the best drilling locations are already secured by leaders like EOG. While not a traditional oligopoly, it represents a strong barrier derived from resource scarcity."
   },
   "m7_operational_efficiency": {
     "score": 8,
-    "comment": "EOG展現出卓越的資本配置紀律，其高達21.6%的ROE和12.6%的ROA，以及8/9的皮氏F-Score，均表明公司能持續創造遠超加權平均資本成本（WACC）的超額回報。這得益於其專注於高回報項目、嚴格的成本控制和高效的營運。這種持續的資本回報能力是巴菲特衡量企業內在價值創造的關鍵指標，證明EOG具備強大的盈利韌性。"
+    "comment_zh": "EOG Resources展現出卓越的資本回報能力，其21.6%的股東權益報酬率（ROE）和12.6%的資產報酬率（ROA）在資本密集型的油氣產業中表現突出。這表明公司能夠持續有效地將投入資本轉化為豐厚利潤，遠超其加權平均資本成本（WACC）。高於行業平均水平的ROIC韌性，是巴菲特衡量企業護城河深度的關鍵指標之一，它證明了EOG不僅能賺錢，還能以高效率賺錢，並將這些利潤再投資於高回報項目，為股東創造長期複利價值。",
+    "comment_en": "EOG Resources demonstrates exceptional capital returns, with a 21.6% Return on Equity (ROE) and 12.6% Return on Assets (ROA), which are outstanding in the capital-intensive oil and gas industry. This indicates the company consistently and effectively converts invested capital into substantial profits, significantly exceeding its Weighted Average Cost of Capital (WACC). A resilient ROIC consistently above the industry average is one of Buffett's key metrics for assessing the depth of a company's moat. It proves that EOG not only generates profits but does so with high efficiency, reinvesting these earnings into high-return projects to create long-term compounding value for shareholders."
   },
   "m8_capital_allocation": {
-    "score": 7,
-    "comment": "即使給予競爭對手千億美元，也難以在短時間內複製EOG的核心戰略資產。這不僅包括其在優質油氣盆地累積的龐大且低成本的鑽探區塊，更重要的是其數十年來沉澱的專有地質知識、高效的營運文化、技術專長以及與供應商建立的深厚關係。這些無形資產和時間積累的經驗，是金錢無法快速買到的，構成了EOG難以被模仿的獨特壁壘。"
+    "score": 8,
+    "comment_zh": "EOG Resources的戰略資產，特別是其在北美主要頁岩盆地累積的龐大且優質的鑽探儲備，以及數十年來沉澱的勘探開發經驗和營運效率，是極難在短時間內複製的。即使給予競爭對手千億美元資金，也無法立即獲得同等規模和品質的油氣租賃權，更無法迅速建立起EOG所擁有的深厚地質知識、技術專長和高效的組織文化。這些無形資產和稀缺的優質資源組合，構成了EOG獨特的、不可複製的競爭優勢，為其提供了堅實的護城河。",
+    "comment_en": "EOG Resources' strategic assets, particularly its vast and high-quality drilling inventory accumulated in major North American shale basins, coupled with decades of accumulated exploration and development experience and operational efficiency, are extremely difficult to replicate in a short period. Even with a hundred billion dollars, a competitor could not immediately acquire an equivalent scale and quality of oil and gas leases, nor could they quickly establish EOG's deep geological knowledge, technical expertise, and highly efficient organizational culture. These intangible assets and the combination of scarce, premium resources constitute EOG's unique, irreproducible competitive advantage, providing it with a robust moat."
   },
   "m9_customer_retention": {
-    "score": 6,
-    "comment": "儘管全球能源轉型趨勢明顯，但石油和天然氣在未來數十年內仍將是全球經濟不可或缺的基礎能源，尤其在交通、工業和石化領域。EOG作為低成本生產商，即使在能源結構轉變的過程中，也能憑藉其成本優勢保持競爭力。然而，長期來看，對化石燃料需求的結構性下降仍是潛在風險。EOG的抗性來自於其產品的基礎性需求和成本領先地位。"
+    "score": 4,
+    "comment_zh": "EOG Resources作為化石燃料生產商，其長期需求面臨來自全球能源轉型和可再生能源發展的潛在顛覆性風險。儘管在可預見的未來，石油和天然氣仍將是全球能源結構和石化工業不可或缺的一部分，但長期來看，對化石燃料的需求確定性正在逐步減弱。EOG雖透過成為低成本生產者來增強其在行業變革中的韌性，但其產品本質決定了它無法完全免疫於技術典範轉移。這是一道需要持續關注的長期風險，限制了其護城河的堅固性。",
+    "comment_en": "As a fossil fuel producer, EOG Resources faces potential disruptive risks to its long-term demand from global energy transition and renewable energy development. While oil and natural gas will remain indispensable components of the global energy mix and petrochemical industry for the foreseeable future, the long-term certainty of demand for fossil fuels is gradually diminishing. Although EOG enhances its resilience amidst industry changes by being a low-cost producer, the inherent nature of its product means it cannot be entirely immune to technological paradigm shifts. This represents a long-term risk that requires continuous monitoring, thereby limiting the robustness of its moat."
   },
   "m10_durability": {
-    "score": 9,
-    "comment": "EOG的管理層展現出高度的資本配置紀律，這與巴菲特強調的「理性資本配置者」理念高度契合。公司優先償還債務、透過股息和股票回購將大量自由現金流回饋股東，並避免盲目溢價併購。其穩健的財務狀況（現金49億美元，總負債82.5億美元）和高FCF證明了管理層的審慎。這種以股東價值為導向的決策，是其長期成功的關鍵。"
+    "score": 8,
+    "comment_zh": "EOG Resources的管理層展現出高度的資本配置紀律性與股東導向。公司長期堅持「優質鑽井」策略，將資本投入到回報率最高的項目中，有效提升了整體盈利能力和現金流。同時，EOG在財務健康的前提下，透過穩健的股息發放和積極的股票回購，將超額現金流返還給股東，而非盲目進行高溢價併購。其強勁的自由現金流和健康的資產負債表，為管理層提供了靈活的資本配置空間，這種對股東價值最大化的承諾，是巴菲特高度重視的護城河要素。",
+    "comment_en": "EOG Resources' management demonstrates a high degree of capital allocation discipline and shareholder orientation. The company consistently adheres to its \"premium drilling\" strategy, deploying capital into projects with the highest returns, thereby effectively enhancing overall profitability and cash flow. Concurrently, with a healthy financial position, EOG returns excess cash flow to shareholders through stable dividends and active share buybacks, rather than pursuing blind, high-premium acquisitions. Its robust free cash flow and healthy balance sheet provide management with flexible capital allocation options. This commitment to maximizing shareholder value is a moat factor highly valued by Warren Buffett."
   },
-  "overall_moat_verdict": "EOG Resources本質上是一家高效的「商品型企業」，但其護城河並非來自品牌或網絡效應，而是源於卓越的「營運效率」與對「稀缺優質資產」的佔有。公司在關鍵油氣盆地擁有低成本、高回報的鑽探區塊，結合其領先的鑽探技術和嚴格的成本控制，使其能持續創造高於行業平均的資本回報。管理層的資本配置紀律，將大量自由現金流回饋股東，進一步鞏固了其作為優質能源生產商的地位。這使其在商品市場中，仍能展現出類似「收費橋樑」般的穩定盈利能力。"
+  "overall_moat_verdict_zh": "EOG Resources本質上是一家高效營運的商品型企業，而非巴菲特定義的特許經營權公司。其護城河主要來自於在特定優質地理區位（如北美頁岩盆地）的規模經濟、卓越的營運效率和低成本生產優勢，以及管理層紀律性的資本配置。這些因素使其在波動的油氣市場中具備更強的韌性和盈利能力，能夠持續產生高於資本成本的回報。然而，作為商品生產商，其定價權和客戶轉換成本極為有限，且長期面臨能源轉型的顛覆性風險。因此，EOG的護城河是堅固的「成本優勢」和「稀缺資源」型護城河，但並非「品牌」或「網絡效應」型護城河。",
+  "overall_moat_verdict_en": "EOG Resources is fundamentally a highly efficient commodity business, rather than a franchise company as defined by Buffett. Its moat primarily stems from economies of scale in specific premium geographical locations (e.g., North American shale basins), superior operational efficiency, and a low-cost production advantage, coupled with disciplined capital allocation by management. These factors provide it with greater resilience and profitability in the volatile oil and gas market, enabling it to consistently generate returns above its cost of capital. However, as a commodity producer, its pricing power and customer switching costs are extremely limited, and it faces long-term disruptive risks from the energy transition. Therefore, EOG possesses a robust \"cost advantage\" and \"scarce resource\" type of moat, but not a \"brand\" or \"network effect\" type of moat."
 }

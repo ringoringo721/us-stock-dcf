@@ -3,43 +3,54 @@
   "period": "2026Q2",
   "m1_brand_pricing": {
     "score": 8,
-    "comment": "Graco在工業流體處理設備領域建立了卓越的品牌聲譽，其產品因可靠性、耐用性和精準性而備受客戶信賴。在許多關鍵生產流程中，Graco的設備是不可或缺的，客戶更重視設備的穩定運行而非價格差異。這種心智佔領使得公司在面對成本上升時，具備較強的提價能力，且不會顯著影響銷量。巴菲特強調的「消費者特許權」在此有所體現，客戶對Graco的信任轉化為其穩固的定價權，使其能持續創造超額利潤。"
+    "comment_zh": "Graco在工業流體處理設備領域建立了卓越的品牌聲譽，其產品以高可靠性與耐用性著稱。在關鍵工業應用中，客戶更重視設備的穩定運行與性能，而非微小的價格差異。這種心智佔領使得Graco擁有強大的定價權，即使提高價格，客戶也因其產品的不可或缺性與長期價值而難以轉向競爭對手。這反映了巴菲特所強調的「無形資產」護城河，讓公司能持續享有超額利潤，而非淪為商品化競爭。",
+    "comment_en": "Graco has cultivated an exceptional brand reputation in industrial fluid handling equipment, known for its high reliability and durability. In critical industrial applications, customers prioritize operational stability and performance over marginal price differences. This strong brand perception grants Graco significant pricing power; even with price increases, customers are reluctant to switch due to the essential nature and long-term value of its products. This exemplifies Buffett's \"intangible assets\" moat, allowing the company to consistently earn above-average profits rather than being trapped in commodity competition."
   },
   "m2_patents_regulatory": {
-    "score": 7,
-    "comment": "Graco在流體處理技術領域擁有深厚的工程積累和潛在的專利組合，這些專有技術為其產品提供了性能優勢和差異化。雖然不像製藥業那樣依賴單一專利，但其技術壁壘使得新進入者難以在短期內複製其產品性能和可靠性。此外，某些工業應用可能涉及特定的行業標準或認證，Graco作為行業領導者，在滿足這些要求方面具備經驗優勢，進一步鞏固了其市場地位，形成了一種技術上的「護城河」。"
+    "score": 6,
+    "comment_zh": "儘管Graco在流體處理技術領域擁有專有設計與創新，並持續投入研發，但工業機械行業的專利壁壘通常不如製藥或高科技領域那般絕對。其護城河更多體現在技術累積與製造工藝上，而非單一專利壟斷。雖然符合行業標準與法規是進入市場的必要條件，這構成了一定的進入門檻，但並未形成排他性的特許經營權。因此，專利與法規對Graco而言是防禦性優勢的一部分，但並非其最核心的護城河。",
+    "comment_en": "While Graco possesses proprietary designs and innovations in fluid handling technology and continuously invests in R&D, patent barriers in the industrial machinery sector are typically not as absolute as in pharmaceuticals or high-tech. Its moat is more rooted in accumulated technical expertise and manufacturing processes rather than singular patent monopolies. Although compliance with industry standards and regulations is a prerequisite for market entry, forming a certain barrier, it does not create an exclusive franchise. Thus, patents and regulations contribute to Graco's defensive advantages but are not its primary moat."
   },
   "m3_high_switching_costs": {
-    "score": 9,
-    "comment": "Graco的流體處理系統通常深度整合到客戶的生產線和操作流程中。一旦客戶採用Graco設備，更換供應商將涉及高昂的轉換成本，包括重新設計生產線、員工培訓、兼容性問題以及潛在的停機時間。對於工業客戶而言，生產中斷的成本遠超設備本身的價格。這種「鎖定效應」創造了極高的客戶黏性，確保了重複銷售和服務收入，是巴菲特所珍視的強大護城河，使得Graco能夠長期保持穩定的客戶群和盈利能力。"
+    "score": 8,
+    "comment_zh": "Graco的工業設備通常深度整合於客戶的生產流程中，更換供應商會帶來顯著的轉換成本。這不僅包括重新採購設備的財務支出，還涉及員工培訓、系統兼容性調整、潛在的生產中斷風險以及對新供應商可靠性的不確定性。對於依賴這些設備維持生產效率的工業客戶而言，轉換成本遠超設備本身的價格差異。這種高轉換成本形成了一道堅實的護城河，鎖定客戶並確保了穩定的重複性收入。",
+    "comment_en": "Graco's industrial equipment is often deeply integrated into customers' production processes, making switching suppliers entail significant costs. These include not only the financial outlay for new equipment but also employee training, system compatibility adjustments, potential production downtime risks, and uncertainty about a new supplier's reliability. For industrial clients relying on this equipment for production efficiency, switching costs far outweigh any price difference in the equipment itself. This high switching cost creates a robust moat, locking in customers and ensuring stable recurring revenue."
   },
   "m4_network_effects": {
     "score": 3,
-    "comment": "Graco作為一家工業機械製造商，其商業模式本質上不具備傳統意義上的網絡效應。其產品的價值並不會因為更多用戶的加入而對所有現有用戶產生幾何級數的提升。儘管龐大的安裝基礎可能帶來更廣泛的服務網絡或配件需求，但這並非典型的網絡效應。因此，此項護城河對Graco的競爭優勢貢獻有限，與社交媒體或平台型企業的網絡效應有本質區別，不構成其核心競爭壁壘。"
+    "comment_zh": "工業機械領域通常不具備強大的網絡效應。Graco的產品價值主要源於其自身的性能、質量和可靠性，而非因更多用戶加入而使產品對所有用戶的價值呈指數級增長。雖然廣泛的安裝基礎可能帶來更便捷的維修服務和備件供應，這屬於規模經濟的範疇，而非巴菲特所指的「網絡效應」護城河。因此，Graco的競爭優勢並非建立在用戶網絡的擴張上，這點與平台型企業有本質區別。",
+    "comment_en": "The industrial machinery sector typically does not exhibit strong network effects. The value of Graco's products primarily stems from their inherent performance, quality, and reliability, rather than an exponential increase in value for all users as more users join. While a widespread installed base might lead to more convenient maintenance services and spare parts availability, this falls under economies of scale, not the \"network effect\" moat as defined by Buffett. Therefore, Graco's competitive advantage is not built upon the expansion of a user network, fundamentally differing from platform businesses."
   },
   "m5_cost_advantage_scale": {
-    "score": 8,
-    "comment": "作為全球領先的流體處理設備供應商，Graco受益於顯著的規模經濟。其龐大的生產規模使其在原材料採購上擁有議價能力，降低了單位成本。同時，多年的運營積累使其在製造工藝、研發投入和全球分銷網絡方面形成了競爭對手難以匹敵的優勢。這些規模優勢使得Graco能夠以更低的成本提供高品質產品，並將研發費用攤薄到更大的銷售量上，從而實現更高的利潤率，這是巴菲特看重的成本護城河。"
+    "score": 7,
+    "comment_zh": "作為全球領先的流體處理設備製造商，Graco受益於顯著的規模經濟。其龐大的生產規模、全球化的採購網絡以及優化的製造流程，使其能夠以更低的單位成本生產高品質產品。這種成本優勢不僅體現在原材料採購上，也延伸至研發投入的攤薄、高效的全球分銷體系以及客戶服務網絡。這使得Graco能夠在保持健康利潤率的同時，提供具有競爭力的價格，對潛在競爭者構成難以逾越的成本壁壘。",
+    "comment_en": "As a global leader in fluid handling equipment manufacturing, Graco benefits from significant economies of scale. Its vast production volume, global procurement network, and optimized manufacturing processes enable it to produce high-quality products at lower unit costs. This cost advantage extends beyond raw material sourcing to the amortization of R&D investments, an efficient global distribution system, and a comprehensive customer service network. This allows Graco to offer competitive pricing while maintaining healthy profit margins, creating a formidable cost barrier for potential competitors."
   },
   "m6_unique_geography_assets": {
-    "score": 6,
-    "comment": "Graco在某些高度專業化的流體處理應用領域可能享有接近寡占的地位。這些細分市場的容量可能有限，新競爭者若要進入並大規模投資，可能會導致市場過度競爭，損害所有參與者的盈利能力。Graco憑藉其長期積累的專業知識和市場份額，在這些利基市場中形成了穩固的領導地位。然而，整個工業流體處理市場仍有一定廣度，並非所有領域都呈現嚴格的「天然寡占」特性，因此其護城河強度中等。"
+    "score": 7,
+    "comment_zh": "Graco所處的工業流體處理市場雖然規模龐大，但高度專業化且進入門檻較高，這創造了一種「有效規模」的寡占環境。新進入者需要投入巨額資本、時間來建立品牌聲譽、技術專長和全球分銷網絡，且面臨與Graco等成熟企業競爭的巨大壓力。市場的理性使得潛在競爭者會權衡進入成本與預期回報，從而避免過度競爭導致的雙輸局面。Graco憑藉其既有地位，在這一專業市場中享有相對穩定的市場份額與盈利能力。",
+    "comment_en": "The industrial fluid handling market, while substantial, is highly specialized with significant barriers to entry, creating an \"efficient scale\" oligopoly. New entrants require substantial capital and time to build brand reputation, technical expertise, and a global distribution network, facing immense pressure from established players like Graco. Market rationality discourages potential competitors from entering, as they weigh entry costs against expected returns, avoiding a lose-lose scenario from excessive competition. Graco, by virtue of its established position, enjoys relatively stable market share and profitability in this specialized market."
   },
   "m7_operational_efficiency": {
     "score": 9,
-    "comment": "Graco展現出卓越的資本效率和盈利能力，其21.1%的ROE和17.0%的ROA遠超行業平均水平，且皮氏F-Score高達9/9，表明其財務狀況極為健康。這強烈暗示Graco的投入資本回報率（ROIC）長期且持續地遠高於其加權平均資本成本（WACC）。這種持續創造超額回報的能力是巴菲特衡量企業內在價值的核心指標，證明了公司能夠有效地將資本轉化為利潤，為股東帶來實質性的複利增長。"
+    "comment_zh": "Graco展現出卓越的營運效率和資本配置能力，其高達21.1%的股東權益報酬率（ROE）和17.0%的資產報酬率（ROA），以及9/9的皮氏F-Score，均強烈表明公司能夠持續將投入資本轉化為豐厚利潤。這遠超其加權平均資本成本（WACC），證明了其在創造股東價值方面的韌性與效率。這種持續的超額回報能力是強大護城河的直接體現，意味著公司擁有獨特的競爭優勢，能夠有效抵禦競爭並保持盈利。",
+    "comment_en": "Graco demonstrates exceptional operational efficiency and capital allocation, with a high Return on Equity (ROE) of 21.1% and Return on Assets (ROA) of 17.0%, alongside a Piotroski F-Score of 9/9. These metrics strongly indicate the company's consistent ability to convert invested capital into substantial profits. This significantly exceeds its Weighted Average Cost of Capital (WACC), proving its resilience and efficiency in creating shareholder value. Such sustained excess returns are a direct manifestation of a strong moat, signifying unique competitive advantages that effectively fend off competition and maintain profitability."
   },
   "m8_capital_allocation": {
     "score": 8,
-    "comment": "即使給予競爭對手巨額資金，也難以在短時間內複製Graco的核心競爭力。這不僅包括其數十年積累的品牌聲譽、專有技術和工程專業知識，更重要的是其遍布全球的銷售、服務網絡以及與客戶建立的長期信任關係。這些無形資產和深厚的客戶關係是時間和經驗的結晶，無法簡單地通過資本投入來複製。這種「時間壁壘」和「關係壁壘」構成了Graco堅實的護城河，使其難以被輕易超越。"
+    "comment_zh": "即使給予競爭對手千億美元，也難以在短時間內複製Graco的核心戰略資產。這不僅包括其數十年積累的工程技術、製造工藝和產品線，更重要的是其遍布全球的銷售、服務網絡，以及與客戶建立的深厚信任關係和品牌忠誠度。這些無形資產是長期投入、持續創新和卓越執行力的結晶，無法僅憑資金快速複製。這種不可複製性為Graco提供了強大的防禦壁壘，使其能夠長期保持競爭優勢。",
+    "comment_en": "Even with a hundred billion dollars, competitors would struggle to quickly replicate Graco's core strategic assets. This includes not only its decades of accumulated engineering expertise, manufacturing processes, and product lines, but more importantly, its global sales and service network, and the deep trust and brand loyalty built with customers. These intangible assets are the culmination of long-term investment, continuous innovation, and excellent execution, which cannot be rapidly duplicated with mere capital. This irreproducibility provides Graco with a powerful defensive barrier, enabling it to maintain its competitive advantage over the long term."
   },
   "m9_customer_retention": {
-    "score": 8,
-    "comment": "Graco所處的工業流體處理領域，其核心需求具有高度的穩定性和持久性。無論技術如何演進，製造業、建築業等對精準、高效流體應用設備的需求始終存在。雖然產品會不斷升級以適應新技術（如自動化、物聯網），但基礎功能和應用場景不易被顛覆性技術完全取代。Graco作為行業領導者，有能力適應並整合新技術，而非被其淘汰，因此對技術變革具有較強的免疫力。"
+    "score": 9,
+    "comment_zh": "Graco所處的工業流體處理領域，其核心需求具有高度的穩定性和持久性。無論技術如何演進，工業生產、建築施工和商業應用對精確、高效流體輸送和噴塗的需求始終存在。儘管產品會不斷升級以整合新技術（如物聯網、自動化），但其基本功能和應用場景不易被顛覆性技術或人工智能完全取代。這種對典範轉移的強大免疫力，確保了Graco業務模式的長期可持續性與需求確定性。",
+    "comment_en": "The core demand in Graco's industrial fluid handling sector exhibits high stability and durability. Regardless of technological evolution, the need for precise, efficient fluid transfer and spraying in industrial production, construction, and commercial applications remains constant. While products will continuously upgrade to integrate new technologies (e.g., IoT, automation), their fundamental functions and application scenarios are unlikely to be completely disrupted by revolutionary technologies or artificial intelligence. This strong immunity to paradigm shifts ensures the long-term sustainability and demand certainty of Graco's business model."
   },
   "m10_durability": {
     "score": 9,
-    "comment": "Graco的管理層展現出極為穩健和股東友好的資本配置策略。公司擁有5.076億美元現金，而總負債僅為4520萬美元，資產負債表極其健康，幾乎無槓桿風險。強勁的6.172億美元自由現金流（FCF）表明其內部造血能力強大。這種保守的財務管理和充裕的現金流為公司提供了戰略靈活性，並為未來可能的低估值回購或有價值的再投資奠定了基礎，符合巴菲特對管理層審慎和理性資本配置的期望。"
+    "comment_zh": "Graco展現出穩健且負責任的資本配置策略。公司擁有充裕的現金（5.076億美元）和極低的總負債（4520萬美元），這表明其財務狀況極為健康，為未來的投資、股息或股票回購提供了堅實基礎。高自由現金流（6.172億美元）和卓越的F-Score（9/9）進一步印證了管理層在創造和保護股東價值方面的能力。這種審慎的財務管理和高效的資本運用，符合巴菲特對優秀企業管理層的期望，有助於長期複利增長。",
+    "comment_en": "Graco demonstrates a robust and responsible capital allocation strategy. The company boasts ample cash ($507.6 million) and extremely low total debt ($45.2 million), indicating a very healthy financial position that provides a solid foundation for future investments, dividends, or share buybacks. High free cash flow ($617.2 million) and an excellent F-Score (9/9) further corroborate management's ability to create and protect shareholder value. This prudent financial management and efficient capital deployment align with Buffett's expectations for excellent corporate leadership, contributing to long-term compounding growth."
   },
-  "overall_moat_verdict": "Graco本質上是一家擁有堅實「特許經營權」特徵的工業設備製造商，其護城河主要源於其在關鍵流體處理領域的卓越品牌、高轉換成本和規模經濟。公司產品深度嵌入客戶的生產流程，形成難以替代的黏性。其持續高企的ROIC和健康的資產負債表，證明了管理層出色的資本配置能力和業務的內在韌性。Graco並非依賴單一專利或網絡效應，而是憑藉數十年積累的工程專業知識、全球分銷網絡和客戶信任，構建起一道難以逾越的綜合性壁壘。這使其成為一個能夠長期穩定創造自由現金流，並為股東帶來複利回報的優質企業。"
+  "overall_moat_verdict_zh": "Graco展現出堅實且多層次的經濟護城河，可被定性為一個高品質的「特許經營權」型企業。其核心優勢源於在工業流體處理領域建立的卓越品牌聲譽與定價權（M1），以及客戶因設備深度整合而產生的高轉換成本（M3）。公司憑藉規模經濟（M5）實現成本領先，並通過數十年積累的技術專長和全球網絡（M8）構建了難以複製的競爭壁壘。此外，其產品需求穩定且不易受顛覆性技術影響（M9），加上管理層卓越的資本配置能力（M10）和持續超額的ROIC（M7），共同鑄就了Graco作為工業領域「收費橋樑」的地位，能夠長期為股東創造豐厚回報。",
+  "overall_moat_verdict_en": "Graco exhibits a robust and multi-layered economic moat, qualifying it as a high-quality \"franchise\" type business. Its core strengths stem from an exceptional brand reputation and pricing power in industrial fluid handling (M1), coupled with high switching costs for customers due to deep equipment integration (M3). The company achieves cost leadership through economies of scale (M5) and has built an irreproducible competitive barrier through decades of accumulated technical expertise and a global network (M8). Furthermore, its product demand is stable and resilient to disruptive technologies (M9), combined with management's excellent capital allocation (M10) and consistently superior ROIC (M7). Together, these factors solidify Graco's position as an \"industrial toll bridge,\" capable of generating substantial long-term returns for shareholders."
 }

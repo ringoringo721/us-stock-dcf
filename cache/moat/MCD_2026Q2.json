@@ -2,44 +2,55 @@
   "ticker": "MCD",
   "period": "2026Q2",
   "m1_brand_pricing": {
-    "score": 9,
-    "comment": "麥當勞憑藉其全球無可匹敵的品牌認知度與數十年如一日的產品一致性，建立了強大的消費者心智佔有率。這種品牌力量使其在面對成本上漲時，能以較小的價格彈性將成本轉嫁給消費者，而不至於顯著影響銷量。其「超值」定位與廣泛的菜單選擇，確保了在不同經濟環境下都能吸引廣大客群。例如，即使在通脹壓力下，麥當勞仍能透過精準的定價策略，維持穩健的同店銷售增長，這正是其定價權的直接體現，也是巴菲特所推崇的「無形資產」護城河。"
+    "score": 8,
+    "comment_zh": "麥當勞憑藉其全球無與倫比的品牌識別度與數十年如一日的產品一致性，建立了強大的消費者心智佔有率。儘管身處價格敏感的速食產業，其「金拱門」標誌已成為便利與可預期的代名詞。這使得麥當勞在面對成本上升時，能相對順利地轉嫁部分價格給消費者，而不會導致銷量大幅下滑。其特許經營模式確保了全球標準化，進一步鞏固了品牌價值，使其在競爭激烈的市場中仍能保持領先地位，展現出顯著的定價權。",
+    "comment_en": "McDonald's possesses an unparalleled global brand recognition and decades of product consistency, establishing a strong mindshare among consumers. Despite operating in the price-sensitive fast-food industry, its \"Golden Arches\" have become synonymous with convenience and predictability. This allows McDonald's to relatively smoothly pass on some price increases to consumers when costs rise, without significant sales erosion. Its franchise model ensures global standardization, further solidifying brand value and enabling it to maintain a leading position in a highly competitive market, demonstrating significant pricing power."
   },
   "m2_patents_regulatory": {
-    "score": 8,
-    "comment": "麥當勞的護城河並非來自專利，而是其獨特的特許經營模式與龐大的房地產所有權。作為全球最大的商業房地產所有者之一，麥當勞向加盟商收取租金和特許權使用費，這構成了一座穩定的「收費橋樑」。此外，其遍布全球的選址策略，佔據了無數黃金地段，這些稀缺的地理位置本身就是難以複製的資產。嚴格的食品安全與衛生標準、地方政府的開店審批等監管要求，也為新進入者設置了高門檻，鞏固了麥當勞的市場地位。"
+    "score": 6,
+    "comment_zh": "麥當勞的護城河並非來自專利技術，而是其龐大的全球房地產所有權與優越的地理位置。在許多城市，取得黃金地段的餐飲經營許可與土地開發權本身就是一道高門檻。此外，其嚴格的特許經營協議體系，對加盟商的運營標準、供應鏈和品牌使用進行了有效監管，形成了一種內部「許可」壁壘。這使得新競爭者難以在短時間內複製其規模與市場滲透率，構成了一種獨特的監管與經營許可優勢。",
+    "comment_en": "McDonald's moat does not stem from patented technology but rather from its vast global real estate ownership and prime geographical locations. In many cities, acquiring prime restaurant operating permits and land development rights is a significant barrier in itself. Furthermore, its stringent franchise agreement system effectively regulates franchisee operational standards, supply chain, and brand usage, forming a type of internal \"licensing\" barrier. This makes it difficult for new competitors to replicate its scale and market penetration quickly, constituting a unique regulatory and operational licensing advantage."
   },
   "m3_high_switching_costs": {
-    "score": 7,
-    "comment": "對於消費者而言，麥當勞的轉換成本主要體現在習慣與便利性上。儘管快餐選擇眾多，但麥當勞的全球普及性、標準化體驗及快速服務，使其成為許多人日常生活中不可或缺的一部分。這種根深蒂固的消費習慣，使得顧客即使面對其他選擇，也傾向於回歸熟悉的麥當勞。對於加盟商而言，投入巨額資金建立特許經營店，並深度整合於麥當勞的供應鏈與運營體系中，其轉換成本極高，有效鎖定了合作夥伴，確保了系統的穩定性與擴張。"
+    "score": 4,
+    "comment_zh": "對於終端消費者而言，從麥當勞轉向其他速食品牌幾乎沒有轉換成本，市場競爭激烈。然而，從巴菲特視角看，其特許經營模式為加盟商創造了極高的轉換成本。加盟商投入巨額資金建立麥當勞餐廳，並依賴其品牌、供應鏈、營銷和運營系統。一旦選擇加入，退出或轉換品牌將面臨巨大的財務損失、品牌資產歸零及重新建立供應鏈的挑戰。這種對加盟商的強大黏性，間接鞏固了麥當勞作為特許經營平台的護城河。",
+    "comment_en": "For end-consumers, switching from McDonald's to another fast-food brand incurs almost no switching costs, given the intense market competition. However, from a Buffett perspective, its franchise model creates extremely high switching costs for franchisees. Franchisees invest substantial capital to establish McDonald's restaurants and rely on its brand, supply chain, marketing, and operational systems. Once committed, exiting or switching brands would entail significant financial losses, loss of brand equity, and the challenge of rebuilding a supply chain. This strong stickiness for franchisees indirectly fortifies McDonald's moat as a franchising platform."
   },
   "m4_network_effects": {
-    "score": 7,
-    "comment": "麥當勞的網絡效應體現在其全球超過40,000家門店的廣泛分佈上。這種無處不在的實體網絡，不僅提升了品牌的可見度與便利性，也強化了其供應鏈的議價能力和效率。更多的門店意味著更高的品牌曝光，吸引更多顧客，進而支持更多的門店開設。此外，其龐大的加盟商網絡也形成了一種知識共享與協同效應，共同維護品牌標準並推動創新。這使得麥當勞能夠以更低的成本、更快的速度響應市場變化，形成良性循環。"
+    "score": 5,
+    "comment_zh": "麥當勞的網絡效應並非典型的社交平台模式，但其全球數萬家門店的廣泛分佈，確實產生了一種間接的網絡效應。門店越多，品牌的可見度與便利性越高，消費者在任何地方都能預期到一致的產品與服務，這反過來吸引更多消費者。此外，龐大的特許經營網絡也強化了其供應鏈議價能力與廣告投放效率，降低了單店成本，使整個系統更具競爭力。這種規模帶來的便利性與效率提升，構成了其獨特的網絡優勢。",
+    "comment_en": "McDonald's network effect is not a typical social platform model, but its widespread distribution of tens of thousands of global outlets indeed generates an indirect network effect. More locations lead to higher brand visibility and convenience, allowing consumers to expect consistent products and services anywhere, which in turn attracts more customers. Furthermore, the vast franchise network strengthens its supply chain bargaining power and advertising efficiency, reducing per-store costs and making the entire system more competitive. This convenience and efficiency gain from scale constitute its unique network advantage."
   },
   "m5_cost_advantage_scale": {
     "score": 9,
-    "comment": "麥當勞的規模經濟是其核心競爭優勢之一。憑藉其全球龐大的採購量，麥當勞在原材料、設備和廣告投放上擁有無與倫比的議價能力，顯著降低了單位成本。這種規模優勢使得其能夠以競爭對手難以匹敵的成本結構運營，並將部分成本節約轉化為更具吸引力的價格或更高的利潤率。標準化的運營流程和高效的供應鏈管理，進一步提升了其生產效率和品質一致性，確保了在全球範圍內提供穩定且具成本效益的產品。"
+    "comment_zh": "麥當勞在全球速食產業中擁有無可匹敵的規模經濟優勢。其龐大的採購量使其在食材、包裝、設備等方面享有極低的單位成本，遠非小型競爭者所能企及。標準化的運營流程與高效的全球供應鏈管理，進一步壓低了邊際成本，確保了產品的價格競爭力與穩定的利潤率。這種規模優勢不僅體現在成本控制上，也延伸至廣告營銷與品牌推廣，形成了一道難以逾越的成本壁壘，是其長期盈利能力的關鍵。",
+    "comment_en": "McDonald's possesses an unparalleled scale advantage in the global fast-food industry. Its enormous purchasing volume allows it to enjoy extremely low unit costs for ingredients, packaging, and equipment, far beyond what smaller competitors can achieve. Standardized operational processes and efficient global supply chain management further drive down marginal costs, ensuring competitive product pricing and stable profit margins. This scale advantage is not only reflected in cost control but also extends to advertising and brand promotion, forming an insurmountable cost barrier that is crucial for its long-term profitability."
   },
   "m6_unique_geography_assets": {
-    "score": 7,
-    "comment": "麥當勞在快餐市場中佔據了主導地位，尤其是在其核心的漢堡和薯條領域。雖然快餐市場競爭激烈，但麥當勞憑藉其在黃金地段的廣泛佈局和品牌影響力，在許多區域市場形成了事實上的「高效規模」優勢。新競爭者若想在這些成熟市場中與麥當勞抗衡，不僅需要巨大的資本投入，還需克服其品牌、供應鏈和房地產優勢，這往往會導致雙輸的價格戰。麥當勞的市場密度使其能夠有效利用廣告和物流資源。"
+    "score": 8,
+    "comment_zh": "麥當勞在過去數十年中，策略性地在全球各地取得了大量黃金地段的房地產，許多門店的土地與建築物均為其所有。這些優越的地理位置，不僅帶來了極高的客流量與品牌曝光度，更構成了新競爭者難以複製的進入壁壘。在許多成熟市場，優質的商業地產資源已趨於飽和，新進入者即便有資金，也難以獲得同等條件的區位優勢。這種對稀缺地理資源的佔有，為麥當勞提供了穩固的「高效規模」護城河。",
+    "comment_en": "Over the past decades, McDonald's has strategically acquired a vast number of prime real estate locations globally, often owning both the land and buildings for many of its outlets. These superior geographical positions not only generate high foot traffic and brand visibility but also constitute an entry barrier that new competitors find difficult to replicate. In many mature markets, prime commercial real estate resources are already saturated, making it challenging for new entrants, even with capital, to secure comparable location advantages. This ownership of scarce geographical resources provides McDonald's with a robust \"efficient scale\" moat."
   },
   "m7_operational_efficiency": {
-    "score": 8,
-    "comment": "麥當勞的特許經營模式使其能夠實現卓越的資本回報率。公司主要投資於房地產和品牌建設，而大部分運營資本由加盟商承擔。這使得麥當勞的資產負債表相對輕盈，並能產生持續高於加權平均資本成本（WACC）的投入資本回報率（ROIC）。其18.0%的股東權益報酬率（ROE）和14.7%的資產報酬率（ROA）證明了其高效的資本運用能力，為股東創造了可觀的複利效應，符合巴菲特對「印鈔機」式企業的定義。"
+    "score": 7,
+    "comment_zh": "麥當勞的運營效率主要體現在其高度標準化的特許經營模式上。公司將大部分運營成本與資本支出轉嫁給加盟商，自身則主要收取租金與特許權使用費，實現了相對「輕資產」的運營。其穩定的高股東權益報酬率（ROE 18.0%）和資產報酬率（ROA 14.7%），以及強勁的自由現金流（FCF TTM $7,761.0 M），均表明其投入資本回報率持續遠超加權資本成本，創造了可觀的股東價值。儘管負債較高，但其穩定的現金流足以支撐。",
+    "comment_en": "McDonald's operational efficiency is primarily reflected in its highly standardized franchise model. The company largely shifts operational costs and capital expenditures to franchisees, while primarily collecting rent and royalties, achieving a relatively \"asset-light\" operation. Its consistently high Return on Equity (ROE 18.0%) and Return on Assets (ROA 14.7%), along with strong Free Cash Flow (FCF TTM $7,761.0 M), indicate that its Return on Invested Capital consistently exceeds its Weighted Average Cost of Capital, creating significant shareholder value. Despite higher debt, its stable cash flow is sufficient to support it."
   },
   "m8_capital_allocation": {
     "score": 9,
-    "comment": "麥當勞的核心戰略資產，包括其全球品牌聲譽、遍布六大洲的房地產組合、數十年建立的供應鏈網絡以及龐大的加盟商體系，是極難複製的。即使給予競爭對手數千億美元，也無法在短時間內重建麥當勞所擁有的信任、文化認同和運營效率。這種不可複製性不僅體現在物質資產上，更在於其深厚的品牌歷史和全球消費者心中形成的文化符號，這正是巴菲特所看重的、時間沉澱出的無形護城河。"
+    "comment_zh": "麥當勞的護城河在於其資本的不可複製性。即使給予競爭對手千億美元，也無法在短時間內複製其數十年積累的全球品牌聲譽、遍布全球的黃金地段房地產網絡、高度優化的供應鏈體系，以及與數萬名加盟商建立的長期合作關係。這些無形資產和運營經驗，是時間與規模共同作用的結果，而非單純的資金投入可以速成。其品牌心智佔有率與全球運營體系，構成了極高的進入壁壘。",
+    "comment_en": "McDonald's moat lies in the irreproducibility of its capital. Even if a competitor were given a hundred billion dollars, they could not quickly replicate its decades-long accumulated global brand reputation, its worldwide network of prime real estate locations, its highly optimized supply chain system, and its long-standing relationships with tens of thousands of franchisees. These intangible assets and operational expertise are the result of time and scale combined, not merely a quick injection of capital. Its brand mindshare and global operating system constitute an extremely high barrier to entry."
   },
   "m9_customer_retention": {
     "score": 8,
-    "comment": "麥當勞所滿足的是人類對便捷、實惠食物的基本需求，這使其對技術變革和典範轉移具有強大的免疫力。儘管餐飲業不斷演進，但麥當勞的核心價值主張——快速、一致、可負擔——依然穩固。公司積極擁抱新技術，如移動點餐、外賣配送和自助點餐機，將其融入現有業務模式，而非被顛覆。這種適應性確保了其在不斷變化的市場中保持相關性，證明了其商業模式的持久性。"
+    "comment_zh": "麥當勞所滿足的是人類對便捷、實惠餐飲的基礎需求，這類需求具有極高的確定性與抗顛覆性。儘管消費者口味和健康意識會隨時間演變，麥當勞已展現出強大的適應能力，例如推出麥咖啡、健康餐點選項、數位點餐與外送服務。其核心商業模式並非依賴於某項尖端技術，因此對技術變革或AI顛覆具有較強的免疫力。人們對快速、可預期餐飲的渴望，確保了其長期需求穩定性。",
+    "comment_en": "McDonald's fulfills a fundamental human need for convenient and affordable dining, a demand with high certainty and resilience against disruption. While consumer tastes and health consciousness evolve, McDonald's has demonstrated strong adaptability, for instance, by introducing McCafe, healthier menu options, digital ordering, and delivery services. Its core business model does not rely on cutting-edge technology, thus possessing strong immunity to technological changes or AI disruption. People's desire for quick, predictable meals ensures its long-term demand stability."
   },
   "m10_durability": {
     "score": 7,
-    "comment": "麥當勞的管理層在資本配置方面表現出對股東利益的重視。公司長期以來通過穩定的股息支付和積極的股票回購來回報股東。儘管其負債水平較高（總負債$54.592B），但強勁的自由現金流（FCF TTM $7.761B）提供了充足的償債能力和回購空間。管理層在保持品牌投資和系統現代化的同時，也審慎評估併購機會，避免盲目擴張，這符合巴菲特對理性資本配置的期望，有助於最大化長期股東價值。"
+    "comment_zh": "麥當勞在資本配置方面表現出成熟企業的穩健策略。公司長期以來透過穩定的股息發放和積極的股票回購，將大量現金流回饋給股東，有效提升了每股收益。儘管其總負債相對較高，但鑑於其強勁且可預期的自由現金流（FCF TTM $7,761.0 M），這種槓桿水平在成熟產業中是可管理的。公司鮮少進行盲目溢價併購，而是專注於優化核心業務與特許經營模式，展現了對股東利益負責的態度。",
+    "comment_en": "McDonald's demonstrates a prudent capital allocation strategy typical of a mature enterprise. The company consistently returns substantial cash flow to shareholders through stable dividend payments and active share buybacks, effectively enhancing earnings per share. Although its total debt is relatively high, given its strong and predictable free cash flow (FCF TTM $7,761.0 M), this level of leverage is manageable in a mature industry. The company rarely engages in blind, overpriced acquisitions, instead focusing on optimizing its core business and franchise model, demonstrating a responsible attitude towards shareholder interests."
   },
-  "overall_moat_verdict": "麥當勞的經濟護城河本質上是一座由全球品牌、特許經營模式和戰略性房地產組合構築的「收費橋樑」。其核心競爭壁壘在於無可匹敵的品牌認知度與定價權，這使得它能將成本轉嫁給消費者而不失銷量。龐大的規模經濟帶來了極致的採購與運營效率，確保了成本領先。同時，其遍布全球的加盟商網絡與黃金地段的房地產所有權，構成了難以複製的實體資產與穩定的現金流來源。麥當勞滿足的是人類對便捷、實惠食物的永恆需求，使其對技術變革具有強大韌性。管理層通過穩健的資本配置，持續為股東創造價值。這是一個典型的、由無形資產和規模優勢共同支撐的堅固護城河企業。"
+  "overall_moat_verdict_zh": "麥當勞本質上是一個全球性的「特許經營權平台」與「收費橋樑」企業。其護城河深植於無可匹敵的全球品牌認知度、遍布各地的黃金地段房地產所有權，以及透過規模經濟實現的極致成本優勢。公司將運營風險與資本支出轉嫁給加盟商，自身則穩健收取特許權使用費與租金，創造了豐沛且可預期的自由現金流。儘管速食產業競爭激烈，但麥當勞憑藉其品牌黏性、高效供應鏈和難以複製的全球網絡，築起了堅實的商業壁壘，使其能夠持續創造超額回報，是典型的巴菲特式「簡單、可理解、有護城河」的優質企業。",
+  "overall_moat_verdict_en": "McDonald's is fundamentally a global \"franchise platform\" and \"toll bridge\" business. Its moat is deeply rooted in unparalleled global brand recognition, ownership of prime real estate locations worldwide, and extreme cost advantages achieved through economies of scale. The company shifts operational risks and capital expenditures to franchisees, while steadily collecting royalties and rent, generating abundant and predictable free cash flow. Despite intense competition in the fast-food industry, McDonald's has built robust business barriers through its brand stickiness, efficient supply chain, and irreplicable global network, enabling it to consistently generate superior returns. It is a quintessential Buffett-style \"simple, understandable, moated\" quality enterprise."
 }

@@ -2,44 +2,55 @@
   "ticker": "MIDD",
   "period": "2026Q2",
   "m1_brand_pricing": {
-    "score": 8,
-    "comment": "Middleby憑藉其在商用餐飲設備領域的Blodgett、Pitco等知名品牌，以及高端家用廚具Viking等，建立了堅實的品牌心智。這些品牌在專業廚房和高端住宅市場中享有盛譽，客戶對其產品的可靠性、性能和設計有高度信任。尤其在商用領域，設備的穩定性直接影響營運，使得客戶對價格敏感度相對較低，願意為高品質和值得信賴的品牌支付溢價，賦予公司穩固的定價權。"
+    "score": 7,
+    "comment_zh": "Middleby在商用廚房設備領域擁有多個知名品牌，如Blodgett和Pitco，這些品牌在專業廚師和餐飲業者心中建立了可靠性與高性能的聲譽。客戶在選擇關鍵生產設備時，更看重設備的耐用性、效率及售後服務，而非僅僅是初始成本。這使得Middleby能夠在一定程度上轉嫁成本並維持較高的毛利率，因為設備故障可能導致營運中斷，其代價遠超設備本身。儘管不如消費品品牌般擁有極致定價權，但在專業市場中，其品牌溢價能力依然堅實。",
+    "comment_en": "Middleby possesses a portfolio of well-regarded brands, such as Blodgett and Pitco, which have cultivated a reputation for reliability and high performance among professional chefs and food service operators. Customers prioritize durability, efficiency, and after-sales support for critical production equipment, rather than solely focusing on initial cost. This allows Middleby to pass on costs and maintain healthy margins, as equipment failure can lead to operational disruptions far more costly than the equipment itself. While not possessing the extreme pricing power of consumer luxury brands, its brand equity in the professional market provides a solid pricing advantage."
   },
   "m2_patents_regulatory": {
-    "score": 7,
-    "comment": "Middleby在食品加工和烹飪技術領域擁有多項專利，這些專利涵蓋了提高效率、節能和食品安全等關鍵技術，為其產品提供了獨特的競爭優勢。此外，食品行業對衛生和安全標準有嚴格的監管要求，Middleby作為行業領導者，其產品符合甚至超越這些標準，這本身就是一道無形壁壘。新進入者需要投入大量研發和認證成本，難以在短期內複製其技術和合規性優勢。"
+    "score": 6,
+    "comment_zh": "Middleby作為商用廚房設備的領導者，其競爭優勢部分來自於對創新技術的持續投入與專利保護。公司在無排煙烤箱、快速烹飪系統等領域擁有專有技術和相關專利，這些技術提升了設備的效率和功能性，為客戶帶來獨特價值。此外，食品安全和能源效率等行業標準和認證，也為新進入者設置了技術和合規壁壘。這些無形資產雖然不是政府特許的壟斷，但為其產品提供了技術護城河，使其在市場中保持領先地位。",
+    "comment_en": "As a leader in commercial kitchen equipment, Middleby's competitive edge partly stems from continuous investment in innovative technologies and patent protection. The company holds proprietary technologies and related patents in areas like ventless ovens and rapid cooking systems, which enhance equipment efficiency and functionality, delivering unique value to customers. Furthermore, industry standards and certifications for food safety and energy efficiency create technical and compliance barriers for new entrants. While not a government-granted monopoly, these intangible assets provide a technological moat, helping Middleby maintain its leading market position."
   },
   "m3_high_switching_costs": {
     "score": 8,
-    "comment": "對於商用廚房和食品加工廠而言，Middleby的設備通常深度整合到其營運流程中。更換設備不僅涉及高昂的採購成本，還可能導致生產線停工、員工重新培訓以及潛在的營運中斷。例如，一家餐廳的廚師團隊習慣了特定烤箱的操作流程，轉換品牌會帶來效率損失。這種高度的系統整合和操作熟悉度，為客戶創造了顯著的轉換成本，確保了穩定的重複採購和服務需求。"
+    "comment_zh": "對於商用廚房而言，更換主要設備不僅涉及高昂的採購成本，還包括複雜的安裝、員工培訓以及潛在的營運中斷風險。一旦餐飲業者投資了Middleby的設備，其廚房佈局、工作流程和員工操作習慣都會與之緊密結合。轉換到其他品牌可能意味著需要重新設計廚房、重新培訓員工，並承擔一段時間的效率下降。這種高昂的轉換成本使得客戶傾向於長期使用現有供應商的產品，為Middleby提供了強大的客戶黏性。",
+    "comment_en": "For commercial kitchens, replacing major equipment involves not only high procurement costs but also complex installation, staff training, and potential operational disruptions. Once a food service operator invests in Middleby's equipment, their kitchen layout, workflows, and staff operating habits become closely integrated. Switching to another brand could mean redesigning the kitchen, retraining employees, and enduring a period of decreased efficiency. These significant switching costs incentivize customers to stick with their current supplier's products long-term, providing Middleby with strong customer stickiness."
   },
   "m4_network_effects": {
     "score": 3,
-    "comment": "Middleby作為工業設備製造商，其商業模式本質上不具備典型的網絡效應。產品的價值並不會因為更多用戶使用而呈指數級增長。儘管在行業內，廣泛的產品部署可能帶來技術人員的熟悉度或配件供應的便利性，但這並非巴菲特所指的強大網絡效應護城河。其核心競爭力更多來自於產品性能、品牌和服務，而非用戶間的直接互動或平台效應。"
+    "comment_zh": "Middleby的商業模式主要集中在製造和銷售商用廚房設備，其產品本身不具備典型的雙向網絡效應。雖然廣泛的安裝基礎可能帶來更便捷的維修服務和零件供應，但這並未像社交媒體或電商平台那樣，因用戶數量的增加而呈幾何級數提升所有參與者的價值。其價值主要來自於產品的性能和可靠性，而非網絡外部性。因此，網絡效應對Middleby而言，並非其核心護城河。",
+    "comment_en": "Middleby's business model primarily focuses on manufacturing and selling commercial kitchen equipment, and its products do not inherently possess typical two-sided network effects. While a widespread installed base might lead to more convenient maintenance services and parts availability, this does not geometrically increase value for all participants with each additional user, unlike social media or e-commerce platforms. Its value primarily derives from product performance and reliability, rather than network externalities. Therefore, network effects are not a core moat for Middleby."
   },
   "m5_cost_advantage_scale": {
     "score": 8,
-    "comment": "Middleby作為全球領先的工業餐飲和食品加工設備供應商，其龐大的規模使其在採購原材料、零部件以及研發投入上享有顯著的成本優勢。公司能夠通過集中採購獲得更低的價格，並將研發成果應用於多個產品線，攤薄成本。這種規模經濟效應使得Middleby能夠以更具競爭力的價格提供高品質產品，同時保持健康的利潤率，對小型競爭者構成難以逾越的成本壁壘。"
+    "comment_zh": "作為全球領先的商用廚房設備製造商，Middleby受益於顯著的規模經濟。其龐大的生產規模使其在原材料採購、製造效率和全球分銷網絡方面具備成本優勢。公司能夠通過集中採購降低單位成本，並通過標準化生產流程實現更高的效率。這種規模優勢使得小型競爭者難以在成本上與之匹敵，尤其是在研發投入和全球市場覆蓋方面。這為Middleby構建了堅實的成本護城河，使其能以更具競爭力的價格提供高品質產品。",
+    "comment_en": "As a global leader in commercial kitchen equipment manufacturing, Middleby benefits from significant economies of scale. Its vast production volume provides cost advantages in raw material procurement, manufacturing efficiency, and global distribution networks. The company can reduce unit costs through centralized purchasing and achieve higher efficiency through standardized production processes. This scale advantage makes it difficult for smaller competitors to match its cost structure, especially concerning R&D investment and global market reach. This builds a robust cost moat for Middleby, enabling it to offer high-quality products at more competitive prices."
   },
   "m6_unique_geography_assets": {
     "score": 6,
-    "comment": "商用餐飲和食品加工設備市場雖然龐大，但其專業性和對品質、可靠性的高要求，使得新進入者難以輕易立足。Middleby在這些細分市場中佔據主導地位，其產品線廣泛且深入。儘管市場並非絕對的「天然寡占」，但由於進入壁壘高（如技術、品牌、分銷網絡），使得市場自然傾向於由少數幾家大型、成熟的參與者主導，新競爭者若想大規模進入，將面臨巨大的資本和時間挑戰。"
+    "comment_zh": "商用廚房設備市場雖然龐大，但在某些高端或專業細分領域，如高效能烤箱或集成烹飪系統，市場容量可能相對有限，且對技術和資本要求較高。在這些領域，Middleby憑藉其技術領先和品牌優勢，與少數幾家大型競爭者共同形成了寡占格局。新進入者若想在這些細分市場取得成功，將面臨巨大的資本投入和市場接受度挑戰，可能導致行業整體利潤率下降，從而形成一種「理性寡占」的局面，避免過度競爭。",
+    "comment_en": "While the commercial kitchen equipment market is substantial, certain high-end or specialized segments, such as high-performance ovens or integrated cooking systems, may have relatively limited market capacity and high technical and capital requirements. In these areas, Middleby, with its technological leadership and brand strength, forms an oligopoly with a few other large competitors. New entrants seeking success in these niches would face significant capital investment and market acceptance challenges, potentially leading to a decline in overall industry profitability, thus creating a \"rational oligopoly\" that discourages excessive competition."
   },
   "m7_operational_efficiency": {
     "score": 8,
-    "comment": "Middleby展現出強勁的財務表現，其18.0%的股東權益報酬率（ROE）和8.0%的資產報酬率（ROA）遠超行業平均水平，且皮氏F-Score高達8/9，顯示其資本配置效率極高。公司持續產生高達4.957億美元的自由現金流，這表明其投入資本的回報率持續顯著高於加權平均資本成本。這種卓越的資本效率是企業創造長期股東價值的核心，體現了其護城河的韌性。"
+    "comment_zh": "Middleby展現出強勁的財務表現，其18.0%的股東權益報酬率（ROE）和8.0%的資產報酬率（ROA），以及高達8/9的皮氏F-Score，都表明公司能夠持續有效地將資本轉化為利潤。這意味著其投入資本回報率（ROIC）很可能長期顯著高於其加權平均資本成本（WACC）。這種持續創造超額回報的能力是巴菲特衡量企業護城河寬度的關鍵指標，證明了公司在競爭激烈的市場中仍能保持盈利能力和資本效率，為股東創造實質價值。",
+    "comment_en": "Middleby demonstrates robust financial performance, with an 18.0% Return on Equity (ROE) and 8.0% Return on Assets (ROA), alongside a strong Piotroski F-Score of 8/9, all indicating the company's consistent ability to effectively convert capital into profit. This suggests its Return on Invested Capital (ROIC) likely significantly and consistently exceeds its Weighted Average Cost of Capital (WACC) over the long term. This sustained ability to generate excess returns is a key metric for Buffett in assessing the width of a company's moat, proving its profitability and capital efficiency even in a competitive market, thereby creating substantial shareholder value."
   },
   "m8_capital_allocation": {
-    "score": 9,
-    "comment": "Middleby的護城河並非單一技術，而是其百年歷史中積累的品牌組合、全球分銷與服務網絡、深厚的客戶關係以及持續的技術創新能力。即使給予競爭對手千億美元，也無法在短時間內複製其在商用廚房和食品加工領域建立的信任、品牌聲譽和遍布全球的供應鏈。這些無形資產和運營體系是長期積累的結果，構成了極高的進入壁壘，難以被簡單的資本投入所複製。"
+    "score": 8,
+    "comment_zh": "Middleby的核心戰略資產不僅僅是其生產設備或專利，更包括其數十年累積的品牌聲譽、全球分銷與服務網絡、深厚的工程技術專長以及與客戶建立的長期關係。即使給予競爭對手數百億美元，也無法在短時間內複製這種綜合性的無形資產。建立一個同樣廣泛且值得信賴的品牌組合，培養一支經驗豐富的研發團隊，並在全球範圍內建立高效的供應鏈和售後服務體系，需要漫長的時間和持續的努力，這構成了極高的進入壁壘。",
+    "comment_en": "Middleby's core strategic assets extend beyond its manufacturing equipment or patents; they encompass decades of accumulated brand reputation, a global distribution and service network, deep engineering expertise, and long-standing customer relationships. Even with tens of billions of dollars, a competitor could not replicate these comprehensive intangible assets in a short period. Building an equally extensive and trusted brand portfolio, cultivating an experienced R&D team, and establishing an efficient global supply chain and after-sales service system requires immense time and sustained effort, forming an exceptionally high barrier to entry."
   },
   "m9_customer_retention": {
     "score": 9,
-    "comment": "Middleby所處的行業，即提供烹飪和食品加工設備，其核心需求是人類生存和社會運作的基礎。儘管技術會不斷進步（如更高效、更智能的設備），但對物理烹飪和加工設備的需求本質上不會被顛覆性技術（如AI或虛擬現實）所取代。這是一個需求確定性極高的行業，技術演進是漸進式的，而非典範轉移式的，使得Middleby的業務模式具有強大的抗顛覆能力。"
+    "comment_zh": "商用廚房設備行業的需求本質上是穩定的，因為餐飲業和食品服務業對烹飪設備的需求是持續且不可或缺的。儘管技術會不斷進步，例如更節能、更智能的設備，但這些通常是漸進式創新，而非顛覆性的典範轉移。Middleby作為行業領導者，有能力將這些新技術整合到其產品中，保持競爭力。人工智能或數字化轉型更多是優化而非取代實體設備，因此該行業對重大技術顛覆具有強大的免疫力，需求確定性極高。",
+    "comment_en": "The demand for commercial kitchen equipment is inherently stable, as the food service industry's need for cooking apparatus is continuous and indispensable. While technology constantly evolves, such as more energy-efficient or smarter equipment, these are typically incremental innovations rather than disruptive paradigm shifts. As an industry leader, Middleby is capable of integrating these new technologies into its products to maintain competitiveness. AI or digital transformation primarily optimizes rather than replaces physical equipment, thus this industry possesses strong immunity to major technological disruption, with extremely high demand certainty."
   },
   "m10_durability": {
     "score": 7,
-    "comment": "Middleby管理層在過去通過一系列戰略性收購，成功擴大了產品線和市場份額，並整合了多個強勢品牌，這顯示了其在資本配置上的積極性。公司強勁的自由現金流（4.957億美元）為其提供了靈活的資本配置空間，可用於償債、股息或在股價被低估時進行股票回購。雖然負債相對較高，但穩定的現金流和高F-Score表明管理層在平衡增長與財務健康方面表現良好，致力於股東價值最大化。"
+    "comment_zh": "Middleby管理層在資本配置方面展現出穩健的策略。公司擁有強勁的自由現金流（FCF TTM $495.7M），這為其提供了靈活的資本運用空間。雖然負債相對較高，但健康的盈利能力和現金流表明其債務管理得當。一個高F-Score（8/9）也間接反映了管理層在財務健康和效率方面的良好表現。在沒有具體回購或併購細節的情況下，可以推斷管理層傾向於將資本投入到能夠產生高回報的領域，並在適當時機進行股東回報，以最大化長期股東價值。",
+    "comment_en": "Middleby's management demonstrates a sound strategy in capital allocation. The company boasts strong free cash flow (FCF TTM $495.7M), providing flexibility for capital deployment. Although debt is relatively high, healthy profitability and cash flow indicate prudent debt management. A high F-Score (8/9) also indirectly reflects management's strong performance in financial health and efficiency. In the absence of specific buyback or M&A details, it can be inferred that management tends to deploy capital into areas generating high returns and, when appropriate, return capital to shareholders to maximize long-term shareholder value."
   },
-  "overall_moat_verdict": "Middleby本質上是一家在專業工業設備領域建立起「特許經營權」的企業，尤其在商用餐飲和食品加工設備市場，扮演著不可或缺的「收費橋樑」角色。其核心競爭壁壘源於多個維度的綜合作用：首先是旗下眾多歷史悠久、備受專業人士信賴的強勢品牌，賦予其穩固的定價權；其次是客戶因設備深度整合和操作習慣而產生的高轉換成本；再者是其龐大的規模帶來的成本優勢和難以複製的全球分銷與服務網絡。此外，公司所處行業需求穩定，對顛覆性技術具備強大免疫力。儘管負債較高，但強勁的自由現金流和高效的資本運用能力，使其能持續為股東創造價值。"
+  "overall_moat_verdict_zh": "Middleby本質上是一家擁有堅實護城河的「特許經營權」型企業，儘管其產品是工業設備而非消費品牌。其護城河主要源於多個維度的疊加效應：強大的品牌組合在專業市場中賦予其定價權；高昂的客戶轉換成本確保了客戶黏性；規模經濟帶來了成本優勢；以及在特定技術領域的專利保護。最關鍵的是，商用廚房設備的剛性需求和行業對顛覆性技術的強大免疫力，使其業務模式極具韌性。管理層穩健的資本配置能力，結合持續的超額資本回報，共同構建了一個能夠長期為股東創造價值的堅固堡壘。",
+  "overall_moat_verdict_en": "Middleby is essentially a \"franchise-like\" business with a robust moat, despite its products being industrial equipment rather than consumer brands. Its moat primarily stems from the cumulative effect of multiple dimensions: a strong brand portfolio granting pricing power in the professional market; high customer switching costs ensuring client stickiness; economies of scale providing a cost advantage; and patent protection in specific technological areas. Crucially, the inelastic demand for commercial kitchen equipment and the industry's strong immunity to disruptive technologies make its business model highly resilient. The management's prudent capital allocation, combined with sustained excess returns on capital, collectively builds a formidable fortress capable of creating long-term shareholder value."
 }

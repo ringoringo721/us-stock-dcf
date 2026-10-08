@@ -3,43 +3,54 @@
   "period": "2026Q2",
   "m1_brand_pricing": {
     "score": 7,
-    "comment": "O'Reilly Automotive憑藉其廣泛的門店網絡和專業服務，在汽車售後市場建立了強大的品牌認知度。對於DIY客戶和專業技師而言，便利性與可靠性是關鍵考量。儘管汽車零件本身具有一定商品屬性，但O'Reilly的品牌信譽使其在價格競爭中仍能保持優勢，客戶願意為即時可用性和專業建議支付合理溢價。其品牌忠誠度有助於維持穩定的銷售額，並在一定程度上抵禦線上零售商的價格衝擊，展現出穩健的定價能力，而非絕對壟斷。"
+    "comment_zh": "O'Reilly 在汽車售後零件市場建立了強大的品牌聲譽，尤其在緊急維修需求時，客戶對零件的即時可用性與專業服務有高度依賴。雖然面對價格敏感的DIY客戶，但對於專業技師和急需零件的消費者，其廣泛的庫存、便利的地理位置及專業建議，賦予了公司一定的定價權。這種「必需品」屬性，使得客戶在關鍵時刻對價格的敏感度降低，願意為可靠性與即時性支付溢價，形成一道穩固的品牌護城河。",
+    "comment_en": "O'Reilly has cultivated a strong brand reputation in the automotive aftermarket, particularly for urgent repair needs where customers highly depend on immediate parts availability and expert service. While facing price sensitivity from DIY customers, its extensive inventory, convenient locations, and professional advice grant the company significant pricing power for professional mechanics and those in urgent need. The 'essential' nature of its products means customers are less price-sensitive during critical moments, willing to pay a premium for reliability and immediacy. This forms a solid brand moat, ensuring customer loyalty when it matters most."
   },
   "m2_patents_regulatory": {
-    "score": 2,
-    "comment": "O'Reilly Automotive所處的汽車零件零售行業，本質上缺乏專利或政府特許經營權等形式的護城河。其業務模式不依賴於獨家技術或受保護的知識產權，也無須面對嚴格的准入許可壁壘。這意味著新進入者或現有競爭者在法律或技術層面上，並無顯著障礙來複製其產品供應或服務模式。因此，此維度對O'Reilly而言，幾乎不構成任何競爭優勢，其護城河主要來自其他方面而非此類法定保護。"
+    "score": 1,
+    "comment_zh": "O'Reilly Automotive 所在的汽車零件零售行業，本質上不依賴於專利保護或政府特許經營權。其銷售的產品多為標準化或通用型零件，由第三方製造商生產，因此公司本身並無獨家專利集群作為競爭壁壘。行業進入門檻主要體現在資本投入、供應鏈管理和門店網絡，而非法律或技術上的獨佔性。這使得此維度幾乎不構成其經濟護城河的一部分，與高科技或製藥公司形成鮮明對比。",
+    "comment_en": "O'Reilly Automotive operates in the auto parts retail sector, which inherently does not rely on patent protection or government-granted licenses. The products it sells are largely standardized or generic parts manufactured by third parties, meaning the company itself possesses no exclusive patent clusters as a competitive barrier. Industry entry barriers primarily stem from capital investment, supply chain management, and store networks, rather than legal or technological exclusivity. Consequently, this dimension contributes minimally to its economic moat, standing in stark contrast to high-tech or pharmaceutical companies."
   },
   "m3_high_switching_costs": {
-    "score": 6,
-    "comment": "O'Reilly Automotive的客戶轉換成本主要體現在專業技師和維修店的供應鏈慣性上。一旦建立合作關係，更換供應商可能涉及調整庫存管理系統、重新適應產品線及建立新的信任關係，這些都構成了一定的隱性成本。對於DIY消費者而言，雖然單次購買的轉換成本較低，但長期而言，對特定品牌、門店位置及員工專業知識的熟悉和信任，也形成了一種「習慣性」的轉換成本。這種黏性雖非不可逾越，但足以在日常運營中提供穩定的客戶基礎。"
+    "score": 5,
+    "comment_zh": "對於DIY客戶而言，更換O'Reilly的替代成本相對較低，僅需前往其他競爭對手門店。然而，對於專業維修廠和技師，轉換供應商可能涉及調整採購流程、建立新的信任關係，以及潛在的供應鏈不穩定風險，這會產生一定的轉換成本。O'Reilly提供的便捷訂購系統、廣泛的零件選擇和可靠的配送服務，為專業客戶創造了黏性。儘管不如軟體或金融服務業的轉換成本高，但其便利性與可靠性仍構成了一道中等程度的護城河。",
+    "comment_en": "For DIY customers, the switching cost from O'Reilly is relatively low, simply involving a visit to a competitor. However, for professional repair shops and mechanics, changing suppliers can entail adjusting procurement processes, building new trust relationships, and potential supply chain instability risks, thus incurring some switching costs. O'Reilly's convenient ordering systems, extensive parts selection, and reliable delivery services create stickiness for professional clients. While not as high as in software or financial services, its convenience and reliability still form a moderate moat."
   },
   "m4_network_effects": {
-    "score": 3,
-    "comment": "O'Reilly Automotive的商業模式並未展現出顯著的網絡效應。其價值主張主要基於產品供應、便利性及服務質量，而非用戶數量的增長能直接提升其他用戶的體驗或價值。儘管廣泛的門店網絡有助於提升品牌知名度和物流效率，但這並非典型的網絡效應，即「每多一個用戶加入，整個生態系統對所有參與者的價值呈幾何級上升」。因此，此維度對O'Reilly的護城河貢獻有限，不構成其核心競爭優勢。"
+    "score": 0,
+    "comment_zh": "O'Reilly Automotive 的商業模式不具備網絡效應。其價值主張主要來自於廣泛的產品庫存、便捷的門店網絡和專業的客戶服務，而非用戶數量的增加能直接提升其他用戶的體驗或價值。這是一個典型的零售分銷業務，每個客戶的加入並不會對其他客戶產生直接的、幾何級數增長的價值。因此，網絡效應在此公司中幾乎不存在，不構成其經濟護城河的一部分。",
+    "comment_en": "O'Reilly Automotive's business model does not exhibit network effects. Its value proposition primarily stems from extensive product inventory, a convenient store network, and professional customer service, rather than an increase in user numbers directly enhancing the experience or value for other users. This is a typical retail distribution business where the addition of each customer does not generate direct, geometrically increasing value for other customers. Therefore, network effects are virtually non-existent in this company and do not form part of its economic moat."
   },
   "m5_cost_advantage_scale": {
     "score": 8,
-    "comment": "O'Reilly Automotive作為行業巨頭之一，享有顯著的規模經濟優勢。其龐大的採購量使其能與供應商談判更優惠的價格，有效降低單位產品成本。同時，公司高效且廣泛的倉儲與物流配送網絡，極大地提升了運營效率，降低了運輸和庫存成本。這種成本優勢使得O'Reilly能夠提供具競爭力的價格，同時保持健康的利潤率，對小型競爭者構成難以逾越的壁壘。這正是巴菲特所推崇的「低成本生產者」護城河的典型體現。"
+    "comment_zh": "O'Reilly 憑藉其龐大的門店網絡和高效的供應鏈，實現了顯著的規模經濟。其巨大的採購量使其在與供應商談判時擁有強大的議價能力，從而獲得更低的商品成本。此外，其廣泛的分銷中心網絡和優化的物流系統，有效降低了單位產品的運輸和倉儲成本。這種規模優勢使得O'Reilly能夠以更具競爭力的價格提供產品，同時保持健康的利潤率，這是小型競爭對手難以匹敵的，構成了其核心的成本護城河。",
+    "comment_en": "O'Reilly leverages its vast store network and efficient supply chain to achieve significant economies of scale. Its immense purchasing volume grants strong bargaining power with suppliers, leading to lower cost of goods. Furthermore, its extensive distribution center network and optimized logistics system effectively reduce per-unit transportation and warehousing costs. This scale advantage enables O'Reilly to offer products at more competitive prices while maintaining healthy profit margins, a feat difficult for smaller competitors to match, thus forming a core cost moat."
   },
   "m6_unique_geography_assets": {
     "score": 7,
-    "comment": "O'Reilly Automotive透過其廣泛且策略性佈局的門店網絡，在許多地區形成了「有效規模」的護城河。在特定市場，其已佔據了足夠的市場份額和地理位置優勢，使得潛在競爭者難以在不引發激烈價格戰、導致行業整體利潤受損的情況下有效進入。這種密集的實體資產佈局，結合其高效的供應鏈，創造了一種天然的理性寡占局面，新進入者將面臨巨大的資本投入和市場份額爭奪壓力，難以在短期內複製其規模與便利性。"
+    "comment_zh": "汽車零件零售市場在許多地區呈現出天然的寡占格局。在特定地理區域內，由於市場容量有限，且需要實體門店和大量庫存，新競爭者進入的邊際效益遞減，甚至可能導致價格戰，損害所有參與者的利益。O'Reilly通過策略性選址，在許多社區建立了領先的市場地位，其密集的門店網絡使得其在便利性上超越潛在競爭者。這種「有效規模」的護城河，使得新進入者難以在不破壞行業利潤結構的情況下獲得足夠的市場份額。",
+    "comment_en": "The auto parts retail market often exhibits characteristics of a natural oligopoly in many regions. Within specific geographic areas, due to limited market capacity and the necessity for physical stores and substantial inventory, the marginal benefit for new entrants diminishes, potentially leading to price wars that harm all participants. O'Reilly, through strategic site selection, has established leading market positions in numerous communities, with its dense store network offering superior convenience over potential competitors. This 'efficient scale' moat makes it difficult for new entrants to gain sufficient market share without disrupting the industry's profit structure."
   },
   "m7_operational_efficiency": {
     "score": 8,
-    "comment": "O'Reilly Automotive展現出卓越的運營效率和資本回報能力。其18.0%的股東權益報酬率（ROE）和15.2%的資產報酬率（ROA）遠超行業平均水平，表明公司能夠高效利用股東資本和總資產創造利潤。儘管未提供加權平均資本成本（WACC），但如此強勁的ROA和ROE數據強烈暗示其投入資本回報率（ROIC）持續遠超WACC，為股東創造了實質的複利價值。這反映了公司在庫存管理、供應鏈優化及門店運營方面的精準執行力，是其核心競爭力之一。"
+    "comment_zh": "O'Reilly 展現了卓越的營運效率，其高達18.0%的股東權益報酬率（ROE）和15.2%的資產報酬率（ROA）證明了其資本運用的高效性。公司持續產生強勁的自由現金流（FCF TTM $2,156.3M），這表明其投入資本回報率（ROIC）很可能長期顯著高於加權平均資本成本（WACC）。這種持續創造超額回報的能力，是巴菲特所推崇的「護城河」的關鍵指標，反映了其精準的庫存管理、優化的供應鏈和高效的門店營運能力。",
+    "comment_en": "O'Reilly demonstrates exceptional operational efficiency, evidenced by its high Return on Equity (ROE) of 18.0% and Return on Assets (ROA) of 15.2%, proving its capital effectiveness. The company consistently generates strong free cash flow (FCF TTM $2,156.3M), indicating that its Return on Invested Capital (ROIC) likely significantly and consistently exceeds its Weighted Average Cost of Capital (WACC). This sustained ability to generate excess returns is a key indicator of a 'moat' as championed by Buffett, reflecting its precise inventory management, optimized supply chain, and efficient store operations."
   },
   "m8_capital_allocation": {
-    "score": 7,
-    "comment": "即使給予競爭對手千億美元，也難以在短時間內完全複製O'Reilly Automotive的核心戰略資產。這不僅僅是建立同等數量的門店和分銷網絡，更關鍵的是複製其數十年來積累的品牌信譽、與供應商的深厚關係、專業技師客戶群的忠誠度，以及高效的運營管理體系。這些「軟性資產」和組織文化是長期積累的結果，無法僅靠資金快速催生。這種難以複製性為O'Reilly提供了堅實的護城河，確保其長期競爭優勢。"
+    "score": 8,
+    "comment_zh": "O'Reilly 管理層在資本配置方面表現出色，其歷史上持續的股票回購策略，證明了對公司內在價值的信心，並有效提升了股東價值。在過去幾年，公司利用其強勁的自由現金流，在股價被低估時積極回購股票，減少流通股數，從而提高了每股收益。這種紀律性的資本配置，避免了盲目溢價併購，專注於有機增長和回報股東，符合巴菲特對優秀管理層的期望，為公司建立了堅實的護城河。",
+    "comment_en": "O'Reilly's management has demonstrated excellent capital allocation, with a historical track record of consistent share buybacks, signaling confidence in the company's intrinsic value and effectively enhancing shareholder value. Over recent years, the company has utilized its strong free cash flow to aggressively repurchase shares when undervalued, reducing outstanding shares and boosting earnings per share. This disciplined capital allocation, avoiding indiscriminate premium acquisitions and focusing on organic growth and shareholder returns, aligns with Buffett's expectations for superior management, thereby building a solid moat for the company."
   },
   "m9_customer_retention": {
-    "score": 8,
-    "comment": "汽車零件零售行業的需求具有高度的確定性和抗顛覆性。無論經濟週期如何波動，車輛的維護和修理都是剛性需求。儘管電動車的興起可能改變零件的種類，但對售後服務和零件更換的需求本質不變。O'Reilly Automotive所提供的產品和服務，因其即時性、專業性和實體店的便利性，使其對純粹的線上電商衝擊具有較強的免疫力。這是一個相對穩定的「賣鏟子」生意，不易被技術或典範轉移徹底顛覆，確保了其業務的長期韌性。"
+    "score": 6,
+    "comment_zh": "O'Reilly 在客戶保留方面表現良好，尤其對於專業維修廠，其一站式採購、可靠的供應鏈和專業的技術支持，建立了穩固的合作關係。對於DIY客戶，其便利性、廣泛的庫存和有競爭力的價格也培養了一定的忠誠度。然而，汽車零件市場的客戶保留率並非如訂閱服務般自動續約，而是需要持續的服務質量和產品供應來維繫。儘管面臨電商和競爭對手的挑戰，O'Reilly 仍能通過其服務優勢保持較高的客戶回頭率，形成中等強度的護城河。",
+    "comment_en": "O'Reilly demonstrates good customer retention, especially with professional repair shops, where its one-stop sourcing, reliable supply chain, and expert technical support foster strong partnerships. For DIY customers, its convenience, extensive inventory, and competitive pricing also cultivate a degree of loyalty. However, customer retention in the auto parts market is not automatic like subscription services; it requires continuous service quality and product availability. Despite challenges from e-commerce and competitors, O'Reilly maintains a high repeat customer rate through its service advantages, forming a moderate moat."
   },
   "m10_durability": {
-    "score": 7,
-    "comment": "O'Reilly Automotive擁有強勁的自由現金流（FCF TTM達21.56億美元），這為其提供了靈活的資本配置空間。雖然具體的併購和股票回購歷史未在資料中詳述，但一家能夠持續產生高ROA和ROE的公司，通常會採取審慎的資本配置策略。合理的債務水平（現金2.62億美元，總負債95.87億美元）也表明管理層在利用槓桿方面保持了平衡。預計管理層會優先考慮有機增長、戰略性擴張，並在股價被低估時積極回購股票，以最大化股東價值。"
+    "score": 4,
+    "comment_zh": "O'Reilly 的商業模式在短期內具有較強的韌性，因為汽車保有量和維修需求相對穩定。然而，長期來看，電動車（EV）的普及對其核心業務構成重大挑戰。電動車的零件數量遠少於燃油車，且維修需求和零件種類截然不同，這將逐步侵蝕傳統汽車零件市場的需求。儘管公司可能適應並拓展EV相關零件業務，但轉型過程充滿不確定性。因此，其長期護城河的耐久性受到技術典範轉移的顯著威脅，評分相對保守。",
+    "comment_en": "O'Reilly's business model exhibits strong resilience in the short term, as vehicle ownership and maintenance demand remain relatively stable. However, in the long run, the proliferation of electric vehicles (EVs) poses a significant challenge to its core business. EVs have far fewer parts than internal combustion engine vehicles, and their maintenance needs and part types are fundamentally different, which will gradually erode demand in the traditional auto parts market. While the company may adapt and expand into EV-related parts, the transition process is fraught with uncertainty. Therefore, the durability of its long-term moat is significantly threatened by this technological paradigm shift, warranting a relatively conservative score."
   },
-  "overall_moat_verdict": "O'Reilly Automotive本質上是一家在汽車售後市場建立起堅實「收費橋樑」的企業。其護城河並非來自獨家專利或網絡效應，而是根植於其龐大的規模經濟、廣泛的門店網絡、高效的供應鏈管理以及在客戶心中建立的品牌信任。公司憑藉卓越的運營效率和資本回報能力，持續為股東創造價值。儘管行業競爭激烈，但O'Reilly透過其難以複製的實體資產佈局和專業服務，形成了強大的競爭壁壘，確保了其在汽車維修這一剛性需求市場中的長期盈利能力和市場領導地位。這是一個典型的「賣鏟子」生意，需求穩定且抗顛覆。"
+  "overall_moat_verdict_zh": "O'Reilly Automotive 是一家在汽車售後零件市場中擁有堅實護城河的零售巨頭。其核心競爭優勢來自於卓越的「規模經濟」和「有效規模」，透過龐大的門店網絡和高效供應鏈實現成本領先，並在區域市場形成理性寡占。公司展現出色的「營運效率」，持續創造高於資本成本的回報，且管理層在「資本配置」上紀律嚴明，積極回購股票。儘管不具備專利或網絡效應，但其品牌信譽和對專業客戶的黏性也構築了部分壁壘。然而，電動車的長期趨勢對其傳統業務構成顯著的「典範轉移」風險，這將是未來十年最大的挑戰。總體而言，O'Reilly 是一家現金流充沛、管理優異的「必需品零售商」，但需警惕產業結構性變革帶來的長期影響。",
+  "overall_moat_verdict_en": "O'Reilly Automotive stands as a retail giant with a robust moat in the automotive aftermarket. Its core competitive advantages stem from superior 'economies of scale' and 'efficient scale,' achieving cost leadership through its vast store network and efficient supply chain, and forming rational oligopolies in regional markets. The company demonstrates excellent 'operational efficiency,' consistently generating returns above its cost of capital, and its management exhibits disciplined 'capital allocation' through active share buybacks. While lacking patents or network effects, its brand reputation and stickiness with professional customers also form partial barriers. However, the long-term trend of electric vehicles poses a significant 'paradigm shift' risk to its traditional business, representing the biggest challenge over the next decade. Overall, O'Reilly is a cash-rich, well-managed 'essential goods retailer,' but one must be wary of the long-term impacts of structural industry changes."
 }

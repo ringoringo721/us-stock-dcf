@@ -3,43 +3,54 @@
   "period": "2026Q4",
   "m1_brand_pricing": {
     "score": 9,
-    "comment": "寶潔擁有全球無可匹敵的品牌組合，如Tide、Pampers、Gillette等，這些品牌已深植消費者心智數十年。其強大的品牌資產賦予公司卓越的定價權，即使在成本上升時也能轉嫁給消費者，而不會顯著影響銷量。消費者對這些品牌的信任與習慣，形成了堅固的心理壁壘，使其產品需求彈性較低。這正是巴菲特所推崇的「特許經營權」特徵，讓公司能持續賺取超額利潤，而非淪為商品化競爭。"
+    "comment_zh": "寶潔擁有眾多家喻戶曉的品牌，如汰漬、幫寶適、吉列等，這些品牌已深深植入消費者心智，形成強大的品牌忠誠度。即使在通脹壓力下，寶潔仍能透過品牌溢價轉嫁成本，維持利潤率，且銷量受影響較小。其產品被視為日常必需品，消費者對價格敏感度相對較低，賦予公司卓越的定價權，這是其護城河的核心。這種能力讓寶潔在競爭激烈的快消品市場中脫穎而出，確保穩定的現金流與盈利能力。",
+    "comment_en": "Procter & Gamble possesses an unparalleled portfolio of iconic brands like Tide, Pampers, and Gillette, deeply embedded in consumer consciousness. This strong brand equity fosters immense loyalty, enabling PG to command premium pricing and effectively pass on cost increases without significant volume erosion. Consumers perceive these products as essential daily necessities, exhibiting lower price sensitivity. This robust pricing power is a cornerstone of PG's economic moat, allowing it to maintain healthy margins and stable cash flows even in competitive fast-moving consumer goods markets, differentiating it from lesser-known rivals."
   },
   "m2_patents_regulatory": {
-    "score": 6,
-    "comment": "寶潔在產品配方、製造工藝和包裝設計上擁有大量專利，這些技術創新為其產品提供了差異化優勢。例如，在口腔護理或女性護理等特定領域，其專有技術和相關的監管批准構成了一定的進入壁壘。然而，對於其核心的日常消費品而言，這些專利壁壘的重要性不如品牌心智。儘管如此，持續的研發投入確保了產品的領先性，為其品牌護城河提供了技術層面的支持，而非單純依賴專利壟斷。"
+    "score": 7,
+    "comment_zh": "寶潔在研發上投入巨大，尤其在洗滌、個人護理等領域擁有大量專利，這些專利保護其產品配方與技術創新，使其在一定時期內享有獨家優勢。例如，吉列的剃鬚刀技術或汰漬的洗滌配方，都包含受專利保護的獨特成分或設計。儘管這些專利壁壘不如製藥業那般絕對，但它們確實增加了競爭對手模仿的難度與成本，為寶潔提供了技術上的差異化優勢，使其產品在市場上保持領先地位。",
+    "comment_en": "Procter & Gamble invests significantly in R&D, holding numerous patents in areas like detergents and personal care. These patents protect product formulations and technological innovations, granting the company exclusive advantages for a period. For instance, Gillette's shaving technology or Tide's detergent formulas incorporate patented ingredients or designs. While these patent barriers aren't as absolute as in pharmaceuticals, they undeniably increase the difficulty and cost for competitors to replicate, providing PG with a technological differentiation that helps maintain its market leadership."
   },
   "m3_high_switching_costs": {
-    "score": 7,
-    "comment": "對於寶潔的產品，消費者轉換成本主要體現在心理層面而非財務層面。一旦習慣了某個品牌（如特定洗衣粉或尿布），消費者會因擔心新產品效果不佳、品質不穩定或單純的習慣惰性而傾向於維持現狀。這種「習慣性黏性」雖然不像企業級軟體那樣有高昂的遷移成本，但對於日常必需品而言，卻是極為強大的護城河。它確保了重複購買率，降低了客戶流失風險，為公司帶來穩定現金流。"
+    "score": 8,
+    "comment_zh": "寶潔的產品多為日常消耗品，消費者一旦習慣某品牌，轉換成本雖非巨額金錢損失，卻是心理上的「習慣成本」與「信任成本」。例如，長期使用幫寶適的父母，為避免嬰兒不適，轉換其他品牌尿布的意願較低。這種基於信任和習慣的黏性，使得消費者即使面對微小價差，也傾向於選擇熟悉的寶潔產品。這種無形的轉換成本，為寶潔構建了穩定的客戶群，使其在市場競爭中保持優勢，遠超那些需要不斷吸引新客戶的品牌。",
+    "comment_en": "P&G's products are primarily daily consumables. While the monetary cost of switching brands might be low, consumers face significant psychological \"habit costs\" and \"trust costs.\" For example, parents accustomed to Pampers are less likely to switch diaper brands due to concerns about infant comfort. This stickiness, built on trust and routine, means consumers often prefer familiar P&G products even when facing minor price differences. This intangible switching cost creates a stable customer base for P&G, giving it a competitive edge over brands that constantly need to attract new customers."
   },
   "m4_network_effects": {
     "score": 1,
-    "comment": "寶潔作為一家傳統的消費品製造商，其商業模式不具備網絡效應。其產品的價值不會因為更多用戶使用而對其他用戶產生額外增益。例如，使用Tide洗衣粉的人數增加，並不會讓現有用戶的洗衣體驗變得更好。因此，網絡效應並非寶潔的護城河來源。這與巴菲特投資的某些科技或平台型企業形成鮮明對比，但並不影響其在其他護城河方面的卓越表現。"
+    "comment_zh": "寶潔的商業模式主要依賴於品牌建設與分銷，而非網絡效應。其產品的價值並不會因為更多消費者使用而對其他使用者產生直接的、幾何級數的增長。例如，更多人使用汰漬洗衣粉，並不會讓現有用戶的洗衣體驗變得更好或更便宜。因此，寶潔不具備巴菲特所指的「網絡效應」護城河，這與科技平台型企業有本質區別。其競爭優勢主要來自品牌、規模和分銷，而非用戶間的互動增值。",
+    "comment_en": "Procter & Gamble's business model relies primarily on brand building and distribution, not network effects. The value of its products does not increase directly or exponentially for other users as more consumers adopt them. For instance, more people using Tide detergent does not inherently improve or cheapen the laundry experience for existing users. Therefore, P&G lacks the \"network effect\" moat as defined by Buffett, fundamentally differing from technology platform companies. Its competitive advantages stem mainly from brand, scale, and distribution, rather than value accretion through user interaction."
   },
   "m5_cost_advantage_scale": {
     "score": 9,
-    "comment": "寶潔憑藉其龐大的全球規模，在採購原材料、生產製造、物流分銷和廣告營銷方面具備無與倫比的成本優勢。其巨大的採購量使其能獲得更低的單位成本，高效的全球供應鏈降低了運營費用。同時，大規模的廣告投入能攤薄單位產品的營銷成本，形成規模經濟。這種成本領先優勢讓小型競爭者難以望其項背，即使擁有相似產品，也無法在價格上與之抗衡，是典型的巴菲特式護城河。"
+    "comment_zh": "寶潔在全球範圍內擁有無與倫比的規模經濟優勢。其龐大的採購量使其能獲得更低的原材料成本；高效的全球製造與分銷網絡則大幅降低了單位產品的生產與運輸費用。此外，寶潔在廣告和市場營銷上的巨大投入，雖然絕對金額高，但分攤到數十億產品上，單位成本極低，形成強大的品牌聲量，這是小型競爭者望塵莫及的。這種規模優勢讓寶潔能以對手難以匹敵的成本結構運營，並將部分成本節約轉化為價格優勢或更高的利潤率。",
+    "comment_en": "Procter & Gamble possesses an unparalleled scale advantage globally. Its immense purchasing volume secures lower raw material costs, while an efficient global manufacturing and distribution network significantly reduces per-unit production and transportation expenses. Furthermore, PG's massive advertising and marketing spend, though high in absolute terms, becomes incredibly low on a per-product basis when spread across billions of units, creating formidable brand awareness that smaller competitors cannot match. This scale allows PG to operate with a cost structure that rivals struggle to compete with, translating into either price advantages or higher profit margins."
   },
   "m6_unique_geography_assets": {
-    "score": 7,
-    "comment": "寶潔所處的家庭用品市場是一個成熟且高度集中的寡頭市場，由少數幾家巨頭主導。雖然沒有地理上的獨佔性，但其在貨架空間、分銷網絡和消費者心智中的「佔位」形成了類似於「有效規模」的壁壘。新進入者即使擁有資金，也難以在短時間內建立起如此廣泛的分銷渠道和品牌認知度。這種市場結構使得現有參與者能避免惡性價格戰，維持健康的利潤率，符合蒙格對理性寡占市場的洞察。"
+    "score": 2,
+    "comment_zh": "寶潔所處的日用消費品市場規模巨大且競爭激烈，並非典型的「利基市場天然寡占」範疇。儘管寶潔在某些產品類別中佔據主導地位，但這更多是基於其品牌、規模和分銷優勢，而非市場容量有限或地理位置獨佔所形成的自然壟斷。新競爭者仍可進入市場，只是面臨寶潔強大護城河的挑戰。因此，寶潔不具備因市場結構性限制而形成的天然寡占優勢。",
+    "comment_en": "Procter & Gamble operates in vast and highly competitive consumer goods markets, which do not fit the definition of \"efficient scale\" or natural oligopolies. While PG dominates certain product categories, this stems more from its brand strength, scale, and distribution advantages, rather than limited market capacity or exclusive geographic positioning. New competitors can still enter these markets, albeit facing the formidable challenge of PG's existing moats. Therefore, PG does not possess a natural oligopoly advantage derived from structural market limitations."
   },
   "m7_operational_efficiency": {
     "score": 8,
-    "comment": "寶潔展現出卓越的運營效率和資本配置能力，其高達29.5%的ROE和12.7%的ROA證明了其能持續創造超額的股東回報。這不僅源於其強大的品牌和規模優勢，也得益於精益的生產管理、高效的供應鏈運作以及對市場需求的精準把握。公司能夠將投入資本轉化為豐厚的利潤，並持續產生高自由現金流（FCF TTM $15.9B），這正是巴菲特衡量企業內在價值和護城河韌性的關鍵指標。"
+    "comment_zh": "寶潔長期以來展現出卓越的資本回報能力，其高達29.5%的股東權益報酬率（ROE）和12.7%的資產報酬率（ROA）便是明證。這表明公司能夠持續有效地將投入資本轉化為豐厚利潤，遠超其加權平均資本成本（WACC）。這種長週期超額回報的韌性，是巴菲特衡量企業質量的關鍵指標，證明寶潔擁有強大的競爭優勢，能夠持續為股東創造價值，而非僅僅是消耗資本，這是一項堅實的護城河。",
+    "comment_en": "Procter & Gamble has consistently demonstrated exceptional capital returns, evidenced by its high Return on Equity (ROE) of 29.5% and Return on Assets (ROA) of 12.7%. This indicates the company's sustained ability to effectively convert invested capital into substantial profits, significantly exceeding its Weighted Average Cost of Capital (WACC). This long-term resilience in generating excess returns is a critical metric for Buffett in assessing business quality, proving PG possesses strong competitive advantages that continuously create shareholder value rather than merely consuming capital, thus forming a robust moat."
   },
   "m8_capital_allocation": {
-    "score": 8,
-    "comment": "寶潔的管理層在資本配置上表現出穩健和股東友好的特質。公司長期以來堅持派發穩定的股息，並在股價被低估時積極進行股票回購，以提升每股價值。其Piotroski F-Score達到7/9，顯示了良好的財務健康和經營效率。管理層專注於核心品牌的有機增長和戰略性投資，避免盲目擴張或高溢價併購，這與巴菲特強調的「像所有者一樣思考」的資本配置原則高度契合，為股東創造長期價值。"
+    "score": 9,
+    "comment_zh": "即使給予競爭對手千億美元，也難以在短時間內複製寶潔的核心戰略資產。這不僅是資金問題，更是時間與歷史積累的結果。寶潔數十年來建立的全球品牌聲譽、遍布各地的分銷網絡、與供應商的深厚關係、以及消費者對其產品的信任，都是無法用金錢快速買到的。這些無形資產的累積，構成了極高的進入壁壘，使得任何新進者都難以在短期內與寶潔抗衡，這是其最堅固的護城河之一。",
+    "comment_en": "Even with a hundred billion dollars, a competitor would struggle to replicate Procter & Gamble's core strategic assets within a short timeframe. This isn't merely a matter of capital; it's the culmination of decades of time and historical accumulation. P&G's global brand reputation, extensive distribution network, deep supplier relationships, and consumer trust, built over many decades, cannot be quickly purchased. The aggregation of these intangible assets creates an extremely high barrier to entry, making it nearly impossible for any newcomer to contend with P&G in the short term, representing one of its most formidable moats."
   },
   "m9_customer_retention": {
     "score": 9,
-    "comment": "寶潔的產品滿足的是人類最基本的日常需求，如清潔、衛生和個人護理，這些需求具有極高的確定性和穩定性。無論經濟週期如何波動，消費者對這些必需品的需求幾乎不受影響。儘管技術變革可能影響銷售渠道（如電商興起），但產品本身的功能和需求本質不會被顛覆。這種對技術變革和典範轉移的強大免疫力，確保了公司業務的長期穩定性和可預測性，是巴菲特眼中最理想的商業模式之一。"
+    "comment_zh": "寶潔所服務的市場是人類最基本且永恆的需求：清潔、衛生與個人護理。這些需求具有極高的確定性，幾乎不受技術典範轉移或AI顛覆的影響。無論科技如何進步，人們仍需要洗衣服、洗澡、刷牙。雖然產品配方會演進，但核心需求不會消失。這種對顛覆的強大免疫力，使得寶潔的業務模式極具韌性與可預測性，為長期投資者提供了極大的安全邊際，是其護城河中不可或缺的一環。",
+    "comment_en": "Procter & Gamble serves fundamental and timeless human needs: cleaning, hygiene, and personal care. These demands are highly certain and largely immune to technological paradigm shifts or AI disruption. Regardless of technological advancements, people will always need to wash clothes, bathe, and brush their teeth. While product formulations may evolve, the core demand remains constant. This strong immunity to disruption provides P&G's business model with immense resilience and predictability, offering a significant margin of safety for long-term investors and forming an indispensable part of its economic moat."
   },
   "m10_durability": {
-    "score": 9,
-    "comment": "寶潔的護城河是多維度且極難複製的。即便給予競爭對手千億美元，也無法在短時間內複製其數十年積累的全球品牌聲譽、消費者信任、龐大的分銷網絡、高效的供應鏈以及深厚的研發實力。這些無形資產和運營體系是時間和經驗的結晶，而非單純的資本投入可以買到。這種不可複製性確保了寶潔在未來數十年內仍能保持其市場領導地位和盈利能力，是其最核心的競爭壁壘，符合巴菲特對「持久競爭優勢」的定義。"
+    "score": 8,
+    "comment_zh": "寶潔的管理層在資本配置方面表現穩健，長期以來透過持續的股息發放和股票回購，積極回饋股東。公司在併購策略上相對審慎，更注重品牌組合的優化與整合，而非盲目追求規模擴張。其高達159億美元的自由現金流，為其提供了充足的彈性進行再投資、償債或回購。皮氏F-Score 7/9也印證了其良好的財務健康與營運效率。這種對股東利益負責的資本配置策略，是巴菲特所重視的企業特質，進一步鞏固了其護城河。",
+    "comment_en": "Procter & Gamble's management demonstrates sound capital allocation, consistently returning value to shareholders through sustained dividends and share buybacks. The company's acquisition strategy is relatively prudent, focusing on portfolio optimization and integration rather than indiscriminate expansion. Its robust free cash flow of $15.9 billion provides ample flexibility for reinvestment, debt repayment, or buybacks. A Piotroski F-Score of 7/9 further attests to its strong financial health and operational efficiency. This shareholder-centric capital allocation strategy, highly valued by Buffett, further strengthens P&G's economic moat."
   },
-  "overall_moat_verdict": "寶潔是一家典型的「特許經營權」企業，其核心競爭壁壘在於其無與倫比的品牌組合和規模經濟。公司憑藉數十年建立的消費者心智佔有率，賦予其強大的定價權，使其產品成為消費者日常生活中不可或缺的「收費橋樑」。同時，其龐大的全球運營規模帶來了顯著的成本優勢和分銷壁壘，讓新進入者難以撼動。寶潔的產品需求穩定且不易受技術顛覆，加上管理層穩健的資本配置策略，確保了其長期高ROIC和自由現金流。這是一個由品牌、規模和習慣共同構築的堅固護城河，使其成為巴菲特和蒙格眼中理想的長期價值投資標的。"
+  "overall_moat_verdict_zh": "寶潔無疑是一家擁有極其堅固護城河的「特許經營權」企業，其核心優勢在於無與倫比的品牌組合與全球規模經濟。公司透過數十年累積的品牌忠誠度，在日常消費品市場中築起一道道難以逾越的壁壘，賦予其強大的定價權與穩定的現金流。儘管缺乏網絡效應或利基市場寡占，但其在資本不可複製性、對顛覆的免疫力以及卓越的資本配置方面表現出色。寶潔本質上是一座收取「日常必需品使用費」的收費橋樑，為長期投資者提供可預測且持續的價值增長。",
+  "overall_moat_verdict_en": "Procter & Gamble is unequivocally a \"franchise\" business fortified by an exceptionally robust economic moat, primarily driven by its unparalleled brand portfolio and global economies of scale. Through decades of cultivating brand loyalty, the company has erected formidable barriers in the consumer staples market, granting it significant pricing power and stable cash flows. While lacking network effects or niche market oligopolies, PG excels in irreproducibility of capital, immunity to disruption, and superior capital allocation. Essentially, P&G operates as a toll bridge collecting \"daily necessity usage fees,\" offering predictable and sustained value growth for long-term investors."
 }

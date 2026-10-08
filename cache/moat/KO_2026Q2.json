@@ -3,43 +3,54 @@
   "period": "2026Q2",
   "m1_brand_pricing": {
     "score": 9,
-    "comment": "可口可樂的品牌是其最堅固的護城河之一，在全球範圍內擁有無與倫比的認知度和情感連結。這種深植人心的品牌心智，賦予公司強大的定價權，使其能夠在不顯著影響銷量的情況下轉嫁成本，甚至在通脹時期也能保持利潤率。消費者對其產品的忠誠度，超越了單純的功能性需求，成為一種生活方式的象徵。即使面對眾多競爭者，可口可樂的產品依然是許多消費者心中的首選，這使得其能夠在市場上保持溢價，並持續產生穩定的現金流，這正是巴菲特所推崇的「特許經營權」企業的典型特徵。"
+    "comment_zh": "可口可樂擁有全球無可匹敵的品牌資產，其經典紅色標誌與獨特風味已深植消費者心智，成為文化符號。這種強大的品牌認同賦予公司卓越的定價權，即使在通脹壓力下，消費者對其產品的忠誠度依然很高，願意為此支付溢價。這不僅體現在核心可樂產品上，也延伸至其龐大的飲料組合。競爭對手難以在短時間內複製這種跨越世代的品牌情感連結，使其能有效轉嫁成本，維持利潤率，是典型的特許經營權企業特徵。",
+    "comment_en": "Coca-Cola possesses an unparalleled global brand equity, with its iconic red logo and distinctive taste deeply embedded in consumer minds, transcending into a cultural symbol. This powerful brand recognition grants the company exceptional pricing power; even amidst inflationary pressures, consumer loyalty remains high, willing to pay a premium for its products. This extends beyond its core cola to its vast beverage portfolio. Competitors find it nearly impossible to replicate such intergenerational emotional connections in a short period, enabling Coca-Cola to effectively pass on costs and maintain profit margins, a hallmark of a franchise-like business."
   },
   "m2_patents_regulatory": {
-    "score": 8,
-    "comment": "可口可樂的「神秘配方」雖非傳統專利，卻是極具價值的商業機密，為其核心產品提供了獨特性。更關鍵的是，其遍布全球的特許裝瓶與分銷網絡，構成了一道難以逾越的監管與運營壁壘。這些長期協議賦予了裝瓶商在特定區域的獨家經營權，並確保了可口可樂產品的廣泛可及性。這種高度協調且受控的分銷體系，如同一個龐大的收費橋樑，使得任何新進入者都難以在短時間內複製其規模與效率，有效阻擋了潛在競爭對手，確保了市場份額與盈利能力。"
+    "score": 7,
+    "comment_zh": "可口可樂的核心配方雖非傳統專利，但其作為商業機密受到嚴密保護，構成獨特壁壘。更關鍵的是，公司在全球範圍內建立的龐大分銷網絡、與各地政府及監管機構的長期合作關係，以及在無數市場獲得的特許經營權，共同築起了難以逾越的准入門檻。新進入者不僅需要巨額資本，更需耗費數十年時間才能建立起類似的市場滲透力和監管合規體系。這使得可口可樂在各國市場享有類似「收費橋樑」的地位，確保其產品能高效觸達消費者。",
+    "comment_en": "While Coca-Cola's core formula isn't a traditional patent, it's a tightly guarded trade secret, forming a unique barrier. More critically, the company's vast global distribution network, long-standing relationships with governments and regulatory bodies worldwide, and numerous operating licenses in countless markets collectively create an insurmountable entry barrier. New entrants would require not only immense capital but also decades to establish comparable market penetration and regulatory compliance. This positions Coca-Cola as a \"toll bridge\" in various national markets, ensuring its products efficiently reach consumers."
   },
   "m3_high_switching_costs": {
     "score": 7,
-    "comment": "對於終端消費者而言，轉換可口可樂產品的直接財務成本看似不高，但其長期建立的品牌忠誠度、口味偏好以及消費習慣，構成了強大的心理轉換成本。消費者對可口可樂的依賴性，使其在日常生活中成為一種默認選擇。對於零售商和餐飲業者而言，不銷售可口可樂則意味著巨大的潛在銷售損失和顧客不滿，因為可口可樂是高周轉、高需求的品項。這種雙重黏性，使得其產品在貨架上佔據了不可替代的位置，確保了穩定的銷售量和市場滲透率。"
+    "comment_zh": "對於終端消費者而言，轉換飲料品牌似乎成本不高，但可口可樂的黏性主要體現在其龐大的商業生態系統中。對於零售商而言，可口可樂產品是引流利器，更換品牌意味著可能流失顧客、重新談判貨架空間與促銷協議，並調整供應鏈。對於全球數百家獨立裝瓶商而言，他們已投入巨資建設專用生產線與分銷設施，與可口可樂的合作關係根深蒂固，轉換品牌將導致巨大的沉沒成本與營運中斷風險。這種深層次的商業夥伴黏性，構成了堅實的護城河。",
+    "comment_en": "While switching beverage brands might seem low-cost for end consumers, Coca-Cola's stickiness primarily resides within its vast business ecosystem. For retailers, Coca-Cola products are powerful traffic drivers; switching brands could mean losing customers, renegotiating shelf space and promotional agreements, and adjusting supply chains. For hundreds of independent bottlers worldwide, who have invested heavily in specialized production lines and distribution facilities, their partnership with Coca-Cola is deeply entrenched. Switching would incur significant sunk costs and operational disruption risks. This deep-seated commercial partner stickiness forms a robust moat."
   },
   "m4_network_effects": {
     "score": 6,
-    "comment": "可口可樂並非典型的網絡效應公司，其價值不隨用戶數量呈指數級增長。然而，其在全球範圍內的極高普及率和無處不在的分銷網絡，確實產生了一種微妙的「網絡效應」。當可口可樂在幾乎所有零售點、餐廳和自動販賣機中隨處可見時，這種普遍性本身就強化了其作為「標準」飲料的地位。消費者在選擇時，更容易傾向於熟悉的、隨處可得的品牌。這種廣泛的存在感，反過來又吸引更多的銷售點合作，形成一個正向循環，鞏固了其市場領導地位。"
+    "comment_zh": "可口可樂的網絡效應並非典型的社交平台模式，而是體現在其無處不在的市場滲透率上。當產品在全球範圍內廣泛鋪貨，無論是餐廳、超市還是自動販賣機，消費者對其可得性的預期便會提高。這種「隨處可見」的特性，反過來強化了其分銷網絡的價值，吸引更多零售商和餐飲業者合作，形成正向循環。消費者越容易買到，品牌心智佔有率越高，進一步鞏固其市場領導地位。這種廣泛的物理網絡，為其帶來了難以撼動的競爭優勢。",
+    "comment_en": "Coca-Cola's network effect isn't a typical social platform model but manifests through its ubiquitous market penetration. When a product is widely available globally—in restaurants, supermarkets, or vending machines—consumer expectations for its accessibility increase. This \"always available\" characteristic, in turn, reinforces the value of its distribution network, attracting more retailers and food service operators to partner, creating a positive feedback loop. The easier it is for consumers to purchase, the higher its brand mindshare, further solidifying its market leadership. This extensive physical network provides an unshakeable competitive advantage."
   },
   "m5_cost_advantage_scale": {
     "score": 9,
-    "comment": "可口可樂憑藉其無與倫比的全球規模，在採購、生產、分銷和營銷方面實現了巨大的成本優勢。其龐大的採購量使其能以更低的價格獲得原材料，而全球化的生產和分銷網絡則優化了物流效率，降低了單位成本。此外，其巨額的廣告預算雖然看似高昂，但攤薄到數十億瓶產品上，每單位成本極低，且能產生巨大的品牌效應。這種規模經濟使得任何新進入者都難以在成本上與之競爭，因為他們無法在短期內達到可口可樂的生產和分銷體量，從而形成一道堅實的成本壁壘。"
+    "comment_zh": "可口可樂在全球飲料市場的巨大規模，賦予其無與倫比的成本優勢。從原材料採購（如糖、鋁罐）到生產製造、物流配送，其龐大的採購量和高效的供應鏈管理，使其單位成本遠低於任何潛在競爭者。這種規模經濟效應，讓公司能夠在保持高利潤率的同時，提供具有競爭力的價格，有效擠壓新進入者的生存空間。即使是大型競爭對手，也難以在所有環節達到可口可樂的成本效率，這是一個極其堅固的護城河。",
+    "comment_en": "Coca-Cola's immense scale in the global beverage market grants it an unparalleled cost advantage. From raw material procurement (like sugar, aluminum cans) to manufacturing and logistics, its vast purchasing volume and efficient supply chain management result in significantly lower unit costs than any potential competitor. This economy of scale allows the company to offer competitive prices while maintaining high profit margins, effectively squeezing out new entrants. Even large competitors struggle to match Coca-Cola's cost efficiency across all aspects, making this an extremely robust moat."
   },
   "m6_unique_geography_assets": {
-    "score": 8,
-    "comment": "軟飲料市場是一個成熟且高度集中的行業，主要由少數巨頭主導。可口可樂在其中佔據了核心地位，其產品幾乎遍布全球每一個角落。這種「高效規模」的特徵在於，市場容量雖大，但已被現有巨頭瓜分殆盡，新競爭者若想進入並取得顯著份額，將面臨極高的資本投入和品牌建設成本，且很可能引發價格戰，導致雙輸局面。可口可樂在貨架空間、分銷渠道和消費者心智中的「地理」佔有率，使其在事實上形成了一種天然的寡頭壟斷，難以被撼動。"
+    "score": 7,
+    "comment_zh": "雖然全球飲料市場廣闊，但可口可樂在碳酸飲料等核心品類中已形成天然寡占格局。其巨大的市場份額和品牌認知度，使得任何新競爭者若想大規模進入並挑戰其地位，都將面臨巨大的資本投入和激烈的價格戰，最終可能導致行業整體利潤率受損。這種「高效規模」的特性，意味著市場已趨於飽和，且由少數幾個巨頭主導，新進入者難以在不破壞現有平衡的情況下獲利，從而有效阻止了潛在競爭。",
+    "comment_en": "While the global beverage market is vast, Coca-Cola has established a natural oligopoly in core categories like sparkling soft drinks. Its immense market share and brand recognition mean that any new competitor attempting to enter and challenge its position on a large scale would face enormous capital investment and fierce price wars, ultimately risking overall industry profitability. This \"efficient scale\" characteristic implies that the market is saturated and dominated by a few giants, making it difficult for new entrants to profit without disrupting the existing balance, thereby effectively deterring potential competition."
   },
   "m7_operational_efficiency": {
-    "score": 9,
-    "comment": "可口可樂長期以來展現出卓越的資本回報能力，其高達39.6%的ROE和13.3%的ROA，以及142.97億美元的自由現金流，都強烈證明了其持續創造超額經濟利潤的能力。這不僅反映了其強大的品牌和定價權，更體現了其高效的運營管理和資本配置策略。公司能夠將投入資本轉化為豐厚的回報，遠超其加權平均資本成本，這正是巴菲特所看重的，能夠為股東帶來長期複利增長的「印鈔機」式企業特徵，證明了其護城河的堅固性。"
+    "score": 8,
+    "comment_zh": "可口可樂長期以來展現出卓越的資本回報能力，其投入資本回報率（ROIC）持續遠高於加權平均資本成本（WACC）。高達39.6%的股東權益報酬率（ROE）和13.3%的資產報酬率（ROA）便是明證，這表明公司能高效利用資本創造價值，並將利潤再投資於業務中，實現股東財富的長期複利增長。這種持續的超額回報能力，是其堅固護城河的直接財務體現，證明了其商業模式的優越性和盈利韌性。",
+    "comment_en": "Coca-Cola has consistently demonstrated exceptional capital returns, with its Return on Invested Capital (ROIC) persistently far exceeding its Weighted Average Cost of Capital (WACC). A high Return on Equity (ROE) of 39.6% and Return on Assets (ROA) of 13.3% are clear evidence, indicating the company's ability to efficiently utilize capital to create value and reinvest profits back into the business for long-term shareholder wealth compounding. This sustained ability to generate excess returns is a direct financial manifestation of its robust moat, proving the superiority and resilience of its business model."
   },
   "m8_capital_allocation": {
     "score": 9,
-    "comment": "即使給予競爭對手數千億美元，也無法在短時間內複製可口可樂的核心戰略資產。這不僅包括其百年積澱的全球品牌聲譽和消費者心智佔有率，更包括其錯綜複雜、遍布全球的特許裝瓶和分銷網絡。這些資產是時間、信任和巨額投資的結晶，而非簡單的資本堆砌。其「秘密配方」的獨特性，以及與各地市場建立的深厚關係，共同構成了不可複製的壁壘。這種獨特性使得可口可樂的競爭優勢成為一種稀缺資源，為其提供了持久的盈利能力。"
+    "comment_zh": "即使給予競爭對手千億美元資金，也幾乎不可能在數年內複製可口可樂的核心戰略資產。這不僅包括其跨越百年的全球品牌聲譽和消費者心智佔有率，更涵蓋了其遍佈全球的複雜分銷網絡、與數百家獨立裝瓶商建立的深厚合作關係，以及在各地市場累積的監管經驗與政治資本。這些無形資產和運營體系是長期積累的結果，無法通過簡單的資本投入快速建立，構成了極高的進入壁壘，使其成為真正不可複製的企業。",
+    "comment_en": "Even with a hundred billion dollars, it would be nearly impossible for a competitor to replicate Coca-Cola's core strategic assets within a few years. This includes not only its century-spanning global brand reputation and consumer mindshare but also its complex worldwide distribution network, deep-seated relationships with hundreds of independent bottlers, and accumulated regulatory experience and political capital in various markets. These intangible assets and operational systems are the result of long-term accumulation and cannot be quickly established through simple capital injection, forming an extremely high barrier to entry, making it a truly irreproducible enterprise."
   },
   "m9_customer_retention": {
-    "score": 9,
-    "comment": "可口可樂的產品滿足了人類對提神、愉悅和社交的基本需求，這使得其需求具有極高的確定性和抗顛覆性。無論技術如何發展，人工智能如何演進，人們對飲料的需求本質不會改變。公司通過不斷創新和拓展產品線（如零度可樂、健怡可樂、果汁、咖啡等），成功適應了消費者口味和健康趨勢的變化，而非被動應對。這種對基本需求的把握和靈活的產品組合策略，使其能夠有效抵禦來自新技術或消費典範轉移的衝擊，確保了業務的長期穩定性。"
+    "score": 8,
+    "comment_zh": "可口可樂所處的飲料行業，其核心需求——解渴與享受——具有極高的確定性，對顛覆性技術如AI的衝擊具備強大免疫力。儘管消費者口味會隨時間演變（例如對健康飲品的需求增加），但公司已通過不斷創新和收購，成功擴展其產品組合，涵蓋水、果汁、咖啡等多個品類，有效應對了市場趨勢變化。這種對基本人類需求的滿足，加上其適應變化的能力，使其商業模式具有極強的韌性，不易被技術或典範轉移所顛覆。",
+    "comment_en": "The beverage industry, where Coca-Cola operates, addresses fundamental human needs for hydration and enjoyment, exhibiting strong immunity to disruptive technologies like AI. While consumer tastes evolve over time (e.g., increased demand for healthier options), the company has successfully expanded its product portfolio through continuous innovation and acquisitions, covering water, juices, coffee, and other categories, effectively adapting to market trend changes. This fulfillment of basic human needs, coupled with its adaptability, grants its business model extreme resilience, making it highly resistant to technological or paradigm shifts."
   },
   "m10_durability": {
     "score": 8,
-    "comment": "可口可樂的管理層展現了對股東利益的高度重視和審慎的資本配置策略。公司長期以來堅持穩定的股息派發，並在股價被低估時積極進行股票回購，有效提升了每股收益和股東價值。其資產負債表穩健，擁有163.71億美元現金，總負債435.43億美元，顯示出良好的財務健康狀況。管理層在併購方面也相對謹慎，避免了盲目擴張和高溢價收購，確保了資本的有效利用。這種以股東為中心的資本配置哲學，是巴菲特衡量一家公司是否值得長期持有的關鍵因素。"
+    "comment_zh": "可口可樂的管理層在資本配置方面展現出長期且審慎的策略。公司不僅持續派發穩健股息，更在股價被低估時積極進行股票回購，有效提升了股東價值。其高達143億美元的自由現金流（FCF TTM）以及健康的資產負債表（現金164億美元對總負債435億美元，在強勁現金流下可控），都證明了其卓越的財務管理能力。管理層避免盲目溢價併購，專注於核心業務的有機增長與戰略性擴張，符合巴菲特對優秀企業管理者應具備的誠信與智慧的期望。",
+    "comment_en": "Coca-Cola's management has demonstrated a long-term and prudent strategy in capital allocation. The company not only consistently pays robust dividends but also actively engages in share buybacks when the stock is undervalued, effectively enhancing shareholder value. Its high Free Cash Flow (FCF TTM) of $14.3 billion and healthy balance sheet (cash of $16.4 billion against total debt of $43.5 billion, manageable with strong FCF) attest to its excellent financial stewardship. Management avoids blind, overpriced acquisitions, focusing instead on organic growth and strategic expansion of its core business, aligning with Buffett's expectations for integrity and wisdom in excellent corporate leaders."
   },
-  "overall_moat_verdict": "可口可樂是巴菲特投資哲學中典型的「特許經營權」企業，其護城河深不可測，主要由無與倫比的全球品牌心智、龐大且難以複製的分銷網絡，以及規模經濟帶來的成本優勢共同構築。它並非高科技公司，卻擁有比許多科技公司更為持久和穩定的競爭壁壘。其核心競爭力在於將一種簡單的產品，通過卓越的營銷、分銷和品牌管理，轉化為全球消費者生活中不可或缺的一部分。這使得可口可樂能夠持續產生豐厚的自由現金流，並在任何經濟環境下都保持強勁的盈利能力，是名副其實的「印鈔機」式企業。"
+  "overall_moat_verdict_zh": "可口可樂無疑是巴菲特投資哲學中「特許經營權」企業的典範。其核心護城河建立在全球無可匹敵的品牌力量、無處不在的分銷網絡、極致的規模經濟以及與裝瓶商形成的深厚商業黏性之上。這些要素共同築起了一道幾乎無法被複製的競爭壁壘，使其能夠長期維持高利潤率和卓越的資本回報。儘管面臨消費者口味變化的挑戰，但公司憑藉其適應能力和多元化策略，持續鞏固其在飲料行業的領導地位。這是一個擁有強大定價權和穩定現金流的企業，如同收費橋樑般，持續為股東創造價值。",
+  "overall_moat_verdict_en": "Coca-Cola unequivocally stands as a quintessential \"franchise\" business within Buffett's investment philosophy. Its core moat is built upon an unparalleled global brand power, ubiquitous distribution network, extreme economies of scale, and deep commercial stickiness with its bottlers. These elements collectively form a competitive barrier that is nearly impossible to replicate, enabling the company to sustain high profit margins and exceptional returns on capital over the long term. Despite challenges from evolving consumer tastes, the company, through its adaptability and diversification strategies, continues to solidify its leadership in the beverage industry. This is a business with strong pricing power and stable cash flow, akin to a toll bridge, consistently creating value for shareholders."
 }

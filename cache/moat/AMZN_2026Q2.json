@@ -2,44 +2,55 @@
   "ticker": "AMZN",
   "period": "2026Q2",
   "m1_brand_pricing": {
-    "score": 8,
-    "comment": "Amazon憑藉其「一站式購物」的品牌心智，在電商領域建立了極高的客戶忠誠度，尤其Prime會員體系透過捆綁服務有效提升了用戶黏性。儘管電商市場競爭激烈，但其龐大的用戶基礎和物流效率使其在價格敏感度上仍有一定緩衝。AWS作為雲計算領導者，其技術領先和服務可靠性賦予了顯著的定價權，企業客戶對其服務的依賴性極高，願意為穩定性和性能支付溢價。這種雙重品牌優勢，使其在不同業務板塊均能展現出強勁的定價能力，確保了長期盈利能力。"
+    "score": 9,
+    "comment_zh": "亞馬遜憑藉其強大的品牌認知度及Prime會員體系，建立了顯著的客戶忠誠度。消費者為其便捷性、廣泛商品選擇及快速配送服務支付溢價，即使在價格略高於競爭對手時，轉換成本也讓他們傾向於留在亞馬遜生態系統。AWS作為雲計算領導者，其服務的關鍵性賦予了其對企業客戶的強大定價權，難以被輕易取代，這體現了其深厚的品牌護城河。",
+    "comment_en": "Amazon's brand recognition and the sticky Prime membership program grant it significant pricing power. Customers are willing to pay a premium for the unparalleled convenience, vast selection, and rapid delivery services. This loyalty means they often choose Amazon even if prices are slightly higher elsewhere, due to the perceived value and switching costs. Furthermore, AWS, as a dominant cloud computing provider, offers mission-critical services that afford it substantial pricing power over its enterprise clients, demonstrating a robust brand moat."
   },
   "m2_patents_regulatory": {
-    "score": 6,
-    "comment": "Amazon的護城河並非主要來自於獨家專利或政府特許經營權。儘管其在物流、倉儲自動化和雲計算技術（AWS）方面擁有大量專利，這些專利更多是提升效率和服務品質的工具，而非絕對的市場進入壁壘。AWS的技術領先和基礎設施投入構成了實質性的技術壁壘，但這與傳統意義上的法定壟斷或獨家許可不同。電商業務則更依賴規模和效率，而非專利保護。因此，其專利和監管壁壘相對較弱，但技術累積仍具價值。"
+    "score": 8,
+    "comment_zh": "亞馬遜在物流、雲計算（AWS）及AI領域擁有大量專利，這些專利構成技術壁壘，保護其創新成果。儘管非傳統意義上的特許經營，但其龐大的基礎設施和運營複雜性，加上嚴格的數據安全與合規標準，實質上形成了難以逾越的監管與技術門檻。新進入者難以在短時間內複製其全球供應鏈網絡和AWS的技術深度，這為其提供了穩固的競爭優勢。",
+    "comment_en": "Amazon possesses a substantial portfolio of patents in logistics, cloud computing (AWS), and artificial intelligence, which act as significant technological barriers protecting its innovations and operational efficiencies. While not a traditional regulated monopoly, its immense infrastructure, operational complexity, and adherence to stringent data security and compliance standards effectively create high regulatory and technical hurdles for competitors. New entrants would find it incredibly challenging to replicate Amazon's global supply chain network and the technological depth of AWS in a short timeframe, thereby providing a robust and defensible competitive advantage."
   },
   "m3_high_switching_costs": {
     "score": 9,
-    "comment": "Amazon在多個業務領域展現出極高的客戶轉換成本。AWS的企業級客戶一旦將其核心IT基礎設施部署在AWS上，遷移至其他雲服務商將面臨巨大的時間、金錢和潛在業務中斷風險，這構成了一道堅不可摧的護城河。對於Prime會員而言，其享受的免費快速配送、影音內容、獨家折扣等服務，使其離開Amazon生態系統的機會成本顯著提高。這種多層次的黏性，確保了客戶的長期留存和持續消費，為公司帶來穩定的現金流。"
+    "comment_zh": "亞馬遜的轉換成本極高，尤其體現在Prime會員生態系統和AWS雲服務上。Prime會員一旦習慣了快速配送、影音娛樂等服務，轉換至其他平台將面臨便利性喪失和額外費用。對於AWS企業客戶而言，其業務系統深度整合於AWS基礎設施，遷移至其他雲服務商將涉及巨大的數據遷移成本、應用重構風險及潛在的業務中斷，這使得客戶轉換意願極低，形成強大護城河。",
+    "comment_en": "Amazon exhibits exceptionally high switching costs, particularly within its Prime ecosystem and AWS cloud services. Prime members, accustomed to expedited shipping, streaming content, and other integrated benefits, face a significant loss of convenience and potential additional expenses if they switch to alternative platforms, making the transition undesirable. For AWS enterprise clients, their core business operations are deeply embedded within AWS infrastructure, often involving complex integrations and proprietary data. Migrating to another cloud provider would entail immense data transfer costs, application re-engineering risks, and potential business disruptions, making the incentive to switch extremely low and thus forming a formidable, sticky moat."
   },
   "m4_network_effects": {
     "score": 9,
-    "comment": "Amazon的電商平台和AWS雲服務均具備強大的網絡效應。在電商領域，更多的買家吸引了更多的賣家入駐，豐富的商品選擇和競爭性價格反過來又吸引了更多買家，形成良性循環。對於AWS，隨著越來越多的企業和開發者採用其服務，圍繞AWS的工具、應用和專業知識生態系統日益壯大，進一步降低了新用戶的進入門檻並提升了價值，從而吸引更多用戶，鞏固其市場領導地位。這種自我強化的機制，使其競爭優勢不斷擴大。"
+    "comment_zh": "亞馬遜的電商平台展現出強大的網絡效應。更多的買家吸引更多的賣家提供更豐富的商品選擇和更具競爭力的價格，反過來又吸引更多買家，形成正向循環。AWS雲服務亦然，龐大的用戶基礎和開發者社區促進了服務的迭代與生態系統的完善，吸引更多企業採用，進一步鞏固其市場領導地位。這種雙向增強的網絡效應，使其競爭優勢隨著規模擴大而指數級增長。",
+    "comment_en": "Amazon's e-commerce platform demonstrates powerful network effects. A larger base of buyers attracts more sellers, leading to a wider selection of goods and more competitive pricing, which in turn draws even more buyers, creating a self-reinforcing virtuous cycle. Similarly, AWS cloud services benefit immensely from a vast user base and developer community that fosters continuous service iteration, feature development, and ecosystem enhancement. This robust feedback loop attracts more enterprises to adopt its offerings, further solidifying its market leadership and making its competitive advantage grow exponentially with scale."
   },
   "m5_cost_advantage_scale": {
-    "score": 9,
-    "comment": "Amazon在規模經濟方面擁有無與倫比的優勢。其全球龐大的物流網絡、自動化倉儲系統和採購規模，使其在電商領域能以極低的單位成本運營，這是小型競爭者難以複製的。AWS作為全球最大的雲服務提供商，其數據中心基礎設施的巨大投入和運營規模，使其能以更低的邊際成本提供計算和存儲服務，並將部分成本優勢轉化為更具競爭力的價格，或更高的利潤率。這種規模效應是其核心競爭力之一，財務數據如高FCF ($103.6B) 亦佐證了其高效運營。"
+    "score": 10,
+    "comment_zh": "亞馬遜在電商物流、倉儲配送及雲計算基礎設施方面擁有無與倫比的規模經濟優勢。其龐大的全球供應鏈網絡和自動化倉庫，使其能夠以極低的單位成本運營，並提供高效的配送服務，這是小型競爭者難以望其項背的。AWS作為全球最大的雲服務商，其基礎設施投資和運營效率，使其能提供更具成本效益的服務，並將規模優勢轉化為對客戶的價值，形成堅實的成本護城河。",
+    "comment_en": "Amazon possesses an unparalleled scale advantage in e-commerce logistics, warehousing, and cloud computing infrastructure. Its vast global supply chain network, highly automated fulfillment centers, and sophisticated data analytics enable operations at extremely low unit costs, delivering highly efficient distribution services that smaller competitors cannot possibly match. AWS, as the world's largest cloud provider, leverages its massive infrastructure investments and operational efficiencies to offer more cost-effective and reliable services, translating its scale into significant value for customers. This formidable cost advantage forms a robust and enduring economic moat, difficult for rivals to overcome."
   },
   "m6_unique_geography_assets": {
-    "score": 6,
-    "comment": "Amazon的業務並非傳統意義上的利基市場寡占。電商和雲計算市場規模巨大且競爭激烈。然而，在雲計算基礎設施服務（IaaS）領域，AWS與少數幾家巨頭共同形成了事實上的寡頭壟斷格局。由於建立和運營全球規模的雲基礎設施需要天文數字的資本投入和技術積累，新進入者難以撼動現有格局。任何試圖大規模進入的行為，都可能導致行業利潤率的整體下降，形成一種「雙輸」局面，這在一定程度上體現了高效規模的特徵。"
+    "score": 8,
+    "comment_zh": "亞馬遜在某些領域展現出接近天然寡占的特性。例如，AWS在雲計算市場的領先地位，已形成少數巨頭主導的格局，新進入者難以撼動。其電商零售的龐大體量和基礎設施投資，也使得任何試圖全面挑戰其市場地位的競爭者，都將面臨極高的資本門檻和規模劣勢，導致潛在競爭者理性地選擇避免直接對抗，從而鞏固了亞馬遜的市場份額和盈利能力。",
+    "comment_en": "Amazon exhibits characteristics akin to an efficient scale oligopoly in certain sectors, particularly with AWS. AWS's dominant position in the cloud computing market has created a landscape primarily controlled by a few giants, making it exceedingly difficult for new entrants to gain significant traction or achieve profitability. Similarly, the sheer scale and immense infrastructure investment required for its e-commerce retail operations present an insurmountable capital barrier and scale disadvantage for any competitor attempting to challenge its market leadership comprehensively. This discourages direct confrontation from potential rivals, thereby solidifying Amazon's market share and profitability within these large, yet effectively consolidated, markets."
   },
   "m7_operational_efficiency": {
-    "score": 8,
-    "comment": "Amazon展現出卓越的資本配置能力和長週期超額ROIC韌性。其24.5%的ROE和12.3%的ROA，在持續大規模投資擴張的同時，仍能保持如此高的資本回報率，遠超其加權平均資本成本。這表明公司不僅能有效利用資本創造價值，還能將利潤持續再投資於高回報項目，如AWS的基礎設施擴建、物流網絡優化和新技術研發。這種持續創造股東複利的能力，是其護城河的關鍵體現，證明了其商業模式的內在優勢。"
+    "score": 9,
+    "comment_zh": "亞馬遜的投入資本回報率（ROIC）展現出強勁的韌性，尤其在AWS業務上持續創造超額回報。儘管過去公司傾向於將利潤再投資以追求增長，但其高達24.5%的股東權益報酬率（ROE）和12.3%的資產報酬率（ROA），以及高達7/9的皮氏F-Score，均表明其資本配置效率和盈利能力卓越。這證明亞馬遜能夠長期將資本投入到高回報項目中，為股東創造實質的複利價值。",
+    "comment_en": "Amazon's Return on Invested Capital (ROIC) demonstrates robust resilience, particularly with its AWS segment consistently generating superior returns well above its cost of capital. While the company historically prioritized reinvesting profits for aggressive growth, its impressive 24.5% Return on Equity (ROE) and 12.3% Return on Assets (ROA), coupled with a strong Piotroski F-Score of 7/9, indicate excellent capital allocation efficiency and underlying profitability. This evidence strongly suggests Amazon's long-term ability to deploy capital into high-return ventures, thereby consistently creating substantial compounding value for shareholders over extended periods."
   },
   "m8_capital_allocation": {
     "score": 10,
-    "comment": "Amazon的戰略資產幾乎是不可複製的。即使給予競爭對手數千億美元，也無法在短時間內複製其全球規模的物流網絡、自動化倉儲系統、AWS的技術領先地位和遍布全球的數據中心基礎設施。更重要的是，其數億Prime會員形成的強大生態系統、品牌心智和數據積累，是數十年持續投入和用戶信任的結果，無法用金錢快速買到。這種多維度的、深厚的、難以模仿的資產組合，構成了其最堅固的護城河之一。"
+    "comment_zh": "亞馬遜的核心戰略資產幾乎不可複製。即使給予競爭對手數千億美元，也無法在短時間內重建其全球規模的物流配送網絡、遍布全球的AWS數據中心基礎設施、數億忠誠的Prime會員基礎，以及其在電商、雲計算、廣告和AI領域累積的技術深度與運營經驗。這種綜合性的、多維度的資產組合，是其長期競爭優勢的基石，為其提供了極高的資本不可複製性護城河。",
+    "comment_en": "Amazon's core strategic assets are virtually irreproducible, forming an exceptionally deep moat. Even if competitors were granted hundreds of billions of dollars, they could not quickly rebuild its global-scale logistics and fulfillment network, the vast, worldwide AWS data center infrastructure, its hundreds of millions of loyal Prime members, or the accumulated technological depth and operational expertise across e-commerce, cloud computing, advertising, and AI. This comprehensive, multi-dimensional asset combination, built over decades of relentless investment and innovation, forms the bedrock of its long-term competitive advantage, providing an exceptionally high and enduring irreproducibility moat."
   },
   "m9_customer_retention": {
-    "score": 8,
-    "comment": "Amazon展現出強大的技術和典範轉移抗性，甚至在許多領域引領變革。其核心業務——電商和雲計算，雖然面臨持續的技術演進，但Amazon憑藉其持續的研發投入和創新能力，始終保持領先地位。例如，AWS在AI/ML領域的布局，使其能快速適應新技術趨勢。其對客戶體驗的執著和對效率的追求，使其能夠不斷進化商業模式。儘管未來總有不確定性，但Amazon的適應性和創新文化，使其對潛在顛覆具備較高免疫力。"
+    "score": 9,
+    "comment_zh": "亞馬遜對技術變革和典範轉移具有強大抗性，甚至常常是顛覆者本身。其多元化的業務模式，從電商零售到雲計算（AWS），再到廣告和AI領域的持續投入，使其能夠不斷適應並引領行業趨勢。公司內部強調「Day 1」文化，鼓勵創新和快速迭代，這使其能夠在面對新技術或市場變化時，迅速調整戰略並抓住機遇，而非被動應對，從而確保了其業務的長期韌性。",
+    "comment_en": "Amazon demonstrates strong immunity to technological disruption and paradigm shifts, often acting as the disruptor itself rather than being disrupted. Its highly diversified business model, spanning e-commerce retail, cloud computing (AWS), advertising, and continuous investment in cutting-edge AI, enables it to constantly adapt, innovate, and lead industry trends. The company's ingrained \"Day 1\" culture fosters relentless innovation and rapid iteration, allowing it to swiftly adjust strategies and seize emerging opportunities when confronted with new technologies or market changes, rather than merely reacting. This proactive and adaptive approach ensures the long-term resilience and relevance of its extensive business operations."
   },
   "m10_durability": {
-    "score": 8,
-    "comment": "Amazon的管理層在資本配置方面展現出卓越的長期視角和執行力。儘管過去較少進行大規模股票回購，但其將巨額自由現金流（FCF TTM $103.6B）持續高效地再投資於AWS基礎設施、物流網絡擴張和新興技術研發，創造了顯著的股東價值。公司避免了盲目溢價併購，而是專注於內生增長和戰略性小型收購。近年來，公司也開始適度回購股票，顯示出對股東回報的重視。這種以長期價值創造為導向的資本配置策略，符合巴菲特的投資哲學。"
+    "score": 9,
+    "comment_zh": "亞馬遜的管理層以其長期願景和卓越的資本配置能力著稱。儘管過去傾向於將自由現金流再投資於增長項目，但近年來公司開始實施股票回購，顯示出對股東回報的重視。其龐大的自由現金流（FCF TTM $104.16B）和健康的資產負債表（現金 $122.98B 對總負債 $223.23B），賦予管理層極大的戰略彈性。這種務實且以股東價值為導向的資本配置策略，是其護城河的重要組成部分。",
+    "comment_en": "Amazon's management is renowned for its long-term vision and exceptional capital allocation capabilities, consistently prioritizing strategic investments for market leadership and sustainable growth. While historically favoring reinvestment of free cash flow into growth initiatives, the company has recently initiated significant share buybacks, signaling an increased focus on balancing growth with direct shareholder returns. Its massive trailing twelve-month free cash flow of $104.16 billion and a healthy balance sheet, with $122.98 billion in cash against $223.23 billion in total liabilities, provide management with immense strategic flexibility. This pragmatic and shareholder-value-oriented capital allocation strategy constitutes a crucial and strengthening component of its economic moat."
   },
-  "overall_moat_verdict": "Amazon本質上是一個由「特許經營權平台」和「收費橋樑」複合而成的商業帝國。其核心護城河建立在極致的規模經濟、強大的網絡效應和高昂的客戶轉換成本之上。電商平台通過海量商品和便捷服務，形成買賣雙方的正向循環，而Prime會員體系則將客戶牢牢鎖定在其生態系統中。AWS作為全球領先的雲計算服務商，其技術領先、基礎設施投入巨大，且企業客戶遷移成本極高，如同現代數字世界的「收費橋樑」，持續產生穩定的高利潤現金流。儘管電商領域競爭激烈，但Amazon的品牌心智、物流效率和持續創新能力，使其能夠不斷鞏固和擴大其競爭優勢，成為一個難以被複製和顛覆的商業實體。"
+  "overall_moat_verdict_zh": "亞馬遜本質上是一個由多個強大特許經營權組成的生態系統。其電商平台憑藉品牌、規模經濟和網絡效應，構建了難以逾越的零售護城河；AWS則以其技術領先、高轉換成本和規模優勢，成為雲計算領域的收費橋樑。管理層的長期主義和卓越資本配置能力，持續將自由現金流投入到高回報領域，不斷加深護城河。這使其不僅能抵禦競爭，更能持續創造超額股東價值，是一個具備多重堅固護城河的綜合性平台。",
+  "overall_moat_verdict_en": "Amazon fundamentally operates as an ecosystem comprised of multiple powerful, self-reinforcing franchises. Its e-commerce platform, fortified by unparalleled brand recognition, immense scale economies, and potent network effects, has constructed an exceptionally deep and difficult-to-surmount retail moat. AWS, with its technological leadership, extremely high switching costs for enterprises, and massive scale advantage, effectively functions as a critical toll bridge in the burgeoning cloud computing sector. Management's unwavering long-term vision and exceptional capital allocation capabilities continuously deploy free cash flow into high-return areas, consistently deepening and broadening these moats. This strategic approach enables Amazon not only to effectively withstand competitive pressures but also to perpetually generate superior shareholder value, establishing it as a comprehensive platform underpinned by multiple robust and enduring economic moats."
 }

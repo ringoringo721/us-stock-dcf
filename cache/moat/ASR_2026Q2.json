@@ -3,43 +3,54 @@
   "period": "2026Q2",
   "m1_brand_pricing": {
     "score": 8,
-    "comment": "Grupo Aeroportuario (ASR) 作為機場服務提供商，在特定區域內享有顯著的定價權。其核心業務是提供不可或缺的航空基礎設施，航空公司和旅客在特定地理位置上幾乎沒有替代選擇。這種區域性壟斷地位，使得ASR能夠對著陸費、停機費、租賃空間及特許經營權等服務進行有效定價，且需求彈性較低。即使提高價格，由於航空旅行的必要性及缺乏替代機場，客戶仍會繼續使用其服務，這體現了強大的商業壁壘。"
+    "comment_zh": "ASR作為墨西哥主要機場運營商，其核心資產是不可或缺的交通樞紐。旅客和航空公司在特定區域內幾乎沒有替代選擇，賦予公司強大的定價權。儘管部分費用受監管，但其非航空業務（如零售、餐飲、停車）的定價彈性極高，能有效轉嫁成本並提升利潤率。這種壟斷地位確保了即使在經濟波動時，公司也能維持穩定的收入流，符合巴菲特對擁有「收費橋樑」特徵企業的偏好。",
+    "comment_en": "As a key airport operator in Mexico, ASR's assets are indispensable transportation hubs. Travelers and airlines have virtually no viable alternatives within specific regions, granting the company significant pricing power. While some aeronautical fees are regulated, its non-aeronautical businesses (retail, F&B, parking) enjoy high pricing flexibility, allowing effective cost pass-through and margin enhancement. This monopolistic position ensures stable revenue streams even during economic fluctuations, aligning with Buffett's preference for \"toll bridge\" businesses."
   },
   "m2_patents_regulatory": {
     "score": 9,
-    "comment": "ASR 的護城河核心在於其政府特許經營權和嚴格的監管壁壘。機場的建設與運營需要巨額資本投入、漫長的審批流程以及政府授予的獨家經營許可。這些許可通常是長期且排他性的，有效阻止了新競爭者的進入。這不僅是專利保護，更是國家層面的戰略性基礎設施壟斷，為ASR提供了極其穩固且幾乎無法被複製的競爭優勢，確保了其在市場中的主導地位和穩定收益。"
+    "comment_zh": "機場運營的核心護城河在於其政府特許經營權。ASR持有長期且排他性的機場運營許可，這構成了一道幾乎無法逾越的進入壁壘。獲得這些特許權需要巨大的政治資本、時間和資金投入，且新競爭者幾乎不可能在同一區域內複製。這種由政府授予的壟斷地位，使得ASR能夠在受保護的市場中穩定經營，並享有可預測的現金流，是典型的巴菲特所青睞的「法定壟斷」或「特許經營權」模式。",
+    "comment_en": "The core moat for airport operations lies in government concessions. ASR holds long-term, exclusive licenses to operate airports, forming an almost insurmountable barrier to entry. Obtaining such concessions demands immense political capital, time, and financial investment, making replication by new competitors in the same region virtually impossible. This government-granted monopoly allows ASR to operate stably within a protected market, enjoying predictable cash flows, embodying the \"legal monopoly\" or \"franchise\" model favored by Buffett."
   },
   "m3_high_switching_costs": {
     "score": 8,
-    "comment": "對於航空公司而言，更換服務機場會產生極高的轉換成本。這包括重新規劃航線、調整地面服務人員、遷移設備、重新談判合同以及潛在的旅客流失。這些沉沒成本和運營中斷風險，使得航空公司一旦在ASR運營的機場建立起業務，便難以輕易轉移。雖然旅客可以選擇不同航空公司，但機場本身作為區域性樞紐的地位，使得其對整體航空生態系統的黏性極強，為ASR帶來穩定的收入流。"
+    "comment_zh": "對於航空公司而言，更換主要運營機場會帶來巨大的轉換成本，包括航線重組、地面服務合同、員工調配以及品牌認知度損失。對於旅客而言，特定目的地往往只有一個主要機場選擇，轉換成本體現在時間和不便上。這種高度的客戶鎖定效應，使得ASR的服務對其主要客戶群體（航空公司）具有極強的黏性，確保了穩定的業務量和收入，即使在服務價格略有上漲時，客戶也難以轉投他處。",
+    "comment_en": "For airlines, switching primary operating airports incurs substantial costs, including route restructuring, ground service contracts, staff reallocation, and brand recognition loss. For passengers, specific destinations often offer only one main airport choice, with switching costs manifesting as time and inconvenience. This high customer lock-in effect makes ASR's services extremely sticky for its primary clientele (airlines), ensuring stable business volume and revenue. Even with slight price increases, customers find it difficult to switch to alternatives."
   },
   "m4_network_effects": {
-    "score": 8,
-    "comment": "ASR 運營的機場展現出強大的網絡效應。隨著更多航空公司選擇其機場，航班數量和目的地選擇增加，吸引更多旅客。旅客量的增長反過來又吸引更多零售商、餐飲服務商和廣告商入駐，提升了機場的非航空收入。這種良性循環使得機場對所有參與者（航空公司、旅客、商家）的價值呈指數級增長，進一步鞏固了ASR作為區域航空樞紐的地位，形成難以打破的競爭優勢。"
+    "score": 7,
+    "comment_zh": "機場運營雖非典型網絡效應，但其具備「樞紐效應」。更多航空公司開通航線會吸引更多旅客，增加機場客流量；客流量的增長又會吸引更多零售商、餐飲服務入駐，提升非航空收入。這形成一個正向循環：機場越繁忙，對航空公司和商業租戶的吸引力越大，進一步鞏固其作為區域交通樞紐的地位。這種自我強化的生態系統，使得ASR的價值隨著其服務網絡的擴大而增長。",
+    "comment_en": "While not a typical network effect, airport operations exhibit a \"hub effect.\" More airlines opening routes attract more passengers, increasing airport traffic; this growth in traffic, in turn, attracts more retailers and F&B services, boosting non-aeronautical revenue. This creates a virtuous cycle: the busier the airport, the more attractive it becomes to airlines and commercial tenants, further solidifying its status as a regional transportation hub. This self-reinforcing ecosystem allows ASR's value to grow as its service network expands."
   },
   "m5_cost_advantage_scale": {
     "score": 8,
-    "comment": "機場運營具有顯著的規模經濟效應。跑道、航站樓、塔台等基礎設施的建設和維護成本是巨大的固定成本。一旦這些設施投入使用，隨著航班和旅客吞吐量的增加，每單位服務的邊際成本會大幅下降。ASR 作為大型機場運營商，能夠通過優化資源配置和提高設施利用率，實現比潛在小型競爭者更低的單位運營成本，從而獲得成本優勢和更高的盈利能力。"
+    "comment_zh": "機場運營是典型的資本密集型行業，擁有巨大的固定成本（跑道、航站樓、塔台等）。ASR作為大型機場集團，能夠將這些固定成本分攤到龐大的客流量和航班量上，實現顯著的規模經濟。這使得其單位運營成本遠低於潛在的小型競爭者，並在採購、維護和管理方面獲得議價優勢。這種成本結構上的優勢，為ASR提供了強大的競爭壁壘和持續的盈利能力，符合巴菲特對低成本生產者的青睞。",
+    "comment_en": "Airport operation is a classic capital-intensive industry with massive fixed costs (runways, terminals, control towers, etc.). As a large airport group, ASR can spread these fixed costs across a vast volume of passenger traffic and flights, achieving significant economies of scale. This results in unit operating costs far lower than potential smaller competitors, granting it bargaining power in procurement, maintenance, and management. This cost structure advantage provides ASR with a strong competitive barrier and sustained profitability, aligning with Buffett's preference for low-cost producers."
   },
   "m6_unique_geography_assets": {
     "score": 9,
-    "comment": "機場服務市場在特定地理區域內呈現天然寡占或壟斷特性。建設一個新機場不僅需要天文數字般的資金投入，還面臨嚴格的土地徵用、環境評估和政府審批等重重障礙，耗時數十年。現有市場容量通常只能高效支持少數大型機場。ASR 憑藉其獨特的地理位置和已建成的基礎設施，有效阻止了新競爭者的進入，形成了一個新進入者只會導致雙輸局面的理性寡占市場。"
+    "comment_zh": "機場服務市場具有天然的地理限制和容量上限。在特定城市或區域內，由於土地稀缺、環境法規嚴格以及巨額建設成本，幾乎不可能新建一個大型競爭性機場。ASR在墨西哥運營多個機場，在各自服務區域內形成了事實上的寡頭或壟斷地位。這種「有效規模」的市場特性，使得新進入者即便有資金也難以立足，因為任何新增供給都可能導致市場過度競爭，損害所有參與者的利益。",
+    "comment_en": "The airport services market has inherent geographical limitations and capacity ceilings. In specific cities or regions, due to land scarcity, stringent environmental regulations, and immense construction costs, building a new large-scale competitive airport is nearly impossible. ASR operates multiple airports in Mexico, establishing de facto oligopolies or monopolies within their respective service areas. This \"efficient scale\" market characteristic makes it difficult for new entrants to gain a foothold, even with capital, as any new supply could lead to over-competition, harming all participants."
   },
   "m7_operational_efficiency": {
     "score": 8,
-    "comment": "ASR 展現出卓越的資本回報能力，其 ROE 達 24.1%，ROA 為 11.1%，且皮氏 F-Score 高達 8/9，表明公司財務狀況穩健，運營效率高。這些數據強烈暗示其投入資本回報率（ROIC）持續顯著高於加權平均資本成本（WACC）。儘管機場是資本密集型業務，ASR 仍能有效利用資本創造超額收益，並產生 $272.9M 的自由現金流，證明其具備長期為股東創造複利價值的韌性。"
+    "comment_zh": "ASR高達24.1%的股東權益報酬率（ROE）和11.1%的資產報酬率（ROA），遠超行業平均水平和其資本成本，證明了其卓越的資本配置效率和持續創造股東價值的能力。這不僅反映了其強大的護城河帶來的穩定盈利，也顯示了管理層在運營和投資上的精準判斷。這種長期超額的資本回報率，是巴菲特衡量企業內在價值和護城河強度的關鍵指標，表明公司能夠將投入的每一分錢轉化為豐厚的回報。",
+    "comment_en": "ASR's impressive 24.1% Return on Equity (ROE) and 11.1% Return on Assets (ROA) significantly surpass industry averages and its cost of capital, demonstrating exceptional capital allocation efficiency and sustained shareholder value creation. This reflects not only stable profitability driven by its strong moats but also management's precise judgment in operations and investments. Such long-term excess returns on capital are a key metric for Buffett in assessing intrinsic value and moat strength, indicating the company's ability to convert every dollar invested into substantial returns."
   },
   "m8_capital_allocation": {
     "score": 9,
-    "comment": "即使給予競爭對手數千億美元，也無法在短期內複製 ASR 的核心戰略資產。這不僅僅是資金問題，更涉及獲得政府特許經營權、大規模土地徵用、複雜的基礎設施規劃與建設、以及建立成熟的航空網絡和運營體系。這些要素的累積需要數十年時間和巨大的政治、社會資本。ASR 的護城河是時間、資本、監管和地理位置等多重因素共同作用的結果，具有極高的不可複製性。"
+    "comment_zh": "即使擁有千億美元資金，也無法在短期內複製ASR的核心戰略資產。這不僅涉及天文數字般的基礎設施建設成本，更關鍵的是獲得政府長期特許經營權的複雜性、土地徵用、環境審批以及數十年積累的運營經驗和品牌信譽。這些無形資產和監管壁壘，共同構成了ASR不可複製的競爭優勢，使其成為一個獨特的、難以被顛覆的實體，完美契合巴菲特對「不可替代」企業的定義。",
+    "comment_en": "Even with a hundred billion dollars, replicating ASR's core strategic assets in the short term is impossible. This involves not only astronomical infrastructure construction costs but, more critically, the complexity of securing long-term government concessions, land acquisition, environmental approvals, and decades of accumulated operational experience and brand reputation. These intangible assets and regulatory barriers collectively form ASR's irreproducible competitive advantage, making it a unique, difficult-to-disrupt entity, perfectly aligning with Buffett's definition of \"irreplaceable\" businesses."
   },
   "m9_customer_retention": {
     "score": 8,
-    "comment": "航空旅行作為長途運輸的核心方式，其需求具有高度確定性，難以被根本性顛覆。儘管技術進步會優化機場運營效率和旅客體驗，但機場作為物理基礎設施和航空樞紐的本質不會改變。AI 或其他新興技術可能提升管理水平，但無法取代跑道、航站樓等實體資產。ASR 的業務模式對技術變革和典範轉移具有強大的免疫力，確保了其長期需求的穩定性。"
+    "comment_zh": "機場作為現代社會長途旅行和貨物運輸的基礎設施，其需求具有極高的確定性和抗顛覆性。儘管技術不斷進步，但對物理機場的需求依然不可替代。AI和自動化可能優化運營效率，但無法取代跑道、航站樓等核心資產。除非出現根本性的交通方式革命（如大規模超音速點對點飛行器普及），否則機場業務將長期穩定存在，這賦予ASR極強的抗技術變革能力，是典型的「永續經營」業務。",
+    "comment_en": "As fundamental infrastructure for modern long-distance travel and cargo transport, airports have highly certain and disruption-resistant demand. Despite continuous technological advancements, the need for physical airports remains irreplaceable. AI and automation may optimize operational efficiency but cannot substitute core assets like runways and terminals. Unless a fundamental revolution in transportation occurs (e.g., widespread adoption of mass supersonic point-to-point aircraft), the airport business will remain stable long-term. This grants ASR strong immunity to technological change, making it a classic \"perpetual business.\""
   },
   "m10_durability": {
     "score": 7,
-    "comment": "ASR 的財務數據，如 24.1% 的 ROE 和 8/9 的皮氏 F-Score，間接反映了管理層在資本配置上的審慎與高效。公司擁有 $644.5M 現金，總負債 $1,907.5M，債務水平可控。雖然缺乏具體回購或併購細節，但穩健的財務表現和持續的自由現金流生成，表明管理層傾向於將資本投入到能夠產生高回報的項目中，或在適當時機回饋股東，符合巴菲特對優秀管理層的期望。"
+    "comment_zh": "ASR擁有健康的自由現金流（FCF TTM $194.4M）和穩健的資產負債表（現金$640.0M對總負債$1,894.0M），以及高達8/9的皮氏F-Score，這些都表明公司在財務管理上表現出色。雖然缺乏具體回購或併購細節，但穩健的財務狀況和高效的資本回報率暗示管理層對資本的運用是審慎且以股東利益為導向的。巴菲特強調管理層的誠信與智慧，ASR的財務數據反映了其在資本配置上具備長期價值創造的潛力。",
+    "comment_en": "ASR boasts healthy Free Cash Flow (FCF TTM $194.4M) and a robust balance sheet ($640.0M cash vs. $1,894.0M total debt), alongside an impressive Piotroski F-Score of 8/9. These indicators point to excellent financial management. While specific details on buybacks or M&A are absent, the strong financial health and efficient capital returns suggest management's prudent and shareholder-oriented approach to capital deployment. Buffett emphasizes management integrity and wisdom, and ASR's financial data reflects its potential for long-term value creation through capital allocation."
   },
-  "overall_moat_verdict": "Grupo Aeroportuario (ASR) 本質上是一個由政府特許經營權保護的「收費橋樑」或「特許經營平台」。其核心競爭壁壘來自於不可複製的地理位置、極高的進入門檻、政府授予的長期壟斷經營權，以及由此衍生的強大定價權。航空公司和旅客對其服務的依賴性創造了高轉換成本和顯著的網絡效應。ASR 憑藉其規模經濟和資本不可複製性，能夠持續產生超額的投入資本回報。這是一個典型的巴菲特式「好生意」，擁有深厚且持久的經濟護城河，使其能夠在長期內抵禦競爭並為股東創造豐厚價值。"
+  "overall_moat_verdict_zh": "Grupo Aeroportuario (ASR) 是一家典型的「特許經營權」與「收費橋樑」型企業，完美契合巴菲特對卓越企業的定義。其核心護城河源於政府授予的長期排他性特許經營權，這構成了極高的進入壁壘和強大的定價權。結合其在關鍵地理位置的壟斷地位、航空公司的高轉換成本、顯著的規模經濟以及對技術顛覆的強大免疫力，ASR享有無可匹敵的競爭優勢。這使得公司能夠持續產生穩定的自由現金流和高資本回報率，為股東創造長期價值。ASR本質上是現代經濟不可或缺的基礎設施，其價值將隨著全球貿易和旅行的增長而持續提升。",
+  "overall_moat_verdict_en": "Grupo Aeroportuario (ASR) is a quintessential \"franchise\" and \"toll bridge\" business, perfectly aligning with Buffett's definition of an excellent enterprise. Its core moat stems from long-term, exclusive government concessions, which create extremely high barriers to entry and robust pricing power. Combined with its monopolistic position in critical geographical locations, high switching costs for airlines, significant economies of scale, and strong immunity to technological disruption, ASR enjoys an unparalleled competitive advantage. This enables the company to consistently generate stable free cash flow and high returns on capital, creating long-term shareholder value. ASR is essentially indispensable infrastructure for the modern economy, whose value will continue to appreciate with the growth of global trade and travel."
 }

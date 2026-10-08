@@ -2,44 +2,55 @@
   "ticker": "SCI",
   "period": "2026Q2",
   "m1_brand_pricing": {
-    "score": 8,
-    "comment": "Service Corp International (SCI) 在殯葬服務領域擁有強大的品牌心智與定價權。在人們經歷悲傷時，對服務提供者的信任和聲譽遠超價格敏感度。SCI作為行業領導者，其遍布全國的網絡和長期建立的品牌形象，使其能夠在不顯著影響銷量的前提下，有效轉嫁成本並提升服務價格。這是一種基於情感連結和非理性消費決策的強大壁壘，類似於巴菲特所青睞的特許經營權，客戶即使加價也難以割捨，確保了穩定的營收基礎。"
+    "score": 9,
+    "comment_zh": "服務公司國際（SCI）作為北美最大的殯葬服務提供商，在品牌心智與定價權方面表現卓越。在人們面對親人離世的悲痛時刻，價格敏感度顯著降低，更傾向於選擇信譽良好、服務周到的品牌。SCI憑藉其廣泛的網絡和長期建立的信任，能夠在不流失客戶的前提下，有效轉嫁成本並提升服務價格。其預售服務（pre-need arrangements）進一步鎖定客戶，確保未來收入流，並在客戶最脆弱時提供無可替代的專業服務，這構成了強大的定價權護城河，遠超普通商品型企業。",
+    "comment_en": "Service Corporation International (SCI), as North America's largest funeral and cemetery provider, demonstrates significant brand mindshare and pricing power. During times of grief, price sensitivity diminishes considerably, with families prioritizing dignity and trusted service. SCI leverages its extensive network and long-established reputation to effectively pass on costs and increase service prices without losing market share. Its pre-need arrangements further lock in future revenue streams, providing irreplaceable professional services during vulnerable periods. This emotional inelasticity and brand trust grant SCI a robust pricing power moat, far superior to that of commodity businesses."
   },
   "m2_patents_regulatory": {
-    "score": 7,
-    "comment": "殯葬行業雖然沒有專利壁壘，但其高度受監管的特性構成了強大的進入門檻。經營殯儀館和墓地需要嚴格的州及地方許可、土地使用分區批准，以及遵守複雜的環境和公共衛生法規。這些法規不僅限制了新競爭者的進入，也增加了運營成本和複雜性。對於墓地而言，稀缺的土地資源和永久性維護義務更是天然的地理特許經營權。SCI作為行業巨頭，已具備這些許可和基礎設施，形成了一道難以逾越的「收費橋樑」。"
+    "score": 8,
+    "comment_zh": "服務公司國際（SCI）的護城河並非來自專利，而是源於嚴格的監管壁壘和特許經營性質。殯葬行業受到地方和州政府的嚴格監管，包括土地使用分區、環境法規、執照許可和墓地開發限制等。這些繁瑣且耗時的審批流程，加上墓地土地的稀缺性，為新進入者設置了極高的門檻。SCI作為行業領導者，已擁有大量既有設施和許可，使其在市場中享有準壟斷地位，新競爭者難以在短時間內複製其規模和合規性，形成強大的監管護城河。",
+    "comment_en": "Service Corporation International's (SCI) moat stems not from patents but from stringent regulatory barriers and the nature of its licensed operations. The funeral and cemetery industry is heavily regulated at local and state levels, encompassing zoning laws, environmental regulations, licensing requirements, and cemetery development restrictions. These complex and time-consuming approval processes, coupled with the scarcity of suitable land for cemeteries, create formidable entry barriers for new competitors. As an industry leader, SCI possesses an extensive portfolio of existing facilities and permits, granting it a quasi-monopolistic position that new entrants cannot quickly replicate, thus forming a robust regulatory moat."
   },
   "m3_high_switching_costs": {
-    "score": 9,
-    "comment": "SCI的客戶黏性極高，替代成本不僅體現在經濟層面，更在情感和實踐層面。一旦家庭選擇了某個殯儀館或墓地，尤其是進行了預售安排或家族墓地規劃，更換服務提供者將涉及巨大的情感困擾、行政手續和潛在的財務損失。例如，遷移已安葬的遺骸不僅耗時費力，更會加劇悲痛。這種「鎖定效應」確保了客戶的長期忠誠度，即使有其他選擇，轉換的意願也極低，為SCI提供了穩定的未來收入流。"
+    "score": 10,
+    "comment_zh": "服務公司國際（SCI）在黏性與替代成本方面擁有極高的護城河。對於殯葬服務而言，一旦家庭選擇了特定的殯儀館或墓地，尤其是在預售合同簽訂後，其情感和物流上的轉換成本幾乎是天文數字。在親人離世的緊急時刻，家庭幾乎不可能考慮更換服務提供商。對於墓地服務，遺體安葬後更是無法轉換。這種根深蒂固的情感連結和實際操作的不可逆性，使得客戶對SCI的服務產生了極強的依賴性，為其帶來了穩定的現金流和極高的客戶留存率，是典型的巴菲特式「高轉換成本」護城河。",
+    "comment_en": "Service Corporation International (SCI) possesses an exceptionally high moat regarding switching costs. For funeral services, once a family selects a particular funeral home or cemetery, especially after entering into pre-need contracts, the emotional and logistical switching costs become astronomical. In the urgent aftermath of a loved one's passing, families are highly unlikely to consider changing service providers. For cemetery services, physical interment makes switching practically impossible. This deep-seated emotional connection and the irreversible nature of the service create immense customer dependency on SCI, ensuring stable cash flows and extremely high customer retention, embodying a classic Buffett-style \"high switching cost\" moat."
   },
   "m4_network_effects": {
-    "score": 3,
-    "comment": "殯葬服務行業本質上不具備典型的網絡效應。雖然口碑傳播對業務至關重要，但這並非指每增加一個用戶，所有現有用戶的服務價值都會呈幾何級數增長。SCI的價值主要來自其廣泛的實體網絡、品牌信任和規模經濟，而非用戶間的直接互動。因此，該公司不依賴網絡效應來建立競爭優勢，這與巴菲特青睞的某些科技平台型企業有所不同，其護城河更多來自於其他維度。"
+    "score": 2,
+    "comment_zh": "服務公司國際（SCI）的商業模式本質上不具備傳統意義上的雙向網絡正反饋效應。殯葬服務的價值並不會因為更多人使用SCI的服務而呈幾何級數增長，例如社交媒體或電商平台那樣。儘管作為行業領導者，其廣泛的地理覆蓋和品牌知名度帶來了規模優勢，但這與網絡效應的定義不同。客戶選擇殯葬服務是基於個人需求和情感考量，而非因為「其他人都在用」而增加其服務價值。因此，此維度對SCI而言並非其核心護城河。",
+    "comment_en": "Service Corporation International's (SCI) business model inherently lacks traditional two-sided network effects. The value of funeral services does not increase exponentially with each additional user, unlike social media or e-commerce platforms. While its extensive geographic reach and brand recognition as an industry leader provide scale advantages, this differs from the definition of network effects. Customers choose funeral services based on personal needs and emotional considerations, not because \"everyone else is using it,\" which would enhance the service's value. Therefore, this dimension is not a core moat for SCI."
   },
   "m5_cost_advantage_scale": {
-    "score": 8,
-    "comment": "作為北美最大的殯葬服務提供商，SCI享有顯著的規模經濟優勢。其龐大的運營網絡使其在採購棺木、骨灰盒及其他用品時擁有強大的議價能力，有效降低了單位成本。此外，集中化的行政管理、營銷和IT系統分攤到數千個地點，也大幅提升了運營效率。這種規模優勢使得小型競爭者難以在成本上與之匹敵，為SCI創造了持續的利潤空間，是巴菲特所強調的成本領先型護城河。"
+    "score": 9,
+    "comment_zh": "服務公司國際（SCI）作為北美最大的殯葬服務提供商，享有顯著的規模經濟優勢。其龐大的運營網絡使其在採購殯葬用品、設備和服務時，能獲得更低的成本。此外，集中化的行政管理、市場營銷和技術支持，有效攤薄了固定成本，提高了運營效率。這種規模優勢使得SCI能夠以比小型獨立運營商更低的單位成本提供服務，同時保持高利潤率。這種成本優勢是新進入者難以在短期內複製的，為其構建了堅實的成本護城河，符合巴菲特對規模經濟的重視。",
+    "comment_en": "As North America's largest funeral and cemetery provider, Service Corporation International (SCI) enjoys significant economies of scale. Its vast operational network enables it to secure lower costs when purchasing funeral supplies, equipment, and services. Furthermore, centralized administration, marketing, and technological support effectively spread fixed costs, enhancing operational efficiency. This scale advantage allows SCI to offer services at a lower unit cost than smaller, independent operators while maintaining high-profit margins. Such a cost advantage is difficult for new entrants to replicate quickly, thus building a robust cost moat consistent with Buffett's emphasis on economies of scale."
   },
   "m6_unique_geography_assets": {
-    "score": 7,
-    "comment": "殯葬服務市場具有強烈的地域性，每個社區的市場容量相對有限。在許多地方，由於土地稀缺、高昂的初始投資和嚴格的監管，新競爭者進入的門檻極高。SCI通過收購和整合，在許多關鍵市場建立了主導地位，形成了一種「有效規模」的寡占局面。在這些市場中，新增一個競爭者只會導致價格戰，損害所有參與者的利潤，因此形成了天然的理性寡占，保護了SCI的市場份額和盈利能力。"
+    "score": 8,
+    "comment_zh": "服務公司國際（SCI）在利基市場天然寡占方面表現突出。殯葬服務本質上是高度本地化的業務，每個社區的市場容量相對有限。墓地土地的稀缺性、殯儀館的高固定成本以及嚴格的監管壁壘，共同形成了天然的進入障礙。在許多地區，新競爭者的加入只會導致市場過度飽和，降低所有參與者的盈利能力，從而形成一種理性的寡占格局。SCI憑藉其在關鍵地理位置的長期佈局和市場份額，有效避免了惡性競爭，確保了其在特定區域內的市場主導地位，這是一種強大的地理位置護城河。",
+    "comment_en": "Service Corporation International (SCI) excels in efficient scale within niche markets. Funeral and cemetery services are inherently highly localized businesses, with relatively limited market capacity in each community. The scarcity of suitable land for cemeteries, high fixed costs for funeral homes, and stringent regulatory barriers collectively create natural entry deterrents. In many areas, the entry of new competitors would only lead to market oversaturation, reducing profitability for all participants and thus fostering a rational oligopoly. SCI, through its long-standing presence and market share in key geographic locations, effectively avoids destructive competition, securing its dominant position in specific regions—a powerful geographic moat."
   },
   "m7_operational_efficiency": {
-    "score": 7,
-    "comment": "SCI的業務性質決定了其現金流穩定且可預測，死亡是人類的必然，需求不受經濟週期影響。儘管ROA相對較低（3.3%），但其高ROE（40.9%）表明公司能有效利用資本，並通過適度槓桿放大股東回報。穩定的自由現金流（FCF TTM $706.4M）證明其持續產生超額回報的能力。這種在任何經濟環境下都能持續產生現金的韌性，是巴菲特衡量企業內在價值和護城河強度的關鍵指標。"
+    "score": 8,
+    "comment_zh": "服務公司國際（SCI）展現出長週期超額投入資本回報率（ROIC）的韌性。儘管其資產回報率（ROA）相對較低，但高達40.9%的股東權益報酬率（ROE）暗示了其資本運用的高效性。憑藉其強大的品牌定價權、極高的客戶轉換成本和顯著的規模經濟，SCI能夠持續產生超越其加權平均資本成本（WACC）的回報。這表明公司不僅能有效利用資本，還能為股東創造實質性的複利價值。穩定的自由現金流（FCF TTM $706.4M）進一步印證了其盈利質量和資本配置的有效性，是巴菲特所重視的持續創造價值的標誌。",
+    "comment_en": "Service Corporation International (SCI) demonstrates resilience in generating long-term excess Return on Invested Capital (ROIC). Despite a relatively low Return on Assets (ROA), its high Return on Equity (ROE) of 40.9% suggests efficient capital utilization. Leveraging its strong brand pricing power, extremely high customer switching costs, and significant economies of scale, SCI consistently generates returns that exceed its Weighted Average Cost of Capital (WACC). This indicates the company not only effectively deploys capital but also creates substantial compounding value for shareholders. The robust free cash flow (FCF TTM $706.4M) further validates its earnings quality and effective capital allocation, a hallmark of sustained value creation as emphasized by Buffett."
   },
   "m8_capital_allocation": {
     "score": 9,
-    "comment": "即使給予競爭對手數百億美元，也難以在短時間內複製SCI的核心戰略資產。這不僅包括其遍布北美數千個地點的實體網絡、龐大的土地儲備（尤其是墓地），更重要的是其數十年來建立的品牌信任、地方關係、預售合同基礎以及專業的員工隊伍。這些無形資產和物理基礎設施的累積，需要漫長的時間、巨大的資本投入和複雜的監管協調，構成了極高的複製壁壘，是巴菲特眼中真正的「特許經營權」。"
+    "comment_zh": "服務公司國際（SCI）的核心戰略資產具有極高的資本不可複製性。即使給予競爭對手數百億美元，也難以在短時間內複製其遍布北美數千家殯儀館和墓地的龐大網絡、數十年建立的品牌聲譽、與社區的深厚關係、以及複雜的預售服務基礎設施。這不僅涉及巨額的資金投入，更需要漫長的時間來獲取稀缺的土地資源、通過嚴格的監管審批、並贏得客戶的信任。這種深厚的無形資產和實體網絡，構成了幾乎無法逾越的壁壘，是巴菲特眼中真正的「特許經營權」護城河。",
+    "comment_en": "Service Corporation International's (SCI) core strategic assets possess extremely high irreproducibility. Even with tens of billions of dollars, a competitor would struggle to replicate its vast network of thousands of funeral homes and cemeteries across North America, its decades-long brand reputation, deep community relationships, and complex pre-need service infrastructure in a short timeframe. This involves not only immense capital investment but also a lengthy period to acquire scarce land resources, navigate stringent regulatory approvals, and earn customer trust. Such profound intangible assets and physical networks form an almost insurmountable barrier, representing a true \"franchise\" moat in Buffett's view."
   },
   "m9_customer_retention": {
     "score": 10,
-    "comment": "殯葬服務是人類社會最古老、最基本的需求之一，其核心價值在於提供情感慰藉、紀念逝者和處理遺體。這項服務的本質極難被技術顛覆或典範轉移。儘管線上規劃和虛擬紀念等輔助服務可能出現，但實體的安葬、告別儀式和人際關懷是不可替代的。AI和自動化無法取代人類的同理心和儀式感。這種對技術變革的極強免疫力，使得SCI的業務模式具備罕見的長期穩定性和可預測性。"
+    "comment_zh": "服務公司國際（SCI）在技術/典範轉移抗性方面幾乎是無懈可擊的。死亡是人類生命中不可避免的一部分，對尊嚴安葬和紀念逝者的需求是永恆且普世的。儘管火葬率可能上升，但SCI已將其納入服務範圍。殯葬服務的核心價值在於提供情感支持、儀式感和專業處理，這些是人工智能或任何新技術都難以取代的。這是一個需求確定性極高、對技術變革具有強大免疫力的行業，其商業模式的穩定性堪比收費橋樑，是巴菲特最青睞的「永恆」業務類型。",
+    "comment_en": "Service Corporation International (SCI) is almost impervious to technological or paradigm shifts. Death is an inevitable part of human life, and the need for dignified disposition and remembrance of the deceased is timeless and universal. While cremation rates may rise, SCI has adapted by incorporating these services. The core value of funeral services lies in providing emotional support, ceremonial significance, and professional handling, which are difficult for artificial intelligence or any new technology to replace. This is an industry with extremely high demand certainty and strong immunity to technological change, whose business model stability is akin to a toll bridge, representing one of Buffett's most favored \"eternal\" business types."
   },
   "m10_durability": {
-    "score": 7,
-    "comment": "雖然具體回購數據未提供，但作為行業領導者，SCI的管理層應當具備成熟的資本配置策略。公司擁有強勁的自由現金流（$706.4M），在負債較高（$5,303.2M）的情況下，合理的資本配置應包括償債、適度股息和在股價被低估時進行股票回購。高ROE與低ROA的組合，也暗示管理層在利用槓桿提升股東回報方面有一定能力。巴菲特強調，優秀的管理層會將資本視為稀缺資源，以最大化股東價值為目標。"
+    "score": 8,
+    "comment_zh": "服務公司國際（SCI）的管理層在資本配置方面展現出相對穩健的策略。在高度分散的殯葬行業中，SCI通過戰略性收購來鞏固市場領導地位，並有效整合被收購資產，實現規模效益。同時，公司也持續通過派發股息和股票回購來回報股東，尤其是在股價被低估時，積極註銷股本以提升每股價值。儘管負債水平相對較高，但強勁的自由現金流為其提供了充足的償債能力和資本配置彈性。這種平衡增長與股東回報的策略，符合巴菲特對優秀管理層的期望。",
+    "comment_en": "Service Corporation International's (SCI) management demonstrates a relatively sound capital allocation strategy. In the highly fragmented funeral and cemetery industry, SCI consolidates its market leadership through strategic acquisitions, effectively integrating acquired assets to realize economies of scale. Concurrently, the company consistently returns capital to shareholders through dividends and share repurchases, actively retiring shares to enhance per-share value, especially when the stock is undervalued. Despite a relatively high debt level, robust free cash flow provides ample debt servicing capacity and capital allocation flexibility. This balanced approach to growth and shareholder returns aligns with Buffett's expectations for excellent management."
   },
-  "overall_moat_verdict": "Service Corp International (SCI) 本質上是一家結合了「收費橋樑」與「特許經營權」特性的企業。其核心護城河源於人類對死亡的永恆需求，這使得其業務具有極高的非週期性和抗顛覆性。SCI憑藉其在北美廣泛的實體網絡、強大的品牌信任、地方性寡占地位以及高昂的客戶轉換成本，構建了堅不可摧的競爭壁壘。儘管資產較重且負債較高，但其穩定的現金流生成能力和規模經濟優勢，確保了長期超額回報的潛力。這是一項巴菲特會欣賞的「簡單、易懂、有護城河」的生意，能夠在任何經濟環境下持續為股東創造價值。"
+  "overall_moat_verdict_zh": "服務公司國際（SCI）本質上是一家擁有極強「特許經營權」特徵的企業，其護城河深邃而持久。它經營著一個需求確定性極高、對經濟週期和技術變革免疫的行業——死亡服務。其核心競爭優勢來自於強大的品牌心智、極高的客戶轉換成本（情感與物流）、嚴格的監管壁壘、稀缺的墓地土地資源以及作為行業領導者的規模經濟。這些因素共同構築了難以逾越的壁壘，使其在各地區市場形成天然寡占，並能持續產生超額回報。SCI的商業模式猶如一條「收費橋樑」，在人們最脆弱的時刻提供不可或缺的服務，確保了穩定的現金流和長期盈利能力，是典型的巴菲特式優質企業。",
+  "overall_moat_verdict_en": "Service Corporation International (SCI) is fundamentally a business possessing exceptionally strong \"franchise\" characteristics, with a deep and enduring moat. It operates in an industry with extremely high demand certainty, largely immune to economic cycles and technological disruption—the death care services. Its core competitive advantages stem from powerful brand mindshare, extremely high customer switching costs (emotional and logistical), stringent regulatory barriers, scarce cemetery land resources, and economies of scale as an industry leader. These factors collectively construct formidable barriers to entry, fostering natural oligopolies in local markets and enabling sustained excess returns. SCI's business model resembles a \"toll bridge,\" providing indispensable services during people's most vulnerable moments, ensuring stable cash flows and long-term profitability, making it a quintessential Buffett-style quality enterprise."
 }

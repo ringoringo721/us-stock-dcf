@@ -2,44 +2,55 @@
   "ticker": "BKNG",
   "period": "2026Q2",
   "m1_brand_pricing": {
-    "score": 7,
-    "comment": "Booking Holdings旗下Booking.com、Priceline等品牌在全球線上旅遊市場享有極高知名度與用戶心智佔有率。這種強大的品牌效應賦予公司一定的定價權，尤其體現在對供應商（酒店、住宿業者）的佣金收取上。儘管消費者可選擇其他平台或直接預訂，但BKNG提供的便利性、豐富選擇與可靠性，使其在加價後仍能維持高流量與交易量。其品牌不僅是流量入口，更是品質與信任的象徵，有效降低了客戶的搜尋成本，並在競爭激烈的市場中築起一道無形壁壘。"
+    "score": 8,
+    "comment_zh": "Booking Holdings旗下品牌如Booking.com在全球線上旅遊市場擁有極高的品牌認知度與用戶心智佔有率。其龐大的酒店、機票與租車供應商網絡，以及數億用戶基礎，賦予公司強大的議價能力。儘管消費者會比價，但Booking平台提供的一站式便利性、豐富選擇與可靠性，使其在收取佣金和服務費方面具備顯著定價權。這種品牌信任與市場領導地位，讓公司即使在一定程度上調整價格，客戶仍傾向於使用其服務，而非轉向小型競爭者，形成堅實的品牌護城河。",
+    "comment_en": "Booking Holdings' brands, such as Booking.com, enjoy exceptionally high brand recognition and top-of-mind awareness in the global online travel market. Its vast network of hotel, flight, and car rental suppliers, coupled with hundreds of millions of users, grants the company significant bargaining power. While consumers do compare prices, the one-stop convenience, extensive options, and reliability offered by Booking's platforms provide substantial pricing power in terms of commissions and service fees. This brand trust and market leadership allow the company to adjust prices to a certain extent without significant customer attrition, forming a robust brand moat against smaller competitors."
   },
   "m2_patents_regulatory": {
-    "score": 3,
-    "comment": "Booking Holdings的商業模式並非依賴獨家專利或政府特許經營權來建立護城河。線上旅遊產業的技術壁壘相對較低，主要競爭優勢來自於品牌、規模與網絡效應，而非受法律保護的技術壟斷。儘管公司在技術平台和數據分析方面持續投入，但這些創新通常難以形成排他性的專利壁壘。監管環境在全球範圍內相對開放，沒有形成類似公用事業的「收費橋樑」效應，因此這方面的護城河較為薄弱。"
+    "score": 4,
+    "comment_zh": "Booking Holdings的商業模式主要依賴於品牌、網絡效應和運營規模，而非獨家專利或政府特許許可。線上旅遊業的進入門檻相對較低，儘管公司擁有技術平台，但其核心競爭力並非來自於不可複製的專利技術壁壘。各國對旅遊業的監管雖有差異，但並未形成對Booking Holdings的排他性特許經營權。因此，此維度的護城河相對較弱，競爭者可以相對自由地進入市場，儘管他們難以複製Booking的規模和用戶基礎。",
+    "comment_en": "Booking Holdings' business model primarily relies on brand, network effects, and operational scale, rather than exclusive patents or government-granted licenses. The online travel industry generally has relatively low barriers to entry, and while the company possesses technological platforms, its core competitive advantage does not stem from irreplaceable patented technologies. Although various countries have different regulations for the travel industry, these do not confer exclusive franchise rights to Booking Holdings. Consequently, the moat in this dimension is relatively weak, allowing competitors to enter the market with relative freedom, even if they struggle to replicate Booking's scale and user base."
   },
   "m3_high_switching_costs": {
     "score": 6,
-    "comment": "對於消費者而言，轉換至其他線上旅遊平台或直接預訂的成本相對較低。然而，對於住宿供應商，一旦深度整合至Booking Holdings的平台，其轉換成本則顯著提高。這包括已建立的客戶評價、預訂流程、營銷曝光以及與平台系統的技術對接。放棄這些既有優勢，轉向其他平台或完全依賴自有渠道，可能導致顯著的營收損失和運營中斷。這種供應商端的黏性，為公司提供了穩定的業務基礎。"
+    "comment_zh": "對於消費者而言，轉換線上旅遊平台尋找更優價格的成本相對較低。然而，對於酒店、航空公司等供應商而言，與Booking Holdings平台建立的合作關係則具有一定黏性。供應商依賴Booking龐大的用戶基礎來獲取訂單和填充庫存，脫離其分銷網絡可能導致顯著的預訂量損失。此外，供應商在整合Booking系統、管理庫存和利用其全球營銷能力方面投入了時間和資源，這些都構成了一定的轉換成本，使其難以輕易轉投其他平台。",
+    "comment_en": "For consumers, the cost of switching online travel platforms to find better prices is relatively low. However, for suppliers such as hotels and airlines, the established partnership with Booking Holdings' platforms creates a certain degree of stickiness. Suppliers rely on Booking's vast user base to secure bookings and fill inventory, and disengaging from its distribution network could lead to significant booking volume losses. Furthermore, suppliers invest time and resources in integrating Booking's systems, managing inventory, and leveraging its global marketing capabilities, all of which constitute switching costs that make it difficult to easily transition to other platforms."
   },
   "m4_network_effects": {
-    "score": 8,
-    "comment": "Booking Holdings展現出強大的雙向網絡效應。平台上的住宿選擇越多，越能吸引更多旅客；而旅客數量越多，又會吸引更多住宿供應商加入，形成一個良性循環。這種「雞生蛋，蛋生雞」的機制，使得平台價值隨著用戶和供應商的增加呈指數級增長。新進入者難以在短時間內複製如此龐大的供需網絡，因為其價值隨著規模擴大而遞增，為BKNG構建了極高的進入壁壘和競爭優勢。"
+    "score": 9,
+    "comment_zh": "Booking Holdings是典型的雙邊網絡效應受益者。平台上的用戶數量越多，就越能吸引更多的酒店、航空公司和租車公司等供應商加入，因為供應商渴望接觸到龐大的潛在客戶群。反之，供應商提供的選擇越豐富、價格越具競爭力，就越能吸引更多的用戶前來預訂。這種正向循環使得Booking的生態系統對所有參與者產生幾何級數的價值增長，形成強大的網絡護城河，新進入者極難在短時間內複製其規模和深度。",
+    "comment_en": "Booking Holdings is a prime beneficiary of strong two-sided network effects. The more users on its platforms, the more it attracts suppliers like hotels, airlines, and car rental companies, as suppliers seek access to a vast potential customer base. Conversely, the more diverse options and competitive pricing offered by suppliers, the more users are drawn to make bookings. This virtuous cycle leads to geometric value growth for all participants within Booking's ecosystem, creating a powerful network moat that is extremely difficult for new entrants to replicate in terms of scale and depth within a short period."
   },
   "m5_cost_advantage_scale": {
     "score": 8,
-    "comment": "作為全球最大的線上旅遊平台之一，Booking Holdings享有顯著的規模經濟優勢。其龐大的用戶基礎和交易量，使其在營銷費用分攤、技術基礎設施投入以及與供應商的議價能力上，都遠超小型競爭者。例如，其廣告投放效率更高，單位獲客成本更低。這種規模優勢不僅降低了運營成本，也使其能提供更具競爭力的價格和更豐富的選擇，進一步鞏固市場領導地位，形成難以逾越的成本壁壘。"
+    "comment_zh": "Booking Holdings在全球線上旅遊市場的巨大規模，使其享有顯著的規模經濟優勢。每年處理數十億美元的交易量，讓公司能夠在營銷支出（尤其是在Google等平台上的廣告投放）方面獲得更低的單位成本和更高的效率。這種規模也支持其對技術研發和全球基礎設施的持續投入，從而實現更高的運營效率和更低的邊際成本。新競爭者難以在短期內達到如此規模，也無法享受同等的成本優勢，這構成了Booking堅實的成本護城河。",
+    "comment_en": "Booking Holdings' immense scale in the global online travel market grants it significant economies of scale. Processing billions of dollars in transactions annually allows the company to achieve lower unit costs and higher efficiency in marketing expenditures, particularly for advertising on platforms like Google. This scale also supports continuous investment in technology R&D and global infrastructure, leading to superior operational efficiency and lower marginal costs. New competitors find it challenging to reach such a scale in the short term and thus cannot enjoy comparable cost advantages, forming a robust cost moat for Booking."
   },
   "m6_unique_geography_assets": {
     "score": 7,
-    "comment": "線上旅遊市場雖然廣闊，但已呈現高度集中化的寡占格局，主要由Booking Holdings和Expedia兩大巨頭主導。儘管市場容量巨大，但由於建立品牌認知、獲取海量用戶和供應商網絡需要極其龐大的資本投入和時間積累，新競爭者難以有效切入並達到盈利規模。這種「大者恆大」的特性，使得市場自然趨向於少數幾家效率最高的參與者，形成一種有效的寡頭壟斷，避免了惡性競爭。"
+    "comment_zh": "線上旅遊市場雖非傳統意義上的利基市場，但其全球規模和複雜性已形成寡頭壟斷格局。Booking Holdings與少數幾家巨頭共同主導市場，新競爭者若想大規模進入，將面臨極高的資本投入、技術門檻和品牌建立成本。市場容量雖大，但已由現有巨頭高效瓜分，任何新進入者都難以在不引發激烈價格戰的情況下獲得顯著份額，這會導致雙輸局面。因此，Booking在事實上享有因市場結構和進入壁壘形成的「有效規模」護城河。",
+    "comment_en": "While the online travel market is not a niche in the traditional sense, its global scale and complexity have led to an oligopolistic structure. Booking Holdings, along with a few other giants, dominates the market. New competitors aiming for significant entry would face extremely high capital investment, technological barriers, and brand-building costs. Although the market capacity is large, it has been efficiently carved up by existing behemoths. Any new entrant would struggle to gain substantial market share without triggering intense price wars, leading to a lose-lose scenario. Thus, Booking effectively enjoys an \"efficient scale\" moat derived from market structure and entry barriers."
   },
   "m7_operational_efficiency": {
     "score": 8,
-    "comment": "Booking Holdings展現出卓越的資本回報能力，其18.0%的ROE和24.3%的ROA遠超行業平均水平，並持續創造高額自由現金流（TTM達95.39億美元）。這表明公司能夠長期以遠高於加權平均資本成本（WACC）的效率運用資本，為股東創造實質價值。這種持續的超額回報能力，是其強大護城河的直接財務體現，證明了其商業模式的韌性與盈利能力。"
+    "comment_zh": "Booking Holdings展現出卓越的資本回報能力。其18.0%的股東權益報酬率（ROE）和24.3%的資產報酬率（ROA）均遠超行業平均水平，且自由現金流高達95.39億美元，這些數據強烈表明公司能夠持續產生遠高於其加權平均資本成本（WACC）的投入資本回報率（ROIC）。這種長期超額回報能力是衡量企業護城河深度的關鍵指標，證明了公司在核心業務上具備強大的盈利能力和資本效率，為股東創造了實質性的複利價值。",
+    "comment_en": "Booking Holdings demonstrates exceptional capital return capabilities. Its 18.0% Return on Equity (ROE) and 24.3% Return on Assets (ROA) both significantly exceed industry averages, and its free cash flow stands at a robust $9.539 billion. These figures strongly indicate that the company consistently generates a Return on Invested Capital (ROIC) well above its Weighted Average Cost of Capital (WACC). This long-term ability to generate excess returns is a critical measure of a company's moat depth, proving its strong profitability and capital efficiency in its core business, thereby creating substantial compounding value for shareholders."
   },
   "m8_capital_allocation": {
     "score": 9,
-    "comment": "即使給予競爭對手千億美元資金，也難以在短時間內複製Booking Holdings的核心戰略資產。這不僅包括其遍布全球的數百萬住宿供應商網絡、數十億用戶數據，更重要的是其數十年積累的品牌信任、運營經驗和技術平台。這些無形資產是長期投入和市場驗證的結果，無法簡單地通過資本堆砌來實現。這種深厚的積累構成了極高的進入壁壘，使其護城河堅不可摧。"
+    "comment_zh": "即使給予競爭對手千億美元資金，也難以在數年內複製Booking Holdings的核心戰略資產。這不僅僅是技術平台的問題，更關鍵的是其在全球範圍內建立的龐大供應商網絡、數億用戶基礎、深植人心的品牌認知度以及數十年積累的運營經驗。這些資產的形成需要時間、信任和持續的市場投入，而非單純的資本堆砌。網絡效應和規模優勢的建立是一個漫長而有機的過程，使其核心競爭力具備極高的不可複製性，構成了一道極其堅固的護城河。",
+    "comment_en": "Even with a hundred billion dollars, a competitor would find it nearly impossible to replicate Booking Holdings' core strategic assets within a few years. This goes beyond just the technology platform; it crucially involves its vast global network of suppliers, a user base numbering in the hundreds of millions, deeply ingrained brand recognition, and decades of accumulated operational expertise. The formation of these assets requires time, trust, and continuous market investment, not merely capital injection. The establishment of network effects and scale advantages is a lengthy and organic process, making its core competitiveness highly irreproducible and forming an exceptionally robust moat."
   },
   "m9_customer_retention": {
-    "score": 7,
-    "comment": "儘管科技不斷演進，但人們對旅行和住宿的基本需求是永恆的。Booking Holdings作為一家技術驅動型公司，持續投資於創新，如AI和數據分析，以優化用戶體驗和運營效率。這使其能夠適應甚至引領技術變革，而非被顛覆。其核心價值在於連接供需兩端，這種中介服務的本質在可預見的未來仍將存在，使其對技術典範轉移具有較強的免疫力。"
+    "score": 8,
+    "comment_zh": "人類對旅行和住宿的基本需求是高度確定且持久的，這賦予Booking Holdings強大的需求確定性。儘管技術（如AI、VR）可能會改變人們預訂或體驗旅行的方式，但作為一個技術驅動的平台，Booking具備整合和適應新技術的能力，而非被其顛覆。其商業模式的核心是作為交易撮合者，連接供需雙方，這種本質使其對技術變革和潛在的典範轉移具有較強的免疫力。公司能夠不斷進化其平台，以滿足不斷變化的消費者行為，確保其長期相關性。",
+    "comment_en": "The fundamental human need for travel and accommodation is highly certain and enduring, granting Booking Holdings strong demand certainty. While technology (such as AI, VR) might alter how people book or experience travel, as a technology-driven platform, Booking possesses the ability to integrate and adapt to new technologies rather than being disrupted by them. The core of its business model is to act as a transaction facilitator, connecting supply and demand. This inherent nature provides it with strong immunity against technological changes and potential paradigm shifts. The company can continuously evolve its platform to meet changing consumer behaviors, ensuring its long-term relevance."
   },
   "m10_durability": {
-    "score": 8,
-    "comment": "Booking Holdings的管理層展現出穩健的資本配置策略。公司擁有充裕的現金流（現金172.14億美元），並在保持健康資產負債表的同時，積極通過股票回購等方式回饋股東，以在股價被低估時提升每股價值。此外，其戰略性併購也多聚焦於強化核心業務或拓展新市場，而非盲目擴張。這種對股東利益負責的態度和有效的資本運用，是巴菲特所推崇的優秀管理層特徵。"
+    "score": 7,
+    "comment_zh": "Booking Holdings的管理層在資本配置方面表現出穩健的策略。公司歷史上進行了多項成功的戰略性收購，如Priceline、Kayak和Agoda，這些併購有效鞏固並擴大了其市場領導地位。同時，公司也積極實施股票回購計劃，在股價被低估時註銷股本，以提升股東價值。儘管總負債相對較高，但其龐大的現金儲備和持續強勁的自由現金流（95.39億美元）提供了充足的財務彈性。皮氏F-Score 7/9也印證了其良好的財務健康和運營效率，顯示管理層對股東利益的重視。",
+    "comment_en": "Booking Holdings' management has demonstrated a sound strategy in capital allocation. Historically, the company has made several successful strategic acquisitions, such as Priceline, Kayak, and Agoda, which effectively solidified and expanded its market leadership. Concurrently, the company actively implements share repurchase programs, canceling shares when undervalued to enhance shareholder value. Despite a relatively high total debt, its substantial cash reserves and consistently strong free cash flow ($9.539 billion) provide ample financial flexibility. A Piotroski F-Score of 7/9 further confirms its good financial health and operational efficiency, indicating management's commitment to shareholder interests."
   },
-  "overall_moat_verdict": "Booking Holdings本質上是一個極具效率的「特許經營權平台」和「收費橋樑」。其核心競爭壁壘源於強大的雙向網絡效應，將全球數百萬住宿供應商與數億旅行者緊密連接，形成一個自我強化的生態系統。這種規模效應不僅帶來了顯著的成本優勢和對供應商的議價能力，更築起了新競爭者難以逾越的進入壁壘。儘管消費者轉換成本相對較低，但其卓越的品牌認知度、豐富的選擇和便捷的服務，使其在市場中保持領先地位。管理層穩健的資本配置策略，結合持續的超額資本回報率，進一步鞏固了其作為一家擁有深厚經濟護城河的優質企業地位。"
+  "overall_moat_verdict_zh": "Booking Holdings本質上是一個全球性的「特許經營權平台」，透過其強大的品牌組合和雙邊網絡效應，在線上旅遊市場築起了極為堅固的護城河。它並非傳統意義上的商品型企業，而是作為連接全球數億旅行者與數百萬住宿及交通供應商的「收費橋樑」。其規模經濟、不可複製的全球網絡以及對技術變革的適應能力，使其能夠持續產生超額資本回報。儘管消費者轉換成本相對較低，但供應商的黏性、品牌心智佔有率和管理層穩健的資本配置策略，共同構成了其長期競爭優勢，使其成為巴菲特哲學下值得關注的優質企業。",
+  "overall_moat_verdict_en": "Booking Holdings is fundamentally a global \"franchise platform\" that has built an exceptionally robust moat in the online travel market through its powerful brand portfolio and strong two-sided network effects. It is not a commodity business in the traditional sense, but rather acts as a \"toll bridge\" connecting hundreds of millions of global travelers with millions of accommodation and transportation suppliers. Its economies of scale, irreproducible global network, and adaptability to technological changes enable it to consistently generate superior returns on capital. While consumer switching costs are relatively low, supplier stickiness, strong brand mindshare, and management's prudent capital allocation strategy collectively form its long-term competitive advantage, making it a high-quality enterprise worthy of attention under Buffett's philosophy."
 }

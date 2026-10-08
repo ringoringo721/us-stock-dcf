@@ -3,43 +3,54 @@
   "period": "2026Q2",
   "m1_brand_pricing": {
     "score": 9,
-    "comment": "Marsh McLennan旗下品牌如Marsh、Guy Carpenter、Mercer和Oliver Wyman在全球享有卓越聲譽。在保險經紀和諮詢服務領域，客戶對專業知識、信任和可靠性的需求遠超價格敏感度。面對複雜風險管理或關鍵戰略諮詢，企業客戶更傾向於選擇行業領導者，即使其服務費用較高。這種強大的品牌心智讓MMC具備顯著的定價權，能夠在不流失核心客戶的情況下，將成本轉嫁或實現溢價，這正是巴菲特所推崇的「特許經營權」特徵。"
+    "comment_zh": "Marsh McLennan憑藉其旗下Marsh、Guy Carpenter、Mercer和Oliver Wyman等全球頂級品牌，在保險經紀與風險諮詢領域建立了無可匹敵的聲譽和信任。這些品牌代表著專業知識和可靠性，使公司能夠為其高度專業化且對客戶至關重要的服務收取溢價。客戶因其服務的複雜性和重要性，即使價格略高，也極不可能轉向其他供應商，這體現了強大的定價權和品牌心智壁壘。",
+    "comment_en": "Marsh McLennan, through its top-tier global brands like Marsh, Guy Carpenter, Mercer, and Oliver Wyman, has built an unparalleled reputation and trust in insurance brokerage and risk consulting. These brands signify expertise and reliability, enabling the company to command premium pricing for its highly specialized and critical services. Clients are highly unlikely to switch providers for minor price differences, given the complexity and importance of these services, demonstrating strong pricing power and brand mindshare."
   },
   "m2_patents_regulatory": {
     "score": 7,
-    "comment": "雖然MMC並非依賴專利，但其所處的保險和諮詢行業受到高度監管。在全球範圍內獲取並維持各類保險經紀、再保險和諮詢服務的運營許可證，本身就是一道難以逾越的壁壘。這不僅需要龐大的合規團隊和資金投入，更需要深厚的行業經驗和與監管機構的長期互動。新進入者難以在短時間內複製MMC在全球數十個國家和地區所建立的監管准入和合規體系，這構成了一種「軟性」的特許經營壁壘。"
+    "comment_zh": "雖然Marsh McLennan不依賴專利，但其所處的保險經紀和諮詢行業受到嚴格監管。公司在全球範圍內擁有必要的許可證、深厚的合規基礎設施和與監管機構的長期關係，這本身就構成了一道強大的進入壁壘。新競爭者難以在短時間內獲得所有必要的許可、建立信任並駕馭複雜的國際法規，這為MMC創造了類似特許經營權的競爭優勢。",
+    "comment_en": "While Marsh McLennan does not rely on patents, its insurance brokerage and consulting industry is heavily regulated. The company's global presence, necessary licenses, robust compliance infrastructure, and long-standing relationships with regulators constitute a significant barrier to entry. New competitors face substantial hurdles in obtaining all required licenses, building trust, and navigating complex international regulations quickly, creating a franchise-like competitive advantage for MMC."
   },
   "m3_high_switching_costs": {
     "score": 8,
-    "comment": "MMC提供的保險經紀和諮詢服務通常與客戶的業務深度整合。更換保險經紀人可能導致保險方案中斷、風險覆蓋空白或重新評估的巨大行政成本。在諮詢領域，轉換顧問意味著歷史數據、項目知識和關係的損失，可能造成營運中斷和決策風險。這種轉換成本不僅體現在財務上，更體現在潛在的業務風險和時間成本上，使得客戶一旦選擇MMC，便會形成高度黏性，難以輕易轉投他家。"
+    "comment_zh": "對於大型企業客戶而言，更換保險經紀商或風險顧問的轉換成本極高。這不僅涉及複雜的風險資料轉移、保單重新談判，還可能導致營運中斷、系統整合挑戰以及寶貴歷史數據和機構知識的流失。Marsh McLennan的服務深度嵌入客戶的營運流程中，使得轉換不僅耗時且風險巨大，從而鎖定客戶並形成堅固的護城河。",
+    "comment_en": "For large corporate clients, the switching costs associated with changing insurance brokers or risk consultants are exceptionally high. This involves not only transferring complex risk data and renegotiating policies but also potential operational disruptions, system integration challenges, and the loss of valuable historical data and institutional knowledge. Marsh McLennan's services are deeply embedded in clients' operational processes, making switching both time-consuming and risky, thus locking in customers and forming a robust moat."
   },
   "m4_network_effects": {
     "score": 7,
-    "comment": "MMC的網絡效應主要體現在其全球客戶基礎和人才網絡上。作為全球最大的保險經紀商，其龐大的客戶群體為公司積累了海量的風險數據和市場洞察，使其能為客戶提供更精準的風險評估和更優的保險方案。同時，其規模也賦予了與保險公司更強的議價能力。此外，頂尖人才的匯聚吸引更多高端客戶，形成良性循環，進一步鞏固其市場領導地位，這是一種間接但強大的網絡效應。"
+    "comment_zh": "Marsh McLennan受益於一種間接的網絡效應。其龐大的全球客戶群和市場覆蓋率，使其能獲取無與倫比的市場數據、風險洞察和與保險公司的關係。這使得公司能為所有客戶提供更優的條款、更全面的解決方案和更深入的專業知識。客戶越多，數據越豐富，洞察力越強，與保險公司的議價能力也越強，進而吸引更多客戶，形成正向循環。",
+    "comment_en": "Marsh McLennan benefits from an indirect network effect. Its vast global client base and market reach provide unparalleled access to market data, risk insights, and relationships with insurers. This enables the company to offer superior terms, more comprehensive solutions, and deeper expertise to all clients. More clients lead to richer data, stronger insights, and greater negotiating power with insurers, which in turn attracts more clients, creating a virtuous cycle."
   },
   "m5_cost_advantage_scale": {
     "score": 8,
-    "comment": "作為行業巨頭，MMC在全球範圍內的規模優勢顯而易見。其龐大的業務量和全球佈局使其能夠在技術投資、數據分析平台和人才培訓上投入巨資，這些成本在單位服務上被攤薄，形成規模經濟。這種規模也賦予了MMC在與保險公司談判時的強大議價能力，能為客戶爭取到更優的條款和費率。小型競爭者難以在成本效率和服務廣度上與之匹敵，這正是巴菲特所看重的成本護城河。"
+    "comment_zh": "作為全球最大的保險經紀和領先的諮詢公司，Marsh McLennan享有顯著的規模經濟優勢。公司能夠投入巨資於技術、數據分析和人才培養，這是小型競爭對手無法比擬的。其全球足跡允許高效的資源配置和跨地域、跨行業的專業知識共享，從而降低某些營運的單位成本，並提供卓越的數據洞察，強化其競爭優勢。",
+    "comment_en": "As the world's largest insurance broker and a leading consulting firm, Marsh McLennan enjoys significant economies of scale. The company can invest heavily in technology, data analytics, and talent development, which smaller competitors cannot match. Its global footprint allows for efficient resource allocation and specialized expertise across diverse geographies and industries, leading to lower per-unit costs for certain operations and superior data insights, enhancing its competitive edge."
   },
   "m6_unique_geography_assets": {
     "score": 7,
-    "comment": "MMC的「利基市場」並非地理位置，而是其在全球高端、複雜風險管理和戰略諮詢領域的領導地位。這些市場對專業知識、全球覆蓋和信任度要求極高，新競爭者即便擁有資金也難以在短時間內建立起同等規模和深度的專業能力與客戶關係。這種市場特性導致了天然的寡占格局，少數幾家頂級公司主導，新進入者若想競爭，只會導致價格戰，損害行業整體利潤，形成「理性寡占」的局面。"
+    "comment_zh": "大型企業保險經紀和風險諮詢市場並非傳統意義上的利基市場，但由於其所需的複雜性、信任度和規模，市場高度集中於少數全球參與者手中。新進入者若想獲得市場份額，將面臨巨大的投資和漫長的信譽建立過程。Marsh McLennan等現有巨頭在這種寡頭壟斷環境中，競爭更側重於價值而非價格，形成天然的理性寡占。",
+    "comment_en": "The market for large-scale corporate insurance brokerage and risk consulting is not a niche market in the traditional sense, but it is highly concentrated among a few global players due to the complexity, trust, and scale required. New entrants would face immense investment and a lengthy process to build credibility to gain market share. Existing giants like Marsh McLennan operate in an oligopolistic environment where competition focuses more on value than price, forming a natural rational oligopoly."
   },
   "m7_operational_efficiency": {
     "score": 8,
-    "comment": "MMC高達25.8%的股東權益報酬率（ROE）和47.67億美元的自由現金流（FCF TTM）強烈表明其卓越的營運效率和資本配置能力。作為一家輕資產的服務型企業，其投入資本回報率（ROIC）預計將持續遠超加權平均資本成本（WACC）。這不僅證明了公司在核心業務上的盈利能力，也反映了其管理層在資源整合、成本控制和價值創造方面的嫻熟。持續的超額ROIC是企業具備持久競爭優勢的關鍵指標。"
+    "comment_zh": "Marsh McLennan的ROE高達26.2%，ROA為6.7%，這些數據強烈表明其卓越的盈利能力。作為一個資產輕型服務企業，高ROE和ROA通常意味著健康的投入資本回報率（ROIC）。公司每年產生47.67億美元的自由現金流，證明其資本部署效率高，並能持續創造超越加權平均資本成本的回報，為股東帶來實質性的複利增長。",
+    "comment_en": "Marsh McLennan's impressive ROE of 26.2% and ROA of 6.7% strongly indicate superior profitability. For an asset-light service business, high ROE and ROA typically translate to a healthy Return on Invested Capital (ROIC). The company generates $4.767 billion in free cash flow annually, demonstrating efficient capital deployment and a sustained ability to generate returns well above its weighted average cost of capital, compounding shareholder value effectively."
   },
   "m8_capital_allocation": {
-    "score": 8,
-    "comment": "MMC作為一家成熟且盈利豐厚的公司，其管理層在資本配置上展現出紀律性。在適當時機進行股票回購，能夠有效提升每股收益，為股東創造價值。同時，戰略性併購也應聚焦於鞏固核心競爭力或拓展高潛力市場，而非盲目擴張。巴菲特和蒙格強調，優秀的管理層不僅要會經營，更要懂得如何將賺來的錢有效率地再投資或回饋股東，MMC的財務表現暗示其在這方面做得不錯。"
+    "score": 7,
+    "comment_zh": "Marsh McLennan的Piotroski F-Score為6/9，顯示其財務狀況穩健且營運效率良好。作為一家歷史悠久且規模龐大的公司，其管理層通常會採取審慎的資本配置策略。充裕的自由現金流（47.67億美元）為公司提供了靈活性，可以在適當時機進行戰略性投資、派發股息或回購股票，以最大化股東價值，體現了穩健的資本管理能力。",
+    "comment_en": "Marsh McLennan's Piotroski F-Score of 6/9 indicates sound financial health and operational efficiency. As a long-established and large company, its management typically employs prudent capital allocation strategies. Ample free cash flow ($4.767 billion) provides flexibility for strategic investments, dividends, or share buybacks at opportune times to maximize shareholder value, reflecting robust capital management capabilities."
   },
   "m9_customer_retention": {
-    "score": 9,
-    "comment": "MMC的客戶保留率極高，這得益於其服務的關鍵性和深度整合性。企業客戶在風險管理和戰略諮詢方面，一旦建立起信任關係，通常不會輕易更換服務提供商。這種高保留率不僅降低了獲客成本，也為公司帶來了穩定的經常性收入。在保險經紀領域，客戶對專業建議和定製化解決方案的需求是持續的，這使得MMC的服務需求具有高度確定性，對市場波動和技術變革具備強大的免疫力。"
+    "score": 8,
+    "comment_zh": "Marsh McLennan的服務本質決定了其客戶保留率極高。大型企業的風險管理和保險需求複雜且持續，需要長期、信任的合作夥伴。一旦建立關係，客戶通常會長期依賴其專業建議和服務。這種高客戶黏性不僅降低了獲客成本，也為公司帶來了穩定且可預測的經常性收入，使其對市場波動和技術變革具有強大的免疫力。",
+    "comment_en": "The nature of Marsh McLennan's services dictates exceptionally high customer retention. Large corporations have complex and ongoing risk management and insurance needs, requiring long-term, trusted partnerships. Once a relationship is established, clients typically rely on their expert advice and services for extended periods. This high customer stickiness not only reduces acquisition costs but also provides stable and predictable recurring revenue, granting the company strong immunity to market fluctuations and technological shifts."
   },
   "m10_durability": {
-    "score": 8,
-    "comment": "即使給予競爭對手千億美元，也難以在短時間內複製MMC在全球範圍內建立的品牌聲譽、客戶關係網絡、專業人才儲備和複雜的監管合規體系。這些無形資產是數十年積累的結果，而非簡單的資本投入可以速成。MMC的護城河是多維度且相互強化的，其在全球保險經紀和諮詢市場的領導地位，使其能夠抵禦潛在的顛覆性威脅，確保其商業模式的長期穩定性和盈利能力，這正是巴菲特所追求的「持久性」。"
+    "score": 9,
+    "comment_zh": "Marsh McLennan所提供的核心服務——複雜的風險管理、保險經紀和專業諮詢——是企業運營不可或缺的一部分，其需求具有極高的確定性。儘管技術可以提升效率，但人類判斷、談判技巧和信任在這些高度客製化服務中仍是不可替代的。公司積極投資於技術以增強其服務，而非被動地受顛覆，這使其業務模式具有極強的持久性和對技術變革的抗性。",
+    "comment_en": "The core services provided by Marsh McLennan—complex risk management, insurance brokerage, and professional consulting—are indispensable to corporate operations, with exceptionally high demand certainty. While technology can enhance efficiency, human judgment, negotiation skills, and trust remain irreplaceable in these highly customized services. The company actively invests in technology to augment its services rather than passively being disrupted, giving its business model immense durability and resilience against technological change."
   },
-  "overall_moat_verdict": "Marsh McLennan本質上是一個全球性的「特許經營權平台」和「收費橋樑」。其核心競爭壁壘在於強大的品牌心智與定價權（M1），使得客戶在關鍵服務上難以割捨。高昂的轉換成本（M3）將客戶牢牢鎖定，而全球規模經濟（M5）和難以複製的專業知識網絡（M8）則構建了深厚的運營護城河。儘管不依賴專利，但嚴格的行業監管（M2）和在高端市場形成的理性寡占（M6）也為其提供了保護。公司持續的超額ROIC（M7）和對技術顛覆的抗性（M9），加上穩健的資本配置（M10），共同鑄就了其堅固的經濟護城河，使其能夠長期為股東創造價值。"
+  "overall_moat_verdict_zh": "Marsh McLennan擁有一條由多重因素構築的堅固經濟護城河，其本質可被視為一個「收費橋樑」或「特許經營權平台」。公司憑藉其全球領先的品牌聲譽、深厚的專業知識、高昂的客戶轉換成本以及顯著的規模經濟，在高度複雜且受監管的保險經紀與風險諮詢市場中佔據主導地位。其服務對客戶至關重要且難以替代，使得公司具備強大的定價權和穩定的經常性收入。儘管面臨市場競爭，但其不可複製的全球網絡和長期建立的客戶信任，使其能夠持續產生高於資本成本的回報，並對技術顛覆具有強大免疫力，符合巴菲特對優質企業的定義。",
+  "overall_moat_verdict_en": "Marsh McLennan possesses a robust economic moat, fundamentally operating as a 'toll bridge' or 'franchise platform.' The company dominates the highly complex and regulated insurance brokerage and risk consulting market through its globally leading brand reputation, deep expertise, high customer switching costs, and significant economies of scale. Its services are critical and difficult to replace for clients, granting the company strong pricing power and stable recurring revenue. Despite market competition, its irreproducible global network and long-established client trust enable it to consistently generate returns above its cost of capital and exhibit strong immunity to technological disruption, aligning with Buffett's definition of a quality business."
 }

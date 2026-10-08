@@ -2,44 +2,55 @@
   "ticker": "TXN",
   "period": "2026Q2",
   "m1_brand_pricing": {
-    "score": 8,
-    "comment": "Texas Instruments在B2B市場擁有極強的品牌信譽，其模擬和嵌入式處理器是工業、汽車等關鍵應用領域的核心組件。客戶一旦將TXN的晶片設計進其產品，因其可靠性、長生命週期及嚴格的認證要求，轉換供應商的成本極高。這賦予了TXN在關鍵組件上穩固的定價權，即使提價，客戶也難以輕易替換，確保了穩定的需求與利潤空間，符合巴菲特對必需品供應商的偏好。"
+    "score": 7,
+    "comment_zh": "德州儀器在類比與嵌入式處理器領域，雖非消費品牌，但其產品在工業、汽車等關鍵應用中扮演不可或缺的角色。客戶高度重視其產品的可靠性、長期供貨穩定性及卓越性能。儘管單一晶片成本佔終端產品比例不高，但其關鍵性使得客戶願意為品質與供應保障支付溢價，形成穩固的B2B定價權。這種信任與深度整合，使其在特定市場具備強大的議價能力，而非單純的商品化競爭。",
+    "comment_en": "Texas Instruments, while not a consumer brand, holds significant pricing power in analog and embedded processing. Its chips are indispensable in critical industrial and automotive applications, where reliability, long-term supply, and performance are paramount. Although the chip cost is a small fraction of the end product, its criticality allows TXN to command a premium for quality and supply assurance. This deep integration and trust foster strong B2B pricing power, differentiating it from commodity players. Customers prioritize the assured performance and longevity TXN provides, solidifying its value proposition."
   },
   "m2_patents_regulatory": {
-    "score": 9,
-    "comment": "TXN在半導體領域累積了數十年的專利組合，涵蓋了從設計、製造工藝到特定應用的大量知識產權。這些專利構成了極高的技術壁壘，保護了其核心產品線免受直接競爭。在高度複雜且技術迭代緩慢的模擬晶片市場，這些獨家專利是其持續領先的基石，使競爭對手難以在短期內複製其技術優勢，為公司提供了強大的法律和技術護城河。"
+    "score": 8,
+    "comment_zh": "德州儀器擁有龐大且深厚的專利組合，涵蓋類比與混合訊號設計、製程技術及封裝創新。這些專利是其技術領先的基石，為競爭對手設置了極高的進入壁壘。尤其在類比設計領域，其累積的數十年專業知識與專利保護，使得新進者難以在性能、功耗和成本效益上匹敵。這不僅保護了其現有產品線，也為未來的技術發展提供了堅實的法律屏障，確保了其市場地位。",
+    "comment_en": "Texas Instruments possesses an extensive and deep patent portfolio spanning analog and mixed-signal design, process technology, and packaging innovations. These patents form the bedrock of its technological leadership, creating formidable barriers to entry for competitors. Decades of accumulated expertise and patent protection in analog design make it exceedingly difficult for newcomers to match TXN's performance, power efficiency, and cost-effectiveness. This intellectual property not only safeguards existing product lines but also provides a robust legal shield for future technological advancements, securing its market position."
   },
   "m3_high_switching_costs": {
     "score": 9,
-    "comment": "這是TXN最核心的護城河之一。一旦TXN的模擬或嵌入式晶片被客戶設計到終端產品中，更換供應商將涉及巨大的重新設計、測試、認證成本，甚至可能導致產品上市延遲。儘管晶片本身的成本可能不高，但替換帶來的營運中斷和潛在損失遠超晶片價格。這種深度嵌入的特性，使得客戶對TXN產品產生極高的黏性，確保了長期穩定的訂單流。"
+    "comment_zh": "德州儀器的產品具有極高的客戶轉換成本。一旦其晶片被「設計導入」至客戶的產品（如汽車電子控制單元或工業自動化系統），更換供應商將涉及巨大的重新設計、嚴格的測試驗證、冗長的認證流程以及潛在的供應鏈中斷風險。這些成本和時間投入遠超晶片本身的價格，使得客戶即便面對輕微的價格上漲，也傾向於維持現有供應商關係，為TXN築起一道堅實的護城河。",
+    "comment_en": "Texas Instruments' products impose exceptionally high switching costs on its customers. Once a TXN chip is 'designed in' to a client's product, such as an automotive ECU or industrial automation system, changing suppliers entails substantial redesign efforts, rigorous re-testing, lengthy re-certification processes, and potential supply chain disruptions. These time and financial investments far outweigh the chip's unit cost. Consequently, customers are highly reluctant to switch, even in the face of minor price increases, thus creating a formidable moat for TXN."
   },
   "m4_network_effects": {
     "score": 5,
-    "comment": "TXN的業務模式並非典型的網絡效應驅動。雖然其廣泛的產品組合和龐大的客戶基礎會帶來開發工具、參考設計和技術支持生態系統的優勢，但這並非傳統意義上「每多一個用戶加入，所有用戶價值呈幾何級增長」的網絡效應。其價值更多體現在產品廣度、技術深度和客戶關係上，而非用戶間的直接互動增值，因此此項護城河相對較弱。"
+    "comment_zh": "德州儀器不具備傳統意義上的直接網絡效應，如社交媒體平台。然而，其廣泛的產品生態系統、豐富的開發工具、參考設計以及龐大的工程師社群，形成了一種間接的網絡效應。越多的客戶採用TXN產品，其生態系統就越成熟，第三方支援和知識共享也越豐富，這反過來吸引更多新客戶，降低其開發門檻。這種生態系統的廣度與深度，雖非典型網絡效應，卻也增強了其競爭優勢。",
+    "comment_en": "Texas Instruments does not exhibit direct network effects in the traditional sense, like social media platforms. However, its extensive product ecosystem, rich development tools, comprehensive reference designs, and vast engineering community create an indirect network effect. As more customers adopt TXN products, the ecosystem matures, fostering greater third-party support and knowledge sharing. This, in turn, attracts new customers by lowering their development barriers. While not a typical network effect, the breadth and depth of this ecosystem significantly enhance its competitive advantage."
   },
   "m5_cost_advantage_scale": {
-    "score": 8,
-    "comment": "TXN擁有並經營自己的晶圓廠，尤其在300mm晶圓製造方面具備領先優勢，這使其能有效控制成本、優化生產流程並確保供應鏈韌性。大規模的生產量和持續的工藝改進，使得TXN能夠以極具競爭力的成本提供產品，尤其是在標準化程度較高的模擬晶片領域。這種規模經濟和垂直整合能力，是新進入者難以企及的壁壘，確保了其長期盈利能力。"
+    "score": 9,
+    "comment_zh": "德州儀器在類比與嵌入式處理器領域擁有無與倫比的規模經濟優勢。其自有的12吋晶圓廠，是極其資本密集型的投資，但能帶來顯著的成本效益，尤其在成熟製程上，相較於依賴外部代工的競爭者，具備更低的單位生產成本。透過垂直整合與優化的製造流程，TXN能以對手難以企及的效率和成本供應數萬種產品，這使其在價格競爭中佔據有利地位，並維持高毛利率。",
+    "comment_en": "Texas Instruments possesses an unparalleled scale advantage in analog and embedded processing. Its proprietary 12-inch wafer fabs represent a highly capital-intensive investment, yielding significant cost efficiencies, especially in mature process technologies. This allows TXN to achieve lower unit production costs compared to competitors relying solely on external foundries. Through vertical integration and optimized manufacturing processes, TXN can supply tens of thousands of products with efficiency and cost structures that rivals struggle to match, positioning it favorably in price competition and sustaining high margins."
   },
   "m6_unique_geography_assets": {
     "score": 7,
-    "comment": "TXN並非依賴地理位置的獨佔性，而是憑藉其在模擬和嵌入式處理器領域的深耕，在眾多利基市場中形成了事實上的寡占地位。這些市場雖然單一規模不大，但總體龐大且高度專業化，需要深厚的技術積累和廣泛的產品線。新競爭者難以在如此廣泛且分散的市場中，同時建立起與TXN匹敵的技術深度和客戶信任，從而形成一種「有效規模」的護城河。"
+    "comment_zh": "德州儀器在利基市場的寡佔性並非源於地理位置，而是其極其廣泛且深入的產品組合，以及在眾多工業和汽車子市場的深厚滲透。其數萬種SKU覆蓋了廣泛的應用，使得任何單一競爭者都難以在廣度、深度和客戶信任度上與之匹敵。這種「無處不在」的市場存在，加上長期建立的客戶關係，創造了一種高效規模，新進入者即便擁有資金，也難以在短時間內複製其在各個細分市場的領導地位。",
+    "comment_en": "Texas Instruments' efficient scale stems not from unique geography, but from its extraordinarily broad and deep product portfolio, coupled with profound penetration across numerous industrial and automotive sub-markets. Its tens of thousands of SKUs cover a vast array of applications, making it nearly impossible for any single competitor to match its breadth, depth, and customer trust. This ubiquitous market presence, combined with long-established customer relationships, creates an efficient scale where new entrants, even with substantial capital, cannot quickly replicate its leadership across diverse niches."
   },
   "m7_operational_efficiency": {
     "score": 8,
-    "comment": "TXN展現出卓越的營運效率和資本配置能力，其高達33.6%的ROE和16.9%的ROA，遠超行業平均水平，證明了其持續創造超額回報的能力。公司長期專注於自由現金流的產生，並將其有效回饋股東。在資本密集型半導體行業，能長期維持如此高的投入資本回報率，表明其擁有強大的競爭優勢和高效的資產管理能力，符合巴菲特對高ROIC企業的青睞。"
+    "comment_zh": "德州儀器展現了卓越的營運效率和資本回報能力。其持續高於行業平均的股東權益報酬率（ROE 33.6%）和資產報酬率（ROA 16.9%）證明了其將投入資本轉化為利潤的強大能力。這得益於其規模經濟、高效的製造流程、嚴格的成本控制以及高價值產品組合。這種長期超額的資本回報率，是其堅固護城河的有力證明，顯示公司能夠持續為股東創造價值。",
+    "comment_en": "Texas Instruments demonstrates exceptional operational efficiency and capital returns. Its consistently above-average Return on Equity (ROE 33.6%) and Return on Assets (ROA 16.9%) underscore its robust ability to convert invested capital into profit. This is driven by its economies of scale, highly efficient manufacturing processes, stringent cost controls, and a high-value product portfolio. Such sustained superior returns on capital serve as compelling evidence of its durable moat, indicating the company's consistent capacity to generate shareholder value over the long term."
   },
   "m8_capital_allocation": {
     "score": 9,
-    "comment": "TXN的管理層在資本配置方面表現出高度的紀律性和股東導向。公司持續通過穩定的股息增長和積極的股票回購來回饋股東，而非盲目進行高溢價併購。其自由現金流高達53.55億美元，且資產負債表穩健（現金70.01億美元，總負債140.52億美元），顯示出健康的財務狀況。這種對股東價值最大化的承諾，是巴菲特投資哲學的核心要素。"
+    "comment_zh": "德州儀器的核心戰略資產幾乎不可複製。即使給予競爭對手千億美元，也無法在數年內複製其數十年累積的類比設計專業知識、龐大的專利組合、全球領先的12吋晶圓製造能力、以及與數萬家客戶建立的深厚信任關係。這些無形資產和高度專業化的實體資產，是時間、經驗和持續投入的結晶，構成了其獨特的競爭優勢，使其成為一個難以被顛覆的產業巨頭。",
+    "comment_en": "Texas Instruments' core strategic assets are virtually irreproducible. Even with a hundred billion dollars, a competitor could not replicate in just a few years its decades of accumulated analog design expertise, vast patent portfolio, world-leading 12-inch wafer manufacturing capabilities, and deep trust relationships built with tens of thousands of customers. These intangible assets and highly specialized physical assets are the culmination of time, experience, and continuous investment, forming its unique competitive advantage and solidifying its position as an undefeatable industry giant."
   },
   "m9_customer_retention": {
-    "score": 9,
-    "comment": "TXN的客戶保留率極高，這主要歸因於其產品的關鍵性、長生命週期以及高轉換成本。一旦客戶將TXN的晶片設計進其產品，通常會維持數年甚至數十年的合作關係。這種深度綁定不僅確保了穩定的收入來源，也降低了銷售和營銷成本。客戶對TXN產品的信任和依賴，構成了強大的商業壁壘，使其在市場波動時仍能保持韌性。"
+    "score": 8,
+    "comment_zh": "德州儀器的產品需求具有高度確定性，對技術變革和典範轉移具備強大免疫力。類比晶片是將現實世界訊號（如溫度、壓力）轉換為數位數據的基礎，這項核心功能在任何電子系統中都不可或缺。儘管特定技術會演進，但對類比轉換和電源管理的需求是永恆的。這使得TXN的業務基礎極為穩固，不易受到AI或新興數位技術的顛覆性衝擊，確保了其長期穩定的市場地位。",
+    "comment_en": "Texas Instruments' product demand exhibits high certainty and strong immunity to technological shifts and paradigm changes. Analog chips are fundamental for converting real-world signals (e.g., temperature, pressure) into digital data, an indispensable function in any electronic system. While specific technologies evolve, the core need for analog conversion and power management remains constant. This provides TXN with an extremely stable business foundation, making it highly resilient to disruptive impacts from AI or emerging digital technologies, thereby ensuring its long-term market stability."
   },
   "m10_durability": {
-    "score": 8,
-    "comment": "TXN的業務本質決定了其對技術變革和典範轉移具有較強的抗性。模擬和嵌入式處理器是電子產品的基礎，其需求穩定且不易被顛覆性技術完全取代。儘管AI等新技術會影響設計流程，但對物理晶片的需求依然存在。TXN廣泛的產品組合和多元化的終端市場應用，也使其能夠有效分散風險，確保了公司業務的長期穩定性和持續盈利能力。"
+    "score": 9,
+    "comment_zh": "德州儀斯管理層展現了卓越的資本配置能力。公司長期堅持將大量自由現金流透過股息和股票回購返還股東，而非盲目進行高溢價併購。在股價被低估時積極回購註銷股本，有效提升每股價值。同時，公司也持續投資於內部研發和先進製造能力（如300mm晶圓廠），確保長期競爭力。這種對股東價值最大化的承諾和紀律性，是其護城河的重要組成部分。",
+    "comment_en": "Texas Instruments' management demonstrates exceptional capital allocation. The company consistently returns substantial free cash flow to shareholders through dividends and share buybacks, avoiding imprudent, high-premium acquisitions. It actively repurchases and retires shares when undervalued, effectively enhancing per-share value. Concurrently, TXN continuously invests in internal R&D and advanced manufacturing capabilities (e.g., 300mm fabs) to ensure long-term competitiveness. This commitment to maximizing shareholder value and disciplined approach is a crucial component of its economic moat."
   },
-  "overall_moat_verdict": "Texas Instruments是一家典型的巴菲特式「特許經營權」企業，其護城河深厚且多樣。核心競爭力在於其在模擬和嵌入式處理器領域的技術領導地位、龐大的專利組合以及極高的客戶轉換成本。公司產品作為工業、汽車等關鍵應用的「隱形英雄」，一旦被設計採用，便形成長期穩定的合作關係，賦予其強大的定價權。此外，TXN的規模經濟、垂直整合能力以及管理層卓越的資本配置策略，共同築起了難以逾越的商業壁壘。這使得TXN能夠持續產生高額自由現金流，並以股東友好的方式回報資本，是值得長期持有的優質企業。"
+  "overall_moat_verdict_zh": "德州儀器是一家擁有極其堅固且多層次經濟護城河的企業，堪稱電子產業的「收費橋樑」。其核心競爭優勢源於客戶產品中極高的轉換成本、無與倫比的類比晶片製造規模經濟（特別是12吋晶圓廠），以及數十年累積的龐大且不可複製的智慧財產權。公司在工業和汽車等關鍵領域提供不可或缺的基礎元件，其產品可靠性與長期供應保障，使其成為客戶難以替代的合作夥伴。加之管理層卓越的資本配置能力，TXN展現了典型的巴菲特式優質企業特徵，具備長期穩定的盈利能力和持續為股東創造價值的潛力。",
+  "overall_moat_verdict_en": "Texas Instruments possesses an exceptionally robust and multi-layered economic moat, akin to a 'toll bridge' in the electronics industry. Its core competitive advantages stem from extremely high customer switching costs embedded in product designs, unparalleled economies of scale in analog chip manufacturing (especially 12-inch fabs), and a vast, irreproducible intellectual property portfolio accumulated over decades. The company provides indispensable foundational components in critical sectors like industrial and automotive, with product reliability and long-term supply assurance making it an irreplaceable partner. Coupled with management's excellent capital allocation, TXN exhibits classic Buffett-esque qualities of a high-quality business, demonstrating long-term stable profitability and sustained potential for shareholder value creation."
 }

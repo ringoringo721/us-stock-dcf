@@ -3,43 +3,54 @@
   "period": "2026Q2",
   "m1_brand_pricing": {
     "score": 9,
-    "comment": "Philip Morris International憑藉其全球標誌性品牌萬寶路（Marlboro）建立了無與倫比的品牌心智與定價權。儘管全球吸煙率下降，但其核心產品的消費者對價格變動的敏感度相對較低，這得益於品牌忠誠度和產品的成癮性。公司能夠持續提高產品價格，而銷量並未出現顯著下滑，這直接體現在其穩定的營收和利潤增長上。這種能力是巴菲特所珍視的「特許經營權」的典型特徵，使其能夠在競爭激烈的市場中保持超額利潤。"
+    "comment_zh": "Philip Morris 憑藉其全球標誌性品牌萬寶路（Marlboro）建立了極其強大的品牌心智與定價權。尼古丁的成癮性結合數十年如一日的品牌建設，使得消費者對其產品具有高度忠誠度，即使面對價格上漲或稅收增加，需求彈性依然較低。這賦予了公司將成本轉嫁給消費者的能力，並在傳統捲菸市場持續獲取超額利潤。其新型減害產品（如 IQOS）亦透過創新和品牌溢價，在轉型市場中維持了強勁的定價能力，這正是巴菲特所推崇的「特許經營權」特徵。",
+    "comment_en": "Philip Morris commands exceptional brand equity and pricing power, primarily through its iconic global brand, Marlboro. The addictive nature of nicotine, coupled with decades of consistent brand building, fosters profound consumer loyalty. This allows PM to raise prices and pass on excise taxes with minimal demand elasticity, securing supernormal profits in the traditional cigarette market. Furthermore, its reduced-risk products (RRPs) like IQOS leverage innovation and brand premium to maintain strong pricing power in the evolving market. This exemplifies the 'franchise' characteristic highly valued by Buffett, where customers remain loyal despite price increases."
   },
   "m2_patents_regulatory": {
     "score": 8,
-    "comment": "菸草行業受到嚴格的政府監管，這本身就構成了一道巨大的進入壁壘，限制了新競爭者的出現。Philip Morris International不僅受益於此，更在新型減害產品（RRPs）領域，特別是IQOS加熱不燃燒產品上，投入巨資進行研發並獲得了大量專利。這些專利為其在快速發展的RRP市場中提供了獨特的競爭優勢和技術壁壘，使其能夠在監管框架內引導市場轉型，並獲得特許經營般的市場地位。"
+    "comment_zh": "菸草行業是全球監管最嚴格的產業之一，這對新進入者構成了巨大的壁壘。Philip Morris 作為行業巨頭，已建立起複雜的全球合規體系和政府關係，這本身就是一種難以複製的特許經營權。此外，公司在新型減害產品（RRPs）領域，特別是 IQOS 的加熱不燃燒技術上，擁有大量的專利組合。這些專利不僅保護了其創新成果，更在快速發展的 RRP 市場中築起了技術護城河，使其在競爭中佔據領先地位，符合巴菲特對受保護特許經營權的定義。",
+    "comment_en": "The tobacco industry is among the most heavily regulated globally, creating substantial barriers to entry for new competitors. Philip Morris, as an industry leader, has established a complex global compliance framework and governmental relationships, which in itself acts as an irreplicable franchise. Moreover, the company possesses a vast patent portfolio in reduced-risk products (RRPs), particularly for its IQOS heated tobacco technology. These patents not only protect its innovations but also build a technological moat in the rapidly evolving RRP market, securing a leading competitive position, aligning with Buffett's definition of a protected franchise."
   },
   "m3_high_switching_costs": {
-    "score": 9,
-    "comment": "尼古丁產品的成癮性是其最核心的黏性來源，使得消費者更換品牌或戒斷的成本極高，這是一種強大的行為慣性壁壘。對於Philip Morris International而言，其傳統捲菸產品的消費者一旦形成品牌忠誠度，轉換至其他品牌的意願極低。此外，對於IQOS等新型產品，消費者對設備的初期投資以及對特定使用體驗的適應，也進一步增加了轉換至其他替代品的成本，強化了客戶黏性。"
+    "score": 8,
+    "comment_zh": "對於傳統捲菸消費者而言，轉換品牌的成本主要體現在心理和生理上的習慣與尼古丁依賴。儘管表面上更換菸草品牌看似容易，但消費者對特定口味和品牌體驗的偏好，以及戒斷的困難，都形成了隱性的轉換成本。對於新型減害產品（RRPs）如 IQOS，消費者除了對設備的初始投資外，還需適應其獨特的加熱體驗和操作方式，這也增加了轉換至其他系統的摩擦。這種黏性確保了穩定的客戶群，是其護城河的重要組成部分。",
+    "comment_en": "For traditional cigarette consumers, switching costs primarily manifest as psychological and physiological habits, coupled with nicotine dependence. While changing tobacco brands might seem simple, consumer preference for specific tastes and brand experiences, alongside the difficulty of cessation, creates implicit switching costs. For reduced-risk products (RRPs) like IQOS, consumers incur an initial device investment and adapt to its unique heating experience and operation, adding friction to switching to alternative systems. This stickiness ensures a stable customer base, forming a crucial component of its economic moat."
   },
   "m4_network_effects": {
-    "score": 3,
-    "comment": "菸草行業本質上不具備典型的網絡效應。傳統捲菸產品的消費價值不會因為更多人使用而增加。儘管萬寶路等品牌在全球範圍內擁有極高的知名度和普及率，這有助於品牌推廣，但這並非網絡效應的直接體現。對於IQOS等新型產品，雖然用戶社群的形成可能帶來一定的社交影響，但其對產品核心價值的提升作用有限，遠不及科技平台型企業的網絡效應強度。"
+    "score": 2,
+    "comment_zh": "Philip Morris 的核心業務，無論是傳統捲菸還是新型減害產品，本質上都不具備網絡效應。菸草產品的消費是高度個人化的體驗，一個用戶的增加並不會直接提升其他用戶的產品價值。與社交媒體或電商平台不同，菸草產品的價值不隨用戶基數的擴大而呈幾何級數增長。儘管新型產品可能會有社群效應，但這並非其核心競爭力或主要護城河來源，因此在此維度上得分較低，不符合巴菲特對網絡效應型企業的定義。",
+    "comment_en": "Philip Morris's core business, encompassing both traditional cigarettes and reduced-risk products, inherently lacks network effects. Tobacco consumption is a highly individualized experience; an increase in one user does not directly enhance the product's value for other users. Unlike social media or e-commerce platforms, the value of tobacco products does not grow geometrically with an expanding user base. While new products might foster some community aspects, this is not a core competitive advantage or primary moat source. Therefore, it scores low in this dimension, not fitting Buffett's definition of a network effect business."
   },
   "m5_cost_advantage_scale": {
     "score": 8,
-    "comment": "作為全球最大的菸草公司之一，Philip Morris International在生產、採購、分銷和營銷方面享有巨大的規模經濟優勢。其遍布全球的生產設施和分銷網絡，使其能夠以極低的單位成本生產和運輸產品，並在全球範圍內進行高效的品牌推廣。這種規模優勢使得小型競爭者難以在成本和市場覆蓋率上與之匹敵，從而鞏固了其市場領導地位，並帶來了顯著的成本優勢。"
+    "comment_zh": "Philip Morris 憑藉其龐大的全球規模，在採購、生產、分銷和營銷方面實現了顯著的成本優勢。其遍布全球的供應鏈和製造設施，使其能夠以極低的單位成本生產和運輸產品，這是小型競爭對手難以匹敵的。這種規模經濟不僅降低了運營成本，還賦予了公司在市場上更強的競爭力，能夠在保持利潤率的同時提供有競爭力的價格。在新型減害產品的研發和量產上，其規模優勢也使其能更快地將創新推向市場，形成成本壁壘。",
+    "comment_en": "Philip Morris leverages its immense global scale to achieve significant cost advantages in procurement, production, distribution, and marketing. Its worldwide supply chain and manufacturing facilities enable the company to produce and transport products at exceptionally low unit costs, a feat difficult for smaller competitors to match. This economy of scale not only reduces operational expenses but also grants the company stronger market competitiveness, allowing it to offer competitive pricing while maintaining healthy profit margins. In the R&D and mass production of reduced-risk products, its scale advantage also enables faster market introduction of innovations, creating a cost barrier."
   },
   "m6_unique_geography_assets": {
-    "score": 8,
-    "comment": "全球菸草市場是一個成熟且高度集中的行業，尤其是在傳統捲菸領域。由於嚴格的監管、高昂的品牌建設成本以及既有巨頭的強大分銷網絡，新競爭者進入的門檻極高。Philip Morris International在許多國家和地區都佔據主導地位，形成了天然的寡占格局。在這種市場環境下，有限的市場容量和激烈的競爭使得新進入者難以獲得可觀的市場份額，從而保護了現有參與者的利潤空間。"
+    "score": 7,
+    "comment_zh": "菸草市場在許多國家已趨於成熟，並呈現出寡頭壟斷的格局。Philip Morris 在全球範圍內建立了根深蒂固的分銷網絡和市場份額，尤其是在許多關鍵市場中佔據主導地位。這種「有效規模」的特徵意味著，新競爭者即使投入巨額資本，也難以在現有巨頭之間取得顯著立足點，因為市場增長有限且競爭激烈。這種由歷史積累、品牌忠誠度和監管壁壘共同形成的寡占局面，使得 PM 能夠在特定地理區域和市場中享有類似於天然壟斷的優勢。",
+    "comment_en": "The tobacco market in many countries is mature and characterized by an oligopolistic structure. Philip Morris has established deeply entrenched distribution networks and market share globally, particularly dominating many key markets. This 'efficient scale' characteristic implies that new competitors, even with substantial capital investment, would struggle to gain significant traction among existing giants due to limited market growth and intense competition. This oligopoly, formed by historical accumulation, brand loyalty, and regulatory barriers, allows PM to enjoy advantages akin to a natural monopoly in specific geographical regions and markets."
   },
   "m7_operational_efficiency": {
     "score": 8,
-    "comment": "Philip Morris International展現出強勁的資本回報能力，其18.0%的ROE和15.9%的ROA遠超行業平均水平和其加權平均資本成本。這得益於其強大的品牌資產、定價權以及相對較低的資本密集度。菸草業務一旦建立，後續的資本支出相對較少，使得公司能夠持續產生高額的自由現金流，並將其轉化為股東回報，體現了其卓越的長期超額投資回報韌性。"
+    "comment_zh": "Philip Morris 長期以來展現出卓越的資本回報能力，其穩健的 ROE (18.0%) 和 ROA (15.9%) 數據，以及高達 127 億美元的自由現金流，都印證了其高效的資本運用。菸草行業在建立起品牌和分銷網絡後，其後續的資本投入相對較低，但現金流產生能力極強。PM 能夠持續將投入資本轉化為豐厚利潤，並將其分配給股東，這表明公司擁有強大的經營韌性，能夠長期創造超越加權平均資本成本（WACC）的價值，符合巴菲特對高 ROIC 企業的偏好。",
+    "comment_en": "Philip Morris has consistently demonstrated exceptional returns on capital, evidenced by its robust ROE (18.0%) and ROA (15.9%), alongside substantial free cash flow of $12.7 billion, confirming its highly efficient capital deployment. Once brands and distribution networks are established, the tobacco industry typically requires relatively low subsequent capital investment while generating strong cash flows. PM's ability to continuously convert invested capital into substantial profits and distribute them to shareholders indicates strong operational resilience, consistently creating value far exceeding its Weighted Average Cost of Capital (WACC), aligning with Buffett's preference for high ROIC businesses."
   },
   "m8_capital_allocation": {
-    "score": 9,
-    "comment": "即使給予競爭對手千億美元，也難以在短時間內複製Philip Morris International的核心戰略資產。這包括其在全球180多個市場建立的數十年品牌聲譽（尤其是萬寶路）、龐大且高效的全球分銷網絡、與各國監管機構建立的關係，以及在減害產品領域累積的研發專利和技術領先地位。這些無形資產和複雜的運營體系，是時間和巨額資本長期投入的結晶，具有極高的不可複製性。"
+    "score": 7,
+    "comment_zh": "Philip Morris 在資本配置方面表現出對股東價值的關注，透過持續的股息支付和股票回購來回報股東。公司也進行了戰略性併購，例如收購 Swedish Match，以擴展其無煙產品組合，這顯示了管理層對未來增長方向的清晰判斷和執行力。然而，其較高的總負債（491.13 億美元）相對於現金（59.99 億美元）需要持續關注，以確保財務健康。總體而言，管理層在平衡股東回報與戰略投資方面表現穩健，但仍需警惕槓桿風險。",
+    "comment_en": "Philip Morris demonstrates a focus on shareholder value through consistent dividend payments and share buybacks. The company has also made strategic acquisitions, such as Swedish Match, to expand its smoke-free product portfolio, indicating management's clear judgment and execution in future growth directions. However, its relatively high total debt ($49.113 billion) compared to cash ($5.999 billion) warrants continuous monitoring to ensure financial health. Overall, management shows a steady hand in balancing shareholder returns with strategic investments, though leverage risk remains a consideration."
   },
   "m9_customer_retention": {
-    "score": 7,
-    "comment": "傳統捲菸市場面臨健康意識提升和監管趨嚴的挑戰，但Philip Morris International並非被動應對。公司積極投資並引領行業向減害產品（如IQOS）轉型，這是一種主動的自我顛覆。雖然技術變革帶來了挑戰，但其在新型產品領域的技術領先和市場佔有率，使其能夠在典範轉移中保持競爭力。消費者對尼古丁的長期需求，也為其提供了基礎的抗顛覆能力。"
+    "score": 9,
+    "comment_zh": "Philip Morris 在客戶保留方面表現卓越，這主要歸因於其產品的成癮性以及強大的品牌忠誠度。一旦消費者習慣了特定品牌的口味和體驗，轉換的意願和可能性就大大降低。這種高客戶保留率為公司提供了可預測的收入流和穩定的市場份額。即使在傳統捲菸市場面臨挑戰，公司透過積極推廣 IQOS 等新型減害產品，成功將部分現有吸菸者轉化為其新產品用戶，進一步鞏固了客戶基礎，展現了其在維繫客戶關係上的深厚功力。",
+    "comment_en": "Philip Morris excels in customer retention, primarily due to the addictive nature of its products and strong brand loyalty. Once consumers become accustomed to a specific brand's taste and experience, their willingness and likelihood to switch significantly decrease. This high retention rate provides the company with predictable revenue streams and stable market share. Even as the traditional cigarette market faces challenges, the company has successfully transitioned some existing smokers to its new reduced-risk products like IQOS, further solidifying its customer base and demonstrating its profound ability to maintain customer relationships."
   },
   "m10_durability": {
-    "score": 8,
-    "comment": "Philip Morris International的管理層展現出對股東友好的資本配置策略。公司歷史上持續派發高額股息，並在適當時機進行股票回購，以有效提升股東價值。其高達127.22億美元的自由現金流（TTM）為這些資本配置活動提供了堅實基礎。儘管公司背負一定債務，但其穩定的現金流和盈利能力使其能夠在投資未來增長（如RRPs）與回報股東之間取得良好平衡。"
+    "score": 7,
+    "comment_zh": "Philip Morris 展現了對技術/典範轉移的強大適應性而非完全免疫。儘管傳統捲菸面臨長期衰退趨勢和健康意識的挑戰，PM 並未坐以待斃，而是積極投入巨資研發並推廣新型減害產品（RRPs），如 IQOS。這種戰略轉型使其能夠引領行業變革，而非被顛覆。公司正將其核心競爭力從「銷售香菸」轉變為「提供尼古丁替代方案」，這顯示了其商業模式的韌性與進化能力。雖然公共衛生運動和潛在的顛覆性戒菸技術仍是風險，但 PM 的主動轉型策略有效提升了其長期生存能力。",
+    "comment_en": "Philip Morris demonstrates strong adaptability to technological/paradigm shifts rather than complete immunity. Despite the long-term decline of traditional cigarettes and health awareness challenges, PM has proactively invested heavily in developing and promoting reduced-risk products (RRPs) like IQOS. This strategic transformation allows it to lead industry change rather than be disrupted. The company is shifting its core competency from 'selling cigarettes' to 'providing nicotine alternatives,' showcasing its business model's resilience and evolutionary capacity. While public health campaigns and potentially disruptive cessation technologies remain risks, PM's proactive transformation strategy effectively enhances its long-term durability."
   },
-  "overall_moat_verdict": "Philip Morris International本質上是一家擁有全球性「特許經營權」的企業，其核心護城河建立在強大的品牌資產、產品的成癮性所帶來的極高客戶黏性，以及嚴格的行業監管所形成的進入壁壘之上。公司憑藉萬寶路等標誌性品牌，在全球市場享有無與倫比的定價權和規模經濟優勢。儘管面臨傳統菸草市場的結構性挑戰，管理層正積極透過投資減害產品（IQOS）進行戰略轉型，展現出對未來趨勢的適應能力。其穩定的高自由現金流和股東友好的資本配置策略，進一步鞏固了其作為價值投資標的的吸引力，使其成為一個在特定行業中具備堅固護城河的「收費橋樑」型企業。"
+  "overall_moat_verdict_zh": "Philip Morris 擁有一條由多重因素構築的堅固經濟護城河，其核心是全球領先的品牌資產（如萬寶路）所帶來的強大定價權和消費者黏性，這使其具備了巴菲特所稱的「特許經營權」特徵。菸草行業嚴格的監管環境構成了巨大的進入壁壘，而 PM 在新型減害產品（RRPs）領域的專利組合和規模優勢，則為其在行業轉型中提供了領先地位。儘管傳統業務面臨挑戰，但公司透過積極的戰略轉型，將其商業模式從單純的菸草銷售演變為更廣泛的尼古丁替代方案提供者，展現了卓越的適應性和韌性。PM 本質上是一個能夠持續從消費者習慣和監管壁壘中獲利的「收費橋樑」，即使在變革中也能維持其強大的現金流生成能力和股東回報。",
+  "overall_moat_verdict_en": "Philip Morris possesses a robust economic moat constructed from multiple factors. At its core lies the formidable pricing power and consumer stickiness derived from its leading global brand assets (e.g., Marlboro), embodying what Buffett terms a 'franchise.' The tobacco industry's stringent regulatory environment creates significant barriers to entry, while PM's patent portfolio and scale advantage in reduced-risk products (RRPs) position it as a leader in industry transformation. Despite challenges to its traditional business, the company has demonstrated exceptional adaptability and resilience through proactive strategic transformation, evolving its business model from mere tobacco sales to a broader provider of nicotine alternatives. PM is essentially a 'toll bridge' that consistently profits from consumer habits and regulatory barriers, maintaining strong cash flow generation and shareholder returns even amidst change."
 }

@@ -2,44 +2,55 @@
   "ticker": "MPC",
   "period": "2026Q2",
   "m1_brand_pricing": {
-    "score": 4,
-    "comment": "Marathon Petroleum在煉油與銷售領域，其品牌影響力主要體現在零售網絡如Speedway，但在高度商品化的燃料市場中，消費者對價格極為敏感。儘管擁有廣泛的加油站網絡，其定價權仍受制於原油成本波動及區域性競爭。公司難以在不犧牲銷量的前提下大幅提價，這與巴菲特青睞的強品牌消費品公司形成鮮明對比。煉油利潤主要由「裂解價差」決定，而非品牌溢價。因此，其品牌護城河相對較弱，難以形成持久的超額利潤。"
+    "score": 3,
+    "comment_zh": "馬拉松石油的核心業務是煉油與燃料銷售，本質上屬於商品型產業。儘管其零售品牌如Speedway在特定區域有一定知名度，但終端消費者對汽油或柴油的選擇主要基於價格與便利性，而非品牌忠誠度。公司在原油採購與成品油銷售上，價格受全球市場供需影響，缺乏顯著的定價權。其盈利能力更多取決於煉油價差與運營效率，而非品牌溢價。這與巴菲特青睞的擁有強大品牌心智、能持續提價而不失銷量的企業特徵相去甚遠，護城河較為薄弱。",
+    "comment_en": "Marathon Petroleum's core business in refining and fuel sales is inherently commodity-driven. While retail brands like Speedway hold regional recognition, end consumers primarily choose gasoline or diesel based on price and convenience, not brand loyalty. The company lacks significant pricing power, as crude oil procurement and refined product sales prices are dictated by global market dynamics. Profitability hinges more on refining margins and operational efficiency than brand premium. This contrasts sharply with Buffett's preference for businesses with strong brand equity that can consistently raise prices without losing volume, indicating a weak moat in this aspect."
   },
   "m2_patents_regulatory": {
-    "score": 6,
-    "comment": "Marathon Petroleum所處的煉油產業受嚴格的環境與安全法規監管，新進入者面臨高昂的資本支出與複雜的許可流程，這構成了一定的進入壁壘。然而，MPC本身並未擁有獨家或顛覆性的專利技術，使其在煉油工藝上顯著領先於同行。其優勢更多來自於現有基礎設施的規模與合規性，而非專利帶來的獨特競爭力。這類監管壁壘雖能篩選掉小型競爭者，但對於大型煉油企業而言，差異化不夠明顯，難以構成巴菲特所強調的「收費橋樑」式護城河。"
+    "score": 7,
+    "comment_zh": "煉油產業是資本與監管雙重密集型行業。馬拉松石油作為美國最大的獨立煉油商之一，其運營需要大量政府許可、環保合規與安全標準認證。這些嚴格的監管要求和高昂的合規成本，對新進入者構成了極高的壁壘，有效限制了競爭。然而，這並非基於獨家專利技術的保護，而是行業固有的准入門檻。公司憑藉其現有規模和成熟的合規體系，在這一領域享有相對優勢，但並非不可逾越的技術壟斷。",
+    "comment_en": "The refining industry is both capital and regulatory intensive. As one of the largest independent refiners in the U.S., Marathon Petroleum's operations demand extensive government permits, environmental compliance, and safety certifications. These stringent regulatory requirements and high compliance costs create substantial barriers to entry for new competitors, effectively limiting competition. However, this moat isn't built on proprietary patented technology but rather on inherent industry entry hurdles. MPC leverages its existing scale and mature compliance systems for a relative advantage, though it doesn't represent an insurmountable technological monopoly."
   },
   "m3_high_switching_costs": {
-    "score": 3,
-    "comment": "對於Marathon Petroleum的終端消費者而言，轉換加油站或燃料供應商的成本幾乎為零，消費者主要基於價格和便利性做出選擇。即使是商業客戶，在燃料這種標準化商品上，轉換供應商的障礙也相對較低，主要考量供應穩定性與價格。公司並未提供高度客製化或深度整合的服務，使得客戶一旦轉換供應商會面臨重大財務損失或營運中斷。這與巴菲特推崇的、能讓客戶「被鎖定」的商業模式相去甚遠，因此轉換成本護城河極為薄弱。"
+    "score": 4,
+    "comment_zh": "對於終端消費者而言，更換加油站品牌幾乎沒有轉換成本，他們會根據價格和地理位置輕鬆選擇。對於商業客戶，例如大型分銷商或工業用戶，雖然與馬拉松石油建立的供應鏈關係和物流網絡可能存在一定的操作慣性，但這些關係往往是基於競爭性定價和供應可靠性。一旦出現更具成本效益的替代方案，轉換的門檻並不高。因此，公司在客戶黏性方面不具備巴菲特所強調的、能鎖定客戶的「高轉換成本」護城河。",
+    "comment_en": "For end consumers, switching gasoline station brands incurs virtually no cost; choices are easily made based on price and location. For commercial clients, such as large distributors or industrial users, while established supply chain relationships and logistics networks with Marathon Petroleum might create some operational inertia, these ties are often predicated on competitive pricing and supply reliability. Should a more cost-effective alternative emerge, the switching barrier is not prohibitively high. Consequently, the company lacks the \"high switching cost\" moat that Buffett emphasizes as a means to lock in customers."
   },
   "m4_network_effects": {
-    "score": 1,
-    "comment": "Marathon Petroleum所經營的煉油與燃料銷售業務，本質上不具備網絡效應。其產品價值不會因更多用戶的加入而呈指數級增長。無論是煉油廠的生產，還是加油站的零售，其運營模式都是線性的，而非平台型或生態系統型。消費者購買汽油的價值，不會因為其他消費者也購買了Marathon的汽油而增加。這與巴菲特青睞的、能形成「贏者通吃」局面的網絡效應型企業完全不同，因此此項護城河幾乎不存在。"
+    "score": 0,
+    "comment_zh": "馬拉松石油的業務模式是典型的線性供應鏈，從原油採購、煉製到成品油分銷。其價值創造不依賴於用戶數量的增長對其他用戶產生指數級的價值提升。無論是煉油廠的運營效率，還是加油站的銷售，都不會因為更多用戶使用其產品而使整個系統對所有參與者變得更有價值。因此，公司不具備巴菲特所推崇的、能形成強大競爭壁壘的「網絡效應」護城河。",
+    "comment_en": "Marathon Petroleum's business model operates as a classic linear supply chain, from crude oil procurement and refining to refined product distribution. Its value creation does not rely on an exponential increase in value for other users as its user base grows. Neither refinery operational efficiency nor gas station sales become inherently more valuable to all participants simply because more users consume its products. Therefore, the company lacks the \"network effects\" moat, which Buffett highly regards as a powerful competitive barrier."
   },
   "m5_cost_advantage_scale": {
-    "score": 8,
-    "comment": "Marathon Petroleum作為美國最大的獨立煉油商之一，其龐大的規模帶來了顯著的成本優勢。公司能夠以更低的單位成本採購原油、優化煉油流程，並透過廣泛的管道與終端網絡實現高效的物流與分銷。這種規模經濟使得MPC在面對競爭時，能以對手難以匹敵的低成本供應產品，尤其是在煉油利潤率壓縮時，其成本優勢更為關鍵。這符合巴菲特對低成本生產商的偏好，使其在商品化市場中仍能保持競爭力，並創造穩定的現金流，如其高達128.99億美元的自由現金流所示。"
+    "score": 9,
+    "comment_zh": "作為美國最大的獨立煉油商，馬拉松石油擁有無與倫比的規模經濟優勢。其龐大的煉油產能、複雜的煉油能力（能處理多種原油，包括更便宜的重質原油）以及整合的物流網絡（通過MPLX）使其能以極低的單位成本運營。這種規模使其在原油採購上擁有議價能力，並能優化生產流程，實現對手難以匹敵的成本效率。這是其最堅固的護城河之一，符合巴菲特對低成本生產者的青睞。",
+    "comment_en": "As the largest independent refiner in the U.S., Marathon Petroleum possesses unparalleled economies of scale. Its vast refining capacity, complex refining capabilities (processing diverse crude types, including cheaper heavy crudes), and integrated logistics network (via MPLX) enable exceptionally low unit operating costs. This scale grants significant bargaining power in crude procurement and optimizes production processes, achieving cost efficiencies rivals struggle to match. This represents one of its most robust moats, aligning with Buffett's preference for low-cost producers."
   },
   "m6_unique_geography_assets": {
-    "score": 7,
-    "comment": "Marathon Petroleum的煉油廠與分銷網絡戰略性地分佈在美國關鍵地理位置，例如墨西哥灣沿岸和中西部地區，使其能有效接觸原油供應並服務主要消費市場。新建大型煉油設施面臨天文數字般的資本投入、嚴苛的環境法規與漫長的審批週期，這使得新競爭者難以進入。這種地理位置的獨佔性與現有基礎設施的規模，為MPC創造了區域性的天然寡占優勢，即使市場容量有限，新競爭者進入也難以撼動其地位，符合巴菲特對「收費橋樑」式資產的定義。"
+    "score": 8,
+    "comment_zh": "煉油產業是典型的資本密集型行業，新建煉油廠面臨天文數字般的投資、漫長的審批週期和嚴格的環保法規，幾乎不可能實現。這導致現有市場呈現天然寡占格局。馬拉松石油憑藉其現有龐大且難以複製的煉油資產和分銷基礎設施，在關鍵地理區域形成了強大的市場地位。新競爭者進入只會導致行業整體利潤率下降，形成「雙輸」局面，從而理性地抑制了潛在競爭。這是一個堅實的護城河，符合巴菲特對「收費橋樑」式資產的理解。",
+    "comment_en": "The refining industry is a classic capital-intensive sector where building new refineries faces astronomical investment, lengthy approval processes, and stringent environmental regulations, making it nearly impossible. This results in a natural oligopoly market structure. Marathon Petroleum, with its vast and irreplicable refining assets and distribution infrastructure, has established a strong market position in key geographical regions. New entrants would only depress overall industry profitability, creating a 'lose-lose' scenario that rationally deters potential competition. This is a solid moat, aligning with Buffett's understanding of 'toll bridge' assets."
   },
   "m7_operational_efficiency": {
     "score": 8,
-    "comment": "Marathon Petroleum展現出卓越的營運效率，其高達44.8%的股東權益報酬率（ROE）和9.1%的資產報酬率（ROA）在資本密集型產業中表現突出。這表明公司能有效利用其資產和股東資本創造利潤。高達7/9的皮氏F-Score也印證了其穩健的財務狀況和高效的營運管理。儘管煉油業具有週期性，MPC仍能持續產生強勁的自由現金流（FCF TTM $128.99億），這證明其投入資本回報率（ROIC）持續遠超加權資本成本（WACC），為股東創造了實質的複利價值，符合巴菲特對優質企業的標準。"
+    "comment_zh": "馬拉松石油展現出卓越的運營效率，其高達44.8%的股東權益報酬率（ROE）和9.1%的資產報酬率（ROA），以及高達128.99億美元的自由現金流，均遠超同業平均水平，證明了其在資本密集型行業中創造超額回報的能力。公司通過優化煉油流程、精簡供應鏈管理和有效利用其MPLX中游資產，實現了成本控制和效率提升。儘管行業具有週期性，但其規模和整合能力使其能夠在不同市場環境下保持較高的投入資本回報率，持續為股東創造價值。",
+    "comment_en": "Marathon Petroleum demonstrates exceptional operational efficiency, evidenced by its high Return on Equity (ROE) of 44.8% and Return on Assets (ROA) of 9.1%, alongside robust free cash flow of $12.899 billion. These metrics significantly surpass industry averages, proving its ability to generate superior returns in a capital-intensive sector. The company achieves cost control and efficiency gains through optimized refining processes, streamlined supply chain management, and effective utilization of its MPLX midstream assets. Despite industry cyclicality, its scale and integration enable it to maintain a high return on invested capital across various market conditions, consistently creating shareholder value."
   },
   "m8_capital_allocation": {
     "score": 9,
-    "comment": "即使給予競爭對手千億美元，也難以在短時間內複製Marathon Petroleum的核心戰略資產。其龐大的煉油廠網絡、數千英里的管道系統、遍布全國的儲油終端以及零售加油站，是數十年資本投入、技術積累和市場深耕的結果。新建煉油廠不僅需要巨額資金，更面臨嚴苛的環境審批、土地徵用和技術挑戰，耗時漫長。這種資產的不可複製性，為MPC構建了極高的進入壁壘，使其在產業中佔據穩固地位，符合巴菲特對「難以被模仿」企業的定義。"
+    "comment_zh": "馬拉松石油的核心戰略資產，包括其遍布全美的煉油廠網絡、數萬英里的輸油管道、儲油設施以及零售終端，是數十年累積的結果。即使給予競爭對手數千億美元的資金，也無法在短時間內複製其規模、複雜度和地理覆蓋範圍。新建類似規模的煉油廠和管道網絡，將面臨巨大的資本開支、漫長的建設週期、嚴格的環保審批和土地徵用等幾乎不可逾越的障礙。這種資產的不可複製性構成了極其堅固的護城河，是巴菲特所珍視的「難以模仿」的特徵。",
+    "comment_en": "Marathon Petroleum's core strategic assets, including its nationwide network of refineries, tens of thousands of miles of pipelines, storage facilities, and retail terminals, are the culmination of decades of development. Even with hundreds of billions of dollars, competitors could not replicate its scale, complexity, and geographical reach within a short timeframe. Building similar-sized refineries and pipeline networks would face immense capital expenditure, lengthy construction periods, stringent environmental approvals, and land acquisition hurdles that are nearly insurmountable. This irreproducibility of assets constitutes an extremely robust moat, embodying the 'difficult to imitate' characteristic highly valued by Buffett."
   },
   "m9_customer_retention": {
-    "score": 6,
-    "comment": "Marathon Petroleum所處的煉油產業，雖然長期面臨能源轉型和電動車普及的潛在顛覆，但短期至中期內，全球對汽油、柴油和航空燃料等精煉石油產品的需求依然龐大且具備高度確定性。其業務是當前交通運輸和工業運作不可或缺的一環。儘管公司需逐步適應能源結構變化，但這種顛覆將是漸進而非突發性的。MPC也生產石化產品，這為其提供了部分多元化。因此，公司對技術變革具備一定的抗性，但並非完全免疫，需持續關注其轉型策略。"
+    "score": 3,
+    "comment_zh": "馬拉松石油的業務核心是化石燃料的煉製與銷售，這使其面臨來自電動汽車普及和全球能源轉型浪潮的長期顛覆性風險。儘管轉型過程漫長，但對汽油和柴油的需求預計將在未來數十年內逐步下降。公司雖有涉足可再生燃料領域，但其規模與核心業務相比微不足道。這種對傳統能源的高度依賴，使其對技術和典範轉移的抗性較弱，與巴菲特偏好的、需求確定性高且不易被顛覆的企業特徵相悖，是其長期發展的最大隱憂。",
+    "comment_en": "Marathon Petroleum's core business of refining and selling fossil fuels exposes it to long-term disruptive risks from the proliferation of electric vehicles and the global energy transition. While the transition will be protracted, demand for gasoline and diesel is projected to gradually decline over the coming decades. Although the company has ventured into renewable fuels, its scale remains negligible compared to its core operations. This heavy reliance on traditional energy renders it vulnerable to technological and paradigm shifts, contradicting Buffett's preference for businesses with high demand certainty and resilience to disruption, posing its most significant long-term concern."
   },
   "m10_durability": {
     "score": 8,
-    "comment": "Marathon Petroleum在資本配置方面表現出色，其持續且大規模的股票回購政策，在股價被低估時能有效提升股東價值，這與巴菲特推崇的理性資本配置原則高度契合。公司高達128.99億美元的自由現金流（FCF TTM）為其提供了充足的彈藥進行回購和派息。儘管總負債較高，但強勁的現金流和高達44.8%的股東權益報酬率（ROE）表明管理層能有效運用資本，並避免盲目溢價併購，專注於為股東創造長期回報。"
+    "comment_zh": "馬拉松石油的管理層展現了穩健的資本配置策略。公司持續產生強勁的自由現金流，並積極通過股票回購和股息派發將資本返還股東，這符合巴菲特對管理層以股東利益為導向的期望。其Piotroski F-Score為7/9，表明財務健康狀況良好。管理層在優化資產組合方面也表現出戰略眼光，例如剝離非核心資產（如Speedway）並進行戰略性收購以增強核心業務。儘管負債水平較高，但與其龐大的資產和現金流相比，仍在可控範圍內，顯示出負責任的財務管理。",
+    "comment_en": "Marathon Petroleum's management demonstrates a sound capital allocation strategy. The company consistently generates strong free cash flow and actively returns capital to shareholders through share buybacks and dividends, aligning with Buffett's expectations for shareholder-oriented management. Its Piotroski F-Score of 7/9 indicates robust financial health. Management also exhibits strategic foresight in optimizing its asset portfolio, such as divesting non-core assets (e.g., Speedway) and making strategic acquisitions to bolster its core business. Despite a relatively high debt level, it remains manageable compared to its vast assets and cash flow, reflecting responsible financial stewardship."
   },
-  "overall_moat_verdict": "Marathon Petroleum本質上是一家高效運營的大型商品型企業，其核心護城河主要來自於巨大的規模經濟、難以複製的煉油與分銷基礎設施，以及嚴格的行業監管所形成的進入壁壘。它並非巴菲特所鍾愛的、擁有強大品牌定價權或高轉換成本的「特許經營權」公司。然而，憑藉其在煉油領域的領先地位、卓越的營運效率（高ROE與FCF）和戰略性地理位置，MPC能夠在高度競爭的商品市場中保持成本優勢並創造可觀的現金流。儘管面臨能源轉型的長期挑戰，但其不可或缺的基礎設施屬性與管理層穩健的資本配置策略，使其成為一個在特定環境下仍具備投資價值的「收費橋樑」式基礎設施提供者。"
+  "overall_moat_verdict_zh": "馬拉松石油是一家在成熟、資本密集型產業中運營的巨頭。其核心護城河在於無與倫比的規模經濟、難以複製的龐大資產基礎以及行業固有的高效寡占格局。這些因素使其成為一個極其高效的低成本生產者，並在煉油和分銷領域享有強大的市場地位。然而，其本質仍是一個商品型企業，缺乏定價權和品牌忠誠度，且不具備網絡效應。最大的長期挑戰是全球能源轉型對化石燃料需求的結構性衝擊。儘管管理層在資本配置上表現出色，但公司更像是一個在夕陽產業中運營的「高效工業巨頭」，而非巴菲特理想中擁有永續特許經營權的「收費橋樑」或「消費壟斷」企業。",
+  "overall_moat_verdict_en": "Marathon Petroleum is a giant operating in a mature, capital-intensive industry. Its core moats lie in unparalleled economies of scale, an irreplicable vast asset base, and the industry's inherent efficient oligopoly structure. These factors position it as an exceptionally efficient low-cost producer with a strong market presence in refining and distribution. However, it remains fundamentally a commodity business, lacking pricing power and brand loyalty, and exhibiting no network effects. The most significant long-term challenge is the structural impact of the global energy transition on fossil fuel demand. While management excels in capital allocation, the company is more akin to an 'efficient industrial giant' operating in a sunset industry, rather than Buffett's ideal 'toll bridge' or 'consumer monopoly' with perpetual franchise characteristics."
 }

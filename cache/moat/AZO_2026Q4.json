@@ -3,43 +3,54 @@
   "period": "2026Q4",
   "m1_brand_pricing": {
     "score": 7,
-    "comment": "AutoZone憑藉其廣泛的門店網絡和強大的品牌認知度，在汽車售後市場建立了顯著的品牌心智。對於DIY客戶而言，便利性和即時可用性至關重要，而AutoZone的密集佈局滿足了這一需求。儘管汽車零件本身具有一定商品屬性，但在緊急維修情境下，消費者對價格敏感度降低，更注重即時解決問題。公司通過提供優質服務和可靠產品，培養了客戶忠誠度，使其在一定程度上具備提價能力，尤其是在專業維修市場（DIFM）中，其供應鏈效率和產品廣度為其帶來了競爭優勢，使其能夠在不顯著影響銷量的情況下轉嫁部分成本。"
+    "comment_zh": "AutoZone憑藉其廣泛的門店網絡、豐富的產品線及對DIY與DIFM客戶的深度服務，建立了強大的品牌認知度。儘管汽車零件市場競爭激烈，但其在緊急維修和專業服務領域的即時供應能力，賦予了公司一定的定價權。客戶為求便利與可靠性，願意支付合理溢價，使其能有效轉嫁成本，維持穩健利潤率，這體現了巴菲特所強調的品牌護城河效應，使其在同業中脫穎而出。",
+    "comment_en": "AutoZone has cultivated strong brand recognition through its extensive store network, broad product offerings, and deep service to both DIY and DIFM customers. While the auto parts market is competitive, its ability to provide immediate supply for urgent repairs and professional services grants it a degree of pricing power. Customers prioritize convenience and reliability, willing to pay a reasonable premium, allowing the company to effectively pass on costs and maintain healthy margins. This exemplifies Buffett's brand moat, differentiating it from competitors."
   },
   "m2_patents_regulatory": {
     "score": 2,
-    "comment": "AutoZone所處的汽車零售行業本質上不依賴於專利或特許經營權來建立護城河。其銷售的汽車零配件多為標準化或通用型產品，不具備獨家專利保護。行業進入門檻主要體現在資本投入、供應鏈管理和門店網絡建設，而非法律或技術壁壘。政府監管主要涉及產品安全和經營許可，並未賦予AutoZone任何排他性的市場地位。因此，此維度對其經濟護城河的貢獻極為有限，競爭者進入市場的法律或技術障礙不高。"
+    "comment_zh": "AutoZone作為汽車零件零售商，其核心業務模式並不依賴於獨家專利或政府特許經營權。汽車零件行業的產品標準化程度高，競爭主要體現在供應鏈效率、門店網絡和客戶服務上。公司缺乏法律或技術上的獨佔壁壘，新進入者雖需龐大資本，但並無不可逾越的專利或監管障礙。這使得其在這方面幾乎沒有巴菲特所重視的「收費橋樑」式護城河，容易面臨潛在的技術或產品替代風險。",
+    "comment_en": "As an automotive parts retailer, AutoZone's core business model does not rely on exclusive patents or government-granted licenses. The auto parts industry is highly standardized, with competition primarily centered on supply chain efficiency, store network, and customer service. The company lacks legal or technological exclusive barriers; while new entrants require substantial capital, there are no insurmountable patent or regulatory hurdles. This means it possesses almost none of the \"toll bridge\" type of moat valued by Buffett in this aspect, making it susceptible to potential technological or product substitution risks."
   },
   "m3_high_switching_costs": {
     "score": 6,
-    "comment": "AutoZone的客戶黏性主要體現在專業維修市場（DIFM）而非DIY客戶。對於專業技師而言，更換供應商不僅涉及尋找新的可靠貨源，還可能需要調整採購流程、建立新的信用賬戶，並承擔潛在的供應鏈中斷風險，這些都是實質性的轉換成本。AutoZone通過提供高效的配送服務、廣泛的產品選擇和專業的技術支持，與維修廠建立了穩固的合作關係。儘管DIY客戶的轉換成本較低，但AutoZone的門店密度和即時可用性也為其帶來了一定的便利性黏性。"
+    "comment_zh": "對於專業維修廠（DIFM）客戶而言，AutoZone提供的即時零件供應、便捷的配送服務及穩定的信用帳戶，構成了中等程度的轉換成本。轉換供應商可能導致維修延誤、庫存管理複雜化及潛在的客戶流失。儘管DIY客戶轉換成本較低，但DIFM業務的穩定性為公司帶來了持續的收入流。這種業務黏性雖非絕對，卻足以讓競爭者難以輕易奪走其專業客戶群，符合巴菲特對客戶關係壁壘的考量。",
+    "comment_en": "For professional repair shop (DIFM) customers, AutoZone's immediate parts supply, convenient delivery services, and stable credit accounts create a moderate level of switching costs. Changing suppliers could lead to repair delays, complicated inventory management, and potential customer attrition. Although switching costs are lower for DIY customers, the stability of the DIFM business provides a consistent revenue stream for the company. This business stickiness, while not absolute, is sufficient to make it difficult for competitors to easily poach its professional customer base, aligning with Buffett's consideration of customer relationship barriers."
   },
   "m4_network_effects": {
-    "score": 1,
-    "comment": "AutoZone的商業模式並未展現出顯著的網絡效應。其價值並不會隨著更多客戶的加入而呈幾何級數增長。作為一家汽車零配件零售商，其核心競爭力在於供應鏈效率、門店佈局和產品廣度，而非用戶間的互動或平台效應。儘管廣泛的門店網絡提升了便利性，但這屬於規模優勢而非網絡效應。客戶的增加並不會直接提升現有客戶對AutoZone產品或服務的感知價值，因此，此維度對其護城河的貢獻微乎其微。"
+    "score": 3,
+    "comment_zh": "AutoZone的商業模式主要為零售與分銷，並未展現出顯著的網絡效應。儘管其廣泛的門店網絡和龐大的客戶群有助於提升品牌知名度和採購議價能力，但這更多是規模經濟的體現，而非每個新增用戶直接提升所有其他用戶價值的雙向正反饋機制。客戶選擇AutoZone是基於便利性與產品可得性，而非因其他客戶的存在而增加其使用價值。因此，此維度護城河相對薄弱，不符合巴菲特對網絡效應的嚴格定義。",
+    "comment_en": "AutoZone's business model is primarily retail and distribution, and it does not exhibit significant network effects. While its extensive store network and large customer base contribute to brand recognition and purchasing power, this is more a reflection of economies of scale rather than a two-way positive feedback mechanism where each new user directly enhances the value for all other users. Customers choose AutoZone based on convenience and product availability, not because the presence of other customers increases its utility. Therefore, this moat dimension is relatively weak and does not meet Buffett's strict definition of network effects."
   },
   "m5_cost_advantage_scale": {
     "score": 8,
-    "comment": "AutoZone作為美國最大的汽車零配件零售商之一，在規模經濟方面擁有顯著優勢。其龐大的採購量使其能與供應商談判獲得更優惠的價格，有效降低單位成本。公司建立的廣泛分銷網絡和高效物流體系，確保了產品的快速周轉和門店補貨效率，這是小型競爭者難以複製的。這種規模優勢不僅體現在成本控制上，也使其能提供更廣泛的產品選擇和更快的供貨速度，尤其在專業維修市場，這種效率是關鍵的競爭壁壘，為其帶來了持續的成本領先。"
+    "comment_zh": "AutoZone作為北美最大的汽車零件零售商之一，其龐大的採購量賦予了公司強大的供應商議價能力，能以更低的成本獲取商品。其廣泛的物流網絡、高效的庫存管理系統以及數千家門店的規模效應，使其在分銷和運營成本上具備顯著優勢。這種規模經濟使其能提供具競爭力的價格，同時保持健康利潤率，對小型競爭者構成難以逾越的成本壁壘，是巴菲特所推崇的堅實護城河。",
+    "comment_en": "As one of North America's largest automotive parts retailers, AutoZone's massive purchasing volume grants it strong bargaining power with suppliers, enabling it to acquire goods at lower costs. Its extensive logistics network, efficient inventory management systems, and economies of scale across thousands of stores provide significant advantages in distribution and operational costs. This scale economy allows it to offer competitive prices while maintaining healthy profit margins, creating a formidable cost barrier for smaller competitors, which is a robust moat highly valued by Buffett."
   },
   "m6_unique_geography_assets": {
     "score": 7,
-    "comment": "汽車零配件零售市場在許多地理區域呈現出天然寡占的特徵。AutoZone通過密集的門店網絡，在特定區域內形成了強大的市場滲透率。對於消費者而言，汽車維修往往具有即時性需求，門店的便利性和配件的即時可取性至關重要。在一個已經被少數大型連鎖店充分覆蓋的市場，新競爭者若要進入並建立足夠的門店密度以有效競爭，將面臨巨大的資本投入和激烈的價格戰，最終可能導致所有參與者的利潤率下降。這種「雙輸」局面有效阻止了潛在競爭者的盲目進入。"
+    "comment_zh": "儘管汽車零件零售市場整體龐大且競爭激烈，但AutoZone在特定地理區域內，憑藉其密集的門店網絡和高效的供應鏈，形成了事實上的「局部寡占」。對於需要即時零件的專業維修廠或DIY客戶而言，其便利性和可得性構成強大優勢。新競爭者若想在每個市場複製其基礎設施和品牌滲透，將面臨極高的資本投入和時間成本，這使得AutoZone在許多地區享有類似於「天然寡占」的競爭優勢，符合巴菲特對利基市場壁壘的洞察。",
+    "comment_en": "While the overall automotive parts retail market is large and competitive, AutoZone, with its dense store network and efficient supply chain, has formed a de facto \"local oligopoly\" in specific geographic areas. For professional repair shops or DIY customers requiring immediate parts, its convenience and availability constitute a strong advantage. New competitors attempting to replicate its infrastructure and brand penetration in every market would face prohibitively high capital expenditure and time costs. This grants AutoZone a competitive edge akin to \"efficient scale\" in many regions, aligning with Buffett's insights into niche market barriers."
   },
   "m7_operational_efficiency": {
     "score": 8,
-    "comment": "AutoZone展現出卓越的投入資本回報率韌性。其18.0%的股東權益報酬率（ROE）和11.9%的資產報酬率（ROA）遠超一般零售業水平，這表明公司能夠持續有效地將資本投入轉化為豐厚利潤。這種長期超額回報能力是巴菲特衡量企業內在價值創造的關鍵指標，證明了AutoZone不僅能賺錢，還能以高效率運用資本，為股東創造實質的複利增長。這反映了其穩固的市場地位、高效的運營管理以及對成本和定價的有效控制。"
+    "comment_zh": "AutoZone長期以來展現出穩健的盈利能力，其18.0%的股東權益報酬率（ROE）和11.9%的資產報酬率（ROA）證明了公司能有效利用資本創造價值。儘管負債較高，但其持續的自由現金流（FCF TTM $1,122.1M）和穩定的業務模式，表明其投入資本回報率（ROIC）很可能長期超越加權平均資本成本（WACC）。這種持續的超額回報能力，是巴菲特衡量企業護城河深度與韌性的關鍵指標，顯示其具備強大的內在價值創造力。",
+    "comment_en": "AutoZone has consistently demonstrated robust profitability, with an 18.0% Return on Equity (ROE) and 11.9% Return on Assets (ROA), proving its ability to effectively utilize capital to create value. Despite higher debt, its sustained free cash flow (FCF TTM $1,122.1M) and stable business model suggest that its Return on Invested Capital (ROIC) likely consistently exceeds its Weighted Average Cost of Capital (WACC) over the long term. This sustained ability to generate excess returns is a key indicator for Buffett in assessing the depth and resilience of a company's moat, showcasing its strong intrinsic value creation capability."
   },
   "m8_capital_allocation": {
     "score": 8,
-    "comment": "即使給予競爭對手千億美元資金，也難以在短時間內複製AutoZone的核心戰略資產。其遍布北美及部分國際市場的龐大門店網絡（超過6,000家），是數十年資本投入和市場深耕的結果。更重要的是，其高效運作的供應鏈、庫存管理系統以及與數百萬DIY客戶和專業維修廠建立的長期信任關係和品牌心智，是無形且不可量化的寶貴資產。這些要素共同構建了一個難以模仿的運營體系，新進入者即便擁有巨額資金，也無法在短期內建立同等規模和效率的競爭力。"
+    "comment_zh": "即使給予競爭對手千億美元，也難以在短時間內複製AutoZone龐大的實體門店網絡（逾6,000家）、高度優化的供應鏈、深厚的品牌信任度以及與專業維修廠建立的長期合作關係。這些資產不僅需要巨額資本投入，更需要數十年時間的市場深耕、運營經驗積累和客戶關係維護。這種難以在短期內被金錢複製的戰略資產，構成了AutoZone堅實的護城河，符合巴菲特對企業「不可複製性」的深刻洞察。",
+    "comment_en": "Even with a hundred billion dollars, it would be challenging for a competitor to replicate AutoZone's vast physical store network (over 6,000 locations), highly optimized supply chain, deep brand trust, and long-standing relationships with professional repair shops in a short period. These assets require not only immense capital investment but also decades of market cultivation, accumulation of operational experience, and customer relationship management. Such strategic assets, which cannot be quickly replicated with money, form AutoZone's robust moat, aligning with Buffett's profound insight into a company's \"irreproducibility.\""
   },
   "m9_customer_retention": {
     "score": 7,
-    "comment": "AutoZone的業務對技術變革和典範轉移具有較強的抗性。汽車零配件的需求本質上與車輛保有量和使用頻率緊密相關，這是一個長期且穩定的市場。儘管電商衝擊和電動車（EV）的興起會帶來產品結構的變化，但車輛的維護和零件更換需求將持續存在。對於許多緊急維修或專業技師而言，即時獲取實體店的零件供應至關重要，這使得線上模式難以完全取代。AutoZone的業務核心是滿足這種剛性需求，使其免受短期技術潮流的顛覆性影響，具備高度的需求確定性。"
+    "comment_zh": "汽車零件零售業的需求本質上極為穩定且具備剛性，主要受車輛老化和維修保養的必然性驅動。儘管電動車（EV）的興起可能長期改變零件結構，但過渡期漫長，且AutoZone已開始適應並提供EV相關零件。該行業對AI或顛覆性技術的衝擊具備較強免疫力，因為人們對交通工具的依賴和維護需求不會消失。這種需求確定性賦予了公司強大的抗風險能力，是巴菲特所看重的「典範轉移抗性」護城河。",
+    "comment_en": "The demand for automotive parts retail is inherently highly stable and inelastic, primarily driven by the aging vehicle fleet and the necessity of maintenance and repair. While the rise of electric vehicles (EVs) may alter parts structure in the long term, the transition period is extensive, and AutoZone has begun adapting and offering EV-related parts. The industry possesses strong immunity to disruption from AI or revolutionary technologies, as people's reliance on transportation and maintenance needs will not disappear. This demand certainty grants the company robust resilience, which is a \"disruption immunity\" moat valued by Buffett."
   },
   "m10_durability": {
-    "score": 8,
-    "comment": "AutoZone的管理層在資本配置方面展現出高度的誠信和效率。公司長期以來積極實施股票回購計劃，在股價被低估時註銷股份，有效提升了每股收益和股東價值。這種紀律性的資本配置策略，符合巴菲特對管理層的期望，即將股東的錢視為自己的錢來管理。儘管公司負債水平相對較高，但其穩健的自由現金流（FCF TTM $1.12B）表明其具備償債能力。管理層專注於核心業務增長和股東回報，避免盲目擴張或高溢價併購，體現了長期價值投資的理念。"
+    "score": 9,
+    "comment_zh": "AutoZone的管理層在資本配置方面表現出色，長期以來堅持積極的股票回購策略。公司利用其穩健的自由現金流，在股價被低估時大量回購並註銷股票，顯著提升了每股收益，為股東創造了實質價值。這種紀律性且以股東利益為導向的資本運用方式，避免了盲目擴張或高溢價併購，充分體現了巴菲特所推崇的誠信與智慧，是其最堅固的護城河之一，值得高度肯定。",
+    "comment_en": "AutoZone's management has demonstrated excellent capital allocation, consistently pursuing an aggressive share buyback strategy over the long term. The company utilizes its robust free cash flow to repurchase and retire shares when the stock is undervalued, significantly boosting earnings per share and creating substantial value for shareholders. This disciplined and shareholder-oriented approach to capital deployment avoids blind expansion or high-premium acquisitions, fully embodying the integrity and wisdom championed by Buffett. It stands as one of its most robust moats and deserves high commendation."
   },
-  "overall_moat_verdict": "AutoZone是汽車售後市場中典型的「收費橋樑」型企業，其核心競爭壁壘源於龐大的實體門店網絡和極致高效的供應鏈管理。公司受益於顯著的規模經濟，這使其在採購和分銷上具備成本優勢，並能提供比小型競爭者更廣泛的產品選擇和更快的供貨速度。對於專業維修技師而言，其服務的黏性創造了較高的轉換成本；而對DIY客戶，便利性和品牌信任也形成了一定壁壘。儘管缺乏專利或網絡效應，但其難以複製的基礎設施、穩定的需求和股東友好的資本配置策略，共同構築了一道堅固的護城河，使其能持續創造超額的資本回報。"
+  "overall_moat_verdict_zh": "AutoZone本質上是一家高效運營的汽車零件零售特許經營平台，受益於其龐大的規模經濟、強大的品牌認知度及對專業客戶的黏性服務。它並非依賴獨家專利或政府特許的「收費橋樑」，而是透過卓越的供應鏈管理、密集的門店網絡和精明的資本配置，築起了難以複製的運營壁壘。面對老舊車隊的持續維修需求，其業務具備高度穩定性與抗顛覆性。管理層積極回購股票，展現了對股東價值的堅定承諾，使其成為一個具備堅實護城河的優質零售商。",
+  "overall_moat_verdict_en": "AutoZone is essentially a highly efficient automotive parts retail franchise platform, benefiting from its vast economies of scale, strong brand recognition, and sticky services for professional customers. It does not rely on exclusive patents or government-granted \"toll bridges,\" but rather builds an irreplicable operational moat through excellent supply chain management, a dense store network, and astute capital allocation. Facing the continuous repair needs of an aging vehicle fleet, its business possesses high stability and disruption immunity. Management's aggressive share buybacks demonstrate a firm commitment to shareholder value, making it a high-quality retailer with a robust moat."
 }

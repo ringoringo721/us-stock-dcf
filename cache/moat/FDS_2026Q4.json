@@ -2,44 +2,55 @@
   "ticker": "FDS",
   "period": "2026Q4",
   "m1_brand_pricing": {
-    "score": 8,
-    "comment": "FactSet在金融專業人士心中建立了強大的品牌信譽，其數據與分析平台已深度融入客戶的日常工作流程。客戶對其準確、及時且全面的數據高度依賴，使其具備顯著的定價權。即使在經濟壓力下，金融機構對核心數據服務的需求依然堅韌，FactSet能有效轉嫁成本，並在不顯著影響銷量的前提下提升服務價格。這種品牌忠誠度與業務不可或缺性，是巴菲特所推崇的特許經營權特徵。"
+    "score": 7,
+    "comment_zh": "FactSet 在金融數據與分析領域建立了堅實的品牌聲譽，其專業級數據和客製化解決方案深受投資專業人士信賴。儘管市場存在競爭，但其產品的深度與廣度使其客戶對價格敏感度相對較低。一旦客戶將FactSet的數據和工具深度整合到日常工作流程中，轉換成本便會提升，賦予公司一定的定價權。這體現在其穩定的訂閱收入和持續的客戶續約率，證明其品牌心智已在目標客群中形成，使其能夠在不顯著流失客戶的前提下，適度調整服務價格。",
+    "comment_en": "FactSet has cultivated a strong brand reputation in the financial data and analytics sector, with its professional-grade data and customized solutions highly trusted by investment professionals. Despite market competition, the depth and breadth of its product offerings make its clients relatively less price-sensitive. Once clients deeply integrate FactSet's data and tools into their daily workflows, switching costs increase, granting the company a degree of pricing power. This is evident in its stable subscription revenue and consistent client retention rates, demonstrating that its brand has established a strong mindshare among its target audience, allowing it to moderately adjust service prices without significant customer attrition."
   },
   "m2_patents_regulatory": {
-    "score": 7,
-    "comment": "雖然FactSet不像製藥公司擁有大量專利，但其護城河體現在獨特的數據聚合方法、專有分析模型以及與數據供應商的長期許可協議。金融數據行業受嚴格監管，新進入者需投入巨大資源以符合合規要求並建立數據質量與完整性。這些無形資產和高昂的監管門檻，為FactSet構建了有效的進入壁壘，使其在市場中享有類似特許經營的優勢，難以被輕易複製。"
+    "score": 6,
+    "comment_zh": "FactSet 的護城河並非主要來自傳統意義上的專利或政府特許經營權，而是其長期累積的專有數據庫、複雜的數據處理演算法以及高度專業化的分析工具。這些無形資產的建立需要巨大的時間和資本投入，形成了一種難以被輕易複製的技術壁壘。此外，金融數據行業的監管要求和數據合規性標準，也為新進入者設置了較高的門檻，使得FactSet在數據採集、整合與分發方面享有一定的行業准入優勢，而非單純的法律保護。",
+    "comment_en": "FactSet's moat does not primarily stem from traditional patents or government-granted licenses, but rather from its accumulated proprietary databases, complex data processing algorithms, and highly specialized analytical tools. The establishment of these intangible assets requires significant time and capital investment, forming a technological barrier that is not easily replicated. Furthermore, regulatory requirements and data compliance standards in the financial data industry set high barriers for new entrants, granting FactSet an advantage in data acquisition, integration, and distribution, beyond mere legal protection."
   },
   "m3_high_switching_costs": {
     "score": 9,
-    "comment": "FactSet的平台與客戶的投資決策、風險管理及報告系統深度整合，形成極高的轉換成本。金融專業人士已將其工作流程、歷史數據和自定義模型建立在FactSet之上。更換供應商不僅意味著高昂的數據遷移費用、員工再培訓成本，更可能導致關鍵業務中斷和潛在的數據丟失風險。這種「鎖定效應」確保了客戶的長期忠誠度，是巴菲特眼中最堅固的護城河之一。"
+    "comment_zh": "FactSet 的客戶黏性極高，主要源於其產品深度嵌入金融專業人士的日常工作流程。投資組合經理、分析師和交易員依賴FactSet的數據進行模型建構、績效分析和決策支持。更換平台不僅意味著需要重新學習複雜的系統操作、遷移歷史數據，還可能導致工作效率下降和潛在的業務中斷。這種轉換成本不僅是財務上的，更是時間和營運效率上的巨大耗損，使得客戶即使面對競爭對手的誘惑，也傾向於維持現有服務，為FactSet提供了強大的護城河。",
+    "comment_en": "FactSet boasts extremely high customer stickiness, primarily because its products are deeply embedded in the daily workflows of financial professionals. Portfolio managers, analysts, and traders rely on FactSet's data for model building, performance analysis, and decision support. Switching platforms not only entails relearning complex system operations and migrating historical data but can also lead to decreased work efficiency and potential business disruptions. These switching costs are not merely financial but represent significant drains on time and operational efficiency, making clients inclined to maintain existing services even when faced with competitor temptations, thus providing FactSet with a formidable moat."
   },
   "m4_network_effects": {
-    "score": 6,
-    "comment": "FactSet的網絡效應主要體現在其龐大的用戶基礎促進了平台內容的豐富與共享，例如用戶創建的模板、分析模型和社區知識。此外，更多的用戶也吸引了更多的第三方數據供應商和應用開發者與FactSet合作，進一步擴展了其數據廣度和功能深度。儘管不如社交媒體般直接，但這種間接的網絡效應增強了平台的整體價值，為所有參與者創造了正向循環。"
+    "score": 5,
+    "comment_zh": "FactSet 的網絡效應不如社交媒體或交易平台那樣直接，但仍存在間接影響。隨著更多金融機構採用其平台，FactSet能夠吸引更多數據供應商與其合作，進一步豐富和優化其數據內容，從而提升對所有用戶的價值。此外，廣泛的用戶基礎也可能促進圍繞其平台形成最佳實踐和分析方法的共享，儘管這並非其核心價值主張。這種效應有助於鞏固其市場地位，但其主要護城河仍是數據的深度與工具的整合性，而非純粹的用戶間互動。",
+    "comment_en": "FactSet's network effects are less direct than those of social media or trading platforms, but indirect influences still exist. As more financial institutions adopt its platform, FactSet can attract more data providers to collaborate, further enriching and optimizing its data content, thereby increasing value for all users. Additionally, a broad user base might foster the sharing of best practices and analytical methodologies around its platform, although this is not its primary value proposition. While this effect helps solidify its market position, its main moat remains the depth of its data and the integration of its tools, rather than purely user-to-user interaction."
   },
   "m5_cost_advantage_scale": {
     "score": 8,
-    "comment": "收集、清洗、整合和分發海量金融數據需要龐大的固定成本投入。FactSet作為行業領導者，能夠將這些固定成本分攤到數萬名訂閱用戶身上，實現顯著的規模經濟。這使得其單位成本遠低於潛在的小型競爭者，並能投入更多資源進行研發和數據擴展，形成成本優勢。這種規模效應使其在提供全面服務的同時，保持高利潤率，例如其高達26.6%的ROE。"
+    "comment_zh": "FactSet 在金融數據行業享有顯著的規模經濟優勢。數據的採集、清洗、標準化和分發是一個資本密集且技術複雜的過程。FactSet龐大的客戶基礎使其能夠將這些巨大的固定成本分攤到更多的用戶身上，從而實現比小型競爭對手更低的單位成本。其經過多年建立的數據基礎設施、自動化處理流程和全球數據採集網絡，形成了難以複製的運營效率和成本優勢，使得新進入者難以在相同成本結構下提供同等質量和廣度的服務。",
+    "comment_en": "FactSet enjoys significant economies of scale in the financial data industry. The process of data acquisition, cleaning, standardization, and distribution is capital-intensive and technologically complex. FactSet's large customer base allows it to spread these substantial fixed costs across more users, achieving lower per-unit costs than smaller competitors. Its data infrastructure, automated processing workflows, and global data collection network, built over many years, create an operational efficiency and cost advantage that is difficult to replicate, making it challenging for new entrants to offer comparable quality and breadth of service at the same cost structure."
   },
   "m6_unique_geography_assets": {
     "score": 7,
-    "comment": "高端金融數據與分析市場是一個專業且資本密集型的利基市場，由少數幾家巨頭主導。新進入者不僅需要巨額資金來建立數據基礎設施和獲取許可，還需長時間建立客戶信任和品牌聲譽。市場容量雖大，但已趨於飽和，新競爭者的加入只會導致價格戰，損害所有參與者的利潤。這種「理性寡占」的市場結構，為FactSet提供了穩定的競爭環境。"
+    "comment_zh": "金融數據與分析市場雖然龐大，但已呈現高度集中化的寡占格局，主要由少數幾家巨頭主導。FactSet 在其中佔據重要一席，服務於專業投資機構的特定需求。這個市場的特點是，新進入者若想達到與現有巨頭相同的數據廣度、深度和工具整合度，將面臨天文數字般的投入和極高的客戶轉換壁壘。因此，市場已達到一種「有效規模」，即再增加一個主要競爭者，只會導致激烈的價格戰和利潤稀釋，對所有參與者而言都是雙輸局面，從而形成一種天然的理性寡占。",
+    "comment_en": "The financial data and analytics market, while large, is highly concentrated and oligopolistic, dominated by a few major players. FactSet holds a significant position, serving the specific needs of professional investment institutions. A key characteristic of this market is that new entrants aiming to match the data breadth, depth, and tool integration of existing giants would face astronomical investments and extremely high customer switching barriers. Consequently, the market has reached an \"efficient scale,\" where adding another major competitor would only lead to intense price wars and profit dilution, resulting in a lose-lose situation for all participants, thereby forming a natural, rational oligopoly."
   },
   "m7_operational_efficiency": {
-    "score": 9,
-    "comment": "FactSet展現出卓越的資本回報能力，其ROE高達26.6%，ROA為12.9%，遠超行業平均水平和其加權平均資本成本。這表明公司能夠持續高效地利用投入資本創造超額利潤，為股東帶來豐厚回報。高達8/9的皮氏F-Score和7.075億美元的自由現金流，進一步印證了其強勁的盈利能力和健康的財務狀況，是巴菲特衡量企業內在價值的關鍵指標。"
+    "score": 8,
+    "comment_zh": "FactSet 展現出卓越的資本回報能力，其高達 26.6% 的股東權益報酬率 (ROE) 和 12.9% 的資產報酬率 (ROA)，以及高達 8/9 的皮氏 F-Score，均強烈表明公司能夠持續創造遠超其加權平均資本成本 (WACC) 的超額回報。這不僅證明了其核心業務的盈利能力和效率，更反映了其護城河的堅固性。這些持續的超額回報，使得公司能夠不斷再投資於業務發展，形成良性循環，為股東創造實質的複利增長，是巴菲特衡量企業質量的關鍵指標。",
+    "comment_en": "FactSet demonstrates exceptional capital return capabilities, with its high Return on Equity (ROE) of 26.6% and Return on Assets (ROA) of 12.9%, coupled with a strong Piotroski F-Score of 8/9, all strongly indicating the company's ability to consistently generate excess returns significantly above its Weighted Average Cost of Capital (WACC). This not only proves the profitability and efficiency of its core business but also reflects the robustness of its economic moat. These sustained excess returns enable the company to continuously reinvest in business development, forming a virtuous cycle that creates substantial compound growth for shareholders, a key metric for Buffett in assessing business quality."
   },
   "m8_capital_allocation": {
     "score": 9,
-    "comment": "即使給予競爭對手千億美元，也難以在短時間內複製FactSet的核心戰略資產。這不僅包括其數十年積累的龐大、精確的歷史數據庫，還包括與客戶建立的深厚信任關係、高度定制化的分析工具、全球數據採集網絡以及專業的技術團隊。這些無形資產是時間、經驗和持續投入的結晶，構成了一道難以逾越的壁壘，使其在競爭中立於不敗之地。"
+    "comment_zh": "FactSet 的核心戰略資產具有極高的不可複製性。即使給予競爭對手千億美元的資金，也難以在短時間內複製其數十年來積累的龐大專有數據庫、複雜的數據清洗與整合技術、高度客製化的分析工具，以及與全球金融機構建立的深厚客戶關係和信任。這些無形資產的建立需要漫長的時間沉澱、持續的技術投入和市場驗證。其品牌聲譽、專業知識和嵌入客戶工作流程的深度，是金錢無法快速購買或重建的，構成了極為堅固的護城河。",
+    "comment_en": "FactSet's core strategic assets possess extremely high irreproducibility. Even if a competitor were given a hundred billion dollars, it would be incredibly difficult to replicate in a short period its decades of accumulated proprietary databases, complex data cleaning and integration technologies, highly customized analytical tools, and the deep client relationships and trust built with global financial institutions. The establishment of these intangible assets requires a long period of maturation, continuous technological investment, and market validation. Its brand reputation, specialized knowledge, and deep embedding into client workflows are assets that money cannot quickly buy or rebuild, forming an exceptionally robust moat."
   },
   "m9_customer_retention": {
     "score": 8,
-    "comment": "金融數據分析的核心需求是永恆的，無論技術如何演進，對準確、及時信息的渴求不會改變。FactSet作為數據基礎設施提供商，對技術變革具有較強的適應性。它能將人工智能等新技術整合到現有平台中，提升服務效率和分析深度，而非被其顛覆。這種對核心需求的穩定把握和技術整合能力，賦予其強大的抗顛覆性，確保了業務的長期可持續性。"
+    "comment_zh": "FactSet 對於技術變革和典範轉移具有較強的抗性。金融專業人士對可靠、全面且即時的金融數據和分析工具的需求是長期且穩定的，這種需求不太可能被根本性地顛覆。儘管人工智慧等新技術會不斷演進，但FactSet作為數據和工具的提供者，更有可能將這些新技術整合到其平台中，以增強服務能力，而非被其取代。其核心業務是滿足金融行業的基礎信息需求，這使得它對短期技術潮流的衝擊具有較高的免疫力，需求確定性極高。",
+    "comment_en": "FactSet exhibits strong resilience against technological changes and paradigm shifts. The demand from financial professionals for reliable, comprehensive, and real-time financial data and analytical tools is long-term and stable, unlikely to be fundamentally disrupted. While new technologies like artificial intelligence will continue to evolve, FactSet, as a provider of data and tools, is more likely to integrate these new technologies into its platform to enhance its service capabilities rather than be replaced by them. Its core business addresses the fundamental information needs of the financial industry, granting it high immunity to short-term technological trends and ensuring very high demand certainty."
   },
   "m10_durability": {
-    "score": 8,
-    "comment": "FactSet的管理層展現出穩健的資本配置策略。公司持續產生強勁的自由現金流（FCF TTM $707.5M），並通過有紀律的股息支付和在股價被低估時進行股票回購，積極回饋股東。其資產負債表健康，現金流充裕，總負債15.424億美元相對於現金2.716億美元和穩定的盈利能力而言可控。這種對股東利益負責的態度，符合巴菲特對優秀管理層的期望。"
+    "score": 7,
+    "comment_zh": "FactSet 的管理層在資本配置方面表現出穩健的策略。公司持續產生強勁的自由現金流（TTM 達 7.075 億美元），並擁有高達 26.6% 的股東權益報酬率，這表明管理層能夠有效地將資本投入到高回報的項目中，或通過其他方式為股東創造價值。儘管具體的回購或併購策略未詳述，但其卓越的財務表現和高皮氏 F-Score (8/9) 暗示了審慎的財務管理和對股東利益的重視。在面對市場波動時，預期管理層會優先考慮企業的長期健康發展和股東價值最大化。",
+    "comment_en": "FactSet's management demonstrates a sound strategy in capital allocation. The company consistently generates strong free cash flow (TTM of $707.5 million) and boasts a high Return on Equity of 26.6%, indicating management's ability to effectively deploy capital into high-return projects or create value for shareholders through other means. Although specific details on buyback or M&A strategies are not fully elaborated, its excellent financial performance and high Piotroski F-Score (8/9) suggest prudent financial management and a focus on shareholder interests. When facing market fluctuations, management is expected to prioritize the long-term health of the business and maximize shareholder value."
   },
-  "overall_moat_verdict": "FactSet本質上是一家在金融信息領域築起堅固「收費橋樑」的特許經營企業。其核心護城河源於極高的客戶轉換成本、龐大的數據基礎設施帶來的規模經濟，以及在金融專業人士心中建立的強大品牌心智。這些因素共同賦予FactSet卓越的定價權和持續超額的資本回報率（ROE 26.6%）。儘管面臨少數強勁競爭者，但其業務的深度整合性、數據的不可複製性及對核心需求的穩定把握，使其具備強大的抗顛覆能力。FactSet的護城河使其能夠長期穩定地為股東創造價值，符合巴菲特對優質企業的定義。"
+  "overall_moat_verdict_zh": "FactSet 是一家在金融數據與分析領域擁有堅固護城河的高質量企業。其核心競爭優勢在於極高的客戶轉換成本、顯著的規模經濟效益，以及其專有數據庫和深度整合平台的不可複製性。FactSet 的品牌在金融專業人士心中建立了強大信任，其服務需求對技術變革具有高度抗性。公司持續產生卓越的資本回報，證明了其管理層的效率和持久的競爭優勢。從巴菲特視角來看，FactSet 扮演著金融行業的「收費橋樑」角色，為投資專業人士提供不可或缺的基礎設施和關鍵信息，使其能夠在市場中保持穩定的盈利能力和長期價值。",
+  "overall_moat_verdict_en": "FactSet is a high-quality enterprise with a robust economic moat in the financial data and analytics sector. Its core competitive advantages lie in extremely high customer switching costs, significant economies of scale, and the irreproducibility of its proprietary databases and deeply integrated platform. FactSet's brand has built strong trust among financial professionals, and the demand for its services is highly resilient to technological disruption. The company consistently generates excellent returns on capital, demonstrating management's efficiency and a durable competitive advantage. From a Buffett perspective, FactSet acts as a \"toll bridge\" for the financial industry, providing indispensable infrastructure and critical information to investment professionals, enabling it to maintain stable profitability and long-term value in the market."
 }

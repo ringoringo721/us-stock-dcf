@@ -3,43 +3,54 @@
   "period": "2026Q3",
   "m1_brand_pricing": {
     "score": 7,
-    "comment": "TE Connectivity雖非消費品牌，但在工業與汽車等B2B領域，其產品的可靠性、性能與深度整合能力，賦予了其顯著的定價權。客戶一旦將TEL的連接器或感測器設計入其核心系統，更換供應商的風險與成本極高，遠超元件本身的價格差異。這種「設計贏得」的模式，使得TEL在關鍵零組件市場上，能夠在不影響銷量的前提下，維持穩健的利潤率，體現了其在專業領域的品牌信任與價值溢價。"
+    "comment_zh": "TE Connectivity 作為關鍵連接與傳感解決方案的全球領導者，在工業、汽車、通訊等B2B領域建立了強大的品牌信譽。其產品的可靠性、高性能及在客戶系統中的深度整合，使得客戶在選擇供應商時，更看重產品品質與長期穩定性而非單純價格。這賦予了公司在特定高價值、高技術門檻產品上一定的定價權，尤其是在客戶對產品故障容忍度極低的應用場景中，其品牌代表著品質保證，使其能夠在不顯著流失客戶的情況下，轉嫁部分成本壓力並維持合理利潤。",
+    "comment_en": "As a global leader in critical connectivity and sensor solutions, TE Connectivity has built a strong brand reputation in B2B sectors like industrial, automotive, and communications. The reliability, high performance, and deep integration of its products within customer systems mean clients prioritize quality and long-term stability over mere price. This grants the company a degree of pricing power for specific high-value, high-tech barrier products. Especially in applications where product failure tolerance is extremely low, its brand signifies quality assurance, allowing it to pass on some cost pressures and maintain healthy margins without significant customer attrition."
   },
   "m2_patents_regulatory": {
     "score": 8,
-    "comment": "TE Connectivity在連接與感測技術領域擁有龐大且不斷增長的專利組合，這是其核心競爭壁壘之一。這些專利保護了其獨特的工程設計、材料科學與製造工藝，使其產品在性能和可靠性上難以被競爭對手輕易複製。例如，在電動車高壓連接器或惡劣環境感測器等高階應用中，TEL的專利技術確保了其在市場上的領先地位，有效阻止了潛在競爭者的進入，為公司創造了受保護的利潤空間。"
+    "comment_zh": "TE Connectivity 在連接器、傳感器及相關技術領域擁有龐大的專利組合，這是其核心競爭力之一。這些專利不僅保護了公司的創新成果，也為潛在競爭者設置了高昂的進入壁壘。此外，其產品廣泛應用於汽車、航空航天、醫療等受嚴格監管的行業，符合各類國際標準和認證本身就是一種無形資產。獲得這些認證需要大量時間和資源投入，使得新進入者難以快速複製其市場地位，形成了強大的技術與法規護城河。",
+    "comment_en": "TE Connectivity possesses an extensive patent portfolio in connectors, sensors, and related technologies, which is a cornerstone of its competitive advantage. These patents not only safeguard the company's innovations but also erect significant barriers to entry for potential competitors. Furthermore, its products are widely used in highly regulated industries such as automotive, aerospace, and medical. Compliance with various international standards and certifications is an intangible asset. Obtaining these approvals requires substantial time and resource investment, making it difficult for new entrants to quickly replicate its market position, thereby forming a robust technological and regulatory moat."
   },
   "m3_high_switching_costs": {
-    "score": 9,
-    "comment": "對於TE Connectivity的工業客戶而言，更換關鍵零組件供應商將導致巨大的轉換成本。這不僅涉及產品的重新設計、嚴格的測試與認證，更可能造成生產線中斷、產品延遲上市以及潛在的品質風險。例如，汽車製造商一旦選定TEL的連接解決方案，其轉換成本可能高達數百萬甚至數千萬美元，遠超元件本身的採購價。這種深度嵌入客戶供應鏈的特性，為TEL構建了極高的客戶黏性與堅固的護城河。"
+    "score": 8,
+    "comment_zh": "TE Connectivity 的產品通常作為關鍵零組件，深度嵌入客戶的複雜系統和產品設計中。一旦客戶採用了其連接器或傳感器方案，更換供應商將涉及巨大的轉換成本，包括重新設計、嚴格的測試驗證、生產線調整以及潛在的認證風險。對於汽車、工業自動化等對可靠性要求極高的行業，任何產品故障都可能導致巨額損失，因此客戶傾向於維持與TE Connectivity的長期合作關係，而非為了微小價差冒險轉換，形成了顯著的客戶黏性。",
+    "comment_en": "TE Connectivity's products are often critical components deeply embedded within customers' complex systems and product designs. Once a customer adopts its connector or sensor solutions, switching suppliers entails substantial costs, including redesign, rigorous testing and validation, production line adjustments, and potential certification risks. For industries with extremely high reliability requirements, such as automotive and industrial automation, any product failure can lead to significant losses. Consequently, customers tend to maintain long-term relationships with TE Connectivity rather than risk switching for minor price differences, creating significant customer stickiness."
   },
   "m4_network_effects": {
-    "score": 1,
-    "comment": "TE Connectivity作為電子元件製造商，其商業模式主要依賴於產品的技術領先、品質可靠性及規模化生產，而非傳統意義上的網絡效應。其產品價值不會因更多用戶的加入而呈幾何級數增長，也未形成一個平台生態系統。儘管其產品廣泛應用於各行各業，但這並未產生用戶間的直接互動或價值傳遞，因此在巴菲特定義的網絡效應護城河方面，TEL的表現相對薄弱，不構成其核心競爭優勢。"
+    "score": 5,
+    "comment_zh": "TE Connectivity 的業務模式主要圍繞B2B元件供應，其網絡效應並非如社交平台般直接顯著。然而，隨著其連接器和傳感器解決方案被越來越多的行業領導者採用，尤其是在新興技術標準（如5G、電動車）的制定與推廣中，TE的產品往往成為事實上的行業標準或首選方案。這會吸引更多上下游廠商基於其產品進行開發，形成一個圍繞TE技術的間接生態系統，使得其解決方案對新客戶更具吸引力，從而產生一定的正向反饋效應。",
+    "comment_en": "TE Connectivity's business model primarily revolves around B2B component supply, so its network effects are not as direct or pronounced as those of social platforms. However, as its connector and sensor solutions are adopted by an increasing number of industry leaders, particularly in the development and promotion of emerging technology standards (e.g., 5G, electric vehicles), TE's products often become de facto industry standards or preferred solutions. This attracts more upstream and downstream manufacturers to develop based on its technology, forming an indirect ecosystem around TE's technology, making its solutions more attractive to new customers and thus generating some positive feedback effects."
   },
   "m5_cost_advantage_scale": {
     "score": 8,
-    "comment": "TE Connectivity憑藉其全球化的生產佈局、龐大的採購量以及精密的製造工藝，實現了顯著的規模經濟效益。其大規模生產能力使其在原材料採購上擁有議價優勢，並能攤薄研發與固定資產投資成本。這種成本優勢使得TEL能夠以更具競爭力的價格提供高品質產品，同時保持健康的利潤率，這對小型競爭者而言是難以企及的壁壘，確保了其在市場上的領先地位與盈利能力。"
+    "comment_zh": "TE Connectivity 作為全球領先的連接與傳感解決方案供應商，憑藉其龐大的全球生產規模、廣泛的研發投入以及優化的全球供應鏈，實現了顯著的規模經濟效益。這使其在原材料採購、生產製造和物流分銷方面擁有成本優勢，是小型競爭對手難以匹敵的。公司在精密製造工藝和材料科學方面的深厚積累，也使其能夠生產出高性能、高可靠性的產品，同時保持成本競爭力，形成了一道堅實的成本護城河。",
+    "comment_en": "As a leading global provider of connectivity and sensor solutions, TE Connectivity leverages its vast global production scale, extensive R&D investments, and optimized global supply chain to achieve significant economies of scale. This grants it cost advantages in raw material procurement, manufacturing, and logistics distribution that smaller competitors cannot match. The company's deep expertise in precision manufacturing processes and material science also enables it to produce high-performance, high-reliability products while maintaining cost competitiveness, thereby forming a robust cost moat."
   },
   "m6_unique_geography_assets": {
-    "score": 6,
-    "comment": "TE Connectivity的護城河並非主要來自於地理位置的獨佔性或天然資源的壟斷。然而，在某些高度專業化或利基的工業應用市場中，由於進入門檻高、技術要求嚴苛且市場容量相對有限，TEL憑藉其深厚的技術積累和客戶關係，形成了類似「有效規模」的寡占局面。在這些特定領域，新競爭者即使投入巨資，也難以在短期內獲得足夠的市場份額以實現盈利，從而避免了惡性競爭。"
+    "score": 7,
+    "comment_zh": "TE Connectivity 在其核心業務領域，特別是汽車、航空航天、工業等對連接與傳感解決方案要求極高的利基市場中，展現出天然的寡占特性。這些市場的特點是產品高度專業化、技術門檻高、認證週期長且客戶轉換成本高昂。在這些細分市場中，市場容量相對有限，且已由少數幾家頂尖供應商主導。新競爭者若試圖大規模進入，將面臨巨大的資本投入和市場接受度挑戰，最終可能導致行業利潤率普遍下降，形成一種「雙輸」局面，從而鞏固了現有參與者的市場地位。",
+    "comment_en": "TE Connectivity exhibits characteristics of an efficient scale moat in its core business areas, particularly in niche markets like automotive, aerospace, and industrial, where demand for connectivity and sensor solutions is extremely high. These markets are characterized by highly specialized products, high technological barriers, long certification cycles, and high customer switching costs. Within these segments, market capacity is relatively limited and already dominated by a few top-tier suppliers. New competitors attempting large-scale entry would face immense capital investment and market acceptance challenges, potentially leading to a general decline in industry profitability, creating a \"lose-lose\" scenario that solidifies the market position of existing players."
   },
   "m7_operational_efficiency": {
     "score": 9,
-    "comment": "TE Connectivity展現出卓越的資本配置效率與盈利能力，其22.8%的ROE和11.6%的ROA遠超行業平均水平，且Piotroski F-Score高達9/9，證明了其穩健的財務狀況和高效的營運管理。這表明公司能夠持續將投入資本轉化為豐厚的回報，創造實質的股東價值。這種長期超額的投入資本回報率韌性，是其堅固護城河的有力證明，反映了其在市場中的強大競爭地位與盈利能力。"
+    "comment_zh": "TE Connectivity 展現出卓越的資本回報能力，其22.8%的股東權益報酬率（ROE）和11.6%的資產報酬率（ROA）遠超行業平均水平，且皮氏F-Score高達9/9，表明公司在盈利能力、營運效率和財務健康方面表現出色。儘管未提供加權平均資本成本（WACC），但如此強勁的盈利指標和自由現金流（FCF TTM $3,638.0M），強烈暗示其投入資本回報率（ROIC）持續顯著高於WACC，證明公司擁有強大的競爭優勢，能夠長期為股東創造超額價值。",
+    "comment_en": "TE Connectivity demonstrates exceptional capital returns, with an ROE of 22.8% and ROA of 11.6%, significantly exceeding industry averages. Its Piotroski F-Score of 9/9 indicates excellent performance in profitability, operational efficiency, and financial health. Although the Weighted Average Cost of Capital (WACC) is not provided, such robust profitability metrics and strong free cash flow (FCF TTM $3,638.0M) strongly suggest that its Return on Invested Capital (ROIC) consistently and significantly surpasses WACC, proving the company possesses a powerful competitive advantage that enables it to generate substantial long-term shareholder value."
   },
   "m8_capital_allocation": {
-    "score": 8,
-    "comment": "TE Connectivity的管理層在資本配置上展現出審慎與智慧。憑藉每年高達36.38億美元的自由現金流，公司有能力進行戰略性研發投入、適度併購以鞏固市場地位，並在股價被低估時積極回購股票，以最大化股東價值。其穩健的資產負債表（現金12.39億美元，總負債56.32億美元）和高F-Score，進一步印證了管理層在財務健康與股東回報之間的良好平衡，避免了盲目擴張的風險。"
+    "score": 9,
+    "comment_zh": "TE Connectivity 的核心戰略資產具有極高的不可複製性。這不僅僅是資本投入的問題，更涉及數十年累積的研發經驗、龐大的專利組合、與全球頂級客戶建立的深厚信任關係、遍布全球的精密製造基地、複雜且高效的供應鏈管理能力，以及一支高度專業化的工程師團隊。即使給予競爭對手千億美元，也無法在短時間內複製其在汽車、工業、通訊等關鍵領域的技術領先地位、品牌信譽和市場滲透深度。這種綜合性的無形資產壁壘，構成了其堅不可摧的護城河。",
+    "comment_en": "TE Connectivity's core strategic assets possess extremely high irreproducibility. This is not merely a matter of capital investment but involves decades of accumulated R&D experience, an extensive patent portfolio, deep trust relationships built with top global customers, a worldwide network of precision manufacturing facilities, complex and efficient supply chain management capabilities, and a highly specialized engineering team. Even with hundreds of billions of dollars, a competitor could not replicate its technological leadership, brand reputation, and market penetration in critical sectors like automotive, industrial, and communications within a short timeframe. This comprehensive intangible asset barrier forms an impregnable moat."
   },
   "m9_customer_retention": {
     "score": 8,
-    "comment": "TE Connectivity的產品是現代工業與科技的基石，廣泛應用於汽車、工業、通訊等關鍵領域。這些領域對產品的可靠性、性能和長期穩定性有著極高要求。一旦客戶選用TEL的解決方案，由於其產品的關鍵性、高轉換成本以及與客戶系統的深度整合，客戶黏性極高。這種對核心基礎設施的不可或缺性，使得TEL的需求具有強大的抗週期性和技術變革免疫力，確保了其業務的長期穩定性。"
+    "comment_zh": "儘管技術不斷演進，但對可靠連接與精準傳感的基本需求在現代工業和日常生活中是永恆且日益增長的。TE Connectivity 的產品是許多高科技系統的基礎，其核心業務並非容易被單一技術突破或典範轉移所顛覆。相反，公司積極擁抱並引領如電動車、5G、物聯網和工業自動化等新興趨勢，不斷創新以適應未來需求。其產品的深度嵌入性和高轉換成本，也使其對潛在的技術顛覆具有較強的免疫力，確保了長期需求穩定性。",
+    "comment_en": "While technology continuously evolves, the fundamental need for reliable connectivity and precise sensing in modern industry and daily life is constant and growing. TE Connectivity's products are foundational to many high-tech systems, and its core business is not easily disrupted by a single technological breakthrough or paradigm shift. On the contrary, the company actively embraces and leads emerging trends such as electric vehicles, 5G, IoT, and industrial automation, continuously innovating to meet future demands. The deep embeddedness and high switching costs of its products also provide strong immunity against potential technological disruptions, ensuring long-term demand stability."
   },
   "m10_durability": {
     "score": 8,
-    "comment": "TE Connectivity的護城河在於其產品的基礎性與不可替代性。無論技術如何演進，對可靠連接、精準感測的需求始終存在且不斷增長。公司持續投入研發，使其產品線能夠適應電動車、工業自動化、5G通訊等新興趨勢，而非被其顛覆。這種作為「賣鏟者」的角色，使其對技術典範轉移具有強大抗性，確保了其業務模式的長期可持續性與盈利能力，符合巴菲特對「永續經營」企業的定義。"
+    "comment_zh": "TE Connectivity 的皮氏F-Score高達9/9，這強烈表明其管理層在財務健康、盈利能力和營運效率方面表現卓越，暗示了審慎的資本配置策略。公司擁有充沛的自由現金流（$3,638.0M），且資產負債表穩健，現金流足以支持其營運、研發投入及潛在的股東回報。雖然具體的回購或併購細節未提供，但從其持續高企的股東權益報酬率（ROE 22.8%）來看，管理層應能有效利用資本，通過內生增長、戰略性投資或回購等方式，持續為股東創造最大化價值。",
+    "comment_en": "TE Connectivity's Piotroski F-Score of 9/9 strongly indicates excellent management performance in financial health, profitability, and operational efficiency, suggesting a prudent capital allocation strategy. The company boasts robust free cash flow ($3,638.0M) and a solid balance sheet, with cash flow sufficient to support operations, R&D investments, and potential shareholder returns. While specific details on buybacks or M&A are not provided, the consistently high Return on Equity (ROE 22.8%) suggests that management effectively utilizes capital, whether through organic growth, strategic investments, or buybacks, to continuously maximize shareholder value."
   },
-  "overall_moat_verdict": "TE Connectivity本質上是一家卓越的「收費橋樑」型企業，為全球關鍵產業提供不可或缺的電子元件。其護城河主要建立在極高的客戶轉換成本、龐大的規模經濟、深厚的專利技術壁壘以及與客戶產品的深度整合之上。公司並非依賴品牌心智或網絡效應，而是憑藉其產品的可靠性、性能和作為基礎設施供應商的關鍵地位，在B2B市場中築起了堅固的壁壘。管理層的穩健資本配置與持續的超額ROIC，進一步證明了其作為一家能夠長期創造股東價值的優質企業，具備抵禦競爭和技術變革的強大韌性。"
+  "overall_moat_verdict_zh": "TE Connectivity 是一家典型的「收費橋樑」型企業，其核心業務是提供現代工業不可或缺的連接與傳感解決方案。公司憑藉其在B2B領域的強大品牌信譽、龐大的專利組合、客戶轉換成本高昂的產品特性，以及全球領先的規模經濟效益，構築了多重堅固的護城河。其產品深度嵌入客戶系統，需求穩定且對技術顛覆具備較強免疫力。卓越的資本回報率和充沛的自由現金流，進一步印證了其作為特許經營權平台的本質，能夠持續為股東創造超額價值，是巴菲特和蒙格會青睞的優質企業。",
+  "overall_moat_verdict_en": "TE Connectivity is a quintessential \"toll bridge\" type enterprise, whose core business involves providing indispensable connectivity and sensor solutions for modern industries. The company has built multiple robust moats through its strong brand reputation in the B2B sector, an extensive patent portfolio, products characterized by high customer switching costs, and leading global economies of scale. Its products are deeply embedded in customer systems, ensuring stable demand and strong immunity to technological disruption. Excellent capital returns and abundant free cash flow further confirm its nature as a franchise platform, capable of consistently generating superior shareholder value, making it a high-quality business that Buffett and Munger would favor."
 }

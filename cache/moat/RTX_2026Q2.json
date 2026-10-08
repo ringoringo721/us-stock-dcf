@@ -3,43 +3,54 @@
   "period": "2026Q2",
   "m1_brand_pricing": {
     "score": 8,
-    "comment": "RTX在航空航天與國防領域擁有卓越的品牌聲譽，其普惠發動機和柯林斯宇航系統是關鍵任務組件。客戶（政府和航空公司）高度重視產品的可靠性、安全性和性能，而非單純的價格。一旦產品被採納並整合到複雜系統中，其高昂的轉換成本賦予RTX強大的定價權，尤其是在利潤豐厚的售後服務和備件市場。儘管政府合同存在競爭，但其技術的獨特性和嚴格的認證要求，使得RTX能夠為其高附加值產品和服務收取溢價，這體現了巴菲特所強調的「特許經營權」特徵。"
+    "comment_zh": "RTX憑藉其在航空航天與國防領域的頂級品牌，如普惠發動機和雷神防禦系統，享有顯著的定價權。這些產品關乎國家安全與飛行安全，客戶對品質與可靠性的重視遠超價格敏感度。一旦產品被採用，後續的維護、升級與備件供應形成長期且高利潤的收入流，使公司能有效轉嫁成本並維持高毛利。這種品牌信任與技術領先，構成了強大的商業壁壘，競爭對手難以在短期內複製。",
+    "comment_en": "RTX commands significant pricing power through its premier brands in aerospace and defense, such as Pratt & Whitney engines and Raytheon defense systems. Customers, prioritizing quality and reliability for national and flight safety, are less price-sensitive. Once products are adopted, subsequent maintenance, upgrades, and spare parts generate long-term, high-margin revenue streams, allowing the company to effectively pass on costs and maintain strong profitability. This brand trust and technological leadership create a formidable business barrier, difficult for competitors to replicate quickly."
   },
   "m2_patents_regulatory": {
     "score": 9,
-    "comment": "RTX在航空航天與國防領域築起了極高的專利與監管壁壘。公司擁有大量關於先進推進系統、航空電子設備、傳感器和防禦系統的專利組合。更重要的是，該行業受到嚴格的政府監管，產品必須通過美國聯邦航空管理局（FAA）和國防部（DoD）等機構的漫長且昂貴的認證過程。這些專利和監管許可共同構成了強大的進入障礙，使得新競爭者難以在短時間內複製其技術和市場地位。這為RTX創造了一個受保護的市場，確保了其長期盈利能力，是典型的「收費橋樑」型護城河。"
+    "comment_zh": "RTX在航空航天與國防領域擁有龐大的專利組合，涵蓋發動機技術、雷達系統、導彈防禦等關鍵領域，形成堅實的技術壁壘。此外，該行業受到嚴格的政府監管與認證，產品需通過漫長且昂貴的測試與驗證過程，才能獲得銷售許可。這些法規門檻與獨家技術特許，使得新進入者幾乎不可能在短期內與RTX競爭，確保了其在核心市場的壟斷地位。",
+    "comment_en": "RTX possesses an extensive patent portfolio in aerospace and defense, covering critical areas like engine technology, radar systems, and missile defense, forming a robust technological barrier. Furthermore, the industry is subject to stringent government regulation and certification, requiring products to undergo lengthy and costly testing and validation processes for market approval. These regulatory hurdles and exclusive technological licenses make it nearly impossible for new entrants to compete with RTX in the short term, securing its dominant position in core markets."
   },
   "m3_high_switching_costs": {
     "score": 9,
-    "comment": "RTX產品的轉換成本極高，是其核心護城河之一。對於航空公司而言，更換飛機發動機或航空電子系統不僅涉及巨額財務支出，還會導致長時間的飛機停飛、重新認證以及潛在的運營中斷。對於國防客戶，更換武器系統供應商意味著複雜的系統重新整合、人員再培訓，甚至可能影響國家安全。這些轉換成本遠不止金錢，更包括時間、風險和運營效率的巨大代價。這種高度的客戶黏性確保了RTX能夠從現有客戶群中獲得長期且穩定的收入，特別是高利潤的售後服務。"
+    "comment_zh": "RTX產品的替代成本極高，構成強大的護城河。對於航空公司而言，更換飛機發動機不僅涉及巨額採購成本，還需重新培訓機務人員、調整維護流程，並可能導致航班中斷。對於國防客戶，替換現有武器系統意味著複雜的整合工程、高昂的訓練費用及潛在的戰備風險。這種深度嵌入客戶運營的特性，使得客戶一旦採用RTX的產品，便難以輕易轉換供應商，確保了長期穩定的收入來源。",
+    "comment_en": "Switching costs for RTX products are exceptionally high, forming a robust moat. For airlines, replacing aircraft engines involves not only substantial procurement costs but also retraining maintenance personnel, adjusting maintenance procedures, and potential flight disruptions. For defense clients, replacing existing weapon systems entails complex integration efforts, expensive training, and potential operational risks. This deep embedding into customer operations makes it difficult for clients to switch suppliers once they adopt RTX products, ensuring a stable, long-term revenue stream."
   },
   "m4_network_effects": {
-    "score": 6,
-    "comment": "儘管RTX不像科技平台那樣擁有典型的網絡效應，但在其特定生態系統中仍存在類似的正反饋。例如，普惠發動機的廣泛應用建立了龐大的裝機量，這吸引了更多的第三方維修服務商，增加了備件的可獲得性，並為產品改進提供了更多數據。這反過來又提升了新客戶選擇RTX產品的價值。在國防領域，盟友之間廣泛採用RTX的系統有助於提高互操作性，從而增強了這些系統的整體價值。這種效應雖不如消費互聯網強烈，但仍為其產品增加了額外價值和市場鞏固性。"
+    "score": 5,
+    "comment_zh": "RTX的網絡效應主要體現在其龐大的產品安裝基礎上。例如，普惠發動機在全球範圍內擁有廣泛的機隊，這使得維護網絡更為完善、備件供應更便捷，並能累積大量運行數據用於產品改進與預測性維護。這種規模效應為所有用戶帶來間接利益，提升了產品的整體價值與可靠性。然而，其網絡效應不如典型的互聯網平台那樣呈指數級增長，更多是基於產品生態系統的協同優勢。",
+    "comment_en": "RTX's network effects are primarily observed through its extensive installed product base. For instance, Pratt & Whitney engines have a widespread global fleet, which facilitates a more comprehensive maintenance network, easier spare parts availability, and the accumulation of vast operational data for product improvement and predictive maintenance. This scale benefits all users indirectly, enhancing the overall value and reliability of the products. However, its network effects are not as exponential as typical internet platforms, being more based on synergistic advantages within the product ecosystem."
   },
   "m5_cost_advantage_scale": {
     "score": 8,
-    "comment": "RTX在航空航天與國防領域享有顯著的規模經濟優勢。該行業的研發、製造設施和認證過程涉及巨大的固定成本。RTX龐大的生產規模使其能夠將這些固定成本分攤到大量的產品上，從而實現比小型競爭對手更低的單位成本。此外，航空航天製造的複雜性要求極高的工藝水平和專業知識。RTX憑藉其悠久的歷史和市場領導地位，積累了獨特的製造工藝和經驗，這不僅提高了生產效率和產品質量，也為其帶來了難以被新進入者複製的成本優勢，鞏固了其市場地位。"
+    "comment_zh": "RTX在航空航天與國防領域享有顯著的規模經濟優勢。其生產噴氣發動機和複雜防禦系統需要巨額的研發投入、高度專業化的製造設施與熟練勞動力。這種規模使得RTX能夠將龐大的固定成本分攤到大量的產品銷售和服務中，實現單位成本的顯著降低。同時，公司長期積累的獨家製造工藝與供應鏈管理能力，也使其在成本效率和產品良率上超越潛在競爭者。",
+    "comment_en": "RTX benefits from significant economies of scale in the aerospace and defense sector. Manufacturing jet engines and complex defense systems requires massive R&D investment, highly specialized manufacturing facilities, and skilled labor. This scale allows RTX to spread substantial fixed costs across a large volume of product sales and services, achieving significant reductions in unit costs. Concurrently, the company's long-standing proprietary manufacturing processes and supply chain management capabilities enable it to surpass potential competitors in cost efficiency and product yield."
   },
   "m6_unique_geography_assets": {
-    "score": 8,
-    "comment": "航空航天與國防市場，特別是噴氣發動機、先進航空電子設備和導彈防禦系統等複雜產品領域，本質上是一個寡頭壟斷市場。這些高度專業化、資本密集型產品的市場容量有限，而進入壁壘（研發投入、巨額資本、嚴格監管）極高，使得只有少數幾家公司能夠有效競爭。如果新競爭者進入，很可能導致產能過剩，降低所有參與者的盈利能力。因此，這是一個典型的「有效規模」市場，現有參與者有強烈動機維持現狀。RTX作為該領域的領導者之一，受益於這種天然的寡占格局。"
+    "score": 9,
+    "comment_zh": "航空航天與國防市場本質上是一個天然寡占的利基市場。全球能夠設計、製造並維護先進噴氣發動機或複雜防禦系統的公司屈指可數。市場容量有限，且進入門檻極高，包括天文數字般的研發投入、漫長的認證週期和嚴格的政府審批。在這種環境下，任何新競爭者的加入都將導致市場份額的稀釋和利潤率的下降，形成「雙輸」局面，因此現有巨頭如RTX得以維持其寡頭地位。",
+    "comment_en": "The aerospace and defense market is inherently an oligopolistic niche. Globally, only a handful of companies can design, manufacture, and maintain advanced jet engines or complex defense systems. Market capacity is limited, and entry barriers are extremely high, including astronomical R&D investments, lengthy certification cycles, and stringent government approvals. In this environment, any new competitor would lead to market share dilution and reduced profit margins, creating a \"lose-lose\" scenario, thus allowing existing giants like RTX to maintain their oligopolistic position."
   },
   "m7_operational_efficiency": {
     "score": 7,
-    "comment": "RTX所處的航空航天與國防產業，由於其高進入壁壘和長期的合同週期，具備實現持續超額投入資本回報率（ROIC）的潛力。公司報告的股東權益報酬率（ROE）為11.7%，總資產報酬率（ROA）為4.4%，且過去十二個月的自由現金流高達112.51億美元，顯示出強勁的現金生成能力。儘管該行業資本密集，但其產品的關鍵性、高轉換成本以及長期服務合同，為RTX提供了穩定的收入來源和盈利基礎，使其能夠在長期內維持高於加權平均資本成本（WACC）的回報，創造實質股東價值。"
+    "comment_zh": "RTX在高度資本密集的航空航天與國防產業中，展現出穩健的資本回報能力。其產品生命週期長、售後服務收入穩定且利潤豐厚，加上高昂的轉換成本，使得公司能夠在經濟週期波動中保持相對韌性。雖然具體的ROIC與WACC數據未提供，但穩定的ROE（11.7%）和強勁的自由現金流（112.5億美元）表明其資本配置效率良好，能夠持續為股東創造超額價值，符合巴菲特對優質企業的定義。",
+    "comment_en": "RTX demonstrates robust capital returns in the highly capital-intensive aerospace and defense industry. Its long product lifecycles, stable and high-margin aftermarket service revenue, coupled with high switching costs, enable the company to maintain relative resilience through economic cycles. While specific ROIC and WACC data are not provided, a stable ROE (11.7%) and strong free cash flow ($11.25 billion) indicate efficient capital allocation, consistently creating excess value for shareholders, aligning with Buffett's definition of a quality business."
   },
   "m8_capital_allocation": {
     "score": 9,
-    "comment": "即使擁有千億美元資金，要在幾年內複製RTX的核心戰略資產幾乎是不可能的。這包括數十年累積的龐大研發投入、專有技術、經過嚴格認證的製造流程、與全球政府和商業客戶建立的深厚關係、高度專業化的技術人才隊伍，以及獲得所有必要監管批准的漫長時間和成本。航空航天與國防產業的複雜性和高門檻，使得RTX的市場地位和技術領先性具有極高的不可複製性。這種獨特的資產組合構成了極其堅固的護城河，是巴菲特所珍視的「特許經營權」的體現。"
+    "comment_zh": "RTX的核心戰略資產幾乎不可複製。即使給予競爭對手千億美元，也無法在數年內重現其數十年累積的研發成果、專利技術、嚴格的政府認證、全球供應鏈網絡以及與各國政府和主要航空公司的深厚關係。這些無形資產，包括品牌信譽、技術專長和客戶信任，是經過漫長歲月沉澱而成的，構成了極高的進入壁壘，確保了RTX的長期競爭優勢。",
+    "comment_en": "RTX's core strategic assets are virtually irreproducible. Even with a hundred billion dollars, a competitor could not replicate within a few years its decades of accumulated R&D, patented technologies, stringent government certifications, global supply chain network, and deep relationships with governments and major airlines. These intangible assets, including brand reputation, technical expertise, and customer trust, have been built over a long period, forming extremely high barriers to entry and ensuring RTX's long-term competitive advantage."
   },
   "m9_customer_retention": {
     "score": 8,
-    "comment": "航空航天與國防領域的核心需求具有高度的穩定性，對技術變革或典範轉移具有強大的抗性。儘管技術不斷進步，但對安全高效的航空旅行和國家安全的根本需求不會改變。RTX的產品是這些領域的基礎設施，其演進是漸進式的改進而非顛覆性的替代。人工智慧和新材料將增強現有系統的性能，但噴氣發動機、航空電子設備和防禦系統的基本需求將長期存在。產品的超長生命週期和嚴格的認證壁壘，也為RTX提供了抵禦快速技術淘汰的緩衝，確保了其業務的持久性。"
+    "comment_zh": "RTX所處的航空航天與國防產業對技術變革具有較強的抗性。儘管技術不斷演進，但對可靠的航空發動機和先進防禦系統的需求是長期且剛性的。該領域的技術顛覆通常需要數十年才能成熟並大規模應用，這為RTX提供了充足的適應和轉型時間。人工智慧等新技術更多是作為增強現有產品性能的工具，而非徹底取代核心業務，因此公司對典範轉移具備較高的免疫力。",
+    "comment_en": "The aerospace and defense industry, where RTX operates, exhibits strong resistance to technological disruption. While technology continuously evolves, the demand for reliable aircraft engines and advanced defense systems is long-term and inelastic. Technological disruptions in this sector typically take decades to mature and achieve widespread adoption, providing RTX ample time to adapt and transform. New technologies like AI primarily serve as tools to enhance existing product performance rather than fundamentally replacing core businesses, thus granting the company high immunity to paradigm shifts."
   },
   "m10_durability": {
     "score": 7,
-    "comment": "RTX的管理層在資本配置方面展現出一定的紀律性，其戰略性收購和資產剝離旨在強化核心業務。公司強勁的自由現金流（112.51億美元）為再投資、債務償還、股息支付和股票回購提供了充足彈藥。雖然具體回購策略細節未完全披露，但作為一家成熟的大型企業，預計會通過回購將資本返還股東。關鍵在於管理層能否在市場低估時積極回購註銷股本，避免盲目溢價併購，以最大化股東長期利益。其穩健的財務狀況（現金83.05億美元，總負債388.56億美元）也為其資本配置提供了靈活性。"
+    "comment_zh": "RTX的管理層在資本配置方面展現出一定的審慎。公司擁有強勁的自由現金流，為其提供了靈活的資本運用空間。在航空航天與國防這樣需要長期投資的行業中，有效的研發投入、戰略性併購與適時的股本回購至關重要。雖然具體的回購策略需持續觀察，但從其穩健的財務表現和行業領導地位來看，管理層在平衡增長與股東回報方面具備經驗，致力於最大化長期股東價值。",
+    "comment_en": "RTX's management demonstrates prudence in capital allocation. The company possesses strong free cash flow, providing flexibility for capital deployment. In the aerospace and defense industry, which requires long-term investment, effective R&D spending, strategic M&A, and timely share buybacks are crucial. While specific buyback strategies require ongoing observation, the company's stable financial performance and industry leadership suggest that management is experienced in balancing growth with shareholder returns, committed to maximizing long-term shareholder value."
   },
-  "overall_moat_verdict": "RTX Corporation本質上是一家擁有「特許經營權」特徵的「收費橋樑」型企業。其核心競爭壁壘深植於航空航天與國防產業的極高進入門檻，包括數十年累積的專有技術、龐大的研發投入、嚴格的監管認證、以及與政府和商業客戶建立的深厚關係。普惠發動機和柯林斯宇航系統等關鍵產品，因其不可替代性、高轉換成本和卓越性能，賦予公司強大的定價權和穩定的售後服務收入。這種結合了技術壟斷、監管壁壘和規模經濟的複合型護城河，使得RTX能夠在長期內維持超額利潤，並有效抵禦潛在競爭者和技術顛覆，為股東創造持久價值。"
+  "overall_moat_verdict_zh": "RTX Corporation本質上是一家擁有堅固「收費橋樑」特徵的特許經營權企業。其在航空航天與國防領域的領導地位，得益於難以逾越的進入壁壘，包括數十年累積的專利技術、嚴格的政府認證、全球頂級品牌信譽及與客戶的深度綁定。這些核心資產共同構建了極高的轉換成本和規模經濟，使得競爭對手難以望其項背。公司產品對國家安全和全球交通至關重要，需求穩定且具備長期性，確保了持續的現金流和超額資本回報。這是一家具備深厚護城河、能夠長期為股東創造價值的優質企業。",
+  "overall_moat_verdict_en": "RTX Corporation is fundamentally a franchise business characterized by robust \"toll bridge\" attributes. Its leadership in the aerospace and defense sectors stems from insurmountable entry barriers, including decades of accumulated patented technologies, stringent government certifications, world-class brand reputation, and deep customer entrenchment. These core assets collectively create extremely high switching costs and economies of scale, making it nearly impossible for competitors to emulate. The company's products are critical for national security and global transportation, ensuring stable and long-term demand, which translates into sustained cash flow and superior capital returns. This is a high-quality enterprise with a deep moat, capable of creating long-term value for shareholders."
 }

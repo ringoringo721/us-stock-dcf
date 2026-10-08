@@ -2,44 +2,55 @@
   "ticker": "YUM",
   "period": "2026Q2",
   "m1_brand_pricing": {
-    "score": 9,
-    "comment": "Yum! Brands旗下肯德基、必勝客、塔可鐘等品牌在全球擁有極高的知名度和消費者忠誠度。這些品牌已深深植入消費者心智，形成強大的情感連結與消費習慣。即使面對成本上升，公司也能透過其強大的品牌溢價能力，在不顯著影響銷量的前提下，將部分成本轉嫁給消費者。這種定價權不僅體現在產品價格上，也反映在特許經營費用的穩定性上，為公司帶來持續且可預測的現金流。其全球數十萬家門店的廣泛覆蓋，進一步鞏固了其市場領導地位和議價能力。"
+    "score": 7,
+    "comment_zh": "Yum! Brands旗下肯德基、必勝客、塔可鐘等品牌在全球擁有極高的知名度和消費者心智佔有率。這些標誌性品牌賦予公司一定的定價權，使其能在不顯著影響銷量的前提下，透過產品創新或差異化服務進行價格調整。儘管快餐市場競爭激烈，但其品牌資產已深入人心，消費者對其產品的偏好和習慣性消費，構成了一道堅實的護城河，使其能夠在成本上升時轉嫁部分壓力，維持盈利能力。",
+    "comment_en": "Yum! Brands, with its iconic KFC, Pizza Hut, and Taco Bell brands, enjoys significant global recognition and strong consumer mindshare. These powerful brands grant the company considerable pricing power, allowing it to adjust prices through product innovation or differentiated services without severely impacting sales volumes. Despite intense competition in the fast-food sector, the deep-seated brand equity and habitual consumption patterns of its customers form a robust moat. This enables Yum! to pass on some cost increases and maintain profitability, demonstrating a valuable competitive advantage rooted in brand loyalty and perceived value."
   },
   "m2_patents_regulatory": {
-    "score": 8,
-    "comment": "Yum! Brands的護城河並非來自傳統專利，而是其全球龐大的特許經營體系和嚴格的運營標準。特許經營權本身就是一種獨特的「許可」，賦予加盟商使用其品牌、配方和運營模式的權利，同時為公司帶來穩定的特許權使用費收入。此外，食品服務行業的嚴格衛生與安全監管，以及建立全球供應鏈和標準化流程的複雜性，構成了新進入者難以逾越的壁壘。這些無形資產和制度性優勢，共同築起了其商業模式的堅固防線。"
+    "score": 6,
+    "comment_zh": "Yum! Brands的護城河並非來自專利，而是其龐大的全球特許經營體系。作為全球最大的餐飲連鎖集團之一，其特許經營權本身就是一種「收費橋樑」，新進入者難以複製其遍布全球的門店網絡和成熟的運營模式。各國嚴格的食品安全、衛生標準及開店許可審批，也為新競爭者設置了高昂的進入壁壘。這種特許經營模式確保了穩定的特許權使用費收入，並將擴張風險轉嫁給加盟商，形成獨特的監管與經營許可優勢。",
+    "comment_en": "Yum! Brands' moat is not primarily derived from patents but from its extensive global franchise system. As one of the world's largest restaurant chains, its franchising model itself acts as a \"toll bridge,\" making it incredibly difficult for new entrants to replicate its widespread store network and established operational framework. Stringent food safety, hygiene standards, and licensing approvals across various countries also impose significant regulatory barriers for potential competitors. This franchise-centric approach ensures stable royalty income and shifts expansion risks to franchisees, creating a unique advantage rooted in operational licenses and regulatory compliance."
   },
   "m3_high_switching_costs": {
     "score": 7,
-    "comment": "對於普通消費者而言，轉換快餐品牌似乎成本不高。然而，對於Yum! Brands的數萬家特許經營商而言，轉換成本卻極其高昂。一旦加盟，他們已投入巨額資金於店面裝修、設備採購、員工培訓以及品牌推廣。放棄現有品牌意味著放棄已建立的客戶基礎、供應鏈關係和運營體系，並承擔重新開始的巨大風險和成本。這種對加盟商的強大「鎖定效應」，確保了Yum! Brands穩定的收入來源和市場份額，形成了一道堅實的商業壁壘。"
+    "comment_zh": "對於終端消費者而言，轉換快餐品牌成本相對較低。然而，Yum! Brands的黏性主要體現在其龐大的特許經營商網絡上。一旦加盟商投入巨資建立並運營肯德基或必勝客門店，轉換品牌將面臨巨大的財務損失、品牌資產歸零以及重新建立供應鏈和運營體系的挑戰。這種高昂的轉換成本，使得加盟商對Yum! Brands的依賴性極強，確保了其特許經營收入的穩定性與持續性，形成了一道強大的商業壁壘。",
+    "comment_en": "While switching costs for end consumers in the fast-food sector are relatively low, Yum! Brands' stickiness primarily resides within its vast network of franchisees. Once a franchisee invests substantial capital to establish and operate a KFC or Pizza Hut outlet, switching brands would entail significant financial losses, a complete loss of brand equity, and the arduous task of rebuilding supply chains and operational systems. These prohibitively high switching costs create strong dependence among franchisees on Yum! Brands, ensuring the stability and continuity of its royalty income, thereby forming a robust business barrier."
   },
   "m4_network_effects": {
     "score": 6,
-    "comment": "儘管Yum! Brands不具備典型的科技平台網絡效應，但其全球廣泛的特許經營網絡確實產生了類似的良性循環。每增加一家門店，不僅擴大了品牌的可見度和市場滲透率，也強化了整體品牌的廣告效益和集體採購議價能力。這使得供應鏈更高效，營銷成本攤薄，進而吸引更多潛在加盟商和消費者。這種規模效應和品牌普及率的提升，為所有參與者創造了增值，儘管其強度不如純粹的數字網絡效應，但仍構成一道護城河。"
+    "comment_zh": "Yum! Brands的網絡效應並非典型的社交平台模式，而是體現在其全球門店網絡的廣度和密度上。每增加一家門店，不僅提升了品牌的可見度和市場滲透率，也為消費者提供了更大的便利性，進而吸引更多顧客。這種廣泛的覆蓋率和品牌熟悉度，反過來又吸引更多潛在加盟商加入，形成正向循環。龐大的加盟商網絡也強化了供應鏈議價能力，降低了運營成本，使其在市場上更具競爭力，構成間接但有效的網絡護城河。",
+    "comment_en": "Yum! Brands' network effect isn't a typical social platform model but manifests through the breadth and density of its global store network. Each new outlet not only enhances brand visibility and market penetration but also offers greater convenience to consumers, thereby attracting more customers. This extensive reach and brand familiarity, in turn, draws in more potential franchisees, creating a positive feedback loop. The vast franchisee network also strengthens supply chain bargaining power and reduces operational costs, making the company more competitive in the market and forming an indirect yet effective network moat."
   },
   "m5_cost_advantage_scale": {
-    "score": 9,
-    "comment": "Yum! Brands在全球擁有超過5萬家門店，其龐大的規模帶來了無與倫比的採購議價能力和運營效率。無論是食材、包裝材料還是設備，公司都能以遠低於競爭對手的成本進行採購。同時，其全球化的營銷活動能將廣告費用攤薄至每家門店，實現極高的廣告效益。這種規模優勢使得Yum! Brands能夠提供具有競爭力的價格，同時保持健康的利潤率，這是小型競爭者難以望其項背的，構成其核心競爭力。"
+    "score": 8,
+    "comment_zh": "Yum! Brands作為全球最大的餐飲連鎖集團之一，其規模經濟效益極為顯著。憑藉龐大的採購量，公司在食材、包裝、設備等方面的議價能力無與倫比，能獲得遠低於小型競爭對手的成本優勢。此外，其全球性的營銷活動和物流網絡也因規模而攤薄成本，提升效率。這種極致的規模優勢使得新進入者難以在成本上與之匹敵，即使擁有類似的產品，也無法在價格上競爭，從而築起一道堅實的成本護城河。",
+    "comment_en": "As one of the world's largest restaurant chains, Yum! Brands enjoys extremely significant economies of scale. Leveraging its massive purchasing volume, the company possesses unparalleled bargaining power for ingredients, packaging, and equipment, securing cost advantages far superior to smaller competitors. Furthermore, its global marketing campaigns and logistics network benefit from scale, spreading costs and enhancing efficiency. This extreme scale advantage makes it incredibly difficult for new entrants to compete on cost; even with similar products, they cannot match Yum!'s pricing, thus forming a robust cost moat."
   },
   "m6_unique_geography_assets": {
-    "score": 6,
-    "comment": "快餐市場競爭激烈，但Yum! Brands憑藉其多品牌策略，在特定細分市場（如炸雞、墨西哥風味快餐）形成了局部寡占。在許多城市和地區，肯德基、必勝客等品牌已佔據主導地位，新進入者若想在這些市場取得成功，將面臨巨大的品牌認知和市場份額挑戰。這種「高效規模」使得在某些地理區域或產品類別中，Yum! Brands能夠在不引發惡性競爭的情況下，維持其市場地位和盈利能力。"
+    "score": 5,
+    "comment_zh": "Yum! Brands所處的快餐市場並非天然寡占的利基市場，而是競爭異常激烈的紅海。然而，其護城河體現在特定地理區域的「高效規模」效應。在許多城市或社區，肯德基、必勝客等品牌憑藉優越的選址、長期的品牌積累和密集的門店網絡，已形成局部市場的領導地位。新競爭者若想在這些區域與之抗衡，將面臨極高的租金成本、營銷費用和消費者習慣壁壘，導致投入產出比極低，從而形成一種理性不進入的局部寡占狀態。",
+    "comment_en": "The fast-food market where Yum! Brands operates is not a naturally oligopolistic niche but rather a fiercely competitive red ocean. However, its moat manifests through an \"efficient scale\" effect in specific geographical areas. In many cities or communities, brands like KFC and Pizza Hut have established local market leadership due to prime locations, long-term brand accumulation, and dense store networks. New competitors attempting to challenge them in these areas would face prohibitively high rental costs, marketing expenses, and consumer habit barriers, leading to a very low return on investment. This creates a rational disincentive for entry, fostering a localized oligopoly."
   },
   "m7_operational_efficiency": {
-    "score": 8,
-    "comment": "Yum! Brands的資產輕型特許經營模式是其高資本回報率的關鍵。公司將大部分資本密集型業務轉嫁給加盟商，自身則專注於品牌管理、營銷和系統支持。這使得其資產回報率（ROA 25.5%）和股東權益報酬率（ROE 18.0%）遠高於許多重資產企業。這種持續超越加權平均資本成本（WACC）的能力，證明了其商業模式的卓越盈利能力和資本效率，為股東創造了長期複利價值。"
+    "score": 9,
+    "comment_zh": "Yum! Brands的特許經營模式使其具備卓越的資本效率和長週期超額ROIC韌性。公司主要收取特許權使用費，將大部分資本支出和運營風險轉嫁給加盟商，實現輕資產運營。其高ROA（25.5%）和ROE（18.0%）數據，遠超行業平均水平和其加權平均資本成本，證明了公司能夠持續高效地將投入資本轉化為豐厚回報。這種商業模式的本質，使其能夠在長期內為股東創造實質性的複利價值，是其最堅固的護城河之一。",
+    "comment_en": "Yum! Brands' franchise model grants it exceptional capital efficiency and long-term ROIC resilience. The company primarily collects royalties, shifting most capital expenditures and operational risks to franchisees, thereby achieving an asset-light operation. Its high ROA (25.5%) and ROE (18.0%) figures significantly surpass industry averages and its weighted average cost of capital, demonstrating the company's ability to consistently and efficiently convert invested capital into substantial returns. The inherent nature of this business model allows it to generate significant compounding value for shareholders over the long term, making it one of its most robust moats."
   },
   "m8_capital_allocation": {
     "score": 9,
-    "comment": "即使給予競爭對手千億美元，也無法在短時間內複製Yum! Brands數十年來建立的全球品牌資產、龐大的特許經營網絡、成熟的供應鏈體系和深厚的運營經驗。肯德基、必勝客、塔可鐘等品牌所代表的消費者信任和文化符號，是時間和歷史沉澱的結果，非金錢可速成。這種無形資產的不可複製性，構成了Yum! Brands最堅固的護城河之一，確保其長期競爭優勢。"
+    "comment_zh": "即使給予競爭對手千億美元，也難以在短時間內複製Yum! Brands的核心戰略資產。這不僅僅是資金問題，更是時間、品牌積累、全球特許經營網絡、供應鏈體系和運營經驗的綜合體現。其肯德基、必勝客等品牌已在全球消費者心中建立起數十年的信任和文化認同，這種無形資產是無法用金錢快速堆砌的。龐大的加盟商生態系統、標準化的運營流程和全球化的供應鏈，共同構成了資本難以複製的堅實護城河。",
+    "comment_en": "Even with a hundred billion dollars, it would be incredibly difficult for a competitor to replicate Yum! Brands' core strategic assets in a short period. This isn't merely a matter of capital but a culmination of time, brand accumulation, a global franchise network, supply chain systems, and operational expertise. Its brands like KFC and Pizza Hut have built decades of trust and cultural identification in consumers' minds worldwide, an intangible asset that cannot be quickly bought. The vast franchisee ecosystem, standardized operational processes, and globalized supply chain collectively form an irreproducible and robust moat."
   },
   "m9_customer_retention": {
     "score": 8,
-    "comment": "快餐業的核心需求——便捷、實惠的餐飲服務——具有高度的穩定性和抗週期性。儘管面臨數位化點餐和外送服務的技術變革，Yum! Brands憑藉其強大的品牌適應性與廣泛的門店網絡，能迅速整合新技術以滿足消費者習慣。其產品本質不易被顛覆性技術完全取代，展現出對典範轉移的強大免疫力。公司持續投資於技術升級，確保其在不斷變化的市場中保持領先地位。"
+    "comment_zh": "快餐業滿足的是人類對便捷、美味和實惠餐飲的基本需求，這種需求具有極高的確定性和持久性。儘管外賣平台和線上點餐等技術變革對行業產生影響，Yum! Brands已積極擁抱並整合這些新技術，提升客戶體驗和運營效率。其核心業務模式——提供標準化、可預期的餐飲服務——對顛覆性技術或典範轉移具有強大免疫力。AI可能優化其供應鏈或客戶服務，但無法取代其品牌提供的核心價值和實體用餐體驗，確保了其業務的長期穩定性。",
+    "comment_en": "The fast-food industry fulfills a fundamental human need for convenient, tasty, and affordable meals, a demand characterized by high certainty and durability. While technological shifts like delivery platforms and online ordering have impacted the sector, Yum! Brands has actively embraced and integrated these innovations to enhance customer experience and operational efficiency. Its core business model—providing standardized, predictable dining services—possesses strong immunity to disruptive technologies or paradigm shifts. AI might optimize its supply chain or customer service, but it cannot replace the core value and physical dining experience offered by its brands, ensuring the long-term stability of its business."
   },
   "m10_durability": {
     "score": 7,
-    "comment": "Yum! Brands的管理層在資本配置上展現出對股東價值的關注，其特許經營模式產生穩定的自由現金流（TTM達16.79億美元），支持了持續的股息支付和股票回購。儘管總負債較高（122.75億美元），但其穩健的現金流和資產輕型模式使其能夠有效管理槓桿，並保持健康的F-Score（6/9）。管理層的重點在於品牌擴張和效率提升，而非盲目溢價併購，符合巴菲特對理性資本配置的期望。"
+    "comment_zh": "Yum! Brands的管理層在資本配置方面展現出一定的審慎與效率。公司持續產生強勁的自由現金流（FCF TTM $1,679.0 M），並歷史性地透過股息和股票回購將價值回饋股東。其輕資產的特許經營模式減少了對大量資本支出的需求，使得更多現金流可用於股東回報。儘管總負債相對較高，但其穩定的現金流和品牌優勢提供了償債能力。管理層在維持品牌增長與股東回報之間尋求平衡，避免盲目高溢價併購，體現了對股東利益的關注。",
+    "comment_en": "Yum! Brands' management has demonstrated a degree of prudence and efficiency in capital allocation. The company consistently generates strong free cash flow (FCF TTM $1,679.0 M) and has historically returned value to shareholders through dividends and share buybacks. Its asset-light franchise model reduces the need for substantial capital expenditures, allowing more cash flow for shareholder returns. Although total debt is relatively high, its stable cash flow and brand strength provide debt servicing capacity. Management balances brand growth with shareholder returns, avoiding imprudent, high-premium acquisitions, reflecting a commitment to shareholder interests."
   },
-  "overall_moat_verdict": "Yum! Brands本質上是一個全球性的「特許經營權平台」，其核心競爭壁壘源於旗下肯德基、必勝客、塔可鐘等超級品牌的強大心智佔有率和定價權。公司巧妙地運用資產輕型模式，將資本密集型業務轉嫁給加盟商，自身則專注於品牌管理、全球營銷和系統支持，從而實現了卓越的資本回報率。其龐大的全球網絡帶來了顯著的規模經濟效益和難以複製的品牌資產。儘管快餐業競爭激烈，但Yum! Brands憑藉其深厚的品牌護城河和穩健的特許經營模式，構築了一道堅固的「收費橋樑」，持續從全球消費者對便捷餐飲的需求中獲利，展現出長期價值投資的吸引力。"
+  "overall_moat_verdict_zh": "Yum! Brands本質上是一個典型的「收費橋樑」型企業，透過其全球公認的品牌（肯德基、必勝客、塔可鐘）和龐大的特許經營體系，構築了堅實的經濟護城河。其核心競爭優勢源於強大的品牌資產、對加盟商而言的高轉換成本，以及在採購和營銷方面的巨大規模經濟效益。輕資產的特許經營模式使其資本效率極高，ROIC表現優異，成為一台持續為股東創造複利的機器。儘管面臨競爭，但其已建立的全球足跡和運營專長幾乎無法複製。公司業務滿足基本人類需求，對顛覆性技術具有較強免疫力，且管理層在資本配置上表現穩健。綜合來看，Yum! Brands具備持久的競爭優勢，符合巴菲特對擁有堅固護城河企業的投資偏好。",
+  "overall_moat_verdict_en": "Yum! Brands fundamentally operates as a classic \"toll bridge\" business, leveraging its globally recognized brands (KFC, Pizza Hut, Taco Bell) and extensive franchise system to build a robust economic moat. Its core competitive advantages stem from powerful brand equity, high switching costs for franchisees, and immense economies of scale in procurement and marketing. The asset-light franchise model inherently leads to superior capital efficiency and high ROIC, making it a compounding machine for shareholders. Despite facing competition, its established global footprint and operational expertise are virtually irreplicable. The company's business addresses fundamental human needs, granting it strong immunity to disruptive technologies, and management demonstrates prudent capital allocation. Overall, Yum! Brands possesses durable competitive advantages, aligning well with Buffett's preference for businesses with enduring economic moats."
 }

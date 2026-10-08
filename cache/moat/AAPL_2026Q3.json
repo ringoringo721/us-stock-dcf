@@ -3,43 +3,54 @@
   "period": "2026Q3",
   "m1_brand_pricing": {
     "score": 9,
-    "comment": "Apple憑藉其無與倫比的品牌聲譽和產品設計，在全球消費者心中建立了極高的品牌忠誠度。這種心智佔有率賦予了公司強大的定價權，使其能夠在不顯著影響銷量的情況下，持續對其產品和服務實施溢價策略。例如，iPhone系列的高平均售價（ASP）和穩健的服務收入增長，都證明了客戶對Apple生態系統的價值認可。即使在經濟下行時期，消費者也傾向於選擇Apple產品，這反映了其品牌不僅是品質的象徵，更是一種生活方式的體現，構成了一道堅不可摧的護城河。"
+    "comment_zh": "蘋果的品牌心智與定價權無與倫比。其「Apple」品牌已成為高品質、創新與設計的代名詞，消費者願意為此支付顯著溢價。無論是iPhone、Mac或Apple Watch，即使面對市場競爭，蘋果仍能維持高毛利率並持續提價，而客戶流失率極低。這種強大的品牌忠誠度與情感連結，使其產品不僅是工具，更是身份象徵，構建了巴菲特所稱的「消費者特許經營權」，遠超一般電子產品製造商，是其最核心的護城河之一。",
+    "comment_en": "Apple's brand mindshare and pricing power are unparalleled. The \"Apple\" brand is synonymous with quality, innovation, and design, for which consumers are willing to pay a significant premium. Whether it's the iPhone, Mac, or Apple Watch, Apple consistently maintains high margins and raises prices even amidst market competition, with minimal customer attrition. This strong brand loyalty and emotional connection transform its products from mere tools into status symbols, establishing what Buffett calls a \"consumer franchise\" that far surpasses typical electronics manufacturers, making it one of its core moats."
   },
   "m2_patents_regulatory": {
-    "score": 7,
-    "comment": "Apple擁有龐大且不斷增長的專利組合，涵蓋了從硬體設計、軟體介面到核心技術的廣泛領域，這為其產品提供了重要的法律保護，有效阻止了競爭對手的直接模仿。儘管它不是傳統意義上的政府特許經營權，但其對App Store的嚴格控制和MFi（Made for iPhone/iPad）認證計畫，實質上為其生態系統內的第三方開發者和配件製造商設定了進入門檻和收費機制。這些機制確保了產品品質和用戶體驗，同時也為Apple創造了穩定的收入來源，形成了一種獨特的「準特許經營」壁壘。"
+    "score": 8,
+    "comment_zh": "蘋果在專利壁壘方面表現強勁，尤其是在其自研晶片（如A系列、M系列）的架構設計、工業設計以及軟體創新上擁有大量獨家專利。這些專利不僅保護了其核心技術不被輕易模仿，更賦予其產品獨特的性能優勢。此外，App Store作為其生態系統的入口，雖非傳統意義上的政府特許，但其對應用分發的嚴格控制和抽成機制，實質上構建了一個高利潤的「收費橋樑」，為其帶來持續且豐厚的服務收入，形成強大的商業壁壘。",
+    "comment_en": "Apple demonstrates strong patent barriers, particularly in its proprietary chip architectures (e.g., A-series, M-series), industrial design, and software innovations, holding numerous exclusive patents. These patents not only protect its core technologies from easy imitation but also grant its products unique performance advantages. Furthermore, the App Store, as the gateway to its ecosystem, while not a traditional government franchise, effectively operates as a highly profitable \"toll bridge\" through its strict control over app distribution and commission structure. This generates continuous and substantial service revenue, forming a robust business barrier."
   },
   "m3_high_switching_costs": {
     "score": 9,
-    "comment": "Apple生態系統的深度整合是其最堅固的護城河之一。用戶一旦進入其生態，轉換到其他平台將面臨顯著的財務和心理成本。例如，iCloud的數據同步、iMessage的社交網絡效應、AirDrop的便捷性，以及跨設備（iPhone、iPad、Mac、Apple Watch）的無縫協同工作，都讓用戶難以割捨。用戶在App Store中購買的應用和內容，以及對操作系統的熟悉度，也構成了高昂的遷移成本。這種「鎖定效應」確保了極高的客戶留存率，為公司帶來了可預測的經常性收入。"
+    "comment_zh": "蘋果生態系統的黏性與高轉換成本是其最堅固的護城河之一。用戶一旦深入蘋果生態（iPhone、iPad、Mac、Apple Watch、AirPods、iCloud等），要轉換到其他平台將面臨巨大的時間、數據遷移和學習成本。例如，iMessage的社交慣性、AirDrop的便捷性、iCloud的數據同步，以及在App Store中累積的應用購買，都使得用戶難以割捨。這種深度的整合體驗，讓用戶在轉換平台時會感到顯著的「痛苦」，從而極大地提高了客戶留存率。",
+    "comment_en": "The stickiness and high switching costs of Apple's ecosystem represent one of its most robust moats. Once users are deeply embedded in the Apple ecosystem (iPhone, iPad, Mac, Apple Watch, AirPods, iCloud, etc.), transitioning to another platform incurs significant time, data migration, and learning costs. For instance, the social inertia of iMessage, the convenience of AirDrop, iCloud's data synchronization, and accumulated app purchases in the App Store make it difficult for users to leave. This deeply integrated experience creates considerable \"pain\" for users considering a platform switch, thereby greatly enhancing customer retention."
   },
   "m4_network_effects": {
     "score": 8,
-    "comment": "Apple的App Store是網絡效應的典範。龐大的用戶基礎吸引了全球頂尖的開發者為其平台創造豐富的應用，而這些高品質的應用反過來又吸引了更多用戶加入Apple生態系統，形成了一個強大的正向循環。此外，iMessage和FaceTime等服務，以及AirDrop等功能，其價值隨著更多用戶的加入而呈指數級增長，進一步鞏固了用戶對Apple產品的依賴。這種網絡效應不僅提升了產品的實用性，也強化了品牌的社會價值，使其在競爭中佔據有利地位。"
+    "comment_zh": "蘋果的網絡效應主要體現在其App Store和配件生態系統。龐大的用戶基礎吸引了全球頂尖的開發者為iOS平台開發應用，進而豐富了App Store的內容，吸引更多用戶加入。同時，Apple Watch、AirPods等配件的普及，也因為iPhone用戶的廣泛存在而更具吸引力，形成正向循環。iMessage在特定市場的社交網絡效應也強化了用戶黏性。這種「雞生蛋、蛋生雞」的良性循環，使得生態系統的價值隨著用戶數量的增加而呈指數級增長，對競爭對手構成巨大挑戰。",
+    "comment_en": "Apple's network effects are primarily evident in its App Store and accessory ecosystem. Its vast user base attracts top global developers to create applications for the iOS platform, enriching App Store content and drawing in more users. Concurrently, the widespread adoption of accessories like Apple Watch and AirPods becomes more appealing due to the extensive iPhone user base, creating a positive feedback loop. iMessage's social network effect in certain markets also strengthens user stickiness. This virtuous \"chicken-and-egg\" cycle causes the ecosystem's value to grow exponentially with increasing users, posing a significant challenge to competitors."
   },
   "m5_cost_advantage_scale": {
     "score": 9,
-    "comment": "Apple憑藉其巨大的全球銷量和市場份額，在供應鏈管理和採購方面享有無與倫比的規模經濟優勢。這使其能夠以更低的成本採購關鍵組件，並與供應商建立長期穩固的合作關係，甚至影響上游技術的發展方向。其高度優化的全球製造和物流體系，確保了產品的高效率生產和分發，同時保持了卓越的品質控制。這種規模優勢不僅降低了單位成本，提升了毛利率，也為其持續的研發投入提供了堅實基礎，是競爭對手難以望其項背的壁壘。"
+    "comment_zh": "蘋果的規模經濟優勢無與倫比。憑藉其龐大的出貨量，蘋果在全球供應鏈中擁有極強的議價能力，能以更低的成本採購關鍵零組件。同時，其巨額的研發投入使其能夠自主設計M系列和A系列晶片，這些晶片在性能和功耗效率上領先業界，且成本效益極高。這種規模效應不僅降低了生產成本，還使其能夠持續投入創新，維持技術領先，是其他競爭對手難以望其項背的巨大壁壘，確保了其產品的高毛利率。",
+    "comment_en": "Apple's scale advantage is unparalleled. Leveraging its massive shipment volumes, Apple wields immense bargaining power within the global supply chain, enabling it to procure key components at lower costs. Simultaneously, its substantial R&D investment allows for the in-house design of M-series and A-series chips, which lead the industry in performance and power efficiency while being highly cost-effective. This scale not only reduces production costs but also enables continuous innovation, maintaining technological leadership. This represents a formidable barrier that competitors struggle to match, ensuring high product margins."
   },
   "m6_unique_geography_assets": {
-    "score": 6,
-    "comment": "儘管Apple不屬於傳統意義上的地理或資源型天然寡占，但它成功地在高端消費電子和服務市場中創造並主導了多個「利基」領域。例如，在高端智能手機市場，Apple憑藉其品牌、生態系統和創新能力，佔據了大部分利潤。新進入者若想在這些領域與Apple直接競爭，將面臨極高的品牌建設成本、研發投入和供應鏈挑戰，往往導致難以盈利的局面。這種對特定高價值市場的有效佔領，使其能夠避免與低端競爭者進行價格戰，維持高利潤率。"
+    "score": 7,
+    "comment_zh": "蘋果在高效規模（Efficient Scale）方面，雖然不是傳統意義上的地理寡占，但在高端消費電子市場中，它與少數幾個品牌共同形成了事實上的寡頭壟斷。這個市場的特點是品牌忠誠度高、研發投入巨大、供應鏈管理複雜，新進入者難以在短期內建立起足夠的品牌認知和生態系統。蘋果憑藉其品牌、技術和生態系統，在高端市場佔據主導地位，使得任何新競爭者若想進入，都將面臨極高的壁壘和激烈的價格戰，最終可能導致雙輸局面，從而鞏固了其市場地位。",
+    "comment_en": "Regarding Efficient Scale, while not a traditional geographic oligopoly, Apple, alongside a few other brands, forms a de facto oligopoly in the high-end consumer electronics market. This market is characterized by high brand loyalty, massive R&D investment, and complex supply chain management, making it difficult for new entrants to quickly establish sufficient brand recognition and an ecosystem. Apple's brand, technology, and ecosystem dominate the premium segment, meaning any new competitor attempting to enter would face extremely high barriers and intense price wars, potentially leading to a lose-lose scenario, thus solidifying Apple's market position."
   },
   "m7_operational_efficiency": {
-    "score": 10,
-    "comment": "Apple展現了卓越的資本配置效率和盈利能力，其股東權益報酬率（ROE）高達119.9%，資產報酬率（ROA）為33.6%，遠超行業平均水平和其加權平均資本成本（WACC）。這表明公司能夠持續將投入資本轉化為豐厚的回報，為股東創造實質性的複利價值。高達1366.83億美元的自由現金流（FCF TTM）進一步印證了其強大的現金生成能力。這種長期且持續的超額ROIC韌性，是企業擁有深厚護城河的明確財務證據，也是巴菲特衡量企業質量的核心指標。"
+    "score": 9,
+    "comment_zh": "蘋果展現出卓越的長週期超額ROIC韌性。其高達119.9%的ROE和33.6%的ROA，遠超行業平均水平，證明了其資本配置效率極高，能夠持續將投入資本轉化為豐厚利潤。這不僅反映了其強大的定價權和成本控制能力，更重要的是，它表明蘋果的商業模式能夠長期創造遠超其加權平均資本成本（WACC）的回報。這種持續的超額回報能力，是巴菲特衡量企業「經濟護城河」寬度的關鍵指標，證明了其核心業務的持久競爭優勢。",
+    "comment_en": "Apple demonstrates exceptional long-term ROIC resilience. Its remarkably high ROE of 119.9% and ROA of 33.6% significantly surpass industry averages, proving its highly efficient capital allocation and ability to consistently convert invested capital into substantial profits. This not only reflects its strong pricing power and cost control but, more importantly, indicates that Apple's business model can generate returns far exceeding its Weighted Average Cost of Capital (WACC) over the long term. This sustained ability to generate excess returns is a key metric Buffett uses to gauge the width of a company's \"economic moat,\" affirming its durable competitive advantage."
   },
   "m8_capital_allocation": {
     "score": 9,
-    "comment": "即使給予競爭對手數千億美元的資金，也無法在短期內複製Apple的核心戰略資產。這不僅包括其全球頂級的品牌價值、龐大的專利組合和高度優化的全球供應鏈，更重要的是其獨特的創新文化、設計哲學和數十年積累的用戶信任。Apple的生態系統、軟硬體整合能力以及遍布全球的零售和服務網絡，都是長期投入和精細運營的結果。這些無形資產和複雜的運營體系，共同構成了難以逾越的壁壘，使其競爭優勢具有極高的不可複製性。"
+    "comment_zh": "蘋果的資本不可複製性極高。即使給予競爭對手數千億美元的資金，也無法在短時間內複製蘋果的核心戰略資產。這不僅包括其全球無與倫比的品牌價值、數十年積累的軟硬體整合能力、遍布全球的供應鏈網絡、數十億用戶的生態系統黏性，以及其自研晶片的技術領先性。這些要素是長期投入、持續創新和文化沉澱的結果，而非單純資金堆砌所能達成。這種獨特的綜合優勢，構成了其難以逾越的護城河。",
+    "comment_en": "Apple's irreproducibility is extremely high. Even if competitors were given hundreds of billions of dollars, they could not replicate Apple's core strategic assets in a short period. This includes its unparalleled global brand value, decades of accumulated hardware-software integration capabilities, a worldwide supply chain network, the stickiness of its multi-billion user ecosystem, and the technological leadership of its proprietary chips. These elements are the result of long-term investment, continuous innovation, and cultural accumulation, not merely the deployment of capital. This unique combination of advantages forms an insurmountable moat."
   },
   "m9_customer_retention": {
-    "score": 7,
-    "comment": "儘管科技行業變化迅速，但Apple展現出較強的技術變革抗性。公司擁有龐大的研發投入和快速適應新技術的能力，例如在AI、AR/VR和空間計算領域的積極布局。其多元化的產品和服務組合也降低了單一產品線被顛覆的風險。Apple的品牌忠誠度使其用戶對新技術的接受度更高，公司能夠引導市場而非被動追隨。雖然沒有企業能完全免疫於顛覆，但Apple憑藉其創新能力和生態系統的粘性，具備了較強的抵禦潛在衝擊的韌性。"
+    "score": 8,
+    "comment_zh": "蘋果對技術/典範轉移具備強大抗性。儘管科技行業變化迅速，但蘋果憑藉其強大的研發能力和對用戶體驗的深刻理解，總能將新技術（如AI、AR/VR）有效整合到其生態系統中，甚至引領潮流。其核心產品（智慧手機、個人電腦）的需求依然穩固，且蘋果已證明其能成功從iPod轉型至iPhone，並持續拓展服務業務。這種適應性和創新能力，使其能夠在技術變革浪潮中保持領先地位，而非被顛覆，展現出極高的韌性。",
+    "comment_en": "Apple possesses strong immunity to technological/paradigm shifts. Despite the rapid changes in the tech industry, Apple, with its robust R&D capabilities and deep understanding of user experience, consistently integrates new technologies (like AI, AR/VR) effectively into its ecosystem, often leading trends. Demand for its core products (smartphones, personal computers) remains robust, and Apple has proven its ability to successfully transition from iPod to iPhone and continuously expand its services business. This adaptability and innovation allow it to maintain a leading position amidst technological shifts rather than being disrupted, demonstrating exceptional resilience."
   },
   "m10_durability": {
     "score": 9,
-    "comment": "Apple的管理層在資本配置方面表現出高度的誠信和紀律性。公司持續通過大規模股票回購和穩定的股息支付，將巨額自由現金流返還給股東，有效提升了每股收益和股東價值。其在併購策略上通常採取小規模、戰略性的收購，而非盲目追求大型、高溢價的交易，避免了常見的價值破壞。這種以股東利益為導向的資本管理方式，特別是在公司股價被低估時積極回購，完全符合巴菲特對優秀管理層的期望，是長期投資者信心的重要來源。"
+    "comment_zh": "蘋果的管理層在資本配置方面表現卓越。公司持續進行大規模股票回購，在股價被低估時積極註銷股份，顯著提升了每股收益和股東價值。同時，穩健增長的股息政策也回饋了股東。在併購方面，蘋果保持高度紀律性，避免了高溢價的大型收購，而是專注於小型、戰略性的技術或人才收購，以補充其核心能力。這種以股東利益為核心的資本管理策略，是其長期價值創造的關鍵驅動力，符合巴菲特對優秀管理層的期望。",
+    "comment_en": "Apple's management demonstrates exceptional capital allocation. The company consistently executes large-scale share buybacks, actively retiring shares when undervalued, significantly boosting EPS and shareholder value. Concurrently, a steadily growing dividend policy rewards shareholders. In M&A, Apple maintains high discipline, avoiding large, high-premium acquisitions, instead focusing on smaller, strategic technology or talent acquisitions to complement its core capabilities. This shareholder-centric capital management strategy is a key driver of its long-term value creation, aligning with Buffett's expectations for excellent management."
   },
-  "overall_moat_verdict": "Apple本質上是一個擁有強大「特許經營權」特徵的平台型企業，其核心競爭壁壘源於無與倫比的品牌力量、深度整合的生態系統和極高的客戶轉換成本。這使得它能夠像收費橋樑一樣，持續從其龐大的用戶基礎和開發者網絡中獲取價值。Apple的護城河不僅體現在其卓越的產品設計和技術創新上，更在於其構建了一個讓用戶難以離開、且願意為之支付溢價的數字生活閉環。這種多重護城河的疊加效應，加上其規模經濟和高效的資本配置，確保了公司能夠長期維持超額的資本回報率，使其成為巴菲特眼中極具吸引力的「好生意」。"
+  "overall_moat_verdict_zh": "蘋果擁有一個極其寬廣且多層次的經濟護城河，本質上是一個「特許經營權平台」與「數位收費橋樑」的結合體。其無與倫比的品牌忠誠度、深度整合的軟硬體生態系統、極高的用戶轉換成本，共同構建了強大的消費者鎖定效應。結合其在供應鏈、自研晶片方面的規模經濟優勢，以及龐大的專利組合和網絡效應，蘋果在高端消費電子和服務市場中建立了難以撼動的地位。管理層卓越的資本配置能力，透過大規模回購和戰略性研發投入，持續為股東創造價值。這使得蘋果能夠長期維持超額的投入資本回報率，成為巴菲特哲學中典型的「偉大企業」。",
+  "overall_moat_verdict_en": "Apple possesses an exceptionally wide and multi-layered economic moat, essentially a hybrid of a \"franchise platform\" and a \"digital toll bridge.\" Its unparalleled brand loyalty, deeply integrated hardware-software ecosystem, and extremely high user switching costs collectively create a powerful consumer lock-in effect. Combined with its scale advantages in supply chain and proprietary chip development, a vast patent portfolio, and strong network effects, Apple has established an unshakeable position in the premium consumer electronics and services markets. The management's excellent capital allocation, through massive buybacks and strategic R&D investments, continuously creates shareholder value. This enables Apple to sustain superior returns on invested capital over the long term, making it a quintessential \"great business\" in Buffett's philosophy."
 }

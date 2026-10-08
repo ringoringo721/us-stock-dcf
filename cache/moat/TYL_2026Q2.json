@@ -3,43 +3,54 @@
   "period": "2026Q2",
   "m1_brand_pricing": {
     "score": 8,
-    "comment": "Tyler Technologies在政府軟體市場建立了強大的品牌信譽，其產品與服務對公共部門而言是任務關鍵型。政府客戶一旦採用其系統，轉換成本極高，因此對價格敏感度相對較低。Tyler憑藉其專業化、可靠性及長期合作關係，具備顯著的提價能力，即使提高服務費用，客戶也難以輕易轉向競爭對手，確保了穩定的收入流與利潤空間。這反映了其在利基市場中的強大議價能力，符合巴菲特對特許經營權的定義。"
+    "comment_zh": "Tyler Technologies 在政府軟體市場建立了強大的品牌信譽，其產品深入地方、州及聯邦政府的關鍵運營環節。由於其軟體系統涉及稅務、法院管理、公共安全等核心職能，客戶一旦採用，轉換成本極高，導致對價格敏感度較低。這種深度嵌入的特性賦予了公司顯著的定價權，即使提高服務費用，客戶也難以輕易轉向競爭對手，確保了穩定的收入流和利潤空間。這正是巴菲特所推崇的「特許經營權」特徵。",
+    "comment_en": "Tyler Technologies has cultivated a robust brand reputation within the government software market, with its products deeply embedded in critical operational functions across local, state, and federal agencies. Given that its software systems manage core functions like taxation, court administration, and public safety, customers face extremely high switching costs once adopted, leading to lower price sensitivity. This deep integration grants the company significant pricing power; even with service fee increases, clients find it difficult to switch to competitors, ensuring stable revenue streams and profit margins. This exemplifies the 'franchise' characteristic favored by Buffett."
   },
   "m2_patents_regulatory": {
     "score": 7,
-    "comment": "Tyler Technologies的護城河並非主要來自傳統專利，而是其在複雜政府法規與合規性方面的深厚專業知識。為各級政府提供服務，需要精通地方、州及聯邦的獨特法律框架與操作流程。這種高度專業化的知識體系與合規認證，構成了新進入者難以逾越的監管壁壘。Tyler的解決方案內建了這些複雜性，使其成為政府客戶不可或缺的合作夥伴，有效阻止了缺乏此類專業背景的競爭者。"
+    "comment_zh": "Tyler Technologies 的護城河並非主要來自專利，而是源於其對政府部門複雜法規和獨特採購流程的深刻理解與適應能力。為政府提供關鍵軟體服務，需要滿足嚴格的合規性要求、數據安全標準及漫長的招標審批程序。公司憑藉數十年累積的專業知識和成功案例，在這一高度管制的市場中建立了強大的進入壁壘，新競爭者難以在短時間內複製其對政府生態系統的熟悉度與信任度。",
+    "comment_en": "Tyler Technologies' moat primarily stems not from patents, but from its profound understanding and adaptability to the complex regulations and unique procurement processes of government entities. Providing critical software services to governments necessitates meeting stringent compliance requirements, data security standards, and navigating lengthy bidding and approval procedures. Leveraging decades of accumulated expertise and successful implementations, the company has established a formidable barrier to entry in this highly regulated market, making it difficult for new competitors to quickly replicate its familiarity and trust within the government ecosystem."
   },
   "m3_high_switching_costs": {
     "score": 9,
-    "comment": "Tyler Technologies的產品具有極高的客戶黏性。政府機構一旦將其核心運營（如稅務、法院、公共安全）建立在Tyler的軟體系統上，更換供應商將面臨巨大的數據遷移成本、員工培訓費用、潛在的營運中斷風險以及難以估計的政治與社會成本。這種深度嵌入性使得客戶即便不滿意，也難以承受轉換帶來的巨大代價，為Tyler提供了強大的定價權和穩定的經常性收入，是其最堅固的護城河之一。"
+    "comment_zh": "Tyler Technologies 的核心護城河之一是其極高的轉換成本。政府機構一旦採用其軟體系統，如稅務管理、法院記錄或公共安全調度，這些系統便深度整合到日常運營的每一個環節。更換供應商不僅意味著巨額的數據遷移費用、員工再培訓成本，更可能導致關鍵服務中斷，帶來無法承受的政治與社會風險。這種轉換的複雜性與高昂代價，使得客戶對TYL的服務產生極強的黏性，是其最堅固的商業壁壘。",
+    "comment_en": "One of Tyler Technologies' core moats is its extremely high switching costs. Once government agencies adopt its software systems, such as for tax administration, court records, or public safety dispatch, these systems become deeply integrated into every aspect of daily operations. Changing vendors not only entails massive data migration expenses and employee retraining costs but also risks disrupting critical services, leading to unbearable political and social repercussions. The complexity and high price of such a transition create immense stickiness for TYL's services among its clientele, representing its most robust business barrier."
   },
   "m4_network_effects": {
     "score": 6,
-    "comment": "Tyler Technologies的網絡效應主要體現在其龐大的政府客戶群體所形成的知識共享與最佳實踐。當更多政府機構採用Tyler的系統時，會產生更豐富的數據、更廣泛的用戶反饋，進而促進產品改進與功能優化。此外，標準化的解決方案有助於不同機構間的協同作業，並降低實施成本。儘管不如社交媒體般直接，但這種間接的網絡效應強化了其在公共部門軟體領域的領導地位，提升了整體生態系統價值。"
+    "comment_zh": "Tyler Technologies 的網絡效應雖不如社交媒體般直接，但在政府軟體領域仍具備一定影響力。隨著越來越多的地方政府採用其平台，公司能從廣泛的用戶群中收集到更多樣化的需求與反饋，進而優化產品功能，提升解決方案的普適性與效率。此外，龐大的用戶基礎也吸引了第三方開發者和合作夥伴，共同構建更豐富的應用生態系統，為所有參與者創造增值。這種間接的網絡效應增強了其市場地位。",
+    "comment_en": "While Tyler Technologies' network effect isn't as direct as social media, it still holds significant sway within the government software sector. As more local governments adopt its platforms, the company gathers diverse needs and feedback from a broad user base, enabling it to optimize product features and enhance the universality and efficiency of its solutions. Furthermore, a large installed base attracts third-party developers and partners, collectively building a richer application ecosystem that adds value for all participants. This indirect network effect strengthens its market position."
   },
   "m5_cost_advantage_scale": {
     "score": 8,
-    "comment": "Tyler Technologies在政府軟體領域的規模優勢顯著。開發高度專業化、符合法規的政府軟體需要巨大的前期研發投入。憑藉其廣泛的客戶基礎，Tyler能夠將這些固定成本分攤到更多的客戶身上，實現較低的邊際成本。這使得公司能夠提供更具競爭力的價格，同時保持高利潤率，並持續投入研發以保持技術領先。這種規模經濟效應為新進入者設置了高門檻，難以在成本上與之匹敵。"
+    "comment_zh": "Tyler Technologies 在政府軟體領域享有顯著的規模經濟優勢。開發一套符合政府嚴格要求且功能複雜的軟體系統，前期研發投入巨大。然而，一旦核心產品開發完成，將其部署到更多政府機構的邊際成本相對較低。公司龐大的客戶基礎使其能夠將研發費用攤銷到更多的授權和服務收入上，從而實現比小型競爭對手更低的單位成本。這種規模效應使其在提供全面解決方案時更具成本競爭力，提升了盈利能力。",
+    "comment_en": "Tyler Technologies enjoys a significant scale advantage in the government software sector. Developing complex software systems that meet stringent government requirements and offer extensive functionality entails substantial upfront R&D investment. However, once the core product is developed, the marginal cost of deploying it to additional government agencies is relatively low. The company's large customer base allows it to amortize R&D expenses over a greater volume of licenses and service revenues, achieving lower unit costs than smaller competitors. This scale effect enhances its cost competitiveness in delivering comprehensive solutions and boosts profitability."
   },
   "m6_unique_geography_assets": {
-    "score": 8,
-    "comment": "政府軟體市場是一個典型的利基市場，其客戶群體雖然穩定但相對有限，且對專業化程度要求極高。Tyler Technologies深耕此領域數十年，已佔據主導地位。由於市場容量有限且進入壁壘高（如高轉換成本、監管複雜性），新競爭者即使投入巨資也難以有效瓜分市場份額，反而可能導致價格戰，損害所有參與者的利益。這種「理性寡占」使得Tyler能夠在相對穩定的競爭環境中持續獲利。"
+    "score": 7,
+    "comment_zh": "Tyler Technologies 在政府軟體這一利基市場中展現出天然寡占的特性。許多地方政府的軟體需求高度專業化且市場規模相對有限，不足以支撐眾多競爭者同時盈利。在這種「有效規模」的市場結構下，TYL憑藉其深耕多年的專業知識和廣泛的客戶基礎，已成為少數幾個主導供應商之一。新進入者不僅要面對高昂的研發成本，還要克服政府採購的複雜性與客戶對既有供應商的信任，使得市場自然趨向於寡頭壟斷。",
+    "comment_en": "Tyler Technologies exhibits characteristics of an efficient scale moat within the niche government software market. Many local government software needs are highly specialized and the market size is relatively limited, insufficient to profitably support numerous competitors simultaneously. In this 'efficient scale' market structure, TYL, with its deep expertise cultivated over many years and extensive customer base, has become one of the few dominant suppliers. New entrants not only face high R&D costs but also must overcome the complexities of government procurement and client trust in existing vendors, naturally leading the market towards an oligopoly."
   },
   "m7_operational_efficiency": {
-    "score": 7,
-    "comment": "Tyler Technologies作為一家軟體公司，其商業模式具有輕資產特性，且擁有高比例的經常性收入，這通常意味著較高的投入資本回報率（ROIC）。儘管具體ROIC數據未提供，但其10.7%的ROE和5.6%的ROA，以及7.14億美元的強勁自由現金流，均表明公司能有效利用資本創造價值。這種持續產生超額回報的能力，是其護城河的財務體現，證明了其業務模式的健康與韌性。"
+    "score": 8,
+    "comment_zh": "Tyler Technologies 的商業模式，以其高轉換成本和穩定的政府客戶群，為其提供了長期維持超額投入資本回報率（ROIC）的堅實基礎。儘管提供的ROE（10.7%）和ROA（5.6%）數據本身並未直接包含WACC，但公司持續產生強勁的自由現金流（FCF TTM $714.3M），且Piotroski F-Score高達7/9，顯示其財務健康狀況良好。這種穩定的現金流和盈利能力，預示著公司能夠長期創造超越資本成本的價值，展現出卓越的資本配置效率和韌性。",
+    "comment_en": "Tyler Technologies' business model, characterized by high switching costs and a stable government client base, provides a solid foundation for sustaining superior Return on Invested Capital (ROIC) over the long term. While the provided ROE (10.7%) and ROA (5.6%) figures don't directly include WACC, the company consistently generates strong free cash flow (FCF TTM $714.3M), and its Piotroski F-Score of 7/9 indicates robust financial health. This stable cash flow and profitability suggest the company can consistently create value exceeding its cost of capital over the long run, demonstrating excellent capital allocation efficiency and resilience."
   },
   "m8_capital_allocation": {
     "score": 9,
-    "comment": "即使給予競爭對手千億美元，也難以在短時間內複製Tyler Technologies的核心戰略資產。這不僅包括其龐大的軟體代碼庫，更重要的是數十年來與各級政府建立的深厚信任關係、對複雜政府流程的深刻理解、以及遍布全國的實施與支持團隊。這些無形資產是長期積累的結果，無法通過簡單的資本投入來複製，構成了極高的進入壁壘，確保了Tyler的長期競爭優勢。"
+    "comment_zh": "Tyler Technologies 的核心戰略資產具有極高的不可複製性。即使競爭對手擁有千億美元資金，也難以在數年內複製其與數千個政府機構建立的深厚關係、數十年累積的專業領域知識、以及客戶對其產品和服務的信任。政府軟體市場的特殊性，包括漫長的銷售週期、嚴格的合規要求和複雜的集成需求，使得新進入者無法僅憑資本優勢快速建立起同等規模和深度的業務，這構成了極為堅固的護城河。",
+    "comment_en": "Tyler Technologies' core strategic assets possess extremely high irreproducibility. Even if a competitor had a hundred billion dollars, it would be challenging to replicate within a few years the deep relationships built with thousands of government agencies, the decades of accumulated specialized domain expertise, and the trust clients place in its products and services. The unique nature of the government software market, including lengthy sales cycles, stringent compliance requirements, and complex integration needs, prevents new entrants from rapidly establishing a business of comparable scale and depth solely through capital advantage, forming an exceptionally robust moat."
   },
   "m9_customer_retention": {
     "score": 8,
-    "comment": "Tyler Technologies所服務的政府功能（如稅務、司法、公共安全）是社會運作的基石，其需求具有高度的穩定性和不可替代性。儘管技術不斷演進（如雲計算、AI），但這些核心功能的需求本質不會改變。Tyler憑藉其深厚的行業知識和持續的技術投入，能夠將新技術整合到現有解決方案中，而非被其顛覆。其產品的任務關鍵性與高度定制化，使其對技術變革具有強大的免疫力。"
+    "comment_zh": "Tyler Technologies 在技術或典範轉移方面展現出強大的抗性。政府運作的本質決定了其對穩定性、安全性和合規性的極高要求，這使得政府機構在採用新技術時往往持謹慎態度，變革速度較慢。儘管TYL需要不斷更新其軟體以適應技術發展（如雲端化、AI整合），但其核心業務——為政府提供關鍵運營軟體的需求是高度確定的且長期存在的。高轉換成本進一步鞏固了其免受顛覆性技術衝擊的能力。",
+    "comment_en": "Tyler Technologies demonstrates strong immunity to technological or paradigm shifts. The inherent nature of government operations dictates extremely high demands for stability, security, and compliance, leading government agencies to typically adopt new technologies cautiously and at a slower pace. While TYL must continuously update its software to adapt to technological advancements (e.g., cloud migration, AI integration), the fundamental need for its core business—providing critical operational software to governments—is highly certain and long-lasting. High switching costs further solidify its ability to withstand disruptive technological impacts."
   },
   "m10_durability": {
     "score": 7,
-    "comment": "Tyler Technologies擁有9.7億美元現金和7.14億美元的自由現金流，相對於14.55億美元的總負債，財務狀況穩健。這表明管理層在財務管理上相對審慎。雖然具體回購或併購策略未詳述，但穩定的盈利能力和持續的市場領導地位暗示了其資本配置策略是有效的，能夠支持業務增長並可能通過適當的股東回報（如回購或股息）來最大化股東價值。良好的資本配置是長期價值創造的基石。"
+    "comment_zh": "儘管具體的併購歷史和股票回購細節未直接提供，但Tyler Technologies 穩健的財務狀況和持續的自由現金流（FCF TTM $714.3M）表明其管理層具備良好的資本配置潛力。在巴菲特哲學中，優秀的管理層應避免盲目高價併購，並在股價被低估時積極回購股票以提升股東價值。公司擁有健康的現金儲備（$970.0M）和可控的負債水平（$1,455.0M），這為其在未來進行戰略性投資或股本管理提供了靈活性，預期管理層會以股東利益為導向。",
+    "comment_en": "Although specific M&A history and share buyback details are not directly provided, Tyler Technologies' robust financial health and consistent free cash flow (FCF TTM $714.3M) suggest its management possesses strong capital allocation potential. In Buffett's philosophy, excellent management should avoid blind, overpriced acquisitions and actively repurchase shares when undervalued to enhance shareholder value. The company holds healthy cash reserves ($970.0M) and manageable debt levels ($1,455.0M), providing flexibility for future strategic investments or equity management, with an expectation that management will act in shareholders' best interests."
   },
-  "overall_moat_verdict": "Tyler Technologies本質上是一個為各級政府提供「收費橋樑」服務的特許經營平台。其最堅固的護城河源於極高的客戶轉換成本，政府機構一旦採用其任務關鍵型軟體，便難以脫離。輔以對複雜監管環境的深刻理解、數十年積累的客戶信任與品牌聲譽，以及規模經濟帶來的成本優勢，共同構築了其強大的競爭壁壘。這些無形資產和深度嵌入性，使得Tyler在公共部門軟體市場中享有穩定的定價權和持續的超額回報能力，是典型的巴菲特式「好生意」。"
+  "overall_moat_verdict_zh": "Tyler Technologies 本質上是一家在政府軟體領域築起堅固「收費橋樑」的特許經營型企業。其核心護城河源於極高的客戶轉換成本，一旦政府機構採用其關鍵運營軟體，替換的代價幾乎無法承受。輔以對政府複雜法規的深刻理解、規模經濟帶來的成本優勢，以及數十年累積的客戶信任與專業知識的不可複製性，共同構建了其難以逾越的競爭壁壘。公司在一個需求穩定、對技術變革抗性強的利基市場中，享有持續的定價權和穩定的現金流，使其成為典型的巴菲特式「好生意」，具備長期投資價值。",
+  "overall_moat_verdict_en": "Tyler Technologies fundamentally operates as a 'toll bridge' franchise within the government software sector, fortified by an exceptionally robust economic moat. Its core competitive advantage stems from extremely high customer switching costs; once government agencies adopt its critical operational software, the cost of replacement becomes almost prohibitive. This is further bolstered by a profound understanding of complex government regulations, cost advantages derived from economies of scale, and the irreproducibility of decades of accumulated customer trust and specialized expertise. Operating in a stable, niche market with strong immunity to technological disruption, the company enjoys sustained pricing power and predictable cash flows, making it a quintessential Buffett-style 'good business' with long-term investment value."
 }

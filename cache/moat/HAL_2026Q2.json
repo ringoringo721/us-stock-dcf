@@ -2,44 +2,55 @@
   "ticker": "HAL",
   "period": "2026Q2",
   "m1_brand_pricing": {
-    "score": 5,
-    "comment": "Halliburton作為全球領先的油田服務公司，其品牌在能源產業內享有高度認可，但其定價權受制於高度週期性的油氣商品價格與上游資本支出。儘管其提供鑽井、完井等關鍵技術服務，且具備規模優勢，但客戶在市場下行時仍有議價空間。公司雖能透過技術創新與整合解決方案提升價值，但本質上仍屬商品型服務，難以像消費品牌般擁有強大的自主提價能力。其定價權更多來自於技術複雜性與服務效率，而非品牌忠誠度。"
+    "score": 6,
+    "comment_zh": "Halliburton作為全球領先的油田服務供應商，其品牌在能源行業內具有一定認知度，但其定價權主要受全球油氣價格波動及客戶（油氣生產商）資本支出影響。儘管其技術專長和綜合解決方案能提供差異化價值，使其在特定高端服務領域擁有較強議價能力，但整體而言，該行業的商品化屬性限制了其持續的超強定價權。與消費品牌不同，客戶更注重效率、可靠性和成本效益，而非單純的品牌忠誠度。",
+    "comment_en": "Halliburton, a leading oilfield services provider, possesses brand recognition within the energy sector. However, its pricing power is largely dictated by global oil and gas price fluctuations and client (E&P companies) capital expenditures. While its technological expertise and integrated solutions offer differentiated value, granting it stronger negotiation power in specialized, high-end services, the overall commodity-like nature of the industry limits its sustained, robust pricing power. Unlike consumer brands, clients prioritize efficiency, reliability, and cost-effectiveness over mere brand loyalty."
   },
   "m2_patents_regulatory": {
-    "score": 7,
-    "comment": "Halliburton在油田服務領域擁有龐大的專利組合，涵蓋鑽井、完井、生產優化等核心技術，這些專利構成重要的技術壁壘，使其在特定服務環節具備領先優勢。例如，其完井技術和壓裂解決方案在全球市場佔有重要地位。此外，能源產業嚴格的環境與安全法規，以及各國政府的許可要求，也為新進入者設置了高門檻，Halliburton憑藉其長期積累的合規經驗與全球運營能力，有效鞏固了其市場地位。"
+    "score": 8,
+    "comment_zh": "Halliburton在油田服務領域擁有龐大的專利組合，尤其在鑽井、完井和生產優化技術方面具備顯著優勢。這些專利構成重要的技術壁壘，保護其創新成果免受競爭對手直接複製，使其能夠提供獨特的解決方案。此外，能源行業嚴格的環境、安全和操作法規，對新進入者構成高昂的合規成本和時間門檻，Halliburton作為成熟企業，已具備完善的體系和許可，這無形中強化了其市場地位。",
+    "comment_en": "Halliburton holds an extensive patent portfolio in oilfield services, particularly in drilling, completion, and production optimization technologies. These patents form a significant technological barrier, protecting its innovations from direct replication by competitors and enabling the offering of unique solutions. Furthermore, the energy industry's stringent environmental, safety, and operational regulations impose high compliance costs and time hurdles for new entrants. As an established player, Halliburton possesses well-developed systems and permits, implicitly strengthening its market position."
   },
   "m3_high_switching_costs": {
     "score": 7,
-    "comment": "Halliburton為客戶提供高度整合且複雜的油田服務解決方案，一旦客戶採用其服務，轉換供應商將面臨顯著的轉換成本。這包括重新認證新供應商、潛在的營運中斷風險、設備兼容性問題以及員工培訓成本。特別是在深水或非常規油氣開發等高技術難度項目中，客戶對服務穩定性和可靠性要求極高，更換供應商可能導致項目延誤和巨額損失，因此客戶傾向於維持與Halliburton的長期合作關係。"
+    "comment_zh": "對於油氣生產商而言，一旦採用Halliburton的整合性油田服務解決方案，更換供應商將面臨顯著的轉換成本。這不僅包括重新培訓員工、調整操作流程、數據遷移的複雜性，更可能導致項目延誤和潛在的生產損失。Halliburton提供的專業技術、設備與軟體平台深度嵌入客戶的作業流程，形成高度依賴性。這種高轉換成本為公司構建了堅實的護城河，確保了客戶關係的穩定性和持續的服務收入。",
+    "comment_en": "For oil and gas producers, switching from Halliburton's integrated oilfield service solutions incurs significant costs. These include not only employee retraining, operational process adjustments, and data migration complexities but also potential project delays and production losses. Halliburton's specialized technology, equipment, and software platforms are deeply embedded in client workflows, creating high dependency. These substantial switching costs build a robust moat for the company, ensuring stable client relationships and recurring service revenue."
   },
   "m4_network_effects": {
     "score": 2,
-    "comment": "Halliburton所處的油田服務產業，其商業模式本質上不具備典型的網絡效應。公司的價值增長主要來自於其技術創新、服務廣度與深度，以及全球運營規模，而非因客戶數量增加而使所有參與者價值呈幾何級數上升。儘管其龐大的客戶基礎可能帶來數據積累和經驗傳承，但這並非巴菲特所指的「雙向網絡正反饋」護城河。客戶的增加並不會直接提升其他客戶對Halliburton服務的感知價值。"
+    "comment_zh": "Halliburton的商業模式本質上是提供專業的油田服務和技術，而非依賴用戶間互動產生價值的平台型業務。儘管其廣泛的客戶基礎和項目經驗有助於累積行業知識和數據，進而優化服務和產品，但這並非典型的「網絡效應」。客戶選擇Halliburton是基於其技術實力、服務質量和成本效益，而非因為其他客戶的存在會直接提升其服務價值。因此，網絡效應對Halliburton而言，並非其核心護城河。",
+    "comment_en": "Halliburton's business model primarily involves providing specialized oilfield services and technology, rather than a platform business where value is generated through user interaction. While its extensive client base and project experience contribute to accumulating industry knowledge and data, thereby optimizing services and products, this does not constitute a typical \"network effect.\" Clients choose Halliburton based on its technical prowess, service quality, and cost-effectiveness, not because the presence of other clients directly enhances the service's value. Therefore, network effects are not a core moat for Halliburton."
   },
   "m5_cost_advantage_scale": {
     "score": 8,
-    "comment": "Halliburton作為全球最大的油田服務公司之一，其規模經濟優勢極為顯著。公司擁有龐大的設備資產、全球化的供應鏈網絡以及遍布各地的運營基地，使其能夠以更低的單位成本提供服務，並有效分攤研發投入。這種規模使其在採購、物流和技術開發上具備小型競爭者無法比擬的成本優勢。例如，其在壓裂設備和鑽井工具的部署能力，能有效降低邊際成本，並在市場波動時保持競爭力。"
+    "comment_zh": "Halliburton作為全球最大的油田服務公司之一，其龐大的規模帶來顯著的成本優勢。公司能夠在全球範圍內進行大規模採購，獲得更低的原材料和設備成本；其廣泛的物流網絡和全球佈局，有效降低了運營費用。此外，巨額的研發投入可以攤銷到更多的服務項目中，使其在技術創新上保持領先，同時單位成本更低。這種規模經濟使得Halliburton能夠以競爭對手難以匹敵的效率和成本提供服務，形成強大的競爭壁壘。",
+    "comment_en": "As one of the world's largest oilfield service companies, Halliburton benefits significantly from economies of scale, leading to substantial cost advantages. The company can procure materials and equipment globally at lower costs due to its massive purchasing power. Its extensive logistics network and global footprint effectively reduce operational expenses. Furthermore, substantial R&D investments can be amortized across numerous service projects, allowing it to maintain technological leadership at a lower unit cost. This scale enables Halliburton to provide services with efficiency and cost that competitors struggle to match, forming a robust competitive barrier."
   },
   "m6_unique_geography_assets": {
-    "score": 6,
-    "comment": "油田服務產業雖然整體市場龐大，但在某些高度專業化和資本密集型的細分領域，如深水鑽井、非常規油氣開發或特定地質條件下的完井服務，Halliburton確實受益於「有效規模」的護城河。這些領域進入門檻極高，需要巨額資本投入和頂尖技術，使得新競爭者難以進入並與現有巨頭競爭。市場容量雖大，但能有效服務的供應商數量有限，形成寡占格局，避免了過度競爭導致的雙輸局面。"
+    "score": 7,
+    "comment_zh": "油田服務行業並非傳統意義上的利基市場，但其高度資本密集、技術複雜且受嚴格監管的特性，使其呈現出寡頭壟斷的格局。Halliburton與少數幾家巨頭共同主導全球市場，新競爭者進入面臨極高的資金、技術和合規壁壘。市場容量雖大，但要達到Halliburton的規模和效率，需要天文數字般的投資和數十年的經驗積累。這種「有效規模」使得市場自然傾向於由少數大型參與者瓜分，任何新進入者都難以在不引發價格戰的情況下取得立足之地，從而保護了現有巨頭的盈利能力。",
+    "comment_en": "The oilfield services industry is not a niche market in the traditional sense, but its highly capital-intensive, technologically complex, and strictly regulated nature has led to an oligopolistic structure. Halliburton, alongside a few other giants, dominates the global market, with new entrants facing extremely high capital, technology, and compliance barriers. While the market capacity is large, achieving Halliburton's scale and efficiency requires astronomical investment and decades of accumulated experience. This \"efficient scale\" naturally favors a few large players, making it difficult for any new entrant to gain a foothold without triggering price wars, thus protecting the profitability of existing giants."
   },
   "m7_operational_efficiency": {
-    "score": 6,
-    "comment": "Halliburton的ROE為14.6%，ROA為6.2%，且Piotroski F-Score高達8/9，顯示其當前營運效率與財務健康狀況良好。然而，油田服務產業的資本密集特性與高度週期性，使其投入資本回報率（ROIC）的長期穩定性面臨挑戰。儘管公司在景氣上行時能創造可觀的超額回報，但在產業下行週期，其ROIC可能難以持續大幅超越加權平均資本成本（WACC）。這表明其盈利能力受外部環境影響較大，韌性有待時間考驗。"
+    "score": 7,
+    "comment_zh": "Halliburton的ROE為14.6%，ROA為6.2%，顯示其在資本運用上具備一定的效率。儘管油田服務行業具有週期性，但Halliburton憑藉其規模、技術和運營效率，在行業上行週期中能實現穩健的投入資本回報率（ROIC），並有望持續超越其加權平均資本成本（WACC）。皮氏F-Score高達8/9，進一步印證了公司良好的財務健康狀況和盈利質量。這種韌性使其能夠在長期內為股東創造價值，儘管短期內可能受油價波動影響。",
+    "comment_en": "Halliburton's ROE of 14.6% and ROA of 6.2% indicate reasonable capital efficiency. Despite the cyclical nature of the oilfield services industry, Halliburton, leveraging its scale, technology, and operational efficiency, can achieve robust Return on Invested Capital (ROIC) during industry upswings, likely consistently exceeding its Weighted Average Cost of Capital (WACC). A high Piotroski F-Score of 8/9 further corroborates the company's strong financial health and earnings quality. This resilience enables long-term shareholder value creation, albeit with potential short-term impacts from oil price volatility."
   },
   "m8_capital_allocation": {
     "score": 8,
-    "comment": "Halliburton的核心戰略資產，包括其全球化的運營網絡、龐大的專業設備隊伍、數十年積累的技術專利與行業知識，以及與主要油氣生產商建立的深厚客戶關係，是極難複製的。即使給予競爭對手千億美元資金，也無法在短短幾年內重建Halliburton在鑽井、完井等領域的技術深度、全球部署能力和品牌信譽。這種不可複製性源於時間、經驗和複雜系統的長期積累，構成其堅實的護城河。"
+    "comment_zh": "即使給予競爭對手千億美元，也難以在短時間內複製Halliburton的核心戰略資產。這不僅包括其遍佈全球的龐大基礎設施、數十年積累的專有技術和專利組合，更重要的是其與主要油氣生產商建立的深厚客戶關係、經驗豐富的專業團隊以及複雜且高效的全球供應鏈。這些無形資產和運營體系是長期投入和實踐的結晶，無法簡單地用資金堆砌而成，構成了極高的進入壁壘和不可複製的競爭優勢。",
+    "comment_en": "Even with a hundred billion dollars, a competitor would struggle to replicate Halliburton's core strategic assets within a short timeframe. This encompasses not only its vast global infrastructure and decades of accumulated proprietary technology and patent portfolio but, more importantly, its deep client relationships with major oil and gas producers, experienced professional teams, and complex, efficient global supply chain. These intangible assets and operational systems are the culmination of long-term investment and practice, impossible to simply build with capital, thus forming extremely high barriers to entry and an irreproducible competitive advantage."
   },
   "m9_customer_retention": {
     "score": 7,
-    "comment": "儘管全球能源轉型趨勢日益明顯，但對傳統油氣資源的需求在可預見的未來仍將保持強勁，Halliburton所提供的油氣勘探與生產服務是能源供應鏈中不可或缺的一環。其服務的本質是高效、安全地從地下獲取能源，這項核心需求具有高度確定性。雖然技術革新會不斷優化作業方式，但不太可能出現顛覆性技術完全取代其服務。公司亦積極拓展碳捕獲、地熱等新興領域，展現其對未來趨勢的適應性與抗風險能力。"
+    "comment_zh": "儘管全球能源轉型趨勢日益明顯，但石油和天然氣在未來數十年內仍將是全球經濟不可或缺的基礎能源。Halliburton提供的鑽井、完井和生產優化服務，是這些資源高效開採的關鍵環節，需求確定性極高。雖然技術革新不斷，但其核心業務的本質——從地下提取碳氫化合物——並未發生根本性改變。公司也積極投資於數字化和低碳解決方案，以適應行業變化，展現出對顛覆性技術的較強免疫力，確保其服務的長期相關性。",
+    "comment_en": "Despite the growing global energy transition trend, oil and natural gas will remain indispensable foundational energy sources for the global economy for decades to come. Halliburton's drilling, completion, and production optimization services are critical for the efficient extraction of these resources, ensuring high demand certainty. While technological innovation is constant, the core nature of its business—extracting hydrocarbons from underground—has not fundamentally changed. The company is also actively investing in digitalization and lower-carbon solutions to adapt to industry shifts, demonstrating strong immunity to disruptive technologies and ensuring the long-term relevance of its services."
   },
   "m10_durability": {
     "score": 7,
-    "comment": "Halliburton管理層在資本配置方面表現出相對審慎的態度。公司擁有17.25億美元的自由現金流，且Piotroski F-Score高達8/9，顯示其財務管理能力穩健。在適當時機，公司會透過股息和股票回購將價值回饋股東，避免盲目進行高溢價併購。儘管其負債規模相對較大，但管理層在平衡債務、投資與股東回報方面展現出一定的紀律性，致力於最大化長期股東利益，符合巴菲特對管理層誠信與智慧的期望。"
+    "comment_zh": "Halliburton穩健的財務狀況，特別是高達8/9的皮氏F-Score和17.25億美元的自由現金流，反映了管理層在運營效率和財務紀律上的能力。這為公司提供了靈活的資本配置空間。在巴菲特哲學中，優秀的管理層應避免盲目高價併購，並在股價被低估時積極回購股票以提升股東價值。Halliburton的現金流和負債結構表明其有能力執行此類策略，預計管理層會持續以股東利益最大化為導向進行資本配置。",
+    "comment_en": "Halliburton's robust financial health, particularly its high Piotroski F-Score of 8/9 and $1.725 billion in free cash flow, reflects management's competence in operational efficiency and financial discipline. This provides the company with flexible capital allocation options. In Buffett's philosophy, excellent management avoids blind, overpriced acquisitions and actively repurchases shares when undervalued to enhance shareholder value. Halliburton's cash flow and debt structure suggest its capability to execute such strategies, indicating management is likely to continue allocating capital with a focus on maximizing shareholder interests."
   },
-  "overall_moat_verdict": "Halliburton本質上是一家高度專業化、資本密集型的油田服務提供商，而非巴菲特偏好的「收費橋樑」或具備強大消費品牌定價權的企業。其核心競爭壁壘主要來自於巨大的規模經濟、廣泛的專利技術組合、客戶轉換成本高昂以及數十年積累的全球運營經驗與客戶關係，這些資產難以在短時間內被複製。儘管產業具備週期性，但其在特定高技術門檻細分市場形成寡占格局。管理層在資本配置上表現穩健，致力於股東回報，使其在能源產業中具備相對堅固的護城河。"
+  "overall_moat_verdict_zh": "Halliburton本質上是一家全球領先的油田服務與技術供應商，而非具備特許經營權的平台型企業。其核心護城河主要源於巨大的全球運營規模帶來的成本優勢、在鑽井與完井技術領域累積的龐大專利組合、以及客戶因轉換供應商而面臨的高昂成本。能源行業的資本密集與技術複雜性，使其形成寡頭壟斷格局，新進入者難以撼動。儘管其業務受油氣價格週期性影響，但其不可複製的全球基礎設施、深厚客戶關係和持續的技術創新，使其在長期內仍能維持穩健的盈利能力，為股東創造價值。",
+  "overall_moat_verdict_en": "Halliburton is fundamentally a leading global oilfield services and technology provider, rather than a platform business with franchise-like characteristics. Its core moats primarily stem from the cost advantages derived from its immense global operational scale, its extensive patent portfolio accumulated in drilling and completion technologies, and the high switching costs faced by clients when changing suppliers. The capital-intensive and technologically complex nature of the energy industry has fostered an oligopolistic structure, making it difficult for new entrants to challenge. Although its business is subject to oil and gas price cyclicality, its irreproducible global infrastructure, deep client relationships, and continuous technological innovation enable it to maintain robust profitability and create shareholder value over the long term."
 }

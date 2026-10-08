@@ -3,43 +3,54 @@
   "period": "2026Q2",
   "m1_brand_pricing": {
     "score": 9,
-    "comment": "S&P Global憑藉其S&P信用評級和S&P Dow Jones Indices等核心品牌，在全球金融市場建立了無可匹敵的品牌心智與定價權。其評級服務是債券發行和投資決策的基石，而S&P 500指數更是全球市場的基準。客戶對這些關鍵數據和評級的依賴性極高，使其具備強大的提價能力，且客戶轉換成本高昂。即使提高服務費用，客戶為確保交易透明度與合規性，仍會持續使用，這正是巴菲特所推崇的「特許經營權」特徵。"
+    "comment_zh": "S&P Global的品牌在金融市場中具有極高的權威性和公信力，其信用評級和指數（如S&P 500）已成為全球金融業的黃金標準。客戶對其數據和評級的依賴性極強，即使價格上漲，轉換成本和潛在風險也使得客戶難以輕易替換。這種品牌心智的建立非一朝一夕，而是數十年專業積累的結果，賦予公司強大的定價權。競爭對手難以在短期內複製這種信任資產，確保了其在關鍵服務領域的領先地位和盈利能力。",
+    "comment_en": "S&P Global's brand holds immense authority and credibility within financial markets, with its credit ratings and indices (e.g., S&P 500) serving as global gold standards. Clients are highly dependent on its data and ratings, making it difficult to switch providers even with price increases, due to high transition costs and potential risks. This brand equity is built over decades of professional accumulation, granting the company significant pricing power. Competitors cannot easily replicate this trust asset in the short term, ensuring S&P Global's leading position and profitability in critical service areas."
   },
   "m2_patents_regulatory": {
     "score": 9,
-    "comment": "S&P Global的護城河並非傳統意義上的專利，而是來自於全球監管機構的特許許可與高度認可。作為三大信用評級機構之一，其評級服務被各國證券監管機構視為金融市場運作的關鍵基礎設施。這種監管准入形成了極高的進入壁壘，新競爭者難以獲得同等公信力與監管認可。這使得S&P Global享有類似「收費橋樑」的地位，其服務成為金融市場不可或缺的組成部分，確保了穩定的收入流和市場主導地位。"
+    "comment_zh": "S&P Global在金融市場中享有類似特許經營權的地位，尤其是在信用評級領域。作為全球領先的信用評級機構之一，其評級結果常被監管機構和投資者視為投資決策的關鍵依據。這種「被認可的統計評級組織」（NRSRO）地位本身就是一道極高的監管壁壘，新進入者幾乎不可能在短時間內獲得同等認可。此外，其專有的指數編制方法和數據庫也構成了知識產權壁壘，使得競爭對手難以提供同等權威性和廣泛接受度的產品。",
+    "comment_en": "S&P Global enjoys a quasi-franchise status in financial markets, particularly in credit ratings. As a leading global credit rating agency, its ratings are often considered critical by regulators and investors for investment decisions. Its status as a Nationally Recognized Statistical Rating Organization (NRSRO) is a significant regulatory barrier, making it nearly impossible for new entrants to gain similar recognition quickly. Furthermore, its proprietary index methodologies and databases constitute intellectual property barriers, preventing competitors from offering equally authoritative and widely accepted products."
   },
   "m3_high_switching_costs": {
-    "score": 8,
-    "comment": "S&P Global的服務在客戶的日常運營和決策流程中具有極高的黏性。對於金融機構而言，更換信用評級機構或市場數據供應商，不僅意味著高昂的系統整合成本、數據遷移風險，更可能導致內部風險模型失效、合規性問題以及潛在的聲譽損失。這種深度嵌入的特性，使得客戶即使面對價格上漲，也傾向於維持現有合作關係，因為轉換成本遠超潛在的節省。這為公司提供了穩定的收入基礎和強大的議價能力。"
+    "score": 9,
+    "comment_zh": "S&P Global的服務與客戶的日常運營和決策流程深度整合，形成了極高的轉換成本。金融機構、企業和政府將其數據、評級和分析工具嵌入到風險管理、投資組合構建和合規系統中。一旦轉換供應商，不僅需要投入大量的時間和資源進行系統重新配置、數據遷移和員工培訓，還可能面臨數據不一致、業務中斷甚至監管風險。這種深度嵌入性使得客戶即使面對價格上漲，也傾向於維持現有合作關係，為公司提供了穩定的收入流和強大的議價能力。",
+    "comment_en": "S&P Global's services are deeply integrated into clients' daily operations and decision-making processes, creating extremely high switching costs. Financial institutions, corporations, and governments embed its data, ratings, and analytical tools into their risk management, portfolio construction, and compliance systems. Switching providers would entail significant time and resource investment for system reconfiguration, data migration, and employee training, potentially leading to data inconsistencies, business disruptions, or regulatory risks. This deep integration encourages clients to maintain existing relationships even with price increases, providing stable revenue and strong bargaining power."
   },
   "m4_network_effects": {
     "score": 8,
-    "comment": "S&P Global在信用評級和指數業務上展現出顯著的網絡效應。S&P評級被越多發行人採用，其數據庫就越豐富，對投資者的價值就越大；反之，越多投資者依賴S&P評級，其市場認可度就越高，吸引更多發行人。同樣，S&P 500等指數作為全球基準，吸引了大量被動投資產品和衍生品，這進一步鞏固了其市場地位，形成正向循環。每個新參與者都增加了整個生態系統的價值，強化了其護城河。"
+    "comment_zh": "S&P Global的指數業務，特別是S&P 500指數，展現出強大的網絡效應。隨著越來越多的ETF、共同基金和衍生品追蹤這些指數，其流動性和市場接受度不斷提高，進一步吸引了更多投資者和資產管理規模。這種廣泛的採用使得S&P Global的指數成為金融市場的通用語言和基準，其價值隨著用戶數量的增加而呈指數級增長。這種正向循環使得新進入者難以建立同等規模和影響力的指數體系，鞏固了S&P Global的市場領導地位。",
+    "comment_en": "S&P Global's index business, particularly the S&P 500, demonstrates strong network effects. As more ETFs, mutual funds, and derivatives track these indices, their liquidity and market acceptance continuously increase, further attracting more investors and assets under management. This widespread adoption makes S&P Global's indices a universal language and benchmark in financial markets, with their value growing exponentially with the number of users. This virtuous cycle makes it difficult for new entrants to establish index systems of comparable scale and influence, solidifying S&P Global's market leadership."
   },
   "m5_cost_advantage_scale": {
     "score": 8,
-    "comment": "S&P Global在金融數據和評級業務上享有顯著的規模經濟優勢。其全球性的數據採集、分析和分發基礎設施投入巨大，但一旦建立，服務額外客戶的邊際成本極低。龐大的數據量、廣泛的客戶基礎以及全球運營網絡，使得S&P Global能夠以更低的單位成本提供服務，並維持高利潤率。新進入者難以在短期內投入同等資源建立如此龐大的數據生態系統和品牌公信力，這構成了強大的成本壁壘。"
+    "comment_zh": "S&P Global在全球範圍內運營，其數據收集、分析和平台開發具有顯著的規模經濟效應。建立和維護一個涵蓋全球市場的龐大數據庫和分析工具需要巨額的初始投資，但一旦建成，服務額外客戶的邊際成本極低。這使得公司能夠以更低的單位成本提供服務，並實現更高的利潤率，這是小型競爭對手難以匹敵的。這種規模優勢不僅體現在成本結構上，也體現在其數據的廣度和深度上，為客戶提供更全面、更可靠的資訊，進一步鞏固其市場地位。",
+    "comment_en": "S&P Global operates globally, benefiting from significant economies of scale in data collection, analysis, and platform development. Establishing and maintaining a vast global database and analytical tools requires substantial initial investment, but the marginal cost of serving additional customers is extremely low once built. This enables the company to provide services at a lower unit cost and achieve higher profit margins, which smaller competitors cannot match. This scale advantage is evident not only in its cost structure but also in the breadth and depth of its data, providing clients with more comprehensive and reliable information, further solidifying its market position."
   },
   "m6_unique_geography_assets": {
-    "score": 9,
-    "comment": "S&P Global所處的信用評級和金融指數市場，本質上是一個天然寡占的利基市場。由於對公信力、歷史數據和監管認可的極高要求，市場自然傾向於由少數幾家巨頭主導，即所謂的「大三」評級機構。新競爭者即使投入巨資，也難以在短期內建立起同等程度的信任和市場接受度。這種市場結構使得任何試圖進入的行為都可能導致雙輸局面，從而鞏固了S&P Global的市場主導地位和盈利能力。"
+    "score": 8,
+    "comment_zh": "金融信息、信用評級和指數服務市場本質上是一個天然寡占的利基市場。由於對數據的準確性、權威性和標準化有極高要求，市場參與者傾向於選擇少數幾家值得信賴的供應商。S&P Global與Moody's、Fitch等公司共同構成了這個市場的核心。在這種環境下，新的競爭者進入不僅需要巨大的資本投入和時間來建立信譽，還可能導致市場碎片化，降低所有參與者的盈利能力。這種「高效規模」的特性使得市場自然趨於集中，為S&P Global提供了穩定的競爭環境。",
+    "comment_en": "The financial information, credit rating, and index services market is inherently a naturally oligopolistic niche. Due to extremely high demands for data accuracy, authority, and standardization, market participants tend to choose a few trusted providers. S&P Global, along with Moody's and Fitch, forms the core of this market. In this environment, new competitors would require immense capital and time to build credibility, and their entry could fragment the market, reducing profitability for all players. This 'efficient scale' characteristic naturally leads to market concentration, providing S&P Global with a stable competitive landscape."
   },
   "m7_operational_efficiency": {
     "score": 8,
-    "comment": "S&P Global的商業模式具有典型的輕資產特徵，主要依賴知識產權、數據和品牌聲譽。這使得其投入資本回報率（ROIC）能夠長期保持在遠超加權平均資本成本（WACC）的水平。公司持續產生強勁的自由現金流（FCF TTM $5,573.0M），證明其資本配置效率極高，能夠不斷為股東創造實質性的複利價值。這種持續的超額回報能力，是巴菲特衡量企業內在價值和護城河深度的關鍵指標。"
+    "comment_zh": "S&P Global展現出卓越的資本配置效率和長期超額的投入資本回報率（ROIC）。其穩健的ROE（15.6%）和強勁的自由現金流（$5,573.0 M）表明公司能夠持續將資本投入到高回報的業務中，並為股東創造實質價值。這種持續超越加權平均資本成本（WACC）的能力，是其深厚護城河的直接體現。公司在數據、評級和分析領域的領導地位，使其能夠不斷擴大市場份額並維持高利潤率，確保了資本的有效增值，而非僅僅維持現狀。",
+    "comment_en": "S&P Global demonstrates excellent capital allocation efficiency and consistently high returns on invested capital (ROIC) over the long term. Its robust ROE (15.6%) and strong free cash flow ($5,573.0 M) indicate the company's ability to continuously deploy capital into high-return businesses and create substantial shareholder value. This sustained ability to exceed its weighted average cost of capital (WACC) is a direct manifestation of its deep moat. The company's leadership in data, ratings, and analytics allows it to expand market share and maintain high-profit margins, ensuring effective capital appreciation rather than merely sustaining the status quo."
   },
   "m8_capital_allocation": {
-    "score": 9,
-    "comment": "S&P Global的核心戰略資產，如其在全球金融市場累積的數十年品牌信譽、監管機構的深度認可、龐大的歷史數據庫以及與全球客戶建立的深厚關係，是極其難以複製的。即使給予競爭對手千億美元資金，也無法在短時間內重建這種無形資產。這不僅是技術和資金的問題，更是時間、信任和市場接受度的積累。這種不可複製性構成了S&P Global最堅固的護城河之一，確保了其長期競爭優勢。"
+    "score": 8,
+    "comment_zh": "S&P Global的核心資產，如其在全球金融市場建立的品牌信譽、數十年積累的龐大數據庫、與監管機構的深厚關係以及客戶的深度整合，是極難複製的。即使給予競爭對手千億美元的資金，也無法在短時間內建立起同等的公信力、行業標準地位和網絡效應。這種不可複製性源於其歷史沉澱、專業知識和市場信任，而非單純的技術或資本投入。這使得S&P Global的競爭優勢成為一道幾乎無法逾越的鴻溝，確保了其長期競爭力。",
+    "comment_en": "S&P Global's core assets, such as its brand reputation established in global financial markets, decades of accumulated vast databases, deep relationships with regulatory bodies, and profound client integration, are extremely difficult to replicate. Even with hundreds of billions of dollars, competitors could not quickly build comparable credibility, industry standard status, and network effects. This irreproducibility stems from its historical legacy, specialized knowledge, and market trust, rather than mere technology or capital investment. This makes S&P Global's competitive advantage an almost insurmountable barrier, ensuring its long-term competitiveness."
   },
   "m9_customer_retention": {
     "score": 8,
-    "comment": "S&P Global所提供的信用評級和金融市場數據服務，是資本市場運作的基礎設施，其需求具有極高的確定性。儘管技術不斷演進，如人工智能和區塊鏈，可能會優化數據分析和分發方式，但它們難以取代S&P作為獨立、權威信息來源的核心地位。金融市場對信任、透明度和標準化的需求是永恆的，這使得S&P Global對技術變革和典範轉移具有強大的免疫力，確保其業務模式的長期穩定性。"
+    "comment_zh": "S&P Global所處的金融信息和評級行業，對技術變革和典範轉移具有較強的抗性。儘管人工智能和大數據技術可以優化其數據處理和分析效率，但市場對獨立、權威且標準化的金融數據和信用評級的核心需求是持久不變的。人類的專業判斷、監管機構的認可和數十年建立的品牌信任，是機器難以完全取代的。S&P Global能夠將新技術整合到其服務中，而非被其顛覆，這確保了其業務模式在不斷演進的市場中保持相關性和韌性。",
+    "comment_en": "The financial information and rating industry in which S&P Global operates exhibits strong resilience to technological change and paradigm shifts. While AI and big data can optimize its data processing and analytical efficiency, the market's core demand for independent, authoritative, and standardized financial data and credit ratings remains enduring. Human professional judgment, regulatory recognition, and decades of established brand trust are difficult for machines to fully replace. S&P Global's ability to integrate new technologies into its services, rather than being disrupted by them, ensures its business model remains relevant and resilient in an evolving market."
   },
   "m10_durability": {
     "score": 8,
-    "comment": "S&P Global的管理層在資本配置方面展現出穩健和股東友好的特質。公司持續產生強勁的自由現金流（FCF TTM $5,573.0M），為其提供了充足的靈活性進行戰略投資、償還債務或回饋股東。在適當時機，管理層應能有效利用股票回購來提升股東價值，避免盲目高溢價併購。這種對資本紀律的堅持，符合巴菲特對優秀管理層的期望，即將股東利益置於首位，確保資本的有效運用。"
+    "comment_zh": "S&P Global的管理層在資本配置方面展現出穩健的策略，注重股東價值最大化。公司通過戰略性併購（如IHS Markit）來擴大其數據和分析能力，同時也積極通過股票回購和股息派發將資本返還給股東。其穩健的皮氏F-Score（7/9）和強勁的自由現金流（$5,573.0 M）反映了良好的財務紀律和運營效率。儘管總負債相對較高，但管理層在平衡增長投資與財務穩健性方面表現出審慎態度，致力於長期創造複利效應，符合巴菲特對優秀管理層的期望。",
+    "comment_en": "S&P Global's management demonstrates a robust capital allocation strategy, prioritizing shareholder value maximization. The company expands its data and analytical capabilities through strategic acquisitions (e.g., IHS Markit) while actively returning capital to shareholders via share buybacks and dividends. Its solid Piotroski F-Score (7/9) and strong free cash flow ($5,573.0 M) reflect sound financial discipline and operational efficiency. Despite relatively high total debt, management exhibits prudence in balancing growth investments with financial stability, committed to long-term compounding, aligning with Buffett's expectations for excellent management."
   },
-  "overall_moat_verdict": "S&P Global本質上是一個典型的「收費橋樑」型企業，為全球金融市場提供不可或缺的基礎設施服務。其核心競爭壁壘源於無形資產：無可匹敵的品牌信譽、全球監管機構的特許認可，以及深度嵌入客戶工作流程的數據服務。公司受益於強大的網絡效應，尤其在指數和評級業務中，每個參與者的加入都提升了整體生態系統的價值。高昂的客戶轉換成本、顯著的規模經濟優勢，以及市場天然的寡占結構，共同構建了難以逾越的進入壁壘。這賦予了S&P Global卓越的定價權和長期盈利能力，使其成為一台高度抗顛覆、可預測的現金生成機器，其核心戰略資產幾乎無法被複製。"
+  "overall_moat_verdict_zh": "S&P Global本質上是一家典型的「收費橋樑」型企業，其業務模式如同金融市場的基礎設施，為全球投資者、企業和政府提供不可或缺的信用評級、市場指數和金融數據服務。公司憑藉其無可比擬的品牌權威性、監管特許地位、極高的客戶轉換成本、強大的網絡效應和規模經濟，構建了多層次的堅固護城河。它不直接承擔市場風險，卻能從金融市場的每一次交易和資本流動中穩定獲利。這使其成為一個具備長期可預測性、高利潤率和持續增長潛力的特許經營權平台，符合巴菲特尋求的「簡單、可理解且具備持久競爭優勢」的優質企業特徵。",
+  "overall_moat_verdict_en": "S&P Global fundamentally operates as a classic 'toll bridge' business, providing indispensable credit ratings, market indices, and financial data services that are deeply embedded in the global financial ecosystem. The company has constructed a formidable, multi-layered economic moat through its unparalleled brand authority, regulatory franchise status, extremely high customer switching costs, potent network effects, and significant economies of scale. It does not directly assume market risk but consistently profits from every transaction and capital flow within the financial markets. This positions S&P Global as a highly predictable, high-margin, and sustainably growing franchise platform, embodying Buffett's ideal characteristics of a 'simple, understandable business with a durable competitive advantage'."
 }

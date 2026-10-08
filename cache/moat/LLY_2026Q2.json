@@ -3,43 +3,54 @@
   "period": "2026Q2",
   "m1_brand_pricing": {
     "score": 9,
-    "comment": "Eli Lilly憑藉其在糖尿病、肥胖症及阿茲海默症等關鍵治療領域的突破性創新藥物，展現出強大的品牌心智與定價權。例如，Mounjaro和Zepbound等GLP-1受體激動劑，因其卓越的療效和改善患者生活品質的潛力，即使價格較高，市場需求依然旺盛。這種定價能力源於藥物的獨特性、醫療的必要性以及缺乏直接的有效替代品。患者和醫生對其產品的信任度高，使得公司能夠在不顯著影響銷量的情況下，維持甚至提升產品價格，這正是巴菲特所推崇的「特許經營權」特徵。"
+    "comment_zh": "禮來憑藉其突破性藥物如Mounjaro/Zepbound在糖尿病與肥胖症市場建立起強大品牌心智與定價權。這些創新療法因其卓越療效，滿足了巨大的未被滿足的醫療需求，使公司能夠設定高昂價格而客戶（患者與支付方）依然願意支付。這種能力源於數十年來在研發上的巨額投入與科學突破，而非單純的行銷。其產品的獨特性與臨床優勢，使其在競爭激烈的市場中脫穎而出，形成難以撼動的品牌忠誠度與市場領導地位，遠超僅靠廣告建立的品牌。",
+    "comment_en": "Eli Lilly commands significant brand mindshare and pricing power, particularly with breakthrough drugs like Mounjaro/Zepbound in the diabetes and obesity markets. These innovative therapies address substantial unmet medical needs with superior efficacy, enabling the company to set premium prices that customers (patients and payers) are willing to bear. This capability stems from decades of massive R&D investment and scientific breakthroughs, not merely marketing. The uniqueness and clinical advantages of its products allow it to stand out in a competitive market, fostering strong brand loyalty and market leadership that goes far beyond advertising-driven brands."
   },
   "m2_patents_regulatory": {
-    "score": 9,
-    "comment": "Eli Lilly的護城河核心在於其龐大的專利組合和嚴格的監管壁壘。藥物研發是一個漫長、高成本且高風險的過程，一旦成功，專利能提供長達數年的市場獨佔期，保護其巨額研發投入。美國FDA等監管機構的嚴格審批流程，不僅確保了藥物的安全性和有效性，也為新進入者設置了極高的門檻。這種獨家特許經營權，使得競爭對手即使擁有資金，也難以在短期內複製其核心產品，為公司帶來穩定的超額利潤。"
+    "score": 10,
+    "comment_zh": "禮來的核心護城河之一是其龐大的專利組合和嚴格的監管審批壁壘。每項新藥的成功上市都伴隨著數十年的專利保護，賦予公司在特定治療領域的獨家經營權。這不僅阻止了仿製藥的即時競爭，也為公司提供了充足的時間收回巨額研發成本並獲取超額利潤。藥物開發的漫長、複雜且高風險的監管流程，本身就是一道極高的進入門檻，讓潛在競爭者望而卻步，確保了禮來在創新藥物市場的壟斷地位。",
+    "comment_en": "A cornerstone of Eli Lilly's moat is its extensive patent portfolio and stringent regulatory approval barriers. Each successful new drug launch is accompanied by decades of patent protection, granting the company exclusive rights in specific therapeutic areas. This not only prevents immediate generic competition but also provides ample time to recoup massive R&D costs and generate supernormal profits. The lengthy, complex, and high-risk regulatory process for drug development itself acts as an extremely high barrier to entry, deterring potential competitors and ensuring Lilly's monopolistic position in the innovative drug market."
   },
   "m3_high_switching_costs": {
     "score": 8,
-    "comment": "對於Eli Lilly的藥物使用者而言，轉換成本顯著。患者一旦開始使用某種有效且耐受性良好的藥物，出於對療效穩定性、潛在副作用以及醫生處方習慣的考慮，通常不願輕易更換。特別是針對慢性病或危及生命的疾病，轉換藥物可能帶來健康風險或需要重新適應，導致時間、金錢和心理上的額外負擔。這種「黏性」使得患者對Eli Lilly的產品產生依賴，為公司提供了穩定的收入流，是其護城河的重要組成部分。"
+    "comment_zh": "對於禮來的許多創新藥物，特別是針對慢性疾病的治療，患者和醫生都面臨顯著的轉換成本。一旦患者對某種藥物產生良好反應並建立起治療方案，轉換到另一種藥物可能意味著潛在的健康風險、療效不確定性以及重新適應的麻煩。醫生也傾向於使用他們熟悉且信任的藥物，因為這能降低醫療失誤的風險並提高治療效率。這種慣性與對已知療效的依賴，為禮來的產品提供了強大的客戶黏性，使其不易被輕易替代。",
+    "comment_en": "For many of Eli Lilly's innovative drugs, especially those for chronic conditions, both patients and physicians face significant switching costs. Once a patient responds well to a medication and a treatment regimen is established, switching to another drug can entail potential health risks, uncertain efficacy, and the hassle of readaptation. Physicians also tend to stick with drugs they are familiar with and trust, as this reduces the risk of medical errors and improves treatment efficiency. This inertia and reliance on known efficacy provide strong customer stickiness for Lilly's products, making them not easily replaceable."
   },
   "m4_network_effects": {
-    "score": 4,
-    "comment": "儘管製藥行業的網絡效應不如科技平台那樣直接，但Eli Lilly的廣泛產品採用仍能產生間接的強化作用。隨著其藥物被越來越多的醫生處方和患者使用，累積的真實世界數據和臨床經驗會進一步鞏固其在醫學界的地位。醫生對藥物的熟悉度增加，學術論文和治療指南中對其產品的引用也會增多，形成一種良性循環，提升了產品的信譽和市場接受度。這種效應雖不明顯，卻能逐步強化其市場領導地位。"
+    "score": 6,
+    "comment_zh": "雖然製藥業的網絡效應不如科技平台直接，但禮來的廣泛產品採用率仍能產生間接正反饋。當其藥物被廣泛使用時，會累積更多真實世界數據，增強醫生對其療效和安全性的信心，進而促使更多醫生處方。這也可能影響治療指南的制定，進一步鞏固其市場地位。這種「口碑」和數據積累效應，使得禮來的新藥一旦成功，便能形成自我強化的良性循環，為新進入者設置了更高的信任和數據壁壘。",
+    "comment_en": "While network effects in pharmaceuticals are less direct than in tech platforms, Eli Lilly's widespread product adoption still generates indirect positive feedback. When its drugs are widely used, more real-world data accumulates, enhancing physician confidence in their efficacy and safety, which in turn encourages more prescriptions. This can also influence the development of treatment guidelines, further solidifying its market position. This \"word-of-mouth\" and data accumulation effect creates a self-reinforcing virtuous cycle for Lilly's successful new drugs, setting higher trust and data barriers for new entrants."
   },
   "m5_cost_advantage_scale": {
-    "score": 8,
-    "comment": "Eli Lilly在全球範圍內的巨大規模為其帶來顯著的成本優勢。龐大的研發投入（每年數十億美元）可以分攤到多個潛在的成功藥物上，降低單一藥物的研發風險。其全球化的生產設施和分銷網絡，能夠實現規模經濟，降低單位生產成本和物流費用。此外，作為行業巨頭，Eli Lilly在與供應商和支付方進行談判時，也擁有更強的議價能力，進一步鞏固了其成本領先地位，這是小型競爭者難以企及的。"
+    "score": 9,
+    "comment_zh": "禮來作為全球領先的製藥巨頭，在研發、生產和全球分銷方面享有顯著的規模經濟優勢。其龐大的研發預算使其能夠承擔高風險、高投入的創新項目，並在全球範圍內進行大規模臨床試驗。在生產方面，大規模採購原材料和高效的生產流程降低了單位成本。此外，其遍布全球的銷售和分銷網絡，使得新藥能夠迅速觸達廣大市場，這些都是小型競爭者難以匹敵的。這種規模優勢轉化為成本效益和市場滲透力，強化了其競爭壁壘。",
+    "comment_en": "As a leading global pharmaceutical giant, Eli Lilly enjoys significant economies of scale in R&D, manufacturing, and global distribution. Its vast R&D budget allows it to undertake high-risk, high-investment innovation projects and conduct large-scale clinical trials worldwide. In manufacturing, large-volume raw material procurement and efficient production processes reduce unit costs. Furthermore, its extensive global sales and distribution network enables new drugs to quickly reach broad markets, advantages that smaller competitors cannot easily match. This scale advantage translates into cost efficiency and market penetration, reinforcing its competitive barrier."
   },
   "m6_unique_geography_assets": {
     "score": 7,
-    "comment": "Eli Lilly在特定治療領域展現出「有效規模」的護城河。例如，在糖尿病、肥胖症和阿茲海默症等高門檻、高投入的疾病領域，市場容量雖大，但成功開發和商業化突破性藥物所需的巨大資本、頂尖科學人才和漫長監管流程，自然限制了能夠有效競爭的企業數量。這使得這些市場呈現寡頭壟斷格局，新進入者即便擁有資金，也難以在短期內建立起同等規模的研發和商業化能力，從而避免了惡性競爭。"
+    "comment_zh": "禮來在某些特定治療領域，如糖尿病、肥胖症和阿茲海默症等，通過其突破性創新藥物，實際上創造了或鞏固了天然寡占市場。這些領域的藥物研發投入巨大、風險極高，且監管審批流程漫長，使得只有少數具備雄厚實力的大型藥企能夠參與競爭。一旦成功，市場容量雖大，但由於進入壁壘極高，新競爭者難以輕易分一杯羹，形成少數幾家公司主導的局面，避免了惡性競爭，確保了禮來在這些高價值市場的領先地位。",
+    "comment_en": "Eli Lilly, through its breakthrough innovative drugs in specific therapeutic areas like diabetes, obesity, and Alzheimer's, has effectively created or solidified naturally oligopolistic markets. Drug development in these fields requires immense investment, carries extremely high risks, and involves lengthy regulatory approval processes, meaning only a few well-resourced large pharmaceutical companies can compete. Once successful, despite the large market size, the extremely high barriers to entry make it difficult for new competitors to easily gain a foothold, leading to a market dominated by a few players, preventing destructive competition, and securing Lilly's leading position in these high-value markets."
   },
   "m7_operational_efficiency": {
     "score": 9,
-    "comment": "Eli Lilly卓越的運營效率體現在其高達78.8%的股東權益報酬率（ROE）和18.8%的資產報酬率（ROA）。這些數據遠超其加權平均資本成本（WACC），表明公司能夠持續高效地將投入資本轉化為豐厚利潤。這種持續創造超額回報的能力，是巴菲特衡量企業內在價值和護城河深度的關鍵指標。它證明了Eli Lilly不僅擁有強大的產品組合，更具備將這些產品商業化並實現資本高效利用的卓越管理能力。"
+    "comment_zh": "禮來高達78.8%的股東權益報酬率（ROE）和18.8%的資產報酬率（ROA）強烈表明其具備卓越的資本配置效率和持續創造超額回報的能力。這遠超其加權平均資本成本（WACC），證明了公司不僅能有效利用資本，還能將其轉化為顯著的股東價值。這種持續的高ROIC韌性是其強大護城河的直接體現，反映了其創新藥物的定價權、專利保護和規模經濟優勢，使其能夠長期保持高盈利能力。",
+    "comment_en": "Eli Lilly's impressive 78.8% Return on Equity (ROE) and 18.8% Return on Assets (ROA) strongly indicate exceptional capital allocation efficiency and a sustained ability to generate excess returns. These figures significantly surpass its Weighted Average Cost of Capital (WACC), demonstrating that the company not only utilizes capital effectively but also translates it into substantial shareholder value. This enduring high ROIC resilience is a direct manifestation of its robust moat, reflecting the pricing power of its innovative drugs, patent protection, and economies of scale, enabling it to maintain high profitability over the long term."
   },
   "m8_capital_allocation": {
     "score": 9,
-    "comment": "Eli Lilly的核心戰略資產是不可複製的。即使給予競爭對手數千億美元，也無法在幾年內複製其數十年積累的深厚科學知識、頂尖的研發團隊、龐大的專利組合、與全球監管機構建立的信任關係，以及遍布全球的商業化網絡。這些無形資產是長期投入和經驗積累的結果，構成了其獨特的競爭優勢。這種不可複製性確保了Eli Lilly在創新藥物領域的長期領先地位，是其最堅固的護城河之一。"
+    "comment_zh": "禮來的核心戰略資產，包括其數十年積累的科學研發能力、深厚的藥物管線、全球頂尖的科學人才、與監管機構的長期合作關係，以及複雜的全球生產與分銷網絡，是即使給予千億美元也無法在短時間內複製的。這不僅是資金問題，更是時間、經驗、知識和人才的累積。其在生物製藥領域的領先地位，特別是在GLP-1受體激動劑等前沿技術上的突破，代表了難以模仿的科學智慧和執行力，構成了極高的無形資產壁壘。",
+    "comment_en": "Eli Lilly's core strategic assets, including its decades of accumulated scientific R&D capabilities, deep drug pipeline, world-class scientific talent, long-standing relationships with regulatory bodies, and complex global manufacturing and distribution networks, are irreproducible even with hundreds of billions of dollars in a short timeframe. This is not merely a matter of capital but an accumulation of time, experience, knowledge, and talent. Its leading position in biopharmaceuticals, particularly breakthroughs in cutting-edge technologies like GLP-1 receptor agonists, represents inimitable scientific acumen and execution, forming an extremely high intangible asset barrier."
   },
   "m9_customer_retention": {
     "score": 8,
-    "comment": "Eli Lilly的業務對技術顛覆和典範轉移具有強大免疫力。儘管AI等新技術可以輔助藥物研發，但人類對健康和生命的根本需求是永恆且不可替代的。藥物從研發到上市的漫長臨床試驗和嚴格監管流程，也為行業提供了天然的緩衝區，使其不易受到快速、顛覆性變革的衝擊。公司專注於解決重大未滿足醫療需求的創新藥物，確保了其產品需求的高度確定性和長期穩定性。"
+    "comment_zh": "儘管醫學科學不斷進步，但人類對治療疾病和改善健康的根本需求是永恆的。禮來作為創新藥物的領導者，其業務模式本身就是通過不斷的技術突破來滿足這些需求，而非被動地被顛覆。雖然AI等新技術可能加速藥物發現，但藥物開發的臨床試驗、監管審批和市場推廣等核心環節仍需大量時間和資源。禮來積極擁抱新技術，將其融入研發流程，使其成為技術變革的引領者而非受害者，展現出強大的典範轉移抗性。",
+    "comment_en": "While medical science continuously advances, the fundamental human need for treating diseases and improving health is eternal. Eli Lilly, as a leader in innovative pharmaceuticals, thrives by constantly leveraging technological breakthroughs to meet these needs, rather than being passively disrupted. Although new technologies like AI may accelerate drug discovery, core aspects of drug development, such as clinical trials, regulatory approval, and market commercialization, still require significant time and resources. Lilly actively embraces new technologies, integrating them into its R&D process, making it a leader in technological change rather than a victim, demonstrating strong disruption immunity."
   },
   "m10_durability": {
     "score": 8,
-    "comment": "Eli Lilly展現出穩健的資本配置策略。公司擁有高達200億美元的自由現金流，這為其提供了充足的資金進行戰略性研發投入、潛在的補充性併購，以及在股價被低估時進行股票回購以回報股東。其高ROE和ROA也間接證明了管理層在內部資源配置上的高效性。這種對資本的審慎管理和有效利用，確保了公司能夠持續創造股東價值，符合巴菲特對優秀管理層的期望。"
+    "comment_zh": "禮來管理層展現出審慎且以股東價值為導向的資本配置策略。公司持續將巨額自由現金流投入到高潛力的研發項目中，成功孵化出多個重磅藥物，這證明了其對內部增長的重視。同時，公司在維持健康資產負債表的基礎上，通過穩定的股息發放和適時的股票回購，積極回報股東。其Piotroski F-Score 7/9也印證了穩健的財務管理。這種平衡的資本配置策略，避免了盲目擴張，確保了長期價值的創造。",
+    "comment_en": "Eli Lilly's management demonstrates a prudent and shareholder-value-oriented capital allocation strategy. The company consistently reinvests substantial free cash flow into high-potential R&D projects, successfully incubating multiple blockbuster drugs, which underscores its commitment to internal growth. Concurrently, while maintaining a healthy balance sheet, it actively returns value to shareholders through stable dividend payouts and opportunistic share buybacks. Its Piotroski F-Score of 7/9 further validates sound financial management. This balanced capital allocation approach avoids reckless expansion, ensuring long-term value creation."
   },
-  "overall_moat_verdict": "Eli Lilly本質上是一家擁有強大「特許經營權」的製藥巨頭，其護城河深厚且多樣。核心壁壘在於其突破性創新藥物所帶來的專利保護和定價權，這使其產品成為解決人類重大健康問題的「收費橋樑」。高昂的研發投入、嚴格的監管審批以及患者和醫生的轉換成本，共同構建了難以逾越的進入障礙。公司卓越的資本回報率和不可複製的科學積累，進一步鞏固了其市場地位。儘管面臨專利懸崖和研發失敗的風險，但其持續的創新能力和穩健的財務表現，使其成為一家具備長期競爭優勢的優質企業。"
+  "overall_moat_verdict_zh": "禮來公司本質上是一個擁有極其堅固「特許經營權」的企業，其護城河深度與廣度令人印象深刻。它不僅是創新藥物的「收費橋樑」，更是人類健康領域的關鍵解決方案提供者。其核心競爭優勢源於專利保護、卓越的研發能力、強大的品牌定價權以及高昂的客戶轉換成本。這些因素共同構築了難以逾越的進入壁壘，使其能夠長期維持高於行業平均水平的資本回報率。禮來並非商品型企業，而是通過持續的科學突破，為社會提供不可或缺的價值，並因此獲得豐厚回報。",
+  "overall_moat_verdict_en": "Eli Lilly fundamentally operates as a business with an exceptionally robust \"franchise,\" boasting an impressive depth and breadth of economic moats. It functions not merely as a \"toll bridge\" for innovative medicines but as a critical solution provider in human health. Its core competitive advantages stem from patent protection, superior R&D capabilities, strong brand pricing power, and high customer switching costs. These factors collectively construct formidable barriers to entry, enabling the company to consistently maintain returns on capital well above the industry average. Eli Lilly is not a commodity business; rather, through continuous scientific breakthroughs, it provides indispensable value to society and is richly rewarded for it."
 }

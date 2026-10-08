@@ -3,43 +3,54 @@
   "period": "2026Q2",
   "m1_brand_pricing": {
     "score": 8,
-    "comment": "Huntington Ingalls作為美國海軍核動力航空母艦與潛艇的獨家或主要建造商，其產品對國家安全至關重要，賦予其顯著的議價能力。儘管定價受政府採購流程制約，但由於其提供的服務無可替代，且涉及極高的技術壁壘與長期信任關係，客戶（美國政府）在關鍵項目上幾乎沒有其他選擇。這種獨特的地位使其能夠在長期合同中維持合理的利潤空間，並在成本上升時具備一定的轉嫁能力，確保了穩定的收入流和盈利基礎，符合巴菲特對特許經營權企業的定義。"
+    "comment_zh": "亨廷頓英格爾斯作為美國最大的軍用造船商，尤其在航空母艦和核潛艇等關鍵資產的建造上，幾乎是美國政府的唯一選擇。其產品的極端專業性、國家安全的重要性以及極高的進入壁壘，賦予了公司顯著的定價權。儘管政府採購有成本控制，但HII在這些獨特且不可或缺的領域中，能夠在合理的利潤空間內進行議價，客戶幾乎沒有替代選項，確保了其穩定的收入來源和品牌價值。",
+    "comment_en": "Huntington Ingalls, as the largest military shipbuilder in the U.S., particularly for critical assets like aircraft carriers and nuclear submarines, is virtually the sole choice for the U.S. government. The extreme specialization of its products, national security importance, and formidable entry barriers grant the company significant pricing power. Although government procurement involves cost controls, HII can negotiate within reasonable profit margins in these unique and indispensable areas. Customers have virtually no alternatives, ensuring stable revenue streams and brand value."
   },
   "m2_patents_regulatory": {
     "score": 9,
-    "comment": "HII的護城河並非傳統意義上的商業專利，而是深植於嚴格的政府監管、獨特的核動力技術認證以及數十年累積的專有設計與製造工藝。建造核動力艦艇需要極高的安全標準、機密許可和專業知識，這些都是新競爭者難以逾越的巨大壁壘。政府對國防工業的嚴格准入與審批，實際上為HII創造了一個受保護的市場環境，使其在特定領域享有近乎壟斷的地位，確保了其在關鍵國防項目中的不可或缺性。"
+    "comment_zh": "HII的護城河並非傳統意義上的專利，而是由嚴格的政府監管、複雜的認證流程和國家安全許可構成的巨大壁壘。建造航空母艦和核潛艇所需的專業設施、高度熟練的勞動力以及與政府長期建立的信任關係，共同形成了新競爭者幾乎無法逾越的「特許經營權」。這些監管和技術門檻，遠比普通專利更為堅固，確保了其在國防工業中的核心地位。",
+    "comment_en": "HII's moat isn't traditional patents but a formidable barrier formed by stringent government regulations, complex certification processes, and national security clearances. The specialized facilities, highly skilled workforce, and long-standing trust with the government required to build aircraft carriers and nuclear submarines collectively create a 'franchise' that new competitors find virtually insurmountable. These regulatory and technical hurdles are far more robust than typical patents, securing HII's pivotal position in the defense industry."
   },
   "m3_high_switching_costs": {
     "score": 9,
-    "comment": "對於美國海軍而言，更換HII作為核動力航空母艦或潛艇的建造商，將導致天文數字般的財務損失、數十年的項目延誤和無法承受的國家安全風險。這些艦艇的設計、建造和維護涉及極其複雜的系統整合、高度專業化的勞動力和專用設施。一旦選定供應商，其與客戶的關係便深度綁定，任何轉換都意味著巨大的學習曲線、兼容性問題和信任重建成本，使得HII在核心業務上擁有極高的客戶黏性，幾乎沒有替代選項。"
+    "comment_zh": "對於美國海軍而言，更換HII作為主要造船商的轉換成本極高，幾乎不可行。這不僅涉及現有艦隊的維護、升級和新艦建造的連續性，還包括供應鏈的深度整合、人員培訓、系統兼容性以及國家安全戰略的穩定性。一旦選定供應商，其長期合同、技術標準和操作流程的綁定，使得任何轉換都將導致巨大的財務損失、運營中斷和戰略風險，形成極為堅固的客戶黏性。",
+    "comment_en": "For the U.S. Navy, the switching costs associated with replacing HII as a primary shipbuilder are extremely high, almost prohibitive. This encompasses not only the continuity of maintenance, upgrades, and new construction for existing fleets but also deep supply chain integration, personnel training, system compatibility, and national security strategic stability. Once a supplier is chosen, the binding nature of long-term contracts, technical standards, and operational procedures makes any switch entail immense financial losses, operational disruptions, and strategic risks, creating extremely strong customer stickiness."
   },
   "m4_network_effects": {
-    "score": 3,
-    "comment": "HII的商業模式主要基於與美國政府的直接合同關係，而非通過多邊平台或生態系統來實現價值增長。其價值來自於提供高度專業化的國防產品，而非用戶數量增加帶來的網絡效應。儘管在供應鏈內部可能存在一定的協同效應，但這與巴菲特所指的、用戶越多價值越高的傳統網絡效路概念相去甚遠。因此，此維度對HII的護城河貢獻較小，不構成其核心競爭優勢。"
+    "score": 2,
+    "comment_zh": "HII的商業模式不具備典型的網絡效應。其價值並非隨著更多用戶的加入而呈幾何級增長，而是源於其高度專業化的製造能力和與美國政府的獨特關係。儘管與國防生態系統有深度整合，但這更像是供應鏈協同而非網絡效應。公司的競爭優勢來自於其獨特的技術、規模和政府信任，而非用戶基礎的擴大，因此在此維度上護城河較弱。",
+    "comment_en": "HII's business model does not exhibit typical network effects. Its value does not grow geometrically with the addition of more users; rather, it stems from its highly specialized manufacturing capabilities and unique relationship with the U.S. government. While there is deep integration within the defense ecosystem, this is more akin to supply chain synergy than a network effect. The company's competitive advantage derives from its unique technology, scale, and government trust, not from an expanding user base, thus making this moat relatively weak."
   },
   "m5_cost_advantage_scale": {
     "score": 8,
-    "comment": "建造航空母艦和核潛艇需要龐大的資本投入、專業的船塢設施和數萬名高度熟練的工程師與技術工人。HII在這些領域的規模和專業化程度是無與倫比的。其巨大的固定成本被長期、大規模的政府訂單攤薄，形成了顯著的成本優勢。新進入者不僅需要巨額資金，更需要數十年時間來積累相應的技術、人才和基礎設施，這使得HII能夠以競爭對手無法匹敵的效率和成本來完成複雜的造艦任務。"
+    "comment_zh": "作為美國最大的軍用造船商，HII擁有龐大的船塢設施、專業設備和數萬名高技能員工，這些都是巨大的資本投入和時間積累。這種規模使其在採購原材料、設計複雜艦船和執行大型項目時，能夠實現顯著的成本效率和工藝優勢。任何潛在競爭者都難以在短期內複製這種規模和專業知識，H從而形成難以超越的成本壁壘，尤其在建造航空母艦等巨型艦船方面。",
+    "comment_en": "As the largest military shipbuilder in the U.S., HII possesses vast shipyard facilities, specialized equipment, and tens of thousands of highly skilled employees, representing immense capital investment and accumulated time. This scale enables significant cost efficiencies and craftsmanship advantages in procuring raw materials, designing complex vessels, and executing large projects. Any potential competitor would find it challenging to replicate this scale and expertise in the short term, thus creating an insurmountable cost barrier, especially in building colossal ships like aircraft carriers."
   },
   "m6_unique_geography_assets": {
     "score": 9,
-    "comment": "美國海軍核動力艦艇市場是一個典型的天然寡占市場。需求方僅限於美國政府，市場容量有限，且進入壁壘極高。HII作為核動力航空母艦的唯一建造商，以及核潛艇的兩大建造商之一，其市場地位幾乎是壟斷性的。在這樣一個市場中，任何新競爭者的進入都將導致產能過剩和利潤率下降，最終損害所有參與者的利益，因此形成了理性的寡頭格局，為HII提供了穩固的市場份額和盈利能力。"
+    "comment_zh": "HII所處的美國軍用造船市場是一個典型的天然寡占市場。由於國家安全需求、極高的技術門檻和巨大的資本投入，市場容量有限且新進入者幾乎不可能生存。HII與通用動力電船公司共同瓜分了美國海軍大部分的造船業務，尤其在航空母艦和核潛艇領域，HII幾乎是獨家供應商。這種市場結構確保了其在特定利基市場的壟斷地位，新競爭者進入只會導致雙輸局面。",
+    "comment_en": "HII operates in a classic natural oligopoly within the U.S. military shipbuilding market. Due to national security demands, extremely high technological barriers, and massive capital investment, the market capacity is limited, and new entrants are virtually impossible. HII, along with General Dynamics Electric Boat, shares most of the U.S. Navy's shipbuilding business, with HII being almost the sole supplier for aircraft carriers and nuclear submarines. This market structure ensures its monopolistic position in specific niches, where new competition would only lead to a lose-lose scenario."
   },
   "m7_operational_efficiency": {
     "score": 7,
-    "comment": "HII的ROE為12.4%，ROA為5.2%，顯示其能夠持續產生高於資本成本的回報。儘管國防合同的利潤率可能受到政府審查的限制，但其長期、穩定的訂單流和關鍵性地位確保了資本投入的持續回報。在資本密集型行業中，HII能夠維持穩健的盈利能力，並將自由現金流（FCF TTM $376.0M）用於再投資或回報股東，證明其具備創造股東價值的韌性，符合巴菲特對企業持續盈利能力的期望。"
+    "comment_zh": "HII在高度複雜且資本密集的軍用造船領域，展現了穩健的運營效率。儘管國防合同的利潤率可能受限，但公司通過精密的項目管理、優化的生產流程和對專業技術的持續投入，確保了穩定的投入資本回報率（ROIC）。其12.4%的ROE和5.2%的ROA在重資產行業中表現良好，反映了其在長期合同執行和成本控制方面的韌性，能夠持續為股東創造價值，儘管可能不是爆發式增長。",
+    "comment_en": "HII demonstrates robust operational efficiency in the highly complex and capital-intensive military shipbuilding sector. While profit margins on defense contracts may be constrained, the company ensures a stable Return on Invested Capital (ROIC) through meticulous project management, optimized production processes, and continuous investment in specialized technology. Its 12.4% ROE and 5.2% ROA are commendable for an asset-heavy industry, reflecting its resilience in long-term contract execution and cost control, consistently creating shareholder value, albeit not through explosive growth."
   },
   "m8_capital_allocation": {
-    "score": 9,
-    "comment": "即使給予競爭對手千億美元，也無法在短時間內複製HII的核心戰略資產。這不僅包括其獨特的造船設施、專有技術和數十年積累的工程經驗，更重要的是與美國海軍建立的深厚信任關係、嚴格的質量控制體系以及高度專業化且難以培養的勞動力隊伍。這些無形資產和組織能力是時間和經驗的結晶，無法通過簡單的資本投入來快速複製，構成了極其堅固的競爭壁壘。"
+    "score": 6,
+    "comment_zh": "HII的資本配置策略需在滿足高資本支出需求、償還債務與回報股東之間取得平衡。公司自由現金流為3.76億美元，但現金儲備較低（1200萬美元），總負債較高（29.35億美元），這反映了其資本密集型業務的特性。在國防工業中，穩定的股息和適度的股票回購是常見做法。管理層需持續審慎評估投資機會，確保資本有效部署於提升核心競爭力，而非盲目擴張，以最大化長期股東價值。",
+    "comment_en": "HII's capital allocation strategy must balance high capital expenditure needs, debt repayment, and shareholder returns. The company's free cash flow is $376 million, but cash reserves are low ($12 million), and total debt is high ($2.935 billion), reflecting the capital-intensive nature of its business. In the defense industry, stable dividends and moderate share repurchases are common practices. Management must continuously and prudently evaluate investment opportunities, ensuring capital is effectively deployed to enhance core competitiveness rather than blind expansion, to maximize long-term shareholder value."
   },
   "m9_customer_retention": {
-    "score": 8,
-    "comment": "HII所處的國防造船行業，其核心需求源於國家安全戰略，具有極高的確定性和穩定性。儘管造船技術會不斷演進，但對大型、複雜海軍艦艇的需求本質上不會被顛覆性技術（如AI或軟體）所取代。HII的業務是提供實體、高價值、長壽命的軍事資產，這使得它對快速的技術典範轉移具有強大的免疫力，確保了其長期業務的穩定性和可預測性。"
+    "score": 9,
+    "comment_zh": "HII的業務性質決定了其客戶保留率極高，幾乎是百分之百。美國政府作為其主要客戶，對航空母艦、核潛艇等關鍵海軍資產的需求具有極高的確定性和長期性。這些項目通常跨越數十年，涉及設計、建造、維護和升級的整個生命週期。這種深度綁定和不可替代性，使得HII幾乎無需擔心客戶流失，確保了極為穩定的未來訂單和收入流，對技術變革具有強大免疫力。",
+    "comment_en": "HII's business nature dictates extremely high, almost 100%, customer retention. The U.S. government, as its primary client, has highly certain and long-term demand for critical naval assets like aircraft carriers and nuclear submarines. These projects often span decades, encompassing the entire lifecycle of design, construction, maintenance, and upgrades. This deep integration and indispensability mean HII has virtually no concerns about customer churn, ensuring extremely stable future orders and revenue streams, and strong immunity to technological disruption."
   },
   "m10_durability": {
-    "score": 7,
-    "comment": "鑑於HII所處的資本密集型行業特性，其管理層在資本配置上的審慎至關重要。雖然具體回購數據未提供，但穩健的資產負債表（現金$12.0M，總負債$2,935.0M）和持續的自由現金流表明管理層在平衡投資、債務管理和股東回報方面採取了務實的策略。在國防工業中，避免盲目溢價併購，專注於核心能力並適時回購股票，是最大化股東長期利益的關鍵，這與巴菲特的價值投資理念相符。"
+    "score": 9,
+    "comment_zh": "HII的核心資產——建造全球最複雜軍艦的能力，是極其難以複製的。即使給予競爭對手千億美元，也無法在數年內建立起HII所擁有的龐大基礎設施、數十年積累的專業知識、高度專業化的勞動力和與美國政府建立的深厚信任關係。這些無形資產和實體資產的結合，構成了其不可複製的戰略優勢，確保了其護城河的長期堅固性和持久性，使其在國防工業中立於不敗之地。",
+    "comment_en": "HII's core asset—the capability to build the world's most complex warships—is exceptionally difficult to replicate. Even with a hundred billion dollars, a competitor could not, within a few years, establish the vast infrastructure, decades of accumulated expertise, highly specialized workforce, and deep trust built with the U.S. government that HII possesses. The combination of these intangible and tangible assets forms an irreproducible strategic advantage, ensuring the long-term robustness and durability of its moat, making it unassailable in the defense industry."
   },
-  "overall_moat_verdict": "Huntington Ingalls本質上是一家為美國國家安全提供不可或缺服務的「特許經營權」企業，其護城河深厚且多維。它並非傳統意義上的品牌消費品公司，而是憑藉其在核動力艦艇建造領域的獨家技術、龐大且難以複製的基礎設施、高度專業化的勞動力以及與美國政府建立的長期信任關係，築起了極高的進入壁壘。這是一個典型的「收費橋樑」業務，美國海軍別無選擇，必須通過HII這座橋樑來獲取其核心軍事資產。儘管定價權受政府制約，但其業務的關鍵性、高轉換成本和天然寡占市場地位，確保了長期穩定的盈利能力和持續的超額資本回報，使其成為巴菲特眼中具備持久競爭優勢的優質企業。"
+  "overall_moat_verdict_zh": "亨廷頓英格爾斯（HII）本質上是一家為美國政府提供關鍵國家安全服務的「特許經營權」企業，其商業模式類似於一條不可或缺的「收費橋樑」。公司在軍用造船領域，特別是航空母艦和核潛艇的建造上，享有近乎壟斷的地位。其護城河主要由極高的轉換成本、嚴格的監管壁壘、巨大的規模經濟、利基市場的天然寡占以及資產的不可複製性構成。儘管缺乏網絡效應且利潤率受政府合同限制，但其業務的確定性、穩定性和對技術顛覆的強大免疫力，使其成為巴菲特眼中典型的、擁有深厚護城河的優質企業，能夠長期為股東創造可預測的價值。",
+  "overall_moat_verdict_en": "Huntington Ingalls (HII) is essentially a 'franchise' enterprise providing critical national security services to the U.S. government, with a business model akin to an indispensable 'toll bridge.' The company enjoys a near-monopoly in military shipbuilding, particularly for aircraft carriers and nuclear submarines. Its moat is primarily composed of extremely high switching costs, stringent regulatory barriers, significant economies of scale, natural oligopoly in a niche market, and the irreproducible nature of its assets. Despite lacking network effects and having profit margins constrained by government contracts, the certainty, stability, and strong immunity to technological disruption of its business make it a quintessential high-quality company with a deep moat in Buffett's view, capable of generating predictable long-term value for shareholders."
 }
