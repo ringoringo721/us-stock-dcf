@@ -82,8 +82,9 @@ def analyze_stock_moat(ticker: str, latest_period: str, fin_context: Dict[str, A
     else:
         safe_period = str(latest_period).replace("/", "_").strip()
 
-cache_file = os.path.join(CACHE_DIR, f"{ticker}_{safe_period}.json")
+    cache_file = os.path.join(CACHE_DIR, f"{ticker}_{safe_period}.json")
 
+    # 嚴格縮排檢查：如果快取存在，且包含完整的雙語資料，則直接讀取
     if not force_refresh and os.path.exists(cache_file):
         try:
             with open(cache_file, "r", encoding="utf-8") as f:
@@ -563,12 +564,10 @@ def get_canonical_entity_id(prof: dict, ticker: str) -> str:
     2. 公司標準化名稱 (去除 Class A/B/C、Inc. 等字樣)
     3. 代號前綴拆分 (如 BRK.B -> BRK, GOOGL -> GOOG)
     """
-    # 1. 最優先：SEC CIK（最穩定、準確）
     cik = prof.get("cik")
     if cik and str(cik).strip() and str(cik).strip() not in ["0", "None"]:
         return f"CIK_{str(cik).strip()}"
 
-    # 2. 次選：標準化公司名稱
     raw_name = prof.get("companyName") or ""
     if raw_name:
         clean_name = re.sub(
@@ -579,7 +578,6 @@ def get_canonical_entity_id(prof: dict, ticker: str) -> str:
         if len(clean_name) >= 3:
             return f"NAME_{clean_name}"
 
-    # 3. 兜底：根代號拆分 (例如 BRK.B 轉為 BRK)
     root_sym = re.split(r"[\.\-\/]", ticker)[0]
     return f"ROOT_{root_sym}"
 
