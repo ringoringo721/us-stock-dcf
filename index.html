@@ -1347,6 +1347,8 @@
     
     updateSubIndustryButtons();
     renderScreenerTable();
+  if (document.getElementById('moat-view').style.display === 'block') {
+      loadMoatView(activeMoatTicker);
   }
 
   function toggleLanguage() {
@@ -1944,16 +1946,17 @@
     try { return JSON.parse(localStorage.getItem('M7_CUSTOM_VALUATIONS') || '{}'); } catch (e) { return {}; }
   }
 
-  function evaluateMoat(s, explicitTicker) {
+function evaluateMoat(s, explicitTicker) {
     const rawSym = explicitTicker || (s && s.ticker) || "";
     const sym = rawSym.toUpperCase().trim();
     const sec = (s && s.sector) || "其他";
     const moatObj = (s && s.moat) || {};
+    const isEn = (currentLang === 'en');
     
-    const hasAiMoat = !!(moatObj.m1_brand_pricing && (moatObj.m1_brand_pricing.comment || moatObj.m1_brand_pricing.score !== undefined));
+    const hasAiMoat = !!(moatObj.m1_brand_pricing && (moatObj.m1_brand_pricing.comment || moatObj.m1_brand_pricing.comment_zh || moatObj.m1_brand_pricing.comment_en || moatObj.m1_brand_pricing.score !== undefined));
     let m = [6, 6, 6, 5, 6, 6, 6, 6, 6, 6];
     let comments = Array(10).fill("");
-    let ref = "巴菲特價值投資模型 · 綜合研究評估";
+    let ref = isEn ? "Buffett Value Model · Comprehensive Moat Audit" : "巴菲特價值投資模型 · 綜合研究評估";
     let overallComment = "";
 
     const dimKeys = [
@@ -1963,13 +1966,24 @@
     ];
 
     if (hasAiMoat) {
-      ref = `Vertex AI 企業級深度分析 (基準季: ${moatObj.period || '最新'})`;
-      overallComment = moatObj.overall_moat_verdict || "具備明確的商業競爭壁壘與巴菲特護城河特徵。";
+      ref = isEn ? `Vertex AI Enterprise Deep Audit (Quarter: ${moatObj.period || 'Latest'})` : `Vertex AI 企業級深度分析 (基準季: ${moatObj.period || '最新'})`;
+      
+      // 優先選取當前語言之總評
+      if (isEn) {
+        overallComment = moatObj.overall_moat_verdict_en || moatObj.overall_moat_verdict || "Demonstrates defined structural barriers and durable competitive advantages.";
+      } else {
+        overallComment = moatObj.overall_moat_verdict_zh || moatObj.overall_moat_verdict || "具備明確的商業競爭壁壘與巴菲特護城河特徵。";
+      }
+
       dimKeys.forEach((key, idx) => {
         const item = moatObj[key];
         if (item) {
           if (item.score !== undefined) m[idx] = Number(item.score);
-          if (item.comment) comments[idx] = item.comment;
+          // 根據語言選取對應評語
+          let cText = isEn 
+            ? (item.comment_en || item.comment || "Possesses defensive moat advantages in target sector.")
+            : (item.comment_zh || item.comment || "具備一定品牌防禦空間與行業壁壘。");
+          comments[idx] = cText;
         }
       });
     } else {
@@ -1977,29 +1991,39 @@
       else if (sec === "醫療保健") m = [7, 8, 6, 4, 6, 6, 7, 7, 6, 6];
       else if (sec === "金融") m = [6, 6, 6, 6, 6, 6, 6, 6, 6, 6];
       else m = [6, 5, 5, 4, 6, 5, 5, 5, 5, 5];
-      overallComment = `【城堡壁壘】在 ${sec} 行業具備標準化競爭力。`;
+      overallComment = isEn ? `Standardized competitive moat profile in ${sec} industry.` : `【城堡壁壘】在 ${sec} 行業具備標準化競爭力。`;
     }
 
     const total = m.reduce((a, b) => a + b, 0);
-    let grade = "Moderate Moat (中等)";
+    let grade = isEn ? "Moderate Moat" : "Moderate Moat (中等)";
     let badgeClass = "moat-weak";
-    if (total >= 88) { grade = "Wide Moat (極寬) 🏆"; badgeClass = "moat-wide"; }
-    else if (total >= 75) { grade = "Narrow Moat (優質) 🛡️"; badgeClass = "moat-narrow"; }
-    else if (total >= 55) { grade = "Moderate Moat (中等) ⚖️"; badgeClass = "moat-weak"; }
-    else { grade = "Weak / No Moat (微弱) ⚠️"; badgeClass = "moat-none"; }
+    if (total >= 88) { grade = isEn ? "Wide Moat 🏆" : "Wide Moat (極寬) 🏆"; badgeClass = "moat-wide"; }
+    else if (total >= 75) { grade = isEn ? "Narrow Moat 🛡️" : "Narrow Moat (優質) 🛡️"; badgeClass = "moat-narrow"; }
+    else if (total >= 55) { grade = isEn ? "Moderate Moat ⚖️" : "Moderate Moat (中等) ⚖️"; badgeClass = "moat-weak"; }
+    else { grade = isEn ? "Weak / No Moat ⚠️" : "Weak / No Moat (微弱) ⚠️"; badgeClass = "moat-none"; }
 
-    const criteria = [
-      { id: "M1", category: "無形資產", title: "品牌心智與定價權 (Pricing Power)", score: m[0], desc: "提價後客戶黏性與議價權。", comment: comments[0] || "具備一定品牌防禦空間。" },
-      { id: "M2", category: "無形資產", title: "專利壁壘與特許許可 (Patents & Regulatory)", score: m[1], desc: "獨家專利准入或法定特許橋樑。", comment: comments[1] || "持有相關牌照與專利准入門檻。" },
-      { id: "M3", category: "轉換成本", title: "黏性與替代成本 (Switching Costs)", score: m[2], desc: "更換產品是否會造成高昂遷移成本。", comment: comments[2] || "具備一定轉換摩擦力。" },
-      { id: "M4", category: "網絡效應", title: "雙向網絡正反饋 (Network Effects)", score: m[3], desc: "網絡價值隨用戶幾何級上升。", comment: comments[3] || "生態系統具備正向反饋。" },
-      { id: "M5", category: "成本優勢", title: "極致規模經濟與工藝 (Scale Advantage)", score: m[4], desc: "極致低邊際成本或獨家工藝良率。", comment: comments[4] || "採購議價與規模領先同行。" },
-      { id: "M6", category: "有效規模", title: "利基市場天然寡占 (Efficient Scale)", score: m[5], desc: "市場容量有限的天然寡占。", comment: comments[5] || "形成天然理性寡占。" },
-      { id: "M7", category: "資本回報", title: "長週期超額 ROIC 韌性 (ROIC vs WACC)", score: m[6], desc: "投入資本回報率持續跑贏資金成本。", comment: comments[6] || "長期回報優於融資成本。" },
-      { id: "M8", category: "抗威脅力", title: "資本不可複製性 (Irreproducibility)", score: m[7], desc: "即便巨額資本亦難以短期複製。", comment: comments[7] || "核心戰略資產替代門檻高。" },
-      { id: "M9", category: "抗顛覆力", title: "技術/典範轉移抗性 (Disruption Immunity)", score: m[8], desc: "對技術變革或 AI 顛覆具防禦力。", comment: comments[8] || "終端需求剛性。" },
-      { id: "M10", category: "資本配置", title: "管理層誠信與回購配置 (Capital Allocation)", score: m[9], desc: "低估時積極回購註銷股本。", comment: comments[9] || "持續穩定回饋股東。" }
+    // 維度標題雙語字典
+    const criteriaDefs = [
+      { id: "M1", catZh: "無形資產", catEn: "Intangibles", titleZh: "品牌心智與定價權 (Pricing Power)", titleEn: "Brand & Pricing Power", descZh: "提價後客戶黏性與議價權。", descEn: "Pricing power without customer churn." },
+      { id: "M2", catZh: "無形資產", catEn: "Intangibles", titleZh: "專利壁壘與特許許可 (Patents & Regulatory)", titleEn: "Patents & Regulatory Moats", descZh: "獨家專利准入或法定特許橋樑。", descEn: "Protected patents or regulatory barriers." },
+      { id: "M3", catZh: "轉換成本", catEn: "Switching Costs", titleZh: "黏性與替代成本 (Switching Costs)", titleEn: "High Switching Costs", descZh: "更換產品是否會造成高昂遷移成本。", descEn: "Significant friction to migrate." },
+      { id: "M4", catZh: "網絡效應", catEn: "Network Effects", titleZh: "雙向網絡正反饋 (Network Effects)", titleEn: "Two-Sided Network Effects", descZh: "網絡價值隨用戶幾何級上升。", descEn: "Value compounds with scale." },
+      { id: "M5", catZh: "成本優勢", catEn: "Cost Advantage", titleZh: "極致規模經濟與工藝 (Scale Advantage)", titleEn: "Scale Advantage & Cost Moat", descZh: "極致低邊際成本或獨家工藝良率。", descEn: "Lowest marginal operating cost." },
+      { id: "M6", catZh: "有效規模", catEn: "Efficient Scale", titleZh: "利基市場天然寡占 (Efficient Scale)", titleEn: "Efficient Scale & Oligopoly", descZh: "市場容量有限的天然寡占。", descEn: "Limited addressable niche market." },
+      { id: "M7", catZh: "資本回報", catEn: "Capital Return", titleZh: "長週期超額 ROIC 韌性 (ROIC vs WACC)", titleEn: "Durable Excess ROIC", descZh: "投入資本回報率持續跑贏資金成本。", descEn: "ROIC consistently beating WACC." },
+      { id: "M8", catZh: "抗威脅力", catEn: "Replicability", titleZh: "資本不可複製性 (Irreproducibility)", titleEn: "Capital Irreproducibility", descZh: "即便巨額資本亦難以短期複製。", descEn: "Assets cannot be easily duplicated." },
+      { id: "M9", catZh: "抗顛覆力", catEn: "Resilience", titleZh: "技術/典範轉移抗性 (Disruption Immunity)", titleEn: "Disruption Immunity", descZh: "對技術變革或 AI 顛覆具防禦力。", descEn: "Immunity to secular paradigm shifts." },
+      { id: "M10", catZh: "資本配置", catEn: "Capital Alloc", titleZh: "管理層誠信與回購配置 (Capital Allocation)", titleEn: "Capital Allocation Discipline", descZh: "低估時積極回購註銷股本。", descEn: "Smart share repurchases and reinvestment." }
     ];
+
+    const criteria = criteriaDefs.map((def, idx) => ({
+      id: def.id,
+      category: isEn ? def.catEn : def.catZh,
+      title: isEn ? def.titleEn : def.titleZh,
+      score: m[idx],
+      desc: isEn ? def.descEn : def.descZh,
+      comment: comments[idx]
+    }));
 
     return { total, grade, badgeClass, criteria, comment: overallComment, ref, m };
   }
