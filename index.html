@@ -1372,8 +1372,12 @@
   function computeDCF(s, explicitTicker) {
     if (!s) return null;
     const sym = explicitTicker || s.ticker || "";
-    let localDebt = Number(s.debt) || 0;
-    let localCash = Number(s.cash) || 0;
+let localDebt = Number(s.debt) || 0;
+    // 現金及短期投資（若有 short_term_investments 則加總，否則讀取 cashAndShortTermInvestments 或 cash）
+    let localCash = Number(s.cash_and_short_term) || Number(s.cash) || 0;
+    if (s.short_term_investments && Number(s.short_term_investments) > 0) {
+      localCash += Number(s.short_term_investments);
+    }
     let localFCF0 = Number(s.fcf0) || 100;
     const price = Number(s.price) || 1;
     const shares = Number(s.shares) || 1;
@@ -1388,6 +1392,7 @@
     const V = E + localDebt;
     const wE = V > 0 ? E / V : 1;
     const wD = V > 0 ? localDebt / V : 0;
+    // 淨負債 = 總有息負債 - (現金及短期投資)
     const NetDebt = localDebt - localCash;
 
     let beta = 1.0;
@@ -1435,7 +1440,10 @@
     const safeWacc = Math.max(WACC, g + 0.015);
     const tv = (safeWacc > g) ? (fcf11 / (safeWacc - g)) : 0;
     const pvTV = tv * dfList[9];
+// 1. 企業價值 (Enterprise Value, EV) = 10年期自由現金流折現和 + 永續終值折現現值
     const EV = sumPV + pvTV;
+
+    // 2. 股權價值 (Equity Value) = EV - 淨負債 (總有息負債 - 現金及短期投資)
     const EquityVal = EV - NetDebt;
 
     const isFin = !!(s.fin_valuation && s.fin_valuation.is_financial);
@@ -1466,7 +1474,8 @@
       fin.excess_return_fair = Number(exVal.toFixed(2));
       fin.ddm_fair = Number(ddmVal.toFixed(2));
     } else {
-      fairVal = (shares > 0 ? (EquityVal / shares) : price);
+      // 非金融常規企業：每股公允價值 = (EV - NetDebt) / 稀釋總股數
+      fairVal = shares > 0 ? (EquityVal / shares) : 0;
     }
 
     const safeFairVal = Math.max(fairVal, 0.01);
