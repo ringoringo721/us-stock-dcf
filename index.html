@@ -5,16 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>美股旗艦 DCF 估值雷達 (200 檔全覆蓋 · 雙軌多週期版)</title>
   
-  <!-- 核心資料源載入 (帶時間戳防 CDN 死鎖) -->
-  <script>
-    const sTag = document.createElement('script');
-    sTag.src = 'market_data.js?t=' + Date.now();
-    document.head.appendChild(sTag);
-  </script>
-
-  <!-- TradingView 官方組件 -->
-  <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-
   <style>
     :root {
       --bg: #0b1120;
@@ -294,6 +284,7 @@
       box-shadow: 0 0 8px rgba(56, 189, 248, 0.6);
     }
 
+    /* 企業資訊卡片樣式 */
     .company-profile-card {
       display: flex;
       align-items: center;
@@ -327,6 +318,7 @@
     .company-meta-item span.label { color: var(--text-muted); margin-right: 6px; }
     .company-meta-item span.val { color: #fff; font-weight: 600; }
 
+    /* 7 大子分頁專屬樣式 */
     .subpage-nav-bar {
       display: flex;
       gap: 8px;
@@ -739,7 +731,7 @@
       <button class="sub-tab-btn" onclick="switchSubPage('news')">📰 7. 公司新聞</button>
     </div>
 
-    <!-- 子分頁 1：基本資料 -->
+    <!-- 子分頁 1：基本資料 (包含地址、52週、持有人結構、Top 50股東、內部人、拆股) -->
     <div id="subpage-basic" class="subpage-content active">
       <div class="panel">
         <div class="panel-title" style="display: flex; justify-content: space-between;">
@@ -1180,7 +1172,7 @@
       lbl_price: "當前每股股價 ($)",
       lbl_shares: "稀釋總股數 (百萬股, M)",
       lbl_debt: "總有息負債 ($M)",
-      lbl_cash: "現金及約當資產 ($M)",
+      lbl_cash: "現金及短期投資 ($M)",
       lbl_fcf0: "基準自由現金流 FCF_0 ($M)",
       sec2_title: "2. 資本成本與折現模型 (WACC)",
       lbl_rf_tenor: "無風險利率美債年期",
@@ -1290,7 +1282,7 @@
       lbl_price: "Share Price ($)",
       lbl_shares: "Diluted Shares (M)",
       lbl_debt: "Total Debt ($M)",
-      lbl_cash: "Cash & Equivalents ($M)",
+      lbl_cash: "Cash & Short-Term Inv ($M)",
       lbl_fcf0: "Base Free Cash Flow FCF_0 ($M)",
       sec2_title: "2. Cost of Capital & WACC Model",
       lbl_rf_tenor: "Treasury Yield Tenor (Rf)",
@@ -1374,7 +1366,7 @@
     const sym = explicitTicker || s.ticker || "";
     let localDebt = Number(s.debt) || 0;
     
-    // 納入現金與短期投資 (Cash and Short-Term Investments)
+    // 現金與短期投資整合
     let localCash = Number(s.cash_and_short_term) || Number(s.cash) || 0;
     if (s.short_term_investments && Number(s.short_term_investments) > 0) {
       localCash = Math.max(localCash, (Number(s.cash) || 0) + Number(s.short_term_investments));
@@ -1443,10 +1435,7 @@
     const safeWacc = Math.max(WACC, g + 0.015);
     const tv = (safeWacc > g) ? (fcf11 / (safeWacc - g)) : 0;
     const pvTV = tv * dfList[9];
-// 1. 企業價值 (Enterprise Value, EV) = 10年期自由現金流折現和 + 永續終值折現現值
     const EV = sumPV + pvTV;
-
-    // 2. 股權價值 (Equity Value) = EV - 淨負債 (總有息負債 - 現金及短期投資)
     const EquityVal = EV - NetDebt;
 
     const isFin = !!(s.fin_valuation && s.fin_valuation.is_financial);
@@ -1477,8 +1466,8 @@
       fin.excess_return_fair = Number(exVal.toFixed(2));
       fin.ddm_fair = Number(ddmVal.toFixed(2));
     } else {
-      // 非金融常規企業：每股公允價值 = (EV - NetDebt) / 稀釋總股數
-      fairVal = shares > 0 ? (EquityVal / shares) : 0;
+      // 依 EV - NetDebt 推導每股公允價值
+      fairVal = (shares > 0 ? (EquityVal / shares) : price);
     }
 
     const safeFairVal = Math.max(fairVal, 0.01);
@@ -1487,7 +1476,6 @@
     const estimatedEbitda = Math.max(localFCF0 * 1.25, (E / (Number(s.pe_trailing) || 22)) * 1.35, 100);
     const ev_to_ebitda = s.ev_to_ebitda !== undefined ? Number(s.ev_to_ebitda) : Math.round((EV / estimatedEbitda) * 10) / 10;
     const debt_to_ebitda = s.debt_to_ebitda !== undefined ? Number(s.debt_to_ebitda) : Math.round((localDebt / estimatedEbitda) * 100) / 100;
-    // 確保 Net Debt / EBITDA 採用扣除「現金+短期投資」後的 NetDebt 計算
     const net_debt_to_ebitda = Math.round((NetDebt / estimatedEbitda) * 100) / 100;
 
     return {
@@ -1524,7 +1512,6 @@
     if (target) target.classList.add('active');
   }
 
-  // 1. 渲染 TradingView 官方進階走勢圖
   function renderTradingViewWidget(ticker, exchange) {
     const container = document.getElementById('tradingview_widget_container');
     if (!container) return;
@@ -1549,7 +1536,6 @@
     }
   }
 
-  // 2. 渲染 Top 50 股東
   function renderTop50Holders(s) {
     const tbody = document.getElementById('cmp-top-holders-tbody');
     if (!tbody) return;
@@ -1607,7 +1593,6 @@
     tbody.innerHTML = rowsHtml;
   }
 
-  // 3. 渲染內部人交易
   function renderInsiderTrades(s) {
     const tbody = document.getElementById('cmp-insider-trades-tbody');
     if (!tbody) return;
@@ -1648,7 +1633,6 @@
     tbody.innerHTML = html;
   }
 
-  // 4. 渲染拆股紀錄
   function renderStockSplits(s) {
     const tbody = document.getElementById('cmp-splits-tbody');
     if (!tbody) return;
@@ -1670,7 +1654,6 @@
     `).join('');
   }
 
-  // 5. 渲染 5 年/TTM 財務報表
   function renderFinancialsSubPage(s) {
     const tbody = document.getElementById('cmp-fin-tbody');
     if (!tbody) return;
@@ -1686,7 +1669,6 @@
     `;
   }
 
-  // 6. 渲染關鍵比率
   function renderRatiosSubPage(s) {
     const tbody = document.getElementById('cmp-ratios-tbody');
     if (!tbody) return;
@@ -1699,7 +1681,6 @@
     `;
   }
 
-  // 7. 渲染同業對比
   function renderPeersSubPage(s) {
     const tbody = document.getElementById('cmp-peers-tbody');
     if (!tbody) return;
@@ -1723,7 +1704,6 @@
     }).join('');
   }
 
-  // 8. 渲染圖表分析
   function renderChartsSubPage(s) {
     const wrap = document.getElementById('chart-bars-wrap');
     if (!wrap) return;
@@ -1743,7 +1723,6 @@
     }).join('');
   }
 
-  // 9. 渲染每股盈餘與股息
   function renderDividendSubPage(s) {
     const elYield = document.getElementById('div-meta-yield');
     const elDps = document.getElementById('div-meta-dps');
@@ -1760,7 +1739,6 @@
     `;
   }
 
-  // 10. 渲染公司新聞
   function renderNewsSubPage(ticker) {
     const list = document.getElementById('cmp-news-list');
     if (!list) return;
@@ -2129,6 +2107,7 @@
     document.getElementById('stat-overvalued').innerText = `${overCount} ${unitTxt} (${totalCount > 0 ? ((overCount/totalCount)*100).toFixed(0) : 0}%)`;
     document.getElementById('stat-saved-count').innerText = `${savedCount} ${unitTxt}`;
 
+// 渲染表格資料列 (31 個欄位完全對齊表頭)
     tbody.innerHTML = list.map(item => {
       const badgeHtml = item.isUndervalued
         ? `<span class="badge badge-undervalued">${currentLang === 'zh' ? '低估' : 'Undervalued'} ${item.premiumPct.toFixed(1)}%</span>`
@@ -2158,50 +2137,81 @@
 
       return `
         <tr>
+          <!-- 1. 收藏 / 代碼 -->
           <td class="col-fixed-1">
             <button class="fav-btn ${favActiveClass}" onclick="toggleFavorite('${item.ticker}', event)">${favHeart}</button>
             <a class="ticker-link" onclick="openCompanyProfile('${item.ticker}')" title="點擊查看企業基本面與走勢圖">${item.ticker}</a>
           </td>
+          <!-- 2. 市場 -->
           <td class="col-fixed-2"><span class="badge ${exchClass}">${item.exchange}</span></td>
+          <!-- 3. 企業名稱 -->
           <td class="col-fixed-3" style="font-weight: 600; color: #fff;">${item.name}</td>
+          <!-- 4. 主板塊 -->
           <td style="color: #cbd5e1; text-align: left;">${item.sector}</td>
+          <!-- 5. 細分子行業 -->
           <td style="color: #94a3b8; font-size: 11px; text-align: left;">${item.industry}</td>
+          <!-- 6. 最新股價 ($) -->
           <td style="font-weight: 700; color: var(--accent);">$${Number(item.price).toFixed(2)}</td>
+          <!-- 7. 公允價值 ($) -->
           <td class="text-green" style="font-size: 13px; font-weight: 700;">$${Number(item.fairVal).toFixed(2)}</td>
+          <!-- 8. 目標價值 ($) -->
           <td>${targetPriceHtml}</td>
+          <!-- 9. 操作 -->
           <td style="text-align: center;">
             <button class="btn-nav" onclick="openDetail('${item.ticker}')">${currentLang === 'zh' ? '深度模型 →' : 'DCF Model →'}</button>
           </td>
+          <!-- 10. 目標 vs 市價溢價 -->
           <td>${targetSpreadHtml}</td>
+          <!-- 11. 公允溢價幅度 -->
           <td>${badgeHtml}</td>
+          <!-- 12. 巴菲特護城河 -->
           <td style="text-align: center;">
             <span class="badge-moat ${item.moat.badgeClass}" onclick="openMoat('${item.ticker}')">${item.moat.total} pt · ${item.moat.grade.split(' ')[0]}</span>
           </td>
+          <!-- 13. 加權成本 WACC / g -->
           <td>
             <div>${(item.WACC * 100).toFixed(2)}%</div>
             <div style="font-size: 11px; color: var(--text-muted);">g: ${Number(item.g).toFixed(2)}%</div>
           </td>
+          <!-- 14. 企業價值 EV ($M) -->
           <td>$${(item.EV).toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
+          <!-- 15. 市值 ($M) -->
           <td style="font-weight: 600;">$${(item.mcap).toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
+          <!-- 16. 靜態 P/E -->
           <td>${item.pe_trailing ? Number(item.pe_trailing).toFixed(1) : '--'}</td>
+          <!-- 17. 動態 P/E -->
           <td>${item.pe_forward ? Number(item.pe_forward).toFixed(1) : '--'}</td>
+          <!-- 18. 靜態 P/B -->
           <td>${item.pb_trailing ? Number(item.pb_trailing).toFixed(1) : '--'}</td>
+          <!-- 19. 股息率 (%) -->
           <td style="color: #67e8f9; font-weight: 700;">${item.div_yield > 0 ? Number(item.div_yield).toFixed(2) + '%' : '0.00%'}</td>
+          <!-- 20. FCF / EV (%) -->
           <td style="color: #38bdf8; font-weight: 600;">${item.fcf_to_ev !== undefined ? Number(item.fcf_to_ev).toFixed(2) + '%' : '--'}</td>
+          <!-- 21. FCF / Mcap (%) -->
           <td style="color: #a78bfa; font-weight: 600;">${item.fcf_to_mcap !== undefined ? Number(item.fcf_to_mcap).toFixed(2) + '%' : '--'}</td>
+          <!-- 22. 現金/資產 (%) -->
           <td style="color: #38bdf8;">${item.cash_to_assets !== undefined ? Number(item.cash_to_assets).toFixed(1) + '%' : '--'}</td>
+          <!-- 23. 負債/資產 (%) -->
           <td>${item.liab_to_assets !== undefined ? Number(item.liab_to_assets).toFixed(1) + '%' : '--'}</td>
+          <!-- 24. 流動比率 -->
           <td>${item.current_ratio !== undefined ? Number(item.current_ratio).toFixed(2) : '--'}</td>
+          <!-- 25. 現金淨額 ($M) -->
           <td style="${item.cash_minus_liab >= 0 ? 'color: var(--green);' : 'color: var(--red);'}; font-weight: 600;">
             ${item.cash_minus_liab < 0 ? '-$' + Math.abs(item.cash_minus_liab).toLocaleString(undefined, {maximumFractionDigits: 0}) : '$' + (item.cash_minus_liab || 0).toLocaleString(undefined, {maximumFractionDigits: 0})}
           </td>
+          <!-- 26. ROE (%) -->
           <td style="font-weight: 600; color: #fde047;">${item.roe !== undefined ? Number(item.roe).toFixed(1) + '%' : '--'}</td>
+          <!-- 27. ROA (%) -->
           <td style="color: #4ade80;">${item.roa !== undefined ? Number(item.roa).toFixed(1) + '%' : '--'}</td>
+          <!-- 28. F-Score 評分 -->
           <td style="text-align: center;">
             <span class="badge-fscore ${fScoreClass}" onclick="openFScore('${item.ticker}')" title="點擊查看皮氏 9 分明細">${fScoreVal} / 9</span>
           </td>
+          <!-- 29. EV / EBITDA -->
           <td style="font-weight: 700; color: #38bdf8;">${item.ev_to_ebitda !== undefined ? Number(item.ev_to_ebitda).toFixed(1) + 'x' : '--'}</td>
+          <!-- 30. Debt / EBITDA -->
           <td style="color: #cbd5e1;">${item.debt_to_ebitda !== undefined ? Number(item.debt_to_ebitda).toFixed(2) + 'x' : '--'}</td>
+          <!-- 31. Net Debt / EBITDA -->
           <td style="${(item.net_debt_to_ebitda || 0) <= 0 ? 'color: var(--green); font-weight: 700;' : ((item.net_debt_to_ebitda || 0) > 3.5 ? 'color: var(--red); font-weight: 700;' : 'color: #cbd5e1;')}">
             ${item.net_debt_to_ebitda !== undefined ? Number(item.net_debt_to_ebitda).toFixed(2) + 'x' : '--'}
           </td>
@@ -2680,3 +2690,4 @@
   }, 50);
 </script>
 </body>
+</html>
