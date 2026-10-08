@@ -52,22 +52,24 @@ TAX_RATE = 21.0
 
 class MoatDimension(BaseModel):
     score: int = Field(..., ge=0, le=10, description="0到10整數打分")
-    comment: str = Field(..., description="120至180字深入透徹評語，緊扣巴菲特投資哲學，點出具體商業壁壘、競對差異或數據佐證")
+    comment_zh: str = Field(..., description="120至180字繁體中文深入透徹評語，緊扣巴菲特投資哲學，點出具體商業壁壘或競對差異")
+    comment_en: str = Field(..., description="In-depth English analysis (120-180 words) aligned with Warren Buffett's moat principles.")
 
 class StockMoatReport(BaseModel):
     ticker: str
     period: str = Field(..., description="財報基準季，例如 2026Q2")
-    m1_brand_pricing: MoatDimension = Field(..., description="M1. 品牌心智與定價權 (Pricing Power)")
-    m2_patents_regulatory: MoatDimension = Field(..., description="M2. 專利壁壘與特許許可 (Patents & Regulatory)")
-    m3_high_switching_costs: MoatDimension = Field(..., description="M3. 黏性與替代成本 (Switching Costs)")
-    m4_network_effects: MoatDimension = Field(..., description="M4. 雙向網絡正反饋 (Network Effects)")
-    m5_cost_advantage_scale: MoatDimension = Field(..., description="M5. 極致規模經濟與工藝 (Scale Advantage)")
-    m6_unique_geography_assets: MoatDimension = Field(..., description="M6. 利基市場天然寡占 / 獨佔性地理區位 (Efficient Scale)")
-    m7_operational_efficiency: MoatDimension = Field(..., description="M7. 長週期超額 ROIC 韌性與極致營運 (ROIC vs WACC)")
-    m8_capital_allocation: MoatDimension = Field(..., description="M8. 資本不可複製性與重置壁壘 (Irreproducibility)")
-    m9_customer_retention: MoatDimension = Field(..., description="M9. 技術/典範轉移抗性與需求確定性 (Disruption Immunity)")
-    m10_durability: MoatDimension = Field(..., description="M10. 管理層誠信與資本配置 (Capital Allocation)")
-    overall_moat_verdict: str = Field(..., description="150至200字的巴菲特護城河綜合評斷與核心競爭壁壘總結")
+    m1_brand_pricing: MoatDimension = Field(..., description="M1. Pricing Power & Brand Mindshare")
+    m2_patents_regulatory: MoatDimension = Field(..., description="M2. Patents & Regulatory Licenses")
+    m3_high_switching_costs: MoatDimension = Field(..., description="M3. Switching Costs")
+    m4_network_effects: MoatDimension = Field(..., description="M4. Network Effects")
+    m5_cost_advantage_scale: MoatDimension = Field(..., description="M5. Scale & Cost Advantage")
+    m6_unique_geography_assets: MoatDimension = Field(..., description="M6. Efficient Scale / Natural Oligopoly")
+    m7_operational_efficiency: MoatDimension = Field(..., description="M7. ROIC vs WACC & Capital Return")
+    m8_capital_allocation: MoatDimension = Field(..., description="M8. Asset Irreproducibility & Moat Fortress")
+    m9_customer_retention: MoatDimension = Field(..., description="M9. Disruption Immunity & Durability")
+    m10_durability: MoatDimension = Field(..., description="M10. Management Integrity & Capital Allocation")
+    overall_moat_verdict_zh: str = Field(..., description="150至200字繁體中文巴菲特護城河總結定性")
+    overall_moat_verdict_en: str = Field(..., description="Comprehensive Buffett moat verdict in English (150-200 words)")
 
 def analyze_stock_moat(ticker: str, latest_period: str, fin_context: Dict[str, Any], force_refresh: bool = False) -> Dict[str, Any]:
     if not latest_period or latest_period == "LATEST":
@@ -149,7 +151,11 @@ def analyze_stock_moat(ticker: str, latest_period: str, fin_context: Dict[str, A
     return _build_fallback_moat(ticker, safe_period)
 
 def _build_fallback_moat(ticker: str, period: str) -> Dict[str, Any]:
-    default_item = {"score": 5, "comment": "待分析：API 連線未完成或缺少相關數據，維持中性預設。"}
+    default_item = {
+        "score": 5,
+        "comment_zh": "待分析：API 連線未完成或缺少相關數據，維持中性預設。",
+        "comment_en": "Pending analysis: Defaulting to neutral moat rating due to missing report data."
+    }
     return {
         "ticker": ticker,
         "period": period,
@@ -163,7 +169,8 @@ def _build_fallback_moat(ticker: str, period: str) -> Dict[str, Any]:
         "m8_capital_allocation": default_item,
         "m9_customer_retention": default_item,
         "m10_durability": default_item,
-        "overall_moat_verdict": "暫未取得 Gemini 深度護城河分析報告。"
+        "overall_moat_verdict_zh": "暫未取得 Gemini 深度護城河分析報告。",
+        "overall_moat_verdict_en": "Deep Economic Moat audit report pending generation."
     }
 
 RAW_STOCK_LIST = [
