@@ -2,6 +2,8 @@ import os
 import requests
 import json
 import time
+import copy
+import re
 from typing import Dict, Any, Optional
 from pydantic import BaseModel, Field
 
@@ -86,7 +88,7 @@ def analyze_stock_moat(ticker: str, latest_period: str, fin_context: Dict[str, A
         try:
             with open(cache_file, "r", encoding="utf-8") as f:
                 cached_data = json.load(f)
-                if "暫未取得" not in cached_data.get("overall_moat_verdict", ""):
+                if "暫未取得" not in cached_data.get("overall_moat_verdict_zh", "") and "暫未取得" not in cached_data.get("overall_moat_verdict", ""):
                     print(f"⚡ [{ticker}] 命中 {safe_period} 季度快取，直接讀取本機數據 (不消耗額度)", flush=True)
                     return cached_data
         except Exception:
@@ -537,11 +539,40 @@ def calculate_piotroski_score(roa, fcf0, cr, liab_r, ttm_net_income):
     score = sum(x["passed"] for x in items)
     return score, items
 
+def get_canonical_entity_id(prof: dict, ticker: str) -> str:
+    """
+    精準識別底層法定公司實體，不受股票代號尾綴或股份類別差異影響。
+    優先級：
+    1. SEC CIK 編號 (FMP Profile 返回之唯一法定企業識別碼)
+    2. 公司標準化名稱 (去除 Class A/B/C、Inc. 等字樣)
+    3. 代號前綴拆分 (如 BRK.B -> BRK, GOOGL -> GOOG)
+    """
+    # 1. 最優先：SEC CIK（最穩定、準確）
+    cik = prof.get("cik")
+    if cik and str(cik).strip() and str(cik).strip() not in ["0", "None"]:
+        return f"CIK_{str(cik).strip()}"
+
+    # 2. 次選：標準化公司名稱
+    raw_name = prof.get("companyName") or ""
+    if raw_name:
+        clean_name = re.sub(
+            r"(?i)\s+(class\s+[a-c]|series\s+[a-c]|inc\.?|corp\.?|co\.?|ltd\.?|llc|holdings?|plc)",
+            "",
+            raw_name
+        ).strip().upper()
+        if len(clean_name) >= 3:
+            return f"NAME_{clean_name}"
+
+    # 3. 兜底：根代號拆分 (例如 BRK.B 轉為 BRK)
+    root_sym = re.split(r"[\.\-\/]", ticker)[0]
+    return f"ROOT_{root_sym}"
+
 def main():
     print("=" * 80, flush=True)
     print("🚀 美股 200 檔 DCF/金融雙軌模型 + Gemini 護城河雙核心引擎啟動", flush=True)
     print("=" * 80, flush=True)
     results = {}
+    entity_moat_cache = {}  # 記憶體共享池：{ entity_id: moat_data }
 
     for idx, item in enumerate(UNIQUE_STOCKS, 1):
         sym = item["ticker"]
@@ -558,6 +589,9 @@ def main():
         employees = prof.get("fullTimeEmployees") or "--"
         description_en = prof.get("description") or "A publicly traded US equity on major exchanges."
         description_zh = f"{company_full_name}（美股代碼：{sym}）為 {item['sector']} 領域之重要企業，專注於 {item['industry']} 業務，具備清晰之商業壁壘與現金流創造能力。"
+
+        # 提取底層法定企業唯一識別碼 (解決 GOOGL / GOOG 等雙代碼問題)
+        entity_id = get_canonical_entity_id(prof, sym)
 
         # 1. 抓取即時報價與市值
         q_data = fetch_json("quote", {"symbol": fmp_sym})
@@ -598,11 +632,11 @@ def main():
             if bs.get("reportedCurrency"):
                 reported_currency = bs.get("reportedCurrency")
             tot_debt = float(bs.get("totalDebt") or bs.get("longTermDebt") or 0.0)
-# 完整提取現金 + 短期投資
+            
+            # 完整提取現金 + 短期投資
             cash_only = float(bs.get("cashAndCashEquivalents") or 0.0)
             short_term_inv = float(bs.get("shortTermInvestments") or 0.0)
             tot_cash = float(bs.get("cashAndShortTermInvestments") or (cash_only + short_term_inv) or 0.0)
-            # 若 cashAndShortTermInvestments 漏計單獨的短期投資，予以加總補齊
             if short_term_inv > 0 and tot_cash == cash_only:
                 tot_cash += short_term_inv
             debt = round(tot_debt / 1e6, 1)
@@ -687,7 +721,7 @@ def main():
         growth_10y = build_10y_growth_schedule(est_data, item["default_g1"], DEFAULT_G)
         pe_forward = round(pe_trailing * 0.88, 1)
 
-        # 需求 ii: 優先採納 FMP API 5 年期滾動 Beta (若無則使用板塊兜底)
+        # 優先採納 FMP API 5 年期滾動 Beta (若無則使用板塊兜底)
         fmp_beta = prof.get("beta")
         if fmp_beta is not None and float(fmp_beta) > 0:
             beta = round(float(fmp_beta), 2)
@@ -759,7 +793,6 @@ def main():
             # 2. 標準化每股分紅 (股息 100% 計入 + 回購設定常態上限，防止極端高估)
             dps_div = (ttm_dividends_paid / shares_count) if shares_count > 0 else (price * 0.02)
             dps_bb = (ttm_buybacks_paid / shares_count) if shares_count > 0 else 0.0
-            # 回購上限不超過股息的 1.5 倍
             dps_total = round(dps_div + min(dps_bb, dps_div * 1.5), 2)
 
             ke_rate = max(ke, 0.09)
@@ -798,28 +831,34 @@ def main():
                 "pb_tangible": round(price / tbvps, 2) if tbvps > 0 else 1.0
             }
 
-        # 6. Gemini 護城河分析
-        fin_context = {
-            "name": item["name"],
-            "sector": item["sector"],
-            "industry": item["industry"],
-            "mcap": mcap,
-            "roe": roe,
-            "roa": roa,
-            "f_score": f_score,
-            "fcf0": fcf0,
-            "debt": debt,
-            "cash": cash
-        }
+        # 6. Gemini 護城河分析 (自動去重與孿生股共享)
+        if entity_id in entity_moat_cache:
+            print(f"🔄 [{sym}] 偵測到與已分析企業屬於同一底層實體 ({entity_id})，直接同步護城河評分與評語...", flush=True)
+            moat_data = copy.deepcopy(entity_moat_cache[entity_id])
+            moat_data["ticker"] = sym
+        else:
+            fin_context = {
+                "name": item["name"],
+                "sector": item["sector"],
+                "industry": item["industry"],
+                "mcap": mcap,
+                "roe": roe,
+                "roa": roa,
+                "f_score": f_score,
+                "fcf0": fcf0,
+                "debt": debt,
+                "cash": cash
+            }
 
-        moat_data = analyze_stock_moat(
-            ticker=sym,
-            latest_period=latest_period,
-            fin_context=fin_context,
-            force_refresh=False
-        )
+            moat_data = analyze_stock_moat(
+                ticker=sym,
+                latest_period=latest_period,
+                fin_context=fin_context,
+                force_refresh=False
+            )
+            entity_moat_cache[entity_id] = moat_data
 
-# 7. 補充 5 年歷史與 Peers 數據給前端 7 大子頁面使用
+        # 7. 補充 5 年歷史與 Peers 數據給前端 7 大子頁面使用
         results[sym] = {
             "name": item["name"],
             "company_name": company_full_name,
@@ -879,7 +918,7 @@ def main():
             "full_time_employees": employees,
             "description": description_en,
             "description_zh": description_zh,
-            # === 新增：公司地址與總部資訊 ===
+            # === 公司地址與總部資訊 ===
             "address": prof.get("address", "--"),
             "city": prof.get("city", "--"),
             "state": prof.get("state", "--"),
@@ -888,21 +927,20 @@ def main():
             "phone": prof.get("phone", "--"),
             "full_address": f"{prof.get('address', '')}, {prof.get('city', '')}, {prof.get('state', '')} {prof.get('zip', '')}, {prof.get('country', '')}".strip(", "),
 
-            # === 新增：52 週區間與歷史極值 ===
+            # === 52 週區間與歷史極值 ===
             "range_52w": prof.get("range", "--"),
             "year_high": float(q.get("yearHigh") or 0.0) if q else 0.0,
             "year_low": float(q.get("yearLow") or 0.0) if q else 0.0,
-            "all_time_high": float(prof.get("mktCap", 0) / (shares * 1e6)) * 1.25 if shares > 0 else price * 1.3, # 基準估算
+            "all_time_high": float(prof.get("mktCap", 0) / (shares * 1e6)) * 1.25 if shares > 0 else price * 1.3,
             "all_time_low": float(q.get("yearLow") or price * 0.45) if q else price * 0.45,
 
-            # === 新增：持有人結構基準 ===
+            # === 持有人結構基準 ===
             "inst_ownership_pct": 72.5 if item["sector"] in ["資訊科技", "金融"] else 65.0,
             "insider_ownership_pct": 8.5 if item["sector"] in ["資訊科技"] else 3.2,
-            # 新增：供 7 大子頁面呼叫之歷史摘要與 FMP 符號
             "fmp_symbol": fmp_sym
         }
 
-        print(f"[{idx:03d}/200] ✅ {sym} ({item['exchange']}) - 股價=${price} | 5Y Beta={beta_5y} | 公允價值=${fair_val} | 護城河: {moat_data.get('overall_moat_verdict', '')[:30]}...", flush=True)
+        print(f"[{idx:03d}/200] ✅ {sym} ({item['exchange']}) - 股價=${price} | 5Y Beta={beta_5y} | 公允價值=${fair_val} | 護城河: {moat_data.get('overall_moat_verdict_zh', '')[:30]}...", flush=True)
 
     with open("full_market_dcf.json", "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
