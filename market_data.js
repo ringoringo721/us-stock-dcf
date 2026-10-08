@@ -3697,10 +3697,10 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 5186480000,
     "shares_display": "5,186.48 M",
     "mcap": 2449055.9,
-    "debt": 33556.0,
-    "cash": 110476.5,
-    "net_debt": -76920.5,
-    "fcf0": 35615.8,
+    "debt": 33552.9,
+    "cash": 110466.1,
+    "net_debt": -76913.2,
+    "fcf0": 35612.4,
     "beta": 1.38,
     "beta_5y": 1.38,
     "kd": 4.5,
@@ -3721,7 +3721,7 @@ window.FULL_MARKET_DATA = {
     "g2": 9.9,
     "g": 2.25,
     "wacc": 10.95,
-    "ev": 787722.3,
+    "ev": 787646.2,
     "ev_to_ebitda": 7.8,
     "debt_to_ebitda": 0.33,
     "net_debt_to_ebitda": -0.77,
@@ -3739,7 +3739,7 @@ window.FULL_MARKET_DATA = {
         "category": "盈利能力",
         "desc": "營業現金流 CFO > 0",
         "passed": 1,
-        "detail": "自由現金流 = $35,616M"
+        "detail": "自由現金流 = $35,612M"
       },
       {
         "id": 3,
@@ -3791,8 +3791,8 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 166.71,
-    "premium_pct": 183.2,
+    "fair_val": 166.69,
+    "premium_pct": 183.3,
     "is_undervalued": false,
     "pe_trailing": 34.8,
     "pe_forward": 30.6,
@@ -3805,7 +3805,7 @@ window.FULL_MARKET_DATA = {
     "liab_to_assets": 30.9,
     "cash_to_assets": 37.5,
     "current_ratio": 2.46,
-    "cash_minus_liab": 76920.5,
+    "cash_minus_liab": 76913.2,
     "roe": 34.9,
     "roa": 23.9,
     "moat": {
@@ -7192,7 +7192,7 @@ window.FULL_MARKET_DATA = {
     "debt": 5632.0,
     "cash": 1239.0,
     "net_debt": 4393.0,
-    "fcf0": 3638.0,
+    "fcf0": 2378.0,
     "beta": 1.14,
     "beta_5y": 1.14,
     "kd": 4.5,
@@ -7213,25 +7213,25 @@ window.FULL_MARKET_DATA = {
     "g2": 3.6,
     "g": 2.25,
     "wacc": 9.39,
-    "ev": 59594.2,
-    "ev_to_ebitda": 12.0,
-    "debt_to_ebitda": 1.14,
-    "net_debt_to_ebitda": 0.89,
-    "f_score": 9,
+    "ev": 38954.1,
+    "ev_to_ebitda": 18.0,
+    "debt_to_ebitda": 2.37,
+    "net_debt_to_ebitda": 1.85,
+    "f_score": 8,
     "f_score_breakdown": [
       {
         "id": 1,
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 11.6%"
+        "detail": "當期 ROA = 8.0%"
       },
       {
         "id": 2,
         "category": "盈利能力",
         "desc": "營業現金流 CFO > 0",
         "passed": 1,
-        "detail": "自由現金流 = $3,638M"
+        "detail": "自由現金流 = $2,378M"
       },
       {
         "id": 3,
@@ -7272,7 +7272,7 @@ window.FULL_MARKET_DATA = {
         "id": 8,
         "category": "營運效率",
         "desc": "毛利率擴張 (ΔMargin > 0)",
-        "passed": 1,
+        "passed": 0,
         "detail": "產品定價權增強，毛利結構健康"
       },
       {
@@ -7283,23 +7283,23 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 190.39,
-    "premium_pct": 13.4,
+    "fair_val": 119.2,
+    "premium_pct": 81.1,
     "is_undervalued": false,
-    "pe_trailing": 20.7,
-    "pe_forward": 18.2,
+    "pe_trailing": 24.0,
+    "pe_forward": 21.1,
     "pb_trailing": 4.7,
     "pb_forward": 4.2,
-    "div_yield": 1.36,
-    "ps_ratio": 4.3,
+    "div_yield": 0.0,
+    "ps_ratio": 6.6,
     "fcf_to_ev": 6.1,
-    "fcf_to_mcap": 5.81,
+    "fcf_to_mcap": 3.8,
     "liab_to_assets": 48.6,
     "cash_to_assets": 4.8,
     "current_ratio": 1.88,
     "cash_minus_liab": -4393.0,
-    "roe": 22.8,
-    "roa": 11.6,
+    "roe": 18.0,
+    "roa": 8.0,
     "moat": {
       "ticker": "TEL",
       "period": "2026Q3",
@@ -8343,7 +8343,7 @@ window.FULL_MARKET_DATA = {
   },
   "TMUS": {
     "name": "T-Mobile US",
-    "company_name": "T-Mobile US",
+    "company_name": "T-Mobile US, Inc.",
     "exchange": "NASDAQ",
     "sector": "通訊服務",
     "industry": "Wireless Telecommunication Services",
@@ -8357,8 +8357,8 @@ window.FULL_MARKET_DATA = {
     "cash": 2825.0,
     "net_debt": 113175.0,
     "fcf0": 15347.0,
-    "beta": 1.15,
-    "beta_5y": 1.15,
+    "beta": 0.32,
+    "beta_5y": 0.32,
     "kd": 4.5,
     "tax": 21.0,
     "growth_10y": [
@@ -8376,9 +8376,9 @@ window.FULL_MARKET_DATA = {
     "g1": 5.0,
     "g2": 3.5,
     "g": 2.25,
-    "wacc": 7.45,
-    "ev": 337246.6,
-    "ev_to_ebitda": 10.9,
+    "wacc": 5.05,
+    "ev": 629555.1,
+    "ev_to_ebitda": 20.3,
     "debt_to_ebitda": 3.74,
     "net_debt_to_ebitda": 3.65,
     "f_score": 5,
@@ -8447,8 +8447,8 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 208.89,
-    "premium_pct": -19.7,
+    "fair_val": 481.4,
+    "premium_pct": -65.2,
     "is_undervalued": true,
     "pe_trailing": 17.0,
     "pe_forward": 15.0,
@@ -8456,7 +8456,7 @@ window.FULL_MARKET_DATA = {
     "pb_forward": 2.9,
     "div_yield": 2.42,
     "ps_ratio": 2.9,
-    "fcf_to_ev": 4.55,
+    "fcf_to_ev": 2.44,
     "fcf_to_mcap": 8.53,
     "liab_to_assets": 73.7,
     "cash_to_assets": 1.3,
@@ -8512,21 +8512,21 @@ window.FULL_MARKET_DATA = {
     "fin_valuation": {
       "is_financial": false
     },
-    "image": "https://assets.financialmodelingprep.com/symbol/TMUS.png",
-    "logo": "https://assets.financialmodelingprep.com/symbol/TMUS.png",
-    "website": "",
-    "ceo": "Executive Committee",
-    "full_time_employees": "--",
-    "description": "A publicly traded US equity on major exchanges.",
-    "description_zh": "T-Mobile US（美股代碼：TMUS）為 通訊服務 領域之重要企業，專注於 Wireless Telecommunication Services 業務，具備清晰之商業壁壘與現金流創造能力。",
-    "address": "--",
-    "city": "--",
-    "state": "--",
-    "zip": "--",
+    "image": "https://images.financialmodelingprep.com/symbol/TMUS.png",
+    "logo": "https://images.financialmodelingprep.com/symbol/TMUS.png",
+    "website": "https://www.t-mobile.com",
+    "ceo": "Srinivasan Gopalan",
+    "full_time_employees": "75000",
+    "description": "T-Mobile US, Inc., alongside its subsidiaries, offers mobile telecommunications services across the United States, Puerto Rico, and the U.S. Virgin Islands. Catering to approximately 108.7 million subscribers, the company delivers essential voice, messaging, and data connectivity to customers in postpaid, prepaid, and wholesale segments. Beyond services, T-Mobile also supplies a broad array of wireless devices, such as smartphones, wearables, tablets, and other mobile communication gadgets, along with associated accessories. These offerings are marketed under both the T-Mobile and Metro by T-Mobile brands. Direct distribution occurs through its proprietary retail stores, the T-Mobile mobile application, customer service channels, and its official online platforms. Additionally, the company provides devices to independent dealers and other distributors for resale via external retail locations and various third-party websites. As of December 31, 2021, its robust network infrastructure encompassed approximately 102,000 macro cell sites and 41,000 small cell/distributed antenna system locations. T-Mobile US, Inc. was established in 1994 and maintains its headquarters in Bellevue, Washington.",
+    "description_zh": "T-Mobile US, Inc.（美股代碼：TMUS）為 通訊服務 領域之重要企業，專注於 Wireless Telecommunication Services 業務，具備清晰之商業壁壘與現金流創造能力。",
+    "address": "12920 SE 38th Street",
+    "city": "Bellevue",
+    "state": "WA",
+    "zip": "98006-1350",
     "country": "US",
-    "phone": "--",
-    "full_address": "",
-    "range_52w": "--",
+    "phone": "425 378 4000",
+    "full_address": "12920 SE 38th Street, Bellevue, WA 98006-1350, US",
+    "range_52w": "160.81-231.02",
     "year_high": 231.02,
     "year_low": 160.81,
     "all_time_high": 0.0,
@@ -14564,7 +14564,7 @@ window.FULL_MARKET_DATA = {
     "debt": 127697.0,
     "cash": 24719.0,
     "net_debt": 102978.0,
-    "fcf0": 16499.0,
+    "fcf0": 2783.6,
     "beta": 1.4,
     "beta_5y": 1.4,
     "kd": 4.5,
@@ -14585,8 +14585,8 @@ window.FULL_MARKET_DATA = {
     "g2": 3.5,
     "g": 2.25,
     "wacc": 6.32,
-    "ev": 455078.7,
-    "ev_to_ebitda": 27.3,
+    "ev": 76777.8,
+    "ev_to_ebitda": 4.6,
     "debt_to_ebitda": 7.66,
     "net_debt_to_ebitda": 6.17,
     "f_score": 4,
@@ -14603,7 +14603,7 @@ window.FULL_MARKET_DATA = {
         "category": "盈利能力",
         "desc": "營業現金流 CFO > 0",
         "passed": 1,
-        "detail": "自由現金流 = $16,499M"
+        "detail": "自由現金流 = $2,784M"
       },
       {
         "id": 3,
@@ -14655,17 +14655,17 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 389.3,
-    "premium_pct": -79.2,
+    "fair_val": -28.97,
+    "premium_pct": -379.6,
     "is_undervalued": true,
     "pe_trailing": 38.2,
     "pe_forward": 33.6,
     "pb_trailing": 1.2,
     "pb_forward": 1.1,
-    "div_yield": 1.6,
-    "ps_ratio": 1.1,
+    "div_yield": 0.0,
+    "ps_ratio": 6.6,
     "fcf_to_ev": 3.63,
-    "fcf_to_mcap": 22.52,
+    "fcf_to_mcap": 3.8,
     "liab_to_assets": 77.5,
     "cash_to_assets": 8.7,
     "current_ratio": 1.14,
@@ -14745,22 +14745,22 @@ window.FULL_MARKET_DATA = {
   },
   "EBAY": {
     "name": "eBay",
-    "company_name": "eBay Inc.",
+    "company_name": "eBay",
     "exchange": "NASDAQ",
     "sector": "非必需消費",
     "industry": "Broadline Retail",
     "reportedCurrency": "USD",
-    "price": 107.6,
-    "shares": 444.0,
-    "shares_outstanding": 444000000,
-    "shares_display": "444.00 M",
-    "mcap": 47774.4,
-    "debt": 7130.0,
-    "cash": 3307.0,
-    "net_debt": 3823.0,
-    "fcf0": 2429.0,
-    "beta": 1.32,
-    "beta_5y": 1.32,
+    "price": 150.0,
+    "shares": 666.7,
+    "shares_outstanding": 666700000,
+    "shares_display": "666.70 M",
+    "mcap": 100000.0,
+    "debt": 0.0,
+    "cash": 0.0,
+    "net_debt": 0.0,
+    "fcf0": 3800.0,
+    "beta": 1.15,
+    "beta_5y": 1.15,
     "kd": 4.5,
     "tax": 21.0,
     "growth_10y": [
@@ -14778,26 +14778,26 @@ window.FULL_MARKET_DATA = {
     "g1": 3.8,
     "g2": 3.5,
     "g": 2.25,
-    "wacc": 9.83,
-    "ev": 35694.8,
-    "ev_to_ebitda": 11.4,
-    "debt_to_ebitda": 2.27,
-    "net_debt_to_ebitda": 1.22,
-    "f_score": 7,
+    "wacc": 9.96,
+    "ev": 54889.5,
+    "ev_to_ebitda": 18.0,
+    "debt_to_ebitda": 0.0,
+    "net_debt_to_ebitda": 0.0,
+    "f_score": 8,
     "f_score_breakdown": [
       {
         "id": 1,
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 12.4%"
+        "detail": "當期 ROA = 8.0%"
       },
       {
         "id": 2,
         "category": "盈利能力",
         "desc": "營業現金流 CFO > 0",
         "passed": 1,
-        "detail": "自由現金流 = $2,429M"
+        "detail": "自由現金流 = $3,800M"
       },
       {
         "id": 3,
@@ -14817,15 +14817,15 @@ window.FULL_MARKET_DATA = {
         "id": 5,
         "category": "槓桿與償債",
         "desc": "財務槓桿未惡化 (ΔLeverage ≤ 0)",
-        "passed": 0,
-        "detail": "總負債資產比率 = 74.0%"
+        "passed": 1,
+        "detail": "總負債資產比率 = 40.0%"
       },
       {
         "id": 6,
         "category": "槓桿與償債",
         "desc": "短期流動性安全 (ΔLiquidity > 0)",
-        "passed": 0,
-        "detail": "流動比率 = 1.02"
+        "passed": 1,
+        "detail": "流動比率 = 1.50"
       },
       {
         "id": 7,
@@ -14838,7 +14838,7 @@ window.FULL_MARKET_DATA = {
         "id": 8,
         "category": "營運效率",
         "desc": "毛利率擴張 (ΔMargin > 0)",
-        "passed": 1,
+        "passed": 0,
         "detail": "產品定價權增強，毛利結構健康"
       },
       {
@@ -14849,90 +14849,90 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 71.78,
-    "premium_pct": 49.9,
+    "fair_val": 82.33,
+    "premium_pct": 82.2,
     "is_undervalued": false,
-    "pe_trailing": 21.5,
-    "pe_forward": 18.9,
-    "pb_trailing": 10.2,
-    "pb_forward": 9.2,
-    "div_yield": 1.13,
-    "ps_ratio": 4.9,
-    "fcf_to_ev": 6.8,
-    "fcf_to_mcap": 5.08,
-    "liab_to_assets": 74.0,
-    "cash_to_assets": 18.4,
-    "current_ratio": 1.02,
-    "cash_minus_liab": -3823.0,
-    "roe": 47.6,
-    "roa": 12.4,
+    "pe_trailing": 24.0,
+    "pe_forward": 21.1,
+    "pb_trailing": 100000000000.0,
+    "pb_forward": 90000000000.0,
+    "div_yield": 0.0,
+    "ps_ratio": 6.6,
+    "fcf_to_ev": 6.92,
+    "fcf_to_mcap": 3.8,
+    "liab_to_assets": 40.0,
+    "cash_to_assets": 0.0,
+    "current_ratio": 1.5,
+    "cash_minus_liab": 0.0,
+    "roe": 18.0,
+    "roa": 8.0,
     "moat": {
       "ticker": "EBAY",
-      "period": "2026Q2",
+      "period": "2026Q4",
       "m1_brand_pricing": {
-        "score": 5,
-        "comment": "eBay作為全球知名的C2C及B2C電商平台，品牌認知度高，但其定價權相對有限。平台主要服務於二手商品交易及中小賣家，商品同質性高，買家對價格敏感。儘管eBay收取交易佣金，但過高的費用會促使賣家轉向其他平台或自建渠道。其品牌價值更多體現在提供一個廣泛的交易場所，而非產品本身的溢價能力。與亞馬遜等巨頭相比，eBay在物流、品牌獨佔性方面較弱，難以實現顯著提價而不影響交易量。因此，其品牌心智雖存，但定價權受市場競爭與商品屬性制約。"
+        "score": 6,
+        "comment": "eBay品牌在全球範圍內具有高度辨識度，尤其在二手商品、收藏品及利基市場中享有強大心智佔有率。這使得部分買家願意為獨特商品支付溢價，並吸引特定賣家。然而，面對亞馬遜等巨頭的激烈競爭，以及商品同質化趨勢，eBay在廣泛商品類別上的定價權受到限制。其佣金費率的調整需謹慎，以避免賣家轉向其他平台，顯示其定價權並非絕對壟斷，而是依賴於其獨特的市場定位。"
       },
       "m2_patents_regulatory": {
-        "score": 4,
-        "comment": "eBay擁有與其電商平台運營相關的技術專利，涵蓋交易流程、支付系統及用戶界面等方面。然而，這些專利多為功能性或流程性創新，而非顛覆性技術，難以構成難以逾越的獨家壁壘。電子商務行業競爭激烈，且並無政府特許經營或嚴格的監管准入限制，使得新進入者仍有機會。儘管eBay在早期積累了技術優勢，但隨著時間推移，許多核心技術已成為行業標準或被廣泛模仿。因此，專利和監管壁壘對eBay而言，僅提供有限的防禦，而非核心護城河。"
+        "score": 3,
+        "comment": "eBay作為一個電商平台，其商業模式並非建立在獨家專利技術或政府特許經營權之上。雖然平台運營涉及大量技術，但這些技術多為通用型或可被競爭對手複製。電商行業的監管環境對所有參與者一視同仁，eBay不享有特殊的准入壁壘或法定壟斷地位。這意味著其護城河並非來自法律或技術上的排他性保護，而是更多依賴於市場機制和用戶積累。"
       },
       "m3_high_switching_costs": {
-        "score": 6,
-        "comment": "對於eBay上的賣家而言，轉換平台會產生一定的轉換成本。這包括重新建立商品列表、遷移客戶數據、喪失累積的信譽評級以及重新適應新平台的銷售工具和流程。這些無形資產的損失，尤其對於長期經營的專業賣家，構成了一道黏性壁壘。然而，買家的轉換成本相對較低，他們可以輕易地在不同電商平台間比價和尋找商品。此外，許多賣家採取多平台策略，降低了單一平台的鎖定效應。儘管如此，eBay龐大的用戶基礎和成熟的交易生態系統，仍為部分賣家提供了足夠的黏性。"
+        "score": 5,
+        "comment": "對於賣家而言，在eBay上建立的信譽、累積的評價以及已上架的商品清單構成了一定的轉換成本。重新在其他平台建立相同規模的業務和信任度需要時間與投入。然而，對於買家而言，轉換成本極低，他們可以輕易轉向其他電商平台。此外，許多賣家會同時在多個平台銷售，降低了對單一平台的依賴。因此，eBay的黏性主要體現在賣家端，但並非不可逾越。"
       },
       "m4_network_effects": {
-        "score": 8,
-        "comment": "eBay的核心護城河之一是其強大的雙邊網絡效應。平台上的買家越多，越能吸引更多的賣家入駐，提供更豐富的商品選擇；反之，賣家數量和商品種類的增加，又會吸引更多買家。這種正向循環使得eBay的生態系統對所有參與者而言價值不斷提升。尤其在二手商品、收藏品及利基市場，eBay的廣泛用戶基礎和獨特商品供給，形成了其他新平台難以在短期內複製的巨大優勢。這種網絡效應為eBay帶來了顯著的競爭壁壘，使其能夠維持高交易量和用戶活躍度。"
+        "score": 9,
+        "comment": "網絡效應是eBay最核心的護城河。平台上的買家越多，越能吸引更多賣家提供商品；反之，豐富的商品選擇又會吸引更多買家。這種正向循環創造了一個自我強化的生態系統，使得新競爭者難以在短時間內複製其龐大的用戶基礎和交易流動性。eBay數十年累積的買賣家社群和交易數據，構成了極高的進入壁壘，是其作為市場領導者的關鍵。"
       },
       "m5_cost_advantage_scale": {
         "score": 7,
-        "comment": "eBay作為全球領先的電商平台，在規模經濟方面具備顯著優勢。其龐大的用戶基礎和交易量，使得平台能夠將技術研發、市場推廣及運營維護等固定成本分攤到數十億美元的商品交易總額（GMV）上，實現較低的單位交易成本。這種規模效應使其在基礎設施和數據處理方面具備成本優勢，新進入者難以在短期內達到同等效率。然而，與亞馬遜等擁有自建物流體系的競爭對手相比，eBay在實體物流層面的規模優勢較弱。儘管如此，其平台運營的規模化效率仍是一道堅實的護城河。"
+        "comment": "eBay作為全球領先的電商平台之一，其龐大的規模帶來了顯著的運營效率和成本優勢。在基礎設施、技術研發、市場推廣和數據分析方面，eBay能夠分攤固定成本，實現單位成本的降低。這種規模效應使其能夠提供更具競爭力的服務，並在與供應商談判時擁有更強的議價能力。然而，其規模優勢主要體現在平台運營上，而非實體商品的生產或物流成本。"
       },
       "m6_unique_geography_assets": {
-        "score": 7,
-        "comment": "eBay在二手商品、收藏品及獨特利基市場中形成了有效的寡占地位。這些市場的特點是商品種類繁多、單品價值差異大，且買賣雙方對特定商品的尋求和供給有高度匹配需求。eBay憑藉其長期的市場積累和強大網絡效應，成為這些特定商品交易的首選平台。儘管整體電商市場競爭激烈，但在其核心利基領域，eBay的市場份額和用戶黏性使其具備了類似「天然寡占」的特性。新競爭者若想在這些細分市場挑戰eBay，將面臨巨大的用戶獲取成本和時間壁壘。"
+        "score": 4,
+        "comment": "eBay在某些特定利基市場，如收藏品或二手稀有商品領域，確實展現出類似寡占的地位。然而，從整體電商市場來看，這是一個廣闊且競爭激烈的領域，並非市場容量有限或地理位置獨特的天然寡占。新競爭者仍有機會進入並爭奪市場份額，不會立即導致所有參與者雙輸的局面。因此，eBay的護城河並非來自於市場的天然限制，而是其在特定領域的深耕。"
       },
       "m7_operational_efficiency": {
-        "score": 8,
-        "comment": "eBay的資產輕型平台模式使其具備卓越的資本回報能力。儘管未直接提供ROIC數據，但其高達47.6%的股東權益報酬率（ROE）和12.4%的資產報酬率（ROA），強烈暗示其投入資本回報率（ROIC）長期顯著超越加權平均資本成本（WACC）。這表明eBay能夠持續高效地利用資本創造價值，為股東帶來豐厚回報。這種持續的超額回報能力，是巴菲特衡量企業護城河深度的關鍵指標，證明了其商業模式的內在韌性和盈利能力，使其在競爭激烈的電商市場中保持優勢。"
+        "score": 7,
+        "comment": "eBay過去展現出穩健的盈利能力，其18.0%的ROE和8.0%的ROA，以及每年38億美元的自由現金流，表明公司能夠有效地利用資本並創造價值。這通常意味著其投入資本回報率（ROIC）持續高於加權平均資本成本（WACC）。然而，在競爭激烈的電商環境中，維持長期超額ROIC需要不斷創新和高效運營，其韌性面臨持續考驗，需密切關注其未來資本配置效率。"
       },
       "m8_capital_allocation": {
         "score": 8,
-        "comment": "即使給予競爭對手千億美元資金，也難以在短時間內複製eBay的核心戰略資產。這不僅包括其全球數億的活躍用戶基礎和由此形成的強大網絡效應，更包含了數十年積累的品牌信譽、交易數據、賣家生態系統以及買賣雙方之間的信任機制。這些無形資產是時間和規模的結晶，無法單純通過資本投入快速建立。雖然技術平台可以被模仿，但支撐其運營的社會資本和生態系統的深度與廣度，構成了極高的複製壁壘，使得eBay具備了資本不可複製的護城河。"
+        "comment": "即使給予競爭對手千億美元，也難以在短時間內複製eBay數十年來建立的龐大買賣家網絡、品牌信任度以及複雜的交易生態系統。其核心戰略資產是無形的，包括用戶數據、社群文化和市場流動性。這些資產的形成需要時間、信任和持續的平台維護，而非單純的資金投入。這種不可複製性是eBay最堅固的護城河之一，使其在市場中保持獨特地位。"
       },
       "m9_customer_retention": {
-        "score": 7,
-        "comment": "eBay的核心業務是作為商品交易的平台，尤其在二手、收藏品及獨特商品領域，其需求具有高度確定性。儘管電商行業技術不斷演進，但買賣雙方對一個高效、廣泛交易場所的需求是持久的。人工智慧等技術更多是優化平台功能，如個性化推薦或詐騙檢測，而非顛覆其基礎交易模式。eBay的C2C和利基B2C定位，使其對大型零售商的直接競爭和供應鏈變革具有一定抗性。這種對基本人類交易需求的滿足，賦予了eBay較強的技術/典範轉移抗性，使其商業模式相對穩健。"
+        "score": 5,
+        "comment": "作為一家科技公司，eBay本身就處於不斷變革的技術環境中，因此並非對技術顛覆完全免疫。它必須持續投入研發以適應新的消費趨勢、支付技術和AI應用。然而，其作為連接買賣雙方的核心功能，即「市場」的需求是相對穩定的。真正的威脅來自於能夠提供更優越交易體驗或顛覆性商業模式的新平台。因此，eBay的抗性在於其核心業務的永恆性，而非技術層面的靜止不變。"
       },
       "m10_durability": {
-        "score": 7,
-        "comment": "eBay的管理層在資本配置方面展現出穩健性。公司擁有24.29億美元的自由現金流，且現金儲備充足，資產負債表健康。在成熟的電商市場中，有效的資本配置策略，如在股價被低估時積極回購股票以提升股東價值，以及審慎的併購決策，對於護城河的維護至關重要。Piotroski F-Score 7/9也側面反映了公司良好的財務管理和運營效率。雖然具體回購策略和併購歷史需要更詳細分析，但從現有數據看，管理層具備將資本有效配置於股東利益最大化的潛力。"
+        "score": 8,
+        "comment": "eBay管理層展現出對股東利益的重視，其高達8/9的皮氏F-Score反映了穩健的財務管理和運營效率。公司持續產生強勁的自由現金流（TTM $3.8B），並通過股票回購和股息向股東回報資本。PayPal的成功剝離也證明了管理層在戰略性資本配置上的決斷力。在沒有盲目高溢價併購的情況下，積極回購註銷股本，有助於提升每股價值，符合巴菲特對優秀管理層的期望。"
       },
-      "overall_moat_verdict": "eBay在數位商務領域，特別是對於利基商品和二手交易，扮演著一個強大的「收費橋樑」角色。其最核心且堅固的護城河是強大的網絡效應，買賣雙方的龐大數量共同創造了一個無與倫比的市場，新進入者極難複製。這得益於賣家較高的轉換成本和平台運營的規模優勢。儘管其品牌不具備頂級定價權，但代表著信任和廣泛觸及。eBay的輕資產模式帶來了卓越的資本回報率韌性，顯示其高效的資本運用。儘管面臨廣泛電商市場的激烈競爭，其對特定市場的專注和強健的網絡效應，賦予了其顯著的資本不可複製性和對顛覆性變革的免疫力。這是一個憑藉長期積累和根深蒂固的市場地位，在多元交易中持續獲益的成熟平台。"
+      "overall_moat_verdict": "eBay本質上是一個「收費橋樑」式的特許經營平台，其核心護城河源於強大的雙向網絡效應和由此形成的資本不可複製性。數十年積累的龐大買賣家社群，使其在特定利基市場（如收藏品、二手商品）擁有堅固的壁壘。儘管品牌廣為人知，但面對激烈競爭，其廣泛定價權受限。公司財務穩健，管理層在資本配置上表現出色，通過回購和戰略剝離為股東創造價值。然而，作為科技驅動的電商平台，它並非對技術變革完全免疫，需持續創新以維持競爭力。總體而言，eBay的護城河堅固而深厚，但主要集中在網絡效應和無形資產上，而非傳統的成本優勢或監管壁壘。"
     },
     "fin_valuation": {
       "is_financial": false
     },
-    "image": "https://images.financialmodelingprep.com/symbol/EBAY.png",
-    "logo": "https://images.financialmodelingprep.com/symbol/EBAY.png",
-    "website": "https://www.ebayinc.com",
-    "ceo": "Jamie J. Iannone",
-    "full_time_employees": "12300",
-    "description": "eBay Inc. manages an extensive global e-commerce ecosystem designed to facilitate transactions between buyers and sellers. This framework primarily encompasses its flagship website, ebay.com, alongside its suite of dedicated mobile applications. Through these digital platforms, users are empowered to list, discover, purchase, and pay for a vast array of goods. These transactions occur across a multitude of channels—online, mobile, and even certain traditional avenues—involving a diverse array of participants. This includes individual sellers, small businesses, and larger entities such as retailers, distributors, liquidators, import/export firms, and auctioneers, often integrating with various commerce platforms, search engines, and shopping networks. The company was established in 1995 and its corporate headquarters are situated in San Jose, California.",
-    "description_zh": "eBay Inc.（美股代碼：EBAY）為 非必需消費 領域之重要企業，專注於 Broadline Retail 業務，具備清晰之商業壁壘與現金流創造能力。",
-    "address": "2025 Hamilton Avenue",
-    "city": "San Jose",
-    "state": "CA",
-    "zip": "95125",
+    "image": "https://assets.financialmodelingprep.com/symbol/EBAY.png",
+    "logo": "https://assets.financialmodelingprep.com/symbol/EBAY.png",
+    "website": "",
+    "ceo": "Executive Committee",
+    "full_time_employees": "--",
+    "description": "A publicly traded US equity on major exchanges.",
+    "description_zh": "eBay（美股代碼：EBAY）為 非必需消費 領域之重要企業，專注於 Broadline Retail 業務，具備清晰之商業壁壘與現金流創造能力。",
+    "address": "--",
+    "city": "--",
+    "state": "--",
+    "zip": "--",
     "country": "US",
-    "phone": "408 376 7108",
-    "full_address": "2025 Hamilton Avenue, San Jose, CA 95125, US",
-    "range_52w": "78.03-119.31",
-    "year_high": 119.31,
-    "year_low": 78.03,
+    "phone": "--",
+    "full_address": "",
+    "range_52w": "--",
+    "year_high": 91.85,
+    "year_low": 54.33,
     "all_time_high": 0.0,
-    "all_time_low": 78.03,
+    "all_time_low": 54.33,
     "inst_ownership_pct": 65.0,
     "insider_ownership_pct": 3.2,
     "fmp_symbol": "EBAY"
@@ -15123,10 +15123,10 @@ window.FULL_MARKET_DATA = {
     "phone": "--",
     "full_address": "",
     "range_52w": "--",
-    "year_high": 119.31,
-    "year_low": 78.03,
+    "year_high": 91.85,
+    "year_low": 54.33,
     "all_time_high": 0.0,
-    "all_time_low": 78.03,
+    "all_time_low": 54.33,
     "inst_ownership_pct": 72.5,
     "insider_ownership_pct": 3.2,
     "fmp_symbol": "BRKB"
@@ -22274,7 +22274,7 @@ window.FULL_MARKET_DATA = {
     "debt": 26558.0,
     "cash": 4348.0,
     "net_debt": 22210.0,
-    "fcf0": 5466.0,
+    "fcf0": 5836.6,
     "beta": 0.8,
     "beta_5y": 0.8,
     "kd": 4.5,
@@ -22295,31 +22295,31 @@ window.FULL_MARKET_DATA = {
     "g2": 3.5,
     "g": 2.25,
     "wacc": 7.6,
-    "ev": 118173.6,
-    "ev_to_ebitda": 15.6,
-    "debt_to_ebitda": 3.5,
-    "net_debt_to_ebitda": 2.93,
-    "f_score": 7,
+    "ev": 126185.8,
+    "ev_to_ebitda": 18.0,
+    "debt_to_ebitda": 4.55,
+    "net_debt_to_ebitda": 3.81,
+    "f_score": 8,
     "f_score_breakdown": [
       {
         "id": 1,
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 4.3%"
+        "detail": "當期 ROA = 8.0%"
       },
       {
         "id": 2,
         "category": "盈利能力",
         "desc": "營業現金流 CFO > 0",
         "passed": 1,
-        "detail": "自由現金流 = $5,466M"
+        "detail": "自由現金流 = $5,837M"
       },
       {
         "id": 3,
         "category": "盈利能力",
         "desc": "資產回報率持續擴張 (ΔROA > 0)",
-        "passed": 0,
+        "passed": 1,
         "detail": "回報率穩步領先同業基準"
       },
       {
@@ -22365,23 +22365,23 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 136.51,
-    "premium_pct": 60.1,
+    "fair_val": 147.91,
+    "premium_pct": 47.7,
     "is_undervalued": false,
-    "pe_trailing": 38.4,
-    "pe_forward": 33.8,
+    "pe_trailing": 24.0,
+    "pe_forward": 21.1,
     "pb_trailing": 2.9,
     "pb_forward": 2.6,
-    "div_yield": 0.63,
-    "ps_ratio": 7.0,
+    "div_yield": 0.0,
+    "ps_ratio": 6.6,
     "fcf_to_ev": 4.63,
-    "fcf_to_mcap": 3.56,
+    "fcf_to_mcap": 3.8,
     "liab_to_assets": 43.1,
     "cash_to_assets": 4.7,
     "current_ratio": 1.65,
     "cash_minus_liab": -22210.0,
-    "roe": 7.6,
-    "roa": 4.3,
+    "roe": 18.0,
+    "roa": 8.0,
     "moat": {
       "ticker": "DHR",
       "period": "2026Q2",
@@ -22455,22 +22455,22 @@ window.FULL_MARKET_DATA = {
   },
   "ISRG": {
     "name": "Intuitive Surgical",
-    "company_name": "Intuitive Surgical, Inc.",
+    "company_name": "Intuitive Surgical",
     "exchange": "NASDAQ",
     "sector": "醫療保健",
     "industry": "Health Care Equipment",
     "reportedCurrency": "USD",
-    "price": 414.52,
-    "shares": 353.28,
-    "shares_outstanding": 353280000,
-    "shares_display": "353.28 M",
-    "mcap": 146440.8,
+    "price": 150.0,
+    "shares": 666.7,
+    "shares_outstanding": 666700000,
+    "shares_display": "666.70 M",
+    "mcap": 100000.0,
     "debt": 0.0,
-    "cash": 5216.2,
-    "net_debt": -5216.2,
+    "cash": 0.0,
+    "net_debt": 0.0,
     "fcf0": 3222.6,
-    "beta": 1.46,
-    "beta_5y": 1.46,
+    "beta": 1.15,
+    "beta_5y": 1.15,
     "kd": 4.5,
     "tax": 21.0,
     "growth_10y": [
@@ -22488,19 +22488,19 @@ window.FULL_MARKET_DATA = {
     "g1": 12.2,
     "g2": 6.8,
     "g": 2.25,
-    "wacc": 11.43,
-    "ev": 53000.8,
-    "ev_to_ebitda": 11.7,
+    "wacc": 9.96,
+    "ev": 63847.2,
+    "ev_to_ebitda": 18.0,
     "debt_to_ebitda": 0.0,
-    "net_debt_to_ebitda": -1.15,
-    "f_score": 9,
+    "net_debt_to_ebitda": 0.0,
+    "f_score": 8,
     "f_score_breakdown": [
       {
         "id": 1,
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 15.0%"
+        "detail": "當期 ROA = 8.0%"
       },
       {
         "id": 2,
@@ -22528,14 +22528,14 @@ window.FULL_MARKET_DATA = {
         "category": "槓桿與償債",
         "desc": "財務槓桿未惡化 (ΔLeverage ≤ 0)",
         "passed": 1,
-        "detail": "總負債資產比率 = 12.4%"
+        "detail": "總負債資產比率 = 40.0%"
       },
       {
         "id": 6,
         "category": "槓桿與償債",
         "desc": "短期流動性安全 (ΔLiquidity > 0)",
         "passed": 1,
-        "detail": "流動比率 = 4.96"
+        "detail": "流動比率 = 1.50"
       },
       {
         "id": 7,
@@ -22548,7 +22548,7 @@ window.FULL_MARKET_DATA = {
         "id": 8,
         "category": "營運效率",
         "desc": "毛利率擴張 (ΔMargin > 0)",
-        "passed": 1,
+        "passed": 0,
         "detail": "產品定價權增強，毛利結構健康"
       },
       {
@@ -22559,90 +22559,90 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 164.79,
-    "premium_pct": 151.5,
+    "fair_val": 95.77,
+    "premium_pct": 56.6,
     "is_undervalued": false,
-    "pe_trailing": 46.7,
-    "pe_forward": 41.1,
-    "pb_trailing": 8.1,
-    "pb_forward": 7.3,
+    "pe_trailing": 24.0,
+    "pe_forward": 21.1,
+    "pb_trailing": 100000000000.0,
+    "pb_forward": 90000000000.0,
     "div_yield": 0.0,
-    "ps_ratio": 11.4,
-    "fcf_to_ev": 6.08,
-    "fcf_to_mcap": 2.2,
-    "liab_to_assets": 12.4,
-    "cash_to_assets": 25.0,
-    "current_ratio": 4.96,
-    "cash_minus_liab": 5216.2,
-    "roe": 17.3,
-    "roa": 15.0,
+    "ps_ratio": 7.8,
+    "fcf_to_ev": 5.05,
+    "fcf_to_mcap": 3.22,
+    "liab_to_assets": 40.0,
+    "cash_to_assets": 0.0,
+    "current_ratio": 1.5,
+    "cash_minus_liab": 0.0,
+    "roe": 18.0,
+    "roa": 8.0,
     "moat": {
       "ticker": "ISRG",
-      "period": "2026Q2",
+      "period": "2026Q4",
       "m1_brand_pricing": {
         "score": 9,
-        "comment": "Intuitive Surgical憑藉其da Vinci手術系統，在機器人輔助手術領域建立了無可匹敵的品牌心智與定價權。醫院一旦投入數百萬美元購置da Vinci系統並培訓外科醫生，便會形成對其耗材和服務的高度依賴。這種「鎖定效應」使得ISRG能夠持續對其專有器械和服務進行定價，且客戶轉換成本極高，難以輕易轉向其他潛在競爭者。其卓越的臨床效果和醫生的高度認可，進一步鞏固了其在高端醫療市場的領導地位，賦予其強大的溢價能力，即使在經濟下行週期，醫療機構對提升手術精準度和患者預後的投資意願依然堅定。"
+        "comment": "Intuitive Surgical憑藉其da Vinci手術系統，在機器人輔助手術領域建立了無可匹敵的品牌心智。醫院一旦投入巨資購置系統並培訓外科醫生，便會形成高度依賴，難以轉向其他方案。其專有耗材與服務合同帶來穩定的經常性收入，賦予公司強大的定價權。儘管系統成本高昂，但其提升手術精準度、縮短患者康復時間的價值主張，使醫院願意支付溢價，確保了其在市場上的領導地位與盈利能力，這正是巴菲特所推崇的特許經營權特徵。"
       },
       "m2_patents_regulatory": {
         "score": 9,
-        "comment": "Intuitive Surgical構築了極為堅實的專利壁壘，其da Vinci系統的核心技術、精密器械及手術方法均受龐大且不斷更新的專利組合保護。這不僅阻止了競爭對手直接複製其創新，更為其提供了長期的技術領先優勢。此外，醫療器械行業嚴格的監管審批流程，尤其是FDA對創新手術機器人的嚴苛要求，構成了巨大的進入門檻。新進入者需耗費巨資與漫長時間進行臨床試驗和審批，這無形中為ISRG創造了類似「特許經營權」的市場地位，使其能夠在受保護的市場空間內持續獲利。"
+        "comment": "ISRG擁有龐大且不斷擴展的專利組合，嚴密保護其da Vinci系統的技術核心與創新。更重要的是，醫療設備行業嚴格的FDA審批流程構成了極高的監管壁壘。新進入者不僅需要投入巨額研發資金，還需耗費數年時間進行漫長的臨床試驗與審批，這是一項極其耗時且資本密集的挑戰。這種專利與監管的雙重壁壘，為ISRG築起了堅不可摧的護城河，使其免受直接競爭的威脅，確保了其市場的獨佔性與超額利潤。"
       },
       "m3_high_switching_costs": {
         "score": 9,
-        "comment": "Intuitive Surgical的產品具有極高的客戶黏性與替代成本。醫院一旦投入數百萬美元購買da Vinci系統，並對外科醫生和護理人員進行數百小時的專業培訓，轉換至其他系統將面臨巨大的財務損失和運營中斷風險。重新採購設備、再次培訓員工、調整手術流程以及潛在的臨床風險，都使得轉換成本高昂得令人望而卻步。這種深度嵌入醫院運營的特性，確保了其耗材和服務的持續需求，即使面對潛在競爭，客戶也傾向於維持現有合作關係，為ISRG提供了穩定的收入來源。"
+        "comment": "醫院對da Vinci系統的投資不僅限於數百萬美元的設備採購，更包括外科醫生與醫護人員的長期專業培訓，以及將系統深度整合至現有手術流程。這種巨大的沉沒成本與學習曲線，使得醫院轉換至其他競爭對手產品的成本極高，不僅涉及新的資本支出，還可能導致手術流程中斷、效率下降及潛在的醫療風險。這種高昂的轉換成本，為ISRG創造了極強的客戶黏性，確保了其穩定的收入流與市場份額，是典型的巴菲特式護城河。"
       },
       "m4_network_effects": {
         "score": 7,
-        "comment": "Intuitive Surgical雖非典型的社交網絡平台，但其在醫療領域展現出獨特的網絡效應。隨著da Vinci系統在全球範圍內安裝量增加，接受培訓的外科醫生數量也隨之增長。這不僅擴大了醫生群體對該技術的認可和熟練度，也產生了海量的臨床數據和研究成果，進一步驗證了其手術效果。這種廣泛的醫生社群和臨床數據庫，吸引更多醫院採購系統，並鼓勵更多年輕醫生學習da Vinci技術，形成正向循環。每個新用戶的加入，都提升了整個生態系統的價值和標準化程度，鞏固了ISRG的市場領導地位。"
+        "comment": "ISRG的網絡效應主要體現在其龐大的醫生培訓生態系統與臨床數據積累。隨著越來越多的外科醫生接受da Vinci系統培訓並累積操作經驗，形成了一個專業社群，彼此分享最佳實踐與臨床成果。這不僅提升了系統的應用廣度，也吸引更多醫院採購以滿足醫生需求。同時，大量的臨床數據進一步驗證了系統的有效性與安全性，強化了其在醫療界的權威性與信任度，形成良性循環，雖非傳統意義的社交網絡，卻是醫療領域獨特的生態網絡效應。"
       },
       "m5_cost_advantage_scale": {
         "score": 8,
-        "comment": "Intuitive Surgical作為機器人輔助手術領域的絕對領導者，享有顯著的規模經濟優勢。其龐大的da Vinci系統裝機量和全球市場份額，使其在研發投入、精密器械製造和全球供應鏈管理上，能實現單位成本的持續降低。這種規模效應不僅體現在生產效率上，也使其在採購原材料和組件時擁有更強的議價能力。此外，多年積累的獨特精密製造工藝和嚴格的質量控制標準，對於醫療器械而言至關重要，這使得新進入者難以在短期內達到同等水平的可靠性和成本效益，形成難以逾越的壁壘。"
+        "comment": "作為機器人輔助手術領域的絕對領導者，ISRG享有顯著的規模經濟優勢。其龐大的裝機量與全球市場份額，使其在系統製造、專有耗材生產以及全球分銷與服務網絡方面，能夠實現遠低於潛在競爭對手的單位成本。研發投入亦能攤薄至更廣闊的收入基礎上，持續推動技術創新。這種規模優勢不僅降低了運營成本，也使其能以更具競爭力的價格提供產品與服務，同時保持高利潤率，為新進入者設置了難以逾越的成本壁壘。"
       },
       "m6_unique_geography_assets": {
         "score": 8,
-        "comment": "機器人輔助手術市場是一個高度專業化且資本密集型的利基市場，其高昂的研發成本、嚴格的監管要求以及複雜的技術門檻，天然地限制了競爭者的數量。Intuitive Surgical憑藉先發優勢和持續創新，已在此市場中形成事實上的寡占格局。儘管市場仍在擴張，但其「高效規模」的特性意味著，若有過多新競爭者試圖大規模進入，將可能導致價格戰，損害所有參與者的利潤率。這種市場結構使得ISRG能夠在相對較少的競爭壓力下，維持其高利潤率和市場份額，新進入者難以在不破壞行業生態的情況下有效競爭。"
+        "comment": "機器人輔助手術是一個高度專業化且資本密集的利基市場，其市場容量並非無限，且進入壁壘極高。ISRG憑藉其先發優勢、技術領先和監管批准，已在此領域建立起近乎壟斷的地位。新競爭者即便擁有資金，也難以在短期內複製其技術、臨床驗證和市場信任。這種市場結構自然導致了寡占局面，任何新進入者都可能面臨巨大的虧損風險，從而理性地選擇不進入，這正是巴菲特所言的「收費橋樑」式高效規模護城河。"
       },
       "m7_operational_efficiency": {
-        "score": 9,
-        "comment": "Intuitive Surgical展現出卓越的長期超額投入資本回報率（ROIC）韌性。其高達17.3%的股東權益報酬率（ROE）和15.0%的資產報酬率（ROA），在幾乎零負債的健康資產負債表下實現，強烈表明其ROIC遠超其加權平均資本成本（WACC）。這證明公司能夠持續有效地將資本投入到高回報的項目中，為股東創造實質性的複利價值。這種持續的超額回報能力，是其強大護城河的直接體現，反映了其在市場中的定價權、規模優勢和技術領先地位，使其能夠長期保持盈利能力和競爭力。"
+        "score": 8,
+        "comment": "ISRG展現出卓越的資本配置效率與盈利能力，其18.0%的股東權益報酬率（ROE）和8.0%的資產報酬率（ROA）遠超行業平均水平，且自由現金流高達32.2億美元。公司資產負債表健康，幾乎零負債，這表明其業務模式能夠持續產生豐厚現金流，並有效將資本轉化為股東價值。這種長期超額的投入資本回報率（ROIC）韌性，是企業擁有堅實護城河的明確財務證據，符合巴菲特對優質企業的嚴苛標準。"
       },
       "m8_capital_allocation": {
-        "score": 9,
-        "comment": "Intuitive Surgical的核心戰略資產具有極高的資本不可複製性。即使給予競爭對手數千億美元，也難以在短時間內複製其數十年積累的研發經驗、龐大的專利組合、全球範圍內的監管批准、數以萬計的da Vinci系統裝機量、以及由數十萬名外科醫生組成的培訓和使用生態系統。這不僅是資金問題，更是時間、專業知識、臨床數據和品牌信任的累積。這種深度和廣度上的壁壘，使得ISRG的競爭優勢不僅僅是技術領先，更是一種難以被金錢快速堆砌出來的綜合性生態系統優勢。"
+        "score": 8,
+        "comment": "ISRG的財務數據顯示其管理層在資本配置上極為審慎與高效。公司擁有強勁的自由現金流（32.2億美元）且無長期債務，皮氏F-Score高達8/9，表明其財務狀況極為穩健。這使得管理層有充足的彈性進行戰略性研發投入、潛在的併購或股本回購，以最大化股東價值。雖然具體回購數據未提供，但其持續的盈利能力和健康的資產負債表，暗示了管理層對資本的有效運用，符合巴菲特對優秀資本配置者的期望。"
       },
       "m9_customer_retention": {
-        "score": 8,
-        "comment": "Intuitive Surgical在技術/典範轉移方面展現出較強的抗性。雖然醫療技術不斷進步，但對精準、微創手術的需求是長期且確定的。ISRG作為行業領導者，持續投入研發，不斷升級其系統和器械，以適應新的醫療需求和技術發展。其龐大的裝機量和醫生生態系統，使其成為新技術（如AI輔助）整合的天然平台，而非被顛覆的對象。高昂的轉換成本和嚴格的監管審批，也為其提供了緩衝區，使得任何潛在的顛覆性技術都需要漫長的時間和巨大的資源才能獲得市場認可，難以在短期內取代其主導地位。"
+        "score": 9,
+        "comment": "ISRG的客戶保留率極高，主要得益於其da Vinci系統在醫療領域的不可或缺性與高轉換成本。一旦醫院和外科醫生習慣了da Vinci系統的精準性與效率，並將其整合到日常手術流程中，便很難轉用其他替代方案。系統的持續升級、專有耗材的穩定供應以及專業的售後服務，進一步鞏固了客戶關係。這種深厚的客戶黏性確保了穩定的經常性收入，使公司能夠長期鎖定客戶，是其護城河的關鍵組成部分。"
       },
       "m10_durability": {
         "score": 8,
-        "comment": "Intuitive Surgical的管理層在資本配置方面展現出穩健與誠信。公司擁有超過50億美元的現金儲備且零負債，顯示出極為健康的財務狀況和對風險的審慎管理。其強勁的自由現金流（FCF TTM $3,222.6M）為其提供了充足的內部資金進行研發投入、戰略性擴張或股東回報。雖然具體的回購策略未詳述，但公司長期以來持續創造高ROIC，並保持行業領先地位，表明管理層能夠有效配置資本，將其投入到能產生高回報的領域，而非盲目進行溢價併購，從而最大化股東的長期價值。"
+        "comment": "ISRG的業務模式展現出強大的抗顛覆能力。儘管醫療技術不斷演進，但對精準、微創手術的需求是長期且確定的。ISRG作為行業領導者，持續投入研發以保持技術領先，並積極探索新應用領域。其深厚的專利壁壘、高轉換成本和龐大的醫生培訓網絡，使其能夠有效抵禦潛在的技術變革或新興競爭者。公司在核心業務上的持續創新與市場主導地位，賦予其在未來數十年內保持競爭優勢的韌性。"
       },
-      "overall_moat_verdict": "Intuitive Surgical本質上是一家在高端醫療器械領域擁有「特許經營權」的平台型企業。其核心競爭壁壘源於da Vinci機器人手術系統所構築的強大生態系統：極高的客戶轉換成本、無可匹敵的品牌心智與定價權、龐大且不斷更新的專利集群，以及嚴格的監管審批所形成的進入壁壘。這種綜合性護城河使其在市場中享有事實上的寡占地位，並能持續產生超額的投入資本回報。公司穩健的財務狀況和難以複製的核心資產，確保了其在可預見的未來能夠抵禦競爭，持續為股東創造長期價值，是巴菲特和蒙格所推崇的「收費橋樑」式優質企業。"
+      "overall_moat_verdict": "Intuitive Surgical (ISRG) 是一家典型的「收費橋樑」型企業，在機器人輔助手術這一高價值醫療領域築起了極其深厚的護城河。其核心競爭壁壘在於強大的品牌心智與定價權、龐大的專利集群與嚴格的監管准入、以及醫院與醫生極高的轉換成本。公司憑藉規模經濟實現成本優勢，並在利基市場形成天然寡占。持續超額的投入資本回報率和穩健的財務狀況，印證了其卓越的盈利能力與管理層的資本配置智慧。ISRG的護城河不僅在於其尖端技術，更在於其圍繞技術建立的難以複製的生態系統與客戶黏性，使其成為巴菲特與蒙格眼中極具吸引力的長期投資標的。"
     },
     "fin_valuation": {
       "is_financial": false
     },
-    "image": "https://images.financialmodelingprep.com/symbol/ISRG.png",
-    "logo": "https://images.financialmodelingprep.com/symbol/ISRG.png",
-    "website": "https://www.intuitive.com",
-    "ceo": "David J. Rosa",
-    "full_time_employees": "17021",
-    "description": "Intuitive Surgical, Inc. is a leading medical technology firm dedicated to advancing patient care by developing, producing, and commercializing sophisticated tools. These innovations empower medical professionals to deliver superior, accessible, and less-invasive treatment options to patients both within the United States and across international markets. Its flagship offering, the da Vinci Surgical System, facilitates intricate operations through a minimally disruptive approach. Expanding beyond surgical applications, the company also provides the Ion endoluminal system, designed for diagnostic interventions like minimally invasive lung biopsies. Complementing its primary systems, Intuitive Surgical supplies a comprehensive array of instruments, including stapling tools, energy devices, and essential core components. Furthermore, it offers structured training programs to ensure proficient use of its technology, alongside extensive customer support services encompassing installation, repairs, and ongoing maintenance. The firm also integrates digital capabilities to deliver unified, connected solutions that optimize hospital performance through actionable insights. Established in 1995, Intuitive Surgical maintains its corporate headquarters in Sunnyvale, California.",
-    "description_zh": "Intuitive Surgical, Inc.（美股代碼：ISRG）為 醫療保健 領域之重要企業，專注於 Health Care Equipment 業務，具備清晰之商業壁壘與現金流創造能力。",
-    "address": "1020 Kifer Road",
-    "city": "Sunnyvale",
-    "state": "CA",
-    "zip": "94086-5304",
+    "image": "https://assets.financialmodelingprep.com/symbol/ISRG.png",
+    "logo": "https://assets.financialmodelingprep.com/symbol/ISRG.png",
+    "website": "",
+    "ceo": "Executive Committee",
+    "full_time_employees": "--",
+    "description": "A publicly traded US equity on major exchanges.",
+    "description_zh": "Intuitive Surgical（美股代碼：ISRG）為 醫療保健 領域之重要企業，專注於 Health Care Equipment 業務，具備清晰之商業壁壘與現金流創造能力。",
+    "address": "--",
+    "city": "--",
+    "state": "--",
+    "zip": "--",
     "country": "US",
-    "phone": "408 523 2100",
-    "full_address": "1020 Kifer Road, Sunnyvale, CA 94086-5304, US",
-    "range_52w": "328.57-603.88",
-    "year_high": 603.88,
-    "year_low": 328.57,
+    "phone": "--",
+    "full_address": "",
+    "range_52w": "--",
+    "year_high": 242.8,
+    "year_low": 160.93,
     "all_time_high": 0.0,
-    "all_time_low": 328.57,
+    "all_time_low": 160.93,
     "inst_ownership_pct": 65.0,
     "insider_ownership_pct": 3.2,
     "fmp_symbol": "ISRG"
@@ -23050,7 +23050,7 @@ window.FULL_MARKET_DATA = {
     "debt": 43120.0,
     "cash": 11067.0,
     "net_debt": 32053.0,
-    "fcf0": 4634.1,
+    "fcf0": 11440.0,
     "beta": 0.23,
     "beta_5y": 0.23,
     "kd": 4.5,
@@ -23071,11 +23071,11 @@ window.FULL_MARKET_DATA = {
     "g2": 3.5,
     "g": 2.25,
     "wacc": 5.06,
-    "ev": 185899.5,
-    "ev_to_ebitda": 11.1,
+    "ev": 458922.0,
+    "ev_to_ebitda": 27.3,
     "debt_to_ebitda": 2.56,
     "net_debt_to_ebitda": 1.91,
-    "f_score": 7,
+    "f_score": 8,
     "f_score_breakdown": [
       {
         "id": 1,
@@ -23089,7 +23089,7 @@ window.FULL_MARKET_DATA = {
         "category": "盈利能力",
         "desc": "營業現金流 CFO > 0",
         "passed": 1,
-        "detail": "自由現金流 = $4,634M"
+        "detail": "自由現金流 = $11,440M"
       },
       {
         "id": 3,
@@ -23102,7 +23102,7 @@ window.FULL_MARKET_DATA = {
         "id": 4,
         "category": "盈利能力",
         "desc": "應計利潤品質高 (CFO > 淨利潤)",
-        "passed": 0,
+        "passed": 1,
         "detail": "真實現金流充沛，無虛報帳面獲利"
       },
       {
@@ -23141,17 +23141,17 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 75.31,
-    "premium_pct": -20.7,
+    "fair_val": 208.97,
+    "premium_pct": -71.4,
     "is_undervalued": true,
     "pe_trailing": 13.1,
     "pe_forward": 11.5,
     "pb_trailing": 5.5,
     "pb_forward": 5.0,
-    "div_yield": 0.0,
-    "ps_ratio": 6.6,
+    "div_yield": 4.18,
+    "ps_ratio": 2.7,
     "fcf_to_ev": 2.49,
-    "fcf_to_mcap": 3.8,
+    "fcf_to_mcap": 9.38,
     "liab_to_assets": 74.5,
     "cash_to_assets": 12.6,
     "current_ratio": 1.53,
@@ -24211,10 +24211,10 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 537130000,
     "shares_display": "537.13 M",
     "mcap": 11113.2,
-    "debt": 12285.2,
-    "cash": 1624.2,
-    "net_debt": 10661.0,
-    "fcf0": 1983.6,
+    "debt": 12282.4,
+    "cash": 1623.8,
+    "net_debt": 10658.6,
+    "fcf0": 1983.2,
     "beta": 0.72,
     "beta_5y": 0.72,
     "kd": 4.5,
@@ -24235,7 +24235,7 @@ window.FULL_MARKET_DATA = {
     "g2": 3.5,
     "g": 2.25,
     "wacc": 5.63,
-    "ev": 66221.9,
+    "ev": 66203.7,
     "ev_to_ebitda": 17.2,
     "debt_to_ebitda": 3.2,
     "net_debt_to_ebitda": 2.78,
@@ -24253,7 +24253,7 @@ window.FULL_MARKET_DATA = {
         "category": "盈利能力",
         "desc": "營業現金流 CFO > 0",
         "passed": 1,
-        "detail": "自由現金流 = $1,984M"
+        "detail": "自由現金流 = $1,983M"
       },
       {
         "id": 3,
@@ -24305,7 +24305,7 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 103.44,
+    "fair_val": 103.41,
     "premium_pct": -80.0,
     "is_undervalued": true,
     "pe_trailing": 10.6,
@@ -24319,7 +24319,7 @@ window.FULL_MARKET_DATA = {
     "liab_to_assets": 56.8,
     "cash_to_assets": 4.6,
     "current_ratio": 1.07,
-    "cash_minus_liab": -10661.0,
+    "cash_minus_liab": -10658.6,
     "roe": 7.5,
     "roa": 3.0,
     "moat": {
@@ -29827,7 +29827,7 @@ window.FULL_MARKET_DATA = {
   },
   "GIS": {
     "name": "General Mills",
-    "company_name": "General Mills, Inc.",
+    "company_name": "General Mills",
     "exchange": "NYSE",
     "sector": "必需消費",
     "industry": "Packaged Foods & Meats",
@@ -29996,21 +29996,21 @@ window.FULL_MARKET_DATA = {
     "fin_valuation": {
       "is_financial": false
     },
-    "image": "https://images.financialmodelingprep.com/symbol/GIS.png",
-    "logo": "https://images.financialmodelingprep.com/symbol/GIS.png",
-    "website": "https://www.generalmills.com",
-    "ceo": "Jeffrey L. Harmening",
-    "full_time_employees": "30000",
-    "description": "General Mills, Inc. functions as a prominent global producer and vendor of well-known consumer food brands. The company structures its widespread operations into five main divisions: North American retail, convenience stores and foodservice providers, Europe and Australia, Asia and Latin America, and a dedicated pet segment. Their broad catalog of products features a diverse range of items for consumers. This includes breakfast cereals, chilled yogurts, various soups, and ready-to-prepare meal kits. The offering also extends to refrigerated and frozen dough items, baking and dessert mixes, flours for culinary use, frozen pizzas and pizza snacks, along with an assortment of snack bars, fruit snacks, savory and grain snacks, and ice cream. For health-conscious consumers, they provide nutrition bars and wellness beverages, in addition to organic frozen and shelf-stable vegetables. Beyond direct consumer sales, General Mills supplies both branded and unbranded food goods to the North American foodservice sector and commercial bakeries. Furthermore, they are a significant participant in the pet food industry, manufacturing a variety of dog and cat food products. The company markets its merchandise under an extensive collection of trademarks, such as: Annie's, Betty Crocker, Bisquick, Blue Buffalo, Blue Basics, Blue Freedom, Bugles, Cascadian Farm, Cheerios, Chex, Cinnamon Toast Crunch, Cocoa Puffs, Cookie Crisp, EPIC, Fiber One, Food Should Taste Good, Fruit by the Foot, Fruit Gushers, Fruit Roll-Ups, Gardetto's, Go-Gurt, Gold Medal, Golden Grahams, Häagen-Dazs, Helpers, Jus-Rol, Kitano, Kix, Lärabar, Latina, Liberté, Lucky Charms, Muir Glen, Nature Valley, Oatmeal Crisp, Old El Paso, Oui, Pillsbury, Progresso, Raisin Nut Bran, Total, Totino's, Trix, Wanchai Ferry, Wheaties, Wilderness, Yoki, and Yoplait. General Mills distributes its products through a vast network, utilizing both direct sales and arrangements with brokers and distributors. Their reach encompasses a wide array of sales points, including traditional grocery stores, large-scale mass merchandisers, membership clubs, natural food retailers, online marketplaces, various commercial and non-commercial foodservice distributors and operators, restaurants, convenience stores, specialized pet stores, as well as drug, dollar, and discount retail chains. Complementing its extensive business, the corporation also oversees 466 leased and 392 franchised ice cream parlors. General Mills, Inc., established in 1866, maintains its corporate headquarters in Minneapolis, Minnesota.",
-    "description_zh": "General Mills, Inc.（美股代碼：GIS）為 必需消費 領域之重要企業，專注於 Packaged Foods & Meats 業務，具備清晰之商業壁壘與現金流創造能力。",
-    "address": "Number One General Mills Boulevard",
-    "city": "Minneapolis",
-    "state": "MN",
-    "zip": "55426",
+    "image": "https://assets.financialmodelingprep.com/symbol/GIS.png",
+    "logo": "https://assets.financialmodelingprep.com/symbol/GIS.png",
+    "website": "",
+    "ceo": "Executive Committee",
+    "full_time_employees": "--",
+    "description": "A publicly traded US equity on major exchanges.",
+    "description_zh": "General Mills（美股代碼：GIS）為 必需消費 領域之重要企業，專注於 Packaged Foods & Meats 業務，具備清晰之商業壁壘與現金流創造能力。",
+    "address": "--",
+    "city": "--",
+    "state": "--",
+    "zip": "--",
     "country": "US",
-    "phone": "763 764 7600",
-    "full_address": "Number One General Mills Boulevard, Minneapolis, MN 55426, US",
-    "range_52w": "31.18-50.93",
+    "phone": "--",
+    "full_address": "",
+    "range_52w": "--",
     "year_high": 50.93,
     "year_low": 31.18,
     "all_time_high": 0.0,
@@ -30409,7 +30409,7 @@ window.FULL_MARKET_DATA = {
   },
   "CAT": {
     "name": "Caterpillar",
-    "company_name": "Caterpillar",
+    "company_name": "Caterpillar Inc.",
     "exchange": "NYSE",
     "sector": "工業",
     "industry": "Construction Machinery & Heavy Transportation Equipment",
@@ -30423,8 +30423,8 @@ window.FULL_MARKET_DATA = {
     "cash": 6713.0,
     "net_debt": 38433.0,
     "fcf0": 8994.0,
-    "beta": 1.15,
-    "beta_5y": 1.15,
+    "beta": 1.58,
+    "beta_5y": 1.58,
     "kd": 4.5,
     "tax": 21.0,
     "growth_10y": [
@@ -30442,9 +30442,9 @@ window.FULL_MARKET_DATA = {
     "g1": 4.5,
     "g2": 3.5,
     "g": 2.25,
-    "wacc": 9.27,
-    "ev": 144091.5,
-    "ev_to_ebitda": 8.3,
+    "wacc": 11.1,
+    "ev": 113955.3,
+    "ev_to_ebitda": 6.5,
     "debt_to_ebitda": 2.59,
     "net_debt_to_ebitda": 2.21,
     "f_score": 7,
@@ -30513,8 +30513,8 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 229.37,
-    "premium_pct": 254.8,
+    "fair_val": 163.95,
+    "premium_pct": 396.4,
     "is_undervalued": false,
     "pe_trailing": 34.6,
     "pe_forward": 30.4,
@@ -30522,7 +30522,7 @@ window.FULL_MARKET_DATA = {
     "pb_forward": 17.4,
     "div_yield": 0.75,
     "ps_ratio": 10.4,
-    "fcf_to_ev": 6.24,
+    "fcf_to_ev": 7.89,
     "fcf_to_mcap": 2.4,
     "liab_to_assets": 81.1,
     "cash_to_assets": 6.5,
@@ -30578,21 +30578,21 @@ window.FULL_MARKET_DATA = {
     "fin_valuation": {
       "is_financial": false
     },
-    "image": "https://assets.financialmodelingprep.com/symbol/CAT.png",
-    "logo": "https://assets.financialmodelingprep.com/symbol/CAT.png",
-    "website": "",
-    "ceo": "Executive Committee",
-    "full_time_employees": "--",
-    "description": "A publicly traded US equity on major exchanges.",
-    "description_zh": "Caterpillar（美股代碼：CAT）為 工業 領域之重要企業，專注於 Construction Machinery & Heavy Transportation Equipment 業務，具備清晰之商業壁壘與現金流創造能力。",
-    "address": "--",
-    "city": "--",
-    "state": "--",
-    "zip": "--",
+    "image": "https://images.financialmodelingprep.com/symbol/CAT.png",
+    "logo": "https://images.financialmodelingprep.com/symbol/CAT.png",
+    "website": "https://www.caterpillar.com",
+    "ceo": "Joseph E. Creed",
+    "full_time_employees": "118000",
+    "description": "Caterpillar Inc., a global enterprise founded in 1925 and headquartered in Deerfield, Illinois (having previously operated as Caterpillar Tractor Co. until its rebranding in 1986), is a premier manufacturer and vendor of heavy construction and mining equipment, diesel and natural gas power units, and industrial gas turbines across the world. The company's extensive offerings are organized into several operational divisions: Construction Industries: This segment delivers a broad spectrum of machinery for construction projects, including asphalt pavers, versatile backhoe and skid steer loaders, various sizes of excavators (from compact to heavy-duty), compactors, road-building equipment like cold planers and motorgraders, pipelayers, site preparation tractors, telehandlers, and utility vehicles, alongside a range of wheel loaders and track-type equipment. Resource Industries: Dedicated to the mining sector, this division supplies powerful equipment such as electric rope and hydraulic shovels, draglines, rotary drills, specialized hard rock vehicles, and a diverse fleet of mining, off-highway, and articulated trucks. It also offers longwall miners, wheel dozers, fleet management systems, autonomous vehicle solutions, crucial machinery components, selected work tools, and comprehensive safety and performance solutions for mining operations. Energy & Transportation: This segment focuses on power generation and propulsion systems. It provides reciprocating engines, generator sets, integrated power solutions, industrial turbines and associated services, remanufactured engines and parts, centrifugal gas compressors, and diesel-electric locomotives with related components and services. These products serve critical sectors including marine, oil and gas, industrial applications, and electric power generation. Financial Products: This segment supports customers with a variety of financial services, such as operating and finance leases, installment sale agreements, working capital loans, and wholesale financing schemes. It also offers insurance and risk management products tailored for vehicles, power generation facilities, and marine vessels. All Other: This encompassing segment is responsible for manufacturing essential consumables and components like filters, fluids, undercarriage parts, and ground engaging tools.",
+    "description_zh": "Caterpillar Inc.（美股代碼：CAT）為 工業 領域之重要企業，專注於 Construction Machinery & Heavy Transportation Equipment 業務，具備清晰之商業壁壘與現金流創造能力。",
+    "address": "5205 N. O'Connor Boulevard Suite 100",
+    "city": "Irving",
+    "state": "TX",
+    "zip": "75039",
     "country": "US",
-    "phone": "--",
-    "full_address": "",
-    "range_52w": "--",
+    "phone": "972 891 7700",
+    "full_address": "5205 N. O'Connor Boulevard Suite 100, Irving, TX 75039, US",
+    "range_52w": "489.34-1073.46",
     "year_high": 1073.46,
     "year_low": 489.34,
     "all_time_high": 0.0,
@@ -32941,9 +32941,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 30000000,
     "shares_display": "30.00 M",
     "mcap": 6920.1,
-    "debt": 1918.3,
-    "cash": 648.2,
-    "net_debt": 1270.1,
+    "debt": 1917.8,
+    "cash": 648.0,
+    "net_debt": 1269.8,
     "fcf0": 196.8,
     "beta": 0.18,
     "beta_5y": 0.18,
@@ -32965,7 +32965,7 @@ window.FULL_MARKET_DATA = {
     "g2": 3.7,
     "g": 2.25,
     "wacc": 4.96,
-    "ev": 8745.4,
+    "ev": 8745.2,
     "ev_to_ebitda": 8.2,
     "debt_to_ebitda": 1.81,
     "net_debt_to_ebitda": 1.2,
@@ -33042,14 +33042,14 @@ window.FULL_MARKET_DATA = {
     "pe_forward": 10.9,
     "pb_trailing": 3.0,
     "pb_forward": 2.7,
-    "div_yield": 13.48,
+    "div_yield": 13.47,
     "ps_ratio": 8.8,
     "fcf_to_ev": 2.25,
     "fcf_to_mcap": 2.84,
     "liab_to_assets": 46.3,
     "cash_to_assets": 12.9,
     "current_ratio": 3.29,
-    "cash_minus_liab": -1270.1,
+    "cash_minus_liab": -1269.8,
     "roe": 24.1,
     "roa": 11.1,
     "moat": {
@@ -35657,10 +35657,10 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 604900000,
     "shares_display": "604.90 M",
     "mcap": 70017.2,
-    "debt": 15871.0,
+    "debt": 15867.8,
     "cash": 206.3,
-    "net_debt": 15664.7,
-    "fcf0": 2490.0,
+    "net_debt": 15661.5,
+    "fcf0": 2489.5,
     "beta": 0.97,
     "beta_5y": 0.97,
     "kd": 4.5,
@@ -35681,7 +35681,7 @@ window.FULL_MARKET_DATA = {
     "g2": 3.5,
     "g": 2.25,
     "wacc": 8.08,
-    "ev": 48716.3,
+    "ev": 48705.1,
     "ev_to_ebitda": 7.7,
     "debt_to_ebitda": 2.5,
     "net_debt_to_ebitda": 2.47,
@@ -35751,8 +35751,8 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 54.64,
-    "premium_pct": 111.8,
+    "fair_val": 54.63,
+    "premium_pct": 111.9,
     "is_undervalued": false,
     "pe_trailing": 20.9,
     "pe_forward": 18.4,
@@ -35765,7 +35765,7 @@ window.FULL_MARKET_DATA = {
     "liab_to_assets": 63.6,
     "cash_to_assets": 0.5,
     "current_ratio": 0.87,
-    "cash_minus_liab": -15664.7,
+    "cash_minus_liab": -15661.5,
     "roe": 21.8,
     "roa": 8.0,
     "moat": {
@@ -37018,7 +37018,7 @@ window.FULL_MARKET_DATA = {
     "debt": 34019.0,
     "cash": 246.0,
     "net_debt": 33773.0,
-    "fcf0": 3460.0,
+    "fcf0": 3034.5,
     "beta": 0.48,
     "beta_5y": 0.48,
     "kd": 4.5,
@@ -37039,25 +37039,25 @@ window.FULL_MARKET_DATA = {
     "g2": 3.5,
     "g": 2.25,
     "wacc": 5.82,
-    "ev": 110086.5,
-    "ev_to_ebitda": 10.6,
-    "debt_to_ebitda": 3.28,
-    "net_debt_to_ebitda": 3.25,
-    "f_score": 6,
+    "ev": 96548.4,
+    "ev_to_ebitda": 18.0,
+    "debt_to_ebitda": 11.21,
+    "net_debt_to_ebitda": 11.13,
+    "f_score": 7,
     "f_score_breakdown": [
       {
         "id": 1,
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 7.7%"
+        "detail": "當期 ROA = 8.0%"
       },
       {
         "id": 2,
         "category": "盈利能力",
         "desc": "營業現金流 CFO > 0",
         "passed": 1,
-        "detail": "自由現金流 = $3,460M"
+        "detail": "自由現金流 = $3,034M"
       },
       {
         "id": 3,
@@ -37070,7 +37070,7 @@ window.FULL_MARKET_DATA = {
         "id": 4,
         "category": "盈利能力",
         "desc": "應計利潤品質高 (CFO > 淨利潤)",
-        "passed": 0,
+        "passed": 1,
         "detail": "真實現金流充沛，無虛報帳面獲利"
       },
       {
@@ -37109,23 +37109,23 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 35.27,
-    "premium_pct": 4.6,
+    "fair_val": 29.02,
+    "premium_pct": 27.2,
     "is_undervalued": false,
-    "pe_trailing": 12.7,
-    "pe_forward": 11.2,
+    "pe_trailing": 24.0,
+    "pe_forward": 21.1,
     "pb_trailing": 2.6,
     "pb_forward": 2.3,
-    "div_yield": 5.93,
-    "ps_ratio": 5.8,
+    "div_yield": 0.0,
+    "ps_ratio": 6.6,
     "fcf_to_ev": 3.14,
-    "fcf_to_mcap": 4.33,
+    "fcf_to_mcap": 3.8,
     "liab_to_assets": 62.0,
     "cash_to_assets": 0.3,
     "current_ratio": 0.93,
     "cash_minus_liab": -33773.0,
-    "roe": 20.8,
-    "roa": 7.7,
+    "roe": 18.0,
+    "roa": 8.0,
     "moat": {
       "ticker": "EPD",
       "period": "2026Q2",
@@ -37199,22 +37199,22 @@ window.FULL_MARKET_DATA = {
   },
   "ENB": {
     "name": "Enbridge",
-    "company_name": "Enbridge Inc.",
+    "company_name": "Enbridge",
     "exchange": "NYSE",
     "sector": "能源",
     "industry": "Oil & Gas Storage & Transportation",
     "reportedCurrency": "CAD",
-    "price": 45.89,
-    "shares": 2183.7,
-    "shares_outstanding": 2183700000,
-    "shares_display": "2,183.70 M",
-    "mcap": 100210.0,
-    "debt": 78655.5,
-    "cash": 2005.6,
-    "net_debt": 76649.9,
-    "fcf0": 1122.3,
-    "beta": 0.77,
-    "beta_5y": 0.77,
+    "price": 150.0,
+    "shares": 666.7,
+    "shares_outstanding": 666700000,
+    "shares_display": "666.70 M",
+    "mcap": 100000.0,
+    "debt": 0.0,
+    "cash": 0.0,
+    "net_debt": 0.0,
+    "fcf0": 1122.1,
+    "beta": 1.15,
+    "beta_5y": 1.15,
     "kd": 4.5,
     "tax": 21.0,
     "growth_10y": [
@@ -37232,19 +37232,19 @@ window.FULL_MARKET_DATA = {
     "g1": 4.5,
     "g2": 3.5,
     "g": 2.25,
-    "wacc": 6.13,
-    "ev": 32766.1,
-    "ev_to_ebitda": 2.9,
-    "debt_to_ebitda": 6.86,
-    "net_debt_to_ebitda": 6.68,
-    "f_score": 3,
+    "wacc": 9.96,
+    "ev": 16347.0,
+    "ev_to_ebitda": 18.0,
+    "debt_to_ebitda": 0.0,
+    "net_debt_to_ebitda": 0.0,
+    "f_score": 8,
     "f_score_breakdown": [
       {
         "id": 1,
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 2.9%"
+        "detail": "當期 ROA = 8.0%"
       },
       {
         "id": 2,
@@ -37257,29 +37257,29 @@ window.FULL_MARKET_DATA = {
         "id": 3,
         "category": "盈利能力",
         "desc": "資產回報率持續擴張 (ΔROA > 0)",
-        "passed": 0,
+        "passed": 1,
         "detail": "回報率穩步領先同業基準"
       },
       {
         "id": 4,
         "category": "盈利能力",
         "desc": "應計利潤品質高 (CFO > 淨利潤)",
-        "passed": 0,
+        "passed": 1,
         "detail": "真實現金流充沛，無虛報帳面獲利"
       },
       {
         "id": 5,
         "category": "槓桿與償債",
         "desc": "財務槓桿未惡化 (ΔLeverage ≤ 0)",
-        "passed": 0,
-        "detail": "總負債資產比率 = 70.3%"
+        "passed": 1,
+        "detail": "總負債資產比率 = 40.0%"
       },
       {
         "id": 6,
         "category": "槓桿與償債",
         "desc": "短期流動性安全 (ΔLiquidity > 0)",
-        "passed": 0,
-        "detail": "流動比率 = 0.72"
+        "passed": 1,
+        "detail": "流動比率 = 1.50"
       },
       {
         "id": 7,
@@ -37299,94 +37299,94 @@ window.FULL_MARKET_DATA = {
         "id": 9,
         "category": "營運效率",
         "desc": "資產週轉率提升 (ΔTurnover > 0)",
-        "passed": 0,
+        "passed": 1,
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": -20.1,
-    "premium_pct": -328.3,
-    "is_undervalued": true,
-    "pe_trailing": 21.0,
-    "pe_forward": 18.5,
-    "pb_trailing": 2.2,
-    "pb_forward": 2.0,
-    "div_yield": 6.14,
+    "fair_val": 24.52,
+    "premium_pct": 511.7,
+    "is_undervalued": false,
+    "pe_trailing": 24.0,
+    "pe_forward": 21.1,
+    "pb_trailing": 142589000000.0,
+    "pb_forward": 128330100000.0,
+    "div_yield": 6.15,
     "ps_ratio": 22.3,
-    "fcf_to_ev": 3.43,
+    "fcf_to_ev": 6.86,
     "fcf_to_mcap": 1.12,
-    "liab_to_assets": 70.3,
-    "cash_to_assets": 1.2,
-    "current_ratio": 0.72,
-    "cash_minus_liab": -76649.9,
-    "roe": 10.4,
-    "roa": 2.9,
+    "liab_to_assets": 40.0,
+    "cash_to_assets": 0.0,
+    "current_ratio": 1.5,
+    "cash_minus_liab": 0.0,
+    "roe": 18.0,
+    "roa": 8.0,
     "moat": {
       "ticker": "ENB",
-      "period": "2026Q2",
+      "period": "2026Q4",
       "m1_brand_pricing": {
-        "score": 6,
-        "comment": "Enbridge作為北美關鍵能源基礎設施供應商，其定價權並非來自消費者品牌忠誠，而是源於其提供的服務不可或缺性。客戶（煉油廠、生產商）對其管道運輸服務高度依賴，轉換成本高昂。儘管部分定價受監管，但長期合同和戰略性資產位置賦予其一定的議價能力。然而，這並非巴菲特所青睞的、能隨意提價而不失銷量的消費品牌式定價權，更多是基於基礎設施的壟斷性。"
+        "score": 7,
+        "comment": "Enbridge作為北美關鍵能源基礎設施供應商，其定價權並非來自品牌溢價，而是源於其作為能源運輸動脈的不可替代性。儘管費率受監管機構審批，但其長期、Take-or-Pay合約模式確保了穩定的現金流和可預測的收益。客戶對其管道服務的依賴性極高，轉換成本巨大，使得Enbridge在既定框架內擁有穩固的議價能力。這種模式類似於收費公路，一旦建成，其服務的剛性需求賦予了公司在合理範圍內調整費率的權力，且客戶難以尋求替代方案，這正是巴菲特所推崇的特許經營權特徵。"
       },
       "m2_patents_regulatory": {
         "score": 9,
-        "comment": "這是Enbridge最堅固的護城河之一。建設和運營大型能源管道需要獲得無數的政府許可、環境批准和土地使用權，過程極其漫長、複雜且成本巨大。這些嚴格的監管和特許經營權為現有運營商築起了幾乎不可逾越的壁壘，有效阻止了新競爭者的進入。現有管道網絡的稀缺性和戰略重要性，使其享有類似「收費橋樑」的獨佔地位，確保了穩定的現金流。"
+        "comment": "Enbridge的核心護城河之一是其龐大的管道網絡所享有的政府特許經營權與嚴格的監管壁壘。新建能源管道面臨極高的環境審批、土地徵用及社區阻力，導致新進入者幾乎不可能在短期內複製其資產。這些許可證和路權構成了一道難以逾越的「法律護城河」，賦予Enbridge在特定區域內的壟斷或寡頭地位。這使得公司能夠在受監管的基礎上，獲得穩定的回報，並有效抵禦潛在競爭。巴菲特深知此類「收費橋樑」的價值，因為它們提供了可預測且受保護的現金流。"
       },
       "m3_high_switching_costs": {
-        "score": 8,
-        "comment": "對於Enbridge的客戶而言，一旦其供應鏈與管道網絡整合，轉換至其他運輸方式（如鐵路、卡車）或尋找替代管道將產生巨大的財務和運營成本。這不僅涉及高昂的基礎設施改造費用，還可能導致供應鏈中斷和生產效率下降。長期運輸合同進一步鎖定了客戶，使得Enbridge的服務具有極高的黏性，為其帶來穩定的收入來源，符合巴菲特對高轉換成本企業的偏好。"
+        "score": 9,
+        "comment": "對於能源生產商而言，一旦其基礎設施與Enbridge的管道網絡連接，轉換供應商的成本將是天文數字。這不僅涉及重新規劃物流、建設新的連接點，更可能導致生產中斷和巨大的資本支出。Enbridge的管道系統已深度嵌入北美能源供應鏈，其服務的穩定性和可靠性對客戶的營運至關重要。這種高昂的轉換成本使得客戶對Enbridge的服務產生極強的黏性，即使面對潛在的價格調整，客戶也難以輕易轉投他處，這正是巴菲特所看重的「客戶鎖定」效應。"
       },
       "m4_network_effects": {
-        "score": 2,
-        "comment": "Enbridge的業務模式主要基於點對點的物理基礎設施運輸，其價值增長並不像社交媒體或電商平台那樣，會因用戶數量的增加而呈指數級提升。儘管其廣泛的管道網絡提供了規模和效率優勢，但這更多是規模經濟的體現，而非網絡效應。每增加一個客戶，對現有客戶的價值提升有限，因此，此項護城河對Enbridge而言並不顯著。"
+        "score": 6,
+        "comment": "Enbridge的管道網絡雖然不具備典型的社交媒體式網絡效應，但其廣泛的地理覆蓋和多樣化的連接點，確實產生了一種規模化的網絡價值。隨著更多生產商和煉油廠接入其系統，整個網絡的效率和靈活性隨之提升，為所有參與者提供更廣泛的運輸選擇和更低的邊際成本。這使得Enbridge的網絡對新客戶更具吸引力，形成一種良性循環。儘管不如數字平台那般強大，但這種物理基礎設施的網絡效應，仍為公司構建了一道重要的競爭壁壘。"
       },
       "m5_cost_advantage_scale": {
         "score": 8,
-        "comment": "運營龐大的管道網絡使Enbridge享有顯著的規模經濟。管道建設的固定成本極高，但一旦建成，每桶油氣的運輸邊際成本則相對較低。其廣泛的地理覆蓋和高運量使其能夠攤薄運營、維護和管理成本，實現單位成本優勢。這種規模優勢是新進入者難以在短期內複製的，使其在成本效率上領先於潛在競爭對手，符合巴菲特對低成本生產者的重視。"
+        "comment": "Enbridge作為北美最大的能源基礎設施公司之一，其規模經濟優勢顯著。龐大的管道網絡建設涉及巨額固定成本，但一旦建成，運輸額外能源的邊際成本相對較低。這種規模效應使得Enbridge能夠以遠低於潛在競爭對手的單位成本提供服務，並將固定成本攤薄至極致。其在管道設計、建設、營運及維護方面的長期經驗和專業知識，也形成了獨特的工藝壁壘，確保了營運效率和可靠性。這種規模和專業知識的結合，為公司提供了強大的成本優勢，是巴菲特所看重的核心競爭力。"
       },
       "m6_unique_geography_assets": {
-        "score": 8,
-        "comment": "在北美許多關鍵能源運輸走廊，Enbridge的管道網絡已形成天然的寡占或壟斷。由於市場容量有限，且建設新管道面臨巨大的資本投入、環境審批和社會阻力，新競爭者進入只會導致過度競爭和雙輸局面。這種「高效規模」的特性使得現有參與者能夠維持合理的盈利水平，並有效阻止了潛在競爭，為Enbridge提供了穩定的市場地位。"
+        "score": 9,
+        "comment": "能源管道運輸行業本身就是一個典型的「有效規模」市場。由於建設成本極高、監管審批嚴苛且地理位置固定，市場容量有限，新進入者若試圖在既有線路上重複建設，將導致資源的巨大浪費和雙輸局面。Enbridge已在北美關鍵能源運輸走廊上建立了廣泛且不可或缺的管道網絡，形成了天然的寡頭壟斷地位。這種市場結構使得公司能夠在沒有過度競爭壓力的情況下運營，並獲得穩定的回報，這正是巴菲特所青睞的「收費橋樑」模式，其護城河極為堅固。"
       },
       "m7_operational_efficiency": {
-        "score": 5,
-        "comment": "Enbridge作為受監管的公用事業型企業，其投資回報率（ROIC）通常較為穩定且可預測。然而，其高達786億美元的總負債和相對較低的ROA（2.9%）表明，儘管現金流穩定，但資本密集型業務和高槓桿可能限制其實現遠超加權平均資本成本（WACC）的超額回報。皮氏F-Score僅為3/9也暗示了財務結構存在一定壓力，需要密切關注其資本效率。"
+        "score": 8,
+        "comment": "Enbridge的商業模式以其資產的長期穩定性和可預測的現金流為特徵，這通常能帶來持續超越加權平均資本成本（WACC）的投入資本回報率（ROIC）。雖然未提供具體WACC數據，但其18.0%的股東權益報酬率（ROE）和8.0%的資產報酬率（ROA），結合其高F-Score（8/9），表明公司在資本配置和營運效率上表現出色。這種持續創造超額回報的能力，是巴菲特衡量企業內在價值和護城河強度的關鍵指標，證明其資產具有強大的盈利韌性。"
       },
       "m8_capital_allocation": {
         "score": 9,
-        "comment": "即使給予競爭對手數千億美元，也無法在短時間內複製Enbridge橫跨北美、數萬英里的綜合管道網絡。這不僅涉及天文數字般的資本投入，更需要數十年時間來獲取土地使用權、環境許可、建立運營經驗和客戶關係。其現有資產的戰略位置和規模，使其成為一個幾乎無法被複製的「收費公路」系統，為公司提供了極其深厚的護城河。"
+        "comment": "即使給予競爭對手千億美元的資金，也幾乎不可能在短時間內複製Enbridge的核心戰略資產。其龐大的管道網絡不僅是物理基礎設施的集合，更包含了數十年來累積的土地使用權、政府特許經營許可、複雜的監管審批流程以及與客戶建立的長期合作關係。這些無形資產和監管壁壘，使得新進入者即便擁有雄厚資本，也難以在幾年內從零開始建立起同等規模和影響力的系統。這種不可複製性是Enbridge最堅固的護城河之一，符合巴菲特對「難以模仿」企業的定義。"
       },
       "m9_customer_retention": {
         "score": 7,
-        "comment": "儘管全球能源結構正向可再生能源轉型，但石油和天然氣在未來數十年內仍將是全球能源供應的重要組成部分。Enbridge作為現有能源運輸的關鍵基礎設施，其需求具有較強的確定性。此外，公司也積極投資於可再生能源基礎設施（如海上風電傳輸），展現了適應未來變革的能力。這使其對短期技術顛覆具有較強的免疫力，但長期轉型仍需持續關注。"
+        "comment": "儘管全球能源轉型帶來長期挑戰，但Enbridge作為能源運輸基礎設施提供商，其核心業務對技術顛覆具有較強的免疫力。無論能源結構如何演變，將能源從生產地運往消費地的需求將長期存在。管道運輸在效率和成本上仍是大量液體和氣體能源最優的解決方案。Enbridge也積極投資於再生能源和低碳解決方案，展現了其適應未來趨勢的能力。這種對基礎設施服務的剛性需求，以及公司對新興能源的佈局，使其在面對技術變革時具備較高的抗性。"
       },
       "m10_durability": {
-        "score": 5,
-        "comment": "Enbridge以其穩定的股息政策而聞名，這通常是良好資本配置的標誌。然而，公司高達786億美元的總負債，以及相對較低的Piotroski F-Score（3/9），引發了對其資本結構和風險管理的擔憂。在巴菲特看來，過高的槓桿可能侵蝕股東價值。管理層在維持股息的同時，如何有效管理債務、進行戰略性投資並在低估時回購股票，將是衡量其長期資本配置智慧的關鍵。"
+        "score": 7,
+        "comment": "Enbridge作為一家成熟的公用事業型公司，其管理層的資本配置策略通常傾向於穩定派息和對核心基礎設施的戰略性再投資。儘管缺乏具體回購或併購細節，但其高達8/9的Piotroski F-Score暗示了穩健的財務管理和有效的資源利用。巴菲特強調管理層應將股東利益置於首位，避免盲目擴張或高價併購。對於Enbridge而言，持續優化其資產組合、確保穩定的現金流和合理的股息政策，是衡量其資本配置誠信與效率的關鍵，這有助於長期股東價值的最大化。"
       },
-      "overall_moat_verdict": "Enbridge本質上是一家擁有強大「收費橋樑」特許經營權的能源基礎設施公司。其核心護城河來自於難以複製的龐大管道網絡、嚴格的監管壁壘、高昂的客戶轉換成本以及顯著的規模經濟。這些因素共同構建了堅固的競爭優勢，使其能夠產生穩定且可預測的現金流，類似於公用事業。然而，其高額的債務負擔和能源轉型帶來的長期不確定性，是投資者需要審慎評估的風險。儘管其業務模式具有防禦性，但並非典型的輕資產、高成長型企業，更像是一個在特定利基市場中享有壟斷地位的資本密集型實體。"
+      "overall_moat_verdict": "Enbridge本質上是一家典型的「收費橋樑」型企業，其核心競爭壁壘深植於其作為北美能源運輸動脈的不可替代性。公司擁有龐大且受嚴格監管保護的管道網絡，這構成了極高的進入壁壘，包括政府特許經營權、環境審批難度以及巨額的資本投入。客戶轉換成本高昂，且其規模經濟效應顯著，使得Enbridge在能源供應鏈中佔據了寡頭地位。儘管面臨能源轉型挑戰，但其對基礎設施服務的剛性需求和對新興能源的戰略佈局，賦予了其業務模式強大的韌性。這是一個能持續產生穩定現金流，且資產難以複製的優質企業，符合巴菲特對具有持久競爭優勢公司的定義。"
     },
     "fin_valuation": {
       "is_financial": false
     },
-    "image": "https://images.financialmodelingprep.com/symbol/ENB.png",
-    "logo": "https://images.financialmodelingprep.com/symbol/ENB.png",
-    "website": "https://www.enbridge.com",
-    "ceo": "Gregory L. Ebel",
-    "full_time_employees": "14800",
-    "description": "Enbridge Inc., together with its subsidiaries, operates as an energy infrastructure company. The company operates through four segments: Liquids Pipelines, Gas Transmission, Gas Distribution and Storage, and Renewable Power Generation. The Liquids Pipelines segment operates pipelines and related terminals to transport, store, and export various grades of crude oil and other liquid hydrocarbons in Canada and the United States. This segment also provides physical commodity marketing and logistical services, and crude oil marketing services. The Gas Transmission segment invests in natural gas pipelines and gathering and processing facilities in Canada and the United States. The Gas Distribution and Storage segment is involved in natural gas utility operations serving residential, commercial, and industrial customers in Ontario, as well as natural gas distribution activities in Quebec. The Renewable Power Generation segment operates wind, solar, geothermal, waste heat recovery, and transmission assets in North America. The company was formerly known as IPL Energy Inc. and changed its name to Enbridge Inc. in October 1998. Enbridge Inc. was founded in 1949 and is headquartered in Calgary, Canada.",
-    "description_zh": "Enbridge Inc.（美股代碼：ENB）為 能源 領域之重要企業，專注於 Oil & Gas Storage & Transportation 業務，具備清晰之商業壁壘與現金流創造能力。",
-    "address": "200, Fifth Avenue Place",
-    "city": "Calgary",
-    "state": "AB",
-    "zip": "T2P 3L8",
-    "country": "CA",
-    "phone": "14032313900",
-    "full_address": "200, Fifth Avenue Place, Calgary, AB T2P 3L8, CA",
-    "range_52w": "45.03-58.45",
-    "year_high": 58.45,
-    "year_low": 45.03,
+    "image": "https://assets.financialmodelingprep.com/symbol/ENB.png",
+    "logo": "https://assets.financialmodelingprep.com/symbol/ENB.png",
+    "website": "",
+    "ceo": "Executive Committee",
+    "full_time_employees": "--",
+    "description": "A publicly traded US equity on major exchanges.",
+    "description_zh": "Enbridge（美股代碼：ENB）為 能源 領域之重要企業，專注於 Oil & Gas Storage & Transportation 業務，具備清晰之商業壁壘與現金流創造能力。",
+    "address": "--",
+    "city": "--",
+    "state": "--",
+    "zip": "--",
+    "country": "US",
+    "phone": "--",
+    "full_address": "",
+    "range_52w": "--",
+    "year_high": 40.17,
+    "year_low": 30.01,
     "all_time_high": 0.0,
-    "all_time_low": 45.03,
+    "all_time_low": 30.01,
     "inst_ownership_pct": 65.0,
     "insider_ownership_pct": 3.2,
     "fmp_symbol": "ENB"
@@ -37622,17 +37622,17 @@ window.FULL_MARKET_DATA = {
     "g": 2.25,
     "wacc": 6.98,
     "ev": 239801.8,
-    "ev_to_ebitda": 18.0,
-    "debt_to_ebitda": 1.12,
-    "net_debt_to_ebitda": 0.34,
-    "f_score": 8,
+    "ev_to_ebitda": 17.9,
+    "debt_to_ebitda": 0.85,
+    "net_debt_to_ebitda": 0.26,
+    "f_score": 9,
     "f_score_breakdown": [
       {
         "id": 1,
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 8.0%"
+        "detail": "當期 ROA = 11.2%"
       },
       {
         "id": 2,
@@ -37680,7 +37680,7 @@ window.FULL_MARKET_DATA = {
         "id": 8,
         "category": "營運效率",
         "desc": "毛利率擴張 (ΔMargin > 0)",
-        "passed": 0,
+        "passed": 1,
         "detail": "產品定價權增強，毛利結構健康"
       },
       {
@@ -37694,8 +37694,8 @@ window.FULL_MARKET_DATA = {
     "fair_val": 820.78,
     "premium_pct": -48.3,
     "is_undervalued": true,
-    "pe_trailing": 24.0,
-    "pe_forward": 21.1,
+    "pe_trailing": 16.9,
+    "pe_forward": 14.9,
     "pb_trailing": 4.9,
     "pb_forward": 4.4,
     "div_yield": 1.15,
@@ -37706,8 +37706,8 @@ window.FULL_MARKET_DATA = {
     "cash_to_assets": 12.2,
     "current_ratio": 1.64,
     "cash_minus_liab": -3475.0,
-    "roe": 18.0,
-    "roa": 8.0,
+    "roe": 28.8,
+    "roa": 11.2,
     "moat": {
       "ticker": "VLO",
       "period": "2026Q2",
