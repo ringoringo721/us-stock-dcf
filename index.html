@@ -1436,8 +1436,16 @@
     const safeWacc = Math.max(WACC, g + 0.015);
     const tv = (safeWacc > g) ? (fcf11 / (safeWacc - g)) : 0;
     const pvTV = tv * dfList[9];
-    const EV = sumPV + pvTV;
-    const EquityVal = EV - NetDebt;
+    
+    // 1. DCF 模型 10 年排程折現計算之理論內在企業價值 (用於推導每股公允價值)
+    const ModelEV = sumPV + pvTV;
+    const EquityVal = ModelEV - NetDebt;
+
+    // 2. 首頁總表專用：優先讀取 FMP 官方企業價值
+    let officialMarketEV = Number(s.fmp_official_ev) || Number(s.ev) || 0;
+    if (officialMarketEV <= 0) {
+      officialMarketEV = E + NetDebt; // 若無數據則以標準市場公式兜底
+    }
 
     const isFin = !!(s.fin_valuation && s.fin_valuation.is_financial);
     let fairVal = 0;
@@ -1478,14 +1486,19 @@
     const debt_to_ebitda = s.debt_to_ebitda !== undefined ? Number(s.debt_to_ebitda) : Math.round((localDebt / estimatedEbitda) * 100) / 100;
     const net_debt_to_ebitda = Math.round((NetDebt / estimatedEbitda) * 100) / 100;
 
-    return {
+return {
       E, V, wE, wD, NetDebt, Ke, Kd_after, WACC, beta,
       growth: growthRates, fcfList, dfList, pvList, sumPV,
-      fcf11, tv, pvTV, EV, EquityVal, fairVal: safeFairVal, premiumPct,
+      fcf11, tv, pvTV, 
+      EV: officialMarketEV,     // <-- 讓首頁總表直接顯示 FMP 官方市場 EV ($M)
+      ModelEV: ModelEV,         // 保留模型折現內在 EV
+      EquityVal, 
+      fairVal: safeFairVal, 
+      premiumPct,
       isUndervalued: premiumPct < 0,
       mcap: E,
       cash_minus_liab: localCash - localDebt,
-      ev_to_ebitda,
+      ev_to_ebitda: (estimatedEbitda > 0) ? Math.round((officialMarketEV / estimatedEbitda) * 10) / 10 : ev_to_ebitda,
       debt_to_ebitda,
       net_debt_to_ebitda,
       div_yield: Number(s.div_yield) || 0,
@@ -1496,7 +1509,6 @@
       localDebt,
       localCash
     };
-  }
 
   function openCompanyProfile(ticker) {
     activeCompanyTicker = ticker;
