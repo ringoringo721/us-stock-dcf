@@ -755,6 +755,17 @@ def main():
         wD = debt / V if V > 0 else 0.05
         wacc = (wE * ke) + (wD * kd_after)
 
+        # 抓取 FMP 官方權威企業價值 (Enterprise Value)
+        fmp_ev_data = fetch_json("enterprise-values", {"symbol": fmp_sym, "period": "quarter", "limit": 1})
+        fmp_official_ev = 0.0
+        if fmp_ev_data and isinstance(fmp_ev_data, list) and len(fmp_ev_data) > 0:
+            raw_ev = float(fmp_ev_data[0].get("enterpriseValue") or 0.0)
+            fmp_official_ev = round(raw_ev * fx_rate / 1e6, 1)
+
+        # 備援防護：若該公司在 FMP 無專門記錄，以標準定義 (市值 + 淨負債) 兜底
+        if fmp_official_ev <= 0:
+            fmp_official_ev = round(mcap + net_debt, 1)
+            
         net_debt = round(debt - cash, 1)
         cash_minus_liab = round(cash - debt, 1)
         sum_pv = 0
@@ -900,8 +911,10 @@ def main():
             "g2": growth_10y[5],
             "g": round(DEFAULT_G * 100.0, 2),
             "wacc": round(wacc * 100.0, 2),
-            "ev": ev,
-            "ev_to_ebitda": ev_to_ebitda,
+            "ev": fmp_official_ev,          
+            "fmp_official_ev": fmp_official_ev,
+            "dcf_model_ev": ev,
+            "ev_to_ebitda": round(fmp_official_ev / ebitda_m, 1) if ebitda_m > 0 else ev_to_ebitda,
             "debt_to_ebitda": debt_to_ebitda,
             "net_debt_to_ebitda": net_debt_to_ebitda,
             "f_score": f_score,
