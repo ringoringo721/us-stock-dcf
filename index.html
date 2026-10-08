@@ -1514,28 +1514,28 @@
     if (target) target.classList.add('active');
   }
 
+// 嵌入 TradingView 官方進階專業圖表 (原生 iframe 封裝，徹底杜絕黑屏與載入失敗)
   function renderTradingViewWidget(ticker, exchange) {
     const container = document.getElementById('tradingview_widget_container');
     if (!container) return;
     container.innerHTML = '';
 
-    const cleanExch = exchange === 'NASDAQ' ? 'NASDAQ' : 'NYSE';
-    if (typeof TradingView !== 'undefined') {
-      new TradingView.widget({
-        "autosize": true,
-        "symbol": `${cleanExch}:${ticker.replace('.', '')}`,
-        "interval": "D",
-        "timezone": "Asia/Hong_Kong",
-        "theme": "dark",
-        "style": "1",
-        "locale": "zh_TW",
-        "toolbar_bg": "#0f172a",
-        "enable_publishing": false,
-        "allow_symbol_change": false,
-        "container_id": "tradingview_widget_container",
-        "hide_side_toolbar": false
-      });
-    }
+    const cleanTicker = ticker.replace('.', '');
+    const cleanExch = (exchange === 'NASDAQ' || exchange === 'NYSE' || exchange === 'AMEX') ? exchange : 'NASDAQ';
+    const tvSymbol = `${cleanExch}:${cleanTicker}`;
+
+    const iframe = document.createElement('iframe');
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+    iframe.style.border = 'none';
+    iframe.setAttribute('allowtransparency', 'true');
+    iframe.setAttribute('scrolling', 'no');
+    iframe.setAttribute('allowfullscreen', 'true');
+    
+    // TradingView 官方獨立 Embed URL (自帶繁體中文、深色主題與技術指標)
+    iframe.src = `https://s.tradingview.com/widgetembed/?frameElementId=tradingview_widget&symbol=${encodeURIComponent(tvSymbol)}&interval=D&hidesidetoolbar=0&symboledit=1&saveimage=1&toolbarbg=0f172a&studies=[]&theme=dark&style=1&timezone=Asia%2FHong_Kong&studies_overrides={}&overrides={}&enabled_features=[]&disabled_features=[]&locale=zh_TW&utm_source=${window.location.hostname}&utm_medium=widget&utm_campaign=chart`;
+
+    container.appendChild(iframe);
   }
 
   function renderTop50Holders(s) {
