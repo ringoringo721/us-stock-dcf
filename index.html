@@ -1500,9 +1500,15 @@
     };
   }
 
-  function openCompanyProfile(ticker) {
+function openCompanyProfile(ticker) {
     activeCompanyTicker = ticker;
     showView('company', true);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // 重設第一個子分頁為啟用狀態
+    setTimeout(() => {
+      const firstTabBtn = document.querySelector('.sub-tab-btn');
+      if (firstTabBtn) firstTabBtn.click();
+    }, 50);
   }
 
   function switchSubPage(tabKey) {
