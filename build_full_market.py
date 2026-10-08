@@ -591,7 +591,13 @@ def main():
             if bs.get("reportedCurrency"):
                 reported_currency = bs.get("reportedCurrency")
             tot_debt = float(bs.get("totalDebt") or bs.get("longTermDebt") or 0.0)
-            tot_cash = float(bs.get("cashAndShortTermInvestments") or bs.get("cashAndCashEquivalents") or 0.0)
+# 完整提取現金 + 短期投資
+            cash_only = float(bs.get("cashAndCashEquivalents") or 0.0)
+            short_term_inv = float(bs.get("shortTermInvestments") or 0.0)
+            tot_cash = float(bs.get("cashAndShortTermInvestments") or (cash_only + short_term_inv) or 0.0)
+            # 若 cashAndShortTermInvestments 漏計單獨的短期投資，予以加總補齊
+            if short_term_inv > 0 and tot_cash == cash_only:
+                tot_cash += short_term_inv
             debt = round(tot_debt / 1e6, 1)
             cash = round(tot_cash / 1e6, 1)
             equity = float(bs.get("totalStockholdersEquity") or 1.0)
@@ -821,6 +827,8 @@ def main():
             "mcap": mcap,
             "debt": debt,
             "cash": cash,
+            "short_term_investments": round(short_term_inv * fx_rate / 1e6, 1) if 'short_term_inv' in locals() else 0.0,
+            "cash_and_short_term": cash,
             "net_debt": net_debt,
             "fcf0": fcf0,
             "beta": beta,
