@@ -2071,49 +2071,60 @@
     renderScreenerTable();
   }
 
-  function renderScreenerTable() {
+function renderScreenerTable() {
     const tbody = document.getElementById('screener-tbody');
     if (!tbody) return;
-    const searchVal = document.getElementById('search-ticker').value.trim().toUpperCase();
+    const searchInput = document.getElementById('search-ticker');
+    const searchVal = searchInput ? searchInput.value.trim().toUpperCase() : '';
     const savedModels = getSavedModels();
     const favs = getFavorites();
 
     let list = Object.keys(stockUniverse).map(ticker => {
       const s = stockUniverse[ticker];
+      if (!s) return null;
       const dcf = computeDCF(s, ticker);
       if (!dcf) return null;
       const isSaved = !!savedModels[ticker];
       const isFav = favs.includes(ticker);
       const target_price = isSaved ? savedModels[ticker].targetPrice : null;
-      const target_spread = (isSaved && target_price > 0) ? (((s.price / target_price) - 1) * 100) : null;
-      const moat_score = dcf.moat.total;
+      const target_spread = (isSaved && target_price > 0 && s.price) ? (((s.price / target_price) - 1) * 100) : null;
+      const moat_score = (dcf.moat && dcf.moat.total !== undefined) ? dcf.moat.total : 50;
       return { ticker, ...s, ...dcf, isSaved, isFav, target_price, target_spread, moat_score };
     }).filter(x => x !== null);
 
+    // 篩選維度過濾
     if (currentValFilter === 'UNDERVALUED') list = list.filter(item => item.isUndervalued);
     else if (currentValFilter === 'OVERVALUED') list = list.filter(item => !item.isUndervalued);
     else if (currentValFilter === 'SAVED') list = list.filter(item => item.isSaved);
     else if (currentValFilter === 'FAVORITES') list = list.filter(item => item.isFav);
 
+    // 板塊與子行業過濾
     if (currentSectorFilter !== 'ALL') list = list.filter(item => item.sector === currentSectorFilter);
     if (currentSubIndustryFilter !== 'ALL') list = list.filter(item => item.industry === currentSubIndustryFilter);
 
+    // 搜尋關鍵字過濾 (加入防錯保護)
     if (searchVal) {
       list = list.filter(item => 
-        item.ticker.includes(searchVal) || 
+        (item.ticker && item.ticker.toUpperCase().includes(searchVal)) || 
         (item.name && item.name.toUpperCase().includes(searchVal)) || 
         (item.sector && item.sector.includes(searchVal)) || 
         (item.industry && item.industry.toUpperCase().includes(searchVal))
       );
     }
 
+    // 排序邏輯 (加入數字與文字防錯保護)
     list.sort((a, b) => {
       let va = a[sortField];
       let vb = b[sortField];
-      if (typeof va === 'string') return sortAsc ? va.localeCompare(vb) : vb.localeCompare(va);
-      return sortAsc ? (va || 0) - (vb || 0) : (vb || 0) - (va || 0);
+      if (typeof va === 'string' && typeof vb === 'string') {
+        return sortAsc ? va.localeCompare(vb) : vb.localeCompare(va);
+      }
+      va = (va !== undefined && va !== null) ? Number(va) : 0;
+      vb = (vb !== undefined && vb !== null) ? Number(vb) : 0;
+      return sortAsc ? va - vb : vb - va;
     });
 
+    // 計算頂部統計數據
     const allCalc = Object.keys(stockUniverse).map(t => computeDCF(stockUniverse[t], t)).filter(x => x !== null);
     const totalCount = allCalc.length;
     const underCount = allCalc.filter(x => x.isUndervalued).length;
@@ -2122,23 +2133,28 @@
     const favCount = favs.length;
 
     const unitTxt = currentLang === 'zh' ? '檔' : 'stocks';
-    document.getElementById('stat-total').innerText = `${totalCount} ${unitTxt}`;
-    document.getElementById('stat-fav-count').innerText = `${favCount} ${unitTxt}`;
-    document.getElementById('stat-undervalued').innerText = `${underCount} ${unitTxt} (${totalCount > 0 ? ((underCount/totalCount)*100).toFixed(0) : 0}%)`;
-    document.getElementById('stat-overvalued').innerText = `${overCount} ${unitTxt} (${totalCount > 0 ? ((overCount/totalCount)*100).toFixed(0) : 0}%)`;
-    document.getElementById('stat-saved-count').innerText = `${savedCount} ${unitTxt}`;
+    const elTot = document.getElementById('stat-total'); if (elTot) elTot.innerText = `${totalCount} ${unitTxt}`;
+    const elFav = document.getElementById('stat-fav-count'); if (elFav) elFav.innerText = `${favCount} ${unitTxt}`;
+    const elUnd = document.getElementById('stat-undervalued'); if (elUnd) elUnd.innerText = `${underCount} ${unitTxt} (${totalCount > 0 ? ((underCount/totalCount)*100).toFixed(0) : 0}%)`;
+    const elOve = document.getElementById('stat-overvalued'); if (elOve) elOve.innerText = `${overCount} ${unitTxt} (${totalCount > 0 ? ((overCount/totalCount)*100).toFixed(0) : 0}%)`;
+    const elSav = document.getElementById('stat-saved-count'); if (elSav) elSav.innerText = `${savedCount} ${unitTxt}`;
 
-map(item => {
+    // 渲染表格資料列 (防禦 undefined 錯誤)
+    tbody.innerHTML = list.map(item => {
+      const priceNum = Number(item.price) || 0;
+      const fairNum = Number(item.fairVal) || 0;
+      const premiumNum = Number(item.premiumPct) || 0;
+
       const badgeHtml = item.isUndervalued
-        ? `<span class="badge badge-undervalued">${currentLang === 'zh' ? '低估' : 'Undervalued'} ${item.premiumPct.toFixed(1)}%</span>`
-        : `<span class="badge badge-overvalued">${currentLang === 'zh' ? '高估' : 'Overvalued'} +${item.premiumPct.toFixed(1)}%</span>`;
+        ? `<span class="badge badge-undervalued">${currentLang === 'zh' ? '低估' : 'Undervalued'} ${premiumNum.toFixed(1)}%</span>`
+        : `<span class="badge badge-overvalued">${currentLang === 'zh' ? '高估' : 'Overvalued'} +${premiumNum.toFixed(1)}%</span>`;
 
-      const targetPriceHtml = item.isSaved
-        ? `<span class="badge badge-target">$${item.target_price.toFixed(2)}</span>`
+      const targetPriceHtml = (item.isSaved && item.target_price)
+        ? `<span class="badge badge-target">$${Number(item.target_price).toFixed(2)}</span>`
         : `<span style="color: #64748b;">--</span>`;
 
       let targetSpreadHtml = `<span style="color: #64748b;">--</span>`;
-      if (item.isSaved && item.target_spread !== null) {
+      if (item.isSaved && item.target_spread !== null && !isNaN(item.target_spread)) {
         if (item.target_spread < 0) {
           targetSpreadHtml = `<span class="text-green" style="font-weight: 700;">${currentLang === 'zh' ? '低估' : 'Undervalued'} ${item.target_spread.toFixed(1)}%</span>`;
         } else {
@@ -2155,84 +2171,62 @@ map(item => {
       const favHeart = item.isFav ? '❤' : '♡';
       const favActiveClass = item.isFav ? 'active' : '';
 
+      const moatTotal = (item.moat && item.moat.total !== undefined) ? item.moat.total : 50;
+      const moatBadgeCls = (item.moat && item.moat.badgeClass) ? item.moat.badgeClass : 'moat-weak';
+      const moatGradeText = (item.moat && item.moat.grade) ? item.moat.grade.split(' ')[0] : 'Moat';
+
+      const waccVal = Number(item.WACC) || 0.08;
+      const gVal = Number(item.g) || 2.25;
+      const evVal = Number(item.EV) || 0;
+      const mcapVal = Number(item.mcap) || 0;
+
       return `
         <tr>
-          <!-- 1. 收藏 / 代碼 -->
           <td class="col-fixed-1">
             <button class="fav-btn ${favActiveClass}" onclick="toggleFavorite('${item.ticker}', event)">${favHeart}</button>
-            <a class="ticker-link" onclick="openCompanyProfile('${item.ticker}')" title="點擊查看企業基本面與走勢圖">${item.ticker}</a>
+            <a class="ticker-link" onclick="openCompanyProfile('${item.ticker}')">${item.ticker}</a>
           </td>
-          <!-- 2. 市場 -->
-          <td class="col-fixed-2"><span class="badge ${exchClass}">${item.exchange}</span></td>
-          <!-- 3. 企業名稱 -->
-          <td class="col-fixed-3" style="font-weight: 600; color: #fff;">${item.name}</td>
-          <!-- 4. 主板塊 -->
-          <td style="color: #cbd5e1; text-align: left;">${item.sector}</td>
-          <!-- 5. 細分子行業 -->
-          <td style="color: #94a3b8; font-size: 11px; text-align: left;">${item.industry}</td>
-          <!-- 6. 最新股價 ($) -->
-          <td style="font-weight: 700; color: var(--accent);">$${Number(item.price).toFixed(2)}</td>
-          <!-- 7. 公允價值 ($) -->
-          <td class="text-green" style="font-size: 13px; font-weight: 700;">$${Number(item.fairVal).toFixed(2)}</td>
-          <!-- 8. 目標價值 ($) -->
+          <td class="col-fixed-2"><span class="badge ${exchClass}">${item.exchange || 'US'}</span></td>
+          <td class="col-fixed-3" style="font-weight: 600; color: #fff;">${item.name || item.ticker}</td>
+          <td style="color: #cbd5e1; text-align: left;">${item.sector || '--'}</td>
+          <td style="color: #94a3b8; font-size: 11px; text-align: left;">${item.industry || '--'}</td>
+          <td style="font-weight: 700; color: var(--accent);">$${priceNum.toFixed(2)}</td>
+          <td class="text-green" style="font-size: 13px; font-weight: 700;">$${fairNum.toFixed(2)}</td>
           <td>${targetPriceHtml}</td>
-          <!-- 9. 操作 -->
           <td style="text-align: center;">
             <button class="btn-nav" onclick="openDetail('${item.ticker}')">${currentLang === 'zh' ? '深度模型 →' : 'DCF Model →'}</button>
           </td>
-          <!-- 10. 目標 vs 市價溢價 -->
           <td>${targetSpreadHtml}</td>
-          <!-- 11. 公允溢價幅度 -->
           <td>${badgeHtml}</td>
-          <!-- 12. 巴菲特護城河 -->
           <td style="text-align: center;">
-            <span class="badge-moat ${item.moat.badgeClass}" onclick="openMoat('${item.ticker}')">${item.moat.total} pt · ${item.moat.grade.split(' ')[0]}</span>
+            <span class="badge-moat ${moatBadgeCls}" onclick="openMoat('${item.ticker}')">${moatTotal} pt · ${moatGradeText}</span>
           </td>
-          <!-- 13. 加權成本 WACC / g -->
           <td>
-            <div>${(item.WACC * 100).toFixed(2)}%</div>
-            <div style="font-size: 11px; color: var(--text-muted);">g: ${Number(item.g).toFixed(2)}%</div>
+            <div>${(waccVal * 100).toFixed(2)}%</div>
+            <div style="font-size: 11px; color: var(--text-muted);">g: ${gVal.toFixed(2)}%</div>
           </td>
-          <!-- 14. 企業價值 EV ($M) -->
-          <td>$${(item.EV).toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
-          <!-- 15. 市值 ($M) -->
-          <td style="font-weight: 600;">$${(item.mcap).toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
-          <!-- 16. 靜態 P/E -->
+          <td>$${evVal.toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
+          <td style="font-weight: 600;">$${mcapVal.toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
           <td>${item.pe_trailing ? Number(item.pe_trailing).toFixed(1) : '--'}</td>
-          <!-- 17. 動態 P/E -->
           <td>${item.pe_forward ? Number(item.pe_forward).toFixed(1) : '--'}</td>
-          <!-- 18. 靜態 P/B -->
           <td>${item.pb_trailing ? Number(item.pb_trailing).toFixed(1) : '--'}</td>
-          <!-- 19. 股息率 (%) -->
-          <td style="color: #67e8f9; font-weight: 700;">${item.div_yield > 0 ? Number(item.div_yield).toFixed(2) + '%' : '0.00%'}</td>
-          <!-- 20. FCF / EV (%) -->
+          <td style="color: #67e8f9; font-weight: 700;">${Number(item.div_yield) > 0 ? Number(item.div_yield).toFixed(2) + '%' : '0.00%'}</td>
           <td style="color: #38bdf8; font-weight: 600;">${item.fcf_to_ev !== undefined ? Number(item.fcf_to_ev).toFixed(2) + '%' : '--'}</td>
-          <!-- 21. FCF / Mcap (%) -->
           <td style="color: #a78bfa; font-weight: 600;">${item.fcf_to_mcap !== undefined ? Number(item.fcf_to_mcap).toFixed(2) + '%' : '--'}</td>
-          <!-- 22. 現金/資產 (%) -->
           <td style="color: #38bdf8;">${item.cash_to_assets !== undefined ? Number(item.cash_to_assets).toFixed(1) + '%' : '--'}</td>
-          <!-- 23. 負債/資產 (%) -->
           <td>${item.liab_to_assets !== undefined ? Number(item.liab_to_assets).toFixed(1) + '%' : '--'}</td>
-          <!-- 24. 流動比率 -->
           <td>${item.current_ratio !== undefined ? Number(item.current_ratio).toFixed(2) : '--'}</td>
-          <!-- 25. 現金淨額 ($M) -->
-          <td style="${item.cash_minus_liab >= 0 ? 'color: var(--green);' : 'color: var(--red);'}; font-weight: 600;">
-            ${item.cash_minus_liab < 0 ? '-$' + Math.abs(item.cash_minus_liab).toLocaleString(undefined, {maximumFractionDigits: 0}) : '$' + (item.cash_minus_liab || 0).toLocaleString(undefined, {maximumFractionDigits: 0})}
+          <td style="${Number(item.cash_minus_liab) >= 0 ? 'color: var(--green);' : 'color: var(--red);'}; font-weight: 600;">
+            ${Number(item.cash_minus_liab) < 0 ? '-$' + Math.abs(Number(item.cash_minus_liab)).toLocaleString(undefined, {maximumFractionDigits: 0}) : '$' + (Number(item.cash_minus_liab) || 0).toLocaleString(undefined, {maximumFractionDigits: 0})}
           </td>
-          <!-- 26. ROE (%) -->
           <td style="font-weight: 600; color: #fde047;">${item.roe !== undefined ? Number(item.roe).toFixed(1) + '%' : '--'}</td>
-          <!-- 27. ROA (%) -->
           <td style="color: #4ade80;">${item.roa !== undefined ? Number(item.roa).toFixed(1) + '%' : '--'}</td>
-          <!-- 28. F-Score 評分 -->
           <td style="text-align: center;">
-            <span class="badge-fscore ${fScoreClass}" onclick="openFScore('${item.ticker}')" title="點擊查看皮氏 9 分明細">${fScoreVal} / 9</span>
+            <span class="badge-fscore ${fScoreClass}" onclick="openFScore('${item.ticker}')">${fScoreVal} / 9</span>
           </td>
-          <!-- 29. EV / EBITDA -->
           <td style="font-weight: 700; color: #38bdf8;">${item.ev_to_ebitda !== undefined ? Number(item.ev_to_ebitda).toFixed(1) + 'x' : '--'}</td>
-          <!-- 30. Debt / EBITDA -->
           <td style="color: #cbd5e1;">${item.debt_to_ebitda !== undefined ? Number(item.debt_to_ebitda).toFixed(2) + 'x' : '--'}</td>
-          <!-- 31. Net Debt / EBITDA -->
-          <td style="${(item.net_debt_to_ebitda || 0) <= 0 ? 'color: var(--green); font-weight: 700;' : ((item.net_debt_to_ebitda || 0) > 3.5 ? 'color: var(--red); font-weight: 700;' : 'color: #cbd5e1;')}">
+          <td style="${(Number(item.net_debt_to_ebitda) || 0) <= 0 ? 'color: var(--green); font-weight: 700;' : ((Number(item.net_debt_to_ebitda) || 0) > 3.5 ? 'color: var(--red); font-weight: 700;' : 'color: #cbd5e1;')}">
             ${item.net_debt_to_ebitda !== undefined ? Number(item.net_debt_to_ebitda).toFixed(2) + 'x' : '--'}
           </td>
         </tr>
