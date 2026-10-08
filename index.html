@@ -1372,12 +1372,14 @@
   function computeDCF(s, explicitTicker) {
     if (!s) return null;
     const sym = explicitTicker || s.ticker || "";
-let localDebt = Number(s.debt) || 0;
-    // 現金及短期投資（若有 short_term_investments 則加總，否則讀取 cashAndShortTermInvestments 或 cash）
+    let localDebt = Number(s.debt) || 0;
+    
+    // 納入現金與短期投資 (Cash and Short-Term Investments)
     let localCash = Number(s.cash_and_short_term) || Number(s.cash) || 0;
     if (s.short_term_investments && Number(s.short_term_investments) > 0) {
-      localCash += Number(s.short_term_investments);
+      localCash = Math.max(localCash, (Number(s.cash) || 0) + Number(s.short_term_investments));
     }
+
     let localFCF0 = Number(s.fcf0) || 100;
     const price = Number(s.price) || 1;
     const shares = Number(s.shares) || 1;
@@ -1392,7 +1394,8 @@ let localDebt = Number(s.debt) || 0;
     const V = E + localDebt;
     const wE = V > 0 ? E / V : 1;
     const wD = V > 0 ? localDebt / V : 0;
-    // 淨負債 = 總有息負債 - (現金及短期投資)
+    
+    // 淨負債 = 總有息負債 - (現金 + 短期投資)
     const NetDebt = localDebt - localCash;
 
     let beta = 1.0;
@@ -1484,7 +1487,8 @@ let localDebt = Number(s.debt) || 0;
     const estimatedEbitda = Math.max(localFCF0 * 1.25, (E / (Number(s.pe_trailing) || 22)) * 1.35, 100);
     const ev_to_ebitda = s.ev_to_ebitda !== undefined ? Number(s.ev_to_ebitda) : Math.round((EV / estimatedEbitda) * 10) / 10;
     const debt_to_ebitda = s.debt_to_ebitda !== undefined ? Number(s.debt_to_ebitda) : Math.round((localDebt / estimatedEbitda) * 100) / 100;
-    const net_debt_to_ebitda = s.net_debt_to_ebitda !== undefined ? Number(s.net_debt_to_ebitda) : Math.round((NetDebt / estimatedEbitda) * 100) / 100;
+    // 確保 Net Debt / EBITDA 採用扣除「現金+短期投資」後的 NetDebt 計算
+    const net_debt_to_ebitda = Math.round((NetDebt / estimatedEbitda) * 100) / 100;
 
     return {
       E, V, wE, wD, NetDebt, Ke, Kd_after, WACC, beta,
