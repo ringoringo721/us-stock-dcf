@@ -2499,7 +2499,31 @@ function renderScreenerTable() {
     document.getElementById('sens-body').innerHTML = tbody;
   }
 
-  function loadMoatView(ticker) {
+// 輕量非同步自動翻譯引擎 (當快取缺少對應語言時即時無縫翻譯)
+  async function translateTextAuto(text, targetLang) {
+    if (!text || text.trim() === '') return text;
+    const hasChinese = /[\u4e00-\u9fa5]/.test(text);
+    if (targetLang === 'zh' && hasChinese) return text;
+    if (targetLang === 'en' && !hasChinese) return text;
+
+    try {
+      const sl = targetLang === 'zh' ? 'en' : 'zh-TW';
+      const tl = targetLang === 'zh' ? 'zh-TW' : 'en';
+      const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=${sl}&tl=${tl}&dt=t&q=${encodeURIComponent(text)}`;
+      const res = await fetch(url);
+      if (res.ok) {
+        const data = await res.json();
+        if (data && data[0]) {
+          return data[0].map(item => item[0]).join('');
+        }
+      }
+    } catch (e) {
+      console.warn("即時翻譯備援未成功，顯示原文", e);
+    }
+    return text;
+  }
+
+  async function loadMoatView(ticker) {
     const s = stockUniverse[ticker];
     if (!s) return;
 
@@ -2522,13 +2546,18 @@ function renderScreenerTable() {
     document.getElementById('moat-cat-structural').innerText = `${catStructural} / 40`;
     document.getElementById('moat-cat-resilience').innerText = `${catResilience} / 40`;
 
+    // 判斷語言是否需要翻譯替換
+    let displayOverall = moat.comment;
+    const isEn = (currentLang === 'en');
+    const needsTranslation = (isEn && /[\u4e00-\u9fa5]/.test(displayOverall)) || (!isEn && !/[\u4e00-\u9fa5]/.test(displayOverall));
+
     document.getElementById('moat-ai-comment').innerHTML = `
       <div style="font-size: 11px; color: var(--gold); margin-bottom: 4px; font-weight: 600;">📚 ${moat.ref}</div>
-      ${moat.comment}
+      <div id="moat-overall-text">${displayOverall}</div>
     `;
 
     const tbody = document.getElementById('moat-breakdown-body');
-    tbody.innerHTML = moat.criteria.map(c => {
+    tbody.innerHTML = moat.criteria.map((c, idx) => {
       const pct = (c.score / 10) * 100;
       let barColor = c.score < 5 ? "#f87171" : c.score < 8 ? "#38bdf8" : "#4ade80";
 
@@ -2544,10 +2573,26 @@ function renderScreenerTable() {
             </div>
             <span style="font-size: 11px; font-weight: 600; color: ${barColor};">${pct}%</span>
           </td>
-          <td class="moat-comment-cell">${c.comment}</td>
+          <td class="moat-comment-cell" id="moat-cell-comment-${idx}">${c.comment}</td>
         </tr>
       `;
     }).join('');
+
+    // 若語言不一致，平滑翻譯替換
+    if (needsTranslation) {
+      const targetLang = isEn ? 'en' : 'zh';
+      translateTextAuto(displayOverall, targetLang).then(translated => {
+        const el = document.getElementById('moat-overall-text');
+        if (el) el.innerText = translated;
+      });
+
+      moat.criteria.forEach((c, idx) => {
+        translateTextAuto(c.comment, targetLang).then(translated => {
+          const cell = document.getElementById(`moat-cell-comment-${idx}`);
+          if (cell) cell.innerText = translated;
+        });
+      });
+    }
   }
 
   function loadFScoreView(ticker) {
