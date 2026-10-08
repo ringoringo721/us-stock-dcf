@@ -284,7 +284,6 @@
       box-shadow: 0 0 8px rgba(56, 189, 248, 0.6);
     }
 
-    /* 企業資訊卡片樣式 */
     .company-profile-card {
       display: flex;
       align-items: center;
@@ -318,7 +317,6 @@
     .company-meta-item span.label { color: var(--text-muted); margin-right: 6px; }
     .company-meta-item span.val { color: #fff; font-weight: 600; }
 
-    /* 7 大子分頁專屬樣式 */
     .subpage-nav-bar {
       display: flex;
       gap: 8px;
@@ -1082,7 +1080,7 @@
   </div>
 </div>
 
-<script>
+  <script>
   let stockUniverse = {};
   
   const US_TREASURY_CURVE = {
@@ -1347,8 +1345,9 @@
     
     updateSubIndustryButtons();
     renderScreenerTable();
-  if (document.getElementById('moat-view').style.display === 'block') {
+    if (document.getElementById('moat-view').style.display === 'block') {
       loadMoatView(activeMoatTicker);
+    }
   }
 
   function toggleLanguage() {
@@ -1468,7 +1467,6 @@
       fin.excess_return_fair = Number(exVal.toFixed(2));
       fin.ddm_fair = Number(ddmVal.toFixed(2));
     } else {
-      // 依 EV - NetDebt 推導每股公允價值
       fairVal = (shares > 0 ? (EquityVal / shares) : price);
     }
 
@@ -1500,11 +1498,10 @@
     };
   }
 
-function openCompanyProfile(ticker) {
+  function openCompanyProfile(ticker) {
     activeCompanyTicker = ticker;
     showView('company', true);
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    // 重設第一個子分頁為啟用狀態
     setTimeout(() => {
       const firstTabBtn = document.querySelector('.sub-tab-btn');
       if (firstTabBtn) firstTabBtn.click();
@@ -1520,7 +1517,6 @@ function openCompanyProfile(ticker) {
     if (target) target.classList.add('active');
   }
 
-// 嵌入 TradingView 官方進階專業圖表 (原生 iframe 封裝，徹底杜絕黑屏與載入失敗)
   function renderTradingViewWidget(ticker, exchange) {
     const container = document.getElementById('tradingview_widget_container');
     if (!container) return;
@@ -1537,8 +1533,6 @@ function openCompanyProfile(ticker) {
     iframe.setAttribute('allowtransparency', 'true');
     iframe.setAttribute('scrolling', 'no');
     iframe.setAttribute('allowfullscreen', 'true');
-    
-    // TradingView 官方獨立 Embed URL (自帶繁體中文、深色主題與技術指標)
     iframe.src = `https://s.tradingview.com/widgetembed/?frameElementId=tradingview_widget&symbol=${encodeURIComponent(tvSymbol)}&interval=D&hidesidetoolbar=0&symboledit=1&saveimage=1&toolbarbg=0f172a&studies=[]&theme=dark&style=1&timezone=Asia%2FHong_Kong&studies_overrides={}&overrides={}&enabled_features=[]&disabled_features=[]&locale=zh_TW&utm_source=${window.location.hostname}&utm_medium=widget&utm_campaign=chart`;
 
     container.appendChild(iframe);
@@ -1952,7 +1946,7 @@ function openCompanyProfile(ticker) {
     try { return JSON.parse(localStorage.getItem('M7_CUSTOM_VALUATIONS') || '{}'); } catch (e) { return {}; }
   }
 
-function evaluateMoat(s, explicitTicker) {
+  function evaluateMoat(s, explicitTicker) {
     const rawSym = explicitTicker || (s && s.ticker) || "";
     const sym = rawSym.toUpperCase().trim();
     const sec = (s && s.sector) || "其他";
@@ -1974,7 +1968,6 @@ function evaluateMoat(s, explicitTicker) {
     if (hasAiMoat) {
       ref = isEn ? `Vertex AI Enterprise Deep Audit (Quarter: ${moatObj.period || 'Latest'})` : `Vertex AI 企業級深度分析 (基準季: ${moatObj.period || '最新'})`;
       
-      // 優先選取當前語言之總評
       if (isEn) {
         overallComment = moatObj.overall_moat_verdict_en || moatObj.overall_moat_verdict || "Demonstrates defined structural barriers and durable competitive advantages.";
       } else {
@@ -1985,7 +1978,6 @@ function evaluateMoat(s, explicitTicker) {
         const item = moatObj[key];
         if (item) {
           if (item.score !== undefined) m[idx] = Number(item.score);
-          // 根據語言選取對應評語
           let cText = isEn 
             ? (item.comment_en || item.comment || "Possesses defensive moat advantages in target sector.")
             : (item.comment_zh || item.comment || "具備一定品牌防禦空間與行業壁壘。");
@@ -2008,7 +2000,6 @@ function evaluateMoat(s, explicitTicker) {
     else if (total >= 55) { grade = isEn ? "Moderate Moat ⚖️" : "Moderate Moat (中等) ⚖️"; badgeClass = "moat-weak"; }
     else { grade = isEn ? "Weak / No Moat ⚠️" : "Weak / No Moat (微弱) ⚠️"; badgeClass = "moat-none"; }
 
-    // 維度標題雙語字典
     const criteriaDefs = [
       { id: "M1", catZh: "無形資產", catEn: "Intangibles", titleZh: "品牌心智與定價權 (Pricing Power)", titleEn: "Brand & Pricing Power", descZh: "提價後客戶黏性與議價權。", descEn: "Pricing power without customer churn." },
       { id: "M2", catZh: "無形資產", catEn: "Intangibles", titleZh: "專利壁壘與特許許可 (Patents & Regulatory)", titleEn: "Patents & Regulatory Moats", descZh: "獨家專利准入或法定特許橋樑。", descEn: "Protected patents or regulatory barriers." },
@@ -2137,8 +2128,7 @@ function evaluateMoat(s, explicitTicker) {
     document.getElementById('stat-overvalued').innerText = `${overCount} ${unitTxt} (${totalCount > 0 ? ((overCount/totalCount)*100).toFixed(0) : 0}%)`;
     document.getElementById('stat-saved-count').innerText = `${savedCount} ${unitTxt}`;
 
-// 渲染表格資料列 (31 個欄位完全對齊表頭)
-    tbody.innerHTML = list.map(item => {
+map(item => {
       const badgeHtml = item.isUndervalued
         ? `<span class="badge badge-undervalued">${currentLang === 'zh' ? '低估' : 'Undervalued'} ${item.premiumPct.toFixed(1)}%</span>`
         : `<span class="badge badge-overvalued">${currentLang === 'zh' ? '高估' : 'Overvalued'} +${item.premiumPct.toFixed(1)}%</span>`;
@@ -2503,8 +2493,9 @@ function evaluateMoat(s, explicitTicker) {
           const safeW = Math.max(w, gVal + 0.015);
           const tv = fcf11 / (safeW - gVal);
           const pvTV = tv / Math.pow(1 + safeW, 10);
-          const eqVal = (recomputedSumPV + pvTV) - netDebt;
-          cellVal = eqVal / shares;
+          const cellEV = recomputedSumPV + pvTV;
+          const eqVal = cellEV - netDebt;
+          cellVal = shares > 0 ? (eqVal / shares) : 0;
         }
         const isBase = isBaseW && isBaseG;
         tbody += `<td class="sens-cell ${isBase ? 'sens-base' : ''}">$${cellVal.toFixed(2)}</td>`;
@@ -2657,7 +2648,7 @@ function evaluateMoat(s, explicitTicker) {
     }
   }
 
-  // 核心強健載入引擎 (三重容錯通道)
+  // ==================== 核心強健載入引擎 (徹底解決 0 檔與卡死) ====================
   let isAppReady = false;
 
   function markAppLoaded(data) {
@@ -2680,10 +2671,12 @@ function evaluateMoat(s, explicitTicker) {
     return false;
   }
 
-  async function fallbackFetchMarketData() {
-    if (isAppReady) return;
+  async function loadMarketDataRobust() {
+    if (checkGlobalData()) return;
+
+    // 透過非同步 Fetch 繞過 CDN 阻塞直接讀取
     try {
-      const res = await fetch('market_data.js?ts=' + Date.now());
+      const res = await fetch('market_data.js?t=' + Date.now());
       if (res.ok) {
         const text = await res.text();
         const jsonMatch = text.match(/window\.FULL_MARKET_DATA\s*=\s*({[\s\S]*?});/);
@@ -2694,30 +2687,34 @@ function evaluateMoat(s, explicitTicker) {
         }
       }
     } catch (e) {
-      console.warn("通道 2 降級讀取中:", e);
+      console.warn("Fetch 載入嘗試中:", e);
     }
+
+    // 備援：動態注入 script 標籤
+    const sc = document.createElement('script');
+    sc.src = 'market_data.js?t=' + Date.now();
+    sc.onload = () => { checkGlobalData(); };
+    document.body.appendChild(sc);
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    if (!checkGlobalData()) {
-      fallbackFetchMarketData();
-    }
+    loadMarketDataRobust();
   });
 
-  let loadPollCount = 0;
-  const loadPollTimer = setInterval(() => {
-    loadPollCount++;
+  let pollCount = 0;
+  const pollTimer = setInterval(() => {
+    pollCount++;
     if (checkGlobalData() || isAppReady) {
-      clearInterval(loadPollTimer);
-    } else if (loadPollCount === 8) {
-      fallbackFetchMarketData();
-    } else if (loadPollCount > 80) {
-      clearInterval(loadPollTimer);
+      clearInterval(pollTimer);
+    } else if (pollCount === 10) {
+      loadMarketDataRobust();
+    } else if (pollCount > 60) {
+      clearInterval(pollTimer);
       if (!isAppReady) {
         document.getElementById('app-status').innerText = '⚠️ 數據檔案載入逾時，請按 Ctrl+F5 強制重新整理';
       }
     }
-  }, 50);
+  }, 100);
 </script>
 </body>
 </html>
