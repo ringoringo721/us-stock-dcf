@@ -42,7 +42,8 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git pull origin main --rebase --autostash
           git add full_market_dcf.json market_data.js cache/
-          git commit -m "Auto refresh US stock DCF data & Moat Cache [skip ci]" || exit 0
-          git pull --rebase origin main
+          git diff-index --quiet HEAD || git commit -m "Auto refresh US stock DCF data & Moat Cache [skip ci]"
           git push origin main
+  
