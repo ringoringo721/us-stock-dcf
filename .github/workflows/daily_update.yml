@@ -42,10 +42,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          
-          # 納入 DCF 結果、前端 JS 與護城河季度快取
-          git add -A
-          
-          # 若有檔案異動則提交並推送回儲存庫
-          git commit -m "Auto refresh US stock DCF data & Moat Cache [skip ci]" || echo "No changes to commit"
+          git add full_market_dcf.json market_data.js cache/
+          git commit -m "Auto refresh US stock DCF data & Moat Cache [skip ci]" || exit 0
+          git pull --rebase origin main
           git push origin main
