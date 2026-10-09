@@ -1019,6 +1019,40 @@
 
 <script>
   let stockUniverse = {};
+
+  // 美股核心標的權威繁體中文名稱映射 (涵蓋主要科技、金融、消費、國防等巨頭)
+  const STOCK_NAMES_ZH = {
+    "NVDA": "輝達", "AAPL": "蘋果", "MSFT": "微軟", "AMZN": "亞馬遜", "GOOGL": "Alphabet (Class A)",
+    "GOOG": "Alphabet (Class C)", "META": "Meta (臉書)", "TSLA": "特斯拉", "BRK.B": "波克夏海瑟威",
+    "BRK.A": "波克夏海瑟威", "TSM": "台積電 ADR", "AVGO": "博通", "ORCL": "甲骨文", "WMT": "沃爾瑪",
+    "JPM": "摩根大通", "V": "威士卡", "MA": "萬事達卡", "UNH": "聯合健康", "LLY": "禮來",
+    "COST": "好市多", "HD": "家得寶", "PG": "寶僑", "JNJ": "嬌生", "ABBV": "艾伯維",
+    "BAC": "美國銀行", "KO": "可口可樂", "PEP": "百事可樂", "MRK": "默沙東", "CRM": "賽富時",
+    "AMD": "超微半導體", "ADBE": "Adobe", "QCOM": "高通", "CSCO": "思科", "INTC": "英特爾",
+    "TXN": "德州儀器", "AMAT": "應用材料", "NOW": "ServiceNow", "IBM": "IBM", "LMT": "洛克希德·馬丁",
+    "CAT": "開拓重工", "GE": "通用電氣", "DIS": "迪士尼", "NFLX": "網飛", "MCD": "麥當勞",
+    "NKE": "耐吉", "SBUX": "星巴克", "PM": "菲利普莫里斯", "MO": "奧馳亞", "XOM": "埃克森美孚",
+    "CVX": "雪佛龍", "COP": "康菲石油", "WFC": "富國銀行", "MS": "摩根士丹利", "GS": "高盛",
+    "C": "花旗集團", "AXP": "美國運通", "BLK": "貝萊德", "RTX": "雷神科技", "BA": "波音",
+    "HON": "漢威聯合", "UNP": "聯合太平洋", "UPS": "優比速", "FDX": "聯邦快遞", "PFE": "輝瑞",
+    "TMO": "賽默飛世爾", "ABT": "雅培", "DHR": "丹納赫", "BMY": "必貴寶", "AMGN": "安進",
+    "GILD": "吉利德科學", "ISRG": "直覺外科", "VRTX": "福泰製藥", "REGN": "再生元", "NEE": "新世紀能源",
+    "SO": "南方電力", "DUK": "杜克能源", "PLD": "普洛斯", "AMT": "美國電塔", "CCI": "冠城國際",
+    "EQIX": "易華電腦", "SPG": "西蒙地產", "O": "Realty Income", "INTU": "直覺電腦", "PANW": "派拓網路",
+    "SNPS": "新思科技", "CDNS": "益華電腦", "FTNT": "飛塔資訊", "CRWD": "CrowdStrike", "UBER": "優步",
+    "ABNB": "愛彼迎", "BKNG": "Booking 控股", "T": "AT&T", "VZ": "威訊通訊", "CMCSA": "康卡斯特"
+  };
+
+  // 根據當前選擇語言動態返回企業名稱
+  function getStockDisplayName(s) {
+    if (!s) return "";
+    const ticker = (s.ticker || "").toUpperCase();
+    if (currentLang === 'zh') {
+      return s.name_zh || STOCK_NAMES_ZH[ticker] || s.name || s.company_name || ticker;
+    } else {
+      return s.name_en || s.company_name || s.name || ticker;
+    }
+  }
   
   const US_TREASURY_CURVE = {
     1: 0.0465, 2: 0.0440, 3: 0.0435, 4: 0.0432, 5: 0.0430,
@@ -1810,7 +1844,7 @@
             <a class="ticker-link" onclick="openCompanyProfile('${item.ticker}')">${item.ticker}</a>
           </td>
           <td class="col-fixed-2"><span class="badge ${exchClass}">${item.exchange || 'US'}</span></td>
-          <td class="col-fixed-3" style="font-weight: 600; color: #fff;">${item.name || item.ticker}</td>
+          <td class="col-fixed-3" style="font-weight: 600; color: #fff;">${getStockDisplayName(item)}</td>
           <td style="color: #cbd5e1; text-align: left;">${item.sector || '--'}</td>
           <td style="color: #94a3b8; font-size: 11px; text-align: left;">${item.industry || '--'}</td>
           <td style="font-weight: 700; color: var(--accent);">$${priceNum.toFixed(2)}</td>
@@ -2240,7 +2274,7 @@
     const s = stockUniverse[ticker];
     if (!s) return;
     document.getElementById('cmp-ticker').innerText = ticker;
-    document.getElementById('cmp-name').innerText = s.name || ticker;
+    document.getElementById('cmp-name').innerText = getStockDisplayName(s);
     document.getElementById('cmp-exchange').innerText = s.exchange || 'US';
     document.getElementById('cmp-full-name').innerText = s.company_name || s.name || `${ticker} Inc.`;
     document.getElementById('cmp-logo-img').src = s.image || s.logo || `https://assets.financialmodelingprep.com/symbol/${ticker}.png`;
