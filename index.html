@@ -2132,6 +2132,37 @@
     recalculateDetail();
   }
 
+// 金融業專屬滑桿拖動事件處理 (補回遺漏函式，解除無反應問題)
+  function onFinSliderChange() {
+    const s = stockUniverse[activeDetailTicker];
+    if (!s || !s.fin_valuation) return;
+
+    const valKe = parseFloat(document.getElementById('slider-fin-ke').value) || 9.49;
+    const valG = parseFloat(document.getElementById('slider-fin-g').value) || 2.25;
+    const valRote = parseFloat(document.getElementById('slider-fin-rote').value) || 17.4;
+
+    // 即時更新滑桿上方的數值標籤
+    document.getElementById('disp-fin-ke').innerText = `${valKe.toFixed(2)}%`;
+    document.getElementById('disp-fin-g').innerText = `${valG.toFixed(2)}%`;
+    document.getElementById('disp-fin-rote').innerText = `${valRote.toFixed(1)}%`;
+
+    // 更新超額利差顯示 (ROTE - Ke)
+    const spreadVal = valRote - valKe;
+    const elSpread = document.getElementById('fin-spread-disp');
+    if (elSpread) {
+      elSpread.innerText = `${spreadVal > 0 ? '+' : ''}${spreadVal.toFixed(2)}%`;
+    }
+
+    // 將滑動數值暫存於當前物件中供即時計算
+    s.fin_valuation.ke = valKe;
+    s.fin_valuation.g = valG;
+    s.fin_valuation.rote = valRote;
+    s.g = valG;
+
+    // 觸發重新計算
+    recalculateDetail();
+  }
+
   function onDetailParamChange() {
     recalculateDetail();
   }
@@ -2382,9 +2413,11 @@ function recalculateDetail() {
     }).join('');
   }
 
-  function saveCustomModel() {
+function saveCustomModel() {
     const s = stockUniverse[activeDetailTicker];
     if (!s) return;
+
+    const isFin = !!(s.fin_valuation && s.fin_valuation.is_financial);
 
     const tempS = {
       ...s,
@@ -2399,21 +2432,32 @@ function recalculateDetail() {
       kd: parseFloat(document.getElementById('inp-kd').value) || 4.5,
       tax: parseFloat(document.getElementById('inp-tax').value) || 21.0,
       g: parseFloat(document.getElementById('inp-g').value) || 2.25,
-      growth_10y: s.custom_growth_10y || s.growth_10y
+      growth_10y: s.custom_growth_10y || s.growth_10y,
+      fin_valuation: isFin ? { ...s.fin_valuation } : undefined
     };
 
     const dcf = computeDCF(tempS, activeDetailTicker);
     const models = getSavedModels();
 
-    // 儲存自訂目標價，但不改變原裝 s 的官方基準
+    // 儲存自訂目標價，若為金融業則同時保存三個滑桿參數
     models[activeDetailTicker] = {
       targetPrice: dcf.fairVal,
       savedAt: new Date().toISOString(),
       params: {
-        price: tempS.price, shares: tempS.shares, debt: tempS.debt, cash: tempS.cash, fcf0: tempS.fcf0,
-        beta: tempS.beta, rf: tempS.rf, rf_tenor: parseInt(document.getElementById('inp-rf-tenor').value) || 5,
-        erp: tempS.erp, kd: tempS.kd, tax: tempS.tax, g: tempS.g,
-        growth_10y: [...(tempS.growth_10y || [])]
+        price: tempS.price, 
+        shares: tempS.shares, 
+        debt: tempS.debt, 
+        cash: tempS.cash, 
+        fcf0: tempS.fcf0,
+        beta: tempS.beta, 
+        rf: tempS.rf, 
+        rf_tenor: parseInt(document.getElementById('inp-rf-tenor').value) || 5,
+        erp: tempS.erp, 
+        kd: tempS.kd, 
+        tax: tempS.tax, 
+        g: tempS.g,
+        growth_10y: [...(tempS.growth_10y || [])],
+        fin_valuation: isFin ? { ...tempS.fin_valuation } : undefined
       }
     };
 
