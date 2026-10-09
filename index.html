@@ -2146,11 +2146,13 @@
     recalculateDetail();
   }
 
-  function recalculateDetail() {
+function recalculateDetail() {
     const s = stockUniverse[activeDetailTicker];
     if (!s) return;
 
-    // 構建臨時計算載體，絕不修改 s 的原始官方值
+    const isFin = !!(s.fin_valuation && s.fin_valuation.is_financial);
+
+    // 構建臨時計算載體，完美保留金融模型參數
     const tempS = {
       ...s,
       price: parseFloat(document.getElementById('inp-price').value) || s.price,
@@ -2164,25 +2166,38 @@
       kd: parseFloat(document.getElementById('inp-kd').value) || 4.5,
       tax: parseFloat(document.getElementById('inp-tax').value) || 21.0,
       g: parseFloat(document.getElementById('inp-g').value) || 2.25,
-      growth_10y: s.custom_growth_10y || s.growth_10y
+      growth_10y: s.custom_growth_10y || s.growth_10y,
+      // 關鍵修復：傳入最新的金融模型設定
+      fin_valuation: isFin ? { ...s.fin_valuation } : undefined
     };
 
     const dcf = computeDCF(tempS, activeDetailTicker);
+    if (!dcf) return;
 
+    // 1. 更新通用公允價值與市價
     document.getElementById('det-res-fair').innerText = `$${dcf.fairVal.toFixed(2)}`;
     document.getElementById('det-res-price').innerText = `$${Number(tempS.price).toFixed(2)}`;
-    
-    const isFin = !!(s.fin_valuation && s.fin_valuation.is_financial);
-    if (isFin) {
-      document.getElementById('det-res-wacc').innerText = `${Number(tempS.fin_valuation.ke || 9.49).toFixed(2)}% (Ke)`;
-      document.getElementById('det-res-g').innerText = `${Number(tempS.g).toFixed(2)}%`;
-      document.getElementById('det-res-spread').innerText = `${(Number(tempS.fin_valuation.ke || 9.49) - Number(tempS.g)).toFixed(2)}%`;
+
+    // 2. 針對金融業與非金融業分別更新專屬資訊
+    if (isFin && tempS.fin_valuation) {
+      // 關鍵修復：將 $0.00 替換為實際算出的數值
+      const elExcess = document.getElementById('fin-excess-val');
+      const elDdm = document.getElementById('fin-ddm-val');
+      if (elExcess) elExcess.innerText = `$${Number(tempS.fin_valuation.excess_return_fair || 0).toFixed(2)}`;
+      if (elDdm) elDdm.innerText = `$${Number(tempS.fin_valuation.ddm_fair || 0).toFixed(2)}`;
+
+      const keVal = Number(tempS.fin_valuation.ke || 9.49);
+      const gVal = Number(tempS.fin_valuation.g || 2.25);
+      document.getElementById('det-res-wacc').innerText = `${keVal.toFixed(2)}% (Ke)`;
+      document.getElementById('det-res-g').innerText = `${gVal.toFixed(2)}%`;
+      document.getElementById('det-res-spread').innerText = `${(keVal - gVal).toFixed(2)}%`;
     } else {
       document.getElementById('det-res-wacc').innerText = `${(dcf.WACC * 100).toFixed(2)}%`;
       document.getElementById('det-res-g').innerText = `${Number(tempS.g).toFixed(2)}%`;
       document.getElementById('det-res-spread').innerText = `${((dcf.WACC - (Number(tempS.g)/100)) * 100).toFixed(2)}%`;
     }
 
+    // 3. 溢價/折價狀態標籤更新
     const badgeEl = document.getElementById('det-badge');
     const premEl = document.getElementById('det-res-premium');
     if (dcf.isUndervalued) {
@@ -2201,6 +2216,7 @@
     document.getElementById('det-res-evebitda').innerText = `${Number(dcf.ev_to_ebitda).toFixed(1)}x`;
     document.getElementById('det-res-nde').innerText = `${Number(dcf.net_debt_to_ebitda).toFixed(2)}x`;
 
+    // 4. 非金融業才需要渲染 DCF 現金流排程與敏感度矩陣
     if (!isFin) {
       renderDCFTable(dcf.growth, dcf.fcfList, dcf.dfList, dcf.pvList);
       renderSensitivity(dcf.fcfList[9], dcf.NetDebt, tempS.shares, dcf.WACC, Number(tempS.g) / 100, dcf.localFCF0, dcf.growth);
