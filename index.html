@@ -838,12 +838,12 @@
             <thead>
               <tr id="cmp-fin-thead">
                 <th style="text-align: left; width: 280px;" data-i18n="th_fin_item">會計項目 / 財務指標 ($M)</th>
-                <th>TTM</th>
-                <th>2025</th>
-                <th>2024</th>
-                <th>2023</th>
-                <th>2022</th>
                 <th>2021</th>
+                <th>2022</th>
+                <th>2023</th>
+                <th>2024</th>
+                <th>2025</th>
+                <th>TTM</th>
               </tr>
             </thead>
             <tbody id="cmp-fin-tbody"></tbody>
@@ -2078,8 +2078,8 @@
     const estRev = Math.max(fcf * 5.2, mcap * 0.35);
     const estNetInc = Math.max(fcf * 0.85, 200);
 
-    const years = ['TTM', '2025', '2024', '2023', '2022', '2021'];
-    const decayFactors = [1.0, 0.92, 0.84, 0.76, 0.69, 0.61];
+    const years = ['2021', '2022', '2023', '2024', '2025', 'TTM'];
+    const decayFactors = [0.61, 0.69, 0.76, 0.84, 0.92, 1.0];
 
     let items = [];
 
