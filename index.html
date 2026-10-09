@@ -2592,7 +2592,7 @@
       if (!s) return;
 
       document.getElementById('moat-ticker').innerText = ticker;
-      document.getElementById('moat-name').innerText = s.name || ticker;
+      document.getElementById('moat-name').innerText = getStockDisplayName(s);
       document.getElementById('moat-exchange').innerText = s.exchange || 'US';
 
       const dcf = computeDCF(s, ticker);
@@ -2649,7 +2649,7 @@
     if (!s) return;
 
     document.getElementById('fsc-ticker').innerText = ticker;
-    document.getElementById('fsc-name').innerText = s.name;
+    document.getElementById('fsc-name').innerText = getStockDisplayName(s);
     document.getElementById('fsc-exchange').innerText = s.exchange;
 
     const dcf = computeDCF(s, ticker);
