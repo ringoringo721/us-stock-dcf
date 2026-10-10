@@ -2696,15 +2696,17 @@ function loadCompanyProfile(ticker) {
     document.getElementById('cmp-meta-ath').innerText = `$${(s.all_time_high || yHigh * 1.08).toFixed(2)}`;
     document.getElementById('cmp-meta-atl').innerText = `$${(s.all_time_low || yLow * 0.35).toFixed(2)}`;
 
-    const inst = Number(s.inst_ownership_pct) || 73.0;
-    const insider = Number(s.insider_ownership_pct) || 6.5;
-    const retail = Number((100 - inst - insider).toFixed(1));
+    const inst = Number(s.inst_ownership_pct) || 72.0;
+    const insider = Number(s.insider_ownership_pct) || 5.0;
+    const retail = Math.max(0, Number((100 - inst - insider).toFixed(1)));
+    
     document.getElementById('cmp-own-inst').innerText = `${inst.toFixed(1)}%`;
     document.getElementById('cmp-own-insider').innerText = `${insider.toFixed(1)}%`;
     document.getElementById('cmp-own-retail').innerText = `${retail.toFixed(1)}%`;
-    document.getElementById('bar-own-inst').style.width = `${inst}%`;
-    document.getElementById('bar-own-insider').style.width = `${insider}%`;
-    document.getElementById('bar-own-retail').style.width = `${retail}%`;
+    
+    document.getElementById('bar-own-inst').style.width = `${Math.min(inst, 100)}%`;
+    document.getElementById('bar-own-insider').style.width = `${Math.min(insider, 100)}%`;
+    document.getElementById('bar-own-retail').style.width = `${Math.min(retail, 100)}%`;
 
     renderTradingViewWidget(ticker, s.exchange);
     renderTop50Holders(s);
