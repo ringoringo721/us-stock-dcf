@@ -64726,10 +64726,10 @@
     "g2": 7.3,
     "g": 2.25,
     "wacc": 9.77,
-    "ev": 1852860.2,
-    "fmp_official_ev": 1852860.2,
+    "ev": 1529302.5,
+    "fmp_official_ev": 1529302.5,
     "dcf_model_ev": 865739.3,
-    "ev_to_ebitda": 16.3,
+    "ev_to_ebitda": 13.5,
     "debt_to_ebitda": 0.99,
     "net_debt_to_ebitda": 0.19,
     "f_score": 8,
@@ -118113,7 +118113,7 @@
         176191.0,
         184992.0,
         187267.0,
-        0.0
+        187973.0
       ],
       "net_income": [
         17937.0,
@@ -118121,7 +118121,7 @@
         4347.0,
         5879.0,
         -8182.0,
-        0.0
+        -7396.0
       ],
       "gross_profit": [
         24548.0,
@@ -118129,7 +118129,7 @@
         24310.0,
         23405.0,
         22813.0,
-        0.0
+        20247.0
       ],
       "operating_income": [
         5033.0,
@@ -118137,7 +118137,7 @@
         5378.0,
         5095.0,
         2532.0,
-        0.0
+        3702.0
       ],
       "cfo": [
         15787.0,
@@ -118172,7 +118172,7 @@
           176191.0,
           184992.0,
           187267.0,
-          0.0
+          187973.0
         ],
         "costOfRevenue": [
           111793.0,
@@ -118180,7 +118180,7 @@
           151881.0,
           161587.0,
           164454.0,
-          0.0
+          167726.0
         ],
         "grossProfit": [
           24548.0,
@@ -118188,7 +118188,7 @@
           24310.0,
           23405.0,
           22813.0,
-          0.0
+          20247.0
         ],
         "grossProfitRatio": [
           0.0,
@@ -118228,7 +118228,7 @@
           10732.0,
           10310.0,
           10881.0,
-          0.0
+          10981.0
         ],
         "otherExpenses": [
           0.0,
@@ -118236,7 +118236,7 @@
           0.0,
           0.0,
           0.0,
-          0.0
+          5564.0
         ],
         "operatingExpenses": [
           19515.0,
@@ -118244,7 +118244,7 @@
           18932.0,
           18310.0,
           20281.0,
-          0.0
+          16545.0
         ],
         "costAndExpenses": [
           131308.0,
@@ -118252,7 +118252,7 @@
           170813.0,
           179897.0,
           184735.0,
-          0.0
+          184271.0
         ],
         "operatingIncome": [
           5033.0,
@@ -118260,7 +118260,7 @@
           5378.0,
           5095.0,
           2532.0,
-          0.0
+          3702.0
         ],
         "operatingIncomeRatio": [
           0.0,
@@ -118276,7 +118276,7 @@
           -1411.0,
           2138.0,
           -14362.0,
-          0.0
+          -15815.0
         ],
         "interestIncome": [
           254.0,
@@ -118284,7 +118284,7 @@
           1567.0,
           1540.0,
           1490.0,
-          0.0
+          1380.0
         ],
         "interestExpense": [
           1803.0,
@@ -118292,7 +118292,7 @@
           1302.0,
           1115.0,
           1254.0,
-          0.0
+          1388.0
         ],
         "incomeBeforeTax": [
           17780.0,
@@ -118300,7 +118300,7 @@
           3967.0,
           7233.0,
           -11830.0,
-          0.0
+          -12113.0
         ],
         "incomeBeforeTaxRatio": [
           0.0,
@@ -118316,7 +118316,7 @@
           -362.0,
           1339.0,
           -3668.0,
-          0.0
+          -4736.0
         ],
         "netIncome": [
           17937.0,
@@ -118324,7 +118324,7 @@
           4347.0,
           5879.0,
           -8182.0,
-          0.0
+          -7396.0
         ],
         "netIncomeRatio": [
           0.0,
@@ -118340,7 +118340,7 @@
           1.09,
           1.48,
           -2.06,
-          0.0
+          -0.33
         ],
         "epsdiluted": [
           0.0,
@@ -118356,7 +118356,7 @@
           3998000000.0,
           3978000000.0,
           3979000000.0,
-          0.0
+          3987000000.0
         ],
         "weightedAverageShsOutDil": [
           4034000000.0,
@@ -118364,7 +118364,7 @@
           4041000000.0,
           4021000000.0,
           3979000000.0,
-          0.0
+          3987000000.0
         ],
         "ebitda": [
           25543.0,
@@ -118372,7 +118372,7 @@
           11792.0,
           14215.0,
           -4581.0,
-          0.0
+          -1781.0
         ],
         "ebitdaratio": [
           0.0,
@@ -153175,11 +153175,11 @@
     "shares_outstanding": 561390000,
     "shares_display": "561.39 M",
     "mcap": 87684.3,
-    "debt": 20527.0,
-    "cash": 1953.0,
-    "short_term_investments": 886.0,
-    "cash_and_short_term": 1953.0,
-    "net_debt": 18574.0,
+    "debt": 0.0,
+    "cash": 0.0,
+    "short_term_investments": 0.0,
+    "cash_and_short_term": 0.0,
+    "net_debt": 0.0,
     "fcf0": 4848.0,
     "real_history": {
       "revenue": [
@@ -153465,7 +153465,7 @@
           899.0,
           844.0,
           837.0,
-          1067.0
+          0.0
         ],
         "shortTermInvestments": [
           0.0,
@@ -153473,7 +153473,7 @@
           230.0,
           524.0,
           2779.0,
-          886.0
+          0.0
         ],
         "cashAndShortTermInvestments": [
           607.0,
@@ -153481,7 +153481,7 @@
           1129.0,
           1368.0,
           3616.0,
-          1953.0
+          0.0
         ],
         "netReceivables": [
           1208.0,
@@ -153489,7 +153489,7 @@
           2950.0,
           3129.0,
           3210.0,
-          1869.0
+          0.0
         ],
         "inventory": [
           0.0,
@@ -153497,7 +153497,7 @@
           0.0,
           0.0,
           0.0,
-          116912.0
+          0.0
         ],
         "otherCurrentAssets": [
           149321.0,
@@ -153505,7 +153505,7 @@
           80894.0,
           84598.0,
           78952.0,
-          627.0
+          0.0
         ],
         "totalCurrentAssets": [
           154300.0,
@@ -153513,7 +153513,7 @@
           84973.0,
           89095.0,
           85778.0,
-          122064.0
+          0.0
         ],
         "propertyPlantEquipmentNet": [
           1699.0,
@@ -153521,7 +153521,7 @@
           1923.0,
           2153.0,
           2691.0,
-          2884.0
+          0.0
         ],
         "goodwill": [
           21123.0,
@@ -153529,7 +153529,7 @@
           30553.0,
           30595.0,
           30646.0,
-          30632.0
+          0.0
         ],
         "intangibleAssets": [
           13736.0,
@@ -153537,7 +153537,7 @@
           17317.0,
           16306.0,
           15353.0,
-          14870.0
+          0.0
         ],
         "goodwillAndIntangibleAssets": [
           34859.0,
@@ -153545,7 +153545,7 @@
           47870.0,
           46901.0,
           45999.0,
-          45502.0
+          0.0
         ],
         "longTermInvestments": [
           0.0,
@@ -153553,7 +153553,7 @@
           0.0,
           0.0,
           0.0,
-          136.0
+          0.0
         ],
         "taxAssets": [
           0.0,
@@ -153569,7 +153569,7 @@
           1318.0,
           1279.0,
           2419.0,
-          3661.0
+          0.0
         ],
         "totalNonCurrentAssets": [
           39202.0,
@@ -153577,7 +153577,7 @@
           51111.0,
           50333.0,
           51109.0,
-          52183.0
+          0.0
         ],
         "totalAssets": [
           193502.0,
@@ -153585,7 +153585,7 @@
           136084.0,
           139428.0,
           136887.0,
-          174247.0
+          0.0
         ],
         "accountPayables": [
           703.0,
@@ -153593,7 +153593,7 @@
           1003.0,
           1051.0,
           1078.0,
-          1159.0
+          0.0
         ],
         "shortTermDebt": [
           1521.0,
@@ -153601,7 +153601,7 @@
           1954.0,
           3027.0,
           1035.0,
-          1218.0
+          0.0
         ],
         "taxPayables": [
           0.0,
@@ -153617,7 +153617,7 @@
           200.0,
           236.0,
           204.0,
-          567.0
+          0.0
         ],
         "otherCurrentLiabilities": [
           146089.0,
@@ -153625,7 +153625,7 @@
           79117.0,
           82322.0,
           76907.0,
-          117066.0
+          0.0
         ],
         "totalCurrentLiabilities": [
           153411.0,
@@ -153633,7 +153633,7 @@
           84626.0,
           89553.0,
           84116.0,
-          120576.0
+          0.0
         ],
         "longTermDebt": [
           12397.0,
@@ -153641,7 +153641,7 @@
           20659.0,
           17341.0,
           18609.0,
-          18628.0
+          0.0
         ],
         "deferredRevenueNonCurrent": [
           0.0,
@@ -153657,7 +153657,7 @@
           4080.0,
           3904.0,
           3998.0,
-          4125.0
+          0.0
         ],
         "otherNonCurrentLiabilities": [
           594.0,
@@ -153665,7 +153665,7 @@
           634.0,
           575.0,
           538.0,
-          585.0
+          0.0
         ],
         "totalNonCurrentLiabilities": [
           17343.0,
@@ -153673,7 +153673,7 @@
           25672.0,
           22155.0,
           23780.0,
-          24019.0
+          0.0
         ],
         "totalLiabilities": [
           170754.0,
@@ -153681,7 +153681,7 @@
           110298.0,
           111708.0,
           107896.0,
-          144595.0
+          0.0
         ],
         "totalDebt": [
           14170.0,
@@ -153689,7 +153689,7 @@
           22912.0,
           20703.0,
           20279.0,
-          20527.0
+          0.0
         ],
         "netDebt": [
           13563.0,
@@ -153697,7 +153697,7 @@
           22013.0,
           19859.0,
           19442.0,
-          19460.0
+          0.0
         ],
         "commonStock": [
           6.0,
@@ -153705,7 +153705,7 @@
           6.0,
           7.0,
           7.0,
-          7.0
+          0.0
         ],
         "retainedEarnings": [
           14350.0,
@@ -153713,7 +153713,7 @@
           16356.0,
           18071.0,
           20281.0,
-          22061.0
+          0.0
         ],
         "accumulatedOtherComprehensiveIncomeLoss": [
           -196.0,
@@ -153721,7 +153721,7 @@
           -294.0,
           -338.0,
           -224.0,
-          -257.0
+          0.0
         ],
         "otherTotalStockholdersEquity": [
           0.0,
@@ -153737,7 +153737,7 @@
           25717.0,
           27647.0,
           28915.0,
-          29551.0
+          0.0
         ],
         "totalEquity": [
           22748.0,
@@ -153745,7 +153745,7 @@
           25786.0,
           27720.0,
           28991.0,
-          29620.0
+          0.0
         ],
         "totalLiabilitiesAndTotalEquity": [
           193502.0,
@@ -153753,7 +153753,7 @@
           136084.0,
           139428.0,
           136887.0,
-          174247.0
+          0.0
         ],
         "totalInvestments": [
           0.0,
@@ -153761,7 +153761,7 @@
           230.0,
           524.0,
           2779.0,
-          1022.0
+          0.0
         ]
       },
       "cashflow": {
@@ -154018,21 +154018,21 @@
     "g1": 6.8,
     "g2": 4.0,
     "g": 2.25,
-    "wacc": 7.94,
+    "wacc": 8.96,
     "ev": 88894.0,
     "fmp_official_ev": 88894.0,
-    "dcf_model_ev": 104155.4,
+    "dcf_model_ev": 87912.5,
     "ev_to_ebitda": 13.3,
-    "debt_to_ebitda": 3.07,
-    "net_debt_to_ebitda": 2.77,
-    "f_score": 4,
+    "debt_to_ebitda": 0.0,
+    "net_debt_to_ebitda": 0.0,
+    "f_score": 9,
     "f_score_breakdown": [
       {
         "id": 1,
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 2.3%"
+        "detail": "當期 ROA = 402700000000.0%"
       },
       {
         "id": 2,
@@ -154045,7 +154045,7 @@
         "id": 3,
         "category": "盈利能力",
         "desc": "資產回報率持續擴張 (ΔROA > 0)",
-        "passed": 0,
+        "passed": 1,
         "detail": "回報率穩步領先同業基準"
       },
       {
@@ -154059,15 +154059,15 @@
         "id": 5,
         "category": "槓桿與償債",
         "desc": "財務槓桿未惡化 (ΔLeverage ≤ 0)",
-        "passed": 0,
-        "detail": "總負債資產比率 = 83.0%"
+        "passed": 1,
+        "detail": "總負債資產比率 = 40.0%"
       },
       {
         "id": 6,
         "category": "槓桿與償債",
         "desc": "短期流動性安全 (ΔLiquidity > 0)",
-        "passed": 0,
-        "detail": "流動比率 = 1.01"
+        "passed": 1,
+        "detail": "流動比率 = 1.50"
       },
       {
         "id": 7,
@@ -154080,89 +154080,89 @@
         "id": 8,
         "category": "營運效率",
         "desc": "毛利率擴張 (ΔMargin > 0)",
-        "passed": 0,
+        "passed": 1,
         "detail": "產品定價權增強，毛利結構健康"
       },
       {
         "id": 9,
         "category": "營運效率",
         "desc": "資產週轉率提升 (ΔTurnover > 0)",
-        "passed": 0,
+        "passed": 1,
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 152.45,
-    "default_fair_val": 152.45,
-    "premium_pct": 2.5,
-    "is_undervalued": false,
+    "fair_val": 156.6,
+    "default_fair_val": 156.6,
+    "premium_pct": -0.3,
+    "is_undervalued": true,
     "pe_trailing": 21.8,
     "pe_forward": 19.2,
-    "pb_trailing": 3.0,
-    "pb_forward": 2.7,
+    "pb_trailing": 87684300000.0,
+    "pb_forward": 78915870000.0,
     "div_yield": 1.3,
     "ps_ratio": 4.5,
-    "fcf_to_ev": 4.65,
+    "fcf_to_ev": 5.51,
     "fcf_to_mcap": 5.53,
-    "liab_to_assets": 83.0,
-    "cash_to_assets": 1.1,
-    "current_ratio": 1.01,
-    "roe": 13.6,
-    "roa": 2.3,
+    "liab_to_assets": 40.0,
+    "cash_to_assets": 0.0,
+    "current_ratio": 1.5,
+    "roe": 402700000000.0,
+    "roa": 402700000000.0,
     "moat": {
       "ticker": "ICE",
-      "period": "2026Q2",
+      "period": "2026Q4",
       "m1_brand_pricing": {
-        "score": 8,
-        "comment_zh": "Intercontinental Exchange (ICE) 憑藉其旗下紐約證券交易所 (NYSE) 等全球頂級金融市場基礎設施，建立了極強的品牌心智與定價權。對於全球資本市場參與者而言，ICE 提供的交易平台、清算服務及市場數據是不可或缺的。其服務的關鍵性使得客戶即便面對價格上漲，也難以轉向其他替代方案，因為轉換成本高昂且缺乏同等規模與流動性的替代品。這種核心地位讓 ICE 能在不影響交易量的前提下，有效調整服務費用，展現出巴菲特所推崇的特許經營權特徵。",
-        "comment_en": "Intercontinental Exchange (ICE), through its ownership of premier financial market infrastructure like the New York Stock Exchange (NYSE), commands significant brand recognition and pricing power. For global capital market participants, ICE's trading platforms, clearing services, and market data are indispensable. The critical nature of its services means clients face high switching costs and a lack of comparable alternatives in terms of scale and liquidity, even when confronted with price increases. This central role allows ICE to effectively adjust service fees without significantly impacting transaction volumes, embodying the franchise-like characteristics highly valued by Buffett."
+        "score": 9,
+        "comment_zh": "ICE憑藉其對紐約證券交易所(NYSE)等全球頂級交易所的擁有權，以及其在期貨和數據服務領域的領導地位，建立了極其強大的品牌心智與定價權。金融機構和交易員幾乎無法避免使用其服務，因為這些是市場運作的核心基礎設施。即使提高交易費用或數據訂閱價格，客戶的轉換成本極高，且替代方案稀缺，確保了公司能將成本轉嫁並維持高利潤率，這正是巴菲特所推崇的「收費橋樑」模式。",
+        "comment_en": "ICE, through its ownership of premier global exchanges like the New York Stock Exchange (NYSE) and its leadership in futures and data services, commands immense brand recognition and pricing power. Financial institutions and traders are virtually compelled to utilize its services, as they represent core market infrastructure. Even with increased transaction fees or data subscription costs, customer switching costs are prohibitively high, and viable alternatives are scarce. This ensures the company can pass on costs and maintain high-profit margins, embodying Buffett's favored \"toll bridge\" business model."
       },
       "m2_patents_regulatory": {
         "score": 9,
-        "comment_zh": "ICE 在專利壁壘與特許許可方面擁有極高的護城河。金融交易所和清算所的運營受到各國政府的嚴格監管，取得相關牌照和特許經營權的門檻極高，涉及複雜的法律程序、龐大的資本投入和嚴格的合規要求。這些監管壁壘有效地阻止了潛在競爭者進入市場，賦予 ICE 類似於「收費橋樑」的獨佔地位。其數據服務也因其獨特的市場數據來源而受到保護，形成難以複製的競爭優勢，確保了其在關鍵金融基礎設施領域的壟斷地位。",
-        "comment_en": "ICE possesses an exceptionally strong moat in patents and regulatory barriers. Operating financial exchanges and clearing houses is subject to stringent government regulation across various jurisdictions, with extremely high barriers to entry for obtaining licenses and franchises. This involves complex legal processes, substantial capital investment, and strict compliance requirements. These regulatory hurdles effectively deter potential competitors, granting ICE a monopolistic position akin to a \"toll bridge.\" Its data services are also protected by unique market data sources, creating an irreplicable competitive advantage and securing its dominant position in critical financial infrastructure."
+        "comment_zh": "ICE的護城河並非來自傳統意義上的專利，而是源於其作為金融市場核心基礎設施提供者的「特許經營權」和嚴格的監管准入壁壘。經營交易所和清算所需要龐大的資本投入、極高的信任度以及複雜的監管批准，這些因素共同築起了難以逾越的門檻。政府對金融穩定的重視，使得新競爭者幾乎不可能在短時間內獲得同等地位，賦予ICE類似於公用事業的壟斷地位，確保了其長期穩定的現金流。",
+        "comment_en": "ICE's moat doesn't stem from traditional patents but rather from its \"franchise-like\" status and stringent regulatory barriers as a core financial market infrastructure provider. Operating exchanges and clearing houses demands substantial capital investment, immense trust, and complex regulatory approvals, collectively forming an insurmountable barrier to entry. Governmental emphasis on financial stability makes it nearly impossible for new competitors to achieve comparable standing quickly, granting ICE a utility-like monopoly that ensures long-term stable cash flows."
       },
       "m3_high_switching_costs": {
-        "score": 8,
-        "comment_zh": "ICE 的服務具有極高的客戶黏性與替代成本。對於銀行、基金和經紀商等金融機構而言，轉換交易平台、清算所或市場數據供應商，不僅意味著巨大的技術整合工作、員工培訓成本，更可能導致營運中斷、數據遺失及潛在的交易風險。這些轉換成本遠超服務費用本身，使得客戶一旦採用 ICE 的解決方案，便會形成深度依賴。這種「鎖定效應」確保了 ICE 能夠長期保有客戶群，並在一定程度上轉嫁成本，符合巴菲特對具備高轉換成本企業的青睞。",
-        "comment_en": "ICE's services exhibit extremely high customer stickiness and switching costs. For financial institutions such as banks, funds, and brokers, migrating trading platforms, clearing houses, or market data providers entails not only massive technical integration efforts and staff training expenses but also potential operational disruptions, data loss, and trading risks. These switching costs far outweigh the service fees themselves, leading to deep reliance once clients adopt ICE's solutions. This \"lock-in effect\" ensures ICE retains its customer base long-term and can, to some extent, pass on costs, aligning with Buffett's preference for businesses with high switching costs."
+        "score": 9,
+        "comment_zh": "對於ICE的客戶而言，轉換成本極高。金融機構將ICE的交易平台、清算服務和市場數據深度整合到其核心交易系統、風險管理框架及合規流程中。更換供應商不僅意味著巨大的技術改造投入，還可能導致嚴重的營運中斷、員工再培訓成本，甚至潛在的監管違規風險。這種深度嵌入性使得客戶一旦選擇ICE，便難以脫離，確保了其收入的持續性和可預測性，是典型的「鎖定效應」護城河。",
+        "comment_en": "For ICE's clients, switching costs are exceptionally high. Financial institutions deeply integrate ICE's trading platforms, clearing services, and market data into their core trading systems, risk management frameworks, and compliance processes. Changing providers would entail not only massive technological overhaul investments but also significant operational disruptions, employee retraining costs, and potential regulatory non-compliance risks. This deep embeddedness makes it difficult for clients to leave once they've chosen ICE, ensuring revenue continuity and predictability—a classic \"lock-in effect\" moat."
       },
       "m4_network_effects": {
         "score": 9,
-        "comment_zh": "網絡效應是 ICE 最核心的護城河之一。作為全球領先的交易所運營商，其平台上的參與者越多（無論是買方還是賣方），市場流動性就越好，價格發現效率就越高。這種更高的流動性和效率反過來會吸引更多的交易者加入，形成強大的正向循環。例如，紐約證券交易所的巨大交易量和深度，使其成為全球企業上市和投資者交易的首選，新進入者幾乎不可能在短時間內複製這種規模和流動性，這正是巴菲特所看重的、難以被顛覆的競爭優勢。",
-        "comment_en": "Network effects constitute one of ICE's most fundamental moats. As a leading global exchange operator, the more participants on its platforms (both buyers and sellers), the greater the market liquidity and price discovery efficiency. This enhanced liquidity and efficiency, in turn, attracts even more traders, creating a powerful virtuous cycle. For instance, the immense trading volume and depth of the New York Stock Exchange make it the preferred venue for global company listings and investor trading. New entrants find it nearly impossible to replicate this scale and liquidity in a short period, representing a robust, difficult-to-disrupt competitive advantage highly valued by Buffett."
+        "comment_zh": "ICE的核心業務，特別是其交易所平台，展現出極為強大的網絡效應。更多的交易者和機構參與者意味著更高的流動性，而更高的流動性反過來又吸引更多的參與者，形成一個自我強化的良性循環。這種網絡效應使得ICE的平台對所有市場參與者而言都更具吸引力和價值。此外，其數據服務也受益於此，數據量的增長提升了數據產品的精準度和廣度，進一步鞏固了其市場領導地位，讓競爭對手難以望其項背。",
+        "comment_en": "ICE's core businesses, particularly its exchange platforms, exhibit extremely strong network effects. More traders and institutional participants lead to higher liquidity, which in turn attracts even more participants, creating a self-reinforcing virtuous cycle. This network effect makes ICE's platforms more attractive and valuable to all market participants. Furthermore, its data services also benefit, as increased data volume enhances the accuracy and breadth of data products, further solidifying its market leadership and making it difficult for competitors to catch up."
       },
       "m5_cost_advantage_scale": {
         "score": 8,
-        "comment_zh": "ICE 在規模經濟方面擁有顯著優勢。運營全球性的金融交易所、清算所及提供海量市場數據服務，需要龐大的前期技術投入、基礎設施建設和嚴格的合規成本。然而，一旦這些固定成本投入完成，每增加一筆交易或一個數據訂閱的邊際成本極低。這種規模效應使得 ICE 能夠以遠低於潛在競爭者的成本提供服務，並將其轉化為更高的利潤率。這種成本優勢是新進入者難以匹敵的，因為他們必須承擔同樣巨大的固定成本，卻無法立即獲得同等規模的交易量和數據訂閱收入。",
-        "comment_en": "ICE possesses a significant advantage in economies of scale. Operating global financial exchanges, clearing houses, and providing vast market data services requires substantial upfront investments in technology, infrastructure development, and stringent compliance costs. However, once these fixed costs are incurred, the marginal cost of an additional trade or data subscription is extremely low. This scale effect enables ICE to offer services at a much lower cost than potential competitors, translating into higher profit margins. This cost advantage is difficult for new entrants to match, as they would incur similarly massive fixed costs without immediately achieving comparable trading volumes and data subscription revenues."
+        "comment_zh": "ICE在運營全球性交易所和數據服務方面享有顯著的規模經濟優勢。建立和維護如此龐大的技術基礎設施、數據中心以及滿足全球監管要求，需要巨大的前期資本投入。然而，一旦這些固定成本投入完成，處理額外的交易或服務新增的數據訂閱客戶的邊際成本相對較低。這使得ICE能夠實現高營運槓桿，並以競爭對手難以匹敵的效率提供服務，從而獲得更高的利潤率和市場份額，這正是巴菲特所看重的成本優勢。",
+        "comment_en": "ICE benefits from significant economies of scale in operating global exchanges and data services. Establishing and maintaining such vast technological infrastructure, data centers, and meeting global regulatory requirements demands substantial upfront capital investment. However, once these fixed costs are incurred, the marginal cost of processing additional transactions or serving new data subscribers is relatively low. This enables ICE to achieve high operating leverage and deliver services with efficiency that competitors struggle to match, leading to superior profit margins and market share, a key cost advantage valued by Buffett."
       },
       "m6_unique_geography_assets": {
-        "score": 8,
-        "comment_zh": "金融交易所和關鍵市場數據服務的市場本質上是一個天然寡占的利基市場。由於強大的網絡效應、嚴格的監管壁壘和高昂的轉換成本，這個市場只能容納少數幾個主導者。ICE 憑藉其全球領先的交易所和數據業務，已牢固佔據其中一席。對於潛在的新競爭者而言，試圖進入這個市場將面臨巨大的挑戰，不僅需要投入天文數字般的資本，還可能引發惡性價格競爭，導致所有參與者利潤受損。這種「有效規模」的特性，使得 ICE 能夠在一個相對穩定的競爭環境中運營，享受其市場地位帶來的超額回報。",
-        "comment_en": "The market for financial exchanges and critical market data services is inherently an oligopoly, a niche market of efficient scale. Due to strong network effects, stringent regulatory barriers, and high switching costs, this market can only sustain a few dominant players. ICE, with its leading global exchanges and data businesses, has firmly secured its position. For potential new competitors, attempting to enter this market would entail immense challenges, requiring not only astronomical capital investment but also potentially triggering destructive price competition, harming all participants' profits. This \"efficient scale\" characteristic allows ICE to operate in a relatively stable competitive environment, enjoying the supernormal returns derived from its market position."
+        "score": 9,
+        "comment_zh": "金融交易所和清算服務市場本質上就是一個天然寡占的利基市場。由於強大的網絡效應、嚴格的監管要求以及市場參與者對信任和穩定性的極高需求，這個市場只能有效支持少數幾個主導性參與者。新進入者將難以獲得足夠的流動性和市場份額，任何試圖大規模競爭的行為都可能導致雙輸局面。ICE作為現有巨頭，其市場地位幾乎不可撼動，這使其能夠在一個受保護的環境中持續獲利，符合巴菲特對「收費橋樑」的定義。",
+        "comment_en": "The financial exchange and clearing services market is inherently an oligopolistic niche. Due to strong network effects, stringent regulatory requirements, and market participants' high demand for trust and stability, this market can only efficiently support a few dominant players. New entrants would struggle to gain sufficient liquidity and market share, and any attempt at large-scale competition would likely result in a lose-lose scenario. As an established giant, ICE's market position is virtually unassailable, allowing it to consistently profit within a protected environment, aligning with Buffett's definition of a \"toll bridge.\""
       },
       "m7_operational_efficiency": {
-        "score": 6,
-        "comment_zh": "ICE 的 ROE 為 13.6%，但 ROA 僅為 2.3%，且 Piotroski F-Score 僅為 4/9，顯示其整體資產效率和財務健康度存在一定壓力。雖然其核心交易所和數據業務具備高回報率，但龐大的總負債（205億美元對比19億美元現金）以及過去可能的大規模併購，可能稀釋了整體資本回報率。巴菲特強調的超額 ROIC 韌性，要求企業能持續將資本投入到高回報項目中。ICE 需要證明其在整合併購資產後，能有效提升整體資本效率，並在長期內維持遠超加權資本成本的回報。",
-        "comment_en": "ICE's ROE stands at 13.6%, but its ROA is only 2.3%, and its Piotroski F-Score is a modest 4/9, indicating some pressure on overall asset efficiency and financial health. While its core exchange and data businesses likely generate high returns, substantial total debt ($20.5 billion versus $1.9 billion cash) and potentially large past acquisitions may dilute the overall return on capital. Buffett emphasizes sustained ROIC resilience, requiring businesses to consistently deploy capital into high-return projects. ICE needs to demonstrate its ability to effectively enhance overall capital efficiency after integrating acquired assets and maintain returns significantly above its weighted average cost of capital in the long run."
+        "score": 8,
+        "comment_zh": "ICE的財務數據，如18.0%的股東權益報酬率(ROE)和8.0%的資產報酬率(ROA)，以及高達38億美元的自由現金流，都強烈表明其具備卓越的資本配置效率和持續創造超額回報的能力。在強大護城河的保護下，ICE能夠將投入資本轉化為遠超其加權平均資本成本(WACC)的利潤，這證明了其業務模式的韌性和盈利能力。這種長期穩定的高ROIC是巴菲特衡量企業內在價值和複利增長潛力的關鍵指標。",
+        "comment_en": "ICE's financial metrics, such as an 18.0% Return on Equity (ROE) and 8.0% Return on Assets (ROA), coupled with a robust $3.8 billion in Free Cash Flow, strongly indicate its exceptional capital allocation efficiency and sustained ability to generate excess returns. Protected by its formidable moats, ICE can convert invested capital into profits significantly exceeding its Weighted Average Cost of Capital (WACC), demonstrating the resilience and profitability of its business model. This long-term stable high ROIC is a critical indicator for Buffett in assessing a company's intrinsic value and compounding growth potential."
       },
       "m8_capital_allocation": {
         "score": 9,
-        "comment_zh": "ICE 的核心戰略資產具有極高的資本不可複製性。即使給予競爭對手千億美元資金，也無法在短時間內複製其全球性的交易所網絡、清算所基礎設施、數十年積累的市場流動性、深厚的客戶關係以及至關重要的監管許可。這些資產的建立需要漫長的時間、巨大的信任累積和複雜的法律合規流程。特別是像紐約證券交易所這樣的歷史性品牌和其在全球金融體系中的核心地位，是任何資金都無法在幾年內憑空創造的。這正是巴菲特所尋找的、能長期抵禦競爭的「護城河」。",
-        "comment_en": "ICE's core strategic assets possess extremely high irreproducibility. Even with a hundred billion dollars, a competitor could not replicate its global network of exchanges, clearing house infrastructure, decades of accumulated market liquidity, deep customer relationships, and crucial regulatory approvals in a short period. The establishment of these assets requires immense time, significant trust-building, and complex legal and compliance processes. Especially historical brands like the New York Stock Exchange and its central role in the global financial system cannot be conjured out of thin air with any amount of capital in just a few years. This is precisely the kind of long-term, competition-resistant \"moat\" that Buffett seeks."
+        "comment_zh": "即使給予競爭對手千億美元的資金，也幾乎不可能在短時間內複製ICE的核心戰略資產。這不僅僅是技術和基礎設施的問題，更關鍵的是其數十年來建立的市場信任、全球監管機構的批准、龐大的網絡效應以及與金融生態系統的深度整合。紐約證券交易所(NYSE)等頂級品牌的歷史積澱和市場地位更是無價且不可複製的。這種獨特的、多維度的無形資產組合，構成了ICE最堅固的護城河，使其成為真正的「特許經營權」企業。",
+        "comment_en": "Even with a hundred billion dollars, it would be nearly impossible for a competitor to replicate ICE's core strategic assets in a short timeframe. This goes beyond technology and infrastructure; it crucially involves decades of established market trust, global regulatory approvals, immense network effects, and deep integration within the financial ecosystem. The historical legacy and market position of premier brands like the New York Stock Exchange (NYSE) are invaluable and irreplaceable. This unique, multi-dimensional combination of intangible assets forms ICE's most robust moat, making it a true \"franchise\" business."
       },
       "m9_customer_retention": {
-        "score": 7,
-        "comment_zh": "ICE 在技術/典範轉移抗性方面表現出較強的韌性。儘管金融科技（FinTech）和區塊鏈等新技術不斷湧現，但對受嚴格監管的金融市場基礎設施而言，其核心功能——提供流動性、價格發現和風險管理——的需求確定性極高。ICE 積極擁抱技術變革，透過併購（如抵押貸款技術公司 Ellie Mae）和內部創新來強化其數據和技術服務，而非被動應對。其作為市場中立方的地位，以及監管機構對穩定性的重視，使其對顛覆性技術具備一定的免疫力，能夠逐步整合新技術而非被取代。",
-        "comment_en": "ICE demonstrates strong resilience against technological disruption and paradigm shifts. While new technologies like FinTech and blockchain continuously emerge, the fundamental need for highly regulated financial market infrastructure—providing liquidity, price discovery, and risk management—remains extremely certain. ICE actively embraces technological change, strengthening its data and technology services through acquisitions (e.g., mortgage technology firm Ellie Mae) and internal innovation, rather than passively reacting. Its role as a market neutral party and regulators' emphasis on stability grant it a degree of immunity to disruptive technologies, allowing it to gradually integrate new technologies rather than be replaced."
+        "score": 8,
+        "comment_zh": "ICE的業務模式對技術和典範轉移具有高度抗性。儘管金融科技不斷演進，但對受監管、值得信賴且流動性充裕的金融市場基礎設施的需求是永恆不變的。ICE通過不斷投資和收購新技術來適應變化，例如其在數字資產領域的布局。核心的價格發現和風險轉移功能是金融市場的基石，難以被根本性顛覆。其作為「收費橋樑」的地位，使其能夠從任何形式的交易活動中獲利，而非受制於特定技術，這賦予其強大的長期生存能力。",
+        "comment_en": "ICE's business model exhibits high immunity to technological and paradigm shifts. While FinTech continuously evolves, the fundamental need for regulated, trusted, and liquid financial market infrastructure remains constant. ICE adapts by continuously investing in and acquiring new technologies, such as its ventures in digital assets. The core functions of price discovery and risk transfer are cornerstones of financial markets, difficult to fundamentally disrupt. Its \"toll bridge\" status allows it to profit from any form of trading activity, rather than being constrained by specific technologies, granting it strong long-term resilience."
       },
       "m10_durability": {
-        "score": 6,
-        "comment_zh": "ICE 的管理層在資本配置方面存在兩面性。公司透過積極併購實現了顯著增長，但高達 205 億美元的總負債，相對於 19 億美元的現金，以及僅 4/9 的 Piotroski F-Score，引發了對其併購策略和槓桿水平的擔憂。巴菲特強調管理層應避免盲目溢價併購，並在股價低估時積極回購股份以最大化股東價值。儘管 ICE 擁有強勁的自由現金流，但其高負債可能限制了未來回購的靈活性，並增加了財務風險。管理層需證明其能更審慎地平衡增長與財務穩健。",
-        "comment_en": "ICE's management exhibits a dual nature in capital allocation. The company has achieved significant growth through aggressive acquisitions, yet its substantial total debt of $20.5 billion compared to $1.9 billion in cash, coupled with a Piotroski F-Score of only 4/9, raises concerns about its M&A strategy and leverage levels. Buffett emphasizes that management should avoid overpaying for acquisitions and actively repurchase shares when undervalued to maximize shareholder value. While ICE possesses strong free cash flow, its high debt might limit future buyback flexibility and increase financial risk. Management needs to demonstrate a more prudent balance between growth and financial stability."
+        "score": 8,
+        "comment_zh": "ICE的管理層在資本配置方面展現出戰略眼光和對股東價值的承諾。其歷史上成功的併購案例，如收購紐約證券交易所和多個數據服務公司，證明了其能夠通過審慎的資本運用來擴大護城河並創造協同效應。公司持續產生強勁的自由現金流，並合理運用於再投資、債務償還及股本回購，而非盲目追求高溢價交易。這種以股東利益為導向的資本配置策略，是巴菲特衡量優秀管理層的重要標準，有助於長期複利增長。",
+        "comment_en": "ICE's management has demonstrated strategic vision and commitment to shareholder value in its capital allocation. Its history of successful acquisitions, such as the New York Stock Exchange and various data service companies, proves its ability to expand its moat and create synergies through prudent capital deployment. The company consistently generates strong free cash flow, which is judiciously used for reinvestment, debt repayment, and share buybacks, rather than blindly pursuing high-premium deals. This shareholder-oriented capital allocation strategy is a crucial criterion for Buffett in assessing excellent management, contributing to long-term compounding growth."
       },
-      "overall_moat_verdict_zh": "Intercontinental Exchange (ICE) 本質上是一家擁有堅固「收費橋樑」特徵的特許經營權企業。其核心護城河源於對全球金融市場基礎設施的壟斷性控制，特別是紐約證券交易所等關鍵資產。強大的網絡效應確保了流動性優勢，而嚴格的監管壁壘和極高的客戶轉換成本則有效地阻止了新競爭者的進入。儘管其龐大的債務和相對較低的 ROA 顯示在資本配置效率上仍有提升空間，但 ICE 的核心業務具備極高的不可複製性和對技術顛覆的免疫力。這使其能夠長期享有穩定的現金流和定價權，符合巴菲特對具備持久競爭優勢企業的定義，儘管其財務槓桿需持續關注。",
-      "overall_moat_verdict_en": "Intercontinental Exchange (ICE) is fundamentally a franchise business characterized by robust \"toll bridge\" attributes. Its core moat stems from its monopolistic control over global financial market infrastructure, particularly key assets like the New York Stock Exchange. Powerful network effects ensure liquidity advantages, while stringent regulatory barriers and extremely high customer switching costs effectively deter new competitors. Although its substantial debt and relatively lower ROA indicate room for improvement in capital allocation efficiency, ICE's core businesses possess high irreproducibility and immunity to technological disruption. This allows it to enjoy stable cash flows and pricing power over the long term, aligning with Buffett's definition of businesses with durable competitive advantages, though its financial leverage warrants continuous monitoring."
+      "overall_moat_verdict_zh": "Intercontinental Exchange (ICE) 毫無疑問是一家擁有極其堅固護城河的「特許經營權」企業，其本質是全球金融市場的「收費橋樑」。它不僅擁有紐約證券交易所等不可替代的品牌資產，更憑藉其作為核心基礎設施提供者的地位，在監管、網絡效應和轉換成本方面築起了難以逾越的壁壘。無論市場如何波動，只要有金融交易活動，ICE就能從中收取費用，這賦予其極高的定價權和穩定的現金流。其規模經濟、資本不可複製性以及對技術變革的適應能力，共同確保了其長期盈利能力和對股東價值的持續創造。這正是巴菲特和蒙格所尋找的，能夠長期複利增長的卓越企業。",
+      "overall_moat_verdict_en": "Intercontinental Exchange (ICE) is unequivocally a \"franchise\" business fortified by exceptionally robust economic moats, essentially serving as a \"toll bridge\" for global financial markets. It possesses irreplaceable brand assets like the New York Stock Exchange and, crucially, its status as a core infrastructure provider has erected insurmountable barriers in terms of regulation, network effects, and switching costs. Regardless of market fluctuations, as long as financial transactions occur, ICE can collect fees, granting it significant pricing power and stable cash flows. Its economies of scale, irreproducible capital assets, and adaptability to technological change collectively ensure its long-term profitability and sustained creation of shareholder value. This is precisely the kind of outstanding enterprise that Buffett and Munger seek for long-term compounding growth."
     },
     "fin_valuation": {
       "is_financial": false
@@ -260406,11 +260406,11 @@
     "shares_outstanding": 849500000,
     "shares_display": "849.50 M",
     "mcap": 80311.9,
-    "debt": 28673.0,
-    "cash": 4653.0,
+    "debt": 0.0,
+    "cash": 0.0,
     "short_term_investments": 0.0,
-    "cash_and_short_term": 4653.0,
-    "net_debt": 24020.0,
+    "cash_and_short_term": 0.0,
+    "net_debt": 0.0,
     "fcf0": 5485.0,
     "real_history": {
       "revenue": [
@@ -260696,7 +260696,7 @@
           3169.0,
           6112.0,
           5887.0,
-          4653.0
+          0.0
         ],
         "shortTermInvestments": [
           338.0,
@@ -260712,7 +260712,7 @@
           6035.0,
           6318.0,
           5887.0,
-          4653.0
+          0.0
         ],
         "netReceivables": [
           12541.0,
@@ -260720,7 +260720,7 @@
           11216.0,
           10871.0,
           11209.0,
-          10710.0
+          0.0
         ],
         "inventory": [
           717.0,
@@ -260736,7 +260736,7 @@
           1227.0,
           1295.0,
           1210.0,
-          2182.0
+          0.0
         ],
         "totalCurrentAssets": [
           24934.0,
@@ -260744,7 +260744,7 @@
           19413.0,
           19310.0,
           19045.0,
-          17545.0
+          0.0
         ],
         "propertyPlantEquipmentNet": [
           37037.0,
@@ -260752,7 +260752,7 @@
           41253.0,
           41328.0,
           41994.0,
-          41910.0
+          0.0
         ],
         "goodwill": [
           3692.0,
@@ -260760,7 +260760,7 @@
           4872.0,
           4300.0,
           5837.0,
-          5770.0
+          0.0
         ],
         "intangibleAssets": [
           2486.0,
@@ -260768,7 +260768,7 @@
           3305.0,
           3064.0,
           4021.0,
-          3954.0
+          0.0
         ],
         "goodwillAndIntangibleAssets": [
           6178.0,
@@ -260776,7 +260776,7 @@
           8177.0,
           7364.0,
           9858.0,
-          9724.0
+          0.0
         ],
         "longTermInvestments": [
           23.0,
@@ -260792,7 +260792,7 @@
           126.0,
           112.0,
           140.0,
-          155.0
+          0.0
         ],
         "otherNonCurrentAssets": [
           1057.0,
@@ -260800,7 +260800,7 @@
           1888.0,
           1956.0,
           1893.0,
-          1933.0
+          0.0
         ],
         "totalNonCurrentAssets": [
           44471.0,
@@ -260808,7 +260808,7 @@
           51444.0,
           50760.0,
           54045.0,
-          53722.0
+          0.0
         ],
         "totalAssets": [
           69405.0,
@@ -260816,7 +260816,7 @@
           70857.0,
           70070.0,
           73090.0,
-          71267.0
+          0.0
         ],
         "accountPayables": [
           7523.0,
@@ -260824,7 +260824,7 @@
           6340.0,
           6302.0,
           6633.0,
-          5976.0
+          0.0
         ],
         "shortTermDebt": [
           2131.0,
@@ -260832,7 +260832,7 @@
           3348.0,
           1838.0,
           608.0,
-          634.0
+          0.0
         ],
         "taxPayables": [
           0.0,
@@ -260856,7 +260856,7 @@
           4055.0,
           3913.0,
           3901.0,
-          4159.0
+          0.0
         ],
         "totalCurrentLiabilities": [
           17569.0,
@@ -260864,7 +260864,7 @@
           17676.0,
           16441.0,
           15620.0,
-          14881.0
+          0.0
         ],
         "longTermDebt": [
           19784.0,
@@ -260872,7 +260872,7 @@
           18916.0,
           19446.0,
           23519.0,
-          23850.0
+          0.0
         ],
         "deferredRevenueNonCurrent": [
           0.0,
@@ -260888,7 +260888,7 @@
           3772.0,
           3595.0,
           3690.0,
-          3882.0
+          0.0
         ],
         "otherNonCurrentLiabilities": [
           11625.0,
@@ -260896,7 +260896,7 @@
           9423.0,
           10210.0,
           10306.0,
-          10095.0
+          0.0
         ],
         "totalNonCurrentLiabilities": [
           37567.0,
@@ -260904,7 +260904,7 @@
           35867.0,
           36886.0,
           41215.0,
-          41287.0
+          0.0
         ],
         "totalLiabilities": [
           55136.0,
@@ -260912,7 +260912,7 @@
           53543.0,
           53327.0,
           56835.0,
-          56168.0
+          0.0
         ],
         "totalDebt": [
           25528.0,
@@ -260920,7 +260920,7 @@
           26729.0,
           25652.0,
           28590.0,
-          28673.0
+          0.0
         ],
         "netDebt": [
           15273.0,
@@ -260928,7 +260928,7 @@
           23560.0,
           19540.0,
           22703.0,
-          24020.0
+          0.0
         ],
         "commonStock": [
           9.0,
@@ -260936,7 +260936,7 @@
           9.0,
           9.0,
           9.0,
-          9.0
+          0.0
         ],
         "retainedEarnings": [
           16179.0,
@@ -260944,7 +260944,7 @@
           21055.0,
           20882.0,
           20151.0,
-          18830.0
+          0.0
         ],
         "accumulatedOtherComprehensiveIncomeLoss": [
           -3278.0,
@@ -260952,7 +260952,7 @@
           -3749.0,
           -4309.0,
           -4208.0,
-          -4254.0
+          0.0
         ],
         "otherTotalStockholdersEquity": [
           16.0,
@@ -260960,7 +260960,7 @@
           9.0,
           7.0,
           5.0,
-          3.0
+          0.0
         ],
         "totalStockholdersEquity": [
           14253.0,
@@ -260968,7 +260968,7 @@
           17306.0,
           16718.0,
           16227.0,
-          15067.0
+          0.0
         ],
         "totalEquity": [
           14269.0,
@@ -260976,7 +260976,7 @@
           17314.0,
           16743.0,
           16255.0,
-          15099.0
+          0.0
         ],
         "totalLiabilitiesAndTotalEquity": [
           69405.0,
@@ -260984,7 +260984,7 @@
           70857.0,
           70070.0,
           73090.0,
-          71267.0
+          0.0
         ],
         "totalInvestments": [
           361.0,
@@ -261249,21 +261249,21 @@
     "g1": 3.8,
     "g2": 3.5,
     "g": 2.25,
-    "wacc": 7.93,
+    "wacc": 9.49,
     "ev": 115395.0,
     "fmp_official_ev": 115395.0,
-    "dcf_model_ev": 108136.4,
+    "dcf_model_ev": 84515.4,
     "ev_to_ebitda": 10.9,
-    "debt_to_ebitda": 2.71,
-    "net_debt_to_ebitda": 2.27,
-    "f_score": 6,
+    "debt_to_ebitda": 0.0,
+    "net_debt_to_ebitda": 0.0,
+    "f_score": 9,
     "f_score_breakdown": [
       {
         "id": 1,
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 6.4%"
+        "detail": "當期 ROA = 457000000000.0%"
       },
       {
         "id": 2,
@@ -261290,15 +261290,15 @@
         "id": 5,
         "category": "槓桿與償債",
         "desc": "財務槓桿未惡化 (ΔLeverage ≤ 0)",
-        "passed": 0,
-        "detail": "總負債資產比率 = 78.8%"
+        "passed": 1,
+        "detail": "總負債資產比率 = 40.0%"
       },
       {
         "id": 6,
         "category": "槓桿與償債",
         "desc": "短期流動性安全 (ΔLiquidity > 0)",
-        "passed": 0,
-        "detail": "流動比率 = 1.18"
+        "passed": 1,
+        "detail": "流動比率 = 1.50"
       },
       {
         "id": 7,
@@ -261311,7 +261311,7 @@
         "id": 8,
         "category": "營運效率",
         "desc": "毛利率擴張 (ΔMargin > 0)",
-        "passed": 0,
+        "passed": 1,
         "detail": "產品定價權增強，毛利結構健康"
       },
       {
@@ -261322,78 +261322,78 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 99.02,
-    "default_fair_val": 99.02,
-    "premium_pct": -4.5,
+    "fair_val": 99.49,
+    "default_fair_val": 99.49,
+    "premium_pct": -5.0,
     "is_undervalued": true,
     "pe_trailing": 17.6,
     "pe_forward": 15.5,
-    "pb_trailing": 5.3,
-    "pb_forward": 4.8,
+    "pb_trailing": 80311900000.0,
+    "pb_forward": 72280710000.0,
     "div_yield": 6.73,
     "ps_ratio": 3.7,
-    "fcf_to_ev": 5.07,
+    "fcf_to_ev": 6.49,
     "fcf_to_mcap": 6.83,
-    "liab_to_assets": 78.8,
-    "cash_to_assets": 6.5,
-    "current_ratio": 1.18,
-    "roe": 30.3,
-    "roa": 6.4,
+    "liab_to_assets": 40.0,
+    "cash_to_assets": 0.0,
+    "current_ratio": 1.5,
+    "roe": 457000000000.0,
+    "roa": 457000000000.0,
     "moat": {
       "ticker": "UPS",
-      "period": "2026Q2",
+      "period": "2026Q4",
       "m1_brand_pricing": {
-        "score": 7,
-        "comment_zh": "UPS作為全球領先的物流巨頭，其棕色品牌形象深入人心，代表著可靠與高效。對於企業而言，準時送達的穩定性至關重要，使其在一定程度上具備定價權。儘管面臨FedEx等強勁競爭，但其廣泛的網絡覆蓋和品牌信任度，讓客戶在價格敏感度之外，更看重服務品質與時效性，使其能將部分成本轉嫁給客戶，維持盈利能力。",
-        "comment_en": "UPS, as a global logistics giant, boasts a deeply ingrained brown brand image synonymous with reliability and efficiency. For businesses, the stability of on-time delivery is paramount, granting UPS a degree of pricing power. Despite fierce competition from rivals like FedEx, its extensive network coverage and brand trust lead customers to prioritize service quality and timeliness over mere price, enabling it to pass on some costs and maintain profitability."
+        "score": 8,
+        "comment_zh": "UPS憑藉其全球公認的品牌信譽和可靠性，在包裹遞送市場中享有顯著的定價權。對於企業和個人而言，準時且安全的物流服務是不可或缺的，這使得客戶即使面對價格上漲，也傾向於繼續選擇UPS。其龐大的全球網絡和卓越的服務品質，為客戶提供了超越價格考量的價值，使其能夠在不顯著流失客戶的情況下，將部分成本轉嫁給消費者。這種品牌忠誠度與服務剛性，是巴菲特所推崇的「特許經營權」特徵，有效抵禦了價格競爭。",
+        "comment_en": "UPS commands significant pricing power in the package delivery market, underpinned by its globally recognized brand reputation and reliability. For businesses and individuals, timely and secure logistics services are indispensable, leading customers to often choose UPS even in the face of price increases. Its vast global network and superior service quality offer value beyond mere cost considerations, enabling UPS to pass on certain expenses without significant customer attrition. This brand loyalty and service inelasticity exemplify a 'franchise' characteristic favored by Buffett, effectively fending off price competition."
       },
       "m2_patents_regulatory": {
         "score": 7,
-        "comment_zh": "UPS的護城河並非來自獨家專利，而是源於其在全球範圍內建立的複雜且高度受監管的運營體系。航空、海關、勞工等各國法規構成巨大的進入壁壘，新進者難以在短時間內取得所有必要的許可和資質。這種嚴格的監管環境，加上其龐大的基礎設施投資，共同築起了保護其市場地位的特許經營權性質的壁壘，使其免受小型競爭者的侵蝕。",
-        "comment_en": "UPS's moat isn't derived from exclusive patents but from its complex and highly regulated global operating system. Aviation, customs, and labor laws across various nations form substantial entry barriers, making it difficult for new entrants to acquire all necessary permits and qualifications quickly. This stringent regulatory environment, coupled with massive infrastructure investments, collectively creates a franchise-like barrier protecting its market position from smaller competitors."
+        "comment_zh": "雖然UPS並非依賴專利技術，但其在全球範圍內營運所面臨的複雜監管環境，構成了極高的進入壁壘。航空、陸路運輸、國際貿易法規及海關清關等方面的嚴格要求，需要巨大的合規成本和專業知識。新進入者難以在短時間內建立起符合全球各地法規的營運體系，更遑論取得必要的營運許可和航線權。這種由政府監管和特許經營所形成的「收費橋樑」效應，為UPS提供了穩固的競爭優勢，使其免受小型競爭者的侵蝕。",
+        "comment_en": "While UPS does not primarily rely on patents, the complex regulatory environment it navigates globally constitutes a formidable barrier to entry. Stringent requirements in air and ground transportation, international trade laws, and customs clearance demand substantial compliance costs and specialized expertise. New entrants would find it incredibly difficult to establish a globally compliant operational system and secure necessary operating licenses and route rights in a short timeframe. This 'toll bridge' effect, shaped by government regulation and operating franchises, provides UPS with a robust competitive advantage, shielding it from smaller competitors."
       },
       "m3_high_switching_costs": {
         "score": 8,
-        "comment_zh": "對於大型企業客戶而言，轉換物流供應商的成本極高。企業通常會將UPS的物流系統深度整合至其供應鏈管理、倉儲及訂單處理流程中。更換供應商不僅涉及IT系統的重新配置、員工培訓，更可能導致供應鏈中斷、發貨延誤等重大營運風險與財務損失。這種深度嵌入的合作關係，使得客戶即使面對輕微的價格波動，也傾向於維持現有合作，形成強大的客戶黏性。",
-        "comment_en": "For large enterprise clients, switching logistics providers entails extremely high costs. Businesses typically integrate UPS's logistics systems deeply into their supply chain management, warehousing, and order processing workflows. Changing providers involves not only reconfiguring IT systems and retraining staff but also potential supply chain disruptions, shipping delays, and significant operational and financial losses. This deeply embedded partnership ensures that clients, even when facing minor price fluctuations, tend to maintain their current collaboration, creating strong customer stickiness."
+        "comment_zh": "對於企業客戶而言，轉換物流供應商會帶來顯著的轉換成本。企業通常會將UPS的運輸管理系統、追蹤軟體和供應鏈流程深度整合到自身的營運中。更換供應商不僅意味著需要投入大量時間和資源重新配置系統、培訓員工，還可能面臨服務中斷、包裹延誤或數據丟失的風險。這種潛在的營運中斷和高昂的遷移成本，使得客戶即使對價格敏感，也傾向於維持與UPS的合作關係，形成了一道堅實的護城河。",
+        "comment_en": "For business clients, switching logistics providers entails significant costs. Companies often deeply integrate UPS's transportation management systems, tracking software, and supply chain processes into their own operations. Changing providers not only means investing substantial time and resources to reconfigure systems and retrain staff but also risks service disruptions, package delays, or data loss. This potential operational interruption and high migration cost incentivize clients, even those sensitive to price, to maintain their relationship with UPS, thereby creating a robust moat."
       },
       "m4_network_effects": {
         "score": 8,
-        "comment_zh": "UPS的全球物流網絡展現出顯著的網絡效應。隨著客戶數量和包裹量的增加，其運輸路線密度更高，優化了包裹集散效率，降低了單位包裹的運輸成本。同時，更廣泛的服務覆蓋範圍和更頻繁的班次，又吸引更多客戶加入，進一步鞏固其網絡優勢。這種正向循環使得UPS能夠提供更具競爭力的價格和服務，對新進入者構成難以逾越的壁壘。",
-        "comment_en": "UPS's global logistics network exhibits significant network effects. As the number of customers and package volume increases, its transportation routes become denser, optimizing package consolidation efficiency and lowering per-package shipping costs. Concurrently, broader service coverage and more frequent schedules attract even more customers, further solidifying its network advantage. This positive feedback loop enables UPS to offer more competitive pricing and services, forming an insurmountable barrier for new entrants."
+        "comment_zh": "UPS的全球遞送網絡展現出強大的網絡效應。隨著越來越多的寄件人和收件人使用其服務，網絡的密度和效率會不斷提升。更密集的網絡意味著更優化的路線規劃、更快的遞送速度和更低的單位包裹成本。這種效率的提升反過來又吸引更多的客戶加入，形成一個正向循環，進一步鞏固了UPS的市場地位。新競爭者難以在沒有足夠用戶基礎的情況下，複製這種規模和效率兼具的網絡優勢，這正是巴菲特所看重的競爭壁壘。",
+        "comment_en": "UPS's global delivery network exhibits strong network effects. As more senders and receivers utilize its services, the network's density and efficiency continuously improve. A denser network translates to optimized route planning, faster delivery times, and lower per-package costs. This enhanced efficiency, in turn, attracts more customers, creating a virtuous cycle that further solidifies UPS's market position. New competitors struggle to replicate this scale and efficiency advantage without a sufficient user base, which is precisely the kind of competitive barrier valued by Buffett."
       },
       "m5_cost_advantage_scale": {
         "score": 9,
-        "comment_zh": "UPS在規模經濟方面擁有無與倫比的優勢。其龐大的全球基礎設施，包括數百架飛機、數十萬輛運輸車輛及遍布全球的包裹分揀中心，使其能夠處理天文數字般的包裹量。這種規模效應使得其單位包裹成本遠低於任何潛在競爭者。高效的自動化分揀系統和優化的物流路線規劃，更是其獨家工藝的體現，讓新進者即使投入巨資也難以在成本效率上匹敵。",
-        "comment_en": "UPS possesses an unparalleled advantage in economies of scale. Its vast global infrastructure, encompassing hundreds of aircraft, hundreds of thousands of vehicles, and package sorting centers worldwide, enables it to handle an astronomical volume of packages. This scale effect results in a unit cost per package significantly lower than any potential competitor. Highly efficient automated sorting systems and optimized logistics route planning further exemplify its unique operational expertise, making it incredibly difficult for new entrants, even with substantial investment, to match its cost efficiency."
+        "comment_zh": "UPS擁有無與倫比的規模經濟優勢。其龐大的全球基礎設施，包括數百架飛機、數十萬輛運輸車輛、遍布全球的分揀中心和物流樞紐，使其能夠處理天文數字般的包裹量。這種巨大的規模使得UPS在採購、運輸、分揀和遞送等各環節都能實現極低的單位成本。新進入者即使擁有巨額資金，也難以在短時間內建立起如此龐大且高效的網絡，從而無法與UPS的成本效率相匹敵。這是典型的巴菲特式護城河，源於其難以複製的規模優勢。",
+        "comment_en": "UPS possesses an unparalleled cost advantage through its immense scale. Its vast global infrastructure, comprising hundreds of aircraft, hundreds of thousands of vehicles, and sorting centers and logistics hubs worldwide, enables it to handle an astronomical volume of packages. This massive scale allows UPS to achieve extremely low unit costs across procurement, transportation, sorting, and delivery. New entrants, even with substantial capital, would find it nearly impossible to build such a vast and efficient network quickly, thus failing to match UPS's cost efficiency. This is a classic Buffett-style moat, stemming from its irreplicable scale advantage."
       },
       "m6_unique_geography_assets": {
         "score": 8,
-        "comment_zh": "全球航空貨運與物流市場本質上是一個天然寡占的領域。建立一個能夠與UPS匹敵的全球網絡，需要天文數字般的資本投入、數十年的時間積累以及複雜的監管批准。市場容量雖大，但已由少數幾家巨頭高效瓜分。任何新競爭者試圖進入，都將面臨巨大的資本壓力，並可能引發價格戰，導致所有參與者利潤受損，因此形成了一種理性寡占的局面，保護了現有巨頭的市場份額。",
-        "comment_en": "The global air freight and logistics market is inherently an efficient oligopoly. Establishing a global network comparable to UPS requires astronomical capital investment, decades of accumulation, and complex regulatory approvals. While the market capacity is large, it is efficiently divided among a few major players. Any new competitor attempting to enter would face immense capital pressure and likely trigger price wars, harming all participants' profits. This creates a rational oligopoly, protecting the market share of existing giants."
+        "comment_zh": "全球包裹遞送市場本質上是一個天然寡占的行業，由少數幾家巨頭主導。UPS在關鍵地理位置擁有戰略性的物流樞紐、分揀中心和廣泛的遞送網絡，這些資產的選址和建設耗費了數十年時間和巨額資本。在許多地區，由於土地稀缺、環境法規或基礎設施限制，新競爭者難以獲得同等優越的地理位置或建立類似規模的實體資產。這種對關鍵地理資產的獨佔性，加上市場容量有限，使得新競爭者進入只會導致價格戰，形成「雙輸」局面，從而鞏固了UPS的寡占地位。",
+        "comment_en": "The global package delivery market is inherently an oligopoly, dominated by a few giants. UPS possesses strategically located logistics hubs, sorting centers, and an extensive delivery network in critical geographies, assets that took decades and immense capital to establish. In many regions, due to land scarcity, environmental regulations, or infrastructure limitations, new competitors struggle to acquire equally prime geographical locations or build physical assets of comparable scale. This exclusive access to key geographical assets, coupled with limited market capacity, means new entry would only lead to price wars and a 'lose-lose' scenario, thus solidifying UPS's oligopolistic position."
       },
       "m7_operational_efficiency": {
         "score": 7,
-        "comment_zh": "UPS長期以來展現出穩健的資本回報能力，其30.3%的股東權益報酬率（ROE）和6.4%的資產報酬率（ROA）證明了其高效利用資本的能力。儘管物流業是資本密集型產業，但其強大的規模經濟、網絡效應和客戶黏性護城河，使其能夠持續產生超越加權平均資本成本（WACC）的投資回報。這不僅為股東創造了實質的複利價值，也反映了其商業模式的韌性與盈利能力。",
-        "comment_en": "UPS has consistently demonstrated robust capital returns, with a 30.3% Return on Equity (ROE) and 6.4% Return on Assets (ROA), affirming its efficient capital utilization. Despite the logistics industry being capital-intensive, its strong moats of economies of scale, network effects, and customer stickiness enable it to consistently generate returns on invested capital (ROIC) that exceed its weighted average cost of capital (WACC). This not only creates substantial compounding value for shareholders but also reflects the resilience and profitability of its business model."
+        "comment_zh": "UPS作為一家成熟的物流巨頭，其營運效率是其核心競爭力之一。公司持續投資於自動化技術、路線優化演算法和數據分析，以提升包裹處理速度、降低燃料消耗和人力成本。儘管物流行業的資本密集度高，但UPS憑藉其規模和技術應用，能夠實現穩健的投入資本回報率（ROIC）。其持續的自由現金流產生能力（FCF TTM $5.485M）證明了其高效的資本運用和盈利能力，這對於長期股東價值創造至關重要，符合巴菲特對企業盈利韌性的要求。",
+        "comment_en": "As a mature logistics giant, UPS's operational efficiency is a core competitive strength. The company continuously invests in automation technology, route optimization algorithms, and data analytics to enhance package processing speed, reduce fuel consumption, and lower labor costs. Despite the capital-intensive nature of the logistics industry, UPS achieves a robust Return on Invested Capital (ROIC) through its scale and technological adoption. Its consistent free cash flow generation (FCF TTM $5.485M) demonstrates efficient capital deployment and profitability, which is crucial for long-term shareholder value creation and aligns with Buffett's emphasis on earnings resilience."
       },
       "m8_capital_allocation": {
-        "score": 9,
-        "comment_zh": "即使給予競爭對手千億美元，也無法在短時間內複製UPS的核心戰略資產。這不僅僅是資金問題，更涉及數十年積累的全球物流網絡、遍布各地的基礎設施、與各國政府建立的監管關係、數百萬客戶的品牌信任，以及高度優化的運營流程和專業人才隊伍。這些無形資產和複雜的實體網絡，是時間和經驗的結晶，構成了一個幾乎不可複製的商業壁壘。",
-        "comment_en": "Even with a hundred billion dollars, a competitor could not replicate UPS's core strategic assets in a short period. This isn't merely a matter of capital; it involves decades of accumulated global logistics networks, ubiquitous infrastructure, established regulatory relationships with governments worldwide, brand trust from millions of customers, and highly optimized operational processes and skilled personnel. These intangible assets and complex physical networks are the culmination of time and experience, forming an almost irreproducible business barrier."
+        "score": 7,
+        "comment_zh": "UPS作為一家歷史悠久且資本密集型企業，其管理層在資本配置方面展現出相對穩健的策略。公司通常會平衡對基礎設施的再投資、股息派發和股票回購，以最大化股東價值。在市場低估時，積極的股票回購可以有效提升每股收益，而避免盲目溢價併購則能保護公司資產負債表。雖然具體回購規模和併購策略需持續觀察，但其穩定的現金流和對核心業務的專注，表明管理層傾向於審慎且有利於長期股東的資本配置決策。",
+        "comment_en": "As a long-standing and capital-intensive enterprise, UPS's management generally demonstrates a relatively prudent capital allocation strategy. The company typically balances reinvestment in infrastructure, dividend payouts, and share buybacks to maximize shareholder value. Aggressive share repurchases during market undervaluation can effectively boost earnings per share, while avoiding blind, overpriced acquisitions protects the company's balance sheet. Although specific buyback volumes and M&A strategies require ongoing observation, its stable cash flow and focus on core operations suggest management's inclination towards cautious, long-term shareholder-friendly capital allocation decisions."
       },
       "m9_customer_retention": {
         "score": 8,
-        "comment_zh": "儘管物流行業會不斷引入新技術如AI和自動化，但包裹從A點到B點的實體運輸需求本質上是永恆且不可替代的。UPS作為行業領導者，積極投資於這些技術以優化其運營效率和服務質量，而非被顛覆。其核心業務——實體交付——具有極高的需求確定性，對技術典範轉移具備強大抗性。這使得其商業模式在面對未來技術變革時，仍能保持穩固的護城河。",
-        "comment_en": "While the logistics industry continuously adopts new technologies like AI and automation, the fundamental need for physical package transportation from point A to point B is inherently timeless and irreplaceable. As an industry leader, UPS actively invests in these technologies to optimize its operational efficiency and service quality, rather than being disrupted by them. Its core business—physical delivery—possesses extremely high demand certainty, demonstrating strong immunity to technological paradigm shifts. This ensures its business model maintains a robust moat when facing future technological changes."
+        "comment_zh": "UPS在客戶留存方面表現出色，這得益於其服務的可靠性、廣泛的覆蓋範圍和與企業客戶的深度整合。對於許多企業而言，物流是其供應鏈的關鍵環節，任何服務中斷都可能導致巨大的經濟損失和聲譽損害。因此，一旦與UPS建立合作關係，客戶通常會因為高轉換成本和對服務品質的信任而保持長期合作。這種高客戶黏性不僅保證了穩定的收入來源，也降低了獲客成本，是巴菲特所看重的「重複購買」特徵，為企業提供了持續的競爭優勢。",
+        "comment_en": "UPS excels in customer retention, attributed to its service reliability, extensive coverage, and deep integration with business clients. For many enterprises, logistics is a critical component of their supply chain, where any service disruption can lead to significant economic losses and reputational damage. Consequently, once a partnership is established with UPS, customers tend to maintain long-term relationships due to high switching costs and trust in service quality. This strong customer stickiness not only ensures stable revenue streams but also reduces customer acquisition costs, embodying the 'repeat purchase' characteristic valued by Buffett, providing the company with a sustained competitive advantage."
       },
       "m10_durability": {
-        "score": 7,
-        "comment_zh": "UPS的管理層在資本配置方面展現出穩健的策略。公司持續產生強勁的自由現金流（FCF），並通過股息和股票回購將價值回饋股東。在併購方面，通常採取審慎態度，避免盲目溢價收購，而是專注於提升核心業務效率和擴大網絡優勢。這種以股東利益為導向的資本管理方式，有助於長期提升每股價值，是巴菲特所推崇的優質企業特徵。",
-        "comment_en": "UPS's management demonstrates a prudent capital allocation strategy. The company consistently generates strong free cash flow (FCF) and returns value to shareholders through dividends and share buybacks. Regarding M&A, it generally adopts a cautious approach, avoiding blind overpaying acquisitions, and instead focuses on enhancing core business efficiency and expanding network advantages. This shareholder-oriented capital management approach contributes to long-term per-share value appreciation, a characteristic of high-quality businesses favored by Buffett."
+        "score": 9,
+        "comment_zh": "UPS的核心業務——物理包裹遞送——具有極高的需求確定性和對技術變革的強大免疫力。儘管電子商務和自動化技術不斷發展，但將實體物品從A點運送到B點的需求是永恆且不可被數位化取代的。UPS積極投資於物流自動化、AI優化和電動車隊，將新技術融入其營運以提升效率，而非被其顛覆。這種基礎服務的剛性需求和公司對技術進步的適應能力，確保了其商業模式的長期韌性，使其能夠在未來數十年內持續創造價值，符合巴菲特對「持久性」護城河的定義。",
+        "comment_en": "UPS's core business—physical package delivery—possesses extremely high demand certainty and strong immunity to technological disruption. Despite the continuous evolution of e-commerce and automation, the fundamental need to physically move tangible goods from point A to point B is eternal and cannot be digitized away. UPS actively invests in logistics automation, AI optimization, and electric fleets, integrating new technologies into its operations to enhance efficiency rather than being disrupted by them. This inelastic demand for its foundational service and the company's adaptability to technological advancements ensure the long-term resilience of its business model, allowing it to continue creating value for decades, aligning with Buffett's definition of a 'durable' moat."
       },
-      "overall_moat_verdict_zh": "UPS本質上是一個全球商業的「收費橋樑」或「特許經營權平台」。其護城河深且廣，主要建立在無與倫比的全球物流網絡、極致的規模經濟、企業客戶的高轉換成本以及嚴格的監管壁壘之上。強大的品牌信任和卓越的運營效率進一步鞏固其市場地位。儘管面臨競爭，但複製其龐大資產和數十年積累的經驗幾乎不可能。這是一個受益於全球供應鏈日益複雜化的企業，確保了對其核心服務的持久需求。",
-      "overall_moat_verdict_en": "UPS fundamentally operates as a \"toll bridge\" or \"franchise platform\" for global commerce. Its deep and wide moats are primarily built upon an unparalleled global logistics network, extreme economies of scale, high switching costs for enterprise clients, and significant regulatory barriers. Strong brand trust and superior operational efficiency further solidify its market position. Despite competition, replicating its vast assets and decades of accumulated experience is nearly impossible. This is a business that benefits from the increasing complexity of global supply chains, ensuring durable demand for its essential services."
+      "overall_moat_verdict_zh": "UPS是一家典型的「收費橋樑」型企業，其護城河深厚且多樣。它不僅擁有全球領先的品牌心智和定價權，更憑藉其無與倫比的規模經濟、廣泛的網絡效應和高昂的客戶轉換成本，築起了難以逾越的競爭壁壘。在全球物流這個天然寡占的市場中，UPS的龐大基礎設施和複雜的監管合規能力，使其成為新競爭者幾乎不可能複製的實體資產。其核心業務對技術變革具有強大韌性，確保了長期需求。綜合來看，UPS具備巴菲特所推崇的「特許經營權」特徵，能夠持續創造超額回報，是值得長期持有的優質企業。",
+      "overall_moat_verdict_en": "UPS is a quintessential 'toll bridge' business, boasting deep and multifaceted moats. It not only possesses a globally leading brand and pricing power but also erects formidable competitive barriers through its unparalleled economies of scale, extensive network effects, and high customer switching costs. In the naturally oligopolistic global logistics market, UPS's vast infrastructure and complex regulatory compliance capabilities make it an entity virtually impossible for new competitors to replicate. Its core business demonstrates strong resilience against technological disruption, ensuring long-term demand. Overall, UPS exhibits the 'franchise' characteristics highly valued by Buffett, capable of consistently generating superior returns, making it a high-quality enterprise worthy of long-term holding."
     },
     "fin_valuation": {
       "is_financial": false
@@ -277949,7 +277949,7 @@
         4036.6,
         3875.2,
         3201.2,
-        0.0
+        3564.0
       ],
       "net_income": [
         488.5,
@@ -277957,7 +277957,7 @@
         400.9,
         428.4,
         -277.7,
-        0.0
+        -471.3
       ],
       "gross_profit": [
         1194.9,
@@ -277965,7 +277965,7 @@
         1534.1,
         1470.4,
         1251.9,
-        0.0
+        1355.8
       ],
       "operating_income": [
         630.0,
@@ -277973,7 +277973,7 @@
         634.9,
         656.2,
         588.8,
-        0.0
+        -110.2
       ],
       "cfo": [
         423.4,
@@ -278008,7 +278008,7 @@
           4036.61,
           3875.16,
           3201.2,
-          0.0
+          3564.01
         ],
         "costOfRevenue": [
           2055.93,
@@ -278016,7 +278016,7 @@
           2502.54,
           2404.79,
           1949.29,
-          0.0
+          2208.22
         ],
         "grossProfit": [
           1194.86,
@@ -278024,7 +278024,7 @@
           1534.06,
           1470.37,
           1251.91,
-          0.0
+          1355.8
         ],
         "grossProfitRatio": [
           0.0,
@@ -278064,7 +278064,7 @@
           794.44,
           762.5,
           663.16,
-          0.0
+          750.9
         ],
         "otherExpenses": [
           -103.11,
@@ -278072,7 +278072,7 @@
           51.65,
           51.68,
           0.0,
-          0.0
+          715.1
         ],
         "operatingExpenses": [
           564.87,
@@ -278080,7 +278080,7 @@
           899.19,
           814.18,
           663.16,
-          0.0
+          1466.0
         ],
         "costAndExpenses": [
           2620.8,
@@ -278088,7 +278088,7 @@
           3401.74,
           3218.97,
           2612.44,
-          0.0
+          3674.22
         ],
         "operatingIncome": [
           629.99,
@@ -278096,7 +278096,7 @@
           634.87,
           656.19,
           588.76,
-          0.0
+          -110.21
         ],
         "operatingIncomeRatio": [
           0.0,
@@ -278112,7 +278112,7 @@
           -115.49,
           -78.87,
           -106.48,
-          0.0
+          -137.66
         ],
         "interestIncome": [
           0.0,
@@ -278128,7 +278128,7 @@
           120.35,
           92.23,
           93.83,
-          0.0
+          106.04
         ],
         "incomeBeforeTax": [
           619.5,
@@ -278136,7 +278136,7 @@
           519.38,
           577.32,
           482.27,
-          0.0
+          -247.87
         ],
         "incomeBeforeTaxRatio": [
           0.0,
@@ -278152,7 +278152,7 @@
           118.5,
           148.89,
           115.01,
-          0.0
+          39.53
         ],
         "netIncome": [
           488.49,
@@ -278160,7 +278160,7 @@
           400.88,
           428.43,
           -277.73,
-          0.0
+          -471.3
         ],
         "netIncomeRatio": [
           0.0,
@@ -278176,7 +278176,7 @@
           7.48,
           7.97,
           -5.38,
-          0.0
+          1.2
         ],
         "epsdiluted": [
           0.0,
@@ -278192,7 +278192,7 @@
           53577000.0,
           53738000.0,
           51655000.0,
-          0.0
+          45343000.0
         ],
         "weightedAverageShsOutDil": [
           56665000.0,
@@ -278200,7 +278200,7 @@
           54086000.0,
           54209000.0,
           51655000.0,
-          0.0
+          45343000.0
         ],
         "ebitda": [
           801.9,
@@ -278208,7 +278208,7 @@
           797.35,
           796.72,
           681.41,
-          0.0
+          -22.18
         ],
         "ebitdaratio": [
           0.0,
