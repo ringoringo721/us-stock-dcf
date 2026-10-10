@@ -168,6 +168,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 80.97,
+    "default_fair_val": 80.97,
     "premium_pct": 183.2,
     "is_undervalued": false,
     "pe_trailing": 28.8,
@@ -1017,6 +1018,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 154.93,
+    "default_fair_val": 154.93,
     "premium_pct": 117.3,
     "is_undervalued": false,
     "pe_trailing": 38.3,
@@ -1860,6 +1862,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 171.37,
+    "default_fair_val": 171.37,
     "premium_pct": 212.2,
     "is_undervalued": false,
     "pe_trailing": 29.7,
@@ -2727,6 +2730,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 145.01,
+    "default_fair_val": 145.01,
     "premium_pct": 149.3,
     "is_undervalued": false,
     "pe_trailing": 45.0,
@@ -3546,6 +3550,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 52.72,
+    "default_fair_val": 52.72,
     "premium_pct": 168.5,
     "is_undervalued": false,
     "pe_trailing": 21.5,
@@ -4419,6 +4424,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 311.18,
+    "default_fair_val": 311.18,
     "premium_pct": -26.4,
     "is_undervalued": true,
     "pe_trailing": 19.4,
@@ -5238,6 +5244,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 66.76,
+    "default_fair_val": 66.76,
     "premium_pct": 810.9,
     "is_undervalued": false,
     "pe_trailing": 154.1,
@@ -6087,6 +6094,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 55.67,
+    "default_fair_val": 55.67,
     "premium_pct": 112.7,
     "is_undervalued": false,
     "pe_trailing": 35.2,
@@ -6954,6 +6962,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 321.65,
+    "default_fair_val": 321.65,
     "premium_pct": -35.0,
     "is_undervalued": true,
     "pe_trailing": 15.2,
@@ -7766,6 +7775,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 436.3,
+    "default_fair_val": 436.3,
     "premium_pct": -44.5,
     "is_undervalued": true,
     "pe_trailing": 13.2,
@@ -8615,6 +8625,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 123.02,
+    "default_fair_val": 123.02,
     "premium_pct": 42.7,
     "is_undervalued": false,
     "pe_trailing": 19.9,
@@ -9452,6 +9463,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 76.63,
+    "default_fair_val": 76.63,
     "premium_pct": 270.3,
     "is_undervalued": false,
     "pe_trailing": 42.8,
@@ -10301,6 +10313,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 289.13,
+    "default_fair_val": 289.13,
     "premium_pct": -21.4,
     "is_undervalued": true,
     "pe_trailing": 20.0,
@@ -11162,6 +11175,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 1.28,
+    "default_fair_val": 1.28,
     "premium_pct": 8079.7,
     "is_undervalued": false,
     "pe_trailing": 24.0,
@@ -12035,6 +12049,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 695.11,
+    "default_fair_val": 695.11,
     "premium_pct": -56.4,
     "is_undervalued": true,
     "pe_trailing": 18.1,
@@ -12866,6 +12881,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 118.25,
+    "default_fair_val": 118.25,
     "premium_pct": 19.1,
     "is_undervalued": false,
     "pe_trailing": 87.2,
@@ -12955,8 +12971,8 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "408 501 8550",
     "full_address": "2225 Lawson Lane, Santa Clara, CA 95054, US",
-    "range_52w": "81.24-211.48",
-    "year_high": 211.48,
+    "range_52w": "81.24-192.97",
+    "year_high": 192.97,
     "year_low": 81.24,
     "all_time_high": 0.0,
     "all_time_low": 81.24,
@@ -13685,6 +13701,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 99.29,
+    "default_fair_val": 99.29,
     "premium_pct": 410.7,
     "is_undervalued": false,
     "pe_trailing": 43.4,
@@ -14552,6 +14569,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 49.82,
+    "default_fair_val": 49.82,
     "premium_pct": 540.0,
     "is_undervalued": false,
     "pe_trailing": 54.9,
@@ -15383,6 +15401,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 601.96,
+    "default_fair_val": 601.96,
     "premium_pct": 70.9,
     "is_undervalued": false,
     "pe_trailing": 13.7,
@@ -16214,6 +16233,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 165.97,
+    "default_fair_val": 165.97,
     "premium_pct": 173.1,
     "is_undervalued": false,
     "pe_trailing": 33.6,
@@ -17081,6 +17101,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 854.6,
+    "default_fair_val": 854.6,
     "premium_pct": -21.9,
     "is_undervalued": true,
     "pe_trailing": 17.7,
@@ -17918,6 +17939,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 221.77,
+    "default_fair_val": 221.77,
     "premium_pct": 6.1,
     "is_undervalued": false,
     "pe_trailing": 30.3,
@@ -18007,8 +18029,8 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "415 507 5000",
     "full_address": "One Market Street, San Francisco, CA 94105, US",
-    "range_52w": "185.5-329.09",
-    "year_high": 329.09,
+    "range_52w": "185.5-320",
+    "year_high": 320.0,
     "year_low": 185.5,
     "all_time_high": 0.0,
     "all_time_low": 185.5,
@@ -18755,6 +18777,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 385.12,
+    "default_fair_val": 385.12,
     "premium_pct": -14.4,
     "is_undervalued": true,
     "pe_trailing": 41.6,
@@ -19592,6 +19615,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 219.08,
+    "default_fair_val": 219.08,
     "premium_pct": -7.7,
     "is_undervalued": true,
     "pe_trailing": 45.9,
@@ -20404,6 +20428,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 134.16,
+    "default_fair_val": 134.16,
     "premium_pct": -67.6,
     "is_undervalued": true,
     "pe_trailing": 29.5,
@@ -21216,6 +21241,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 146.99,
+    "default_fair_val": 146.99,
     "premium_pct": -41.8,
     "is_undervalued": true,
     "pe_trailing": 13.7,
@@ -22028,6 +22054,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 260.54,
+    "default_fair_val": 260.54,
     "premium_pct": 95.7,
     "is_undervalued": false,
     "pe_trailing": 90.7,
@@ -22853,6 +22880,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 210.59,
+    "default_fair_val": 210.59,
     "premium_pct": -21.4,
     "is_undervalued": true,
     "pe_trailing": 17.0,
@@ -23665,6 +23693,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 44.21,
+    "default_fair_val": 44.21,
     "premium_pct": 342.4,
     "is_undervalued": false,
     "pe_trailing": 52.9,
@@ -24514,6 +24543,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 21.68,
+    "default_fair_val": 21.68,
     "premium_pct": 1169.7,
     "is_undervalued": false,
     "pe_trailing": 91.3,
@@ -25339,6 +25369,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 116.29,
+    "default_fair_val": 116.29,
     "premium_pct": 203.4,
     "is_undervalued": false,
     "pe_trailing": 70.5,
@@ -26176,6 +26207,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 93.89,
+    "default_fair_val": 93.89,
     "premium_pct": 107.4,
     "is_undervalued": false,
     "pe_trailing": 67.4,
@@ -27001,6 +27033,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 125.1,
+    "default_fair_val": 125.1,
     "premium_pct": 234.8,
     "is_undervalued": false,
     "pe_trailing": 1111.7,
@@ -27826,6 +27859,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 44.84,
+    "default_fair_val": 44.84,
     "premium_pct": 513.4,
     "is_undervalued": false,
     "pe_trailing": 4790.7,
@@ -28645,6 +28679,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 240.61,
+    "default_fair_val": 240.61,
     "premium_pct": -22.5,
     "is_undervalued": true,
     "pe_trailing": 39.1,
@@ -29457,6 +29492,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 79.03,
+    "default_fair_val": 79.03,
     "premium_pct": 174.3,
     "is_undervalued": false,
     "pe_trailing": 67.5,
@@ -30282,6 +30318,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 29.5,
+    "default_fair_val": 29.5,
     "premium_pct": 195.7,
     "is_undervalued": false,
     "pe_trailing": 41.7,
@@ -31137,6 +31174,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 190.23,
+    "default_fair_val": 190.23,
     "premium_pct": 14.8,
     "is_undervalued": false,
     "pe_trailing": 21.0,
@@ -31949,6 +31987,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 76.62,
+    "default_fair_val": 76.62,
     "premium_pct": 359.0,
     "is_undervalued": false,
     "pe_trailing": 17.4,
@@ -32038,11 +32077,11 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "650 253 0000",
     "full_address": "1600 Amphitheatre Parkway, Mountain View, CA 94043, US",
-    "range_52w": "235.84-408.61",
+    "range_52w": "239.71-408.61",
     "year_high": 408.61,
-    "year_low": 235.84,
+    "year_low": 239.71,
     "all_time_high": 0.0,
-    "all_time_low": 235.84,
+    "all_time_low": 239.71,
     "inst_ownership_pct": 63.5,
     "insider_ownership_pct": 14.5,
     "top_holders": [
@@ -32774,6 +32813,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 76.9,
+    "default_fair_val": 76.9,
     "premium_pct": 352.4,
     "is_undervalued": false,
     "pe_trailing": 17.3,
@@ -33599,6 +33639,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 331.18,
+    "default_fair_val": 331.18,
     "premium_pct": 117.0,
     "is_undervalued": false,
     "pe_trailing": 26.9,
@@ -34411,6 +34452,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 39.81,
+    "default_fair_val": 39.81,
     "premium_pct": 76.6,
     "is_undervalued": false,
     "pe_trailing": 21.4,
@@ -35242,6 +35284,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 49.94,
+    "default_fair_val": 49.94,
     "premium_pct": 116.4,
     "is_undervalued": false,
     "pe_trailing": 21.8,
@@ -36115,6 +36158,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 515.95,
+    "default_fair_val": 515.95,
     "premium_pct": -71.2,
     "is_undervalued": true,
     "pe_trailing": 15.1,
@@ -36934,6 +36978,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 189.36,
+    "default_fair_val": 189.36,
     "premium_pct": -78.0,
     "is_undervalued": true,
     "pe_trailing": 10.8,
@@ -37777,6 +37822,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 84.54,
+    "default_fair_val": 84.54,
     "premium_pct": -73.8,
     "is_undervalued": true,
     "pe_trailing": 7.1,
@@ -38614,6 +38660,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 182.45,
+    "default_fair_val": 182.45,
     "premium_pct": -88.7,
     "is_undervalued": true,
     "pe_trailing": 6.5,
@@ -39487,6 +39534,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 702.85,
+    "default_fair_val": 702.85,
     "premium_pct": -74.7,
     "is_undervalued": true,
     "pe_trailing": 58.1,
@@ -40299,6 +40347,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 110.39,
+    "default_fair_val": 110.39,
     "premium_pct": 54.3,
     "is_undervalued": false,
     "pe_trailing": 294.3,
@@ -41111,6 +41160,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 50.3,
+    "default_fair_val": 50.3,
     "premium_pct": -5.6,
     "is_undervalued": true,
     "pe_trailing": 53.9,
@@ -41832,6 +41882,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 188.88,
+    "default_fair_val": 188.88,
     "premium_pct": 11.0,
     "is_undervalued": false,
     "pe_trailing": 48.9,
@@ -42669,6 +42720,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 36.36,
+    "default_fair_val": 36.36,
     "premium_pct": 487.0,
     "is_undervalued": false,
     "pe_trailing": 24.0,
@@ -43488,6 +43540,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 2.13,
+    "default_fair_val": 2.13,
     "premium_pct": 1353.1,
     "is_undervalued": false,
     "pe_trailing": 24.0,
@@ -44313,6 +44366,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 162.87,
+    "default_fair_val": 162.87,
     "premium_pct": 61.1,
     "is_undervalued": false,
     "pe_trailing": 20.9,
@@ -45150,6 +45204,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 29.63,
+    "default_fair_val": 29.63,
     "premium_pct": 1191.6,
     "is_undervalued": false,
     "pe_trailing": 395.9,
@@ -45975,6 +46030,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 222.68,
+    "default_fair_val": 222.68,
     "premium_pct": 30.6,
     "is_undervalued": false,
     "pe_trailing": 20.4,
@@ -46848,6 +46904,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 265.87,
+    "default_fair_val": 265.87,
     "premium_pct": -11.5,
     "is_undervalued": true,
     "pe_trailing": 19.0,
@@ -47715,6 +47772,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 231.91,
+    "default_fair_val": 231.91,
     "premium_pct": -30.9,
     "is_undervalued": true,
     "pe_trailing": 17.2,
@@ -48540,6 +48598,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 23.08,
+    "default_fair_val": 23.08,
     "premium_pct": 50.4,
     "is_undervalued": false,
     "pe_trailing": 16.6,
@@ -49395,6 +49454,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 45.6,
+    "default_fair_val": 45.6,
     "premium_pct": 99.0,
     "is_undervalued": false,
     "pe_trailing": 52.2,
@@ -50244,6 +50304,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 213.42,
+    "default_fair_val": 213.42,
     "premium_pct": -12.8,
     "is_undervalued": true,
     "pe_trailing": 15.7,
@@ -51111,6 +51172,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 128.61,
+    "default_fair_val": 128.61,
     "premium_pct": 7.9,
     "is_undervalued": false,
     "pe_trailing": 25.3,
@@ -51984,6 +52046,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 130.41,
+    "default_fair_val": 130.41,
     "premium_pct": -38.7,
     "is_undervalued": true,
     "pe_trailing": 13.6,
@@ -52815,6 +52878,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 6.33,
+    "default_fair_val": 6.33,
     "premium_pct": 432.4,
     "is_undervalued": false,
     "pe_trailing": 17.5,
@@ -53658,6 +53722,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 154.62,
+    "default_fair_val": 154.62,
     "premium_pct": -5.6,
     "is_undervalued": true,
     "pe_trailing": 35.3,
@@ -54470,6 +54535,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 92.53,
+    "default_fair_val": 92.53,
     "premium_pct": -16.9,
     "is_undervalued": true,
     "pe_trailing": 16.7,
@@ -55325,6 +55391,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 1691.86,
+    "default_fair_val": 1691.86,
     "premium_pct": 73.8,
     "is_undervalued": false,
     "pe_trailing": 18.7,
@@ -56150,6 +56217,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 153.58,
+    "default_fair_val": 153.58,
     "premium_pct": 138.2,
     "is_undervalued": false,
     "pe_trailing": 36.9,
@@ -56975,6 +57043,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 116.16,
+    "default_fair_val": 116.16,
     "premium_pct": 181.1,
     "is_undervalued": false,
     "pe_trailing": 46.4,
@@ -57794,6 +57863,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 27.6,
+    "default_fair_val": 27.6,
     "premium_pct": 14.5,
     "is_undervalued": false,
     "pe_trailing": 28.5,
@@ -58613,6 +58683,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 136.45,
+    "default_fair_val": 136.45,
     "premium_pct": 6.1,
     "is_undervalued": false,
     "pe_trailing": 18.0,
@@ -59444,6 +59515,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 61.36,
+    "default_fair_val": 61.36,
     "premium_pct": 40.9,
     "is_undervalued": false,
     "pe_trailing": 27.0,
@@ -60281,6 +60353,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 170.63,
+    "default_fair_val": 170.63,
     "premium_pct": 30.3,
     "is_undervalued": false,
     "pe_trailing": 26.8,
@@ -60370,11 +60443,11 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "925 965 4400",
     "full_address": "5130 Hacienda Drive, Dublin California, CA 94568-7579, US",
-    "range_52w": "147.49-257",
+    "range_52w": "148.58-257",
     "year_high": 257.0,
-    "year_low": 147.49,
+    "year_low": 148.58,
     "all_time_high": 0.0,
-    "all_time_low": 147.49,
+    "all_time_low": 148.58,
     "inst_ownership_pct": 75.5,
     "insider_ownership_pct": 9.5,
     "top_holders": [
@@ -61124,6 +61197,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 291.27,
+    "default_fair_val": 291.27,
     "premium_pct": -67.6,
     "is_undervalued": true,
     "pe_trailing": 7.6,
@@ -61943,6 +62017,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 23.44,
+    "default_fair_val": 23.44,
     "premium_pct": -48.1,
     "is_undervalued": true,
     "pe_trailing": 24.0,
@@ -62804,6 +62879,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 384.66,
+    "default_fair_val": 384.66,
     "premium_pct": -78.5,
     "is_undervalued": true,
     "pe_trailing": 39.0,
@@ -63616,6 +63692,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 71.42,
+    "default_fair_val": 71.42,
     "premium_pct": 57.1,
     "is_undervalued": false,
     "pe_trailing": 22.4,
@@ -64459,6 +64536,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 684.03,
+    "default_fair_val": 684.03,
     "premium_pct": -78.1,
     "is_undervalued": true,
     "pe_trailing": 10.2,
@@ -65235,6 +65313,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 261.57,
+    "default_fair_val": 261.57,
     "premium_pct": 27.3,
     "is_undervalued": false,
     "pe_trailing": 13.7,
@@ -66081,6 +66160,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 258.05,
+    "default_fair_val": 258.05,
     "premium_pct": 49.4,
     "is_undervalued": false,
     "pe_trailing": 31.9,
@@ -66900,6 +66980,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 445.96,
+    "default_fair_val": 445.96,
     "premium_pct": 32.1,
     "is_undervalued": false,
     "pe_trailing": 31.8,
@@ -67719,6 +67800,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 43.95,
+    "default_fair_val": 43.95,
     "premium_pct": 23.6,
     "is_undervalued": false,
     "pe_trailing": 11.5,
@@ -68559,6 +68641,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 82.47,
+    "default_fair_val": 82.47,
     "premium_pct": 1.3,
     "is_undervalued": false,
     "pe_trailing": 11.2,
@@ -69417,6 +69500,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 132.44,
+    "default_fair_val": 132.44,
     "premium_pct": 43.5,
     "is_undervalued": false,
     "pe_trailing": 14.8,
@@ -69515,11 +69599,11 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "212 761 4000",
     "full_address": "1585 Broadway, New York City, NY 10036, US",
-    "range_52w": "151.84-232.25",
+    "range_52w": "151.88-232.25",
     "year_high": 232.25,
-    "year_low": 151.84,
+    "year_low": 151.88,
     "all_time_high": 0.0,
-    "all_time_low": 151.84,
+    "all_time_low": 151.88,
     "inst_ownership_pct": 77.0,
     "insider_ownership_pct": 8.0,
     "top_holders": [
@@ -70251,6 +70335,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 705.68,
+    "default_fair_val": 705.68,
     "premium_pct": 26.9,
     "is_undervalued": false,
     "pe_trailing": 12.6,
@@ -71072,6 +71157,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 184.59,
+    "default_fair_val": 184.59,
     "premium_pct": 66.9,
     "is_undervalued": false,
     "pe_trailing": 18.2,
@@ -71930,6 +72016,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 285.59,
+    "default_fair_val": 285.59,
     "premium_pct": 279.0,
     "is_undervalued": false,
     "pe_trailing": 25.5,
@@ -72742,6 +72829,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 316.36,
+    "default_fair_val": 316.36,
     "premium_pct": 28.9,
     "is_undervalued": false,
     "pe_trailing": 24.4,
@@ -72831,8 +72919,8 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "212 438 1000",
     "full_address": "55 Water Street, New York, NY 10041, US",
-    "range_52w": "361.03122-552.25",
-    "year_high": 552.25,
+    "range_52w": "361.03122-579.05",
+    "year_high": 579.05,
     "year_low": 361.03122,
     "all_time_high": 0.0,
     "all_time_low": 361.03122,
@@ -73579,6 +73667,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 100.38,
+    "default_fair_val": 100.38,
     "premium_pct": 29.1,
     "is_undervalued": false,
     "pe_trailing": 12.5,
@@ -74455,6 +74544,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 293.47,
+    "default_fair_val": 293.47,
     "premium_pct": -25.9,
     "is_undervalued": true,
     "pe_trailing": 10.8,
@@ -75331,6 +75421,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 252.29,
+    "default_fair_val": 252.29,
     "premium_pct": 35.2,
     "is_undervalued": false,
     "pe_trailing": 11.7,
@@ -76183,6 +76274,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 404.93,
+    "default_fair_val": 404.93,
     "premium_pct": -29.1,
     "is_undervalued": true,
     "pe_trailing": 19.1,
@@ -77014,6 +77106,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 153.62,
+    "default_fair_val": 153.62,
     "premium_pct": -27.7,
     "is_undervalued": true,
     "pe_trailing": 26.4,
@@ -77826,6 +77919,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 390.6,
+    "default_fair_val": 390.6,
     "premium_pct": -28.2,
     "is_undervalued": true,
     "pe_trailing": 23.6,
@@ -78645,6 +78739,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 307.69,
+    "default_fair_val": 307.69,
     "premium_pct": 83.7,
     "is_undervalued": false,
     "pe_trailing": 30.3,
@@ -79457,6 +79552,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 284.08,
+    "default_fair_val": 284.08,
     "premium_pct": 63.4,
     "is_undervalued": false,
     "pe_trailing": 28.8,
@@ -80276,6 +80372,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 152.45,
+    "default_fair_val": 152.45,
     "premium_pct": 2.5,
     "is_undervalued": false,
     "pe_trailing": 21.8,
@@ -81095,6 +81192,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 61.92,
+    "default_fair_val": 61.92,
     "premium_pct": 24.4,
     "is_undervalued": false,
     "pe_trailing": 13.8,
@@ -81977,6 +82075,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 80.39,
+    "default_fair_val": 80.39,
     "premium_pct": 22.3,
     "is_undervalued": false,
     "pe_trailing": 17.4,
@@ -82805,6 +82904,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 135.32,
+    "default_fair_val": 135.32,
     "premium_pct": -16.4,
     "is_undervalued": true,
     "pe_trailing": 10.2,
@@ -83626,6 +83726,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 349.33,
+    "default_fair_val": 349.33,
     "premium_pct": 5.6,
     "is_undervalued": false,
     "pe_trailing": 9.3,
@@ -84466,6 +84567,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 109.79,
+    "default_fair_val": 109.79,
     "premium_pct": 4.3,
     "is_undervalued": false,
     "pe_trailing": 12.0,
@@ -85348,6 +85450,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 429.81,
+    "default_fair_val": 429.81,
     "premium_pct": -46.6,
     "is_undervalued": true,
     "pe_trailing": 4.4,
@@ -86176,6 +86279,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 328.25,
+    "default_fair_val": 328.25,
     "premium_pct": -16.7,
     "is_undervalued": true,
     "pe_trailing": 14.8,
@@ -87013,6 +87117,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 236.76,
+    "default_fair_val": 236.76,
     "premium_pct": -1.7,
     "is_undervalued": true,
     "pe_trailing": 38.1,
@@ -87844,6 +87949,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 199.83,
+    "default_fair_val": 199.83,
     "premium_pct": -8.6,
     "is_undervalued": true,
     "pe_trailing": 22.6,
@@ -88687,6 +88793,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 47.18,
+    "default_fair_val": 47.18,
     "premium_pct": 21.0,
     "is_undervalued": false,
     "pe_trailing": 10.9,
@@ -89557,6 +89664,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 1150.11,
+    "default_fair_val": 1150.11,
     "premium_pct": 2.5,
     "is_undervalued": false,
     "pe_trailing": 41.6,
@@ -90394,6 +90502,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 683.58,
+    "default_fair_val": 683.58,
     "premium_pct": -44.5,
     "is_undervalued": true,
     "pe_trailing": 24.4,
@@ -91237,6 +91346,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 262.39,
+    "default_fair_val": 262.39,
     "premium_pct": -0.4,
     "is_undervalued": true,
     "pe_trailing": 29.9,
@@ -92092,6 +92202,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 327.87,
+    "default_fair_val": 327.87,
     "premium_pct": -15.7,
     "is_undervalued": true,
     "pe_trailing": 77.4,
@@ -92181,11 +92292,11 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "847 932 7900",
     "full_address": "1 North Waukegan Road, North Chicago, IL 60064-6400, US",
-    "range_52w": "176.57-277.6",
+    "range_52w": "190.75-277.6",
     "year_high": 277.6,
-    "year_low": 176.57,
+    "year_low": 190.75,
     "all_time_high": 0.0,
-    "all_time_low": 176.57,
+    "all_time_low": 190.75,
     "inst_ownership_pct": 75.5,
     "insider_ownership_pct": 9.5,
     "top_holders": [
@@ -92904,6 +93015,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 227.29,
+    "default_fair_val": 227.29,
     "premium_pct": -35.9,
     "is_undervalued": true,
     "pe_trailing": 113.3,
@@ -93759,6 +93871,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 306.01,
+    "default_fair_val": 306.01,
     "premium_pct": 115.0,
     "is_undervalued": false,
     "pe_trailing": 34.9,
@@ -94620,6 +94733,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 116.72,
+    "default_fair_val": 116.72,
     "premium_pct": -14.7,
     "is_undervalued": true,
     "pe_trailing": 31.8,
@@ -94709,8 +94823,8 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "224 667 6100",
     "full_address": "100 Abbott Park Road, Abbott Park, IL 60064-6400, US",
-    "range_52w": "81.97-134.5",
-    "year_high": 134.5,
+    "range_52w": "81.97-133.34",
+    "year_high": 133.34,
     "year_low": 81.97,
     "all_time_high": 0.0,
     "all_time_low": 81.97,
@@ -95487,6 +95601,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 136.39,
+    "default_fair_val": 136.39,
     "premium_pct": 61.2,
     "is_undervalued": false,
     "pe_trailing": 38.6,
@@ -96342,6 +96457,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 164.79,
+    "default_fair_val": 164.79,
     "premium_pct": 157.3,
     "is_undervalued": false,
     "pe_trailing": 47.7,
@@ -97173,6 +97289,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 64.87,
+    "default_fair_val": 64.87,
     "premium_pct": -56.4,
     "is_undervalued": true,
     "pe_trailing": 37.2,
@@ -98022,6 +98139,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 512.61,
+    "default_fair_val": 512.61,
     "premium_pct": -19.1,
     "is_undervalued": true,
     "pe_trailing": 25.6,
@@ -98865,6 +98983,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 209.28,
+    "default_fair_val": 209.28,
     "premium_pct": -71.8,
     "is_undervalued": true,
     "pe_trailing": 13.0,
@@ -99714,6 +99833,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 112.08,
+    "default_fair_val": 112.08,
     "premium_pct": -21.1,
     "is_undervalued": true,
     "pe_trailing": 21.7,
@@ -100569,6 +100689,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 322.75,
+    "default_fair_val": 322.75,
     "premium_pct": -53.2,
     "is_undervalued": true,
     "pe_trailing": 24.0,
@@ -101412,6 +101533,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 81.99,
+    "default_fair_val": 81.99,
     "premium_pct": 239.3,
     "is_undervalued": false,
     "pe_trailing": 51.0,
@@ -102231,6 +102353,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 127.7,
+    "default_fair_val": 127.7,
     "premium_pct": -41.4,
     "is_undervalued": true,
     "pe_trailing": 12.0,
@@ -103043,6 +103166,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 137.17,
+    "default_fair_val": 137.17,
     "premium_pct": 4.0,
     "is_undervalued": false,
     "pe_trailing": 24.7,
@@ -103132,11 +103256,11 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "602 742 2000",
     "full_address": "410 North Scottsdale Road, Tempe, AZ 85288, US",
-    "range_52w": "124.91-200.44",
+    "range_52w": "126.26-200.44",
     "year_high": 200.44,
-    "year_low": 124.91,
+    "year_low": 126.26,
     "all_time_high": 0.0,
-    "all_time_low": 124.91,
+    "all_time_low": 126.26,
     "inst_ownership_pct": 67.5,
     "insider_ownership_pct": 14.5,
     "top_holders": [
@@ -103855,6 +103979,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 102.71,
+    "default_fair_val": 102.71,
     "premium_pct": -79.5,
     "is_undervalued": true,
     "pe_trailing": 10.8,
@@ -104593,6 +104718,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 302.35,
+    "default_fair_val": 302.35,
     "premium_pct": -39.2,
     "is_undervalued": true,
     "pe_trailing": 53.8,
@@ -105442,6 +105568,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 263.46,
+    "default_fair_val": 263.46,
     "premium_pct": -66.2,
     "is_undervalued": true,
     "pe_trailing": 21.4,
@@ -105531,8 +105658,8 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "574 267 6131",
     "full_address": "345 East Main Street, Warsaw, IN 46580, US",
-    "range_52w": "79.12-106.88",
-    "year_high": 106.88,
+    "range_52w": "79.12-108.29",
+    "year_high": 108.29,
     "year_low": 79.12,
     "all_time_high": 0.0,
     "all_time_low": 79.12,
@@ -106261,6 +106388,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 68.06,
+    "default_fair_val": 68.06,
     "premium_pct": 23.6,
     "is_undervalued": false,
     "pe_trailing": 31.7,
@@ -107080,6 +107208,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 457.11,
+    "default_fair_val": 457.11,
     "premium_pct": -49.7,
     "is_undervalued": true,
     "pe_trailing": 21.9,
@@ -107917,6 +108046,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 519.74,
+    "default_fair_val": 519.74,
     "premium_pct": -37.7,
     "is_undervalued": true,
     "pe_trailing": 24.0,
@@ -108748,6 +108878,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 166.92,
+    "default_fair_val": 166.92,
     "premium_pct": 28.4,
     "is_undervalued": false,
     "pe_trailing": 26.0,
@@ -109573,6 +109704,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 1876.64,
+    "default_fair_val": 1876.64,
     "premium_pct": -50.0,
     "is_undervalued": true,
     "pe_trailing": 23.9,
@@ -110392,6 +110524,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 271.71,
+    "default_fair_val": 271.71,
     "premium_pct": 2.1,
     "is_undervalued": false,
     "pe_trailing": 28.5,
@@ -111259,6 +111392,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 277.99,
+    "default_fair_val": 277.99,
     "premium_pct": 6.5,
     "is_undervalued": false,
     "pe_trailing": 47.4,
@@ -112071,6 +112205,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 226.06,
+    "default_fair_val": 226.06,
     "premium_pct": 38.1,
     "is_undervalued": false,
     "pe_trailing": 25.5,
@@ -112908,6 +113043,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 1350.58,
+    "default_fair_val": 1350.58,
     "premium_pct": -44.7,
     "is_undervalued": true,
     "pe_trailing": 17.8,
@@ -113720,6 +113856,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 581.97,
+    "default_fair_val": 581.97,
     "premium_pct": -12.4,
     "is_undervalued": true,
     "pe_trailing": 29.4,
@@ -114539,6 +114676,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 32.87,
+    "default_fair_val": 32.87,
     "premium_pct": 238.8,
     "is_undervalued": false,
     "pe_trailing": 40.1,
@@ -115412,6 +115550,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 439.82,
+    "default_fair_val": 439.82,
     "premium_pct": 115.3,
     "is_undervalued": false,
     "pe_trailing": 45.5,
@@ -116261,6 +116400,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 186.95,
+    "default_fair_val": 186.95,
     "premium_pct": -19.1,
     "is_undervalued": true,
     "pe_trailing": 22.4,
@@ -117110,6 +117250,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 100.24,
+    "default_fair_val": 100.24,
     "premium_pct": -12.2,
     "is_undervalued": true,
     "pe_trailing": 26.5,
@@ -117977,6 +118118,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 282.53,
+    "default_fair_val": 282.53,
     "premium_pct": -55.4,
     "is_undervalued": true,
     "pe_trailing": 15.7,
@@ -118814,6 +118956,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 232.47,
+    "default_fair_val": 232.47,
     "premium_pct": -13.5,
     "is_undervalued": true,
     "pe_trailing": 28.8,
@@ -119626,6 +119769,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 62.37,
+    "default_fair_val": 62.37,
     "premium_pct": -3.1,
     "is_undervalued": true,
     "pe_trailing": 21.9,
@@ -120438,6 +120582,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 145.87,
+    "default_fair_val": 145.87,
     "premium_pct": -39.5,
     "is_undervalued": true,
     "pe_trailing": 34.7,
@@ -121281,6 +121426,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 76.59,
+    "default_fair_val": 76.59,
     "premium_pct": -41.5,
     "is_undervalued": true,
     "pe_trailing": 8.0,
@@ -122130,6 +122276,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 58.2,
+    "default_fair_val": 58.2,
     "premium_pct": 44.0,
     "is_undervalued": false,
     "pe_trailing": 17.3,
@@ -122961,6 +123108,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 547.57,
+    "default_fair_val": 547.57,
     "premium_pct": -70.3,
     "is_undervalued": true,
     "pe_trailing": 22.2,
@@ -123798,6 +123946,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 87.86,
+    "default_fair_val": 87.86,
     "premium_pct": -9.1,
     "is_undervalued": true,
     "pe_trailing": 21.8,
@@ -124671,6 +124820,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 117.04,
+    "default_fair_val": 117.04,
     "premium_pct": -16.2,
     "is_undervalued": true,
     "pe_trailing": 31.2,
@@ -125532,6 +125682,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 167.07,
+    "default_fair_val": 167.07,
     "premium_pct": -8.0,
     "is_undervalued": true,
     "pe_trailing": 15.9,
@@ -126375,6 +126526,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 254.85,
+    "default_fair_val": 254.85,
     "premium_pct": -61.7,
     "is_undervalued": true,
     "pe_trailing": 16.6,
@@ -127218,6 +127370,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 33.56,
+    "default_fair_val": 33.56,
     "premium_pct": 30.0,
     "is_undervalued": false,
     "pe_trailing": 40.1,
@@ -128073,6 +128226,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 60.49,
+    "default_fair_val": 60.49,
     "premium_pct": -46.6,
     "is_undervalued": true,
     "pe_trailing": 24.0,
@@ -128922,6 +129076,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 161.39,
+    "default_fair_val": 161.39,
     "premium_pct": -86.2,
     "is_undervalued": true,
     "pe_trailing": 24.0,
@@ -129734,6 +129889,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 129.3,
+    "default_fair_val": 129.3,
     "premium_pct": 138.4,
     "is_undervalued": false,
     "pe_trailing": 35.6,
@@ -130607,6 +130763,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 164.34,
+    "default_fair_val": 164.34,
     "premium_pct": 387.1,
     "is_undervalued": false,
     "pe_trailing": 34.0,
@@ -130696,11 +130853,11 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "972 891 7700",
     "full_address": "5205 N. O'Connor Boulevard Suite 100, Irving, TX 75039, US",
-    "range_52w": "491.3-1073.46",
+    "range_52w": "495.45-1073.46",
     "year_high": 1073.46,
-    "year_low": 491.3,
+    "year_low": 495.45,
     "all_time_high": 0.0,
-    "all_time_low": 491.3,
+    "all_time_low": 495.45,
     "inst_ownership_pct": 68.5,
     "insider_ownership_pct": 14.5,
     "top_holders": [
@@ -131450,6 +131607,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 159.16,
+    "default_fair_val": 159.16,
     "premium_pct": 74.9,
     "is_undervalued": false,
     "pe_trailing": 22.6,
@@ -132299,6 +132457,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 272.94,
+    "default_fair_val": 272.94,
     "premium_pct": -31.9,
     "is_undervalued": true,
     "pe_trailing": 32.4,
@@ -133148,6 +133307,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 231.48,
+    "default_fair_val": 231.48,
     "premium_pct": -10.3,
     "is_undervalued": true,
     "pe_trailing": 8.0,
@@ -133991,6 +134151,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 108.38,
+    "default_fair_val": 108.38,
     "premium_pct": 75.7,
     "is_undervalued": false,
     "pe_trailing": 61.8,
@@ -134852,6 +135013,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 1628.23,
+    "default_fair_val": 1628.23,
     "premium_pct": -68.7,
     "is_undervalued": true,
     "pe_trailing": 18.7,
@@ -135683,6 +135845,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 123.02,
+    "default_fair_val": 123.02,
     "premium_pct": 404.7,
     "is_undervalued": false,
     "pe_trailing": 34.4,
@@ -136520,6 +136683,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 99.02,
+    "default_fair_val": 99.02,
     "premium_pct": -4.5,
     "is_undervalued": true,
     "pe_trailing": 17.6,
@@ -137332,6 +137496,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 128.51,
+    "default_fair_val": 128.51,
     "premium_pct": 13.4,
     "is_undervalued": false,
     "pe_trailing": 24.8,
@@ -138175,6 +138340,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 43.76,
+    "default_fair_val": 43.76,
     "premium_pct": 49.6,
     "is_undervalued": false,
     "pe_trailing": 14.8,
@@ -138987,6 +139153,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 28.99,
+    "default_fair_val": 28.99,
     "premium_pct": -5.8,
     "is_undervalued": true,
     "pe_trailing": 17.0,
@@ -139842,6 +140009,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 103.9,
+    "default_fair_val": 103.9,
     "premium_pct": 0.1,
     "is_undervalued": false,
     "pe_trailing": 20.5,
@@ -140715,6 +140883,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 71.12,
+    "default_fair_val": 71.12,
     "premium_pct": -20.7,
     "is_undervalued": true,
     "pe_trailing": 15.6,
@@ -141558,6 +141727,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 242.59,
+    "default_fair_val": 242.59,
     "premium_pct": -4.5,
     "is_undervalued": true,
     "pe_trailing": 12.8,
@@ -142370,6 +142540,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 71.78,
+    "default_fair_val": 71.78,
     "premium_pct": 43.1,
     "is_undervalued": false,
     "pe_trailing": 23.7,
@@ -143182,6 +143353,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 28.1,
+    "default_fair_val": 28.1,
     "premium_pct": 13.8,
     "is_undervalued": false,
     "pe_trailing": 28.9,
@@ -144055,6 +144227,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 82.53,
+    "default_fair_val": 82.53,
     "premium_pct": -20.1,
     "is_undervalued": true,
     "pe_trailing": 16.6,
@@ -144867,6 +145040,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 210.2,
+    "default_fair_val": 210.2,
     "premium_pct": -15.5,
     "is_undervalued": true,
     "pe_trailing": 26.1,
@@ -145679,6 +145853,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 151.45,
+    "default_fair_val": 151.45,
     "premium_pct": -30.0,
     "is_undervalued": true,
     "pe_trailing": 24.0,
@@ -146516,6 +146691,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 240.51,
+    "default_fair_val": 240.51,
     "premium_pct": 12.6,
     "is_undervalued": false,
     "pe_trailing": 24.5,
@@ -147377,6 +147553,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 310.46,
+    "default_fair_val": 310.46,
     "premium_pct": -14.7,
     "is_undervalued": true,
     "pe_trailing": 15.8,
@@ -148189,6 +148366,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 164.18,
+    "default_fair_val": 164.18,
     "premium_pct": 10.1,
     "is_undervalued": false,
     "pe_trailing": 22.2,
@@ -149032,6 +149210,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 482.35,
+    "default_fair_val": 482.35,
     "premium_pct": 129.7,
     "is_undervalued": false,
     "pe_trailing": 29.1,
@@ -149844,6 +150023,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 82.06,
+    "default_fair_val": 82.06,
     "premium_pct": 101.1,
     "is_undervalued": false,
     "pe_trailing": 33.9,
@@ -150699,6 +150879,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 70.57,
+    "default_fair_val": 70.57,
     "premium_pct": 10.8,
     "is_undervalued": false,
     "pe_trailing": 23.7,
@@ -151572,6 +151753,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 62.97,
+    "default_fair_val": 62.97,
     "premium_pct": 38.0,
     "is_undervalued": false,
     "pe_trailing": 22.2,
@@ -152433,6 +152615,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 151.75,
+    "default_fair_val": 151.75,
     "premium_pct": 74.1,
     "is_undervalued": false,
     "pe_trailing": 23.8,
@@ -153276,6 +153459,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 54.43,
+    "default_fair_val": 54.43,
     "premium_pct": 116.4,
     "is_undervalued": false,
     "pe_trailing": 21.2,
@@ -154022,6 +154206,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 233.1,
+    "default_fair_val": 233.1,
     "premium_pct": -10.4,
     "is_undervalued": true,
     "pe_trailing": 29.3,
@@ -154834,6 +155019,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 273.23,
+    "default_fair_val": 273.23,
     "premium_pct": -38.2,
     "is_undervalued": true,
     "pe_trailing": 21.4,
@@ -155677,6 +155863,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 328.24,
+    "default_fair_val": 328.24,
     "premium_pct": -35.4,
     "is_undervalued": true,
     "pe_trailing": 20.5,
@@ -156520,6 +156707,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 336.46,
+    "default_fair_val": 336.46,
     "premium_pct": -60.1,
     "is_undervalued": true,
     "pe_trailing": 17.6,
@@ -157357,6 +157545,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 59.65,
+    "default_fair_val": 59.65,
     "premium_pct": -17.9,
     "is_undervalued": true,
     "pe_trailing": 23.6,
@@ -158212,6 +158401,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 414.59,
+    "default_fair_val": 414.59,
     "premium_pct": -64.3,
     "is_undervalued": true,
     "pe_trailing": 11.5,
@@ -159043,6 +159233,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 35.5,
+    "default_fair_val": 35.5,
     "premium_pct": 1.6,
     "is_undervalued": false,
     "pe_trailing": 12.4,
@@ -159868,6 +160059,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": -20.16,
+    "default_fair_val": -20.16,
     "premium_pct": -331.2,
     "is_undervalued": true,
     "pe_trailing": 21.4,
@@ -160705,6 +160897,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 1121.45,
+    "default_fair_val": 1121.45,
     "premium_pct": -59.4,
     "is_undervalued": true,
     "pe_trailing": 15.5,
@@ -161524,6 +161717,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 819.62,
+    "default_fair_val": 819.62,
     "premium_pct": -47.1,
     "is_undervalued": true,
     "pe_trailing": 17.3,
@@ -162355,6 +162549,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 323.09,
+    "default_fair_val": 323.09,
     "premium_pct": -13.9,
     "is_undervalued": true,
     "pe_trailing": 15.7,
@@ -163167,6 +163362,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 216.58,
+    "default_fair_val": 216.58,
     "premium_pct": -72.2,
     "is_undervalued": true,
     "pe_trailing": 8.2,
@@ -163992,6 +164188,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 26.9,
+    "default_fair_val": 26.9,
     "premium_pct": 20.8,
     "is_undervalued": false,
     "pe_trailing": 20.9,
@@ -164804,6 +165001,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 47.94,
+    "default_fair_val": 47.94,
     "premium_pct": 51.6,
     "is_undervalued": false,
     "pe_trailing": 28.9,
@@ -165653,6 +165851,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 38.94,
+    "default_fair_val": 38.94,
     "premium_pct": -16.4,
     "is_undervalued": true,
     "pe_trailing": 17.0,
@@ -166496,6 +166695,7 @@ window.FULL_MARKET_DATA = {
       }
     ],
     "fair_val": 63.79,
+    "default_fair_val": 63.79,
     "premium_pct": -11.1,
     "is_undervalued": true,
     "pe_trailing": 18.2,
