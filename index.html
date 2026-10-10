@@ -1048,7 +1048,7 @@
 <script>
   let stockUniverse = {};
 
-  // 板塊英中雙語對照表
+// 板塊英中雙語對照表
   const SECTOR_NAMES_EN = {
     "資訊科技": "Information Technology",
     "通訊服務": "Communication Services",
@@ -1071,6 +1071,16 @@
     return s.sector;
   }
 
+  function getStockDisplayName(s) {
+    if (!s) return "";
+    const ticker = (s.ticker || "").toUpperCase().trim();
+    if (typeof currentLang !== 'undefined' && currentLang === 'zh') {
+      return STOCK_NAMES_ZH[ticker] || s.name_zh || s.name || s.company_name || ticker;
+    } else {
+      return s.name_en || s.company_name || s.name || ticker;
+    }
+  }
+
 // 美股 200 檔全覆蓋繁體中文名稱官方對照字典
   const STOCK_NAMES_ZH = {
     // 資訊科技 (38檔)
@@ -1086,7 +1096,7 @@
     // 通訊服務 (15檔)
     "GOOGL": "Alphabet (Class A)", "GOOG": "Alphabet (Class C)", "META": "Meta (臉書)", "NFLX": "網飛", "DIS": "迪士尼",
     "TMUS": "T-Mobile 美國", "VZ": "威訊通訊", "T": "AT&T", "CMCSA": "康卡斯特", "TKO": "TKO 控股 (WWE/UFC)",
-    "LYV": "理想國演藝", "IRDM", "銥星通訊", "EA": "美商藝電", "TTWO": "Take-Two 互動", "WBD": "華納兄弟探索",
+    "LYV": "理想國演藝", "IRDM": "銥星通訊", "EA": "美商藝電", "TTWO": "Take-Two 互動", "WBD": "華納兄弟探索",
 
     // 非必需消費 (24檔)
     "AMZN": "亞馬遜", "TSLA": "特斯拉", "HD": "家得寶", "MCD": "麥當勞", "BKNG": "Booking 控股",
@@ -1143,18 +1153,6 @@
     "PLD": "普洛斯 (Prologis)", "AMT": "美國電塔", "EQIX": "易華電腦 (Equinix)", "SPG": "西蒙地產", "CSGP": "科斯塔集團",
     "VICI": "維奇房產 (VICI)", "O": "Realty Income"
   };
-
-function getStockDisplayName(s) {
-    if (!s) return "";
-    const ticker = (s.ticker || "").toUpperCase().trim();
-    if (typeof currentLang !== 'undefined' && currentLang === 'zh') {
-      // 中文模式：優先使用 200 檔繁中對照表，其次使用後端傳入的中文名
-      return STOCK_NAMES_ZH[ticker] || s.name_zh || s.name || s.company_name || ticker;
-    } else {
-      // 英文模式：嚴格只使用標準英文企業名稱，絕不出中文
-      return s.name_en || s.company_name || s.name || ticker;
-    }
-  }
 
   const US_TREASURY_CURVE = {
     1: 0.0465, 2: 0.0440, 3: 0.0435, 4: 0.0432, 5: 0.0430,
@@ -3222,11 +3220,48 @@ function loadCompanyProfile(ticker) {
     }
   });
 
+let isAppReady = false;
+
+  function markAppLoaded(data) {
+    if (isAppReady || !data || Object.keys(data).length === 0) return;
+    isAppReady = true;
+    stockUniverse = JSON.parse(JSON.stringify(data));
+    
+    // 預先計算並快取官方原始預設 Fair Value，保證不被覆蓋
+    Object.keys(stockUniverse).forEach(ticker => {
+      const originalDcf = computeDCF(stockUniverse[ticker], ticker);
+      if (originalDcf) {
+        stockUniverse[ticker].default_fair_val = originalDcf.fairVal;
+      }
+    });
+
+    applyLanguage(currentLang);
+    initInteractions();
+    handleInitialNavigation();
+  }
+
+  function checkGlobalData() {
+    if (typeof window.FULL_MARKET_DATA !== 'undefined' && window.FULL_MARKET_DATA && Object.keys(window.FULL_MARKET_DATA).length > 0) {
+      markAppLoaded(window.FULL_MARKET_DATA);
+      return true;
+    }
+    return false;
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    if (!checkGlobalData()) {
+      fetch('market_data.js?t=' + Date.now())
+        .then(r => r.text())
+        .then(text => {
+          const m = text.match(/window\.FULL_MARKET_DATA\s*=\s*({[\s\S]*?});/);
+          if (m && m[1]) markAppLoaded(JSON.parse(m[1]));
+        })
+        .catch(e => console.warn(e));
+    }
+  });
+
   const pollTimer = setInterval(() => {
     if (checkGlobalData() || isAppReady) {
       clearInterval(pollTimer);
     }
   }, 100);
-</script>
-</body>
-</html>
