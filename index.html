@@ -130,8 +130,8 @@
     .table-scroll-wrapper::-webkit-scrollbar-thumb { background: #38bdf8; border-radius: 6px; border: 3px solid #0f172a; }
 
     table#screener-table {
-      width: 4000px !important;
-      min-width: 4000px !important;
+      width: 3880px !important;
+      min-width: 3880px !important;
       border-collapse: separate !important;
       border-spacing: 0;
       font-size: 12px;
@@ -493,7 +493,6 @@
             <th onclick="sortTable('cash_to_assets')" style="width: 110px;" data-i18n="th_cash_assets">現金/資產 (%)</th>
             <th onclick="sortTable('liab_to_assets')" style="width: 110px;" data-i18n="th_liab_assets">負債/資產 (%)</th>
             <th onclick="sortTable('current_ratio')" style="width: 90px;" data-i18n="th_curr_ratio">流動比率</th>
-            <th onclick="sortTable('cash_minus_liab')" style="width: 125px;" data-i18n="th_net_cash">現金淨額 ($M)</th>
             <th onclick="sortTable('roe')" style="width: 90px;">ROE (%)</th>
             <th onclick="sortTable('roa')" style="width: 90px;">ROA (%)</th>
             <th onclick="sortTable('f_score')" style="width: 115px; text-align: center;" data-i18n="th_fscore">F-Score 評分</th>
@@ -1132,7 +1131,6 @@
       th_cash_assets: "現金/資產 (%)",
       th_liab_assets: "負債/資產 (%)",
       th_curr_ratio: "流動比率",
-      th_net_cash: "現金淨額 ($M)",
       th_fscore: "F-Score 評分",
       btn_save_target: "💾 儲存自訂目標價",
       btn_reset_defaults: "恢復官方預設",
@@ -1280,7 +1278,6 @@
       th_cash_assets: "Cash / Assets (%)",
       th_liab_assets: "Liab / Assets (%)",
       th_curr_ratio: "Current Ratio",
-      th_net_cash: "Net Cash ($M)",
       th_fscore: "F-Score",
       btn_save_target: "💾 Save Custom Target",
       btn_reset_defaults: "Restore Official Defaults",
@@ -1891,9 +1888,6 @@
           <td style="color: #38bdf8;">${item.cash_to_assets !== undefined ? Number(item.cash_to_assets).toFixed(1) + '%' : '--'}</td>
           <td>${item.liab_to_assets !== undefined ? Number(item.liab_to_assets).toFixed(1) + '%' : '--'}</td>
           <td>${item.current_ratio !== undefined ? Number(item.current_ratio).toFixed(2) : '--'}</td>
-          <td style="${Number(item.cash_minus_liab) >= 0 ? 'color: var(--green);' : 'color: var(--red);'}; font-weight: 600;">
-            ${Number(item.cash_minus_liab) < 0 ? '-$' + Math.abs(Number(item.cash_minus_liab)).toLocaleString(undefined, {maximumFractionDigits: 0}) : '$' + (Number(item.cash_minus_liab) || 0).toLocaleString(undefined, {maximumFractionDigits: 0})}
-          </td>
           <td style="font-weight: 600; color: #fde047;">${item.roe !== undefined ? Number(item.roe).toFixed(1) + '%' : '--'}</td>
           <td style="color: #4ade80;">${item.roa !== undefined ? Number(item.roa).toFixed(1) + '%' : '--'}</td>
           <td style="text-align: center;">
