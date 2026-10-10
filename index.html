@@ -1160,6 +1160,7 @@
       tab_dividend: "💰 6. 每股盈餘與股息",
       tab_news: "📰 7. 公司新聞",
       sec_profile_title: "企業核心業務與營運全貌",
+      lbl_hq: "總部:",
       lbl_reg_addr: "註冊地址:",
       lbl_phone: "公司電話:",
       lbl_ceo: "執行長 (CEO):",
@@ -1306,6 +1307,7 @@
       tab_dividend: "💰 6. EPS & Dividends",
       tab_news: "📰 7. News Feed",
       sec_profile_title: "Core Business & Corporate Profile",
+      lbl_hq: "HQ:",
       lbl_reg_addr: "Registered Address:",
       lbl_phone: "Phone Number:",
       lbl_ceo: "Chief Executive (CEO):",
@@ -2283,14 +2285,19 @@
     document.getElementById('cmp-card-ind').innerText = s.industry || '--';
     document.getElementById('cmp-site-link').href = s.website || `https://www.google.com/finance/quote/${ticker}`;
 
-    const desc = (currentLang === 'zh' ? (s.description_zh || s.description) : (s.description || s.description_zh)) || "美股上市公司官方即時財務檔案。";
+    const isEn = (currentLang === 'en');
+    const hqPrefix = isEn ? "HQ:" : "總部:";
+    const shareUnit = isEn ? "M shares" : "M 股";
+
+    // 業務描述：若有 Gemini 翻譯的深度中文 description_zh 則使用；否則使用原生 description
+    const desc = (isEn ? (s.description || s.description_en) : (s.description_zh || s.description)) || (isEn ? "Official financial profile." : "美股上市公司官方即時財務檔案。");
     document.getElementById('cmp-description').innerText = desc;
-    document.getElementById('cmp-full-headquarters').innerText = `📍 總部: ${s.city || ''} ${s.country || 'USA'}`;
+    document.getElementById('cmp-full-headquarters').innerText = `📍 ${hqPrefix} ${s.city || ''} ${s.country || 'USA'}`;
     document.getElementById('cmp-meta-address').innerText = s.full_address || `${s.address || '--'}, ${s.city || '--'}, ${s.country || 'USA'}`;
     document.getElementById('cmp-meta-phone').innerText = s.phone || "+1 (408) 996-1010";
-    document.getElementById('cmp-meta-ceo').innerText = s.ceo || "管理團隊";
+    document.getElementById('cmp-meta-ceo').innerText = s.ceo || (isEn ? "Executive Team" : "管理團隊");
     document.getElementById('cmp-meta-emp').innerText = s.full_time_employees ? Number(s.full_time_employees).toLocaleString() : "--";
-    document.getElementById('cmp-meta-shares').innerText = `${Number(s.shares || 0).toFixed(2)} M 股`;
+    document.getElementById('cmp-meta-shares').innerText = `${Number(s.shares || 0).toFixed(2)} ${shareUnit}`;
     document.getElementById('cmp-meta-beta').innerText = Number(s.beta || 1.0).toFixed(2);
 
     const p = Number(s.price) || 100;
