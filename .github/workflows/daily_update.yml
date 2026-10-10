@@ -30,16 +30,16 @@ jobs:
           pip install --upgrade pip
           pip install requests pydantic google-genai
 
-      - name: Cache AI Moat and Description Files
+      - name: Cache AI Moat, Financials and Description Files
         uses: actions/cache@v4
         with:
           path: |
             cache/moat
             cache/descriptions
-          key: ai-data-cache-${{ runner.os }}-${{ github.run_id }}
+            cache/financials
+          key: market-data-cache-${{ runner.os }}-${{ github.sha }}
           restore-keys: |
-            ai-data-cache-${{ runner.os }}-
-            ai-data-cache-
+            market-data-cache-${{ runner.os }}-
 
       - name: Run Market Engine with FMP Key
         env:
@@ -49,12 +49,11 @@ jobs:
         run: |
           python -u build_full_market.py
 
-      - name: Commit & Push New DCF Dataset & Moat Cache
+      - name: Commit & Push New DCF Dataset & Cache
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git pull origin main --rebase --autostash
           git add full_market_dcf.json market_data.js cache/
-          git diff-index --quiet HEAD || git commit -m "Auto refresh US stock DCF data & Moat Cache [skip ci]"
+          git diff-index --quiet HEAD || git commit -m "Auto refresh US stock DCF data & Cache [skip ci]"
           git push origin main
-  
