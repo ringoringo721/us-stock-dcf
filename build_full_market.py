@@ -750,10 +750,13 @@ def main():
         if sym == "TSM":
             fx_rate = 1.0 / 32.0
 
-        # 抓取真實 5 年年度與季度歷史報表 (存入真實歷史軌跡)
-        inc_annual = fetch_json("income-statement", {"symbol": fmp_sym, "period": "annual", "limit": 5}) or []
-        bs_annual = fetch_json("balance-sheet-statement", {"symbol": fmp_sym, "period": "annual", "limit": 5}) or []
-        cf_annual = fetch_json("cash-flow-statement", {"symbol": fmp_sym, "period": "annual", "limit": 5}) or []
+        # 1. 從本機持久化快取取得已結算年度報表 (命中時 0 次 API 請求)
+        annual_cache = fetch_cached_annual_statements(fmp_sym, sym)
+        inc_annual = annual_cache.get("income", [])
+        bs_annual = annual_cache.get("balance", [])
+        cf_annual = annual_cache.get("cashflow", [])
+
+        # 2. 僅動態抓取近 4 季即時數據用以精確滾動計算最新 TTM
         inc_quarter = fetch_json("income-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 4}) or []
         cf_quarter = fetch_json("cash-flow-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 4}) or []
 
