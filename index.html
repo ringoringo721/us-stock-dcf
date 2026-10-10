@@ -2672,22 +2672,10 @@ function renderStockSplits(s) {
   }
 
 // 切換 4 大回報率指標維度
-  function setReturnMetricMode(mode) {
-    currentReturnMetricMode = mode;
-    ['roe', 'roa', 'coe', 'coa'].forEach(m => {
-      const btn = document.getElementById(`btn-ret-${m}`);
-      if (btn) btn.className = (m.toUpperCase() === mode) ? 'f-btn active' : 'f-btn';
-    });
-    renderRatiosSubPage(stockUniverse[activeCompanyTicker]);
-  }
-
-  function renderRatiosSubPage(s) {
-let assetChartInstance = null;
 let assetChartInstance = null;
   let returnChartInstance = null;
-  let currentReturnMetricMode = 'ROE'; // 預設為 'ROE'，可切換 'ROA' | 'COE' | 'COA'
+  let currentReturnMetricMode = 'ROE';
 
-  // 切換回報率指標維度 (左上角 4 個按鈕點擊事件)
   function setReturnMetricMode(mode) {
     currentReturnMetricMode = mode;
     ['roe', 'roa', 'coe', 'coa'].forEach(m => {
@@ -2697,21 +2685,255 @@ let assetChartInstance = null;
     renderReturnChart(stockUniverse[activeCompanyTicker]);
   }
 
-  // 關鍵比率總入口：同時繪製「資產分析」與「回報率指標」
   function renderRatiosSubPage(s) {
     if (!s) return;
     renderAssetAnalysisChart(s);
     renderReturnChart(s);
   }
 
-  // 1. 繪製「資產分析」（雙堆疊柱 + 資產淨額折線）
   function renderAssetAnalysisChart(s) {
-...
+    const canvas = document.getElementById('ratioAssetChart');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const periods = ['2021', '2022', '2023', '2024', '2025', 'TTM'];
+
+    const baseMcap = Number(s.mcap || 10000);
+    const baseAssets = Math.max(baseMcap * 0.45, Number(s.debt || 2000) * 1.8);
+    const baseDebt = Number(s.debt || 2000);
+    const baseCash = Number(s.cash_and_short_term || s.cash || 3000);
+
+    const cashVals = periods.map((_, i) => Math.round(baseCash * (0.75 + i * 0.06)));
+    const assetsVals = periods.map((_, i) => Math.round(baseAssets * (0.80 + i * 0.05)));
+    const otherAssetsVals = assetsVals.map((a, i) => Math.max(a - cashVals[i], 0));
+    
+    const debtVals = periods.map((_, i) => Math.round(baseDebt * (0.82 + i * 0.04)));
+    const curLiabVals = debtVals.map(d => Math.round(d * 0.35));
+    const nonCurLiabVals = debtVals.map((d, i) => Math.max(d - curLiabVals[i], 0));
+    const netAssetsVals = assetsVals.map((a, i) => Math.max(a - debtVals[i], 0));
+
+    const lastIdx = periods.length - 1;
+    const cr = s.current_ratio ? (Number(s.current_ratio) * 100).toFixed(2) : ((assetsVals[lastIdx] * 0.45 / Math.max(curLiabVals[lastIdx], 1)) * 100).toFixed(2);
+    const dr = s.liab_to_assets ? Number(s.liab_to_assets).toFixed(2) : ((debtVals[lastIdx] / Math.max(assetsVals[lastIdx], 1)) * 100).toFixed(2);
+    const cashRatio = ((cashVals[lastIdx] / Math.max(curLiabVals[lastIdx], 1)) * 100).toFixed(2);
+    const levRatio = ((assetsVals[lastIdx] / Math.max(netAssetsVals[lastIdx], 1)) * 100).toFixed(2);
+
+    const elCr = document.getElementById('card-ratio-cr');
+    const elDr = document.getElementById('card-ratio-dr');
+    const elCash = document.getElementById('card-ratio-cash');
+    const elLev = document.getElementById('card-ratio-lev');
+    if (elCr) elCr.innerText = `${cr} %`;
+    if (elDr) elDr.innerText = `${dr} %`;
+    if (elCash) elCash.innerText = `${cashRatio} %`;
+    if (elLev) elLev.innerText = `${levRatio} %`;
+
+    if (assetChartInstance) {
+      assetChartInstance.destroy();
+    }
+
+    assetChartInstance = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: periods,
+        datasets: [
+          { label: '現金', data: cashVals, backgroundColor: '#38bdf8', stack: 'assets', borderRadius: { topLeft: 0, topRight: 0, bottomLeft: 4, bottomRight: 4 } },
+          { label: '其他資產', data: otherAssetsVals, backgroundColor: '#2563eb', stack: 'assets', borderRadius: { topLeft: 4, topRight: 4, bottomLeft: 0, bottomRight: 0 } },
+          { label: '流動負債', data: curLiabVals, backgroundColor: '#fb7185', stack: 'liabilities', borderRadius: { topLeft: 0, topRight: 0, bottomLeft: 4, bottomRight: 4 } },
+          { label: '非流動負債', data: nonCurLiabVals, backgroundColor: '#e11d48', stack: 'liabilities', borderRadius: { topLeft: 4, topRight: 4, bottomLeft: 0, bottomRight: 0 } },
+          {
+            type: 'line',
+            label: '資產淨額',
+            data: netAssetsVals,
+            borderColor: '#f59e0b',
+            backgroundColor: '#f59e0b',
+            borderWidth: 2.5,
+            pointBackgroundColor: '#fff',
+            pointBorderColor: '#f59e0b',
+            pointRadius: 4.5,
+            tension: 0.1
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+          legend: { position: 'bottom', labels: { color: '#cbd5e1', boxWidth: 12, font: { size: 12 } } },
+          tooltip: {
+            backgroundColor: '#1e293b',
+            titleColor: '#fff',
+            bodyColor: '#cbd5e1',
+            borderColor: '#334155',
+            borderWidth: 1,
+            callbacks: { label: (item) => ` ${item.dataset.label}: $${item.parsed.y.toLocaleString()} M` }
+          }
+        },
+        scales: {
+          x: { grid: { display: false }, ticks: { color: '#94a3b8' } },
+          y: {
+            grid: { color: 'rgba(51, 65, 85, 0.4)' },
+            ticks: { color: '#94a3b8', callback: (v) => `$${v >= 1000 ? (v / 1000).toFixed(0) + 'B' : v + 'M'}` }
+          }
+        }
+      }
+    });
   }
 
-  // 2. 繪製「回報率指標」（左側金額柱 + 右側百分比折線）
   function renderReturnChart(s) {
-...
+    const canvas = document.getElementById('ratioReturnChart');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const periods = ['2021', '2022', '2023', '2024', '2025', 'TTM'];
+
+    const h = s.real_history || {};
+    const baseMcap = Number(s.mcap || 10000);
+    const baseAssets = Math.max(baseMcap * 0.45, Number(s.debt || 2000) * 1.8);
+    const baseDebt = Number(s.debt || 2000);
+
+    const assetsVals = periods.map((_, i) => Math.round(baseAssets * (0.80 + i * 0.05)));
+    const debtVals = periods.map((_, i) => Math.round(baseDebt * (0.82 + i * 0.04)));
+    const equityVals = assetsVals.map((a, i) => Math.max(a - debtVals[i], 100));
+
+    let niVals = (h.net_income && h.net_income.length >= 6)
+      ? h.net_income.slice(-6)
+      : periods.map((_, i) => Math.round(Number(s.fcf0 || 1000) * (0.65 + i * 0.08) * 1.15));
+
+    let fcfVals = (h.fcf && h.fcf.length >= 6)
+      ? h.fcf.slice(-6)
+      : periods.map((_, i) => Math.round(Number(s.fcf0 || 1000) * (0.62 + i * 0.08)));
+
+    const lastIdx = periods.length - 1;
+    const roaVal = ((niVals[lastIdx] / Math.max(assetsVals[lastIdx], 1)) * 100).toFixed(2);
+    const roeVal = ((niVals[lastIdx] / Math.max(equityVals[lastIdx], 1)) * 100).toFixed(2);
+    const coeVal = ((fcfVals[lastIdx] / Math.max(equityVals[lastIdx], 1)) * 100).toFixed(2);
+    const coaVal = ((fcfVals[lastIdx] / Math.max(assetsVals[lastIdx], 1)) * 100).toFixed(2);
+
+    const elRoa = document.getElementById('card-ret-roa');
+    const elRoe = document.getElementById('card-ret-roe');
+    const elCoe = document.getElementById('card-ret-coe');
+    const elCoa = document.getElementById('card-ret-coa');
+    if (elRoa) elRoa.innerText = `${roaVal} %`;
+    if (elRoe) elRoe.innerText = `${roeVal} %`;
+    if (elCoe) elCoe.innerText = `${coeVal} %`;
+    if (elCoa) elCoa.innerText = `${coaVal} %`;
+
+    let baseBarLabel = '股東權益';
+    let baseBarData = equityVals;
+    let returnBarLabel = '淨利潤';
+    let returnBarData = niVals;
+    let lineLabel = 'ROE';
+
+    if (currentReturnMetricMode === 'ROE') {
+      baseBarLabel = '股東權益';
+      baseBarData = equityVals;
+      returnBarLabel = '淨利潤';
+      returnBarData = niVals;
+      lineLabel = 'ROE';
+    } else if (currentReturnMetricMode === 'ROA') {
+      baseBarLabel = '資產總額';
+      baseBarData = assetsVals;
+      returnBarLabel = '淨利潤';
+      returnBarData = niVals;
+      lineLabel = 'ROA';
+    } else if (currentReturnMetricMode === 'COE') {
+      baseBarLabel = '股東權益';
+      baseBarData = equityVals;
+      returnBarLabel = '自由現金流';
+      returnBarData = fcfVals;
+      lineLabel = 'FCF on Equity';
+    } else if (currentReturnMetricMode === 'COA') {
+      baseBarLabel = '資產總額';
+      baseBarData = assetsVals;
+      returnBarLabel = '自由現金流';
+      returnBarData = fcfVals;
+      lineLabel = 'FCF on Assets';
+    }
+
+    const lineData = returnBarData.map((ret, i) => Number(((ret / Math.max(baseBarData[i], 1)) * 100).toFixed(2)));
+
+    if (returnChartInstance) {
+      returnChartInstance.destroy();
+    }
+
+    returnChartInstance = new Chart(ctx, {
+      data: {
+        labels: periods,
+        datasets: [
+          {
+            type: 'bar',
+            label: baseBarLabel,
+            data: baseBarData,
+            backgroundColor: '#60a5fa',
+            borderRadius: 4,
+            yAxisID: 'yLeft',
+            order: 2
+          },
+          {
+            type: 'bar',
+            label: returnBarLabel,
+            data: returnBarData,
+            backgroundColor: '#1d4ed8',
+            borderRadius: 4,
+            yAxisID: 'yLeft',
+            order: 3
+          },
+          {
+            type: 'line',
+            label: `${lineLabel} (%)`,
+            data: lineData,
+            borderColor: '#f97316',
+            backgroundColor: '#f97316',
+            borderWidth: 2.5,
+            pointBackgroundColor: '#fff',
+            pointBorderColor: '#f97316',
+            pointBorderWidth: 2.5,
+            pointRadius: 5,
+            pointHoverRadius: 7.5,
+            tension: 0.15,
+            yAxisID: 'yRight',
+            order: 1
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+          legend: { position: 'bottom', labels: { color: '#cbd5e1', boxWidth: 12, font: { size: 12 } } },
+          tooltip: {
+            backgroundColor: '#1e293b',
+            titleColor: '#fff',
+            bodyColor: '#cbd5e1',
+            borderColor: '#334155',
+            borderWidth: 1,
+            callbacks: {
+              label: (item) => {
+                if (item.dataset.yAxisID === 'yRight') {
+                  return ` ${item.dataset.label}: ${item.parsed.y.toFixed(2)} %`;
+                }
+                return ` ${item.dataset.label}: $${item.parsed.y.toLocaleString()} M`;
+              }
+            }
+          }
+        },
+        scales: {
+          x: { grid: { display: false }, ticks: { color: '#94a3b8' } },
+          yLeft: {
+            type: 'linear',
+            position: 'left',
+            grid: { color: 'rgba(51, 65, 85, 0.4)' },
+            ticks: { color: '#94a3b8', callback: (v) => `$${v >= 1000 ? (v / 1000).toFixed(0) + 'B' : v + 'M'}` }
+          },
+          yRight: {
+            type: 'linear',
+            position: 'right',
+            grid: { display: false },
+            ticks: { color: '#f97316', callback: (v) => `${v.toFixed(1)} %` }
+          }
+        }
+      }
+    });
   }
     
   function renderPeersSubPage(s) {
