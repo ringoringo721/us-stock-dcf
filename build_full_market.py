@@ -45,8 +45,10 @@ if HAS_GENAI:
 
 CACHE_DIR = "cache/moat"
 DESC_CACHE_DIR = "cache/descriptions"
+FIN_CACHE_DIR = "cache/financials"
 os.makedirs(CACHE_DIR, exist_ok=True)
 os.makedirs(DESC_CACHE_DIR, exist_ok=True)
+os.makedirs(FIN_CACHE_DIR, exist_ok=True)
 
 def get_deep_chinese_description(ticker: str, company_name: str, en_desc: str) -> str:
     """利用 Gemini 將 FMP 英文業務描述翻譯並提煉為繁體中文，並支援本機快取"""
