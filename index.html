@@ -377,6 +377,19 @@
       border-color: var(--accent);
     }
 
+    /* 財務報表分組標題列樣式 */
+    .fin-group-header-row td {
+      background: #111c30 !important;
+      color: #38bdf8 !important;
+      font-weight: 800 !important;
+      font-size: 13px !important;
+      padding: 9px 14px !important;
+      border-top: 1px solid #334155 !important;
+      border-bottom: 1px solid #334155 !important;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
     /* 迷你財務折線與面積趨勢圖 (SVG Sparkline) */
     .spark-line-wrap {
       display: inline-flex;
@@ -1034,6 +1047,30 @@
 
 <script>
   let stockUniverse = {};
+
+  // 板塊英中雙語對照表
+  const SECTOR_NAMES_EN = {
+    "資訊科技": "Information Technology",
+    "通訊服務": "Communication Services",
+    "非必需消費": "Consumer Discretionary",
+    "必需消費": "Consumer Staples",
+    "金融": "Financials",
+    "醫療保健": "Healthcare",
+    "能源": "Energy",
+    "工業": "Industrials",
+    "原物料": "Materials",
+    "公用事業": "Utilities",
+    "房地產": "Real Estate"
+  };
+
+  function getStockDisplaySector(s) {
+    if (!s || !s.sector) return '--';
+    if (typeof currentLang !== 'undefined' && currentLang === 'en') {
+      return SECTOR_NAMES_EN[s.sector] || s.sector;
+    }
+    return s.sector;
+  }
+
   // 美股核心標的繁體中文名稱對照表
   const STOCK_NAMES_ZH = {
     "NVDA": "輝達", "AAPL": "蘋果", "MSFT": "微軟", "AMZN": "亞馬遜", "GOOGL": "Alphabet (Class A)",
