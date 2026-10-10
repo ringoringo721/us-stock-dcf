@@ -738,7 +738,7 @@ def main():
             cur_assets = float(bs.get("totalCurrentAssets") or 1.0)
             cur_liab = float(bs.get("totalCurrentLiabilities") or 1.0)
             liab_r = round((total_liab / total_assets) * 100.0, 1) if total_assets > 0 else 40.0
-            cash_to_assets = round((tot_cash / total_assets) * 100.0, 1) if total_assets > 0 else 0.0
+            cash_to_assets = round((tot_cash_raw / total_assets) * 100.0, 1) if total_assets > 0 else 0.0
             cr = round(cur_assets / cur_liab, 2) if cur_liab > 0 else 1.5
 
         time.sleep(0.04)
