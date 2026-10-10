@@ -46,9 +46,11 @@ if HAS_GENAI:
 CACHE_DIR = "cache/moat"
 DESC_CACHE_DIR = "cache/descriptions"
 FIN_CACHE_DIR = "cache/financials"
+META_CACHE_DIR = "cache/company_meta"
 os.makedirs(CACHE_DIR, exist_ok=True)
 os.makedirs(DESC_CACHE_DIR, exist_ok=True)
 os.makedirs(FIN_CACHE_DIR, exist_ok=True)
+os.makedirs(META_CACHE_DIR, exist_ok=True)
 
 def get_deep_chinese_description(ticker: str, company_name: str, en_desc: str) -> str:
     """利用 Gemini 將 FMP 英文業務描述翻譯並提煉為繁體中文，並支援本機快取"""
@@ -727,6 +729,11 @@ def main():
         if shares <= 0: shares = round(mcap / price, 1)
         time.sleep(0.04)
 
+        # 1.1 取得該標的真實 13F 機構股東、內部人與拆股數據 (本地快取保護)
+        company_meta = fetch_cached_company_meta(fmp_sym, sym, shares, price)
+        real_inst_ownership = company_meta.get("inst_ownership_pct", 72.0)
+        real_insider_ownership = company_meta.get("insider_ownership_pct", 5.0)
+        
         # 2. 資產負債表 (精確計算 TBV)
         bs_data = fetch_json("balance-sheet-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 1})
         debt, cash, equity, total_assets = 0.0, 0.0, 1.0, 1.0
@@ -1118,9 +1125,12 @@ def main():
             "all_time_high": float(prof.get("mktCap", 0) / (shares * 1e6)) * 1.25 if shares > 0 else price * 1.3,
             "all_time_low": float(q.get("yearLow") or price * 0.45) if q else price * 0.45,
 
-            # === 持有人結構基準 ===
-            "inst_ownership_pct": 72.5 if item["sector"] in ["資訊科技", "金融"] else 65.0,
-            "insider_ownership_pct": 8.5 if item["sector"] in ["資訊科技"] else 3.2,
+            # === 持有人結構與 13F 真實數據 ===
+            "inst_ownership_pct": real_inst_ownership,
+            "insider_ownership_pct": real_insider_ownership,
+            "top_holders": company_meta.get("top_holders", []),
+            "insider_trades": company_meta.get("insider_trades", []),
+            "stock_splits": company_meta.get("stock_splits", []),
             "fmp_symbol": fmp_sym
         }
 
