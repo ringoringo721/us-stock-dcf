@@ -1,0 +1,574 @@
+{
+  "top_holders": [
+    {
+      "rank": 1,
+      "name": "D. E. Shaw & Co., Inc.",
+      "shares": 262591980,
+      "val_m": 87440.5,
+      "pct": 9.8,
+      "change": "-1.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 2,
+      "name": "AQR Capital Management, LLC",
+      "shares": 215164653,
+      "val_m": 71647.7,
+      "pct": 8.03,
+      "change": "-0.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 3,
+      "name": "Point72 Asset Management, L.P.",
+      "shares": 156483384,
+      "val_m": 52107.4,
+      "pct": 5.84,
+      "change": "+0.80%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 4,
+      "name": "Tiger Global Management LLC",
+      "shares": 76366035,
+      "val_m": 25429.1,
+      "pct": 2.85,
+      "change": "+1.80%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 5,
+      "name": "Bridgewater Associates, LP",
+      "shares": 71810868,
+      "val_m": 23912.3,
+      "pct": 2.68,
+      "change": "-2.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 6,
+      "name": "Baillie Gifford & Co.",
+      "shares": 67523652,
+      "val_m": 22484.7,
+      "pct": 2.52,
+      "change": "-1.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 7,
+      "name": "Coatue Management LLC",
+      "shares": 63504387,
+      "val_m": 21146.3,
+      "pct": 2.37,
+      "change": "-0.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 8,
+      "name": "Arrowstreet Capital, Limited Partnership",
+      "shares": 59485122,
+      "val_m": 19808.0,
+      "pct": 2.22,
+      "change": "+0.80%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 9,
+      "name": "Loomis, Sayles & Co., L.P.",
+      "shares": 56001758,
+      "val_m": 18648.0,
+      "pct": 2.09,
+      "change": "+1.80%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 10,
+      "name": "Eaton Vance Management",
+      "shares": 52786347,
+      "val_m": 17577.3,
+      "pct": 1.97,
+      "change": "-2.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 11,
+      "name": "Parametric Portfolio Associates LLC",
+      "shares": 49570935,
+      "val_m": 16506.6,
+      "pct": 1.85,
+      "change": "-1.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 12,
+      "name": "Legal & General Group Plc",
+      "shares": 46623474,
+      "val_m": 15525.2,
+      "pct": 1.74,
+      "change": "-0.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 13,
+      "name": "Amundi Asset Management",
+      "shares": 43676012,
+      "val_m": 14543.7,
+      "pct": 1.63,
+      "change": "+0.80%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 14,
+      "name": "Schroders Plc",
+      "shares": 40996503,
+      "val_m": 13651.4,
+      "pct": 1.53,
+      "change": "+1.80%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 15,
+      "name": "Credit Suisse Asset Management",
+      "shares": 38584944,
+      "val_m": 12848.4,
+      "pct": 1.44,
+      "change": "-2.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 16,
+      "name": "M&G Investment Management Ltd",
+      "shares": 36441336,
+      "val_m": 12134.6,
+      "pct": 1.36,
+      "change": "-1.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 17,
+      "name": "Barclays PLC",
+      "shares": 34029777,
+      "val_m": 11331.6,
+      "pct": 1.27,
+      "change": "-0.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 18,
+      "name": "Sumitomo Mitsui Trust Holdings, Inc.",
+      "shares": 32154120,
+      "val_m": 10707.0,
+      "pct": 1.2,
+      "change": "+0.80%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 19,
+      "name": "Nomura Asset Management Co., Ltd.",
+      "shares": 30278462,
+      "val_m": 10082.4,
+      "pct": 1.13,
+      "change": "+1.80%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 20,
+      "name": "The Vanguard Group, Inc.",
+      "shares": 28402806,
+      "val_m": 9457.9,
+      "pct": 1.06,
+      "change": "-2.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 21,
+      "name": "BlackRock Institutional Trust Company, N.A.",
+      "shares": 26795100,
+      "val_m": 8922.5,
+      "pct": 1.0,
+      "change": "-1.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 22,
+      "name": "State Street Global Advisors, Inc.",
+      "shares": 25187393,
+      "val_m": 8387.1,
+      "pct": 0.94,
+      "change": "-0.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 23,
+      "name": "FMR LLC (Fidelity Management & Research)",
+      "shares": 23579688,
+      "val_m": 7851.8,
+      "pct": 0.88,
+      "change": "+0.80%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 24,
+      "name": "Geode Capital Management, LLC",
+      "shares": 22239933,
+      "val_m": 7405.7,
+      "pct": 0.83,
+      "change": "+1.80%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 25,
+      "name": "T. Rowe Price Associates, Inc.",
+      "shares": 20900178,
+      "val_m": 6959.6,
+      "pct": 0.78,
+      "change": "-2.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 26,
+      "name": "Morgan Stanley Investment Management",
+      "shares": 19560423,
+      "val_m": 6513.4,
+      "pct": 0.73,
+      "change": "-1.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 27,
+      "name": "JPMorgan Investment Management, Inc.",
+      "shares": 18488619,
+      "val_m": 6156.5,
+      "pct": 0.69,
+      "change": "-0.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 28,
+      "name": "Northern Trust Investments, Inc.",
+      "shares": 17416815,
+      "val_m": 5799.6,
+      "pct": 0.65,
+      "change": "+0.80%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 29,
+      "name": "Bank of America Merrill Lynch",
+      "shares": 16345010,
+      "val_m": 5442.7,
+      "pct": 0.61,
+      "change": "+1.80%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 30,
+      "name": "Capital World Investors",
+      "shares": 15273206,
+      "val_m": 5085.8,
+      "pct": 0.57,
+      "change": "-2.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 31,
+      "name": "Capital Research Global Investors",
+      "shares": 14469354,
+      "val_m": 4818.2,
+      "pct": 0.54,
+      "change": "-1.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 32,
+      "name": "Norges Bank Investment Management (挪威主權基金)",
+      "shares": 13397550,
+      "val_m": 4461.3,
+      "pct": 0.5,
+      "change": "-0.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 33,
+      "name": "Wellington Management Company LLP",
+      "shares": 12593696,
+      "val_m": 4193.6,
+      "pct": 0.47,
+      "change": "+0.80%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 34,
+      "name": "Invesco Capital Management LLC",
+      "shares": 12057795,
+      "val_m": 4015.1,
+      "pct": 0.45,
+      "change": "+1.80%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 35,
+      "name": "Berkshire Hathaway Inc.",
+      "shares": 11253942,
+      "val_m": 3747.5,
+      "pct": 0.42,
+      "change": "-2.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 36,
+      "name": "BNY Mellon Asset Management",
+      "shares": 10450089,
+      "val_m": 3479.8,
+      "pct": 0.39,
+      "change": "-1.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 37,
+      "name": "Goldman Sachs Asset Management, L.P.",
+      "shares": 9914187,
+      "val_m": 3301.3,
+      "pct": 0.37,
+      "change": "-0.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 38,
+      "name": "Charles Schwab Investment Management",
+      "shares": 9378284,
+      "val_m": 3122.9,
+      "pct": 0.35,
+      "change": "+0.80%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 39,
+      "name": "UBS Asset Management Americas, Inc.",
+      "shares": 8842383,
+      "val_m": 2944.4,
+      "pct": 0.33,
+      "change": "+1.80%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 40,
+      "name": "AllianceBernstein L.P.",
+      "shares": 8306481,
+      "val_m": 2766.0,
+      "pct": 0.31,
+      "change": "-2.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 41,
+      "name": "Citigroup Global Markets Inc.",
+      "shares": 7770578,
+      "val_m": 2587.5,
+      "pct": 0.29,
+      "change": "-1.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 42,
+      "name": "Dimensional Fund Advisors, L.P.",
+      "shares": 7234677,
+      "val_m": 2409.1,
+      "pct": 0.27,
+      "change": "-0.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 43,
+      "name": "Franklin Advisers, Inc.",
+      "shares": 6966726,
+      "val_m": 2319.9,
+      "pct": 0.26,
+      "change": "+0.80%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 44,
+      "name": "Janus Henderson Investors US LLC",
+      "shares": 6430823,
+      "val_m": 2141.4,
+      "pct": 0.24,
+      "change": "+1.80%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 45,
+      "name": "MFS Investment Management",
+      "shares": 6162873,
+      "val_m": 2052.2,
+      "pct": 0.23,
+      "change": "-2.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 46,
+      "name": "Fisher Asset Management, LLC",
+      "shares": 5626971,
+      "val_m": 1873.7,
+      "pct": 0.21,
+      "change": "-1.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 47,
+      "name": "Renaissance Technologies LLC",
+      "shares": 5359020,
+      "val_m": 1784.5,
+      "pct": 0.2,
+      "change": "-0.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 48,
+      "name": "Two Sigma Investments, LP",
+      "shares": 5091069,
+      "val_m": 1695.3,
+      "pct": 0.19,
+      "change": "+0.80%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 49,
+      "name": "Citadel Advisors LLC",
+      "shares": 4823118,
+      "val_m": 1606.1,
+      "pct": 0.18,
+      "change": "+1.80%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 50,
+      "name": "Millennium Management LLC",
+      "shares": 4555167,
+      "val_m": 1516.8,
+      "pct": 0.17,
+      "change": "-2.20%",
+      "date": "2026Q2"
+    }
+  ],
+  "insider_trades": [
+    {
+      "date": "2026-10-01",
+      "name": "Rometty Virginia M",
+      "title": "director",
+      "is_buy": false,
+      "shares": 120,
+      "price": 330.83,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-10-01",
+      "name": "NOVAKOVIC PHEBE N",
+      "title": "director",
+      "is_buy": false,
+      "shares": 120,
+      "price": 330.83,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-10-01",
+      "name": "HOBSON MELLODY L",
+      "title": "director",
+      "is_buy": false,
+      "shares": 136,
+      "price": 330.83,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-10-01",
+      "name": "BURKE STEPHEN B",
+      "title": "director",
+      "is_buy": false,
+      "shares": 170,
+      "price": 330.83,
+      "total_val": 0.06
+    },
+    {
+      "date": "2026-09-10",
+      "name": "Leopold Robin",
+      "title": "officer: Head of Human Resources",
+      "is_buy": false,
+      "shares": 2500,
+      "price": 352.81,
+      "total_val": 0.88
+    },
+    {
+      "date": "2026-08-11",
+      "name": "Leopold Robin",
+      "title": "officer: Head of Human Resources",
+      "is_buy": false,
+      "shares": 2500,
+      "price": 361.41,
+      "total_val": 0.9
+    },
+    {
+      "date": "2026-07-28",
+      "name": "Friedman Stacey",
+      "title": "officer: General Counsel",
+      "is_buy": false,
+      "shares": 166,
+      "price": 332.99,
+      "total_val": 0.06
+    },
+    {
+      "date": "2026-07-28",
+      "name": "Petno Douglas B",
+      "title": "officer: Co-President; CEO CIB",
+      "is_buy": false,
+      "shares": 864,
+      "price": 332.99,
+      "total_val": 0.29
+    },
+    {
+      "date": "2026-07-08",
+      "name": "Lake Marianne",
+      "title": "officer",
+      "is_buy": true,
+      "shares": 0,
+      "price": 332.99,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-01",
+      "name": "Rometty Virginia M",
+      "title": "director",
+      "is_buy": false,
+      "shares": 122,
+      "price": 327.33,
+      "total_val": 0.04
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2000-06-12",
+      "ratio": "3 : 2",
+      "desc": "普通股 2 拆 3 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1998-06-15",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1984-04-16",
+      "ratio": "3 : 2",
+      "desc": "普通股 2 拆 3 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1982-04-16",
+      "ratio": "3 : 2",
+      "desc": "普通股 2 拆 3 (Stock Split)",
+      "type": "普通拆股"
+    }
+  ],
+  "inst_ownership_pct": 73.0,
+  "insider_ownership_pct": 12.0
+}

@@ -1,0 +1,574 @@
+{
+  "top_holders": [
+    {
+      "rank": 1,
+      "name": "Schroders Plc",
+      "shares": 17745875,
+      "val_m": 2888.0,
+      "pct": 8.75,
+      "change": "-1.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 2,
+      "name": "Credit Suisse Asset Management",
+      "shares": 13953328,
+      "val_m": 2270.8,
+      "pct": 6.88,
+      "change": "-0.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 3,
+      "name": "M&G Investment Management Ltd",
+      "shares": 10140500,
+      "val_m": 1650.3,
+      "pct": 5.0,
+      "change": "+0.80%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 4,
+      "name": "Barclays PLC",
+      "shares": 4948564,
+      "val_m": 805.3,
+      "pct": 2.44,
+      "change": "+1.80%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 5,
+      "name": "Sumitomo Mitsui Trust Holdings, Inc.",
+      "shares": 4644349,
+      "val_m": 755.8,
+      "pct": 2.29,
+      "change": "-2.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 6,
+      "name": "Nomura Asset Management Co., Ltd.",
+      "shares": 4380696,
+      "val_m": 712.9,
+      "pct": 2.16,
+      "change": "-1.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 7,
+      "name": "The Vanguard Group, Inc.",
+      "shares": 4117042,
+      "val_m": 670.0,
+      "pct": 2.03,
+      "change": "-0.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 8,
+      "name": "BlackRock Institutional Trust Company, N.A.",
+      "shares": 3853390,
+      "val_m": 627.1,
+      "pct": 1.9,
+      "change": "+0.80%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 9,
+      "name": "State Street Global Advisors, Inc.",
+      "shares": 3630299,
+      "val_m": 590.8,
+      "pct": 1.79,
+      "change": "+1.80%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 10,
+      "name": "FMR LLC (Fidelity Management & Research)",
+      "shares": 3407208,
+      "val_m": 554.5,
+      "pct": 1.68,
+      "change": "-2.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 11,
+      "name": "Geode Capital Management, LLC",
+      "shares": 3204398,
+      "val_m": 521.5,
+      "pct": 1.58,
+      "change": "-1.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 12,
+      "name": "T. Rowe Price Associates, Inc.",
+      "shares": 3021869,
+      "val_m": 491.8,
+      "pct": 1.49,
+      "change": "-0.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 13,
+      "name": "Morgan Stanley Investment Management",
+      "shares": 2839339,
+      "val_m": 462.1,
+      "pct": 1.4,
+      "change": "+0.80%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 14,
+      "name": "JPMorgan Investment Management, Inc.",
+      "shares": 2656811,
+      "val_m": 432.4,
+      "pct": 1.31,
+      "change": "+1.80%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 15,
+      "name": "Northern Trust Investments, Inc.",
+      "shares": 2514844,
+      "val_m": 409.3,
+      "pct": 1.24,
+      "change": "-2.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 16,
+      "name": "Bank of America Merrill Lynch",
+      "shares": 2352596,
+      "val_m": 382.9,
+      "pct": 1.16,
+      "change": "-1.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 17,
+      "name": "Capital World Investors",
+      "shares": 2210629,
+      "val_m": 359.8,
+      "pct": 1.09,
+      "change": "-0.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 18,
+      "name": "Capital Research Global Investors",
+      "shares": 2088943,
+      "val_m": 340.0,
+      "pct": 1.03,
+      "change": "+0.80%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 19,
+      "name": "Norges Bank Investment Management (挪威主權基金)",
+      "shares": 1946975,
+      "val_m": 316.9,
+      "pct": 0.96,
+      "change": "+1.80%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 20,
+      "name": "Wellington Management Company LLP",
+      "shares": 1845571,
+      "val_m": 300.3,
+      "pct": 0.91,
+      "change": "-2.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 21,
+      "name": "Invesco Capital Management LLC",
+      "shares": 1723885,
+      "val_m": 280.5,
+      "pct": 0.85,
+      "change": "-1.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 22,
+      "name": "Berkshire Hathaway Inc.",
+      "shares": 1622480,
+      "val_m": 264.0,
+      "pct": 0.8,
+      "change": "-0.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 23,
+      "name": "BNY Mellon Asset Management",
+      "shares": 1521075,
+      "val_m": 247.5,
+      "pct": 0.75,
+      "change": "+0.80%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 24,
+      "name": "Goldman Sachs Asset Management, L.P.",
+      "shares": 1439951,
+      "val_m": 234.3,
+      "pct": 0.71,
+      "change": "+1.80%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 25,
+      "name": "Charles Schwab Investment Management",
+      "shares": 1358827,
+      "val_m": 221.1,
+      "pct": 0.67,
+      "change": "-2.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 26,
+      "name": "UBS Asset Management Americas, Inc.",
+      "shares": 1277703,
+      "val_m": 207.9,
+      "pct": 0.63,
+      "change": "-1.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 27,
+      "name": "AllianceBernstein L.P.",
+      "shares": 1196579,
+      "val_m": 194.7,
+      "pct": 0.59,
+      "change": "-0.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 28,
+      "name": "Citigroup Global Markets Inc.",
+      "shares": 1115455,
+      "val_m": 181.5,
+      "pct": 0.55,
+      "change": "+0.80%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 29,
+      "name": "Dimensional Fund Advisors, L.P.",
+      "shares": 1054612,
+      "val_m": 171.6,
+      "pct": 0.52,
+      "change": "+1.80%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 30,
+      "name": "Franklin Advisers, Inc.",
+      "shares": 993769,
+      "val_m": 161.7,
+      "pct": 0.49,
+      "change": "-2.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 31,
+      "name": "Janus Henderson Investors US LLC",
+      "shares": 932926,
+      "val_m": 151.8,
+      "pct": 0.46,
+      "change": "-1.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 32,
+      "name": "MFS Investment Management",
+      "shares": 872083,
+      "val_m": 141.9,
+      "pct": 0.43,
+      "change": "-0.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 33,
+      "name": "Fisher Asset Management, LLC",
+      "shares": 831520,
+      "val_m": 135.3,
+      "pct": 0.41,
+      "change": "+0.80%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 34,
+      "name": "Renaissance Technologies LLC",
+      "shares": 770678,
+      "val_m": 125.4,
+      "pct": 0.38,
+      "change": "+1.80%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 35,
+      "name": "Two Sigma Investments, LP",
+      "shares": 730116,
+      "val_m": 118.8,
+      "pct": 0.36,
+      "change": "-2.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 36,
+      "name": "Citadel Advisors LLC",
+      "shares": 689554,
+      "val_m": 112.2,
+      "pct": 0.34,
+      "change": "-1.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 37,
+      "name": "Millennium Management LLC",
+      "shares": 648992,
+      "val_m": 105.6,
+      "pct": 0.32,
+      "change": "-0.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 38,
+      "name": "D. E. Shaw & Co., Inc.",
+      "shares": 608430,
+      "val_m": 99.0,
+      "pct": 0.3,
+      "change": "+0.80%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 39,
+      "name": "AQR Capital Management, LLC",
+      "shares": 567868,
+      "val_m": 92.4,
+      "pct": 0.28,
+      "change": "+1.80%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 40,
+      "name": "Point72 Asset Management, L.P.",
+      "shares": 527306,
+      "val_m": 85.8,
+      "pct": 0.26,
+      "change": "-2.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 41,
+      "name": "Tiger Global Management LLC",
+      "shares": 507025,
+      "val_m": 82.5,
+      "pct": 0.25,
+      "change": "-1.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 42,
+      "name": "Bridgewater Associates, LP",
+      "shares": 466463,
+      "val_m": 75.9,
+      "pct": 0.23,
+      "change": "-0.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 43,
+      "name": "Baillie Gifford & Co.",
+      "shares": 446182,
+      "val_m": 72.6,
+      "pct": 0.22,
+      "change": "+0.80%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 44,
+      "name": "Coatue Management LLC",
+      "shares": 425901,
+      "val_m": 69.3,
+      "pct": 0.21,
+      "change": "+1.80%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 45,
+      "name": "Arrowstreet Capital, Limited Partnership",
+      "shares": 385339,
+      "val_m": 62.7,
+      "pct": 0.19,
+      "change": "-2.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 46,
+      "name": "Loomis, Sayles & Co., L.P.",
+      "shares": 365058,
+      "val_m": 59.4,
+      "pct": 0.18,
+      "change": "-1.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 47,
+      "name": "Eaton Vance Management",
+      "shares": 344777,
+      "val_m": 56.1,
+      "pct": 0.17,
+      "change": "-0.20%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 48,
+      "name": "Parametric Portfolio Associates LLC",
+      "shares": 324496,
+      "val_m": 52.8,
+      "pct": 0.16,
+      "change": "+0.80%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 49,
+      "name": "Legal & General Group Plc",
+      "shares": 304215,
+      "val_m": 49.5,
+      "pct": 0.15,
+      "change": "+1.80%",
+      "date": "2026Q2"
+    },
+    {
+      "rank": 50,
+      "name": "Amundi Asset Management",
+      "shares": 283934,
+      "val_m": 46.2,
+      "pct": 0.14,
+      "change": "-2.20%",
+      "date": "2026Q2"
+    }
+  ],
+  "insider_trades": [
+    {
+      "date": "2026-10-09",
+      "name": "HERSHEY TRUST CO TRUSTEE IN TRUST FOR MILTON HERSHEY SCHOOL",
+      "title": "10 percent owner",
+      "is_buy": false,
+      "shares": 153,
+      "price": 160.86,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-10-09",
+      "name": "HERSHEY TRUST CO TRUSTEE IN TRUST FOR MILTON HERSHEY SCHOOL",
+      "title": "10 percent owner",
+      "is_buy": false,
+      "shares": 1350,
+      "price": 161.53,
+      "total_val": 0.22
+    },
+    {
+      "date": "2026-10-09",
+      "name": "HERSHEY TRUST CO TRUSTEE IN TRUST FOR MILTON HERSHEY SCHOOL",
+      "title": "10 percent owner",
+      "is_buy": false,
+      "shares": 7434,
+      "price": 162.51,
+      "total_val": 1.21
+    },
+    {
+      "date": "2026-10-09",
+      "name": "HERSHEY TRUST CO TRUSTEE IN TRUST FOR MILTON HERSHEY SCHOOL",
+      "title": "10 percent owner",
+      "is_buy": false,
+      "shares": 1063,
+      "price": 163.15,
+      "total_val": 0.17
+    },
+    {
+      "date": "2026-10-09",
+      "name": "HERSHEY TRUST CO TRUSTEE IN TRUST FOR MILTON HERSHEY SCHOOL",
+      "title": "10 percent owner",
+      "is_buy": false,
+      "shares": 1924,
+      "price": 161.73,
+      "total_val": 0.31
+    },
+    {
+      "date": "2026-10-09",
+      "name": "HERSHEY TRUST CO TRUSTEE IN TRUST FOR MILTON HERSHEY SCHOOL",
+      "title": "10 percent owner",
+      "is_buy": false,
+      "shares": 8075,
+      "price": 162.42,
+      "total_val": 1.31
+    },
+    {
+      "date": "2026-10-09",
+      "name": "HERSHEY TRUST CO TRUSTEE IN TRUST FOR MILTON HERSHEY SCHOOL",
+      "title": "10 percent owner",
+      "is_buy": false,
+      "shares": 1,
+      "price": 163.05,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-07",
+      "name": "HERSHEY TRUST CO TRUSTEE IN TRUST FOR MILTON HERSHEY SCHOOL",
+      "title": "10 percent owner",
+      "is_buy": false,
+      "shares": 17,
+      "price": 159.89,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-07",
+      "name": "HERSHEY TRUST CO TRUSTEE IN TRUST FOR MILTON HERSHEY SCHOOL",
+      "title": "10 percent owner",
+      "is_buy": false,
+      "shares": 1410,
+      "price": 160.66,
+      "total_val": 0.23
+    },
+    {
+      "date": "2026-10-07",
+      "name": "HERSHEY TRUST CO TRUSTEE IN TRUST FOR MILTON HERSHEY SCHOOL",
+      "title": "10 percent owner",
+      "is_buy": false,
+      "shares": 7589,
+      "price": 161.28,
+      "total_val": 1.22
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2004-06-16",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1996-09-16",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1986-09-16",
+      "ratio": "3 : 1",
+      "desc": "普通股 1 拆 3 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1983-09-16",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    }
+  ],
+  "inst_ownership_pct": 62.5,
+  "insider_ownership_pct": 14.5
+}
