@@ -743,7 +743,12 @@ def main():
 
         time.sleep(0.04)
 
-# 3. 抓取真實 5 年年度與季度歷史報表 (存入真實歷史軌跡)
+# 3. 匯率換算率預先獲取 (確保後續折算不拋出 NameError)
+        fx_rate = get_fx_to_usd_rate(reported_currency)
+        if sym == "TSM":
+            fx_rate = 1.0 / 32.0
+
+        # 抓取真實 5 年年度與季度歷史報表 (存入真實歷史軌跡)
         inc_annual = fetch_json("income-statement", {"symbol": fmp_sym, "period": "annual", "limit": 5}) or []
         bs_annual = fetch_json("balance-sheet-statement", {"symbol": fmp_sym, "period": "annual", "limit": 5}) or []
         cf_annual = fetch_json("cash-flow-statement", {"symbol": fmp_sym, "period": "annual", "limit": 5}) or []
@@ -758,10 +763,19 @@ def main():
         ttm_capex = sum(float(x.get("capitalExpenditure") or 0.0) for x in cf_quarter)
         ttm_fcf_sum = sum(float(x.get("freeCashFlow") or 0.0) for x in cf_quarter)
 
+        # 計算 TTM 分紅與回購
+        ttm_dividends_paid = 0.0
+        ttm_buybacks_paid = 0.0
+        for q_cf in cf_quarter:
+            div_val = q_cf.get("dividendsPaid") or q_cf.get("netDividendsPaid") or q_cf.get("commonStockDividendsPaid") or 0.0
+            ttm_dividends_paid += abs(float(div_val))
+            bb_val = q_cf.get("commonStockRepurchased") or 0.0
+            ttm_buybacks_paid += abs(float(bb_val))
+
+        fcf0 = round(ttm_fcf_sum / 1e6, 1)
+
         # 組裝該標的原汁原味的 6 期真實歷史序列 (2021 ~ 2025 + TTM)
-        # 由舊到新排序 (若不足 5 年則安全補齊)
         inc_sorted = list(reversed(inc_annual))[:5]
-        
         hist_revenue = [round(float(x.get("revenue") or 0.0) * fx_rate / 1e6, 1) for x in inc_sorted]
         hist_net_income = [round(float(x.get("netIncome") or 0.0) * fx_rate / 1e6, 1) for x in inc_sorted]
         hist_gross_profit = [round(float(x.get("grossProfit") or 0.0) * fx_rate / 1e6, 1) for x in inc_sorted]
@@ -783,7 +797,6 @@ def main():
         hist_capex.append(round(-abs(ttm_capex) * fx_rate / 1e6, 1))
         hist_fcf.append(round(ttm_fcf_sum * fx_rate / 1e6, 1))
 
-        # 整理成字典供前端調用
         real_history = {
             "revenue": hist_revenue,
             "net_income": hist_net_income,
@@ -793,30 +806,8 @@ def main():
             "capex": hist_capex,
             "fcf": hist_fcf
         }
-            if not reported_currency or reported_currency == "USD":
-                if inc_data[0].get("reportedCurrency"):
-                    reported_currency = inc_data[0].get("reportedCurrency")
-            ttm_net_income = sum(float(x.get("netIncome") or 0.0) for x in inc_data)
-            ttm_ebitda = sum(float(x.get("ebitda") or x.get("operatingIncome") or 0.0) for x in inc_data)
 
         time.sleep(0.04)
-
-        # 4. 現金流量表 (TTM FCF 及 分紅/回購)
-        cf_data = fetch_json("cash-flow-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 4})
-        fcf0 = 0.0
-        ttm_dividends_paid = 0.0
-        ttm_buybacks_paid = 0.0
-        if cf_data and isinstance(cf_data, list) and len(cf_data) > 0:
-            if not reported_currency or reported_currency == "USD":
-                if cf_data[0].get("reportedCurrency"):
-                    reported_currency = cf_data[0].get("reportedCurrency")
-            fcf_sum = sum(float(x.get("freeCashFlow") or 0.0) for x in cf_data)
-            fcf0 = round(fcf_sum / 1e6, 1)
-            for quarter_cf in cf_data:
-                div_val = quarter_cf.get("dividendsPaid") or quarter_cf.get("netDividendsPaid") or quarter_cf.get("commonStockDividendsPaid") or 0.0
-                ttm_dividends_paid += abs(float(div_val))
-                bb_val = quarter_cf.get("commonStockRepurchased") or 0.0
-                ttm_buybacks_paid += abs(float(bb_val))
 
         fx_rate = get_fx_to_usd_rate(reported_currency)
         if fx_rate != 1.0 or sym == "TSM":
