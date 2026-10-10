@@ -641,7 +641,7 @@ def main():
         prof_data = fetch_json("profile", {"symbol": fmp_sym})
         prof = prof_data[0] if (prof_data and isinstance(prof_data, list) and len(prof_data) > 0) else {}
 
-company_full_name = prof.get("companyName") or item["name"]
+        company_full_name = prof.get("companyName") or item["name"]
         image_url = prof.get("image") or f"https://assets.financialmodelingprep.com/symbol/{sym}.png"
         website = prof.get("website") or ""
         ceo = prof.get("ceo") or "Executive Committee"
