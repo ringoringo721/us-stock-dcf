@@ -1019,8 +1019,8 @@
 
 <script>
   let stockUniverse = {};
-
-  // 美股核心標的權威繁體中文名稱映射 (涵蓋主要科技、金融、消費、國防等巨頭)
+```javascript
+  // 美股核心標的繁體中文名稱對照表
   const STOCK_NAMES_ZH = {
     "NVDA": "輝達", "AAPL": "蘋果", "MSFT": "微軟", "AMZN": "亞馬遜", "GOOGL": "Alphabet (Class A)",
     "GOOG": "Alphabet (Class C)", "META": "Meta (臉書)", "TSLA": "特斯拉", "BRK.B": "波克夏海瑟威",
@@ -1043,11 +1043,10 @@
     "ABNB": "愛彼迎", "BKNG": "Booking 控股", "T": "AT&T", "VZ": "威訊通訊", "CMCSA": "康卡斯特"
   };
 
-  // 根據當前選擇語言動態返回企業名稱
   function getStockDisplayName(s) {
     if (!s) return "";
     const ticker = (s.ticker || "").toUpperCase();
-    if (currentLang === 'zh') {
+    if (typeof currentLang !== 'undefined' && currentLang === 'zh') {
       return s.name_zh || STOCK_NAMES_ZH[ticker] || s.name || s.company_name || ticker;
     } else {
       return s.name_en || s.company_name || s.name || ticker;
