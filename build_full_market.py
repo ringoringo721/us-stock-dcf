@@ -862,6 +862,10 @@ def main():
         wD = debt / V if V > 0 else 0.05
         wacc = (wE * ke) + (wD * kd_after)
 
+        # 優先計算淨負債與現金淨額，供後續公式安全調用
+        net_debt = round(debt - cash, 1)
+        cash_minus_liab = round(cash - debt, 1)
+
         # 抓取 FMP 官方權威企業價值 (Enterprise Value)
         fmp_ev_data = fetch_json("enterprise-values", {"symbol": fmp_sym, "period": "quarter", "limit": 1})
         fmp_official_ev = 0.0
@@ -872,9 +876,6 @@ def main():
         # 備援防護：若該公司在 FMP 無專門記錄，以標準定義 (市值 + 淨負債) 兜底
         if fmp_official_ev <= 0:
             fmp_official_ev = round(mcap + net_debt, 1)
-            
-        net_debt = round(debt - cash, 1)
-        cash_minus_liab = round(cash - debt, 1)
         sum_pv = 0
         cur_fcf = fcf0
         for t, gr_pct in enumerate(growth_10y, 1):
