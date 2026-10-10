@@ -882,22 +882,43 @@
       </div>
     </div>
 
-    <!-- 子分頁 3：關鍵比率 -->
+    <!-- 子分頁 3：關鍵比率 (升級為多圖表架構) -->
     <div id="subpage-ratios" class="subpage-content">
       <div class="panel">
-        <div class="panel-title" data-i18n="sec_ratios_title">流動性、盈利能力與負債結構矩陣</div>
-        <div class="table-scroll-wrapper">
-          <table style="width: 100%; border-collapse: collapse; text-align: right; font-size: 13px;" id="cmp-ratios-table">
-            <thead>
-              <tr>
-                <th style="text-align: left;" data-i18n="th_ratio_name">比率名稱</th>
-                <th data-i18n="th_curr_val">當前數值</th>
-                <th data-i18n="th_benchmark">行業健康基準</th>
-                <th style="text-align: center;" data-i18n="th_status">狀態判定</th>
-              </tr>
-            </thead>
-            <tbody id="cmp-ratios-tbody"></tbody>
-          </table>
+        <!-- 圖表頂部工具列 -->
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
+          <div>
+            <h3 style="font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 4px;" data-i18n="chart_asset_title">資產分析</h3>
+            <span style="font-size: 12px; color: var(--text-muted);" data-i18n="chart_asset_sub">資產淨值、負債總額、股東權益</span>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <button class="stmt-btn active" id="btn-ratio-chart-structure" data-i18n="btn_chart_structure">資產結構</button>
+          </div>
+        </div>
+
+        <!-- Chart.js 畫布容器 -->
+        <div style="position: relative; height: 360px; width: 100%; margin-bottom: 20px;">
+          <canvas id="ratioAssetChart"></canvas>
+        </div>
+
+        <!-- 底部 4 大關鍵流動性與槓桿指標卡片 -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; border-top: 1px solid var(--card-border); padding-top: 16px;">
+          <div class="stat-box" style="padding: 10px 14px; background: #0f172a;">
+            <div class="stat-label" data-i18n="lbl_ratio_cr">流動比率</div>
+            <div class="stat-num" id="card-ratio-cr" style="font-size: 18px;">--</div>
+          </div>
+          <div class="stat-box" style="padding: 10px 14px; background: #0f172a;">
+            <div class="stat-label" data-i18n="lbl_ratio_dr">負債比率</div>
+            <div class="stat-num" id="card-ratio-dr" style="font-size: 18px;">--</div>
+          </div>
+          <div class="stat-box" style="padding: 10px 14px; background: #0f172a;">
+            <div class="stat-label" data-i18n="lbl_ratio_cash">現金比率</div>
+            <div class="stat-num text-green" id="card-ratio-cash" style="font-size: 18px;">--</div>
+          </div>
+          <div class="stat-box" style="padding: 10px 14px; background: #0f172a;">
+            <div class="stat-label" data-i18n="lbl_ratio_lev">槓桿比率</div>
+            <div class="stat-num text-gold" id="card-ratio-lev" style="font-size: 18px;">--</div>
+          </div>
         </div>
       </div>
     </div>
