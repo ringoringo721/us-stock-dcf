@@ -836,7 +836,7 @@
         <div class="table-scroll-wrapper" style="overflow-x: auto; max-height: 520px; overflow-y: auto;">
           <table id="cmp-fin-table" style="width: 100%; border-collapse: collapse; text-align: right; font-size: 12.5px;">
             <thead>
-              <tr id="cmp-fin-thead">
+                <tr id="cmp-fin-thead">
                 <th style="text-align: left; width: 280px;" data-i18n="th_fin_item">會計項目 / 財務指標 ($M)</th>
                 <th>2021</th>
                 <th>2022</th>
@@ -844,6 +844,7 @@
                 <th>2024</th>
                 <th>2025</th>
                 <th>TTM</th>
+                <th style="text-align: center; width: 85px;" data-i18n="th_trend">近 5 年/TTM 趨勢</th>
               </tr>
             </thead>
             <tbody id="cmp-fin-tbody"></tbody>
@@ -1187,6 +1188,7 @@
       btn_stmt_balance: "2. 資產負債表 (Balance Sheet)",
       btn_stmt_cashflow: "3. 現金流量表 (Cash Flow)",
       th_fin_item: "會計項目 / 財務指標 ($M)",
+      th_trend: "近 5 年/TTM 趨勢",
       sec_ratios_title: "流動性、盈利能力與負債結構矩陣",
       th_ratio_name: "比率名稱", th_curr_val: "當前數值", th_benchmark: "行業健康基準", th_status: "狀態判定",
       sec_peers_title: "所屬產業核心競爭對手估值橫向對比",
@@ -1334,6 +1336,7 @@
       btn_stmt_balance: "2. Balance Sheet",
       btn_stmt_cashflow: "3. Cash Flow Statement",
       th_fin_item: "Accounting Line Item / Metric ($M)",
+      th_trend: "5Y/TTM Trend",
       sec_ratios_title: "Liquidity, Profitability & Solvency Matrix",
       th_ratio_name: "Ratio Name", th_curr_val: "Reported Value", th_benchmark: "Health Benchmark", th_status: "Status",
       sec_peers_title: "Direct Peer Valuation Matrix",
@@ -2099,7 +2102,7 @@
     `;
   }
 
-  // 完整三大財務報表渲染引擎 (支援 TTM + 最近 5 年，全指標中英雙語切換)
+// 完整三大財務報表渲染引擎 (含毛利率、淨利率與 5Y/TTM 趨勢迷你長條圖)
   function renderFinancialsSubPage(s) {
     const tbody = document.getElementById('cmp-fin-tbody');
     if (!tbody || !s) return;
@@ -2112,7 +2115,6 @@
     const estRev = Math.max(fcf * 5.2, mcap * 0.35);
     const estNetInc = Math.max(fcf * 0.85, 200);
 
-    const years = ['2021', '2022', '2023', '2024', '2025', 'TTM'];
     const decayFactors = [0.61, 0.69, 0.76, 0.84, 0.92, 1.0];
 
     let items = [];
@@ -2122,6 +2124,8 @@
         { nameZh: "營業收入 (Revenue)", nameEn: "Total Revenue", base: estRev, highlight: true },
         { nameZh: "營業成本 (Cost of Revenue)", nameEn: "Cost of Revenue", base: estRev * 0.55 },
         { nameZh: "毛利 (Gross Profit)", nameEn: "Gross Profit", base: estRev * 0.45, highlight: true },
+        // 新增 1：毛利率 (Gross Margin)
+        { nameZh: "毛利率 (Gross Margin)", nameEn: "Gross Profit Margin", isPercent: true, pctBase: 45.0, color: "text-gold" },
         { nameZh: "研發費用 (R&D Expenses)", nameEn: "R&D Expenses", base: estRev * 0.12 },
         { nameZh: "銷管費用 (SG&A Expenses)", nameEn: "SG&A Expenses", base: estRev * 0.14 },
         { nameZh: "營業費用合計 (Operating Expenses)", nameEn: "Total Operating Expenses", base: estRev * 0.26 },
@@ -2131,7 +2135,9 @@
         { nameZh: "利息支出 (Interest Expense)", nameEn: "Interest Expense", base: debt * 0.045 },
         { nameZh: "稅前利潤 (Income Before Tax)", nameEn: "Income Before Tax", base: estRev * 0.18 },
         { nameZh: "所得稅費用 (Income Tax)", nameEn: "Income Tax Expense", base: estRev * 0.18 * 0.21 },
-        { nameZh: "稅後淨利 (Net Income)", nameEn: "Net Income", base: estNetInc, highlight: true, color: "text-green" }
+        { nameZh: "稅後淨利 (Net Income)", nameEn: "Net Income", base: estNetInc, highlight: true, color: "text-green" },
+        // 新增 2：淨利率 (Net Profit Margin)
+        { nameZh: "淨利率 (Net Profit Margin)", nameEn: "Net Profit Margin", isPercent: true, pctBase: (estNetInc / estRev) * 100, color: "text-green" }
       ];
     } else if (activeStatementType === 'balance') {
       const totAssets = Math.max(mcap * 0.45, debt * 1.8);
@@ -2160,14 +2166,30 @@
         { nameZh: "股權激勵費用加回 (SBC)", nameEn: "Stock-Based Compensation", base: estRev * 0.04 },
         { nameZh: "營運資金變動 (Working Capital Changes)", nameEn: "Change in Working Capital", base: estRev * -0.02 },
         { nameZh: "營業活動現金流 (CFO)", nameEn: "Operating Cash Flow (CFO)", base: fcf * 1.35, highlight: true, color: "text-green" },
-        { nameZh: "資本支出 (Capital Expenditure / CapEx)", nameEn: "Capital Expenditure (CapEx)", base: fcf * 0.35, color: "text-red" },
+        { nameZh: "資本支出 (Capital Expenditure / CapEx)", nameEn: "Capital Expenditure (CapEx)", base: fcf * -0.35, color: "text-red" },
         { nameZh: "自由現金流 (Free Cash Flow / FCF)", nameEn: "Free Cash Flow (FCF)", base: fcf, highlight: true, color: "text-green" },
         { nameZh: "投資活動現金流 (CFI)", nameEn: "Investing Cash Flow (CFI)", base: fcf * -0.42 },
-        { nameZh: "現金股利分紅支出 (Dividends Paid)", nameEn: "Common Dividends Paid", base: fcf * 0.25 },
-        { nameZh: "股票回購支出 (Stock Repurchased)", nameEn: "Common Stock Repurchased", base: fcf * 0.40 },
+        { nameZh: "現金股利分紅支出 (Dividends Paid)", nameEn: "Common Dividends Paid", base: fcf * -0.25 },
+        { nameZh: "股票回購支出 (Stock Repurchased)", nameEn: "Common Stock Repurchased", base: fcf * -0.40 },
         { nameZh: "籌資活動現金流 (CFF)", nameEn: "Financing Cash Flow (CFF)", base: fcf * -0.68 },
         { nameZh: "現金及約當現金淨變動 (Net Change in Cash)", nameEn: "Net Change in Cash", base: fcf * 0.25 }
       ];
+    }
+
+    // 微型柱狀圖產生輔助函數
+    function generateSparkTrendHtml(seriesValues) {
+      const maxAbs = Math.max(...seriesValues.map(v => Math.abs(v)), 0.001);
+      const barsHtml = seriesValues.map(val => {
+        const isNeg = val < 0;
+        const hRatio = Math.max((Math.abs(val) / maxAbs) * 18, 3);
+        const cls = isNeg ? 'spark-bar-neg' : 'spark-bar-pos';
+        return `
+          <div class="spark-bar-track" title="${val}">
+            <div class="spark-bar-segment ${cls}" style="height: ${hRatio.toFixed(1)}px;"></div>
+          </div>
+        `;
+      }).join('');
+      return `<div class="spark-trend-wrap">${barsHtml}</div>`;
     }
 
     let rowsHtml = '';
@@ -2177,10 +2199,25 @@
       const colorCls = it.color ? `class="${it.color}"` : '';
 
       rowsHtml += `<tr><td style="text-align: left; ${highlightStyle}">${label}</td>`;
+
+      const valuesHistory = [];
       decayFactors.forEach((factor, idx) => {
-        const val = Math.round(it.base * factor);
-        rowsHtml += `<td ${colorCls} style="${it.highlight ? 'font-weight: 700;' : ''}">$${val.toLocaleString()}</td>`;
+        if (it.isPercent) {
+          // 比率微幅成長趨勢模擬
+          const pctVal = Number((it.pctBase * (0.92 + (idx * 0.016))).toFixed(1));
+          valuesHistory.push(pctVal);
+          rowsHtml += `<td ${colorCls} style="font-weight: 600;">${pctVal.toFixed(1)}%</td>`;
+        } else {
+          const val = Math.round(it.base * factor);
+          valuesHistory.push(val);
+          const valStr = val < 0 ? `-$${Math.abs(val).toLocaleString()}` : `$${val.toLocaleString()}`;
+          rowsHtml += `<td ${colorCls} style="${it.highlight ? 'font-weight: 700;' : ''}">${valStr}</td>`;
+        }
       });
+
+      // 附加趨勢圖微圖單元格
+      const sparkHtml = generateSparkTrendHtml(valuesHistory);
+      rowsHtml += `<td style="text-align: center; padding: 4px 8px;">${sparkHtml}</td>`;
       rowsHtml += `</tr>`;
     });
 
