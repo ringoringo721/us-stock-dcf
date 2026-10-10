@@ -543,15 +543,20 @@ def fetch_cached_annual_statements(fmp_sym: str, sym: str) -> Dict[str, list]:
     抓取 5 年年度歷史報表並持久化至本地 JSON。
     已結算年度數據不變，命中快取時直接讀取磁碟，徹底免除重複網路請求。
     """
-    cache_path = os.path.join(FIN_CACHE_DIR, f"{sym}_annual.json")
-    if os.path.exists(cache_path):
-        try:
+    default_payload = {"income": [], "balance": [], "cashflow": []}
+    try:
+        cache_path = os.path.join(FIN_CACHE_DIR, f"{sym}_annual.json")
+        if os.path.exists(cache_path):
             with open(cache_path, "r", encoding="utf-8") as f:
                 data = json.load(f)
-                if data.get("income") and data.get("cashflow"):
-                    return data
-        except Exception:
-            pass
+                if isinstance(data, dict) and ("income" in data or "cashflow" in data):
+                    return {
+                        "income": data.get("income") or [],
+                        "balance": data.get("balance") or [],
+                        "cashflow": data.get("cashflow") or []
+                    }
+    except Exception:
+        pass
 
     # 若無快取則請求 FMP API 並持久化
     inc_annual = fetch_json("income-statement", {"symbol": fmp_sym, "period": "annual", "limit": 5}) or []
@@ -562,16 +567,19 @@ def fetch_cached_annual_statements(fmp_sym: str, sym: str) -> Dict[str, list]:
     time.sleep(0.04)
 
     payload = {
-        "income": inc_annual,
-        "balance": bs_annual,
-        "cashflow": cf_annual
+        "income": inc_annual if isinstance(inc_annual, list) else [],
+        "balance": bs_annual if isinstance(bs_annual, list) else [],
+        "cashflow": cf_annual if isinstance(cf_annual, list) else []
     }
 
     try:
+        cache_path = os.path.join(FIN_CACHE_DIR, f"{sym}_annual.json")
         with open(cache_path, "w", encoding="utf-8") as f:
             json.dump(payload, f, ensure_ascii=False, indent=2)
     except Exception as e:
         print(f"⚠️ [{sym}] 寫入年度歷史快取失敗: {e}", flush=True)
+
+    return payload or default_payload
 
 def fetch_fmp_api(endpoint_or_url: str, params: Optional[dict] = None) -> Optional[Any]:
     """支援 stable 與 api/v3 完整路徑之通用 FMP 請求函式"""
@@ -940,10 +948,10 @@ def main():
             fx_rate = 1.0 / 32.0
 
         # 1. 從本機持久化快取取得已結算年度報表 (命中時 0 次 API 請求)
-        annual_cache = fetch_cached_annual_statements(fmp_sym, sym)
-        inc_annual = annual_cache.get("income", [])
-        bs_annual = annual_cache.get("balance", [])
-        cf_annual = annual_cache.get("cashflow", [])
+        annual_cache = fetch_cached_annual_statements(fmp_sym, sym) or {}
+        inc_annual = annual_cache.get("income", []) if isinstance(annual_cache, dict) else []
+        bs_annual = annual_cache.get("balance", []) if isinstance(annual_cache, dict) else []
+        cf_annual = annual_cache.get("cashflow", []) if isinstance(annual_cache, dict) else []
 
         # 2. 僅動態抓取近 4 季即時數據用以精確滾動計算最新 TTM
         inc_quarter = fetch_json("income-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 4}) or []
