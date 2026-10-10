@@ -864,7 +864,6 @@ def main():
 
         # 優先計算淨負債與現金淨額，供後續公式安全調用
         net_debt = round(debt - cash, 1)
-        cash_minus_liab = round(cash - debt, 1)
 
         # 抓取 FMP 官方權威企業價值 (Enterprise Value)
         fmp_ev_data = fetch_json("enterprise-values", {"symbol": fmp_sym, "period": "quarter", "limit": 1})
@@ -1010,7 +1009,6 @@ def main():
             "short_term_investments": round(short_term_inv * fx_rate / 1e6, 1) if 'short_term_inv' in locals() else 0.0,
             "cash_and_short_term": cash,
             "net_debt": round(debt - cash, 1),
-            "cash_minus_liab": round(cash - debt, 1),
             "fcf0": fcf0,
             "real_history": real_history,
             "beta": beta,
@@ -1044,7 +1042,6 @@ def main():
             "liab_to_assets": liab_r,
             "cash_to_assets": cash_to_assets,
             "current_ratio": cr,
-            "cash_minus_liab": cash_minus_liab,
             "roe": roe,
             "roa": roa,
             "moat": moat_data,
