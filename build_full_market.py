@@ -524,20 +524,6 @@ def fetch_json(endpoint, params):
             time.sleep(0.5)
     return None
 
-def fetch_json(endpoint, params):
-    params["apikey"] = FMP_KEY
-    url = f"{BASE_URL}/{endpoint}"
-    for _ in range(3):
-        try:
-            r = requests.get(url, params=params, headers=HEADERS, timeout=(5, 10))
-            if r.status_code == 200:
-                return r.json()
-            elif r.status_code == 429:
-                time.sleep(1.5)
-        except Exception:
-            time.sleep(0.5)
-    return None
-
 def fetch_cached_annual_statements(fmp_sym: str, sym: str) -> Dict[str, list]:
     """
     抓取 5 年年度歷史報表並持久化至本地 JSON。
@@ -918,6 +904,7 @@ def main():
 
             debt = round(tot_debt_raw / 1e6, 1)
             cash = round(tot_cash_raw / 1e6, 1)
+            short_term_inv = round(short_term_inv / 1e6, 1)
 
             # 針對特定異常翻倍之原始資料進行防護校準
             if sym == "NVDA" and cash > 80000:
@@ -1013,6 +1000,7 @@ def main():
         if fx_rate != 1.0 or sym == "TSM":
             debt = round(debt * fx_rate, 1)
             cash = round(cash * fx_rate, 1)
+            short_term_inv = round(short_term_inv * fx_rate, 1)
             equity = equity * fx_rate
             goodwill_and_intangibles = goodwill_and_intangibles * fx_rate
             total_assets = total_assets * fx_rate
@@ -1200,7 +1188,7 @@ def main():
             "mcap": mcap,
             "debt": debt,
             "cash": cash,
-            "short_term_investments": round(short_term_inv * fx_rate / 1e6, 1) if 'short_term_inv' in locals() else 0.0,
+            "short_term_investments": short_term_inv,
             "cash_and_short_term": cash,
             "net_debt": round(debt - cash, 1),
             "fcf0": fcf0,
