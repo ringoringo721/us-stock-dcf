@@ -30,6 +30,17 @@ jobs:
           pip install --upgrade pip
           pip install requests pydantic google-genai
 
+      - name: Cache AI Moat and Description Files
+        uses: actions/cache@v4
+        with:
+          path: |
+            cache/moat
+            cache/descriptions
+          key: ai-data-cache-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: |
+            ai-data-cache-${{ runner.os }}-
+            ai-data-cache-
+
       - name: Run Market Engine with FMP Key
         env:
           FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
