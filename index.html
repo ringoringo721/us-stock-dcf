@@ -2708,24 +2708,6 @@ function renderStockSplits(s) {
     tbody.innerHTML = rowsHtml;
   }
 
-let ratioChartInstance = null;
-  let currentRatioMainTab = 'returns'; // 'asset' | 'returns'
-  let currentReturnMetricMode = 'COE';  // 'ROE' | 'ROA' | 'COE' | 'COA'
-
-  // 切換大類圖表 (資產結構 vs 回報率)
-  function switchRatioMainChart(tab) {
-    currentRatioMainTab = tab;
-    const btnAsset = document.getElementById('btn-tab-asset-struct');
-    const btnReturns = document.getElementById('btn-tab-returns');
-    if (btnAsset) btnAsset.className = tab === 'asset' ? 'stmt-btn active' : 'stmt-btn';
-    if (btnReturns) btnReturns.className = tab === 'returns' ? 'stmt-btn active' : 'stmt-btn';
-    
-    const modeBar = document.getElementById('return-mode-bar');
-    if (modeBar) modeBar.style.display = (tab === 'returns') ? 'flex' : 'none';
-
-    renderRatiosSubPage(stockUniverse[activeCompanyTicker]);
-  }
-
   // 切換 4 大回報率指標維度
   function setReturnMetricMode(mode) {
     currentReturnMetricMode = mode;
@@ -2738,10 +2720,11 @@ let ratioChartInstance = null;
 
   function renderRatiosSubPage(s) {
 let assetChartInstance = null;
+let assetChartInstance = null;
   let returnChartInstance = null;
   let currentReturnMetricMode = 'ROE'; // 預設為 'ROE'，可切換 'ROA' | 'COE' | 'COA'
 
-  // 切換回報率指標維度 (左上角按鈕點擊事件)
+  // 切換回報率指標維度 (左上角 4 個按鈕點擊事件)
   function setReturnMetricMode(mode) {
     currentReturnMetricMode = mode;
     ['roe', 'roa', 'coe', 'coa'].forEach(m => {
