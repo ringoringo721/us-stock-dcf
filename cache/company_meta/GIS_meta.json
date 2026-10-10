@@ -1,0 +1,135 @@
+{
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-05",
+      "name": "Sharma Pankaj MN",
+      "title": "officer: Segment President",
+      "is_buy": false,
+      "shares": 6294,
+      "price": 31.33,
+      "total_val": 0.2
+    },
+    {
+      "date": "2026-10-01",
+      "name": "SPRUNK ERIC D",
+      "title": "director",
+      "is_buy": false,
+      "shares": 5323,
+      "price": 32.29,
+      "total_val": 0.17
+    },
+    {
+      "date": "2026-10-01",
+      "name": "Bottarini Joan",
+      "title": "director",
+      "is_buy": false,
+      "shares": 5323,
+      "price": 32.29,
+      "total_val": 0.17
+    },
+    {
+      "date": "2026-10-01",
+      "name": "MORIKIS JOHN G",
+      "title": "director",
+      "is_buy": false,
+      "shares": 5323,
+      "price": 32.29,
+      "total_val": 0.17
+    },
+    {
+      "date": "2026-10-01",
+      "name": "Uribe Jorge A.",
+      "title": "director",
+      "is_buy": false,
+      "shares": 5323,
+      "price": 32.29,
+      "total_val": 0.17
+    },
+    {
+      "date": "2026-10-01",
+      "name": "Uribe Jorge A.",
+      "title": "director",
+      "is_buy": false,
+      "shares": 560,
+      "price": 33.82,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-10-01",
+      "name": "SASTRE MARIA",
+      "title": "director",
+      "is_buy": false,
+      "shares": 5323,
+      "price": 32.29,
+      "total_val": 0.17
+    },
+    {
+      "date": "2026-10-01",
+      "name": "Lempres Elizabeth Cahill",
+      "title": "director",
+      "is_buy": false,
+      "shares": 5323,
+      "price": 32.29,
+      "total_val": 0.17
+    },
+    {
+      "date": "2026-10-01",
+      "name": "HENRY MARIA",
+      "title": "director",
+      "is_buy": false,
+      "shares": 5323,
+      "price": 32.29,
+      "total_val": 0.17
+    },
+    {
+      "date": "2026-10-01",
+      "name": "Dorer Benno O",
+      "title": "director",
+      "is_buy": false,
+      "shares": 5323,
+      "price": 32.29,
+      "total_val": 0.17
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2010-06-09",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1999-11-09",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1995-05-30",
+      "ratio": "2000 : 1653",
+      "desc": "普通股 1653 拆 2000 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1990-11-08",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1986-11-10",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1975-11-10",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    }
+  ],
+  "inst_ownership_pct": 68.5,
+  "insider_ownership_pct": 13.5
+}

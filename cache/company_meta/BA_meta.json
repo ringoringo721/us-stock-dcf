@@ -1,0 +1,147 @@
+{
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-09-01",
+      "name": "Parker Stephen Kenneth",
+      "title": "officer: EVP, Pres. & CEO, BDS",
+      "is_buy": false,
+      "shares": 629,
+      "price": 209.08,
+      "total_val": 0.13
+    },
+    {
+      "date": "2026-08-19",
+      "name": "MALAVE JESUS JR",
+      "title": "officer: EVP and CFO",
+      "is_buy": false,
+      "shares": 4205,
+      "price": 228.65,
+      "total_val": 0.96
+    },
+    {
+      "date": "2026-08-18",
+      "name": "Raymond David Christopher",
+      "title": "officer: EVP, Pres. & CEO, BGS",
+      "is_buy": false,
+      "shares": 907,
+      "price": 190.37,
+      "total_val": 0.17
+    },
+    {
+      "date": "2026-08-12",
+      "name": "Ortberg Robert Kelly",
+      "title": "director, officer: President & CEO",
+      "is_buy": false,
+      "shares": 6232,
+      "price": 234.09,
+      "total_val": 1.46
+    },
+    {
+      "date": "2026-07-06",
+      "name": "TILDEN BRADLEY D",
+      "title": "director",
+      "is_buy": false,
+      "shares": 383,
+      "price": 190.37,
+      "total_val": 0.07
+    },
+    {
+      "date": "2026-07-06",
+      "name": "Richardson John M",
+      "title": "director",
+      "is_buy": false,
+      "shares": 228,
+      "price": 190.37,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-07-06",
+      "name": "MOLLENKOPF STEVEN M",
+      "title": "director",
+      "is_buy": false,
+      "shares": 669,
+      "price": 190.37,
+      "total_val": 0.13
+    },
+    {
+      "date": "2026-07-06",
+      "name": "Joyce David Leon",
+      "title": "director",
+      "is_buy": false,
+      "shares": 440,
+      "price": 190.37,
+      "total_val": 0.08
+    },
+    {
+      "date": "2026-07-06",
+      "name": "JOHRI AKHIL",
+      "title": "director",
+      "is_buy": false,
+      "shares": 406,
+      "price": 190.37,
+      "total_val": 0.08
+    },
+    {
+      "date": "2026-07-06",
+      "name": "Harris Stayce D.",
+      "title": "director",
+      "is_buy": false,
+      "shares": 383,
+      "price": 190.37,
+      "total_val": 0.07
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "1997-06-09",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1990-06-11",
+      "ratio": "3 : 2",
+      "desc": "普通股 2 拆 3 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1989-06-12",
+      "ratio": "3 : 2",
+      "desc": "普通股 2 拆 3 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1985-06-10",
+      "ratio": "3 : 2",
+      "desc": "普通股 2 拆 3 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1980-04-15",
+      "ratio": "3 : 2",
+      "desc": "普通股 2 拆 3 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1979-04-16",
+      "ratio": "3 : 2",
+      "desc": "普通股 2 拆 3 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1977-09-13",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1966-05-18",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    }
+  ],
+  "inst_ownership_pct": 68.5,
+  "insider_ownership_pct": 13.5
+}

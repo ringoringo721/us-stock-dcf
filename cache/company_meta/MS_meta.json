@@ -1,0 +1,111 @@
+{
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-09-24",
+      "name": "MITSUBISHI UFJ FINANCIAL GROUP INC",
+      "title": "10 percent owner",
+      "is_buy": false,
+      "shares": 1340519,
+      "price": 212.57,
+      "total_val": 284.95
+    },
+    {
+      "date": "2026-08-03",
+      "name": "MITSUBISHI UFJ FINANCIAL GROUP INC",
+      "title": "10 percent owner",
+      "is_buy": false,
+      "shares": 414396,
+      "price": 213.28,
+      "total_val": 88.38
+    },
+    {
+      "date": "2026-07-29",
+      "name": "SCHAPIRO MARY L",
+      "title": "director",
+      "is_buy": false,
+      "shares": 1000,
+      "price": 212.06,
+      "total_val": 0.21
+    },
+    {
+      "date": "2026-07-29",
+      "name": "SCHAPIRO MARY L",
+      "title": "director",
+      "is_buy": false,
+      "shares": 2325,
+      "price": 190.02,
+      "total_val": 0.44
+    },
+    {
+      "date": "2026-07-17",
+      "name": "YESHAYA SHARON",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": false,
+      "shares": 6382,
+      "price": 222.51,
+      "total_val": 1.42
+    },
+    {
+      "date": "2026-07-17",
+      "name": "YESHAYA SHARON",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": false,
+      "shares": 9172,
+      "price": 222.51,
+      "total_val": 2.04
+    },
+    {
+      "date": "2026-07-17",
+      "name": "Pizzi Michael A.",
+      "title": "officer: Head Technology & Operations",
+      "is_buy": false,
+      "shares": 17064,
+      "price": 215.0,
+      "total_val": 3.67
+    },
+    {
+      "date": "2026-07-17",
+      "name": "Pizzi Michael A.",
+      "title": "officer: Head Technology & Operations",
+      "is_buy": false,
+      "shares": 7101,
+      "price": 216.88,
+      "total_val": 1.54
+    },
+    {
+      "date": "2026-06-02",
+      "name": "NALLY DENNIS M",
+      "title": "director",
+      "is_buy": false,
+      "shares": 345,
+      "price": 209.96,
+      "total_val": 0.07
+    },
+    {
+      "date": "2026-06-02",
+      "name": "NALLY DENNIS M",
+      "title": "director",
+      "is_buy": false,
+      "shares": 1309,
+      "price": 190.02,
+      "total_val": 0.25
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2000-01-27",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1997-01-15",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    }
+  ],
+  "inst_ownership_pct": 68.5,
+  "insider_ownership_pct": 13.5
+}

@@ -1,0 +1,159 @@
+{
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-01",
+      "name": "RUSCKOWSKI STEPHEN H",
+      "title": "director",
+      "is_buy": true,
+      "shares": 25000,
+      "price": 139.35,
+      "total_val": 3.48
+    },
+    {
+      "date": "2026-09-23",
+      "name": "Smith Maria",
+      "title": "officer: EVP, Chief  Accounting Officer",
+      "is_buy": true,
+      "shares": 5506,
+      "price": 141.53,
+      "total_val": 0.78
+    },
+    {
+      "date": "2026-09-23",
+      "name": "Smith Maria",
+      "title": "officer: EVP, Chief  Accounting Officer",
+      "is_buy": true,
+      "shares": 11934,
+      "price": 141.53,
+      "total_val": 1.69
+    },
+    {
+      "date": "2026-09-23",
+      "name": "Smith Maria",
+      "title": "officer: EVP, Chief  Accounting Officer",
+      "is_buy": false,
+      "shares": 6230,
+      "price": 147.61,
+      "total_val": 0.92
+    },
+    {
+      "date": "2026-09-23",
+      "name": "Smith Maria",
+      "title": "officer: EVP, Chief  Accounting Officer",
+      "is_buy": false,
+      "shares": 2875,
+      "price": 147.61,
+      "total_val": 0.42
+    },
+    {
+      "date": "2026-09-23",
+      "name": "Smith Maria",
+      "title": "officer: EVP, Chief  Accounting Officer",
+      "is_buy": false,
+      "shares": 2631,
+      "price": 151.7,
+      "total_val": 0.4
+    },
+    {
+      "date": "2026-09-23",
+      "name": "Smith Maria",
+      "title": "officer: EVP, Chief  Accounting Officer",
+      "is_buy": true,
+      "shares": 11934,
+      "price": 141.53,
+      "total_val": 1.69
+    },
+    {
+      "date": "2026-09-23",
+      "name": "Smith Maria",
+      "title": "officer: EVP, Chief  Accounting Officer",
+      "is_buy": true,
+      "shares": 5506,
+      "price": 141.53,
+      "total_val": 0.78
+    },
+    {
+      "date": "2026-09-23",
+      "name": "Sicilia Michael D.",
+      "title": "officer: Chief Executive Officer",
+      "is_buy": true,
+      "shares": 73411,
+      "price": 141.53,
+      "total_val": 10.39
+    },
+    {
+      "date": "2026-09-23",
+      "name": "Sicilia Michael D.",
+      "title": "officer: Chief Executive Officer",
+      "is_buy": false,
+      "shares": 17311,
+      "price": 147.61,
+      "total_val": 2.56
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2000-10-13",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "2000-01-19",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1999-03-01",
+      "ratio": "3 : 2",
+      "desc": "普通股 2 拆 3 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1997-08-18",
+      "ratio": "3 : 2",
+      "desc": "普通股 2 拆 3 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1996-04-17",
+      "ratio": "3 : 2",
+      "desc": "普通股 2 拆 3 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1995-02-23",
+      "ratio": "3 : 2",
+      "desc": "普通股 2 拆 3 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1993-11-09",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1989-07-03",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1987-12-21",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1987-03-25",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    }
+  ],
+  "inst_ownership_pct": 68.5,
+  "insider_ownership_pct": 13.5
+}

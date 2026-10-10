@@ -1,0 +1,123 @@
+{
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-09-03",
+      "name": "KNIGHT LESTER B",
+      "title": "director",
+      "is_buy": true,
+      "shares": 367,
+      "price": 330.51,
+      "total_val": 0.12
+    },
+    {
+      "date": "2026-09-03",
+      "name": "KNIGHT LESTER B",
+      "title": "director",
+      "is_buy": true,
+      "shares": 1440,
+      "price": 329.69,
+      "total_val": 0.47
+    },
+    {
+      "date": "2026-09-03",
+      "name": "KNIGHT LESTER B",
+      "title": "director",
+      "is_buy": true,
+      "shares": 4145,
+      "price": 328.34,
+      "total_val": 1.36
+    },
+    {
+      "date": "2026-09-03",
+      "name": "KNIGHT LESTER B",
+      "title": "director",
+      "is_buy": true,
+      "shares": 7212,
+      "price": 327.52,
+      "total_val": 2.36
+    },
+    {
+      "date": "2026-09-03",
+      "name": "KNIGHT LESTER B",
+      "title": "director",
+      "is_buy": true,
+      "shares": 5097,
+      "price": 326.53,
+      "total_val": 1.66
+    },
+    {
+      "date": "2026-09-03",
+      "name": "KNIGHT LESTER B",
+      "title": "director",
+      "is_buy": true,
+      "shares": 1739,
+      "price": 325.63,
+      "total_val": 0.57
+    },
+    {
+      "date": "2026-08-26",
+      "name": "Virani Nadin",
+      "title": "officer: Interim CFO",
+      "is_buy": true,
+      "shares": 0,
+      "price": 273.47,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-26",
+      "name": "Virani Nadin",
+      "title": "officer: Interim CFO",
+      "is_buy": true,
+      "shares": 893,
+      "price": 273.47,
+      "total_val": 0.24
+    },
+    {
+      "date": "2026-07-30",
+      "name": "Zeidel Darren",
+      "title": "officer: General Counsel",
+      "is_buy": false,
+      "shares": 700,
+      "price": 376.0,
+      "total_val": 0.26
+    },
+    {
+      "date": "2026-07-30",
+      "name": "Zeidel Darren",
+      "title": "officer: General Counsel",
+      "is_buy": false,
+      "shares": 725,
+      "price": 378.0,
+      "total_val": 0.27
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "1999-05-18",
+      "ratio": "3 : 2",
+      "desc": "普通股 2 拆 3 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1997-05-15",
+      "ratio": "3 : 2",
+      "desc": "普通股 2 拆 3 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1994-05-17",
+      "ratio": "3 : 2",
+      "desc": "普通股 2 拆 3 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1987-05-27",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    }
+  ],
+  "inst_ownership_pct": 68.5,
+  "insider_ownership_pct": 13.5
+}

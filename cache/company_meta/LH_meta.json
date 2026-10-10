@@ -1,0 +1,123 @@
+{
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-09-03",
+      "name": "Oyegunwa Akinbolade",
+      "title": "officer: EVP, CIO & CTO",
+      "is_buy": false,
+      "shares": 750,
+      "price": 312.15,
+      "total_val": 0.23
+    },
+    {
+      "date": "2026-09-03",
+      "name": "Meltzer Jonathan C",
+      "title": "officer: EVP, COO",
+      "is_buy": false,
+      "shares": 900,
+      "price": 312.15,
+      "total_val": 0.28
+    },
+    {
+      "date": "2026-09-03",
+      "name": "Vaughn Bryan T",
+      "title": "officer: EVP and President, Diagnostics",
+      "is_buy": false,
+      "shares": 1500,
+      "price": 312.15,
+      "total_val": 0.47
+    },
+    {
+      "date": "2026-09-03",
+      "name": "Caveney Brian J",
+      "title": "officer: EVP, Pres of BLS, CMO & CSO",
+      "is_buy": false,
+      "shares": 3000,
+      "price": 312.15,
+      "total_val": 0.94
+    },
+    {
+      "date": "2026-08-18",
+      "name": "ANDERSON KERRII B",
+      "title": "director",
+      "is_buy": false,
+      "shares": 3000,
+      "price": 318.02,
+      "total_val": 0.95
+    },
+    {
+      "date": "2026-08-12",
+      "name": "Schechter Adam H",
+      "title": "director, officer: President & CEO",
+      "is_buy": false,
+      "shares": 4669,
+      "price": 320.37,
+      "total_val": 1.5
+    },
+    {
+      "date": "2026-08-06",
+      "name": "Summy Amy B.",
+      "title": "officer: EVP, Chief Marketing Officer",
+      "is_buy": false,
+      "shares": 924,
+      "price": 306.74,
+      "total_val": 0.28
+    },
+    {
+      "date": "2026-08-05",
+      "name": "Wilkinson Peter J",
+      "title": "officer: SVP, Chief Accounting Officer",
+      "is_buy": true,
+      "shares": 1338,
+      "price": 209.25,
+      "total_val": 0.28
+    },
+    {
+      "date": "2026-08-05",
+      "name": "Wilkinson Peter J",
+      "title": "officer: SVP, Chief Accounting Officer",
+      "is_buy": false,
+      "shares": 82,
+      "price": 309.22,
+      "total_val": 0.03
+    },
+    {
+      "date": "2026-08-05",
+      "name": "Wilkinson Peter J",
+      "title": "officer: SVP, Chief Accounting Officer",
+      "is_buy": false,
+      "shares": 1338,
+      "price": 309.23,
+      "total_val": 0.41
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2023-07-03",
+      "ratio": "291 : 250",
+      "desc": "普通股 250 拆 291 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "2002-05-13",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "2001-06-12",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "2000-05-04",
+      "ratio": "1 : 10",
+      "desc": "普通股 10 拆 1 (Stock Split)",
+      "type": "普通拆股"
+    }
+  ],
+  "inst_ownership_pct": 68.5,
+  "insider_ownership_pct": 13.5
+}

@@ -1,0 +1,129 @@
+{
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-09-04",
+      "name": "Dittrich Thomas J.W.",
+      "title": "officer: EVP & CFO",
+      "is_buy": true,
+      "shares": 0,
+      "price": 414.87,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-04",
+      "name": "Dittrich Thomas J.W.",
+      "title": "officer: EVP & CFO",
+      "is_buy": true,
+      "shares": 17201,
+      "price": 410.95,
+      "total_val": 7.07
+    },
+    {
+      "date": "2026-08-13",
+      "name": "Khosla Rachna",
+      "title": "officer: SVP, Business Development",
+      "is_buy": true,
+      "shares": 1252,
+      "price": 162.6,
+      "total_val": 0.2
+    },
+    {
+      "date": "2026-08-13",
+      "name": "Khosla Rachna",
+      "title": "officer: SVP, Business Development",
+      "is_buy": false,
+      "shares": 1252,
+      "price": 416.43,
+      "total_val": 0.52
+    },
+    {
+      "date": "2026-08-13",
+      "name": "Khosla Rachna",
+      "title": "officer: SVP, Business Development",
+      "is_buy": false,
+      "shares": 2000,
+      "price": 412.57,
+      "total_val": 0.83
+    },
+    {
+      "date": "2026-08-13",
+      "name": "Khosla Rachna",
+      "title": "officer: SVP, Business Development",
+      "is_buy": true,
+      "shares": 1252,
+      "price": 162.6,
+      "total_val": 0.2
+    },
+    {
+      "date": "2026-08-12",
+      "name": "Busch Matthew C.",
+      "title": "officer: VP, Finance & CAO",
+      "is_buy": false,
+      "shares": 730,
+      "price": 414.87,
+      "total_val": 0.3
+    },
+    {
+      "date": "2026-08-10",
+      "name": "ISHRAK OMAR",
+      "title": "director",
+      "is_buy": false,
+      "shares": 85,
+      "price": 414.87,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-08-10",
+      "name": "HOLLEY CHARLES M",
+      "title": "director",
+      "is_buy": false,
+      "shares": 103,
+      "price": 414.87,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-08-10",
+      "name": "Drake Michael V",
+      "title": "director",
+      "is_buy": false,
+      "shares": 63,
+      "price": 414.87,
+      "total_val": 0.03
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "1999-11-22",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1999-03-01",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1995-08-16",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1991-09-11",
+      "ratio": "3 : 1",
+      "desc": "普通股 1 拆 3 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1990-08-13",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    }
+  ],
+  "inst_ownership_pct": 68.5,
+  "insider_ownership_pct": 13.5
+}

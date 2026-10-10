@@ -1,0 +1,135 @@
+{
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-09-16",
+      "name": "WALLACE RICHARD P",
+      "title": "officer: President and CEO",
+      "is_buy": false,
+      "shares": 72019,
+      "price": 171.88,
+      "total_val": 12.38
+    },
+    {
+      "date": "2026-08-14",
+      "name": "Lorig Brian",
+      "title": "officer: EVP, KLA Global Services",
+      "is_buy": false,
+      "shares": 59586,
+      "price": 208.13,
+      "total_val": 12.4
+    },
+    {
+      "date": "2026-08-13",
+      "name": "Higgins Bren D.",
+      "title": "officer: EVP & Chief Financial Officer",
+      "is_buy": false,
+      "shares": 31500,
+      "price": 209.87,
+      "total_val": 6.61
+    },
+    {
+      "date": "2026-08-12",
+      "name": "Khan Ahmad A.",
+      "title": "officer: President, Semi. Prod. & Cust.",
+      "is_buy": false,
+      "shares": 33180,
+      "price": 198.95,
+      "total_val": 6.6
+    },
+    {
+      "date": "2026-08-12",
+      "name": "WALLACE RICHARD P",
+      "title": "officer: President and CEO",
+      "is_buy": false,
+      "shares": 87568,
+      "price": 198.95,
+      "total_val": 17.42
+    },
+    {
+      "date": "2026-08-11",
+      "name": "Kirloskar Virendra A",
+      "title": "officer: SVP & Chief Accounting Officer",
+      "is_buy": false,
+      "shares": 529,
+      "price": 204.56,
+      "total_val": 0.11
+    },
+    {
+      "date": "2026-08-11",
+      "name": "Wilkinson Mary Beth",
+      "title": "officer: EVP, CLO and Secretary",
+      "is_buy": false,
+      "shares": 1661,
+      "price": 204.56,
+      "total_val": 0.34
+    },
+    {
+      "date": "2026-08-10",
+      "name": "WALLACE RICHARD P",
+      "title": "officer: President and CEO",
+      "is_buy": false,
+      "shares": 12761,
+      "price": 193.22,
+      "total_val": 2.47
+    },
+    {
+      "date": "2026-08-10",
+      "name": "Lorig Brian",
+      "title": "officer: EVP, KLA Global Services",
+      "is_buy": false,
+      "shares": 2875,
+      "price": 193.22,
+      "total_val": 0.56
+    },
+    {
+      "date": "2026-08-10",
+      "name": "Wilkinson Mary Beth",
+      "title": "officer: EVP, CLO and Secretary",
+      "is_buy": false,
+      "shares": 1208,
+      "price": 193.22,
+      "total_val": 0.23
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2026-06-12",
+      "ratio": "10 : 1",
+      "desc": "普通股 1 拆 10 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "2000-01-19",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1995-10-02",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1984-12-17",
+      "ratio": "3 : 2",
+      "desc": "普通股 2 拆 3 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1983-12-09",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1983-01-10",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    }
+  ],
+  "inst_ownership_pct": 68.5,
+  "insider_ownership_pct": 13.5
+}

@@ -262,8 +262,139 @@ window.FULL_MARKET_DATA = {
     "year_low": 164.27,
     "all_time_high": 0.0,
     "all_time_low": 164.27,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 8.5,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-09",
+        "name": "COXE TENCH",
+        "title": "director",
+        "is_buy": false,
+        "shares": 500000,
+        "price": 229.28,
+        "total_val": 114.64
+      },
+      {
+        "date": "2026-09-23",
+        "name": "Teter Timothy S.",
+        "title": "officer: EVP, General Counsel and Sec",
+        "is_buy": false,
+        "shares": 12483,
+        "price": 222.19,
+        "total_val": 2.77
+      },
+      {
+        "date": "2026-09-23",
+        "name": "Teter Timothy S.",
+        "title": "officer: EVP, General Counsel and Sec",
+        "is_buy": false,
+        "shares": 13478,
+        "price": 223.05,
+        "total_val": 3.01
+      },
+      {
+        "date": "2026-09-23",
+        "name": "Teter Timothy S.",
+        "title": "officer: EVP, General Counsel and Sec",
+        "is_buy": false,
+        "shares": 4499,
+        "price": 223.75,
+        "total_val": 1.01
+      },
+      {
+        "date": "2026-09-22",
+        "name": "STEVENS MARK A",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1356000,
+        "price": 219.72,
+        "total_val": 297.94
+      },
+      {
+        "date": "2026-09-22",
+        "name": "STEVENS MARK A",
+        "title": "director",
+        "is_buy": false,
+        "shares": 10000,
+        "price": 220.42,
+        "total_val": 2.2
+      },
+      {
+        "date": "2026-09-18",
+        "name": "GAWEL SCOTT",
+        "title": "officer: Principal Accounting Officer",
+        "is_buy": false,
+        "shares": 2932,
+        "price": 212.17,
+        "total_val": 0.62
+      },
+      {
+        "date": "2026-09-18",
+        "name": "Shoquist Debora",
+        "title": "officer: EVP, Operations",
+        "is_buy": false,
+        "shares": 35008,
+        "price": 212.17,
+        "total_val": 7.43
+      },
+      {
+        "date": "2026-09-18",
+        "name": "Teter Timothy S.",
+        "title": "officer: EVP, General Counsel and Sec",
+        "is_buy": false,
+        "shares": 35738,
+        "price": 212.17,
+        "total_val": 7.58
+      },
+      {
+        "date": "2026-09-18",
+        "name": "Kress Colette",
+        "title": "officer: EVP & Chief Financial Officer",
+        "is_buy": false,
+        "shares": 40747,
+        "price": 212.17,
+        "total_val": 8.65
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2024-06-10",
+        "ratio": "10 : 1",
+        "desc": "普通股 1 拆 10 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2021-07-20",
+        "ratio": "4 : 1",
+        "desc": "普通股 1 拆 4 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2007-09-11",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2006-04-07",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2001-09-12",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2000-06-27",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "NVDA"
   },
   "AAPL": {
@@ -529,8 +660,133 @@ window.FULL_MARKET_DATA = {
     "year_low": 243.42,
     "all_time_high": 0.0,
     "all_time_low": 243.42,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 8.5,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-08",
+        "name": "Newstead Jennifer",
+        "title": "officer: SVP, GC and Government Affairs",
+        "is_buy": false,
+        "shares": 2399,
+        "price": 332.01,
+        "total_val": 0.8
+      },
+      {
+        "date": "2026-10-05",
+        "name": "COOK TIMOTHY D",
+        "title": "director, officer: Executive Chair",
+        "is_buy": true,
+        "shares": 374541,
+        "price": 336.64,
+        "total_val": 126.09
+      },
+      {
+        "date": "2026-10-05",
+        "name": "COOK TIMOTHY D",
+        "title": "director, officer: Executive Chair",
+        "is_buy": false,
+        "shares": 199038,
+        "price": 330.32,
+        "total_val": 65.75
+      },
+      {
+        "date": "2026-10-05",
+        "name": "COOK TIMOTHY D",
+        "title": "director, officer: Executive Chair",
+        "is_buy": false,
+        "shares": 23143,
+        "price": 331.44,
+        "total_val": 7.67
+      },
+      {
+        "date": "2026-10-05",
+        "name": "COOK TIMOTHY D",
+        "title": "director, officer: Executive Chair",
+        "is_buy": false,
+        "shares": 39492,
+        "price": 332.16,
+        "total_val": 13.12
+      },
+      {
+        "date": "2026-10-05",
+        "name": "COOK TIMOTHY D",
+        "title": "director, officer: Executive Chair",
+        "is_buy": false,
+        "shares": 88239,
+        "price": 333.26,
+        "total_val": 29.41
+      },
+      {
+        "date": "2026-10-05",
+        "name": "COOK TIMOTHY D",
+        "title": "director, officer: Executive Chair",
+        "is_buy": false,
+        "shares": 40879,
+        "price": 333.94,
+        "total_val": 13.65
+      },
+      {
+        "date": "2026-10-05",
+        "name": "COOK TIMOTHY D",
+        "title": "director, officer: Executive Chair",
+        "is_buy": false,
+        "shares": 26325,
+        "price": 336.64,
+        "total_val": 8.86
+      },
+      {
+        "date": "2026-10-05",
+        "name": "COOK TIMOTHY D",
+        "title": "director, officer: Executive Chair",
+        "is_buy": true,
+        "shares": 374541,
+        "price": 336.64,
+        "total_val": 126.09
+      },
+      {
+        "date": "2026-10-05",
+        "name": "O'BRIEN DEIRDRE",
+        "title": "officer: Senior Vice President",
+        "is_buy": true,
+        "shares": 99878,
+        "price": 336.64,
+        "total_val": 33.62
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2020-08-31",
+        "ratio": "4 : 1",
+        "desc": "普通股 1 拆 4 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2014-06-09",
+        "ratio": "7 : 1",
+        "desc": "普通股 1 拆 7 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2005-02-28",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2000-06-21",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1987-06-16",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "AAPL"
   },
   "MSFT": {
@@ -796,8 +1052,157 @@ window.FULL_MARKET_DATA = {
     "year_low": 349.2,
     "all_time_high": 0.0,
     "all_time_low": 349.2,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 8.5,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-17",
+        "name": "SMITH BRADFORD L",
+        "title": "officer: Vice Chair and President",
+        "is_buy": false,
+        "shares": 29077,
+        "price": 535.07,
+        "total_val": 15.56
+      },
+      {
+        "date": "2026-09-17",
+        "name": "Numoto Takeshi",
+        "title": "officer: EVP, Chief Marketing Officer",
+        "is_buy": false,
+        "shares": 11569,
+        "price": 535.07,
+        "total_val": 6.19
+      },
+      {
+        "date": "2026-09-17",
+        "name": "Hood Amy",
+        "title": "officer: EVP & Chief Financial Officer",
+        "is_buy": false,
+        "shares": 29077,
+        "price": 535.07,
+        "total_val": 15.56
+      },
+      {
+        "date": "2026-09-17",
+        "name": "Coleman Amy",
+        "title": "officer: EVP, Chief Human Resources Off",
+        "is_buy": false,
+        "shares": 6506,
+        "price": 535.07,
+        "total_val": 3.48
+      },
+      {
+        "date": "2026-09-17",
+        "name": "Althoff Judson",
+        "title": "officer: EVP, Chief Commercial Officer",
+        "is_buy": false,
+        "shares": 29077,
+        "price": 535.07,
+        "total_val": 15.56
+      },
+      {
+        "date": "2026-09-15",
+        "name": "Jolla Alice L.",
+        "title": "officer: Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 122,
+        "price": 505.41,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-09-15",
+        "name": "Coleman Amy",
+        "title": "officer: EVP, Chief Human Resources Off",
+        "is_buy": false,
+        "shares": 35,
+        "price": 505.41,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-09-15",
+        "name": "Hood Amy",
+        "title": "officer: EVP, Chief Financial Officer",
+        "is_buy": false,
+        "shares": 4339,
+        "price": 495.97,
+        "total_val": 2.15
+      },
+      {
+        "date": "2026-09-15",
+        "name": "Hood Amy",
+        "title": "officer: EVP, Chief Financial Officer",
+        "is_buy": false,
+        "shares": 10433,
+        "price": 496.91,
+        "total_val": 5.18
+      },
+      {
+        "date": "2026-09-15",
+        "name": "Hood Amy",
+        "title": "officer: EVP, Chief Financial Officer",
+        "is_buy": false,
+        "shares": 9821,
+        "price": 497.78,
+        "total_val": 4.89
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2003-02-18",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1999-03-29",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1998-02-23",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1996-12-09",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1994-05-23",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1992-06-15",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1991-06-27",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1990-04-16",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1987-09-21",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "MSFT"
   },
   "AVGO": {
@@ -1063,8 +1468,109 @@ window.FULL_MARKET_DATA = {
     "year_low": 184.02,
     "all_time_high": 0.0,
     "all_time_low": 184.02,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 8.5,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-25",
+        "name": "SAMUELI HENRY",
+        "title": "director",
+        "is_buy": false,
+        "shares": 186809,
+        "price": 354.71,
+        "total_val": 66.26
+      },
+      {
+        "date": "2026-09-25",
+        "name": "SAMUELI HENRY",
+        "title": "director",
+        "is_buy": false,
+        "shares": 230031,
+        "price": 355.5,
+        "total_val": 81.78
+      },
+      {
+        "date": "2026-09-25",
+        "name": "SAMUELI HENRY",
+        "title": "director",
+        "is_buy": false,
+        "shares": 85221,
+        "price": 356.58,
+        "total_val": 30.39
+      },
+      {
+        "date": "2026-09-25",
+        "name": "SAMUELI HENRY",
+        "title": "director",
+        "is_buy": false,
+        "shares": 50998,
+        "price": 357.52,
+        "total_val": 18.23
+      },
+      {
+        "date": "2026-09-25",
+        "name": "SAMUELI HENRY",
+        "title": "director",
+        "is_buy": false,
+        "shares": 44618,
+        "price": 358.42,
+        "total_val": 15.99
+      },
+      {
+        "date": "2026-09-25",
+        "name": "SAMUELI HENRY",
+        "title": "director",
+        "is_buy": false,
+        "shares": 22579,
+        "price": 359.44,
+        "total_val": 8.12
+      },
+      {
+        "date": "2026-09-25",
+        "name": "SAMUELI HENRY",
+        "title": "director",
+        "is_buy": false,
+        "shares": 407,
+        "price": 361.18,
+        "total_val": 0.15
+      },
+      {
+        "date": "2026-09-25",
+        "name": "SAMUELI HENRY",
+        "title": "director",
+        "is_buy": false,
+        "shares": 11309,
+        "price": 361.79,
+        "total_val": 4.09
+      },
+      {
+        "date": "2026-09-25",
+        "name": "SAMUELI HENRY",
+        "title": "director",
+        "is_buy": false,
+        "shares": 72474,
+        "price": 361.54,
+        "total_val": 26.2
+      },
+      {
+        "date": "2026-09-25",
+        "name": "SAMUELI HENRY",
+        "title": "director",
+        "is_buy": false,
+        "shares": 22624,
+        "price": 354.75,
+        "total_val": 8.03
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2024-07-15",
+        "ratio": "10 : 1",
+        "desc": "普通股 1 拆 10 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "AVGO"
   },
   "ORCL": {
@@ -1330,8 +1836,163 @@ window.FULL_MARKET_DATA = {
     "year_low": 114.5,
     "all_time_high": 0.0,
     "all_time_low": 114.5,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 8.5,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-01",
+        "name": "RUSCKOWSKI STEPHEN H",
+        "title": "director",
+        "is_buy": true,
+        "shares": 25000,
+        "price": 139.35,
+        "total_val": 3.48
+      },
+      {
+        "date": "2026-09-23",
+        "name": "Smith Maria",
+        "title": "officer: EVP, Chief  Accounting Officer",
+        "is_buy": true,
+        "shares": 5506,
+        "price": 141.53,
+        "total_val": 0.78
+      },
+      {
+        "date": "2026-09-23",
+        "name": "Smith Maria",
+        "title": "officer: EVP, Chief  Accounting Officer",
+        "is_buy": true,
+        "shares": 11934,
+        "price": 141.53,
+        "total_val": 1.69
+      },
+      {
+        "date": "2026-09-23",
+        "name": "Smith Maria",
+        "title": "officer: EVP, Chief  Accounting Officer",
+        "is_buy": false,
+        "shares": 6230,
+        "price": 147.61,
+        "total_val": 0.92
+      },
+      {
+        "date": "2026-09-23",
+        "name": "Smith Maria",
+        "title": "officer: EVP, Chief  Accounting Officer",
+        "is_buy": false,
+        "shares": 2875,
+        "price": 147.61,
+        "total_val": 0.42
+      },
+      {
+        "date": "2026-09-23",
+        "name": "Smith Maria",
+        "title": "officer: EVP, Chief  Accounting Officer",
+        "is_buy": false,
+        "shares": 2631,
+        "price": 151.7,
+        "total_val": 0.4
+      },
+      {
+        "date": "2026-09-23",
+        "name": "Smith Maria",
+        "title": "officer: EVP, Chief  Accounting Officer",
+        "is_buy": true,
+        "shares": 11934,
+        "price": 141.53,
+        "total_val": 1.69
+      },
+      {
+        "date": "2026-09-23",
+        "name": "Smith Maria",
+        "title": "officer: EVP, Chief  Accounting Officer",
+        "is_buy": true,
+        "shares": 5506,
+        "price": 141.53,
+        "total_val": 0.78
+      },
+      {
+        "date": "2026-09-23",
+        "name": "Sicilia Michael D.",
+        "title": "officer: Chief Executive Officer",
+        "is_buy": true,
+        "shares": 73411,
+        "price": 141.53,
+        "total_val": 10.39
+      },
+      {
+        "date": "2026-09-23",
+        "name": "Sicilia Michael D.",
+        "title": "officer: Chief Executive Officer",
+        "is_buy": false,
+        "shares": 17311,
+        "price": 147.61,
+        "total_val": 2.56
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2000-10-13",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2000-01-19",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1999-03-01",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1997-08-18",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1996-04-17",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1995-02-23",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1993-11-09",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1989-07-03",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1987-12-21",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1987-03-25",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "ORCL"
   },
   "CRM": {
@@ -1597,8 +2258,109 @@ window.FULL_MARKET_DATA = {
     "year_low": 146.32,
     "all_time_high": 0.0,
     "all_time_low": 146.32,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 8.5,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-23",
+        "name": "Harris Parker",
+        "title": "director, officer: Co-Founder",
+        "is_buy": true,
+        "shares": 1272,
+        "price": 229.13,
+        "total_val": 0.29
+      },
+      {
+        "date": "2026-09-23",
+        "name": "Harris Parker",
+        "title": "director, officer: Co-Founder",
+        "is_buy": false,
+        "shares": 631,
+        "price": 233.28,
+        "total_val": 0.15
+      },
+      {
+        "date": "2026-09-23",
+        "name": "Harris Parker",
+        "title": "director, officer: Co-Founder",
+        "is_buy": true,
+        "shares": 1269,
+        "price": 229.13,
+        "total_val": 0.29
+      },
+      {
+        "date": "2026-09-23",
+        "name": "Harris Parker",
+        "title": "director, officer: Co-Founder",
+        "is_buy": false,
+        "shares": 630,
+        "price": 233.28,
+        "total_val": 0.15
+      },
+      {
+        "date": "2026-09-23",
+        "name": "Harris Parker",
+        "title": "director, officer: Co-Founder",
+        "is_buy": true,
+        "shares": 1272,
+        "price": 229.13,
+        "total_val": 0.29
+      },
+      {
+        "date": "2026-09-23",
+        "name": "Harris Parker",
+        "title": "director, officer: Co-Founder",
+        "is_buy": true,
+        "shares": 1269,
+        "price": 229.13,
+        "total_val": 0.29
+      },
+      {
+        "date": "2026-09-23",
+        "name": "Washington Robin L",
+        "title": "director, officer: President and COFO",
+        "is_buy": true,
+        "shares": 1831,
+        "price": 229.13,
+        "total_val": 0.42
+      },
+      {
+        "date": "2026-09-23",
+        "name": "Washington Robin L",
+        "title": "director, officer: President and COFO",
+        "is_buy": false,
+        "shares": 908,
+        "price": 233.28,
+        "total_val": 0.21
+      },
+      {
+        "date": "2026-09-23",
+        "name": "Washington Robin L",
+        "title": "director, officer: President and COFO",
+        "is_buy": true,
+        "shares": 1831,
+        "price": 229.13,
+        "total_val": 0.42
+      },
+      {
+        "date": "2026-09-23",
+        "name": "Niles Sabastian",
+        "title": "officer: President and CLO",
+        "is_buy": true,
+        "shares": 1017,
+        "price": 229.13,
+        "total_val": 0.23
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2013-04-18",
+        "ratio": "4 : 1",
+        "desc": "普通股 1 拆 4 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "CRM"
   },
   "AMD": {
@@ -1864,8 +2626,139 @@ window.FULL_MARKET_DATA = {
     "year_low": 188.22,
     "all_time_high": 0.0,
     "all_time_low": 188.22,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 8.5,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-17",
+        "name": "Norrod Forrest Eugene",
+        "title": "officer: EVP & GM DSG",
+        "is_buy": true,
+        "shares": 7261,
+        "price": 84.85,
+        "total_val": 0.62
+      },
+      {
+        "date": "2026-09-17",
+        "name": "Norrod Forrest Eugene",
+        "title": "officer: EVP & GM DSG",
+        "is_buy": false,
+        "shares": 757,
+        "price": 498.3,
+        "total_val": 0.38
+      },
+      {
+        "date": "2026-09-17",
+        "name": "Norrod Forrest Eugene",
+        "title": "officer: EVP & GM DSG",
+        "is_buy": false,
+        "shares": 100,
+        "price": 498.98,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-09-17",
+        "name": "Norrod Forrest Eugene",
+        "title": "officer: EVP & GM DSG",
+        "is_buy": false,
+        "shares": 1017,
+        "price": 500.67,
+        "total_val": 0.51
+      },
+      {
+        "date": "2026-09-17",
+        "name": "Norrod Forrest Eugene",
+        "title": "officer: EVP & GM DSG",
+        "is_buy": false,
+        "shares": 1655,
+        "price": 501.7,
+        "total_val": 0.83
+      },
+      {
+        "date": "2026-09-17",
+        "name": "Norrod Forrest Eugene",
+        "title": "officer: EVP & GM DSG",
+        "is_buy": false,
+        "shares": 5878,
+        "price": 502.45,
+        "total_val": 2.95
+      },
+      {
+        "date": "2026-09-17",
+        "name": "Norrod Forrest Eugene",
+        "title": "officer: EVP & GM DSG",
+        "is_buy": false,
+        "shares": 4604,
+        "price": 504.0,
+        "total_val": 2.32
+      },
+      {
+        "date": "2026-09-17",
+        "name": "Norrod Forrest Eugene",
+        "title": "officer: EVP & GM DSG",
+        "is_buy": false,
+        "shares": 2225,
+        "price": 505.12,
+        "total_val": 1.12
+      },
+      {
+        "date": "2026-09-17",
+        "name": "Norrod Forrest Eugene",
+        "title": "officer: EVP & GM DSG",
+        "is_buy": false,
+        "shares": 726,
+        "price": 505.9,
+        "total_val": 0.37
+      },
+      {
+        "date": "2026-09-17",
+        "name": "Norrod Forrest Eugene",
+        "title": "officer: EVP & GM DSG",
+        "is_buy": false,
+        "shares": 299,
+        "price": 506.88,
+        "total_val": 0.15
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2000-08-22",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1983-08-23",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1982-10-28",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1980-10-24",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1979-09-18",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1978-09-19",
+        "ratio": "1499 : 1000",
+        "desc": "普通股 1000 拆 1499 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "AMD"
   },
   "CSCO": {
@@ -2131,8 +3024,157 @@ window.FULL_MARKET_DATA = {
     "year_low": 66.81,
     "all_time_high": 0.0,
     "all_time_low": 66.81,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 8.5,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-18",
+        "name": "Patel Jeetendra I",
+        "title": "officer: President and CPO",
+        "is_buy": false,
+        "shares": 139225,
+        "price": 118.39,
+        "total_val": 16.48
+      },
+      {
+        "date": "2026-09-18",
+        "name": "Patterson Mark",
+        "title": "officer: EVP and CFO",
+        "is_buy": false,
+        "shares": 92817,
+        "price": 118.39,
+        "total_val": 10.99
+      },
+      {
+        "date": "2026-09-18",
+        "name": "Robbins Charles",
+        "title": "director, officer: Chair and CEO",
+        "is_buy": false,
+        "shares": 167069,
+        "price": 118.39,
+        "total_val": 19.78
+      },
+      {
+        "date": "2026-09-18",
+        "name": "Stahlkopf Deborah L",
+        "title": "officer: EVP and Chief Legal Officer",
+        "is_buy": false,
+        "shares": 55690,
+        "price": 118.39,
+        "total_val": 6.59
+      },
+      {
+        "date": "2026-09-18",
+        "name": "Subaiya Thimaya K.",
+        "title": "officer: EVP, Operations",
+        "is_buy": false,
+        "shares": 55690,
+        "price": 118.39,
+        "total_val": 6.59
+      },
+      {
+        "date": "2026-09-18",
+        "name": "Tuszik Oliver",
+        "title": "officer: EVP, Global Sales",
+        "is_buy": false,
+        "shares": 69613,
+        "price": 118.39,
+        "total_val": 8.24
+      },
+      {
+        "date": "2026-09-18",
+        "name": "Fink Nichlas A",
+        "title": "officer: SVP, Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 7826,
+        "price": 118.39,
+        "total_val": 0.93
+      },
+      {
+        "date": "2026-09-17",
+        "name": "Weil Kevin",
+        "title": "director",
+        "is_buy": false,
+        "shares": 274,
+        "price": 110.07,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-09-17",
+        "name": "JOHNSON KRISTINA M",
+        "title": "director",
+        "is_buy": false,
+        "shares": 417,
+        "price": 110.07,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-09-17",
+        "name": "Tessel Marianna",
+        "title": "director",
+        "is_buy": false,
+        "shares": 274,
+        "price": 110.07,
+        "total_val": 0.03
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2000-03-23",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1999-06-22",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1998-09-16",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1997-12-17",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1996-02-20",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1994-03-21",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1993-03-22",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1992-03-23",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1991-03-18",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "CSCO"
   },
   "ACN": {
@@ -2398,8 +3440,102 @@ window.FULL_MARKET_DATA = {
     "year_low": 118.15,
     "all_time_high": 0.0,
     "all_time_low": 118.15,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 8.5,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-09",
+        "name": "Hogan Catherine Kiernan",
+        "title": "officer: Chief Operating Officer",
+        "is_buy": false,
+        "shares": 1320,
+        "price": 200.0,
+        "total_val": 0.26
+      },
+      {
+        "date": "2026-10-06",
+        "name": "Burgum Melissa A",
+        "title": "officer: Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 101,
+        "price": 196.75,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-10-06",
+        "name": "Park Angie Y",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": false,
+        "shares": 140,
+        "price": 196.75,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-06",
+        "name": "Sweet Julie Spellman",
+        "title": "director, officer: Chair and CEO",
+        "is_buy": false,
+        "shares": 197,
+        "price": 196.75,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-10-06",
+        "name": "Hogan Catherine Kiernan",
+        "title": "officer: Chief Operating Officer",
+        "is_buy": false,
+        "shares": 109,
+        "price": 196.75,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-10-06",
+        "name": "Unruch Joel",
+        "title": "officer: General Counsel/Corp Secretary",
+        "is_buy": false,
+        "shares": 140,
+        "price": 196.75,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-06",
+        "name": "Clifford Katherine Lee",
+        "title": "officer: Chief Leadership & HR Officer",
+        "is_buy": false,
+        "shares": 89,
+        "price": 196.75,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-10-06",
+        "name": "Sharma Manish",
+        "title": "officer: Chief Strategy & Services Ofcr",
+        "is_buy": false,
+        "shares": 93,
+        "price": 196.75,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-10-06",
+        "name": "Walsh John F",
+        "title": "officer: CEO-The Americas",
+        "is_buy": false,
+        "shares": 139,
+        "price": 196.75,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-09-08",
+        "name": "Sweet Julie Spellman",
+        "title": "director, officer: Chair and CEO",
+        "is_buy": false,
+        "shares": 205,
+        "price": 189.09,
+        "total_val": 0.04
+      }
+    ],
+    "stock_splits": [],
     "fmp_symbol": "ACN"
   },
   "ADBE": {
@@ -2665,8 +3801,139 @@ window.FULL_MARKET_DATA = {
     "year_low": 190.12,
     "all_time_high": 0.0,
     "all_time_low": 190.12,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 8.5,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-18",
+        "name": "NARAYEN SHANTANU",
+        "title": "director, officer: Chair and CEO",
+        "is_buy": false,
+        "shares": 8358,
+        "price": 250.22,
+        "total_val": 2.09
+      },
+      {
+        "date": "2026-09-18",
+        "name": "NARAYEN SHANTANU",
+        "title": "director, officer: Chair and CEO",
+        "is_buy": false,
+        "shares": 33001,
+        "price": 251.03,
+        "total_val": 8.28
+      },
+      {
+        "date": "2026-09-18",
+        "name": "NARAYEN SHANTANU",
+        "title": "director, officer: Chair and CEO",
+        "is_buy": false,
+        "shares": 20716,
+        "price": 252.03,
+        "total_val": 5.22
+      },
+      {
+        "date": "2026-09-18",
+        "name": "NARAYEN SHANTANU",
+        "title": "director, officer: Chair and CEO",
+        "is_buy": false,
+        "shares": 11495,
+        "price": 253.06,
+        "total_val": 2.91
+      },
+      {
+        "date": "2026-09-18",
+        "name": "NARAYEN SHANTANU",
+        "title": "director, officer: Chair and CEO",
+        "is_buy": false,
+        "shares": 930,
+        "price": 253.64,
+        "total_val": 0.24
+      },
+      {
+        "date": "2026-09-18",
+        "name": "NARAYEN SHANTANU",
+        "title": "director, officer: Chair and CEO",
+        "is_buy": false,
+        "shares": 1378,
+        "price": 246.09,
+        "total_val": 0.34
+      },
+      {
+        "date": "2026-09-18",
+        "name": "NARAYEN SHANTANU",
+        "title": "director, officer: Chair and CEO",
+        "is_buy": false,
+        "shares": 3430,
+        "price": 247.36,
+        "total_val": 0.85
+      },
+      {
+        "date": "2026-09-18",
+        "name": "NARAYEN SHANTANU",
+        "title": "director, officer: Chair and CEO",
+        "is_buy": false,
+        "shares": 7168,
+        "price": 248.14,
+        "total_val": 1.78
+      },
+      {
+        "date": "2026-09-18",
+        "name": "NARAYEN SHANTANU",
+        "title": "director, officer: Chair and CEO",
+        "is_buy": false,
+        "shares": 10313,
+        "price": 249.17,
+        "total_val": 2.57
+      },
+      {
+        "date": "2026-09-18",
+        "name": "NARAYEN SHANTANU",
+        "title": "director, officer: Chair and CEO",
+        "is_buy": false,
+        "shares": 17595,
+        "price": 250.19,
+        "total_val": 4.4
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2005-05-24",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2000-10-25",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1999-10-27",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1993-08-11",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1988-11-23",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1987-03-12",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "ADBE"
   },
   "QCOM": {
@@ -2932,8 +4199,127 @@ window.FULL_MARKET_DATA = {
     "year_low": 121.99,
     "all_time_high": 0.0,
     "all_time_low": 121.99,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 8.5,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-02",
+        "name": "Grech Patricia Y",
+        "title": "officer: SVP, Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 98,
+        "price": 186.55,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-09-30",
+        "name": "TRICOIRE JEAN-PASCAL",
+        "title": "director",
+        "is_buy": false,
+        "shares": 183,
+        "price": 175.5,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-09-30",
+        "name": "MCLAUGHLIN MARK D",
+        "title": "director",
+        "is_buy": false,
+        "shares": 393,
+        "price": 175.5,
+        "total_val": 0.07
+      },
+      {
+        "date": "2026-09-25",
+        "name": "AMON CRISTIANO R",
+        "title": "director, officer: President & CEO",
+        "is_buy": false,
+        "shares": 10000,
+        "price": 200.0,
+        "total_val": 2.0
+      },
+      {
+        "date": "2026-09-23",
+        "name": "AMON CRISTIANO R",
+        "title": "director, officer: President & CEO",
+        "is_buy": false,
+        "shares": 10000,
+        "price": 195.0,
+        "total_val": 1.95
+      },
+      {
+        "date": "2026-09-11",
+        "name": "Palkhiwala Akash J.",
+        "title": "officer: EVP, CFO & COO",
+        "is_buy": false,
+        "shares": 32,
+        "price": 177.62,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-09-11",
+        "name": "Palkhiwala Akash J.",
+        "title": "officer: EVP, CFO & COO",
+        "is_buy": false,
+        "shares": 36,
+        "price": 178.63,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-09-11",
+        "name": "Palkhiwala Akash J.",
+        "title": "officer: EVP, CFO & COO",
+        "is_buy": false,
+        "shares": 48,
+        "price": 179.76,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-09-11",
+        "name": "Palkhiwala Akash J.",
+        "title": "officer: EVP, CFO & COO",
+        "is_buy": false,
+        "shares": 82,
+        "price": 180.87,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-09-11",
+        "name": "Palkhiwala Akash J.",
+        "title": "officer: EVP, CFO & COO",
+        "is_buy": false,
+        "shares": 696,
+        "price": 181.89,
+        "total_val": 0.13
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2004-08-16",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1999-12-31",
+        "ratio": "4 : 1",
+        "desc": "普通股 1 拆 4 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1999-05-11",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1994-02-24",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "QCOM"
   },
   "TXN": {
@@ -3199,8 +4585,139 @@ window.FULL_MARKET_DATA = {
     "year_low": 152.73,
     "all_time_high": 0.0,
     "all_time_low": 152.73,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 8.5,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-21",
+        "name": "FARMER CURTIS C",
+        "title": "director",
+        "is_buy": false,
+        "shares": 106,
+        "price": 283.74,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-09-21",
+        "name": "PATSLEY PAMELA H",
+        "title": "director",
+        "is_buy": false,
+        "shares": 106,
+        "price": 283.74,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-08-31",
+        "name": "Abraham Tsedeniya",
+        "title": "officer: Sr. Vice President",
+        "is_buy": true,
+        "shares": 1365,
+        "price": 79.26,
+        "total_val": 0.11
+      },
+      {
+        "date": "2026-08-31",
+        "name": "Abraham Tsedeniya",
+        "title": "officer: Sr. Vice President",
+        "is_buy": false,
+        "shares": 6408,
+        "price": 264.6,
+        "total_val": 1.7
+      },
+      {
+        "date": "2026-08-31",
+        "name": "Abraham Tsedeniya",
+        "title": "officer: Sr. Vice President",
+        "is_buy": false,
+        "shares": 592,
+        "price": 264.96,
+        "total_val": 0.16
+      },
+      {
+        "date": "2026-08-31",
+        "name": "Abraham Tsedeniya",
+        "title": "officer: Sr. Vice President",
+        "is_buy": true,
+        "shares": 1365,
+        "price": 79.26,
+        "total_val": 0.11
+      },
+      {
+        "date": "2026-07-31",
+        "name": "Knecht Julie C.",
+        "title": "officer: VP & Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 7154,
+        "price": 283.74,
+        "total_val": 2.03
+      },
+      {
+        "date": "2026-06-22",
+        "name": "FARMER CURTIS C",
+        "title": "director",
+        "is_buy": false,
+        "shares": 85,
+        "price": 283.74,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-06-22",
+        "name": "PATSLEY PAMELA H",
+        "title": "director",
+        "is_buy": false,
+        "shares": 85,
+        "price": 283.74,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-05-29",
+        "name": "Craighead Martin S",
+        "title": "director",
+        "is_buy": false,
+        "shares": 9643,
+        "price": 320.41,
+        "total_val": 3.09
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2000-05-23",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1999-08-17",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1997-11-24",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1995-08-21",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1987-06-15",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1973-05-29",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "TXN"
   },
   "IBM": {
@@ -3466,8 +4983,151 @@ window.FULL_MARKET_DATA = {
     "year_low": 199.19,
     "all_time_high": 0.0,
     "all_time_low": 199.19,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 8.5,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-08",
+        "name": "Baker Frank",
+        "title": "Officer / Director",
+        "is_buy": true,
+        "shares": 0,
+        "price": 227.13,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Laguarta Ramon",
+        "title": "director",
+        "is_buy": false,
+        "shares": 415,
+        "price": 227.13,
+        "total_val": 0.09
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Gorsky Alex",
+        "title": "director",
+        "is_buy": false,
+        "shares": 489,
+        "price": 227.13,
+        "total_val": 0.11
+      },
+      {
+        "date": "2026-10-01",
+        "name": "HOWARD MICHELLE J",
+        "title": "director",
+        "is_buy": false,
+        "shares": 291,
+        "price": 227.13,
+        "total_val": 0.07
+      },
+      {
+        "date": "2026-10-01",
+        "name": "LIVERIS ANDREW N",
+        "title": "director",
+        "is_buy": false,
+        "shares": 444,
+        "price": 227.13,
+        "total_val": 0.1
+      },
+      {
+        "date": "2026-10-01",
+        "name": "MCNABB FREDERICK WILLIAM III",
+        "title": "director",
+        "is_buy": false,
+        "shares": 415,
+        "price": 227.13,
+        "total_val": 0.09
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Miebach Michael",
+        "title": "director",
+        "is_buy": false,
+        "shares": 415,
+        "price": 227.13,
+        "total_val": 0.09
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Pollack Martha E",
+        "title": "director",
+        "is_buy": false,
+        "shares": 268,
+        "price": 227.13,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-10-01",
+        "name": "VOSER PETER R.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 455,
+        "price": 227.13,
+        "total_val": 0.1
+      },
+      {
+        "date": "2026-10-01",
+        "name": "ZOLLAR ALFRED W",
+        "title": "director",
+        "is_buy": false,
+        "shares": 415,
+        "price": 227.13,
+        "total_val": 0.09
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2021-11-04",
+        "ratio": "523 : 500",
+        "desc": "普通股 500 拆 523 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1999-05-27",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1997-05-28",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1979-06-01",
+        "ratio": "4 : 1",
+        "desc": "普通股 1 拆 4 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1973-05-29",
+        "ratio": "5 : 4",
+        "desc": "普通股 4 拆 5 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1968-04-23",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1966-05-18",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1964-05-18",
+        "ratio": "5 : 4",
+        "desc": "普通股 4 拆 5 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "IBM"
   },
   "INTC": {
@@ -3733,8 +5393,163 @@ window.FULL_MARKET_DATA = {
     "year_low": 32.89,
     "all_time_high": 0.0,
     "all_time_low": 32.89,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 8.5,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-08-14",
+        "name": "TAN LIP BU",
+        "title": "director, officer: CEO",
+        "is_buy": true,
+        "shares": 105263,
+        "price": 95.0,
+        "total_val": 10.0
+      },
+      {
+        "date": "2026-08-03",
+        "name": "Chandrasekaran Nagasubramaniyan",
+        "title": "officer: EVP, CT & Ops Off, GM Foundry",
+        "is_buy": true,
+        "shares": 33007,
+        "price": 104.7,
+        "total_val": 3.46
+      },
+      {
+        "date": "2026-08-03",
+        "name": "Chandrasekaran Nagasubramaniyan",
+        "title": "officer: EVP, CT & Ops Off, GM Foundry",
+        "is_buy": false,
+        "shares": 14738,
+        "price": 90.04,
+        "total_val": 1.33
+      },
+      {
+        "date": "2026-08-03",
+        "name": "Chandrasekaran Nagasubramaniyan",
+        "title": "officer: EVP, CT & Ops Off, GM Foundry",
+        "is_buy": true,
+        "shares": 33007,
+        "price": 104.7,
+        "total_val": 3.46
+      },
+      {
+        "date": "2026-08-03",
+        "name": "BARRATT CRAIG H",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1461,
+        "price": 104.7,
+        "total_val": 0.15
+      },
+      {
+        "date": "2026-06-02",
+        "name": "Zinsner David",
+        "title": "officer: EVP, CFO",
+        "is_buy": true,
+        "shares": 37015,
+        "price": 104.7,
+        "total_val": 3.88
+      },
+      {
+        "date": "2026-06-02",
+        "name": "Zinsner David",
+        "title": "officer: EVP, CFO",
+        "is_buy": false,
+        "shares": 18353,
+        "price": 109.82,
+        "total_val": 2.02
+      },
+      {
+        "date": "2026-06-02",
+        "name": "Zinsner David",
+        "title": "officer: EVP, CFO",
+        "is_buy": true,
+        "shares": 37015,
+        "price": 104.7,
+        "total_val": 3.88
+      },
+      {
+        "date": "2026-06-02",
+        "name": "Katouzian Aliyar",
+        "title": "officer: EVP, GM CC & Physical AI Grp",
+        "is_buy": false,
+        "shares": 87276,
+        "price": 104.7,
+        "total_val": 9.14
+      },
+      {
+        "date": "2026-06-02",
+        "name": "Katouzian Aliyar",
+        "title": "officer: EVP, GM CC & Physical AI Grp",
+        "is_buy": false,
+        "shares": 32729,
+        "price": 104.7,
+        "total_val": 3.43
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2000-07-31",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1999-04-12",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1997-07-14",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1995-06-19",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1993-06-07",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1987-10-29",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1983-07-01",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1980-10-09",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1979-04-24",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1978-07-31",
+        "ratio": "5 : 4",
+        "desc": "普通股 4 拆 5 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "INTC"
   },
   "INTU": {
@@ -4000,8 +5815,121 @@ window.FULL_MARKET_DATA = {
     "year_low": 252.84,
     "all_time_high": 0.0,
     "all_time_low": 252.84,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 8.5,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-05",
+        "name": "Goodarzi Sasan K",
+        "title": "director, officer: Chairman and CEO",
+        "is_buy": true,
+        "shares": 30,
+        "price": 302.75,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Goodarzi Sasan K",
+        "title": "director, officer: Chairman and CEO",
+        "is_buy": true,
+        "shares": 863,
+        "price": 302.75,
+        "total_val": 0.26
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Goodarzi Sasan K",
+        "title": "director, officer: Chairman and CEO",
+        "is_buy": true,
+        "shares": 801,
+        "price": 302.75,
+        "total_val": 0.24
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Goodarzi Sasan K",
+        "title": "director, officer: Chairman and CEO",
+        "is_buy": false,
+        "shares": 1258,
+        "price": 275.71,
+        "total_val": 0.35
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Goodarzi Sasan K",
+        "title": "director, officer: Chairman and CEO",
+        "is_buy": true,
+        "shares": 848,
+        "price": 302.75,
+        "total_val": 0.26
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Goodarzi Sasan K",
+        "title": "director, officer: Chairman and CEO",
+        "is_buy": true,
+        "shares": 30,
+        "price": 302.75,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Goodarzi Sasan K",
+        "title": "director, officer: Chairman and CEO",
+        "is_buy": true,
+        "shares": 863,
+        "price": 302.75,
+        "total_val": 0.26
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Goodarzi Sasan K",
+        "title": "director, officer: Chairman and CEO",
+        "is_buy": true,
+        "shares": 801,
+        "price": 302.75,
+        "total_val": 0.24
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Goodarzi Sasan K",
+        "title": "director, officer: Chairman and CEO",
+        "is_buy": true,
+        "shares": 848,
+        "price": 302.75,
+        "total_val": 0.26
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Hotz Lauren D",
+        "title": "officer: SVP, Chief Accounting Officer",
+        "is_buy": true,
+        "shares": 1132,
+        "price": 302.75,
+        "total_val": 0.34
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2006-07-07",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1999-10-01",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1995-08-22",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "INTU"
   },
   "NOW": {
@@ -4267,8 +6195,109 @@ window.FULL_MARKET_DATA = {
     "year_low": 81.24,
     "all_time_high": 0.0,
     "all_time_low": 81.24,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 8.5,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-01",
+        "name": "Fipps Paul",
+        "title": "officer: President, Global Customer Ops",
+        "is_buy": false,
+        "shares": 2034,
+        "price": 147.87,
+        "total_val": 0.3
+      },
+      {
+        "date": "2026-09-01",
+        "name": "Canney Jacqueline P",
+        "title": "officer: Chief People & AI Enblmt. Off.",
+        "is_buy": false,
+        "shares": 7847,
+        "price": 138.0,
+        "total_val": 1.08
+      },
+      {
+        "date": "2026-08-31",
+        "name": "Chamberlain Paul Edward",
+        "title": "director",
+        "is_buy": false,
+        "shares": 2700,
+        "price": 135.5,
+        "total_val": 0.37
+      },
+      {
+        "date": "2026-08-19",
+        "name": "McDermott William R",
+        "title": "director, officer: Chairman & CEO",
+        "is_buy": true,
+        "shares": 4160,
+        "price": 140.86,
+        "total_val": 0.59
+      },
+      {
+        "date": "2026-08-19",
+        "name": "McDermott William R",
+        "title": "director, officer: Chairman & CEO",
+        "is_buy": false,
+        "shares": 2236,
+        "price": 117.7,
+        "total_val": 0.26
+      },
+      {
+        "date": "2026-08-19",
+        "name": "McDermott William R",
+        "title": "director, officer: Chairman & CEO",
+        "is_buy": true,
+        "shares": 4160,
+        "price": 140.86,
+        "total_val": 0.59
+      },
+      {
+        "date": "2026-08-19",
+        "name": "Canney Jacqueline P",
+        "title": "officer: Chief People & AI Enblmt. Off.",
+        "is_buy": true,
+        "shares": 970,
+        "price": 140.86,
+        "total_val": 0.14
+      },
+      {
+        "date": "2026-08-19",
+        "name": "Canney Jacqueline P",
+        "title": "officer: Chief People & AI Enblmt. Off.",
+        "is_buy": false,
+        "shares": 496,
+        "price": 117.7,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-08-19",
+        "name": "Canney Jacqueline P",
+        "title": "officer: Chief People & AI Enblmt. Off.",
+        "is_buy": true,
+        "shares": 970,
+        "price": 140.86,
+        "total_val": 0.14
+      },
+      {
+        "date": "2026-08-19",
+        "name": "Fipps Paul",
+        "title": "officer: President, Global Customer Ops",
+        "is_buy": true,
+        "shares": 300,
+        "price": 140.86,
+        "total_val": 0.04
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2025-12-18",
+        "ratio": "5 : 1",
+        "desc": "普通股 1 拆 5 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "NOW"
   },
   "AMAT": {
@@ -4534,8 +6563,157 @@ window.FULL_MARKET_DATA = {
     "year_low": 203.4,
     "all_time_high": 0.0,
     "all_time_low": 203.4,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 8.5,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-05",
+        "name": "Sanders Adam",
+        "title": "officer: Corp. Controller & CAO",
+        "is_buy": false,
+        "shares": 269,
+        "price": 529.3,
+        "total_val": 0.14
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Sanders Adam",
+        "title": "officer: Corp. Controller & CAO",
+        "is_buy": false,
+        "shares": 725,
+        "price": 544.56,
+        "total_val": 0.39
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Deane Timothy M",
+        "title": "officer: SVP, Applied Global Services",
+        "is_buy": false,
+        "shares": 2644,
+        "price": 529.3,
+        "total_val": 1.4
+      },
+      {
+        "date": "2026-09-10",
+        "name": "BRUNER JUDY",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1000,
+        "price": 465.0,
+        "total_val": 0.47
+      },
+      {
+        "date": "2026-08-31",
+        "name": "Palkhiwala Akash J.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 279,
+        "price": 507.03,
+        "total_val": 0.14
+      },
+      {
+        "date": "2026-08-31",
+        "name": "Palkhiwala Akash J.",
+        "title": "director: ",
+        "is_buy": true,
+        "shares": 0,
+        "price": 507.03,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-08-27",
+        "name": "Hill Brice",
+        "title": "officer: SVP, CFO",
+        "is_buy": false,
+        "shares": 7500,
+        "price": 479.25,
+        "total_val": 3.59
+      },
+      {
+        "date": "2026-07-06",
+        "name": "Sanders Adam",
+        "title": "officer: Corp. Controller & CAO",
+        "is_buy": false,
+        "shares": 125,
+        "price": 650.91,
+        "total_val": 0.08
+      },
+      {
+        "date": "2026-07-01",
+        "name": "DICKERSON GARY E",
+        "title": "director, officer: President and CEO",
+        "is_buy": false,
+        "shares": 50332,
+        "price": 700.21,
+        "total_val": 35.24
+      },
+      {
+        "date": "2026-07-01",
+        "name": "DICKERSON GARY E",
+        "title": "director, officer: President and CEO",
+        "is_buy": false,
+        "shares": 7989,
+        "price": 701.33,
+        "total_val": 5.6
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2002-04-17",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2000-03-16",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1997-10-14",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1995-10-13",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1993-10-06",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1992-04-07",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1986-05-16",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1981-02-06",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1980-04-02",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "AMAT"
   },
   "LRCX": {
@@ -4801,8 +6979,121 @@ window.FULL_MARKET_DATA = {
     "year_low": 131.02,
     "all_time_high": 0.0,
     "all_time_low": 131.02,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 8.5,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-10",
+        "name": "ARCHER TIMOTHY",
+        "title": "officer: President and CEO",
+        "is_buy": true,
+        "shares": 30000,
+        "price": 30.03,
+        "total_val": 0.9
+      },
+      {
+        "date": "2026-09-10",
+        "name": "ARCHER TIMOTHY",
+        "title": "officer: President and CEO",
+        "is_buy": false,
+        "shares": 30000,
+        "price": 319.26,
+        "total_val": 9.58
+      },
+      {
+        "date": "2026-09-10",
+        "name": "ARCHER TIMOTHY",
+        "title": "officer: President and CEO",
+        "is_buy": true,
+        "shares": 30000,
+        "price": 30.03,
+        "total_val": 0.9
+      },
+      {
+        "date": "2026-09-10",
+        "name": "Mayer Bethany",
+        "title": "director",
+        "is_buy": false,
+        "shares": 9557,
+        "price": 314.74,
+        "total_val": 3.01
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Varadarajan Seshasayee",
+        "title": "officer: Senior Vice President",
+        "is_buy": true,
+        "shares": 27480,
+        "price": 30.03,
+        "total_val": 0.83
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Varadarajan Seshasayee",
+        "title": "officer: Senior Vice President",
+        "is_buy": true,
+        "shares": 12270,
+        "price": 59.88,
+        "total_val": 0.73
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Varadarajan Seshasayee",
+        "title": "officer: Senior Vice President",
+        "is_buy": false,
+        "shares": 27480,
+        "price": 291.32,
+        "total_val": 8.01
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Varadarajan Seshasayee",
+        "title": "officer: Senior Vice President",
+        "is_buy": true,
+        "shares": 27480,
+        "price": 30.03,
+        "total_val": 0.83
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Varadarajan Seshasayee",
+        "title": "officer: Senior Vice President",
+        "is_buy": true,
+        "shares": 12270,
+        "price": 59.88,
+        "total_val": 0.73
+      },
+      {
+        "date": "2026-09-01",
+        "name": "Harter Ava",
+        "title": "officer: Chief Legal Officer",
+        "is_buy": false,
+        "shares": 5000,
+        "price": 302.46,
+        "total_val": 1.51
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2024-10-03",
+        "ratio": "10 : 1",
+        "desc": "普通股 1 拆 10 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2000-03-17",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1993-09-16",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "LRCX"
   },
   "MU": {
@@ -5063,13 +7354,126 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "208 368 4000",
     "full_address": "8000 South Federal Way, Boise, ID 83716-9632, US",
-    "range_52w": "179.61-1255",
+    "range_52w": "186.25-1255",
     "year_high": 1255.0,
-    "year_low": 179.61,
+    "year_low": 186.25,
     "all_time_high": 0.0,
-    "all_time_low": 179.61,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 8.5,
+    "all_time_low": 186.25,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-02",
+        "name": "Liu Teyin M",
+        "title": "director",
+        "is_buy": false,
+        "shares": 29,
+        "price": 1029.0,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Bjorlin Alexis",
+        "title": "director",
+        "is_buy": false,
+        "shares": 29,
+        "price": 1029.0,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-02",
+        "name": "SWAN ROBERT HOLMES",
+        "title": "director",
+        "is_buy": false,
+        "shares": 38,
+        "price": 1029.0,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-08-28",
+        "name": "Bjorlin Alexis",
+        "title": "director",
+        "is_buy": false,
+        "shares": 25,
+        "price": 1132.33,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-08-25",
+        "name": "MEHROTRA SANJAY",
+        "title": "director, officer: President and CEO",
+        "is_buy": false,
+        "shares": 144,
+        "price": 959.14,
+        "total_val": 0.14
+      },
+      {
+        "date": "2026-08-25",
+        "name": "MEHROTRA SANJAY",
+        "title": "director, officer: President and CEO",
+        "is_buy": false,
+        "shares": 823,
+        "price": 960.41,
+        "total_val": 0.79
+      },
+      {
+        "date": "2026-08-25",
+        "name": "MEHROTRA SANJAY",
+        "title": "director, officer: President and CEO",
+        "is_buy": false,
+        "shares": 1586,
+        "price": 961.58,
+        "total_val": 1.53
+      },
+      {
+        "date": "2026-08-25",
+        "name": "MEHROTRA SANJAY",
+        "title": "director, officer: President and CEO",
+        "is_buy": false,
+        "shares": 4305,
+        "price": 962.84,
+        "total_val": 4.15
+      },
+      {
+        "date": "2026-08-25",
+        "name": "MEHROTRA SANJAY",
+        "title": "director, officer: President and CEO",
+        "is_buy": false,
+        "shares": 4227,
+        "price": 963.84,
+        "total_val": 4.07
+      },
+      {
+        "date": "2026-08-25",
+        "name": "MEHROTRA SANJAY",
+        "title": "director, officer: President and CEO",
+        "is_buy": false,
+        "shares": 3434,
+        "price": 964.67,
+        "total_val": 3.31
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2000-05-02",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1995-05-23",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1994-04-19",
+        "ratio": "5 : 2",
+        "desc": "普通股 2 拆 5 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "MU"
   },
   "TSM": {
@@ -5335,8 +7739,157 @@ window.FULL_MARKET_DATA = {
     "year_low": 266.82,
     "all_time_high": 0.0,
     "all_time_low": 266.82,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 8.5,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-08",
+        "name": "Yuan Lipen",
+        "title": "officer: VP",
+        "is_buy": true,
+        "shares": 40,
+        "price": 79.39,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Yeap Choh Fei",
+        "title": "officer: SVP",
+        "is_buy": true,
+        "shares": 52,
+        "price": 79.39,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Zhang Kevin Xiaoqiang",
+        "title": "officer: SVP and Deputy Co-COO",
+        "is_buy": true,
+        "shares": 59,
+        "price": 79.39,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Yoo Chue-San",
+        "title": "officer: VP",
+        "is_buy": true,
+        "shares": 50,
+        "price": 79.39,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Wu Shien-Yang",
+        "title": "officer: SVP",
+        "is_buy": true,
+        "shares": 53,
+        "price": 79.39,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Wei Che-Chia",
+        "title": "director, officer: Chairman and CEO",
+        "is_buy": true,
+        "shares": 144,
+        "price": 79.39,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Wu Yi-Huang",
+        "title": "officer: VP",
+        "is_buy": true,
+        "shares": 39,
+        "price": 79.39,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Wang Ying-Lang",
+        "title": "officer: SVP",
+        "is_buy": true,
+        "shares": 52,
+        "price": 79.39,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Mii Yuh-Jier",
+        "title": "officer: EVP and Co-COO",
+        "is_buy": true,
+        "shares": 68,
+        "price": 79.39,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Tien Bor-Zen",
+        "title": "officer: VP",
+        "is_buy": true,
+        "shares": 40,
+        "price": 79.39,
+        "total_val": 0.0
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2006-06-20",
+        "ratio": "103 : 100",
+        "desc": "普通股 100 拆 103 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2005-06-13",
+        "ratio": "21 : 20",
+        "desc": "普通股 20 拆 21 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2004-06-14",
+        "ratio": "57 : 50",
+        "desc": "普通股 50 拆 57 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2003-07-07",
+        "ratio": "27 : 25",
+        "desc": "普通股 25 拆 27 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2002-06-19",
+        "ratio": "11 : 10",
+        "desc": "普通股 10 拆 11 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2001-06-26",
+        "ratio": "7 : 5",
+        "desc": "普通股 5 拆 7 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2000-05-15",
+        "ratio": "32 : 25",
+        "desc": "普通股 25 拆 32 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1999-08-16",
+        "ratio": "123 : 100",
+        "desc": "普通股 100 拆 123 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1998-08-26",
+        "ratio": "29 : 20",
+        "desc": "普通股 20 拆 29 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "TSM"
   },
   "FICO": {
@@ -5602,8 +8155,127 @@ window.FULL_MARKET_DATA = {
     "year_low": 586.05,
     "all_time_high": 0.0,
     "all_time_low": 586.05,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 8.5,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-08-25",
+        "name": "Stansbury Henry Tayloe",
+        "title": "director",
+        "is_buy": true,
+        "shares": 91,
+        "price": 667.58,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-08-25",
+        "name": "Stansbury Henry Tayloe",
+        "title": "director",
+        "is_buy": true,
+        "shares": 91,
+        "price": 667.58,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-08-25",
+        "name": "KELLY BRADEN R",
+        "title": "director",
+        "is_buy": true,
+        "shares": 1285,
+        "price": 475.46,
+        "total_val": 0.61
+      },
+      {
+        "date": "2026-08-25",
+        "name": "KELLY BRADEN R",
+        "title": "director",
+        "is_buy": true,
+        "shares": 1386,
+        "price": 455.13,
+        "total_val": 0.63
+      },
+      {
+        "date": "2026-08-25",
+        "name": "KELLY BRADEN R",
+        "title": "director",
+        "is_buy": true,
+        "shares": 1682,
+        "price": 391.57,
+        "total_val": 0.66
+      },
+      {
+        "date": "2026-08-25",
+        "name": "KELLY BRADEN R",
+        "title": "director",
+        "is_buy": true,
+        "shares": 1682,
+        "price": 391.57,
+        "total_val": 0.66
+      },
+      {
+        "date": "2026-08-25",
+        "name": "KELLY BRADEN R",
+        "title": "director",
+        "is_buy": true,
+        "shares": 1386,
+        "price": 455.13,
+        "total_val": 0.63
+      },
+      {
+        "date": "2026-08-25",
+        "name": "KELLY BRADEN R",
+        "title": "director",
+        "is_buy": true,
+        "shares": 1285,
+        "price": 475.46,
+        "total_val": 0.61
+      },
+      {
+        "date": "2026-07-31",
+        "name": "Manolis Eva",
+        "title": "director",
+        "is_buy": true,
+        "shares": 967,
+        "price": 391.57,
+        "total_val": 0.38
+      },
+      {
+        "date": "2026-07-31",
+        "name": "Manolis Eva",
+        "title": "director",
+        "is_buy": true,
+        "shares": 967,
+        "price": 391.57,
+        "total_val": 0.38
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2004-03-11",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2002-06-06",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2001-06-05",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1995-06-27",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "FICO"
   },
   "ADSK": {
@@ -5869,8 +8541,127 @@ window.FULL_MARKET_DATA = {
     "year_low": 185.5,
     "all_time_high": 0.0,
     "all_time_low": 185.5,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 8.5,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-06-23",
+        "name": "CAHILL JOHN T",
+        "title": "director",
+        "is_buy": true,
+        "shares": 2000,
+        "price": 189.2,
+        "total_val": 0.38
+      },
+      {
+        "date": "2026-06-22",
+        "name": "Smith Stacy J",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1553,
+        "price": 235.35,
+        "total_val": 0.37
+      },
+      {
+        "date": "2026-06-22",
+        "name": "Smith Stacy J",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1087,
+        "price": 235.35,
+        "total_val": 0.26
+      },
+      {
+        "date": "2026-06-22",
+        "name": "Simons Anna C",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1553,
+        "price": 235.35,
+        "total_val": 0.37
+      },
+      {
+        "date": "2026-06-22",
+        "name": "Simons Anna C",
+        "title": "director",
+        "is_buy": false,
+        "shares": 466,
+        "price": 235.35,
+        "total_val": 0.11
+      },
+      {
+        "date": "2026-06-22",
+        "name": "Howard Ayanna",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1553,
+        "price": 235.35,
+        "total_val": 0.37
+      },
+      {
+        "date": "2026-06-22",
+        "name": "Howard Ayanna",
+        "title": "director",
+        "is_buy": false,
+        "shares": 466,
+        "price": 235.35,
+        "total_val": 0.11
+      },
+      {
+        "date": "2026-06-22",
+        "name": "Irving Blake",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1553,
+        "price": 235.35,
+        "total_val": 0.37
+      },
+      {
+        "date": "2026-06-22",
+        "name": "Irving Blake",
+        "title": "director",
+        "is_buy": false,
+        "shares": 559,
+        "price": 235.35,
+        "total_val": 0.13
+      },
+      {
+        "date": "2026-06-22",
+        "name": "BLASING KAREN",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1553,
+        "price": 235.35,
+        "total_val": 0.37
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2004-12-21",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2002-04-19",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1994-10-31",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1987-03-30",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "ADSK"
   },
   "TYL": {
@@ -6136,8 +8927,127 @@ window.FULL_MARKET_DATA = {
     "year_low": 270.71,
     "all_time_high": 0.0,
     "all_time_low": 270.71,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 8.5,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-02",
+        "name": "Puckett Jeffrey David",
+        "title": "officer: Chief Operating Officer",
+        "is_buy": false,
+        "shares": 16,
+        "price": 270.81,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-01",
+        "name": "MOORE H LYNN JR",
+        "title": "director, officer: President and CEO",
+        "is_buy": true,
+        "shares": 9250,
+        "price": 205.66,
+        "total_val": 1.9
+      },
+      {
+        "date": "2026-09-01",
+        "name": "MOORE H LYNN JR",
+        "title": "director, officer: President and CEO",
+        "is_buy": false,
+        "shares": 9250,
+        "price": 372.79,
+        "total_val": 3.45
+      },
+      {
+        "date": "2026-09-01",
+        "name": "MOORE H LYNN JR",
+        "title": "director, officer: President and CEO",
+        "is_buy": true,
+        "shares": 9250,
+        "price": 205.66,
+        "total_val": 1.9
+      },
+      {
+        "date": "2026-08-26",
+        "name": "Puckett Jeffrey David",
+        "title": "officer: Chief Operating Officer",
+        "is_buy": true,
+        "shares": 8500,
+        "price": 143.42,
+        "total_val": 1.22
+      },
+      {
+        "date": "2026-08-26",
+        "name": "Puckett Jeffrey David",
+        "title": "officer: Chief Operating Officer",
+        "is_buy": false,
+        "shares": 8500,
+        "price": 356.44,
+        "total_val": 3.03
+      },
+      {
+        "date": "2026-08-26",
+        "name": "Puckett Jeffrey David",
+        "title": "officer: Chief Operating Officer",
+        "is_buy": true,
+        "shares": 8500,
+        "price": 143.42,
+        "total_val": 1.22
+      },
+      {
+        "date": "2026-07-02",
+        "name": "Puckett Jeffrey David",
+        "title": "officer: Chief Operating Officer",
+        "is_buy": false,
+        "shares": 15,
+        "price": 248.59,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-06-17",
+        "name": "MILLER BRIAN K",
+        "title": "officer: Executive VP and CFO",
+        "is_buy": false,
+        "shares": 90,
+        "price": 329.55,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-05-08",
+        "name": "Jones Cecil W.",
+        "title": "director",
+        "is_buy": true,
+        "shares": 0,
+        "price": 329.55,
+        "total_val": 0.0
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "1990-05-15",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1985-04-12",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1978-08-30",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1976-05-27",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "TYL"
   },
   "APPF": {
@@ -6403,8 +9313,102 @@ window.FULL_MARKET_DATA = {
     "year_low": 142.56,
     "all_time_high": 0.0,
     "all_time_low": 142.56,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 8.5,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-08-24",
+        "name": "DUCA MAURICE J",
+        "title": "10 percent owner",
+        "is_buy": false,
+        "shares": 622,
+        "price": 215.37,
+        "total_val": 0.13
+      },
+      {
+        "date": "2026-08-24",
+        "name": "DUCA MAURICE J",
+        "title": "10 percent owner",
+        "is_buy": false,
+        "shares": 702,
+        "price": 216.43,
+        "total_val": 0.15
+      },
+      {
+        "date": "2026-08-24",
+        "name": "DUCA MAURICE J",
+        "title": "10 percent owner",
+        "is_buy": false,
+        "shares": 1550,
+        "price": 217.67,
+        "total_val": 0.34
+      },
+      {
+        "date": "2026-08-24",
+        "name": "DUCA MAURICE J",
+        "title": "10 percent owner",
+        "is_buy": false,
+        "shares": 1947,
+        "price": 218.45,
+        "total_val": 0.43
+      },
+      {
+        "date": "2026-08-24",
+        "name": "DUCA MAURICE J",
+        "title": "10 percent owner",
+        "is_buy": false,
+        "shares": 701,
+        "price": 219.35,
+        "total_val": 0.15
+      },
+      {
+        "date": "2026-08-24",
+        "name": "DUCA MAURICE J",
+        "title": "10 percent owner",
+        "is_buy": false,
+        "shares": 78,
+        "price": 220.06,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-08-24",
+        "name": "DUCA MAURICE J",
+        "title": "10 percent owner",
+        "is_buy": false,
+        "shares": 92,
+        "price": 214.73,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-08-24",
+        "name": "DUCA MAURICE J",
+        "title": "10 percent owner",
+        "is_buy": false,
+        "shares": 183,
+        "price": 216.38,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-08-24",
+        "name": "DUCA MAURICE J",
+        "title": "10 percent owner",
+        "is_buy": false,
+        "shares": 92,
+        "price": 218.14,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-08-24",
+        "name": "DUCA MAURICE J",
+        "title": "10 percent owner",
+        "is_buy": false,
+        "shares": 365,
+        "price": 221.37,
+        "total_val": 0.08
+      }
+    ],
+    "stock_splits": [],
     "fmp_symbol": "APPF"
   },
   "YOU": {
@@ -6670,8 +9674,102 @@ window.FULL_MARKET_DATA = {
     "year_low": 29.44,
     "all_time_high": 0.0,
     "all_time_low": 29.44,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 8.5,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-30",
+        "name": "Hollister Kathryn A",
+        "title": "director",
+        "is_buy": true,
+        "shares": 284,
+        "price": 43.43,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-09-30",
+        "name": "Hollister Kathryn A",
+        "title": "director",
+        "is_buy": true,
+        "shares": 284,
+        "price": 43.43,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Barkin Michael Z",
+        "title": "director, officer: President",
+        "is_buy": false,
+        "shares": 11444,
+        "price": 45.0,
+        "total_val": 0.51
+      },
+      {
+        "date": "2026-09-03",
+        "name": "McLaughlin Kyle",
+        "title": "officer: EVP, Aviation",
+        "is_buy": true,
+        "shares": 9192,
+        "price": 43.43,
+        "total_val": 0.4
+      },
+      {
+        "date": "2026-09-03",
+        "name": "McLaughlin Kyle",
+        "title": "officer: EVP, Aviation",
+        "is_buy": false,
+        "shares": 4693,
+        "price": 42.97,
+        "total_val": 0.2
+      },
+      {
+        "date": "2026-09-03",
+        "name": "McLaughlin Kyle",
+        "title": "officer: EVP, Aviation",
+        "is_buy": false,
+        "shares": 4499,
+        "price": 44.47,
+        "total_val": 0.2
+      },
+      {
+        "date": "2026-09-03",
+        "name": "McLaughlin Kyle",
+        "title": "officer: EVP, Aviation",
+        "is_buy": true,
+        "shares": 9192,
+        "price": 43.43,
+        "total_val": 0.4
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Liu Dennis W.",
+        "title": "officer: Chief Accounting Officer",
+        "is_buy": true,
+        "shares": 10969,
+        "price": 43.43,
+        "total_val": 0.48
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Liu Dennis W.",
+        "title": "officer: Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 3955,
+        "price": 42.97,
+        "total_val": 0.17
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Liu Dennis W.",
+        "title": "officer: Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 2104,
+        "price": 44.47,
+        "total_val": 0.09
+      }
+    ],
+    "stock_splits": [],
     "fmp_symbol": "YOU"
   },
   "ITRI": {
@@ -6937,8 +10035,102 @@ window.FULL_MARKET_DATA = {
     "year_low": 77.77,
     "all_time_high": 0.0,
     "all_time_low": 77.77,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 8.5,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-05",
+        "name": "Savage Sheri",
+        "title": "director",
+        "is_buy": false,
+        "shares": 608,
+        "price": 85.58,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Perez Santiago",
+        "title": "director",
+        "is_buy": false,
+        "shares": 608,
+        "price": 85.58,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Mirchandani Sanjay",
+        "title": "director",
+        "is_buy": false,
+        "shares": 608,
+        "price": 85.58,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-10-05",
+        "name": "LEYDEN TIMOTHY M",
+        "title": "director",
+        "is_buy": false,
+        "shares": 243,
+        "price": 85.58,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Lande Jerome J.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 608,
+        "price": 85.58,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-10-05",
+        "name": "JAEHNERT FRANK M",
+        "title": "director",
+        "is_buy": false,
+        "shares": 608,
+        "price": 85.58,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Drury Scott D.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 608,
+        "price": 85.58,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-09-04",
+        "name": "Patrick Justin K",
+        "title": "officer: SVP, Device Solutions",
+        "is_buy": false,
+        "shares": 7883,
+        "price": 97.36,
+        "total_val": 0.77
+      },
+      {
+        "date": "2026-09-04",
+        "name": "Patrick Justin K",
+        "title": "officer: SVP, Device Solutions",
+        "is_buy": false,
+        "shares": 593,
+        "price": 97.36,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-09-04",
+        "name": "Patrick Justin K",
+        "title": "officer: SVP, Device Solutions",
+        "is_buy": false,
+        "shares": 581,
+        "price": 97.36,
+        "total_val": 0.06
+      }
+    ],
+    "stock_splits": [],
     "fmp_symbol": "ITRI"
   },
   "SNPS": {
@@ -7204,8 +10396,115 @@ window.FULL_MARKET_DATA = {
     "year_low": 362.55,
     "all_time_high": 0.0,
     "all_time_low": 362.55,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 8.5,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-07",
+        "name": "LEE JANET",
+        "title": "officer: GC & Corporate Secretary",
+        "is_buy": false,
+        "shares": 583,
+        "price": 502.64,
+        "total_val": 0.29
+      },
+      {
+        "date": "2026-10-07",
+        "name": "LEE JANET",
+        "title": "officer: GC & Corporate Secretary",
+        "is_buy": false,
+        "shares": 560,
+        "price": 502.39,
+        "total_val": 0.28
+      },
+      {
+        "date": "2026-10-06",
+        "name": "Kankanwadi Sudhindra",
+        "title": "officer: Deputy CFO & CAO",
+        "is_buy": true,
+        "shares": 9170,
+        "price": 135.88,
+        "total_val": 1.25
+      },
+      {
+        "date": "2026-10-06",
+        "name": "Kankanwadi Sudhindra",
+        "title": "officer: Deputy CFO & CAO",
+        "is_buy": true,
+        "shares": 3000,
+        "price": 135.88,
+        "total_val": 0.41
+      },
+      {
+        "date": "2026-10-06",
+        "name": "Kankanwadi Sudhindra",
+        "title": "officer: Deputy CFO & CAO",
+        "is_buy": false,
+        "shares": 3000,
+        "price": 484.78,
+        "total_val": 1.45
+      },
+      {
+        "date": "2026-10-06",
+        "name": "Kankanwadi Sudhindra",
+        "title": "officer: Deputy CFO & CAO",
+        "is_buy": false,
+        "shares": 9170,
+        "price": 500.0,
+        "total_val": 4.58
+      },
+      {
+        "date": "2026-10-06",
+        "name": "Kankanwadi Sudhindra",
+        "title": "officer: Deputy CFO & CAO",
+        "is_buy": true,
+        "shares": 3000,
+        "price": 135.88,
+        "total_val": 0.41
+      },
+      {
+        "date": "2026-10-06",
+        "name": "Kankanwadi Sudhindra",
+        "title": "officer: Deputy CFO & CAO",
+        "is_buy": true,
+        "shares": 9170,
+        "price": 135.88,
+        "total_val": 1.25
+      },
+      {
+        "date": "2026-09-16",
+        "name": "Ghazi Sassine",
+        "title": "director, officer: PRESIDENT AND CEO",
+        "is_buy": true,
+        "shares": 14604,
+        "price": 135.88,
+        "total_val": 1.98
+      },
+      {
+        "date": "2026-09-16",
+        "name": "Ghazi Sassine",
+        "title": "director, officer: PRESIDENT AND CEO",
+        "is_buy": false,
+        "shares": 14604,
+        "price": 374.88,
+        "total_val": 5.47
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2003-09-24",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1995-09-11",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "SNPS"
   },
   "BR": {
@@ -7471,8 +10770,102 @@ window.FULL_MARKET_DATA = {
     "year_low": 133.83,
     "all_time_high": 0.0,
     "all_time_low": 133.83,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 8.5,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-06",
+        "name": "MURRAY EILEEN K",
+        "title": "director",
+        "is_buy": false,
+        "shares": 18,
+        "price": 165.45,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-06",
+        "name": "MURRAY EILEEN K",
+        "title": "director",
+        "is_buy": false,
+        "shares": 20,
+        "price": 165.45,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-06",
+        "name": "Zavery Amit",
+        "title": "director",
+        "is_buy": false,
+        "shares": 27,
+        "price": 165.45,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-06",
+        "name": "Zavery Amit",
+        "title": "director",
+        "is_buy": false,
+        "shares": 34,
+        "price": 165.45,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-10-06",
+        "name": "Mosconi Patricia Ann",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1,
+        "price": 165.45,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-06",
+        "name": "Mosconi Patricia Ann",
+        "title": "director",
+        "is_buy": false,
+        "shares": 2,
+        "price": 165.45,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-06",
+        "name": "Nazareth Annette L.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 18,
+        "price": 165.45,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-06",
+        "name": "Nazareth Annette L.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 22,
+        "price": 165.45,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-06",
+        "name": "Markus Maura A.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 37,
+        "price": 165.45,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-10-06",
+        "name": "Markus Maura A.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 100,
+        "price": 165.45,
+        "total_val": 0.02
+      }
+    ],
+    "stock_splits": [],
     "fmp_symbol": "BR"
   },
   "KLAC": {
@@ -7738,8 +11131,139 @@ window.FULL_MARKET_DATA = {
     "year_low": 98.1,
     "all_time_high": 0.0,
     "all_time_low": 98.1,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 8.5,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-16",
+        "name": "WALLACE RICHARD P",
+        "title": "officer: President and CEO",
+        "is_buy": false,
+        "shares": 72019,
+        "price": 171.88,
+        "total_val": 12.38
+      },
+      {
+        "date": "2026-08-14",
+        "name": "Lorig Brian",
+        "title": "officer: EVP, KLA Global Services",
+        "is_buy": false,
+        "shares": 59586,
+        "price": 208.13,
+        "total_val": 12.4
+      },
+      {
+        "date": "2026-08-13",
+        "name": "Higgins Bren D.",
+        "title": "officer: EVP & Chief Financial Officer",
+        "is_buy": false,
+        "shares": 31500,
+        "price": 209.87,
+        "total_val": 6.61
+      },
+      {
+        "date": "2026-08-12",
+        "name": "Khan Ahmad A.",
+        "title": "officer: President, Semi. Prod. & Cust.",
+        "is_buy": false,
+        "shares": 33180,
+        "price": 198.95,
+        "total_val": 6.6
+      },
+      {
+        "date": "2026-08-12",
+        "name": "WALLACE RICHARD P",
+        "title": "officer: President and CEO",
+        "is_buy": false,
+        "shares": 87568,
+        "price": 198.95,
+        "total_val": 17.42
+      },
+      {
+        "date": "2026-08-11",
+        "name": "Kirloskar Virendra A",
+        "title": "officer: SVP & Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 529,
+        "price": 204.56,
+        "total_val": 0.11
+      },
+      {
+        "date": "2026-08-11",
+        "name": "Wilkinson Mary Beth",
+        "title": "officer: EVP, CLO and Secretary",
+        "is_buy": false,
+        "shares": 1661,
+        "price": 204.56,
+        "total_val": 0.34
+      },
+      {
+        "date": "2026-08-10",
+        "name": "WALLACE RICHARD P",
+        "title": "officer: President and CEO",
+        "is_buy": false,
+        "shares": 12761,
+        "price": 193.22,
+        "total_val": 2.47
+      },
+      {
+        "date": "2026-08-10",
+        "name": "Lorig Brian",
+        "title": "officer: EVP, KLA Global Services",
+        "is_buy": false,
+        "shares": 2875,
+        "price": 193.22,
+        "total_val": 0.56
+      },
+      {
+        "date": "2026-08-10",
+        "name": "Wilkinson Mary Beth",
+        "title": "officer: EVP, CLO and Secretary",
+        "is_buy": false,
+        "shares": 1208,
+        "price": 193.22,
+        "total_val": 0.23
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2026-06-12",
+        "ratio": "10 : 1",
+        "desc": "普通股 1 拆 10 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2000-01-19",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1995-10-02",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1984-12-17",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1983-12-09",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1983-01-10",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "KLAC"
   },
   "MRVL": {
@@ -8005,8 +11529,115 @@ window.FULL_MARKET_DATA = {
     "year_low": 70.69,
     "all_time_high": 0.0,
     "all_time_low": 70.69,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 8.5,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-09",
+        "name": "Scarpulla Justin",
+        "title": "officer: SVP, Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 1100,
+        "price": 273.59,
+        "total_val": 0.3
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Koopmans Chris",
+        "title": "officer: President and COO",
+        "is_buy": false,
+        "shares": 10000,
+        "price": 262.05,
+        "total_val": 2.62
+      },
+      {
+        "date": "2026-09-16",
+        "name": "Durn Daniel",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": true,
+        "shares": 6469,
+        "price": 275.28,
+        "total_val": 1.78
+      },
+      {
+        "date": "2026-09-16",
+        "name": "Durn Daniel",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": true,
+        "shares": 6469,
+        "price": 275.28,
+        "total_val": 1.78
+      },
+      {
+        "date": "2026-09-16",
+        "name": "Durn Daniel",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": false,
+        "shares": 3408,
+        "price": 221.7,
+        "total_val": 0.76
+      },
+      {
+        "date": "2026-09-15",
+        "name": "MURPHY MATTHEW J",
+        "title": "director, officer: Chairman of the Board and CEO",
+        "is_buy": false,
+        "shares": 7500,
+        "price": 223.39,
+        "total_val": 1.68
+      },
+      {
+        "date": "2026-09-02",
+        "name": "Koopmans Chris",
+        "title": "officer: President and COO",
+        "is_buy": false,
+        "shares": 10000,
+        "price": 203.27,
+        "total_val": 2.03
+      },
+      {
+        "date": "2026-08-17",
+        "name": "MURPHY MATTHEW J",
+        "title": "director, officer: Chairman of the Board and CEO",
+        "is_buy": false,
+        "shares": 7500,
+        "price": 236.08,
+        "total_val": 1.77
+      },
+      {
+        "date": "2026-08-17",
+        "name": "Scarpulla Justin",
+        "title": "officer: SVP, Chief Accounting Officer",
+        "is_buy": true,
+        "shares": 3166,
+        "price": 275.28,
+        "total_val": 0.87
+      },
+      {
+        "date": "2026-08-17",
+        "name": "Scarpulla Justin",
+        "title": "officer: SVP, Chief Accounting Officer",
+        "is_buy": true,
+        "shares": 3166,
+        "price": 275.28,
+        "total_val": 0.87
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2006-07-25",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2004-06-29",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "MRVL"
   },
   "CDNS": {
@@ -8272,8 +11903,127 @@ window.FULL_MARKET_DATA = {
     "year_low": 262.75,
     "all_time_high": 0.0,
     "all_time_low": 262.75,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 8.5,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-05",
+        "name": "SANGIOVANNI VINCENTELLI ALBERTO",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1250,
+        "price": 350.07,
+        "total_val": 0.44
+      },
+      {
+        "date": "2026-09-21",
+        "name": "Scannell Paul",
+        "title": "officer: Sr. Vice President",
+        "is_buy": false,
+        "shares": 937,
+        "price": 280.76,
+        "total_val": 0.26
+      },
+      {
+        "date": "2026-09-21",
+        "name": "DEVGAN ANIRUDH",
+        "title": "director, officer: President and CEO",
+        "is_buy": false,
+        "shares": 3779,
+        "price": 280.76,
+        "total_val": 1.06
+      },
+      {
+        "date": "2026-09-21",
+        "name": "TENG CHIN-CHI",
+        "title": "officer: Sr. Vice President",
+        "is_buy": false,
+        "shares": 1181,
+        "price": 280.76,
+        "total_val": 0.33
+      },
+      {
+        "date": "2026-09-21",
+        "name": "WALL JOHN M",
+        "title": "officer: Sr. VP & CFO",
+        "is_buy": false,
+        "shares": 1433,
+        "price": 280.76,
+        "total_val": 0.4
+      },
+      {
+        "date": "2026-09-21",
+        "name": "Cunningham Paul",
+        "title": "officer: Sr. Vice President",
+        "is_buy": false,
+        "shares": 1181,
+        "price": 280.76,
+        "total_val": 0.33
+      },
+      {
+        "date": "2026-09-17",
+        "name": "TENG CHIN-CHI",
+        "title": "officer: Sr. Vice President",
+        "is_buy": false,
+        "shares": 793,
+        "price": 273.96,
+        "total_val": 0.22
+      },
+      {
+        "date": "2026-09-17",
+        "name": "DEVGAN ANIRUDH",
+        "title": "director, officer: President and CEO",
+        "is_buy": false,
+        "shares": 2539,
+        "price": 273.96,
+        "total_val": 0.7
+      },
+      {
+        "date": "2026-09-17",
+        "name": "WALL JOHN M",
+        "title": "officer: Sr. VP & CFO",
+        "is_buy": false,
+        "shares": 983,
+        "price": 273.96,
+        "total_val": 0.27
+      },
+      {
+        "date": "2026-09-17",
+        "name": "Cunningham Paul",
+        "title": "officer: Sr. Vice President",
+        "is_buy": true,
+        "shares": 1000,
+        "price": 138.02,
+        "total_val": 0.14
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "1997-11-17",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1996-06-03",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1995-10-31",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1988-05-24",
+        "ratio": "543 : 500",
+        "desc": "普通股 500 拆 543 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "CDNS"
   },
   "FTNT": {
@@ -8539,8 +12289,115 @@ window.FULL_MARKET_DATA = {
     "year_low": 73.55,
     "all_time_high": 0.0,
     "all_time_low": 73.55,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 8.5,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-01",
+        "name": "STAVRIDIS JAMES G.",
+        "title": "director",
+        "is_buy": true,
+        "shares": 459,
+        "price": 194.75,
+        "total_val": 0.09
+      },
+      {
+        "date": "2026-10-01",
+        "name": "STAVRIDIS JAMES G.",
+        "title": "director",
+        "is_buy": true,
+        "shares": 459,
+        "price": 194.75,
+        "total_val": 0.09
+      },
+      {
+        "date": "2026-10-01",
+        "name": "GOLDMAN KENNETH A",
+        "title": "director",
+        "is_buy": true,
+        "shares": 459,
+        "price": 194.75,
+        "total_val": 0.09
+      },
+      {
+        "date": "2026-10-01",
+        "name": "GOLDMAN KENNETH A",
+        "title": "director",
+        "is_buy": true,
+        "shares": 459,
+        "price": 194.75,
+        "total_val": 0.09
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Hu Jean X.",
+        "title": "director",
+        "is_buy": true,
+        "shares": 459,
+        "price": 194.75,
+        "total_val": 0.09
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Hu Jean X.",
+        "title": "director",
+        "is_buy": true,
+        "shares": 459,
+        "price": 194.75,
+        "total_val": 0.09
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Kan Derek T.",
+        "title": "director",
+        "is_buy": true,
+        "shares": 459,
+        "price": 194.75,
+        "total_val": 0.09
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Kan Derek T.",
+        "title": "director",
+        "is_buy": true,
+        "shares": 459,
+        "price": 194.75,
+        "total_val": 0.09
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Napolitano Janet",
+        "title": "director",
+        "is_buy": true,
+        "shares": 459,
+        "price": 194.75,
+        "total_val": 0.09
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Napolitano Janet",
+        "title": "director",
+        "is_buy": true,
+        "shares": 459,
+        "price": 194.75,
+        "total_val": 0.09
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2022-06-23",
+        "ratio": "5 : 1",
+        "desc": "普通股 1 拆 5 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2011-06-02",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "FTNT"
   },
   "PANW": {
@@ -8806,8 +12663,115 @@ window.FULL_MARKET_DATA = {
     "year_low": 139.57,
     "all_time_high": 0.0,
     "all_time_low": 139.57,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 8.5,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-09",
+        "name": "Bawa Aparna",
+        "title": "director",
+        "is_buy": false,
+        "shares": 170,
+        "price": 410.0,
+        "total_val": 0.07
+      },
+      {
+        "date": "2026-10-09",
+        "name": "Bawa Aparna",
+        "title": "director",
+        "is_buy": false,
+        "shares": 80,
+        "price": 417.12,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-09",
+        "name": "Klarich Lee",
+        "title": "director, officer: EVP Chief Product & Tech Ofcr",
+        "is_buy": false,
+        "shares": 60000,
+        "price": 418.78,
+        "total_val": 25.13
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Paul Josh D.",
+        "title": "officer: Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 1308,
+        "price": 397.31,
+        "total_val": 0.52
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Paul Josh D.",
+        "title": "officer: Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 400,
+        "price": 395.7,
+        "total_val": 0.16
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Klarich Lee",
+        "title": "director, officer: EVP Chief Product & Tech Ofcr",
+        "is_buy": false,
+        "shares": 25000,
+        "price": 418.78,
+        "total_val": 10.47
+      },
+      {
+        "date": "2026-09-28",
+        "name": "Golechha Dipak",
+        "title": "officer: EVP, Chief Financial Officer",
+        "is_buy": false,
+        "shares": 900,
+        "price": 388.69,
+        "total_val": 0.35
+      },
+      {
+        "date": "2026-09-28",
+        "name": "Golechha Dipak",
+        "title": "officer: EVP, Chief Financial Officer",
+        "is_buy": false,
+        "shares": 2160,
+        "price": 389.85,
+        "total_val": 0.84
+      },
+      {
+        "date": "2026-09-28",
+        "name": "Golechha Dipak",
+        "title": "officer: EVP, Chief Financial Officer",
+        "is_buy": false,
+        "shares": 9539,
+        "price": 390.65,
+        "total_val": 3.73
+      },
+      {
+        "date": "2026-09-28",
+        "name": "Golechha Dipak",
+        "title": "officer: EVP, Chief Financial Officer",
+        "is_buy": false,
+        "shares": 5301,
+        "price": 391.71,
+        "total_val": 2.08
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2024-12-16",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2022-09-14",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "PANW"
   },
   "CRWD": {
@@ -9073,8 +13037,109 @@ window.FULL_MARKET_DATA = {
     "year_low": 85.68,
     "all_time_high": 0.0,
     "all_time_low": 85.68,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 8.5,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-08",
+        "name": "Kurtz George",
+        "title": "director, officer: PRESIDENT AND CEO",
+        "is_buy": false,
+        "shares": 120,
+        "price": 277.02,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Kurtz George",
+        "title": "director, officer: PRESIDENT AND CEO",
+        "is_buy": false,
+        "shares": 1200,
+        "price": 278.35,
+        "total_val": 0.33
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Kurtz George",
+        "title": "director, officer: PRESIDENT AND CEO",
+        "is_buy": false,
+        "shares": 3800,
+        "price": 279.1,
+        "total_val": 1.06
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Kurtz George",
+        "title": "director, officer: PRESIDENT AND CEO",
+        "is_buy": false,
+        "shares": 600,
+        "price": 280.32,
+        "total_val": 0.17
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Kurtz George",
+        "title": "director, officer: PRESIDENT AND CEO",
+        "is_buy": false,
+        "shares": 1880,
+        "price": 281.35,
+        "total_val": 0.53
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Kurtz George",
+        "title": "director, officer: PRESIDENT AND CEO",
+        "is_buy": false,
+        "shares": 1199,
+        "price": 282.21,
+        "total_val": 0.34
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Kurtz George",
+        "title": "director, officer: PRESIDENT AND CEO",
+        "is_buy": false,
+        "shares": 361,
+        "price": 283.23,
+        "total_val": 0.1
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Kurtz George",
+        "title": "director, officer: PRESIDENT AND CEO",
+        "is_buy": false,
+        "shares": 320,
+        "price": 284.3,
+        "total_val": 0.09
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Kurtz George",
+        "title": "director, officer: PRESIDENT AND CEO",
+        "is_buy": false,
+        "shares": 337,
+        "price": 285.45,
+        "total_val": 0.1
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Kurtz George",
+        "title": "director, officer: PRESIDENT AND CEO",
+        "is_buy": false,
+        "shares": 183,
+        "price": 286.3,
+        "total_val": 0.05
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2026-07-02",
+        "ratio": "4 : 1",
+        "desc": "普通股 1 拆 4 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "CRWD"
   },
   "WDAY": {
@@ -9340,8 +13405,102 @@ window.FULL_MARKET_DATA = {
     "year_low": 110.36,
     "all_time_high": 0.0,
     "all_time_low": 110.36,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 8.5,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-07",
+        "name": "Garfield Mark S.",
+        "title": "officer: Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 3491,
+        "price": 186.14,
+        "total_val": 0.65
+      },
+      {
+        "date": "2026-10-07",
+        "name": "Sauer Richard Harry",
+        "title": "officer: Chief Legal Officer & Secty",
+        "is_buy": false,
+        "shares": 6783,
+        "price": 186.14,
+        "total_val": 1.26
+      },
+      {
+        "date": "2026-10-07",
+        "name": "Enslin Robert",
+        "title": "officer: President, CCO",
+        "is_buy": false,
+        "shares": 5634,
+        "price": 186.14,
+        "total_val": 1.05
+      },
+      {
+        "date": "2026-10-07",
+        "name": "Enslin Robert",
+        "title": "officer: President, CCO",
+        "is_buy": false,
+        "shares": 736,
+        "price": 185.58,
+        "total_val": 0.14
+      },
+      {
+        "date": "2026-10-07",
+        "name": "Enslin Robert",
+        "title": "officer: President, CCO",
+        "is_buy": false,
+        "shares": 1700,
+        "price": 186.39,
+        "total_val": 0.32
+      },
+      {
+        "date": "2026-10-07",
+        "name": "Enslin Robert",
+        "title": "officer: President, CCO",
+        "is_buy": false,
+        "shares": 2091,
+        "price": 187.44,
+        "total_val": 0.39
+      },
+      {
+        "date": "2026-10-07",
+        "name": "Enslin Robert",
+        "title": "officer: President, CCO",
+        "is_buy": false,
+        "shares": 626,
+        "price": 188.19,
+        "total_val": 0.12
+      },
+      {
+        "date": "2026-10-07",
+        "name": "Enslin Robert",
+        "title": "officer: President, CCO",
+        "is_buy": false,
+        "shares": 221,
+        "price": 188.81,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-10-07",
+        "name": "Rowe Zane",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": false,
+        "shares": 10010,
+        "price": 186.14,
+        "total_val": 1.86
+      },
+      {
+        "date": "2026-10-07",
+        "name": "Rowe Zane",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": false,
+        "shares": 300,
+        "price": 184.99,
+        "total_val": 0.06
+      }
+    ],
+    "stock_splits": [],
     "fmp_symbol": "WDAY"
   },
   "ANET": {
@@ -9607,8 +13766,115 @@ window.FULL_MARKET_DATA = {
     "year_low": 114.52,
     "all_time_high": 0.0,
     "all_time_low": 114.52,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 8.5,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-09",
+        "name": "Ullal Jayshree",
+        "title": "director, officer: CEO and Chairperson",
+        "is_buy": false,
+        "shares": 69272,
+        "price": 217.14,
+        "total_val": 15.04
+      },
+      {
+        "date": "2026-10-09",
+        "name": "Ullal Jayshree",
+        "title": "director, officer: CEO and Chairperson",
+        "is_buy": false,
+        "shares": 13860,
+        "price": 217.14,
+        "total_val": 3.01
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Ullal Jayshree",
+        "title": "director, officer: CEO and Chairperson",
+        "is_buy": false,
+        "shares": 65897,
+        "price": 211.36,
+        "total_val": 13.93
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Ullal Jayshree",
+        "title": "director, officer: CEO and Chairperson",
+        "is_buy": false,
+        "shares": 259045,
+        "price": 212.27,
+        "total_val": 54.99
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Ullal Jayshree",
+        "title": "director, officer: CEO and Chairperson",
+        "is_buy": false,
+        "shares": 3902,
+        "price": 213.06,
+        "total_val": 0.83
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Ullal Jayshree",
+        "title": "director, officer: CEO and Chairperson",
+        "is_buy": false,
+        "shares": 13179,
+        "price": 211.36,
+        "total_val": 2.79
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Ullal Jayshree",
+        "title": "director, officer: CEO and Chairperson",
+        "is_buy": false,
+        "shares": 51805,
+        "price": 212.27,
+        "total_val": 11.0
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Ullal Jayshree",
+        "title": "director, officer: CEO and Chairperson",
+        "is_buy": false,
+        "shares": 781,
+        "price": 213.06,
+        "total_val": 0.17
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Breithaupt Chantelle Yvette",
+        "title": "officer: Senior Vice President, CFO",
+        "is_buy": false,
+        "shares": 1224,
+        "price": 215.0,
+        "total_val": 0.26
+      },
+      {
+        "date": "2026-10-05",
+        "name": "TEMPLETON MARK B",
+        "title": "director",
+        "is_buy": false,
+        "shares": 700,
+        "price": 201.62,
+        "total_val": 0.14
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2024-12-04",
+        "ratio": "4 : 1",
+        "desc": "普通股 1 拆 4 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2021-11-18",
+        "ratio": "4 : 1",
+        "desc": "普通股 1 拆 4 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "ANET"
   },
   "APH": {
@@ -9874,8 +14140,145 @@ window.FULL_MARKET_DATA = {
     "year_low": 59.005,
     "all_time_high": 0.0,
     "all_time_low": 59.005,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 8.5,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-08-06",
+        "name": "Lampo Craig A",
+        "title": "officer: EVP& CFO",
+        "is_buy": false,
+        "shares": 54547,
+        "price": 87.24,
+        "total_val": 4.76
+      },
+      {
+        "date": "2026-08-05",
+        "name": "Silverman David M",
+        "title": "officer: EVP, Human Resources",
+        "is_buy": true,
+        "shares": 120000,
+        "price": 22.0,
+        "total_val": 2.64
+      },
+      {
+        "date": "2026-08-05",
+        "name": "Silverman David M",
+        "title": "officer: EVP, Human Resources",
+        "is_buy": true,
+        "shares": 120000,
+        "price": 22.0,
+        "total_val": 2.64
+      },
+      {
+        "date": "2026-08-05",
+        "name": "Silverman David M",
+        "title": "officer: EVP, Human Resources",
+        "is_buy": false,
+        "shares": 120000,
+        "price": 174.24,
+        "total_val": 20.91
+      },
+      {
+        "date": "2026-08-05",
+        "name": "Lampo Craig A",
+        "title": "officer: EVP& CFO",
+        "is_buy": true,
+        "shares": 193200,
+        "price": 22.37,
+        "total_val": 4.32
+      },
+      {
+        "date": "2026-08-05",
+        "name": "Lampo Craig A",
+        "title": "officer: EVP& CFO",
+        "is_buy": true,
+        "shares": 193200,
+        "price": 22.37,
+        "total_val": 4.32
+      },
+      {
+        "date": "2026-08-05",
+        "name": "Lampo Craig A",
+        "title": "officer: EVP& CFO",
+        "is_buy": false,
+        "shares": 193200,
+        "price": 167.31,
+        "total_val": 32.32
+      },
+      {
+        "date": "2026-08-05",
+        "name": "D'AMICO LANCE E",
+        "title": "officer: EVP, Secretary & GenCounsel",
+        "is_buy": true,
+        "shares": 50000,
+        "price": 22.55,
+        "total_val": 1.13
+      },
+      {
+        "date": "2026-08-05",
+        "name": "D'AMICO LANCE E",
+        "title": "officer: EVP, Secretary & GenCounsel",
+        "is_buy": true,
+        "shares": 10000,
+        "price": 22.55,
+        "total_val": 0.23
+      },
+      {
+        "date": "2026-08-05",
+        "name": "D'AMICO LANCE E",
+        "title": "officer: EVP, Secretary & GenCounsel",
+        "is_buy": false,
+        "shares": 50000,
+        "price": 161.99,
+        "total_val": 8.1
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2026-09-03",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2024-06-12",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2021-03-05",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2014-10-10",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2007-04-02",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2004-03-30",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2000-04-26",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "APH"
   },
   "TEL": {
@@ -10141,8 +14544,102 @@ window.FULL_MARKET_DATA = {
     "year_low": 190.27,
     "all_time_high": 0.0,
     "all_time_low": 190.27,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 8.5,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-14",
+        "name": "SHAFFER REUBEN M.",
+        "title": "officer: SVP and Corporate Controller",
+        "is_buy": false,
+        "shares": 5,
+        "price": 218.29,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-14",
+        "name": "SAGAR MALAVIKA",
+        "title": "officer: SVP, Chief Human Resources Off",
+        "is_buy": false,
+        "shares": 3,
+        "price": 218.29,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-06-15",
+        "name": "SHAFFER REUBEN M.",
+        "title": "officer: SVP and Corporate Controller",
+        "is_buy": false,
+        "shares": 5,
+        "price": 218.29,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-06-15",
+        "name": "SAGAR MALAVIKA",
+        "title": "officer: SVP, Chief Human Resources Off",
+        "is_buy": false,
+        "shares": 3,
+        "price": 218.29,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-06-02",
+        "name": "Kroeger Shadrak W",
+        "title": "officer: Pres., Industrial Solutions",
+        "is_buy": true,
+        "shares": 9400,
+        "price": 93.63,
+        "total_val": 0.88
+      },
+      {
+        "date": "2026-06-02",
+        "name": "Kroeger Shadrak W",
+        "title": "officer: Pres., Industrial Solutions",
+        "is_buy": false,
+        "shares": 9400,
+        "price": 215.0,
+        "total_val": 2.02
+      },
+      {
+        "date": "2026-06-02",
+        "name": "Kroeger Shadrak W",
+        "title": "officer: Pres., Industrial Solutions",
+        "is_buy": true,
+        "shares": 9400,
+        "price": 93.63,
+        "total_val": 0.88
+      },
+      {
+        "date": "2026-05-18",
+        "name": "SAGAR MALAVIKA",
+        "title": "officer: SVP, Chief Human Resources Off",
+        "is_buy": true,
+        "shares": 1043,
+        "price": 218.29,
+        "total_val": 0.23
+      },
+      {
+        "date": "2026-05-18",
+        "name": "SAGAR MALAVIKA",
+        "title": "officer: SVP, Chief Human Resources Off",
+        "is_buy": false,
+        "shares": 297,
+        "price": 203.15,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-05-18",
+        "name": "SAGAR MALAVIKA",
+        "title": "officer: SVP, Chief Human Resources Off",
+        "is_buy": true,
+        "shares": 1043,
+        "price": 218.29,
+        "total_val": 0.23
+      }
+    ],
+    "stock_splits": [],
     "fmp_symbol": "TEL"
   },
   "GOOGL": {
@@ -10408,8 +14905,115 @@ window.FULL_MARKET_DATA = {
     "year_low": 235.84,
     "all_time_high": 0.0,
     "all_time_low": 235.84,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-02",
+        "name": "ARNOLD FRANCES",
+        "title": "director",
+        "is_buy": false,
+        "shares": 83,
+        "price": 340.45,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-09-29",
+        "name": "WALKER JOHN KENT",
+        "title": "officer: President, Global Affairs, CLO",
+        "is_buy": false,
+        "shares": 1626,
+        "price": 351.66,
+        "total_val": 0.57
+      },
+      {
+        "date": "2026-09-29",
+        "name": "WALKER JOHN KENT",
+        "title": "officer: President, Global Affairs, CLO",
+        "is_buy": false,
+        "shares": 1641,
+        "price": 339.01,
+        "total_val": 0.56
+      },
+      {
+        "date": "2026-09-29",
+        "name": "WALKER JOHN KENT",
+        "title": "officer: President, Global Affairs, CLO",
+        "is_buy": false,
+        "shares": 4258,
+        "price": 351.66,
+        "total_val": 1.5
+      },
+      {
+        "date": "2026-09-29",
+        "name": "WALKER JOHN KENT",
+        "title": "officer: President, Global Affairs, CLO",
+        "is_buy": false,
+        "shares": 4297,
+        "price": 339.01,
+        "total_val": 1.46
+      },
+      {
+        "date": "2026-09-29",
+        "name": "WALKER JOHN KENT",
+        "title": "officer: President, Global Affairs, CLO",
+        "is_buy": false,
+        "shares": 10631,
+        "price": 351.66,
+        "total_val": 3.74
+      },
+      {
+        "date": "2026-09-29",
+        "name": "WALKER JOHN KENT",
+        "title": "officer: President, Global Affairs, CLO",
+        "is_buy": false,
+        "shares": 4747,
+        "price": 351.66,
+        "total_val": 1.67
+      },
+      {
+        "date": "2026-09-29",
+        "name": "WALKER JOHN KENT",
+        "title": "officer: President, Global Affairs, CLO",
+        "is_buy": false,
+        "shares": 4791,
+        "price": 339.01,
+        "total_val": 1.62
+      },
+      {
+        "date": "2026-09-29",
+        "name": "Saraci Marsida",
+        "title": "officer: VP, Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 487,
+        "price": 351.66,
+        "total_val": 0.17
+      },
+      {
+        "date": "2026-09-29",
+        "name": "Saraci Marsida",
+        "title": "officer: VP, Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 69,
+        "price": 351.66,
+        "total_val": 0.02
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2022-07-18",
+        "ratio": "20 : 1",
+        "desc": "普通股 1 拆 20 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2014-04-03",
+        "ratio": "999 : 500",
+        "desc": "普通股 500 拆 999 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "GOOGL"
   },
   "GOOG": {
@@ -10670,13 +15274,120 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "650 253 0000",
     "full_address": "1600 Amphitheatre Parkway, Mountain View, CA 94043, US",
-    "range_52w": "236.69-404.47",
+    "range_52w": "240.75-404.47",
     "year_high": 404.47,
-    "year_low": 236.69,
+    "year_low": 240.75,
     "all_time_high": 0.0,
-    "all_time_low": 236.69,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "all_time_low": 240.75,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-02",
+        "name": "ARNOLD FRANCES",
+        "title": "director",
+        "is_buy": false,
+        "shares": 83,
+        "price": 340.45,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-09-29",
+        "name": "WALKER JOHN KENT",
+        "title": "officer: President, Global Affairs, CLO",
+        "is_buy": false,
+        "shares": 1626,
+        "price": 347.86,
+        "total_val": 0.57
+      },
+      {
+        "date": "2026-09-29",
+        "name": "WALKER JOHN KENT",
+        "title": "officer: President, Global Affairs, CLO",
+        "is_buy": false,
+        "shares": 1641,
+        "price": 339.01,
+        "total_val": 0.56
+      },
+      {
+        "date": "2026-09-29",
+        "name": "WALKER JOHN KENT",
+        "title": "officer: President, Global Affairs, CLO",
+        "is_buy": false,
+        "shares": 4258,
+        "price": 347.86,
+        "total_val": 1.48
+      },
+      {
+        "date": "2026-09-29",
+        "name": "WALKER JOHN KENT",
+        "title": "officer: President, Global Affairs, CLO",
+        "is_buy": false,
+        "shares": 4297,
+        "price": 339.01,
+        "total_val": 1.46
+      },
+      {
+        "date": "2026-09-29",
+        "name": "WALKER JOHN KENT",
+        "title": "officer: President, Global Affairs, CLO",
+        "is_buy": false,
+        "shares": 10631,
+        "price": 347.86,
+        "total_val": 3.7
+      },
+      {
+        "date": "2026-09-29",
+        "name": "WALKER JOHN KENT",
+        "title": "officer: President, Global Affairs, CLO",
+        "is_buy": false,
+        "shares": 4747,
+        "price": 347.86,
+        "total_val": 1.65
+      },
+      {
+        "date": "2026-09-29",
+        "name": "WALKER JOHN KENT",
+        "title": "officer: President, Global Affairs, CLO",
+        "is_buy": false,
+        "shares": 4791,
+        "price": 339.01,
+        "total_val": 1.62
+      },
+      {
+        "date": "2026-09-29",
+        "name": "Saraci Marsida",
+        "title": "officer: VP, Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 487,
+        "price": 347.86,
+        "total_val": 0.17
+      },
+      {
+        "date": "2026-09-29",
+        "name": "Saraci Marsida",
+        "title": "officer: VP, Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 69,
+        "price": 347.86,
+        "total_val": 0.02
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2022-07-18",
+        "ratio": "20 : 1",
+        "desc": "普通股 1 拆 20 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2014-03-27",
+        "ratio": "1001 : 500",
+        "desc": "普通股 500 拆 1001 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "GOOG"
   },
   "META": {
@@ -10942,8 +15653,102 @@ window.FULL_MARKET_DATA = {
     "year_low": 520.26,
     "all_time_high": 0.0,
     "all_time_low": 520.26,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-07",
+        "name": "Olivan Javier",
+        "title": "officer: Chief Operating Officer",
+        "is_buy": false,
+        "shares": 408,
+        "price": 728.08,
+        "total_val": 0.3
+      },
+      {
+        "date": "2026-10-07",
+        "name": "Olivan Javier",
+        "title": "officer: Chief Operating Officer",
+        "is_buy": false,
+        "shares": 946,
+        "price": 728.08,
+        "total_val": 0.69
+      },
+      {
+        "date": "2026-10-07",
+        "name": "Olivan Javier",
+        "title": "officer: Chief Operating Officer",
+        "is_buy": false,
+        "shares": 82,
+        "price": 728.08,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-10-07",
+        "name": "Olivan Javier",
+        "title": "officer: Chief Operating Officer",
+        "is_buy": false,
+        "shares": 57,
+        "price": 728.08,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-09-30",
+        "name": "Olivan Javier",
+        "title": "officer: Chief Operating Officer",
+        "is_buy": false,
+        "shares": 408,
+        "price": 748.91,
+        "total_val": 0.31
+      },
+      {
+        "date": "2026-09-30",
+        "name": "Olivan Javier",
+        "title": "officer: Chief Operating Officer",
+        "is_buy": false,
+        "shares": 946,
+        "price": 750.42,
+        "total_val": 0.71
+      },
+      {
+        "date": "2026-09-30",
+        "name": "Olivan Javier",
+        "title": "officer: Chief Operating Officer",
+        "is_buy": false,
+        "shares": 82,
+        "price": 748.91,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-09-30",
+        "name": "Olivan Javier",
+        "title": "officer: Chief Operating Officer",
+        "is_buy": false,
+        "shares": 57,
+        "price": 748.91,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-09-28",
+        "name": "Zuckerberg Mark",
+        "title": "director, 10 percent owner, officer: COB and CEO",
+        "is_buy": false,
+        "shares": 17140,
+        "price": 718.67,
+        "total_val": 12.32
+      },
+      {
+        "date": "2026-09-28",
+        "name": "Zuckerberg Mark",
+        "title": "director, 10 percent owner, officer: COB and CEO",
+        "is_buy": false,
+        "shares": 1133,
+        "price": 775.32,
+        "total_val": 0.88
+      }
+    ],
+    "stock_splits": [],
     "fmp_symbol": "META"
   },
   "NFLX": {
@@ -11209,8 +16014,121 @@ window.FULL_MARKET_DATA = {
     "year_low": 65.08,
     "all_time_high": 0.0,
     "all_time_low": 65.08,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-02",
+        "name": "Hoag Jay C",
+        "title": "director",
+        "is_buy": false,
+        "shares": 921,
+        "price": 67.85,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Mertz Elinor",
+        "title": "director",
+        "is_buy": false,
+        "shares": 922,
+        "price": 67.85,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-10-02",
+        "name": "RICE SUSAN E",
+        "title": "director",
+        "is_buy": false,
+        "shares": 921,
+        "price": 67.85,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-10-02",
+        "name": "BARTON RICHARD N",
+        "title": "director",
+        "is_buy": false,
+        "shares": 921,
+        "price": 67.85,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-10-02",
+        "name": "MATHER ANN",
+        "title": "director",
+        "is_buy": false,
+        "shares": 921,
+        "price": 67.85,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Masiyiwa Strive",
+        "title": "director",
+        "is_buy": false,
+        "shares": 921,
+        "price": 67.85,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-10-02",
+        "name": "KILGORE LESLIE J",
+        "title": "director",
+        "is_buy": false,
+        "shares": 921,
+        "price": 67.85,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Dopfner Mathias",
+        "title": "director",
+        "is_buy": false,
+        "shares": 921,
+        "price": 67.85,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Karbowski Jeffrey William",
+        "title": "officer: Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 1075,
+        "price": 67.85,
+        "total_val": 0.07
+      },
+      {
+        "date": "2026-10-02",
+        "name": "SMITH BRADFORD L",
+        "title": "director",
+        "is_buy": false,
+        "shares": 921,
+        "price": 67.85,
+        "total_val": 0.06
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2025-11-17",
+        "ratio": "10 : 1",
+        "desc": "普通股 1 拆 10 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2015-07-15",
+        "ratio": "7 : 1",
+        "desc": "普通股 1 拆 7 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2004-02-12",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "NFLX"
   },
   "DIS": {
@@ -11476,8 +16394,163 @@ window.FULL_MARKET_DATA = {
     "year_low": 92.19,
     "all_time_high": 0.0,
     "all_time_low": 92.19,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-09",
+        "name": "WOODFORD BRENT",
+        "title": "officer: EVP, Control, Fin Plan & Tax",
+        "is_buy": true,
+        "shares": 3618,
+        "price": 105.21,
+        "total_val": 0.38
+      },
+      {
+        "date": "2026-10-09",
+        "name": "WOODFORD BRENT",
+        "title": "officer: EVP, Control, Fin Plan & Tax",
+        "is_buy": false,
+        "shares": 3618,
+        "price": 105.31,
+        "total_val": 0.38
+      },
+      {
+        "date": "2026-10-09",
+        "name": "WOODFORD BRENT",
+        "title": "officer: EVP, Control, Fin Plan & Tax",
+        "is_buy": true,
+        "shares": 3618,
+        "price": 105.21,
+        "total_val": 0.38
+      },
+      {
+        "date": "2026-10-02",
+        "name": "MCDONALD CALVIN",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1005,
+        "price": 104.88,
+        "total_val": 0.11
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Chang Amy",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1005,
+        "price": 104.88,
+        "total_val": 0.11
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Barra Mary T",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1174,
+        "price": 104.88,
+        "total_val": 0.12
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Darroch Jeremy",
+        "title": "director",
+        "is_buy": false,
+        "shares": 954,
+        "price": 104.88,
+        "total_val": 0.1
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Darroch Jeremy",
+        "title": "director",
+        "is_buy": false,
+        "shares": 122,
+        "price": 105.65,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Everson Carolyn",
+        "title": "director",
+        "is_buy": false,
+        "shares": 994,
+        "price": 104.88,
+        "total_val": 0.1
+      },
+      {
+        "date": "2026-10-02",
+        "name": "GORMAN JAMES P",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1386,
+        "price": 104.88,
+        "total_val": 0.15
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2007-06-13",
+        "ratio": "2000 : 1973",
+        "desc": "普通股 1973 拆 2000 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1998-07-10",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1992-05-18",
+        "ratio": "4 : 1",
+        "desc": "普通股 1 拆 4 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1986-03-06",
+        "ratio": "4 : 1",
+        "desc": "普通股 1 拆 4 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1977-12-06",
+        "ratio": "203 : 200",
+        "desc": "普通股 200 拆 203 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1976-12-16",
+        "ratio": "103 : 100",
+        "desc": "普通股 100 拆 103 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1975-12-15",
+        "ratio": "103 : 100",
+        "desc": "普通股 100 拆 103 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1974-11-29",
+        "ratio": "51 : 50",
+        "desc": "普通股 50 拆 51 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1973-11-27",
+        "ratio": "51 : 50",
+        "desc": "普通股 50 拆 51 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1973-01-16",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "DIS"
   },
   "TMUS": {
@@ -11738,13 +16811,114 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "425 378 4000",
     "full_address": "12920 SE 38th Street, Bellevue, WA 98006-1350, US",
-    "range_52w": "147.9-231.02",
-    "year_high": 231.02,
+    "range_52w": "147.9-230.65",
+    "year_high": 230.65,
     "year_low": 147.9,
     "all_time_high": 0.0,
     "all_time_low": 147.9,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-28",
+        "name": "Drobac Daniel James",
+        "title": "officer: VP & Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 2768,
+        "price": 148.58,
+        "total_val": 0.41
+      },
+      {
+        "date": "2026-09-14",
+        "name": "Nelson Mark Wolfe",
+        "title": "officer: Chief Legal Officer & GC",
+        "is_buy": false,
+        "shares": 102,
+        "price": 178.14,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-09-14",
+        "name": "Drobac Daniel James",
+        "title": "officer: VP & Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 1,
+        "price": 178.14,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-14",
+        "name": "Drobac Daniel James",
+        "title": "officer: VP & Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 772,
+        "price": 178.33,
+        "total_val": 0.14
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Almeida Andre",
+        "title": "officer: Chief Commercial Officer",
+        "is_buy": false,
+        "shares": 530,
+        "price": 182.16,
+        "total_val": 0.1
+      },
+      {
+        "date": "2026-08-27",
+        "name": "Drobac Daniel James",
+        "title": "officer: VP & Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 171,
+        "price": 181.61,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-08-18",
+        "name": "Drobac Daniel James",
+        "title": "officer: VP & Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 87,
+        "price": 182.61,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-08-04",
+        "name": "Sambar Christopher",
+        "title": "officer: Chief Enterprise Officer",
+        "is_buy": false,
+        "shares": 40966,
+        "price": 148.58,
+        "total_val": 6.09
+      },
+      {
+        "date": "2026-08-04",
+        "name": "Sambar Christopher",
+        "title": "officer: Chief Enterprise Officer",
+        "is_buy": true,
+        "shares": 0,
+        "price": 148.58,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-06-18",
+        "name": "CLAURE RAUL MARCELO",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1384,
+        "price": 148.58,
+        "total_val": 0.21
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2013-05-01",
+        "ratio": "1 : 2",
+        "desc": "普通股 2 拆 1 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "TMUS"
   },
   "VZ": {
@@ -12010,8 +17184,133 @@ window.FULL_MARKET_DATA = {
     "year_low": 38.39,
     "all_time_high": 0.0,
     "all_time_low": 38.39,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-09",
+        "name": "Villanueva Rodriguez Alfonso",
+        "title": "officer: EVP and Group CEO-VZ Consumer",
+        "is_buy": false,
+        "shares": 131,
+        "price": 41.65,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-10-09",
+        "name": "Venkatesh Vandana",
+        "title": "officer: EVP and Chief Legal Officer",
+        "is_buy": false,
+        "shares": 96,
+        "price": 41.65,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-09",
+        "name": "Stillwell Mary-Lee",
+        "title": "officer: SVP and Controller",
+        "is_buy": false,
+        "shares": 44,
+        "price": 41.65,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-09",
+        "name": "Skiadas Anthony T",
+        "title": "officer: EVP and CFO",
+        "is_buy": false,
+        "shares": 131,
+        "price": 41.65,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-10-09",
+        "name": "Russo Joseph J.",
+        "title": "officer: EVP&Pres-Global Networks&Tech",
+        "is_buy": false,
+        "shares": 83,
+        "price": 41.65,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-09",
+        "name": "Malady Kyle",
+        "title": "officer: EVP and Group CEO-VZ Business",
+        "is_buy": false,
+        "shares": 131,
+        "price": 41.65,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-10-09",
+        "name": "SCHULMAN DANIEL H",
+        "title": "director, officer: CEO",
+        "is_buy": false,
+        "shares": 201,
+        "price": 41.65,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-10-07",
+        "name": "Malady Kyle",
+        "title": "officer: EVP and Group CEO-VZ Business",
+        "is_buy": false,
+        "shares": 1100,
+        "price": 45.75,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-09-30",
+        "name": "Malady Kyle",
+        "title": "officer: EVP and Group CEO-VZ Business",
+        "is_buy": false,
+        "shares": 1100,
+        "price": 46.4,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-09-29",
+        "name": "PHILLIPS JR CHARLES E",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1770,
+        "price": 41.65,
+        "total_val": 0.07
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2010-07-02",
+        "ratio": "1000000 : 937889",
+        "desc": "普通股 937889 拆 1000000 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2006-11-20",
+        "ratio": "50000 : 48167",
+        "desc": "普通股 48167 拆 50000 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1998-06-30",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1990-05-02",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1986-04-18",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "VZ"
   },
   "T": {
@@ -12277,8 +17576,127 @@ window.FULL_MARKET_DATA = {
     "year_low": 19.89,
     "all_time_high": 0.0,
     "all_time_low": 19.89,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-07",
+        "name": "Cakaric Darcie M.",
+        "title": "officer: SEVP and Chief HR Officer",
+        "is_buy": true,
+        "shares": 38655,
+        "price": 22.18,
+        "total_val": 0.86
+      },
+      {
+        "date": "2026-10-07",
+        "name": "Cakaric Darcie M.",
+        "title": "officer: SEVP and Chief HR Officer",
+        "is_buy": true,
+        "shares": 38655,
+        "price": 22.18,
+        "total_val": 0.86
+      },
+      {
+        "date": "2026-10-07",
+        "name": "Cakaric Darcie M.",
+        "title": "officer: SEVP and Chief HR Officer",
+        "is_buy": false,
+        "shares": 15211,
+        "price": 24.24,
+        "total_val": 0.37
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Sabrina Sanders S",
+        "title": "officer: SVP-ChiefActngOfcr&Controller",
+        "is_buy": false,
+        "shares": 9248,
+        "price": 25.89,
+        "total_val": 0.24
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Sabrina Sanders S",
+        "title": "officer: SVP-ChiefActngOfcr&Controller",
+        "is_buy": false,
+        "shares": 144,
+        "price": 24.4,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Merchant Fazal F",
+        "title": "director",
+        "is_buy": false,
+        "shares": 10707,
+        "price": 22.18,
+        "total_val": 0.24
+      },
+      {
+        "date": "2026-10-02",
+        "name": "McElfresh Jeffery S.",
+        "title": "officer: Chief Operating Officer",
+        "is_buy": false,
+        "shares": 512,
+        "price": 24.4,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Lee Lori M",
+        "title": "officer: Global Mktg Ofr & SEVP Intl",
+        "is_buy": false,
+        "shares": 368,
+        "price": 24.4,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Desroches Pascal",
+        "title": "officer: Sr. Exec VP and CFO",
+        "is_buy": false,
+        "shares": 1835,
+        "price": 24.4,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-09-16",
+        "name": "Merchant Fazal F",
+        "title": "director: ",
+        "is_buy": true,
+        "shares": 0,
+        "price": 22.18,
+        "total_val": 0.0
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2022-04-11",
+        "ratio": "331 : 250",
+        "desc": "普通股 250 拆 331 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1998-03-20",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1993-05-26",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1987-05-26",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "T"
   },
   "CMCSA": {
@@ -12544,8 +17962,163 @@ window.FULL_MARKET_DATA = {
     "year_low": 20.485,
     "all_time_high": 0.0,
     "all_time_low": 20.485,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-02",
+        "name": "Smith Gordon",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1552,
+        "price": 20.66,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Honickman Jeffrey A",
+        "title": "director",
+        "is_buy": false,
+        "shares": 2011,
+        "price": 20.66,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-10-02",
+        "name": "BREEN EDWARD D",
+        "title": "director",
+        "is_buy": false,
+        "shares": 920,
+        "price": 20.66,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Brady Louise F.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1552,
+        "price": 20.66,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Baltimore Thomas J Jr",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1552,
+        "price": 20.66,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Cavanagh Michael J",
+        "title": "director, officer: Co-CEO",
+        "is_buy": false,
+        "shares": 392769,
+        "price": 20.66,
+        "total_val": 8.11
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Cavanagh Michael J",
+        "title": "director, officer: Co-CEO",
+        "is_buy": false,
+        "shares": 565642,
+        "price": 20.66,
+        "total_val": 11.69
+      },
+      {
+        "date": "2026-09-03",
+        "name": "ROBERTS BRIAN L",
+        "title": "director, officer: Chairman of Board & Co-CEO",
+        "is_buy": false,
+        "shares": 101900,
+        "price": 20.66,
+        "total_val": 2.11
+      },
+      {
+        "date": "2026-09-03",
+        "name": "ROBERTS BRIAN L",
+        "title": "director, officer: Chairman of Board & Co-CEO",
+        "is_buy": false,
+        "shares": 382860,
+        "price": 20.66,
+        "total_val": 7.91
+      },
+      {
+        "date": "2026-08-18",
+        "name": "BREEN EDWARD D",
+        "title": "director",
+        "is_buy": false,
+        "shares": 62440,
+        "price": 20.66,
+        "total_val": 1.29
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2017-02-21",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2007-02-22",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1999-05-06",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1994-02-03",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1989-10-25",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1988-04-11",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1986-12-19",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1985-06-28",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1984-09-19",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1983-01-06",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "CMCSA"
   },
   "TKO": {
@@ -12811,8 +18384,102 @@ window.FULL_MARKET_DATA = {
     "year_low": 171.19,
     "all_time_high": 0.0,
     "all_time_low": 171.19,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-15",
+        "name": "Khan Nick",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1333,
+        "price": 193.13,
+        "total_val": 0.26
+      },
+      {
+        "date": "2026-09-15",
+        "name": "Khan Nick",
+        "title": "director",
+        "is_buy": false,
+        "shares": 4256,
+        "price": 194.12,
+        "total_val": 0.83
+      },
+      {
+        "date": "2026-09-15",
+        "name": "Khan Nick",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1421,
+        "price": 194.99,
+        "total_val": 0.28
+      },
+      {
+        "date": "2026-09-15",
+        "name": "Khan Nick",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1279,
+        "price": 195.95,
+        "total_val": 0.25
+      },
+      {
+        "date": "2026-09-15",
+        "name": "Khan Nick",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1200,
+        "price": 197.12,
+        "total_val": 0.24
+      },
+      {
+        "date": "2026-09-15",
+        "name": "Khan Nick",
+        "title": "director",
+        "is_buy": false,
+        "shares": 100,
+        "price": 197.64,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-09-15",
+        "name": "Emanuel Ariel",
+        "title": "director, officer: Chief Executive Officer",
+        "is_buy": true,
+        "shares": 97041,
+        "price": 178.01,
+        "total_val": 17.27
+      },
+      {
+        "date": "2026-09-15",
+        "name": "Emanuel Ariel",
+        "title": "director, officer: Chief Executive Officer",
+        "is_buy": false,
+        "shares": 49481,
+        "price": 190.31,
+        "total_val": 9.42
+      },
+      {
+        "date": "2026-09-15",
+        "name": "Emanuel Ariel",
+        "title": "director, officer: Chief Executive Officer",
+        "is_buy": true,
+        "shares": 97041,
+        "price": 178.01,
+        "total_val": 17.27
+      },
+      {
+        "date": "2026-08-19",
+        "name": "Schleimer Andrew M",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": true,
+        "shares": 17753,
+        "price": 178.01,
+        "total_val": 3.16
+      }
+    ],
+    "stock_splits": [],
     "fmp_symbol": "TKO"
   },
   "LYV": {
@@ -13078,8 +18745,102 @@ window.FULL_MARKET_DATA = {
     "year_low": 125.34,
     "all_time_high": 0.0,
     "all_time_low": 125.34,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-02",
+        "name": "Rapino Michael",
+        "title": "director, officer: President & CEO",
+        "is_buy": false,
+        "shares": 117805,
+        "price": 170.33,
+        "total_val": 20.07
+      },
+      {
+        "date": "2026-08-25",
+        "name": "Capo Brian",
+        "title": "officer: Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 2900,
+        "price": 184.0,
+        "total_val": 0.53
+      },
+      {
+        "date": "2026-08-07",
+        "name": "Rapino Michael",
+        "title": "director, officer: President & CEO",
+        "is_buy": false,
+        "shares": 16251,
+        "price": 181.77,
+        "total_val": 2.95
+      },
+      {
+        "date": "2026-08-07",
+        "name": "Berchtold Joe",
+        "title": "officer: President & CFO",
+        "is_buy": false,
+        "shares": 10834,
+        "price": 181.77,
+        "total_val": 1.97
+      },
+      {
+        "date": "2026-08-07",
+        "name": "Hopmans John",
+        "title": "officer: EVP, M&A and Strategic Finance",
+        "is_buy": false,
+        "shares": 3970,
+        "price": 181.77,
+        "total_val": 0.72
+      },
+      {
+        "date": "2026-08-07",
+        "name": "Rowles Michael",
+        "title": "officer: EVP & General Counsel",
+        "is_buy": false,
+        "shares": 1084,
+        "price": 181.77,
+        "total_val": 0.2
+      },
+      {
+        "date": "2026-07-14",
+        "name": "Hopmans John",
+        "title": "officer: EVP, M&A and Strategic Finance",
+        "is_buy": false,
+        "shares": 6083,
+        "price": 179.79,
+        "total_val": 1.09
+      },
+      {
+        "date": "2026-06-16",
+        "name": "HINSON JEFFREY T.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 2115,
+        "price": 175.0,
+        "total_val": 0.37
+      },
+      {
+        "date": "2026-06-12",
+        "name": "Watkins Latriece",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1207,
+        "price": 170.33,
+        "total_val": 0.21
+      },
+      {
+        "date": "2026-06-12",
+        "name": "VOGEL CARL E",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1207,
+        "price": 170.33,
+        "total_val": 0.21
+      }
+    ],
+    "stock_splits": [],
     "fmp_symbol": "LYV"
   },
   "IRDM": {
@@ -13345,8 +19106,102 @@ window.FULL_MARKET_DATA = {
     "year_low": 15.65,
     "all_time_high": 0.0,
     "all_time_low": 15.65,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-02",
+        "name": "FRAZIER LEON ANTHONY",
+        "title": "director",
+        "is_buy": false,
+        "shares": 106,
+        "price": 47.47,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-10-02",
+        "name": "YEANEY JACQUELINE E",
+        "title": "director",
+        "is_buy": false,
+        "shares": 34,
+        "price": 47.47,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Sears Kay",
+        "title": "director",
+        "is_buy": false,
+        "shares": 34,
+        "price": 47.47,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Alterman Louis M",
+        "title": "director",
+        "is_buy": false,
+        "shares": 43,
+        "price": 47.47,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Shivanandan Monique S.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 49,
+        "price": 47.47,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-02",
+        "name": "NIEHAUS ROBERT H",
+        "title": "director",
+        "is_buy": false,
+        "shares": 55,
+        "price": 47.47,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Canfield Thomas C",
+        "title": "director",
+        "is_buy": false,
+        "shares": 733,
+        "price": 47.47,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-02",
+        "name": "FITZPATRICK THOMAS",
+        "title": "director",
+        "is_buy": false,
+        "shares": 55,
+        "price": 47.47,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Olson Eric T",
+        "title": "director",
+        "is_buy": false,
+        "shares": 441,
+        "price": 47.47,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-09-16",
+        "name": "Last Timothy James",
+        "title": "officer: EVP, Sales & Marketing",
+        "is_buy": false,
+        "shares": 5769,
+        "price": 46.35,
+        "total_val": 0.27
+      }
+    ],
+    "stock_splits": [],
     "fmp_symbol": "IRDM"
   },
   "EA": {
@@ -13612,8 +19467,127 @@ window.FULL_MARKET_DATA = {
     "year_low": 161.15,
     "all_time_high": 0.0,
     "all_time_low": 161.15,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-08-04",
+        "name": "Ueberroth Heidi",
+        "title": "director",
+        "is_buy": false,
+        "shares": 12848,
+        "price": 210.0,
+        "total_val": 2.7
+      },
+      {
+        "date": "2026-08-04",
+        "name": "Ueberroth Heidi",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1452,
+        "price": 209.7,
+        "total_val": 0.3
+      },
+      {
+        "date": "2026-08-04",
+        "name": "Ubinas Luis A",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1452,
+        "price": 209.7,
+        "total_val": 0.3
+      },
+      {
+        "date": "2026-08-04",
+        "name": "Simonson Richard A",
+        "title": "director",
+        "is_buy": false,
+        "shares": 83251,
+        "price": 210.0,
+        "total_val": 17.48
+      },
+      {
+        "date": "2026-08-04",
+        "name": "Simonson Richard A",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1452,
+        "price": 209.7,
+        "total_val": 0.3
+      },
+      {
+        "date": "2026-08-04",
+        "name": "Hoskins Roche L Talbott",
+        "title": "director",
+        "is_buy": false,
+        "shares": 27337,
+        "price": 210.0,
+        "total_val": 5.74
+      },
+      {
+        "date": "2026-08-04",
+        "name": "Hoskins Roche L Talbott",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1452,
+        "price": 209.7,
+        "total_val": 0.3
+      },
+      {
+        "date": "2026-08-04",
+        "name": "Huber Jeff",
+        "title": "director",
+        "is_buy": false,
+        "shares": 2184,
+        "price": 210.0,
+        "total_val": 0.46
+      },
+      {
+        "date": "2026-08-04",
+        "name": "Huber Jeff",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1452,
+        "price": 209.7,
+        "total_val": 0.3
+      },
+      {
+        "date": "2026-08-04",
+        "name": "Gonzalez Rachel A",
+        "title": "director",
+        "is_buy": false,
+        "shares": 7854,
+        "price": 210.0,
+        "total_val": 1.65
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2003-11-18",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2000-09-11",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1993-02-22",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1992-03-27",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "EA"
   },
   "TTWO": {
@@ -13879,8 +19853,109 @@ window.FULL_MARKET_DATA = {
     "year_low": 187.63,
     "all_time_high": 0.0,
     "all_time_low": 187.63,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-05",
+        "name": "GORDON WILLIAM B",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1217,
+        "price": 213.44,
+        "total_val": 0.26
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Siminoff Ellen F",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1240,
+        "price": 213.44,
+        "total_val": 0.26
+      },
+      {
+        "date": "2026-10-05",
+        "name": "HERNANDEZ ROLAND A",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1258,
+        "price": 213.44,
+        "total_val": 0.27
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Viera Paul E",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1229,
+        "price": 213.44,
+        "total_val": 0.26
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Srinivasan LaVerne Evans",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1586,
+        "price": 213.44,
+        "total_val": 0.34
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Tolson Susan",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1126,
+        "price": 213.44,
+        "total_val": 0.24
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Sheresky Michael",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1126,
+        "price": 213.44,
+        "total_val": 0.24
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Sheresky Michael",
+        "title": "director",
+        "is_buy": false,
+        "shares": 484,
+        "price": 203.69,
+        "total_val": 0.1
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Moses Jon J",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1126,
+        "price": 213.44,
+        "total_val": 0.24
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Dornemann Michael",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1126,
+        "price": 213.44,
+        "total_val": 0.24
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2005-04-12",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "TTWO"
   },
   "WBD": {
@@ -14146,8 +20221,115 @@ window.FULL_MARKET_DATA = {
     "year_low": 17.08,
     "all_time_high": 0.0,
     "all_time_low": 17.08,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-08",
+        "name": "Zeiler Gerhard",
+        "title": "officer: President, International",
+        "is_buy": false,
+        "shares": 2236849,
+        "price": 30.95,
+        "total_val": 69.23
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Zeiler Gerhard",
+        "title": "officer: President, International",
+        "is_buy": false,
+        "shares": 103922,
+        "price": 31.02,
+        "total_val": 3.22
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Zeiler Gerhard",
+        "title": "officer: President, International",
+        "is_buy": false,
+        "shares": 262864,
+        "price": 31.02,
+        "total_val": 8.15
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Zeiler Gerhard",
+        "title": "officer: President, International",
+        "is_buy": false,
+        "shares": 101326,
+        "price": 8.67,
+        "total_val": 0.88
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Zeiler Gerhard",
+        "title": "officer: President, International",
+        "is_buy": false,
+        "shares": 188193,
+        "price": 11.02,
+        "total_val": 2.07
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Zeiler Gerhard",
+        "title": "officer: President, International",
+        "is_buy": false,
+        "shares": 2236849,
+        "price": 31.02,
+        "total_val": 69.38
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Wiedenfels Gunnar",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": false,
+        "shares": 2982465,
+        "price": 30.95,
+        "total_val": 92.31
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Wiedenfels Gunnar",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": false,
+        "shares": 41784,
+        "price": 31.02,
+        "total_val": 1.3
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Wiedenfels Gunnar",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": false,
+        "shares": 421941,
+        "price": 31.02,
+        "total_val": 13.09
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Wiedenfels Gunnar",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": false,
+        "shares": 130546,
+        "price": 58.18,
+        "total_val": 7.6
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2014-08-07",
+        "ratio": "1957 : 1000",
+        "desc": "普通股 1000 拆 1957 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2008-09-18",
+        "ratio": "1 : 2",
+        "desc": "普通股 2 拆 1 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "WBD"
   },
   "AMZN": {
@@ -14413,8 +20595,127 @@ window.FULL_MARKET_DATA = {
     "year_low": 196.0,
     "all_time_high": 0.0,
     "all_time_low": 196.0,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-06",
+        "name": "Mandia Kevin R.",
+        "title": "director",
+        "is_buy": true,
+        "shares": 0,
+        "price": 262.43,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Herrington Douglas J",
+        "title": "officer: CEO Worldwide Amazon Stores",
+        "is_buy": false,
+        "shares": 1000,
+        "price": 251.5,
+        "total_val": 0.25
+      },
+      {
+        "date": "2026-09-09",
+        "name": "SMITH BRAD D",
+        "title": "director",
+        "is_buy": false,
+        "shares": 4086,
+        "price": 262.43,
+        "total_val": 1.07
+      },
+      {
+        "date": "2026-09-09",
+        "name": "Mandia Kevin R.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 4086,
+        "price": 262.43,
+        "total_val": 1.07
+      },
+      {
+        "date": "2026-09-09",
+        "name": "Mandia Kevin R.",
+        "title": "director: ",
+        "is_buy": true,
+        "shares": 0,
+        "price": 262.43,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Herrington Douglas J",
+        "title": "officer: CEO Worldwide Amazon Stores",
+        "is_buy": false,
+        "shares": 1000,
+        "price": 254.77,
+        "total_val": 0.25
+      },
+      {
+        "date": "2026-08-27",
+        "name": "BEZOS JEFFREY P",
+        "title": "director, officer: Executive Chair",
+        "is_buy": false,
+        "shares": 184943,
+        "price": 262.43,
+        "total_val": 48.53
+      },
+      {
+        "date": "2026-08-27",
+        "name": "BEZOS JEFFREY P",
+        "title": "director, officer: Executive Chair",
+        "is_buy": false,
+        "shares": 230637,
+        "price": 262.43,
+        "total_val": 60.53
+      },
+      {
+        "date": "2026-08-25",
+        "name": "Jassy Andrew R",
+        "title": "director, officer: President and CEO",
+        "is_buy": true,
+        "shares": 50000,
+        "price": 262.43,
+        "total_val": 13.12
+      },
+      {
+        "date": "2026-08-25",
+        "name": "Jassy Andrew R",
+        "title": "director, officer: President and CEO",
+        "is_buy": false,
+        "shares": 3197,
+        "price": 257.63,
+        "total_val": 0.82
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2022-06-06",
+        "ratio": "20 : 1",
+        "desc": "普通股 1 拆 20 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1999-09-02",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1999-01-05",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1998-06-02",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "AMZN"
   },
   "TSLA": {
@@ -14680,8 +20981,115 @@ window.FULL_MARKET_DATA = {
     "year_low": 297.38,
     "all_time_high": 0.0,
     "all_time_low": 297.38,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-09",
+        "name": "Taneja Vaibhav",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": true,
+        "shares": 6539,
+        "price": 382.7,
+        "total_val": 2.5
+      },
+      {
+        "date": "2026-09-09",
+        "name": "Taneja Vaibhav",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": true,
+        "shares": 6539,
+        "price": 382.7,
+        "total_val": 2.5
+      },
+      {
+        "date": "2026-09-09",
+        "name": "Taneja Vaibhav",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": false,
+        "shares": 2605,
+        "price": 360.13,
+        "total_val": 0.94
+      },
+      {
+        "date": "2026-06-17",
+        "name": "Musk Elon",
+        "title": "director, 10 percent owner, officer: CEO",
+        "is_buy": true,
+        "shares": 303960630,
+        "price": 23.34,
+        "total_val": 7094.44
+      },
+      {
+        "date": "2026-06-17",
+        "name": "Musk Elon",
+        "title": "director, 10 percent owner, officer: CEO",
+        "is_buy": false,
+        "shares": 17531857,
+        "price": 404.66,
+        "total_val": 7094.44
+      },
+      {
+        "date": "2026-06-17",
+        "name": "Musk Elon",
+        "title": "director, 10 percent owner, officer: CEO",
+        "is_buy": true,
+        "shares": 303960630,
+        "price": 23.34,
+        "total_val": 7094.44
+      },
+      {
+        "date": "2026-06-09",
+        "name": "Taneja Vaibhav",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": true,
+        "shares": 6538,
+        "price": 382.7,
+        "total_val": 2.5
+      },
+      {
+        "date": "2026-06-09",
+        "name": "Taneja Vaibhav",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": true,
+        "shares": 6538,
+        "price": 382.7,
+        "total_val": 2.5
+      },
+      {
+        "date": "2026-06-09",
+        "name": "Taneja Vaibhav",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": false,
+        "shares": 2605,
+        "price": 402.2,
+        "total_val": 1.05
+      },
+      {
+        "date": "2026-05-15",
+        "name": "Taneja Vaibhav",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": true,
+        "shares": 2000,
+        "price": 18.22,
+        "total_val": 0.04
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2022-08-25",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2020-08-31",
+        "ratio": "5 : 1",
+        "desc": "普通股 1 拆 5 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "TSLA"
   },
   "HD": {
@@ -14947,8 +21355,163 @@ window.FULL_MARKET_DATA = {
     "year_low": 277.15,
     "all_time_high": 0.0,
     "all_time_low": 277.15,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-22",
+        "name": "Scardino Kimberly R",
+        "title": "officer: SVP-Finance, CAO & Controller",
+        "is_buy": false,
+        "shares": 81,
+        "price": 299.98,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-09-22",
+        "name": "Broggi Jordan",
+        "title": "officer: EVP-Interconnected Retail",
+        "is_buy": false,
+        "shares": 130,
+        "price": 299.98,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-09-22",
+        "name": "BROWN ANGIE",
+        "title": "officer: EVP & CIO",
+        "is_buy": false,
+        "shares": 96,
+        "price": 299.98,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-09-22",
+        "name": "Deaton John A.",
+        "title": "officer: EVP - Supply Chain & Prod. Dev",
+        "is_buy": false,
+        "shares": 344,
+        "price": 299.98,
+        "total_val": 0.1
+      },
+      {
+        "date": "2026-09-22",
+        "name": "McPhail Richard V",
+        "title": "officer: EVP & CFO",
+        "is_buy": false,
+        "shares": 554,
+        "price": 299.98,
+        "total_val": 0.17
+      },
+      {
+        "date": "2026-09-22",
+        "name": "SMITH STEPHANIE",
+        "title": "officer: EVP - Human Resources",
+        "is_buy": false,
+        "shares": 130,
+        "price": 299.98,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-09-11",
+        "name": "Scardino Kimberly R",
+        "title": "officer: SVP-Finance, CAO & Controller",
+        "is_buy": false,
+        "shares": 675,
+        "price": 305.95,
+        "total_val": 0.21
+      },
+      {
+        "date": "2026-08-31",
+        "name": "Roseborough Teresa Wynn",
+        "title": "officer: EVP, Gen. Counsel & Corp. Sec.",
+        "is_buy": false,
+        "shares": 2455,
+        "price": 328.77,
+        "total_val": 0.81
+      },
+      {
+        "date": "2026-08-27",
+        "name": "Rowe Michael F.",
+        "title": "officer: EVP, Pro",
+        "is_buy": false,
+        "shares": 710,
+        "price": 336.76,
+        "total_val": 0.24
+      },
+      {
+        "date": "2026-08-21",
+        "name": "Broggi Jordan",
+        "title": "officer: EVP-Interconnected Retail",
+        "is_buy": false,
+        "shares": 1494,
+        "price": 290.74,
+        "total_val": 0.43
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "1999-12-31",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1998-07-06",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1997-07-07",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1993-04-14",
+        "ratio": "4 : 3",
+        "desc": "普通股 3 拆 4 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1992-07-02",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1991-06-26",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1990-07-06",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1989-07-03",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1987-09-22",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1983-06-09",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "HD"
   },
   "MCD": {
@@ -15214,8 +21777,157 @@ window.FULL_MARKET_DATA = {
     "year_low": 229.2,
     "all_time_high": 0.0,
     "all_time_low": 229.2,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-02",
+        "name": "Dean Lloyd H",
+        "title": "director",
+        "is_buy": false,
+        "shares": 156,
+        "price": 235.23,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Taubert Jennifer L",
+        "title": "director",
+        "is_buy": false,
+        "shares": 129,
+        "price": 235.23,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Hsu Michael D.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 129,
+        "price": 235.23,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-08-14",
+        "name": "Anderson Skye",
+        "title": "officer: President, McDonald's USA",
+        "is_buy": true,
+        "shares": 0,
+        "price": 235.23,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-08-14",
+        "name": "Anderson Skye",
+        "title": "officer: President, McDonald's USA",
+        "is_buy": true,
+        "shares": 8510,
+        "price": 266.2,
+        "total_val": 2.27
+      },
+      {
+        "date": "2026-08-14",
+        "name": "Anderson Skye",
+        "title": "officer: President, McDonald's USA",
+        "is_buy": true,
+        "shares": 2844,
+        "price": 235.23,
+        "total_val": 0.67
+      },
+      {
+        "date": "2026-08-14",
+        "name": "Anderson Skye",
+        "title": "officer: President, McDonald's USA",
+        "is_buy": true,
+        "shares": 7310,
+        "price": 307.6,
+        "total_val": 2.25
+      },
+      {
+        "date": "2026-08-14",
+        "name": "Anderson Skye",
+        "title": "officer: President, McDonald's USA",
+        "is_buy": true,
+        "shares": 16047,
+        "price": 327.58,
+        "total_val": 5.26
+      },
+      {
+        "date": "2026-08-14",
+        "name": "Anderson Skye",
+        "title": "officer: President, McDonald's USA",
+        "is_buy": true,
+        "shares": 304,
+        "price": 235.23,
+        "total_val": 0.07
+      },
+      {
+        "date": "2026-08-14",
+        "name": "Anderson Skye",
+        "title": "officer: President, McDonald's USA",
+        "is_buy": true,
+        "shares": 7732,
+        "price": 289.44,
+        "total_val": 2.24
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "1999-03-08",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1994-06-27",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1989-06-19",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1987-06-23",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1986-06-26",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1984-09-25",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1982-10-07",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1972-06-06",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1971-06-14",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "MCD"
   },
   "BKNG": {
@@ -15481,8 +22193,115 @@ window.FULL_MARKET_DATA = {
     "year_low": 150.14,
     "all_time_high": 0.0,
     "all_time_low": 150.14,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-16",
+        "name": "Pisano Paulo",
+        "title": "officer: CHIEF HUMAN RESOURCES OFFICER",
+        "is_buy": false,
+        "shares": 1500,
+        "price": 173.02,
+        "total_val": 0.26
+      },
+      {
+        "date": "2026-09-02",
+        "name": "MYLOD ROBERT J JR",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1000,
+        "price": 200.0,
+        "total_val": 0.2
+      },
+      {
+        "date": "2026-09-01",
+        "name": "Pisano Paulo",
+        "title": "officer: CHIEF HUMAN RESOURCES OFFICER",
+        "is_buy": false,
+        "shares": 3000,
+        "price": 203.48,
+        "total_val": 0.61
+      },
+      {
+        "date": "2026-08-18",
+        "name": "MILLONES PETER J",
+        "title": "officer: EXECUTIVE VP, GENERAL COUNSEL",
+        "is_buy": false,
+        "shares": 9325,
+        "price": 204.91,
+        "total_val": 1.91
+      },
+      {
+        "date": "2026-08-18",
+        "name": "MILLONES PETER J",
+        "title": "officer: EXECUTIVE VP, GENERAL COUNSEL",
+        "is_buy": false,
+        "shares": 12333,
+        "price": 205.76,
+        "total_val": 2.54
+      },
+      {
+        "date": "2026-08-18",
+        "name": "MILLONES PETER J",
+        "title": "officer: EXECUTIVE VP, GENERAL COUNSEL",
+        "is_buy": false,
+        "shares": 2627,
+        "price": 206.58,
+        "total_val": 0.54
+      },
+      {
+        "date": "2026-08-18",
+        "name": "MILLONES PETER J",
+        "title": "officer: EXECUTIVE VP, GENERAL COUNSEL",
+        "is_buy": false,
+        "shares": 8660,
+        "price": 208.05,
+        "total_val": 1.8
+      },
+      {
+        "date": "2026-08-18",
+        "name": "MILLONES PETER J",
+        "title": "officer: EXECUTIVE VP, GENERAL COUNSEL",
+        "is_buy": false,
+        "shares": 5019,
+        "price": 208.73,
+        "total_val": 1.05
+      },
+      {
+        "date": "2026-08-18",
+        "name": "MILLONES PETER J",
+        "title": "officer: EXECUTIVE VP, GENERAL COUNSEL",
+        "is_buy": false,
+        "shares": 5174,
+        "price": 210.0,
+        "total_val": 1.09
+      },
+      {
+        "date": "2026-08-18",
+        "name": "MILLONES PETER J",
+        "title": "officer: EXECUTIVE VP, GENERAL COUNSEL",
+        "is_buy": false,
+        "shares": 3632,
+        "price": 211.03,
+        "total_val": 0.77
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2026-04-06",
+        "ratio": "25 : 1",
+        "desc": "普通股 1 拆 25 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2003-06-16",
+        "ratio": "1 : 6",
+        "desc": "普通股 6 拆 1 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "BKNG"
   },
   "NKE": {
@@ -15748,8 +22567,145 @@ window.FULL_MARKET_DATA = {
     "year_low": 31.97,
     "all_time_high": 0.0,
     "all_time_low": 31.97,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-17",
+        "name": "Arnault Alexandre",
+        "title": "director",
+        "is_buy": false,
+        "shares": 5171,
+        "price": 34.71,
+        "total_val": 0.18
+      },
+      {
+        "date": "2026-09-17",
+        "name": "Arnault Alexandre",
+        "title": "director",
+        "is_buy": true,
+        "shares": 0,
+        "price": 34.71,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-10",
+        "name": "McCartney Philip",
+        "title": "officer: EVP: CHIEF INN,PROD&DSG OFCR",
+        "is_buy": false,
+        "shares": 2559,
+        "price": 37.59,
+        "total_val": 0.1
+      },
+      {
+        "date": "2026-09-10",
+        "name": "Leinwand Robert",
+        "title": "officer: EVP: Chief Legal Officer",
+        "is_buy": false,
+        "shares": 3646,
+        "price": 37.59,
+        "total_val": 0.14
+      },
+      {
+        "date": "2026-09-10",
+        "name": "Alagirisamy Venkatesh",
+        "title": "officer: EVP: CHIEF OPERATING OFFICER",
+        "is_buy": false,
+        "shares": 3671,
+        "price": 37.59,
+        "total_val": 0.14
+      },
+      {
+        "date": "2026-09-10",
+        "name": "SWAN ROBERT HOLMES",
+        "title": "director",
+        "is_buy": false,
+        "shares": 5047,
+        "price": 34.71,
+        "total_val": 0.18
+      },
+      {
+        "date": "2026-09-10",
+        "name": "Knight Travis A",
+        "title": "director",
+        "is_buy": false,
+        "shares": 5047,
+        "price": 34.71,
+        "total_val": 0.18
+      },
+      {
+        "date": "2026-09-10",
+        "name": "Knight Travis A",
+        "title": "director",
+        "is_buy": false,
+        "shares": 2850717,
+        "price": 34.71,
+        "total_val": 98.95
+      },
+      {
+        "date": "2026-09-10",
+        "name": "Knight Travis A",
+        "title": "director",
+        "is_buy": false,
+        "shares": 2850717,
+        "price": 34.71,
+        "total_val": 98.95
+      },
+      {
+        "date": "2026-09-10",
+        "name": "KNUDSTORP JORGEN VIG",
+        "title": "director",
+        "is_buy": false,
+        "shares": 5047,
+        "price": 34.71,
+        "total_val": 0.18
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2015-12-24",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2012-12-26",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2007-04-03",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1996-10-24",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1995-10-31",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1990-10-09",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1983-01-06",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "NKE"
   },
   "SBUX": {
@@ -16015,8 +22971,139 @@ window.FULL_MARKET_DATA = {
     "year_low": 77.99,
     "all_time_high": 0.0,
     "all_time_low": 77.99,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-07",
+        "name": "BREWER BRADY",
+        "title": "officer: ceo, International",
+        "is_buy": false,
+        "shares": 1641,
+        "price": 94.76,
+        "total_val": 0.16
+      },
+      {
+        "date": "2026-09-17",
+        "name": "KELLY SARA",
+        "title": "officer: evp, chief partner officer",
+        "is_buy": false,
+        "shares": 1453,
+        "price": 96.58,
+        "total_val": 0.14
+      },
+      {
+        "date": "2026-09-10",
+        "name": "Niccol Brian R",
+        "title": "director, officer: chairman and ceo",
+        "is_buy": false,
+        "shares": 56267,
+        "price": 100.04,
+        "total_val": 5.63
+      },
+      {
+        "date": "2026-09-09",
+        "name": "BREWER BRADY",
+        "title": "officer: ceo, International",
+        "is_buy": false,
+        "shares": 2229,
+        "price": 105.6,
+        "total_val": 0.24
+      },
+      {
+        "date": "2026-08-06",
+        "name": "BREWER BRADY",
+        "title": "officer: ceo, International",
+        "is_buy": false,
+        "shares": 2229,
+        "price": 105.99,
+        "total_val": 0.24
+      },
+      {
+        "date": "2026-07-08",
+        "name": "BREWER BRADY",
+        "title": "officer: ceo, International",
+        "is_buy": false,
+        "shares": 2229,
+        "price": 104.0,
+        "total_val": 0.23
+      },
+      {
+        "date": "2026-06-18",
+        "name": "Bauduin Val",
+        "title": "officer: svp, corp fin and dev",
+        "is_buy": true,
+        "shares": 0,
+        "price": 90.75,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-06-17",
+        "name": "KELLY SARA",
+        "title": "officer: evp, chief partner officer",
+        "is_buy": false,
+        "shares": 315,
+        "price": 101.59,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-06-15",
+        "name": "BREWER BRADY",
+        "title": "officer: ceo, International",
+        "is_buy": false,
+        "shares": 588,
+        "price": 100.0,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-06-09",
+        "name": "BREWER BRADY",
+        "title": "officer: ceo, International",
+        "is_buy": false,
+        "shares": 1641,
+        "price": 94.33,
+        "total_val": 0.15
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2015-04-09",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2005-10-24",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2001-04-30",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1999-03-22",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1995-12-04",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1993-09-30",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "SBUX"
   },
   "LOW": {
@@ -16282,8 +23369,157 @@ window.FULL_MARKET_DATA = {
     "year_low": 178.45,
     "all_time_high": 0.0,
     "all_time_low": 178.45,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-01",
+        "name": "Taylor Colleen",
+        "title": "director",
+        "is_buy": false,
+        "shares": 67,
+        "price": 186.0,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Simkins Lawrence",
+        "title": "director",
+        "is_buy": false,
+        "shares": 135,
+        "price": 186.0,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-01",
+        "name": "ROGERS BRIAN C",
+        "title": "director",
+        "is_buy": false,
+        "shares": 135,
+        "price": 186.0,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-01",
+        "name": "DREILING RICHARD W",
+        "title": "director",
+        "is_buy": false,
+        "shares": 298,
+        "price": 186.0,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-10-01",
+        "name": "DOUGLAS LAURIE Z",
+        "title": "director",
+        "is_buy": false,
+        "shares": 81,
+        "price": 186.0,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-09-16",
+        "name": "Godbole Seemantini",
+        "title": "officer: EVP, CI & AI Officer",
+        "is_buy": false,
+        "shares": 396,
+        "price": 186.0,
+        "total_val": 0.07
+      },
+      {
+        "date": "2026-09-16",
+        "name": "Wilson Jennifer Elizabeth",
+        "title": "officer: EVP, Chief Marketing Officer",
+        "is_buy": false,
+        "shares": 2891,
+        "price": 186.0,
+        "total_val": 0.54
+      },
+      {
+        "date": "2026-09-16",
+        "name": "Filipponi Adam D",
+        "title": "officer: EVP, Strategy & Business Dev",
+        "is_buy": false,
+        "shares": 3212,
+        "price": 186.0,
+        "total_val": 0.6
+      },
+      {
+        "date": "2026-09-16",
+        "name": "Vance Quonta D",
+        "title": "officer: EVP, Stores",
+        "is_buy": false,
+        "shares": 2009,
+        "price": 186.0,
+        "total_val": 0.37
+      },
+      {
+        "date": "2026-09-16",
+        "name": "Vance Quonta D",
+        "title": "officer: EVP, Stores",
+        "is_buy": false,
+        "shares": 848,
+        "price": 194.61,
+        "total_val": 0.17
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2006-07-03",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2001-07-02",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1998-06-29",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1994-04-04",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1992-06-29",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1983-04-29",
+        "ratio": "5 : 3",
+        "desc": "普通股 3 拆 5 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1981-11-02",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1976-06-02",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1972-07-25",
+        "ratio": "4 : 3",
+        "desc": "普通股 3 拆 4 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "LOW"
   },
   "TJX": {
@@ -16549,8 +23785,163 @@ window.FULL_MARKET_DATA = {
     "year_low": 122.78,
     "all_time_high": 0.0,
     "all_time_low": 122.78,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-17",
+        "name": "PINTOFF CRAIG ADAM",
+        "title": "director",
+        "is_buy": false,
+        "shares": 621,
+        "price": 138.76,
+        "total_val": 0.09
+      },
+      {
+        "date": "2026-09-17",
+        "name": "PINTOFF CRAIG ADAM",
+        "title": "Officer / Director",
+        "is_buy": true,
+        "shares": 0,
+        "price": 138.76,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-06-12",
+        "name": "Nemerov Jackwyn",
+        "title": "director",
+        "is_buy": false,
+        "shares": 957,
+        "price": 168.59,
+        "total_val": 0.16
+      },
+      {
+        "date": "2026-06-11",
+        "name": "BERKERY ROSEMARY T",
+        "title": "director",
+        "is_buy": true,
+        "shares": 802,
+        "price": 138.76,
+        "total_val": 0.11
+      },
+      {
+        "date": "2026-06-11",
+        "name": "BERKERY ROSEMARY T",
+        "title": "director",
+        "is_buy": false,
+        "shares": 110,
+        "price": 138.76,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-06-11",
+        "name": "BERKERY ROSEMARY T",
+        "title": "director",
+        "is_buy": false,
+        "shares": 636,
+        "price": 138.76,
+        "total_val": 0.09
+      },
+      {
+        "date": "2026-06-11",
+        "name": "BERKERY ROSEMARY T",
+        "title": "director",
+        "is_buy": false,
+        "shares": 8,
+        "price": 138.76,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-06-11",
+        "name": "BERKERY ROSEMARY T",
+        "title": "director",
+        "is_buy": false,
+        "shares": 636,
+        "price": 138.76,
+        "total_val": 0.09
+      },
+      {
+        "date": "2026-06-11",
+        "name": "BERKERY ROSEMARY T",
+        "title": "director",
+        "is_buy": true,
+        "shares": 802,
+        "price": 138.76,
+        "total_val": 0.11
+      },
+      {
+        "date": "2026-06-11",
+        "name": "Nemerov Jackwyn",
+        "title": "director",
+        "is_buy": false,
+        "shares": 156,
+        "price": 138.76,
+        "total_val": 0.02
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2018-11-07",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2012-02-03",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2002-05-09",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1998-06-26",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1997-06-27",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1986-06-26",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1985-05-30",
+        "ratio": "4 : 3",
+        "desc": "普通股 3 拆 4 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1984-05-04",
+        "ratio": "11 : 10",
+        "desc": "普通股 10 拆 11 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1983-06-30",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1982-06-11",
+        "ratio": "6 : 5",
+        "desc": "普通股 5 拆 6 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "TJX"
   },
   "CHDN": {
@@ -16816,8 +24207,121 @@ window.FULL_MARKET_DATA = {
     "year_low": 73.08,
     "all_time_high": 0.0,
     "all_time_low": 73.08,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-02",
+        "name": "GRISSOM DOUGLAS C",
+        "title": "director",
+        "is_buy": false,
+        "shares": 454,
+        "price": 79.96,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-07-02",
+        "name": "GRISSOM DOUGLAS C",
+        "title": "director",
+        "is_buy": false,
+        "shares": 383,
+        "price": 79.96,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-04-23",
+        "name": "Rankin Richard Alex",
+        "title": "director",
+        "is_buy": false,
+        "shares": 2257,
+        "price": 79.96,
+        "total_val": 0.18
+      },
+      {
+        "date": "2026-04-23",
+        "name": "HARRINGTON DANIEL P",
+        "title": "director",
+        "is_buy": false,
+        "shares": 0,
+        "price": 79.96,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-04-23",
+        "name": "HARRINGTON DANIEL P",
+        "title": "director",
+        "is_buy": false,
+        "shares": 2257,
+        "price": 79.96,
+        "total_val": 0.18
+      },
+      {
+        "date": "2026-04-23",
+        "name": "GRISSOM DOUGLAS C",
+        "title": "director",
+        "is_buy": false,
+        "shares": 2257,
+        "price": 79.96,
+        "total_val": 0.18
+      },
+      {
+        "date": "2026-04-23",
+        "name": "VARGA PAUL C",
+        "title": "director",
+        "is_buy": false,
+        "shares": 2257,
+        "price": 79.96,
+        "total_val": 0.18
+      },
+      {
+        "date": "2026-04-23",
+        "name": "Lloyd Karole",
+        "title": "director",
+        "is_buy": false,
+        "shares": 2257,
+        "price": 79.96,
+        "total_val": 0.18
+      },
+      {
+        "date": "2026-04-23",
+        "name": "Carter Andrea M",
+        "title": "director",
+        "is_buy": false,
+        "shares": 2257,
+        "price": 79.96,
+        "total_val": 0.18
+      },
+      {
+        "date": "2026-04-06",
+        "name": "GRISSOM DOUGLAS C",
+        "title": "director",
+        "is_buy": false,
+        "shares": 382,
+        "price": 79.96,
+        "total_val": 0.03
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2023-05-22",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2019-01-28",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1998-04-15",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "CHDN"
   },
   "TSCO": {
@@ -17083,8 +24587,133 @@ window.FULL_MARKET_DATA = {
     "year_low": 28.36,
     "all_time_high": 0.0,
     "all_time_low": 28.36,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-05",
+        "name": "Ham Margaret M",
+        "title": "director",
+        "is_buy": false,
+        "shares": 555,
+        "price": 31.29,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Krishnan Ramkumar",
+        "title": "director",
+        "is_buy": false,
+        "shares": 838,
+        "price": 31.29,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-09-09",
+        "name": "Ham Margaret M",
+        "title": "director",
+        "is_buy": false,
+        "shares": 84,
+        "price": 35.05,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-08-11",
+        "name": "Ledbetter Samuel Craig",
+        "title": "officer: SVP Chief Supply Chain Officer",
+        "is_buy": false,
+        "shares": 27,
+        "price": 33.98,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-08-07",
+        "name": "Ledbetter Samuel Craig",
+        "title": "officer: SVP Chief Supply Chain Officer",
+        "is_buy": false,
+        "shares": 9214,
+        "price": 33.12,
+        "total_val": 0.31
+      },
+      {
+        "date": "2026-08-07",
+        "name": "Ledbetter Samuel Craig",
+        "title": "officer: SVP Chief Supply Chain Officer",
+        "is_buy": false,
+        "shares": 2404,
+        "price": 33.7,
+        "total_val": 0.08
+      },
+      {
+        "date": "2026-08-07",
+        "name": "DAHL AMY E",
+        "title": "officer: SVP General Counsel",
+        "is_buy": false,
+        "shares": 13626,
+        "price": 33.7,
+        "total_val": 0.46
+      },
+      {
+        "date": "2026-08-07",
+        "name": "DAHL AMY E",
+        "title": "officer",
+        "is_buy": true,
+        "shares": 0,
+        "price": 33.7,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-08-07",
+        "name": "Ordus John P",
+        "title": "officer: EVP Chief Stores Officer",
+        "is_buy": false,
+        "shares": 1588,
+        "price": 33.7,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-08-07",
+        "name": "Ordus John P",
+        "title": "officer: EVP Chief Stores Officer",
+        "is_buy": false,
+        "shares": 6124,
+        "price": 33.41,
+        "total_val": 0.2
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2024-12-20",
+        "ratio": "5 : 1",
+        "desc": "普通股 1 拆 5 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2013-09-27",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2010-09-03",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2003-08-22",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2002-08-20",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "TSCO"
   },
   "MTN": {
@@ -17350,8 +24979,102 @@ window.FULL_MARKET_DATA = {
     "year_low": 118.51,
     "all_time_high": 0.0,
     "all_time_low": 118.51,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-07",
+        "name": "Gronberg Nathan Mark",
+        "title": "officer: VP, Controller & CAO",
+        "is_buy": false,
+        "shares": 4675,
+        "price": 141.16,
+        "total_val": 0.66
+      },
+      {
+        "date": "2026-10-07",
+        "name": "Gronberg Nathan Mark",
+        "title": "officer: VP, Controller & CAO",
+        "is_buy": false,
+        "shares": 1327,
+        "price": 146.03,
+        "total_val": 0.19
+      },
+      {
+        "date": "2026-10-07",
+        "name": "Korch Angela A",
+        "title": "officer: EVP & Chief Financial Officer",
+        "is_buy": false,
+        "shares": 26262,
+        "price": 141.16,
+        "total_val": 3.71
+      },
+      {
+        "date": "2026-10-07",
+        "name": "Korch Angela A",
+        "title": "officer: EVP & Chief Financial Officer",
+        "is_buy": false,
+        "shares": 7454,
+        "price": 146.03,
+        "total_val": 1.09
+      },
+      {
+        "date": "2026-10-07",
+        "name": "Knobloch Iris",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1662,
+        "price": 146.03,
+        "total_val": 0.24
+      },
+      {
+        "date": "2026-10-07",
+        "name": "Kunkel Lynanne",
+        "title": "officer: Chief HR & Trnsfrm Ofc",
+        "is_buy": false,
+        "shares": 22461,
+        "price": 141.16,
+        "total_val": 3.17
+      },
+      {
+        "date": "2026-10-07",
+        "name": "Kunkel Lynanne",
+        "title": "officer: Chief HR & Trnsfrm Ofc",
+        "is_buy": false,
+        "shares": 6375,
+        "price": 146.03,
+        "total_val": 0.93
+      },
+      {
+        "date": "2026-10-07",
+        "name": "Chambers Reginald",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1662,
+        "price": 146.03,
+        "total_val": 0.24
+      },
+      {
+        "date": "2026-10-07",
+        "name": "KATZ ROBERT A",
+        "title": "director, officer: CEO & Chairperson of the Board",
+        "is_buy": false,
+        "shares": 48861,
+        "price": 155.28,
+        "total_val": 7.59
+      },
+      {
+        "date": "2026-10-07",
+        "name": "KATZ ROBERT A",
+        "title": "director, officer: CEO & Chairperson of the Board",
+        "is_buy": false,
+        "shares": 12426,
+        "price": 146.03,
+        "total_val": 1.81
+      }
+    ],
+    "stock_splits": [],
     "fmp_symbol": "MTN"
   },
   "SCI": {
@@ -17617,8 +25340,145 @@ window.FULL_MARKET_DATA = {
     "year_low": 68.41,
     "all_time_high": 0.0,
     "all_time_low": 68.41,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-08-27",
+        "name": "LUND VICTOR L",
+        "title": "director",
+        "is_buy": false,
+        "shares": 193900,
+        "price": 84.45,
+        "total_val": 16.37
+      },
+      {
+        "date": "2026-08-04",
+        "name": "RYAN THOMAS L",
+        "title": "director, officer: CEO & Chairman",
+        "is_buy": true,
+        "shares": 235893,
+        "price": 42.63,
+        "total_val": 10.06
+      },
+      {
+        "date": "2026-08-04",
+        "name": "RYAN THOMAS L",
+        "title": "director, officer: CEO & Chairman",
+        "is_buy": true,
+        "shares": 17498,
+        "price": 42.63,
+        "total_val": 0.75
+      },
+      {
+        "date": "2026-08-04",
+        "name": "RYAN THOMAS L",
+        "title": "director, officer: CEO & Chairman",
+        "is_buy": false,
+        "shares": 17498,
+        "price": 86.06,
+        "total_val": 1.51
+      },
+      {
+        "date": "2026-08-04",
+        "name": "RYAN THOMAS L",
+        "title": "director, officer: CEO & Chairman",
+        "is_buy": false,
+        "shares": 235893,
+        "price": 85.19,
+        "total_val": 20.1
+      },
+      {
+        "date": "2026-08-04",
+        "name": "RYAN THOMAS L",
+        "title": "director, officer: CEO & Chairman",
+        "is_buy": true,
+        "shares": 235893,
+        "price": 42.63,
+        "total_val": 10.06
+      },
+      {
+        "date": "2026-08-04",
+        "name": "RYAN THOMAS L",
+        "title": "director, officer: CEO & Chairman",
+        "is_buy": true,
+        "shares": 17498,
+        "price": 42.63,
+        "total_val": 0.75
+      },
+      {
+        "date": "2026-08-04",
+        "name": "TANZBERGER ERIC D",
+        "title": "officer: Exec. VP, and CFO",
+        "is_buy": true,
+        "shares": 54800,
+        "price": 49.59,
+        "total_val": 2.72
+      },
+      {
+        "date": "2026-08-04",
+        "name": "TANZBERGER ERIC D",
+        "title": "officer: Exec. VP, and CFO",
+        "is_buy": false,
+        "shares": 54800,
+        "price": 86.04,
+        "total_val": 4.72
+      },
+      {
+        "date": "2026-08-04",
+        "name": "TANZBERGER ERIC D",
+        "title": "officer: Exec. VP, and CFO",
+        "is_buy": true,
+        "shares": 54600,
+        "price": 49.59,
+        "total_val": 2.71
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "1996-09-03",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1992-07-01",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1987-02-02",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1985-11-01",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1984-10-31",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1983-01-21",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1981-06-12",
+        "ratio": "4 : 3",
+        "desc": "普通股 3 拆 4 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "SCI"
   },
   "AZO": {
@@ -17884,8 +25744,115 @@ window.FULL_MARKET_DATA = {
     "year_low": 2730.65,
     "all_time_high": 0.0,
     "all_time_low": 2730.65,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-29",
+        "name": "Daniele Philip B.",
+        "title": "officer: President & CEO",
+        "is_buy": true,
+        "shares": 250,
+        "price": 587.13,
+        "total_val": 0.15
+      },
+      {
+        "date": "2026-09-29",
+        "name": "Daniele Philip B.",
+        "title": "officer: President & CEO",
+        "is_buy": true,
+        "shares": 250,
+        "price": 587.13,
+        "total_val": 0.15
+      },
+      {
+        "date": "2026-09-01",
+        "name": "Jaycox Kenneth E",
+        "title": "officer: SVP Commercial",
+        "is_buy": false,
+        "shares": 1688,
+        "price": 2961.96,
+        "total_val": 5.0
+      },
+      {
+        "date": "2026-08-10",
+        "name": "LeRiche Dennis W.",
+        "title": "officer: Sr. Vice President",
+        "is_buy": true,
+        "shares": 1455,
+        "price": 1060.81,
+        "total_val": 1.54
+      },
+      {
+        "date": "2026-08-10",
+        "name": "LeRiche Dennis W.",
+        "title": "officer: Sr. Vice President",
+        "is_buy": false,
+        "shares": 1455,
+        "price": 3100.0,
+        "total_val": 4.51
+      },
+      {
+        "date": "2026-08-10",
+        "name": "LeRiche Dennis W.",
+        "title": "officer: Sr. Vice President",
+        "is_buy": true,
+        "shares": 1455,
+        "price": 1060.81,
+        "total_val": 1.54
+      },
+      {
+        "date": "2026-07-14",
+        "name": "Sharpley Grace Orians",
+        "title": "officer: SVP, Finance",
+        "is_buy": false,
+        "shares": 300,
+        "price": 3072.64,
+        "total_val": 0.92
+      },
+      {
+        "date": "2026-07-14",
+        "name": "McCullough Mary Denise",
+        "title": "officer: SVP Supply Chain",
+        "is_buy": false,
+        "shares": 1,
+        "price": 2939.85,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-07-14",
+        "name": "Sharpley Grace Orians",
+        "title": "officer: SVP, Finance",
+        "is_buy": true,
+        "shares": 0,
+        "price": 2939.85,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-07-14",
+        "name": "Sharpley Grace Orians",
+        "title": "officer: SVP, Finance",
+        "is_buy": true,
+        "shares": 713,
+        "price": 4075.31,
+        "total_val": 2.91
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "1994-04-21",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1992-02-03",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "AZO"
   },
   "MAR": {
@@ -18151,8 +26118,115 @@ window.FULL_MARKET_DATA = {
     "year_low": 256.76,
     "all_time_high": 0.0,
     "all_time_low": 256.76,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-01",
+        "name": "Reid Grant",
+        "title": "director",
+        "is_buy": false,
+        "shares": 69,
+        "price": 359.68,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-10-01",
+        "name": "LEWIS AYLWIN B",
+        "title": "director",
+        "is_buy": false,
+        "shares": 10,
+        "price": 359.68,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-29",
+        "name": "Marriott David S",
+        "title": "director, other: 13D Group Owning more than 10%",
+        "is_buy": false,
+        "shares": 3500,
+        "price": 352.09,
+        "total_val": 1.23
+      },
+      {
+        "date": "2026-09-29",
+        "name": "Harrison Deborah Marriott",
+        "title": "director, other: Member of 13(d) group",
+        "is_buy": false,
+        "shares": 3500,
+        "price": 352.09,
+        "total_val": 1.23
+      },
+      {
+        "date": "2026-09-29",
+        "name": "MARRIOTT J W JR",
+        "title": "10 percent owner, other: 13D Group Owning more than 10%",
+        "is_buy": false,
+        "shares": 3500,
+        "price": 352.09,
+        "total_val": 1.23
+      },
+      {
+        "date": "2026-09-10",
+        "name": "Marriott David S",
+        "title": "director, other: 13D Group Owning more than 10%",
+        "is_buy": false,
+        "shares": 2000000,
+        "price": 365.88,
+        "total_val": 731.76
+      },
+      {
+        "date": "2026-09-10",
+        "name": "Harrison Deborah Marriott",
+        "title": "director, other: Member of 13(d) group",
+        "is_buy": false,
+        "shares": 2000000,
+        "price": 365.88,
+        "total_val": 731.76
+      },
+      {
+        "date": "2026-09-10",
+        "name": "Juliana B. Marriott Marital Trust",
+        "title": "other: Member of a 10% Group",
+        "is_buy": false,
+        "shares": 2000000,
+        "price": 365.88,
+        "total_val": 731.76
+      },
+      {
+        "date": "2026-09-10",
+        "name": "Marriott Juliana B.",
+        "title": "other: Member of 10% Group",
+        "is_buy": false,
+        "shares": 2000000,
+        "price": 365.88,
+        "total_val": 731.76
+      },
+      {
+        "date": "2026-08-19",
+        "name": "Jones Neal",
+        "title": "officer: President, EMEA",
+        "is_buy": false,
+        "shares": 107,
+        "price": 355.49,
+        "total_val": 0.04
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2011-11-22",
+        "ratio": "1061 : 1000",
+        "desc": "普通股 1000 拆 1061 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2006-06-12",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "MAR"
   },
   "HLT": {
@@ -18418,8 +26492,109 @@ window.FULL_MARKET_DATA = {
     "year_low": 253.54,
     "all_time_high": 0.0,
     "all_time_low": 253.54,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-01",
+        "name": "STEENLAND DOUGLAS M",
+        "title": "director",
+        "is_buy": false,
+        "shares": 9,
+        "price": 326.56,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-01",
+        "name": "SMITH ELIZABETH A",
+        "title": "director",
+        "is_buy": false,
+        "shares": 8,
+        "price": 326.56,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-01",
+        "name": "MAYER MARISSA A",
+        "title": "director",
+        "is_buy": false,
+        "shares": 0,
+        "price": 326.56,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Mabus Raymond E",
+        "title": "director",
+        "is_buy": false,
+        "shares": 5,
+        "price": 326.56,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Healey Melanie",
+        "title": "director",
+        "is_buy": false,
+        "shares": 6,
+        "price": 326.56,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-01",
+        "name": "GRAY JONATHAN",
+        "title": "director",
+        "is_buy": false,
+        "shares": 4,
+        "price": 326.56,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Carr Chris",
+        "title": "director",
+        "is_buy": false,
+        "shares": 2,
+        "price": 326.56,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-01",
+        "name": "BEGLEY CHARLENE T",
+        "title": "director",
+        "is_buy": false,
+        "shares": 6,
+        "price": 326.56,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-15",
+        "name": "Fuentes Laura",
+        "title": "officer: See Remarks",
+        "is_buy": true,
+        "shares": 4888,
+        "price": 79.35,
+        "total_val": 0.39
+      },
+      {
+        "date": "2026-09-15",
+        "name": "Fuentes Laura",
+        "title": "officer: See Remarks",
+        "is_buy": false,
+        "shares": 4396,
+        "price": 309.8,
+        "total_val": 1.36
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2017-01-04",
+        "ratio": "250 : 513",
+        "desc": "普通股 513 拆 250 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "HLT"
   },
   "CMG": {
@@ -18685,8 +26860,109 @@ window.FULL_MARKET_DATA = {
     "year_low": 28.04,
     "all_time_high": 0.0,
     "all_time_low": 28.04,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-01",
+        "name": "Rymer Adam T",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": false,
+        "shares": 3253,
+        "price": 31.95,
+        "total_val": 0.1
+      },
+      {
+        "date": "2026-09-21",
+        "name": "Sami Sabir",
+        "title": "director",
+        "is_buy": false,
+        "shares": 4747,
+        "price": 33.51,
+        "total_val": 0.16
+      },
+      {
+        "date": "2026-09-15",
+        "name": "Sami Sabir",
+        "title": "director: ",
+        "is_buy": true,
+        "shares": 0,
+        "price": 31.59,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-08-25",
+        "name": "Rymer Adam T",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": false,
+        "shares": 9276,
+        "price": 35.29,
+        "total_val": 0.33
+      },
+      {
+        "date": "2026-08-25",
+        "name": "Eskenazi Ilene",
+        "title": "officer: Chief Legal and HR Officer",
+        "is_buy": false,
+        "shares": 19701,
+        "price": 35.29,
+        "total_val": 0.7
+      },
+      {
+        "date": "2026-08-25",
+        "name": "Garner Curtis E",
+        "title": "officer: Pres, Chief Strgy & Tech Off",
+        "is_buy": false,
+        "shares": 27582,
+        "price": 35.29,
+        "total_val": 0.97
+      },
+      {
+        "date": "2026-08-25",
+        "name": "Boatwright Scott",
+        "title": "officer: Chief Executive Officer",
+        "is_buy": false,
+        "shares": 31522,
+        "price": 35.29,
+        "total_val": 1.11
+      },
+      {
+        "date": "2026-08-25",
+        "name": "Schalow Laurie",
+        "title": "officer: Chief Corp Affairs Officer",
+        "is_buy": false,
+        "shares": 20075,
+        "price": 35.29,
+        "total_val": 0.71
+      },
+      {
+        "date": "2026-08-24",
+        "name": "Bush Matthew R",
+        "title": "officer: Controller, PAO",
+        "is_buy": false,
+        "shares": 2675,
+        "price": 35.75,
+        "total_val": 0.1
+      },
+      {
+        "date": "2026-08-10",
+        "name": "Machado Fernando",
+        "title": "officer: Chief Brand Officer",
+        "is_buy": false,
+        "shares": 235184,
+        "price": 32.79,
+        "total_val": 7.71
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2024-06-26",
+        "ratio": "50 : 1",
+        "desc": "普通股 1 拆 50 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "CMG"
   },
   "YUM": {
@@ -18952,8 +27228,121 @@ window.FULL_MARKET_DATA = {
     "year_low": 134.26,
     "all_time_high": 0.0,
     "all_time_low": 134.26,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-07",
+        "name": "Turner Christopher Lee",
+        "title": "director, officer: Chief Executive Officer",
+        "is_buy": false,
+        "shares": 285,
+        "price": 140.11,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Mezvinsky Scott",
+        "title": "officer: KFC Division CEO",
+        "is_buy": true,
+        "shares": 482,
+        "price": 68.0,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Mezvinsky Scott",
+        "title": "officer: KFC Division CEO",
+        "is_buy": true,
+        "shares": 482,
+        "price": 68.0,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Mezvinsky Scott",
+        "title": "officer: KFC Division CEO",
+        "is_buy": false,
+        "shares": 241,
+        "price": 136.43,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Mezvinsky Scott",
+        "title": "officer: KFC Division CEO",
+        "is_buy": false,
+        "shares": 241,
+        "price": 136.89,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-09-01",
+        "name": "Mezvinsky Scott",
+        "title": "officer: KFC Division CEO",
+        "is_buy": true,
+        "shares": 482,
+        "price": 68.0,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-09-01",
+        "name": "Mezvinsky Scott",
+        "title": "officer: KFC Division CEO",
+        "is_buy": true,
+        "shares": 482,
+        "price": 68.0,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-09-01",
+        "name": "Mezvinsky Scott",
+        "title": "officer: KFC Division CEO",
+        "is_buy": false,
+        "shares": 214,
+        "price": 153.31,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-09-01",
+        "name": "Mezvinsky Scott",
+        "title": "officer: KFC Division CEO",
+        "is_buy": false,
+        "shares": 268,
+        "price": 153.64,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-09-01",
+        "name": "Turner Christopher Lee",
+        "title": "director, officer: Chief Executive Officer",
+        "is_buy": false,
+        "shares": 261,
+        "price": 153.64,
+        "total_val": 0.04
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2016-11-01",
+        "ratio": "1391 : 1000",
+        "desc": "普通股 1000 拆 1391 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2007-06-27",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2002-06-18",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "YUM"
   },
   "ORLY": {
@@ -19219,8 +27608,127 @@ window.FULL_MARKET_DATA = {
     "year_low": 82.59,
     "all_time_high": 0.0,
     "all_time_low": 82.59,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-01",
+        "name": "HENDRICKSON THOMAS",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1000,
+        "price": 87.83,
+        "total_val": 0.09
+      },
+      {
+        "date": "2026-08-14",
+        "name": "SASTRE MARIA",
+        "title": "director",
+        "is_buy": false,
+        "shares": 2000,
+        "price": 91.85,
+        "total_val": 0.18
+      },
+      {
+        "date": "2026-08-14",
+        "name": "MANCINI CHRISTOPHER ANDREW",
+        "title": "officer: SVP OF PROF SALES & STORE OPS",
+        "is_buy": true,
+        "shares": 3000,
+        "price": 16.71,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-08-14",
+        "name": "MANCINI CHRISTOPHER ANDREW",
+        "title": "officer: SVP OF PROF SALES & STORE OPS",
+        "is_buy": true,
+        "shares": 3000,
+        "price": 16.71,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-08-14",
+        "name": "MANCINI CHRISTOPHER ANDREW",
+        "title": "officer: SVP OF PROF SALES & STORE OPS",
+        "is_buy": false,
+        "shares": 3000,
+        "price": 93.0,
+        "total_val": 0.28
+      },
+      {
+        "date": "2026-07-15",
+        "name": "Yankee Colin",
+        "title": "officer: EVP & CSCO",
+        "is_buy": true,
+        "shares": 14279,
+        "price": 87.28,
+        "total_val": 1.25
+      },
+      {
+        "date": "2026-06-02",
+        "name": "HENDRICKSON THOMAS",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1200,
+        "price": 88.32,
+        "total_val": 0.11
+      },
+      {
+        "date": "2026-05-22",
+        "name": "DUMAS ROBERT ALLEN",
+        "title": "officer: SVP OF EASTERN STORE OPS/SALES",
+        "is_buy": true,
+        "shares": 75000,
+        "price": 17.98,
+        "total_val": 1.35
+      },
+      {
+        "date": "2026-05-22",
+        "name": "DUMAS ROBERT ALLEN",
+        "title": "officer: SVP OF EASTERN STORE OPS/SALES",
+        "is_buy": true,
+        "shares": 9600,
+        "price": 17.12,
+        "total_val": 0.16
+      },
+      {
+        "date": "2026-05-22",
+        "name": "DUMAS ROBERT ALLEN",
+        "title": "officer: SVP OF EASTERN STORE OPS/SALES",
+        "is_buy": false,
+        "shares": 84600,
+        "price": 92.6,
+        "total_val": 7.83
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2025-06-10",
+        "ratio": "15 : 1",
+        "desc": "普通股 1 拆 15 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2005-06-16",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1999-12-01",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1997-09-02",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "ORLY"
   },
   "ROST": {
@@ -19486,8 +27994,133 @@ window.FULL_MARKET_DATA = {
     "year_low": 147.49,
     "all_time_high": 0.0,
     "all_time_low": 147.49,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-05",
+        "name": "Bransten Shelley",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1111,
+        "price": 222.41,
+        "total_val": 0.25
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Bransten Shelley",
+        "title": "Officer / Director",
+        "is_buy": true,
+        "shares": 0,
+        "price": 222.41,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Johnson Christian B",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1111,
+        "price": 222.41,
+        "total_val": 0.25
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Johnson Christian B",
+        "title": "Officer / Director",
+        "is_buy": true,
+        "shares": 0,
+        "price": 222.41,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-15",
+        "name": "Conroy James Grant",
+        "title": "director, officer: CHIEF EXECUTIVE OFFICER",
+        "is_buy": false,
+        "shares": 41372,
+        "price": 230.74,
+        "total_val": 9.55
+      },
+      {
+        "date": "2026-09-15",
+        "name": "Conroy James Grant",
+        "title": "director, officer: CHIEF EXECUTIVE OFFICER",
+        "is_buy": false,
+        "shares": 49205,
+        "price": 229.48,
+        "total_val": 11.29
+      },
+      {
+        "date": "2026-09-15",
+        "name": "Brinkley Stephen C",
+        "title": "officer: PRESIDENT, OPERATIONS",
+        "is_buy": false,
+        "shares": 6654,
+        "price": 230.74,
+        "total_val": 1.54
+      },
+      {
+        "date": "2026-09-15",
+        "name": "Brinkley Stephen C",
+        "title": "officer: PRESIDENT, OPERATIONS",
+        "is_buy": false,
+        "shares": 6424,
+        "price": 229.66,
+        "total_val": 1.48
+      },
+      {
+        "date": "2026-09-15",
+        "name": "Fleming Karen",
+        "title": "officer: PRES, CMO ROSS DRESS FOR LESS",
+        "is_buy": false,
+        "shares": 907,
+        "price": 230.74,
+        "total_val": 0.21
+      },
+      {
+        "date": "2026-06-02",
+        "name": "GARRETT SHARON D",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1354,
+        "price": 222.41,
+        "total_val": 0.3
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2015-06-12",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2011-12-16",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2003-12-19",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1999-09-23",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1997-03-06",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "ROST"
   },
   "LULU": {
@@ -19753,8 +28386,109 @@ window.FULL_MARKET_DATA = {
     "year_low": 90.38,
     "all_time_high": 0.0,
     "all_time_low": 90.38,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-11",
+        "name": "O'NEILL HEIDI",
+        "title": "director, officer: CEO",
+        "is_buy": false,
+        "shares": 105295,
+        "price": 99.72,
+        "total_val": 10.5
+      },
+      {
+        "date": "2026-09-11",
+        "name": "O'NEILL HEIDI",
+        "title": "director, officer: CEO",
+        "is_buy": false,
+        "shares": 40223,
+        "price": 99.72,
+        "total_val": 4.01
+      },
+      {
+        "date": "2026-09-11",
+        "name": "O'NEILL HEIDI",
+        "title": "director, officer: CEO",
+        "is_buy": false,
+        "shares": 28079,
+        "price": 94.5,
+        "total_val": 2.65
+      },
+      {
+        "date": "2026-09-11",
+        "name": "O'NEILL HEIDI",
+        "title": "director, officer: CEO",
+        "is_buy": true,
+        "shares": 0,
+        "price": 94.5,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-06-29",
+        "name": "Maurer Marc",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1606,
+        "price": 94.5,
+        "total_val": 0.15
+      },
+      {
+        "date": "2026-06-29",
+        "name": "Gentile Laura",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1606,
+        "price": 94.5,
+        "total_val": 0.15
+      },
+      {
+        "date": "2026-06-29",
+        "name": "Mahe Isabel",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1606,
+        "price": 94.5,
+        "total_val": 0.15
+      },
+      {
+        "date": "2026-06-29",
+        "name": "McNeill Jon",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1606,
+        "price": 94.5,
+        "total_val": 0.15
+      },
+      {
+        "date": "2026-06-29",
+        "name": "Bracey Esi Eggleston",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1606,
+        "price": 94.5,
+        "total_val": 0.15
+      },
+      {
+        "date": "2026-06-29",
+        "name": "Henry Kathryn",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1606,
+        "price": 94.5,
+        "total_val": 0.15
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2011-07-12",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "LULU"
   },
   "F": {
@@ -20020,8 +28754,151 @@ window.FULL_MARKET_DATA = {
     "year_low": 11.11,
     "all_time_high": 0.0,
     "all_time_low": 11.11,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-24",
+        "name": "Ford III Henry",
+        "title": "director",
+        "is_buy": false,
+        "shares": 2891,
+        "price": 12.17,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-09-24",
+        "name": "Ford III Henry",
+        "title": "director",
+        "is_buy": false,
+        "shares": 8673,
+        "price": 12.17,
+        "total_val": 0.11
+      },
+      {
+        "date": "2026-09-24",
+        "name": "Ford III Henry",
+        "title": "director",
+        "is_buy": false,
+        "shares": 8673,
+        "price": 12.17,
+        "total_val": 0.11
+      },
+      {
+        "date": "2026-09-24",
+        "name": "Ford III Henry",
+        "title": "director",
+        "is_buy": false,
+        "shares": 8673,
+        "price": 12.17,
+        "total_val": 0.11
+      },
+      {
+        "date": "2026-09-17",
+        "name": "FORD WILLIAM CLAY JR",
+        "title": "director, officer: Executive Chair and Chair",
+        "is_buy": false,
+        "shares": 1451097,
+        "price": 12.17,
+        "total_val": 17.66
+      },
+      {
+        "date": "2026-09-17",
+        "name": "FORD WILLIAM CLAY JR",
+        "title": "director, officer: Executive Chair and Chair",
+        "is_buy": false,
+        "shares": 85301,
+        "price": 12.17,
+        "total_val": 1.04
+      },
+      {
+        "date": "2026-09-17",
+        "name": "FORD WILLIAM CLAY JR",
+        "title": "director, officer: Executive Chair and Chair",
+        "is_buy": false,
+        "shares": 1464460,
+        "price": 12.17,
+        "total_val": 17.82
+      },
+      {
+        "date": "2026-09-17",
+        "name": "FORD WILLIAM CLAY JR",
+        "title": "director, officer: Executive Chair and Chair",
+        "is_buy": false,
+        "shares": 85301,
+        "price": 12.17,
+        "total_val": 1.04
+      },
+      {
+        "date": "2026-09-03",
+        "name": "WEINBERG JOHN S",
+        "title": "director",
+        "is_buy": false,
+        "shares": 891,
+        "price": 12.17,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-09-03",
+        "name": "WEINBERG JOHN S",
+        "title": "director",
+        "is_buy": false,
+        "shares": 703,
+        "price": 12.17,
+        "total_val": 0.01
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2000-08-03",
+        "ratio": "69927 : 40000",
+        "desc": "普通股 40000 拆 69927 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2000-06-29",
+        "ratio": "10000 : 9607",
+        "desc": "普通股 9607 拆 10000 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1998-04-08",
+        "ratio": "10000 : 6641",
+        "desc": "普通股 6641 拆 10000 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1994-07-06",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1988-01-13",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1986-06-03",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1983-12-02",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1977-06-27",
+        "ratio": "5 : 4",
+        "desc": "普通股 4 拆 5 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "F"
   },
   "GM": {
@@ -20287,8 +29164,102 @@ window.FULL_MARKET_DATA = {
     "year_low": 54.33,
     "all_time_high": 0.0,
     "all_time_low": 54.33,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-08-03",
+        "name": "DIXTON GRANT MICHAEL",
+        "title": "officer: Executive Vice President",
+        "is_buy": true,
+        "shares": 79132,
+        "price": 82.73,
+        "total_val": 6.55
+      },
+      {
+        "date": "2026-08-03",
+        "name": "DIXTON GRANT MICHAEL",
+        "title": "officer: Executive Vice President",
+        "is_buy": false,
+        "shares": 35056,
+        "price": 88.4,
+        "total_val": 3.1
+      },
+      {
+        "date": "2026-08-03",
+        "name": "DIXTON GRANT MICHAEL",
+        "title": "officer: Executive Vice President",
+        "is_buy": false,
+        "shares": 40000,
+        "price": 88.44,
+        "total_val": 3.54
+      },
+      {
+        "date": "2026-08-03",
+        "name": "DIXTON GRANT MICHAEL",
+        "title": "officer: Executive Vice President",
+        "is_buy": true,
+        "shares": 79132,
+        "price": 82.73,
+        "total_val": 6.55
+      },
+      {
+        "date": "2026-07-31",
+        "name": "Anderson Sterling",
+        "title": "officer: Exective Vice President",
+        "is_buy": true,
+        "shares": 95951,
+        "price": 82.73,
+        "total_val": 7.94
+      },
+      {
+        "date": "2026-07-31",
+        "name": "Anderson Sterling",
+        "title": "officer: Exective Vice President",
+        "is_buy": true,
+        "shares": 95951,
+        "price": 82.73,
+        "total_val": 7.94
+      },
+      {
+        "date": "2026-07-31",
+        "name": "Anderson Sterling",
+        "title": "officer: Exective Vice President",
+        "is_buy": false,
+        "shares": 48820,
+        "price": 89.4,
+        "total_val": 4.36
+      },
+      {
+        "date": "2026-07-29",
+        "name": "Harvey Rory",
+        "title": "officer: Executive Vice President",
+        "is_buy": false,
+        "shares": 8882,
+        "price": 86.95,
+        "total_val": 0.77
+      },
+      {
+        "date": "2026-07-29",
+        "name": "Barra Mary T",
+        "title": "director, officer: Chair & CEO",
+        "is_buy": true,
+        "shares": 49495,
+        "price": 52.16,
+        "total_val": 2.58
+      },
+      {
+        "date": "2026-07-29",
+        "name": "Barra Mary T",
+        "title": "director, officer: Chair & CEO",
+        "is_buy": true,
+        "shares": 91843,
+        "price": 41.4,
+        "total_val": 3.8
+      }
+    ],
+    "stock_splits": [],
     "fmp_symbol": "GM"
   },
   "EBAY": {
@@ -20554,8 +29525,133 @@ window.FULL_MARKET_DATA = {
     "year_low": 78.03,
     "all_time_high": 0.0,
     "all_time_low": 78.03,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-07",
+        "name": "IANNONE JAMIE",
+        "title": "director, officer: President and CEO",
+        "is_buy": false,
+        "shares": 1145,
+        "price": 106.58,
+        "total_val": 0.12
+      },
+      {
+        "date": "2026-10-07",
+        "name": "IANNONE JAMIE",
+        "title": "director, officer: President and CEO",
+        "is_buy": false,
+        "shares": 9965,
+        "price": 107.14,
+        "total_val": 1.07
+      },
+      {
+        "date": "2026-10-07",
+        "name": "IANNONE JAMIE",
+        "title": "director, officer: President and CEO",
+        "is_buy": false,
+        "shares": 1439,
+        "price": 105.28,
+        "total_val": 0.15
+      },
+      {
+        "date": "2026-10-07",
+        "name": "IANNONE JAMIE",
+        "title": "director, officer: President and CEO",
+        "is_buy": false,
+        "shares": 6830,
+        "price": 106.28,
+        "total_val": 0.73
+      },
+      {
+        "date": "2026-10-07",
+        "name": "IANNONE JAMIE",
+        "title": "director, officer: President and CEO",
+        "is_buy": false,
+        "shares": 2841,
+        "price": 106.96,
+        "total_val": 0.3
+      },
+      {
+        "date": "2026-09-17",
+        "name": "IANNONE JAMIE",
+        "title": "director, officer: President and CEO",
+        "is_buy": true,
+        "shares": 7401,
+        "price": 112.19,
+        "total_val": 0.83
+      },
+      {
+        "date": "2026-09-17",
+        "name": "IANNONE JAMIE",
+        "title": "director, officer: President and CEO",
+        "is_buy": false,
+        "shares": 6075,
+        "price": 108.03,
+        "total_val": 0.66
+      },
+      {
+        "date": "2026-09-17",
+        "name": "IANNONE JAMIE",
+        "title": "director, officer: President and CEO",
+        "is_buy": true,
+        "shares": 8648,
+        "price": 112.19,
+        "total_val": 0.97
+      },
+      {
+        "date": "2026-09-17",
+        "name": "IANNONE JAMIE",
+        "title": "director, officer: President and CEO",
+        "is_buy": false,
+        "shares": 4865,
+        "price": 108.03,
+        "total_val": 0.53
+      },
+      {
+        "date": "2026-09-17",
+        "name": "IANNONE JAMIE",
+        "title": "director, officer: President and CEO",
+        "is_buy": false,
+        "shares": 4582,
+        "price": 108.03,
+        "total_val": 0.49
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2015-07-20",
+        "ratio": "297 : 125",
+        "desc": "普通股 125 拆 297 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2005-02-17",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2003-08-29",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2000-05-25",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1999-03-02",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "EBAY"
   },
   "BRK.B": {
@@ -20821,8 +29917,66 @@ window.FULL_MARKET_DATA = {
     "year_low": 78.03,
     "all_time_high": 0.0,
     "all_time_low": 78.03,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2025-03-04",
+        "name": "WITMER MERYL  B",
+        "title": "director",
+        "is_buy": false,
+        "shares": 2,
+        "price": 775883.3,
+        "total_val": 1.55
+      },
+      {
+        "date": "2025-02-25",
+        "name": "WITMER MERYL  B",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1000,
+        "price": 150.0,
+        "total_val": 0.15
+      },
+      {
+        "date": "2022-03-04",
+        "name": "GOTTESMAN DAVID S",
+        "title": "director: ",
+        "is_buy": true,
+        "shares": 0,
+        "price": 150.0,
+        "total_val": 0.0
+      },
+      {
+        "date": "2022-03-04",
+        "name": "GOTTESMAN DAVID S",
+        "title": "director",
+        "is_buy": false,
+        "shares": 500,
+        "price": 242.0,
+        "total_val": 0.12
+      },
+      {
+        "date": "2016-01-06",
+        "name": "WITMER MERYL  B",
+        "title": "director",
+        "is_buy": true,
+        "shares": 400,
+        "price": 130.75,
+        "total_val": 0.05
+      },
+      {
+        "date": "2016-01-06",
+        "name": "WITMER MERYL  B",
+        "title": "director",
+        "is_buy": true,
+        "shares": 600,
+        "price": 129.25,
+        "total_val": 0.08
+      }
+    ],
+    "stock_splits": [],
     "fmp_symbol": "BRKB"
   },
   "JPM": {
@@ -21097,8 +30251,127 @@ window.FULL_MARKET_DATA = {
     "year_low": 279.1,
     "all_time_high": 0.0,
     "all_time_low": 279.1,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-01",
+        "name": "Rometty Virginia M",
+        "title": "director",
+        "is_buy": false,
+        "shares": 120,
+        "price": 330.83,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-10-01",
+        "name": "NOVAKOVIC PHEBE N",
+        "title": "director",
+        "is_buy": false,
+        "shares": 120,
+        "price": 330.83,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-10-01",
+        "name": "HOBSON MELLODY L",
+        "title": "director",
+        "is_buy": false,
+        "shares": 136,
+        "price": 330.83,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-10-01",
+        "name": "BURKE STEPHEN B",
+        "title": "director",
+        "is_buy": false,
+        "shares": 170,
+        "price": 330.83,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-09-10",
+        "name": "Leopold Robin",
+        "title": "officer: Head of Human Resources",
+        "is_buy": false,
+        "shares": 2500,
+        "price": 352.81,
+        "total_val": 0.88
+      },
+      {
+        "date": "2026-08-11",
+        "name": "Leopold Robin",
+        "title": "officer: Head of Human Resources",
+        "is_buy": false,
+        "shares": 2500,
+        "price": 361.41,
+        "total_val": 0.9
+      },
+      {
+        "date": "2026-07-28",
+        "name": "Friedman Stacey",
+        "title": "officer: General Counsel",
+        "is_buy": false,
+        "shares": 166,
+        "price": 332.99,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-07-28",
+        "name": "Petno Douglas B",
+        "title": "officer: Co-President; CEO CIB",
+        "is_buy": false,
+        "shares": 864,
+        "price": 332.99,
+        "total_val": 0.29
+      },
+      {
+        "date": "2026-07-08",
+        "name": "Lake Marianne",
+        "title": "officer",
+        "is_buy": true,
+        "shares": 0,
+        "price": 332.99,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-07-01",
+        "name": "Rometty Virginia M",
+        "title": "director",
+        "is_buy": false,
+        "shares": 122,
+        "price": 327.33,
+        "total_val": 0.04
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2000-06-12",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1998-06-15",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1984-04-16",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1982-04-16",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "JPM"
   },
   "V": {
@@ -21364,8 +30637,109 @@ window.FULL_MARKET_DATA = {
     "year_low": 293.89,
     "all_time_high": 0.0,
     "all_time_low": 293.89,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-02",
+        "name": "MCINERNEY RYAN",
+        "title": "director, officer: Chief Executive Officer",
+        "is_buy": true,
+        "shares": 5875,
+        "price": 134.76,
+        "total_val": 0.79
+      },
+      {
+        "date": "2026-10-02",
+        "name": "MCINERNEY RYAN",
+        "title": "director, officer: Chief Executive Officer",
+        "is_buy": true,
+        "shares": 5875,
+        "price": 134.76,
+        "total_val": 0.79
+      },
+      {
+        "date": "2026-10-02",
+        "name": "MCINERNEY RYAN",
+        "title": "director, officer: Chief Executive Officer",
+        "is_buy": false,
+        "shares": 5875,
+        "price": 358.81,
+        "total_val": 2.11
+      },
+      {
+        "date": "2026-09-10",
+        "name": "ROTTENBERG JULIE B",
+        "title": "officer: GENERAL COUNSEL",
+        "is_buy": true,
+        "shares": 1867,
+        "price": 134.76,
+        "total_val": 0.25
+      },
+      {
+        "date": "2026-09-10",
+        "name": "ROTTENBERG JULIE B",
+        "title": "officer: GENERAL COUNSEL",
+        "is_buy": false,
+        "shares": 1867,
+        "price": 368.34,
+        "total_val": 0.69
+      },
+      {
+        "date": "2026-09-10",
+        "name": "ROTTENBERG JULIE B",
+        "title": "officer: GENERAL COUNSEL",
+        "is_buy": true,
+        "shares": 1867,
+        "price": 134.76,
+        "total_val": 0.25
+      },
+      {
+        "date": "2026-09-02",
+        "name": "MCINERNEY RYAN",
+        "title": "director, officer: Chief Executive Officer",
+        "is_buy": true,
+        "shares": 5875,
+        "price": 134.76,
+        "total_val": 0.79
+      },
+      {
+        "date": "2026-09-02",
+        "name": "MCINERNEY RYAN",
+        "title": "director, officer: Chief Executive Officer",
+        "is_buy": true,
+        "shares": 5875,
+        "price": 134.76,
+        "total_val": 0.79
+      },
+      {
+        "date": "2026-09-02",
+        "name": "MCINERNEY RYAN",
+        "title": "director, officer: Chief Executive Officer",
+        "is_buy": false,
+        "shares": 5875,
+        "price": 379.65,
+        "total_val": 2.23
+      },
+      {
+        "date": "2026-09-01",
+        "name": "ROTTENBERG JULIE B",
+        "title": "officer: GENERAL COUNSEL",
+        "is_buy": true,
+        "shares": 2028,
+        "price": 109.82,
+        "total_val": 0.22
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2015-03-19",
+        "ratio": "4 : 1",
+        "desc": "普通股 1 拆 4 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "V"
   },
   "MA": {
@@ -21631,8 +31005,109 @@ window.FULL_MARKET_DATA = {
     "year_low": 464.52,
     "all_time_high": 0.0,
     "all_time_low": 464.52,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-05",
+        "name": "Huntsman Jon M Jr",
+        "title": "officer: V Chair & Pres Strategic Grwth",
+        "is_buy": false,
+        "shares": 178,
+        "price": 551.66,
+        "total_val": 0.1
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Ling Hai",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": false,
+        "shares": 88,
+        "price": 551.66,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-10-05",
+        "name": "McLaughlin Edward Grunde",
+        "title": "officer: President & CTO, MA Tech",
+        "is_buy": false,
+        "shares": 99,
+        "price": 551.66,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-10-05",
+        "name": "SACHIN J. MEHRA",
+        "title": "officer: Chief Business Officer",
+        "is_buy": false,
+        "shares": 207,
+        "price": 551.66,
+        "total_val": 0.11
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Miebach Michael",
+        "title": "director, officer: President & CEO",
+        "is_buy": false,
+        "shares": 530,
+        "price": 551.66,
+        "total_val": 0.29
+      },
+      {
+        "date": "2026-09-03",
+        "name": "SACHIN J. MEHRA",
+        "title": "officer: Chief Business Officer",
+        "is_buy": false,
+        "shares": 3266,
+        "price": 584.0,
+        "total_val": 1.91
+      },
+      {
+        "date": "2026-09-01",
+        "name": "Kirkpatrick Linda Pistecchia",
+        "title": "officer: Chief Services Officer",
+        "is_buy": false,
+        "shares": 923,
+        "price": 593.54,
+        "total_val": 0.55
+      },
+      {
+        "date": "2026-08-20",
+        "name": "SACHIN J. MEHRA",
+        "title": "officer: Chief Business Officer",
+        "is_buy": true,
+        "shares": 7444,
+        "price": 344.48,
+        "total_val": 2.56
+      },
+      {
+        "date": "2026-08-20",
+        "name": "SACHIN J. MEHRA",
+        "title": "officer: Chief Business Officer",
+        "is_buy": false,
+        "shares": 120,
+        "price": 572.41,
+        "total_val": 0.07
+      },
+      {
+        "date": "2026-08-20",
+        "name": "SACHIN J. MEHRA",
+        "title": "officer: Chief Business Officer",
+        "is_buy": false,
+        "shares": 966,
+        "price": 573.99,
+        "total_val": 0.55
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2014-01-22",
+        "ratio": "10 : 1",
+        "desc": "普通股 1 拆 10 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "MA"
   },
   "BAC": {
@@ -21907,8 +31382,121 @@ window.FULL_MARKET_DATA = {
     "year_low": 46.12,
     "all_time_high": 0.0,
     "all_time_low": 46.12,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-17",
+        "name": "MOYNIHAN BRIAN T",
+        "title": "director, officer: Chair and CEO",
+        "is_buy": true,
+        "shares": 18082,
+        "price": 54.32,
+        "total_val": 0.98
+      },
+      {
+        "date": "2026-09-17",
+        "name": "MOYNIHAN BRIAN T",
+        "title": "director, officer: Chair and CEO",
+        "is_buy": false,
+        "shares": 18082,
+        "price": 59.52,
+        "total_val": 1.08
+      },
+      {
+        "date": "2026-09-17",
+        "name": "MOYNIHAN BRIAN T",
+        "title": "director, officer: Chair and CEO",
+        "is_buy": true,
+        "shares": 18082,
+        "price": 54.32,
+        "total_val": 0.98
+      },
+      {
+        "date": "2026-09-04",
+        "name": "Okpara Johnbull",
+        "title": "officer: Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 50,
+        "price": 1000.0,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-09-04",
+        "name": "Okpara Johnbull",
+        "title": "officer: Chief Accounting Officer",
+        "is_buy": true,
+        "shares": 0,
+        "price": 54.32,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-08-18",
+        "name": "MOYNIHAN BRIAN T",
+        "title": "director, officer: Chair and CEO",
+        "is_buy": true,
+        "shares": 18083,
+        "price": 54.32,
+        "total_val": 0.98
+      },
+      {
+        "date": "2026-08-18",
+        "name": "MOYNIHAN BRIAN T",
+        "title": "director, officer: Chair and CEO",
+        "is_buy": false,
+        "shares": 18083,
+        "price": 64.49,
+        "total_val": 1.17
+      },
+      {
+        "date": "2026-08-18",
+        "name": "MOYNIHAN BRIAN T",
+        "title": "director, officer: Chair and CEO",
+        "is_buy": true,
+        "shares": 18083,
+        "price": 54.32,
+        "total_val": 0.98
+      },
+      {
+        "date": "2026-07-17",
+        "name": "MOYNIHAN BRIAN T",
+        "title": "director, officer: Chair and CEO",
+        "is_buy": true,
+        "shares": 18083,
+        "price": 54.32,
+        "total_val": 0.98
+      },
+      {
+        "date": "2026-07-17",
+        "name": "MOYNIHAN BRIAN T",
+        "title": "director, officer: Chair and CEO",
+        "is_buy": false,
+        "shares": 18083,
+        "price": 61.59,
+        "total_val": 1.11
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2004-08-30",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1997-02-28",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1986-11-21",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "BAC"
   },
   "WFC": {
@@ -22183,8 +31771,139 @@ window.FULL_MARKET_DATA = {
     "year_low": 72.78,
     "all_time_high": 0.0,
     "all_time_low": 72.78,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-05",
+        "name": "SARGENT RONALD",
+        "title": "director",
+        "is_buy": false,
+        "shares": 529,
+        "price": 83.55,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Hewett Wayne M.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 451,
+        "price": 83.55,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-10-05",
+        "name": "BLACK STEVEN D",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1152,
+        "price": 83.55,
+        "total_val": 0.1
+      },
+      {
+        "date": "2026-07-17",
+        "name": "Flowers Derek A.",
+        "title": "officer: Sr. EVP and Chief Risk Officer",
+        "is_buy": false,
+        "shares": 67966,
+        "price": 83.55,
+        "total_val": 5.68
+      },
+      {
+        "date": "2026-07-17",
+        "name": "Flowers Derek A.",
+        "title": "officer: Sr. EVP and Chief Risk Officer",
+        "is_buy": false,
+        "shares": 67966,
+        "price": 83.55,
+        "total_val": 5.68
+      },
+      {
+        "date": "2026-07-02",
+        "name": "SARGENT RONALD",
+        "title": "director",
+        "is_buy": false,
+        "shares": 494,
+        "price": 83.55,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-07-02",
+        "name": "Hewett Wayne M.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 421,
+        "price": 83.55,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-07-02",
+        "name": "BLACK STEVEN D",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1076,
+        "price": 83.55,
+        "total_val": 0.09
+      },
+      {
+        "date": "2026-06-17",
+        "name": "Rosenberg Jason M.",
+        "title": "officer: SEVP & Head of Public Affairs",
+        "is_buy": true,
+        "shares": 17217,
+        "price": 83.55,
+        "total_val": 1.44
+      },
+      {
+        "date": "2026-06-17",
+        "name": "Rosenberg Jason M.",
+        "title": "officer: SEVP & Head of Public Affairs",
+        "is_buy": false,
+        "shares": 8079,
+        "price": 83.73,
+        "total_val": 0.68
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2006-08-14",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1997-10-14",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1993-06-29",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1989-07-24",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1988-07-01",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1977-06-20",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "WFC"
   },
   "MS": {
@@ -22459,8 +32178,115 @@ window.FULL_MARKET_DATA = {
     "year_low": 112.03,
     "all_time_high": 0.0,
     "all_time_low": 112.03,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-24",
+        "name": "MITSUBISHI UFJ FINANCIAL GROUP INC",
+        "title": "10 percent owner",
+        "is_buy": false,
+        "shares": 1340519,
+        "price": 212.57,
+        "total_val": 284.95
+      },
+      {
+        "date": "2026-08-03",
+        "name": "MITSUBISHI UFJ FINANCIAL GROUP INC",
+        "title": "10 percent owner",
+        "is_buy": false,
+        "shares": 414396,
+        "price": 213.28,
+        "total_val": 88.38
+      },
+      {
+        "date": "2026-07-29",
+        "name": "SCHAPIRO MARY L",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1000,
+        "price": 212.06,
+        "total_val": 0.21
+      },
+      {
+        "date": "2026-07-29",
+        "name": "SCHAPIRO MARY L",
+        "title": "director",
+        "is_buy": false,
+        "shares": 2325,
+        "price": 190.02,
+        "total_val": 0.44
+      },
+      {
+        "date": "2026-07-17",
+        "name": "YESHAYA SHARON",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": false,
+        "shares": 6382,
+        "price": 222.51,
+        "total_val": 1.42
+      },
+      {
+        "date": "2026-07-17",
+        "name": "YESHAYA SHARON",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": false,
+        "shares": 9172,
+        "price": 222.51,
+        "total_val": 2.04
+      },
+      {
+        "date": "2026-07-17",
+        "name": "Pizzi Michael A.",
+        "title": "officer: Head Technology & Operations",
+        "is_buy": false,
+        "shares": 17064,
+        "price": 215.0,
+        "total_val": 3.67
+      },
+      {
+        "date": "2026-07-17",
+        "name": "Pizzi Michael A.",
+        "title": "officer: Head Technology & Operations",
+        "is_buy": false,
+        "shares": 7101,
+        "price": 216.88,
+        "total_val": 1.54
+      },
+      {
+        "date": "2026-06-02",
+        "name": "NALLY DENNIS M",
+        "title": "director",
+        "is_buy": false,
+        "shares": 345,
+        "price": 209.96,
+        "total_val": 0.07
+      },
+      {
+        "date": "2026-06-02",
+        "name": "NALLY DENNIS M",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1309,
+        "price": 190.02,
+        "total_val": 0.25
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2000-01-27",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1997-01-15",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "MS"
   },
   "GS": {
@@ -22735,8 +32561,102 @@ window.FULL_MARKET_DATA = {
     "year_low": 740.01,
     "all_time_high": 0.0,
     "all_time_low": 740.01,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-01",
+        "name": "LESLIE ERICKA T",
+        "title": "officer: Chief Administrative Officer",
+        "is_buy": false,
+        "shares": 600,
+        "price": 1033.8,
+        "total_val": 0.62
+      },
+      {
+        "date": "2026-08-06",
+        "name": "LESLIE ERICKA T",
+        "title": "officer: Chief Administrative Officer",
+        "is_buy": false,
+        "shares": 37,
+        "price": 1053.05,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-08-06",
+        "name": "LESLIE ERICKA T",
+        "title": "officer: Chief Administrative Officer",
+        "is_buy": false,
+        "shares": 129,
+        "price": 1054.18,
+        "total_val": 0.14
+      },
+      {
+        "date": "2026-08-06",
+        "name": "LESLIE ERICKA T",
+        "title": "officer: Chief Administrative Officer",
+        "is_buy": false,
+        "shares": 9,
+        "price": 1054.77,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-07-17",
+        "name": "Flaherty Mark A.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 22,
+        "price": 895.32,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-07-17",
+        "name": "HESS JOHN B",
+        "title": "director",
+        "is_buy": false,
+        "shares": 22,
+        "price": 895.32,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-07-17",
+        "name": "JOHNSON KEVIN R",
+        "title": "director",
+        "is_buy": false,
+        "shares": 33,
+        "price": 895.32,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-07-17",
+        "name": "OPPENHEIMER PETER",
+        "title": "director",
+        "is_buy": false,
+        "shares": 50,
+        "price": 895.32,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-07-17",
+        "name": "VINIAR DAVID A",
+        "title": "director",
+        "is_buy": false,
+        "shares": 2000,
+        "price": 895.32,
+        "total_val": 1.79
+      },
+      {
+        "date": "2026-07-17",
+        "name": "LESLIE ERICKA T",
+        "title": "officer: Chief Administrative Officer",
+        "is_buy": false,
+        "shares": 101,
+        "price": 1151.29,
+        "total_val": 0.12
+      }
+    ],
+    "stock_splits": [],
     "fmp_symbol": "GS"
   },
   "AXP": {
@@ -23011,8 +32931,139 @@ window.FULL_MARKET_DATA = {
     "year_low": 290.97,
     "all_time_high": 0.0,
     "all_time_low": 290.97,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-02",
+        "name": "Young Christopher David",
+        "title": "director",
+        "is_buy": false,
+        "shares": 128,
+        "price": 308.17,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-10-02",
+        "name": "WARDELL LISA W",
+        "title": "director",
+        "is_buy": false,
+        "shares": 120,
+        "price": 308.17,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Wallace Noel R.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 116,
+        "price": 308.17,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-10-02",
+        "name": "PHILLIPS JR CHARLES E",
+        "title": "director",
+        "is_buy": false,
+        "shares": 60,
+        "price": 308.17,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Majoras Deborah P",
+        "title": "director",
+        "is_buy": false,
+        "shares": 58,
+        "price": 308.17,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Brennan John Joseph",
+        "title": "director",
+        "is_buy": false,
+        "shares": 212,
+        "price": 308.17,
+        "total_val": 0.07
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Baltimore Thomas J Jr",
+        "title": "director",
+        "is_buy": false,
+        "shares": 116,
+        "price": 308.17,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Angelakis Michael J",
+        "title": "director",
+        "is_buy": false,
+        "shares": 58,
+        "price": 308.17,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-08-19",
+        "name": "Herena Monique",
+        "title": "officer: Chief Colleague Exp. Officer",
+        "is_buy": false,
+        "shares": 8811,
+        "price": 337.41,
+        "total_val": 2.97
+      },
+      {
+        "date": "2026-07-02",
+        "name": "Young Christopher David",
+        "title": "director",
+        "is_buy": false,
+        "shares": 119,
+        "price": 308.17,
+        "total_val": 0.04
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2005-10-03",
+        "ratio": "10000 : 8753",
+        "desc": "普通股 8753 拆 10000 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2000-05-11",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1994-05-31",
+        "ratio": "400 : 353",
+        "desc": "普通股 353 拆 400 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1987-05-11",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1983-08-11",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1983-02-11",
+        "ratio": "4 : 3",
+        "desc": "普通股 3 拆 4 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "AXP"
   },
   "BLK": {
@@ -23278,8 +33329,102 @@ window.FULL_MARKET_DATA = {
     "year_low": 917.39,
     "all_time_high": 0.0,
     "all_time_low": 917.39,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-02",
+        "name": "Freda Fabrizio",
+        "title": "director",
+        "is_buy": false,
+        "shares": 18,
+        "price": 1082.39,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Vestberg Hans Erik",
+        "title": "director",
+        "is_buy": false,
+        "shares": 33,
+        "price": 1082.39,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Robbins Charles",
+        "title": "director",
+        "is_buy": false,
+        "shares": 27,
+        "price": 1082.39,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-02",
+        "name": "PECK KRISTIN C",
+        "title": "director",
+        "is_buy": false,
+        "shares": 30,
+        "price": 1082.39,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Nixon Gordon M.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 34,
+        "price": 1082.39,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Nasser Amin H.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 27,
+        "price": 1082.39,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Murphy Kathleen",
+        "title": "director",
+        "is_buy": false,
+        "shares": 36,
+        "price": 1082.39,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-10-02",
+        "name": "LEMKAU GREGG",
+        "title": "director",
+        "is_buy": false,
+        "shares": 27,
+        "price": 1082.39,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Johnson Margaret L",
+        "title": "director",
+        "is_buy": false,
+        "shares": 33,
+        "price": 1082.39,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-10-02",
+        "name": "FORD WILLIAM E",
+        "title": "director",
+        "is_buy": false,
+        "shares": 34,
+        "price": 1082.39,
+        "total_val": 0.04
+      }
+    ],
+    "stock_splits": [],
     "fmp_symbol": "BLK"
   },
   "SPGI": {
@@ -23545,8 +33690,127 @@ window.FULL_MARKET_DATA = {
     "year_low": 361.03122,
     "all_time_high": 0.0,
     "all_time_low": 361.03122,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-05",
+        "name": "Ganesan Girish",
+        "title": "officer: EVP, Chief People Officer",
+        "is_buy": true,
+        "shares": 186,
+        "price": 407.82,
+        "total_val": 0.08
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Ganesan Girish",
+        "title": "officer: EVP, Chief People Officer",
+        "is_buy": false,
+        "shares": 103,
+        "price": 388.16,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Ganesan Girish",
+        "title": "officer: EVP, Chief People Officer",
+        "is_buy": true,
+        "shares": 186,
+        "price": 407.82,
+        "total_val": 0.08
+      },
+      {
+        "date": "2026-08-04",
+        "name": "Thomas Darren Robert",
+        "title": "officer: Co-Head, Market Intelligence",
+        "is_buy": true,
+        "shares": 558,
+        "price": 407.82,
+        "total_val": 0.23
+      },
+      {
+        "date": "2026-08-04",
+        "name": "Thomas Darren Robert",
+        "title": "officer: Co-Head, Market Intelligence",
+        "is_buy": false,
+        "shares": 227,
+        "price": 411.93,
+        "total_val": 0.09
+      },
+      {
+        "date": "2026-08-04",
+        "name": "Thomas Darren Robert",
+        "title": "officer: Co-Head, Market Intelligence",
+        "is_buy": true,
+        "shares": 558,
+        "price": 407.82,
+        "total_val": 0.23
+      },
+      {
+        "date": "2026-07-09",
+        "name": "Thomas Darren Robert",
+        "title": "officer: Co-Head, Market Intelligence",
+        "is_buy": true,
+        "shares": 0,
+        "price": 407.82,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-07-09",
+        "name": "Thomas Darren Robert",
+        "title": "officer: Co-Head, Market Intelligence",
+        "is_buy": true,
+        "shares": 285,
+        "price": 407.82,
+        "total_val": 0.12
+      },
+      {
+        "date": "2026-07-06",
+        "name": "Eager William W",
+        "title": "officer: President, S&P Global Mobility",
+        "is_buy": false,
+        "shares": 13286,
+        "price": 407.82,
+        "total_val": 5.42
+      },
+      {
+        "date": "2026-07-06",
+        "name": "Eager William W",
+        "title": "officer: President, S&P Global Mobility",
+        "is_buy": false,
+        "shares": 4917,
+        "price": 407.82,
+        "total_val": 2.01
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2005-05-18",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1999-03-09",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1996-04-29",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1983-06-02",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "SPGI"
   },
   "C": {
@@ -23821,8 +34085,157 @@ window.FULL_MARKET_DATA = {
     "year_low": 93.66,
     "all_time_high": 0.0,
     "all_time_low": 93.66,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-02",
+        "name": "von Koskull Casper Wilhelm",
+        "title": "director",
+        "is_buy": false,
+        "shares": 6,
+        "price": 131.59,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-02",
+        "name": "von Koskull Casper Wilhelm",
+        "title": "director",
+        "is_buy": false,
+        "shares": 27,
+        "price": 131.59,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Turley James S",
+        "title": "director",
+        "is_buy": false,
+        "shares": 200,
+        "price": 131.59,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Turley James S",
+        "title": "director",
+        "is_buy": false,
+        "shares": 6,
+        "price": 131.59,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-02",
+        "name": "TAYLOR DIANA L",
+        "title": "director",
+        "is_buy": false,
+        "shares": 307,
+        "price": 131.59,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-10-02",
+        "name": "TAYLOR DIANA L",
+        "title": "director",
+        "is_buy": false,
+        "shares": 6,
+        "price": 131.59,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-02",
+        "name": "REINER GARY M",
+        "title": "director",
+        "is_buy": false,
+        "shares": 417,
+        "price": 131.59,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-10-02",
+        "name": "MOULDS JONATHAN PAUL",
+        "title": "director",
+        "is_buy": false,
+        "shares": 10,
+        "price": 131.59,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-02",
+        "name": "MOULDS JONATHAN PAUL",
+        "title": "director",
+        "is_buy": false,
+        "shares": 236,
+        "price": 131.59,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-02",
+        "name": "MOULDS JONATHAN PAUL",
+        "title": "director",
+        "is_buy": false,
+        "shares": 6,
+        "price": 131.59,
+        "total_val": 0.0
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2011-05-09",
+        "ratio": "1 : 10",
+        "desc": "普通股 10 拆 1 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2000-08-28",
+        "ratio": "4 : 3",
+        "desc": "普通股 3 拆 4 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1999-06-01",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1997-11-20",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1996-11-25",
+        "ratio": "4 : 3",
+        "desc": "普通股 3 拆 4 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1996-05-28",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1993-08-30",
+        "ratio": "4 : 3",
+        "desc": "普通股 3 拆 4 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1993-03-01",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1987-03-13",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "C"
   },
   "PGR": {
@@ -24097,8 +34510,157 @@ window.FULL_MARKET_DATA = {
     "year_low": 189.2,
     "all_time_high": 0.0,
     "all_time_low": 189.2,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-28",
+        "name": "Broz Steven",
+        "title": "officer: Chief Information Officer",
+        "is_buy": false,
+        "shares": 1225,
+        "price": 204.29,
+        "total_val": 0.25
+      },
+      {
+        "date": "2026-09-02",
+        "name": "Griffith Susan Patricia",
+        "title": "director, officer: President and CEO",
+        "is_buy": false,
+        "shares": 37338,
+        "price": 219.5,
+        "total_val": 8.2
+      },
+      {
+        "date": "2026-09-02",
+        "name": "Griffith Susan Patricia",
+        "title": "director, officer: President and CEO",
+        "is_buy": false,
+        "shares": 1598,
+        "price": 217.43,
+        "total_val": 0.35
+      },
+      {
+        "date": "2026-08-24",
+        "name": "Broz Steven",
+        "title": "officer: Chief Information Officer",
+        "is_buy": false,
+        "shares": 1225,
+        "price": 219.4,
+        "total_val": 0.27
+      },
+      {
+        "date": "2026-08-17",
+        "name": "Niederst Lori A",
+        "title": "officer: Chief Personal Lines Officer",
+        "is_buy": false,
+        "shares": 7339,
+        "price": 209.29,
+        "total_val": 1.54
+      },
+      {
+        "date": "2026-07-29",
+        "name": "Quigg Andrew J",
+        "title": "officer: VP and Chief Financial Officer",
+        "is_buy": false,
+        "shares": 3499,
+        "price": 220.0,
+        "total_val": 0.77
+      },
+      {
+        "date": "2026-07-28",
+        "name": "Murphy John Jo",
+        "title": "officer: Claims President",
+        "is_buy": false,
+        "shares": 8124,
+        "price": 212.7,
+        "total_val": 1.73
+      },
+      {
+        "date": "2026-07-28",
+        "name": "Griffith Susan Patricia",
+        "title": "director, officer: President and CEO",
+        "is_buy": false,
+        "shares": 37338,
+        "price": 212.71,
+        "total_val": 7.94
+      },
+      {
+        "date": "2026-07-28",
+        "name": "Bauer Jonathan S.",
+        "title": "officer: Chief Investment Officer",
+        "is_buy": false,
+        "shares": 2242,
+        "price": 212.71,
+        "total_val": 0.48
+      },
+      {
+        "date": "2026-07-28",
+        "name": "Bailo Karen",
+        "title": "officer: Commercial Lines President",
+        "is_buy": false,
+        "shares": 8452,
+        "price": 212.71,
+        "total_val": 1.8
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2006-05-19",
+        "ratio": "4 : 1",
+        "desc": "普通股 1 拆 4 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2002-04-23",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1992-12-09",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1986-05-27",
+        "ratio": "9 : 4",
+        "desc": "普通股 4 拆 9 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1985-05-28",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1983-05-16",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1981-06-08",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1980-09-23",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1972-11-29",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "PGR"
   },
   "CB": {
@@ -24373,8 +34935,133 @@ window.FULL_MARKET_DATA = {
     "year_low": 265.3,
     "all_time_high": 0.0,
     "all_time_low": 265.3,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-03",
+        "name": "Wayland Joseph F",
+        "title": "officer: Executive Vice President and*",
+        "is_buy": false,
+        "shares": 144,
+        "price": 338.74,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-08-25",
+        "name": "CONNORS MICHAEL P",
+        "title": "director",
+        "is_buy": false,
+        "shares": 5500,
+        "price": 345.0,
+        "total_val": 1.9
+      },
+      {
+        "date": "2026-07-29",
+        "name": "Wayland Joseph F",
+        "title": "officer: Executive Vice President and*",
+        "is_buy": false,
+        "shares": 8502,
+        "price": 364.54,
+        "total_val": 3.1
+      },
+      {
+        "date": "2026-06-10",
+        "name": "Ortega Juan Luis",
+        "title": "officer: Executive Vice President*",
+        "is_buy": true,
+        "shares": 3886,
+        "price": 139.01,
+        "total_val": 0.54
+      },
+      {
+        "date": "2026-06-10",
+        "name": "Ortega Juan Luis",
+        "title": "officer: Executive Vice President*",
+        "is_buy": true,
+        "shares": 3886,
+        "price": 139.01,
+        "total_val": 0.54
+      },
+      {
+        "date": "2026-06-10",
+        "name": "Ortega Juan Luis",
+        "title": "officer: Executive Vice President*",
+        "is_buy": false,
+        "shares": 3886,
+        "price": 322.08,
+        "total_val": 1.25
+      },
+      {
+        "date": "2026-05-29",
+        "name": "Keogh John W",
+        "title": "officer: President &COO",
+        "is_buy": false,
+        "shares": 20176,
+        "price": 321.45,
+        "total_val": 6.49
+      },
+      {
+        "date": "2026-05-29",
+        "name": "Keogh John W",
+        "title": "officer: President &COO",
+        "is_buy": false,
+        "shares": 2824,
+        "price": 321.95,
+        "total_val": 0.91
+      },
+      {
+        "date": "2026-05-29",
+        "name": "Keogh John W",
+        "title": "officer: President &COO",
+        "is_buy": false,
+        "shares": 61000,
+        "price": 341.2,
+        "total_val": 20.81
+      },
+      {
+        "date": "2026-05-29",
+        "name": "Keogh John W",
+        "title": "officer: President &COO",
+        "is_buy": false,
+        "shares": 1352,
+        "price": 341.2,
+        "total_val": 0.46
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2006-04-19",
+        "ratio": "1 : 2",
+        "desc": "普通股 2 拆 1 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1998-03-03",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1996-05-06",
+        "ratio": "1 : 2",
+        "desc": "普通股 2 拆 1 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1990-05-31",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1985-10-25",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "CB"
   },
   "FDS": {
@@ -24640,8 +35327,121 @@ window.FULL_MARKET_DATA = {
     "year_low": 185.0,
     "all_time_high": 0.0,
     "all_time_low": 185.0,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-30",
+        "name": "Prins Marcel",
+        "title": "director: ",
+        "is_buy": true,
+        "shares": 0,
+        "price": 287.18,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-25",
+        "name": "Moskoff Gregory T",
+        "title": "officer: MD,Controller and CAO",
+        "is_buy": false,
+        "shares": 97,
+        "price": 287.18,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-09-24",
+        "name": "Viswanathan Sanoke",
+        "title": "director, officer: Chief Executive Officer",
+        "is_buy": false,
+        "shares": 8065,
+        "price": 276.42,
+        "total_val": 2.23
+      },
+      {
+        "date": "2026-08-12",
+        "name": "Hirji Dinaz",
+        "title": "officer",
+        "is_buy": true,
+        "shares": 0,
+        "price": 287.18,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-05-05",
+        "name": "Warren Joshua",
+        "title": "officer: EVP, Chief Financial Officer",
+        "is_buy": false,
+        "shares": 8567,
+        "price": 227.58,
+        "total_val": 1.95
+      },
+      {
+        "date": "2026-05-05",
+        "name": "Warren Joshua",
+        "title": "officer: EVP, Chief Financial Officer",
+        "is_buy": false,
+        "shares": 2272,
+        "price": 287.18,
+        "total_val": 0.65
+      },
+      {
+        "date": "2026-04-22",
+        "name": "Warren Joshua",
+        "title": "officer",
+        "is_buy": true,
+        "shares": 0,
+        "price": 287.18,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-02-17",
+        "name": "Moskoff Gregory T",
+        "title": "officer: MD,Controller and CAO",
+        "is_buy": false,
+        "shares": 11,
+        "price": 287.18,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-02-17",
+        "name": "Moskoff Gregory T",
+        "title": "officer: MD,Controller and CAO",
+        "is_buy": false,
+        "shares": 4,
+        "price": 254.36,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-02-17",
+        "name": "Moskoff Gregory T",
+        "title": "officer: MD,Controller and CAO",
+        "is_buy": false,
+        "shares": 3,
+        "price": 222.62,
+        "total_val": 0.0
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2005-02-07",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2000-02-07",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1999-02-08",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "FDS"
   },
   "TW": {
@@ -24907,8 +35707,102 @@ window.FULL_MARKET_DATA = {
     "year_low": 91.42,
     "all_time_high": 0.0,
     "all_time_low": 91.42,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-09",
+        "name": "Rajagopalan Balasubramanian",
+        "title": "officer: Chief Risk Officer",
+        "is_buy": true,
+        "shares": 0,
+        "price": 111.08,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-08-18",
+        "name": "Dixon Troy",
+        "title": "officer: MD, Co-Head of Global Markets",
+        "is_buy": false,
+        "shares": 546,
+        "price": 105.74,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-08-18",
+        "name": "Dixon Troy",
+        "title": "officer: MD, Co-Head of Global Markets",
+        "is_buy": false,
+        "shares": 2584,
+        "price": 106.06,
+        "total_val": 0.27
+      },
+      {
+        "date": "2026-06-02",
+        "name": "Peterson Justin",
+        "title": "officer: Chief Technology Officer",
+        "is_buy": false,
+        "shares": 21221,
+        "price": 102.0,
+        "total_val": 2.16
+      },
+      {
+        "date": "2026-05-27",
+        "name": "BERNS STEVEN",
+        "title": "director",
+        "is_buy": false,
+        "shares": 425,
+        "price": 105.26,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-05-20",
+        "name": "Yared Rana",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1645,
+        "price": 111.08,
+        "total_val": 0.18
+      },
+      {
+        "date": "2026-05-20",
+        "name": "AIGRAIN JACQUES",
+        "title": "director",
+        "is_buy": false,
+        "shares": 2668,
+        "price": 111.08,
+        "total_val": 0.3
+      },
+      {
+        "date": "2026-05-20",
+        "name": "Madoff Paula",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1912,
+        "price": 111.08,
+        "total_val": 0.21
+      },
+      {
+        "date": "2026-05-20",
+        "name": "BERNS STEVEN",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1645,
+        "price": 111.08,
+        "total_val": 0.18
+      },
+      {
+        "date": "2026-05-20",
+        "name": "Ganeles Scott",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1645,
+        "price": 111.08,
+        "total_val": 0.18
+      }
+    ],
+    "stock_splits": [],
     "fmp_symbol": "TW"
   },
   "CME": {
@@ -25174,8 +36068,109 @@ window.FULL_MARKET_DATA = {
     "year_low": 218.31,
     "all_time_high": 0.0,
     "all_time_low": 218.31,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-28",
+        "name": "SHEPARD WILLIAM R",
+        "title": "director",
+        "is_buy": true,
+        "shares": 292,
+        "price": 268.76,
+        "total_val": 0.08
+      },
+      {
+        "date": "2026-09-28",
+        "name": "SHEPARD WILLIAM R",
+        "title": "director",
+        "is_buy": false,
+        "shares": 2553,
+        "price": 280.56,
+        "total_val": 0.72
+      },
+      {
+        "date": "2026-09-28",
+        "name": "SHEPARD WILLIAM R",
+        "title": "director",
+        "is_buy": false,
+        "shares": 2553,
+        "price": 280.56,
+        "total_val": 0.72
+      },
+      {
+        "date": "2026-09-17",
+        "name": "Winkler Julie",
+        "title": "officer: Sr MD Chief Commercial Officer",
+        "is_buy": false,
+        "shares": 2864,
+        "price": 275.09,
+        "total_val": 0.79
+      },
+      {
+        "date": "2026-09-17",
+        "name": "Winkler Julie",
+        "title": "officer: Sr MD Chief Commercial Officer",
+        "is_buy": false,
+        "shares": 373,
+        "price": 275.09,
+        "total_val": 0.1
+      },
+      {
+        "date": "2026-09-17",
+        "name": "Winkler Julie",
+        "title": "officer: Sr MD Chief Commercial Officer",
+        "is_buy": false,
+        "shares": 361,
+        "price": 275.09,
+        "total_val": 0.1
+      },
+      {
+        "date": "2026-09-17",
+        "name": "Winkler Julie",
+        "title": "officer: Sr MD Chief Commercial Officer",
+        "is_buy": false,
+        "shares": 320,
+        "price": 275.09,
+        "total_val": 0.09
+      },
+      {
+        "date": "2026-09-17",
+        "name": "Winkler Julie",
+        "title": "officer: Sr MD Chief Commercial Officer",
+        "is_buy": false,
+        "shares": 359,
+        "price": 272.46,
+        "total_val": 0.1
+      },
+      {
+        "date": "2026-09-17",
+        "name": "Vroman Ken",
+        "title": "officer: Chief Transformation Officer",
+        "is_buy": false,
+        "shares": 2592,
+        "price": 275.09,
+        "total_val": 0.71
+      },
+      {
+        "date": "2026-09-17",
+        "name": "Vroman Ken",
+        "title": "officer: Chief Transformation Officer",
+        "is_buy": false,
+        "shares": 320,
+        "price": 275.09,
+        "total_val": 0.09
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2012-07-23",
+        "ratio": "5 : 1",
+        "desc": "普通股 1 拆 5 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "CME"
   },
   "MSCI": {
@@ -25441,8 +36436,102 @@ window.FULL_MARKET_DATA = {
     "year_low": 501.08,
     "all_time_high": 0.0,
     "all_time_low": 501.08,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-04",
+        "name": "Taneja Rajat",
+        "title": "director",
+        "is_buy": true,
+        "shares": 1786,
+        "price": 560.0,
+        "total_val": 1.0
+      },
+      {
+        "date": "2026-09-01",
+        "name": "Yang June",
+        "title": "director",
+        "is_buy": false,
+        "shares": 2,
+        "price": 565.12,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-01",
+        "name": "RIEFLER LINDA H",
+        "title": "director",
+        "is_buy": false,
+        "shares": 8,
+        "price": 565.12,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-01",
+        "name": "Matlock Robin",
+        "title": "director",
+        "is_buy": false,
+        "shares": 6,
+        "price": 565.12,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-06-12",
+        "name": "Wiechmann Andrew C.",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": false,
+        "shares": 450,
+        "price": 604.56,
+        "total_val": 0.27
+      },
+      {
+        "date": "2026-06-04",
+        "name": "Taneja Rajat",
+        "title": "director",
+        "is_buy": false,
+        "shares": 42,
+        "price": 565.12,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-06-02",
+        "name": "Yang June",
+        "title": "director",
+        "is_buy": false,
+        "shares": 2,
+        "price": 565.12,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-06-02",
+        "name": "Matlock Robin",
+        "title": "director",
+        "is_buy": false,
+        "shares": 6,
+        "price": 565.12,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-06-02",
+        "name": "RIEFLER LINDA H",
+        "title": "director",
+        "is_buy": false,
+        "shares": 7,
+        "price": 565.12,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-05-18",
+        "name": "Fernandez Henry A",
+        "title": "director, officer: Chairman and CEO",
+        "is_buy": true,
+        "shares": 80,
+        "price": 565.17,
+        "total_val": 0.05
+      }
+    ],
+    "stock_splits": [],
     "fmp_symbol": "MSCI"
   },
   "MCO": {
@@ -25708,8 +36797,109 @@ window.FULL_MARKET_DATA = {
     "year_low": 402.28,
     "all_time_high": 0.0,
     "all_time_low": 402.28,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-05",
+        "name": "Minaya Jose",
+        "title": "director",
+        "is_buy": false,
+        "shares": 91,
+        "price": 464.23,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Phillips Jason D",
+        "title": "officer: Chief Acctg Off & Controller",
+        "is_buy": false,
+        "shares": 21,
+        "price": 450.8,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Fauber Robert",
+        "title": "director, officer: President and CEO",
+        "is_buy": true,
+        "shares": 572,
+        "price": 167.5,
+        "total_val": 0.1
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Fauber Robert",
+        "title": "director, officer: President and CEO",
+        "is_buy": true,
+        "shares": 51,
+        "price": 113.34,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Fauber Robert",
+        "title": "director, officer: President and CEO",
+        "is_buy": false,
+        "shares": 623,
+        "price": 455.0,
+        "total_val": 0.28
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Fauber Robert",
+        "title": "director, officer: President and CEO",
+        "is_buy": true,
+        "shares": 51,
+        "price": 113.34,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Fauber Robert",
+        "title": "director, officer: President and CEO",
+        "is_buy": true,
+        "shares": 572,
+        "price": 167.5,
+        "total_val": 0.1
+      },
+      {
+        "date": "2026-09-08",
+        "name": "VAN SAUN BRUCE",
+        "title": "director",
+        "is_buy": false,
+        "shares": 13,
+        "price": 464.23,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-09-08",
+        "name": "VAN SAUN BRUCE",
+        "title": "director",
+        "is_buy": false,
+        "shares": 7,
+        "price": 464.23,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-08",
+        "name": "FORLENZA VINCENT A",
+        "title": "director",
+        "is_buy": false,
+        "shares": 15,
+        "price": 464.23,
+        "total_val": 0.01
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2005-05-19",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "MCO"
   },
   "ICE": {
@@ -25975,8 +37165,109 @@ window.FULL_MARKET_DATA = {
     "year_low": 121.79,
     "all_time_high": 0.0,
     "all_time_low": 121.79,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-16",
+        "name": "Foley Douglas",
+        "title": "officer: SVP, HR & Administration",
+        "is_buy": false,
+        "shares": 1600,
+        "price": 160.0,
+        "total_val": 0.26
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Edmonds Christopher Scott",
+        "title": "officer: President, Fixed Income & Data",
+        "is_buy": true,
+        "shares": 5000,
+        "price": 57.31,
+        "total_val": 0.29
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Edmonds Christopher Scott",
+        "title": "officer: President, Fixed Income & Data",
+        "is_buy": false,
+        "shares": 5000,
+        "price": 160.59,
+        "total_val": 0.8
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Edmonds Christopher Scott",
+        "title": "officer: President, Fixed Income & Data",
+        "is_buy": true,
+        "shares": 5000,
+        "price": 57.31,
+        "total_val": 0.29
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Jackson Benjamin",
+        "title": "officer: President",
+        "is_buy": true,
+        "shares": 6431,
+        "price": 57.31,
+        "total_val": 0.37
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Jackson Benjamin",
+        "title": "officer: President",
+        "is_buy": false,
+        "shares": 5020,
+        "price": 159.68,
+        "total_val": 0.8
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Jackson Benjamin",
+        "title": "officer: President",
+        "is_buy": true,
+        "shares": 6431,
+        "price": 57.31,
+        "total_val": 0.37
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Jackson Benjamin",
+        "title": "officer: President",
+        "is_buy": false,
+        "shares": 6242,
+        "price": 160.17,
+        "total_val": 1.0
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Jackson Benjamin",
+        "title": "officer: President",
+        "is_buy": false,
+        "shares": 1600,
+        "price": 161.05,
+        "total_val": 0.26
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Jackson Benjamin",
+        "title": "officer: President",
+        "is_buy": true,
+        "shares": 6431,
+        "price": 57.31,
+        "total_val": 0.37
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2016-11-04",
+        "ratio": "5 : 1",
+        "desc": "普通股 1 拆 5 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "ICE"
   },
   "AIG": {
@@ -26251,8 +37542,163 @@ window.FULL_MARKET_DATA = {
     "year_low": 71.25,
     "all_time_high": 0.0,
     "all_time_low": 71.25,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-01",
+        "name": "WITTMAN VANESSA AMES",
+        "title": "director",
+        "is_buy": false,
+        "shares": 76,
+        "price": 77.04,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Perez Juan R.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 34,
+        "price": 77.04,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Stoddard Thomas D",
+        "title": "director",
+        "is_buy": false,
+        "shares": 15,
+        "price": 77.04,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-01",
+        "name": "MURPHY DIANA M",
+        "title": "director",
+        "is_buy": false,
+        "shares": 76,
+        "price": 77.04,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Leimkuhler Courtney",
+        "title": "director",
+        "is_buy": false,
+        "shares": 39,
+        "price": 77.04,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Inglis John C",
+        "title": "director",
+        "is_buy": false,
+        "shares": 50,
+        "price": 77.04,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Cole James Jr.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 126,
+        "price": 77.04,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-10-01",
+        "name": "RICE JOHN G",
+        "title": "director",
+        "is_buy": false,
+        "shares": 127,
+        "price": 77.04,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-10-01",
+        "name": "RICE JOHN G",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1276,
+        "price": 77.04,
+        "total_val": 0.1
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Porrino Peter R",
+        "title": "director",
+        "is_buy": false,
+        "shares": 338,
+        "price": 77.04,
+        "total_val": 0.03
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2009-07-01",
+        "ratio": "1 : 20",
+        "desc": "普通股 20 拆 1 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2000-07-31",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1999-08-02",
+        "ratio": "5 : 4",
+        "desc": "普通股 4 拆 5 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1998-08-03",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1997-07-28",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1995-07-31",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1993-07-30",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1990-07-23",
+        "ratio": "5 : 4",
+        "desc": "普通股 4 拆 5 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1986-11-18",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1983-04-26",
+        "ratio": "5 : 4",
+        "desc": "普通股 4 拆 5 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "AIG"
   },
   "MET": {
@@ -26527,8 +37973,109 @@ window.FULL_MARKET_DATA = {
     "year_low": 67.33,
     "all_time_high": 0.0,
     "all_time_low": 67.33,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-05",
+        "name": "Johnson Jeh C.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 544,
+        "price": 94.35,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-10-05",
+        "name": "HUBBARD ROBERT GLENN",
+        "title": "director",
+        "is_buy": false,
+        "shares": 941,
+        "price": 94.35,
+        "total_val": 0.09
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Mumenthaler Christian Stephane",
+        "title": "director",
+        "is_buy": false,
+        "shares": 544,
+        "price": 94.35,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Harris Carla A",
+        "title": "director",
+        "is_buy": false,
+        "shares": 544,
+        "price": 94.35,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-10-05",
+        "name": "WEINBERGER MARK A",
+        "title": "director",
+        "is_buy": false,
+        "shares": 544,
+        "price": 98.33,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-10-05",
+        "name": "MCKENZIE DIANA",
+        "title": "director",
+        "is_buy": false,
+        "shares": 544,
+        "price": 94.35,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Seitz Michelle",
+        "title": "director",
+        "is_buy": false,
+        "shares": 544,
+        "price": 98.33,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Hay Laura J",
+        "title": "director",
+        "is_buy": false,
+        "shares": 544,
+        "price": 94.35,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Glaser Daniel S",
+        "title": "director",
+        "is_buy": false,
+        "shares": 544,
+        "price": 94.35,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Kennard William E",
+        "title": "director",
+        "is_buy": false,
+        "shares": 544,
+        "price": 94.35,
+        "total_val": 0.05
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2017-08-07",
+        "ratio": "561 : 500",
+        "desc": "普通股 500 拆 561 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "MET"
   },
   "PRU": {
@@ -26803,8 +38350,102 @@ window.FULL_MARKET_DATA = {
     "year_low": 91.89,
     "all_time_high": 0.0,
     "all_time_low": 91.89,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-14",
+        "name": "SULLIVAN ANDREW F",
+        "title": "director, officer, other: Chief Executive Officer",
+        "is_buy": false,
+        "shares": 143,
+        "price": 113.09,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-09-14",
+        "name": "Wolk Joseph J",
+        "title": "director",
+        "is_buy": false,
+        "shares": 21,
+        "price": 113.09,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-14",
+        "name": "Wolk Joseph J",
+        "title": "director",
+        "is_buy": false,
+        "shares": 21,
+        "price": 113.09,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-14",
+        "name": "TODMAN MICHAEL",
+        "title": "director",
+        "is_buy": false,
+        "shares": 155,
+        "price": 113.09,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-09-14",
+        "name": "TODMAN MICHAEL",
+        "title": "director",
+        "is_buy": false,
+        "shares": 151,
+        "price": 113.09,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-09-14",
+        "name": "TODMAN MICHAEL",
+        "title": "director",
+        "is_buy": false,
+        "shares": 21,
+        "price": 113.09,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-14",
+        "name": "Stoddard Thomas D",
+        "title": "director",
+        "is_buy": false,
+        "shares": 21,
+        "price": 113.09,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-14",
+        "name": "Stoddard Thomas D",
+        "title": "director",
+        "is_buy": false,
+        "shares": 20,
+        "price": 113.09,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-14",
+        "name": "POON CHRISTINE A",
+        "title": "director",
+        "is_buy": false,
+        "shares": 161,
+        "price": 113.09,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-09-14",
+        "name": "POON CHRISTINE A",
+        "title": "director",
+        "is_buy": false,
+        "shares": 49,
+        "price": 113.09,
+        "total_val": 0.01
+      }
+    ],
+    "stock_splits": [],
     "fmp_symbol": "PRU"
   },
   "TRV": {
@@ -27074,13 +38715,126 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "917 778 6000",
     "full_address": "485 Lexington Avenue, New York City, NY 10017, US",
-    "range_52w": "249.19-398.7",
+    "range_52w": "252.26-398.7",
     "year_high": 398.7,
-    "year_low": 249.19,
+    "year_low": 252.26,
     "all_time_high": 0.0,
-    "all_time_low": 249.19,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 3.2,
+    "all_time_low": 252.26,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-01",
+        "name": "Robinson Elizabeth",
+        "title": "director",
+        "is_buy": false,
+        "shares": 122,
+        "price": 356.51,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Jabbour Anthony M",
+        "title": "director",
+        "is_buy": false,
+        "shares": 65,
+        "price": 356.51,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Golden Russell G.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 129,
+        "price": 356.51,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-08-31",
+        "name": "OLIVO MARIA",
+        "title": "officer: EVP, ERM & Chief Risk Officer",
+        "is_buy": false,
+        "shares": 6000,
+        "price": 369.86,
+        "total_val": 2.22
+      },
+      {
+        "date": "2026-08-18",
+        "name": "Jabbour Anthony M",
+        "title": "director",
+        "is_buy": false,
+        "shares": 446,
+        "price": 370.36,
+        "total_val": 0.17
+      },
+      {
+        "date": "2026-08-18",
+        "name": "Jabbour Anthony M",
+        "title": "director",
+        "is_buy": true,
+        "shares": 0,
+        "price": 368.75,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-08-12",
+        "name": "Jabbour Anthony M",
+        "title": "director: ",
+        "is_buy": true,
+        "shares": 0,
+        "price": 368.75,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-07-27",
+        "name": "Yin Daniel Tei-Hwa",
+        "title": "officer: EVP & Co-Chief Invest. Officer",
+        "is_buy": true,
+        "shares": 7153,
+        "price": 140.85,
+        "total_val": 1.01
+      },
+      {
+        "date": "2026-07-27",
+        "name": "Yin Daniel Tei-Hwa",
+        "title": "officer: EVP & Co-Chief Invest. Officer",
+        "is_buy": false,
+        "shares": 7153,
+        "price": 387.0,
+        "total_val": 2.77
+      },
+      {
+        "date": "2026-07-27",
+        "name": "Yin Daniel Tei-Hwa",
+        "title": "officer: EVP & Co-Chief Invest. Officer",
+        "is_buy": true,
+        "shares": 7153,
+        "price": 140.85,
+        "total_val": 1.01
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "1998-05-12",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1994-06-07",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1986-06-09",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "TRV"
   },
   "AFL": {
@@ -27355,8 +39109,163 @@ window.FULL_MARKET_DATA = {
     "year_low": 96.95,
     "all_time_high": 0.0,
     "all_time_low": 96.95,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-09",
+        "name": "Japan Post Holdings Co., Ltd.",
+        "title": "10 percent owner",
+        "is_buy": false,
+        "shares": 11960,
+        "price": 112.8,
+        "total_val": 1.35
+      },
+      {
+        "date": "2026-10-09",
+        "name": "Japan Post Holdings Co., Ltd.",
+        "title": "10 percent owner",
+        "is_buy": false,
+        "shares": 40,
+        "price": 113.58,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Japan Post Holdings Co., Ltd.",
+        "title": "10 percent owner",
+        "is_buy": false,
+        "shares": 4168,
+        "price": 113.23,
+        "total_val": 0.47
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Japan Post Holdings Co., Ltd.",
+        "title": "10 percent owner",
+        "is_buy": false,
+        "shares": 8882,
+        "price": 113.61,
+        "total_val": 1.01
+      },
+      {
+        "date": "2026-10-07",
+        "name": "Japan Post Holdings Co., Ltd.",
+        "title": "10 percent owner",
+        "is_buy": false,
+        "shares": 13000,
+        "price": 112.25,
+        "total_val": 1.46
+      },
+      {
+        "date": "2026-10-06",
+        "name": "Japan Post Holdings Co., Ltd.",
+        "title": "10 percent owner",
+        "is_buy": false,
+        "shares": 5671,
+        "price": 110.93,
+        "total_val": 0.63
+      },
+      {
+        "date": "2026-10-06",
+        "name": "Japan Post Holdings Co., Ltd.",
+        "title": "10 percent owner",
+        "is_buy": false,
+        "shares": 7529,
+        "price": 111.57,
+        "total_val": 0.84
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Japan Post Holdings Co., Ltd.",
+        "title": "10 percent owner",
+        "is_buy": false,
+        "shares": 11800,
+        "price": 111.18,
+        "total_val": 1.31
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Japan Post Holdings Co., Ltd.",
+        "title": "10 percent owner",
+        "is_buy": false,
+        "shares": 100,
+        "price": 111.74,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Japan Post Holdings Co., Ltd.",
+        "title": "10 percent owner",
+        "is_buy": false,
+        "shares": 6378,
+        "price": 113.1,
+        "total_val": 0.72
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2018-03-19",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2001-03-19",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1998-06-09",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1996-03-18",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1993-06-15",
+        "ratio": "5 : 4",
+        "desc": "普通股 4 拆 5 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1987-02-03",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1986-03-03",
+        "ratio": "4 : 3",
+        "desc": "普通股 3 拆 4 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1985-06-04",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1984-10-22",
+        "ratio": "11 : 10",
+        "desc": "普通股 10 拆 11 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1983-12-14",
+        "ratio": "6 : 5",
+        "desc": "普通股 5 拆 6 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "AFL"
   },
   "ALL": {
@@ -27631,8 +39540,109 @@ window.FULL_MARKET_DATA = {
     "year_low": 188.08,
     "all_time_high": 0.0,
     "all_time_low": 188.08,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-06",
+        "name": "Dugenske John E",
+        "title": "other: Pres, Invest. & Corp. Strategy",
+        "is_buy": true,
+        "shares": 1581,
+        "price": 229.43,
+        "total_val": 0.36
+      },
+      {
+        "date": "2026-10-06",
+        "name": "Dugenske John E",
+        "title": "other: Pres, Invest. & Corp. Strategy",
+        "is_buy": false,
+        "shares": 701,
+        "price": 223.74,
+        "total_val": 0.16
+      },
+      {
+        "date": "2026-10-06",
+        "name": "Dugenske John E",
+        "title": "other: Pres, Invest. & Corp. Strategy",
+        "is_buy": true,
+        "shares": 1581,
+        "price": 229.43,
+        "total_val": 0.36
+      },
+      {
+        "date": "2026-10-06",
+        "name": "Jeevanjee Zulfikar",
+        "title": "other: EVP & CTO - AIC",
+        "is_buy": true,
+        "shares": 2371,
+        "price": 229.43,
+        "total_val": 0.54
+      },
+      {
+        "date": "2026-10-06",
+        "name": "Jeevanjee Zulfikar",
+        "title": "other: EVP & CTO - AIC",
+        "is_buy": false,
+        "shares": 1045,
+        "price": 223.74,
+        "total_val": 0.23
+      },
+      {
+        "date": "2026-10-06",
+        "name": "Jeevanjee Zulfikar",
+        "title": "other: EVP & CTO - AIC",
+        "is_buy": true,
+        "shares": 2371,
+        "price": 229.43,
+        "total_val": 0.54
+      },
+      {
+        "date": "2026-10-06",
+        "name": "Merten Jesse E",
+        "title": "other: PresPersonalProperty-Liability",
+        "is_buy": true,
+        "shares": 18,
+        "price": 229.43,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-06",
+        "name": "Merten Jesse E",
+        "title": "other: PresPersonalProperty-Liability",
+        "is_buy": false,
+        "shares": 8,
+        "price": 223.74,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-06",
+        "name": "Merten Jesse E",
+        "title": "other: PresPersonalProperty-Liability",
+        "is_buy": true,
+        "shares": 18,
+        "price": 229.43,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-06",
+        "name": "Rizzo Mario",
+        "title": "other: Chief Operating Officer-AIC",
+        "is_buy": true,
+        "shares": 19,
+        "price": 229.43,
+        "total_val": 0.0
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "1998-07-02",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "ALL"
   },
   "AON": {
@@ -27898,8 +39908,127 @@ window.FULL_MARKET_DATA = {
     "year_low": 266.33,
     "all_time_high": 0.0,
     "all_time_low": 266.33,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-03",
+        "name": "KNIGHT LESTER B",
+        "title": "director",
+        "is_buy": true,
+        "shares": 367,
+        "price": 330.51,
+        "total_val": 0.12
+      },
+      {
+        "date": "2026-09-03",
+        "name": "KNIGHT LESTER B",
+        "title": "director",
+        "is_buy": true,
+        "shares": 1440,
+        "price": 329.69,
+        "total_val": 0.47
+      },
+      {
+        "date": "2026-09-03",
+        "name": "KNIGHT LESTER B",
+        "title": "director",
+        "is_buy": true,
+        "shares": 4145,
+        "price": 328.34,
+        "total_val": 1.36
+      },
+      {
+        "date": "2026-09-03",
+        "name": "KNIGHT LESTER B",
+        "title": "director",
+        "is_buy": true,
+        "shares": 7212,
+        "price": 327.52,
+        "total_val": 2.36
+      },
+      {
+        "date": "2026-09-03",
+        "name": "KNIGHT LESTER B",
+        "title": "director",
+        "is_buy": true,
+        "shares": 5097,
+        "price": 326.53,
+        "total_val": 1.66
+      },
+      {
+        "date": "2026-09-03",
+        "name": "KNIGHT LESTER B",
+        "title": "director",
+        "is_buy": true,
+        "shares": 1739,
+        "price": 325.63,
+        "total_val": 0.57
+      },
+      {
+        "date": "2026-08-26",
+        "name": "Virani Nadin",
+        "title": "officer: Interim CFO",
+        "is_buy": true,
+        "shares": 0,
+        "price": 273.47,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-08-26",
+        "name": "Virani Nadin",
+        "title": "officer: Interim CFO",
+        "is_buy": true,
+        "shares": 893,
+        "price": 273.47,
+        "total_val": 0.24
+      },
+      {
+        "date": "2026-07-30",
+        "name": "Zeidel Darren",
+        "title": "officer: General Counsel",
+        "is_buy": false,
+        "shares": 700,
+        "price": 376.0,
+        "total_val": 0.26
+      },
+      {
+        "date": "2026-07-30",
+        "name": "Zeidel Darren",
+        "title": "officer: General Counsel",
+        "is_buy": false,
+        "shares": 725,
+        "price": 378.0,
+        "total_val": 0.27
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "1999-05-18",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1997-05-15",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1994-05-17",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1987-05-27",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "AON"
   },
   "AJG": {
@@ -28165,8 +40294,121 @@ window.FULL_MARKET_DATA = {
     "year_low": 190.75,
     "all_time_high": 0.0,
     "all_time_low": 190.75,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-08",
+        "name": "Koreyva Kyle Graham",
+        "title": "officer: Chief Accounting Officer",
+        "is_buy": true,
+        "shares": 0,
+        "price": 232.7,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Koreyva Kyle Graham",
+        "title": "officer: Chief Accounting Officer",
+        "is_buy": true,
+        "shares": 0,
+        "price": 232.7,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-17",
+        "name": "CARY RICHARD C",
+        "title": "officer: Controller, CAO",
+        "is_buy": false,
+        "shares": 1000,
+        "price": 252.86,
+        "total_val": 0.25
+      },
+      {
+        "date": "2026-09-10",
+        "name": "Gallagher Patrick Murphy",
+        "title": "officer: Chief Operating Officer",
+        "is_buy": false,
+        "shares": 49988,
+        "price": 232.7,
+        "total_val": 11.63
+      },
+      {
+        "date": "2026-09-10",
+        "name": "GALLAGHER J PATRICK JR",
+        "title": "director, officer: CEO",
+        "is_buy": false,
+        "shares": 49988,
+        "price": 232.7,
+        "total_val": 11.63
+      },
+      {
+        "date": "2026-09-04",
+        "name": "Hudson Scott R",
+        "title": "officer: Vice President",
+        "is_buy": true,
+        "shares": 12000,
+        "price": 86.17,
+        "total_val": 1.03
+      },
+      {
+        "date": "2026-09-04",
+        "name": "Hudson Scott R",
+        "title": "officer: Vice President",
+        "is_buy": false,
+        "shares": 12000,
+        "price": 264.13,
+        "total_val": 3.17
+      },
+      {
+        "date": "2026-09-04",
+        "name": "Hudson Scott R",
+        "title": "officer: Vice President",
+        "is_buy": true,
+        "shares": 12000,
+        "price": 86.17,
+        "total_val": 1.03
+      },
+      {
+        "date": "2026-09-02",
+        "name": "Miskel Christopher C.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 152,
+        "price": 262.0,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-08-26",
+        "name": "Bay Walter D.",
+        "title": "officer: General Counsel",
+        "is_buy": false,
+        "shares": 12000,
+        "price": 270.08,
+        "total_val": 3.24
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2001-01-19",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2000-03-16",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1986-07-16",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "AJG"
   },
   "MMC": {
@@ -28432,8 +40674,133 @@ window.FULL_MARKET_DATA = {
     "year_low": 174.18,
     "all_time_high": 0.0,
     "all_time_low": 174.18,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2024-03-01",
+        "name": "Beswick Paul",
+        "title": "officer: SVP, Chief Information Officer",
+        "is_buy": true,
+        "shares": 8510,
+        "price": 182.7,
+        "total_val": 1.55
+      },
+      {
+        "date": "2024-03-01",
+        "name": "Beswick Paul",
+        "title": "officer: SVP, Chief Information Officer",
+        "is_buy": false,
+        "shares": 4115,
+        "price": 202.99,
+        "total_val": 0.84
+      },
+      {
+        "date": "2024-03-01",
+        "name": "Beswick Paul",
+        "title": "officer: SVP, Chief Information Officer",
+        "is_buy": true,
+        "shares": 8510,
+        "price": 182.7,
+        "total_val": 1.55
+      },
+      {
+        "date": "2016-01-06",
+        "name": "MCGIVNEY MARK C",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": true,
+        "shares": 0,
+        "price": 182.7,
+        "total_val": 0.0
+      },
+      {
+        "date": "2016-01-06",
+        "name": "MCGIVNEY MARK C",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": true,
+        "shares": 15433,
+        "price": 56.84,
+        "total_val": 0.88
+      },
+      {
+        "date": "2016-01-06",
+        "name": "MCGIVNEY MARK C",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": true,
+        "shares": 18116,
+        "price": 48.0,
+        "total_val": 0.87
+      },
+      {
+        "date": "2016-01-06",
+        "name": "MCGIVNEY MARK C",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": true,
+        "shares": 13989,
+        "price": 182.7,
+        "total_val": 2.56
+      },
+      {
+        "date": "2016-01-06",
+        "name": "MCGIVNEY MARK C",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": true,
+        "shares": 5174,
+        "price": 31.89,
+        "total_val": 0.16
+      },
+      {
+        "date": "2016-01-06",
+        "name": "MCGIVNEY MARK C",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": true,
+        "shares": 13105,
+        "price": 36.49,
+        "total_val": 0.48
+      },
+      {
+        "date": "2013-02-27",
+        "name": "RAPPORT ROBERT J",
+        "title": "officer: SVP and Controller",
+        "is_buy": false,
+        "shares": 8065,
+        "price": 36.49,
+        "total_val": 0.29
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2002-07-01",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1998-06-29",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1997-06-30",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1986-05-15",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1980-11-12",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "MMC"
   },
   "USB": {
@@ -28708,8 +41075,151 @@ window.FULL_MARKET_DATA = {
     "year_low": 45.02,
     "all_time_high": 0.0,
     "all_time_low": 45.02,
-    "inst_ownership_pct": 72.5,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-08-31",
+        "name": "Kedia Gunjan",
+        "title": "director, officer: President & CEO",
+        "is_buy": true,
+        "shares": 27267,
+        "price": 55.01,
+        "total_val": 1.5
+      },
+      {
+        "date": "2026-08-31",
+        "name": "Kedia Gunjan",
+        "title": "director, officer: President & CEO",
+        "is_buy": false,
+        "shares": 27267,
+        "price": 62.37,
+        "total_val": 1.7
+      },
+      {
+        "date": "2026-08-31",
+        "name": "Kedia Gunjan",
+        "title": "director, officer: President & CEO",
+        "is_buy": true,
+        "shares": 27267,
+        "price": 55.01,
+        "total_val": 1.5
+      },
+      {
+        "date": "2026-07-24",
+        "name": "CHOSY JAMES L",
+        "title": "officer: Senior EVP and General Counsel",
+        "is_buy": true,
+        "shares": 24711,
+        "price": 55.01,
+        "total_val": 1.36
+      },
+      {
+        "date": "2026-07-24",
+        "name": "CHOSY JAMES L",
+        "title": "officer: Senior EVP and General Counsel",
+        "is_buy": false,
+        "shares": 22968,
+        "price": 63.28,
+        "total_val": 1.45
+      },
+      {
+        "date": "2026-07-24",
+        "name": "CHOSY JAMES L",
+        "title": "officer: Senior EVP and General Counsel",
+        "is_buy": true,
+        "shares": 24711,
+        "price": 55.01,
+        "total_val": 1.36
+      },
+      {
+        "date": "2026-07-22",
+        "name": "CHOSY JAMES L",
+        "title": "officer: Senior EVP and General Counsel",
+        "is_buy": false,
+        "shares": 3969,
+        "price": 57.08,
+        "total_val": 0.23
+      },
+      {
+        "date": "2026-07-22",
+        "name": "Philipson Stephen L",
+        "title": "officer: Vice Chair",
+        "is_buy": false,
+        "shares": 36906,
+        "price": 63.08,
+        "total_val": 2.33
+      },
+      {
+        "date": "2026-05-06",
+        "name": "Dilip Venkatachari",
+        "title": "officer: SEVP & Chief Info & Tech Off",
+        "is_buy": false,
+        "shares": 34522,
+        "price": 55.52,
+        "total_val": 1.92
+      },
+      {
+        "date": "2026-04-27",
+        "name": "McKenney Richard P",
+        "title": "director",
+        "is_buy": false,
+        "shares": 2560,
+        "price": 57.08,
+        "total_val": 0.15
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2001-02-27",
+        "ratio": "253 : 200",
+        "desc": "普通股 200 拆 253 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1999-04-16",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1998-05-19",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1997-01-16",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1989-04-17",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1985-04-16",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1984-06-25",
+        "ratio": "11 : 10",
+        "desc": "普通股 10 拆 11 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1979-02-22",
+        "ratio": "5 : 4",
+        "desc": "普通股 4 拆 5 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "USB"
   },
   "LLY": {
@@ -28975,8 +41485,127 @@ window.FULL_MARKET_DATA = {
     "year_low": 783.85,
     "all_time_high": 0.0,
     "all_time_low": 783.85,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-22",
+        "name": "Sulzberger Gabrielle",
+        "title": "director",
+        "is_buy": false,
+        "shares": 4,
+        "price": 1164.89,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-22",
+        "name": "LUCIANO JUAN R",
+        "title": "director",
+        "is_buy": false,
+        "shares": 13,
+        "price": 1164.89,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-09-22",
+        "name": "Fyrwald J Erik",
+        "title": "director",
+        "is_buy": false,
+        "shares": 8,
+        "price": 1164.89,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-09-22",
+        "name": "Alvarez Ralph",
+        "title": "director",
+        "is_buy": false,
+        "shares": 10,
+        "price": 1164.89,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-09-11",
+        "name": "Seymour Melissa",
+        "title": "officer: EVP, Global Quality",
+        "is_buy": false,
+        "shares": 17,
+        "price": 1179.27,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-09-11",
+        "name": "Seymour Melissa",
+        "title": "officer: EVP, Global Quality",
+        "is_buy": false,
+        "shares": 12,
+        "price": 1179.27,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-09-04",
+        "name": "Brown Adrienne S",
+        "title": "officer: EVP,  President LLY Imm",
+        "is_buy": true,
+        "shares": 0,
+        "price": 1179.27,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-04",
+        "name": "Hernandez Edgardo",
+        "title": "officer: EVP & Pres., Mfg. Operations",
+        "is_buy": false,
+        "shares": 13,
+        "price": 1179.27,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-09-04",
+        "name": "Dozier Eric",
+        "title": "officer: EVP, Chief People Officer",
+        "is_buy": false,
+        "shares": 216,
+        "price": 1179.27,
+        "total_val": 0.25
+      },
+      {
+        "date": "2026-08-18",
+        "name": "Sulzberger Gabrielle",
+        "title": "director",
+        "is_buy": false,
+        "shares": 4,
+        "price": 1183.16,
+        "total_val": 0.0
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "1997-10-16",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1995-12-21",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1989-05-01",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1986-01-30",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "LLY"
   },
   "UNH": {
@@ -29242,8 +41871,133 @@ window.FULL_MARKET_DATA = {
     "year_low": 255.97,
     "all_time_high": 0.0,
     "all_time_low": 255.97,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-05",
+        "name": "Noseworthy John H",
+        "title": "director",
+        "is_buy": false,
+        "shares": 240,
+        "price": 379.3,
+        "total_val": 0.09
+      },
+      {
+        "date": "2026-10-05",
+        "name": "MONTGOMERY RICE VALERIE MD",
+        "title": "director",
+        "is_buy": false,
+        "shares": 257,
+        "price": 379.3,
+        "total_val": 0.1
+      },
+      {
+        "date": "2026-10-05",
+        "name": "MCNABB FREDERICK WILLIAM III",
+        "title": "director",
+        "is_buy": false,
+        "shares": 291,
+        "price": 379.3,
+        "total_val": 0.11
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Gottlieb Scott",
+        "title": "director",
+        "is_buy": false,
+        "shares": 257,
+        "price": 379.3,
+        "total_val": 0.1
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Gil Kristen",
+        "title": "director",
+        "is_buy": false,
+        "shares": 240,
+        "price": 379.3,
+        "total_val": 0.09
+      },
+      {
+        "date": "2026-10-05",
+        "name": "GARCIA PAUL R",
+        "title": "director",
+        "is_buy": false,
+        "shares": 103,
+        "price": 379.3,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-10-05",
+        "name": "GARCIA PAUL R",
+        "title": "director",
+        "is_buy": false,
+        "shares": 155,
+        "price": 379.3,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-10-05",
+        "name": "FLYNN TIMOTHY PATRICK",
+        "title": "director",
+        "is_buy": false,
+        "shares": 262,
+        "price": 379.3,
+        "total_val": 0.1
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Baker Charles D.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 257,
+        "price": 379.3,
+        "total_val": 0.1
+      },
+      {
+        "date": "2026-09-24",
+        "name": "MCNABB FREDERICK WILLIAM III",
+        "title": "director",
+        "is_buy": false,
+        "shares": 57,
+        "price": 379.3,
+        "total_val": 0.02
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2005-05-31",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2003-06-19",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2000-12-26",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1994-03-11",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1992-09-16",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "UNH"
   },
   "JNJ": {
@@ -29509,8 +42263,145 @@ window.FULL_MARKET_DATA = {
     "year_low": 184.66,
     "all_time_high": 0.0,
     "all_time_low": 184.66,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-10",
+        "name": "Pinto Daniel E",
+        "title": "director",
+        "is_buy": false,
+        "shares": 113,
+        "price": 261.44,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-09-10",
+        "name": "Woods Eugene A.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 135,
+        "price": 261.44,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-09-10",
+        "name": "HEWSON MARILLYN A",
+        "title": "director",
+        "is_buy": false,
+        "shares": 180,
+        "price": 261.44,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-09-04",
+        "name": "Schmid Timothy",
+        "title": "officer: EVP, WW Chair, MedTech",
+        "is_buy": true,
+        "shares": 22527,
+        "price": 151.41,
+        "total_val": 3.41
+      },
+      {
+        "date": "2026-09-04",
+        "name": "Schmid Timothy",
+        "title": "officer: EVP, WW Chair, MedTech",
+        "is_buy": true,
+        "shares": 11070,
+        "price": 131.94,
+        "total_val": 1.46
+      },
+      {
+        "date": "2026-09-04",
+        "name": "Schmid Timothy",
+        "title": "officer: EVP, WW Chair, MedTech",
+        "is_buy": false,
+        "shares": 22527,
+        "price": 274.74,
+        "total_val": 6.19
+      },
+      {
+        "date": "2026-09-04",
+        "name": "Schmid Timothy",
+        "title": "officer: EVP, WW Chair, MedTech",
+        "is_buy": true,
+        "shares": 11070,
+        "price": 131.94,
+        "total_val": 1.46
+      },
+      {
+        "date": "2026-09-04",
+        "name": "Schmid Timothy",
+        "title": "officer: EVP, WW Chair, MedTech",
+        "is_buy": true,
+        "shares": 22527,
+        "price": 151.41,
+        "total_val": 3.41
+      },
+      {
+        "date": "2026-09-01",
+        "name": "Cavanaugh Thomas",
+        "title": "officer: EVP WW Chair, Innovative Med.",
+        "is_buy": true,
+        "shares": 0,
+        "price": 261.44,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-01",
+        "name": "Cavanaugh Thomas",
+        "title": "officer: EVP WW Chair, Innovative Med.",
+        "is_buy": true,
+        "shares": 0,
+        "price": 261.44,
+        "total_val": 0.0
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2001-06-13",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1996-06-12",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1992-06-10",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1989-05-11",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1981-05-19",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1970-05-18",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1967-06-19",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "JNJ"
   },
   "ABBV": {
@@ -29776,8 +42667,102 @@ window.FULL_MARKET_DATA = {
     "year_low": 190.75,
     "all_time_high": 0.0,
     "all_time_low": 190.75,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-02",
+        "name": "Quaggin Susan E",
+        "title": "director",
+        "is_buy": false,
+        "shares": 59,
+        "price": 261.59,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-10-02",
+        "name": "RAPP EDWARD J",
+        "title": "director",
+        "is_buy": false,
+        "shares": 129,
+        "price": 261.59,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-08-18",
+        "name": "Donoghoe Nicholas",
+        "title": "officer: EVP, CHIEF BUS/STRAT OFFICER",
+        "is_buy": true,
+        "shares": 32710,
+        "price": 79.02,
+        "total_val": 2.58
+      },
+      {
+        "date": "2026-08-18",
+        "name": "Donoghoe Nicholas",
+        "title": "officer: EVP, CHIEF BUS/STRAT OFFICER",
+        "is_buy": false,
+        "shares": 32710,
+        "price": 250.0,
+        "total_val": 8.18
+      },
+      {
+        "date": "2026-08-18",
+        "name": "Donoghoe Nicholas",
+        "title": "officer: EVP, CHIEF BUS/STRAT OFFICER",
+        "is_buy": true,
+        "shares": 32710,
+        "price": 79.02,
+        "total_val": 2.58
+      },
+      {
+        "date": "2026-07-02",
+        "name": "RAPP EDWARD J",
+        "title": "director",
+        "is_buy": false,
+        "shares": 134,
+        "price": 251.64,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-07-02",
+        "name": "Quaggin Susan E",
+        "title": "director",
+        "is_buy": false,
+        "shares": 62,
+        "price": 251.64,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-05-12",
+        "name": "FALK THOMAS J",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1118,
+        "price": 276.47,
+        "total_val": 0.31
+      },
+      {
+        "date": "2026-05-12",
+        "name": "WADDELL FREDERICK H",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1118,
+        "price": 276.47,
+        "total_val": 0.31
+      },
+      {
+        "date": "2026-05-12",
+        "name": "Roberts Rebecca B",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1118,
+        "price": 276.47,
+        "total_val": 0.31
+      }
+    ],
+    "stock_splits": [],
     "fmp_symbol": "ABBV"
   },
   "MRK": {
@@ -30043,8 +43028,145 @@ window.FULL_MARKET_DATA = {
     "year_low": 82.01,
     "all_time_high": 0.0,
     "all_time_low": 82.01,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-01",
+        "name": "Seidman Christine E",
+        "title": "director",
+        "is_buy": false,
+        "shares": 55,
+        "price": 145.6,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Karsanbhai Surendralal Lanca",
+        "title": "director",
+        "is_buy": false,
+        "shares": 111,
+        "price": 145.6,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Coe Mary Ellen",
+        "title": "director",
+        "is_buy": false,
+        "shares": 206,
+        "price": 145.6,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-09-01",
+        "name": "Gupta Gaurav K",
+        "title": "officer: EVP, CIDO",
+        "is_buy": true,
+        "shares": 0,
+        "price": 145.6,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-01",
+        "name": "Gupta Gaurav K",
+        "title": "officer: EVP, CIDO",
+        "is_buy": true,
+        "shares": 19443,
+        "price": 145.6,
+        "total_val": 2.83
+      },
+      {
+        "date": "2026-08-13",
+        "name": "Guindo Chirfi",
+        "title": "officer: EVP, Access, Policy & Comms",
+        "is_buy": false,
+        "shares": 10000,
+        "price": 135.0,
+        "total_val": 1.35
+      },
+      {
+        "date": "2026-08-13",
+        "name": "Zachary Jennifer",
+        "title": "officer: EVP, General Counsel",
+        "is_buy": true,
+        "shares": 13433,
+        "price": 84.71,
+        "total_val": 1.14
+      },
+      {
+        "date": "2026-08-13",
+        "name": "Zachary Jennifer",
+        "title": "officer: EVP, General Counsel",
+        "is_buy": true,
+        "shares": 41494,
+        "price": 117.89,
+        "total_val": 4.89
+      },
+      {
+        "date": "2026-08-13",
+        "name": "Zachary Jennifer",
+        "title": "officer: EVP, General Counsel",
+        "is_buy": false,
+        "shares": 80315,
+        "price": 133.46,
+        "total_val": 10.72
+      },
+      {
+        "date": "2026-08-13",
+        "name": "Zachary Jennifer",
+        "title": "officer: EVP, General Counsel",
+        "is_buy": true,
+        "shares": 41494,
+        "price": 117.89,
+        "total_val": 4.89
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2021-06-03",
+        "ratio": "131 : 125",
+        "desc": "普通股 125 拆 131 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1999-02-17",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1992-05-26",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1988-05-26",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1986-05-27",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1972-06-01",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1964-05-27",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "MRK"
   },
   "TMO": {
@@ -30310,8 +43432,151 @@ window.FULL_MARKET_DATA = {
     "year_low": 435.27,
     "all_time_high": 0.0,
     "all_time_low": 435.27,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-29",
+        "name": "WEISLER DION J",
+        "title": "director",
+        "is_buy": false,
+        "shares": 55,
+        "price": 658.02,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-09-29",
+        "name": "SPERLING SCOTT M",
+        "title": "director",
+        "is_buy": false,
+        "shares": 62,
+        "price": 658.02,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-09-29",
+        "name": "Lynch Karen S",
+        "title": "director",
+        "is_buy": false,
+        "shares": 46,
+        "price": 658.02,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-09-29",
+        "name": "Keith R. Alexandra",
+        "title": "director",
+        "is_buy": false,
+        "shares": 46,
+        "price": 658.02,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-09-29",
+        "name": "JOHNSON JENNIFER M",
+        "title": "director",
+        "is_buy": false,
+        "shares": 46,
+        "price": 658.02,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-09-01",
+        "name": "CASPER MARC N",
+        "title": "director, officer: Chairman & CEO",
+        "is_buy": false,
+        "shares": 724,
+        "price": 622.18,
+        "total_val": 0.45
+      },
+      {
+        "date": "2026-09-01",
+        "name": "CASPER MARC N",
+        "title": "director, officer: Chairman & CEO",
+        "is_buy": false,
+        "shares": 531,
+        "price": 622.18,
+        "total_val": 0.33
+      },
+      {
+        "date": "2026-09-01",
+        "name": "Meyer James",
+        "title": "officer: Sr. Vice President & CFO",
+        "is_buy": false,
+        "shares": 37,
+        "price": 622.18,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-09-01",
+        "name": "Meyer James",
+        "title": "officer: Sr. Vice President & CFO",
+        "is_buy": false,
+        "shares": 44,
+        "price": 622.18,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-09-01",
+        "name": "Meyer James",
+        "title": "officer: Sr. Vice President & CFO",
+        "is_buy": false,
+        "shares": 19,
+        "price": 622.18,
+        "total_val": 0.01
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "1996-06-06",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1995-05-25",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1993-10-29",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1986-11-03",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1985-09-17",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1984-01-04",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1979-07-10",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1973-11-19",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "TMO"
   },
   "ABT": {
@@ -30577,8 +43842,157 @@ window.FULL_MARKET_DATA = {
     "year_low": 81.97,
     "all_time_high": 0.0,
     "all_time_low": 81.97,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-02",
+        "name": "Stratton John G",
+        "title": "director",
+        "is_buy": false,
+        "shares": 397,
+        "price": 99.6,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Gonzalez Patricia Paola",
+        "title": "director",
+        "is_buy": false,
+        "shares": 333,
+        "price": 99.6,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Conroy Kevin T",
+        "title": "director",
+        "is_buy": false,
+        "shares": 318,
+        "price": 99.6,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Ahuja Nita",
+        "title": "director",
+        "is_buy": false,
+        "shares": 318,
+        "price": 99.6,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Roman Michael F",
+        "title": "director",
+        "is_buy": false,
+        "shares": 381,
+        "price": 99.6,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-09-25",
+        "name": "Conroy Kevin T",
+        "title": "director",
+        "is_buy": false,
+        "shares": 52507,
+        "price": 103.99,
+        "total_val": 5.46
+      },
+      {
+        "date": "2026-09-03",
+        "name": "MCCOY JOHN A. JR.",
+        "title": "officer: VICE PRESIDENT AND CONTROLLER",
+        "is_buy": false,
+        "shares": 52,
+        "price": 110.36,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-09-03",
+        "name": "MCCOY JOHN A. JR.",
+        "title": "officer: VICE PRESIDENT AND CONTROLLER",
+        "is_buy": false,
+        "shares": 27,
+        "price": 109.54,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Boudreau Philip P",
+        "title": "officer: EVP AND CFO",
+        "is_buy": false,
+        "shares": 388,
+        "price": 110.36,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-08-27",
+        "name": "Ford Robert B",
+        "title": "director, officer: CHAIRMAN AND CEO",
+        "is_buy": true,
+        "shares": 246963,
+        "price": 59.94,
+        "total_val": 14.8
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2013-01-02",
+        "ratio": "5000 : 2399",
+        "desc": "普通股 2399 拆 5000 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2004-05-03",
+        "ratio": "2500 : 2339",
+        "desc": "普通股 2339 拆 2500 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1998-06-01",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1992-06-01",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1990-06-01",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1986-06-02",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1981-06-01",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1978-05-23",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1975-08-25",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "ABT"
   },
   "DHR": {
@@ -30844,8 +44258,145 @@ window.FULL_MARKET_DATA = {
     "year_low": 160.93,
     "all_time_high": 0.0,
     "all_time_low": 160.93,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-02",
+        "name": "Muppaneni Shashanka",
+        "title": "officer: SVP, Chief Strategy Officer",
+        "is_buy": true,
+        "shares": 0,
+        "price": 219.87,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Muppaneni Shashanka",
+        "title": "officer: SVP, Chief Strategy Officer",
+        "is_buy": true,
+        "shares": 197,
+        "price": 219.87,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Muppaneni Shashanka",
+        "title": "officer: SVP, Chief Strategy Officer",
+        "is_buy": true,
+        "shares": 6877,
+        "price": 207.76,
+        "total_val": 1.43
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Muppaneni Shashanka",
+        "title": "officer: SVP, Chief Strategy Officer",
+        "is_buy": true,
+        "shares": 3569,
+        "price": 221.21,
+        "total_val": 0.79
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Muppaneni Shashanka",
+        "title": "officer: SVP, Chief Strategy Officer",
+        "is_buy": true,
+        "shares": 6416,
+        "price": 210.64,
+        "total_val": 1.35
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Muppaneni Shashanka",
+        "title": "officer: SVP, Chief Strategy Officer",
+        "is_buy": true,
+        "shares": 36856,
+        "price": 194.78,
+        "total_val": 7.18
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Moler Heathre T",
+        "title": "officer: SVP, Chief HR Officer",
+        "is_buy": true,
+        "shares": 0,
+        "price": 219.87,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Moler Heathre T",
+        "title": "officer: SVP, Chief HR Officer",
+        "is_buy": true,
+        "shares": 539,
+        "price": 219.87,
+        "total_val": 0.12
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Moler Heathre T",
+        "title": "officer: SVP, Chief HR Officer",
+        "is_buy": true,
+        "shares": 2404,
+        "price": 76.47,
+        "total_val": 0.18
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Moler Heathre T",
+        "title": "officer: SVP, Chief HR Officer",
+        "is_buy": true,
+        "shares": 2442,
+        "price": 88.24,
+        "total_val": 0.22
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2023-10-02",
+        "ratio": "141 : 125",
+        "desc": "普通股 125 拆 141 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2016-07-05",
+        "ratio": "1319 : 1000",
+        "desc": "普通股 1000 拆 1319 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2010-06-14",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2004-05-21",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1998-06-01",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1995-01-23",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1987-09-09",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "DHR"
   },
   "ISRG": {
@@ -31111,8 +44662,121 @@ window.FULL_MARKET_DATA = {
     "year_low": 328.57,
     "all_time_high": 0.0,
     "all_time_low": 328.57,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-16",
+        "name": "Widman Fredrik",
+        "title": "officer: VP Corporate Controller",
+        "is_buy": true,
+        "shares": 546,
+        "price": 79.64,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-09-16",
+        "name": "Widman Fredrik",
+        "title": "officer: VP Corporate Controller",
+        "is_buy": true,
+        "shares": 543,
+        "price": 109.49,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-09-16",
+        "name": "Widman Fredrik",
+        "title": "officer: VP Corporate Controller",
+        "is_buy": true,
+        "shares": 546,
+        "price": 79.64,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-09-16",
+        "name": "Widman Fredrik",
+        "title": "officer: VP Corporate Controller",
+        "is_buy": true,
+        "shares": 543,
+        "price": 109.49,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-09-16",
+        "name": "Widman Fredrik",
+        "title": "officer: VP Corporate Controller",
+        "is_buy": false,
+        "shares": 543,
+        "price": 374.44,
+        "total_val": 0.2
+      },
+      {
+        "date": "2026-09-11",
+        "name": "Brosius Mark",
+        "title": "officer: EVP & Chief Mfg and Supply Cha",
+        "is_buy": false,
+        "shares": 23,
+        "price": 347.66,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-09-11",
+        "name": "Brosius Mark",
+        "title": "officer: EVP & Chief Mfg and Supply Cha",
+        "is_buy": false,
+        "shares": 25,
+        "price": 365.79,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-09-09",
+        "name": "Brosius Mark",
+        "title": "officer: EVP & Chief Mfg and Supply Cha",
+        "is_buy": false,
+        "shares": 46,
+        "price": 361.23,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-09-09",
+        "name": "Brosius Mark",
+        "title": "officer: EVP & Chief Mfg and Supply Cha",
+        "is_buy": false,
+        "shares": 23,
+        "price": 350.2,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-08-21",
+        "name": "Brosius Mark",
+        "title": "officer: EVP & Chief Mfg and Supply Cha",
+        "is_buy": false,
+        "shares": 77,
+        "price": 396.37,
+        "total_val": 0.03
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2021-10-05",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2017-10-06",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2003-07-01",
+        "ratio": "1 : 2",
+        "desc": "普通股 2 拆 1 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "ISRG"
   },
   "PFE": {
@@ -31378,8 +45042,139 @@ window.FULL_MARKET_DATA = {
     "year_low": 23.62,
     "all_time_high": 0.0,
     "all_time_low": 23.62,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-01",
+        "name": "BOURLA ALBERT",
+        "title": "director, officer: Chairman & CEO",
+        "is_buy": false,
+        "shares": 21,
+        "price": 28.28,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-29",
+        "name": "Buckley Mortimer J",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1307,
+        "price": 28.28,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-09-29",
+        "name": "Echevarria Joseph",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1613,
+        "price": 28.28,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-09-29",
+        "name": "NARAYEN SHANTANU",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1743,
+        "price": 28.28,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-09-29",
+        "name": "Quincey James",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1351,
+        "price": 28.28,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-09-29",
+        "name": "SMITH JAMES C",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1569,
+        "price": 28.28,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-09-29",
+        "name": "Taraporevala Cyrus",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1307,
+        "price": 28.28,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-09-16",
+        "name": "BOURLA ALBERT",
+        "title": "director, officer: Chairman & CEO",
+        "is_buy": false,
+        "shares": 22,
+        "price": 28.28,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-01",
+        "name": "BOURLA ALBERT",
+        "title": "director, officer: Chairman & CEO",
+        "is_buy": false,
+        "shares": 21,
+        "price": 28.28,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-08-28",
+        "name": "Guegan Cecile",
+        "title": "officer: Executive Vice President",
+        "is_buy": true,
+        "shares": 0,
+        "price": 28.28,
+        "total_val": 0.0
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2020-11-17",
+        "ratio": "527 : 500",
+        "desc": "普通股 500 拆 527 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1999-07-01",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1997-07-01",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1995-07-03",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1991-04-01",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1983-07-01",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "PFE"
   },
   "AMGN": {
@@ -31645,8 +45440,133 @@ window.FULL_MARKET_DATA = {
     "year_low": 288.0,
     "all_time_high": 0.0,
     "all_time_low": 288.0,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-04",
+        "name": "Dittrich Thomas J.W.",
+        "title": "officer: EVP & CFO",
+        "is_buy": true,
+        "shares": 0,
+        "price": 414.87,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-04",
+        "name": "Dittrich Thomas J.W.",
+        "title": "officer: EVP & CFO",
+        "is_buy": true,
+        "shares": 17201,
+        "price": 410.95,
+        "total_val": 7.07
+      },
+      {
+        "date": "2026-08-13",
+        "name": "Khosla Rachna",
+        "title": "officer: SVP, Business Development",
+        "is_buy": true,
+        "shares": 1252,
+        "price": 162.6,
+        "total_val": 0.2
+      },
+      {
+        "date": "2026-08-13",
+        "name": "Khosla Rachna",
+        "title": "officer: SVP, Business Development",
+        "is_buy": false,
+        "shares": 1252,
+        "price": 416.43,
+        "total_val": 0.52
+      },
+      {
+        "date": "2026-08-13",
+        "name": "Khosla Rachna",
+        "title": "officer: SVP, Business Development",
+        "is_buy": false,
+        "shares": 2000,
+        "price": 412.57,
+        "total_val": 0.83
+      },
+      {
+        "date": "2026-08-13",
+        "name": "Khosla Rachna",
+        "title": "officer: SVP, Business Development",
+        "is_buy": true,
+        "shares": 1252,
+        "price": 162.6,
+        "total_val": 0.2
+      },
+      {
+        "date": "2026-08-12",
+        "name": "Busch Matthew C.",
+        "title": "officer: VP, Finance & CAO",
+        "is_buy": false,
+        "shares": 730,
+        "price": 414.87,
+        "total_val": 0.3
+      },
+      {
+        "date": "2026-08-10",
+        "name": "ISHRAK OMAR",
+        "title": "director",
+        "is_buy": false,
+        "shares": 85,
+        "price": 414.87,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-08-10",
+        "name": "HOLLEY CHARLES M",
+        "title": "director",
+        "is_buy": false,
+        "shares": 103,
+        "price": 414.87,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-08-10",
+        "name": "Drake Michael V",
+        "title": "director",
+        "is_buy": false,
+        "shares": 63,
+        "price": 414.87,
+        "total_val": 0.03
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "1999-11-22",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1999-03-01",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1995-08-16",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1991-09-11",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1990-08-13",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "AMGN"
   },
   "BMY": {
@@ -31912,8 +45832,139 @@ window.FULL_MARKET_DATA = {
     "year_low": 42.52,
     "all_time_high": 0.0,
     "all_time_low": 42.52,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-05",
+        "name": "Gallman Cari",
+        "title": "officer: EVP, General Counsel",
+        "is_buy": true,
+        "shares": 4559,
+        "price": 59.12,
+        "total_val": 0.27
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Gallman Cari",
+        "title": "officer: EVP, General Counsel",
+        "is_buy": false,
+        "shares": 2332,
+        "price": 61.15,
+        "total_val": 0.14
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Gallman Cari",
+        "title": "officer: EVP, General Counsel",
+        "is_buy": true,
+        "shares": 4559,
+        "price": 59.12,
+        "total_val": 0.27
+      },
+      {
+        "date": "2026-10-02",
+        "name": "YALE PHYLLIS R",
+        "title": "director",
+        "is_buy": false,
+        "shares": 560,
+        "price": 59.12,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Samuels Theodore R. II",
+        "title": "director",
+        "is_buy": false,
+        "shares": 821,
+        "price": 59.12,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Rice Derica W",
+        "title": "director",
+        "is_buy": false,
+        "shares": 620,
+        "price": 59.12,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-10-02",
+        "name": "McMullen Michael R.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 560,
+        "price": 59.12,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Arduini Peter J",
+        "title": "director",
+        "is_buy": false,
+        "shares": 560,
+        "price": 59.12,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-09-10",
+        "name": "Massacesi Cristian",
+        "title": "officer: EVP,Chief Med Offr,Head of Dev",
+        "is_buy": false,
+        "shares": 6249,
+        "price": 64.57,
+        "total_val": 0.4
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Short Bartie Wendy",
+        "title": "officer: EVP, Corporate Affairs",
+        "is_buy": true,
+        "shares": 1236,
+        "price": 66.92,
+        "total_val": 0.08
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2001-08-07",
+        "ratio": "1000000 : 951777",
+        "desc": "普通股 951777 拆 1000000 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1999-03-01",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1997-03-03",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1987-06-10",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1983-05-27",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1977-05-31",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "BMY"
   },
   "MDT": {
@@ -32179,8 +46230,145 @@ window.FULL_MARKET_DATA = {
     "year_low": 73.31,
     "all_time_high": 0.0,
     "all_time_low": 73.31,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-17",
+        "name": "KIIL HARRY SKIP",
+        "title": "officer: EVP & President Cardiovascular",
+        "is_buy": false,
+        "shares": 1483,
+        "price": 93.65,
+        "total_val": 0.14
+      },
+      {
+        "date": "2026-09-16",
+        "name": "Blomquist Denise L.",
+        "title": "officer: Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 600,
+        "price": 88.48,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-08-24",
+        "name": "Marinaro Michael",
+        "title": "officer: EVP, Pres MedSurg and Americas",
+        "is_buy": false,
+        "shares": 1084,
+        "price": 92.3,
+        "total_val": 0.1
+      },
+      {
+        "date": "2026-08-04",
+        "name": "Blomquist Denise L.",
+        "title": "officer: Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 2337,
+        "price": 88.48,
+        "total_val": 0.21
+      },
+      {
+        "date": "2026-08-04",
+        "name": "Blomquist Denise L.",
+        "title": "officer: Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 212,
+        "price": 85.39,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-08-04",
+        "name": "Blomquist Denise L.",
+        "title": "officer: Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 2337,
+        "price": 88.48,
+        "total_val": 0.21
+      },
+      {
+        "date": "2026-08-04",
+        "name": "Blomquist Denise L.",
+        "title": "officer: Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 1366,
+        "price": 86.68,
+        "total_val": 0.12
+      },
+      {
+        "date": "2026-08-04",
+        "name": "Walter Matthew R.",
+        "title": "officer: SVP, Chief HR Officer",
+        "is_buy": false,
+        "shares": 40973,
+        "price": 86.68,
+        "total_val": 3.55
+      },
+      {
+        "date": "2026-08-04",
+        "name": "Walter Matthew R.",
+        "title": "officer: SVP, Chief HR Officer",
+        "is_buy": false,
+        "shares": 5769,
+        "price": 88.48,
+        "total_val": 0.51
+      },
+      {
+        "date": "2026-08-04",
+        "name": "Walter Matthew R.",
+        "title": "officer: SVP, Chief HR Officer",
+        "is_buy": false,
+        "shares": 1675,
+        "price": 85.39,
+        "total_val": 0.14
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "1999-09-27",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1997-09-15",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1995-09-29",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1994-09-30",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1991-08-30",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1989-08-31",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1980-08-01",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "MDT"
   },
   "GILD": {
@@ -32446,8 +46634,133 @@ window.FULL_MARKET_DATA = {
     "year_low": 114.02,
     "all_time_high": 0.0,
     "all_time_low": 114.02,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-02",
+        "name": "O'Day Daniel Patrick",
+        "title": "director, officer: Chairman & CEO",
+        "is_buy": false,
+        "shares": 12000,
+        "price": 147.72,
+        "total_val": 1.77
+      },
+      {
+        "date": "2026-10-02",
+        "name": "O'Day Daniel Patrick",
+        "title": "director, officer: Chairman & CEO",
+        "is_buy": false,
+        "shares": 3000,
+        "price": 148.63,
+        "total_val": 0.45
+      },
+      {
+        "date": "2026-09-23",
+        "name": "Burkhart Erin",
+        "title": "officer: SVP, Controllership",
+        "is_buy": true,
+        "shares": 2223,
+        "price": 151.17,
+        "total_val": 0.34
+      },
+      {
+        "date": "2026-09-23",
+        "name": "Burkhart Erin",
+        "title": "officer: SVP, Controllership",
+        "is_buy": true,
+        "shares": 2223,
+        "price": 151.17,
+        "total_val": 0.34
+      },
+      {
+        "date": "2026-09-23",
+        "name": "Burkhart Erin",
+        "title": "officer: SVP, Controllership",
+        "is_buy": false,
+        "shares": 768,
+        "price": 152.67,
+        "total_val": 0.12
+      },
+      {
+        "date": "2026-09-16",
+        "name": "Dickinson Andrew D",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": false,
+        "shares": 3000,
+        "price": 145.29,
+        "total_val": 0.44
+      },
+      {
+        "date": "2026-09-16",
+        "name": "Mercier Johanna",
+        "title": "officer: Chief Comm & Corp Aff Officer",
+        "is_buy": false,
+        "shares": 1600,
+        "price": 143.69,
+        "total_val": 0.23
+      },
+      {
+        "date": "2026-09-16",
+        "name": "Mercier Johanna",
+        "title": "officer: Chief Comm & Corp Aff Officer",
+        "is_buy": false,
+        "shares": 800,
+        "price": 144.46,
+        "total_val": 0.12
+      },
+      {
+        "date": "2026-09-16",
+        "name": "Mercier Johanna",
+        "title": "officer: Chief Comm & Corp Aff Officer",
+        "is_buy": false,
+        "shares": 600,
+        "price": 145.29,
+        "total_val": 0.09
+      },
+      {
+        "date": "2026-09-11",
+        "name": "Dickinson Andrew D",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": true,
+        "shares": 2797,
+        "price": 151.17,
+        "total_val": 0.42
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2013-01-28",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2007-06-25",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2004-09-07",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2002-03-08",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2001-02-22",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "GILD"
   },
   "ILMN": {
@@ -32713,8 +47026,109 @@ window.FULL_MARKET_DATA = {
     "year_low": 88.0,
     "all_time_high": 0.0,
     "all_time_low": 88.0,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-07",
+        "name": "Thaysen Jacob",
+        "title": "director, officer: Chief Executive Officer",
+        "is_buy": false,
+        "shares": 1303,
+        "price": 293.69,
+        "total_val": 0.38
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Meister Keith A.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 107,
+        "price": 219.8,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Ullem Scott B.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 113,
+        "price": 219.8,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-09-10",
+        "name": "Coletti Julie Ann",
+        "title": "officer: Chief Legal Officer",
+        "is_buy": false,
+        "shares": 14214,
+        "price": 278.17,
+        "total_val": 3.95
+      },
+      {
+        "date": "2026-09-10",
+        "name": "Coletti Julie Ann",
+        "title": "officer: Chief Legal Officer",
+        "is_buy": false,
+        "shares": 5307,
+        "price": 278.17,
+        "total_val": 1.48
+      },
+      {
+        "date": "2026-09-10",
+        "name": "Coletti Julie Ann",
+        "title": "officer: Chief Legal Officer",
+        "is_buy": false,
+        "shares": 4549,
+        "price": 278.17,
+        "total_val": 1.27
+      },
+      {
+        "date": "2026-09-09",
+        "name": "Barnard Steven",
+        "title": "officer: SVP, Chief Technology Officer",
+        "is_buy": false,
+        "shares": 408,
+        "price": 211.06,
+        "total_val": 0.09
+      },
+      {
+        "date": "2026-09-04",
+        "name": "Meister Keith A.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 57488,
+        "price": 213.2,
+        "total_val": 12.26
+      },
+      {
+        "date": "2026-09-04",
+        "name": "Meister Keith A.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 10620,
+        "price": 213.73,
+        "total_val": 2.27
+      },
+      {
+        "date": "2026-09-04",
+        "name": "Meister Keith A.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 8439,
+        "price": 215.2,
+        "total_val": 1.82
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2008-09-23",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "ILMN"
   },
   "ZTS": {
@@ -32980,8 +47394,102 @@ window.FULL_MARKET_DATA = {
     "year_low": 68.77,
     "all_time_high": 0.0,
     "all_time_low": 68.77,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-02",
+        "name": "FULLER JULIE",
+        "title": "officer: Executive Vice President",
+        "is_buy": true,
+        "shares": 799,
+        "price": 74.77,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-10-02",
+        "name": "FULLER JULIE",
+        "title": "officer: Executive Vice President",
+        "is_buy": false,
+        "shares": 274,
+        "price": 69.83,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-10-02",
+        "name": "FULLER JULIE",
+        "title": "officer: Executive Vice President",
+        "is_buy": true,
+        "shares": 799,
+        "price": 74.77,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-09-18",
+        "name": "Stetter Mark",
+        "title": "director",
+        "is_buy": false,
+        "shares": 342,
+        "price": 74.77,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-09-02",
+        "name": "SACCARO JAMES",
+        "title": "officer: EVP,  CFO & COO",
+        "is_buy": false,
+        "shares": 81063,
+        "price": 74.77,
+        "total_val": 6.06
+      },
+      {
+        "date": "2026-08-24",
+        "name": "SACCARO JAMES",
+        "title": "officer: EVP,  CFO & COO",
+        "is_buy": true,
+        "shares": 0,
+        "price": 74.77,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-08-11",
+        "name": "DAMELIO FRANK A",
+        "title": "director",
+        "is_buy": false,
+        "shares": 6650,
+        "price": 74.77,
+        "total_val": 0.5
+      },
+      {
+        "date": "2026-07-14",
+        "name": "Sarbaugh Keith",
+        "title": "officer: Executive Vice President",
+        "is_buy": false,
+        "shares": 259,
+        "price": 74.77,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-07-14",
+        "name": "PECK KRISTIN C",
+        "title": "director, officer: Chief Executive Officer",
+        "is_buy": false,
+        "shares": 616,
+        "price": 74.77,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-07-14",
+        "name": "Nayak Abhay U",
+        "title": "officer: Executive Vice President",
+        "is_buy": false,
+        "shares": 214,
+        "price": 74.77,
+        "total_val": 0.02
+      }
+    ],
+    "stock_splits": [],
     "fmp_symbol": "ZTS"
   },
   "ALGN": {
@@ -33247,8 +47755,102 @@ window.FULL_MARKET_DATA = {
     "year_low": 124.91,
     "all_time_high": 0.0,
     "all_time_low": 124.91,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-08-31",
+        "name": "Blackford Quentin S.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1376,
+        "price": 142.71,
+        "total_val": 0.2
+      },
+      {
+        "date": "2026-08-31",
+        "name": "Blackford Quentin S.",
+        "title": "Officer / Director",
+        "is_buy": true,
+        "shares": 0,
+        "price": 142.71,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-05-22",
+        "name": "Vitalone Britt J.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1836,
+        "price": 142.71,
+        "total_val": 0.26
+      },
+      {
+        "date": "2026-05-22",
+        "name": "Vitalone Britt J.",
+        "title": "director",
+        "is_buy": true,
+        "shares": 1443,
+        "price": 142.71,
+        "total_val": 0.21
+      },
+      {
+        "date": "2026-05-22",
+        "name": "Vitalone Britt J.",
+        "title": "director",
+        "is_buy": true,
+        "shares": 1443,
+        "price": 142.71,
+        "total_val": 0.21
+      },
+      {
+        "date": "2026-05-22",
+        "name": "SIEGEL SUSAN E",
+        "title": "director",
+        "is_buy": true,
+        "shares": 1745,
+        "price": 142.71,
+        "total_val": 0.25
+      },
+      {
+        "date": "2026-05-22",
+        "name": "SIEGEL SUSAN E",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1836,
+        "price": 142.71,
+        "total_val": 0.26
+      },
+      {
+        "date": "2026-05-22",
+        "name": "SIEGEL SUSAN E",
+        "title": "director",
+        "is_buy": true,
+        "shares": 1745,
+        "price": 142.71,
+        "total_val": 0.25
+      },
+      {
+        "date": "2026-05-22",
+        "name": "Saia Andrea Lynn",
+        "title": "director",
+        "is_buy": true,
+        "shares": 1745,
+        "price": 142.71,
+        "total_val": 0.25
+      },
+      {
+        "date": "2026-05-22",
+        "name": "Saia Andrea Lynn",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1836,
+        "price": 142.71,
+        "total_val": 0.26
+      }
+    ],
+    "stock_splits": [],
     "fmp_symbol": "ALGN"
   },
   "FMS": {
@@ -33514,8 +48116,28 @@ window.FULL_MARKET_DATA = {
     "year_low": 20.02,
     "all_time_high": 0.0,
     "all_time_low": 20.02,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-03-18",
+        "name": "Renkewitsch Olga",
+        "title": "officer",
+        "is_buy": true,
+        "shares": 0,
+        "price": 21.06,
+        "total_val": 0.0
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2012-12-04",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "FMS"
   },
   "BDX": {
@@ -33781,8 +48403,139 @@ window.FULL_MARKET_DATA = {
     "year_low": 127.58648,
     "all_time_high": 0.0,
     "all_time_low": 127.58648,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-29",
+        "name": "Feld Michael",
+        "title": "officer: EVP, Chief Revenue Officer",
+        "is_buy": false,
+        "shares": 76,
+        "price": 183.7,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Roque Vitor",
+        "title": "officer: EVP & Chief Financial Officer",
+        "is_buy": false,
+        "shares": 190,
+        "price": 183.75,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-08-27",
+        "name": "Feld Michael",
+        "title": "officer: EVP, Chief Revenue Officer",
+        "is_buy": false,
+        "shares": 165,
+        "price": 188.49,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-08-24",
+        "name": "Feld Michael",
+        "title": "officer: EVP, Chief Revenue Officer",
+        "is_buy": false,
+        "shares": 1049,
+        "price": 183.75,
+        "total_val": 0.19
+      },
+      {
+        "date": "2026-08-14",
+        "name": "Polen Thomas E Jr",
+        "title": "director, officer: Chairman, CEO and President",
+        "is_buy": true,
+        "shares": 43278,
+        "price": 167.25,
+        "total_val": 7.24
+      },
+      {
+        "date": "2026-08-14",
+        "name": "Polen Thomas E Jr",
+        "title": "director, officer: Chairman, CEO and President",
+        "is_buy": false,
+        "shares": 39126,
+        "price": 185.0,
+        "total_val": 7.24
+      },
+      {
+        "date": "2026-08-14",
+        "name": "Polen Thomas E Jr",
+        "title": "director, officer: Chairman, CEO and President",
+        "is_buy": false,
+        "shares": 4152,
+        "price": 185.0,
+        "total_val": 0.77
+      },
+      {
+        "date": "2026-08-14",
+        "name": "Polen Thomas E Jr",
+        "title": "director, officer: Chairman, CEO and President",
+        "is_buy": true,
+        "shares": 43278,
+        "price": 167.25,
+        "total_val": 7.24
+      },
+      {
+        "date": "2026-08-12",
+        "name": "Goette Roland",
+        "title": "officer: EVP and President, EMEA",
+        "is_buy": false,
+        "shares": 2438,
+        "price": 180.84,
+        "total_val": 0.44
+      },
+      {
+        "date": "2026-08-06",
+        "name": "Huffines Robert Luther",
+        "title": "director",
+        "is_buy": false,
+        "shares": 189,
+        "price": 183.75,
+        "total_val": 0.03
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2026-02-10",
+        "ratio": "159 : 125",
+        "desc": "普通股 125 拆 159 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2022-04-01",
+        "ratio": "41 : 40",
+        "desc": "普通股 40 拆 41 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1998-08-21",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1996-08-16",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1993-03-01",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1986-03-03",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "BDX"
   },
   "ZBH": {
@@ -34048,8 +48801,109 @@ window.FULL_MARKET_DATA = {
     "year_low": 79.12,
     "all_time_high": 0.0,
     "all_time_low": 79.12,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-05",
+        "name": "Campbell Gary Craig",
+        "title": "officer: President, Americas",
+        "is_buy": true,
+        "shares": 1218,
+        "price": 89.14,
+        "total_val": 0.11
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Campbell Gary Craig",
+        "title": "officer: President, Americas",
+        "is_buy": true,
+        "shares": 1218,
+        "price": 89.14,
+        "total_val": 0.11
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Campbell Gary Craig",
+        "title": "officer: President, Americas",
+        "is_buy": true,
+        "shares": 2368,
+        "price": 89.14,
+        "total_val": 0.21
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Campbell Gary Craig",
+        "title": "officer: President, Americas",
+        "is_buy": false,
+        "shares": 480,
+        "price": 88.42,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Campbell Gary Craig",
+        "title": "officer: President, Americas",
+        "is_buy": false,
+        "shares": 932,
+        "price": 88.42,
+        "total_val": 0.08
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Campbell Gary Craig",
+        "title": "officer: President, Americas",
+        "is_buy": true,
+        "shares": 2368,
+        "price": 89.14,
+        "total_val": 0.21
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Hatcher Brian Matthew",
+        "title": "officer: President, Recon, SET, CMFT",
+        "is_buy": true,
+        "shares": 0,
+        "price": 89.14,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Hatcher Brian Matthew",
+        "title": "officer: President, Recon, SET, CMFT",
+        "is_buy": true,
+        "shares": 1407,
+        "price": 111.14,
+        "total_val": 0.16
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Hatcher Brian Matthew",
+        "title": "officer: President, Recon, SET, CMFT",
+        "is_buy": true,
+        "shares": 857,
+        "price": 111.03,
+        "total_val": 0.1
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Hatcher Brian Matthew",
+        "title": "officer: President, Recon, SET, CMFT",
+        "is_buy": true,
+        "shares": 6201,
+        "price": 89.14,
+        "total_val": 0.55
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2022-03-01",
+        "ratio": "103 : 100",
+        "desc": "普通股 100 拆 103 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "ZBH"
   },
   "DXCM": {
@@ -34315,8 +49169,109 @@ window.FULL_MARKET_DATA = {
     "year_low": 54.11,
     "all_time_high": 0.0,
     "all_time_low": 54.11,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-30",
+        "name": "Stern Sadie",
+        "title": "officer: EVP Chief People & Culture Off",
+        "is_buy": false,
+        "shares": 2565,
+        "price": 86.15,
+        "total_val": 0.22
+      },
+      {
+        "date": "2026-09-16",
+        "name": "AUGUSTINOS NICHOLAS",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1550,
+        "price": 84.02,
+        "total_val": 0.13
+      },
+      {
+        "date": "2026-09-16",
+        "name": "AUGUSTINOS NICHOLAS",
+        "title": "director",
+        "is_buy": false,
+        "shares": 6539,
+        "price": 84.04,
+        "total_val": 0.55
+      },
+      {
+        "date": "2026-09-16",
+        "name": "Brown Michael Jon",
+        "title": "officer: EVP Chief Legal Compliance Off",
+        "is_buy": false,
+        "shares": 1700,
+        "price": 84.04,
+        "total_val": 0.14
+      },
+      {
+        "date": "2026-09-14",
+        "name": "Sylvain Jereme M",
+        "title": "officer: EVP, Chief Financal Officer",
+        "is_buy": false,
+        "shares": 3638,
+        "price": 83.27,
+        "total_val": 0.3
+      },
+      {
+        "date": "2026-09-10",
+        "name": "Boehnlein Glenn S",
+        "title": "director",
+        "is_buy": false,
+        "shares": 5841,
+        "price": 84.11,
+        "total_val": 0.49
+      },
+      {
+        "date": "2026-09-10",
+        "name": "Boehnlein Glenn S",
+        "title": "director",
+        "is_buy": true,
+        "shares": 0,
+        "price": 84.11,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-08-28",
+        "name": "Stern Sadie",
+        "title": "officer: EVP Chief People & Culture Off",
+        "is_buy": false,
+        "shares": 2565,
+        "price": 88.37,
+        "total_val": 0.23
+      },
+      {
+        "date": "2026-08-25",
+        "name": "Leach Jacob Steven",
+        "title": "director, officer: President, CEO, and Director",
+        "is_buy": false,
+        "shares": 1451,
+        "price": 92.34,
+        "total_val": 0.13
+      },
+      {
+        "date": "2026-08-25",
+        "name": "Sylvain Jereme M",
+        "title": "officer: EVP, Chief Financal Officer",
+        "is_buy": false,
+        "shares": 1451,
+        "price": 92.34,
+        "total_val": 0.13
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2022-06-13",
+        "ratio": "4 : 1",
+        "desc": "普通股 1 拆 4 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "DXCM"
   },
   "RMD": {
@@ -34577,13 +49532,132 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "858 836 5000",
     "full_address": "9001 Spectrum Center Boulevard, San Diego, CA 92123, US",
-    "range_52w": "180.27-277.85",
-    "year_high": 277.85,
+    "range_52w": "180.27-277.67",
+    "year_high": 277.67,
     "year_low": 180.27,
     "all_time_high": 0.0,
     "all_time_low": 180.27,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-08",
+        "name": "Farrell Michael J.",
+        "title": "director, officer: Chairman and CEO",
+        "is_buy": true,
+        "shares": 4991,
+        "price": 146.34,
+        "total_val": 0.73
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Farrell Michael J.",
+        "title": "director, officer: Chairman and CEO",
+        "is_buy": false,
+        "shares": 4991,
+        "price": 226.33,
+        "total_val": 1.13
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Farrell Michael J.",
+        "title": "director, officer: Chairman and CEO",
+        "is_buy": true,
+        "shares": 4991,
+        "price": 146.34,
+        "total_val": 0.73
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Farrell Michael J.",
+        "title": "director, officer: Chairman and CEO",
+        "is_buy": true,
+        "shares": 0,
+        "price": 230.05,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Leong Justin",
+        "title": "officer: Chief Product Officer",
+        "is_buy": false,
+        "shares": 6461,
+        "price": 230.05,
+        "total_val": 1.49
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Rider Michael J",
+        "title": "officer: Global General Counsel",
+        "is_buy": false,
+        "shares": 3230,
+        "price": 230.05,
+        "total_val": 0.74
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Farrell Michael J.",
+        "title": "director, officer: Chairman and CEO",
+        "is_buy": false,
+        "shares": 13547,
+        "price": 230.05,
+        "total_val": 3.12
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Bloomer Aaron",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": false,
+        "shares": 9072,
+        "price": 230.05,
+        "total_val": 2.09
+      },
+      {
+        "date": "2026-09-10",
+        "name": "Farrell Michael J.",
+        "title": "director, officer: Chairman and CEO",
+        "is_buy": true,
+        "shares": 4991,
+        "price": 146.34,
+        "total_val": 0.73
+      },
+      {
+        "date": "2026-09-10",
+        "name": "Farrell Michael J.",
+        "title": "director, officer: Chairman and CEO",
+        "is_buy": false,
+        "shares": 4991,
+        "price": 222.44,
+        "total_val": 1.11
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2010-08-31",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2005-10-03",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2000-04-03",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1998-11-17",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "RMD"
   },
   "COR": {
@@ -34849,8 +49923,121 @@ window.FULL_MARKET_DATA = {
     "year_low": 244.82,
     "all_time_high": 0.0,
     "all_time_low": 244.82,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-05",
+        "name": "SANCHEZ ROBERT E",
+        "title": "director",
+        "is_buy": false,
+        "shares": 275,
+        "price": 323.85,
+        "total_val": 0.09
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Krikorian Lazarus",
+        "title": "officer: SVP & Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 986,
+        "price": 303.18,
+        "total_val": 0.3
+      },
+      {
+        "date": "2026-10-01",
+        "name": "SANCHEZ ROBERT E",
+        "title": "director",
+        "is_buy": true,
+        "shares": 0,
+        "price": 323.85,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-17",
+        "name": "GREENBERG LON R",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1280,
+        "price": 321.3,
+        "total_val": 0.41
+      },
+      {
+        "date": "2026-09-02",
+        "name": "Krikorian Lazarus",
+        "title": "officer: SVP & Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 985,
+        "price": 325.97,
+        "total_val": 0.32
+      },
+      {
+        "date": "2026-08-25",
+        "name": "Campbell Elizabeth S",
+        "title": "officer: Executive Vice President",
+        "is_buy": false,
+        "shares": 11300,
+        "price": 324.12,
+        "total_val": 3.66
+      },
+      {
+        "date": "2026-08-04",
+        "name": "NALLY DENNIS M",
+        "title": "director",
+        "is_buy": false,
+        "shares": 113,
+        "price": 311.34,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-08-04",
+        "name": "Cooper Ellen",
+        "title": "director",
+        "is_buy": false,
+        "shares": 97,
+        "price": 311.34,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-08-04",
+        "name": "Tyler Lauren M",
+        "title": "director",
+        "is_buy": false,
+        "shares": 97,
+        "price": 311.34,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-07-07",
+        "name": "Battaglia Silvana",
+        "title": "officer: Executive Vice President",
+        "is_buy": false,
+        "shares": 58,
+        "price": 240.53,
+        "total_val": 0.01
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2009-06-16",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2005-12-29",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1999-03-25",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "COR"
   },
   "STE": {
@@ -35116,8 +50303,115 @@ window.FULL_MARKET_DATA = {
     "year_low": 195.14,
     "all_time_high": 0.0,
     "all_time_low": 195.14,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-05",
+        "name": "Burton Karen L",
+        "title": "officer: Sr. Vice Pres., CFO",
+        "is_buy": false,
+        "shares": 228,
+        "price": 214.4,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-08-12",
+        "name": "Sohi Mohsen",
+        "title": "director",
+        "is_buy": true,
+        "shares": 4058,
+        "price": 86.23,
+        "total_val": 0.35
+      },
+      {
+        "date": "2026-08-12",
+        "name": "Sohi Mohsen",
+        "title": "director",
+        "is_buy": false,
+        "shares": 4058,
+        "price": 235.78,
+        "total_val": 0.96
+      },
+      {
+        "date": "2026-08-12",
+        "name": "Sohi Mohsen",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1229,
+        "price": 214.4,
+        "total_val": 0.26
+      },
+      {
+        "date": "2026-08-12",
+        "name": "Sohi Mohsen",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1099,
+        "price": 238.91,
+        "total_val": 0.26
+      },
+      {
+        "date": "2026-08-12",
+        "name": "Sohi Mohsen",
+        "title": "director",
+        "is_buy": true,
+        "shares": 4058,
+        "price": 86.23,
+        "total_val": 0.35
+      },
+      {
+        "date": "2026-08-12",
+        "name": "Shapiro Louis",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1025,
+        "price": 214.4,
+        "total_val": 0.22
+      },
+      {
+        "date": "2026-08-12",
+        "name": "Shah Nirav R",
+        "title": "director",
+        "is_buy": false,
+        "shares": 512,
+        "price": 214.4,
+        "total_val": 0.11
+      },
+      {
+        "date": "2026-08-12",
+        "name": "Shah Nirav R",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1506,
+        "price": 238.91,
+        "total_val": 0.36
+      },
+      {
+        "date": "2026-08-12",
+        "name": "Martin Paul Edward",
+        "title": "director",
+        "is_buy": false,
+        "shares": 512,
+        "price": 214.4,
+        "total_val": 0.11
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "1998-08-25",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1995-08-25",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "STE"
   },
   "MCK": {
@@ -35383,8 +50677,109 @@ window.FULL_MARKET_DATA = {
     "year_low": 723.68,
     "all_time_high": 0.0,
     "all_time_low": 723.68,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-10",
+        "name": "Rutledge Napoleon B JR",
+        "title": "officer: SVP, Controller & CAO",
+        "is_buy": false,
+        "shares": 111,
+        "price": 891.45,
+        "total_val": 0.1
+      },
+      {
+        "date": "2026-08-11",
+        "name": "Srinivasan Ramesh (NMN)",
+        "title": "officer: EVP and Chief Strategy Officer",
+        "is_buy": false,
+        "shares": 368,
+        "price": 938.84,
+        "total_val": 0.35
+      },
+      {
+        "date": "2026-08-11",
+        "name": "Lerman Bradley E",
+        "title": "director",
+        "is_buy": false,
+        "shares": 301,
+        "price": 892.33,
+        "total_val": 0.27
+      },
+      {
+        "date": "2026-08-10",
+        "name": "Srinivasan Ramesh (NMN)",
+        "title": "officer: EVP and Chief Strategy Officer",
+        "is_buy": true,
+        "shares": 0,
+        "price": 938.84,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-08-10",
+        "name": "Srinivasan Ramesh (NMN)",
+        "title": "officer: EVP and Chief Strategy Officer",
+        "is_buy": true,
+        "shares": 316,
+        "price": 938.84,
+        "total_val": 0.3
+      },
+      {
+        "date": "2026-07-23",
+        "name": "Hinton James H.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 277,
+        "price": 938.84,
+        "total_val": 0.26
+      },
+      {
+        "date": "2026-07-23",
+        "name": "Doughtie Lynne M",
+        "title": "director",
+        "is_buy": false,
+        "shares": 277,
+        "price": 938.84,
+        "total_val": 0.26
+      },
+      {
+        "date": "2026-07-23",
+        "name": "Wilson-Thompson Kathleen",
+        "title": "director",
+        "is_buy": false,
+        "shares": 277,
+        "price": 814.04,
+        "total_val": 0.23
+      },
+      {
+        "date": "2026-07-23",
+        "name": "Dunbar Webster Roy",
+        "title": "director",
+        "is_buy": false,
+        "shares": 277,
+        "price": 938.84,
+        "total_val": 0.26
+      },
+      {
+        "date": "2026-07-23",
+        "name": "Caruso Dominic J",
+        "title": "director",
+        "is_buy": false,
+        "shares": 277,
+        "price": 814.04,
+        "total_val": 0.23
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "1998-01-05",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "MCK"
   },
   "SYK": {
@@ -35650,8 +51045,157 @@ window.FULL_MARKET_DATA = {
     "year_low": 267.0,
     "all_time_high": 0.0,
     "all_time_low": 267.0,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-28",
+        "name": "Wells Preston Wendell",
+        "title": "officer: VP, Chief Financial Officer",
+        "is_buy": false,
+        "shares": 109,
+        "price": 277.33,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-09-24",
+        "name": "Wells Preston Wendell",
+        "title": "officer: VP, Chief Financial Officer",
+        "is_buy": false,
+        "shares": 1776,
+        "price": 277.33,
+        "total_val": 0.49
+      },
+      {
+        "date": "2026-09-24",
+        "name": "Wells Preston Wendell",
+        "title": "officer: VP, Chief Financial Officer",
+        "is_buy": false,
+        "shares": 962,
+        "price": 277.33,
+        "total_val": 0.27
+      },
+      {
+        "date": "2026-09-08",
+        "name": "Baculik Emily Kay",
+        "title": "officer: VP, Corporate Controller",
+        "is_buy": true,
+        "shares": 0,
+        "price": 277.33,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-08",
+        "name": "Baculik Emily Kay",
+        "title": "officer: VP, Corporate Controller",
+        "is_buy": true,
+        "shares": 0,
+        "price": 277.33,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-08",
+        "name": "Baculik Emily Kay",
+        "title": "officer: VP, Corporate Controller",
+        "is_buy": true,
+        "shares": 1060,
+        "price": 360.82,
+        "total_val": 0.38
+      },
+      {
+        "date": "2026-09-08",
+        "name": "Baculik Emily Kay",
+        "title": "officer: VP, Corporate Controller",
+        "is_buy": true,
+        "shares": 805,
+        "price": 248.6,
+        "total_val": 0.2
+      },
+      {
+        "date": "2026-09-08",
+        "name": "Baculik Emily Kay",
+        "title": "officer: VP, Corporate Controller",
+        "is_buy": true,
+        "shares": 1490,
+        "price": 268.22,
+        "total_val": 0.4
+      },
+      {
+        "date": "2026-09-08",
+        "name": "Baculik Emily Kay",
+        "title": "officer: VP, Corporate Controller",
+        "is_buy": true,
+        "shares": 1265,
+        "price": 339.77,
+        "total_val": 0.43
+      },
+      {
+        "date": "2026-09-08",
+        "name": "Baculik Emily Kay",
+        "title": "officer: VP, Corporate Controller",
+        "is_buy": true,
+        "shares": 918,
+        "price": 392.39,
+        "total_val": 0.36
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2004-05-17",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2000-05-15",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1996-06-11",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1991-06-14",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1989-06-20",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1987-06-12",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1985-09-17",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1982-11-15",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1980-11-12",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "SYK"
   },
   "VEEV": {
@@ -35917,8 +51461,102 @@ window.FULL_MARKET_DATA = {
     "year_low": 148.05,
     "all_time_high": 0.0,
     "all_time_low": 148.05,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-05",
+        "name": "Zuppas Eleni Nitsa",
+        "title": "officer: President & Chief of Staff",
+        "is_buy": true,
+        "shares": 2181,
+        "price": 296.13,
+        "total_val": 0.65
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Zuppas Eleni Nitsa",
+        "title": "officer: President & Chief of Staff",
+        "is_buy": false,
+        "shares": 1110,
+        "price": 281.93,
+        "total_val": 0.31
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Zuppas Eleni Nitsa",
+        "title": "officer: President & Chief of Staff",
+        "is_buy": true,
+        "shares": 2181,
+        "price": 296.13,
+        "total_val": 0.65
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Van Wagener Brian",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": true,
+        "shares": 1636,
+        "price": 296.13,
+        "total_val": 0.48
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Van Wagener Brian",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": false,
+        "shares": 705,
+        "price": 281.93,
+        "total_val": 0.2
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Van Wagener Brian",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": true,
+        "shares": 1636,
+        "price": 296.13,
+        "total_val": 0.48
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Schwenger Thomas D.",
+        "title": "officer: Pres. & Chief Customer Officer",
+        "is_buy": true,
+        "shares": 2907,
+        "price": 296.13,
+        "total_val": 0.86
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Schwenger Thomas D.",
+        "title": "officer: Pres. & Chief Customer Officer",
+        "is_buy": false,
+        "shares": 1272,
+        "price": 281.93,
+        "total_val": 0.36
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Schwenger Thomas D.",
+        "title": "officer: Pres. & Chief Customer Officer",
+        "is_buy": true,
+        "shares": 2907,
+        "price": 296.13,
+        "total_val": 0.86
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Rizzo Daniel J",
+        "title": "officer: EVP, Sales, Consulting, & Svcs",
+        "is_buy": true,
+        "shares": 1672,
+        "price": 296.13,
+        "total_val": 0.5
+      }
+    ],
+    "stock_splits": [],
     "fmp_symbol": "VEEV"
   },
   "LH": {
@@ -36184,8 +51822,127 @@ window.FULL_MARKET_DATA = {
     "year_low": 244.52,
     "all_time_high": 0.0,
     "all_time_low": 244.52,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-03",
+        "name": "Oyegunwa Akinbolade",
+        "title": "officer: EVP, CIO & CTO",
+        "is_buy": false,
+        "shares": 750,
+        "price": 312.15,
+        "total_val": 0.23
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Meltzer Jonathan C",
+        "title": "officer: EVP, COO",
+        "is_buy": false,
+        "shares": 900,
+        "price": 312.15,
+        "total_val": 0.28
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Vaughn Bryan T",
+        "title": "officer: EVP and President, Diagnostics",
+        "is_buy": false,
+        "shares": 1500,
+        "price": 312.15,
+        "total_val": 0.47
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Caveney Brian J",
+        "title": "officer: EVP, Pres of BLS, CMO & CSO",
+        "is_buy": false,
+        "shares": 3000,
+        "price": 312.15,
+        "total_val": 0.94
+      },
+      {
+        "date": "2026-08-18",
+        "name": "ANDERSON KERRII B",
+        "title": "director",
+        "is_buy": false,
+        "shares": 3000,
+        "price": 318.02,
+        "total_val": 0.95
+      },
+      {
+        "date": "2026-08-12",
+        "name": "Schechter Adam H",
+        "title": "director, officer: President & CEO",
+        "is_buy": false,
+        "shares": 4669,
+        "price": 320.37,
+        "total_val": 1.5
+      },
+      {
+        "date": "2026-08-06",
+        "name": "Summy Amy B.",
+        "title": "officer: EVP, Chief Marketing Officer",
+        "is_buy": false,
+        "shares": 924,
+        "price": 306.74,
+        "total_val": 0.28
+      },
+      {
+        "date": "2026-08-05",
+        "name": "Wilkinson Peter J",
+        "title": "officer: SVP, Chief Accounting Officer",
+        "is_buy": true,
+        "shares": 1338,
+        "price": 209.25,
+        "total_val": 0.28
+      },
+      {
+        "date": "2026-08-05",
+        "name": "Wilkinson Peter J",
+        "title": "officer: SVP, Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 82,
+        "price": 309.22,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-08-05",
+        "name": "Wilkinson Peter J",
+        "title": "officer: SVP, Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 1338,
+        "price": 309.23,
+        "total_val": 0.41
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2023-07-03",
+        "ratio": "291 : 250",
+        "desc": "普通股 250 拆 291 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2002-05-13",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2001-06-12",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2000-05-04",
+        "ratio": "1 : 10",
+        "desc": "普通股 10 拆 1 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "LH"
   },
   "REGN": {
@@ -36451,8 +52208,102 @@ window.FULL_MARKET_DATA = {
     "year_low": 541.0,
     "all_time_high": 0.0,
     "all_time_low": 541.0,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-03",
+        "name": "McCourt Marion",
+        "title": "officer: EVP Commercial",
+        "is_buy": false,
+        "shares": 1215,
+        "price": 850.0,
+        "total_val": 1.03
+      },
+      {
+        "date": "2026-09-03",
+        "name": "McCourt Marion",
+        "title": "officer: EVP Commercial",
+        "is_buy": false,
+        "shares": 1131,
+        "price": 857.39,
+        "total_val": 0.97
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Guarini Kathryn",
+        "title": "director",
+        "is_buy": true,
+        "shares": 400,
+        "price": 719.37,
+        "total_val": 0.29
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Guarini Kathryn",
+        "title": "director",
+        "is_buy": true,
+        "shares": 400,
+        "price": 719.37,
+        "total_val": 0.29
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Guarini Kathryn",
+        "title": "director",
+        "is_buy": false,
+        "shares": 400,
+        "price": 850.0,
+        "total_val": 0.34
+      },
+      {
+        "date": "2026-08-21",
+        "name": "LAROSA JOSEPH J",
+        "title": "officer: EVP General Counsel and Secret",
+        "is_buy": true,
+        "shares": 12282,
+        "price": 381.92,
+        "total_val": 4.69
+      },
+      {
+        "date": "2026-08-21",
+        "name": "LAROSA JOSEPH J",
+        "title": "officer: EVP General Counsel and Secret",
+        "is_buy": false,
+        "shares": 9019,
+        "price": 830.15,
+        "total_val": 7.49
+      },
+      {
+        "date": "2026-08-21",
+        "name": "LAROSA JOSEPH J",
+        "title": "officer: EVP General Counsel and Secret",
+        "is_buy": true,
+        "shares": 12282,
+        "price": 381.92,
+        "total_val": 4.69
+      },
+      {
+        "date": "2026-08-20",
+        "name": "Fenimore Christopher R.",
+        "title": "officer: EVP Finance CFO",
+        "is_buy": true,
+        "shares": 6283,
+        "price": 381.92,
+        "total_val": 2.4
+      },
+      {
+        "date": "2026-08-20",
+        "name": "Fenimore Christopher R.",
+        "title": "officer: EVP Finance CFO",
+        "is_buy": false,
+        "shares": 4599,
+        "price": 813.47,
+        "total_val": 3.74
+      }
+    ],
+    "stock_splits": [],
     "fmp_symbol": "REGN"
   },
   "VRTX": {
@@ -36718,8 +52569,109 @@ window.FULL_MARKET_DATA = {
     "year_low": 402.58,
     "all_time_high": 0.0,
     "all_time_low": 402.58,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-10",
+        "name": "van Grunsven Jasper",
+        "title": "officer: EVP,   CP and NPPO",
+        "is_buy": false,
+        "shares": 8682,
+        "price": 510.08,
+        "total_val": 4.43
+      },
+      {
+        "date": "2026-09-10",
+        "name": "van Grunsven Jasper",
+        "title": "officer",
+        "is_buy": true,
+        "shares": 0,
+        "price": 510.08,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-01",
+        "name": "Ambrose Kristen",
+        "title": "officer: SVP & Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 5000,
+        "price": 510.08,
+        "total_val": 2.55
+      },
+      {
+        "date": "2026-08-31",
+        "name": "SACHS BRUCE I",
+        "title": "director",
+        "is_buy": false,
+        "shares": 6000,
+        "price": 510.08,
+        "total_val": 3.06
+      },
+      {
+        "date": "2026-07-23",
+        "name": "Tatsis Ourania",
+        "title": "officer: EVP, Chief Reg. & Quality Off.",
+        "is_buy": false,
+        "shares": 8251,
+        "price": 510.08,
+        "total_val": 4.21
+      },
+      {
+        "date": "2026-07-23",
+        "name": "Sachdev Amit",
+        "title": "officer: EVP Chief Patient & Ext Af Off",
+        "is_buy": false,
+        "shares": 8251,
+        "price": 510.08,
+        "total_val": 4.21
+      },
+      {
+        "date": "2026-07-17",
+        "name": "SACHS BRUCE I",
+        "title": "director",
+        "is_buy": false,
+        "shares": 99,
+        "price": 510.08,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-07-17",
+        "name": "Garber Alan M",
+        "title": "director",
+        "is_buy": false,
+        "shares": 31,
+        "price": 510.08,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-07-07",
+        "name": "Tatsis Ourania",
+        "title": "officer: EVP, Chief Reg. & Quality Off.",
+        "is_buy": false,
+        "shares": 1500,
+        "price": 524.99,
+        "total_val": 0.79
+      },
+      {
+        "date": "2026-07-07",
+        "name": "McKechnie Duncan",
+        "title": "officer: EVP, Chief Commercial Officer",
+        "is_buy": false,
+        "shares": 1541,
+        "price": 519.0,
+        "total_val": 0.8
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2000-08-24",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "VRTX"
   },
   "WMT": {
@@ -36985,8 +52937,163 @@ window.FULL_MARKET_DATA = {
     "year_low": 98.88,
     "all_time_high": 0.0,
     "all_time_low": 98.88,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-08",
+        "name": "Dallaire Seth",
+        "title": "officer: Executive Vice President",
+        "is_buy": false,
+        "shares": 386,
+        "price": 105.07,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Milum Dwayne M",
+        "title": "officer: SVP & Controller",
+        "is_buy": false,
+        "shares": 121,
+        "price": 105.07,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Watkins Latriece",
+        "title": "officer: Executive Vice President",
+        "is_buy": false,
+        "shares": 227,
+        "price": 105.07,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-10-08",
+        "name": "Guggina David W",
+        "title": "officer: Executive Vice President",
+        "is_buy": false,
+        "shares": 117,
+        "price": 105.07,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Penner Gregory Boyd",
+        "title": "director",
+        "is_buy": false,
+        "shares": 547,
+        "price": 111.35,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Walton Steuart L",
+        "title": "director",
+        "is_buy": false,
+        "shares": 337,
+        "price": 111.35,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Mehrotra Shishir",
+        "title": "director",
+        "is_buy": false,
+        "shares": 277,
+        "price": 111.35,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-02",
+        "name": "MAYER MARISSA A",
+        "title": "director",
+        "is_buy": false,
+        "shares": 277,
+        "price": 111.35,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-02",
+        "name": "STEPHENSON RANDALL L",
+        "title": "director",
+        "is_buy": false,
+        "shares": 457,
+        "price": 111.35,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Friar Sarah",
+        "title": "director",
+        "is_buy": false,
+        "shares": 337,
+        "price": 111.35,
+        "total_val": 0.04
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2024-02-26",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1999-04-20",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1993-02-26",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1990-07-09",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1987-07-13",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1985-10-07",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1983-07-11",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1982-07-12",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1980-12-17",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1975-08-25",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "WMT"
   },
   "COST": {
@@ -37252,8 +53359,139 @@ window.FULL_MARKET_DATA = {
     "year_low": 844.06,
     "all_time_high": 0.0,
     "all_time_low": 844.06,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-30",
+        "name": "Frates Caton",
+        "title": "officer: Sr. Executive Vice President",
+        "is_buy": false,
+        "shares": 800,
+        "price": 915.93,
+        "total_val": 0.73
+      },
+      {
+        "date": "2026-09-30",
+        "name": "Adamo Claudine",
+        "title": "officer: Executive Vice President",
+        "is_buy": false,
+        "shares": 2200,
+        "price": 915.93,
+        "total_val": 2.02
+      },
+      {
+        "date": "2026-09-30",
+        "name": "Self Adam Webb",
+        "title": "officer: Executive Vice President",
+        "is_buy": true,
+        "shares": 0,
+        "price": 946.92,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-14",
+        "name": "Wilcox William Richard",
+        "title": "officer: Executive Vice President",
+        "is_buy": false,
+        "shares": 4129,
+        "price": 946.92,
+        "total_val": 3.91
+      },
+      {
+        "date": "2026-09-14",
+        "name": "Wilcox William Richard",
+        "title": "officer: Executive Vice President",
+        "is_buy": false,
+        "shares": 1934,
+        "price": 902.38,
+        "total_val": 1.75
+      },
+      {
+        "date": "2026-09-14",
+        "name": "Rubanenko Yoram",
+        "title": "officer: Executive Vice President",
+        "is_buy": false,
+        "shares": 4129,
+        "price": 946.92,
+        "total_val": 3.91
+      },
+      {
+        "date": "2026-09-14",
+        "name": "Rubanenko Yoram",
+        "title": "officer: Executive Vice President",
+        "is_buy": false,
+        "shares": 1695,
+        "price": 902.38,
+        "total_val": 1.53
+      },
+      {
+        "date": "2026-09-14",
+        "name": "Riel Pierre",
+        "title": "officer: Executive Vice President",
+        "is_buy": false,
+        "shares": 4552,
+        "price": 946.92,
+        "total_val": 4.31
+      },
+      {
+        "date": "2026-09-14",
+        "name": "Riel Pierre",
+        "title": "officer: Executive Vice President",
+        "is_buy": false,
+        "shares": 1561,
+        "price": 902.38,
+        "total_val": 1.41
+      },
+      {
+        "date": "2026-09-14",
+        "name": "Klauer James C",
+        "title": "officer: Executive Vice President",
+        "is_buy": false,
+        "shares": 4129,
+        "price": 946.92,
+        "total_val": 3.91
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2000-01-14",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1993-10-22",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1992-03-09",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1991-05-16",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1986-02-04",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1984-06-13",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "COST"
   },
   "PG": {
@@ -37519,8 +53757,139 @@ window.FULL_MARKET_DATA = {
     "year_low": 137.62,
     "all_time_high": 0.0,
     "all_time_low": 137.62,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-06",
+        "name": "Schulten Andre",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": false,
+        "shares": 3914,
+        "price": 145.34,
+        "total_val": 0.57
+      },
+      {
+        "date": "2026-10-06",
+        "name": "Gama Paul",
+        "title": "officer: CEO- Health Care",
+        "is_buy": false,
+        "shares": 2225,
+        "price": 145.34,
+        "total_val": 0.32
+      },
+      {
+        "date": "2026-10-06",
+        "name": "Whaley Susan Street",
+        "title": "officer: Chief Legal Officer & Secy",
+        "is_buy": false,
+        "shares": 2369,
+        "price": 145.34,
+        "total_val": 0.34
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Whaley Susan Street",
+        "title": "officer: Chief Legal Officer & Secy",
+        "is_buy": false,
+        "shares": 6110,
+        "price": 151.23,
+        "total_val": 0.92
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Whaley Susan Street",
+        "title": "officer: Chief Legal Officer & Secy",
+        "is_buy": false,
+        "shares": 24330,
+        "price": 143.95,
+        "total_val": 3.5
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Schulten Andre",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": false,
+        "shares": 78324,
+        "price": 143.95,
+        "total_val": 11.27
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Schulten Andre",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": false,
+        "shares": 6557,
+        "price": 151.23,
+        "total_val": 0.99
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Gama Paul",
+        "title": "officer: CEO- Health Care",
+        "is_buy": false,
+        "shares": 12517,
+        "price": 151.23,
+        "total_val": 1.89
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Jejurikar Shailesh",
+        "title": "director, officer: Chairman, President and CEO",
+        "is_buy": false,
+        "shares": 191909,
+        "price": 143.95,
+        "total_val": 27.63
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Jejurikar Shailesh",
+        "title": "director, officer: Chairman, President and CEO",
+        "is_buy": false,
+        "shares": 16065,
+        "price": 151.23,
+        "total_val": 2.43
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2004-06-21",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1997-09-22",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1992-06-15",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1989-11-20",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1983-02-22",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1970-05-19",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "PG"
   },
   "KO": {
@@ -37786,8 +54155,157 @@ window.FULL_MARKET_DATA = {
     "year_low": 66.0,
     "all_time_high": 0.0,
     "all_time_low": 66.0,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-08-24",
+        "name": "Pietracci Bruno",
+        "title": "other: President, Latin America OU",
+        "is_buy": true,
+        "shares": 41365,
+        "price": 61.34,
+        "total_val": 2.54
+      },
+      {
+        "date": "2026-08-24",
+        "name": "Pietracci Bruno",
+        "title": "other: President, Latin America OU",
+        "is_buy": true,
+        "shares": 40754,
+        "price": 60.02,
+        "total_val": 2.45
+      },
+      {
+        "date": "2026-08-24",
+        "name": "Pietracci Bruno",
+        "title": "other: President, Latin America OU",
+        "is_buy": true,
+        "shares": 29246,
+        "price": 60.27,
+        "total_val": 1.76
+      },
+      {
+        "date": "2026-08-24",
+        "name": "Pietracci Bruno",
+        "title": "other: President, Latin America OU",
+        "is_buy": true,
+        "shares": 29246,
+        "price": 60.27,
+        "total_val": 1.76
+      },
+      {
+        "date": "2026-08-24",
+        "name": "Pietracci Bruno",
+        "title": "other: President, Latin America OU",
+        "is_buy": true,
+        "shares": 40754,
+        "price": 60.02,
+        "total_val": 2.45
+      },
+      {
+        "date": "2026-08-24",
+        "name": "Pietracci Bruno",
+        "title": "other: President, Latin America OU",
+        "is_buy": false,
+        "shares": 29246,
+        "price": 90.93,
+        "total_val": 2.66
+      },
+      {
+        "date": "2026-08-24",
+        "name": "Pietracci Bruno",
+        "title": "other: President, Latin America OU",
+        "is_buy": true,
+        "shares": 41365,
+        "price": 61.34,
+        "total_val": 2.54
+      },
+      {
+        "date": "2026-08-21",
+        "name": "QUAN NANCY",
+        "title": "officer: Executive Vice President",
+        "is_buy": true,
+        "shares": 50000,
+        "price": 50.44,
+        "total_val": 2.52
+      },
+      {
+        "date": "2026-08-21",
+        "name": "QUAN NANCY",
+        "title": "officer: Executive Vice President",
+        "is_buy": false,
+        "shares": 50000,
+        "price": 90.39,
+        "total_val": 4.52
+      },
+      {
+        "date": "2026-08-21",
+        "name": "QUAN NANCY",
+        "title": "officer: Executive Vice President",
+        "is_buy": true,
+        "shares": 50000,
+        "price": 50.44,
+        "total_val": 2.52
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2012-08-13",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1996-05-13",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1992-05-12",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1990-05-14",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1986-07-01",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1977-06-01",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1968-06-03",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1965-05-19",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1965-02-19",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "KO"
   },
   "PEP": {
@@ -38053,8 +54571,127 @@ window.FULL_MARKET_DATA = {
     "year_low": 123.47,
     "all_time_high": 0.0,
     "all_time_low": 123.47,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-05",
+        "name": "Weisser Alberto",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1592,
+        "price": 125.6,
+        "total_val": 0.2
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Weisser Alberto",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1336,
+        "price": 125.97,
+        "total_val": 0.17
+      },
+      {
+        "date": "2026-10-05",
+        "name": "VASELLA DANIEL",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1592,
+        "price": 125.6,
+        "total_val": 0.2
+      },
+      {
+        "date": "2026-10-05",
+        "name": "VASELLA DANIEL",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1770,
+        "price": 125.97,
+        "total_val": 0.22
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Diamond Susan M",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1592,
+        "price": 125.6,
+        "total_val": 0.2
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Diamond Susan M",
+        "title": "director",
+        "is_buy": false,
+        "shares": 165,
+        "price": 125.97,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-10-05",
+        "name": "COOK IAN M",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1592,
+        "price": 125.6,
+        "total_val": 0.2
+      },
+      {
+        "date": "2026-10-05",
+        "name": "COOK IAN M",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1887,
+        "price": 125.97,
+        "total_val": 0.24
+      },
+      {
+        "date": "2026-10-05",
+        "name": "COOPER EDITH W",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1592,
+        "price": 125.6,
+        "total_val": 0.2
+      },
+      {
+        "date": "2026-10-05",
+        "name": "COOPER EDITH W",
+        "title": "director",
+        "is_buy": false,
+        "shares": 319,
+        "price": 125.97,
+        "total_val": 0.04
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "1996-05-29",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1990-09-05",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1986-05-29",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1977-05-31",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "PEP"
   },
   "PM": {
@@ -38320,8 +54957,102 @@ window.FULL_MARKET_DATA = {
     "year_low": 142.11,
     "all_time_high": 0.0,
     "all_time_low": 142.11,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-08-03",
+        "name": "Andolina Massimo",
+        "title": "officer: Group Chief Financial Officer",
+        "is_buy": true,
+        "shares": 0,
+        "price": 201.19,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-05-08",
+        "name": "Combes Michel",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1119,
+        "price": 169.93,
+        "total_val": 0.19
+      },
+      {
+        "date": "2026-05-08",
+        "name": "Geissler Werner",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1119,
+        "price": 169.93,
+        "total_val": 0.19
+      },
+      {
+        "date": "2026-05-08",
+        "name": "Morparia Kalpana",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1119,
+        "price": 169.93,
+        "total_val": 0.19
+      },
+      {
+        "date": "2026-05-08",
+        "name": "Harker Victoria D",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1119,
+        "price": 169.93,
+        "total_val": 0.19
+      },
+      {
+        "date": "2026-05-08",
+        "name": "Polet Robert",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1119,
+        "price": 169.93,
+        "total_val": 0.19
+      },
+      {
+        "date": "2026-05-08",
+        "name": "Bough Bonin",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1119,
+        "price": 169.93,
+        "total_val": 0.19
+      },
+      {
+        "date": "2026-05-08",
+        "name": "Hook Lisa",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1119,
+        "price": 169.93,
+        "total_val": 0.19
+      },
+      {
+        "date": "2026-05-08",
+        "name": "Calantzopoulos Andre",
+        "title": "director, other: Chairman",
+        "is_buy": false,
+        "shares": 1119,
+        "price": 169.93,
+        "total_val": 0.19
+      },
+      {
+        "date": "2026-05-08",
+        "name": "Yanai Shlomo",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1119,
+        "price": 169.93,
+        "total_val": 0.19
+      }
+    ],
+    "stock_splits": [],
     "fmp_symbol": "PM"
   },
   "MDLZ": {
@@ -38587,8 +55318,102 @@ window.FULL_MARKET_DATA = {
     "year_low": 51.2,
     "all_time_high": 0.0,
     "all_time_low": 51.2,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-04",
+        "name": "Zaramella Luca",
+        "title": "officer: EVP & Chief Operating Officer",
+        "is_buy": true,
+        "shares": 22570,
+        "price": 43.2,
+        "total_val": 0.98
+      },
+      {
+        "date": "2026-09-04",
+        "name": "Zaramella Luca",
+        "title": "officer: EVP & Chief Operating Officer",
+        "is_buy": false,
+        "shares": 18695,
+        "price": 62.45,
+        "total_val": 1.17
+      },
+      {
+        "date": "2026-09-04",
+        "name": "Zaramella Luca",
+        "title": "officer: EVP & Chief Operating Officer",
+        "is_buy": true,
+        "shares": 22570,
+        "price": 43.2,
+        "total_val": 0.98
+      },
+      {
+        "date": "2026-08-21",
+        "name": "Van de Put Dirk",
+        "title": "director, officer: Chief Executive Officer",
+        "is_buy": true,
+        "shares": 133580,
+        "price": 42.11,
+        "total_val": 5.63
+      },
+      {
+        "date": "2026-08-21",
+        "name": "Van de Put Dirk",
+        "title": "director, officer: Chief Executive Officer",
+        "is_buy": false,
+        "shares": 133580,
+        "price": 64.08,
+        "total_val": 8.56
+      },
+      {
+        "date": "2026-08-21",
+        "name": "Van de Put Dirk",
+        "title": "director, officer: Chief Executive Officer",
+        "is_buy": true,
+        "shares": 133580,
+        "price": 42.11,
+        "total_val": 5.63
+      },
+      {
+        "date": "2026-07-02",
+        "name": "BANATI AMIT",
+        "title": "officer: EVP and CFO",
+        "is_buy": false,
+        "shares": 122210,
+        "price": 59.35,
+        "total_val": 7.25
+      },
+      {
+        "date": "2026-07-02",
+        "name": "BANATI AMIT",
+        "title": "officer: EVP and CFO",
+        "is_buy": false,
+        "shares": 20370,
+        "price": 60.41,
+        "total_val": 1.23
+      },
+      {
+        "date": "2026-07-02",
+        "name": "BANATI AMIT",
+        "title": "officer: EVP and CFO",
+        "is_buy": true,
+        "shares": 0,
+        "price": 60.41,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-05-21",
+        "name": "Nielsen Jane",
+        "title": "director",
+        "is_buy": false,
+        "shares": 3525,
+        "price": 60.41,
+        "total_val": 0.21
+      }
+    ],
+    "stock_splits": [],
     "fmp_symbol": "MDLZ"
   },
   "CL": {
@@ -38854,8 +55679,133 @@ window.FULL_MARKET_DATA = {
     "year_low": 74.55,
     "all_time_high": 0.0,
     "all_time_low": 74.55,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-02",
+        "name": "NORRINGTON LORRIE M",
+        "title": "director",
+        "is_buy": false,
+        "shares": 300,
+        "price": 87.42,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Newman Brian",
+        "title": "director",
+        "is_buy": false,
+        "shares": 214,
+        "price": 87.42,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-10-02",
+        "name": "BILBREY JOHN P",
+        "title": "director",
+        "is_buy": false,
+        "shares": 271,
+        "price": 87.42,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-09-18",
+        "name": "Wallace Noel R.",
+        "title": "director, officer: Chairman, President & CEO",
+        "is_buy": false,
+        "shares": 29649,
+        "price": 88.27,
+        "total_val": 2.62
+      },
+      {
+        "date": "2026-09-18",
+        "name": "Wallace Noel R.",
+        "title": "director, officer: Chairman, President & CEO",
+        "is_buy": false,
+        "shares": 205197,
+        "price": 87.02,
+        "total_val": 17.86
+      },
+      {
+        "date": "2026-09-18",
+        "name": "GRANT SHANE",
+        "title": "officer: COO, Americas",
+        "is_buy": false,
+        "shares": 7355,
+        "price": 88.27,
+        "total_val": 0.65
+      },
+      {
+        "date": "2026-09-18",
+        "name": "GRANT SHANE",
+        "title": "officer: COO, Americas",
+        "is_buy": false,
+        "shares": 50902,
+        "price": 87.02,
+        "total_val": 4.43
+      },
+      {
+        "date": "2026-09-18",
+        "name": "Tsourapas Panagiotis",
+        "title": "officer: COO, CD, EMEA, APac, Skin",
+        "is_buy": false,
+        "shares": 31814,
+        "price": 87.02,
+        "total_val": 2.77
+      },
+      {
+        "date": "2026-09-18",
+        "name": "Tsourapas Panagiotis",
+        "title": "officer: COO, CD, EMEA, APac, Skin",
+        "is_buy": false,
+        "shares": 4597,
+        "price": 88.27,
+        "total_val": 0.41
+      },
+      {
+        "date": "2026-09-18",
+        "name": "SUTULA STANLEY J III",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": false,
+        "shares": 8045,
+        "price": 88.27,
+        "total_val": 0.71
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2013-05-16",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1999-07-01",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1997-05-16",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1991-05-16",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1973-05-30",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "CL"
   },
   "MKC": {
@@ -39121,8 +56071,139 @@ window.FULL_MARKET_DATA = {
     "year_low": 43.25,
     "all_time_high": 0.0,
     "all_time_low": 43.25,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-05",
+        "name": "Hattersley Gavin",
+        "title": "director",
+        "is_buy": true,
+        "shares": 1000,
+        "price": 44.61,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-09-24",
+        "name": "Foley Brendan M",
+        "title": "director, officer: Chairman, President & CEO",
+        "is_buy": false,
+        "shares": 51,
+        "price": 44.81,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-09",
+        "name": "Foust Andrew",
+        "title": "officer: Chief Integration Officer",
+        "is_buy": false,
+        "shares": 50,
+        "price": 52.22,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-09",
+        "name": "Foust Andrew",
+        "title": "officer: Chief Integration Officer",
+        "is_buy": false,
+        "shares": 3,
+        "price": 52.22,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-09",
+        "name": "PRESTON MARGARET M V",
+        "title": "director",
+        "is_buy": false,
+        "shares": 269,
+        "price": 44.81,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-09-09",
+        "name": "Piper Sarah",
+        "title": "officer: Chief Human Relations Officer",
+        "is_buy": false,
+        "shares": 48,
+        "price": 44.81,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-09",
+        "name": "Foley Brendan M",
+        "title": "director, officer: Chairman, President & CEO",
+        "is_buy": false,
+        "shares": 48,
+        "price": 44.81,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Tapiero Jacques",
+        "title": "director",
+        "is_buy": false,
+        "shares": 185,
+        "price": 44.81,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Tapiero Jacques",
+        "title": "director",
+        "is_buy": false,
+        "shares": 23,
+        "price": 44.81,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-08-25",
+        "name": "Piper Sarah",
+        "title": "officer: Chief Human Relations Officer",
+        "is_buy": false,
+        "shares": 20,
+        "price": 52.22,
+        "total_val": 0.0
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2020-12-01",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2002-04-09",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1992-01-21",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1990-01-22",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1988-04-28",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1977-03-22",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "MKC"
   },
   "CLX": {
@@ -39388,8 +56469,121 @@ window.FULL_MARKET_DATA = {
     "year_low": 79.12,
     "all_time_high": 0.0,
     "all_time_low": 79.12,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-07",
+        "name": "Rendle Linda J",
+        "title": "director, officer: Chief Executive Officer",
+        "is_buy": false,
+        "shares": 29352,
+        "price": 80.41,
+        "total_val": 2.36
+      },
+      {
+        "date": "2026-10-07",
+        "name": "Rendle Linda J",
+        "title": "director, officer: Chief Executive Officer",
+        "is_buy": false,
+        "shares": 692,
+        "price": 80.41,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-10-07",
+        "name": "Rendle Linda J",
+        "title": "director, officer: Chief Executive Officer",
+        "is_buy": false,
+        "shares": 11989,
+        "price": 80.41,
+        "total_val": 0.96
+      },
+      {
+        "date": "2026-10-07",
+        "name": "Peck Laurene E",
+        "title": "officer: VP - CAO & Corp Controller",
+        "is_buy": false,
+        "shares": 1172,
+        "price": 80.41,
+        "total_val": 0.09
+      },
+      {
+        "date": "2026-10-07",
+        "name": "Peck Laurene E",
+        "title": "officer: VP - CAO & Corp Controller",
+        "is_buy": false,
+        "shares": 30,
+        "price": 80.41,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-07",
+        "name": "Peck Laurene E",
+        "title": "officer: VP - CAO & Corp Controller",
+        "is_buy": false,
+        "shares": 339,
+        "price": 80.41,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-07",
+        "name": "Marriner Kirsten",
+        "title": "officer: EVP - Chief Admin Officer",
+        "is_buy": false,
+        "shares": 6637,
+        "price": 80.41,
+        "total_val": 0.53
+      },
+      {
+        "date": "2026-10-07",
+        "name": "Marriner Kirsten",
+        "title": "officer: EVP - Chief Admin Officer",
+        "is_buy": false,
+        "shares": 1951,
+        "price": 80.41,
+        "total_val": 0.16
+      },
+      {
+        "date": "2026-10-07",
+        "name": "Marriner Kirsten",
+        "title": "officer: EVP - Chief Admin Officer",
+        "is_buy": false,
+        "shares": 2142,
+        "price": 80.41,
+        "total_val": 0.17
+      },
+      {
+        "date": "2026-10-07",
+        "name": "Hyder Chris T",
+        "title": "officer: EVP-Chief Operating Officer",
+        "is_buy": false,
+        "shares": 4191,
+        "price": 80.41,
+        "total_val": 0.34
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "1999-08-24",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1997-09-03",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1987-06-02",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "CLX"
   },
   "HSY": {
@@ -39655,8 +56849,127 @@ window.FULL_MARKET_DATA = {
     "year_low": 156.16,
     "all_time_high": 0.0,
     "all_time_low": 156.16,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-09",
+        "name": "HERSHEY TRUST CO TRUSTEE IN TRUST FOR MILTON HERSHEY SCHOOL",
+        "title": "10 percent owner",
+        "is_buy": false,
+        "shares": 153,
+        "price": 160.86,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-10-09",
+        "name": "HERSHEY TRUST CO TRUSTEE IN TRUST FOR MILTON HERSHEY SCHOOL",
+        "title": "10 percent owner",
+        "is_buy": false,
+        "shares": 1350,
+        "price": 161.53,
+        "total_val": 0.22
+      },
+      {
+        "date": "2026-10-09",
+        "name": "HERSHEY TRUST CO TRUSTEE IN TRUST FOR MILTON HERSHEY SCHOOL",
+        "title": "10 percent owner",
+        "is_buy": false,
+        "shares": 7434,
+        "price": 162.51,
+        "total_val": 1.21
+      },
+      {
+        "date": "2026-10-09",
+        "name": "HERSHEY TRUST CO TRUSTEE IN TRUST FOR MILTON HERSHEY SCHOOL",
+        "title": "10 percent owner",
+        "is_buy": false,
+        "shares": 1063,
+        "price": 163.15,
+        "total_val": 0.17
+      },
+      {
+        "date": "2026-10-09",
+        "name": "HERSHEY TRUST CO TRUSTEE IN TRUST FOR MILTON HERSHEY SCHOOL",
+        "title": "10 percent owner",
+        "is_buy": false,
+        "shares": 1924,
+        "price": 161.73,
+        "total_val": 0.31
+      },
+      {
+        "date": "2026-10-09",
+        "name": "HERSHEY TRUST CO TRUSTEE IN TRUST FOR MILTON HERSHEY SCHOOL",
+        "title": "10 percent owner",
+        "is_buy": false,
+        "shares": 8075,
+        "price": 162.42,
+        "total_val": 1.31
+      },
+      {
+        "date": "2026-10-09",
+        "name": "HERSHEY TRUST CO TRUSTEE IN TRUST FOR MILTON HERSHEY SCHOOL",
+        "title": "10 percent owner",
+        "is_buy": false,
+        "shares": 1,
+        "price": 163.05,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-07",
+        "name": "HERSHEY TRUST CO TRUSTEE IN TRUST FOR MILTON HERSHEY SCHOOL",
+        "title": "10 percent owner",
+        "is_buy": false,
+        "shares": 17,
+        "price": 159.89,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-07",
+        "name": "HERSHEY TRUST CO TRUSTEE IN TRUST FOR MILTON HERSHEY SCHOOL",
+        "title": "10 percent owner",
+        "is_buy": false,
+        "shares": 1410,
+        "price": 160.66,
+        "total_val": 0.23
+      },
+      {
+        "date": "2026-10-07",
+        "name": "HERSHEY TRUST CO TRUSTEE IN TRUST FOR MILTON HERSHEY SCHOOL",
+        "title": "10 percent owner",
+        "is_buy": false,
+        "shares": 7589,
+        "price": 161.28,
+        "total_val": 1.22
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2004-06-16",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1996-09-16",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1986-09-16",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1983-09-16",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "HSY"
   },
   "ADM": {
@@ -39922,8 +57235,163 @@ window.FULL_MARKET_DATA = {
     "year_low": 55.58,
     "all_time_high": 0.0,
     "all_time_low": 55.58,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-05",
+        "name": "WESTBROOK KELVIN R",
+        "title": "director",
+        "is_buy": false,
+        "shares": 721,
+        "price": 79.89,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Schlitz Lei Zhang",
+        "title": "director",
+        "is_buy": false,
+        "shares": 721,
+        "price": 79.89,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Sandler Debra A.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 800,
+        "price": 79.89,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-10-05",
+        "name": "MOORE PATRICK J",
+        "title": "director",
+        "is_buy": false,
+        "shares": 721,
+        "price": 79.89,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-10-05",
+        "name": "McMurray Michael C.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 721,
+        "price": 79.89,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-10-05",
+        "name": "McAtee David R II",
+        "title": "director",
+        "is_buy": false,
+        "shares": 721,
+        "price": 79.89,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Harrison Suzan F.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 800,
+        "price": 79.89,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-10-05",
+        "name": "de Brabander Ellen",
+        "title": "director",
+        "is_buy": false,
+        "shares": 721,
+        "price": 79.89,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-10-05",
+        "name": "CREWS TERRELL K",
+        "title": "director",
+        "is_buy": false,
+        "shares": 878,
+        "price": 79.89,
+        "total_val": 0.07
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Collins James C. Jr.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 800,
+        "price": 79.89,
+        "total_val": 0.06
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2001-08-30",
+        "ratio": "21 : 20",
+        "desc": "普通股 20 拆 21 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2000-08-24",
+        "ratio": "21 : 20",
+        "desc": "普通股 20 拆 21 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1999-08-19",
+        "ratio": "21 : 20",
+        "desc": "普通股 20 拆 21 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1998-08-20",
+        "ratio": "21 : 20",
+        "desc": "普通股 20 拆 21 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1997-08-14",
+        "ratio": "21 : 20",
+        "desc": "普通股 20 拆 21 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1996-08-15",
+        "ratio": "21 : 20",
+        "desc": "普通股 20 拆 21 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1995-08-17",
+        "ratio": "21 : 20",
+        "desc": "普通股 20 拆 21 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1994-12-06",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1994-08-16",
+        "ratio": "21 : 20",
+        "desc": "普通股 20 拆 21 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1993-08-17",
+        "ratio": "21 : 20",
+        "desc": "普通股 20 拆 21 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "ADM"
   },
   "CHD": {
@@ -40189,8 +57657,151 @@ window.FULL_MARKET_DATA = {
     "year_low": 81.33,
     "all_time_high": 0.0,
     "all_time_low": 81.33,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-02",
+        "name": "Pokhriyal Surabhi",
+        "title": "officer: EVP Chief Digital Growth Offic",
+        "is_buy": false,
+        "shares": 31,
+        "price": 94.11,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Linares Carlos G.",
+        "title": "officer: EVP Chief Tech&Global New Prod",
+        "is_buy": false,
+        "shares": 27,
+        "price": 98.11,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Dierker Richard A",
+        "title": "director, officer: President and CEO",
+        "is_buy": false,
+        "shares": 45,
+        "price": 98.11,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Buchert Brian D",
+        "title": "officer: EVP of Strategy, M&A, and BP",
+        "is_buy": false,
+        "shares": 5,
+        "price": 98.11,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-16",
+        "name": "Linares Carlos G.",
+        "title": "officer: EVP Chief Tech&Global New Prod",
+        "is_buy": false,
+        "shares": 27,
+        "price": 98.11,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-16",
+        "name": "Dierker Richard A",
+        "title": "director, officer: President and CEO",
+        "is_buy": false,
+        "shares": 45,
+        "price": 98.11,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-16",
+        "name": "Buchert Brian D",
+        "title": "officer: EVP of Strategy, M&A, and BP",
+        "is_buy": false,
+        "shares": 5,
+        "price": 98.11,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Magazine Mark J",
+        "title": "officer: EVP Chief Commercial Officer",
+        "is_buy": false,
+        "shares": 76,
+        "price": 99.43,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-09-01",
+        "name": "Linares Carlos G.",
+        "title": "officer: EVP Chief Tech&Global New Prod",
+        "is_buy": false,
+        "shares": 26,
+        "price": 98.11,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-01",
+        "name": "Dierker Richard A",
+        "title": "director, officer: President and CEO",
+        "is_buy": false,
+        "shares": 43,
+        "price": 98.11,
+        "total_val": 0.0
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2016-09-02",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2011-06-02",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2004-09-02",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1999-09-02",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1986-03-06",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1984-09-04",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1983-06-09",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1981-06-22",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "CHD"
   },
   "TGT": {
@@ -40456,8 +58067,133 @@ window.FULL_MARKET_DATA = {
     "year_low": 83.44,
     "all_time_high": 0.0,
     "all_time_low": 83.44,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-02",
+        "name": "WEINSTEIN MARK A.",
+        "title": "officer: Executive Officer",
+        "is_buy": false,
+        "shares": 23787,
+        "price": 153.77,
+        "total_val": 3.66
+      },
+      {
+        "date": "2026-10-02",
+        "name": "WEINSTEIN MARK A.",
+        "title": "officer: Executive Officer",
+        "is_buy": false,
+        "shares": 2142,
+        "price": 153.77,
+        "total_val": 0.33
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Lee James",
+        "title": "officer: Executive Officer",
+        "is_buy": false,
+        "shares": 7636,
+        "price": 157.94,
+        "total_val": 1.21
+      },
+      {
+        "date": "2026-09-18",
+        "name": "WEINSTEIN MARK A.",
+        "title": "officer",
+        "is_buy": true,
+        "shares": 0,
+        "price": 153.77,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-08-27",
+        "name": "Cornell Brian C",
+        "title": "director, officer: Executive Officer",
+        "is_buy": false,
+        "shares": 50000,
+        "price": 163.56,
+        "total_val": 8.18
+      },
+      {
+        "date": "2026-08-26",
+        "name": "Kremer Melissa K",
+        "title": "officer: Executive Officer",
+        "is_buy": false,
+        "shares": 15500,
+        "price": 169.96,
+        "total_val": 2.63
+      },
+      {
+        "date": "2026-08-24",
+        "name": "LIEGEL MATTHEW A",
+        "title": "officer: Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 926,
+        "price": 163.51,
+        "total_val": 0.15
+      },
+      {
+        "date": "2026-08-04",
+        "name": "DePinto Joseph Michael",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1007,
+        "price": 153.77,
+        "total_val": 0.15
+      },
+      {
+        "date": "2026-08-04",
+        "name": "DePinto Joseph Michael",
+        "title": "director: ",
+        "is_buy": true,
+        "shares": 0,
+        "price": 153.77,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-07-01",
+        "name": "McGee Grant B",
+        "title": "officer: Executive Officer",
+        "is_buy": false,
+        "shares": 15282,
+        "price": 153.77,
+        "total_val": 2.35
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2000-07-20",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1998-05-01",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1996-07-18",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1983-07-25",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1981-12-01",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "TGT"
   },
   "KMB": {
@@ -40723,8 +58459,133 @@ window.FULL_MARKET_DATA = {
     "year_low": 92.42,
     "all_time_high": 0.0,
     "all_time_low": 92.42,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-01",
+        "name": "Blades Suzana",
+        "title": "officer: SVP and General Counsel",
+        "is_buy": true,
+        "shares": 0,
+        "price": 97.59,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-01",
+        "name": "Blades Suzana",
+        "title": "officer: SVP and General Counsel",
+        "is_buy": true,
+        "shares": 2071,
+        "price": 97.59,
+        "total_val": 0.2
+      },
+      {
+        "date": "2026-09-01",
+        "name": "Blades Suzana",
+        "title": "officer: SVP and General Counsel",
+        "is_buy": true,
+        "shares": 562,
+        "price": 97.59,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-09-01",
+        "name": "Blades Suzana",
+        "title": "officer: SVP and General Counsel",
+        "is_buy": true,
+        "shares": 999,
+        "price": 97.59,
+        "total_val": 0.1
+      },
+      {
+        "date": "2026-09-01",
+        "name": "Blades Suzana",
+        "title": "officer: SVP and General Counsel",
+        "is_buy": true,
+        "shares": 1812,
+        "price": 97.59,
+        "total_val": 0.18
+      },
+      {
+        "date": "2026-08-04",
+        "name": "Corsi Patricia",
+        "title": "officer: Chief Growth Officer",
+        "is_buy": true,
+        "shares": 966,
+        "price": 97.59,
+        "total_val": 0.09
+      },
+      {
+        "date": "2026-08-04",
+        "name": "Corsi Patricia",
+        "title": "officer: Chief Growth Officer",
+        "is_buy": false,
+        "shares": 404,
+        "price": 109.31,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-08-04",
+        "name": "Corsi Patricia",
+        "title": "officer: Chief Growth Officer",
+        "is_buy": true,
+        "shares": 966,
+        "price": 97.59,
+        "total_val": 0.09
+      },
+      {
+        "date": "2026-08-04",
+        "name": "Slavtcheff Craig",
+        "title": "officer: Chief R&D Officer",
+        "is_buy": true,
+        "shares": 1255,
+        "price": 97.59,
+        "total_val": 0.12
+      },
+      {
+        "date": "2026-08-04",
+        "name": "Slavtcheff Craig",
+        "title": "officer: Chief R&D Officer",
+        "is_buy": false,
+        "shares": 534,
+        "price": 109.31,
+        "total_val": 0.06
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2014-11-03",
+        "ratio": "1043 : 1000",
+        "desc": "普通股 1000 拆 1043 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1997-04-03",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1992-01-03",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1987-05-26",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1984-05-25",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "KMB"
   },
   "MNST": {
@@ -40990,8 +58851,145 @@ window.FULL_MARKET_DATA = {
     "year_low": 32.94,
     "all_time_high": 0.0,
     "all_time_low": 32.94,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-09",
+        "name": "Hall Tiffany M.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 270,
+        "price": 43.64,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-10-09",
+        "name": "JACKSON JEANNE P",
+        "title": "director",
+        "is_buy": false,
+        "shares": 670,
+        "price": 43.64,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-09",
+        "name": "Demel Ana",
+        "title": "director",
+        "is_buy": false,
+        "shares": 539,
+        "price": 43.64,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-09-16",
+        "name": "SCHLOSBERG HILTON H",
+        "title": "director, officer: Vice Chairman and CEO",
+        "is_buy": false,
+        "shares": 1690,
+        "price": 43.64,
+        "total_val": 0.07
+      },
+      {
+        "date": "2026-09-14",
+        "name": "Rodriguez Michael Vincent",
+        "title": "officer: Chief Operating Officer",
+        "is_buy": true,
+        "shares": 0,
+        "price": 43.64,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-14",
+        "name": "Rodriguez Michael Vincent",
+        "title": "officer: Chief Operating Officer",
+        "is_buy": true,
+        "shares": 60000,
+        "price": 24.15,
+        "total_val": 1.45
+      },
+      {
+        "date": "2026-09-14",
+        "name": "Rodriguez Michael Vincent",
+        "title": "officer: Chief Operating Officer",
+        "is_buy": true,
+        "shares": 50000,
+        "price": 27.55,
+        "total_val": 1.38
+      },
+      {
+        "date": "2026-09-14",
+        "name": "Rodriguez Michael Vincent",
+        "title": "officer: Chief Operating Officer",
+        "is_buy": true,
+        "shares": 19800,
+        "price": 38.56,
+        "total_val": 0.76
+      },
+      {
+        "date": "2026-09-14",
+        "name": "Rodriguez Michael Vincent",
+        "title": "officer: Chief Operating Officer",
+        "is_buy": true,
+        "shares": 6600,
+        "price": 43.64,
+        "total_val": 0.29
+      },
+      {
+        "date": "2026-09-14",
+        "name": "Rodriguez Michael Vincent",
+        "title": "officer: Chief Operating Officer",
+        "is_buy": true,
+        "shares": 22500,
+        "price": 25.41,
+        "total_val": 0.57
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2026-08-11",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2023-03-28",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2016-11-10",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2012-02-16",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2006-07-10",
+        "ratio": "4 : 1",
+        "desc": "普通股 1 拆 4 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2005-08-09",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1988-02-29",
+        "ratio": "1 : 50",
+        "desc": "普通股 50 拆 1 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "MNST"
   },
   "GIS": {
@@ -41257,8 +59255,139 @@ window.FULL_MARKET_DATA = {
     "year_low": 31.18,
     "all_time_high": 0.0,
     "all_time_low": 31.18,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-05",
+        "name": "Sharma Pankaj MN",
+        "title": "officer: Segment President",
+        "is_buy": false,
+        "shares": 6294,
+        "price": 31.33,
+        "total_val": 0.2
+      },
+      {
+        "date": "2026-10-01",
+        "name": "SPRUNK ERIC D",
+        "title": "director",
+        "is_buy": false,
+        "shares": 5323,
+        "price": 32.29,
+        "total_val": 0.17
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Bottarini Joan",
+        "title": "director",
+        "is_buy": false,
+        "shares": 5323,
+        "price": 32.29,
+        "total_val": 0.17
+      },
+      {
+        "date": "2026-10-01",
+        "name": "MORIKIS JOHN G",
+        "title": "director",
+        "is_buy": false,
+        "shares": 5323,
+        "price": 32.29,
+        "total_val": 0.17
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Uribe Jorge A.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 5323,
+        "price": 32.29,
+        "total_val": 0.17
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Uribe Jorge A.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 560,
+        "price": 33.82,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-10-01",
+        "name": "SASTRE MARIA",
+        "title": "director",
+        "is_buy": false,
+        "shares": 5323,
+        "price": 32.29,
+        "total_val": 0.17
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Lempres Elizabeth Cahill",
+        "title": "director",
+        "is_buy": false,
+        "shares": 5323,
+        "price": 32.29,
+        "total_val": 0.17
+      },
+      {
+        "date": "2026-10-01",
+        "name": "HENRY MARIA",
+        "title": "director",
+        "is_buy": false,
+        "shares": 5323,
+        "price": 32.29,
+        "total_val": 0.17
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Dorer Benno O",
+        "title": "director",
+        "is_buy": false,
+        "shares": 5323,
+        "price": 32.29,
+        "total_val": 0.17
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2010-06-09",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1999-11-09",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1995-05-30",
+        "ratio": "2000 : 1653",
+        "desc": "普通股 1653 拆 2000 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1990-11-08",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1986-11-10",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1975-11-10",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "GIS"
   },
   "KHC": {
@@ -41524,8 +59653,102 @@ window.FULL_MARKET_DATA = {
     "year_low": 21.035,
     "all_time_high": 0.0,
     "all_time_low": 21.035,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-06-22",
+        "name": "Frost Diana",
+        "title": "officer: Glbl Chief Growth Officer",
+        "is_buy": false,
+        "shares": 18502,
+        "price": 23.05,
+        "total_val": 0.43
+      },
+      {
+        "date": "2026-05-18",
+        "name": "Kelley Mary Lou",
+        "title": "director",
+        "is_buy": false,
+        "shares": 793,
+        "price": 23.31,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-05-18",
+        "name": "Kelley Mary Lou",
+        "title": "director",
+        "is_buy": false,
+        "shares": 7937,
+        "price": 23.31,
+        "total_val": 0.19
+      },
+      {
+        "date": "2026-05-18",
+        "name": "PALMER ANTHONY J.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 793,
+        "price": 23.31,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-05-18",
+        "name": "PALMER ANTHONY J.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 7937,
+        "price": 23.31,
+        "total_val": 0.19
+      },
+      {
+        "date": "2026-05-18",
+        "name": "Alfonso Humberto P",
+        "title": "director",
+        "is_buy": false,
+        "shares": 3218,
+        "price": 23.31,
+        "total_val": 0.08
+      },
+      {
+        "date": "2026-05-18",
+        "name": "Alfonso Humberto P",
+        "title": "director",
+        "is_buy": false,
+        "shares": 7937,
+        "price": 23.31,
+        "total_val": 0.19
+      },
+      {
+        "date": "2026-05-18",
+        "name": "CAHILL JOHN T",
+        "title": "director",
+        "is_buy": false,
+        "shares": 13085,
+        "price": 23.31,
+        "total_val": 0.31
+      },
+      {
+        "date": "2026-05-18",
+        "name": "Fouche Lori Dickerson",
+        "title": "director",
+        "is_buy": false,
+        "shares": 7937,
+        "price": 23.31,
+        "total_val": 0.19
+      },
+      {
+        "date": "2026-05-18",
+        "name": "Gherson Diane J",
+        "title": "director",
+        "is_buy": false,
+        "shares": 7937,
+        "price": 23.31,
+        "total_val": 0.19
+      }
+    ],
+    "stock_splits": [],
     "fmp_symbol": "KHC"
   },
   "GE": {
@@ -41791,8 +60014,163 @@ window.FULL_MARKET_DATA = {
     "year_low": 268.91,
     "all_time_high": 0.0,
     "all_time_low": 268.91,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-02",
+        "name": "BUSH WESLEY G",
+        "title": "director",
+        "is_buy": false,
+        "shares": 120,
+        "price": 308.2,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Bazin Sebastien",
+        "title": "director",
+        "is_buy": false,
+        "shares": 117,
+        "price": 308.2,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Althoff Judson",
+        "title": "director",
+        "is_buy": false,
+        "shares": 35,
+        "price": 308.2,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-08-12",
+        "name": "Giglietti Robert M.",
+        "title": "officer: Vice President",
+        "is_buy": true,
+        "shares": 10242,
+        "price": 36.65,
+        "total_val": 0.38
+      },
+      {
+        "date": "2026-08-12",
+        "name": "Giglietti Robert M.",
+        "title": "officer: Vice President",
+        "is_buy": false,
+        "shares": 5344,
+        "price": 369.88,
+        "total_val": 1.98
+      },
+      {
+        "date": "2026-08-12",
+        "name": "Giglietti Robert M.",
+        "title": "officer: Vice President",
+        "is_buy": false,
+        "shares": 4898,
+        "price": 369.97,
+        "total_val": 1.81
+      },
+      {
+        "date": "2026-08-12",
+        "name": "Giglietti Robert M.",
+        "title": "officer: Vice President",
+        "is_buy": true,
+        "shares": 10242,
+        "price": 36.65,
+        "total_val": 0.38
+      },
+      {
+        "date": "2026-07-28",
+        "name": "Ali Mohamed",
+        "title": "officer: Senior Vice President",
+        "is_buy": true,
+        "shares": 5061,
+        "price": 69.55,
+        "total_val": 0.35
+      },
+      {
+        "date": "2026-07-28",
+        "name": "Ali Mohamed",
+        "title": "officer: Senior Vice President",
+        "is_buy": true,
+        "shares": 3035,
+        "price": 90.01,
+        "total_val": 0.27
+      },
+      {
+        "date": "2026-07-28",
+        "name": "Ali Mohamed",
+        "title": "officer: Senior Vice President",
+        "is_buy": false,
+        "shares": 2782,
+        "price": 353.72,
+        "total_val": 0.98
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2024-04-02",
+        "ratio": "1253 : 1000",
+        "desc": "普通股 1000 拆 1253 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2023-01-04",
+        "ratio": "1281 : 1000",
+        "desc": "普通股 1000 拆 1281 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2021-08-02",
+        "ratio": "1 : 8",
+        "desc": "普通股 8 拆 1 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2019-02-26",
+        "ratio": "26 : 25",
+        "desc": "普通股 25 拆 26 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2000-05-08",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1997-05-12",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1994-05-16",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1987-05-26",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1983-06-02",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1971-06-08",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "GE"
   },
   "CAT": {
@@ -42058,8 +60436,133 @@ window.FULL_MARKET_DATA = {
     "year_low": 491.3,
     "all_time_high": 0.0,
     "all_time_low": 491.3,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-01",
+        "name": "GOOD LYNN J",
+        "title": "director",
+        "is_buy": false,
+        "shares": 30,
+        "price": 800.47,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-10-01",
+        "name": "MacLennan David",
+        "title": "director",
+        "is_buy": false,
+        "shares": 28,
+        "price": 800.47,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-09-28",
+        "name": "Kaiser Jason",
+        "title": "officer: Group President",
+        "is_buy": false,
+        "shares": 11,
+        "price": 800.47,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-09-28",
+        "name": "Epley Kyle Joseph",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": false,
+        "shares": 7,
+        "price": 800.47,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-09-28",
+        "name": "Epley Kyle Joseph",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": false,
+        "shares": 11,
+        "price": 800.47,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-09-28",
+        "name": "Creed Joseph E",
+        "title": "officer: Chief Executive Officer",
+        "is_buy": false,
+        "shares": 19,
+        "price": 800.47,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-09-01",
+        "name": "Creed Joseph E",
+        "title": "officer: Chief Executive Officer",
+        "is_buy": true,
+        "shares": 44403,
+        "price": 219.76,
+        "total_val": 9.76
+      },
+      {
+        "date": "2026-09-01",
+        "name": "Creed Joseph E",
+        "title": "officer: Chief Executive Officer",
+        "is_buy": false,
+        "shares": 12002,
+        "price": 812.98,
+        "total_val": 9.76
+      },
+      {
+        "date": "2026-09-01",
+        "name": "Creed Joseph E",
+        "title": "officer: Chief Executive Officer",
+        "is_buy": false,
+        "shares": 480,
+        "price": 800.19,
+        "total_val": 0.38
+      },
+      {
+        "date": "2026-09-01",
+        "name": "Creed Joseph E",
+        "title": "officer: Chief Executive Officer",
+        "is_buy": false,
+        "shares": 540,
+        "price": 801.1,
+        "total_val": 0.43
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2005-07-14",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1997-07-14",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1994-09-06",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1976-07-26",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1964-07-06",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "CAT"
   },
   "UNP": {
@@ -42325,8 +60828,139 @@ window.FULL_MARKET_DATA = {
     "year_low": 215.53,
     "all_time_high": 0.0,
     "all_time_low": 215.53,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-01",
+        "name": "WILLIAMS CHRISTOPHER J",
+        "title": "director",
+        "is_buy": false,
+        "shares": 194,
+        "price": 278.34,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Will W Anthony",
+        "title": "director",
+        "is_buy": false,
+        "shares": 162,
+        "price": 278.34,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-10-01",
+        "name": "WIEHOFF JOHN",
+        "title": "director",
+        "is_buy": false,
+        "shares": 172,
+        "price": 278.34,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Tien John K Jr",
+        "title": "director",
+        "is_buy": false,
+        "shares": 171,
+        "price": 278.34,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Simons Doyle",
+        "title": "director",
+        "is_buy": false,
+        "shares": 312,
+        "price": 278.34,
+        "total_val": 0.09
+      },
+      {
+        "date": "2026-10-01",
+        "name": "MCCARTHY MICHAEL R",
+        "title": "director",
+        "is_buy": false,
+        "shares": 839,
+        "price": 278.34,
+        "total_val": 0.23
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Lute Jane H",
+        "title": "director",
+        "is_buy": false,
+        "shares": 372,
+        "price": 278.34,
+        "total_val": 0.1
+      },
+      {
+        "date": "2026-10-01",
+        "name": "HOPKINS DEBORAH C",
+        "title": "director",
+        "is_buy": false,
+        "shares": 229,
+        "price": 278.34,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Finley Teresa",
+        "title": "director",
+        "is_buy": false,
+        "shares": 179,
+        "price": 278.34,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Edison Sheri H.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 179,
+        "price": 278.34,
+        "total_val": 0.05
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2014-06-09",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2008-05-29",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1996-10-16",
+        "ratio": "2500 : 1681",
+        "desc": "普通股 1681 拆 2500 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1991-10-02",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1980-05-12",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1977-02-16",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "UNP"
   },
   "RTX": {
@@ -42592,8 +61226,139 @@ window.FULL_MARKET_DATA = {
     "year_low": 155.64,
     "all_time_high": 0.0,
     "all_time_low": 155.64,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-05",
+        "name": "Johnson Amy L",
+        "title": "officer: Senior VP and Controller",
+        "is_buy": true,
+        "shares": 84,
+        "price": 185.97,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Johnson Amy L",
+        "title": "officer: Senior VP and Controller",
+        "is_buy": true,
+        "shares": 84,
+        "price": 185.97,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Johnson Amy L",
+        "title": "officer: Senior VP and Controller",
+        "is_buy": false,
+        "shares": 84,
+        "price": 185.01,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-10-05",
+        "name": "DaSilva Kevin G",
+        "title": "officer: Senior VP and Treasurer",
+        "is_buy": true,
+        "shares": 143,
+        "price": 185.97,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-05",
+        "name": "DaSilva Kevin G",
+        "title": "officer: Senior VP and Treasurer",
+        "is_buy": false,
+        "shares": 143,
+        "price": 185.01,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-05",
+        "name": "DaSilva Kevin G",
+        "title": "officer: Senior VP and Treasurer",
+        "is_buy": true,
+        "shares": 143,
+        "price": 185.97,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-08-19",
+        "name": "Maharajh Ramsaran",
+        "title": "officer: EVP and General Counsel",
+        "is_buy": true,
+        "shares": 20069,
+        "price": 71.62,
+        "total_val": 1.44
+      },
+      {
+        "date": "2026-08-19",
+        "name": "Maharajh Ramsaran",
+        "title": "officer: EVP and General Counsel",
+        "is_buy": false,
+        "shares": 6414,
+        "price": 224.07,
+        "total_val": 1.44
+      },
+      {
+        "date": "2026-08-19",
+        "name": "Maharajh Ramsaran",
+        "title": "officer: EVP and General Counsel",
+        "is_buy": false,
+        "shares": 13655,
+        "price": 223.92,
+        "total_val": 3.06
+      },
+      {
+        "date": "2026-08-19",
+        "name": "Maharajh Ramsaran",
+        "title": "officer: EVP and General Counsel",
+        "is_buy": true,
+        "shares": 20069,
+        "price": 71.62,
+        "total_val": 1.44
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2020-04-03",
+        "ratio": "1589 : 1000",
+        "desc": "普通股 1000 拆 1589 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2005-06-13",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1999-05-18",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1996-12-11",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1984-06-11",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1976-05-19",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "RTX"
   },
   "HON": {
@@ -42859,8 +61624,133 @@ window.FULL_MARKET_DATA = {
     "year_low": 195.86786,
     "all_time_high": 0.0,
     "all_time_low": 195.86786,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-05",
+        "name": "ANGOVE DUNCAN",
+        "title": "director",
+        "is_buy": false,
+        "shares": 163,
+        "price": 207.73,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Picon Juan",
+        "title": "officer: President and CEO of BA",
+        "is_buy": false,
+        "shares": 3512,
+        "price": 212.52,
+        "total_val": 0.75
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Picon Juan",
+        "title": "officer: President and CEO of BA",
+        "is_buy": false,
+        "shares": 1176,
+        "price": 207.73,
+        "total_val": 0.24
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Picon Juan",
+        "title": "officer: President and CEO of BA",
+        "is_buy": true,
+        "shares": 0,
+        "price": 207.73,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Picon Juan",
+        "title": "officer: President and CEO of BA",
+        "is_buy": true,
+        "shares": 0,
+        "price": 207.73,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Picon Juan",
+        "title": "officer: President and CEO of BA",
+        "is_buy": true,
+        "shares": 5183,
+        "price": 193.53,
+        "total_val": 1.0
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Picon Juan",
+        "title": "officer: President and CEO of BA",
+        "is_buy": true,
+        "shares": 4670,
+        "price": 204.18,
+        "total_val": 0.95
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Picon Juan",
+        "title": "officer: President and CEO of BA",
+        "is_buy": true,
+        "shares": 6175,
+        "price": 246.3,
+        "total_val": 1.52
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Picon Juan",
+        "title": "officer: President and CEO of BA",
+        "is_buy": true,
+        "shares": 1983,
+        "price": 207.73,
+        "total_val": 0.41
+      },
+      {
+        "date": "2026-08-31",
+        "name": "West Kenneth J",
+        "title": "officer",
+        "is_buy": true,
+        "shares": 0,
+        "price": 207.73,
+        "total_val": 0.0
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2026-06-28",
+        "ratio": "1907 : 2000",
+        "desc": "普通股 2000 拆 1907 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2018-10-28",
+        "ratio": "1011 : 1000",
+        "desc": "普通股 1000 拆 1011 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1997-09-16",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1994-03-15",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1984-05-30",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "HON"
   },
   "BA": {
@@ -43126,8 +62016,151 @@ window.FULL_MARKET_DATA = {
     "year_low": 176.77,
     "all_time_high": 0.0,
     "all_time_low": 176.77,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-01",
+        "name": "Parker Stephen Kenneth",
+        "title": "officer: EVP, Pres. & CEO, BDS",
+        "is_buy": false,
+        "shares": 629,
+        "price": 209.08,
+        "total_val": 0.13
+      },
+      {
+        "date": "2026-08-19",
+        "name": "MALAVE JESUS JR",
+        "title": "officer: EVP and CFO",
+        "is_buy": false,
+        "shares": 4205,
+        "price": 228.65,
+        "total_val": 0.96
+      },
+      {
+        "date": "2026-08-18",
+        "name": "Raymond David Christopher",
+        "title": "officer: EVP, Pres. & CEO, BGS",
+        "is_buy": false,
+        "shares": 907,
+        "price": 190.37,
+        "total_val": 0.17
+      },
+      {
+        "date": "2026-08-12",
+        "name": "Ortberg Robert Kelly",
+        "title": "director, officer: President & CEO",
+        "is_buy": false,
+        "shares": 6232,
+        "price": 234.09,
+        "total_val": 1.46
+      },
+      {
+        "date": "2026-07-06",
+        "name": "TILDEN BRADLEY D",
+        "title": "director",
+        "is_buy": false,
+        "shares": 383,
+        "price": 190.37,
+        "total_val": 0.07
+      },
+      {
+        "date": "2026-07-06",
+        "name": "Richardson John M",
+        "title": "director",
+        "is_buy": false,
+        "shares": 228,
+        "price": 190.37,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-07-06",
+        "name": "MOLLENKOPF STEVEN M",
+        "title": "director",
+        "is_buy": false,
+        "shares": 669,
+        "price": 190.37,
+        "total_val": 0.13
+      },
+      {
+        "date": "2026-07-06",
+        "name": "Joyce David Leon",
+        "title": "director",
+        "is_buy": false,
+        "shares": 440,
+        "price": 190.37,
+        "total_val": 0.08
+      },
+      {
+        "date": "2026-07-06",
+        "name": "JOHRI AKHIL",
+        "title": "director",
+        "is_buy": false,
+        "shares": 406,
+        "price": 190.37,
+        "total_val": 0.08
+      },
+      {
+        "date": "2026-07-06",
+        "name": "Harris Stayce D.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 383,
+        "price": 190.37,
+        "total_val": 0.07
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "1997-06-09",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1990-06-11",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1989-06-12",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1985-06-10",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1980-04-15",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1979-04-16",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1977-09-13",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1966-05-18",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "BA"
   },
   "LMT": {
@@ -43393,8 +62426,121 @@ window.FULL_MARKET_DATA = {
     "year_low": 437.25,
     "all_time_high": 0.0,
     "all_time_low": 437.25,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-01",
+        "name": "Donovan John",
+        "title": "director",
+        "is_buy": false,
+        "shares": 96,
+        "price": 509.59,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-10-01",
+        "name": "BURRITT DAVID B",
+        "title": "director",
+        "is_buy": false,
+        "shares": 83,
+        "price": 509.59,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-08-17",
+        "name": "Donovan John",
+        "title": "director",
+        "is_buy": false,
+        "shares": 120,
+        "price": 509.59,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-08-17",
+        "name": "Donovan John",
+        "title": "director",
+        "is_buy": false,
+        "shares": 204,
+        "price": 509.59,
+        "total_val": 0.1
+      },
+      {
+        "date": "2026-08-17",
+        "name": "Donovan John",
+        "title": "director",
+        "is_buy": false,
+        "shares": 212,
+        "price": 509.59,
+        "total_val": 0.11
+      },
+      {
+        "date": "2026-08-17",
+        "name": "Donovan John",
+        "title": "director",
+        "is_buy": false,
+        "shares": 469,
+        "price": 509.59,
+        "total_val": 0.24
+      },
+      {
+        "date": "2026-08-17",
+        "name": "Donovan John",
+        "title": "director",
+        "is_buy": false,
+        "shares": 631,
+        "price": 509.59,
+        "total_val": 0.32
+      },
+      {
+        "date": "2026-08-17",
+        "name": "Donovan John",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1742,
+        "price": 509.59,
+        "total_val": 0.89
+      },
+      {
+        "date": "2026-08-13",
+        "name": "Lightfoot Robert M JR",
+        "title": "officer: President Space",
+        "is_buy": false,
+        "shares": 846,
+        "price": 509.59,
+        "total_val": 0.43
+      },
+      {
+        "date": "2026-08-13",
+        "name": "Lightfoot Robert M JR",
+        "title": "officer: President Space",
+        "is_buy": false,
+        "shares": 1564,
+        "price": 509.59,
+        "total_val": 0.8
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "1999-01-04",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1995-03-16",
+        "ratio": "163 : 100",
+        "desc": "普通股 100 拆 163 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1983-09-09",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "LMT"
   },
   "DE": {
@@ -43660,8 +62806,127 @@ window.FULL_MARKET_DATA = {
     "year_low": 433.0,
     "all_time_high": 0.0,
     "all_time_low": 433.0,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-02",
+        "name": "CAMPBELL RYAN D",
+        "title": "officer: Pres WWC&F and Pwr Systems",
+        "is_buy": true,
+        "shares": 957,
+        "price": 377.01,
+        "total_val": 0.36
+      },
+      {
+        "date": "2026-09-02",
+        "name": "CAMPBELL RYAN D",
+        "title": "officer: Pres WWC&F and Pwr Systems",
+        "is_buy": true,
+        "shares": 1049,
+        "price": 438.44,
+        "total_val": 0.46
+      },
+      {
+        "date": "2026-09-02",
+        "name": "CAMPBELL RYAN D",
+        "title": "officer: Pres WWC&F and Pwr Systems",
+        "is_buy": true,
+        "shares": 1775,
+        "price": 343.94,
+        "total_val": 0.61
+      },
+      {
+        "date": "2026-09-02",
+        "name": "CAMPBELL RYAN D",
+        "title": "officer: Pres WWC&F and Pwr Systems",
+        "is_buy": false,
+        "shares": 2929,
+        "price": 650.18,
+        "total_val": 1.9
+      },
+      {
+        "date": "2026-09-02",
+        "name": "CAMPBELL RYAN D",
+        "title": "officer: Pres WWC&F and Pwr Systems",
+        "is_buy": true,
+        "shares": 1079,
+        "price": 254.83,
+        "total_val": 0.27
+      },
+      {
+        "date": "2026-09-02",
+        "name": "CAMPBELL RYAN D",
+        "title": "officer: Pres WWC&F and Pwr Systems",
+        "is_buy": false,
+        "shares": 975,
+        "price": 651.43,
+        "total_val": 0.64
+      },
+      {
+        "date": "2026-09-02",
+        "name": "CAMPBELL RYAN D",
+        "title": "officer: Pres WWC&F and Pwr Systems",
+        "is_buy": false,
+        "shares": 363,
+        "price": 652.75,
+        "total_val": 0.24
+      },
+      {
+        "date": "2026-09-02",
+        "name": "CAMPBELL RYAN D",
+        "title": "officer: Pres WWC&F and Pwr Systems",
+        "is_buy": false,
+        "shares": 391,
+        "price": 654.22,
+        "total_val": 0.26
+      },
+      {
+        "date": "2026-09-02",
+        "name": "CAMPBELL RYAN D",
+        "title": "officer: Pres WWC&F and Pwr Systems",
+        "is_buy": false,
+        "shares": 199,
+        "price": 655.91,
+        "total_val": 0.13
+      },
+      {
+        "date": "2026-09-02",
+        "name": "CAMPBELL RYAN D",
+        "title": "officer: Pres WWC&F and Pwr Systems",
+        "is_buy": false,
+        "shares": 3,
+        "price": 656.64,
+        "total_val": 0.0
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2007-12-04",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1995-11-29",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1976-09-22",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1972-09-22",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "DE"
   },
   "UPS": {
@@ -43927,8 +63192,102 @@ window.FULL_MARKET_DATA = {
     "year_low": 82.0,
     "all_time_high": 0.0,
     "all_time_low": 82.0,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-03",
+        "name": "Ramos Wilfredo",
+        "title": "officer: Chief Intl, Healthcare and SCS",
+        "is_buy": false,
+        "shares": 5413,
+        "price": 94.54,
+        "total_val": 0.51
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Subramanian Bala",
+        "title": "officer: Chief Digital & Tech Officer",
+        "is_buy": false,
+        "shares": 29223,
+        "price": 94.54,
+        "total_val": 2.76
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Cesarone Nando",
+        "title": "officer: Chief Global Operations Off",
+        "is_buy": false,
+        "shares": 58446,
+        "price": 94.54,
+        "total_val": 5.53
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Ramos Wilfredo",
+        "title": "officer: Chief Intl, Healthcare and SCS",
+        "is_buy": true,
+        "shares": 0,
+        "price": 94.54,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Ramos Wilfredo",
+        "title": "officer: Chief Intl, Healthcare and SCS",
+        "is_buy": true,
+        "shares": 0,
+        "price": 94.54,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Ramos Wilfredo",
+        "title": "officer: Chief Intl, Healthcare and SCS",
+        "is_buy": true,
+        "shares": 4144,
+        "price": 95.89,
+        "total_val": 0.4
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Ramos Wilfredo",
+        "title": "officer: Chief Intl, Healthcare and SCS",
+        "is_buy": true,
+        "shares": 17293,
+        "price": 116.74,
+        "total_val": 2.02
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Ramos Wilfredo",
+        "title": "officer: Chief Intl, Healthcare and SCS",
+        "is_buy": true,
+        "shares": 2044,
+        "price": 154.76,
+        "total_val": 0.32
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Ramos Wilfredo",
+        "title": "officer: Chief Intl, Healthcare and SCS",
+        "is_buy": true,
+        "shares": 1599,
+        "price": 185.54,
+        "total_val": 0.3
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Ramos Wilfredo",
+        "title": "officer: Chief Intl, Healthcare and SCS",
+        "is_buy": true,
+        "shares": 1975,
+        "price": 94.54,
+        "total_val": 0.19
+      }
+    ],
+    "stock_splits": [],
     "fmp_symbol": "UPS"
   },
   "EFX": {
@@ -44194,8 +63553,133 @@ window.FULL_MARKET_DATA = {
     "year_low": 137.01,
     "all_time_high": 0.0,
     "all_time_low": 137.01,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-02",
+        "name": "MARCUS ROBERT D",
+        "title": "director",
+        "is_buy": false,
+        "shares": 255,
+        "price": 145.78,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Larson Barbara A",
+        "title": "director",
+        "is_buy": false,
+        "shares": 209,
+        "price": 145.78,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-09-08",
+        "name": "GAMBLE JOHN W JR",
+        "title": "officer: EVP, CFO & COO",
+        "is_buy": false,
+        "shares": 4500,
+        "price": 187.96,
+        "total_val": 0.85
+      },
+      {
+        "date": "2026-08-12",
+        "name": "Larson Barbara A",
+        "title": "director",
+        "is_buy": false,
+        "shares": 160,
+        "price": 145.78,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-08-12",
+        "name": "Larson Barbara A",
+        "title": "director",
+        "is_buy": false,
+        "shares": 181,
+        "price": 145.78,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-07-28",
+        "name": "Begor Mark W",
+        "title": "director, officer: CEO",
+        "is_buy": true,
+        "shares": 37791,
+        "price": 112.46,
+        "total_val": 4.25
+      },
+      {
+        "date": "2026-07-28",
+        "name": "Begor Mark W",
+        "title": "director, officer: CEO",
+        "is_buy": false,
+        "shares": 500,
+        "price": 175.85,
+        "total_val": 0.09
+      },
+      {
+        "date": "2026-07-28",
+        "name": "Begor Mark W",
+        "title": "director, officer: CEO",
+        "is_buy": false,
+        "shares": 600,
+        "price": 169.86,
+        "total_val": 0.1
+      },
+      {
+        "date": "2026-07-28",
+        "name": "Begor Mark W",
+        "title": "director, officer: CEO",
+        "is_buy": false,
+        "shares": 600,
+        "price": 168.47,
+        "total_val": 0.1
+      },
+      {
+        "date": "2026-07-28",
+        "name": "Begor Mark W",
+        "title": "director, officer: CEO",
+        "is_buy": false,
+        "shares": 1300,
+        "price": 174.91,
+        "total_val": 0.23
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "1995-12-18",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1989-12-19",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1986-03-27",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1985-03-21",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1982-09-16",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "EFX"
   },
   "TRU": {
@@ -44461,8 +63945,102 @@ window.FULL_MARKET_DATA = {
     "year_low": 60.96,
     "all_time_high": 0.0,
     "all_time_low": 60.96,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-02",
+        "name": "Skinner Todd C.",
+        "title": "officer: President, International",
+        "is_buy": false,
+        "shares": 1000,
+        "price": 62.29,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Abdelsadek Mohamed",
+        "title": "officer: EVP, Chief Global Solutions",
+        "is_buy": false,
+        "shares": 250,
+        "price": 62.29,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Bernholz Malte H",
+        "title": "officer: EVP, Chief Strategy & Corp Dev",
+        "is_buy": false,
+        "shares": 123834,
+        "price": 65.48,
+        "total_val": 8.11
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Bernholz Malte H",
+        "title": "officer",
+        "is_buy": true,
+        "shares": 0,
+        "price": 65.48,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-16",
+        "name": "Abdelsadek Mohamed",
+        "title": "officer: EVP, Chief Global Solutions",
+        "is_buy": false,
+        "shares": 1250,
+        "price": 79.07,
+        "total_val": 0.1
+      },
+      {
+        "date": "2026-09-14",
+        "name": "Achanta Venkat",
+        "title": "officer: EVP, Chief Tech, Data & Analy.",
+        "is_buy": false,
+        "shares": 23287,
+        "price": 77.0,
+        "total_val": 1.79
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Ruebensaal Clayton F.",
+        "title": "officer: EVP, Chief Marketing & Comms",
+        "is_buy": false,
+        "shares": 5976,
+        "price": 65.48,
+        "total_val": 0.39
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Achanta Venkat",
+        "title": "officer: EVP, Chief Tech, Data & Analy.",
+        "is_buy": false,
+        "shares": 71710,
+        "price": 65.48,
+        "total_val": 4.7
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Skinner Todd C.",
+        "title": "officer: President, International",
+        "is_buy": false,
+        "shares": 1000,
+        "price": 84.42,
+        "total_val": 0.08
+      },
+      {
+        "date": "2026-09-03",
+        "name": "CHAOUKI STEVEN M",
+        "title": "officer: President, US Markets",
+        "is_buy": false,
+        "shares": 1000,
+        "price": 84.42,
+        "total_val": 0.08
+      }
+    ],
+    "stock_splits": [],
     "fmp_symbol": "TRU"
   },
   "CPRT": {
@@ -44728,8 +64306,145 @@ window.FULL_MARKET_DATA = {
     "year_low": 26.39,
     "all_time_high": 0.0,
     "all_time_low": 26.39,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-08-18",
+        "name": "STEARNS LEAH C",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": false,
+        "shares": 200000,
+        "price": 31.61,
+        "total_val": 6.32
+      },
+      {
+        "date": "2026-08-18",
+        "name": "STEARNS LEAH C",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": false,
+        "shares": 12654,
+        "price": 27.32,
+        "total_val": 0.35
+      },
+      {
+        "date": "2026-08-18",
+        "name": "Pocock Jane",
+        "title": "officer: President",
+        "is_buy": false,
+        "shares": 500000,
+        "price": 31.61,
+        "total_val": 15.8
+      },
+      {
+        "date": "2026-08-18",
+        "name": "Pocock Jane",
+        "title": "officer: President",
+        "is_buy": false,
+        "shares": 25308,
+        "price": 27.32,
+        "total_val": 0.69
+      },
+      {
+        "date": "2026-08-17",
+        "name": "Berger David Joel",
+        "title": "director",
+        "is_buy": false,
+        "shares": 24341,
+        "price": 29.39,
+        "total_val": 0.72
+      },
+      {
+        "date": "2026-08-17",
+        "name": "Berger David Joel",
+        "title": "Officer / Director",
+        "is_buy": true,
+        "shares": 0,
+        "price": 27.32,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-08-17",
+        "name": "Pocock Jane",
+        "title": "officer: President",
+        "is_buy": true,
+        "shares": 0,
+        "price": 27.32,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-08-17",
+        "name": "Pocock Jane",
+        "title": "officer: President",
+        "is_buy": true,
+        "shares": 89767,
+        "price": 27.32,
+        "total_val": 2.45
+      },
+      {
+        "date": "2026-07-30",
+        "name": "Liaw Jeffrey",
+        "title": "officer: Chief Executive Officer",
+        "is_buy": true,
+        "shares": 43166,
+        "price": 8.7,
+        "total_val": 0.38
+      },
+      {
+        "date": "2026-07-30",
+        "name": "Liaw Jeffrey",
+        "title": "officer: Chief Executive Officer",
+        "is_buy": true,
+        "shares": 43166,
+        "price": 8.7,
+        "total_val": 0.38
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2023-08-22",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2022-11-04",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2017-04-11",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2012-03-29",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2002-01-22",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2000-01-25",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1999-01-29",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "CPRT"
   },
   "PAYX": {
@@ -44995,8 +64710,163 @@ window.FULL_MARKET_DATA = {
     "year_low": 85.45,
     "all_time_high": 0.0,
     "all_time_low": 85.45,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-02",
+        "name": "ANTE ADAM BROOKS",
+        "title": "officer: Sr. Vice President, Paycor",
+        "is_buy": false,
+        "shares": 1762,
+        "price": 100.84,
+        "total_val": 0.18
+      },
+      {
+        "date": "2026-10-02",
+        "name": "BERGSTROM RYAN NORMAN",
+        "title": "officer: Chief Product Officer",
+        "is_buy": false,
+        "shares": 1393,
+        "price": 100.84,
+        "total_val": 0.14
+      },
+      {
+        "date": "2026-09-30",
+        "name": "GOLISANO B THOMAS",
+        "title": "10 percent owner",
+        "is_buy": false,
+        "shares": 562635,
+        "price": 99.91,
+        "total_val": 56.21
+      },
+      {
+        "date": "2026-09-02",
+        "name": "GOLISANO B THOMAS",
+        "title": "10 percent owner",
+        "is_buy": false,
+        "shares": 334,
+        "price": 127.04,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-08-17",
+        "name": "Simmons Christopher C",
+        "title": "officer: VP, Controller & Treasurer",
+        "is_buy": false,
+        "shares": 130,
+        "price": 122.02,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-07-21",
+        "name": "MUCCI MARTIN",
+        "title": "director, other: Chairman",
+        "is_buy": false,
+        "shares": 9309,
+        "price": 113.98,
+        "total_val": 1.06
+      },
+      {
+        "date": "2026-07-21",
+        "name": "DOODY JOSEPH",
+        "title": "director",
+        "is_buy": false,
+        "shares": 164,
+        "price": 103.98,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-07-21",
+        "name": "DOODY JOSEPH",
+        "title": "director",
+        "is_buy": false,
+        "shares": 164,
+        "price": 103.98,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-07-21",
+        "name": "Schrader Robert L.",
+        "title": "officer: Sr. VP, CFO",
+        "is_buy": false,
+        "shares": 2600,
+        "price": 115.09,
+        "total_val": 0.3
+      },
+      {
+        "date": "2026-07-17",
+        "name": "Gibson John B",
+        "title": "officer: President and CEO",
+        "is_buy": false,
+        "shares": 96971,
+        "price": 110.0,
+        "total_val": 10.67
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2000-05-23",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1999-05-24",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1998-05-26",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1997-05-30",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1996-05-24",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1995-05-26",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1993-08-27",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1992-05-21",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1987-11-16",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1986-06-13",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "PAYX"
   },
   "AOS": {
@@ -45262,8 +65132,133 @@ window.FULL_MARKET_DATA = {
     "year_low": 54.16,
     "all_time_high": 0.0,
     "all_time_low": 54.16,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-07-02",
+        "name": "Anderson Carrie L",
+        "title": "officer: EVP & CFO",
+        "is_buy": false,
+        "shares": 32060,
+        "price": 56.38,
+        "total_val": 1.81
+      },
+      {
+        "date": "2026-07-02",
+        "name": "Anderson Carrie L",
+        "title": "officer: EVP & CFO",
+        "is_buy": true,
+        "shares": 0,
+        "price": 56.38,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-05-01",
+        "name": "Saak Aaron W",
+        "title": "director",
+        "is_buy": false,
+        "shares": 2296,
+        "price": 56.38,
+        "total_val": 0.13
+      },
+      {
+        "date": "2026-04-15",
+        "name": "Saak Aaron W",
+        "title": "director",
+        "is_buy": false,
+        "shares": 2262,
+        "price": 56.38,
+        "total_val": 0.13
+      },
+      {
+        "date": "2026-04-15",
+        "name": "Saak Aaron W",
+        "title": "director: ",
+        "is_buy": true,
+        "shares": 0,
+        "price": 56.38,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-04-15",
+        "name": "SMITH MARK D",
+        "title": "director",
+        "is_buy": false,
+        "shares": 2262,
+        "price": 66.32,
+        "total_val": 0.15
+      },
+      {
+        "date": "2026-04-15",
+        "name": "MARTIN LOIS M",
+        "title": "director",
+        "is_buy": false,
+        "shares": 2262,
+        "price": 66.32,
+        "total_val": 0.15
+      },
+      {
+        "date": "2026-04-15",
+        "name": "MAPES CHRISTOPHER L",
+        "title": "director",
+        "is_buy": false,
+        "shares": 2262,
+        "price": 66.32,
+        "total_val": 0.15
+      },
+      {
+        "date": "2026-04-15",
+        "name": "Larsen Michael M",
+        "title": "director",
+        "is_buy": false,
+        "shares": 2262,
+        "price": 56.38,
+        "total_val": 0.13
+      },
+      {
+        "date": "2026-04-15",
+        "name": "Kadri Ilham",
+        "title": "director",
+        "is_buy": false,
+        "shares": 2262,
+        "price": 66.32,
+        "total_val": 0.15
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2016-10-06",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2013-05-16",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2010-11-16",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1998-08-18",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1993-08-17",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "AOS"
   },
   "ASR": {
@@ -45529,8 +65524,102 @@ window.FULL_MARKET_DATA = {
     "year_low": 226.19,
     "all_time_high": 0.0,
     "all_time_low": 226.19,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-30",
+        "name": "Formoso Martinez Jose",
+        "title": "officer: Chief Executive Officer Brazil",
+        "is_buy": true,
+        "shares": 0,
+        "price": 231.75,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-04-16",
+        "name": "GARZA ZAMBRANO FRANCISCO JAVIER",
+        "title": "director: ",
+        "is_buy": true,
+        "shares": 0,
+        "price": 231.75,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-04-10",
+        "name": "Christiansen Rasmus",
+        "title": "director: ",
+        "is_buy": true,
+        "shares": 0,
+        "price": 231.75,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-04-10",
+        "name": "Perez Alonso Aurelio",
+        "title": "director",
+        "is_buy": true,
+        "shares": 0,
+        "price": 231.75,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-04-10",
+        "name": "Perez Anton Jose Antonio",
+        "title": "director",
+        "is_buy": true,
+        "shares": 0,
+        "price": 231.75,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-03-31",
+        "name": "Prieto Prieto Maria Isabel",
+        "title": "director",
+        "is_buy": true,
+        "shares": 0,
+        "price": 231.75,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-03-31",
+        "name": "Steden Heliane Marie Luise",
+        "title": "director: ",
+        "is_buy": true,
+        "shares": 0,
+        "price": 231.75,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-03-31",
+        "name": "CHAVEZ VARELA DIANA MARIA",
+        "title": "director: ",
+        "is_buy": true,
+        "shares": 0,
+        "price": 231.75,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-03-31",
+        "name": "Ortiz Martinez Guillermo Mr",
+        "title": "director",
+        "is_buy": true,
+        "shares": 0,
+        "price": 231.75,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-03-25",
+        "name": "Hernandez Pablo Chico",
+        "title": "director",
+        "is_buy": true,
+        "shares": 0,
+        "price": 231.75,
+        "total_val": 0.0
+      }
+    ],
+    "stock_splits": [],
     "fmp_symbol": "ASR"
   },
   "XYL": {
@@ -45796,8 +65885,102 @@ window.FULL_MARKET_DATA = {
     "year_low": 98.58,
     "all_time_high": 0.0,
     "all_time_low": 98.58,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-09",
+        "name": "McShane Geri-Michelle",
+        "title": "officer: SVP, CAO",
+        "is_buy": false,
+        "shares": 4257,
+        "price": 102.71,
+        "total_val": 0.44
+      },
+      {
+        "date": "2026-10-01",
+        "name": "McShane Geri-Michelle",
+        "title": "officer: SVP, CAO",
+        "is_buy": false,
+        "shares": 4225,
+        "price": 102.71,
+        "total_val": 0.43
+      },
+      {
+        "date": "2026-09-02",
+        "name": "van der Berg Andrea Michele",
+        "title": "officer: EVP & Chief Financial Officer",
+        "is_buy": false,
+        "shares": 1693,
+        "price": 102.71,
+        "total_val": 0.17
+      },
+      {
+        "date": "2026-09-02",
+        "name": "van der Berg Andrea Michele",
+        "title": "officer: EVP & Chief Financial Officer",
+        "is_buy": false,
+        "shares": 6034,
+        "price": 106.89,
+        "total_val": 0.64
+      },
+      {
+        "date": "2026-09-02",
+        "name": "Johnston Joseph Patrick",
+        "title": "officer: EVP & President, AW",
+        "is_buy": false,
+        "shares": 2298,
+        "price": 106.89,
+        "total_val": 0.25
+      },
+      {
+        "date": "2026-09-02",
+        "name": "Johnston Joseph Patrick",
+        "title": "officer: EVP & President, AW",
+        "is_buy": false,
+        "shares": 645,
+        "price": 102.71,
+        "total_val": 0.07
+      },
+      {
+        "date": "2026-09-01",
+        "name": "Grogan William K",
+        "title": "officer",
+        "is_buy": true,
+        "shares": 0,
+        "price": 102.71,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-01",
+        "name": "van der Berg Andrea Michele",
+        "title": "officer: EVP & Chief Financial Officer",
+        "is_buy": true,
+        "shares": 0,
+        "price": 102.71,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-01",
+        "name": "van der Berg Andrea Michele",
+        "title": "officer: EVP & Chief Financial Officer",
+        "is_buy": true,
+        "shares": 0,
+        "price": 102.71,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-01",
+        "name": "van der Berg Andrea Michele",
+        "title": "officer: EVP & Chief Financial Officer",
+        "is_buy": true,
+        "shares": 1688,
+        "price": 128.98,
+        "total_val": 0.22
+      }
+    ],
+    "stock_splits": [],
     "fmp_symbol": "XYL"
   },
   "ROL": {
@@ -46063,8 +66246,163 @@ window.FULL_MARKET_DATA = {
     "year_low": 29.29,
     "all_time_high": 0.0,
     "all_time_low": 29.29,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-21",
+        "name": "Gary W. Rollins Voting Trust U/A dated September 14, 1994",
+        "title": "10 percent owner",
+        "is_buy": false,
+        "shares": 8028982,
+        "price": 31.98,
+        "total_val": 256.77
+      },
+      {
+        "date": "2026-08-26",
+        "name": "Wilson John F",
+        "title": "director, officer: EXECUTIVE CHAIRMAN",
+        "is_buy": false,
+        "shares": 33000,
+        "price": 31.98,
+        "total_val": 1.06
+      },
+      {
+        "date": "2026-08-26",
+        "name": "Wilson John F",
+        "title": "director, officer: EXECUTIVE CHAIRMAN",
+        "is_buy": false,
+        "shares": 54000,
+        "price": 31.98,
+        "total_val": 1.73
+      },
+      {
+        "date": "2026-07-06",
+        "name": "Harkins William Wayne II",
+        "title": "officer: Executive V.P. and CFO",
+        "is_buy": false,
+        "shares": 11866,
+        "price": 42.14,
+        "total_val": 0.5
+      },
+      {
+        "date": "2026-06-12",
+        "name": "Harkins William Wayne II",
+        "title": "officer: Principal Accounting Officer",
+        "is_buy": false,
+        "shares": 6112,
+        "price": 31.98,
+        "total_val": 0.2
+      },
+      {
+        "date": "2026-06-12",
+        "name": "Harkins William Wayne II",
+        "title": "officer: Principal Accounting Officer",
+        "is_buy": false,
+        "shares": 357,
+        "price": 53.49,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-05-01",
+        "name": "Gahlhoff Jerry Jr.",
+        "title": "director, officer: PRESIDENT & CEO",
+        "is_buy": false,
+        "shares": 3629,
+        "price": 31.98,
+        "total_val": 0.12
+      },
+      {
+        "date": "2026-05-01",
+        "name": "Wilson John F",
+        "title": "director, officer: EXECUTIVE CHAIRMAN",
+        "is_buy": false,
+        "shares": 4795,
+        "price": 31.98,
+        "total_val": 0.15
+      },
+      {
+        "date": "2026-04-30",
+        "name": "Bell Susan R.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 2692,
+        "price": 31.98,
+        "total_val": 0.09
+      },
+      {
+        "date": "2026-04-30",
+        "name": "Carson Donald P",
+        "title": "director",
+        "is_buy": false,
+        "shares": 2692,
+        "price": 31.98,
+        "total_val": 0.09
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2020-12-11",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2018-12-11",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2015-03-11",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2010-12-13",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2007-12-11",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2005-03-11",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2003-03-11",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1992-12-11",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1984-07-02",
+        "ratio": "1099 : 500",
+        "desc": "普通股 500 拆 1099 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1981-03-11",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "ROL"
   },
   "OTIS": {
@@ -46330,8 +66668,102 @@ window.FULL_MARKET_DATA = {
     "year_low": 63.575,
     "all_time_high": 0.0,
     "all_time_low": 63.575,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-04",
+        "name": "Gosk Kimberly Shannon",
+        "title": "officer: EVP & CPO",
+        "is_buy": true,
+        "shares": 933,
+        "price": 65.95,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-09-04",
+        "name": "Gosk Kimberly Shannon",
+        "title": "officer: EVP & CPO",
+        "is_buy": false,
+        "shares": 274,
+        "price": 70.83,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-09-04",
+        "name": "Gosk Kimberly Shannon",
+        "title": "officer: EVP & CPO",
+        "is_buy": true,
+        "shares": 933,
+        "price": 65.95,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-08-25",
+        "name": "Mendez Echevarria Maria Cristina",
+        "title": "officer: EVP & CFO",
+        "is_buy": true,
+        "shares": 2137,
+        "price": 65.95,
+        "total_val": 0.14
+      },
+      {
+        "date": "2026-08-25",
+        "name": "Mendez Echevarria Maria Cristina",
+        "title": "officer: EVP & CFO",
+        "is_buy": false,
+        "shares": 838,
+        "price": 71.49,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-08-25",
+        "name": "Mendez Echevarria Maria Cristina",
+        "title": "officer: EVP & CFO",
+        "is_buy": true,
+        "shares": 2137,
+        "price": 65.95,
+        "total_val": 0.14
+      },
+      {
+        "date": "2026-08-04",
+        "name": "KEARNEY CHRISTOPHER J",
+        "title": "director",
+        "is_buy": false,
+        "shares": 290,
+        "price": 65.95,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-06-03",
+        "name": "Armas Joseph Jay",
+        "title": "officer: President, Otis Americas",
+        "is_buy": true,
+        "shares": 1680,
+        "price": 65.95,
+        "total_val": 0.11
+      },
+      {
+        "date": "2026-06-03",
+        "name": "Armas Joseph Jay",
+        "title": "officer: President, Otis Americas",
+        "is_buy": true,
+        "shares": 1680,
+        "price": 65.95,
+        "total_val": 0.11
+      },
+      {
+        "date": "2026-06-03",
+        "name": "Armas Joseph Jay",
+        "title": "officer: President, Otis Americas",
+        "is_buy": false,
+        "shares": 421,
+        "price": 70.33,
+        "total_val": 0.03
+      }
+    ],
+    "stock_splits": [],
     "fmp_symbol": "OTIS"
   },
   "VRSK": {
@@ -46597,8 +67029,102 @@ window.FULL_MARKET_DATA = {
     "year_low": 155.94,
     "all_time_high": 0.0,
     "all_time_low": 155.94,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-09",
+        "name": "Patiath Pradip",
+        "title": "director",
+        "is_buy": false,
+        "shares": 156,
+        "price": 177.63,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-09",
+        "name": "Hendrick Gregory",
+        "title": "director",
+        "is_buy": false,
+        "shares": 179,
+        "price": 177.63,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-09",
+        "name": "Purtill Sabra R.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 194,
+        "price": 177.63,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-09",
+        "name": "PERRY CHRISTOPHER JOHN",
+        "title": "director",
+        "is_buy": false,
+        "shares": 156,
+        "price": 177.63,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-09",
+        "name": "LISS SAMUEL G",
+        "title": "director",
+        "is_buy": false,
+        "shares": 156,
+        "price": 177.63,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Shavel Lee",
+        "title": "director, officer: Chief Executive Officer",
+        "is_buy": true,
+        "shares": 3535,
+        "price": 104.0,
+        "total_val": 0.37
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Shavel Lee",
+        "title": "director, officer: Chief Executive Officer",
+        "is_buy": false,
+        "shares": 3535,
+        "price": 170.7,
+        "total_val": 0.6
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Shavel Lee",
+        "title": "director, officer: Chief Executive Officer",
+        "is_buy": true,
+        "shares": 3535,
+        "price": 104.0,
+        "total_val": 0.37
+      },
+      {
+        "date": "2026-09-16",
+        "name": "Mann Elizabeth",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": false,
+        "shares": 400,
+        "price": 184.91,
+        "total_val": 0.07
+      },
+      {
+        "date": "2026-09-02",
+        "name": "Shavel Lee",
+        "title": "director, officer: Chief Executive Officer",
+        "is_buy": true,
+        "shares": 3535,
+        "price": 104.0,
+        "total_val": 0.37
+      }
+    ],
+    "stock_splits": [],
     "fmp_symbol": "VRSK"
   },
   "MIDD": {
@@ -46864,8 +67390,127 @@ window.FULL_MARKET_DATA = {
     "year_low": 89.15527,
     "all_time_high": 0.0,
     "all_time_low": 89.15527,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-05",
+        "name": "Pool III James K",
+        "title": "officer: Chief Technology and*",
+        "is_buy": false,
+        "shares": 9181,
+        "price": 105.95,
+        "total_val": 0.97
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Spittle Steve",
+        "title": "officer: Chief Commercial Officer",
+        "is_buy": false,
+        "shares": 9181,
+        "price": 105.95,
+        "total_val": 0.97
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Cerwin Brittany C",
+        "title": "officer: Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 6695,
+        "price": 105.95,
+        "total_val": 0.71
+      },
+      {
+        "date": "2026-10-05",
+        "name": "FITZGERALD TIMOTHY JOHN",
+        "title": "director, officer: Chief Executive Officer",
+        "is_buy": false,
+        "shares": 21517,
+        "price": 105.95,
+        "total_val": 2.28
+      },
+      {
+        "date": "2026-08-28",
+        "name": "Cerwin Brittany C",
+        "title": "officer: Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 877,
+        "price": 105.95,
+        "total_val": 0.09
+      },
+      {
+        "date": "2026-08-28",
+        "name": "Pool III James K",
+        "title": "officer: Chief Technology and*",
+        "is_buy": false,
+        "shares": 1823,
+        "price": 105.95,
+        "total_val": 0.19
+      },
+      {
+        "date": "2026-08-28",
+        "name": "Spittle Steve",
+        "title": "officer: Chief Commercial Officer",
+        "is_buy": false,
+        "shares": 1823,
+        "price": 105.95,
+        "total_val": 0.19
+      },
+      {
+        "date": "2026-08-28",
+        "name": "FITZGERALD TIMOTHY JOHN",
+        "title": "director, officer: Chief Executive Officer",
+        "is_buy": false,
+        "shares": 4455,
+        "price": 105.95,
+        "total_val": 0.47
+      },
+      {
+        "date": "2026-08-28",
+        "name": "Shah Tejas P.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 349,
+        "price": 105.95,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-08-28",
+        "name": "Scherger Stephen R.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 349,
+        "price": 105.95,
+        "total_val": 0.04
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2026-07-07",
+        "ratio": "1243 : 1000",
+        "desc": "普通股 1000 拆 1243 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2014-06-27",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2007-06-18",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1988-06-02",
+        "ratio": "5 : 4",
+        "desc": "普通股 4 拆 5 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "MIDD"
   },
   "ADP": {
@@ -47131,8 +67776,151 @@ window.FULL_MARKET_DATA = {
     "year_low": 188.16,
     "all_time_high": 0.0,
     "all_time_low": 188.16,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-10",
+        "name": "Sugla Vishwas",
+        "title": "officer: Chief Strategy Officer",
+        "is_buy": false,
+        "shares": 2073,
+        "price": 270.88,
+        "total_val": 0.56
+      },
+      {
+        "date": "2026-09-10",
+        "name": "Sugla Vishwas",
+        "title": "officer: Chief Strategy Officer",
+        "is_buy": false,
+        "shares": 2827,
+        "price": 270.88,
+        "total_val": 0.77
+      },
+      {
+        "date": "2026-09-10",
+        "name": "Sugla Vishwas",
+        "title": "officer",
+        "is_buy": true,
+        "shares": 0,
+        "price": 270.88,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-04",
+        "name": "DeSilva Joseph",
+        "title": "officer: Executive VP",
+        "is_buy": false,
+        "shares": 631,
+        "price": 282.87,
+        "total_val": 0.18
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Rodriguez Carlos A",
+        "title": "director",
+        "is_buy": false,
+        "shares": 13471,
+        "price": 283.49,
+        "total_val": 3.82
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Orihuela Samantha D",
+        "title": "officer: Chief Marketing Officer",
+        "is_buy": false,
+        "shares": 1163,
+        "price": 270.88,
+        "total_val": 0.32
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Orihuela Samantha D",
+        "title": "officer: Chief Marketing Officer",
+        "is_buy": false,
+        "shares": 154,
+        "price": 283.49,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Michaud Brian L.",
+        "title": "officer: Executive VP",
+        "is_buy": false,
+        "shares": 2683,
+        "price": 270.88,
+        "total_val": 0.73
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Michaud Brian L.",
+        "title": "officer: Executive VP",
+        "is_buy": false,
+        "shares": 2281,
+        "price": 283.49,
+        "total_val": 0.65
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Magliulo Virginia",
+        "title": "officer: Executive VP",
+        "is_buy": false,
+        "shares": 2858,
+        "price": 270.88,
+        "total_val": 0.77
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2014-10-01",
+        "ratio": "1139 : 1000",
+        "desc": "普通股 1000 拆 1139 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2007-04-02",
+        "ratio": "10000 : 9033",
+        "desc": "普通股 9033 拆 10000 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1999-01-04",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1996-01-02",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1991-05-01",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1986-06-09",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1981-05-22",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1976-07-02",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "ADP"
   },
   "HII": {
@@ -47398,8 +68186,102 @@ window.FULL_MARKET_DATA = {
     "year_low": 256.79,
     "all_time_high": 0.0,
     "all_time_low": 256.79,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-02",
+        "name": "DENAULT LEO P",
+        "title": "director",
+        "is_buy": false,
+        "shares": 177,
+        "price": 274.33,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-10-02",
+        "name": "McKibben Tracy B",
+        "title": "director",
+        "is_buy": false,
+        "shares": 177,
+        "price": 274.33,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Faller Craig S.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 177,
+        "price": 274.33,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Stanage Nick L",
+        "title": "director",
+        "is_buy": false,
+        "shares": 177,
+        "price": 274.33,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Jimenez Frank R",
+        "title": "director",
+        "is_buy": false,
+        "shares": 177,
+        "price": 274.33,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-10-02",
+        "name": "SCHIEVELBEIN THOMAS C",
+        "title": "director",
+        "is_buy": false,
+        "shares": 177,
+        "price": 274.33,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Harker Victoria D",
+        "title": "director",
+        "is_buy": false,
+        "shares": 177,
+        "price": 274.33,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-10-02",
+        "name": "O'Sullivan Stephanie L.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 177,
+        "price": 274.33,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Collins Augustus L",
+        "title": "director",
+        "is_buy": false,
+        "shares": 177,
+        "price": 274.33,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-10-02",
+        "name": "DONALD KIRKLAND H",
+        "title": "director",
+        "is_buy": false,
+        "shares": 177,
+        "price": 274.33,
+        "total_val": 0.05
+      }
+    ],
+    "stock_splits": [],
     "fmp_symbol": "HII"
   },
   "MSA": {
@@ -47665,8 +68547,133 @@ window.FULL_MARKET_DATA = {
     "year_low": 151.1,
     "all_time_high": 0.0,
     "all_time_low": 151.1,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-16",
+        "name": "LAMBERT WILLIAM M",
+        "title": "director",
+        "is_buy": false,
+        "shares": 2000,
+        "price": 180.71,
+        "total_val": 0.36
+      },
+      {
+        "date": "2026-09-16",
+        "name": "LAMBERT WILLIAM M",
+        "title": "director",
+        "is_buy": false,
+        "shares": 6000,
+        "price": 180.71,
+        "total_val": 1.08
+      },
+      {
+        "date": "2026-09-14",
+        "name": "Phillips Sandra L.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 10,
+        "price": 180.71,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-14",
+        "name": "Savi Luca",
+        "title": "director",
+        "is_buy": false,
+        "shares": 16,
+        "price": 180.71,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-14",
+        "name": "PEARSE DIANE M",
+        "title": "director",
+        "is_buy": false,
+        "shares": 20,
+        "price": 180.71,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-14",
+        "name": "Jordan Gregory B.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 20,
+        "price": 180.71,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-01",
+        "name": "BECK JULIE A",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": false,
+        "shares": 140,
+        "price": 186.77,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-08-11",
+        "name": "Vartanian Nishan J.",
+        "title": "director, other: Chairman",
+        "is_buy": false,
+        "shares": 20000,
+        "price": 193.99,
+        "total_val": 3.88
+      },
+      {
+        "date": "2026-08-05",
+        "name": "Marquez Octavio",
+        "title": "director",
+        "is_buy": false,
+        "shares": 626,
+        "price": 180.71,
+        "total_val": 0.11
+      },
+      {
+        "date": "2026-08-05",
+        "name": "Buck Jonathan D.",
+        "title": "officer: Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 52,
+        "price": 180.71,
+        "total_val": 0.01
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2004-01-29",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2000-05-25",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1985-09-11",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1980-05-16",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1977-04-26",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "MSA"
   },
   "TDG": {
@@ -47932,8 +68939,102 @@ window.FULL_MARKET_DATA = {
     "year_low": 1071.25,
     "all_time_high": 0.0,
     "all_time_low": 1071.25,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-22",
+        "name": "SMALL ROBERT J",
+        "title": "director",
+        "is_buy": false,
+        "shares": 0,
+        "price": 1107.99,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-21",
+        "name": "Palmer Peter",
+        "title": "director",
+        "is_buy": false,
+        "shares": 34,
+        "price": 1085.0,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-09-21",
+        "name": "Howley W Nicholas",
+        "title": "director",
+        "is_buy": false,
+        "shares": 126,
+        "price": 1085.0,
+        "total_val": 0.14
+      },
+      {
+        "date": "2026-09-21",
+        "name": "Krasik Irina Igorevna",
+        "title": "director",
+        "is_buy": false,
+        "shares": 13,
+        "price": 1085.0,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-09-21",
+        "name": "SMALL ROBERT J",
+        "title": "director",
+        "is_buy": false,
+        "shares": 52,
+        "price": 1085.0,
+        "total_val": 0.06
+      },
+      {
+        "date": "2026-09-21",
+        "name": "Santana Michele",
+        "title": "director",
+        "is_buy": false,
+        "shares": 34,
+        "price": 1085.0,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-09-21",
+        "name": "MCCULLOUGH GARY E",
+        "title": "director",
+        "is_buy": false,
+        "shares": 41,
+        "price": 1085.0,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-09-21",
+        "name": "HENNESSY SEAN P",
+        "title": "director",
+        "is_buy": false,
+        "shares": 46,
+        "price": 1085.0,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-09-21",
+        "name": "Graff Michael",
+        "title": "director",
+        "is_buy": false,
+        "shares": 34,
+        "price": 1085.0,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-09-21",
+        "name": "CRONIN JANE M.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 34,
+        "price": 1085.0,
+        "total_val": 0.04
+      }
+    ],
+    "stock_splits": [],
     "fmp_symbol": "TDG"
   },
   "RRX": {
@@ -48199,8 +69300,145 @@ window.FULL_MARKET_DATA = {
     "year_low": 127.96,
     "all_time_high": 0.0,
     "all_time_low": 127.96,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-03",
+        "name": "Long Kevin",
+        "title": "officer: EVP and President, AMC*",
+        "is_buy": false,
+        "shares": 265,
+        "price": 160.77,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-08-18",
+        "name": "Long Kevin",
+        "title": "officer: EVP and President, AMC*",
+        "is_buy": false,
+        "shares": 261,
+        "price": 175.49,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-08-18",
+        "name": "Klossner Mark",
+        "title": "officer: EVP and Pres. IPS*",
+        "is_buy": false,
+        "shares": 131,
+        "price": 170.58,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-08-11",
+        "name": "Scarpelli Alexander P",
+        "title": "officer: SVP, Corp. Controller and CAO*",
+        "is_buy": false,
+        "shares": 170,
+        "price": 176.24,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-07-16",
+        "name": "Bertsch Jan",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1,
+        "price": 211.2,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-07-16",
+        "name": "Hilton Michael F",
+        "title": "director",
+        "is_buy": false,
+        "shares": 3,
+        "price": 211.2,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-07-16",
+        "name": "Paul Aamir",
+        "title": "officer: Chief Executive Officer",
+        "is_buy": false,
+        "shares": 80,
+        "price": 211.2,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-07-16",
+        "name": "Walker-Lee Robin A",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1,
+        "price": 211.2,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-07-16",
+        "name": "Rehard Robert",
+        "title": "officer: EVP and CFO*",
+        "is_buy": false,
+        "shares": 16,
+        "price": 211.2,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-07-16",
+        "name": "CRANDALL  THEODORE D",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1,
+        "price": 211.2,
+        "total_val": 0.0
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "1994-08-15",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1988-05-17",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1987-06-01",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1985-03-25",
+        "ratio": "21 : 20",
+        "desc": "普通股 20 拆 21 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1983-12-01",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1980-05-01",
+        "ratio": "5 : 4",
+        "desc": "普通股 4 拆 5 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1976-06-16",
+        "ratio": "1499 : 1000",
+        "desc": "普通股 1000 拆 1499 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "RRX"
   },
   "GGG": {
@@ -48466,8 +69704,163 @@ window.FULL_MARKET_DATA = {
     "year_low": 72.51,
     "all_time_high": 0.0,
     "all_time_low": 72.51,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-05",
+        "name": "Wheeler Kevin J.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 336,
+        "price": 78.21,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-05",
+        "name": "FERAGEN JODY H",
+        "title": "director",
+        "is_buy": false,
+        "shares": 418,
+        "price": 78.21,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Etchart Eric",
+        "title": "director",
+        "is_buy": false,
+        "shares": 176,
+        "price": 78.21,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Black Archie C.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 357,
+        "price": 78.21,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Anfang Heather L",
+        "title": "director",
+        "is_buy": false,
+        "shares": 357,
+        "price": 78.21,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-05",
+        "name": "GILLIGAN J KEVIN",
+        "title": "director",
+        "is_buy": false,
+        "shares": 697,
+        "price": 78.21,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Hedlund Steven B",
+        "title": "director",
+        "is_buy": false,
+        "shares": 87,
+        "price": 78.21,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-09-14",
+        "name": "Hedlund Steven B",
+        "title": "director",
+        "is_buy": false,
+        "shares": 2710,
+        "price": 76.41,
+        "total_val": 0.21
+      },
+      {
+        "date": "2026-09-14",
+        "name": "Hedlund Steven B",
+        "title": "director: ",
+        "is_buy": true,
+        "shares": 0,
+        "price": 78.21,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-08-05",
+        "name": "Etchart Eric",
+        "title": "director",
+        "is_buy": true,
+        "shares": 3218,
+        "price": 36.09,
+        "total_val": 0.12
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2017-12-28",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2004-03-31",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2002-06-07",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2001-02-07",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1998-02-05",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1996-02-08",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1994-02-03",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1988-08-04",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1983-09-29",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1981-11-13",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "GGG"
   },
   "DCI": {
@@ -48733,8 +70126,151 @@ window.FULL_MARKET_DATA = {
     "year_low": 79.42,
     "all_time_high": 0.0,
     "all_time_low": 79.42,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-05",
+        "name": "Smiley Jacinth C",
+        "title": "director",
+        "is_buy": false,
+        "shares": 268,
+        "price": 88.65,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Rautio Trudy A.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 336,
+        "price": 88.65,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Owens James",
+        "title": "director",
+        "is_buy": false,
+        "shares": 268,
+        "price": 88.65,
+        "total_val": 0.02
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Hilger Christopher M.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 402,
+        "price": 88.65,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Pogalz Bradley J.",
+        "title": "officer: Chief Financial Officer",
+        "is_buy": false,
+        "shares": 24100,
+        "price": 87.76,
+        "total_val": 2.12
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Lewis Richard Brent",
+        "title": "officer: President",
+        "is_buy": false,
+        "shares": 84200,
+        "price": 87.76,
+        "total_val": 7.39
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Driesen Bart C.",
+        "title": "officer: President",
+        "is_buy": false,
+        "shares": 12800,
+        "price": 87.76,
+        "total_val": 1.12
+      },
+      {
+        "date": "2026-10-05",
+        "name": "DeVincke Darcy J",
+        "title": "officer: Chief Human Resources Officer",
+        "is_buy": false,
+        "shares": 10400,
+        "price": 87.76,
+        "total_val": 0.91
+      },
+      {
+        "date": "2026-10-05",
+        "name": "CEBULLA ANDREW J.",
+        "title": "officer: Corporate Controller",
+        "is_buy": false,
+        "shares": 4624,
+        "price": 87.76,
+        "total_val": 0.41
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Becker Amy C",
+        "title": "officer: Chief Legal Officer",
+        "is_buy": false,
+        "shares": 14800,
+        "price": 87.76,
+        "total_val": 1.3
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2012-03-26",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2004-03-22",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1998-01-14",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1994-04-07",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1992-07-13",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1988-05-03",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1978-08-01",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1976-08-03",
+        "ratio": "1499 : 1000",
+        "desc": "普通股 1000 拆 1499 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "DCI"
   },
   "ITW": {
@@ -49000,8 +70536,133 @@ window.FULL_MARKET_DATA = {
     "year_low": 238.82,
     "all_time_high": 0.0,
     "all_time_low": 238.82,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-08-21",
+        "name": "SANTI ERNEST SCOTT",
+        "title": "director",
+        "is_buy": true,
+        "shares": 41431,
+        "price": 187.86,
+        "total_val": 7.78
+      },
+      {
+        "date": "2026-08-21",
+        "name": "SANTI ERNEST SCOTT",
+        "title": "director",
+        "is_buy": false,
+        "shares": 22471,
+        "price": 286.37,
+        "total_val": 6.44
+      },
+      {
+        "date": "2026-08-21",
+        "name": "SANTI ERNEST SCOTT",
+        "title": "director",
+        "is_buy": false,
+        "shares": 8142,
+        "price": 287.35,
+        "total_val": 2.34
+      },
+      {
+        "date": "2026-08-21",
+        "name": "SANTI ERNEST SCOTT",
+        "title": "director",
+        "is_buy": false,
+        "shares": 8928,
+        "price": 288.22,
+        "total_val": 2.57
+      },
+      {
+        "date": "2026-08-21",
+        "name": "SANTI ERNEST SCOTT",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1890,
+        "price": 289.19,
+        "total_val": 0.55
+      },
+      {
+        "date": "2026-08-21",
+        "name": "SANTI ERNEST SCOTT",
+        "title": "director",
+        "is_buy": true,
+        "shares": 41431,
+        "price": 187.86,
+        "total_val": 7.78
+      },
+      {
+        "date": "2026-08-17",
+        "name": "Pigozzo Matteo C.",
+        "title": "officer: VP & Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 277,
+        "price": 289.22,
+        "total_val": 0.08
+      },
+      {
+        "date": "2026-08-11",
+        "name": "Scanlon Jennifer F.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 117,
+        "price": 296.66,
+        "total_val": 0.03
+      },
+      {
+        "date": "2026-08-11",
+        "name": "SMITH DAVID BYRON JR",
+        "title": "director",
+        "is_buy": false,
+        "shares": 130,
+        "price": 296.66,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-08-11",
+        "name": "SANTI ERNEST SCOTT",
+        "title": "director",
+        "is_buy": false,
+        "shares": 117,
+        "price": 296.66,
+        "total_val": 0.03
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2006-05-26",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1997-05-28",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1993-06-21",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1987-05-27",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1984-05-23",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "ITW"
   },
   "CNI": {
@@ -49267,8 +70928,36 @@ window.FULL_MARKET_DATA = {
     "year_low": 90.74,
     "all_time_high": 0.0,
     "all_time_low": 90.74,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [],
+    "stock_splits": [
+      {
+        "date": "2013-12-02",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2006-02-21",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2004-03-01",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1999-09-28",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "CNI"
   },
   "WM": {
@@ -49534,8 +71223,102 @@ window.FULL_MARKET_DATA = {
     "year_low": 194.11,
     "all_time_high": 0.0,
     "all_time_low": 194.11,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-08",
+        "name": "Carroll John A.",
+        "title": "officer: VP & Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 1365,
+        "price": 219.9,
+        "total_val": 0.3
+      },
+      {
+        "date": "2026-09-08",
+        "name": "Stith Kimberly G.",
+        "title": "officer: SVP - Chief HR Officer",
+        "is_buy": false,
+        "shares": 356,
+        "price": 220.13,
+        "total_val": 0.08
+      },
+      {
+        "date": "2026-08-31",
+        "name": "Carroll John A.",
+        "title": "officer: VP & Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 4873,
+        "price": 208.83,
+        "total_val": 1.02
+      },
+      {
+        "date": "2026-08-31",
+        "name": "Carroll John A.",
+        "title": "officer: VP & Chief Accounting Officer",
+        "is_buy": false,
+        "shares": 4873,
+        "price": 208.83,
+        "total_val": 1.02
+      },
+      {
+        "date": "2026-08-10",
+        "name": "Reed David L.",
+        "title": "officer: EVP & CFO",
+        "is_buy": false,
+        "shares": 5357,
+        "price": 208.83,
+        "total_val": 1.12
+      },
+      {
+        "date": "2026-08-10",
+        "name": "Reed David L.",
+        "title": "officer: EVP & CFO",
+        "is_buy": false,
+        "shares": 5357,
+        "price": 208.83,
+        "total_val": 1.12
+      },
+      {
+        "date": "2026-06-08",
+        "name": "Carrasco Rafael",
+        "title": "officer: SVP of Enterprise Strategy",
+        "is_buy": true,
+        "shares": 2655,
+        "price": 126.0,
+        "total_val": 0.33
+      },
+      {
+        "date": "2026-06-08",
+        "name": "Carrasco Rafael",
+        "title": "officer: SVP of Enterprise Strategy",
+        "is_buy": false,
+        "shares": 2655,
+        "price": 220.47,
+        "total_val": 0.59
+      },
+      {
+        "date": "2026-06-08",
+        "name": "Carrasco Rafael",
+        "title": "officer: SVP of Enterprise Strategy",
+        "is_buy": true,
+        "shares": 2655,
+        "price": 126.0,
+        "total_val": 0.33
+      },
+      {
+        "date": "2026-05-21",
+        "name": "Dalby Marcel",
+        "title": "officer: SVP Bus Optimiz & Collection",
+        "is_buy": false,
+        "shares": 2257,
+        "price": 208.83,
+        "total_val": 0.47
+      }
+    ],
+    "stock_splits": [],
     "fmp_symbol": "WM"
   },
   "XOM": {
@@ -49801,8 +71584,133 @@ window.FULL_MARKET_DATA = {
     "year_low": 110.39,
     "all_time_high": 0.0,
     "all_time_low": 110.39,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-07-06",
+        "name": "Buchanan Susan Elaine",
+        "title": "officer: VP - CAO & Controller",
+        "is_buy": true,
+        "shares": 0,
+        "price": 168.94,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-07-06",
+        "name": "Buchanan Susan Elaine",
+        "title": "officer: VP - CAO & Controller",
+        "is_buy": true,
+        "shares": 0,
+        "price": 168.94,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-07-06",
+        "name": "Buchanan Susan Elaine",
+        "title": "officer: VP - CAO & Controller",
+        "is_buy": true,
+        "shares": 0,
+        "price": 168.94,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-07-01",
+        "name": "Fox Leonard M.",
+        "title": "officer",
+        "is_buy": true,
+        "shares": 0,
+        "price": 168.94,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-07-01",
+        "name": "Chapman James R.",
+        "title": "officer",
+        "is_buy": true,
+        "shares": 0,
+        "price": 168.94,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-05-27",
+        "name": "UBBEN JEFFREY W",
+        "title": "director: ",
+        "is_buy": true,
+        "shares": 0,
+        "price": 168.94,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-03-17",
+        "name": "Talley Darrin L",
+        "title": "officer: VP - Corp Strategic Planning",
+        "is_buy": false,
+        "shares": 1080,
+        "price": 155.5,
+        "total_val": 0.17
+      },
+      {
+        "date": "2026-03-03",
+        "name": "Talley Darrin L",
+        "title": "officer: VP - Corp Strategic Planning",
+        "is_buy": false,
+        "shares": 2150,
+        "price": 157.82,
+        "total_val": 0.34
+      },
+      {
+        "date": "2026-02-09",
+        "name": "Talley Darrin L",
+        "title": "officer: VP - Corp Strategic Planning",
+        "is_buy": false,
+        "shares": 3230,
+        "price": 149.18,
+        "total_val": 0.48
+      },
+      {
+        "date": "2026-02-03",
+        "name": "Talley Darrin L",
+        "title": "officer: VP - Corp Strategic Planning",
+        "is_buy": false,
+        "shares": 650,
+        "price": 139.75,
+        "total_val": 0.09
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2001-07-19",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1997-04-14",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1987-09-15",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1981-06-12",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1976-07-26",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "XOM"
   },
   "CVX": {
@@ -50068,8 +71976,133 @@ window.FULL_MARKET_DATA = {
     "year_low": 146.49,
     "all_time_high": 0.0,
     "all_time_low": 146.49,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-01",
+        "name": "HEWSON MARILLYN A",
+        "title": "director",
+        "is_buy": false,
+        "shares": 213,
+        "price": 211.98,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-09-01",
+        "name": "WARNER CYNTHIA J",
+        "title": "director",
+        "is_buy": false,
+        "shares": 19,
+        "price": 211.98,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-08-20",
+        "name": "Pate R. Hewitt",
+        "title": "officer: Chief Legal Officer",
+        "is_buy": false,
+        "shares": 2470,
+        "price": 205.11,
+        "total_val": 0.51
+      },
+      {
+        "date": "2026-08-19",
+        "name": "Moyo Dambisa F",
+        "title": "director",
+        "is_buy": false,
+        "shares": 350,
+        "price": 211.98,
+        "total_val": 0.07
+      },
+      {
+        "date": "2026-08-19",
+        "name": "Walz Andrew Benjamin",
+        "title": "officer: President, DM&C",
+        "is_buy": true,
+        "shares": 12700,
+        "price": 132.69,
+        "total_val": 1.69
+      },
+      {
+        "date": "2026-08-19",
+        "name": "Walz Andrew Benjamin",
+        "title": "officer: President, DM&C",
+        "is_buy": true,
+        "shares": 4100,
+        "price": 88.2,
+        "total_val": 0.36
+      },
+      {
+        "date": "2026-08-19",
+        "name": "Walz Andrew Benjamin",
+        "title": "officer: President, DM&C",
+        "is_buy": false,
+        "shares": 16800,
+        "price": 201.06,
+        "total_val": 3.38
+      },
+      {
+        "date": "2026-08-19",
+        "name": "Walz Andrew Benjamin",
+        "title": "officer: President, DM&C",
+        "is_buy": true,
+        "shares": 4100,
+        "price": 88.2,
+        "total_val": 0.36
+      },
+      {
+        "date": "2026-08-19",
+        "name": "Walz Andrew Benjamin",
+        "title": "officer: President, DM&C",
+        "is_buy": true,
+        "shares": 12700,
+        "price": 132.69,
+        "total_val": 1.69
+      },
+      {
+        "date": "2026-08-18",
+        "name": "Wirth Michael K",
+        "title": "director, officer: Chairman and CEO",
+        "is_buy": true,
+        "shares": 317100,
+        "price": 88.2,
+        "total_val": 27.97
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2004-09-13",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1994-06-13",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1981-03-11",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1973-12-11",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1962-12-17",
+        "ratio": "21 : 20",
+        "desc": "普通股 20 拆 21 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "CVX"
   },
   "COP": {
@@ -50335,8 +72368,127 @@ window.FULL_MARKET_DATA = {
     "year_low": 85.57,
     "all_time_high": 0.0,
     "all_time_low": 85.57,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-16",
+        "name": "NIBLOCK ROBERT A",
+        "title": "director",
+        "is_buy": false,
+        "shares": 270,
+        "price": 134.1,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-09-08",
+        "name": "Patterson Greig",
+        "title": "officer: Vice President & Controller",
+        "is_buy": true,
+        "shares": 0,
+        "price": 134.1,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-08",
+        "name": "Patterson Greig",
+        "title": "officer: Vice President & Controller",
+        "is_buy": true,
+        "shares": 2243,
+        "price": 134.1,
+        "total_val": 0.3
+      },
+      {
+        "date": "2026-09-08",
+        "name": "Dao Khoa M",
+        "title": "officer: Senior Vice President",
+        "is_buy": true,
+        "shares": 3876,
+        "price": 134.1,
+        "total_val": 0.52
+      },
+      {
+        "date": "2026-09-02",
+        "name": "Olds Nicholas G",
+        "title": "officer: Executive Vice President",
+        "is_buy": false,
+        "shares": 22758,
+        "price": 134.1,
+        "total_val": 3.05
+      },
+      {
+        "date": "2026-09-02",
+        "name": "JOHNSON KIRK L.",
+        "title": "officer: Executive Vice President",
+        "is_buy": false,
+        "shares": 37930,
+        "price": 134.1,
+        "total_val": 5.09
+      },
+      {
+        "date": "2026-09-02",
+        "name": "Kinney Shannon Browning",
+        "title": "officer: SVP & General Counsel",
+        "is_buy": false,
+        "shares": 24080,
+        "price": 134.1,
+        "total_val": 3.23
+      },
+      {
+        "date": "2026-09-02",
+        "name": "Kinney Shannon Browning",
+        "title": "Officer / Director",
+        "is_buy": true,
+        "shares": 0,
+        "price": 134.1,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-08-24",
+        "name": "LUNDQUIST ANDREW D",
+        "title": "officer: Senior Vice President",
+        "is_buy": false,
+        "shares": 9487,
+        "price": 135.15,
+        "total_val": 1.28
+      },
+      {
+        "date": "2026-08-21",
+        "name": "Rose Kelly Brunetti",
+        "title": "officer: SVP & General Counsel",
+        "is_buy": false,
+        "shares": 15000,
+        "price": 134.51,
+        "total_val": 2.02
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2012-05-01",
+        "ratio": "1311791 : 1000000",
+        "desc": "普通股 1000000 拆 1311791 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2005-06-02",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1985-07-05",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1977-06-13",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "COP"
   },
   "SLB": {
@@ -50602,8 +72754,145 @@ window.FULL_MARKET_DATA = {
     "year_low": 31.64,
     "all_time_high": 0.0,
     "all_time_low": 31.64,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-01",
+        "name": "Le Peuch Olivier",
+        "title": "director, officer: Chief Executive Officer",
+        "is_buy": false,
+        "shares": 35000,
+        "price": 60.0,
+        "total_val": 2.1
+      },
+      {
+        "date": "2026-08-31",
+        "name": "Le Peuch Olivier",
+        "title": "director, officer: Chief Executive Officer",
+        "is_buy": false,
+        "shares": 5000,
+        "price": 60.0,
+        "total_val": 0.3
+      },
+      {
+        "date": "2026-08-27",
+        "name": "Le Peuch Olivier",
+        "title": "director, officer: Chief Executive Officer",
+        "is_buy": false,
+        "shares": 5000,
+        "price": 55.0,
+        "total_val": 0.28
+      },
+      {
+        "date": "2026-08-26",
+        "name": "Le Peuch Olivier",
+        "title": "director, officer: Chief Executive Officer",
+        "is_buy": false,
+        "shares": 25000,
+        "price": 52.55,
+        "total_val": 1.31
+      },
+      {
+        "date": "2026-05-27",
+        "name": "Le Peuch Olivier",
+        "title": "director, officer: Chief Executive Officer",
+        "is_buy": false,
+        "shares": 25000,
+        "price": 56.99,
+        "total_val": 1.42
+      },
+      {
+        "date": "2026-05-07",
+        "name": "de La Chevardiere Patrick",
+        "title": "director",
+        "is_buy": false,
+        "shares": 2000,
+        "price": 54.33,
+        "total_val": 0.11
+      },
+      {
+        "date": "2026-05-01",
+        "name": "Gassen Steve Matthew",
+        "title": "officer: EVP, Geographies",
+        "is_buy": true,
+        "shares": 21980,
+        "price": 38.75,
+        "total_val": 0.85
+      },
+      {
+        "date": "2026-05-01",
+        "name": "Gassen Steve Matthew",
+        "title": "officer: EVP, Geographies",
+        "is_buy": true,
+        "shares": 11399,
+        "price": 41.47,
+        "total_val": 0.47
+      },
+      {
+        "date": "2026-05-01",
+        "name": "Gassen Steve Matthew",
+        "title": "officer: EVP, Geographies",
+        "is_buy": false,
+        "shares": 20000,
+        "price": 56.16,
+        "total_val": 1.12
+      },
+      {
+        "date": "2026-05-01",
+        "name": "Gassen Steve Matthew",
+        "title": "officer: EVP, Geographies",
+        "is_buy": false,
+        "shares": 33379,
+        "price": 56.19,
+        "total_val": 1.88
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2006-04-10",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1997-07-14",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1981-07-16",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1980-10-15",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1979-04-17",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1977-01-18",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1975-04-17",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "SLB"
   },
   "EOG": {
@@ -50869,8 +73158,121 @@ window.FULL_MARKET_DATA = {
     "year_low": 101.59,
     "all_time_high": 0.0,
     "all_time_low": 101.59,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-29",
+        "name": "Leitzell Jeffrey R.",
+        "title": "officer: EVP & COO",
+        "is_buy": false,
+        "shares": 13680,
+        "price": 148.16,
+        "total_val": 2.03
+      },
+      {
+        "date": "2026-09-29",
+        "name": "Leitzell Jeffrey R.",
+        "title": "officer: EVP & COO",
+        "is_buy": false,
+        "shares": 9039,
+        "price": 140.61,
+        "total_val": 1.27
+      },
+      {
+        "date": "2026-09-29",
+        "name": "Distefano Laura B.",
+        "title": "officer: VP & CAO",
+        "is_buy": false,
+        "shares": 5772,
+        "price": 148.16,
+        "total_val": 0.86
+      },
+      {
+        "date": "2026-09-29",
+        "name": "Donaldson Michael P",
+        "title": "officer: EVP & Chief Legal Officer",
+        "is_buy": false,
+        "shares": 9975,
+        "price": 148.16,
+        "total_val": 1.48
+      },
+      {
+        "date": "2026-09-29",
+        "name": "Yacob Ezra Y",
+        "title": "director, officer: Chairman & CEO",
+        "is_buy": false,
+        "shares": 37905,
+        "price": 148.16,
+        "total_val": 5.62
+      },
+      {
+        "date": "2026-09-17",
+        "name": "Yacob Ezra Y",
+        "title": "director, officer: Chairman & CEO",
+        "is_buy": false,
+        "shares": 11908,
+        "price": 153.74,
+        "total_val": 1.83
+      },
+      {
+        "date": "2026-09-17",
+        "name": "Leitzell Jeffrey R.",
+        "title": "officer: EVP & COO",
+        "is_buy": false,
+        "shares": 1905,
+        "price": 153.74,
+        "total_val": 0.29
+      },
+      {
+        "date": "2026-09-17",
+        "name": "Janssen Ann D.",
+        "title": "officer: EVP & Chief Financial Officer",
+        "is_buy": false,
+        "shares": 2978,
+        "price": 153.74,
+        "total_val": 0.46
+      },
+      {
+        "date": "2026-09-17",
+        "name": "Donaldson Michael P",
+        "title": "officer: EVP & Chief Legal Officer",
+        "is_buy": false,
+        "shares": 3234,
+        "price": 153.74,
+        "total_val": 0.5
+      },
+      {
+        "date": "2026-09-17",
+        "name": "Distefano Laura B.",
+        "title": "officer: VP & CAO",
+        "is_buy": false,
+        "shares": 1521,
+        "price": 153.74,
+        "total_val": 0.23
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2014-04-01",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2005-03-02",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1994-06-16",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "EOG"
   },
   "EPD": {
@@ -51136,8 +73538,115 @@ window.FULL_MARKET_DATA = {
     "year_low": 30.01,
     "all_time_high": 0.0,
     "all_time_low": 30.01,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-03-23",
+        "name": "TEAGUE AJ",
+        "title": "director, officer: CO-CHIEF EXECUTIVE OFFICER",
+        "is_buy": true,
+        "shares": 2665,
+        "price": 37.55,
+        "total_val": 0.1
+      },
+      {
+        "date": "2026-02-18",
+        "name": "WILLIAMS RANDA DUNCAN",
+        "title": "director, 10 percent owner: ",
+        "is_buy": true,
+        "shares": 482000,
+        "price": 36.08,
+        "total_val": 17.39
+      },
+      {
+        "date": "2026-02-18",
+        "name": "WILLIAMS RANDA DUNCAN",
+        "title": "director, 10 percent owner: ",
+        "is_buy": false,
+        "shares": 189667,
+        "price": 36.75,
+        "total_val": 6.97
+      },
+      {
+        "date": "2026-02-18",
+        "name": "WILLIAMS RANDA DUNCAN",
+        "title": "director, 10 percent owner: ",
+        "is_buy": true,
+        "shares": 482000,
+        "price": 36.08,
+        "total_val": 17.39
+      },
+      {
+        "date": "2026-02-18",
+        "name": "BACHMANN RICHARD H",
+        "title": "director",
+        "is_buy": true,
+        "shares": 83500,
+        "price": 36.08,
+        "total_val": 3.01
+      },
+      {
+        "date": "2026-02-18",
+        "name": "BACHMANN RICHARD H",
+        "title": "director",
+        "is_buy": false,
+        "shares": 32858,
+        "price": 36.75,
+        "total_val": 1.21
+      },
+      {
+        "date": "2026-02-18",
+        "name": "BACHMANN RICHARD H",
+        "title": "director",
+        "is_buy": true,
+        "shares": 83500,
+        "price": 36.08,
+        "total_val": 3.01
+      },
+      {
+        "date": "2026-02-18",
+        "name": "TEAGUE AJ",
+        "title": "director, officer: CO-CHIEF EXECUTIVE OFFICER",
+        "is_buy": true,
+        "shares": 68750,
+        "price": 36.08,
+        "total_val": 2.48
+      },
+      {
+        "date": "2026-02-18",
+        "name": "TEAGUE AJ",
+        "title": "director, officer: CO-CHIEF EXECUTIVE OFFICER",
+        "is_buy": false,
+        "shares": 27054,
+        "price": 36.75,
+        "total_val": 0.99
+      },
+      {
+        "date": "2026-02-18",
+        "name": "TEAGUE AJ",
+        "title": "director, officer: CO-CHIEF EXECUTIVE OFFICER",
+        "is_buy": true,
+        "shares": 77500,
+        "price": 36.08,
+        "total_val": 2.8
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2014-08-22",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2002-05-16",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "EPD"
   },
   "ENB": {
@@ -51403,8 +73912,127 @@ window.FULL_MARKET_DATA = {
     "year_low": 45.03,
     "all_time_high": 0.0,
     "all_time_low": 45.03,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2019-06-18",
+        "name": "Williams Catherine Lynne",
+        "title": "director",
+        "is_buy": false,
+        "shares": 690,
+        "price": 46.6,
+        "total_val": 0.03
+      },
+      {
+        "date": "2019-06-18",
+        "name": "Williams Catherine Lynne",
+        "title": "director",
+        "is_buy": false,
+        "shares": 602,
+        "price": 46.6,
+        "total_val": 0.03
+      },
+      {
+        "date": "2019-06-18",
+        "name": "Tutcher Dan C",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1726,
+        "price": 46.6,
+        "total_val": 0.08
+      },
+      {
+        "date": "2019-06-18",
+        "name": "Tutcher Dan C",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1726,
+        "price": 46.6,
+        "total_val": 0.08
+      },
+      {
+        "date": "2019-06-18",
+        "name": "MADDEN TERESA S",
+        "title": "director",
+        "is_buy": false,
+        "shares": 863,
+        "price": 46.6,
+        "total_val": 0.04
+      },
+      {
+        "date": "2019-06-18",
+        "name": "MADDEN TERESA S",
+        "title": "director",
+        "is_buy": false,
+        "shares": 863,
+        "price": 46.6,
+        "total_val": 0.04
+      },
+      {
+        "date": "2019-06-18",
+        "name": "KEMPSTON DARKES V MAUREEN",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1792,
+        "price": 46.6,
+        "total_val": 0.08
+      },
+      {
+        "date": "2019-06-18",
+        "name": "KEMPSTON DARKES V MAUREEN",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1792,
+        "price": 46.6,
+        "total_val": 0.08
+      },
+      {
+        "date": "2019-06-18",
+        "name": "Fischer Charles W",
+        "title": "director",
+        "is_buy": false,
+        "shares": 913,
+        "price": 46.6,
+        "total_val": 0.04
+      },
+      {
+        "date": "2019-06-18",
+        "name": "England James Herbert",
+        "title": "director",
+        "is_buy": false,
+        "shares": 682,
+        "price": 46.6,
+        "total_val": 0.03
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2011-06-01",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2005-05-31",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1999-05-06",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1991-05-06",
+        "ratio": "821 : 500",
+        "desc": "普通股 500 拆 821 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "ENB"
   },
   "MPC": {
@@ -51670,8 +74298,109 @@ window.FULL_MARKET_DATA = {
     "year_low": 161.93,
     "all_time_high": 0.0,
     "all_time_low": 161.93,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-01",
+        "name": "Lyon Shawn M",
+        "title": "officer: SVP Log & Storage, MPLX GP LLC",
+        "is_buy": false,
+        "shares": 425,
+        "price": 368.51,
+        "total_val": 0.16
+      },
+      {
+        "date": "2026-09-01",
+        "name": "Lyon Shawn M",
+        "title": "officer: SVP Log & Storage, MPLX GP LLC",
+        "is_buy": false,
+        "shares": 1000,
+        "price": 375.75,
+        "total_val": 0.38
+      },
+      {
+        "date": "2026-08-31",
+        "name": "Brzezinski Erin M",
+        "title": "officer: VP and Controller",
+        "is_buy": false,
+        "shares": 570,
+        "price": 362.79,
+        "total_val": 0.21
+      },
+      {
+        "date": "2026-08-19",
+        "name": "Benson Molly R",
+        "title": "officer: Chief Legal Ofc & Corp Sec",
+        "is_buy": true,
+        "shares": 7196,
+        "price": 47.73,
+        "total_val": 0.34
+      },
+      {
+        "date": "2026-08-19",
+        "name": "Benson Molly R",
+        "title": "officer: Chief Legal Ofc & Corp Sec",
+        "is_buy": true,
+        "shares": 5000,
+        "price": 47.73,
+        "total_val": 0.24
+      },
+      {
+        "date": "2026-08-19",
+        "name": "Benson Molly R",
+        "title": "officer: Chief Legal Ofc & Corp Sec",
+        "is_buy": false,
+        "shares": 5000,
+        "price": 358.57,
+        "total_val": 1.79
+      },
+      {
+        "date": "2026-08-19",
+        "name": "Benson Molly R",
+        "title": "officer: Chief Legal Ofc & Corp Sec",
+        "is_buy": true,
+        "shares": 7196,
+        "price": 47.73,
+        "total_val": 0.34
+      },
+      {
+        "date": "2026-08-19",
+        "name": "Benson Molly R",
+        "title": "officer: Chief Legal Ofc & Corp Sec",
+        "is_buy": true,
+        "shares": 5000,
+        "price": 47.73,
+        "total_val": 0.24
+      },
+      {
+        "date": "2026-08-19",
+        "name": "Benson Molly R",
+        "title": "officer: Chief Legal Ofc & Corp Sec",
+        "is_buy": true,
+        "shares": 5000,
+        "price": 47.73,
+        "total_val": 0.24
+      },
+      {
+        "date": "2026-08-17",
+        "name": "Lyon Shawn M",
+        "title": "officer: SVP Log & Storage, MPLX GP LLC",
+        "is_buy": false,
+        "shares": 2500,
+        "price": 350.0,
+        "total_val": 0.88
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2015-06-11",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "MPC"
   },
   "VLO": {
@@ -51937,8 +74666,121 @@ window.FULL_MARKET_DATA = {
     "year_low": 155.29,
     "all_time_high": 0.0,
     "all_time_low": 155.29,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-06",
+        "name": "Audette Matthew J",
+        "title": "director",
+        "is_buy": true,
+        "shares": 0,
+        "price": 433.75,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-21",
+        "name": "Reymond Robert L",
+        "title": "director",
+        "is_buy": true,
+        "shares": 924,
+        "price": 433.75,
+        "total_val": 0.4
+      },
+      {
+        "date": "2026-09-21",
+        "name": "Reymond Robert L",
+        "title": "director",
+        "is_buy": true,
+        "shares": 924,
+        "price": 433.75,
+        "total_val": 0.4
+      },
+      {
+        "date": "2026-09-18",
+        "name": "Simmons Gary K.",
+        "title": "officer: EVP & COO",
+        "is_buy": false,
+        "shares": 4000,
+        "price": 433.75,
+        "total_val": 1.74
+      },
+      {
+        "date": "2026-09-18",
+        "name": "Audette Matthew J",
+        "title": "director: ",
+        "is_buy": true,
+        "shares": 0,
+        "price": 433.75,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-18",
+        "name": "Audette Matthew J",
+        "title": "director",
+        "is_buy": false,
+        "shares": 372,
+        "price": 433.75,
+        "total_val": 0.16
+      },
+      {
+        "date": "2026-08-24",
+        "name": "Walsh Richard Joe",
+        "title": "officer: EVP & GC",
+        "is_buy": false,
+        "shares": 3104,
+        "price": 433.75,
+        "total_val": 1.35
+      },
+      {
+        "date": "2026-06-30",
+        "name": "Fisher Eric A",
+        "title": "officer: SVP",
+        "is_buy": false,
+        "shares": 7500,
+        "price": 268.17,
+        "total_val": 2.01
+      },
+      {
+        "date": "2026-06-18",
+        "name": "Fisher Eric A",
+        "title": "officer: SVP",
+        "is_buy": false,
+        "shares": 7500,
+        "price": 236.9,
+        "total_val": 1.78
+      },
+      {
+        "date": "2026-05-20",
+        "name": "Fisher Eric A",
+        "title": "officer: SVP",
+        "is_buy": false,
+        "shares": 7500,
+        "price": 251.61,
+        "total_val": 1.89
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2013-05-02",
+        "ratio": "547 : 500",
+        "desc": "普通股 500 拆 547 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2005-12-16",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2004-10-08",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "VLO"
   },
   "PSX": {
@@ -52204,8 +75046,102 @@ window.FULL_MARKET_DATA = {
     "year_low": 126.74,
     "all_time_high": 0.0,
     "all_time_low": 126.74,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-17",
+        "name": "Mandell Brian",
+        "title": "officer: Executive Vice President",
+        "is_buy": true,
+        "shares": 23400,
+        "price": 74.7,
+        "total_val": 1.75
+      },
+      {
+        "date": "2026-09-17",
+        "name": "Mandell Brian",
+        "title": "officer: Executive Vice President",
+        "is_buy": false,
+        "shares": 23400,
+        "price": 265.06,
+        "total_val": 6.2
+      },
+      {
+        "date": "2026-09-17",
+        "name": "Mandell Brian",
+        "title": "officer: Executive Vice President",
+        "is_buy": true,
+        "shares": 23400,
+        "price": 74.7,
+        "total_val": 1.75
+      },
+      {
+        "date": "2026-09-14",
+        "name": "Kluppel Ann M",
+        "title": "officer: SVP & Controller",
+        "is_buy": false,
+        "shares": 40,
+        "price": 278.18,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-08-13",
+        "name": "Harbison Richard G",
+        "title": "officer: EVP, Refining",
+        "is_buy": true,
+        "shares": 23800,
+        "price": 100.44,
+        "total_val": 2.39
+      },
+      {
+        "date": "2026-08-13",
+        "name": "Harbison Richard G",
+        "title": "officer: EVP, Refining",
+        "is_buy": true,
+        "shares": 14800,
+        "price": 89.05,
+        "total_val": 1.32
+      },
+      {
+        "date": "2026-08-13",
+        "name": "Harbison Richard G",
+        "title": "officer: EVP, Refining",
+        "is_buy": true,
+        "shares": 13500,
+        "price": 74.7,
+        "total_val": 1.01
+      },
+      {
+        "date": "2026-08-13",
+        "name": "Harbison Richard G",
+        "title": "officer: EVP, Refining",
+        "is_buy": false,
+        "shares": 52100,
+        "price": 223.76,
+        "total_val": 11.66
+      },
+      {
+        "date": "2026-08-13",
+        "name": "Harbison Richard G",
+        "title": "officer: EVP, Refining",
+        "is_buy": true,
+        "shares": 13500,
+        "price": 74.7,
+        "total_val": 1.01
+      },
+      {
+        "date": "2026-08-13",
+        "name": "Harbison Richard G",
+        "title": "officer: EVP, Refining",
+        "is_buy": true,
+        "shares": 14800,
+        "price": 89.05,
+        "total_val": 1.32
+      }
+    ],
+    "stock_splits": [],
     "fmp_symbol": "PSX"
   },
   "OXY": {
@@ -52471,8 +75407,115 @@ window.FULL_MARKET_DATA = {
     "year_low": 38.8,
     "all_time_high": 0.0,
     "all_time_low": 38.8,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-02",
+        "name": "Jackson Richard A.",
+        "title": "director, officer: President and CEO",
+        "is_buy": false,
+        "shares": 4124,
+        "price": 55.32,
+        "total_val": 0.23
+      },
+      {
+        "date": "2026-09-29",
+        "name": "Hollub Vicki A.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 90000,
+        "price": 60.11,
+        "total_val": 5.41
+      },
+      {
+        "date": "2026-08-04",
+        "name": "POLLACK BRAD",
+        "title": "officer: SVP & General Counsel",
+        "is_buy": false,
+        "shares": 26284,
+        "price": 60.11,
+        "total_val": 1.58
+      },
+      {
+        "date": "2026-08-04",
+        "name": "POLLACK BRAD",
+        "title": "officer: SVP & General Counsel",
+        "is_buy": true,
+        "shares": 0,
+        "price": 60.11,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-08-04",
+        "name": "POLLACK BRAD",
+        "title": "officer: SVP & General Counsel",
+        "is_buy": true,
+        "shares": 0,
+        "price": 60.11,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-06-24",
+        "name": "Jackson Richard A.",
+        "title": "director, officer: President and CEO",
+        "is_buy": true,
+        "shares": 4770,
+        "price": 52.38,
+        "total_val": 0.25
+      },
+      {
+        "date": "2026-06-03",
+        "name": "Jackson Richard A.",
+        "title": "director, officer: President and CEO",
+        "is_buy": false,
+        "shares": 101833,
+        "price": 60.11,
+        "total_val": 6.12
+      },
+      {
+        "date": "2026-06-03",
+        "name": "Hollub Vicki A.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 3183,
+        "price": 60.11,
+        "total_val": 0.19
+      },
+      {
+        "date": "2026-06-03",
+        "name": "Hollub Vicki A.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 701,
+        "price": 58.92,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-06-03",
+        "name": "Hollub Vicki A.",
+        "title": "director",
+        "is_buy": false,
+        "shares": 73477,
+        "price": 58.92,
+        "total_val": 4.33
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2014-12-01",
+        "ratio": "521 : 500",
+        "desc": "普通股 500 拆 521 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2006-08-16",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "OXY"
   },
   "KMI": {
@@ -52738,8 +75781,102 @@ window.FULL_MARKET_DATA = {
     "year_low": 25.6,
     "all_time_high": 0.0,
     "all_time_low": 25.6,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-18",
+        "name": "Garthwaite Michael P.",
+        "title": "officer: VP (Pres., Products Pipelines)",
+        "is_buy": false,
+        "shares": 1550,
+        "price": 30.8,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-09-08",
+        "name": "Grubb Kenneth W.",
+        "title": "officer: VP and COO",
+        "is_buy": true,
+        "shares": 0,
+        "price": 32.49,
+        "total_val": 0.0
+      },
+      {
+        "date": "2026-09-08",
+        "name": "Grubb Kenneth W.",
+        "title": "officer: VP and COO",
+        "is_buy": true,
+        "shares": 61767,
+        "price": 32.49,
+        "total_val": 2.01
+      },
+      {
+        "date": "2026-08-18",
+        "name": "Garthwaite Michael P.",
+        "title": "officer: VP (Pres., Products Pipelines)",
+        "is_buy": false,
+        "shares": 1550,
+        "price": 32.65,
+        "total_val": 0.05
+      },
+      {
+        "date": "2026-08-03",
+        "name": "Michels David Patrick",
+        "title": "officer: VP and Chief Financial Officer",
+        "is_buy": true,
+        "shares": 121528,
+        "price": 32.49,
+        "total_val": 3.95
+      },
+      {
+        "date": "2026-08-03",
+        "name": "Michels David Patrick",
+        "title": "officer: VP and Chief Financial Officer",
+        "is_buy": false,
+        "shares": 47573,
+        "price": 32.18,
+        "total_val": 1.53
+      },
+      {
+        "date": "2026-08-03",
+        "name": "Michels David Patrick",
+        "title": "officer: VP and Chief Financial Officer",
+        "is_buy": true,
+        "shares": 121528,
+        "price": 32.49,
+        "total_val": 3.95
+      },
+      {
+        "date": "2026-08-03",
+        "name": "Sanders Dax",
+        "title": "officer: President",
+        "is_buy": true,
+        "shares": 130209,
+        "price": 32.49,
+        "total_val": 4.23
+      },
+      {
+        "date": "2026-08-03",
+        "name": "Sanders Dax",
+        "title": "officer: President",
+        "is_buy": false,
+        "shares": 51238,
+        "price": 32.18,
+        "total_val": 1.65
+      },
+      {
+        "date": "2026-08-03",
+        "name": "Sanders Dax",
+        "title": "officer: President",
+        "is_buy": true,
+        "shares": 130209,
+        "price": 32.49,
+        "total_val": 4.23
+      }
+    ],
+    "stock_splits": [],
     "fmp_symbol": "KMI"
   },
   "WMB": {
@@ -53005,8 +76142,139 @@ window.FULL_MARKET_DATA = {
     "year_low": 56.19,
     "all_time_high": 0.0,
     "all_time_low": 56.19,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-10-02",
+        "name": "Wilson Terrance Lane",
+        "title": "officer: SVP & General Counsel",
+        "is_buy": false,
+        "shares": 2000,
+        "price": 67.85,
+        "total_val": 0.14
+      },
+      {
+        "date": "2026-09-02",
+        "name": "Wilson Terrance Lane",
+        "title": "officer: SVP & General Counsel",
+        "is_buy": false,
+        "shares": 2000,
+        "price": 75.56,
+        "total_val": 0.15
+      },
+      {
+        "date": "2026-08-17",
+        "name": "Wilson Terrance Lane",
+        "title": "officer: SVP & General Counsel",
+        "is_buy": false,
+        "shares": 2800,
+        "price": 74.84,
+        "total_val": 0.21
+      },
+      {
+        "date": "2026-08-17",
+        "name": "Wilson Terrance Lane",
+        "title": "officer: SVP & General Counsel",
+        "is_buy": false,
+        "shares": 10200,
+        "price": 74.88,
+        "total_val": 0.76
+      },
+      {
+        "date": "2026-08-17",
+        "name": "Wilson Terrance Lane",
+        "title": "officer: SVP & General Counsel",
+        "is_buy": false,
+        "shares": 1900,
+        "price": 72.67,
+        "total_val": 0.14
+      },
+      {
+        "date": "2026-08-17",
+        "name": "Wilson Terrance Lane",
+        "title": "officer: SVP & General Counsel",
+        "is_buy": false,
+        "shares": 100,
+        "price": 72.67,
+        "total_val": 0.01
+      },
+      {
+        "date": "2026-08-10",
+        "name": "Wingo Robert R.",
+        "title": "officer: Executive Vice President",
+        "is_buy": false,
+        "shares": 8226,
+        "price": 71.76,
+        "total_val": 0.59
+      },
+      {
+        "date": "2026-08-07",
+        "name": "Turner Robb E",
+        "title": "director",
+        "is_buy": false,
+        "shares": 2785,
+        "price": 71.81,
+        "total_val": 0.2
+      },
+      {
+        "date": "2026-08-07",
+        "name": "Helms Lloyd W Jr",
+        "title": "director",
+        "is_buy": false,
+        "shares": 2785,
+        "price": 71.81,
+        "total_val": 0.2
+      },
+      {
+        "date": "2026-08-04",
+        "name": "Fazel Payvand",
+        "title": "officer",
+        "is_buy": true,
+        "shares": 0,
+        "price": 72.67,
+        "total_val": 0.0
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2012-01-03",
+        "ratio": "1250 : 1019",
+        "desc": "普通股 1019 拆 1250 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "2001-04-24",
+        "ratio": "500 : 459",
+        "desc": "普通股 459 拆 500 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1997-12-30",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1996-12-31",
+        "ratio": "3 : 2",
+        "desc": "普通股 2 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1993-11-08",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1975-03-03",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "WMB"
   },
   "HAL": {
@@ -53272,8 +76540,133 @@ window.FULL_MARKET_DATA = {
     "year_low": 21.46,
     "all_time_high": 0.0,
     "all_time_low": 21.46,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-30",
+        "name": "Smith Maurice S",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1162,
+        "price": 32.55,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-09-01",
+        "name": "Carre Eric",
+        "title": "officer: EVP & Chief Financial Officer",
+        "is_buy": false,
+        "shares": 24777,
+        "price": 37.5,
+        "total_val": 0.93
+      },
+      {
+        "date": "2026-08-20",
+        "name": "Slocum Jeffrey Shannon",
+        "title": "director, officer: Director, EVP and COO",
+        "is_buy": false,
+        "shares": 52572,
+        "price": 35.09,
+        "total_val": 1.84
+      },
+      {
+        "date": "2026-08-19",
+        "name": "Slocum Jeffrey Shannon",
+        "title": "director, officer: Director, EVP and COO",
+        "is_buy": false,
+        "shares": 16121,
+        "price": 35.08,
+        "total_val": 0.57
+      },
+      {
+        "date": "2026-08-19",
+        "name": "Miller Jeffrey Allen",
+        "title": "director, officer: Director, President & CEO",
+        "is_buy": false,
+        "shares": 124483,
+        "price": 35.0,
+        "total_val": 4.36
+      },
+      {
+        "date": "2026-06-30",
+        "name": "Smith Maurice S",
+        "title": "director",
+        "is_buy": false,
+        "shares": 1079,
+        "price": 32.55,
+        "total_val": 0.04
+      },
+      {
+        "date": "2026-06-22",
+        "name": "Carre Eric",
+        "title": "officer: EVP & Chief Financial Officer",
+        "is_buy": false,
+        "shares": 24778,
+        "price": 35.89,
+        "total_val": 0.89
+      },
+      {
+        "date": "2026-05-18",
+        "name": "Beckwith Van H.",
+        "title": "officer: EVP, Secretary and CLO",
+        "is_buy": false,
+        "shares": 198349,
+        "price": 41.29,
+        "total_val": 8.19
+      },
+      {
+        "date": "2026-05-06",
+        "name": "Maxwell Michael Casey",
+        "title": "officer: President - Western Hemisphere",
+        "is_buy": false,
+        "shares": 13566,
+        "price": 41.84,
+        "total_val": 0.57
+      },
+      {
+        "date": "2026-05-06",
+        "name": "Maxwell Michael Casey",
+        "title": "officer: President - Western Hemisphere",
+        "is_buy": false,
+        "shares": 6782,
+        "price": 42.0,
+        "total_val": 0.28
+      }
+    ],
+    "stock_splits": [
+      {
+        "date": "2006-07-17",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1997-07-22",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1996-01-24",
+        "ratio": "100000 : 95301",
+        "desc": "普通股 95301 拆 100000 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1980-12-26",
+        "ratio": "2 : 1",
+        "desc": "普通股 1 拆 2 (Stock Split)",
+        "type": "普通拆股"
+      },
+      {
+        "date": "1976-04-30",
+        "ratio": "3 : 1",
+        "desc": "普通股 1 拆 3 (Stock Split)",
+        "type": "普通拆股"
+      }
+    ],
     "fmp_symbol": "HAL"
   },
   "BKR": {
@@ -53539,8 +76932,102 @@ window.FULL_MARKET_DATA = {
     "year_low": 43.92,
     "all_time_high": 0.0,
     "all_time_low": 43.92,
-    "inst_ownership_pct": 65.0,
-    "insider_ownership_pct": 3.2,
+    "inst_ownership_pct": 68.5,
+    "insider_ownership_pct": 13.5,
+    "top_holders": [],
+    "insider_trades": [
+      {
+        "date": "2026-09-08",
+        "name": "Gatti Amerino",
+        "title": "officer: EVP, Oilfield Services & Equip",
+        "is_buy": true,
+        "shares": 9807,
+        "price": 56.7,
+        "total_val": 0.56
+      },
+      {
+        "date": "2026-09-08",
+        "name": "Gatti Amerino",
+        "title": "officer: EVP, Oilfield Services & Equip",
+        "is_buy": false,
+        "shares": 3860,
+        "price": 63.64,
+        "total_val": 0.25
+      },
+      {
+        "date": "2026-09-08",
+        "name": "Gatti Amerino",
+        "title": "officer: EVP, Oilfield Services & Equip",
+        "is_buy": true,
+        "shares": 9807,
+        "price": 56.7,
+        "total_val": 0.56
+      },
+      {
+        "date": "2026-07-02",
+        "name": "BORRAS MARIA C",
+        "title": "officer: Chief Growth & Experience Ofcr",
+        "is_buy": false,
+        "shares": 72000,
+        "price": 55.05,
+        "total_val": 3.96
+      },
+      {
+        "date": "2026-06-24",
+        "name": "Simonelli Lorenzo",
+        "title": "director, officer: Chairman, President and CEO",
+        "is_buy": true,
+        "shares": 99911,
+        "price": 35.55,
+        "total_val": 3.55
+      },
+      {
+        "date": "2026-06-24",
+        "name": "Simonelli Lorenzo",
+        "title": "director, officer: Chairman, President and CEO",
+        "is_buy": false,
+        "shares": 181411,
+        "price": 58.43,
+        "total_val": 10.6
+      },
+      {
+        "date": "2026-06-24",
+        "name": "Simonelli Lorenzo",
+        "title": "director, officer: Chairman, President and CEO",
+        "is_buy": true,
+        "shares": 99911,
+        "price": 35.55,
+        "total_val": 3.55
+      },
+      {
+        "date": "2026-06-16",
+        "name": "Moghal Ahmed Farhan",
+        "title": "officer: EVP, Chief Financial Officer",
+        "is_buy": false,
+        "shares": 20000,
+        "price": 62.38,
+        "total_val": 1.25
+      },
+      {
+        "date": "2026-06-16",
+        "name": "Moghal Ahmed Farhan",
+        "title": "officer: EVP, Chief Financial Officer",
+        "is_buy": false,
+        "shares": 3392,
+        "price": 62.38,
+        "total_val": 0.21
+      },
+      {
+        "date": "2026-06-16",
+        "name": "Simonelli Lorenzo",
+        "title": "director, officer: Chairman, President and CEO",
+        "is_buy": true,
+        "shares": 99911,
+        "price": 35.55,
+        "total_val": 3.55
+      }
+    ],
+    "stock_splits": [],
     "fmp_symbol": "BKR"
   }
 };

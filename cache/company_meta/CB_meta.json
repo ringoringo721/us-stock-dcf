@@ -1,0 +1,129 @@
+{
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-09-03",
+      "name": "Wayland Joseph F",
+      "title": "officer: Executive Vice President and*",
+      "is_buy": false,
+      "shares": 144,
+      "price": 338.74,
+      "total_val": 0.05
+    },
+    {
+      "date": "2026-08-25",
+      "name": "CONNORS MICHAEL P",
+      "title": "director",
+      "is_buy": false,
+      "shares": 5500,
+      "price": 345.0,
+      "total_val": 1.9
+    },
+    {
+      "date": "2026-07-29",
+      "name": "Wayland Joseph F",
+      "title": "officer: Executive Vice President and*",
+      "is_buy": false,
+      "shares": 8502,
+      "price": 364.54,
+      "total_val": 3.1
+    },
+    {
+      "date": "2026-06-10",
+      "name": "Ortega Juan Luis",
+      "title": "officer: Executive Vice President*",
+      "is_buy": true,
+      "shares": 3886,
+      "price": 139.01,
+      "total_val": 0.54
+    },
+    {
+      "date": "2026-06-10",
+      "name": "Ortega Juan Luis",
+      "title": "officer: Executive Vice President*",
+      "is_buy": true,
+      "shares": 3886,
+      "price": 139.01,
+      "total_val": 0.54
+    },
+    {
+      "date": "2026-06-10",
+      "name": "Ortega Juan Luis",
+      "title": "officer: Executive Vice President*",
+      "is_buy": false,
+      "shares": 3886,
+      "price": 322.08,
+      "total_val": 1.25
+    },
+    {
+      "date": "2026-05-29",
+      "name": "Keogh John W",
+      "title": "officer: President &COO",
+      "is_buy": false,
+      "shares": 20176,
+      "price": 321.45,
+      "total_val": 6.49
+    },
+    {
+      "date": "2026-05-29",
+      "name": "Keogh John W",
+      "title": "officer: President &COO",
+      "is_buy": false,
+      "shares": 2824,
+      "price": 321.95,
+      "total_val": 0.91
+    },
+    {
+      "date": "2026-05-29",
+      "name": "Keogh John W",
+      "title": "officer: President &COO",
+      "is_buy": false,
+      "shares": 61000,
+      "price": 341.2,
+      "total_val": 20.81
+    },
+    {
+      "date": "2026-05-29",
+      "name": "Keogh John W",
+      "title": "officer: President &COO",
+      "is_buy": false,
+      "shares": 1352,
+      "price": 341.2,
+      "total_val": 0.46
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2006-04-19",
+      "ratio": "1 : 2",
+      "desc": "普通股 2 拆 1 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1998-03-03",
+      "ratio": "3 : 1",
+      "desc": "普通股 1 拆 3 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1996-05-06",
+      "ratio": "1 : 2",
+      "desc": "普通股 2 拆 1 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1990-05-31",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1985-10-25",
+      "ratio": "3 : 2",
+      "desc": "普通股 2 拆 3 (Stock Split)",
+      "type": "普通拆股"
+    }
+  ],
+  "inst_ownership_pct": 68.5,
+  "insider_ownership_pct": 13.5
+}

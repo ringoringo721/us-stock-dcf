@@ -1,0 +1,123 @@
+{
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-06-23",
+      "name": "CAHILL JOHN T",
+      "title": "director",
+      "is_buy": true,
+      "shares": 2000,
+      "price": 189.2,
+      "total_val": 0.38
+    },
+    {
+      "date": "2026-06-22",
+      "name": "Smith Stacy J",
+      "title": "director",
+      "is_buy": false,
+      "shares": 1553,
+      "price": 235.35,
+      "total_val": 0.37
+    },
+    {
+      "date": "2026-06-22",
+      "name": "Smith Stacy J",
+      "title": "director",
+      "is_buy": false,
+      "shares": 1087,
+      "price": 235.35,
+      "total_val": 0.26
+    },
+    {
+      "date": "2026-06-22",
+      "name": "Simons Anna C",
+      "title": "director",
+      "is_buy": false,
+      "shares": 1553,
+      "price": 235.35,
+      "total_val": 0.37
+    },
+    {
+      "date": "2026-06-22",
+      "name": "Simons Anna C",
+      "title": "director",
+      "is_buy": false,
+      "shares": 466,
+      "price": 235.35,
+      "total_val": 0.11
+    },
+    {
+      "date": "2026-06-22",
+      "name": "Howard Ayanna",
+      "title": "director",
+      "is_buy": false,
+      "shares": 1553,
+      "price": 235.35,
+      "total_val": 0.37
+    },
+    {
+      "date": "2026-06-22",
+      "name": "Howard Ayanna",
+      "title": "director",
+      "is_buy": false,
+      "shares": 466,
+      "price": 235.35,
+      "total_val": 0.11
+    },
+    {
+      "date": "2026-06-22",
+      "name": "Irving Blake",
+      "title": "director",
+      "is_buy": false,
+      "shares": 1553,
+      "price": 235.35,
+      "total_val": 0.37
+    },
+    {
+      "date": "2026-06-22",
+      "name": "Irving Blake",
+      "title": "director",
+      "is_buy": false,
+      "shares": 559,
+      "price": 235.35,
+      "total_val": 0.13
+    },
+    {
+      "date": "2026-06-22",
+      "name": "BLASING KAREN",
+      "title": "director",
+      "is_buy": false,
+      "shares": 1553,
+      "price": 235.35,
+      "total_val": 0.37
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2004-12-21",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "2002-04-19",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1994-10-31",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1987-03-30",
+      "ratio": "3 : 1",
+      "desc": "普通股 1 拆 3 (Stock Split)",
+      "type": "普通拆股"
+    }
+  ],
+  "inst_ownership_pct": 68.5,
+  "insider_ownership_pct": 13.5
+}

@@ -1,0 +1,141 @@
+{
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-08-18",
+      "name": "STEARNS LEAH C",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": false,
+      "shares": 200000,
+      "price": 31.61,
+      "total_val": 6.32
+    },
+    {
+      "date": "2026-08-18",
+      "name": "STEARNS LEAH C",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": false,
+      "shares": 12654,
+      "price": 27.32,
+      "total_val": 0.35
+    },
+    {
+      "date": "2026-08-18",
+      "name": "Pocock Jane",
+      "title": "officer: President",
+      "is_buy": false,
+      "shares": 500000,
+      "price": 31.61,
+      "total_val": 15.8
+    },
+    {
+      "date": "2026-08-18",
+      "name": "Pocock Jane",
+      "title": "officer: President",
+      "is_buy": false,
+      "shares": 25308,
+      "price": 27.32,
+      "total_val": 0.69
+    },
+    {
+      "date": "2026-08-17",
+      "name": "Berger David Joel",
+      "title": "director",
+      "is_buy": false,
+      "shares": 24341,
+      "price": 29.39,
+      "total_val": 0.72
+    },
+    {
+      "date": "2026-08-17",
+      "name": "Berger David Joel",
+      "title": "Officer / Director",
+      "is_buy": true,
+      "shares": 0,
+      "price": 27.32,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-17",
+      "name": "Pocock Jane",
+      "title": "officer: President",
+      "is_buy": true,
+      "shares": 0,
+      "price": 27.32,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-17",
+      "name": "Pocock Jane",
+      "title": "officer: President",
+      "is_buy": true,
+      "shares": 89767,
+      "price": 27.32,
+      "total_val": 2.45
+    },
+    {
+      "date": "2026-07-30",
+      "name": "Liaw Jeffrey",
+      "title": "officer: Chief Executive Officer",
+      "is_buy": true,
+      "shares": 43166,
+      "price": 8.7,
+      "total_val": 0.38
+    },
+    {
+      "date": "2026-07-30",
+      "name": "Liaw Jeffrey",
+      "title": "officer: Chief Executive Officer",
+      "is_buy": true,
+      "shares": 43166,
+      "price": 8.7,
+      "total_val": 0.38
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2023-08-22",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "2022-11-04",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "2017-04-11",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "2012-03-29",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "2002-01-22",
+      "ratio": "3 : 2",
+      "desc": "普通股 2 拆 3 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "2000-01-25",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1999-01-29",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    }
+  ],
+  "inst_ownership_pct": 68.5,
+  "insider_ownership_pct": 13.5
+}

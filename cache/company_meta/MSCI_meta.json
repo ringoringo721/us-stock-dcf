@@ -1,0 +1,98 @@
+{
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-09-04",
+      "name": "Taneja Rajat",
+      "title": "director",
+      "is_buy": true,
+      "shares": 1786,
+      "price": 560.0,
+      "total_val": 1.0
+    },
+    {
+      "date": "2026-09-01",
+      "name": "Yang June",
+      "title": "director",
+      "is_buy": false,
+      "shares": 2,
+      "price": 565.12,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-01",
+      "name": "RIEFLER LINDA H",
+      "title": "director",
+      "is_buy": false,
+      "shares": 8,
+      "price": 565.12,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-01",
+      "name": "Matlock Robin",
+      "title": "director",
+      "is_buy": false,
+      "shares": 6,
+      "price": 565.12,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-12",
+      "name": "Wiechmann Andrew C.",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": false,
+      "shares": 450,
+      "price": 604.56,
+      "total_val": 0.27
+    },
+    {
+      "date": "2026-06-04",
+      "name": "Taneja Rajat",
+      "title": "director",
+      "is_buy": false,
+      "shares": 42,
+      "price": 565.12,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-06-02",
+      "name": "Yang June",
+      "title": "director",
+      "is_buy": false,
+      "shares": 2,
+      "price": 565.12,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-02",
+      "name": "Matlock Robin",
+      "title": "director",
+      "is_buy": false,
+      "shares": 6,
+      "price": 565.12,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-02",
+      "name": "RIEFLER LINDA H",
+      "title": "director",
+      "is_buy": false,
+      "shares": 7,
+      "price": 565.12,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-18",
+      "name": "Fernandez Henry A",
+      "title": "director, officer: Chairman and CEO",
+      "is_buy": true,
+      "shares": 80,
+      "price": 565.17,
+      "total_val": 0.05
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": 68.5,
+  "insider_ownership_pct": 13.5
+}

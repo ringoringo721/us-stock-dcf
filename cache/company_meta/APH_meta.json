@@ -1,0 +1,141 @@
+{
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-08-06",
+      "name": "Lampo Craig A",
+      "title": "officer: EVP& CFO",
+      "is_buy": false,
+      "shares": 54547,
+      "price": 87.24,
+      "total_val": 4.76
+    },
+    {
+      "date": "2026-08-05",
+      "name": "Silverman David M",
+      "title": "officer: EVP, Human Resources",
+      "is_buy": true,
+      "shares": 120000,
+      "price": 22.0,
+      "total_val": 2.64
+    },
+    {
+      "date": "2026-08-05",
+      "name": "Silverman David M",
+      "title": "officer: EVP, Human Resources",
+      "is_buy": true,
+      "shares": 120000,
+      "price": 22.0,
+      "total_val": 2.64
+    },
+    {
+      "date": "2026-08-05",
+      "name": "Silverman David M",
+      "title": "officer: EVP, Human Resources",
+      "is_buy": false,
+      "shares": 120000,
+      "price": 174.24,
+      "total_val": 20.91
+    },
+    {
+      "date": "2026-08-05",
+      "name": "Lampo Craig A",
+      "title": "officer: EVP& CFO",
+      "is_buy": true,
+      "shares": 193200,
+      "price": 22.37,
+      "total_val": 4.32
+    },
+    {
+      "date": "2026-08-05",
+      "name": "Lampo Craig A",
+      "title": "officer: EVP& CFO",
+      "is_buy": true,
+      "shares": 193200,
+      "price": 22.37,
+      "total_val": 4.32
+    },
+    {
+      "date": "2026-08-05",
+      "name": "Lampo Craig A",
+      "title": "officer: EVP& CFO",
+      "is_buy": false,
+      "shares": 193200,
+      "price": 167.31,
+      "total_val": 32.32
+    },
+    {
+      "date": "2026-08-05",
+      "name": "D'AMICO LANCE E",
+      "title": "officer: EVP, Secretary & GenCounsel",
+      "is_buy": true,
+      "shares": 50000,
+      "price": 22.55,
+      "total_val": 1.13
+    },
+    {
+      "date": "2026-08-05",
+      "name": "D'AMICO LANCE E",
+      "title": "officer: EVP, Secretary & GenCounsel",
+      "is_buy": true,
+      "shares": 10000,
+      "price": 22.55,
+      "total_val": 0.23
+    },
+    {
+      "date": "2026-08-05",
+      "name": "D'AMICO LANCE E",
+      "title": "officer: EVP, Secretary & GenCounsel",
+      "is_buy": false,
+      "shares": 50000,
+      "price": 161.99,
+      "total_val": 8.1
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2026-09-03",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "2024-06-12",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "2021-03-05",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "2014-10-10",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "2007-04-02",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "2004-03-30",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "2000-04-26",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    }
+  ],
+  "inst_ownership_pct": 68.5,
+  "insider_ownership_pct": 13.5
+}

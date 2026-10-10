@@ -1,0 +1,153 @@
+{
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-05",
+      "name": "Sanders Adam",
+      "title": "officer: Corp. Controller & CAO",
+      "is_buy": false,
+      "shares": 269,
+      "price": 529.3,
+      "total_val": 0.14
+    },
+    {
+      "date": "2026-10-05",
+      "name": "Sanders Adam",
+      "title": "officer: Corp. Controller & CAO",
+      "is_buy": false,
+      "shares": 725,
+      "price": 544.56,
+      "total_val": 0.39
+    },
+    {
+      "date": "2026-10-05",
+      "name": "Deane Timothy M",
+      "title": "officer: SVP, Applied Global Services",
+      "is_buy": false,
+      "shares": 2644,
+      "price": 529.3,
+      "total_val": 1.4
+    },
+    {
+      "date": "2026-09-10",
+      "name": "BRUNER JUDY",
+      "title": "director",
+      "is_buy": false,
+      "shares": 1000,
+      "price": 465.0,
+      "total_val": 0.47
+    },
+    {
+      "date": "2026-08-31",
+      "name": "Palkhiwala Akash J.",
+      "title": "director",
+      "is_buy": false,
+      "shares": 279,
+      "price": 507.03,
+      "total_val": 0.14
+    },
+    {
+      "date": "2026-08-31",
+      "name": "Palkhiwala Akash J.",
+      "title": "director: ",
+      "is_buy": true,
+      "shares": 0,
+      "price": 507.03,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-27",
+      "name": "Hill Brice",
+      "title": "officer: SVP, CFO",
+      "is_buy": false,
+      "shares": 7500,
+      "price": 479.25,
+      "total_val": 3.59
+    },
+    {
+      "date": "2026-07-06",
+      "name": "Sanders Adam",
+      "title": "officer: Corp. Controller & CAO",
+      "is_buy": false,
+      "shares": 125,
+      "price": 650.91,
+      "total_val": 0.08
+    },
+    {
+      "date": "2026-07-01",
+      "name": "DICKERSON GARY E",
+      "title": "director, officer: President and CEO",
+      "is_buy": false,
+      "shares": 50332,
+      "price": 700.21,
+      "total_val": 35.24
+    },
+    {
+      "date": "2026-07-01",
+      "name": "DICKERSON GARY E",
+      "title": "director, officer: President and CEO",
+      "is_buy": false,
+      "shares": 7989,
+      "price": 701.33,
+      "total_val": 5.6
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2002-04-17",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "2000-03-16",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1997-10-14",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1995-10-13",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1993-10-06",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1992-04-07",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1986-05-16",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1981-02-06",
+      "ratio": "3 : 2",
+      "desc": "普通股 2 拆 3 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1980-04-02",
+      "ratio": "3 : 2",
+      "desc": "普通股 2 拆 3 (Stock Split)",
+      "type": "普通拆股"
+    }
+  ],
+  "inst_ownership_pct": 68.5,
+  "insider_ownership_pct": 13.5
+}

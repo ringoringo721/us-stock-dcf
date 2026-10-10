@@ -1,0 +1,123 @@
+{
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-08",
+      "name": "Farrell Michael J.",
+      "title": "director, officer: Chairman and CEO",
+      "is_buy": true,
+      "shares": 4991,
+      "price": 146.34,
+      "total_val": 0.73
+    },
+    {
+      "date": "2026-10-08",
+      "name": "Farrell Michael J.",
+      "title": "director, officer: Chairman and CEO",
+      "is_buy": false,
+      "shares": 4991,
+      "price": 226.33,
+      "total_val": 1.13
+    },
+    {
+      "date": "2026-10-08",
+      "name": "Farrell Michael J.",
+      "title": "director, officer: Chairman and CEO",
+      "is_buy": true,
+      "shares": 4991,
+      "price": 146.34,
+      "total_val": 0.73
+    },
+    {
+      "date": "2026-10-01",
+      "name": "Farrell Michael J.",
+      "title": "director, officer: Chairman and CEO",
+      "is_buy": true,
+      "shares": 0,
+      "price": 230.05,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-01",
+      "name": "Leong Justin",
+      "title": "officer: Chief Product Officer",
+      "is_buy": false,
+      "shares": 6461,
+      "price": 230.05,
+      "total_val": 1.49
+    },
+    {
+      "date": "2026-10-01",
+      "name": "Rider Michael J",
+      "title": "officer: Global General Counsel",
+      "is_buy": false,
+      "shares": 3230,
+      "price": 230.05,
+      "total_val": 0.74
+    },
+    {
+      "date": "2026-10-01",
+      "name": "Farrell Michael J.",
+      "title": "director, officer: Chairman and CEO",
+      "is_buy": false,
+      "shares": 13547,
+      "price": 230.05,
+      "total_val": 3.12
+    },
+    {
+      "date": "2026-10-01",
+      "name": "Bloomer Aaron",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": false,
+      "shares": 9072,
+      "price": 230.05,
+      "total_val": 2.09
+    },
+    {
+      "date": "2026-09-10",
+      "name": "Farrell Michael J.",
+      "title": "director, officer: Chairman and CEO",
+      "is_buy": true,
+      "shares": 4991,
+      "price": 146.34,
+      "total_val": 0.73
+    },
+    {
+      "date": "2026-09-10",
+      "name": "Farrell Michael J.",
+      "title": "director, officer: Chairman and CEO",
+      "is_buy": false,
+      "shares": 4991,
+      "price": 222.44,
+      "total_val": 1.11
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2010-08-31",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "2005-10-03",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "2000-04-03",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1998-11-17",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    }
+  ],
+  "inst_ownership_pct": 68.5,
+  "insider_ownership_pct": 13.5
+}

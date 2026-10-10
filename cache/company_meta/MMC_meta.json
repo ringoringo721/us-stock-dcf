@@ -1,0 +1,129 @@
+{
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2024-03-01",
+      "name": "Beswick Paul",
+      "title": "officer: SVP, Chief Information Officer",
+      "is_buy": true,
+      "shares": 8510,
+      "price": 182.7,
+      "total_val": 1.55
+    },
+    {
+      "date": "2024-03-01",
+      "name": "Beswick Paul",
+      "title": "officer: SVP, Chief Information Officer",
+      "is_buy": false,
+      "shares": 4115,
+      "price": 202.99,
+      "total_val": 0.84
+    },
+    {
+      "date": "2024-03-01",
+      "name": "Beswick Paul",
+      "title": "officer: SVP, Chief Information Officer",
+      "is_buy": true,
+      "shares": 8510,
+      "price": 182.7,
+      "total_val": 1.55
+    },
+    {
+      "date": "2016-01-06",
+      "name": "MCGIVNEY MARK C",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": true,
+      "shares": 0,
+      "price": 182.7,
+      "total_val": 0.0
+    },
+    {
+      "date": "2016-01-06",
+      "name": "MCGIVNEY MARK C",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": true,
+      "shares": 15433,
+      "price": 56.84,
+      "total_val": 0.88
+    },
+    {
+      "date": "2016-01-06",
+      "name": "MCGIVNEY MARK C",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": true,
+      "shares": 18116,
+      "price": 48.0,
+      "total_val": 0.87
+    },
+    {
+      "date": "2016-01-06",
+      "name": "MCGIVNEY MARK C",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": true,
+      "shares": 13989,
+      "price": 182.7,
+      "total_val": 2.56
+    },
+    {
+      "date": "2016-01-06",
+      "name": "MCGIVNEY MARK C",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": true,
+      "shares": 5174,
+      "price": 31.89,
+      "total_val": 0.16
+    },
+    {
+      "date": "2016-01-06",
+      "name": "MCGIVNEY MARK C",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": true,
+      "shares": 13105,
+      "price": 36.49,
+      "total_val": 0.48
+    },
+    {
+      "date": "2013-02-27",
+      "name": "RAPPORT ROBERT J",
+      "title": "officer: SVP and Controller",
+      "is_buy": false,
+      "shares": 8065,
+      "price": 36.49,
+      "total_val": 0.29
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2002-07-01",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1998-06-29",
+      "ratio": "3 : 2",
+      "desc": "普通股 2 拆 3 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1997-06-30",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1986-05-15",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1980-11-12",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    }
+  ],
+  "inst_ownership_pct": 68.5,
+  "insider_ownership_pct": 13.5
+}

@@ -1,0 +1,98 @@
+{
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-09",
+      "name": "Rajagopalan Balasubramanian",
+      "title": "officer: Chief Risk Officer",
+      "is_buy": true,
+      "shares": 0,
+      "price": 111.08,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-18",
+      "name": "Dixon Troy",
+      "title": "officer: MD, Co-Head of Global Markets",
+      "is_buy": false,
+      "shares": 546,
+      "price": 105.74,
+      "total_val": 0.06
+    },
+    {
+      "date": "2026-08-18",
+      "name": "Dixon Troy",
+      "title": "officer: MD, Co-Head of Global Markets",
+      "is_buy": false,
+      "shares": 2584,
+      "price": 106.06,
+      "total_val": 0.27
+    },
+    {
+      "date": "2026-06-02",
+      "name": "Peterson Justin",
+      "title": "officer: Chief Technology Officer",
+      "is_buy": false,
+      "shares": 21221,
+      "price": 102.0,
+      "total_val": 2.16
+    },
+    {
+      "date": "2026-05-27",
+      "name": "BERNS STEVEN",
+      "title": "director",
+      "is_buy": false,
+      "shares": 425,
+      "price": 105.26,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-05-20",
+      "name": "Yared Rana",
+      "title": "director",
+      "is_buy": false,
+      "shares": 1645,
+      "price": 111.08,
+      "total_val": 0.18
+    },
+    {
+      "date": "2026-05-20",
+      "name": "AIGRAIN JACQUES",
+      "title": "director",
+      "is_buy": false,
+      "shares": 2668,
+      "price": 111.08,
+      "total_val": 0.3
+    },
+    {
+      "date": "2026-05-20",
+      "name": "Madoff Paula",
+      "title": "director",
+      "is_buy": false,
+      "shares": 1912,
+      "price": 111.08,
+      "total_val": 0.21
+    },
+    {
+      "date": "2026-05-20",
+      "name": "BERNS STEVEN",
+      "title": "director",
+      "is_buy": false,
+      "shares": 1645,
+      "price": 111.08,
+      "total_val": 0.18
+    },
+    {
+      "date": "2026-05-20",
+      "name": "Ganeles Scott",
+      "title": "director",
+      "is_buy": false,
+      "shares": 1645,
+      "price": 111.08,
+      "total_val": 0.18
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": 68.5,
+  "insider_ownership_pct": 13.5
+}

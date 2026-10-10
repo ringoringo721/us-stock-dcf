@@ -1,0 +1,117 @@
+{
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-02",
+      "name": "Hoag Jay C",
+      "title": "director",
+      "is_buy": false,
+      "shares": 921,
+      "price": 67.85,
+      "total_val": 0.06
+    },
+    {
+      "date": "2026-10-02",
+      "name": "Mertz Elinor",
+      "title": "director",
+      "is_buy": false,
+      "shares": 922,
+      "price": 67.85,
+      "total_val": 0.06
+    },
+    {
+      "date": "2026-10-02",
+      "name": "RICE SUSAN E",
+      "title": "director",
+      "is_buy": false,
+      "shares": 921,
+      "price": 67.85,
+      "total_val": 0.06
+    },
+    {
+      "date": "2026-10-02",
+      "name": "BARTON RICHARD N",
+      "title": "director",
+      "is_buy": false,
+      "shares": 921,
+      "price": 67.85,
+      "total_val": 0.06
+    },
+    {
+      "date": "2026-10-02",
+      "name": "MATHER ANN",
+      "title": "director",
+      "is_buy": false,
+      "shares": 921,
+      "price": 67.85,
+      "total_val": 0.06
+    },
+    {
+      "date": "2026-10-02",
+      "name": "Masiyiwa Strive",
+      "title": "director",
+      "is_buy": false,
+      "shares": 921,
+      "price": 67.85,
+      "total_val": 0.06
+    },
+    {
+      "date": "2026-10-02",
+      "name": "KILGORE LESLIE J",
+      "title": "director",
+      "is_buy": false,
+      "shares": 921,
+      "price": 67.85,
+      "total_val": 0.06
+    },
+    {
+      "date": "2026-10-02",
+      "name": "Dopfner Mathias",
+      "title": "director",
+      "is_buy": false,
+      "shares": 921,
+      "price": 67.85,
+      "total_val": 0.06
+    },
+    {
+      "date": "2026-10-02",
+      "name": "Karbowski Jeffrey William",
+      "title": "officer: Chief Accounting Officer",
+      "is_buy": false,
+      "shares": 1075,
+      "price": 67.85,
+      "total_val": 0.07
+    },
+    {
+      "date": "2026-10-02",
+      "name": "SMITH BRADFORD L",
+      "title": "director",
+      "is_buy": false,
+      "shares": 921,
+      "price": 67.85,
+      "total_val": 0.06
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2025-11-17",
+      "ratio": "10 : 1",
+      "desc": "普通股 1 拆 10 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "2015-07-15",
+      "ratio": "7 : 1",
+      "desc": "普通股 1 拆 7 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "2004-02-12",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    }
+  ],
+  "inst_ownership_pct": 68.5,
+  "insider_ownership_pct": 13.5
+}

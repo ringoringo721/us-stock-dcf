@@ -1,0 +1,105 @@
+{
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-09-10",
+      "name": "Rutledge Napoleon B JR",
+      "title": "officer: SVP, Controller & CAO",
+      "is_buy": false,
+      "shares": 111,
+      "price": 891.45,
+      "total_val": 0.1
+    },
+    {
+      "date": "2026-08-11",
+      "name": "Srinivasan Ramesh (NMN)",
+      "title": "officer: EVP and Chief Strategy Officer",
+      "is_buy": false,
+      "shares": 368,
+      "price": 938.84,
+      "total_val": 0.35
+    },
+    {
+      "date": "2026-08-11",
+      "name": "Lerman Bradley E",
+      "title": "director",
+      "is_buy": false,
+      "shares": 301,
+      "price": 892.33,
+      "total_val": 0.27
+    },
+    {
+      "date": "2026-08-10",
+      "name": "Srinivasan Ramesh (NMN)",
+      "title": "officer: EVP and Chief Strategy Officer",
+      "is_buy": true,
+      "shares": 0,
+      "price": 938.84,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-10",
+      "name": "Srinivasan Ramesh (NMN)",
+      "title": "officer: EVP and Chief Strategy Officer",
+      "is_buy": true,
+      "shares": 316,
+      "price": 938.84,
+      "total_val": 0.3
+    },
+    {
+      "date": "2026-07-23",
+      "name": "Hinton James H.",
+      "title": "director",
+      "is_buy": false,
+      "shares": 277,
+      "price": 938.84,
+      "total_val": 0.26
+    },
+    {
+      "date": "2026-07-23",
+      "name": "Doughtie Lynne M",
+      "title": "director",
+      "is_buy": false,
+      "shares": 277,
+      "price": 938.84,
+      "total_val": 0.26
+    },
+    {
+      "date": "2026-07-23",
+      "name": "Wilson-Thompson Kathleen",
+      "title": "director",
+      "is_buy": false,
+      "shares": 277,
+      "price": 814.04,
+      "total_val": 0.23
+    },
+    {
+      "date": "2026-07-23",
+      "name": "Dunbar Webster Roy",
+      "title": "director",
+      "is_buy": false,
+      "shares": 277,
+      "price": 938.84,
+      "total_val": 0.26
+    },
+    {
+      "date": "2026-07-23",
+      "name": "Caruso Dominic J",
+      "title": "director",
+      "is_buy": false,
+      "shares": 277,
+      "price": 814.04,
+      "total_val": 0.23
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "1998-01-05",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    }
+  ],
+  "inst_ownership_pct": 68.5,
+  "insider_ownership_pct": 13.5
+}

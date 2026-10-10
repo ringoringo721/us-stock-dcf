@@ -1,0 +1,117 @@
+{
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-08",
+      "name": "Koreyva Kyle Graham",
+      "title": "officer: Chief Accounting Officer",
+      "is_buy": true,
+      "shares": 0,
+      "price": 232.7,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-01",
+      "name": "Koreyva Kyle Graham",
+      "title": "officer: Chief Accounting Officer",
+      "is_buy": true,
+      "shares": 0,
+      "price": 232.7,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-17",
+      "name": "CARY RICHARD C",
+      "title": "officer: Controller, CAO",
+      "is_buy": false,
+      "shares": 1000,
+      "price": 252.86,
+      "total_val": 0.25
+    },
+    {
+      "date": "2026-09-10",
+      "name": "Gallagher Patrick Murphy",
+      "title": "officer: Chief Operating Officer",
+      "is_buy": false,
+      "shares": 49988,
+      "price": 232.7,
+      "total_val": 11.63
+    },
+    {
+      "date": "2026-09-10",
+      "name": "GALLAGHER J PATRICK JR",
+      "title": "director, officer: CEO",
+      "is_buy": false,
+      "shares": 49988,
+      "price": 232.7,
+      "total_val": 11.63
+    },
+    {
+      "date": "2026-09-04",
+      "name": "Hudson Scott R",
+      "title": "officer: Vice President",
+      "is_buy": true,
+      "shares": 12000,
+      "price": 86.17,
+      "total_val": 1.03
+    },
+    {
+      "date": "2026-09-04",
+      "name": "Hudson Scott R",
+      "title": "officer: Vice President",
+      "is_buy": false,
+      "shares": 12000,
+      "price": 264.13,
+      "total_val": 3.17
+    },
+    {
+      "date": "2026-09-04",
+      "name": "Hudson Scott R",
+      "title": "officer: Vice President",
+      "is_buy": true,
+      "shares": 12000,
+      "price": 86.17,
+      "total_val": 1.03
+    },
+    {
+      "date": "2026-09-02",
+      "name": "Miskel Christopher C.",
+      "title": "director",
+      "is_buy": false,
+      "shares": 152,
+      "price": 262.0,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-08-26",
+      "name": "Bay Walter D.",
+      "title": "officer: General Counsel",
+      "is_buy": false,
+      "shares": 12000,
+      "price": 270.08,
+      "total_val": 3.24
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2001-01-19",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "2000-03-16",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1986-07-16",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    }
+  ],
+  "inst_ownership_pct": 68.5,
+  "insider_ownership_pct": 13.5
+}

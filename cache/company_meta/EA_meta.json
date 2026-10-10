@@ -1,0 +1,123 @@
+{
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-08-04",
+      "name": "Ueberroth Heidi",
+      "title": "director",
+      "is_buy": false,
+      "shares": 12848,
+      "price": 210.0,
+      "total_val": 2.7
+    },
+    {
+      "date": "2026-08-04",
+      "name": "Ueberroth Heidi",
+      "title": "director",
+      "is_buy": false,
+      "shares": 1452,
+      "price": 209.7,
+      "total_val": 0.3
+    },
+    {
+      "date": "2026-08-04",
+      "name": "Ubinas Luis A",
+      "title": "director",
+      "is_buy": false,
+      "shares": 1452,
+      "price": 209.7,
+      "total_val": 0.3
+    },
+    {
+      "date": "2026-08-04",
+      "name": "Simonson Richard A",
+      "title": "director",
+      "is_buy": false,
+      "shares": 83251,
+      "price": 210.0,
+      "total_val": 17.48
+    },
+    {
+      "date": "2026-08-04",
+      "name": "Simonson Richard A",
+      "title": "director",
+      "is_buy": false,
+      "shares": 1452,
+      "price": 209.7,
+      "total_val": 0.3
+    },
+    {
+      "date": "2026-08-04",
+      "name": "Hoskins Roche L Talbott",
+      "title": "director",
+      "is_buy": false,
+      "shares": 27337,
+      "price": 210.0,
+      "total_val": 5.74
+    },
+    {
+      "date": "2026-08-04",
+      "name": "Hoskins Roche L Talbott",
+      "title": "director",
+      "is_buy": false,
+      "shares": 1452,
+      "price": 209.7,
+      "total_val": 0.3
+    },
+    {
+      "date": "2026-08-04",
+      "name": "Huber Jeff",
+      "title": "director",
+      "is_buy": false,
+      "shares": 2184,
+      "price": 210.0,
+      "total_val": 0.46
+    },
+    {
+      "date": "2026-08-04",
+      "name": "Huber Jeff",
+      "title": "director",
+      "is_buy": false,
+      "shares": 1452,
+      "price": 209.7,
+      "total_val": 0.3
+    },
+    {
+      "date": "2026-08-04",
+      "name": "Gonzalez Rachel A",
+      "title": "director",
+      "is_buy": false,
+      "shares": 7854,
+      "price": 210.0,
+      "total_val": 1.65
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2003-11-18",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "2000-09-11",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1993-02-22",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1992-03-27",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    }
+  ],
+  "inst_ownership_pct": 68.5,
+  "insider_ownership_pct": 13.5
+}

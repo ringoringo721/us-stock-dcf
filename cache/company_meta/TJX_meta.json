@@ -1,0 +1,159 @@
+{
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-09-17",
+      "name": "PINTOFF CRAIG ADAM",
+      "title": "director",
+      "is_buy": false,
+      "shares": 621,
+      "price": 138.76,
+      "total_val": 0.09
+    },
+    {
+      "date": "2026-09-17",
+      "name": "PINTOFF CRAIG ADAM",
+      "title": "Officer / Director",
+      "is_buy": true,
+      "shares": 0,
+      "price": 138.76,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-12",
+      "name": "Nemerov Jackwyn",
+      "title": "director",
+      "is_buy": false,
+      "shares": 957,
+      "price": 168.59,
+      "total_val": 0.16
+    },
+    {
+      "date": "2026-06-11",
+      "name": "BERKERY ROSEMARY T",
+      "title": "director",
+      "is_buy": true,
+      "shares": 802,
+      "price": 138.76,
+      "total_val": 0.11
+    },
+    {
+      "date": "2026-06-11",
+      "name": "BERKERY ROSEMARY T",
+      "title": "director",
+      "is_buy": false,
+      "shares": 110,
+      "price": 138.76,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-06-11",
+      "name": "BERKERY ROSEMARY T",
+      "title": "director",
+      "is_buy": false,
+      "shares": 636,
+      "price": 138.76,
+      "total_val": 0.09
+    },
+    {
+      "date": "2026-06-11",
+      "name": "BERKERY ROSEMARY T",
+      "title": "director",
+      "is_buy": false,
+      "shares": 8,
+      "price": 138.76,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-11",
+      "name": "BERKERY ROSEMARY T",
+      "title": "director",
+      "is_buy": false,
+      "shares": 636,
+      "price": 138.76,
+      "total_val": 0.09
+    },
+    {
+      "date": "2026-06-11",
+      "name": "BERKERY ROSEMARY T",
+      "title": "director",
+      "is_buy": true,
+      "shares": 802,
+      "price": 138.76,
+      "total_val": 0.11
+    },
+    {
+      "date": "2026-06-11",
+      "name": "Nemerov Jackwyn",
+      "title": "director",
+      "is_buy": false,
+      "shares": 156,
+      "price": 138.76,
+      "total_val": 0.02
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2018-11-07",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "2012-02-03",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "2002-05-09",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1998-06-26",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1997-06-27",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1986-06-26",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1985-05-30",
+      "ratio": "4 : 3",
+      "desc": "普通股 3 拆 4 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1984-05-04",
+      "ratio": "11 : 10",
+      "desc": "普通股 10 拆 11 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1983-06-30",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1982-06-11",
+      "ratio": "6 : 5",
+      "desc": "普通股 5 拆 6 (Stock Split)",
+      "type": "普通拆股"
+    }
+  ],
+  "inst_ownership_pct": 68.5,
+  "insider_ownership_pct": 13.5
+}

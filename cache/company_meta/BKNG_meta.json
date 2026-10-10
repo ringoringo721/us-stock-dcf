@@ -1,0 +1,111 @@
+{
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-09-16",
+      "name": "Pisano Paulo",
+      "title": "officer: CHIEF HUMAN RESOURCES OFFICER",
+      "is_buy": false,
+      "shares": 1500,
+      "price": 173.02,
+      "total_val": 0.26
+    },
+    {
+      "date": "2026-09-02",
+      "name": "MYLOD ROBERT J JR",
+      "title": "director",
+      "is_buy": false,
+      "shares": 1000,
+      "price": 200.0,
+      "total_val": 0.2
+    },
+    {
+      "date": "2026-09-01",
+      "name": "Pisano Paulo",
+      "title": "officer: CHIEF HUMAN RESOURCES OFFICER",
+      "is_buy": false,
+      "shares": 3000,
+      "price": 203.48,
+      "total_val": 0.61
+    },
+    {
+      "date": "2026-08-18",
+      "name": "MILLONES PETER J",
+      "title": "officer: EXECUTIVE VP, GENERAL COUNSEL",
+      "is_buy": false,
+      "shares": 9325,
+      "price": 204.91,
+      "total_val": 1.91
+    },
+    {
+      "date": "2026-08-18",
+      "name": "MILLONES PETER J",
+      "title": "officer: EXECUTIVE VP, GENERAL COUNSEL",
+      "is_buy": false,
+      "shares": 12333,
+      "price": 205.76,
+      "total_val": 2.54
+    },
+    {
+      "date": "2026-08-18",
+      "name": "MILLONES PETER J",
+      "title": "officer: EXECUTIVE VP, GENERAL COUNSEL",
+      "is_buy": false,
+      "shares": 2627,
+      "price": 206.58,
+      "total_val": 0.54
+    },
+    {
+      "date": "2026-08-18",
+      "name": "MILLONES PETER J",
+      "title": "officer: EXECUTIVE VP, GENERAL COUNSEL",
+      "is_buy": false,
+      "shares": 8660,
+      "price": 208.05,
+      "total_val": 1.8
+    },
+    {
+      "date": "2026-08-18",
+      "name": "MILLONES PETER J",
+      "title": "officer: EXECUTIVE VP, GENERAL COUNSEL",
+      "is_buy": false,
+      "shares": 5019,
+      "price": 208.73,
+      "total_val": 1.05
+    },
+    {
+      "date": "2026-08-18",
+      "name": "MILLONES PETER J",
+      "title": "officer: EXECUTIVE VP, GENERAL COUNSEL",
+      "is_buy": false,
+      "shares": 5174,
+      "price": 210.0,
+      "total_val": 1.09
+    },
+    {
+      "date": "2026-08-18",
+      "name": "MILLONES PETER J",
+      "title": "officer: EXECUTIVE VP, GENERAL COUNSEL",
+      "is_buy": false,
+      "shares": 3632,
+      "price": 211.03,
+      "total_val": 0.77
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2026-04-06",
+      "ratio": "25 : 1",
+      "desc": "普通股 1 拆 25 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "2003-06-16",
+      "ratio": "1 : 6",
+      "desc": "普通股 6 拆 1 (Stock Split)",
+      "type": "普通拆股"
+    }
+  ],
+  "inst_ownership_pct": 68.5,
+  "insider_ownership_pct": 13.5
+}

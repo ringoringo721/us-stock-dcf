@@ -1,0 +1,105 @@
+{
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-09-01",
+      "name": "Fipps Paul",
+      "title": "officer: President, Global Customer Ops",
+      "is_buy": false,
+      "shares": 2034,
+      "price": 147.87,
+      "total_val": 0.3
+    },
+    {
+      "date": "2026-09-01",
+      "name": "Canney Jacqueline P",
+      "title": "officer: Chief People & AI Enblmt. Off.",
+      "is_buy": false,
+      "shares": 7847,
+      "price": 138.0,
+      "total_val": 1.08
+    },
+    {
+      "date": "2026-08-31",
+      "name": "Chamberlain Paul Edward",
+      "title": "director",
+      "is_buy": false,
+      "shares": 2700,
+      "price": 135.5,
+      "total_val": 0.37
+    },
+    {
+      "date": "2026-08-19",
+      "name": "McDermott William R",
+      "title": "director, officer: Chairman & CEO",
+      "is_buy": true,
+      "shares": 4160,
+      "price": 140.86,
+      "total_val": 0.59
+    },
+    {
+      "date": "2026-08-19",
+      "name": "McDermott William R",
+      "title": "director, officer: Chairman & CEO",
+      "is_buy": false,
+      "shares": 2236,
+      "price": 117.7,
+      "total_val": 0.26
+    },
+    {
+      "date": "2026-08-19",
+      "name": "McDermott William R",
+      "title": "director, officer: Chairman & CEO",
+      "is_buy": true,
+      "shares": 4160,
+      "price": 140.86,
+      "total_val": 0.59
+    },
+    {
+      "date": "2026-08-19",
+      "name": "Canney Jacqueline P",
+      "title": "officer: Chief People & AI Enblmt. Off.",
+      "is_buy": true,
+      "shares": 970,
+      "price": 140.86,
+      "total_val": 0.14
+    },
+    {
+      "date": "2026-08-19",
+      "name": "Canney Jacqueline P",
+      "title": "officer: Chief People & AI Enblmt. Off.",
+      "is_buy": false,
+      "shares": 496,
+      "price": 117.7,
+      "total_val": 0.06
+    },
+    {
+      "date": "2026-08-19",
+      "name": "Canney Jacqueline P",
+      "title": "officer: Chief People & AI Enblmt. Off.",
+      "is_buy": true,
+      "shares": 970,
+      "price": 140.86,
+      "total_val": 0.14
+    },
+    {
+      "date": "2026-08-19",
+      "name": "Fipps Paul",
+      "title": "officer: President, Global Customer Ops",
+      "is_buy": true,
+      "shares": 300,
+      "price": 140.86,
+      "total_val": 0.04
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2025-12-18",
+      "ratio": "5 : 1",
+      "desc": "普通股 1 拆 5 (Stock Split)",
+      "type": "普通拆股"
+    }
+  ],
+  "inst_ownership_pct": 68.5,
+  "insider_ownership_pct": 13.5
+}

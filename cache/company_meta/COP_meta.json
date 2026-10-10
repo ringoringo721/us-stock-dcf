@@ -1,0 +1,123 @@
+{
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-09-16",
+      "name": "NIBLOCK ROBERT A",
+      "title": "director",
+      "is_buy": false,
+      "shares": 270,
+      "price": 134.1,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-09-08",
+      "name": "Patterson Greig",
+      "title": "officer: Vice President & Controller",
+      "is_buy": true,
+      "shares": 0,
+      "price": 134.1,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-08",
+      "name": "Patterson Greig",
+      "title": "officer: Vice President & Controller",
+      "is_buy": true,
+      "shares": 2243,
+      "price": 134.1,
+      "total_val": 0.3
+    },
+    {
+      "date": "2026-09-08",
+      "name": "Dao Khoa M",
+      "title": "officer: Senior Vice President",
+      "is_buy": true,
+      "shares": 3876,
+      "price": 134.1,
+      "total_val": 0.52
+    },
+    {
+      "date": "2026-09-02",
+      "name": "Olds Nicholas G",
+      "title": "officer: Executive Vice President",
+      "is_buy": false,
+      "shares": 22758,
+      "price": 134.1,
+      "total_val": 3.05
+    },
+    {
+      "date": "2026-09-02",
+      "name": "JOHNSON KIRK L.",
+      "title": "officer: Executive Vice President",
+      "is_buy": false,
+      "shares": 37930,
+      "price": 134.1,
+      "total_val": 5.09
+    },
+    {
+      "date": "2026-09-02",
+      "name": "Kinney Shannon Browning",
+      "title": "officer: SVP & General Counsel",
+      "is_buy": false,
+      "shares": 24080,
+      "price": 134.1,
+      "total_val": 3.23
+    },
+    {
+      "date": "2026-09-02",
+      "name": "Kinney Shannon Browning",
+      "title": "Officer / Director",
+      "is_buy": true,
+      "shares": 0,
+      "price": 134.1,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-24",
+      "name": "LUNDQUIST ANDREW D",
+      "title": "officer: Senior Vice President",
+      "is_buy": false,
+      "shares": 9487,
+      "price": 135.15,
+      "total_val": 1.28
+    },
+    {
+      "date": "2026-08-21",
+      "name": "Rose Kelly Brunetti",
+      "title": "officer: SVP & General Counsel",
+      "is_buy": false,
+      "shares": 15000,
+      "price": 134.51,
+      "total_val": 2.02
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2012-05-01",
+      "ratio": "1311791 : 1000000",
+      "desc": "普通股 1000000 拆 1311791 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "2005-06-02",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1985-07-05",
+      "ratio": "3 : 1",
+      "desc": "普通股 1 拆 3 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1977-06-13",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    }
+  ],
+  "inst_ownership_pct": 68.5,
+  "insider_ownership_pct": 13.5
+}

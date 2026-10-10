@@ -1,0 +1,129 @@
+{
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-09-30",
+      "name": "Smith Maurice S",
+      "title": "director",
+      "is_buy": false,
+      "shares": 1162,
+      "price": 32.55,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-09-01",
+      "name": "Carre Eric",
+      "title": "officer: EVP & Chief Financial Officer",
+      "is_buy": false,
+      "shares": 24777,
+      "price": 37.5,
+      "total_val": 0.93
+    },
+    {
+      "date": "2026-08-20",
+      "name": "Slocum Jeffrey Shannon",
+      "title": "director, officer: Director, EVP and COO",
+      "is_buy": false,
+      "shares": 52572,
+      "price": 35.09,
+      "total_val": 1.84
+    },
+    {
+      "date": "2026-08-19",
+      "name": "Slocum Jeffrey Shannon",
+      "title": "director, officer: Director, EVP and COO",
+      "is_buy": false,
+      "shares": 16121,
+      "price": 35.08,
+      "total_val": 0.57
+    },
+    {
+      "date": "2026-08-19",
+      "name": "Miller Jeffrey Allen",
+      "title": "director, officer: Director, President & CEO",
+      "is_buy": false,
+      "shares": 124483,
+      "price": 35.0,
+      "total_val": 4.36
+    },
+    {
+      "date": "2026-06-30",
+      "name": "Smith Maurice S",
+      "title": "director",
+      "is_buy": false,
+      "shares": 1079,
+      "price": 32.55,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-06-22",
+      "name": "Carre Eric",
+      "title": "officer: EVP & Chief Financial Officer",
+      "is_buy": false,
+      "shares": 24778,
+      "price": 35.89,
+      "total_val": 0.89
+    },
+    {
+      "date": "2026-05-18",
+      "name": "Beckwith Van H.",
+      "title": "officer: EVP, Secretary and CLO",
+      "is_buy": false,
+      "shares": 198349,
+      "price": 41.29,
+      "total_val": 8.19
+    },
+    {
+      "date": "2026-05-06",
+      "name": "Maxwell Michael Casey",
+      "title": "officer: President - Western Hemisphere",
+      "is_buy": false,
+      "shares": 13566,
+      "price": 41.84,
+      "total_val": 0.57
+    },
+    {
+      "date": "2026-05-06",
+      "name": "Maxwell Michael Casey",
+      "title": "officer: President - Western Hemisphere",
+      "is_buy": false,
+      "shares": 6782,
+      "price": 42.0,
+      "total_val": 0.28
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2006-07-17",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1997-07-22",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1996-01-24",
+      "ratio": "100000 : 95301",
+      "desc": "普通股 95301 拆 100000 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1980-12-26",
+      "ratio": "2 : 1",
+      "desc": "普通股 1 拆 2 (Stock Split)",
+      "type": "普通拆股"
+    },
+    {
+      "date": "1976-04-30",
+      "ratio": "3 : 1",
+      "desc": "普通股 1 拆 3 (Stock Split)",
+      "type": "普通拆股"
+    }
+  ],
+  "inst_ownership_pct": 68.5,
+  "insider_ownership_pct": 13.5
+}

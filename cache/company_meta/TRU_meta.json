@@ -1,0 +1,98 @@
+{
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-02",
+      "name": "Skinner Todd C.",
+      "title": "officer: President, International",
+      "is_buy": false,
+      "shares": 1000,
+      "price": 62.29,
+      "total_val": 0.06
+    },
+    {
+      "date": "2026-10-02",
+      "name": "Abdelsadek Mohamed",
+      "title": "officer: EVP, Chief Global Solutions",
+      "is_buy": false,
+      "shares": 250,
+      "price": 62.29,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-10-02",
+      "name": "Bernholz Malte H",
+      "title": "officer: EVP, Chief Strategy & Corp Dev",
+      "is_buy": false,
+      "shares": 123834,
+      "price": 65.48,
+      "total_val": 8.11
+    },
+    {
+      "date": "2026-10-02",
+      "name": "Bernholz Malte H",
+      "title": "officer",
+      "is_buy": true,
+      "shares": 0,
+      "price": 65.48,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-16",
+      "name": "Abdelsadek Mohamed",
+      "title": "officer: EVP, Chief Global Solutions",
+      "is_buy": false,
+      "shares": 1250,
+      "price": 79.07,
+      "total_val": 0.1
+    },
+    {
+      "date": "2026-09-14",
+      "name": "Achanta Venkat",
+      "title": "officer: EVP, Chief Tech, Data & Analy.",
+      "is_buy": false,
+      "shares": 23287,
+      "price": 77.0,
+      "total_val": 1.79
+    },
+    {
+      "date": "2026-09-03",
+      "name": "Ruebensaal Clayton F.",
+      "title": "officer: EVP, Chief Marketing & Comms",
+      "is_buy": false,
+      "shares": 5976,
+      "price": 65.48,
+      "total_val": 0.39
+    },
+    {
+      "date": "2026-09-03",
+      "name": "Achanta Venkat",
+      "title": "officer: EVP, Chief Tech, Data & Analy.",
+      "is_buy": false,
+      "shares": 71710,
+      "price": 65.48,
+      "total_val": 4.7
+    },
+    {
+      "date": "2026-09-03",
+      "name": "Skinner Todd C.",
+      "title": "officer: President, International",
+      "is_buy": false,
+      "shares": 1000,
+      "price": 84.42,
+      "total_val": 0.08
+    },
+    {
+      "date": "2026-09-03",
+      "name": "CHAOUKI STEVEN M",
+      "title": "officer: President, US Markets",
+      "is_buy": false,
+      "shares": 1000,
+      "price": 84.42,
+      "total_val": 0.08
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": 68.5,
+  "insider_ownership_pct": 13.5
+}
