@@ -2816,11 +2816,11 @@
     "country": "US",
     "phone": "650 427 6000",
     "full_address": "3421 Hillview Ave, Palo Alto, CA 94304, US",
-    "range_52w": "184.02-495",
+    "range_52w": "289.96-495",
     "year_high": 495.0,
-    "year_low": 184.02,
+    "year_low": 289.96,
     "all_time_high": 0.0,
-    "all_time_low": 184.02,
+    "all_time_low": 289.96,
     "inst_ownership_pct": 68.0,
     "insider_ownership_pct": 14.5,
     "top_holders": [
@@ -12955,8 +12955,8 @@
     "country": "US",
     "phone": "408 501 8550",
     "full_address": "2225 Lawson Lane, Santa Clara, CA 95054, US",
-    "range_52w": "81.24-192.97",
-    "year_high": 192.97,
+    "range_52w": "81.24-211.48",
+    "year_high": 211.48,
     "year_low": 81.24,
     "all_time_high": 0.0,
     "all_time_low": 81.24,
@@ -14641,11 +14641,11 @@
     "country": "US",
     "phone": "510 572 0200",
     "full_address": "4650 Cushing Parkway, Fremont, CA 94538, US",
-    "range_52w": "131.02-438.5",
+    "range_52w": "134.04-438.5",
     "year_high": 438.5,
-    "year_low": 131.02,
+    "year_low": 134.04,
     "all_time_high": 0.0,
-    "all_time_low": 131.02,
+    "all_time_low": 134.04,
     "inst_ownership_pct": 80.0,
     "insider_ownership_pct": 5.0,
     "top_holders": [
@@ -18007,8 +18007,8 @@
     "country": "US",
     "phone": "415 507 5000",
     "full_address": "One Market Street, San Francisco, CA 94105, US",
-    "range_52w": "185.5-320",
-    "year_high": 320.0,
+    "range_52w": "185.5-329.09",
+    "year_high": 329.09,
     "year_low": 185.5,
     "all_time_high": 0.0,
     "all_time_low": 185.5,
@@ -20493,11 +20493,11 @@
     "country": "US",
     "phone": "646 723 1404",
     "full_address": "85 10th Avenue, New York City, NY 10011, US",
-    "range_52w": "29.44-69.07",
+    "range_52w": "29.97-69.07",
     "year_high": 69.07,
-    "year_low": 29.44,
+    "year_low": 29.97,
     "all_time_high": 0.0,
-    "all_time_low": 29.44,
+    "all_time_low": 29.97,
     "inst_ownership_pct": 80.0,
     "insider_ownership_pct": 5.0,
     "top_holders": [
@@ -23754,11 +23754,11 @@
     "country": "US",
     "phone": "408 875 3000",
     "full_address": "One Technology Drive, Milpitas, CA 95035, US",
-    "range_52w": "98.1-307.37",
+    "range_52w": "99.855-307.37",
     "year_high": 307.37,
-    "year_low": 98.1,
+    "year_low": 99.855,
     "all_time_high": 0.0,
-    "all_time_low": 98.1,
+    "all_time_low": 99.855,
     "inst_ownership_pct": 80.0,
     "insider_ownership_pct": 5.0,
     "top_holders": [
@@ -29546,8 +29546,8 @@
     "country": "US",
     "phone": "408 547 5500",
     "full_address": "5453 Great America Parkway, Santa Clara, CA 95054, US",
-    "range_52w": "114.52-217.4099",
-    "year_high": 217.4099,
+    "range_52w": "114.52-217.41",
+    "year_high": 217.41,
     "year_low": 114.52,
     "all_time_high": 0.0,
     "all_time_low": 114.52,
@@ -38703,11 +38703,11 @@
     "country": "US",
     "phone": "215 286 1700",
     "full_address": "One Comcast Center, Philadelphia, PA 19103-2838, US",
-    "range_52w": "20.485-32.86",
+    "range_52w": "20.48-32.86",
     "year_high": 32.86,
-    "year_low": 20.485,
+    "year_low": 20.48,
     "all_time_high": 0.0,
-    "all_time_low": 20.485,
+    "all_time_low": 20.48,
     "inst_ownership_pct": 76.5,
     "insider_ownership_pct": 8.5,
     "top_holders": [
@@ -40226,10 +40226,10 @@
     "g2": 4.7,
     "g": 2.25,
     "wacc": 8.62,
-    "ev": 41848.8,
-    "fmp_official_ev": 41848.8,
+    "ev": 44845.9,
+    "fmp_official_ev": 44845.9,
     "dcf_model_ev": 27899.2,
-    "ev_to_ebitda": 24.8,
+    "ev_to_ebitda": 26.5,
     "debt_to_ebitda": 6.68,
     "net_debt_to_ebitda": 1.31,
     "f_score": 4,
@@ -40944,21 +40944,21 @@
   },
   "IRDM": {
     "name": "Iridium Communications",
-    "company_name": "Iridium Communications",
+    "company_name": "Iridium Communications Inc.",
     "exchange": "NASDAQ",
     "sector": "通訊服務",
     "industry": "Alternative Carriers",
     "reportedCurrency": "USD",
-    "price": 150.0,
-    "shares": 666.7,
-    "shares_outstanding": 666700000,
-    "shares_display": "666.70 M",
-    "mcap": 100000.0,
-    "debt": 0.0,
-    "cash": 0.0,
+    "price": 47.47,
+    "shares": 105.96,
+    "shares_outstanding": 105960000,
+    "shares_display": "105.96 M",
+    "mcap": 5029.9,
+    "debt": 1761.9,
+    "cash": 184.2,
     "short_term_investments": 0.0,
-    "cash_and_short_term": 0.0,
-    "net_debt": 0.0,
+    "cash_and_short_term": 184.2,
+    "net_debt": 1577.7,
     "fcf0": 288.3,
     "real_history": {
       "revenue": [
@@ -41018,8 +41018,8 @@
         288.3
       ]
     },
-    "beta": 1.15,
-    "beta_5y": 1.15,
+    "beta": 0.85,
+    "beta_5y": 0.85,
     "kd": 4.5,
     "tax": 21.0,
     "growth_10y": [
@@ -41037,21 +41037,21 @@
     "g1": 6.3,
     "g2": 3.7,
     "g": 2.25,
-    "wacc": 9.96,
+    "wacc": 7.24,
     "ev": 7444.9,
     "fmp_official_ev": 7444.9,
-    "dcf_model_ev": 4436.9,
+    "dcf_model_ev": 6907.8,
     "ev_to_ebitda": 17.5,
-    "debt_to_ebitda": 0.0,
-    "net_debt_to_ebitda": 0.0,
-    "f_score": 9,
+    "debt_to_ebitda": 4.15,
+    "net_debt_to_ebitda": 3.72,
+    "f_score": 5,
     "f_score_breakdown": [
       {
         "id": 1,
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 9326500000.0%"
+        "detail": "當期 ROA = 3.6%"
       },
       {
         "id": 2,
@@ -41064,7 +41064,7 @@
         "id": 3,
         "category": "盈利能力",
         "desc": "資產回報率持續擴張 (ΔROA > 0)",
-        "passed": 1,
+        "passed": 0,
         "detail": "回報率穩步領先同業基準"
       },
       {
@@ -41078,15 +41078,15 @@
         "id": 5,
         "category": "槓桿與償債",
         "desc": "財務槓桿未惡化 (ΔLeverage ≤ 0)",
-        "passed": 1,
-        "detail": "總負債資產比率 = 40.0%"
+        "passed": 0,
+        "detail": "總負債資產比率 = 81.6%"
       },
       {
         "id": 6,
         "category": "槓桿與償債",
         "desc": "短期流動性安全 (ΔLiquidity > 0)",
         "passed": 1,
-        "detail": "流動比率 = 1.50"
+        "detail": "流動比率 = 2.78"
       },
       {
         "id": 7,
@@ -41099,112 +41099,112 @@
         "id": 8,
         "category": "營運效率",
         "desc": "毛利率擴張 (ΔMargin > 0)",
-        "passed": 1,
+        "passed": 0,
         "detail": "產品定價權增強，毛利結構健康"
       },
       {
         "id": 9,
         "category": "營運效率",
         "desc": "資產週轉率提升 (ΔTurnover > 0)",
-        "passed": 1,
+        "passed": 0,
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 6.66,
-    "premium_pct": 2152.3,
-    "is_undervalued": false,
-    "pe_trailing": 1072.2,
-    "pe_forward": 943.5,
-    "pb_trailing": 100000000000.0,
-    "pb_forward": 90000000000.0,
-    "div_yield": 0.06,
-    "ps_ratio": 86.7,
-    "fcf_to_ev": 6.5,
-    "fcf_to_mcap": 0.29,
-    "liab_to_assets": 40.0,
-    "cash_to_assets": 0.0,
-    "current_ratio": 1.5,
-    "roe": 9326500000.0,
-    "roa": 9326500000.0,
+    "fair_val": 50.3,
+    "premium_pct": -5.6,
+    "is_undervalued": true,
+    "pe_trailing": 53.9,
+    "pe_forward": 47.4,
+    "pb_trailing": 10.6,
+    "pb_forward": 9.5,
+    "div_yield": 1.29,
+    "ps_ratio": 4.4,
+    "fcf_to_ev": 4.17,
+    "fcf_to_mcap": 5.73,
+    "liab_to_assets": 81.6,
+    "cash_to_assets": 7.2,
+    "current_ratio": 2.78,
+    "roe": 19.7,
+    "roa": 3.6,
     "moat": {
       "ticker": "IRDM",
-      "period": "2026Q4",
+      "period": "2026Q2",
       "m1_brand_pricing": {
         "score": 8,
-        "comment_zh": "Iridium憑藉其獨特的低軌道衛星網絡，為全球偏遠地區提供無縫通訊服務，尤其在海洋、航空及政府等關鍵領域，其服務幾乎是不可替代的。客戶對其可靠性和全球覆蓋的品牌心智認知極高，使其在這些利基市場中擁有顯著的定價權。對於需要生命線通訊的用戶而言，服務的穩定性遠比價格敏感度更重要。這種獨特性讓Iridium能夠在不影響銷量的前提下，維持甚至提升服務價格，展現了強大的護城河。",
-        "comment_en": "Iridium, with its unique low Earth orbit satellite network, provides seamless communication services to remote global regions, particularly in critical sectors like maritime, aviation, and government, where its services are nearly indispensable. Customers hold a very high brand perception of its reliability and global coverage, granting it significant pricing power in these niche markets. For users requiring lifeline communication, service stability far outweighs price sensitivity. This distinctiveness allows Iridium to maintain and even increase service prices without impacting sales, demonstrating a robust moat."
+        "comment_zh": "Iridium憑藉其獨特的低軌道衛星網路，為全球偏遠地區、海事、航空及政府客戶提供不可或缺的通訊服務。在這些缺乏陸地基礎設施的環境中，Iridium幾乎是唯一的選擇，賦予其強大的定價權。客戶為確保關鍵任務的連通性，對價格敏感度較低，因為服務的可靠性與可用性遠超成本考量。其品牌已成為全球衛星通訊的代名詞，代表著在極端條件下的可靠性，這使得公司在必要時能夠有效轉嫁成本，而不至於流失核心客戶群。",
+        "comment_en": "Iridium, with its unique LEO satellite network, provides indispensable communication services to remote areas, maritime, aviation, and government clients globally. In environments lacking terrestrial infrastructure, Iridium is often the sole viable option, granting it significant pricing power. Customers prioritize reliability and availability for mission-critical connectivity over cost, leading to lower price sensitivity. The brand has become synonymous with global satellite communication, representing reliability in extreme conditions. This allows the company to effectively pass on costs when necessary without losing its core customer base."
       },
       "m2_patents_regulatory": {
         "score": 9,
-        "comment_zh": "Iridium的護城河在於其全球性的頻譜許可、國際營運協議以及複雜的衛星網絡部署。這些不僅是技術壁壘，更是極高的監管與法律門檻，新進者幾乎不可能在短時間內複製。建立並維護一個全球性的低軌道衛星通訊系統，需要與各國政府進行漫長且艱鉅的談判，並獲得稀缺的頻譜資源。這種獨特的特許經營權性質，使其在通訊領域享有近似於收費橋樑的地位，有效阻擋了潛在競爭者。",
-        "comment_en": "Iridium's moat lies in its global spectrum licenses, international operating agreements, and complex satellite network deployment. These represent not only technological barriers but also extremely high regulatory and legal hurdles, making it nearly impossible for new entrants to replicate in a short period. Establishing and maintaining a global LEO satellite communication system requires lengthy and arduous negotiations with various governments and securing scarce spectrum resources. This unique franchise-like nature grants it a toll-bridge status in the communication sector, effectively deterring potential competitors."
+        "comment_zh": "Iridium的護城河深植於其獨特的低軌道衛星星座技術、頻譜許可及全球運營權。建立並維護這樣一個複雜的全球通訊網路，不僅需要天文數字般的資本投入，更涉及嚴格的國際監管批准與頻譜分配。這些無形的資產構成極高的進入壁壘，使得潛在競爭者難以在短時間內複製其規模與覆蓋能力。公司在衛星通訊領域的長期運營經驗和技術積累，也形成了難以逾越的專有知識壁壘，確保其在特定市場的領先地位。",
+        "comment_en": "Iridium's moat is deeply rooted in its unique LEO satellite constellation technology, spectrum licenses, and global operating rights. Establishing and maintaining such a complex global communication network requires not only astronomical capital investment but also stringent international regulatory approvals and spectrum allocation. These intangible assets form extremely high barriers to entry, making it difficult for potential competitors to replicate its scale and coverage in a short period. The company's long-term operational experience and technological accumulation in satellite communication also create an insurmountable proprietary knowledge barrier, securing its leading position in specific markets."
       },
       "m3_high_switching_costs": {
         "score": 8,
-        "comment_zh": "對於Iridium的核心客戶群，如海事、航空及政府部門，其通訊設備通常已深度整合至關鍵營運系統中。轉換至其他供應商不僅意味著高昂的硬體更換成本，還涉及員工培訓、系統重新配置以及潛在的服務中斷風險。在這些對通訊可靠性要求極高的環境下，任何中斷都可能導致巨大的財務損失甚至生命危險。因此，客戶一旦採用Iridium的服務，其轉換成本極高，形成了強大的客戶黏性，鞏固了其市場地位。",
-        "comment_en": "For Iridium's core customer base, such as maritime, aviation, and government sectors, its communication equipment is often deeply integrated into critical operational systems. Switching to another provider would entail not only high hardware replacement costs but also staff retraining, system reconfiguration, and potential service disruption risks. In environments where communication reliability is paramount, any interruption could lead to significant financial losses or even endanger lives. Consequently, once customers adopt Iridium's services, their switching costs are extremely high, creating strong customer stickiness and solidifying its market position."
+        "comment_zh": "對於Iridium的客戶而言，轉換通訊服務供應商的成本極高。許多客戶，特別是政府、海事和航空領域，已將Iridium的設備和服務深度整合到其關鍵任務系統和日常運營中。更換供應商不僅意味著需要投入大量資金更換專用硬體設備，還需承擔員工培訓、系統重新配置以及潛在的服務中斷風險。這種轉換成本遠超表面價格差異，使得客戶即使面對輕微提價，也傾向於維持現有合作關係，從而鞏固了Iridium的客戶黏性。",
+        "comment_en": "For Iridium's customers, the cost of switching communication service providers is exceptionally high. Many clients, especially in government, maritime, and aviation sectors, have deeply integrated Iridium's equipment and services into their critical mission systems and daily operations. Changing providers would not only entail significant capital expenditure for specialized hardware replacement but also involve employee retraining, system reconfiguration, and potential service disruption risks. These switching costs far outweigh superficial price differences, leading customers to prefer maintaining their existing relationship even in the face of minor price increases, thus solidifying Iridium's customer stickiness."
       },
       "m4_network_effects": {
-        "score": 3,
-        "comment_zh": "Iridium的價值主要來自其全球覆蓋的衛星基礎設施，而非用戶間的直接互動所產生的網絡效應。雖然更多用戶的加入能增加公司營收，但這並不會像社交媒體或拍賣平台那樣，每增加一個用戶就顯著提升其他所有用戶的服務價值。其服務的本質是點對點或點對多點的通訊，而非一個協同創造價值的生態系統。因此，Iridium在此維度上的護城河相對較弱，不具備典型的網絡效應特徵。",
-        "comment_en": "Iridium's value primarily stems from its globally covered satellite infrastructure, rather than network effects generated by direct user interaction. While an increase in users boosts company revenue, it doesn't significantly enhance the service value for all other users in the way social media or auction platforms do. The nature of its service is point-to-point or point-to-multipoint communication, not a collaborative value-creating ecosystem. Therefore, Iridium's moat in this dimension is relatively weak, lacking typical network effect characteristics."
+        "score": 6,
+        "comment_zh": "Iridium的全球低軌道衛星網路本身即是一個龐大的基礎設施，其價值在於廣泛的覆蓋範圍和可靠性。然而，其網路效應並非傳統意義上「每增加一個用戶，對所有其他用戶的價值呈幾何級增長」的模式。更多用戶的加入主要強化了網路的經濟效益和未來升級的合理性，而非直接提升單個用戶的通訊體驗。儘管如此，其全球無縫覆蓋的能力，尤其是在偏遠地區，確實為所有用戶提供了統一且廣泛的服務，這本身就是一種強大的網路優勢，但與社交媒體等平台的網路效應有所不同。",
+        "comment_en": "Iridium's global LEO satellite network is itself a vast infrastructure, with its value stemming from extensive coverage and reliability. However, its network effect is not the traditional \"geometric increase in value for all other users with each additional user\" model. More users primarily enhance the network's economic viability and justify future upgrades, rather than directly improving the communication experience for individual users. Nevertheless, its capability for seamless global coverage, especially in remote areas, does provide a consistent and widespread service to all users, which is a strong network advantage in itself, though different from the network effects seen in platforms like social media."
       },
       "m5_cost_advantage_scale": {
         "score": 9,
-        "comment_zh": "Iridium的全球低軌道衛星網絡代表著巨大的前期資本投入，一旦部署完成，其邊際成本極低。這使其具備了顯著的規模經濟優勢。新競爭者若要複製此系統，將面臨天文數字般的資金需求與漫長的建設週期，且難以在短期內達到Iridium的用戶規模和成本效益。這種「先發優勢」和「規模壁壘」使得Iridium能夠以對手難以匹敵的成本結構提供服務，並將固定成本攤薄至最低，形成極為堅固的護城河。",
-        "comment_en": "Iridium's global low Earth orbit satellite network represents enormous upfront capital investment. Once deployed, its marginal cost is extremely low, granting it significant economies of scale. New competitors attempting to replicate this system would face astronomical capital requirements and a lengthy construction period, struggling to match Iridium's user base and cost efficiency in the short term. This \"first-mover advantage\" and \"scale barrier\" enable Iridium to offer services with a cost structure that competitors find hard to match, spreading fixed costs to a minimum, thus forming a very robust moat."
+        "comment_zh": "建立和維護Iridium的全球衛星通訊網路需要數十億美元的巨額前期資本投入。一旦網路建成並投入運營，其邊際成本相對較低。這種極致的規模經濟效應，使得Iridium能夠以遠低於任何潛在新進入者的平均成本提供服務。新競爭者若想複製其全球覆蓋能力，將面臨難以承受的資本支出和時間成本。這種先發優勢和規模壁壘，賦予Iridium在成本結構上的顯著優勢，使其能夠在市場上保持競爭力並維持盈利能力。",
+        "comment_en": "Establishing and maintaining Iridium's global satellite communication network requires billions of dollars in massive upfront capital investment. Once the network is built and operational, its marginal costs are relatively low. This extreme economies of scale effect allows Iridium to provide services at an average cost significantly lower than any potential new entrant. New competitors attempting to replicate its global coverage would face prohibitive capital expenditures and time costs. This first-mover advantage and scale barrier grant Iridium a significant advantage in its cost structure, enabling it to remain competitive and maintain profitability in the market."
       },
       "m6_unique_geography_assets": {
-        "score": 8,
-        "comment_zh": "全球偏遠地區衛星通訊市場是一個高度專業化且資本密集型的利基市場。其市場容量雖然穩定增長，但並非無限大，不足以支撐大量競爭者。Iridium憑藉其獨特的技術和全球覆蓋，已在此市場中佔據主導地位。新進者若試圖進入，不僅面臨巨大的資本開支和監管障礙，更可能導致市場供過於求，所有參與者利潤受損。這種「天然寡占」的市場結構，使得Iridium享有穩定的市場份額和盈利能力，形成堅實的護城河。",
-        "comment_en": "The global remote satellite communication market is a highly specialized and capital-intensive niche. While its capacity is steadily growing, it's not infinitely large, insufficient to support numerous competitors. Iridium, with its unique technology and global coverage, has established a dominant position in this market. New entrants would not only face immense capital expenditure and regulatory hurdles but could also lead to market oversupply, harming the profitability of all participants. This \"efficient scale\" market structure allows Iridium to enjoy stable market share and profitability, forming a robust moat."
+        "score": 9,
+        "comment_zh": "Iridium的「地理」優勢體現在其獨特的全球覆蓋能力，尤其是在地球上任何沒有陸地通訊基礎設施的角落。這是一種無可替代的利基市場，服務於對全球連通性有絕對需求的客戶。其低軌道衛星星座本身就是一種獨特的戰略資產，提供其他通訊方式無法比擬的可靠性和低延遲。由於市場對這種特定服務的需求雖然關鍵但並非無限，過多的競爭者進入只會導致資源浪費和利潤攤薄，因此形成了天然的理性寡占局面，保護了Iridium的市場份額和盈利空間。",
+        "comment_en": "Iridium's \"geographical\" advantage lies in its unique global coverage, especially in any corner of the Earth without terrestrial communication infrastructure. This is an irreplaceable niche market, serving clients with an absolute need for global connectivity. Its LEO satellite constellation is itself a unique strategic asset, offering unparalleled reliability and low latency compared to other communication methods. As the demand for this specific service, while critical, is not infinite, excessive competition would only lead to resource waste and profit dilution, thus forming a natural rational oligopoly that protects Iridium's market share and profitability."
       },
       "m7_operational_efficiency": {
-        "score": 7,
-        "comment_zh": "儘管提供的ROE/ROA數據異常高，但Iridium的商業模式本質上具備產生高於資本成本回報的潛力。其獨特的全球衛星網絡、高轉換成本及規模經濟，使其在完成巨額前期投資後，能持續產生強勁的自由現金流。這表明公司能夠有效地將投入資本轉化為利潤，並在長期內為股東創造價值。在缺乏直接競爭且服務需求穩定的情況下，Iridium有望維持其超額的投入資本回報率，展現出良好的財務韌性。",
-        "comment_en": "Despite the unusually high ROE/ROA data provided, Iridium's business model inherently possesses the potential to generate returns significantly above its cost of capital. Its unique global satellite network, high switching costs, and economies of scale enable it to consistently generate strong free cash flow after substantial upfront investments. This indicates the company's ability to effectively convert invested capital into profit and create long-term shareholder value. In the absence of direct competition and with stable service demand, Iridium is expected to maintain its excess return on invested capital, demonstrating good financial resilience."
+        "score": 6,
+        "comment_zh": "Iridium的ROE為19.7%，顯示其股東權益報酬率良好，但ROA僅為3.6%，反映出其資產密集型業務的特性。公司擁有2.88億美元的自由現金流，但同時背負17.6億美元的總負債，現金僅1.84億美元。這表明公司在資本結構上高度依賴槓桿。雖然其業務模式產生穩定現金流，但高額負債和資本密集度可能影響其長期投入資本回報率（ROIC）相對於加權平均資本成本（WACC）的超額表現。管理層需持續優化資本結構，以確保長期股東價值創造。",
+        "comment_en": "Iridium's ROE of 19.7% indicates a good return on equity, but its ROA of only 3.6% reflects the asset-intensive nature of its business. The company generates $288.3 million in free cash flow but carries $1.76 billion in total debt against $184.2 million in cash. This suggests a high reliance on leverage in its capital structure. While its business model generates stable cash flow, high debt and capital intensity could impact its long-term return on invested capital (ROIC) performance relative to its weighted average cost of capital (WACC). Management must continuously optimize its capital structure to ensure long-term shareholder value creation."
       },
       "m8_capital_allocation": {
         "score": 9,
-        "comment_zh": "即使給予競爭對手千億美元資金，也難以在數年內複製Iridium的核心戰略資產。這不僅包括其由66顆低軌道衛星組成的全球網絡，更涵蓋了數十年累積的運營經驗、與各國政府建立的監管關係、稀缺的頻譜許可，以及遍布全球的地面基礎設施和客戶群。這些無形資產和複雜的系統整合，是純粹資本無法快速堆砌而成的。這種極高的複製難度，構成了Iridium最堅固的護城河之一。",
-        "comment_en": "Even with a hundred billion dollars, a competitor would struggle to replicate Iridium's core strategic assets within a few years. This includes not only its global network of 66 low Earth orbit satellites but also decades of accumulated operational experience, established regulatory relationships with various governments, scarce spectrum licenses, and a worldwide ground infrastructure and customer base. These intangible assets and complex system integrations cannot be quickly built with mere capital. This extremely high irreproducibility constitutes one of Iridium's most robust moats."
+        "comment_zh": "即使給予競爭對手數百億美元，也難以在短時間內複製Iridium的核心戰略資產。這不僅包括其已部署的全球低軌道衛星星座、地面基礎設施和專有技術，更重要的是其數十年累積的運營經驗、全球監管許可、頻譜資源以及與政府、軍事和商業客戶建立的深厚關係。這些無形資產和複雜的生態系統，需要漫長的時間、巨大的資本和高度專業的技術才能建立，形成了一道幾乎無法逾越的護城河，確保了其在特定市場的獨特地位。",
+        "comment_en": "Even with tens of billions of dollars, it would be extremely difficult for a competitor to replicate Iridium's core strategic assets in a short period. This includes not only its deployed global LEO satellite constellation, ground infrastructure, and proprietary technology but, more importantly, decades of accumulated operational experience, global regulatory approvals, spectrum resources, and deep relationships with government, military, and commercial clients. These intangible assets and complex ecosystem require immense time, capital, and highly specialized expertise to build, forming an almost insurmountable moat that secures its unique position in specific markets."
       },
       "m9_customer_retention": {
-        "score": 7,
-        "comment_zh": "Iridium服務的市場是陸地通訊網絡無法觸及的偏遠地區，其需求本質上極為穩定且不可或缺。儘管新的衛星通訊技術（如Starlink）正在興起，但Iridium的獨特交聯式低軌道網絡在特定應用（如語音通訊的低延遲、無需地面站的全球覆蓋）上仍具備差異化優勢。其核心業務的剛性需求，使其對技術典範轉移具有較強的免疫力。客戶在極端環境下對可靠性的要求，使得其服務難以被輕易替代，確保了長期需求。",
-        "comment_en": "Iridium serves remote areas unreachable by terrestrial communication networks, where demand is inherently stable and indispensable. Although new satellite communication technologies (like Starlink) are emerging, Iridium's unique cross-linked LEO network still offers differentiated advantages in specific applications (e.g., low latency for voice, global coverage without intermediate ground stations). The inelastic demand for its core business grants it strong immunity to technological paradigm shifts. Customers' requirement for reliability in extreme environments makes its service difficult to replace, ensuring long-term demand."
+        "score": 8,
+        "comment_zh": "Iridium的服務滿足了對全球無縫通訊有著剛性需求的利基市場，例如海事、航空、偏遠地區作業及政府國防。這些應用場景對通訊的可靠性和可用性要求極高，且往往無法依賴傳統陸地或蜂窩網路。儘管新興的衛星網路（如Starlink）帶來競爭，但Iridium專注於低帶寬、高可靠性的關鍵任務通訊，與其高帶寬互聯網服務有所區隔。這種對特定需求的深度滿足，賦予Iridium對技術典範轉移和AI顛覆的強大免疫力，因為其核心價值在於「無處不在的連通性」，而非僅僅是速度或成本。",
+        "comment_en": "Iridium's services cater to a niche market with inelastic demand for seamless global communication, such as maritime, aviation, remote operations, and government defense. These applications demand extremely high reliability and availability, often unable to rely on traditional terrestrial or cellular networks. While emerging satellite networks (like Starlink) introduce competition, Iridium focuses on low-bandwidth, high-reliability critical mission communications, differentiating itself from high-bandwidth internet services. This deep satisfaction of specific needs grants Iridium strong immunity to technological paradigm shifts and AI disruption, as its core value lies in \"ubiquitous connectivity\" rather than merely speed or cost."
       },
       "m10_durability": {
-        "score": 7,
-        "comment_zh": "儘管缺乏具體的回購或併購數據，但Iridium高達9/9的皮氏F-Score和穩健的自由現金流，暗示了管理層在財務管理上的嚴謹與誠信。對於一個資本密集型企業而言，有效的資本配置至關重要，包括對衛星更新換代的投資、債務管理以及在適當時機回饋股東。假設管理層能持續以股東利益最大化為目標，避免盲目擴張或高價併購，並在股價被低估時積極回購，則此維度可視為其護城河的有力組成部分。",
-        "comment_en": "Although specific buyback or M&A data is lacking, Iridium's high Piotroski F-Score of 9/9 and robust free cash flow suggest management's prudence and integrity in financial stewardship. For a capital-intensive enterprise, effective capital allocation is crucial, encompassing investments in satellite replenishment, debt management, and returning capital to shareholders when appropriate. Assuming management consistently prioritizes shareholder value, avoids imprudent expansion or high-priced acquisitions, and actively repurchases shares when undervalued, this dimension can be considered a strong component of its moat."
+        "score": 6,
+        "comment_zh": "Iridium管理層在過去幾年成功完成了新一代衛星星座的部署，並實現了自由現金流的顯著增長（2.88億美元）。然而，公司目前背負著相對較高的債務（17.6億美元），這在一定程度上限制了其資本配置的靈活性。在巴菲特哲學中，審慎的資本配置至關重要，尤其是在高資本密集型行業。管理層需要持續展現其在債務管理、潛在股本回購（在股價被低估時）以及避免盲目高價併購方面的紀律性，以確保長期股東價值的最大化。目前來看，其資本配置策略尚需時間證明其長期效益。",
+        "comment_en": "Iridium's management has successfully completed the deployment of its next-generation satellite constellation in recent years and achieved significant free cash flow growth ($288.3 million). However, the company currently carries a relatively high debt load ($1.76 billion), which somewhat limits its capital allocation flexibility. In Buffett's philosophy, prudent capital allocation is crucial, especially in capital-intensive industries. Management needs to continuously demonstrate discipline in debt management, potential share buybacks (when the stock is undervalued), and avoiding ill-advised, high-priced acquisitions to ensure long-term shareholder value maximization. Currently, its capital allocation strategy still requires time to prove its long-term benefits."
       },
-      "overall_moat_verdict_zh": "Iridium Communications本質上是一個在特定利基市場中享有「收費橋樑」地位的特許經營權企業。其最堅固的護城河源於極高的監管與頻譜壁壘（M2）、龐大的規模經濟效益（M5）以及難以複製的全球衛星基礎設施（M8）。對於海事、航空和政府等關鍵客戶而言，其服務的轉換成本極高（M3），且在偏遠地區幾乎沒有替代品，賦予其強大的定價權（M1）。儘管不具備典型的網絡效應（M4），但其核心業務需求穩定且對技術變革具備韌性（M9）。穩健的財務表現（M7）和假設的審慎資本配置（M10），共同構築了其長期競爭優勢。",
-      "overall_moat_verdict_en": "Iridium Communications fundamentally operates as a \"toll bridge\" franchise within a specialized niche market. Its most robust moats stem from extremely high regulatory and spectrum barriers (M2), massive economies of scale (M5), and an irreproducible global satellite infrastructure (M8). For critical customers in maritime, aviation, and government sectors, the switching costs for its services are exceptionally high (M3), and there are virtually no alternatives in remote areas, granting it significant pricing power (M1). Although it lacks typical network effects (M4), its core business demand is stable and resilient to technological disruption (M9). Solid financial performance (M7) and assumed prudent capital allocation (M10) collectively build its long-term competitive advantage."
+      "overall_moat_verdict_zh": "Iridium Communications本質上是一家擁有「收費橋樑」特徵的特許經營權企業，其護城河深厚且多樣。公司憑藉獨特的全球低軌道衛星網路，在偏遠地區和關鍵任務通訊市場中建立了幾乎不可替代的地位。其強大的品牌心智、專利壁壘、極高的轉換成本、規模經濟以及難以複製的戰略資產，共同構建了一道堅實的防線。儘管資本密集且負債較高，但其提供的服務具有極強的剛性需求和對技術顛覆的免疫力。這使得Iridium能夠在特定利基市場中享有持續的定價權和盈利能力，為長期投資者提供了可預見的現金流和價值增長潛力。",
+      "overall_moat_verdict_en": "Iridium Communications is fundamentally a franchise business with \"toll bridge\" characteristics, possessing deep and diverse moats. Leveraging its unique global LEO satellite network, the company has established an almost irreplaceable position in remote area and critical mission communication markets. Its strong brand recognition, patent barriers, extremely high switching costs, economies of scale, and irreproducible strategic assets collectively form a robust defense. Despite being capital-intensive and having higher debt, its services address highly inelastic demand and exhibit strong immunity to technological disruption. This enables Iridium to enjoy sustained pricing power and profitability within its specific niche markets, offering long-term investors predictable cash flow and potential for value growth."
     },
     "fin_valuation": {
       "is_financial": false
     },
-    "image": "https://assets.financialmodelingprep.com/symbol/IRDM.png",
-    "logo": "https://assets.financialmodelingprep.com/symbol/IRDM.png",
-    "website": "",
-    "ceo": "Executive Committee",
-    "full_time_employees": "--",
-    "description": "A publicly traded US equity on major exchanges.",
-    "description_en": "A publicly traded US equity on major exchanges.",
+    "image": "https://images.financialmodelingprep.com/symbol/IRDM.png",
+    "logo": "https://images.financialmodelingprep.com/symbol/IRDM.png",
+    "website": "https://www.iridium.com",
+    "ceo": "Matthew J. Desch",
+    "full_time_employees": "975",
+    "description": "Iridium Communications Inc. provides critical mobile voice and data communication services and products across the globe. The company serves a broad spectrum of clients, including businesses, both the United States and international governments, non-governmental organizations, and individual consumers worldwide. Their core offerings include postpaid and prepaid mobile satellite voice and data connectivity, push-to-talk services, broadband data solutions, and advanced Internet of Things (IoT) capabilities. Additionally, Iridium supports hosted payload services and various specialized data applications, such as satellite time and location tracking, inbound connections from public telephone networks, short message services, subscriber identity module (SIM) management, and other related operational and peripheral services. The company delivers comprehensive voice and data solutions designed for specific operational needs. These encompass tracking devices for personnel and assets (such as equipment, vehicles, and aircraft), essential beyond-line-of-sight communication for aviation, maritime communication systems, and customized secure communication solutions for high-value individuals. Iridium also supplies mobile communication and data devices tailored for military and intelligence agencies, featuring secure satellite handsets along with netted voice, messaging, and paging services. Furthermore, it provides maintenance services for the United States government's dedicated ground gateway. Iridium's product portfolio includes a variety of hardware such as satellite handsets, personal connectivity devices, voice and data modems, broadband data terminals, and IoT data devices. These are supported by an array of accessories, including batteries, holsters, headphones, portable auxiliary antennas, adaptors, USB cables, and charging units, complemented by robust engineering and support services. Commercial end-users access Iridium's products and services via a comprehensive wholesale distribution network comprising service providers, value-added resellers, and manufacturers. Established in 2000 and headquartered in McLean, Virginia, the company was formerly known as Iridium Holdings LLC before changing its name in September 2009.",
+    "description_en": "Iridium Communications Inc. provides critical mobile voice and data communication services and products across the globe. The company serves a broad spectrum of clients, including businesses, both the United States and international governments, non-governmental organizations, and individual consumers worldwide. Their core offerings include postpaid and prepaid mobile satellite voice and data connectivity, push-to-talk services, broadband data solutions, and advanced Internet of Things (IoT) capabilities. Additionally, Iridium supports hosted payload services and various specialized data applications, such as satellite time and location tracking, inbound connections from public telephone networks, short message services, subscriber identity module (SIM) management, and other related operational and peripheral services. The company delivers comprehensive voice and data solutions designed for specific operational needs. These encompass tracking devices for personnel and assets (such as equipment, vehicles, and aircraft), essential beyond-line-of-sight communication for aviation, maritime communication systems, and customized secure communication solutions for high-value individuals. Iridium also supplies mobile communication and data devices tailored for military and intelligence agencies, featuring secure satellite handsets along with netted voice, messaging, and paging services. Furthermore, it provides maintenance services for the United States government's dedicated ground gateway. Iridium's product portfolio includes a variety of hardware such as satellite handsets, personal connectivity devices, voice and data modems, broadband data terminals, and IoT data devices. These are supported by an array of accessories, including batteries, holsters, headphones, portable auxiliary antennas, adaptors, USB cables, and charging units, complemented by robust engineering and support services. Commercial end-users access Iridium's products and services via a comprehensive wholesale distribution network comprising service providers, value-added resellers, and manufacturers. Established in 2000 and headquartered in McLean, Virginia, the company was formerly known as Iridium Holdings LLC before changing its name in September 2009.",
     "description_zh": "Iridium Communications Inc. (IRDM) 致力於提供全球關鍵行動語音及數據通訊服務與產品。其客戶群涵蓋企業、美國與國際政府、非政府組織及全球個人用戶。\n\n核心服務包括月租型與預付型行動衛星語音及數據連線、群呼對講服務、寬頻數據解決方案，以及先進物聯網(IoT)應用。此外，亦提供酬載託管服務與各類專業數據應用，例如衛星時間與定位追蹤、公眾電話網路入埠連線、短訊息服務及訂戶身份模組(SIM)管理等。\n\nIridium全面性的語音與數據解決方案，旨在滿足特定營運需求，包含人員與資產(如設備、車輛、航空器)追蹤設備、航空領域超視距通訊、海事通訊系統，以及為高價值人士量身打造之安全通訊方案。公司亦供應軍事及情報單位專用之行動通訊與數據設備，包括安全衛星話機、網路語音、訊息傳遞與呼叫服務。同時，負責美國政府專用地面閘道站之維護服務。\n\n產品組合涵蓋各類硬體，例如衛星話機、個人連線設備、語音數據數據機、寬頻數據終端機與IoT數據設備，並輔以電池、皮套、耳機、攜帶型輔助天線等週邊配件，以及完善的工程與支援服務。商業終端用戶透過涵蓋服務供應商、加值經銷商與製造商之批發經銷網路，取得其產品與服務。該公司成立於2000年，總部位於維吉尼亞州麥克林。",
-    "address": "--",
-    "city": "--",
-    "state": "--",
-    "zip": "--",
+    "address": "1676 International Drive",
+    "city": "McLean",
+    "state": "VA",
+    "zip": "22102",
     "country": "US",
-    "phone": "--",
-    "full_address": "",
-    "range_52w": "--",
-    "year_high": 189.25,
-    "year_low": 125.34,
+    "phone": "703 287 7400",
+    "full_address": "1676 International Drive, McLean, VA 22102, US",
+    "range_52w": "15.65-57.18",
+    "year_high": 57.18,
+    "year_low": 15.65,
     "all_time_high": 0.0,
-    "all_time_low": 125.34,
+    "all_time_low": 15.65,
     "inst_ownership_pct": 62.5,
     "insider_ownership_pct": 14.5,
     "top_holders": [
@@ -69515,11 +69515,11 @@
     "country": "US",
     "phone": "212 761 4000",
     "full_address": "1585 Broadway, New York City, NY 10036, US",
-    "range_52w": "112.03-232.25",
+    "range_52w": "151.84-232.25",
     "year_high": 232.25,
-    "year_low": 112.03,
+    "year_low": 151.84,
     "all_time_high": 0.0,
-    "all_time_low": 112.03,
+    "all_time_low": 151.84,
     "inst_ownership_pct": 77.0,
     "insider_ownership_pct": 8.0,
     "top_holders": [
@@ -74553,8 +74553,8 @@
     "country": "US",
     "phone": "440 461 5000",
     "full_address": "300 North Commons Blvd., Mayfield Village, OH 44143, US",
-    "range_52w": "189.2-243.81",
-    "year_high": 243.81,
+    "range_52w": "189.2-241.01",
+    "year_high": 241.01,
     "year_low": 189.2,
     "all_time_high": 0.0,
     "all_time_low": 189.2,
@@ -79305,7 +79305,7 @@
     "short_term_investments": 29.0,
     "cash_and_short_term": 1496.0,
     "net_debt": 6026.0,
-    "fcf0": 3055.4,
+    "fcf0": 3398.0,
     "real_history": {
       "revenue": [
         6218.0,
@@ -79313,7 +79313,7 @@
         5916.0,
         7088.0,
         7718.0,
-        0.0
+        8160.0
       ],
       "net_income": [
         2214.0,
@@ -79321,7 +79321,7 @@
         1607.0,
         2058.0,
         2459.0,
-        0.0
+        2795.0
       ],
       "gross_profit": [
         4324.0,
@@ -79329,7 +79329,7 @@
         3854.0,
         4707.0,
         5260.0,
-        0.0
+        5870.0
       ],
       "operating_income": [
         2844.0,
@@ -79337,7 +79337,7 @@
         2221.0,
         2971.0,
         3455.0,
-        0.0
+        3680.0
       ],
       "cfo": [
         2005.0,
@@ -79345,7 +79345,7 @@
         2151.0,
         2838.0,
         2901.0,
-        0.0
+        3319.0
       ],
       "capex": [
         -139.0,
@@ -79353,7 +79353,7 @@
         -271.0,
         -317.0,
         -326.0,
-        0.0
+        -79.0
       ],
       "fcf": [
         1866.0,
@@ -79361,7 +79361,7 @@
         1880.0,
         2521.0,
         2575.0,
-        0.0
+        3398.0
       ]
     },
     "beta": 1.35,
@@ -79384,27 +79384,27 @@
     "g2": 4.9,
     "g": 2.25,
     "wacc": 10.28,
-    "ev": 86430.6,
-    "fmp_official_ev": 86430.6,
-    "dcf_model_ev": 49660.3,
-    "ev_to_ebitda": 18.0,
-    "debt_to_ebitda": 2.46,
-    "net_debt_to_ebitda": 1.97,
-    "f_score": 6,
+    "ev": 85542.5,
+    "fmp_official_ev": 85542.5,
+    "dcf_model_ev": 55228.6,
+    "ev_to_ebitda": 21.4,
+    "debt_to_ebitda": 1.88,
+    "net_debt_to_ebitda": 1.51,
+    "f_score": 7,
     "f_score_breakdown": [
       {
         "id": 1,
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 8.0%"
+        "detail": "當期 ROA = 19.0%"
       },
       {
         "id": 2,
         "category": "盈利能力",
         "desc": "營業現金流 CFO > 0",
         "passed": 1,
-        "detail": "自由現金流 = $3,055M"
+        "detail": "自由現金流 = $3,398M"
       },
       {
         "id": 3,
@@ -79445,7 +79445,7 @@
         "id": 8,
         "category": "營運效率",
         "desc": "毛利率擴張 (ΔMargin > 0)",
-        "passed": 0,
+        "passed": 1,
         "detail": "產品定價權增強，毛利結構健康"
       },
       {
@@ -79456,22 +79456,22 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 251.93,
-    "premium_pct": 84.3,
+    "fair_val": 284.08,
+    "premium_pct": 63.4,
     "is_undervalued": false,
-    "pe_trailing": 24.0,
-    "pe_forward": 21.1,
+    "pe_trailing": 28.8,
+    "pe_forward": 25.3,
     "pb_trailing": 26.6,
     "pb_forward": 23.9,
-    "div_yield": 0.0,
-    "ps_ratio": 6.6,
+    "div_yield": 0.87,
+    "ps_ratio": 5.9,
     "fcf_to_ev": 6.15,
-    "fcf_to_mcap": 3.8,
+    "fcf_to_mcap": 4.23,
     "liab_to_assets": 78.4,
     "cash_to_assets": 10.2,
     "current_ratio": 1.19,
-    "roe": 18.0,
-    "roa": 8.0,
+    "roe": 92.4,
+    "roa": 19.0,
     "moat": {
       "ticker": "MCO",
       "period": "2026Q2",
@@ -80109,16 +80109,16 @@
   },
   "ICE": {
     "name": "Intercontinental Exchange",
-    "company_name": "Intercontinental Exchange",
+    "company_name": "Intercontinental Exchange, Inc.",
     "exchange": "NYSE",
     "sector": "金融",
     "industry": "Financial Exchanges & Data",
     "reportedCurrency": "USD",
-    "price": 150.0,
-    "shares": 666.7,
-    "shares_outstanding": 666700000,
-    "shares_display": "666.70 M",
-    "mcap": 100000.0,
+    "price": 156.19,
+    "shares": 561.39,
+    "shares_outstanding": 561390000,
+    "shares_display": "561.39 M",
+    "mcap": 87684.3,
     "debt": 20527.0,
     "cash": 1953.0,
     "short_term_investments": 886.0,
@@ -80183,8 +80183,8 @@
         4848.0
       ]
     },
-    "beta": 1.05,
-    "beta_5y": 1.05,
+    "beta": 0.94,
+    "beta_5y": 0.94,
     "kd": 4.5,
     "tax": 21.0,
     "growth_10y": [
@@ -80202,10 +80202,10 @@
     "g1": 6.8,
     "g2": 4.0,
     "g": 2.25,
-    "wacc": 8.48,
+    "wacc": 7.94,
     "ev": 88894.0,
     "fmp_official_ev": 88894.0,
-    "dcf_model_ev": 94964.4,
+    "dcf_model_ev": 104155.4,
     "ev_to_ebitda": 13.3,
     "debt_to_ebitda": 3.07,
     "net_debt_to_ebitda": 2.77,
@@ -80275,17 +80275,17 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 114.58,
-    "premium_pct": 30.9,
+    "fair_val": 152.45,
+    "premium_pct": 2.5,
     "is_undervalued": false,
-    "pe_trailing": 24.8,
-    "pe_forward": 21.8,
-    "pb_trailing": 3.4,
-    "pb_forward": 3.1,
-    "div_yield": 1.14,
-    "ps_ratio": 5.2,
-    "fcf_to_ev": 5.11,
-    "fcf_to_mcap": 4.85,
+    "pe_trailing": 21.8,
+    "pe_forward": 19.2,
+    "pb_trailing": 3.0,
+    "pb_forward": 2.7,
+    "div_yield": 1.3,
+    "ps_ratio": 4.5,
+    "fcf_to_ev": 4.65,
+    "fcf_to_mcap": 5.53,
     "liab_to_assets": 83.0,
     "cash_to_assets": 1.1,
     "current_ratio": 1.01,
@@ -80350,26 +80350,26 @@
     "fin_valuation": {
       "is_financial": false
     },
-    "image": "https://assets.financialmodelingprep.com/symbol/ICE.png",
-    "logo": "https://assets.financialmodelingprep.com/symbol/ICE.png",
-    "website": "",
-    "ceo": "Executive Committee",
-    "full_time_employees": "--",
-    "description": "A publicly traded US equity on major exchanges.",
-    "description_en": "A publicly traded US equity on major exchanges.",
+    "image": "https://images.financialmodelingprep.com/symbol/ICE.png",
+    "logo": "https://images.financialmodelingprep.com/symbol/ICE.png",
+    "website": "https://www.ice.com",
+    "ceo": "Jeffrey C. Sprecher",
+    "full_time_employees": "12725",
+    "description": "Intercontinental Exchange, Inc. (ICE) manages a global network of regulated financial venues, encompassing exchanges, clearing houses, and listing platforms. These operations serve diverse markets, including commodities, financial instruments, fixed income products, and equities, with a geographical footprint spanning key financial centers such as the United States, United Kingdom, European Union, Singapore, Israel, and Canada. The company's business is segmented into three core areas: Exchanges, Fixed Income and Data Services, and Mortgage Technology. Within its Exchanges segment, ICE oversees a robust network comprising 13 regulated exchanges and 6 clearing houses. These extensive marketplaces enable the listing, trading, and clearing of a wide spectrum of derivatives contracts and financial securities. This includes futures and options across diverse sectors such as energy, agriculture, metals, financials, and equities, in addition to providing critical listing, market data, and connectivity solutions. The Fixed Income and Data Services division provides comprehensive analytics and execution services for fixed income products, manages Credit Default Swap (CDS) clearing, and offers multi-asset class data and network solutions. Furthermore, its Mortgage Technology segment delivers an advanced, proprietary platform designed for residential mortgage origination. This division also provides closing solutions that streamline connections across the mortgage supply chain and facilitate secure information exchange, alongside data analytics and \"Data as a Service\" offerings for lenders to access vital origination insights. Intercontinental Exchange, Inc. was established in 2000 and maintains its headquarters in Atlanta, Georgia.",
+    "description_en": "Intercontinental Exchange, Inc. (ICE) manages a global network of regulated financial venues, encompassing exchanges, clearing houses, and listing platforms. These operations serve diverse markets, including commodities, financial instruments, fixed income products, and equities, with a geographical footprint spanning key financial centers such as the United States, United Kingdom, European Union, Singapore, Israel, and Canada. The company's business is segmented into three core areas: Exchanges, Fixed Income and Data Services, and Mortgage Technology. Within its Exchanges segment, ICE oversees a robust network comprising 13 regulated exchanges and 6 clearing houses. These extensive marketplaces enable the listing, trading, and clearing of a wide spectrum of derivatives contracts and financial securities. This includes futures and options across diverse sectors such as energy, agriculture, metals, financials, and equities, in addition to providing critical listing, market data, and connectivity solutions. The Fixed Income and Data Services division provides comprehensive analytics and execution services for fixed income products, manages Credit Default Swap (CDS) clearing, and offers multi-asset class data and network solutions. Furthermore, its Mortgage Technology segment delivers an advanced, proprietary platform designed for residential mortgage origination. This division also provides closing solutions that streamline connections across the mortgage supply chain and facilitate secure information exchange, alongside data analytics and \"Data as a Service\" offerings for lenders to access vital origination insights. Intercontinental Exchange, Inc. was established in 2000 and maintains its headquarters in Atlanta, Georgia.",
     "description_zh": "Intercontinental Exchange, Inc. (ICE) 經營全球受監管之金融基礎設施，涵蓋交易所、清算所及掛牌平台。服務市場多元，包括大宗商品、金融工具、固定收益商品及股票，業務遍及美國、英國、歐盟、新加坡、以色列與加拿大等主要金融中心。其業務區分為三大核心板塊：交易所、固定收益與數據服務、以及房貸科技。\n\n交易所板塊營運 13 家受監管交易所與 6 家清算所，提供廣泛衍生性合約（含期貨、選擇權）與金融證券之掛牌、交易及清算服務。涵蓋能源、農產品、金屬、金融與股權等多元商品類別，並提供關鍵掛牌服務、市場行情資料及連結方案。\n\n固定收益與數據服務部門提供固定收益產品之完整分析與執行服務，負責信用違約交換（CDS）清算，並提供多元資產類別數據與網路解決方案。\n\n房貸科技部門則提供用於住宅抵押貸款承作之專屬先進平台。該部門亦提供結算解決方案，旨在串聯房貸供應鏈，促進安全資訊交換，並透過數據分析及「資料即服務」（DaaS）模式，為放款機構提供關鍵承作洞察。Intercontinental Exchange, Inc. 成立於 2000 年，總部設於喬治亞州亞特蘭大。",
-    "address": "--",
-    "city": "--",
-    "state": "--",
-    "zip": "--",
+    "address": "5660 New Northside Drive NW",
+    "city": "Atlanta",
+    "state": "GA",
+    "zip": "30328",
     "country": "US",
-    "phone": "--",
-    "full_address": "",
-    "range_52w": "--",
-    "year_high": 546.88,
-    "year_low": 402.28,
+    "phone": "770 857 4700",
+    "full_address": "5660 New Northside Drive NW, Atlanta, GA 30328, US",
+    "range_52w": "121.79-176.05",
+    "year_high": 176.05,
+    "year_low": 121.79,
     "all_time_high": 0.0,
-    "all_time_low": 402.28,
+    "all_time_low": 121.79,
     "inst_ownership_pct": 81.0,
     "insider_ownership_pct": 4.0,
     "top_holders": [
@@ -84564,11 +84564,11 @@
     "country": "US",
     "phone": "706 323 3431",
     "full_address": "1932 Wynnton Road, Columbus, GA 31999-7251, US",
-    "range_52w": "96.95-130.22",
+    "range_52w": "105.43-130.22",
     "year_high": 130.22,
-    "year_low": 96.95,
+    "year_low": 105.43,
     "all_time_high": 0.0,
-    "all_time_low": 96.95,
+    "all_time_low": 105.43,
     "inst_ownership_pct": 68.0,
     "insider_ownership_pct": 14.5,
     "top_holders": [
@@ -87102,8 +87102,8 @@
     "country": "US",
     "phone": "630 773 3800",
     "full_address": "2850 Golf Road, Rolling Meadows, IL 60008-4050, US",
-    "range_52w": "190.75-305.74",
-    "year_high": 305.74,
+    "range_52w": "190.75-304.57",
+    "year_high": 304.57,
     "year_low": 190.75,
     "all_time_high": 0.0,
     "all_time_low": 190.75,
@@ -92181,11 +92181,11 @@
     "country": "US",
     "phone": "847 932 7900",
     "full_address": "1 North Waukegan Road, North Chicago, IL 60064-6400, US",
-    "range_52w": "190.75-277.6",
+    "range_52w": "176.57-277.6",
     "year_high": 277.6,
-    "year_low": 190.75,
+    "year_low": 176.57,
     "all_time_high": 0.0,
-    "all_time_low": 190.75,
+    "all_time_low": 176.57,
     "inst_ownership_pct": 75.5,
     "insider_ownership_pct": 9.5,
     "top_holders": [
@@ -102891,7 +102891,7 @@
     "short_term_investments": 0.0,
     "cash_and_short_term": 1102.6,
     "net_debt": -981.8,
-    "fcf0": 388.4,
+    "fcf0": 755.7,
     "real_history": {
       "revenue": [
         3952.6,
@@ -102899,7 +102899,7 @@
         3862.3,
         3999.0,
         4035.0,
-        0.0
+        4139.5
       ],
       "net_income": [
         772.0,
@@ -102907,7 +102907,7 @@
         445.1,
         421.4,
         410.4,
-        0.0
+        413.6
       ],
       "gross_profit": [
         2935.4,
@@ -102915,7 +102915,7 @@
         2706.9,
         2799.2,
         2756.9,
-        0.0
+        2751.9
       ],
       "operating_income": [
         976.4,
@@ -102923,7 +102923,7 @@
         643.3,
         607.6,
         616.2,
-        0.0
+        551.9
       ],
       "cfo": [
         1172.5,
@@ -102931,7 +102931,7 @@
         785.8,
         738.2,
         593.2,
-        0.0
+        755.7
       ],
       "capex": [
         -401.1,
@@ -102939,7 +102939,7 @@
         -177.7,
         -115.6,
         -102.4,
-        0.0
+        -0.0
       ],
       "fcf": [
         771.4,
@@ -102947,7 +102947,7 @@
         608.1,
         622.7,
         490.8,
-        0.0
+        755.7
       ]
     },
     "beta": 1.67,
@@ -102970,12 +102970,12 @@
     "g2": 3.7,
     "g": 2.25,
     "wacc": 12.33,
-    "ev": 9238.8,
-    "fmp_official_ev": 9238.8,
-    "dcf_model_ev": 4544.6,
-    "ev_to_ebitda": 18.0,
-    "debt_to_ebitda": 0.31,
-    "net_debt_to_ebitda": -2.53,
+    "ev": 11070.7,
+    "fmp_official_ev": 11070.7,
+    "dcf_model_ev": 8842.3,
+    "ev_to_ebitda": 14.1,
+    "debt_to_ebitda": 0.15,
+    "net_debt_to_ebitda": -1.25,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -102983,14 +102983,14 @@
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 8.0%"
+        "detail": "當期 ROA = 6.4%"
       },
       {
         "id": 2,
         "category": "盈利能力",
         "desc": "營業現金流 CFO > 0",
         "passed": 1,
-        "detail": "自由現金流 = $388M"
+        "detail": "自由現金流 = $756M"
       },
       {
         "id": 3,
@@ -103042,22 +103042,22 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 77.16,
-    "premium_pct": 85.0,
+    "fair_val": 137.17,
+    "premium_pct": 4.0,
     "is_undervalued": false,
-    "pe_trailing": 24.0,
-    "pe_forward": 21.1,
+    "pe_trailing": 24.7,
+    "pe_forward": 21.7,
     "pb_trailing": 2.4,
     "pb_forward": 2.2,
     "div_yield": 0.0,
-    "ps_ratio": 6.6,
+    "ps_ratio": 3.4,
     "fcf_to_ev": 8.55,
-    "fcf_to_mcap": 3.8,
+    "fcf_to_mcap": 7.39,
     "liab_to_assets": 34.0,
     "cash_to_assets": 17.2,
     "current_ratio": 1.4,
-    "roe": 18.0,
-    "roa": 8.0,
+    "roe": 9.8,
+    "roa": 6.4,
     "moat": {
       "ticker": "ALGN",
       "period": "2026Q2",
@@ -103688,16 +103688,16 @@
   },
   "FMS": {
     "name": "Fresenius Medical Care",
-    "company_name": "Fresenius Medical Care",
+    "company_name": "Fresenius Medical Care AG & Co. KGaA",
     "exchange": "NYSE",
     "sector": "醫療保健",
     "industry": "Health Care Services",
     "reportedCurrency": "EUR",
-    "price": 150.0,
-    "shares": 666.7,
-    "shares_outstanding": 666700000,
-    "shares_display": "666.70 M",
-    "mcap": 100000.0,
+    "price": 21.06,
+    "shares": 537.13,
+    "shares_outstanding": 537130000,
+    "shares_display": "537.13 M",
+    "mcap": 11311.9,
     "debt": 12282.8,
     "cash": 1623.9,
     "short_term_investments": 434.8,
@@ -103762,8 +103762,8 @@
         1983.2
       ]
     },
-    "beta": 1.15,
-    "beta_5y": 1.15,
+    "beta": 0.72,
+    "beta_5y": 0.72,
     "kd": 4.5,
     "tax": 21.0,
     "growth_10y": [
@@ -103781,10 +103781,10 @@
     "g1": 4.0,
     "g2": 3.5,
     "g": 2.25,
-    "wacc": 9.26,
+    "wacc": 5.65,
     "ev": 23049.4,
     "fmp_official_ev": 23049.4,
-    "dcf_model_ev": 31620.8,
+    "dcf_model_ev": 65828.3,
     "ev_to_ebitda": 6.0,
     "debt_to_ebitda": 3.2,
     "net_debt_to_ebitda": 2.78,
@@ -103854,17 +103854,17 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 31.44,
-    "premium_pct": 377.1,
-    "is_undervalued": false,
-    "pe_trailing": 95.2,
-    "pe_forward": 83.8,
-    "pb_trailing": 7.1,
-    "pb_forward": 6.4,
-    "div_yield": 0.0,
-    "ps_ratio": 12.6,
-    "fcf_to_ev": 6.27,
-    "fcf_to_mcap": 1.98,
+    "fair_val": 102.71,
+    "premium_pct": -79.5,
+    "is_undervalued": true,
+    "pe_trailing": 10.8,
+    "pe_forward": 9.5,
+    "pb_trailing": 0.8,
+    "pb_forward": 0.7,
+    "div_yield": 0.02,
+    "ps_ratio": 1.4,
+    "fcf_to_ev": 3.01,
+    "fcf_to_mcap": 17.53,
     "liab_to_assets": 56.8,
     "cash_to_assets": 4.6,
     "current_ratio": 1.07,
@@ -103929,26 +103929,26 @@
     "fin_valuation": {
       "is_financial": false
     },
-    "image": "https://assets.financialmodelingprep.com/symbol/FMS.png",
-    "logo": "https://assets.financialmodelingprep.com/symbol/FMS.png",
-    "website": "",
-    "ceo": "Executive Committee",
-    "full_time_employees": "--",
-    "description": "A publicly traded US equity on major exchanges.",
-    "description_en": "A publicly traded US equity on major exchanges.",
+    "image": "https://images.financialmodelingprep.com/symbol/FMS.png",
+    "logo": "https://images.financialmodelingprep.com/symbol/FMS.png",
+    "website": "https://www.freseniusmedicalcare.com",
+    "ceo": "Helen Giza",
+    "full_time_employees": "108165",
+    "description": "Fresenius Medical Care AG & Co. KGaA specializes in comprehensive kidney dialysis treatment and associated services, operating across Germany, North America, and numerous international territories. Through an extensive network of outpatient clinics, it delivers essential dialysis therapy along with laboratory and diagnostic support. For home-based care, the company supplies necessary equipment, provides comprehensive training, and offers ongoing patient assistance, including clinical oversight and coordinating supply deliveries directly to patients. In the United States, Fresenius Medical Care also contracts with hospitals to provide vital dialysis interventions for hospitalized individuals suffering from end-stage renal disease (ESRD) and acute kidney failure. Beyond services, it is a prominent developer, manufacturer, and distributor of a broad range of dialysis products. This portfolio encompasses polysulfone dialyzers, hemodialysis machines, peritoneal dialysis cyclers and solutions, concentrates, bloodlines, renal pharmaceuticals, and water treatment systems. Additionally, the company produces non-dialysis medical devices, including acute cardiopulmonary and apheresis products. Its pharmaceutical division focuses on developing, acquiring, and in-licensing specialized renal medications, distributing these essential drugs and supplies to both individual patients' homes and dialysis centers. The company also extends its medical offerings to include a variety of specialized services such as vascular, cardiovascular, and endovascular care, operating ambulatory surgery centers for vascular procedures, and providing physician services in nephrology and cardiology. Products are sold directly to dialysis clinics, hospitals, and specialized treatment centers, complemented by sales through local teams, independent distributors, dealers, and agents. By February 23, 2022, Fresenius Medical Care managed an impressive network of 4,171 outpatient dialysis clinics across roughly 150 countries. Established in 1996, the company maintains its headquarters in Bad Homburg, Germany.",
+    "description_en": "Fresenius Medical Care AG & Co. KGaA specializes in comprehensive kidney dialysis treatment and associated services, operating across Germany, North America, and numerous international territories. Through an extensive network of outpatient clinics, it delivers essential dialysis therapy along with laboratory and diagnostic support. For home-based care, the company supplies necessary equipment, provides comprehensive training, and offers ongoing patient assistance, including clinical oversight and coordinating supply deliveries directly to patients. In the United States, Fresenius Medical Care also contracts with hospitals to provide vital dialysis interventions for hospitalized individuals suffering from end-stage renal disease (ESRD) and acute kidney failure. Beyond services, it is a prominent developer, manufacturer, and distributor of a broad range of dialysis products. This portfolio encompasses polysulfone dialyzers, hemodialysis machines, peritoneal dialysis cyclers and solutions, concentrates, bloodlines, renal pharmaceuticals, and water treatment systems. Additionally, the company produces non-dialysis medical devices, including acute cardiopulmonary and apheresis products. Its pharmaceutical division focuses on developing, acquiring, and in-licensing specialized renal medications, distributing these essential drugs and supplies to both individual patients' homes and dialysis centers. The company also extends its medical offerings to include a variety of specialized services such as vascular, cardiovascular, and endovascular care, operating ambulatory surgery centers for vascular procedures, and providing physician services in nephrology and cardiology. Products are sold directly to dialysis clinics, hospitals, and specialized treatment centers, complemented by sales through local teams, independent distributors, dealers, and agents. By February 23, 2022, Fresenius Medical Care managed an impressive network of 4,171 outpatient dialysis clinics across roughly 150 countries. Established in 1996, the company maintains its headquarters in Bad Homburg, Germany.",
     "description_zh": "費森尤斯醫療 (Fresenius Medical Care AG & Co. KGaA, FMS) 核心業務為提供全方位的腎臟透析治療及相關服務，營運遍及德國、北美及全球多國。公司透過龐大門診透析中心網絡，提供透析療程、檢驗及診斷支援。針對居家照護，FMS供應所需設備、提供訓練並給予持續的病患協助，包含臨床監督與物資直送。在美國，FMS亦與醫院簽約，為住院之末期腎臟病(ESRD)及急性腎衰竭患者提供關鍵透析介入治療。\n\n除服務外，FMS亦是領先的透析產品開發、製造及經銷商。其產品組合涵蓋聚碸透析器、血液透析機、腹膜透析機及藥水、濃縮液、血液管路、腎臟專用藥品與水處理系統。此外，亦生產非透析醫療器材，如急性心肺與血漿分離術產品。其藥品事業部致力於開發、收購並引進授權專門的腎臟藥物，配送至病患家中及透析中心。\n\nFMS並擴展醫療服務範圍，包含血管、心血管及腔內血管照護，經營血管手術門診中心，並提供腎臟科與心臟科醫師服務。產品銷售採直銷模式予透析診所、醫院及專業治療中心，並輔以地方團隊、獨立經銷商與代理商通路。截至2022年2月23日，FMS在全球約150個國家管理4,171家門診透析中心。",
-    "address": "--",
-    "city": "--",
-    "state": "--",
-    "zip": "--",
-    "country": "US",
-    "phone": "--",
-    "full_address": "",
-    "range_52w": "--",
-    "year_high": 200.44,
-    "year_low": 124.91,
+    "address": "Else-KrOener Strasse 1",
+    "city": "Bad Homburg",
+    "state": "HE",
+    "zip": "61352",
+    "country": "DE",
+    "phone": "49 6172 608 2522",
+    "full_address": "Else-KrOener Strasse 1, Bad Homburg, HE 61352, DE",
+    "range_52w": "20.02-27.54",
+    "year_high": 27.54,
+    "year_low": 20.02,
     "all_time_high": 0.0,
-    "all_time_low": 124.91,
+    "all_time_low": 20.02,
     "inst_ownership_pct": 67.5,
     "insider_ownership_pct": 14.5,
     "top_holders": [
@@ -126218,12 +126218,12 @@
     "shares_outstanding": 331940000,
     "shares_display": "331.94 M",
     "mcap": 32394.0,
-    "debt": 0.0,
-    "cash": 0.0,
+    "debt": 6517.0,
+    "cash": 956.0,
     "short_term_investments": 0.0,
-    "cash_and_short_term": 0.0,
-    "net_debt": 0.0,
-    "fcf0": 1231.0,
+    "cash_and_short_term": 956.0,
+    "net_debt": 5561.0,
+    "fcf0": 2561.0,
     "real_history": {
       "revenue": [
         19440.0,
@@ -126231,7 +126231,7 @@
         20431.0,
         20058.0,
         17216.0,
-        0.0
+        16565.0
       ],
       "net_income": [
         1814.0,
@@ -126239,7 +126239,7 @@
         1764.0,
         2545.0,
         2021.0,
-        0.0
+        1955.0
       ],
       "gross_profit": [
         5988.0,
@@ -126247,7 +126247,7 @@
         7032.0,
         7180.0,
         6130.0,
-        0.0
+        6078.0
       ],
       "operating_income": [
         2561.0,
@@ -126255,7 +126255,7 @@
         2344.0,
         3210.0,
         2489.0,
-        0.0
+        2051.0
       ],
       "cfo": [
         2730.0,
@@ -126263,7 +126263,7 @@
         3542.0,
         3234.0,
         2777.0,
-        0.0
+        3333.0
       ],
       "capex": [
         -1007.0,
@@ -126271,7 +126271,7 @@
         -766.0,
         -721.0,
         -1138.0,
-        0.0
+        -772.0
       ],
       "fcf": [
         1723.0,
@@ -126279,7 +126279,7 @@
         2776.0,
         2513.0,
         1639.0,
-        0.0
+        2561.0
       ]
     },
     "beta": 0.28,
@@ -126301,28 +126301,28 @@
     "g1": 3.8,
     "g2": 3.5,
     "g": 2.25,
-    "wacc": 5.83,
-    "ev": 32394.0,
-    "fmp_official_ev": 32394.0,
-    "dcf_model_ev": 38684.6,
-    "ev_to_ebitda": 18.0,
-    "debt_to_ebitda": 0.0,
-    "net_debt_to_ebitda": 0.0,
-    "f_score": 8,
+    "wacc": 5.45,
+    "ev": 42070.5,
+    "fmp_official_ev": 42070.5,
+    "dcf_model_ev": 90157.4,
+    "ev_to_ebitda": 13.2,
+    "debt_to_ebitda": 2.04,
+    "net_debt_to_ebitda": 1.74,
+    "f_score": 7,
     "f_score_breakdown": [
       {
         "id": 1,
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 8.0%"
+        "detail": "當期 ROA = 10.5%"
       },
       {
         "id": 2,
         "category": "盈利能力",
         "desc": "營業現金流 CFO > 0",
         "passed": 1,
-        "detail": "自由現金流 = $1,231M"
+        "detail": "自由現金流 = $2,561M"
       },
       {
         "id": 3,
@@ -126342,15 +126342,15 @@
         "id": 5,
         "category": "槓桿與償債",
         "desc": "財務槓桿未惡化 (ΔLeverage ≤ 0)",
-        "passed": 1,
-        "detail": "總負債資產比率 = 40.0%"
+        "passed": 0,
+        "detail": "總負債資產比率 = 89.8%"
       },
       {
         "id": 6,
         "category": "槓桿與償債",
         "desc": "短期流動性安全 (ΔLiquidity > 0)",
-        "passed": 1,
-        "detail": "流動比率 = 1.50"
+        "passed": 0,
+        "detail": "流動比率 = 0.91"
       },
       {
         "id": 7,
@@ -126363,7 +126363,7 @@
         "id": 8,
         "category": "營運效率",
         "desc": "毛利率擴張 (ΔMargin > 0)",
-        "passed": 0,
+        "passed": 1,
         "detail": "產品定價權增強，毛利結構健康"
       },
       {
@@ -126374,77 +126374,77 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 116.54,
-    "premium_pct": -16.3,
+    "fair_val": 254.85,
+    "premium_pct": -61.7,
     "is_undervalued": true,
-    "pe_trailing": 24.0,
-    "pe_forward": 21.1,
-    "pb_trailing": 32394000000.0,
-    "pb_forward": 29154600000.0,
-    "div_yield": 0.0,
-    "ps_ratio": 6.6,
-    "fcf_to_ev": 3.18,
-    "fcf_to_mcap": 3.8,
-    "liab_to_assets": 40.0,
-    "cash_to_assets": 0.0,
-    "current_ratio": 1.5,
-    "roe": 18.0,
-    "roa": 8.0,
+    "pe_trailing": 16.6,
+    "pe_forward": 14.6,
+    "pb_trailing": 18.5,
+    "pb_forward": 16.7,
+    "div_yield": 5.18,
+    "ps_ratio": 3.2,
+    "fcf_to_ev": 2.84,
+    "fcf_to_mcap": 7.91,
+    "liab_to_assets": 89.8,
+    "cash_to_assets": 5.2,
+    "current_ratio": 0.91,
+    "roe": 111.7,
+    "roa": 10.5,
     "moat": {
       "ticker": "KMB",
-      "period": "2026Q4",
+      "period": "2026Q2",
       "m1_brand_pricing": {
-        "score": 7,
-        "comment_zh": "金百利克拉克憑藉其Huggies、Kleenex和Kotex等全球知名品牌，在消費者心中建立了深厚的信任與品牌忠誠度。這些產品屬於日常必需品，消費者對品質和舒適度的要求使其在一定程度上願意支付品牌溢價。儘管面臨自有品牌和新興競爭者的挑戰，KMB仍能透過品牌影響力，在成本上升時轉嫁部分價格壓力，維持利潤率。這種心智佔有率是其重要的護城河，使其在市場波動中保持相對穩定的需求和定價彈性，而非單純的商品化競爭。",
-        "comment_en": "Kimberly-Clark, with its globally recognized brands like Huggies, Kleenex, and Kotex, has cultivated deep trust and brand loyalty among consumers. These products are daily necessities, and consumers' demand for quality and comfort allows KMB to command a premium to some extent. Despite challenges from private labels and emerging competitors, KMB can leverage its brand influence to pass on some cost increases, maintaining profit margins. This strong mindshare acts as a significant moat, enabling relatively stable demand and pricing flexibility amidst market fluctuations, rather than being solely subjected to commodity-like competition."
+        "score": 8,
+        "comment_zh": "金百利克拉克（KMB）旗下擁有Huggies、Kleenex、Kotex等全球知名品牌，這些品牌在消費者心中建立了深厚的信任與忠誠度。在必需消費品領域，消費者傾向於選擇熟悉且品質可靠的品牌，這賦予了KMB強大的定價權。即使面對成本上漲，公司也能在一定程度上轉嫁給消費者而不致銷量大幅下滑，因為其產品已成為日常生活中不可或缺的一部分，消費者對此類產品的價格敏感度相對較低，品牌心智佔據了重要地位，構成了一道堅實的護城河。",
+        "comment_en": "Kimberly-Clark (KMB) boasts globally recognized brands like Huggies, Kleenex, and Kotex, which have cultivated deep trust and loyalty among consumers. In the essential consumer goods sector, buyers gravitate towards familiar and reliable brands, granting KMB significant pricing power. Even when faced with rising costs, the company can, to some extent, pass these on to consumers without substantial sales erosion. Its products are indispensable daily necessities, making consumers relatively less price-sensitive. This strong brand equity and mindshare represent a robust economic moat, allowing for sustained profitability and market leadership against competitors."
       },
       "m2_patents_regulatory": {
-        "score": 4,
-        "comment_zh": "金百利克拉克在衛生用品領域擁有眾多專利，主要集中於材料科學、吸收技術和產品設計等方面的創新。這些專利雖然能提供一定的技術保護，但其獨佔性與壁壘強度遠不及製藥或高科技產業。競爭對手通常能透過替代技術或微創新繞過專利，或在專利到期後迅速跟進。此外，該行業的監管要求主要圍繞產品安全和製造標準，而非特許經營權。因此，專利和監管對KMB而言，更多是維持競爭力的基礎，而非難以逾越的護城河。",
-        "comment_en": "Kimberly-Clark holds numerous patents in the hygiene product sector, primarily focused on innovations in material science, absorption technology, and product design. While these patents offer some technological protection, their exclusivity and barrier strength are not comparable to those in pharmaceuticals or high-tech industries. Competitors can often circumvent patents through alternative technologies or minor innovations, or quickly catch up once patents expire. Furthermore, regulatory requirements in this industry mainly revolve around product safety and manufacturing standards, rather than exclusive licenses. Thus, patents and regulations for KMB serve more as a foundation for maintaining competitiveness than an insurmountable moat."
+        "score": 5,
+        "comment_zh": "金百利克拉克在產品創新方面擁有專利，例如在尿布和衛生用品的材料與設計上，這些專利為其提供了短期的競爭優勢和技術壁壘。然而，這些專利通常具有時效性，且在快速消費品行業，單一專利很難構成像製藥或高科技領域那樣的絕對壟斷。行業監管雖然存在，但主要集中在產品安全和質量標準，而非特許經營權。因此，專利和監管對KMB而言是輔助性而非核心的護城河，其強度中等。",
+        "comment_en": "Kimberly-Clark holds patents for product innovations, particularly in the materials and designs of diapers and hygiene products, offering short-term competitive advantages and technological barriers. However, these patents are typically time-limited, and in the fast-moving consumer goods sector, a single patent rarely establishes the absolute monopoly seen in pharmaceuticals or high-tech industries. While regulatory oversight exists, it primarily focuses on product safety and quality standards rather than granting exclusive franchises. Thus, patents and regulations serve as supplementary rather than core moats for KMB, providing a moderate level of protection."
       },
       "m3_high_switching_costs": {
-        "score": 5,
-        "comment_zh": "金百利克拉克的產品，如嬰兒紙尿褲和衛生紙，其直接的貨幣轉換成本相對較低。然而，消費者在日常必需品上往往會形成品牌偏好與使用習慣，尤其是在嬰兒護理產品上，家長對特定品牌的信任和產品適用性有較高要求，不輕易更換。這種心理上的轉換成本，源於對品質、舒適度和可靠性的長期認可，一旦建立便難以動搖。儘管不如企業級軟體或金融服務那樣具備高昂的財務轉換成本，但這種消費者行為慣性仍為KMB提供了穩定的需求基礎。",
-        "comment_en": "For Kimberly-Clark's products, such as baby diapers and toilet paper, the direct monetary switching costs are relatively low. However, consumers often develop brand preferences and usage habits for daily necessities, especially in baby care products, where parents have high demands for trust and suitability of specific brands, making them reluctant to switch. This psychological switching cost stems from long-term recognition of quality, comfort, and reliability, which, once established, is difficult to dislodge. Although not as financially high as in enterprise software or financial services, this consumer behavioral inertia still provides KMB with a stable demand base."
+        "score": 6,
+        "comment_zh": "對於金百利克拉克的產品，例如嬰兒尿布或面紙，消費者轉換品牌的直接財務成本並不高。然而，存在一定的心理和習慣成本。消費者一旦習慣了某個品牌的品質、舒適度或便利性，尤其是在敏感的個人護理產品上，轉換到未知品牌會帶來潛在的風險感知。這種對已知品質的信任和避免不確定性的心理，構成了隱形的轉換成本。雖然不如企業級軟體那樣高昂，但足以維持一定的客戶黏性，尤其是在日常必需品領域。",
+        "comment_en": "For Kimberly-Clark's products, such as baby diapers or facial tissues, the direct financial cost for consumers to switch brands is not high. However, there are psychological and habitual costs involved. Once consumers become accustomed to a brand's quality, comfort, or convenience, especially for sensitive personal care items, switching to an unknown brand carries a perceived risk. This trust in known quality and the desire to avoid uncertainty create an invisible switching cost. While not as substantial as for enterprise software, it is sufficient to maintain a degree of customer stickiness, particularly in the realm of daily necessities."
       },
       "m4_network_effects": {
-        "score": 0,
-        "comment_zh": "金百利克拉克的產品屬於典型的快速消費品，其價值主要體現在單一用戶的使用體驗上，不具備網絡效應。無論有多少消費者使用Huggies紙尿褲或Kleenex面紙，產品本身的實用性或價值並不會因此增加。網絡效應通常存在於平台型業務或社交媒體等領域，其價值隨用戶數量呈指數級增長。對於KMB而言，其競爭優勢來自於品牌、規模和分銷，而非用戶間的互動或連接所產生的網絡價值。因此，網絡效應並非其護城河來源。",
-        "comment_en": "Kimberly-Clark's products are typical fast-moving consumer goods, whose value is primarily reflected in the individual user experience and do not possess network effects. Regardless of how many consumers use Huggies diapers or Kleenex tissues, the intrinsic utility or value of the product itself does not increase. Network effects typically exist in platform businesses or social media, where value grows exponentially with the number of users. For KMB, its competitive advantages stem from brand, scale, and distribution, rather than network value generated by user interaction or connection. Therefore, network effects are not a source of its moat."
+        "score": 1,
+        "comment_zh": "金百利克拉克所處的快速消費品行業，其商業模式本質上不具備網絡效應。網絡效應是指產品或服務的價值隨著用戶數量的增加而呈指數級增長。例如，社交媒體平台或拍賣網站。KMB的產品，如尿布或紙巾，其價值並不會因為更多人使用而對單個用戶產生額外增益。這類產品的消費是獨立的，不依賴於其他用戶的參與。因此，網絡效應對KMB而言幾乎不存在，無法構成其經濟護城河。",
+        "comment_en": "The fast-moving consumer goods industry, where Kimberly-Clark operates, inherently lacks network effects in its business model. Network effects refer to a phenomenon where the value of a product or service increases exponentially with each additional user, such as with social media platforms or auction sites. KMB's products, like diapers or tissues, do not gain additional value for an individual user simply because more people are using them. Consumption of these products is independent and does not rely on the participation of other users. Consequently, network effects are virtually non-existent for KMB and do not contribute to its economic moat."
       },
       "m5_cost_advantage_scale": {
         "score": 8,
-        "comment_zh": "金百利克拉克作為全球領先的衛生用品製造商，享有顯著的規模經濟優勢。其龐大的生產規模使其在原材料採購（如紙漿、聚合物）上擁有強大的議價能力，能獲得更低的成本。同時，全球化的生產基地和高效的供應鏈管理，確保了單位產品的製造成本遠低於小型競爭者。這種規模優勢不僅體現在成本控制上，也延伸至其廣闊的分銷網絡和與零售商的談判能力，確保產品能高效觸達全球消費者。這使得新進入者難以在成本上與之競爭，形成堅實的護城河。",
-        "comment_en": "As a leading global manufacturer of hygiene products, Kimberly-Clark enjoys significant economies of scale. Its vast production volume grants it strong bargaining power in raw material procurement (e.g., pulp, polymers), leading to lower costs. Concurrently, its global manufacturing footprint and efficient supply chain management ensure unit production costs are significantly lower than those of smaller competitors. This scale advantage is not only reflected in cost control but also extends to its extensive distribution network and negotiation power with retailers, ensuring efficient product reach to global consumers. This makes it difficult for new entrants to compete on cost, forming a robust moat."
+        "comment_zh": "作為全球領先的衛生用品製造商，金百利克拉克享有顯著的規模經濟優勢。其龐大的生產規模、全球採購網絡和高效的物流分銷系統，使其能夠以遠低於小型競爭對手的單位成本生產和運輸產品。這種成本優勢不僅體現在原材料採購議價能力上，也反映在研發投入、廣告營銷費用分攤以及生產工藝優化上。這種規模帶來的成本領先地位，使得新進入者難以匹敵，是KMB一道強大的護城河。",
+        "comment_en": "As a leading global hygiene products manufacturer, Kimberly-Clark benefits from significant economies of scale. Its vast production capacity, global procurement network, and efficient logistics and distribution systems enable it to manufacture and transport products at a unit cost far lower than smaller competitors. This cost advantage is evident not only in its bargaining power for raw material procurement but also in the spreading of R&D and advertising expenses, as well as optimized manufacturing processes. This scale-driven cost leadership makes it incredibly difficult for new entrants to compete, forming a powerful moat for KMB."
       },
       "m6_unique_geography_assets": {
         "score": 6,
-        "comment_zh": "雖然家庭用品市場規模龐大且競爭激烈，但金百利克拉克在特定細分市場（如嬰兒護理、成人失禁護理）或某些地理區域，憑藉其強勢品牌和市場份額，已形成類似寡占的地位。在這些領域，市場增長趨緩，新競爭者若要大規模進入，將面臨巨大的品牌建立成本和分銷挑戰，且可能導致價格戰，損害所有參與者的利潤。KMB的既有市場地位和消費者習慣，使其在這些成熟市場中享有相對穩定的份額和盈利能力，形成一種「理性寡占」的局面，有效阻礙了潛在競爭者的進入。",
-        "comment_en": "While the household products market is vast and competitive, Kimberly-Clark, through its strong brands and market share, has established a quasi-oligopolistic position in specific segments (e.g., baby care, adult incontinence care) or certain geographic regions. In these areas, market growth is slowing, and new competitors attempting large-scale entry would face immense brand-building costs and distribution challenges, potentially leading to price wars that harm all participants' profits. KMB's established market position and consumer habits grant it relatively stable share and profitability in these mature markets, creating a situation of \"rational oligopoly\" that effectively deters potential competitors."
+        "comment_zh": "金百利克拉克在特定市場或分銷渠道中可能擁有強大的市場份額和品牌滲透率，這在某種程度上形成了「有效規模」的寡占局面。雖然其產品並非依賴於獨特的地理位置或稀有資產，但在全球範圍內建立的廣泛分銷網絡和零售商關係，以及在關鍵市場的領先地位，使得新競爭者難以有效切入。這並非天然的地理壟斷，而是通過長期市場耕耘形成的壁壘，使得市場容量在一定程度上被少數巨頭瓜分，新進入者面臨高昂的市場教育和渠道成本。",
+        "comment_en": "Kimberly-Clark likely holds strong market share and brand penetration in specific markets or distribution channels, creating an 'efficient scale' oligopoly. While its products don't rely on unique geographical locations or rare assets, its extensive global distribution network, established retailer relationships, and leading positions in key markets make it challenging for new competitors to effectively penetrate. This isn't a natural geographic monopoly but rather a barrier built through long-term market cultivation. The market capacity is largely divided among a few giants, and new entrants face high market education and channel costs."
       },
       "m7_operational_efficiency": {
         "score": 7,
-        "comment_zh": "金百利克拉克作為成熟的消費必需品公司，其業務模式具備高度穩定性，能夠持續產生穩健的現金流。公司高達18.0%的股東權益報酬率（ROE）和8.0%的資產報酬率（ROA），以及8/9的皮氏F-Score，均表明其資本運用效率良好，並能長期創造超越加權平均資本成本（WACC）的超額回報。這種持續的超額ROIC能力，是巴菲特衡量企業內在價值創造的關鍵指標，證明KMB擁有將資本有效轉化為利潤的韌性，而非僅僅是維持生存，這構成了一道堅實的財務護城河。",
-        "comment_en": "As a mature consumer staples company, Kimberly-Clark's business model exhibits high stability, consistently generating robust cash flows. Its strong Return on Equity (ROE) of 18.0% and Return on Assets (ROA) of 8.0%, coupled with an F-Score of 8/9, all indicate efficient capital deployment and the ability to consistently generate returns significantly above its Weighted Average Cost of Capital (WACC) over the long term. This sustained ability to achieve excess ROIC is a key metric for Buffett in assessing intrinsic value creation, proving KMB's resilience in effectively converting capital into profits, rather than merely sustaining operations, thus forming a solid financial moat."
+        "comment_zh": "金百利克拉克展現出卓越的運營效率，其高達111.7%的股東權益報酬率（ROE）和10.5%的資產報酬率（ROA）證明了公司能夠高效利用資本創造利潤。在競爭激烈的消費品市場中，持續保持高於行業平均水平的資本回報率，表明其在生產、供應鏈管理和成本控制方面具備深厚的專業知識和優勢。這種將投入資本轉化為超額利潤的能力，是巴菲特所推崇的「護城河」特徵，反映了其穩健的盈利能力和管理層的執行力。",
+        "comment_en": "Kimberly-Clark demonstrates exceptional operational efficiency, with a robust Return on Equity (ROE) of 111.7% and Return on Assets (ROA) of 10.5%, proving its ability to effectively utilize capital to generate profits. In the highly competitive consumer goods market, consistently achieving capital returns above the industry average indicates deep expertise and advantages in production, supply chain management, and cost control. This capacity to convert invested capital into excess profits is a hallmark of a 'moat' as championed by Buffett, reflecting its stable profitability and the management's strong execution capabilities."
       },
       "m8_capital_allocation": {
         "score": 8,
-        "comment_zh": "即使給予競爭對手千億美元資金，也難以在短時間內複製金百利克拉克的全球品牌資產、龐大的製造與分銷網絡，以及數十年來累積的消費者信任。Huggies、Kleenex等品牌已深入人心，建立這種心智佔有率需要漫長的時間、巨額的營銷投入和持續的產品創新。其全球供應鏈的複雜性、與零售商的深厚關係，以及在各國市場的本地化運營經驗，都是難以一蹴而就的戰略資產。這種無形資產的不可複製性，構成了KMB極為堅固的護城河，使其免受新進入者的直接衝擊。",
-        "comment_en": "Even with a hundred billion dollars, it would be incredibly difficult for a competitor to replicate Kimberly-Clark's global brand portfolio, vast manufacturing and distribution network, and decades of accumulated consumer trust in a short period. Brands like Huggies and Kleenex are deeply ingrained in consumers' minds, and establishing such mindshare requires immense time, massive marketing investment, and continuous product innovation. The complexity of its global supply chain, deep relationships with retailers, and localized operational experience in various countries are strategic assets that cannot be built overnight. This irreproducibility of intangible assets forms an exceptionally strong moat for KMB, protecting it from direct assaults by new entrants."
+        "comment_zh": "金百利克拉克的管理層在資本配置方面表現出審慎和股東友好的態度。公司擁有穩定的自由現金流（FCF TTM $2,561.0 M），並歷史性地通過派發股息和股票回購來回報股東。在市場低估時積極回購股票，能夠有效提升每股收益，最大化股東價值。雖然總負債相對較高，但對於一家現金流穩定的必需消費品公司而言，這是可控的。這種對資本的有效管理和對股東利益的承諾，是其長期價值創造的重要組成部分。",
+        "comment_en": "Kimberly-Clark's management demonstrates a prudent and shareholder-friendly approach to capital allocation. The company generates stable free cash flow (FCF TTM $2,561.0 M) and has historically rewarded shareholders through consistent dividends and share buybacks. Aggressively repurchasing shares when the market undervalues them effectively boosts earnings per share and maximizes shareholder value. While total debt is relatively high, it is manageable for a consumer staples company with stable cash flows. This effective capital management and commitment to shareholder interests are crucial components of its long-term value creation."
       },
       "m9_customer_retention": {
-        "score": 9,
-        "comment_zh": "金百利克拉克的產品屬於人類基本生理需求範疇，如嬰兒護理、個人衛生等，這些需求具有極高的確定性和持久性。無論技術如何進步，甚至AI如何發展，人們對紙尿褲、面紙和衛生棉等產品的根本需求不會消失。儘管分銷模式可能因電商而改變，但產品本身的功能和價值依然穩固。這種對技術變革和典範轉移的強大免疫力，使得KMB的業務模式極具韌性，能夠穿越經濟週期和技術浪潮，為股東提供長期穩定的回報，是其最核心的護城河之一。",
-        "comment_en": "Kimberly-Clark's products fall within the scope of fundamental human physiological needs, such as baby care and personal hygiene, which possess extremely high certainty and durability. Regardless of technological advancements or even the development of AI, the fundamental demand for products like diapers, tissues, and sanitary pads will not disappear. While distribution models may evolve due to e-commerce, the core function and value of the products themselves remain stable. This strong immunity to technological change and paradigm shifts makes KMB's business model highly resilient, capable of navigating economic cycles and technological waves, providing long-term stable returns to shareholders, and is one of its most crucial moats."
+        "score": 7,
+        "comment_zh": "金百利克拉克的產品屬於日常必需品，需求穩定且具有高度重複性。消費者一旦對其品牌產生信任和習慣，通常會持續購買。這種高客戶留存率並非來自於合同約束，而是源於品牌忠誠度、產品品質的可靠性以及轉換成本（儘管主要是心理層面）的綜合作用。例如，父母一旦選擇了Huggies，通常會持續使用。這種強大的客戶黏性確保了穩定的收入流和市場份額，使其能夠有效抵禦新進入者的衝擊。",
+        "comment_en": "Kimberly-Clark's products are daily necessities, characterized by stable and highly repetitive demand. Once consumers develop trust and habit with its brands, they typically continue purchasing. This high customer retention is not driven by contractual obligations but by a combination of brand loyalty, reliable product quality, and switching costs (albeit primarily psychological). For instance, parents who choose Huggies often stick with the brand. This strong customer stickiness ensures stable revenue streams and market share, enabling the company to effectively withstand challenges from new entrants."
       },
       "m10_durability": {
-        "score": 7,
-        "comment_zh": "金百利克拉克作為一家成熟的藍籌公司，其管理層在資本配置方面通常表現出穩健和負責任的態度。公司擁有強勁的自由現金流（FCF TTM $1,231.0 M），這為其提供了充足的資金進行股息派發和股票回購。在沒有盲目高溢價併購的情況下，管理層若能持續在股價被低估時積極回購股票並註銷，將有效提升每股收益和股東價值。這種對股東利益負責的資本配置策略，是巴菲特所看重的管理層特質，有助於長期複利增長，為企業增添一道重要的護城河。",
-        "comment_en": "As a mature blue-chip company, Kimberly-Clark's management typically demonstrates a steady and responsible approach to capital allocation. The company generates strong free cash flow (FCF TTM $1,231.0 M), providing ample funds for dividend payouts and share buybacks. Assuming no blind, high-premium acquisitions, if management consistently repurchases and retires shares when undervalued, it effectively boosts earnings per share and shareholder value. This capital allocation strategy, prioritizing shareholder interests, is a quality highly valued by Buffett, contributing to long-term compound growth and adding a significant moat to the business."
+        "score": 9,
+        "comment_zh": "金百利克拉克所處的個人護理和衛生用品行業，其產品需求具有極高的確定性和持久性。無論經濟週期如何波動，人們對尿布、面紙、衛生巾等基本生活用品的需求幾乎不會消失。這使得公司對技術變革或顛覆性創新具有強大的免疫力。儘管產品會不斷改進，但核心需求和商業模式的本質保持不變。這種業務的永恆性，加上其強大的品牌和規模優勢，賦予了KMB極高的抗風險能力和長期生存能力，是巴菲特最看重的護城河特徵之一。",
+        "comment_en": "Kimberly-Clark operates in the personal care and hygiene products industry, where demand for its products is exceptionally certain and durable. Regardless of economic cycles, the need for essential items like diapers, facial tissues, and feminine hygiene products remains constant. This grants the company strong immunity to technological disruption or paradigm shifts. While product improvements are ongoing, the core demand and fundamental business model remain unchanged. This timeless nature of the business, coupled with its robust brands and scale advantages, provides KMB with high resilience and long-term viability, making it one of Buffett's most valued moat characteristics."
       },
-      "overall_moat_verdict_zh": "金百利克拉克是一家典型的「消費品特許經營權」企業，其核心護城河建立在全球知名品牌（如Huggies、Kleenex）所形成的消費者心智佔有率之上。這使其在日常必需品市場中具備顯著的定價權和需求穩定性。結合其無與倫比的全球規模經濟、高效的供應鏈和分銷網絡，KMB能夠以極低的成本生產並觸達廣大消費者，形成難以複製的競爭優勢。此外，其產品滿足人類基本需求，對技術變革具備強大免疫力，確保了業務的長期韌性。儘管缺乏網絡效應或高昂的轉換成本，但品牌、規模和需求確定性共同構建了其堅固的護城河，使其能持續創造超額回報。",
-      "overall_moat_verdict_en": "Kimberly-Clark is a quintessential \"consumer franchise\" business, with its core moat built upon the strong mindshare established by globally renowned brands like Huggies and Kleenex. This grants it significant pricing power and demand stability in the essential goods market. Combined with its unparalleled global economies of scale, efficient supply chain, and distribution network, KMB can produce and reach a vast consumer base at very low costs, creating an irreplicable competitive advantage. Furthermore, its products cater to fundamental human needs, providing strong immunity to technological disruption and ensuring long-term business resilience. Despite lacking network effects or high switching costs, the combination of brand power, scale, and demand certainty collectively forms its robust moat, enabling it to consistently generate superior returns."
+      "overall_moat_verdict_zh": "金百利克拉克（KMB）本質上是一家擁有強大「特許經營權」的消費品巨頭，其護城河主要由全球領先的品牌資產（如Huggies、Kleenex）和無與倫比的規模經濟所構築。這些品牌在消費者心中建立了深厚的信任和習慣，賦予公司穩定的定價權和客戶黏性。同時，其龐大的生產、採購和分銷網絡，使得新競爭者難以在成本上匹敵。這是一個需求確定性極高、對技術顛覆免疫的行業，確保了公司現金流的穩定性和盈利的持久性。儘管缺乏網絡效應和絕對的專利壁壘，但其卓越的資本配置和運營效率，共同鑄就了一道堅固的、能夠抵禦時間考驗的經濟護城河。",
+      "overall_moat_verdict_en": "Kimberly-Clark (KMB) is essentially a consumer goods giant with a strong 'franchise,' whose moat is primarily built upon leading global brand assets (such as Huggies, Kleenex) and unparalleled economies of scale. These brands have cultivated deep trust and habit among consumers, granting the company stable pricing power and customer stickiness. Concurrently, its vast production, procurement, and distribution networks make it incredibly difficult for new competitors to match its cost structure. This operates in an industry with highly certain demand and strong immunity to technological disruption, ensuring the company's stable cash flow and durable profitability. Despite lacking network effects and absolute patent barriers, its excellent capital allocation and operational efficiency collectively forge a robust economic moat capable of withstanding the test of time."
     },
     "fin_valuation": {
       "is_financial": false
@@ -151661,11 +151661,11 @@
     "country": "US",
     "phone": "952 887 3131",
     "full_address": "1400 West 94th Street, Bloomington, MN 55431, US",
-    "range_52w": "79.42-112.84",
+    "range_52w": "79.61-112.84",
     "year_high": 112.84,
-    "year_low": 79.42,
+    "year_low": 79.61,
     "all_time_high": 0.0,
-    "all_time_low": 79.42,
+    "all_time_low": 79.61,
     "inst_ownership_pct": 75.5,
     "insider_ownership_pct": 9.5,
     "top_holders": [
@@ -160794,8 +160794,8 @@
     "country": "US",
     "phone": "419 422 2121",
     "full_address": "539 South Main Street, Findlay, OH 45840-3229, US",
-    "range_52w": "161.93-469.9999",
-    "year_high": 469.9999,
+    "range_52w": "161.93-470",
+    "year_high": 470.0,
     "year_low": 161.93,
     "all_time_high": 0.0,
     "all_time_low": 161.93,
