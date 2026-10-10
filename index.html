@@ -1063,25 +1063,7 @@
     "房地產": "Real Estate"
   };
 
-  function getStockDisplaySector(s) {
-    if (!s || !s.sector) return '--';
-    if (typeof currentLang !== 'undefined' && currentLang === 'en') {
-      return SECTOR_NAMES_EN[s.sector] || s.sector;
-    }
-    return s.sector;
-  }
-
-  function getStockDisplayName(s) {
-    if (!s) return "";
-    const ticker = (s.ticker || "").toUpperCase().trim();
-    if (typeof currentLang !== 'undefined' && currentLang === 'zh') {
-      return STOCK_NAMES_ZH[ticker] || s.name_zh || s.name || s.company_name || ticker;
-    } else {
-      return s.name_en || s.company_name || s.name || ticker;
-    }
-  }
-
-// 美股 200 檔全覆蓋繁體中文名稱官方對照字典
+  // 美股 200 檔全覆蓋繁體中文名稱官方對照字典 (必須先於 getStockDisplayName 定義)
   const STOCK_NAMES_ZH = {
     // 資訊科技 (38檔)
     "NVDA": "輝達", "AAPL": "蘋果", "MSFT": "微軟", "AVGO": "博通", "ORCL": "甲骨文",
@@ -1153,6 +1135,24 @@
     "PLD": "普洛斯 (Prologis)", "AMT": "美國電塔", "EQIX": "易華電腦 (Equinix)", "SPG": "西蒙地產", "CSGP": "科斯塔集團",
     "VICI": "維奇房產 (VICI)", "O": "Realty Income"
   };
+
+  function getStockDisplaySector(s) {
+    if (!s || !s.sector) return '--';
+    if (typeof currentLang !== 'undefined' && currentLang === 'en') {
+      return SECTOR_NAMES_EN[s.sector] || s.sector;
+    }
+    return s.sector;
+  }
+
+  function getStockDisplayName(s) {
+    if (!s) return "";
+    const ticker = (s.ticker || "").toUpperCase().trim();
+    if (typeof currentLang !== 'undefined' && currentLang === 'zh') {
+      return STOCK_NAMES_ZH[ticker] || s.name_zh || s.name || s.company_name || ticker;
+    } else {
+      return s.name_en || s.company_name || s.name || ticker;
+    }
+  }
 
   const US_TREASURY_CURVE = {
     1: 0.0465, 2: 0.0440, 3: 0.0435, 4: 0.0432, 5: 0.0430,
