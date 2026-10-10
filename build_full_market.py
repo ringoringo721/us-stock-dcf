@@ -994,6 +994,7 @@ company_full_name = prof.get("companyName") or item["name"]
             "ceo": ceo,
             "full_time_employees": employees,
             "description": description_en,
+            "description_en": description_en,
             "description_zh": description_zh,
             # === 公司地址與總部資訊 ===
             "address": prof.get("address", "--"),
