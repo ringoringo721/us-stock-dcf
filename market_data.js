@@ -52782,11 +52782,11 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 1018260000,
     "shares_display": "1,018.26 M",
     "mcap": 280062.0,
-    "debt": 0.0,
-    "cash": 0.0,
+    "debt": 820.2,
+    "cash": 5013.8,
     "short_term_investments": 0.0,
-    "cash_and_short_term": 0.0,
-    "net_debt": 0.0,
+    "cash_and_short_term": 5013.8,
+    "net_debt": -4193.6,
     "fcf0": 1572.9,
     "real_history": {
       "revenue": [
@@ -53072,7 +53072,7 @@ window.FULL_MARKET_DATA = {
           3375.07,
           4323.3,
           5230.12,
-          0.0
+          5013.85
         ],
         "shortTermInvestments": [
           0.0,
@@ -53088,7 +53088,7 @@ window.FULL_MARKET_DATA = {
           3474.66,
           4323.3,
           5230.12,
-          0.0
+          5013.85
         ],
         "netReceivables": [
           368.14,
@@ -53096,7 +53096,7 @@ window.FULL_MARKET_DATA = {
           853.11,
           1128.56,
           1361.84,
-          0.0
+          1038.58
         ],
         "inventory": [
           0.0,
@@ -53104,7 +53104,7 @@ window.FULL_MARKET_DATA = {
           0.0,
           0.0,
           0.0,
-          0.0
+          -39.0
         ],
         "otherCurrentAssets": [
           12.78,
@@ -53112,7 +53112,7 @@ window.FULL_MARKET_DATA = {
           183.17,
           67.14,
           827.15,
-          0.0
+          428.07
         ],
         "totalCurrentAssets": [
           2444.13,
@@ -53120,7 +53120,7 @@ window.FULL_MARKET_DATA = {
           4510.94,
           5766.3,
           7419.12,
-          0.0
+          6955.18
         ],
         "propertyPlantEquipmentNet": [
           292.31,
@@ -53128,7 +53128,7 @@ window.FULL_MARKET_DATA = {
           668.38,
           831.4,
           1046.19,
-          0.0
+          1243.24
         ],
         "goodwill": [
           416.44,
@@ -53136,7 +53136,7 @@ window.FULL_MARKET_DATA = {
           638.04,
           912.8,
           1363.29,
-          0.0
+          2251.43
         ],
         "intangibleAssets": [
           97.34,
@@ -53144,7 +53144,7 @@ window.FULL_MARKET_DATA = {
           114.52,
           133.11,
           136.7,
-          0.0
+          273.24
         ],
         "goodwillAndIntangibleAssets": [
           513.78,
@@ -53152,7 +53152,7 @@ window.FULL_MARKET_DATA = {
           752.56,
           1045.92,
           1500.0,
-          0.0
+          2524.66
         ],
         "longTermInvestments": [
           23.63,
@@ -53160,7 +53160,7 @@ window.FULL_MARKET_DATA = {
           56.24,
           72.54,
           76.83,
-          0.0
+          69.26
         ],
         "taxAssets": [
           0.0,
@@ -53176,7 +53176,7 @@ window.FULL_MARKET_DATA = {
           658.4,
           985.41,
           1044.55,
-          0.0
+          1232.66
         ],
         "totalNonCurrentAssets": [
           1174.25,
@@ -53184,7 +53184,7 @@ window.FULL_MARKET_DATA = {
           2135.58,
           2935.27,
           3667.57,
-          0.0
+          5069.82
         ],
         "totalAssets": [
           3618.38,
@@ -53192,7 +53192,7 @@ window.FULL_MARKET_DATA = {
           6646.52,
           8701.58,
           11086.68,
-          0.0
+          12025.0
         ],
         "accountPayables": [
           47.63,
@@ -53200,7 +53200,7 @@ window.FULL_MARKET_DATA = {
           28.18,
           130.89,
           105.32,
-          0.0
+          114.49
         ],
         "shortTermDebt": [
           9.82,
@@ -53224,7 +53224,7 @@ window.FULL_MARKET_DATA = {
           2270.76,
           2733.01,
           3421.05,
-          0.0
+          3497.14
         ],
         "otherCurrentLiabilities": [
           102.53,
@@ -53232,7 +53232,7 @@ window.FULL_MARKET_DATA = {
           149.57,
           250.29,
           105.0,
-          0.0
+          157.85
         ],
         "totalCurrentLiabilities": [
           1406.83,
@@ -53240,7 +53240,7 @@ window.FULL_MARKET_DATA = {
           2697.28,
           3461.05,
           4184.19,
-          0.0
+          4429.69
         ],
         "longTermDebt": [
           739.52,
@@ -53248,7 +53248,7 @@ window.FULL_MARKET_DATA = {
           742.49,
           743.98,
           745.47,
-          0.0
+          746.22
         ],
         "deferredRevenueNonCurrent": [
           392.82,
@@ -53256,7 +53256,7 @@ window.FULL_MARKET_DATA = {
           783.34,
           995.67,
           1332.39,
-          0.0
+          1345.07
         ],
         "deferredTaxLiabilitiesNonCurrent": [
           0.0,
@@ -53272,7 +53272,7 @@ window.FULL_MARKET_DATA = {
           37.39,
           97.75,
           295.65,
-          0.0
+          312.61
         ],
         "totalNonCurrentLiabilities": [
           1173.91,
@@ -53280,7 +53280,7 @@ window.FULL_MARKET_DATA = {
           1612.15,
           1921.61,
           2429.89,
-          0.0
+          2455.79
         ],
         "totalLiabilities": [
           2580.74,
@@ -53288,7 +53288,7 @@ window.FULL_MARKET_DATA = {
           4309.43,
           5382.66,
           6614.08,
-          0.0
+          6885.48
         ],
         "totalDebt": [
           774.72,
@@ -53296,7 +53296,7 @@ window.FULL_MARKET_DATA = {
           792.87,
           788.9,
           820.08,
-          0.0
+          820.18
         ],
         "netDebt": [
           -1221.92,
@@ -53304,7 +53304,7 @@ window.FULL_MARKET_DATA = {
           -2582.2,
           -3534.39,
           -4410.05,
-          0.0
+          -4193.67
         ],
         "commonStock": [
           0.12,
@@ -53312,7 +53312,7 @@ window.FULL_MARKET_DATA = {
           0.12,
           0.12,
           0.13,
-          0.0
+          0.51
         ],
         "retainedEarnings": [
           -964.92,
@@ -53320,7 +53320,7 @@ window.FULL_MARKET_DATA = {
           -1058.84,
           -1078.11,
           -1283.04,
-          0.0
+          -1249.96
         ],
         "accumulatedOtherComprehensiveIncomeLoss": [
           -1.24,
@@ -53328,7 +53328,7 @@ window.FULL_MARKET_DATA = {
           -1.66,
           -9.59,
           16.76,
-          0.0
+          15.68
         ],
         "otherTotalStockholdersEquity": [
           0.0,
@@ -53344,7 +53344,7 @@ window.FULL_MARKET_DATA = {
           2303.95,
           3279.49,
           4428.39,
-          0.0
+          5101.72
         ],
         "totalEquity": [
           1037.64,
@@ -53352,7 +53352,7 @@ window.FULL_MARKET_DATA = {
           2337.09,
           3318.92,
           4472.6,
-          0.0
+          5139.52
         ],
         "totalLiabilitiesAndTotalEquity": [
           3618.38,
@@ -53360,7 +53360,7 @@ window.FULL_MARKET_DATA = {
           6646.52,
           8701.58,
           11086.68,
-          0.0
+          12025.0
         ],
         "totalInvestments": [
           23.63,
@@ -53368,7 +53368,7 @@ window.FULL_MARKET_DATA = {
           155.84,
           72.54,
           76.83,
-          0.0
+          69.26
         ]
       },
       "cashflow": {
@@ -53625,21 +53625,21 @@ window.FULL_MARKET_DATA = {
     "g1": 19.8,
     "g2": 10.8,
     "g": 2.25,
-    "wacc": 10.2,
+    "wacc": 10.18,
     "ev": 189953.9,
     "fmp_official_ev": 189953.9,
-    "dcf_model_ev": 41354.2,
+    "dcf_model_ev": 41466.4,
     "ev_to_ebitda": 434.8,
-    "debt_to_ebitda": 0.0,
-    "net_debt_to_ebitda": 0.0,
-    "f_score": 9,
+    "debt_to_ebitda": 1.88,
+    "net_debt_to_ebitda": -9.6,
+    "f_score": 6,
     "f_score_breakdown": [
       {
         "id": 1,
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 5846000000.0%"
+        "detail": "當期 ROA = 0.5%"
       },
       {
         "id": 2,
@@ -53652,7 +53652,7 @@ window.FULL_MARKET_DATA = {
         "id": 3,
         "category": "盈利能力",
         "desc": "資產回報率持續擴張 (ΔROA > 0)",
-        "passed": 1,
+        "passed": 0,
         "detail": "回報率穩步領先同業基準"
       },
       {
@@ -53667,14 +53667,14 @@ window.FULL_MARKET_DATA = {
         "category": "槓桿與償債",
         "desc": "財務槓桿未惡化 (ΔLeverage ≤ 0)",
         "passed": 1,
-        "detail": "總負債資產比率 = 40.0%"
+        "detail": "總負債資產比率 = 57.3%"
       },
       {
         "id": 6,
         "category": "槓桿與償債",
         "desc": "短期流動性安全 (ΔLiquidity > 0)",
         "passed": 1,
-        "detail": "流動比率 = 1.50"
+        "detail": "流動比率 = 1.57"
       },
       {
         "id": 7,
@@ -53687,89 +53687,89 @@ window.FULL_MARKET_DATA = {
         "id": 8,
         "category": "營運效率",
         "desc": "毛利率擴張 (ΔMargin > 0)",
-        "passed": 1,
+        "passed": 0,
         "detail": "產品定價權增強，毛利結構健康"
       },
       {
         "id": 9,
         "category": "營運效率",
         "desc": "資產週轉率提升 (ΔTurnover > 0)",
-        "passed": 1,
+        "passed": 0,
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 40.61,
-    "default_fair_val": 40.61,
-    "premium_pct": 577.3,
+    "fair_val": 44.84,
+    "default_fair_val": 44.84,
+    "premium_pct": 513.4,
     "is_undervalued": false,
     "pe_trailing": 4790.7,
     "pe_forward": 4215.8,
-    "pb_trailing": 280062000000.0,
-    "pb_forward": 252055800000.0,
+    "pb_trailing": 54.9,
+    "pb_forward": 49.4,
     "div_yield": 0.01,
     "ps_ratio": 44.5,
-    "fcf_to_ev": 3.8,
+    "fcf_to_ev": 3.79,
     "fcf_to_mcap": 0.56,
-    "liab_to_assets": 40.0,
-    "cash_to_assets": 0.0,
-    "current_ratio": 1.5,
-    "roe": 5846000000.0,
-    "roa": 5846000000.0,
+    "liab_to_assets": 57.3,
+    "cash_to_assets": 41.7,
+    "current_ratio": 1.57,
+    "roe": 1.1,
+    "roa": 0.5,
     "moat": {
       "ticker": "CRWD",
-      "period": "2026Q4",
+      "period": "2027Q2",
       "m1_brand_pricing": {
         "score": 8,
-        "comment_zh": "CrowdStrike在端點安全領域建立了卓越的品牌聲譽，其Falcon平台被視為業界領先的威脅偵測與防禦解決方案。對於企業而言，網路安全是不可妥協的投資，因此即使價格略有上漲，客戶也傾向於維持與值得信賴的供應商合作，以避免潛在的巨大損失。這種信任和關鍵性賦予了CrowdStrike顯著的定價權，使其能夠在不顯著影響客戶流失率的情況下，逐步提高訂閱費用。其技術領先地位和持續創新，進一步鞏固了客戶對其品牌的忠誠度，使其在競爭激烈的市場中脫穎而出。",
-        "comment_en": "CrowdStrike has cultivated an exceptional brand reputation in endpoint security, with its Falcon platform recognized as a leading threat detection and prevention solution. For enterprises, cybersecurity is a non-negotiable investment, making them less price-sensitive when it comes to mission-critical protection. This trust and essential service nature grant CrowdStrike significant pricing power, allowing it to gradually increase subscription fees without substantial customer churn. Its technological leadership and continuous innovation further solidify customer loyalty, enabling it to stand out in a highly competitive market. This strong brand perception translates directly into an ability to command premium pricing for its superior offerings."
+        "comment_zh": "CrowdStrike在企業級網路安全領域建立了強大的品牌聲譽，其Falcon平台被視為行業領先的解決方案。客戶願意為其卓越的威脅檢測能力和可靠性支付溢價，這反映了其在市場上的高信任度和品牌心智佔有率。即使在經濟下行時期，網路安全支出仍是企業的剛性需求，賦予CrowdStrike一定的定價權，使其能夠在不顯著影響銷量的情況下調整價格，維持高利潤率。",
+        "comment_en": "CrowdStrike has cultivated a formidable brand reputation in the highly critical enterprise cybersecurity sector, with its Falcon platform widely recognized as an industry-leading, premium solution. Customers are consistently willing to pay a significant premium for its superior threat detection capabilities, proactive defense, and unparalleled reliability, reflecting a deep level of trust and strong brand mindshare in a mission-critical domain. Even during broader economic downturns, cybersecurity remains a non-negotiable and often increasing expenditure for businesses, granting CrowdStrike substantial pricing power. This allows them to adjust subscription prices without substantially impacting their high retention rates or sales volumes, thereby sustaining healthy and expanding profit margins, a hallmark of a strong competitive advantage."
       },
       "m2_patents_regulatory": {
         "score": 7,
-        "comment_zh": "CrowdStrike在雲原生安全技術、行為分析與AI驅動的威脅情報方面擁有大量專有技術和專利組合。這些技術壁壘使其在偵測未知威脅和零日攻擊方面具備領先優勢，難以被競爭對手輕易複製。此外，其平台符合多項嚴格的行業標準和政府法規，這為其進入高安全要求市場（如政府、金融）提供了額外的准入門檻。雖然網路安全領域技術迭代迅速，但CrowdStrike持續的研發投入和專利佈局，構建了堅實的技術護城河，使其能夠保持競爭力。",
-        "comment_en": "CrowdStrike possesses a substantial portfolio of proprietary technologies and patents in cloud-native security, behavioral analytics, and AI-driven threat intelligence. These technological barriers provide a leading edge in detecting unknown threats and zero-day exploits, making them difficult for competitors to easily replicate. Furthermore, its platform adheres to numerous stringent industry standards and government regulations, offering an additional barrier to entry for high-security sectors like government and finance. While cybersecurity technology evolves rapidly, CrowdStrike's continuous R&D investment and patent strategy build a robust technological moat, enabling it to maintain its competitive advantage."
+        "comment_zh": "CrowdStrike的核心競爭力源於其專有的雲原生架構和AI驅動的威脅情報技術。儘管具體專利數量未詳，但其技術的複雜性和領先性構成了強大的知識產權壁壘。此外，網路安全行業受嚴格的合規性要求和政府標準約束，CrowdStrike的解決方案通常符合甚至超越這些標準，使其在獲取關鍵企業和政府客戶方面具備優勢，形成監管准入的護城河。",
+        "comment_en": "CrowdStrike's core competitive advantage is deeply rooted in its proprietary cloud-native architecture and sophisticated AI-driven threat intelligence technology. While specific patent portfolios are not detailed, the inherent complexity, continuous innovation, and leading-edge nature of its technology establish a robust and evolving intellectual property barrier that is difficult for competitors to replicate. Furthermore, the cybersecurity industry is heavily subject to stringent compliance requirements, data privacy regulations, and government standards across various sectors. CrowdStrike's solutions often meet or exceed these benchmarks, providing a significant strategic advantage in securing critical enterprise and government clients, thus forming a powerful regulatory and compliance-driven moat that deters new entrants."
       },
       "m3_high_switching_costs": {
-        "score": 9,
-        "comment_zh": "CrowdStrike的解決方案深度整合於客戶的IT基礎設施、安全操作流程及事件響應機制中。一旦部署，更換供應商將涉及巨大的轉換成本，包括數據遷移的複雜性、員工的重新培訓、潛在的系統中斷風險，以及在過渡期間可能出現的安全漏洞。企業對安全性的極度敏感性，使得任何可能影響其防禦能力的變動都需謹慎評估。這種深度嵌入和高風險規避心理，為CrowdStrike構建了極高的客戶黏性，使其客戶即便面對其他供應商的誘惑，也難以輕易轉換。",
-        "comment_en": "CrowdStrike's solutions are deeply embedded within clients' IT infrastructure, security operations workflows, and incident response mechanisms. Once deployed, switching vendors entails substantial costs, including complex data migration, employee retraining, potential system downtime risks, and security vulnerabilities during the transition. Enterprises' extreme sensitivity to security means any change that could compromise their defenses is heavily scrutinized. This deep integration and risk aversion create extremely high customer stickiness for CrowdStrike, making it difficult for clients to switch even when faced with attractive offers from competitors, thus forming a powerful moat."
+        "score": 8,
+        "comment_zh": "對於企業客戶而言，更換網路安全解決方案涉及巨大的轉換成本。這不僅包括重新配置系統、員工培訓和數據遷移的直接費用，更重要的是潛在的營運中斷風險和安全漏洞。CrowdStrike的Falcon平台深度整合於客戶的IT環境中，一旦部署，其移除或替換將帶來高昂的時間、資源和安全風險成本，使得客戶傾向於維持現有服務，形成強大的黏性。",
+        "comment_en": "For enterprise clients, the decision to switch cybersecurity solutions involves exceptionally high and multifaceted conversion costs. These expenses encompass not only the direct financial outlays for reconfiguring complex IT systems, extensive employee training, and secure data migration, but, more critically, the substantial risks of operational disruption and potential security vulnerabilities during the transition period. CrowdStrike's Falcon platform is deeply and intricately integrated into a client's existing IT infrastructure and workflows. Once deployed and operational, its removal or replacement would incur prohibitively high costs in terms of time, resources, and the unacceptable risk of security breaches, creating powerful customer stickiness and a formidable switching cost moat."
       },
       "m4_network_effects": {
-        "score": 9,
-        "comment_zh": "CrowdStrike的Falcon平台具備強大的網絡效應。每當一個新的端點或客戶加入其全球傳感器網絡，都會為其AI驅動的威脅圖譜貢獻新的數據點。這些實時的威脅情報和行為模式，會立即被分析並用於增強所有客戶的防禦能力。這形成了一個正向循環：越多的用戶，系統就越「聰明」，偵測能力就越強，從而吸引更多用戶，進一步強化其數據優勢。這種規模化的數據護城河，是傳統安全廠商難以匹敵的，為其提供了持續的競爭優勢。",
-        "comment_en": "CrowdStrike's Falcon platform exhibits powerful network effects. Each new endpoint or customer joining its global sensor network contributes fresh data points to its AI-driven threat graph. This real-time threat intelligence and behavioral patterns are immediately analyzed and used to enhance the defensive capabilities for all customers. This creates a virtuous cycle: more users lead to a \"smarter\" system and stronger detection capabilities, which in turn attracts more users, further reinforcing its data advantage. This scaled data moat is difficult for traditional security vendors to match, providing CrowdStrike with a sustained competitive edge."
+        "score": 8,
+        "comment_zh": "CrowdStrike的雲原生平台和CrowdStrike Threat Graph展現出強大的網路效應。每當一個新的端點或客戶加入其生態系統，都會為其全球威脅情報數據庫貢獻更多數據點。這些數據經過AI分析後，能實時提升所有用戶的威脅檢測和防禦能力。隨著用戶基數的擴大，其威脅情報的廣度和深度呈指數級增長，使得平台對所有參與者的價值不斷提升，形成正向循環。",
+        "comment_en": "CrowdStrike's cloud-native platform and its proprietary CrowdStrike Threat Graph exhibit exceptionally robust network effects, a key competitive advantage. Each new endpoint or customer that joins its expansive ecosystem actively contributes more unique data points and threat indicators to its vast global threat intelligence database. This aggregated data, meticulously analyzed by advanced AI algorithms, continuously and in real-time enhances the threat detection and defense capabilities for all users across the entire network. As the user base expands exponentially, the breadth, depth, and predictive accuracy of its threat intelligence grow geometrically, progressively increasing the platform's intrinsic value for all participants and creating a powerful, self-reinforcing virtuous cycle."
       },
       "m5_cost_advantage_scale": {
-        "score": 8,
-        "comment_zh": "CrowdStrike作為雲原生安全平台，其基礎設施和威脅情報系統受益於顯著的規模經濟。隨著客戶數量和受保護端點的增加，其收集的數據量呈指數級增長，這使得其AI模型能夠以更低的邊際成本進行訓練和優化，提升偵測精準度。這種規模效應不僅降低了單位客戶的服務成本，也使其能夠投入更多資源進行研發，保持技術領先。對於新進入者而言，建立如此龐大且實時更新的全球威脅情報網絡，需要天文數字的投資和時間，形成難以逾越的成本壁壘。",
-        "comment_en": "As a cloud-native security platform, CrowdStrike's infrastructure and threat intelligence systems benefit from significant economies of scale. With an increasing number of customers and protected endpoints, the volume of data collected grows exponentially, allowing its AI models to be trained and optimized at a lower marginal cost, enhancing detection accuracy. This scale effect not only reduces the per-customer service cost but also enables greater R&D investment to maintain technological leadership. For new entrants, building such a vast and real-time global threat intelligence network requires astronomical investment and time, creating an insurmountable cost barrier."
+        "score": 7,
+        "comment_zh": "作為網路安全領域的領導者，CrowdStrike憑藉其龐大的客戶基礎和雲原生架構實現了顯著的規模經濟。其能夠將大量的研發投入分攤到廣泛的用戶群體上，降低了單位成本。同時，大規模的數據收集和處理能力使其在威脅情報的生成上具有成本優勢，而較小的競爭對手難以在相同成本效益下提供同等水平的服務，從而形成規模帶來的成本壁壘。",
+        "comment_en": "As a dominant leader in the cybersecurity sector, CrowdStrike leverages its extensive global customer base and highly efficient cloud-native architecture to achieve significant economies of scale. This allows the company to amortize its substantial and ongoing research and development investments across a vast and growing user base, thereby significantly lowering per-unit costs for its advanced services. Concurrently, its massive-scale data collection and processing capabilities provide an unparalleled cost advantage in generating superior threat intelligence. Smaller or newer competitors struggle immensely to offer comparable service levels, threat detection accuracy, and platform features at the same cost-efficiency, thus creating a formidable cost barrier derived from its operational scale and technological infrastructure."
       },
       "m6_unique_geography_assets": {
-        "score": 7,
-        "comment_zh": "雖然網路安全市場龐大，但高端企業級端點保護和雲工作負載安全領域，由於技術複雜性、數據累積和客戶信任的建立門檻極高，已逐漸形成寡頭競爭格局。CrowdStrike憑藉其領先的技術和廣泛的市場份額，在此領域佔據主導地位。新競爭者若想進入並有效競爭，不僅需要巨額資本投入，更需長時間累積威脅情報和客戶基礎，這使得市場自然傾向於由少數幾家頂級供應商主導，形成一種「有效規模」下的理性寡占，避免了過度競爭導致的價值破壞。",
-        "comment_en": "While the cybersecurity market is vast, the high-end enterprise endpoint protection and cloud workload security segments have gradually formed an oligopolistic structure due to extreme technical complexity, data accumulation, and high barriers to building customer trust. CrowdStrike, with its leading technology and significant market share, dominates this space. New competitors attempting to enter and effectively compete would require not only massive capital investment but also extensive time to accumulate threat intelligence and a customer base. This naturally leads the market to be dominated by a few top-tier providers, creating a rational oligopoly under \"efficient scale\" that avoids value destruction from excessive competition."
+        "score": 4,
+        "comment_zh": "網路安全市場本質上是全球性的，不依賴於特定的地理位置或稀缺資源。CrowdStrike的業務模式並非基於地理獨佔性或有限的實體資產。儘管其數據中心分佈全球，但這並非不可複製的「收費橋樑」式資產。因此，此維度上的護城河相對較弱，市場容量雖大但競爭激烈，並非天然寡占。",
+        "comment_en": "The cybersecurity market is fundamentally global and digital, meaning it does not inherently rely on specific geographical locations, exclusive access to scarce physical resources, or limited local markets. CrowdStrike's business model is not predicated on geographical exclusivity or the ownership of unique, irreplaceable physical assets in the manner of a utility or a natural resource company. While its data centers are strategically distributed globally for performance and resilience, these are not inherently unique or irreplicable \"toll bridge\" type assets. Therefore, the moat in this specific dimension is relatively weaker compared to others, as the market, though large, is intensely competitive and not characterized by natural oligopolies."
       },
       "m7_operational_efficiency": {
-        "score": 8,
-        "comment_zh": "CrowdStrike的商業模式以訂閱制為主，具有高度可預測的經常性收入和較低的資本支出需求，這使其能夠產生強勁的自由現金流（FCF TTM $10.4B）。儘管未直接提供ROIC數據，但其18.0%的ROE和8.0%的ROA，結合其輕資產運營模式，強烈暗示其投入資本回報率（ROIC）持續遠超加權平均資本成本（WACC）。這表明公司能夠高效地將投入的資本轉化為股東價值，並在長期內實現資本的複利增長，是其卓越盈利能力和護城河深度的體現。",
-        "comment_en": "CrowdStrike's subscription-based business model generates highly predictable recurring revenue with relatively low capital expenditure requirements, enabling it to produce robust free cash flow (FCF TTM $10.4B). While ROIC data is not directly provided, its 18.0% ROE and 8.0% ROA, combined with its asset-light operating model, strongly suggest that its Return on Invested Capital (ROIC) consistently far exceeds its Weighted Average Cost of Capital (WACC). This indicates the company's ability to efficiently convert invested capital into shareholder value and achieve long-term compounding of capital, reflecting its exceptional profitability and the depth of its moat."
+        "score": 6,
+        "comment_zh": "CrowdStrike的ROIC（投入資本回報率）雖然在高速成長階段可能受投資影響而顯得不高（ROE 1.1%, ROA 0.5%），但其強勁的自由現金流（FCF TTM $1,572.9M）表明公司具備高效將營收轉化為現金的能力。這顯示了其營運效率和未來創造超額回報的潛力。若能持續保持高FCR並有效再投資，長期ROIC有望超越WACC，但目前數據尚需時間驗證其持久性。",
+        "comment_en": "While CrowdStrike's reported Return on Invested Capital (ROIC) might appear modest during its aggressive high-growth phase due to substantial reinvestments (ROE 1.1%, ROA 0.5%), its consistently robust Free Cash Flow (FCF TTM $1,572.9M) is a strong indicator of the company's underlying operational efficiency and its exceptional ability to convert revenue into tangible cash. This demonstrates a healthy business model and significant potential for generating future excess returns. If the company can sustain its high FCF conversion rates and continue to effectively reinvest capital into high-return opportunities, its long-term ROIC is highly likely to consistently surpass its Weighted Average Cost of Capital (WACC), though current financial metrics require more time to fully validate this long-term durability."
       },
       "m8_capital_allocation": {
         "score": 9,
-        "comment_zh": "即使給予競爭對手千億美元的資金，也難以在數年內複製CrowdStrike的核心戰略資產。這不僅包括其全球分佈的傳感器網絡、數十年累積的威脅情報數據庫、經過實戰驗證的AI/ML模型，更重要的是其在企業客戶中建立的深厚信任、品牌聲譽以及與客戶IT系統的深度整合。這些無形資產的建立需要時間、經驗和持續的技術創新，無法僅靠資金堆砌。這種不可複製性是其護城河最堅固的組成部分之一，確保了其長期競爭優勢。",
-        "comment_en": "Even with a hundred billion dollars, it would be nearly impossible for a competitor to replicate CrowdStrike's core strategic assets within a few years. This includes not only its globally distributed sensor network, decades of accumulated threat intelligence databases, and battle-tested AI/ML models, but more importantly, the deep trust, brand reputation, and profound integration with client IT systems it has built among enterprise customers. The establishment of these intangible assets requires time, experience, and continuous technological innovation, which cannot be achieved by simply throwing money at the problem. This irreproducibility is one of the most robust components of its moat, ensuring its long-term competitive advantage."
+        "comment_zh": "即使給予競爭對手千億美元，也難以在短時間內複製CrowdStrike的核心戰略資產。這包括其獨特的雲原生AI平台、龐大的全球威脅情報數據庫、頂尖的研發團隊、深厚的客戶關係以及在網路安全領域建立的信任和聲譽。這些要素是多年技術積累、市場深耕和品牌建設的結果，形成了一個難以模仿的綜合性競爭優勢，構成了極高的進入壁壘。",
+        "comment_en": "Even if a competitor were granted a hundred billion dollars in capital, it would be exceedingly difficult, if not impossible, to replicate CrowdStrike's multifaceted core strategic assets within a short timeframe. This includes its highly sophisticated and proprietary cloud-native AI platform, its vast and continuously updated global threat intelligence database, its world-class research and development team, deeply entrenched customer relationships, and the invaluable trust and sterling reputation meticulously built within the critical cybersecurity domain. These elements are the culmination of many years of relentless technological accumulation, aggressive market penetration, and strategic brand building, collectively forming a comprehensive, inimitable competitive advantage and an exceptionally high barrier to entry for any aspiring rival."
       },
       "m9_customer_retention": {
-        "score": 8,
-        "comment_zh": "網路安全領域雖然技術迭代迅速，但對安全防護的需求卻是永恆且不斷增長的。CrowdStrike的雲原生、AI驅動平台設計使其具備高度的適應性和前瞻性，能夠快速響應新的威脅向量和技術典範轉移（如AI在攻擊與防禦中的應用）。它不是被AI顛覆的對象，而是將AI作為核心競爭力。其持續的研發投入和對新興威脅的快速響應能力，使其能夠在技術變革中保持領先地位，而非被淘汰，展現出強大的抗顛覆性。",
-        "comment_en": "While the cybersecurity field experiences rapid technological iteration, the demand for robust security is eternal and ever-growing. CrowdStrike's cloud-native, AI-driven platform design grants it high adaptability and foresight, enabling it to quickly respond to new threat vectors and technological paradigm shifts (e.g., the application of AI in both offense and defense). It leverages AI as a core competency rather than being disrupted by it. Its continuous R&D investment and rapid response capabilities to emerging threats allow it to maintain a leading position amidst technological changes, rather than being rendered obsolete, demonstrating strong disruption immunity."
+        "score": 7,
+        "comment_zh": "網路安全的需求是永恆且不斷增長的，這賦予CrowdStrike對技術變革的強大抗性。雖然技術本身不斷演進，但企業保護數據和系統的根本需求不會改變。CrowdStrike的AI驅動平台設計使其能夠適應新的威脅和技術趨勢，而非被其顛覆。然而，網路安全領域的快速創新意味著公司必須持續投入研發以保持領先，而非完全免疫於競爭性技術的挑戰。",
+        "comment_en": "The fundamental demand for robust cybersecurity solutions is perpetual, non-discretionary, and continuously growing, which inherently grants CrowdStrike a strong degree of resilience against broader technological disruptions. While the underlying technologies and threat landscapes constantly evolve, the core need for enterprises to protect their invaluable data, critical systems, and digital assets remains an absolute imperative. CrowdStrike's adaptive, AI-driven platform is specifically designed to continuously evolve and adapt to emerging threats and new technological paradigms, rather than being easily disrupted by them. However, the rapid pace of innovation in the cybersecurity sector means the company must consistently invest heavily in R&D to maintain its leadership position, implying it is not entirely immune to competitive technological challenges or paradigm shifts."
       },
       "m10_durability": {
         "score": 7,
-        "comment_zh": "儘管缺乏具體的資本配置歷史細節，但CrowdStrike強勁的財務表現（如高F-Score和充沛的自由現金流）通常暗示著管理層在資源配置上的審慎。對於一家快速成長的科技公司而言，將資本有效再投資於研發、市場擴張或戰略性併購，以鞏固技術領先地位和擴大市場份額，是符合股東長期利益的。若管理層能持續避免盲目溢價併購，並在股價被低估時考慮回購，將進一步提升其資本配置的卓越性，為股東創造最大化價值。",
-        "comment_en": "While specific details on capital allocation history are lacking, CrowdStrike's robust financial performance (e.g., high F-Score and ample free cash flow) generally suggests prudent management in resource deployment. For a rapidly growing technology company, effectively reinvesting capital into R&D, market expansion, or strategic acquisitions to solidify technological leadership and expand market share aligns with long-term shareholder interests. If management consistently avoids overpaying for acquisitions and considers buybacks when the stock is undervalued, it would further enhance its capital allocation excellence, maximizing shareholder value."
+        "comment_zh": "CrowdStrike擁有強勁的資產負債表，現金充裕（$5,013.8M）且負債較低（$820.2M），同時產生可觀的自由現金流。這為其提供了靈活的資本配置空間。雖然具體的併購和回購策略未詳，但健康的財務狀況表明管理層有能力進行戰略性投資，並在適當時機通過回購等方式回饋股東。穩健的現金流和低負債是巴菲特所欣賞的特徵，為長期價值創造奠定基礎。",
+        "comment_en": "CrowdStrike possesses an exceptionally strong balance sheet, characterized by substantial cash reserves ($5,013.8M) and remarkably low total debt ($820.2M), while simultaneously generating impressive and consistent free cash flow. This robust financial position provides management with considerable flexibility and optionality for strategic capital allocation. While specific details regarding past M&A activities or share repurchase programs are not provided, the company's healthy financial standing strongly suggests management's capacity to undertake value-accretive strategic investments and, when appropriate, return capital to shareholders through methods like share buybacks. This combination of strong cash flow generation and a conservative debt profile are highly valued characteristics by Warren Buffett, laying a solid foundation for sustainable long-term shareholder value creation."
       },
-      "overall_moat_verdict_zh": "CrowdStrike擁有一道堅不可摧的經濟護城河，主要建立在其強大的網絡效應、極高的轉換成本以及專有的AI驅動威脅情報之上。它在數位領域扮演著關鍵基礎設施提供者的角色，如同企業網路安全領域的「收費橋樑」。其雲原生平台受益於數據收集和處理的顯著規模優勢，創造了一個幾乎無法複製的全球威脅圖譜。公司強大的品牌、持續創新以及與客戶運營的深度整合，賦予其可觀的定價權和抵禦技術變革的韌性。這些結構性優勢的結合，使CrowdStrike成為一個長期複利增長者，能夠產生卓越的投入資本回報，並在不斷演進的網路安全格局中保持其競爭優勢。",
-      "overall_moat_verdict_en": "CrowdStrike possesses a formidable economic moat, primarily built upon its powerful network effects, extremely high switching costs, and proprietary AI-driven threat intelligence. It operates as a critical infrastructure provider in the digital realm, akin to a \"toll bridge\" for enterprise cybersecurity. Its cloud-native platform benefits from significant scale advantages in data collection and processing, creating an almost irreplicable global threat graph. The company's strong brand, continuous innovation, and deep integration into client operations grant it substantial pricing power and resilience against technological shifts. This combination of structural advantages positions CrowdStrike as a long-term compounder, capable of generating superior returns on invested capital and sustaining its competitive edge in the ever-evolving cybersecurity landscape."
+      "overall_moat_verdict_zh": "CrowdStrike展現出多重且堅固的護城河，尤其在品牌心智、高轉換成本、網路效應和技術不可複製性方面表現卓越。其雲原生AI平台和全球威脅情報數據庫構成了難以逾越的技術壁壘，使其在快速增長的網路安全市場中佔據領先地位。儘管ROIC數據尚需時間驗證其長期韌性，但強勁的自由現金流和健康的資產負債表預示著其具備持續創造股東價值的潛力。這是一家具備「特許經營權」特徵的軟體服務公司，其產品對企業而言是不可或缺的「收費橋樑」。",
+      "overall_moat_verdict_en": "CrowdStrike exhibits a compelling combination of multiple, robust economic moats, particularly excelling in areas such as strong brand mindshare, high customer switching costs, powerful network effects, and the irreproducibility of its advanced technology. Its proprietary cloud-native AI platform and vast global threat intelligence database collectively form formidable technological barriers, firmly positioning the company as a dominant leader in the rapidly expanding and mission-critical cybersecurity market. While current ROIC data, influenced by aggressive growth investments, requires more time to fully validate its long-term durability, the company's consistently strong free cash flow generation and exceptionally healthy balance sheet unequivocally indicate significant potential for sustained shareholder value creation. This is a software-as-a-service company that embodies \"franchise-like\" characteristics, with its indispensable products effectively serving as critical \"toll bridges\" for modern enterprises."
     },
     "fin_valuation": {
       "is_financial": false
@@ -64726,10 +64726,10 @@ window.FULL_MARKET_DATA = {
     "g2": 7.3,
     "g": 2.25,
     "wacc": 9.77,
-    "ev": 1529302.5,
-    "fmp_official_ev": 1529302.5,
+    "ev": 1852860.2,
+    "fmp_official_ev": 1852860.2,
     "dcf_model_ev": 865739.3,
-    "ev_to_ebitda": 13.5,
+    "ev_to_ebitda": 16.3,
     "debt_to_ebitda": 0.99,
     "net_debt_to_ebitda": 0.19,
     "f_score": 8,
@@ -106238,10 +106238,10 @@ window.FULL_MARKET_DATA = {
     "g2": 3.6,
     "g": 2.25,
     "wacc": 5.59,
-    "ev": 60115.5,
-    "fmp_official_ev": 60115.5,
+    "ev": 60937.4,
+    "fmp_official_ev": 60937.4,
     "dcf_model_ev": 39749.4,
-    "ev_to_ebitda": 14.4,
+    "ev_to_ebitda": 14.6,
     "debt_to_ebitda": 2.97,
     "net_debt_to_ebitda": 2.89,
     "f_score": 6,
@@ -106970,7 +106970,7 @@ window.FULL_MARKET_DATA = {
   },
   "MAR": {
     "name": "Marriott International",
-    "company_name": "Marriott International",
+    "company_name": "Marriott International, Inc.",
     "exchange": "NASDAQ",
     "sector": "非必需消費",
     "industry": "Hotels, Resorts & Cruise Lines",
@@ -107804,8 +107804,8 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "beta": 1.15,
-    "beta_5y": 1.15,
+    "beta": 1.17,
+    "beta_5y": 1.17,
     "kd": 4.5,
     "tax": 21.0,
     "growth_10y": [
@@ -107823,10 +107823,10 @@ window.FULL_MARKET_DATA = {
     "g1": 7.2,
     "g2": 4.3,
     "g": 2.25,
-    "wacc": 8.96,
+    "wacc": 9.04,
     "ev": 116815.4,
     "fmp_official_ev": 116815.4,
-    "dcf_model_ev": 58063.5,
+    "dcf_model_ev": 57359.9,
     "ev_to_ebitda": 23.2,
     "debt_to_ebitda": 3.53,
     "net_debt_to_ebitda": 3.44,
@@ -107896,9 +107896,9 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 156.27,
-    "default_fair_val": 156.27,
-    "premium_pct": 134.1,
+    "fair_val": 153.58,
+    "default_fair_val": 153.58,
+    "premium_pct": 138.2,
     "is_undervalued": false,
     "pe_trailing": 36.9,
     "pe_forward": 32.5,
@@ -107906,7 +107906,7 @@ window.FULL_MARKET_DATA = {
     "pb_forward": 4.5,
     "div_yield": 0.77,
     "ps_ratio": 7.6,
-    "fcf_to_ev": 5.39,
+    "fcf_to_ev": 5.46,
     "fcf_to_mcap": 3.28,
     "liab_to_assets": 116.1,
     "cash_to_assets": 1.6,
@@ -107972,22 +107972,22 @@ window.FULL_MARKET_DATA = {
     "fin_valuation": {
       "is_financial": false
     },
-    "image": "https://assets.financialmodelingprep.com/symbol/MAR.png",
-    "logo": "https://assets.financialmodelingprep.com/symbol/MAR.png",
-    "website": "",
-    "ceo": "Executive Committee",
-    "full_time_employees": "--",
-    "description": "A publicly traded US equity on major exchanges.",
-    "description_en": "A publicly traded US equity on major exchanges.",
+    "image": "https://images.financialmodelingprep.com/symbol/MAR.png",
+    "logo": "https://images.financialmodelingprep.com/symbol/MAR.png",
+    "website": "https://www.marriott.com",
+    "ceo": "Anthony G. Capuano Jr.",
+    "full_time_employees": "414000",
+    "description": "Marriott International, Inc. is a leading global hospitality firm responsible for managing, franchising, and licensing a wide range of accommodation options, including hotels, residential units, and timeshare resorts, on an international scale. The company segments its extensive operations into North America (covering the U.S. and Canada) and its various international divisions. Under its corporate umbrella, Marriott oversees a diverse collection of esteemed brands, such as JW Marriott, The Ritz-Carlton, W Hotels, Sheraton, Westin, and Courtyard, among many others. As of February 15, 2022, its impressive network encompassed nearly 8,000 properties—specifically 7,989 establishments—operating across 139 countries and territories under 30 distinct hotel brand names. Established in 1927, Marriott International, Inc. maintains its corporate headquarters in Bethesda, Maryland.",
+    "description_en": "Marriott International, Inc. is a leading global hospitality firm responsible for managing, franchising, and licensing a wide range of accommodation options, including hotels, residential units, and timeshare resorts, on an international scale. The company segments its extensive operations into North America (covering the U.S. and Canada) and its various international divisions. Under its corporate umbrella, Marriott oversees a diverse collection of esteemed brands, such as JW Marriott, The Ritz-Carlton, W Hotels, Sheraton, Westin, and Courtyard, among many others. As of February 15, 2022, its impressive network encompassed nearly 8,000 properties—specifically 7,989 establishments—operating across 139 countries and territories under 30 distinct hotel brand names. Established in 1927, Marriott International, Inc. maintains its corporate headquarters in Bethesda, Maryland.",
     "description_zh": "**萬豪國際集團 (Marriott International, Inc.) 業務描述**\n\n萬豪國際集團（Marriott International, Inc.）為全球領先之酒店服務集團，核心業務專注於在全球市場從事酒店、公寓式酒店及分時度假俱樂部等多元住宿型態之經營管理、特許加盟及品牌授權。其營運範疇主要劃分為北美（含美國、加拿大）及國際兩大地理區塊。\n\n集團旗下擁有眾多聲譽卓著的品牌，包括JW萬豪、麗思卡爾頓、W飯店、喜來登、威斯汀、萬怡等。截至2022年2月15日，萬豪國際透過其龐大的服務網絡，於全球139個國家及地區擁有約7,989家據點，涵蓋30個酒店品牌。此營運模式使其能廣泛觸及不同客群，並透過品牌多元化鞏固市場領導地位。",
-    "address": "--",
-    "city": "--",
-    "state": "--",
-    "zip": "--",
+    "address": "7750 Wisconsin Avenue",
+    "city": "Bethesda",
+    "state": "MD",
+    "zip": "20814",
     "country": "US",
-    "phone": "--",
-    "full_address": "",
-    "range_52w": "--",
+    "phone": "301 380 3000",
+    "full_address": "7750 Wisconsin Avenue, Bethesda, MD 20814, US",
+    "range_52w": "256.76-410.98",
     "year_high": 410.98,
     "year_low": 256.76,
     "all_time_high": 0.0,
@@ -118113,7 +118113,7 @@ window.FULL_MARKET_DATA = {
         176191.0,
         184992.0,
         187267.0,
-        187973.0
+        0.0
       ],
       "net_income": [
         17937.0,
@@ -118121,7 +118121,7 @@ window.FULL_MARKET_DATA = {
         4347.0,
         5879.0,
         -8182.0,
-        -7396.0
+        0.0
       ],
       "gross_profit": [
         24548.0,
@@ -118129,7 +118129,7 @@ window.FULL_MARKET_DATA = {
         24310.0,
         23405.0,
         22813.0,
-        20247.0
+        0.0
       ],
       "operating_income": [
         5033.0,
@@ -118137,7 +118137,7 @@ window.FULL_MARKET_DATA = {
         5378.0,
         5095.0,
         2532.0,
-        3702.0
+        0.0
       ],
       "cfo": [
         15787.0,
@@ -118172,7 +118172,7 @@ window.FULL_MARKET_DATA = {
           176191.0,
           184992.0,
           187267.0,
-          187973.0
+          0.0
         ],
         "costOfRevenue": [
           111793.0,
@@ -118180,7 +118180,7 @@ window.FULL_MARKET_DATA = {
           151881.0,
           161587.0,
           164454.0,
-          167726.0
+          0.0
         ],
         "grossProfit": [
           24548.0,
@@ -118188,7 +118188,7 @@ window.FULL_MARKET_DATA = {
           24310.0,
           23405.0,
           22813.0,
-          20247.0
+          0.0
         ],
         "grossProfitRatio": [
           0.0,
@@ -118228,7 +118228,7 @@ window.FULL_MARKET_DATA = {
           10732.0,
           10310.0,
           10881.0,
-          10981.0
+          0.0
         ],
         "otherExpenses": [
           0.0,
@@ -118236,7 +118236,7 @@ window.FULL_MARKET_DATA = {
           0.0,
           0.0,
           0.0,
-          5564.0
+          0.0
         ],
         "operatingExpenses": [
           19515.0,
@@ -118244,7 +118244,7 @@ window.FULL_MARKET_DATA = {
           18932.0,
           18310.0,
           20281.0,
-          16545.0
+          0.0
         ],
         "costAndExpenses": [
           131308.0,
@@ -118252,7 +118252,7 @@ window.FULL_MARKET_DATA = {
           170813.0,
           179897.0,
           184735.0,
-          184271.0
+          0.0
         ],
         "operatingIncome": [
           5033.0,
@@ -118260,7 +118260,7 @@ window.FULL_MARKET_DATA = {
           5378.0,
           5095.0,
           2532.0,
-          3702.0
+          0.0
         ],
         "operatingIncomeRatio": [
           0.0,
@@ -118276,7 +118276,7 @@ window.FULL_MARKET_DATA = {
           -1411.0,
           2138.0,
           -14362.0,
-          -15815.0
+          0.0
         ],
         "interestIncome": [
           254.0,
@@ -118284,7 +118284,7 @@ window.FULL_MARKET_DATA = {
           1567.0,
           1540.0,
           1490.0,
-          1380.0
+          0.0
         ],
         "interestExpense": [
           1803.0,
@@ -118292,7 +118292,7 @@ window.FULL_MARKET_DATA = {
           1302.0,
           1115.0,
           1254.0,
-          1388.0
+          0.0
         ],
         "incomeBeforeTax": [
           17780.0,
@@ -118300,7 +118300,7 @@ window.FULL_MARKET_DATA = {
           3967.0,
           7233.0,
           -11830.0,
-          -12113.0
+          0.0
         ],
         "incomeBeforeTaxRatio": [
           0.0,
@@ -118316,7 +118316,7 @@ window.FULL_MARKET_DATA = {
           -362.0,
           1339.0,
           -3668.0,
-          -4736.0
+          0.0
         ],
         "netIncome": [
           17937.0,
@@ -118324,7 +118324,7 @@ window.FULL_MARKET_DATA = {
           4347.0,
           5879.0,
           -8182.0,
-          -7396.0
+          0.0
         ],
         "netIncomeRatio": [
           0.0,
@@ -118340,7 +118340,7 @@ window.FULL_MARKET_DATA = {
           1.09,
           1.48,
           -2.06,
-          -0.33
+          0.0
         ],
         "epsdiluted": [
           0.0,
@@ -118356,7 +118356,7 @@ window.FULL_MARKET_DATA = {
           3998000000.0,
           3978000000.0,
           3979000000.0,
-          3987000000.0
+          0.0
         ],
         "weightedAverageShsOutDil": [
           4034000000.0,
@@ -118364,7 +118364,7 @@ window.FULL_MARKET_DATA = {
           4041000000.0,
           4021000000.0,
           3979000000.0,
-          3987000000.0
+          0.0
         ],
         "ebitda": [
           25543.0,
@@ -118372,7 +118372,7 @@ window.FULL_MARKET_DATA = {
           11792.0,
           14215.0,
           -4581.0,
-          -1781.0
+          0.0
         ],
         "ebitdaratio": [
           0.0,
@@ -159574,7 +159574,7 @@ window.FULL_MARKET_DATA = {
     "short_term_investments": 4579.0,
     "cash_and_short_term": 5200.0,
     "net_debt": 3868.0,
-    "fcf0": 2922.7,
+    "fcf0": 11026.0,
     "real_history": {
       "revenue": [
         34816.0,
@@ -159614,7 +159614,7 @@ window.FULL_MARKET_DATA = {
         7711.0,
         9074.0,
         10606.0,
-        0.0
+        11026.0
       ],
       "capex": [
         -0.0,
@@ -159622,7 +159622,7 @@ window.FULL_MARKET_DATA = {
         -0.0,
         -0.0,
         -0.0,
-        0.0
+        -0.0
       ],
       "fcf": [
         7274.0,
@@ -159630,7 +159630,7 @@ window.FULL_MARKET_DATA = {
         7711.0,
         9074.0,
         10606.0,
-        0.0
+        11026.0
       ]
     },
     "statements_raw": {
@@ -160165,7 +160165,7 @@ window.FULL_MARKET_DATA = {
           2991.0,
           4999.0,
           6288.0,
-          0.0
+          8303.0
         ],
         "depreciationAndAmortization": [
           870.0,
@@ -160173,7 +160173,7 @@ window.FULL_MARKET_DATA = {
           722.0,
           715.0,
           680.0,
-          0.0
+          691.0
         ],
         "deferredIncomeTax": [
           62.0,
@@ -160181,7 +160181,7 @@ window.FULL_MARKET_DATA = {
           -163.0,
           -152.0,
           0.0,
-          0.0
+          313.0
         ],
         "stockBasedCompensation": [
           0.0,
@@ -160189,7 +160189,7 @@ window.FULL_MARKET_DATA = {
           0.0,
           0.0,
           0.0,
-          0.0
+          -279.0
         ],
         "changeInWorkingCapital": [
           -1949.0,
@@ -160197,7 +160197,7 @@ window.FULL_MARKET_DATA = {
           -2660.0,
           -3753.0,
           -4325.0,
-          0.0
+          -145.0
         ],
         "accountsReceivables": [
           -359.0,
@@ -160205,7 +160205,7 @@ window.FULL_MARKET_DATA = {
           -1404.0,
           -748.0,
           -115.0,
-          0.0
+          1286.0
         ],
         "inventory": [
           0.0,
@@ -160229,7 +160229,7 @@ window.FULL_MARKET_DATA = {
           -1256.0,
           -3005.0,
           -4210.0,
-          0.0
+          -1431.0
         ],
         "otherNonCashItems": [
           4629.0,
@@ -160237,7 +160237,7 @@ window.FULL_MARKET_DATA = {
           6821.0,
           7265.0,
           7963.0,
-          0.0
+          2143.0
         ],
         "netCashProvidedByOperatingActivities": [
           7274.0,
@@ -160245,7 +160245,7 @@ window.FULL_MARKET_DATA = {
           7711.0,
           9074.0,
           10606.0,
-          0.0
+          11026.0
         ],
         "investmentsInPropertyPlantAndEquipment": [
           0.0,
@@ -160269,7 +160269,7 @@ window.FULL_MARKET_DATA = {
           -18037.0,
           -17652.0,
           -20236.0,
-          0.0
+          -6360.0
         ],
         "salesMaturitiesOfInvestments": [
           14217.0,
@@ -160277,7 +160277,7 @@ window.FULL_MARKET_DATA = {
           11745.0,
           11162.0,
           12973.0,
-          0.0
+          2539.0
         ],
         "otherInvestingActivites": [
           0.0,
@@ -160317,7 +160317,7 @@ window.FULL_MARKET_DATA = {
           -1022.0,
           -1117.0,
           -3131.0,
-          0.0
+          -5360.0
         ],
         "dividendsPaid": [
           0.0,
@@ -160349,7 +160349,7 @@ window.FULL_MARKET_DATA = {
           12.0,
           -14.0,
           -148.0,
-          0.0
+          -182.0
         ],
         "netChangeInCash": [
           40.0,
@@ -160357,7 +160357,7 @@ window.FULL_MARKET_DATA = {
           -149.0,
           49.0,
           143.0,
-          0.0
+          -38.0
         ],
         "cashAtEndOfPeriod": [
           761.0,
@@ -160365,7 +160365,7 @@ window.FULL_MARKET_DATA = {
           650.0,
           699.0,
           842.0,
-          0.0
+          2807.0
         ],
         "cashAtBeginningOfPeriod": [
           721.0,
@@ -160373,7 +160373,7 @@ window.FULL_MARKET_DATA = {
           799.0,
           650.0,
           699.0,
-          0.0
+          2845.0
         ],
         "capitalExpenditure": [
           0.0,
@@ -160389,7 +160389,7 @@ window.FULL_MARKET_DATA = {
           7711.0,
           9074.0,
           10606.0,
-          0.0
+          11026.0
         ]
       }
     },
@@ -160415,11 +160415,11 @@ window.FULL_MARKET_DATA = {
     "wacc": 6.27,
     "ev": 77937.3,
     "fmp_official_ev": 77937.3,
-    "dcf_model_ev": 83334.0,
+    "dcf_model_ev": 314380.8,
     "ev_to_ebitda": 6.8,
     "debt_to_ebitda": 0.79,
     "net_debt_to_ebitda": 0.34,
-    "f_score": 4,
+    "f_score": 5,
     "f_score_breakdown": [
       {
         "id": 1,
@@ -160433,7 +160433,7 @@ window.FULL_MARKET_DATA = {
         "category": "盈利能力",
         "desc": "營業現金流 CFO > 0",
         "passed": 1,
-        "detail": "自由現金流 = $2,923M"
+        "detail": "自由現金流 = $11,026M"
       },
       {
         "id": 3,
@@ -160446,7 +160446,7 @@ window.FULL_MARKET_DATA = {
         "id": 4,
         "category": "盈利能力",
         "desc": "應計利潤品質高 (CFO > 淨利潤)",
-        "passed": 0,
+        "passed": 1,
         "detail": "真實現金流充沛，無虛報帳面獲利"
       },
       {
@@ -160485,18 +160485,18 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 256.51,
-    "default_fair_val": 256.51,
-    "premium_pct": 43.8,
+    "fair_val": 349.33,
+    "default_fair_val": 349.33,
+    "premium_pct": 5.6,
     "is_undervalued": false,
     "pe_trailing": 9.3,
     "pe_forward": 8.2,
     "pb_trailing": 2.3,
     "pb_forward": 2.1,
-    "div_yield": 0.0,
-    "ps_ratio": 6.6,
+    "div_yield": 1.29,
+    "ps_ratio": 1.7,
     "fcf_to_ev": 3.51,
-    "fcf_to_mcap": 3.8,
+    "fcf_to_mcap": 14.34,
     "liab_to_assets": 76.9,
     "cash_to_assets": 3.6,
     "current_ratio": 0.2,
@@ -160565,9 +160565,9 @@ window.FULL_MARKET_DATA = {
       "rote": 25.1,
       "ke": 9.0,
       "g": 2.25,
-      "dps_total": 0.0,
+      "dps_total": 11.85,
       "excess_return_fair": 466.38,
-      "ddm_fair": 0.0,
+      "ddm_fair": 206.26,
       "pb_tangible": 2.68
     },
     "image": "https://images.financialmodelingprep.com/symbol/TRV.png",
@@ -213883,16 +213883,16 @@ window.FULL_MARKET_DATA = {
     "sector": "醫療保健",
     "industry": "Health Care Services",
     "reportedCurrency": "USD",
-    "price": 150.0,
-    "shares": 666.7,
-    "shares_outstanding": 666700000,
-    "shares_display": "666.70 M",
-    "mcap": 100000.0,
-    "debt": 0.0,
-    "cash": 0.0,
+    "price": 312.15,
+    "shares": 82.0,
+    "shares_outstanding": 82000000,
+    "shares_display": "82.00 M",
+    "mcap": 25596.3,
+    "debt": 6766.1,
+    "cash": 141.8,
     "short_term_investments": 0.0,
-    "cash_and_short_term": 0.0,
-    "net_debt": 0.0,
+    "cash_and_short_term": 141.8,
+    "net_debt": 6624.3,
     "fcf0": 1155.2,
     "real_history": {
       "revenue": [
@@ -214178,7 +214178,7 @@ window.FULL_MARKET_DATA = {
           536.8,
           1518.7,
           532.3,
-          0.0
+          141.8
         ],
         "shortTermInvestments": [
           0.0,
@@ -214194,7 +214194,7 @@ window.FULL_MARKET_DATA = {
           536.8,
           1518.7,
           532.3,
-          0.0
+          141.8
         ],
         "netReceivables": [
           2978.3,
@@ -214202,7 +214202,7 @@ window.FULL_MARKET_DATA = {
           2098.7,
           2097.0,
           2260.7,
-          0.0
+          2504.8
         ],
         "inventory": [
           401.4,
@@ -214210,7 +214210,7 @@ window.FULL_MARKET_DATA = {
           474.6,
           493.2,
           534.7,
-          0.0
+          562.2
         ],
         "otherCurrentAssets": [
           0.0,
@@ -214218,7 +214218,7 @@ window.FULL_MARKET_DATA = {
           655.3,
           697.6,
           0.0,
-          0.0
+          606.1
         ],
         "totalCurrentAssets": [
           5330.5,
@@ -214226,7 +214226,7 @@ window.FULL_MARKET_DATA = {
           3765.4,
           4806.5,
           4020.5,
-          0.0
+          3814.9
         ],
         "propertyPlantEquipmentNet": [
           2815.4,
@@ -214234,7 +214234,7 @@ window.FULL_MARKET_DATA = {
           2911.8,
           3045.4,
           3081.5,
-          0.0
+          3100.5
         ],
         "goodwill": [
           7958.9,
@@ -214242,7 +214242,7 @@ window.FULL_MARKET_DATA = {
           6142.5,
           6369.7,
           6789.5,
-          0.0
+          7030.1
         ],
         "intangibleAssets": [
           3735.5,
@@ -214250,7 +214250,7 @@ window.FULL_MARKET_DATA = {
           3342.0,
           3488.9,
           3596.0,
-          0.0
+          3678.2
         ],
         "goodwillAndIntangibleAssets": [
           11694.4,
@@ -214258,7 +214258,7 @@ window.FULL_MARKET_DATA = {
           9484.5,
           9858.6,
           10385.5,
-          0.0
+          10708.3
         ],
         "longTermInvestments": [
           60.9,
@@ -214266,7 +214266,7 @@ window.FULL_MARKET_DATA = {
           26.9,
           16.3,
           153.9,
-          0.0
+          139.3
         ],
         "taxAssets": [
           21.6,
@@ -214282,7 +214282,7 @@ window.FULL_MARKET_DATA = {
           536.5,
           652.2,
           751.3,
-          0.0
+          769.3
         ],
         "totalNonCurrentAssets": [
           15054.9,
@@ -214290,7 +214290,7 @@ window.FULL_MARKET_DATA = {
           12959.7,
           13572.5,
           14372.2,
-          0.0
+          14717.4
         ],
         "totalAssets": [
           20385.4,
@@ -214298,7 +214298,7 @@ window.FULL_MARKET_DATA = {
           16725.1,
           18379.0,
           18392.7,
-          0.0
+          18532.3
         ],
         "accountPayables": [
           621.3,
@@ -214306,7 +214306,7 @@ window.FULL_MARKET_DATA = {
           827.5,
           875.8,
           840.8,
-          0.0
+          688.5
         ],
         "shortTermDebt": [
           1.5,
@@ -214314,7 +214314,7 @@ window.FULL_MARKET_DATA = {
           999.8,
           1000.3,
           695.8,
-          0.0
+          0.9
         ],
         "taxPayables": [
           239.6,
@@ -214330,7 +214330,7 @@ window.FULL_MARKET_DATA = {
           421.7,
           392.2,
           439.1,
-          0.0
+          387.8
         ],
         "otherCurrentLiabilities": [
           735.5,
@@ -214346,7 +214346,7 @@ window.FULL_MARKET_DATA = {
           3225.2,
           3330.2,
           2823.5,
-          0.0
+          2124.6
         ],
         "longTermDebt": [
           5416.5,
@@ -214354,7 +214354,7 @@ window.FULL_MARKET_DATA = {
           4054.7,
           5331.2,
           5767.2,
-          0.0
+          5857.6
         ],
         "deferredRevenueNonCurrent": [
           0.0,
@@ -214370,7 +214370,7 @@ window.FULL_MARKET_DATA = {
           417.9,
           383.1,
           454.5,
-          0.0
+          486.7
         ],
         "otherNonCurrentLiabilities": [
           402.0,
@@ -214378,7 +214378,7 @@ window.FULL_MARKET_DATA = {
           409.3,
           517.4,
           -34.8,
-          0.0
+          717.6
         ],
         "totalNonCurrentLiabilities": [
           7308.5,
@@ -214386,7 +214386,7 @@ window.FULL_MARKET_DATA = {
           5609.4,
           6982.3,
           6932.5,
-          0.0
+          7784.5
         ],
         "totalLiabilities": [
           10091.4,
@@ -214394,7 +214394,7 @@ window.FULL_MARKET_DATA = {
           8834.6,
           10312.5,
           9756.0,
-          0.0
+          9909.1
         ],
         "totalDebt": [
           6342.6,
@@ -214402,7 +214402,7 @@ window.FULL_MARKET_DATA = {
           5954.2,
           7272.8,
           7204.0,
-          0.0
+          6766.1
         ],
         "netDebt": [
           4869.9,
@@ -214410,7 +214410,7 @@ window.FULL_MARKET_DATA = {
           5417.4,
           5754.1,
           6671.7,
-          0.0
+          6624.3
         ],
         "commonStock": [
           8.5,
@@ -214418,7 +214418,7 @@ window.FULL_MARKET_DATA = {
           7.7,
           7.6,
           7.5,
-          0.0
+          7.3
         ],
         "retainedEarnings": [
           10456.4,
@@ -214426,7 +214426,7 @@ window.FULL_MARKET_DATA = {
           7888.2,
           8303.4,
           8639.9,
-          0.0
+          8701.4
         ],
         "accumulatedOtherComprehensiveIncomeLoss": [
           -192.0,
@@ -214434,7 +214434,7 @@ window.FULL_MARKET_DATA = {
           -59.3,
           -261.6,
           -27.6,
-          0.0
+          -101.9
         ],
         "otherTotalStockholdersEquity": [
           0.0,
@@ -214450,7 +214450,7 @@ window.FULL_MARKET_DATA = {
           7875.0,
           8052.2,
           8619.8,
-          0.0
+          8606.8
         ],
         "totalEquity": [
           10294.0,
@@ -214458,7 +214458,7 @@ window.FULL_MARKET_DATA = {
           7890.5,
           8066.5,
           8636.7,
-          0.0
+          8623.2
         ],
         "totalLiabilitiesAndTotalEquity": [
           20385.4,
@@ -214466,7 +214466,7 @@ window.FULL_MARKET_DATA = {
           16725.1,
           18379.0,
           18392.7,
-          0.0
+          18532.3
         ],
         "totalInvestments": [
           60.9,
@@ -214474,7 +214474,7 @@ window.FULL_MARKET_DATA = {
           26.9,
           16.3,
           153.9,
-          0.0
+          139.3
         ]
       },
       "cashflow": {
@@ -214731,21 +214731,21 @@ window.FULL_MARKET_DATA = {
     "g1": 5.0,
     "g2": 3.5,
     "g": 2.25,
-    "wacc": 8.54,
+    "wacc": 7.5,
     "ev": 29500.3,
     "fmp_official_ev": 29500.3,
-    "dcf_model_ev": 20939.0,
+    "dcf_model_ev": 25160.9,
     "ev_to_ebitda": 13.7,
-    "debt_to_ebitda": 0.0,
-    "net_debt_to_ebitda": 0.0,
-    "f_score": 9,
+    "debt_to_ebitda": 3.14,
+    "net_debt_to_ebitda": 3.08,
+    "f_score": 7,
     "f_score_breakdown": [
       {
         "id": 1,
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 100230000000.0%"
+        "detail": "當期 ROA = 5.4%"
       },
       {
         "id": 2,
@@ -214758,7 +214758,7 @@ window.FULL_MARKET_DATA = {
         "id": 3,
         "category": "盈利能力",
         "desc": "資產回報率持續擴張 (ΔROA > 0)",
-        "passed": 1,
+        "passed": 0,
         "detail": "回報率穩步領先同業基準"
       },
       {
@@ -214773,14 +214773,14 @@ window.FULL_MARKET_DATA = {
         "category": "槓桿與償債",
         "desc": "財務槓桿未惡化 (ΔLeverage ≤ 0)",
         "passed": 1,
-        "detail": "總負債資產比率 = 40.0%"
+        "detail": "總負債資產比率 = 53.5%"
       },
       {
         "id": 6,
         "category": "槓桿與償債",
         "desc": "短期流動性安全 (ΔLiquidity > 0)",
         "passed": 1,
-        "detail": "流動比率 = 1.50"
+        "detail": "流動比率 = 1.80"
       },
       {
         "id": 7,
@@ -214793,7 +214793,7 @@ window.FULL_MARKET_DATA = {
         "id": 8,
         "category": "營運效率",
         "desc": "毛利率擴張 (ΔMargin > 0)",
-        "passed": 1,
+        "passed": 0,
         "detail": "產品定價權增強，毛利結構健康"
       },
       {
@@ -214804,78 +214804,78 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 31.41,
-    "default_fair_val": 31.41,
-    "premium_pct": 377.6,
+    "fair_val": 226.06,
+    "default_fair_val": 226.06,
+    "premium_pct": 38.1,
     "is_undervalued": false,
-    "pe_trailing": 99.8,
-    "pe_forward": 87.8,
-    "pb_trailing": 100000000000.0,
-    "pb_forward": 90000000000.0,
-    "div_yield": 0.24,
-    "ps_ratio": 21.6,
-    "fcf_to_ev": 5.52,
-    "fcf_to_mcap": 1.16,
-    "liab_to_assets": 40.0,
-    "cash_to_assets": 0.0,
-    "current_ratio": 1.5,
-    "roe": 100230000000.0,
-    "roa": 100230000000.0,
+    "pe_trailing": 25.5,
+    "pe_forward": 22.4,
+    "pb_trailing": 3.0,
+    "pb_forward": 2.7,
+    "div_yield": 0.93,
+    "ps_ratio": 5.5,
+    "fcf_to_ev": 4.59,
+    "fcf_to_mcap": 4.51,
+    "liab_to_assets": 53.5,
+    "cash_to_assets": 0.8,
+    "current_ratio": 1.8,
+    "roe": 11.6,
+    "roa": 5.4,
     "moat": {
       "ticker": "LH",
-      "period": "2026Q4",
+      "period": "2026Q2",
       "m1_brand_pricing": {
-        "score": 8,
-        "comment_zh": "Labcorp作為全球領先的生命科學服務公司，憑藉其廣泛的實驗室網絡、尖端技術和數十年積累的專業聲譽，在醫療保健領域建立了強大的品牌心智。醫療機構和藥廠對其檢測結果的準確性和可靠性高度依賴，這賦予了公司顯著的定價權。即使在成本壓力下，客戶也傾向於選擇Labcorp，因為轉換供應商的風險和潛在後果巨大。這種品牌信任和服務質量，使其能夠在不犧牲銷量的前提下，維持健康的利潤率並轉嫁成本，是其堅實護城河的關鍵組成部分。",
-        "comment_en": "As a global leader in life sciences services, Labcorp has built a formidable brand presence in healthcare, leveraging its extensive lab network, cutting-edge technology, and decades of professional reputation. Healthcare providers and pharmaceutical companies heavily rely on the accuracy and reliability of its test results, granting the company significant pricing power. Even under cost pressures, clients tend to choose Labcorp due to the substantial risks and potential consequences of switching providers. This brand trust and service quality enable it to maintain healthy profit margins and pass on costs without sacrificing sales, forming a crucial component of its robust moat."
+        "score": 6,
+        "comment_zh": "Labcorp作為美國領先的臨床實驗室服務提供商，其品牌在醫療專業人士和患者心中代表著可靠性與廣泛的檢測能力。儘管單一檢測項目可能面臨價格競爭，但其龐大的檢測菜單、全國性網絡以及與醫療系統的深度整合，賦予其一定的定價權。醫生和醫院傾向於選擇服務穩定、結果可靠的大型實驗室，以確保診斷質量和流程效率。然而，保險公司和政府支付方對檢測價格的嚴格控制，限制了其無限提價的能力，使其定價權介於商品化與特許經營之間。",
+        "comment_en": "As a leading clinical laboratory service provider in the U.S., Labcorp's brand signifies reliability and extensive testing capabilities to healthcare professionals and patients. While individual tests may face price competition, its vast test menu, national network, and deep integration with healthcare systems grant it some pricing power. Physicians and hospitals prefer established, reliable large laboratories for consistent service and accurate results, ensuring diagnostic quality and operational efficiency. However, stringent price controls from insurance companies and government payers limit its ability to raise prices indefinitely, positioning its pricing power between a commodity and a franchise."
       },
       "m2_patents_regulatory": {
-        "score": 7,
-        "comment_zh": "Labcorp身處高度管制的醫療保健行業，其運營需要獲得大量複雜的政府許可、認證和合規性批准。這些嚴格的監管要求本身就構成了巨大的進入壁壘，新競爭者難以在短時間內複製其合規體系和質量標準。此外，公司在某些專業檢測領域可能擁有獨特的專有技術或方法，雖非傳統專利，但其研發投入、複雜性和驗證成本也形成了一種知識產權壁壘。這些監管和技術壁壘共同確保了Labcorp在市場中的領先地位，使其免受輕易的競爭侵蝕。",
-        "comment_en": "Operating within the highly regulated healthcare industry, Labcorp requires extensive and complex government licenses, certifications, and compliance approvals. These stringent regulatory demands inherently create significant barriers to entry, making it difficult for new competitors to quickly replicate its compliance systems and quality standards. Furthermore, the company may possess unique proprietary technologies or methodologies in certain specialized testing areas. While not traditional patents, their R&D investment, complexity, and validation costs also form a type of intellectual property barrier. These regulatory and technological moats collectively secure Labcorp's leading market position, protecting it from easy competitive erosion."
+        "score": 8,
+        "comment_zh": "Labcorp在醫療檢測領域的護城河主要來自於嚴格的監管壁壘而非傳統意義上的專利集群。作為一家大型臨床實驗室，其必須符合CLIA、CAP等一系列複雜且嚴苛的聯邦及州級認證標準。這些高昂的合規成本、漫長的審批流程以及對質量控制的嚴格要求，對新進入者構成了巨大的障礙。此外，在某些專業診斷領域，Labcorp可能擁有獨特的檢測方法或專有技術，進一步鞏固其市場地位。這種監管特許經營權是其穩定盈利的關鍵。",
+        "comment_en": "Labcorp's moat in medical testing primarily stems from stringent regulatory barriers rather than traditional patent clusters. As a large clinical laboratory, it must comply with a complex and rigorous array of federal and state accreditation standards, such as CLIA and CAP. These high compliance costs, lengthy approval processes, and strict quality control requirements pose significant barriers to new entrants. Furthermore, in certain specialized diagnostic areas, Labcorp may possess unique testing methodologies or proprietary technologies, further solidifying its market position. This regulatory franchise is crucial for its stable profitability."
       },
       "m3_high_switching_costs": {
         "score": 8,
-        "comment_zh": "對於醫療機構、醫生診所和製藥公司而言，更換像Labcorp這樣的大型臨床實驗室和藥物開發服務提供商，會產生極高的轉換成本。這不僅涉及複雜的IT系統整合、數據遷移、員工培訓和流程調整，更可能導致患者護理流程中斷、診斷延誤或臨床試驗進度受阻，帶來潛在的聲譽和財務風險。一旦客戶與Labcorp建立深度合作關係，其服務的深度整合和數據的連續性，使得轉換供應商的意願極低，從而為Labcorp構建了堅實的客戶黏性護城河。",
-        "comment_en": "For healthcare institutions, physician practices, and pharmaceutical companies, switching from a large clinical laboratory and drug development service provider like Labcorp incurs extremely high switching costs. This involves not only complex IT system integration, data migration, staff training, and process adjustments, but also potential disruptions to patient care, diagnostic delays, or setbacks in clinical trial progress, leading to reputational and financial risks. Once clients establish deep partnerships with Labcorp, the profound integration of its services and the continuity of data make the willingness to switch providers very low, thereby building a robust customer stickiness moat for Labcorp."
+        "comment_zh": "對於醫療服務提供者而言，更換臨床實驗室合作夥伴會帶來顯著的轉換成本。這不僅涉及複雜的IT系統整合、員工培訓新訂單流程，更可能影響患者護理的連續性和數據的完整性。在藥物開發服務方面，製藥公司在臨床試驗中途更換CRO（合同研究組織）的成本更是天文數字，可能導致項目延誤、數據不一致，甚至影響藥物上市進程。這種深度嵌入客戶工作流程的特性，為Labcorp構建了極高的客戶黏性。",
+        "comment_en": "For healthcare providers, switching clinical laboratory partners entails significant switching costs. This involves not only complex IT system integration and staff training on new ordering procedures but also potential disruptions to patient care continuity and data integrity. In drug development services, the cost for pharmaceutical companies to switch CROs (Contract Research Organizations) mid-study is astronomical, potentially leading to project delays, data inconsistencies, and even impacting drug approval timelines. This deep embedding into clients' workflows creates extremely high customer stickiness for Labcorp."
       },
       "m4_network_effects": {
         "score": 6,
-        "comment_zh": "Labcorp的網絡效應主要體現在其廣泛的實驗室網絡和龐大的數據積累上。其遍布全球的檢測點和豐富的臨床數據庫，吸引了更多藥廠進行大規模臨床試驗，而更多的試驗數據又反過來提升了其數據分析能力、診斷精準度和服務質量，形成正向循環。這種規模和數據優勢，使得其能夠提供更全面、更高效的服務，進一步鞏固了其在市場中的領導地位。儘管不如社交媒體般直接，但這種數據驅動的網絡效應對新進入者構成顯著挑戰。",
-        "comment_en": "Labcorp's network effects are primarily manifested in its extensive laboratory network and vast data accumulation. Its global testing sites and rich clinical database attract more pharmaceutical companies to conduct large-scale clinical trials. In turn, more trial data enhances its data analysis capabilities, diagnostic accuracy, and service quality, creating a virtuous cycle. This scale and data advantage enable it to offer more comprehensive and efficient services, further solidifying its leadership in the market. Although not as direct as social media, this data-driven network effect poses a significant challenge to new entrants."
+        "comment_zh": "Labcorp的網絡效應並非典型的社交網絡模式，但其龐大的實驗室網絡和廣泛的服務覆蓋範圍，確實產生了間接的正向反饋。更廣泛的地理分佈和檢測能力吸引了更多醫療機構和醫生，這反過來增加了檢測量，使得數據積累更豐富，有助於提升診斷精準度與效率。在藥物開發服務方面，承接更多臨床試驗項目，能吸引頂尖人才與專業知識，進一步強化其服務能力，形成良性循環。這種規模帶來的網絡效應，增強了其競爭優勢。",
+        "comment_en": "Labcorp's network effect isn't a typical social network model, but its extensive laboratory network and broad service coverage indeed generate indirect positive feedback. Wider geographic distribution and testing capabilities attract more healthcare institutions and physicians, which in turn increases testing volumes. This leads to richer data accumulation, helping to improve diagnostic accuracy and efficiency. In drug development services, undertaking more clinical trial projects attracts top talent and expertise, further strengthening its service capabilities and creating a virtuous cycle. This scale-driven network effect enhances its competitive advantage."
       },
       "m5_cost_advantage_scale": {
-        "score": 8,
-        "comment_zh": "作為全球領先的臨床實驗室服務提供商之一，Labcorp享有顯著的規模經濟優勢。其龐大的檢測量和全球採購網絡，使其在試劑、設備和耗材方面能獲得遠低於小型競爭對手的單位成本。此外，標準化流程、自動化技術和集中化管理，也大幅提升了運營效率，降低了邊際成本。這種成本優勢讓Labcorp能夠提供更具競爭力的價格，同時保持健康的利潤率，是小型競爭對手難以匹敵的強大護城河，確保了其在市場中的成本領先地位。",
-        "comment_en": "As one of the world's leading clinical laboratory service providers, Labcorp enjoys significant economies of scale. Its massive testing volume and global procurement network allow it to acquire reagents, equipment, and consumables at unit costs far lower than those of smaller competitors. Furthermore, standardized processes, automation technologies, and centralized management significantly enhance operational efficiency and reduce marginal costs. This cost advantage enables Labcorp to offer more competitive pricing while maintaining healthy profit margins, representing a powerful moat that small competitors struggle to match, ensuring its cost leadership in the market."
+        "score": 9,
+        "comment_zh": "Labcorp作為美國兩大臨床實驗室巨頭之一，其規模經濟優勢極為顯著。龐大的檢測量使其能夠在試劑、設備採購上獲得議價能力，並通過優化物流、集中化高通量檢測設施以及高效的IT系統，大幅降低單位檢測成本。這種規模效應使得Labcorp能夠以遠低於小型實驗室的邊際成本提供服務，形成強大的成本護城河。新進入者難以在短時間內複製其基礎設施和運營效率，這確保了其在市場上的領先地位和盈利能力。",
+        "comment_en": "As one of the two largest clinical laboratory giants in the U.S., Labcorp possesses an extremely significant scale advantage. Its massive testing volume enables it to gain bargaining power in reagent and equipment procurement, and significantly reduce unit testing costs through optimized logistics, centralized high-throughput testing facilities, and efficient IT systems. This economy of scale allows Labcorp to provide services at a much lower marginal cost than smaller laboratories, forming a strong cost moat. New entrants would find it difficult to replicate its infrastructure and operational efficiency in a short period, ensuring its leading market position and profitability."
       },
       "m6_unique_geography_assets": {
-        "score": 7,
-        "comment_zh": "臨床實驗室服務市場呈現出一定程度的寡頭壟斷格局，少數幾家巨頭佔據主導地位。Labcorp憑藉其廣泛的地理覆蓋、全面的服務組合和在關鍵區域市場的深耕，在許多特定專業檢測領域或地區形成了天然的寡占地位。新競爭者若想進入並有效競爭，需投入巨額資本建立實驗室網絡、獲得複雜認證並積累數據，這會導致市場過度競爭，利潤率受損，從而理性地抑制了潛在競爭者的進入意願，形成一種「有效規模」的護城河。",
-        "comment_en": "The clinical laboratory services market exhibits a degree of oligopoly, with a few major players dominating. Labcorp, with its extensive geographic coverage, comprehensive service portfolio, and deep penetration in key regional markets, has established a natural oligopoly in many specialized testing areas or regions. For new competitors to enter and effectively compete, they would need to invest massive capital to build laboratory networks, obtain complex certifications, and accumulate data. This would lead to excessive market competition and eroded profit margins, thereby rationally deterring potential entrants and forming an 'efficient scale' moat."
+        "score": 8,
+        "comment_zh": "臨床實驗室服務市場已高度成熟且呈現寡頭壟斷格局，主要由Labcorp和Quest Diagnostics兩大巨頭主導。儘管存在眾多小型實驗室，但提供全國性、綜合性檢測服務的市場已趨於飽和。新進入者將面臨天文數字般的資本投入、嚴格的監管障礙以及難以撼動現有巨頭與支付方及醫療機構的深厚關係。在這種「有效規模」市場中，再增加一個全國性競爭者只會導致惡性競爭，降低所有參與者的盈利能力，因此形成了天然的進入壁壘。",
+        "comment_en": "The clinical laboratory services market is highly mature and oligopolistic, dominated by two giants, Labcorp and Quest Diagnostics. While numerous smaller labs exist, the market for national, comprehensive testing services is largely saturated. New entrants would face astronomical capital investment, stringent regulatory hurdles, and immense difficulty dislodging the deeply entrenched relationships existing giants have with payers and healthcare providers. In this \"efficient scale\" market, adding another national competitor would likely only lead to destructive competition, reducing profitability for all participants, thus forming a natural barrier to entry."
       },
       "m7_operational_efficiency": {
-        "score": 9,
-        "comment_zh": "儘管提供的ROE和ROA數據異常高，但Labcorp高達9分的皮氏F-Score和穩健的自由現金流（FCF TTM $1,155.2 M），強烈暗示其具備卓越的資本配置效率和持續創造超額回報的能力。這表明公司能夠將投入資本轉化為顯著的利潤增長，其投入資本回報率（ROIC）長期穩定地超越加權平均資本成本（WACC），為股東創造了可觀的複利價值。這種持續的超額回報能力，是其堅實護城河的有力證明，展現了其卓越的運營韌性。",
-        "comment_en": "Despite the unusually high ROE and ROA figures provided, Labcorp's impressive Piotroski F-Score of 9 and robust free cash flow (FCF TTM $1,155.2 M) strongly indicate exceptional capital allocation efficiency and a sustained ability to generate excess returns. This suggests the company can convert invested capital into significant profit growth, with its Return on Invested Capital (ROIC) consistently exceeding its Weighted Average Cost of Capital (WACC) over the long term, creating substantial compounding value for shareholders. This sustained ability to generate excess returns is powerful evidence of its solid moat, demonstrating remarkable operational resilience."
+        "score": 7,
+        "comment_zh": "Labcorp作為醫療保健服務的關鍵組成部分，其業務本質決定了需求的高度穩定性。儘管未直接提供WACC數據，但其持續穩定的盈利能力、11.6%的ROE以及超過11億美元的自由現金流，強烈暗示其長期投入資本回報率（ROIC）很可能持續超越其加權平均資本成本（WACC）。這種穩健的財務表現，反映了公司在高度監管且必需的醫療檢測市場中，具備創造實質股東價值的韌性，而非短期的投機性收益。",
+        "comment_en": "As a critical component of healthcare services, Labcorp's business inherently possesses highly stable demand. Although WACC data is not directly provided, its consistently stable profitability, 11.6% ROE, and over $1.1 billion in free cash flow strongly suggest that its long-term Return on Invested Capital (ROIC) likely consistently exceeds its Weighted Average Cost of Capital (WACC). This robust financial performance reflects the company's resilience in creating substantial shareholder value within the highly regulated and essential medical testing market, rather than generating short-term speculative gains."
       },
       "m8_capital_allocation": {
-        "score": 8,
-        "comment_zh": "即使給予競爭對手千億美元，也難以在短時間內複製Labcorp的核心戰略資產。這包括其遍布全球的實驗室網絡、數十年積累的專業知識和龐大數據庫、與醫療機構和藥廠建立的深厚信任關係、以及複雜的監管批准和認證體系。這些無形資產和運營體系是長期投入、經驗積累和品牌建設的結果，構成了一道難以逾越的壁壘。這種不可複製性確保了Labcorp在市場中的獨特地位，使其能夠長期保持競爭優勢。",
-        "comment_en": "Even with a hundred billion dollars, it would be incredibly difficult for a competitor to replicate Labcorp's core strategic assets in a short period. This includes its global network of laboratories, decades of accumulated specialized knowledge and vast databases, deep trust relationships established with healthcare institutions and pharmaceutical companies, and complex regulatory approvals and certification systems. These intangible assets and operational frameworks are the result of long-term investment, accumulated experience, and brand building, forming an insurmountable barrier. This irreproducibility ensures Labcorp's unique position in the market, allowing it to maintain a long-term competitive advantage."
+        "score": 9,
+        "comment_zh": "即使給予競爭對手千億美元，也難以在數年內複製Labcorp的核心戰略資產。這不僅僅是資金問題，更是數十年來逐步建立的全國性實驗室網絡、患者服務中心、複雜的物流體系、先進的IT基礎設施、深厚的監管合規專業知識，以及與數千家醫療機構和支付方建立的長期信任關係。在高度敏感的醫療行業，信任和歷史數據積累是無價之寶。這種無形資產的不可複製性，構成了其極為堅固的護城河。",
+        "comment_en": "Even with a hundred billion dollars, a competitor would find it nearly impossible to replicate Labcorp's core strategic assets within a few years. This is not merely a matter of capital; it involves decades of incrementally building a national network of laboratories, patient service centers, complex logistics systems, advanced IT infrastructure, deep regulatory compliance expertise, and long-standing trust relationships with thousands of healthcare providers and payers. In the highly sensitive healthcare industry, trust and accumulated historical data are invaluable. The irreproducibility of these intangible assets forms an extremely robust moat."
       },
       "m9_customer_retention": {
-        "score": 7,
-        "comment_zh": "醫療診斷和藥物開發服務的需求具有高度的確定性和剛性，不易受短期技術潮流或典範轉移的劇烈衝擊。儘管AI和基因組學等新技術不斷演進，但Labcorp作為行業領導者，正積極整合這些創新以提升服務效率和精準度，而非被動受其顛覆。其核心業務——提供不可或缺的檢測和研發支持——在可預見的未來仍將是醫療體系的重要組成部分。這種對基礎醫療需求的滿足，賦予了公司強大的技術變革抗性，確保了客戶的長期留存。",
-        "comment_en": "The demand for medical diagnostics and drug development services is highly certain and inelastic, less susceptible to drastic shocks from short-term technological trends or paradigm shifts. While new technologies like AI and genomics continue to evolve, Labcorp, as an industry leader, is actively integrating these innovations to enhance service efficiency and accuracy, rather than being passively disrupted. Its core business—providing indispensable testing and R&D support—will remain a vital component of the healthcare system for the foreseeable future. This fulfillment of fundamental medical needs grants the company strong resistance to technological change, ensuring long-term customer retention."
+        "score": 8,
+        "comment_zh": "醫療檢測作為醫療保健的基石，其需求具有極高的確定性，這賦予Labcorp強大的技術/典範轉移抗性。儘管診斷技術不斷演進，例如AI在病理學的應用或液態活檢的發展，但對實驗室檢測的根本需求依然不變。Labcorp積極投資並整合新技術，將其視為提升效率和診斷精準度的工具，而非顛覆性威脅。其核心業務——樣本處理和提供診斷結果——不太可能被單一技術或AI完全取代，反而可能因此強化其市場領導地位。",
+        "comment_en": "Medical testing, as a cornerstone of healthcare, has extremely high demand certainty, granting Labcorp strong immunity to technological or paradigm shifts. Although diagnostic technologies continuously evolve, such as AI applications in pathology or the development of liquid biopsies, the fundamental need for laboratory testing remains constant. Labcorp actively invests in and integrates new technologies, viewing them as tools to enhance efficiency and diagnostic accuracy rather than disruptive threats. Its core business—sample processing and providing diagnostic results—is unlikely to be completely replaced by a single technology or AI; instead, it may strengthen its market leadership."
       },
       "m10_durability": {
-        "score": 8,
-        "comment_zh": "儘管缺乏具體的併購或回購細節，但Labcorp高達9分的皮氏F-Score和穩健的自由現金流，強烈暗示其管理層在資本配置方面表現出高度的誠信和效率。這通常意味著公司能夠避免盲目高價併購，並在股價被低估時積極進行股票回購，以有效提升股東價值。這種對股東利益負責的態度，是巴菲特所推崇的優秀管理層特質，為公司的長期發展提供了堅實保障。穩健的財務狀況和負責任的資本配置，是企業護城河持久性的重要基石。",
-        "comment_en": "Although specific details on M&A or buybacks are lacking, Labcorp's impressive Piotroski F-Score of 9 and robust free cash flow strongly suggest its management demonstrates high integrity and efficiency in capital allocation. This typically implies the company avoids reckless, high-priced acquisitions and actively conducts share buybacks when its stock is undervalued, effectively enhancing shareholder value. This commitment to shareholder interests is a quality highly valued by Buffett, providing a solid foundation for the company's long-term growth. Sound financial health and responsible capital allocation are crucial cornerstones for the durability of a company's moat."
+        "score": 7,
+        "comment_zh": "Labcorp的Piotroski F-Score高達7分，顯示其財務狀況穩健且營運效率良好。每年超過11億美元的自由現金流，為公司提供了充裕的資本配置彈性。儘管其負債水平相對較高，但對於現金流穩定的成熟企業而言，這通常是優化資本結構的策略。管理層的誠信與否，以及其在回購股票、償還債務或進行併購方面的決策，對於股東價值至關重要。基於其穩健的財務指標，可推斷管理層在資本配置上傾向於審慎且注重長期價值。",
+        "comment_en": "Labcorp's Piotroski F-Score of 7 indicates sound financial health and good operational efficiency. Over $1.1 billion in annual free cash flow provides the company with ample capital allocation flexibility. Although its debt level is relatively high, for mature businesses with stable cash flows, this is often a strategy to optimize capital structure. The integrity of management and their decisions regarding share buybacks, debt repayment, or M&A are crucial for shareholder value. Based on its robust financial metrics, it can be inferred that management tends to be prudent and long-term oriented in its capital allocation."
       },
-      "overall_moat_verdict_zh": "Labcorp本質上是一家在醫療保健領域扮演「收費橋樑」角色的特許經營權企業。它並非生產有形商品，而是提供不可或缺的臨床診斷和藥物開發服務，深度嵌入全球醫療生態系統。其護城河主要源於規模經濟、高轉換成本、嚴格的監管壁壘以及強大的品牌信任。這些因素共同創造了一個難以被新進入者複製的競爭優勢，使其能夠長期保持穩定的盈利能力和市場地位。儘管技術不斷演進，但對精準醫療檢測和新藥研發的需求是永恆的，賦予Labcorp極高的業務確定性和抗顛覆性，是典型的巴菲特式「好生意」。",
-      "overall_moat_verdict_en": "Labcorp fundamentally operates as a 'toll bridge' franchise within the healthcare sector. It doesn't produce tangible goods but provides indispensable clinical diagnostic and drug development services, deeply embedded in the global healthcare ecosystem. Its moat primarily stems from economies of scale, high switching costs, stringent regulatory barriers, and strong brand trust. These factors collectively create a competitive advantage that is difficult for new entrants to replicate, allowing it to maintain stable profitability and market position over the long term. Despite evolving technology, the demand for precise medical testing and new drug development is perpetual, granting Labcorp high business certainty and disruption immunity, making it a quintessential Buffett-style 'good business'."
+      "overall_moat_verdict_zh": "Labcorp在本質上是一家醫療保健基礎設施的「收費橋樑」型企業，其護城河主要由多重堅固壁壘構成。首先，嚴格的監管要求和認證體系構成了強大的進入障礙。其次，對於醫療機構和製藥客戶而言，更換實驗室或CRO服務商將產生極高的轉換成本，確保了客戶黏性。再者，其龐大的全國性實驗室網絡和檢測量帶來了顯著的規模經濟效益，使其能以更低成本運營。市場呈現天然寡占格局，新競爭者難以撼動。這些核心戰略資產的不可複製性，加上醫療檢測需求的高度確定性，共同賦予Labcorp穩定的盈利能力和持續超越資本成本的回報。這使其成為一個具備特許經營權特徵的優質企業。",
+      "overall_moat_verdict_en": "Labcorp fundamentally operates as a \"toll bridge\" enterprise within the healthcare infrastructure, with its moat primarily constructed from multiple robust barriers. Firstly, stringent regulatory requirements and accreditation systems form powerful entry barriers. Secondly, for healthcare providers and pharmaceutical clients, switching laboratory or CRO service providers incurs extremely high costs, ensuring customer stickiness. Furthermore, its vast national laboratory network and testing volume generate significant economies of scale, allowing it to operate at lower costs. The market exhibits a natural oligopoly, making it difficult for new competitors to dislodge incumbents. The irreproducibility of these core strategic assets, coupled with the high certainty of demand for medical testing, collectively grants Labcorp stable profitability and returns consistently exceeding its cost of capital. This positions it as a high-quality business with franchise-like characteristics."
     },
     "fin_valuation": {
       "is_financial": false
@@ -214896,10 +214896,10 @@ window.FULL_MARKET_DATA = {
     "phone": "336 229 1127",
     "full_address": "358 South Main Street, Burlington, NC 27215, US",
     "range_52w": "244.52-341.8",
-    "year_high": 302.17,
-    "year_low": 148.05,
+    "year_high": 341.8,
+    "year_low": 244.52,
     "all_time_high": 0.0,
-    "all_time_low": 148.05,
+    "all_time_low": 244.52,
     "inst_ownership_pct": 75.5,
     "insider_ownership_pct": 9.5,
     "top_holders": [
@@ -267616,10 +267616,10 @@ window.FULL_MARKET_DATA = {
     "g2": 3.5,
     "g": 2.25,
     "wacc": 7.98,
-    "ev": 40670.6,
-    "fmp_official_ev": 40670.6,
+    "ev": 49327.6,
+    "fmp_official_ev": 49327.6,
     "dcf_model_ev": 40643.1,
-    "ev_to_ebitda": 13.2,
+    "ev_to_ebitda": 16.0,
     "debt_to_ebitda": 1.5,
     "net_debt_to_ebitda": 1.2,
     "f_score": 8,
@@ -268396,7 +268396,7 @@ window.FULL_MARKET_DATA = {
   },
   "AOS": {
     "name": "A. O. Smith",
-    "company_name": "A. O. Smith",
+    "company_name": "A. O. Smith Corporation",
     "exchange": "NYSE",
     "sector": "工業",
     "industry": "Building Products",
@@ -269230,8 +269230,8 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "beta": 1.15,
-    "beta_5y": 1.15,
+    "beta": 1.11,
+    "beta_5y": 1.11,
     "kd": 4.5,
     "tax": 21.0,
     "growth_10y": [
@@ -269249,10 +269249,10 @@ window.FULL_MARKET_DATA = {
     "g1": 5.0,
     "g2": 3.5,
     "g": 2.25,
-    "wacc": 9.45,
+    "wacc": 9.28,
     "ev": 9182.8,
     "fmp_official_ev": 9182.8,
-    "dcf_model_ev": 10096.8,
+    "dcf_model_ev": 10352.2,
     "ev_to_ebitda": 12.1,
     "debt_to_ebitda": 0.89,
     "net_debt_to_ebitda": 0.65,
@@ -269322,9 +269322,9 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 69.28,
-    "default_fair_val": 69.28,
-    "premium_pct": -18.6,
+    "fair_val": 71.12,
+    "default_fair_val": 71.12,
+    "premium_pct": -20.7,
     "is_undervalued": true,
     "pe_trailing": 15.6,
     "pe_forward": 13.7,
@@ -269332,7 +269332,7 @@ window.FULL_MARKET_DATA = {
     "pb_forward": 3.8,
     "div_yield": 2.53,
     "ps_ratio": 3.1,
-    "fcf_to_ev": 6.33,
+    "fcf_to_ev": 6.18,
     "fcf_to_mcap": 8.18,
     "liab_to_assets": 49.5,
     "cash_to_assets": 5.0,
@@ -269398,22 +269398,22 @@ window.FULL_MARKET_DATA = {
     "fin_valuation": {
       "is_financial": false
     },
-    "image": "https://assets.financialmodelingprep.com/symbol/AOS.png",
-    "logo": "https://assets.financialmodelingprep.com/symbol/AOS.png",
-    "website": "",
-    "ceo": "Executive Committee",
-    "full_time_employees": "--",
-    "description": "A publicly traded US equity on major exchanges.",
-    "description_en": "A publicly traded US equity on major exchanges.",
+    "image": "https://images.financialmodelingprep.com/symbol/AOS.png",
+    "logo": "https://images.financialmodelingprep.com/symbol/AOS.png",
+    "website": "https://www.aosmith.com",
+    "ceo": "Stephen Shafer",
+    "full_time_employees": "11500",
+    "description": "A. O. Smith Corporation (AOS) is a global manufacturer and marketer specializing in a comprehensive array of water heating and treatment solutions. Its operations span North America, China, Europe, and India, organized into two primary geographic segments: North America and Rest of World. The company's product portfolio is extensive, featuring residential and commercial water heaters (gas, heat pump, and electric models), boilers, storage tanks, and various water treatment systems. These products cater to a wide range of applications, including homes, apartments, and condominiums, as well as commercial entities such as restaurants, hotels, office buildings, laundries, car washes, small businesses, hospitals, and schools. Specific offerings include diverse water treatment products like point-of-entry water softeners, well water purification systems, whole-home filtration units, portable filtration bottles, point-of-use carbon filters, and reverse osmosis systems, designed for residential, restaurant, hotel, and office use. A. O. Smith also supplies food and beverage filtration products, expansion tanks, commercial solar water heating installations, and heaters for swimming pools and spas, along with associated components. Advanced heating solutions further encompass heat pumps, electric wall-hung units, gas tankless heaters, combi-boilers, and integrated heat pump and solar water heaters. Products are primarily sold under established brands such as A. O. Smith, State, and Lochinvar, in addition to specialized water softener brands. The company leverages various distribution channels, including independent wholesale plumbing distributors, retail outlets like hardware and home center chains, and manufacturer representative firms. Its Aquasana-branded products are sold directly to consumers through e-commerce platforms and other online retailers. Founded in 1874, A. O. Smith Corporation maintains its corporate headquarters in Milwaukee, Wisconsin.",
+    "description_en": "A. O. Smith Corporation (AOS) is a global manufacturer and marketer specializing in a comprehensive array of water heating and treatment solutions. Its operations span North America, China, Europe, and India, organized into two primary geographic segments: North America and Rest of World. The company's product portfolio is extensive, featuring residential and commercial water heaters (gas, heat pump, and electric models), boilers, storage tanks, and various water treatment systems. These products cater to a wide range of applications, including homes, apartments, and condominiums, as well as commercial entities such as restaurants, hotels, office buildings, laundries, car washes, small businesses, hospitals, and schools. Specific offerings include diverse water treatment products like point-of-entry water softeners, well water purification systems, whole-home filtration units, portable filtration bottles, point-of-use carbon filters, and reverse osmosis systems, designed for residential, restaurant, hotel, and office use. A. O. Smith also supplies food and beverage filtration products, expansion tanks, commercial solar water heating installations, and heaters for swimming pools and spas, along with associated components. Advanced heating solutions further encompass heat pumps, electric wall-hung units, gas tankless heaters, combi-boilers, and integrated heat pump and solar water heaters. Products are primarily sold under established brands such as A. O. Smith, State, and Lochinvar, in addition to specialized water softener brands. The company leverages various distribution channels, including independent wholesale plumbing distributors, retail outlets like hardware and home center chains, and manufacturer representative firms. Its Aquasana-branded products are sold directly to consumers through e-commerce platforms and other online retailers. Founded in 1874, A. O. Smith Corporation maintains its corporate headquarters in Milwaukee, Wisconsin.",
     "description_zh": "好的，作為資深美股證券分析師，我將A. O. Smith Corporation (AOS) 的業務營運精煉如下：\n\nA. O. Smith Corporation (AOS) 為全球領先的水加熱與水處理解決方案供應商。其營運劃分北美與世界其他地區兩大事業群，市場遍及北美、中國、歐洲及印度。\n\n公司核心產品涵蓋家用及商用熱水器（包括燃氣、熱泵、電熱型）、鍋爐、儲水桶，以及全戶式軟水機、逆滲透（RO）等多元水處理系統。這些產品廣泛應用於住宅與商業場所，例如餐飲、飯店、辦公大樓、醫療院所。\n\nAOS亦提供餐飲過濾、商用太陽能熱水設備，並開發熱泵、無水箱熱水器等先進加熱方案。主要品牌有A. O. Smith、State、Lochinvar。通路多元，透過獨立衛浴批發商、居家修繕通路及製造商代表分銷；旗下Aquasana品牌則以電子商務模式直接銷售予終端消費者。",
-    "address": "--",
-    "city": "--",
-    "state": "--",
-    "zip": "--",
+    "address": "11270 West Park Place",
+    "city": "Milwaukee",
+    "state": "WI",
+    "zip": "53224",
     "country": "US",
-    "phone": "--",
-    "full_address": "",
-    "range_52w": "--",
+    "phone": "414 359 4000",
+    "full_address": "11270 West Park Place, Milwaukee, WI 53224, US",
+    "range_52w": "54.16-81.87",
     "year_high": 81.87,
     "year_low": 54.16,
     "all_time_high": 0.0,
@@ -277949,7 +277949,7 @@ window.FULL_MARKET_DATA = {
         4036.6,
         3875.2,
         3201.2,
-        3564.0
+        0.0
       ],
       "net_income": [
         488.5,
@@ -277957,7 +277957,7 @@ window.FULL_MARKET_DATA = {
         400.9,
         428.4,
         -277.7,
-        -471.3
+        0.0
       ],
       "gross_profit": [
         1194.9,
@@ -277965,7 +277965,7 @@ window.FULL_MARKET_DATA = {
         1534.1,
         1470.4,
         1251.9,
-        1355.8
+        0.0
       ],
       "operating_income": [
         630.0,
@@ -277973,7 +277973,7 @@ window.FULL_MARKET_DATA = {
         634.9,
         656.2,
         588.8,
-        -110.2
+        0.0
       ],
       "cfo": [
         423.4,
@@ -278008,7 +278008,7 @@ window.FULL_MARKET_DATA = {
           4036.61,
           3875.16,
           3201.2,
-          3564.01
+          0.0
         ],
         "costOfRevenue": [
           2055.93,
@@ -278016,7 +278016,7 @@ window.FULL_MARKET_DATA = {
           2502.54,
           2404.79,
           1949.29,
-          2208.22
+          0.0
         ],
         "grossProfit": [
           1194.86,
@@ -278024,7 +278024,7 @@ window.FULL_MARKET_DATA = {
           1534.06,
           1470.37,
           1251.91,
-          1355.8
+          0.0
         ],
         "grossProfitRatio": [
           0.0,
@@ -278064,7 +278064,7 @@ window.FULL_MARKET_DATA = {
           794.44,
           762.5,
           663.16,
-          750.9
+          0.0
         ],
         "otherExpenses": [
           -103.11,
@@ -278072,7 +278072,7 @@ window.FULL_MARKET_DATA = {
           51.65,
           51.68,
           0.0,
-          715.1
+          0.0
         ],
         "operatingExpenses": [
           564.87,
@@ -278080,7 +278080,7 @@ window.FULL_MARKET_DATA = {
           899.19,
           814.18,
           663.16,
-          1466.0
+          0.0
         ],
         "costAndExpenses": [
           2620.8,
@@ -278088,7 +278088,7 @@ window.FULL_MARKET_DATA = {
           3401.74,
           3218.97,
           2612.44,
-          3674.22
+          0.0
         ],
         "operatingIncome": [
           629.99,
@@ -278096,7 +278096,7 @@ window.FULL_MARKET_DATA = {
           634.87,
           656.19,
           588.76,
-          -110.21
+          0.0
         ],
         "operatingIncomeRatio": [
           0.0,
@@ -278112,7 +278112,7 @@ window.FULL_MARKET_DATA = {
           -115.49,
           -78.87,
           -106.48,
-          -137.66
+          0.0
         ],
         "interestIncome": [
           0.0,
@@ -278128,7 +278128,7 @@ window.FULL_MARKET_DATA = {
           120.35,
           92.23,
           93.83,
-          106.04
+          0.0
         ],
         "incomeBeforeTax": [
           619.5,
@@ -278136,7 +278136,7 @@ window.FULL_MARKET_DATA = {
           519.38,
           577.32,
           482.27,
-          -247.87
+          0.0
         ],
         "incomeBeforeTaxRatio": [
           0.0,
@@ -278152,7 +278152,7 @@ window.FULL_MARKET_DATA = {
           118.5,
           148.89,
           115.01,
-          39.53
+          0.0
         ],
         "netIncome": [
           488.49,
@@ -278160,7 +278160,7 @@ window.FULL_MARKET_DATA = {
           400.88,
           428.43,
           -277.73,
-          -471.3
+          0.0
         ],
         "netIncomeRatio": [
           0.0,
@@ -278176,7 +278176,7 @@ window.FULL_MARKET_DATA = {
           7.48,
           7.97,
           -5.38,
-          1.2
+          0.0
         ],
         "epsdiluted": [
           0.0,
@@ -278192,7 +278192,7 @@ window.FULL_MARKET_DATA = {
           53577000.0,
           53738000.0,
           51655000.0,
-          45343000.0
+          0.0
         ],
         "weightedAverageShsOutDil": [
           56665000.0,
@@ -278200,7 +278200,7 @@ window.FULL_MARKET_DATA = {
           54086000.0,
           54209000.0,
           51655000.0,
-          45343000.0
+          0.0
         ],
         "ebitda": [
           801.9,
@@ -278208,7 +278208,7 @@ window.FULL_MARKET_DATA = {
           797.35,
           796.72,
           681.41,
-          -22.18
+          0.0
         ],
         "ebitdaratio": [
           0.0,
