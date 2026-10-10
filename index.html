@@ -1593,7 +1593,6 @@
       mcap: baseMcap,
       fcf_to_ev: (officialMarketEV > 0) ? ((localFCF0 / officialMarketEV) * 100) : 0,
       fcf_to_mcap: (baseMcap > 0) ? ((localFCF0 / baseMcap) * 100) : 0,
-      cash_minus_liab: localCash - localDebt,
       ev_to_ebitda: Math.round((officialMarketEV / estimatedEbitda) * 10) / 10,
       debt_to_ebitda: Math.round((localDebt / estimatedEbitda) * 100) / 100,
       net_debt_to_ebitda: Math.round((NetDebt / estimatedEbitda) * 100) / 100,
