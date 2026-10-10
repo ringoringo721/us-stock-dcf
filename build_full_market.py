@@ -1309,6 +1309,7 @@ def main():
             "net_debt": round(debt - cash, 1),
             "fcf0": fcf0,
             "real_history": real_history,
+            "statements_raw": statements_data,
             "beta": beta,
             "beta_5y": beta_5y,
             "kd": KD,
