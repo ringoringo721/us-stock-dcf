@@ -44,7 +44,52 @@ if HAS_GENAI:
         print(f"⚠️ Gemini Client 初始化失敗: {e}", flush=True)
 
 CACHE_DIR = "cache/moat"
+DESC_CACHE_DIR = "cache/descriptions"
 os.makedirs(CACHE_DIR, exist_ok=True)
+os.makedirs(DESC_CACHE_DIR, exist_ok=True)
+
+def get_deep_chinese_description(ticker: str, company_name: str, en_desc: str) -> str:
+    """利用 Gemini 將 FMP 英文業務描述翻譯並提煉為繁體中文，並支援本機快取"""
+    if not en_desc or len(en_desc.strip()) < 30:
+        return ""
+
+    cache_file = os.path.join(DESC_CACHE_DIR, f"{ticker}_desc_zh.json")
+    if os.path.exists(cache_file):
+        try:
+            with open(cache_file, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                if data.get("description_zh") and len(data["description_zh"]) > 40:
+                    return data["description_zh"]
+        except Exception:
+            pass
+
+    if not gemini_client:
+        return ""
+
+    prompt = f"""
+你是一名資深美股證券分析師。請將以下美股企業 【{company_name} ({ticker})】 的官方業務營運描述翻譯並精煉為「繁體中文（台灣財經用語）」。
+要求：
+1. 完整保留核心產品、主要業務板塊、關鍵技術（如 GPU、雲端服務、Omniverse 等）與營運模式。
+2. 語氣客觀嚴謹，長度控制在 180 至 260 字以內。
+3. 嚴禁空泛套話，請提供詳實的業務內容。
+
+英文原文：
+{en_desc}
+"""
+    for attempt in range(2):
+        try:
+            response = gemini_client.models.generate_content(
+                model=PRIMARY_MODEL,
+                contents=prompt
+            )
+            desc_zh = response.text.strip()
+            with open(cache_file, "w", encoding="utf-8") as f:
+                json.dump({"description_zh": desc_zh}, f, ensure_ascii=False, indent=2)
+            return desc_zh
+        except Exception as e:
+            time.sleep(1.5)
+
+    return ""
 
 RF = 0.0450
 ERP = 0.0475
@@ -596,14 +641,19 @@ def main():
         prof_data = fetch_json("profile", {"symbol": fmp_sym})
         prof = prof_data[0] if (prof_data and isinstance(prof_data, list) and len(prof_data) > 0) else {}
 
-        company_full_name = prof.get("companyName") or item["name"]
+company_full_name = prof.get("companyName") or item["name"]
         image_url = prof.get("image") or f"https://assets.financialmodelingprep.com/symbol/{sym}.png"
         website = prof.get("website") or ""
         ceo = prof.get("ceo") or "Executive Committee"
         employees = prof.get("fullTimeEmployees") or "--"
         description_en = prof.get("description") or "A publicly traded US equity on major exchanges."
-        description_zh = f"{company_full_name}（美股代碼：{sym}）為 {item['sector']} 領域之重要企業，專注於 {item['industry']} 業務，具備清晰之商業壁壘與現金流創造能力。"
 
+        # 調用 Gemini 取得深度繁體中文簡介（具備快取保護）
+        ai_desc_zh = get_deep_chinese_description(sym, company_full_name, description_en)
+        if ai_desc_zh:
+            description_zh = ai_desc_zh
+        else:
+            description_zh = f"{company_full_name}（美股代碼：{sym}）為 {item['sector']} 領域之重要企業，專注於 {item['industry']} 業務，具備清晰之商業壁壘與現金流創造能力。"
         # 提取底層法定企業唯一識別碼 (解決 GOOGL / GOOG 等雙代碼問題)
         entity_id = get_canonical_entity_id(prof, sym)
 
