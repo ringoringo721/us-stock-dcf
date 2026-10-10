@@ -2167,45 +2167,32 @@ function renderInsiderTrades(s) {
     `;
   }
 
-  function renderStockSplits(s) {
+function renderStockSplits(s) {
     const tbody = document.getElementById('cmp-splits-tbody');
     if (!tbody || !s) return;
-    const ticker = (s.ticker || s.symbol || activeCompanyTicker || "NVDA").toUpperCase();
 
-    // 建立常見大型標的之歷史真實拆股，其餘則給出該標的常態化展示
-    const KNOWN_SPLITS = {
-      "NVDA": [
-        { date: "2024-06-10", ratio: "10 : 1", desc: "普通股 1 拆 10 (擴大零售流動性)", type: "普通拆股" },
-        { date: "2021-07-20", ratio: "4 : 1", desc: "普通股 1 拆 4", type: "普通拆股" }
-      ],
-      "AAPL": [
-        { date: "2020-08-31", ratio: "4 : 1", desc: "普通股 1 拆 4", type: "普通拆股" },
-        { date: "2014-06-09", ratio: "7 : 1", desc: "普通股 1 拆 7", type: "普通拆股" }
-      ],
-      "TSLA": [
-        { date: "2022-08-25", ratio: "3 : 1", desc: "普通股 1 拆 3", type: "普通拆股" },
-        { date: "2020-08-31", ratio: "5 : 1", desc: "普通股 1 拆 5", type: "普通拆股" }
-      ],
-      "GOOGL": [
-        { date: "2022-07-18", ratio: "20 : 1", desc: "普通股 1 拆 20", type: "普通拆股" }
-      ],
-      "AMZN": [
-        { date: "2022-06-06", ratio: "20 : 1", desc: "普通股 1 拆 20", type: "普通拆股" }
-      ]
-    };
+    // 優先讀取真實拆股資料
+    const splits = s.stock_splits || [];
+    if (splits.length > 0) {
+      tbody.innerHTML = splits.map(sp => `
+        <tr>
+          <td style="text-align: left; font-weight: 600; color: #fff;">${sp.date}</td>
+          <td style="text-align: center; font-weight: 700; color: var(--accent); font-size: 13px;">${sp.ratio}</td>
+          <td style="text-align: left; color: #cbd5e1;">${sp.desc}</td>
+          <td style="text-align: center;"><span class="badge badge-target">${sp.type}</span></td>
+        </tr>
+      `).join('');
+      return;
+    }
 
-    const splits = KNOWN_SPLITS[ticker] || [
-      { date: "2021-05-15", ratio: "2 : 1", desc: `${ticker} 普通股股本重組拆分`, type: "普通拆股" }
-    ];
-
-    tbody.innerHTML = splits.map(sp => `
+    // 若該公司歷史上從未拆股
+    tbody.innerHTML = `
       <tr>
-        <td style="text-align: left; font-weight: 600; color: #fff;">${sp.date}</td>
-        <td style="text-align: center; font-weight: 700; color: var(--accent); font-size: 13px;">${sp.ratio}</td>
-        <td style="text-align: left; color: #cbd5e1;">${sp.desc}</td>
-        <td style="text-align: center;"><span class="badge badge-target">${sp.type}</span></td>
+        <td colspan="4" style="text-align: center; color: var(--text-muted); padding: 18px;">
+          ${currentLang === 'en' ? 'No historical stock splits recorded for this company.' : '該企業歷年無普通股拆股或合股記錄 (No Stock Splits)'}
+        </td>
       </tr>
-    `).join('');
+    `;
   }
 
 // 完整三大財務報表渲染引擎：支援 8 頁全科目架構 + FMP 真實歷史數據 + 專業穿透零軸 SVG 折線圖
