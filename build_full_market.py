@@ -522,6 +522,57 @@ def fetch_json(endpoint, params):
             time.sleep(0.5)
     return None
 
+def fetch_json(endpoint, params):
+    params["apikey"] = FMP_KEY
+    url = f"{BASE_URL}/{endpoint}"
+    for _ in range(3):
+        try:
+            r = requests.get(url, params=params, headers=HEADERS, timeout=(5, 10))
+            if r.status_code == 200:
+                return r.json()
+            elif r.status_code == 429:
+                time.sleep(1.5)
+        except Exception:
+            time.sleep(0.5)
+    return None
+
+def fetch_cached_annual_statements(fmp_sym: str, sym: str) -> Dict[str, list]:
+    """
+    抓取 5 年年度歷史報表並持久化至本地 JSON。
+    已結算年度數據不變，命中快取時直接讀取磁碟，徹底免除重複網路請求。
+    """
+    cache_path = os.path.join(FIN_CACHE_DIR, f"{sym}_annual.json")
+    if os.path.exists(cache_path):
+        try:
+            with open(cache_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                if data.get("income") and data.get("cashflow"):
+                    return data
+        except Exception:
+            pass
+
+    # 若無快取則請求 FMP API 並持久化
+    inc_annual = fetch_json("income-statement", {"symbol": fmp_sym, "period": "annual", "limit": 5}) or []
+    time.sleep(0.04)
+    bs_annual = fetch_json("balance-sheet-statement", {"symbol": fmp_sym, "period": "annual", "limit": 5}) or []
+    time.sleep(0.04)
+    cf_annual = fetch_json("cash-flow-statement", {"symbol": fmp_sym, "period": "annual", "limit": 5}) or []
+    time.sleep(0.04)
+
+    payload = {
+        "income": inc_annual,
+        "balance": bs_annual,
+        "cashflow": cf_annual
+    }
+
+    try:
+        with open(cache_path, "w", encoding="utf-8") as f:
+            json.dump(payload, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        print(f"⚠️ [{sym}] 寫入年度歷史快取失敗: {e}", flush=True)
+
+    return payload
+
 FX_CACHE = {"USD": 1.0}
 
 def get_fx_to_usd_rate(currency):
