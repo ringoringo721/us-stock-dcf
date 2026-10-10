@@ -2196,20 +2196,49 @@
       ];
     }
 
-    // 微型柱狀圖產生輔助函數
+    // 迷你 SVG 折線與半透明填充趨勢圖產生器
     function generateSparkTrendHtml(seriesValues) {
-      const maxAbs = Math.max(...seriesValues.map(v => Math.abs(v)), 0.001);
-      const barsHtml = seriesValues.map(val => {
-        const isNeg = val < 0;
-        const hRatio = Math.max((Math.abs(val) / maxAbs) * 18, 3);
-        const cls = isNeg ? 'spark-bar-neg' : 'spark-bar-pos';
-        return `
-          <div class="spark-bar-track" title="${val}">
-            <div class="spark-bar-segment ${cls}" style="height: ${hRatio.toFixed(1)}px;"></div>
-          </div>
-        `;
-      }).join('');
-      return `<div class="spark-trend-wrap">${barsHtml}</div>`;
+      if (!seriesValues || seriesValues.length < 2) return '';
+      
+      const width = 76;
+      const height = 22;
+      const pad = 3;
+      
+      const minVal = Math.min(...seriesValues);
+      const maxVal = Math.max(...seriesValues);
+      const range = (maxVal - minVal) === 0 ? 1 : (maxVal - minVal);
+      
+      // 計算每個點的座標
+      const points = seriesValues.map((v, i) => {
+        const x = pad + (i / (seriesValues.length - 1)) * (width - pad * 2);
+        const y = height - pad - ((v - minVal) / range) * (height - pad * 2);
+        return { x: Number(x.toFixed(1)), y: Number(y.toFixed(1)) };
+      });
+      
+      const pathD = points.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x} ${p.y}`).join(' ');
+      const lastPoint = points[points.length - 1];
+      const firstPoint = points[0];
+      
+      // 構建封閉的面積填充路徑
+      const areaD = `${pathD} L ${lastPoint.x} ${height} L ${firstPoint.x} ${height} Z`;
+
+      // 判斷整體趨勢（若最後一期大於第一期為綠色，否則為淡紅）
+      const isUp = seriesValues[seriesValues.length - 1] >= seriesValues[0];
+      const strokeColor = isUp ? "#22c55e" : "#ef4444";
+      const fillColor = isUp ? "rgba(34, 197, 94, 0.22)" : "rgba(239, 68, 68, 0.22)";
+
+      return `
+        <div class="spark-line-wrap">
+          <svg class="spark-line-svg" viewBox="0 0 ${width} ${height}">
+            <!-- 淺色填充面積 -->
+            <path d="${areaD}" fill="${fillColor}" />
+            <!-- 平滑折線 -->
+            <path d="${pathD}" fill="none" stroke="${strokeColor}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            <!-- 終點突出圓點 -->
+            <circle cx="${lastPoint.x}" cy="${lastPoint.y}" r="2.2" fill="${strokeColor}" />
+          </svg>
+        </div>
+      `;
     }
 
     let rowsHtml = '';
