@@ -6941,12 +6941,12 @@
     "shares_outstanding": 1018260000,
     "shares_display": "1,018.26 M",
     "mcap": 280062.0,
-    "debt": 820.2,
-    "cash": 5013.8,
-    "short_term_investments": 0.0,
-    "cash_and_short_term": 5013.8,
-    "net_debt": -4193.6,
-    "cash_minus_liab": 4193.6,
+    "debt": 0.0,
+    "cash": 0.0,
+    "short_term_investments": 557.0,
+    "cash_and_short_term": 0.0,
+    "net_debt": 0.0,
+    "cash_minus_liab": 0.0,
     "fcf0": 1572.9,
     "beta": 1.2,
     "beta_5y": 1.2,
@@ -6967,21 +6967,21 @@
     "g1": 19.8,
     "g2": 10.8,
     "g": 2.25,
-    "wacc": 10.18,
+    "wacc": 10.2,
     "ev": 189953.9,
     "fmp_official_ev": 189953.9,
-    "dcf_model_ev": 41466.4,
+    "dcf_model_ev": 41354.2,
     "ev_to_ebitda": 434.8,
-    "debt_to_ebitda": 1.88,
-    "net_debt_to_ebitda": -9.6,
-    "f_score": 6,
+    "debt_to_ebitda": 0.0,
+    "net_debt_to_ebitda": 0.0,
+    "f_score": 9,
     "f_score_breakdown": [
       {
         "id": 1,
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 0.5%"
+        "detail": "當期 ROA = 5846000000.0%"
       },
       {
         "id": 2,
@@ -6994,7 +6994,7 @@
         "id": 3,
         "category": "盈利能力",
         "desc": "資產回報率持續擴張 (ΔROA > 0)",
-        "passed": 0,
+        "passed": 1,
         "detail": "回報率穩步領先同業基準"
       },
       {
@@ -7009,14 +7009,14 @@
         "category": "槓桿與償債",
         "desc": "財務槓桿未惡化 (ΔLeverage ≤ 0)",
         "passed": 1,
-        "detail": "總負債資產比率 = 57.3%"
+        "detail": "總負債資產比率 = 40.0%"
       },
       {
         "id": 6,
         "category": "槓桿與償債",
         "desc": "短期流動性安全 (ΔLiquidity > 0)",
         "passed": 1,
-        "detail": "流動比率 = 1.57"
+        "detail": "流動比率 = 1.50"
       },
       {
         "id": 7,
@@ -7029,88 +7029,88 @@
         "id": 8,
         "category": "營運效率",
         "desc": "毛利率擴張 (ΔMargin > 0)",
-        "passed": 0,
+        "passed": 1,
         "detail": "產品定價權增強，毛利結構健康"
       },
       {
         "id": 9,
         "category": "營運效率",
         "desc": "資產週轉率提升 (ΔTurnover > 0)",
-        "passed": 0,
+        "passed": 1,
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 44.84,
-    "premium_pct": 513.4,
+    "fair_val": 40.61,
+    "premium_pct": 577.3,
     "is_undervalued": false,
     "pe_trailing": 4790.7,
     "pe_forward": 4215.8,
-    "pb_trailing": 54.9,
-    "pb_forward": 49.4,
+    "pb_trailing": 280062000000.0,
+    "pb_forward": 252055800000.0,
     "div_yield": 0.01,
     "ps_ratio": 44.5,
-    "fcf_to_ev": 3.79,
+    "fcf_to_ev": 3.8,
     "fcf_to_mcap": 0.56,
-    "liab_to_assets": 57.3,
-    "cash_to_assets": 41.7,
-    "current_ratio": 1.57,
-    "roe": 1.1,
-    "roa": 0.5,
+    "liab_to_assets": 40.0,
+    "cash_to_assets": 0.0,
+    "current_ratio": 1.5,
+    "roe": 5846000000.0,
+    "roa": 5846000000.0,
     "moat": {
       "ticker": "CRWD",
-      "period": "2027Q2",
+      "period": "2026Q4",
       "m1_brand_pricing": {
         "score": 8,
-        "comment_zh": "CrowdStrike在企業級網路安全領域建立了強大的品牌聲譽，其Falcon平台被視為行業領先的解決方案。客戶願意為其卓越的威脅檢測能力和可靠性支付溢價，這反映了其在市場上的高信任度和品牌心智佔有率。即使在經濟下行時期，網路安全支出仍是企業的剛性需求，賦予CrowdStrike一定的定價權，使其能夠在不顯著影響銷量的情況下調整價格，維持高利潤率。",
-        "comment_en": "CrowdStrike has cultivated a formidable brand reputation in the highly critical enterprise cybersecurity sector, with its Falcon platform widely recognized as an industry-leading, premium solution. Customers are consistently willing to pay a significant premium for its superior threat detection capabilities, proactive defense, and unparalleled reliability, reflecting a deep level of trust and strong brand mindshare in a mission-critical domain. Even during broader economic downturns, cybersecurity remains a non-negotiable and often increasing expenditure for businesses, granting CrowdStrike substantial pricing power. This allows them to adjust subscription prices without substantially impacting their high retention rates or sales volumes, thereby sustaining healthy and expanding profit margins, a hallmark of a strong competitive advantage."
+        "comment_zh": "CrowdStrike在端點安全領域建立了卓越的品牌聲譽，其Falcon平台被視為業界領先的威脅偵測與防禦解決方案。對於企業而言，網路安全是不可妥協的投資，因此即使價格略有上漲，客戶也傾向於維持與值得信賴的供應商合作，以避免潛在的巨大損失。這種信任和關鍵性賦予了CrowdStrike顯著的定價權，使其能夠在不顯著影響客戶流失率的情況下，逐步提高訂閱費用。其技術領先地位和持續創新，進一步鞏固了客戶對其品牌的忠誠度，使其在競爭激烈的市場中脫穎而出。",
+        "comment_en": "CrowdStrike has cultivated an exceptional brand reputation in endpoint security, with its Falcon platform recognized as a leading threat detection and prevention solution. For enterprises, cybersecurity is a non-negotiable investment, making them less price-sensitive when it comes to mission-critical protection. This trust and essential service nature grant CrowdStrike significant pricing power, allowing it to gradually increase subscription fees without substantial customer churn. Its technological leadership and continuous innovation further solidify customer loyalty, enabling it to stand out in a highly competitive market. This strong brand perception translates directly into an ability to command premium pricing for its superior offerings."
       },
       "m2_patents_regulatory": {
         "score": 7,
-        "comment_zh": "CrowdStrike的核心競爭力源於其專有的雲原生架構和AI驅動的威脅情報技術。儘管具體專利數量未詳，但其技術的複雜性和領先性構成了強大的知識產權壁壘。此外，網路安全行業受嚴格的合規性要求和政府標準約束，CrowdStrike的解決方案通常符合甚至超越這些標準，使其在獲取關鍵企業和政府客戶方面具備優勢，形成監管准入的護城河。",
-        "comment_en": "CrowdStrike's core competitive advantage is deeply rooted in its proprietary cloud-native architecture and sophisticated AI-driven threat intelligence technology. While specific patent portfolios are not detailed, the inherent complexity, continuous innovation, and leading-edge nature of its technology establish a robust and evolving intellectual property barrier that is difficult for competitors to replicate. Furthermore, the cybersecurity industry is heavily subject to stringent compliance requirements, data privacy regulations, and government standards across various sectors. CrowdStrike's solutions often meet or exceed these benchmarks, providing a significant strategic advantage in securing critical enterprise and government clients, thus forming a powerful regulatory and compliance-driven moat that deters new entrants."
+        "comment_zh": "CrowdStrike在雲原生安全技術、行為分析與AI驅動的威脅情報方面擁有大量專有技術和專利組合。這些技術壁壘使其在偵測未知威脅和零日攻擊方面具備領先優勢，難以被競爭對手輕易複製。此外，其平台符合多項嚴格的行業標準和政府法規，這為其進入高安全要求市場（如政府、金融）提供了額外的准入門檻。雖然網路安全領域技術迭代迅速，但CrowdStrike持續的研發投入和專利佈局，構建了堅實的技術護城河，使其能夠保持競爭力。",
+        "comment_en": "CrowdStrike possesses a substantial portfolio of proprietary technologies and patents in cloud-native security, behavioral analytics, and AI-driven threat intelligence. These technological barriers provide a leading edge in detecting unknown threats and zero-day exploits, making them difficult for competitors to easily replicate. Furthermore, its platform adheres to numerous stringent industry standards and government regulations, offering an additional barrier to entry for high-security sectors like government and finance. While cybersecurity technology evolves rapidly, CrowdStrike's continuous R&D investment and patent strategy build a robust technological moat, enabling it to maintain its competitive advantage."
       },
       "m3_high_switching_costs": {
-        "score": 8,
-        "comment_zh": "對於企業客戶而言，更換網路安全解決方案涉及巨大的轉換成本。這不僅包括重新配置系統、員工培訓和數據遷移的直接費用，更重要的是潛在的營運中斷風險和安全漏洞。CrowdStrike的Falcon平台深度整合於客戶的IT環境中，一旦部署，其移除或替換將帶來高昂的時間、資源和安全風險成本，使得客戶傾向於維持現有服務，形成強大的黏性。",
-        "comment_en": "For enterprise clients, the decision to switch cybersecurity solutions involves exceptionally high and multifaceted conversion costs. These expenses encompass not only the direct financial outlays for reconfiguring complex IT systems, extensive employee training, and secure data migration, but, more critically, the substantial risks of operational disruption and potential security vulnerabilities during the transition period. CrowdStrike's Falcon platform is deeply and intricately integrated into a client's existing IT infrastructure and workflows. Once deployed and operational, its removal or replacement would incur prohibitively high costs in terms of time, resources, and the unacceptable risk of security breaches, creating powerful customer stickiness and a formidable switching cost moat."
+        "score": 9,
+        "comment_zh": "CrowdStrike的解決方案深度整合於客戶的IT基礎設施、安全操作流程及事件響應機制中。一旦部署，更換供應商將涉及巨大的轉換成本，包括數據遷移的複雜性、員工的重新培訓、潛在的系統中斷風險，以及在過渡期間可能出現的安全漏洞。企業對安全性的極度敏感性，使得任何可能影響其防禦能力的變動都需謹慎評估。這種深度嵌入和高風險規避心理，為CrowdStrike構建了極高的客戶黏性，使其客戶即便面對其他供應商的誘惑，也難以輕易轉換。",
+        "comment_en": "CrowdStrike's solutions are deeply embedded within clients' IT infrastructure, security operations workflows, and incident response mechanisms. Once deployed, switching vendors entails substantial costs, including complex data migration, employee retraining, potential system downtime risks, and security vulnerabilities during the transition. Enterprises' extreme sensitivity to security means any change that could compromise their defenses is heavily scrutinized. This deep integration and risk aversion create extremely high customer stickiness for CrowdStrike, making it difficult for clients to switch even when faced with attractive offers from competitors, thus forming a powerful moat."
       },
       "m4_network_effects": {
-        "score": 8,
-        "comment_zh": "CrowdStrike的雲原生平台和CrowdStrike Threat Graph展現出強大的網路效應。每當一個新的端點或客戶加入其生態系統，都會為其全球威脅情報數據庫貢獻更多數據點。這些數據經過AI分析後，能實時提升所有用戶的威脅檢測和防禦能力。隨著用戶基數的擴大，其威脅情報的廣度和深度呈指數級增長，使得平台對所有參與者的價值不斷提升，形成正向循環。",
-        "comment_en": "CrowdStrike's cloud-native platform and its proprietary CrowdStrike Threat Graph exhibit exceptionally robust network effects, a key competitive advantage. Each new endpoint or customer that joins its expansive ecosystem actively contributes more unique data points and threat indicators to its vast global threat intelligence database. This aggregated data, meticulously analyzed by advanced AI algorithms, continuously and in real-time enhances the threat detection and defense capabilities for all users across the entire network. As the user base expands exponentially, the breadth, depth, and predictive accuracy of its threat intelligence grow geometrically, progressively increasing the platform's intrinsic value for all participants and creating a powerful, self-reinforcing virtuous cycle."
+        "score": 9,
+        "comment_zh": "CrowdStrike的Falcon平台具備強大的網絡效應。每當一個新的端點或客戶加入其全球傳感器網絡，都會為其AI驅動的威脅圖譜貢獻新的數據點。這些實時的威脅情報和行為模式，會立即被分析並用於增強所有客戶的防禦能力。這形成了一個正向循環：越多的用戶，系統就越「聰明」，偵測能力就越強，從而吸引更多用戶，進一步強化其數據優勢。這種規模化的數據護城河，是傳統安全廠商難以匹敵的，為其提供了持續的競爭優勢。",
+        "comment_en": "CrowdStrike's Falcon platform exhibits powerful network effects. Each new endpoint or customer joining its global sensor network contributes fresh data points to its AI-driven threat graph. This real-time threat intelligence and behavioral patterns are immediately analyzed and used to enhance the defensive capabilities for all customers. This creates a virtuous cycle: more users lead to a \"smarter\" system and stronger detection capabilities, which in turn attracts more users, further reinforcing its data advantage. This scaled data moat is difficult for traditional security vendors to match, providing CrowdStrike with a sustained competitive edge."
       },
       "m5_cost_advantage_scale": {
-        "score": 7,
-        "comment_zh": "作為網路安全領域的領導者，CrowdStrike憑藉其龐大的客戶基礎和雲原生架構實現了顯著的規模經濟。其能夠將大量的研發投入分攤到廣泛的用戶群體上，降低了單位成本。同時，大規模的數據收集和處理能力使其在威脅情報的生成上具有成本優勢，而較小的競爭對手難以在相同成本效益下提供同等水平的服務，從而形成規模帶來的成本壁壘。",
-        "comment_en": "As a dominant leader in the cybersecurity sector, CrowdStrike leverages its extensive global customer base and highly efficient cloud-native architecture to achieve significant economies of scale. This allows the company to amortize its substantial and ongoing research and development investments across a vast and growing user base, thereby significantly lowering per-unit costs for its advanced services. Concurrently, its massive-scale data collection and processing capabilities provide an unparalleled cost advantage in generating superior threat intelligence. Smaller or newer competitors struggle immensely to offer comparable service levels, threat detection accuracy, and platform features at the same cost-efficiency, thus creating a formidable cost barrier derived from its operational scale and technological infrastructure."
+        "score": 8,
+        "comment_zh": "CrowdStrike作為雲原生安全平台，其基礎設施和威脅情報系統受益於顯著的規模經濟。隨著客戶數量和受保護端點的增加，其收集的數據量呈指數級增長，這使得其AI模型能夠以更低的邊際成本進行訓練和優化，提升偵測精準度。這種規模效應不僅降低了單位客戶的服務成本，也使其能夠投入更多資源進行研發，保持技術領先。對於新進入者而言，建立如此龐大且實時更新的全球威脅情報網絡，需要天文數字的投資和時間，形成難以逾越的成本壁壘。",
+        "comment_en": "As a cloud-native security platform, CrowdStrike's infrastructure and threat intelligence systems benefit from significant economies of scale. With an increasing number of customers and protected endpoints, the volume of data collected grows exponentially, allowing its AI models to be trained and optimized at a lower marginal cost, enhancing detection accuracy. This scale effect not only reduces the per-customer service cost but also enables greater R&D investment to maintain technological leadership. For new entrants, building such a vast and real-time global threat intelligence network requires astronomical investment and time, creating an insurmountable cost barrier."
       },
       "m6_unique_geography_assets": {
-        "score": 4,
-        "comment_zh": "網路安全市場本質上是全球性的，不依賴於特定的地理位置或稀缺資源。CrowdStrike的業務模式並非基於地理獨佔性或有限的實體資產。儘管其數據中心分佈全球，但這並非不可複製的「收費橋樑」式資產。因此，此維度上的護城河相對較弱，市場容量雖大但競爭激烈，並非天然寡占。",
-        "comment_en": "The cybersecurity market is fundamentally global and digital, meaning it does not inherently rely on specific geographical locations, exclusive access to scarce physical resources, or limited local markets. CrowdStrike's business model is not predicated on geographical exclusivity or the ownership of unique, irreplaceable physical assets in the manner of a utility or a natural resource company. While its data centers are strategically distributed globally for performance and resilience, these are not inherently unique or irreplicable \"toll bridge\" type assets. Therefore, the moat in this specific dimension is relatively weaker compared to others, as the market, though large, is intensely competitive and not characterized by natural oligopolies."
+        "score": 7,
+        "comment_zh": "雖然網路安全市場龐大，但高端企業級端點保護和雲工作負載安全領域，由於技術複雜性、數據累積和客戶信任的建立門檻極高，已逐漸形成寡頭競爭格局。CrowdStrike憑藉其領先的技術和廣泛的市場份額，在此領域佔據主導地位。新競爭者若想進入並有效競爭，不僅需要巨額資本投入，更需長時間累積威脅情報和客戶基礎，這使得市場自然傾向於由少數幾家頂級供應商主導，形成一種「有效規模」下的理性寡占，避免了過度競爭導致的價值破壞。",
+        "comment_en": "While the cybersecurity market is vast, the high-end enterprise endpoint protection and cloud workload security segments have gradually formed an oligopolistic structure due to extreme technical complexity, data accumulation, and high barriers to building customer trust. CrowdStrike, with its leading technology and significant market share, dominates this space. New competitors attempting to enter and effectively compete would require not only massive capital investment but also extensive time to accumulate threat intelligence and a customer base. This naturally leads the market to be dominated by a few top-tier providers, creating a rational oligopoly under \"efficient scale\" that avoids value destruction from excessive competition."
       },
       "m7_operational_efficiency": {
-        "score": 6,
-        "comment_zh": "CrowdStrike的ROIC（投入資本回報率）雖然在高速成長階段可能受投資影響而顯得不高（ROE 1.1%, ROA 0.5%），但其強勁的自由現金流（FCF TTM $1,572.9M）表明公司具備高效將營收轉化為現金的能力。這顯示了其營運效率和未來創造超額回報的潛力。若能持續保持高FCR並有效再投資，長期ROIC有望超越WACC，但目前數據尚需時間驗證其持久性。",
-        "comment_en": "While CrowdStrike's reported Return on Invested Capital (ROIC) might appear modest during its aggressive high-growth phase due to substantial reinvestments (ROE 1.1%, ROA 0.5%), its consistently robust Free Cash Flow (FCF TTM $1,572.9M) is a strong indicator of the company's underlying operational efficiency and its exceptional ability to convert revenue into tangible cash. This demonstrates a healthy business model and significant potential for generating future excess returns. If the company can sustain its high FCF conversion rates and continue to effectively reinvest capital into high-return opportunities, its long-term ROIC is highly likely to consistently surpass its Weighted Average Cost of Capital (WACC), though current financial metrics require more time to fully validate this long-term durability."
+        "score": 8,
+        "comment_zh": "CrowdStrike的商業模式以訂閱制為主，具有高度可預測的經常性收入和較低的資本支出需求，這使其能夠產生強勁的自由現金流（FCF TTM $10.4B）。儘管未直接提供ROIC數據，但其18.0%的ROE和8.0%的ROA，結合其輕資產運營模式，強烈暗示其投入資本回報率（ROIC）持續遠超加權平均資本成本（WACC）。這表明公司能夠高效地將投入的資本轉化為股東價值，並在長期內實現資本的複利增長，是其卓越盈利能力和護城河深度的體現。",
+        "comment_en": "CrowdStrike's subscription-based business model generates highly predictable recurring revenue with relatively low capital expenditure requirements, enabling it to produce robust free cash flow (FCF TTM $10.4B). While ROIC data is not directly provided, its 18.0% ROE and 8.0% ROA, combined with its asset-light operating model, strongly suggest that its Return on Invested Capital (ROIC) consistently far exceeds its Weighted Average Cost of Capital (WACC). This indicates the company's ability to efficiently convert invested capital into shareholder value and achieve long-term compounding of capital, reflecting its exceptional profitability and the depth of its moat."
       },
       "m8_capital_allocation": {
         "score": 9,
-        "comment_zh": "即使給予競爭對手千億美元，也難以在短時間內複製CrowdStrike的核心戰略資產。這包括其獨特的雲原生AI平台、龐大的全球威脅情報數據庫、頂尖的研發團隊、深厚的客戶關係以及在網路安全領域建立的信任和聲譽。這些要素是多年技術積累、市場深耕和品牌建設的結果，形成了一個難以模仿的綜合性競爭優勢，構成了極高的進入壁壘。",
-        "comment_en": "Even if a competitor were granted a hundred billion dollars in capital, it would be exceedingly difficult, if not impossible, to replicate CrowdStrike's multifaceted core strategic assets within a short timeframe. This includes its highly sophisticated and proprietary cloud-native AI platform, its vast and continuously updated global threat intelligence database, its world-class research and development team, deeply entrenched customer relationships, and the invaluable trust and sterling reputation meticulously built within the critical cybersecurity domain. These elements are the culmination of many years of relentless technological accumulation, aggressive market penetration, and strategic brand building, collectively forming a comprehensive, inimitable competitive advantage and an exceptionally high barrier to entry for any aspiring rival."
+        "comment_zh": "即使給予競爭對手千億美元的資金，也難以在數年內複製CrowdStrike的核心戰略資產。這不僅包括其全球分佈的傳感器網絡、數十年累積的威脅情報數據庫、經過實戰驗證的AI/ML模型，更重要的是其在企業客戶中建立的深厚信任、品牌聲譽以及與客戶IT系統的深度整合。這些無形資產的建立需要時間、經驗和持續的技術創新，無法僅靠資金堆砌。這種不可複製性是其護城河最堅固的組成部分之一，確保了其長期競爭優勢。",
+        "comment_en": "Even with a hundred billion dollars, it would be nearly impossible for a competitor to replicate CrowdStrike's core strategic assets within a few years. This includes not only its globally distributed sensor network, decades of accumulated threat intelligence databases, and battle-tested AI/ML models, but more importantly, the deep trust, brand reputation, and profound integration with client IT systems it has built among enterprise customers. The establishment of these intangible assets requires time, experience, and continuous technological innovation, which cannot be achieved by simply throwing money at the problem. This irreproducibility is one of the most robust components of its moat, ensuring its long-term competitive advantage."
       },
       "m9_customer_retention": {
-        "score": 7,
-        "comment_zh": "網路安全的需求是永恆且不斷增長的，這賦予CrowdStrike對技術變革的強大抗性。雖然技術本身不斷演進，但企業保護數據和系統的根本需求不會改變。CrowdStrike的AI驅動平台設計使其能夠適應新的威脅和技術趨勢，而非被其顛覆。然而，網路安全領域的快速創新意味著公司必須持續投入研發以保持領先，而非完全免疫於競爭性技術的挑戰。",
-        "comment_en": "The fundamental demand for robust cybersecurity solutions is perpetual, non-discretionary, and continuously growing, which inherently grants CrowdStrike a strong degree of resilience against broader technological disruptions. While the underlying technologies and threat landscapes constantly evolve, the core need for enterprises to protect their invaluable data, critical systems, and digital assets remains an absolute imperative. CrowdStrike's adaptive, AI-driven platform is specifically designed to continuously evolve and adapt to emerging threats and new technological paradigms, rather than being easily disrupted by them. However, the rapid pace of innovation in the cybersecurity sector means the company must consistently invest heavily in R&D to maintain its leadership position, implying it is not entirely immune to competitive technological challenges or paradigm shifts."
+        "score": 8,
+        "comment_zh": "網路安全領域雖然技術迭代迅速，但對安全防護的需求卻是永恆且不斷增長的。CrowdStrike的雲原生、AI驅動平台設計使其具備高度的適應性和前瞻性，能夠快速響應新的威脅向量和技術典範轉移（如AI在攻擊與防禦中的應用）。它不是被AI顛覆的對象，而是將AI作為核心競爭力。其持續的研發投入和對新興威脅的快速響應能力，使其能夠在技術變革中保持領先地位，而非被淘汰，展現出強大的抗顛覆性。",
+        "comment_en": "While the cybersecurity field experiences rapid technological iteration, the demand for robust security is eternal and ever-growing. CrowdStrike's cloud-native, AI-driven platform design grants it high adaptability and foresight, enabling it to quickly respond to new threat vectors and technological paradigm shifts (e.g., the application of AI in both offense and defense). It leverages AI as a core competency rather than being disrupted by it. Its continuous R&D investment and rapid response capabilities to emerging threats allow it to maintain a leading position amidst technological changes, rather than being rendered obsolete, demonstrating strong disruption immunity."
       },
       "m10_durability": {
         "score": 7,
-        "comment_zh": "CrowdStrike擁有強勁的資產負債表，現金充裕（$5,013.8M）且負債較低（$820.2M），同時產生可觀的自由現金流。這為其提供了靈活的資本配置空間。雖然具體的併購和回購策略未詳，但健康的財務狀況表明管理層有能力進行戰略性投資，並在適當時機通過回購等方式回饋股東。穩健的現金流和低負債是巴菲特所欣賞的特徵，為長期價值創造奠定基礎。",
-        "comment_en": "CrowdStrike possesses an exceptionally strong balance sheet, characterized by substantial cash reserves ($5,013.8M) and remarkably low total debt ($820.2M), while simultaneously generating impressive and consistent free cash flow. This robust financial position provides management with considerable flexibility and optionality for strategic capital allocation. While specific details regarding past M&A activities or share repurchase programs are not provided, the company's healthy financial standing strongly suggests management's capacity to undertake value-accretive strategic investments and, when appropriate, return capital to shareholders through methods like share buybacks. This combination of strong cash flow generation and a conservative debt profile are highly valued characteristics by Warren Buffett, laying a solid foundation for sustainable long-term shareholder value creation."
+        "comment_zh": "儘管缺乏具體的資本配置歷史細節，但CrowdStrike強勁的財務表現（如高F-Score和充沛的自由現金流）通常暗示著管理層在資源配置上的審慎。對於一家快速成長的科技公司而言，將資本有效再投資於研發、市場擴張或戰略性併購，以鞏固技術領先地位和擴大市場份額，是符合股東長期利益的。若管理層能持續避免盲目溢價併購，並在股價被低估時考慮回購，將進一步提升其資本配置的卓越性，為股東創造最大化價值。",
+        "comment_en": "While specific details on capital allocation history are lacking, CrowdStrike's robust financial performance (e.g., high F-Score and ample free cash flow) generally suggests prudent management in resource deployment. For a rapidly growing technology company, effectively reinvesting capital into R&D, market expansion, or strategic acquisitions to solidify technological leadership and expand market share aligns with long-term shareholder interests. If management consistently avoids overpaying for acquisitions and considers buybacks when the stock is undervalued, it would further enhance its capital allocation excellence, maximizing shareholder value."
       },
-      "overall_moat_verdict_zh": "CrowdStrike展現出多重且堅固的護城河，尤其在品牌心智、高轉換成本、網路效應和技術不可複製性方面表現卓越。其雲原生AI平台和全球威脅情報數據庫構成了難以逾越的技術壁壘，使其在快速增長的網路安全市場中佔據領先地位。儘管ROIC數據尚需時間驗證其長期韌性，但強勁的自由現金流和健康的資產負債表預示著其具備持續創造股東價值的潛力。這是一家具備「特許經營權」特徵的軟體服務公司，其產品對企業而言是不可或缺的「收費橋樑」。",
-      "overall_moat_verdict_en": "CrowdStrike exhibits a compelling combination of multiple, robust economic moats, particularly excelling in areas such as strong brand mindshare, high customer switching costs, powerful network effects, and the irreproducibility of its advanced technology. Its proprietary cloud-native AI platform and vast global threat intelligence database collectively form formidable technological barriers, firmly positioning the company as a dominant leader in the rapidly expanding and mission-critical cybersecurity market. While current ROIC data, influenced by aggressive growth investments, requires more time to fully validate its long-term durability, the company's consistently strong free cash flow generation and exceptionally healthy balance sheet unequivocally indicate significant potential for sustained shareholder value creation. This is a software-as-a-service company that embodies \"franchise-like\" characteristics, with its indispensable products effectively serving as critical \"toll bridges\" for modern enterprises."
+      "overall_moat_verdict_zh": "CrowdStrike擁有一道堅不可摧的經濟護城河，主要建立在其強大的網絡效應、極高的轉換成本以及專有的AI驅動威脅情報之上。它在數位領域扮演著關鍵基礎設施提供者的角色，如同企業網路安全領域的「收費橋樑」。其雲原生平台受益於數據收集和處理的顯著規模優勢，創造了一個幾乎無法複製的全球威脅圖譜。公司強大的品牌、持續創新以及與客戶運營的深度整合，賦予其可觀的定價權和抵禦技術變革的韌性。這些結構性優勢的結合，使CrowdStrike成為一個長期複利增長者，能夠產生卓越的投入資本回報，並在不斷演進的網路安全格局中保持其競爭優勢。",
+      "overall_moat_verdict_en": "CrowdStrike possesses a formidable economic moat, primarily built upon its powerful network effects, extremely high switching costs, and proprietary AI-driven threat intelligence. It operates as a critical infrastructure provider in the digital realm, akin to a \"toll bridge\" for enterprise cybersecurity. Its cloud-native platform benefits from significant scale advantages in data collection and processing, creating an almost irreplicable global threat graph. The company's strong brand, continuous innovation, and deep integration into client operations grant it substantial pricing power and resilience against technological shifts. This combination of structural advantages positions CrowdStrike as a long-term compounder, capable of generating superior returns on invested capital and sustaining its competitive edge in the ever-evolving cybersecurity landscape."
     },
     "fin_valuation": {
       "is_financial": false
@@ -7388,10 +7388,10 @@
     "g2": 8.1,
     "g": 2.25,
     "wacc": 12.1,
-    "ev": 273281.4,
-    "fmp_official_ev": 273281.4,
+    "ev": 211571.7,
+    "fmp_official_ev": 211571.7,
     "dcf_model_ev": 86174.7,
-    "ev_to_ebitda": 53.8,
+    "ev_to_ebitda": 41.6,
     "debt_to_ebitda": 0.0,
     "net_debt_to_ebitda": -2.63,
     "f_score": 9,
@@ -7561,25 +7561,25 @@
   },
   "APH": {
     "name": "Amphenol",
-    "company_name": "Amphenol",
+    "company_name": "Amphenol Corporation",
     "exchange": "NYSE",
     "sector": "資訊科技",
     "industry": "Electronic Components",
     "reportedCurrency": "USD",
-    "price": 150.0,
-    "shares": 666.7,
-    "shares_outstanding": 666700000,
-    "shares_display": "666.70 M",
-    "mcap": 100000.0,
-    "debt": 0.0,
-    "cash": 0.0,
-    "short_term_investments": 11053.1,
-    "cash_and_short_term": 0.0,
-    "net_debt": 0.0,
-    "cash_minus_liab": 0.0,
-    "fcf0": 3800.0,
-    "beta": 1.35,
-    "beta_5y": 1.35,
+    "price": 87.24,
+    "shares": 2465.96,
+    "shares_outstanding": 2465960000,
+    "shares_display": "2,465.96 M",
+    "mcap": 215130.4,
+    "debt": 18811.3,
+    "cash": 5419.1,
+    "short_term_investments": 689.7,
+    "cash_and_short_term": 5419.1,
+    "net_debt": 13392.2,
+    "cash_minus_liab": -13392.2,
+    "fcf0": 4713.7,
+    "beta": 1.24,
+    "beta_5y": 1.24,
     "kd": 4.5,
     "tax": 21.0,
     "growth_10y": [
@@ -7597,28 +7597,28 @@
     "g1": 9.9,
     "g2": 5.7,
     "g": 2.25,
-    "wacc": 10.91,
+    "wacc": 9.84,
     "ev": 230902.6,
     "fmp_official_ev": 230902.6,
-    "dcf_model_ev": 60456.1,
-    "ev_to_ebitda": 18.0,
-    "debt_to_ebitda": 0.0,
-    "net_debt_to_ebitda": 0.0,
-    "f_score": 8,
+    "dcf_model_ev": 86138.5,
+    "ev_to_ebitda": 25.0,
+    "debt_to_ebitda": 2.04,
+    "net_debt_to_ebitda": 1.45,
+    "f_score": 7,
     "f_score_breakdown": [
       {
         "id": 1,
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 8.0%"
+        "detail": "當期 ROA = 11.5%"
       },
       {
         "id": 2,
         "category": "盈利能力",
         "desc": "營業現金流 CFO > 0",
         "passed": 1,
-        "detail": "自由現金流 = $3,800M"
+        "detail": "自由現金流 = $4,714M"
       },
       {
         "id": 3,
@@ -7631,22 +7631,22 @@
         "id": 4,
         "category": "盈利能力",
         "desc": "應計利潤品質高 (CFO > 淨利潤)",
-        "passed": 1,
+        "passed": 0,
         "detail": "真實現金流充沛，無虛報帳面獲利"
       },
       {
         "id": 5,
         "category": "槓桿與償債",
         "desc": "財務槓桿未惡化 (ΔLeverage ≤ 0)",
-        "passed": 1,
-        "detail": "總負債資產比率 = 40.0%"
+        "passed": 0,
+        "detail": "總負債資產比率 = 65.1%"
       },
       {
         "id": 6,
         "category": "槓桿與償債",
         "desc": "短期流動性安全 (ΔLiquidity > 0)",
         "passed": 1,
-        "detail": "流動比率 = 1.50"
+        "detail": "流動比率 = 1.89"
       },
       {
         "id": 7,
@@ -7659,7 +7659,7 @@
         "id": 8,
         "category": "營運效率",
         "desc": "毛利率擴張 (ΔMargin > 0)",
-        "passed": 0,
+        "passed": 1,
         "detail": "產品定價權增強，毛利結構健康"
       },
       {
@@ -7670,101 +7670,101 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 90.68,
-    "premium_pct": 65.4,
+    "fair_val": 29.5,
+    "premium_pct": 195.7,
     "is_undervalued": false,
-    "pe_trailing": 24.0,
-    "pe_forward": 21.1,
-    "pb_trailing": 100000000000.0,
-    "pb_forward": 90000000000.0,
-    "div_yield": 0.0,
-    "ps_ratio": 6.6,
-    "fcf_to_ev": 6.29,
-    "fcf_to_mcap": 3.8,
-    "liab_to_assets": 40.0,
-    "cash_to_assets": 0.0,
-    "current_ratio": 1.5,
-    "roe": 18.0,
-    "roa": 8.0,
+    "pe_trailing": 41.7,
+    "pe_forward": 36.7,
+    "pb_trailing": 13.9,
+    "pb_forward": 12.5,
+    "div_yield": 0.47,
+    "ps_ratio": 11.4,
+    "fcf_to_ev": 5.47,
+    "fcf_to_mcap": 2.19,
+    "liab_to_assets": 65.1,
+    "cash_to_assets": 12.1,
+    "current_ratio": 1.89,
+    "roe": 33.3,
+    "roa": 11.5,
     "moat": {
       "ticker": "APH",
-      "period": "2026Q4",
+      "period": "2026Q2",
       "m1_brand_pricing": {
-        "score": 7,
-        "comment_zh": "Amphenol在電子連接器與互連系統領域擁有強大的技術實力與全球佈局，其產品廣泛應用於高可靠性要求的工業、軍事、航空航天及數據中心等關鍵領域。客戶在選擇供應商時，更看重產品的穩定性、性能與客製化能力，而非單純的價格。這使得Amphenol在特定利基市場和高附加值產品上具備一定的議價能力，能夠將部分成本轉嫁給客戶，並維持健康的利潤率。其品牌代表著品質與可靠性，降低了客戶轉換供應商的意願，形成了一道隱形壁壘。",
-        "comment_en": "Amphenol possesses significant technological prowess and a global footprint in electronic connectors and interconnect systems. Its products are critical for high-reliability applications across industrial, military, aerospace, and data center sectors. Customers prioritize stability, performance, and customization over mere price, granting Amphenol considerable pricing power in niche and high-value segments. This allows the company to pass on some costs and maintain healthy margins. The Amphenol brand signifies quality and reliability, reducing customer propensity to switch suppliers, thereby forming an implicit barrier."
+        "score": 8,
+        "comment_zh": "Amphenol雖非消費品牌，但在B2B領域具備強大定價權。其連接器、感測器等產品是客戶終端設備的關鍵零組件，儘管成本佔比不高，但其可靠性與性能對客戶產品的成功至關重要。客戶為確保系統穩定性與效能，傾向於選擇Amphenol這樣經過驗證的供應商，即使價格略有上漲，轉換供應商的風險與成本也遠高於接受提價。其客製化解決方案能力進一步鞏固了這種議價優勢，使其能將創新價值轉化為利潤。",
+        "comment_en": "Amphenol, while not a consumer brand, wields significant pricing power in the B2B sector. Its connectors and sensors are critical components for customers' end products. Although these components represent a small fraction of the total cost, their reliability and performance are paramount. Customers prioritize system stability and performance, opting for proven suppliers like Amphenol. The risks and costs associated with switching suppliers far outweigh accepting modest price increases. Amphenol's ability to provide custom-engineered solutions further solidifies this bargaining power, allowing it to translate innovation into profitable growth."
       },
       "m2_patents_regulatory": {
         "score": 7,
-        "comment_zh": "Amphenol透過持續的研發投入，累積了龐大的專利組合，涵蓋了電子連接器、光纖互連系統及相關技術的核心創新。這些專利雖然不構成單一的壟斷性壁壘，但其廣泛性和深度，為公司築起了技術護城河，使得競爭對手難以在短期內複製其產品性能和解決方案。此外，公司在各行業（如航空、軍工、醫療）所需的嚴格認證和標準合規性方面經驗豐富，這本身就是一種無形資產，有效限制了新進入者的市場准入。",
-        "comment_en": "Amphenol has amassed a vast patent portfolio through continuous R&D, covering core innovations in electronic connectors, fiber optic interconnect systems, and related technologies. While not a single monopolistic barrier, the breadth and depth of these patents create a technological moat, making it difficult for competitors to quickly replicate its product performance and solutions. Furthermore, the company's extensive experience in meeting stringent industry-specific certifications and compliance standards (e.g., aerospace, military, medical) acts as an intangible asset, effectively limiting market entry for new competitors."
+        "comment_zh": "Amphenol的護城河並非依賴單一突破性專利，而是建立在龐大的專有技術、設計專利組合以及數十年累積的製造工藝與know-how之上。在高速傳輸、微型化、惡劣環境應用等領域，其技術深度與廣度構成難以逾越的壁壘。此外，在航空、醫療、軍工等高度監管行業，產品認證與合規性要求也為新進入者設置了高門檻，賦予Amphenol穩固的市場地位，使其能持續從技術領先中獲益。",
+        "comment_en": "Amphenol's moat isn't built on a single breakthrough patent but rather on a vast portfolio of proprietary technologies, design patents, and decades of accumulated manufacturing processes and know-how. Its depth and breadth in high-speed transmission, miniaturization, and harsh environment applications create formidable barriers. Furthermore, in highly regulated industries like aerospace, medical, and military, product certifications and compliance requirements erect significant hurdles for new entrants. This grants Amphenol a secure market position, allowing it to consistently profit from its technological leadership."
       },
       "m3_high_switching_costs": {
         "score": 8,
-        "comment_zh": "Amphenol的產品通常是客戶複雜系統中的關鍵組成部分，一旦被設計導入（design-in）並通過嚴格的認證測試，更換供應商將涉及巨大的轉換成本。這包括重新設計、重新驗證、生產線調整以及潛在的供應鏈中斷風險。對於航空、醫療或工業自動化等對可靠性要求極高的領域，客戶寧願支付溢價以確保供應穩定和產品性能，也不願承擔轉換帶來的巨大風險和成本。這種深度嵌入客戶供應鏈的模式，為Amphenol構建了極高的客戶黏性。",
-        "comment_en": "Amphenol's products are often critical components within customers' complex systems. Once designed-in and rigorously certified, switching suppliers incurs substantial costs, including redesign, re-validation, production line adjustments, and potential supply chain disruptions. For high-reliability sectors like aerospace, medical, or industrial automation, customers prefer paying a premium for supply stability and performance rather than risking the immense costs and risks associated with switching. This deep integration into customer supply chains creates exceptionally high customer stickiness for Amphenol."
+        "comment_zh": "對於Amphenol的B2B客戶而言，更換關鍵零組件供應商的轉換成本極高。這不僅涉及重新設計產品、重新認證新零件，還可能導致生產中斷、供應鏈混亂以及潛在的產品故障風險。尤其在汽車、航空航天、醫療等對可靠性要求極高的行業，客戶一旦選定並整合了Amphenol的解決方案，便會形成高度依賴。這種深度嵌入客戶供應鏈的特性，使得客戶即使面對競爭對手的低價誘惑，也難以輕易轉移。",
+        "comment_en": "For Amphenol's B2B customers, the switching costs associated with changing critical component suppliers are substantial. This involves not only redesigning products and re-qualifying new parts but also risks production disruptions, supply chain chaos, and potential product failures. Especially in industries demanding extreme reliability, such as automotive, aerospace, and medical, customers become highly dependent once Amphenol's solutions are integrated. This deep embedding within customer supply chains makes it difficult for clients to switch, even when faced with lower-priced alternatives from competitors."
       },
       "m4_network_effects": {
-        "score": 3,
-        "comment_zh": "Amphenol作為電子元件製造商，其商業模式主要基於B2B供應鏈，而非直接面向終端用戶的平台。因此，其產品價值不會因「每多一個用戶加入」而對所有參與者產生幾何級數的提升。儘管廣泛的客戶基礎有助於分攤研發成本、累積行業經驗並優化生產規模，但這更多是規模經濟的體現，而非典型的網絡效應。公司缺乏社交媒體或電商平台那種用戶間直接互動、相互增強價值的網絡飛輪效應。",
-        "comment_en": "As an electronic component manufacturer, Amphenol's business model is primarily B2B supply chain-driven, not a direct-to-consumer platform. Consequently, its product value does not geometrically increase for all participants with \"each additional user.\" While a broad customer base helps amortize R&D costs, accumulate industry experience, and optimize production scale, this is more a reflection of economies of scale than a typical network effect. The company lacks the direct user-to-user interaction and value-enhancing network flywheel seen in social media or e-commerce platforms."
+        "score": 4,
+        "comment_zh": "Amphenol的商業模式並非典型的網絡效應驅動型企業，其價值不會因每個新用戶的加入而呈幾何級數增長。然而，其遍布全球的廣泛客戶基礎和多元化的終端市場，使其能夠累積豐富的應用知識與行業洞察。這種規模效應間接強化了其研發能力和產品組合，使其能為更多客戶提供更優質、更全面的解決方案。這是一種規模帶來的知識與效率正循環，而非傳統意義上的網絡效應。",
+        "comment_en": "Amphenol's business model is not driven by typical network effects, where value grows geometrically with each new user. However, its extensive global customer base and diversified end markets allow it to accumulate rich application knowledge and industry insights. This scale indirectly strengthens its R&D capabilities and product portfolio, enabling it to offer superior, more comprehensive solutions to a broader range of clients. This creates a positive feedback loop of knowledge and efficiency derived from scale, rather than a traditional network effect."
       },
       "m5_cost_advantage_scale": {
         "score": 8,
-        "comment_zh": "Amphenol作為全球領先的互連產品製造商，其龐大的生產規模、全球化的供應鏈佈局以及多元化的產品線，使其在原材料採購、生產製造和物流分銷方面享有顯著的成本優勢。這種規模經濟效應使得公司能夠以更低的單位成本生產，並將部分成本優勢轉化為競爭性定價或更高的利潤率。新進入者難以在短期內複製其全球化的生產網絡和技術積累，這構成了一道堅實的成本護城河，確保了其在市場上的領先地位。",
-        "comment_en": "As a global leader in interconnect products, Amphenol's vast production scale, global supply chain, and diversified product lines grant it significant cost advantages in raw material procurement, manufacturing, and logistics. This economy of scale enables the company to produce at lower unit costs, translating into competitive pricing or higher profit margins. New entrants would find it extremely difficult to replicate its global manufacturing network and accumulated technological expertise in the short term, forming a robust cost moat that secures its market leadership."
+        "comment_zh": "作為全球領先的連接器與互連解決方案供應商，Amphenol享有顯著的規模經濟優勢。其龐大的採購量使其能獲得更低的原材料成本，全球化的生產佈局則優化了供應鏈效率與物流成本。此外，其巨大的營收基礎能夠攤薄高昂的研發投入，使其在技術創新上保持領先，同時維持具競爭力的成本結構。這種規模優勢是小型競爭對手難以複製的，確保了其在市場上的成本領先地位。",
+        "comment_en": "As a leading global provider of connectors and interconnect solutions, Amphenol benefits from significant economies of scale. Its massive purchasing volume secures lower raw material costs, while its global manufacturing footprint optimizes supply chain efficiency and logistics. Furthermore, its substantial revenue base allows it to amortize high R&D investments, maintaining technological leadership while sustaining a competitive cost structure. This scale advantage is difficult for smaller competitors to replicate, ensuring Amphenol's cost leadership in the market."
       },
       "m6_unique_geography_assets": {
         "score": 7,
-        "comment_zh": "Amphenol透過其廣泛的產品組合和市場滲透，在許多高度專業化和需求有限的利基市場中佔據主導地位。這些市場往往對產品性能、可靠性和認證有極高要求，新競爭者進入的研發投入和市場開拓成本巨大，但潛在回報卻不足以吸引大量競爭。Amphenol透過收購策略，不斷鞏固其在這些「高效規模」市場中的寡佔地位，使得這些細分領域的競爭趨於理性，避免了惡性價格戰，從而保障了穩定的盈利能力。",
-        "comment_en": "Through its extensive product portfolio and market penetration, Amphenol dominates numerous highly specialized and demand-limited niche markets. These segments often demand extremely high product performance, reliability, and certification, making R&D investment and market entry costs prohibitive for new competitors relative to potential returns. Amphenol's acquisition strategy consistently solidifies its oligopolistic position in these \"efficient scale\" markets, leading to rational competition and preventing destructive price wars, thereby ensuring stable profitability."
+        "comment_zh": "Amphenol並非依賴獨特的地理位置，而是透過在多個高技術壁壘的利基市場中建立起「有效規模」的寡佔地位。在數據中心高速連接、軍用航空航天、醫療植入設備等特定領域，市場容量雖有限，但對技術、可靠性和認證的要求極高。Amphenol憑藉其深厚的專業知識和長期客戶關係，在這些細分市場中佔據主導地位，新競爭者進入不僅面臨巨大投入，還難以撼動其既有份額，形成天然的理性寡佔格局。",
+        "comment_en": "Amphenol does not rely on unique geographical assets but rather establishes an 'efficient scale' oligopoly in numerous high-barrier niche markets. In specific segments like high-speed data center interconnects, military aerospace, and medical implant devices, market size may be limited, but demands for technology, reliability, and certification are extremely high. Leveraging deep expertise and long-standing customer relationships, Amphenol dominates these niches. New entrants face immense investment and struggle to displace incumbents, creating a natural, rational oligopoly."
       },
       "m7_operational_efficiency": {
         "score": 8,
-        "comment_zh": "Amphenol長期以來展現出卓越的資本回報能力，其18.0%的股東權益報酬率（ROE）和8.0%的資產報酬率（ROA）遠超行業平均水平，且考慮到其穩健的財務結構和低負債，其加權平均資本成本（WACC）應相對較低。這表明公司能夠持續將投入資本轉化為顯著的超額利潤，為股東創造實質價值。這種持續的超額ROIC韌性是其深厚護城河的直接體現，證明了其在競爭激烈的市場中仍能保持高效率和盈利能力。",
-        "comment_en": "Amphenol has consistently demonstrated exceptional capital returns, with an 18.0% Return on Equity (ROE) and 8.0% Return on Assets (ROA) significantly exceeding industry averages. Given its robust financial structure and low debt, its Weighted Average Cost of Capital (WACC) is likely relatively low. This indicates the company's sustained ability to convert invested capital into substantial excess profits, creating tangible shareholder value. Such enduring ROIC resilience is a direct manifestation of its deep moat, proving its capacity to maintain high efficiency and profitability even in competitive markets."
+        "comment_zh": "Amphenol卓越的財務表現，如高達33.3%的股東權益報酬率（ROE）和11.5%的資產報酬率（ROA），充分證明其具備長期超額的投入資本回報率（ROIC）。這反映了公司在資產運用、成本控制和盈利能力上的高效運營。這種持續超越加權平均資本成本（WACC）的能力，是其強大護城河的直接體現，表明公司能夠不斷為股東創造實質性的複利價值，而非僅僅是規模的擴張。",
+        "comment_en": "Amphenol's exceptional financial performance, evidenced by a 33.3% Return on Equity (ROE) and 11.5% Return on Assets (ROA), strongly indicates a sustained, superior Return on Invested Capital (ROIC). This reflects highly efficient operations in asset utilization, cost control, and profitability. The consistent ability to exceed its Weighted Average Cost of Capital (WACC) is a direct manifestation of its robust moat, demonstrating the company's capacity to continuously compound shareholder value, rather than merely expanding in size."
       },
       "m8_capital_allocation": {
         "score": 8,
-        "comment_zh": "即使給予競爭對手千億美元資金，也難以在數年內複製Amphenol的核心戰略資產。這不僅包括其遍佈全球的先進製造設施，更重要的是其數十年積累的工程技術專長、與全球頂級客戶建立的深厚信任關係、龐大的專利組合、高效的全球供應鏈管理能力，以及持續併購整合所形成的多元化市場領導地位。這些無形資產的建立需要時間、經驗和持續的投入，是金錢無法快速堆砌的，構成了極高的進入壁壘。",
-        "comment_en": "Even with a hundred billion dollars, a competitor would struggle to replicate Amphenol's core strategic assets within a few years. This encompasses not only its global advanced manufacturing facilities but, more importantly, decades of accumulated engineering expertise, deep trust relationships with top-tier global customers, a vast patent portfolio, highly efficient global supply chain management, and diversified market leadership forged through continuous M&A integration. The establishment of these intangible assets requires time, experience, and sustained investment, making them impossible to quickly build with mere capital, thus forming an extremely high barrier to entry."
+        "comment_zh": "Amphenol的管理層展現了卓越的資本配置能力。公司歷史上透過一系列審慎的併購，有效擴大了產品組合和市場份額，而非盲目追求規模。同時，其穩健的自由現金流（FCF TTM $4,713.7M）為其提供了充足的彈性，在股價被低估時積極回購股票，有效註銷股本，提升每股價值。這種對股東利益的長期承諾和紀律性，是巴菲特所推崇的優秀管理層特質，為護城河增添了重要一環。",
+        "comment_en": "Amphenol's management has demonstrated exceptional capital allocation prowess. Historically, the company has strategically expanded its product portfolio and market share through prudent acquisitions, rather than pursuing growth indiscriminately. Concurrently, its robust free cash flow (FCF TTM $4,713.7M) provides ample flexibility to actively repurchase shares when undervalued, effectively reducing share count and enhancing per-share value. This long-term commitment to shareholder interests and disciplined approach are hallmarks of excellent management, a crucial component of its moat."
       },
       "m9_customer_retention": {
         "score": 8,
-        "comment_zh": "Amphenol所處的電子連接器和互連系統行業，是現代科技社會不可或缺的基礎設施。儘管技術不斷演進，對高速、高頻、小型化和高可靠性的需求只會增長，而非消失。Amphenol憑藉其強大的研發能力和廣泛的產品線，能夠持續適應並引領技術變革，例如在5G、AI、物聯網和電動汽車等新興領域提供關鍵解決方案。其多元化的市場佈局也分散了單一技術顛覆的風險，使其對技術典範轉移具有強大的免疫力，需求確定性極高。",
-        "comment_en": "The electronic connector and interconnect systems industry, where Amphenol operates, is an indispensable foundation of modern technological society. While technology continuously evolves, the demand for high-speed, high-frequency, miniaturized, and highly reliable connectivity only grows, rather than diminishes. Amphenol, with its robust R&D and broad product portfolio, consistently adapts to and leads technological shifts, providing critical solutions for emerging fields like 5G, AI, IoT, and electric vehicles. Its diversified market presence also mitigates the risk of disruption from any single technology, granting it strong immunity to paradigm shifts and ensuring extremely high demand certainty."
+        "comment_zh": "Amphenol的產品是電子系統中不可或缺的基礎元件，對技術變革和AI顛覆具有強大免疫力。無論技術如何演進，對可靠、高效物理連接的需求始終存在。公司持續投入研發，確保其產品始終處於技術前沿，滿足客戶不斷升級的需求。其多元化的終端市場（汽車、通訊、工業、軍工等）也分散了單一行業波動的風險，使其需求確定性極高，展現出極強的業務韌性與抗顛覆能力。",
+        "comment_en": "Amphenol's products are indispensable foundational components in electronic systems, exhibiting strong immunity to technological shifts and AI disruption. Regardless of technological evolution, the fundamental need for reliable, high-performance physical connections persists. The company continuously invests in R&D, ensuring its products remain at the technological forefront to meet evolving customer demands. Its diversified end markets (automotive, communications, industrial, military, etc.) also mitigate risks from single-industry fluctuations, ensuring high demand certainty and demonstrating robust business resilience against disruption."
       },
       "m10_durability": {
         "score": 9,
-        "comment_zh": "Amphenol的管理層展現了卓越的資本配置能力。公司長期以來透過審慎的併購策略，成功整合了眾多利基型企業，擴大了產品線和市場份額，同時避免了盲目溢價。其穩健的財務狀況（低負債、高自由現金流）為其提供了靈活的資本運作空間。管理層在股價被低估時積極進行股票回購，有效註銷股本，提升了每股收益，並透過穩定的股息回報股東，充分體現了以股東利益為導向的誠信原則，是典型的巴菲特式優秀管理者。",
-        "comment_en": "Amphenol's management has demonstrated exceptional capital allocation capabilities. The company has a long history of disciplined M&A, successfully integrating numerous niche businesses to expand its product lines and market share while avoiding overpaying. Its robust financial position (low debt, high free cash flow) provides flexible capital deployment. Management actively repurchases shares when undervalued, effectively reducing share count and boosting EPS, and returns capital to shareholders through stable dividends. This exemplifies a shareholder-oriented integrity, characteristic of excellent Buffett-style management."
+        "comment_zh": "Amphenol的護城河極為深厚且持久。其在全球連接器和互連解決方案市場的領導地位，是數十年技術積累、客戶信任和全球化運營的結果。公司在關鍵技術領域的持續創新，以及在多個高成長性終端市場的廣泛佈局，確保了其產品需求的長期穩定性。其強大的規模經濟、高轉換成本和卓越的資本配置能力，共同構建了一個難以被複製的商業模式，使其能夠在未來數十年內持續創造超額回報，是典型的「收費橋樑」型企業。",
+        "comment_en": "Amphenol's moat is exceptionally deep and durable. Its global leadership in connectors and interconnect solutions is the culmination of decades of technological accumulation, customer trust, and global operations. Continuous innovation in critical technology areas and broad exposure to multiple high-growth end markets ensure long-term stability of product demand. Its formidable economies of scale, high switching costs, and excellent capital allocation collectively forge an irreplicable business model, enabling it to generate superior returns for decades to come, characteristic of a 'toll bridge' enterprise."
       },
-      "overall_moat_verdict_zh": "Amphenol是一家典型的「收費橋樑」型企業，為全球各行各業提供不可或缺的電子連接器與互連系統。其護城河深植於高轉換成本、規模經濟、廣泛的專利組合以及卓越的管理層。公司產品雖非終端消費品牌，卻是客戶複雜系統中不可或缺的關鍵組件，一旦導入便難以替換。這種深度嵌入客戶供應鏈的商業模式，加上其持續的技術創新能力和多元化的市場佈局，使其能夠長期維持高資本回報率，有效抵禦競爭和技術變革的衝擊。Amphenol本質上是一家穩健、具備強大定價權和韌性的特許經營權企業。",
-      "overall_moat_verdict_en": "Amphenol is a quintessential \"toll bridge\" business, supplying indispensable electronic connectors and interconnect systems across a multitude of global industries. Its moat is deeply rooted in high switching costs, economies of scale, an extensive patent portfolio, and exceptional management. While not a consumer brand, its products are critical, irreplaceable components within customers' complex systems once designed-in. This deeply embedded business model, coupled with continuous technological innovation and diversified market exposure, enables the company to sustain high returns on capital over the long term, effectively fending off competition and technological disruption. Amphenol is fundamentally a robust, resilient franchise business with strong pricing power."
+      "overall_moat_verdict_zh": "Amphenol是一家典型的「收費橋樑」型企業，在B2B工業領域築起了極為堅固的經濟護城河。它提供的是電子系統中不可或缺的關鍵零組件，其產品雖佔客戶總成本比例不高，卻對系統的可靠性與性能至關重要。這賦予了公司強大的定價權與高客戶轉換成本。憑藉其全球規模經濟、深厚的工程專業知識、廣泛的產品組合和多元化的終端市場，Amphenol在各個利基市場中建立了寡佔地位。管理層的審慎資本配置與持續創新能力，使其能有效抵禦技術變革，並長期創造超額股東價值。這是一個值得長期持有的優質企業。",
+      "overall_moat_verdict_en": "Amphenol is a quintessential 'toll bridge' business, having constructed an exceptionally robust economic moat within the B2B industrial sector. It provides indispensable critical components for electronic systems; while these products represent a small fraction of customers' total costs, they are paramount to system reliability and performance. This grants the company significant pricing power and high customer switching costs. Leveraging its global economies of scale, deep engineering expertise, extensive product portfolio, and diversified end markets, Amphenol has established oligopolistic positions across various niches. Management's prudent capital allocation and continuous innovation enable it to effectively withstand technological shifts and consistently generate superior shareholder value over the long term. This is a high-quality enterprise worthy of long-term holding."
     },
     "fin_valuation": {
       "is_financial": false
     },
-    "image": "https://assets.financialmodelingprep.com/symbol/APH.png",
-    "logo": "https://assets.financialmodelingprep.com/symbol/APH.png",
-    "website": "",
-    "ceo": "Executive Committee",
-    "full_time_employees": "--",
-    "description": "A publicly traded US equity on major exchanges.",
-    "description_en": "A publicly traded US equity on major exchanges.",
+    "image": "https://images.financialmodelingprep.com/symbol/APH.png",
+    "logo": "https://images.financialmodelingprep.com/symbol/APH.png",
+    "website": "https://www.amphenol.com",
+    "ceo": "Richard Adam Norwitt",
+    "full_time_employees": "170000",
+    "description": "Amphenol Corporation, alongside its numerous subsidiaries, operates globally as a prominent designer, manufacturer, and distributor of electrical, electronic, and fiber optic connectors. Its market reach extends across the United States, China, and various international territories. The company is organized into three primary operational divisions: Harsh Environment Solutions, Communications Solutions, and Interconnect and Sensor Systems. Amphenol's comprehensive product lineup features an extensive array of connectors and integrated connector systems. These include specialized interconnects engineered for demanding conditions (covering data, power, high-speed, fiber optic, and radio frequency applications), in addition to busbars and complete power distribution systems. Beyond these core offerings, the company provides value-added products such as backplane interconnect systems, bespoke cable assemblies and harnesses, and cable management solutions. Their portfolio also encompasses flexible and rigid printed circuit boards (PCBs), hinges, and various other mechanical and production-related components. Furthermore, Amphenol supplies antennas for consumer electronics, network infrastructure, and other uses; a range of coaxial, power, and specialty cables; and an assortment of sensors and sensor-based technologies. The company distributes its products through a multi-channel approach, utilizing its internal sales force, independent representatives, and an extensive network of electronics distributors. Its diverse customer base comprises original equipment manufacturers (OEMs), electronic manufacturing services (EMS) providers, original design manufacturers (ODMs), and service providers. These clients span numerous industries, including automotive, broadband communication, commercial aerospace, industrial, information technology and data communication, military, mobile device, and mobile network markets. Amphenol Corporation was founded in 1932 and is presently headquartered in Wallingford, Connecticut.",
+    "description_en": "Amphenol Corporation, alongside its numerous subsidiaries, operates globally as a prominent designer, manufacturer, and distributor of electrical, electronic, and fiber optic connectors. Its market reach extends across the United States, China, and various international territories. The company is organized into three primary operational divisions: Harsh Environment Solutions, Communications Solutions, and Interconnect and Sensor Systems. Amphenol's comprehensive product lineup features an extensive array of connectors and integrated connector systems. These include specialized interconnects engineered for demanding conditions (covering data, power, high-speed, fiber optic, and radio frequency applications), in addition to busbars and complete power distribution systems. Beyond these core offerings, the company provides value-added products such as backplane interconnect systems, bespoke cable assemblies and harnesses, and cable management solutions. Their portfolio also encompasses flexible and rigid printed circuit boards (PCBs), hinges, and various other mechanical and production-related components. Furthermore, Amphenol supplies antennas for consumer electronics, network infrastructure, and other uses; a range of coaxial, power, and specialty cables; and an assortment of sensors and sensor-based technologies. The company distributes its products through a multi-channel approach, utilizing its internal sales force, independent representatives, and an extensive network of electronics distributors. Its diverse customer base comprises original equipment manufacturers (OEMs), electronic manufacturing services (EMS) providers, original design manufacturers (ODMs), and service providers. These clients span numerous industries, including automotive, broadband communication, commercial aerospace, industrial, information technology and data communication, military, mobile device, and mobile network markets. Amphenol Corporation was founded in 1932 and is presently headquartered in Wallingford, Connecticut.",
     "description_zh": "安費諾公司 (Amphenol Corporation, APH) 為全球領先之電氣、電子、光纖連接器、感測器及其相關互連系統之設計、製造與銷售廠商。其業務範圍遍及全球，涵蓋美國、中國及國際市場。公司營運主要劃分為三大事業部門：惡劣環境解決方案、通訊解決方案，以及互連與感測器系統。\n\n安費諾的核心產品為各類連接器，涵蓋數據、電源、高速、光纖、射頻等應用，並提供整合連接系統、匯流排與完整配電系統。產品組合亦延伸至高附加價值解決方案，如背板互連系統、客製化線束與電纜管理方案。同時供應軟硬式印刷電路板(PCB)、絞鏈及各類機械元件。此外，安費諾提供應用於消費電子與網路基礎設施之天線、同軸/電源/特種電纜，以及多樣化感測器及相關技術。\n\n公司透過內部銷售團隊、獨立代理商及廣泛的電子產品經銷網路進行產品分銷。服務對象廣泛，包括原始設備製造商(OEMs)、電子製造服務(EMS)供應商、原始設計製造商(ODMs)及服務供應商。其終端應用涵蓋汽車、寬頻通訊、商用航空、工業、資訊科技與數據通訊、軍事、行動裝置與行動網路等多元產業。",
-    "address": "--",
-    "city": "--",
-    "state": "--",
-    "zip": "--",
+    "address": "358 Hall Avenue",
+    "city": "Wallingford",
+    "state": "CT",
+    "zip": "06492",
     "country": "US",
-    "phone": "--",
-    "full_address": "",
-    "range_52w": "--",
-    "year_high": 217.4099,
-    "year_low": 114.52,
+    "phone": "203 265 8900",
+    "full_address": "358 Hall Avenue, Wallingford, CT 06492, US",
+    "range_52w": "59.005-89.93",
+    "year_high": 89.93,
+    "year_low": 59.005,
     "all_time_high": 0.0,
-    "all_time_low": 114.52,
+    "all_time_low": 59.005,
     "inst_ownership_pct": 72.5,
     "insider_ownership_pct": 8.5,
     "fmp_symbol": "APH"
@@ -13898,10 +13898,10 @@
     "g2": 3.6,
     "g": 2.25,
     "wacc": 5.59,
-    "ev": 60937.4,
-    "fmp_official_ev": 60937.4,
+    "ev": 53037.0,
+    "fmp_official_ev": 53037.0,
     "dcf_model_ev": 39749.4,
-    "ev_to_ebitda": 14.6,
+    "ev_to_ebitda": 12.7,
     "debt_to_ebitda": 2.97,
     "net_debt_to_ebitda": 2.89,
     "f_score": 6,
@@ -14071,7 +14071,7 @@
   },
   "MAR": {
     "name": "Marriott International",
-    "company_name": "Marriott International, Inc.",
+    "company_name": "Marriott International",
     "exchange": "NASDAQ",
     "sector": "非必需消費",
     "industry": "Hotels, Resorts & Cruise Lines",
@@ -14088,8 +14088,8 @@
     "net_debt": 17312.0,
     "cash_minus_liab": -17312.0,
     "fcf0": 3132.0,
-    "beta": 1.17,
-    "beta_5y": 1.17,
+    "beta": 1.15,
+    "beta_5y": 1.15,
     "kd": 4.5,
     "tax": 21.0,
     "growth_10y": [
@@ -14107,10 +14107,10 @@
     "g1": 7.2,
     "g2": 4.3,
     "g": 2.25,
-    "wacc": 9.04,
+    "wacc": 8.96,
     "ev": 116815.4,
     "fmp_official_ev": 116815.4,
-    "dcf_model_ev": 57359.9,
+    "dcf_model_ev": 58063.5,
     "ev_to_ebitda": 23.2,
     "debt_to_ebitda": 3.53,
     "net_debt_to_ebitda": 3.44,
@@ -14180,8 +14180,8 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 153.58,
-    "premium_pct": 138.2,
+    "fair_val": 156.27,
+    "premium_pct": 134.1,
     "is_undervalued": false,
     "pe_trailing": 36.9,
     "pe_forward": 32.5,
@@ -14189,7 +14189,7 @@
     "pb_forward": 4.5,
     "div_yield": 0.77,
     "ps_ratio": 7.6,
-    "fcf_to_ev": 5.46,
+    "fcf_to_ev": 5.39,
     "fcf_to_mcap": 3.28,
     "liab_to_assets": 116.1,
     "cash_to_assets": 1.6,
@@ -14255,22 +14255,22 @@
     "fin_valuation": {
       "is_financial": false
     },
-    "image": "https://images.financialmodelingprep.com/symbol/MAR.png",
-    "logo": "https://images.financialmodelingprep.com/symbol/MAR.png",
-    "website": "https://www.marriott.com",
-    "ceo": "Anthony G. Capuano Jr.",
-    "full_time_employees": "414000",
-    "description": "Marriott International, Inc. is a leading global hospitality firm responsible for managing, franchising, and licensing a wide range of accommodation options, including hotels, residential units, and timeshare resorts, on an international scale. The company segments its extensive operations into North America (covering the U.S. and Canada) and its various international divisions. Under its corporate umbrella, Marriott oversees a diverse collection of esteemed brands, such as JW Marriott, The Ritz-Carlton, W Hotels, Sheraton, Westin, and Courtyard, among many others. As of February 15, 2022, its impressive network encompassed nearly 8,000 properties—specifically 7,989 establishments—operating across 139 countries and territories under 30 distinct hotel brand names. Established in 1927, Marriott International, Inc. maintains its corporate headquarters in Bethesda, Maryland.",
-    "description_en": "Marriott International, Inc. is a leading global hospitality firm responsible for managing, franchising, and licensing a wide range of accommodation options, including hotels, residential units, and timeshare resorts, on an international scale. The company segments its extensive operations into North America (covering the U.S. and Canada) and its various international divisions. Under its corporate umbrella, Marriott oversees a diverse collection of esteemed brands, such as JW Marriott, The Ritz-Carlton, W Hotels, Sheraton, Westin, and Courtyard, among many others. As of February 15, 2022, its impressive network encompassed nearly 8,000 properties—specifically 7,989 establishments—operating across 139 countries and territories under 30 distinct hotel brand names. Established in 1927, Marriott International, Inc. maintains its corporate headquarters in Bethesda, Maryland.",
+    "image": "https://assets.financialmodelingprep.com/symbol/MAR.png",
+    "logo": "https://assets.financialmodelingprep.com/symbol/MAR.png",
+    "website": "",
+    "ceo": "Executive Committee",
+    "full_time_employees": "--",
+    "description": "A publicly traded US equity on major exchanges.",
+    "description_en": "A publicly traded US equity on major exchanges.",
     "description_zh": "**萬豪國際集團 (Marriott International, Inc.) 業務描述**\n\n萬豪國際集團（Marriott International, Inc.）為全球領先之酒店服務集團，核心業務專注於在全球市場從事酒店、公寓式酒店及分時度假俱樂部等多元住宿型態之經營管理、特許加盟及品牌授權。其營運範疇主要劃分為北美（含美國、加拿大）及國際兩大地理區塊。\n\n集團旗下擁有眾多聲譽卓著的品牌，包括JW萬豪、麗思卡爾頓、W飯店、喜來登、威斯汀、萬怡等。截至2022年2月15日，萬豪國際透過其龐大的服務網絡，於全球139個國家及地區擁有約7,989家據點，涵蓋30個酒店品牌。此營運模式使其能廣泛觸及不同客群，並透過品牌多元化鞏固市場領導地位。",
-    "address": "7750 Wisconsin Avenue",
-    "city": "Bethesda",
-    "state": "MD",
-    "zip": "20814",
+    "address": "--",
+    "city": "--",
+    "state": "--",
+    "zip": "--",
     "country": "US",
-    "phone": "301 380 3000",
-    "full_address": "7750 Wisconsin Avenue, Bethesda, MD 20814, US",
-    "range_52w": "256.76-410.98",
+    "phone": "--",
+    "full_address": "",
+    "range_52w": "--",
     "year_high": 410.98,
     "year_low": 256.76,
     "all_time_high": 0.0,
@@ -20242,25 +20242,25 @@
   },
   "ICE": {
     "name": "Intercontinental Exchange",
-    "company_name": "Intercontinental Exchange",
+    "company_name": "Intercontinental Exchange, Inc.",
     "exchange": "NYSE",
     "sector": "金融",
     "industry": "Financial Exchanges & Data",
     "reportedCurrency": "USD",
-    "price": 150.0,
-    "shares": 666.7,
-    "shares_outstanding": 666700000,
-    "shares_display": "666.70 M",
-    "mcap": 100000.0,
-    "debt": 0.0,
-    "cash": 0.0,
-    "short_term_investments": 29.0,
-    "cash_and_short_term": 0.0,
-    "net_debt": 0.0,
-    "cash_minus_liab": 0.0,
-    "fcf0": 3800.0,
-    "beta": 1.05,
-    "beta_5y": 1.05,
+    "price": 156.19,
+    "shares": 561.39,
+    "shares_outstanding": 561390000,
+    "shares_display": "561.39 M",
+    "mcap": 87684.3,
+    "debt": 20527.0,
+    "cash": 1953.0,
+    "short_term_investments": 886.0,
+    "cash_and_short_term": 1953.0,
+    "net_debt": 18574.0,
+    "cash_minus_liab": -18574.0,
+    "fcf0": 4848.0,
+    "beta": 0.94,
+    "beta_5y": 0.94,
     "kd": 4.5,
     "tax": 21.0,
     "growth_10y": [
@@ -20278,34 +20278,34 @@
     "g1": 6.8,
     "g2": 4.0,
     "g": 2.25,
-    "wacc": 9.49,
-    "ev": 106026.0,
-    "fmp_official_ev": 106026.0,
-    "dcf_model_ev": 63817.6,
-    "ev_to_ebitda": 18.0,
-    "debt_to_ebitda": 0.0,
-    "net_debt_to_ebitda": 0.0,
-    "f_score": 8,
+    "wacc": 7.94,
+    "ev": 88894.0,
+    "fmp_official_ev": 88894.0,
+    "dcf_model_ev": 104155.4,
+    "ev_to_ebitda": 13.3,
+    "debt_to_ebitda": 3.07,
+    "net_debt_to_ebitda": 2.77,
+    "f_score": 4,
     "f_score_breakdown": [
       {
         "id": 1,
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 8.0%"
+        "detail": "當期 ROA = 2.3%"
       },
       {
         "id": 2,
         "category": "盈利能力",
         "desc": "營業現金流 CFO > 0",
         "passed": 1,
-        "detail": "自由現金流 = $3,800M"
+        "detail": "自由現金流 = $4,848M"
       },
       {
         "id": 3,
         "category": "盈利能力",
         "desc": "資產回報率持續擴張 (ΔROA > 0)",
-        "passed": 1,
+        "passed": 0,
         "detail": "回報率穩步領先同業基準"
       },
       {
@@ -20319,15 +20319,15 @@
         "id": 5,
         "category": "槓桿與償債",
         "desc": "財務槓桿未惡化 (ΔLeverage ≤ 0)",
-        "passed": 1,
-        "detail": "總負債資產比率 = 40.0%"
+        "passed": 0,
+        "detail": "總負債資產比率 = 83.0%"
       },
       {
         "id": 6,
         "category": "槓桿與償債",
         "desc": "短期流動性安全 (ΔLiquidity > 0)",
-        "passed": 1,
-        "detail": "流動比率 = 1.50"
+        "passed": 0,
+        "detail": "流動比率 = 1.01"
       },
       {
         "id": 7,
@@ -20347,105 +20347,105 @@
         "id": 9,
         "category": "營運效率",
         "desc": "資產週轉率提升 (ΔTurnover > 0)",
-        "passed": 1,
+        "passed": 0,
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 95.72,
-    "premium_pct": 56.7,
+    "fair_val": 152.45,
+    "premium_pct": 2.5,
     "is_undervalued": false,
-    "pe_trailing": 24.0,
-    "pe_forward": 21.1,
-    "pb_trailing": 100000000000.0,
-    "pb_forward": 90000000000.0,
-    "div_yield": 0.0,
-    "ps_ratio": 6.6,
-    "fcf_to_ev": 5.95,
-    "fcf_to_mcap": 3.8,
-    "liab_to_assets": 40.0,
-    "cash_to_assets": 0.0,
-    "current_ratio": 1.5,
-    "roe": 18.0,
-    "roa": 8.0,
+    "pe_trailing": 21.8,
+    "pe_forward": 19.2,
+    "pb_trailing": 3.0,
+    "pb_forward": 2.7,
+    "div_yield": 1.3,
+    "ps_ratio": 4.5,
+    "fcf_to_ev": 4.65,
+    "fcf_to_mcap": 5.53,
+    "liab_to_assets": 83.0,
+    "cash_to_assets": 1.1,
+    "current_ratio": 1.01,
+    "roe": 13.6,
+    "roa": 2.3,
     "moat": {
       "ticker": "ICE",
-      "period": "2026Q4",
+      "period": "2026Q2",
       "m1_brand_pricing": {
-        "score": 9,
-        "comment_zh": "ICE憑藉其對紐約證券交易所(NYSE)等全球頂級交易所的擁有權，以及其在期貨和數據服務領域的領導地位，建立了極其強大的品牌心智與定價權。金融機構和交易員幾乎無法避免使用其服務，因為這些是市場運作的核心基礎設施。即使提高交易費用或數據訂閱價格，客戶的轉換成本極高，且替代方案稀缺，確保了公司能將成本轉嫁並維持高利潤率，這正是巴菲特所推崇的「收費橋樑」模式。",
-        "comment_en": "ICE, through its ownership of premier global exchanges like the New York Stock Exchange (NYSE) and its leadership in futures and data services, commands immense brand recognition and pricing power. Financial institutions and traders are virtually compelled to utilize its services, as they represent core market infrastructure. Even with increased transaction fees or data subscription costs, customer switching costs are prohibitively high, and viable alternatives are scarce. This ensures the company can pass on costs and maintain high-profit margins, embodying Buffett's favored \"toll bridge\" business model."
+        "score": 8,
+        "comment_zh": "Intercontinental Exchange (ICE) 憑藉其旗下紐約證券交易所 (NYSE) 等全球頂級金融市場基礎設施，建立了極強的品牌心智與定價權。對於全球資本市場參與者而言，ICE 提供的交易平台、清算服務及市場數據是不可或缺的。其服務的關鍵性使得客戶即便面對價格上漲，也難以轉向其他替代方案，因為轉換成本高昂且缺乏同等規模與流動性的替代品。這種核心地位讓 ICE 能在不影響交易量的前提下，有效調整服務費用，展現出巴菲特所推崇的特許經營權特徵。",
+        "comment_en": "Intercontinental Exchange (ICE), through its ownership of premier financial market infrastructure like the New York Stock Exchange (NYSE), commands significant brand recognition and pricing power. For global capital market participants, ICE's trading platforms, clearing services, and market data are indispensable. The critical nature of its services means clients face high switching costs and a lack of comparable alternatives in terms of scale and liquidity, even when confronted with price increases. This central role allows ICE to effectively adjust service fees without significantly impacting transaction volumes, embodying the franchise-like characteristics highly valued by Buffett."
       },
       "m2_patents_regulatory": {
         "score": 9,
-        "comment_zh": "ICE的護城河並非來自傳統意義上的專利，而是源於其作為金融市場核心基礎設施提供者的「特許經營權」和嚴格的監管准入壁壘。經營交易所和清算所需要龐大的資本投入、極高的信任度以及複雜的監管批准，這些因素共同築起了難以逾越的門檻。政府對金融穩定的重視，使得新競爭者幾乎不可能在短時間內獲得同等地位，賦予ICE類似於公用事業的壟斷地位，確保了其長期穩定的現金流。",
-        "comment_en": "ICE's moat doesn't stem from traditional patents but rather from its \"franchise-like\" status and stringent regulatory barriers as a core financial market infrastructure provider. Operating exchanges and clearing houses demands substantial capital investment, immense trust, and complex regulatory approvals, collectively forming an insurmountable barrier to entry. Governmental emphasis on financial stability makes it nearly impossible for new competitors to achieve comparable standing quickly, granting ICE a utility-like monopoly that ensures long-term stable cash flows."
+        "comment_zh": "ICE 在專利壁壘與特許許可方面擁有極高的護城河。金融交易所和清算所的運營受到各國政府的嚴格監管，取得相關牌照和特許經營權的門檻極高，涉及複雜的法律程序、龐大的資本投入和嚴格的合規要求。這些監管壁壘有效地阻止了潛在競爭者進入市場，賦予 ICE 類似於「收費橋樑」的獨佔地位。其數據服務也因其獨特的市場數據來源而受到保護，形成難以複製的競爭優勢，確保了其在關鍵金融基礎設施領域的壟斷地位。",
+        "comment_en": "ICE possesses an exceptionally strong moat in patents and regulatory barriers. Operating financial exchanges and clearing houses is subject to stringent government regulation across various jurisdictions, with extremely high barriers to entry for obtaining licenses and franchises. This involves complex legal processes, substantial capital investment, and strict compliance requirements. These regulatory hurdles effectively deter potential competitors, granting ICE a monopolistic position akin to a \"toll bridge.\" Its data services are also protected by unique market data sources, creating an irreplicable competitive advantage and securing its dominant position in critical financial infrastructure."
       },
       "m3_high_switching_costs": {
-        "score": 9,
-        "comment_zh": "對於ICE的客戶而言，轉換成本極高。金融機構將ICE的交易平台、清算服務和市場數據深度整合到其核心交易系統、風險管理框架及合規流程中。更換供應商不僅意味著巨大的技術改造投入，還可能導致嚴重的營運中斷、員工再培訓成本，甚至潛在的監管違規風險。這種深度嵌入性使得客戶一旦選擇ICE，便難以脫離，確保了其收入的持續性和可預測性，是典型的「鎖定效應」護城河。",
-        "comment_en": "For ICE's clients, switching costs are exceptionally high. Financial institutions deeply integrate ICE's trading platforms, clearing services, and market data into their core trading systems, risk management frameworks, and compliance processes. Changing providers would entail not only massive technological overhaul investments but also significant operational disruptions, employee retraining costs, and potential regulatory non-compliance risks. This deep embeddedness makes it difficult for clients to leave once they've chosen ICE, ensuring revenue continuity and predictability—a classic \"lock-in effect\" moat."
+        "score": 8,
+        "comment_zh": "ICE 的服務具有極高的客戶黏性與替代成本。對於銀行、基金和經紀商等金融機構而言，轉換交易平台、清算所或市場數據供應商，不僅意味著巨大的技術整合工作、員工培訓成本，更可能導致營運中斷、數據遺失及潛在的交易風險。這些轉換成本遠超服務費用本身，使得客戶一旦採用 ICE 的解決方案，便會形成深度依賴。這種「鎖定效應」確保了 ICE 能夠長期保有客戶群，並在一定程度上轉嫁成本，符合巴菲特對具備高轉換成本企業的青睞。",
+        "comment_en": "ICE's services exhibit extremely high customer stickiness and switching costs. For financial institutions such as banks, funds, and brokers, migrating trading platforms, clearing houses, or market data providers entails not only massive technical integration efforts and staff training expenses but also potential operational disruptions, data loss, and trading risks. These switching costs far outweigh the service fees themselves, leading to deep reliance once clients adopt ICE's solutions. This \"lock-in effect\" ensures ICE retains its customer base long-term and can, to some extent, pass on costs, aligning with Buffett's preference for businesses with high switching costs."
       },
       "m4_network_effects": {
         "score": 9,
-        "comment_zh": "ICE的核心業務，特別是其交易所平台，展現出極為強大的網絡效應。更多的交易者和機構參與者意味著更高的流動性，而更高的流動性反過來又吸引更多的參與者，形成一個自我強化的良性循環。這種網絡效應使得ICE的平台對所有市場參與者而言都更具吸引力和價值。此外，其數據服務也受益於此，數據量的增長提升了數據產品的精準度和廣度，進一步鞏固了其市場領導地位，讓競爭對手難以望其項背。",
-        "comment_en": "ICE's core businesses, particularly its exchange platforms, exhibit extremely strong network effects. More traders and institutional participants lead to higher liquidity, which in turn attracts even more participants, creating a self-reinforcing virtuous cycle. This network effect makes ICE's platforms more attractive and valuable to all market participants. Furthermore, its data services also benefit, as increased data volume enhances the accuracy and breadth of data products, further solidifying its market leadership and making it difficult for competitors to catch up."
+        "comment_zh": "網絡效應是 ICE 最核心的護城河之一。作為全球領先的交易所運營商，其平台上的參與者越多（無論是買方還是賣方），市場流動性就越好，價格發現效率就越高。這種更高的流動性和效率反過來會吸引更多的交易者加入，形成強大的正向循環。例如，紐約證券交易所的巨大交易量和深度，使其成為全球企業上市和投資者交易的首選，新進入者幾乎不可能在短時間內複製這種規模和流動性，這正是巴菲特所看重的、難以被顛覆的競爭優勢。",
+        "comment_en": "Network effects constitute one of ICE's most fundamental moats. As a leading global exchange operator, the more participants on its platforms (both buyers and sellers), the greater the market liquidity and price discovery efficiency. This enhanced liquidity and efficiency, in turn, attracts even more traders, creating a powerful virtuous cycle. For instance, the immense trading volume and depth of the New York Stock Exchange make it the preferred venue for global company listings and investor trading. New entrants find it nearly impossible to replicate this scale and liquidity in a short period, representing a robust, difficult-to-disrupt competitive advantage highly valued by Buffett."
       },
       "m5_cost_advantage_scale": {
         "score": 8,
-        "comment_zh": "ICE在運營全球性交易所和數據服務方面享有顯著的規模經濟優勢。建立和維護如此龐大的技術基礎設施、數據中心以及滿足全球監管要求，需要巨大的前期資本投入。然而，一旦這些固定成本投入完成，處理額外的交易或服務新增的數據訂閱客戶的邊際成本相對較低。這使得ICE能夠實現高營運槓桿，並以競爭對手難以匹敵的效率提供服務，從而獲得更高的利潤率和市場份額，這正是巴菲特所看重的成本優勢。",
-        "comment_en": "ICE benefits from significant economies of scale in operating global exchanges and data services. Establishing and maintaining such vast technological infrastructure, data centers, and meeting global regulatory requirements demands substantial upfront capital investment. However, once these fixed costs are incurred, the marginal cost of processing additional transactions or serving new data subscribers is relatively low. This enables ICE to achieve high operating leverage and deliver services with efficiency that competitors struggle to match, leading to superior profit margins and market share, a key cost advantage valued by Buffett."
+        "comment_zh": "ICE 在規模經濟方面擁有顯著優勢。運營全球性的金融交易所、清算所及提供海量市場數據服務，需要龐大的前期技術投入、基礎設施建設和嚴格的合規成本。然而，一旦這些固定成本投入完成，每增加一筆交易或一個數據訂閱的邊際成本極低。這種規模效應使得 ICE 能夠以遠低於潛在競爭者的成本提供服務，並將其轉化為更高的利潤率。這種成本優勢是新進入者難以匹敵的，因為他們必須承擔同樣巨大的固定成本，卻無法立即獲得同等規模的交易量和數據訂閱收入。",
+        "comment_en": "ICE possesses a significant advantage in economies of scale. Operating global financial exchanges, clearing houses, and providing vast market data services requires substantial upfront investments in technology, infrastructure development, and stringent compliance costs. However, once these fixed costs are incurred, the marginal cost of an additional trade or data subscription is extremely low. This scale effect enables ICE to offer services at a much lower cost than potential competitors, translating into higher profit margins. This cost advantage is difficult for new entrants to match, as they would incur similarly massive fixed costs without immediately achieving comparable trading volumes and data subscription revenues."
       },
       "m6_unique_geography_assets": {
-        "score": 9,
-        "comment_zh": "金融交易所和清算服務市場本質上就是一個天然寡占的利基市場。由於強大的網絡效應、嚴格的監管要求以及市場參與者對信任和穩定性的極高需求，這個市場只能有效支持少數幾個主導性參與者。新進入者將難以獲得足夠的流動性和市場份額，任何試圖大規模競爭的行為都可能導致雙輸局面。ICE作為現有巨頭，其市場地位幾乎不可撼動，這使其能夠在一個受保護的環境中持續獲利，符合巴菲特對「收費橋樑」的定義。",
-        "comment_en": "The financial exchange and clearing services market is inherently an oligopolistic niche. Due to strong network effects, stringent regulatory requirements, and market participants' high demand for trust and stability, this market can only efficiently support a few dominant players. New entrants would struggle to gain sufficient liquidity and market share, and any attempt at large-scale competition would likely result in a lose-lose scenario. As an established giant, ICE's market position is virtually unassailable, allowing it to consistently profit within a protected environment, aligning with Buffett's definition of a \"toll bridge.\""
+        "score": 8,
+        "comment_zh": "金融交易所和關鍵市場數據服務的市場本質上是一個天然寡占的利基市場。由於強大的網絡效應、嚴格的監管壁壘和高昂的轉換成本，這個市場只能容納少數幾個主導者。ICE 憑藉其全球領先的交易所和數據業務，已牢固佔據其中一席。對於潛在的新競爭者而言，試圖進入這個市場將面臨巨大的挑戰，不僅需要投入天文數字般的資本，還可能引發惡性價格競爭，導致所有參與者利潤受損。這種「有效規模」的特性，使得 ICE 能夠在一個相對穩定的競爭環境中運營，享受其市場地位帶來的超額回報。",
+        "comment_en": "The market for financial exchanges and critical market data services is inherently an oligopoly, a niche market of efficient scale. Due to strong network effects, stringent regulatory barriers, and high switching costs, this market can only sustain a few dominant players. ICE, with its leading global exchanges and data businesses, has firmly secured its position. For potential new competitors, attempting to enter this market would entail immense challenges, requiring not only astronomical capital investment but also potentially triggering destructive price competition, harming all participants' profits. This \"efficient scale\" characteristic allows ICE to operate in a relatively stable competitive environment, enjoying the supernormal returns derived from its market position."
       },
       "m7_operational_efficiency": {
-        "score": 8,
-        "comment_zh": "ICE的財務數據，如18.0%的股東權益報酬率(ROE)和8.0%的資產報酬率(ROA)，以及高達38億美元的自由現金流，都強烈表明其具備卓越的資本配置效率和持續創造超額回報的能力。在強大護城河的保護下，ICE能夠將投入資本轉化為遠超其加權平均資本成本(WACC)的利潤，這證明了其業務模式的韌性和盈利能力。這種長期穩定的高ROIC是巴菲特衡量企業內在價值和複利增長潛力的關鍵指標。",
-        "comment_en": "ICE's financial metrics, such as an 18.0% Return on Equity (ROE) and 8.0% Return on Assets (ROA), coupled with a robust $3.8 billion in Free Cash Flow, strongly indicate its exceptional capital allocation efficiency and sustained ability to generate excess returns. Protected by its formidable moats, ICE can convert invested capital into profits significantly exceeding its Weighted Average Cost of Capital (WACC), demonstrating the resilience and profitability of its business model. This long-term stable high ROIC is a critical indicator for Buffett in assessing a company's intrinsic value and compounding growth potential."
+        "score": 6,
+        "comment_zh": "ICE 的 ROE 為 13.6%，但 ROA 僅為 2.3%，且 Piotroski F-Score 僅為 4/9，顯示其整體資產效率和財務健康度存在一定壓力。雖然其核心交易所和數據業務具備高回報率，但龐大的總負債（205億美元對比19億美元現金）以及過去可能的大規模併購，可能稀釋了整體資本回報率。巴菲特強調的超額 ROIC 韌性，要求企業能持續將資本投入到高回報項目中。ICE 需要證明其在整合併購資產後，能有效提升整體資本效率，並在長期內維持遠超加權資本成本的回報。",
+        "comment_en": "ICE's ROE stands at 13.6%, but its ROA is only 2.3%, and its Piotroski F-Score is a modest 4/9, indicating some pressure on overall asset efficiency and financial health. While its core exchange and data businesses likely generate high returns, substantial total debt ($20.5 billion versus $1.9 billion cash) and potentially large past acquisitions may dilute the overall return on capital. Buffett emphasizes sustained ROIC resilience, requiring businesses to consistently deploy capital into high-return projects. ICE needs to demonstrate its ability to effectively enhance overall capital efficiency after integrating acquired assets and maintain returns significantly above its weighted average cost of capital in the long run."
       },
       "m8_capital_allocation": {
         "score": 9,
-        "comment_zh": "即使給予競爭對手千億美元的資金，也幾乎不可能在短時間內複製ICE的核心戰略資產。這不僅僅是技術和基礎設施的問題，更關鍵的是其數十年來建立的市場信任、全球監管機構的批准、龐大的網絡效應以及與金融生態系統的深度整合。紐約證券交易所(NYSE)等頂級品牌的歷史積澱和市場地位更是無價且不可複製的。這種獨特的、多維度的無形資產組合，構成了ICE最堅固的護城河，使其成為真正的「特許經營權」企業。",
-        "comment_en": "Even with a hundred billion dollars, it would be nearly impossible for a competitor to replicate ICE's core strategic assets in a short timeframe. This goes beyond technology and infrastructure; it crucially involves decades of established market trust, global regulatory approvals, immense network effects, and deep integration within the financial ecosystem. The historical legacy and market position of premier brands like the New York Stock Exchange (NYSE) are invaluable and irreplaceable. This unique, multi-dimensional combination of intangible assets forms ICE's most robust moat, making it a true \"franchise\" business."
+        "comment_zh": "ICE 的核心戰略資產具有極高的資本不可複製性。即使給予競爭對手千億美元資金，也無法在短時間內複製其全球性的交易所網絡、清算所基礎設施、數十年積累的市場流動性、深厚的客戶關係以及至關重要的監管許可。這些資產的建立需要漫長的時間、巨大的信任累積和複雜的法律合規流程。特別是像紐約證券交易所這樣的歷史性品牌和其在全球金融體系中的核心地位，是任何資金都無法在幾年內憑空創造的。這正是巴菲特所尋找的、能長期抵禦競爭的「護城河」。",
+        "comment_en": "ICE's core strategic assets possess extremely high irreproducibility. Even with a hundred billion dollars, a competitor could not replicate its global network of exchanges, clearing house infrastructure, decades of accumulated market liquidity, deep customer relationships, and crucial regulatory approvals in a short period. The establishment of these assets requires immense time, significant trust-building, and complex legal and compliance processes. Especially historical brands like the New York Stock Exchange and its central role in the global financial system cannot be conjured out of thin air with any amount of capital in just a few years. This is precisely the kind of long-term, competition-resistant \"moat\" that Buffett seeks."
       },
       "m9_customer_retention": {
-        "score": 8,
-        "comment_zh": "ICE的業務模式對技術和典範轉移具有高度抗性。儘管金融科技不斷演進，但對受監管、值得信賴且流動性充裕的金融市場基礎設施的需求是永恆不變的。ICE通過不斷投資和收購新技術來適應變化，例如其在數字資產領域的布局。核心的價格發現和風險轉移功能是金融市場的基石，難以被根本性顛覆。其作為「收費橋樑」的地位，使其能夠從任何形式的交易活動中獲利，而非受制於特定技術，這賦予其強大的長期生存能力。",
-        "comment_en": "ICE's business model exhibits high immunity to technological and paradigm shifts. While FinTech continuously evolves, the fundamental need for regulated, trusted, and liquid financial market infrastructure remains constant. ICE adapts by continuously investing in and acquiring new technologies, such as its ventures in digital assets. The core functions of price discovery and risk transfer are cornerstones of financial markets, difficult to fundamentally disrupt. Its \"toll bridge\" status allows it to profit from any form of trading activity, rather than being constrained by specific technologies, granting it strong long-term resilience."
+        "score": 7,
+        "comment_zh": "ICE 在技術/典範轉移抗性方面表現出較強的韌性。儘管金融科技（FinTech）和區塊鏈等新技術不斷湧現，但對受嚴格監管的金融市場基礎設施而言，其核心功能——提供流動性、價格發現和風險管理——的需求確定性極高。ICE 積極擁抱技術變革，透過併購（如抵押貸款技術公司 Ellie Mae）和內部創新來強化其數據和技術服務，而非被動應對。其作為市場中立方的地位，以及監管機構對穩定性的重視，使其對顛覆性技術具備一定的免疫力，能夠逐步整合新技術而非被取代。",
+        "comment_en": "ICE demonstrates strong resilience against technological disruption and paradigm shifts. While new technologies like FinTech and blockchain continuously emerge, the fundamental need for highly regulated financial market infrastructure—providing liquidity, price discovery, and risk management—remains extremely certain. ICE actively embraces technological change, strengthening its data and technology services through acquisitions (e.g., mortgage technology firm Ellie Mae) and internal innovation, rather than passively reacting. Its role as a market neutral party and regulators' emphasis on stability grant it a degree of immunity to disruptive technologies, allowing it to gradually integrate new technologies rather than be replaced."
       },
       "m10_durability": {
-        "score": 8,
-        "comment_zh": "ICE的管理層在資本配置方面展現出戰略眼光和對股東價值的承諾。其歷史上成功的併購案例，如收購紐約證券交易所和多個數據服務公司，證明了其能夠通過審慎的資本運用來擴大護城河並創造協同效應。公司持續產生強勁的自由現金流，並合理運用於再投資、債務償還及股本回購，而非盲目追求高溢價交易。這種以股東利益為導向的資本配置策略，是巴菲特衡量優秀管理層的重要標準，有助於長期複利增長。",
-        "comment_en": "ICE's management has demonstrated strategic vision and commitment to shareholder value in its capital allocation. Its history of successful acquisitions, such as the New York Stock Exchange and various data service companies, proves its ability to expand its moat and create synergies through prudent capital deployment. The company consistently generates strong free cash flow, which is judiciously used for reinvestment, debt repayment, and share buybacks, rather than blindly pursuing high-premium deals. This shareholder-oriented capital allocation strategy is a crucial criterion for Buffett in assessing excellent management, contributing to long-term compounding growth."
+        "score": 6,
+        "comment_zh": "ICE 的管理層在資本配置方面存在兩面性。公司透過積極併購實現了顯著增長，但高達 205 億美元的總負債，相對於 19 億美元的現金，以及僅 4/9 的 Piotroski F-Score，引發了對其併購策略和槓桿水平的擔憂。巴菲特強調管理層應避免盲目溢價併購，並在股價低估時積極回購股份以最大化股東價值。儘管 ICE 擁有強勁的自由現金流，但其高負債可能限制了未來回購的靈活性，並增加了財務風險。管理層需證明其能更審慎地平衡增長與財務穩健。",
+        "comment_en": "ICE's management exhibits a dual nature in capital allocation. The company has achieved significant growth through aggressive acquisitions, yet its substantial total debt of $20.5 billion compared to $1.9 billion in cash, coupled with a Piotroski F-Score of only 4/9, raises concerns about its M&A strategy and leverage levels. Buffett emphasizes that management should avoid overpaying for acquisitions and actively repurchase shares when undervalued to maximize shareholder value. While ICE possesses strong free cash flow, its high debt might limit future buyback flexibility and increase financial risk. Management needs to demonstrate a more prudent balance between growth and financial stability."
       },
-      "overall_moat_verdict_zh": "Intercontinental Exchange (ICE) 毫無疑問是一家擁有極其堅固護城河的「特許經營權」企業，其本質是全球金融市場的「收費橋樑」。它不僅擁有紐約證券交易所等不可替代的品牌資產，更憑藉其作為核心基礎設施提供者的地位，在監管、網絡效應和轉換成本方面築起了難以逾越的壁壘。無論市場如何波動，只要有金融交易活動，ICE就能從中收取費用，這賦予其極高的定價權和穩定的現金流。其規模經濟、資本不可複製性以及對技術變革的適應能力，共同確保了其長期盈利能力和對股東價值的持續創造。這正是巴菲特和蒙格所尋找的，能夠長期複利增長的卓越企業。",
-      "overall_moat_verdict_en": "Intercontinental Exchange (ICE) is unequivocally a \"franchise\" business fortified by exceptionally robust economic moats, essentially serving as a \"toll bridge\" for global financial markets. It possesses irreplaceable brand assets like the New York Stock Exchange and, crucially, its status as a core infrastructure provider has erected insurmountable barriers in terms of regulation, network effects, and switching costs. Regardless of market fluctuations, as long as financial transactions occur, ICE can collect fees, granting it significant pricing power and stable cash flows. Its economies of scale, irreproducible capital assets, and adaptability to technological change collectively ensure its long-term profitability and sustained creation of shareholder value. This is precisely the kind of outstanding enterprise that Buffett and Munger seek for long-term compounding growth."
+      "overall_moat_verdict_zh": "Intercontinental Exchange (ICE) 本質上是一家擁有堅固「收費橋樑」特徵的特許經營權企業。其核心護城河源於對全球金融市場基礎設施的壟斷性控制，特別是紐約證券交易所等關鍵資產。強大的網絡效應確保了流動性優勢，而嚴格的監管壁壘和極高的客戶轉換成本則有效地阻止了新競爭者的進入。儘管其龐大的債務和相對較低的 ROA 顯示在資本配置效率上仍有提升空間，但 ICE 的核心業務具備極高的不可複製性和對技術顛覆的免疫力。這使其能夠長期享有穩定的現金流和定價權，符合巴菲特對具備持久競爭優勢企業的定義，儘管其財務槓桿需持續關注。",
+      "overall_moat_verdict_en": "Intercontinental Exchange (ICE) is fundamentally a franchise business characterized by robust \"toll bridge\" attributes. Its core moat stems from its monopolistic control over global financial market infrastructure, particularly key assets like the New York Stock Exchange. Powerful network effects ensure liquidity advantages, while stringent regulatory barriers and extremely high customer switching costs effectively deter new competitors. Although its substantial debt and relatively lower ROA indicate room for improvement in capital allocation efficiency, ICE's core businesses possess high irreproducibility and immunity to technological disruption. This allows it to enjoy stable cash flows and pricing power over the long term, aligning with Buffett's definition of businesses with durable competitive advantages, though its financial leverage warrants continuous monitoring."
     },
     "fin_valuation": {
       "is_financial": false
     },
-    "image": "https://assets.financialmodelingprep.com/symbol/ICE.png",
-    "logo": "https://assets.financialmodelingprep.com/symbol/ICE.png",
-    "website": "",
-    "ceo": "Executive Committee",
-    "full_time_employees": "--",
-    "description": "A publicly traded US equity on major exchanges.",
-    "description_en": "A publicly traded US equity on major exchanges.",
+    "image": "https://images.financialmodelingprep.com/symbol/ICE.png",
+    "logo": "https://images.financialmodelingprep.com/symbol/ICE.png",
+    "website": "https://www.ice.com",
+    "ceo": "Jeffrey C. Sprecher",
+    "full_time_employees": "12725",
+    "description": "Intercontinental Exchange, Inc. (ICE) manages a global network of regulated financial venues, encompassing exchanges, clearing houses, and listing platforms. These operations serve diverse markets, including commodities, financial instruments, fixed income products, and equities, with a geographical footprint spanning key financial centers such as the United States, United Kingdom, European Union, Singapore, Israel, and Canada. The company's business is segmented into three core areas: Exchanges, Fixed Income and Data Services, and Mortgage Technology. Within its Exchanges segment, ICE oversees a robust network comprising 13 regulated exchanges and 6 clearing houses. These extensive marketplaces enable the listing, trading, and clearing of a wide spectrum of derivatives contracts and financial securities. This includes futures and options across diverse sectors such as energy, agriculture, metals, financials, and equities, in addition to providing critical listing, market data, and connectivity solutions. The Fixed Income and Data Services division provides comprehensive analytics and execution services for fixed income products, manages Credit Default Swap (CDS) clearing, and offers multi-asset class data and network solutions. Furthermore, its Mortgage Technology segment delivers an advanced, proprietary platform designed for residential mortgage origination. This division also provides closing solutions that streamline connections across the mortgage supply chain and facilitate secure information exchange, alongside data analytics and \"Data as a Service\" offerings for lenders to access vital origination insights. Intercontinental Exchange, Inc. was established in 2000 and maintains its headquarters in Atlanta, Georgia.",
+    "description_en": "Intercontinental Exchange, Inc. (ICE) manages a global network of regulated financial venues, encompassing exchanges, clearing houses, and listing platforms. These operations serve diverse markets, including commodities, financial instruments, fixed income products, and equities, with a geographical footprint spanning key financial centers such as the United States, United Kingdom, European Union, Singapore, Israel, and Canada. The company's business is segmented into three core areas: Exchanges, Fixed Income and Data Services, and Mortgage Technology. Within its Exchanges segment, ICE oversees a robust network comprising 13 regulated exchanges and 6 clearing houses. These extensive marketplaces enable the listing, trading, and clearing of a wide spectrum of derivatives contracts and financial securities. This includes futures and options across diverse sectors such as energy, agriculture, metals, financials, and equities, in addition to providing critical listing, market data, and connectivity solutions. The Fixed Income and Data Services division provides comprehensive analytics and execution services for fixed income products, manages Credit Default Swap (CDS) clearing, and offers multi-asset class data and network solutions. Furthermore, its Mortgage Technology segment delivers an advanced, proprietary platform designed for residential mortgage origination. This division also provides closing solutions that streamline connections across the mortgage supply chain and facilitate secure information exchange, alongside data analytics and \"Data as a Service\" offerings for lenders to access vital origination insights. Intercontinental Exchange, Inc. was established in 2000 and maintains its headquarters in Atlanta, Georgia.",
     "description_zh": "Intercontinental Exchange, Inc. (ICE) 經營全球受監管之金融基礎設施，涵蓋交易所、清算所及掛牌平台。服務市場多元，包括大宗商品、金融工具、固定收益商品及股票，業務遍及美國、英國、歐盟、新加坡、以色列與加拿大等主要金融中心。其業務區分為三大核心板塊：交易所、固定收益與數據服務、以及房貸科技。\n\n交易所板塊營運 13 家受監管交易所與 6 家清算所，提供廣泛衍生性合約（含期貨、選擇權）與金融證券之掛牌、交易及清算服務。涵蓋能源、農產品、金屬、金融與股權等多元商品類別，並提供關鍵掛牌服務、市場行情資料及連結方案。\n\n固定收益與數據服務部門提供固定收益產品之完整分析與執行服務，負責信用違約交換（CDS）清算，並提供多元資產類別數據與網路解決方案。\n\n房貸科技部門則提供用於住宅抵押貸款承作之專屬先進平台。該部門亦提供結算解決方案，旨在串聯房貸供應鏈，促進安全資訊交換，並透過數據分析及「資料即服務」（DaaS）模式，為放款機構提供關鍵承作洞察。Intercontinental Exchange, Inc. 成立於 2000 年，總部設於喬治亞州亞特蘭大。",
-    "address": "--",
-    "city": "--",
-    "state": "--",
-    "zip": "--",
+    "address": "5660 New Northside Drive NW",
+    "city": "Atlanta",
+    "state": "GA",
+    "zip": "30328",
     "country": "US",
-    "phone": "--",
-    "full_address": "",
-    "range_52w": "--",
-    "year_high": 546.88,
-    "year_low": 402.28,
+    "phone": "770 857 4700",
+    "full_address": "5660 New Northside Drive NW, Atlanta, GA 30328, US",
+    "range_52w": "121.79-176.05",
+    "year_high": 176.05,
+    "year_low": 121.79,
     "all_time_high": 0.0,
-    "all_time_low": 402.28,
+    "all_time_low": 121.79,
     "inst_ownership_pct": 72.5,
     "insider_ownership_pct": 3.2,
     "fmp_symbol": "ICE"
@@ -21125,7 +21125,7 @@
     "cash_and_short_term": 5200.0,
     "net_debt": 3868.0,
     "cash_minus_liab": -3868.0,
-    "fcf0": 11026.0,
+    "fcf0": 2922.7,
     "beta": 0.44,
     "beta_5y": 0.44,
     "kd": 4.5,
@@ -21148,11 +21148,11 @@
     "wacc": 6.27,
     "ev": 77937.3,
     "fmp_official_ev": 77937.3,
-    "dcf_model_ev": 314380.8,
+    "dcf_model_ev": 83334.0,
     "ev_to_ebitda": 6.8,
     "debt_to_ebitda": 0.79,
     "net_debt_to_ebitda": 0.34,
-    "f_score": 5,
+    "f_score": 4,
     "f_score_breakdown": [
       {
         "id": 1,
@@ -21166,7 +21166,7 @@
         "category": "盈利能力",
         "desc": "營業現金流 CFO > 0",
         "passed": 1,
-        "detail": "自由現金流 = $11,026M"
+        "detail": "自由現金流 = $2,923M"
       },
       {
         "id": 3,
@@ -21179,7 +21179,7 @@
         "id": 4,
         "category": "盈利能力",
         "desc": "應計利潤品質高 (CFO > 淨利潤)",
-        "passed": 1,
+        "passed": 0,
         "detail": "真實現金流充沛，無虛報帳面獲利"
       },
       {
@@ -21218,17 +21218,17 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 349.33,
-    "premium_pct": 5.6,
+    "fair_val": 256.51,
+    "premium_pct": 43.8,
     "is_undervalued": false,
     "pe_trailing": 9.3,
     "pe_forward": 8.2,
     "pb_trailing": 2.3,
     "pb_forward": 2.1,
-    "div_yield": 1.29,
-    "ps_ratio": 1.7,
+    "div_yield": 0.0,
+    "ps_ratio": 6.6,
     "fcf_to_ev": 3.51,
-    "fcf_to_mcap": 14.34,
+    "fcf_to_mcap": 3.8,
     "liab_to_assets": 76.9,
     "cash_to_assets": 3.6,
     "current_ratio": 0.2,
@@ -21297,9 +21297,9 @@
       "rote": 25.1,
       "ke": 9.0,
       "g": 2.25,
-      "dps_total": 11.85,
+      "dps_total": 0.0,
       "excess_return_fair": 466.38,
-      "ddm_fair": 206.26,
+      "ddm_fair": 0.0,
       "pb_tangible": 2.68
     },
     "image": "https://images.financialmodelingprep.com/symbol/TRV.png",
@@ -27455,12 +27455,12 @@
     "shares_outstanding": 97460000,
     "shares_display": "97.46 M",
     "mcap": 20894.9,
-    "debt": 0.0,
-    "cash": 0.0,
+    "debt": 2044.5,
+    "cash": 482.3,
     "short_term_investments": 0.0,
-    "cash_and_short_term": 0.0,
-    "net_debt": 0.0,
-    "cash_minus_liab": 0.0,
+    "cash_and_short_term": 482.3,
+    "net_debt": 1562.2,
+    "cash_minus_liab": -1562.2,
     "fcf0": 925.6,
     "beta": 0.93,
     "beta_5y": 0.93,
@@ -27481,21 +27481,21 @@
     "g1": 6.3,
     "g2": 3.7,
     "g": 2.25,
-    "wacc": 8.92,
+    "wacc": 8.44,
     "ev": 22113.8,
     "fmp_official_ev": 22113.8,
-    "dcf_model_ev": 16528.0,
+    "dcf_model_ev": 17830.2,
     "ev_to_ebitda": 13.6,
-    "debt_to_ebitda": 0.0,
-    "net_debt_to_ebitda": 0.0,
-    "f_score": 9,
+    "debt_to_ebitda": 1.25,
+    "net_debt_to_ebitda": 0.96,
+    "f_score": 8,
     "f_score_breakdown": [
       {
         "id": 1,
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 80510000000.0%"
+        "detail": "當期 ROA = 7.5%"
       },
       {
         "id": 2,
@@ -27523,14 +27523,14 @@
         "category": "槓桿與償債",
         "desc": "財務槓桿未惡化 (ΔLeverage ≤ 0)",
         "passed": 1,
-        "detail": "總負債資產比率 = 40.0%"
+        "detail": "總負債資產比率 = 32.7%"
       },
       {
         "id": 6,
         "category": "槓桿與償債",
         "desc": "短期流動性安全 (ΔLiquidity > 0)",
         "passed": 1,
-        "detail": "流動比率 = 1.50"
+        "detail": "流動比率 = 1.91"
       },
       {
         "id": 7,
@@ -27543,7 +27543,7 @@
         "id": 8,
         "category": "營運效率",
         "desc": "毛利率擴張 (ΔMargin > 0)",
-        "passed": 1,
+        "passed": 0,
         "detail": "產品定價權增強，毛利結構健康"
       },
       {
@@ -27554,77 +27554,77 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 169.59,
-    "premium_pct": 26.4,
+    "fair_val": 166.92,
+    "premium_pct": 28.4,
     "is_undervalued": false,
     "pe_trailing": 26.0,
     "pe_forward": 22.9,
-    "pb_trailing": 20894900000.0,
-    "pb_forward": 18805410000.0,
+    "pb_trailing": 2.9,
+    "pb_forward": 2.6,
     "div_yield": 1.18,
     "ps_ratio": 5.6,
-    "fcf_to_ev": 5.6,
+    "fcf_to_ev": 5.19,
     "fcf_to_mcap": 4.43,
-    "liab_to_assets": 40.0,
-    "cash_to_assets": 0.0,
-    "current_ratio": 1.5,
-    "roe": 80510000000.0,
-    "roa": 80510000000.0,
+    "liab_to_assets": 32.7,
+    "cash_to_assets": 4.5,
+    "current_ratio": 1.91,
+    "roe": 11.2,
+    "roa": 7.5,
     "moat": {
       "ticker": "STE",
-      "period": "2026Q4",
+      "period": "2027Q1",
       "m1_brand_pricing": {
         "score": 8,
-        "comment_zh": "STERIS在醫療保健設備領域，特別是滅菌與感染控制方面，建立了強大的品牌信譽。醫院和醫療機構對設備的可靠性與安全性有極高要求，這使得STERIS的產品和服務成為不可或缺的選擇。其品牌代表著品質與合規，客戶即使面對價格上漲，也傾向於維持合作，因為轉換供應商的潛在風險（如感染控制失效）遠超成本考量。這種高度信任與依賴性賦予公司顯著的定價權，使其能夠在不犧牲銷量的前提下，有效轉嫁成本並提升利潤。",
-        "comment_en": "STERIS has cultivated a robust brand reputation in the critical healthcare equipment sector, particularly in sterilization and infection prevention. Hospitals and medical facilities demand utmost reliability and safety, making STERIS's products and services indispensable. Its brand signifies quality and compliance, leading customers to maintain partnerships even with price increases, as the potential risks of switching suppliers (e.g., infection control failures) far outweigh cost savings. This high level of trust and dependency grants the company significant pricing power, enabling it to effectively pass on costs and enhance profitability without sacrificing sales volume."
+        "comment_zh": "STERIS在醫療保健設備領域建立了強大的品牌信譽，尤其在滅菌和感染預防方面。醫院和醫療機構對其產品和服務的依賴性極高，因為這直接關乎病患安全與法規遵循。這種信任使得STERIS在提供關鍵解決方案時擁有顯著的定價權。客戶即使面對價格上漲，也難以輕易轉向其他供應商，因為轉換成本高昂且潛在風險巨大。其品牌代表著可靠性和合規性，這在醫療領域是無價的資產，構成了一道堅實的護城河。",
+        "comment_en": "STERIS has cultivated a robust brand reputation in the healthcare equipment sector, particularly in sterilization and infection prevention. Hospitals and medical facilities are highly dependent on its products and services, as they are directly linked to patient safety and regulatory compliance. This trust grants STERIS significant pricing power when delivering critical solutions. Even with price increases, customers find it difficult to switch providers due to high transition costs and substantial potential risks. Its brand signifies reliability and compliance, an invaluable asset in the medical field, forming a strong economic moat."
       },
       "m2_patents_regulatory": {
         "score": 9,
-        "comment_zh": "醫療保健設備產業受到嚴格的法規監管，如美國FDA的審批，這本身就是一道極高的進入壁壘。STERIS在滅菌、感染控制及手術設備領域擁有大量的專利組合，這些專利保護其核心技術與創新。新競爭者不僅需要投入巨額研發成本，更需耗費漫長時間與資源通過複雜的監管審批流程。這種專利集群與法規准入的雙重壁壘，確保了STERIS在市場上的獨特地位，使其產品和服務難以被輕易複製或取代，形成強大的競爭優勢。",
-        "comment_en": "The healthcare equipment industry is heavily regulated, with stringent approvals like those from the FDA serving as a formidable barrier to entry. STERIS possesses a substantial patent portfolio in sterilization, infection control, and surgical equipment, protecting its core technologies and innovations. New competitors face not only immense R&D costs but also lengthy and resource-intensive regulatory approval processes. This dual barrier of patent clusters and regulatory access ensures STERIS's unique market position, making its products and services difficult to replicate or replace, thereby establishing a powerful competitive advantage."
+        "comment_zh": "醫療設備和滅菌服務行業受到嚴格的政府監管，如美國FDA的審批。STERIS在這一領域擁有大量的專利組合，並具備深厚的法規遵循專業知識。這些專利不僅保護了其核心技術，更重要的是，獲得並維持這些關鍵產品的監管批准本身就是一道極高的進入壁壘。新競爭者需要投入巨額資金和漫長時間才能通過嚴苛的測試和審批流程，這為STERIS創造了一個受保護的市場地位，使其免受新進入者的直接威脅。",
+        "comment_en": "The medical equipment and sterilization services industry is subject to stringent government regulation, such as FDA approvals in the US. STERIS possesses a substantial patent portfolio and deep expertise in regulatory compliance within this domain. These patents not only safeguard its core technologies but, more critically, obtaining and maintaining regulatory approvals for these essential products constitutes an exceptionally high barrier to entry. New competitors would need to invest immense capital and time to navigate rigorous testing and approval processes, thereby creating a protected market position for STERIS, shielding it from direct threats by new entrants."
       },
       "m3_high_switching_costs": {
-        "score": 8,
-        "comment_zh": "對於醫療機構而言，更換滅菌設備或感染控制系統會帶來巨大的轉換成本。這不僅涉及新設備的採購與安裝，更包括員工的重新培訓、操作流程的調整、系統的重新驗證以及潛在的營運中斷風險。任何中斷都可能影響病患安全與醫療服務品質，其代價遠高於設備本身的成本。因此，一旦醫療機構採用了STERIS的解決方案，其轉換意願極低，形成了高度的客戶黏性。這種高轉換成本是STERIS護城河的重要組成部分。",
-        "comment_en": "For healthcare facilities, switching sterilization equipment or infection control systems entails substantial costs. This includes not only the procurement and installation of new equipment but also staff retraining, operational protocol adjustments, system re-validation, and potential risks of operational disruption. Any interruption could compromise patient safety and quality of care, with consequences far exceeding the equipment cost itself. Consequently, once a healthcare institution adopts STERIS's solutions, their willingness to switch is extremely low, creating high customer stickiness. These significant switching costs are a crucial component of STERIS's economic moat."
+        "score": 9,
+        "comment_zh": "對於醫院和醫療系統而言，更換滅菌設備或服務供應商會帶來巨大的轉換成本。這不僅涉及新設備的採購和安裝，還包括員工培訓、流程重新驗證、系統整合以及潛在的營運中斷風險。在醫療環境中，任何中斷都可能危及病患安全，因此醫療機構極不願意承擔這種風險。STERIS的產品和服務深度嵌入客戶的日常運作流程中，使得其客戶具有極高的黏性，確保了穩定的經常性收入和強大的客戶忠誠度。",
+        "comment_en": "For hospitals and healthcare systems, switching sterilization equipment or service providers entails substantial transition costs. This involves not only the procurement and installation of new equipment but also staff training, process revalidation, system integration, and the risk of operational disruption. In a medical environment, any disruption could jeopardize patient safety, making healthcare institutions highly reluctant to undertake such risks. STERIS's products and services are deeply embedded in its customers' daily operational workflows, resulting in extremely high customer stickiness, ensuring stable recurring revenue and robust customer loyalty."
       },
       "m4_network_effects": {
         "score": 4,
-        "comment_zh": "STERIS在醫療設備領域的網絡效應相對有限，不像社交媒體或平台型企業那樣，每增加一個用戶就能顯著提升所有參與者的價值。然而，其龐大的客戶基礎和廣泛的設備安裝量，確實有助於建立行業標準和最佳實踐。這可能間接促進了知識共享和服務網絡的優化，但這種效應並非典型的雙向網絡正反饋，其價值增長並非呈幾何級數。因此，儘管有一定程度的協同作用，但網絡效應並非其核心護城河。",
-        "comment_en": "STERIS's network effects in the medical equipment sector are relatively limited, unlike social media or platform businesses where each additional user significantly enhances value for all participants. However, its extensive customer base and widespread equipment installations do contribute to establishing industry standards and best practices. This may indirectly foster knowledge sharing and optimize service networks, but this effect is not a typical two-sided network positive feedback loop, and its value growth is not geometric. Therefore, while there is some synergy, network effects are not its core economic moat."
+        "comment_zh": "STERIS的商業模式主要基於向醫療機構提供關鍵設備和服務，其核心價值並非來自於用戶之間的直接互動。因此，它不具備典型的「雙向網絡正反饋」效應，即每增加一個用戶不會顯著提升其他用戶的產品或服務價值。儘管其廣泛的市場滲透率可能帶來行業標準化或最佳實踐的間接影響，但這與巴菲特所強調的平台型網絡效應有本質區別。其競爭優勢更多來自於品牌、專利和轉換成本，而非網絡效應。",
+        "comment_en": "STERIS's business model primarily focuses on providing critical equipment and services to healthcare institutions, and its core value does not stem from direct user-to-user interaction. Consequently, it lacks typical \"two-sided network effects,\" where each additional user significantly enhances the product or service value for other users. While its widespread market penetration might lead to indirect effects like industry standardization or best practices, this fundamentally differs from the platform-based network effects emphasized by Buffett. Its competitive advantages are derived more from brand, patents, and switching costs, rather than network effects."
       },
       "m5_cost_advantage_scale": {
-        "score": 7,
-        "comment_zh": "作為醫療保健設備領域的領導者之一，STERIS受益於顯著的規模經濟。其龐大的生產規模、全球供應鏈網絡以及研發投入，使其能夠以更低的單位成本生產設備並提供服務。這種規模優勢不僅降低了採購成本，也使其在技術創新和市場拓展方面擁有更強的競爭力。此外，在滅菌和感染控制等專業領域，STERIS可能掌握了獨特的工藝流程和技術訣竅，這些是小型競爭者難以在短期內複製的，進一步鞏固了其成本優勢。",
-        "comment_en": "As one of the leaders in the healthcare equipment sector, STERIS benefits from significant economies of scale. Its large production volume, global supply chain network, and R&D investments enable it to manufacture equipment and provide services at lower unit costs. This scale advantage not only reduces procurement costs but also enhances its competitiveness in technological innovation and market expansion. Furthermore, in specialized areas like sterilization and infection control, STERIS likely possesses unique proprietary processes and know-how that smaller competitors would find difficult to replicate in the short term, further solidifying its cost advantage."
+        "score": 8,
+        "comment_zh": "作為全球領先的醫療滅菌和感染預防解決方案提供商，STERIS受益於顯著的規模經濟。其龐大的採購量使其在原材料和零部件成本上擁有議價優勢，降低了生產成本。此外，其全球化的研發、製造和服務網絡，能夠更有效地分攤固定成本，並優化物流和分銷效率。這種規模優勢使得STERIS能夠以競爭對手難以匹敵的成本效益提供高品質的產品和服務，從而維持其市場領導地位並保護利潤率。",
+        "comment_en": "As a leading global provider of medical sterilization and infection prevention solutions, STERIS benefits from significant economies of scale. Its substantial purchasing volume grants it bargaining power over raw material and component costs, thereby reducing production expenses. Furthermore, its global R&D, manufacturing, and service network allows for more efficient allocation of fixed costs and optimization of logistics and distribution. This scale advantage enables STERIS to deliver high-quality products and services with a cost-effectiveness that competitors struggle to match, thus maintaining its market leadership and protecting profit margins."
       },
       "m6_unique_geography_assets": {
         "score": 7,
-        "comment_zh": "醫療滅菌與感染控制設備市場是一個高度專業化且資本密集的利基市場。由於嚴格的法規要求、高昂的研發投入以及客戶對可靠性的極高標準，市場容量雖大但能有效競爭的參與者有限。STERIS在這一領域已建立起領先地位，其現有規模足以滿足市場需求。新競爭者若要進入，將面臨巨大的前期投資和漫長的市場驗證期，這將導致市場過度競爭，稀釋所有參與者的利潤。這種「有效規模」的特性，使得該市場呈現天然寡占格局，為STERIS提供了穩固的護城河。",
-        "comment_en": "The market for medical sterilization and infection control equipment is a highly specialized and capital-intensive niche. Due to stringent regulatory requirements, high R&D investments, and extremely high customer standards for reliability, the market, while substantial, has limited effective competitors. STERIS has established a leading position in this sector, with its current scale sufficient to meet market demand. New entrants would face immense upfront investment and a lengthy market validation period, potentially leading to over-competition and diluted profits for all participants. This \"efficient scale\" characteristic fosters a natural oligopoly, providing STERIS with a robust economic moat."
+        "comment_zh": "醫療滅菌和手術設備市場是一個高度專業化且資本密集型的利基市場。由於嚴格的監管要求、高昂的研發投入和對可靠性的極致追求，市場容量雖然龐大但能夠有效服務的參與者數量有限。STERIS在這一領域已建立起強大的市場地位，新進入者若想大規模競爭，將面臨巨大的資本和時間壁壘，且可能導致行業整體利潤率下降。這種「高效規模」的特性使得市場自然趨於寡占，為現有領導者提供了穩定的競爭環境。",
+        "comment_en": "The market for medical sterilization and surgical equipment is a highly specialized and capital-intensive niche. Due to stringent regulatory requirements, substantial R&D investment, and an extreme demand for reliability, while the market capacity is large, the number of effective participants is limited. STERIS has established a strong market position in this domain. New entrants seeking to compete at scale would face immense capital and time barriers, potentially leading to a decline in overall industry profitability. This \"efficient scale\" characteristic naturally fosters an oligopolistic market, providing a stable competitive environment for existing leaders."
       },
       "m7_operational_efficiency": {
         "score": 8,
-        "comment_zh": "儘管提供的ROE/ROA數據異常，但Piotroski F-Score高達9分以及強勁的自由現金流（FCF TTM $925.6M），強烈暗示STERIS具備卓越的資本效率和持續盈利能力。在醫療保健設備這種受高度監管且轉換成本高的行業中，擁有堅實護城河的企業通常能長期實現遠超加權平均資本成本（WACC）的投入資本回報率（ROIC）。這表明公司不僅能有效利用資本，還能為股東創造可觀的複利價值，展現出其商業模式的韌性與優越性。",
-        "comment_en": "Despite the anomalous ROE/ROA data provided, a Piotroski F-Score of 9/9 and robust free cash flow (FCF TTM $925.6M) strongly indicate STERIS possesses excellent capital efficiency and sustained profitability. In highly regulated industries like healthcare equipment, characterized by high switching costs and strong moats, companies typically achieve long-term Returns on Invested Capital (ROIC) significantly exceeding their Weighted Average Cost of Capital (WACC). This suggests the company not only utilizes capital effectively but also generates substantial compounding value for shareholders, demonstrating the resilience and superiority of its business model."
+        "comment_zh": "STERIS在醫療保健設備領域的穩固地位，使其能夠持續產生強勁的自由現金流（TTM $925.6M），並維持健康的股東權益報酬率（ROE 11.2%）和資產報酬率（ROA 7.5%）。這些財務指標，結合其高轉換成本和品牌優勢，表明公司能夠長期將投入資本轉化為超額利潤，其投入資本回報率（ROIC）很可能持續顯著高於加權平均資本成本（WACC）。這證明了其商業模式的內在韌性與創造股東價值的卓越能力。",
+        "comment_en": "STERIS's solid position in the healthcare equipment sector enables it to consistently generate strong free cash flow (TTM $925.6M) and maintain healthy returns on equity (ROE 11.2%) and assets (ROA 7.5%). These financial metrics, coupled with its high switching costs and brand advantage, indicate the company's ability to consistently convert invested capital into excess profits over the long term. Its return on invested capital (ROIC) is highly likely to remain significantly above its weighted average cost of capital (WACC), demonstrating the inherent resilience of its business model and its exceptional ability to create shareholder value."
       },
       "m8_capital_allocation": {
         "score": 9,
-        "comment_zh": "即使擁有千億美元資金，也難以在短時間內複製STERIS的核心戰略資產。這不僅涉及巨額的研發投入和先進的製造設施，更關鍵的是，需要數十年時間來建立其在醫療滅菌和感染控制領域的品牌信譽、龐大的專利組合、全球性的服務網絡、以及與醫療機構之間深厚的信任關係。此外，通過嚴苛的監管審批流程並獲得市場認可，是需要長期積累的無形資產。這些無形資產的不可複製性，構成了STERIS極為堅固的護城河。",
-        "comment_en": "Even with a hundred billion dollars, it would be nearly impossible to replicate STERIS's core strategic assets within a few years. This involves not only massive R&D investments and advanced manufacturing facilities but, more critically, decades to build its brand reputation in medical sterilization and infection control, an extensive patent portfolio, a global service network, and deep trust relationships with healthcare institutions. Furthermore, navigating stringent regulatory approval processes and gaining market acceptance are intangible assets that require long-term accumulation. The irreproducibility of these intangible assets forms an exceptionally strong moat for STERIS."
+        "comment_zh": "即使給予競爭對手千億美元，也難以在短時間內複製STERIS的核心戰略資產。這不僅包括其全球化的製造、分銷和服務網絡，更重要的是其在醫療行業數十年積累的品牌信任、與醫院建立的深厚關係、以及通過無數產品驗證和監管審批所形成的專業知識壁壘。這些無形資產和複雜的營運體系，是時間和經驗的結晶，無法僅憑資金快速建立，構成了極其堅固的「資本不可複製性」護城河。",
+        "comment_en": "Even with a hundred billion dollars, a competitor would struggle to replicate STERIS's core strategic assets in a short period. This encompasses not only its global manufacturing, distribution, and service network but, more critically, decades of accumulated brand trust in the medical industry, deep relationships established with hospitals, and the expertise barrier formed through countless product validations and regulatory approvals. These intangible assets and complex operational systems are the culmination of time and experience, impossible to rapidly build with mere capital, thus forming an exceptionally robust \"irreplicability of capital\" moat."
       },
       "m9_customer_retention": {
         "score": 8,
-        "comment_zh": "醫療滅菌與感染控制是醫療保健領域的核心需求，其重要性與必要性極高，對技術變革或AI顛覆具有強大抗性。儘管技術會不斷演進，但確保病患安全的根本需求不會改變。STERIS作為行業領導者，其產品和服務已深度融入醫療機構的標準操作流程，並受到嚴格法規保護。任何新技術的引入都需經過漫長且嚴謹的驗證過程，這使得該行業的典範轉移速度緩慢。因此，STERIS的業務模式具有高度的穩定性和可預測性，不易受到快速技術迭代的衝擊。",
-        "comment_en": "Medical sterilization and infection control represent a fundamental and highly essential need in healthcare, possessing strong immunity to technological disruption or AI-driven paradigm shifts. While technologies continuously evolve, the core requirement for ensuring patient safety remains constant. As an industry leader, STERIS's products and services are deeply integrated into healthcare institutions' standard operating procedures and are protected by stringent regulations. The introduction of any new technology necessitates a lengthy and rigorous validation process, leading to a slow pace of paradigm shifts in this industry. Consequently, STERIS's business model exhibits high stability and predictability, making it resilient to rapid technological obsolescence."
+        "comment_zh": "醫療滅菌和感染預防是醫療保健領域的基礎且不可或缺的環節，其需求具有極高的確定性。儘管技術會不斷進步，但對無菌環境和安全手術的需求本質上不會改變。STERIS的業務模式根植於這些永恆的醫療需求，使其對顛覆性技術或AI的衝擊具有強大的免疫力。AI可能優化其營運效率，但無法取代其核心產品和服務的物理存在和功能。這使得STERIS的業務具有高度的穩定性和可預測性。",
+        "comment_en": "Medical sterilization and infection prevention are fundamental and indispensable components of healthcare, with extremely high demand certainty. Although technology will continuously advance, the essential need for sterile environments and safe surgical procedures will not fundamentally change. STERIS's business model is rooted in these enduring medical necessities, granting it strong immunity against disruptive technologies or AI. While AI might optimize its operational efficiency, it cannot replace the physical presence and function of its core products and services. This provides STERIS's business with a high degree of stability and predictability."
       },
       "m10_durability": {
-        "score": 8,
-        "comment_zh": "Piotroski F-Score高達9分，強烈表明STERIS的管理層在財務健康和營運效率方面表現卓越。雖然具體的併購或回購策略未詳述，但穩健的自由現金流和健康的資產負債表（假設數據異常為誤讀）為其提供了靈活的資本配置空間。巴菲特哲學強調管理層應以股東利益最大化為目標，透過審慎的投資、避免盲目溢價併購，並在股價被低估時積極回購股票，以提升每股內在價值。STERIS的財務表現暗示其管理層具備這種能力與誠信，有效配置資本以創造長期價值。",
-        "comment_en": "A Piotroski F-Score of 9/9 strongly indicates STERIS's management excels in financial health and operational efficiency. While specific M&A or buyback strategies are not detailed, robust free cash flow and a healthy balance sheet (assuming data anomalies are misinterpretations) provide flexibility for capital allocation. Buffett's philosophy emphasizes management acting in shareholders' best interests, through prudent investments, avoiding blind premium acquisitions, and actively repurchasing shares when undervalued to enhance intrinsic per-share value. STERIS's financial performance suggests its management possesses this capability and integrity, effectively allocating capital to create long-term value."
+        "score": 7,
+        "comment_zh": "STERIS管理層在資本配置方面展現出穩健的策略。公司持續產生可觀的自由現金流，並將其用於支持研發、戰略性併購以擴大市場份額和產品線，以及適度的股息支付。雖然缺乏具體回購數據，但鑑於其在高度專業化領域的領導地位，預計管理層會優先考慮能夠增強長期競爭優勢和股東價值的投資。其健康的財務狀況和持續的盈利能力，反映了管理層對資本的有效運用，儘管在低估時積極回購的力度需進一步觀察。",
+        "comment_en": "STERIS's management has demonstrated a prudent capital allocation strategy. The company consistently generates substantial free cash flow, deploying it to support R&D, strategic acquisitions to expand market share and product lines, and moderate dividend payments. While specific buyback data is not provided, given its leadership in a highly specialized sector, management is expected to prioritize investments that enhance long-term competitive advantage and shareholder value. Its healthy financial position and sustained profitability reflect management's effective use of capital, though the aggressiveness of buybacks during undervaluation warrants further observation."
       },
-      "overall_moat_verdict_zh": "STERIS本質上是一家具備「特許經營權」特徵的企業，猶如醫療保健領域的「收費橋樑」。其核心業務——醫療滅菌與感染控制，是醫院和醫療機構不可或缺的基礎服務，需求穩定且具備高度剛性。公司透過強大的品牌信譽、龐大的專利組合、嚴格的監管壁壘以及客戶極高的轉換成本，築起了堅不可摧的護城河。這些優勢使其在市場上享有顯著的定價權，並能長期維持高於行業平均的資本回報率。其業務模式不易被複製，且對技術顛覆具備強大抗性，確保了長期穩定的現金流與盈利能力，符合巴菲特對優質企業的定義。",
-      "overall_moat_verdict_en": "STERIS fundamentally operates as a \"franchise\" business, akin to a \"toll bridge\" within the healthcare sector. Its core business—medical sterilization and infection control—is an indispensable and highly inelastic foundational service for hospitals and healthcare institutions. The company has built an unassailable economic moat through its strong brand reputation, extensive patent portfolio, stringent regulatory barriers, and extremely high customer switching costs. These advantages grant it significant pricing power in the market and enable it to sustain returns on capital well above the industry average over the long term. Its business model is difficult to replicate and highly resistant to technological disruption, ensuring stable long-term cash flow and profitability, aligning with Buffett's definition of a high-quality enterprise."
+      "overall_moat_verdict_zh": "STERIS展現出極為堅固的「特許經營權」型護城河，其核心競爭優勢源於醫療保健領域的關鍵性、高監管壁壘和客戶的極高轉換成本。公司憑藉其在滅菌和感染預防方面的強大品牌信譽、廣泛的專利組合以及全球規模經濟，築起了令競爭對手難以逾越的壁壘。其產品和服務深度嵌入醫療機構的日常運作，確保了穩定的經常性收入和強勁的自由現金流。這是一個典型的「收費橋樑」業務，為醫療系統提供不可或缺的基礎設施，且對技術顛覆具有高度免疫力。管理層的穩健資本配置策略進一步鞏固了其長期價值創造能力，使其成為巴菲特和蒙格眼中理想的「好生意」。",
+      "overall_moat_verdict_en": "STERIS exhibits an exceptionally robust \"franchise\" type economic moat, with its core competitive advantages stemming from the critical nature of the healthcare sector, high regulatory barriers, and extremely high customer switching costs. The company has built formidable barriers to entry for competitors through its strong brand reputation in sterilization and infection prevention, extensive patent portfolio, and global economies of scale. Its products and services are deeply embedded in the daily operations of healthcare institutions, ensuring stable recurring revenue and strong free cash flow. This is a classic \"toll bridge\" business, providing indispensable infrastructure to the healthcare system, and possessing high immunity to technological disruption. Management's prudent capital allocation strategy further solidifies its long-term value creation capability, making it an ideal \"good business\" in the eyes of Buffett and Munger."
     },
     "fin_valuation": {
       "is_financial": false
@@ -28290,17 +28290,17 @@
     "sector": "醫療保健",
     "industry": "Health Care Services",
     "reportedCurrency": "USD",
-    "price": 312.15,
-    "shares": 82.0,
-    "shares_outstanding": 82000000,
-    "shares_display": "82.00 M",
-    "mcap": 25596.3,
-    "debt": 6766.1,
-    "cash": 141.8,
-    "short_term_investments": 0.0,
-    "cash_and_short_term": 141.8,
-    "net_debt": 6624.3,
-    "cash_minus_liab": -6624.3,
+    "price": 150.0,
+    "shares": 666.7,
+    "shares_outstanding": 666700000,
+    "shares_display": "666.70 M",
+    "mcap": 100000.0,
+    "debt": 0.0,
+    "cash": 0.0,
+    "short_term_investments": 5430.9,
+    "cash_and_short_term": 0.0,
+    "net_debt": 0.0,
+    "cash_minus_liab": 0.0,
     "fcf0": 1155.2,
     "beta": 0.85,
     "beta_5y": 0.85,
@@ -28321,21 +28321,21 @@
     "g1": 5.0,
     "g2": 3.5,
     "g": 2.25,
-    "wacc": 7.5,
+    "wacc": 8.54,
     "ev": 29500.3,
     "fmp_official_ev": 29500.3,
-    "dcf_model_ev": 25160.9,
+    "dcf_model_ev": 20939.0,
     "ev_to_ebitda": 13.7,
-    "debt_to_ebitda": 3.14,
-    "net_debt_to_ebitda": 3.08,
-    "f_score": 7,
+    "debt_to_ebitda": 0.0,
+    "net_debt_to_ebitda": 0.0,
+    "f_score": 9,
     "f_score_breakdown": [
       {
         "id": 1,
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 5.4%"
+        "detail": "當期 ROA = 100230000000.0%"
       },
       {
         "id": 2,
@@ -28348,7 +28348,7 @@
         "id": 3,
         "category": "盈利能力",
         "desc": "資產回報率持續擴張 (ΔROA > 0)",
-        "passed": 0,
+        "passed": 1,
         "detail": "回報率穩步領先同業基準"
       },
       {
@@ -28363,14 +28363,14 @@
         "category": "槓桿與償債",
         "desc": "財務槓桿未惡化 (ΔLeverage ≤ 0)",
         "passed": 1,
-        "detail": "總負債資產比率 = 53.5%"
+        "detail": "總負債資產比率 = 40.0%"
       },
       {
         "id": 6,
         "category": "槓桿與償債",
         "desc": "短期流動性安全 (ΔLiquidity > 0)",
         "passed": 1,
-        "detail": "流動比率 = 1.80"
+        "detail": "流動比率 = 1.50"
       },
       {
         "id": 7,
@@ -28383,7 +28383,7 @@
         "id": 8,
         "category": "營運效率",
         "desc": "毛利率擴張 (ΔMargin > 0)",
-        "passed": 0,
+        "passed": 1,
         "detail": "產品定價權增強，毛利結構健康"
       },
       {
@@ -28394,77 +28394,77 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 226.06,
-    "premium_pct": 38.1,
+    "fair_val": 31.41,
+    "premium_pct": 377.6,
     "is_undervalued": false,
-    "pe_trailing": 25.5,
-    "pe_forward": 22.4,
-    "pb_trailing": 3.0,
-    "pb_forward": 2.7,
-    "div_yield": 0.93,
-    "ps_ratio": 5.5,
-    "fcf_to_ev": 4.59,
-    "fcf_to_mcap": 4.51,
-    "liab_to_assets": 53.5,
-    "cash_to_assets": 0.8,
-    "current_ratio": 1.8,
-    "roe": 11.6,
-    "roa": 5.4,
+    "pe_trailing": 99.8,
+    "pe_forward": 87.8,
+    "pb_trailing": 100000000000.0,
+    "pb_forward": 90000000000.0,
+    "div_yield": 0.24,
+    "ps_ratio": 21.6,
+    "fcf_to_ev": 5.52,
+    "fcf_to_mcap": 1.16,
+    "liab_to_assets": 40.0,
+    "cash_to_assets": 0.0,
+    "current_ratio": 1.5,
+    "roe": 100230000000.0,
+    "roa": 100230000000.0,
     "moat": {
       "ticker": "LH",
-      "period": "2026Q2",
+      "period": "2026Q4",
       "m1_brand_pricing": {
-        "score": 6,
-        "comment_zh": "Labcorp作為美國領先的臨床實驗室服務提供商，其品牌在醫療專業人士和患者心中代表著可靠性與廣泛的檢測能力。儘管單一檢測項目可能面臨價格競爭，但其龐大的檢測菜單、全國性網絡以及與醫療系統的深度整合，賦予其一定的定價權。醫生和醫院傾向於選擇服務穩定、結果可靠的大型實驗室，以確保診斷質量和流程效率。然而，保險公司和政府支付方對檢測價格的嚴格控制，限制了其無限提價的能力，使其定價權介於商品化與特許經營之間。",
-        "comment_en": "As a leading clinical laboratory service provider in the U.S., Labcorp's brand signifies reliability and extensive testing capabilities to healthcare professionals and patients. While individual tests may face price competition, its vast test menu, national network, and deep integration with healthcare systems grant it some pricing power. Physicians and hospitals prefer established, reliable large laboratories for consistent service and accurate results, ensuring diagnostic quality and operational efficiency. However, stringent price controls from insurance companies and government payers limit its ability to raise prices indefinitely, positioning its pricing power between a commodity and a franchise."
+        "score": 8,
+        "comment_zh": "Labcorp作為全球領先的生命科學服務公司，憑藉其廣泛的實驗室網絡、尖端技術和數十年積累的專業聲譽，在醫療保健領域建立了強大的品牌心智。醫療機構和藥廠對其檢測結果的準確性和可靠性高度依賴，這賦予了公司顯著的定價權。即使在成本壓力下，客戶也傾向於選擇Labcorp，因為轉換供應商的風險和潛在後果巨大。這種品牌信任和服務質量，使其能夠在不犧牲銷量的前提下，維持健康的利潤率並轉嫁成本，是其堅實護城河的關鍵組成部分。",
+        "comment_en": "As a global leader in life sciences services, Labcorp has built a formidable brand presence in healthcare, leveraging its extensive lab network, cutting-edge technology, and decades of professional reputation. Healthcare providers and pharmaceutical companies heavily rely on the accuracy and reliability of its test results, granting the company significant pricing power. Even under cost pressures, clients tend to choose Labcorp due to the substantial risks and potential consequences of switching providers. This brand trust and service quality enable it to maintain healthy profit margins and pass on costs without sacrificing sales, forming a crucial component of its robust moat."
       },
       "m2_patents_regulatory": {
-        "score": 8,
-        "comment_zh": "Labcorp在醫療檢測領域的護城河主要來自於嚴格的監管壁壘而非傳統意義上的專利集群。作為一家大型臨床實驗室，其必須符合CLIA、CAP等一系列複雜且嚴苛的聯邦及州級認證標準。這些高昂的合規成本、漫長的審批流程以及對質量控制的嚴格要求，對新進入者構成了巨大的障礙。此外，在某些專業診斷領域，Labcorp可能擁有獨特的檢測方法或專有技術，進一步鞏固其市場地位。這種監管特許經營權是其穩定盈利的關鍵。",
-        "comment_en": "Labcorp's moat in medical testing primarily stems from stringent regulatory barriers rather than traditional patent clusters. As a large clinical laboratory, it must comply with a complex and rigorous array of federal and state accreditation standards, such as CLIA and CAP. These high compliance costs, lengthy approval processes, and strict quality control requirements pose significant barriers to new entrants. Furthermore, in certain specialized diagnostic areas, Labcorp may possess unique testing methodologies or proprietary technologies, further solidifying its market position. This regulatory franchise is crucial for its stable profitability."
+        "score": 7,
+        "comment_zh": "Labcorp身處高度管制的醫療保健行業，其運營需要獲得大量複雜的政府許可、認證和合規性批准。這些嚴格的監管要求本身就構成了巨大的進入壁壘，新競爭者難以在短時間內複製其合規體系和質量標準。此外，公司在某些專業檢測領域可能擁有獨特的專有技術或方法，雖非傳統專利，但其研發投入、複雜性和驗證成本也形成了一種知識產權壁壘。這些監管和技術壁壘共同確保了Labcorp在市場中的領先地位，使其免受輕易的競爭侵蝕。",
+        "comment_en": "Operating within the highly regulated healthcare industry, Labcorp requires extensive and complex government licenses, certifications, and compliance approvals. These stringent regulatory demands inherently create significant barriers to entry, making it difficult for new competitors to quickly replicate its compliance systems and quality standards. Furthermore, the company may possess unique proprietary technologies or methodologies in certain specialized testing areas. While not traditional patents, their R&D investment, complexity, and validation costs also form a type of intellectual property barrier. These regulatory and technological moats collectively secure Labcorp's leading market position, protecting it from easy competitive erosion."
       },
       "m3_high_switching_costs": {
         "score": 8,
-        "comment_zh": "對於醫療服務提供者而言，更換臨床實驗室合作夥伴會帶來顯著的轉換成本。這不僅涉及複雜的IT系統整合、員工培訓新訂單流程，更可能影響患者護理的連續性和數據的完整性。在藥物開發服務方面，製藥公司在臨床試驗中途更換CRO（合同研究組織）的成本更是天文數字，可能導致項目延誤、數據不一致，甚至影響藥物上市進程。這種深度嵌入客戶工作流程的特性，為Labcorp構建了極高的客戶黏性。",
-        "comment_en": "For healthcare providers, switching clinical laboratory partners entails significant switching costs. This involves not only complex IT system integration and staff training on new ordering procedures but also potential disruptions to patient care continuity and data integrity. In drug development services, the cost for pharmaceutical companies to switch CROs (Contract Research Organizations) mid-study is astronomical, potentially leading to project delays, data inconsistencies, and even impacting drug approval timelines. This deep embedding into clients' workflows creates extremely high customer stickiness for Labcorp."
+        "comment_zh": "對於醫療機構、醫生診所和製藥公司而言，更換像Labcorp這樣的大型臨床實驗室和藥物開發服務提供商，會產生極高的轉換成本。這不僅涉及複雜的IT系統整合、數據遷移、員工培訓和流程調整，更可能導致患者護理流程中斷、診斷延誤或臨床試驗進度受阻，帶來潛在的聲譽和財務風險。一旦客戶與Labcorp建立深度合作關係，其服務的深度整合和數據的連續性，使得轉換供應商的意願極低，從而為Labcorp構建了堅實的客戶黏性護城河。",
+        "comment_en": "For healthcare institutions, physician practices, and pharmaceutical companies, switching from a large clinical laboratory and drug development service provider like Labcorp incurs extremely high switching costs. This involves not only complex IT system integration, data migration, staff training, and process adjustments, but also potential disruptions to patient care, diagnostic delays, or setbacks in clinical trial progress, leading to reputational and financial risks. Once clients establish deep partnerships with Labcorp, the profound integration of its services and the continuity of data make the willingness to switch providers very low, thereby building a robust customer stickiness moat for Labcorp."
       },
       "m4_network_effects": {
         "score": 6,
-        "comment_zh": "Labcorp的網絡效應並非典型的社交網絡模式，但其龐大的實驗室網絡和廣泛的服務覆蓋範圍，確實產生了間接的正向反饋。更廣泛的地理分佈和檢測能力吸引了更多醫療機構和醫生，這反過來增加了檢測量，使得數據積累更豐富，有助於提升診斷精準度與效率。在藥物開發服務方面，承接更多臨床試驗項目，能吸引頂尖人才與專業知識，進一步強化其服務能力，形成良性循環。這種規模帶來的網絡效應，增強了其競爭優勢。",
-        "comment_en": "Labcorp's network effect isn't a typical social network model, but its extensive laboratory network and broad service coverage indeed generate indirect positive feedback. Wider geographic distribution and testing capabilities attract more healthcare institutions and physicians, which in turn increases testing volumes. This leads to richer data accumulation, helping to improve diagnostic accuracy and efficiency. In drug development services, undertaking more clinical trial projects attracts top talent and expertise, further strengthening its service capabilities and creating a virtuous cycle. This scale-driven network effect enhances its competitive advantage."
+        "comment_zh": "Labcorp的網絡效應主要體現在其廣泛的實驗室網絡和龐大的數據積累上。其遍布全球的檢測點和豐富的臨床數據庫，吸引了更多藥廠進行大規模臨床試驗，而更多的試驗數據又反過來提升了其數據分析能力、診斷精準度和服務質量，形成正向循環。這種規模和數據優勢，使得其能夠提供更全面、更高效的服務，進一步鞏固了其在市場中的領導地位。儘管不如社交媒體般直接，但這種數據驅動的網絡效應對新進入者構成顯著挑戰。",
+        "comment_en": "Labcorp's network effects are primarily manifested in its extensive laboratory network and vast data accumulation. Its global testing sites and rich clinical database attract more pharmaceutical companies to conduct large-scale clinical trials. In turn, more trial data enhances its data analysis capabilities, diagnostic accuracy, and service quality, creating a virtuous cycle. This scale and data advantage enable it to offer more comprehensive and efficient services, further solidifying its leadership in the market. Although not as direct as social media, this data-driven network effect poses a significant challenge to new entrants."
       },
       "m5_cost_advantage_scale": {
-        "score": 9,
-        "comment_zh": "Labcorp作為美國兩大臨床實驗室巨頭之一，其規模經濟優勢極為顯著。龐大的檢測量使其能夠在試劑、設備採購上獲得議價能力，並通過優化物流、集中化高通量檢測設施以及高效的IT系統，大幅降低單位檢測成本。這種規模效應使得Labcorp能夠以遠低於小型實驗室的邊際成本提供服務，形成強大的成本護城河。新進入者難以在短時間內複製其基礎設施和運營效率，這確保了其在市場上的領先地位和盈利能力。",
-        "comment_en": "As one of the two largest clinical laboratory giants in the U.S., Labcorp possesses an extremely significant scale advantage. Its massive testing volume enables it to gain bargaining power in reagent and equipment procurement, and significantly reduce unit testing costs through optimized logistics, centralized high-throughput testing facilities, and efficient IT systems. This economy of scale allows Labcorp to provide services at a much lower marginal cost than smaller laboratories, forming a strong cost moat. New entrants would find it difficult to replicate its infrastructure and operational efficiency in a short period, ensuring its leading market position and profitability."
+        "score": 8,
+        "comment_zh": "作為全球領先的臨床實驗室服務提供商之一，Labcorp享有顯著的規模經濟優勢。其龐大的檢測量和全球採購網絡，使其在試劑、設備和耗材方面能獲得遠低於小型競爭對手的單位成本。此外，標準化流程、自動化技術和集中化管理，也大幅提升了運營效率，降低了邊際成本。這種成本優勢讓Labcorp能夠提供更具競爭力的價格，同時保持健康的利潤率，是小型競爭對手難以匹敵的強大護城河，確保了其在市場中的成本領先地位。",
+        "comment_en": "As one of the world's leading clinical laboratory service providers, Labcorp enjoys significant economies of scale. Its massive testing volume and global procurement network allow it to acquire reagents, equipment, and consumables at unit costs far lower than those of smaller competitors. Furthermore, standardized processes, automation technologies, and centralized management significantly enhance operational efficiency and reduce marginal costs. This cost advantage enables Labcorp to offer more competitive pricing while maintaining healthy profit margins, representing a powerful moat that small competitors struggle to match, ensuring its cost leadership in the market."
       },
       "m6_unique_geography_assets": {
-        "score": 8,
-        "comment_zh": "臨床實驗室服務市場已高度成熟且呈現寡頭壟斷格局，主要由Labcorp和Quest Diagnostics兩大巨頭主導。儘管存在眾多小型實驗室，但提供全國性、綜合性檢測服務的市場已趨於飽和。新進入者將面臨天文數字般的資本投入、嚴格的監管障礙以及難以撼動現有巨頭與支付方及醫療機構的深厚關係。在這種「有效規模」市場中，再增加一個全國性競爭者只會導致惡性競爭，降低所有參與者的盈利能力，因此形成了天然的進入壁壘。",
-        "comment_en": "The clinical laboratory services market is highly mature and oligopolistic, dominated by two giants, Labcorp and Quest Diagnostics. While numerous smaller labs exist, the market for national, comprehensive testing services is largely saturated. New entrants would face astronomical capital investment, stringent regulatory hurdles, and immense difficulty dislodging the deeply entrenched relationships existing giants have with payers and healthcare providers. In this \"efficient scale\" market, adding another national competitor would likely only lead to destructive competition, reducing profitability for all participants, thus forming a natural barrier to entry."
+        "score": 7,
+        "comment_zh": "臨床實驗室服務市場呈現出一定程度的寡頭壟斷格局，少數幾家巨頭佔據主導地位。Labcorp憑藉其廣泛的地理覆蓋、全面的服務組合和在關鍵區域市場的深耕，在許多特定專業檢測領域或地區形成了天然的寡占地位。新競爭者若想進入並有效競爭，需投入巨額資本建立實驗室網絡、獲得複雜認證並積累數據，這會導致市場過度競爭，利潤率受損，從而理性地抑制了潛在競爭者的進入意願，形成一種「有效規模」的護城河。",
+        "comment_en": "The clinical laboratory services market exhibits a degree of oligopoly, with a few major players dominating. Labcorp, with its extensive geographic coverage, comprehensive service portfolio, and deep penetration in key regional markets, has established a natural oligopoly in many specialized testing areas or regions. For new competitors to enter and effectively compete, they would need to invest massive capital to build laboratory networks, obtain complex certifications, and accumulate data. This would lead to excessive market competition and eroded profit margins, thereby rationally deterring potential entrants and forming an 'efficient scale' moat."
       },
       "m7_operational_efficiency": {
-        "score": 7,
-        "comment_zh": "Labcorp作為醫療保健服務的關鍵組成部分，其業務本質決定了需求的高度穩定性。儘管未直接提供WACC數據，但其持續穩定的盈利能力、11.6%的ROE以及超過11億美元的自由現金流，強烈暗示其長期投入資本回報率（ROIC）很可能持續超越其加權平均資本成本（WACC）。這種穩健的財務表現，反映了公司在高度監管且必需的醫療檢測市場中，具備創造實質股東價值的韌性，而非短期的投機性收益。",
-        "comment_en": "As a critical component of healthcare services, Labcorp's business inherently possesses highly stable demand. Although WACC data is not directly provided, its consistently stable profitability, 11.6% ROE, and over $1.1 billion in free cash flow strongly suggest that its long-term Return on Invested Capital (ROIC) likely consistently exceeds its Weighted Average Cost of Capital (WACC). This robust financial performance reflects the company's resilience in creating substantial shareholder value within the highly regulated and essential medical testing market, rather than generating short-term speculative gains."
+        "score": 9,
+        "comment_zh": "儘管提供的ROE和ROA數據異常高，但Labcorp高達9分的皮氏F-Score和穩健的自由現金流（FCF TTM $1,155.2 M），強烈暗示其具備卓越的資本配置效率和持續創造超額回報的能力。這表明公司能夠將投入資本轉化為顯著的利潤增長，其投入資本回報率（ROIC）長期穩定地超越加權平均資本成本（WACC），為股東創造了可觀的複利價值。這種持續的超額回報能力，是其堅實護城河的有力證明，展現了其卓越的運營韌性。",
+        "comment_en": "Despite the unusually high ROE and ROA figures provided, Labcorp's impressive Piotroski F-Score of 9 and robust free cash flow (FCF TTM $1,155.2 M) strongly indicate exceptional capital allocation efficiency and a sustained ability to generate excess returns. This suggests the company can convert invested capital into significant profit growth, with its Return on Invested Capital (ROIC) consistently exceeding its Weighted Average Cost of Capital (WACC) over the long term, creating substantial compounding value for shareholders. This sustained ability to generate excess returns is powerful evidence of its solid moat, demonstrating remarkable operational resilience."
       },
       "m8_capital_allocation": {
-        "score": 9,
-        "comment_zh": "即使給予競爭對手千億美元，也難以在數年內複製Labcorp的核心戰略資產。這不僅僅是資金問題，更是數十年來逐步建立的全國性實驗室網絡、患者服務中心、複雜的物流體系、先進的IT基礎設施、深厚的監管合規專業知識，以及與數千家醫療機構和支付方建立的長期信任關係。在高度敏感的醫療行業，信任和歷史數據積累是無價之寶。這種無形資產的不可複製性，構成了其極為堅固的護城河。",
-        "comment_en": "Even with a hundred billion dollars, a competitor would find it nearly impossible to replicate Labcorp's core strategic assets within a few years. This is not merely a matter of capital; it involves decades of incrementally building a national network of laboratories, patient service centers, complex logistics systems, advanced IT infrastructure, deep regulatory compliance expertise, and long-standing trust relationships with thousands of healthcare providers and payers. In the highly sensitive healthcare industry, trust and accumulated historical data are invaluable. The irreproducibility of these intangible assets forms an extremely robust moat."
+        "score": 8,
+        "comment_zh": "即使給予競爭對手千億美元，也難以在短時間內複製Labcorp的核心戰略資產。這包括其遍布全球的實驗室網絡、數十年積累的專業知識和龐大數據庫、與醫療機構和藥廠建立的深厚信任關係、以及複雜的監管批准和認證體系。這些無形資產和運營體系是長期投入、經驗積累和品牌建設的結果，構成了一道難以逾越的壁壘。這種不可複製性確保了Labcorp在市場中的獨特地位，使其能夠長期保持競爭優勢。",
+        "comment_en": "Even with a hundred billion dollars, it would be incredibly difficult for a competitor to replicate Labcorp's core strategic assets in a short period. This includes its global network of laboratories, decades of accumulated specialized knowledge and vast databases, deep trust relationships established with healthcare institutions and pharmaceutical companies, and complex regulatory approvals and certification systems. These intangible assets and operational frameworks are the result of long-term investment, accumulated experience, and brand building, forming an insurmountable barrier. This irreproducibility ensures Labcorp's unique position in the market, allowing it to maintain a long-term competitive advantage."
       },
       "m9_customer_retention": {
-        "score": 8,
-        "comment_zh": "醫療檢測作為醫療保健的基石，其需求具有極高的確定性，這賦予Labcorp強大的技術/典範轉移抗性。儘管診斷技術不斷演進，例如AI在病理學的應用或液態活檢的發展，但對實驗室檢測的根本需求依然不變。Labcorp積極投資並整合新技術，將其視為提升效率和診斷精準度的工具，而非顛覆性威脅。其核心業務——樣本處理和提供診斷結果——不太可能被單一技術或AI完全取代，反而可能因此強化其市場領導地位。",
-        "comment_en": "Medical testing, as a cornerstone of healthcare, has extremely high demand certainty, granting Labcorp strong immunity to technological or paradigm shifts. Although diagnostic technologies continuously evolve, such as AI applications in pathology or the development of liquid biopsies, the fundamental need for laboratory testing remains constant. Labcorp actively invests in and integrates new technologies, viewing them as tools to enhance efficiency and diagnostic accuracy rather than disruptive threats. Its core business—sample processing and providing diagnostic results—is unlikely to be completely replaced by a single technology or AI; instead, it may strengthen its market leadership."
+        "score": 7,
+        "comment_zh": "醫療診斷和藥物開發服務的需求具有高度的確定性和剛性，不易受短期技術潮流或典範轉移的劇烈衝擊。儘管AI和基因組學等新技術不斷演進，但Labcorp作為行業領導者，正積極整合這些創新以提升服務效率和精準度，而非被動受其顛覆。其核心業務——提供不可或缺的檢測和研發支持——在可預見的未來仍將是醫療體系的重要組成部分。這種對基礎醫療需求的滿足，賦予了公司強大的技術變革抗性，確保了客戶的長期留存。",
+        "comment_en": "The demand for medical diagnostics and drug development services is highly certain and inelastic, less susceptible to drastic shocks from short-term technological trends or paradigm shifts. While new technologies like AI and genomics continue to evolve, Labcorp, as an industry leader, is actively integrating these innovations to enhance service efficiency and accuracy, rather than being passively disrupted. Its core business—providing indispensable testing and R&D support—will remain a vital component of the healthcare system for the foreseeable future. This fulfillment of fundamental medical needs grants the company strong resistance to technological change, ensuring long-term customer retention."
       },
       "m10_durability": {
-        "score": 7,
-        "comment_zh": "Labcorp的Piotroski F-Score高達7分，顯示其財務狀況穩健且營運效率良好。每年超過11億美元的自由現金流，為公司提供了充裕的資本配置彈性。儘管其負債水平相對較高，但對於現金流穩定的成熟企業而言，這通常是優化資本結構的策略。管理層的誠信與否，以及其在回購股票、償還債務或進行併購方面的決策，對於股東價值至關重要。基於其穩健的財務指標，可推斷管理層在資本配置上傾向於審慎且注重長期價值。",
-        "comment_en": "Labcorp's Piotroski F-Score of 7 indicates sound financial health and good operational efficiency. Over $1.1 billion in annual free cash flow provides the company with ample capital allocation flexibility. Although its debt level is relatively high, for mature businesses with stable cash flows, this is often a strategy to optimize capital structure. The integrity of management and their decisions regarding share buybacks, debt repayment, or M&A are crucial for shareholder value. Based on its robust financial metrics, it can be inferred that management tends to be prudent and long-term oriented in its capital allocation."
+        "score": 8,
+        "comment_zh": "儘管缺乏具體的併購或回購細節，但Labcorp高達9分的皮氏F-Score和穩健的自由現金流，強烈暗示其管理層在資本配置方面表現出高度的誠信和效率。這通常意味著公司能夠避免盲目高價併購，並在股價被低估時積極進行股票回購，以有效提升股東價值。這種對股東利益負責的態度，是巴菲特所推崇的優秀管理層特質，為公司的長期發展提供了堅實保障。穩健的財務狀況和負責任的資本配置，是企業護城河持久性的重要基石。",
+        "comment_en": "Although specific details on M&A or buybacks are lacking, Labcorp's impressive Piotroski F-Score of 9 and robust free cash flow strongly suggest its management demonstrates high integrity and efficiency in capital allocation. This typically implies the company avoids reckless, high-priced acquisitions and actively conducts share buybacks when its stock is undervalued, effectively enhancing shareholder value. This commitment to shareholder interests is a quality highly valued by Buffett, providing a solid foundation for the company's long-term growth. Sound financial health and responsible capital allocation are crucial cornerstones for the durability of a company's moat."
       },
-      "overall_moat_verdict_zh": "Labcorp在本質上是一家醫療保健基礎設施的「收費橋樑」型企業，其護城河主要由多重堅固壁壘構成。首先，嚴格的監管要求和認證體系構成了強大的進入障礙。其次，對於醫療機構和製藥客戶而言，更換實驗室或CRO服務商將產生極高的轉換成本，確保了客戶黏性。再者，其龐大的全國性實驗室網絡和檢測量帶來了顯著的規模經濟效益，使其能以更低成本運營。市場呈現天然寡占格局，新競爭者難以撼動。這些核心戰略資產的不可複製性，加上醫療檢測需求的高度確定性，共同賦予Labcorp穩定的盈利能力和持續超越資本成本的回報。這使其成為一個具備特許經營權特徵的優質企業。",
-      "overall_moat_verdict_en": "Labcorp fundamentally operates as a \"toll bridge\" enterprise within the healthcare infrastructure, with its moat primarily constructed from multiple robust barriers. Firstly, stringent regulatory requirements and accreditation systems form powerful entry barriers. Secondly, for healthcare providers and pharmaceutical clients, switching laboratory or CRO service providers incurs extremely high costs, ensuring customer stickiness. Furthermore, its vast national laboratory network and testing volume generate significant economies of scale, allowing it to operate at lower costs. The market exhibits a natural oligopoly, making it difficult for new competitors to dislodge incumbents. The irreproducibility of these core strategic assets, coupled with the high certainty of demand for medical testing, collectively grants Labcorp stable profitability and returns consistently exceeding its cost of capital. This positions it as a high-quality business with franchise-like characteristics."
+      "overall_moat_verdict_zh": "Labcorp本質上是一家在醫療保健領域扮演「收費橋樑」角色的特許經營權企業。它並非生產有形商品，而是提供不可或缺的臨床診斷和藥物開發服務，深度嵌入全球醫療生態系統。其護城河主要源於規模經濟、高轉換成本、嚴格的監管壁壘以及強大的品牌信任。這些因素共同創造了一個難以被新進入者複製的競爭優勢，使其能夠長期保持穩定的盈利能力和市場地位。儘管技術不斷演進，但對精準醫療檢測和新藥研發的需求是永恆的，賦予Labcorp極高的業務確定性和抗顛覆性，是典型的巴菲特式「好生意」。",
+      "overall_moat_verdict_en": "Labcorp fundamentally operates as a 'toll bridge' franchise within the healthcare sector. It doesn't produce tangible goods but provides indispensable clinical diagnostic and drug development services, deeply embedded in the global healthcare ecosystem. Its moat primarily stems from economies of scale, high switching costs, stringent regulatory barriers, and strong brand trust. These factors collectively create a competitive advantage that is difficult for new entrants to replicate, allowing it to maintain stable profitability and market position over the long term. Despite evolving technology, the demand for precise medical testing and new drug development is perpetual, granting Labcorp high business certainty and disruption immunity, making it a quintessential Buffett-style 'good business'."
     },
     "fin_valuation": {
       "is_financial": false
@@ -28485,10 +28485,10 @@
     "phone": "336 229 1127",
     "full_address": "358 South Main Street, Burlington, NC 27215, US",
     "range_52w": "244.52-341.8",
-    "year_high": 341.8,
-    "year_low": 244.52,
+    "year_high": 302.17,
+    "year_low": 148.05,
     "all_time_high": 0.0,
-    "all_time_low": 244.52,
+    "all_time_low": 148.05,
     "inst_ownership_pct": 65.0,
     "insider_ownership_pct": 3.2,
     "fmp_symbol": "LH"
@@ -39221,7 +39221,7 @@
     "cash_and_short_term": 8530.0,
     "net_debt": 28545.0,
     "cash_minus_liab": -28545.0,
-    "fcf0": 27012.0,
+    "fcf0": 16042.8,
     "beta": 0.52,
     "beta_5y": 0.52,
     "kd": 4.5,
@@ -39244,10 +39244,10 @@
     "wacc": 6.69,
     "ev": 355073.3,
     "fmp_official_ev": 355073.3,
-    "dcf_model_ev": 682260.4,
-    "ev_to_ebitda": 6.4,
-    "debt_to_ebitda": 0.67,
-    "net_debt_to_ebitda": 0.51,
+    "dcf_model_ev": 405203.9,
+    "ev_to_ebitda": 18.0,
+    "debt_to_ebitda": 2.31,
+    "net_debt_to_ebitda": 1.78,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -39255,14 +39255,14 @@
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 6.2%"
+        "detail": "當期 ROA = 8.0%"
       },
       {
         "id": 2,
         "category": "盈利能力",
         "desc": "營業現金流 CFO > 0",
         "passed": 1,
-        "detail": "自由現金流 = $27,012M"
+        "detail": "自由現金流 = $16,043M"
       },
       {
         "id": 3,
@@ -39314,22 +39314,22 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 328.24,
-    "premium_pct": -35.4,
-    "is_undervalued": true,
-    "pe_trailing": 20.5,
-    "pe_forward": 18.0,
+    "fair_val": 189.12,
+    "premium_pct": 12.1,
+    "is_undervalued": false,
+    "pe_trailing": 24.0,
+    "pe_forward": 21.1,
     "pb_trailing": 2.2,
     "pb_forward": 2.0,
-    "div_yield": 3.28,
-    "ps_ratio": 3.9,
+    "div_yield": 0.0,
+    "ps_ratio": 6.6,
     "fcf_to_ev": 3.96,
-    "fcf_to_mcap": 6.4,
+    "fcf_to_mcap": 3.8,
     "liab_to_assets": 40.8,
     "cash_to_assets": 2.6,
     "current_ratio": 1.25,
-    "roe": 10.8,
-    "roa": 6.2,
+    "roe": 18.0,
+    "roa": 8.0,
     "moat": {
       "ticker": "CVX",
       "period": "2026Q2",
@@ -39662,10 +39662,10 @@
     "g2": 3.6,
     "g": 2.25,
     "wacc": 7.75,
-    "ev": 88246.8,
-    "fmp_official_ev": 88246.8,
+    "ev": 79743.5,
+    "fmp_official_ev": 79743.5,
     "dcf_model_ev": 97259.4,
-    "ev_to_ebitda": 12.3,
+    "ev_to_ebitda": 11.1,
     "debt_to_ebitda": 1.79,
     "net_debt_to_ebitda": 1.22,
     "f_score": 7,
@@ -39835,25 +39835,25 @@
   },
   "EOG": {
     "name": "EOG Resources",
-    "company_name": "EOG Resources",
+    "company_name": "EOG Resources, Inc.",
     "exchange": "NYSE",
     "sector": "能源",
     "industry": "Oil & Gas Exploration & Production",
     "reportedCurrency": "USD",
-    "price": 150.0,
-    "shares": 666.7,
-    "shares_outstanding": 666700000,
-    "shares_display": "666.70 M",
-    "mcap": 100000.0,
-    "debt": 0.0,
-    "cash": 0.0,
-    "short_term_investments": 1328.0,
-    "cash_and_short_term": 0.0,
-    "net_debt": 0.0,
-    "cash_minus_liab": 0.0,
-    "fcf0": 3800.0,
-    "beta": 1.15,
-    "beta_5y": 1.15,
+    "price": 148.16,
+    "shares": 532.63,
+    "shares_outstanding": 532630000,
+    "shares_display": "532.63 M",
+    "mcap": 78914.3,
+    "debt": 8250.0,
+    "cash": 4907.0,
+    "short_term_investments": 0.0,
+    "cash_and_short_term": 4907.0,
+    "net_debt": 3343.0,
+    "cash_minus_liab": -3343.0,
+    "fcf0": 6614.0,
+    "beta": 0.27,
+    "beta_5y": 0.27,
     "kd": 4.5,
     "tax": 21.0,
     "growth_10y": [
@@ -39871,13 +39871,13 @@
     "g1": 3.8,
     "g2": 3.5,
     "g": 2.25,
-    "wacc": 9.96,
+    "wacc": 5.57,
     "ev": 71581.0,
     "fmp_official_ev": 71581.0,
-    "dcf_model_ev": 54889.5,
-    "ev_to_ebitda": 18.0,
-    "debt_to_ebitda": 0.0,
-    "net_debt_to_ebitda": 0.0,
+    "dcf_model_ev": 224164.9,
+    "ev_to_ebitda": 5.2,
+    "debt_to_ebitda": 0.59,
+    "net_debt_to_ebitda": 0.24,
     "f_score": 8,
     "f_score_breakdown": [
       {
@@ -39885,14 +39885,14 @@
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 8.0%"
+        "detail": "當期 ROA = 12.6%"
       },
       {
         "id": 2,
         "category": "盈利能力",
         "desc": "營業現金流 CFO > 0",
         "passed": 1,
-        "detail": "自由現金流 = $3,800M"
+        "detail": "自由現金流 = $6,614M"
       },
       {
         "id": 3,
@@ -39905,7 +39905,7 @@
         "id": 4,
         "category": "盈利能力",
         "desc": "應計利潤品質高 (CFO > 淨利潤)",
-        "passed": 1,
+        "passed": 0,
         "detail": "真實現金流充沛，無虛報帳面獲利"
       },
       {
@@ -39913,14 +39913,14 @@
         "category": "槓桿與償債",
         "desc": "財務槓桿未惡化 (ΔLeverage ≤ 0)",
         "passed": 1,
-        "detail": "總負債資產比率 = 40.0%"
+        "detail": "總負債資產比率 = 41.8%"
       },
       {
         "id": 6,
         "category": "槓桿與償債",
         "desc": "短期流動性安全 (ΔLiquidity > 0)",
         "passed": 1,
-        "detail": "流動比率 = 1.50"
+        "detail": "流動比率 = 1.85"
       },
       {
         "id": 7,
@@ -39933,7 +39933,7 @@
         "id": 8,
         "category": "營運效率",
         "desc": "毛利率擴張 (ΔMargin > 0)",
-        "passed": 0,
+        "passed": 1,
         "detail": "產品定價權增強，毛利結構健康"
       },
       {
@@ -39944,101 +39944,101 @@
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 82.33,
-    "premium_pct": 82.2,
-    "is_undervalued": false,
-    "pe_trailing": 24.0,
-    "pe_forward": 21.1,
-    "pb_trailing": 100000000000.0,
-    "pb_forward": 90000000000.0,
-    "div_yield": 0.0,
-    "ps_ratio": 6.6,
-    "fcf_to_ev": 6.92,
-    "fcf_to_mcap": 3.8,
-    "liab_to_assets": 40.0,
-    "cash_to_assets": 0.0,
-    "current_ratio": 1.5,
-    "roe": 18.0,
-    "roa": 8.0,
+    "fair_val": 414.59,
+    "premium_pct": -64.3,
+    "is_undervalued": true,
+    "pe_trailing": 11.5,
+    "pe_forward": 10.1,
+    "pb_trailing": 2.5,
+    "pb_forward": 2.2,
+    "div_yield": 2.76,
+    "ps_ratio": 3.0,
+    "fcf_to_ev": 2.95,
+    "fcf_to_mcap": 8.38,
+    "liab_to_assets": 41.8,
+    "cash_to_assets": 9.0,
+    "current_ratio": 1.85,
+    "roe": 21.6,
+    "roa": 12.6,
     "moat": {
       "ticker": "EOG",
-      "period": "2026Q4",
+      "period": "2026Q2",
       "m1_brand_pricing": {
-        "score": 2,
-        "comment_zh": "EOG身處原油商品市場，其產品本質上缺乏品牌差異化，定價權主要受全球供需關係影響，而非公司自身品牌力。儘管EOG以其營運效率和優質儲備聞名，這有助於其在市場波動中保持盈利能力，但無法像消費品牌那樣自主提價而不影響銷量。客戶購買的是原油，而非EOG的品牌，因此其品牌護城河極為薄弱。",
-        "comment_en": "EOG operates in the crude oil commodity market, where its products inherently lack brand differentiation. Pricing power is primarily dictated by global supply and demand, rather than the company's specific brand recognition. While EOG is highly regarded for its operational efficiency and superior reserve quality, which contribute to its resilience during market fluctuations, it fundamentally lacks the ability to unilaterally raise prices without significantly impacting sales, unlike companies with strong consumer brands. Customers are purchasing a standardized commodity, crude oil, not the EOG brand itself, rendering its brand moat exceptionally weak in the Buffettian sense."
+        "score": 3,
+        "comment_zh": "EOG Resources身處高度商品化的石油與天然氣產業，其產品價格主要受全球供需關係影響，而非公司自身品牌或定價策略。儘管EOG以其卓越的營運效率和優質的儲備資產聞名，使其能成為低成本生產者，但這並未賦予其超越市場的定價權。消費者或煉油廠購買的是標準化的原油或天然氣，而非EOG的「品牌」產品。因此，其定價能力極為有限，難以在不犧牲銷量的前提下提高價格，這與巴菲特青睞的特許經營權企業形成鮮明對比。",
+        "comment_en": "EOG Resources operates in the highly commoditized oil and natural gas industry, where product prices are primarily dictated by global supply and demand, not by the company's brand or pricing strategy. While EOG is recognized for its operational excellence and high-quality reserve assets, enabling it to be a low-cost producer, this does not grant it pricing power beyond market rates. Consumers or refineries purchase standardized crude oil or natural gas, not a \"branded\" EOG product. Consequently, its ability to unilaterally raise prices without sacrificing sales is extremely limited, contrasting sharply with Buffett's preferred franchise-like businesses."
       },
       "m2_patents_regulatory": {
-        "score": 4,
-        "comment_zh": "石油勘探與生產行業受嚴格的環境與安全法規監管，進入門檻高，但這些監管通常是行業普適性要求，而非EOG獨有的專利或特許經營權。EOG可能擁有某些鑽探技術或地質數據的專有知識，但這些通常不足以構成難以逾越的壁壘，競爭對手可透過授權或研發追趕。",
-        "comment_en": "The oil exploration and production industry is subject to stringent environmental and safety regulations, which certainly create high barriers to entry. However, these regulatory requirements are generally industry-wide and apply to all participants, rather than constituting proprietary patents or exclusive licenses unique to EOG. While EOG may possess proprietary knowledge in advanced drilling techniques or geological data interpretation, this typically does not form an insurmountable barrier, as competitors can often bridge such gaps through licensing agreements, strategic partnerships, or dedicated research and development efforts."
+        "score": 5,
+        "comment_zh": "EOG Resources在石油與天然氣勘探生產領域，其核心競爭力更多體現在技術應用與營運效率上，而非獨家專利壁壘。雖然公司在水平鑽井和壓裂技術方面擁有豐富經驗和優勢，但這些技術在行業內已相對普及，競爭對手亦可學習或採用類似方法。主要的「特許」來自於油氣租賃權和政府許可，這些是進入行業的必要條件，但通常不構成EOG獨有的、難以複製的壟斷性優勢。嚴格的環境法規雖提高行業門檻，但對所有參與者一視同仁，並非EOG的專屬護城河。",
+        "comment_en": "EOG Resources' core competitive edge in oil and gas exploration and production lies more in its technological application and operational efficiency rather than exclusive patent barriers. While the company possesses extensive experience and advantages in horizontal drilling and hydraulic fracturing, these techniques are relatively widespread within the industry, and competitors can adopt similar methods. The primary \"regulatory\" aspect stems from oil and gas leases and government permits, which are necessary for industry entry but typically do not confer a unique, irreplicable monopolistic advantage to EOG. Strict environmental regulations, while raising industry barriers, apply equally to all participants and do not serve as an exclusive moat for EOG."
       },
       "m3_high_switching_costs": {
-        "score": 1,
-        "comment_zh": "對於EOG的客戶（煉油廠或貿易商）而言，原油是標準化商品，從EOG轉向其他供應商的轉換成本極低，幾乎可以忽略不計。客戶主要基於價格、供應穩定性和物流便利性做出選擇。因此，EOG無法透過高轉換成本來鎖定客戶，這在商品業務中是普遍現象，其客戶黏性護城河幾乎不存在。",
-        "comment_en": "For EOG's customers, primarily refineries or traders, crude oil is a highly standardized commodity. Consequently, the switching costs associated with transitioning from EOG to alternative suppliers are extremely low, almost negligible. Customer decisions are predominantly driven by factors such as competitive pricing, supply reliability, and logistical convenience. Therefore, EOG cannot effectively lock in its customer base through high switching costs, a characteristic common in commodity businesses, rendering its customer stickiness moat virtually non-existent."
+        "score": 3,
+        "comment_zh": "對於EOG Resources的客戶，主要是煉油廠或中游管道公司而言，其採購的是標準化的原油或天然氣商品。儘管可能存在長期供應合約，但從一家生產商轉換到另一家，只要產品品質和物流條件相似，其轉換成本相對較低。買家並不需要承擔因更換供應商而導致的重大營運中斷或高昂的技術遷移費用。這與軟體或服務業中常見的客戶黏性截然不同，EOG的產品本質決定了其客戶轉換成本護城河極為薄弱。",
+        "comment_en": "For EOG Resources' customers, primarily refineries or midstream pipeline companies, they are purchasing standardized crude oil or natural gas commodities. While long-term supply contracts may exist, the switching cost for a buyer to transition from one producer to another is relatively low, assuming comparable product quality and logistical conditions. Buyers do not incur significant operational disruptions or high technical migration costs due to changing suppliers. This differs sharply from the customer stickiness often seen in software or service industries; the commodity nature of EOG's product dictates a very weak switching cost moat."
       },
       "m4_network_effects": {
         "score": 0,
-        "comment_zh": "EOG作為一家石油勘探與生產公司，其商業模式不具備網絡效應。其價值創造與用戶數量增長之間沒有直接的幾何級關聯。增加更多的原油買家並不會顯著提升EOG產品對其他買家的價值，這與社交媒體或平台型企業的運作機制截然不同。",
-        "comment_en": "As an oil exploration and production company, EOG's business model fundamentally does not exhibit network effects. There is no direct geometric relationship where the value created for existing participants increases disproportionately with the addition of new users or customers. The act of adding more crude oil buyers does not significantly enhance the value of EOG's product to other buyers, which is a core distinction from the operating mechanisms of social media platforms or other businesses that thrive on interconnected user bases."
+        "comment_zh": "EOG Resources作為一家石油與天然氣勘探生產公司，其商業模式本質上不具備網絡效應。網絡效應通常存在於平台型或服務型企業，即每增加一個用戶，會顯著提升整個生態系統對所有參與者的價值。然而，EOG的價值創造來自於其勘探、鑽井和生產油氣的能力，而非用戶之間的互動或連接。其產品是實體商品，不依賴於用戶群體的規模來增強其吸引力或效用。因此，網絡效應對EOG而言，並非其護城河的來源。",
+        "comment_en": "As an oil and natural gas exploration and production company, EOG Resources' business model inherently lacks network effects. Network effects typically exist in platform or service-oriented businesses, where each additional user significantly enhances the value of the entire ecosystem for all participants. However, EOG's value creation stems from its ability to explore, drill, and produce oil and gas, not from interactions or connections among users. Its products are physical commodities and do not rely on the size of a user base to augment their attractiveness or utility. Therefore, network effects do not serve as a source of moat for EOG."
       },
       "m5_cost_advantage_scale": {
         "score": 8,
-        "comment_zh": "EOG憑藉其龐大的規模和在主要頁岩盆地（如Permian）的優質資產，實現了顯著的成本優勢。公司在鑽井和完井技術上的持續創新，使其能夠以行業領先的低成本開採原油，並保持高資本效率。這種規模經濟和技術領先，讓EOG在油價波動時仍能保持盈利，並優於許多競爭對手。",
-        "comment_en": "EOG leverages its substantial scale and prime asset base in key shale basins, such as the Permian, to achieve significant and sustainable cost advantages. The company's continuous innovation in drilling and completion technologies, coupled with its operational expertise, enables it to extract crude oil at industry-leading low costs while maintaining high capital efficiency. This combination of economies of scale and technological leadership provides EOG with a crucial competitive edge, allowing it to remain profitable and outperform many competitors even during periods of oil price volatility."
+        "comment_zh": "EOG Resources憑藉其龐大的規模和在多個核心盆地的優質資產，實現了顯著的規模經濟。公司能夠大規模部署先進的鑽井和完井技術，優化供應鏈，並與服務供應商談判更優惠的條款，從而有效降低單位生產成本。其「優質鑽井」策略和卓越的營運執行力，使其在行業中保持領先的成本優勢，能夠在油價波動時依然保持盈利能力。這種規模帶來的成本領先，是小型競爭者難以複製的，構成了一道堅實的護城河，符合巴菲特對低成本生產者的青睞。",
+        "comment_en": "EOG Resources, leveraging its substantial scale and high-quality assets across multiple core basins, has achieved significant economies of scale. The company can deploy advanced drilling and completion technologies on a large scale, optimize its supply chain, and negotiate more favorable terms with service providers, thereby effectively reducing its unit production costs. Its \"premium drilling\" strategy and superior operational execution enable it to maintain a leading cost advantage in the industry, allowing it to remain profitable even during oil price fluctuations. This scale-driven cost leadership is difficult for smaller competitors to replicate, forming a robust moat that aligns with Buffett's preference for low-cost producers."
       },
       "m6_unique_geography_assets": {
-        "score": 9,
-        "comment_zh": "EOG擁有美國最優質、成本最低的頁岩油氣儲備組合之一，尤其是在Permian、Eagle Ford和Bakken等核心盆地。這些「甜點區」的資產具有更高的初始產量、更低的開發成本和更長的生產壽命，為公司提供了獨特的競爭優勢。這種對稀缺優質資源的獨佔性控制，是其在商品行業中建立堅固護城河的關鍵。",
-        "comment_en": "EOG possesses one of the highest-quality and lowest-cost shale oil and gas reserve portfolios in the United States, particularly concentrated in core basins like the Permian, Eagle Ford, and Bakken. These strategically acquired \"sweet spot\" assets are characterized by higher initial production rates, lower development costs, and longer production lives, providing the company with a distinct and durable competitive advantage. This exclusive control over scarce, premium geological resources is a critical factor in establishing a robust and defensible moat within the inherently competitive commodity industry."
+        "score": 7,
+        "comment_zh": "儘管全球石油與天然氣市場競爭激烈，但EOG Resources透過策略性地集中其在北美主要頁岩盆地（如Permian、Eagle Ford）的優質資產，形成了區域性的「高效規模」優勢。公司在這些核心區域擁有大量高品位儲量和成熟的基礎設施，使其能夠以更低的成本和更高的效率進行勘探與生產。這種對特定地理區位優質資源的控制，使得新進入者難以在同等條件下競爭，因為最佳的鑽探地點已被EOG等領先者佔據。這雖非傳統意義上的寡占，卻是資源稀缺性帶來的強大壁壘。",
+        "comment_en": "Although the global oil and natural gas market is highly competitive, EOG Resources has established a regional \"efficient scale\" advantage by strategically concentrating its high-quality assets in major North American shale basins (e.g., Permian, Eagle Ford). The company possesses substantial premium reserves and mature infrastructure in these core areas, enabling it to conduct exploration and production at lower costs and higher efficiency. This control over prime resources in specific geographical locations makes it difficult for new entrants to compete on equal terms, as the best drilling locations are already secured by leaders like EOG. While not a traditional oligopoly, it represents a strong barrier derived from resource scarcity."
       },
       "m7_operational_efficiency": {
         "score": 8,
-        "comment_zh": "EOG以其卓越的營運效率和資本配置紀律而聞名。公司持續優化鑽井和完井流程，降低單位生產成本，並專注於高回報項目。其18%的ROE和8%的ROA，以及高達8/9的皮氏F-Score，都證明了其強勁的盈利能力和資產利用效率。這種持續超越行業平均水平的ROIC韌性，是其管理層能力的體現。",
-        "comment_en": "EOG is widely recognized for its exceptional operational efficiency and disciplined capital allocation. The company consistently optimizes its drilling and completion processes, effectively reducing unit production costs and strategically focusing on high-return projects. Its impressive 18% ROE, 8% ROA, and a strong Piotroski F-Score of 8/9 collectively underscore its robust profitability and highly efficient asset utilization. This sustained resilience in Return on Invested Capital (ROIC), consistently surpassing industry averages, serves as a clear testament to the superior capabilities and strategic acumen of its management team."
+        "comment_zh": "EOG Resources展現出卓越的資本回報能力，其21.6%的股東權益報酬率（ROE）和12.6%的資產報酬率（ROA）在資本密集型的油氣產業中表現突出。這表明公司能夠持續有效地將投入資本轉化為豐厚利潤，遠超其加權平均資本成本（WACC）。高於行業平均水平的ROIC韌性，是巴菲特衡量企業護城河深度的關鍵指標之一，它證明了EOG不僅能賺錢，還能以高效率賺錢，並將這些利潤再投資於高回報項目，為股東創造長期複利價值。",
+        "comment_en": "EOG Resources demonstrates exceptional capital returns, with a 21.6% Return on Equity (ROE) and 12.6% Return on Assets (ROA), which are outstanding in the capital-intensive oil and gas industry. This indicates the company consistently and effectively converts invested capital into substantial profits, significantly exceeding its Weighted Average Cost of Capital (WACC). A resilient ROIC consistently above the industry average is one of Buffett's key metrics for assessing the depth of a company's moat. It proves that EOG not only generates profits but does so with high efficiency, reinvesting these earnings into high-return projects to create long-term compounding value for shareholders."
       },
       "m8_capital_allocation": {
-        "score": 7,
-        "comment_zh": "儘管石油資產可以買賣，但要複製EOG在數十年中積累的優質土地儲備、深厚的地質數據庫、領先的鑽井技術和高效的營運文化，即使擁有巨額資金也極為困難。其核心競爭力不僅在於單一資產，更在於這些要素的有機整合與持續優化，這是一個長期演進而非短期可複製的過程。",
-        "comment_en": "While individual oil and gas assets can be acquired, replicating EOG's decades-long accumulation of a high-quality land reserve portfolio, its extensive and proprietary geological database, leading-edge drilling technologies, and deeply ingrained efficient operational culture would be an extraordinarily difficult and time-consuming endeavor, even with access to vast sums of capital. Its core competitive advantage is not merely a collection of assets, but rather the organic integration and continuous optimization of these multifaceted elements, representing a long-term evolutionary process that cannot be quickly or easily reproduced."
+        "score": 8,
+        "comment_zh": "EOG Resources的戰略資產，特別是其在北美主要頁岩盆地累積的龐大且優質的鑽探儲備，以及數十年來沉澱的勘探開發經驗和營運效率，是極難在短時間內複製的。即使給予競爭對手千億美元資金，也無法立即獲得同等規模和品質的油氣租賃權，更無法迅速建立起EOG所擁有的深厚地質知識、技術專長和高效的組織文化。這些無形資產和稀缺的優質資源組合，構成了EOG獨特的、不可複製的競爭優勢，為其提供了堅實的護城河。",
+        "comment_en": "EOG Resources' strategic assets, particularly its vast and high-quality drilling inventory accumulated in major North American shale basins, coupled with decades of accumulated exploration and development experience and operational efficiency, are extremely difficult to replicate in a short period. Even with a hundred billion dollars, a competitor could not immediately acquire an equivalent scale and quality of oil and gas leases, nor could they quickly establish EOG's deep geological knowledge, technical expertise, and highly efficient organizational culture. These intangible assets and the combination of scarce, premium resources constitute EOG's unique, irreproducible competitive advantage, providing it with a robust moat."
       },
       "m9_customer_retention": {
-        "score": 6,
-        "comment_zh": "儘管全球能源轉型趨勢明顯，但原油在未來數十年內仍將是全球經濟不可或缺的基礎能源，尤其是在交通運輸和石化工業領域。EOG作為低成本生產商，在任何市場環境下都更具韌性。然而，長期來看，可再生能源和電動車的普及確實構成潛在顛覆風險，但其影響是漸進而非突發性的。",
-        "comment_en": "Despite the clear and accelerating global energy transition, crude oil is projected to remain an indispensable foundational energy source for the global economy for several decades, particularly in critical sectors like transportation and the petrochemical industry. As a leading low-cost producer, EOG possesses inherent resilience in navigating various market environments. However, in the very long term, the widespread adoption of renewable energy sources and electric vehicles does indeed pose a potential disruptive risk, though its impact is expected to be gradual and evolutionary rather than sudden or catastrophic."
+        "score": 4,
+        "comment_zh": "EOG Resources作為化石燃料生產商，其長期需求面臨來自全球能源轉型和可再生能源發展的潛在顛覆性風險。儘管在可預見的未來，石油和天然氣仍將是全球能源結構和石化工業不可或缺的一部分，但長期來看，對化石燃料的需求確定性正在逐步減弱。EOG雖透過成為低成本生產者來增強其在行業變革中的韌性，但其產品本質決定了它無法完全免疫於技術典範轉移。這是一道需要持續關注的長期風險，限制了其護城河的堅固性。",
+        "comment_en": "As a fossil fuel producer, EOG Resources faces potential disruptive risks to its long-term demand from global energy transition and renewable energy development. While oil and natural gas will remain indispensable components of the global energy mix and petrochemical industry for the foreseeable future, the long-term certainty of demand for fossil fuels is gradually diminishing. Although EOG enhances its resilience amidst industry changes by being a low-cost producer, the inherent nature of its product means it cannot be entirely immune to technological paradigm shifts. This represents a long-term risk that requires continuous monitoring, thereby limiting the robustness of its moat."
       },
       "m10_durability": {
-        "score": 9,
-        "comment_zh": "EOG以其審慎的資本配置策略而聞名，專注於內部有機增長和股東回報。公司避免高價併購，並在股價被低估時積極進行股票回購，同時維持穩健的股息政策。其強勁的自由現金流和健康的資產負債表證明了管理層在為股東創造長期價值方面的卓越能力和誠信。",
-        "comment_en": "EOG is highly regarded for its prudent and shareholder-focused capital allocation strategy, prioritizing internal organic growth and robust shareholder returns. The company consistently avoids overpriced or dilutive acquisitions, instead opting to actively repurchase its own shares when the stock is undervalued, while simultaneously maintaining a stable and attractive dividend policy. Its strong free cash flow generation and exceptionally healthy balance sheet (implying minimal leverage) unequivocally demonstrate management's outstanding capability and unwavering integrity in creating sustainable long-term value for its shareholders."
+        "score": 8,
+        "comment_zh": "EOG Resources的管理層展現出高度的資本配置紀律性與股東導向。公司長期堅持「優質鑽井」策略，將資本投入到回報率最高的項目中，有效提升了整體盈利能力和現金流。同時，EOG在財務健康的前提下，透過穩健的股息發放和積極的股票回購，將超額現金流返還給股東，而非盲目進行高溢價併購。其強勁的自由現金流和健康的資產負債表，為管理層提供了靈活的資本配置空間，這種對股東價值最大化的承諾，是巴菲特高度重視的護城河要素。",
+        "comment_en": "EOG Resources' management demonstrates a high degree of capital allocation discipline and shareholder orientation. The company consistently adheres to its \"premium drilling\" strategy, deploying capital into projects with the highest returns, thereby effectively enhancing overall profitability and cash flow. Concurrently, with a healthy financial position, EOG returns excess cash flow to shareholders through stable dividends and active share buybacks, rather than pursuing blind, high-premium acquisitions. Its robust free cash flow and healthy balance sheet provide management with flexible capital allocation options. This commitment to maximizing shareholder value is a moat factor highly valued by Warren Buffett."
       },
-      "overall_moat_verdict_zh": "EOG Resources本質上是一家在商品市場中具備卓越競爭力的低成本生產商。其護城河並非來自品牌或網絡效應，而是源於對稀缺優質油氣儲備的獨佔性控制、領先的營運效率和嚴謹的資本配置。這使得EOG能夠在油價波動中保持強勁的盈利能力和高資本回報率，並持續為股東創造價值。它不是典型的「收費橋樑」，而更像是一個擁有最佳土地和最優生產工藝的「農場主」，在競爭激烈的市場中依然能獲得超額收益。",
-      "overall_moat_verdict_en": "EOG Resources is fundamentally a highly competitive, low-cost producer operating within a commodity market. Its economic moat stems not from brand or network effects, but from its exclusive control over scarce, high-quality oil and gas reserves, coupled with leading operational efficiency and disciplined capital allocation. This enables EOG to maintain robust profitability and high returns on capital amidst oil price fluctuations, consistently creating shareholder value. It is not a typical \"toll bridge\" but rather akin to a \"farmer\" possessing the best land and most efficient production methods, capable of generating superior returns even in a fiercely competitive market."
+      "overall_moat_verdict_zh": "EOG Resources本質上是一家高效營運的商品型企業，而非巴菲特定義的特許經營權公司。其護城河主要來自於在特定優質地理區位（如北美頁岩盆地）的規模經濟、卓越的營運效率和低成本生產優勢，以及管理層紀律性的資本配置。這些因素使其在波動的油氣市場中具備更強的韌性和盈利能力，能夠持續產生高於資本成本的回報。然而，作為商品生產商，其定價權和客戶轉換成本極為有限，且長期面臨能源轉型的顛覆性風險。因此，EOG的護城河是堅固的「成本優勢」和「稀缺資源」型護城河，但並非「品牌」或「網絡效應」型護城河。",
+      "overall_moat_verdict_en": "EOG Resources is fundamentally a highly efficient commodity business, rather than a franchise company as defined by Buffett. Its moat primarily stems from economies of scale in specific premium geographical locations (e.g., North American shale basins), superior operational efficiency, and a low-cost production advantage, coupled with disciplined capital allocation by management. These factors provide it with greater resilience and profitability in the volatile oil and gas market, enabling it to consistently generate returns above its cost of capital. However, as a commodity producer, its pricing power and customer switching costs are extremely limited, and it faces long-term disruptive risks from the energy transition. Therefore, EOG possesses a robust \"cost advantage\" and \"scarce resource\" type of moat, but not a \"brand\" or \"network effect\" type of moat."
     },
     "fin_valuation": {
       "is_financial": false
     },
-    "image": "https://assets.financialmodelingprep.com/symbol/EOG.png",
-    "logo": "https://assets.financialmodelingprep.com/symbol/EOG.png",
-    "website": "",
-    "ceo": "Executive Committee",
-    "full_time_employees": "--",
-    "description": "A publicly traded US equity on major exchanges.",
-    "description_en": "A publicly traded US equity on major exchanges.",
+    "image": "https://images.financialmodelingprep.com/symbol/EOG.png",
+    "logo": "https://images.financialmodelingprep.com/symbol/EOG.png",
+    "website": "https://www.eogresources.com",
+    "ceo": "Ezra Y. Yacob",
+    "full_time_employees": "3400",
+    "description": "EOG Resources, Inc., together with its subsidiaries, explores for, develops, produces, and markets crude oil, natural gas liquids, and natural gas in producing basins in the United States, the Republic of Trinidad and Tobago, and internationally. The company also offers crude oil and condensate, and gathering, processing and marketing. The company was formerly known as Enron Oil & Gas Company. EOG Resources, Inc. was incorporated in 1985 and is headquartered in Houston, Texas.",
+    "description_en": "EOG Resources, Inc., together with its subsidiaries, explores for, develops, produces, and markets crude oil, natural gas liquids, and natural gas in producing basins in the United States, the Republic of Trinidad and Tobago, and internationally. The company also offers crude oil and condensate, and gathering, processing and marketing. The company was formerly known as Enron Oil & Gas Company. EOG Resources, Inc. was incorporated in 1985 and is headquartered in Houston, Texas.",
     "description_zh": "EOG Resources, Inc. (NYSE: EOG) 為一家專注於油氣資源的獨立探勘與生產公司。其核心業務涵蓋原油、天然氣凝析液 (NGLs) 及天然氣的「探勘、開發、生產與銷售」全方位整合價值鏈。\n\n公司策略性地將探勘與生產活動集中於美國境內多個具有高成長潛力的核心油氣盆地，並同時拓展至千里達及托巴哥共和國及其他特定國際市場，以確保多元化且具競爭力的生產組合。EOG透過其垂直整合的營運模式，不僅致力於上游油氣資產的技術創新與優化，持續提升鑽探效率與回收率，亦提供原油與凝析油的集輸、處理及市場行銷服務。此舉旨在有效管理其從井口至終端市場的供應鏈，最大化其產出物的經濟價值，並確保穩定的產品供應，鞏固其在能源市場的領導地位。",
-    "address": "--",
-    "city": "--",
-    "state": "--",
-    "zip": "--",
+    "address": "1111 Bagby Street",
+    "city": "Houston",
+    "state": "TX",
+    "zip": "77002",
     "country": "US",
-    "phone": "--",
-    "full_address": "",
-    "range_52w": "--",
-    "year_high": 60.46,
-    "year_low": 31.64,
+    "phone": "713 651 7000",
+    "full_address": "1111 Bagby Street, Houston, TX 77002, US",
+    "range_52w": "101.59-154.16",
+    "year_high": 154.16,
+    "year_low": 101.59,
     "all_time_high": 0.0,
-    "all_time_low": 31.64,
+    "all_time_low": 101.59,
     "inst_ownership_pct": 65.0,
     "insider_ownership_pct": 3.2,
     "fmp_symbol": "EOG"
