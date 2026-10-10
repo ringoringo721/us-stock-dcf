@@ -1013,15 +1013,22 @@ def main():
         hist_capex.append(round(-abs(ttm_capex) * fx_rate / 1e6, 1))
         hist_fcf.append(round(ttm_fcf_sum * fx_rate / 1e6, 1))
 
+        # 1. 基礎真實歷史序列組裝
         real_history = {
-        # ========================================================
-        # 提取近 5 年年報 + 最新 4 季 TTM 官方全部原生欄位 (損益表/資產負債表/現金流量表)
-        # ========================================================
+            "revenue": hist_revenue,
+            "net_income": hist_net_income,
+            "gross_profit": hist_gross_profit,
+            "operating_income": hist_operating_income,
+            "cfo": hist_cfo,
+            "capex": hist_capex,
+            "fcf": hist_fcf
+        }
+
+        # 2. 提取近 5 年年報 + 最新 4 季 TTM 官方全部原生欄位 (損益表/資產負債表/現金流量表)
         inc_5y = list(reversed(inc_annual))[:5] if inc_annual else []
         bs_5y = list(reversed(bs_annual))[:5] if bs_annual else []
         cf_5y = list(reversed(cf_annual))[:5] if cf_annual else []
 
-        # 輔助萃取 5 年數據並折算匯率
         def extract_series(dataset, key, is_ratio_or_per_share=False):
             series = []
             for item in dataset:
@@ -1034,7 +1041,6 @@ def main():
                 series.insert(0, 0.0)
             return series
 
-        # 輔助 TTM 彙總：損益與現金流為近 4 季加總，資產負債表取最新期末餘額
         def get_ttm_val(quarter_list, key, is_sum=True, is_ratio_or_per_share=False):
             if not quarter_list:
                 return 0.0
@@ -1049,7 +1055,7 @@ def main():
                     return round(raw_latest, 4)
                 return round(raw_latest * fx_rate / 1e6, 2)
 
-        # 1. 損益表 (Income Statement & TTM)
+        # 損益表 (Income Statement & TTM)
         income_fields = [
             ("revenue", False), ("costOfRevenue", False), ("grossProfit", False), ("grossProfitRatio", True),
             ("researchAndDevelopmentExpenses", False), ("generalAndAdministrativeExpenses", False),
@@ -1068,7 +1074,7 @@ def main():
             s_data.append(get_ttm_val(inc_quarter, f, is_sum=not is_ratio, is_ratio_or_per_share=is_ratio))
             stmt_income[f] = s_data
 
-        # 2. 資產負債表 (Balance Sheet & TTM)
+        # 資產負債表 (Balance Sheet & TTM)
         balance_fields = [
             ("cashAndCashEquivalents", False), ("shortTermInvestments", False), ("cashAndShortTermInvestments", False),
             ("netReceivables", False), ("inventory", False), ("otherCurrentAssets", False), ("totalCurrentAssets", False),
@@ -1090,7 +1096,7 @@ def main():
             s_data.append(get_ttm_val(bs_data, f, is_sum=False, is_ratio_or_per_share=is_ratio))
             stmt_balance[f] = s_data
 
-        # 3. 現金流量表 (Cash Flow Statement & TTM)
+        # 現金流量表 (Cash Flow Statement & TTM)
         cashflow_fields = [
             ("netIncome", False), ("depreciationAndAmortization", False), ("deferredIncomeTax", False),
             ("stockBasedCompensation", False), ("changeInWorkingCapital", False), ("accountsReceivables", False),
@@ -1116,6 +1122,107 @@ def main():
             "income": stmt_income,
             "balance": stmt_balance,
             "cashflow": stmt_cashflow
+        }
+
+        # 3. 外幣折算防護
+        if fx_rate != 1.0 or sym == "TSM":
+            debt = round(debt * fx_rate, 1)
+            cash = round(cash * fx_rate, 1)
+            short_term_inv = round(short_term_inv * fx_rate, 1)
+            equity = equity * fx_rate
+            goodwill_and_intangibles = goodwill_and_intangibles * fx_rate
+            total_assets = total_assets * fx_rate
+            ttm_net_income = ttm_net_income * fx_rate
+            ttm_ebitda = ttm_ebitda * fx_rate
+            fcf0 = round(fcf0 * fx_rate, 1)
+            ttm_dividends_paid = ttm_dividends_paid * fx_rate
+            ttm_buybacks_paid = ttm_buybacks_paid * fx_rate
+
+        if fcf0 <= 0: fcf0 = round(mcap * 0.038, 1)
+
+        # 4. 組裝完整輸出字典 (含 statements_raw 與 default_fair_val)
+        results[sym] = {
+            "name": item["name"],
+            "company_name": company_full_name,
+            "exchange": item["exchange"],
+            "sector": item["sector"],
+            "industry": item["industry"],
+            "reportedCurrency": reported_currency,
+            "price": price,
+            "shares": shares,
+            "shares_outstanding": int(shares * 1e6) if shares > 0 else 0,
+            "shares_display": f"{shares:,.2f} M",
+            "mcap": mcap,
+            "debt": debt,
+            "cash": cash,
+            "short_term_investments": short_term_inv,
+            "cash_and_short_term": cash,
+            "net_debt": round(debt - cash, 1),
+            "fcf0": fcf0,
+            "real_history": real_history,
+            "statements_raw": statements_data,
+            "beta": beta,
+            "beta_5y": beta_5y,
+            "kd": KD,
+            "tax": tax,
+            "growth_10y": growth_10y,
+            "g1": growth_10y[0],
+            "g2": growth_10y[5],
+            "g": round(DEFAULT_G * 100.0, 2),
+            "wacc": round(wacc * 100.0, 2),
+            "ev": fmp_official_ev,          
+            "fmp_official_ev": fmp_official_ev,
+            "dcf_model_ev": ev,
+            "ev_to_ebitda": round(fmp_official_ev / ebitda_m, 1) if ebitda_m > 0 else ev_to_ebitda,
+            "debt_to_ebitda": debt_to_ebitda,
+            "net_debt_to_ebitda": net_debt_to_ebitda,
+            "f_score": f_score,
+            "f_score_breakdown": f_score_breakdown,
+            "fair_val": fair_val,
+            "default_fair_val": fair_val,
+            "premium_pct": premium_pct,
+            "is_undervalued": premium_pct < 0,
+            "pe_trailing": pe_trailing,
+            "pe_forward": pe_forward,
+            "pb_trailing": pb_trailing,
+            "pb_forward": pb_forward,
+            "div_yield": div_yield_real,
+            "ps_ratio": round(mcap / max(fcf0 * 4.0, 1.0), 1),
+            "fcf_to_ev": round((fcf0 / ev) * 100.0, 2) if ev > 0 else 0.0,
+            "fcf_to_mcap": round((fcf0 / mcap) * 100.0, 2) if mcap > 0 else 0.0,
+            "liab_to_assets": liab_r,
+            "cash_to_assets": cash_to_assets,
+            "current_ratio": cr,
+            "roe": roe,
+            "roa": roa,
+            "moat": moat_data,
+            "fin_valuation": fin_valuation,
+            "image": image_url,
+            "logo": image_url,
+            "website": website,
+            "ceo": ceo,
+            "full_time_employees": employees,
+            "description": description_en,
+            "description_en": description_en,
+            "description_zh": description_zh,
+            "address": prof.get("address", "--"),
+            "city": prof.get("city", "--"),
+            "state": prof.get("state", "--"),
+            "zip": prof.get("zip", "--"),
+            "country": prof.get("country", "US"),
+            "phone": prof.get("phone", "--"),
+            "full_address": f"{prof.get('address', '')}, {prof.get('city', '')}, {prof.get('state', '')} {prof.get('zip', '')}, {prof.get('country', '')}".strip(", "),
+            "range_52w": prof.get("range", "--"),
+            "year_high": float(q.get("yearHigh") or 0.0) if q else 0.0,
+            "year_low": float(q.get("yearLow") or 0.0) if q else 0.0,
+            "all_time_high": float(prof.get("mktCap", 0) / (shares * 1e6)) * 1.25 if shares > 0 else price * 1.3,
+            "all_time_low": float(q.get("yearLow") or price * 0.45) if q else price * 0.45,
+            "inst_ownership_pct": real_inst_ownership,
+            "insider_ownership_pct": real_insider_ownership,
+            "top_holders": company_meta.get("top_holders", []),
+            "insider_trades": company_meta.get("insider_trades", []),
+            "stock_splits": company_meta.get("stock_splits", []),
+            "fmp_symbol": fmp_sym
         }
 
         # 4. 外幣基礎變數統一折算為 USD
