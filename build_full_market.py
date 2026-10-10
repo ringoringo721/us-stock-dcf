@@ -15,6 +15,7 @@ try:
 except ImportError:
     HAS_GENAI = False
 
+# 1. 優先從環境變數讀取金鑰，避免無效字串造成請求失敗
 FMP_KEY = os.environ.get("FMP_API_KEY", "").strip() or "6gYxujhYq3qweE6ohCF6b5zjCrberLaOT"
 GEMINI_KEY = os.environ.get("GEMINI_API_KEY", "").strip()
 GCP_SA_KEY = os.environ.get("GCP_SA_KEY", "").strip()
@@ -545,7 +546,6 @@ def fetch_cached_annual_statements(fmp_sym: str, sym: str) -> Dict[str, list]:
     except Exception:
         pass
 
-    # 若無快取則請求 FMP API 並持久化
     inc_annual = fetch_json("income-statement", {"symbol": fmp_sym, "period": "annual", "limit": 5}) or []
     time.sleep(0.04)
     bs_annual = fetch_json("balance-sheet-statement", {"symbol": fmp_sym, "period": "annual", "limit": 5}) or []
@@ -622,7 +622,6 @@ def fetch_cached_company_meta(fmp_sym: str, sym: str, total_shares_m: float, cur
     top_holders = []
     tot_inst_shares = 0
 
-    # 優先處理官方 FMP 返回的 13F 股東數據
     if isinstance(raw_holders, list) and len(raw_holders) > 0 and isinstance(raw_holders[0], dict) and "holder" in raw_holders[0]:
         sorted_holders = sorted(raw_holders, key=lambda x: float(x.get("shares") or 0), reverse=True)
         for idx, h in enumerate(sorted_holders[:50], 1):
@@ -644,7 +643,6 @@ def fetch_cached_company_meta(fmp_sym: str, sym: str, total_shares_m: float, cur
             })
         inst_ownership_pct = round((tot_inst_shares / total_shares_raw) * 100.0, 1)
     else:
-        # 智能備援：依據各股票代碼生成具備專屬特性的 Top 50 股東名單
         seed = sum(ord(c) for c in sym)
         base_inst_rate = 74.5 if sector in ["資訊科技", "金融"] else (66.0 if sector in ["必需消費", "公用事業"] else 70.0)
         inst_ownership_pct = round(base_inst_rate + (seed % 15) - 7.5, 1)
@@ -669,7 +667,6 @@ def fetch_cached_company_meta(fmp_sym: str, sym: str, total_shares_m: float, cur
             "Sumitomo Mitsui Trust Holdings, Inc.", "Nomura Asset Management Co., Ltd."
         ]
         
-        # 依代碼進行排列偏移，確保不同股票的股東順序與持股比重截然不同
         offset = seed % len(all_pool)
         shuffled_pool = all_pool[offset:] + all_pool[:offset]
 
@@ -688,7 +685,7 @@ def fetch_cached_company_meta(fmp_sym: str, sym: str, total_shares_m: float, cur
 
             s_held = int(total_shares_raw * (pct / 100.0))
             val_m = round((s_held * cur_price) / 1e6, 1)
-            chg_num = round(((math.sin(seed + rank) * 4.5)), 2) if 'math' in locals() else round(((rank % 5) - 2.2), 2)
+            chg_num = round(((math.sin(seed + rank) * 4.5)), 2)
 
             top_holders.append({
                 "rank": rank,
@@ -700,10 +697,8 @@ def fetch_cached_company_meta(fmp_sym: str, sym: str, total_shares_m: float, cur
                 "date": "2026Q2"
             })
 
-    # 內部人與零售散戶比例校準
     insider_ownership_pct = round(max(min(100.0 - inst_ownership_pct - 15.0, 14.5), 2.8), 1)
 
-    # 內部人交易
     insider_trades = []
     if isinstance(raw_insiders, list) and len(raw_insiders) > 0 and isinstance(raw_insiders[0], dict):
         for it in raw_insiders[:10]:
@@ -723,12 +718,12 @@ def fetch_cached_company_meta(fmp_sym: str, sym: str, total_shares_m: float, cur
                 "total_val": t_val
             })
 
-    # 拆股記錄
+    # 4. 防禦：使用 int(float(...)) 防止 API 回傳 "2.0" 等字串觸發 ValueError
     stock_splits = []
     if isinstance(raw_splits, list) and len(raw_splits) > 0 and isinstance(raw_splits[0], dict):
         for sp in raw_splits[:10]:
-            num = int(sp.get("numerator") or 1)
-            den = int(sp.get("denominator") or 1)
+            num = int(float(sp.get("numerator") or 1))
+            den = int(float(sp.get("denominator") or 1))
             stock_splits.append({
                 "date": sp.get("date") or "--",
                 "ratio": f"{num} : {den}",
@@ -797,7 +792,8 @@ def build_10y_growth_schedule(est_data, default_g1, terminal_g):
         last_g = schedule[-1] if schedule else default_g1
         schedule.append(round(max(last_g * 0.90, terminal_g * 100 + 1.5), 1))
 
-    g_start_decay = schedule[4]
+    # 2. 防禦：防止極端情況下 schedule 不足 5 項觸發 IndexError
+    g_start_decay = schedule[4] if len(schedule) >= 5 else (schedule[-1] if schedule else default_g1)
     target_g_pct = terminal_g * 100.0
     step = (g_start_decay - target_g_pct) / 5.0
     for yr in range(1, 6):
@@ -832,13 +828,6 @@ def calculate_piotroski_score(roa, fcf0, cr, liab_r, ttm_net_income):
     return score, items
 
 def get_canonical_entity_id(prof: dict, ticker: str) -> str:
-    """
-    精準識別底層法定公司實體，不受股票代號尾綴或股份類別差異影響。
-    優先級：
-    1. SEC CIK 編號 (FMP Profile 返回之唯一法定企業識別碼)
-    2. 公司標準化名稱 (去除 Class A/B/C、Inc. 等字樣)
-    3. 代號前綴拆分 (如 BRK.B -> BRK, GOOGL -> GOOG)
-    """
     cik = prof.get("cik")
     if cik and str(cik).strip() and str(cik).strip() not in ["0", "None"]:
         return f"CIK_{str(cik).strip()}"
@@ -861,13 +850,13 @@ def main():
     print("🚀 美股 200 檔 DCF/金融雙軌模型 + Gemini 護城河雙核心引擎啟動", flush=True)
     print("=" * 80, flush=True)
     results = {}
-    entity_moat_cache = {}  # 記憶體共享池：{ entity_id: moat_data }
+    entity_moat_cache = {}
 
     for idx, item in enumerate(UNIQUE_STOCKS, 1):
         sym = item["ticker"]
         fmp_sym = sym.replace(".", "")
 
-        # 0. 抓取企業 Profile (提取 Logo、5年滾動 Beta、CEO、官網、員工與簡介)
+        # 0. 抓取企業 Profile
         prof_data = fetch_json("profile", {"symbol": fmp_sym})
         prof = prof_data[0] if (prof_data and isinstance(prof_data, list) and len(prof_data) > 0) else {}
 
@@ -878,14 +867,12 @@ def main():
         employees = prof.get("fullTimeEmployees") or "--"
         description_en = prof.get("description") or "A publicly traded US equity on major exchanges."
 
-        # 調用 Gemini 取得深度繁體中文簡介（具備快取保護）
         ai_desc_zh = get_deep_chinese_description(sym, company_full_name, description_en)
         if ai_desc_zh:
             description_zh = ai_desc_zh
         else:
             description_zh = f"{company_full_name}（美股代碼：{sym}）為 {item['sector']} 領域之重要企業，專注於 {item['industry']} 業務，具備清晰之商業壁壘與現金流創造能力。"
         
-        # 提取底層法定企業唯一識別碼 (解決 GOOGL / GOOG 等雙代碼問題)
         entity_id = get_canonical_entity_id(prof, sym)
 
         # 1. 抓取即時報價與市值
@@ -906,12 +893,12 @@ def main():
         if shares <= 0: shares = round(mcap / price, 1)
         time.sleep(0.04)
 
-        # 1.1 取得該標的真實 13F 機構股東、內部人與拆股數據 (本地快取保護)
+        # 1.1 取得 13F 機構股東、內部人與拆股數據
         company_meta = fetch_cached_company_meta(fmp_sym, sym, shares, price, item.get("sector", ""))
         real_inst_ownership = company_meta.get("inst_ownership_pct", 72.0)
         real_insider_ownership = company_meta.get("insider_ownership_pct", 5.0)
         
-        # 2. 資產負債表 (精確計算 TBV)
+        # 2. 資產負債表
         bs_data = fetch_json("balance-sheet-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 1})
         debt, cash, equity, total_assets = 0.0, 0.0, 1.0, 1.0
         short_term_inv = 0.0
@@ -933,18 +920,15 @@ def main():
             if bs.get("reportedCurrency"):
                 reported_currency = bs.get("reportedCurrency")
 
-            # 完整校準：優先檢查短期有息負債 + 長期有息負債
             st_debt = float(bs.get("shortTermDebt") or 0.0)
             lt_debt = float(bs.get("longTermDebt") or 0.0)
             tot_debt_raw = float(bs.get("totalDebt") or 0.0)
 
-            # 若 totalDebt 為 0 但短期或長期負債存在，採用兩者總和
             if tot_debt_raw <= 0 and (st_debt + lt_debt) > 0:
                 tot_debt_raw = st_debt + lt_debt
             elif tot_debt_raw <= 0:
                 tot_debt_raw = lt_debt
 
-            # 完整提取現金與短期流動資產
             cash_only = float(bs.get("cashAndCashEquivalents") or 0.0)
             short_term_inv = float(bs.get("shortTermInvestments") or 0.0)
             tot_cash_raw = float(bs.get("cashAndShortTermInvestments") or 0.0)
@@ -958,7 +942,6 @@ def main():
             cash = round(tot_cash_raw / 1e6, 1)
             short_term_inv = round(short_term_inv / 1e6, 1)
 
-            # 針對特定異常翻倍之原始資料進行防護校準
             if sym == "NVDA" and cash > 80000:
                 cash = round(cash / 3.0, 1)
             if sym in ["GOOGL", "GOOG"] and cash > 200000:
@@ -966,7 +949,6 @@ def main():
 
             equity = float(bs.get("totalStockholdersEquity") or 1.0)
             
-            # 商譽與無形資產
             gw = float(bs.get("goodwill") or 0.0)
             intangibles = float(bs.get("intangibleAssets") or bs.get("goodwillAndIntangibleAssets") or 0.0)
             goodwill_and_intangibles = max(gw + intangibles, float(bs.get("goodwillAndIntangibleAssets") or 0.0))
@@ -981,22 +963,19 @@ def main():
 
         time.sleep(0.04)
 
-        # 3. 匯率換算率預先獲取 (確保後續折算不拋出 NameError)
+        # 3. 匯率換算
         fx_rate = get_fx_to_usd_rate(reported_currency)
         if sym == "TSM":
             fx_rate = 1.0 / 32.0
 
-        # 1. 從本機持久化快取取得已結算年度報表 (命中時 0 次 API 請求)
         annual_cache = fetch_cached_annual_statements(fmp_sym, sym) or {}
         inc_annual = annual_cache.get("income", []) if isinstance(annual_cache, dict) else []
         bs_annual = annual_cache.get("balance", []) if isinstance(annual_cache, dict) else []
         cf_annual = annual_cache.get("cashflow", []) if isinstance(annual_cache, dict) else []
 
-        # 2. 僅動態抓取近 4 季即時數據用以精確滾動計算最新 TTM
         inc_quarter = fetch_json("income-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 4}) or []
         cf_quarter = fetch_json("cash-flow-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 4}) or []
 
-        # 計算 TTM 基礎數值
         ttm_net_income = sum(float(x.get("netIncome") or 0.0) for x in inc_quarter)
         ttm_ebitda = sum(float(x.get("ebitda") or x.get("operatingIncome") or 0.0) for x in inc_quarter)
         ttm_rev = sum(float(x.get("revenue") or 0.0) for x in inc_quarter)
@@ -1004,7 +983,6 @@ def main():
         ttm_capex = sum(float(x.get("capitalExpenditure") or 0.0) for x in cf_quarter)
         ttm_fcf_sum = sum(float(x.get("freeCashFlow") or 0.0) for x in cf_quarter)
 
-        # 計算 TTM 分紅與回購
         ttm_dividends_paid = 0.0
         ttm_buybacks_paid = 0.0
         for q_cf in cf_quarter:
@@ -1015,20 +993,17 @@ def main():
 
         fcf0 = round(ttm_fcf_sum / 1e6, 1)
 
-        # 組裝該標的原汁原味的 6 期真實歷史序列 (2021 ~ 2025 + TTM)
         inc_sorted = list(reversed(inc_annual))[:5]
         hist_revenue = [round(float(x.get("revenue") or 0.0) * fx_rate / 1e6, 1) for x in inc_sorted]
         hist_net_income = [round(float(x.get("netIncome") or 0.0) * fx_rate / 1e6, 1) for x in inc_sorted]
         hist_gross_profit = [round(float(x.get("grossProfit") or 0.0) * fx_rate / 1e6, 1) for x in inc_sorted]
         hist_operating_income = [round(float(x.get("operatingIncome") or 0.0) * fx_rate / 1e6, 1) for x in inc_sorted]
         
-        # 加上 TTM
         hist_revenue.append(round(ttm_rev * fx_rate / 1e6, 1))
         hist_net_income.append(round(ttm_net_income * fx_rate / 1e6, 1))
         hist_gross_profit.append(round(sum(float(x.get("grossProfit") or 0.0) for x in inc_quarter) * fx_rate / 1e6, 1))
         hist_operating_income.append(round(sum(float(x.get("operatingIncome") or 0.0) for x in inc_quarter) * fx_rate / 1e6, 1))
 
-        # 現金流真實歷史序列
         cf_sorted = list(reversed(cf_annual))[:5]
         hist_cfo = [round(float(x.get("operatingCashFlow") or 0.0) * fx_rate / 1e6, 1) for x in cf_sorted]
         hist_capex = [round(-abs(float(x.get("capitalExpenditure") or 0.0)) * fx_rate / 1e6, 1) for x in cf_sorted]
@@ -1080,7 +1055,6 @@ def main():
         growth_10y = build_10y_growth_schedule(est_data, item["default_g1"], DEFAULT_G)
         pe_forward = round(pe_trailing * 0.88, 1)
 
-        # 優先採納 FMP API 5 年期滾動 Beta (若無則使用板塊兜底)
         fmp_beta = prof.get("beta")
         if fmp_beta is not None and float(fmp_beta) > 0:
             beta = round(float(fmp_beta), 2)
@@ -1100,17 +1074,14 @@ def main():
         wD = debt / V if V > 0 else 0.05
         wacc = (wE * ke) + (wD * kd_after)
 
-        # 優先計算淨負債，供後續公式安全調用
         net_debt = round(debt - cash, 1)
 
-        # 抓取 FMP 官方權威企業價值 (Enterprise Value)
         fmp_ev_data = fetch_json("enterprise-values", {"symbol": fmp_sym, "period": "quarter", "limit": 1})
         fmp_official_ev = 0.0
         if fmp_ev_data and isinstance(fmp_ev_data, list) and len(fmp_ev_data) > 0:
             raw_ev = float(fmp_ev_data[0].get("enterpriseValue") or 0.0)
             fmp_official_ev = round(raw_ev * fx_rate / 1e6, 1)
 
-        # 備援防護：若該公司在 FMP 無專門記錄，以標準定義 (市值 + 淨負債) 兜底
         if fmp_official_ev <= 0:
             fmp_official_ev = max(round(mcap + net_debt, 1), round(mcap * 0.8, 1))
 
@@ -1140,9 +1111,7 @@ def main():
 
         f_score, f_score_breakdown = calculate_piotroski_score(roa, fcf0, cr, liab_r, ttm_net_income)
 
-        # ========================================================
-        # 金融專屬雙軌模型 (核心修復：精確計算 TBVPS 與標準化分紅)
-        # ========================================================
+        # 金融專屬雙軌模型
         FINANCIAL_SPECIAL_INDUSTRIES = [
             "Diversified Banks", "Consumer Finance", "Investment Banking & Brokerage",
             "Property & Casualty Insurance", "Life & Health Insurance", "Multi-line Insurance"
@@ -1197,7 +1166,7 @@ def main():
                 "pb_tangible": round(price / tbvps, 2) if tbvps > 0 else 1.0
             }
 
-        # 6. Gemini 護城河分析 (自動去重與孿生股共享)
+        # 6. Gemini 護城河分析
         if entity_id in entity_moat_cache:
             print(f"🔄 [{sym}] 偵測到與已分析企業屬於同一底層實體 ({entity_id})，直接同步護城河評分與評語...", flush=True)
             moat_data = copy.deepcopy(entity_moat_cache[entity_id])
@@ -1225,7 +1194,7 @@ def main():
             )
             entity_moat_cache[entity_id] = moat_data
 
-        # 7. 補充 5 年歷史與各欄位數據供前端使用
+        # 7. 組裝輸出資料結構 (3. 同步輸出 default_fair_val 確保前端優先採用後端 Python 估值)
         results[sym] = {
             "name": item["name"],
             "company_name": company_full_name,
@@ -1263,6 +1232,7 @@ def main():
             "f_score": f_score,
             "f_score_breakdown": f_score_breakdown,
             "fair_val": fair_val,
+            "default_fair_val": fair_val,
             "premium_pct": premium_pct,
             "is_undervalued": premium_pct < 0,
             "pe_trailing": pe_trailing,
@@ -1288,7 +1258,6 @@ def main():
             "description": description_en,
             "description_en": description_en,
             "description_zh": description_zh,
-            # === 公司地址與總部資訊 ===
             "address": prof.get("address", "--"),
             "city": prof.get("city", "--"),
             "state": prof.get("state", "--"),
@@ -1296,15 +1265,11 @@ def main():
             "country": prof.get("country", "US"),
             "phone": prof.get("phone", "--"),
             "full_address": f"{prof.get('address', '')}, {prof.get('city', '')}, {prof.get('state', '')} {prof.get('zip', '')}, {prof.get('country', '')}".strip(", "),
-
-            # === 52 週區間與歷史極值 ===
             "range_52w": prof.get("range", "--"),
             "year_high": float(q.get("yearHigh") or 0.0) if q else 0.0,
             "year_low": float(q.get("yearLow") or 0.0) if q else 0.0,
             "all_time_high": float(prof.get("mktCap", 0) / (shares * 1e6)) * 1.25 if shares > 0 else price * 1.3,
             "all_time_low": float(q.get("yearLow") or price * 0.45) if q else price * 0.45,
-
-            # === 持有人結構與 13F 真實數據 ===
             "inst_ownership_pct": real_inst_ownership,
             "insider_ownership_pct": real_insider_ownership,
             "top_holders": company_meta.get("top_holders", []),
