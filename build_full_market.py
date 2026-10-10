@@ -86,7 +86,7 @@ def get_deep_chinese_description(ticker: str, company_name: str, en_desc: str) -
             with open(cache_file, "w", encoding="utf-8") as f:
                 json.dump({"description_zh": desc_zh}, f, ensure_ascii=False, indent=2)
             return desc_zh
-        except Exception as e:
+        except Exception:
             time.sleep(1.5)
 
     return ""
@@ -129,13 +129,11 @@ def analyze_stock_moat(ticker: str, latest_period: str, fin_context: Dict[str, A
 
     cache_file = os.path.join(CACHE_DIR, f"{ticker}_{safe_period}.json")
 
-    # 嚴格縮排檢查：如果快取存在，且包含完整的雙語資料，則直接讀取
     if not force_refresh and os.path.exists(cache_file):
         try:
             with open(cache_file, "r", encoding="utf-8") as f:
                 cached_data = json.load(f)
                 
-                # 嚴格校正：檢查是否具備雙語完整結構 (comment_zh 與 comment_en)
                 m1_data = cached_data.get("m1_brand_pricing", {})
                 has_bilingual = (
                     "comment_zh" in m1_data 
@@ -654,6 +652,7 @@ def main():
             description_zh = ai_desc_zh
         else:
             description_zh = f"{company_full_name}（美股代碼：{sym}）為 {item['sector']} 領域之重要企業，專注於 {item['industry']} 業務，具備清晰之商業壁壘與現金流創造能力。"
+        
         # 提取底層法定企業唯一識別碼 (解決 GOOGL / GOOG 等雙代碼問題)
         entity_id = get_canonical_entity_id(prof, sym)
 
@@ -743,7 +742,7 @@ def main():
 
         time.sleep(0.04)
 
-# 3. 匯率換算率預先獲取 (確保後續折算不拋出 NameError)
+        # 3. 匯率換算率預先獲取 (確保後續折算不拋出 NameError)
         fx_rate = get_fx_to_usd_rate(reported_currency)
         if sym == "TSM":
             fx_rate = 1.0 / 32.0
@@ -807,12 +806,8 @@ def main():
             "fcf": hist_fcf
         }
 
-        time.sleep(0.04)
-
-        fx_rate = get_fx_to_usd_rate(reported_currency)
+        # 4. 外幣基礎變數統一折算為 USD
         if fx_rate != 1.0 or sym == "TSM":
-            if sym == "TSM" and fx_rate == 1.0:
-                fx_rate = 1.0 / 32.0
             debt = round(debt * fx_rate, 1)
             cash = round(cash * fx_rate, 1)
             equity = equity * fx_rate
@@ -862,7 +857,7 @@ def main():
         wD = debt / V if V > 0 else 0.05
         wacc = (wE * ke) + (wD * kd_after)
 
-        # 優先計算淨負債與現金淨額，供後續公式安全調用
+        # 優先計算淨負債，供後續公式安全調用
         net_debt = round(debt - cash, 1)
 
         # 抓取 FMP 官方權威企業價值 (Enterprise Value)
@@ -875,6 +870,7 @@ def main():
         # 備援防護：若該公司在 FMP 無專門記錄，以標準定義 (市值 + 淨負債) 兜底
         if fmp_official_ev <= 0:
             fmp_official_ev = round(mcap + net_debt, 1)
+
         sum_pv = 0
         cur_fcf = fcf0
         for t, gr_pct in enumerate(growth_10y, 1):
@@ -916,13 +912,11 @@ def main():
 
         fin_valuation = {"is_financial": False}
         if is_financial_model:
-            # 1. 真實每股有形資產 TBVPS 計算
             tangible_equity = max(equity - goodwill_and_intangibles, equity * 0.85)
             shares_count = shares * 1e6
             tbvps = round(tangible_equity / shares_count, 2) if shares_count > 0 else 50.0
             bvps = round(equity / shares_count, 2) if shares_count > 0 else 60.0
 
-            # 2. 標準化每股分紅 (股息 100% 計入 + 回購設定常態上限，防止極端高估)
             dps_div = (ttm_dividends_paid / shares_count) if shares_count > 0 else (price * 0.02)
             dps_bb = (ttm_buybacks_paid / shares_count) if shares_count > 0 else 0.0
             dps_total = round(dps_div + min(dps_bb, dps_div * 1.5), 2)
@@ -930,12 +924,10 @@ def main():
             ke_rate = max(ke, 0.09)
             rote_rate = max(roe / 100.0, 0.06)
 
-            # 超額回報法 (Excess Return on TBV)
             spread = rote_rate - ke_rate
             excess_return_val = tbvps + (tbvps * spread) / max(ke_rate - DEFAULT_G, 0.02)
             excess_return_val = round(max(excess_return_val, tbvps * 0.65), 2)
 
-            # 股利與回購 DDM 折現模型
             ddm_sum = 0.0
             cur_dps = dps_total
             g_dps = min(item["default_g1"] / 100.0, 0.065)
@@ -946,7 +938,6 @@ def main():
             pv_tv_ddm = tv_ddm / ((1.0 + ke_rate) ** 5)
             ddm_val = round(ddm_sum + pv_tv_ddm, 2)
 
-            # 雙軌加權綜合公允價值
             fair_val = round((excess_return_val * 0.55) + (ddm_val * 0.45), 2)
             premium_pct = round(((price / fair_val) - 1.0) * 100.0, 1)
 
@@ -991,7 +982,7 @@ def main():
             )
             entity_moat_cache[entity_id] = moat_data
 
-        # 7. 補充 5 年歷史與 Peers 數據給前端 7 大子頁面使用
+        # 7. 補充 5 年歷史與各欄位數據供前端使用
         results[sym] = {
             "name": item["name"],
             "company_name": company_full_name,
