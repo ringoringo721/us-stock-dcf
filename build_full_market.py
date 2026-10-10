@@ -677,6 +677,7 @@ def main():
         # 2. 資產負債表 (精確計算 TBV)
         bs_data = fetch_json("balance-sheet-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 1})
         debt, cash, equity, total_assets = 0.0, 0.0, 1.0, 1.0
+        short_term_inv = 0.0
         goodwill_and_intangibles = 0.0
         liab_r, cash_to_assets, cr = 40.0, 0.0, 1.50
         reported_currency = "USD"
@@ -869,7 +870,7 @@ def main():
 
         # 備援防護：若該公司在 FMP 無專門記錄，以標準定義 (市值 + 淨負債) 兜底
         if fmp_official_ev <= 0:
-            fmp_official_ev = round(mcap + net_debt, 1)
+            fmp_official_ev = max(round(mcap + net_debt, 1), round(mcap * 0.8, 1))
 
         sum_pv = 0
         cur_fcf = fcf0
