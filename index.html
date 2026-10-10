@@ -376,6 +376,33 @@
       color: #0b1120;
       border-color: var(--accent);
     }
+
+    /* 迷你財務微型趨勢柱狀圖 (Spark-bars) */
+    .spark-trend-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      height: 24px;
+      width: 58px;
+      vertical-align: middle;
+    }
+    .spark-bar-track {
+      flex: 1;
+      height: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .spark-bar-segment {
+      width: 100%;
+      border-radius: 1.5px;
+      min-height: 2px;
+      transition: height 0.2s ease;
+    }
+    .spark-bar-pos { background: #4ade80; align-self: flex-end; }
+    .spark-bar-neg { background: #f87171; align-self: flex-start; }
   </style>
 </head>
 <body>
