@@ -377,32 +377,20 @@
       border-color: var(--accent);
     }
 
-    /* 迷你財務微型趨勢柱狀圖 (Spark-bars) */
-    .spark-trend-wrap {
+    /* 迷你財務折線與面積趨勢圖 (SVG Sparkline) */
+    .spark-line-wrap {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 3px;
-      height: 24px;
-      width: 58px;
+      width: 80px;
+      height: 26px;
       vertical-align: middle;
     }
-    .spark-bar-track {
-      flex: 1;
-      height: 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-    .spark-bar-segment {
+    .spark-line-svg {
       width: 100%;
-      border-radius: 1.5px;
-      min-height: 2px;
-      transition: height 0.2s ease;
+      height: 100%;
+      overflow: visible;
     }
-    .spark-bar-pos { background: #4ade80; align-self: flex-end; }
-    .spark-bar-neg { background: #f87171; align-self: flex-start; }
   </style>
 </head>
 <body>
@@ -1999,7 +1987,12 @@
     else { showView('screener', false); }
   };
 
-  function openCompanyProfile(ticker) { activeCompanyTicker = ticker; showView('company', true); }
+  function openCompanyProfile(ticker) {
+    activeCompanyTicker = ticker;
+    showView('company', true);
+    // 強制立即依當前股票重新載入各個分頁數據
+    loadCompanyProfile(ticker);
+  }
   function openDetail(ticker) { activeDetailTicker = ticker; showView('detail', true); }
   function openFScore(ticker) { activeFScoreTicker = ticker; showView('fscore', true); }
   function openMoat(ticker) { activeMoatTicker = ticker; showView('moat', true); }
