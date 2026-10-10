@@ -2327,7 +2327,8 @@
     `;
   }
 
-  function loadCompanyProfile(ticker) {
+function loadCompanyProfile(ticker) {
+    activeCompanyTicker = ticker;
     const s = stockUniverse[ticker];
     if (!s) return;
     document.getElementById('cmp-ticker').innerText = ticker;
