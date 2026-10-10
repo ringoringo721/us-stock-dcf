@@ -743,11 +743,56 @@ def main():
 
         time.sleep(0.04)
 
-        # 3. 損益表 (TTM 淨利與 EBITDA)
-        inc_data = fetch_json("income-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 4})
-        ttm_net_income = 0.0
-        ttm_ebitda = 0.0
-        if inc_data and isinstance(inc_data, list) and len(inc_data) > 0:
+# 3. 抓取真實 5 年年度與季度歷史報表 (存入真實歷史軌跡)
+        inc_annual = fetch_json("income-statement", {"symbol": fmp_sym, "period": "annual", "limit": 5}) or []
+        bs_annual = fetch_json("balance-sheet-statement", {"symbol": fmp_sym, "period": "annual", "limit": 5}) or []
+        cf_annual = fetch_json("cash-flow-statement", {"symbol": fmp_sym, "period": "annual", "limit": 5}) or []
+        inc_quarter = fetch_json("income-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 4}) or []
+        cf_quarter = fetch_json("cash-flow-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 4}) or []
+
+        # 計算 TTM 基礎數值
+        ttm_net_income = sum(float(x.get("netIncome") or 0.0) for x in inc_quarter)
+        ttm_ebitda = sum(float(x.get("ebitda") or x.get("operatingIncome") or 0.0) for x in inc_quarter)
+        ttm_rev = sum(float(x.get("revenue") or 0.0) for x in inc_quarter)
+        ttm_cfo = sum(float(x.get("operatingCashFlow") or 0.0) for x in cf_quarter)
+        ttm_capex = sum(float(x.get("capitalExpenditure") or 0.0) for x in cf_quarter)
+        ttm_fcf_sum = sum(float(x.get("freeCashFlow") or 0.0) for x in cf_quarter)
+
+        # 組裝該標的原汁原味的 6 期真實歷史序列 (2021 ~ 2025 + TTM)
+        # 由舊到新排序 (若不足 5 年則安全補齊)
+        inc_sorted = list(reversed(inc_annual))[:5]
+        
+        hist_revenue = [round(float(x.get("revenue") or 0.0) * fx_rate / 1e6, 1) for x in inc_sorted]
+        hist_net_income = [round(float(x.get("netIncome") or 0.0) * fx_rate / 1e6, 1) for x in inc_sorted]
+        hist_gross_profit = [round(float(x.get("grossProfit") or 0.0) * fx_rate / 1e6, 1) for x in inc_sorted]
+        hist_operating_income = [round(float(x.get("operatingIncome") or 0.0) * fx_rate / 1e6, 1) for x in inc_sorted]
+        
+        # 加上 TTM
+        hist_revenue.append(round(ttm_rev * fx_rate / 1e6, 1))
+        hist_net_income.append(round(ttm_net_income * fx_rate / 1e6, 1))
+        hist_gross_profit.append(round(sum(float(x.get("grossProfit") or 0.0) for x in inc_quarter) * fx_rate / 1e6, 1))
+        hist_operating_income.append(round(sum(float(x.get("operatingIncome") or 0.0) for x in inc_quarter) * fx_rate / 1e6, 1))
+
+        # 現金流真實歷史序列
+        cf_sorted = list(reversed(cf_annual))[:5]
+        hist_cfo = [round(float(x.get("operatingCashFlow") or 0.0) * fx_rate / 1e6, 1) for x in cf_sorted]
+        hist_capex = [round(-abs(float(x.get("capitalExpenditure") or 0.0)) * fx_rate / 1e6, 1) for x in cf_sorted]
+        hist_fcf = [round(float(x.get("freeCashFlow") or 0.0) * fx_rate / 1e6, 1) for x in cf_sorted]
+        
+        hist_cfo.append(round(ttm_cfo * fx_rate / 1e6, 1))
+        hist_capex.append(round(-abs(ttm_capex) * fx_rate / 1e6, 1))
+        hist_fcf.append(round(ttm_fcf_sum * fx_rate / 1e6, 1))
+
+        # 整理成字典供前端調用
+        real_history = {
+            "revenue": hist_revenue,
+            "net_income": hist_net_income,
+            "gross_profit": hist_gross_profit,
+            "operating_income": hist_operating_income,
+            "cfo": hist_cfo,
+            "capex": hist_capex,
+            "fcf": hist_fcf
+        }
             if not reported_currency or reported_currency == "USD":
                 if inc_data[0].get("reportedCurrency"):
                     reported_currency = inc_data[0].get("reportedCurrency")
@@ -941,6 +986,7 @@ def main():
                 "roe": roe,
                 "roa": roa,
                 "f_score": f_score,
+                "real_history": real_history,
                 "fcf0": fcf0,
                 "debt": debt,
                 "cash": cash
