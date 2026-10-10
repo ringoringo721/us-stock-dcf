@@ -3180,46 +3180,6 @@ function loadCompanyProfile(ticker) {
     }
   }
 
-  let isAppReady = false;
-
-  function markAppLoaded(data) {
-    if (isAppReady || !data || Object.keys(data).length === 0) return;
-    isAppReady = true;
-    stockUniverse = JSON.parse(JSON.stringify(data));
-    
-    // 預先計算並快取官方原始預設 Fair Value，保證不被覆蓋
-    Object.keys(stockUniverse).forEach(ticker => {
-      const originalDcf = computeDCF(stockUniverse[ticker], ticker);
-      if (originalDcf) {
-        stockUniverse[ticker].default_fair_val = originalDcf.fairVal;
-      }
-    });
-
-    applyLanguage(currentLang);
-    initInteractions();
-    handleInitialNavigation();
-  }
-
-  function checkGlobalData() {
-    if (typeof window.FULL_MARKET_DATA !== 'undefined' && window.FULL_MARKET_DATA && Object.keys(window.FULL_MARKET_DATA).length > 0) {
-      markAppLoaded(window.FULL_MARKET_DATA);
-      return true;
-    }
-    return false;
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    if (!checkGlobalData()) {
-      fetch('market_data.js?t=' + Date.now())
-        .then(r => r.text())
-        .then(text => {
-          const m = text.match(/window\.FULL_MARKET_DATA\s*=\s*({[\s\S]*?});/);
-          if (m && m[1]) markAppLoaded(JSON.parse(m[1]));
-        })
-        .catch(e => console.warn(e));
-    }
-  });
-
 let isAppReady = false;
 
   function markAppLoaded(data) {
@@ -3265,3 +3225,6 @@ let isAppReady = false;
       clearInterval(pollTimer);
     }
   }, 100);
+</script>
+</body>
+</html>
