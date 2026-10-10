@@ -2316,41 +2316,9 @@
         }
       });
 
-      // 附加精確對應年期波動的折線走勢圖
+// 附加精確對應年期波動的折線走勢圖
       const sparkHtml = generateAdvancedSparkline(rowValues);
       rowsHtml += `<td style="text-align: center; padding: 4px 6px;">${sparkHtml}</td>`;
-      rowsHtml += `</tr>`;
-    });
-
-    tbody.innerHTML = rowsHtml;
-  }
-
-    let rowsHtml = '';
-    items.forEach(it => {
-      const label = isEn ? it.nameEn : it.nameZh;
-      const highlightStyle = it.highlight ? 'font-weight: 700; color: #fff;' : 'color: #cbd5e1;';
-      const colorCls = it.color ? `class="${it.color}"` : '';
-
-      rowsHtml += `<tr><td style="text-align: left; ${highlightStyle}">${label}</td>`;
-
-      const valuesHistory = [];
-      decayFactors.forEach((factor, idx) => {
-        if (it.isPercent) {
-          // 比率微幅成長趨勢模擬
-          const pctVal = Number((it.pctBase * (0.92 + (idx * 0.016))).toFixed(1));
-          valuesHistory.push(pctVal);
-          rowsHtml += `<td ${colorCls} style="font-weight: 600;">${pctVal.toFixed(1)}%</td>`;
-        } else {
-          const val = Math.round(it.base * factor);
-          valuesHistory.push(val);
-          const valStr = val < 0 ? `-$${Math.abs(val).toLocaleString()}` : `$${val.toLocaleString()}`;
-          rowsHtml += `<td ${colorCls} style="${it.highlight ? 'font-weight: 700;' : ''}">${valStr}</td>`;
-        }
-      });
-
-      // 附加趨勢圖微圖單元格
-      const sparkHtml = generateSparkTrendHtml(valuesHistory);
-      rowsHtml += `<td style="text-align: center; padding: 4px 8px;">${sparkHtml}</td>`;
       rowsHtml += `</tr>`;
     });
 
