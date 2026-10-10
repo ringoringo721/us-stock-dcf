@@ -15,7 +15,6 @@ try:
 except ImportError:
     HAS_GENAI = False
 
-# 1. 優先從環境變數讀取金鑰，避免無效字串造成請求失敗
 FMP_KEY = os.environ.get("FMP_API_KEY", "").strip() or "6gYxujhYq3qweE6ohCF6b5zjCrberLaOT"
 GEMINI_KEY = os.environ.get("GEMINI_API_KEY", "").strip()
 GCP_SA_KEY = os.environ.get("GCP_SA_KEY", "").strip()
@@ -527,10 +526,6 @@ def fetch_json(endpoint, params):
     return None
 
 def fetch_cached_annual_statements(fmp_sym: str, sym: str) -> Dict[str, list]:
-    """
-    抓取 5 年年度歷史報表並持久化至本地 JSON。
-    已結算年度數據不變，命中快取時直接讀取磁碟，徹底免除重複網路請求。
-    """
     default_payload = {"income": [], "balance": [], "cashflow": []}
     try:
         cache_path = os.path.join(FIN_CACHE_DIR, f"{sym}_annual.json")
@@ -569,7 +564,6 @@ def fetch_cached_annual_statements(fmp_sym: str, sym: str) -> Dict[str, list]:
     return payload or default_payload
 
 def fetch_fmp_api(endpoint_or_url: str, params: Optional[dict] = None) -> Optional[Any]:
-    """支援 stable 與 api/v3 完整路徑之通用 FMP 請求函式"""
     if params is None:
         params = {}
     params["apikey"] = FMP_KEY
@@ -592,10 +586,6 @@ def fetch_fmp_api(endpoint_or_url: str, params: Optional[dict] = None) -> Option
     return None
 
 def fetch_cached_company_meta(fmp_sym: str, sym: str, total_shares_m: float, cur_price: float, sector: str = "") -> Dict[str, Any]:
-    """
-    抓取真實 13F 機構持股、內部人交易與拆股歷史並持久化至本地 JSON。
-    具備智能容錯：若 API 未返回 13F 數據，絕不快取空數據，而是根據該股總股本與市值生成專屬的合理持股矩陣。
-    """
     cache_path = os.path.join(META_CACHE_DIR, f"{sym}_meta.json")
     if os.path.exists(cache_path):
         try:
@@ -606,15 +596,12 @@ def fetch_cached_company_meta(fmp_sym: str, sym: str, total_shares_m: float, cur
         except Exception:
             pass
 
-    # 1. 抓取 FMP 13F 機構股東資料
     raw_holders = fetch_fmp_api(f"api/v3/institutional-holder/{fmp_sym}") or []
     time.sleep(0.04)
 
-    # 2. 抓取最新內部人交易 (SEC Form 4)
     raw_insiders = fetch_fmp_api("insider-trading/search", {"symbol": fmp_sym, "limit": 20}) or []
     time.sleep(0.04)
 
-    # 3. 抓取歷年拆股記錄
     raw_splits = fetch_fmp_api("splits", {"symbol": fmp_sym}) or []
     time.sleep(0.04)
 
@@ -718,7 +705,6 @@ def fetch_cached_company_meta(fmp_sym: str, sym: str, total_shares_m: float, cur
                 "total_val": t_val
             })
 
-    # 4. 防禦：使用 int(float(...)) 防止 API 回傳 "2.0" 等字串觸發 ValueError
     stock_splits = []
     if isinstance(raw_splits, list) and len(raw_splits) > 0 and isinstance(raw_splits[0], dict):
         for sp in raw_splits[:10]:
@@ -792,7 +778,6 @@ def build_10y_growth_schedule(est_data, default_g1, terminal_g):
         last_g = schedule[-1] if schedule else default_g1
         schedule.append(round(max(last_g * 0.90, terminal_g * 100 + 1.5), 1))
 
-    # 2. 防禦：防止極端情況下 schedule 不足 5 項觸發 IndexError
     g_start_decay = schedule[4] if len(schedule) >= 5 else (schedule[-1] if schedule else default_g1)
     target_g_pct = terminal_g * 100.0
     step = (g_start_decay - target_g_pct) / 5.0
@@ -993,6 +978,7 @@ def main():
 
         fcf0 = round(ttm_fcf_sum / 1e6, 1)
 
+        # 基礎歷史序列
         inc_sorted = list(reversed(inc_annual))[:5]
         hist_revenue = [round(float(x.get("revenue") or 0.0) * fx_rate / 1e6, 1) for x in inc_sorted]
         hist_net_income = [round(float(x.get("netIncome") or 0.0) * fx_rate / 1e6, 1) for x in inc_sorted]
@@ -1013,7 +999,6 @@ def main():
         hist_capex.append(round(-abs(ttm_capex) * fx_rate / 1e6, 1))
         hist_fcf.append(round(ttm_fcf_sum * fx_rate / 1e6, 1))
 
-        # 1. 基礎真實歷史序列組裝
         real_history = {
             "revenue": hist_revenue,
             "net_income": hist_net_income,
@@ -1024,7 +1009,7 @@ def main():
             "fcf": hist_fcf
         }
 
-        # 2. 提取近 5 年年報 + 最新 4 季 TTM 官方全部原生欄位 (損益表/資產負債表/現金流量表)
+        # 提取近 5 年年報 + 最新 4 季 TTM 官方全部原生欄位
         inc_5y = list(reversed(inc_annual))[:5] if inc_annual else []
         bs_5y = list(reversed(bs_annual))[:5] if bs_annual else []
         cf_5y = list(reversed(cf_annual))[:5] if cf_annual else []
@@ -1055,7 +1040,6 @@ def main():
                     return round(raw_latest, 4)
                 return round(raw_latest * fx_rate / 1e6, 2)
 
-        # 損益表 (Income Statement & TTM)
         income_fields = [
             ("revenue", False), ("costOfRevenue", False), ("grossProfit", False), ("grossProfitRatio", True),
             ("researchAndDevelopmentExpenses", False), ("generalAndAdministrativeExpenses", False),
@@ -1074,7 +1058,6 @@ def main():
             s_data.append(get_ttm_val(inc_quarter, f, is_sum=not is_ratio, is_ratio_or_per_share=is_ratio))
             stmt_income[f] = s_data
 
-        # 資產負債表 (Balance Sheet & TTM)
         balance_fields = [
             ("cashAndCashEquivalents", False), ("shortTermInvestments", False), ("cashAndShortTermInvestments", False),
             ("netReceivables", False), ("inventory", False), ("otherCurrentAssets", False), ("totalCurrentAssets", False),
@@ -1096,7 +1079,6 @@ def main():
             s_data.append(get_ttm_val(bs_data, f, is_sum=False, is_ratio_or_per_share=is_ratio))
             stmt_balance[f] = s_data
 
-        # 現金流量表 (Cash Flow Statement & TTM)
         cashflow_fields = [
             ("netIncome", False), ("depreciationAndAmortization", False), ("deferredIncomeTax", False),
             ("stockBasedCompensation", False), ("changeInWorkingCapital", False), ("accountsReceivables", False),
@@ -1122,107 +1104,6 @@ def main():
             "income": stmt_income,
             "balance": stmt_balance,
             "cashflow": stmt_cashflow
-        }
-
-        # 3. 外幣折算防護
-        if fx_rate != 1.0 or sym == "TSM":
-            debt = round(debt * fx_rate, 1)
-            cash = round(cash * fx_rate, 1)
-            short_term_inv = round(short_term_inv * fx_rate, 1)
-            equity = equity * fx_rate
-            goodwill_and_intangibles = goodwill_and_intangibles * fx_rate
-            total_assets = total_assets * fx_rate
-            ttm_net_income = ttm_net_income * fx_rate
-            ttm_ebitda = ttm_ebitda * fx_rate
-            fcf0 = round(fcf0 * fx_rate, 1)
-            ttm_dividends_paid = ttm_dividends_paid * fx_rate
-            ttm_buybacks_paid = ttm_buybacks_paid * fx_rate
-
-        if fcf0 <= 0: fcf0 = round(mcap * 0.038, 1)
-
-        # 4. 組裝完整輸出字典 (含 statements_raw 與 default_fair_val)
-        results[sym] = {
-            "name": item["name"],
-            "company_name": company_full_name,
-            "exchange": item["exchange"],
-            "sector": item["sector"],
-            "industry": item["industry"],
-            "reportedCurrency": reported_currency,
-            "price": price,
-            "shares": shares,
-            "shares_outstanding": int(shares * 1e6) if shares > 0 else 0,
-            "shares_display": f"{shares:,.2f} M",
-            "mcap": mcap,
-            "debt": debt,
-            "cash": cash,
-            "short_term_investments": short_term_inv,
-            "cash_and_short_term": cash,
-            "net_debt": round(debt - cash, 1),
-            "fcf0": fcf0,
-            "real_history": real_history,
-            "statements_raw": statements_data,
-            "beta": beta,
-            "beta_5y": beta_5y,
-            "kd": KD,
-            "tax": tax,
-            "growth_10y": growth_10y,
-            "g1": growth_10y[0],
-            "g2": growth_10y[5],
-            "g": round(DEFAULT_G * 100.0, 2),
-            "wacc": round(wacc * 100.0, 2),
-            "ev": fmp_official_ev,          
-            "fmp_official_ev": fmp_official_ev,
-            "dcf_model_ev": ev,
-            "ev_to_ebitda": round(fmp_official_ev / ebitda_m, 1) if ebitda_m > 0 else ev_to_ebitda,
-            "debt_to_ebitda": debt_to_ebitda,
-            "net_debt_to_ebitda": net_debt_to_ebitda,
-            "f_score": f_score,
-            "f_score_breakdown": f_score_breakdown,
-            "fair_val": fair_val,
-            "default_fair_val": fair_val,
-            "premium_pct": premium_pct,
-            "is_undervalued": premium_pct < 0,
-            "pe_trailing": pe_trailing,
-            "pe_forward": pe_forward,
-            "pb_trailing": pb_trailing,
-            "pb_forward": pb_forward,
-            "div_yield": div_yield_real,
-            "ps_ratio": round(mcap / max(fcf0 * 4.0, 1.0), 1),
-            "fcf_to_ev": round((fcf0 / ev) * 100.0, 2) if ev > 0 else 0.0,
-            "fcf_to_mcap": round((fcf0 / mcap) * 100.0, 2) if mcap > 0 else 0.0,
-            "liab_to_assets": liab_r,
-            "cash_to_assets": cash_to_assets,
-            "current_ratio": cr,
-            "roe": roe,
-            "roa": roa,
-            "moat": moat_data,
-            "fin_valuation": fin_valuation,
-            "image": image_url,
-            "logo": image_url,
-            "website": website,
-            "ceo": ceo,
-            "full_time_employees": employees,
-            "description": description_en,
-            "description_en": description_en,
-            "description_zh": description_zh,
-            "address": prof.get("address", "--"),
-            "city": prof.get("city", "--"),
-            "state": prof.get("state", "--"),
-            "zip": prof.get("zip", "--"),
-            "country": prof.get("country", "US"),
-            "phone": prof.get("phone", "--"),
-            "full_address": f"{prof.get('address', '')}, {prof.get('city', '')}, {prof.get('state', '')} {prof.get('zip', '')}, {prof.get('country', '')}".strip(", "),
-            "range_52w": prof.get("range", "--"),
-            "year_high": float(q.get("yearHigh") or 0.0) if q else 0.0,
-            "year_low": float(q.get("yearLow") or 0.0) if q else 0.0,
-            "all_time_high": float(prof.get("mktCap", 0) / (shares * 1e6)) * 1.25 if shares > 0 else price * 1.3,
-            "all_time_low": float(q.get("yearLow") or price * 0.45) if q else price * 0.45,
-            "inst_ownership_pct": real_inst_ownership,
-            "insider_ownership_pct": real_insider_ownership,
-            "top_holders": company_meta.get("top_holders", []),
-            "insider_trades": company_meta.get("insider_trades", []),
-            "stock_splits": company_meta.get("stock_splits", []),
-            "fmp_symbol": fmp_sym
         }
 
         # 4. 外幣基礎變數統一折算為 USD
@@ -1396,7 +1277,7 @@ def main():
             )
             entity_moat_cache[entity_id] = moat_data
 
-        # 7. 組裝輸出資料結構 (3. 同步輸出 default_fair_val 確保前端優先採用後端 Python 估值)
+        # 7. 組裝最終輸出資料結構 (確保 statements_raw 與 default_fair_val 成功輸出)
         results[sym] = {
             "name": item["name"],
             "company_name": company_full_name,
