@@ -1071,35 +1071,87 @@
     return s.sector;
   }
 
-  // 美股核心標的繁體中文名稱對照表
+// 美股 200 檔全覆蓋繁體中文名稱官方對照字典
   const STOCK_NAMES_ZH = {
-    "NVDA": "輝達", "AAPL": "蘋果", "MSFT": "微軟", "AMZN": "亞馬遜", "GOOGL": "Alphabet (Class A)",
-    "GOOG": "Alphabet (Class C)", "META": "Meta (臉書)", "TSLA": "特斯拉", "BRK.B": "波克夏海瑟威",
-    "BRK.A": "波克夏海瑟威", "TSM": "台積電 ADR", "AVGO": "博通", "ORCL": "甲骨文", "WMT": "沃爾瑪",
-    "JPM": "摩根大通", "V": "威士卡", "MA": "萬事達卡", "UNH": "聯合健康", "LLY": "禮來",
-    "COST": "好市多", "HD": "家得寶", "PG": "寶僑", "JNJ": "嬌生", "ABBV": "艾伯維",
-    "BAC": "美國銀行", "KO": "可口可樂", "PEP": "百事可樂", "MRK": "默沙東", "CRM": "賽富時",
-    "AMD": "超微半導體", "ADBE": "Adobe", "QCOM": "高通", "CSCO": "思科", "INTC": "英特爾",
-    "TXN": "德州儀器", "AMAT": "應用材料", "NOW": "ServiceNow", "IBM": "IBM", "LMT": "洛克希德·馬丁",
-    "CAT": "開拓重工", "GE": "通用電氣", "DIS": "迪士尼", "NFLX": "網飛", "MCD": "麥當勞",
-    "NKE": "耐吉", "SBUX": "星巴克", "PM": "菲利普莫里斯", "MO": "奧馳亞", "XOM": "埃克森美孚",
-    "CVX": "雪佛龍", "COP": "康菲石油", "WFC": "富國銀行", "MS": "摩根士丹利", "GS": "高盛",
-    "C": "花旗集團", "AXP": "美國運通", "BLK": "貝萊德", "RTX": "雷神科技", "BA": "波音",
-    "HON": "漢威聯合", "UNP": "聯合太平洋", "UPS": "優比速", "FDX": "聯邦快遞", "PFE": "輝瑞",
-    "TMO": "賽默飛世爾", "ABT": "雅培", "DHR": "丹納赫", "BMY": "必貴寶", "AMGN": "安進",
-    "GILD": "吉利德科學", "ISRG": "直覺外科", "VRTX": "福泰製藥", "REGN": "再生元", "NEE": "新世紀能源",
-    "SO": "南方電力", "DUK": "杜克能源", "PLD": "普洛斯", "AMT": "美國電塔", "CCI": "冠城國際",
-    "EQIX": "易華電腦", "SPG": "西蒙地產", "O": "Realty Income", "INTU": "直覺電腦", "PANW": "派拓網路",
-    "SNPS": "新思科技", "CDNS": "益華電腦", "FTNT": "飛塔資訊", "CRWD": "CrowdStrike", "UBER": "優步",
-    "ABNB": "愛彼迎", "BKNG": "Booking 控股", "T": "AT&T", "VZ": "威訊通訊", "CMCSA": "康卡斯特"
+    // 資訊科技 (38檔)
+    "NVDA": "輝達", "AAPL": "蘋果", "MSFT": "微軟", "AVGO": "博通", "ORCL": "甲骨文",
+    "CRM": "賽富時", "AMD": "超微半導體", "CSCO": "思科", "ACN": "埃森哲", "ADBE": "Adobe",
+    "QCOM": "高通", "TXN": "德州儀器", "IBM": "IBM", "INTC": "英特爾", "INTU": "直覺電腦",
+    "NOW": "ServiceNow", "AMAT": "應用材料", "LRCX": "科林研發", "MU": "美光科技", "TSM": "台積電 ADR",
+    "FICO": "費埃哲 (FICO)", "ADSK": "歐特克", "TYL": "泰勒科技", "APPF": "AppFolio", "YOU": "Clear Secure",
+    "ITRI": "埃創", "SNPS": "新思科技", "BR": "寬嶺金融", "KLAC": "科磊", "MRVL": "邁威爾科技",
+    "CDNS": "益華電腦", "FTNT": "飛塔資訊", "PANW": "派拓網路", "CRWD": "CrowdStrike", "WDAY": "Workday",
+    "ANET": "Arista 網路", "APH": "安費諾", "TEL": "泰科電子",
+
+    // 通訊服務 (15檔)
+    "GOOGL": "Alphabet (Class A)", "GOOG": "Alphabet (Class C)", "META": "Meta (臉書)", "NFLX": "網飛", "DIS": "迪士尼",
+    "TMUS": "T-Mobile 美國", "VZ": "威訊通訊", "T": "AT&T", "CMCSA": "康卡斯特", "TKO": "TKO 控股 (WWE/UFC)",
+    "LYV": "理想國演藝", "IRDM", "銥星通訊", "EA": "美商藝電", "TTWO": "Take-Two 互動", "WBD": "華納兄弟探索",
+
+    // 非必需消費 (24檔)
+    "AMZN": "亞馬遜", "TSLA": "特斯拉", "HD": "家得寶", "MCD": "麥當勞", "BKNG": "Booking 控股",
+    "NKE": "耐吉", "SBUX": "星巴克", "LOW": "勞氏", "TJX": "TJX 公司", "CHDN": "邱吉爾唐斯",
+    "TSCO": "拖拉機供應", "MTN": "范爾度假村", "SCI": "Service Corp (安儀)", "AZO": "汽車地帶 (AutoZone)", "MAR": "萬豪國際",
+    "HLT": "希爾頓酒店", "CMG": "奇波雷墨西哥燒烤", "YUM": "百勝餐飲", "ORLY": "奧萊利汽車", "ROST": "羅斯百貨",
+    "LULU": "露露檸檬", "F": "福特汽車", "GM": "通用汽車", "EBAY": "eBay",
+
+    // 金融 (30檔)
+    "BRK.B": "波克夏海瑟威 (B)", "JPM": "摩根大通", "V": "威士卡", "MA": "萬事達卡", "BAC": "美國銀行",
+    "WFC": "富國銀行", "MS": "摩根士丹利", "GS": "高盛集團", "AXP": "美國運通", "BLK": "貝萊德",
+    "SPGI": "標普全球", "C": "花旗集團", "PGR": "前進保險", "CB": "安達保險", "FDS": "輝盛研究 (FactSet)",
+    "TW": "Tradeweb 市場", "CME": "芝商所集團", "MSCI": "明晟 (MSCI)", "MCO": "穆迪評級", "ICE": "洲際交易所",
+    "AIG": "美國國際集團", "MET": "大都會人壽", "PRU": "保德信金融", "TRV": "旅行者保險", "AFL": "美國家庭人壽",
+    "ALL": "全州保險", "AON": "怡安集團", "AJG": "亞瑟加拉格爾", "MMC": "威達信集團", "USB": "美國合眾銀行",
+
+    // 醫療保健 (30檔)
+    "LLY": "禮來公司", "UNH": "聯合健康集團", "JNJ": "嬌生", "ABBV": "艾伯維", "MRK": "默沙東",
+    "TMO": "賽默飛世爾", "ABT": "亞培", "DHR": "丹納赫", "ISRG": "直覺外科 (達文西)", "PFE": "輝瑞",
+    "AMGN": "安進", "BMY": "必貴寶 (施貴寶)", "MDT": "美敦力", "GILD": "吉利德科學", "ILMN": "因美納",
+    "ZTS": "碩騰 (Zoetis)", "ALGN": "愛齊科技 (隱適美)", "FMS": "費森尤斯醫藥", "BDX": "碧迪醫療", "ZBH": "捷邁邦美",
+    "DXCM": "德康醫療", "RMD": "瑞思邁", "COR": "信卡拉 (前美源伯根)", "STE": "思泰瑞醫療", "MCK": "麥克森",
+    "SYK": "史賽克", "VEEV": "維瓦系統 (Veeva)", "LH": "來博科", "REGN": "再生元製藥", "VRTX": "福泰製藥",
+
+    // 必需消費 (18檔)
+    "WMT": "沃爾瑪", "COST": "好市多", "PG": "寶僑", "KO": "可口可樂", "PEP": "百事可樂",
+    "PM": "菲利普莫里斯", "MDLZ": "億滋國際", "CL": "高露潔-棕欖", "MKC": "味好美", "CLX": "高樂氏",
+    "HSY": "好時公司", "ADM": "阿徹丹尼爾斯米德蘭", "CHD": "巧手先生 (Church & Dwight)", "TGT": "目標百貨 (Target)", "KMB": "金百利克拉克",
+    "MNST": "怪獸飲料 (Monster)", "GIS": "通用磨坊", "KHC": "卡夫亨氏",
+
+    // 工業製造 (30檔)
+    "GE": "奇異航太 (GE Aerospace)", "CAT": "開拓重工", "UNP": "聯合太平洋鐵路", "RTX": "雷神技術", "HON": "漢威聯合",
+    "BA": "波音公司", "LMT": "洛克希德·馬丁", "DE": "強鹿公司 (Deere)", "UPS": "優比速", "EFX": "艾可飛 (Equifax)",
+    "TRU": "全聯徵信 (TransUnion)", "CPRT": "科帕特 (Copart)", "PAYX": "培沛客 (Paychex)", "AOS": "A.O.史密斯", "ASR": "東南機場集團",
+    "XYL": "賽萊默 (Xylem)", "ROL": "羅林斯 (Rollins)", "OTIS": "奧的斯電梯", "VRSK": "威瑞斯克", "MIDD": "美得比 (Middleby)",
+    "ADP": "安德普翰 (ADP)", "HII": "亨廷頓英格爾斯", "MSA": "梅思安安全", "TDG": "天寶集團 (TransDigm)", "RRX": "雷諾德 (Regal Rexnord)",
+    "GGG": "固瑞克 (Graco)", "DCI": "唐納森", "ITW": "伊利諾工具", "CNI": "加拿大國家鐵路", "WM": "廢品管理 (Waste Management)",
+
+    // 能源 (15檔)
+    "XOM": "埃克森美孚", "CVX": "雪佛龍", "COP": "康菲石油", "SLB": "斯倫貝謝", "EOG": "EOG 能源",
+    "EPD": "企業產品合夥", "ENB": "恩橋公司", "MPC": "馬拉松原油", "VLO": "瓦萊羅能源", "PSX": "菲利普斯66",
+    "OXY": "西方石油", "KMI": "金德摩根", "WMB": "威廉斯公司", "HAL": "哈里伯頓", "BKR": "貝克休斯",
+
+    // 原物料 (15檔)
+    "LIN": "林德集團", "SHW": "宣偉塗料", "FCX": "自由港麥克莫蘭", "NEM": "紐蒙特黃金", "SCCO": "南方銅業",
+    "IFF": "國際香精香料", "RPM": "RPM 國際", "VMC": "瓦爾肯建材", "BCPC": "波奇姆 (Balchem)", "APD": "空氣化工",
+    "ECL": "藝康集團", "CTVA": "科迪華農業", "DOW": "陶氏化學", "DD": "杜邦公司", "MLM": "馬丁瑪麗埃塔",
+
+    // 公用事業 (8檔)
+    "NEE": "新紀元能源", "SO": "南方電力", "DUK": "杜克能源", "CEG": "星座能源", "AWK": "美國水務",
+    "SRE": "桑普拉能源", "AEP": "美國電力", "D": "多明尼昂資源",
+
+    // 房地產 (7檔)
+    "PLD": "普洛斯 (Prologis)", "AMT": "美國電塔", "EQIX": "易華電腦 (Equinix)", "SPG": "西蒙地產", "CSGP": "科斯塔集團",
+    "VICI": "維奇房產 (VICI)", "O": "Realty Income"
   };
 
-  function getStockDisplayName(s) {
+function getStockDisplayName(s) {
     if (!s) return "";
-    const ticker = (s.ticker || "").toUpperCase();
+    const ticker = (s.ticker || "").toUpperCase().trim();
     if (typeof currentLang !== 'undefined' && currentLang === 'zh') {
-      return s.name_zh || STOCK_NAMES_ZH[ticker] || s.name || s.company_name || ticker;
+      // 中文模式：優先使用 200 檔繁中對照表，其次使用後端傳入的中文名
+      return STOCK_NAMES_ZH[ticker] || s.name_zh || s.name || s.company_name || ticker;
     } else {
+      // 英文模式：嚴格只使用標準英文企業名稱，絕不出中文
       return s.name_en || s.company_name || s.name || ticker;
     }
   }
@@ -2663,7 +2715,9 @@ function loadCompanyProfile(ticker) {
     document.getElementById('cmp-ticker').innerText = ticker;
     document.getElementById('cmp-name').innerText = getStockDisplayName(s);
     document.getElementById('cmp-exchange').innerText = s.exchange || 'US';
-    document.getElementById('cmp-full-name').innerText = s.company_name || s.name || `${ticker} Inc.`;
+    document.getElementById('cmp-full-name').innerText = currentLang === 'zh' 
+      ? (STOCK_NAMES_ZH[ticker] ? `${STOCK_NAMES_ZH[ticker]} (${s.company_name || ticker})` : (s.company_name || `${ticker} Inc.`))
+      : (s.company_name || `${ticker} Inc.`);
     document.getElementById('cmp-logo-img').src = s.image || s.logo || `https://assets.financialmodelingprep.com/symbol/${ticker}.png`;
     
     document.getElementById('cmp-card-mcap').innerText = `$${(s.mcap || 0).toLocaleString()} M`;
