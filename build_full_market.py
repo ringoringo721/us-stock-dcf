@@ -1014,13 +1014,108 @@ def main():
         hist_fcf.append(round(ttm_fcf_sum * fx_rate / 1e6, 1))
 
         real_history = {
-            "revenue": hist_revenue,
-            "net_income": hist_net_income,
-            "gross_profit": hist_gross_profit,
-            "operating_income": hist_operating_income,
-            "cfo": hist_cfo,
-            "capex": hist_capex,
-            "fcf": hist_fcf
+        # ========================================================
+        # 提取近 5 年年報 + 最新 4 季 TTM 官方全部原生欄位 (損益表/資產負債表/現金流量表)
+        # ========================================================
+        inc_5y = list(reversed(inc_annual))[:5] if inc_annual else []
+        bs_5y = list(reversed(bs_annual))[:5] if bs_annual else []
+        cf_5y = list(reversed(cf_annual))[:5] if cf_annual else []
+
+        # 輔助萃取 5 年數據並折算匯率
+        def extract_series(dataset, key, is_ratio_or_per_share=False):
+            series = []
+            for item in dataset:
+                val = float(item.get(key) or 0.0)
+                if is_ratio_or_per_share:
+                    series.append(round(val, 4))
+                else:
+                    series.append(round(val * fx_rate / 1e6, 2))
+            while len(series) < 5:
+                series.insert(0, 0.0)
+            return series
+
+        # 輔助 TTM 彙總：損益與現金流為近 4 季加總，資產負債表取最新期末餘額
+        def get_ttm_val(quarter_list, key, is_sum=True, is_ratio_or_per_share=False):
+            if not quarter_list:
+                return 0.0
+            if is_sum:
+                raw_sum = sum(float(q.get(key) or 0.0) for q in quarter_list)
+                if is_ratio_or_per_share:
+                    return round(raw_sum / max(len(quarter_list), 1), 4)
+                return round(raw_sum * fx_rate / 1e6, 2)
+            else:
+                raw_latest = float(quarter_list[0].get(key) or 0.0)
+                if is_ratio_or_per_share:
+                    return round(raw_latest, 4)
+                return round(raw_latest * fx_rate / 1e6, 2)
+
+        # 1. 損益表 (Income Statement & TTM)
+        income_fields = [
+            ("revenue", False), ("costOfRevenue", False), ("grossProfit", False), ("grossProfitRatio", True),
+            ("researchAndDevelopmentExpenses", False), ("generalAndAdministrativeExpenses", False),
+            ("sellingAndMarketingExpenses", False), ("sellingGeneralAndAdministrativeExpenses", False),
+            ("otherExpenses", False), ("operatingExpenses", False), ("costAndExpenses", False),
+            ("operatingIncome", False), ("operatingIncomeRatio", True),
+            ("totalOtherIncomeExpensesNet", False), ("interestIncome", False), ("interestExpense", False),
+            ("incomeBeforeTax", False), ("incomeBeforeTaxRatio", True), ("incomeTaxExpense", False),
+            ("netIncome", False), ("netIncomeRatio", True),
+            ("eps", True), ("epsdiluted", True), ("weightedAverageShsOut", True), ("weightedAverageShsOutDil", True),
+            ("ebitda", False), ("ebitdaratio", True)
+        ]
+        stmt_income = {}
+        for f, is_ratio in income_fields:
+            s_data = extract_series(inc_5y, f, is_ratio)
+            s_data.append(get_ttm_val(inc_quarter, f, is_sum=not is_ratio, is_ratio_or_per_share=is_ratio))
+            stmt_income[f] = s_data
+
+        # 2. 資產負債表 (Balance Sheet & TTM)
+        balance_fields = [
+            ("cashAndCashEquivalents", False), ("shortTermInvestments", False), ("cashAndShortTermInvestments", False),
+            ("netReceivables", False), ("inventory", False), ("otherCurrentAssets", False), ("totalCurrentAssets", False),
+            ("propertyPlantEquipmentNet", False), ("goodwill", False), ("intangibleAssets", False),
+            ("goodwillAndIntangibleAssets", False), ("longTermInvestments", False), ("taxAssets", False),
+            ("otherNonCurrentAssets", False), ("totalNonCurrentAssets", False), ("totalAssets", False),
+            ("accountPayables", False), ("shortTermDebt", False), ("taxPayables", False), ("deferredRevenue", False),
+            ("otherCurrentLiabilities", False), ("totalCurrentLiabilities", False),
+            ("longTermDebt", False), ("deferredRevenueNonCurrent", False), ("deferredTaxLiabilitiesNonCurrent", False),
+            ("otherNonCurrentLiabilities", False), ("totalNonCurrentLiabilities", False),
+            ("totalLiabilities", False), ("totalDebt", False), ("netDebt", False),
+            ("commonStock", False), ("retainedEarnings", False), ("accumulatedOtherComprehensiveIncomeLoss", False),
+            ("otherTotalStockholdersEquity", False), ("totalStockholdersEquity", False), ("totalEquity", False),
+            ("totalLiabilitiesAndTotalEquity", False), ("totalInvestments", False)
+        ]
+        stmt_balance = {}
+        for f, is_ratio in balance_fields:
+            s_data = extract_series(bs_5y, f, is_ratio)
+            s_data.append(get_ttm_val(bs_data, f, is_sum=False, is_ratio_or_per_share=is_ratio))
+            stmt_balance[f] = s_data
+
+        # 3. 現金流量表 (Cash Flow Statement & TTM)
+        cashflow_fields = [
+            ("netIncome", False), ("depreciationAndAmortization", False), ("deferredIncomeTax", False),
+            ("stockBasedCompensation", False), ("changeInWorkingCapital", False), ("accountsReceivables", False),
+            ("inventory", False), ("accountsPayables", False), ("otherWorkingCapital", False),
+            ("otherNonCashItems", False), ("netCashProvidedByOperatingActivities", False),
+            ("investmentsInPropertyPlantAndEquipment", False), ("acquisitionsNet", False),
+            ("purchasesOfInvestments", False), ("salesMaturitiesOfInvestments", False),
+            ("otherInvestingActivites", False), ("netCashUsedForInvestingActivites", False),
+            ("debtRepayment", False), ("commonStockIssued", False), ("commonStockRepurchased", False),
+            ("dividendsPaid", False), ("otherFinancingActivites", False),
+            ("netCashUsedProvidedByFinancingActivities", False),
+            ("effectOfForexChangesOnCash", False), ("netChangeInCash", False),
+            ("cashAtEndOfPeriod", False), ("cashAtBeginningOfPeriod", False),
+            ("capitalExpenditure", False), ("freeCashFlow", False)
+        ]
+        stmt_cashflow = {}
+        for f, is_ratio in cashflow_fields:
+            s_data = extract_series(cf_5y, f, is_ratio)
+            s_data.append(get_ttm_val(cf_quarter, f, is_sum=True, is_ratio_or_per_share=is_ratio))
+            stmt_cashflow[f] = s_data
+
+        statements_data = {
+            "income": stmt_income,
+            "balance": stmt_balance,
+            "cashflow": stmt_cashflow
         }
 
         # 4. 外幣基礎變數統一折算為 USD
