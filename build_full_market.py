@@ -1161,19 +1161,32 @@ def main():
             s_data.append(get_ttm_val(bs_quarter, f, is_sum=False, is_ratio_or_per_share=is_ratio))
             stmt_balance[f] = s_data
 
-        # 1. 年度 5 年 + TTM 應收款 (AAPL 2025 為 39,777M)
+        # 1. 年度 5 年 + TTM 應收款 (AAPL 2025 原生為 39,777M)
         annual_years = [str(x.get("calendarYear") or x.get("fiscalYear") or "") for x in inc_5y]
-        stmt_balance["tradeAccountsReceivables"] = [
-            trade_ar_map["annual"].get(y) or trade_ar_map["annual"].get(y[:4]) or round(float(bs.get("netReceivables") or 0) * fx_rate / 1e6, 2)
-            for y, bs in zip(annual_years, bs_5y)
-        ]
-        # 追加最新一期 TTM
-        latest_trade_ar = trade_ar_map["annual"].get(annual_years[-1] if annual_years else "")
-        if latest_trade_ar is None and bs_quarter:
-            latest_trade_ar = trade_ar_map["quarterly"].get(f"{bs_quarter[0].get('fiscalYear')}{bs_quarter[0].get('period')}")
-        if latest_trade_ar is None and bs_quarter:
-            latest_trade_ar = round(get_safe_field(bs_quarter[0], "netReceivables") * fx_rate / 1e6, 2)
-        stmt_balance["tradeAccountsReceivables"].append(latest_trade_ar)
+        trade_ar_list = []
+        for y, bs in zip(annual_years, bs_5y):
+            val = trade_ar_map["annual"].get(y) or trade_ar_map["annual"].get(y[:4])
+            if val is None:
+                val = round(get_safe_field(bs, "netReceivables") * fx_rate / 1e6, 2)
+            trade_ar_list.append(val)
+
+        # 確保有 5 年歷史數據
+        while len(trade_ar_list) < 5:
+            trade_ar_list.insert(0, 0.0)
+
+        # 追加最新一期 TTM (第 6 筆)
+        latest_trade_ar = None
+        if bs_quarter:
+            q_code = f"{bs_quarter[0].get('fiscalYear')}{bs_quarter[0].get('period')}"
+            q_date = str(bs_quarter[0].get("date", ""))
+            latest_trade_ar = trade_ar_map["quarterly"].get(q_code) or trade_ar_map["quarterly"].get(q_date)
+            if latest_trade_ar is None:
+                latest_trade_ar = round(get_safe_field(bs_quarter[0], "netReceivables") * fx_rate / 1e6, 2)
+        else:
+            latest_trade_ar = trade_ar_list[-1] if trade_ar_list else 0.0
+
+        trade_ar_list.append(latest_trade_ar)
+        stmt_balance["tradeAccountsReceivables"] = trade_ar_list
 
         cashflow_fields = [
             ("netIncome", False), ("depreciationAndAmortization", False), ("deferredIncomeTax", False),
@@ -1202,12 +1215,13 @@ def main():
         q_reversed_cf = list(reversed(cf_quarter[:20]))
         quarter_labels = [f"{q.get('calendarYear') or q.get('fiscalYear', '')}{q.get('period', '')}" for q in q_reversed_inc]
         
-        # 2. 季度 20 季應收款安全取值
+        # 2. 季度 20 季應收款安全取值 (同時比對 quarter_labels 與日期 date)
         quarter_trade_ar = []
         for idx, lbl in enumerate(quarter_labels):
-            ar_val = trade_ar_map["quarterly"].get(lbl)
+            item = q_reversed_bs[idx] if idx < len(q_reversed_bs) else {}
+            date_key = str(item.get("date", ""))
+            ar_val = trade_ar_map["quarterly"].get(lbl) or trade_ar_map["quarterly"].get(date_key)
             if ar_val is None:
-                item = q_reversed_bs[idx] if idx < len(q_reversed_bs) else {}
                 ar_val = round(get_safe_field(item, "netReceivables") * fx_rate / 1e6, 2)
             quarter_trade_ar.append(ar_val)
 
