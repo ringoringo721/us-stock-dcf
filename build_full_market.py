@@ -8,6 +8,38 @@ import math
 from typing import Dict, Any, Optional
 from pydantic import BaseModel, Field
 
+def fetch_trade_accounts_receivable(symbol: str, api_key: str) -> list:
+    """從 FMP as-reported 端點精確提取 5 年加最新期的純商業應收帳款 ($M)"""
+    url = f"https://financialmodelingprep.com/api/v3/balance-sheet-statement-as-reported/{symbol}?limit=10&apikey={api_key}"
+    try:
+        response = requests.get(url, timeout=15)
+        if response.status_code != 200:
+            return []
+        data = response.json()
+        if not isinstance(data, list) or len(data) == 0:
+            return []
+
+        # FMP as-reported 預設由新到舊排序，取最近 6 筆並反轉為 [舊 -> 新]
+        recent_reports = data[:6][::-1]
+        ar_series = []
+        for report in recent_reports:
+            # 優先匹配原生 SEC 純商業應收帳款標籤
+            val = (
+                report.get('accountsreceivablenetcurrent') or
+                report.get('accountsReceivableNetCurrent') or
+                report.get('accountsreceivablecurrent')
+            )
+            # 若無分拆項（非 Apple 類特殊架構），退回標準 netReceivables
+            if val is None:
+                val = report.get('netreceivables') or report.get('receivablesnetcurrent') or 0.0
+
+            ar_series.append(round(float(val) / 1e6, 2))
+
+        return ar_series
+    except Exception as e:
+        print(f"[{symbol}] 抓取 as-reported 應收帳款失敗: {e}")
+        return []
+
 try:
     from google import genai
     from google.genai import types
@@ -1078,6 +1110,11 @@ def main():
             s_data = extract_series(bs_5y, f, is_ratio)
             s_data.append(get_ttm_val(bs_data, f, is_sum=False, is_ratio_or_per_share=is_ratio))
             stmt_balance[f] = s_data
+        
+        # 提取純商業應收帳款 (Apple Trade A/R 修正，使用正確變數 sym 與 FMP_KEY)
+        trade_ar = fetch_trade_accounts_receivable(sym, FMP_KEY)
+        if len(trade_ar) == 6:
+            stmt_balance["tradeAccountsReceivables"] = trade_ar
 
         cashflow_fields = [
             ("netIncome", False), ("depreciationAndAmortization", False), ("deferredIncomeTax", False),
