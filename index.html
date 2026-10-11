@@ -858,11 +858,11 @@
           <button class="stmt-btn active" id="btn-stmt-income" onclick="switchFinancialStatement('income')" data-i18n="btn_stmt_income">1. 損益表 (Income Statement)</button>
           <button class="stmt-btn" id="btn-stmt-balance" onclick="switchFinancialStatement('balance')" data-i18n="btn_stmt_balance">2. 資產負債表 (Balance Sheet)</button>
           <button class="stmt-btn" id="btn-stmt-cashflow" onclick="switchFinancialStatement('cashflow')" data-i18n="btn_stmt_cashflow">3. 現金流量表 (Cash Flow)</button>
-        <div style="margin-left: auto; display: flex; gap: 8px;">
-          <button class="stmt-btn active" id="btn-stmt-period-annual" onclick="switchStatementPeriod('annual')">年度 (5年 + TTM)</button>
-          <button class="stmt-btn" id="btn-stmt-period-quarterly" onclick="switchStatementPeriod('quarterly')">季度 (近 20 季)</button>
+          <div style="margin-left: auto; display: flex; gap: 8px;">
+            <button class="stmt-btn active" id="btn-stmt-period-annual" onclick="switchStatementPeriod('annual')">年度 (5年 + TTM)</button>
+            <button class="stmt-btn" id="btn-stmt-period-quarterly" onclick="switchStatementPeriod('quarterly')">季度 (近 20 季)</button>
+           </div>
         </div>
-
         <div class="table-scroll-wrapper" style="overflow-x: auto; max-height: 520px; overflow-y: auto;">
           <table id="cmp-fin-table" style="width: 100%; border-collapse: collapse; text-align: right; font-size: 12.5px;">
             <thead>
@@ -2321,16 +2321,27 @@
     document.getElementById('btn-ratio-period-annual').className = period === 'annual' ? 'stmt-btn active' : 'stmt-btn';
     document.getElementById('btn-ratio-period-quarterly').className = period === 'quarterly' ? 'stmt-btn active' : 'stmt-btn';
 
-    const isEn = (currentLang === 'en');
-    const headers = period === 'annual'
-      ? ['2021', '2022', '2023', '2024', '2025', 'TTM']
-      : ['Q-5', 'Q-4', 'Q-3', 'Q-2', 'Q-1', isEn ? 'Latest Q' : '最新季'];
+    const s = stockUniverse[activeCompanyTicker];
+    const rawStmts = (s && s.statements_raw) || {};
+    const qRaw = rawStmts.quarterly_raw || {};
+    const thead = document.getElementById('cmp-ratio-thead');
 
-    for (let i = 1; i <= 6; i++) {
-      const th = document.getElementById(`th-ratio-p${i}`);
-      if (th) th.innerText = headers[i-1];
+    if (thead) {
+      if (period === 'annual') {
+        thead.innerHTML = `
+          <th style="text-align: left; width: 320px;" data-i18n="th_ratio_metric">比率指標 / 財務維度</th>
+          <th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>TTM</th>
+          <th style="text-align: center; width: 90px;" data-i18n="th_trend">歷史趨勢</th>
+        `;
+      } else {
+        const qPeriods = qRaw.periods || [];
+        let qHeadHtml = `<th style="text-align: left; width: 320px;" data-i18n="th_ratio_metric">比率指標 / 財務維度</th>`;
+        qPeriods.forEach(p => { qHeadHtml += `<th>${p}</th>`; });
+        qHeadHtml += `<th style="text-align: center; width: 90px;" data-i18n="th_trend">近 20 季趨勢</th>`;
+        thead.innerHTML = qHeadHtml;
+      }
     }
-    renderKeyRatiosTable(stockUniverse[activeCompanyTicker]);
+    renderKeyRatiosTable(s);
   }
 
   // ========================================================
