@@ -8,38 +8,42 @@ import math
 from typing import Dict, Any, Optional
 from pydantic import BaseModel, Field
 
-def fetch_trade_accounts_receivable(symbol: str, api_key: str) -> list:
-    """從 FMP as-reported 端點精確提取 5 年加最新期的純商業應收帳款 ($M)"""
-    url = f"https://financialmodelingprep.com/api/v3/balance-sheet-statement-as-reported/{symbol}?limit=10&apikey={api_key}"
-    try:
-        response = requests.get(url, timeout=15)
-        if response.status_code != 200:
-            return []
-        data = response.json()
-        if not isinstance(data, list) or len(data) == 0:
-            return []
-
-        # FMP as-reported 預設由新到舊排序，取最近 6 筆並反轉為 [舊 -> 新]
-        recent_reports = data[:6][::-1]
-        ar_series = []
-        for report in recent_reports:
-            # 優先匹配原生 SEC 純商業應收帳款標籤
-            val = (
-                report.get('accountsreceivablenetcurrent') or
-                report.get('accountsReceivableNetCurrent') or
-                report.get('accountsreceivablecurrent')
-            )
-            # 若無分拆項（非 Apple 類特殊架構），退回標準 netReceivables
-            if val is None:
-                val = report.get('netreceivables') or report.get('receivablesnetcurrent') or 0.0
-
-            ar_series.append(round(float(val) / 1e6, 2))
-
-        return ar_series
-    except Exception as e:
-        print(f"[{symbol}] 抓取 as-reported 應收帳款失敗: {e}")
-        return []
-
+def fetch_as_reported_trade_ar(symbol: str, api_key: str) -> dict:
+    """從 FMP as-reported 端點精確提取原生 SEC 純商業應收帳款 ($M)，支援年度與近 20 季"""
+    ar_map = {"annual": {}, "quarterly": {}}
+    for period_param in ["annual", "quarter"]:
+        url = f"https://financialmodelingprep.com/api/v3/balance-sheet-statement-as-reported/{symbol}?period={period_param}&limit=24&apikey={api_key}"
+        try:
+            resp = requests.get(url, timeout=12)
+            if resp.status_code == 200:
+                data = resp.json()
+                if isinstance(data, list):
+                    for item in data:
+                        report_data = item.get("data", {})
+                        if not isinstance(report_data, dict):
+                            continue
+                        val = (
+                            report_data.get("accountsreceivablenetcurrent") or
+                            report_data.get("accountsReceivableNetCurrent") or
+                            report_data.get("accountsreceivablecurrent")
+                        )
+                        if val is None:
+                            val = report_data.get("netreceivables") or report_data.get("receivablesnetcurrent")
+                        if val is not None:
+                            val_m = round(float(val) / 1e6, 2)
+                            f_year = str(item.get("fiscalYear") or item.get("date", "")[:4])
+                            period = str(item.get("period", "")).upper()
+                            date_str = str(item.get("date", ""))
+                            if period_param == "annual" or period == "FY":
+                                if f_year: ar_map["annual"][f_year] = val_m
+                                if date_str: ar_map["annual"][date_str[:4]] = val_m
+                            else:
+                                if f_year and period: ar_map["quarterly"][f"{f_year}{period}"] = val_m
+                                if date_str: ar_map["quarterly"][date_str] = val_m
+        except Exception as e:
+            print(f"[{symbol}] 抓取 as-reported ({period_param}) 失敗: {e}")
+    return ar_map
+        
 try:
     from google import genai
     from google.genai import types
@@ -557,22 +561,22 @@ def fetch_json(endpoint, params):
             time.sleep(0.5)
     return None
 
-def fetch_cached_annual_statements(fmp_sym: str, sym: str) -> Dict[str, list]:
-    default_payload = {"income": [], "balance": [], "cashflow": []}
-    try:
-        cache_path = os.path.join(FIN_CACHE_DIR, f"{sym}_annual.json")
-        if os.path.exists(cache_path):
+def fetch_cached_financial_statements(fmp_sym: str, sym: str) -> Dict[str, Any]:
+    default_payload = {
+        "annual": {"income": [], "balance": [], "cashflow": []},
+        "quarterly": {"income": [], "balance": [], "cashflow": []}
+    }
+    cache_path = os.path.join(FIN_CACHE_DIR, f"{sym}_statements_v2.json")
+    if os.path.exists(cache_path):
+        try:
             with open(cache_path, "r", encoding="utf-8") as f:
                 data = json.load(f)
-                if isinstance(data, dict) and ("income" in data or "cashflow" in data):
-                    return {
-                        "income": data.get("income") or [],
-                        "balance": data.get("balance") or [],
-                        "cashflow": data.get("cashflow") or []
-                    }
-    except Exception:
-        pass
+                if isinstance(data, dict) and "quarterly" in data:
+                    return data
+        except Exception:
+            pass
 
+    # 抓取 5 年年度報表
     inc_annual = fetch_json("income-statement", {"symbol": fmp_sym, "period": "annual", "limit": 5}) or []
     time.sleep(0.04)
     bs_annual = fetch_json("balance-sheet-statement", {"symbol": fmp_sym, "period": "annual", "limit": 5}) or []
@@ -580,18 +584,32 @@ def fetch_cached_annual_statements(fmp_sym: str, sym: str) -> Dict[str, list]:
     cf_annual = fetch_json("cash-flow-statement", {"symbol": fmp_sym, "period": "annual", "limit": 5}) or []
     time.sleep(0.04)
 
+    # 抓取 20 季（5 年）季度報表
+    inc_quarter = fetch_json("income-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 20}) or []
+    time.sleep(0.04)
+    bs_quarter = fetch_json("balance-sheet-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 20}) or []
+    time.sleep(0.04)
+    cf_quarter = fetch_json("cash-flow-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 20}) or []
+    time.sleep(0.04)
+
     payload = {
-        "income": inc_annual if isinstance(inc_annual, list) else [],
-        "balance": bs_annual if isinstance(bs_annual, list) else [],
-        "cashflow": cf_annual if isinstance(cf_annual, list) else []
+        "annual": {
+            "income": inc_annual if isinstance(inc_annual, list) else [],
+            "balance": bs_annual if isinstance(bs_annual, list) else [],
+            "cashflow": cf_annual if isinstance(cf_annual, list) else []
+        },
+        "quarterly": {
+            "income": inc_quarter if isinstance(inc_quarter, list) else [],
+            "balance": bs_quarter if isinstance(bs_quarter, list) else [],
+            "cashflow": cf_quarter if isinstance(cf_quarter, list) else []
+        }
     }
 
     try:
-        cache_path = os.path.join(FIN_CACHE_DIR, f"{sym}_annual.json")
         with open(cache_path, "w", encoding="utf-8") as f:
             json.dump(payload, f, ensure_ascii=False, indent=2)
     except Exception as e:
-        print(f"⚠️ [{sym}] 寫入年度歷史快取失敗: {e}", flush=True)
+        print(f"⚠️ [{sym}] 寫入報表快取失敗: {e}", flush=True)
 
     return payload or default_payload
 
@@ -980,29 +998,40 @@ def main():
 
         time.sleep(0.04)
 
-        # 3. 匯率換算
+# 3. 匯率換算與財報抓取 (支援年度與近 20 季)
         fx_rate = get_fx_to_usd_rate(reported_currency)
         if sym == "TSM":
             fx_rate = 1.0 / 32.0
 
-        annual_cache = fetch_cached_annual_statements(fmp_sym, sym) or {}
-        inc_annual = annual_cache.get("income", []) if isinstance(annual_cache, dict) else []
-        bs_annual = annual_cache.get("balance", []) if isinstance(annual_cache, dict) else []
-        cf_annual = annual_cache.get("cashflow", []) if isinstance(annual_cache, dict) else []
+        fin_cache = fetch_cached_financial_statements(fmp_sym, sym) or {}
+        annual_data = fin_cache.get("annual", {})
+        quarterly_data = fin_cache.get("quarterly", {})
 
-        inc_quarter = fetch_json("income-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 4}) or []
-        cf_quarter = fetch_json("cash-flow-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 4}) or []
+        inc_annual = annual_data.get("income", [])
+        bs_annual = annual_data.get("balance", [])
+        cf_annual = annual_data.get("cashflow", [])
 
-        ttm_net_income = sum(float(x.get("netIncome") or 0.0) for x in inc_quarter)
-        ttm_ebitda = sum(float(x.get("ebitda") or x.get("operatingIncome") or 0.0) for x in inc_quarter)
-        ttm_rev = sum(float(x.get("revenue") or 0.0) for x in inc_quarter)
-        ttm_cfo = sum(float(x.get("operatingCashFlow") or 0.0) for x in cf_quarter)
-        ttm_capex = sum(float(x.get("capitalExpenditure") or 0.0) for x in cf_quarter)
-        ttm_fcf_sum = sum(float(x.get("freeCashFlow") or 0.0) for x in cf_quarter)
+        inc_quarter = quarterly_data.get("income", [])
+        bs_quarter = quarterly_data.get("balance", [])
+        cf_quarter = quarterly_data.get("cashflow", [])
+
+        # 取最近 4 季供 TTM 基準計算
+        inc_latest_4q = inc_quarter[:4]
+        cf_latest_4q = cf_quarter[:4]
+
+        # 抓取純商業應收帳款 map
+        trade_ar_map = fetch_as_reported_trade_ar(sym, FMP_KEY)
+
+        ttm_net_income = sum(float(x.get("netIncome") or 0.0) for x in inc_latest_4q)
+        ttm_ebitda = sum(float(x.get("ebitda") or x.get("operatingIncome") or 0.0) for x in inc_latest_4q)
+        ttm_rev = sum(float(x.get("revenue") or 0.0) for x in inc_latest_4q)
+        ttm_cfo = sum(float(x.get("operatingCashFlow") or 0.0) for x in cf_latest_4q)
+        ttm_capex = sum(float(x.get("capitalExpenditure") or 0.0) for x in cf_latest_4q)
+        ttm_fcf_sum = sum(float(x.get("freeCashFlow") or 0.0) for x in cf_latest_4q)
 
         ttm_dividends_paid = 0.0
         ttm_buybacks_paid = 0.0
-        for q_cf in cf_quarter:
+        for q_cf in cf_latest_4q:
             div_val = q_cf.get("dividendsPaid") or q_cf.get("netDividendsPaid") or q_cf.get("commonStockDividendsPaid") or 0.0
             ttm_dividends_paid += abs(float(div_val))
             bb_val = q_cf.get("commonStockRepurchased") or 0.0
@@ -1010,7 +1039,7 @@ def main():
 
         fcf0 = round(ttm_fcf_sum / 1e6, 1)
 
-        # 基礎歷史序列
+        # 歷史序列
         inc_sorted = list(reversed(inc_annual))[:5]
         hist_revenue = [round(float(x.get("revenue") or 0.0) * fx_rate / 1e6, 1) for x in inc_sorted]
         hist_net_income = [round(float(x.get("netIncome") or 0.0) * fx_rate / 1e6, 1) for x in inc_sorted]
@@ -1019,8 +1048,8 @@ def main():
         
         hist_revenue.append(round(ttm_rev * fx_rate / 1e6, 1))
         hist_net_income.append(round(ttm_net_income * fx_rate / 1e6, 1))
-        hist_gross_profit.append(round(sum(float(x.get("grossProfit") or 0.0) for x in inc_quarter) * fx_rate / 1e6, 1))
-        hist_operating_income.append(round(sum(float(x.get("operatingIncome") or 0.0) for x in inc_quarter) * fx_rate / 1e6, 1))
+        hist_gross_profit.append(round(sum(float(x.get("grossProfit") or 0.0) for x in inc_latest_4q) * fx_rate / 1e6, 1))
+        hist_operating_income.append(round(sum(float(x.get("operatingIncome") or 0.0) for x in inc_latest_4q) * fx_rate / 1e6, 1))
 
         cf_sorted = list(reversed(cf_annual))[:5]
         hist_cfo = [round(float(x.get("operatingCashFlow") or 0.0) * fx_rate / 1e6, 1) for x in cf_sorted]
@@ -1041,15 +1070,29 @@ def main():
             "fcf": hist_fcf
         }
 
-        # 提取近 5 年年報 + 最新 4 季 TTM 官方全部原生欄位
         inc_5y = list(reversed(inc_annual))[:5] if inc_annual else []
         bs_5y = list(reversed(bs_annual))[:5] if bs_annual else []
         cf_5y = list(reversed(cf_annual))[:5] if cf_annual else []
 
+        # 安全取值工具：解決現金流欄位名稱不相容導致為 $0 的問題
+        def get_safe_field(item, field_name):
+            alias_map = {
+                "otherInvestingActivites": ["otherInvestingActivites", "otherInvestingActivities"],
+                "netCashUsedForInvestingActivites": ["netCashUsedForInvestingActivites", "netCashUsedForInvestingActivities"],
+                "otherFinancingActivites": ["otherFinancingActivites", "otherFinancingActivities"],
+                "purchasesOfInvestments": ["purchasesOfInvestments", "investmentsInPropertyPlantAndEquipment"],
+                "salesMaturitiesOfInvestments": ["salesMaturitiesOfInvestments", "salesOfInvestments"]
+            }
+            for k in alias_map.get(field_name, [field_name]):
+                v = item.get(k)
+                if v is not None:
+                    return float(v)
+            return 0.0
+
         def extract_series(dataset, key, is_ratio_or_per_share=False):
             series = []
             for item in dataset:
-                val = float(item.get(key) or 0.0)
+                val = get_safe_field(item, key)
                 if is_ratio_or_per_share:
                     series.append(round(val, 4))
                 else:
@@ -1061,13 +1104,17 @@ def main():
         def get_ttm_val(quarter_list, key, is_sum=True, is_ratio_or_per_share=False):
             if not quarter_list:
                 return 0.0
+            # 關鍵修正：TTM EPS 為最近 4 季 Diluted EPS 直接加總
+            if key in ["eps", "epsdiluted"]:
+                return round(sum(float(q.get(key) or 0.0) for q in quarter_list[:4]), 2)
+
             if is_sum:
-                raw_sum = sum(float(q.get(key) or 0.0) for q in quarter_list)
+                raw_sum = sum(get_safe_field(q, key) for q in quarter_list[:4])
                 if is_ratio_or_per_share:
-                    return round(raw_sum / max(len(quarter_list), 1), 4)
+                    return round(raw_sum / max(len(quarter_list[:4]), 1), 4)
                 return round(raw_sum * fx_rate / 1e6, 2)
             else:
-                raw_latest = float(quarter_list[0].get(key) or 0.0)
+                raw_latest = get_safe_field(quarter_list[0], key)
                 if is_ratio_or_per_share:
                     return round(raw_latest, 4)
                 return round(raw_latest * fx_rate / 1e6, 2)
@@ -1087,7 +1134,7 @@ def main():
         stmt_income = {}
         for f, is_ratio in income_fields:
             s_data = extract_series(inc_5y, f, is_ratio)
-            s_data.append(get_ttm_val(inc_quarter, f, is_sum=not is_ratio, is_ratio_or_per_share=is_ratio))
+            s_data.append(get_ttm_val(inc_latest_4q, f, is_sum=not is_ratio, is_ratio_or_per_share=is_ratio))
             stmt_income[f] = s_data
 
         balance_fields = [
@@ -1110,11 +1157,20 @@ def main():
             s_data = extract_series(bs_5y, f, is_ratio)
             s_data.append(get_ttm_val(bs_data, f, is_sum=False, is_ratio_or_per_share=is_ratio))
             stmt_balance[f] = s_data
+
+        # 注入 5 年年報 + 最新期 SEC 商業應收帳款
+        annual_years = [str(x.get("calendarYear") or x.get("fiscalYear") or "") for x in inc_5y]
+        trade_ar_series = []
+        for y in annual_years:
+            val = trade_ar_map["annual"].get(y) or trade_ar_map["annual"].get(y[:4])
+            trade_ar_series.append(val)
         
-        # 提取純商業應收帳款 (Apple Trade A/R 修正，使用正確變數 sym 與 FMP_KEY)
-        trade_ar = fetch_trade_accounts_receivable(sym, FMP_KEY)
-        if len(trade_ar) == 6:
-            stmt_balance["tradeAccountsReceivables"] = trade_ar
+        latest_trade_ar = None
+        if bs_quarter:
+            q_code = f"{bs_quarter[0].get('fiscalYear')}{bs_quarter[0].get('period')}"
+            latest_trade_ar = trade_ar_map["quarterly"].get(q_code) or trade_ar_map["quarterly"].get(bs_quarter[0].get("date", ""))
+        trade_ar_series.append(latest_trade_ar)
+        stmt_balance["tradeAccountsReceivables"] = trade_ar_series
 
         cashflow_fields = [
             ("netIncome", False), ("depreciationAndAmortization", False), ("deferredIncomeTax", False),
@@ -1134,13 +1190,26 @@ def main():
         stmt_cashflow = {}
         for f, is_ratio in cashflow_fields:
             s_data = extract_series(cf_5y, f, is_ratio)
-            s_data.append(get_ttm_val(cf_quarter, f, is_sum=True, is_ratio_or_per_share=is_ratio))
+            s_data.append(get_ttm_val(cf_latest_4q, f, is_sum=True, is_ratio_or_per_share=is_ratio))
             stmt_cashflow[f] = s_data
+
+        # 封裝近 20 季資料集 (依時間由舊到新排序)
+        q_reversed_inc = list(reversed(inc_quarter[:20]))
+        q_reversed_bs = list(reversed(bs_quarter[:20]))
+        q_reversed_cf = list(reversed(cf_quarter[:20]))
+        quarter_labels = [f"{q.get('calendarYear') or q.get('fiscalYear', '')}{q.get('period', '')}" for q in q_reversed_inc]
 
         statements_data = {
             "income": stmt_income,
             "balance": stmt_balance,
-            "cashflow": stmt_cashflow
+            "cashflow": stmt_cashflow,
+            "quarterly_raw": {
+                "periods": quarter_labels,
+                "income": {f: [round(get_safe_field(item, f) * (1 if is_r else fx_rate / 1e6), 4 if is_r else 2) for item in q_reversed_inc] for f, is_r in income_fields},
+                "balance": {f: [round(get_safe_field(item, f) * (1 if is_r else fx_rate / 1e6), 4 if is_r else 2) for item in q_reversed_bs] for f, is_r in balance_fields},
+                "cashflow": {f: [round(get_safe_field(item, f) * (1 if is_r else fx_rate / 1e6), 4 if is_r else 2) for item in q_reversed_cf] for f, is_r in cashflow_fields},
+                "tradeAccountsReceivables": [trade_ar_map["quarterly"].get(lbl) for lbl in quarter_labels]
+            }
         }
 
         # 4. 外幣基礎變數統一折算為 USD
