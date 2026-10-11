@@ -1253,7 +1253,7 @@ def main():
 
         # 5. 分析師預測與折現排程
         est_data = fetch_json("analyst-estimates", {"symbol": fmp_sym, "limit": 4})
-        growth_10y = build_10y_growth_schedule(est_data, item["default_g1"], DEFAULT_G)
+        growth_10y = build_10y_growth_schedule(est_data, item.get("default_g1", 8.0), DEFAULT_G)
         pe_forward = round(pe_trailing * 0.88, 1)
 
         fmp_beta = prof.get("beta")
@@ -1343,7 +1343,7 @@ def main():
 
             ddm_sum = 0.0
             cur_dps = dps_total
-            g_dps = min(item["default_g1"] / 100.0, 0.065)
+            g_dps = min(float(item.get("default_g1", 6.0)) / 100.0, 0.065)
             for t in range(1, 6):
                 cur_dps *= (1.0 + g_dps)
                 ddm_sum += cur_dps / ((1.0 + ke_rate) ** t)
