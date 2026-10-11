@@ -1276,9 +1276,10 @@ def main():
             beta_5y = beta
         else:
             beta = 1.15
-            if item["sector"] in ["公用事業", "必需消費"]: beta = 0.75
-            elif item["sector"] in ["資訊科技"]: beta = 1.35
-            elif item["sector"] in ["金融"]: beta = 1.05
+            current_sector = item.get("sector", "")
+            if current_sector in ["公用事業", "必需消費"]: beta = 0.75
+            elif current_sector in ["資訊科技"]: beta = 1.35
+            elif current_sector in ["金融"]: beta = 1.05
             beta_5y = beta
 
         tax = TAX_RATE
@@ -1332,8 +1333,8 @@ def main():
             "Property & Casualty Insurance", "Life & Health Insurance", "Multi-line Insurance"
         ]
         is_financial_model = (
-            item["sector"] == "金融" 
-            and item["industry"] in FINANCIAL_SPECIAL_INDUSTRIES 
+            item.get("sector", "") == "金融" 
+            and item.get("industry", "") in FINANCIAL_SPECIAL_INDUSTRIES 
             and sym != "BRK.B"
         )
 
@@ -1411,11 +1412,11 @@ def main():
 
         # 7. 組裝最終輸出資料結構 (確保 statements_raw 與 default_fair_val 成功輸出)
         results[sym] = {
-            "name": item["name"],
+            "name": item.get("name", sym),
             "company_name": company_full_name,
-            "exchange": item["exchange"],
-            "sector": item["sector"],
-            "industry": item["industry"],
+            "exchange": item.get("exchange", "US"),
+            "sector": item.get("sector", "N/A"),
+            "industry": item.get("industry", "N/A"),
             "reportedCurrency": reported_currency,
             "price": price,
             "shares": shares,
