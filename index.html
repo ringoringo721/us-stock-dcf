@@ -405,6 +405,19 @@
       height: 100%;
       overflow: visible;
     }
+    /* 表格垂直加粗分隔線，增強閱讀體驗 */
+    #cmp-fin-table th:nth-child(even),
+    #cmp-fin-table td:nth-child(even),
+    #cmp-ratio-table th:nth-child(even),
+    #cmp-ratio-table td:nth-child(even) {
+      border-right: 2px solid rgba(56, 189, 248, 0.35) !important;
+    }
+    #cmp-fin-table th:last-child,
+    #cmp-fin-table td:last-child,
+    #cmp-ratio-table th:last-child,
+    #cmp-ratio-table td:last-child {
+      border-right: none !important;
+    }
   </style>
 </head>
 <body>
@@ -889,8 +902,8 @@
         <div class="panel-title" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
           <span id="ratio-table-title" data-i18n="sec_ratios_full_title">關鍵財務比率與營運效率矩陣</span>
           <div style="display: flex; gap: 8px;">
-            <button class="stmt-btn active" id="btn-ratio-period-annual" onclick="switchRatioPeriod('annual')">年度 (5年 + TTM)</button>
-            <button class="stmt-btn" id="btn-ratio-period-quarterly" onclick="switchRatioPeriod('quarterly')">季度 (近 6 季)</button>
+            <button class="stmt-btn active" id="btn-ratio-period-annual" onclick="switchRatioPeriod('annual')" data-i18n="btn_ratio_annual">年度 (5年 + TTM)</button>
+            <button class="stmt-btn" id="btn-ratio-period-quarterly" onclick="switchRatioPeriod('quarterly')" data-i18n="btn_ratio_quarter">季度 (近 20 季)</button>
           </div>
         </div>
 
@@ -1379,7 +1392,9 @@
       sec_fin: "金融", sec_health: "醫療保健", sec_energy: "能源", sec_ind: "工業",
       sec_mat: "原物料", sec_util: "公用事業", sec_re: "房地產",
       btn_period_annual: "年度 (5年 + TTM)",
-      btn_period_quarter: "季度 (近 20 季)"
+      btn_period_quarter: "季度 (近 20 季)",
+      btn_ratio_annual: "年度 (5年 + TTM)",
+      btn_ratio_quarter: "季度 (近 20 季)"
     },
     en: {
       title: "US Flagship DCF Valuation Radar (200 Stocks)",
@@ -1530,7 +1545,9 @@
       sec_fin: "Financials", sec_health: "Healthcare", sec_energy: "Energy", sec_ind: "Industrials",
       sec_mat: "Materials", sec_util: "Utilities", sec_re: "Real Estate",
       btn_period_annual: "Annual (5Y + TTM)",
-      btn_period_quarter: "Quarterly (Last 20Q)"
+      btn_period_quarter: "Quarterly (Last 20Q)",
+      btn_ratio_annual: "Annual (5Y + TTM)",
+      btn_ratio_quarter: "Quarterly (Last 20Q)"
     }
   };
 
@@ -2379,10 +2396,19 @@
     }
 
     function getSeries(field) {
-      if (curStmt[field] && Array.isArray(curStmt[field])) {
-        return curStmt[field];
+      if (isQuarter) {
+        const qStmt = (qRaw[activeStatementType] || {});
+        const arr = qStmt[field] || [];
+        return arr.length > 0 ? arr : Array(periods.length).fill(0.0);
+      } else {
+        // 年度模式：從年度報表讀取前 5 年 + TTM (共 6 筆)
+        const aStmt = (rawStmts[activeStatementType] || {});
+        const arr = aStmt[field] || [];
+        if (Array.isArray(arr) && arr.length >= 6) {
+          return arr.slice(-6); // 嚴格只取最後 6 筆，確保與表頭 2021-2025+TTM 完全吻合！
+        }
+        return Array(6).fill(0.0);
       }
-      return Array(periods.length).fill(0.0);
     }
 
     // 季度視角：各項利潤率直接除以當季營收計算
@@ -2694,7 +2720,17 @@ function renderKeyRatiosTable(s) {
     const ebit = getArr('income', 'operatingIncome');
     const ni = getArr('income', 'netIncome');
     const ebitda = getArr('income', 'ebitda');
-    const eps = getArr('income', 'epsdiluted');
+    // EPS 提取防禦：相容 epsdiluted 與 eps
+    let eps = getArr('income', 'epsdiluted');
+    if (eps.every(v => Math.abs(v) < 0.0001)) {
+      eps = getArr('income', 'eps');
+    }
+    // 如果計算出來的 EPS 仍然為 0，直接使用 Net Income / Shares Outstanding 作為回退
+    if (eps.every(v => Math.abs(v) < 0.0001)) {
+      const netIncArr = getArr('income', 'netIncome');
+      const sharesCount = Math.max(Number(s.shares || 1), 1);
+      eps = netIncArr.map(ni => Number((ni / sharesCount).toFixed(2)));
+    }
 
     const cfo = getArr('cashflow', 'netCashProvidedByOperatingActivities');
     const capex = getArr('cashflow', 'capitalExpenditure');
