@@ -3657,17 +3657,21 @@ function renderKeyRatiosTable(s) {
     isAppReady = true;
     stockUniverse = JSON.parse(JSON.stringify(data));
 
-    // 預先計算並快取官方原始預設 Fair Value，保證不被覆蓋
     Object.keys(stockUniverse).forEach(ticker => {
-      const originalDcf = computeDCF(stockUniverse[ticker], ticker);
-      if (originalDcf) {
-        stockUniverse[ticker].default_fair_val = originalDcf.fairVal;
+      try {
+        const originalDcf = computeDCF(stockUniverse[ticker], ticker);
+        if (originalDcf) {
+          stockUniverse[ticker].default_fair_val = originalDcf.fairVal;
+        }
+      } catch (err) {
+        console.warn(`[${ticker}] computeDCF 初始化略過:`, err);
       }
     });
 
     applyLanguage(currentLang);
     initInteractions();
     handleInitialNavigation();
+  }
 
     const rView = document.getElementById('subpage-ratios');
     if (rView && rView.classList.contains('active')) {
