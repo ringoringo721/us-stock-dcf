@@ -139799,8 +139799,8 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "212 438 1000",
     "full_address": "55 Water Street, New York, NY 10041, US",
-    "range_52w": "361.03122-579.05",
-    "year_high": 579.05,
+    "range_52w": "361.03122-552.25",
+    "year_high": 552.25,
     "year_low": 361.03122,
     "all_time_high": 0.0,
     "all_time_low": 361.03122,
@@ -153175,11 +153175,11 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 561390000,
     "shares_display": "561.39 M",
     "mcap": 87684.3,
-    "debt": 0.0,
-    "cash": 0.0,
-    "short_term_investments": 0.0,
-    "cash_and_short_term": 0.0,
-    "net_debt": 0.0,
+    "debt": 20527.0,
+    "cash": 1953.0,
+    "short_term_investments": 886.0,
+    "cash_and_short_term": 1953.0,
+    "net_debt": 18574.0,
     "fcf0": 4848.0,
     "real_history": {
       "revenue": [
@@ -153465,7 +153465,7 @@ window.FULL_MARKET_DATA = {
           899.0,
           844.0,
           837.0,
-          0.0
+          1067.0
         ],
         "shortTermInvestments": [
           0.0,
@@ -153473,7 +153473,7 @@ window.FULL_MARKET_DATA = {
           230.0,
           524.0,
           2779.0,
-          0.0
+          886.0
         ],
         "cashAndShortTermInvestments": [
           607.0,
@@ -153481,7 +153481,7 @@ window.FULL_MARKET_DATA = {
           1129.0,
           1368.0,
           3616.0,
-          0.0
+          1953.0
         ],
         "netReceivables": [
           1208.0,
@@ -153489,7 +153489,7 @@ window.FULL_MARKET_DATA = {
           2950.0,
           3129.0,
           3210.0,
-          0.0
+          1869.0
         ],
         "inventory": [
           0.0,
@@ -153497,7 +153497,7 @@ window.FULL_MARKET_DATA = {
           0.0,
           0.0,
           0.0,
-          0.0
+          116912.0
         ],
         "otherCurrentAssets": [
           149321.0,
@@ -153505,7 +153505,7 @@ window.FULL_MARKET_DATA = {
           80894.0,
           84598.0,
           78952.0,
-          0.0
+          627.0
         ],
         "totalCurrentAssets": [
           154300.0,
@@ -153513,7 +153513,7 @@ window.FULL_MARKET_DATA = {
           84973.0,
           89095.0,
           85778.0,
-          0.0
+          122064.0
         ],
         "propertyPlantEquipmentNet": [
           1699.0,
@@ -153521,7 +153521,7 @@ window.FULL_MARKET_DATA = {
           1923.0,
           2153.0,
           2691.0,
-          0.0
+          2884.0
         ],
         "goodwill": [
           21123.0,
@@ -153529,7 +153529,7 @@ window.FULL_MARKET_DATA = {
           30553.0,
           30595.0,
           30646.0,
-          0.0
+          30632.0
         ],
         "intangibleAssets": [
           13736.0,
@@ -153537,7 +153537,7 @@ window.FULL_MARKET_DATA = {
           17317.0,
           16306.0,
           15353.0,
-          0.0
+          14870.0
         ],
         "goodwillAndIntangibleAssets": [
           34859.0,
@@ -153545,7 +153545,7 @@ window.FULL_MARKET_DATA = {
           47870.0,
           46901.0,
           45999.0,
-          0.0
+          45502.0
         ],
         "longTermInvestments": [
           0.0,
@@ -153553,7 +153553,7 @@ window.FULL_MARKET_DATA = {
           0.0,
           0.0,
           0.0,
-          0.0
+          136.0
         ],
         "taxAssets": [
           0.0,
@@ -153569,7 +153569,7 @@ window.FULL_MARKET_DATA = {
           1318.0,
           1279.0,
           2419.0,
-          0.0
+          3661.0
         ],
         "totalNonCurrentAssets": [
           39202.0,
@@ -153577,7 +153577,7 @@ window.FULL_MARKET_DATA = {
           51111.0,
           50333.0,
           51109.0,
-          0.0
+          52183.0
         ],
         "totalAssets": [
           193502.0,
@@ -153585,7 +153585,7 @@ window.FULL_MARKET_DATA = {
           136084.0,
           139428.0,
           136887.0,
-          0.0
+          174247.0
         ],
         "accountPayables": [
           703.0,
@@ -153593,7 +153593,7 @@ window.FULL_MARKET_DATA = {
           1003.0,
           1051.0,
           1078.0,
-          0.0
+          1159.0
         ],
         "shortTermDebt": [
           1521.0,
@@ -153601,7 +153601,7 @@ window.FULL_MARKET_DATA = {
           1954.0,
           3027.0,
           1035.0,
-          0.0
+          1218.0
         ],
         "taxPayables": [
           0.0,
@@ -153617,7 +153617,7 @@ window.FULL_MARKET_DATA = {
           200.0,
           236.0,
           204.0,
-          0.0
+          567.0
         ],
         "otherCurrentLiabilities": [
           146089.0,
@@ -153625,7 +153625,7 @@ window.FULL_MARKET_DATA = {
           79117.0,
           82322.0,
           76907.0,
-          0.0
+          117066.0
         ],
         "totalCurrentLiabilities": [
           153411.0,
@@ -153633,7 +153633,7 @@ window.FULL_MARKET_DATA = {
           84626.0,
           89553.0,
           84116.0,
-          0.0
+          120576.0
         ],
         "longTermDebt": [
           12397.0,
@@ -153641,7 +153641,7 @@ window.FULL_MARKET_DATA = {
           20659.0,
           17341.0,
           18609.0,
-          0.0
+          18628.0
         ],
         "deferredRevenueNonCurrent": [
           0.0,
@@ -153657,7 +153657,7 @@ window.FULL_MARKET_DATA = {
           4080.0,
           3904.0,
           3998.0,
-          0.0
+          4125.0
         ],
         "otherNonCurrentLiabilities": [
           594.0,
@@ -153665,7 +153665,7 @@ window.FULL_MARKET_DATA = {
           634.0,
           575.0,
           538.0,
-          0.0
+          585.0
         ],
         "totalNonCurrentLiabilities": [
           17343.0,
@@ -153673,7 +153673,7 @@ window.FULL_MARKET_DATA = {
           25672.0,
           22155.0,
           23780.0,
-          0.0
+          24019.0
         ],
         "totalLiabilities": [
           170754.0,
@@ -153681,7 +153681,7 @@ window.FULL_MARKET_DATA = {
           110298.0,
           111708.0,
           107896.0,
-          0.0
+          144595.0
         ],
         "totalDebt": [
           14170.0,
@@ -153689,7 +153689,7 @@ window.FULL_MARKET_DATA = {
           22912.0,
           20703.0,
           20279.0,
-          0.0
+          20527.0
         ],
         "netDebt": [
           13563.0,
@@ -153697,7 +153697,7 @@ window.FULL_MARKET_DATA = {
           22013.0,
           19859.0,
           19442.0,
-          0.0
+          19460.0
         ],
         "commonStock": [
           6.0,
@@ -153705,7 +153705,7 @@ window.FULL_MARKET_DATA = {
           6.0,
           7.0,
           7.0,
-          0.0
+          7.0
         ],
         "retainedEarnings": [
           14350.0,
@@ -153713,7 +153713,7 @@ window.FULL_MARKET_DATA = {
           16356.0,
           18071.0,
           20281.0,
-          0.0
+          22061.0
         ],
         "accumulatedOtherComprehensiveIncomeLoss": [
           -196.0,
@@ -153721,7 +153721,7 @@ window.FULL_MARKET_DATA = {
           -294.0,
           -338.0,
           -224.0,
-          0.0
+          -257.0
         ],
         "otherTotalStockholdersEquity": [
           0.0,
@@ -153737,7 +153737,7 @@ window.FULL_MARKET_DATA = {
           25717.0,
           27647.0,
           28915.0,
-          0.0
+          29551.0
         ],
         "totalEquity": [
           22748.0,
@@ -153745,7 +153745,7 @@ window.FULL_MARKET_DATA = {
           25786.0,
           27720.0,
           28991.0,
-          0.0
+          29620.0
         ],
         "totalLiabilitiesAndTotalEquity": [
           193502.0,
@@ -153753,7 +153753,7 @@ window.FULL_MARKET_DATA = {
           136084.0,
           139428.0,
           136887.0,
-          0.0
+          174247.0
         ],
         "totalInvestments": [
           0.0,
@@ -153761,7 +153761,7 @@ window.FULL_MARKET_DATA = {
           230.0,
           524.0,
           2779.0,
-          0.0
+          1022.0
         ]
       },
       "cashflow": {
@@ -154018,21 +154018,21 @@ window.FULL_MARKET_DATA = {
     "g1": 6.8,
     "g2": 4.0,
     "g": 2.25,
-    "wacc": 8.96,
+    "wacc": 7.94,
     "ev": 88894.0,
     "fmp_official_ev": 88894.0,
-    "dcf_model_ev": 87912.5,
+    "dcf_model_ev": 104155.4,
     "ev_to_ebitda": 13.3,
-    "debt_to_ebitda": 0.0,
-    "net_debt_to_ebitda": 0.0,
-    "f_score": 9,
+    "debt_to_ebitda": 3.07,
+    "net_debt_to_ebitda": 2.77,
+    "f_score": 4,
     "f_score_breakdown": [
       {
         "id": 1,
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 402700000000.0%"
+        "detail": "當期 ROA = 2.3%"
       },
       {
         "id": 2,
@@ -154045,7 +154045,7 @@ window.FULL_MARKET_DATA = {
         "id": 3,
         "category": "盈利能力",
         "desc": "資產回報率持續擴張 (ΔROA > 0)",
-        "passed": 1,
+        "passed": 0,
         "detail": "回報率穩步領先同業基準"
       },
       {
@@ -154059,15 +154059,15 @@ window.FULL_MARKET_DATA = {
         "id": 5,
         "category": "槓桿與償債",
         "desc": "財務槓桿未惡化 (ΔLeverage ≤ 0)",
-        "passed": 1,
-        "detail": "總負債資產比率 = 40.0%"
+        "passed": 0,
+        "detail": "總負債資產比率 = 83.0%"
       },
       {
         "id": 6,
         "category": "槓桿與償債",
         "desc": "短期流動性安全 (ΔLiquidity > 0)",
-        "passed": 1,
-        "detail": "流動比率 = 1.50"
+        "passed": 0,
+        "detail": "流動比率 = 1.01"
       },
       {
         "id": 7,
@@ -154080,89 +154080,89 @@ window.FULL_MARKET_DATA = {
         "id": 8,
         "category": "營運效率",
         "desc": "毛利率擴張 (ΔMargin > 0)",
-        "passed": 1,
+        "passed": 0,
         "detail": "產品定價權增強，毛利結構健康"
       },
       {
         "id": 9,
         "category": "營運效率",
         "desc": "資產週轉率提升 (ΔTurnover > 0)",
-        "passed": 1,
+        "passed": 0,
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 156.6,
-    "default_fair_val": 156.6,
-    "premium_pct": -0.3,
-    "is_undervalued": true,
+    "fair_val": 152.45,
+    "default_fair_val": 152.45,
+    "premium_pct": 2.5,
+    "is_undervalued": false,
     "pe_trailing": 21.8,
     "pe_forward": 19.2,
-    "pb_trailing": 87684300000.0,
-    "pb_forward": 78915870000.0,
+    "pb_trailing": 3.0,
+    "pb_forward": 2.7,
     "div_yield": 1.3,
     "ps_ratio": 4.5,
-    "fcf_to_ev": 5.51,
+    "fcf_to_ev": 4.65,
     "fcf_to_mcap": 5.53,
-    "liab_to_assets": 40.0,
-    "cash_to_assets": 0.0,
-    "current_ratio": 1.5,
-    "roe": 402700000000.0,
-    "roa": 402700000000.0,
+    "liab_to_assets": 83.0,
+    "cash_to_assets": 1.1,
+    "current_ratio": 1.01,
+    "roe": 13.6,
+    "roa": 2.3,
     "moat": {
       "ticker": "ICE",
-      "period": "2026Q4",
+      "period": "2026Q2",
       "m1_brand_pricing": {
-        "score": 9,
-        "comment_zh": "ICE憑藉其對紐約證券交易所(NYSE)等全球頂級交易所的擁有權，以及其在期貨和數據服務領域的領導地位，建立了極其強大的品牌心智與定價權。金融機構和交易員幾乎無法避免使用其服務，因為這些是市場運作的核心基礎設施。即使提高交易費用或數據訂閱價格，客戶的轉換成本極高，且替代方案稀缺，確保了公司能將成本轉嫁並維持高利潤率，這正是巴菲特所推崇的「收費橋樑」模式。",
-        "comment_en": "ICE, through its ownership of premier global exchanges like the New York Stock Exchange (NYSE) and its leadership in futures and data services, commands immense brand recognition and pricing power. Financial institutions and traders are virtually compelled to utilize its services, as they represent core market infrastructure. Even with increased transaction fees or data subscription costs, customer switching costs are prohibitively high, and viable alternatives are scarce. This ensures the company can pass on costs and maintain high-profit margins, embodying Buffett's favored \"toll bridge\" business model."
+        "score": 8,
+        "comment_zh": "Intercontinental Exchange (ICE) 憑藉其旗下紐約證券交易所 (NYSE) 等全球頂級金融市場基礎設施，建立了極強的品牌心智與定價權。對於全球資本市場參與者而言，ICE 提供的交易平台、清算服務及市場數據是不可或缺的。其服務的關鍵性使得客戶即便面對價格上漲，也難以轉向其他替代方案，因為轉換成本高昂且缺乏同等規模與流動性的替代品。這種核心地位讓 ICE 能在不影響交易量的前提下，有效調整服務費用，展現出巴菲特所推崇的特許經營權特徵。",
+        "comment_en": "Intercontinental Exchange (ICE), through its ownership of premier financial market infrastructure like the New York Stock Exchange (NYSE), commands significant brand recognition and pricing power. For global capital market participants, ICE's trading platforms, clearing services, and market data are indispensable. The critical nature of its services means clients face high switching costs and a lack of comparable alternatives in terms of scale and liquidity, even when confronted with price increases. This central role allows ICE to effectively adjust service fees without significantly impacting transaction volumes, embodying the franchise-like characteristics highly valued by Buffett."
       },
       "m2_patents_regulatory": {
         "score": 9,
-        "comment_zh": "ICE的護城河並非來自傳統意義上的專利，而是源於其作為金融市場核心基礎設施提供者的「特許經營權」和嚴格的監管准入壁壘。經營交易所和清算所需要龐大的資本投入、極高的信任度以及複雜的監管批准，這些因素共同築起了難以逾越的門檻。政府對金融穩定的重視，使得新競爭者幾乎不可能在短時間內獲得同等地位，賦予ICE類似於公用事業的壟斷地位，確保了其長期穩定的現金流。",
-        "comment_en": "ICE's moat doesn't stem from traditional patents but rather from its \"franchise-like\" status and stringent regulatory barriers as a core financial market infrastructure provider. Operating exchanges and clearing houses demands substantial capital investment, immense trust, and complex regulatory approvals, collectively forming an insurmountable barrier to entry. Governmental emphasis on financial stability makes it nearly impossible for new competitors to achieve comparable standing quickly, granting ICE a utility-like monopoly that ensures long-term stable cash flows."
+        "comment_zh": "ICE 在專利壁壘與特許許可方面擁有極高的護城河。金融交易所和清算所的運營受到各國政府的嚴格監管，取得相關牌照和特許經營權的門檻極高，涉及複雜的法律程序、龐大的資本投入和嚴格的合規要求。這些監管壁壘有效地阻止了潛在競爭者進入市場，賦予 ICE 類似於「收費橋樑」的獨佔地位。其數據服務也因其獨特的市場數據來源而受到保護，形成難以複製的競爭優勢，確保了其在關鍵金融基礎設施領域的壟斷地位。",
+        "comment_en": "ICE possesses an exceptionally strong moat in patents and regulatory barriers. Operating financial exchanges and clearing houses is subject to stringent government regulation across various jurisdictions, with extremely high barriers to entry for obtaining licenses and franchises. This involves complex legal processes, substantial capital investment, and strict compliance requirements. These regulatory hurdles effectively deter potential competitors, granting ICE a monopolistic position akin to a \"toll bridge.\" Its data services are also protected by unique market data sources, creating an irreplicable competitive advantage and securing its dominant position in critical financial infrastructure."
       },
       "m3_high_switching_costs": {
-        "score": 9,
-        "comment_zh": "對於ICE的客戶而言，轉換成本極高。金融機構將ICE的交易平台、清算服務和市場數據深度整合到其核心交易系統、風險管理框架及合規流程中。更換供應商不僅意味著巨大的技術改造投入，還可能導致嚴重的營運中斷、員工再培訓成本，甚至潛在的監管違規風險。這種深度嵌入性使得客戶一旦選擇ICE，便難以脫離，確保了其收入的持續性和可預測性，是典型的「鎖定效應」護城河。",
-        "comment_en": "For ICE's clients, switching costs are exceptionally high. Financial institutions deeply integrate ICE's trading platforms, clearing services, and market data into their core trading systems, risk management frameworks, and compliance processes. Changing providers would entail not only massive technological overhaul investments but also significant operational disruptions, employee retraining costs, and potential regulatory non-compliance risks. This deep embeddedness makes it difficult for clients to leave once they've chosen ICE, ensuring revenue continuity and predictability—a classic \"lock-in effect\" moat."
+        "score": 8,
+        "comment_zh": "ICE 的服務具有極高的客戶黏性與替代成本。對於銀行、基金和經紀商等金融機構而言，轉換交易平台、清算所或市場數據供應商，不僅意味著巨大的技術整合工作、員工培訓成本，更可能導致營運中斷、數據遺失及潛在的交易風險。這些轉換成本遠超服務費用本身，使得客戶一旦採用 ICE 的解決方案，便會形成深度依賴。這種「鎖定效應」確保了 ICE 能夠長期保有客戶群，並在一定程度上轉嫁成本，符合巴菲特對具備高轉換成本企業的青睞。",
+        "comment_en": "ICE's services exhibit extremely high customer stickiness and switching costs. For financial institutions such as banks, funds, and brokers, migrating trading platforms, clearing houses, or market data providers entails not only massive technical integration efforts and staff training expenses but also potential operational disruptions, data loss, and trading risks. These switching costs far outweigh the service fees themselves, leading to deep reliance once clients adopt ICE's solutions. This \"lock-in effect\" ensures ICE retains its customer base long-term and can, to some extent, pass on costs, aligning with Buffett's preference for businesses with high switching costs."
       },
       "m4_network_effects": {
         "score": 9,
-        "comment_zh": "ICE的核心業務，特別是其交易所平台，展現出極為強大的網絡效應。更多的交易者和機構參與者意味著更高的流動性，而更高的流動性反過來又吸引更多的參與者，形成一個自我強化的良性循環。這種網絡效應使得ICE的平台對所有市場參與者而言都更具吸引力和價值。此外，其數據服務也受益於此，數據量的增長提升了數據產品的精準度和廣度，進一步鞏固了其市場領導地位，讓競爭對手難以望其項背。",
-        "comment_en": "ICE's core businesses, particularly its exchange platforms, exhibit extremely strong network effects. More traders and institutional participants lead to higher liquidity, which in turn attracts even more participants, creating a self-reinforcing virtuous cycle. This network effect makes ICE's platforms more attractive and valuable to all market participants. Furthermore, its data services also benefit, as increased data volume enhances the accuracy and breadth of data products, further solidifying its market leadership and making it difficult for competitors to catch up."
+        "comment_zh": "網絡效應是 ICE 最核心的護城河之一。作為全球領先的交易所運營商，其平台上的參與者越多（無論是買方還是賣方），市場流動性就越好，價格發現效率就越高。這種更高的流動性和效率反過來會吸引更多的交易者加入，形成強大的正向循環。例如，紐約證券交易所的巨大交易量和深度，使其成為全球企業上市和投資者交易的首選，新進入者幾乎不可能在短時間內複製這種規模和流動性，這正是巴菲特所看重的、難以被顛覆的競爭優勢。",
+        "comment_en": "Network effects constitute one of ICE's most fundamental moats. As a leading global exchange operator, the more participants on its platforms (both buyers and sellers), the greater the market liquidity and price discovery efficiency. This enhanced liquidity and efficiency, in turn, attracts even more traders, creating a powerful virtuous cycle. For instance, the immense trading volume and depth of the New York Stock Exchange make it the preferred venue for global company listings and investor trading. New entrants find it nearly impossible to replicate this scale and liquidity in a short period, representing a robust, difficult-to-disrupt competitive advantage highly valued by Buffett."
       },
       "m5_cost_advantage_scale": {
         "score": 8,
-        "comment_zh": "ICE在運營全球性交易所和數據服務方面享有顯著的規模經濟優勢。建立和維護如此龐大的技術基礎設施、數據中心以及滿足全球監管要求，需要巨大的前期資本投入。然而，一旦這些固定成本投入完成，處理額外的交易或服務新增的數據訂閱客戶的邊際成本相對較低。這使得ICE能夠實現高營運槓桿，並以競爭對手難以匹敵的效率提供服務，從而獲得更高的利潤率和市場份額，這正是巴菲特所看重的成本優勢。",
-        "comment_en": "ICE benefits from significant economies of scale in operating global exchanges and data services. Establishing and maintaining such vast technological infrastructure, data centers, and meeting global regulatory requirements demands substantial upfront capital investment. However, once these fixed costs are incurred, the marginal cost of processing additional transactions or serving new data subscribers is relatively low. This enables ICE to achieve high operating leverage and deliver services with efficiency that competitors struggle to match, leading to superior profit margins and market share, a key cost advantage valued by Buffett."
+        "comment_zh": "ICE 在規模經濟方面擁有顯著優勢。運營全球性的金融交易所、清算所及提供海量市場數據服務，需要龐大的前期技術投入、基礎設施建設和嚴格的合規成本。然而，一旦這些固定成本投入完成，每增加一筆交易或一個數據訂閱的邊際成本極低。這種規模效應使得 ICE 能夠以遠低於潛在競爭者的成本提供服務，並將其轉化為更高的利潤率。這種成本優勢是新進入者難以匹敵的，因為他們必須承擔同樣巨大的固定成本，卻無法立即獲得同等規模的交易量和數據訂閱收入。",
+        "comment_en": "ICE possesses a significant advantage in economies of scale. Operating global financial exchanges, clearing houses, and providing vast market data services requires substantial upfront investments in technology, infrastructure development, and stringent compliance costs. However, once these fixed costs are incurred, the marginal cost of an additional trade or data subscription is extremely low. This scale effect enables ICE to offer services at a much lower cost than potential competitors, translating into higher profit margins. This cost advantage is difficult for new entrants to match, as they would incur similarly massive fixed costs without immediately achieving comparable trading volumes and data subscription revenues."
       },
       "m6_unique_geography_assets": {
-        "score": 9,
-        "comment_zh": "金融交易所和清算服務市場本質上就是一個天然寡占的利基市場。由於強大的網絡效應、嚴格的監管要求以及市場參與者對信任和穩定性的極高需求，這個市場只能有效支持少數幾個主導性參與者。新進入者將難以獲得足夠的流動性和市場份額，任何試圖大規模競爭的行為都可能導致雙輸局面。ICE作為現有巨頭，其市場地位幾乎不可撼動，這使其能夠在一個受保護的環境中持續獲利，符合巴菲特對「收費橋樑」的定義。",
-        "comment_en": "The financial exchange and clearing services market is inherently an oligopolistic niche. Due to strong network effects, stringent regulatory requirements, and market participants' high demand for trust and stability, this market can only efficiently support a few dominant players. New entrants would struggle to gain sufficient liquidity and market share, and any attempt at large-scale competition would likely result in a lose-lose scenario. As an established giant, ICE's market position is virtually unassailable, allowing it to consistently profit within a protected environment, aligning with Buffett's definition of a \"toll bridge.\""
+        "score": 8,
+        "comment_zh": "金融交易所和關鍵市場數據服務的市場本質上是一個天然寡占的利基市場。由於強大的網絡效應、嚴格的監管壁壘和高昂的轉換成本，這個市場只能容納少數幾個主導者。ICE 憑藉其全球領先的交易所和數據業務，已牢固佔據其中一席。對於潛在的新競爭者而言，試圖進入這個市場將面臨巨大的挑戰，不僅需要投入天文數字般的資本，還可能引發惡性價格競爭，導致所有參與者利潤受損。這種「有效規模」的特性，使得 ICE 能夠在一個相對穩定的競爭環境中運營，享受其市場地位帶來的超額回報。",
+        "comment_en": "The market for financial exchanges and critical market data services is inherently an oligopoly, a niche market of efficient scale. Due to strong network effects, stringent regulatory barriers, and high switching costs, this market can only sustain a few dominant players. ICE, with its leading global exchanges and data businesses, has firmly secured its position. For potential new competitors, attempting to enter this market would entail immense challenges, requiring not only astronomical capital investment but also potentially triggering destructive price competition, harming all participants' profits. This \"efficient scale\" characteristic allows ICE to operate in a relatively stable competitive environment, enjoying the supernormal returns derived from its market position."
       },
       "m7_operational_efficiency": {
-        "score": 8,
-        "comment_zh": "ICE的財務數據，如18.0%的股東權益報酬率(ROE)和8.0%的資產報酬率(ROA)，以及高達38億美元的自由現金流，都強烈表明其具備卓越的資本配置效率和持續創造超額回報的能力。在強大護城河的保護下，ICE能夠將投入資本轉化為遠超其加權平均資本成本(WACC)的利潤，這證明了其業務模式的韌性和盈利能力。這種長期穩定的高ROIC是巴菲特衡量企業內在價值和複利增長潛力的關鍵指標。",
-        "comment_en": "ICE's financial metrics, such as an 18.0% Return on Equity (ROE) and 8.0% Return on Assets (ROA), coupled with a robust $3.8 billion in Free Cash Flow, strongly indicate its exceptional capital allocation efficiency and sustained ability to generate excess returns. Protected by its formidable moats, ICE can convert invested capital into profits significantly exceeding its Weighted Average Cost of Capital (WACC), demonstrating the resilience and profitability of its business model. This long-term stable high ROIC is a critical indicator for Buffett in assessing a company's intrinsic value and compounding growth potential."
+        "score": 6,
+        "comment_zh": "ICE 的 ROE 為 13.6%，但 ROA 僅為 2.3%，且 Piotroski F-Score 僅為 4/9，顯示其整體資產效率和財務健康度存在一定壓力。雖然其核心交易所和數據業務具備高回報率，但龐大的總負債（205億美元對比19億美元現金）以及過去可能的大規模併購，可能稀釋了整體資本回報率。巴菲特強調的超額 ROIC 韌性，要求企業能持續將資本投入到高回報項目中。ICE 需要證明其在整合併購資產後，能有效提升整體資本效率，並在長期內維持遠超加權資本成本的回報。",
+        "comment_en": "ICE's ROE stands at 13.6%, but its ROA is only 2.3%, and its Piotroski F-Score is a modest 4/9, indicating some pressure on overall asset efficiency and financial health. While its core exchange and data businesses likely generate high returns, substantial total debt ($20.5 billion versus $1.9 billion cash) and potentially large past acquisitions may dilute the overall return on capital. Buffett emphasizes sustained ROIC resilience, requiring businesses to consistently deploy capital into high-return projects. ICE needs to demonstrate its ability to effectively enhance overall capital efficiency after integrating acquired assets and maintain returns significantly above its weighted average cost of capital in the long run."
       },
       "m8_capital_allocation": {
         "score": 9,
-        "comment_zh": "即使給予競爭對手千億美元的資金，也幾乎不可能在短時間內複製ICE的核心戰略資產。這不僅僅是技術和基礎設施的問題，更關鍵的是其數十年來建立的市場信任、全球監管機構的批准、龐大的網絡效應以及與金融生態系統的深度整合。紐約證券交易所(NYSE)等頂級品牌的歷史積澱和市場地位更是無價且不可複製的。這種獨特的、多維度的無形資產組合，構成了ICE最堅固的護城河，使其成為真正的「特許經營權」企業。",
-        "comment_en": "Even with a hundred billion dollars, it would be nearly impossible for a competitor to replicate ICE's core strategic assets in a short timeframe. This goes beyond technology and infrastructure; it crucially involves decades of established market trust, global regulatory approvals, immense network effects, and deep integration within the financial ecosystem. The historical legacy and market position of premier brands like the New York Stock Exchange (NYSE) are invaluable and irreplaceable. This unique, multi-dimensional combination of intangible assets forms ICE's most robust moat, making it a true \"franchise\" business."
+        "comment_zh": "ICE 的核心戰略資產具有極高的資本不可複製性。即使給予競爭對手千億美元資金，也無法在短時間內複製其全球性的交易所網絡、清算所基礎設施、數十年積累的市場流動性、深厚的客戶關係以及至關重要的監管許可。這些資產的建立需要漫長的時間、巨大的信任累積和複雜的法律合規流程。特別是像紐約證券交易所這樣的歷史性品牌和其在全球金融體系中的核心地位，是任何資金都無法在幾年內憑空創造的。這正是巴菲特所尋找的、能長期抵禦競爭的「護城河」。",
+        "comment_en": "ICE's core strategic assets possess extremely high irreproducibility. Even with a hundred billion dollars, a competitor could not replicate its global network of exchanges, clearing house infrastructure, decades of accumulated market liquidity, deep customer relationships, and crucial regulatory approvals in a short period. The establishment of these assets requires immense time, significant trust-building, and complex legal and compliance processes. Especially historical brands like the New York Stock Exchange and its central role in the global financial system cannot be conjured out of thin air with any amount of capital in just a few years. This is precisely the kind of long-term, competition-resistant \"moat\" that Buffett seeks."
       },
       "m9_customer_retention": {
-        "score": 8,
-        "comment_zh": "ICE的業務模式對技術和典範轉移具有高度抗性。儘管金融科技不斷演進，但對受監管、值得信賴且流動性充裕的金融市場基礎設施的需求是永恆不變的。ICE通過不斷投資和收購新技術來適應變化，例如其在數字資產領域的布局。核心的價格發現和風險轉移功能是金融市場的基石，難以被根本性顛覆。其作為「收費橋樑」的地位，使其能夠從任何形式的交易活動中獲利，而非受制於特定技術，這賦予其強大的長期生存能力。",
-        "comment_en": "ICE's business model exhibits high immunity to technological and paradigm shifts. While FinTech continuously evolves, the fundamental need for regulated, trusted, and liquid financial market infrastructure remains constant. ICE adapts by continuously investing in and acquiring new technologies, such as its ventures in digital assets. The core functions of price discovery and risk transfer are cornerstones of financial markets, difficult to fundamentally disrupt. Its \"toll bridge\" status allows it to profit from any form of trading activity, rather than being constrained by specific technologies, granting it strong long-term resilience."
+        "score": 7,
+        "comment_zh": "ICE 在技術/典範轉移抗性方面表現出較強的韌性。儘管金融科技（FinTech）和區塊鏈等新技術不斷湧現，但對受嚴格監管的金融市場基礎設施而言，其核心功能——提供流動性、價格發現和風險管理——的需求確定性極高。ICE 積極擁抱技術變革，透過併購（如抵押貸款技術公司 Ellie Mae）和內部創新來強化其數據和技術服務，而非被動應對。其作為市場中立方的地位，以及監管機構對穩定性的重視，使其對顛覆性技術具備一定的免疫力，能夠逐步整合新技術而非被取代。",
+        "comment_en": "ICE demonstrates strong resilience against technological disruption and paradigm shifts. While new technologies like FinTech and blockchain continuously emerge, the fundamental need for highly regulated financial market infrastructure—providing liquidity, price discovery, and risk management—remains extremely certain. ICE actively embraces technological change, strengthening its data and technology services through acquisitions (e.g., mortgage technology firm Ellie Mae) and internal innovation, rather than passively reacting. Its role as a market neutral party and regulators' emphasis on stability grant it a degree of immunity to disruptive technologies, allowing it to gradually integrate new technologies rather than be replaced."
       },
       "m10_durability": {
-        "score": 8,
-        "comment_zh": "ICE的管理層在資本配置方面展現出戰略眼光和對股東價值的承諾。其歷史上成功的併購案例，如收購紐約證券交易所和多個數據服務公司，證明了其能夠通過審慎的資本運用來擴大護城河並創造協同效應。公司持續產生強勁的自由現金流，並合理運用於再投資、債務償還及股本回購，而非盲目追求高溢價交易。這種以股東利益為導向的資本配置策略，是巴菲特衡量優秀管理層的重要標準，有助於長期複利增長。",
-        "comment_en": "ICE's management has demonstrated strategic vision and commitment to shareholder value in its capital allocation. Its history of successful acquisitions, such as the New York Stock Exchange and various data service companies, proves its ability to expand its moat and create synergies through prudent capital deployment. The company consistently generates strong free cash flow, which is judiciously used for reinvestment, debt repayment, and share buybacks, rather than blindly pursuing high-premium deals. This shareholder-oriented capital allocation strategy is a crucial criterion for Buffett in assessing excellent management, contributing to long-term compounding growth."
+        "score": 6,
+        "comment_zh": "ICE 的管理層在資本配置方面存在兩面性。公司透過積極併購實現了顯著增長，但高達 205 億美元的總負債，相對於 19 億美元的現金，以及僅 4/9 的 Piotroski F-Score，引發了對其併購策略和槓桿水平的擔憂。巴菲特強調管理層應避免盲目溢價併購，並在股價低估時積極回購股份以最大化股東價值。儘管 ICE 擁有強勁的自由現金流，但其高負債可能限制了未來回購的靈活性，並增加了財務風險。管理層需證明其能更審慎地平衡增長與財務穩健。",
+        "comment_en": "ICE's management exhibits a dual nature in capital allocation. The company has achieved significant growth through aggressive acquisitions, yet its substantial total debt of $20.5 billion compared to $1.9 billion in cash, coupled with a Piotroski F-Score of only 4/9, raises concerns about its M&A strategy and leverage levels. Buffett emphasizes that management should avoid overpaying for acquisitions and actively repurchase shares when undervalued to maximize shareholder value. While ICE possesses strong free cash flow, its high debt might limit future buyback flexibility and increase financial risk. Management needs to demonstrate a more prudent balance between growth and financial stability."
       },
-      "overall_moat_verdict_zh": "Intercontinental Exchange (ICE) 毫無疑問是一家擁有極其堅固護城河的「特許經營權」企業，其本質是全球金融市場的「收費橋樑」。它不僅擁有紐約證券交易所等不可替代的品牌資產，更憑藉其作為核心基礎設施提供者的地位，在監管、網絡效應和轉換成本方面築起了難以逾越的壁壘。無論市場如何波動，只要有金融交易活動，ICE就能從中收取費用，這賦予其極高的定價權和穩定的現金流。其規模經濟、資本不可複製性以及對技術變革的適應能力，共同確保了其長期盈利能力和對股東價值的持續創造。這正是巴菲特和蒙格所尋找的，能夠長期複利增長的卓越企業。",
-      "overall_moat_verdict_en": "Intercontinental Exchange (ICE) is unequivocally a \"franchise\" business fortified by exceptionally robust economic moats, essentially serving as a \"toll bridge\" for global financial markets. It possesses irreplaceable brand assets like the New York Stock Exchange and, crucially, its status as a core infrastructure provider has erected insurmountable barriers in terms of regulation, network effects, and switching costs. Regardless of market fluctuations, as long as financial transactions occur, ICE can collect fees, granting it significant pricing power and stable cash flows. Its economies of scale, irreproducible capital assets, and adaptability to technological change collectively ensure its long-term profitability and sustained creation of shareholder value. This is precisely the kind of outstanding enterprise that Buffett and Munger seek for long-term compounding growth."
+      "overall_moat_verdict_zh": "Intercontinental Exchange (ICE) 本質上是一家擁有堅固「收費橋樑」特徵的特許經營權企業。其核心護城河源於對全球金融市場基礎設施的壟斷性控制，特別是紐約證券交易所等關鍵資產。強大的網絡效應確保了流動性優勢，而嚴格的監管壁壘和極高的客戶轉換成本則有效地阻止了新競爭者的進入。儘管其龐大的債務和相對較低的 ROA 顯示在資本配置效率上仍有提升空間，但 ICE 的核心業務具備極高的不可複製性和對技術顛覆的免疫力。這使其能夠長期享有穩定的現金流和定價權，符合巴菲特對具備持久競爭優勢企業的定義，儘管其財務槓桿需持續關注。",
+      "overall_moat_verdict_en": "Intercontinental Exchange (ICE) is fundamentally a franchise business characterized by robust \"toll bridge\" attributes. Its core moat stems from its monopolistic control over global financial market infrastructure, particularly key assets like the New York Stock Exchange. Powerful network effects ensure liquidity advantages, while stringent regulatory barriers and extremely high customer switching costs effectively deter new competitors. Although its substantial debt and relatively lower ROA indicate room for improvement in capital allocation efficiency, ICE's core businesses possess high irreproducibility and immunity to technological disruption. This allows it to enjoy stable cash flows and pricing power over the long term, aligning with Buffett's definition of businesses with durable competitive advantages, though its financial leverage warrants continuous monitoring."
     },
     "fin_valuation": {
       "is_financial": false
@@ -181463,8 +181463,8 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "224 667 6100",
     "full_address": "100 Abbott Park Road, Abbott Park, IL 60064-6400, US",
-    "range_52w": "81.97-133.34",
-    "year_high": 133.34,
+    "range_52w": "81.97-139.06",
+    "year_high": 139.06,
     "year_low": 81.97,
     "all_time_high": 0.0,
     "all_time_low": 81.97,
@@ -198062,95 +198062,95 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 537130000,
     "shares_display": "537.13 M",
     "mcap": 11311.9,
-    "debt": 12282.8,
-    "cash": 1623.9,
-    "short_term_investments": 434.8,
-    "cash_and_short_term": 1623.9,
-    "net_debt": 10658.9,
-    "fcf0": 1983.3,
+    "debt": 12280.6,
+    "cash": 1623.6,
+    "short_term_investments": 434.7,
+    "cash_and_short_term": 1623.6,
+    "net_debt": 10657.0,
+    "fcf0": 1982.9,
     "real_history": {
       "revenue": [
-        19739.3,
-        21732.8,
-        21795.1,
-        21663.2,
-        21990.0,
-        21765.4
+        19735.7,
+        21728.9,
+        21791.2,
+        21659.3,
+        21986.0,
+        21761.5
       ],
       "net_income": [
-        1086.0,
-        754.5,
-        559.1,
-        602.7,
-        1096.1,
-        1050.7
+        1085.8,
+        754.3,
+        559.0,
+        602.5,
+        1095.9,
+        1050.5
       ],
       "gross_profit": [
-        5347.5,
-        5482.7,
-        5517.8,
-        5329.2,
-        5634.2,
-        5736.3
+        5346.6,
+        5481.7,
+        5516.8,
+        5328.2,
+        5633.2,
+        5735.3
       ],
       "operating_income": [
-        2075.2,
-        1693.7,
-        1534.3,
-        1644.0,
-        2046.7,
-        2119.8
+        2074.9,
+        1693.4,
+        1534.0,
+        1643.7,
+        2046.3,
+        2119.5
       ],
       "cfo": [
-        2789.1,
-        2428.2,
-        2945.2,
-        2673.3,
-        2885.1,
-        3140.7
+        2788.6,
+        2427.8,
+        2944.7,
+        2672.9,
+        2884.6,
+        3140.1
       ],
       "capex": [
-        -957.2,
-        -811.1,
-        -767.0,
-        -783.5,
-        -985.1,
-        -1157.4
+        -957.0,
+        -811.0,
+        -766.9,
+        -783.4,
+        -984.9,
+        -1157.2
       ],
       "fcf": [
-        1831.9,
-        1617.1,
-        2178.2,
-        1889.8,
-        1900.1,
-        1983.2
+        1831.6,
+        1616.8,
+        2177.8,
+        1889.5,
+        1899.7,
+        1982.9
       ]
     },
     "statements_raw": {
       "income": {
         "revenue": [
-          19739.28,
-          21732.77,
-          21795.06,
-          21663.18,
-          21989.99,
-          21765.41
+          19735.74,
+          21728.87,
+          21791.15,
+          21659.3,
+          21986.05,
+          21761.5
         ],
         "costOfRevenue": [
-          14391.76,
-          16250.07,
-          16277.28,
-          16334.02,
-          16355.77,
-          16029.09
+          14389.18,
+          16247.16,
+          16274.36,
+          16331.09,
+          16352.84,
+          16026.22
         ],
         "grossProfit": [
-          5347.51,
-          5482.69,
-          5517.78,
-          5329.16,
-          5634.21,
-          5736.32
+          5346.55,
+          5481.71,
+          5516.79,
+          5328.21,
+          5633.2,
+          5735.29
         ],
         "grossProfitRatio": [
           0.0,
@@ -198161,68 +198161,68 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "researchAndDevelopmentExpenses": [
-          247.36,
-          256.14,
-          259.89,
-          205.58,
-          176.99,
-          172.89
+          247.31,
+          256.1,
+          259.84,
+          205.54,
+          176.96,
+          172.86
         ],
         "generalAndAdministrativeExpenses": [
           0.0,
-          2654.69,
-          2789.62,
-          2781.17,
-          2705.21,
-          2895.11
+          2654.21,
+          2789.12,
+          2780.67,
+          2704.73,
+          2894.59
         ],
         "sellingAndMarketingExpenses": [
           0.0,
-          897.27,
-          791.42,
-          739.92,
-          692.54,
-          437.98
+          897.11,
+          791.28,
+          739.79,
+          692.41,
+          437.9
         ],
         "sellingGeneralAndAdministrativeExpenses": [
-          3106.57,
-          3551.96,
-          3581.05,
-          3521.09,
-          3397.75,
-          3333.09
+          3106.01,
+          3551.32,
+          3580.41,
+          3520.46,
+          3397.14,
+          3332.49
         ],
         "otherExpenses": [
-          -81.65,
+          -81.63,
           -19.11,
-          142.58,
-          -41.5,
+          142.55,
+          -41.49,
           12.77,
-          110.5
+          110.48
         ],
         "operatingExpenses": [
-          3272.28,
-          3788.98,
-          3983.52,
-          3685.17,
-          3587.51,
-          3616.48
+          3271.69,
+          3788.31,
+          3982.8,
+          3684.51,
+          3586.87,
+          3615.83
         ],
         "costAndExpenses": [
-          17664.04,
-          20039.06,
-          20260.8,
-          20019.19,
-          19943.29,
-          19645.57
+          17660.88,
+          20035.47,
+          20257.17,
+          20015.6,
+          19939.71,
+          19642.04
         ],
         "operatingIncome": [
-          2075.23,
-          1693.71,
-          1534.26,
-          1643.99,
-          2046.7,
-          2119.84
+          2074.86,
+          1693.41,
+          1533.99,
+          1643.7,
+          2046.33,
+          2119.46
         ],
         "operatingIncomeRatio": [
           0.0,
@@ -198233,36 +198233,36 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "totalOtherIncomeExpensesNet": [
-          -314.18,
-          -327.68,
-          -376.91,
-          -459.86,
-          -352.45,
-          -437.57
+          -314.13,
+          -327.62,
+          -376.85,
+          -459.77,
+          -352.39,
+          -437.49
         ],
         "interestIncome": [
-          81.98,
-          75.81,
-          98.83,
-          80.19,
-          77.99,
-          69.57
+          81.96,
+          75.79,
+          98.82,
+          80.18,
+          77.98,
+          69.56
         ],
         "interestExpense": [
-          396.16,
-          403.49,
-          475.75,
-          456.04,
-          430.68,
-          429.06
+          396.09,
+          403.41,
+          475.66,
+          455.95,
+          430.6,
+          428.98
         ],
         "incomeBeforeTax": [
-          1761.05,
-          1366.03,
-          1157.35,
-          1184.14,
-          1694.25,
-          1682.27
+          1760.74,
+          1365.79,
+          1157.14,
+          1183.93,
+          1693.95,
+          1681.97
         ],
         "incomeBeforeTaxRatio": [
           0.0,
@@ -198273,20 +198273,20 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "incomeTaxExpense": [
-          395.3,
-          364.07,
-          336.73,
-          354.1,
-          359.6,
-          352.07
+          395.23,
+          364.0,
+          336.67,
+          354.03,
+          359.54,
+          352.01
         ],
         "netIncome": [
-          1085.97,
-          754.46,
-          559.06,
-          602.66,
-          1096.12,
-          1050.65
+          1085.78,
+          754.32,
+          558.96,
+          602.55,
+          1095.93,
+          1050.46
         ],
         "netIncomeRatio": [
           0.0,
@@ -198329,12 +198329,12 @@ window.FULL_MARKET_DATA = {
           539202470.0
         ],
         "ebitda": [
-          3976.31,
-          3829.15,
-          3595.94,
-          3592.13,
-          3805.93,
-          3839.12
+          3975.6,
+          3828.46,
+          3595.29,
+          3591.49,
+          3805.24,
+          3838.43
         ],
         "ebitdaratio": [
           0.0,
@@ -198347,100 +198347,100 @@ window.FULL_MARKET_DATA = {
       },
       "balance": {
         "cashAndCashEquivalents": [
-          1659.99,
-          1427.1,
-          1572.42,
-          1322.23,
-          1791.46,
-          1188.98
+          1659.69,
+          1426.84,
+          1572.13,
+          1322.0,
+          1791.14,
+          1188.77
         ],
         "shortTermInvestments": [
-          178.34,
-          210.43,
-          172.95,
-          182.72,
+          178.31,
+          210.4,
+          172.92,
+          182.69,
           0.0,
-          434.81
+          434.73
         ],
         "cashAndShortTermInvestments": [
-          1838.33,
-          1637.53,
-          1745.37,
-          1504.96,
-          1791.46,
-          1623.8
+          1838.0,
+          1637.24,
+          1745.05,
+          1504.69,
+          1791.14,
+          1623.5
         ],
         "netReceivables": [
-          4011.35,
-          4167.56,
-          4075.85,
-          3819.35,
-          3520.17,
-          3882.29
+          4010.63,
+          4166.81,
+          4075.12,
+          3818.66,
+          3519.54,
+          3881.59
         ],
         "inventory": [
-          2283.31,
-          2572.59,
-          2441.46,
-          2316.82,
-          2398.69,
-          2612.51
+          2282.9,
+          2572.13,
+          2441.02,
+          2316.4,
+          2398.26,
+          2612.04
         ],
         "otherCurrentAssets": [
-          753.53,
-          764.75,
-          1434.77,
-          1188.57,
-          1138.29,
-          496.18
+          753.4,
+          764.62,
+          1434.51,
+          1188.36,
+          1138.08,
+          496.09
         ],
         "totalCurrentAssets": [
-          8926.18,
-          9190.83,
-          9748.72,
-          8876.33,
-          8848.61,
-          8614.77
+          8924.58,
+          9189.18,
+          9746.97,
+          8874.74,
+          8847.02,
+          8613.23
         ],
         "propertyPlantEquipmentNet": [
-          9580.72,
-          9343.59,
-          8351.19,
-          8132.23,
-          3376.77,
-          7203.51
+          9579.01,
+          9341.92,
+          8349.69,
+          8130.77,
+          3376.16,
+          7202.22
         ],
         "goodwill": [
-          16090.14,
-          17691.81,
-          16413.29,
-          16996.6,
+          16087.26,
+          17688.64,
+          16410.35,
+          16993.55,
           0.0,
-          15648.66
+          15645.86
         ],
         "intangibleAssets": [
-          1635.05,
-          1701.47,
-          1526.3,
-          1534.98,
-          16610.46,
-          1434.59
+          1634.75,
+          1701.16,
+          1526.02,
+          1534.71,
+          16607.48,
+          1434.34
         ],
         "goodwillAndIntangibleAssets": [
-          17725.19,
-          19393.28,
-          17939.58,
-          18531.58,
-          16610.46,
-          17083.25
+          17722.01,
+          19389.8,
+          17936.37,
+          18528.26,
+          16607.48,
+          17080.19
         ],
         "longTermInvestments": [
-          881.62,
-          1342.79,
-          1210.23,
-          1259.85,
+          881.46,
+          1342.55,
+          1210.01,
+          1259.62,
           0.0,
-          1519.46
+          1519.19
         ],
         "taxAssets": [
           0.0,
@@ -198448,87 +198448,87 @@ window.FULL_MARKET_DATA = {
           0.0,
           0.0,
           0.0,
-          306.55
+          306.5
         ],
         "otherNonCurrentAssets": [
-          1389.22,
-          787.0,
-          763.89,
-          806.68,
-          5897.58,
-          332.15
+          1388.97,
+          786.86,
+          763.76,
+          806.54,
+          5896.52,
+          332.09
         ],
         "totalNonCurrentAssets": [
-          29576.75,
-          30866.66,
-          28264.89,
-          28730.33,
-          25884.8,
-          26444.93
+          29571.44,
+          30861.13,
+          28259.83,
+          28725.19,
+          25880.17,
+          26440.19
         ],
         "totalAssets": [
-          38502.93,
-          40057.49,
-          38013.61,
-          37606.66,
-          34733.41,
-          35059.7
+          38496.03,
+          40050.31,
+          38006.8,
+          37599.92,
+          34727.19,
+          35053.42
         ],
         "accountPayables": [
-          960.74,
-          1066.12,
-          991.69,
-          1102.8,
-          826.83,
-          999.19
+          960.57,
+          1065.93,
+          991.51,
+          1102.6,
+          826.68,
+          999.01
         ],
         "shortTermDebt": [
-          2155.37,
-          1504.45,
-          1058.3,
-          646.88,
-          1807.14,
-          1950.97
+          2154.98,
+          1504.18,
+          1058.11,
+          646.76,
+          1806.82,
+          1950.62
         ],
         "taxPayables": [
-          297.04,
-          300.11,
-          371.8,
-          316.65,
+          296.99,
+          300.05,
+          371.74,
+          316.6,
           0.0,
-          260.87
+          260.82
         ],
         "deferredRevenue": [
-          580.38,
-          118.45,
-          96.15,
-          92.05,
+          580.28,
+          118.42,
+          96.13,
+          92.04,
           0.0,
           0.0
         ],
         "otherCurrentLiabilities": [
-          3083.25,
-          3202.13,
-          3344.6,
-          3181.34,
-          3708.39,
-          4176.28
+          3082.7,
+          3201.56,
+          3344.0,
+          3180.77,
+          3707.73,
+          4175.53
         ],
         "totalCurrentLiabilities": [
-          8131.17,
-          7245.72,
-          6847.18,
-          6341.31,
-          6996.65,
-          8041.44
+          8129.71,
+          7244.42,
+          6845.96,
+          6340.17,
+          6995.4,
+          8040.0
         ],
         "longTermDebt": [
-          7446.98,
-          8033.81,
-          7797.55,
-          7014.38,
-          6377.09,
-          6525.57
+          7445.64,
+          8032.37,
+          7796.16,
+          7013.12,
+          6375.95,
+          6524.4
         ],
         "deferredRevenueNonCurrent": [
           0.0,
@@ -198539,76 +198539,76 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "deferredTaxLiabilitiesNonCurrent": [
-          972.98,
-          1049.19,
-          840.59,
-          794.21,
+          972.8,
+          1049.0,
+          840.44,
+          794.07,
           0.0,
-          754.12
+          753.98
         ],
         "otherNonCurrentLiabilities": [
-          1710.44,
-          1922.54,
-          1947.94,
-          1831.18,
-          2101.8,
-          1426.47
+          1710.13,
+          1922.19,
+          1947.59,
+          1830.85,
+          2101.42,
+          1426.22
         ],
         "totalNonCurrentLiabilities": [
-          14710.2,
-          15503.12,
-          14555.37,
-          13598.94,
-          11734.65,
-          11858.39
+          14707.57,
+          15500.34,
+          14552.76,
+          13596.5,
+          11732.55,
+          11856.26
         ],
         "totalLiabilities": [
-          22841.37,
-          22748.84,
-          21402.55,
-          19940.25,
-          18731.3,
-          19899.82
+          22837.28,
+          22744.77,
+          21398.71,
+          19936.67,
+          18727.95,
+          19896.26
         ],
         "totalDebt": [
-          14923.37,
-          14802.84,
-          13530.91,
-          12328.7,
-          12094.29,
-          12282.9
+          14920.69,
+          14800.19,
+          13528.49,
+          12326.49,
+          12092.12,
+          12280.7
         ],
         "netDebt": [
-          13263.38,
-          13375.74,
-          11958.5,
-          11006.46,
-          10302.83,
-          11093.91
+          13261.0,
+          13373.34,
+          11956.35,
+          11004.49,
+          10300.99,
+          11091.92
         ],
         "commonStock": [
-          328.27,
-          328.73,
-          328.73,
-          328.73,
-          16002.11,
-          300.89
+          328.21,
+          328.67,
+          328.67,
+          328.67,
+          15999.24,
+          300.83
         ],
         "retainedEarnings": [
-          12129.18,
-          12000.97,
-          12236.22,
-          12622.3,
+          12127.0,
+          11998.82,
+          12234.03,
+          12620.04,
           0.0,
-          13549.37
+          13546.94
         ],
         "accumulatedOtherComprehensiveIncomeLoss": [
-          -1469.51,
-          -435.22,
-          -1092.54,
-          -368.09,
+          -1469.24,
+          -435.15,
+          -1092.34,
+          -368.02,
           0.0,
-          -1473.04
+          -1472.77
         ],
         "otherTotalStockholdersEquity": [
           0.0,
@@ -198619,158 +198619,158 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "totalStockholdersEquity": [
-          14227.21,
-          15673.23,
-          15259.6,
-          16331.0,
-          16002.11,
-          14068.04
+          14224.66,
+          15670.42,
+          15256.86,
+          16328.08,
+          15999.24,
+          14065.52
         ],
         "totalEquity": [
-          15661.56,
-          17308.65,
-          16611.06,
-          17666.42,
-          16002.11,
-          15159.88
+          15658.75,
+          17305.54,
+          16608.08,
+          17663.25,
+          15999.24,
+          15157.16
         ],
         "totalLiabilitiesAndTotalEquity": [
-          38502.93,
-          40057.49,
-          38013.61,
-          37606.66,
-          34733.41,
-          35059.7
+          38496.03,
+          40050.31,
+          38006.8,
+          37599.92,
+          34727.19,
+          35053.42
         ],
         "totalInvestments": [
-          1059.96,
-          1553.23,
-          1383.18,
-          1442.57,
+          1059.77,
+          1552.95,
+          1382.93,
+          1442.31,
           0.0,
-          1954.27
+          1953.92
         ]
       },
       "cashflow": {
         "netIncome": [
-          1365.75,
-          1001.97,
-          820.62,
-          830.04,
-          1052.86,
-          1187.28
+          1365.51,
+          1001.79,
+          820.47,
+          829.89,
+          1052.67,
+          1187.07
         ],
         "depreciationAndAmortization": [
-          1819.1,
-          2059.63,
-          1962.84,
-          1951.96,
-          1681.0,
-          1744.25
+          1818.78,
+          2059.26,
+          1962.49,
+          1951.61,
+          1680.7,
+          1743.94
         ],
         "deferredIncomeTax": [
-          75.35,
-          -46.46,
-          -136.85,
-          -81.42,
-          -29.29,
-          -66.52
+          75.34,
+          -46.45,
+          -136.83,
+          -81.4,
+          -29.28,
+          -66.51
         ],
         "stockBasedCompensation": [
           0.0,
           0.0,
-          36.43,
+          36.42,
           0.0,
           0.0,
           0.0
         ],
         "changeInWorkingCapital": [
-          -109.54,
-          -143.48,
-          628.83,
-          497.79,
-          148.76,
-          -214.93
+          -109.52,
+          -143.46,
+          628.72,
+          497.7,
+          148.74,
+          -214.89
         ],
         "accountsReceivables": [
-          -182.84,
-          -52.3,
-          -170.12,
-          -82.32,
-          -74.32,
-          -104.64
+          -182.81,
+          -52.29,
+          -170.09,
+          -82.31,
+          -74.31,
+          -104.63
         ],
         "inventory": [
-          -54.37,
-          -228.9,
+          -54.36,
+          -228.86,
           -14.72,
-          120.88,
-          -267.59,
-          -364.16
+          120.86,
+          -267.54,
+          -364.1
         ],
         "accountsPayables": [
-          -407.76,
-          -399.73,
-          121.54,
-          174.32,
+          -407.69,
+          -399.66,
+          121.51,
+          174.28,
           -15.89,
-          -51.57
+          -51.56
         ],
         "otherWorkingCapital": [
-          535.44,
-          537.45,
-          692.14,
-          284.91,
-          506.57,
-          305.45
+          535.34,
+          537.35,
+          692.01,
+          284.86,
+          506.47,
+          305.39
         ],
         "otherNonCashItems": [
-          -361.54,
-          -443.41,
-          -366.66,
-          -525.03,
-          31.8,
-          490.61
+          -361.47,
+          -443.33,
+          -366.59,
+          -524.93,
+          31.79,
+          490.52
         ],
         "netCashProvidedByOperatingActivities": [
-          2789.13,
-          2428.25,
-          2945.2,
-          2673.34,
-          2885.14,
-          3140.69
+          2788.63,
+          2427.81,
+          2944.68,
+          2672.86,
+          2884.62,
+          3140.12
         ],
         "investmentsInPropertyPlantAndEquipment": [
-          -957.19,
-          -811.13,
-          -766.99,
-          -783.53,
-          -990.09,
-          -1157.44
+          -957.02,
+          -810.98,
+          -766.86,
+          -783.39,
+          -989.91,
+          -1157.24
         ],
         "acquisitionsNet": [
-          -427.67,
+          -427.6,
           1.15,
-          153.49,
-          679.7,
-          250.22,
-          212.08
+          153.46,
+          679.58,
+          250.17,
+          212.04
         ],
         "purchasesOfInvestments": [
-          -144.62,
-          -118.36,
-          -114.68,
-          -91.31,
-          -96.34,
-          -168.54
+          -144.59,
+          -118.33,
+          -114.66,
+          -91.29,
+          -96.32,
+          -168.51
         ],
         "salesMaturitiesOfInvestments": [
-          161.91,
-          64.61,
-          100.38,
-          84.18,
-          89.85,
-          111.78
+          161.88,
+          64.6,
+          100.36,
+          84.16,
+          89.84,
+          111.76
         ],
         "otherInvestingActivites": [
           0.0,
@@ -198809,8 +198809,8 @@ window.FULL_MARKET_DATA = {
           0.0,
           0.0,
           0.0,
-          -629.85,
-          -1190.39
+          -629.74,
+          -1190.18
         ],
         "dividendsPaid": [
           0.0,
@@ -198837,52 +198837,52 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "effectOfForexChangesOnCash": [
-          147.02,
+          147.0,
           -25.95,
-          -81.35,
+          -81.33,
           29.35,
-          27.98,
+          27.97,
           -17.42
         ],
         "netChangeInCash": [
-          448.27,
-          -232.89,
-          171.91,
-          -271.01,
-          625.52,
-          -738.71
+          448.19,
+          -232.85,
+          171.88,
+          -270.96,
+          625.4,
+          -738.57
         ],
         "cashAtEndOfPeriod": [
-          1659.99,
-          1427.1,
-          1599.01,
-          1327.99,
-          1790.82,
-          5775.51
+          1659.69,
+          1426.84,
+          1598.72,
+          1327.76,
+          1790.5,
+          5774.48
         ],
         "cashAtBeginningOfPeriod": [
-          1211.71,
-          1659.99,
-          1427.1,
-          1599.01,
-          1165.3,
-          6514.47
+          1211.5,
+          1659.69,
+          1426.84,
+          1598.72,
+          1165.1,
+          6513.3
         ],
         "capitalExpenditure": [
-          -957.19,
-          -811.13,
-          -766.99,
-          -783.53,
-          -985.07,
-          -1157.44
+          -957.02,
+          -810.98,
+          -766.86,
+          -783.39,
+          -984.89,
+          -1157.24
         ],
         "freeCashFlow": [
-          1831.94,
-          1617.12,
-          2178.21,
-          1889.81,
-          1900.07,
-          1983.24
+          1831.62,
+          1616.83,
+          2177.82,
+          1889.47,
+          1899.73,
+          1982.88
         ]
       }
     },
@@ -198906,9 +198906,9 @@ window.FULL_MARKET_DATA = {
     "g2": 3.5,
     "g": 2.25,
     "wacc": 5.65,
-    "ev": 23049.4,
-    "fmp_official_ev": 23049.4,
-    "dcf_model_ev": 65828.3,
+    "ev": 23045.3,
+    "fmp_official_ev": 23045.3,
+    "dcf_model_ev": 65811.2,
     "ev_to_ebitda": 6.0,
     "debt_to_ebitda": 3.2,
     "net_debt_to_ebitda": 2.78,
@@ -198978,8 +198978,8 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 102.71,
-    "default_fair_val": 102.71,
+    "fair_val": 102.68,
+    "default_fair_val": 102.68,
     "premium_pct": -79.5,
     "is_undervalued": true,
     "pe_trailing": 10.8,
@@ -202178,8 +202178,8 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "574 267 6131",
     "full_address": "345 East Main Street, Warsaw, IN 46580, US",
-    "range_52w": "79.12-108.29",
-    "year_high": 108.29,
+    "range_52w": "79.12-106.88",
+    "year_high": 106.88,
     "year_low": 79.12,
     "all_time_high": 0.0,
     "all_time_low": 79.12,
@@ -225393,7 +225393,7 @@ window.FULL_MARKET_DATA = {
           15754.0,
           16680.0,
           15543.0,
-          17950.0
+          19447.0
         ],
         "ebitdaratio": [
           0.0,
@@ -225968,9 +225968,9 @@ window.FULL_MARKET_DATA = {
     "ev": 228933.3,
     "fmp_official_ev": 228933.3,
     "dcf_model_ev": 426651.1,
-    "ev_to_ebitda": 12.8,
-    "debt_to_ebitda": 2.89,
-    "net_debt_to_ebitda": 2.27,
+    "ev_to_ebitda": 11.8,
+    "debt_to_ebitda": 2.67,
+    "net_debt_to_ebitda": 2.09,
     "f_score": 7,
     "f_score_breakdown": [
       {
@@ -226045,7 +226045,7 @@ window.FULL_MARKET_DATA = {
     "pe_forward": 13.8,
     "pb_trailing": 7.7,
     "pb_forward": 6.9,
-    "div_yield": 5.68,
+    "div_yield": 4.58,
     "ps_ratio": 3.4,
     "fcf_to_ev": 2.97,
     "fcf_to_mcap": 7.35,
@@ -260406,11 +260406,11 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 849500000,
     "shares_display": "849.50 M",
     "mcap": 80311.9,
-    "debt": 0.0,
-    "cash": 0.0,
+    "debt": 28673.0,
+    "cash": 4653.0,
     "short_term_investments": 0.0,
-    "cash_and_short_term": 0.0,
-    "net_debt": 0.0,
+    "cash_and_short_term": 4653.0,
+    "net_debt": 24020.0,
     "fcf0": 5485.0,
     "real_history": {
       "revenue": [
@@ -260696,7 +260696,7 @@ window.FULL_MARKET_DATA = {
           3169.0,
           6112.0,
           5887.0,
-          0.0
+          4653.0
         ],
         "shortTermInvestments": [
           338.0,
@@ -260712,7 +260712,7 @@ window.FULL_MARKET_DATA = {
           6035.0,
           6318.0,
           5887.0,
-          0.0
+          4653.0
         ],
         "netReceivables": [
           12541.0,
@@ -260720,7 +260720,7 @@ window.FULL_MARKET_DATA = {
           11216.0,
           10871.0,
           11209.0,
-          0.0
+          10710.0
         ],
         "inventory": [
           717.0,
@@ -260736,7 +260736,7 @@ window.FULL_MARKET_DATA = {
           1227.0,
           1295.0,
           1210.0,
-          0.0
+          2182.0
         ],
         "totalCurrentAssets": [
           24934.0,
@@ -260744,7 +260744,7 @@ window.FULL_MARKET_DATA = {
           19413.0,
           19310.0,
           19045.0,
-          0.0
+          17545.0
         ],
         "propertyPlantEquipmentNet": [
           37037.0,
@@ -260752,7 +260752,7 @@ window.FULL_MARKET_DATA = {
           41253.0,
           41328.0,
           41994.0,
-          0.0
+          41910.0
         ],
         "goodwill": [
           3692.0,
@@ -260760,7 +260760,7 @@ window.FULL_MARKET_DATA = {
           4872.0,
           4300.0,
           5837.0,
-          0.0
+          5770.0
         ],
         "intangibleAssets": [
           2486.0,
@@ -260768,7 +260768,7 @@ window.FULL_MARKET_DATA = {
           3305.0,
           3064.0,
           4021.0,
-          0.0
+          3954.0
         ],
         "goodwillAndIntangibleAssets": [
           6178.0,
@@ -260776,7 +260776,7 @@ window.FULL_MARKET_DATA = {
           8177.0,
           7364.0,
           9858.0,
-          0.0
+          9724.0
         ],
         "longTermInvestments": [
           23.0,
@@ -260792,7 +260792,7 @@ window.FULL_MARKET_DATA = {
           126.0,
           112.0,
           140.0,
-          0.0
+          155.0
         ],
         "otherNonCurrentAssets": [
           1057.0,
@@ -260800,7 +260800,7 @@ window.FULL_MARKET_DATA = {
           1888.0,
           1956.0,
           1893.0,
-          0.0
+          1933.0
         ],
         "totalNonCurrentAssets": [
           44471.0,
@@ -260808,7 +260808,7 @@ window.FULL_MARKET_DATA = {
           51444.0,
           50760.0,
           54045.0,
-          0.0
+          53722.0
         ],
         "totalAssets": [
           69405.0,
@@ -260816,7 +260816,7 @@ window.FULL_MARKET_DATA = {
           70857.0,
           70070.0,
           73090.0,
-          0.0
+          71267.0
         ],
         "accountPayables": [
           7523.0,
@@ -260824,7 +260824,7 @@ window.FULL_MARKET_DATA = {
           6340.0,
           6302.0,
           6633.0,
-          0.0
+          5976.0
         ],
         "shortTermDebt": [
           2131.0,
@@ -260832,7 +260832,7 @@ window.FULL_MARKET_DATA = {
           3348.0,
           1838.0,
           608.0,
-          0.0
+          634.0
         ],
         "taxPayables": [
           0.0,
@@ -260856,7 +260856,7 @@ window.FULL_MARKET_DATA = {
           4055.0,
           3913.0,
           3901.0,
-          0.0
+          4159.0
         ],
         "totalCurrentLiabilities": [
           17569.0,
@@ -260864,7 +260864,7 @@ window.FULL_MARKET_DATA = {
           17676.0,
           16441.0,
           15620.0,
-          0.0
+          14881.0
         ],
         "longTermDebt": [
           19784.0,
@@ -260872,7 +260872,7 @@ window.FULL_MARKET_DATA = {
           18916.0,
           19446.0,
           23519.0,
-          0.0
+          23850.0
         ],
         "deferredRevenueNonCurrent": [
           0.0,
@@ -260888,7 +260888,7 @@ window.FULL_MARKET_DATA = {
           3772.0,
           3595.0,
           3690.0,
-          0.0
+          3882.0
         ],
         "otherNonCurrentLiabilities": [
           11625.0,
@@ -260896,7 +260896,7 @@ window.FULL_MARKET_DATA = {
           9423.0,
           10210.0,
           10306.0,
-          0.0
+          10095.0
         ],
         "totalNonCurrentLiabilities": [
           37567.0,
@@ -260904,7 +260904,7 @@ window.FULL_MARKET_DATA = {
           35867.0,
           36886.0,
           41215.0,
-          0.0
+          41287.0
         ],
         "totalLiabilities": [
           55136.0,
@@ -260912,7 +260912,7 @@ window.FULL_MARKET_DATA = {
           53543.0,
           53327.0,
           56835.0,
-          0.0
+          56168.0
         ],
         "totalDebt": [
           25528.0,
@@ -260920,7 +260920,7 @@ window.FULL_MARKET_DATA = {
           26729.0,
           25652.0,
           28590.0,
-          0.0
+          28673.0
         ],
         "netDebt": [
           15273.0,
@@ -260928,7 +260928,7 @@ window.FULL_MARKET_DATA = {
           23560.0,
           19540.0,
           22703.0,
-          0.0
+          24020.0
         ],
         "commonStock": [
           9.0,
@@ -260936,7 +260936,7 @@ window.FULL_MARKET_DATA = {
           9.0,
           9.0,
           9.0,
-          0.0
+          9.0
         ],
         "retainedEarnings": [
           16179.0,
@@ -260944,7 +260944,7 @@ window.FULL_MARKET_DATA = {
           21055.0,
           20882.0,
           20151.0,
-          0.0
+          18830.0
         ],
         "accumulatedOtherComprehensiveIncomeLoss": [
           -3278.0,
@@ -260952,7 +260952,7 @@ window.FULL_MARKET_DATA = {
           -3749.0,
           -4309.0,
           -4208.0,
-          0.0
+          -4254.0
         ],
         "otherTotalStockholdersEquity": [
           16.0,
@@ -260960,7 +260960,7 @@ window.FULL_MARKET_DATA = {
           9.0,
           7.0,
           5.0,
-          0.0
+          3.0
         ],
         "totalStockholdersEquity": [
           14253.0,
@@ -260968,7 +260968,7 @@ window.FULL_MARKET_DATA = {
           17306.0,
           16718.0,
           16227.0,
-          0.0
+          15067.0
         ],
         "totalEquity": [
           14269.0,
@@ -260976,7 +260976,7 @@ window.FULL_MARKET_DATA = {
           17314.0,
           16743.0,
           16255.0,
-          0.0
+          15099.0
         ],
         "totalLiabilitiesAndTotalEquity": [
           69405.0,
@@ -260984,7 +260984,7 @@ window.FULL_MARKET_DATA = {
           70857.0,
           70070.0,
           73090.0,
-          0.0
+          71267.0
         ],
         "totalInvestments": [
           361.0,
@@ -261249,21 +261249,21 @@ window.FULL_MARKET_DATA = {
     "g1": 3.8,
     "g2": 3.5,
     "g": 2.25,
-    "wacc": 9.49,
+    "wacc": 7.93,
     "ev": 115395.0,
     "fmp_official_ev": 115395.0,
-    "dcf_model_ev": 84515.4,
+    "dcf_model_ev": 108136.4,
     "ev_to_ebitda": 10.9,
-    "debt_to_ebitda": 0.0,
-    "net_debt_to_ebitda": 0.0,
-    "f_score": 9,
+    "debt_to_ebitda": 2.71,
+    "net_debt_to_ebitda": 2.27,
+    "f_score": 6,
     "f_score_breakdown": [
       {
         "id": 1,
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 457000000000.0%"
+        "detail": "當期 ROA = 6.4%"
       },
       {
         "id": 2,
@@ -261290,15 +261290,15 @@ window.FULL_MARKET_DATA = {
         "id": 5,
         "category": "槓桿與償債",
         "desc": "財務槓桿未惡化 (ΔLeverage ≤ 0)",
-        "passed": 1,
-        "detail": "總負債資產比率 = 40.0%"
+        "passed": 0,
+        "detail": "總負債資產比率 = 78.8%"
       },
       {
         "id": 6,
         "category": "槓桿與償債",
         "desc": "短期流動性安全 (ΔLiquidity > 0)",
-        "passed": 1,
-        "detail": "流動比率 = 1.50"
+        "passed": 0,
+        "detail": "流動比率 = 1.18"
       },
       {
         "id": 7,
@@ -261311,7 +261311,7 @@ window.FULL_MARKET_DATA = {
         "id": 8,
         "category": "營運效率",
         "desc": "毛利率擴張 (ΔMargin > 0)",
-        "passed": 1,
+        "passed": 0,
         "detail": "產品定價權增強，毛利結構健康"
       },
       {
@@ -261322,78 +261322,78 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 99.49,
-    "default_fair_val": 99.49,
-    "premium_pct": -5.0,
+    "fair_val": 99.02,
+    "default_fair_val": 99.02,
+    "premium_pct": -4.5,
     "is_undervalued": true,
     "pe_trailing": 17.6,
     "pe_forward": 15.5,
-    "pb_trailing": 80311900000.0,
-    "pb_forward": 72280710000.0,
+    "pb_trailing": 5.3,
+    "pb_forward": 4.8,
     "div_yield": 6.73,
     "ps_ratio": 3.7,
-    "fcf_to_ev": 6.49,
+    "fcf_to_ev": 5.07,
     "fcf_to_mcap": 6.83,
-    "liab_to_assets": 40.0,
-    "cash_to_assets": 0.0,
-    "current_ratio": 1.5,
-    "roe": 457000000000.0,
-    "roa": 457000000000.0,
+    "liab_to_assets": 78.8,
+    "cash_to_assets": 6.5,
+    "current_ratio": 1.18,
+    "roe": 30.3,
+    "roa": 6.4,
     "moat": {
       "ticker": "UPS",
-      "period": "2026Q4",
+      "period": "2026Q2",
       "m1_brand_pricing": {
-        "score": 8,
-        "comment_zh": "UPS憑藉其全球公認的品牌信譽和可靠性，在包裹遞送市場中享有顯著的定價權。對於企業和個人而言，準時且安全的物流服務是不可或缺的，這使得客戶即使面對價格上漲，也傾向於繼續選擇UPS。其龐大的全球網絡和卓越的服務品質，為客戶提供了超越價格考量的價值，使其能夠在不顯著流失客戶的情況下，將部分成本轉嫁給消費者。這種品牌忠誠度與服務剛性，是巴菲特所推崇的「特許經營權」特徵，有效抵禦了價格競爭。",
-        "comment_en": "UPS commands significant pricing power in the package delivery market, underpinned by its globally recognized brand reputation and reliability. For businesses and individuals, timely and secure logistics services are indispensable, leading customers to often choose UPS even in the face of price increases. Its vast global network and superior service quality offer value beyond mere cost considerations, enabling UPS to pass on certain expenses without significant customer attrition. This brand loyalty and service inelasticity exemplify a 'franchise' characteristic favored by Buffett, effectively fending off price competition."
+        "score": 7,
+        "comment_zh": "UPS作為全球領先的物流巨頭，其棕色品牌形象深入人心，代表著可靠與高效。對於企業而言，準時送達的穩定性至關重要，使其在一定程度上具備定價權。儘管面臨FedEx等強勁競爭，但其廣泛的網絡覆蓋和品牌信任度，讓客戶在價格敏感度之外，更看重服務品質與時效性，使其能將部分成本轉嫁給客戶，維持盈利能力。",
+        "comment_en": "UPS, as a global logistics giant, boasts a deeply ingrained brown brand image synonymous with reliability and efficiency. For businesses, the stability of on-time delivery is paramount, granting UPS a degree of pricing power. Despite fierce competition from rivals like FedEx, its extensive network coverage and brand trust lead customers to prioritize service quality and timeliness over mere price, enabling it to pass on some costs and maintain profitability."
       },
       "m2_patents_regulatory": {
         "score": 7,
-        "comment_zh": "雖然UPS並非依賴專利技術，但其在全球範圍內營運所面臨的複雜監管環境，構成了極高的進入壁壘。航空、陸路運輸、國際貿易法規及海關清關等方面的嚴格要求，需要巨大的合規成本和專業知識。新進入者難以在短時間內建立起符合全球各地法規的營運體系，更遑論取得必要的營運許可和航線權。這種由政府監管和特許經營所形成的「收費橋樑」效應，為UPS提供了穩固的競爭優勢，使其免受小型競爭者的侵蝕。",
-        "comment_en": "While UPS does not primarily rely on patents, the complex regulatory environment it navigates globally constitutes a formidable barrier to entry. Stringent requirements in air and ground transportation, international trade laws, and customs clearance demand substantial compliance costs and specialized expertise. New entrants would find it incredibly difficult to establish a globally compliant operational system and secure necessary operating licenses and route rights in a short timeframe. This 'toll bridge' effect, shaped by government regulation and operating franchises, provides UPS with a robust competitive advantage, shielding it from smaller competitors."
+        "comment_zh": "UPS的護城河並非來自獨家專利，而是源於其在全球範圍內建立的複雜且高度受監管的運營體系。航空、海關、勞工等各國法規構成巨大的進入壁壘，新進者難以在短時間內取得所有必要的許可和資質。這種嚴格的監管環境，加上其龐大的基礎設施投資，共同築起了保護其市場地位的特許經營權性質的壁壘，使其免受小型競爭者的侵蝕。",
+        "comment_en": "UPS's moat isn't derived from exclusive patents but from its complex and highly regulated global operating system. Aviation, customs, and labor laws across various nations form substantial entry barriers, making it difficult for new entrants to acquire all necessary permits and qualifications quickly. This stringent regulatory environment, coupled with massive infrastructure investments, collectively creates a franchise-like barrier protecting its market position from smaller competitors."
       },
       "m3_high_switching_costs": {
         "score": 8,
-        "comment_zh": "對於企業客戶而言，轉換物流供應商會帶來顯著的轉換成本。企業通常會將UPS的運輸管理系統、追蹤軟體和供應鏈流程深度整合到自身的營運中。更換供應商不僅意味著需要投入大量時間和資源重新配置系統、培訓員工，還可能面臨服務中斷、包裹延誤或數據丟失的風險。這種潛在的營運中斷和高昂的遷移成本，使得客戶即使對價格敏感，也傾向於維持與UPS的合作關係，形成了一道堅實的護城河。",
-        "comment_en": "For business clients, switching logistics providers entails significant costs. Companies often deeply integrate UPS's transportation management systems, tracking software, and supply chain processes into their own operations. Changing providers not only means investing substantial time and resources to reconfigure systems and retrain staff but also risks service disruptions, package delays, or data loss. This potential operational interruption and high migration cost incentivize clients, even those sensitive to price, to maintain their relationship with UPS, thereby creating a robust moat."
+        "comment_zh": "對於大型企業客戶而言，轉換物流供應商的成本極高。企業通常會將UPS的物流系統深度整合至其供應鏈管理、倉儲及訂單處理流程中。更換供應商不僅涉及IT系統的重新配置、員工培訓，更可能導致供應鏈中斷、發貨延誤等重大營運風險與財務損失。這種深度嵌入的合作關係，使得客戶即使面對輕微的價格波動，也傾向於維持現有合作，形成強大的客戶黏性。",
+        "comment_en": "For large enterprise clients, switching logistics providers entails extremely high costs. Businesses typically integrate UPS's logistics systems deeply into their supply chain management, warehousing, and order processing workflows. Changing providers involves not only reconfiguring IT systems and retraining staff but also potential supply chain disruptions, shipping delays, and significant operational and financial losses. This deeply embedded partnership ensures that clients, even when facing minor price fluctuations, tend to maintain their current collaboration, creating strong customer stickiness."
       },
       "m4_network_effects": {
         "score": 8,
-        "comment_zh": "UPS的全球遞送網絡展現出強大的網絡效應。隨著越來越多的寄件人和收件人使用其服務，網絡的密度和效率會不斷提升。更密集的網絡意味著更優化的路線規劃、更快的遞送速度和更低的單位包裹成本。這種效率的提升反過來又吸引更多的客戶加入，形成一個正向循環，進一步鞏固了UPS的市場地位。新競爭者難以在沒有足夠用戶基礎的情況下，複製這種規模和效率兼具的網絡優勢，這正是巴菲特所看重的競爭壁壘。",
-        "comment_en": "UPS's global delivery network exhibits strong network effects. As more senders and receivers utilize its services, the network's density and efficiency continuously improve. A denser network translates to optimized route planning, faster delivery times, and lower per-package costs. This enhanced efficiency, in turn, attracts more customers, creating a virtuous cycle that further solidifies UPS's market position. New competitors struggle to replicate this scale and efficiency advantage without a sufficient user base, which is precisely the kind of competitive barrier valued by Buffett."
+        "comment_zh": "UPS的全球物流網絡展現出顯著的網絡效應。隨著客戶數量和包裹量的增加，其運輸路線密度更高，優化了包裹集散效率，降低了單位包裹的運輸成本。同時，更廣泛的服務覆蓋範圍和更頻繁的班次，又吸引更多客戶加入，進一步鞏固其網絡優勢。這種正向循環使得UPS能夠提供更具競爭力的價格和服務，對新進入者構成難以逾越的壁壘。",
+        "comment_en": "UPS's global logistics network exhibits significant network effects. As the number of customers and package volume increases, its transportation routes become denser, optimizing package consolidation efficiency and lowering per-package shipping costs. Concurrently, broader service coverage and more frequent schedules attract even more customers, further solidifying its network advantage. This positive feedback loop enables UPS to offer more competitive pricing and services, forming an insurmountable barrier for new entrants."
       },
       "m5_cost_advantage_scale": {
         "score": 9,
-        "comment_zh": "UPS擁有無與倫比的規模經濟優勢。其龐大的全球基礎設施，包括數百架飛機、數十萬輛運輸車輛、遍布全球的分揀中心和物流樞紐，使其能夠處理天文數字般的包裹量。這種巨大的規模使得UPS在採購、運輸、分揀和遞送等各環節都能實現極低的單位成本。新進入者即使擁有巨額資金，也難以在短時間內建立起如此龐大且高效的網絡，從而無法與UPS的成本效率相匹敵。這是典型的巴菲特式護城河，源於其難以複製的規模優勢。",
-        "comment_en": "UPS possesses an unparalleled cost advantage through its immense scale. Its vast global infrastructure, comprising hundreds of aircraft, hundreds of thousands of vehicles, and sorting centers and logistics hubs worldwide, enables it to handle an astronomical volume of packages. This massive scale allows UPS to achieve extremely low unit costs across procurement, transportation, sorting, and delivery. New entrants, even with substantial capital, would find it nearly impossible to build such a vast and efficient network quickly, thus failing to match UPS's cost efficiency. This is a classic Buffett-style moat, stemming from its irreplicable scale advantage."
+        "comment_zh": "UPS在規模經濟方面擁有無與倫比的優勢。其龐大的全球基礎設施，包括數百架飛機、數十萬輛運輸車輛及遍布全球的包裹分揀中心，使其能夠處理天文數字般的包裹量。這種規模效應使得其單位包裹成本遠低於任何潛在競爭者。高效的自動化分揀系統和優化的物流路線規劃，更是其獨家工藝的體現，讓新進者即使投入巨資也難以在成本效率上匹敵。",
+        "comment_en": "UPS possesses an unparalleled advantage in economies of scale. Its vast global infrastructure, encompassing hundreds of aircraft, hundreds of thousands of vehicles, and package sorting centers worldwide, enables it to handle an astronomical volume of packages. This scale effect results in a unit cost per package significantly lower than any potential competitor. Highly efficient automated sorting systems and optimized logistics route planning further exemplify its unique operational expertise, making it incredibly difficult for new entrants, even with substantial investment, to match its cost efficiency."
       },
       "m6_unique_geography_assets": {
         "score": 8,
-        "comment_zh": "全球包裹遞送市場本質上是一個天然寡占的行業，由少數幾家巨頭主導。UPS在關鍵地理位置擁有戰略性的物流樞紐、分揀中心和廣泛的遞送網絡，這些資產的選址和建設耗費了數十年時間和巨額資本。在許多地區，由於土地稀缺、環境法規或基礎設施限制，新競爭者難以獲得同等優越的地理位置或建立類似規模的實體資產。這種對關鍵地理資產的獨佔性，加上市場容量有限，使得新競爭者進入只會導致價格戰，形成「雙輸」局面，從而鞏固了UPS的寡占地位。",
-        "comment_en": "The global package delivery market is inherently an oligopoly, dominated by a few giants. UPS possesses strategically located logistics hubs, sorting centers, and an extensive delivery network in critical geographies, assets that took decades and immense capital to establish. In many regions, due to land scarcity, environmental regulations, or infrastructure limitations, new competitors struggle to acquire equally prime geographical locations or build physical assets of comparable scale. This exclusive access to key geographical assets, coupled with limited market capacity, means new entry would only lead to price wars and a 'lose-lose' scenario, thus solidifying UPS's oligopolistic position."
+        "comment_zh": "全球航空貨運與物流市場本質上是一個天然寡占的領域。建立一個能夠與UPS匹敵的全球網絡，需要天文數字般的資本投入、數十年的時間積累以及複雜的監管批准。市場容量雖大，但已由少數幾家巨頭高效瓜分。任何新競爭者試圖進入，都將面臨巨大的資本壓力，並可能引發價格戰，導致所有參與者利潤受損，因此形成了一種理性寡占的局面，保護了現有巨頭的市場份額。",
+        "comment_en": "The global air freight and logistics market is inherently an efficient oligopoly. Establishing a global network comparable to UPS requires astronomical capital investment, decades of accumulation, and complex regulatory approvals. While the market capacity is large, it is efficiently divided among a few major players. Any new competitor attempting to enter would face immense capital pressure and likely trigger price wars, harming all participants' profits. This creates a rational oligopoly, protecting the market share of existing giants."
       },
       "m7_operational_efficiency": {
         "score": 7,
-        "comment_zh": "UPS作為一家成熟的物流巨頭，其營運效率是其核心競爭力之一。公司持續投資於自動化技術、路線優化演算法和數據分析，以提升包裹處理速度、降低燃料消耗和人力成本。儘管物流行業的資本密集度高，但UPS憑藉其規模和技術應用，能夠實現穩健的投入資本回報率（ROIC）。其持續的自由現金流產生能力（FCF TTM $5.485M）證明了其高效的資本運用和盈利能力，這對於長期股東價值創造至關重要，符合巴菲特對企業盈利韌性的要求。",
-        "comment_en": "As a mature logistics giant, UPS's operational efficiency is a core competitive strength. The company continuously invests in automation technology, route optimization algorithms, and data analytics to enhance package processing speed, reduce fuel consumption, and lower labor costs. Despite the capital-intensive nature of the logistics industry, UPS achieves a robust Return on Invested Capital (ROIC) through its scale and technological adoption. Its consistent free cash flow generation (FCF TTM $5.485M) demonstrates efficient capital deployment and profitability, which is crucial for long-term shareholder value creation and aligns with Buffett's emphasis on earnings resilience."
+        "comment_zh": "UPS長期以來展現出穩健的資本回報能力，其30.3%的股東權益報酬率（ROE）和6.4%的資產報酬率（ROA）證明了其高效利用資本的能力。儘管物流業是資本密集型產業，但其強大的規模經濟、網絡效應和客戶黏性護城河，使其能夠持續產生超越加權平均資本成本（WACC）的投資回報。這不僅為股東創造了實質的複利價值，也反映了其商業模式的韌性與盈利能力。",
+        "comment_en": "UPS has consistently demonstrated robust capital returns, with a 30.3% Return on Equity (ROE) and 6.4% Return on Assets (ROA), affirming its efficient capital utilization. Despite the logistics industry being capital-intensive, its strong moats of economies of scale, network effects, and customer stickiness enable it to consistently generate returns on invested capital (ROIC) that exceed its weighted average cost of capital (WACC). This not only creates substantial compounding value for shareholders but also reflects the resilience and profitability of its business model."
       },
       "m8_capital_allocation": {
-        "score": 7,
-        "comment_zh": "UPS作為一家歷史悠久且資本密集型企業，其管理層在資本配置方面展現出相對穩健的策略。公司通常會平衡對基礎設施的再投資、股息派發和股票回購，以最大化股東價值。在市場低估時，積極的股票回購可以有效提升每股收益，而避免盲目溢價併購則能保護公司資產負債表。雖然具體回購規模和併購策略需持續觀察，但其穩定的現金流和對核心業務的專注，表明管理層傾向於審慎且有利於長期股東的資本配置決策。",
-        "comment_en": "As a long-standing and capital-intensive enterprise, UPS's management generally demonstrates a relatively prudent capital allocation strategy. The company typically balances reinvestment in infrastructure, dividend payouts, and share buybacks to maximize shareholder value. Aggressive share repurchases during market undervaluation can effectively boost earnings per share, while avoiding blind, overpriced acquisitions protects the company's balance sheet. Although specific buyback volumes and M&A strategies require ongoing observation, its stable cash flow and focus on core operations suggest management's inclination towards cautious, long-term shareholder-friendly capital allocation decisions."
+        "score": 9,
+        "comment_zh": "即使給予競爭對手千億美元，也無法在短時間內複製UPS的核心戰略資產。這不僅僅是資金問題，更涉及數十年積累的全球物流網絡、遍布各地的基礎設施、與各國政府建立的監管關係、數百萬客戶的品牌信任，以及高度優化的運營流程和專業人才隊伍。這些無形資產和複雜的實體網絡，是時間和經驗的結晶，構成了一個幾乎不可複製的商業壁壘。",
+        "comment_en": "Even with a hundred billion dollars, a competitor could not replicate UPS's core strategic assets in a short period. This isn't merely a matter of capital; it involves decades of accumulated global logistics networks, ubiquitous infrastructure, established regulatory relationships with governments worldwide, brand trust from millions of customers, and highly optimized operational processes and skilled personnel. These intangible assets and complex physical networks are the culmination of time and experience, forming an almost irreproducible business barrier."
       },
       "m9_customer_retention": {
         "score": 8,
-        "comment_zh": "UPS在客戶留存方面表現出色，這得益於其服務的可靠性、廣泛的覆蓋範圍和與企業客戶的深度整合。對於許多企業而言，物流是其供應鏈的關鍵環節，任何服務中斷都可能導致巨大的經濟損失和聲譽損害。因此，一旦與UPS建立合作關係，客戶通常會因為高轉換成本和對服務品質的信任而保持長期合作。這種高客戶黏性不僅保證了穩定的收入來源，也降低了獲客成本，是巴菲特所看重的「重複購買」特徵，為企業提供了持續的競爭優勢。",
-        "comment_en": "UPS excels in customer retention, attributed to its service reliability, extensive coverage, and deep integration with business clients. For many enterprises, logistics is a critical component of their supply chain, where any service disruption can lead to significant economic losses and reputational damage. Consequently, once a partnership is established with UPS, customers tend to maintain long-term relationships due to high switching costs and trust in service quality. This strong customer stickiness not only ensures stable revenue streams but also reduces customer acquisition costs, embodying the 'repeat purchase' characteristic valued by Buffett, providing the company with a sustained competitive advantage."
+        "comment_zh": "儘管物流行業會不斷引入新技術如AI和自動化，但包裹從A點到B點的實體運輸需求本質上是永恆且不可替代的。UPS作為行業領導者，積極投資於這些技術以優化其運營效率和服務質量，而非被顛覆。其核心業務——實體交付——具有極高的需求確定性，對技術典範轉移具備強大抗性。這使得其商業模式在面對未來技術變革時，仍能保持穩固的護城河。",
+        "comment_en": "While the logistics industry continuously adopts new technologies like AI and automation, the fundamental need for physical package transportation from point A to point B is inherently timeless and irreplaceable. As an industry leader, UPS actively invests in these technologies to optimize its operational efficiency and service quality, rather than being disrupted by them. Its core business—physical delivery—possesses extremely high demand certainty, demonstrating strong immunity to technological paradigm shifts. This ensures its business model maintains a robust moat when facing future technological changes."
       },
       "m10_durability": {
-        "score": 9,
-        "comment_zh": "UPS的核心業務——物理包裹遞送——具有極高的需求確定性和對技術變革的強大免疫力。儘管電子商務和自動化技術不斷發展，但將實體物品從A點運送到B點的需求是永恆且不可被數位化取代的。UPS積極投資於物流自動化、AI優化和電動車隊，將新技術融入其營運以提升效率，而非被其顛覆。這種基礎服務的剛性需求和公司對技術進步的適應能力，確保了其商業模式的長期韌性，使其能夠在未來數十年內持續創造價值，符合巴菲特對「持久性」護城河的定義。",
-        "comment_en": "UPS's core business—physical package delivery—possesses extremely high demand certainty and strong immunity to technological disruption. Despite the continuous evolution of e-commerce and automation, the fundamental need to physically move tangible goods from point A to point B is eternal and cannot be digitized away. UPS actively invests in logistics automation, AI optimization, and electric fleets, integrating new technologies into its operations to enhance efficiency rather than being disrupted by them. This inelastic demand for its foundational service and the company's adaptability to technological advancements ensure the long-term resilience of its business model, allowing it to continue creating value for decades, aligning with Buffett's definition of a 'durable' moat."
+        "score": 7,
+        "comment_zh": "UPS的管理層在資本配置方面展現出穩健的策略。公司持續產生強勁的自由現金流（FCF），並通過股息和股票回購將價值回饋股東。在併購方面，通常採取審慎態度，避免盲目溢價收購，而是專注於提升核心業務效率和擴大網絡優勢。這種以股東利益為導向的資本管理方式，有助於長期提升每股價值，是巴菲特所推崇的優質企業特徵。",
+        "comment_en": "UPS's management demonstrates a prudent capital allocation strategy. The company consistently generates strong free cash flow (FCF) and returns value to shareholders through dividends and share buybacks. Regarding M&A, it generally adopts a cautious approach, avoiding blind overpaying acquisitions, and instead focuses on enhancing core business efficiency and expanding network advantages. This shareholder-oriented capital management approach contributes to long-term per-share value appreciation, a characteristic of high-quality businesses favored by Buffett."
       },
-      "overall_moat_verdict_zh": "UPS是一家典型的「收費橋樑」型企業，其護城河深厚且多樣。它不僅擁有全球領先的品牌心智和定價權，更憑藉其無與倫比的規模經濟、廣泛的網絡效應和高昂的客戶轉換成本，築起了難以逾越的競爭壁壘。在全球物流這個天然寡占的市場中，UPS的龐大基礎設施和複雜的監管合規能力，使其成為新競爭者幾乎不可能複製的實體資產。其核心業務對技術變革具有強大韌性，確保了長期需求。綜合來看，UPS具備巴菲特所推崇的「特許經營權」特徵，能夠持續創造超額回報，是值得長期持有的優質企業。",
-      "overall_moat_verdict_en": "UPS is a quintessential 'toll bridge' business, boasting deep and multifaceted moats. It not only possesses a globally leading brand and pricing power but also erects formidable competitive barriers through its unparalleled economies of scale, extensive network effects, and high customer switching costs. In the naturally oligopolistic global logistics market, UPS's vast infrastructure and complex regulatory compliance capabilities make it an entity virtually impossible for new competitors to replicate. Its core business demonstrates strong resilience against technological disruption, ensuring long-term demand. Overall, UPS exhibits the 'franchise' characteristics highly valued by Buffett, capable of consistently generating superior returns, making it a high-quality enterprise worthy of long-term holding."
+      "overall_moat_verdict_zh": "UPS本質上是一個全球商業的「收費橋樑」或「特許經營權平台」。其護城河深且廣，主要建立在無與倫比的全球物流網絡、極致的規模經濟、企業客戶的高轉換成本以及嚴格的監管壁壘之上。強大的品牌信任和卓越的運營效率進一步鞏固其市場地位。儘管面臨競爭，但複製其龐大資產和數十年積累的經驗幾乎不可能。這是一個受益於全球供應鏈日益複雜化的企業，確保了對其核心服務的持久需求。",
+      "overall_moat_verdict_en": "UPS fundamentally operates as a \"toll bridge\" or \"franchise platform\" for global commerce. Its deep and wide moats are primarily built upon an unparalleled global logistics network, extreme economies of scale, high switching costs for enterprise clients, and significant regulatory barriers. Strong brand trust and superior operational efficiency further solidify its market position. Despite competition, replicating its vast assets and decades of accumulated experience is nearly impossible. This is a business that benefits from the increasing complexity of global supply chains, ensuring durable demand for its essential services."
     },
     "fin_valuation": {
       "is_financial": false
@@ -270010,95 +270010,95 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 30000000,
     "shares_display": "30.00 M",
     "mcap": 6952.5,
-    "debt": 1874.3,
-    "cash": 633.3,
+    "debt": 1871.7,
+    "cash": 632.4,
     "short_term_investments": 0.0,
-    "cash_and_short_term": 633.3,
-    "net_debt": 1241.0,
-    "fcf0": 192.3,
+    "cash_and_short_term": 632.4,
+    "net_debt": 1239.3,
+    "fcf0": 192.1,
     "real_history": {
       "revenue": [
-        1021.6,
-        1376.7,
-        1404.3,
-        1704.0,
-        2025.1,
-        2087.2
+        1020.2,
+        1374.8,
+        1402.3,
+        1701.6,
+        2022.3,
+        2084.3
       ],
       "net_income": [
-        325.4,
-        543.1,
-        554.9,
-        737.0,
-        570.4,
-        543.7
+        325.0,
+        542.4,
+        554.1,
+        736.0,
+        569.6,
+        542.9
       ],
       "gross_profit": [
-        666.6,
-        1020.6,
-        846.4,
-        1096.5,
-        1120.3,
-        1048.6
+        665.6,
+        1019.2,
+        845.2,
+        1095.0,
+        1118.8,
+        1047.1
       ],
       "operating_income": [
-        470.8,
-        799.3,
-        829.0,
-        952.8,
-        924.2,
-        879.0
+        470.2,
+        798.2,
+        827.9,
+        951.5,
+        922.9,
+        877.7
       ],
       "cfo": [
-        558.1,
-        731.9,
-        731.2,
-        846.5,
-        699.3,
-        534.6
+        557.4,
+        730.9,
+        730.2,
+        845.4,
+        698.3,
+        533.8
       ],
       "capex": [
-        -200.0,
-        -151.0,
-        -74.6,
-        -239.0,
-        -424.6,
-        -342.2
+        -199.7,
+        -150.7,
+        -74.5,
+        -238.7,
+        -424.0,
+        -341.8
       ],
       "fcf": [
-        358.2,
-        581.0,
-        656.6,
-        607.5,
-        274.6,
-        192.3
+        357.7,
+        580.2,
+        655.7,
+        606.7,
+        274.3,
+        192.1
       ]
     },
     "statements_raw": {
       "income": {
         "revenue": [
-          1021.57,
-          1376.65,
-          1404.27,
-          1703.98,
-          2025.09,
-          2087.19
+          1020.17,
+          1374.76,
+          1402.33,
+          1701.63,
+          2022.31,
+          2084.32
         ],
         "costOfRevenue": [
-          355.01,
-          356.09,
-          557.91,
-          607.48,
-          904.76,
-          1038.6
+          354.52,
+          355.6,
+          557.15,
+          606.64,
+          903.51,
+          1037.17
         ],
         "grossProfit": [
-          666.56,
-          1020.57,
-          846.35,
-          1096.5,
-          1120.34,
-          1048.59
+          665.65,
+          1019.16,
+          845.19,
+          1094.99,
+          1118.79,
+          1047.15
         ],
         "grossProfitRatio": [
           0.0,
@@ -270117,12 +270117,12 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "generalAndAdministrativeExpenses": [
-          87.33,
-          15.61,
+          87.21,
+          15.59,
+          17.34,
           17.36,
-          17.38,
-          18.82,
-          9.08
+          18.79,
+          9.07
         ],
         "sellingAndMarketingExpenses": [
           0.0,
@@ -270133,44 +270133,44 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "sellingGeneralAndAdministrativeExpenses": [
-          87.33,
-          15.61,
+          87.21,
+          15.59,
+          17.34,
           17.36,
-          17.38,
-          18.82,
-          20.71
+          18.79,
+          20.68
         ],
         "otherExpenses": [
-          108.4,
-          205.62,
+          108.26,
+          205.34,
           0.0,
-          126.33,
-          177.33,
-          148.92
+          126.16,
+          177.09,
+          148.71
         ],
         "operatingExpenses": [
-          195.73,
-          221.23,
-          17.36,
-          143.71,
-          196.15,
-          169.63
+          195.46,
+          220.93,
+          17.34,
+          143.52,
+          195.88,
+          169.4
         ],
         "costAndExpenses": [
-          550.74,
-          577.32,
-          575.27,
-          751.2,
-          1100.91,
-          1208.23
+          549.98,
+          576.52,
+          574.48,
+          750.16,
+          1099.4,
+          1206.57
         ],
         "operatingIncome": [
-          470.83,
-          799.33,
-          828.99,
-          952.78,
-          924.18,
-          878.96
+          470.18,
+          798.23,
+          827.85,
+          951.47,
+          922.91,
+          877.75
         ],
         "operatingIncomeRatio": [
           0.0,
@@ -270181,36 +270181,36 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "totalOtherIncomeExpensesNet": [
-          -28.91,
-          -33.36,
-          -33.9,
-          155.16,
-          -110.67,
-          -110.1
+          -28.87,
+          -33.31,
+          -33.86,
+          154.95,
+          -110.51,
+          -109.95
         ],
         "interestIncome": [
-          10.99,
-          24.49,
-          73.38,
-          87.83,
-          78.33,
-          51.43
+          10.98,
+          24.45,
+          73.28,
+          87.71,
+          78.22,
+          51.35
         ],
         "interestExpense": [
-          45.81,
-          46.53,
-          61.23,
-          44.96,
-          83.49,
-          118.63
+          45.75,
+          46.46,
+          61.14,
+          44.9,
+          83.37,
+          118.46
         ],
         "incomeBeforeTax": [
-          441.92,
-          765.97,
-          795.09,
-          1107.95,
-          813.52,
-          768.83
+          441.31,
+          764.92,
+          793.99,
+          1106.42,
+          812.4,
+          767.77
         ],
         "incomeBeforeTaxRatio": [
           0.0,
@@ -270221,20 +270221,20 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "incomeTaxExpense": [
-          94.0,
-          187.01,
-          214.5,
-          344.92,
-          219.4,
-          203.67
+          93.87,
+          186.76,
+          214.2,
+          344.45,
+          219.09,
+          203.39
         ],
         "netIncome": [
-          325.42,
-          543.1,
-          554.91,
-          736.97,
-          570.42,
-          543.67
+          324.97,
+          542.35,
+          554.15,
+          735.96,
+          569.64,
+          542.92
         ],
         "netIncomeRatio": [
           0.0,
@@ -270277,12 +270277,12 @@ window.FULL_MARKET_DATA = {
           30000000.0
         ],
         "ebitda": [
-          596.14,
-          924.49,
-          968.84,
-          1279.24,
-          990.85,
-          1036.78
+          595.32,
+          923.22,
+          967.51,
+          1277.47,
+          989.49,
+          1035.35
         ],
         "ebitdaratio": [
           0.0,
@@ -270295,12 +270295,12 @@ window.FULL_MARKET_DATA = {
       },
       "balance": {
         "cashAndCashEquivalents": [
-          476.94,
-          716.5,
-          754.45,
-          1092.2,
-          604.54,
-          633.29
+          476.29,
+          715.51,
+          753.42,
+          1090.7,
+          603.71,
+          632.41
         ],
         "shortTermInvestments": [
           0.0,
@@ -270311,138 +270311,138 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "cashAndShortTermInvestments": [
-          476.94,
-          716.5,
-          754.45,
-          1092.2,
-          604.54,
-          633.29
+          476.29,
+          715.51,
+          753.42,
+          1090.7,
+          603.71,
+          632.41
         ],
         "netReceivables": [
-          102.14,
-          138.24,
-          126.05,
-          169.82,
-          139.35,
-          356.47
+          102.0,
+          138.05,
+          125.88,
+          169.58,
+          139.15,
+          355.98
         ],
         "inventory": [
-          3.11,
-          3.52,
+          3.1,
+          3.51,
           3.28,
-          3.17,
+          3.16,
           0.0,
-          7.05
+          7.04
         ],
         "otherCurrentAssets": [
-          52.03,
-          125.0,
-          134.99,
-          130.07,
-          255.87,
+          51.96,
+          124.83,
+          134.8,
+          129.89,
+          255.52,
           0.0
         ],
         "totalCurrentAssets": [
-          628.31,
-          983.26,
-          1018.77,
-          1395.26,
-          999.76,
-          1005.6
+          627.44,
+          981.91,
+          1017.37,
+          1393.34,
+          998.39,
+          1004.22
         ],
         "propertyPlantEquipmentNet": [
-          10.04,
-          9.3,
-          10.01,
-          14.6,
-          16.48,
-          16.87
+          10.02,
+          9.29,
+          9.99,
+          14.58,
+          16.46,
+          16.85
         ],
         "goodwill": [
-          141.57,
-          134.29,
-          116.88,
-          142.68,
+          141.38,
+          134.11,
+          116.72,
+          142.49,
           0.0,
           0.0
         ],
         "intangibleAssets": [
-          2793.68,
-          2729.43,
-          2553.11,
-          2820.12,
-          3207.19,
-          3194.12
+          2789.83,
+          2725.67,
+          2549.6,
+          2816.23,
+          3202.78,
+          3189.72
         ],
         "goodwillAndIntangibleAssets": [
-          2935.25,
-          2863.72,
-          2669.99,
-          2962.8,
-          3207.19,
-          3194.12
+          2931.21,
+          2859.78,
+          2666.32,
+          2958.72,
+          3202.78,
+          3189.72
         ],
         "longTermInvestments": [
           0.58,
           0.56,
-          16.11,
-          99.31,
-          15.4,
-          678.3
+          16.09,
+          99.17,
+          15.38,
+          677.37
         ],
         "taxAssets": [
           0.0,
-          -20.56,
+          -20.53,
           0.0,
           0.0,
           0.0,
-          11.64
+          11.63
         ],
         "otherNonCurrentAssets": [
-          5.92,
-          20.56,
-          110.57,
-          76.47,
-          554.55,
+          5.91,
+          20.53,
+          110.42,
+          76.37,
+          553.79,
           0.0
         ],
         "totalNonCurrentAssets": [
-          2951.78,
-          2873.58,
-          2806.68,
-          3153.18,
-          3793.62,
-          3900.94
+          2947.72,
+          2869.62,
+          2802.82,
+          3148.84,
+          3788.4,
+          3895.57
         ],
         "totalAssets": [
-          3580.09,
-          3856.84,
-          3825.45,
-          4548.44,
-          4793.39,
-          4906.54
+          3575.16,
+          3851.53,
+          3820.19,
+          4542.18,
+          4786.79,
+          4899.79
         ],
         "accountPayables": [
-          15.81,
-          16.7,
-          16.67,
-          17.71,
-          33.96,
-          33.43
+          15.79,
+          16.68,
+          16.65,
+          17.69,
+          33.91,
+          33.38
         ],
         "shortTermDebt": [
-          31.44,
-          101.7,
-          67.09,
-          61.54,
-          34.04,
-          98.99
+          31.4,
+          101.56,
+          67.0,
+          61.45,
+          33.99,
+          98.85
         ],
         "taxPayables": [
-          56.08,
-          79.06,
-          79.05,
-          137.8,
+          56.0,
+          78.95,
+          78.94,
+          137.61,
           0.0,
           0.0
         ],
@@ -270455,28 +270455,28 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "otherCurrentLiabilities": [
-          53.88,
-          51.16,
-          44.38,
-          101.13,
+          53.81,
+          51.09,
+          44.32,
+          101.0,
           0.0,
-          159.33
+          159.11
         ],
         "totalCurrentLiabilities": [
-          205.92,
-          302.59,
-          262.52,
-          320.15,
-          343.93,
-          305.37
+          205.63,
+          302.17,
+          262.16,
+          319.71,
+          343.45,
+          304.95
         ],
         "longTermDebt": [
-          717.94,
-          725.19,
-          597.73,
-          664.99,
-          1460.77,
-          1426.87
+          716.95,
+          724.19,
+          596.91,
+          664.08,
+          1458.76,
+          1424.9
         ],
         "deferredRevenueNonCurrent": [
           0.0,
@@ -270487,76 +270487,76 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "deferredTaxLiabilitiesNonCurrent": [
-          165.58,
-          161.66,
-          157.6,
-          209.53,
+          165.35,
+          161.43,
+          157.38,
+          209.24,
           0.0,
-          185.31
+          185.06
         ],
         "otherNonCurrentLiabilities": [
-          1.54,
-          1.78,
+          1.53,
+          1.77,
           1.9,
-          3.07,
-          182.48,
-          4.58
+          3.06,
+          182.23,
+          4.57
         ],
         "totalNonCurrentLiabilities": [
-          885.05,
-          888.62,
-          757.23,
-          877.59,
-          1925.73,
-          1965.17
+          883.83,
+          887.4,
+          756.19,
+          876.38,
+          1923.08,
+          1962.47
         ],
         "totalLiabilities": [
-          1090.97,
-          1191.21,
-          1019.75,
-          1197.74,
-          2269.66,
-          2270.54
+          1089.46,
+          1189.57,
+          1018.35,
+          1196.1,
+          2266.53,
+          2267.41
         ],
         "totalDebt": [
-          749.38,
-          826.88,
-          666.04,
-          727.75,
-          1849.75,
-          1874.27
+          748.35,
+          825.75,
+          665.12,
+          726.75,
+          1847.2,
+          1871.69
         ],
         "netDebt": [
-          272.43,
-          110.39,
-          -88.41,
-          -364.45,
-          1245.21,
-          1240.99
+          272.06,
+          110.23,
+          -88.29,
+          -363.95,
+          1243.49,
+          1239.28
         ],
         "commonStock": [
-          422.41,
-          422.41,
-          422.41,
-          422.41,
-          422.41,
-          422.54
+          421.83,
+          421.83,
+          421.83,
+          421.83,
+          421.83,
+          421.95
         ],
         "retainedEarnings": [
-          1474.12,
-          1755.82,
-          1343.32,
-          2504.58,
-          1769.05,
-          1746.04
+          1472.09,
+          1753.4,
+          1341.47,
+          2501.13,
+          1766.61,
+          1743.64
         ],
         "accumulatedOtherComprehensiveIncomeLoss": [
-          125.25,
-          85.24,
-          678.55,
-          21.29,
-          -42.89,
-          86.54
+          125.08,
+          85.13,
+          677.61,
+          21.26,
+          -42.83,
+          86.42
         ],
         "otherTotalStockholdersEquity": [
           0.0,
@@ -270567,54 +270567,54 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "totalStockholdersEquity": [
-          2021.78,
-          2263.47,
-          2444.28,
-          2948.28,
-          2148.57,
-          2255.12
+          2019.0,
+          2260.36,
+          2440.91,
+          2944.22,
+          2145.61,
+          2252.01
         ],
         "totalEquity": [
-          2489.13,
-          2665.63,
-          2805.7,
-          3350.7,
-          2523.73,
-          2636.0
+          2485.7,
+          2661.96,
+          2801.84,
+          3346.08,
+          2520.26,
+          2632.37
         ],
         "totalLiabilitiesAndTotalEquity": [
-          3580.09,
-          3856.84,
-          3825.45,
-          4548.44,
-          4793.39,
-          4906.54
+          3575.16,
+          3851.53,
+          3820.19,
+          4542.18,
+          4786.79,
+          4899.79
         ],
         "totalInvestments": [
           0.58,
           0.56,
-          16.11,
-          99.31,
-          15.4,
-          678.3
+          16.09,
+          99.17,
+          15.38,
+          677.37
         ]
       },
       "cashflow": {
         "netIncome": [
-          441.92,
-          765.97,
-          795.09,
-          736.97,
-          570.42,
-          561.62
+          441.31,
+          764.92,
+          793.99,
+          735.96,
+          569.64,
+          560.85
         ],
         "depreciationAndAmortization": [
-          108.4,
-          111.99,
-          112.53,
-          126.33,
-          177.33,
-          197.2
+          108.26,
+          111.83,
+          112.37,
+          126.16,
+          177.09,
+          196.93
         ],
         "deferredIncomeTax": [
           0.0,
@@ -270633,20 +270633,20 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "changeInWorkingCapital": [
-          23.54,
-          -53.36,
-          -5.59,
-          -23.26,
-          19.55,
-          -89.84
+          23.51,
+          -53.29,
+          -5.58,
+          -23.23,
+          19.52,
+          -89.72
         ],
         "accountsReceivables": [
-          -41.36,
-          -51.5,
-          7.5,
-          -23.26,
-          19.55,
-          -60.5
+          -41.3,
+          -51.42,
+          7.49,
+          -23.23,
+          19.52,
+          -60.42
         ],
         "inventory": [
           0.0,
@@ -270657,57 +270657,57 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "accountsPayables": [
-          81.7,
-          35.48,
-          -13.1,
+          81.59,
+          35.43,
+          -13.08,
           0.0,
           0.0,
-          -29.34
+          -29.3
         ],
         "otherWorkingCapital": [
-          -16.8,
-          -37.35,
+          -16.78,
+          -37.3,
           0.0,
           0.0,
           0.0,
           0.0
         ],
         "otherNonCashItems": [
-          -15.72,
-          -92.67,
-          -170.83,
-          6.47,
-          -68.05,
-          -134.55
+          -15.7,
+          -92.54,
+          -170.6,
+          6.46,
+          -67.95,
+          -134.36
         ],
         "netCashProvidedByOperatingActivities": [
-          558.14,
-          731.93,
-          731.19,
-          846.52,
-          699.25,
-          534.55
+          557.38,
+          730.92,
+          730.19,
+          845.35,
+          698.29,
+          533.82
         ],
         "investmentsInPropertyPlantAndEquipment": [
-          -199.95,
-          -150.96,
-          -74.56,
-          -238.99,
-          -424.62,
-          -353.14
+          -199.68,
+          -150.75,
+          -74.46,
+          -238.66,
+          -424.03,
+          -352.65
         ],
         "acquisitionsNet": [
           0.0,
           0.0,
-          -16.27,
+          -16.24,
           0.0,
-          -303.08,
-          -303.08
+          -302.67,
+          -302.67
         ],
         "purchasesOfInvestments": [
           0.0,
           0.0,
-          -98.92,
+          -98.78,
           0.0,
           0.0,
           0.0
@@ -270716,7 +270716,7 @@ window.FULL_MARKET_DATA = {
           0.0,
           0.0,
           0.0,
-          15.3,
+          15.27,
           0.0,
           -4.15
         ],
@@ -270786,51 +270786,51 @@ window.FULL_MARKET_DATA = {
         ],
         "effectOfForexChangesOnCash": [
           1.97,
-          -23.71,
-          -53.38,
-          125.69,
-          -58.98,
-          23.59
+          -23.68,
+          -53.3,
+          125.52,
+          -58.89,
+          23.56
         ],
         "netChangeInCash": [
-          194.55,
-          239.55,
-          37.95,
-          337.75,
-          -487.66,
-          -259.95
+          194.28,
+          239.22,
+          37.9,
+          337.29,
+          -486.99,
+          -259.59
         ],
         "cashAtEndOfPeriod": [
-          476.94,
-          716.5,
-          754.45,
-          1092.2,
-          604.54,
-          2037.0
+          476.29,
+          715.51,
+          753.42,
+          1090.7,
+          603.71,
+          2034.2
         ],
         "cashAtBeginningOfPeriod": [
-          282.39,
-          476.94,
-          716.5,
-          754.45,
-          1092.2,
-          2296.95
+          282.0,
+          476.29,
+          715.51,
+          753.42,
+          1090.7,
+          2293.78
         ],
         "capitalExpenditure": [
-          -199.95,
-          -150.96,
-          -74.56,
-          -238.99,
-          -424.62,
-          -342.23
+          -199.68,
+          -150.75,
+          -74.46,
+          -238.66,
+          -424.03,
+          -341.75
         ],
         "freeCashFlow": [
-          358.19,
-          580.97,
-          656.63,
-          607.53,
-          274.64,
-          192.33
+          357.7,
+          580.17,
+          655.73,
+          606.7,
+          274.26,
+          192.06
         ]
       }
     },
@@ -270854,9 +270854,9 @@ window.FULL_MARKET_DATA = {
     "g2": 3.7,
     "g": 2.25,
     "wacc": 4.97,
-    "ev": 9990.6,
-    "fmp_official_ev": 9990.6,
-    "dcf_model_ev": 8518.6,
+    "ev": 9976.9,
+    "fmp_official_ev": 9976.9,
+    "dcf_model_ev": 8508.5,
     "ev_to_ebitda": 9.6,
     "debt_to_ebitda": 1.81,
     "net_debt_to_ebitda": 1.2,
@@ -270926,18 +270926,18 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 242.59,
-    "default_fair_val": 242.59,
-    "premium_pct": -4.5,
+    "fair_val": 242.31,
+    "default_fair_val": 242.31,
+    "premium_pct": -4.4,
     "is_undervalued": true,
     "pe_trailing": 12.8,
     "pe_forward": 11.3,
     "pb_trailing": 3.1,
     "pb_forward": 2.8,
-    "div_yield": 13.11,
+    "div_yield": 13.09,
     "ps_ratio": 9.0,
     "fcf_to_ev": 2.26,
-    "fcf_to_mcap": 2.77,
+    "fcf_to_mcap": 2.76,
     "liab_to_assets": 46.3,
     "cash_to_assets": 12.9,
     "current_ratio": 3.29,
@@ -292382,95 +292382,95 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 604900000,
     "shares_display": "604.90 M",
     "mcap": 71245.1,
-    "debt": 15870.3,
+    "debt": 15871.9,
     "cash": 206.3,
     "short_term_investments": 0.0,
     "cash_and_short_term": 206.3,
-    "net_debt": 15664.0,
-    "fcf0": 2489.8,
+    "net_debt": 15665.6,
+    "fcf0": 2490.1,
     "real_history": {
       "revenue": [
-        10154.5,
-        11999.3,
-        11803.6,
-        11956.5,
-        12127.6,
-        12469.0
+        10155.5,
+        12000.4,
+        11804.7,
+        11957.7,
+        12128.8,
+        12470.2
       ],
       "net_income": [
-        3436.3,
-        3589.9,
-        3945.5,
-        3119.9,
-        3308.0,
-        3356.0
+        3436.6,
+        3590.2,
+        3945.9,
+        3120.2,
+        3308.4,
+        3356.3
       ],
       "gross_profit": [
-        4256.9,
-        5187.7,
-        5015.9,
-        4886.8,
-        5441.4,
-        5538.9
+        4257.4,
+        5188.2,
+        5016.4,
+        4887.3,
+        5442.0,
+        5539.5
       ],
       "operating_income": [
-        3939.2,
-        4797.7,
-        4627.3,
-        4381.8,
-        4616.5,
-        4680.2
+        3939.6,
+        4798.2,
+        4627.8,
+        4382.2,
+        4617.0,
+        4680.6
       ],
       "cfo": [
-        4889.6,
-        4676.4,
-        4885.4,
-        4698.8,
-        4940.3,
-        4922.7
+        4890.1,
+        4676.9,
+        4885.9,
+        4699.3,
+        4940.8,
+        4923.2
       ],
       "capex": [
-        -2027.8,
-        -1928.9,
-        -2235.4,
-        -2489.4,
-        -2563.7,
-        -2432.8
+        -2028.0,
+        -1929.1,
+        -2235.7,
+        -2489.6,
+        -2564.0,
+        -2433.1
       ],
       "fcf": [
-        2861.8,
-        2747.5,
-        2650.0,
-        2209.5,
-        2376.6,
-        2489.9
+        2862.1,
+        2747.7,
+        2650.2,
+        2209.7,
+        2376.8,
+        2490.1
       ]
     },
     "statements_raw": {
       "income": {
         "revenue": [
-          10154.52,
-          11999.27,
-          11803.57,
-          11956.48,
-          12127.56,
-          12468.97
+          10155.52,
+          12000.45,
+          11804.73,
+          11957.66,
+          12128.75,
+          12470.19
         ],
         "costOfRevenue": [
-          5897.58,
-          6811.53,
-          6787.69,
-          7069.66,
-          6686.14,
-          6930.02
+          5898.16,
+          6812.2,
+          6788.35,
+          7070.35,
+          6686.79,
+          6930.7
         ],
         "grossProfit": [
-          4256.95,
-          5187.74,
-          5015.89,
-          4886.83,
-          5441.42,
-          5538.95
+          4257.36,
+          5188.25,
+          5016.38,
+          4887.31,
+          5441.96,
+          5539.49
         ],
         "grossProfitRatio": [
           0.0,
@@ -292489,9 +292489,9 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "generalAndAdministrativeExpenses": [
-          -285.48,
-          -349.31,
-          -335.98,
+          -285.51,
+          -349.34,
+          -336.02,
           0.0,
           0.0,
           0.0
@@ -292505,44 +292505,44 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "sellingGeneralAndAdministrativeExpenses": [
-          -285.48,
-          -349.31,
-          -335.98,
+          -285.51,
+          -349.34,
+          -336.02,
           0.0,
-          824.9,
-          857.19
+          824.99,
+          857.28
         ],
         "otherExpenses": [
-          603.23,
-          739.3,
-          724.57,
-          505.03,
+          603.28,
+          739.37,
+          724.64,
+          505.08,
           0.0,
           0.0
         ],
         "operatingExpenses": [
-          317.75,
-          389.99,
-          388.59,
-          505.03,
-          824.9,
-          857.19
+          317.78,
+          390.03,
+          388.63,
+          505.08,
+          824.99,
+          857.28
         ],
         "costAndExpenses": [
-          6215.32,
-          7201.53,
-          7176.28,
-          7574.68,
-          7511.04,
-          7787.22
+          6215.93,
+          7202.23,
+          7176.98,
+          7575.43,
+          7511.78,
+          7787.98
         ],
         "operatingIncome": [
-          3939.2,
-          4797.74,
-          4627.3,
-          4381.8,
-          4616.52,
-          4680.16
+          3939.59,
+          4798.22,
+          4627.75,
+          4382.23,
+          4616.97,
+          4680.62
         ],
         "operatingIncomeRatio": [
           0.0,
@@ -292553,12 +292553,12 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "totalOtherIncomeExpensesNet": [
-          509.23,
+          509.28,
           -54.01,
           -76.46,
-          -277.06,
-          -226.38,
-          -204.86
+          -277.09,
+          -226.4,
+          -204.88
         ],
         "interestIncome": [
           0.0,
@@ -292569,20 +292569,20 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "interestExpense": [
-          427.87,
-          384.38,
-          506.43,
-          624.97,
-          639.88,
-          612.0
+          427.91,
+          384.42,
+          506.48,
+          625.03,
+          639.94,
+          612.06
         ],
         "incomeBeforeTax": [
-          4448.43,
-          4743.73,
-          4550.84,
-          4104.74,
-          4390.14,
-          4475.3
+          4448.87,
+          4744.2,
+          4551.29,
+          4105.14,
+          4390.57,
+          4475.74
         ],
         "incomeBeforeTaxRatio": [
           0.0,
@@ -292593,20 +292593,20 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "incomeTaxExpense": [
-          1012.16,
-          1153.84,
-          605.33,
-          984.8,
-          1082.12,
-          1119.34
+          1012.26,
+          1153.96,
+          605.39,
+          984.9,
+          1082.22,
+          1119.45
         ],
         "netIncome": [
-          3436.28,
-          3589.89,
-          3945.51,
-          3119.94,
-          3308.03,
-          3355.96
+          3436.62,
+          3590.24,
+          3945.9,
+          3120.24,
+          3308.35,
+          3356.29
         ],
         "netIncomeRatio": [
           0.0,
@@ -292649,12 +292649,12 @@ window.FULL_MARKET_DATA = {
           607500000.0
         ],
         "ebitda": [
-          5997.18,
-          6340.88,
-          6331.76,
-          6056.8,
-          6389.38,
-          6340.76
+          5997.77,
+          6341.5,
+          6332.38,
+          6057.4,
+          6390.01,
+          6341.38
         ],
         "ebitdaratio": [
           0.0,
@@ -292667,12 +292667,12 @@ window.FULL_MARKET_DATA = {
       },
       "balance": {
         "cashAndCashEquivalents": [
-          587.79,
-          230.07,
-          333.18,
-          272.85,
-          254.41,
-          206.31
+          587.85,
+          230.09,
+          333.21,
+          272.88,
+          254.43,
+          206.33
         ],
         "shortTermInvestments": [
           0.0,
@@ -292683,138 +292683,138 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "cashAndShortTermInvestments": [
-          587.79,
-          230.07,
-          333.18,
-          272.85,
-          254.41,
-          206.31
+          587.85,
+          230.09,
+          333.21,
+          272.88,
+          254.43,
+          206.33
         ],
         "netReceivables": [
-          753.33,
-          993.92,
-          911.85,
-          916.76,
-          782.85,
-          921.37
+          753.4,
+          994.02,
+          911.94,
+          916.85,
+          782.93,
+          921.46
         ],
         "inventory": [
-          413.14,
-          485.39,
-          490.3,
-          505.03,
-          514.43,
-          604.19
+          413.18,
+          485.43,
+          490.34,
+          505.08,
+          514.48,
+          604.25
         ],
         "otherCurrentAssets": [
-          549.22,
-          416.65,
-          338.09,
+          549.27,
+          416.69,
+          338.12,
           63.13,
-          180.12,
-          265.96
+          180.14,
+          265.98
         ],
         "totalCurrentAssets": [
-          2403.08,
-          2256.48,
-          2166.7,
-          1837.03,
-          1731.81,
-          1997.82
+          2403.32,
+          2256.7,
+          2166.91,
+          1837.21,
+          1731.98,
+          1998.02
         ],
         "propertyPlantEquipmentNet": [
-          29195.4,
-          30867.59,
-          31592.87,
-          33980.51,
-          34753.9,
-          35428.17
+          29198.26,
+          30870.62,
+          31595.97,
+          33983.85,
+          34757.31,
+          35431.65
         ],
         "goodwill": [
           49.1,
           49.1,
           49.1,
-          49.8,
-          366.55,
+          49.81,
+          366.58,
           0.0
         ],
         "intangibleAssets": [
-          97.5,
+          97.51,
           96.1,
-          91.89,
-          89.78,
+          91.9,
+          89.79,
           0.0,
-          380.34
+          380.37
         ],
         "goodwillAndIntangibleAssets": [
-          146.6,
-          145.19,
-          140.99,
-          139.58,
-          366.55,
-          380.34
+          146.61,
+          145.21,
+          141.0,
+          139.6,
+          366.58,
+          380.37
         ],
         "longTermInvestments": [
-          83.47,
-          65.93,
-          281.97,
-          300.21,
+          83.48,
+          65.94,
+          282.0,
+          300.24,
           0.0,
           0.0
         ],
         "taxAssets": [
           0.0,
           0.0,
-          478.37,
-          483.28,
-          428.22,
-          426.65
+          478.42,
+          483.33,
+          428.26,
+          426.69
         ],
         "otherNonCurrentAssets": [
-          2217.2,
-          2200.37,
-          2280.33,
-          3287.58,
-          3757.97,
-          3936.7
+          2217.42,
+          2200.59,
+          2280.56,
+          3287.9,
+          3758.34,
+          3937.08
         ],
         "totalNonCurrentAssets": [
-          31642.67,
-          33279.09,
-          34774.53,
-          38191.17,
-          39306.64,
-          40171.85
+          31645.77,
+          33282.36,
+          34777.94,
+          38194.92,
+          39310.5,
+          40175.8
         ],
         "totalAssets": [
-          34045.75,
-          35535.57,
-          36941.23,
-          40028.2,
-          41038.45,
-          42169.67
+          34049.09,
+          35539.06,
+          36944.86,
+          40032.13,
+          41042.48,
+          42173.81
         ],
         "accountPayables": [
-          633.39,
-          669.16,
-          678.98,
-          723.17,
-          1955.38,
-          1934.67
+          633.45,
+          669.22,
+          679.05,
+          723.24,
+          1955.57,
+          1934.86
         ],
         "shortTermDebt": [
-          356.32,
-          741.41,
-          1641.33,
-          817.86,
-          634.97,
-          359.28
+          356.36,
+          741.48,
+          1641.49,
+          817.94,
+          635.04,
+          359.32
         ],
         "taxPayables": [
-          216.74,
-          272.15,
-          217.44,
-          229.37,
+          216.76,
+          272.18,
+          217.46,
+          229.39,
           0.0,
           0.0
         ],
@@ -292827,108 +292827,108 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "otherCurrentLiabilities": [
-          89.08,
-          72.95,
-          116.44,
+          89.09,
+          72.96,
+          116.45,
           68.04,
           0.0,
           0.0
         ],
         "totalCurrentLiabilities": [
-          2188.44,
-          2694.87,
-          3531.67,
-          2788.86,
-          2590.35,
-          2293.95
+          2188.66,
+          2695.14,
+          3532.02,
+          2789.14,
+          2590.61,
+          2294.18
         ],
         "longTermDebt": [
-          8400.96,
-          10080.87,
-          11316.08,
-          13837.7,
-          14448.79,
-          15256.98
+          8401.79,
+          10081.86,
+          11317.19,
+          13839.06,
+          14450.2,
+          15258.48
         ],
         "deferredRevenueNonCurrent": [
           0.0,
           11.22,
           57.52,
-          130.46,
+          130.48,
           0.0,
           0.0
         ],
         "deferredTaxLiabilitiesNonCurrent": [
-          6525.35,
-          6871.16,
-          7060.54,
-          7627.29,
-          7865.67,
-          8034.09
+          6525.99,
+          6871.83,
+          7061.23,
+          7628.04,
+          7866.45,
+          8034.88
         ],
         "otherNonCurrentLiabilities": [
-          751.93,
-          639.0,
-          655.83,
-          637.59,
-          796.17,
-          962.07
+          752.0,
+          639.06,
+          655.9,
+          637.66,
+          796.25,
+          962.16
         ],
         "totalNonCurrentLiabilities": [
-          15904.1,
-          17841.44,
-          19299.0,
-          22473.64,
-          23332.1,
-          24507.17
+          15905.66,
+          17843.19,
+          19300.89,
+          22475.85,
+          23334.39,
+          24509.57
         ],
         "totalLiabilities": [
-          18092.55,
-          20536.31,
-          22830.67,
-          25262.51,
-          25922.45,
-          26801.12
+          18094.32,
+          20538.33,
+          22832.91,
+          25264.99,
+          25924.99,
+          26803.75
         ],
         "totalDebt": [
-          9058.9,
-          11149.14,
-          13248.51,
-          14990.14,
-          15305.23,
-          15870.29
+          9059.79,
+          11150.24,
+          13249.81,
+          14991.62,
+          15306.73,
+          15871.85
         ],
         "netDebt": [
-          8471.1,
-          10919.08,
-          12915.33,
-          14717.29,
-          15050.82,
-          15663.98
+          8471.94,
+          10920.15,
+          12916.6,
+          14718.74,
+          15052.3,
+          15665.52
         ],
         "commonStock": [
-          2598.08,
-          2534.25,
-          2463.4,
-          2436.75,
-          2420.75,
-          2437.8
+          2598.33,
+          2534.5,
+          2463.65,
+          2436.99,
+          2420.98,
+          2438.04
         ],
         "retainedEarnings": [
-          14720.8,
-          13698.12,
-          13085.08,
-          12873.95,
-          13258.74,
-          13293.54
+          14722.24,
+          13699.47,
+          13086.36,
+          12875.21,
+          13260.04,
+          13294.85
         ],
         "accumulatedOtherComprehensiveIncomeLoss": [
-          -1571.89,
-          -1381.11,
-          -1598.55,
-          -715.45,
-          -747.81,
-          -559.98
+          -1572.05,
+          -1381.24,
+          -1598.7,
+          -715.52,
+          -747.88,
+          -560.03
         ],
         "otherTotalStockholdersEquity": [
           0.0,
@@ -292939,62 +292939,62 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "totalStockholdersEquity": [
-          15953.2,
-          14999.26,
-          14110.56,
-          14765.69,
-          15116.0,
-          15368.56
+          15954.77,
+          15000.74,
+          14111.94,
+          14767.14,
+          15117.48,
+          15370.07
         ],
         "totalEquity": [
-          15953.2,
-          14999.26,
-          14110.56,
-          14765.69,
-          15116.0,
-          15368.56
+          15954.77,
+          15000.74,
+          14111.94,
+          14767.14,
+          15117.48,
+          15370.07
         ],
         "totalLiabilitiesAndTotalEquity": [
-          34045.75,
-          35535.57,
-          36941.23,
-          40028.2,
-          41038.45,
-          42169.67
+          34049.09,
+          35539.06,
+          36944.86,
+          40032.13,
+          41042.48,
+          42173.81
         ],
         "totalInvestments": [
-          83.47,
-          65.93,
-          281.97,
-          300.21,
+          83.48,
+          65.94,
+          282.0,
+          300.24,
           0.0,
           0.0
         ]
       },
       "cashflow": {
         "netIncome": [
-          3436.28,
-          3589.89,
-          3945.51,
-          3119.94,
-          3308.03,
-          3355.96
+          3436.62,
+          3590.24,
+          3945.9,
+          3120.24,
+          3308.35,
+          3356.29
         ],
         "depreciationAndAmortization": [
-          1120.88,
-          1212.76,
-          1274.49,
-          1327.1,
-          1359.36,
-          1351.71
+          1120.99,
+          1212.88,
+          1274.61,
+          1327.23,
+          1359.49,
+          1351.84
         ],
         "deferredIncomeTax": [
-          359.83,
-          283.38,
-          -202.01,
-          227.96,
-          234.08,
-          262.36
+          359.87,
+          283.4,
+          -202.03,
+          227.99,
+          234.11,
+          262.39
         ],
         "stockBasedCompensation": [
           0.0,
@@ -293005,20 +293005,20 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "changeInWorkingCapital": [
-          103.11,
-          -288.29,
+          103.12,
+          -288.31,
           -37.18,
-          64.53,
-          327.3,
-          240.54
+          64.54,
+          327.33,
+          240.57
         ],
         "accountsReceivables": [
           -15.43,
-          -203.41,
-          49.8,
-          143.79,
+          -203.43,
+          49.81,
+          143.81,
           64.48,
-          -99.22
+          -99.23
         ],
         "inventory": [
           -4.91,
@@ -293029,52 +293029,52 @@ window.FULL_MARKET_DATA = {
           -24.05
         ],
         "accountsPayables": [
-          98.9,
+          98.91,
           -6.31,
-          -133.97,
-          -75.05,
-          154.19,
-          224.32
+          -133.99,
+          -75.06,
+          154.2,
+          224.34
         ],
         "otherWorkingCapital": [
           24.55,
           -21.04,
-          59.62,
+          59.63,
           0.0,
-          125.45,
-          139.49
+          125.47,
+          139.51
         ],
         "otherNonCashItems": [
-          -130.46,
-          -121.35,
-          -95.39,
-          -40.68,
-          -288.46,
-          -287.86
+          -130.48,
+          -121.36,
+          -95.4,
+          -40.69,
+          -288.49,
+          -287.89
         ],
         "netCashProvidedByOperatingActivities": [
-          4889.63,
-          4676.4,
-          4885.42,
-          4698.84,
-          4940.31,
-          4922.7
+          4890.11,
+          4676.86,
+          4885.9,
+          4699.3,
+          4940.8,
+          4923.19
         ],
         "investmentsInPropertyPlantAndEquipment": [
-          -2027.82,
-          -1928.92,
-          -2235.44,
-          -2489.36,
-          -2563.72,
-          -2432.84
+          -2028.02,
+          -1929.11,
+          -2235.66,
+          -2489.6,
+          -2563.97,
+          -2433.08
         ],
         "acquisitionsNet": [
           -15.43,
           0.0,
-          -273.56,
+          -273.58,
           0.0,
           0.0,
-          59.07
+          59.08
         ],
         "purchasesOfInvestments": [
           0.0,
@@ -293125,12 +293125,12 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "commonStockRepurchased": [
-          -1127.89,
-          -3376.66,
-          -3214.63,
-          -1858.78,
-          -1485.81,
-          -2114.11
+          -1128.0,
+          -3376.99,
+          -3214.94,
+          -1858.96,
+          -1485.95,
+          -2114.31
         ],
         "dividendsPaid": [
           0.0,
@@ -293165,44 +293165,44 @@ window.FULL_MARKET_DATA = {
           -6.98
         ],
         "netChangeInCash": [
-          169.04,
-          -355.62,
+          169.06,
+          -355.66,
           63.13,
-          -366.85,
+          -366.88,
           -13.78,
-          -252.25
+          -252.27
         ],
         "cashAtEndOfPeriod": [
-          940.61,
-          584.99,
-          648.12,
-          281.27,
-          254.41,
-          1031.34
+          940.7,
+          585.05,
+          648.18,
+          281.3,
+          254.43,
+          1031.44
         ],
         "cashAtBeginningOfPeriod": [
-          771.57,
-          940.61,
-          584.99,
-          648.12,
-          268.19,
-          1283.58
+          771.64,
+          940.7,
+          585.05,
+          648.18,
+          268.22,
+          1283.71
         ],
         "capitalExpenditure": [
-          -2027.82,
-          -1928.92,
-          -2235.44,
-          -2489.36,
-          -2563.72,
-          -2432.84
+          -2028.02,
+          -1929.11,
+          -2235.66,
+          -2489.6,
+          -2563.97,
+          -2433.08
         ],
         "freeCashFlow": [
-          2861.81,
-          2747.48,
-          2649.98,
-          2209.49,
-          2376.59,
-          2489.86
+          2862.09,
+          2747.75,
+          2650.24,
+          2209.7,
+          2376.83,
+          2490.1
         ]
       }
     },
@@ -293226,9 +293226,9 @@ window.FULL_MARKET_DATA = {
     "g2": 3.5,
     "g": 2.25,
     "wacc": 8.1,
-    "ev": 87669.6,
-    "fmp_official_ev": 87669.6,
-    "dcf_model_ev": 48589.9,
+    "ev": 87678.2,
+    "fmp_official_ev": 87678.2,
+    "dcf_model_ev": 48596.4,
     "ev_to_ebitda": 13.8,
     "debt_to_ebitda": 2.5,
     "net_debt_to_ebitda": 2.47,
@@ -293298,9 +293298,9 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 54.43,
-    "default_fair_val": 54.43,
-    "premium_pct": 116.4,
+    "fair_val": 54.44,
+    "default_fair_val": 54.44,
+    "premium_pct": 116.3,
     "is_undervalued": false,
     "pe_trailing": 21.2,
     "pe_forward": 18.7,
@@ -293309,7 +293309,7 @@ window.FULL_MARKET_DATA = {
     "div_yield": 2.17,
     "ps_ratio": 7.2,
     "fcf_to_ev": 5.12,
-    "fcf_to_mcap": 3.49,
+    "fcf_to_mcap": 3.5,
     "liab_to_assets": 63.6,
     "cash_to_assets": 0.5,
     "current_ratio": 0.87,
@@ -305062,95 +305062,95 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 2183700000,
     "shares_display": "2,183.70 M",
     "mcap": 101760.4,
-    "debt": 78652.1,
-    "cash": 2005.5,
+    "debt": 78659.9,
+    "cash": 2005.7,
     "short_term_investments": 0.0,
-    "cash_and_short_term": 2005.5,
-    "net_debt": 76646.6,
-    "fcf0": 1122.3,
+    "cash_and_short_term": 2005.7,
+    "net_debt": 76654.2,
+    "fcf0": 1122.4,
     "real_history": {
       "revenue": [
-        33016.8,
-        37392.2,
-        30616.5,
-        37507.3,
-        45728.7,
-        64817.7
+        33020.0,
+        37395.9,
+        30619.5,
+        37511.0,
+        45733.2,
+        64824.0
       ],
       "net_income": [
-        4341.1,
-        2106.4,
-        4342.5,
-        3816.5,
-        5254.4,
-        4765.6
+        4341.5,
+        2106.6,
+        4342.9,
+        3816.8,
+        5254.9,
+        4766.1
       ],
       "gross_profit": [
-        10182.6,
-        11505.5,
-        12394.2,
-        13513.6,
-        15078.5,
-        18062.1
+        10183.6,
+        11506.6,
+        12395.4,
+        13515.0,
+        15080.0,
+        18063.9
       ],
       "operating_income": [
-        5474.6,
-        3632.0,
-        6068.0,
-        6768.0,
-        7686.2,
-        9101.8
+        5475.2,
+        3632.3,
+        6068.6,
+        6768.7,
+        7687.0,
+        9102.7
       ],
       "cfo": [
-        6492.4,
-        7877.0,
-        9960.9,
-        8837.9,
-        8606.5,
-        8720.1
+        6493.0,
+        7877.8,
+        9961.9,
+        8838.8,
+        8607.3,
+        8721.0
       ],
       "capex": [
-        -5676.6,
-        -3381.6,
-        -3420.1,
-        -4860.9,
-        -6428.6,
-        -7597.8
+        -5677.2,
+        -3381.9,
+        -3420.5,
+        -4861.3,
+        -6429.2,
+        -7598.6
       ],
       "fcf": [
         815.8,
-        4495.4,
-        6540.8,
-        3977.1,
-        2177.9,
-        1122.3
+        4495.9,
+        6541.4,
+        3977.5,
+        2178.1,
+        1122.4
       ]
     },
     "statements_raw": {
       "income": {
         "revenue": [
-          33016.76,
-          37392.24,
-          30616.48,
-          37507.28,
-          45728.67,
-          64817.68
+          33020.0,
+          37395.92,
+          30619.49,
+          37510.96,
+          45733.17,
+          64824.05
         ],
         "costOfRevenue": [
-          22834.18,
-          25886.78,
-          18222.31,
-          23993.63,
-          30650.15,
-          46755.59
+          22836.42,
+          25889.32,
+          18224.1,
+          23995.99,
+          30653.16,
+          46760.18
         ],
         "grossProfit": [
-          10182.58,
-          11505.47,
-          12394.17,
-          13513.65,
-          15078.52,
-          18062.09
+          10183.58,
+          11506.6,
+          12395.39,
+          13514.97,
+          15080.01,
+          18063.87
         ],
         "grossProfitRatio": [
           0.0,
@@ -305169,9 +305169,9 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "generalAndAdministrativeExpenses": [
-          -105.21,
-          -167.64,
-          -94.69,
+          -105.22,
+          -167.66,
+          -94.7,
           0.0,
           0.0,
           0.0
@@ -305185,44 +305185,44 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "sellingGeneralAndAdministrativeExpenses": [
-          -105.21,
-          -167.64,
-          -94.69,
+          -105.22,
+          -167.66,
+          -94.7,
           0.0,
           0.0,
           0.0
         ],
         "otherExpenses": [
-          4813.18,
-          8041.13,
-          6420.84,
-          6745.6,
-          7392.31,
-          8960.28
+          4813.65,
+          8041.92,
+          6421.47,
+          6746.26,
+          7393.04,
+          8961.16
         ],
         "operatingExpenses": [
-          4707.96,
-          7873.49,
-          6326.15,
-          6745.6,
-          7392.31,
-          8960.28
+          4708.42,
+          7874.26,
+          6326.77,
+          6746.26,
+          7393.04,
+          8961.16
         ],
         "costAndExpenses": [
-          27542.14,
-          33760.27,
-          24548.46,
-          30739.23,
-          38042.46,
-          55715.87
+          27544.84,
+          33763.58,
+          24550.87,
+          30742.25,
+          38046.2,
+          55721.34
         ],
         "operatingIncome": [
-          5474.62,
-          3631.98,
-          6068.02,
-          6768.05,
-          7686.21,
-          9101.81
+          5475.16,
+          3632.33,
+          6068.62,
+          6768.71,
+          7686.97,
+          9102.71
         ],
         "operatingIncomeRatio": [
           0.0,
@@ -305234,11 +305234,11 @@ window.FULL_MARKET_DATA = {
         ],
         "totalOtherIncomeExpensesNet": [
           -53.31,
-          -446.11,
-          -541.5,
-          -1648.35,
-          -817.16,
-          -2870.73
+          -446.15,
+          -541.55,
+          -1648.51,
+          -817.24,
+          -2871.01
         ],
         "interestIncome": [
           0.0,
@@ -305249,20 +305249,20 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "interestExpense": [
-          1897.35,
-          2261.39,
-          2680.84,
-          3086.97,
-          3501.51,
-          1641.69
+          1897.54,
+          2261.61,
+          2681.11,
+          3087.27,
+          3501.86,
+          1641.86
         ],
         "incomeBeforeTax": [
-          5421.31,
-          3185.87,
-          5526.52,
-          5119.7,
-          6869.05,
-          6231.09
+          5421.84,
+          3186.18,
+          5527.07,
+          5120.2,
+          6869.73,
+          6231.7
         ],
         "incomeBeforeTaxRatio": [
           0.0,
@@ -305273,20 +305273,20 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "incomeTaxExpense": [
-          992.52,
-          1125.09,
-          1277.29,
-          1169.98,
-          1405.65,
-          1325.88
+          992.61,
+          1125.2,
+          1277.42,
+          1170.09,
+          1405.79,
+          1326.01
         ],
         "netIncome": [
-          4341.12,
-          2106.38,
-          4342.52,
-          3816.45,
-          5254.37,
-          4765.62
+          4341.54,
+          2106.58,
+          4342.95,
+          3816.83,
+          5254.89,
+          4766.09
         ],
         "netIncomeRatio": [
           0.0,
@@ -305329,12 +305329,12 @@ window.FULL_MARKET_DATA = {
           2193258000.0
         ],
         "ebitda": [
-          10020.55,
-          8475.31,
-          11467.59,
-          11830.93,
-          14341.33,
-          11466.4
+          10021.54,
+          8476.15,
+          11468.72,
+          11832.09,
+          14342.74,
+          11467.53
         ],
         "ebitdaratio": [
           0.0,
@@ -305347,12 +305347,12 @@ window.FULL_MARKET_DATA = {
       },
       "balance": {
         "cashAndCashEquivalents": [
-          200.61,
-          603.93,
-          4139.11,
-          1264.67,
-          1052.92,
-          2005.51
+          200.63,
+          603.99,
+          4139.51,
+          1264.79,
+          1053.02,
+          2005.71
         ],
         "shortTermInvestments": [
           0.0,
@@ -305363,172 +305363,172 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "cashAndShortTermInvestments": [
-          200.61,
-          603.93,
-          4139.11,
-          1264.67,
-          1052.92,
-          2005.51
+          200.63,
+          603.99,
+          4139.51,
+          1264.79,
+          1053.02,
+          2005.71
         ],
         "netReceivables": [
-          3837.49,
-          4245.72,
-          3396.3,
-          5180.02,
-          6897.85,
-          6972.16
+          3837.87,
+          4246.14,
+          3396.63,
+          5180.53,
+          6898.53,
+          6972.85
         ],
         "inventory": [
-          1171.38,
-          1581.71,
-          1037.41,
-          1043.72,
-          1560.12,
-          1589.85
+          1171.49,
+          1581.87,
+          1037.51,
+          1043.82,
+          1560.28,
+          1590.01
         ],
         "otherCurrentAssets": [
-          1074.58,
-          2088.84,
-          1527.0,
-          1744.44,
-          -6815.08,
-          1861.72
+          1074.69,
+          2089.05,
+          1527.15,
+          1744.61,
+          -6815.75,
+          1861.9
         ],
         "totalCurrentAssets": [
-          6284.06,
-          8520.2,
-          10099.81,
-          9232.85,
-          2695.81,
-          12429.24
+          6284.68,
+          8521.04,
+          10100.8,
+          9233.76,
+          2696.08,
+          12430.46
         ],
         "propertyPlantEquipmentNet": [
-          70189.45,
-          73270.81,
-          73397.77,
-          91959.57,
-          126655.93,
-          137213.84
+          70196.35,
+          73278.01,
+          73404.98,
+          91968.6,
+          126668.37,
+          137227.31
         ],
         "goodwill": [
-          22989.19,
-          22754.21,
-          22338.97,
-          25672.14,
-          33958.94,
-          36098.15
+          22991.45,
+          22756.45,
+          22341.16,
+          25674.66,
+          33962.27,
+          36101.7
         ],
         "intangibleAssets": [
-          2811.31,
-          2818.32,
-          2480.94,
-          3217.43,
-          3841.12,
-          3958.19
+          2811.59,
+          2818.6,
+          2481.18,
+          3217.75,
+          3841.5,
+          3958.58
         ],
         "goodwillAndIntangibleAssets": [
-          25800.5,
-          25572.54,
-          24819.91,
-          28889.57,
-          37800.06,
-          40056.34
+          25803.03,
+          25575.05,
+          24822.35,
+          28892.41,
+          37803.77,
+          40060.27
         ],
         "longTermInvestments": [
-          9345.78,
-          11177.9,
-          11779.02,
-          14513.18,
-          21905.69,
-          22258.95
+          9346.7,
+          11179.0,
+          11780.18,
+          14514.6,
+          21907.84,
+          22261.13
         ],
         "taxAssets": [
-          342.3,
-          331.07,
-          239.19,
-          558.33,
+          342.33,
+          331.1,
+          239.21,
+          558.39,
           0.0,
-          936.97
+          937.06
         ],
         "otherNonCurrentAssets": [
-          6483.27,
-          7108.94,
-          6143.08,
-          8439.54,
-          -21905.69,
-          -50412.43
+          6483.9,
+          7109.64,
+          6143.68,
+          8440.37,
+          -21907.84,
+          -50417.38
         ],
         "totalNonCurrentAssets": [
-          112161.3,
-          117461.26,
-          116378.97,
-          144360.2,
-          164455.99,
-          150053.66
+          112172.31,
+          117472.8,
+          116390.4,
+          144374.37,
+          164472.14,
+          150068.4
         ],
         "totalAssets": [
-          118445.36,
-          125981.47,
-          126478.78,
-          153593.05,
-          210270.33,
-          162482.9
+          118456.99,
+          125993.84,
+          126491.2,
+          153608.13,
+          210290.98,
+          162498.86
         ],
         "accountPayables": [
-          3135.37,
-          4329.19,
-          3021.74,
-          4952.06,
-          7307.85,
-          7143.31
+          3135.68,
+          4329.62,
+          3022.03,
+          4952.54,
+          7308.57,
+          7144.01
         ],
         "shortTermDebt": [
-          5386.24,
-          5640.16,
-          4548.04,
-          5792.36,
-          5879.58,
-          5807.8
+          5386.77,
+          5640.71,
+          4548.48,
+          5792.93,
+          5880.16,
+          5808.37
         ],
         "taxPayables": [
-          335.28,
-          479.07,
-          418.05,
-          672.67,
+          335.31,
+          479.12,
+          418.09,
+          672.73,
           0.0,
           0.0
         ],
         "deferredRevenue": [
           0.0,
-          740.7,
-          825.58,
-          751.93,
+          740.78,
+          825.66,
+          752.0,
           0.0,
           0.0
         ],
         "otherCurrentLiabilities": [
-          1544.54,
-          1161.56,
-          1340.42,
-          2189.85,
-          -7437.78,
-          4287.81
+          1544.69,
+          1161.67,
+          1340.55,
+          2190.06,
+          -7438.51,
+          4288.23
         ],
         "totalCurrentLiabilities": [
-          12786.27,
-          14239.62,
-          12229.34,
-          16702.32,
-          5869.96,
-          17238.91
+          12787.52,
+          14241.02,
+          12230.54,
+          16703.96,
+          5870.53,
+          17240.61
         ],
         "longTermDebt": [
-          47669.52,
-          51161.21,
-          52406.94,
-          65522.88,
-          95327.36,
-          72844.35
+          47674.2,
+          51166.23,
+          52412.09,
+          65529.31,
+          95336.72,
+          72851.5
         ],
         "deferredRevenueNonCurrent": [
           0.0,
@@ -305539,76 +305539,76 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "deferredTaxLiabilitiesNonCurrent": [
-          8198.95,
-          9666.33,
-          10543.11,
-          13745.12,
-          19520.32,
-          15192.16
+          8199.76,
+          9667.28,
+          10544.15,
+          13746.47,
+          19522.24,
+          15193.65
         ],
         "otherNonCurrentLiabilities": [
-          5342.75,
-          6445.39,
-          6069.43,
-          9299.49,
-          25028.4,
-          8921.78
+          5343.28,
+          6446.02,
+          6070.02,
+          9300.4,
+          25030.86,
+          8922.65
         ],
         "totalNonCurrentLiabilities": [
-          61211.22,
-          67272.93,
-          69019.48,
-          88567.48,
-          140952.1,
-          96954.41
+          61217.23,
+          67279.54,
+          69026.26,
+          88576.18,
+          140965.94,
+          96963.94
         ],
         "totalLiabilities": [
-          73997.49,
-          81512.55,
-          81248.82,
-          105269.8,
-          146822.06,
-          114193.33
+          74004.76,
+          81520.56,
+          81256.8,
+          105280.14,
+          146836.48,
+          114204.54
         ],
         "totalDebt": [
-          53055.76,
-          56801.36,
-          56954.98,
-          71315.24,
-          102403.26,
-          78652.14
+          53060.97,
+          56806.94,
+          56960.57,
+          71322.25,
+          102413.32,
+          78659.87
         ],
         "netDebt": [
-          52855.15,
-          56197.44,
-          52815.87,
-          70050.57,
-          101350.35,
-          76646.63
+          52860.34,
+          56202.96,
+          52821.06,
+          70057.45,
+          101360.3,
+          76654.16
         ],
         "commonStock": [
-          45451.61,
-          45424.26,
-          48524.55,
-          50318.8,
-          69176.75,
-          50466.8
+          45456.08,
+          45428.72,
+          48529.32,
+          50323.74,
+          69183.54,
+          50471.75
         ],
         "retainedEarnings": [
-          -7707.95,
-          -10862.26,
-          -12004.88,
-          -14060.76,
-          -20484.69,
-          -14262.77
+          -7708.71,
+          -10863.33,
+          -12006.06,
+          -14062.14,
+          -20486.71,
+          -14264.17
         ],
         "accumulatedOtherComprehensiveIncomeLoss": [
-          -768.76,
-          2469.01,
-          1615.38,
-          4990.64,
-          4505.21,
-          4722.69
+          -768.84,
+          2469.26,
+          1615.54,
+          4991.13,
+          4505.65,
+          4723.16
         ],
         "otherTotalStockholdersEquity": [
           0.0,
@@ -305619,62 +305619,62 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "totalStockholdersEquity": [
-          42664.85,
-          42006.21,
-          43105.35,
-          46223.88,
-          59992.13,
-          45837.4
+          42669.04,
+          42010.34,
+          43109.58,
+          46228.42,
+          59998.02,
+          45841.9
         ],
         "totalEquity": [
-          44447.87,
-          44468.92,
-          45229.96,
-          48323.24,
-          63448.27,
-          48289.58
+          44452.24,
+          44473.28,
+          45234.4,
+          48327.99,
+          63454.5,
+          48294.32
         ],
         "totalLiabilitiesAndTotalEquity": [
-          118445.36,
-          125981.47,
-          126478.78,
-          153593.05,
-          210270.33,
-          162482.9
+          118456.99,
+          125993.84,
+          126491.2,
+          153608.13,
+          210290.98,
+          162498.86
         ],
         "totalInvestments": [
-          9345.78,
-          11177.9,
-          11779.02,
-          14513.18,
-          21905.69,
-          22258.95
+          9346.7,
+          11179.0,
+          11780.18,
+          14514.6,
+          21907.84,
+          22261.13
         ]
       },
       "cashflow": {
         "netIncome": [
-          4428.79,
-          2060.79,
-          4249.23,
-          3949.72,
-          5463.4,
-          4437.21
+          4429.23,
+          2060.99,
+          4249.65,
+          3950.11,
+          5463.93,
+          4437.65
         ],
         "depreciationAndAmortization": [
-          2701.89,
-          3028.05,
-          3235.67,
-          3624.26,
-          3970.76,
-          4014.95
+          2702.15,
+          3028.35,
+          3235.99,
+          3624.62,
+          3971.15,
+          4015.35
         ],
         "deferredIncomeTax": [
-          765.25,
-          671.26,
-          996.02,
-          504.32,
-          718.96,
-          483.28
+          765.33,
+          671.33,
+          996.12,
+          504.37,
+          719.03,
+          483.33
         ],
         "stockBasedCompensation": [
           0.0,
@@ -305685,81 +305685,81 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "changeInWorkingCapital": [
-          -1028.29,
+          -1028.39,
           -8.42,
-          1620.99,
-          -93.29,
-          -985.5,
-          -877.48
+          1621.15,
+          -93.3,
+          -985.6,
+          -877.57
         ],
         "accountsReceivables": [
-          -749.12,
-          -389.29,
-          801.73,
-          -1165.07,
-          -364.04,
+          -749.2,
+          -389.33,
+          801.81,
+          -1165.18,
+          -364.08,
           0.0
         ],
         "inventory": [
-          -82.77,
-          -420.15,
-          535.19,
-          124.15,
-          -116.44,
+          -82.78,
+          -420.19,
+          535.24,
+          124.16,
+          -116.45,
           0.0
         ],
         "accountsPayables": [
-          493.8,
-          421.56,
-          -1127.89,
-          964.46,
-          268.65,
+          493.85,
+          421.6,
+          -1128.0,
+          964.55,
+          268.67,
           0.0
         ],
         "otherWorkingCapital": [
-          -690.2,
-          379.47,
-          1411.97,
-          -16.83,
-          -773.67,
-          -877.48
+          -690.27,
+          379.51,
+          1412.11,
+          -16.84,
+          -773.75,
+          -877.57
         ],
         "otherNonCashItems": [
-          -375.26,
-          2125.32,
-          -140.99,
-          852.93,
-          -561.14,
-          662.14
+          -375.3,
+          2125.53,
+          -141.0,
+          853.02,
+          -561.19,
+          662.21
         ],
         "netCashProvidedByOperatingActivities": [
-          6492.39,
-          7877.0,
-          9960.93,
-          8837.95,
-          8606.48,
-          8720.11
+          6493.02,
+          7877.77,
+          9961.91,
+          8838.82,
+          8607.32,
+          8720.97
         ],
         "investmentsInPropertyPlantAndEquipment": [
-          -5676.63,
-          -3381.57,
-          -3420.15,
-          -4860.87,
-          -6428.56,
-          -7597.83
+          -5677.19,
+          -3381.9,
+          -3420.48,
+          -4861.35,
+          -6429.19,
+          -7598.58
         ],
         "acquisitionsNet": [
-          -2654.89,
-          -214.64,
-          -669.16,
-          -7538.91,
-          244.8,
-          153.61
+          -2655.15,
+          -214.66,
+          -669.22,
+          -7539.65,
+          244.82,
+          153.63
         ],
         "purchasesOfInvestments": [
-          -448.91,
-          -730.18,
-          -895.02,
+          -448.96,
+          -730.25,
+          -895.11,
           0.0,
           0.0,
           0.0
@@ -305806,8 +305806,8 @@ window.FULL_MARKET_DATA = {
         ],
         "commonStockRepurchased": [
           0.0,
-          -105.92,
-          -87.68,
+          -105.93,
+          -87.69,
           0.0,
           0.0,
           0.0
@@ -305839,50 +305839,50 @@ window.FULL_MARKET_DATA = {
         "effectOfForexChangesOnCash": [
           -3.51,
           38.58,
-          -151.51,
-          164.13,
+          -151.52,
+          164.15,
           -32.97,
           37.88
         ],
         "netChangeInCash": [
-          -119.24,
-          411.74,
-          3561.83,
-          -2795.18,
-          -476.97,
-          554.13
+          -119.25,
+          411.78,
+          3562.18,
+          -2795.45,
+          -477.02,
+          554.18
         ],
         "cashAtEndOfPeriod": [
-          224.46,
-          636.19,
-          4198.03,
-          1402.85,
-          925.88,
-          5017.99
+          224.48,
+          636.25,
+          4198.44,
+          1402.99,
+          925.97,
+          5018.48
         ],
         "cashAtBeginningOfPeriod": [
-          343.7,
-          224.46,
-          636.19,
-          4198.03,
-          1402.85,
-          4463.87
+          343.73,
+          224.48,
+          636.25,
+          4198.44,
+          1402.99,
+          4464.3
         ],
         "capitalExpenditure": [
-          -5676.63,
-          -3381.57,
-          -3420.15,
-          -4860.87,
-          -6428.56,
-          -7597.83
+          -5677.19,
+          -3381.9,
+          -3420.48,
+          -4861.35,
+          -6429.19,
+          -7598.58
         ],
         "freeCashFlow": [
-          815.76,
-          4495.43,
-          6540.78,
-          3977.08,
-          2177.92,
-          1122.28
+          815.84,
+          4495.87,
+          6541.43,
+          3977.47,
+          2178.14,
+          1122.39
         ]
       }
     },
@@ -305906,9 +305906,9 @@ window.FULL_MARKET_DATA = {
     "g2": 3.5,
     "g": 2.25,
     "wacc": 6.15,
-    "ev": 194420.1,
-    "fmp_official_ev": 194420.1,
-    "dcf_model_ev": 32618.1,
+    "ev": 194439.2,
+    "fmp_official_ev": 194439.2,
+    "dcf_model_ev": 32621.9,
     "ev_to_ebitda": 17.0,
     "debt_to_ebitda": 6.86,
     "net_debt_to_ebitda": 6.68,
