@@ -2191,8 +2191,19 @@
     const container = document.getElementById('tradingview_widget_container');
     if (!container) return;
     container.innerHTML = '';
-    const cleanTicker = ticker.replace('.', '');
-    const cleanExch = (exchange === 'NASDAQ' || exchange === 'NYSE' || exchange === 'AMEX') ? exchange : 'NASDAQ';
+    
+    let tvSymbol = "";
+    if (ticker.endsWith('.HK') || exchange === 'HKEX') {
+      // 港股 TradingView 格式：HKEX:700 或 HKEX:0700
+      const hkNum = ticker.replace('.HK', '').replace(/^0+/, '') || ticker.replace('.HK', '');
+      tvSymbol = `HKEX:${hkNum}`;
+    } else {
+      // 美股 TradingView 格式：NASDAQ:NVDA / NYSE:BRK.B -> NYSE:BRKB
+      const cleanTicker = ticker.replace('.', '');
+      const cleanExch = (exchange === 'NASDAQ' || exchange === 'NYSE' || exchange === 'AMEX') ? exchange : 'NASDAQ';
+      tvSymbol = `${cleanExch}:${cleanTicker}`;
+    }
+
     const iframe = document.createElement('iframe');
     iframe.style.width = '100%';
     iframe.style.height = '100%';
@@ -2200,7 +2211,7 @@
     iframe.setAttribute('allowtransparency', 'true');
     iframe.setAttribute('scrolling', 'no');
     iframe.setAttribute('allowfullscreen', 'true');
-    iframe.src = `https://s.tradingview.com/widgetembed/?frameElementId=tradingview_widget&symbol=${encodeURIComponent(cleanExch + ':' + cleanTicker)}&interval=D&theme=dark&style=1&timezone=Asia%2FHong_Kong&locale=zh_TW`;
+    iframe.src = `https://s.tradingview.com/widgetembed/?frameElementId=tradingview_widget&symbol=${encodeURIComponent(tvSymbol)}&interval=D&theme=dark&style=1&timezone=Asia%2FHong_Kong&locale=zh_TW`;
     container.appendChild(iframe);
   }
 
@@ -2344,10 +2355,12 @@
 
     if (thead) {
       if (period === 'annual') {
+        const trendTitle = (currentLang === 'en') ? '5Y/TTM Trend' : '歷史趨勢';
+        const metricTitle = (currentLang === 'en') ? 'Ratio Metric / Dimension' : '比率指標 / 財務維度';
         thead.innerHTML = `
-          <th style="text-align: left; width: 320px;" data-i18n="th_ratio_metric">比率指標 / 財務維度</th>
+          <th style="text-align: left; width: 320px;">${metricTitle}</th>
           <th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>TTM</th>
-          <th style="text-align: center; width: 90px;" data-i18n="th_trend">歷史趨勢</th>
+          <th style="text-align: center; width: 90px;">${trendTitle}</th>
         `;
       } else {
         const qPeriods = qRaw.periods || [];
@@ -2389,7 +2402,10 @@
         const isQ4 = isQuarter && String(p).toUpperCase().includes('Q4') && (pIdx < periods.length - 1);
         theadHtml += `<th class="${isQ4 ? 'year-divider-cell' : ''}">${p}</th>`;
       });
-      theadHtml += `<th style="text-align: center; width: 85px;" data-i18n="th_trend">${isQuarter ? '近 20 季趨勢' : '近 5 年/TTM 趨勢'}</th>`;
+      const trendHeaderTitle = isEn 
+        ? (isQuarter ? 'Last 20Q Trend' : '5Y/TTM Trend') 
+        : (isQuarter ? '近 20 季趨勢' : '近 5 年/TTM 趨勢');
+      theadHtml += `<th style="text-align: center; width: 85px;">${trendHeaderTitle}</th>`;
       theadRow.innerHTML = theadHtml;
     }
 
