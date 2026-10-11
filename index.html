@@ -686,7 +686,7 @@
 
     <!-- 企業 Logo 與核心資訊卡片 -->
     <div class="company-profile-card">
-      <img id="cmp-logo-img" src="" alt="Logo" class="company-logo" onerror="this.src='https://assets.financialmodelingprep.com/symbol/default.png'">
+      <img id="cmp-logo-img" src="" alt="Logo" class="company-logo" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'68\' height=\'68\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%2394a3b8\' stroke-width=\'1.5\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'4\'/><path d=\'M3 9h18M9 21V9\'/></svg>';">
       <div style="flex: 1;">
         <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 6px;">
           <h2 id="cmp-full-name" style="font-size: 18px; color: #fff;">NVIDIA Corporation</h2>
@@ -2322,23 +2322,6 @@ function renderStockSplits(s) {
   }
 
 // 完整三大財務報表渲染引擎：100% 綁定官方 FMP 原生欄位數據 ($M / 比率)
-  function renderFinancialsSubPage(stockObj) {
-    const s = stockObj || stockUniverse[activeCompanyTicker] || stockUniverse['NVDA'];
-    const tbody = document.getElementById('cmp-fin-tbody');
-    if (!tbody || !s) return;
-
-    const isEn = (currentLang === 'en');
-    const rawStmts = s.statements_raw || {};
-    const curStmt = rawStmts[activeStatementType] || {};
-
-    // 安全讀取序列值 (若為空則返回 6 個 0.0)
-    function getSeries(field) {
-      if (curStmt[field] && Array.isArray(curStmt[field]) && curStmt[field].length === 6) {
-        return curStmt[field];
-      }
-      return [0.0, 0.0, 0.0, 0.0, 0.0, 0.0];
-    }
-
     let sections = [];
 
     // ========================================================
