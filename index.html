@@ -858,6 +858,9 @@
           <button class="stmt-btn active" id="btn-stmt-income" onclick="switchFinancialStatement('income')" data-i18n="btn_stmt_income">1. 損益表 (Income Statement)</button>
           <button class="stmt-btn" id="btn-stmt-balance" onclick="switchFinancialStatement('balance')" data-i18n="btn_stmt_balance">2. 資產負債表 (Balance Sheet)</button>
           <button class="stmt-btn" id="btn-stmt-cashflow" onclick="switchFinancialStatement('cashflow')" data-i18n="btn_stmt_cashflow">3. 現金流量表 (Cash Flow)</button>
+        <div style="margin-left: auto; display: flex; gap: 8px;">
+          <button class="stmt-btn active" id="btn-stmt-period-annual" onclick="switchStatementPeriod('annual')">年度 (5年 + TTM)</button>
+          <button class="stmt-btn" id="btn-stmt-period-quarterly" onclick="switchStatementPeriod('quarterly')">季度 (近 20 季)</button>
         </div>
 
         <div class="table-scroll-wrapper" style="overflow-x: auto; max-height: 520px; overflow-y: auto;">
@@ -1210,6 +1213,14 @@
 
   let currentLang = localStorage.getItem('RADAR_LANG') || 'zh';
   let activeStatementType = 'income';
+  let activeStatementPeriod = 'annual'; // 'annual' | 'quarterly'
+
+  function switchStatementPeriod(period) {
+    activeStatementPeriod = period;
+    document.getElementById('btn-stmt-period-annual').className = (period === 'annual') ? 'stmt-btn active' : 'stmt-btn';
+    document.getElementById('btn-stmt-period-quarterly').className = (period === 'quarterly') ? 'stmt-btn active' : 'stmt-btn';
+    renderFinancialsSubPage(stockUniverse[activeCompanyTicker]);
+  }
 
   const I18N_DICT = {
     zh: {
@@ -2333,17 +2344,38 @@
 
     const isEn = (currentLang === 'en');
     const rawStmts = s.statements_raw || {};
-    const curStmt = rawStmts[activeStatementType] || {};
-    const incStmt = rawStmts['income'] || {};
+    const isQuarter = (activeStatementPeriod === 'quarterly');
+    const qRaw = rawStmts.quarterly_raw || {};
+    const curStmt = isQuarter ? (qRaw[activeStatementType] || {}) : (rawStmts[activeStatementType] || {});
+    const incStmt = isQuarter ? (qRaw.income || {}) : (rawStmts.income || {});
 
-    function getSeries(field) {
-      if (curStmt[field] && Array.isArray(curStmt[field]) && curStmt[field].length === 6) {
-        return curStmt[field];
-      }
-      return [0.0, 0.0, 0.0, 0.0, 0.0, 0.0];
+    // 動態更新表頭
+    const theadRow = document.getElementById('cmp-fin-thead');
+    const periods = isQuarter ? (qRaw.periods || []) : ['2021', '2022', '2023', '2024', '2025', 'TTM'];
+    if (theadRow) {
+      let theadHtml = `<th style="text-align: left; width: 280px;" data-i18n="th_fin_item">會計項目 / 財務指標 ($M)</th>`;
+      periods.forEach(p => { theadHtml += `<th>${p}</th>`; });
+      theadHtml += `<th style="text-align: center; width: 85px;" data-i18n="th_trend">${isQuarter ? '近 20 季趨勢' : '近 5 年/TTM 趨勢'}</th>`;
+      theadRow.innerHTML = theadHtml;
     }
 
+    function getSeries(field) {
+      if (curStmt[field] && Array.isArray(curStmt[field])) {
+        return curStmt[field];
+      }
+      return Array(periods.length).fill(0.0);
+    }
+
+    // 季度視角：各項利潤率直接除以當季營收計算
     function getRatioSeries(field, numeratorField, denominatorField) {
+      if (isQuarter) {
+        const numArr = incStmt[numeratorField] || [];
+        const denArr = incStmt[denominatorField] || [];
+        return numArr.map((n, i) => {
+          const d = denArr[i];
+          return (d && Math.abs(d) > 0.01) ? (n / d) * 100 : 0.0;
+        });
+      }
       let raw = getSeries(field).map(v => v > 1 ? v : v * 100);
       const isAllZero = raw.every(v => Math.abs(v) < 0.0001);
       if (isAllZero && numeratorField && denominatorField) {
@@ -2432,9 +2464,9 @@
             { 
               nameZh: "商業應收帳款 (Accounts Receivable, Net)", 
               nameEn: "Accounts Receivable, Net", 
-              series: (curStmt['tradeAccountsReceivables'] && curStmt['tradeAccountsReceivables'].length === 6)
-                        ? curStmt['tradeAccountsReceivables'] 
-                        : getSeries('netReceivables'),
+              series: isQuarter
+                ? (qRaw.tradeAccountsReceivables && qRaw.tradeAccountsReceivables.length > 0 ? qRaw.tradeAccountsReceivables : getSeries('netReceivables'))
+                : (curStmt.tradeAccountsReceivables && curStmt.tradeAccountsReceivables.length === 6 ? curStmt.tradeAccountsReceivables : getSeries('netReceivables')),
               highlight: true 
             },
             { nameZh: "存貨合計 (Inventory)", nameEn: "Inventory", series: getSeries('inventory') },
@@ -2598,7 +2630,8 @@
           } else if (it.isPerShare) {
             rowsHtml += `<td ${colorCls} style="font-weight: 600;">$${val.toFixed(2)}</td>`;
           } else if (it.isShares) {
-            rowsHtml += `<td ${colorCls} style="font-weight: 600;">${(val / 1e6).toFixed(2)}M</td>`;
+            const sharesInM = Math.round(val > 1e8 ? val / 1e6 : val);
+            rowsHtml += `<td ${colorCls} style="font-weight: 600;">${sharesInM.toLocaleString()}M</td>`;
           } else {
             const valStr = val < 0 ? `-$${Math.abs(val).toLocaleString()}` : `$${val.toLocaleString()}`;
             rowsHtml += `<td ${colorCls} style="${it.highlight ? 'font-weight: 700;' : ''}">${valStr}</td>`;
