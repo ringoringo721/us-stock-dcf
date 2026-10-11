@@ -405,21 +405,9 @@
       height: 100%;
       overflow: visible;
     }
-    /* 表格垂直加粗分隔線，增強閱讀體驗 */
-    #cmp-fin-table th:nth-child(even),
-    /* 跨年分割線：只在 Q4 與 Q1 交界處顯示加粗豎線，年度模式不顯示 */
+    /* 跨年分割線：純靠 class 動態控制，只在 Q4 與 Q1 交界處顯示加粗豎線，年度模式絕對不顯示 */
     .year-divider-cell {
       border-right: 2.5px solid rgba(56, 189, 248, 0.45) !important;
-    }
-    #cmp-ratio-table th:nth-child(even),
-    #cmp-ratio-table td:nth-child(even) {
-      border-right: 2px solid rgba(56, 189, 248, 0.35) !important;
-    }
-    #cmp-fin-table th:last-child,
-    #cmp-fin-table td:last-child,
-    #cmp-ratio-table th:last-child,
-    #cmp-ratio-table td:last-child {
-      border-right: none !important;
     }
   </style>
 </head>
@@ -2364,8 +2352,12 @@
       } else {
         const qPeriods = qRaw.periods || [];
         let qHeadHtml = `<th style="text-align: left; width: 320px;" data-i18n="th_ratio_metric">比率指標 / 財務維度</th>`;
-        qPeriods.forEach(p => { qHeadHtml += `<th>${p}</th>`; });
-        qHeadHtml += `<th style="text-align: center; width: 90px;" data-i18n="th_trend">近 20 季趨勢</th>`;
+        qPeriods.forEach((p, pIdx) => {
+          const isQ4 = String(p).toUpperCase().includes('Q4') && (pIdx < qPeriods.length - 1);
+          qHeadHtml += `<th class="${isQ4 ? 'year-divider-cell' : ''}">${p}</th>`;
+        });
+        const ratioTrendTitle = (currentLang === 'en') ? 'Last 20Q Trend' : '近 20 季趨勢';
+        qHeadHtml += `<th style="text-align: center; width: 90px;">${ratioTrendTitle}</th>`;
         thead.innerHTML = qHeadHtml;
       }
     }
