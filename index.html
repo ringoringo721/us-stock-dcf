@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>美股旗艦 DCF 估值雷達 (200 檔全覆蓋 · 雙軌多週期版)</title>
   <script src="market_data.js"></script>
-  <!-- 加入這行 👇 -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   
   <style>
@@ -706,7 +705,7 @@
       <div id="tradingview_widget_container" style="height: 520px; width: 100%;"></div>
     </div>
 
-    <!-- 7 大子分頁導航選單 (已完整支援雙語標籤) -->
+    <!-- 7 大子分頁導航選單 -->
     <div class="subpage-nav-bar">
       <button class="sub-tab-btn active" onclick="switchSubPage('basic')" data-i18n="tab_basic">📁 1. 基本資料</button>
       <button class="sub-tab-btn" onclick="switchSubPage('financials')" data-i18n="tab_financials">📑 2. 財務報表 (5年/TTM)</button>
@@ -717,7 +716,7 @@
       <button class="sub-tab-btn" onclick="switchSubPage('news')" data-i18n="tab_news">📰 7. 公司新聞</button>
     </div>
 
-    <!-- 子分頁 1：基本資料 (包含地址、52週、持有人結構、Top 50 股東、內部人、拆股) -->
+    <!-- 子分頁 1：基本資料 -->
     <div id="subpage-basic" class="subpage-content active">
       <div class="panel">
         <div class="panel-title" style="display: flex; justify-content: space-between;">
@@ -740,7 +739,7 @@
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; margin-bottom: 20px;">
         <div class="panel" style="margin-bottom: 0;">
           <div class="panel-title" data-i18n="sec_52w_title">📈 52 週價格區間與歷史高低點</div>
-          <div style="display: flex; flex-direction: column; gap: 12px; font-size: 13px;">
+          <div style="flex-direction: column; gap: 12px; font-size: 13px; display: flex;">
             <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--card-border); padding-bottom: 8px;">
               <span style="color: var(--text-muted);" data-i18n="lbl_52w_range">52 週價格區間:</span>
               <span style="font-weight: 700; color: #fff;" id="cmp-meta-52w">--</span>
@@ -847,14 +846,13 @@
       </div>
     </div>
 
-    <!-- 子分頁 2：財務報表 (已升級為三大財務報表完整選擇器) -->
+    <!-- 子分頁 2：財務報表 -->
     <div id="subpage-financials" class="subpage-content">
       <div class="panel">
         <div class="panel-title" style="display: flex; justify-content: space-between; align-items: center;">
           <span data-i18n="sec_fin_title">5 年核心財務指標與 TTM 完整財務報表 ($M)</span>
         </div>
 
-        <!-- 三大財務報表切換器 -->
         <div class="statement-selector-bar">
           <span style="font-size: 12.5px; color: var(--text-muted); font-weight: 600;" data-i18n="lbl_select_stmt">選擇報表類型：</span>
           <button class="stmt-btn active" id="btn-stmt-income" onclick="switchFinancialStatement('income')" data-i18n="btn_stmt_income">1. 損益表 (Income Statement)</button>
@@ -865,7 +863,7 @@
         <div class="table-scroll-wrapper" style="overflow-x: auto; max-height: 520px; overflow-y: auto;">
           <table id="cmp-fin-table" style="width: 100%; border-collapse: collapse; text-align: right; font-size: 12.5px;">
             <thead>
-                <tr id="cmp-fin-thead">
+              <tr id="cmp-fin-thead">
                 <th style="text-align: left; width: 280px;" data-i18n="th_fin_item">會計項目 / 財務指標 ($M)</th>
                 <th>2021</th>
                 <th>2022</th>
@@ -882,15 +880,11 @@
       </div>
     </div>
 
-<!-- 子分頁 3：關鍵比率 (頂部完整比率總表 + 底部圖表分析) -->
+    <!-- 子分頁 3：關鍵比率 (頂部完整比率總表 + 底部圖表分析) -->
     <div id="subpage-ratios" class="subpage-content">
-      
-      <!-- ==================== 1. 關鍵財務比率總表 (5年/TTM 與 季度切換) ==================== -->
       <div class="panel" style="margin-bottom: 24px;">
         <div class="panel-title" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
           <span id="ratio-table-title" data-i18n="sec_ratios_full_title">關鍵財務比率與營運效率矩陣</span>
-          
-          <!-- 週期切換按鈕 (Annual / Quarterly) -->
           <div style="display: flex; gap: 8px;">
             <button class="stmt-btn active" id="btn-ratio-period-annual" onclick="switchRatioPeriod('annual')">年度 (5年 + TTM)</button>
             <button class="stmt-btn" id="btn-ratio-period-quarterly" onclick="switchRatioPeriod('quarterly')">季度 (近 6 季)</button>
@@ -916,7 +910,6 @@
         </div>
       </div>
 
-      <!-- ==================== 2. 圖表卡片 1：資產分析 ==================== -->
       <div class="panel" style="margin-bottom: 24px;">
         <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
           <div>
@@ -952,7 +945,6 @@
         </div>
       </div>
 
-      <!-- ==================== 3. 圖表卡片 2：回報率指標 ==================== -->
       <div class="panel">
         <div style="margin-bottom: 14px;">
           <h3 style="font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 4px;" id="lbl-return-analysis-title">回報率指標</h3>
@@ -989,7 +981,6 @@
           </div>
         </div>
       </div>
-
     </div>
 
     <!-- 子分頁 5：圖表分析 -->
@@ -1115,9 +1106,9 @@
 </div>
 
 <script>
+
   let stockUniverse = {};
 
-// 板塊英中雙語對照表
   const SECTOR_NAMES_EN = {
     "資訊科技": "Information Technology",
     "通訊服務": "Communication Services",
@@ -1132,9 +1123,7 @@
     "房地產": "Real Estate"
   };
 
-  // 美股 200 檔全覆蓋繁體中文名稱官方對照字典 (先於函式宣告)
   const STOCK_NAMES_ZH = {
-    // 資訊科技 (38檔)
     "NVDA": "輝達", "AAPL": "蘋果", "MSFT": "微軟", "AVGO": "博通", "ORCL": "甲骨文",
     "CRM": "賽富時", "AMD": "超微半導體", "CSCO": "思科", "ACN": "埃森哲", "ADBE": "Adobe",
     "QCOM": "高通", "TXN": "德州儀器", "IBM": "IBM", "INTC": "英特爾", "INTU": "直覺電腦",
@@ -1143,64 +1132,44 @@
     "ITRI": "埃創", "SNPS": "新思科技", "BR": "寬嶺金融", "KLAC": "科磊", "MRVL": "邁威爾科技",
     "CDNS": "益華電腦", "FTNT": "飛塔資訊", "PANW": "派拓網路", "CRWD": "CrowdStrike", "WDAY": "Workday",
     "ANET": "Arista 網路", "APH": "安費諾", "TEL": "泰科電子",
-
-    // 通訊服務 (15檔)
     "GOOGL": "Alphabet (Class A)", "GOOG": "Alphabet (Class C)", "META": "Meta (臉書)", "NFLX": "網飛", "DIS": "迪士尼",
     "TMUS": "T-Mobile 美國", "VZ": "威訊通訊", "T": "AT&T", "CMCSA": "康卡斯特", "TKO": "TKO 控股 (WWE/UFC)",
     "LYV": "理想國演藝", "IRDM": "銥星通訊", "EA": "美商藝電", "TTWO": "Take-Two 互動", "WBD": "華納兄弟探索",
-
-    // 非必需消費 (24檔)
     "AMZN": "亞馬遜", "TSLA": "特斯拉", "HD": "家得寶", "MCD": "麥當勞", "BKNG": "Booking 控股",
     "NKE": "耐吉", "SBUX": "星巴克", "LOW": "勞氏", "TJX": "TJX 公司", "CHDN": "邱吉爾唐斯",
     "TSCO": "拖拉機供應", "MTN": "范爾度假村", "SCI": "Service Corp (安儀)", "AZO": "汽車地帶 (AutoZone)", "MAR": "萬豪國際",
     "HLT": "希爾頓酒店", "CMG": "奇波雷墨西哥燒烤", "YUM": "百勝餐飲", "ORLY": "奧萊利汽車", "ROST": "羅斯百貨",
     "LULU": "露露檸檬", "F": "福特汽車", "GM": "通用汽車", "EBAY": "eBay",
-
-    // 金融 (30檔)
     "BRK.B": "波克夏海瑟威 (B)", "JPM": "摩根大通", "V": "威士卡", "MA": "萬事達卡", "BAC": "美國銀行",
     "WFC": "富國銀行", "MS": "摩根士丹利", "GS": "高盛集團", "AXP": "美國運通", "BLK": "貝萊德",
     "SPGI": "標普全球", "C": "花旗集團", "PGR": "前進保險", "CB": "安達保險", "FDS": "輝盛研究 (FactSet)",
     "TW": "Tradeweb 市場", "CME": "芝商所集團", "MSCI": "明晟 (MSCI)", "MCO": "穆迪評級", "ICE": "洲際交易所",
     "AIG": "美國國際集團", "MET": "大都會人壽", "PRU": "保德信金融", "TRV": "旅行者保險", "AFL": "美國家庭人壽",
     "ALL": "全州保險", "AON": "怡安集團", "AJG": "亞瑟加拉格爾", "MMC": "威達信集團", "USB": "美國合眾銀行",
-
-    // 醫療保健 (30檔)
     "LLY": "禮來公司", "UNH": "聯合健康集團", "JNJ": "嬌生", "ABBV": "艾伯維", "MRK": "默沙東",
     "TMO": "賽默飛世爾", "ABT": "亞培", "DHR": "丹納赫", "ISRG": "直覺外科 (達文西)", "PFE": "輝瑞",
     "AMGN": "安進", "BMY": "必貴寶 (施貴寶)", "MDT": "美敦力", "GILD": "吉利德科學", "ILMN": "因美納",
     "ZTS": "碩騰 (Zoetis)", "ALGN": "愛齊科技 (隱適美)", "FMS": "費森尤斯醫藥", "BDX": "碧迪醫療", "ZBH": "捷邁邦美",
     "DXCM": "德康醫療", "RMD": "瑞思邁", "COR": "信卡拉 (前美源伯根)", "STE": "思泰瑞醫療", "MCK": "麥克森",
     "SYK": "史賽克", "VEEV": "維瓦系統 (Veeva)", "LH": "來博科", "REGN": "再生元製藥", "VRTX": "福泰製藥",
-
-    // 必需消費 (18檔)
     "WMT": "沃爾瑪", "COST": "好市多", "PG": "寶僑", "KO": "可口可樂", "PEP": "百事可樂",
     "PM": "菲利普莫里斯", "MDLZ": "億滋國際", "CL": "高露潔-棕欖", "MKC": "味好美", "CLX": "高樂氏",
     "HSY": "好時公司", "ADM": "阿徹丹尼爾斯米德蘭", "CHD": "巧手先生 (Church & Dwight)", "TGT": "目標百貨 (Target)", "KMB": "金百利克拉克",
     "MNST": "怪獸飲料 (Monster)", "GIS": "通用磨坊", "KHC": "卡夫亨氏",
-
-    // 工業製造 (30檔)
     "GE": "奇異航太 (GE Aerospace)", "CAT": "開拓重工", "UNP": "聯合太平洋鐵路", "RTX": "雷神技術", "HON": "漢威聯合",
     "BA": "波音公司", "LMT": "洛克希德·馬丁", "DE": "強鹿公司 (Deere)", "UPS": "優比速", "EFX": "艾可飛 (Equifax)",
     "TRU": "全聯徵信 (TransUnion)", "CPRT": "科帕特 (Copart)", "PAYX": "培沛客 (Paychex)", "AOS": "A.O.史密斯", "ASR": "東南機場集團",
     "XYL": "賽萊默 (Xylem)", "ROL": "羅林斯 (Rollins)", "OTIS": "奧的斯電梯", "VRSK": "威瑞斯克", "MIDD": "美得比 (Middleby)",
     "ADP": "安德普翰 (ADP)", "HII": "亨廷頓英格爾斯", "MSA": "梅思安安全", "TDG": "天寶集團 (TransDigm)", "RRX": "雷諾德 (Regal Rexnord)",
     "GGG": "固瑞克 (Graco)", "DCI": "唐納森", "ITW": "伊利諾工具", "CNI": "加拿大國家鐵路", "WM": "廢品管理 (Waste Management)",
-
-    // 能源 (15檔)
     "XOM": "埃克森美孚", "CVX": "雪佛龍", "COP": "康菲石油", "SLB": "斯倫貝謝", "EOG": "EOG 能源",
     "EPD": "企業產品合夥", "ENB": "恩橋公司", "MPC": "馬拉松原油", "VLO": "瓦萊羅能源", "PSX": "菲利普斯66",
     "OXY": "西方石油", "KMI": "金德摩根", "WMB": "威廉斯公司", "HAL": "哈里伯頓", "BKR": "貝克休斯",
-
-    // 原物料 (15檔)
     "LIN": "林德集團", "SHW": "宣偉塗料", "FCX": "自由港麥克莫蘭", "NEM": "紐蒙特黃金", "SCCO": "南方銅業",
     "IFF": "國際香精香料", "RPM": "RPM 國際", "VMC": "瓦爾肯建材", "BCPC": "波奇姆 (Balchem)", "APD": "空氣化工",
     "ECL": "藝康集團", "CTVA": "科迪華農業", "DOW": "陶氏化學", "DD": "杜邦公司", "MLM": "馬丁瑪麗埃塔",
-
-    // 公用事業 (8檔)
     "NEE": "新紀元能源", "SO": "南方電力", "DUK": "杜克能源", "CEG": "星座能源", "AWK": "美國水務",
     "SRE": "桑普拉能源", "AEP": "美國電力", "D": "多明尼昂資源",
-
-    // 房地產 (7檔)
     "PLD": "普洛斯 (Prologis)", "AMT": "美國電塔", "EQIX": "易華電腦 (Equinix)", "SPG": "西蒙地產", "CSGP": "科斯塔集團",
     "VICI": "維奇房產 (VICI)", "O": "Realty Income"
   };
@@ -1240,7 +1209,7 @@
   let activeCompanyTicker = 'NVDA';
 
   let currentLang = localStorage.getItem('RADAR_LANG') || 'zh';
-  let activeStatementType = 'income'; // 'income' | 'balance' | 'cashflow'
+  let activeStatementType = 'income';
 
   const I18N_DICT = {
     zh: {
@@ -1358,6 +1327,8 @@
       btn_stmt_cashflow: "3. 現金流量表 (Cash Flow)",
       th_fin_item: "會計項目 / 財務指標 ($M)",
       th_trend: "近 5 年/TTM 趨勢",
+      sec_ratios_full_title: "關鍵財務比率與營運效率矩陣",
+      th_ratio_metric: "比率指標 / 財務維度",
       sec_ratios_title: "流動性、盈利能力與負債結構矩陣",
       th_ratio_name: "比率名稱", th_curr_val: "當前數值", th_benchmark: "行業健康基準", th_status: "狀態判定",
       chart_asset_title: "資產分析",
@@ -1512,6 +1483,8 @@
       btn_stmt_cashflow: "3. Cash Flow Statement",
       th_fin_item: "Accounting Line Item / Metric ($M)",
       th_trend: "5Y/TTM Trend",
+      sec_ratios_full_title: "Key Financial Ratios & Operating Efficiency Matrix",
+      th_ratio_metric: "Ratio Metric / Dimension",
       sec_ratios_title: "Liquidity, Profitability & Solvency Matrix",
       th_ratio_name: "Ratio Name", th_curr_val: "Reported Value", th_benchmark: "Health Benchmark", th_status: "Status",
       sec_peers_title: "Direct Peer Valuation Matrix",
@@ -1567,7 +1540,6 @@
     updateSubIndustryButtons();
     renderScreenerTable();
 
-    // 重新渲染當前打開的專頁內容
     const moatView = document.getElementById('moat-view');
     if (moatView && moatView.style.display === 'block') {
       loadMoatView(activeMoatTicker);
@@ -1575,6 +1547,10 @@
     const cmpView = document.getElementById('company-view');
     if (cmpView && cmpView.style.display === 'block') {
       loadCompanyProfile(activeCompanyTicker);
+    }
+    const rView = document.getElementById('subpage-ratios');
+    if (rView && rView.classList.contains('active')) {
+      renderRatiosSubPage(stockUniverse[activeCompanyTicker]);
     }
   }
 
@@ -1602,7 +1578,6 @@
     onDetailParamChange();
   }
 
-  // 金融業專屬滑桿拖動事件處理
   function onFinSliderChange() {
     const s = stockUniverse[activeDetailTicker];
     if (!s || !s.fin_valuation) return;
@@ -1629,7 +1604,6 @@
     recalculateDetail();
   }
 
-  // 核心計算引擎：解耦「公允價值」與「自訂目標價」，保持客觀獨立
   function computeDCF(s, explicitTicker) {
     if (!s) return null;
     const sym = explicitTicker || s.ticker || "";
@@ -2146,7 +2120,6 @@
   function openCompanyProfile(ticker) {
     activeCompanyTicker = ticker;
     showView('company', true);
-    // 強制立即依當前股票重新載入各個分頁數據
     loadCompanyProfile(ticker);
   }
   function openDetail(ticker) { activeDetailTicker = ticker; showView('detail', true); }
@@ -2204,11 +2177,10 @@
     container.appendChild(iframe);
   }
 
-function renderTop50Holders(s) {
+  function renderTop50Holders(s) {
     const tbody = document.getElementById('cmp-top-holders-tbody');
     if (!tbody || !s) return;
 
-    // 優先讀取後端傳入之真實 13F 機構持股陣列
     const holders = s.top_holders || [];
     if (holders.length > 0) {
       tbody.innerHTML = holders.map(h => {
@@ -2228,7 +2200,6 @@ function renderTop50Holders(s) {
       return;
     }
 
-    // 備援處理：若 API 暫未取得，按當前股票總股本與價格推算顯示
     const baseShares = (Number(s.shares) || 1000) * 1e6;
     const price = Number(s.price) || 100;
     const defaultInsts = [
@@ -2255,11 +2226,10 @@ function renderTop50Holders(s) {
     }).join('');
   }
 
-function renderInsiderTrades(s) {
+  function renderInsiderTrades(s) {
     const tbody = document.getElementById('cmp-insider-trades-tbody');
     if (!tbody || !s) return;
 
-    // 優先讀取後端傳入之真實內部人申報交易
     const trades = s.insider_trades || [];
     if (trades.length > 0) {
       tbody.innerHTML = trades.map(t => {
@@ -2283,7 +2253,6 @@ function renderInsiderTrades(s) {
       return;
     }
 
-    // 若無內部人交易記錄
     tbody.innerHTML = `
       <tr>
         <td colspan="7" style="text-align: center; color: var(--text-muted); padding: 18px;">
@@ -2293,11 +2262,10 @@ function renderInsiderTrades(s) {
     `;
   }
 
-function renderStockSplits(s) {
+  function renderStockSplits(s) {
     const tbody = document.getElementById('cmp-splits-tbody');
     if (!tbody || !s) return;
 
-    // 優先讀取真實拆股資料
     const splits = s.stock_splits || [];
     if (splits.length > 0) {
       tbody.innerHTML = splits.map(sp => `
@@ -2311,7 +2279,6 @@ function renderStockSplits(s) {
       return;
     }
 
-    // 若該公司歷史上從未拆股
     tbody.innerHTML = `
       <tr>
         <td colspan="4" style="text-align: center; color: var(--text-muted); padding: 18px;">
@@ -2321,8 +2288,10 @@ function renderStockSplits(s) {
     `;
   }
 
-// 切換 4 大回報率指標維度
-let activeRatioPeriod = 'annual'; // 'annual' | 'quarterly'
+  // ========================================================
+  // 財務比率狀態與圖表實例全域變數
+  // ========================================================
+  let activeRatioPeriod = 'annual'; // 'annual' | 'quarterly'
   let assetChartInstance = null;
   let returnChartInstance = null;
   let currentReturnMetricMode = 'ROE';
@@ -2340,12 +2309,12 @@ let activeRatioPeriod = 'annual'; // 'annual' | 'quarterly'
     activeRatioPeriod = period;
     document.getElementById('btn-ratio-period-annual').className = period === 'annual' ? 'stmt-btn active' : 'stmt-btn';
     document.getElementById('btn-ratio-period-quarterly').className = period === 'quarterly' ? 'stmt-btn active' : 'stmt-btn';
-    
+
     const isEn = (currentLang === 'en');
-    const headers = period === 'annual' 
-      ? ['2021', '2022', '2023', '2024', '2025', 'TTM'] 
+    const headers = period === 'annual'
+      ? ['2021', '2022', '2023', '2024', '2025', 'TTM']
       : ['Q-5', 'Q-4', 'Q-3', 'Q-2', 'Q-1', isEn ? 'Latest Q' : '最新季'];
-    
+
     for (let i = 1; i <= 6; i++) {
       const th = document.getElementById(`th-ratio-p${i}`);
       if (th) th.innerText = headers[i-1];
@@ -2353,7 +2322,9 @@ let activeRatioPeriod = 'annual'; // 'annual' | 'quarterly'
     renderKeyRatiosTable(stockUniverse[activeCompanyTicker]);
   }
 
-  // 1. 修復財務三表比率為 0 的問題 (加入自動計算 Fallback)
+  // ========================================================
+  // 1. 財務三表渲染 (加入自動計算 Fallback，徹底修復 0.00% 問題)
+  // ========================================================
   function renderFinancialsSubPage(stockObj) {
     const ticker = activeCompanyTicker || 'NVDA';
     const s = stockObj || stockUniverse[ticker] || (window.FULL_MARKET_DATA && window.FULL_MARKET_DATA[ticker]);
@@ -2388,7 +2359,7 @@ let activeRatioPeriod = 'annual'; // 'annual' | 'quarterly'
       return raw;
     }
 
-let sections = [];
+    let sections = [];
 
     if (activeStatementType === 'income') {
       sections = [
@@ -2632,7 +2603,9 @@ let sections = [];
     tbody.innerHTML = rowsHtml;
   }
 
+  // ========================================================
   // 2. 關鍵比率子頁面渲染 (包含頂部 57 項全維度指標表)
+  // ========================================================
   function renderRatiosSubPage(s) {
     if (!s) return;
     renderKeyRatiosTable(s);
@@ -2830,7 +2803,9 @@ let sections = [];
     tbody.innerHTML = html;
   }
 
+  // ========================================================
   // 3. 雙語支援圖表分析繪製 (Chart.js 完美適配多語言)
+  // ========================================================
   function renderAssetAnalysisChart(s) {
     const canvas = document.getElementById('ratioAssetChart');
     if (!canvas) return;
@@ -3023,7 +2998,10 @@ let sections = [];
       }
     });
   }
-    
+
+  // ========================================================
+  // 4. 其他子分頁渲染函式 (同業對比、趨勢柱狀圖、股息、新聞)
+  // ========================================================
   function renderPeersSubPage(s) {
     const tbody = document.getElementById('cmp-peers-tbody');
     if (!tbody) return;
@@ -3073,7 +3051,7 @@ let sections = [];
     elYield.innerText = `${Number(s.div_yield || 0).toFixed(2)}%`;
     elDps.innerText = `$${(Number(s.price) * (Number(s.div_yield || 0) / 100)).toFixed(2)}`;
     elPe.innerText = s.pe_forward ? `${Number(s.pe_forward).toFixed(1)}x` : '--';
-    elSummary.innerHTML = isEn 
+    elSummary.innerHTML = isEn
       ? `<b>Shareholder Distribution Perspective</b>: Current dividend yield stands at <b>${Number(s.div_yield || 0).toFixed(2)}%</b>. Supported by strong free cash flows, the company exhibits robust capital return and share repurchase (buyback) endurance.`
       : `<b>股東現金回報觀點</b>：該標的目前股息收益率為 <b>${Number(s.div_yield || 0).toFixed(2)}%</b>。結合自由現金流儲備，企業擁有充足之防禦空間與潛在股票回購（Buyback）支持能力。`;
   }
@@ -3094,18 +3072,21 @@ let sections = [];
     `;
   }
 
-function loadCompanyProfile(ticker) {
+  // ========================================================
+  // 5. 企業概況專頁主載入函式 (統合 7 大子分頁與 TradingView)
+  // ========================================================
+  function loadCompanyProfile(ticker) {
     activeCompanyTicker = ticker;
     const s = stockUniverse[ticker];
     if (!s) return;
     document.getElementById('cmp-ticker').innerText = ticker;
     document.getElementById('cmp-name').innerText = getStockDisplayName(s);
     document.getElementById('cmp-exchange').innerText = s.exchange || 'US';
-    document.getElementById('cmp-full-name').innerText = currentLang === 'zh' 
+    document.getElementById('cmp-full-name').innerText = currentLang === 'zh'
       ? (STOCK_NAMES_ZH[ticker] ? `${STOCK_NAMES_ZH[ticker]} (${s.company_name || ticker})` : (s.company_name || `${ticker} Inc.`))
       : (s.company_name || `${ticker} Inc.`);
     document.getElementById('cmp-logo-img').src = s.image || s.logo || `https://assets.financialmodelingprep.com/symbol/${ticker}.png`;
-    
+
     document.getElementById('cmp-card-mcap').innerText = `$${(s.mcap || 0).toLocaleString()} M`;
     document.getElementById('cmp-card-shares').innerText = `${Number(s.shares || 0).toFixed(2)} M 股`;
     document.getElementById('cmp-card-pe').innerText = s.pe_trailing ? `${Number(s.pe_trailing).toFixed(1)}x` : '--';
@@ -3116,7 +3097,6 @@ function loadCompanyProfile(ticker) {
     const hqPrefix = isEn ? "HQ:" : "總部:";
     const shareUnit = isEn ? "M shares" : "M 股";
 
-    // 業務描述：若有 Gemini 翻譯的深度中文 description_zh 則使用；否則使用原生 description
     const desc = (isEn ? (s.description || s.description_en) : (s.description_zh || s.description)) || (isEn ? "Official financial profile." : "美股上市公司官方即時財務檔案。");
     document.getElementById('cmp-description').innerText = desc;
     document.getElementById('cmp-full-headquarters').innerText = `📍 ${hqPrefix} ${s.city || ''} ${s.country || 'USA'}`;
@@ -3139,11 +3119,11 @@ function loadCompanyProfile(ticker) {
     const inst = Number(s.inst_ownership_pct) || 72.0;
     const insider = Number(s.insider_ownership_pct) || 5.0;
     const retail = Math.max(0, Number((100 - inst - insider).toFixed(1)));
-    
+
     document.getElementById('cmp-own-inst').innerText = `${inst.toFixed(1)}%`;
     document.getElementById('cmp-own-insider').innerText = `${insider.toFixed(1)}%`;
     document.getElementById('cmp-own-retail').innerText = `${retail.toFixed(1)}%`;
-    
+
     document.getElementById('bar-own-inst').style.width = `${Math.min(inst, 100)}%`;
     document.getElementById('bar-own-insider').style.width = `${Math.min(insider, 100)}%`;
     document.getElementById('bar-own-retail').style.width = `${Math.min(retail, 100)}%`;
@@ -3162,6 +3142,9 @@ function loadCompanyProfile(ticker) {
     switchSubPage('basic');
   }
 
+  // ========================================================
+  // 6. 估值模型詳情頁載入與重算
+  // ========================================================
   function loadDetailTicker(ticker) {
     const s = stockUniverse[ticker];
     if (!s) return;
@@ -3227,13 +3210,13 @@ function loadCompanyProfile(ticker) {
     document.getElementById('inp-debt').value = workingParams.debt;
     document.getElementById('inp-cash').value = workingParams.cash;
     document.getElementById('inp-fcf0').value = workingParams.fcf0;
-    
+
     const localTenor = workingParams.rf_tenor || s.rf_tenor || 5;
     document.getElementById('inp-rf-tenor').value = localTenor;
     document.getElementById('inp-rf').value = workingParams.rf !== undefined ? Number(workingParams.rf).toFixed(2) : (getStockDefaultRf(s) * 100).toFixed(2);
     document.getElementById('inp-erp').value = workingParams.erp !== undefined ? Number(workingParams.erp).toFixed(2) : 4.75;
     document.getElementById('inp-beta').value = workingParams.beta !== undefined ? workingParams.beta : 1.0;
-    
+
     document.getElementById('inp-kd').value = workingParams.kd || 4.5;
     document.getElementById('inp-tax').value = workingParams.tax || 21.0;
     document.getElementById('inp-g').value = workingParams.g || 2.25;
@@ -3283,7 +3266,7 @@ function loadCompanyProfile(ticker) {
 
     document.getElementById('det-res-fair').innerText = `$${dcf.fairVal.toFixed(2)}`;
     document.getElementById('det-res-price').innerText = `$${Number(tempS.price).toFixed(2)}`;
-    
+
     if (isFin && tempS.fin_valuation) {
       const elExcess = document.getElementById('fin-excess-val');
       const elDdm = document.getElementById('fin-ddm-val');
@@ -3386,6 +3369,9 @@ function loadCompanyProfile(ticker) {
     document.getElementById('sens-body').innerHTML = tbody;
   }
 
+  // ========================================================
+  // 7. 護城河與 F-Score 診斷頁載入
+  // ========================================================
   function loadMoatView(ticker) {
     try {
       const s = stockUniverse[ticker];
@@ -3484,6 +3470,9 @@ function loadCompanyProfile(ticker) {
     }).join('');
   }
 
+  // ========================================================
+  // 8. 儲存模型與還原官方預設
+  // ========================================================
   function saveCustomModel() {
     const s = stockUniverse[activeDetailTicker];
     if (!s) return;
@@ -3514,17 +3503,17 @@ function loadCompanyProfile(ticker) {
       targetPrice: dcf.fairVal,
       savedAt: new Date().toISOString(),
       params: {
-        price: tempS.price, 
-        shares: tempS.shares, 
-        debt: tempS.debt, 
-        cash: tempS.cash, 
+        price: tempS.price,
+        shares: tempS.shares,
+        debt: tempS.debt,
+        cash: tempS.cash,
         fcf0: tempS.fcf0,
-        beta: tempS.beta, 
-        rf: tempS.rf, 
+        beta: tempS.beta,
+        rf: tempS.rf,
         rf_tenor: parseInt(document.getElementById('inp-rf-tenor').value) || 5,
-        erp: tempS.erp, 
-        kd: tempS.kd, 
-        tax: tempS.tax, 
+        erp: tempS.erp,
+        kd: tempS.kd,
+        tax: tempS.tax,
         g: tempS.g,
         growth_10y: [...(tempS.growth_10y || [])],
         fin_valuation: isFin ? { ...tempS.fin_valuation } : undefined
@@ -3541,7 +3530,7 @@ function loadCompanyProfile(ticker) {
     const models = getSavedModels();
     delete models[activeDetailTicker];
     localStorage.setItem('M7_CUSTOM_VALUATIONS', JSON.stringify(models));
-    
+
     if (stockUniverse[activeDetailTicker]) {
       delete stockUniverse[activeDetailTicker].custom_growth_10y;
     }
@@ -3549,6 +3538,9 @@ function loadCompanyProfile(ticker) {
     document.getElementById('det-saved-badge').style.display = 'none';
   }
 
+  // ========================================================
+  // 9. 路由導航與全域數據輪詢
+  // ========================================================
   function handleInitialNavigation() {
     const hash = window.location.hash.replace('#', '').toUpperCase();
     if (hash.endsWith('/PROFILE')) {
@@ -3568,13 +3560,13 @@ function loadCompanyProfile(ticker) {
     }
   }
 
-let isAppReady = false;
+  let isAppReady = false;
 
   function markAppLoaded(data) {
     if (isAppReady || !data || Object.keys(data).length === 0) return;
     isAppReady = true;
     stockUniverse = JSON.parse(JSON.stringify(data));
-    
+
     // 預先計算並快取官方原始預設 Fair Value，保證不被覆蓋
     Object.keys(stockUniverse).forEach(ticker => {
       const originalDcf = computeDCF(stockUniverse[ticker], ticker);
@@ -3586,6 +3578,7 @@ let isAppReady = false;
     applyLanguage(currentLang);
     initInteractions();
     handleInitialNavigation();
+
     const rView = document.getElementById('subpage-ratios');
     if (rView && rView.classList.contains('active')) {
       renderRatiosSubPage(stockUniverse[activeCompanyTicker]);
