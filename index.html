@@ -2407,11 +2407,10 @@
         const arr = qStmt[field] || [];
         return arr.length > 0 ? arr : Array(periods.length).fill(0.0);
       } else {
-        // 年度模式：從年度報表讀取前 5 年 + TTM (共 6 筆)
         const aStmt = (rawStmts[activeStatementType] || {});
         const arr = aStmt[field] || [];
         if (Array.isArray(arr) && arr.length >= 6) {
-          return arr.slice(-6); // 嚴格只取最後 6 筆，確保與表頭 2021-2025+TTM 完全吻合！
+          return arr.slice(-6);
         }
         return Array(6).fill(0.0);
       }
@@ -2676,7 +2675,7 @@
 
         rowsHtml += `<tr><td style="text-align: left; ${highlightStyle} padding-left: 24px;">${label}</td>`;
         it.series.forEach((val, colIdx) => {
-          // 只在季度模式且該欄為 Q4（且不是最後一欄）時加上跨年直線 class
+          // 只在季度模式且當期標籤為 Q4（且非最後一欄）時加上直線
           const isQ4 = isQuarter && periods[colIdx] && String(periods[colIdx]).toUpperCase().includes('Q4') && (colIdx < periods.length - 1);
           const dividerCls = isQ4 ? ' year-divider-cell' : '';
 
@@ -2742,8 +2741,9 @@ function renderKeyRatiosTable(s) {
       eps = getArr('income', 'eps');
     }
     if (eps.every(v => Math.abs(v) < 0.0001)) {
+      const netIncArr = getArr('income', 'netIncome');
       const sharesCount = Math.max(Number(s.shares || 1), 1);
-      eps = ni.map(n => Number((n / sharesCount).toFixed(2)));
+      eps = netIncArr.map(ni => Number((ni / sharesCount).toFixed(2)));
     }
 
     const cfo = getArr('cashflow', 'netCashProvidedByOperatingActivities');
