@@ -407,7 +407,10 @@
     }
     /* 表格垂直加粗分隔線，增強閱讀體驗 */
     #cmp-fin-table th:nth-child(even),
-    #cmp-fin-table td:nth-child(even),
+    /* 跨年分割線：只在 Q4 與 Q1 交界處顯示加粗豎線，年度模式不顯示 */
+    .year-divider-cell {
+      border-right: 2.5px solid rgba(56, 189, 248, 0.45) !important;
+    }
     #cmp-ratio-table th:nth-child(even),
     #cmp-ratio-table td:nth-child(even) {
       border-right: 2px solid rgba(56, 189, 248, 0.35) !important;
@@ -2390,7 +2393,10 @@
     const periods = isQuarter ? (qRaw.periods || []) : ['2021', '2022', '2023', '2024', '2025', 'TTM'];
     if (theadRow) {
       let theadHtml = `<th style="text-align: left; width: 280px;" data-i18n="th_fin_item">會計項目 / 財務指標 ($M)</th>`;
-      periods.forEach(p => { theadHtml += `<th>${p}</th>`; });
+      periods.forEach((p, pIdx) => {
+        const isQ4 = isQuarter && String(p).toUpperCase().includes('Q4') && (pIdx < periods.length - 1);
+        theadHtml += `<th class="${isQ4 ? 'year-divider-cell' : ''}">${p}</th>`;
+      });
       theadHtml += `<th style="text-align: center; width: 85px;" data-i18n="th_trend">${isQuarter ? '近 20 季趨勢' : '近 5 年/TTM 趨勢'}</th>`;
       theadRow.innerHTML = theadHtml;
     }
@@ -2669,17 +2675,21 @@
         const colorCls = it.color ? `class="${it.color}"` : '';
 
         rowsHtml += `<tr><td style="text-align: left; ${highlightStyle} padding-left: 24px;">${label}</td>`;
-        it.series.forEach(val => {
+        it.series.forEach((val, colIdx) => {
+          // 只在季度模式且該欄為 Q4（且不是最後一欄）時加上跨年直線 class
+          const isQ4 = isQuarter && periods[colIdx] && String(periods[colIdx]).toUpperCase().includes('Q4') && (colIdx < periods.length - 1);
+          const dividerCls = isQ4 ? ' year-divider-cell' : '';
+
           if (it.isPercent) {
-            rowsHtml += `<td ${colorCls} style="font-weight: 600;">${val.toFixed(2)}%</td>`;
+            rowsHtml += `<td ${colorCls} class="${dividerCls}" style="font-weight: 600;">${Number(val).toFixed(2)}%</td>`;
           } else if (it.isPerShare) {
-            rowsHtml += `<td ${colorCls} style="font-weight: 600;">$${val.toFixed(2)}</td>`;
+            rowsHtml += `<td ${colorCls} class="${dividerCls}" style="font-weight: 600;">$${Number(val).toFixed(2)}</td>`;
           } else if (it.isShares) {
             const sharesInM = Math.round(val > 1e8 ? val / 1e6 : val);
-            rowsHtml += `<td ${colorCls} style="font-weight: 600;">${sharesInM.toLocaleString()}M</td>`;
+            rowsHtml += `<td ${colorCls} class="${dividerCls}" style="font-weight: 600;">${sharesInM.toLocaleString()}M</td>`;
           } else {
-            const valStr = val < 0 ? `-$${Math.abs(val).toLocaleString()}` : `$${val.toLocaleString()}`;
-            rowsHtml += `<td ${colorCls} style="${it.highlight ? 'font-weight: 700;' : ''}">${valStr}</td>`;
+            const valStr = val < 0 ? `-$${Math.abs(Math.round(val)).toLocaleString()}` : `$${Math.round(val).toLocaleString()}`;
+            rowsHtml += `<td ${colorCls} class="${dividerCls}" style="${it.highlight ? 'font-weight: 700;' : ''}">${valStr}</td>`;
           }
         });
         rowsHtml += `<td style="text-align: center; padding: 4px 6px;">${drawRealTrendSparkline(it.series)}</td></tr>`;
@@ -2696,21 +2706,26 @@ function renderKeyRatiosTable(s) {
     if (!tbody || !s) return;
 
     const isEn = (currentLang === 'en');
-    const isQuarter = (activeRatioPeriod === 'quarterly');
+    const isQuarter = (typeof activeRatioPeriod !== 'undefined' && activeRatioPeriod === 'quarterly');
 
     const rawStmts = s.statements_raw || {};
     const qRaw = rawStmts.quarterly_raw || {};
-    const periods = isQuarter ? (qRaw.periods || []) : ['2021', '2022', '2023', '2024', '2025', 'TTM'];
+    const periods = (isQuarter && qRaw.periods && qRaw.periods.length > 0)
+      ? qRaw.periods 
+      : ['2021', '2022', '2023', '2024', '2025', 'TTM'];
     const count = periods.length;
 
-    // 安全抓取對應長度序列 (支援年度 6 期或季度 20 季)
-    function getArr(dict, key) {
-      if (isQuarter) {
-        const qDict = (qRaw[dict] || {});
-        if (qDict[key] && Array.isArray(qDict[key])) return qDict[key];
-      } else {
-        const aDict = (rawStmts[dict] || {});
-        if (aDict[key] && Array.isArray(aDict[key])) return aDict[key];
+    // 安全抓取對應長度序列
+    function getArr(dictKey, fieldKey) {
+      if (isQuarter && qRaw[dictKey] && qRaw[dictKey][fieldKey]) {
+        const qArr = qRaw[dictKey][fieldKey];
+        if (Array.isArray(qArr) && qArr.length > 0) return qArr;
+      }
+      if (rawStmts[dictKey] && rawStmts[dictKey][fieldKey]) {
+        const aArr = rawStmts[dictKey][fieldKey];
+        if (Array.isArray(aArr) && aArr.length > 0) {
+          return aArr.slice(-count);
+        }
       }
       return Array(count).fill(0.0);
     }
@@ -2720,22 +2735,20 @@ function renderKeyRatiosTable(s) {
     const ebit = getArr('income', 'operatingIncome');
     const ni = getArr('income', 'netIncome');
     const ebitda = getArr('income', 'ebitda');
-    // EPS 提取防禦：相容 epsdiluted 與 eps
+
+    // EPS 容錯：優先取 epsdiluted，若全為 0 則改取 eps，若仍為 0 則以 Net Income / Shares 自動計算
     let eps = getArr('income', 'epsdiluted');
     if (eps.every(v => Math.abs(v) < 0.0001)) {
       eps = getArr('income', 'eps');
     }
-    // 如果計算出來的 EPS 仍然為 0，直接使用 Net Income / Shares Outstanding 作為回退
     if (eps.every(v => Math.abs(v) < 0.0001)) {
-      const netIncArr = getArr('income', 'netIncome');
       const sharesCount = Math.max(Number(s.shares || 1), 1);
-      eps = netIncArr.map(ni => Number((ni / sharesCount).toFixed(2)));
+      eps = ni.map(n => Number((n / sharesCount).toFixed(2)));
     }
 
     const cfo = getArr('cashflow', 'netCashProvidedByOperatingActivities');
     const capex = getArr('cashflow', 'capitalExpenditure');
     const fcf = getArr('cashflow', 'freeCashFlow');
-    const div = getArr('cashflow', 'dividendsPaid').map(v => Math.abs(v));
 
     const cash = getArr('balance', 'cashAndShortTermInvestments');
     const curAssets = getArr('balance', 'totalCurrentAssets');
@@ -2745,12 +2758,7 @@ function renderKeyRatiosTable(s) {
     const totLiab = getArr('balance', 'totalLiabilities');
     const equity = getArr('balance', 'totalStockholdersEquity');
 
-    const shares = Number(s.shares || 1000);
-    const mcap = Number(s.mcap || 50000);
-    const ev = Number(s.ev || s.EV || mcap);
-    const waccVal = Number(s.wacc || 8.2);
-
-    // QoQ (季度) 或 YoY (年度) 成長率計算
+    // 增長率計算：QoQ (季度) 或 YoY (年度)
     function calcGrowth(arr) {
       return arr.map((v, i) => {
         if (i === 0) return 0.0;
@@ -2764,8 +2772,6 @@ function renderKeyRatiosTable(s) {
     const niGrowth = calcGrowth(ni);
     const ebitdaGrowth = calcGrowth(ebitda);
     const epsGrowth = calcGrowth(eps);
-    const cfoGrowth = calcGrowth(cfo);
-    const capexGrowth = calcGrowth(capex.map(v => Math.abs(v)));
     const fcfGrowth = calcGrowth(fcf);
 
     const ratioGroups = [
@@ -2784,7 +2790,7 @@ function renderKeyRatiosTable(s) {
           { nameZh: "息稅折舊攤銷前利益 (EBITDA, $M)", nameEn: "EBITDA ($M)", series: ebitda, highlight: true },
           { nameZh: isQuarter ? "EBITDA 季增率 % (EBITDA Growth QoQ)" : "EBITDA 年增率 % (EBITDA Growth YoY)", nameEn: isQuarter ? "EBITDA Growth % (QoQ)" : "EBITDA Growth % (YoY)", series: ebitdaGrowth, isPercent: true },
           { nameZh: "EBITDA 利潤率 % (EBITDA Margin)", nameEn: "EBITDA Margin %", series: ebitda.map((eb, i) => (rev[i] ? (eb / rev[i]) * 100 : 0)), isPercent: true, color: "text-gold" },
-          { nameZh: "稀釋每股盈餘 (EPS, $)", nameEn: "EPS ($)", series: eps, isPerShare: true, highlight: true },
+          { nameZh: "每股盈餘 (EPS, $)", nameEn: "EPS ($)", series: eps, isPerShare: true, highlight: true },
           { nameZh: isQuarter ? "EPS 季增率 % (EPS Growth QoQ)" : "EPS 年增率 % (EPS Growth YoY)", nameEn: isQuarter ? "EPS Growth % (QoQ)" : "EPS Growth % (YoY)", series: epsGrowth, isPercent: true },
           { nameZh: "營運現金流 (Operating Cash Flow, $M)", nameEn: "Operating Cash Flow ($M)", series: cfo },
           { nameZh: "自由現金流 (Free Cash Flow, $M)", nameEn: "Free Cash Flow ($M)", series: fcf, highlight: true, color: "text-green" },
@@ -2850,7 +2856,7 @@ function renderKeyRatiosTable(s) {
         const colorCls = it.color ? `class="${it.color}"` : '';
 
         html += `<tr><td style="text-align: left; ${hl} padding-left: 24px;">${label}</td>`;
-        it.series.forEach(val => {
+        it.series.forEach((val, cIdx) => {
           let disp = '';
           if (it.isPercent) disp = `${Number(val).toFixed(2)}%`;
           else if (it.isPerShare) disp = `$${Number(val).toFixed(2)}`;
@@ -2858,14 +2864,18 @@ function renderKeyRatiosTable(s) {
           else if (it.isRatioVal) disp = Number(val).toFixed(2);
           else disp = val < 0 ? `-$${Math.abs(Math.round(val)).toLocaleString()}` : `$${Math.round(val).toLocaleString()}`;
 
-          html += `<td ${colorCls} style="${it.highlight ? 'font-weight: 700;' : ''}">${disp}</td>`;
+          // 在 Q4 與 Q1 交界處加入分割線
+          const isQ4 = isQuarter && periods[cIdx] && String(periods[cIdx]).toUpperCase().includes('Q4') && (cIdx < count - 1);
+          const divCls = isQ4 ? ' year-divider-cell' : '';
+
+          html += `<td ${colorCls} class="${divCls}" style="${it.highlight ? 'font-weight: 700;' : ''}">${disp}</td>`;
         });
         html += `<td style="text-align: center; padding: 4px 6px;">${drawSparkline(it.series)}</td></tr>`;
       });
     });
     tbody.innerHTML = html;
   }
-
+  
   // ========================================================
   // 3. 雙語支援圖表分析繪製 (Chart.js 完美適配多語言)
   // ========================================================
