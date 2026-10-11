@@ -93,7 +93,7 @@ os.makedirs(FIN_CACHE_DIR, exist_ok=True)
 os.makedirs(META_CACHE_DIR, exist_ok=True)
 
 def get_deep_chinese_description(ticker: str, company_name: str, en_desc: str) -> str:
-    """利用 Gemini 將 FMP 英文業務描述翻譯並提煉為繁體中文，並支援本機快取"""
+    """利用 Gemini 將 FMP 英文業務描述翻譯並提煉為繁體中文，支援本機快取"""
     if not en_desc or len(en_desc.strip()) < 30:
         return ""
 
@@ -111,9 +111,9 @@ def get_deep_chinese_description(ticker: str, company_name: str, en_desc: str) -
         return ""
 
     prompt = f"""
-你是一名資深美股證券分析師。請將以下美股企業 【{company_name} ({ticker})】 的官方業務營運描述翻譯並精煉為「繁體中文（台灣財經用語）」。
+你是一名資深證券分析師。請將以下企業 【{company_name} ({ticker})】 的官方業務營運描述翻譯並精煉為「繁體中文（台灣財經用語）」。
 要求：
-1. 完整保留核心產品、主要業務板塊、關鍵技術（如 GPU、雲端服務、Omniverse 等）與營運模式。
+1. 完整保留核心產品、主要業務板塊、關鍵技術與營運模式。
 2. 語氣客觀嚴謹，長度控制在 180 至 260 字以內。
 3. 嚴禁空泛套話，請提供詳實的業務內容。
 
@@ -203,7 +203,7 @@ def analyze_stock_moat(ticker: str, latest_period: str, fin_context: Dict[str, A
 
     print(f"💰 [{ticker}] 新季度財報發布或首次分析 ({safe_period})，調用 Vertex AI 深入護城河分析...", flush=True)
     prompt = f"""
-    請以沃倫·巴菲特（Warren Buffett）與查理·蒙格（Charlie Munger）的長期價值投資哲學視角，對美股上市公司 【{ticker}】 的 10 大經濟護城河（M1 至 M10）進行客觀、深度評估與嚴格打分。
+    請以沃倫·巴菲特（Warren Buffett）與查理·蒙格（Charlie Munger）的長期價值投資哲學視角，對上市公司 【{ticker}】 的 10 大經濟護城河（M1 至 M10）進行客觀、深度評估與嚴格打分。
     當前分析基準季度：{safe_period}
 
     【公司基本面與財務參考數據】
@@ -536,12 +536,10 @@ RAW_STOCK_LIST = [
 seen = set()
 UNIQUE_STOCKS = []
 for item in RAW_STOCK_LIST:
-    sym = item["ticker"].strip().upper()
-    if sym not in seen:
+    sym = item.get("ticker", "").strip().upper()
+    if sym and sym not in seen:
         seen.add(sym)
         UNIQUE_STOCKS.append(item)
-
-UNIQUE_STOCKS = UNIQUE_STOCKS[:200]
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0",
@@ -664,7 +662,7 @@ def fetch_cached_company_meta(fmp_sym: str, sym: str, total_shares_m: float, cur
 
     if isinstance(raw_holders, list) and len(raw_holders) > 0 and isinstance(raw_holders[0], dict) and "holder" in raw_holders[0]:
         sorted_holders = sorted(raw_holders, key=lambda x: float(x.get("shares") or 0), reverse=True)
-        for idx, h in enumerate(sorted_holders[:50], 1):
+        for rank_idx, h in enumerate(sorted_holders[:50], 1):
             s_held = int(h.get("shares") or 0)
             tot_inst_shares += s_held
             pct = round((s_held / total_shares_raw) * 100.0, 2)
@@ -673,8 +671,8 @@ def fetch_cached_company_meta(fmp_sym: str, sym: str, total_shares_m: float, cur
             chg_pct = round((chg / max(s_held - chg, 1.0)) * 100.0, 2)
 
             top_holders.append({
-                "rank": idx,
-                "name": h.get("holder") or f"Major Institution #{idx}",
+                "rank": rank_idx,
+                "name": h.get("holder") or f"Major Institution #{rank_idx}",
                 "shares": s_held,
                 "val_m": val_m,
                 "pct": pct,
@@ -786,7 +784,13 @@ def fetch_cached_company_meta(fmp_sym: str, sym: str, total_shares_m: float, cur
 
     return meta_payload
 
-FX_CACHE = {"USD": 1.0}
+# 支援港股與美股的常規匯率快取
+FX_CACHE = {
+    "USD": 1.0,
+    "HKD": 1.0 / 7.80,
+    "CNY": 1.0 / 7.20,
+    "RMB": 1.0 / 7.20
+}
 
 def get_fx_to_usd_rate(currency):
     curr = (currency or "USD").upper().strip()
@@ -795,7 +799,8 @@ def get_fx_to_usd_rate(currency):
 
     fallbacks = {
         "TWD": 1.0 / 32.0, "NTD": 1.0 / 32.0,
-        "EUR": 1.08, "GBP": 1.28, "JPY": 1.0 / 152.0, "CAD": 1.0 / 1.37
+        "EUR": 1.08, "GBP": 1.28, "JPY": 1.0 / 152.0, "CAD": 1.0 / 1.37,
+        "HKD": 1.0 / 7.80, "CNY": 1.0 / 7.20, "RMB": 1.0 / 7.20
     }
 
     try:
@@ -885,31 +890,36 @@ def get_canonical_entity_id(prof: dict, ticker: str) -> str:
 
 def main():
     print("=" * 80, flush=True)
-    print("🚀 美股 200 檔 DCF/金融雙軌模型 + Gemini 護城河雙核心引擎啟動", flush=True)
+    print("🚀 美股 / 港股 DCF/金融雙軌模型 + Gemini 護城河雙核心引擎啟動", flush=True)
     print("=" * 80, flush=True)
     results = {}
     entity_moat_cache = {}
 
-    for idx, item in enumerate(UNIQUE_STOCKS, 1):
-        sym = item["ticker"]
-        fmp_sym = sym.replace(".", "")
+    for stock_idx, stock_item in enumerate(UNIQUE_STOCKS, 1):
+        sym = stock_item.get("ticker", "").strip().upper()
+        if not sym:
+            continue
+        
+        # 港股代碼（.HK）必須保留小數點，美股（如 BRK.B）則去掉小數點
+        fmp_sym = sym if sym.endswith(".HK") else sym.replace(".", "")
 
         # 0. 抓取企業 Profile
         prof_data = fetch_json("profile", {"symbol": fmp_sym})
         prof = prof_data[0] if (prof_data and isinstance(prof_data, list) and len(prof_data) > 0) else {}
 
-        company_full_name = prof.get("companyName") or item["name"]
+        company_full_name = prof.get("companyName") or stock_item.get("name", sym)
         image_url = prof.get("image") or f"https://assets.financialmodelingprep.com/symbol/{sym}.png"
         website = prof.get("website") or ""
         ceo = prof.get("ceo") or "Executive Committee"
         employees = prof.get("fullTimeEmployees") or "--"
-        description_en = prof.get("description") or "A publicly traded US equity on major exchanges."
+        description_en = prof.get("description") or "A publicly traded equity on major exchanges."
 
         ai_desc_zh = get_deep_chinese_description(sym, company_full_name, description_en)
         if ai_desc_zh:
             description_zh = ai_desc_zh
         else:
-            description_zh = f"{company_full_name}（美股代碼：{sym}）為 {item['sector']} 領域之重要企業，專注於 {item['industry']} 業務，具備清晰之商業壁壘與現金流創造能力。"
+            market_label = "港股代碼" if sym.endswith(".HK") else "美股代碼"
+            description_zh = f"{company_full_name}（{market_label}：{sym}）為 {stock_item.get('sector', '')} 領域之重要企業，專注於 {stock_item.get('industry', '')} 業務，具備清晰之商業壁壘與現金流創造能力。"
         
         entity_id = get_canonical_entity_id(prof, sym)
 
@@ -932,7 +942,7 @@ def main():
         time.sleep(0.04)
 
         # 1.1 取得 13F 機構股東、內部人與拆股數據
-        company_meta = fetch_cached_company_meta(fmp_sym, sym, shares, price, item.get("sector", ""))
+        company_meta = fetch_cached_company_meta(fmp_sym, sym, shares, price, stock_item.get("sector", ""))
         real_inst_ownership = company_meta.get("inst_ownership_pct", 72.0)
         real_insider_ownership = company_meta.get("insider_ownership_pct", 5.0)
         
@@ -1077,8 +1087,9 @@ def main():
         bs_5y = list(reversed(bs_annual))[:5] if bs_annual else []
         cf_5y = list(reversed(cf_annual))[:5] if cf_annual else []
 
-        # 安全取值工具：解決現金流欄位名稱不相容導致為 $0 的問題
-        def get_safe_field(item, field_name):
+        def get_safe_field(d_item, field_name):
+            if not d_item or not isinstance(d_item, dict):
+                return 0.0
             alias_map = {
                 "otherInvestingActivites": ["otherInvestingActivites", "otherInvestingActivities"],
                 "netCashUsedForInvestingActivites": ["netCashUsedForInvestingActivites", "netCashUsedForInvestingActivities"],
@@ -1087,15 +1098,15 @@ def main():
                 "salesMaturitiesOfInvestments": ["salesMaturitiesOfInvestments", "salesOfInvestments"]
             }
             for k in alias_map.get(field_name, [field_name]):
-                v = item.get(k)
+                v = d_item.get(k)
                 if v is not None:
                     return float(v)
             return 0.0
 
         def extract_series(dataset, key, is_ratio_or_per_share=False):
             series = []
-            for item in dataset:
-                val = get_safe_field(item, key)
+            for d_item in dataset:
+                val = get_safe_field(d_item, key)
                 if is_ratio_or_per_share:
                     series.append(round(val, 4))
                 else:
@@ -1170,7 +1181,6 @@ def main():
                 val = round(get_safe_field(bs, "netReceivables") * fx_rate / 1e6, 2)
             trade_ar_list.append(val)
 
-        # 確保有 5 年歷史數據
         while len(trade_ar_list) < 5:
             trade_ar_list.insert(0, 0.0)
 
@@ -1213,16 +1223,16 @@ def main():
         q_reversed_inc = list(reversed(inc_quarter[:20]))
         q_reversed_bs = list(reversed(bs_quarter[:20]))
         q_reversed_cf = list(reversed(cf_quarter[:20]))
-        quarter_labels = [f"{q.get('calendarYear') or q.get('fiscalYear', '')}{q.get('period', '')}" for q in q_reversed_inc]
+        quarter_labels = [f"{q.get('calendarYear') or q.get('fiscalYear') or q.get('date', '')[:4]}{q.get('period', '')}" for q in q_reversed_inc]
         
-        # 2. 季度 20 季應收款安全取值 (同時比對 quarter_labels 與日期 date)
+        # 2. 季度 20 季應收款安全取值 (關鍵：內部迴圈變數改名為 q_idx 與 bs_item，徹底杜絕變數覆蓋！)
         quarter_trade_ar = []
-        for idx, lbl in enumerate(quarter_labels):
-            item = q_reversed_bs[idx] if idx < len(q_reversed_bs) else {}
-            date_key = str(item.get("date", ""))
+        for q_idx, lbl in enumerate(quarter_labels):
+            bs_item = q_reversed_bs[q_idx] if q_idx < len(q_reversed_bs) else {}
+            date_key = str(bs_item.get("date", ""))
             ar_val = trade_ar_map["quarterly"].get(lbl) or trade_ar_map["quarterly"].get(date_key)
             if ar_val is None:
-                ar_val = round(get_safe_field(item, "netReceivables") * fx_rate / 1e6, 2)
+                ar_val = round(get_safe_field(bs_item, "netReceivables") * fx_rate / 1e6, 2)
             quarter_trade_ar.append(ar_val)
 
         statements_data = {
@@ -1231,9 +1241,9 @@ def main():
             "cashflow": stmt_cashflow,
             "quarterly_raw": {
                 "periods": quarter_labels,
-                "income": {f: [round(get_safe_field(item, f) * (1 if is_r else fx_rate / 1e6), 4 if is_r else 2) for item in q_reversed_inc] for f, is_r in income_fields},
-                "balance": {f: [round(get_safe_field(item, f) * (1 if is_r else fx_rate / 1e6), 4 if is_r else 2) for item in q_reversed_bs] for f, is_r in balance_fields},
-                "cashflow": {f: [round(get_safe_field(item, f) * (1 if is_r else fx_rate / 1e6), 4 if is_r else 2) for item in q_reversed_cf] for f, is_r in cashflow_fields},
+                "income": {f: [round(get_safe_field(qi, f) * (1 if is_r else fx_rate / 1e6), 4 if is_r else 2) for qi in q_reversed_inc] for f, is_r in income_fields},
+                "balance": {f: [round(get_safe_field(qb, f) * (1 if is_r else fx_rate / 1e6), 4 if is_r else 2) for qb in q_reversed_bs] for f, is_r in balance_fields},
+                "cashflow": {f: [round(get_safe_field(qc, f) * (1 if is_r else fx_rate / 1e6), 4 if is_r else 2) for qc in q_reversed_cf] for f, is_r in cashflow_fields},
                 "tradeAccountsReceivables": quarter_trade_ar
             }
         }
@@ -1267,7 +1277,7 @@ def main():
 
         # 5. 分析師預測與折現排程
         est_data = fetch_json("analyst-estimates", {"symbol": fmp_sym, "limit": 4})
-        growth_10y = build_10y_growth_schedule(est_data, item.get("default_g1", 8.0), DEFAULT_G)
+        growth_10y = build_10y_growth_schedule(est_data, stock_item.get("default_g1", 8.0), DEFAULT_G)
         pe_forward = round(pe_trailing * 0.88, 1)
 
         fmp_beta = prof.get("beta")
@@ -1276,7 +1286,7 @@ def main():
             beta_5y = beta
         else:
             beta = 1.15
-            current_sector = item.get("sector", "")
+            current_sector = stock_item.get("sector", "")
             if current_sector in ["公用事業", "必需消費"]: beta = 0.75
             elif current_sector in ["資訊科技"]: beta = 1.35
             elif current_sector in ["金融"]: beta = 1.05
@@ -1333,8 +1343,8 @@ def main():
             "Property & Casualty Insurance", "Life & Health Insurance", "Multi-line Insurance"
         ]
         is_financial_model = (
-            item.get("sector", "") == "金融" 
-            and item.get("industry", "") in FINANCIAL_SPECIAL_INDUSTRIES 
+            stock_item.get("sector", "") == "金融" 
+            and stock_item.get("industry", "") in FINANCIAL_SPECIAL_INDUSTRIES 
             and sym != "BRK.B"
         )
 
@@ -1358,7 +1368,7 @@ def main():
 
             ddm_sum = 0.0
             cur_dps = dps_total
-            g_dps = min(float(item.get("default_g1", 6.0)) / 100.0, 0.065)
+            g_dps = min(float(stock_item.get("default_g1", 6.0)) / 100.0, 0.065)
             for t in range(1, 6):
                 cur_dps *= (1.0 + g_dps)
                 ddm_sum += cur_dps / ((1.0 + ke_rate) ** t)
@@ -1389,9 +1399,9 @@ def main():
             moat_data["ticker"] = sym
         else:
             fin_context = {
-                "name": item["name"],
-                "sector": item["sector"],
-                "industry": item["industry"],
+                "name": stock_item.get("name", sym),
+                "sector": stock_item.get("sector", "N/A"),
+                "industry": stock_item.get("industry", "N/A"),
                 "mcap": mcap,
                 "roe": roe,
                 "roa": roa,
@@ -1410,13 +1420,13 @@ def main():
             )
             entity_moat_cache[entity_id] = moat_data
 
-        # 7. 組裝最終輸出資料結構 (確保 statements_raw 與 default_fair_val 成功輸出)
+        # 7. 組裝最終輸出資料結構 (全面採用 .get() 防禦性提取)
         results[sym] = {
-            "name": item.get("name", sym),
+            "name": stock_item.get("name", sym),
             "company_name": company_full_name,
-            "exchange": item.get("exchange", "US"),
-            "sector": item.get("sector", "N/A"),
-            "industry": item.get("industry", "N/A"),
+            "exchange": stock_item.get("exchange", "US"),
+            "sector": stock_item.get("sector", "N/A"),
+            "industry": stock_item.get("industry", "N/A"),
             "reportedCurrency": reported_currency,
             "price": price,
             "shares": shares,
@@ -1495,7 +1505,7 @@ def main():
             "fmp_symbol": fmp_sym
         }
 
-        print(f"[{idx:03d}/200] ✅ {sym} ({item['exchange']}) - 股價=${price} | 5Y Beta={beta_5y} | 公允價值=${fair_val} | 護城河: {moat_data.get('overall_moat_verdict_zh', '')[:30]}...", flush=True)
+        print(f"[{stock_idx:03d}/{len(UNIQUE_STOCKS)}] ✅ {sym} ({stock_item.get('exchange', 'US')}) - 股價=${price} | 5Y Beta={beta_5y} | 公允價值=${fair_val} | 護城河: {moat_data.get('overall_moat_verdict_zh', '')[:30]}...", flush=True)
 
     with open("full_market_dcf.json", "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
@@ -1503,7 +1513,7 @@ def main():
     with open("market_data.js", "w", encoding="utf-8") as f:
         f.write(f"window.FULL_MARKET_DATA = {json.dumps(results, ensure_ascii=False, indent=2)};")
 
-    print("\n🎉 成功！全市場 200 檔標的已全部完成估值、5年Beta校準與護城河分析！", flush=True)
+    print(f"\n🎉 成功！全市場 {len(UNIQUE_STOCKS)} 檔標的已全部完成估值、5年Beta校準與護城河分析！", flush=True)
 
 if __name__ == "__main__":
     main()
