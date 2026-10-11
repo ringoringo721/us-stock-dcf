@@ -1209,9 +1209,10 @@ def main():
                 "balance": {f: [round(get_safe_field(item, f) * (1 if is_r else fx_rate / 1e6), 4 if is_r else 2) for item in q_reversed_bs] for f, is_r in balance_fields},
                 "cashflow": {f: [round(get_safe_field(item, f) * (1 if is_r else fx_rate / 1e6), 4 if is_r else 2) for item in q_reversed_cf] for f, is_r in cashflow_fields},
                 "tradeAccountsReceivables": [
-                    trade_ar_map["quarterly"].get(lbl) if trade_ar_map["quarterly"].get(lbl) is not None 
-                    else quarterly_net_rec[idx]
-                    for idx, lbl in enumerate(quarter_labels)
+                    trade_ar_map["quarterly"].get(lbl) 
+                    if trade_ar_map["quarterly"].get(lbl) is not None 
+                    else round(get_safe_field(item, "netReceivables") * fx_rate / 1e6, 2)
+                    for lbl, item in zip(quarter_labels, q_reversed_bs)
                 ]
             }
         }
