@@ -1166,11 +1166,13 @@ def main():
         stmt_balance["tradeAccountsReceivables"] = [
             trade_ar_map["annual"].get(y) or trade_ar_map["annual"].get(y[:4]) or round(float(bs.get("netReceivables") or 0) * fx_rate / 1e6, 2)
             for y, bs in zip(annual_years, bs_5y)
-          ]
+        ]
         # 追加最新一期 TTM
         latest_trade_ar = trade_ar_map["annual"].get(annual_years[-1] if annual_years else "")
         if latest_trade_ar is None and bs_quarter:
             latest_trade_ar = trade_ar_map["quarterly"].get(f"{bs_quarter[0].get('fiscalYear')}{bs_quarter[0].get('period')}")
+        if latest_trade_ar is None and bs_quarter:
+            latest_trade_ar = round(get_safe_field(bs_quarter[0], "netReceivables") * fx_rate / 1e6, 2)
         stmt_balance["tradeAccountsReceivables"].append(latest_trade_ar)
 
         cashflow_fields = [
@@ -1199,11 +1201,13 @@ def main():
         q_reversed_bs = list(reversed(bs_quarter[:20]))
         q_reversed_cf = list(reversed(cf_quarter[:20]))
         quarter_labels = [f"{q.get('calendarYear') or q.get('fiscalYear', '')}{q.get('period', '')}" for q in q_reversed_inc]
+        
         # 2. 季度 20 季應收款安全取值
         quarter_trade_ar = []
-        for lbl, item in zip(quarter_labels, q_reversed_bs):
+        for idx, lbl in enumerate(quarter_labels):
             ar_val = trade_ar_map["quarterly"].get(lbl)
             if ar_val is None:
+                item = q_reversed_bs[idx] if idx < len(q_reversed_bs) else {}
                 ar_val = round(get_safe_field(item, "netReceivables") * fx_rate / 1e6, 2)
             quarter_trade_ar.append(ar_val)
 
