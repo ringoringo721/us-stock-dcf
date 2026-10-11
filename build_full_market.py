@@ -998,7 +998,7 @@ def main():
 
         time.sleep(0.04)
 
-# 3. 匯率換算與財報抓取 (支援年度與近 20 季)
+        # 3. 匯率換算與財報抓取 (支援年度與近 20 季)
         fx_rate = get_fx_to_usd_rate(reported_currency)
         if sym == "TSM":
             fx_rate = 1.0 / 32.0
@@ -1155,7 +1155,7 @@ def main():
         stmt_balance = {}
         for f, is_ratio in balance_fields:
             s_data = extract_series(bs_5y, f, is_ratio)
-            s_data.append(get_ttm_val(bs_data, f, is_sum=False, is_ratio_or_per_share=is_ratio))
+            s_data.append(get_ttm_val(bs_quarter, f, is_sum=False, is_ratio_or_per_share=is_ratio))
             stmt_balance[f] = s_data
 
         # 注入 5 年年報 + 最新期 SEC 商業應收帳款
@@ -1208,7 +1208,11 @@ def main():
                 "income": {f: [round(get_safe_field(item, f) * (1 if is_r else fx_rate / 1e6), 4 if is_r else 2) for item in q_reversed_inc] for f, is_r in income_fields},
                 "balance": {f: [round(get_safe_field(item, f) * (1 if is_r else fx_rate / 1e6), 4 if is_r else 2) for item in q_reversed_bs] for f, is_r in balance_fields},
                 "cashflow": {f: [round(get_safe_field(item, f) * (1 if is_r else fx_rate / 1e6), 4 if is_r else 2) for item in q_reversed_cf] for f, is_r in cashflow_fields},
-                "tradeAccountsReceivables": [trade_ar_map["quarterly"].get(lbl) for lbl in quarter_labels]
+                "tradeAccountsReceivables": [
+                    trade_ar_map["quarterly"].get(lbl) if trade_ar_map["quarterly"].get(lbl) is not None 
+                    else quarterly_net_rec[idx]
+                    for idx, lbl in enumerate(quarter_labels)
+                ]
             }
         }
 
