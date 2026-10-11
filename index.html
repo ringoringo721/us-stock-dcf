@@ -2194,15 +2194,24 @@
     
     let tvSymbol = "";
     if (ticker.endsWith('.HK') || exchange === 'HKEX') {
-      // 港股 TradingView 格式：HKEX:700 或 HKEX:0700
       const hkNum = ticker.replace('.HK', '').replace(/^0+/, '') || ticker.replace('.HK', '');
       tvSymbol = `HKEX:${hkNum}`;
     } else {
-      // 美股 TradingView 格式：NASDAQ:NVDA / NYSE:BRK.B -> NYSE:BRKB
       const cleanTicker = ticker.replace('.', '');
       const cleanExch = (exchange === 'NASDAQ' || exchange === 'NYSE' || exchange === 'AMEX') ? exchange : 'NASDAQ';
       tvSymbol = `${cleanExch}:${cleanTicker}`;
     }
+
+    const iframe = document.createElement('iframe');
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+    iframe.style.border = 'none';
+    iframe.setAttribute('allowtransparency', 'true');
+    iframe.setAttribute('scrolling', 'no');
+    iframe.setAttribute('allowfullscreen', 'true');
+    iframe.src = `https://s.tradingview.com/widgetembed/?frameElementId=tradingview_widget&symbol=${encodeURIComponent(tvSymbol)}&interval=D&theme=dark&style=1&timezone=Asia%2FHong_Kong&locale=zh_TW`;
+    container.appendChild(iframe);
+  }
 
     const iframe = document.createElement('iframe');
     iframe.style.width = '100%';
