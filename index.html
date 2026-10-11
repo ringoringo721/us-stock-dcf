@@ -859,8 +859,8 @@
           <button class="stmt-btn" id="btn-stmt-balance" onclick="switchFinancialStatement('balance')" data-i18n="btn_stmt_balance">2. 資產負債表 (Balance Sheet)</button>
           <button class="stmt-btn" id="btn-stmt-cashflow" onclick="switchFinancialStatement('cashflow')" data-i18n="btn_stmt_cashflow">3. 現金流量表 (Cash Flow)</button>
           <div style="margin-left: auto; display: flex; gap: 8px;">
-            <button class="stmt-btn active" id="btn-stmt-period-annual" onclick="switchStatementPeriod('annual')">年度 (5年 + TTM)</button>
-            <button class="stmt-btn" id="btn-stmt-period-quarterly" onclick="switchStatementPeriod('quarterly')">季度 (近 20 季)</button>
+            <button class="stmt-btn active" id="btn-stmt-period-annual" onclick="switchStatementPeriod('annual')" data-i18n="btn_period_annual">年度 (5年 + TTM)</button>
+            <button class="stmt-btn" id="btn-stmt-period-quarterly" onclick="switchStatementPeriod('quarterly')" data-i18n="btn_period_quarter">季度 (近 20 季)</button>
            </div>
         </div>
         <div class="table-scroll-wrapper" style="overflow-x: auto; max-height: 520px; overflow-y: auto;">
@@ -1377,7 +1377,9 @@
       fsc_th_actual: "實際財務指標判定",
       sec_tech: "資訊科技", sec_comm: "通訊服務", sec_c_disc: "非必需消費", sec_c_stap: "必需消費",
       sec_fin: "金融", sec_health: "醫療保健", sec_energy: "能源", sec_ind: "工業",
-      sec_mat: "原物料", sec_util: "公用事業", sec_re: "房地產"
+      sec_mat: "原物料", sec_util: "公用事業", sec_re: "房地產",
+      btn_period_annual: "年度 (5年 + TTM)",
+      btn_period_quarter: "季度 (近 20 季)"
     },
     en: {
       title: "US Flagship DCF Valuation Radar (200 Stocks)",
@@ -1527,6 +1529,8 @@
       sec_tech: "Technology", sec_comm: "Communication", sec_c_disc: "Consumer Discretionary", sec_c_stap: "Consumer Staples",
       sec_fin: "Financials", sec_health: "Healthcare", sec_energy: "Energy", sec_ind: "Industrials",
       sec_mat: "Materials", sec_util: "Utilities", sec_re: "Real Estate"
+      btn_period_annual: "Annual (5Y + TTM)",
+      btn_period_quarter: "Quarterly (Last 20Q)"
     }
   };
 
@@ -2165,7 +2169,11 @@
 
   function switchFinancialStatement(type) {
     activeStatementType = type;
-    document.querySelectorAll('.stmt-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.statement-selector-bar .stmt-btn').forEach(btn => {
+      if (btn.id.startsWith('btn-stmt-income') || btn.id.startsWith('btn-stmt-balance') || btn.id.startsWith('btn-stmt-cashflow')) {
+        btn.classList.remove('active');
+      }
+    });
     const activeBtn = document.getElementById(`btn-stmt-${type}`);
     if (activeBtn) activeBtn.classList.add('active');
     renderFinancialsSubPage(stockUniverse[activeCompanyTicker]);
@@ -2657,62 +2665,61 @@
   // ========================================================
   // 2. 關鍵比率子頁面渲染 (包含頂部 57 項全維度指標表)
   // ========================================================
-  function renderRatiosSubPage(s) {
-    if (!s) return;
-    renderKeyRatiosTable(s);
-    renderAssetAnalysisChart(s);
-    renderReturnChart(s);
-  }
-
-  function renderKeyRatiosTable(s) {
+function renderKeyRatiosTable(s) {
     const tbody = document.getElementById('cmp-ratio-tbody');
     if (!tbody || !s) return;
 
     const isEn = (currentLang === 'en');
     const isQuarter = (activeRatioPeriod === 'quarterly');
-    const factor = isQuarter ? 0.26 : 1.0;
 
     const rawStmts = s.statements_raw || {};
-    const inc = rawStmts.income || {};
-    const bs = rawStmts.balance || {};
-    const cf = rawStmts.cashflow || {};
+    const qRaw = rawStmts.quarterly_raw || {};
+    const periods = isQuarter ? (qRaw.periods || []) : ['2021', '2022', '2023', '2024', '2025', 'TTM'];
+    const count = periods.length;
 
-    function getArr(dict, key, defArr) {
-      if (dict && dict[key] && Array.isArray(dict[key]) && dict[key].length === 6) {
-        return dict[key].map(v => isQuarter ? v * factor : v);
+    // 安全抓取對應長度序列 (支援年度 6 期或季度 20 季)
+    function getArr(dict, key) {
+      if (isQuarter) {
+        const qDict = (qRaw[dict] || {});
+        if (qDict[key] && Array.isArray(qDict[key])) return qDict[key];
+      } else {
+        const aDict = (rawStmts[dict] || {});
+        if (aDict[key] && Array.isArray(aDict[key])) return aDict[key];
       }
-      return defArr.map(v => isQuarter ? v * factor : v);
+      return Array(count).fill(0.0);
     }
 
-    const rev = getArr(inc, 'revenue', [10000, 12000, 15000, 20000, 26000, 30000]);
-    const gp = getArr(inc, 'grossProfit', [5000, 6200, 8000, 11000, 15000, 18000]);
-    const ebit = getArr(inc, 'operatingIncome', [2500, 3200, 4500, 7000, 10000, 12500]);
-    const ni = getArr(inc, 'netIncome', [2000, 2600, 3800, 6000, 8500, 10500]);
-    const ebitda = getArr(inc, 'ebitda', [3200, 4100, 5600, 8400, 11800, 14600]);
-    const eps = getArr(inc, 'epsdiluted', [1.2, 1.5, 2.1, 3.2, 4.5, 5.4]);
-    const cfo = getArr(cf, 'netCashProvidedByOperatingActivities', [2800, 3500, 5000, 7500, 10500, 13000]);
-    const capex = getArr(cf, 'capitalExpenditure', [-600, -800, -1100, -1500, -2000, -2500]);
-    const fcf = getArr(cf, 'freeCashFlow', [2200, 2700, 3900, 6000, 8500, 10500]);
-    const div = getArr(cf, 'dividendsPaid', [-300, -400, -500, -650, -850, -1000]).map(v => Math.abs(v));
+    const rev = getArr('income', 'revenue');
+    const gp = getArr('income', 'grossProfit');
+    const ebit = getArr('income', 'operatingIncome');
+    const ni = getArr('income', 'netIncome');
+    const ebitda = getArr('income', 'ebitda');
+    const eps = getArr('income', 'epsdiluted');
 
-    const cash = getArr(bs, 'cashAndShortTermInvestments', [4000, 4800, 6000, 8500, 12000, 15000]);
-    const curAssets = getArr(bs, 'totalCurrentAssets', [7000, 8500, 11000, 15000, 20000, 25000]);
-    const totAssets = getArr(bs, 'totalAssets', [18000, 22000, 28000, 38000, 50000, 62000]);
-    const totDebt = getArr(bs, 'totalDebt', [4500, 5000, 6000, 7500, 9000, 10500]);
-    const curLiab = getArr(bs, 'totalCurrentLiabilities', [3000, 3800, 5000, 7000, 9500, 12000]);
-    const totLiab = getArr(bs, 'totalLiabilities', [8000, 9500, 12000, 16000, 21000, 26000]);
-    const equity = getArr(bs, 'totalStockholdersEquity', [10000, 12500, 16000, 22000, 29000, 36000]);
+    const cfo = getArr('cashflow', 'netCashProvidedByOperatingActivities');
+    const capex = getArr('cashflow', 'capitalExpenditure');
+    const fcf = getArr('cashflow', 'freeCashFlow');
+    const div = getArr('cashflow', 'dividendsPaid').map(v => Math.abs(v));
+
+    const cash = getArr('balance', 'cashAndShortTermInvestments');
+    const curAssets = getArr('balance', 'totalCurrentAssets');
+    const totAssets = getArr('balance', 'totalAssets');
+    const totDebt = getArr('balance', 'totalDebt');
+    const curLiab = getArr('balance', 'totalCurrentLiabilities');
+    const totLiab = getArr('balance', 'totalLiabilities');
+    const equity = getArr('balance', 'totalStockholdersEquity');
 
     const shares = Number(s.shares || 1000);
     const mcap = Number(s.mcap || 50000);
-    const ev = Number(s.ev || s.EV || mcap + (totDebt[5] - cash[5]));
+    const ev = Number(s.ev || s.EV || mcap);
     const waccVal = Number(s.wacc || 8.2);
 
+    // QoQ (季度) 或 YoY (年度) 成長率計算
     function calcGrowth(arr) {
       return arr.map((v, i) => {
         if (i === 0) return 0.0;
         const prev = arr[i - 1];
-        return prev !== 0 ? ((v - prev) / Math.abs(prev)) * 100 : 0.0;
+        return (prev && prev !== 0) ? (((v - prev) / Math.abs(prev)) * 100) : 0.0;
       });
     }
 
@@ -2730,77 +2737,46 @@
         groupTitleZh: "1. 盈利能力與股東回報 (Profitability)", groupTitleEn: "1. Profitability & Shareholder Returns",
         items: [
           { nameZh: "營業收入 (Revenue, $M)", nameEn: "Revenue ($M)", series: rev, highlight: true },
-          { nameZh: "營收增長率 % (Revenue Growth)", nameEn: "Revenue Growth %", series: revGrowth, isPercent: true, color: "text-green" },
-          { nameZh: "毛利率 % (Gross Profit Margin)", nameEn: "Gross Profit Margin %", series: gp.map((g, i) => (g / Math.max(rev[i], 1)) * 100), isPercent: true, color: "text-gold" },
+          { nameZh: isQuarter ? "營收季增率 % (Revenue Growth QoQ)" : "營收年增率 % (Revenue Growth YoY)", nameEn: isQuarter ? "Revenue Growth % (QoQ)" : "Revenue Growth % (YoY)", series: revGrowth, isPercent: true, color: "text-green" },
+          { nameZh: "毛利率 % (Gross Profit Margin)", nameEn: "Gross Profit Margin %", series: gp.map((g, i) => (rev[i] ? (g / rev[i]) * 100 : 0)), isPercent: true, color: "text-gold" },
           { nameZh: "息稅前利潤 (EBIT, $M)", nameEn: "EBIT ($M)", series: ebit, highlight: true },
-          { nameZh: "EBIT 增長率 % (EBIT Growth)", nameEn: "EBIT Growth %", series: ebitGrowth, isPercent: true },
-          { nameZh: "EBIT 利潤率 % (EBIT Margin)", nameEn: "EBIT Margin %", series: ebit.map((e, i) => (e / Math.max(rev[i], 1)) * 100), isPercent: true },
+          { nameZh: isQuarter ? "EBIT 季增率 % (EBIT Growth QoQ)" : "EBIT 年增率 % (EBIT Growth YoY)", nameEn: isQuarter ? "EBIT Growth % (QoQ)" : "EBIT Growth % (YoY)", series: ebitGrowth, isPercent: true },
+          { nameZh: "EBIT 利潤率 % (EBIT Margin)", nameEn: "EBIT Margin %", series: ebit.map((e, i) => (rev[i] ? (e / rev[i]) * 100 : 0)), isPercent: true },
           { nameZh: "稅後淨利潤 (Net Income, $M)", nameEn: "Net Income ($M)", series: ni, highlight: true, color: "text-green" },
-          { nameZh: "淨利潤增長率 % (Net Income Growth)", nameEn: "Net Income Growth %", series: niGrowth, isPercent: true, color: "text-green" },
-          { nameZh: "淨利率 % (Net Income Margin)", nameEn: "Net Income Margin %", series: ni.map((n, i) => (n / Math.max(rev[i], 1)) * 100), isPercent: true, color: "text-green" },
+          { nameZh: isQuarter ? "淨利潤季增率 % (Net Income Growth QoQ)" : "淨利潤年增率 % (Net Income Growth YoY)", nameEn: isQuarter ? "Net Income Growth % (QoQ)" : "Net Income Growth % (YoY)", series: niGrowth, isPercent: true, color: "text-green" },
+          { nameZh: "淨利率 % (Net Income Margin)", nameEn: "Net Income Margin %", series: ni.map((n, i) => (rev[i] ? (n / rev[i]) * 100 : 0)), isPercent: true, color: "text-green" },
           { nameZh: "息稅折舊攤銷前利益 (EBITDA, $M)", nameEn: "EBITDA ($M)", series: ebitda, highlight: true },
-          { nameZh: "EBITDA 增長率 % (EBITDA Growth)", nameEn: "EBITDA Growth %", series: ebitdaGrowth, isPercent: true },
-          { nameZh: "EBITDA 利潤率 % (EBITDA Margin)", nameEn: "EBITDA Margin %", series: ebitda.map((eb, i) => (eb / Math.max(rev[i], 1)) * 100), isPercent: true, color: "text-gold" },
+          { nameZh: isQuarter ? "EBITDA 季增率 % (EBITDA Growth QoQ)" : "EBITDA 年增率 % (EBITDA Growth YoY)", nameEn: isQuarter ? "EBITDA Growth % (QoQ)" : "EBITDA Growth % (YoY)", series: ebitdaGrowth, isPercent: true },
+          { nameZh: "EBITDA 利潤率 % (EBITDA Margin)", nameEn: "EBITDA Margin %", series: ebitda.map((eb, i) => (rev[i] ? (eb / rev[i]) * 100 : 0)), isPercent: true, color: "text-gold" },
           { nameZh: "稀釋每股盈餘 (EPS, $)", nameEn: "EPS ($)", series: eps, isPerShare: true, highlight: true },
-          { nameZh: "EPS 增長率 % (EPS Growth)", nameEn: "EPS Growth %", series: epsGrowth, isPercent: true },
-          { nameZh: "EPS 5 年複合增長率 % (EPS 5Y CAGR)", nameEn: "EPS 5Y CAGR %", series: eps.map(() => eps[0] > 0 ? (Math.pow(eps[4] / eps[0], 1/4) - 1) * 100 : 0.0), isPercent: true, color: "text-gold" },
+          { nameZh: isQuarter ? "EPS 季增率 % (EPS Growth QoQ)" : "EPS 年增率 % (EPS Growth YoY)", nameEn: isQuarter ? "EPS Growth % (QoQ)" : "EPS Growth % (YoY)", series: epsGrowth, isPercent: true },
           { nameZh: "營運現金流 (Operating Cash Flow, $M)", nameEn: "Operating Cash Flow ($M)", series: cfo },
-          { nameZh: "營運現金流增長率 % (CFO Growth)", nameEn: "CFO Growth %", series: cfoGrowth, isPercent: true },
-          { nameZh: "資本支出 (Capital Expenditure, $M)", nameEn: "Capital Expenditure ($M)", series: capex, color: "text-red" },
-          { nameZh: "資本支出增長率 % (CapEx Growth)", nameEn: "CapEx Growth %", series: capexGrowth, isPercent: true },
           { nameZh: "自由現金流 (Free Cash Flow, $M)", nameEn: "Free Cash Flow ($M)", series: fcf, highlight: true, color: "text-green" },
-          { nameZh: "自由現金流增長率 % (FCF Growth)", nameEn: "FCF Growth %", series: fcfGrowth, isPercent: true, color: "text-green" },
-          { nameZh: "FCF / 淨利潤 % (FCF / Income)", nameEn: "FCF / Net Income %", series: fcf.map((f, i) => (f / Math.max(ni[i], 1)) * 100), isPercent: true, color: "text-gold" },
-          { nameZh: "每股自由現金流 (FCF per Share, $)", nameEn: "FCF per Share ($)", series: fcf.map(f => f / Math.max(shares, 1)), isPerShare: true },
-          { nameZh: "每股股息 (Dividend per Share, $)", nameEn: "Dividend per Share ($)", series: div.map(d => d / Math.max(shares, 1)), isPerShare: true },
-          { nameZh: "股利分派率 % (Payout Ratio)", nameEn: "Payout Ratio %", series: div.map((d, i) => (d / Math.max(ni[i], 1)) * 100), isPercent: true },
-          { nameZh: "每股淨資產 (Book Value per Share, $)", nameEn: "Book Value per Share ($)", series: equity.map(eq => eq / Math.max(shares, 1)), isPerShare: true },
-          { nameZh: "資產報酬率 % (ROA)", nameEn: "ROA %", series: ni.map((n, i) => (n / Math.max(totAssets[i], 1)) * 100), isPercent: true, color: "text-green" },
-          { nameZh: "股東權益報酬率 % (ROE)", nameEn: "ROE %", series: ni.map((n, i) => (n / Math.max(equity[i], 1)) * 100), isPercent: true, color: "text-gold" },
-          { nameZh: "投入資本回報率 % (ROIC)", nameEn: "ROIC %", series: ebit.map((eb, i) => ((eb * 0.79) / Math.max(totDebt[i] + equity[i] - cash[i], 1)) * 100), isPercent: true, color: "text-green" },
-          { nameZh: "加權資本成本 % (WACC)", nameEn: "WACC %", series: [waccVal, waccVal, waccVal, waccVal, waccVal, waccVal], isPercent: true },
-          { nameZh: "企業價值 / 營收 (EV / Revenue)", nameEn: "EV / Revenue", series: rev.map(r => ev / Math.max(r, 1)), isMultiple: true },
-          { nameZh: "企業價值 / 自由現金流 (EV / FCF)", nameEn: "EV / FCF", series: fcf.map(f => ev / Math.max(f, 1)), isMultiple: true },
-          { nameZh: "企業價值 / EBITDA (EV / EBITDA)", nameEn: "EV / EBITDA", series: ebitda.map(eb => ev / Math.max(eb, 1)), isMultiple: true }
+          { nameZh: isQuarter ? "自由現金流季增率 % (FCF Growth QoQ)" : "自由現金流年增率 % (FCF Growth YoY)", nameEn: isQuarter ? "FCF Growth % (QoQ)" : "FCF Growth % (YoY)", series: fcfGrowth, isPercent: true, color: "text-green" },
+          { nameZh: "資產報酬率 % (ROA)", nameEn: "ROA %", series: ni.map((n, i) => (totAssets[i] ? (n / totAssets[i]) * 100 : 0)), isPercent: true, color: "text-green" },
+          { nameZh: "股東權益報酬率 % (ROE)", nameEn: "ROE %", series: ni.map((n, i) => (equity[i] ? (n / equity[i]) * 100 : 0)), isPercent: true, color: "text-gold" }
         ]
       },
       {
         groupTitleZh: "2. 資本結構與負債規模 (Capital Structure)", groupTitleEn: "2. Capital Structure",
         items: [
-          { nameZh: "現金及有價證券 (Cash & Marketable Securities, $M)", nameEn: "Cash & Marketable Securities ($M)", series: cash, highlight: true, color: "text-green" },
+          { nameZh: "現金及短期投資 (Cash & ST Inv., $M)", nameEn: "Cash & ST Inv. ($M)", series: cash, highlight: true, color: "text-green" },
           { nameZh: "流動資產總額 (Total Current Assets, $M)", nameEn: "Total Current Assets ($M)", series: curAssets },
           { nameZh: "資產總額 (Total Assets, $M)", nameEn: "Total Assets ($M)", series: totAssets, highlight: true },
           { nameZh: "總有息負債 (Total Debt, $M)", nameEn: "Total Debt ($M)", series: totDebt, color: "text-red" },
-          { nameZh: "淨有息負債 (Total Net Debt, $M)", nameEn: "Total Net Debt ($M)", series: totDebt.map((d, i) => d - cash[i]), color: "text-red" },
+          { nameZh: "淨有息負債 (Net Debt, $M)", nameEn: "Net Debt ($M)", series: totDebt.map((d, i) => d - cash[i]), color: "text-red" },
           { nameZh: "流動負債總額 (Total Current Liabilities, $M)", nameEn: "Total Current Liabilities ($M)", series: curLiab },
           { nameZh: "負債總額 (Total Liabilities, $M)", nameEn: "Total Liabilities ($M)", series: totLiab, highlight: true },
-          { nameZh: "股東權益合計 (Total Equity, $M)", nameEn: "Total Equity ($M)", series: equity, highlight: true },
-          { nameZh: "現金及證券 / 總資產 % (Cash to Assets)", nameEn: "Cash & Securities / Total Assets %", series: cash.map((c, i) => (c / Math.max(totAssets[i], 1)) * 100), isPercent: true }
+          { nameZh: "股東權益合計 (Total Equity, $M)", nameEn: "Total Equity ($M)", series: equity, highlight: true }
         ]
       },
       {
         groupTitleZh: "3. 流動性與槓桿覆蓋 (Liquidity & Leverage)", groupTitleEn: "3. Liquidity & Leverage",
         items: [
-          { nameZh: "流動比率 (Current Ratio)", nameEn: "Current Ratio", series: curAssets.map((ca, i) => ca / Math.max(curLiab[i], 1)), isRatioVal: true, color: "text-green" },
-          { nameZh: "EBITDA 利息保障倍數 (EBITDA / Interest)", nameEn: "EBITDA to Interest Expense", series: ebitda.map(eb => eb / Math.max(totDebt[5] * 0.045, 1)), isMultiple: true },
-          { nameZh: "總負債 / EBITDA (Total Debt / EBITDA)", nameEn: "Total Debt / EBITDA", series: totDebt.map((d, i) => d / Math.max(ebitda[i], 1)), isMultiple: true },
-          { nameZh: "淨負債 / EBITDA (Net Debt / EBITDA)", nameEn: "Net Debt / EBITDA", series: totDebt.map((d, i) => (d - cash[i]) / Math.max(ebitda[i], 1)), isMultiple: true },
-          { nameZh: "總負債 / 自由現金流 (Total Debt / FCF)", nameEn: "Total Debt / FCF", series: totDebt.map((d, i) => d / Math.max(fcf[i], 1)), isMultiple: true },
-          { nameZh: "淨負債 / 自由現金流 (Net Debt / FCF)", nameEn: "Net Debt / FCF", series: totDebt.map((d, i) => (d - cash[i]) / Math.max(fcf[i], 1)), isMultiple: true },
-          { nameZh: "總負債 / 總資產 % (Total Debt / Assets)", nameEn: "Total Debt / Total Assets %", series: totDebt.map((d, i) => (d / Math.max(totAssets[i], 1)) * 100), isPercent: true },
-          { nameZh: "總負債 / 股東權益 % (Total Debt / Equity)", nameEn: "Total Debt / Total Equity %", series: totDebt.map((d, i) => (d / Math.max(equity[i], 1)) * 100), isPercent: true },
-          { nameZh: "淨負債 / 股東權益 % (Net Debt / Equity)", nameEn: "Net Debt / Equity %", series: totDebt.map((d, i) => ((d - cash[i]) / Math.max(equity[i], 1)) * 100), isPercent: true },
-          { nameZh: "資產負債率 % (Total Liab / Assets)", nameEn: "Total Liabilities / Total Assets %", series: totLiab.map((l, i) => (l / Math.max(totAssets[i], 1)) * 100), isPercent: true },
-          { nameZh: "產權比率 % (Total Liab / Equity)", nameEn: "Total Liabilities / Total Equity %", series: totLiab.map((l, i) => (l / Math.max(equity[i], 1)) * 100), isPercent: true }
-        ]
-      },
-      {
-        groupTitleZh: "4. 營運週轉天數與資金效率 (Efficiency)", groupTitleEn: "4. Operating Efficiency Days",
-        items: [
-          { nameZh: "應收帳款週轉天數 (Receivables Turnover Days)", nameEn: "Receivables Turnover Days", series: [42, 45, 43, 41, 39, 38], isDays: true },
-          { nameZh: "存貨週轉天數 (Inventory Turnover Days)", nameEn: "Inventory Turnover Days", series: [55, 58, 54, 52, 49, 48], isDays: true },
-          { nameZh: "應付帳款週轉天數 (Payables Turnover Days)", nameEn: "Payables Turnover Days", series: [50, 52, 53, 55, 54, 56], isDays: true },
-          { nameZh: "淨現金轉換週期天數 (Cash Conversion Cycle Days)", nameEn: "Cash Conversion Cycle Days", series: [47, 51, 44, 38, 34, 30], isDays: true, highlight: true, color: "text-green" }
+          { nameZh: "流動比率 (Current Ratio)", nameEn: "Current Ratio", series: curAssets.map((ca, i) => (curLiab[i] ? ca / curLiab[i] : 0)), isRatioVal: true, color: "text-green" },
+          { nameZh: "總負債 / EBITDA (Total Debt / EBITDA)", nameEn: "Total Debt / EBITDA", series: totDebt.map((d, i) => (ebitda[i] ? d / ebitda[i] : 0)), isMultiple: true },
+          { nameZh: "淨負債 / EBITDA (Net Debt / EBITDA)", nameEn: "Net Debt / EBITDA", series: totDebt.map((d, i) => (ebitda[i] ? (d - cash[i]) / ebitda[i] : 0)), isMultiple: true },
+          { nameZh: "資產負債率 % (Total Liab / Assets)", nameEn: "Total Liabilities / Total Assets %", series: totLiab.map((l, i) => (totAssets[i] ? (l / totAssets[i]) * 100 : 0)), isPercent: true }
         ]
       }
     ];
@@ -2828,10 +2804,10 @@
     }
 
     let html = '';
+    const colSpanTotal = count + 2;
     ratioGroups.forEach(grp => {
       const gTitle = isEn ? grp.groupTitleEn : grp.groupTitleZh;
-      const totalColCount = (isQuarter ? (rawStmts.quarterly_raw?.periods?.length || 20) : 6) + 2;
-      html += `<tr class="fin-group-header-row"><td colspan="${totalColCount}">${gTitle}</td></tr>`;
+      html += `<tr class="fin-group-header-row"><td colspan="${colSpanTotal}">${gTitle}</td></tr>`;
       grp.items.forEach(it => {
         const label = isEn ? it.nameEn : it.nameZh;
         const hl = it.highlight ? 'font-weight: 700; color: #fff;' : 'color: #cbd5e1;';
@@ -2840,11 +2816,10 @@
         html += `<tr><td style="text-align: left; ${hl} padding-left: 24px;">${label}</td>`;
         it.series.forEach(val => {
           let disp = '';
-          if (it.isPercent) disp = `${val.toFixed(2)}%`;
-          else if (it.isPerShare) disp = `$${val.toFixed(2)}`;
-          else if (it.isMultiple) disp = `${val.toFixed(2)}x`;
-          else if (it.isRatioVal) disp = val.toFixed(2);
-          else if (it.isDays) disp = `${Math.round(val)} ${isEn ? 'days' : '天'}`;
+          if (it.isPercent) disp = `${Number(val).toFixed(2)}%`;
+          else if (it.isPerShare) disp = `$${Number(val).toFixed(2)}`;
+          else if (it.isMultiple) disp = `${Number(val).toFixed(2)}x`;
+          else if (it.isRatioVal) disp = Number(val).toFixed(2);
           else disp = val < 0 ? `-$${Math.abs(Math.round(val)).toLocaleString()}` : `$${Math.round(val).toLocaleString()}`;
 
           html += `<td ${colorCls} style="${it.highlight ? 'font-weight: 700;' : ''}">${disp}</td>`;
