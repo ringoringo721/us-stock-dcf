@@ -2628,7 +2628,7 @@
     let rowsHtml = '';
     sections.forEach(sec => {
       const groupTitle = isEn ? sec.groupTitleEn : sec.groupTitleZh;
-      rowsHtml += `<tr class="fin-group-header-row"><td colspan="8">${groupTitle}</td></tr>`;
+      rowsHtml += `<tr class="fin-group-header-row"><td colspan="${periods.length + 2}">${groupTitle}</td></tr>`;
       sec.items.forEach(it => {
         const label = isEn ? it.nameEn : it.nameZh;
         const highlightStyle = it.highlight ? 'font-weight: 700; color: #fff;' : 'color: #cbd5e1;';
@@ -2830,7 +2830,8 @@
     let html = '';
     ratioGroups.forEach(grp => {
       const gTitle = isEn ? grp.groupTitleEn : grp.groupTitleZh;
-      html += `<tr class="fin-group-header-row"><td colspan="8">${gTitle}</td></tr>`;
+      const totalColCount = (isQuarter ? (rawStmts.quarterly_raw?.periods?.length || 20) : 6) + 2;
+      html += `<tr class="fin-group-header-row"><td colspan="${totalColCount}">${gTitle}</td></tr>`;
       grp.items.forEach(it => {
         const label = isEn ? it.nameEn : it.nameZh;
         const hl = it.highlight ? 'font-weight: 700; color: #fff;' : 'color: #cbd5e1;';
