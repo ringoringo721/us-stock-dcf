@@ -9,7 +9,6 @@ from typing import Dict, Any, Optional
 from pydantic import BaseModel, Field
 
 def fetch_as_reported_trade_ar(symbol: str, api_key: str) -> dict:
-    """從 FMP as-reported 端點精確提取原生 SEC 純商業應收帳款 ($M)，支援年度與近 20 季"""
     ar_map = {"annual": {}, "quarterly": {}}
     for period_param in ["annual", "quarter"]:
         url = f"https://financialmodelingprep.com/api/v3/balance-sheet-statement-as-reported/{symbol}?period={period_param}&limit=24&apikey={api_key}"
@@ -22,6 +21,8 @@ def fetch_as_reported_trade_ar(symbol: str, api_key: str) -> dict:
                         report_data = item.get("data", {})
                         if not isinstance(report_data, dict):
                             continue
+                        
+                        # 關鍵：Apple 原生純商業應收款標籤 accountsreceivablenetcurrent (39,777M)
                         val = (
                             report_data.get("accountsreceivablenetcurrent") or
                             report_data.get("accountsReceivableNetCurrent") or
@@ -29,11 +30,13 @@ def fetch_as_reported_trade_ar(symbol: str, api_key: str) -> dict:
                         )
                         if val is None:
                             val = report_data.get("netreceivables") or report_data.get("receivablesnetcurrent")
+                            
                         if val is not None:
                             val_m = round(float(val) / 1e6, 2)
                             f_year = str(item.get("fiscalYear") or item.get("date", "")[:4])
                             period = str(item.get("period", "")).upper()
                             date_str = str(item.get("date", ""))
+                            
                             if period_param == "annual" or period == "FY":
                                 if f_year: ar_map["annual"][f_year] = val_m
                                 if date_str: ar_map["annual"][date_str[:4]] = val_m
@@ -41,7 +44,7 @@ def fetch_as_reported_trade_ar(symbol: str, api_key: str) -> dict:
                                 if f_year and period: ar_map["quarterly"][f"{f_year}{period}"] = val_m
                                 if date_str: ar_map["quarterly"][date_str] = val_m
         except Exception as e:
-            print(f"[{symbol}] 抓取 as-reported ({period_param}) 失敗: {e}")
+            print(f"[{symbol}] 抓取 as-reported 失敗: {e}")
     return ar_map
         
 try:
@@ -1158,19 +1161,17 @@ def main():
             s_data.append(get_ttm_val(bs_quarter, f, is_sum=False, is_ratio_or_per_share=is_ratio))
             stmt_balance[f] = s_data
 
-        # 注入 5 年年報 + 最新期 SEC 商業應收帳款
+        # 1. 年度 5 年 + TTM 應收款 (AAPL 2025 為 39,777M)
         annual_years = [str(x.get("calendarYear") or x.get("fiscalYear") or "") for x in inc_5y]
-        trade_ar_series = []
-        for y in annual_years:
-            val = trade_ar_map["annual"].get(y) or trade_ar_map["annual"].get(y[:4])
-            trade_ar_series.append(val)
-        
-        latest_trade_ar = None
-        if bs_quarter:
-            q_code = f"{bs_quarter[0].get('fiscalYear')}{bs_quarter[0].get('period')}"
-            latest_trade_ar = trade_ar_map["quarterly"].get(q_code) or trade_ar_map["quarterly"].get(bs_quarter[0].get("date", ""))
-        trade_ar_series.append(latest_trade_ar)
-        stmt_balance["tradeAccountsReceivables"] = trade_ar_series
+        stmt_balance["tradeAccountsReceivables"] = [
+            trade_ar_map["annual"].get(y) or trade_ar_map["annual"].get(y[:4]) or round(float(bs.get("netReceivables") or 0) * fx_rate / 1e6, 2)
+            for y, bs in zip(annual_years, bs_5y)
+          ]
+        # 追加最新一期 TTM
+        latest_trade_ar = trade_ar_map["annual"].get(annual_years[-1] if annual_years else "")
+        if latest_trade_ar is None and bs_quarter:
+            latest_trade_ar = trade_ar_map["quarterly"].get(f"{bs_quarter[0].get('fiscalYear')}{bs_quarter[0].get('period')}")
+        stmt_balance["tradeAccountsReceivables"].append(latest_trade_ar)
 
         cashflow_fields = [
             ("netIncome", False), ("depreciationAndAmortization", False), ("deferredIncomeTax", False),
@@ -1198,6 +1199,13 @@ def main():
         q_reversed_bs = list(reversed(bs_quarter[:20]))
         q_reversed_cf = list(reversed(cf_quarter[:20]))
         quarter_labels = [f"{q.get('calendarYear') or q.get('fiscalYear', '')}{q.get('period', '')}" for q in q_reversed_inc]
+        # 2. 季度 20 季應收款安全取值
+        quarter_trade_ar = []
+        for lbl, item in zip(quarter_labels, q_reversed_bs):
+            ar_val = trade_ar_map["quarterly"].get(lbl)
+            if ar_val is None:
+                ar_val = round(get_safe_field(item, "netReceivables") * fx_rate / 1e6, 2)
+            quarter_trade_ar.append(ar_val)
 
         statements_data = {
             "income": stmt_income,
@@ -1208,12 +1216,7 @@ def main():
                 "income": {f: [round(get_safe_field(item, f) * (1 if is_r else fx_rate / 1e6), 4 if is_r else 2) for item in q_reversed_inc] for f, is_r in income_fields},
                 "balance": {f: [round(get_safe_field(item, f) * (1 if is_r else fx_rate / 1e6), 4 if is_r else 2) for item in q_reversed_bs] for f, is_r in balance_fields},
                 "cashflow": {f: [round(get_safe_field(item, f) * (1 if is_r else fx_rate / 1e6), 4 if is_r else 2) for item in q_reversed_cf] for f, is_r in cashflow_fields},
-                "tradeAccountsReceivables": [
-                    trade_ar_map["quarterly"].get(lbl) 
-                    if trade_ar_map["quarterly"].get(lbl) is not None 
-                    else round(get_safe_field(item, "netReceivables") * fx_rate / 1e6, 2)
-                    for lbl, item in zip(quarter_labels, q_reversed_bs)
-                ]
+                "tradeAccountsReceivables": quarter_trade_ar
             }
         }
 
