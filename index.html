@@ -2429,7 +2429,14 @@
             { nameZh: "現金及約當現金 (Cash & Cash Equivalents)", nameEn: "Cash & Cash Eq.", series: getSeries('cashAndCashEquivalents') },
             { nameZh: "短期投資 (Short-Term Investments)", nameEn: "Short-Term Investments", series: getSeries('shortTermInvestments') },
             { nameZh: "現金及短期投資合計 (Cash & ST Inv.)", nameEn: "Cash & ST Investments", series: getSeries('cashAndShortTermInvestments'), highlight: true, color: "text-green" },
-            { nameZh: "應收帳款淨額 (Net Receivables)", nameEn: "Net Receivables", series: getSeries('netReceivables') },
+            { 
+              nameZh: "商業應收帳款 (Accounts Receivable, Net)", 
+              nameEn: "Accounts Receivable, Net", 
+              series: (curStmt['tradeAccountsReceivables'] && curStmt['tradeAccountsReceivables'].length === 6)
+                        ? curStmt['tradeAccountsReceivables'] 
+                        : getSeries('netReceivables'),
+              highlight: true 
+            },
             { nameZh: "存貨合計 (Inventory)", nameEn: "Inventory", series: getSeries('inventory') },
             { nameZh: "其他流動資產 (Other Current Assets)", nameEn: "Other Current Assets", series: getSeries('otherCurrentAssets') },
             { nameZh: "流動資產合計 (Total Current Assets)", nameEn: "Total Current Assets", series: getSeries('totalCurrentAssets'), highlight: true }
