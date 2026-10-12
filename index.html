@@ -174,6 +174,35 @@
     }
     
     tr:hover td.col-fixed-1, tr:hover td.col-fixed-2, tr:hover td.col-fixed-3 { background: #1e293b !important; }
+    /* 關鍵比率與財務報表表格解除 border-collapse 限制，使 sticky 正常生效 */
+    #cmp-ratio-table, #cmp-fin-table {
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+    }
+
+    /* 左側第一欄凍結樣式 */
+    .table-sticky-col {
+      position: sticky !important;
+      left: 0px !important;
+      background: var(--sticky-bg, #162032) !important;
+      z-index: 10 !important;
+      min-width: 300px !important;
+      width: 300px !important;
+      border-right: 2px solid #334155 !important;
+      box-shadow: 4px 0 8px rgba(0, 0, 0, 0.5) !important;
+    }
+    th.table-sticky-col {
+      z-index: 25 !important;
+      background: #162032 !important;
+      top: 0;
+    }
+    tr:hover td.table-sticky-col {
+      background: #1e293b !important;
+    }
+    .fin-group-header-row td.table-sticky-col {
+      background: #111c30 !important;
+      z-index: 12 !important;
+    }
 
     .fav-btn { background: transparent; border: none; cursor: pointer; font-size: 15px; margin-right: 6px; color: #64748b; transition: transform 0.15s, color 0.15s; vertical-align: middle; }
     .fav-btn:hover { transform: scale(1.25); color: var(--fav-pink); }
@@ -923,7 +952,7 @@
           <table id="cmp-ratio-table" style="width: 100%; border-collapse: collapse; text-align: right; font-size: 12.5px;">
             <thead>
               <tr id="cmp-ratio-thead">
-                <th style="text-align: left; width: 320px;" data-i18n="th_ratio_metric">比率指標 / 財務維度</th>
+                <th class="table-sticky-col" style="text-align: left; width: 320px;" data-i18n="th_ratio_metric">比率指標 / 財務維度</th>
                 <th id="th-ratio-p1">2021</th>
                 <th id="th-ratio-p2">2022</th>
                 <th id="th-ratio-p3">2023</th>
@@ -2398,13 +2427,13 @@
         const trendTitle = (currentLang === 'en') ? '5Y/TTM Trend' : '歷史趨勢';
         const metricTitle = (currentLang === 'en') ? 'Ratio Metric / Dimension' : '比率指標 / 財務維度';
         thead.innerHTML = `
-          <th style="text-align: left; width: 320px;">${metricTitle}</th>
+          <th class="table-sticky-col" style="text-align: left; width: 320px;">${metricTitle}</th>
           <th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>TTM</th>
           <th style="text-align: center; width: 90px;">${trendTitle}</th>
         `;
       } else {
         const qPeriods = qRaw.periods || [];
-        let qHeadHtml = `<th style="text-align: left; width: 320px;" data-i18n="th_ratio_metric">比率指標 / 財務維度</th>`;
+        let qHeadHtml = `<th class="table-sticky-col" style="text-align: left; width: 320px;" data-i18n="th_ratio_metric">比率指標 / 財務維度</th>`;
         qPeriods.forEach((p, pIdx) => {
           const isQ4 = String(p).toUpperCase().includes('Q4') && (pIdx < qPeriods.length - 1);
           qHeadHtml += `<th class="${isQ4 ? 'year-divider-cell' : ''}">${p}</th>`;
@@ -2953,13 +2982,13 @@
     const colSpanTotal = count + 2;
     ratioGroups.forEach(grp => {
       const gTitle = isEn ? grp.groupTitleEn : grp.groupTitleZh;
-      html += `<tr class="fin-group-header-row"><td colspan="${colSpanTotal}">${gTitle}</td></tr>`;
+      html += `<tr class="fin-group-header-row"><td class="table-sticky-col" colspan="${colSpanTotal}">${gTitle}</td></tr>`;
       grp.items.forEach(it => {
         const label = isEn ? it.nameEn : it.nameZh;
         const hl = it.highlight ? 'font-weight: 700; color: #fff;' : 'color: #cbd5e1;';
         const colorCls = it.color ? `class="${it.color}"` : '';
 
-        html += `<tr><td style="text-align: left; ${hl} padding-left: 24px;">${label}</td>`;
+        html += `<tr><td class="table-sticky-col" style="text-align: left; ${hl} padding-left: 24px;">${label}</td>`;
         it.series.forEach((val, cIdx) => {
           let disp = '';
           if (it.isPercent) disp = `${Number(val).toFixed(2)}%`;
