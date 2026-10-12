@@ -2213,17 +2213,6 @@
     container.appendChild(iframe);
   }
 
-    const iframe = document.createElement('iframe');
-    iframe.style.width = '100%';
-    iframe.style.height = '100%';
-    iframe.style.border = 'none';
-    iframe.setAttribute('allowtransparency', 'true');
-    iframe.setAttribute('scrolling', 'no');
-    iframe.setAttribute('allowfullscreen', 'true');
-    iframe.src = `https://s.tradingview.com/widgetembed/?frameElementId=tradingview_widget&symbol=${encodeURIComponent(tvSymbol)}&interval=D&theme=dark&style=1&timezone=Asia%2FHong_Kong&locale=zh_TW`;
-    container.appendChild(iframe);
-  }
-
   function renderTop50Holders(s) {
     const tbody = document.getElementById('cmp-top-holders-tbody');
     if (!tbody || !s) return;
