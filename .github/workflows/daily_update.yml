@@ -2,6 +2,7 @@ name: Daily US Stock Market DCF Auto-Refresh
 
 on:
   schedule:
+    # 於美股收盤後定期執行 (UTC 21:30，對應週一至週五)
     - cron: '30 21 * * 1-5'
   workflow_dispatch:
 
@@ -26,20 +27,12 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          pip install --upgrade pip
+          python -m pip install --upgrade pip
           pip install requests pydantic google-genai
 
-      - name: Cache AI Moat, Financials and Description Files
-        uses: actions/cache@v4
-        with:
-          path: |
-            cache/moat
-            cache/descriptions
-            cache/financials
-            cache/company_meta
-          key: market-data-cache-${{ runner.os }}-${{ github.sha }}
-          restore-keys: |
-            market-data-cache-${{ runner.os }}-
+      - name: Ensure Cache Folders Exist
+        run: |
+          mkdir -p cache/moat cache/descriptions cache/financials cache/company_meta
 
       - name: Run Market Engine with FMP Key
         env:
@@ -49,11 +42,22 @@ jobs:
         run: |
           python -u build_full_market.py
 
-      - name: Commit & Push New DCF Dataset & Cache
+      - name: Commit & Push New DCF Dataset & Persistent Cache
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git pull origin main --rebase --autostash
-          git add full_market_dcf.json market_data.js cache/
-          git diff-index --quiet HEAD || git commit -m "Auto refresh US stock DCF data & Cache [skip ci]"
-          git push origin main
+          
+          # 拉取遠端最新代碼以防止衝突
+          git pull origin main --rebase --autostash || true
+          
+          # 強制追蹤快取資料夾 (即使 .gitignore 排除也強制寫入 Git 永久保存)
+          git add full_market_dcf.json market_data.js
+          git add -f cache/
+          
+          # 檢查是否有更動，有更動才提交以節省 Actions 次數
+          if ! git diff --cached --quiet; then
+            git commit -m "Auto refresh US stock DCF data & persist AI Cache [skip ci]"
+            git push origin main
+          else
+            echo "No data changes detected. Skipping push."
+          fi
