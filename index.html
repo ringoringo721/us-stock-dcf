@@ -2067,34 +2067,55 @@
     if (box) box.scrollBy({ left: amount, behavior: 'smooth' });
   }
 
-  function initInteractions() {
-    const box = document.getElementById('main-scroll-box');
-    if (!box) return;
+  // 通用滑鼠拖動滾動函式
+  function makeScrollable(box) {
+    if (!box || box.dataset.dragReady === 'true') return;
+    box.dataset.dragReady = 'true';
 
     let isDown = false;
     let startX = 0;
     let scrollLeft = 0;
 
-    box.onmousedown = (e) => {
-      if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.tagName === 'INPUT') return;
+    box.addEventListener('mousedown', (e) => {
+      if (['A', 'BUTTON', 'INPUT', 'SELECT'].includes(e.target.tagName)) return;
       isDown = true;
       box.style.cursor = 'grabbing';
+      box.style.userSelect = 'none';
       startX = e.pageX - box.offsetLeft;
       scrollLeft = box.scrollLeft;
-    };
+    });
 
-    window.onmouseup = () => {
+    window.addEventListener('mouseup', () => {
       isDown = false;
-      if (box) box.style.cursor = 'grab';
-    };
+      if (box) {
+        box.style.cursor = 'grab';
+        box.style.removeProperty('user-select');
+      }
+    });
 
-    box.onmousemove = (e) => {
+    box.addEventListener('mouseleave', () => {
+      isDown = false;
+      box.style.cursor = 'grab';
+    });
+
+    box.addEventListener('mousemove', (e) => {
       if (!isDown) return;
       e.preventDefault();
       const x = e.pageX - box.offsetLeft;
-      const walk = (x - startX) * 1.8;
+      const walk = (x - startX) * 1.6;
       box.scrollLeft = scrollLeft - walk;
-    };
+    });
+  }
+
+  function initInteractions() {
+    // 綁定首頁總表
+    const mainBox = document.getElementById('main-scroll-box');
+    if (mainBox) makeScrollable(mainBox);
+
+    // 綁定所有帶有橫向滾動的表格容器
+    document.querySelectorAll('.table-scroll-wrapper').forEach(box => {
+      makeScrollable(box);
+    });
   }
 
   function showView(viewName, pushState = true) {
@@ -2520,9 +2541,20 @@
             { 
               nameZh: "商業應收帳款 (Accounts Receivable, Net)", 
               nameEn: "Accounts Receivable, Net", 
-              series: isQuarter
-                ? (qRaw.tradeAccountsReceivables && qRaw.tradeAccountsReceivables.length > 0 ? qRaw.tradeAccountsReceivables : getSeries('netReceivables'))
-                : (curStmt.tradeAccountsReceivables && curStmt.tradeAccountsReceivables.length === 6 ? curStmt.tradeAccountsReceivables : getSeries('netReceivables')),
+              series: (() => {
+                const getArVal = (obj) => {
+                  if (!obj) return 0;
+                  return obj.netReceivables ?? obj.accountsReceivables ?? obj.accountReceivables ?? obj.tradeAccountsReceivables ?? 0;
+                };
+                let res = getSeries('netReceivables');
+                if (res.every(v => Math.abs(v) < 0.0001)) {
+                  res = getSeries('accountsReceivables');
+                }
+                if (res.every(v => Math.abs(v) < 0.0001)) {
+                  res = getSeries('accountReceivables');
+                }
+                return res;
+              })(),
               highlight: true 
             },
             { nameZh: "存貨合計 (Inventory)", nameEn: "Inventory", series: getSeries('inventory') },
@@ -2701,12 +2733,39 @@
       });
     });
     tbody.innerHTML = rowsHtml;
+    
+    // ⬇️ 加入以下三行：確保財務報表產生後立即具備滑鼠拖曳左右滑動能力
+    const finBox = document.querySelector('#subpage-financials .table-scroll-wrapper');
+    if (finBox) makeScrollable(finBox);
   }
 
   // ========================================================
   // 2. 關鍵比率子頁面渲染 (包含頂部 57 項全維度指標表)
   // ========================================================
-function renderKeyRatiosTable(s) {
+  // 關鍵比率子分頁核心入口 (修復第 3 頁空白問題)
+  // ========================================================
+  function renderRatiosSubPage(stockObj) {
+    const ticker = activeCompanyTicker || 'NVDA';
+    const s = stockObj || stockUniverse[ticker];
+    if (!s) return;
+
+    // 1. 渲染頂部 57 項比率表格
+    renderKeyRatiosTable(s);
+
+    // 2. 渲染下方資產分析圖表與回報率圖表
+    setTimeout(() => {
+      renderAssetAnalysisChart(s);
+      renderReturnChart(s);
+    }, 50);
+
+    // 3. 綁定比率表格的滑鼠拖曳滑動
+    const ratioWrapper = document.querySelector('#subpage-ratios .table-scroll-wrapper');
+    if (ratioWrapper && typeof makeScrollable === 'function') {
+      makeScrollable(ratioWrapper);
+    }
+  }
+  // ========================================================
+  function renderKeyRatiosTable(s) {
     const tbody = document.getElementById('cmp-ratio-tbody');
     if (!tbody || !s) return;
 
