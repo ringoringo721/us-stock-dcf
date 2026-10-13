@@ -1127,6 +1127,9 @@
       </div>
     </div>
 
+    <!-- 子分頁 4：同行業對比 (直向 5 家同行矩陣) -->
+    <div id="subpage-peers" class="subpage-content"></div>
+    
     <!-- 子分頁 5：圖表分析 -->
     <div id="subpage-charts" class="subpage-content">
       <div class="panel">
@@ -1705,6 +1708,7 @@
     const searchInp = document.getElementById('search-ticker');
     if (searchInp) {
       searchInp.placeholder = lang === 'zh' ? '搜尋代號、名稱、主板塊或細分子行業...' : 'Search ticker, company name, sector or industry...';
+    }
 
     const pView = document.getElementById('subpage-peers');
     if (pView && pView.classList.contains('active')) {
