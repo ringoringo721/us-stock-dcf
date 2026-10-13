@@ -3,43 +3,54 @@
   "period": "2026Q4",
   "m1_brand_pricing": {
     "score": 9,
-    "comment": "McCormick憑藉其百年歷史積澱，在全球香料與調味品市場建立了無可匹敵的品牌心智。旗下McCormick、French's、Frank's RedHot等品牌已成為消費者廚房的必需品，形成強大的消費習慣與情感連結。香料在餐飲總成本中佔比極低，即使提價，消費者也極少因幾分錢的差異而轉換品牌，這賦予公司顯著的定價權。這種品牌忠誠度與低價格敏感性，是巴菲特所推崇的「特許經營權」特徵，確保了公司在通脹環境下仍能維持利潤率，並持續創造價值。"
+    "comment_zh": "McCormick憑藉其百年歷史與家喻戶曉的品牌，如McCormick、French's和Frank's RedHot，在香料與調味品市場建立了強大的消費者心智佔有率。消費者對這些品牌有高度信任與依賴，即使價格略有上漲，也鮮少轉向替代品，因為調味品在餐飲總成本中佔比極小，卻對風味影響巨大。這種品牌忠誠度賦予了公司顯著的定價權，使其能夠有效轉嫁成本並維持利潤率，是典型的巴菲特式「特許經營權」特徵，競爭對手難以在短期內複製其品牌資產與市場地位。",
+    "comment_en": "McCormick, with its century-long history and household names like McCormick, French's, and Frank's RedHot, has established a powerful mindshare in the spice and seasoning market. Consumers exhibit high trust and reliance on these brands, rarely switching to alternatives even with slight price increases, as spices represent a minimal portion of total meal cost but significantly impact flavor. This brand loyalty grants the company substantial pricing power, enabling it to effectively pass on costs and maintain margins. It embodies a classic Buffett-esque \"franchise\" characteristic, where competitors would find it exceedingly difficult to replicate its brand equity and market position in the short term."
   },
   "m2_patents_regulatory": {
-    "score": 5,
-    "comment": "在香料調味品行業，McCormick的護城河並非主要來自硬性專利，而是其獨特的配方、生產工藝的商業機密以及嚴格的食品安全與質量控制體系。雖然這些並非傳統意義上的專利，但其在全球範圍內符合各地區複雜食品法規的能力，以及對供應鏈的嚴格把控，構成了進入壁壘。新進入者難以在短時間內複製其全球合規能力與品質標準，這為公司提供了中等程度的保護，但相較於品牌和規模，其壁壘強度較弱。"
+    "score": 3,
+    "comment_zh": "在香料與調味品行業，專利壁壘和政府特許經營權並非McCormick核心護城河。食品行業的監管標準雖嚴格，但對所有參與者普遍適用，McCormick並無獨家專利或特許經營權能阻礙競爭。其優勢更多體現在全球供應鏈的合規管理與品質控制能力，這雖能提升進入門檻，但本質上不屬於專利或特許許可帶來的獨佔性。因此，此維度對其護城河貢獻相對有限，與製藥或高科技公司依賴專利保護的模式截然不同。",
+    "comment_en": "In the spice and seasoning industry, patent barriers and government licenses are not McCormick's core moat. While food industry regulations are stringent, they apply universally to all participants, and McCormick holds no exclusive patents or franchises that impede competition. Its advantages lie more in its global supply chain compliance and quality control capabilities, which, while raising entry barriers, do not inherently stem from proprietary patents or exclusive licenses. Therefore, this dimension contributes relatively little to its moat, differing significantly from the patent-dependent models of pharmaceutical and high-tech companies."
   },
   "m3_high_switching_costs": {
     "score": 7,
-    "comment": "McCormick的轉換成本體現在兩個層面：對消費者而言，習慣了特定品牌的風味與品質，轉換可能帶來口味上的不適應，形成心理黏性。對工業客戶（如食品製造商、餐飲業）而言，更換香料供應商涉及產品重新配方、測試、生產線調整及供應鏈認證等高昂成本與時間投入。McCormick作為全球領先的B2B香料供應商，其產品的穩定性、一致性與可靠性，使得客戶一旦採用便難以輕易替換，有效鎖定客戶群，確保了長期穩定的收入來源。"
+    "comment_zh": "對於一般消費者而言，更換香料品牌的直接金錢成本不高，但存在習慣與偏好上的「軟性」轉換成本。人們傾向於使用熟悉且信任的品牌來確保烹飪風味的一致性與品質。更重要的是，McCormick在工業客戶和餐飲服務領域佔據重要地位。這些B2B客戶一旦選定其調味品解決方案，更換供應商將涉及產品重新配方、測試、供應鏈調整等複雜流程與潛在風險，導致較高的轉換成本。這種黏性確保了穩定的需求與重複採購，為公司構築了一道堅實的護城河。",
+    "comment_en": "For individual consumers, the direct monetary cost of switching spice brands is low, but there's a \"soft\" switching cost related to habit and preference. People tend to stick with familiar and trusted brands to ensure consistent cooking flavors and quality. More significantly, McCormick holds a prominent position in industrial and food service sectors. For these B2B clients, once a seasoning solution is adopted, switching suppliers involves complex processes like product reformulation, testing, and supply chain adjustments, incurring substantial costs and potential risks. This stickiness ensures stable demand and repeat purchases, forming a robust moat for the company."
   },
   "m4_network_effects": {
-    "score": 1,
-    "comment": "McCormick作為一家傳統的消費品製造商，其商業模式不具備典型的網絡效應。公司的價值並不會因為更多用戶使用其產品而對現有用戶產生幾何級數的增長。香料調味品的消費本質上是單向的，用戶購買和使用產品，但彼此之間並不會因使用同一品牌而產生互動或協同價值。因此，網絡效應並非McCormick的核心競爭優勢或護城河來源，其業務增長主要依賴於品牌建設、市場滲透和產品創新。"
+    "score": 0,
+    "comment_zh": "McCormick作為一家消費品公司，其商業模式並不具備典型的網絡效應。網絡效應通常指產品或服務的價值隨用戶數量增加而呈指數級增長，例如社交媒體或拍賣平台。香料與調味品的消費本質上是單向的，一個消費者使用McCormick的產品並不會直接增加其他消費者使用該產品的價值。儘管品牌知名度會因廣泛使用而提升，但這屬於品牌建設範疇，而非經濟學意義上的網絡正反饋機制。因此，此維度對其護城河的貢獻為零。",
+    "comment_en": "As a consumer goods company, McCormick's business model does not exhibit typical network effects. Network effects generally refer to the exponential increase in a product or service's value as the number of users grows, as seen in social media or auction platforms. The consumption of spices and seasonings is inherently unidirectional; one consumer using McCormick's product does not directly increase its value for other consumers. While brand recognition may grow with widespread use, this falls under brand building, not an economic network effect mechanism. Therefore, this dimension contributes zero to its economic moat."
   },
   "m5_cost_advantage_scale": {
     "score": 8,
-    "comment": "McCormick在全球範圍內擁有龐大的採購、生產和分銷網絡，這使其能夠實現顯著的規模經濟。公司可以從全球各地以更低的成本採購優質原料，並通過高效的生產線和物流體系，將產品以更低的單位成本送達全球市場。這種規模優勢不僅降低了運營成本，也增強了其議價能力，使得小型競爭對手難以望其項背。這種成本優勢是巴菲特所看重的，能夠在價格戰中保持競爭力，並持續擴大市場份額。"
+    "comment_zh": "McCormick作為全球最大的香料與調味品公司，其規模經濟優勢極為顯著。龐大的採購量使其在全球範圍內擁有強大的議價能力，能以更低成本獲取優質原材料。在生產製造、物流配送和市場營銷方面，其規模化運作能有效攤薄固定成本，實現更高的營運效率和更低的單位成本。這種成本優勢是小型競爭者難以企及的，使其在價格競爭中處於有利地位，同時能投入更多資源進行產品創新和品牌建設。這是典型的巴菲特所推崇的成本領先型護城河。",
+    "comment_en": "As the world's largest spice and seasoning company, McCormick possesses a highly significant scale advantage. Its immense purchasing volume grants it strong bargaining power globally, enabling it to acquire high-quality raw materials at lower costs. In manufacturing, logistics, and marketing, its scaled operations effectively spread fixed costs, achieving higher operational efficiency and lower unit costs. This cost advantage is unattainable for smaller competitors, positioning McCormick favorably in price competition while allowing it to invest more resources in product innovation and brand building. This is a classic Buffett-favored cost leadership moat."
   },
   "m6_unique_geography_assets": {
     "score": 7,
-    "comment": "香料調味品市場雖然廣闊，但在許多細分領域，McCormick已形成事實上的寡頭壟斷地位。其強大的品牌認知度、廣泛的分銷渠道以及與零售商的長期合作關係，使得新進入者難以有效競爭。儘管市場容量並非絕對有限，但要挑戰McCormick的市場領導地位，需要投入巨額資本和時間來建立品牌、渠道和供應鏈，且成功機率極低。這種「有效規模」的市場結構，使得潛在競爭者望而卻步，保護了McCormick的市場份額和盈利能力。"
+    "comment_zh": "香料與調味品市場雖然廣闊，但McCormick憑藉其全球領導地位，已在高端和主流市場形成了一種事實上的寡占格局。儘管市場容量並非極度有限，但新進入者若想與McCormick競爭，將面臨極高的品牌建設、分銷網絡鋪設和全球供應鏈整合成本。這種市場結構使得潛在競爭者難以在不引發激烈價格戰的情況下獲得可觀份額，從而形成一種「理性寡占」的局面。McCormick的市場主導地位使其能夠有效抵禦新進入者的威脅，維持其盈利能力。",
+    "comment_en": "While the spice and seasoning market is vast, McCormick, through its global leadership, has established a de facto oligopoly in the premium and mainstream segments. Although market capacity isn't extremely limited, new entrants aiming to compete with McCormick would face prohibitively high costs for brand building, distribution network establishment, and global supply chain integration. This market structure makes it difficult for potential competitors to gain significant share without triggering intense price wars, thus creating a \"rational oligopoly.\" McCormick's dominant market position allows it to effectively fend off threats from new entrants and sustain its profitability."
   },
   "m7_operational_efficiency": {
-    "score": 9,
-    "comment": "McCormick展現出卓越的資本回報能力，其18.0%的ROE和8.0%的ROA遠超行業平均水平，且Piotroski F-Score高達8/9，表明公司財務狀況極為穩健。這些數據強烈暗示其投入資本回報率（ROIC）長期顯著高於加權平均資本成本（WACC）。這正是巴菲特所尋求的「經濟特許經營權」的標誌，意味著公司能夠持續有效地將資本轉化為超額利潤，為股東創造豐厚的回報，展現出強大的盈利韌性與複利增長潛力。"
+    "score": 8,
+    "comment_zh": "儘管提供的ROE/ROA數據異常高，但McCormick作為一家擁有強大品牌和規模優勢的消費必需品公司，其商業模式本質上具備產生高於加權平均資本成本（WACC）的投入資本回報率（ROIC）的潛力。穩健的自由現金流（FCF TTM $925.9M）和高達8/9的皮氏F-Score，都印證了公司卓越的財務健康狀況和高效的資本運用能力。這種持續創造超額回報的能力，是巴菲特衡量企業內在價值和護城河深度的關鍵指標，表明公司能為股東帶來持續的複利增長。",
+    "comment_en": "Despite the unusually high ROE/ROA figures provided, McCormick, as a consumer staples company with strong brands and scale advantages, inherently possesses the potential to generate a return on invested capital (ROIC) consistently above its weighted average cost of capital (WACC). Its robust free cash flow (FCF TTM $925.9M) and a high Piotroski F-Score of 8/9 attest to the company's excellent financial health and efficient capital deployment. This sustained ability to generate excess returns is a critical metric for Buffett in assessing intrinsic value and moat depth, indicating the company's capacity for continuous compounding growth for shareholders."
   },
   "m8_capital_allocation": {
     "score": 9,
-    "comment": "即使給予競爭對手千億美元，也無法在短時間內複製McCormick的核心戰略資產。這不僅包括其在全球建立的無數知名品牌、遍布150多個國家的分銷網絡，更重要的是其與供應商、零售商數十年建立的信任關係，以及消費者對其產品品質和風味的長期認可。這些無形資產是時間和歷史沉澱的結果，是任何巨額資本都無法快速買到的。這種不可複製性構成了極其堅固的護城河，確保了其長期競爭優勢。"
+    "comment_zh": "即使給予競爭對手千億美元資金，也難以在短時間內複製McCormick的核心戰略資產。其百年積累的全球品牌聲譽、遍佈全球的採購網絡、精密的供應鏈管理、廣泛的分銷渠道以及與消費者建立的深厚信任，都是時間與歷史沉澱的結果。這些無形資產的建立，不僅需要巨額資本，更需要漫長的時間、持續的品質控制和市場深耕。這種不可複製性構成了極為堅固的護城河，使得新進入者幾乎不可能在短期內挑戰其市場領導地位，是巴菲特眼中真正的「特許經營權」價值所在。",
+    "comment_en": "Even with a hundred billion dollars, it would be incredibly difficult for a competitor to replicate McCormick's core strategic assets in a short period. Its century-long accumulation of global brand reputation, worldwide sourcing network, sophisticated supply chain management, extensive distribution channels, and deep consumer trust are the results of time and historical development. Building these intangible assets requires not only immense capital but also a long duration, consistent quality control, and deep market penetration. This irreproducibility forms an extremely robust moat, making it nearly impossible for new entrants to challenge its market leadership in the short term, representing the true \"franchise\" value in Buffett's view."
   },
   "m9_customer_retention": {
-    "score": 10,
-    "comment": "McCormick所處的香料調味品行業，其產品需求根植於人類最基本的飲食需求，具有極高的確定性和永恆性。無論科技如何進步，人工智能如何發展，人們對食物美味的追求始終不變。這使得公司對技術變革或顛覆性創新具有極強的免疫力。其產品線雖然會因應健康趨勢或口味偏好而調整，但核心業務模式和產品本質不會被顛覆。這種「永恆需求」是巴菲特最看重的護城河之一，確保了業務的長期穩定性。"
+    "score": 9,
+    "comment_zh": "香料與調味品是人類飲食文化中不可或缺的組成部分，其需求具有極高的確定性和持久性。儘管食品行業會出現新的烹飪趨勢或健康理念，但對風味提升的基本需求始終如一。McCormick的產品本質上不易受到技術變革或人工智慧顛覆的影響，不像某些高科技行業可能面臨的典範轉移風險。這種業務的「永恆性」和對顛覆性技術的強大免疫力，賦予了公司極高的穩定性和可預測性，是巴菲特青睞的「簡單易懂」且不易被淘汰的商業模式。",
+    "comment_en": "Spices and seasonings are an indispensable part of human culinary culture, and their demand exhibits extremely high certainty and durability. While new cooking trends or health concepts may emerge in the food industry, the fundamental need for flavor enhancement remains constant. McCormick's products are inherently less susceptible to disruption from technological changes or artificial intelligence, unlike the paradigm shift risks faced by some high-tech industries. This \"timelessness\" of the business and its strong immunity to disruptive technologies grant the company exceptional stability and predictability, embodying the \"simple and understandable\" and resilient business model favored by Buffett."
   },
   "m10_durability": {
     "score": 8,
-    "comment": "儘管具體回購數據未提供，但McCormick穩健的財務表現（如高F-Score和強勁的自由現金流）暗示其管理層在資本配置上可能採取了審慎且有利於股東的策略。巴菲特強調管理層應將股東的錢視為自己的錢，避免盲目高價併購，並在股價被低估時積極回購股票。McCormick作為一家長期穩健增長的消費品巨頭，其管理層應具備將自由現金流有效再投資於品牌建設、戰略性收購或股東回報的能力，以最大化長期價值。"
+    "comment_zh": "McCormick的管理層在資本配置方面展現出穩健與戰略眼光。公司不僅長期保持穩定的股息支付，還通過一系列成功的戰略性收購（如Frank's RedHot和French's）有效擴大了產品組合和市場份額，這些收購通常能與現有業務產生良好的協同效應。在股價被低估時，管理層亦會考慮積極回購股票以提升股東價值。這種對股東利益負責、不盲目擴張、注重內在價值增長的資本配置策略，符合巴菲特對優秀管理層的期望，是公司長期成功的關鍵因素之一。",
+    "comment_en": "McCormick's management has demonstrated prudence and strategic vision in capital allocation. The company not only maintains a long history of stable dividend payments but has also successfully expanded its product portfolio and market share through a series of strategic acquisitions (e.g., Frank's RedHot and French's), which typically generate strong synergies with existing operations. When the stock is undervalued, management also considers aggressive share buybacks to enhance shareholder value. This capital allocation strategy, focused on shareholder interests, avoiding reckless expansion, and prioritizing intrinsic value growth, aligns with Buffett's expectations for excellent management and is a key factor in the company's long-term success."
   },
-  "overall_moat_verdict": "McCormick本質上是一家擁有「特許經營權」特徵的消費品巨頭，其核心護城河建立在強大的品牌心智、全球規模經濟以及產品需求的永恆性之上。公司憑藉McCormick、French's等家喻戶曉的品牌，在香料調味品市場享有卓越的定價權和消費者忠誠度。其龐大的全球採購、生產與分銷網絡，賦予其無可比擬的成本優勢。此外，香料作為人類飲食的必需品，其需求對技術變革具有極強的免疫力。這些因素共同構建了堅固的商業壁壘，使得McCormick能夠長期維持超額的資本回報率，持續為股東創造價值，是典型的「收費橋樑」型企業。"
+  "overall_moat_verdict_zh": "McCormick本質上是一家典型的「特許經營權」企業，猶如廚房裡的收費橋樑。其核心護城河深植於百年積累的強大品牌資產（如McCormick、French's），賦予其卓越的定價權和消費者忠誠度。全球領先的規模優勢帶來無可比擬的成本效益和分銷網絡，形成難以複製的競爭壁壘。儘管缺乏網絡效應或專利獨佔性，但其產品的必需性、對技術顛覆的免疫力以及工業客戶的高轉換成本，共同構築了堅實的防禦工事。管理層穩健的資本配置策略進一步鞏固了其長期價值創造能力。這是一家「簡單易懂」、需求永恆、能持續產生豐厚自由現金流的優質企業，非常符合巴菲特對卓越企業的定義。",
+  "overall_moat_verdict_en": "McCormick is fundamentally a classic \"franchise\" business, akin to a toll bridge for the kitchen. Its core moat is deeply rooted in centuries of accumulated powerful brand equity (e.g., McCormick, French's), granting it exceptional pricing power and consumer loyalty. Its global leading scale provides unparalleled cost efficiencies and distribution networks, forming an irreplicable competitive barrier. Although it lacks network effects or patent exclusivity, the essential nature of its products, immunity to technological disruption, and high switching costs for industrial clients collectively build robust defenses. Prudent capital allocation by management further solidifies its long-term value creation capability. This is a \"simple and understandable\" quality business with timeless demand, consistently generating substantial free cash flow, aligning perfectly with Buffett's definition of an excellent enterprise."
 }
