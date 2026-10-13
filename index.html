@@ -3378,24 +3378,20 @@
     if (!container || !s) return;
     const isEn = (currentLang === 'en');
 
-    // 確保當前標的具備 ticker 屬性
-    const currentTicker = (s.ticker || s.symbol || activeCompanyTicker || 'NVDA').toUpperCase();
-    const currentStock = { ...s, ticker: currentTicker };
+    // 統一在此宣告一次 targetTicker
+    const targetTicker = (s.ticker || s.symbol || activeCompanyTicker || 'NVDA').toUpperCase();
+    const currentStock = { ...s, ticker: targetTicker };
 
-    // 確保當前標的具備 ticker 屬性
-    const currentTicker = (s.ticker || s.symbol || activeCompanyTicker || 'NVDA').toUpperCase();
-    const currentStock = { ...s, ticker: currentTicker };
-
-    // 1. 從 stockUniverse 找出所有「同 Sector 且同 Industry」的有效候選公司 (排除自身)
+    // 1. 從 stockUniverse 找出所有「同 Sector 且同 Industry」的公司 (排除自身)
     const exactPeersPool = Object.entries(stockUniverse)
       .map(([k, val]) => ({ ...val, ticker: (val.ticker || val.symbol || k).toUpperCase() }))
       .filter(x => 
-        x.ticker !== currentTicker && 
+        x.ticker !== targetTicker && 
         x.sector === s.sector && 
         x.industry === s.industry
       );
 
-    // 2. 依市值接近程度進行排序 (Math.abs 市值差距由小到大)
+    // 2. 依市值差距由小到大排序
     const targetMcap = Number(s.mcap) || 0;
     exactPeersPool.sort((a, b) => {
       const diffA = Math.abs((Number(a.mcap) || 0) - targetMcap);
@@ -3405,23 +3401,23 @@
 
     let peerStocks = [];
 
-    // 3. 若 FMP 有回傳 peers 名單，優先採納其中符合「同 Sector 且同 Industry」的公司
+    // 3. 優先採納 FMP 名單中符合「同 Sector 且同 Industry」的標的
     if (Array.isArray(s.peers) && s.peers.length > 0) {
       const fmpPeersSet = new Set(s.peers.map(p => String(p).toUpperCase()));
       peerStocks = exactPeersPool.filter(x => fmpPeersSet.has(x.ticker));
     }
 
-    // 4. 若符合條件的名單未滿 5 家，直接從同 Industry 候選池中按市值最接近依序補齊
+    // 4. 若不足 5 家，從 exactPeersPool 依市值接近順序補齊
     if (peerStocks.length < 5) {
       const selectedSet = new Set(peerStocks.map(p => p.ticker));
       const remainingExactPeers = exactPeersPool.filter(x => !selectedSet.has(x.ticker));
       peerStocks = [...peerStocks, ...remainingExactPeers];
     }
 
-    // 5. 鎖定前 5 家同行 (若整個行業在現有 200 檔池中不足 5 家，則有多少列多少，不隨意跨行業混充)
+    // 5. 最多取 5 檔
     peerStocks = peerStocks.slice(0, 5);
 
-    // 第 1 欄為本標的，右側依序排開核心同行
+    // 第 1 欄為本標的，右側並列同行
     const allCols = [currentStock, ...peerStocks];
 
     // 輔助數據提取函式 (安全提取 TTM 數值)
