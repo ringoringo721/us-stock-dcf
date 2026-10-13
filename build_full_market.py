@@ -14,7 +14,6 @@ def fetch_as_reported_trade_ar(symbol: str, api_key: str) -> dict:
         "quarterly": {"trade": {}, "nontrade": {}}
     }
     for period_param in ["annual", "quarter"]:
-        # 修正為 FMP 最新穩定版 As-Reported 端點
         url = f"https://financialmodelingprep.com/stable/balance-sheet-statement-as-reported?symbol={symbol}&period={period_param}&limit=24&apikey={api_key}"
         try:
             resp = requests.get(url, timeout=12)
@@ -26,13 +25,11 @@ def fetch_as_reported_trade_ar(symbol: str, api_key: str) -> dict:
                         if not isinstance(report_data, dict):
                             continue
                         
-                        # 1. 抓取商業貿易應收帳款 accountsreceivablenetcurrent (例如 AAPL 的 39,777M)
                         val_trade = (
                             report_data.get("accountsreceivablenetcurrent") or
                             report_data.get("accountsReceivableNetCurrent") or
                             report_data.get("accountsreceivablecurrent")
                         )
-                        # 2. 抓取供應商非貿易應收 nontradereceivablescurrent (例如 AAPL 的 33,180M)
                         val_nontrade = (
                             report_data.get("nontradereceivablescurrent") or
                             report_data.get("nonTradeReceivablesCurrent") or
@@ -65,7 +62,7 @@ def fetch_as_reported_trade_ar(symbol: str, api_key: str) -> dict:
         except Exception as e:
             print(f"[{symbol}] 抓取 as-reported 失敗: {e}")
     return ar_map
-        
+
 try:
     from google import genai
     from google.genai import types
@@ -106,10 +103,40 @@ CACHE_DIR = "cache/moat"
 DESC_CACHE_DIR = "cache/descriptions"
 FIN_CACHE_DIR = "cache/financials"
 META_CACHE_DIR = "cache/company_meta"
+PEER_CACHE_DIR = "cache/peers"
 os.makedirs(CACHE_DIR, exist_ok=True)
 os.makedirs(DESC_CACHE_DIR, exist_ok=True)
 os.makedirs(FIN_CACHE_DIR, exist_ok=True)
 os.makedirs(META_CACHE_DIR, exist_ok=True)
+os.makedirs(PEER_CACHE_DIR, exist_ok=True)
+
+def get_stock_peers_cached(ticker: str, api_key: str) -> list:
+    """從 FMP 取得 5 家核心同行對標公司，並持久化保存至 cache/peers/{ticker}.json"""
+    cache_file = os.path.join(PEER_CACHE_DIR, f"{ticker}.json")
+    if os.path.exists(cache_file):
+        try:
+            with open(cache_file, "r", encoding="utf-8") as f:
+                cached_peers = json.load(f)
+                if isinstance(cached_peers, list) and len(cached_peers) > 0:
+                    return cached_peers[:5]
+        except Exception:
+            pass
+
+    url = f"https://financialmodelingprep.com/stable/stock-peers?symbol={ticker}&apikey={api_key}"
+    try:
+        res = requests.get(url, timeout=10)
+        if res.status_code == 200:
+            data = res.json()
+            if isinstance(data, list) and len(data) > 0:
+                raw_peers = data[0].get("peersList", [])
+                peers_5 = [p for p in raw_peers if p != ticker][:5]
+                with open(cache_file, "w", encoding="utf-8") as f:
+                    json.dump(peers_5, f, ensure_ascii=False, indent=2)
+                return peers_5
+    except Exception as e:
+        print(f"⚠️ [{ticker}] 取得同行資訊失敗: {e}")
+
+    return []
 
 def get_deep_chinese_description(ticker: str, company_name: str, en_desc: str) -> str:
     """利用 Gemini 將 FMP 英文業務描述翻譯並提煉為繁體中文，支援本機快取"""
@@ -596,7 +623,6 @@ def fetch_cached_financial_statements(fmp_sym: str, sym: str) -> Dict[str, Any]:
         except Exception:
             pass
 
-    # 抓取 5 年年度報表
     inc_annual = fetch_json("income-statement", {"symbol": fmp_sym, "period": "annual", "limit": 5}) or []
     time.sleep(0.04)
     bs_annual = fetch_json("balance-sheet-statement", {"symbol": fmp_sym, "period": "annual", "limit": 5}) or []
@@ -604,7 +630,6 @@ def fetch_cached_financial_statements(fmp_sym: str, sym: str) -> Dict[str, Any]:
     cf_annual = fetch_json("cash-flow-statement", {"symbol": fmp_sym, "period": "annual", "limit": 5}) or []
     time.sleep(0.04)
 
-    # 抓取 20 季（5 年）季度報表
     inc_quarter = fetch_json("income-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 20}) or []
     time.sleep(0.04)
     bs_quarter = fetch_json("balance-sheet-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 20}) or []
@@ -803,7 +828,6 @@ def fetch_cached_company_meta(fmp_sym: str, sym: str, total_shares_m: float, cur
 
     return meta_payload
 
-# 支援港股與美股的常規匯率快取
 FX_CACHE = {
     "USD": 1.0,
     "HKD": 1.0 / 7.80,
@@ -919,7 +943,6 @@ def main():
         if not sym:
             continue
         
-        # 港股代碼（.HK）必須保留小數點，美股（如 BRK.B）則去掉小數點
         fmp_sym = sym if sym.endswith(".HK") else sym.replace(".", "")
 
         # 0. 抓取企業 Profile
@@ -1047,11 +1070,9 @@ def main():
         bs_quarter = quarterly_data.get("balance", [])
         cf_quarter = quarterly_data.get("cashflow", [])
 
-        # 取最近 4 季供 TTM 基準計算
         inc_latest_4q = inc_quarter[:4]
         cf_latest_4q = cf_quarter[:4]
 
-        # 抓取純商業應收帳款 map
         trade_ar_map = fetch_as_reported_trade_ar(sym, FMP_KEY)
 
         ttm_net_income = sum(float(x.get("netIncome") or 0.0) for x in inc_latest_4q)
@@ -1106,42 +1127,6 @@ def main():
         bs_5y = list(reversed(bs_annual))[:5] if bs_annual else []
         cf_5y = list(reversed(cf_annual))[:5] if cf_annual else []
 
-        def get_stock_peers_cached(ticker, api_key):
-            """
-            從 FMP 取得 5 家核心同行對標公司，並持久化保存至 cache/peers/{ticker}.json
-            """
-            cache_dir = "cache/peers"
-            os.makedirs(cache_dir, exist_ok=True)
-            cache_file = os.path.join(cache_dir, f"{ticker}.json")
-
-            # 1. 優先檢查本地快取，防止重複消耗 API
-            if os.path.exists(cache_file):
-                try:
-                    with open(cache_file, "r", encoding="utf-8") as f:
-                        cached_peers = json.load(f)
-                        if isinstance(cached_peers, list) and len(cached_peers) > 0:
-                            return cached_peers[:5]
-                except Exception:
-                    pass
-
-            # 2. 本地無快取時向 FMP 查詢官方 Peers 端點
-            url = f"https://financialmodelingprep.com/stable/stock-peers?symbol={ticker}&apikey={api_key}"
-            try:
-                res = requests.get(url, timeout=10)
-                if res.status_code == 200:
-                    data = res.json()
-                    if isinstance(data, list) and len(data) > 0:
-                        raw_peers = data[0].get("peersList", [])
-                        peers_5 = [p for p in raw_peers if p != ticker][:5]
-                        # 寫入快取檔
-                        with open(cache_file, "w", encoding="utf-8") as f:
-                            json.dump(peers_5, f, ensure_ascii=False, indent=2)
-                        return peers_5
-            except Exception as e:
-                print(f"⚠️ [{ticker}] 取得同行資訊失敗: {e}")
-
-            return []
-    
         def get_safe_field(d_item, field_name):
             if not d_item or not isinstance(d_item, dict):
                 return 0.0
@@ -1173,7 +1158,6 @@ def main():
         def get_ttm_val(quarter_list, key, is_sum=True, is_ratio_or_per_share=False):
             if not quarter_list:
                 return 0.0
-            # 關鍵修正：TTM EPS 為最近 4 季 Diluted EPS 直接加總
             if key in ["eps", "epsdiluted"]:
                 return round(sum(float(q.get(key) or 0.0) for q in quarter_list[:4]), 2)
 
@@ -1245,7 +1229,6 @@ def main():
             trade_ar_list.insert(0, 0.0)
             nontrade_ar_list.insert(0, 0.0)
 
-        # 追加最新一期 TTM (第 6 筆)
         latest_trade_ar = None
         latest_nontrade_ar = 0.0
         if bs_quarter:
@@ -1290,21 +1273,18 @@ def main():
         q_reversed_cf = list(reversed(cf_quarter[:20]))
         quarter_labels = [f"{q.get('calendarYear') or q.get('fiscalYear') or q.get('date', '')[:4]}{q.get('period', '')}" for q in q_reversed_inc]
 
-        # ⬇️ 貼在此處：提取年度與季度的結算/申報月份 (YYYY-MM) ⬇️
+        # 提取年度與季度的結算/申報月份 (YYYY-MM)
         annual_dates = [
             str(x.get("date", ""))[:7] if x.get("date") else "" 
             for x in inc_5y
         ]
-        # 追加最新一期 (TTM) 對應的最新季度截止日 (第 6 筆)
         latest_date_str = str(inc_quarter[0].get("date", ""))[:7] if inc_quarter else ""
         annual_dates.append(latest_date_str)
 
-        # 提取近 20 季的申報月份 (對齊 quarter_labels)
         quarter_dates = [
             str(q.get("date", ""))[:7] if q.get("date") else "" 
             for q in q_reversed_inc
         ]
-        # ⬆️ 貼上結束 ⬆️
         
         # 2. 季度 20 季應收款安全取值 (同時取 trade 與 nontrade)
         quarter_trade_ar = []
@@ -1323,10 +1303,10 @@ def main():
             "income": stmt_income,
             "balance": stmt_balance,
             "cashflow": stmt_cashflow,
-            "annual_dates": annual_dates,          # ⬅️ 新增年度申報日期 (例如: ['2021-09', '2022-09', ..., '2025-09'])
+            "annual_dates": annual_dates,
             "quarterly_raw": {
                 "periods": quarter_labels,
-                "dates": quarter_dates,            # ⬅️ 新增季度申報日期 (例如: ['2021-12', '2022-03', ..., '2026-06'])
+                "dates": quarter_dates,
                 "income": {f: [round(get_safe_field(qi, f) * (1 if is_r else fx_rate / 1e6), 4 if is_r else 2) for qi in q_reversed_inc] for f, is_r in income_fields},
                 "balance": {f: [round(get_safe_field(qb, f) * (1 if is_r else fx_rate / 1e6), 4 if is_r else 2) for qb in q_reversed_bs] for f, is_r in balance_fields},
                 "cashflow": {f: [round(get_safe_field(qc, f) * (1 if is_r else fx_rate / 1e6), 4 if is_r else 2) for qc in q_reversed_cf] for f, is_r in cashflow_fields},
@@ -1528,7 +1508,7 @@ def main():
             "fcf0": fcf0,
             "real_history": real_history,
             "statements_raw": statements_data,
-            "peers": get_stock_peers_cached(ticker, FMP_API_KEY),
+            "peers": get_stock_peers_cached(sym, FMP_KEY),  # ⬅️ 關鍵修正：此處使用 sym 與 FMP_KEY
             "beta": beta,
             "beta_5y": beta_5y,
             "kd": KD,
