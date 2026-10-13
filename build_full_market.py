@@ -1271,8 +1271,10 @@ def main():
             "income": stmt_income,
             "balance": stmt_balance,
             "cashflow": stmt_cashflow,
+            "annual_dates": annual_dates,          # ⬅️ 新增年度申報日期 (例如: ['2021-09', '2022-09', ..., '2025-09'])
             "quarterly_raw": {
                 "periods": quarter_labels,
+                "dates": quarter_dates,            # ⬅️ 新增季度申報日期 (例如: ['2021-12', '2022-03', ..., '2026-06'])
                 "income": {f: [round(get_safe_field(qi, f) * (1 if is_r else fx_rate / 1e6), 4 if is_r else 2) for qi in q_reversed_inc] for f, is_r in income_fields},
                 "balance": {f: [round(get_safe_field(qb, f) * (1 if is_r else fx_rate / 1e6), 4 if is_r else 2) for qb in q_reversed_bs] for f, is_r in balance_fields},
                 "cashflow": {f: [round(get_safe_field(qc, f) * (1 if is_r else fx_rate / 1e6), 4 if is_r else 2) for qc in q_reversed_cf] for f, is_r in cashflow_fields},
