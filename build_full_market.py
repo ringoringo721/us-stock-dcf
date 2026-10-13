@@ -1106,6 +1106,42 @@ def main():
         bs_5y = list(reversed(bs_annual))[:5] if bs_annual else []
         cf_5y = list(reversed(cf_annual))[:5] if cf_annual else []
 
+        def get_stock_peers_cached(ticker, api_key):
+            """
+            從 FMP 取得 5 家核心同行對標公司，並持久化保存至 cache/peers/{ticker}.json
+            """
+            cache_dir = "cache/peers"
+            os.makedirs(cache_dir, exist_ok=True)
+            cache_file = os.path.join(cache_dir, f"{ticker}.json")
+
+            # 1. 優先檢查本地快取，防止重複消耗 API
+            if os.path.exists(cache_file):
+                try:
+                    with open(cache_file, "r", encoding="utf-8") as f:
+                        cached_peers = json.load(f)
+                        if isinstance(cached_peers, list) and len(cached_peers) > 0:
+                            return cached_peers[:5]
+                except Exception:
+                    pass
+
+            # 2. 本地無快取時向 FMP 查詢官方 Peers 端點
+            url = f"https://financialmodelingprep.com/stable/stock-peers?symbol={ticker}&apikey={api_key}"
+            try:
+                res = requests.get(url, timeout=10)
+                if res.status_code == 200:
+                    data = res.json()
+                    if isinstance(data, list) and len(data) > 0:
+                        raw_peers = data[0].get("peersList", [])
+                        peers_5 = [p for p in raw_peers if p != ticker][:5]
+                        # 寫入快取檔
+                        with open(cache_file, "w", encoding="utf-8") as f:
+                            json.dump(peers_5, f, ensure_ascii=False, indent=2)
+                        return peers_5
+            except Exception as e:
+                print(f"⚠️ [{ticker}] 取得同行資訊失敗: {e}")
+
+            return []
+    
         def get_safe_field(d_item, field_name):
             if not d_item or not isinstance(d_item, dict):
                 return 0.0
@@ -1492,6 +1528,7 @@ def main():
             "fcf0": fcf0,
             "real_history": real_history,
             "statements_raw": statements_data,
+            "peers": get_stock_peers_cached(ticker, FMP_API_KEY),
             "beta": beta,
             "beta_5y": beta_5y,
             "kd": KD,
