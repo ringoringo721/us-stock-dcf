@@ -2423,20 +2423,39 @@
     const thead = document.getElementById('cmp-ratio-thead');
 
     if (thead) {
+      const aDates = rawStmts.annual_dates || [];
+      const qDates = qRaw.dates || [];
+
       if (period === 'annual') {
         const trendTitle = (currentLang === 'en') ? '5Y/TTM Trend' : '歷史趨勢';
         const metricTitle = (currentLang === 'en') ? 'Ratio Metric / Dimension' : '比率指標 / 財務維度';
-        thead.innerHTML = `
-          <th class="table-sticky-col" style="text-align: left; width: 320px;">${metricTitle}</th>
-          <th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>TTM</th>
-          <th style="text-align: center; width: 90px;">${trendTitle}</th>
-        `;
+        const annualCols = ['2021', '2022', '2023', '2024', '2025', 'TTM'];
+
+        let aHeadHtml = `<th class="table-sticky-col" style="text-align: left; width: 320px;">${metricTitle}</th>`;
+        annualCols.forEach((yr, idx) => {
+          const subDate = aDates[idx] ? `<span class="th-period-subdate">${aDates[idx]}</span>` : '';
+          aHeadHtml += `
+            <th style="text-align: right; vertical-align: bottom; padding: 8px 12px;">
+              <span class="th-period-title">${yr}</span>
+              ${subDate}
+            </th>
+          `;
+        });
+        aHeadHtml += `<th style="text-align: center; width: 90px;">${trendTitle}</th>`;
+        thead.innerHTML = aHeadHtml;
       } else {
         const qPeriods = qRaw.periods || [];
         let qHeadHtml = `<th class="table-sticky-col" style="text-align: left; width: 320px;" data-i18n="th_ratio_metric">比率指標 / 財務維度</th>`;
+        
         qPeriods.forEach((p, pIdx) => {
           const isQ4 = String(p).toUpperCase().includes('Q4') && (pIdx < qPeriods.length - 1);
-          qHeadHtml += `<th class="${isQ4 ? 'year-divider-cell' : ''}">${p}</th>`;
+          const subDate = qDates[pIdx] ? `<span class="th-period-subdate">${qDates[pIdx]}</span>` : '';
+          qHeadHtml += `
+            <th class="${isQ4 ? 'year-divider-cell' : ''}" style="text-align: right; vertical-align: bottom; padding: 8px 12px;">
+              <span class="th-period-title">${p}</span>
+              ${subDate}
+            </th>
+          `;
         });
         const ratioTrendTitle = (currentLang === 'en') ? 'Last 20Q Trend' : '近 20 季趨勢';
         qHeadHtml += `<th style="text-align: center; width: 90px;">${ratioTrendTitle}</th>`;
