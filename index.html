@@ -3382,33 +3382,46 @@
     const currentTicker = (s.ticker || s.symbol || activeCompanyTicker || 'NVDA').toUpperCase();
     const currentStock = { ...s, ticker: currentTicker };
 
-    // 1. 取得 5 家核心對標同儕
+    // 確保當前標的具備 ticker 屬性
+    const currentTicker = (s.ticker || s.symbol || activeCompanyTicker || 'NVDA').toUpperCase();
+    const currentStock = { ...s, ticker: currentTicker };
+
+    // 1. 從 stockUniverse 找出所有「同 Sector 且同 Industry」的有效候選公司 (排除自身)
+    const exactPeersPool = Object.entries(stockUniverse)
+      .map(([k, val]) => ({ ...val, ticker: (val.ticker || val.symbol || k).toUpperCase() }))
+      .filter(x => 
+        x.ticker !== currentTicker && 
+        x.sector === s.sector && 
+        x.industry === s.industry
+      );
+
+    // 2. 依市值接近程度進行排序 (Math.abs 市值差距由小到大)
+    const targetMcap = Number(s.mcap) || 0;
+    exactPeersPool.sort((a, b) => {
+      const diffA = Math.abs((Number(a.mcap) || 0) - targetMcap);
+      const diffB = Math.abs((Number(b.mcap) || 0) - targetMcap);
+      return diffA - diffB;
+    });
+
     let peerStocks = [];
+
+    // 3. 若 FMP 有回傳 peers 名單，優先採納其中符合「同 Sector 且同 Industry」的公司
     if (Array.isArray(s.peers) && s.peers.length > 0) {
-      peerStocks = s.peers
-        .map(pTicker => {
-          const symKey = String(pTicker).toUpperCase();
-          const target = stockUniverse[symKey] || Object.values(stockUniverse).find(x => (x.ticker || x.symbol || '').toUpperCase() === symKey);
-          return target ? { ...target, ticker: symKey } : null;
-        })
-        .filter(Boolean);
+      const fmpPeersSet = new Set(s.peers.map(p => String(p).toUpperCase()));
+      peerStocks = exactPeersPool.filter(x => fmpPeersSet.has(x.ticker));
     }
 
-    // 兜底：若 FMP 推薦名單不足 5 檔，由同板塊依市值最接近補足 5 家
+    // 4. 若符合條件的名單未滿 5 家，直接從同 Industry 候選池中按市值最接近依序補齊
     if (peerStocks.length < 5) {
-      const existingTickers = new Set([currentTicker, ...peerStocks.map(p => p.ticker)]);
-      
-      const fallback = Object.entries(stockUniverse)
-        .map(([k, val]) => ({ ...val, ticker: (val.ticker || val.symbol || k).toUpperCase() }))
-        .filter(x => x.sector === s.sector && !existingTickers.has(x.ticker))
-        .sort((a, b) => Math.abs((Number(b.mcap) || 0) - (Number(s.mcap) || 0)))
-        .slice(0, 5 - peerStocks.length);
-
-      peerStocks = [...peerStocks, ...fallback];
+      const selectedSet = new Set(peerStocks.map(p => p.ticker));
+      const remainingExactPeers = exactPeersPool.filter(x => !selectedSet.has(x.ticker));
+      peerStocks = [...peerStocks, ...remainingExactPeers];
     }
+
+    // 5. 鎖定前 5 家同行 (若整個行業在現有 200 檔池中不足 5 家，則有多少列多少，不隨意跨行業混充)
     peerStocks = peerStocks.slice(0, 5);
 
-    // 第 1 欄為本標的，右側依序排開 5 家同行
+    // 第 1 欄為本標的，右側依序排開核心同行
     const allCols = [currentStock, ...peerStocks];
 
     // 輔助數據提取函式 (安全提取 TTM 數值)
