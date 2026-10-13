@@ -505,6 +505,51 @@
     .year-divider-cell {
       border-right: 2.5px solid rgba(56, 189, 248, 0.45) !important;
     }
+    /* 同業對比表雙向凍結專用樣式 */
+    #cmp-peers-table {
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      width: 100% !important;
+      min-width: 980px !important;
+    }
+
+    /* 頂部表頭垂直凍結 (向下滾動時不被覆蓋) */
+    #cmp-peers-table thead th {
+      position: sticky !important;
+      top: 0 !important;
+      background: #162032 !important;
+      z-index: 25 !important;
+      border-bottom: 2px solid #334155 !important;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.45) !important;
+    }
+
+    /* 左側第一欄水平凍結 (向右滾動時指標名稱固定) */
+    #cmp-peers-table tbody td.peer-sticky-col {
+      position: sticky !important;
+      left: 0 !important;
+      background: var(--sticky-bg, #162032) !important;
+      z-index: 15 !important;
+      border-right: 2px solid #334155 !important;
+      box-shadow: 4px 0 8px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    /* 左上角交會欄位 (永遠置頂置左) */
+    #cmp-peers-table thead th.peer-sticky-col {
+      position: sticky !important;
+      top: 0 !important;
+      left: 0 !important;
+      z-index: 50 !important;
+      background: #1e293b !important;
+      border-right: 2px solid #334155 !important;
+      border-bottom: 2px solid #334155 !important;
+    }
+
+    /* 同行表格分組標題列 */
+    #cmp-peers-table .fin-group-header-row td.peer-sticky-col {
+      background: #111c30 !important;
+      color: #38bdf8 !important;
+      z-index: 18 !important;
+    }
   </style>
 </head>
 <body>
@@ -1660,6 +1705,10 @@
     const searchInp = document.getElementById('search-ticker');
     if (searchInp) {
       searchInp.placeholder = lang === 'zh' ? '搜尋代號、名稱、主板塊或細分子行業...' : 'Search ticker, company name, sector or industry...';
+
+    const pView = document.getElementById('subpage-peers');
+    if (pView && pView.classList.contains('active')) {
+      renderPeersSubPage(stockUniverse[activeCompanyTicker]);
     }
     
     updateSubIndustryButtons();
@@ -3312,27 +3361,268 @@
   }
 
   // ========================================================
-  // 4. 其他子分頁渲染函式 (同業對比、趨勢柱狀圖、股息、新聞)
+  // 4. 直向 5 家同行深度財務矩陣 (雙語切換 + 雙向滾動凍結 + 45+ 項指標)
   // ========================================================
   function renderPeersSubPage(s) {
-    const tbody = document.getElementById('cmp-peers-tbody');
-    if (!tbody) return;
+    const container = document.getElementById('subpage-peers');
+    if (!container || !s) return;
     const isEn = (currentLang === 'en');
-    const peers = Object.values(stockUniverse).filter(x => x.sector === s.sector && x.ticker !== s.ticker).slice(0, 5);
-    tbody.innerHTML = peers.map(p => {
-      const dcf = computeDCF(p, p.ticker);
-      return `
-        <tr>
-          <td style="text-align: left; font-weight:700;"><a class="ticker-link" onclick="openCompanyProfile('${p.ticker}')">${p.ticker}</a> <span style="color:#94a3b8; font-size:11px;">(${p.name})</span></td>
-          <td style="color:var(--accent); font-weight:700;">$${Number(p.price).toFixed(2)}</td>
-          <td>$${Number(p.mcap).toLocaleString()}</td>
-          <td>${p.pe_trailing || '--'}</td>
-          <td class="text-green">$${dcf ? dcf.fairVal.toFixed(2) : '--'}</td>
-          <td class="${dcf && dcf.premiumPct < 0 ? 'text-green' : 'text-red'}">${dcf ? dcf.premiumPct.toFixed(1) + '%' : '--'}</td>
-          <td style="text-align:center;"><button class="btn-nav" onclick="openDetail('${p.ticker}')">${isEn ? 'View DCF' : '查看模型'}</button></td>
+
+    // 1. 取得 5 家核心對標同儕
+    let peerStocks = [];
+    if (Array.isArray(s.peers) && s.peers.length > 0) {
+      peerStocks = s.peers.map(pTicker => stockUniverse[pTicker]).filter(Boolean);
+    }
+    // 兜底：若 FMP 推薦名單不在 200 檔池子內，依同板塊市值最接近自動補齊
+    if (peerStocks.length < 5) {
+      const existing = new Set([s.ticker, ...peerStocks.map(p => p.ticker)]);
+      const fallback = Object.values(stockUniverse)
+        .filter(x => x.sector === s.sector && !existing.has(x.ticker))
+        .sort((a, b) => Math.abs((Number(b.mcap) || 0) - (Number(s.mcap) || 0)))
+        .slice(0, 5 - peerStocks.length);
+      peerStocks = [...peerStocks, ...fallback];
+    }
+    peerStocks = peerStocks.slice(0, 5);
+
+    // 第 1 欄為本標的，右側依序排開 5 家同行
+    const allCols = [s, ...peerStocks];
+
+    // 輔助數據提取函式 (安全提取 TTM 數值)
+    function getFinVal(stock, stmtKey, fieldKey, idx = -1) {
+      const stmts = (stock && stock.statements_raw && stock.statements_raw[stmtKey]) || {};
+      const arr = stmts[fieldKey];
+      if (Array.isArray(arr) && arr.length > 0) {
+        if (idx === -1) return Number(arr[arr.length - 1]) || 0;
+        const targetIdx = idx < 0 ? arr.length + idx : idx;
+        return Number(arr[targetIdx]) || 0;
+      }
+      return 0;
+    }
+
+    // 計算 YoY 增長率 (TTM vs 去年同期)
+    function getYoY(stock, stmtKey, fieldKey) {
+      const cur = getFinVal(stock, stmtKey, fieldKey, -1);
+      const prev = getFinVal(stock, stmtKey, fieldKey, -2);
+      if (prev && prev !== 0) {
+        return (((cur - prev) / Math.abs(prev)) * 100);
+      }
+      return null;
+    }
+
+    // 取得最新申報月份 (YYYY-MM)
+    function getLatestDate(stock) {
+      const dates = (stock && stock.statements_raw && stock.statements_raw.annual_dates) || [];
+      if (dates.length > 0) return dates[dates.length - 1];
+      const qDates = (stock && stock.statements_raw && stock.statements_raw.quarterly_raw && stock.statements_raw.quarterly_raw.dates) || [];
+      if (qDates.length > 0) return qDates[qDates.length - 1];
+      return '--';
+    }
+
+    // 數值格式化輔助函式
+    const fmtM = v => (v === null || isNaN(v) || v === 0) ? '--' : `$${Math.round(v).toLocaleString()}M`;
+    const fmtX = v => (v === null || isNaN(v) || v === 0) ? '--' : `${Number(v).toFixed(2)}x`;
+    const fmtPct = (v, colorize = false) => {
+      if (v === null || isNaN(v)) return '--';
+      const num = Number(v);
+      const str = `${num >= 0 ? '+' : ''}${num.toFixed(2)}%`;
+      if (!colorize) return `${num.toFixed(2)}%`;
+      return `<span class="${num >= 0 ? 'text-green' : 'text-red'}" style="font-weight:700;">${str}</span>`;
+    };
+
+    // 定義 5 大維度所有指標 (動態支援中英文標籤)
+    const metricGroups = [
+      {
+        titleZh: "1. 規模與市場定價 (Size & Valuation)",
+        titleEn: "1. Size & Valuation",
+        items: [
+          { labelZh: "市值 ($M)", labelEn: "Market Cap ($M)", fn: x => fmtM(Number(x.mcap) || 0) },
+          { labelZh: "最新股價 ($)", labelEn: "Stock Price ($)", fn: x => `$${Number(x.price || 0).toFixed(2)}` },
+          { labelZh: "企業價值 EV ($M)", labelEn: "Enterprise Value EV ($M)", fn: x => fmtM(Number(x.EV || x.fmp_official_ev) || 0) },
+          { labelZh: "EV / FCF", labelEn: "EV / FCF", fn: x => { const f = getFinVal(x, 'cashflow', 'freeCashFlow'); return f > 0 ? fmtX((Number(x.EV || x.mcap)) / f) : '--'; } },
+          { labelZh: "EV / EBITDA", labelEn: "EV / EBITDA", fn: x => fmtX(x.ev_to_ebitda) },
+          { labelZh: "EV / Revenue", labelEn: "EV / Revenue", fn: x => { const r = getFinVal(x, 'income', 'revenue'); return r > 0 ? fmtX((Number(x.EV || x.mcap)) / r) : '--'; } },
+          { labelZh: "Market Cap / FCF", labelEn: "Market Cap / FCF", fn: x => { const f = getFinVal(x, 'cashflow', 'freeCashFlow'); return f > 0 ? fmtX(Number(x.mcap) / f) : '--'; } },
+          { labelZh: "Market Cap / EBITDA", labelEn: "Market Cap / EBITDA", fn: x => { const eb = getFinVal(x, 'income', 'ebitda'); return eb > 0 ? fmtX(Number(x.mcap) / eb) : '--'; } },
+          { labelZh: "靜態 P/E", labelEn: "Trailing P/E", fn: x => x.pe_trailing ? `${Number(x.pe_trailing).toFixed(1)}x` : '--' },
+          { labelZh: "動態 P/E", labelEn: "Forward P/E", fn: x => x.pe_forward ? `${Number(x.pe_forward).toFixed(1)}x` : '--' },
+          { labelZh: "靜態 P/B", labelEn: "Trailing P/B", fn: x => x.pb_trailing ? `${Number(x.pb_trailing).toFixed(2)}x` : '--' },
+          { labelZh: "動態 P/B (估)", labelEn: "Forward P/B (Est.)", fn: x => { const eq = getFinVal(x, 'balance', 'totalStockholdersEquity'); return eq > 0 ? `${(Number(x.mcap) / eq).toFixed(2)}x` : '--'; } },
+          { labelZh: "股息率 (%)", labelEn: "Dividend Yield %", fn: x => Number(x.div_yield) > 0 ? `${Number(x.div_yield).toFixed(2)}%` : '0.00%' }
+        ]
+      },
+      {
+        titleZh: "2. 成長爆發力 (Growth Dynamics)",
+        titleEn: "2. Growth Dynamics",
+        items: [
+          { labelZh: "營業收入年增率 (Revenue YoY %)", labelEn: "Revenue Growth YoY %", fn: x => fmtPct(getYoY(x, 'income', 'revenue'), true) },
+          { labelZh: "毛利年增率 (Gross Profit YoY %)", labelEn: "Gross Profit Growth YoY %", fn: x => fmtPct(getYoY(x, 'income', 'grossProfit'), true) },
+          { labelZh: "營業利益年增率 (Operating Profit YoY %)", labelEn: "Operating Profit YoY %", fn: x => fmtPct(getYoY(x, 'income', 'operatingIncome'), true) },
+          { labelZh: "淨利年增率 (Net Profit YoY %)", labelEn: "Net Profit Growth YoY %", fn: x => fmtPct(getYoY(x, 'income', 'netIncome'), true) },
+          { labelZh: "EBITDA 年增率 (EBITDA YoY %)", labelEn: "EBITDA Growth YoY %", fn: x => fmtPct(getYoY(x, 'income', 'ebitda'), true) },
+          { labelZh: "營運現金流年增率 (CFO YoY %)", labelEn: "Operating Cashflow YoY %", fn: x => fmtPct(getYoY(x, 'cashflow', 'netCashProvidedByOperatingActivities'), true) },
+          { labelZh: "自由現金流年增率 (FCF YoY %)", labelEn: "Free Cash Flow YoY %", fn: x => fmtPct(getYoY(x, 'cashflow', 'freeCashFlow'), true) }
+        ]
+      },
+      {
+        titleZh: "3. 獲利品質與商業壁壘 (Profitability & Moat)",
+        titleEn: "3. Profitability & Moat",
+        items: [
+          { labelZh: "巴菲特護城河評分 (Moat Score)", labelEn: "Buffett Moat Score", fn: x => { const d = computeDCF(x, x.ticker); return d && d.moat ? `<b style="color:var(--accent);">${d.moat.total} / 100</b>` : '--'; } },
+          { labelZh: "營業收入 (Revenue, $M)", labelEn: "Revenue ($M)", fn: x => fmtM(getFinVal(x, 'income', 'revenue')) },
+          { labelZh: "毛利 (Gross Profit, $M)", labelEn: "Gross Profit ($M)", fn: x => fmtM(getFinVal(x, 'income', 'grossProfit')) },
+          { labelZh: "毛利率 % (Gross Margin)", labelEn: "Gross Profit Margin %", fn: x => { const r = getFinVal(x, 'income', 'revenue'), g = getFinVal(x, 'income', 'grossProfit'); return r ? fmtPct((g/r)*100) : '--'; } },
+          { labelZh: "營業利益 (Operating Income, $M)", labelEn: "Operating Profit ($M)", fn: x => fmtM(getFinVal(x, 'income', 'operatingIncome')) },
+          { labelZh: "營業利益率 % (Operating Margin)", labelEn: "Operating Margin %", fn: x => { const r = getFinVal(x, 'income', 'revenue'), op = getFinVal(x, 'income', 'operatingIncome'); return r ? fmtPct((op/r)*100) : '--'; } },
+          { labelZh: "稅後淨利 (Net Income, $M)", labelEn: "Net Profit ($M)", fn: x => fmtM(getFinVal(x, 'income', 'netIncome')) },
+          { labelZh: "淨利率 % (Net Margin)", labelEn: "Net Profit Margin %", fn: x => { const r = getFinVal(x, 'income', 'revenue'), ni = getFinVal(x, 'income', 'netIncome'); return r ? fmtPct((ni/r)*100) : '--'; } },
+          { labelZh: "EBITDA ($M)", labelEn: "EBITDA ($M)", fn: x => fmtM(getFinVal(x, 'income', 'ebitda')) },
+          { labelZh: "EBITDA 利潤率 %", labelEn: "EBITDA Margin %", fn: x => { const r = getFinVal(x, 'income', 'revenue'), eb = getFinVal(x, 'income', 'ebitda'); return r ? fmtPct((eb/r)*100) : '--'; } },
+          { labelZh: "營運現金流 (CFO, $M)", labelEn: "Operating Cash Flow ($M)", fn: x => fmtM(getFinVal(x, 'cashflow', 'netCashProvidedByOperatingActivities')) },
+          { labelZh: "資本支出 (CapEx, $M)", labelEn: "Capital Expenditure ($M)", fn: x => fmtM(Math.abs(getFinVal(x, 'cashflow', 'capitalExpenditure'))) },
+          { labelZh: "自由現金流 (FCF, $M)", labelEn: "Free Cash Flow ($M)", fn: x => fmtM(getFinVal(x, 'cashflow', 'freeCashFlow')) },
+          { labelZh: "FCF / 營收 (%)", labelEn: "FCF / Revenue %", fn: x => { const r = getFinVal(x, 'income', 'revenue'), f = getFinVal(x, 'cashflow', 'freeCashFlow'); return r ? fmtPct((f/r)*100) : '--'; } },
+          { labelZh: "FCF / 淨利潤 (%)", labelEn: "FCF / Net Income %", fn: x => { const ni = getFinVal(x, 'income', 'netIncome'), f = getFinVal(x, 'cashflow', 'freeCashFlow'); return ni ? fmtPct((f/ni)*100) : '--'; } }
+        ]
+      },
+      {
+        titleZh: "4. 資本運作效率 (Capital Efficiency)",
+        titleEn: "4. Capital Efficiency",
+        items: [
+          { labelZh: "FCF / 股東權益 (%)", labelEn: "FCF / Equity %", fn: x => { const eq = getFinVal(x, 'balance', 'totalStockholdersEquity'), f = getFinVal(x, 'cashflow', 'freeCashFlow'); return eq ? fmtPct((f/eq)*100) : '--'; } },
+          { labelZh: "股東權益報酬率 (ROE %)", labelEn: "ROE %", fn: x => x.roe ? `${Number(x.roe).toFixed(2)}%` : '--' },
+          { labelZh: "資產報酬率 (ROA %)", labelEn: "ROA %", fn: x => x.roa ? `${Number(x.roa).toFixed(2)}%` : '--' },
+          { labelZh: "投入資本回報率 (ROIC %)", labelEn: "ROIC % (Est.)", fn: x => {
+              const ebit = getFinVal(x, 'income', 'operatingIncome');
+              const debt = getFinVal(x, 'balance', 'totalDebt');
+              const eq = getFinVal(x, 'balance', 'totalStockholdersEquity');
+              const invested = debt + eq;
+              return invested > 0 ? fmtPct((ebit * 0.79 / invested) * 100) : '--';
+            }
+          }
+        ]
+      },
+      {
+        titleZh: "5. 財務防禦與償債彈性 (Solvency & Leverage)",
+        titleEn: "5. Solvency & Leverage",
+        items: [
+          { labelZh: "有息負債 / EBITDA", labelEn: "Debt / EBITDA", fn: x => fmtX(x.debt_to_ebitda) },
+          { labelZh: "淨有息負債 / EBITDA", labelEn: "Net Debt / EBITDA", fn: x => fmtX(x.net_debt_to_ebitda) },
+          { labelZh: "有息負債 / FCF", labelEn: "Debt / FCF", fn: x => { const d = getFinVal(x, 'balance', 'totalDebt'), f = getFinVal(x, 'cashflow', 'freeCashFlow'); return f > 0 ? fmtX(d/f) : '--'; } },
+          { labelZh: "淨負債 / FCF", labelEn: "Net Debt / FCF", fn: x => { const nd = getFinVal(x, 'balance', 'netDebt'), f = getFinVal(x, 'cashflow', 'freeCashFlow'); return f > 0 ? fmtX(nd/f) : '--'; } },
+          { labelZh: "流動比率 (Current Ratio)", labelEn: "Current Ratio", fn: x => x.current_ratio ? Number(x.current_ratio).toFixed(2) : '--' },
+          { labelZh: "利息保障倍數 (EBITDA / 利息)", labelEn: "EBITDA Interest Coverage", fn: x => {
+              const eb = getFinVal(x, 'income', 'ebitda');
+              const interest = Math.abs(getFinVal(x, 'income', 'interestExpense'));
+              return interest > 0 ? fmtX(eb / interest) : (isEn ? 'High (>50x)' : '高覆蓋 (>50x)');
+            }
+          },
+          { labelZh: "資產總額 (Total Assets, $M)", labelEn: "Total Assets ($M)", fn: x => fmtM(getFinVal(x, 'balance', 'totalAssets')) },
+          { labelZh: "總有息負債 (Total Debt, $M)", labelEn: "Total Debt ($M)", fn: x => fmtM(getFinVal(x, 'balance', 'totalDebt')) },
+          { labelZh: "股東權益合計 (Total Equity, $M)", labelEn: "Total Equity ($M)", fn: x => fmtM(getFinVal(x, 'balance', 'totalStockholdersEquity')) },
+          { labelZh: "有形資產淨值 (Tangible Net Worth, $M)", labelEn: "Tangible Net Worth ($M)", fn: x => {
+              const eq = getFinVal(x, 'balance', 'totalStockholdersEquity');
+              const gw = getFinVal(x, 'balance', 'goodwillAndIntangibleAssets') || (getFinVal(x, 'balance', 'goodwill') + getFinVal(x, 'balance', 'intangibleAssets'));
+              return fmtM(eq - gw);
+            }
+          },
+          { labelZh: "總負債 / 股東權益 (Debt / Equity %)", labelEn: "Total Debt / Equity %", fn: x => {
+              const d = getFinVal(x, 'balance', 'totalDebt'), eq = getFinVal(x, 'balance', 'totalStockholdersEquity');
+              return eq > 0 ? fmtPct((d/eq)*100) : '--';
+            }
+          },
+          { labelZh: "淨負債 / 股東權益 (Net Debt / Equity %)", labelEn: "Net Debt / Equity %", fn: x => {
+              const nd = getFinVal(x, 'balance', 'netDebt'), eq = getFinVal(x, 'balance', 'totalStockholdersEquity');
+              return eq > 0 ? fmtPct((nd/eq)*100) : '--';
+            }
+          },
+          { labelZh: "總負債 / 總資產 (Debt / Assets %)", labelEn: "Total Debt / Total Assets %", fn: x => {
+              const d = getFinVal(x, 'balance', 'totalDebt'), ta = getFinVal(x, 'balance', 'totalAssets');
+              return ta > 0 ? fmtPct((d/ta)*100) : '--';
+            }
+          }
+        ]
+      }
+    ];
+
+    const mainTitle = isEn ? "🏛️ Direct Peer Financial Benchmark Matrix (TTM Cross-Sectional)" : "🏛️ 5 大核心競爭同儕全維度財務指標矩陣 (TTM 橫向對比)";
+    const subTitle = isEn ? "Direct benchmark against top 5 highest business-overlap competitors" : "本標的對比行業重疊度最高之 5 檔對標公司";
+    const colHeaderTitle = isEn ? "Financial Metric \\ Ticker" : "指標維度 \\ 企業代碼";
+    const currentTag = isEn ? "Current" : "當前標的";
+
+    // 4. 組裝直向雙向凍結 HTML 表格
+    let tableHtml = `
+      <div class="panel" style="padding: 16px; margin-bottom: 24px;">
+        <div class="panel-title" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+          <span>${mainTitle}</span>
+          <span style="font-size: 12px; color: var(--text-muted);">${subTitle}</span>
+        </div>
+        <div class="table-scroll-wrapper" style="max-height: 72vh; overflow: auto; position: relative;">
+          <table id="cmp-peers-table">
+            <thead>
+              <tr>
+                <th class="peer-sticky-col" style="text-align: left; width: 280px; padding: 10px 14px;">
+                  ${colHeaderTitle}
+                </th>
+                ${allCols.map((c, i) => {
+                  const isCurrent = (i === 0);
+                  const thBg = isCurrent ? 'background: #1e3a8a !important;' : 'background: #162032 !important;';
+                  const dateStr = getLatestDate(c);
+                  return `
+                    <th style="padding: 10px 14px; text-align: right; vertical-align: bottom; ${thBg}">
+                      <div class="th-cell-wrap" style="align-items: flex-end;">
+                        <div>
+                          <span style="font-size: 14px; font-weight: 800; color: ${isCurrent ? '#38bdf8' : '#f8fafc'};">${c.ticker}</span>${isCurrent ? `<span class="badge" style="background:rgba(56,189,248,0.25); color:#38bdf8; font-size:10px; margin-left:4px;">${currentTag}</span>` : ''}
+                        </div>
+                        <div style="font-size: 11px; color: #94a3b8; font-weight: 500;">${getStockDisplayName(c)}</div>
+                        <span class="th-period-subdate">(${dateStr})</span>
+                      </div>
+                    </th>
+                  `;
+                }).join('')}
+              </tr>
+            </thead>
+            <tbody>
+    `;
+
+    // 5. 渲染 5 大維度資料列
+    metricGroups.forEach(grp => {
+      const gTitle = isEn ? grp.titleEn : grp.titleZh;
+      tableHtml += `
+        <tr class="fin-group-header-row">
+          <td class="peer-sticky-col" colspan="${allCols.length + 1}" style="padding: 9px 14px; text-transform: uppercase; letter-spacing: 0.5px;">
+            ${gTitle}
+          </td>
         </tr>
       `;
-    }).join('');
+      grp.items.forEach(it => {
+        const itemLabel = isEn ? it.labelEn : it.labelZh;
+        tableHtml += `
+          <tr>
+            <td class="peer-sticky-col" style="text-align: left; color: #cbd5e1; padding-left: 22px; font-weight: 600;">
+              ${itemLabel}
+            </td>
+            ${allCols.map((c, idx) => {
+              const isCurrent = (idx === 0);
+              const cellBg = isCurrent ? 'background: rgba(30, 58, 138, 0.15);' : '';
+              return `
+                <td style="padding: 8px 14px; font-weight: ${isCurrent ? '700' : '500'}; ${cellBg}">
+                  ${it.fn(c)}
+                </td>
+              `;
+            }).join('')}
+          </tr>
+        `;
+      });
+    });
+
+    tableHtml += `</tbody></table></div></div>`;
+    container.innerHTML = tableHtml;
+
+    // 6. 綁定滑鼠拖曳左右滑動
+    const peerWrapper = container.querySelector('.table-scroll-wrapper');
+    if (peerWrapper && typeof makeScrollable === 'function') {
+      makeScrollable(peerWrapper);
+    }
   }
 
   function renderChartsSubPage(s) {
