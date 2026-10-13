@@ -800,11 +800,6 @@
       </div>
     </div>
 
-    <!-- TradingView 走勢圖表組件 -->
-    <div class="panel" style="padding: 12px; margin-bottom: 18px;">
-      <div id="tradingview_widget_container" style="height: 520px; width: 100%;"></div>
-    </div>
-
     <!-- 7 大子分頁導航選單 -->
     <div class="subpage-nav-bar">
       <button class="sub-tab-btn active" onclick="switchSubPage('basic')" data-i18n="tab_basic">📁 1. 基本資料</button>
@@ -1121,15 +1116,14 @@
         </div>
       </div>
     </div>
-    <!-- TradingView 圖表子頁面 -->
-    <div id="subpage-chart" class="subpage-view" style="display: none;">
-      <div style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; padding: 16px; margin-bottom: 24px;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-          <h3 style="margin: 0; color: #f8fafc; font-size: 16px; font-weight: 700;">TradingView 即時互動圖表</h3>
-          <span style="color: #94a3b8; font-size: 12px;">支援多週期 K 線、技術指標分析</span>
+    <!-- 子分頁 8：TradingView 即時圖表 -->
+    <div id="subpage-chart" class="subpage-content">
+      <div class="panel">
+        <div class="panel-title" style="display: flex; justify-content: space-between; align-items: center;">
+          <span>📈 TradingView 即時多週期互動圖表</span>
+          <span style="font-size: 12px; color: var(--text-muted);">支援自訂技術指標、K 線週期切換</span>
         </div>
-        <!-- TradingView Widget 掛載容器 -->
-        <div id="tradingview_chart_container" style="height: 650px; width: 100%;"></div>
+        <div id="tradingview_widget_container" style="height: 620px; width: 100%; border-radius: 6px; overflow: hidden;"></div>
       </div>
     </div>
   </div>
@@ -2314,6 +2308,8 @@
       renderDividendSubPage(curStock);
     } else if (tabKey === 'news') {
       renderNewsSubPage(activeCompanyTicker);
+    } else if (tabKey === 'chart') {
+      renderTradingViewWidget(activeCompanyTicker, curStock.exchange);
     }
   }
 
@@ -3444,7 +3440,7 @@
     document.getElementById('bar-own-insider').style.width = `${Math.min(insider, 100)}%`;
     document.getElementById('bar-own-retail').style.width = `${Math.min(retail, 100)}%`;
 
-    renderTradingViewWidget(ticker, s.exchange);
+    // 預先載入各模組數據
     renderTop50Holders(s);
     renderInsiderTrades(s);
     renderStockSplits(s);
@@ -3455,7 +3451,18 @@
     renderDividendSubPage(s);
     renderNewsSubPage(ticker);
 
-    switchSubPage('basic');
+    // 關鍵修復：重設頂部 Tab 狀態，強制高亮第 1 個按鈕並顯示「1. 基本資料」分頁
+    document.querySelectorAll('.sub-tab-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.subpage-content').forEach(el => el.classList.remove('active'));
+    
+    const firstTabBtn = document.querySelector('.sub-tab-btn');
+    if (firstTabBtn) firstTabBtn.classList.add('active');
+    
+    const basicPage = document.getElementById('subpage-basic');
+    if (basicPage) basicPage.classList.add('active');
+
+    // 捲動回頂部
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   // ========================================================
