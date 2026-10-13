@@ -115,7 +115,9 @@
     .table-scroll-wrapper {
       width: 100% !important;
       max-width: 100% !important;
-      overflow-x: auto !important;
+      max-height: 70vh !important;       /* 限制表格容器高度為螢幕高度的 70%，觸發內部上下滾動 */
+      overflow: auto !important;          /* 同時支援水平與垂直滾動 */
+      position: relative !important;      /* 確立 sticky 定位基準容器 */
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 8px;
