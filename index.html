@@ -2481,15 +2481,26 @@
     const curStmt = isQuarter ? (qRaw[activeStatementType] || {}) : (rawStmts[activeStatementType] || {});
     const incStmt = isQuarter ? (qRaw.income || {}) : (rawStmts.income || {});
 
-    // 動態更新表頭
+    // 動態更新表頭 (包含凍結第一欄與雙層申報日期)
     const theadRow = document.getElementById('cmp-fin-thead');
     const periods = isQuarter ? (qRaw.periods || []) : ['2021', '2022', '2023', '2024', '2025', 'TTM'];
+    const datesList = isQuarter ? (qRaw.dates || []) : (rawStmts.annual_dates || []);
+
     if (theadRow) {
       let theadHtml = `<th class="table-sticky-col" style="text-align: left; width: 280px;" data-i18n="th_fin_item">會計項目 / 財務指標 ($M)</th>`;
+      
       periods.forEach((p, pIdx) => {
         const isQ4 = isQuarter && String(p).toUpperCase().includes('Q4') && (pIdx < periods.length - 1);
-        theadHtml += `<th class="${isQ4 ? 'year-divider-cell' : ''}">${p}</th>`;
+        const subDate = datesList[pIdx] ? `<span class="th-period-subdate">${datesList[pIdx]}</span>` : '';
+        
+        theadHtml += `
+          <th class="${isQ4 ? 'year-divider-cell' : ''}" style="text-align: right; vertical-align: bottom; padding: 8px 12px;">
+            <span class="th-period-title">${p}</span>
+            ${subDate}
+          </th>
+        `;
       });
+
       const trendHeaderTitle = isEn 
         ? (isQuarter ? 'Last 20Q Trend' : '5Y/TTM Trend') 
         : (isQuarter ? '近 20 季趨勢' : '近 5 年/TTM 趨勢');
