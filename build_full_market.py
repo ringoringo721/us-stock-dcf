@@ -1253,6 +1253,22 @@ def main():
         q_reversed_bs = list(reversed(bs_quarter[:20]))
         q_reversed_cf = list(reversed(cf_quarter[:20]))
         quarter_labels = [f"{q.get('calendarYear') or q.get('fiscalYear') or q.get('date', '')[:4]}{q.get('period', '')}" for q in q_reversed_inc]
+
+        # ⬇️ 貼在此處：提取年度與季度的結算/申報月份 (YYYY-MM) ⬇️
+        annual_dates = [
+            str(x.get("date", ""))[:7] if x.get("date") else "" 
+            for x in inc_5y
+        ]
+        # 追加最新一期 (TTM) 對應的最新季度截止日 (第 6 筆)
+        latest_date_str = str(inc_quarter[0].get("date", ""))[:7] if inc_quarter else ""
+        annual_dates.append(latest_date_str)
+
+        # 提取近 20 季的申報月份 (對齊 quarter_labels)
+        quarter_dates = [
+            str(q.get("date", ""))[:7] if q.get("date") else "" 
+            for q in q_reversed_inc
+        ]
+        # ⬆️ 貼上結束 ⬆️
         
         # 2. 季度 20 季應收款安全取值 (同時取 trade 與 nontrade)
         quarter_trade_ar = []
