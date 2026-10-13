@@ -2422,10 +2422,10 @@
     const qRaw = rawStmts.quarterly_raw || {};
     const thead = document.getElementById('cmp-ratio-thead');
 
-    if (thead) {
-      const aDates = rawStmts.annual_dates || [];
-      const qDates = qRaw.dates || [];
+    const aDates = rawStmts.annual_dates || [];
+    const qDates = qRaw.dates || [];
 
+    if (thead) {
       if (period === 'annual') {
         const trendTitle = (currentLang === 'en') ? '5Y/TTM Trend' : '歷史趨勢';
         const metricTitle = (currentLang === 'en') ? 'Ratio Metric / Dimension' : '比率指標 / 財務維度';
@@ -2463,7 +2463,7 @@
       }
     }
     renderKeyRatiosTable(s);
-  }
+}
 
   // ========================================================
   // 1. 財務三表渲染 (加入自動計算 Fallback，徹底修復 0.00% 問題)
@@ -2846,6 +2846,9 @@
     const ticker = activeCompanyTicker || 'NVDA';
     const s = stockObj || stockUniverse[ticker];
     if (!s) return;
+
+    // 0. 確保當前比率表頭已同步最新日期標籤
+    switchRatioPeriod(activeRatioPeriod || 'annual');
 
     // 1. 渲染頂部 57 項比率表格
     renderKeyRatiosTable(s);
