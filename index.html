@@ -1712,7 +1712,10 @@
 
     const pView = document.getElementById('subpage-peers');
     if (pView && pView.classList.contains('active')) {
-      renderPeersSubPage(stockUniverse[activeCompanyTicker]);
+      const curTicker = activeCompanyTicker || 'NVDA';
+      if (stockUniverse[curTicker]) {
+        renderPeersSubPage(stockUniverse[curTicker]);
+      }
     }
     
     updateSubIndustryButtons();
@@ -2318,21 +2321,7 @@
 
   function openCompanyProfile(ticker) {
     activeCompanyTicker = ticker;
-    const s = stockUniverse[ticker];
-    if (!s) return;
-
-    // 1. 隱藏首頁市場總覽，顯示個股詳情視窗
-    document.getElementById('market-overview-section').style.display = 'none';
-    document.getElementById('company-detail-section').style.display = 'block';
-
-    // 2. 更新頂部公司名稱與基本即時數據
-    updateCompanyDetailHeader(s);
-
-    // 3. 關鍵修正：每次點擊任何代碼進入時，一律預設載入「1. Profile (基本資料)」分頁
-    switchDetailSubPage('profile');
-
-    // 4. 滾動至頂部
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    showView('company', true);
   }
   function openDetail(ticker) { activeDetailTicker = ticker; showView('detail', true); }
   function openFScore(ticker) { activeFScoreTicker = ticker; showView('fscore', true); }
