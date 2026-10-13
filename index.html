@@ -3361,24 +3361,38 @@
     if (!container || !s) return;
     const isEn = (currentLang === 'en');
 
+    // 確保當前標的具備 ticker 屬性
+    const currentTicker = (s.ticker || s.symbol || activeCompanyTicker || 'NVDA').toUpperCase();
+    const currentStock = { ...s, ticker: currentTicker };
+
     // 1. 取得 5 家核心對標同儕
     let peerStocks = [];
     if (Array.isArray(s.peers) && s.peers.length > 0) {
-      peerStocks = s.peers.map(pTicker => stockUniverse[pTicker]).filter(Boolean);
+      peerStocks = s.peers
+        .map(pTicker => {
+          const symKey = String(pTicker).toUpperCase();
+          const target = stockUniverse[symKey] || Object.values(stockUniverse).find(x => (x.ticker || x.symbol || '').toUpperCase() === symKey);
+          return target ? { ...target, ticker: symKey } : null;
+        })
+        .filter(Boolean);
     }
-    // 兜底：若 FMP 推薦名單不在 200 檔池子內，依同板塊市值最接近自動補齊
+
+    // 兜底：若 FMP 推薦名單不足 5 檔，由同板塊依市值最接近補足 5 家
     if (peerStocks.length < 5) {
-      const existing = new Set([s.ticker, ...peerStocks.map(p => p.ticker)]);
-      const fallback = Object.values(stockUniverse)
-        .filter(x => x.sector === s.sector && !existing.has(x.ticker))
+      const existingTickers = new Set([currentTicker, ...peerStocks.map(p => p.ticker)]);
+      
+      const fallback = Object.entries(stockUniverse)
+        .map(([k, val]) => ({ ...val, ticker: (val.ticker || val.symbol || k).toUpperCase() }))
+        .filter(x => x.sector === s.sector && !existingTickers.has(x.ticker))
         .sort((a, b) => Math.abs((Number(b.mcap) || 0) - (Number(s.mcap) || 0)))
         .slice(0, 5 - peerStocks.length);
+
       peerStocks = [...peerStocks, ...fallback];
     }
     peerStocks = peerStocks.slice(0, 5);
 
     // 第 1 欄為本標的，右側依序排開 5 家同行
-    const allCols = [s, ...peerStocks];
+    const allCols = [currentStock, ...peerStocks];
 
     // 輔助數據提取函式 (安全提取 TTM 數值)
     function getFinVal(stock, stmtKey, fieldKey, idx = -1) {
