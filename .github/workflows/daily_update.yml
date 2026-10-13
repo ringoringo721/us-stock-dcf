@@ -32,7 +32,7 @@ jobs:
 
       - name: Ensure Cache Folders Exist
         run: |
-          mkdir -p cache/moat cache/descriptions cache/financials cache/company_meta
+          mkdir -p cache/moat cache/descriptions cache/financials cache/company_meta cache/peers
 
       - name: Run Market Engine with FMP Key
         env:
@@ -50,8 +50,8 @@ jobs:
           # 拉取遠端最新代碼以防止衝突
           git pull origin main --rebase --autostash || true
           
-          # 強制追蹤快取資料夾 (即使 .gitignore 排除也強制寫入 Git 永久保存)
-          git add full_market_dcf.json market_data.js
+          # 暫存資料集與強制追蹤快取資料夾
+          git add full_market_dcf.json market_data.js 2>/dev/null || true
           git add -f cache/
           
           # 檢查是否有更動，有更動才提交以節省 Actions 次數
