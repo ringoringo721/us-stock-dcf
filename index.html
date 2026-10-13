@@ -2263,7 +2263,7 @@
     else { showView('screener', false); }
   };
 
-  function openDetail(ticker) {
+  function openCompanyProfile(ticker) {
     activeCompanyTicker = ticker;
     const s = stockUniverse[ticker];
     if (!s) return;
@@ -3441,6 +3441,7 @@
     document.getElementById('bar-own-retail').style.width = `${Math.min(retail, 100)}%`;
 
     // 預先載入各模組數據
+    // 預先載入各模組數據
     renderTop50Holders(s);
     renderInsiderTrades(s);
     renderStockSplits(s);
@@ -3451,15 +3452,8 @@
     renderDividendSubPage(s);
     renderNewsSubPage(ticker);
 
-    // 關鍵修復：重設頂部 Tab 狀態，強制高亮第 1 個按鈕並顯示「1. 基本資料」分頁
-    document.querySelectorAll('.sub-tab-btn').forEach(btn => btn.classList.remove('active'));
-    document.querySelectorAll('.subpage-content').forEach(el => el.classList.remove('active'));
-    
-    const firstTabBtn = document.querySelector('.sub-tab-btn');
-    if (firstTabBtn) firstTabBtn.classList.add('active');
-    
-    const basicPage = document.getElementById('subpage-basic');
-    if (basicPage) basicPage.classList.add('active');
+    // 強制重設 Tab 並顯示 1. 基本資料 (Profile)
+    switchSubPage('basic');
 
     // 捲動回頂部
     window.scrollTo({ top: 0, behavior: 'smooth' });
