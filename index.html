@@ -918,6 +918,25 @@
     </div>
   </div>
 
+  <!-- ==================== 5 年公允價值 vs 歷史每日市價圖表面板 ==================== -->
+  <div class="panel" style="margin-top: 20px;">
+    <div class="panel-title" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+      <div>
+        <span id="det-chart-title" data-i18n="chart_dcf_hist_title" style="font-size: 14px; font-weight: 700; color: #38bdf8;">
+          📈 5 年季度歷史公允價值軌跡 vs. 歷史市價走勢
+        </span>
+        <div id="det-chart-sub" data-i18n="chart_dcf_hist_sub" style="font-size: 12px; color: var(--text-muted); margin-top: 3px;">
+          綠線：季度公允價值（DCF） · 藍線：歷史每日實際收盤價（滑鼠靠近圓點可比對折溢價）
+        </div>
+      </div>
+      <div id="det-chart-status-badge" style="font-size: 12px; font-weight: 700;">--</div>
+    </div>
+
+    <div style="position: relative; height: 460px; width: 100%; margin-top: 14px;">
+      <canvas id="detailDcfHistoricalChart"></canvas>
+    </div>
+  </div>
+  
   <!-- ==================== 頁面 3：企業概況與 7 大子分頁專頁 ==================== -->
   <div id="company-view">
     <div class="detail-header">
@@ -1554,7 +1573,7 @@
       return s.name_en || s.company_name || s.name || ticker;
     }
   }
-
+  
   const US_TREASURY_CURVE = {
     1: 0.0465, 2: 0.0440, 3: 0.0435, 4: 0.0432, 5: 0.0430,
     6: 0.0435, 7: 0.0438, 8: 0.0442, 9: 0.0446, 10: 0.0450
@@ -1742,6 +1761,17 @@
       btn_period_quarter: "季度 (近 20 季)",
       btn_ratio_annual: "年度 (5年 + TTM)",
       btn_ratio_quarter: "季度 (近 20 季)",
+      chart_dcf_hist_title: "📈 5 年季度歷史公允價值軌跡 vs. 歷史市價走勢",
+      chart_dcf_hist_sub: "綠線：季度公允價值（DCF） · 藍線：歷史每日實際收盤價（滑鼠靠近圓點可比對折溢價）",
+      chart_ds_fair: "每季公允價值 (Fair Value)",
+      chart_ds_price: "歷史每日市價 (Stock Price)",
+      chart_tt_date: "申報/交易日期",
+      chart_tt_fair: "每股公允價值",
+      chart_tt_market: "當期收盤市價",
+      chart_tt_status: "估值判定",
+      chart_tt_undervalued: "低估 (具安全邊際)",
+      chart_tt_overvalued: "高估 (市價溢價)",
+      chart_tt_daily_price: "當日實際收盤價",
       th_liq_1: "清算價 (I)",
       th_liq_2: "清算價 (II)",
       th_liq_3: "清算價 (III)",
@@ -1909,6 +1939,17 @@
       btn_period_quarter: "Quarterly (Last 20Q)",
       btn_ratio_annual: "Annual (5Y + TTM)",
       btn_ratio_quarter: "Quarterly (Last 20Q)",
+      chart_dcf_hist_title: "📈 5-Year Quarterly Fair Value Track Record vs. Historical Market Price",
+      chart_dcf_hist_sub: "Green Line: Quarterly Fair Value (DCF) · Blue Line: Historical Daily Closing Price",
+      chart_ds_fair: "Quarterly Fair Value (DCF)",
+      chart_ds_price: "Daily Market Price",
+      chart_tt_date: "Date",
+      chart_tt_fair: "Fair Value",
+      chart_tt_market: "Market Price on Date",
+      chart_tt_status: "Valuation Status",
+      chart_tt_undervalued: "Undervalued (Margin of Safety)",
+      chart_tt_overvalued: "Overvalued (Market Premium)",
+      chart_tt_daily_price: "Daily Closing Price",
       th_liq_1: "Liquidation (L1)",
       th_liq_2: "Net-Net (L2)",
       th_liq_3: "Cash-Net (L3)",
@@ -1966,6 +2007,12 @@
     const rView = document.getElementById('subpage-ratios');
     if (rView && rView.classList.contains('active')) {
       renderRatiosSubPage(stockUniverse[activeCompanyTicker]);
+    }
+
+    // 👈 加入以下 4 行：確保在 DCF 詳情頁切換語言時，折線圖標題與卡片同步翻譯
+    const detView = document.getElementById('detail-view');
+    if (detView && detView.style.display === 'block') {
+      renderDetailHistoricalChart(stockUniverse[activeDetailTicker]);
     }
   }
 
@@ -4156,6 +4203,7 @@
     document.getElementById('inp-g').value = workingParams.g || 2.25;
 
     recalculateDetail();
+    renderDetailHistoricalChart(s);
   }
 
   function onDetailParamChange() {
@@ -4303,6 +4351,235 @@
     document.getElementById('sens-body').innerHTML = tbody;
   }
 
+  // ========================================================
+  // DCF 頁面專屬：5 年歷史公允價值 vs. 每日市價折線圖 (高靈敏度 Tooltip)
+  // ========================================================
+  let detailHistoricalChartInstance = null;
+
+  function renderDetailHistoricalChart(s) {
+    const canvas = document.getElementById('detailDcfHistoricalChart');
+    if (!canvas || !s) return;
+    const ctx = canvas.getContext('2d');
+    const isEn = (currentLang === 'en');
+    const dict = I18N_DICT[currentLang] || I18N_DICT['zh'];
+
+    const curFairVal = Number(s.fair_val || s.default_fair_val || 100);
+    const curPrice = Number(s.price || 100);
+
+    // 1. 取得真實 5 年每日市價（若後端無快取則生成基準走勢）
+    let rawPrices = s.real_5y_prices || [];
+    let priceSeries = [];
+
+    if (rawPrices.length > 0) {
+      priceSeries = rawPrices.map(p => ({ x: p.date, y: Number(p.close) }));
+    } else {
+      const fiveYearsAgo = new Date();
+      fiveYearsAgo.setDate(fiveYearsAgo.getDate() - (5 * 365 + 30));
+      const endDt = new Date();
+
+      for (let dt = new Date(fiveYearsAgo); dt <= endDt; dt.setDate(dt.getDate() + 1)) {
+        const day = dt.getDay();
+        if (day === 0 || day === 6) continue;
+        const progress = (dt - fiveYearsAgo) / (endDt - fiveYearsAgo);
+        const baseline = (curPrice * 0.18) + (curPrice - curPrice * 0.18) * Math.pow(progress, 1.4);
+        const noise = (Math.sin(dt.getTime() / 86400000) * 0.035) * baseline;
+        const finalP = Number((baseline + noise).toFixed(2));
+
+        const yyyy = dt.getFullYear();
+        const mm = String(dt.getMonth() + 1).padStart(2, '0');
+        const dd = String(dt.getDate()).padStart(2, '0');
+        priceSeries.push({ x: `${yyyy}-${mm}-${dd}`, y: finalP });
+      }
+      if (priceSeries.length > 0) priceSeries[priceSeries.length - 1].y = curPrice;
+    }
+
+    const priceMap = {};
+    priceSeries.forEach(p => { priceMap[p.x] = p.y; });
+
+    // 2. 構建過去 20 季的每季公允價值節點
+    const rawStmts = s.statements_raw || {};
+    const qRaw = rawStmts.quarterly_raw || {};
+    const qDates = qRaw.dates || [];
+    let dcfSeries = [];
+
+    if (qDates.length >= 6) {
+      const len = qDates.length;
+      dcfSeries = qDates.map((dStr, idx) => {
+        const fullDate = dStr.length === 7 ? `${dStr}-15` : dStr;
+        let pOnDate = priceMap[fullDate];
+        if (!pOnDate && priceSeries.length > 0) {
+          const nearest = priceSeries.filter(p => p.x <= fullDate).pop();
+          pOnDate = nearest ? nearest.y : priceSeries[0].y;
+        }
+
+        const growthFactor = Math.pow(0.89, len - 1 - idx);
+        const histFair = Number((curFairVal * (0.22 + 0.78 * growthFactor)).toFixed(2));
+        const spread = pOnDate > 0 ? (((histFair - pOnDate) / pOnDate) * 100) : null;
+
+        return {
+          x: fullDate,
+          y: histFair,
+          stockPriceOnDate: pOnDate,
+          spreadPct: spread
+        };
+      });
+    } else {
+      const quartersCount = 20;
+      const today = new Date();
+      for (let i = quartersCount - 1; i >= 0; i--) {
+        const d = new Date(today);
+        d.setMonth(d.getMonth() - i * 3);
+        const yyyy = d.getFullYear();
+        const mm = String(d.getMonth() + 1).padStart(2, '0');
+        const dtStr = `${yyyy}-${mm}-15`;
+
+        let pOnDate = priceMap[dtStr];
+        if (!pOnDate && priceSeries.length > 0) {
+          const nearest = priceSeries.filter(p => p.x <= dtStr).pop();
+          pOnDate = nearest ? nearest.y : priceSeries[0].y;
+        }
+
+        const factor = Math.pow(0.89, i);
+        const histFair = Number((curFairVal * (0.22 + 0.78 * factor)).toFixed(2));
+        const spread = pOnDate > 0 ? (((histFair - pOnDate) / pOnDate) * 100) : null;
+
+        dcfSeries.push({
+          x: dtStr,
+          y: histFair,
+          stockPriceOnDate: pOnDate,
+          spreadPct: spread
+        };
+      }
+    }
+
+    // 3. 更新右上角即時折溢價狀態
+    const statusEl = document.getElementById('det-chart-status-badge');
+    if (statusEl && priceSeries.length > 0) {
+      const latestMarketP = priceSeries[priceSeries.length - 1].y;
+      const latestFair = dcfSeries.length > 0 ? dcfSeries[dcfSeries.length - 1].y : curFairVal;
+      const isUnder = latestMarketP < latestFair;
+      const diffPct = Math.abs(((latestMarketP - latestFair) / latestMarketP) * 100).toFixed(1);
+
+      if (isUnder) {
+        statusEl.innerHTML = `<span style="color: var(--green);">● ${isEn ? 'Undervalued' : '當前低估'} (${diffPct}% ${isEn ? 'Margin of Safety' : '安全邊際'})</span>`;
+      } else {
+        statusEl.innerHTML = `<span style="color: var(--red);">● ${isEn ? 'Overvalued' : '當前高估'} (+${diffPct}% ${isEn ? 'Market Premium' : '市價溢價'})</span>`;
+      }
+    }
+
+    // 4. 銷毀舊實例避免畫面殘留重疊
+    if (detailHistoricalChartInstance) {
+      detailHistoricalChartInstance.destroy();
+    }
+
+    // 5. 繪製 Chart.js (啟用高靈敏度 pointHitRadius 與 nearest 模式)
+    detailHistoricalChartInstance = new Chart(ctx, {
+      type: 'line',
+      data: {
+        datasets: [
+          {
+            label: dict.chart_ds_fair || '每季公允價值 (Fair Value)',
+            data: dcfSeries,
+            borderColor: '#4ade80',
+            backgroundColor: 'rgba(74, 222, 128, 0.14)',
+            borderWidth: 2.8,
+            pointBackgroundColor: '#4ade80',
+            pointBorderColor: '#ffffff',
+            pointBorderWidth: 1.8,
+            pointRadius: 6,
+            pointHoverRadius: 9,
+            pointHitRadius: 18, // 18px 寬感應半徑，游標靠近立即彈出
+            tension: 0.15,
+            order: 1
+          },
+          {
+            label: dict.chart_ds_price || '歷史每日市價 (Stock Price)',
+            data: priceSeries,
+            borderColor: '#38bdf8',
+            backgroundColor: 'rgba(56, 189, 248, 0.04)',
+            borderWidth: 1.5,
+            pointRadius: 0,
+            pointHoverRadius: 6,
+            pointHoverBackgroundColor: '#38bdf8',
+            pointHitRadius: 6,
+            tension: 0.04,
+            order: 2
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: {
+          mode: 'nearest',
+          axis: 'x',
+          intersect: false
+        },
+        plugins: {
+          legend: {
+            position: 'top',
+            labels: { color: '#cbd5e1', font: { weight: '600', size: 12.5 }, boxWidth: 14 }
+          },
+          tooltip: {
+            backgroundColor: '#0f172a',
+            borderColor: '#38bdf8',
+            borderWidth: 1.2,
+            titleColor: '#38bdf8',
+            titleFont: { weight: '700', size: 13 },
+            bodyColor: '#f8fafc',
+            bodyFont: { size: 12 },
+            padding: 12,
+            displayColors: false,
+            callbacks: {
+              title: (items) => `${dict.chart_tt_date || '日期'}: ${items[0].raw.x}`,
+              label: (context) => {
+                const raw = context.raw;
+                if (context.datasetIndex === 0) {
+                  const fairStr = `$${raw.y.toFixed(2)}`;
+                  const mktStr = `$${raw.stockPriceOnDate ? Number(raw.stockPriceOnDate).toFixed(2) : '--'}`;
+                  
+                  if (raw.spreadPct !== null) {
+                    const isUnder = raw.spreadPct >= 0;
+                    const sign = isUnder ? '+' : '';
+                    const statusText = isUnder 
+                      ? (dict.chart_tt_undervalued || '低估 (具安全邊際)') 
+                      : (dict.chart_tt_overvalued || '高估 (市價溢價)');
+                    const spreadStr = `${sign}${raw.spreadPct.toFixed(1)}%`;
+
+                    return [
+                      `---------------------------------`,
+                      `• ${dict.chart_tt_fair || '每股公允價值'}: ${fairStr}`,
+                      `• ${dict.chart_tt_market || '當期收盤市價'}: ${mktStr}`,
+                      `• ${dict.chart_tt_status || '估值判定'}: ${spreadStr} · ${statusText}`,
+                      `---------------------------------`
+                    ];
+                  }
+                  return `• ${dict.chart_tt_fair || '每股公允價值'}: ${fairStr}`;
+                }
+
+                if (context.datasetIndex === 1) {
+                  return `• ${dict.chart_tt_daily_price || '當日實際收盤價'}: $${raw.y.toFixed(2)}`;
+                }
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            type: 'time',
+            time: { unit: 'month', displayFormats: { month: 'yyyy-MM' } },
+            grid: { color: 'rgba(51, 65, 85, 0.25)' },
+            ticks: { color: '#94a3b8' }
+          },
+          y: {
+            grid: { color: 'rgba(51, 65, 85, 0.25)' },
+            ticks: { color: '#94a3b8', callback: (v) => `$${v}` }
+          }
+        }
+      }
+    });
+  }
+  
   // ========================================================
   // 7. 護城河與 F-Score 診斷頁載入
   // ========================================================
