@@ -2339,7 +2339,7 @@
       const displayLabel = isZh ? (INDUSTRY_NAMES_ZH[subKey] || subKey) : subKey;
       const isActive = (currentSubIndustryFilter === subKey) ? 'active' : '';
       // 注意：onclick 傳入原始英文 subKey，以確保資料過濾邏輯不受語言變更影響
-      html += `<button class="f-btn ${isActive}" onclick="setSubIndustryFilter('${subKey.replace(/'/g, "\\'")}')">${displayLabel}</button>`;
+      html += `<button class="f-btn ${isActive}" data-sub="${subKey}" onclick="setSubIndustryFilter(this.getAttribute('data-sub'))">${displayLabel}</button>`;
     });
 
     container.innerHTML = html;
