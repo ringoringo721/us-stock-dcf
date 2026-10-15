@@ -929,6 +929,7 @@
             </div>
             <div id="det-chart-status-badge" style="font-size: 12px; font-weight: 700;">--</div>
           </div>
+          <div id="det-chart-data-asof" style="font-size: 11px; color: var(--text-muted); margin-top: 4px;"></div>
 
           <div style="position: relative; height: 460px; width: 100%; margin-top: 14px;">
             <canvas id="detailDcfHistoricalChart"></canvas>
@@ -4368,6 +4369,7 @@
   function renderDetailHistoricalChart(s) {
     const canvas = document.getElementById('detailDcfHistoricalChart');
     const statusEl = document.getElementById('det-chart-status-badge');
+    const asOfEl = document.getElementById('det-chart-data-asof');
     const emptyEl = document.getElementById('det-chart-empty-state');
     if (!canvas) return;
     const isEn = (currentLang === 'en');
@@ -4377,7 +4379,18 @@
       detailHistoricalChartInstance = null;
     }
     if (!s) {
-      if (statusEl) statusEl.textContent = '--';
+      if (statusEl) {
+        const valuationAvailable = valuationSeries.some(point => point.y !== null);
+        if (priceMetadata.status === 'stale') {
+          statusEl.textContent = isEn ? 'Showing last-good historical price data (stale)' : '目前為最後一次成功取得的舊資料（非最新）';
+        } else if (!priceBasisVerified && Array.isArray(s.real_5y_prices) && s.real_5y_prices.length) {
+          statusEl.textContent = isEn ? 'Price adjustment basis is unverified' : '股價拆股調整基準尚未驗證';
+        } else if (!valuationAvailable && Array.isArray(s.historical_valuations) && s.historical_valuations.length) {
+          statusEl.textContent = isEn ? 'Historical model estimates unavailable' : '無可支持的歷史模型估值';
+        } else {
+          statusEl.textContent = '--';
+        }
+      }
       return;
     }
 
@@ -4385,25 +4398,47 @@
     cutoff.setUTCFullYear(cutoff.getUTCFullYear() - 5);
     const cutoffDate = cutoff.toISOString().slice(0, 10);
     const today = new Date().toISOString().slice(0, 10);
+    const isRealDate = value => {
+      if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+      const parsed = new Date(`${value}T00:00:00Z`);
+      return Number.isFinite(parsed.valueOf()) && parsed.toISOString().slice(0, 10) === value;
+    };
     const normalizeSeries = (rows, valueField) => {
       const byDate = new Map();
       if (!Array.isArray(rows)) return [];
       rows.forEach(row => {
         const date = row && row.date;
         const value = Number(row && row[valueField]);
-        if (typeof date !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(date) ||
-            !Number.isFinite(Date.parse(`${date}T00:00:00Z`)) ||
+        if (!isRealDate(date) ||
             date < cutoffDate || date > today || !Number.isFinite(value) || value <= 0) return;
         byDate.set(date, { x: date, y: value, source: row });
       });
       return Array.from(byDate.values()).sort((a, b) => a.x.localeCompare(b.x));
     };
-    const priceSeries = normalizeSeries(s.real_5y_prices, 'close');
+    const priceMetadata = s.price_history_metadata || {};
+    const priceBasisVerified = priceMetadata.adjustment_semantics_verified === true;
+    const priceSeries = priceBasisVerified ? normalizeSeries(s.real_5y_prices, 'close') : [];
+    const latestClose = Array.isArray(s.real_5y_prices) && s.real_5y_prices.length
+      ? [...s.real_5y_prices].filter(row => row && isRealDate(row.date) &&
+        row.date >= cutoffDate && row.date <= today && Number.isFinite(Number(row.close)) && Number(row.close) > 0)
+        .sort((a, b) => String(a.date).localeCompare(String(b.date))).slice(-1)[0]
+      : null;
+    if (asOfEl) {
+      const quoteValue = Number(s.price);
+      const quoteText = Number.isFinite(quoteValue) && quoteValue > 0
+        ? `$${quoteValue.toFixed(2)} (${s.quote_as_of || '--'})`
+        : '--';
+      const closeText = latestClose
+        ? `$${Number(latestClose.close).toFixed(2)} (${latestClose.date})`
+        : '--';
+      asOfEl.textContent = isEn
+        ? `FMP quote: ${quoteText} · Daily close: ${closeText} · Price history: ${priceMetadata.status || 'missing'}`
+        : `FMP 報價：${quoteText} · 歷史收盤：${closeText} · 股價資料狀態：${priceMetadata.status || 'missing'}`;
+    }
     const valuationRows = Array.isArray(s.historical_valuations) ? s.historical_valuations : [];
     const valuationByDate = new Map();
     valuationRows.forEach(row => {
-      if (!row || typeof row.valuation_date !== 'string' ||
-          !/^\d{4}-\d{2}-\d{2}$/.test(row.valuation_date) ||
+      if (!row || !isRealDate(row.valuation_date) ||
           row.valuation_date < cutoffDate || row.valuation_date > today) return;
       const value = row.status === 'available' ? Number(row.value_per_share) : null;
       valuationByDate.set(row.valuation_date, {
@@ -4435,11 +4470,16 @@
     });
 
     if (statusEl) statusEl.textContent = '--';
+    if (asOfEl) asOfEl.textContent = '';
     if (emptyEl) {
       emptyEl.style.display = priceSeries.length || valuationSeries.some(point => point.y !== null) ? 'none' : 'flex';
-      emptyEl.textContent = isEn
-        ? 'Authentic historical price data or supported historical valuation estimates are not available yet. No synthetic history is shown.'
-        : '目前沒有可驗證的歷史股價或可支持的歷史估值資料；此處不會以模擬資料補值。';
+      emptyEl.textContent = !priceBasisVerified && Array.isArray(s.real_5y_prices) && s.real_5y_prices.length
+        ? (isEn
+          ? 'Historical closes are withheld until FMP close and split-adjustment semantics are verified.'
+          : 'FMP 收盤價與拆股調整語義尚未經官方文件確認，因此暫不繪製股價。')
+        : (isEn
+          ? 'Authentic historical price data or supported historical valuation estimates are not available yet. No synthetic history is shown.'
+          : '目前沒有可驗證的歷史股價或可支持的歷史估值資料；此處不會以模擬資料補值。');
     }
     canvas.style.display = priceSeries.length || valuationSeries.some(point => point.y !== null) ? 'block' : 'none';
     if (!priceSeries.length && !valuationSeries.some(point => point.y !== null)) return;
@@ -4528,6 +4568,10 @@
                     `• ${dict.chart_tt_market || '估值日或之前最近收盤價'} (${raw.stockPriceDate || '--'}): ${raw.stockPriceOnDate ? `$${Number(raw.stockPriceOnDate).toFixed(2)}` : '--'}`,
                     `• ${isEn ? 'Fiscal period end' : '財季結束日'}: ${source.fiscal_end_date || '--'}`,
                     `• ${isEn ? 'Information available' : '資訊可得日'}: ${source.availability_date || '--'}`,
+                    `• ${isEn ? 'Filing timestamp' : '申報時間'}: ${source.availability_timestamp || '--'}`,
+                    `• ${isEn ? 'TTM FCFF / cash / debt' : 'TTM FCFF／現金／負債'}: ${source.currency || '--'} ${source.fcff_ttm ?? '--'} / ${source.cash ?? '--'} / ${source.debt ?? '--'}`,
+                    `• ${isEn ? 'Share count/basis' : '股數／基準'}: ${source.shares ?? '--'} · ${source.shares_basis || '--'}`,
+                    `• ${isEn ? 'Source' : '來源'}: ${source.provenance || '--'}`,
                     `• ${isEn ? 'Method' : '方法'}: ${source.method || '--'}`,
                     `• ${isEn ? 'Assumptions' : '假設'}: ${source.assumptions_summary || '--'}`,
                     `• ${isEn ? 'Limitations' : '限制'}: ${source.limitation || '--'}`

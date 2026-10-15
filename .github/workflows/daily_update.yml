@@ -5,10 +5,20 @@ on:
     # 於美股收盤後定期執行 (UTC 21:30，對應週一至週五)
     - cron: '30 21 * * 1-5'
   workflow_dispatch:
+    inputs:
+      chart_only:
+        description: "Only refresh sourced chart history; skip DCF and AI analysis"
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write
   pull-requests: write
+
+concurrency:
+  group: daily-market-refresh
+  cancel-in-progress: false
 
 jobs:
   refresh-market:
@@ -30,11 +40,17 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests pydantic google-genai
 
+      - name: Run Fixture Tests
+        run: |
+          python -m unittest discover -s tests -p "test_*.py" -v
+          node --test tests/test_historical_chart.js
+
       - name: Ensure Cache Folders Exist
         run: |
-          mkdir -p cache/moat cache/descriptions cache/financials cache/company_meta cache/peers
+          mkdir -p cache/moat cache/descriptions cache/financials cache/company_meta cache/peers cache/historical_prices
 
       - name: Run Market Engine with FMP Key
+        if: ${{ inputs.chart_only != true }}
         env:
           FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -42,16 +58,26 @@ jobs:
         run: |
           python -u build_full_market.py
 
+      - name: Refresh Historical Charts Only
+        if: ${{ inputs.chart_only == true }}
+        env:
+          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+        run: |
+          python -u refresh_historical_charts.py
+
+      - name: Validate Generated Dataset
+        run: |
+          python validate_market_data.py --data full_market_dcf.json --report cache/historical_prices/coverage_report.json
+
       - name: Commit & Push New DCF Dataset & Persistent Cache
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
-          # 拉取遠端最新代碼以防止衝突
-          git pull origin main --rebase --autostash || true
+          git pull origin main --rebase --autostash
           
-          # 暫存資料集與強制追蹤快取資料夾
-          git add full_market_dcf.json market_data.js 2>/dev/null || true
+          # 暫存資料集、覆蓋率報告與持久化快取
+          git add full_market_dcf.json market_data.js
           git add -f cache/
           
           # 檢查是否有更動，有更動才提交以節省 Actions 次數
