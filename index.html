@@ -924,7 +924,7 @@
                 📈 5 年季度歷史公允價值軌跡 vs. 歷史市價走勢
               </span>
               <div id="det-chart-sub" data-i18n="chart_dcf_hist_sub" style="font-size: 12px; color: var(--text-muted); margin-top: 3px;">
-                綠線：季度公允價值（DCF） · 藍線：歷史每日實際收盤價（滑鼠靠近圓點可比對折溢價）
+                綠線：固定假設重建的歷史模型估值（非歷史共識） · 藍線：FMP 歷史每日收盤價
               </div>
             </div>
             <div id="det-chart-status-badge" style="font-size: 12px; font-weight: 700;">--</div>
@@ -932,6 +932,7 @@
 
           <div style="position: relative; height: 460px; width: 100%; margin-top: 14px;">
             <canvas id="detailDcfHistoricalChart"></canvas>
+            <div id="det-chart-empty-state" style="display: none; position: absolute; inset: 0; align-items: center; justify-content: center; text-align: center; color: var(--text-muted); padding: 24px;"></div>
           </div>
         </div>
 
@@ -1766,15 +1767,15 @@
       btn_ratio_quarter: "季度 (近 20 季)",
       chart_dcf_hist_title: "📈 5 年季度歷史公允價值軌跡 vs. 歷史市價走勢",
       chart_dcf_hist_sub: "綠線：季度公允價值（DCF） · 藍線：歷史每日實際收盤價（滑鼠靠近圓點可比對折溢價）",
-      chart_ds_fair: "每季公允價值 (Fair Value)",
-      chart_ds_price: "歷史每日市價 (Stock Price)",
-      chart_tt_date: "申報/交易日期",
+      chart_ds_fair: "重建歷史模型估值（固定假設）",
+      chart_ds_price: "FMP 歷史每日收盤價",
+      chart_tt_date: "資料日期",
       chart_tt_fair: "每股公允價值",
-      chart_tt_market: "當期收盤市價",
+      chart_tt_market: "估值日或之前最近收盤價",
       chart_tt_status: "估值判定",
       chart_tt_undervalued: "低估 (具安全邊際)",
       chart_tt_overvalued: "高估 (市價溢價)",
-      chart_tt_daily_price: "當日實際收盤價",
+      chart_tt_daily_price: "供應商歷史收盤價",
       th_liq_1: "清算價 (I)",
       th_liq_2: "清算價 (II)",
       th_liq_3: "清算價 (III)",
@@ -1944,15 +1945,15 @@
       btn_ratio_quarter: "Quarterly (Last 20Q)",
       chart_dcf_hist_title: "📈 5-Year Quarterly Fair Value Track Record vs. Historical Market Price",
       chart_dcf_hist_sub: "Green Line: Quarterly Fair Value (DCF) · Blue Line: Historical Daily Closing Price",
-      chart_ds_fair: "Quarterly Fair Value (DCF)",
-      chart_ds_price: "Daily Market Price",
+      chart_ds_fair: "Reconstructed Historical Estimate (Fixed Assumptions)",
+      chart_ds_price: "FMP Historical Daily Close",
       chart_tt_date: "Date",
       chart_tt_fair: "Fair Value",
-      chart_tt_market: "Market Price on Date",
+      chart_tt_market: "Nearest prior close on valuation date",
       chart_tt_status: "Valuation Status",
       chart_tt_undervalued: "Undervalued (Margin of Safety)",
       chart_tt_overvalued: "Overvalued (Market Premium)",
-      chart_tt_daily_price: "Daily Closing Price",
+      chart_tt_daily_price: "Provider historical close",
       th_liq_1: "Liquidation (L1)",
       th_liq_2: "Net-Net (L2)",
       th_liq_3: "Cash-Net (L3)",
@@ -4366,128 +4367,101 @@
 
   function renderDetailHistoricalChart(s) {
     const canvas = document.getElementById('detailDcfHistoricalChart');
-    if (!canvas || !s) return;
-    const ctx = canvas.getContext('2d');
+    const statusEl = document.getElementById('det-chart-status-badge');
+    const emptyEl = document.getElementById('det-chart-empty-state');
+    if (!canvas) return;
     const isEn = (currentLang === 'en');
     const dict = I18N_DICT[currentLang] || I18N_DICT['zh'];
-
-    const curFairVal = Number(s.fair_val || s.default_fair_val || 100);
-    const curPrice = Number(s.price || 100);
-
-    // 1. 取得真實 5 年每日市價（若後端無快取則生成基準走勢）
-    let rawPrices = s.real_5y_prices || [];
-    let priceSeries = [];
-
-    if (rawPrices.length > 0) {
-      priceSeries = rawPrices.map(p => ({ x: p.date, y: Number(p.close) }));
-    } else {
-      const fiveYearsAgo = new Date();
-      fiveYearsAgo.setDate(fiveYearsAgo.getDate() - (5 * 365 + 30));
-      const endDt = new Date();
-
-      for (let dt = new Date(fiveYearsAgo); dt <= endDt; dt.setDate(dt.getDate() + 1)) {
-        const day = dt.getDay();
-        if (day === 0 || day === 6) continue;
-        const progress = (dt - fiveYearsAgo) / (endDt - fiveYearsAgo);
-        const baseline = (curPrice * 0.18) + (curPrice - curPrice * 0.18) * Math.pow(progress, 1.4);
-        const noise = (Math.sin(dt.getTime() / 86400000) * 0.035) * baseline;
-        const finalP = Number((baseline + noise).toFixed(2));
-
-        const yyyy = dt.getFullYear();
-        const mm = String(dt.getMonth() + 1).padStart(2, '0');
-        const dd = String(dt.getDate()).padStart(2, '0');
-        priceSeries.push({ x: `${yyyy}-${mm}-${dd}`, y: finalP });
-      }
-      if (priceSeries.length > 0) priceSeries[priceSeries.length - 1].y = curPrice;
-    }
-
-    const priceMap = {};
-    priceSeries.forEach(p => { priceMap[p.x] = p.y; });
-
-    // 2. 構建過去 20 季的每季公允價值節點
-    const rawStmts = s.statements_raw || {};
-    const qRaw = rawStmts.quarterly_raw || {};
-    const qDates = qRaw.dates || [];
-    let dcfSeries = [];
-
-    if (qDates.length >= 6) {
-      const len = qDates.length;
-      dcfSeries = qDates.map((dStr, idx) => {
-        const fullDate = dStr.length === 7 ? `${dStr}-15` : dStr;
-        let pOnDate = priceMap[fullDate];
-        if (!pOnDate && priceSeries.length > 0) {
-          const nearest = priceSeries.filter(p => p.x <= fullDate).pop();
-          pOnDate = nearest ? nearest.y : priceSeries[0].y;
-        }
-
-        const growthFactor = Math.pow(0.89, len - 1 - idx);
-        const histFair = Number((curFairVal * (0.22 + 0.78 * growthFactor)).toFixed(2));
-        const spread = pOnDate > 0 ? (((histFair - pOnDate) / pOnDate) * 100) : null;
-
-        return {
-          x: fullDate,
-          y: histFair,
-          stockPriceOnDate: pOnDate,
-          spreadPct: spread
-        };
-      });
-    } else {
-      const quartersCount = 20;
-      const today = new Date();
-      for (let i = quartersCount - 1; i >= 0; i--) {
-        const d = new Date(today);
-        d.setMonth(d.getMonth() - i * 3);
-        const yyyy = d.getFullYear();
-        const mm = String(d.getMonth() + 1).padStart(2, '0');
-        const dtStr = `${yyyy}-${mm}-15`;
-
-        let pOnDate = priceMap[dtStr];
-        if (!pOnDate && priceSeries.length > 0) {
-          const nearest = priceSeries.filter(p => p.x <= dtStr).pop();
-          pOnDate = nearest ? nearest.y : priceSeries[0].y;
-        }
-
-        const factor = Math.pow(0.89, i);
-        const histFair = Number((curFairVal * (0.22 + 0.78 * factor)).toFixed(2));
-        const spread = pOnDate > 0 ? (((histFair - pOnDate) / pOnDate) * 100) : null;
-
-        dcfSeries.push({
-          x: dtStr,
-          y: histFair,
-          stockPriceOnDate: pOnDate,
-          spreadPct: spread
-        });
-      }
-    }
-
-    // 3. 更新右上角即時折溢價狀態
-    const statusEl = document.getElementById('det-chart-status-badge');
-    if (statusEl && priceSeries.length > 0) {
-      const latestMarketP = priceSeries[priceSeries.length - 1].y;
-      const latestFair = dcfSeries.length > 0 ? dcfSeries[dcfSeries.length - 1].y : curFairVal;
-      const isUnder = latestMarketP < latestFair;
-      const diffPct = Math.abs(((latestMarketP - latestFair) / latestMarketP) * 100).toFixed(1);
-
-      if (isUnder) {
-        statusEl.innerHTML = `<span style="color: var(--green);">● ${isEn ? 'Undervalued' : '當前低估'} (${diffPct}% ${isEn ? 'Margin of Safety' : '安全邊際'})</span>`;
-      } else {
-        statusEl.innerHTML = `<span style="color: var(--red);">● ${isEn ? 'Overvalued' : '當前高估'} (+${diffPct}% ${isEn ? 'Market Premium' : '市價溢價'})</span>`;
-      }
-    }
-
-    // 4. 銷毀舊實例避免畫面殘留重疊
     if (detailHistoricalChartInstance) {
       detailHistoricalChartInstance.destroy();
+      detailHistoricalChartInstance = null;
+    }
+    if (!s) {
+      if (statusEl) statusEl.textContent = '--';
+      return;
     }
 
-    // 5. 繪製 Chart.js (啟用高靈敏度 pointHitRadius 與 nearest 模式)
+    const cutoff = new Date();
+    cutoff.setUTCFullYear(cutoff.getUTCFullYear() - 5);
+    const cutoffDate = cutoff.toISOString().slice(0, 10);
+    const today = new Date().toISOString().slice(0, 10);
+    const normalizeSeries = (rows, valueField) => {
+      const byDate = new Map();
+      if (!Array.isArray(rows)) return [];
+      rows.forEach(row => {
+        const date = row && row.date;
+        const value = Number(row && row[valueField]);
+        if (typeof date !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(date) ||
+            !Number.isFinite(Date.parse(`${date}T00:00:00Z`)) ||
+            date < cutoffDate || date > today || !Number.isFinite(value) || value <= 0) return;
+        byDate.set(date, { x: date, y: value, source: row });
+      });
+      return Array.from(byDate.values()).sort((a, b) => a.x.localeCompare(b.x));
+    };
+    const priceSeries = normalizeSeries(s.real_5y_prices, 'close');
+    const valuationRows = Array.isArray(s.historical_valuations) ? s.historical_valuations : [];
+    const valuationByDate = new Map();
+    valuationRows.forEach(row => {
+      if (!row || typeof row.valuation_date !== 'string' ||
+          !/^\d{4}-\d{2}-\d{2}$/.test(row.valuation_date) ||
+          row.valuation_date < cutoffDate || row.valuation_date > today) return;
+      const value = row.status === 'available' ? Number(row.value_per_share) : null;
+      valuationByDate.set(row.valuation_date, {
+        x: row.valuation_date,
+        y: Number.isFinite(value) && value > 0 ? value : null,
+        source: row
+      });
+    });
+    const valuationSeries = Array.from(valuationByDate.values()).sort((a, b) => a.x.localeCompare(b.x));
+    const nearestPriorPrice = date => {
+      let low = 0;
+      let high = priceSeries.length - 1;
+      let match = null;
+      while (low <= high) {
+        const mid = Math.floor((low + high) / 2);
+        if (priceSeries[mid].x <= date) {
+          match = priceSeries[mid];
+          low = mid + 1;
+        } else {
+          high = mid - 1;
+        }
+      }
+      return match;
+    };
+    valuationSeries.forEach(point => {
+      const match = nearestPriorPrice(point.x);
+      point.stockPriceOnDate = match ? match.y : null;
+      point.stockPriceDate = match ? match.x : null;
+    });
+
+    if (statusEl) statusEl.textContent = '--';
+    if (emptyEl) {
+      emptyEl.style.display = priceSeries.length || valuationSeries.some(point => point.y !== null) ? 'none' : 'flex';
+      emptyEl.textContent = isEn
+        ? 'Authentic historical price data or supported historical valuation estimates are not available yet. No synthetic history is shown.'
+        : '目前沒有可驗證的歷史股價或可支持的歷史估值資料；此處不會以模擬資料補值。';
+    }
+    canvas.style.display = priceSeries.length || valuationSeries.some(point => point.y !== null) ? 'block' : 'none';
+    if (!priceSeries.length && !valuationSeries.some(point => point.y !== null)) return;
+
+    const latestValuation = [...valuationSeries].reverse().find(point => point.y !== null && point.stockPriceOnDate);
+    if (statusEl && latestValuation) {
+      const close = latestValuation.stockPriceOnDate;
+      const spread = ((latestValuation.y - close) / close) * 100;
+      const label = isEn
+        ? `Model estimate vs close on ${latestValuation.stockPriceDate} (valuation ${latestValuation.x}): ${spread >= 0 ? '+' : ''}${spread.toFixed(1)}%`
+        : `估值日模型估值／${latestValuation.stockPriceDate}收盤價：${spread >= 0 ? '+' : ''}${spread.toFixed(1)}%（估值日 ${latestValuation.x}）`;
+      statusEl.textContent = label;
+    }
+
+    const ctx = canvas.getContext('2d');
     detailHistoricalChartInstance = new Chart(ctx, {
       type: 'line',
       data: {
         datasets: [
           {
             label: dict.chart_ds_fair || '每季公允價值 (Fair Value)',
-            data: dcfSeries,
+            data: valuationSeries,
             borderColor: '#4ade80',
             backgroundColor: 'rgba(74, 222, 128, 0.14)',
             borderWidth: 2.8,
@@ -4497,7 +4471,8 @@
             pointRadius: 6,
             pointHoverRadius: 9,
             pointHitRadius: 18, // 18px 寬感應半徑，游標靠近立即彈出
-            tension: 0.15,
+            tension: 0,
+            spanGaps: false,
             order: 1
           },
           {
@@ -4506,6 +4481,7 @@
             borderColor: '#38bdf8',
             backgroundColor: 'rgba(56, 189, 248, 0.04)',
             borderWidth: 1.5,
+            spanGaps: false,
             pointRadius: 0,
             pointHoverRadius: 6,
             pointHoverBackgroundColor: '#38bdf8',
@@ -4543,30 +4519,30 @@
               label: (context) => {
                 const raw = context.raw;
                 if (context.datasetIndex === 0) {
-                  const fairStr = `$${raw.y.toFixed(2)}`;
-                  const mktStr = `$${raw.stockPriceOnDate ? Number(raw.stockPriceOnDate).toFixed(2) : '--'}`;
-                  
-                  if (raw.spreadPct !== null) {
-                    const isUnder = raw.spreadPct >= 0;
-                    const sign = isUnder ? '+' : '';
-                    const statusText = isUnder 
-                      ? (dict.chart_tt_undervalued || '低估 (具安全邊際)') 
-                      : (dict.chart_tt_overvalued || '高估 (市價溢價)');
-                    const spreadStr = `${sign}${raw.spreadPct.toFixed(1)}%`;
-
-                    return [
-                      '---------------------------------',
-                      `• ${dict.chart_tt_fair || '每股公允價值'}: ${fairStr}`,
-                      `• ${dict.chart_tt_market || '當期收盤市價'}: ${mktStr}`,
-                      `• ${dict.chart_tt_status || '估值判定'}: ${spreadStr} · ${statusText}`,
-                      '---------------------------------'
-                    ];
+                  if (raw.y === null || !raw.source) {
+                    return isEn ? 'No supported valuation for this quarter' : '本季沒有可支持的估值';
                   }
-                  return `• ${dict.chart_tt_fair || '每股公允價值'}: ${fairStr}`;
+                  const source = raw.source;
+                  const details = [
+                    `• ${dict.chart_tt_fair || '每股公允價值'}: $${raw.y.toFixed(2)}`,
+                    `• ${dict.chart_tt_market || '估值日或之前最近收盤價'} (${raw.stockPriceDate || '--'}): ${raw.stockPriceOnDate ? `$${Number(raw.stockPriceOnDate).toFixed(2)}` : '--'}`,
+                    `• ${isEn ? 'Fiscal period end' : '財季結束日'}: ${source.fiscal_end_date || '--'}`,
+                    `• ${isEn ? 'Information available' : '資訊可得日'}: ${source.availability_date || '--'}`,
+                    `• ${isEn ? 'Method' : '方法'}: ${source.method || '--'}`,
+                    `• ${isEn ? 'Assumptions' : '假設'}: ${source.assumptions_summary || '--'}`,
+                    `• ${isEn ? 'Limitations' : '限制'}: ${source.limitation || '--'}`
+                  ];
+                  return details;
                 }
 
                 if (context.datasetIndex === 1) {
-                  return `• ${dict.chart_tt_daily_price || '當日實際收盤價'}: $${raw.y.toFixed(2)}`;
+                  const metadata = s.price_history_metadata || {};
+                  return [
+                    `• ${dict.chart_tt_daily_price || '供應商歷史收盤價'}: $${raw.y.toFixed(2)}`,
+                    `• ${isEn ? 'Price date' : '價格日期'}: ${raw.x}`,
+                    `• ${isEn ? 'Price basis' : '價格基準'}: ${metadata.price_basis || '--'}`,
+                    `• ${isEn ? 'Data status' : '資料狀態'}: ${metadata.status || '--'}`
+                  ];
                 }
               }
             }
