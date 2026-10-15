@@ -174,6 +174,73 @@
       background: #111c30 !important;
       z-index: 12 !important;
     }
+    /* 圓形 ⓘ 圖標樣式 */
+    .info-circle-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: rgba(56, 189, 248, 0.2);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 800;
+      cursor: pointer;
+      margin-left: 4px;
+      position: relative;
+      vertical-align: middle;
+      font-style: normal;
+    }
+    .info-circle-btn:hover {
+      background: var(--accent);
+      color: #0b1120;
+    }
+
+    /* 懸停彈出之計算公式卡片 */
+    .info-circle-btn .tooltip-box {
+      visibility: hidden;
+      opacity: 0;
+      position: absolute;
+      top: 130%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 260px;
+      background: #0f172a;
+      border: 1px solid #38bdf8;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.85);
+      border-radius: 6px;
+      padding: 10px 12px;
+      color: #cbd5e1;
+      font-size: 11.5px;
+      line-height: 1.5;
+      white-space: normal;
+      text-align: left;
+      z-index: 1000;
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .info-circle-btn .tooltip-box b {
+      color: #38bdf8;
+      display: block;
+      margin-bottom: 4px;
+      font-size: 12px;
+    }
+    .info-circle-btn .tooltip-box code {
+      display: block;
+      background: #1e293b;
+      padding: 4px 6px;
+      border-radius: 4px;
+      color: #4ade80;
+      font-family: monospace;
+      margin: 4px 0;
+    }
+    .info-circle-btn:hover .tooltip-box {
+      visibility: visible;
+      opacity: 1;
+      transform: translateX(-50%) translateY(4px);
+    }
     /* 專業表頭雙層排版樣式 (強制垂直分層排列) */
     .th-cell-wrap {
       display: flex !important;
@@ -643,6 +710,43 @@
             <th onclick="sortTable('WACC')" style="width: 125px;" data-i18n="th_wacc">加權成本 WACC / g</th>
             <th onclick="sortTable('EV')" style="width: 135px;" data-i18n="th_ev">企業價值 EV ($M)</th>
             <th onclick="sortTable('mcap')" style="width: 135px;" data-i18n="th_mcap">市值 ($M)</th>
+            
+            <!-- 清算價 (I) -->
+            <th style="width: 135px; text-align: right; user-select: none;">
+              <span onclick="sortTable('liq_val_1')" style="cursor: pointer;" data-i18n="th_liq_1">清算價 (I)</span>
+              <span class="info-circle-btn" onclick="event.stopPropagation()">i
+                <span class="tooltip-box">
+                  <b id="tt-liq1-title" data-i18n="liq_1_tt_title">清算價 (I) · NCAV</b>
+                  <span id="tt-liq1-desc" data-i18n="liq_1_tt_desc">流動資產償還所有內外負債後的剩餘價值。</span>
+                  <code id="tt-liq1-formula" data-i18n="liq_1_tt_formula">(流動資產 - 總負債) / 稀釋總股數</code>
+                </span>
+              </span>
+            </th>
+
+            <!-- 清算價 (II) -->
+            <th style="width: 145px; text-align: right; user-select: none;">
+              <span onclick="sortTable('liq_val_2')" style="cursor: pointer;" data-i18n="th_liq_2">清算價 (II)</span>
+              <span class="info-circle-btn" onclick="event.stopPropagation()">i
+                <span class="tooltip-box">
+                  <b id="tt-liq2-title" data-i18n="liq_2_tt_title">清算價 (II) · 葛拉漢淨清算</b>
+                  <span id="tt-liq2-desc" data-i18n="liq_2_tt_desc">考慮壞帳與存貨折價拍賣之保守清算底線。</span>
+                  <code id="tt-liq2-formula" data-i18n="liq_2_tt_formula">[(應收×0.8 + 存貨×0.5 + 現金短期投資) - 總負債] / 稀釋股數</code>
+                </span>
+              </span>
+            </th>
+
+            <!-- 清算價 (III) -->
+            <th style="width: 145px; text-align: right; user-select: none;">
+              <span onclick="sortTable('liq_val_3')" style="cursor: pointer;" data-i18n="th_liq_3">清算價 (III)</span>
+              <span class="info-circle-btn" onclick="event.stopPropagation()">i
+                <span class="tooltip-box">
+                  <b id="tt-liq3-title" data-i18n="liq_3_tt_title">清算價 (III) · 極致現金清算</b>
+                  <span id="tt-liq3-desc" data-i18n="liq_3_tt_desc">假設應收及存貨全部歸零，僅憑現金清償債務。</span>
+                  <code id="tt-liq3-formula" data-i18n="liq_3_tt_formula">(現金及短期投資 - 總負債) / 稀釋總股數</code>
+                </span>
+              </span>
+            </th>
+            
             <th onclick="sortTable('pe_trailing')" style="width: 90px;" data-i18n="th_pe_trailing">靜態 P/E</th>
             <th onclick="sortTable('pe_forward')" style="width: 90px;" data-i18n="th_pe_forward">動態 P/E</th>
             <th onclick="sortTable('pb_trailing')" style="width: 90px;" data-i18n="th_pb">靜態 P/B</th>
@@ -1536,6 +1640,20 @@
       btn_period_quarter: "季度 (近 20 季)",
       btn_ratio_annual: "年度 (5年 + TTM)",
       btn_ratio_quarter: "季度 (近 20 季)"
+      th_liq_1: "清算價 (I)",
+      th_liq_2: "清算價 (II)",
+      th_liq_3: "清算價 (III)",
+      liq_1_tt_title: "清算價 (I) · 淨流動資產價值 (NCAV)",
+      liq_1_tt_desc: "流動資產償還所有內外負債後的剩餘價值。",
+      liq_1_tt_formula: "(流動資產 - 總負債) / 稀釋總股數",
+    
+      liq_2_tt_title: "清算價 (II) · 葛拉漢淨清算價值 (Net-Net)",
+      liq_2_tt_desc: "考慮壞帳與存貨折價拍賣之保守清算底線。",
+      liq_2_tt_formula: "[(應收×0.8 + 存貨×0.5 + 現金短期投資) - 總負債] / 稀釋股數",
+  
+      liq_3_tt_title: "清算價 (III) · 極致現金清算價值 (Cash-Net)",
+      liq_3_tt_desc: "假設應收及存貨全部歸零，僅憑手上現金清償債務的終極防禦底線。",
+      liq_3_tt_formula: "(現金及短期投資 - 總負債) / 稀釋總股數",
     },
     en: {
       title: "US Flagship DCF Valuation Radar (200 Stocks)",
@@ -1689,6 +1807,20 @@
       btn_period_quarter: "Quarterly (Last 20Q)",
       btn_ratio_annual: "Annual (5Y + TTM)",
       btn_ratio_quarter: "Quarterly (Last 20Q)"
+      th_liq_1: "Liquidation (L1)",
+      th_liq_2: "Net-Net (L2)",
+      th_liq_3: "Cash-Net (L3)",
+      liq_1_tt_title: "Level 1 · Net Current Asset Value (NCAV)",
+      liq_1_tt_desc: "Residual value after all liabilities are paid using current assets.",
+      liq_1_tt_formula: "(Current Assets - Total Liabilities) / Diluted Shares",
+        
+      liq_2_tt_title: "Level 2 · Graham Net-Net Liquidation Value",
+      liq_2_tt_desc: "Haircut liquidation accounting for uncollected AR and discounted inventory.",
+      liq_2_tt_formula: "[(AR × 0.8 + Inv × 0.5 + Cash) - Total Liab] / Diluted Shares",
+        
+      liq_3_tt_title: "Level 3 · Ultra-Conservative Cash-Net Value",
+      liq_3_tt_desc: "Ultimate cash cushion assuming zero recovery on inventory and receivables.",
+      liq_3_tt_formula: "(Total Cash & ST Inv. - Total Liabilities) / Diluted Shares",
     }
   };
 
@@ -2196,6 +2328,22 @@
           </td>
           <td>$${evVal.toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
           <td style="font-weight: 600;">$${mcapVal.toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
+          
+          <!-- 清算價 (I) 數值 -->
+          <td style="${item.price < item.liq_val_1 && item.liq_val_1 > 0 ? 'color: var(--green); font-weight: 800;' : 'color: #cbd5e1;'}">
+            $${Number(item.liq_val_1).toFixed(2)}
+          </td>
+
+          <!-- 清算價 (II) 數值 -->
+          <td style="${item.price < item.liq_val_2 && item.liq_val_2 > 0 ? 'color: var(--green); font-weight: 800;' : 'color: #cbd5e1;'}">
+            $${Number(item.liq_val_2).toFixed(2)}
+          </td>
+
+          <!-- 清算價 (III) 數值 -->
+          <td style="${item.price < item.liq_val_3 && item.liq_val_3 > 0 ? 'color: var(--green); font-weight: 800;' : 'color: #cbd5e1;'}">
+            $${Number(item.liq_val_3).toFixed(2)}
+          </td>
+          
           <td>${item.pe_trailing ? Number(item.pe_trailing).toFixed(1) : '--'}</td>
           <td>${item.pe_forward ? Number(item.pe_forward).toFixed(1) : '--'}</td>
           <td>${item.pb_trailing ? Number(item.pb_trailing).toFixed(1) : '--'}</td>
