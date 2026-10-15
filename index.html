@@ -6,6 +6,7 @@
   <title>美股旗艦 DCF 估值雷達 (200 檔全覆蓋 · 雙軌多週期版)</title>
   <script src="market_data.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
   
   <style>
     :root {
@@ -914,28 +915,30 @@
             </table>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- ==================== 5 年公允價值 vs 歷史每日市價圖表面板 ==================== -->
-  <div class="panel" style="margin-top: 20px;">
-    <div class="panel-title" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
-      <div>
-        <span id="det-chart-title" data-i18n="chart_dcf_hist_title" style="font-size: 14px; font-weight: 700; color: #38bdf8;">
-          📈 5 年季度歷史公允價值軌跡 vs. 歷史市價走勢
-        </span>
-        <div id="det-chart-sub" data-i18n="chart_dcf_hist_sub" style="font-size: 12px; color: var(--text-muted); margin-top: 3px;">
-          綠線：季度公允價值（DCF） · 藍線：歷史每日實際收盤價（滑鼠靠近圓點可比對折溢價）
+        <!-- ==================== 5 年公允價值 vs 歷史每日市價圖表面板 (放入 detail-view 內) ==================== -->
+        <div class="panel" style="margin-top: 20px;">
+          <div class="panel-title" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+            <div>
+              <span id="det-chart-title" data-i18n="chart_dcf_hist_title" style="font-size: 14px; font-weight: 700; color: #38bdf8;">
+                📈 5 年季度歷史公允價值軌跡 vs. 歷史市價走勢
+              </span>
+              <div id="det-chart-sub" data-i18n="chart_dcf_hist_sub" style="font-size: 12px; color: var(--text-muted); margin-top: 3px;">
+                綠線：季度公允價值（DCF） · 藍線：歷史每日實際收盤價（滑鼠靠近圓點可比對折溢價）
+              </div>
+            </div>
+            <div id="det-chart-status-badge" style="font-size: 12px; font-weight: 700;">--</div>
+          </div>
+
+          <div style="position: relative; height: 460px; width: 100%; margin-top: 14px;">
+            <canvas id="detailDcfHistoricalChart"></canvas>
+          </div>
         </div>
-      </div>
-      <div id="det-chart-status-badge" style="font-size: 12px; font-weight: 700;">--</div>
-    </div>
 
-    <div style="position: relative; height: 460px; width: 100%; margin-top: 14px;">
-      <canvas id="detailDcfHistoricalChart"></canvas>
+      </div>
     </div>
   </div>
+  <!-- 頁面 2：detail-view 結束 -->
   
   <!-- ==================== 頁面 3：企業概況與 7 大子分頁專頁 ==================== -->
   <div id="company-view">
