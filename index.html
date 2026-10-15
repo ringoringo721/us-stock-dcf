@@ -1384,6 +1384,108 @@
     "房地產": "Real Estate"
   };
 
+  const INDUSTRY_NAMES_ZH = {
+    "Aerospace & Defense": "航太與國防",
+    "Agricultural & Farm Machinery": "農業與農用機械",
+    "Agricultural Products & Services": "農產品與農業服務",
+    "Air Freight & Logistics": "航空貨運與物流",
+    "Airport Services": "機場營運與服務",
+    "Alternative Carriers": "替代電信運營商",
+    "Apparel Retail": "服裝零售",
+    "Application Software": "應用軟體",
+    "Asset Management & Custody Banks": "資產管理與託管銀行",
+    "Automobile Manufacturers": "汽車製造商",
+    "Automotive Retail": "汽車零售與配件",
+    "Biotechnology": "生物科技",
+    "Broadline Retail": "綜合零售與電商",
+    "Building Products": "建築建材與設備",
+    "Cable & Satellite": "有線電視與衛星",
+    "Casinos & Gaming": "博彩與賭場娛樂",
+    "Commercial & Professional Services": "商業與專業服務",
+    "Commodity Chemicals": "大宗商品化學品",
+    "Communications Equipment": "通訊設備與器材",
+    "Construction Machinery & Heavy Transportation Equipment": "工程機械與重型運輸",
+    "Construction Materials": "建築骨料與水泥材料",
+    "Consumer Finance": "消費金融與信用卡",
+    "Consumer Staples Merchandise Retail": "必需品與大賣場零售",
+    "Copper": "銅礦開採與冶煉",
+    "Data Center REITs": "數據中心房地產信託",
+    "Data Processing & Outsourced Services": "數據處理與外包服務",
+    "Diversified Banks": "多元化大型銀行",
+    "Diversified Support Services": "多元化支援服務",
+    "Electric Utilities": "電力公用事業",
+    "Electrical Components & Equipment": "電氣零件與工業設備",
+    "Electronic Components": "電子元件與連接器",
+    "Electronic Equipment & Instruments": "電子儀器與測量設備",
+    "Environmental & Facilities Services": "環保廢品與設施服務",
+    "Fertilizers & Agricultural Chemicals": "肥料與農用化學品",
+    "Financial Exchanges & Data": "金融交易所與財經數據",
+    "Footwear": "運動鞋類製造",
+    "Gold": "黃金採掘與貴金屬",
+    "Health Care Distributors": "醫藥分銷與物流",
+    "Health Care Equipment": "醫療設備與器材",
+    "Health Care Services": "醫療照護與透析服務",
+    "Health Care Supplies": "醫療耗材與隱適美",
+    "Health Care Technology": "醫療科技與雲端系統",
+    "Home Improvement Retail": "家裝零售與家居改善",
+    "Hotel & Resort REITs": "酒店與博彩房地產信託",
+    "Hotels, Resorts & Cruise Lines": "酒店、度假村與郵輪",
+    "Household Products": "家庭與日用消費品",
+    "Human Resource & Employment Services": "人力資源與薪酬管理",
+    "IT Consulting & Other Services": "資訊技術諮詢與服務",
+    "Industrial Conglomerates": "工業綜合控股集團",
+    "Industrial Gases": "工業氣體製造",
+    "Industrial Machinery": "工業機械與設備製造",
+    "Industrial REITs": "工業與倉儲物流信託",
+    "Insurance Brokers": "保險經紀與風險諮詢",
+    "Integrated Oil & Gas": "整合型綜合油氣巨頭",
+    "Integrated Telecommunication Services": "綜合電信運營服務",
+    "Interactive Home Entertainment": "互動家用娛樂與主機遊戲",
+    "Interactive Media & Services": "互動媒體與互聯網服務",
+    "Investment Banking & Brokerage": "投資銀行與證券經紀",
+    "Life & Health Insurance": "人壽與健康保險",
+    "Life Sciences Tools & Services": "生命科學工具與實驗室服務",
+    "Managed Healthcare": "健康管理與醫療保險",
+    "Movies & Entertainment": "電影、影視與娛樂傳媒",
+    "Multi-Sector Holdings": "多元化板塊控股 (如波克夏)",
+    "Multi-Utilities": "綜合公用事業",
+    "Multi-line Insurance": "綜合保險集團",
+    "Oil & Gas Equipment & Services": "油氣設備與油田工程服務",
+    "Oil & Gas Exploration & Production": "油氣勘探與採掘 (E&P)",
+    "Oil & Gas Refining & Marketing": "石油煉化與加油站營銷",
+    "Oil & Gas Storage & Transportation": "油氣儲運與中游管線",
+    "Packaged Foods & Meats": "包裝食品與休閒零食",
+    "Personal Services": "個人與殯葬禮儀服務",
+    "Pharmaceuticals": "大型傳統製藥",
+    "Property & Casualty Insurance": "財產與意外傷害險",
+    "Rail Transportation": "鐵路重載貨運物流",
+    "Real Estate Services": "房地產專業服務與資訊",
+    "Research & Consulting Services": "徵信調查與諮詢服務",
+    "Restaurants": "連鎖餐飲與快餐咖啡",
+    "Retail REITs": "零售與購物中心信託",
+    "Semiconductor Materials & Equipment": "半導體材料與晶圓設備",
+    "Semiconductors": "半導體設計與晶圓製造",
+    "Soft Drinks & Non-alcoholic Beverages": "軟性飲料與無酒精飲品",
+    "Specialty Chemicals": "特種精細化學品",
+    "Specialty Stores": "專業農牧零售店",
+    "Systems Software": "系統基礎架構與資安軟體",
+    "Technology Hardware, Storage & Peripherals": "消費硬體與存儲周邊",
+    "Telecom Tower REITs": "通訊基地台房產信託",
+    "Tobacco": "菸草與新型無煙產品",
+    "Transaction & Payment Processing Services": "交易清算與支付網絡",
+    "Water Utilities": "水務公用事業",
+    "Wireless Telecommunication Services": "無線蜂窩行動通訊"
+  };
+
+  // 取得子行業的多語言顯示名稱
+  function getStockDisplayIndustry(ind) {
+    if (!ind || ind === 'ALL') return ind;
+    if (typeof currentLang !== 'undefined' && currentLang === 'zh') {
+      return INDUSTRY_NAMES_ZH[ind] || ind;
+    }
+    return ind;
+  }
+  
   const STOCK_NAMES_ZH = {
     "NVDA": "輝達", "AAPL": "蘋果", "MSFT": "微軟", "AVGO": "博通", "ORCL": "甲骨文",
     "CRM": "賽富時", "AMD": "超微半導體", "CSCO": "思科", "ACN": "埃森哲", "ADBE": "Adobe",
@@ -2163,17 +2265,33 @@
   function updateSubIndustryButtons() {
     const container = document.getElementById('subindustry-filters');
     if (!container) return;
+    
     let subIndustries = new Set();
     Object.values(stockUniverse).forEach(s => {
       if (currentSectorFilter === 'ALL' || s.sector === currentSectorFilter) {
         if (s.industry) subIndustries.add(s.industry);
       }
     });
-    const allLabel = currentLang === 'zh' ? '全部子行業' : 'All Sub-Industries';
-    let html = `<button class="f-btn ${currentSubIndustryFilter === 'ALL' ? 'active' : ''}" onclick="setSubIndustryFilter('ALL')">${allLabel}</button>`;
-    Array.from(subIndustries).sort().forEach(sub => {
-      html += `<button class="f-btn ${currentSubIndustryFilter === sub ? 'active' : ''}" onclick="setSubIndustryFilter('${sub}')">${sub}</button>`;
+
+    const isZh = (currentLang === 'zh');
+    const allLabel = isZh ? '全部子行業' : 'All Sub-Industries';
+
+    // 依當前語言排序按鈕文字
+    const sortedSubList = Array.from(subIndustries).sort((a, b) => {
+      const nameA = isZh ? (INDUSTRY_NAMES_ZH[a] || a) : a;
+      const nameB = isZh ? (INDUSTRY_NAMES_ZH[b] || b) : b;
+      return nameA.localeCompare(nameB, isZh ? 'zh-Hant' : 'en');
     });
+
+    let html = `<button class="f-btn ${currentSubIndustryFilter === 'ALL' ? 'active' : ''}" onclick="setSubIndustryFilter('ALL')">${allLabel}</button>`;
+    
+    sortedSubList.forEach(subKey => {
+      const displayLabel = isZh ? (INDUSTRY_NAMES_ZH[subKey] || subKey) : subKey;
+      const isActive = (currentSubIndustryFilter === subKey) ? 'active' : '';
+      // 注意：onclick 傳入原始英文 subKey，以確保資料過濾邏輯不受語言變更影響
+      html += `<button class="f-btn ${isActive}" onclick="setSubIndustryFilter('${subKey.replace(/'/g, "\\'")}')">${displayLabel}</button>`;
+    });
+
     container.innerHTML = html;
   }
 
@@ -2338,7 +2456,7 @@
           <td class="col-fixed-2"><span class="badge ${exchClass}">${item.exchange || 'US'}</span></td>
           <td class="col-fixed-3" style="font-weight: 600; color: #fff;">${getStockDisplayName(item)}</td>
           <td style="color: #cbd5e1; text-align: left;">${getStockDisplaySector(item)}</td>
-          <td style="color: #94a3b8; font-size: 11px; text-align: left;">${item.industry || '--'}</td>
+          <td style="color: #94a3b8; font-size: 11px; text-align: left;">${getStockDisplayIndustry(item.industry) || '--'}</td>
           <td style="font-weight: 700; color: var(--accent);">$${priceNum.toFixed(2)}</td>
           <td class="text-green" style="font-size: 13px; font-weight: 700;">$${fairNum.toFixed(2)}</td>
           <td>${targetPriceHtml}</td>
