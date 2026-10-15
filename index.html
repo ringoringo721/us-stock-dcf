@@ -133,8 +133,8 @@
     .table-scroll-wrapper::-webkit-scrollbar-thumb { background: #38bdf8; border-radius: 6px; border: 3px solid #0f172a; }
 
     table#screener-table {
-      width: 3880px !important;
-      min-width: 3880px !important;
+      width: 4280px !important;
+      min-width: 4280px !important;
       border-collapse: separate !important;
       border-spacing: 0;
       font-size: 12px;
@@ -1639,7 +1639,7 @@
       btn_period_annual: "年度 (5年 + TTM)",
       btn_period_quarter: "季度 (近 20 季)",
       btn_ratio_annual: "年度 (5年 + TTM)",
-      btn_ratio_quarter: "季度 (近 20 季)"
+      btn_ratio_quarter: "季度 (近 20 季)",
       th_liq_1: "清算價 (I)",
       th_liq_2: "清算價 (II)",
       th_liq_3: "清算價 (III)",
@@ -1806,7 +1806,7 @@
       btn_period_annual: "Annual (5Y + TTM)",
       btn_period_quarter: "Quarterly (Last 20Q)",
       btn_ratio_annual: "Annual (5Y + TTM)",
-      btn_ratio_quarter: "Quarterly (Last 20Q)"
+      btn_ratio_quarter: "Quarterly (Last 20Q)",
       th_liq_1: "Liquidation (L1)",
       th_liq_2: "Net-Net (L2)",
       th_liq_3: "Cash-Net (L3)",
@@ -2207,6 +2207,24 @@
       const fairVal = s.default_fair_val || defaultDcf.fairVal;
 
       const isSaved = !!savedModels[ticker];
+      // 最新一期資產負債表清算價防護計算
+      const bsRaw = (s.statements_raw && s.statements_raw.balance) || {};
+      const caArr = bsRaw.totalCurrentAssets || [];
+      const tlArr = bsRaw.totalLiabilities || [];
+      const cashArr = bsRaw.cashAndShortTermInvestments || [];
+      const arArr = bsRaw.tradeAccountsReceivables || bsRaw.netReceivables || [];
+      const invArr = bsRaw.inventory || [];
+      const shs = Math.max(Number(s.shares) || 1, 0.01);
+
+      const latestCA = caArr.length > 0 ? caArr[caArr.length - 1] : 0;
+      const latestTL = tlArr.length > 0 ? tlArr[tlArr.length - 1] : (Number(s.debt) || 0);
+      const latestCash = cashArr.length > 0 ? cashArr[cashArr.length - 1] : (Number(s.cash) || 0);
+      const latestAR = arArr.length > 0 ? arArr[arArr.length - 1] : 0;
+      const latestInv = invArr.length > 0 ? invArr[invArr.length - 1] : 0;
+
+      const calcLiq1 = s.liq_val_1 !== undefined ? Number(s.liq_val_1) : Number(((latestCA - latestTL) / shs).toFixed(2));
+      const calcLiq2 = s.liq_val_2 !== undefined ? Number(s.liq_val_2) : Number((((latestAR * 0.8 + latestInv * 0.5 + latestCash) - latestTL) / shs).toFixed(2));
+      const calcLiq3 = s.liq_val_3 !== undefined ? Number(s.liq_val_3) : Number(((latestCash - latestTL) / shs).toFixed(2));
       const isFav = favs.includes(ticker);
       const target_price = isSaved ? Number(savedModels[ticker].targetPrice) : null;
       const target_spread = (isSaved && target_price > 0 && s.price) ? (((s.price / target_price) - 1) * 100) : null;
