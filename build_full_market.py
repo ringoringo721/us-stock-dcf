@@ -1405,7 +1405,32 @@ def main():
             net_debt_to_ebitda = round(net_debt / max(fcf0, 1.0), 2)
 
         f_score, f_score_breakdown = calculate_piotroski_score(roa, fcf0, cr, liab_r, ttm_net_income)
+        # ========================================================
+        # 葛拉漢三大清算價格計算 (依最新申報之資產負債表，單位均為百萬 $M 與百萬股 M)
+        # ========================================================
+        def _get_bs_latest(key: str, fallback_val: float = 0.0) -> float:
+            arr = stmt_balance.get(key)
+            if isinstance(arr, list) and len(arr) > 0 and arr[-1] is not None:
+                return float(arr[-1])
+            return float(fallback_val)
 
+        latest_ca = _get_bs_latest("totalCurrentAssets", 0.0)
+        latest_tl = _get_bs_latest("totalLiabilities", debt)
+        latest_cash = _get_bs_latest("cashAndShortTermInvestments", cash)
+        latest_ar = _get_bs_latest("tradeAccountsReceivables", _get_bs_latest("netReceivables", 0.0))
+        latest_inv = _get_bs_latest("inventory", 0.0)
+
+        safe_shares = max(float(shares or 1.0), 0.01)
+
+        # 清算價 (I): [Current Assets - Total Liabilities] / Diluted Shares
+        liq_val_1 = round((latest_ca - latest_tl) / safe_shares, 2)
+
+        # 清算價 (II): [(AR * 0.8 + Inv * 0.5 + Cash) - Total Liabilities] / Diluted Shares
+        liq_val_2 = round(((latest_ar * 0.8 + latest_inv * 0.5 + latest_cash) - latest_tl) / safe_shares, 2)
+
+        # 清算價 (III): [Total Cash & ST Inv - Total Liabilities] / Diluted Shares
+        liq_val_3 = round((latest_cash - latest_tl) / safe_shares, 2)
+        
         # 金融專屬雙軌模型
         FINANCIAL_SPECIAL_INDUSTRIES = [
             "Diversified Banks", "Consumer Finance", "Investment Banking & Brokerage",
@@ -1502,6 +1527,9 @@ def main():
             "shares_outstanding": int(shares * 1e6) if shares > 0 else 0,
             "shares_display": f"{shares:,.2f} M",
             "mcap": mcap,
+            "liq_val_1": liq_val_1,
+            "liq_val_2": liq_val_2,
+            "liq_val_3": liq_val_3,
             "debt": debt,
             "cash": cash,
             "short_term_investments": short_term_inv,
