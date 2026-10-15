@@ -2339,7 +2339,7 @@
       const displayLabel = isZh ? (INDUSTRY_NAMES_ZH[subKey] || subKey) : subKey;
       const isActive = (currentSubIndustryFilter === subKey) ? 'active' : '';
       // 注意：onclick 傳入原始英文 subKey，以確保資料過濾邏輯不受語言變更影響
-      html += `<button class="f-btn ${isActive}" data-sub="${subKey}" onclick="setSubIndustryFilter(this.getAttribute('data-sub'))">${displayLabel}</button>`;
+      html += `<button class="f-btn ${isActive}" data-sub="${encodeURIComponent(subKey)}" onclick="setSubIndustryFilter(decodeURIComponent(this.getAttribute('data-sub')))">${displayLabel}</button>`;
     });
 
     container.innerHTML = html;
@@ -4209,8 +4209,12 @@
     renderDetailHistoricalChart(s);
   }
 
+  let paramChangeTimer = null;
   function onDetailParamChange() {
-    recalculateDetail();
+    clearTimeout(paramChangeTimer);
+    paramChangeTimer = setTimeout(() => {
+      recalculateDetail();
+    }, 150);
   }
 
   function onYearGrowthChange(yearIdx, val) {
@@ -4452,7 +4456,7 @@
           y: histFair,
           stockPriceOnDate: pOnDate,
           spreadPct: spread
-        };
+        });
       }
     }
 
@@ -4551,11 +4555,11 @@
                     const spreadStr = `${sign}${raw.spreadPct.toFixed(1)}%`;
 
                     return [
-                      `---------------------------------`,
+                      '---------------------------------',
                       `• ${dict.chart_tt_fair || '每股公允價值'}: ${fairStr}`,
                       `• ${dict.chart_tt_market || '當期收盤市價'}: ${mktStr}`,
                       `• ${dict.chart_tt_status || '估值判定'}: ${spreadStr} · ${statusText}`,
-                      `---------------------------------`
+                      '---------------------------------'
                     ];
                   }
                   return `• ${dict.chart_tt_fair || '每股公允價值'}: ${fairStr}`;
