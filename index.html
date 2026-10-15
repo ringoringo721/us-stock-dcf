@@ -4291,6 +4291,7 @@
       renderDCFTable(dcf.growth, dcf.fcfList, dcf.dfList, dcf.pvList);
       renderSensitivity(dcf.fcfList[9], dcf.NetDebt, tempS.shares, dcf.WACC, Number(tempS.g) / 100, dcf.localFCF0, dcf.growth);
     }
+    renderDetailHistoricalChart(tempS);
   }
 
   function renderDCFTable(growth, fcfs, dfs, pvs) {
