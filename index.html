@@ -2226,6 +2226,31 @@
       const calcLiq2 = s.liq_val_2 !== undefined ? Number(s.liq_val_2) : Number((((latestAR * 0.8 + latestInv * 0.5 + latestCash) - latestTL) / shs).toFixed(2));
       const calcLiq3 = s.liq_val_3 !== undefined ? Number(s.liq_val_3) : Number(((latestCash - latestTL) / shs).toFixed(2));
       const isFav = favs.includes(ticker);
+      // 1. 安全抓取最新一期資產負債表數據（百萬美元單位）
+      const bsRaw = (s.statements_raw && s.statements_raw.balance) || {};
+      const caArr = bsRaw.totalCurrentAssets || [];
+      const tlArr = bsRaw.totalLiabilities || [];
+      const cashArr = bsRaw.cashAndShortTermInvestments || [];
+      const arArr = bsRaw.tradeAccountsReceivables || bsRaw.netReceivables || [];
+      const invArr = bsRaw.inventory || [];
+      
+      const shs = Math.max(Number(s.shares) || (Number(s.mcap) / Math.max(Number(s.price), 1)) || 1, 0.01);
+
+      const latestCA = (caArr.length > 0 && caArr[caArr.length - 1] !== null) ? Number(caArr[caArr.length - 1]) : 0;
+      const latestTL = (tlArr.length > 0 && tlArr[tlArr.length - 1] !== null) ? Number(tlArr[tlArr.length - 1]) : (Number(s.debt) || 0);
+      const latestCash = (cashArr.length > 0 && cashArr[cashArr.length - 1] !== null) ? Number(cashArr[cashArr.length - 1]) : (Number(s.cash) || 0);
+      const latestAR = (arArr.length > 0 && arArr[arArr.length - 1] !== null) ? Number(arArr[arArr.length - 1]) : 0;
+      const latestInv = (invArr.length > 0 && invArr[invArr.length - 1] !== null) ? Number(invArr[invArr.length - 1]) : 0;
+
+      // 2. 優先讀取後端預算值；若無，由前端即時計算
+      let val1 = (s.liq_val_1 !== undefined && s.liq_val_1 !== null) ? Number(s.liq_val_1) : ((latestCA - latestTL) / shs);
+      let val2 = (s.liq_val_2 !== undefined && s.liq_val_2 !== null) ? Number(s.liq_val_2) : (((latestAR * 0.8 + latestInv * 0.5 + latestCash) - latestTL) / shs);
+      let val3 = (s.liq_val_3 !== undefined && s.liq_val_3 !== null) ? Number(s.liq_val_3) : ((latestCash - latestTL) / shs);
+
+      // 3. 確保絕對不是 NaN
+      const cleanLiq1 = isNaN(val1) ? 0.0 : Number(val1.toFixed(2));
+      const cleanLiq2 = isNaN(val2) ? 0.0 : Number(val2.toFixed(2));
+      const cleanLiq3 = isNaN(val3) ? 0.0 : Number(val3.toFixed(2));
       const target_price = isSaved ? Number(savedModels[ticker].targetPrice) : null;
       const target_spread = (isSaved && target_price > 0 && s.price) ? (((s.price / target_price) - 1) * 100) : null;
       const moat_score = (defaultDcf.moat && defaultDcf.moat.total !== undefined) ? defaultDcf.moat.total : 50;
@@ -2233,7 +2258,10 @@
       return { 
         ticker, ...s, ...defaultDcf, 
         fairVal: fairVal,
-        isSaved, isFav, target_price, target_spread, moat_score 
+        isSaved, isFav, target_price, target_spread, moat_score,
+        liq_val_1: cleanLiq1,
+        liq_val_2: cleanLiq2,
+        liq_val_3: cleanLiq3
       };
     }).filter(x => x !== null);
 
@@ -2349,17 +2377,17 @@
           
           <!-- 清算價 (I) 數值 -->
           <td style="${item.price < item.liq_val_1 && item.liq_val_1 > 0 ? 'color: var(--green); font-weight: 800;' : 'color: #cbd5e1;'}">
-            $${Number(item.liq_val_1).toFixed(2)}
+            ${item.liq_val_1 !== undefined && !isNaN(item.liq_val_1) ? (item.liq_val_1 < 0 ? `-$${Math.abs(item.liq_val_1).toFixed(2)}` : `$${item.liq_val_1.toFixed(2)}`) : '--'}
           </td>
 
           <!-- 清算價 (II) 數值 -->
           <td style="${item.price < item.liq_val_2 && item.liq_val_2 > 0 ? 'color: var(--green); font-weight: 800;' : 'color: #cbd5e1;'}">
-            $${Number(item.liq_val_2).toFixed(2)}
+            ${item.liq_val_2 !== undefined && !isNaN(item.liq_val_2) ? (item.liq_val_2 < 0 ? `-$${Math.abs(item.liq_val_2).toFixed(2)}` : `$${item.liq_val_2.toFixed(2)}`) : '--'}
           </td>
 
           <!-- 清算價 (III) 數值 -->
           <td style="${item.price < item.liq_val_3 && item.liq_val_3 > 0 ? 'color: var(--green); font-weight: 800;' : 'color: #cbd5e1;'}">
-            $${Number(item.liq_val_3).toFixed(2)}
+            ${item.liq_val_3 !== undefined && !isNaN(item.liq_val_3) ? (item.liq_val_3 < 0 ? `-$${Math.abs(item.liq_val_3).toFixed(2)}` : `$${item.liq_val_3.toFixed(2)}`) : '--'}
           </td>
           
           <td>${item.pe_trailing ? Number(item.pe_trailing).toFixed(1) : '--'}</td>
