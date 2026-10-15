@@ -2202,79 +2202,24 @@
       const s = stockUniverse[ticker];
       if (!s) return null;
       
-        const defaultDcf = computeDCF(s, ticker);
-        if (!defaultDcf) return null;
-        const fairVal = s.default_fair_val || defaultDcf.fairVal;
+      const defaultDcf = computeDCF(s, ticker);
+      if (!defaultDcf) return null;
+      const fairVal = s.default_fair_val || defaultDcf.fairVal;
 
       const isSaved = !!savedModels[ticker];
-    const isFav = favs.includes(ticker);
-    const target_price = isSaved ? Number(savedModels[ticker].targetPrice) : null;
-    const target_spread = (isSaved && target_price > 0 && s.price) ? (((s.price / target_price) - 1) * 100) : null;
-    const moat_score = (defaultDcf.moat && defaultDcf.moat.total !== undefined) ? defaultDcf.moat.total : 50;
-
-    // 1. 資產負債表數據安全提取 (僅宣告一次 bsRaw，避免 SyntaxError)
-    const bsRaw = (s.statements_raw && s.statements_raw.balance) || {};
-    const caArr = bsRaw.totalCurrentAssets || [];
-    const tlArr = bsRaw.totalLiabilities || [];
-    const cashArr = bsRaw.cashAndShortTermInvestments || [];
-    const arArr = bsRaw.tradeAccountsReceivables || bsRaw.netReceivables || [];
-    const invArr = bsRaw.inventory || [];
-
-    const shs = Math.max(Number(s.shares) || (Number(s.mcap) / Math.max(Number(s.price), 1)) || 1, 0.01);
-
-    const latestCA = (caArr.length > 0 && caArr[caArr.length - 1] !== null) ? Number(caArr[caArr.length - 1]) : 0;
-    const latestTL = (tlArr.length > 0 && tlArr[tlArr.length - 1] !== null) ? Number(tlArr[tlArr.length - 1]) : (Number(s.debt) || 0);
-    const latestCash = (cashArr.length > 0 && cashArr[cashArr.length - 1] !== null) ? Number(cashArr[cashArr.length - 1]) : (Number(s.cash) || 0);
-    const latestAR = (arArr.length > 0 && arArr[arArr.length - 1] !== null) ? Number(arArr[arArr.length - 1]) : 0;
-    const latestInv = (invArr.length > 0 && invArr[invArr.length - 1] !== null) ? Number(invArr[invArr.length - 1]) : 0;
-
-    // 2. 清算價安全計算 (後端有值優先取後端，無值前端自動補算，杜絕 $NaN)
-    let v1 = (s.liq_val_1 !== undefined && s.liq_val_1 !== null) ? Number(s.liq_val_1) : ((latestCA - latestTL) / shs);
-    let v2 = (s.liq_val_2 !== undefined && s.liq_val_2 !== null) ? Number(s.liq_val_2) : (((latestAR * 0.8 + latestInv * 0.5 + latestCash) - latestTL) / shs);
-    let v3 = (s.liq_val_3 !== undefined && s.liq_val_3 !== null) ? Number(s.liq_val_3) : ((latestCash - latestTL) / shs);
-
-    const cleanLiq1 = isNaN(v1) ? 0.0 : Number(v1.toFixed(2));
-    const cleanLiq2 = isNaN(v2) ? 0.0 : Number(v2.toFixed(2));
-    const cleanLiq3 = isNaN(v3) ? 0.0 : Number(v3.toFixed(2));
-
-    return { 
-      ticker, ...s, ...defaultDcf, 
-      fairVal: fairVal,
-      isSaved, isFav, target_price, target_spread, moat_score,
-      liq_val_1: cleanLiq1,
-      liq_val_2: cleanLiq2,
-      liq_val_3: cleanLiq3
-    };
-  }).filter(x => x !== null);
-      
-      const isSaved = !!savedModels[ticker];
-      // 最新一期資產負債表清算價防護計算
-      const bsRaw = (s.statements_raw && s.statements_raw.balance) || {};
-      const caArr = bsRaw.totalCurrentAssets || [];
-      const tlArr = bsRaw.totalLiabilities || [];
-      const cashArr = bsRaw.cashAndShortTermInvestments || [];
-      const arArr = bsRaw.tradeAccountsReceivables || bsRaw.netReceivables || [];
-      const invArr = bsRaw.inventory || [];
-      const shs = Math.max(Number(s.shares) || 1, 0.01);
-
-      const latestCA = caArr.length > 0 ? caArr[caArr.length - 1] : 0;
-      const latestTL = tlArr.length > 0 ? tlArr[tlArr.length - 1] : (Number(s.debt) || 0);
-      const latestCash = cashArr.length > 0 ? cashArr[cashArr.length - 1] : (Number(s.cash) || 0);
-      const latestAR = arArr.length > 0 ? arArr[arArr.length - 1] : 0;
-      const latestInv = invArr.length > 0 ? invArr[invArr.length - 1] : 0;
-
-      const calcLiq1 = s.liq_val_1 !== undefined ? Number(s.liq_val_1) : Number(((latestCA - latestTL) / shs).toFixed(2));
-      const calcLiq2 = s.liq_val_2 !== undefined ? Number(s.liq_val_2) : Number((((latestAR * 0.8 + latestInv * 0.5 + latestCash) - latestTL) / shs).toFixed(2));
-      const calcLiq3 = s.liq_val_3 !== undefined ? Number(s.liq_val_3) : Number(((latestCash - latestTL) / shs).toFixed(2));
       const isFav = favs.includes(ticker);
-      // 1. 安全抓取最新一期資產負債表數據（百萬美元單位）
+      const target_price = isSaved ? Number(savedModels[ticker].targetPrice) : null;
+      const target_spread = (isSaved && target_price > 0 && s.price) ? (((s.price / target_price) - 1) * 100) : null;
+      const moat_score = (defaultDcf.moat && defaultDcf.moat.total !== undefined) ? defaultDcf.moat.total : 50;
+
+      // 1. 資產負債表數據安全提取 (全函式只在此宣告一次，杜絕 SyntaxError)
       const bsRaw = (s.statements_raw && s.statements_raw.balance) || {};
       const caArr = bsRaw.totalCurrentAssets || [];
       const tlArr = bsRaw.totalLiabilities || [];
       const cashArr = bsRaw.cashAndShortTermInvestments || [];
       const arArr = bsRaw.tradeAccountsReceivables || bsRaw.netReceivables || [];
       const invArr = bsRaw.inventory || [];
-      
+
       const shs = Math.max(Number(s.shares) || (Number(s.mcap) / Math.max(Number(s.price), 1)) || 1, 0.01);
 
       const latestCA = (caArr.length > 0 && caArr[caArr.length - 1] !== null) ? Number(caArr[caArr.length - 1]) : 0;
@@ -2283,18 +2228,14 @@
       const latestAR = (arArr.length > 0 && arArr[arArr.length - 1] !== null) ? Number(arArr[arArr.length - 1]) : 0;
       const latestInv = (invArr.length > 0 && invArr[invArr.length - 1] !== null) ? Number(invArr[invArr.length - 1]) : 0;
 
-      // 2. 優先讀取後端預算值；若無，由前端即時計算
-      let val1 = (s.liq_val_1 !== undefined && s.liq_val_1 !== null) ? Number(s.liq_val_1) : ((latestCA - latestTL) / shs);
-      let val2 = (s.liq_val_2 !== undefined && s.liq_val_2 !== null) ? Number(s.liq_val_2) : (((latestAR * 0.8 + latestInv * 0.5 + latestCash) - latestTL) / shs);
-      let val3 = (s.liq_val_3 !== undefined && s.liq_val_3 !== null) ? Number(s.liq_val_3) : ((latestCash - latestTL) / shs);
+      // 2. 清算價安全計算 (後端有值優先取後端，無值前端自動補算，杜絕 $NaN)
+      let v1 = (s.liq_val_1 !== undefined && s.liq_val_1 !== null) ? Number(s.liq_val_1) : ((latestCA - latestTL) / shs);
+      let v2 = (s.liq_val_2 !== undefined && s.liq_val_2 !== null) ? Number(s.liq_val_2) : (((latestAR * 0.8 + latestInv * 0.5 + latestCash) - latestTL) / shs);
+      let v3 = (s.liq_val_3 !== undefined && s.liq_val_3 !== null) ? Number(s.liq_val_3) : ((latestCash - latestTL) / shs);
 
-      // 3. 確保絕對不是 NaN
-      const cleanLiq1 = isNaN(val1) ? 0.0 : Number(val1.toFixed(2));
-      const cleanLiq2 = isNaN(val2) ? 0.0 : Number(val2.toFixed(2));
-      const cleanLiq3 = isNaN(val3) ? 0.0 : Number(val3.toFixed(2));
-      const target_price = isSaved ? Number(savedModels[ticker].targetPrice) : null;
-      const target_spread = (isSaved && target_price > 0 && s.price) ? (((s.price / target_price) - 1) * 100) : null;
-      const moat_score = (defaultDcf.moat && defaultDcf.moat.total !== undefined) ? defaultDcf.moat.total : 50;
+      const cleanLiq1 = isNaN(v1) ? 0.0 : Number(v1.toFixed(2));
+      const cleanLiq2 = isNaN(v2) ? 0.0 : Number(v2.toFixed(2));
+      const cleanLiq3 = isNaN(v3) ? 0.0 : Number(v3.toFixed(2));
 
       return { 
         ticker, ...s, ...defaultDcf, 
