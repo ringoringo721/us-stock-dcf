@@ -2,7 +2,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const { chromium } = require('playwright');
-const { calculate, calculateReturns, trend } = require('../fcf_ratios.js');
+const { calculate, calculateReturns, financialReference, trend } = require('../fcf_ratios.js');
 
 const baseUrl = process.env.TEST_BASE_URL || 'http://127.0.0.1:8765';
 
@@ -240,6 +240,117 @@ async function checkTable(page, ticker, options, prefix = 'fcf-ratio') {
         assert.ok(Math.max(...peerWidths) - Math.min(...peerWidths) < 2, 'Peer columns should have equal widths');
       }
     }
+    await page.evaluate(() => openCompanyProfile('JPM'));
+    await page.locator('button[onclick="switchSubPage(\'financials\')"]').click();
+    for (const period of ['annual', 'quarterly']) {
+      await page.locator(`#btn-stmt-period-${period}`).click();
+      for (const type of ['income', 'balance', 'cashflow']) {
+        await page.locator(`#btn-stmt-${type}`).click();
+        assert.doesNotMatch(await page.locator('#cmp-fin-table').innerText(), /[\u3400-\u9fff]/,
+          'English financial statements must not retain Chinese headings or group labels');
+        const layout = await page.locator('#cmp-fin-table').evaluate(table => {
+          const head = [...table.querySelector('thead tr').cells];
+          const rows = [...table.querySelectorAll('tbody tr')];
+          return {
+            metric: head[0].getBoundingClientRect().width,
+            data: head[1].getBoundingClientRect().width,
+            trend: head.at(-1).getBoundingClientRect().width,
+            complete: rows.every(row => row.cells.length === head.length),
+            dividers: rows.every(row => [...row.cells].every((cell, i) =>
+              cell.classList.contains('year-divider-cell') === head[i].classList.contains('year-divider-cell'))),
+            groups: [...table.querySelectorAll('.fin-group-header-row td:first-child')].every(cell =>
+              getComputedStyle(cell).textAlign === 'left' && cell.textContent.trim())
+          };
+        });
+        assert.ok(layout.metric >= 270 && layout.metric <= 300);
+        assert.ok(layout.data >= 125 && layout.trend >= 125);
+        assert.ok(layout.complete && layout.dividers && layout.groups, 'Statement grids and fiscal dividers stay continuous');
+      }
+    }
+    await page.setViewportSize({ width: 390, height: 844 });
+    const mobileStatement = await page.locator('#cmp-fin-table').evaluate(table => {
+      const head = table.querySelector('thead .fcf-trend-col');
+      const body = table.querySelector('tbody tr:not(.fin-group-header-row) .fcf-trend-col');
+      return {
+        heading: head.getBoundingClientRect().left,
+        body: body.getBoundingClientRect().left,
+        label: table.querySelector('tbody tr:not(.fin-group-header-row) td').getBoundingClientRect().width
+      };
+    });
+    assert.ok(Math.abs(mobileStatement.heading - mobileStatement.body) < 2,
+      'Mobile trend heading must scroll with its data instead of overlapping historical columns');
+    assert.ok(mobileStatement.label <= 155);
+    await page.setViewportSize({ width: 1440, height: 1000 });
+    await page.locator('#btn-lang-toggle').click();
+    assert.ok(await page.locator('#subpage-financials').evaluate(node => node.classList.contains('active')));
+    assert.match(await page.locator('#cmp-fin-thead th').first().innerText(), /會計項目/);
+    await page.locator('#btn-lang-toggle').click();
+    assert.match(await page.locator('#cmp-fin-thead th').first().innerText(), /Accounting/);
+    const statementBeforeTheme = await page.locator('#cmp-fin-tbody').textContent();
+    assert.equal(await page.locator('#btn-theme-toggle').innerText(), 'Light mode');
+    await page.locator('#btn-theme-toggle').click();
+    assert.equal(await page.locator('html').getAttribute('data-theme'), 'light');
+    assert.equal(await page.locator('#btn-theme-toggle').getAttribute('aria-pressed'), 'true');
+    assert.equal(await page.locator('#btn-theme-toggle').innerText(), 'Dark mode');
+    assert.equal(await page.locator('#cmp-fin-tbody').textContent(), statementBeforeTheme);
+    const styles = await page.evaluate(() => {
+      const computed = selector => getComputedStyle(document.querySelector(selector));
+      return {
+        body: computed('body').backgroundColor,
+        text: computed('#cmp-fin-tbody td').color,
+        label: computed('#cmp-fin-tbody td').backgroundColor,
+        fonts: ['#fcf-ratio-table', '#return-ratio-table', '#cmp-fin-table', '#cmp-ratio-table',
+          '#cmp-peers-table', '#dcf-table', 'button', 'input',
+          '#cmp-fin-tbody tr:not(.fin-group-header-row) td:nth-child(2)',
+          '#fcf-ratio-body td', '#return-ratio-body td', '#dcf-fcf td'].map(selector => computed(selector).fontFamily),
+        sizes: ['#fcf-ratio-table', '#return-ratio-table', '#cmp-fin-table', '#cmp-ratio-table',
+          '#cmp-peers-table'].map(selector => computed(selector).fontSize)
+      };
+    });
+    assert.equal(styles.body, 'rgb(241, 245, 249)');
+    assert.ok(styles.fonts.every(font => font === styles.fonts[0]), 'Financial tables and controls share one font family');
+    assert.ok(styles.sizes.every(size => size === styles.sizes[0]), 'Company tables share one table type size');
+    assert.notEqual(styles.text, styles.label);
+    await page.reload({ waitUntil: 'networkidle' });
+    assert.equal(await page.locator('html').getAttribute('data-theme'), 'light', 'Theme survives reload');
+    assert.equal(await page.locator('html').getAttribute('lang'), 'en');
+    await page.locator('button[onclick="switchSubPage(\'chart\')"]').click();
+    assert.match(await page.locator('#tradingview_widget_container iframe').getAttribute('src'), /theme=light/);
+    assert.match(await page.locator('#tradingview_widget_container iframe').getAttribute('src'), /locale=en/);
+    await page.locator('#btn-theme-toggle').click();
+    assert.match(await page.locator('#tradingview_widget_container iframe').getAttribute('src'), /theme=dark/);
+    const financials = await page.evaluate(() => Object.entries(stockUniverse)
+      .filter(([, stock]) => stock.fin_valuation.is_financial).map(([ticker]) => ticker));
+    for (const ticker of financials) {
+      const source = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'cache', 'financials',
+        `${ticker}_statements_v2.json`), 'utf8'));
+      const shares = await page.evaluate(ticker => stockUniverse[ticker].shares, ticker);
+      const reference = financialReference(source, { shares });
+      await page.evaluate(ticker => openDetail(ticker), ticker);
+      assert.equal(await page.locator('#disp-fin-rote').innerText(), `${reference.rote.toFixed(2)}%`, ticker);
+      assert.ok(Math.abs(Number(await page.locator('#slider-fin-rote').inputValue()) - reference.rote) < 1e-10, ticker);
+      assert.ok((await page.locator('#fin-reference-note').innerText()).includes(reference.date), ticker);
+      assert.equal(await page.locator('#det-res-fair').innerText() === 'N/A', Boolean(reference.reason), ticker);
+    }
+    await page.evaluate(() => openDetail('JPM'));
+    const baselineRote = await page.evaluate(() => stockUniverse.JPM.fin_valuation.reference.rote);
+    await page.locator('#slider-fin-rote').evaluate(input => {
+      input.value = '0';
+      input.dispatchEvent(new Event('input', { bubbles: true }));
+    });
+    assert.equal(await page.locator('#disp-fin-rote').innerText(), '0.00%');
+    assert.equal(await page.evaluate(() => stockUniverse.JPM.fin_valuation.rote), 0);
+    assert.equal(await page.evaluate(() => stockUniverse.JPM.fin_valuation.reference.rote), baselineRote);
+    await page.evaluate(() => resetToFmpDefaults());
+    assert.ok(Math.abs(Number(await page.locator('#slider-fin-rote').inputValue()) - baselineRote) < 1e-10);
+    await page.evaluate(() => openCompanyProfile('JPM'));
+    await page.locator('button[onclick="switchSubPage(\'charts\')"]').click();
+    await page.selectOption('#return-ratio-period', 'quarterly');
+    await page.selectOption('#return-ratio-flow', 'ttm');
+    await page.selectOption('#return-ratio-balance', 'beginning');
+    await checkTable(page, 'JPM', {}, 'return-ratio');
+    assert.equal(await page.locator('#return-ratio-body tr').last().locator('td:not(.fcf-trend-col)').last().innerText(),
+      `${baselineRote.toFixed(2)}%`);
     assert.deepEqual(errors, []);
     assert.deepEqual(firstPartyFailures, []);
 
@@ -269,7 +380,7 @@ async function checkTable(page, ticker, options, prefix = 'fcf-ratio') {
     assert.match(await racePage.locator('#fcf-ratio-status').innerText(), /^AAPL/);
     await checkTable(racePage, 'AAPL', {});
     await checkTable(racePage, 'AAPL', {}, 'return-ratio');
-    console.log('PASS: independent FCF and ROA/ROE/ROTE tables, all period/flow/denominator controls and values, shared fetches, trend sparklines, languages, navigation, unchanged DCF, mobile layout, retries and stale-request protection.');
+    console.log('PASS: shared financial DCF/Trend ROTE including negative/zero cases and reset, persistent dark/light themes and TradingView locale, consistent typography, translated financial statements and continuous grids, all existing FCF/return controls, navigation, mobile and retry regressions.');
   } finally {
     await browser.close();
   }

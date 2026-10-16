@@ -79,6 +79,34 @@
     return calculateRatios(data, options, true);
   }
 
+  function financialReference(data, { shares, fxRate = 1 } = {}) {
+    const columns = calculateReturns(data);
+    const latest = columns.at(-1);
+    if (!latest) throw new TypeError('No quarterly income statements for financial valuation');
+    const income = indexRows(data.quarterly.income, false);
+    const key = Math.max(...income.keys());
+    const closing = indexRows(data.quarterly.balance, false).get(key);
+    const incomeRow = income.get(key);
+    let tbvps = null;
+    let reason = latest.ratios.rote.reason;
+    if (!closing || !incomeRow || closing.date !== incomeRow.date) reason = reason || 'dateMismatch';
+    else if (!sameCurrency([closing, incomeRow])) reason = reason || 'currencyMismatch';
+    else {
+      const tangible = balanceValue(closing, 'rote');
+      if (tangible === null) reason = reason || 'missingDenominator';
+      else if (numeric(shares) === null || shares <= 0 || numeric(fxRate) === null || fxRate <= 0) {
+        reason = reason || 'invalidSharesOrCurrency';
+      } else {
+        tbvps = tangible * fxRate / (shares * 1e6);
+        if (tbvps <= 0) reason = reason || 'nonPositiveTangibleEquity';
+      }
+    }
+    return {
+      date: latest.date, label: latest.label, period: 'quarterly', flow: 'ttm', balance: 'beginning',
+      rote: latest.ratios.rote.value, warnings: latest.ratios.rote.warnings, tbvps, reason
+    };
+  }
+
   function balanceValue(row, metric) {
     if (metric !== 'rote') {
       return numeric(row[metric === 'equity' || metric === 'roe' ? 'totalStockholdersEquity' : 'totalAssets']);
@@ -353,5 +381,5 @@
     }
   }
 
-  return { calculate, calculateReturns, trend, render, renderReturns };
+  return { calculate, calculateReturns, financialReference, trend, render, renderReturns };
 });

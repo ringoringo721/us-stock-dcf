@@ -5,6 +5,7 @@ import time
 import copy
 import re
 import math
+import subprocess
 from typing import Dict, Any, Optional
 from pydantic import BaseModel, Field
 
@@ -1525,9 +1526,14 @@ def main():
 
         fin_valuation = {"is_financial": False}
         if is_financial_model:
-            tangible_equity = max(equity - goodwill_and_intangibles, equity * 0.85)
+            reference_process = subprocess.run(
+                ["node", os.path.join(os.path.dirname(__file__), "scripts", "financial_reference.cjs"), "--stdin"],
+                input=json.dumps({"statements": fin_cache, "shares": shares, "fxRate": fx_rate}),
+                text=True, capture_output=True, check=True
+            )
+            reference = json.loads(reference_process.stdout)
             shares_count = shares * 1e6
-            tbvps = round(tangible_equity / shares_count, 2) if shares_count > 0 else 50.0
+            tbvps = reference["tbvps"]
             bvps = round(equity / shares_count, 2) if shares_count > 0 else 60.0
 
             dps_div = (ttm_dividends_paid / shares_count) if shares_count > 0 else (price * 0.02)
@@ -1535,11 +1541,11 @@ def main():
             dps_total = round(dps_div + min(dps_bb, dps_div * 1.5), 2)
 
             ke_rate = max(ke, 0.09)
-            rote_rate = max(roe / 100.0, 0.06)
-
-            spread = rote_rate - ke_rate
-            excess_return_val = tbvps + (tbvps * spread) / max(ke_rate - DEFAULT_G, 0.02)
-            excess_return_val = round(max(excess_return_val, tbvps * 0.65), 2)
+            rote_rate = reference["rote"] / 100.0 if reference["rote"] is not None else None
+            excess_return_val = None
+            if not reference["reason"]:
+                spread = rote_rate - ke_rate
+                excess_return_val = tbvps + (tbvps * spread) / max(ke_rate - DEFAULT_G, 0.02)
 
             ddm_sum = 0.0
             cur_dps = dps_total
@@ -1551,20 +1557,21 @@ def main():
             pv_tv_ddm = tv_ddm / ((1.0 + ke_rate) ** 5)
             ddm_val = round(ddm_sum + pv_tv_ddm, 2)
 
-            fair_val = round((excess_return_val * 0.55) + (ddm_val * 0.45), 2)
-            premium_pct = round(((price / fair_val) - 1.0) * 100.0, 1)
+            fair_val = round((excess_return_val * 0.55) + (ddm_val * 0.45), 2) if excess_return_val is not None else None
+            premium_pct = round(((price / fair_val) - 1.0) * 100.0, 1) if fair_val and fair_val > 0 else None
 
             fin_valuation = {
                 "is_financial": True,
                 "tbvps": tbvps,
                 "bvps": bvps,
-                "rote": round(rote_rate * 100.0, 1),
+                "rote": reference["rote"],
+                "reference": reference,
                 "ke": round(ke_rate * 100.0, 2),
                 "g": round(DEFAULT_G * 100.0, 2),
                 "dps_total": dps_total,
                 "excess_return_fair": excess_return_val,
                 "ddm_fair": ddm_val,
-                "pb_tangible": round(price / tbvps, 2) if tbvps > 0 else 1.0
+                "pb_tangible": round(price / tbvps, 2) if tbvps and tbvps > 0 else None
             }
 
         if entity_id in entity_moat_cache:
@@ -1654,7 +1661,7 @@ def main():
             "fair_val": fair_val,
             "default_fair_val": fair_val,
             "premium_pct": premium_pct,
-            "is_undervalued": premium_pct < 0,
+            "is_undervalued": premium_pct < 0 if premium_pct is not None else None,
             "pe_trailing": pe_trailing,
             "pe_forward": pe_forward,
             "pb_trailing": pb_trailing,

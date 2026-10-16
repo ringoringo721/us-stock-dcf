@@ -3,7 +3,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
-const { calculate, calculateReturns, trend } = require('../fcf_ratios.js');
+const { calculate, calculateReturns, financialReference, trend } = require('../fcf_ratios.js');
 
 function fixture() {
   const data = {};
@@ -238,6 +238,47 @@ test('ROTE deducts goodwill and intangibles once, never assumes missing componen
   assert.notEqual(result.roe.value, null);
   balance.goodwillAndIntangibleAssets = 0;
   near(calculateReturns(data, options).at(-1).ratios.rote.value, 18 / 180 * 100);
+});
+
+test('financial DCF reference is exactly the latest Trend TTM/beginning ROTE with actual closing TBV', () => {
+  const data = fixture();
+  const reference = financialReference(data, { shares: 2 });
+  assert.equal(reference.rote, calculateReturns(data).at(-1).ratios.rote.value);
+  assert.equal(reference.date, '2025-12-31');
+  assert.equal(reference.tbvps, (180 - 31) / 2e6);
+  assert.equal(reference.reason, null);
+  const converted = financialReference(data, { shares: 2, fxRate: 0.5 });
+  assert.equal(converted.rote, reference.rote);
+  assert.equal(converted.tbvps, reference.tbvps / 2);
+  data.quarterly.balance.at(-1).goodwillAndIntangibleAssets = 190;
+  const negative = financialReference(data, { shares: 2 });
+  assert.equal(negative.tbvps, -10 / 2e6);
+  assert.equal(negative.reason, 'nonPositiveTangibleEquity');
+  assert.equal(negative.rote, reference.rote);
+  assert.equal(financialReference(fixture(), { shares: 0 }).reason, 'invalidSharesOrCurrency');
+});
+
+test('the market generator CLI returns the same financial reference as the browser engine', () => {
+  const { execFileSync } = require('node:child_process');
+  const input = { statements: fixture(), shares: 2, fxRate: 0.5 };
+  const output = execFileSync(process.execPath,
+    [path.join(__dirname, '..', 'scripts', 'financial_reference.cjs'), '--stdin'],
+    { input: JSON.stringify(input), encoding: 'utf8' });
+  assert.deepEqual(JSON.parse(output), financialReference(input.statements, input));
+});
+
+test('all stored financial DCFs use the shared historical return engine, not ROE or capital floors', () => {
+  const market = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'full_market_dcf.json'), 'utf8'));
+  for (const [ticker, stock] of Object.entries(market)) {
+    if (!stock.fin_valuation.is_financial) continue;
+    const statements = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'cache', 'financials',
+      `${ticker}_statements_v2.json`), 'utf8'));
+    const reference = financialReference(statements, { shares: stock.shares });
+    assert.deepEqual(stock.fin_valuation.reference, reference, ticker);
+    assert.equal(stock.fin_valuation.rote, reference.rote, ticker);
+    assert.equal(stock.fin_valuation.tbvps, reference.tbvps, ticker);
+    if (reference.reason) assert.equal(stock.fair_val, null, ticker);
+  }
 });
 
 test('returns preserve losses, negative equity and tangible equity with warnings and zero denominators as N/A', () => {

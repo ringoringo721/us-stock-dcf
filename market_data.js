@@ -298676,9 +298676,9 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 263.76,
-    "default_fair_val": 263.76,
-    "premium_pct": 29.7,
+    "fair_val": 304.17,
+    "default_fair_val": 304.17,
+    "premium_pct": 12.432189236282332,
     "is_undervalued": false,
     "pe_trailing": 14.0,
     "pe_forward": 12.3,
@@ -298751,15 +298751,26 @@ window.FULL_MARKET_DATA = {
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 119.07,
+      "tbvps": 116.7313096505517,
       "bvps": 140.08,
-      "rote": 17.5,
+      "rote": 22.248246762794103,
       "ke": 9.3,
       "g": 2.25,
       "dps_total": 16.28,
-      "excess_return_fair": 257.65,
+      "excess_return_fair": 331.1236220334555,
       "ddm_fair": 271.22,
-      "pb_tangible": 2.87
+      "pb_tangible": 2.9296766310921254,
+      "reference": {
+        "date": "2026-06-30",
+        "label": "FY 2026 Q2",
+        "period": "quarterly",
+        "flow": "ttm",
+        "balance": "beginning",
+        "rote": 22.248246762794103,
+        "warnings": [],
+        "tbvps": 116.7313096505517,
+        "reason": null
+      }
     },
     "image": "https://images.financialmodelingprep.com/symbol/JPM.png",
     "logo": "https://images.financialmodelingprep.com/symbol/JPM.png",
@@ -310025,9 +310036,9 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 44.52,
-    "default_fair_val": 44.52,
-    "premium_pct": 17.1,
+    "fair_val": 50.24,
+    "default_fair_val": 50.24,
+    "premium_pct": 3.7519904458598763,
     "is_undervalued": false,
     "pe_trailing": 10.8,
     "pe_forward": 9.5,
@@ -310100,15 +310111,26 @@ window.FULL_MARKET_DATA = {
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 36.07,
+      "tbvps": 33.187658646455255,
       "bvps": 42.44,
-      "rote": 11.3,
+      "rote": 14.59592849274432,
       "ke": 10.25,
       "g": 2.25,
       "dps_total": 3.49,
-      "excess_return_fair": 40.82,
+      "excess_return_fair": 51.216557561343045,
       "ddm_fair": 49.04,
-      "pb_tangible": 1.45
+      "pb_tangible": 1.570613960908852,
+      "reference": {
+        "date": "2026-06-30",
+        "label": "FY 2026 Q2",
+        "period": "quarterly",
+        "flow": "ttm",
+        "balance": "beginning",
+        "rote": 14.59592849274432,
+        "warnings": [],
+        "tbvps": 33.187658646455255,
+        "reason": null
+      }
     },
     "image": "https://images.financialmodelingprep.com/symbol/BAC.png",
     "logo": "https://images.financialmodelingprep.com/symbol/BAC.png",
@@ -313820,10 +313842,10 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 82.62,
-    "default_fair_val": 82.62,
-    "premium_pct": 1.7,
-    "is_undervalued": false,
+    "fair_val": 93.91,
+    "default_fair_val": 93.91,
+    "premium_pct": -10.499414332871904,
+    "is_undervalued": true,
     "pe_trailing": 11.2,
     "pe_forward": 9.9,
     "pb_trailing": 1.4,
@@ -313895,15 +313917,26 @@ window.FULL_MARKET_DATA = {
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 49.4,
+      "tbvps": 51.33167989417989,
       "bvps": 58.12,
-      "rote": 12.9,
+      "rote": 15.200144974226804,
       "ke": 9.01,
       "g": 2.25,
       "dps_total": 5.43,
-      "excess_return_fair": 77.8,
+      "excess_return_fair": 98.33619769234213,
       "ddm_fair": 88.51,
-      "pb_tangible": 1.7
+      "pb_tangible": 1.637390402442874,
+      "reference": {
+        "date": "2026-06-30",
+        "label": "FY 2026 Q2",
+        "period": "quarterly",
+        "flow": "ttm",
+        "balance": "beginning",
+        "rote": 15.200144974226804,
+        "warnings": [],
+        "tbvps": 51.33167989417989,
+        "reason": null
+      }
     },
     "image": "https://images.financialmodelingprep.com/symbol/WFC.png",
     "logo": "https://images.financialmodelingprep.com/symbol/WFC.png",
@@ -317633,10 +317666,10 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 2018300631511.84,
-    "default_fair_val": 2018300631511.84,
-    "premium_pct": -100.0,
-    "is_undervalued": true,
+    "fair_val": 148.59,
+    "default_fair_val": 148.59,
+    "premium_pct": 23.043273436974232,
+    "is_undervalued": false,
     "pe_trailing": 14.3,
     "pe_forward": 12.6,
     "pb_trailing": 288375000000.0,
@@ -317708,15 +317741,26 @@ window.FULL_MARKET_DATA = {
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 14.51,
-      "bvps": 0.0,
-      "rote": 2022600000000.0,
+      "tbvps": 55.43657435585311,
+      "bvps": 0,
+      "rote": 23.721339353779396,
       "ke": 10.25,
       "g": 2.25,
       "dps_total": 10.34,
-      "excess_return_fair": 3669637511718.33,
+      "excess_return_fair": 148.7871875756933,
       "ddm_fair": 148.36,
-      "pb_tangible": 12.6
+      "pb_tangible": 3.2980032068070315,
+      "reference": {
+        "date": "2026-06-30",
+        "label": "FY 2026 Q2",
+        "period": "quarterly",
+        "flow": "ttm",
+        "balance": "beginning",
+        "rote": 23.721339353779396,
+        "warnings": [],
+        "tbvps": 55.43657435585311,
+        "reason": null
+      }
     },
     "image": "https://images.financialmodelingprep.com/symbol/MS.png",
     "logo": "https://images.financialmodelingprep.com/symbol/MS.png",
@@ -321422,9 +321466,9 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 745.28,
-    "default_fair_val": 745.28,
-    "premium_pct": 19.7,
+    "fair_val": 735.2,
+    "default_fair_val": 735.2,
+    "premium_pct": 21.29896626768224,
     "is_undervalued": false,
     "pe_trailing": 12.4,
     "pe_forward": 10.9,
@@ -321497,15 +321541,26 @@ window.FULL_MARKET_DATA = {
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 429.3,
+      "tbvps": 389.70704399491706,
       "bvps": 429.3,
-      "rote": 16.8,
+      "rote": 17.886504741761616,
       "ke": 10.58,
       "g": 2.25,
       "dps_total": 52.63,
-      "excess_return_fair": 749.86,
+      "excess_return_fair": 731.5313374939284,
       "ddm_fair": 739.69,
-      "pb_tangible": 2.08
+      "pb_tangible": 2.288359971270192,
+      "reference": {
+        "date": "2026-06-30",
+        "label": "FY 2026 Q2",
+        "period": "quarterly",
+        "flow": "ttm",
+        "balance": "beginning",
+        "rote": 17.886504741761616,
+        "warnings": [],
+        "tbvps": 389.70704399491706,
+        "reason": null
+      }
     },
     "image": "https://images.financialmodelingprep.com/symbol/GS.png",
     "logo": "https://images.financialmodelingprep.com/symbol/GS.png",
@@ -325198,9 +325253,9 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 184.59,
-    "default_fair_val": 184.59,
-    "premium_pct": 71.6,
+    "fair_val": 192.24,
+    "default_fair_val": 192.24,
+    "premium_pct": 64.74719101123594,
     "is_undervalued": false,
     "pe_trailing": 18.7,
     "pe_forward": 16.5,
@@ -325273,15 +325328,26 @@ window.FULL_MARKET_DATA = {
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 50.76,
+      "tbvps": 50.761872325302456,
       "bvps": 50.76,
-      "rote": 33.4,
+      "rote": 35.421373526043766,
       "ke": 9.63,
       "g": 2.25,
       "dps_total": 8.95,
-      "excess_return_fair": 214.25,
+      "excess_return_fair": 228.16274089213437,
       "ddm_fair": 148.34,
-      "pb_tangible": 6.24
+      "pb_tangible": 6.239131566511085,
+      "reference": {
+        "date": "2026-06-30",
+        "label": "FY 2026 Q2",
+        "period": "quarterly",
+        "flow": "ttm",
+        "balance": "beginning",
+        "rote": 35.421373526043766,
+        "warnings": [],
+        "tbvps": 50.761872325302456,
+        "reason": null
+      }
     },
     "image": "https://images.financialmodelingprep.com/symbol/AXP.png",
     "logo": "https://images.financialmodelingprep.com/symbol/AXP.png",
@@ -336570,9 +336636,9 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 102.72,
-    "default_fair_val": 102.72,
-    "premium_pct": 22.4,
+    "fair_val": 111.2,
+    "default_fair_val": 111.2,
+    "premium_pct": 13.04856115107913,
     "is_undervalued": false,
     "pe_trailing": 11.8,
     "pe_forward": 10.4,
@@ -336645,15 +336711,26 @@ window.FULL_MARKET_DATA = {
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 110.47,
+      "tbvps": 112.07494753910721,
       "bvps": 124.84,
-      "rote": 8.5,
+      "rote": 9.441871543123296,
       "ke": 9.77,
       "g": 2.25,
       "dps_total": 8.1,
-      "excess_return_fair": 91.78,
+      "excess_return_fair": 107.18465769993902,
       "ddm_fair": 116.1,
-      "pb_tangible": 1.14
+      "pb_tangible": 1.121660127979404,
+      "reference": {
+        "date": "2026-06-30",
+        "label": "FY 2026 Q2",
+        "period": "quarterly",
+        "flow": "ttm",
+        "balance": "beginning",
+        "rote": 9.441871543123296,
+        "warnings": [],
+        "tbvps": 112.07494753910721,
+        "reason": null
+      }
     },
     "image": "https://images.financialmodelingprep.com/symbol/C.png",
     "logo": "https://images.financialmodelingprep.com/symbol/C.png",
@@ -340401,9 +340478,9 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 274.13,
-    "default_fair_val": 274.13,
-    "premium_pct": -20.8,
+    "fair_val": 293.89,
+    "default_fair_val": 293.89,
+    "premium_pct": -26.108407907720576,
     "is_undervalued": true,
     "pe_trailing": 10.8,
     "pe_forward": 9.5,
@@ -340476,15 +340553,26 @@ window.FULL_MARKET_DATA = {
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 55.39,
+      "tbvps": 55.27792118396145,
       "bvps": 59.34,
-      "rote": 33.9,
-      "ke": 9.0,
+      "rote": 38.351806912835315,
+      "ke": 9,
       "g": 2.25,
       "dps_total": 16.07,
-      "excess_return_fair": 259.72,
+      "excess_return_fair": 295.6493092038971,
       "ddm_fair": 291.75,
-      "pb_tangible": 3.92
+      "pb_tangible": 3.9285124213934375,
+      "reference": {
+        "date": "2026-06-30",
+        "label": "FY 2026 Q2",
+        "period": "quarterly",
+        "flow": "ttm",
+        "balance": "beginning",
+        "rote": 38.351806912835315,
+        "warnings": [],
+        "tbvps": 55.27792118396145,
+        "reason": null
+      }
     },
     "image": "https://images.financialmodelingprep.com/symbol/PGR.png",
     "logo": "https://images.financialmodelingprep.com/symbol/PGR.png",
@@ -344232,10 +344320,10 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 252.29,
-    "default_fair_val": 252.29,
-    "premium_pct": 41.0,
-    "is_undervalued": false,
+    "fair_val": 442.02,
+    "default_fair_val": 442.02,
+    "premium_pct": -19.5285281208995,
+    "is_undervalued": true,
     "pe_trailing": 12.2,
     "pe_forward": 10.7,
     "pb_trailing": 1.8,
@@ -344307,15 +344395,26 @@ window.FULL_MARKET_DATA = {
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 166.06,
+      "tbvps": 126.70813893208917,
       "bvps": 195.37,
-      "rote": 14.9,
-      "ke": 9.0,
+      "rote": 37.20552126883005,
+      "ke": 9,
       "g": 2.25,
       "dps_total": 9.93,
-      "excess_return_fair": 311.21,
+      "excess_return_fair": 656.1702289443726,
       "ddm_fair": 180.28,
-      "pb_tangible": 2.14
+      "pb_tangible": 2.8072387693314784,
+      "reference": {
+        "date": "2026-06-30",
+        "label": "FY 2026 Q2",
+        "period": "quarterly",
+        "flow": "ttm",
+        "balance": "beginning",
+        "rote": 37.20552126883005,
+        "warnings": [],
+        "tbvps": 126.70813893208917,
+        "reason": null
+      }
     },
     "image": "https://images.financialmodelingprep.com/symbol/CB.png",
     "logo": "https://images.financialmodelingprep.com/symbol/CB.png",
@@ -370681,9 +370780,9 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 61.92,
-    "default_fair_val": 61.92,
-    "premium_pct": 30.0,
+    "fair_val": 69.48,
+    "default_fair_val": 69.48,
+    "premium_pct": 15.817501439263083,
     "is_undervalued": false,
     "pe_trailing": 14.4,
     "pe_forward": 12.7,
@@ -370756,15 +370855,26 @@ window.FULL_MARKET_DATA = {
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 65.1,
+      "tbvps": 70.13070292902812,
       "bvps": 76.58,
-      "rote": 7.3,
-      "ke": 9.0,
+      "rote": 8.259743154024013,
+      "ke": 9,
       "g": 2.25,
       "dps_total": 4.68,
-      "excess_return_fair": 48.7,
+      "excess_return_fair": 62.439631379943485,
       "ddm_fair": 78.08,
-      "pb_tangible": 1.24
+      "pb_tangible": 1.1474289667598967,
+      "reference": {
+        "date": "2026-06-30",
+        "label": "FY 2026 Q2",
+        "period": "quarterly",
+        "flow": "ttm",
+        "balance": "beginning",
+        "rote": 8.259743154024013,
+        "warnings": [],
+        "tbvps": 70.13070292902812,
+        "reason": null
+      }
     },
     "image": "https://images.financialmodelingprep.com/symbol/AIG.png",
     "logo": "https://images.financialmodelingprep.com/symbol/AIG.png",
@@ -374518,10 +374628,10 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 81.39,
-    "default_fair_val": 81.39,
-    "premium_pct": 24.9,
-    "is_undervalued": false,
+    "fair_val": null,
+    "default_fair_val": null,
+    "premium_pct": null,
+    "is_undervalued": null,
     "pe_trailing": 17.8,
     "pe_forward": 15.7,
     "pb_trailing": 2.4,
@@ -374593,15 +374703,28 @@ window.FULL_MARKET_DATA = {
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 36.7,
+      "tbvps": -5.768867627620066,
       "bvps": 43.18,
-      "rote": 13.2,
-      "ke": 9.0,
+      "rote": -148,
+      "ke": 9,
       "g": 2.25,
       "dps_total": 6.48,
-      "excess_return_fair": 59.54,
+      "excess_return_fair": null,
       "ddm_fair": 108.1,
-      "pb_tangible": 2.77
+      "pb_tangible": null,
+      "reference": {
+        "date": "2026-06-30",
+        "label": "FY 2026 Q2",
+        "period": "quarterly",
+        "flow": "ttm",
+        "balance": "beginning",
+        "rote": -148,
+        "warnings": [
+          "negativeTangibleEquity"
+        ],
+        "tbvps": -5.768867627620066,
+        "reason": "nonPositiveTangibleEquity"
+      }
     },
     "image": "https://images.financialmodelingprep.com/symbol/MET.png",
     "logo": "https://images.financialmodelingprep.com/symbol/MET.png",
@@ -378301,9 +378424,9 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 136.11,
-    "default_fair_val": 136.11,
-    "premium_pct": -14.9,
+    "fair_val": 364.03,
+    "default_fair_val": 364.03,
+    "premium_pct": -68.17844683130511,
     "is_undervalued": true,
     "pe_trailing": 10.4,
     "pe_forward": 9.2,
@@ -378376,15 +378499,26 @@ window.FULL_MARKET_DATA = {
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 90.47,
+      "tbvps": 90.46666666666667,
       "bvps": 91.53,
-      "rote": 12.2,
-      "ke": 9.0,
+      "rote": 43.12008978675645,
+      "ke": 9,
       "g": 2.25,
       "dps_total": 8.54,
-      "excess_return_fair": 133.36,
+      "excess_return_fair": 547.7601169444791,
       "ddm_fair": 139.47,
-      "pb_tangible": 1.28
+      "pb_tangible": 1.2804716285924835,
+      "reference": {
+        "date": "2026-06-30",
+        "label": "FY 2026 Q2",
+        "period": "quarterly",
+        "flow": "ttm",
+        "balance": "beginning",
+        "rote": 43.12008978675645,
+        "warnings": [],
+        "tbvps": 90.46666666666667,
+        "reason": null
+      }
     },
     "image": "https://images.financialmodelingprep.com/symbol/PRU.png",
     "logo": "https://images.financialmodelingprep.com/symbol/PRU.png",
@@ -382077,10 +382211,10 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 346.51,
-    "default_fair_val": 346.51,
-    "premium_pct": 11.5,
-    "is_undervalued": false,
+    "fair_val": 506.8,
+    "default_fair_val": 506.8,
+    "premium_pct": -23.746055643251772,
+    "is_undervalued": true,
     "pe_trailing": 9.7,
     "pe_forward": 8.5,
     "pb_trailing": 2.8,
@@ -382152,15 +382286,26 @@ window.FULL_MARKET_DATA = {
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 118.16,
+      "tbvps": 137.7696806980535,
       "bvps": 139.01,
-      "rote": 28.6,
-      "ke": 9.0,
+      "rote": 39.12818096135721,
+      "ke": 9,
       "g": 2.25,
       "dps_total": 11.85,
-      "excess_return_fair": 461.26,
+      "excess_return_fair": 752.695587521662,
       "ddm_fair": 206.26,
-      "pb_tangible": 3.27
+      "pb_tangible": 2.805080102108853,
+      "reference": {
+        "date": "2026-06-30",
+        "label": "FY 2026 Q2",
+        "period": "quarterly",
+        "flow": "ttm",
+        "balance": "beginning",
+        "rote": 39.12818096135721,
+        "warnings": [],
+        "tbvps": 137.7696806980535,
+        "reason": null
+      }
     },
     "image": "https://images.financialmodelingprep.com/symbol/TRV.png",
     "logo": "https://images.financialmodelingprep.com/symbol/TRV.png",
@@ -385872,10 +386017,10 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 111.45,
-    "default_fair_val": 111.45,
-    "premium_pct": 7.0,
-    "is_undervalued": false,
+    "fair_val": 166.4,
+    "default_fair_val": 166.4,
+    "premium_pct": -28.359375000000007,
+    "is_undervalued": true,
     "pe_trailing": 12.3,
     "pe_forward": 10.8,
     "pb_trailing": 2.0,
@@ -385947,15 +386092,26 @@ window.FULL_MARKET_DATA = {
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 60.45,
+      "tbvps": 60.45110982589793,
       "bvps": 60.45,
-      "rote": 16.0,
-      "ke": 9.0,
+      "rote": 27.155942806076855,
+      "ke": 9,
       "g": 2.25,
       "dps_total": 5.95,
-      "excess_return_fair": 123.14,
+      "excess_return_fair": 223.05064946484214,
       "ddm_fair": 97.17,
-      "pb_tangible": 1.97
+      "pb_tangible": 1.9720068058854578,
+      "reference": {
+        "date": "2026-06-30",
+        "label": "FY 2026 Q2",
+        "period": "quarterly",
+        "flow": "ttm",
+        "balance": "beginning",
+        "rote": 27.155942806076855,
+        "warnings": [],
+        "tbvps": 60.45110982589793,
+        "reason": null
+      }
     },
     "image": "https://images.financialmodelingprep.com/symbol/AFL.png",
     "logo": "https://images.financialmodelingprep.com/symbol/AFL.png",
@@ -389709,9 +389865,9 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 437.58,
-    "default_fair_val": 437.58,
-    "premium_pct": -44.4,
+    "fair_val": 947.6,
+    "default_fair_val": 947.6,
+    "premium_pct": -74.32197129590546,
     "is_undervalued": true,
     "pe_trailing": 4.6,
     "pe_forward": 4.0,
@@ -389784,15 +389940,26 @@ window.FULL_MARKET_DATA = {
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 113.28,
+      "tbvps": 120.93648659337182,
       "bvps": 133.27,
-      "rote": 39.5,
-      "ke": 9.0,
+      "rote": 88.89853717186561,
+      "ke": 9,
       "g": 2.25,
       "dps_total": 11.72,
-      "excess_return_fair": 625.14,
+      "excess_return_fair": 1552.4399487437934,
       "ddm_fair": 208.35,
-      "pb_tangible": 2.15
+      "pb_tangible": 2.0120065238718117,
+      "reference": {
+        "date": "2026-06-30",
+        "label": "FY 2026 Q2",
+        "period": "quarterly",
+        "flow": "ttm",
+        "balance": "beginning",
+        "rote": 88.89853717186561,
+        "warnings": [],
+        "tbvps": 120.93648659337182,
+        "reason": null
+      }
     },
     "image": "https://images.financialmodelingprep.com/symbol/ALL.png",
     "logo": "https://images.financialmodelingprep.com/symbol/ALL.png",
@@ -404868,10 +405035,10 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 48.96,
-    "default_fair_val": 48.96,
-    "premium_pct": 19.6,
-    "is_undervalued": false,
+    "fair_val": 61.6,
+    "default_fair_val": 61.6,
+    "premium_pct": -4.975649350649358,
+    "is_undervalued": true,
     "pe_trailing": 11.2,
     "pe_forward": 9.9,
     "pb_trailing": 1.4,
@@ -404943,15 +405110,26 @@ window.FULL_MARKET_DATA = {
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 36.24,
+      "tbvps": 31.57729212798049,
       "bvps": 42.63,
-      "rote": 12.3,
+      "rote": 18.783895578637743,
       "ke": 9.11,
       "g": 2.25,
       "dps_total": 2.73,
-      "excess_return_fair": 53.11,
+      "excess_return_fair": 76.10723771139492,
       "ddm_fair": 43.88,
-      "pb_tangible": 1.62
+      "pb_tangible": 1.8537054970629483,
+      "reference": {
+        "date": "2026-06-30",
+        "label": "FY 2026 Q2",
+        "period": "quarterly",
+        "flow": "ttm",
+        "balance": "beginning",
+        "rote": 18.783895578637743,
+        "warnings": [],
+        "tbvps": 31.57729212798049,
+        "reason": null
+      }
     },
     "image": "https://images.financialmodelingprep.com/symbol/USB.png",
     "logo": "https://images.financialmodelingprep.com/symbol/USB.png",

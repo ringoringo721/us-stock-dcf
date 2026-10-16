@@ -4,12 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>美股旗艦 DCF 估值雷達 (200 檔全覆蓋 · 雙軌多週期版)</title>
+  <script src="site_theme.js"></script>
   <script src="market_data.js"></script>
   <script src="fcf_ratios.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   
   <style>
     :root {
+      color-scheme: dark;
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --table-font-size: 14px;
       --bg: #0b1120;
       --card-bg: #1e293b;
       --card-border: #334155;
@@ -28,8 +32,52 @@
       --amex-green: #34d399;
       --fav-pink: #f43f5e;
       --sticky-bg: #162032;
+      --surface-bg: #0f172a;
+      --header-bg: #162032;
+      --group-bg: #111c30;
+      --text-secondary: #cbd5e1;
+      --button-bg: #475569;
+      --on-accent: #0b1120;
+      --logo-bg: #fff;
+      --hover-bg: rgba(255, 255, 255, 0.03);
+      --chart-grid: rgba(51, 65, 85, 0.4);
+      --shadow: rgba(0, 0, 0, 0.25);
+      --orange: #f97316;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+    :root[data-theme="light"] {
+      color-scheme: light;
+      --bg: #f1f5f9;
+      --card-bg: #ffffff;
+      --card-border: #cbd5e1;
+      --surface-bg: #e8eef5;
+      --sticky-bg: #f1f5f9;
+      --header-bg: #e2e8f0;
+      --group-bg: #e0edf5;
+      --text: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #475569;
+      --accent: #0369a1;
+      --accent-hover: #075985;
+      --green: #15803d;
+      --red: #b91c1c;
+      --gold: #92400e;
+      --nasdaq-purple: #7e22ce;
+      --nyse-blue: #1d4ed8;
+      --amex-green: #047857;
+      --fav-pink: #be123c;
+      --button-bg: #dbe4ee;
+      --on-accent: #ffffff;
+      --hover-bg: rgba(3, 105, 161, 0.06);
+      --chart-grid: rgba(71, 85, 105, 0.2);
+      --shadow: rgba(15, 23, 42, 0.12);
+      --orange: #c2410c;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: var(--font-family); }
+    input, select, button, textarea { font-family: inherit; }
+    table { font-size: var(--table-font-size); font-variant-numeric: tabular-nums; border-collapse: separate; border-spacing: 0; }
+    button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    button:disabled { cursor: not-allowed; opacity: 0.6; }
+    .model-reference-note { color: var(--text-muted); font-size: 13px; line-height: 1.6; margin-bottom: 16px; }
     html, body {
       background-color: var(--bg);
       color: var(--text);
@@ -50,8 +98,8 @@
       flex-wrap: wrap; 
       gap: 14px; 
     }
-    .header-actions { display: flex; align-items: center; gap: 12px; }
-    h1 { font-size: 22px; font-weight: 700; color: #fff; }
+    .header-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+    h1 { font-size: 22px; font-weight: 700; color: var(--text); }
     .status-badge { 
       background: rgba(74, 222, 128, 0.15); 
       border: 1px solid var(--green); 
@@ -62,7 +110,7 @@
       font-weight: 600; 
     }
     .lang-btn {
-      background: #0f172a;
+      background: var(--surface-bg);
       border: 1px solid var(--accent);
       color: var(--accent);
       padding: 6px 14px;
@@ -72,27 +120,27 @@
       font-weight: 700;
       transition: all 0.2s;
     }
-    .lang-btn:hover { background: var(--accent); color: #0b1120; }
+    .lang-btn:hover { background: var(--accent); color: var(--on-accent); }
 
     .top-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 20px; }
     .stat-box { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; padding: 14px 18px; }
     .stat-label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
-    .stat-num { font-size: 22px; font-weight: 700; color: #fff; margin: 4px 0; }
+    .stat-num { font-size: 22px; font-weight: 700; color: var(--text); margin: 4px 0; }
 
     .filter-panel { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; padding: 14px 18px; margin-bottom: 16px; display: flex; flex-direction: column; gap: 12px; }
     .filter-row { display: flex; align-items: flex-start; gap: 8px; flex-wrap: wrap; }
     .filter-title { font-size: 12px; color: var(--text-muted); min-width: 90px; font-weight: 600; margin-top: 5px; }
-    .f-btn { background: #0f172a; border: 1px solid var(--card-border); color: #cbd5e1; padding: 4px 11px; border-radius: 4px; font-size: 12px; cursor: pointer; font-weight: 600; transition: all 0.2s; }
+    .f-btn { background: var(--surface-bg); border: 1px solid var(--card-border); color: var(--text-secondary); padding: 4px 11px; border-radius: 4px; font-size: 12px; cursor: pointer; font-weight: 600; transition: all 0.2s; }
     .f-btn.active { border-color: var(--accent); color: var(--accent); background: rgba(56, 189, 248, 0.12); }
     .f-btn.btn-fav.active { border-color: var(--fav-pink); color: var(--fav-pink); background: rgba(244, 63, 94, 0.15); }
-    .search-input { background: #0f172a; border: 1px solid var(--card-border); color: #fff; padding: 6px 12px; border-radius: 6px; font-size: 13px; width: 320px; margin-left: auto; }
+    .search-input { background: var(--surface-bg); border: 1px solid var(--card-border); color: var(--text); padding: 6px 12px; border-radius: 6px; font-size: 13px; width: 320px; margin-left: auto; }
     .search-input:focus { border-color: var(--accent); outline: none; }
 
     .scroll-hint-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: #0f172a;
+      background: var(--surface-bg);
       border: 1px solid var(--card-border);
       border-radius: 6px;
       padding: 8px 14px;
@@ -102,16 +150,16 @@
     }
     .scroll-btn-grp { display: flex; gap: 8px; }
     .scroll-arrow-btn {
-      background: #1e293b;
+      background: var(--card-bg);
       border: 1px solid var(--card-border);
-      color: #fff;
+      color: var(--text);
       padding: 4px 14px;
       border-radius: 4px;
       cursor: pointer;
       font-weight: 700;
       font-size: 12px;
     }
-    .scroll-arrow-btn:hover { background: var(--accent); color: #0b1120; }
+    .scroll-arrow-btn:hover { background: var(--accent); color: var(--on-accent); }
 
     .table-scroll-wrapper {
       width: 100% !important;
@@ -125,13 +173,13 @@
       margin-bottom: 24px;
       cursor: grab;
       scrollbar-width: thin;
-      scrollbar-color: #38bdf8 #0f172a;
+      scrollbar-color: var(--accent) var(--surface-bg);
       user-select: none;
     }
     .table-scroll-wrapper:active { cursor: grabbing; }
     .table-scroll-wrapper::-webkit-scrollbar { height: 14px; }
-    .table-scroll-wrapper::-webkit-scrollbar-track { background: #0f172a; border-radius: 6px; }
-    .table-scroll-wrapper::-webkit-scrollbar-thumb { background: #38bdf8; border-radius: 6px; border: 3px solid #0f172a; }
+    .table-scroll-wrapper::-webkit-scrollbar-track { background: var(--surface-bg); border-radius: 6px; }
+    .table-scroll-wrapper::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 6px; border: 3px solid var(--surface-bg); }
 
     table#screener-table {
       width: 4280px !important;
@@ -144,16 +192,16 @@
     }
 
     th, td { padding: 10px 14px; border-bottom: 1px solid var(--card-border); height: 44px; }
-    th { background: #162032; color: #cbd5e1; font-weight: 600; cursor: pointer; user-select: none; position: sticky; top: 0; z-index: 2; }
+    th { background: var(--header-bg); color: var(--text-secondary); font-weight: 600; cursor: pointer; user-select: none; position: sticky; top: 0; z-index: 2; }
     th:hover { color: var(--accent); }
-    tr:hover td { background-color: rgba(255, 255, 255, 0.03); }
+    tr:hover td { background-color: var(--hover-bg); }
 
     .col-fixed-1 { position: sticky !important; left: 0px !important; width: 110px !important; min-width: 110px !important; background: var(--sticky-bg) !important; z-index: 10 !important; text-align: left; }
-    th.col-fixed-1 { z-index: 20 !important; background: #162032 !important; }
+    th.col-fixed-1 { z-index: 20 !important; background: var(--header-bg) !important; }
     .col-fixed-2 { position: sticky !important; left: 110px !important; width: 85px !important; min-width: 85px !important; background: var(--sticky-bg) !important; z-index: 10 !important; text-align: left; }
-    th.col-fixed-2 { z-index: 20 !important; background: #162032 !important; }
-    .col-fixed-3 { position: sticky !important; left: 195px !important; width: 170px !important; min-width: 170px !important; background: var(--sticky-bg) !important; z-index: 10 !important; text-align: left; border-right: 3px solid #334155 !important; box-shadow: 6px 0 10px rgba(0,0,0,0.7) !important; }
-    th.col-fixed-3 { z-index: 20 !important; background: #162032 !important; }
+    th.col-fixed-2 { z-index: 20 !important; background: var(--header-bg) !important; }
+    .col-fixed-3 { position: sticky !important; left: 195px !important; width: 170px !important; min-width: 170px !important; background: var(--sticky-bg) !important; z-index: 10 !important; text-align: left; border-right: 3px solid var(--card-border) !important; box-shadow: 6px 0 10px var(--shadow) !important; }
+    th.col-fixed-3 { z-index: 20 !important; background: var(--header-bg) !important; }
 
     /* 財務報表與關鍵比率左側第一欄凍結樣式 */
     .table-sticky-col {
@@ -161,18 +209,18 @@
       left: 0px !important;
       background: var(--sticky-bg) !important;
       z-index: 10 !important;
-      border-right: 2px solid #334155 !important;
-      box-shadow: 4px 0 8px rgba(0, 0, 0, 0.5) !important;
+      border-right: 2px solid var(--card-border) !important;
+      box-shadow: 4px 0 8px var(--shadow) !important;
     }
     th.table-sticky-col {
       z-index: 25 !important;
-      background: #162032 !important;
+      background: var(--header-bg) !important;
     }
     tr:hover td.table-sticky-col {
-      background: #1e293b !important;
+      background: var(--card-bg) !important;
     }
     .fin-group-header-row td.table-sticky-col {
-      background: #111c30 !important;
+      background: var(--group-bg) !important;
       z-index: 12 !important;
     }
     /* 圓形 ⓘ 圖標樣式 */
@@ -196,7 +244,7 @@
     }
     .info-circle-btn:hover {
       background: var(--accent);
-      color: #0b1120;
+      color: var(--on-accent);
     }
 
     /* 懸停彈出之計算公式卡片 */
@@ -208,12 +256,12 @@
       left: 50%;
       transform: translateX(-50%);
       width: 260px;
-      background: #0f172a;
-      border: 1px solid #38bdf8;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.85);
+      background: var(--surface-bg);
+      border: 1px solid var(--accent);
+      box-shadow: 0 10px 25px var(--shadow);
       border-radius: 6px;
       padding: 10px 12px;
-      color: #cbd5e1;
+      color: var(--text-secondary);
       font-size: 11.5px;
       line-height: 1.5;
       white-space: normal;
@@ -223,18 +271,18 @@
       transition: opacity 0.2s ease, transform 0.2s ease;
     }
     .info-circle-btn .tooltip-box b {
-      color: #38bdf8;
+      color: var(--accent);
       display: block;
       margin-bottom: 4px;
       font-size: 12px;
     }
     .info-circle-btn .tooltip-box code {
       display: block;
-      background: #1e293b;
+      background: var(--card-bg);
       padding: 4px 6px;
       border-radius: 4px;
-      color: #4ade80;
-      font-family: monospace;
+      color: var(--green);
+      font-family: var(--font-family);
       margin: 4px 0;
     }
     .info-circle-btn:hover .tooltip-box {
@@ -255,13 +303,13 @@
     .th-period-title {
       font-size: 13px !important;
       font-weight: 700 !important;
-      color: #f8fafc !important;
+      color: var(--text) !important;
       line-height: 1.2 !important;
       display: block !important;
     }
     .th-period-subdate {
       font-size: 11px !important;
-      color: #38bdf8 !important;
+      color: var(--accent) !important;
       font-weight: 500 !important;
       line-height: 1.1 !important;
       letter-spacing: 0.3px !important;
@@ -269,7 +317,7 @@
       display: block !important;
     }
     
-    tr:hover td.col-fixed-1, tr:hover td.col-fixed-2, tr:hover td.col-fixed-3 { background: #1e293b !important; }
+    tr:hover td.col-fixed-1, tr:hover td.col-fixed-2, tr:hover td.col-fixed-3 { background: var(--card-bg) !important; }
     /* 1. 表格解除 collapse 限制以支援 sticky 定位 */
     #cmp-ratio-table, #cmp-fin-table {
       border-collapse: separate !important;
@@ -281,10 +329,10 @@
     #cmp-ratio-table thead th {
       position: sticky !important;
       top: 0 !important;
-      background: #162032 !important;
+      background: var(--header-bg) !important;
       z-index: 20 !important;
-      border-bottom: 2px solid #334155 !important;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.45) !important;
+      border-bottom: 2px solid var(--card-border) !important;
+      box-shadow: 0 2px 4px var(--shadow) !important;
     }
 
     /* 3. 左上角交叉點 (第一欄表頭：會計項目/比率指標) 層級最高，永遠置頂置左 */
@@ -294,31 +342,31 @@
       top: 0 !important;
       left: 0 !important;
       z-index: 40 !important;
-      background: #1e293b !important;
-      border-right: 2px solid #334155 !important;
+      background: var(--card-bg) !important;
+      border-right: 2px solid var(--card-border) !important;
     }
 
     /* 4. 資料列第一欄 (tbody) 保持水平凍結在左側 */
     tbody td.table-sticky-col {
       position: sticky !important;
       left: 0 !important;
-      background: var(--sticky-bg, #162032) !important;
+      background: var(--sticky-bg, var(--header-bg)) !important;
       z-index: 10 !important;
-      border-right: 2px solid #334155 !important;
-      box-shadow: 4px 0 8px rgba(0, 0, 0, 0.5) !important;
+      border-right: 2px solid var(--card-border) !important;
+      box-shadow: 4px 0 8px var(--shadow) !important;
     }
 
     /* 5. 分組標題列 (例如：營業費用、盈利能力) 層級調整，避免向上滾動時覆蓋表頭 */
     .fin-group-header-row td {
-      background: #111c30 !important;
+      background: var(--group-bg) !important;
       z-index: 5 !important;
     }
     .fin-group-header-row td.table-sticky-col {
-      background: #111c30 !important;
+      background: var(--group-bg) !important;
       z-index: 11 !important;
     }
 
-    .fav-btn { background: transparent; border: none; cursor: pointer; font-size: 15px; margin-right: 6px; color: #64748b; transition: transform 0.15s, color 0.15s; vertical-align: middle; }
+    .fav-btn { background: transparent; border: none; cursor: pointer; font-size: 15px; margin-right: 6px; color: var(--text-muted); transition: transform 0.15s, color 0.15s; vertical-align: middle; }
     .fav-btn:hover { transform: scale(1.25); color: var(--fav-pink); }
     .fav-btn.active { color: var(--fav-pink); }
 
@@ -356,19 +404,19 @@
     #detail-view, #fscore-view, #moat-view, #company-view { display: none; }
     .detail-header { display: flex; justify-content: space-between; align-items: center; background: var(--card-bg); border: 1px solid var(--card-border); padding: 14px 20px; border-radius: 8px; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; }
     .detail-title { font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
-    .btn-back { background: #334155; color: #fff; border: none; padding: 7px 14px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 13px; }
-    .btn-back:hover { background: #475569; }
-    .btn-save { background: #0284c7; color: #fff; border: none; padding: 7px 14px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 13px; }
-    .btn-save:hover { background: var(--accent); color: #0b1120; }
-    .btn-reset { background: #475569; color: #cbd5e1; border: none; padding: 7px 12px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 12px; }
+    .btn-back { background: var(--card-border); color: var(--text); border: none; padding: 7px 14px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 13px; }
+    .btn-back:hover { background: var(--button-bg); }
+    .btn-save { background: var(--accent-hover); color: var(--text); border: none; padding: 7px 14px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 13px; }
+    .btn-save:hover { background: var(--accent); color: var(--on-accent); }
+    .btn-reset { background: var(--button-bg); color: var(--text-secondary); border: none; padding: 7px 12px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 12px; }
 
-    .main-layout { display: grid; grid-template-columns: 380px 1fr; gap: 20px; }
+    .main-layout { display: grid; grid-template-columns: 380px minmax(0, 1fr); gap: 20px; }
     @media(max-width: 990px) { .main-layout { grid-template-columns: 1fr; } }
     .panel { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; padding: 18px; margin-bottom: 20px; }
     .panel-title { font-size: 14px; font-weight: 600; margin-bottom: 12px; color: var(--accent); border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 8px; }
     .form-group { display: flex; justify-content: space-between; align-items: center; margin-bottom: 9px; }
-    .form-group label { font-size: 13px; color: #cbd5e1; }
-    .form-group input, .form-group select { width: 110px; background: #0f172a; border: 1px solid var(--card-border); border-radius: 4px; color: #fff; padding: 5px 8px; font-size: 13px; text-align: right; }
+    .form-group label { font-size: 13px; color: var(--text-secondary); }
+    .form-group input, .form-group select { width: 110px; background: var(--surface-bg); border: 1px solid var(--card-border); border-radius: 4px; color: var(--text); padding: 5px 8px; font-size: 13px; text-align: right; }
     .form-group input:focus, .form-group select:focus { border-color: var(--accent); outline: none; }
     .historical-ratio-panel .form-group { flex-direction: column; align-items: stretch; gap: 6px; min-width: 220px; }
     .historical-ratio-panel select { width: 100%; text-align: left; }
@@ -376,50 +424,50 @@
     .historical-ratio-table th, .historical-ratio-table td { min-width: 125px; white-space: nowrap; text-align: right; }
     .historical-ratio-table .table-sticky-col { min-width: 190px; text-align: left; }
     .historical-ratio-table tbody th { top: auto; }
-    .historical-ratio-table .fcf-trend-col { position: sticky; right: 0; min-width: 125px; background: #1e293b; text-align: center; border-left: 1px solid var(--card-border); z-index: 12; }
-    .historical-ratio-table thead .fcf-trend-col { background: #162032; z-index: 30; }
+    .historical-ratio-table .fcf-trend-col { position: sticky; right: 0; min-width: 125px; background: var(--card-bg); text-align: center; border-left: 1px solid var(--card-border); z-index: 12; }
+    .historical-ratio-table thead .fcf-trend-col { background: var(--header-bg); z-index: 30; }
     .historical-ratio-table .spark-line-wrap { width: 108px; height: 32px; }
     
     #dcf-table, #sens-table { width: 100%; border-collapse: collapse; text-align: right; font-size: 12px; }
     #dcf-table th, #dcf-table td, #sens-table th, #sens-table td { padding: 9px 10px; border-bottom: 1px solid var(--card-border); }
-    #dcf-table th, #sens-table th { background: #162032; color: #cbd5e1; text-align: center; }
+    #dcf-table th, #sens-table th { background: var(--header-bg); color: var(--text-secondary); text-align: center; }
     #dcf-table td:first-child, #sens-table td:first-child { text-align: left; font-weight: 600; }
     
     .growth-input {
       width: 60px !important;
       text-align: center !important;
       padding: 3px 4px !important;
-      background: #0b1120 !important;
-      border: 1px solid #475569 !important;
+      background: var(--bg) !important;
+      border: 1px solid var(--button-bg) !important;
       border-radius: 4px;
-      color: #38bdf8 !important;
+      color: var(--accent) !important;
       font-weight: 700;
       font-size: 12px;
     }
     .growth-input:focus { border-color: var(--accent) !important; outline: none; }
     
     .sens-cell { font-weight: 600; text-align: center !important; }
-    .sens-base { background: rgba(56, 189, 248, 0.15) !important; border: 1px solid var(--accent) !important; font-weight: 700; color: #38bdf8; }
+    .sens-base { background: rgba(56, 189, 248, 0.15) !important; border: 1px solid var(--accent) !important; font-weight: 700; color: var(--accent); }
     
-    .btn-nav { background: #0284c7; border: none; color: #ffffff; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-weight: 600; font-size: 12px; transition: all 0.2s; }
-    .btn-nav:hover { background: var(--accent); color: #0b1120; }
+    .btn-nav { background: var(--accent-hover); border: none; color: var(--text); padding: 6px 12px; border-radius: 4px; cursor: pointer; font-weight: 600; font-size: 12px; transition: all 0.2s; }
+    .btn-nav:hover { background: var(--accent); color: var(--on-accent); }
 
     .fscore-table, .moat-table { width: 100%; border-collapse: collapse; font-size: 13px; }
     .fscore-table th, .fscore-table td, .moat-table th, .moat-table td { padding: 12px 14px; border-bottom: 1px solid var(--card-border); text-align: left; }
-    .fscore-table th, .moat-table th { background: #162032; color: #cbd5e1; font-weight: 600; }
+    .fscore-table th, .moat-table th { background: var(--header-bg); color: var(--text-secondary); font-weight: 600; }
     
     .moat-score-cell {
       width: 150px;
       text-align: left !important;
       white-space: nowrap;
     }
-    .moat-bar-bg { width: 80px; height: 7px; background: #0f172a; border-radius: 4px; overflow: hidden; display: inline-block; vertical-align: middle; margin-left: 6px; }
+    .moat-bar-bg { width: 80px; height: 7px; background: var(--surface-bg); border-radius: 4px; overflow: hidden; display: inline-block; vertical-align: middle; margin-left: 6px; }
     .moat-bar-fill { height: 100%; border-radius: 4px; }
-    .ai-comment-card { background: #0f172a; border: 1px solid var(--card-border); border-left: 4px solid var(--accent); padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; font-size: 13px; line-height: 1.6; }
+    .ai-comment-card { background: var(--surface-bg); border: 1px solid var(--card-border); border-left: 4px solid var(--accent); padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; font-size: 13px; line-height: 1.6; }
     .moat-comment-cell {
-      background: rgba(15, 23, 42, 0.45);
+      background: var(--surface-bg);
       border-left: 1px solid var(--card-border);
-      color: #e2e8f0;
+      color: var(--text-secondary);
       font-size: 12.5px;
       line-height: 1.65;
       padding: 10px 14px !important;
@@ -431,19 +479,19 @@
       display: flex;
       flex-direction: column;
       gap: 6px;
-      background: #0f172a;
+      background: var(--surface-bg);
       padding: 12px 16px;
       border-radius: 6px;
       border: 1px solid var(--card-border);
     }
-    .slider-head { display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; color: #cbd5e1; }
+    .slider-head { display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; color: var(--text-secondary); }
     .slider-head span.val { color: var(--accent); font-weight: 700; }
     .fin-slider {
       -webkit-appearance: none;
       width: 100%;
       height: 6px;
       border-radius: 3px;
-      background: #334155;
+      background: var(--card-border);
       outline: none;
       cursor: pointer;
     }
@@ -472,16 +520,16 @@
       width: 68px;
       height: 68px;
       border-radius: 10px;
-      background: #fff;
+      background: var(--logo-bg);
       padding: 5px;
       object-fit: contain;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      box-shadow: 0 2px 8px var(--shadow);
     }
     .company-meta-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 12px;
-      background: #0f172a;
+      background: var(--surface-bg);
       border: 1px solid var(--card-border);
       border-radius: 8px;
       padding: 14px 18px;
@@ -489,7 +537,7 @@
       font-size: 13px;
     }
     .company-meta-item span.label { color: var(--text-muted); margin-right: 6px; }
-    .company-meta-item span.val { color: #fff; font-weight: 600; }
+    .company-meta-item span.val { color: var(--text); font-weight: 600; }
 
     /* 7 大子分頁專屬導航與內容區樣式 */
     .subpage-nav-bar {
@@ -503,9 +551,9 @@
       margin-bottom: 18px;
     }
     .sub-tab-btn {
-      background: #0f172a;
+      background: var(--surface-bg);
       border: 1px solid var(--card-border);
-      color: #94a3b8;
+      color: var(--text-muted);
       padding: 8px 16px;
       border-radius: 6px;
       font-size: 13px;
@@ -516,10 +564,10 @@
       min-height: 48px;
       transition: all 0.2s;
     }
-    .sub-tab-btn:hover { color: #fff; border-color: var(--accent); }
+    .sub-tab-btn:hover { color: var(--text); border-color: var(--accent); }
     .sub-tab-btn.active {
       background: var(--accent);
-      color: #0b1120;
+      color: var(--on-accent);
       border-color: var(--accent);
     }
     .subpage-content { display: none; }
@@ -539,18 +587,19 @@
     /* 三表切換按鈕專用排版 */
     .statement-selector-bar {
       display: flex;
+      flex-wrap: wrap;
       gap: 10px;
       margin-bottom: 14px;
       align-items: center;
-      background: #0f172a;
+      background: var(--surface-bg);
       padding: 8px 14px;
       border-radius: 6px;
       border: 1px solid var(--card-border);
     }
     .stmt-btn {
-      background: #1e293b;
+      background: var(--card-bg);
       border: 1px solid var(--card-border);
-      color: #cbd5e1;
+      color: var(--text-secondary);
       padding: 6px 14px;
       border-radius: 5px;
       font-size: 12.5px;
@@ -560,19 +609,19 @@
     }
     .stmt-btn.active {
       background: var(--accent);
-      color: #0b1120;
+      color: var(--on-accent);
       border-color: var(--accent);
     }
 
     /* 財務報表分組標題列樣式 */
     .fin-group-header-row td {
-      background: #111c30 !important;
-      color: #38bdf8 !important;
+      background: var(--group-bg) !important;
+      color: var(--accent) !important;
       font-weight: 800 !important;
       font-size: 13px !important;
       padding: 9px 14px !important;
-      border-top: 1px solid #334155 !important;
-      border-bottom: 1px solid #334155 !important;
+      border-top: 1px solid var(--card-border) !important;
+      border-bottom: 1px solid var(--card-border) !important;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
@@ -619,20 +668,20 @@
     #cmp-peers-table thead th {
       position: sticky !important;
       top: 0 !important;
-      background: #162032 !important;
+      background: var(--header-bg) !important;
       z-index: 25 !important;
-      border-bottom: 2px solid #334155 !important;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.45) !important;
+      border-bottom: 2px solid var(--card-border) !important;
+      box-shadow: 0 2px 4px var(--shadow) !important;
     }
 
     /* 左側第一欄水平凍結 (向右滾動時指標名稱固定) */
     #cmp-peers-table tbody td.peer-sticky-col {
       position: sticky !important;
       left: 0 !important;
-      background: var(--sticky-bg, #162032) !important;
+      background: var(--sticky-bg, var(--header-bg)) !important;
       z-index: 15 !important;
-      border-right: 2px solid #334155 !important;
-      box-shadow: 4px 0 8px rgba(0, 0, 0, 0.5) !important;
+      border-right: 2px solid var(--card-border) !important;
+      box-shadow: 4px 0 8px var(--shadow) !important;
     }
 
     /* 左上角交會欄位 (永遠置頂置左) */
@@ -641,16 +690,41 @@
       top: 0 !important;
       left: 0 !important;
       z-index: 50 !important;
-      background: #1e293b !important;
-      border-right: 2px solid #334155 !important;
-      border-bottom: 2px solid #334155 !important;
+      background: var(--card-bg) !important;
+      border-right: 2px solid var(--card-border) !important;
+      border-bottom: 2px solid var(--card-border) !important;
     }
 
     /* 同行表格分組標題列 */
     #cmp-peers-table .fin-group-header-row td.peer-sticky-col {
-      background: #111c30 !important;
-      color: #38bdf8 !important;
+      background: var(--group-bg) !important;
+      color: var(--accent) !important;
       z-index: 18 !important;
+    }
+    .table-scroll-wrapper table, #dcf-table, #sens-table, .fscore-table, .moat-table { font-size: var(--table-font-size); border-collapse: separate; border-spacing: 0; }
+    .table-scroll-wrapper th, .table-scroll-wrapper td { font-size: inherit; line-height: 1.5; }
+    #cmp-ratio-table th, #cmp-ratio-table td, #cmp-peers-table th, #cmp-peers-table td { font-size: inherit; }
+    #cmp-ratio-table, #cmp-peers-table { font-size: var(--table-font-size); }
+    .table-scroll-wrapper .th-period-title { font-size: var(--table-font-size) !important; font-weight: 600 !important; }
+    #cmp-fin-table { width: max-content !important; min-width: 100%; }
+    #cmp-fin-table th, #cmp-fin-table td { min-width: 140px; white-space: nowrap; border-right: 1px solid var(--card-border); }
+    #cmp-fin-table .table-sticky-col { width: 280px !important; min-width: 280px; max-width: 280px; white-space: normal; text-align: left; }
+    #cmp-fin-table .fcf-trend-col { min-width: 140px; text-align: center; }
+    #cmp-fin-table .fin-group-header-row td { height: 44px; text-transform: none; letter-spacing: normal; }
+    #cmp-fin-table .fin-group-header-row .table-sticky-col { white-space: normal; }
+    .statement-selector-bar > div { flex-wrap: wrap; }
+    .spark-line-wrap { width: 108px; height: 32px; }
+    .btn-save, .btn-nav { color: #fff; }
+    :root[data-theme="light"] .spark-line-svg path[stroke="#22c55e"] { stroke: var(--green); }
+    :root[data-theme="light"] .spark-line-svg circle[fill="#22c55e"] { fill: var(--green); }
+    :root[data-theme="light"] .spark-line-svg path[stroke="#ef4444"] { stroke: var(--red); }
+    :root[data-theme="light"] .spark-line-svg circle[fill="#ef4444"] { fill: var(--red); }
+    @media (max-width: 600px) {
+      html, body { padding: 10px; }
+      #cmp-fin-table .table-sticky-col { width: 150px !important; min-width: 150px; max-width: 150px; }
+      #cmp-fin-table th, #cmp-fin-table td { min-width: 125px; }
+      #cmp-fin-table thead .fcf-trend-col { right: auto; }
+      .status-badge { white-space: normal; }
     }
   </style>
 </head>
@@ -665,6 +739,7 @@
     <div class="header-actions">
       <div class="status-badge" id="app-status" data-i18n="status_ready">🟢 FMP 官方財報已完成同步 (全市場覆蓋)</div>
       <button class="lang-btn" id="btn-lang-toggle" onclick="toggleLanguage()">English</button>
+      <button class="lang-btn" id="btn-theme-toggle" type="button" onclick="SiteTheme.toggle()" aria-pressed="false">淺色模式</button>
     </div>
   </header>
 
@@ -811,7 +886,7 @@
         <button id="det-fav-btn" class="fav-btn" onclick="toggleDetailFavorite()">♡</button>
         <button type="button" id="det-ticker" class="detail-ticker-link" onclick="openCompanyProfile(activeDetailTicker)">NVDA</button>
         <span id="det-exchange" class="badge">NASDAQ</span>
-        <span id="det-name" style="font-size: 16px; color: #cbd5e1;">輝達</span>
+        <span id="det-name" style="font-size: 16px; color: var(--text-secondary);">輝達</span>
         <span id="det-moat-badge" class="badge-moat moat-wide" onclick="openMoat(activeDetailTicker)">護城河: 90/100 🏆</span>
         <span id="det-fscore-badge" class="badge-fscore fscore-green" onclick="openFScore(activeDetailTicker)">F-Score: 8/9</span>
         <span id="det-badge" class="badge">--</span>
@@ -838,7 +913,7 @@
       <div class="stat-box">
         <div class="stat-label" data-i18n="det_label_wacc">加權折現成本 (WACC / Ke) / 終值 g</div>
         <div class="stat-num" id="det-res-wacc">0.00%</div>
-        <div style="font-size: 11px; color: var(--text-muted);">終值 g: <span id="det-res-g">0.00%</span> | 利差: <span id="det-res-spread">0.00%</span></div>
+        <div style="font-size: 11px; color: var(--text-muted);"><span data-i18n="terminal_g">終值 g</span>: <span id="det-res-g">0.00%</span> | <span data-i18n="valuation_spread">利差</span>: <span id="det-res-spread">0.00%</span></div>
       </div>
       <div class="stat-box">
         <div class="stat-label" data-i18n="det_label_ev">企業價值 EV / 槓桿比率</div>
@@ -851,21 +926,22 @@
     <div id="panel-fin-models" style="display: none; margin-bottom: 20px;">
       <div class="panel">
         <div class="panel-title" data-i18n="fin_title">🏛️ 金融機構專屬估值矩陣 (Excess Return on Tangible Book + DDM)</div>
+        <p id="fin-reference-note" role="status" class="model-reference-note"></p>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 16px;">
           <div class="stat-box" style="border-left: 4px solid var(--accent);">
             <div class="stat-label" data-i18n="fin_m1">1. 超額有形資產回報模型 (Excess Return)</div>
             <div class="stat-num text-green" id="fin-excess-val">$0.00</div>
             <div style="font-size: 12px; color: var(--text-muted); line-height: 1.5; margin-top: 4px;">
-              每股有形資產 TBVPS: <b id="fin-tbvps" style="color: #fff;">$0.00</b> (P/TBV: <b id="fin-ptbv" style="color: var(--accent);">0.0x</b>)<br>
-              超額利差 (ROTE - Ke): <b id="fin-spread-disp" style="color: #38bdf8;">0.0%</b>
+              <span data-i18n="fin_tbvps">每股有形股東權益 TBVPS</span>: <b id="fin-tbvps" style="color: var(--text);">$0.00</b> (P/TBV: <b id="fin-ptbv" style="color: var(--accent);">0.0x</b>)<br>
+              <span data-i18n="fin_spread">超額利差 (ROTE - Ke)</span>: <b id="fin-spread-disp" style="color: var(--accent);">0.0%</b>
             </div>
           </div>
           <div class="stat-box" style="border-left: 4px solid var(--green);">
             <div class="stat-label" data-i18n="fin_m2">2. 實質股東現金分紅模型 (DDM + Buyback)</div>
             <div class="stat-num text-green" id="fin-ddm-val">$0.00</div>
             <div style="font-size: 12px; color: var(--text-muted); line-height: 1.5; margin-top: 4px;">
-              每股常態實質分紅: <b id="fin-dps" style="color: #fff;">$0.00</b><br>
-              折現模型: <b>5年兩階段 DDM (前5年成長 6.5%)</b>
+              <span data-i18n="fin_dps">每股常態實質分紅</span>: <b id="fin-dps" style="color: var(--text);">$0.00</b><br>
+              <b data-i18n="fin_ddm_basis">5年兩階段 DDM (前5年成長 6.5%)</b>
             </div>
           </div>
         </div>
@@ -881,7 +957,7 @@
           </div>
           <div class="slider-row">
             <div class="slider-head"><span data-i18n="fin_rote">有形股本報酬率 (ROTE)</span><span class="val" id="disp-fin-rote">17.4%</span></div>
-            <input type="range" class="fin-slider" id="slider-fin-rote" min="8.0" max="28.0" step="0.1" oninput="onFinSliderChange()">
+            <input type="range" class="fin-slider" id="slider-fin-rote" min="-25" max="50" step="any" oninput="onFinSliderChange()">
           </div>
         </div>
       </div>
@@ -960,7 +1036,7 @@
     <div class="detail-header">
       <div class="detail-title">
         <span id="cmp-ticker" style="color: var(--accent); font-size: 24px;">NVDA</span>
-        <span id="cmp-name" style="font-size: 18px; color: #fff;">輝達</span>
+        <span id="cmp-name" style="font-size: 18px; color: var(--text);">輝達</span>
         <span id="cmp-exchange" class="badge">NASDAQ</span>
       </div>
       <div style="display: flex; gap: 8px;">
@@ -974,7 +1050,7 @@
       <img id="cmp-logo-img" src="" alt="Logo" class="company-logo" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'68\' height=\'68\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%2394a3b8\' stroke-width=\'1.5\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'4\'/><path d=\'M3 9h18M9 21V9\'/></svg>';">
       <div style="flex: 1;">
         <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 6px;">
-          <h2 id="cmp-full-name" style="font-size: 18px; color: #fff;">NVIDIA Corporation</h2>
+          <h2 id="cmp-full-name" style="font-size: 18px; color: var(--text);">NVIDIA Corporation</h2>
           <a id="cmp-site-link" href="#" target="_blank" style="color: var(--accent); font-size: 12.5px; text-decoration: underline;" data-i18n="cmp_website">官方網站 ↗</a>
         </div>
         <div class="company-meta-item">
@@ -1005,7 +1081,7 @@
           <span data-i18n="sec_profile_title">企業核心業務與營運全貌</span>
           <span style="font-size: 11.5px; color: var(--accent);" id="cmp-full-headquarters">📍 總部地址: 載入中...</span>
         </div>
-        <div id="cmp-description-container" style="color: #cbd5e1; font-size: 13.5px; line-height: 1.8; margin-bottom: 16px;">
+        <div id="cmp-description-container" style="color: var(--text-secondary); font-size: 13.5px; line-height: 1.8; margin-bottom: 16px;">
           <p id="cmp-description" style="margin-bottom: 8px;">--</p>
         </div>
         <div class="company-meta-grid" style="margin-bottom: 0;">
@@ -1024,7 +1100,7 @@
           <div style="flex-direction: column; gap: 12px; font-size: 13px; display: flex;">
             <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--card-border); padding-bottom: 8px;">
               <span style="color: var(--text-muted);" data-i18n="lbl_52w_range">52 週價格區間:</span>
-              <span style="font-weight: 700; color: #fff;" id="cmp-meta-52w">--</span>
+              <span style="font-weight: 700; color: var(--text);" id="cmp-meta-52w">--</span>
             </div>
             <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--card-border); padding-bottom: 8px;">
               <span style="color: var(--text-muted);" data-i18n="lbl_52w_highlow">52 週最高 / 最低:</span>
@@ -1032,7 +1108,7 @@
             </div>
             <div style="display: flex; justify-content: space-between;">
               <span style="color: var(--text-muted);" data-i18n="lbl_ath_atl">歷史最高價 (ATH) / 最低 (ATL):</span>
-              <span><b class="text-gold" id="cmp-meta-ath">$0.00</b> / <b style="color:#94a3b8;" id="cmp-meta-atl">$0.00</b></span>
+              <span><b class="text-gold" id="cmp-meta-ath">$0.00</b> / <b style="color:var(--text-muted);" id="cmp-meta-atl">$0.00</b></span>
             </div>
           </div>
         </div>
@@ -1045,21 +1121,21 @@
                 <span data-i18n="lbl_own_inst">機構投資者 (Institutions)</span>
                 <span class="text-green" id="cmp-own-inst">75.0%</span>
               </div>
-              <div style="height: 6px; background:#0f172a; border-radius:3px; overflow:hidden;"><div id="bar-own-inst" style="height:100%; width:75%; background:var(--green);"></div></div>
+              <div style="height: 6px; background:var(--surface-bg); border-radius:3px; overflow:hidden;"><div id="bar-own-inst" style="height:100%; width:75%; background:var(--green);"></div></div>
             </div>
             <div>
               <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
                 <span data-i18n="lbl_own_insider">內部人與高管 (Insiders)</span>
                 <span class="text-gold" id="cmp-own-insider">8.5%</span>
               </div>
-              <div style="height: 6px; background:#0f172a; border-radius:3px; overflow:hidden;"><div id="bar-own-insider" style="height:100%; width:8.5%; background:var(--gold);"></div></div>
+              <div style="height: 6px; background:var(--surface-bg); border-radius:3px; overflow:hidden;"><div id="bar-own-insider" style="height:100%; width:8.5%; background:var(--gold);"></div></div>
             </div>
             <div>
               <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
                 <span data-i18n="lbl_own_retail">公眾與零售散戶 (Public / Retail)</span>
                 <span style="color: var(--accent);" id="cmp-own-retail">16.5%</span>
               </div>
-              <div style="height: 6px; background:#0f172a; border-radius:3px; overflow:hidden;"><div id="bar-own-retail" style="height:100%; width:16.5%; background:var(--accent);"></div></div>
+              <div style="height: 6px; background:var(--surface-bg); border-radius:3px; overflow:hidden;"><div id="bar-own-retail" style="height:100%; width:16.5%; background:var(--accent);"></div></div>
             </div>
           </div>
         </div>
@@ -1070,7 +1146,7 @@
           <span data-i18n="sec_holders_title">前 50 大股東持股機構與基金排名 (Top 50 Major Holders)</span>
         </div>
         <div class="table-scroll-wrapper" style="max-height: 380px; overflow-y: auto;">
-          <table style="width: 100%; border-collapse: collapse; text-align: right; font-size: 12.5px;">
+          <table style="width: 100%; border-collapse: collapse; text-align: right;">
             <thead>
               <tr>
                 <th style="width: 50px; text-align: center;" data-i18n="th_rank">排名</th>
@@ -1091,7 +1167,7 @@
           <span data-i18n="sec_insider_title">內部人交易紀錄 (高管 / 董事最近買賣申報)</span>
         </div>
         <div class="table-scroll-wrapper" style="max-height: 280px; overflow-y: auto;">
-          <table style="width: 100%; border-collapse: collapse; text-align: right; font-size: 12.5px;">
+          <table style="width: 100%; border-collapse: collapse; text-align: right;">
             <thead>
               <tr>
                 <th style="text-align: left;" data-i18n="th_date">申報日期</th>
@@ -1113,7 +1189,7 @@
           <span data-i18n="sec_splits_title">歷年拆股與合股紀錄 (Stock Splits History)</span>
         </div>
         <div class="table-scroll-wrapper">
-          <table style="width: 100%; border-collapse: collapse; text-align: right; font-size: 12.5px;">
+          <table style="width: 100%; border-collapse: collapse; text-align: right;">
             <thead>
               <tr>
                 <th style="text-align: left;" data-i18n="th_effective_date">除權生效日 (Date)</th>
@@ -1146,7 +1222,7 @@
            </div>
         </div>
         <div class="table-scroll-wrapper" style="overflow-x: auto; max-height: 520px; overflow-y: auto;">
-          <table id="cmp-fin-table" style="width: 100%; border-collapse: collapse; text-align: right; font-size: 12.5px;">
+          <table id="cmp-fin-table" class="historical-ratio-table" style="text-align: right;">
             <thead>
               <tr id="cmp-fin-thead">
                 <th style="text-align: left; width: 280px;" data-i18n="th_fin_item">會計項目 / 財務指標 ($M)</th>
@@ -1177,7 +1253,7 @@
         </div>
 
         <div class="table-scroll-wrapper" style="overflow-x: auto; max-height: 540px; overflow-y: auto;">
-          <table id="cmp-ratio-table" style="width: 100%; border-collapse: collapse; text-align: right; font-size: 12.5px;">
+          <table id="cmp-ratio-table" style="text-align: right;">
             <thead>
               <tr id="cmp-ratio-thead">
                 <th class="table-sticky-col" style="text-align: left; width: 320px;" data-i18n="th_ratio_metric">比率指標 / 財務維度</th>
@@ -1198,7 +1274,7 @@
       <div class="panel" style="margin-bottom: 24px;">
         <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
           <div>
-            <h3 style="font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 4px;" id="lbl-asset-analysis-title">資產分析</h3>
+            <h3 style="font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 4px;" id="lbl-asset-analysis-title">資產分析</h3>
             <span style="font-size: 12px; color: var(--text-muted);" id="lbl-asset-analysis-sub">資產淨值、負債總額、股東權益</span>
           </div>
           <div>
@@ -1211,19 +1287,19 @@
         </div>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; border-top: 1px solid var(--card-border); padding-top: 16px;">
-          <div class="stat-box" style="padding: 10px 14px; background: #0f172a;">
+          <div class="stat-box" style="padding: 10px 14px; background: var(--surface-bg);">
             <div class="stat-label" id="lbl-card-cr">流動比率</div>
             <div class="stat-num" id="card-ratio-cr" style="font-size: 18px;">--</div>
           </div>
-          <div class="stat-box" style="padding: 10px 14px; background: #0f172a;">
+          <div class="stat-box" style="padding: 10px 14px; background: var(--surface-bg);">
             <div class="stat-label" id="lbl-card-dr">負債比率</div>
             <div class="stat-num" id="card-ratio-dr" style="font-size: 18px;">--</div>
           </div>
-          <div class="stat-box" style="padding: 10px 14px; background: #0f172a;">
+          <div class="stat-box" style="padding: 10px 14px; background: var(--surface-bg);">
             <div class="stat-label" id="lbl-card-cash">現金比率</div>
             <div class="stat-num text-green" id="card-ratio-cash" style="font-size: 18px;">--</div>
           </div>
-          <div class="stat-box" style="padding: 10px 14px; background: #0f172a;">
+          <div class="stat-box" style="padding: 10px 14px; background: var(--surface-bg);">
             <div class="stat-label" id="lbl-card-lev">槓桿比率</div>
             <div class="stat-num text-gold" id="card-ratio-lev" style="font-size: 18px;">--</div>
           </div>
@@ -1232,7 +1308,7 @@
 
       <div class="panel">
         <div style="margin-bottom: 14px;">
-          <h3 style="font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 4px;" id="lbl-return-analysis-title">回報率指標</h3>
+          <h3 style="font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 4px;" id="lbl-return-analysis-title">回報率指標</h3>
           <span style="font-size: 12px; color: var(--text-muted);" id="return-chart-subtitle">ROE / ROA / FCF on Equity / FCF on Total Assets</span>
         </div>
 
@@ -1248,19 +1324,19 @@
         </div>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; border-top: 1px solid var(--card-border); padding-top: 16px;">
-          <div class="stat-box" style="padding: 10px 14px; background: #0f172a;">
+          <div class="stat-box" style="padding: 10px 14px; background: var(--surface-bg);">
             <div class="stat-label">ROA (TTM)</div>
             <div class="stat-num text-green" id="card-ret-roa" style="font-size: 18px;">--</div>
           </div>
-          <div class="stat-box" style="padding: 10px 14px; background: #0f172a;">
+          <div class="stat-box" style="padding: 10px 14px; background: var(--surface-bg);">
             <div class="stat-label">ROE (TTM)</div>
             <div class="stat-num text-gold" id="card-ret-roe" style="font-size: 18px;">--</div>
           </div>
-          <div class="stat-box" style="padding: 10px 14px; background: #0f172a;">
+          <div class="stat-box" style="padding: 10px 14px; background: var(--surface-bg);">
             <div class="stat-label">FCF on Equity (TTM)</div>
             <div class="stat-num text-green" id="card-ret-coe" style="font-size: 18px;">--</div>
           </div>
-          <div class="stat-box" style="padding: 10px 14px; background: #0f172a;">
+          <div class="stat-box" style="padding: 10px 14px; background: var(--surface-bg);">
             <div class="stat-label">FCF on Assets (TTM)</div>
             <div class="stat-num" id="card-ret-coa" style="font-size: 18px;">--</div>
           </div>
@@ -1378,7 +1454,7 @@
           <div class="stat-box"><div class="stat-label" data-i18n="lbl_dps">每股常態現金分配</div><div class="stat-num text-gold" id="div-meta-dps">$0.00</div></div>
           <div class="stat-box"><div class="stat-label" data-i18n="lbl_pe_fwd">動態 P/E 估值乘數</div><div class="stat-num" id="div-meta-pe">--</div></div>
         </div>
-        <div style="font-size: 13px; line-height: 1.6; color: #cbd5e1; background: #0f172a; padding: 14px 18px; border-radius: 6px;" id="div-meta-summary">
+        <div style="font-size: 13px; line-height: 1.6; color: var(--text-secondary); background: var(--surface-bg); padding: 14px 18px; border-radius: 6px;" id="div-meta-summary">
           --
         </div>
       </div>
@@ -1411,7 +1487,7 @@
       <div class="detail-title">
         <span id="moat-ticker" style="color: var(--accent);">NVDA</span>
         <span id="moat-exchange" class="badge">NASDAQ</span>
-        <span id="moat-name" style="font-size: 16px; color: #cbd5e1;">輝達</span>
+        <span id="moat-name" style="font-size: 16px; color: var(--text-secondary);">輝達</span>
         <span style="font-size: 14px; color: var(--text-muted);" id="moat-header-sub" data-i18n="moat_header_sub">— 巴菲特經濟護城河 (Economic Moat) 10 大維度診斷</span>
       </div>
       <div style="display: flex; gap: 8px;">
@@ -1429,7 +1505,7 @@
 
     <div class="ai-comment-card">
       <div style="font-weight: 700; color: var(--accent); margin-bottom: 6px;" data-i18n="moat_verdict_lbl">🧠 巴菲特視角 · 商業壁壘與權威點評：</div>
-      <div id="moat-ai-comment" style="color: #cbd5e1;">正在載入分析結果...</div>
+      <div id="moat-ai-comment" style="color: var(--text-secondary);">正在載入分析結果...</div>
     </div>
 
     <div class="panel">
@@ -1457,7 +1533,7 @@
       <div class="detail-title">
         <span id="fsc-ticker" style="color: var(--accent);">NVDA</span>
         <span id="fsc-exchange" class="badge">NASDAQ</span>
-        <span id="fsc-name" style="font-size: 16px; color: #cbd5e1;">輝達</span>
+        <span id="fsc-name" style="font-size: 16px; color: var(--text-secondary);">輝達</span>
         <span style="font-size: 14px; color: var(--text-muted);" id="fsc-header-sub" data-i18n="fsc_header_sub">— Piotroski F-Score 皮氏 9 大財務診斷</span>
       </div>
       <div style="display: flex; gap: 8px;">
@@ -1712,6 +1788,11 @@
       title: "美股旗艦 DCF 估值雷達 (200 檔)",
       subtitle: "NYSE · NASDAQ · AMEX · 銀行保險專屬雙軌模型 · 巴菲特護城河深度分析",
       status_ready: "🟢 FMP 官方財報已完成同步 (全市場覆蓋)",
+      theme_light: "淺色模式",
+      theme_dark: "深色模式",
+      theme_control: "切換淺色模式",
+      terminal_g: "終值 g",
+      valuation_spread: "利差",
       stat_total: "追蹤標的",
       stat_fav: "❤ 自選監控標的",
       stat_undervalued: "具備安全邊際 (低估)",
@@ -1767,6 +1848,14 @@
       fin_ke: "股權資本成本 (Ke, 折現率)",
       fin_g: "永續終值增長率 (g)",
       fin_rote: "有形股本報酬率 (ROTE)",
+      fin_tbvps: "每股有形股東權益 TBVPS",
+      fin_spread: "超額利差 (ROTE - Ke)",
+      fin_dps: "每股常態實質分紅",
+      fin_ddm_basis: "5 年兩階段 DDM（前 5 年成長 6.5%）",
+      fin_reference: "財報基準：",
+      fin_reference_basis: "TTM／期初有形權益，與趨勢分析預設口徑一致；TBVPS 採同一期末有形權益。滑桿僅調整估值情境，不改寫歷史比率。",
+      fin_unavailable: "N/A：缺少可核對的財報基準，或期末有形權益非正，無法使用超額報酬混合估值。",
+      fin_negative_capital: "警示：有形權益為負；ROTE 保留實際值，但不以虛構正資本產生估值。",
       sec1_title: "1. 基本面與資產負債表 (可手動自訂)",
       lbl_price: "當前每股股價 ($)",
       lbl_shares: "稀釋總股數 (百萬股, M)",
@@ -1939,6 +2028,11 @@
       title: "US Flagship DCF Valuation Radar (200 Stocks)",
       subtitle: "NYSE · NASDAQ · AMEX · Bank/Insurance Dual-Track Models · Buffett Economic Moat",
       status_ready: "🟢 Official FMP Financials Synced (Full Market Coverage)",
+      theme_light: "Light mode",
+      theme_dark: "Dark mode",
+      theme_control: "Toggle light mode",
+      terminal_g: "Terminal g",
+      valuation_spread: "Spread",
       stat_total: "Tracked Stocks",
       stat_fav: "❤ Watchlist",
       stat_undervalued: "Margin of Safety (Undervalued)",
@@ -1994,6 +2088,14 @@
       fin_ke: "Cost of Equity (Ke, Discount Rate)",
       fin_g: "Perpetual Growth (g)",
       fin_rote: "Return on Tangible Equity (ROTE)",
+      fin_tbvps: "Tangible equity per share (TBVPS)",
+      fin_spread: "Excess spread (ROTE - Ke)",
+      fin_dps: "Normalized shareholder distribution per share",
+      fin_ddm_basis: "Two-stage 5Y DDM (6.5% growth for the first 5 years)",
+      fin_reference: "Reported baseline: ",
+      fin_reference_basis: "TTM / beginning tangible equity, matching Trend Analysis defaults. TBVPS uses tangible equity at the same period end. Sliders adjust valuation scenarios only, never historical ratios.",
+      fin_unavailable: "N/A: A verified statement baseline is missing or closing tangible equity is nonpositive; the excess-return blended valuation is unavailable.",
+      fin_negative_capital: "Warning: Tangible equity is negative. Actual ROTE is retained, but no positive capital is fabricated to produce a valuation.",
       sec1_title: "1. Fundamentals & Balance Sheet (Customizable)",
       lbl_price: "Share Price ($)",
       lbl_shares: "Diluted Shares (M)",
@@ -2159,6 +2261,7 @@
 
   function applyLanguage(lang) {
     currentLang = lang;
+    document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : 'en';
     localStorage.setItem('RADAR_LANG', lang);
     const dict = I18N_DICT[lang];
 
@@ -2169,6 +2272,7 @@
 
     const btn = document.getElementById('btn-lang-toggle');
     if (btn) btn.innerText = lang === 'zh' ? 'English' : '繁體中文';
+    updateThemeButton();
 
     const searchInp = document.getElementById('search-ticker');
     if (searchInp) {
@@ -2192,19 +2296,65 @@
     }
     const cmpView = document.getElementById('company-view');
     if (cmpView && cmpView.style.display === 'block') {
-      const chartsActive = document.getElementById('subpage-charts').classList.contains('active');
+      const activePage = document.querySelector('#company-view .subpage-content.active');
+      const tab = activePage ? activePage.id.replace('subpage-', '') : 'basic';
       loadCompanyProfile(activeCompanyTicker);
-      if (chartsActive) switchSubPage('charts');
+      switchSubPage(tab);
     }
     const rView = document.getElementById('subpage-ratios');
     if (rView && rView.classList.contains('active')) {
       renderRatiosSubPage(stockUniverse[activeCompanyTicker]);
+    }
+    if (document.getElementById('detail-view').style.display === 'block') {
+      document.getElementById('det-name').textContent = getStockDisplayName(stockUniverse[activeDetailTicker]);
+      renderFinancialReference(stockUniverse[activeDetailTicker].fin_valuation);
+      recalculateDetail();
     }
 
   }
 
   function toggleLanguage() {
     applyLanguage(currentLang === 'zh' ? 'en' : 'zh');
+  }
+
+  function themeColor(name) {
+    return SiteTheme.color(name);
+  }
+
+  function updateThemeButton() {
+    const button = document.getElementById('btn-theme-toggle');
+    if (!button) return;
+    const light = SiteTheme.current === 'light';
+    button.textContent = I18N_DICT[currentLang][light ? 'theme_dark' : 'theme_light'];
+    button.setAttribute('aria-label', I18N_DICT[currentLang].theme_control);
+    button.setAttribute('aria-pressed', String(light));
+  }
+
+  window.addEventListener('themechange', () => {
+    updateThemeButton();
+    if (typeof Chart !== 'undefined') {
+      Chart.defaults.font.family = themeColor('--font-family');
+      Chart.defaults.color = themeColor('--text-secondary');
+    }
+    if (document.getElementById('company-view').style.display === 'block') {
+      if (document.getElementById('subpage-ratios').classList.contains('active')) {
+        renderAssetAnalysisChart(stockUniverse[activeCompanyTicker]);
+        renderReturnChart(stockUniverse[activeCompanyTicker]);
+      }
+      if (document.getElementById('subpage-chart').classList.contains('active')) {
+        renderTradingViewWidget(activeCompanyTicker, stockUniverse[activeCompanyTicker].exchange);
+      }
+    }
+  });
+
+  function renderFinancialReference(fin) {
+    if (!fin || !fin.is_financial) return;
+    const dict = I18N_DICT[currentLang];
+    const reference = fin.reference;
+    const warnings = reference && reference.warnings || [];
+    document.getElementById('fin-reference-note').textContent = reference
+      ? `${dict.fin_reference}${reference.label} (${reference.date}) · ROTE ${reference.rote === null ? 'N/A' : reference.rote.toFixed(2) + '%'} · ${dict.fin_reference_basis}${reference.reason ? ' ' + dict.fin_unavailable : ''}${warnings.includes('negativeTangibleEquity') ? ' ' + dict.fin_negative_capital : ''}${warnings.includes('negativeNetIncome') ? ' ' + dict.returns_reason_negativeNetIncome : ''}`
+      : dict.fin_unavailable;
   }
 
   function getStockDefaultRf(s) {
@@ -2233,11 +2383,12 @@
 
     const valKe = parseFloat(document.getElementById('slider-fin-ke').value) || 9.49;
     const valG = parseFloat(document.getElementById('slider-fin-g').value) || 2.25;
-    const valRote = parseFloat(document.getElementById('slider-fin-rote').value) || 17.4;
+    const valRote = parseFloat(document.getElementById('slider-fin-rote').value);
+    if (!Number.isFinite(valRote)) throw new RangeError('Invalid ROTE scenario');
 
     document.getElementById('disp-fin-ke').innerText = `${valKe.toFixed(2)}%`;
     document.getElementById('disp-fin-g').innerText = `${valG.toFixed(2)}%`;
-    document.getElementById('disp-fin-rote').innerText = `${valRote.toFixed(1)}%`;
+    document.getElementById('disp-fin-rote').innerText = `${valRote.toFixed(2)}%`;
 
     const spreadVal = valRote - valKe;
     const elSpread = document.getElementById('fin-spread-disp');
@@ -2338,12 +2489,13 @@
       const fin = s.fin_valuation;
       const ke_val = (fin.ke || (Ke * 100)) / 100;
       const g_val = (fin.g || s.g || 2.25) / 100;
-      const rote_val = (fin.rote || s.roe || 15) / 100;
-      const tbvps = fin.tbvps || 80;
+      const rote_val = Number.isFinite(fin.rote) ? fin.rote / 100 : null;
+      const tbvps = Number.isFinite(fin.tbvps) ? fin.tbvps : null;
       const dps = fin.dps_total || 6.5;
 
       const spread = rote_val - ke_val;
-      const exVal = tbvps + (tbvps * spread) / Math.max(ke_val - g_val, 0.02);
+      const exVal = !fin.reference || fin.reference.reason || rote_val === null || !(tbvps > 0)
+        ? null : tbvps + (tbvps * spread) / Math.max(ke_val - g_val, 0.02);
 
       let ddmSum = 0;
       let curD = dps;
@@ -2355,15 +2507,15 @@
       const tvDDM = (curD * (1 + g_val)) / Math.max(ke_val - g_val, 0.02);
       const ddmVal = ddmSum + (tvDDM / Math.pow(1 + ke_val, 5));
 
-      fairVal = Number(((exVal * 0.55) + (ddmVal * 0.45)).toFixed(2));
-      fin.excess_return_fair = Number(exVal.toFixed(2));
+      fairVal = exVal === null ? null : Number(((exVal * 0.55) + (ddmVal * 0.45)).toFixed(2));
+      fin.excess_return_fair = exVal === null ? null : Number(exVal.toFixed(2));
       fin.ddm_fair = Number(ddmVal.toFixed(2));
     } else {
       fairVal = (shares > 0 ? (EquityVal / shares) : currentPrice);
     }
 
-    const safeFairVal = Math.max(fairVal, 0.01);
-    const premiumPct = ((currentPrice / safeFairVal) - 1) * 100;
+    const safeFairVal = fairVal === null ? null : Math.max(fairVal, 0.01);
+    const premiumPct = safeFairVal === null ? null : ((currentPrice / safeFairVal) - 1) * 100;
     const estimatedEbitda = Math.max(localFCF0 * 1.25, 100);
 
     return {
@@ -2375,7 +2527,7 @@
       EquityVal, 
       fairVal: safeFairVal, 
       premiumPct,
-      isUndervalued: premiumPct < 0,
+      isUndervalued: premiumPct === null ? null : premiumPct < 0,
       mcap: baseMcap,
       fcf_to_ev: (officialMarketEV > 0) ? ((localFCF0 / officialMarketEV) * 100) : 0,
       fcf_to_mcap: (baseMcap > 0) ? ((localFCF0 / baseMcap) * 100) : 0,
@@ -2600,7 +2752,7 @@
     }).filter(x => x !== null);
 
     if (currentValFilter === 'UNDERVALUED') list = list.filter(item => item.isUndervalued);
-    else if (currentValFilter === 'OVERVALUED') list = list.filter(item => !item.isUndervalued);
+    else if (currentValFilter === 'OVERVALUED') list = list.filter(item => item.isUndervalued === false);
     else if (currentValFilter === 'SAVED') list = list.filter(item => item.isSaved);
     else if (currentValFilter === 'FAVORITES') list = list.filter(item => item.isFav);
 
@@ -2630,7 +2782,7 @@
     const allCalc = Object.keys(stockUniverse).map(t => computeDCF(stockUniverse[t], t)).filter(x => x !== null);
     const totalCount = allCalc.length;
     const underCount = allCalc.filter(x => x.isUndervalued).length;
-    const overCount = totalCount - underCount;
+    const overCount = allCalc.filter(x => x.isUndervalued === false).length;
     const savedCount = Object.keys(savedModels).length;
     const favCount = favs.length;
 
@@ -2643,18 +2795,18 @@
 
     tbody.innerHTML = list.map(item => {
       const priceNum = Number(item.price) || 0;
-      const fairNum = Number(item.fairVal) || 0;
+      const fairNum = item.fairVal === null ? null : Number(item.fairVal);
       const premiumNum = Number(item.premiumPct) || 0;
 
-      const badgeHtml = item.isUndervalued
+      const badgeHtml = item.fairVal === null ? '<span class="badge">N/A</span>' : item.isUndervalued
         ? `<span class="badge badge-undervalued">${currentLang === 'zh' ? '低估' : 'Undervalued'} ${premiumNum.toFixed(1)}%</span>`
         : `<span class="badge badge-overvalued">${currentLang === 'zh' ? '高估' : 'Overvalued'} +${premiumNum.toFixed(1)}%</span>`;
 
       const targetPriceHtml = (item.isSaved && item.target_price)
         ? `<span class="badge badge-target">$${Number(item.target_price).toFixed(2)}</span>`
-        : `<span style="color: #64748b;">--</span>`;
+        : `<span style="color: var(--text-muted);">--</span>`;
 
-      let targetSpreadHtml = `<span style="color: #64748b;">--</span>`;
+      let targetSpreadHtml = `<span style="color: var(--text-muted);">--</span>`;
       if (item.isSaved && item.target_spread !== null && !isNaN(item.target_spread)) {
         if (item.target_spread < 0) {
           targetSpreadHtml = `<span class="text-green" style="font-weight: 700;">${currentLang === 'zh' ? '低估' : 'Undervalued'} ${item.target_spread.toFixed(1)}%</span>`;
@@ -2688,11 +2840,11 @@
             <a class="ticker-link" onclick="openCompanyProfile('${item.ticker}')">${item.ticker}</a>
           </td>
           <td class="col-fixed-2"><span class="badge ${exchClass}">${item.exchange || 'US'}</span></td>
-          <td class="col-fixed-3" style="font-weight: 600; color: #fff;">${getStockDisplayName(item)}</td>
-          <td style="color: #cbd5e1; text-align: left;">${getStockDisplaySector(item)}</td>
-          <td style="color: #94a3b8; font-size: 11px; text-align: left;">${getStockDisplayIndustry(item.industry) || '--'}</td>
+          <td class="col-fixed-3" style="font-weight: 600; color: var(--text);">${getStockDisplayName(item)}</td>
+          <td style="color: var(--text-secondary); text-align: left;">${getStockDisplaySector(item)}</td>
+          <td style="color: var(--text-muted); font-size: 11px; text-align: left;">${getStockDisplayIndustry(item.industry) || '--'}</td>
           <td style="font-weight: 700; color: var(--accent);">$${priceNum.toFixed(2)}</td>
-          <td class="text-green" style="font-size: 13px; font-weight: 700;">$${fairNum.toFixed(2)}</td>
+          <td class="text-green" style="font-size: 13px; font-weight: 700;">${fairNum === null ? 'N/A' : '$' + fairNum.toFixed(2)}</td>
           <td>${targetPriceHtml}</td>
           <td style="text-align: center;">
             <button class="btn-nav" onclick="openDetail('${item.ticker}')">${currentLang === 'zh' ? '深度模型 →' : 'DCF Model →'}</button>
@@ -2710,37 +2862,37 @@
           <td style="font-weight: 600;">$${mcapVal.toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
           
           <!-- 清算價 (I) 數值 -->
-          <td style="${item.price < item.liq_val_1 && item.liq_val_1 > 0 ? 'color: var(--green); font-weight: 800;' : 'color: #cbd5e1;'}">
+          <td style="${item.price < item.liq_val_1 && item.liq_val_1 > 0 ? 'color: var(--green); font-weight: 800;' : 'color: var(--text-secondary);'}">
             ${item.liq_val_1 !== undefined && !isNaN(item.liq_val_1) ? (item.liq_val_1 < 0 ? `-$${Math.abs(item.liq_val_1).toFixed(2)}` : `$${item.liq_val_1.toFixed(2)}`) : '--'}
           </td>
 
           <!-- 清算價 (II) 數值 -->
-          <td style="${item.price < item.liq_val_2 && item.liq_val_2 > 0 ? 'color: var(--green); font-weight: 800;' : 'color: #cbd5e1;'}">
+          <td style="${item.price < item.liq_val_2 && item.liq_val_2 > 0 ? 'color: var(--green); font-weight: 800;' : 'color: var(--text-secondary);'}">
             ${item.liq_val_2 !== undefined && !isNaN(item.liq_val_2) ? (item.liq_val_2 < 0 ? `-$${Math.abs(item.liq_val_2).toFixed(2)}` : `$${item.liq_val_2.toFixed(2)}`) : '--'}
           </td>
 
           <!-- 清算價 (III) 數值 -->
-          <td style="${item.price < item.liq_val_3 && item.liq_val_3 > 0 ? 'color: var(--green); font-weight: 800;' : 'color: #cbd5e1;'}">
+          <td style="${item.price < item.liq_val_3 && item.liq_val_3 > 0 ? 'color: var(--green); font-weight: 800;' : 'color: var(--text-secondary);'}">
             ${item.liq_val_3 !== undefined && !isNaN(item.liq_val_3) ? (item.liq_val_3 < 0 ? `-$${Math.abs(item.liq_val_3).toFixed(2)}` : `$${item.liq_val_3.toFixed(2)}`) : '--'}
           </td>
           
           <td>${item.pe_trailing ? Number(item.pe_trailing).toFixed(1) : '--'}</td>
           <td>${item.pe_forward ? Number(item.pe_forward).toFixed(1) : '--'}</td>
           <td>${item.pb_trailing ? Number(item.pb_trailing).toFixed(1) : '--'}</td>
-          <td style="color: #67e8f9; font-weight: 700;">${Number(item.div_yield) > 0 ? Number(item.div_yield).toFixed(2) + '%' : '0.00%'}</td>
-          <td style="color: #38bdf8; font-weight: 600;">${item.fcf_to_ev !== undefined ? Number(item.fcf_to_ev).toFixed(2) + '%' : '--'}</td>
-          <td style="color: #a78bfa; font-weight: 600;">${item.fcf_to_mcap !== undefined ? Number(item.fcf_to_mcap).toFixed(2) + '%' : '--'}</td>
-          <td style="color: #38bdf8;">${item.cash_to_assets !== undefined ? Number(item.cash_to_assets).toFixed(1) + '%' : '--'}</td>
+          <td style="color: var(--accent); font-weight: 700;">${Number(item.div_yield) > 0 ? Number(item.div_yield).toFixed(2) + '%' : '0.00%'}</td>
+          <td style="color: var(--accent); font-weight: 600;">${item.fcf_to_ev !== undefined ? Number(item.fcf_to_ev).toFixed(2) + '%' : '--'}</td>
+          <td style="color: var(--nasdaq-purple); font-weight: 600;">${item.fcf_to_mcap !== undefined ? Number(item.fcf_to_mcap).toFixed(2) + '%' : '--'}</td>
+          <td style="color: var(--accent);">${item.cash_to_assets !== undefined ? Number(item.cash_to_assets).toFixed(1) + '%' : '--'}</td>
           <td>${item.liab_to_assets !== undefined ? Number(item.liab_to_assets).toFixed(1) + '%' : '--'}</td>
           <td>${item.current_ratio !== undefined ? Number(item.current_ratio).toFixed(2) : '--'}</td>
-          <td style="font-weight: 600; color: #fde047;">${item.roe !== undefined ? Number(item.roe).toFixed(1) + '%' : '--'}</td>
-          <td style="color: #4ade80;">${item.roa !== undefined ? Number(item.roa).toFixed(1) + '%' : '--'}</td>
+          <td style="font-weight: 600; color: var(--gold);">${item.roe !== undefined ? Number(item.roe).toFixed(1) + '%' : '--'}</td>
+          <td style="color: var(--green);">${item.roa !== undefined ? Number(item.roa).toFixed(1) + '%' : '--'}</td>
           <td style="text-align: center;">
             <span class="badge-fscore ${fScoreClass}" onclick="openFScore('${item.ticker}')">${fScoreVal} / 9</span>
           </td>
-          <td style="font-weight: 700; color: #38bdf8;">${item.ev_to_ebitda !== undefined ? Number(item.ev_to_ebitda).toFixed(1) + 'x' : '--'}</td>
-          <td style="color: #cbd5e1;">${item.debt_to_ebitda !== undefined ? Number(item.debt_to_ebitda).toFixed(2) + 'x' : '--'}</td>
-          <td style="${(Number(item.net_debt_to_ebitda) || 0) <= 0 ? 'color: var(--green); font-weight: 700;' : ((Number(item.net_debt_to_ebitda) || 0) > 3.5 ? 'color: var(--red); font-weight: 700;' : 'color: #cbd5e1;')}">
+          <td style="font-weight: 700; color: var(--accent);">${item.ev_to_ebitda !== undefined ? Number(item.ev_to_ebitda).toFixed(1) + 'x' : '--'}</td>
+          <td style="color: var(--text-secondary);">${item.debt_to_ebitda !== undefined ? Number(item.debt_to_ebitda).toFixed(2) + 'x' : '--'}</td>
+          <td style="${(Number(item.net_debt_to_ebitda) || 0) <= 0 ? 'color: var(--green); font-weight: 700;' : ((Number(item.net_debt_to_ebitda) || 0) > 3.5 ? 'color: var(--red); font-weight: 700;' : 'color: var(--text-secondary);')}">
             ${item.net_debt_to_ebitda !== undefined ? Number(item.net_debt_to_ebitda).toFixed(2) + 'x' : '--'}
           </td>
         </tr>
@@ -2935,7 +3087,8 @@
     iframe.setAttribute('allowtransparency', 'true');
     iframe.setAttribute('scrolling', 'no');
     iframe.setAttribute('allowfullscreen', 'true');
-    iframe.src = `https://s.tradingview.com/widgetembed/?frameElementId=tradingview_widget&symbol=${encodeURIComponent(tvSymbol)}&interval=D&theme=dark&style=1&timezone=Asia%2FHong_Kong&locale=zh_TW`;
+    iframe.title = `${ticker} TradingView`;
+    iframe.src = `https://s.tradingview.com/widgetembed/?frameElementId=tradingview_widget&symbol=${encodeURIComponent(tvSymbol)}&interval=D&theme=${SiteTheme.current}&style=1&timezone=Asia%2FHong_Kong&locale=${currentLang === 'en' ? 'en' : 'zh_TW'}`;
     container.appendChild(iframe);
   }
 
@@ -2950,8 +3103,8 @@
         const colorCls = isUp ? "text-green" : "text-red";
         return `
           <tr>
-            <td style="text-align: center; font-weight: 700; color: #94a3b8;">${h.rank}</td>
-            <td style="text-align: left; font-weight: 600; color: #fff;">${h.name}</td>
+            <td style="text-align: center; font-weight: 700; color: var(--text-muted);">${h.rank}</td>
+            <td style="text-align: left; font-weight: 600; color: var(--text);">${h.name}</td>
             <td>${Number(h.shares).toLocaleString()}</td>
             <td class="text-gold">$${Number(h.val_m).toLocaleString()}</td>
             <td style="font-weight: 700; color: var(--accent);">${Number(h.pct).toFixed(2)}%</td>
@@ -2977,8 +3130,8 @@
       const hVal = Math.round((hShares * price) / 1e6);
       return `
         <tr>
-          <td style="text-align: center; font-weight: 700; color: #94a3b8;">${i + 1}</td>
-          <td style="text-align: left; font-weight: 600; color: #fff;">${name}</td>
+          <td style="text-align: center; font-weight: 700; color: var(--text-muted);">${i + 1}</td>
+          <td style="text-align: left; font-weight: 600; color: var(--text);">${name}</td>
           <td>${hShares.toLocaleString()}</td>
           <td class="text-gold">$${hVal.toLocaleString()}</td>
           <td style="font-weight: 700; color: var(--accent);">${weight.toFixed(2)}%</td>
@@ -3002,9 +3155,9 @@
 
         return `
           <tr>
-            <td style="text-align: left; color:#94a3b8;">${t.date}</td>
-            <td style="text-align: left; font-weight: 700; color: #fff;">${t.name}</td>
-            <td style="text-align: left; color: #cbd5e1;">${t.title}</td>
+            <td style="text-align: left; color:var(--text-muted);">${t.date}</td>
+            <td style="text-align: left; font-weight: 700; color: var(--text);">${t.name}</td>
+            <td style="text-align: left; color: var(--text-secondary);">${t.title}</td>
             <td style="text-align: center;">${typeHtml}</td>
             <td style="font-weight: 600;">${Number(t.shares).toLocaleString()}</td>
             <td>$${Number(t.price).toFixed(2)}</td>
@@ -3032,9 +3185,9 @@
     if (splits.length > 0) {
       tbody.innerHTML = splits.map(sp => `
         <tr>
-          <td style="text-align: left; font-weight: 600; color: #fff;">${sp.date}</td>
+          <td style="text-align: left; font-weight: 600; color: var(--text);">${sp.date}</td>
           <td style="text-align: center; font-weight: 700; color: var(--accent); font-size: 13px;">${sp.ratio}</td>
-          <td style="text-align: left; color: #cbd5e1;">${sp.desc}</td>
+          <td style="text-align: left; color: var(--text-secondary);">${sp.desc}</td>
           <td style="text-align: center;"><span class="badge badge-target">${sp.type}</span></td>
         </tr>
       `).join('');
@@ -3143,15 +3296,16 @@
 
     // 動態更新表頭 (包含凍結第一欄與雙層申報日期)
     const theadRow = document.getElementById('cmp-fin-thead');
-    const periods = isQuarter ? (qRaw.periods || []) : ['2021', '2022', '2023', '2024', '2025', 'TTM'];
     const datesList = isQuarter ? (qRaw.dates || []) : (rawStmts.annual_dates || []);
+    const periods = isQuarter ? (qRaw.periods || []) : Array.from({ length: 6 },
+      (_, i) => i === 5 ? 'TTM' : datesList[i] || 'N/A');
 
     if (theadRow) {
-      let theadHtml = `<th class="table-sticky-col" style="text-align: left; width: 280px;" data-i18n="th_fin_item">會計項目 / 財務指標 ($M)</th>`;
+      let theadHtml = `<th class="table-sticky-col" data-i18n="th_fin_item">${I18N_DICT[currentLang].th_fin_item}</th>`;
       
       periods.forEach((p, pIdx) => {
         const isQ4 = isQuarter && String(p).toUpperCase().includes('Q4') && (pIdx < periods.length - 1);
-        const subDate = datesList[pIdx] ? `<span class="th-period-subdate">(${datesList[pIdx]})</span>` : '';
+        const subDate = datesList[pIdx] && String(p) !== datesList[pIdx] ? `<span class="th-period-subdate">(${datesList[pIdx]})</span>` : '';
         
         theadHtml += `
           <th class="${isQ4 ? 'year-divider-cell' : ''}" style="text-align: right; vertical-align: middle; padding: 8px 14px;">
@@ -3166,7 +3320,7 @@
       const trendHeaderTitle = isEn 
         ? (isQuarter ? 'Last 20Q Trend' : '5Y/TTM Trend') 
         : (isQuarter ? '近 20 季趨勢' : '近 5 年/TTM 趨勢');
-      theadHtml += `<th style="text-align: center; width: 85px; vertical-align: middle;">${trendHeaderTitle}</th>`;
+      theadHtml += `<th class="fcf-trend-col">${trendHeaderTitle}</th>`;
       theadRow.innerHTML = theadHtml;
     }
 
@@ -3465,31 +3619,35 @@
     let rowsHtml = '';
     sections.forEach(sec => {
       const groupTitle = isEn ? sec.groupTitleEn : sec.groupTitleZh;
-      rowsHtml += `<tr class="fin-group-header-row"><td class="table-sticky-col" colspan="${periods.length + 2}">${groupTitle}</td></tr>`;
+      rowsHtml += `<tr class="fin-group-header-row"><td class="table-sticky-col">${groupTitle}</td>`;
+      periods.forEach((period, i) => {
+        const divider = isQuarter && String(period).toUpperCase().includes('Q4') && i < periods.length - 1;
+        rowsHtml += `<td class="${divider ? 'year-divider-cell' : ''}"></td>`;
+      });
+      rowsHtml += '<td class="fcf-trend-col"></td></tr>';
       sec.items.forEach(it => {
         const label = isEn ? it.nameEn : it.nameZh;
-        const highlightStyle = it.highlight ? 'font-weight: 700; color: #fff;' : 'color: #cbd5e1;';
-        const colorCls = it.color ? `class="${it.color}"` : '';
+        const highlightStyle = it.highlight ? 'font-weight: 700; color: var(--text);' : 'color: var(--text-secondary);';
 
         rowsHtml += `<tr><td class="table-sticky-col" style="text-align: left; ${highlightStyle} padding-left: 24px;">${label}</td>`;
         it.series.forEach((val, colIdx) => {
           // 只在季度模式且當期標籤為 Q4（且非最後一欄）時加上直線
           const isQ4 = isQuarter && periods[colIdx] && String(periods[colIdx]).toUpperCase().includes('Q4') && (colIdx < periods.length - 1);
-          const dividerCls = isQ4 ? ' year-divider-cell' : '';
+          const dividerCls = [it.color, isQ4 ? 'year-divider-cell' : ''].filter(Boolean).join(' ');
 
           if (it.isPercent) {
-            rowsHtml += `<td ${colorCls} class="${dividerCls}" style="font-weight: 600;">${Number(val).toFixed(2)}%</td>`;
+            rowsHtml += `<td class="${dividerCls}" style="font-weight: 600;">${Number(val).toFixed(2)}%</td>`;
           } else if (it.isPerShare) {
-            rowsHtml += `<td ${colorCls} class="${dividerCls}" style="font-weight: 600;">$${Number(val).toFixed(2)}</td>`;
+            rowsHtml += `<td class="${dividerCls}" style="font-weight: 600;">$${Number(val).toFixed(2)}</td>`;
           } else if (it.isShares) {
             const sharesInM = Math.round(val > 1e8 ? val / 1e6 : val);
-            rowsHtml += `<td ${colorCls} class="${dividerCls}" style="font-weight: 600;">${sharesInM.toLocaleString()}M</td>`;
+            rowsHtml += `<td class="${dividerCls}" style="font-weight: 600;">${sharesInM.toLocaleString()}M</td>`;
           } else {
             const valStr = val < 0 ? `-$${Math.abs(Math.round(val)).toLocaleString()}` : `$${Math.round(val).toLocaleString()}`;
-            rowsHtml += `<td ${colorCls} class="${dividerCls}" style="${it.highlight ? 'font-weight: 700;' : ''}">${valStr}</td>`;
+            rowsHtml += `<td class="${dividerCls}" style="${it.highlight ? 'font-weight: 700;' : ''}">${valStr}</td>`;
           }
         });
-        rowsHtml += `<td style="text-align: center; padding: 4px 6px;">${drawRealTrendSparkline(it.series)}</td></tr>`;
+        rowsHtml += `<td class="fcf-trend-col">${drawRealTrendSparkline(it.series)}</td></tr>`;
       });
     });
     tbody.innerHTML = rowsHtml;
@@ -3680,7 +3838,7 @@
       html += `<tr class="fin-group-header-row"><td colspan="${colSpanTotal}"><span class="financial-group-label">${gTitle}</span></td></tr>`;
       grp.items.forEach(it => {
         const label = isEn ? it.nameEn : it.nameZh;
-        const hl = it.highlight ? 'font-weight: 700; color: #fff;' : 'color: #cbd5e1;';
+        const hl = it.highlight ? 'font-weight: 700; color: var(--text);' : 'color: var(--text-secondary);';
         const colorCls = it.color || '';
 
         html += `<tr><td class="table-sticky-col" style="text-align: left; ${hl} padding-left: 24px;">${label}</td>`;
@@ -3753,7 +3911,7 @@
       data: {
         labels: periods,
         datasets: [
-          { label: isEn ? 'Cash & Equivalents' : '現金', data: cashVals, backgroundColor: '#38bdf8', stack: 'assets', borderRadius: { bottomLeft: 4, bottomRight: 4 } },
+          { label: isEn ? 'Cash & Equivalents' : '現金', data: cashVals, backgroundColor: themeColor('--accent'), stack: 'assets', borderRadius: { bottomLeft: 4, bottomRight: 4 } },
           { label: isEn ? 'Other Assets' : '其他資產', data: otherAssetsVals, backgroundColor: '#2563eb', stack: 'assets', borderRadius: { topLeft: 4, topRight: 4 } },
           { label: isEn ? 'Current Liabilities' : '流動負債', data: curLiabVals, backgroundColor: '#fb7185', stack: 'liabilities', borderRadius: { bottomLeft: 4, bottomRight: 4 } },
           { label: isEn ? 'Non-Current Liabilities' : '非流動負債', data: nonCurLiabVals, backgroundColor: '#e11d48', stack: 'liabilities', borderRadius: { topLeft: 4, topRight: 4 } },
@@ -3764,7 +3922,7 @@
             borderColor: '#f59e0b',
             backgroundColor: '#f59e0b',
             borderWidth: 2.5,
-            pointBackgroundColor: '#fff',
+            pointBackgroundColor: themeColor('--text'),
             pointBorderColor: '#f59e0b',
             pointRadius: 4.5,
             tension: 0.1
@@ -3776,21 +3934,21 @@
         maintainAspectRatio: false,
         interaction: { mode: 'index', intersect: false },
         plugins: {
-          legend: { position: 'bottom', labels: { color: '#cbd5e1', boxWidth: 12, font: { size: 12 } } },
+          legend: { position: 'bottom', labels: { color: themeColor('--text-secondary'), boxWidth: 12, font: { size: 12 } } },
           tooltip: {
-            backgroundColor: '#1e293b',
-            titleColor: '#fff',
-            bodyColor: '#cbd5e1',
-            borderColor: '#334155',
+            backgroundColor: themeColor('--card-bg'),
+            titleColor: themeColor('--text'),
+            bodyColor: themeColor('--text-secondary'),
+            borderColor: themeColor('--card-border'),
             borderWidth: 1,
             callbacks: { label: (item) => ` ${item.dataset.label}: $${item.parsed.y.toLocaleString()} M` }
           }
         },
         scales: {
-          x: { grid: { display: false }, ticks: { color: '#94a3b8' } },
+          x: { grid: { display: false }, ticks: { color: themeColor('--text-muted') } },
           y: {
-            grid: { color: 'rgba(51, 65, 85, 0.4)' },
-            ticks: { color: '#94a3b8', callback: (v) => `$${v >= 1000 ? (v / 1000).toFixed(0) + 'B' : v + 'M'}` }
+            grid: { color: themeColor('--chart-grid') },
+            ticks: { color: themeColor('--text-muted'), callback: (v) => `$${v >= 1000 ? (v / 1000).toFixed(0) + 'B' : v + 'M'}` }
           }
         }
       }
@@ -3866,8 +4024,8 @@
           { type: 'bar', label: returnBarLabel, data: returnBarData, backgroundColor: '#1d4ed8', borderRadius: 4, yAxisID: 'yLeft', order: 3 },
           {
             type: 'line', label: `${lineLabel} (%)`, data: lineData,
-            borderColor: '#f97316', backgroundColor: '#f97316', borderWidth: 2.5,
-            pointBackgroundColor: '#fff', pointBorderColor: '#f97316', pointBorderWidth: 2.5,
+            borderColor: themeColor('--orange'), backgroundColor: themeColor('--orange'), borderWidth: 2.5,
+            pointBackgroundColor: themeColor('--text'), pointBorderColor: themeColor('--orange'), pointBorderWidth: 2.5,
             pointRadius: 5, pointHoverRadius: 7.5, tension: 0.15, yAxisID: 'yRight', order: 1
           }
         ]
@@ -3877,23 +4035,23 @@
         maintainAspectRatio: false,
         interaction: { mode: 'index', intersect: false },
         plugins: {
-          legend: { position: 'bottom', labels: { color: '#cbd5e1', boxWidth: 12, font: { size: 12 } } },
+          legend: { position: 'bottom', labels: { color: themeColor('--text-secondary'), boxWidth: 12, font: { size: 12 } } },
           tooltip: {
-            backgroundColor: '#1e293b', titleColor: '#fff', bodyColor: '#cbd5e1', borderColor: '#334155', borderWidth: 1,
+            backgroundColor: themeColor('--card-bg'), titleColor: themeColor('--text'), bodyColor: themeColor('--text-secondary'), borderColor: themeColor('--card-border'), borderWidth: 1,
             callbacks: {
               label: (item) => item.dataset.yAxisID === 'yRight' ? ` ${item.dataset.label}: ${item.parsed.y.toFixed(2)} %` : ` ${item.dataset.label}: $${item.parsed.y.toLocaleString()} M`
             }
           }
         },
         scales: {
-          x: { grid: { display: false }, ticks: { color: '#94a3b8' } },
+          x: { grid: { display: false }, ticks: { color: themeColor('--text-muted') } },
           yLeft: {
-            type: 'linear', position: 'left', grid: { color: 'rgba(51, 65, 85, 0.4)' },
-            ticks: { color: '#94a3b8', callback: (v) => `$${v >= 1000 ? (v / 1000).toFixed(0) + 'B' : v + 'M'}` }
+            type: 'linear', position: 'left', grid: { color: themeColor('--chart-grid') },
+            ticks: { color: themeColor('--text-muted'), callback: (v) => `$${v >= 1000 ? (v / 1000).toFixed(0) + 'B' : v + 'M'}` }
           },
           yRight: {
             type: 'linear', position: 'right', grid: { display: false },
-            ticks: { color: '#f97316', callback: (v) => `${v.toFixed(1)} %` }
+            ticks: { color: themeColor('--orange'), callback: (v) => `${v.toFixed(1)} %` }
           }
         }
       }
@@ -4132,15 +4290,15 @@
                 </th>
                 ${allCols.map((c, i) => {
                   const isCurrent = (i === 0);
-                  const thBg = isCurrent ? 'background: #1e3a8a !important;' : 'background: #162032 !important;';
+                  const thBg = isCurrent ? 'background: var(--group-bg) !important;' : 'background: var(--header-bg) !important;';
                   const dateStr = getLatestDate(c);
                   return `
                     <th style="padding: 10px 14px; text-align: right; vertical-align: bottom; ${thBg}">
                       <div class="th-cell-wrap" style="align-items: flex-end;">
                         <div>
-                          <span style="font-size: 14px; font-weight: 800; color: ${isCurrent ? '#38bdf8' : '#f8fafc'};">${c.ticker}</span>${isCurrent ? `<span class="badge" style="background:rgba(56,189,248,0.25); color:#38bdf8; font-size:10px; margin-left:4px;">${currentTag}</span>` : ''}
+                          <span style="font-size: 14px; font-weight: 800; color: ${isCurrent ? 'var(--accent)' : 'var(--text)'};">${c.ticker}</span>${isCurrent ? `<span class="badge" style="background:rgba(56,189,248,0.25); color:var(--accent); font-size:10px; margin-left:4px;">${currentTag}</span>` : ''}
                         </div>
-                        <div class="peer-company-name" style="font-size: 11px; color: #94a3b8; font-weight: 500;">${getStockDisplayName(c)}</div>
+                        <div class="peer-company-name" style="font-size: 11px; color: var(--text-muted); font-weight: 500;">${getStockDisplayName(c)}</div>
                         <span class="th-period-subdate">(${dateStr})</span>
                       </div>
                     </th>
@@ -4165,7 +4323,7 @@
         const itemLabel = isEn ? it.labelEn : it.labelZh;
         tableHtml += `
           <tr>
-            <td class="peer-sticky-col" style="text-align: left; color: #cbd5e1; padding-left: 22px; font-weight: 600;">
+            <td class="peer-sticky-col" style="text-align: left; color: var(--text-secondary); padding-left: 22px; font-weight: 600;">
               ${itemLabel}
             </td>
             ${allCols.map((c, idx) => {
@@ -4213,12 +4371,12 @@
     if (!list) return;
     const isEn = (currentLang === 'en');
     list.innerHTML = `
-      <div style="background:#0f172a; padding:12px 16px; border-radius:6px; border:1px solid var(--card-border);">
-        <div style="font-weight:700; color:#fff; font-size:13.5px;">${ticker} ${isEn ? 'Reports Latest Earnings & Healthy Free Cash Flow Expansion' : '公佈最新季度營收與獲利，現金流保持健康增長'}</div>
+      <div style="background:var(--surface-bg); padding:12px 16px; border-radius:6px; border:1px solid var(--card-border);">
+        <div style="font-weight:700; color:var(--text); font-size:13.5px;">${ticker} ${isEn ? 'Reports Latest Earnings & Healthy Free Cash Flow Expansion' : '公佈最新季度營收與獲利，現金流保持健康增長'}</div>
         <div style="color:var(--text-muted); font-size:11.5px; margin-top:4px;">${isEn ? 'Source: MarketWatch · Realtime Feed' : '來源: MarketWatch · 即時快訊'}</div>
       </div>
-      <div style="background:#0f172a; padding:12px 16px; border-radius:6px; border:1px solid var(--card-border);">
-        <div style="font-weight:700; color:#fff; font-size:13.5px;">${isEn ? 'Wall Street Analysts Reiterate Durable Economic Moat Rating' : '華爾街分析師調整目標價，關注長期經濟護城河壁壘'}</div>
+      <div style="background:var(--surface-bg); padding:12px 16px; border-radius:6px; border:1px solid var(--card-border);">
+        <div style="font-weight:700; color:var(--text); font-size:13.5px;">${isEn ? 'Wall Street Analysts Reiterate Durable Economic Moat Rating' : '華爾街分析師調整目標價，關注長期經濟護城河壁壘'}</div>
         <div style="color:var(--text-muted); font-size:11.5px; margin-top:4px;">${isEn ? 'Source: Bloomberg Terminal · Analysis' : '來源: Bloomberg · 即時快訊'}</div>
       </div>
     `;
@@ -4310,7 +4468,7 @@
 
     if (saved) {
       document.getElementById('det-saved-badge').style.display = 'inline-block';
-      document.getElementById('det-saved-badge').innerText = `已存目標價: $${Number(saved.targetPrice).toFixed(2)}`;
+      document.getElementById('det-saved-badge').innerText = `${currentLang === 'zh' ? '已存目標價' : 'Saved target'}: $${Number(saved.targetPrice).toFixed(2)}`;
     } else {
       document.getElementById('det-saved-badge').style.display = 'none';
     }
@@ -4323,7 +4481,7 @@
 
     const defaultDcf = computeDCF(s, ticker);
     const moatBadge = document.getElementById('det-moat-badge');
-    moatBadge.innerText = `護城河: ${defaultDcf.moat.total}/100 🏆`;
+    moatBadge.innerText = `${currentLang === 'zh' ? '護城河' : 'Moat'}: ${defaultDcf.moat.total}/100 🏆`;
     moatBadge.className = `badge-moat ${defaultDcf.moat.badgeClass}`;
 
     const fscoreBadge = document.getElementById('det-fscore-badge');
@@ -4341,17 +4499,28 @@
       if (finPanel) finPanel.style.display = 'block';
       if (genLayout) genLayout.style.display = 'none';
 
-      const fin = workingParams.fin_valuation || s.fin_valuation;
+      const fin = s.fin_valuation;
+      const savedFin = saved && saved.params && saved.params.fin_valuation;
+      if (savedFin) {
+        for (const key of ['ke', 'g', 'rote']) {
+          if (Number.isFinite(savedFin[key]) && (key !== 'rote' || savedFin.reference)) fin[key] = savedFin[key];
+        }
+      }
       document.getElementById('slider-fin-ke').value = (fin.ke || 9.49).toFixed(2);
       document.getElementById('slider-fin-g').value = (fin.g || 2.25).toFixed(2);
-      document.getElementById('slider-fin-rote').value = (fin.rote || 17.4).toFixed(1);
+      const roteSlider = document.getElementById('slider-fin-rote');
+      roteSlider.disabled = !Number.isFinite(fin.rote);
+      roteSlider.min = Math.min(-25, Math.floor((fin.rote || 0) / 5) * 5);
+      roteSlider.max = Math.max(50, Math.ceil((fin.rote || 0) / 5) * 5);
+      if (!roteSlider.disabled) roteSlider.value = String(fin.rote);
 
       document.getElementById('disp-fin-ke').innerText = `${Number(document.getElementById('slider-fin-ke').value).toFixed(2)}%`;
       document.getElementById('disp-fin-g').innerText = `${Number(document.getElementById('slider-fin-g').value).toFixed(2)}%`;
-      document.getElementById('disp-fin-rote').innerText = `${Number(document.getElementById('slider-fin-rote').value).toFixed(1)}%`;
+      document.getElementById('disp-fin-rote').innerText = Number.isFinite(fin.rote) ? `${fin.rote.toFixed(2)}%` : 'N/A';
+      renderFinancialReference(fin);
 
-      document.getElementById('fin-tbvps').innerText = `$${Number(fin.tbvps).toFixed(2)}`;
-      document.getElementById('fin-ptbv').innerText = `${Number(fin.pb_tangible).toFixed(2)}x`;
+      document.getElementById('fin-tbvps').innerText = fin.tbvps === null ? 'N/A' : `$${Number(fin.tbvps).toFixed(2)}`;
+      document.getElementById('fin-ptbv').innerText = fin.pb_tangible === null ? 'N/A' : `${Number(fin.pb_tangible).toFixed(2)}x`;
       document.getElementById('fin-dps').innerText = `$${Number(fin.dps_total).toFixed(2)}`;
 
       const spreadVal = Number(document.getElementById('slider-fin-rote').value) - Number(document.getElementById('slider-fin-ke').value);
@@ -4424,13 +4593,14 @@
     const dcf = computeDCF(tempS, activeDetailTicker);
     if (!dcf) return;
 
-    document.getElementById('det-res-fair').innerText = `$${dcf.fairVal.toFixed(2)}`;
+    document.getElementById('det-res-fair').innerText = dcf.fairVal === null ? 'N/A' : `$${dcf.fairVal.toFixed(2)}`;
+    document.querySelector('[onclick="saveCustomModel()"]').disabled = dcf.fairVal === null;
     document.getElementById('det-res-price').innerText = `$${Number(tempS.price).toFixed(2)}`;
 
     if (isFin && tempS.fin_valuation) {
       const elExcess = document.getElementById('fin-excess-val');
       const elDdm = document.getElementById('fin-ddm-val');
-      if (elExcess) elExcess.innerText = `$${Number(tempS.fin_valuation.excess_return_fair || 0).toFixed(2)}`;
+      if (elExcess) elExcess.innerText = tempS.fin_valuation.excess_return_fair === null ? 'N/A' : `$${Number(tempS.fin_valuation.excess_return_fair).toFixed(2)}`;
       if (elDdm) elDdm.innerText = `$${Number(tempS.fin_valuation.ddm_fair || 0).toFixed(2)}`;
 
       const keVal = Number(tempS.fin_valuation.ke || 9.49);
@@ -4446,7 +4616,12 @@
 
     const badgeEl = document.getElementById('det-badge');
     const premEl = document.getElementById('det-res-premium');
-    if (dcf.isUndervalued) {
+    if (dcf.fairVal === null) {
+      badgeEl.className = 'badge';
+      badgeEl.innerText = 'N/A';
+      premEl.innerText = 'N/A';
+      document.getElementById('det-res-status').innerText = I18N_DICT[currentLang].fin_unavailable;
+    } else if (dcf.isUndervalued) {
       badgeEl.className = "badge badge-undervalued";
       badgeEl.innerText = `${currentLang === 'zh' ? '低估' : 'Undervalued'} ${dcf.premiumPct.toFixed(1)}%`;
       premEl.innerHTML = `<span class="text-green">${currentLang === 'zh' ? '低估' : 'Undervalued'} ${dcf.premiumPct.toFixed(1)}%</span>`;
@@ -4469,11 +4644,12 @@
   }
 
   function renderDCFTable(growth, fcfs, dfs, pvs) {
-    let head = '<th>年份 (Period)</th>';
-    let rowGrowth = '<td>年增長率 (%)</td>';
-    let rowFCF = '<td>自由現金流 ($M)</td>';
-    let rowDF = '<td>折現因子 (DF)</td>';
-    let rowPV = '<td>折現現值 ($M)</td>';
+    const isEn = currentLang === 'en';
+    let head = `<th>${isEn ? 'Period' : '年份'}</th>`;
+    let rowGrowth = `<td>${isEn ? 'Annual growth (%)' : '年增長率 (%)'}</td>`;
+    let rowFCF = `<td>${isEn ? 'Free Cash Flow ($M)' : '自由現金流 ($M)'}</td>`;
+    let rowDF = `<td>${isEn ? 'Discount Factor (DF)' : '折現因子 (DF)'}</td>`;
+    let rowPV = `<td>${isEn ? 'Present Value ($M)' : '折現現值 ($M)'}</td>`;
 
     for (let i = 0; i < 10; i++) {
       head += `<th>Y${i + 1}</th>`;
@@ -4567,13 +4743,13 @@
         tbody.innerHTML = moat.criteria.map((c, idx) => {
           const scoreVal = Number(c.score) || 0;
           const pct = (scoreVal / 10) * 100;
-          let barColor = scoreVal < 5 ? "#f87171" : scoreVal < 8 ? "#38bdf8" : "#4ade80";
+          let barColor = scoreVal < 5 ? "var(--red)" : scoreVal < 8 ? "var(--accent)" : "var(--green)";
 
           return `
             <tr>
-              <td style="font-weight: 600; color: #cbd5e1;">${c.category || ''}</td>
+              <td style="font-weight: 600; color: var(--text-secondary);">${c.category || ''}</td>
               <td><strong>${c.id || ''}. ${c.title || ''}</strong></td>
-              <td style="color: #94a3b8; font-size: 12px;">${c.desc || ''}</td>
+              <td style="color: var(--text-muted); font-size: 12px;">${c.desc || ''}</td>
               <td class="moat-score-cell">
                 <span style="font-weight: 700; font-size: 13.5px; color: ${barColor}; display: inline-block; width: 45px;">${scoreVal} / 10</span>
                 <div class="moat-bar-bg">
@@ -4621,9 +4797,9 @@
       return `
         <tr>
           <td style="text-align: center;"><span class="score-badge-circle ${circleClass}">${mark}</span></td>
-          <td style="font-weight: 600; color: #cbd5e1;">${item.category}</td>
+          <td style="font-weight: 600; color: var(--text-secondary);">${item.category}</td>
           <td><strong>#${item.id}. ${item.desc}</strong></td>
-          <td style="color: #94a3b8;">${item.detail}</td>
+          <td style="color: var(--text-muted);">${item.detail}</td>
           <td style="text-align: center;">${statusText}</td>
         </tr>
       `;
@@ -4657,6 +4833,10 @@
     };
 
     const dcf = computeDCF(tempS, activeDetailTicker);
+    if (dcf.fairVal === null) {
+      alert(I18N_DICT[currentLang].fin_unavailable);
+      return;
+    }
     const models = getSavedModels();
 
     models[activeDetailTicker] = {
@@ -4682,7 +4862,7 @@
 
     localStorage.setItem('M7_CUSTOM_VALUATIONS', JSON.stringify(models));
     document.getElementById('det-saved-badge').style.display = 'inline-block';
-    document.getElementById('det-saved-badge').innerText = `已存目標價: $${dcf.fairVal.toFixed(2)}`;
+    document.getElementById('det-saved-badge').innerText = `${currentLang === 'zh' ? '已存目標價' : 'Saved target'}: $${dcf.fairVal.toFixed(2)}`;
     alert(`✅ 已成功儲存 ${s.name} 的自訂目標價值：$${dcf.fairVal.toFixed(2)}！`);
   }
 
@@ -4693,6 +4873,9 @@
 
     if (stockUniverse[activeDetailTicker]) {
       delete stockUniverse[activeDetailTicker].custom_growth_10y;
+      if (stockUniverse[activeDetailTicker].fin_valuation.is_financial) {
+        stockUniverse[activeDetailTicker].fin_valuation = structuredClone(window.FULL_MARKET_DATA[activeDetailTicker].fin_valuation);
+      }
     }
     loadDetailTicker(activeDetailTicker);
     document.getElementById('det-saved-badge').style.display = 'none';
@@ -4726,6 +4909,10 @@
     if (isAppReady || !data || Object.keys(data).length === 0) return;
     isAppReady = true;
     stockUniverse = JSON.parse(JSON.stringify(data));
+    if (typeof Chart !== 'undefined') {
+      Chart.defaults.font.family = themeColor('--font-family');
+      Chart.defaults.color = themeColor('--text-secondary');
+    }
 
     Object.keys(stockUniverse).forEach(ticker => {
       try {
