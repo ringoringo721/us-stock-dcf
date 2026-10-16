@@ -1306,6 +1306,7 @@
             <label><input id="fcf-ratio-assets" type="checkbox" checked> <span data-i18n="fcf_assets">FCF／總資產</span></label>
             <label><input id="fcf-ratio-sales" type="checkbox" checked> <span data-i18n="fcf_sales">FCF／營收</span></label>
             <label><input id="fcf-ratio-ebitda" type="checkbox" checked> <span data-i18n="fcf_ebitda">FCF／EBITDA</span></label>
+            <label><input id="fcf-ratio-netIncome" type="checkbox" checked> <span data-i18n="fcf_netIncome">FCF／淨利</span></label>
           </div>
         </fieldset>
         <p data-i18n="fcf_basis_note" style="color: var(--text-muted); font-size: 12px;">期初是本期間開始前的餘額：單季往前一季、TTM 往前四季、年度往前一財年。平均為期初與期末的簡單平均。營收與 EBITDA 始終採與 FCF 相同期間。</p>
@@ -1836,7 +1837,8 @@
       fcf_assets: "FCF／總資產",
       fcf_sales: "FCF／營收",
       fcf_ebitda: "FCF／EBITDA",
-      fcf_basis_note: "期初是本期間開始前的餘額：單季往前一季、TTM 往前四季、年度往前一財年。平均為期初與期末的簡單平均。營收與 EBITDA 始終採與 FCF 相同期間。",
+      fcf_netIncome: "FCF／淨利",
+      fcf_basis_note: "期初是本期間開始前的餘額：單季往前一季、TTM 往前四季、年度往前一財年。平均為期初與期末的簡單平均。營收、EBITDA 與淨利始終採與 FCF 相同期間。",
       fcf_metric: "比率（%）",
       fcf_trend: "趨勢",
       fcf_loading: "正在載入原始財報…",
@@ -1859,6 +1861,7 @@
       fcf_reason_negativeAssets: "警示：資產分母或其組成為負，請審慎解讀。",
       fcf_reason_negativeSales: "警示：營收分母包含負值，請審慎解讀。",
       fcf_reason_negativeEbitda: "警示：EBITDA 分母包含負值，正比率不代表正向現金轉換。",
+      fcf_reason_negativeNetIncome: "警示：淨利分母包含虧損，正比率不代表獲利或正向現金轉換。",
       th_liq_1: "清算價 (I)",
       th_liq_2: "清算價 (II)",
       th_liq_3: "清算價 (III)",
@@ -2043,7 +2046,8 @@
       fcf_assets: "FCF / Total Assets",
       fcf_sales: "FCF / Sales",
       fcf_ebitda: "FCF / EBITDA",
-      fcf_basis_note: "Beginning means the balance before the period: one quarter back for single-quarter, four quarters back for TTM, and one fiscal year back for annual. Average is the simple mean of beginning and ending balances. Sales and EBITDA always cover the same period as FCF.",
+      fcf_netIncome: "FCF / Net Income",
+      fcf_basis_note: "Beginning means the balance before the period: one quarter back for single-quarter, four quarters back for TTM, and one fiscal year back for annual. Average is the simple mean of beginning and ending balances. Sales, EBITDA and net income always cover the same period as FCF.",
       fcf_metric: "Ratio (%)",
       fcf_trend: "Trend",
       fcf_loading: "Loading original financial statements...",
@@ -2066,6 +2070,7 @@
       fcf_reason_negativeAssets: "Warning: Assets or a component balance is negative; interpret cautiously.",
       fcf_reason_negativeSales: "Warning: The sales denominator includes negative values; interpret cautiously.",
       fcf_reason_negativeEbitda: "Warning: The EBITDA denominator includes negative values. A positive ratio does not imply positive cash conversion.",
+      fcf_reason_negativeNetIncome: "Warning: The net income denominator includes losses. A positive ratio does not imply profitability or positive cash conversion.",
       th_liq_1: "Liquidation (L1)",
       th_liq_2: "Net-Net (L2)",
       th_liq_3: "Cash-Net (L3)",

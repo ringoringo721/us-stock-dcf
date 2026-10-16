@@ -7,7 +7,7 @@ const { calculate, trend } = require('../fcf_ratios.js');
 const baseUrl = process.env.TEST_BASE_URL || 'http://127.0.0.1:8765';
 
 async function checkTable(page, ticker, options) {
-  await page.waitForFunction(() => document.querySelector('#fcf-ratio-body').children.length === 4);
+  await page.waitForFunction(() => document.querySelector('#fcf-ratio-body').children.length === 5);
   const source = JSON.parse(fs.readFileSync(
     path.join(__dirname, '..', 'cache', 'financials', `${ticker}_statements_v2.json`), 'utf8'));
   const columns = calculate(source, options);
@@ -17,7 +17,7 @@ async function checkTable(page, ticker, options) {
     assert.ok(headings[i + 1].includes(columns[i].label));
     assert.ok(headings[i + 1].includes(columns[i].date));
   }
-  for (const [i, metric] of ['equity', 'assets', 'sales', 'ebitda'].entries()) {
+  for (const [i, metric] of ['equity', 'assets', 'sales', 'ebitda', 'netIncome'].entries()) {
     const expected = columns.map(column => {
       const ratio = column.ratios[metric];
       return ratio.value === null ? 'N/A' : `${ratio.value.toFixed(2)}%${ratio.warnings.length ? ' !' : ''}`;
@@ -79,14 +79,16 @@ async function checkTable(page, ticker, options) {
         }
       }
     }
-    for (const metric of ['equity', 'assets', 'sales', 'ebitda']) {
+    for (const metric of ['equity', 'assets', 'sales', 'ebitda', 'netIncome']) {
       await page.uncheck(`#fcf-ratio-${metric}`);
     }
     assert.equal(await page.locator('#fcf-ratio-body tr').count(), 0);
     assert.ok((await page.locator('#fcf-ratio-status').innerText()).length > 0);
-    await page.check('#fcf-ratio-sales');
+    await page.check('#fcf-ratio-netIncome');
     await page.waitForFunction(() => document.querySelector('#fcf-ratio-body').children.length === 1);
     assert.equal(await page.locator('#fcf-ratio-balance').isDisabled(), true);
+    assert.ok((await page.locator('#fcf-ratio-body tr th').innerText()).includes('淨利'));
+    await page.check('#fcf-ratio-sales');
     await page.check('#fcf-ratio-equity');
     assert.equal(await page.locator('#fcf-ratio-balance').isDisabled(), false);
     await page.check('#fcf-ratio-assets');
@@ -94,6 +96,7 @@ async function checkTable(page, ticker, options) {
     await page.locator('#btn-lang-toggle').click();
     await page.waitForFunction(() => document.querySelector('#fcf-ratio-body tr th').textContent === 'FCF / Equity');
     assert.equal(await page.locator('#fcf-ratio-title').innerText(), 'Free Cash Flow (FCF) Ratios');
+    assert.equal(await page.locator('#fcf-ratio-body tr th').last().innerText(), 'FCF / Net Income');
     assert.equal(await page.locator('#subpage-charts').getAttribute('class'), 'subpage-content active');
     await page.locator('#btn-lang-toggle').click();
     await page.waitForFunction(() => document.querySelector('#fcf-ratio-body tr th').textContent.includes('股東權益'));

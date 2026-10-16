@@ -16,7 +16,7 @@ function fixture() {
     dates.forEach((date, i) => {
       const base = { date, fiscalYear: date.slice(0, 4), reportedCurrency: 'USD',
         period: period === 'annual' ? 'FY' : `Q${Math.ceil(Number(date.slice(5, 7)) / 3)}` };
-      rows.income.push({ ...base, revenue: 100 + i * 10, ebitda: 20 + i * 2 });
+      rows.income.push({ ...base, revenue: 100 + i * 10, ebitda: 20 + i * 2, netIncome: 10 + i });
       rows.balance.push({ ...base, totalStockholdersEquity: 100 + i * 10, totalAssets: 200 + i * 20 });
       rows.cashflow.push({ ...base, freeCashFlow: i * 10 });
     });
@@ -33,12 +33,13 @@ function near(actual, expected) {
   assert.ok(Math.abs(actual - expected) < 1e-9, `${actual} != ${expected}`);
 }
 
-test('defaults to quarterly TTM and beginning balances; all four ratios use matching flows', () => {
+test('defaults to quarterly TTM and beginning balances; all five ratios use matching flows', () => {
   const ratios = last(fixture());
   near(ratios.equity.value, 260 / 140 * 100);
   near(ratios.assets.value, 260 / 280 * 100);
   near(ratios.sales.value, 260 / 660 * 100);
   near(ratios.ebitda.value, 260 / 132 * 100);
+  near(ratios.netIncome.value, 260 / 66 * 100);
 });
 
 test('single, TTM and annual support all three balance bases without changing flow ratios', () => {
@@ -56,6 +57,7 @@ test('single, TTM and annual support all three balance bases without changing fl
         near(ratios.assets.value, fcf / (denominator * 2) * 100);
         assert.equal(ratios.sales.value, flowReference.sales.value);
         assert.equal(ratios.ebitda.value, flowReference.ebitda.value);
+        near(ratios.netIncome.value, fcf / (annual ? 12 : flow === 'single' ? 18 : 66) * 100);
       }
     }
   }
@@ -85,7 +87,33 @@ test('aligns independently ordered statements by fiscal period and full date', (
   assert.deepEqual(calculate(data), expected);
   data.quarterly.income[0].date = '2025-12-30';
   assert.equal(last(data).sales.reason, 'dateMismatch');
+  assert.equal(last(data).netIncome.reason, 'dateMismatch');
   assert.notEqual(last(data).equity.value, null);
+});
+
+test('net income handles losses, zero, missing fields and period totals without changing other ratios', () => {
+  const data = fixture();
+  const original = last(data, { flow: 'single' });
+  data.quarterly.income.at(-1).netIncome = -40;
+  const loss = last(data, { flow: 'single' });
+  assert.equal(loss.netIncome.value, -200);
+  assert.deepEqual(loss.netIncome.warnings, ['negativeNetIncome']);
+  for (const metric of ['equity', 'assets', 'sales', 'ebitda']) {
+    assert.deepEqual(loss[metric], original[metric]);
+  }
+  data.quarterly.cashflow.at(-1).freeCashFlow = -80;
+  assert.equal(last(data, { flow: 'single' }).netIncome.value, 200);
+  assert.deepEqual(last(data, { flow: 'single' }).netIncome.warnings, ['negativeFcf', 'negativeNetIncome']);
+  data.quarterly.income.at(-1).netIncome = -48;
+  assert.equal(last(data).netIncome.reason, 'zeroDenominator');
+  data.quarterly.income.at(-1).netIncome = 0;
+  assert.equal(last(data, { flow: 'single' }).netIncome.reason, 'zeroDenominator');
+  for (const value of [undefined, null, '', false, Infinity, NaN]) {
+    data.quarterly.income.at(-1).netIncome = value;
+    assert.equal(last(data).netIncome.reason, 'missingDenominator');
+  }
+  data.annual.income.at(-1).netIncome = -10;
+  assert.equal(last(data, { period: 'annual' }).netIncome.value, -200);
 });
 
 test('rejects missing quarters, fiscal gaps and irregular date gaps across years', () => {
@@ -204,6 +232,9 @@ test('DE, HD, PFE and PGR use exact source dates rather than shifted array posit
       }
       if (income && income.revenue !== 0) {
         near(column.ratios.sales.value, cf.freeCashFlow / income.revenue * 100);
+      }
+      if (income && typeof income.netIncome === 'number' && income.netIncome !== 0) {
+        near(column.ratios.netIncome.value, cf.freeCashFlow / income.netIncome * 100);
       }
     }
   }

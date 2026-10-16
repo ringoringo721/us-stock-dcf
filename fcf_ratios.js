@@ -5,7 +5,8 @@
 })(typeof globalThis === 'object' ? globalThis : this, function () {
   'use strict';
 
-  const metrics = ['equity', 'assets', 'sales', 'ebitda'];
+  const metrics = ['equity', 'assets', 'sales', 'ebitda', 'netIncome'];
+  const incomeFields = { sales: 'revenue', ebitda: 'ebitda', netIncome: 'netIncome' };
   const dayMs = 86400000;
 
   function numeric(value) {
@@ -111,7 +112,7 @@
         let denominator;
         let denominatorRows;
         let denominatorValues;
-        if (metric === 'sales' || metric === 'ebitda') {
+        if (incomeFields[metric]) {
           const rows = window.map(row => {
             const rowKey = annual ? Number(row.fiscalYear || row.calendarYear)
               : Number(row.fiscalYear || row.calendarYear) * 4 + Number(row.period[1]) - 1;
@@ -120,7 +121,7 @@
           if (rows.some(row => !row)) issue = 'missingIncome';
           else if (rows.some((row, i) => row.date !== window[i].date)) issue = 'dateMismatch';
           else {
-            denominatorValues = rows.map(row => numeric(row[metric === 'sales' ? 'revenue' : 'ebitda']));
+            denominatorValues = rows.map(row => numeric(row[incomeFields[metric]]));
             if (denominatorValues.some(value => value === null)) issue = 'missingDenominator';
             else {
               denominator = denominatorValues.reduce((total, value) => total + value, 0);
@@ -160,7 +161,7 @@
         if (fcf < 0) warnings.push('negativeFcf');
         if (denominatorValues && denominatorValues.some(number => number < 0)) {
           warnings.push({ equity: 'negativeEquity', assets: 'negativeAssets',
-            sales: 'negativeSales', ebitda: 'negativeEbitda' }[metric]);
+            sales: 'negativeSales', ebitda: 'negativeEbitda', netIncome: 'negativeNetIncome' }[metric]);
         }
         column.ratios[metric] = issue ? unavailable(issue) : { value, reason: null, warnings };
         issue = null;
