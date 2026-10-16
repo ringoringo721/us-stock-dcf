@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>美股旗艦 DCF 估值雷達 (200 檔全覆蓋 · 雙軌多週期版)</title>
   <script src="market_data.js"></script>
+  <script src="fcf_ratios.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   
   <style>
@@ -367,6 +368,11 @@
     .form-group label { font-size: 13px; color: #cbd5e1; }
     .form-group input, .form-group select { width: 110px; background: #0f172a; border: 1px solid var(--card-border); border-radius: 4px; color: #fff; padding: 5px 8px; font-size: 13px; text-align: right; }
     .form-group input:focus, .form-group select:focus { border-color: var(--accent); outline: none; }
+    #fcf-ratio-panel .form-group { flex-direction: column; align-items: stretch; gap: 6px; min-width: 220px; }
+    #fcf-ratio-panel select { width: 100%; text-align: left; }
+    #fcf-ratio-table { width: max-content; min-width: 100%; }
+    #fcf-ratio-table th, #fcf-ratio-table td { min-width: 125px; white-space: nowrap; text-align: right; }
+    #fcf-ratio-table .table-sticky-col { min-width: 190px; text-align: left; }
     
     #dcf-table, #sens-table { width: 100%; border-collapse: collapse; text-align: right; font-size: 12px; }
     #dcf-table th, #dcf-table td, #sens-table th, #sens-table td { padding: 9px 10px; border-bottom: 1px solid var(--card-border); }
@@ -917,6 +923,53 @@
 
       </div>
     </div>
+    <section class="panel" id="fcf-ratio-panel" style="margin-top: 20px;" aria-labelledby="fcf-ratio-title">
+      <div class="panel-title" id="fcf-ratio-title" data-i18n="fcf_title">自由現金流（FCF）比率</div>
+      <p data-i18n="fcf_definition" style="color: var(--text-muted); font-size: 12px;">FCF 使用財報 freeCashFlow（營運現金流－資本支出），不是 FCFE；不受上方 DCF 模擬輸入影響。</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: end;">
+        <div class="form-group">
+          <label for="fcf-ratio-period" data-i18n="fcf_period">報表期間</label>
+          <select id="fcf-ratio-period">
+            <option value="quarterly" data-i18n="fcf_quarterly">季度</option>
+            <option value="annual" data-i18n="fcf_annual">完整會計年度</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="fcf-ratio-flow" data-i18n="fcf_flow">季度流量口徑</label>
+          <select id="fcf-ratio-flow">
+            <option value="ttm" data-i18n="fcf_ttm">TTM（連續四季）</option>
+            <option value="single" data-i18n="fcf_single">單季</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="fcf-ratio-balance" data-i18n="fcf_balance">權益／資產分母</label>
+          <select id="fcf-ratio-balance">
+            <option value="beginning" data-i18n="fcf_beginning">期初</option>
+            <option value="ending" data-i18n="fcf_ending">期末</option>
+            <option value="average" data-i18n="fcf_average">期初與期末平均</option>
+          </select>
+        </div>
+      </div>
+      <fieldset style="border: 0; padding: 0; margin: 8px 0;">
+        <legend data-i18n="fcf_visible">顯示比率</legend>
+        <div style="display: flex; flex-wrap: wrap; gap: 16px;">
+          <label><input id="fcf-ratio-equity" type="checkbox" checked> <span data-i18n="fcf_equity">FCF／股東權益</span></label>
+          <label><input id="fcf-ratio-assets" type="checkbox" checked> <span data-i18n="fcf_assets">FCF／總資產</span></label>
+          <label><input id="fcf-ratio-sales" type="checkbox" checked> <span data-i18n="fcf_sales">FCF／營收</span></label>
+          <label><input id="fcf-ratio-ebitda" type="checkbox" checked> <span data-i18n="fcf_ebitda">FCF／EBITDA</span></label>
+        </div>
+      </fieldset>
+      <p data-i18n="fcf_basis_note" style="color: var(--text-muted); font-size: 12px;">期初是本期間開始前的餘額：單季往前一季、TTM 往前四季、年度往前一財年。平均為期初與期末的簡單平均。營收與 EBITDA 始終採與 FCF 相同期間。</p>
+      <p id="fcf-ratio-status" role="status" style="color: var(--text-muted);"></p>
+      <button id="fcf-ratio-retry" type="button" class="stmt-btn" data-i18n="fcf_retry" hidden>重新載入</button>
+      <div class="table-scroll-wrapper" style="overflow-x: auto;">
+        <table id="fcf-ratio-table">
+          <thead id="fcf-ratio-head"></thead>
+          <tbody id="fcf-ratio-body"></tbody>
+        </table>
+      </div>
+      <ul id="fcf-ratio-notes" style="font-size: 12px; color: var(--text-muted);"></ul>
+    </section>
   </div>
   <!-- 頁面 2：detail-view 結束 -->
   
@@ -1744,6 +1797,45 @@
       btn_period_quarter: "季度 (近 20 季)",
       btn_ratio_annual: "年度 (5年 + TTM)",
       btn_ratio_quarter: "季度 (近 20 季)",
+      fcf_title: "自由現金流（FCF）比率",
+      fcf_definition: "FCF 使用財報 freeCashFlow（營運現金流－資本支出），不是 FCFE；不受上方 DCF 模擬輸入影響。",
+      fcf_period: "報表期間",
+      fcf_quarterly: "季度",
+      fcf_annual: "完整會計年度",
+      fcf_flow: "季度流量口徑",
+      fcf_ttm: "TTM（連續四季）",
+      fcf_single: "單季",
+      fcf_balance: "權益／資產分母",
+      fcf_beginning: "期初",
+      fcf_ending: "期末",
+      fcf_average: "期初與期末平均",
+      fcf_visible: "顯示比率",
+      fcf_equity: "FCF／股東權益",
+      fcf_assets: "FCF／總資產",
+      fcf_sales: "FCF／營收",
+      fcf_ebitda: "FCF／EBITDA",
+      fcf_basis_note: "期初是本期間開始前的餘額：單季往前一季、TTM 往前四季、年度往前一財年。平均為期初與期末的簡單平均。營收與 EBITDA 始終採與 FCF 相同期間。",
+      fcf_metric: "比率（%）",
+      fcf_loading: "正在載入原始財報…",
+      fcf_select_ratio: "請至少勾選一項比率。",
+      fcf_no_periods: "沒有可辨識財年、季度與完整日期的財報期間。",
+      fcf_error: "無法載入或解析原始財報，未以模擬值替代。請重試。",
+      fcf_retry: "重新載入",
+      fcf_reason_incompleteTtm: "N/A：缺少連續四季的 FCF 財報（最早三季通常無足夠資料）。",
+      fcf_reason_nonConsecutive: "N/A：季度財報日期不連續，無法計算 TTM。",
+      fcf_reason_missingFcf: "N/A：缺少該期間的 freeCashFlow。",
+      fcf_reason_missingIncome: "N/A：缺少對應期間的損益表。",
+      fcf_reason_dateMismatch: "N/A：財年季度或實際財報日期無法正確對齊。",
+      fcf_reason_missingOpening: "N/A：缺少對應期初餘額或欄位。",
+      fcf_reason_missingDenominator: "N/A：缺少分母財報或欄位。",
+      fcf_reason_currencyMismatch: "N/A：財報幣別缺失或不一致，無法直接相除。",
+      fcf_reason_zeroDenominator: "N/A：分母為零（含期初期末平均為零）。",
+      fcf_reason_invalidValue: "N/A：計算結果不是有限數值。",
+      fcf_reason_negativeFcf: "警示：FCF 為負；保留實際算術值。",
+      fcf_reason_negativeEquity: "警示：股東權益分母或其期初／期末組成為負，正比率不代表正向回報。",
+      fcf_reason_negativeAssets: "警示：資產分母或其組成為負，請審慎解讀。",
+      fcf_reason_negativeSales: "警示：營收分母包含負值，請審慎解讀。",
+      fcf_reason_negativeEbitda: "警示：EBITDA 分母包含負值，正比率不代表正向現金轉換。",
       th_liq_1: "清算價 (I)",
       th_liq_2: "清算價 (II)",
       th_liq_3: "清算價 (III)",
@@ -1911,6 +2003,45 @@
       btn_period_quarter: "Quarterly (Last 20Q)",
       btn_ratio_annual: "Annual (5Y + TTM)",
       btn_ratio_quarter: "Quarterly (Last 20Q)",
+      fcf_title: "Free Cash Flow (FCF) Ratios",
+      fcf_definition: "FCF uses reported freeCashFlow (operating cash flow minus capital expenditures), not FCFE. Historical ratios are unaffected by the DCF simulation inputs above.",
+      fcf_period: "Statement period",
+      fcf_quarterly: "Quarterly",
+      fcf_annual: "Full fiscal year",
+      fcf_flow: "Quarterly flow basis",
+      fcf_ttm: "TTM (four consecutive quarters)",
+      fcf_single: "Single quarter",
+      fcf_balance: "Equity / assets denominator",
+      fcf_beginning: "Beginning",
+      fcf_ending: "Ending",
+      fcf_average: "Beginning / ending average",
+      fcf_visible: "Visible ratios",
+      fcf_equity: "FCF / Equity",
+      fcf_assets: "FCF / Total Assets",
+      fcf_sales: "FCF / Sales",
+      fcf_ebitda: "FCF / EBITDA",
+      fcf_basis_note: "Beginning means the balance before the period: one quarter back for single-quarter, four quarters back for TTM, and one fiscal year back for annual. Average is the simple mean of beginning and ending balances. Sales and EBITDA always cover the same period as FCF.",
+      fcf_metric: "Ratio (%)",
+      fcf_loading: "Loading original financial statements...",
+      fcf_select_ratio: "Select at least one ratio.",
+      fcf_no_periods: "No statement periods with identifiable fiscal years, quarters and full dates.",
+      fcf_error: "Could not load or parse original statements. No simulated values were substituted. Please retry.",
+      fcf_retry: "Retry",
+      fcf_reason_incompleteTtm: "N/A: Four consecutive FCF quarters are unavailable (usually the earliest three columns).",
+      fcf_reason_nonConsecutive: "N/A: Nonconsecutive statement dates prevent TTM calculation.",
+      fcf_reason_missingFcf: "N/A: Reported freeCashFlow is missing for this period.",
+      fcf_reason_missingIncome: "N/A: Matching income statements are unavailable.",
+      fcf_reason_dateMismatch: "N/A: Fiscal periods or actual statement dates cannot be aligned.",
+      fcf_reason_missingOpening: "N/A: The matching opening balance or field is unavailable.",
+      fcf_reason_missingDenominator: "N/A: The denominator statement or field is unavailable.",
+      fcf_reason_currencyMismatch: "N/A: Missing or inconsistent reporting currencies prevent comparison.",
+      fcf_reason_zeroDenominator: "N/A: The denominator is zero (including a zero average balance).",
+      fcf_reason_invalidValue: "N/A: The calculated result is not finite.",
+      fcf_reason_negativeFcf: "Warning: FCF is negative; actual arithmetic values are retained.",
+      fcf_reason_negativeEquity: "Warning: Equity or a component opening/closing balance is negative. A positive ratio does not imply a positive return.",
+      fcf_reason_negativeAssets: "Warning: Assets or a component balance is negative; interpret cautiously.",
+      fcf_reason_negativeSales: "Warning: The sales denominator includes negative values; interpret cautiously.",
+      fcf_reason_negativeEbitda: "Warning: The EBITDA denominator includes negative values. A positive ratio does not imply positive cash conversion.",
       th_liq_1: "Liquidation (L1)",
       th_liq_2: "Net-Net (L2)",
       th_liq_3: "Cash-Net (L3)",
@@ -1970,6 +2101,10 @@
       renderRatiosSubPage(stockUniverse[activeCompanyTicker]);
     }
 
+    const detailView = document.getElementById('detail-view');
+    if (detailView && detailView.style.display === 'block' && stockUniverse[activeDetailTicker]) {
+      FcfRatios.render(activeDetailTicker, currentLang, I18N_DICT[currentLang]);
+    }
   }
 
   function toggleLanguage() {
@@ -4159,6 +4294,7 @@
     document.getElementById('inp-g').value = workingParams.g || 2.25;
 
     recalculateDetail();
+    FcfRatios.render(ticker, currentLang, I18N_DICT[currentLang]);
   }
 
   let paramChangeTimer = null;
