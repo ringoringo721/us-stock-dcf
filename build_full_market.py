@@ -8,6 +8,113 @@ import math
 from typing import Dict, Any, Optional
 from pydantic import BaseModel, Field
 
+import os
+import json
+import requests
+
+HIST_CACHE_DIR = "cache/historical_prices"
+os.makedirs(HIST_CACHE_DIR, exist_ok=True)
+
+def calculate_historical_5y_dcf_and_prices(fmp_sym: str, stock_item: dict) -> dict:
+    """
+    精確計算過去 5 年（共 20 季）每一季末的真實 DCF 公允價值
+    （基於當時真實 TTM FCF、Net Debt、稀釋股數、WACC）
+    並抓取真實每日復權收盤價 (adjClose)
+    """
+    url_prices = f"https://financialmodelingprep.com/api/v3/historical-price-full/{fmp_sym}?apikey={FMP_KEY}"
+    url_q_cf = f"https://financialmodelingprep.com/api/v3/cash-flow-statement/{fmp_sym}?period=quarter&limit=24&apikey={FMP_KEY}"
+    url_q_bs = f"https://financialmodelingprep.com/api/v3/balance-sheet-statement/{fmp_sym}?period=quarter&limit=24&apikey={FMP_KEY}"
+    
+    real_5y_prices = []
+    historical_dcf_series = []
+    
+    try:
+        # 1. 抓取每日真實復權收盤價 (adjClose)
+        r_p = requests.get(url_prices, timeout=12)
+        if r_p.status_code == 200:
+            hist = r_p.json().get("historical", [])
+            real_5y_prices = [
+                {"date": p["date"], "close": round(float(p.get("adjClose") or p.get("close")), 2)}
+                for p in reversed(hist)
+            ][-1260:]
+            
+        # 建立日期對應市價字典
+        price_map = {item["date"]: item["close"] for item in real_5y_prices}
+
+        # 2. 抓取季度現金流量表與資產負債表 (近 20 季)
+        r_cf = requests.get(url_q_cf, timeout=12)
+        r_bs = requests.get(url_q_bs, timeout=12)
+        
+        if r_cf.status_code == 200 and r_bs.status_code == 200:
+            cf_list = r_cf.json()
+            bs_list = r_bs.json()
+            
+            if isinstance(cf_list, list) and isinstance(bs_list, list) and len(cf_list) >= 4:
+                cf_sorted = list(reversed(cf_list))[-20:]
+                bs_sorted = list(reversed(bs_list))[-20:]
+                
+                base_wacc = stock_item.get("WACC", 0.09)
+                base_g = 0.0225
+
+                for idx, q_cf in enumerate(cf_sorted):
+                    q_date = q_cf.get("date")
+                    # 計算該季的 TTM FCF (當季 + 前三季自由現金流加總)
+                    start_idx = max(0, cf_sorted.index(q_cf) - 3)
+                    ttm_fcf = sum(
+                        (float(item.get("operatingCashFlow") or 0) + float(item.get("capitalExpenditure") or 0))
+                        for item in cf_sorted[start_idx : cf_sorted.index(q_cf) + 1]
+                    )
+                    
+                    # 尋找對應季末的資產負債表取得 Net Debt 與 Shares
+                    q_bs = next((b for b in bs_sorted if b.get("date") <= q_date), bs_sorted[-1])
+                    total_debt = float(q_bs.get("totalDebt") or q_bs.get("shortTermDebt") or 0) + float(q_bs.get("longTermDebt") or 0)
+                    cash = float(q_bs.get("cashAndShortTermInvestments") or q_bs.get("cashAndCashEquivalents") or 0)
+                    net_debt = total_debt - cash
+                    shares = float(q_bs.get("weightedAverageShsOutDil") or q_bs.get("weightedAverageShsOut") or stock_item.get("shares") or 1)
+                    if shares <= 0:
+                        shares = 1.0
+
+                    # 應用 10 年 DCF 模型計算該季公允價值
+                    if ttm_fcf > 0:
+                        sum_pv = 0
+                        cur_fcf = ttm_fcf
+                        growth_rate = 0.10
+                        for t in range(1, 11):
+                            cur_fcf *= (1 + growth_rate)
+                            sum_pv += cur_fcf / (1 + base_wacc)**t
+                        
+                        safe_wacc = max(base_wacc, base_g + 0.015)
+                        tv = (cur_fcf * (1 + base_g)) / (safe_wacc - base_g)
+                        pv_tv = tv / (1 + safe_wacc)**10
+                        
+                        model_ev = sum_pv + pv_tv
+                        equity_val = model_ev - net_debt
+                        fair_val = max(equity_val / shares, 0.5)
+                    else:
+                        fair_val = max(1.0, float(stock_item.get("price", 100)) * 0.2)
+
+                    # 尋找該季末當天的真實收盤市價
+                    ref_price = price_map.get(q_date)
+                    if not ref_price and real_5y_prices:
+                        past_p = [p["close"] for p in real_5y_prices if p["date"] <= q_date]
+                        ref_price = past_p[-1] if past_p else real_5y_prices[0]["close"]
+
+                    spread_pct = ((fair_val - ref_price) / ref_price) * 100 if ref_price else 0.0
+
+                    historical_dcf_series.append({
+                        "date": q_date,
+                        "fairVal": round(fair_val, 2),
+                        "stockPrice": ref_price,
+                        "spreadPct": round(spread_pct, 2)
+                    })
+    except Exception as e:
+        print(f"[{fmp_sym}] 計算歷史 DCF 失敗: {e}")
+
+    return {
+        "real_5y_prices": real_5y_prices,
+        "historical_dcf_series": historical_dcf_series
+    }
+    
 def fetch_as_reported_trade_ar(symbol: str, api_key: str) -> dict:
     ar_map = {
         "annual": {"trade": {}, "nontrade": {}},
@@ -1601,6 +1708,10 @@ def main():
             "insider_trades": company_meta.get("insider_trades", []),
             "stock_splits": company_meta.get("stock_splits", []),
             "fmp_symbol": fmp_sym
+            # 呼叫歷史 DCF 與復權股價計算
+            hist_data = calculate_historical_5y_dcf_and_prices(fmp_sym, results[sym])
+            results[sym]["real_5y_prices"] = hist_data["real_5y_prices"]
+            results[sym]["historical_dcf_series"] = hist_data["historical_dcf_series"]
         }
 
         print(f"[{stock_idx:03d}/{len(UNIQUE_STOCKS)}] ✅ {sym} ({stock_item.get('exchange', 'US')}) - 股價=${price} | 5Y Beta={beta_5y} | 公允價值=${fair_val} | 護城河: {moat_data.get('overall_moat_verdict_zh', '')[:30]}...", flush=True)
