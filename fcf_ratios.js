@@ -38,6 +38,31 @@
     return { value: null, reason, warnings: [] };
   }
 
+  function trend(values) {
+    const valid = values.filter(value => typeof value === 'number' && Number.isFinite(value));
+    if (!valid.length) return null;
+    const min = Math.min(...valid);
+    const max = Math.max(...valid);
+    const points = values.map((value, i) => typeof value === 'number' && Number.isFinite(value) ? {
+      x: 4 + (values.length > 1 ? i / (values.length - 1) : 0.5) * 100,
+      y: max === min ? 16 : 4 + (max - value) / (max - min) * 24
+    } : null);
+    const segments = [];
+    for (const point of points) {
+      if (!point) {
+        if (segments.length && segments[segments.length - 1].length) segments.push([]);
+      } else {
+        if (!segments.length) segments.push([]);
+        segments[segments.length - 1].push(point);
+      }
+    }
+    return {
+      segments: segments.filter(segment => segment.length),
+      last: points.filter(Boolean).at(-1),
+      color: valid[valid.length - 1] >= valid[0] ? '#22c55e' : '#ef4444'
+    };
+  }
+
   function sameCurrency(rows) {
     const currencies = rows.map(row => row.reportedCurrency);
     return currencies.every(value => typeof value === 'string' && value.length > 0)
@@ -218,6 +243,9 @@
         cell.append(element('div', column.label), element('div', column.date, 'th-period-subdate'));
         heading.append(cell);
       }
+      const trendHeading = element('th', labels.fcf_trend, 'fcf-trend-col');
+      trendHeading.scope = 'col';
+      heading.append(trendHeading);
       head.append(heading);
       const explanations = new Set();
       for (const metric of selected) {
@@ -238,6 +266,39 @@
           if (ratio.warnings.length) cell.className = 'text-gold';
           row.append(cell);
         }
+        const trendCell = element('td', undefined, 'fcf-trend-col');
+        const values = columns.map(column => column.ratios[metric].value);
+        const chart = trend(values);
+        if (chart) {
+          const ns = 'http://www.w3.org/2000/svg';
+          const svg = document.createElementNS(ns, 'svg');
+          svg.setAttribute('viewBox', '0 0 108 32');
+          svg.setAttribute('class', 'spark-line-svg');
+          svg.setAttribute('role', 'img');
+          svg.setAttribute('aria-label', `${labels[`fcf_${metric}`]} ${labels.fcf_trend}`);
+          const title = document.createElementNS(ns, 'title');
+          title.textContent = columns.map((column, i) => `${column.label}: ${values[i] === null ? 'N/A' : values[i].toFixed(2) + '%'}`).join('; ');
+          svg.append(title);
+          for (const segment of chart.segments) {
+            const line = document.createElementNS(ns, 'path');
+            line.setAttribute('d', segment.map((point, i) => `${i ? 'L' : 'M'} ${point.x} ${point.y}`).join(' '));
+            line.setAttribute('fill', 'none');
+            line.setAttribute('stroke', chart.color);
+            line.setAttribute('stroke-width', '2');
+            line.setAttribute('stroke-linecap', 'round');
+            svg.append(line);
+          }
+          const dot = document.createElementNS(ns, 'circle');
+          dot.setAttribute('cx', chart.last.x);
+          dot.setAttribute('cy', chart.last.y);
+          dot.setAttribute('r', '2.5');
+          dot.setAttribute('fill', chart.color);
+          svg.append(dot);
+          const wrap = element('span', undefined, 'spark-line-wrap');
+          wrap.append(svg);
+          trendCell.append(wrap);
+        } else trendCell.textContent = 'N/A';
+        row.append(trendCell);
         body.append(row);
       }
       for (const message of explanations) notes.append(element('li', message));
@@ -250,5 +311,5 @@
     }
   }
 
-  return { calculate, render };
+  return { calculate, trend, render };
 });

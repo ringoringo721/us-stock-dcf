@@ -2,7 +2,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const { chromium } = require('playwright');
-const { calculate } = require('../fcf_ratios.js');
+const { calculate, trend } = require('../fcf_ratios.js');
 
 const baseUrl = process.env.TEST_BASE_URL || 'http://127.0.0.1:8765';
 
@@ -12,7 +12,7 @@ async function checkTable(page, ticker, options) {
     path.join(__dirname, '..', 'cache', 'financials', `${ticker}_statements_v2.json`), 'utf8'));
   const columns = calculate(source, options);
   const headings = await page.locator('#fcf-ratio-head th').allTextContents();
-  assert.equal(headings.length, columns.length + 1);
+  assert.equal(headings.length, columns.length + 2);
   for (let i = 0; i < columns.length; i++) {
     assert.ok(headings[i + 1].includes(columns[i].label));
     assert.ok(headings[i + 1].includes(columns[i].date));
@@ -22,7 +22,14 @@ async function checkTable(page, ticker, options) {
       const ratio = column.ratios[metric];
       return ratio.value === null ? 'N/A' : `${ratio.value.toFixed(2)}%${ratio.warnings.length ? ' !' : ''}`;
     });
-    assert.deepEqual(await page.locator('#fcf-ratio-body tr').nth(i).locator('td').allTextContents(), expected);
+    const row = page.locator('#fcf-ratio-body tr').nth(i);
+    assert.deepEqual(await row.locator('td:not(.fcf-trend-col)').allTextContents(), expected);
+    const spark = trend(columns.map(column => column.ratios[metric].value));
+    assert.equal(await row.locator('.fcf-trend-col svg').count(), spark ? 1 : 0);
+    if (spark) {
+      assert.equal(await row.locator('.fcf-trend-col path').count(), spark.segments.length);
+      assert.equal(await row.locator('.fcf-trend-col circle').getAttribute('fill'), spark.color);
+    }
   }
 }
 
@@ -95,11 +102,22 @@ async function checkTable(page, ticker, options) {
     assert.equal(await page.locator('#fcf-ratio-panel').isVisible(), false);
     await page.locator('button[onclick="switchSubPage(\'charts\')"]').click();
     await checkTable(page, 'NVDA', { period: 'annual', flow: 'ttm', balance: 'average' });
+    for (const end of [false, true]) {
+      const bounds = await page.locator('#fcf-ratio-panel .table-scroll-wrapper').evaluate((box, end) => {
+        box.scrollLeft = end ? box.scrollWidth : 0;
+        return {
+          edge: box.getBoundingClientRect().right,
+          trend: box.querySelector('tbody .fcf-trend-col').getBoundingClientRect().right
+        };
+      }, end);
+      assert.ok(Math.abs(bounds.edge - bounds.trend) < 3, 'Trend remains pinned to the right edge');
+    }
     assert.equal(await page.locator('#fcf-ratio-period').inputValue(), 'annual');
     assert.equal(await page.locator('#fcf-ratio-balance').inputValue(), 'average');
     await page.evaluate(() => openDetail('NVDA'));
     assert.equal(await page.locator('#fcf-ratio-panel').isVisible(), false);
     assert.equal(await page.locator('#detail-view #fcf-ratio-panel').count(), 0);
+    assert.equal(await page.locator('#det-ticker').getAttribute('type'), 'button');
     const originalFair = await page.locator('#det-res-fair').innerText();
     await page.locator('#inp-fcf0').fill('100');
     await page.waitForFunction(before => document.querySelector('#det-res-fair').textContent !== before, originalFair);
@@ -107,13 +125,55 @@ async function checkTable(page, ticker, options) {
     assert.equal(await page.locator('#dcf-fcf td').count(), 11);
     assert.equal(await page.locator('#sens-body tr').count(), 3);
     assert.equal(await page.locator('#detailDcfHistoricalChart').count(), 0);
-    await page.evaluate(() => openCompanyProfile('NVDA'));
+    await page.locator('#det-ticker').click();
+    assert.equal(await page.locator('#company-view').isVisible(), true);
+    assert.equal(await page.locator('#cmp-ticker').innerText(), 'NVDA');
     await page.locator('button[onclick="switchSubPage(\'charts\')"]').click();
     await checkTable(page, 'NVDA', { period: 'annual', flow: 'ttm', balance: 'average' });
     await page.setViewportSize({ width: 390, height: 844 });
     const widths = await page.locator('#fcf-ratio-panel .table-scroll-wrapper')
       .evaluate(node => ({ client: node.clientWidth, scroll: node.scrollWidth }));
     assert.ok(widths.scroll > widths.client, 'Historical columns scroll horizontally on narrow viewports');
+    assert.equal(await page.locator('#chart-bars-wrap').count(), 0);
+    for (const width of [390, 1024, 1822]) {
+      await page.setViewportSize({ width, height: 1000 });
+      const layout = await page.locator('.subpage-nav-bar').evaluate(nav => {
+        const box = nav.getBoundingClientRect();
+        return {
+          overflow: nav.scrollWidth > nav.clientWidth,
+          buttons: [...nav.querySelectorAll('button')].map(button => {
+            const rect = button.getBoundingClientRect();
+            return rect.left >= box.left && rect.right <= box.right + 1 && rect.bottom <= box.bottom + 1;
+          })
+        };
+      });
+      assert.equal(layout.overflow, false, `Navigation must not clip at ${width}px`);
+      assert.equal(layout.buttons.length, 8);
+      assert.ok(layout.buttons.every(Boolean), `Every company tab must fit at ${width}px`);
+    }
+    await page.locator('#btn-lang-toggle').click();
+    for (const tab of ['ratios', 'peers']) {
+      await page.locator(`button[onclick="switchSubPage('${tab}')"]`).click();
+      const table = tab === 'ratios' ? '#cmp-ratio-table' : '#cmp-peers-table';
+      if (tab === 'ratios') await page.locator('#btn-ratio-period-quarterly').click();
+      const sizes = await page.locator(table).evaluate(table => {
+        const row = table.querySelector('tbody tr:not(.fin-group-header-row)');
+        return {
+          first: row.cells[0].getBoundingClientRect().width,
+          data: row.cells[1].getBoundingClientRect().width,
+          label: table.querySelector('.financial-group-label').getBoundingClientRect().width,
+          labelsLeftAligned: getComputedStyle(table.querySelector('.fin-group-header-row td')).textAlign === 'left'
+        };
+      });
+      assert.ok(sizes.first >= 270 && sizes.first < 400, `${tab} metric column should be readable and bounded`);
+      assert.ok(sizes.data >= 120, `${tab} data columns must not collapse`);
+      assert.ok(sizes.label > 0 && sizes.labelsLeftAligned, `${tab} group labels must be visible on the left`);
+      if (tab === 'peers') {
+        const peerWidths = await page.locator('#cmp-peers-table thead th:not(:first-child)')
+          .evaluateAll(cells => cells.map(cell => cell.getBoundingClientRect().width));
+        assert.ok(Math.max(...peerWidths) - Math.min(...peerWidths) < 2, 'Peer columns should have equal widths');
+      }
+    }
     assert.deepEqual(errors, []);
     assert.deepEqual(firstPartyFailures, []);
 
@@ -140,7 +200,7 @@ async function checkTable(page, ticker, options) {
     await racePage.waitForLoadState('networkidle');
     assert.match(await racePage.locator('#fcf-ratio-status').innerText(), /^AAPL/);
     await checkTable(racePage, 'AAPL', {});
-    console.log('PASS: real-browser company/trend navigation, eight stocks, all ratio controls and values, tab/language state, no DCF duplicate, unchanged DCF, mobile scrolling, retry and stale-request protection.');
+    console.log('PASS: real-browser trend sparklines, ticker navigation, eight visible company tabs, tidy key-ratio/peer tables, all ratio controls and values, unchanged DCF, mobile layout, retry and stale-request protection.');
   } finally {
     await browser.close();
   }

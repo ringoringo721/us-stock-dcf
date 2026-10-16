@@ -3,7 +3,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
-const { calculate } = require('../fcf_ratios.js');
+const { calculate, trend } = require('../fcf_ratios.js');
 
 function fixture() {
   const data = {};
@@ -152,6 +152,21 @@ test('quarter fiscal labels do not assume calendar-year fiscal ends', () => {
   assert.equal(calculate(data).at(-1).label, 'FY 2026 Q4');
 });
 
+test('trend lines retain actual chronology, negative/zero values and gaps without fabrication', () => {
+  assert.equal(trend([null, null]), null);
+  const chart = trend([0, null, -10, 10]);
+  assert.equal(chart.segments.length, 2);
+  assert.equal(chart.segments[0].length, 1);
+  assert.equal(chart.segments[1].length, 2);
+  near(chart.segments[0][0].x, 4);
+  near(chart.segments[1][0].x, 4 + 200 / 3);
+  assert.equal(chart.color, '#22c55e');
+  assert.equal(trend([2, 1]).color, '#ef4444');
+  assert.equal(trend([0, 0]).last.y, 16);
+  assert.equal(trend([null, 0]).last.x, 104);
+  assert.equal(trend([false, '', NaN, Infinity]), null);
+});
+
 test('all checked-in statements calculate without nonfinite ratios in every supported mode', () => {
   const directory = path.join(__dirname, '..', 'cache', 'financials');
   const files = fs.readdirSync(directory).filter(file => file.endsWith('_statements_v2.json'));
@@ -201,6 +216,7 @@ test('the exact shipped HTML scripts compile and the removed chart cannot initia
   assert.ok(scripts.length > 0);
   scripts.forEach(script => assert.doesNotThrow(() => new vm.Script(script)));
   assert.doesNotMatch(html, /renderDetailHistoricalChart|detailDcfHistoricalChart|chartjs-adapter-date-fns/);
+  assert.doesNotMatch(html, /renderChartsSubPage|chart-bars-wrap|cmp-analytics-chart-container/);
   assert.match(html, /id="fcf-ratio-panel"/);
   assert.match(html, /src="fcf_ratios.js"/);
   assert.equal((html.match(/id="fcf-ratio-panel"/g) || []).length, 1);

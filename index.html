@@ -324,6 +324,8 @@
 
     .ticker-link { font-weight: 700; color: var(--accent); cursor: pointer; text-decoration: none; font-size: 13px; }
     .ticker-link:hover { text-decoration: underline; }
+    .detail-ticker-link { border: 0; background: none; padding: 0; color: var(--accent); font: inherit; cursor: pointer; }
+    .detail-ticker-link:hover, .detail-ticker-link:focus-visible { text-decoration: underline; }
     .badge { padding: 3px 7px; border-radius: 4px; font-size: 10px; font-weight: 600; display: inline-block; }
     .badge-undervalued { background: var(--green-bg); color: var(--green); border: 1px solid rgba(74, 222, 128, 0.3); }
     .badge-overvalued { background: var(--red-bg); color: var(--red); border: 1px solid rgba(248, 113, 113, 0.3); }
@@ -370,9 +372,13 @@
     .form-group input:focus, .form-group select:focus { border-color: var(--accent); outline: none; }
     #fcf-ratio-panel .form-group { flex-direction: column; align-items: stretch; gap: 6px; min-width: 220px; }
     #fcf-ratio-panel select { width: 100%; text-align: left; }
-    #fcf-ratio-table { width: max-content; min-width: 100%; }
+    #fcf-ratio-table { width: max-content; min-width: 100%; border-collapse: separate; border-spacing: 0; }
     #fcf-ratio-table th, #fcf-ratio-table td { min-width: 125px; white-space: nowrap; text-align: right; }
     #fcf-ratio-table .table-sticky-col { min-width: 190px; text-align: left; }
+    #fcf-ratio-table tbody th { top: auto; }
+    #fcf-ratio-table .fcf-trend-col { position: sticky; right: 0; min-width: 125px; background: #1e293b; text-align: center; border-left: 1px solid var(--card-border); z-index: 12; }
+    #fcf-ratio-table thead .fcf-trend-col { background: #162032; z-index: 30; }
+    #fcf-ratio-table .spark-line-wrap { width: 108px; height: 32px; }
     
     #dcf-table, #sens-table { width: 100%; border-collapse: collapse; text-align: right; font-size: 12px; }
     #dcf-table th, #dcf-table td, #sens-table th, #sens-table td { padding: 9px 10px; border-bottom: 1px solid var(--card-border); }
@@ -487,17 +493,15 @@
 
     /* 7 大子分頁專屬導航與內容區樣式 */
     .subpage-nav-bar {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 8px;
-      overflow-x: auto;
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 8px;
       padding: 8px 12px;
       margin-bottom: 18px;
-      scrollbar-width: none;
     }
-    .subpage-nav-bar::-webkit-scrollbar { display: none; }
     .sub-tab-btn {
       background: #0f172a;
       border: 1px solid var(--card-border);
@@ -507,7 +511,9 @@
       font-size: 13px;
       font-weight: 700;
       cursor: pointer;
-      white-space: nowrap;
+      white-space: normal;
+      min-width: 0;
+      min-height: 48px;
       transition: all 0.2s;
     }
     .sub-tab-btn:hover { color: #fff; border-color: var(--accent); }
@@ -518,6 +524,17 @@
     }
     .subpage-content { display: none; }
     .subpage-content.active { display: block; }
+    #company-view .panel-title { flex-wrap: wrap; gap: 12px; }
+    @media (max-width: 600px) {
+      .subpage-nav-bar { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 8px; }
+      .sub-tab-btn { padding: 8px; font-size: 12px; overflow-wrap: anywhere; }
+    }
+    #cmp-ratio-table { width: max-content !important; min-width: 100%; }
+    #cmp-ratio-table th, #cmp-ratio-table td { min-width: 130px; white-space: nowrap; font-size: 12.5px; line-height: 1.5; }
+    #cmp-ratio-table .table-sticky-col:not([colspan]) { width: 280px !important; min-width: 280px; max-width: 280px; white-space: normal; text-align: left; }
+    #cmp-ratio-table .fin-group-header-row td,
+    #cmp-peers-table .fin-group-header-row td { text-align: left; }
+    .financial-group-label { position: sticky; left: 14px; display: inline-block; }
 
     /* 三表切換按鈕專用排版 */
     .statement-selector-bar {
@@ -584,6 +601,17 @@
       border-spacing: 0 !important;
       width: 100% !important;
       min-width: 980px !important;
+      table-layout: fixed;
+    }
+    #cmp-peers-table th, #cmp-peers-table td { font-size: 12.5px; line-height: 1.5; }
+    #cmp-peers-table td:not([colspan]) { white-space: nowrap; text-align: right; }
+    #cmp-peers-table td.peer-sticky-col:not([colspan]) { white-space: normal; text-align: left; }
+    #cmp-peers-table .th-cell-wrap { min-width: 0 !important; white-space: normal !important; }
+    #cmp-peers-table .peer-company-name { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; overflow-wrap: anywhere; }
+    @media (max-width: 600px) {
+      #fcf-ratio-table .fcf-trend-col { position: static; }
+      #cmp-ratio-table .table-sticky-col:not([colspan]) { width: 180px !important; min-width: 180px; max-width: 180px; }
+      #cmp-peers-table col:first-child { width: 180px !important; }
     }
 
     /* 頂部表頭垂直凍結 (向下滾動時不被覆蓋) */
@@ -780,7 +808,7 @@
     <div class="detail-header">
       <div class="detail-title">
         <button id="det-fav-btn" class="fav-btn" onclick="toggleDetailFavorite()">♡</button>
-        <span id="det-ticker" style="color: var(--accent);">NVDA</span>
+        <button type="button" id="det-ticker" class="detail-ticker-link" onclick="openCompanyProfile(activeDetailTicker)">NVDA</button>
         <span id="det-exchange" class="badge">NASDAQ</span>
         <span id="det-name" style="font-size: 16px; color: #cbd5e1;">輝達</span>
         <span id="det-moat-badge" class="badge-moat moat-wide" onclick="openMoat(activeDetailTicker)">護城河: 90/100 🏆</span>
@@ -966,7 +994,7 @@
       <button class="sub-tab-btn" onclick="switchSubPage('charts')" data-i18n="tab_charts">📊 5. 趨勢分析</button>
       <button class="sub-tab-btn" onclick="switchSubPage('dividend')" data-i18n="tab_dividend">💰 6. 每股盈餘與股息</button>
       <button class="sub-tab-btn" onclick="switchSubPage('news')" data-i18n="tab_news">📰 7. 公司新聞</button>
-      <button class="sub-tab-btn" onclick="switchSubPage('chart')">📈 8. TradingView 圖表</button>
+      <button class="sub-tab-btn" onclick="switchSubPage('chart')" data-i18n="tab_tradingview">📈 8. TradingView 圖表</button>
     </div>
 
     <!-- 子分頁 1：基本資料 -->
@@ -1244,12 +1272,6 @@
     
     <!-- 子分頁 5：趨勢分析 -->
     <div id="subpage-charts" class="subpage-content">
-      <div class="panel">
-        <div class="panel-title" data-i18n="sec_charts_title">現金流與營運趨勢柱狀分析</div>
-        <div id="cmp-analytics-chart-container" style="padding: 20px; text-align: center; color: var(--text-muted);">
-          <div id="chart-bars-wrap" style="display: flex; gap: 24px; justify-content: center; align-items: flex-end; height: 260px; padding: 20px 0;"></div>
-        </div>
-      </div>
       <section class="panel" id="fcf-ratio-panel" style="margin-top: 20px;" aria-labelledby="fcf-ratio-title">
         <div class="panel-title" id="fcf-ratio-title" data-i18n="fcf_title">自由現金流（FCF）比率</div>
         <p data-i18n="fcf_definition" style="color: var(--text-muted); font-size: 12px;">FCF 使用財報 freeCashFlow（營運現金流－資本支出），不是 FCFE；不受 DCF 模擬輸入影響。</p>
@@ -1722,6 +1744,7 @@
       tab_ratios: "⚖️ 3. 關鍵比率",
       tab_peers: "👥 4. 同行業對比",
       tab_charts: "📊 5. 趨勢分析",
+      tab_tradingview: "📈 8. TradingView 圖表",
       tab_dividend: "💰 6. 每股盈餘與股息",
       tab_news: "📰 7. 公司新聞",
       sec_profile_title: "企業核心業務與營運全貌",
@@ -1766,7 +1789,6 @@
       lbl_ratio_lev: "槓桿比率",
       sec_peers_title: "所屬產業核心競爭對手估值橫向對比",
       th_peer_name: "代碼 / 企業", th_discount: "折現溢價",
-      sec_charts_title: "現金流與營運趨勢柱狀分析",
       sec_dividend_title: "每股盈餘 (EPS) 軌跡與股東分紅回報",
       lbl_yield: "股息率", lbl_dps: "每股常態現金分配", lbl_pe_fwd: "動態 P/E 估值乘數",
       sec_news_title: "即時財經快訊與市場資訊 (FMP News Feed)",
@@ -1816,6 +1838,7 @@
       fcf_ebitda: "FCF／EBITDA",
       fcf_basis_note: "期初是本期間開始前的餘額：單季往前一季、TTM 往前四季、年度往前一財年。平均為期初與期末的簡單平均。營收與 EBITDA 始終採與 FCF 相同期間。",
       fcf_metric: "比率（%）",
+      fcf_trend: "趨勢",
       fcf_loading: "正在載入原始財報…",
       fcf_select_ratio: "請至少勾選一項比率。",
       fcf_no_periods: "沒有可辨識財年、季度與完整日期的財報期間。",
@@ -1935,6 +1958,7 @@
       tab_ratios: "⚖️ 3. Key Ratios",
       tab_peers: "👥 4. Peer Comparison",
       tab_charts: "📊 5. Trend Analysis",
+      tab_tradingview: "📈 8. TradingView",
       tab_dividend: "💰 6. EPS & Dividends",
       tab_news: "📰 7. News Feed",
       sec_profile_title: "Core Business & Corporate Profile",
@@ -1972,7 +1996,6 @@
       th_ratio_name: "Ratio Name", th_curr_val: "Reported Value", th_benchmark: "Health Benchmark", th_status: "Status",
       sec_peers_title: "Direct Peer Valuation Matrix",
       th_peer_name: "Ticker / Company", th_discount: "Fair Spread %",
-      sec_charts_title: "Cash Flow & Trend Analytics",
       sec_dividend_title: "EPS Track Record & Shareholder Capital Return",
       lbl_yield: "Dividend Yield", lbl_dps: "Normalized DPS", lbl_pe_fwd: "Forward P/E Multiple",
       sec_news_title: "Live Market News & Regulatory Filings",
@@ -2022,6 +2045,7 @@
       fcf_ebitda: "FCF / EBITDA",
       fcf_basis_note: "Beginning means the balance before the period: one quarter back for single-quarter, four quarters back for TTM, and one fiscal year back for annual. Average is the simple mean of beginning and ending balances. Sales and EBITDA always cover the same period as FCF.",
       fcf_metric: "Ratio (%)",
+      fcf_trend: "Trend",
       fcf_loading: "Loading original financial statements...",
       fcf_select_ratio: "Select at least one ratio.",
       fcf_no_periods: "No statement periods with identifiable fiscal years, quarters and full dates.",
@@ -2792,7 +2816,6 @@
     } else if (tabKey === 'peers') {
       renderPeersSubPage(curStock);
     } else if (tabKey === 'charts') {
-      renderChartsSubPage(curStock);
       FcfRatios.render(curTicker, currentLang, I18N_DICT[currentLang]);
     } else if (tabKey === 'dividend') {
       renderDividendSubPage(curStock);
@@ -3004,7 +3027,8 @@
         thead.innerHTML = aHeadHtml;
       } else {
         const qPeriods = qRaw.periods || [];
-        let qHeadHtml = `<th class="table-sticky-col" style="text-align: left; width: 320px;" data-i18n="th_ratio_metric">比率指標 / 財務維度</th>`;
+        const metricTitle = (currentLang === 'en') ? 'Ratio Metric / Dimension' : '比率指標 / 財務維度';
+        let qHeadHtml = `<th class="table-sticky-col" style="text-align: left; width: 320px;">${metricTitle}</th>`;
         
         qPeriods.forEach((p, pIdx) => {
           const isQ4 = String(p).toUpperCase().includes('Q4') && (pIdx < qPeriods.length - 1);
@@ -3578,11 +3602,11 @@
     const colSpanTotal = count + 2;
     ratioGroups.forEach(grp => {
       const gTitle = isEn ? grp.groupTitleEn : grp.groupTitleZh;
-      html += `<tr class="fin-group-header-row"><td class="table-sticky-col" colspan="${colSpanTotal}">${gTitle}</td></tr>`;
+      html += `<tr class="fin-group-header-row"><td colspan="${colSpanTotal}"><span class="financial-group-label">${gTitle}</span></td></tr>`;
       grp.items.forEach(it => {
         const label = isEn ? it.nameEn : it.nameZh;
         const hl = it.highlight ? 'font-weight: 700; color: #fff;' : 'color: #cbd5e1;';
-        const colorCls = it.color ? `class="${it.color}"` : '';
+        const colorCls = it.color || '';
 
         html += `<tr><td class="table-sticky-col" style="text-align: left; ${hl} padding-left: 24px;">${label}</td>`;
         it.series.forEach((val, cIdx) => {
@@ -3597,7 +3621,7 @@
           const isQ4 = isQuarter && periods[cIdx] && String(periods[cIdx]).toUpperCase().includes('Q4') && (cIdx < count - 1);
           const divCls = isQ4 ? ' year-divider-cell' : '';
 
-          html += `<td ${colorCls} class="${divCls}" style="${it.highlight ? 'font-weight: 700;' : ''}">${disp}</td>`;
+          html += `<td class="${colorCls}${divCls}" style="${it.highlight ? 'font-weight: 700;' : ''}">${disp}</td>`;
         });
         html += `<td style="text-align: center; padding: 4px 6px;">${drawSparkline(it.series)}</td></tr>`;
       });
@@ -4021,7 +4045,11 @@
           <span style="font-size: 12px; color: var(--text-muted);">${subTitle}</span>
         </div>
         <div class="table-scroll-wrapper" style="max-height: 72vh; overflow: auto; position: relative;">
-          <table id="cmp-peers-table">
+          <table id="cmp-peers-table" style="min-width: ${280 + allCols.length * 200}px !important;">
+            <colgroup>
+              <col style="width: 280px;">
+              ${allCols.map(() => '<col style="width: 200px;">').join('')}
+            </colgroup>
             <thead>
               <tr>
                 <th class="peer-sticky-col" style="text-align: left; width: 280px; padding: 10px 14px;">
@@ -4037,7 +4065,7 @@
                         <div>
                           <span style="font-size: 14px; font-weight: 800; color: ${isCurrent ? '#38bdf8' : '#f8fafc'};">${c.ticker}</span>${isCurrent ? `<span class="badge" style="background:rgba(56,189,248,0.25); color:#38bdf8; font-size:10px; margin-left:4px;">${currentTag}</span>` : ''}
                         </div>
-                        <div style="font-size: 11px; color: #94a3b8; font-weight: 500;">${getStockDisplayName(c)}</div>
+                        <div class="peer-company-name" style="font-size: 11px; color: #94a3b8; font-weight: 500;">${getStockDisplayName(c)}</div>
                         <span class="th-period-subdate">(${dateStr})</span>
                       </div>
                     </th>
@@ -4053,8 +4081,8 @@
       const gTitle = isEn ? grp.titleEn : grp.titleZh;
       tableHtml += `
         <tr class="fin-group-header-row">
-          <td class="peer-sticky-col" colspan="${allCols.length + 1}" style="padding: 9px 14px; text-transform: uppercase; letter-spacing: 0.5px;">
-            ${gTitle}
+          <td colspan="${allCols.length + 1}" style="padding: 9px 14px; text-transform: uppercase; letter-spacing: 0.5px;">
+            <span class="financial-group-label">${gTitle}</span>
           </td>
         </tr>
       `;
@@ -4081,30 +4109,13 @@
 
     tableHtml += `</tbody></table></div></div>`;
     container.innerHTML = tableHtml;
+    container.querySelectorAll('.peer-company-name').forEach(label => { label.title = label.textContent; });
 
     // 6. 綁定滑鼠拖曳左右滑動
     const peerWrapper = container.querySelector('.table-scroll-wrapper');
     if (peerWrapper && typeof makeScrollable === 'function') {
       makeScrollable(peerWrapper);
     }
-  }
-
-  function renderChartsSubPage(s) {
-    const wrap = document.getElementById('chart-bars-wrap');
-    if (!wrap) return;
-    const base = Number(s.fcf0) || 1000;
-    const years = ['2021', '2022', '2023', '2024', '2025', 'TTM'];
-    const vals = [base * 0.61, base * 0.69, base * 0.76, base * 0.84, base * 0.92, base];
-    wrap.innerHTML = vals.map((v, i) => {
-      const height = Math.min(Math.max((v / base) * 160, 40), 200);
-      return `
-        <div style="display:flex; flex-direction:column; align-items:center; gap:8px;">
-          <span style="font-size:11px; color:#38bdf8;">$${v.toFixed(0)}M</span>
-          <div style="width:38px; height:${height}px; background:linear-gradient(to top, #0284c7, #38bdf8); border-radius:4px;"></div>
-          <span style="font-size:12px; color:#cbd5e1; font-weight:600;">${years[i]}</span>
-        </div>
-      `;
-    }).join('');
   }
 
   function renderDividendSubPage(s) {
@@ -4202,7 +4213,6 @@
     renderFinancialsSubPage(s);
     renderRatiosSubPage(s);
     renderPeersSubPage(s);
-    renderChartsSubPage(s);
     renderDividendSubPage(s);
     renderNewsSubPage(ticker);
 
