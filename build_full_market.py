@@ -12,11 +12,6 @@ HIST_CACHE_DIR = "cache/historical_prices"
 os.makedirs(HIST_CACHE_DIR, exist_ok=True)
 
 def calculate_historical_5y_dcf_and_prices(fmp_sym: str, stock_item: dict) -> dict:
-    """
-    精確計算過去 5 年（共 20 季）每一季末的真實 DCF 公允價值
-    （基於當時真實 TTM FCF、Net Debt、稀釋股數、WACC）
-    並抓取真實每日復權收盤價 (adjClose)
-    """
     url_prices = f"https://financialmodelingprep.com/api/v3/historical-price-full/{fmp_sym}?apikey={FMP_KEY}"
     url_q_cf = f"https://financialmodelingprep.com/api/v3/cash-flow-statement/{fmp_sym}?period=quarter&limit=24&apikey={FMP_KEY}"
     url_q_bs = f"https://financialmodelingprep.com/api/v3/balance-sheet-statement/{fmp_sym}?period=quarter&limit=24&apikey={FMP_KEY}"
@@ -25,25 +20,26 @@ def calculate_historical_5y_dcf_and_prices(fmp_sym: str, stock_item: dict) -> di
     historical_dcf_series = []
     
     try:
-        # 1. 抓取每日真實復權收盤價 (adjClose)
+        # 1. 抓取每日真實復權收盤價
         r_p = requests.get(url_prices, timeout=12)
         if r_p.status_code == 200:
             hist = r_p.json().get("historical", [])
+            print(f"[{fmp_sym}] 成功抓取歷史日線筆數: {len(hist)}", flush=True)
             real_5y_prices = [
                 {"date": p["date"], "close": round(float(p.get("adjClose") or p.get("close")), 2)}
                 for p in reversed(hist)
             ][-1260:]
             
-        # 建立日期對應市價字典
         price_map = {item["date"]: item["close"] for item in real_5y_prices}
 
-        # 2. 抓取季度現金流量表與資產負債表 (近 20 季)
+        # 2. 抓取季度財報
         r_cf = requests.get(url_q_cf, timeout=12)
         r_bs = requests.get(url_q_bs, timeout=12)
         
         if r_cf.status_code == 200 and r_bs.status_code == 200:
             cf_list = r_cf.json()
             bs_list = r_bs.json()
+            print(f"[{fmp_sym}] 抓取季度現金流筆數: {len(cf_list) if isinstance(cf_list, list) else 0}", flush=True)
             
             if isinstance(cf_list, list) and isinstance(bs_list, list) and len(cf_list) >= 4:
                 cf_sorted = list(reversed(cf_list))[-20:]
@@ -54,23 +50,19 @@ def calculate_historical_5y_dcf_and_prices(fmp_sym: str, stock_item: dict) -> di
 
                 for idx, q_cf in enumerate(cf_sorted):
                     q_date = q_cf.get("date")
-                    # 計算該季的 TTM FCF (當季 + 前三季自由現金流加總)
                     start_idx = max(0, cf_sorted.index(q_cf) - 3)
                     ttm_fcf = sum(
                         (float(item.get("operatingCashFlow") or 0) + float(item.get("capitalExpenditure") or 0))
                         for item in cf_sorted[start_idx : cf_sorted.index(q_cf) + 1]
                     )
                     
-                    # 尋找對應季末的資產負債表取得 Net Debt 與 Shares
                     q_bs = next((b for b in bs_sorted if b.get("date") <= q_date), bs_sorted[-1])
                     total_debt = float(q_bs.get("totalDebt") or q_bs.get("shortTermDebt") or 0) + float(q_bs.get("longTermDebt") or 0)
                     cash = float(q_bs.get("cashAndShortTermInvestments") or q_bs.get("cashAndCashEquivalents") or 0)
                     net_debt = total_debt - cash
                     shares = float(q_bs.get("weightedAverageShsOutDil") or q_bs.get("weightedAverageShsOut") or stock_item.get("shares") or 1)
-                    if shares <= 0:
-                        shares = 1.0
+                    if shares <= 0: shares = 1.0
 
-                    # 應用 10 年 DCF 模型計算該季公允價值
                     if ttm_fcf > 0:
                         sum_pv = 0
                         cur_fcf = ttm_fcf
@@ -89,7 +81,6 @@ def calculate_historical_5y_dcf_and_prices(fmp_sym: str, stock_item: dict) -> di
                     else:
                         fair_val = max(1.0, float(stock_item.get("price", 100)) * 0.2)
 
-                    # 尋找該季末當天的真實收盤市價
                     ref_price = price_map.get(q_date)
                     if not ref_price and real_5y_prices:
                         past_p = [p["close"] for p in real_5y_prices if p["date"] <= q_date]
@@ -104,8 +95,9 @@ def calculate_historical_5y_dcf_and_prices(fmp_sym: str, stock_item: dict) -> di
                         "spreadPct": round(spread_pct, 2)
                     })
     except Exception as e:
-        print(f"[{fmp_sym}] 計算歷史 DCF 失敗: {e}")
+        print(f"[{fmp_sym}] 計算歷史 DCF 異常: {e}", flush=True)
 
+    print(f"[{fmp_sym}] 最終生成歷史 DCF 季度點數: {len(historical_dcf_series)}", flush=True)
     return {
         "real_5y_prices": real_5y_prices,
         "historical_dcf_series": historical_dcf_series
