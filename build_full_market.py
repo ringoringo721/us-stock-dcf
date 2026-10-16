@@ -12,6 +12,16 @@ HIST_CACHE_DIR = "cache/historical_prices"
 os.makedirs(HIST_CACHE_DIR, exist_ok=True)
 
 def calculate_historical_5y_dcf_and_prices(fmp_sym: str, stock_item: dict) -> dict:
+    cache_file = os.path.join(HIST_CACHE_DIR, f"{fmp_sym}_hist.json")
+    if os.path.exists(cache_file):
+        try:
+            with open(cache_file, "r", encoding="utf-8") as f:
+                cached = json.load(f)
+                if cached and cached.get("historical_dcf_series"):
+                    return cached
+        except Exception:
+            pass
+
     url_prices = f"https://financialmodelingprep.com/api/v3/historical-price-full/{fmp_sym}?apikey={FMP_KEY}"
     url_q_cf = f"https://financialmodelingprep.com/api/v3/cash-flow-statement/{fmp_sym}?period=quarter&limit=24&apikey={FMP_KEY}"
     url_q_bs = f"https://financialmodelingprep.com/api/v3/balance-sheet-statement/{fmp_sym}?period=quarter&limit=24&apikey={FMP_KEY}"
@@ -20,11 +30,10 @@ def calculate_historical_5y_dcf_and_prices(fmp_sym: str, stock_item: dict) -> di
     historical_dcf_series = []
     
     try:
-        # 1. 抓取每日真實復權收盤價
+        time.sleep(0.3) # 避免觸發 FMP 頻率限制
         r_p = requests.get(url_prices, timeout=12)
         if r_p.status_code == 200:
             hist = r_p.json().get("historical", [])
-            print(f"[{fmp_sym}] 成功抓取歷史日線筆數: {len(hist)}", flush=True)
             real_5y_prices = [
                 {"date": p["date"], "close": round(float(p.get("adjClose") or p.get("close")), 2)}
                 for p in reversed(hist)
@@ -32,14 +41,14 @@ def calculate_historical_5y_dcf_and_prices(fmp_sym: str, stock_item: dict) -> di
             
         price_map = {item["date"]: item["close"] for item in real_5y_prices}
 
-        # 2. 抓取季度財報
+        time.sleep(0.3)
         r_cf = requests.get(url_q_cf, timeout=12)
+        time.sleep(0.3)
         r_bs = requests.get(url_q_bs, timeout=12)
         
         if r_cf.status_code == 200 and r_bs.status_code == 200:
             cf_list = r_cf.json()
             bs_list = r_bs.json()
-            print(f"[{fmp_sym}] 抓取季度現金流筆數: {len(cf_list) if isinstance(cf_list, list) else 0}", flush=True)
             
             if isinstance(cf_list, list) and isinstance(bs_list, list) and len(cf_list) >= 4:
                 cf_sorted = list(reversed(cf_list))[-20:]
@@ -95,13 +104,20 @@ def calculate_historical_5y_dcf_and_prices(fmp_sym: str, stock_item: dict) -> di
                         "spreadPct": round(spread_pct, 2)
                     })
     except Exception as e:
-        print(f"[{fmp_sym}] 計算歷史 DCF 異常: {e}", flush=True)
+        print(f"[{fmp_sym}] 計算歷史 DCF 失敗: {e}", flush=True)
 
-    print(f"[{fmp_sym}] 最終生成歷史 DCF 季度點數: {len(historical_dcf_series)}", flush=True)
-    return {
+    result_payload = {
         "real_5y_prices": real_5y_prices,
         "historical_dcf_series": historical_dcf_series
     }
+    
+    try:
+        with open(cache_file, "w", encoding="utf-8") as f:
+            json.dump(result_payload, f, ensure_ascii=False)
+    except Exception:
+        pass
+
+    return result_payload
     
 def fetch_as_reported_trade_ar(symbol: str, api_key: str) -> dict:
     ar_map = {
