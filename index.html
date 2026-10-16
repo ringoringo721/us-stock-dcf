@@ -370,15 +370,15 @@
     .form-group label { font-size: 13px; color: #cbd5e1; }
     .form-group input, .form-group select { width: 110px; background: #0f172a; border: 1px solid var(--card-border); border-radius: 4px; color: #fff; padding: 5px 8px; font-size: 13px; text-align: right; }
     .form-group input:focus, .form-group select:focus { border-color: var(--accent); outline: none; }
-    #fcf-ratio-panel .form-group { flex-direction: column; align-items: stretch; gap: 6px; min-width: 220px; }
-    #fcf-ratio-panel select { width: 100%; text-align: left; }
-    #fcf-ratio-table { width: max-content; min-width: 100%; border-collapse: separate; border-spacing: 0; }
-    #fcf-ratio-table th, #fcf-ratio-table td { min-width: 125px; white-space: nowrap; text-align: right; }
-    #fcf-ratio-table .table-sticky-col { min-width: 190px; text-align: left; }
-    #fcf-ratio-table tbody th { top: auto; }
-    #fcf-ratio-table .fcf-trend-col { position: sticky; right: 0; min-width: 125px; background: #1e293b; text-align: center; border-left: 1px solid var(--card-border); z-index: 12; }
-    #fcf-ratio-table thead .fcf-trend-col { background: #162032; z-index: 30; }
-    #fcf-ratio-table .spark-line-wrap { width: 108px; height: 32px; }
+    .historical-ratio-panel .form-group { flex-direction: column; align-items: stretch; gap: 6px; min-width: 220px; }
+    .historical-ratio-panel select { width: 100%; text-align: left; }
+    .historical-ratio-table { width: max-content; min-width: 100%; border-collapse: separate; border-spacing: 0; }
+    .historical-ratio-table th, .historical-ratio-table td { min-width: 125px; white-space: nowrap; text-align: right; }
+    .historical-ratio-table .table-sticky-col { min-width: 190px; text-align: left; }
+    .historical-ratio-table tbody th { top: auto; }
+    .historical-ratio-table .fcf-trend-col { position: sticky; right: 0; min-width: 125px; background: #1e293b; text-align: center; border-left: 1px solid var(--card-border); z-index: 12; }
+    .historical-ratio-table thead .fcf-trend-col { background: #162032; z-index: 30; }
+    .historical-ratio-table .spark-line-wrap { width: 108px; height: 32px; }
     
     #dcf-table, #sens-table { width: 100%; border-collapse: collapse; text-align: right; font-size: 12px; }
     #dcf-table th, #dcf-table td, #sens-table th, #sens-table td { padding: 9px 10px; border-bottom: 1px solid var(--card-border); }
@@ -609,7 +609,7 @@
     #cmp-peers-table .th-cell-wrap { min-width: 0 !important; white-space: normal !important; }
     #cmp-peers-table .peer-company-name { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; overflow-wrap: anywhere; }
     @media (max-width: 600px) {
-      #fcf-ratio-table .fcf-trend-col { position: static; }
+      .historical-ratio-table .fcf-trend-col { position: static; }
       #cmp-ratio-table .table-sticky-col:not([colspan]) { width: 180px !important; min-width: 180px; max-width: 180px; }
       #cmp-peers-table col:first-child { width: 180px !important; }
     }
@@ -1272,7 +1272,7 @@
     
     <!-- 子分頁 5：趨勢分析 -->
     <div id="subpage-charts" class="subpage-content">
-      <section class="panel" id="fcf-ratio-panel" style="margin-top: 20px;" aria-labelledby="fcf-ratio-title">
+      <section class="panel historical-ratio-panel" id="fcf-ratio-panel" style="margin-top: 20px;" aria-labelledby="fcf-ratio-title">
         <div class="panel-title" id="fcf-ratio-title" data-i18n="fcf_title">自由現金流（FCF）比率</div>
         <p data-i18n="fcf_definition" style="color: var(--text-muted); font-size: 12px;">FCF 使用財報 freeCashFlow（營運現金流－資本支出），不是 FCFE；不受 DCF 模擬輸入影響。</p>
         <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: end;">
@@ -1309,16 +1309,62 @@
             <label><input id="fcf-ratio-netIncome" type="checkbox" checked> <span data-i18n="fcf_netIncome">FCF／淨利</span></label>
           </div>
         </fieldset>
-        <p data-i18n="fcf_basis_note" style="color: var(--text-muted); font-size: 12px;">期初是本期間開始前的餘額：單季往前一季、TTM 往前四季、年度往前一財年。平均為期初與期末的簡單平均。營收與 EBITDA 始終採與 FCF 相同期間。</p>
+        <p data-i18n="fcf_basis_note" style="color: var(--text-muted); font-size: 12px;">期初是本期間開始前的餘額：單季往前一季、TTM 往前四季、年度往前一財年。平均為期初與期末的簡單平均。營收、EBITDA 與淨利始終採與 FCF 相同期間。</p>
         <p id="fcf-ratio-status" role="status" style="color: var(--text-muted);"></p>
         <button id="fcf-ratio-retry" type="button" class="stmt-btn" data-i18n="fcf_retry" hidden>重新載入</button>
         <div class="table-scroll-wrapper" style="overflow-x: auto;">
-          <table id="fcf-ratio-table">
+          <table id="fcf-ratio-table" class="historical-ratio-table">
             <thead id="fcf-ratio-head"></thead>
             <tbody id="fcf-ratio-body"></tbody>
           </table>
         </div>
         <ul id="fcf-ratio-notes" style="font-size: 12px; color: var(--text-muted);"></ul>
+      </section>
+      <section class="panel historical-ratio-panel" id="return-ratio-panel" style="margin-top: 20px;" aria-labelledby="return-ratio-title">
+        <div class="panel-title" id="return-ratio-title" data-i18n="returns_title">資本報酬率（ROA／ROE／ROTE）</div>
+        <p data-i18n="returns_definition" style="color: var(--text-muted); font-size: 12px;">ROA 與 ROE 分別以淨利除以總資產與股東權益。ROTE 以淨利除以有形股東權益（股東權益扣除商譽及其他無形資產），不另扣優先股；不是有形淨資產報酬率或調整後營業盈餘報酬率。</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: end;">
+          <div class="form-group">
+            <label for="return-ratio-period" data-i18n="fcf_period">報表期間</label>
+            <select id="return-ratio-period">
+              <option value="quarterly" data-i18n="fcf_quarterly">季度</option>
+              <option value="annual" data-i18n="fcf_annual">完整會計年度</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="return-ratio-flow" data-i18n="fcf_flow">季度流量口徑</label>
+            <select id="return-ratio-flow">
+              <option value="ttm" data-i18n="fcf_ttm">TTM（連續四季）</option>
+              <option value="single" data-i18n="fcf_single">單季</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="return-ratio-balance" data-i18n="returns_balance">資產／權益分母</label>
+            <select id="return-ratio-balance">
+              <option value="beginning" data-i18n="fcf_beginning">期初</option>
+              <option value="ending" data-i18n="fcf_ending">期末</option>
+              <option value="average" data-i18n="fcf_average">期初與期末平均</option>
+            </select>
+          </div>
+        </div>
+        <fieldset style="border: 0; padding: 0; margin: 8px 0;">
+          <legend data-i18n="fcf_visible">顯示比率</legend>
+          <div style="display: flex; flex-wrap: wrap; gap: 16px;">
+            <label><input id="return-ratio-roa" type="checkbox" checked> <span data-i18n="returns_roa">資產報酬率（ROA）</span></label>
+            <label><input id="return-ratio-roe" type="checkbox" checked> <span data-i18n="returns_roe">股東權益報酬率（ROE）</span></label>
+            <label><input id="return-ratio-rote" type="checkbox" checked> <span data-i18n="returns_rote">有形股東權益報酬率（ROTE）</span></label>
+          </div>
+        </fieldset>
+        <p data-i18n="returns_basis_note" style="color: var(--text-muted); font-size: 12px;">淨利採相同期間的財報 netIncome；單季不年化，TTM 加總連續四季，年度採完整會計年度。期初為期間開始前餘額，平均為期初與期末簡單平均；ROTE 先各自計算期初與期末有形權益再平均。控制獨立於上方 FCF 表與 DCF 模擬。</p>
+        <p id="return-ratio-status" role="status" style="color: var(--text-muted);"></p>
+        <button id="return-ratio-retry" type="button" class="stmt-btn" data-i18n="fcf_retry" hidden>重新載入</button>
+        <div class="table-scroll-wrapper" style="overflow-x: auto;">
+          <table id="return-ratio-table" class="historical-ratio-table">
+            <thead id="return-ratio-head"></thead>
+            <tbody id="return-ratio-body"></tbody>
+          </table>
+        </div>
+        <ul id="return-ratio-notes" style="font-size: 12px; color: var(--text-muted);"></ul>
       </section>
     </div>
 
@@ -1862,6 +1908,17 @@
       fcf_reason_negativeSales: "警示：營收分母包含負值，請審慎解讀。",
       fcf_reason_negativeEbitda: "警示：EBITDA 分母包含負值，正比率不代表正向現金轉換。",
       fcf_reason_negativeNetIncome: "警示：淨利分母包含虧損，正比率不代表獲利或正向現金轉換。",
+      returns_title: "資本報酬率（ROA／ROE／ROTE）",
+      returns_definition: "ROA 與 ROE 分別以淨利除以總資產與股東權益。ROTE 以淨利除以有形股東權益（股東權益扣除商譽及其他無形資產），不另扣優先股；不是有形淨資產報酬率或調整後營業盈餘報酬率。",
+      returns_balance: "資產／權益分母",
+      returns_roa: "資產報酬率（ROA）",
+      returns_roe: "股東權益報酬率（ROE）",
+      returns_rote: "有形股東權益報酬率（ROTE）",
+      returns_basis_note: "淨利採相同期間的財報 netIncome；單季不年化，TTM 加總連續四季，年度採完整會計年度。期初為期間開始前餘額，平均為期初與期末簡單平均；ROTE 先各自計算期初與期末有形權益再平均。控制獨立於上方 FCF 表與 DCF 模擬。",
+      returns_reason_incompleteTtm: "N/A：缺少連續四季的損益表（最早三季通常無足夠資料）。",
+      returns_reason_missingNetIncome: "N/A：缺少該期間的財報 netIncome。",
+      returns_reason_negativeNetIncome: "警示：本期間淨利為負；保留實際算術值。",
+      returns_reason_negativeTangibleEquity: "警示：有形股東權益或其期初／期末組成為負，正比率不代表正向回報。",
       th_liq_1: "清算價 (I)",
       th_liq_2: "清算價 (II)",
       th_liq_3: "清算價 (III)",
@@ -2071,6 +2128,17 @@
       fcf_reason_negativeSales: "Warning: The sales denominator includes negative values; interpret cautiously.",
       fcf_reason_negativeEbitda: "Warning: The EBITDA denominator includes negative values. A positive ratio does not imply positive cash conversion.",
       fcf_reason_negativeNetIncome: "Warning: The net income denominator includes losses. A positive ratio does not imply profitability or positive cash conversion.",
+      returns_title: "Returns on Capital (ROA / ROE / ROTE)",
+      returns_definition: "ROA and ROE divide net income by total assets and shareholders' equity, respectively. ROTE divides net income by tangible shareholders' equity (equity less goodwill and other intangible assets), without separately deducting preferred stock. This is not return on net tangible assets or an adjusted operating-earnings return.",
+      returns_balance: "Assets / equity denominator",
+      returns_roa: "Return on Assets (ROA)",
+      returns_roe: "Return on Equity (ROE)",
+      returns_rote: "Return on Tangible Equity (ROTE)",
+      returns_basis_note: "Uses reported netIncome for the selected period: single-quarter returns are not annualized, TTM sums four consecutive quarters, and annual uses the full fiscal year. Beginning is the balance before the period; average is the simple mean of beginning and ending balances. ROTE averages the separately calculated opening and closing tangible equity. Controls are independent of the FCF table and DCF simulation.",
+      returns_reason_incompleteTtm: "N/A: Four consecutive income statements are unavailable (usually the earliest three columns).",
+      returns_reason_missingNetIncome: "N/A: Reported netIncome is missing for this period.",
+      returns_reason_negativeNetIncome: "Warning: Net income for this period is negative; actual arithmetic values are retained.",
+      returns_reason_negativeTangibleEquity: "Warning: Tangible equity or a component opening/closing balance is negative. A positive ratio does not imply a positive return.",
       th_liq_1: "Liquidation (L1)",
       th_liq_2: "Net-Net (L2)",
       th_liq_3: "Cash-Net (L3)",
@@ -2822,6 +2890,7 @@
       renderPeersSubPage(curStock);
     } else if (tabKey === 'charts') {
       FcfRatios.render(curTicker, currentLang, I18N_DICT[currentLang]);
+      FcfRatios.renderReturns(curTicker, currentLang, I18N_DICT[currentLang]);
     } else if (tabKey === 'dividend') {
       renderDividendSubPage(curStock);
     } else if (tabKey === 'news') {

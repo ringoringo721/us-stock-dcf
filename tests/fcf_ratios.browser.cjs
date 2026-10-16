@@ -2,28 +2,36 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const { chromium } = require('playwright');
-const { calculate, trend } = require('../fcf_ratios.js');
+const { calculate, calculateReturns, trend } = require('../fcf_ratios.js');
 
 const baseUrl = process.env.TEST_BASE_URL || 'http://127.0.0.1:8765';
 
-async function checkTable(page, ticker, options) {
-  await page.waitForFunction(() => document.querySelector('#fcf-ratio-body').children.length === 5);
+async function checkTable(page, ticker, options, prefix = 'fcf-ratio') {
+  const returns = prefix === 'return-ratio';
+  const metrics = returns ? ['roa', 'roe', 'rote'] : ['equity', 'assets', 'sales', 'ebitda', 'netIncome'];
+  await page.waitForFunction(({ prefix, count }) => document.querySelector(`#${prefix}-body`).children.length === count,
+    { prefix, count: metrics.length });
   const source = JSON.parse(fs.readFileSync(
     path.join(__dirname, '..', 'cache', 'financials', `${ticker}_statements_v2.json`), 'utf8'));
-  const columns = calculate(source, options);
-  const headings = await page.locator('#fcf-ratio-head th').allTextContents();
+  const columns = (returns ? calculateReturns : calculate)(source, options);
+  const headings = await page.locator(`#${prefix}-head th`).allTextContents();
   assert.equal(headings.length, columns.length + 2);
   for (let i = 0; i < columns.length; i++) {
     assert.ok(headings[i + 1].includes(columns[i].label));
     assert.ok(headings[i + 1].includes(columns[i].date));
   }
-  for (const [i, metric] of ['equity', 'assets', 'sales', 'ebitda', 'netIncome'].entries()) {
+  for (const [i, metric] of metrics.entries()) {
     const expected = columns.map(column => {
       const ratio = column.ratios[metric];
       return ratio.value === null ? 'N/A' : `${ratio.value.toFixed(2)}%${ratio.warnings.length ? ' !' : ''}`;
     });
-    const row = page.locator('#fcf-ratio-body tr').nth(i);
+    const row = page.locator(`#${prefix}-body tr`).nth(i);
     assert.deepEqual(await row.locator('td:not(.fcf-trend-col)').allTextContents(), expected);
+    const titles = await row.locator('td:not(.fcf-trend-col)').evaluateAll(cells => cells.map(cell => cell.title));
+    columns.forEach((column, index) => {
+      const ratio = column.ratios[metric];
+      if (ratio.reason || ratio.warnings.length) assert.ok(titles[index] && !titles[index].includes('undefined'));
+    });
     const spark = trend(columns.map(column => column.ratios[metric].value));
     assert.equal(await row.locator('.fcf-trend-col svg').count(), spark ? 1 : 0);
     if (spark) {
@@ -42,6 +50,10 @@ async function checkTable(page, ticker, options) {
     const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
     const errors = [];
     const firstPartyFailures = [];
+    const statementRequests = [];
+    page.on('request', request => {
+      if (request.url().includes('_statements_v2.json')) statementRequests.push(request.url());
+    });
     page.on('pageerror', error => errors.push(error.message));
     page.on('response', response => {
       if (response.status() >= 400 && response.url().startsWith(baseUrl)) {
@@ -64,6 +76,10 @@ async function checkTable(page, ticker, options) {
       assert.equal(await page.locator('#company-view #subpage-charts #fcf-ratio-panel').count(), 1);
       assert.equal(await page.locator('#detail-view #fcf-ratio-panel').count(), 0);
       await checkTable(page, ticker, {});
+      await checkTable(page, ticker, {}, 'return-ratio');
+      assert.equal(await page.locator('#detail-view #return-ratio-panel').count(), 0);
+      assert.equal(statementRequests.filter(url => url.endsWith(`/${ticker}_statements_v2.json`)).length, 1,
+        'Both panels share one statement request per ticker');
     }
     await page.evaluate(() => openCompanyProfile('NVDA'));
     await page.locator('button[onclick="switchSubPage(\'charts\')"]').click();
@@ -79,6 +95,38 @@ async function checkTable(page, ticker, options) {
         }
       }
     }
+    const fcfBeforeReturns = await page.locator('#fcf-ratio-body').textContent();
+    assert.equal(await page.locator('#return-ratio-period').inputValue(), 'quarterly');
+    assert.equal(await page.locator('#return-ratio-flow').inputValue(), 'ttm');
+    assert.equal(await page.locator('#return-ratio-balance').inputValue(), 'beginning');
+    const placement = await page.evaluate(() => ({
+      fcfBottom: document.querySelector('#fcf-ratio-panel').getBoundingClientRect().bottom,
+      returnsTop: document.querySelector('#return-ratio-panel').getBoundingClientRect().top
+    }));
+    assert.ok(placement.returnsTop >= placement.fcfBottom, 'Returns table appears below FCF table');
+    assert.equal(await page.locator('#return-ratio-roic').count(), 0);
+    for (const period of ['quarterly', 'annual']) {
+      await page.selectOption('#return-ratio-period', period);
+      assert.equal(await page.locator('#return-ratio-flow').isDisabled(), period === 'annual');
+      for (const flow of period === 'quarterly' ? ['single', 'ttm'] : ['ttm']) {
+        if (period === 'quarterly') await page.selectOption('#return-ratio-flow', flow);
+        for (const balance of ['beginning', 'ending', 'average']) {
+          await page.selectOption('#return-ratio-balance', balance);
+          await checkTable(page, 'NVDA', { period, flow, balance }, 'return-ratio');
+          assert.equal(await page.locator('#fcf-ratio-body').textContent(), fcfBeforeReturns);
+        }
+      }
+    }
+    for (const metric of ['roa', 'roe', 'rote']) await page.uncheck(`#return-ratio-${metric}`);
+    assert.equal(await page.locator('#return-ratio-body tr').count(), 0);
+    assert.equal(await page.locator('#return-ratio-balance').isDisabled(), true);
+    await page.check('#return-ratio-rote');
+    await page.waitForFunction(() => document.querySelector('#return-ratio-body').children.length === 1);
+    assert.ok((await page.locator('#return-ratio-body tr th').innerText()).includes('ROTE'));
+    assert.equal(await page.locator('#return-ratio-balance').isDisabled(), false);
+    await page.check('#return-ratio-roa');
+    await page.check('#return-ratio-roe');
+    await checkTable(page, 'NVDA', { period: 'annual', flow: 'ttm', balance: 'average' }, 'return-ratio');
     for (const metric of ['equity', 'assets', 'sales', 'ebitda', 'netIncome']) {
       await page.uncheck(`#fcf-ratio-${metric}`);
     }
@@ -97,6 +145,9 @@ async function checkTable(page, ticker, options) {
     await page.waitForFunction(() => document.querySelector('#fcf-ratio-body tr th').textContent === 'FCF / Equity');
     assert.equal(await page.locator('#fcf-ratio-title').innerText(), 'Free Cash Flow (FCF) Ratios');
     assert.equal(await page.locator('#fcf-ratio-body tr th').last().innerText(), 'FCF / Net Income');
+    assert.equal(await page.locator('#return-ratio-title').innerText(), 'Returns on Capital (ROA / ROE / ROTE)');
+    assert.equal(await page.locator('#return-ratio-body tr th').last().innerText(), 'Return on Tangible Equity (ROTE)');
+    await checkTable(page, 'NVDA', { period: 'annual', flow: 'ttm', balance: 'average' }, 'return-ratio');
     assert.equal(await page.locator('#subpage-charts').getAttribute('class'), 'subpage-content active');
     await page.locator('#btn-lang-toggle').click();
     await page.waitForFunction(() => document.querySelector('#fcf-ratio-body tr th').textContent.includes('股東權益'));
@@ -105,6 +156,7 @@ async function checkTable(page, ticker, options) {
     assert.equal(await page.locator('#fcf-ratio-panel').isVisible(), false);
     await page.locator('button[onclick="switchSubPage(\'charts\')"]').click();
     await checkTable(page, 'NVDA', { period: 'annual', flow: 'ttm', balance: 'average' });
+    await checkTable(page, 'NVDA', { period: 'annual', flow: 'ttm', balance: 'average' }, 'return-ratio');
     for (const end of [false, true]) {
       const bounds = await page.locator('#fcf-ratio-panel .table-scroll-wrapper').evaluate((box, end) => {
         box.scrollLeft = end ? box.scrollWidth : 0;
@@ -117,6 +169,7 @@ async function checkTable(page, ticker, options) {
     }
     assert.equal(await page.locator('#fcf-ratio-period').inputValue(), 'annual');
     assert.equal(await page.locator('#fcf-ratio-balance').inputValue(), 'average');
+    const returnsBeforeDcf = await page.locator('#return-ratio-body').textContent();
     await page.evaluate(() => openDetail('NVDA'));
     assert.equal(await page.locator('#fcf-ratio-panel').isVisible(), false);
     assert.equal(await page.locator('#detail-view #fcf-ratio-panel').count(), 0);
@@ -125,6 +178,7 @@ async function checkTable(page, ticker, options) {
     await page.locator('#inp-fcf0').fill('100');
     await page.waitForFunction(before => document.querySelector('#det-res-fair').textContent !== before, originalFair);
     assert.equal(await page.locator('#fcf-ratio-body').textContent(), historical);
+    assert.equal(await page.locator('#return-ratio-body').textContent(), returnsBeforeDcf);
     assert.equal(await page.locator('#dcf-fcf td').count(), 11);
     assert.equal(await page.locator('#sens-body tr').count(), 3);
     assert.equal(await page.locator('#detailDcfHistoricalChart').count(), 0);
@@ -137,6 +191,11 @@ async function checkTable(page, ticker, options) {
     const widths = await page.locator('#fcf-ratio-panel .table-scroll-wrapper')
       .evaluate(node => ({ client: node.clientWidth, scroll: node.scrollWidth }));
     assert.ok(widths.scroll > widths.client, 'Historical columns scroll horizontally on narrow viewports');
+    const returnWidths = await page.locator('#return-ratio-panel .table-scroll-wrapper')
+      .evaluate(node => ({ client: node.clientWidth, scroll: node.scrollWidth }));
+    assert.ok(returnWidths.scroll > returnWidths.client, 'Return columns scroll on mobile');
+    assert.equal(await page.locator('#return-ratio-table .fcf-trend-col').first()
+      .evaluate(node => getComputedStyle(node).position), 'static');
     assert.equal(await page.locator('#chart-bars-wrap').count(), 0);
     for (const width of [390, 1024, 1822]) {
       await page.setViewportSize({ width, height: 1000 });
@@ -189,6 +248,8 @@ async function checkTable(page, ticker, options) {
     await failurePage.unroute('**/cache/financials/AAPL_statements_v2.json');
     await failurePage.locator('#fcf-ratio-retry').click();
     await checkTable(failurePage, 'AAPL', {});
+    await failurePage.locator('#return-ratio-retry').click();
+    await checkTable(failurePage, 'AAPL', {}, 'return-ratio');
 
     const racePage = await browser.newPage();
     await racePage.route('**/cache/financials/NVDA_statements_v2.json', async route => {
@@ -203,7 +264,8 @@ async function checkTable(page, ticker, options) {
     await racePage.waitForLoadState('networkidle');
     assert.match(await racePage.locator('#fcf-ratio-status').innerText(), /^AAPL/);
     await checkTable(racePage, 'AAPL', {});
-    console.log('PASS: real-browser trend sparklines, ticker navigation, eight visible company tabs, tidy key-ratio/peer tables, all ratio controls and values, unchanged DCF, mobile layout, retry and stale-request protection.');
+    await checkTable(racePage, 'AAPL', {}, 'return-ratio');
+    console.log('PASS: independent FCF and ROA/ROE/ROTE tables, all period/flow/denominator controls and values, shared fetches, trend sparklines, languages, navigation, unchanged DCF, mobile layout, retries and stale-request protection.');
   } finally {
     await browser.close();
   }

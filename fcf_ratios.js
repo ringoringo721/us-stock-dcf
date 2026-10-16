@@ -6,6 +6,7 @@
   'use strict';
 
   const metrics = ['equity', 'assets', 'sales', 'ebitda', 'netIncome'];
+  const returnMetrics = ['roa', 'roe', 'rote'];
   const incomeFields = { sales: 'revenue', ebitda: 'ebitda', netIncome: 'netIncome' };
   const dayMs = 86400000;
 
@@ -71,44 +72,71 @@
   }
 
   function calculate(data, options = {}) {
+    return calculateRatios(data, options, false);
+  }
+
+  function calculateReturns(data, options = {}) {
+    return calculateRatios(data, options, true);
+  }
+
+  function balanceValue(row, metric) {
+    if (metric !== 'rote') {
+      return numeric(row[metric === 'equity' || metric === 'roe' ? 'totalStockholdersEquity' : 'totalAssets']);
+    }
+    const equity = numeric(row.totalStockholdersEquity);
+    let intangibles = numeric(row.goodwillAndIntangibleAssets);
+    if (intangibles === null) {
+      const goodwill = numeric(row.goodwill);
+      const otherIntangibles = numeric(row.intangibleAssets);
+      if (goodwill === null || otherIntangibles === null) return null;
+      intangibles = goodwill + otherIntangibles;
+    }
+    return equity === null ? null : equity - intangibles;
+  }
+
+  function calculateRatios(data, options, returns) {
+    const selectedMetrics = returns ? returnMetrics : metrics;
+    const numeratorField = returns ? 'netIncome' : 'freeCashFlow';
+    const missingNumerator = returns ? 'missingNetIncome' : 'missingFcf';
     const { period = 'quarterly', flow = 'ttm', balance = 'beginning' } = options;
     if (!['quarterly', 'annual'].includes(period) || !['single', 'ttm'].includes(flow)
         || !['beginning', 'ending', 'average'].includes(balance)) {
-      throw new RangeError('Invalid FCF ratio options');
+      throw new RangeError('Invalid financial ratio options');
     }
     const annual = period === 'annual';
     const source = data && data[period];
-    if (!source || !['income', 'balance', 'cashflow'].every(key => Array.isArray(source[key]))) {
+    const required = returns ? ['income', 'balance'] : ['income', 'balance', 'cashflow'];
+    if (!source || !required.every(key => Array.isArray(source[key]))) {
       throw new TypeError('Missing financial statement arrays');
     }
     const income = indexRows(source.income, annual);
     const balances = indexRows(source.balance, annual);
-    const cashflow = indexRows(source.cashflow, annual);
-    const keys = [...new Set([...income.keys(), ...cashflow.keys()])].sort((a, b) => a - b);
+    const flows = returns ? income : indexRows(source.cashflow, annual);
+    const keys = [...new Set([...income.keys(), ...flows.keys()])].sort((a, b) => a - b);
     const windowSize = !annual && flow === 'ttm' ? 4 : 1;
 
     return keys.map(key => {
-      const end = cashflow.get(key);
+      const end = flows.get(key);
       const labelRow = end || income.get(key);
       const year = annual ? key : Math.floor(key / 4);
       const label = annual ? `FY ${year}` : `FY ${year} Q${key % 4 + 1}`;
       const column = { label, date: labelRow ? labelRow.date : '', ratios: {} };
-      const window = Array.from({ length: windowSize }, (_, i) => cashflow.get(key - windowSize + 1 + i));
+      const window = Array.from({ length: windowSize }, (_, i) => flows.get(key - windowSize + 1 + i));
       let issue = null;
-      if (window.some(row => !row)) issue = windowSize === 4 ? 'incompleteTtm' : 'missingFcf';
+      if (window.some(row => !row)) issue = windowSize === 4 ? 'incompleteTtm' : missingNumerator;
       else if (window.some((row, i) => i > 0 && (
         (Date.parse(row.date) - Date.parse(window[i - 1].date)) / dayMs < 60
         || (Date.parse(row.date) - Date.parse(window[i - 1].date)) / dayMs > 120
       ))) issue = 'nonConsecutive';
-      else if (window.some(row => numeric(row.freeCashFlow) === null)) issue = 'missingFcf';
+      else if (window.some(row => numeric(row[numeratorField]) === null)) issue = missingNumerator;
       else if (!sameCurrency(window)) issue = 'currencyMismatch';
       if (issue) {
-        for (const metric of metrics) column.ratios[metric] = unavailable(issue);
+        for (const metric of selectedMetrics) column.ratios[metric] = unavailable(issue);
         return column;
       }
-      const fcf = window.reduce((total, row) => total + numeric(row.freeCashFlow), 0);
+      const numerator = window.reduce((total, row) => total + numeric(row[numeratorField]), 0);
 
-      for (const metric of metrics) {
+      for (const metric of selectedMetrics) {
         let denominator;
         let denominatorRows;
         let denominatorValues;
@@ -131,7 +159,6 @@
         } else {
           const closing = balances.get(key);
           const opening = balances.get(key - windowSize);
-          const field = metric === 'equity' ? 'totalStockholdersEquity' : 'totalAssets';
           const needsOpening = balance !== 'ending';
           const needsClosing = balance !== 'beginning';
           if (needsOpening && !opening) issue = 'missingOpening';
@@ -139,7 +166,7 @@
           else if (needsClosing && closing.date !== end.date) issue = 'dateMismatch';
           else if (needsOpening) {
             const days = (Date.parse(end.date) - Date.parse(opening.date)) / dayMs;
-            const previousFlow = cashflow.get(key - windowSize);
+            const previousFlow = flows.get(key - windowSize);
             const longPeriod = annual || windowSize === 4;
             if (days < (longPeriod ? 300 : 60) || days > (longPeriod ? 430 : 120)
                 || (previousFlow && previousFlow.date !== opening.date)) issue = 'dateMismatch';
@@ -147,7 +174,7 @@
           if (!issue) {
             denominatorRows = balance === 'beginning' ? [opening]
               : balance === 'ending' ? [closing] : [opening, closing];
-            denominatorValues = denominatorRows.map(row => numeric(row[field]));
+            denominatorValues = denominatorRows.map(row => balanceValue(row, metric));
             if (denominatorValues.some(value => value === null)) {
               issue = balance === 'beginning' ? 'missingOpening' : 'missingDenominator';
             } else denominator = denominatorValues.reduce((sum, value) => sum + value, 0) / denominatorValues.length;
@@ -155,13 +182,14 @@
         }
         if (!issue && !sameCurrency([...window, ...denominatorRows])) issue = 'currencyMismatch';
         if (!issue && denominator === 0) issue = 'zeroDenominator';
-        const value = !issue ? fcf / denominator * 100 : null;
+        const value = !issue ? numerator / denominator * 100 : null;
         if (!issue && !Number.isFinite(value)) issue = 'invalidValue';
         const warnings = [];
-        if (fcf < 0) warnings.push('negativeFcf');
+        if (numerator < 0) warnings.push(returns ? 'negativeNetIncome' : 'negativeFcf');
         if (denominatorValues && denominatorValues.some(number => number < 0)) {
           warnings.push({ equity: 'negativeEquity', assets: 'negativeAssets',
-            sales: 'negativeSales', ebitda: 'negativeEbitda', netIncome: 'negativeNetIncome' }[metric]);
+            sales: 'negativeSales', ebitda: 'negativeEbitda', netIncome: 'negativeNetIncome',
+            roa: 'negativeAssets', roe: 'negativeEquity', rote: 'negativeTangibleEquity' }[metric]);
         }
         column.ratios[metric] = issue ? unavailable(issue) : { value, reason: null, warnings };
         issue = null;
@@ -171,9 +199,10 @@
   }
 
   const cache = new Map();
-  let current = null;
-  let requestId = 0;
-  let bound = false;
+  const panels = {
+    fcf: { prefix: 'fcf-ratio', metrics, calculate, current: null, requestId: 0, bound: false },
+    returns: { prefix: 'return-ratio', metrics: returnMetrics, calculate: calculateReturns, current: null, requestId: 0, bound: false }
+  };
 
   function element(tag, text, className) {
     const node = document.createElement(tag);
@@ -183,26 +212,38 @@
   }
 
   async function render(ticker, lang, labels) {
-    const panel = document.getElementById('fcf-ratio-panel');
+    return renderPanel('fcf', ticker, lang, labels);
+  }
+
+  async function renderReturns(ticker, lang, labels) {
+    return renderPanel('returns', ticker, lang, labels);
+  }
+
+  async function renderPanel(kind, ticker, lang, labels) {
+    const state = panels[kind];
+    const getElement = suffix => document.getElementById(`${state.prefix}-${suffix}`);
+    const reasonLabel = reason => labels[`${kind}_reason_${reason}`] || labels[`fcf_reason_${reason}`];
+    const panel = getElement('panel');
     if (!panel) return;
-    current = { ticker, lang, labels };
-    if (!bound) {
-      panel.addEventListener('change', () => render(current.ticker, current.lang, current.labels));
-      document.getElementById('fcf-ratio-retry').addEventListener('click', () => render(current.ticker, current.lang, current.labels));
-      bound = true;
+    state.current = { ticker, lang, labels };
+    if (!state.bound) {
+      const refresh = () => renderPanel(kind, state.current.ticker, state.current.lang, state.current.labels);
+      panel.addEventListener('change', refresh);
+      getElement('retry').addEventListener('click', refresh);
+      state.bound = true;
     }
-    const id = ++requestId;
-    const period = document.getElementById('fcf-ratio-period').value;
-    const flow = document.getElementById('fcf-ratio-flow').value;
-    const balance = document.getElementById('fcf-ratio-balance').value;
-    document.getElementById('fcf-ratio-flow').disabled = period === 'annual';
-    const selected = metrics.filter(metric => document.getElementById(`fcf-ratio-${metric}`).checked);
-    document.getElementById('fcf-ratio-balance').disabled = !selected.some(metric => metric === 'equity' || metric === 'assets');
-    const head = document.getElementById('fcf-ratio-head');
-    const body = document.getElementById('fcf-ratio-body');
-    const status = document.getElementById('fcf-ratio-status');
-    const notes = document.getElementById('fcf-ratio-notes');
-    const retry = document.getElementById('fcf-ratio-retry');
+    const id = ++state.requestId;
+    const period = getElement('period').value;
+    const flow = getElement('flow').value;
+    const balance = getElement('balance').value;
+    getElement('flow').disabled = period === 'annual';
+    const selected = state.metrics.filter(metric => getElement(metric).checked);
+    getElement('balance').disabled = !selected.some(metric => kind === 'returns' || metric === 'equity' || metric === 'assets');
+    const head = getElement('head');
+    const body = getElement('body');
+    const status = getElement('status');
+    const notes = getElement('notes');
+    const retry = getElement('retry');
     head.replaceChildren();
     body.replaceChildren();
     notes.replaceChildren();
@@ -225,8 +266,8 @@
         cache.set(ticker, pending);
       }
       const data = await cache.get(ticker);
-      if (id !== requestId) return;
-      const columns = calculate(data, { period, flow, balance });
+      if (id !== state.requestId) return;
+      const columns = state.calculate(data, { period, flow, balance });
       const explanation = period === 'annual' ? labels.fcf_annual
         : flow === 'ttm' ? labels.fcf_ttm : labels.fcf_single;
       status.textContent = `${ticker} · ${explanation} · ${labels[`fcf_${balance}`]}`;
@@ -251,13 +292,13 @@
       const explanations = new Set();
       for (const metric of selected) {
         const row = element('tr');
-        const name = element('th', labels[`fcf_${metric}`], 'table-sticky-col');
+        const name = element('th', labels[`${kind}_${metric}`], 'table-sticky-col');
         name.scope = 'row';
         row.append(name);
         for (const column of columns) {
           const ratio = column.ratios[metric];
           const text = ratio.value === null ? 'N/A' : `${ratio.value.toFixed(2)}%`;
-          const messages = ratio.reason ? [labels[`fcf_reason_${ratio.reason}`]] : ratio.warnings.map(warning => labels[`fcf_reason_${warning}`]);
+          const messages = ratio.reason ? [reasonLabel(ratio.reason)] : ratio.warnings.map(reasonLabel);
           messages.forEach(message => explanations.add(message));
           const cell = element('td', text + (ratio.warnings.length ? ' !' : ''));
           if (messages.length) {
@@ -276,7 +317,7 @@
           svg.setAttribute('viewBox', '0 0 108 32');
           svg.setAttribute('class', 'spark-line-svg');
           svg.setAttribute('role', 'img');
-          svg.setAttribute('aria-label', `${labels[`fcf_${metric}`]} ${labels.fcf_trend}`);
+          svg.setAttribute('aria-label', `${labels[`${kind}_${metric}`]} ${labels.fcf_trend}`);
           const title = document.createElementNS(ns, 'title');
           title.textContent = columns.map((column, i) => `${column.label}: ${values[i] === null ? 'N/A' : values[i].toFixed(2) + '%'}`).join('; ');
           svg.append(title);
@@ -304,13 +345,13 @@
       }
       for (const message of explanations) notes.append(element('li', message));
     } catch (error) {
-      if (id !== requestId) return;
+      if (id !== state.requestId) return;
       cache.delete(ticker);
-      console.error('FCF ratio statements could not be loaded', ticker, error);
+      console.error('Financial ratio statements could not be loaded', kind, ticker, error);
       status.textContent = labels.fcf_error;
       retry.hidden = false;
     }
   }
 
-  return { calculate, trend, render };
+  return { calculate, calculateReturns, trend, render, renderReturns };
 });

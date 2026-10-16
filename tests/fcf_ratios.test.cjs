@@ -3,7 +3,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
-const { calculate, trend } = require('../fcf_ratios.js');
+const { calculate, calculateReturns, trend } = require('../fcf_ratios.js');
 
 function fixture() {
   const data = {};
@@ -17,7 +17,8 @@ function fixture() {
       const base = { date, fiscalYear: date.slice(0, 4), reportedCurrency: 'USD',
         period: period === 'annual' ? 'FY' : `Q${Math.ceil(Number(date.slice(5, 7)) / 3)}` };
       rows.income.push({ ...base, revenue: 100 + i * 10, ebitda: 20 + i * 2, netIncome: 10 + i });
-      rows.balance.push({ ...base, totalStockholdersEquity: 100 + i * 10, totalAssets: 200 + i * 20 });
+      rows.balance.push({ ...base, totalStockholdersEquity: 100 + i * 10, totalAssets: 200 + i * 20,
+        goodwill: 10 + i, intangibleAssets: 5 + i, goodwillAndIntangibleAssets: 15 + i * 2 });
       rows.cashflow.push({ ...base, freeCashFlow: i * 10 });
     });
     data[period] = rows;
@@ -195,6 +196,101 @@ test('trend lines retain actual chronology, negative/zero values and gaps withou
   assert.equal(trend([false, '', NaN, Infinity]), null);
 });
 
+test('ROA, ROE and ROTE use reported net income and the correct balances in every mode', () => {
+  const data = fixture();
+  for (const period of ['quarterly', 'annual']) {
+    for (const flow of ['single', 'ttm']) {
+      const source = data[period];
+      const size = period === 'quarterly' && flow === 'ttm' ? 4 : 1;
+      const numerator = source.income.slice(-size).reduce((sum, row) => sum + row.netIncome, 0);
+      const opening = source.balance.at(-1 - size);
+      const ending = source.balance.at(-1);
+      for (const balance of ['beginning', 'ending', 'average']) {
+        const result = calculateReturns(data, { period, flow, balance }).at(-1).ratios;
+        assert.deepEqual(Object.keys(result), ['roa', 'roe', 'rote']);
+        const rows = balance === 'beginning' ? [opening] : balance === 'ending' ? [ending] : [opening, ending];
+        for (const metric of ['roa', 'roe', 'rote']) {
+          const denominator = rows.reduce((sum, row) => sum + (metric === 'roa' ? row.totalAssets
+            : metric === 'roe' ? row.totalStockholdersEquity
+              : row.totalStockholdersEquity - row.goodwillAndIntangibleAssets), 0) / rows.length;
+          near(result[metric].value, numerator / denominator * 100);
+        }
+      }
+    }
+  }
+  near(calculateReturns(data).at(-1).ratios.rote.value, 66 / 117 * 100);
+  delete data.quarterly.cashflow;
+  assert.notEqual(calculateReturns(data).at(-1).ratios.roa.value, null);
+});
+
+test('ROTE deducts goodwill and intangibles once, never assumes missing components are zero', () => {
+  const data = fixture();
+  const options = { flow: 'single', balance: 'ending' };
+  const balance = data.quarterly.balance.at(-1);
+  const expected = calculateReturns(data, options).at(-1).ratios.rote.value;
+  balance.preferredStock = 20;
+  assert.equal(calculateReturns(data, options).at(-1).ratios.rote.value, expected);
+  delete balance.goodwillAndIntangibleAssets;
+  assert.equal(calculateReturns(data, options).at(-1).ratios.rote.value, expected);
+  delete balance.goodwill;
+  const result = calculateReturns(data, options).at(-1).ratios;
+  assert.equal(result.rote.reason, 'missingDenominator');
+  assert.notEqual(result.roe.value, null);
+  balance.goodwillAndIntangibleAssets = 0;
+  near(calculateReturns(data, options).at(-1).ratios.rote.value, 18 / 180 * 100);
+});
+
+test('returns preserve losses, negative equity and tangible equity with warnings and zero denominators as N/A', () => {
+  const data = fixture();
+  const options = { flow: 'single', balance: 'ending' };
+  data.quarterly.income.at(-1).netIncome = -18;
+  data.quarterly.balance.at(-1).totalStockholdersEquity = -180;
+  const result = calculateReturns(data, options).at(-1).ratios;
+  assert.equal(result.roe.value, 10);
+  assert.ok(result.roe.warnings.includes('negativeNetIncome'));
+  assert.ok(result.roe.warnings.includes('negativeEquity'));
+  assert.ok(result.rote.warnings.includes('negativeTangibleEquity'));
+  assert.ok(result.roa.value < 0);
+  data.quarterly.balance.at(-1).totalStockholdersEquity = 31;
+  assert.equal(calculateReturns(data, options).at(-1).ratios.rote.reason, 'zeroDenominator');
+  data.quarterly.balance.at(-1).totalAssets = 0;
+  assert.equal(calculateReturns(data, options).at(-1).ratios.roa.reason, 'zeroDenominator');
+  data.quarterly.balance.at(-1).totalStockholdersEquity = 0;
+  assert.equal(calculateReturns(data, options).at(-1).ratios.roe.reason, 'zeroDenominator');
+  data.quarterly.balance.at(-2).totalStockholdersEquity = -31;
+  data.quarterly.balance.at(-1).totalStockholdersEquity = 31;
+  assert.equal(calculateReturns(data, { flow: 'single', balance: 'average' }).at(-1).ratios.roe.reason, 'zeroDenominator');
+  const zero = fixture();
+  zero.quarterly.income.at(-1).netIncome = 0;
+  assert.equal(calculateReturns(zero, options).at(-1).ratios.rote.value, 0);
+});
+
+test('returns enforce complete TTM, fiscal/date alignment, currencies and missing-income rules', () => {
+  const data = fixture();
+  const initial = calculateReturns(data);
+  assert.equal(initial[2].ratios.roa.reason, 'incompleteTtm');
+  assert.equal(initial[3].ratios.roa.reason, 'missingOpening');
+  near(initial[5].ratios.roa.value, (12 + 13 + 14 + 15) / 220 * 100);
+  data.quarterly.balance.reverse();
+  data.quarterly.income.reverse();
+  assert.deepEqual(calculateReturns(data), initial);
+  data.quarterly.balance[0].date = '2025-12-30';
+  assert.equal(calculateReturns(data, { balance: 'ending' }).at(-1).ratios.roe.reason, 'dateMismatch');
+  data.quarterly.income[0].reportedCurrency = 'TWD';
+  assert.equal(calculateReturns(data).at(-1).ratios.roe.reason, 'currencyMismatch');
+  const missing = fixture();
+  delete missing.quarterly.income.at(-1).netIncome;
+  assert.equal(calculateReturns(missing).at(-1).ratios.roe.reason, 'missingNetIncome');
+  missing.quarterly.income.splice(6, 1);
+  assert.equal(calculateReturns(missing).at(-1).ratios.roe.reason, 'incompleteTtm');
+  const irregular = fixture();
+  irregular.quarterly.income[6].date = '2025-04-01';
+  assert.equal(calculateReturns(irregular).at(-1).ratios.roe.reason, 'nonConsecutive');
+  const ambiguous = fixture();
+  ambiguous.quarterly.income.push({ ...ambiguous.quarterly.income.at(-1) });
+  assert.equal(calculateReturns(ambiguous).at(-1).ratios.roe.reason, 'incompleteTtm');
+});
+
 test('all checked-in statements calculate without nonfinite ratios in every supported mode', () => {
   const directory = path.join(__dirname, '..', 'cache', 'financials');
   const files = fs.readdirSync(directory).filter(file => file.endsWith('_statements_v2.json'));
@@ -207,6 +303,11 @@ test('all checked-in statements calculate without nonfinite ratios in every supp
           for (const column of calculate(data, { period, flow, balance })) {
             for (const ratio of Object.values(column.ratios)) {
               assert.ok(ratio.value === null ? Boolean(ratio.reason) : Number.isFinite(ratio.value), file);
+            }
+            for (const column of calculateReturns(data, { period, flow, balance })) {
+              for (const ratio of Object.values(column.ratios)) {
+                assert.ok(ratio.value === null ? Boolean(ratio.reason) : Number.isFinite(ratio.value), file);
+              }
             }
           }
         }
@@ -237,6 +338,26 @@ test('DE, HD, PFE and PGR use exact source dates rather than shifted array posit
         near(column.ratios.netIncome.value, cf.freeCashFlow / income.netIncome * 100);
       }
     }
+    for (const column of calculateReturns(data, { flow: 'single', balance: 'ending' })) {
+      const income = data.quarterly.income.find(row => row.date === column.date);
+      if (!income) continue;
+      const balance = data.quarterly.balance.find(row => row.date === income.date
+        && row.fiscalYear === income.fiscalYear && row.period === income.period);
+      if (!balance) {
+        assert.equal(column.ratios.roa.value, null);
+        continue;
+      }
+      if (typeof balance.totalAssets === 'number' && balance.totalAssets !== 0) {
+        near(column.ratios.roa.value, income.netIncome / balance.totalAssets * 100);
+      }
+      if (typeof balance.totalStockholdersEquity === 'number' && balance.totalStockholdersEquity !== 0) {
+        near(column.ratios.roe.value, income.netIncome / balance.totalStockholdersEquity * 100);
+      }
+      const tangible = balance.totalStockholdersEquity - balance.goodwillAndIntangibleAssets;
+      if (typeof balance.goodwillAndIntangibleAssets === 'number' && tangible !== 0) {
+        near(column.ratios.rote.value, income.netIncome / tangible * 100);
+      }
+    }
   }
 });
 
@@ -255,4 +376,8 @@ test('the exact shipped HTML scripts compile and the removed chart cannot initia
   assert.doesNotMatch(detail, /id="fcf-ratio-panel"/);
   const trends = html.slice(html.indexOf('id="subpage-charts"'), html.indexOf('id="subpage-dividend"'));
   assert.match(trends, /id="fcf-ratio-panel"/);
+  assert.equal((html.match(/id="return-ratio-panel"/g) || []).length, 1);
+  assert.doesNotMatch(detail, /id="return-ratio-panel"/);
+  assert.ok(trends.indexOf('id="return-ratio-panel"') > trends.indexOf('id="fcf-ratio-panel"'));
+  assert.doesNotMatch(trends, /return-ratio-roic/);
 });
