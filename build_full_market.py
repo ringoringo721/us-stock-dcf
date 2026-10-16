@@ -1593,6 +1593,15 @@ def main():
             "price": price
         })
 
+        # 1. 必須先在字典外面執行這行，取得 hist_data
+        hist_data = calculate_historical_5y_dcf_and_prices(fmp_sym, {
+            "WACC": wacc,
+            "g": DEFAULT_G * 100,
+            "shares": shares,
+            "price": price
+        })
+
+        # 2. 然後再組裝進 results[sym] 字典中
         results[sym] = {
             "name": stock_item.get("name", sym),
             "company_name": company_full_name,
@@ -1679,6 +1688,7 @@ def main():
             "insider_trades": company_meta.get("insider_trades", []),
             "stock_splits": company_meta.get("stock_splits", []),
             "fmp_symbol": fmp_sym,
+            # 正確：放在字典結尾處
             "real_5y_prices": hist_data["real_5y_prices"],
             "historical_dcf_series": hist_data["historical_dcf_series"]
         }
