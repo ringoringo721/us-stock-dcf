@@ -194,6 +194,10 @@ async function checkTable(page, ticker, options, prefix = 'fcf-ratio') {
     const returnWidths = await page.locator('#return-ratio-panel .table-scroll-wrapper')
       .evaluate(node => ({ client: node.clientWidth, scroll: node.scrollWidth }));
     assert.ok(returnWidths.scroll > returnWidths.client, 'Return columns scroll on mobile');
+    const metricWidth = await page.locator('#return-ratio-body th').first()
+      .evaluate(node => node.getBoundingClientRect().width);
+    assert.ok(metricWidth <= 155 && returnWidths.client - metricWidth >= 125,
+      'Mobile metric labels must leave room for a complete numeric column');
     assert.equal(await page.locator('#return-ratio-table .fcf-trend-col').first()
       .evaluate(node => getComputedStyle(node).position), 'static');
     assert.equal(await page.locator('#chart-bars-wrap').count(), 0);
