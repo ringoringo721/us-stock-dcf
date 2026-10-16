@@ -1502,7 +1502,7 @@ def main():
         safe_shares = max(float(shares or 1.0), 0.01)
 
         liq_val_1 = round((latest_ca - latest_tl) / safe_shares, 2)
-        liq_val_2 = round(((latest_ar * 0.8 + latest_inv * 0.5 + latestCash) - latest_tl) / safe_shares, 2)
+        liq_val_2 = round(((latest_ar * 0.8 + latest_inv * 0.5 + latest_cash) - latest_tl) / safe_shares, 2)
         liq_val_3 = round((latest_cash - latest_tl) / safe_shares, 2)
         
         FINANCIAL_SPECIAL_INDUSTRIES = [
