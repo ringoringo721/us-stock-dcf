@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>美股旗艦 DCF 估值雷達 (200 檔全覆蓋 · 雙軌多週期版)</title>
+  <title>美股 DCF 估值雷達</title>
   <script src="site_theme.js"></script>
   <script src="market_data.js"></script>
   <script src="fcf_ratios.js"></script>
+  <script src="balance_sheet.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   
   <style>
@@ -719,8 +720,77 @@
     :root[data-theme="light"] .spark-line-svg circle[fill="#22c55e"] { fill: var(--green); }
     :root[data-theme="light"] .spark-line-svg path[stroke="#ef4444"] { stroke: var(--red); }
     :root[data-theme="light"] .spark-line-svg circle[fill="#ef4444"] { fill: var(--red); }
+    [hidden] { display: none !important; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+    .analysis-note { color: var(--text-muted); font-size: 13px; line-height: 1.65; margin: 10px 0; }
+    #balance-panel { margin-top: 20px; }
+    .balance-controls { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 20px; }
+    .balance-controls select { width: 100%; }
+    .balance-cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 18px 0; }
+    .balance-card { display: flex; flex-direction: column; gap: 8px; padding: 18px; background: var(--surface-bg); border: 1px solid var(--card-border); border-radius: 10px; min-width: 0; }
+    .balance-card strong { font-size: clamp(18px, 1.6vw, 24px); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+    .balance-card > span:last-child { font-size: 12px; color: var(--text-muted); }
+    .balance-chart { position: relative; height: 340px; }
+    #balance-table .table-sticky-col { width: 260px; min-width: 260px; max-width: 260px; text-align: left; white-space: normal; }
+    #balance-table th, #balance-table td { min-width: 160px; }
+    #balance-table .balance-selected { background: var(--gold-bg); }
+    #balance-table .balance-total { font-weight: 700; }
+    .screener-intro { margin: 4px 0 20px; }
+    .screener-intro h2 { font-size: 20px; margin-bottom: 6px; }
+    .screener-intro p { color: var(--text-muted); font-size: 14px; }
+    #screener-view .top-stats { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; border: 1px solid var(--card-border); border-radius: 12px; overflow: hidden; background: var(--card-bg); }
+    #screener-view .stat-box { border: 0; border-right: 1px solid var(--card-border); border-radius: 0; padding: 18px 20px; }
+    #screener-view .stat-box:last-child { border-right: 0; }
+    #screener-view .stat-label { min-height: 36px; letter-spacing: normal; text-transform: none; }
+    #screener-view .stat-num { font-size: 21px; font-variant-numeric: tabular-nums; }
+    #screener-view .stat-num small { font-size: 12px; font-weight: 500; margin-left: 8px; color: var(--text-muted); }
+    #screener-view .filter-panel { border-radius: 12px; padding: 20px; gap: 18px; }
+    .screener-toolbar { display: grid; grid-template-columns: minmax(0, 1fr) 240px; gap: 20px; }
+    .screener-toolbar label { display: flex; flex-direction: column; gap: 7px; color: var(--text-muted); font-size: 13px; }
+    #screener-view .search-input { width: 100%; margin-left: 0; padding: 10px 12px; font-size: 14px; }
+    .screener-toolbar select { width: 100%; padding: 10px 12px; font-size: 14px; border-radius: 6px; background: var(--surface-bg); color: var(--text); border: 1px solid var(--card-border); }
+    #screener-view .filter-row { align-items: center; }
+    #screener-view .filter-title { margin-top: 0; }
+    #screener-view .filter-btns { display: flex; flex-wrap: wrap; gap: 7px; flex: 1; min-width: 0; }
+    #screener-view .f-btn { padding: 7px 11px; border-radius: 6px; }
+    .screener-industries { border-top: 1px solid var(--card-border); padding-top: 16px; }
+    .screener-industries summary { cursor: pointer; color: var(--text-secondary); font-size: 13px; font-weight: 600; }
+    .screener-industries .filter-row { margin-top: 16px; }
+    .screener-table-tip { display: block; font-size: 12px; margin-top: 4px; }
+    #screener-results { font-size: 14px; color: var(--text); }
+    #screener-view .scroll-hint-bar { padding: 12px 16px; gap: 16px; background: transparent; border: 0; }
+    #screener-view #screener-table { width: 100% !important; min-width: var(--screener-min-width, 1200px) !important; font-size: var(--table-font-size); }
+    #screener-table .col-fixed-3 { left: var(--screener-name-left, 110px) !important; width: 220px !important; min-width: 220px !important; max-width: 220px; white-space: normal; }
+    #screener-table th { white-space: normal; line-height: 1.5; }
+    #screener-table td { height: 58px; }
+    #screener-table .badge, #screener-table .badge-moat, #screener-table .badge-fscore { font-size: 12px; line-height: 1.5; }
+    #main-scroll-box { max-height: 68vh !important; border-radius: 12px; }
+    @media (max-width: 1000px) {
+      #screener-view .top-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      #screener-view .stat-box { border-bottom: 1px solid var(--card-border); }
+      .balance-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
     @media (max-width: 600px) {
       html, body { padding: 10px; }
+      #screener-view .top-stats { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+      #screener-view .stat-box { padding: 12px; grid-column: span 2; }
+      #screener-view .stat-box:nth-child(n+4) { grid-column: span 3; }
+      #screener-view .stat-label { min-height: 20px; }
+      #screener-view .stat-num { font-size: 18px; }
+      #screener-view .stat-num small { display: block; margin-left: 0; }
+      .screener-intro p { display: none; }
+      #screener-view .filter-panel { padding: 14px; }
+      .screener-toolbar, .balance-controls { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+      #screener-view .filter-row { align-items: flex-start; }
+      #screener-view .filter-title { flex-basis: 100%; }
+      #screener-view .filter-btns { flex-basis: 100%; }
+      #screener-view .scroll-hint-bar { flex-wrap: wrap; padding: 8px 0; }
+      #screener-table .col-fixed-3 { position: static !important; width: 180px !important; min-width: 180px !important; }
+      #screener-table th.col-fixed-3 { position: sticky !important; left: auto !important; }
+      .balance-card { padding: 12px; }
+      .balance-chart { height: 300px; }
+      #balance-table th, #balance-table td { min-width: 140px; }
+      #balance-table .table-sticky-col { width: 150px; min-width: 150px; max-width: 150px; }
       #cmp-fin-table .table-sticky-col { width: 150px !important; min-width: 150px; max-width: 150px; }
       #cmp-fin-table th, #cmp-fin-table td { min-width: 125px; }
       #cmp-fin-table thead .fcf-trend-col { right: auto; }
@@ -733,11 +803,11 @@
 <div class="container">
   <header>
     <div>
-      <h1 id="app-title" data-i18n="title">美股旗艦 DCF 估值雷達 (200 檔)</h1>
-      <span style="font-size: 13px; color: var(--text-muted);" id="app-subtitle" data-i18n="subtitle">NYSE · NASDAQ · AMEX · 銀行保險專屬雙軌模型 · 巴菲特護城河深度分析</span>
+      <h1 id="app-title" data-i18n="title">美股 DCF 估值雷達</h1>
+      <span style="font-size: 13px; color: var(--text-muted);" id="app-subtitle" data-i18n="subtitle">估值篩選 · 公司財報 · 趨勢分析</span>
     </div>
     <div class="header-actions">
-      <div class="status-badge" id="app-status" data-i18n="status_ready">🟢 FMP 官方財報已完成同步 (全市場覆蓋)</div>
+      <div class="status-badge" id="app-status" data-i18n="status_ready">● FMP 財報</div>
       <button class="lang-btn" id="btn-lang-toggle" onclick="toggleLanguage()">English</button>
       <button class="lang-btn" id="btn-theme-toggle" type="button" onclick="SiteTheme.toggle()" aria-pressed="false">淺色模式</button>
     </div>
@@ -745,6 +815,10 @@
 
   <!-- ==================== 頁面 1：總表 ==================== -->
   <div id="screener-view">
+    <div class="screener-intro">
+      <h2 data-i18n="screener_heading">股票概覽</h2>
+      <p data-i18n="screener_description">先比較價格與估值，再進入公司頁查看財報及趨勢。欄位檢視可切換詳細資料。</p>
+    </div>
     <div class="top-stats">
       <div class="stat-box"><div class="stat-label" data-i18n="stat_total">追蹤標的</div><div class="stat-num" id="stat-total">0 檔</div></div>
       <div class="stat-box"><div class="stat-label" data-i18n="stat_fav">❤ 自選監控標的</div><div class="stat-num text-pink" id="stat-fav-count">0 檔</div></div>
@@ -755,6 +829,21 @@
 
     <!-- 篩選面板 -->
     <div class="filter-panel">
+      <div class="screener-toolbar">
+        <label class="screener-search" for="search-ticker">
+          <span data-i18n="screener_search">搜尋股票</span>
+          <input type="search" class="search-input" id="search-ticker" placeholder="搜尋代號、名稱、主板塊或細分子行業..." oninput="renderScreenerTable()">
+        </label>
+        <label for="screener-columns">
+          <span data-i18n="screener_columns">欄位檢視</span>
+          <select id="screener-columns" onchange="applyScreenerColumns(true)">
+            <option value="overview" data-i18n="screener_overview">重點概覽</option>
+            <option value="valuation" data-i18n="screener_valuation">估值與目標價</option>
+            <option value="financial" data-i18n="screener_financial">財務與品質</option>
+            <option value="all" data-i18n="screener_all_columns">全部欄位</option>
+          </select>
+        </label>
+      </div>
       <div class="filter-row">
         <span class="filter-title" data-i18n="filter_dim">篩選維度：</span>
         <div class="filter-btns" id="val-filters">
@@ -764,9 +853,11 @@
           <button class="f-btn" onclick="setValFilter('OVERVALUED')" data-i18n="opt_overvalued">🔴 溢價過高 (高估)</button>
           <button class="f-btn" onclick="setValFilter('SAVED')" data-i18n="opt_saved">💾 已存目標價</button>
         </div>
-        <input type="text" class="search-input" id="search-ticker" placeholder="搜尋代號、名稱、主板塊或細分子行業..." oninput="renderScreenerTable()">
+        <button class="f-btn" type="button" onclick="resetScreenerFilters()" data-i18n="screener_reset">清除篩選</button>
       </div>
 
+      <details class="screener-industries">
+        <summary><span data-i18n="screener_industries">板塊與子行業篩選</span> <span id="screener-industry-count"></span></summary>
       <div class="filter-row">
         <span class="filter-title" data-i18n="filter_sector">主板塊：</span>
         <div class="filter-btns" id="sector-filters">
@@ -791,10 +882,11 @@
           <button class="f-btn active" onclick="setSubIndustryFilter('ALL')" data-i18n="opt_all_sub">全部子行業</button>
         </div>
       </div>
+      </details>
     </div>
 
     <div class="scroll-hint-bar">
-      <span data-i18n="scroll_tip">💡 提示：支援滑鼠直接拖動、觸控板左右滑、按住 <b>Shift + 滾輪</b>、或點擊右側按鈕滑動</span>
+      <div><strong id="screener-results" role="status"></strong><span data-i18n="screener_table_tip" class="screener-table-tip">點選代號開啟公司頁；點選欄名排序。更多欄位可左右捲動。</span></div>
       <div class="scroll-btn-grp">
         <button class="scroll-arrow-btn" onclick="scrollTableBy(-400)" data-i18n="scroll_left">◀ 向左滑</button>
         <button class="scroll-arrow-btn" onclick="scrollTableBy(400)" data-i18n="scroll_right">向右滑 ▶</button>
@@ -1271,77 +1363,6 @@
         </div>
       </div>
 
-      <div class="panel" style="margin-bottom: 24px;">
-        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
-          <div>
-            <h3 style="font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 4px;" id="lbl-asset-analysis-title">資產分析</h3>
-            <span style="font-size: 12px; color: var(--text-muted);" id="lbl-asset-analysis-sub">資產淨值、負債總額、股東權益</span>
-          </div>
-          <div>
-            <span class="badge" style="background: rgba(56, 189, 248, 0.15); border: 1px solid var(--accent); color: var(--accent); padding: 5px 12px; font-weight: 700;" id="badge-asset-struct">資產結構</span>
-          </div>
-        </div>
-
-        <div style="position: relative; height: 350px; width: 100%; margin-bottom: 18px;">
-          <canvas id="ratioAssetChart"></canvas>
-        </div>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; border-top: 1px solid var(--card-border); padding-top: 16px;">
-          <div class="stat-box" style="padding: 10px 14px; background: var(--surface-bg);">
-            <div class="stat-label" id="lbl-card-cr">流動比率</div>
-            <div class="stat-num" id="card-ratio-cr" style="font-size: 18px;">--</div>
-          </div>
-          <div class="stat-box" style="padding: 10px 14px; background: var(--surface-bg);">
-            <div class="stat-label" id="lbl-card-dr">負債比率</div>
-            <div class="stat-num" id="card-ratio-dr" style="font-size: 18px;">--</div>
-          </div>
-          <div class="stat-box" style="padding: 10px 14px; background: var(--surface-bg);">
-            <div class="stat-label" id="lbl-card-cash">現金比率</div>
-            <div class="stat-num text-green" id="card-ratio-cash" style="font-size: 18px;">--</div>
-          </div>
-          <div class="stat-box" style="padding: 10px 14px; background: var(--surface-bg);">
-            <div class="stat-label" id="lbl-card-lev">槓桿比率</div>
-            <div class="stat-num text-gold" id="card-ratio-lev" style="font-size: 18px;">--</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="panel">
-        <div style="margin-bottom: 14px;">
-          <h3 style="font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 4px;" id="lbl-return-analysis-title">回報率指標</h3>
-          <span style="font-size: 12px; color: var(--text-muted);" id="return-chart-subtitle">ROE / ROA / FCF on Equity / FCF on Total Assets</span>
-        </div>
-
-        <div style="display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; align-items: center;">
-          <button class="f-btn active" id="btn-ret-roe" onclick="setReturnMetricMode('ROE')">ROE</button>
-          <button class="f-btn" id="btn-ret-roa" onclick="setReturnMetricMode('ROA')">ROA</button>
-          <button class="f-btn" id="btn-ret-coe" onclick="setReturnMetricMode('COE')">FCF on equity attributable to shareholders</button>
-          <button class="f-btn" id="btn-ret-coa" onclick="setReturnMetricMode('COA')">FCF on total assets</button>
-        </div>
-
-        <div style="position: relative; height: 360px; width: 100%; margin-bottom: 18px;">
-          <canvas id="ratioReturnChart"></canvas>
-        </div>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; border-top: 1px solid var(--card-border); padding-top: 16px;">
-          <div class="stat-box" style="padding: 10px 14px; background: var(--surface-bg);">
-            <div class="stat-label">ROA (TTM)</div>
-            <div class="stat-num text-green" id="card-ret-roa" style="font-size: 18px;">--</div>
-          </div>
-          <div class="stat-box" style="padding: 10px 14px; background: var(--surface-bg);">
-            <div class="stat-label">ROE (TTM)</div>
-            <div class="stat-num text-gold" id="card-ret-roe" style="font-size: 18px;">--</div>
-          </div>
-          <div class="stat-box" style="padding: 10px 14px; background: var(--surface-bg);">
-            <div class="stat-label">FCF on Equity (TTM)</div>
-            <div class="stat-num text-green" id="card-ret-coe" style="font-size: 18px;">--</div>
-          </div>
-          <div class="stat-box" style="padding: 10px 14px; background: var(--surface-bg);">
-            <div class="stat-label">FCF on Assets (TTM)</div>
-            <div class="stat-num" id="card-ret-coa" style="font-size: 18px;">--</div>
-          </div>
-        </div>
-      </div>
     </div>
 
     <!-- 子分頁 4：同行業對比 (直向 5 家同行矩陣) -->
@@ -1442,6 +1463,47 @@
           </table>
         </div>
         <ul id="return-ratio-notes" style="font-size: 12px; color: var(--text-muted);"></ul>
+      </section>
+      <section class="panel historical-ratio-panel" id="balance-panel" aria-labelledby="balance-title">
+        <div class="panel-title" id="balance-title" data-i18n="balance_title">資產與負債結構</div>
+        <p class="analysis-note" data-i18n="balance_definition">以實際財報期末餘額比較規模與財務結構；資產負債不做 TTM 加總。金額單位為財報幣別百萬，缺值不推算補齊。</p>
+        <div class="balance-controls">
+          <div class="form-group">
+            <label for="balance-period" data-i18n="fcf_period">報表期間</label>
+            <select id="balance-period">
+              <option value="quarterly" data-i18n="fcf_quarterly">季度</option>
+              <option value="annual" data-i18n="fcf_annual">完整會計年度</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="balance-date" data-i18n="balance_date">重點財報日</label>
+            <select id="balance-date" disabled></select>
+          </div>
+          <div class="form-group">
+            <label for="balance-view" data-i18n="balance_view">呈現方式</label>
+            <select id="balance-view">
+              <option value="chart" data-i18n="balance_chart">趨勢圖</option>
+              <option value="table" data-i18n="balance_table">明細表</option>
+            </select>
+          </div>
+        </div>
+        <p id="balance-status" class="analysis-note" role="status"></p>
+        <button id="balance-retry" type="button" class="stmt-btn" data-i18n="fcf_retry" hidden>重新載入</button>
+        <div id="balance-cards" class="balance-cards"></div>
+        <div id="balance-chart-wrap" hidden>
+          <div class="balance-chart">
+            <canvas id="balance-chart" role="img" aria-labelledby="balance-title" aria-describedby="balance-status balance-chart-note"></canvas>
+          </div>
+          <p id="balance-chart-note" class="analysis-note" data-i18n="balance_chart_note">線圖顯示總資產、總負債及股東權益；點選圖例可隱藏數列。完整數值請切換明細表。缺值或不同幣別保留斷點。</p>
+        </div>
+        <div id="balance-table-wrap" class="table-scroll-wrapper" hidden>
+          <table id="balance-table" class="historical-ratio-table">
+            <caption class="sr-only" data-i18n="balance_table_caption">各財報日的期末餘額（財報幣別百萬）；醒目欄為上方選定日期。</caption>
+            <thead id="balance-head"></thead>
+            <tbody id="balance-body"></tbody>
+          </table>
+        </div>
+        <ul id="balance-notes" class="analysis-note"></ul>
       </section>
     </div>
 
@@ -1785,19 +1847,61 @@
 
   const I18N_DICT = {
     zh: {
-      title: "美股旗艦 DCF 估值雷達 (200 檔)",
-      subtitle: "NYSE · NASDAQ · AMEX · 銀行保險專屬雙軌模型 · 巴菲特護城河深度分析",
-      status_ready: "🟢 FMP 官方財報已完成同步 (全市場覆蓋)",
+      title: "美股 DCF 估值雷達",
+      subtitle: "估值篩選 · 公司財報 · 趨勢分析",
+      screener_heading: "股票概覽",
+      screener_description: "先比較價格與估值，再進入公司頁查看財報及趨勢。欄位檢視可切換詳細資料。",
+      screener_search: "搜尋股票",
+      screener_columns: "欄位檢視",
+      screener_overview: "重點概覽",
+      screener_valuation: "估值與目標價",
+      screener_financial: "財務與品質",
+      screener_all_columns: "全部欄位",
+      screener_reset: "清除篩選",
+      screener_industries: "板塊與子行業篩選",
+      screener_results: "顯示 {shown}／{total} 檔",
+      screener_empty: "沒有符合的股票，請調整或清除篩選。",
+      screener_table_tip: "點選代號開啟公司頁；點選欄名排序。更多欄位可左右捲動。",
+      balance_title: "資產與負債結構",
+      balance_definition: "以實際財報期末餘額比較規模與財務結構；資產負債不做 TTM 加總。金額單位為財報幣別百萬，缺值不推算補齊。",
+      balance_date: "重點財報日",
+      balance_view: "呈現方式",
+      balance_chart: "趨勢圖",
+      balance_table: "明細表",
+      balance_millions: "百萬",
+      balance_metric: "期末餘額（百萬）",
+      balance_assets: "總資產",
+      balance_currentAssets: "流動資產",
+      balance_nonCurrentAssets: "非流動資產",
+      balance_cash: "現金及約當現金",
+      balance_liabilities: "總負債",
+      balance_currentLiabilities: "流動負債",
+      balance_nonCurrentLiabilities: "非流動負債",
+      balance_equity: "股東權益",
+      balance_tangibleEquity: "有形股東權益",
+      balance_currentRatio: "流動比率",
+      balance_liabilitiesRatio: "負債／總資產",
+      balance_cashRatio: "現金／流動負債",
+      balance_leverage: "資產／股東權益",
+      balance_chart_note: "線圖顯示總資產、總負債及股東權益；點選圖例可隱藏數列。完整數值請切換明細表。缺值或不同幣別保留斷點。",
+      balance_table_caption: "各財報日的期末餘額（財報幣別百萬）；醒目欄為上方選定日期。",
+      balance_chart_unavailable: "圖表元件未能載入，已顯示明細表。",
+      balance_reason_missingField: "N/A：原始財報未提供此欄位，不以其他期間或目前數值補齊。",
+      balance_reason_ambiguousPeriod: "N/A：同一財年期間有多筆財報，無法唯一確認期末資料。",
+      balance_reason_missingPeriod: "N/A：此財年期間缺少資產負債表，圖表保留斷點，不補造財報日期或數值。",
+      balance_reason_negativeBalance: "警示：此期末餘額為負，保留原始數值。",
+      balance_reason_negativeEquity: "警示：股東權益或有形股東權益為負；負分母的比率不可視為正向財務訊號。",
+      status_ready: "● FMP 財報",
       theme_light: "淺色模式",
       theme_dark: "深色模式",
       theme_control: "切換淺色模式",
       terminal_g: "終值 g",
       valuation_spread: "利差",
       stat_total: "追蹤標的",
-      stat_fav: "❤ 自選監控標的",
-      stat_undervalued: "具備安全邊際 (低估)",
-      stat_overvalued: "市價溢價過高 (高估)",
-      stat_saved: "已設定目標價標的",
+      stat_fav: "自選清單",
+      stat_undervalued: "低估標的",
+      stat_overvalued: "高估標的",
+      stat_saved: "已存目標價",
       filter_dim: "篩選維度：",
       opt_all: "全部標的",
       opt_fav: "❤ 我的自選收藏",
@@ -2025,19 +2129,61 @@
       liq_3_tt_formula: "(現金及短期投資 - 總負債) / 稀釋總股數",
     },
     en: {
-      title: "US Flagship DCF Valuation Radar (200 Stocks)",
-      subtitle: "NYSE · NASDAQ · AMEX · Bank/Insurance Dual-Track Models · Buffett Economic Moat",
-      status_ready: "🟢 Official FMP Financials Synced (Full Market Coverage)",
+      title: "US Stock DCF Radar",
+      subtitle: "Valuation Screener · Company Financials · Trend Analysis",
+      screener_heading: "Stock Overview",
+      screener_description: "Compare price and valuation first, then open a company for financials and trends. Switch column views for more detail.",
+      screener_search: "Find a stock",
+      screener_columns: "Column view",
+      screener_overview: "Essential overview",
+      screener_valuation: "Valuation & targets",
+      screener_financial: "Financials & quality",
+      screener_all_columns: "All columns",
+      screener_reset: "Clear filters",
+      screener_industries: "Sector & industry filters",
+      screener_results: "Showing {shown} of {total} stocks",
+      screener_empty: "No stocks match. Adjust or clear the filters.",
+      screener_table_tip: "Open a company by ticker; sort by column heading. Scroll sideways for additional columns.",
+      balance_title: "Assets & Balance Sheet",
+      balance_definition: "Compare actual statement-end balances and financial structure; balance sheets are not summed as TTM. Amounts are in millions of the reported currency. Missing values are not estimated.",
+      balance_date: "Focus statement date",
+      balance_view: "Presentation",
+      balance_chart: "Trend chart",
+      balance_table: "Detailed table",
+      balance_millions: "millions",
+      balance_metric: "Closing balance (millions)",
+      balance_assets: "Total assets",
+      balance_currentAssets: "Current assets",
+      balance_nonCurrentAssets: "Non-current assets",
+      balance_cash: "Cash & equivalents",
+      balance_liabilities: "Total liabilities",
+      balance_currentLiabilities: "Current liabilities",
+      balance_nonCurrentLiabilities: "Non-current liabilities",
+      balance_equity: "Stockholders' equity",
+      balance_tangibleEquity: "Tangible stockholders' equity",
+      balance_currentRatio: "Current ratio",
+      balance_liabilitiesRatio: "Liabilities / assets",
+      balance_cashRatio: "Cash / current liabilities",
+      balance_leverage: "Assets / stockholders' equity",
+      balance_chart_note: "Lines show total assets, total liabilities and stockholders' equity. Click a legend entry to hide a series; switch to the detailed table for exact values. Missing data or different currencies leave gaps.",
+      balance_table_caption: "Statement-end balances in millions of the reported currency; the highlighted column is the selected date.",
+      balance_chart_unavailable: "The chart library could not load; the detailed table is shown instead.",
+      balance_reason_missingField: "N/A: The source statement does not report this field. No current or other-period value is substituted.",
+      balance_reason_ambiguousPeriod: "N/A: Multiple statements share this fiscal period; a unique closing balance cannot be verified.",
+      balance_reason_missingPeriod: "N/A: This fiscal period has no balance sheet. The chart leaves a gap without inventing a date or value.",
+      balance_reason_negativeBalance: "Warning: This closing balance is negative; the reported value is retained.",
+      balance_reason_negativeEquity: "Warning: Stockholders' or tangible equity is negative. A ratio with a negative denominator is not a positive financial signal.",
+      status_ready: "● FMP data",
       theme_light: "Light mode",
       theme_dark: "Dark mode",
       theme_control: "Toggle light mode",
       terminal_g: "Terminal g",
       valuation_spread: "Spread",
       stat_total: "Tracked Stocks",
-      stat_fav: "❤ Watchlist",
-      stat_undervalued: "Margin of Safety (Undervalued)",
-      stat_overvalued: "High Premium (Overvalued)",
-      stat_saved: "Custom Targets Saved",
+      stat_fav: "Watchlist",
+      stat_undervalued: "Undervalued",
+      stat_overvalued: "Overvalued",
+      stat_saved: "Saved targets",
       filter_dim: "Valuation Dimension:",
       opt_all: "All Stocks",
       opt_fav: "❤ Watchlist",
@@ -2264,6 +2410,7 @@
     document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : 'en';
     localStorage.setItem('RADAR_LANG', lang);
     const dict = I18N_DICT[lang];
+    document.title = dict.title;
 
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
@@ -2337,9 +2484,8 @@
       Chart.defaults.color = themeColor('--text-secondary');
     }
     if (document.getElementById('company-view').style.display === 'block') {
-      if (document.getElementById('subpage-ratios').classList.contains('active')) {
-        renderAssetAnalysisChart(stockUniverse[activeCompanyTicker]);
-        renderReturnChart(stockUniverse[activeCompanyTicker]);
+      if (document.getElementById('subpage-charts').classList.contains('active')) {
+        BalanceSheet.render(activeCompanyTicker, currentLang, I18N_DICT[currentLang]);
       }
       if (document.getElementById('subpage-chart').classList.contains('active')) {
         renderTradingViewWidget(activeCompanyTicker, stockUniverse[activeCompanyTicker].exchange);
@@ -2694,6 +2840,44 @@
     renderScreenerTable();
   }
 
+  function applyScreenerColumns(resetScroll = false) {
+    const mode = document.getElementById('screener-columns').value;
+    const presets = {
+      overview: { width: 1200, fields: ['ticker', 'name', 'price', 'fairVal', 'target_price', 'action', 'premiumPct', 'moat_score', 'f_score'] },
+      valuation: { width: 1900, fields: ['ticker', 'name', 'sector', 'price', 'fairVal', 'target_price', 'action', 'target_spread', 'premiumPct', 'moat_score', 'WACC', 'EV', 'mcap', 'liq_val_1', 'liq_val_2', 'liq_val_3'] },
+      financial: { width: 2200, fields: ['ticker', 'name', 'price', 'mcap', 'pe_trailing', 'pe_forward', 'pb_trailing', 'div_yield', 'fcf_to_ev', 'fcf_to_mcap', 'cash_to_assets', 'liab_to_assets', 'current_ratio', 'roe', 'roa', 'f_score', 'ev_to_ebitda', 'debt_to_ebitda', 'net_debt_to_ebitda'] },
+      all: { width: 4280, fields: null }
+    };
+    const preset = presets[mode];
+    if (!preset) throw new RangeError('Invalid screener column view');
+    const table = document.getElementById('screener-table');
+    table.style.setProperty('--screener-min-width', `${preset.width}px`);
+    table.style.setProperty('--screener-name-left', mode === 'all' ? '195px' : '110px');
+    const hidden = [...table.tHead.rows[0].cells].map(header => {
+      const sort = header.getAttribute('onclick') || header.querySelector('[onclick^="sortTable"]')?.getAttribute('onclick') || '';
+      const field = sort.match(/sortTable\('([^']+)'\)/)?.[1] || 'action';
+      return preset.fields !== null && !preset.fields.includes(field);
+    });
+    for (const row of table.rows) {
+      [...row.cells].forEach((cell, i) => { cell.hidden = hidden[i]; });
+    }
+    if (resetScroll) document.getElementById('main-scroll-box').scrollLeft = 0;
+  }
+
+  function resetScreenerFilters() {
+    currentValFilter = 'ALL';
+    currentSectorFilter = 'ALL';
+    currentSubIndustryFilter = 'ALL';
+    document.getElementById('search-ticker').value = '';
+    for (const id of ['val-filters', 'sector-filters']) {
+      document.querySelectorAll(`#${id} button`).forEach(button => {
+        button.classList.toggle('active', button.getAttribute('onclick').includes("('ALL')"));
+      });
+    }
+    updateSubIndustryButtons();
+    renderScreenerTable();
+  }
+
   function renderScreenerTable() {
     const tbody = document.getElementById('screener-tbody');
     if (!tbody) return;
@@ -2786,12 +2970,11 @@
     const savedCount = Object.keys(savedModels).length;
     const favCount = favs.length;
 
-    const unitTxt = currentLang === 'zh' ? '檔' : 'stocks';
-    document.getElementById('stat-total').innerText = `${totalCount} ${unitTxt}`;
-    document.getElementById('stat-fav-count').innerText = `${favCount} ${unitTxt}`;
-    document.getElementById('stat-undervalued').innerText = `${underCount} ${unitTxt} (${totalCount > 0 ? ((underCount/totalCount)*100).toFixed(0) : 0}%)`;
-    document.getElementById('stat-overvalued').innerText = `${overCount} ${unitTxt} (${totalCount > 0 ? ((overCount/totalCount)*100).toFixed(0) : 0}%)`;
-    document.getElementById('stat-saved-count').innerText = `${savedCount} ${unitTxt}`;
+    document.getElementById('stat-total').textContent = totalCount;
+    document.getElementById('stat-fav-count').textContent = favCount;
+    document.getElementById('stat-undervalued').innerHTML = `${underCount}<small>${totalCount > 0 ? ((underCount/totalCount)*100).toFixed(0) : 0}%</small>`;
+    document.getElementById('stat-overvalued').innerHTML = `${overCount}<small>${totalCount > 0 ? ((overCount/totalCount)*100).toFixed(0) : 0}%</small>`;
+    document.getElementById('stat-saved-count').textContent = savedCount;
 
     tbody.innerHTML = list.map(item => {
       const priceNum = Number(item.price) || 0;
@@ -2898,6 +3081,13 @@
         </tr>
       `;
     }).join('');
+    const labels = I18N_DICT[currentLang];
+    document.getElementById('screener-results').textContent = list.length
+      ? labels.screener_results.replace('{shown}', list.length).replace('{total}', totalCount)
+      : labels.screener_empty;
+    const industryCount = Number(currentSectorFilter !== 'ALL') + Number(currentSubIndustryFilter !== 'ALL');
+    document.getElementById('screener-industry-count').textContent = industryCount ? `(${industryCount})` : '';
+    applyScreenerColumns();
   }
 
   function scrollTableBy(amount) {
@@ -3008,6 +3198,7 @@
   function openMoat(ticker) { activeMoatTicker = ticker; showView('moat', true); }
 
   function switchSubPage(tabKey) {
+    BalanceSheet.deactivate();
     // 1. 移除所有子分頁按鈕與內容容器的 active 狀態
     document.querySelectorAll('.sub-tab-btn').forEach(btn => btn.classList.remove('active'));
     document.querySelectorAll('.subpage-content').forEach(el => el.classList.remove('active'));
@@ -3044,6 +3235,7 @@
     } else if (tabKey === 'charts') {
       FcfRatios.render(curTicker, currentLang, I18N_DICT[currentLang]);
       FcfRatios.renderReturns(curTicker, currentLang, I18N_DICT[currentLang]);
+      BalanceSheet.render(curTicker, currentLang, I18N_DICT[currentLang]);
     } else if (tabKey === 'dividend') {
       renderDividendSubPage(curStock);
     } else if (tabKey === 'news') {
@@ -3207,19 +3399,6 @@
   // 財務比率狀態與圖表實例全域變數
   // ========================================================
   let activeRatioPeriod = 'annual'; // 'annual' | 'quarterly'
-  let assetChartInstance = null;
-  let returnChartInstance = null;
-  let currentReturnMetricMode = 'ROE';
-
-  function setReturnMetricMode(mode) {
-    currentReturnMetricMode = mode;
-    ['roe', 'roa', 'coe', 'coa'].forEach(m => {
-      const btn = document.getElementById(`btn-ret-${m}`);
-      if (btn) btn.className = (m.toUpperCase() === mode) ? 'f-btn active' : 'f-btn';
-    });
-    renderReturnChart(stockUniverse[activeCompanyTicker]);
-  }
-
   function switchRatioPeriod(period) {
     activeRatioPeriod = period;
     document.getElementById('btn-ratio-period-annual').className = period === 'annual' ? 'stmt-btn active' : 'stmt-btn';
@@ -3673,12 +3852,6 @@
     // 1. 渲染頂部 57 項比率表格
     renderKeyRatiosTable(s);
 
-    // 2. 渲染下方資產分析圖表與回報率圖表
-    setTimeout(() => {
-      renderAssetAnalysisChart(s);
-      renderReturnChart(s);
-    }, 120);
-
     // 3. 綁定比率表格的滑鼠拖曳滑動
     const ratioWrapper = document.querySelector('#subpage-ratios .table-scroll-wrapper');
     if (ratioWrapper && typeof makeScrollable === 'function') {
@@ -3862,202 +4035,6 @@
     tbody.innerHTML = html;
   }
   
-  // ========================================================
-  // 3. 雙語支援圖表分析繪製 (Chart.js 完美適配多語言)
-  // ========================================================
-  function renderAssetAnalysisChart(s) {
-    const canvas = document.getElementById('ratioAssetChart');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    const isEn = (currentLang === 'en');
-    const periods = ['2021', '2022', '2023', '2024', '2025', 'TTM'];
-
-    document.getElementById('lbl-asset-analysis-title').innerText = isEn ? 'Asset & Balance Sheet Analysis' : '資產分析';
-    document.getElementById('lbl-asset-analysis-sub').innerText = isEn ? 'Net Assets, Total Liabilities & Shareholder Equity' : '資產淨值、負債總額、股東權益';
-    document.getElementById('badge-asset-struct').innerText = isEn ? 'Balance Sheet Structure' : '資產結構';
-    document.getElementById('lbl-card-cr').innerText = isEn ? 'Current Ratio' : '流動比率';
-    document.getElementById('lbl-card-dr').innerText = isEn ? 'Debt Ratio' : '負債比率';
-    document.getElementById('lbl-card-cash').innerText = isEn ? 'Cash Ratio' : '現金比率';
-    document.getElementById('lbl-card-lev').innerText = isEn ? 'Financial Leverage' : '槓桿比率';
-
-    const baseMcap = Number(s.mcap || 10000);
-    const baseAssets = Math.max(baseMcap * 0.45, Number(s.debt || 2000) * 1.8);
-    const baseDebt = Number(s.debt || 2000);
-    const baseCash = Number(s.cash_and_short_term || s.cash || 3000);
-
-    const cashVals = periods.map((_, i) => Math.round(baseCash * (0.75 + i * 0.06)));
-    const assetsVals = periods.map((_, i) => Math.round(baseAssets * (0.80 + i * 0.05)));
-    const otherAssetsVals = assetsVals.map((a, i) => Math.max(a - cashVals[i], 0));
-    const debtVals = periods.map((_, i) => Math.round(baseDebt * (0.82 + i * 0.04)));
-    const curLiabVals = debtVals.map(d => Math.round(d * 0.35));
-    const nonCurLiabVals = debtVals.map((d, i) => Math.max(d - curLiabVals[i], 0));
-    const netAssetsVals = assetsVals.map((a, i) => Math.max(a - debtVals[i], 0));
-
-    const lastIdx = periods.length - 1;
-    const cr = s.current_ratio ? (Number(s.current_ratio) * 100).toFixed(2) : ((assetsVals[lastIdx] * 0.45 / Math.max(curLiabVals[lastIdx], 1)) * 100).toFixed(2);
-    const dr = s.liab_to_assets ? Number(s.liab_to_assets).toFixed(2) : ((debtVals[lastIdx] / Math.max(assetsVals[lastIdx], 1)) * 100).toFixed(2);
-    const cashRatio = ((cashVals[lastIdx] / Math.max(curLiabVals[lastIdx], 1)) * 100).toFixed(2);
-    const levRatio = ((assetsVals[lastIdx] / Math.max(netAssetsVals[lastIdx], 1)) * 100).toFixed(2);
-
-    document.getElementById('card-ratio-cr').innerText = `${cr} %`;
-    document.getElementById('card-ratio-dr').innerText = `${dr} %`;
-    document.getElementById('card-ratio-cash').innerText = `${cashRatio} %`;
-    document.getElementById('card-ratio-lev').innerText = `${levRatio} %`;
-
-    if (assetChartInstance) assetChartInstance.destroy();
-
-    assetChartInstance = new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: periods,
-        datasets: [
-          { label: isEn ? 'Cash & Equivalents' : '現金', data: cashVals, backgroundColor: themeColor('--accent'), stack: 'assets', borderRadius: { bottomLeft: 4, bottomRight: 4 } },
-          { label: isEn ? 'Other Assets' : '其他資產', data: otherAssetsVals, backgroundColor: '#2563eb', stack: 'assets', borderRadius: { topLeft: 4, topRight: 4 } },
-          { label: isEn ? 'Current Liabilities' : '流動負債', data: curLiabVals, backgroundColor: '#fb7185', stack: 'liabilities', borderRadius: { bottomLeft: 4, bottomRight: 4 } },
-          { label: isEn ? 'Non-Current Liabilities' : '非流動負債', data: nonCurLiabVals, backgroundColor: '#e11d48', stack: 'liabilities', borderRadius: { topLeft: 4, topRight: 4 } },
-          {
-            type: 'line',
-            label: isEn ? 'Net Assets' : '資產淨額',
-            data: netAssetsVals,
-            borderColor: '#f59e0b',
-            backgroundColor: '#f59e0b',
-            borderWidth: 2.5,
-            pointBackgroundColor: themeColor('--text'),
-            pointBorderColor: '#f59e0b',
-            pointRadius: 4.5,
-            tension: 0.1
-          }
-        ]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        interaction: { mode: 'index', intersect: false },
-        plugins: {
-          legend: { position: 'bottom', labels: { color: themeColor('--text-secondary'), boxWidth: 12, font: { size: 12 } } },
-          tooltip: {
-            backgroundColor: themeColor('--card-bg'),
-            titleColor: themeColor('--text'),
-            bodyColor: themeColor('--text-secondary'),
-            borderColor: themeColor('--card-border'),
-            borderWidth: 1,
-            callbacks: { label: (item) => ` ${item.dataset.label}: $${item.parsed.y.toLocaleString()} M` }
-          }
-        },
-        scales: {
-          x: { grid: { display: false }, ticks: { color: themeColor('--text-muted') } },
-          y: {
-            grid: { color: themeColor('--chart-grid') },
-            ticks: { color: themeColor('--text-muted'), callback: (v) => `$${v >= 1000 ? (v / 1000).toFixed(0) + 'B' : v + 'M'}` }
-          }
-        }
-      }
-    });
-  }
-
-  function renderReturnChart(s) {
-    const canvas = document.getElementById('ratioReturnChart');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    const isEn = (currentLang === 'en');
-    const periods = ['2021', '2022', '2023', '2024', '2025', 'TTM'];
-
-    document.getElementById('lbl-return-analysis-title').innerText = isEn ? 'Return on Capital Metrics' : '回報率指標';
-
-    const h = s.real_history || {};
-    const baseMcap = Number(s.mcap || 10000);
-    const baseAssets = Math.max(baseMcap * 0.45, Number(s.debt || 2000) * 1.8);
-    const baseDebt = Number(s.debt || 2000);
-
-    const assetsVals = periods.map((_, i) => Math.round(baseAssets * (0.80 + i * 0.05)));
-    const debtVals = periods.map((_, i) => Math.round(baseDebt * (0.82 + i * 0.04)));
-    const equityVals = assetsVals.map((a, i) => Math.max(a - debtVals[i], 100));
-
-    let niVals = (h.net_income && h.net_income.length >= 6)
-      ? h.net_income.slice(-6)
-      : periods.map((_, i) => Math.round(Number(s.fcf0 || 1000) * (0.65 + i * 0.08) * 1.15));
-
-    let fcfVals = (h.fcf && h.fcf.length >= 6)
-      ? h.fcf.slice(-6)
-      : periods.map((_, i) => Math.round(Number(s.fcf0 || 1000) * (0.62 + i * 0.08)));
-
-    const lastIdx = periods.length - 1;
-    const roaVal = ((niVals[lastIdx] / Math.max(assetsVals[lastIdx], 1)) * 100).toFixed(2);
-    const roeVal = ((niVals[lastIdx] / Math.max(equityVals[lastIdx], 1)) * 100).toFixed(2);
-    const coeVal = ((fcfVals[lastIdx] / Math.max(equityVals[lastIdx], 1)) * 100).toFixed(2);
-    const coaVal = ((fcfVals[lastIdx] / Math.max(assetsVals[lastIdx], 1)) * 100).toFixed(2);
-
-    document.getElementById('card-ret-roa').innerText = `${roaVal} %`;
-    document.getElementById('card-ret-roe').innerText = `${roeVal} %`;
-    document.getElementById('card-ret-coe').innerText = `${coeVal} %`;
-    document.getElementById('card-ret-coa').innerText = `${coaVal} %`;
-
-    let baseBarLabel = isEn ? 'Stockholders Equity' : '股東權益';
-    let baseBarData = equityVals;
-    let returnBarLabel = isEn ? 'Net Income' : '淨利潤';
-    let returnBarData = niVals;
-    let lineLabel = 'ROE';
-
-    if (currentReturnMetricMode === 'ROE') {
-      baseBarLabel = isEn ? 'Stockholders Equity' : '股東權益'; baseBarData = equityVals;
-      returnBarLabel = isEn ? 'Net Income' : '淨利潤'; returnBarData = niVals; lineLabel = 'ROE';
-    } else if (currentReturnMetricMode === 'ROA') {
-      baseBarLabel = isEn ? 'Total Assets' : '資產總額'; baseBarData = assetsVals;
-      returnBarLabel = isEn ? 'Net Income' : '淨利潤'; returnBarData = niVals; lineLabel = 'ROA';
-    } else if (currentReturnMetricMode === 'COE') {
-      baseBarLabel = isEn ? 'Stockholders Equity' : '股東權益'; baseBarData = equityVals;
-      returnBarLabel = isEn ? 'Free Cash Flow' : '自由現金流'; returnBarData = fcfVals; lineLabel = 'FCF on Equity';
-    } else if (currentReturnMetricMode === 'COA') {
-      baseBarLabel = isEn ? 'Total Assets' : '資產總額'; baseBarData = assetsVals;
-      returnBarLabel = isEn ? 'Free Cash Flow' : '自由現金流'; returnBarData = fcfVals; lineLabel = 'FCF on Assets';
-    }
-
-    const lineData = returnBarData.map((ret, i) => Number(((ret / Math.max(baseBarData[i], 1)) * 100).toFixed(2)));
-
-    if (returnChartInstance) returnChartInstance.destroy();
-
-    returnChartInstance = new Chart(ctx, {
-      data: {
-        labels: periods,
-        datasets: [
-          { type: 'bar', label: baseBarLabel, data: baseBarData, backgroundColor: '#60a5fa', borderRadius: 4, yAxisID: 'yLeft', order: 2 },
-          { type: 'bar', label: returnBarLabel, data: returnBarData, backgroundColor: '#1d4ed8', borderRadius: 4, yAxisID: 'yLeft', order: 3 },
-          {
-            type: 'line', label: `${lineLabel} (%)`, data: lineData,
-            borderColor: themeColor('--orange'), backgroundColor: themeColor('--orange'), borderWidth: 2.5,
-            pointBackgroundColor: themeColor('--text'), pointBorderColor: themeColor('--orange'), pointBorderWidth: 2.5,
-            pointRadius: 5, pointHoverRadius: 7.5, tension: 0.15, yAxisID: 'yRight', order: 1
-          }
-        ]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        interaction: { mode: 'index', intersect: false },
-        plugins: {
-          legend: { position: 'bottom', labels: { color: themeColor('--text-secondary'), boxWidth: 12, font: { size: 12 } } },
-          tooltip: {
-            backgroundColor: themeColor('--card-bg'), titleColor: themeColor('--text'), bodyColor: themeColor('--text-secondary'), borderColor: themeColor('--card-border'), borderWidth: 1,
-            callbacks: {
-              label: (item) => item.dataset.yAxisID === 'yRight' ? ` ${item.dataset.label}: ${item.parsed.y.toFixed(2)} %` : ` ${item.dataset.label}: $${item.parsed.y.toLocaleString()} M`
-            }
-          }
-        },
-        scales: {
-          x: { grid: { display: false }, ticks: { color: themeColor('--text-muted') } },
-          yLeft: {
-            type: 'linear', position: 'left', grid: { color: themeColor('--chart-grid') },
-            ticks: { color: themeColor('--text-muted'), callback: (v) => `$${v >= 1000 ? (v / 1000).toFixed(0) + 'B' : v + 'M'}` }
-          },
-          yRight: {
-            type: 'linear', position: 'right', grid: { display: false },
-            ticks: { color: themeColor('--orange'), callback: (v) => `${v.toFixed(1)} %` }
-          }
-        }
-      }
-    });
-  }
-
   // ========================================================
   // 4. 直向 5 家同行深度財務矩陣 (雙語切換 + 雙向滾動凍結 + 45+ 項指標)
   // ========================================================

@@ -2,9 +2,49 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const { chromium } = require('playwright');
-const { calculate, calculateReturns, financialReference, trend } = require('../fcf_ratios.js');
+const { calculate, calculateReturns, calculateBalances, financialReference, trend } = require('../fcf_ratios.js');
 
 const baseUrl = process.env.TEST_BASE_URL || 'http://127.0.0.1:8765';
+
+async function checkBalances(page, ticker, period = 'quarterly') {
+  await page.waitForFunction(ticker => document.querySelector('#balance-status').textContent.startsWith(ticker)
+    && document.querySelector('#balance-body').children.length === 9, ticker);
+  const data = JSON.parse(fs.readFileSync(
+    path.join(__dirname, '..', 'cache', 'financials', `${ticker}_statements_v2.json`), 'utf8'));
+  const columns = calculateBalances(data, { period });
+  assert.equal(await page.locator('#balance-head th').count(), columns.length + 1);
+  assert.equal(await page.locator('#balance-date option').count(), columns.length);
+  const selectedIndex = Number(await page.locator('#balance-date').inputValue());
+  const selected = columns[selectedIndex];
+  const locale = await page.locator('html').getAttribute('lang') === 'en' ? 'en-US' : 'zh-TW';
+  const format = result => result.value === null ? 'N/A'
+    : `${(result.value / 1e6).toLocaleString(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 })}${result.warnings.length ? ' !' : ''}`;
+  for (const [i, metric] of Object.keys(selected.amounts).entries()) {
+    const row = page.locator('#balance-body tr').nth(i);
+    assert.deepEqual(await row.locator('td').allTextContents(), columns.map(column => format(column.amounts[metric])));
+    const titles = await row.locator('td').evaluateAll(cells => cells.map(cell => cell.title));
+    assert.ok(titles.every(title => !title.includes('undefined')));
+  }
+  assert.deepEqual(await page.locator('#balance-cards strong').allTextContents(),
+    ['assets', 'liabilities', 'equity', 'cash'].map(metric => format(selected.amounts[metric])));
+  assert.equal(await page.locator('#balance-head .balance-selected').count(), 1);
+  if (await page.locator('#balance-table-wrap').isVisible()) {
+    const bounds = await page.locator('#balance-table-wrap').evaluate(box => ({
+      right: box.getBoundingClientRect().right,
+      sticky: box.querySelector('.table-sticky-col').getBoundingClientRect().right,
+      selected: box.querySelector('.balance-selected').getBoundingClientRect().toJSON()
+    }));
+    assert.ok(bounds.selected.right <= bounds.right + 2 && bounds.selected.left >= bounds.sticky - 2,
+      'The selected statement column is revealed next to the sticky labels');
+  }
+  if (await page.locator('#balance-chart-wrap').isVisible()) {
+    const series = await page.locator('#balance-chart').evaluate(canvas =>
+      Chart.getChart(canvas).data.datasets.map(series => series.data));
+    assert.deepEqual(series, ['assets', 'liabilities', 'equity'].map(metric => columns.map(column =>
+      column.currency === selected.currency && column.amounts[metric].value !== null
+        ? column.amounts[metric].value / 1e6 : null)));
+  }
+}
 
 async function checkTable(page, ticker, options, prefix = 'fcf-ratio') {
   const returns = prefix === 'return-ratio';
@@ -66,7 +106,51 @@ async function checkTable(page, ticker, options, prefix = 'fcf-ratio') {
     assert.ok(stockCount > 0);
     assert.equal(await page.locator('#screener-tbody tr').count(), stockCount);
     assert.ok((await page.locator('#stat-total').innerText()).includes(String(stockCount)));
-    for (const ticker of ['NVDA', 'AAPL', 'JPM', 'DE', 'HD', 'PFE', 'PGR', 'AZO']) {
+    const initialTickers = await page.locator('#screener-tbody .ticker-link').allTextContents();
+    for (const [preset, count] of [['overview', 9], ['valuation', 16], ['financial', 19], ['all', 33]]) {
+      await page.selectOption('#screener-columns', preset);
+      assert.equal(await page.locator('#screener-table thead th:visible').count(), count);
+      assert.equal(await page.locator('#screener-tbody tr').first().locator('td:visible').count(), count);
+      assert.deepEqual(await page.locator('#screener-tbody .ticker-link').allTextContents(), initialTickers);
+    }
+    await page.selectOption('#screener-columns', 'overview');
+    const overviewFits = await page.locator('#main-scroll-box').evaluate(box =>
+      box.scrollWidth <= box.clientWidth + 1);
+    assert.ok(overviewFits, 'Essential overview fits on a desktop without a 4,280px table');
+    await page.locator('#screener-table th[onclick="sortTable(\'price\')"]').click();
+    const priceOrder = await page.locator('#screener-tbody .ticker-link').allTextContents();
+    assert.ok(await page.evaluate(tickers => tickers.every((ticker, i) =>
+      i === 0 || stockUniverse[ticker].price <= stockUniverse[tickers[i - 1]].price), priceOrder));
+    await page.selectOption('#screener-columns', 'financial');
+    assert.deepEqual(await page.locator('#screener-tbody .ticker-link').allTextContents(), priceOrder);
+    await page.selectOption('#screener-columns', 'overview');
+    await page.locator('button[onclick="toggleFavorite(\'NVDA\', event)"]').click();
+    await page.locator('#val-filters button[onclick="setValFilter(\'FAVORITES\')"]').click();
+    assert.deepEqual(await page.locator('#screener-tbody .ticker-link').allTextContents(), ['NVDA']);
+    await page.locator('button[onclick="resetScreenerFilters()"]').click();
+    await page.locator('button[onclick="toggleFavorite(\'NVDA\', event)"]').click();
+    await page.locator('#search-ticker').fill('NVDA');
+    assert.equal(await page.locator('#screener-tbody tr').count(), 1);
+    await page.locator('#search-ticker').fill('NO_MATCH_12345');
+    assert.equal(await page.locator('#screener-tbody tr').count(), 0);
+    assert.ok((await page.locator('#screener-results').innerText()).length > 0);
+    await page.locator('button[onclick="resetScreenerFilters()"]').click();
+    assert.equal(await page.locator('#screener-tbody tr').count(), stockCount);
+    await page.locator('.screener-industries summary').click();
+    await page.locator('#sector-filters button').nth(1).click();
+    assert.equal(await page.evaluate(() => [...document.querySelectorAll('#screener-tbody .ticker-link')]
+      .every(link => stockUniverse[link.textContent].sector === currentSectorFilter)), true);
+    await page.locator('#subindustry-filters button').nth(1).click();
+    assert.equal(await page.evaluate(() => [...document.querySelectorAll('#screener-tbody .ticker-link')]
+      .every(link => stockUniverse[link.textContent].industry === currentSubIndustryFilter)), true);
+    await page.locator('button[onclick="resetScreenerFilters()"]').click();
+    await page.locator('.screener-industries summary').click();
+    for (const width of [390, 768, 1440]) {
+      await page.setViewportSize({ width, height: 1000 });
+      assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1),
+        `Homepage must not overflow the viewport at ${width}px`);
+    }
+    for (const ticker of ['NVDA', 'AAPL', 'JPM', 'DE', 'HD', 'PFE', 'PGR', 'AZO', 'TSM']) {
       await page.evaluate(() => showView('screener', false));
       await page.locator(`a[onclick="openCompanyProfile('${ticker}')"]`).click();
       assert.equal(await page.locator('#fcf-ratio-panel').isVisible(), false);
@@ -77,6 +161,12 @@ async function checkTable(page, ticker, options, prefix = 'fcf-ratio') {
       assert.equal(await page.locator('#detail-view #fcf-ratio-panel').count(), 0);
       await checkTable(page, ticker, {});
       await checkTable(page, ticker, {}, 'return-ratio');
+      await checkBalances(page, ticker);
+      if (ticker === 'AZO') assert.match(await page.locator('#balance-cards strong').nth(2).innerText(), /^-/);
+      if (ticker === 'TSM') assert.match(await page.locator('#balance-status').innerText(), /TWD/);
+      assert.equal(await page.locator('#subpage-ratios #balance-panel').count(), 0);
+      assert.equal(await page.locator('#ratioReturnChart').count(), 0);
+      assert.equal(await page.locator('#ratioAssetChart').count(), 0);
       assert.equal(await page.locator('#detail-view #return-ratio-panel').count(), 0);
       assert.equal(statementRequests.filter(url => url.endsWith(`/${ticker}_statements_v2.json`)).length, 1,
         'Both panels share one statement request per ticker');
@@ -84,6 +174,29 @@ async function checkTable(page, ticker, options, prefix = 'fcf-ratio') {
     await page.evaluate(() => openCompanyProfile('NVDA'));
     await page.locator('button[onclick="switchSubPage(\'charts\')"]').click();
     await page.waitForFunction(() => document.querySelector('#fcf-ratio-status').textContent.startsWith('NVDA'));
+    const beforeBalance = await page.locator('#return-ratio-body').textContent();
+    for (const period of ['annual', 'quarterly']) {
+      await page.selectOption('#balance-period', period);
+      await checkBalances(page, 'NVDA', period);
+      await page.selectOption('#balance-view', 'table');
+      await checkBalances(page, 'NVDA', period);
+      await page.selectOption('#balance-view', 'chart');
+      await checkBalances(page, 'NVDA', period);
+      await page.selectOption('#balance-date', '0');
+      await checkBalances(page, 'NVDA', period);
+      assert.equal(await page.locator('#balance-date').inputValue(), '0');
+      for (const view of ['table', 'chart']) {
+        await page.selectOption('#balance-view', view);
+        await checkBalances(page, 'NVDA', period);
+        assert.equal(await page.locator('#balance-table-wrap').isVisible(), view === 'table');
+        assert.equal(await page.locator('#balance-chart-wrap').isVisible(), view === 'chart');
+        assert.equal(await page.locator('#balance-date').inputValue(), '0', 'View changes preserve the selected report date');
+      }
+      assert.equal(await page.locator('#return-ratio-body').textContent(), beforeBalance);
+    }
+    const panelsOrdered = await page.evaluate(() => document.querySelector('#balance-panel').getBoundingClientRect().top
+      >= document.querySelector('#return-ratio-panel').getBoundingClientRect().bottom);
+    assert.ok(panelsOrdered);
     for (const period of ['quarterly', 'annual']) {
       await page.selectOption('#fcf-ratio-period', period);
       assert.equal(await page.locator('#fcf-ratio-flow').isDisabled(), period === 'annual');
@@ -127,6 +240,12 @@ async function checkTable(page, ticker, options, prefix = 'fcf-ratio') {
     await page.check('#return-ratio-roa');
     await page.check('#return-ratio-roe');
     await checkTable(page, 'NVDA', { period: 'annual', flow: 'ttm', balance: 'average' }, 'return-ratio');
+    await checkBalances(page, 'NVDA');
+    await page.locator('#btn-theme-toggle').click();
+    await checkBalances(page, 'NVDA');
+    assert.equal(await page.locator('#balance-chart').evaluate(canvas => Chart.getChart(canvas).data.datasets[0].borderColor),
+      await page.evaluate(() => SiteTheme.color('--accent')));
+    await page.locator('#btn-theme-toggle').click();
     for (const metric of ['equity', 'assets', 'sales', 'ebitda', 'netIncome']) {
       await page.uncheck(`#fcf-ratio-${metric}`);
     }
@@ -146,6 +265,8 @@ async function checkTable(page, ticker, options, prefix = 'fcf-ratio') {
     assert.equal(await page.locator('#fcf-ratio-title').innerText(), 'Free Cash Flow (FCF) Ratios');
     assert.equal(await page.locator('#fcf-ratio-body tr th').last().innerText(), 'FCF / Net Income');
     assert.equal(await page.locator('#return-ratio-title').innerText(), 'Returns on Capital (ROA / ROE / ROTE)');
+    await checkBalances(page, 'NVDA');
+    assert.doesNotMatch(await page.locator('#balance-panel').innerText(), /[\u3400-\u9fff]/);
     assert.equal(await page.locator('#return-ratio-body tr th').last().innerText(), 'Return on Tangible Equity (ROTE)');
     await checkTable(page, 'NVDA', { period: 'annual', flow: 'ttm', balance: 'average' }, 'return-ratio');
     assert.equal(await page.locator('#subpage-charts').getAttribute('class'), 'subpage-content active');
@@ -194,6 +315,12 @@ async function checkTable(page, ticker, options, prefix = 'fcf-ratio') {
     const returnWidths = await page.locator('#return-ratio-panel .table-scroll-wrapper')
       .evaluate(node => ({ client: node.clientWidth, scroll: node.scrollWidth }));
     assert.ok(returnWidths.scroll > returnWidths.client, 'Return columns scroll on mobile');
+    await page.selectOption('#balance-view', 'table');
+    await checkBalances(page, 'NVDA');
+    assert.ok(await page.locator('#balance-panel').evaluate(panel =>
+      panel.getBoundingClientRect().right <= innerWidth), 'Balance controls and cards fit on mobile');
+    await page.selectOption('#balance-view', 'chart');
+    await checkBalances(page, 'NVDA');
     const metricWidth = await page.locator('#return-ratio-body th').first()
       .evaluate(node => node.getBoundingClientRect().width);
     assert.ok(metricWidth <= 155 && returnWidths.client - metricWidth >= 125,
@@ -365,6 +492,8 @@ async function checkTable(page, ticker, options, prefix = 'fcf-ratio') {
     await checkTable(failurePage, 'AAPL', {});
     await failurePage.locator('#return-ratio-retry').click();
     await checkTable(failurePage, 'AAPL', {}, 'return-ratio');
+    await failurePage.locator('#balance-retry').click();
+    await checkBalances(failurePage, 'AAPL');
 
     const racePage = await browser.newPage();
     await racePage.route('**/cache/financials/NVDA_statements_v2.json', async route => {
@@ -380,7 +509,8 @@ async function checkTable(page, ticker, options, prefix = 'fcf-ratio') {
     assert.match(await racePage.locator('#fcf-ratio-status').innerText(), /^AAPL/);
     await checkTable(racePage, 'AAPL', {});
     await checkTable(racePage, 'AAPL', {}, 'return-ratio');
-    console.log('PASS: shared financial DCF/Trend ROTE including negative/zero cases and reset, persistent dark/light themes and TradingView locale, consistent typography, translated financial statements and continuous grids, all existing FCF/return controls, navigation, mobile and retry regressions.');
+    await checkBalances(racePage, 'AAPL');
+    console.log('PASS: actual quarterly/annual balance analysis, date and presentation controls, screener column views and filters, responsive layout, shared financial DCF/Trend ROTE, persistent themes, translated continuous financial grids, existing FCF/return controls, navigation and retry/race regressions.');
   } finally {
     await browser.close();
   }

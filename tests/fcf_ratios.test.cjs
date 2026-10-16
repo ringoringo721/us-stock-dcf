@@ -3,7 +3,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
-const { calculate, calculateReturns, financialReference, trend } = require('../fcf_ratios.js');
+const { calculate, calculateReturns, calculateBalances, financialReference, trend } = require('../fcf_ratios.js');
 
 function fixture() {
   const data = {};
@@ -421,4 +421,96 @@ test('the exact shipped HTML scripts compile and the removed chart cannot initia
   assert.doesNotMatch(detail, /id="return-ratio-panel"/);
   assert.ok(trends.indexOf('id="return-ratio-panel"') > trends.indexOf('id="fcf-ratio-panel"'));
   assert.doesNotMatch(trends, /return-ratio-roic/);
+  assert.doesNotMatch(html, /renderAssetAnalysisChart|renderReturnChart|ratioAssetChart|ratioReturnChart|setReturnMetricMode/);
+  assert.match(trends, /id="balance-panel"/);
+  assert.ok(trends.indexOf('id="balance-panel"') > trends.indexOf('id="return-ratio-panel"'));
+  assert.match(html, /src="balance_sheet.js"/);
+});
+
+test('balance analysis uses actual dated quarterly and annual closing balances without fabricated TTM', () => {
+  const data = fixture();
+  for (const period of ['quarterly', 'annual']) {
+    data[period].balance.forEach((row, i) => {
+      row.totalCurrentAssets = 40 + i;
+      row.totalNonCurrentAssets = row.totalAssets - row.totalCurrentAssets;
+      row.totalLiabilities = 90 + i;
+      row.totalCurrentLiabilities = 20 + i;
+      row.totalNonCurrentLiabilities = row.totalLiabilities - row.totalCurrentLiabilities;
+      row.cashAndCashEquivalents = i;
+    });
+    const expected = structuredClone(data[period].balance);
+    const columns = calculateBalances(data, { period });
+    assert.equal(columns.length, expected.length);
+    columns.forEach((column, i) => {
+      assert.equal(column.date, expected[i].date);
+      assert.equal(column.currency, 'USD');
+      assert.equal(column.amounts.assets.value, expected[i].totalAssets);
+      assert.equal(column.amounts.equity.value, expected[i].totalStockholdersEquity);
+      assert.equal(column.amounts.cash.value, i);
+      near(column.ratios.currentRatio.value, expected[i].totalCurrentAssets / expected[i].totalCurrentLiabilities);
+      near(column.ratios.cashRatio.value, i / expected[i].totalCurrentLiabilities);
+      near(column.ratios.liabilitiesRatio.value, expected[i].totalLiabilities / expected[i].totalAssets * 100);
+      near(column.ratios.leverage.value, expected[i].totalAssets / expected[i].totalStockholdersEquity);
+      near(column.amounts.tangibleEquity.value, expected[i].totalStockholdersEquity - expected[i].goodwillAndIntangibleAssets);
+    });
+    data[period].balance.reverse();
+    assert.deepEqual(calculateBalances(data, { period }), columns);
+    delete data[period].income;
+    delete data[period].cashflow;
+    assert.deepEqual(calculateBalances(data, { period }), columns, 'Balance-only data needs no synthetic income join');
+  }
+  assert.throws(() => calculateBalances(data, { period: 'ttm' }), RangeError);
+  assert.throws(() => calculateBalances({}), TypeError);
+});
+
+test('balance analysis retains zero/negative values and explicitly rejects unavailable or ambiguous data', () => {
+  const data = fixture();
+  const row = data.quarterly.balance.at(-1);
+  row.totalStockholdersEquity = -50;
+  row.totalCurrentLiabilities = 0;
+  row.totalCurrentAssets = 0;
+  row.cashAndCashEquivalents = 0;
+  let result = calculateBalances(data).at(-1);
+  assert.equal(result.amounts.cash.value, 0);
+  assert.equal(result.ratios.cashRatio.reason, 'zeroDenominator');
+  assert.equal(result.ratios.currentRatio.reason, 'zeroDenominator');
+  assert.equal(result.amounts.liabilities.reason, 'missingField');
+  assert.ok(result.ratios.leverage.value < 0);
+  assert.deepEqual(result.ratios.leverage.warnings, ['negativeEquity']);
+  assert.ok(result.amounts.tangibleEquity.value < 0);
+  row.totalStockholdersEquity = 0;
+  assert.equal(calculateBalances(data).at(-1).ratios.leverage.reason, 'zeroDenominator');
+  delete row.reportedCurrency;
+  assert.equal(calculateBalances(data).at(-1).amounts.assets.reason, 'currencyMismatch');
+  row.reportedCurrency = 'TWD';
+  assert.equal(calculateBalances(data).at(-1).currency, 'TWD');
+  data.quarterly.balance.push({ ...row });
+  result = calculateBalances(data).at(-1);
+  assert.equal(result.date, null);
+  assert.equal(result.amounts.assets.reason, 'ambiguousPeriod');
+  assert.deepEqual(calculateBalances({ quarterly: { balance: [] } }), []);
+  const gap = fixture();
+  gap.quarterly.balance.splice(4, 1);
+  const missing = calculateBalances(gap)[4];
+  assert.equal(missing.label, 'FY 2024 Q4');
+  assert.equal(missing.date, null);
+  assert.equal(missing.amounts.assets.reason, 'missingPeriod');
+});
+
+test('all cached balance sheets retain exact reported dates, currencies and asset values', () => {
+  const directory = path.join(__dirname, '..', 'cache', 'financials');
+  for (const file of fs.readdirSync(directory).filter(file => file.endsWith('_statements_v2.json'))) {
+    const data = JSON.parse(fs.readFileSync(path.join(directory, file), 'utf8'));
+    for (const period of ['annual', 'quarterly']) {
+      for (const column of calculateBalances(data, { period })) {
+        for (const result of [...Object.values(column.amounts), ...Object.values(column.ratios)]) {
+          assert.ok(result.value === null ? result.reason : Number.isFinite(result.value), file);
+        }
+        if (!column.date) continue;
+        const row = data[period].balance.find(row => row.date === column.date);
+        assert.equal(column.currency, row.reportedCurrency);
+        assert.equal(column.amounts.assets.value, row.totalAssets);
+      }
+    }
+  }
 });

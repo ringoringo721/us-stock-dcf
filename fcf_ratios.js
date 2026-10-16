@@ -79,6 +79,55 @@
     return calculateRatios(data, options, true);
   }
 
+  function calculateBalances(data, { period = 'quarterly' } = {}) {
+    if (!['quarterly', 'annual'].includes(period)) throw new RangeError('Invalid balance sheet period');
+    if (!Array.isArray(data?.[period]?.balance)) throw new TypeError('Missing balance sheet array');
+    const annual = period === 'annual';
+    const rows = indexRows(data[period].balance, annual);
+    const fields = {
+      assets: 'totalAssets', currentAssets: 'totalCurrentAssets', nonCurrentAssets: 'totalNonCurrentAssets',
+      cash: 'cashAndCashEquivalents', liabilities: 'totalLiabilities',
+      currentLiabilities: 'totalCurrentLiabilities', nonCurrentLiabilities: 'totalNonCurrentLiabilities',
+      equity: 'totalStockholdersEquity', tangibleEquity: null
+    };
+    const keys = [...rows.keys()].sort((a, b) => a - b);
+    if (!keys.length) return [];
+    return Array.from({ length: keys.at(-1) - keys[0] + 1 }, (_, index) => keys[0] + index).map(key => {
+      const row = rows.get(key);
+      const currency = row && typeof row.reportedCurrency === 'string' && /^[A-Z]{3}$/.test(row.reportedCurrency)
+        ? row.reportedCurrency : null;
+      const amounts = {};
+      for (const [metric, field] of Object.entries(fields)) {
+        const value = !row ? null : metric === 'tangibleEquity' ? balanceValue(row, 'rote') : numeric(row[field]);
+        amounts[metric] = !row ? unavailable(rows.has(key) ? 'ambiguousPeriod' : 'missingPeriod') : !currency ? unavailable('currencyMismatch')
+          : value === null ? unavailable('missingField') : {
+            value, reason: null,
+            warnings: value < 0 ? [metric === 'equity' || metric === 'tangibleEquity' ? 'negativeEquity' : 'negativeBalance'] : []
+          };
+      }
+      const ratio = (numerator, denominator, scale = 1) => {
+        if (numerator.value === null) return unavailable(numerator.reason);
+        if (denominator.value === null) return unavailable(denominator.reason);
+        if (denominator.value === 0) return unavailable('zeroDenominator');
+        const value = numerator.value / denominator.value * scale;
+        return Number.isFinite(value)
+          ? { value, reason: null, warnings: [...new Set([...numerator.warnings, ...denominator.warnings])] }
+          : unavailable('invalidValue');
+      };
+      const year = annual ? key : Math.floor(key / 4);
+      return {
+        label: annual ? `FY ${year}` : `FY ${year} Q${key % 4 + 1}`,
+        date: row?.date || null, currency, amounts,
+        ratios: {
+          currentRatio: ratio(amounts.currentAssets, amounts.currentLiabilities),
+          liabilitiesRatio: ratio(amounts.liabilities, amounts.assets, 100),
+          cashRatio: ratio(amounts.cash, amounts.currentLiabilities),
+          leverage: ratio(amounts.assets, amounts.equity)
+        }
+      };
+    });
+  }
+
   function financialReference(data, { shares, fxRate = 1 } = {}) {
     const columns = calculateReturns(data);
     const latest = columns.at(-1);
@@ -227,6 +276,21 @@
   }
 
   const cache = new Map();
+  function loadStatements(ticker, reload = false) {
+    if (reload) cache.delete(ticker);
+    if (!cache.has(ticker)) {
+      const pending = fetch(`cache/financials/${encodeURIComponent(ticker)}_statements_v2.json`)
+        .then(response => {
+          if (!response.ok) throw new Error(`Financial statements HTTP ${response.status}`);
+          return response.json();
+        }).catch(error => {
+          if (cache.get(ticker) === pending) cache.delete(ticker);
+          throw error;
+        });
+      cache.set(ticker, pending);
+    }
+    return cache.get(ticker);
+  }
   const panels = {
     fcf: { prefix: 'fcf-ratio', metrics, calculate, current: null, requestId: 0, bound: false },
     returns: { prefix: 'return-ratio', metrics: returnMetrics, calculate: calculateReturns, current: null, requestId: 0, bound: false }
@@ -282,18 +346,7 @@
     }
     status.textContent = labels.fcf_loading;
     try {
-      if (!cache.has(ticker)) {
-        const pending = fetch(`cache/financials/${encodeURIComponent(ticker)}_statements_v2.json`)
-          .then(response => {
-            if (!response.ok) throw new Error(`Financial statements HTTP ${response.status}`);
-            return response.json();
-          }).catch(error => {
-            cache.delete(ticker);
-            throw error;
-          });
-        cache.set(ticker, pending);
-      }
-      const data = await cache.get(ticker);
+      const data = await loadStatements(ticker);
       if (id !== state.requestId) return;
       const columns = state.calculate(data, { period, flow, balance });
       const explanation = period === 'annual' ? labels.fcf_annual
@@ -381,5 +434,5 @@
     }
   }
 
-  return { calculate, calculateReturns, financialReference, trend, render, renderReturns };
+  return { calculate, calculateReturns, calculateBalances, loadStatements, financialReference, trend, render, renderReturns };
 });
