@@ -74,7 +74,7 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
-          git pull origin main --rebase --autostash
+          git pull origin "${GITHUB_REF_NAME}" --rebase --autostash
           
           # 暫存資料集、覆蓋率報告與持久化快取
           git add full_market_dcf.json market_data.js
@@ -83,7 +83,7 @@ jobs:
           # 檢查是否有更動，有更動才提交以節省 Actions 次數
           if ! git diff --cached --quiet; then
             git commit -m "Auto refresh US stock DCF data & persist AI Cache [skip ci]"
-            git push origin main
+            git push origin "HEAD:${GITHUB_REF_NAME}"
           else
             echo "No data changes detected. Skipping push."
           fi

@@ -97,3 +97,10 @@ test('withholds prices and displays an honest notice when adjustment semantics a
   assert.equal(elements.detailDcfHistoricalChart.style.display, 'none');
   assert.match(elements['det-chart-empty-state'].textContent, /拆股調整語義/);
 });
+
+test('chart renderer has no synthetic price or current-value history fallback', () => {
+  assert.doesNotMatch(rendererSource, /Math\.sin\s*\(|\bbaseline\b|\bhistFair\b|Math\.pow\s*\(\s*0\.89/);
+  assert.doesNotMatch(rendererSource, /curFairVal\s*\*\s*\(\s*0\.2(?:2)?\s*\+\s*0\.78/);
+  assert.match(rendererSource, /normalizeSeries\(s\.real_5y_prices,\s*'close'\)/);
+  assert.match(rendererSource, /Array\.isArray\(s\.historical_valuations\)/);
+});
