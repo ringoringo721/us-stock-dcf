@@ -49,13 +49,17 @@ async function checkTable(page, ticker, options) {
     assert.ok((await page.locator('#stat-total').innerText()).includes(String(stockCount)));
     for (const ticker of ['NVDA', 'AAPL', 'JPM', 'DE', 'HD', 'PFE', 'PGR', 'AZO']) {
       await page.evaluate(() => showView('screener', false));
-      await page.locator(`button[onclick="openDetail('${ticker}')"]`).click();
+      await page.locator(`a[onclick="openCompanyProfile('${ticker}')"]`).click();
+      assert.equal(await page.locator('#fcf-ratio-panel').isVisible(), false);
+      await page.locator('button[onclick="switchSubPage(\'charts\')"]').click();
       await page.waitForFunction(ticker => document.querySelector('#fcf-ratio-status').textContent.startsWith(ticker), ticker);
-      assert.equal(await page.locator('#det-ticker').innerText(), ticker);
-      assert.match(await page.locator('#det-res-fair').innerText(), /^\$\d/);
+      assert.equal(await page.locator('#cmp-ticker').innerText(), ticker);
+      assert.equal(await page.locator('#company-view #subpage-charts #fcf-ratio-panel').count(), 1);
+      assert.equal(await page.locator('#detail-view #fcf-ratio-panel').count(), 0);
       await checkTable(page, ticker, {});
     }
-    await page.evaluate(() => openDetail('NVDA'));
+    await page.evaluate(() => openCompanyProfile('NVDA'));
+    await page.locator('button[onclick="switchSubPage(\'charts\')"]').click();
     await page.waitForFunction(() => document.querySelector('#fcf-ratio-status').textContent.startsWith('NVDA'));
     for (const period of ['quarterly', 'annual']) {
       await page.selectOption('#fcf-ratio-period', period);
@@ -83,16 +87,29 @@ async function checkTable(page, ticker, options) {
     await page.locator('#btn-lang-toggle').click();
     await page.waitForFunction(() => document.querySelector('#fcf-ratio-body tr th').textContent === 'FCF / Equity');
     assert.equal(await page.locator('#fcf-ratio-title').innerText(), 'Free Cash Flow (FCF) Ratios');
+    assert.equal(await page.locator('#subpage-charts').getAttribute('class'), 'subpage-content active');
     await page.locator('#btn-lang-toggle').click();
     await page.waitForFunction(() => document.querySelector('#fcf-ratio-body tr th').textContent.includes('股東權益'));
-    const historical = await page.locator('#fcf-ratio-body').innerText();
+    const historical = await page.locator('#fcf-ratio-body').textContent();
+    await page.locator('button[onclick="switchSubPage(\'basic\')"]').click();
+    assert.equal(await page.locator('#fcf-ratio-panel').isVisible(), false);
+    await page.locator('button[onclick="switchSubPage(\'charts\')"]').click();
+    await checkTable(page, 'NVDA', { period: 'annual', flow: 'ttm', balance: 'average' });
+    assert.equal(await page.locator('#fcf-ratio-period').inputValue(), 'annual');
+    assert.equal(await page.locator('#fcf-ratio-balance').inputValue(), 'average');
+    await page.evaluate(() => openDetail('NVDA'));
+    assert.equal(await page.locator('#fcf-ratio-panel').isVisible(), false);
+    assert.equal(await page.locator('#detail-view #fcf-ratio-panel').count(), 0);
     const originalFair = await page.locator('#det-res-fair').innerText();
     await page.locator('#inp-fcf0').fill('100');
     await page.waitForFunction(before => document.querySelector('#det-res-fair').textContent !== before, originalFair);
-    assert.equal(await page.locator('#fcf-ratio-body').innerText(), historical);
+    assert.equal(await page.locator('#fcf-ratio-body').textContent(), historical);
     assert.equal(await page.locator('#dcf-fcf td').count(), 11);
     assert.equal(await page.locator('#sens-body tr').count(), 3);
     assert.equal(await page.locator('#detailDcfHistoricalChart').count(), 0);
+    await page.evaluate(() => openCompanyProfile('NVDA'));
+    await page.locator('button[onclick="switchSubPage(\'charts\')"]').click();
+    await checkTable(page, 'NVDA', { period: 'annual', flow: 'ttm', balance: 'average' });
     await page.setViewportSize({ width: 390, height: 844 });
     const widths = await page.locator('#fcf-ratio-panel .table-scroll-wrapper')
       .evaluate(node => ({ client: node.clientWidth, scroll: node.scrollWidth }));
@@ -102,7 +119,8 @@ async function checkTable(page, ticker, options) {
 
     const failurePage = await browser.newPage();
     await failurePage.route('**/cache/financials/AAPL_statements_v2.json', route => route.abort());
-    await failurePage.goto(`${baseUrl}/#AAPL`, { waitUntil: 'networkidle' });
+    await failurePage.goto(`${baseUrl}/#AAPL/profile`, { waitUntil: 'networkidle' });
+    await failurePage.locator('button[onclick="switchSubPage(\'charts\')"]').click();
     await failurePage.waitForFunction(() => !document.querySelector('#fcf-ratio-retry').hidden);
     assert.equal(await failurePage.locator('#fcf-ratio-body tr').count(), 0);
     await failurePage.unroute('**/cache/financials/AAPL_statements_v2.json');
@@ -114,13 +132,15 @@ async function checkTable(page, ticker, options) {
       await new Promise(resolve => setTimeout(resolve, 600));
       await route.continue();
     });
-    await racePage.goto(`${baseUrl}/#NVDA`, { waitUntil: 'domcontentloaded' });
-    await racePage.waitForFunction(() => document.querySelector('#det-ticker').textContent === 'NVDA');
-    await racePage.evaluate(() => openDetail('AAPL'));
+    await racePage.goto(`${baseUrl}/#NVDA/profile`, { waitUntil: 'domcontentloaded' });
+    await racePage.waitForFunction(() => document.querySelector('#company-view').style.display === 'block');
+    await racePage.locator('button[onclick="switchSubPage(\'charts\')"]').click();
+    await racePage.evaluate(() => openCompanyProfile('AAPL'));
+    await racePage.locator('button[onclick="switchSubPage(\'charts\')"]').click();
     await racePage.waitForLoadState('networkidle');
     assert.match(await racePage.locator('#fcf-ratio-status').innerText(), /^AAPL/);
     await checkTable(racePage, 'AAPL', {});
-    console.log('PASS: real-browser rows/stats, eight stocks, all ratio controls and displayed values, localization, DCF isolation, mobile scrolling, fetch-failure retry and stale-request protection.');
+    console.log('PASS: real-browser company/trend navigation, eight stocks, all ratio controls and values, tab/language state, no DCF duplicate, unchanged DCF, mobile scrolling, retry and stale-request protection.');
   } finally {
     await browser.close();
   }

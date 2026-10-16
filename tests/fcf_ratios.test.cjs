@@ -203,4 +203,9 @@ test('the exact shipped HTML scripts compile and the removed chart cannot initia
   assert.doesNotMatch(html, /renderDetailHistoricalChart|detailDcfHistoricalChart|chartjs-adapter-date-fns/);
   assert.match(html, /id="fcf-ratio-panel"/);
   assert.match(html, /src="fcf_ratios.js"/);
+  assert.equal((html.match(/id="fcf-ratio-panel"/g) || []).length, 1);
+  const detail = html.slice(html.indexOf('id="detail-view"'), html.indexOf('id="company-view"'));
+  assert.doesNotMatch(detail, /id="fcf-ratio-panel"/);
+  const trends = html.slice(html.indexOf('id="subpage-charts"'), html.indexOf('id="subpage-dividend"'));
+  assert.match(trends, /id="fcf-ratio-panel"/);
 });

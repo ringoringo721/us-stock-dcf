@@ -923,53 +923,6 @@
 
       </div>
     </div>
-    <section class="panel" id="fcf-ratio-panel" style="margin-top: 20px;" aria-labelledby="fcf-ratio-title">
-      <div class="panel-title" id="fcf-ratio-title" data-i18n="fcf_title">自由現金流（FCF）比率</div>
-      <p data-i18n="fcf_definition" style="color: var(--text-muted); font-size: 12px;">FCF 使用財報 freeCashFlow（營運現金流－資本支出），不是 FCFE；不受上方 DCF 模擬輸入影響。</p>
-      <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: end;">
-        <div class="form-group">
-          <label for="fcf-ratio-period" data-i18n="fcf_period">報表期間</label>
-          <select id="fcf-ratio-period">
-            <option value="quarterly" data-i18n="fcf_quarterly">季度</option>
-            <option value="annual" data-i18n="fcf_annual">完整會計年度</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="fcf-ratio-flow" data-i18n="fcf_flow">季度流量口徑</label>
-          <select id="fcf-ratio-flow">
-            <option value="ttm" data-i18n="fcf_ttm">TTM（連續四季）</option>
-            <option value="single" data-i18n="fcf_single">單季</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="fcf-ratio-balance" data-i18n="fcf_balance">權益／資產分母</label>
-          <select id="fcf-ratio-balance">
-            <option value="beginning" data-i18n="fcf_beginning">期初</option>
-            <option value="ending" data-i18n="fcf_ending">期末</option>
-            <option value="average" data-i18n="fcf_average">期初與期末平均</option>
-          </select>
-        </div>
-      </div>
-      <fieldset style="border: 0; padding: 0; margin: 8px 0;">
-        <legend data-i18n="fcf_visible">顯示比率</legend>
-        <div style="display: flex; flex-wrap: wrap; gap: 16px;">
-          <label><input id="fcf-ratio-equity" type="checkbox" checked> <span data-i18n="fcf_equity">FCF／股東權益</span></label>
-          <label><input id="fcf-ratio-assets" type="checkbox" checked> <span data-i18n="fcf_assets">FCF／總資產</span></label>
-          <label><input id="fcf-ratio-sales" type="checkbox" checked> <span data-i18n="fcf_sales">FCF／營收</span></label>
-          <label><input id="fcf-ratio-ebitda" type="checkbox" checked> <span data-i18n="fcf_ebitda">FCF／EBITDA</span></label>
-        </div>
-      </fieldset>
-      <p data-i18n="fcf_basis_note" style="color: var(--text-muted); font-size: 12px;">期初是本期間開始前的餘額：單季往前一季、TTM 往前四季、年度往前一財年。平均為期初與期末的簡單平均。營收與 EBITDA 始終採與 FCF 相同期間。</p>
-      <p id="fcf-ratio-status" role="status" style="color: var(--text-muted);"></p>
-      <button id="fcf-ratio-retry" type="button" class="stmt-btn" data-i18n="fcf_retry" hidden>重新載入</button>
-      <div class="table-scroll-wrapper" style="overflow-x: auto;">
-        <table id="fcf-ratio-table">
-          <thead id="fcf-ratio-head"></thead>
-          <tbody id="fcf-ratio-body"></tbody>
-        </table>
-      </div>
-      <ul id="fcf-ratio-notes" style="font-size: 12px; color: var(--text-muted);"></ul>
-    </section>
   </div>
   <!-- 頁面 2：detail-view 結束 -->
   
@@ -1010,7 +963,7 @@
       <button class="sub-tab-btn" onclick="switchSubPage('financials')" data-i18n="tab_financials">📑 2. 財務報表 (5年/TTM)</button>
       <button class="sub-tab-btn" onclick="switchSubPage('ratios')" data-i18n="tab_ratios">⚖️ 3. 關鍵比率</button>
       <button class="sub-tab-btn" onclick="switchSubPage('peers')" data-i18n="tab_peers">👥 4. 同行業對比</button>
-      <button class="sub-tab-btn" onclick="switchSubPage('charts')" data-i18n="tab_charts">📊 5. 圖表分析</button>
+      <button class="sub-tab-btn" onclick="switchSubPage('charts')" data-i18n="tab_charts">📊 5. 趨勢分析</button>
       <button class="sub-tab-btn" onclick="switchSubPage('dividend')" data-i18n="tab_dividend">💰 6. 每股盈餘與股息</button>
       <button class="sub-tab-btn" onclick="switchSubPage('news')" data-i18n="tab_news">📰 7. 公司新聞</button>
       <button class="sub-tab-btn" onclick="switchSubPage('chart')">📈 8. TradingView 圖表</button>
@@ -1289,7 +1242,7 @@
     <!-- 子分頁 4：同行業對比 (直向 5 家同行矩陣) -->
     <div id="subpage-peers" class="subpage-content"></div>
     
-    <!-- 子分頁 5：圖表分析 -->
+    <!-- 子分頁 5：趨勢分析 -->
     <div id="subpage-charts" class="subpage-content">
       <div class="panel">
         <div class="panel-title" data-i18n="sec_charts_title">現金流與營運趨勢柱狀分析</div>
@@ -1297,6 +1250,53 @@
           <div id="chart-bars-wrap" style="display: flex; gap: 24px; justify-content: center; align-items: flex-end; height: 260px; padding: 20px 0;"></div>
         </div>
       </div>
+      <section class="panel" id="fcf-ratio-panel" style="margin-top: 20px;" aria-labelledby="fcf-ratio-title">
+        <div class="panel-title" id="fcf-ratio-title" data-i18n="fcf_title">自由現金流（FCF）比率</div>
+        <p data-i18n="fcf_definition" style="color: var(--text-muted); font-size: 12px;">FCF 使用財報 freeCashFlow（營運現金流－資本支出），不是 FCFE；不受 DCF 模擬輸入影響。</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: end;">
+          <div class="form-group">
+            <label for="fcf-ratio-period" data-i18n="fcf_period">報表期間</label>
+            <select id="fcf-ratio-period">
+              <option value="quarterly" data-i18n="fcf_quarterly">季度</option>
+              <option value="annual" data-i18n="fcf_annual">完整會計年度</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="fcf-ratio-flow" data-i18n="fcf_flow">季度流量口徑</label>
+            <select id="fcf-ratio-flow">
+              <option value="ttm" data-i18n="fcf_ttm">TTM（連續四季）</option>
+              <option value="single" data-i18n="fcf_single">單季</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="fcf-ratio-balance" data-i18n="fcf_balance">權益／資產分母</label>
+            <select id="fcf-ratio-balance">
+              <option value="beginning" data-i18n="fcf_beginning">期初</option>
+              <option value="ending" data-i18n="fcf_ending">期末</option>
+              <option value="average" data-i18n="fcf_average">期初與期末平均</option>
+            </select>
+          </div>
+        </div>
+        <fieldset style="border: 0; padding: 0; margin: 8px 0;">
+          <legend data-i18n="fcf_visible">顯示比率</legend>
+          <div style="display: flex; flex-wrap: wrap; gap: 16px;">
+            <label><input id="fcf-ratio-equity" type="checkbox" checked> <span data-i18n="fcf_equity">FCF／股東權益</span></label>
+            <label><input id="fcf-ratio-assets" type="checkbox" checked> <span data-i18n="fcf_assets">FCF／總資產</span></label>
+            <label><input id="fcf-ratio-sales" type="checkbox" checked> <span data-i18n="fcf_sales">FCF／營收</span></label>
+            <label><input id="fcf-ratio-ebitda" type="checkbox" checked> <span data-i18n="fcf_ebitda">FCF／EBITDA</span></label>
+          </div>
+        </fieldset>
+        <p data-i18n="fcf_basis_note" style="color: var(--text-muted); font-size: 12px;">期初是本期間開始前的餘額：單季往前一季、TTM 往前四季、年度往前一財年。平均為期初與期末的簡單平均。營收與 EBITDA 始終採與 FCF 相同期間。</p>
+        <p id="fcf-ratio-status" role="status" style="color: var(--text-muted);"></p>
+        <button id="fcf-ratio-retry" type="button" class="stmt-btn" data-i18n="fcf_retry" hidden>重新載入</button>
+        <div class="table-scroll-wrapper" style="overflow-x: auto;">
+          <table id="fcf-ratio-table">
+            <thead id="fcf-ratio-head"></thead>
+            <tbody id="fcf-ratio-body"></tbody>
+          </table>
+        </div>
+        <ul id="fcf-ratio-notes" style="font-size: 12px; color: var(--text-muted);"></ul>
+      </section>
     </div>
 
     <!-- 子分頁 6：每股盈餘與股息分析 -->
@@ -1721,7 +1721,7 @@
       tab_financials: "📑 2. 財務報表 (5年/TTM)",
       tab_ratios: "⚖️ 3. 關鍵比率",
       tab_peers: "👥 4. 同行業對比",
-      tab_charts: "📊 5. 圖表分析",
+      tab_charts: "📊 5. 趨勢分析",
       tab_dividend: "💰 6. 每股盈餘與股息",
       tab_news: "📰 7. 公司新聞",
       sec_profile_title: "企業核心業務與營運全貌",
@@ -1798,7 +1798,7 @@
       btn_ratio_annual: "年度 (5年 + TTM)",
       btn_ratio_quarter: "季度 (近 20 季)",
       fcf_title: "自由現金流（FCF）比率",
-      fcf_definition: "FCF 使用財報 freeCashFlow（營運現金流－資本支出），不是 FCFE；不受上方 DCF 模擬輸入影響。",
+      fcf_definition: "FCF 使用財報 freeCashFlow（營運現金流－資本支出），不是 FCFE；不受 DCF 模擬輸入影響。",
       fcf_period: "報表期間",
       fcf_quarterly: "季度",
       fcf_annual: "完整會計年度",
@@ -2004,7 +2004,7 @@
       btn_ratio_annual: "Annual (5Y + TTM)",
       btn_ratio_quarter: "Quarterly (Last 20Q)",
       fcf_title: "Free Cash Flow (FCF) Ratios",
-      fcf_definition: "FCF uses reported freeCashFlow (operating cash flow minus capital expenditures), not FCFE. Historical ratios are unaffected by the DCF simulation inputs above.",
+      fcf_definition: "FCF uses reported freeCashFlow (operating cash flow minus capital expenditures), not FCFE. Historical ratios are unaffected by DCF simulation inputs.",
       fcf_period: "Statement period",
       fcf_quarterly: "Quarterly",
       fcf_annual: "Full fiscal year",
@@ -2094,17 +2094,15 @@
     }
     const cmpView = document.getElementById('company-view');
     if (cmpView && cmpView.style.display === 'block') {
+      const chartsActive = document.getElementById('subpage-charts').classList.contains('active');
       loadCompanyProfile(activeCompanyTicker);
+      if (chartsActive) switchSubPage('charts');
     }
     const rView = document.getElementById('subpage-ratios');
     if (rView && rView.classList.contains('active')) {
       renderRatiosSubPage(stockUniverse[activeCompanyTicker]);
     }
 
-    const detailView = document.getElementById('detail-view');
-    if (detailView && detailView.style.display === 'block' && stockUniverse[activeDetailTicker]) {
-      FcfRatios.render(activeDetailTicker, currentLang, I18N_DICT[currentLang]);
-    }
   }
 
   function toggleLanguage() {
@@ -2795,6 +2793,7 @@
       renderPeersSubPage(curStock);
     } else if (tabKey === 'charts') {
       renderChartsSubPage(curStock);
+      FcfRatios.render(curTicker, currentLang, I18N_DICT[currentLang]);
     } else if (tabKey === 'dividend') {
       renderDividendSubPage(curStock);
     } else if (tabKey === 'news') {
@@ -4294,7 +4293,6 @@
     document.getElementById('inp-g').value = workingParams.g || 2.25;
 
     recalculateDetail();
-    FcfRatios.render(ticker, currentLang, I18N_DICT[currentLang]);
   }
 
   let paramChangeTimer = null;
