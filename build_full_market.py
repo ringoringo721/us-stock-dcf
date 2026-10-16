@@ -5,8 +5,14 @@ import time
 import copy
 import re
 import math
+from datetime import datetime, timedelta, timezone
 from typing import Dict, Any, Optional
 from pydantic import BaseModel, Field
+from historical_market_data import (
+    build_quarterly_valuations,
+    fetch_historical_prices,
+    fmp_symbol,
+)
 
 def fetch_as_reported_trade_ar(symbol: str, api_key: str) -> dict:
     ar_map = {
@@ -59,8 +65,8 @@ def fetch_as_reported_trade_ar(symbol: str, api_key: str) -> dict:
                             else:
                                 if f_year and period: ar_map["quarterly"]["nontrade"][f"{f_year}{period}"] = val_nt_m
                                 if date_str: ar_map["quarterly"]["nontrade"][date_str] = val_nt_m
-        except Exception as e:
-            print(f"[{symbol}] 抓取 as-reported 失敗: {e}")
+        except Exception:
+            print(f"[{symbol}] 抓取 as-reported 失敗", flush=True)
     return ar_map
 
 try:
@@ -70,7 +76,7 @@ try:
 except ImportError:
     HAS_GENAI = False
 
-FMP_KEY = os.environ.get("FMP_API_KEY", "").strip() or "6gYxujhYq3qweE6ohCF6b5zjCrberLaOT"
+FMP_KEY = os.environ.get("FMP_API_KEY", "").strip()
 GEMINI_KEY = os.environ.get("GEMINI_API_KEY", "").strip()
 GCP_SA_KEY = os.environ.get("GCP_SA_KEY", "").strip()
 
@@ -104,6 +110,8 @@ DESC_CACHE_DIR = "cache/descriptions"
 FIN_CACHE_DIR = "cache/financials"
 META_CACHE_DIR = "cache/company_meta"
 PEER_CACHE_DIR = "cache/peers"
+FINANCIAL_STATEMENT_CACHE_TTL = timedelta(days=7)
+COMPANY_META_CACHE_TTL = timedelta(days=30)
 os.makedirs(CACHE_DIR, exist_ok=True)
 os.makedirs(DESC_CACHE_DIR, exist_ok=True)
 os.makedirs(FIN_CACHE_DIR, exist_ok=True)
@@ -597,73 +605,135 @@ HEADERS = {
 BASE_URL = "https://financialmodelingprep.com/stable"
 
 def fetch_json(endpoint, params):
-    params["apikey"] = FMP_KEY
+    if not FMP_KEY:
+        return None
+    params = {**params, "apikey": FMP_KEY}
     url = f"{BASE_URL}/{endpoint}"
-    for _ in range(3):
+    for attempt in range(4):
         try:
-            r = requests.get(url, params=params, headers=HEADERS, timeout=(5, 10))
+            r = requests.get(url, params=params, headers=HEADERS, timeout=(5, 20))
             if r.status_code == 200:
-                return r.json()
-            elif r.status_code == 429:
-                time.sleep(1.5)
-        except Exception:
-            time.sleep(0.5)
+                try:
+                    return r.json()
+                except ValueError:
+                    return None
+            if r.status_code not in (429, 500, 502, 503, 504):
+                return None
+            retry_after = r.headers.get("Retry-After")
+            try:
+                delay = min(max(float(retry_after), 0), 30) if retry_after else min(2**attempt, 30)
+            except (TypeError, ValueError):
+                delay = min(2**attempt, 30)
+        except requests.RequestException:
+            delay = min(2**attempt, 30)
+        if attempt < 3:
+            time.sleep(delay)
     return None
 
 def fetch_cached_financial_statements(fmp_sym: str, sym: str) -> Dict[str, Any]:
     default_payload = {
         "annual": {"income": [], "balance": [], "cashflow": []},
-        "quarterly": {"income": [], "balance": [], "cashflow": []}
+        "quarterly": {"income": [], "balance": [], "cashflow": []},
+        "_cache_meta": {"status": "missing", "last_good_at": None}
     }
     cache_path = os.path.join(FIN_CACHE_DIR, f"{sym}_statements_v2.json")
+    cached = None
     if os.path.exists(cache_path):
         try:
             with open(cache_path, "r", encoding="utf-8") as f:
                 data = json.load(f)
                 if isinstance(data, dict) and "quarterly" in data:
-                    return data
+                    cached = data
+                    meta = data.get("_cache_meta", {})
+                    cached_at = meta.get("last_good_at")
+                    if not cached_at:
+                        cached_at = datetime.fromtimestamp(os.path.getmtime(cache_path), timezone.utc).isoformat()
+                    try:
+                        cached_time = datetime.fromisoformat(cached_at.replace("Z", "+00:00"))
+                        if cached_time.tzinfo is None:
+                            cached_time = cached_time.replace(tzinfo=timezone.utc)
+                    except (TypeError, ValueError):
+                        cached_time = None
+                    if cached_time and datetime.now(timezone.utc) - cached_time < FINANCIAL_STATEMENT_CACHE_TTL:
+                        meta.update({"status": "fresh", "last_good_at": cached_time.isoformat()})
+                        data["_cache_meta"] = meta
+                        return data
         except Exception:
-            pass
+            cached = None
 
-    inc_annual = fetch_json("income-statement", {"symbol": fmp_sym, "period": "annual", "limit": 5}) or []
+    inc_annual = fetch_json("income-statement", {"symbol": fmp_sym, "period": "annual", "limit": 5})
     time.sleep(0.04)
-    bs_annual = fetch_json("balance-sheet-statement", {"symbol": fmp_sym, "period": "annual", "limit": 5}) or []
+    bs_annual = fetch_json("balance-sheet-statement", {"symbol": fmp_sym, "period": "annual", "limit": 5})
     time.sleep(0.04)
-    cf_annual = fetch_json("cash-flow-statement", {"symbol": fmp_sym, "period": "annual", "limit": 5}) or []
+    cf_annual = fetch_json("cash-flow-statement", {"symbol": fmp_sym, "period": "annual", "limit": 5})
     time.sleep(0.04)
 
-    inc_quarter = fetch_json("income-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 20}) or []
+    inc_quarter = fetch_json("income-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 24})
     time.sleep(0.04)
-    bs_quarter = fetch_json("balance-sheet-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 20}) or []
+    bs_quarter = fetch_json("balance-sheet-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 24})
     time.sleep(0.04)
-    cf_quarter = fetch_json("cash-flow-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 20}) or []
+    cf_quarter = fetch_json("cash-flow-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 24})
     time.sleep(0.04)
+    responses = (inc_annual, bs_annual, cf_annual, inc_quarter, bs_quarter, cf_quarter)
+    if any(not isinstance(rows, list) for rows in responses) or not any(inc_quarter or cf_quarter):
+        if cached:
+            cached["_cache_meta"] = {
+                **cached.get("_cache_meta", {}),
+                "status": "stale",
+                "last_attempt_at": datetime.now(timezone.utc).isoformat(),
+                "last_error": "Financial statement refresh failed or returned no quarterly history",
+            }
+            temporary = cache_path + ".tmp"
+            with open(temporary, "w", encoding="utf-8") as f:
+                json.dump(cached, f, ensure_ascii=False, indent=2)
+            os.replace(temporary, cache_path)
+            return cached
+        default_payload["_cache_meta"] = {
+            "status": "error",
+            "last_good_at": None,
+            "last_attempt_at": datetime.now(timezone.utc).isoformat(),
+            "last_error": "Financial statement refresh failed or returned no quarterly history",
+        }
+        temporary = cache_path + ".tmp"
+        with open(temporary, "w", encoding="utf-8") as f:
+            json.dump(default_payload, f, ensure_ascii=False, indent=2)
+        os.replace(temporary, cache_path)
+        return default_payload
 
     payload = {
         "annual": {
-            "income": inc_annual if isinstance(inc_annual, list) else [],
-            "balance": bs_annual if isinstance(bs_annual, list) else [],
-            "cashflow": cf_annual if isinstance(cf_annual, list) else []
+            "income": inc_annual,
+            "balance": bs_annual,
+            "cashflow": cf_annual
         },
         "quarterly": {
-            "income": inc_quarter if isinstance(inc_quarter, list) else [],
-            "balance": bs_quarter if isinstance(bs_quarter, list) else [],
-            "cashflow": cf_quarter if isinstance(cf_quarter, list) else []
-        }
+            "income": inc_quarter,
+            "balance": bs_quarter,
+            "cashflow": cf_quarter
+        },
+        "_cache_meta": {
+            "status": "fresh",
+            "last_good_at": datetime.now(timezone.utc).isoformat(),
+            "last_error": None,
+        },
     }
 
     try:
-        with open(cache_path, "w", encoding="utf-8") as f:
+        temporary = cache_path + ".tmp"
+        with open(temporary, "w", encoding="utf-8") as f:
             json.dump(payload, f, ensure_ascii=False, indent=2)
+        os.replace(temporary, cache_path)
     except Exception as e:
         print(f"⚠️ [{sym}] 寫入報表快取失敗: {e}", flush=True)
 
-    return payload or default_payload
+    return payload
 
 def fetch_fmp_api(endpoint_or_url: str, params: Optional[dict] = None) -> Optional[Any]:
+    if not FMP_KEY:
+        return None
     if params is None:
         params = {}
-    params["apikey"] = FMP_KEY
+    params = {**params, "apikey": FMP_KEY}
     if endpoint_or_url.startswith("http"):
         url = endpoint_or_url
     elif endpoint_or_url.startswith("api/"):
@@ -671,27 +741,47 @@ def fetch_fmp_api(endpoint_or_url: str, params: Optional[dict] = None) -> Option
     else:
         url = f"{BASE_URL}/{endpoint_or_url}"
 
-    for _ in range(3):
+    for attempt in range(4):
         try:
-            r = requests.get(url, params=params, headers=HEADERS, timeout=(5, 10))
+            r = requests.get(url, params=params, headers=HEADERS, timeout=(5, 20))
             if r.status_code == 200:
-                return r.json()
-            elif r.status_code == 429:
-                time.sleep(1.5)
-        except Exception:
-            time.sleep(0.5)
+                try:
+                    return r.json()
+                except ValueError:
+                    return None
+            if r.status_code not in (429, 500, 502, 503, 504):
+                return None
+            delay = min(2**attempt, 30)
+        except requests.RequestException:
+            delay = min(2**attempt, 30)
+        if attempt < 3:
+            time.sleep(delay)
     return None
 
 def fetch_cached_company_meta(fmp_sym: str, sym: str, total_shares_m: float, cur_price: float, sector: str = "") -> Dict[str, Any]:
     cache_path = os.path.join(META_CACHE_DIR, f"{sym}_meta.json")
+    cached = None
     if os.path.exists(cache_path):
         try:
             with open(cache_path, "r", encoding="utf-8") as f:
                 data = json.load(f)
                 if data.get("top_holders") and len(data["top_holders"]) > 0:
-                    return data
+                    cached = data
+                    cached_at = data.get("_cache_meta", {}).get("last_good_at")
+                    if not cached_at:
+                        cached_at = datetime.fromtimestamp(os.path.getmtime(cache_path), timezone.utc).isoformat()
+                    cached_time = datetime.fromisoformat(cached_at.replace("Z", "+00:00"))
+                    if (
+                        datetime.now(timezone.utc) - cached_time < COMPANY_META_CACHE_TTL
+                        and data.get("_cache_meta", {}).get("splits_status") == "fresh"
+                        and all(
+                            "numerator" in split and "denominator" in split
+                            for split in data.get("stock_splits", [])
+                        )
+                    ):
+                        return data
         except Exception:
-            pass
+            cached = None
 
     raw_holders = fetch_fmp_api(f"api/v3/institutional-holder/{fmp_sym}") or []
     time.sleep(0.04)
@@ -699,8 +789,24 @@ def fetch_cached_company_meta(fmp_sym: str, sym: str, total_shares_m: float, cur
     raw_insiders = fetch_fmp_api("insider-trading/search", {"symbol": fmp_sym, "limit": 20}) or []
     time.sleep(0.04)
 
-    raw_splits = fetch_fmp_api("splits", {"symbol": fmp_sym}) or []
+    raw_splits = fetch_fmp_api("splits", {"symbol": fmp_sym})
     time.sleep(0.04)
+    split_data_available = isinstance(raw_splits, list)
+    if not split_data_available:
+        if cached:
+            cached["_cache_meta"] = {
+                **cached.get("_cache_meta", {}),
+                "status": "stale",
+                "splits_status": "stale",
+                "last_attempt_at": datetime.now(timezone.utc).isoformat(),
+                "last_error": "Company metadata refresh failed; last-good split data retained",
+            }
+            temporary = cache_path + ".tmp"
+            with open(temporary, "w", encoding="utf-8") as f:
+                json.dump(cached, f, ensure_ascii=False, indent=2)
+            os.replace(temporary, cache_path)
+            return cached
+        raw_splits = []
 
     total_shares_raw = max(total_shares_m * 1e6, 1.0)
     top_holders = []
@@ -804,11 +910,15 @@ def fetch_cached_company_meta(fmp_sym: str, sym: str, total_shares_m: float, cur
 
     stock_splits = []
     if isinstance(raw_splits, list) and len(raw_splits) > 0 and isinstance(raw_splits[0], dict):
-        for sp in raw_splits[:10]:
-            num = int(float(sp.get("numerator") or 1))
-            den = int(float(sp.get("denominator") or 1))
+        for sp in raw_splits:
+            num = float(sp.get("numerator") or 0)
+            den = float(sp.get("denominator") or 0)
+            if num <= 0 or den <= 0 or not sp.get("date"):
+                continue
             stock_splits.append({
-                "date": sp.get("date") or "--",
+                "date": sp.get("date"),
+                "numerator": num,
+                "denominator": den,
                 "ratio": f"{num} : {den}",
                 "desc": f"普通股 {den} 拆 {num} (Stock Split)",
                 "type": "普通拆股"
@@ -819,7 +929,13 @@ def fetch_cached_company_meta(fmp_sym: str, sym: str, total_shares_m: float, cur
         "insider_trades": insider_trades,
         "stock_splits": stock_splits,
         "inst_ownership_pct": inst_ownership_pct,
-        "insider_ownership_pct": insider_ownership_pct
+        "insider_ownership_pct": insider_ownership_pct,
+        "_cache_meta": {
+            "status": "fresh",
+            "last_good_at": datetime.now(timezone.utc).isoformat(),
+            "last_error": None,
+            "splits_status": "fresh" if split_data_available else "error",
+        },
     }
 
     try:
@@ -830,23 +946,12 @@ def fetch_cached_company_meta(fmp_sym: str, sym: str, total_shares_m: float, cur
 
     return meta_payload
 
-FX_CACHE = {
-    "USD": 1.0,
-    "HKD": 1.0 / 7.80,
-    "CNY": 1.0 / 7.20,
-    "RMB": 1.0 / 7.20
-}
+FX_CACHE = {"USD": 1.0}
 
 def get_fx_to_usd_rate(currency):
     curr = (currency or "USD").upper().strip()
     if curr in FX_CACHE:
         return FX_CACHE[curr]
-
-    fallbacks = {
-        "TWD": 1.0 / 32.0, "NTD": 1.0 / 32.0,
-        "EUR": 1.08, "GBP": 1.28, "JPY": 1.0 / 152.0, "CAD": 1.0 / 1.37,
-        "HKD": 1.0 / 7.80, "CNY": 1.0 / 7.20, "RMB": 1.0 / 7.20
-    }
 
     try:
         data = fetch_json("quote", {"symbol": f"USD{curr}"})
@@ -858,10 +963,7 @@ def get_fx_to_usd_rate(currency):
                 return rate
     except Exception:
         pass
-
-    fallback_rate = fallbacks.get(curr, 1.0)
-    FX_CACHE[curr] = fallback_rate
-    return fallback_rate
+    return None
 
 def build_10y_growth_schedule(est_data, default_g1, terminal_g):
     fmp_rates = []
@@ -934,6 +1036,8 @@ def get_canonical_entity_id(prof: dict, ticker: str) -> str:
     return f"ROOT_{root_sym}"
 
 def main():
+    if not FMP_KEY:
+        raise RuntimeError("FMP_API_KEY is required; no market-data refresh was started.")
     print("=" * 80, flush=True)
     print("🚀 美股 / 港股 DCF/金融雙軌模型 + Gemini 護城河雙核心引擎啟動", flush=True)
     print("=" * 80, flush=True)
@@ -945,7 +1049,7 @@ def main():
         if not sym:
             continue
         
-        fmp_sym = sym if sym.endswith(".HK") else sym.replace(".", "")
+        fmp_sym = fmp_symbol(sym)
 
         # 0. 抓取企業 Profile
         prof_data = fetch_json("profile", {"symbol": fmp_sym})
@@ -970,9 +1074,15 @@ def main():
         # 1. 抓取即時報價與市值
         q_data = fetch_json("quote", {"symbol": fmp_sym})
         price, mcap, shares = 0.0, 0.0, 0.0
+        q = {}
+        quote_as_of = None
         if q_data and isinstance(q_data, list) and len(q_data) > 0:
             q = q_data[0]
             price = float(q.get("price") or 0.0)
+            try:
+                quote_as_of = datetime.fromtimestamp(float(q["timestamp"]), timezone.utc).isoformat() if q.get("timestamp") else None
+            except (TypeError, ValueError, OSError, OverflowError):
+                quote_as_of = None
             mcap_raw = float(q.get("marketCap") or 0.0)
             mcap = round(mcap_raw / 1e6, 1) if mcap_raw > 0 else 0.0
             if price > 0 and mcap_raw > 0:
@@ -980,15 +1090,22 @@ def main():
             else:
                 shares = float(q.get("sharesOutstanding") or 0.0) / 1e6
 
-        if price <= 0: price = 150.0
-        if mcap <= 0: mcap = 100000.0
-        if shares <= 0: shares = round(mcap / price, 1)
+        if price <= 0: price = 0.0
+        if mcap <= 0: mcap = 0.0
+        if shares <= 0: shares = 0.0
         time.sleep(0.04)
 
         # 1.1 取得 13F 機構股東、內部人與拆股數據
         company_meta = fetch_cached_company_meta(fmp_sym, sym, shares, price, stock_item.get("sector", ""))
         real_inst_ownership = company_meta.get("inst_ownership_pct", 72.0)
         real_insider_ownership = company_meta.get("insider_ownership_pct", 5.0)
+        price_history = fetch_historical_prices(
+            sym,
+            FMP_KEY,
+            split_events=company_meta.get("stock_splits", []),
+            adjustment_basis_verified=True,
+            split_events_available=company_meta.get("_cache_meta", {}).get("splits_status") == "fresh",
+        )
         
         # 2. 資產負債表
         bs_data = fetch_json("balance-sheet-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 1})
@@ -1034,11 +1151,6 @@ def main():
             cash = round(tot_cash_raw / 1e6, 1)
             short_term_inv = round(short_term_inv / 1e6, 1)
 
-            if sym == "NVDA" and cash > 80000:
-                cash = round(cash / 3.0, 1)
-            if sym in ["GOOGL", "GOOG"] and cash > 200000:
-                cash = round(cash / 2.5, 1)
-
             equity = float(bs.get("totalStockholdersEquity") or 1.0)
             
             gw = float(bs.get("goodwill") or 0.0)
@@ -1057,8 +1169,9 @@ def main():
 
         # 3. 匯率換算與財報抓取 (支援年度與近 20 季)
         fx_rate = get_fx_to_usd_rate(reported_currency)
-        if sym == "TSM":
-            fx_rate = 1.0 / 32.0
+        currency_conversion_available = fx_rate is not None and math.isfinite(fx_rate) and fx_rate > 0
+        if not currency_conversion_available:
+            fx_rate = 0.0
 
         fin_cache = fetch_cached_financial_statements(fmp_sym, sym) or {}
         annual_data = fin_cache.get("annual", {})
@@ -1071,6 +1184,18 @@ def main():
         inc_quarter = quarterly_data.get("income", [])
         bs_quarter = quarterly_data.get("balance", [])
         cf_quarter = quarterly_data.get("cashflow", [])
+        historical_valuations = build_quarterly_valuations(
+            inc_quarter,
+            bs_quarter,
+            cf_quarter,
+            company_meta.get("stock_splits", []),
+            sector=stock_item.get("sector", ""),
+            country=prof.get("country") or "",
+            is_adr=bool(prof.get("isAdr")),
+            adr_ratio=prof.get("adrRatio"),
+            adjustment_basis_verified=True,
+            statements_fresh=fin_cache.get("_cache_meta", {}).get("status") == "fresh",
+        )
 
         inc_latest_4q = inc_quarter[:4]
         cf_latest_4q = cf_quarter[:4]
@@ -1082,7 +1207,15 @@ def main():
         ttm_rev = sum(float(x.get("revenue") or 0.0) for x in inc_latest_4q)
         ttm_cfo = sum(float(x.get("operatingCashFlow") or 0.0) for x in cf_latest_4q)
         ttm_capex = sum(float(x.get("capitalExpenditure") or 0.0) for x in cf_latest_4q)
-        ttm_fcf_sum = sum(float(x.get("freeCashFlow") or 0.0) for x in cf_latest_4q)
+        ttm_interest_expense = sum(float(x.get("interestExpense") or 0.0) for x in inc_latest_4q)
+        ttm_fcff = ttm_cfo - abs(ttm_capex) + max(ttm_interest_expense, 0.0) * (1.0 - TAX_RATE / 100.0)
+        ttm_fcff_inputs_valid = (
+            len(inc_latest_4q) == 4
+            and len(cf_latest_4q) == 4
+            and all(x.get("operatingCashFlow") is not None and x.get("capitalExpenditure") is not None for x in cf_latest_4q)
+            and all(x.get("interestExpense") is not None for x in inc_latest_4q)
+            and math.isfinite(ttm_fcff)
+        )
 
         ttm_dividends_paid = 0.0
         ttm_buybacks_paid = 0.0
@@ -1092,7 +1225,7 @@ def main():
             bb_val = q_cf.get("commonStockRepurchased") or 0.0
             ttm_buybacks_paid += abs(float(bb_val))
 
-        fcf0 = round(ttm_fcf_sum / 1e6, 1)
+        fcf0 = round(ttm_fcff / 1e6, 1) if ttm_fcff_inputs_valid else 0.0
 
         # 歷史序列
         inc_sorted = list(reversed(inc_annual))[:5]
@@ -1113,7 +1246,7 @@ def main():
         
         hist_cfo.append(round(ttm_cfo * fx_rate / 1e6, 1))
         hist_capex.append(round(-abs(ttm_capex) * fx_rate / 1e6, 1))
-        hist_fcf.append(round(ttm_fcf_sum * fx_rate / 1e6, 1))
+        hist_fcf.append(round(sum(float(x.get("freeCashFlow") or 0.0) for x in cf_latest_4q) * fx_rate / 1e6, 1))
 
         real_history = {
             "revenue": hist_revenue,
@@ -1331,8 +1464,6 @@ def main():
             ttm_dividends_paid = ttm_dividends_paid * fx_rate
             ttm_buybacks_paid = ttm_buybacks_paid * fx_rate
 
-        if fcf0 <= 0: fcf0 = round(mcap * 0.038, 1)
-
         div_yield_real = 0.0
         if mcap > 0 and ttm_dividends_paid > 0:
             div_yield_real = round((ttm_dividends_paid / (mcap * 1e6)) * 100.0, 2)
@@ -1365,8 +1496,8 @@ def main():
         ke = RF + (beta * ERP)
         kd_after = (KD / 100.0) * (1.0 - (tax / 100.0))
         V = mcap + debt
-        wE = mcap / V if V > 0 else 0.95
-        wD = debt / V if V > 0 else 0.05
+        wE = mcap / V if V > 0 else 0.0
+        wD = debt / V if V > 0 else 0.0
         wacc = (wE * ke) + (wD * kd_after)
 
         net_debt = round(debt - cash, 1)
@@ -1378,21 +1509,39 @@ def main():
             fmp_official_ev = round(raw_ev * fx_rate / 1e6, 1)
 
         if fmp_official_ev <= 0:
-            fmp_official_ev = max(round(mcap + net_debt, 1), round(mcap * 0.8, 1))
+            fmp_official_ev = round(mcap + net_debt, 1) if mcap > 0 else 0.0
 
-        sum_pv = 0
-        cur_fcf = fcf0
-        for t, gr_pct in enumerate(growth_10y, 1):
-            cur_fcf *= (1.0 + (gr_pct / 100.0))
-            sum_pv += cur_fcf / ((1.0 + wacc) ** t)
-
-        safe_wacc = max(wacc, DEFAULT_G + 0.015)
-        tv = (cur_fcf * (1.0 + DEFAULT_G)) / (safe_wacc - DEFAULT_G)
-        pv_tv = tv / ((1.0 + safe_wacc) ** 10)
-        ev = round(sum_pv + pv_tv, 1)
-        eq_val = ev - net_debt
-        fair_val = round(eq_val / shares, 2)
-        premium_pct = round(((price / fair_val) - 1.0) * 100.0, 1)
+        dcf_status = "unavailable"
+        dcf_reason = "Positive share count, finite cash flow, and a discount rate greater than terminal growth are required."
+        ev, fair_val, premium_pct = 0.0, 0.0, None
+        if (
+            shares > 0
+            and ttm_fcff_inputs_valid
+            and currency_conversion_available
+            and fin_cache.get("_cache_meta", {}).get("status") == "fresh"
+            and all(math.isfinite(value) for value in (fcf0, cash, debt, wacc))
+            and wacc > DEFAULT_G
+            and len(growth_10y) == 10
+            and all(math.isfinite(float(value)) for value in growth_10y)
+        ):
+            sum_pv = 0.0
+            cur_fcf = fcf0
+            for t, gr_pct in enumerate(growth_10y, 1):
+                cur_fcf *= 1.0 + (gr_pct / 100.0)
+                sum_pv += cur_fcf / ((1.0 + wacc) ** t)
+            tv = (cur_fcf * (1.0 + DEFAULT_G)) / (wacc - DEFAULT_G)
+            pv_tv = tv / ((1.0 + wacc) ** 10)
+            ev = sum_pv + pv_tv
+            eq_val = ev - net_debt
+            calculated_fair_val = eq_val / shares
+            if all(math.isfinite(value) for value in (ev, calculated_fair_val)):
+                fair_val = round(calculated_fair_val, 2)
+                dcf_status = "available"
+                dcf_reason = None
+                if price > 0 and fair_val != 0:
+                    premium_pct = round(((price / fair_val) - 1.0) * 100.0, 1)
+            else:
+                ev, fair_val = 0.0, 0.0
 
         ebitda_m = ttm_ebitda / 1e6
         if ebitda_m > 0:
@@ -1523,6 +1672,15 @@ def main():
             "industry": stock_item.get("industry", "N/A"),
             "reportedCurrency": reported_currency,
             "price": price,
+            "quote_as_of": quote_as_of,
+            "quote_label": "FMP quote; may differ from last daily close",
+            "real_5y_prices": [
+                {key: row[key] for key in ("date", "close", "volume") if key in row}
+                for row in price_history.get("prices", [])
+            ],
+            "price_history_metadata": price_history.get("metadata", {}),
+            "historical_valuations": historical_valuations,
+            "financial_statements_metadata": fin_cache.get("_cache_meta", {}),
             "shares": shares,
             "shares_outstanding": int(shares * 1e6) if shares > 0 else 0,
             "shares_display": f"{shares:,.2f} M",
@@ -1536,6 +1694,8 @@ def main():
             "cash_and_short_term": cash,
             "net_debt": round(debt - cash, 1),
             "fcf0": fcf0,
+            "dcf_cash_flow_definition": "TTM FCFF approximation: operating cash flow - absolute capital expenditure + positive after-tax interest expense; USD millions",
+            "financial_currency_conversion_status": "available" if currency_conversion_available else "unavailable",
             "real_history": real_history,
             "statements_raw": statements_data,
             "peers": get_stock_peers_cached(sym, FMP_KEY),  # ⬅️ 關鍵修正：此處使用 sym 與 FMP_KEY
@@ -1559,7 +1719,9 @@ def main():
             "fair_val": fair_val,
             "default_fair_val": fair_val,
             "premium_pct": premium_pct,
-            "is_undervalued": premium_pct < 0,
+            "dcf_status": dcf_status,
+            "dcf_reason": dcf_reason,
+            "is_undervalued": premium_pct < 0 if premium_pct is not None else None,
             "pe_trailing": pe_trailing,
             "pe_forward": pe_forward,
             "pb_trailing": pb_trailing,
