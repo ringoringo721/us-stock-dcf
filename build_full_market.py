@@ -1,16 +1,12 @@
 import os
-import requests
 import json
+import requests
 import time
 import copy
 import re
 import math
 from typing import Dict, Any, Optional
 from pydantic import BaseModel, Field
-
-import os
-import json
-import requests
 
 HIST_CACHE_DIR = "cache/historical_prices"
 os.makedirs(HIST_CACHE_DIR, exist_ok=True)
@@ -218,7 +214,6 @@ os.makedirs(META_CACHE_DIR, exist_ok=True)
 os.makedirs(PEER_CACHE_DIR, exist_ok=True)
 
 def get_stock_peers_cached(ticker: str, api_key: str) -> list:
-    """從 FMP 取得 5 家核心同行對標公司，並持久化保存至 cache/peers/{ticker}.json"""
     cache_file = os.path.join(PEER_CACHE_DIR, f"{ticker}.json")
     if os.path.exists(cache_file):
         try:
@@ -248,7 +243,6 @@ def get_stock_peers_cached(ticker: str, api_key: str) -> list:
     return []
     
 def get_deep_chinese_description(ticker: str, company_name: str, en_desc: str) -> str:
-    """利用 Gemini 將 FMP 英文業務描述翻譯並提煉為繁體中文，支援本機快取"""
     if not en_desc or len(en_desc.strip()) < 30:
         return ""
 
@@ -346,17 +340,13 @@ def analyze_stock_moat(ticker: str, latest_period: str, fin_context: Dict[str, A
                 )
 
                 if has_bilingual and is_valid_text:
-                    print(f"⚡ [{ticker}] 命中雙語完整快取 ({safe_period})，直接讀取本機數據", flush=True)
                     return cached_data
-                else:
-                    print(f"⚠️ [{ticker}] 偵測到舊版單語或不完整快取，自動作廢並重新調用 Gemini 生成雙語分析...", flush=True)
-        except Exception as e:
-            print(f"[{ticker}] 快取讀取異常，重新生成: {e}", flush=True)
+        except Exception:
+            pass
 
     if not gemini_client:
         return _build_fallback_moat(ticker, safe_period)
 
-    print(f"💰 [{ticker}] 新季度財報發布或首次分析 ({safe_period})，調用 Vertex AI 深入護城河分析...", flush=True)
     prompt = f"""
     請以沃倫·巴菲特（Warren Buffett）與查理·蒙格（Charlie Munger）的長期價值投資哲學視角，對上市公司 【{ticker}】 的 10 大經濟護城河（M1 至 M10）進行客觀、深度評估與嚴格打分。
     當前分析基準季度：{safe_period}
@@ -406,7 +396,6 @@ def analyze_stock_moat(ticker: str, latest_period: str, fin_context: Dict[str, A
             return data
         except Exception as err:
             wait_time = (attempt + 1) * 3
-            print(f"⚠️ [{ticker}] API 異常 ({attempt+1}/3): {err}，等待 {wait_time} 秒...", flush=True)
             time.sleep(wait_time)
 
     return _build_fallback_moat(ticker, safe_period)
@@ -435,7 +424,6 @@ def _build_fallback_moat(ticker: str, period: str) -> Dict[str, Any]:
     }
 
 RAW_STOCK_LIST = [
-    # 資訊科技 (38檔)
     {"ticker": "NVDA", "name": "NVIDIA", "exchange": "NASDAQ", "sector": "資訊科技", "industry": "Semiconductors", "default_g1": 22.0},
     {"ticker": "AAPL", "name": "Apple", "exchange": "NASDAQ", "sector": "資訊科技", "industry": "Technology Hardware, Storage & Peripherals", "default_g1": 7.5},
     {"ticker": "MSFT", "name": "Microsoft", "exchange": "NASDAQ", "sector": "資訊科技", "industry": "Systems Software", "default_g1": 12.0},
@@ -475,7 +463,6 @@ RAW_STOCK_LIST = [
     {"ticker": "APH", "name": "Amphenol", "exchange": "NYSE", "sector": "資訊科技", "industry": "Electronic Components", "default_g1": 11.0},
     {"ticker": "TEL", "name": "TE Connectivity", "exchange": "NYSE", "sector": "資訊科技", "industry": "Electronic Components", "default_g1": 6.5},
 
-    # 通訊服務 (15檔)
     {"ticker": "GOOGL", "name": "Alphabet (Class A)", "exchange": "NASDAQ", "sector": "通訊服務", "industry": "Interactive Media & Services", "default_g1": 11.0},
     {"ticker": "GOOG", "name": "Alphabet (Class C)", "exchange": "NASDAQ", "sector": "通訊服務", "industry": "Interactive Media & Services", "default_g1": 11.0},
     {"ticker": "META", "name": "Meta Platforms", "exchange": "NASDAQ", "sector": "通訊服務", "industry": "Interactive Media & Services", "default_g1": 14.5},
@@ -492,7 +479,6 @@ RAW_STOCK_LIST = [
     {"ticker": "TTWO", "name": "Take-Two Interactive", "exchange": "NASDAQ", "sector": "通訊服務", "industry": "Interactive Home Entertainment", "default_g1": 14.0},
     {"ticker": "WBD", "name": "Warner Bros. Discovery", "exchange": "NASDAQ", "sector": "通訊服務", "industry": "Movies & Entertainment", "default_g1": 3.5},
 
-    # 非必需消費 (24檔)
     {"ticker": "AMZN", "name": "Amazon", "exchange": "NASDAQ", "sector": "非必需消費", "industry": "Broadline Retail", "default_g1": 13.0},
     {"ticker": "TSLA", "name": "Tesla", "exchange": "NASDAQ", "sector": "非必需消費", "industry": "Automobile Manufacturers", "default_g1": 16.0},
     {"ticker": "HD", "name": "Home Depot", "exchange": "NYSE", "sector": "非必需消費", "industry": "Home Improvement Retail", "default_g1": 4.5},
@@ -518,7 +504,6 @@ RAW_STOCK_LIST = [
     {"ticker": "GM", "name": "General Motors", "exchange": "NYSE", "sector": "非必需消費", "industry": "Automobile Manufacturers", "default_g1": 4.0},
     {"ticker": "EBAY", "name": "eBay", "exchange": "NASDAQ", "sector": "非必需消費", "industry": "Broadline Retail", "default_g1": 4.0},
 
-    # 金融 (30檔)
     {"ticker": "BRK.B", "name": "Berkshire Hathaway (Class B)", "exchange": "NYSE", "sector": "金融", "industry": "Multi-Sector Holdings", "default_g1": 6.0},
     {"ticker": "JPM", "name": "JPMorgan Chase", "exchange": "NYSE", "sector": "金融", "industry": "Diversified Banks", "default_g1": 5.5},
     {"ticker": "V", "name": "Visa", "exchange": "NYSE", "sector": "金融", "industry": "Transaction & Payment Processing Services", "default_g1": 10.0},
@@ -550,7 +535,6 @@ RAW_STOCK_LIST = [
     {"ticker": "MMC", "name": "Marsh McLennan", "exchange": "NYSE", "sector": "金融", "industry": "Insurance Brokers", "default_g1": 7.5},
     {"ticker": "USB", "name": "U.S. Bancorp", "exchange": "NYSE", "sector": "金融", "industry": "Diversified Banks", "default_g1": 4.0},
 
-    # 醫療保健 (30檔)
     {"ticker": "LLY", "name": "Eli Lilly", "exchange": "NYSE", "sector": "醫療保健", "industry": "Pharmaceuticals", "default_g1": 24.0},
     {"ticker": "UNH", "name": "UnitedHealth Group", "exchange": "NYSE", "sector": "醫療保健", "industry": "Managed Healthcare", "default_g1": 8.0},
     {"ticker": "JNJ", "name": "Johnson & Johnson", "exchange": "NYSE", "sector": "醫療保健", "industry": "Pharmaceuticals", "default_g1": 4.5},
@@ -582,7 +566,6 @@ RAW_STOCK_LIST = [
     {"ticker": "REGN", "name": "Regeneron", "exchange": "NASDAQ", "sector": "醫療保健", "industry": "Biotechnology", "default_g1": 8.0},
     {"ticker": "VRTX", "name": "Vertex Pharmaceuticals", "exchange": "NASDAQ", "sector": "醫療保健", "industry": "Biotechnology", "default_g1": 10.5},
 
-    # 必需消費 (18檔)
     {"ticker": "WMT", "name": "Walmart", "exchange": "NYSE", "sector": "必需消費", "industry": "Consumer Staples Merchandise Retail", "default_g1": 5.0},
     {"ticker": "COST", "name": "Costco Wholesale", "exchange": "NASDAQ", "sector": "必需消費", "industry": "Consumer Staples Merchandise Retail", "default_g1": 7.5},
     {"ticker": "PG", "name": "Procter & Gamble", "exchange": "NYSE", "sector": "必需消費", "industry": "Household Products", "default_g1": 4.0},
@@ -602,7 +585,6 @@ RAW_STOCK_LIST = [
     {"ticker": "GIS", "name": "General Mills", "exchange": "NYSE", "sector": "必需消費", "industry": "Packaged Foods & Meats", "default_g1": 3.5},
     {"ticker": "KHC", "name": "Kraft Heinz", "exchange": "NASDAQ", "sector": "必需消費", "industry": "Packaged Foods & Meats", "default_g1": 3.0},
 
-    # 工業製造 (30檔)
     {"ticker": "GE", "name": "GE Aerospace", "exchange": "NYSE", "sector": "工業", "industry": "Aerospace & Defense", "default_g1": 12.0},
     {"ticker": "CAT", "name": "Caterpillar", "exchange": "NYSE", "sector": "工業", "industry": "Construction Machinery & Heavy Transportation Equipment", "default_g1": 5.0},
     {"ticker": "UNP", "name": "Union Pacific", "exchange": "NYSE", "sector": "工業", "industry": "Rail Transportation", "default_g1": 4.5},
@@ -634,7 +616,6 @@ RAW_STOCK_LIST = [
     {"ticker": "CNI", "name": "Canadian National Railway", "exchange": "NYSE", "sector": "工業", "industry": "Rail Transportation", "default_g1": 5.5},
     {"ticker": "WM", "name": "Waste Management", "exchange": "NYSE", "sector": "工業", "industry": "Environmental & Facilities Services", "default_g1": 6.5},
 
-    # 能源 (15檔)
     {"ticker": "XOM", "name": "ExxonMobil", "exchange": "NYSE", "sector": "能源", "industry": "Integrated Oil & Gas", "default_g1": 4.0},
     {"ticker": "CVX", "name": "Chevron", "exchange": "NYSE", "sector": "能源", "industry": "Integrated Oil & Gas", "default_g1": 4.0},
     {"ticker": "COP", "name": "ConocoPhillips", "exchange": "NYSE", "sector": "能源", "industry": "Oil & Gas Exploration & Production", "default_g1": 4.5},
@@ -651,7 +632,6 @@ RAW_STOCK_LIST = [
     {"ticker": "HAL", "name": "Halliburton", "exchange": "NYSE", "sector": "能源", "industry": "Oil & Gas Equipment & Services", "default_g1": 5.5},
     {"ticker": "BKR", "name": "Baker Hughes", "exchange": "NASDAQ", "sector": "能源", "industry": "Oil & Gas Equipment & Services", "default_g1": 6.5},
 
-    # 原物料 (15檔)
     {"ticker": "LIN", "name": "Linde", "exchange": "NYSE", "sector": "原物料", "industry": "Industrial Gases", "default_g1": 6.5},
     {"ticker": "SHW", "name": "Sherwin-Williams", "exchange": "NYSE", "sector": "原物料", "industry": "Specialty Chemicals", "default_g1": 5.5},
     {"ticker": "FCX", "name": "Freeport-McMoRan", "exchange": "NYSE", "sector": "原物料", "industry": "Copper", "default_g1": 7.0},
@@ -668,7 +648,6 @@ RAW_STOCK_LIST = [
     {"ticker": "DD", "name": "DuPont", "exchange": "NYSE", "sector": "原物料", "industry": "Specialty Chemicals", "default_g1": 4.5},
     {"ticker": "MLM", "name": "Martin Marietta", "exchange": "NYSE", "sector": "原物料", "industry": "Construction Materials", "default_g1": 7.0},
 
-    # 公用事業 (8檔)
     {"ticker": "NEE", "name": "NextEra Energy", "exchange": "NYSE", "sector": "公用事業", "industry": "Electric Utilities", "default_g1": 7.5},
     {"ticker": "SO", "name": "Southern Company", "exchange": "NYSE", "sector": "公用事業", "industry": "Electric Utilities", "default_g1": 4.0},
     {"ticker": "DUK", "name": "Duke Energy", "exchange": "NYSE", "sector": "公用事業", "industry": "Electric Utilities", "default_g1": 4.0},
@@ -678,7 +657,6 @@ RAW_STOCK_LIST = [
     {"ticker": "AEP", "name": "American Electric Power", "exchange": "NASDAQ", "sector": "公用事業", "industry": "Electric Utilities", "default_g1": 4.5},
     {"ticker": "D", "name": "Dominion Energy", "exchange": "NYSE", "sector": "公用事業", "industry": "Multi-Utilities", "default_g1": 4.0},
 
-    # 房地產 (7檔)
     {"ticker": "PLD", "name": "Prologis", "exchange": "NYSE", "sector": "房地產", "industry": "Industrial REITs", "default_g1": 7.0},
     {"ticker": "AMT", "name": "American Tower", "exchange": "NYSE", "sector": "房地產", "industry": "Telecom Tower REITs", "default_g1": 5.5},
     {"ticker": "EQIX", "name": "Equinix", "exchange": "NASDAQ", "sector": "房地產", "industry": "Data Center REITs", "default_g1": 8.5},
@@ -1382,7 +1360,6 @@ def main():
         q_reversed_cf = list(reversed(cf_quarter[:20]))
         quarter_labels = [f"{q.get('calendarYear') or q.get('fiscalYear') or q.get('date', '')[:4]}{q.get('period', '')}" for q in q_reversed_inc]
 
-        # 提取年度與季度的結算/申報月份 (YYYY-MM)
         annual_dates = [
             str(x.get("date", ""))[:7] if x.get("date") else "" 
             for x in inc_5y
@@ -1395,7 +1372,6 @@ def main():
             for q in q_reversed_inc
         ]
         
-        # 2. 季度 20 季應收款安全取值 (同時取 trade 與 nontrade)
         quarter_trade_ar = []
         quarter_nontrade_ar = []
         for q_idx, lbl in enumerate(quarter_labels):
@@ -1424,7 +1400,6 @@ def main():
             }
         }
 
-        # 4. 外幣基礎變數統一折算為 USD
         if fx_rate != 1.0 or sym == "TSM":
             debt = round(debt * fx_rate, 1)
             cash = round(cash * fx_rate, 1)
@@ -1451,7 +1426,6 @@ def main():
         roa = round((ttm_net_income / total_assets) * 100.0, 1) if total_assets > 0 and ttm_net_income > 0 else 8.0
         time.sleep(0.04)
 
-        # 5. 分析師預測與折現排程
         est_data = fetch_json("analyst-estimates", {"symbol": fmp_sym, "limit": 4})
         growth_10y = build_10y_growth_schedule(est_data, stock_item.get("default_g1", 8.0), DEFAULT_G)
         pe_forward = round(pe_trailing * 0.88, 1)
@@ -1512,9 +1486,7 @@ def main():
             net_debt_to_ebitda = round(net_debt / max(fcf0, 1.0), 2)
 
         f_score, f_score_breakdown = calculate_piotroski_score(roa, fcf0, cr, liab_r, ttm_net_income)
-        # ========================================================
-        # 葛拉漢三大清算價格計算 (依最新申報之資產負債表，單位均為百萬 $M 與百萬股 M)
-        # ========================================================
+
         def _get_bs_latest(key: str, fallback_val: float = 0.0) -> float:
             arr = stmt_balance.get(key)
             if isinstance(arr, list) and len(arr) > 0 and arr[-1] is not None:
@@ -1529,16 +1501,10 @@ def main():
 
         safe_shares = max(float(shares or 1.0), 0.01)
 
-        # 清算價 (I): [Current Assets - Total Liabilities] / Diluted Shares
         liq_val_1 = round((latest_ca - latest_tl) / safe_shares, 2)
-
-        # 清算價 (II): [(AR * 0.8 + Inv * 0.5 + Cash) - Total Liabilities] / Diluted Shares
-        liq_val_2 = round(((latest_ar * 0.8 + latest_inv * 0.5 + latest_cash) - latest_tl) / safe_shares, 2)
-
-        # 清算價 (III): [Total Cash & ST Inv - Total Liabilities] / Diluted Shares
+        liq_val_2 = round(((latest_ar * 0.8 + latest_inv * 0.5 + latestCash) - latest_tl) / safe_shares, 2)
         liq_val_3 = round((latest_cash - latest_tl) / safe_shares, 2)
         
-        # 金融專屬雙軌模型
         FINANCIAL_SPECIAL_INDUSTRIES = [
             "Diversified Banks", "Consumer Finance", "Investment Banking & Brokerage",
             "Property & Casualty Insurance", "Life & Health Insurance", "Multi-line Insurance"
@@ -1593,9 +1559,7 @@ def main():
                 "pb_tangible": round(price / tbvps, 2) if tbvps > 0 else 1.0
             }
 
-        # 6. Gemini 護城河分析
         if entity_id in entity_moat_cache:
-            print(f"🔄 [{sym}] 偵測到與已分析企業屬於同一底層實體 ({entity_id})，直接同步護城河評分與評語...", flush=True)
             moat_data = copy.deepcopy(entity_moat_cache[entity_id])
             moat_data["ticker"] = sym
         else:
@@ -1621,7 +1585,14 @@ def main():
             )
             entity_moat_cache[entity_id] = moat_data
 
-        # 7. 組裝最終輸出資料結構 (全面採用 .get() 防禦性提取)
+        # 呼叫歷史 DCF 與復權股價計算
+        hist_data = calculate_historical_5y_dcf_and_prices(fmp_sym, {
+            "WACC": wacc,
+            "g": DEFAULT_G * 100,
+            "shares": shares,
+            "price": price
+        })
+
         results[sym] = {
             "name": stock_item.get("name", sym),
             "company_name": company_full_name,
@@ -1645,7 +1616,7 @@ def main():
             "fcf0": fcf0,
             "real_history": real_history,
             "statements_raw": statements_data,
-            "peers": get_stock_peers_cached(sym, FMP_KEY),  # ⬅️ 關鍵修正：此處使用 sym 與 FMP_KEY
+            "peers": get_stock_peers_cached(sym, FMP_KEY),
             "beta": beta,
             "beta_5y": beta_5y,
             "kd": KD,
@@ -1707,11 +1678,9 @@ def main():
             "top_holders": company_meta.get("top_holders", []),
             "insider_trades": company_meta.get("insider_trades", []),
             "stock_splits": company_meta.get("stock_splits", []),
-            "fmp_symbol": fmp_sym
-            # 呼叫歷史 DCF 與復權股價計算
-            hist_data = calculate_historical_5y_dcf_and_prices(fmp_sym, results[sym])
-            results[sym]["real_5y_prices"] = hist_data["real_5y_prices"]
-            results[sym]["historical_dcf_series"] = hist_data["historical_dcf_series"]
+            "fmp_symbol": fmp_sym,
+            "real_5y_prices": hist_data["real_5y_prices"],
+            "historical_dcf_series": hist_data["historical_dcf_series"]
         }
 
         print(f"[{stock_idx:03d}/{len(UNIQUE_STOCKS)}] ✅ {sym} ({stock_item.get('exchange', 'US')}) - 股價=${price} | 5Y Beta={beta_5y} | 公允價值=${fair_val} | 護城河: {moat_data.get('overall_moat_verdict_zh', '')[:30]}...", flush=True)
