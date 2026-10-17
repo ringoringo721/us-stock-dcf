@@ -37,6 +37,8 @@ const amount = value => value === null ? 'N/A' : value < 0
           assert.equal(cell.date, result.balanceDate + (result.warnings.length ? ' *' : ''), row.ticker);
           assert.ok(cell.title.includes(source.quoteDate), row.ticker);
           assert.ok(cell.title.includes(source.fetchedAt), row.ticker);
+          assert.ok(cell.title.includes(String(source.quote.price)), row.ticker);
+          assert.ok(cell.title.includes(String(source.quote.marketCap)), row.ticker);
           assert.ok(cell.classes.includes(rounded > 0 ? 'text-green' : rounded < 0 ? 'text-red' : 'text-muted'));
           assert.ok(!/undefined|NaN|Infinity/.test(cell.title + cell.amount));
           if (lang === 'en') assert.ok(!/[\u3400-\u9fff]/.test(cell.title));
@@ -88,11 +90,13 @@ const amount = value => value === null ? 'N/A' : value < 0
       renderScreenerTable(); const restored = read();
       return { missingTrade, missingSnapshot, restored };
     });
+    const nvdaAmounts = calculate(market.NVDA.liquidation, 'NVDA').values
+      .map(value => amount(value === null ? null : Number(value.toFixed(2))));
     assert.equal(probes.missingTrade[1], 'N/A');
-    assert.equal(probes.missingTrade[0], '$4.40');
-    assert.equal(probes.missingTrade[2], '$0.34');
+    assert.equal(probes.missingTrade[0], nvdaAmounts[0]);
+    assert.equal(probes.missingTrade[2], nvdaAmounts[2]);
     assert.deepEqual(probes.missingSnapshot, ['N/A', 'N/A', 'N/A']);
-    assert.deepEqual(probes.restored, ['$4.40', '$3.08', '$0.34']);
+    assert.deepEqual(probes.restored, nvdaAmounts);
     assert.deepEqual(errors, []);
     console.log(`Liquidation browser: 230 stocks / 690 values, dates, source details, languages, themes, mobile and N/A checks passed (${baseUrl})`);
   } finally { await browser.close(); }
