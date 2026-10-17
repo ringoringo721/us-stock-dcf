@@ -44,12 +44,12 @@
         || (scenario.modelVersion !== undefined && scenario.modelVersion !== 'fcff-v1')) {
       return fail('incompatibleSavedModel');
     }
+    if (snapshot?.reason) return fail(snapshot.reason);
     if (!snapshot || snapshot.version !== 1 || snapshot.method !== 'FCFF'
         || snapshot.currency !== 'USD' || !day(snapshot.valuationDate)
         || !day(snapshot.balance?.date) || snapshot.balance.date > snapshot.valuationDate) {
       return fail('invalidSource');
     }
-    if (snapshot.reason) return fail(snapshot.reason);
     const historical = operatingRatios(snapshot.ttm);
     if (!historical) return fail('incompleteTtm');
     if (snapshot.ttm.dates.at(-1) !== snapshot.balance.date
@@ -61,20 +61,32 @@
     const tax = parameter('tax'), rf = parameter('rf'), erp = parameter('erp');
     const beta = parameter('beta'), kd = parameter('kd'), g = parameter('g');
     const price = parameter('price'), shares = parameter('shares');
-    const debt = parameter('debt'), cash = parameter('cash');
+    const debt = parameter('debt'), cash = parameter('cash'), investments = parameter('investments');
+    const leaseOverlap = parameter('leaseOverlap');
+    if (!finite(snapshot.balance.leaseDebt) || snapshot.balance.leaseDebt < 0
+        || !finite(leaseOverlap) || (snapshot.balance.leaseDebt > 0 && snapshot.leaseReconciled !== true)) {
+      return fail('leaseClassificationRequired');
+    }
     const preferred = parameter('preferred'), minority = parameter('minority');
-    if (![tax, rf, erp, beta, kd, g, price, shares, debt, cash, preferred, minority].every(finite)) {
+    if (![tax, rf, erp, beta, kd, g, price, shares, debt, cash, investments, preferred, minority].every(finite)) {
       return fail('missingParameters');
     }
     if (tax < 0 || tax > 100 || erp < 0 || kd < 0 || price <= 0 || shares <= 0
-        || debt < 0 || cash < 0 || preferred < 0 || minority < 0 || g < 0) {
+        || debt < 0 || cash < 0 || investments < 0 || preferred < 0 || minority < 0 || g <= -100
+        || leaseOverlap < 0 || leaseOverlap > snapshot.balance.leaseDebt || leaseOverlap > debt) {
       return fail('invalidParameters');
     }
-    const E = price * shares, V = E + debt, wE = E / V, wD = debt / V;
+    const financingDebt = debt - leaseOverlap;
+    const E = price * shares, V = E + financingDebt + preferred + minority;
+    const wE = E / V, wD = financingDebt / V, wP = preferred / V, wM = minority / V;
     const Ke = rf / 100 + beta * erp / 100, Kd_after = kd / 100 * (1 - tax / 100);
+    const preferredCost = parameter('preferredCost') === null ? Ke : parameter('preferredCost') / 100;
+    const minorityCost = parameter('minorityCost') === null ? Ke : parameter('minorityCost') / 100;
+    if (!finite(preferredCost) || !finite(minorityCost)) return fail('missingParameters');
     const WACC = Object.prototype.hasOwnProperty.call(scenario, 'discountRate')
-      ? scenario.discountRate : wE * Ke + wD * Kd_after;
-    const base = { E, V, wE, wD, Ke, Kd_after, WACC, beta, NetDebt: debt - cash };
+      ? scenario.discountRate : wE * Ke + wD * Kd_after + wP * preferredCost + wM * minorityCost;
+    const base = { E, V, wE, wD, wP, wM, Ke, Kd_after, preferredCost, minorityCost,
+      WACC, beta, reportedDebt: debt, leaseOverlap, financingDebt, NetDebt: financingDebt - cash };
     if (!finite(WACC) || WACC <= g / 100 || WACC <= 0) return fail('invalidTerminalSpread', base);
     const terminalRoicInput = parameter('terminalRoic');
     const terminalRoic = terminalRoicInput === null ? WACC * 100 : terminalRoicInput;
@@ -178,7 +190,8 @@
     const terminalReinvestment = terminalNopat * g / terminalRoic;
     const terminalFcff = terminalNopat - terminalReinvestment;
     const tv = terminalFcff / (WACC - g / 100), pvTV = tv * periods.at(-1).df;
-    const ModelEV = sumPV + pvTV, EquityVal = ModelEV - debt + cash - preferred - minority;
+    const ModelEV = sumPV + pvTV;
+    const EquityVal = ModelEV - financingDebt + cash + investments - preferred - minority;
     const fairVal = EquityVal / shares;
     if (![terminalNopat, terminalReinvestment, terminalFcff, tv, pvTV, ModelEV, EquityVal, fairVal].every(finite)) {
       return fail('invalidCalculation', base);

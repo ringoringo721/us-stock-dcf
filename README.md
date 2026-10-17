@@ -17,6 +17,25 @@ The optional `lease_sources_only` input captures original balance, income and
 cash-flow tags to reconcile operating versus financing lease treatment, still
 without changing any published valuation.
 
+## FCFF development prototype (not connected to the website)
+
+`fcff.js` and `scripts/fcff_sources.cjs` are development-only calculation and
+source-reconciliation modules. They are not loaded by `index.html` and do not
+replace the published valuation datasets.
+
+The selected operating-ratio basis is latest TTM. Analyst revenue/EBIT anchors
+are distinguished from modeled cash flow and later extrapolation. The selected
+terminal ROIC default is WACC, with an explicit override.
+
+Reported debt is preserved separately from the lease adjustment and valuation
+financing debt. A verified lease liability whose payments remain in forecast
+cash flow is not deducted again; both WACC and the equity bridge use the same
+adjusted financing debt. Unreconciled lease cash flows, debt composition or
+missing financial inputs return explicit reasons instead of assumed prices.
+Financing treatment also requires consistent lease expense, depreciation and
+new leased-asset reinvestment inputs; balance-sheet lease debt alone is not
+enough to certify that reconciliation.
+
 ## 清算價 I／II／III
 
 三項使用獨立的最新可用季度資產負債表，並非四季餘額的 TTM 加總。

@@ -5,7 +5,7 @@ const { calculate, operatingRatios } = require('../fcff.js');
 function source() {
   return {
     version: 1, method: 'FCFF', currency: 'USD', valuationDate: '2026-10-17',
-    balance: { date: '2026-09-30', workingCapital: 100 },
+    balance: { date: '2026-09-30', workingCapital: 100, leaseDebt: 0 },
     ttm: { dates: ['2025-12-31', '2026-03-31', '2026-06-30', '2026-09-30'],
       fiscalPeriods: [2025 * 4 + 4, 2026 * 4 + 1, 2026 * 4 + 2, 2026 * 4 + 3],
       revenue: 1000, ebit: 200, depreciation: 30, capex: 50, workingCapital: 100 },
@@ -18,7 +18,8 @@ function source() {
       { date: '2028-12-31', revenue: 1300, ebit: 286 }
     ],
     defaults: { tax: 20, rf: 4, erp: 5, beta: 1, kd: 5, g: 2,
-      price: 10, shares: 100, debt: 100, cash: 50, preferred: 0, minority: 0,
+      price: 10, shares: 100, debt: 100, leaseOverlap: 0, cash: 50, investments: 0, preferred: 0, minority: 0,
+      preferredCost: null, minorityCost: null,
       terminalRoic: null }
   };
 }
@@ -76,6 +77,9 @@ test('zero assumptions are retained; invalid terminal spreads and absent source 
   assert.equal(calculate(source(), { discountRate: 0.02, g: 2 }).reason, 'invalidTerminalSpread');
   assert.equal(calculate(source(), { tax: null }).reason, 'missingParameters');
   assert.equal(calculate(source(), { terminalRoic: 1 }).reason, 'invalidTerminalReinvestment');
+  const declining = calculate(source(), { g: -1 });
+  assert.equal(declining.reason, null);
+  assert.ok(declining.terminalReinvestment < 0);
 });
 
 test('terminal reinvestment is explicit and negative common-equity arithmetic is not floored to a penny', () => {
@@ -94,6 +98,28 @@ test('legacy FCF scenarios cannot silently become FCFF scenarios', () => {
     assert.equal(calculate(source(), scenario).reason, 'incompatibleSavedModel');
   }
   assert.equal(calculate(source(), { modelVersion: 'fcff-v1' }).reason, null);
+});
+
+test('lease payments included in FCFF are not deducted again; WACC and equity bridge use the same financing debt', () => {
+  const input = source(), baseline = calculate(input);
+  input.balance.leaseDebt = 100;
+  input.defaults.debt = 200;
+  input.defaults.leaseOverlap = 100;
+  assert.equal(calculate(input).reason, 'leaseClassificationRequired');
+  input.leaseReconciled = true;
+  const result = calculate(input);
+  assert.equal(result.reportedDebt, 200);
+  assert.equal(result.leaseOverlap, 100);
+  assert.equal(result.financingDebt, 100);
+  assert.equal(result.NetDebt, 50);
+  near(result.WACC, baseline.WACC);
+  near(result.fairVal, baseline.fairVal);
+  near(result.EquityVal, result.ModelEV - 200 + 100 + 50);
+  assert.equal(calculate(input, { leaseOverlap: 101 }).reason, 'invalidParameters');
+  const financing = calculate(input, { leaseOverlap: 0 });
+  assert.equal(financing.financingDebt, 200);
+  near(financing.wD, 200 / 1200);
+  near(financing.EquityVal, financing.ModelEV - 200 + 50);
 });
 
 test('noncalendar year, leap dates, missing anchors and conflicting actuals do not fabricate periods', () => {
