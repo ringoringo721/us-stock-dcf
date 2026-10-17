@@ -69,6 +69,34 @@ function fixture() {
   return data;
 }
 
+test('Financial health bands cover every score and do not infer missing or inconsistent details', () => {
+  const html = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
+  const source = html.slice(html.indexOf('  function financialHealthAssessment('), html.indexOf('  function loadFScoreView('));
+  const assess = vm.runInNewContext(`${source}; financialHealthAssessment`);
+  const details = score => Array.from({ length: 9 }, (_, i) => ({ id: i + 1, passed: i < score ? 1 : 0 }));
+  for (let score = 0; score <= 9; score++) {
+    const result = assess(score, details(score));
+    assert.equal(result.level, score >= 7 ? 'strong' : score >= 4 ? 'moderate' : 'weak');
+    assert.equal(result.validBreakdown, true);
+    assert.equal(result.passed.length, score);
+    assert.equal(result.failed.length, 9 - score);
+  }
+  for (const score of [null, undefined, '', '8', -1, 10, 4.5, NaN, Infinity]) {
+    const result = assess(score, details(8));
+    assert.equal(result.level, 'unavailable');
+    assert.equal(result.validBreakdown, false);
+    assert.equal(result.passed.length + result.failed.length, 0);
+  }
+  for (const rows of [null, {}, [], details(7), details(8).slice(1),
+    [...details(8).slice(1), { id: 2, passed: 1 }],
+    details(8).map(row => ({ ...row, passed: String(row.passed) }))]) {
+    const result = assess(8, rows);
+    assert.equal(result.level, 'strong');
+    assert.equal(result.validBreakdown, false);
+    assert.equal(result.passed.length + result.failed.length, 0);
+  }
+});
+
 function last(data, options) {
   return calculate(data, options).at(-1).ratios;
 }

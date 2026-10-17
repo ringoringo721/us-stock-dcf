@@ -392,6 +392,9 @@
     .fscore-green { background: rgba(74, 222, 128, 0.2); color: var(--green); border: 1px solid rgba(74, 222, 128, 0.5); }
     .fscore-yellow { background: rgba(251, 191, 36, 0.2); color: var(--gold); border: 1px solid rgba(251, 191, 36, 0.5); }
     .fscore-red { background: rgba(248, 113, 113, 0.2); color: var(--red); border: 1px solid rgba(248, 113, 113, 0.5); }
+    .financial-health-level { display: inline-block; padding: 4px 8px; margin-top: 8px; border-radius: 4px; font-size: 12px; font-weight: 700; }
+    #fsc-comment-title { color: var(--accent); font-weight: 700; margin-bottom: 6px; }
+    #fsc-health-comment p + p { margin-top: 8px; }
 
     .badge-moat { cursor: pointer; text-decoration: none; padding: 4px 8px; font-weight: 700; border-radius: 4px; font-size: 11px; display: inline-block; }
     .badge-moat:hover { transform: scale(1.08); filter: brightness(1.2); }
@@ -1644,12 +1647,18 @@
     </div>
 
     <div class="top-stats">
-      <div class="stat-box"><div class="stat-label" data-i18n="fsc_total_lbl">皮氏財務健康度評分</div><div class="stat-num" id="fsc-total-score">0 / 9 分</div></div>
+      <div class="stat-box"><div class="stat-label" data-i18n="fsc_total_lbl">皮氏財務健康度評分</div><div class="stat-num" id="fsc-total-score">0 / 9 分</div><div id="fsc-health-level" class="financial-health-level"></div></div>
       <div class="stat-box"><div class="stat-label" data-i18n="fsc_cat1_lbl">1. 盈利能力指標</div><div class="stat-num" id="fsc-cat-profit">0 / 4 分</div></div>
       <div class="stat-box"><div class="stat-label" data-i18n="fsc_cat2_lbl">2. 資本結構與流動性</div><div class="stat-num" id="fsc-cat-leverage">0 / 3 分</div></div>
       <div class="stat-box"><div class="stat-label" data-i18n="fsc_cat3_lbl">3. 營運效率指標</div><div class="stat-num" id="fsc-cat-efficiency">0 / 2 分</div></div>
     </div>
 
+    <section class="ai-comment-card" aria-labelledby="fsc-comment-title">
+      <div id="fsc-comment-title" data-i18n="fsc_comment_title">財務健康解讀</div>
+      <div id="fsc-health-comment"></div>
+      <p class="analysis-note" data-i18n="fsc_health_bands">評分分級：7–9 分較強；4–6 分中等；0–3 分較弱。</p>
+      <p class="analysis-note" data-i18n="fsc_health_caution"></p>
+    </section>
     <div class="panel">
       <div class="panel-title" data-i18n="fsc_table_title">皮氏 9 分檢驗標準明細表</div>
       <div class="table-scroll-wrapper"><table class="fscore-table">
@@ -2099,6 +2108,21 @@
       th_analysis: "深度剖析",
       fsc_header_sub: "— PF score (Piotroski) 皮氏 9 大財務診斷",
       fsc_total_lbl: "皮氏財務健康度評分",
+      fsc_comment_title: "財務健康解讀 · PF score",
+      fsc_health_strong: "財務健康訊號較強",
+      fsc_health_moderate: "財務健康訊號中等",
+      fsc_health_weak: "財務健康訊號較弱",
+      fsc_health_unavailable: "資料不足，無法分級",
+      fsc_health_strong_comment: "多數財務檢驗項目通過，整體財務健康訊號較強；仍須留意未通過項目，不能據此認定沒有風險。",
+      fsc_health_moderate_comment: "財務檢驗結果好壞參半，整體訊號中等；宜逐項檢視獲利品質、負債與流動性，以及營運效率。",
+      fsc_health_weak_comment: "通過的財務檢驗項目較少，整體財務健康訊號偏弱；應優先查核現金流、償債壓力及營運變化，而非直接推定公司將破產。",
+      fsc_health_unavailable_comment: "目前沒有有效的 0–9 分整數評分，暫不推定財務健康等級。",
+      fsc_health_bands: "本網站分級：7–9 分較強；4–6 分中等；0–3 分較弱。",
+      fsc_health_caution: "此為依現有 PF score 資料產生的規則式解讀，不是獨立財報審計、信用評等或買賣建議，也不保證償債能力。金融業等特殊產業應配合其監管資本及產業指標判讀。",
+      fsc_health_passed: "已通過：",
+      fsc_health_review: "待留意（未通過）：",
+      fsc_health_all_passed: "九項檢驗全部通過；仍應追蹤後續財報，評分並不衡量股價是否便宜。",
+      fsc_health_incomplete: "評分明細不完整、含無效項目，或加總與總分不一致，暫不產生逐項優劣解讀；請先核對資料。",
       fsc_cat1_lbl: "1. 盈利能力指標",
       fsc_cat2_lbl: "2. 資本結構與流動性",
       fsc_cat3_lbl: "3. 營運效率指標",
@@ -2385,6 +2409,21 @@
       th_analysis: "In-Depth Analysis",
       fsc_header_sub: "— PF score (Piotroski) 9-Point Financial Health Audit",
       fsc_total_lbl: "Piotroski Financial Health",
+      fsc_comment_title: "Financial Health Interpretation · PF score",
+      fsc_health_strong: "Stronger financial-health signals",
+      fsc_health_moderate: "Mixed financial-health signals",
+      fsc_health_weak: "Weaker financial-health signals",
+      fsc_health_unavailable: "Insufficient data to classify",
+      fsc_health_strong_comment: "Most financial tests pass, indicating stronger overall financial-health signals. Review any failed tests; a high score does not mean the company is risk-free.",
+      fsc_health_moderate_comment: "The financial tests show a mixed picture. Review earnings quality, leverage and liquidity, and operating efficiency individually.",
+      fsc_health_weak_comment: "Relatively few financial tests pass, indicating weaker overall financial-health signals. Prioritize cash flow, debt-service pressure and operating changes; this is not a prediction of bankruptcy.",
+      fsc_health_unavailable_comment: "A valid integer score from 0 to 9 is unavailable, so no financial-health level is assigned.",
+      fsc_health_bands: "Site score bands: 7–9 stronger; 4–6 mixed; 0–3 weaker.",
+      fsc_health_caution: "This is a rule-based interpretation of the available PF score, not an independent financial-statement audit, credit rating or investment recommendation, and it does not guarantee solvency. For financial institutions and other specialized sectors, also review regulatory capital and industry-specific measures.",
+      fsc_health_passed: "Passed tests: ",
+      fsc_health_review: "Review these failed tests: ",
+      fsc_health_all_passed: "All nine tests pass. Continue monitoring subsequent reports; the score does not measure whether the stock is attractively priced.",
+      fsc_health_incomplete: "The breakdown is incomplete, contains invalid tests, or does not reconcile with the total score. Item-level strengths and weaknesses are withheld pending a data check.",
       fsc_cat1_lbl: "1. Profitability Metrics",
       fsc_cat2_lbl: "2. Leverage & Liquidity",
       fsc_cat3_lbl: "3. Operating Efficiency",
@@ -4832,6 +4871,21 @@
     }
   }
 
+  function financialHealthAssessment(score, breakdown) {
+    const validScore = Number.isInteger(score) && score >= 0 && score <= 9;
+    const level = !validScore ? 'unavailable' : score >= 7 ? 'strong' : score >= 4 ? 'moderate' : 'weak';
+    const validBreakdown = validScore && Array.isArray(breakdown) && breakdown.length === 9
+      && new Set(breakdown.map(item => item?.id)).size === 9
+      && breakdown.every(item => Number.isInteger(item?.id) && item.id >= 1 && item.id <= 9
+        && (item.passed === 0 || item.passed === 1))
+      && breakdown.reduce((sum, item) => sum + item.passed, 0) === score;
+    return {
+      level, validScore, validBreakdown,
+      passed: validBreakdown ? breakdown.filter(item => item.passed === 1) : [],
+      failed: validBreakdown ? breakdown.filter(item => item.passed === 0) : []
+    };
+  }
+
   function loadFScoreView(ticker) {
     const s = stockUniverse[ticker];
     if (!s) return;
@@ -4841,12 +4895,39 @@
     document.getElementById('fsc-exchange').innerText = s.exchange;
 
     const dcf = computeDCF(s, ticker);
-    const score = dcf.f_score;
+    const score = s.f_score;
     const isEn = currentLang === 'en';
+    const labels = I18N_DICT[currentLang];
     const unit = isEn ? '' : ' 分';
-    document.getElementById('fsc-total-score').innerText = `${score} / 9${unit}`;
 
-    const breakdown = dcf.f_score_breakdown || [];
+    const rawBreakdown = dcf.f_score_breakdown;
+    const health = financialHealthAssessment(score, rawBreakdown);
+    const breakdown = Array.isArray(rawBreakdown) ? rawBreakdown.filter(item => item && typeof item === 'object') : [];
+    document.getElementById('fsc-total-score').innerText = health.validScore ? `${score} / 9${unit}` : 'N/A';
+    const healthBadge = document.getElementById('fsc-health-level');
+    healthBadge.textContent = labels[`fsc_health_${health.level}`];
+    healthBadge.className = `financial-health-level ${{
+      strong: 'fscore-green', moderate: 'fscore-yellow', weak: 'fscore-red', unavailable: 'text-muted'
+    }[health.level]}`;
+    const descriptions = ['ROA > 0', 'Operating cash flow > 0', 'Change in ROA > 0',
+      'Operating cash flow > net income', 'Change in leverage ≤ 0', 'Change in liquidity > 0',
+      'Change in shares ≤ 0', 'Change in gross margin > 0', 'Change in asset turnover > 0'];
+    const comment = document.getElementById('fsc-health-comment');
+    comment.replaceChildren();
+    const paragraph = text => {
+      const p = document.createElement('p');
+      p.textContent = text;
+      comment.append(p);
+    };
+    paragraph(`${ticker} · ${labels[`fsc_health_${health.level}_comment`]}`);
+    if (health.validBreakdown) {
+      const tests = items => items.map(item => `#${item.id} ${isEn ? descriptions[item.id - 1] : item.desc}`).join(isEn ? '; ' : '；');
+      if (health.passed.length) paragraph(labels.fsc_health_passed + tests(health.passed));
+      if (health.failed.length) paragraph(labels.fsc_health_review + tests(health.failed));
+      else paragraph(labels.fsc_health_all_passed);
+    } else {
+      paragraph(labels.fsc_health_incomplete);
+    }
     const pCat = breakdown.filter(x => x.category === "盈利能力" && x.passed).length;
     const lCat = breakdown.filter(x => x.category === "槓桿與償債" && x.passed).length;
     const eCat = breakdown.filter(x => x.category === "營運效率" && x.passed).length;
@@ -4862,9 +4943,6 @@
       const circleClass = isPass ? 'score-pass' : 'score-fail';
       const statusText = isPass ? `<span class="text-green">+1 ${isEn ? 'Pass' : '分 通過'}</span>` : `<span class="text-red">${isEn ? 'Fail (0)' : '未達標 (0分)'}</span>`;
       const category = isEn ? ({ '盈利能力': 'Profitability', '槓桿與償債': 'Leverage & liquidity', '營運效率': 'Operating efficiency' }[item.category] || item.category) : item.category;
-      const descriptions = ['ROA > 0', 'Operating cash flow > 0', 'Change in ROA > 0',
-        'Operating cash flow > net income', 'Change in leverage ≤ 0', 'Change in liquidity > 0',
-        'Change in shares ≤ 0', 'Change in gross margin > 0', 'Change in asset turnover > 0'];
       const detail = isEn ? String(item.detail).replace('當期 ROA', 'Current ROA')
         .replace('自由現金流', 'Free cash flow').replace('回報率穩步領先同業基準', 'Returns lead the peer benchmark')
         .replace('真實現金流充沛，無虛報帳面獲利', 'Cash-flow quality assessment')

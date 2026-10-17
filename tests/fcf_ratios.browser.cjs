@@ -329,11 +329,56 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
       assert.equal(await page.locator('#moat-total-score').isVisible(), true);
       assert.equal(await page.locator('#fscore-breakdown-body').isVisible(), true);
       assert.match(await page.locator('#fsc-header-sub').innerText(), /PF score/);
+      const ratingScore = await page.evaluate(ticker => stockUniverse[ticker].f_score, ticker);
+      const ratingClass = ratingScore >= 7 ? 'fscore-green' : ratingScore >= 4 ? 'fscore-yellow' : 'fscore-red';
+      assert.ok((await page.locator('#fsc-health-level').getAttribute('class')).includes(ratingClass));
+      assert.ok((await page.locator('#fsc-health-comment').innerText()).includes(ticker));
       await page.evaluate(() => toggleLanguage());
       assert.equal(await page.locator('#subpage-rating').isVisible(), true);
       assert.equal(await page.locator('#fsc-ticker').innerText(), ticker);
+      assert.ok(!(await page.locator('#fsc-health-comment').innerText()).includes('undefined'));
       await page.evaluate(() => toggleLanguage());
     }
+    const originalRating = await page.evaluate(() => ({
+      score: stockUniverse.NVDA.f_score, details: stockUniverse.NVDA.f_score_breakdown, lang: currentLang
+    }));
+    for (const score of [0, 3, 4, 6, 7, 8, 9]) {
+      await page.evaluate(score => {
+        stockUniverse.NVDA.f_score = score;
+        stockUniverse.NVDA.f_score_breakdown = Array.from({ length: 9 }, (_, i) => ({
+          id: i + 1, category: i < 4 ? '盈利能力' : i < 7 ? '槓桿與償債' : '營運效率',
+          passed: i < score ? 1 : 0, desc: `檢驗 ${i + 1}`, detail: 'Test data'
+        }));
+        openFScore('NVDA');
+      }, score);
+      for (const lang of ['zh', 'en']) {
+        await page.evaluate(lang => applyLanguage(lang), lang);
+        const level = score >= 7 ? 'strong' : score >= 4 ? 'moderate' : 'weak';
+        assert.equal(await page.locator('#fsc-health-level').innerText(),
+          await page.evaluate(level => I18N_DICT[currentLang][`fsc_health_${level}`], level));
+        const comment = await page.locator('#fsc-health-comment').innerText();
+        assert.ok(comment.includes('NVDA'));
+        assert.equal(comment.includes(lang === 'en' ? 'Review these failed tests:' : '待留意（未通過）：'), score < 9);
+        assert.equal(comment.includes(lang === 'en' ? 'Passed tests:' : '已通過：'), score > 0);
+        if (lang === 'en') assert.ok(!/[\u3400-\u9fff]/.test(comment));
+      }
+    }
+    await page.evaluate(() => {
+      stockUniverse.NVDA.f_score_breakdown = [];
+      loadFScoreView('NVDA');
+    });
+    assert.match(await page.locator('#fsc-health-comment').innerText(), /incomplete/);
+    await page.evaluate(() => { stockUniverse.NVDA.f_score_breakdown = [null]; loadFScoreView('NVDA'); });
+    assert.match(await page.locator('#fsc-health-comment').innerText(), /incomplete/);
+    await page.evaluate(() => { stockUniverse.NVDA.f_score = null; loadFScoreView('NVDA'); });
+    assert.equal(await page.locator('#fsc-total-score').innerText(), 'N/A');
+    assert.match(await page.locator('#fsc-health-level').innerText(), /Insufficient/);
+    await page.evaluate(original => {
+      stockUniverse.NVDA.f_score = original.score;
+      stockUniverse.NVDA.f_score_breakdown = original.details;
+      applyLanguage(original.lang);
+      openFScore('NVDA');
+    }, originalRating);
     if (process.env.UI_SCREENSHOT_DIR) {
       await page.locator('#subpage-rating').screenshot({ path: path.join(process.env.UI_SCREENSHOT_DIR, 'company-rating.png') });
     }
