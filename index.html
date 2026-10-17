@@ -2091,7 +2091,9 @@
       treasury_5y: "5 年期美國公債（預設）",
       treasury_10y: "10 年期美國公債",
       analysis_fin_note: "選擇報表與期間，依日期逐欄比較。金額沿用報表標示的百萬單位；EPS 為每股、股數另標單位。指標名稱固定於左側，右側顯示歷史趨勢。",
-      analysis_ratio_note: "依期間檢視獲利、現金流、資本結構及流動性。表格與趨勢分析使用一致排版；各比率仍沿用本頁原有計算口徑，不等同趨勢分析可切換的分母設定。迷你線圖顏色表示數值升降，不一定代表好壞。",
+      analysis_ratio_note: "依期間檢視獲利、現金流、資本結構及流動性。年度表最後一欄的 TTM 年增率比較去年同季截止的 TTM，不與最新完整年度比較；缺值或基期非正數顯示 N/A。其他比率仍沿用本頁口徑，不等同趨勢分析可切換的分母。迷你線圖顏色不一定代表好壞。",
+      analysis_growth_note: "年增率比較最近連續四季合計與前四季合計，依實際財年及日期對齊，不用 TTM 與同一年度重複比較。缺季、缺值、匯率不足或去年基數非正數時顯示 N/A；真正沒有增長才顯示 0%。",
+      analysis_growth_non_positive: "去年同期基數為零或負值，百分比年增率不具可比性。",
       analysis_peer_note: "優先比較同子行業與資料供應商同行，不足時加入同板塊、相關產業群組的參考公司，最多五家。每欄標示比較關係；相關產業參考不代表直接競爭對手。這是最新 TTM 橫向比較，各公司財報日期可能不同。",
       analysis_peer_industry: "同子行業",
       analysis_peer_provider: "供應商同行",
@@ -2465,7 +2467,9 @@
       treasury_5y: "5Y Treasury (default)",
       treasury_10y: "10Y Treasury",
       analysis_fin_note: "Choose a statement and period to compare dated columns. Monetary amounts retain the table's millions convention; EPS is per share and share counts have separate units. Metric labels stay fixed on the left, with historical trends on the right.",
-      analysis_ratio_note: "Compare profitability, cash flow, capital structure and liquidity by period. The layout matches Trend Analysis; this page retains its existing calculation bases rather than the selectable denominators in Trend Analysis. Sparkline colors show numerical direction, not necessarily improvement or deterioration.",
+      analysis_ratio_note: "Compare profitability, cash flow, capital structure and liquidity by period. The final TTM column compares with TTM ending in the same fiscal quarter last year, not the latest full year. Missing data or a nonpositive prior base is N/A. Other ratios retain this page's bases, not Trend Analysis's selectable denominators. Sparkline colors do not necessarily indicate improvement.",
+      analysis_growth_note: "Year-over-year growth compares the latest four consecutive quarters with the preceding four, aligned by actual fiscal periods and dates, not TTM against a duplicate full year. Missing quarters, fields, FX or a nonpositive prior-year base are N/A; only genuine unchanged results show 0%.",
+      analysis_growth_non_positive: "The prior-year base is zero or negative; percentage growth is not comparable.",
       analysis_peer_note: "Prioritize the same sub-industry and provider-listed peers, then add references from a related industry family within the same sector, up to five companies. Each column identifies its comparison basis; related references are not necessarily direct competitors. This is a latest-TTM cross-section; reporting dates can differ.",
       analysis_peer_industry: "Same sub-industry",
       analysis_peer_provider: "Provider-listed peer",
@@ -4298,20 +4302,24 @@
     const equity = getArr('balance', 'totalStockholdersEquity');
 
     // 增長率計算：QoQ (季度) 或 YoY (年度)
-    function calcGrowth(arr) {
+    function calcGrowth(arr, field) {
       return arr.map((v, i) => {
-        if (i === 0) return 0.0;
+        if (i === 0) return NaN;
+        if (!isQuarter && i === arr.length - 1) {
+          const record = ProfileOverview.storedGrowth(s, field);
+          return record && !record.reason && Number.isFinite(record.value) ? record.value : NaN;
+        }
         const prev = arr[i - 1];
-        return (prev && prev !== 0) ? (((v - prev) / Math.abs(prev)) * 100) : 0.0;
+        return Number.isFinite(v) && Number.isFinite(prev) && prev > 0 ? (v / prev - 1) * 100 : NaN;
       });
     }
 
-    const revGrowth = calcGrowth(rev);
-    const ebitGrowth = calcGrowth(ebit);
-    const niGrowth = calcGrowth(ni);
-    const ebitdaGrowth = calcGrowth(ebitda);
-    const epsGrowth = calcGrowth(eps);
-    const fcfGrowth = calcGrowth(fcf);
+    const revGrowth = calcGrowth(rev, 'revenue');
+    const ebitGrowth = calcGrowth(ebit, 'operatingIncome');
+    const niGrowth = calcGrowth(ni, 'netIncome');
+    const ebitdaGrowth = calcGrowth(ebitda, 'ebitda');
+    const epsGrowth = calcGrowth(eps, 'epsDiluted');
+    const fcfGrowth = calcGrowth(fcf, 'freeCashFlow');
 
     const ratioGroups = [
       {
@@ -4423,14 +4431,14 @@
       return NaN;
     }
 
-    // 計算 YoY 增長率 (TTM vs 去年同期)
-    function getYoY(stock, stmtKey, fieldKey) {
-      const cur = getFinVal(stock, stmtKey, fieldKey, -1);
-      const prev = getFinVal(stock, stmtKey, fieldKey, -2);
-      if (prev && prev !== 0) {
-        return (((cur - prev) / Math.abs(prev)) * 100);
-      }
-      return null;
+    function growthCell(stock, field) {
+      const record = ProfileOverview.storedGrowth(stock, field);
+      const labels = I18N_DICT[currentLang];
+      const reason = record?.reason === 'nonPositivePrior' ? labels.analysis_growth_non_positive
+        : labels[`fcf_reason_${record?.reason || 'missingField'}`] || labels.fcf_error;
+      const available = record && !record.reason && Number.isFinite(record.value);
+      const title = available ? `TTM ${record.previousDate} / TTM ${record.date}` : reason;
+      return `<span data-peer-growth="${field}" data-growth-value="${available ? record.value : ''}" title="${title}">${available ? fmtPct(record.value, true) : 'N/A'}</span>`;
     }
 
     // 取得最新申報月份 (YYYY-MM)
@@ -4478,13 +4486,13 @@
         titleZh: "2. 成長爆發力 (Growth Dynamics)",
         titleEn: "2. Growth Dynamics",
         items: [
-          { labelZh: "營業收入年增率 (Revenue YoY %)", labelEn: "Revenue Growth YoY %", fn: x => fmtPct(getYoY(x, 'income', 'revenue'), true) },
-          { labelZh: "毛利年增率 (Gross Profit YoY %)", labelEn: "Gross Profit Growth YoY %", fn: x => fmtPct(getYoY(x, 'income', 'grossProfit'), true) },
-          { labelZh: "營業利益年增率 (Operating Profit YoY %)", labelEn: "Operating Profit YoY %", fn: x => fmtPct(getYoY(x, 'income', 'operatingIncome'), true) },
-          { labelZh: "淨利年增率 (Net Profit YoY %)", labelEn: "Net Profit Growth YoY %", fn: x => fmtPct(getYoY(x, 'income', 'netIncome'), true) },
-          { labelZh: "EBITDA 年增率 (EBITDA YoY %)", labelEn: "EBITDA Growth YoY %", fn: x => fmtPct(getYoY(x, 'income', 'ebitda'), true) },
-          { labelZh: "營運現金流年增率 (CFO YoY %)", labelEn: "Operating Cashflow YoY %", fn: x => fmtPct(getYoY(x, 'cashflow', 'netCashProvidedByOperatingActivities'), true) },
-          { labelZh: "自由現金流年增率 (FCF YoY %)", labelEn: "Free Cash Flow YoY %", fn: x => fmtPct(getYoY(x, 'cashflow', 'freeCashFlow'), true) }
+          { labelZh: "營業收入年增率 (Revenue YoY %)", labelEn: "Revenue Growth YoY %", fn: x => growthCell(x, 'revenue') },
+          { labelZh: "毛利年增率 (Gross Profit YoY %)", labelEn: "Gross Profit Growth YoY %", fn: x => growthCell(x, 'grossProfit') },
+          { labelZh: "營業利益年增率 (Operating Profit YoY %)", labelEn: "Operating Profit YoY %", fn: x => growthCell(x, 'operatingIncome') },
+          { labelZh: "淨利年增率 (Net Profit YoY %)", labelEn: "Net Profit Growth YoY %", fn: x => growthCell(x, 'netIncome') },
+          { labelZh: "EBITDA 年增率 (EBITDA YoY %)", labelEn: "EBITDA Growth YoY %", fn: x => growthCell(x, 'ebitda') },
+          { labelZh: "營運現金流年增率 (CFO YoY %)", labelEn: "Operating Cashflow YoY %", fn: x => growthCell(x, 'operatingCashFlow') },
+          { labelZh: "自由現金流年增率 (FCF YoY %)", labelEn: "Free Cash Flow YoY %", fn: x => growthCell(x, 'freeCashFlow') }
         ]
       },
       {
@@ -4578,6 +4586,7 @@
       <div class="panel historical-ratio-panel company-analysis-panel">
         <div class="panel-title">${mainTitle}</div>
         <p class="analysis-note">${labels.analysis_peer_note}</p>
+        <p id="peer-growth-note" class="analysis-note">${labels.analysis_growth_note}</p>
         <p id="peer-coverage-note" class="analysis-note">${!peerStocks.length ? labels.analysis_peer_empty
           : selection.counts.industry === 0 ? labels.analysis_peer_no_exact : ''}</p>
         ${selection.unavailable.length ? `<p id="peer-unavailable-note" class="analysis-note">${labels.analysis_peer_unavailable.replace('{count}', selection.unavailable.length)}</p>` : ''}

@@ -1668,6 +1668,10 @@ def main():
         ["node", os.path.join(os.path.dirname(__file__), "scripts", "usd_financials.cjs")],
         check=True
     )
+    subprocess.run(
+        ["node", os.path.join(os.path.dirname(__file__), "scripts", "reported_growth.cjs")],
+        check=True
+    )
 
     print(f"\n🎉 成功！全市場 {len(UNIQUE_STOCKS)} 檔標的已全部完成估值、5年Beta校準與護城河分析！", flush=True)
 

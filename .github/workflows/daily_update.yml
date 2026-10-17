@@ -66,7 +66,7 @@ jobs:
       - name: Validate provider parsing and comparison coverage
         run: |
           python -m unittest discover -s tests -p test_peer_cache.py
-          node --test tests/peer_comparison.test.cjs
+          node --test tests/peer_comparison.test.cjs tests/reported_growth.test.cjs
 
       - name: Commit & Push New DCF Dataset & Persistent Cache
         run: |

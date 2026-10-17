@@ -7,9 +7,7 @@
   const numeric = value => ((typeof value === 'number' || typeof value === 'string' && value.trim())
     && Number.isFinite(Number(value))) ? Number(value) : null;
 
-  function calculate(data) {
-    const rows = data?.quarterly?.income;
-    if (!Array.isArray(rows)) throw new TypeError('Missing quarterly income statements');
+  function indexRows(rows) {
     const index = new Map();
     for (const row of rows) {
       const year = Number(row.fiscalYear || row.calendarYear);
@@ -19,6 +17,55 @@
       const key = year * 4 + Number(row.period[1]) - 1;
       index.set(key, index.has(key) ? null : row);
     }
+    return index;
+  }
+
+  function growth(data, statement, field) {
+    const rows = data?.quarterly?.[statement];
+    const income = data?.quarterly?.income;
+    const result = { value: null, date: null, previousDate: null, reason: null };
+    const unavailable = reason => ({ ...result, reason });
+    if (!Array.isArray(rows) || !Array.isArray(income)) return unavailable('missingPeriod');
+    const anchors = indexRows(income);
+    const index = statement === 'income' ? anchors : indexRows(rows);
+    const key = Math.max(...anchors.keys());
+    const latest = anchors.get(key);
+    result.date = latest?.date || null;
+    result.previousDate = anchors.get(key - 4)?.date || null;
+    const keys = Array.from({ length: 8 }, (_, i) => key - 7 + i);
+    const history = keys.map(key => index.get(key));
+    if (!latest || history.some(row => !row)) {
+      return unavailable(keys.some(key => index.has(key) && index.get(key) === null) || anchors.get(key) === null
+        ? 'ambiguousPeriod' : 'missingPeriod');
+    }
+    if (history.some((row, i) => i && ((Date.parse(row.date) - Date.parse(history[i - 1].date)) / 86400000 < 60
+      || (Date.parse(row.date) - Date.parse(history[i - 1].date)) / 86400000 > 120))) return unavailable('nonConsecutive');
+    if (history.some((row, i) => row.date !== anchors.get(keys[i])?.date)) return unavailable('dateMismatch');
+    if (history.some(row => row.currencyConversion?.reason)) return unavailable('missingFx');
+    if (history.some(row => !/^[A-Z]{3}$/.test(row.reportedCurrency) || row.reportedCurrency !== latest.reportedCurrency)) {
+      return unavailable('currencyMismatch');
+    }
+    if (history.some(row => numeric(row[field]) === null)) return unavailable('missingField');
+    const previous = history.slice(0, 4).reduce((sum, row) => sum + numeric(row[field]), 0);
+    const present = history.slice(4).reduce((sum, row) => sum + numeric(row[field]), 0);
+    if (previous <= 0) return unavailable('nonPositivePrior');
+    const value = (present / previous - 1) * 100;
+    return Number.isFinite(value) ? { ...result, value } : unavailable('missingField');
+  }
+
+  function storedGrowth(stock, field) {
+    const record = stock?.reported_growth;
+    const result = record?.fields?.[field];
+    if (record?.version !== 1 || record.currency !== 'USD' || !result || result.date !== record.date) return null;
+    const latest = stock.statements_raw?.annual_dates?.at(-1);
+    if (latest && record.date?.slice(0, 7) !== latest.slice(0, 7)) return null;
+    return result;
+  }
+
+  function calculate(data) {
+    const rows = data?.quarterly?.income;
+    if (!Array.isArray(rows)) throw new TypeError('Missing quarterly income statements');
+    const index = indexRows(rows);
     const key = Math.max(...index.keys());
     const latest = index.get(key);
     const window = Array.from({ length: 4 }, (_, i) => index.get(key - 3 + i));
@@ -36,20 +83,13 @@
       const result = value === null || revenue === null || revenue === 0 ? null : value / revenue * 100;
       return Number.isFinite(result) ? result : null;
     };
-    const history = Array.from({ length: 8 }, (_, i) => index.get(key - 7 + i));
-    const growth = field => {
-      if (!valid(history)) return null;
-      const present = total(field);
-      const previous = total(field, history.slice(0, 4));
-      if (present === null || previous === null || previous <= 0) return null;
-      const result = (present / previous - 1) * 100;
-      return Number.isFinite(result) ? result : null;
-    };
     return {
       date: latest?.date || null, currency: latest?.reportedCurrency || null,
       revenue, grossMargin: divide(total('grossProfit')), operatingMargin: divide(total('operatingIncome')),
       netMargin: divide(total('netIncome')),
-      revenueGrowth: growth('revenue'), operatingGrowth: growth('operatingIncome'), netIncomeGrowth: growth('netIncome')
+      revenueGrowth: growth(data, 'income', 'revenue').value,
+      operatingGrowth: growth(data, 'income', 'operatingIncome').value,
+      netIncomeGrowth: growth(data, 'income', 'netIncome').value
     };
   }
 
@@ -153,5 +193,5 @@
       get('overview-retry').hidden = false;
     }
   }
-  return { calculate, render, deactivate };
+  return { calculate, growth, storedGrowth, render, deactivate };
 });

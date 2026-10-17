@@ -101,6 +101,23 @@ TTM EPS 合計四季已報數字；本表未另做拆股調整，可能與年度
 同行健康檢查：`node --test tests/peer_comparison.test.cjs` 與
 `python -m unittest discover -s tests -p "test_peer_cache.py"`。
 
+### TTM 年增率資料健康檢查
+
+同行比較與關鍵比率年度表的最後 TTM 欄，不再把「最近 TTM」與「最新完整年度」比較；
+在 MU、LRCX 等剛結束財年的公司，這兩欄可能是同一年度，會錯誤顯示整排 0%。
+全站改用最近八個連續財年季度，先比較最近四季合計與前四季合計；採實際日期、
+財年季度與已換算 USD 的財報，不假設季度末一定是月底，也不將預測成長當成已報成長。
+此邏輯與 Profile 的 TTM 年增率共用 `profile_overview.js`。
+
+`node scripts/reported_growth.cjs` 只重建每檔股票的 `reported_growth` 資料，
+不改寫原始財報或 DCF 參數；每日產生器在 USD 正規化後執行相同程序。
+同時計算營收、毛利、營業利益、淨利、EBITDA、稀釋 EPS、營運現金流與 FCF 的年增率。
+缺季、重複財報、日期錯位、欄位或匯率不足，以及前期基數非正數時，顯示 N/A 並說明原因；
+只有可驗證的兩期合計完全相同才顯示 0%。保留真正的負成長，不補零或推估數值。
+關鍵比率最早一期缺少基期的成長率也改為 N/A，季度仍比較前一季。
+回歸測試：`node --test tests/reported_growth.test.cjs`；
+瀏覽器全股票健康檢查為 `node tests/peer_comparison.browser.cjs`。
+
 ## 自由現金流比率表
 
 在首頁點選股票代號進入公司頁面，再選擇「趨勢分析（Trend Analysis）」子頁，
