@@ -10,6 +10,10 @@ on:
         description: Refresh provider peer lists only, preserving financial values
         type: boolean
         default: false
+      prices_only:
+        description: Refresh real Profile price and volume charts only
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -45,11 +49,11 @@ jobs:
           mkdir -p cache/moat cache/descriptions cache/financials cache/company_meta cache/peers
 
       - name: Refresh official historical USD exchange rates
-        if: inputs.peers_only != true
+        if: inputs.peers_only != true && inputs.prices_only != true
         run: node scripts/refresh_usd_rates.cjs
 
       - name: Run Market Engine with FMP Key
-        if: inputs.peers_only != true
+        if: inputs.peers_only != true && inputs.prices_only != true
         env:
           FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -63,9 +67,16 @@ jobs:
           FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
         run: python -u scripts/refresh_peers.py
 
+      - name: Refresh real Profile daily prices and volume
+        if: inputs.peers_only != true
+        env:
+          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+        run: python -u scripts/refresh_price_charts.py
+
       - name: Validate provider parsing and comparison coverage
         run: |
           python -m unittest discover -s tests -p test_peer_cache.py
+          python -m unittest discover -s tests -p test_price_charts.py
           node --test tests/peer_comparison.test.cjs tests/reported_growth.test.cjs
 
       - name: Commit & Push New DCF Dataset & Persistent Cache
