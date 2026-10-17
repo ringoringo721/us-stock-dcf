@@ -1,10 +1,12 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { financialReference } = require('../fcf_ratios.js');
+const { convertStatements } = require('../usd_currency.js');
+const rates = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'cache', 'fx', 'usd_rates.json'), 'utf8'));
 
 if (process.argv.includes('--stdin')) {
   const { statements, shares, fxRate } = JSON.parse(fs.readFileSync(0, 'utf8'));
-  process.stdout.write(JSON.stringify(financialReference(statements, { shares, fxRate })));
+  process.stdout.write(JSON.stringify(financialReference(convertStatements(statements, rates), { shares, fxRate })));
 } else {
   const root = path.join(__dirname, '..');
   const file = path.join(root, 'full_market_dcf.json');
@@ -13,8 +15,7 @@ if (process.argv.includes('--stdin')) {
     if (!stock.fin_valuation?.is_financial) continue;
     const statements = JSON.parse(fs.readFileSync(
       path.join(root, 'cache', 'financials', `${ticker}_statements_v2.json`), 'utf8'));
-    if (stock.reportedCurrency !== 'USD') throw new Error(`Explicit FX conversion required for ${ticker}`);
-    const reference = financialReference(statements, { shares: stock.shares });
+    const reference = financialReference(convertStatements(statements, rates), { shares: stock.shares });
     const fin = stock.fin_valuation;
     fin.reference = reference;
     fin.rote = reference.rote;

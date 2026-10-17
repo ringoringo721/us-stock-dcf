@@ -99,7 +99,8 @@
       const amounts = {};
       for (const [metric, field] of Object.entries(fields)) {
         const value = !row ? null : metric === 'tangibleEquity' ? balanceValue(row, 'rote') : numeric(row[field]);
-        amounts[metric] = !row ? unavailable(rows.has(key) ? 'ambiguousPeriod' : 'missingPeriod') : !currency ? unavailable('currencyMismatch')
+        amounts[metric] = !row ? unavailable(rows.has(key) ? 'ambiguousPeriod' : 'missingPeriod')
+          : row.currencyConversion?.reason ? unavailable('missingFx') : !currency ? unavailable('currencyMismatch')
           : value === null ? unavailable('missingField') : {
             value, reason: null,
             warnings: value < 0 ? [metric === 'equity' || metric === 'tangibleEquity' ? 'negativeEquity' : 'negativeBalance'] : []
@@ -129,6 +130,9 @@
   }
 
   function financialReference(data, { shares, fxRate = 1 } = {}) {
+    if (fxRate !== 1 || data?.quarterly?.income?.some(row => row.reportedCurrency !== 'USD')) {
+      throw new RangeError('Normalize financial statements with period-specific USD rates before valuation');
+    }
     const columns = calculateReturns(data);
     const latest = columns.at(-1);
     if (!latest) throw new TypeError('No quarterly income statements for financial valuation');
@@ -143,10 +147,10 @@
     else {
       const tangible = balanceValue(closing, 'rote');
       if (tangible === null) reason = reason || 'missingDenominator';
-      else if (numeric(shares) === null || shares <= 0 || numeric(fxRate) === null || fxRate <= 0) {
+      else if (numeric(shares) === null || shares <= 0) {
         reason = reason || 'invalidSharesOrCurrency';
       } else {
-        tbvps = tangible * fxRate / (shares * 1e6);
+        tbvps = tangible / (shares * 1e6);
         if (tbvps <= 0) reason = reason || 'nonPositiveTangibleEquity';
       }
     }
@@ -193,6 +197,7 @@
           const other = (metric === 'eps' ? cashflow : income).get(rowKey);
           return other && other.date !== row.date;
         })) reason = 'dateMismatch';
+        else if (rows.some(row => row.currencyConversion?.reason)) reason = 'missingFx';
         else if (!sameCurrency(rows) || rows.some(row => row.reportedCurrency !== column.currency)) reason = 'currencyMismatch';
         else if (rows.some(row => numeric(row[field]) === null)) reason = 'missingField';
         let denominator = 1;
@@ -262,6 +267,7 @@
         (Date.parse(row.date) - Date.parse(window[i - 1].date)) / dayMs < 60
         || (Date.parse(row.date) - Date.parse(window[i - 1].date)) / dayMs > 120
       ))) issue = 'nonConsecutive';
+      else if (window.some(row => row.currencyConversion?.reason)) issue = 'missingFx';
       else if (window.some(row => numeric(row[numeratorField]) === null)) issue = missingNumerator;
       else if (!sameCurrency(window)) issue = 'currencyMismatch';
       if (issue) {
@@ -282,6 +288,7 @@
           });
           if (rows.some(row => !row)) issue = 'missingIncome';
           else if (rows.some((row, i) => row.date !== window[i].date)) issue = 'dateMismatch';
+          else if (rows.some(row => row.currencyConversion?.reason)) issue = 'missingFx';
           else {
             denominatorValues = rows.map(row => numeric(row[incomeFields[metric]]));
             if (denominatorValues.some(value => value === null)) issue = 'missingDenominator';
@@ -309,7 +316,8 @@
             denominatorRows = balance === 'beginning' ? [opening]
               : balance === 'ending' ? [closing] : [opening, closing];
             denominatorValues = denominatorRows.map(row => balanceValue(row, metric));
-            if (denominatorValues.some(value => value === null)) {
+            if (denominatorRows.some(row => row.currencyConversion?.reason)) issue = 'missingFx';
+            else if (denominatorValues.some(value => value === null)) {
               issue = balance === 'beginning' ? 'missingOpening' : 'missingDenominator';
             } else denominator = denominatorValues.reduce((sum, value) => sum + value, 0) / denominatorValues.length;
           }
@@ -340,7 +348,7 @@
         .then(response => {
           if (!response.ok) throw new Error(`Financial statements HTTP ${response.status}`);
           return response.json();
-        }).catch(error => {
+        }).then(data => UsdCurrency.normalize(data, reload)).catch(error => {
           if (cache.get(ticker) === pending) cache.delete(ticker);
           throw error;
         });

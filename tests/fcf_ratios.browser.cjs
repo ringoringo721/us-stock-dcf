@@ -4,14 +4,20 @@ const path = require('node:path');
 const { chromium } = require('playwright');
 const { calculate, calculateReturns, calculateBalances, calculateEarnings, financialReference, trend } = require('../fcf_ratios.js');
 const { calculate: calculateOverview } = require('../profile_overview.js');
+const { convertStatements } = require('../usd_currency.js');
+const { normalizeStock } = require('../scripts/usd_financials.cjs');
+const usdRates = require('../cache/fx/usd_rates.json');
+function statements(ticker) {
+  return convertStatements(JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'cache', 'financials',
+    `${ticker}_statements_v2.json`), 'utf8')), usdRates);
+}
 
 const baseUrl = process.env.TEST_BASE_URL || 'http://127.0.0.1:8765';
 
 async function checkBalances(page, ticker, period = 'quarterly') {
   await page.waitForFunction(ticker => document.querySelector('#balance-status').textContent.startsWith(ticker)
     && document.querySelector('#balance-body').children.length === 9, ticker);
-  const data = JSON.parse(fs.readFileSync(
-    path.join(__dirname, '..', 'cache', 'financials', `${ticker}_statements_v2.json`), 'utf8'));
+  const data = statements(ticker);
   const columns = calculateBalances(data, { period });
   assert.equal(await page.locator('#balance-head th').count(), columns.length + 1);
   assert.equal(await page.locator('#balance-date option').count(), columns.length);
@@ -52,8 +58,7 @@ async function checkTable(page, ticker, options, prefix = 'fcf-ratio') {
   const metrics = returns ? ['roa', 'roe', 'rote'] : ['equity', 'assets', 'sales', 'ebitda', 'netIncome'];
   await page.waitForFunction(({ prefix, count }) => document.querySelector(`#${prefix}-body`).children.length === count,
     { prefix, count: metrics.length });
-  const source = JSON.parse(fs.readFileSync(
-    path.join(__dirname, '..', 'cache', 'financials', `${ticker}_statements_v2.json`), 'utf8'));
+  const source = statements(ticker);
   const columns = (returns ? calculateReturns : calculate)(source, options);
   const headings = await page.locator(`#${prefix}-head th`).allTextContents();
   assert.equal(headings.length, columns.length + 2);
@@ -85,7 +90,7 @@ async function checkTable(page, ticker, options, prefix = 'fcf-ratio') {
 async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
   await page.waitForFunction(ticker => document.querySelector('#earnings-status').textContent.startsWith(ticker)
     && document.querySelector('#earnings-body').children.length === 3, ticker);
-  const data = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'cache', 'financials', `${ticker}_statements_v2.json`), 'utf8'));
+  const data = statements(ticker);
   const columns = calculateEarnings(data, { period, flow });
   assert.equal(await page.locator('#earnings-head th').count(), columns.length + 1);
   const locale = await page.locator('html').getAttribute('lang') === 'en' ? 'en-US' : 'zh-TW';
@@ -306,7 +311,7 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
       await checkTable(page, ticker, {}, 'return-ratio');
       await checkBalances(page, ticker);
       if (ticker === 'AZO') assert.match(await page.locator('#balance-cards strong').nth(2).innerText(), /^-/);
-      if (ticker === 'TSM') assert.match(await page.locator('#balance-status').innerText(), /TWD/);
+      if (ticker === 'TSM') assert.match(await page.locator('#balance-status').innerText(), /USD/);
       assert.equal(await page.locator('#subpage-ratios #balance-panel').count(), 0);
       assert.equal(await page.locator('#ratioReturnChart').count(), 0);
       assert.equal(await page.locator('#ratioAssetChart').count(), 0);
@@ -322,10 +327,10 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
     assert.equal(await page.locator('#fscore-breakdown-body').isVisible(), false);
     const originalProfileLanguage = await page.evaluate(() => currentLang);
     await page.evaluate(() => applyLanguage('en'));
-    for (const ticker of ['NVDA', 'AAPL', 'TSM', 'AZO']) {
+    for (const ticker of ['NVDA', 'AAPL', 'TSM', 'FMS', 'ASR', 'CNI', 'ENB', 'AZO']) {
       await page.evaluate(ticker => openCompanyProfile(ticker), ticker);
       await page.waitForFunction(ticker => document.querySelector('#profile-overview-status').textContent.startsWith(ticker), ticker);
-      const data = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'cache', 'financials', `${ticker}_statements_v2.json`)));
+      const data = statements(ticker);
       const summary = calculateOverview(data);
       const latestReturns = calculateReturns(data).at(-1);
       const format = value => value === null ? 'N/A' : `${value.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%`;
@@ -343,7 +348,10 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
       assert.ok((await page.locator('#cmp-card-shares').innerText()).includes('M shares'));
       assert.ok(await page.locator('#profile-overview-panel').evaluate(panel =>
         panel.compareDocumentPosition(document.querySelector('#cmp-description')) & Node.DOCUMENT_POSITION_FOLLOWING));
-      if (ticker === 'TSM') assert.match(await page.locator('#profile-overview-status').innerText(), /TWD/);
+      if (ticker === 'TSM') {
+        assert.match(await page.locator('#profile-overview-status').innerText(), /USD/);
+        assert.match(await page.locator('#cmp-currency-note').innerText(), /TWD/);
+      }
     }
     await page.evaluate(() => openCompanyProfile('NVDA'));
     for (const width of [1440, 390]) {
@@ -452,7 +460,7 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
       }
     }
     await page.selectOption('#earnings-period', 'quarterly');
-    for (const ticker of ['DE', 'HD', 'PFE', 'PGR', 'TSM', 'NVDA']) {
+    for (const ticker of ['DE', 'HD', 'PFE', 'PGR', 'TSM', 'FMS', 'ASR', 'CNI', 'ENB', 'NVDA']) {
       await page.evaluate(ticker => { openCompanyProfile(ticker); switchSubPage('charts'); }, ticker);
       await checkEarnings(page, ticker);
     }
@@ -701,6 +709,40 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
             assert.ok(layout.complete && layout.inPanel && layout.sticky && layout.grid && layout.rows > 0,
               `${tab}: aligned grid and frozen labels at ${width}px (${theme}/${lang})`);
             assert.equal(layout.font, await page.locator('#fcf-ratio-table').evaluate(table => getComputedStyle(table).fontFamily));
+            if (tab === 'peers') {
+              const sticky = await page.locator(`#${id}`).evaluate(table => {
+                const wrapper = table.closest('.table-scroll-wrapper');
+                wrapper.scrollIntoView({ block: 'center' });
+                wrapper.scrollLeft = 0;
+                wrapper.scrollTop = 0;
+                const header = table.querySelector('thead th.peer-current');
+                const body = table.querySelector('tbody tr:not(.fin-group-header-row)');
+                const before = { header: header.getBoundingClientRect().top, body: body.getBoundingClientRect().top };
+                wrapper.scrollTop = 240;
+                const rect = header.getBoundingClientRect();
+                const canvas = document.createElement('canvas');
+                canvas.width = canvas.height = 1;
+                const context = canvas.getContext('2d');
+                context.fillStyle = getComputedStyle(header).backgroundColor;
+                context.fillRect(0, 0, 1, 1);
+                const x = Math.min(rect.right - 8, wrapper.getBoundingClientRect().right - 8);
+                const topmost = document.elementFromPoint(x, rect.top + rect.height / 2);
+                return {
+                  alpha: context.getImageData(0, 0, 1, 1).data[3],
+                  moved: before.body - body.getBoundingClientRect().top,
+                  headerMoved: Math.abs(before.header - rect.top),
+                  onTop: header.contains(topmost)
+                };
+              });
+              assert.equal(sticky.alpha, 255, `Current-company header must be opaque (${theme}/${lang}/${width})`);
+              assert.ok(sticky.moved >= 200 && sticky.headerMoved < 2 && sticky.onTop,
+                `Scrolled peer figures cannot overlap the fixed header: ${JSON.stringify(sticky)}`);
+              if (process.env.UI_SCREENSHOT_DIR && lang === 'en') {
+                await page.locator('#subpage-peers').screenshot({
+                  path: path.join(process.env.UI_SCREENSHOT_DIR, `peers-scrolled-${theme}-${width}.png`)
+                });
+              }
+            }
             assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1),
               `${tab} must scroll within its panel, not overflow the page`);
             if (process.env.UI_SCREENSHOT_DIR && width === 1440 && lang === 'en') {
@@ -799,8 +841,7 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
     const financials = await page.evaluate(() => Object.entries(stockUniverse)
       .filter(([, stock]) => stock.fin_valuation.is_financial).map(([ticker]) => ticker));
     for (const ticker of financials) {
-      const source = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'cache', 'financials',
-        `${ticker}_statements_v2.json`), 'utf8'));
+      const source = statements(ticker);
       const shares = await page.evaluate(ticker => stockUniverse[ticker].shares, ticker);
       const reference = financialReference(source, { shares });
       await page.evaluate(ticker => openDetail(ticker), ticker);
@@ -877,9 +918,30 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
     await navigationPage.locator('#company-view > .detail-header [onclick="navigateBack()"]').click();
     assert.equal(await navigationPage.locator('#screener-view').isVisible(), true);
     assert.equal(await navigationPage.locator('#screener-tbody tr').count(), 230);
+    const unavailableStock = normalizeStock(
+      require('../full_market_dcf.json').TSM,
+      JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'cache', 'financials', 'TSM_statements_v2.json'))),
+      { ...usdRates, currencies: {} });
+    await navigationPage.evaluate(stock => { stockUniverse.TSM = stock; openDetail('TSM'); }, unavailableStock);
+    assert.equal(await navigationPage.locator('#det-res-fair').innerText(), 'N/A');
+    assert.match(await navigationPage.locator('#det-res-status').innerText(), /historical FX|歷史匯率/);
+    assert.equal(await navigationPage.locator('#panel-general-dcf').isVisible(), false);
+    assert.equal(await navigationPage.locator('[onclick="saveCustomModel()"]').isDisabled(), true);
+    assert.ok(!(await navigationPage.locator('#subpage-valuation').innerText()).includes('NaN'));
     await navigationPage.close();
     assert.deepEqual(errors, []);
     assert.deepEqual(firstPartyFailures, []);
+
+    const fxFailurePage = await browser.newPage();
+    await fxFailurePage.route('**/cache/fx/usd_rates.json', route => route.abort());
+    await fxFailurePage.goto(`${baseUrl}/#TSM/charts`, { waitUntil: 'networkidle' });
+    await fxFailurePage.waitForFunction(() => !document.querySelector('#earnings-retry').hidden);
+    assert.equal(await fxFailurePage.locator('#earnings-body tr').count(), 0, 'Failed FX must never display original TWD as USD');
+    await fxFailurePage.unroute('**/cache/fx/usd_rates.json');
+    await fxFailurePage.locator('#earnings-retry').click();
+    await checkEarnings(fxFailurePage, 'TSM');
+    assert.match(await fxFailurePage.locator('#earnings-status').innerText(), /USD/);
+    await fxFailurePage.close();
 
     const failurePage = await browser.newPage();
     await failurePage.route('**/cache/financials/AAPL_statements_v2.json', route => route.abort());

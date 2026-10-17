@@ -39,6 +39,9 @@ jobs:
         run: |
           mkdir -p cache/moat cache/descriptions cache/financials cache/company_meta cache/peers
 
+      - name: Refresh official historical USD exchange rates
+        run: node scripts/refresh_usd_rates.cjs
+
       - name: Run Market Engine with FMP Key
         env:
           FMP_API_KEY: ${{ secrets.FMP_API_KEY }}

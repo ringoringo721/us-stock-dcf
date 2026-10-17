@@ -6,6 +6,7 @@
   <title>美股 DCF 估值雷達</title>
   <script src="site_theme.js"></script>
   <script src="market_data.js"></script>
+  <script src="usd_currency.js"></script>
   <script src="fcf_ratios.js"></script>
   <script src="balance_sheet.js"></script>
   <script src="earnings_trend.js"></script>
@@ -745,7 +746,7 @@
     .company-analysis-table .fcf-trend-col { min-width: 140px; }
     #cmp-ratio-table td, #cmp-ratio-table th { min-width: 140px; }
     #cmp-ratio-table thead .fcf-trend-col, #cmp-fin-table thead .fcf-trend-col { z-index: 30 !important; }
-    #cmp-peers-table .peer-current { background: var(--gold-bg) !important; font-weight: 700; }
+    #cmp-peers-table .peer-current { background: color-mix(in srgb, var(--card-bg) 85%, var(--gold) 15%) !important; font-weight: 700; }
     #cmp-peers-table .peer-company-name { font-size: var(--table-font-size); font-weight: 400; }
     #balance-table .table-sticky-col, #earnings-table .table-sticky-col { width: 260px; min-width: 260px; max-width: 260px; text-align: left; white-space: normal; }
     #balance-table th, #balance-table td, #earnings-table th, #earnings-table td { min-width: 160px; }
@@ -1289,6 +1290,7 @@
       <button class="sub-tab-btn" onclick="switchSubPage('news')" data-i18n="tab_news">📰 8. 公司新聞</button>
       <button class="sub-tab-btn" onclick="switchSubPage('chart')" data-i18n="tab_tradingview">📈 9. TradingView 圖表</button>
     </div>
+    <p class="analysis-note company-currency-note" id="cmp-currency-note" role="status"></p>
 
     <!-- 子分頁 1：基本資料 -->
     <div id="subpage-basic" class="subpage-content active">
@@ -2037,6 +2039,13 @@
       screener_table_tip: "點選代號開啟公司頁；點選欄名排序。更多欄位可左右捲動。",
       screener_liquidation_key: '清算價：<span class="text-green">正值</span>／<span class="text-red">負值</span>／零與缺值為中性色；正值不代表股價低估。',
       screener_formula: "計算說明",
+      currency_usd_note: "金額與每股數據統一以 USD 計算及呈現。損益／現金流採各期每日 USD 換算率平均，資產負債餘額採期末最近可用交易日匯率；TTM 先逐季換算再合計。股數與比率不直接乘匯率。資料來源：美國聯準會 H.10。缺少匯率顯示 N/A，不用固定匯率代替。",
+      currency_original: "原始財報幣別",
+      currency_missing: "缺少所需財報、對齊期間或歷史匯率，相關美元數值暫不可用。",
+      fcf_reason_missingFx: "N/A：缺少此財報期間所需的歷史匯率；不以最新匯率、固定匯率或 1:1 補值。",
+      returns_reason_missingFx: "N/A：分子或分母缺少對應期間的歷史美元匯率。",
+      balance_reason_missingFx: "N/A：缺少財報日對應的期末美元匯率。",
+      earnings_reason_missingFx: "N/A：缺少本期完整的平均美元匯率。",
       profile_overview_title: "市場與財務摘要",
       profile_quote: "最新股價（USD）",
       profile_range: "52 週價格區間",
@@ -2087,7 +2096,7 @@
       analysis_peer_basis: "比較口徑",
       analysis_peer_current: "目前標的",
       balance_title: "資產與負債結構",
-      balance_definition: "以實際財報期末餘額比較規模與財務結構；資產負債不做 TTM 加總。金額單位為財報幣別百萬，缺值不推算補齊。",
+      balance_definition: "以實際財報期末餘額比較規模與財務結構；資產負債不做 TTM 加總。各期餘額以期末匯率換算為 USD 百萬，缺值不推算補齊。",
       balance_date: "重點財報日",
       balance_view: "呈現方式",
       balance_chart: "趨勢圖",
@@ -2108,7 +2117,7 @@
       balance_cashRatio: "現金／流動負債",
       balance_leverage: "資產／股東權益",
       balance_chart_note: "線圖顯示總資產、總負債及股東權益；點選圖例可隱藏數列。完整數值請切換明細表。缺值或不同幣別保留斷點。",
-      balance_table_caption: "各財報日的期末餘額（財報幣別百萬）；醒目欄為上方選定日期。",
+      balance_table_caption: "各財報日的期末餘額（USD 百萬）；醒目欄為上方選定日期。",
       balance_chart_unavailable: "圖表元件未能載入，已顯示明細表。",
       balance_reason_missingField: "N/A：原始財報未提供此欄位，不以其他期間或目前數值補齊。",
       balance_reason_ambiguousPeriod: "N/A：同一財年期間有多筆財報，無法唯一確認期末資料。",
@@ -2211,13 +2220,13 @@
       tab_peers: "👥 5. 同行業對比",
       tab_charts: "📊 6. 趨勢分析",
       earnings_title: "稀釋每股盈餘、FCF 與股息趨勢",
-      earnings_definition: "三項皆以財報幣別／稀釋股呈現。每稀釋股 FCF＝自由現金流 ÷ 同期稀釋加權平均股數；每稀釋股股息＝普通股現金股息支出 ÷ 同期股數（現金流量表支出負號轉為正值，不取絕對值）。股息為實際支付現金換算，不等同公告每股股息。",
-      earnings_chart_note: "單季／年度使用該期稀釋加權平均股數；TTM 的 FCF 與股息採四季合計 ÷ 四季稀釋加權平均股數的簡單平均。EPS 使用財報稀釋 EPS，TTM 合計四季已報 EPS，可能不同於年度加權股數計算值。未另做拆股調整；缺值及不同幣別不連線。三項共用每股刻度。",
+      earnings_definition: "三項皆以 USD／稀釋股呈現；先以各期平均匯率換算 EPS 及現金流。每稀釋股 FCF＝美元自由現金流 ÷ 同期稀釋加權平均股數；每稀釋股股息＝美元普通股現金股息支出 ÷ 同期股數（支出負號轉正，不取絕對值）。股息為實際支付現金換算，不等同公告每股股息。",
+      earnings_chart_note: "單季／年度使用該期稀釋加權平均股數；TTM 的 FCF 與股息採逐季換匯後的四季合計 ÷ 四季股數的簡單平均。TTM EPS 合計四季各自換算的稀釋 EPS，可能不同於年度加權股數 EPS。未另做拆股或 ADR 倍數調整；缺值及匯率不足保留斷點。三項共用美元每股刻度。",
       earnings_eps: "每股稀釋盈餘（EPS）",
       earnings_fcf: "每稀釋股自由現金流（FCF）",
       earnings_dividend: "每稀釋股現金股息",
       earnings_per_share: "／稀釋股",
-      earnings_metric: "指標（財報幣別／稀釋股）",
+      earnings_metric: "指標（USD／稀釋股）",
       earnings_reason_missingDilutedShares: "N/A：缺少同期歷史稀釋加權平均股數，不以目前股數替代。",
       earnings_reason_invalidDilutedShares: "N/A：同期稀釋加權平均股數為零或負數，無法計算每股值。",
       earnings_reason_incompleteTtm: "N/A：此指標缺少連續四季資料，無法計算 TTM。",
@@ -2397,6 +2406,13 @@
       screener_table_tip: "Open a company by ticker; sort by column heading. Scroll sideways for additional columns.",
       screener_liquidation_key: 'Liquidation: <span class="text-green">positive</span> / <span class="text-red">negative</span> / zero and missing values are neutral. A positive value does not mean the stock is undervalued.',
       screener_formula: "Calculation details",
+      currency_usd_note: "Monetary amounts and per-share figures are calculated and displayed in USD. Income/cash flows use each period's average daily USD conversion rate; balance sheet amounts use the latest available observation at period end. TTM sums separately converted quarters. Share counts and ratios are not multiplied by FX rates. Source: Federal Reserve H.10. Missing rates remain N/A; no fixed-rate substitutions.",
+      currency_original: "Original reporting currency",
+      currency_missing: "Required financial data, aligned periods or historical FX are missing; affected USD values are unavailable.",
+      fcf_reason_missingFx: "N/A: Required historical period FX is unavailable. No latest-rate, fixed-rate or 1:1 substitution.",
+      returns_reason_missingFx: "N/A: Historical USD FX for the numerator or denominator period is unavailable.",
+      balance_reason_missingFx: "N/A: The statement date's closing USD exchange rate is unavailable.",
+      earnings_reason_missingFx: "N/A: The complete period's average USD exchange rate is unavailable.",
       profile_overview_title: "Market & Financial Snapshot",
       profile_quote: "Latest stock price (USD)",
       profile_range: "52-week price range",
@@ -2447,7 +2463,7 @@
       analysis_peer_basis: "Comparison basis",
       analysis_peer_current: "Selected company",
       balance_title: "Assets & Balance Sheet",
-      balance_definition: "Compare actual statement-end balances and financial structure; balance sheets are not summed as TTM. Amounts are in millions of the reported currency. Missing values are not estimated.",
+      balance_definition: "Compare actual statement-end balances and financial structure; balance sheets are not summed as TTM. Each balance is translated at its closing exchange rate into USD millions. Missing values are not estimated.",
       balance_date: "Focus statement date",
       balance_view: "Presentation",
       balance_chart: "Trend chart",
@@ -2468,7 +2484,7 @@
       balance_cashRatio: "Cash / current liabilities",
       balance_leverage: "Assets / stockholders' equity",
       balance_chart_note: "Lines show total assets, total liabilities and stockholders' equity. Click a legend entry to hide a series; switch to the detailed table for exact values. Missing data or different currencies leave gaps.",
-      balance_table_caption: "Statement-end balances in millions of the reported currency; the highlighted column is the selected date.",
+      balance_table_caption: "Statement-end balances in USD millions; the highlighted column is the selected date.",
       balance_chart_unavailable: "The chart library could not load; the detailed table is shown instead.",
       balance_reason_missingField: "N/A: The source statement does not report this field. No current or other-period value is substituted.",
       balance_reason_ambiguousPeriod: "N/A: Multiple statements share this fiscal period; a unique closing balance cannot be verified.",
@@ -2571,13 +2587,13 @@
       tab_peers: "👥 5. Peer Comparison",
       tab_charts: "📊 6. Trend Analysis",
       earnings_title: "Diluted EPS, FCF & Dividends per Diluted Share",
-      earnings_definition: "All three metrics use reported currency per diluted share. FCF per diluted share = free cash flow / same-period weighted-average diluted shares. Cash dividends per diluted share = common cash dividends paid / same-period shares (cash-flow outflows are sign-reversed, not made absolute). This cash-paid measure is not the announced dividend per share.",
-      earnings_chart_note: "Single-quarter and annual cash-flow metrics use that period's weighted-average diluted shares. TTM divides four-quarter cash-flow totals by the simple average of four quarterly diluted share counts. EPS uses reported diluted EPS; TTM sums four reported quarters and may differ from annual weighted-share EPS. No additional split adjustment; missing values and different currencies leave gaps. All three series share one per-share axis.",
+      earnings_definition: "All three metrics use USD per diluted share. Reported EPS and cash flows are translated using each period's average exchange rate. FCF per share divides USD free cash flow by same-period diluted weighted-average shares; cash dividends per share divide USD common cash dividends paid by those shares (outflows are sign-reversed, not made absolute). This cash-paid measure is not the announced dividend per share.",
+      earnings_chart_note: "Single-quarter and annual cash flows use same-period diluted weighted-average shares. TTM divides separately translated quarterly cash-flow totals by the simple average of four quarterly share counts. TTM EPS sums four separately translated reported diluted EPS figures and may differ from annual weighted-share EPS. No additional split or ADR multiplier is applied; missing data or FX leaves gaps. All three series share one USD-per-share axis.",
       earnings_eps: "Earnings per diluted share (EPS)",
       earnings_fcf: "FCF per diluted share",
       earnings_dividend: "Cash dividends per diluted share",
       earnings_per_share: "per diluted share",
-      earnings_metric: "Metric (reported currency / diluted share)",
+      earnings_metric: "Metric (USD / diluted share)",
       earnings_reason_missingDilutedShares: "N/A: Same-period historical weighted-average diluted shares are unavailable; current shares are not substituted.",
       earnings_reason_invalidDilutedShares: "N/A: Same-period weighted-average diluted shares are zero or negative.",
       earnings_reason_incompleteTtm: "N/A: Four consecutive quarters are unavailable for this metric.",
@@ -2894,15 +2910,10 @@
       localCash = Math.max(localCash, (Number(s.cash) || 0) + Number(s.short_term_investments));
     }
 
-    let localFCF0 = Number(s.fcf0) || 100;
+    let localFCF0 = s.calculationCurrency === 'USD'
+      ? (Number.isFinite(s.fcf0) ? s.fcf0 : NaN) : Number(s.fcf0) || 100;
     const shares = Number(s.shares) || 1;
     const currentPrice = Number(s.price) || 1;
-
-    if (sym === "TSM" && localFCF0 > 50000) {
-      localDebt = Math.round(localDebt / 32.0);
-      localCash = Math.round(localCash / 32.0);
-      localFCF0 = Math.round(localFCF0 / 32.0);
-    }
 
     const baseMcap = Number(s.mcap) || (currentPrice * shares);
     const V = baseMcap + localDebt;
@@ -2994,7 +3005,7 @@
       fairVal = (shares > 0 ? (EquityVal / shares) : currentPrice);
     }
 
-    const safeFairVal = fairVal === null ? null : Math.max(fairVal, 0.01);
+    const safeFairVal = s.currencyConversion?.reason || !Number.isFinite(fairVal) ? null : Math.max(fairVal, 0.01);
     const premiumPct = safeFairVal === null ? null : ((currentPrice / safeFairVal) - 1) * 100;
     const estimatedEbitda = Math.max(localFCF0 * 1.25, 100);
 
@@ -3889,14 +3900,15 @@
       if (isQuarter) {
         const qStmt = (qRaw[activeStatementType] || {});
         const arr = qStmt[field] || [];
-        return arr.length > 0 ? arr : Array(periods.length).fill(0.0);
+        return arr.length > 0 ? arr.map(value => Number.isFinite(value) ? value : NaN)
+          : Array(periods.length).fill(s.calculationCurrency === 'USD' ? NaN : 0.0);
       } else {
         const aStmt = (rawStmts[activeStatementType] || {});
         const arr = aStmt[field] || [];
         if (Array.isArray(arr) && arr.length >= 6) {
-          return arr.slice(-6);
+          return arr.slice(-6).map(value => Number.isFinite(value) ? value : NaN);
         }
-        return Array(6).fill(0.0);
+        return Array(6).fill(s.calculationCurrency === 'USD' ? NaN : 0.0);
       }
     }
 
@@ -3907,7 +3919,7 @@
         const denArr = incStmt[denominatorField] || [];
         return numArr.map((n, i) => {
           const d = denArr[i];
-          return (d && Math.abs(d) > 0.01) ? (n / d) * 100 : 0.0;
+          return Number.isFinite(n) && Number.isFinite(d) && Math.abs(d) > 0.01 ? (n / d) * 100 : NaN;
         });
       }
       let raw = getSeries(field).map(v => v > 1 ? v : v * 100);
@@ -4157,6 +4169,10 @@
 
         rowsHtml += `<tr><td class="table-sticky-col" style="text-align: left; ${highlightStyle} padding-left: 24px;">${label}</td>`;
         it.series.forEach((val, colIdx) => {
+          if (!Number.isFinite(val)) {
+            rowsHtml += `<td class="text-muted" title="${I18N_DICT[currentLang].currency_missing}">N/A</td>`;
+            return;
+          }
           // 只在季度模式且當期標籤為 Q4（且非最後一欄）時加上直線
           const isQ4 = isQuarter && periods[colIdx] && String(periods[colIdx]).toUpperCase().includes('Q4') && (colIdx < periods.length - 1);
           const dividerCls = [it.color, isQ4 ? 'year-divider-cell' : ''].filter(Boolean).join(' ');
@@ -4225,12 +4241,12 @@
     function getArr(dictKey, fieldKey) {
       if (isQuarter && qRaw[dictKey] && qRaw[dictKey][fieldKey]) {
         const qArr = qRaw[dictKey][fieldKey];
-        if (Array.isArray(qArr) && qArr.length > 0) return qArr;
+        if (Array.isArray(qArr) && qArr.length > 0) return qArr.map(value => Number.isFinite(value) ? value : NaN);
       }
       if (rawStmts[dictKey] && rawStmts[dictKey][fieldKey]) {
         const aArr = rawStmts[dictKey][fieldKey];
         if (Array.isArray(aArr) && aArr.length > 0) {
-          return aArr.slice(-count);
+          return aArr.slice(-count).map(value => Number.isFinite(value) ? value : NaN);
         }
       }
       return Array(count).fill(0.0);
@@ -4342,7 +4358,8 @@
         html += `<tr><td class="table-sticky-col" style="text-align: left; ${hl} padding-left: 24px;">${label}</td>`;
         it.series.forEach((val, cIdx) => {
           let disp = '';
-          if (it.isPercent) disp = `${Number(val).toFixed(2)}%`;
+          if (!Number.isFinite(val) || (isQuarter ? qRaw.fxUnavailable : rawStmts.fxUnavailable)?.[cIdx]) disp = 'N/A';
+          else if (it.isPercent) disp = `${Number(val).toFixed(2)}%`;
           else if (it.isPerShare) disp = `$${Number(val).toFixed(2)}`;
           else if (it.isMultiple) disp = `${Number(val).toFixed(2)}x`;
           else if (it.isRatioVal) disp = Number(val).toFixed(2);
@@ -4415,11 +4432,11 @@
       const stmts = (stock && stock.statements_raw && stock.statements_raw[stmtKey]) || {};
       const arr = stmts[fieldKey];
       if (Array.isArray(arr) && arr.length > 0) {
-        if (idx === -1) return Number(arr[arr.length - 1]) || 0;
+        if (idx === -1) return Number.isFinite(arr[arr.length - 1]) ? arr[arr.length - 1] : NaN;
         const targetIdx = idx < 0 ? arr.length + idx : idx;
-        return Number(arr[targetIdx]) || 0;
+        return Number.isFinite(arr[targetIdx]) ? arr[targetIdx] : NaN;
       }
-      return 0;
+      return NaN;
     }
 
     // 計算 YoY 增長率 (TTM vs 去年同期)
@@ -4634,7 +4651,7 @@
               const isCurrent = (idx === 0);
               return `
                 <td class="${isCurrent ? 'peer-current' : ''}">
-                  ${it.fn(c)}
+                  ${c.currencyConversion?.reason && !['Market Cap ($M)', 'Stock Price ($)'].includes(it.labelEn) ? 'N/A' : it.fn(c)}
                 </td>
               `;
             }).join('')}
@@ -4680,6 +4697,9 @@
     document.getElementById('cmp-ticker').innerText = ticker;
     document.getElementById('cmp-name').innerText = getStockDisplayName(s);
     document.getElementById('cmp-exchange').innerText = s.exchange || 'US';
+    document.getElementById('cmp-currency-note').textContent = `${I18N_DICT[currentLang].currency_usd_note} ${
+      I18N_DICT[currentLang].currency_original}: ${s.reportedCurrency || 'N/A'}.${
+      s.currencyConversion?.reason ? ` ${I18N_DICT[currentLang].currency_missing}` : ''}`;
     document.getElementById('cmp-full-name').innerText = currentLang === 'zh'
       ? (STOCK_NAMES_ZH[ticker] ? `${STOCK_NAMES_ZH[ticker]} (${s.company_name || ticker})` : (s.company_name || `${ticker} Inc.`))
       : (s.company_name || `${ticker} Inc.`);
@@ -4817,6 +4837,10 @@
       if (finPanel) finPanel.style.display = 'none';
       if (genLayout) genLayout.style.display = 'grid';
     }
+    if (s.currencyConversion?.reason) {
+      if (finPanel) finPanel.style.display = 'none';
+      if (genLayout) genLayout.style.display = 'none';
+    }
 
     document.getElementById('inp-price').value = workingParams.price;
     document.getElementById('inp-shares').value = workingParams.shares;
@@ -4884,6 +4908,15 @@
     document.getElementById('det-res-fair').innerText = dcf.fairVal === null ? 'N/A' : `$${dcf.fairVal.toFixed(2)}`;
     document.querySelector('[onclick="saveCustomModel()"]').disabled = dcf.fairVal === null;
     document.getElementById('det-res-price').innerText = `$${Number(tempS.price).toFixed(2)}`;
+    if (s.currencyConversion?.reason) {
+      for (const id of ['det-res-fair', 'det-res-wacc', 'det-res-g', 'det-res-spread',
+        'det-res-premium', 'det-res-ev', 'det-res-evebitda', 'det-res-nde', 'det-badge']) {
+        document.getElementById(id).innerText = 'N/A';
+      }
+      document.getElementById('det-badge').className = 'badge';
+      document.getElementById('det-res-status').innerText = I18N_DICT[currentLang].currency_missing;
+      return;
+    }
 
     if (isFin && tempS.fin_valuation) {
       const elExcess = document.getElementById('fin-excess-val');

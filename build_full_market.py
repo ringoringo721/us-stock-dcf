@@ -924,39 +924,6 @@ def fetch_cached_company_meta(fmp_sym: str, sym: str, total_shares_m: float, cur
 
     return meta_payload
 
-FX_CACHE = {
-    "USD": 1.0,
-    "HKD": 1.0 / 7.80,
-    "CNY": 1.0 / 7.20,
-    "RMB": 1.0 / 7.20
-}
-
-def get_fx_to_usd_rate(currency):
-    curr = (currency or "USD").upper().strip()
-    if curr in FX_CACHE:
-        return FX_CACHE[curr]
-
-    fallbacks = {
-        "TWD": 1.0 / 32.0, "NTD": 1.0 / 32.0,
-        "EUR": 1.08, "GBP": 1.28, "JPY": 1.0 / 152.0, "CAD": 1.0 / 1.37,
-        "HKD": 1.0 / 7.80, "CNY": 1.0 / 7.20, "RMB": 1.0 / 7.20
-    }
-
-    try:
-        data = fetch_json("quote", {"symbol": f"USD{curr}"})
-        if data and isinstance(data, list) and len(data) > 0:
-            price = float(data[0].get("price") or 0.0)
-            if price > 0:
-                rate = 1.0 / price
-                FX_CACHE[curr] = rate
-                return rate
-    except Exception:
-        pass
-
-    fallback_rate = fallbacks.get(curr, 1.0)
-    FX_CACHE[curr] = fallback_rate
-    return fallback_rate
-
 def build_10y_growth_schedule(est_data, default_g1, terminal_g):
     fmp_rates = []
     if est_data and isinstance(est_data, list) and len(est_data) >= 2:
@@ -1086,6 +1053,19 @@ def main():
         
         # 2. 資產負債表
         bs_data = fetch_json("balance-sheet-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 1})
+        fin_cache = fetch_cached_financial_statements(fmp_sym, sym) or {}
+        statement_rows = [
+            row for period in ("annual", "quarterly")
+            for rows in fin_cache.get(period, {}).values() if isinstance(rows, list)
+            for row in rows
+        ]
+        if any(row.get("reportedCurrency") != "USD" for row in statement_rows):
+            normalized = subprocess.run(
+                ["node", os.path.join(os.path.dirname(__file__), "scripts", "usd_financials.cjs"), "--statements"],
+                input=json.dumps(fin_cache), text=True, capture_output=True, check=True
+            )
+            fin_cache = json.loads(normalized.stdout)
+            bs_data = fin_cache.get("quarterly", {}).get("balance", [])[:1]
         debt, cash, equity, total_assets = 0.0, 0.0, 1.0, 1.0
         short_term_inv = 0.0
         goodwill_and_intangibles = 0.0
@@ -1104,7 +1084,7 @@ def main():
                 latest_period = f"{yr}{prd}"
 
             if bs.get("reportedCurrency"):
-                reported_currency = bs.get("reportedCurrency")
+                reported_currency = bs.get("sourceReportedCurrency") or bs.get("reportedCurrency")
 
             st_debt = float(bs.get("shortTermDebt") or 0.0)
             lt_debt = float(bs.get("longTermDebt") or 0.0)
@@ -1150,11 +1130,7 @@ def main():
         time.sleep(0.04)
 
         # 3. 匯率換算與財報抓取 (支援年度與近 20 季)
-        fx_rate = get_fx_to_usd_rate(reported_currency)
-        if sym == "TSM":
-            fx_rate = 1.0 / 32.0
-
-        fin_cache = fetch_cached_financial_statements(fmp_sym, sym) or {}
+        fx_rate = 1.0  # Monetary statement fields have already been translated by the shared USD engine.
         annual_data = fin_cache.get("annual", {})
         quarterly_data = fin_cache.get("quarterly", {})
 
@@ -1409,7 +1385,7 @@ def main():
             }
         }
 
-        if fx_rate != 1.0 or sym == "TSM":
+        if fx_rate != 1.0:
             debt = round(debt * fx_rate, 1)
             cash = round(cash * fx_rate, 1)
             short_term_inv = round(short_term_inv * fx_rate, 1)
@@ -1715,6 +1691,11 @@ def main():
 
     with open("market_data.js", "w", encoding="utf-8") as f:
         f.write(f"window.FULL_MARKET_DATA = {json.dumps(results, ensure_ascii=False, indent=2)};")
+
+    subprocess.run(
+        ["node", os.path.join(os.path.dirname(__file__), "scripts", "usd_financials.cjs")],
+        check=True
+    )
 
     print(f"\n🎉 成功！全市場 {len(UNIQUE_STOCKS)} 檔標的已全部完成估值、5年Beta校準與護城河分析！", flush=True)
 

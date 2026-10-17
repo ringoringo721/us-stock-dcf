@@ -369,9 +369,7 @@ test('financial DCF reference is exactly the latest Trend TTM/beginning ROTE wit
   assert.equal(reference.date, '2025-12-31');
   assert.equal(reference.tbvps, (180 - 31) / 2e6);
   assert.equal(reference.reason, null);
-  const converted = financialReference(data, { shares: 2, fxRate: 0.5 });
-  assert.equal(converted.rote, reference.rote);
-  assert.equal(converted.tbvps, reference.tbvps / 2);
+  assert.throws(() => financialReference(data, { shares: 2, fxRate: 0.5 }), /period-specific USD rates/);
   data.quarterly.balance.at(-1).goodwillAndIntangibleAssets = 190;
   const negative = financialReference(data, { shares: 2 });
   assert.equal(negative.tbvps, -10 / 2e6);
@@ -382,7 +380,7 @@ test('financial DCF reference is exactly the latest Trend TTM/beginning ROTE wit
 
 test('the market generator CLI returns the same financial reference as the browser engine', () => {
   const { execFileSync } = require('node:child_process');
-  const input = { statements: fixture(), shares: 2, fxRate: 0.5 };
+  const input = { statements: fixture(), shares: 2, fxRate: 1 };
   const output = execFileSync(process.execPath,
     [path.join(__dirname, '..', 'scripts', 'financial_reference.cjs'), '--stdin'],
     { input: JSON.stringify(input), encoding: 'utf8' });
@@ -395,7 +393,8 @@ test('all stored financial DCFs use the shared historical return engine, not ROE
     if (!stock.fin_valuation.is_financial) continue;
     const statements = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'cache', 'financials',
       `${ticker}_statements_v2.json`), 'utf8'));
-    const reference = financialReference(statements, { shares: stock.shares });
+    const converted = require('../usd_currency.js').convertStatements(statements, require('../cache/fx/usd_rates.json'));
+    const reference = financialReference(converted, { shares: stock.shares });
     assert.deepEqual(stock.fin_valuation.reference, reference, ticker);
     assert.equal(stock.fin_valuation.rote, reference.rote, ticker);
     assert.equal(stock.fin_valuation.tbvps, reference.tbvps, ticker);
