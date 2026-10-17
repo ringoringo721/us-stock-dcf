@@ -3,3 +3,6 @@ __pycache__/
 /hkex-source-output/
 /hkex-data-output/
 /.vercel/
+/public/
+.vercel
+.env*

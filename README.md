@@ -2,6 +2,11 @@
 
 ## HKEX six-stock pilot
 
+Production builds run `node scripts/build_site.cjs` and publish only the
+allowlisted browser assets and financial/price/FX caches in `public/`. Backend
+programs, raw source captures and private rating inputs are not public assets.
+`vercel.json` makes browsers revalidate data rather than retaining stale scores.
+
 The shared interface has a US/HKEX selector, the same 33 screener columns and all
 nine company subpages. The initial real-data HKEX universe is Tencent (00700),
 Alibaba (09988), HSBC (00005), HKEX (00388), CCB (00939) and Link REIT (00823).

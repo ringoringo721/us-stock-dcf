@@ -7,7 +7,7 @@ const Ratios = require('../fcf_ratios.js');
 const Currency = require('../usd_currency.js');
 const market = require('../hk_market_dcf.json');
 const rates = require('../cache/fx/hkd_rates.json');
-const root = path.resolve(__dirname, '..');
+const root = path.resolve(process.env.TEST_STATIC_ROOT || path.resolve(__dirname, '..'));
 const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
 
 (async () => {
