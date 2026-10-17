@@ -7,6 +7,7 @@
   <script src="site_theme.js"></script>
   <script src="market_data.js"></script>
   <script src="usd_currency.js"></script>
+  <script src="peer_comparison.js"></script>
   <script src="fcf_ratios.js"></script>
   <script src="balance_sheet.js"></script>
   <script src="earnings_trend.js"></script>
@@ -748,6 +749,7 @@
     #cmp-ratio-table thead .fcf-trend-col, #cmp-fin-table thead .fcf-trend-col { z-index: 30 !important; }
     #cmp-peers-table .peer-current { background: color-mix(in srgb, var(--card-bg) 85%, var(--gold) 15%) !important; font-weight: 700; }
     #cmp-peers-table .peer-company-name { font-size: var(--table-font-size); font-weight: 400; }
+    #peer-comparison-breakdown { display: block; margin-top: 6px; color: var(--text-muted); line-height: 1.5; }
     #balance-table .table-sticky-col, #earnings-table .table-sticky-col { width: 260px; min-width: 260px; max-width: 260px; text-align: left; white-space: normal; }
     #balance-table th, #balance-table td, #earnings-table th, #earnings-table td { min-width: 160px; }
     #balance-table .balance-selected, #earnings-table .balance-selected { background: var(--gold-bg); }
@@ -2090,9 +2092,16 @@
       treasury_10y: "10 年期美國公債",
       analysis_fin_note: "選擇報表與期間，依日期逐欄比較。金額沿用報表標示的百萬單位；EPS 為每股、股數另標單位。指標名稱固定於左側，右側顯示歷史趨勢。",
       analysis_ratio_note: "依期間檢視獲利、現金流、資本結構及流動性。表格與趨勢分析使用一致排版；各比率仍沿用本頁原有計算口徑，不等同趨勢分析可切換的分母設定。迷你線圖顏色表示數值升降，不一定代表好壞。",
-      analysis_peer_note: "比較同板塊、同子行業，並優先採用現有同行名單，最多五家公司。這是最新 TTM 橫向比較，並非歷史趨勢；各公司財報日期可能不同。",
+      analysis_peer_note: "優先比較同子行業與資料供應商同行，不足時加入同板塊、相關產業群組的參考公司，最多五家。每欄標示比較關係；相關產業參考不代表直接競爭對手。這是最新 TTM 橫向比較，各公司財報日期可能不同。",
+      analysis_peer_industry: "同子行業",
+      analysis_peer_provider: "供應商同行",
+      analysis_peer_related: "相關產業參考",
+      analysis_peer_counts: "同子行業 {industry} · 供應商同行 {provider} · 產業參考 {related}",
+      analysis_peer_no_exact: "目前網站未收錄其他同子行業公司；下列比較包含供應商同行或相關產業參考，並非沒有競爭對手。",
+      analysis_peer_empty: "目前網站未收錄適合的同行或相關產業參考。這不代表公司沒有競爭對手；不以無關公司或虛構財務資料補齊。",
+      analysis_peer_unavailable: "供應商名單另有 {count} 個代號尚未收錄於網站，未納入財務比較。",
       analysis_columns: "個期間欄",
-      analysis_peer_count: "同行數目",
+      analysis_peer_count: "比較公司數目（不含目前標的）",
       analysis_peer_basis: "比較口徑",
       analysis_peer_current: "目前標的",
       balance_title: "資產與負債結構",
@@ -2457,9 +2466,16 @@
       treasury_10y: "10Y Treasury",
       analysis_fin_note: "Choose a statement and period to compare dated columns. Monetary amounts retain the table's millions convention; EPS is per share and share counts have separate units. Metric labels stay fixed on the left, with historical trends on the right.",
       analysis_ratio_note: "Compare profitability, cash flow, capital structure and liquidity by period. The layout matches Trend Analysis; this page retains its existing calculation bases rather than the selectable denominators in Trend Analysis. Sparkline colors show numerical direction, not necessarily improvement or deterioration.",
-      analysis_peer_note: "Compare up to five companies in the same sector and sub-industry, prioritizing the existing peer list. This is a latest-TTM cross-section, not historical trends; reporting dates can differ between companies.",
+      analysis_peer_note: "Prioritize the same sub-industry and provider-listed peers, then add references from a related industry family within the same sector, up to five companies. Each column identifies its comparison basis; related references are not necessarily direct competitors. This is a latest-TTM cross-section; reporting dates can differ.",
+      analysis_peer_industry: "Same sub-industry",
+      analysis_peer_provider: "Provider-listed peer",
+      analysis_peer_related: "Related-industry reference",
+      analysis_peer_counts: "Same sub-industry {industry} · Provider peers {provider} · Related references {related}",
+      analysis_peer_no_exact: "No other company in this exact sub-industry is currently covered by this website. The comparisons below include provider-listed peers or related-industry references; this does not mean the company has no competitors.",
+      analysis_peer_empty: "No suitable peers or related-industry references are currently covered by this website. This does not mean the company has no competitors; unrelated companies and fabricated financial data are not added.",
+      analysis_peer_unavailable: "{count} other provider-listed symbols are not covered by this website and are not included in the financial comparison.",
       analysis_columns: "period columns",
-      analysis_peer_count: "Peers included",
+      analysis_peer_count: "Comparison companies (excluding selected)",
       analysis_peer_basis: "Comparison basis",
       analysis_peer_current: "Selected company",
       balance_title: "Assets & Balance Sheet",
@@ -4389,40 +4405,8 @@
     const targetTicker = (s.ticker || s.symbol || activeCompanyTicker || 'NVDA').toUpperCase();
     const currentStock = { ...s, ticker: targetTicker };
 
-    // 1. 從 stockUniverse 找出所有「同 Sector 且同 Industry」的公司 (排除自身)
-    const exactPeersPool = Object.entries(stockUniverse)
-      .map(([k, val]) => ({ ...val, ticker: (val.ticker || val.symbol || k).toUpperCase() }))
-      .filter(x => 
-        x.ticker !== targetTicker && 
-        x.sector === s.sector && 
-        x.industry === s.industry
-      );
-
-    // 2. 依市值差距由小到大排序
-    const targetMcap = Number(s.mcap) || 0;
-    exactPeersPool.sort((a, b) => {
-      const diffA = Math.abs((Number(a.mcap) || 0) - targetMcap);
-      const diffB = Math.abs((Number(b.mcap) || 0) - targetMcap);
-      return diffA - diffB;
-    });
-
-    let peerStocks = [];
-
-    // 3. 優先採納 FMP 名單中符合「同 Sector 且同 Industry」的標的
-    if (Array.isArray(s.peers) && s.peers.length > 0) {
-      const fmpPeersSet = new Set(s.peers.map(p => String(p).toUpperCase()));
-      peerStocks = exactPeersPool.filter(x => fmpPeersSet.has(x.ticker));
-    }
-
-    // 4. 若不足 5 家，從 exactPeersPool 依市值接近順序補齊
-    if (peerStocks.length < 5) {
-      const selectedSet = new Set(peerStocks.map(p => p.ticker));
-      const remainingExactPeers = exactPeersPool.filter(x => !selectedSet.has(x.ticker));
-      peerStocks = [...peerStocks, ...remainingExactPeers];
-    }
-
-    // 5. 最多取 5 檔
-    peerStocks = peerStocks.slice(0, 5);
+    const selection = PeerComparison.select(stockUniverse, targetTicker);
+    const peerStocks = selection.peers.map(peer => ({ ...peer.stock, ticker: peer.ticker, peerBasis: peer.basis }));
 
     // 第 1 欄為本標的，右側並列同行
     const allCols = [currentStock, ...peerStocks];
@@ -4594,9 +4578,12 @@
       <div class="panel historical-ratio-panel company-analysis-panel">
         <div class="panel-title">${mainTitle}</div>
         <p class="analysis-note">${labels.analysis_peer_note}</p>
+        <p id="peer-coverage-note" class="analysis-note">${!peerStocks.length ? labels.analysis_peer_empty
+          : selection.counts.industry === 0 ? labels.analysis_peer_no_exact : ''}</p>
+        ${selection.unavailable.length ? `<p id="peer-unavailable-note" class="analysis-note">${labels.analysis_peer_unavailable.replace('{count}', selection.unavailable.length)}</p>` : ''}
         <div class="balance-cards peer-summary-cards">
           <div class="balance-card"><span class="stat-label">${labels.analysis_peer_current}</span><strong>${targetTicker}</strong></div>
-          <div class="balance-card"><span class="stat-label">${labels.analysis_peer_count}</span><strong>${peerStocks.length}</strong></div>
+          <div class="balance-card"><span class="stat-label">${labels.analysis_peer_count}</span><strong id="peer-comparison-count">${peerStocks.length}</strong><small id="peer-comparison-breakdown">${labels.analysis_peer_counts.replace('{industry}', selection.counts.industry).replace('{provider}', selection.counts.provider).replace('{related}', selection.counts.related)}</small></div>
           <div class="balance-card"><span class="stat-label">${labels.analysis_peer_basis}</span><strong>TTM</strong></div>
         </div>
         <div class="table-scroll-wrapper company-analysis-scroll">
@@ -4614,12 +4601,13 @@
                   const isCurrent = (i === 0);
                   const dateStr = getLatestDate(c);
                   return `
-                    <th class="${isCurrent ? 'peer-current' : ''}">
+                    <th class="${isCurrent ? 'peer-current' : ''}" data-peer-ticker="${c.ticker}" data-peer-basis="${isCurrent ? 'current' : c.peerBasis}">
                       <div class="th-cell-wrap">
                         <div>
                           <span style="font-size: 14px; font-weight: 800; color: ${isCurrent ? 'var(--accent)' : 'var(--text)'};">${c.ticker}</span>${isCurrent ? `<span class="badge" style="background:rgba(56,189,248,0.25); color:var(--accent); font-size:10px; margin-left:4px;">${currentTag}</span>` : ''}
                         </div>
                         <div class="peer-company-name">${getStockDisplayName(c)}</div>
+                        ${isCurrent ? '' : `<span class="th-period-subdate">${labels[`analysis_peer_${c.peerBasis}`]}</span>`}
                         <span class="th-period-subdate">(${dateStr})</span>
                       </div>
                     </th>

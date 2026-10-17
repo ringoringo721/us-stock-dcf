@@ -5,6 +5,11 @@ on:
     # 於美股收盤後定期執行 (UTC 21:30，對應週一至週五)
     - cron: '30 21 * * 1-5'
   workflow_dispatch:
+    inputs:
+      peers_only:
+        description: Refresh provider peer lists only, preserving financial values
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -40,15 +45,28 @@ jobs:
           mkdir -p cache/moat cache/descriptions cache/financials cache/company_meta cache/peers
 
       - name: Refresh official historical USD exchange rates
+        if: inputs.peers_only != true
         run: node scripts/refresh_usd_rates.cjs
 
       - name: Run Market Engine with FMP Key
+        if: inputs.peers_only != true
         env:
           FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
         run: |
           python -u build_full_market.py
+
+      - name: Refresh provider peer lists only
+        if: inputs.peers_only == true
+        env:
+          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+        run: python -u scripts/refresh_peers.py
+
+      - name: Validate provider parsing and comparison coverage
+        run: |
+          python -m unittest discover -s tests -p test_peer_cache.py
+          node --test tests/peer_comparison.test.cjs
 
       - name: Commit & Push New DCF Dataset & Persistent Cache
         run: |

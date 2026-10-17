@@ -8,6 +8,7 @@ import math
 import subprocess
 from typing import Dict, Any, Optional
 from pydantic import BaseModel, Field
+from scripts.peer_cache import get_stock_peers_cached
 
 HIST_CACHE_DIR = "cache/historical_prices"
 os.makedirs(HIST_CACHE_DIR, exist_ok=True)
@@ -222,35 +223,6 @@ os.makedirs(FIN_CACHE_DIR, exist_ok=True)
 os.makedirs(META_CACHE_DIR, exist_ok=True)
 os.makedirs(PEER_CACHE_DIR, exist_ok=True)
 
-def get_stock_peers_cached(ticker: str, api_key: str) -> list:
-    cache_file = os.path.join(PEER_CACHE_DIR, f"{ticker}.json")
-    if os.path.exists(cache_file):
-        try:
-            with open(cache_file, "r", encoding="utf-8") as f:
-                cached_peers = json.load(f)
-                if isinstance(cached_peers, list) and len(cached_peers) > 0:
-                    return cached_peers[:5]
-        except Exception:
-            pass
-
-    clean_sym = ticker if ticker.endswith(".HK") else ticker.replace(".", "")
-    url = f"https://financialmodelingprep.com/stable/stock-peers?symbol={clean_sym}&apikey={api_key}"
-    try:
-        res = requests.get(url, timeout=10)
-        time.sleep(0.04)
-        if res.status_code == 200:
-            data = res.json()
-            if isinstance(data, list) and len(data) > 0:
-                raw_peers = data[0].get("peersList", [])
-                peers_5 = [p for p in raw_peers if p != ticker and p != clean_sym][:5]
-                with open(cache_file, "w", encoding="utf-8") as f:
-                    json.dump(peers_5, f, ensure_ascii=False, indent=2)
-                return peers_5
-    except Exception as e:
-        print(f"⚠️ [{ticker}] 取得同行資訊失敗: {e}")
-
-    return []
-    
 def get_deep_chinese_description(ticker: str, company_name: str, en_desc: str) -> str:
     if not en_desc or len(en_desc.strip()) < 30:
         return ""
