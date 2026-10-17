@@ -3,6 +3,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { chromium } = require('playwright');
 const { calculate, calculateReturns, calculateBalances, calculateEarnings, financialReference, trend } = require('../fcf_ratios.js');
+const { calculate: calculateOverview } = require('../profile_overview.js');
 
 const baseUrl = process.env.TEST_BASE_URL || 'http://127.0.0.1:8765';
 
@@ -315,10 +316,55 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
     }
     await page.evaluate(() => openCompanyProfile('NVDA'));
     assert.deepEqual(await page.locator('.sub-tab-btn').evaluateAll(buttons => buttons.map(button => button.getAttribute('onclick'))),
-      ['basic', 'rating', 'financials', 'ratios', 'peers', 'charts', 'news', 'chart'].map(key => `switchSubPage('${key}')`));
+      ['basic', 'rating', 'financials', 'ratios', 'peers', 'charts', 'valuation', 'news', 'chart'].map(key => `switchSubPage('${key}')`));
     assert.equal(await page.locator('#subpage-dividend').count(), 0);
     assert.equal(await page.locator('#moat-total-score').isVisible(), false);
     assert.equal(await page.locator('#fscore-breakdown-body').isVisible(), false);
+    const originalProfileLanguage = await page.evaluate(() => currentLang);
+    await page.evaluate(() => applyLanguage('en'));
+    for (const ticker of ['NVDA', 'AAPL', 'TSM', 'AZO']) {
+      await page.evaluate(ticker => openCompanyProfile(ticker), ticker);
+      await page.waitForFunction(ticker => document.querySelector('#profile-overview-status').textContent.startsWith(ticker), ticker);
+      const data = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'cache', 'financials', `${ticker}_statements_v2.json`)));
+      const summary = calculateOverview(data);
+      const latestReturns = calculateReturns(data).at(-1);
+      const format = value => value === null ? 'N/A' : `${value.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%`;
+      assert.deepEqual(await page.locator('.profile-metric-group').nth(2).locator('td').allTextContents(),
+        [...[summary.grossMargin, summary.operatingMargin, summary.netMargin].map(format),
+          ...['roa', 'roe'].map(metric => `${format(latestReturns.ratios[metric].value)}${latestReturns.ratios[metric].warnings.length ? ' !' : ''}`)]);
+      assert.equal(await page.locator('.profile-metric-group').count(), 5);
+      assert.deepEqual(await page.locator('.profile-metric-group').nth(4).locator('td').allTextContents(),
+        [summary.revenueGrowth, summary.operatingGrowth, summary.netIncomeGrowth].map(format));
+      assert.match(await page.locator('#profile-quote-price').innerText(), /^USD /);
+      assert.ok((await page.locator('#profile-overview-status').innerText()).includes(summary.date));
+      const profileText = await page.locator('#subpage-basic').innerText();
+      assert.ok(!/[\u4e00-\u9fff]/.test(profileText),
+        `${ticker}: Profile fully uses English: ${profileText.split('\n').filter(line => /[\u4e00-\u9fff]/.test(line)).join('; ')}`);
+      assert.ok((await page.locator('#cmp-card-shares').innerText()).includes('M shares'));
+      assert.ok(await page.locator('#profile-overview-panel').evaluate(panel =>
+        panel.compareDocumentPosition(document.querySelector('#cmp-description')) & Node.DOCUMENT_POSITION_FOLLOWING));
+      if (ticker === 'TSM') assert.match(await page.locator('#profile-overview-status').innerText(), /TWD/);
+    }
+    await page.evaluate(() => openCompanyProfile('NVDA'));
+    for (const width of [1440, 390]) {
+      await page.setViewportSize({ width, height: 1000 });
+      for (const theme of ['dark', 'light']) {
+        await page.evaluate(theme => SiteTheme.set(theme), theme);
+        for (const tab of ['basic', 'rating', 'valuation']) {
+          await page.locator(`.sub-tab-btn[onclick="switchSubPage('${tab}')"]`).click();
+          assert.ok(await page.locator(`#subpage-${tab}`).evaluate(panel =>
+            panel.getBoundingClientRect().right <= innerWidth + 1 && panel.scrollWidth <= panel.clientWidth + 1),
+          `${tab} has no page-width overflow at ${width}px in ${theme} mode: ${JSON.stringify(await page.locator(`#subpage-${tab}`).evaluate(panel =>
+            [...panel.querySelectorAll('div')].filter(element => element.getBoundingClientRect().right > innerWidth + 1)
+              .slice(0, 8).map(element => [element.id, element.className, element.getBoundingClientRect().width])))}`);
+          if (process.env.UI_SCREENSHOT_DIR) await page.locator(`#subpage-${tab}`).screenshot({
+            path: path.join(process.env.UI_SCREENSHOT_DIR, `company-${tab}-${theme}-${width}.png`)
+          });
+        }
+      }
+    }
+    await page.setViewportSize({ width: 1440, height: 1000 });
+    await page.evaluate(lang => { SiteTheme.set('dark'); applyLanguage(lang); }, originalProfileLanguage);
     for (const ticker of ['NVDA', 'JPM']) {
       await page.evaluate(ticker => openMoat(ticker), ticker);
       assert.equal(await page.locator('#subpage-rating').isVisible(), true);
@@ -554,6 +600,15 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
     assert.equal(await page.locator('#dcf-fcf td').count(), 11);
     assert.equal(await page.locator('#sens-body tr').count(), 3);
     assert.equal(await page.locator('#detailDcfHistoricalChart').count(), 0);
+    assert.equal(await page.locator('#company-view #subpage-valuation #detail-view').count(), 1);
+    assert.equal(await page.locator('#detail-view').count(), 1);
+    await page.locator('button[onclick="switchSubPage(\'rating\')"]').click();
+    await page.locator('.sub-tab-btn[onclick="switchSubPage(\'valuation\')"]').click();
+    assert.equal(await page.locator('#inp-fcf0').inputValue(), '100', 'Unsaved assumptions survive company tab switches');
+    await page.locator('#btn-lang-toggle').click();
+    assert.equal(await page.locator('#subpage-valuation').isVisible(), true);
+    assert.equal(await page.locator('#inp-fcf0').inputValue(), '100', 'Language switching must not reload source assumptions');
+    await page.locator('#btn-lang-toggle').click();
     await page.locator('#det-ticker').click();
     assert.equal(await page.locator('#company-view').isVisible(), true);
     assert.equal(await page.locator('#cmp-ticker').innerText(), 'NVDA');
@@ -592,7 +647,7 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
         };
       });
       assert.equal(layout.overflow, false, `Navigation must not clip at ${width}px`);
-      assert.equal(layout.buttons.length, 8);
+      assert.equal(layout.buttons.length, 9);
       assert.ok(layout.buttons.every(Boolean), `Every company tab must fit at ${width}px`);
     }
     await page.locator('#btn-lang-toggle').click();
@@ -707,11 +762,13 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
     await page.locator('#btn-lang-toggle').click();
     assert.match(await page.locator('#cmp-fin-thead th').first().innerText(), /Accounting/);
     const statementBeforeTheme = await page.locator('#cmp-fin-tbody').textContent();
-    assert.equal(await page.locator('#btn-theme-toggle').innerText(), 'Light mode');
+    assert.equal(await page.locator('#btn-theme-toggle').innerText(), '');
+    assert.equal(await page.locator('#btn-theme-toggle svg').count(), 1);
+    assert.equal(await page.locator('#btn-theme-toggle').getAttribute('aria-label'), 'Light mode');
     await page.locator('#btn-theme-toggle').click();
     assert.equal(await page.locator('html').getAttribute('data-theme'), 'light');
     assert.equal(await page.locator('#btn-theme-toggle').getAttribute('aria-pressed'), 'true');
-    assert.equal(await page.locator('#btn-theme-toggle').innerText(), 'Dark mode');
+    assert.equal(await page.locator('#btn-theme-toggle').getAttribute('aria-label'), 'Dark mode');
     assert.equal(await page.locator('#cmp-fin-tbody').textContent(), statementBeforeTheme);
     const styles = await page.evaluate(() => {
       const computed = selector => getComputedStyle(document.querySelector(selector));
@@ -771,12 +828,64 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
     await checkTable(page, 'JPM', {}, 'return-ratio');
     assert.equal(await page.locator('#return-ratio-body tr').last().locator('td:not(.fcf-trend-col)').last().innerText(),
       `${baselineRote.toFixed(2)}%`);
+    const navigationPage = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
+    navigationPage.on('pageerror', error => errors.push(error.message));
+    navigationPage.on('response', response => {
+      if (response.status() >= 400 && response.url().startsWith(baseUrl)) firstPartyFailures.push(`${response.status()} ${response.url()}`);
+    });
+    await navigationPage.addInitScript(() => localStorage.setItem('RADAR_LANG', 'en'));
+    for (const [route, tab] of [
+      ['NVDA/valuation', 'valuation'], ['AAPL/profile', 'basic'], ['NVDA', 'valuation'],
+      ['NVDA/moat', 'rating'], ['JPM/fscore', 'rating'], ['TSM/charts', 'charts']
+    ]) {
+      await navigationPage.goto(`${baseUrl}/#${route}`, { waitUntil: 'networkidle' });
+      assert.equal(await navigationPage.locator(`#subpage-${tab}`).isVisible(), true, route);
+      assert.equal(await navigationPage.locator('.sub-tab-btn.active').count(), 1);
+      assert.equal(await navigationPage.locator('#cmp-ticker').innerText(), route.split('/')[0]);
+    }
+    await navigationPage.goto(`${baseUrl}/#NVDA`, { waitUntil: 'networkidle' });
+    await navigationPage.locator('.sub-tab-btn[onclick="switchSubPage(\'basic\')"]').click();
+    await navigationPage.goBack();
+    assert.equal(await navigationPage.locator('#subpage-valuation').isVisible(), true, 'Back restores a legacy valuation deep link');
+    await navigationPage.goForward();
+    assert.equal(await navigationPage.locator('#subpage-basic').isVisible(), true);
+    await navigationPage.locator('[data-i18n="profile_open_valuation"]').click();
+    await navigationPage.locator('#inp-fcf0').fill('12345');
+    navigationPage.once('dialog', dialog => dialog.accept());
+    await navigationPage.locator('#detail-view [onclick="saveCustomModel()"]').click();
+    assert.equal(await navigationPage.evaluate(() => getSavedModels().NVDA.params.fcf0), 12345);
+    await navigationPage.reload({ waitUntil: 'networkidle' });
+    assert.equal(await navigationPage.locator('#subpage-valuation').isVisible(), true);
+    assert.equal(await navigationPage.locator('#inp-fcf0').inputValue(), '12345', 'Saved assumptions reload in the embedded model');
+    await navigationPage.locator('#detail-view [onclick="resetToFmpDefaults()"]').click();
+    assert.equal(await navigationPage.evaluate(() => getSavedModels().NVDA), undefined);
+    assert.equal(Number(await navigationPage.locator('#inp-fcf0').inputValue()),
+      await navigationPage.evaluate(() => window.FULL_MARKET_DATA.NVDA.fcf0));
+    await navigationPage.evaluate(() => openDetail('JPM'));
+    await navigationPage.locator('#slider-fin-ke').evaluate(input => {
+      input.value = '10.25';
+      input.dispatchEvent(new Event('input', { bubbles: true }));
+    });
+    await navigationPage.locator('.sub-tab-btn[onclick="switchSubPage(\'basic\')"]').click();
+    await navigationPage.locator('.sub-tab-btn[onclick="switchSubPage(\'valuation\')"]').click();
+    await navigationPage.locator('#btn-lang-toggle').click();
+    assert.equal(await navigationPage.locator('#slider-fin-ke').inputValue(), '10.25');
+    assert.equal(await navigationPage.locator('#det-ticker').innerText(), 'JPM');
+    await navigationPage.setViewportSize({ width: 390, height: 844 });
+    assert.ok(await navigationPage.locator('#subpage-valuation').evaluate(panel => panel.scrollWidth <= panel.clientWidth + 1),
+      'Financial valuation cards and sliders fit on mobile');
+    await navigationPage.locator('#company-view > .detail-header [onclick="navigateBack()"]').click();
+    assert.equal(await navigationPage.locator('#screener-view').isVisible(), true);
+    assert.equal(await navigationPage.locator('#screener-tbody tr').count(), 230);
+    await navigationPage.close();
     assert.deepEqual(errors, []);
     assert.deepEqual(firstPartyFailures, []);
 
     const failurePage = await browser.newPage();
     await failurePage.route('**/cache/financials/AAPL_statements_v2.json', route => route.abort());
     await failurePage.goto(`${baseUrl}/#AAPL/profile`, { waitUntil: 'networkidle' });
+    assert.equal(await failurePage.locator('#profile-overview-retry').isVisible(), true);
+    assert.equal(await failurePage.locator('.profile-metric-group').nth(2).locator('td').first().innerText(), 'N/A');
     await failurePage.locator('button[onclick="switchSubPage(\'charts\')"]').click();
     await failurePage.waitForFunction(() => !document.querySelector('#fcf-ratio-retry').hidden);
     assert.equal(await failurePage.locator('#fcf-ratio-body tr').count(), 0);
@@ -789,12 +898,22 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
     await checkBalances(failurePage, 'AAPL');
     await failurePage.locator('#earnings-retry').click();
     await checkEarnings(failurePage, 'AAPL');
+    await failurePage.locator('.sub-tab-btn[onclick="switchSubPage(\'basic\')"]').click();
+    await failurePage.waitForFunction(() => document.querySelector('#profile-overview-status').textContent.startsWith('AAPL'));
+    assert.equal(await failurePage.locator('#profile-overview-retry').isVisible(), false);
 
     const racePage = await browser.newPage();
     await racePage.route('**/cache/financials/NVDA_statements_v2.json', async route => {
       await new Promise(resolve => setTimeout(resolve, 600));
       await route.continue();
     });
+    await racePage.goto(`${baseUrl}/#NVDA/profile`, { waitUntil: 'domcontentloaded' });
+    await racePage.waitForFunction(() => document.querySelector('#company-view').style.display === 'block');
+    await racePage.evaluate(() => openCompanyProfile('AAPL'));
+    await racePage.waitForFunction(() => document.querySelector('#profile-overview-status').textContent.startsWith('AAPL'));
+    await racePage.waitForTimeout(700);
+    assert.match(await racePage.locator('#profile-overview-status').innerText(), /^AAPL/,
+      'A late prior-ticker response cannot replace the Profile snapshot');
     await racePage.goto(`${baseUrl}/#NVDA/profile`, { waitUntil: 'domcontentloaded' });
     await racePage.waitForFunction(() => document.querySelector('#company-view').style.display === 'block');
     await racePage.locator('button[onclick="switchSubPage(\'charts\')"]').click();
@@ -806,7 +925,7 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
     await checkTable(racePage, 'AAPL', {}, 'return-ratio');
     await checkBalances(racePage, 'AAPL');
     await checkEarnings(racePage, 'AAPL');
-    console.log('PASS: company rating navigation, complete moat/PF score relocation, earnings trends/controls/units/mobile/localization/retry/races; existing screener, balance, DCF, ROTE, themes and financial tables.');
+    console.log('PASS: Profile snapshots/localization/races, styled rating, embedded valuation/routes/back/save/reset/unsaved assumptions/mobile; existing 230-stock screener, financial tables, trends, ROTE, themes and retries.');
   } finally {
     await browser.close();
   }

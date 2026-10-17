@@ -9,6 +9,7 @@
   <script src="fcf_ratios.js"></script>
   <script src="balance_sheet.js"></script>
   <script src="earnings_trend.js"></script>
+  <script src="profile_overview.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   
   <style>
@@ -798,6 +799,76 @@
     :root[data-theme="light"] .table-scroll-wrapper:active :is(th, a, button, [onclick]) { cursor: var(--table-drag-cursor), grabbing !important; }
     :root[data-theme="light"] #screener-table tbody tr:is(:hover, :focus-within) .text-green { color: #166534; }
     #screener-table td { height: 58px; }
+    .theme-icon-button { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; padding: 8px; }
+    .theme-icon-button svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .theme-icon-button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    #subpage-basic .panel, #subpage-rating .panel, #subpage-valuation .panel { border-radius: 12px; padding: 22px; }
+    #subpage-basic .panel-title, #subpage-rating .panel-title, #subpage-valuation .panel-title { flex-wrap: wrap; gap: 10px; line-height: 1.6; }
+    .profile-overview-layout { display: grid; grid-template-columns: minmax(220px, .8fr) minmax(0, 2fr); gap: 20px; align-items: start; }
+    .profile-quote-card { display: flex; flex-direction: column; gap: 12px; padding: 24px; min-width: 0; border-radius: 12px; border: 1px solid var(--card-border); border-top: 3px solid var(--accent); background: var(--surface-bg); }
+    .profile-quote-card > strong { font-size: clamp(24px, 2.8vw, 36px); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+    #profile-quote-ticker { color: var(--text-secondary); font-size: 13px; }
+    .profile-range { margin: 14px 0; font-size: 12px; color: var(--text-secondary); }
+    .profile-range-track { height: 8px; margin: 18px 6px 12px; border-radius: 8px; background: linear-gradient(90deg, var(--red), var(--gold), var(--green)); position: relative; }
+    #profile-range-dot { position: absolute; top: 50%; width: 14px; height: 14px; border: 3px solid var(--text); background: var(--card-bg); border-radius: 50%; transform: translate(-50%, -50%); }
+    .profile-range-values { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-variant-numeric: tabular-nums; }
+    .profile-overview-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .profile-metric-group { min-width: 0; border: 1px solid var(--card-border); border-top: 3px solid var(--accent); border-radius: 10px; overflow: hidden; }
+    .profile-metric-group:nth-child(2) { border-top-color: var(--gold); }
+    .profile-metric-group:nth-child(3) { border-top-color: var(--green); }
+    .profile-metric-group:nth-child(4) { border-top-color: var(--nasdaq-purple); }
+    .profile-metric-group:nth-child(5) { border-top-color: var(--orange); grid-column: 1 / -1; }
+    .profile-metric-group h3 { padding: 14px; font-size: 14px; background: var(--surface-bg); border-bottom: 1px solid var(--card-border); margin: 0; }
+    .profile-metric-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+    .profile-metric-table th, .profile-metric-table td { padding: 11px 14px; font-size: var(--table-font-size); border-bottom: 1px solid var(--card-border); white-space: normal; overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
+    .profile-metric-table th { width: 55%; color: var(--text-secondary); text-align: left; font-weight: 500; border-right: 1px solid var(--card-border); }
+    .profile-metric-table td { text-align: right; font-weight: 600; }
+    .profile-metric-table tr:last-child > * { border-bottom: 0; }
+    .profile-support-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-bottom: 20px; }
+    #subpage-basic .company-meta-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    #subpage-basic .company-meta-item { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; border: 1px solid var(--card-border); border-radius: 8px; padding: 16px; background: var(--surface-bg); overflow-wrap: anywhere; min-width: 0; }
+    #subpage-basic .table-scroll-wrapper, #subpage-rating .table-scroll-wrapper { border: 1px solid var(--card-border); border-radius: 8px; }
+    #subpage-basic .table-scroll-wrapper table { min-width: 740px; }
+    #subpage-basic .table-scroll-wrapper th, #subpage-basic .table-scroll-wrapper td,
+    #subpage-rating .table-scroll-wrapper th, #subpage-rating .table-scroll-wrapper td { padding: 13px 16px !important; border-right: 1px solid var(--card-border); border-bottom: 1px solid var(--card-border); font-size: var(--table-font-size); font-variant-numeric: tabular-nums; line-height: 1.7; }
+    #subpage-basic .table-scroll-wrapper th, #subpage-rating .table-scroll-wrapper th { background: var(--header-bg); }
+    #subpage-rating .detail-header, #subpage-valuation .detail-header { flex-wrap: wrap; gap: 14px; padding: 18px 20px; }
+    #subpage-rating .detail-title, #subpage-valuation .detail-title { flex-wrap: wrap; min-width: 0; }
+    #subpage-rating .top-stats { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+    #subpage-rating .stat-box { border-radius: 10px; border-top: 3px solid var(--accent); background: var(--surface-bg); padding: 20px; }
+    #subpage-rating .stat-box:nth-child(2) { border-top-color: var(--green); }
+    #subpage-rating .stat-box:nth-child(3) { border-top-color: var(--gold); }
+    #subpage-rating .stat-box:nth-child(4) { border-top-color: var(--nasdaq-purple); }
+    #subpage-rating .stat-label { text-transform: none; letter-spacing: normal; line-height: 1.6; min-height: 38px; }
+    #subpage-rating .stat-num { font-size: clamp(23px, 2.5vw, 32px); font-variant-numeric: tabular-nums; margin: 10px 0; }
+    #subpage-rating .ai-comment-card { border-radius: 10px; padding: 22px; border-left: 4px solid var(--accent); line-height: 1.9; font-size: 14px; }
+    #fscore-view { margin-top: 34px; padding-top: 16px; border-top: 1px solid var(--card-border); }
+    .valuation-intro { border-top: 3px solid var(--accent); }
+    #subpage-valuation .main-layout > *, #subpage-valuation .form-group { min-width: 0; }
+    #subpage-valuation .form-group { display: grid; grid-template-columns: minmax(0, 1fr) 120px; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--card-border); }
+    #subpage-valuation .form-group input, #subpage-valuation .form-group select { width: 100%; padding: 8px 10px; }
+    #subpage-valuation .fin-model-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; margin-bottom: 16px; }
+    #subpage-valuation .stat-num { overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
+    #subpage-valuation #dcf-table { min-width: 1000px; }
+    #subpage-valuation #sens-table { min-width: 520px; }
+    #subpage-valuation #dcf-table :is(th, td), #subpage-valuation #sens-table :is(th, td) { padding: 12px 14px; border-right: 1px solid var(--card-border); font-variant-numeric: tabular-nums; }
+    #subpage-valuation #dcf-table :is(th, td):first-child { position: sticky; left: 0; min-width: 180px; background: var(--sticky-bg); z-index: 2; }
+    #subpage-valuation .table-scroll-wrapper { border: 1px solid var(--card-border); border-radius: 8px; }
+    @media (max-width: 1000px) {
+      .profile-overview-layout { grid-template-columns: minmax(0, 1fr); }
+      #subpage-rating .top-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 600px) {
+      .profile-overview-groups, .profile-support-grid, #subpage-basic .company-meta-grid { grid-template-columns: minmax(0, 1fr); }
+      #subpage-basic .panel, #subpage-rating .panel, #subpage-valuation .panel { padding: 16px; }
+      .profile-quote-card { padding: 18px; }
+      #subpage-rating .stat-box { padding: 14px; }
+      #subpage-rating .stat-num { font-size: 22px; }
+      #subpage-rating .detail-header > div:last-child, #subpage-valuation .detail-header > div:last-child { flex-wrap: wrap; }
+      #subpage-rating .ai-comment-card { padding: 16px; }
+      #subpage-valuation .main-layout { grid-template-columns: minmax(0, 1fr); }
+      #subpage-valuation .form-group { grid-template-columns: minmax(0, 1fr) 105px; }
+    }
     #screener-table .badge, #screener-table .badge-moat, #screener-table .badge-fscore { font-size: 12px; line-height: 1.5; }
     #main-scroll-box { max-height: 68vh !important; border-radius: 12px; }
     @media (max-width: 1000px) {
@@ -854,7 +925,7 @@
     <div class="header-actions">
       <div class="status-badge" id="app-status" data-i18n="status_ready">● FMP 財報</div>
       <button class="lang-btn" id="btn-lang-toggle" onclick="toggleLanguage()">English</button>
-      <button class="lang-btn" id="btn-theme-toggle" type="button" onclick="SiteTheme.toggle()" aria-pressed="false">淺色模式</button>
+      <button class="lang-btn theme-icon-button" id="btn-theme-toggle" type="button" onclick="SiteTheme.toggle()" aria-pressed="false" aria-label="切換淺色模式"></button>
     </div>
   </header>
 
@@ -1018,7 +1089,12 @@
   </div>
 
   <!-- ==================== 頁面 2：深度估值詳情頁 ==================== -->
-  <div id="detail-view">
+  <template id="valuation-template">
+  <div id="detail-view" class="valuation-workspace">
+    <section class="panel historical-ratio-panel valuation-intro">
+      <div class="panel-title" data-i18n="valuation_title">估值模型與情境分析</div>
+      <p class="analysis-note" data-i18n="valuation_note"></p>
+    </section>
     <div class="detail-header">
       <div class="detail-title">
         <button id="det-fav-btn" class="fav-btn" onclick="toggleDetailFavorite()">♡</button>
@@ -1065,7 +1141,7 @@
       <div class="panel">
         <div class="panel-title" data-i18n="fin_title">🏛️ 金融機構專屬估值矩陣 (Excess Return on Tangible Book + DDM)</div>
         <p id="fin-reference-note" role="status" class="model-reference-note"></p>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 16px;">
+        <div class="fin-model-grid">
           <div class="stat-box" style="border-left: 4px solid var(--accent);">
             <div class="stat-label" data-i18n="fin_m1">1. 超額有形資產回報模型 (Excess Return)</div>
             <div class="stat-num text-green" id="fin-excess-val">$0.00</div>
@@ -1084,7 +1160,7 @@
           </div>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-bottom: 16px;">
+        <div class="fin-model-grid">
           <div class="slider-row">
             <div class="slider-head"><span data-i18n="fin_ke">股權資本成本 (Ke, 折現率)</span><span class="val" id="disp-fin-ke">9.49%</span></div>
             <input type="range" class="fin-slider" id="slider-fin-ke" min="7.0" max="14.0" step="0.05" oninput="onFinSliderChange()">
@@ -1115,12 +1191,12 @@
         <div class="form-group">
           <label data-i18n="lbl_rf_tenor">無風險利率美債年期</label>
           <select id="inp-rf-tenor" onchange="onRfTenorChange()">
-            <option value="1">1 年期 (1Y Treasury)</option>
-            <option value="2">2 年期 (2Y Treasury)</option>
-            <option value="3">3 年期 (3Y Treasury)</option>
-            <option value="4">4 年期 (4Y Treasury)</option>
-            <option value="5" selected>5 年期 (5Y Treasury - 預設)</option>
-            <option value="10">10 年期 (10Y Treasury)</option>
+            <option value="1" data-i18n="treasury_1y">1 年期 (1Y Treasury)</option>
+            <option value="2" data-i18n="treasury_2y">2 年期 (2Y Treasury)</option>
+            <option value="3" data-i18n="treasury_3y">3 年期 (3Y Treasury)</option>
+            <option value="4" data-i18n="treasury_4y">4 年期 (4Y Treasury)</option>
+            <option value="5" data-i18n="treasury_5y" selected>5 年期 (5Y Treasury - 預設)</option>
+            <option value="10" data-i18n="treasury_10y">10 年期 (10Y Treasury)</option>
           </select>
         </div>
         <div class="form-group"><label data-i18n="lbl_rf">無風險利率 Rf (%)</label><input type="number" id="inp-rf" step="0.05" oninput="onDetailParamChange()"></div>
@@ -1167,6 +1243,7 @@
       </div>
     </div>
   </div>
+  </template>
   <!-- 頁面 2：detail-view 結束 -->
   
   <!-- ==================== 頁面 3：企業概況與 7 大子分頁專頁 ==================== -->
@@ -1208,12 +1285,34 @@
       <button class="sub-tab-btn" onclick="switchSubPage('ratios')" data-i18n="tab_ratios">⚖️ 4. 關鍵比率</button>
       <button class="sub-tab-btn" onclick="switchSubPage('peers')" data-i18n="tab_peers">👥 5. 同行業對比</button>
       <button class="sub-tab-btn" onclick="switchSubPage('charts')" data-i18n="tab_charts">📊 6. 趨勢分析</button>
-      <button class="sub-tab-btn" onclick="switchSubPage('news')" data-i18n="tab_news">📰 7. 公司新聞</button>
-      <button class="sub-tab-btn" onclick="switchSubPage('chart')" data-i18n="tab_tradingview">📈 8. TradingView 圖表</button>
+      <button class="sub-tab-btn" onclick="switchSubPage('valuation')" data-i18n="tab_valuation">📐 7. 估值模型</button>
+      <button class="sub-tab-btn" onclick="switchSubPage('news')" data-i18n="tab_news">📰 8. 公司新聞</button>
+      <button class="sub-tab-btn" onclick="switchSubPage('chart')" data-i18n="tab_tradingview">📈 9. TradingView 圖表</button>
     </div>
 
     <!-- 子分頁 1：基本資料 -->
     <div id="subpage-basic" class="subpage-content active">
+      <section class="panel historical-ratio-panel profile-overview" id="profile-overview-panel" aria-labelledby="profile-overview-title">
+        <div class="panel-title" id="profile-overview-title" data-i18n="profile_overview_title">市場與財務摘要</div>
+        <div class="profile-overview-layout">
+          <div class="profile-quote-card">
+            <span class="stat-label" data-i18n="profile_quote">最新股價（USD）</span>
+            <strong id="profile-quote-price"></strong>
+            <span id="profile-quote-ticker"></span>
+            <div class="profile-range">
+              <span data-i18n="profile_range">52 週價格區間</span>
+              <div class="profile-range-track"><span id="profile-range-dot"></span></div>
+              <div class="profile-range-values"><span id="profile-range-low"></span><span id="profile-range-high"></span></div>
+            </div>
+            <p class="analysis-note" data-i18n="profile_quote_note"></p>
+            <button class="stmt-btn" onclick="switchSubPage('valuation')" data-i18n="profile_open_valuation">開啟估值模型</button>
+          </div>
+          <div id="profile-overview-groups" class="profile-overview-groups"></div>
+        </div>
+        <p id="profile-overview-status" class="analysis-note" role="status"></p>
+        <p class="analysis-note" data-i18n="profile_source_note"></p>
+        <button id="profile-overview-retry" type="button" class="stmt-btn" data-i18n="fcf_retry" hidden>重新載入</button>
+      </section>
       <div class="panel">
         <div class="panel-title" style="display: flex; justify-content: space-between;">
           <span data-i18n="sec_profile_title">企業核心業務與營運全貌</span>
@@ -1232,7 +1331,7 @@
         </div>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; margin-bottom: 20px;">
+      <div class="profile-support-grid">
         <div class="panel" style="margin-bottom: 0;">
           <div class="panel-title" data-i18n="sec_52w_title">📈 52 週價格區間與歷史高低點</div>
           <div style="flex-direction: column; gap: 12px; font-size: 13px; display: flex;">
@@ -1582,6 +1681,7 @@
       </section>
     </div>
 
+    <div id="subpage-valuation" class="subpage-content"></div>
     <!-- 子分頁 7：公司新聞 -->
     <div id="subpage-news" class="subpage-content">
       <div class="panel">
@@ -1602,6 +1702,10 @@
       </div>
     </div>
   <div id="subpage-rating" class="subpage-content">
+  <section class="panel historical-ratio-panel">
+    <div class="panel-title" data-i18n="tab_rating">企業評分</div>
+    <p class="analysis-note" data-i18n="rating_note"></p>
+  </section>
   <!-- Economic moat and PF score share the company rating subpage. -->
   <div id="moat-view">
     <div class="detail-header">
@@ -1698,6 +1802,8 @@
 
 <script>
 
+  document.getElementById('subpage-valuation').append(document.getElementById('valuation-template').content);
+  document.getElementById('valuation-template').remove();
   let stockUniverse = {};
 
   const SECTOR_NAMES_EN = {
@@ -1897,6 +2003,7 @@
   let sortAsc = false;
   
   let activeDetailTicker = 'NVDA';
+  let loadedValuationTicker = null;
   let activeFScoreTicker = 'NVDA';
   let activeMoatTicker = 'NVDA';
   let activeCompanyTicker = 'NVDA';
@@ -1930,6 +2037,48 @@
       screener_table_tip: "點選代號開啟公司頁；點選欄名排序。更多欄位可左右捲動。",
       screener_liquidation_key: '清算價：<span class="text-green">正值</span>／<span class="text-red">負值</span>／零與缺值為中性色；正值不代表股價低估。',
       screener_formula: "計算說明",
+      profile_overview_title: "市場與財務摘要",
+      profile_quote: "最新股價（USD）",
+      profile_range: "52 週價格區間",
+      profile_quote_note: "價格與估值為現有市場資料快照，非即時報價。區間條僅標示現價在 52 週高低價的位置，不是歷史走勢圖。",
+      profile_open_valuation: "開啟估值模型",
+      profile_market: "市場數據",
+      profile_capital: "資本結構",
+      profile_efficiency: "獲利與效率 · TTM",
+      profile_valuation: "估值指標",
+      profile_growth: "已報成長 · TTM 年增率",
+      profile_revenue_growth: "營收年增率",
+      profile_operating_growth: "營業利益年增率",
+      profile_income_growth: "淨利年增率",
+      profile_high: "52 週最高價",
+      profile_low: "52 週最低價",
+      profile_beta: "Beta（5 年）",
+      profile_div_yield: "股息率",
+      profile_market_cap: "市值（USD 百萬）",
+      profile_ev: "企業價值（USD 百萬）",
+      profile_shares: "流通股數（百萬）",
+      profile_net_debt: "淨負債（USD 百萬）",
+      profile_gross_margin: "毛利率",
+      profile_operating_margin: "營業利益率",
+      profile_net_margin: "淨利率",
+      profile_roa: "ROA（TTM／期初）",
+      profile_roe: "ROE（TTM／期初）",
+      profile_pe: "本益比（TTM）",
+      profile_forward_pe: "預估本益比",
+      profile_pb: "股價淨值比",
+      profile_ev_ebitda: "EV／EBITDA",
+      profile_statement_basis: "獲利率以連續四季實際損益計算；ROA／ROE 沿用趨勢分析 TTM／期初口徑；財報日與幣別",
+      profile_missing_holders: "目前資料未提供持有人明細，不推算機構持股。",
+      profile_source_note: "僅呈現現有資料來源提供的紀錄；缺失資料顯示 N/A，不推算補齊。TTM 年增率比較連續八季中的前後四季；前期基數必須為正，否則顯示 N/A。這不是預測成長率。",
+      rating_note: "先看評分總覽，再閱讀解讀與檢驗明細。護城河代表競爭優勢評估；PF score 為財務篩選訊號，兩者不是信用評等或買賣建議。",
+      valuation_title: "估值模型與情境分析",
+      valuation_note: "以現有模型與假設估算每股價值。一般企業採 FCF DCF；金融企業採既有有形權益超額報酬與股利模型。調整參數屬情境分析，不會改寫財報或趨勢資料；可儲存目標價或重設來源預設值。",
+      treasury_1y: "1 年期美國公債",
+      treasury_2y: "2 年期美國公債",
+      treasury_3y: "3 年期美國公債",
+      treasury_4y: "4 年期美國公債",
+      treasury_5y: "5 年期美國公債（預設）",
+      treasury_10y: "10 年期美國公債",
       analysis_fin_note: "選擇報表與期間，依日期逐欄比較。金額沿用報表標示的百萬單位；EPS 為每股、股數另標單位。指標名稱固定於左側，右側顯示歷史趨勢。",
       analysis_ratio_note: "依期間檢視獲利、現金流、資本結構及流動性。表格與趨勢分析使用一致排版；各比率仍沿用本頁原有計算口徑，不等同趨勢分析可切換的分母設定。迷你線圖顏色表示數值升降，不一定代表好壞。",
       analysis_peer_note: "比較同板塊、同子行業，並優先採用現有同行名單，最多五家公司。這是最新 TTM 橫向比較，並非歷史趨勢；各公司財報日期可能不同。",
@@ -2072,8 +2221,9 @@
       earnings_reason_missingDilutedShares: "N/A：缺少同期歷史稀釋加權平均股數，不以目前股數替代。",
       earnings_reason_invalidDilutedShares: "N/A：同期稀釋加權平均股數為零或負數，無法計算每股值。",
       earnings_reason_incompleteTtm: "N/A：此指標缺少連續四季資料，無法計算 TTM。",
-      tab_tradingview: "📈 8. TradingView 圖表",
-      tab_news: "📰 7. 公司新聞",
+      tab_valuation: "📐 7. 估值模型",
+      tab_tradingview: "📈 9. TradingView 圖表",
+      tab_news: "📰 8. 公司新聞",
       sec_profile_title: "企業核心業務與營運全貌",
       lbl_hq: "總部:",
       lbl_reg_addr: "註冊地址:",
@@ -2247,6 +2397,48 @@
       screener_table_tip: "Open a company by ticker; sort by column heading. Scroll sideways for additional columns.",
       screener_liquidation_key: 'Liquidation: <span class="text-green">positive</span> / <span class="text-red">negative</span> / zero and missing values are neutral. A positive value does not mean the stock is undervalued.',
       screener_formula: "Calculation details",
+      profile_overview_title: "Market & Financial Snapshot",
+      profile_quote: "Latest stock price (USD)",
+      profile_range: "52-week price range",
+      profile_quote_note: "Price and valuation data are the available market snapshot, not a live quote. The range marker locates price between the 52-week low and high; it is not a historical price chart.",
+      profile_open_valuation: "Open valuation model",
+      profile_market: "Market Data",
+      profile_capital: "Capital Structure",
+      profile_efficiency: "Profitability & Efficiency · TTM",
+      profile_valuation: "Valuation",
+      profile_growth: "Reported Growth · TTM Year over Year",
+      profile_revenue_growth: "Revenue growth",
+      profile_operating_growth: "Operating income growth",
+      profile_income_growth: "Net income growth",
+      profile_high: "52-week high",
+      profile_low: "52-week low",
+      profile_beta: "5-year beta",
+      profile_div_yield: "Dividend yield",
+      profile_market_cap: "Market cap (USD millions)",
+      profile_ev: "Enterprise value (USD millions)",
+      profile_shares: "Shares outstanding (millions)",
+      profile_net_debt: "Net debt (USD millions)",
+      profile_gross_margin: "Gross margin",
+      profile_operating_margin: "Operating margin",
+      profile_net_margin: "Net margin",
+      profile_roa: "ROA (TTM / beginning)",
+      profile_roe: "ROE (TTM / beginning)",
+      profile_pe: "P/E (TTM)",
+      profile_forward_pe: "Forward P/E",
+      profile_pb: "Price / book",
+      profile_ev_ebitda: "EV / EBITDA",
+      profile_statement_basis: "Margins use four consecutive reported income quarters; ROA/ROE match Trend Analysis TTM/beginning. Statement date and currency",
+      profile_missing_holders: "Holder details are unavailable in the current data; institutional positions are not estimated.",
+      profile_source_note: "Only records supplied by the existing data source are shown. Missing data remains N/A rather than being estimated. TTM growth compares successive four-quarter totals from eight consecutive quarters, with a positive prior-year base; otherwise N/A. These are reported results, not growth forecasts.",
+      rating_note: "Start with the scorecards, then review the interpretation and individual tests. Economic Moat assesses competitive advantages; PF score screens financial signals. Neither is a credit rating or an investment recommendation.",
+      valuation_title: "Valuation Model & Scenario Analysis",
+      valuation_note: "Estimate per-share value using the existing models and assumptions. General companies use FCF DCF; financial institutions use the existing tangible-equity excess-return and dividend models. Parameter edits are scenarios and do not change reported financials or historical trends. Save a target price or reset source defaults.",
+      treasury_1y: "1Y Treasury",
+      treasury_2y: "2Y Treasury",
+      treasury_3y: "3Y Treasury",
+      treasury_4y: "4Y Treasury",
+      treasury_5y: "5Y Treasury (default)",
+      treasury_10y: "10Y Treasury",
       analysis_fin_note: "Choose a statement and period to compare dated columns. Monetary amounts retain the table's millions convention; EPS is per share and share counts have separate units. Metric labels stay fixed on the left, with historical trends on the right.",
       analysis_ratio_note: "Compare profitability, cash flow, capital structure and liquidity by period. The layout matches Trend Analysis; this page retains its existing calculation bases rather than the selectable denominators in Trend Analysis. Sparkline colors show numerical direction, not necessarily improvement or deterioration.",
       analysis_peer_note: "Compare up to five companies in the same sector and sub-industry, prioritizing the existing peer list. This is a latest-TTM cross-section, not historical trends; reporting dates can differ between companies.",
@@ -2389,8 +2581,9 @@
       earnings_reason_missingDilutedShares: "N/A: Same-period historical weighted-average diluted shares are unavailable; current shares are not substituted.",
       earnings_reason_invalidDilutedShares: "N/A: Same-period weighted-average diluted shares are zero or negative.",
       earnings_reason_incompleteTtm: "N/A: Four consecutive quarters are unavailable for this metric.",
-      tab_tradingview: "📈 8. TradingView",
-      tab_news: "📰 7. News Feed",
+      tab_valuation: "📐 7. Valuation Model",
+      tab_tradingview: "📈 9. TradingView",
+      tab_news: "📰 8. News Feed",
       sec_profile_title: "Core Business & Corporate Profile",
       lbl_hq: "HQ:",
       lbl_reg_addr: "Registered Address:",
@@ -2582,7 +2775,7 @@
       const activePage = document.querySelector('#company-view .subpage-content.active');
       const tab = activePage ? activePage.id.replace('subpage-', '') : 'basic';
       loadCompanyProfile(activeCompanyTicker);
-      switchSubPage(tab);
+      switchSubPage(tab, false);
     }
     const rView = document.getElementById('subpage-ratios');
     if (rView && rView.classList.contains('active')) {
@@ -2608,8 +2801,12 @@
     const button = document.getElementById('btn-theme-toggle');
     if (!button) return;
     const light = SiteTheme.current === 'light';
-    button.textContent = I18N_DICT[currentLang][light ? 'theme_dark' : 'theme_light'];
-    button.setAttribute('aria-label', I18N_DICT[currentLang].theme_control);
+    const label = I18N_DICT[currentLang][light ? 'theme_dark' : 'theme_light'];
+    button.innerHTML = light
+      ? '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.1A8.5 8.5 0 0 1 9.9 3.5 8.5 8.5 0 1 0 20.5 14.1Z"/></svg>'
+      : '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>';
+    button.setAttribute('aria-label', label);
+    button.title = label;
     button.setAttribute('aria-pressed', String(light));
   }
 
@@ -3325,10 +3522,14 @@
   function showView(viewName, pushState = true) {
     BalanceSheet.deactivate();
     EarningsTrend.deactivate();
-    if (viewName === 'moat' || viewName === 'fscore') {
-      activeCompanyTicker = viewName === 'moat' ? activeMoatTicker : activeFScoreTicker;
-      showView('company', pushState);
-      switchSubPage('rating');
+    ProfileOverview.deactivate();
+    if (viewName === 'moat' || viewName === 'fscore' || viewName === 'detail') {
+      activeCompanyTicker = viewName === 'detail' ? activeDetailTicker
+        : viewName === 'moat' ? activeMoatTicker : activeFScoreTicker;
+      showView('company', false);
+      const tab = viewName === 'detail' ? 'valuation' : 'rating';
+      switchSubPage(tab, false);
+      if (pushState) history.pushState({ view: 'company', ticker: activeCompanyTicker, tab }, '', `#${activeCompanyTicker}/${tab}`);
       return;
     }
     document.getElementById('screener-view').style.display = 'none';
@@ -3339,28 +3540,27 @@
       document.getElementById('screener-view').style.display = 'block';
       if (pushState) history.pushState({ view: 'screener' }, '', window.location.pathname);
       renderScreenerTable();
-    } else if (viewName === 'detail') {
-      document.getElementById('detail-view').style.display = 'block';
-      if (pushState) history.pushState({ view: 'detail', ticker: activeDetailTicker }, '', `#${activeDetailTicker}`);
-      loadDetailTicker(activeDetailTicker);
     } else if (viewName === 'company') {
       document.getElementById('company-view').style.display = 'block';
-      if (pushState) history.pushState({ view: 'company', ticker: activeCompanyTicker }, '', `#${activeCompanyTicker}/profile`);
       loadCompanyProfile(activeCompanyTicker);
+      if (pushState) history.pushState({ view: 'company', ticker: activeCompanyTicker, tab: 'basic' }, '', `#${activeCompanyTicker}/profile`);
     }
   }
 
   function navigateBack() {
-    if (history.state && history.state.view) history.back();
-    else showView('screener', true);
+    showView('screener', true);
   }
 
   window.onpopstate = function(e) {
-    if (e.state && e.state.view === 'company' && e.state.ticker) { activeCompanyTicker = e.state.ticker; showView('company', false); }
+    if (e.state && e.state.view === 'company' && e.state.ticker) {
+      activeCompanyTicker = e.state.ticker;
+      showView('company', false);
+      switchSubPage(e.state.tab || 'basic', false);
+    }
     else if (e.state && e.state.view === 'moat' && e.state.ticker) { activeMoatTicker = e.state.ticker; showView('moat', false); }
     else if (e.state && e.state.view === 'fscore' && e.state.ticker) { activeFScoreTicker = e.state.ticker; showView('fscore', false); }
     else if (e.state && e.state.view === 'detail' && e.state.ticker) { activeDetailTicker = e.state.ticker; showView('detail', false); }
-    else { showView('screener', false); }
+    else { handleInitialNavigation(); }
   };
 
   function openCompanyProfile(ticker) {
@@ -3371,9 +3571,11 @@
   function openFScore(ticker) { activeFScoreTicker = ticker; showView('fscore', true); }
   function openMoat(ticker) { activeMoatTicker = ticker; showView('moat', true); }
 
-  function switchSubPage(tabKey) {
+  function switchSubPage(tabKey, updateHistory = true) {
     BalanceSheet.deactivate();
     EarningsTrend.deactivate();
+    ProfileOverview.deactivate();
+    document.getElementById('detail-view').style.display = tabKey === 'valuation' ? 'block' : 'none';
     // 1. 移除所有子分頁按鈕與內容容器的 active 狀態
     document.querySelectorAll('.sub-tab-btn').forEach(btn => btn.classList.remove('active'));
     document.querySelectorAll('.subpage-content').forEach(el => el.classList.remove('active'));
@@ -3398,9 +3600,24 @@
     const curTicker = activeCompanyTicker || 'NVDA';
     const curStock = stockUniverse[curTicker];
     if (!curStock) return;
+    if (updateHistory && document.getElementById('company-view').style.display === 'block') {
+      const route = `#${curTicker}/${tabKey === 'basic' ? 'profile' : tabKey}`;
+      if (location.hash !== route) history.pushState({ view: 'company', ticker: curTicker, tab: tabKey }, '', route);
+    }
 
     if (tabKey === 'basic') {
-      // 基本資料分頁
+      ProfileOverview.render(curTicker, curStock, currentLang, I18N_DICT[currentLang]);
+    } else if (tabKey === 'valuation') {
+      activeDetailTicker = curTicker;
+      if (loadedValuationTicker !== curTicker) {
+        loadDetailTicker(curTicker);
+        loadedValuationTicker = curTicker;
+      } else {
+        document.getElementById('det-name').textContent = getStockDisplayName(curStock);
+        document.getElementById('det-moat-badge').textContent = `${currentLang === 'zh' ? '護城河' : 'Moat'}: ${computeDCF(curStock, curTicker).moat.total}/100`;
+        renderFinancialReference(curStock.fin_valuation);
+        recalculateDetail();
+      }
     } else if (tabKey === 'rating') {
       activeMoatTicker = activeFScoreTicker = curTicker;
       loadMoatView(curTicker);
@@ -3468,7 +3685,7 @@
         return `
           <tr>
             <td style="text-align: center; font-weight: 700; color: var(--text-muted);">${h.rank}</td>
-            <td style="text-align: left; font-weight: 600; color: var(--text);">${h.name}</td>
+            <td style="text-align: left; font-weight: 600; color: var(--text);">${currentLang === 'en' ? h.name.replace(/\s*\([^)]*[\u4e00-\u9fff][^)]*\)/g, '') : h.name}</td>
             <td>${Number(h.shares).toLocaleString()}</td>
             <td class="text-gold">$${Number(h.val_m).toLocaleString()}</td>
             <td style="font-weight: 700; color: var(--accent);">${Number(h.pct).toFixed(2)}%</td>
@@ -3479,30 +3696,7 @@
       return;
     }
 
-    const baseShares = (Number(s.shares) || 1000) * 1e6;
-    const price = Number(s.price) || 100;
-    const defaultInsts = [
-      "The Vanguard Group, Inc.", "BlackRock Institutional Trust Company, N.A.", "State Street Global Advisors, Inc.",
-      "Fidelity Management & Research Company", "Geode Capital Management, LLC", "T. Rowe Price Associates, Inc.",
-      "Morgan Stanley Investment Management", "JPMorgan Investment Management, Inc.", "Northern Trust Investments, Inc.",
-      "Bank of America Merrill Lynch", "Norges Bank Investment Management (挪威主權基金)", "Wellington Management Company LLP"
-    ];
-
-    tbody.innerHTML = defaultInsts.map((name, i) => {
-      const weight = Math.max(8.5 * Math.pow(0.88, i), 0.5);
-      const hShares = Math.round(baseShares * (weight / 100));
-      const hVal = Math.round((hShares * price) / 1e6);
-      return `
-        <tr>
-          <td style="text-align: center; font-weight: 700; color: var(--text-muted);">${i + 1}</td>
-          <td style="text-align: left; font-weight: 600; color: var(--text);">${name}</td>
-          <td>${hShares.toLocaleString()}</td>
-          <td class="text-gold">$${hVal.toLocaleString()}</td>
-          <td style="font-weight: 700; color: var(--accent);">${weight.toFixed(2)}%</td>
-          <td style="text-align: center;"><span class="text-green">+1.25%</span></td>
-        </tr>
-      `;
-    }).join('');
+    tbody.innerHTML = `<tr><td colspan="6" class="analysis-note">${I18N_DICT[currentLang].profile_missing_holders}</td></tr>`;
   }
 
   function renderInsiderTrades(s) {
@@ -3535,7 +3729,7 @@
     tbody.innerHTML = `
       <tr>
         <td colspan="7" style="text-align: center; color: var(--text-muted); padding: 18px;">
-          ${currentLang === 'en' ? 'No recent SEC Form 4 insider transactions filed.' : '近期無重大 SEC Form 4 內部人買賣申報記錄'}
+          ${currentLang === 'en' ? 'No insider transaction records are available in the current data.' : '目前資料未提供內部人交易紀錄。'}
         </td>
       </tr>
     `;
@@ -3547,21 +3741,27 @@
 
     const splits = s.stock_splits || [];
     if (splits.length > 0) {
-      tbody.innerHTML = splits.map(sp => `
+      tbody.innerHTML = splits.map(sp => {
+        const ratio = String(sp.ratio || '').match(/^\s*([\d.]+)\s*:\s*([\d.]+)\s*$/);
+        const validRatio = ratio && Number(ratio[1]) > 0 && Number(ratio[2]) > 0;
+        const type = validRatio
+          ? (Number(ratio[1]) >= Number(ratio[2]) ? 'Stock split' : 'Reverse stock split')
+          : 'Corporate action';
+        return `
         <tr>
           <td style="text-align: left; font-weight: 600; color: var(--text);">${sp.date}</td>
           <td style="text-align: center; font-weight: 700; color: var(--accent); font-size: 13px;">${sp.ratio}</td>
-          <td style="text-align: left; color: var(--text-secondary);">${sp.desc}</td>
-          <td style="text-align: center;"><span class="badge badge-target">${sp.type}</span></td>
+          <td style="text-align: left; color: var(--text-secondary);">${currentLang === 'en' ? (validRatio ? `${ratio[2]} existing share(s) → ${ratio[1]} share(s)` : 'Reported share adjustment') : sp.desc}</td>
+          <td style="text-align: center;"><span class="badge badge-target">${currentLang === 'en' ? type : sp.type}</span></td>
         </tr>
-      `).join('');
+      `; }).join('');
       return;
     }
 
     tbody.innerHTML = `
       <tr>
         <td colspan="4" style="text-align: center; color: var(--text-muted); padding: 18px;">
-          ${currentLang === 'en' ? 'No historical stock splits recorded for this company.' : '該企業歷年無普通股拆股或合股記錄 (No Stock Splits)'}
+          ${currentLang === 'en' ? 'No stock split records are available in the current data.' : '目前資料未提供拆股或合股紀錄。'}
         </td>
       </tr>
     `;
@@ -4485,46 +4685,47 @@
       : (s.company_name || `${ticker} Inc.`);
     document.getElementById('cmp-logo-img').src = s.image || s.logo || `https://assets.financialmodelingprep.com/symbol/${ticker}.png`;
 
-    document.getElementById('cmp-card-mcap').innerText = `$${(s.mcap || 0).toLocaleString()} M`;
-    document.getElementById('cmp-card-shares').innerText = `${Number(s.shares || 0).toFixed(2)} M 股`;
+    const profileNumber = value => value !== null && value !== undefined && value !== '' && Number.isFinite(Number(value)) ? Number(value) : null;
+    const profileFormat = (value, unit = '') => profileNumber(value) === null ? 'N/A' : `${Number(value).toLocaleString(currentLang === 'en' ? 'en-US' : 'zh-TW', { maximumFractionDigits: 2 })}${unit}`;
+    document.getElementById('cmp-card-mcap').innerText = profileNumber(s.mcap) === null ? 'N/A' : `USD ${profileFormat(s.mcap)} M`;
+    document.getElementById('cmp-card-shares').innerText = profileFormat(s.shares, currentLang === 'en' ? ' M shares' : ' M 股');
     document.getElementById('cmp-card-pe').innerText = s.pe_trailing ? `${Number(s.pe_trailing).toFixed(1)}x` : '--';
-    document.getElementById('cmp-card-ind').innerText = s.industry || '--';
+    document.getElementById('cmp-card-ind').innerText = getStockDisplayIndustry(s.industry) || 'N/A';
     document.getElementById('cmp-site-link').href = s.website || `https://www.google.com/finance/quote/${ticker}`;
 
     const isEn = (currentLang === 'en');
     const hqPrefix = isEn ? "HQ:" : "總部:";
     const shareUnit = isEn ? "M shares" : "M 股";
 
-    const desc = (isEn ? (s.description || s.description_en) : (s.description_zh || s.description)) || (isEn ? "Official financial profile." : "美股上市公司官方即時財務檔案。");
+    const desc = (isEn ? (s.description_en || s.description) : (s.description_zh || s.description)) || (isEn ? "Company description unavailable." : "目前資料未提供企業介紹。");
     document.getElementById('cmp-description').innerText = desc;
-    document.getElementById('cmp-full-headquarters').innerText = `📍 ${hqPrefix} ${s.city || ''} ${s.country || 'USA'}`;
-    document.getElementById('cmp-meta-address').innerText = s.full_address || `${s.address || '--'}, ${s.city || '--'}, ${s.country || 'USA'}`;
-    document.getElementById('cmp-meta-phone').innerText = s.phone || "+1 (408) 996-1010";
+    document.getElementById('cmp-full-headquarters').innerText = `📍 ${hqPrefix} ${[s.city, s.country].filter(Boolean).join(', ') || 'N/A'}`;
+    document.getElementById('cmp-meta-address').innerText = s.full_address || [s.address, s.city, s.country].filter(Boolean).join(', ') || 'N/A';
+    document.getElementById('cmp-meta-phone').innerText = s.phone || 'N/A';
     document.getElementById('cmp-meta-ceo').innerText = s.ceo || (isEn ? "Executive Team" : "管理團隊");
     document.getElementById('cmp-meta-emp').innerText = s.full_time_employees ? Number(s.full_time_employees).toLocaleString() : "--";
-    document.getElementById('cmp-meta-shares').innerText = `${Number(s.shares || 0).toFixed(2)} ${shareUnit}`;
-    document.getElementById('cmp-meta-beta').innerText = Number(s.beta || 1.0).toFixed(2);
+    document.getElementById('cmp-meta-shares').innerText = profileFormat(s.shares, ` ${shareUnit}`);
+    document.getElementById('cmp-meta-beta').innerText = profileFormat(s.beta_5y ?? s.beta);
 
-    const p = Number(s.price) || 100;
-    const yHigh = s.year_high ? Number(s.year_high) : p * 1.15;
-    const yLow = s.year_low ? Number(s.year_low) : p * 0.75;
-    document.getElementById('cmp-meta-52w').innerText = s.range_52w || `$${yLow.toFixed(2)} - $${yHigh.toFixed(2)}`;
-    document.getElementById('cmp-meta-year-high').innerText = `$${yHigh.toFixed(2)}`;
-    document.getElementById('cmp-meta-year-low').innerText = `$${yLow.toFixed(2)}`;
-    document.getElementById('cmp-meta-ath').innerText = `$${(s.all_time_high || yHigh * 1.08).toFixed(2)}`;
-    document.getElementById('cmp-meta-atl').innerText = `$${(s.all_time_low || yLow * 0.35).toFixed(2)}`;
+    const quote = value => profileNumber(value) === null ? 'N/A' : `USD ${profileFormat(value)}`;
+    document.getElementById('cmp-meta-52w').innerText = s.range_52w || `${quote(s.year_low)} – ${quote(s.year_high)}`;
+    document.getElementById('cmp-meta-year-high').innerText = quote(s.year_high);
+    document.getElementById('cmp-meta-year-low').innerText = quote(s.year_low);
+    document.getElementById('cmp-meta-ath').innerText = quote(s.all_time_high);
+    document.getElementById('cmp-meta-atl').innerText = quote(s.all_time_low);
 
-    const inst = Number(s.inst_ownership_pct) || 72.0;
-    const insider = Number(s.insider_ownership_pct) || 5.0;
-    const retail = Math.max(0, Number((100 - inst - insider).toFixed(1)));
+    const inst = profileNumber(s.inst_ownership_pct);
+    const insider = profileNumber(s.insider_ownership_pct);
+    const retail = inst !== null && insider !== null && inst + insider <= 100 && inst >= 0 && insider >= 0
+      ? Number((100 - inst - insider).toFixed(1)) : null;
 
-    document.getElementById('cmp-own-inst').innerText = `${inst.toFixed(1)}%`;
-    document.getElementById('cmp-own-insider').innerText = `${insider.toFixed(1)}%`;
-    document.getElementById('cmp-own-retail').innerText = `${retail.toFixed(1)}%`;
+    document.getElementById('cmp-own-inst').innerText = profileFormat(inst, '%');
+    document.getElementById('cmp-own-insider').innerText = profileFormat(insider, '%');
+    document.getElementById('cmp-own-retail').innerText = profileFormat(retail, '%');
 
-    document.getElementById('bar-own-inst').style.width = `${Math.min(inst, 100)}%`;
-    document.getElementById('bar-own-insider').style.width = `${Math.min(insider, 100)}%`;
-    document.getElementById('bar-own-retail').style.width = `${Math.min(retail, 100)}%`;
+    document.getElementById('bar-own-inst').style.width = `${Math.max(0, Math.min(inst ?? 0, 100))}%`;
+    document.getElementById('bar-own-insider').style.width = `${Math.max(0, Math.min(insider ?? 0, 100))}%`;
+    document.getElementById('bar-own-retail').style.width = `${Math.max(0, Math.min(retail ?? 0, 100))}%`;
 
     // 預先載入各模組數據
     // 預先載入各模組數據
@@ -4537,7 +4738,7 @@
     renderNewsSubPage(ticker);
 
     // 強制重設 Tab 並顯示 1. 基本資料 (Profile)
-    switchSubPage('basic');
+    switchSubPage('basic', false);
 
     // 捲動回頂部
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -5002,7 +5203,9 @@
     localStorage.setItem('M7_CUSTOM_VALUATIONS', JSON.stringify(models));
     document.getElementById('det-saved-badge').style.display = 'inline-block';
     document.getElementById('det-saved-badge').innerText = `${currentLang === 'zh' ? '已存目標價' : 'Saved target'}: $${dcf.fairVal.toFixed(2)}`;
-    alert(`✅ 已成功儲存 ${s.name} 的自訂目標價值：$${dcf.fairVal.toFixed(2)}！`);
+    alert(currentLang === 'en'
+      ? `Saved ${getStockDisplayName(s)} target price: $${dcf.fairVal.toFixed(2)}.`
+      : `✅ 已成功儲存 ${getStockDisplayName(s)} 的自訂目標價值：$${dcf.fairVal.toFixed(2)}！`);
   }
 
   function resetToFmpDefaults() {
@@ -5025,18 +5228,32 @@
   // ========================================================
   function handleInitialNavigation() {
     const hash = window.location.hash.replace('#', '').toUpperCase();
-    if (hash.endsWith('/PROFILE')) {
+    const [routeTicker, routeTab] = hash.split('/');
+    if (stockUniverse[routeTicker] && ['BASIC', 'PROFILE', 'RATING', 'FINANCIALS', 'RATIOS', 'PEERS', 'CHARTS', 'VALUATION', 'NEWS', 'CHART'].includes(routeTab)) {
+      activeCompanyTicker = routeTicker;
+      showView('company', false);
+      const tab = routeTab === 'PROFILE' ? 'basic' : routeTab.toLowerCase();
+      switchSubPage(tab, false);
+      history.replaceState({ view: 'company', ticker: routeTicker, tab }, '', location.href);
+    } else if (hash.endsWith('/PROFILE')) {
       const ticker = hash.split('/')[0];
       if (stockUniverse[ticker]) { activeCompanyTicker = ticker; showView('company', false); }
     } else if (hash.endsWith('/MOAT')) {
       const ticker = hash.split('/')[0];
-      if (stockUniverse[ticker]) { activeMoatTicker = ticker; showView('moat', false); }
+      if (stockUniverse[ticker]) {
+        activeMoatTicker = ticker; showView('moat', false);
+        history.replaceState({ view: 'company', ticker, tab: 'rating' }, '', location.href);
+      }
     } else if (hash.endsWith('/FSCORE')) {
       const ticker = hash.split('/')[0];
-      if (stockUniverse[ticker]) { activeFScoreTicker = ticker; showView('fscore', false); }
+      if (stockUniverse[ticker]) {
+        activeFScoreTicker = ticker; showView('fscore', false);
+        history.replaceState({ view: 'company', ticker, tab: 'rating' }, '', location.href);
+      }
     } else if (hash && stockUniverse[hash]) {
       activeDetailTicker = hash;
       showView('detail', false);
+      history.replaceState({ view: 'company', ticker: hash, tab: 'valuation' }, '', location.href);
     } else {
       showView('screener', false);
     }
