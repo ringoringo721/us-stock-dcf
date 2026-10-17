@@ -13,6 +13,9 @@ The annual statements support fiscal-year and analyst-forecast reconciliation.
 The selected FCFF operating-ratio basis is the latest TTM, not a three-year
 average. The extra balance-sheet quarter supports a period-matched opening debt
 balance; no missing period is replaced with a current balance.
+The optional `lease_sources_only` input captures original balance, income and
+cash-flow tags to reconcile operating versus financing lease treatment, still
+without changing any published valuation.
 
 ## 清算價 I／II／III
 
