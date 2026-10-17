@@ -12,9 +12,12 @@ import requests
 ENDPOINTS = {
     "profile": ("profile", {}),
     "quote": ("quote", {}),
-    "balance": ("balance-sheet-statement", {"period": "quarter", "limit": 1}),
+    "balance": ("balance-sheet-statement", {"period": "quarter", "limit": 8}),
     "income": ("income-statement", {"period": "quarter", "limit": 8}),
     "cashflow": ("cash-flow-statement", {"period": "quarter", "limit": 8}),
+    "annual_income": ("income-statement", {"period": "annual", "limit": 4}),
+    "annual_balance": ("balance-sheet-statement", {"period": "annual", "limit": 4}),
+    "annual_cashflow": ("cash-flow-statement", {"period": "annual", "limit": 4}),
     "estimates": ("analyst-estimates", {"period": "annual", "limit": 12}),
     "enterprise_values": ("enterprise-values", {"period": "quarter", "limit": 1}),
 }
