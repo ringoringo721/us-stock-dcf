@@ -1,5 +1,14 @@
 # us-stock-dcf
 
+## Read-only valuation source audit
+
+The manually dispatched `valuation_audit.yml` workflow captures dated FMP profile,
+quote, quarterly statements, annual analyst estimates, enterprise values and
+Treasury evidence using the existing protected API secret. It uploads a seven-day
+artifact, records HTTP/coverage limitations explicitly, and never updates or
+commits valuation datasets. This is source evidence, not certification of the
+website's assumptions or financial methodology.
+
 ## Profile 歷史股價與成交量
 
 每檔股票的 Profile 最上方提供獨立的真實日收盤價與成交量圖，支援

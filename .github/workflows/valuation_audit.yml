@@ -1,0 +1,29 @@
+name: Read-only valuation source audit
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  capture-fmp:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - run: pip install requests
+      - name: Capture dated FMP source evidence without changing valuations
+        env:
+          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+        run: python -u scripts/capture_valuation_sources.py
+      - name: Preserve source evidence and explicit API limitations
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: valuation-fmp-sources
+          path: valuation-audit-output/
+          retention-days: 7
