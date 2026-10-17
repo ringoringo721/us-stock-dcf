@@ -2,7 +2,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const { chromium } = require('playwright');
-const { calculate, calculateReturns, calculateBalances, financialReference, trend } = require('../fcf_ratios.js');
+const { calculate, calculateReturns, calculateBalances, calculateEarnings, financialReference, trend } = require('../fcf_ratios.js');
 
 const baseUrl = process.env.TEST_BASE_URL || 'http://127.0.0.1:8765';
 
@@ -78,6 +78,31 @@ async function checkTable(page, ticker, options, prefix = 'fcf-ratio') {
       assert.equal(await row.locator('.fcf-trend-col path').count(), spark.segments.length);
       assert.equal(await row.locator('.fcf-trend-col circle').getAttribute('fill'), spark.color);
     }
+  }
+}
+
+async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
+  await page.waitForFunction(ticker => document.querySelector('#earnings-status').textContent.startsWith(ticker)
+    && document.querySelector('#earnings-body').children.length === 3, ticker);
+  const data = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'cache', 'financials', `${ticker}_statements_v2.json`), 'utf8'));
+  const columns = calculateEarnings(data, { period, flow });
+  assert.equal(await page.locator('#earnings-head th').count(), columns.length + 1);
+  const locale = await page.locator('html').getAttribute('lang') === 'en' ? 'en-US' : 'zh-TW';
+  for (const [index, metric] of ['eps', 'fcf', 'dividend'].entries()) {
+    assert.deepEqual(await page.locator('#earnings-body tr').nth(index).locator('td').allTextContents(),
+      columns.map(column => column.amounts[metric].value === null ? 'N/A'
+        : (column.amounts[metric].value / (metric === 'eps' ? 1 : 1e6)).toLocaleString(locale, {
+          minimumFractionDigits: 2, maximumFractionDigits: 2
+        })));
+  }
+  assert.ok(!(await page.locator('#earnings-notes').innerText()).includes('undefined'));
+  if (await page.locator('#earnings-chart-wrap').isVisible()) {
+    const selected = columns[Number(await page.locator('#earnings-date').inputValue())];
+    assert.deepEqual(await page.locator('#earnings-chart').evaluate(canvas =>
+      Chart.getChart(canvas).data.datasets.map(series => series.data)),
+    ['eps', 'fcf', 'dividend'].map(metric => columns.map(column =>
+      column.currency !== selected.currency || column.amounts[metric].value === null ? null
+        : column.amounts[metric].value / (metric === 'eps' ? 1 : 1e6))));
   }
 }
 
@@ -287,8 +312,72 @@ async function checkTable(page, ticker, options, prefix = 'fcf-ratio') {
         'Both panels share one statement request per ticker');
     }
     await page.evaluate(() => openCompanyProfile('NVDA'));
+    assert.deepEqual(await page.locator('.sub-tab-btn').evaluateAll(buttons => buttons.map(button => button.getAttribute('onclick'))),
+      ['basic', 'rating', 'financials', 'ratios', 'peers', 'charts', 'news', 'chart'].map(key => `switchSubPage('${key}')`));
+    assert.equal(await page.locator('#subpage-dividend').count(), 0);
+    assert.equal(await page.locator('#moat-total-score').isVisible(), false);
+    assert.equal(await page.locator('#fscore-breakdown-body').isVisible(), false);
+    for (const ticker of ['NVDA', 'JPM']) {
+      await page.evaluate(ticker => openMoat(ticker), ticker);
+      assert.equal(await page.locator('#subpage-rating').isVisible(), true);
+      assert.equal(await page.locator('#moat-ticker').innerText(), ticker);
+      assert.equal(await page.locator('#fsc-ticker').innerText(), ticker);
+      assert.equal(await page.locator('#moat-breakdown-body tr').count(), 10);
+      assert.equal(await page.locator('#fscore-breakdown-body tr').count(), 9);
+      assert.equal(await page.locator('#subpage-rating #moat-breakdown-body').count(), 1);
+      assert.equal(await page.locator('#subpage-rating #fscore-breakdown-body').count(), 1);
+      assert.equal(await page.locator('#moat-total-score').isVisible(), true);
+      assert.equal(await page.locator('#fscore-breakdown-body').isVisible(), true);
+      assert.match(await page.locator('#fsc-header-sub').innerText(), /PF score/);
+      await page.evaluate(() => toggleLanguage());
+      assert.equal(await page.locator('#subpage-rating').isVisible(), true);
+      assert.equal(await page.locator('#fsc-ticker').innerText(), ticker);
+      await page.evaluate(() => toggleLanguage());
+    }
+    if (process.env.UI_SCREENSHOT_DIR) {
+      await page.locator('#subpage-rating').screenshot({ path: path.join(process.env.UI_SCREENSHOT_DIR, 'company-rating.png') });
+    }
+    await page.evaluate(() => openCompanyProfile('NVDA'));
     await page.locator('button[onclick="switchSubPage(\'charts\')"]').click();
     await page.waitForFunction(() => document.querySelector('#fcf-ratio-status').textContent.startsWith('NVDA'));
+    assert.equal(await page.locator('#moat-total-score').isVisible(), false);
+    assert.equal(await page.locator('#fscore-breakdown-body').isVisible(), false);
+    assert.ok(await page.evaluate(() => document.querySelector('#earnings-panel').getBoundingClientRect().top
+      >= document.querySelector('#balance-panel').getBoundingClientRect().bottom));
+    for (const period of ['quarterly', 'annual']) {
+      await page.selectOption('#earnings-period', period);
+      assert.equal(await page.locator('#earnings-flow').isDisabled(), period === 'annual');
+      for (const flow of period === 'annual' ? ['ttm'] : ['single', 'ttm']) {
+        if (period === 'quarterly') await page.selectOption('#earnings-flow', flow);
+        for (const view of ['table', 'chart']) {
+          await page.selectOption('#earnings-view', view);
+          await checkEarnings(page, 'NVDA', period, flow);
+        }
+        await page.selectOption('#earnings-date', '0');
+        await checkEarnings(page, 'NVDA', period, flow);
+        assert.equal(await page.locator('#earnings-date').inputValue(), '0');
+      }
+    }
+    await page.selectOption('#earnings-period', 'quarterly');
+    for (const ticker of ['DE', 'HD', 'PFE', 'PGR', 'TSM', 'NVDA']) {
+      await page.evaluate(ticker => { openCompanyProfile(ticker); switchSubPage('charts'); }, ticker);
+      await checkEarnings(page, ticker);
+    }
+    await page.evaluate(() => toggleLanguage());
+    await checkEarnings(page, 'NVDA');
+    for (const width of [390, 1440]) {
+      await page.setViewportSize({ width, height: 1000 });
+      await page.selectOption('#earnings-view', 'table');
+      await checkEarnings(page, 'NVDA');
+      assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1),
+        'Earnings table remains within the page and scrolls internally');
+      if (process.env.UI_SCREENSHOT_DIR) {
+        await page.locator('#earnings-panel').screenshot({ path: path.join(process.env.UI_SCREENSHOT_DIR, `earnings-${width}.png`) });
+      }
+    }
+    await page.selectOption('#earnings-view', 'chart');
+    await page.evaluate(() => toggleLanguage());
+    await checkEarnings(page, 'NVDA');
     const beforeBalance = await page.locator('#return-ratio-body').textContent();
     for (const period of ['annual', 'quarterly']) {
       await page.selectOption('#balance-period', period);
@@ -609,6 +698,8 @@ async function checkTable(page, ticker, options, prefix = 'fcf-ratio') {
     await checkTable(failurePage, 'AAPL', {}, 'return-ratio');
     await failurePage.locator('#balance-retry').click();
     await checkBalances(failurePage, 'AAPL');
+    await failurePage.locator('#earnings-retry').click();
+    await checkEarnings(failurePage, 'AAPL');
 
     const racePage = await browser.newPage();
     await racePage.route('**/cache/financials/NVDA_statements_v2.json', async route => {
@@ -625,7 +716,8 @@ async function checkTable(page, ticker, options, prefix = 'fcf-ratio') {
     await checkTable(racePage, 'AAPL', {});
     await checkTable(racePage, 'AAPL', {}, 'return-ratio');
     await checkBalances(racePage, 'AAPL');
-    console.log('PASS: aligned responsive bilingual industry grids and two-tier headers, signed liquidation colors, accessible formula tooltips, decoded high-contrast light cursors and hover/focus rows; existing balance analysis, screener, DCF/Trend ROTE, themes, financial grids, FCF/return controls and retry/race regressions.');
+    await checkEarnings(racePage, 'AAPL');
+    console.log('PASS: company rating navigation, complete moat/PF score relocation, earnings trends/controls/units/mobile/localization/retry/races; existing screener, balance, DCF, ROTE, themes and financial tables.');
   } finally {
     await browser.close();
   }

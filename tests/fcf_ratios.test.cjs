@@ -3,7 +3,50 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
-const { calculate, calculateReturns, calculateBalances, financialReference, trend } = require('../fcf_ratios.js');
+const { calculate, calculateReturns, calculateBalances, calculateEarnings, financialReference, trend } = require('../fcf_ratios.js');
+
+test('Earnings trends preserve reported units, signs, fiscal periods and missing data', () => {
+  const data = fixture();
+  for (const period of ['annual', 'quarterly']) {
+    data[period].income.forEach((row, i) => { row.epsDiluted = i - 2; });
+    data[period].cashflow.forEach((row, i) => { row.commonDividendsPaid = -i * 3; });
+  }
+  const single = calculateEarnings(data, { flow: 'single' });
+  assert.equal(single.at(-1).amounts.eps.value, 6);
+  assert.equal(single.at(-1).amounts.dividend.value, -24);
+  assert.equal(single.at(-1).amounts.fcf.value, 80);
+  const ttm = calculateEarnings(data);
+  assert.equal(ttm[0].amounts.eps.reason, 'incompleteTtm');
+  assert.equal(ttm.at(-1).amounts.eps.value, 18);
+  assert.equal(ttm.at(-1).amounts.fcf.value, 260);
+  assert.equal(ttm.at(-1).amounts.dividend.value, -78);
+  assert.equal(calculateEarnings(data, { period: 'annual' }).at(-1).amounts.eps.value, 0);
+  data.quarterly.cashflow.at(-1).date = '2025-12-30';
+  assert.equal(calculateEarnings(data).at(-1).amounts.fcf.reason, 'dateMismatch');
+  data.quarterly.cashflow.at(-1).date = '2025-12-31';
+  delete data.quarterly.cashflow.at(-1).commonDividendsPaid;
+  assert.equal(calculateEarnings(data).at(-1).amounts.dividend.reason, 'missingField');
+  data.quarterly.income.at(-2).reportedCurrency = 'EUR';
+  assert.equal(calculateEarnings(data).at(-1).amounts.eps.reason, 'currencyMismatch');
+  data.quarterly.income.splice(-2, 1);
+  assert.equal(calculateEarnings(data).at(-1).amounts.eps.reason, 'incompleteTtm');
+  assert.throws(() => calculateEarnings(data, { flow: 'invalid' }), RangeError);
+});
+
+test('Earnings trends reject duplicates and irregular quarters, but retain zero and negative values', () => {
+  const data = fixture();
+  data.quarterly.income.forEach(row => { row.epsDiluted = 0; });
+  data.quarterly.cashflow.forEach(row => { row.commonDividendsPaid = 0; });
+  assert.equal(calculateEarnings(data).at(-1).amounts.dividend.value, 0);
+  assert.equal(calculateEarnings(data).at(-1).amounts.eps.value, 0);
+  data.quarterly.income.at(-1).epsDiluted = -2;
+  assert.equal(calculateEarnings(data).at(-1).amounts.eps.value, -2);
+  data.quarterly.income.at(-2).date = '2025-07-01';
+  assert.equal(calculateEarnings(data).at(-1).amounts.eps.reason, 'nonConsecutive');
+  data.quarterly.income.at(-2).date = '2025-09-30';
+  data.quarterly.income.push({ ...data.quarterly.income.at(-1) });
+  assert.equal(calculateEarnings(data).at(-1).amounts.eps.reason, 'incompleteTtm');
+});
 
 function fixture() {
   const data = {};

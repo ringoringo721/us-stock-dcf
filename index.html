@@ -8,6 +8,7 @@
   <script src="market_data.js"></script>
   <script src="fcf_ratios.js"></script>
   <script src="balance_sheet.js"></script>
+  <script src="earnings_trend.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   
   <style>
@@ -408,7 +409,11 @@
     .text-gold { color: var(--gold); font-weight: 700; }
     .text-pink { color: var(--fav-pink); font-weight: 700; }
 
-    #detail-view, #fscore-view, #moat-view, #company-view { display: none; }
+    #detail-view, #company-view { display: none; }
+    #subpage-rating .fscore-table { min-width: 760px; }
+    #subpage-rating .detail-title { flex-wrap: wrap; min-width: 0; }
+    #earnings-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    #earnings-panel .balance-controls { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     .detail-header { display: flex; justify-content: space-between; align-items: center; background: var(--card-bg); border: 1px solid var(--card-border); padding: 14px 20px; border-radius: 8px; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; }
     .detail-title { font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
     .btn-back { background: var(--card-border); color: var(--text); border: none; padding: 7px 14px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 13px; }
@@ -737,9 +742,9 @@
     .balance-card strong { font-size: clamp(18px, 1.6vw, 24px); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
     .balance-card > span:last-child { font-size: 12px; color: var(--text-muted); }
     .balance-chart { position: relative; height: 340px; }
-    #balance-table .table-sticky-col { width: 260px; min-width: 260px; max-width: 260px; text-align: left; white-space: normal; }
-    #balance-table th, #balance-table td { min-width: 160px; }
-    #balance-table .balance-selected { background: var(--gold-bg); }
+    #balance-table .table-sticky-col, #earnings-table .table-sticky-col { width: 260px; min-width: 260px; max-width: 260px; text-align: left; white-space: normal; }
+    #balance-table th, #balance-table td, #earnings-table th, #earnings-table td { min-width: 160px; }
+    #balance-table .balance-selected, #earnings-table .balance-selected { background: var(--gold-bg); }
     #balance-table .balance-total { font-weight: 700; }
     .screener-intro { margin: 4px 0 20px; }
     .screener-intro h2 { font-size: 20px; margin-bottom: 6px; }
@@ -795,6 +800,7 @@
       #screener-view .top-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       #screener-view .stat-box { border-bottom: 1px solid var(--card-border); }
       .balance-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      #earnings-panel .balance-controls { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (max-width: 600px) {
       html, body { padding: 10px; }
@@ -818,8 +824,10 @@
       #screener-table th.col-fixed-3 { position: sticky !important; left: auto !important; }
       .balance-card { padding: 12px; }
       .balance-chart { height: 300px; }
-      #balance-table th, #balance-table td { min-width: 140px; }
-      #balance-table .table-sticky-col { width: 150px; min-width: 150px; max-width: 150px; }
+      #balance-table th, #balance-table td, #earnings-table th, #earnings-table td { min-width: 140px; }
+      #balance-table .table-sticky-col, #earnings-table .table-sticky-col { width: 150px; min-width: 150px; max-width: 150px; }
+      #earnings-cards { grid-template-columns: 1fr; }
+      #earnings-panel .balance-controls { grid-template-columns: 1fr; }
       #cmp-fin-table .table-sticky-col { width: 150px !important; min-width: 150px; max-width: 150px; }
       #cmp-fin-table th, #cmp-fin-table td { min-width: 125px; }
       #cmp-fin-table thead .fcf-trend-col { right: auto; }
@@ -990,7 +998,7 @@
             <th onclick="sortTable('current_ratio')" style="width: 90px;" data-i18n="th_curr_ratio">流動比率</th>
             <th onclick="sortTable('roe')" style="width: 90px;">ROE (%)</th>
             <th onclick="sortTable('roa')" style="width: 90px;">ROA (%)</th>
-            <th onclick="sortTable('f_score')" style="width: 115px; text-align: center;" data-i18n="th_fscore">F-Score 評分</th>
+            <th onclick="sortTable('f_score')" style="width: 115px; text-align: center;" data-i18n="th_fscore">PF score 評分</th>
             <th onclick="sortTable('ev_to_ebitda')" style="width: 115px;">EV / EBITDA</th>
             <th onclick="sortTable('debt_to_ebitda')" style="width: 120px;">Debt / EBITDA</th>
             <th onclick="sortTable('net_debt_to_ebitda')" style="width: 135px;">Net Debt / EBITDA</th>
@@ -1010,7 +1018,7 @@
         <span id="det-exchange" class="badge">NASDAQ</span>
         <span id="det-name" style="font-size: 16px; color: var(--text-secondary);">輝達</span>
         <span id="det-moat-badge" class="badge-moat moat-wide" onclick="openMoat(activeDetailTicker)">護城河: 90/100 🏆</span>
-        <span id="det-fscore-badge" class="badge-fscore fscore-green" onclick="openFScore(activeDetailTicker)">F-Score: 8/9</span>
+        <span id="det-fscore-badge" class="badge-fscore fscore-green" onclick="openFScore(activeDetailTicker)">PF score: 8/9</span>
         <span id="det-badge" class="badge">--</span>
         <span id="det-saved-badge" class="badge badge-target" style="display: none;">已儲存目標價</span>
       </div>
@@ -1187,11 +1195,11 @@
     <!-- 7 大子分頁導航選單 -->
     <div class="subpage-nav-bar">
       <button class="sub-tab-btn active" onclick="switchSubPage('basic')" data-i18n="tab_basic">📁 1. 基本資料</button>
-      <button class="sub-tab-btn" onclick="switchSubPage('financials')" data-i18n="tab_financials">📑 2. 財務報表 (5年/TTM)</button>
-      <button class="sub-tab-btn" onclick="switchSubPage('ratios')" data-i18n="tab_ratios">⚖️ 3. 關鍵比率</button>
-      <button class="sub-tab-btn" onclick="switchSubPage('peers')" data-i18n="tab_peers">👥 4. 同行業對比</button>
-      <button class="sub-tab-btn" onclick="switchSubPage('charts')" data-i18n="tab_charts">📊 5. 趨勢分析</button>
-      <button class="sub-tab-btn" onclick="switchSubPage('dividend')" data-i18n="tab_dividend">💰 6. 每股盈餘與股息</button>
+      <button class="sub-tab-btn" onclick="switchSubPage('rating')" data-i18n="tab_rating">🏅 2. 企業評分</button>
+      <button class="sub-tab-btn" onclick="switchSubPage('financials')" data-i18n="tab_financials">📑 3. 財務報表 (5年/TTM)</button>
+      <button class="sub-tab-btn" onclick="switchSubPage('ratios')" data-i18n="tab_ratios">⚖️ 4. 關鍵比率</button>
+      <button class="sub-tab-btn" onclick="switchSubPage('peers')" data-i18n="tab_peers">👥 5. 同行業對比</button>
+      <button class="sub-tab-btn" onclick="switchSubPage('charts')" data-i18n="tab_charts">📊 6. 趨勢分析</button>
       <button class="sub-tab-btn" onclick="switchSubPage('news')" data-i18n="tab_news">📰 7. 公司新聞</button>
       <button class="sub-tab-btn" onclick="switchSubPage('chart')" data-i18n="tab_tradingview">📈 8. TradingView 圖表</button>
     </div>
@@ -1535,21 +1543,23 @@
         </div>
         <ul id="balance-notes" class="analysis-note"></ul>
       </section>
-    </div>
-
-    <!-- 子分頁 6：每股盈餘與股息分析 -->
-    <div id="subpage-dividend" class="subpage-content">
-      <div class="panel">
-        <div class="panel-title" data-i18n="sec_dividend_title">每股盈餘 (EPS) 軌跡與股東分紅回報</div>
-        <div class="top-stats" style="margin-bottom: 16px;">
-          <div class="stat-box"><div class="stat-label" data-i18n="lbl_yield">股息率</div><div class="stat-num text-green" id="div-meta-yield">0.00%</div></div>
-          <div class="stat-box"><div class="stat-label" data-i18n="lbl_dps">每股常態現金分配</div><div class="stat-num text-gold" id="div-meta-dps">$0.00</div></div>
-          <div class="stat-box"><div class="stat-label" data-i18n="lbl_pe_fwd">動態 P/E 估值乘數</div><div class="stat-num" id="div-meta-pe">--</div></div>
+      <section class="panel historical-ratio-panel" id="earnings-panel" aria-labelledby="earnings-title">
+        <div class="panel-title" id="earnings-title" data-i18n="earnings_title">EPS、FCF 與股息趨勢</div>
+        <p class="analysis-note" data-i18n="earnings_definition"></p>
+        <div class="balance-controls">
+          <div class="form-group"><label for="earnings-period" data-i18n="fcf_period">報表期間</label><select id="earnings-period"><option value="quarterly" data-i18n="fcf_quarterly">季度</option><option value="annual" data-i18n="fcf_annual">完整會計年度</option></select></div>
+          <div class="form-group"><label for="earnings-flow" data-i18n="fcf_flow">季度流量口徑</label><select id="earnings-flow"><option value="ttm" data-i18n="fcf_ttm">TTM</option><option value="single" data-i18n="fcf_single">單季</option></select></div>
+          <div class="form-group"><label for="earnings-date" data-i18n="balance_date">重點財報日</label><select id="earnings-date" disabled></select></div>
+          <div class="form-group"><label for="earnings-view" data-i18n="balance_view">呈現方式</label><select id="earnings-view"><option value="chart" data-i18n="balance_chart">趨勢圖</option><option value="table" data-i18n="balance_table">明細表</option></select></div>
         </div>
-        <div style="font-size: 13px; line-height: 1.6; color: var(--text-secondary); background: var(--surface-bg); padding: 14px 18px; border-radius: 6px;" id="div-meta-summary">
-          --
-        </div>
-      </div>
+        <p id="earnings-status" class="analysis-note" role="status"></p>
+        <button id="earnings-retry" type="button" class="stmt-btn" data-i18n="fcf_retry" hidden>重新載入</button>
+        <div id="earnings-cards" class="balance-cards"></div>
+        <div id="earnings-chart-wrap" hidden><div class="balance-chart"><canvas id="earnings-chart" role="img" aria-labelledby="earnings-title" aria-describedby="earnings-status earnings-definition-note"></canvas></div></div>
+        <p id="earnings-definition-note" class="analysis-note" data-i18n="earnings_chart_note"></p>
+        <div id="earnings-table-wrap" class="table-scroll-wrapper" hidden><table id="earnings-table" class="historical-ratio-table"><thead id="earnings-head"></thead><tbody id="earnings-body"></tbody></table></div>
+        <ul id="earnings-notes" class="analysis-note"></ul>
+      </section>
     </div>
 
     <!-- 子分頁 7：公司新聞 -->
@@ -1571,9 +1581,8 @@
         <div id="tradingview_widget_container" style="height: 620px; width: 100%; border-radius: 6px; overflow: hidden;"></div>
       </div>
     </div>
-  </div>
-
-  <!-- ==================== 頁面 4：巴菲特護城河診斷專頁 ==================== -->
+  <div id="subpage-rating" class="subpage-content">
+  <!-- Economic moat and PF score share the company rating subpage. -->
   <div id="moat-view">
     <div class="detail-header">
       <div class="detail-title">
@@ -1626,7 +1635,7 @@
         <span id="fsc-ticker" style="color: var(--accent);">NVDA</span>
         <span id="fsc-exchange" class="badge">NASDAQ</span>
         <span id="fsc-name" style="font-size: 16px; color: var(--text-secondary);">輝達</span>
-        <span style="font-size: 14px; color: var(--text-muted);" id="fsc-header-sub" data-i18n="fsc_header_sub">— Piotroski F-Score 皮氏 9 大財務診斷</span>
+        <span style="font-size: 14px; color: var(--text-muted);" id="fsc-header-sub" data-i18n="fsc_header_sub">— PF score 皮氏 9 大財務診斷</span>
       </div>
       <div style="display: flex; gap: 8px;">
         <button class="btn-save" onclick="openDetail(activeFScoreTicker)" data-i18n="btn_goto_dcf">📈 前往估值模型</button>
@@ -1643,7 +1652,7 @@
 
     <div class="panel">
       <div class="panel-title" data-i18n="fsc_table_title">皮氏 9 分檢驗標準明細表</div>
-      <table class="fscore-table">
+      <div class="table-scroll-wrapper"><table class="fscore-table">
         <thead>
           <tr>
             <th style="width: 70px; text-align: center;" data-i18n="th_score">得分</th>
@@ -1654,8 +1663,10 @@
           </tr>
         </thead>
         <tbody id="fscore-breakdown-body"></tbody>
-      </table>
+      </table></div>
     </div>
+  </div>
+  </div>
   </div>
 </div>
 
@@ -1969,7 +1980,7 @@
       th_cash_assets: "現金/資產 (%)",
       th_liab_assets: "負債/資產 (%)",
       th_curr_ratio: "流動比率",
-      th_fscore: "F-Score 評分",
+      th_fscore: "PF score 評分",
       btn_save_target: "💾 儲存自訂目標價",
       btn_reset_defaults: "恢復官方預設",
       btn_back_list: "← 返回總表",
@@ -2013,12 +2024,21 @@
       cmp_shares: "總股本:",
       cmp_industry: "產業:",
       tab_basic: "📁 1. 基本資料",
-      tab_financials: "📑 2. 財務報表 (5年/TTM)",
-      tab_ratios: "⚖️ 3. 關鍵比率",
-      tab_peers: "👥 4. 同行業對比",
-      tab_charts: "📊 5. 趨勢分析",
+      tab_rating: "🏅 2. 企業評分",
+      tab_financials: "📑 3. 財務報表 (5年/TTM)",
+      tab_ratios: "⚖️ 4. 關鍵比率",
+      tab_peers: "👥 5. 同行業對比",
+      tab_charts: "📊 6. 趨勢分析",
+      earnings_title: "EPS、FCF 與股息趨勢",
+      earnings_definition: "稀釋 EPS 採財報原值（每股）；FCF 為營業現金流減資本支出；普通股現金股息採現金流量表原始正負號，支出通常為負。FCF 與股息以財報幣別百萬列示，不是每股股息。季度可選單季或連續四季合計，年度採完整財年；不推算缺值。",
+      earnings_chart_note: "EPS 使用左軸（每股），FCF 與普通股現金股息使用右軸（百萬）。TTM EPS 為四季已報 EPS 合計，未另作拆股調整，可能不同於年度加權股數計算值。缺值及不同幣別不連線。",
+      earnings_eps: "稀釋 EPS（每股）",
+      earnings_fcf: "自由現金流 FCF（百萬）",
+      earnings_dividend: "普通股現金股息（百萬；支出為負）",
+      earnings_per_share: "每股",
+      earnings_metric: "指標（每股／百萬）",
+      earnings_reason_incompleteTtm: "N/A：此指標缺少連續四季資料，無法計算 TTM。",
       tab_tradingview: "📈 8. TradingView 圖表",
-      tab_dividend: "💰 6. 每股盈餘與股息",
       tab_news: "📰 7. 公司新聞",
       sec_profile_title: "企業核心業務與營運全貌",
       lbl_hq: "總部:",
@@ -2077,7 +2097,7 @@
       th_test: "測試項目",
       th_criteria: "評分標準與經濟意涵",
       th_analysis: "深度剖析",
-      fsc_header_sub: "— Piotroski F-Score 皮氏 9 大財務診斷",
+      fsc_header_sub: "— PF score (Piotroski) 皮氏 9 大財務診斷",
       fsc_total_lbl: "皮氏財務健康度評分",
       fsc_cat1_lbl: "1. 盈利能力指標",
       fsc_cat2_lbl: "2. 資本結構與流動性",
@@ -2253,7 +2273,7 @@
       th_cash_assets: "Cash / Assets (%)",
       th_liab_assets: "Liab / Assets (%)",
       th_curr_ratio: "Current Ratio",
-      th_fscore: "F-Score",
+      th_fscore: "PF score",
       btn_save_target: "💾 Save Custom Target",
       btn_reset_defaults: "Restore Official Defaults",
       btn_back_list: "← Back to List",
@@ -2297,12 +2317,21 @@
       cmp_shares: "Shares Out:",
       cmp_industry: "Industry:",
       tab_basic: "📁 1. Profile",
-      tab_financials: "📑 2. Financial Statements (5Y/TTM)",
-      tab_ratios: "⚖️ 3. Key Ratios",
-      tab_peers: "👥 4. Peer Comparison",
-      tab_charts: "📊 5. Trend Analysis",
+      tab_rating: "🏅 2. Company Rating",
+      tab_financials: "📑 3. Financial Statements (5Y/TTM)",
+      tab_ratios: "⚖️ 4. Key Ratios",
+      tab_peers: "👥 5. Peer Comparison",
+      tab_charts: "📊 6. Trend Analysis",
+      earnings_title: "EPS, FCF & Dividend Trends",
+      earnings_definition: "Diluted EPS is reported per share. FCF is operating cash flow less capital expenditure. Common cash dividends retain the cash-flow statement sign (payments normally negative). FCF and dividends are in reported currency millions, not dividends per share. Choose single-quarter or consecutive four-quarter totals; annual uses complete fiscal years. Missing values are not estimated.",
+      earnings_chart_note: "EPS uses the left axis (per share); FCF and common cash dividends use the right axis (millions). TTM EPS sums four reported quarters without additional split adjustment and can differ from annual weighted-share EPS. Missing values and different currencies leave gaps.",
+      earnings_eps: "Diluted EPS (per share)",
+      earnings_fcf: "Free cash flow (millions)",
+      earnings_dividend: "Common cash dividends (millions; payments negative)",
+      earnings_per_share: "per share",
+      earnings_metric: "Metric (per share / millions)",
+      earnings_reason_incompleteTtm: "N/A: Four consecutive quarters are unavailable for this metric.",
       tab_tradingview: "📈 8. TradingView",
-      tab_dividend: "💰 6. EPS & Dividends",
       tab_news: "📰 7. News Feed",
       sec_profile_title: "Core Business & Corporate Profile",
       lbl_hq: "HQ:",
@@ -2354,7 +2383,7 @@
       th_test: "Item Tested",
       th_criteria: "Criteria & Economic Context",
       th_analysis: "In-Depth Analysis",
-      fsc_header_sub: "— Piotroski F-Score 9-Point Financial Health Audit",
+      fsc_header_sub: "— PF score (Piotroski) 9-Point Financial Health Audit",
       fsc_total_lbl: "Piotroski Financial Health",
       fsc_cat1_lbl: "1. Profitability Metrics",
       fsc_cat2_lbl: "2. Leverage & Liquidity",
@@ -2520,6 +2549,7 @@
     if (document.getElementById('company-view').style.display === 'block') {
       if (document.getElementById('subpage-charts').classList.contains('active')) {
         BalanceSheet.render(activeCompanyTicker, currentLang, I18N_DICT[currentLang]);
+        EarningsTrend.render(activeCompanyTicker, currentLang, I18N_DICT[currentLang]);
       }
       if (document.getElementById('subpage-chart').classList.contains('active')) {
         renderTradingViewWidget(activeCompanyTicker, stockUniverse[activeCompanyTicker].exchange);
@@ -3220,10 +3250,16 @@
   }
 
   function showView(viewName, pushState = true) {
+    BalanceSheet.deactivate();
+    EarningsTrend.deactivate();
+    if (viewName === 'moat' || viewName === 'fscore') {
+      activeCompanyTicker = viewName === 'moat' ? activeMoatTicker : activeFScoreTicker;
+      showView('company', pushState);
+      switchSubPage('rating');
+      return;
+    }
     document.getElementById('screener-view').style.display = 'none';
     document.getElementById('detail-view').style.display = 'none';
-    document.getElementById('fscore-view').style.display = 'none';
-    document.getElementById('moat-view').style.display = 'none';
     document.getElementById('company-view').style.display = 'none';
 
     if (viewName === 'screener') {
@@ -3238,14 +3274,6 @@
       document.getElementById('company-view').style.display = 'block';
       if (pushState) history.pushState({ view: 'company', ticker: activeCompanyTicker }, '', `#${activeCompanyTicker}/profile`);
       loadCompanyProfile(activeCompanyTicker);
-    } else if (viewName === 'moat') {
-      document.getElementById('moat-view').style.display = 'block';
-      if (pushState) history.pushState({ view: 'moat', ticker: activeMoatTicker }, '', `#${activeMoatTicker}/moat`);
-      loadMoatView(activeMoatTicker);
-    } else if (viewName === 'fscore') {
-      document.getElementById('fscore-view').style.display = 'block';
-      if (pushState) history.pushState({ view: 'fscore', ticker: activeFScoreTicker }, '', `#${activeFScoreTicker}/fscore`);
-      loadFScoreView(activeFScoreTicker);
     }
   }
 
@@ -3272,6 +3300,7 @@
 
   function switchSubPage(tabKey) {
     BalanceSheet.deactivate();
+    EarningsTrend.deactivate();
     // 1. 移除所有子分頁按鈕與內容容器的 active 狀態
     document.querySelectorAll('.sub-tab-btn').forEach(btn => btn.classList.remove('active'));
     document.querySelectorAll('.subpage-content').forEach(el => el.classList.remove('active'));
@@ -3299,6 +3328,10 @@
 
     if (tabKey === 'basic') {
       // 基本資料分頁
+    } else if (tabKey === 'rating') {
+      activeMoatTicker = activeFScoreTicker = curTicker;
+      loadMoatView(curTicker);
+      loadFScoreView(curTicker);
     } else if (tabKey === 'financials') {
       renderFinancialsSubPage(curStock);
     } else if (tabKey === 'ratios') {
@@ -3309,8 +3342,7 @@
       FcfRatios.render(curTicker, currentLang, I18N_DICT[currentLang]);
       FcfRatios.renderReturns(curTicker, currentLang, I18N_DICT[currentLang]);
       BalanceSheet.render(curTicker, currentLang, I18N_DICT[currentLang]);
-    } else if (tabKey === 'dividend') {
-      renderDividendSubPage(curStock);
+      EarningsTrend.render(curTicker, currentLang, I18N_DICT[currentLang]);
     } else if (tabKey === 'news') {
       renderNewsSubPage(curTicker);
     } else if (tabKey === 'chart') {
@@ -4401,21 +4433,6 @@
     }
   }
 
-  function renderDividendSubPage(s) {
-    const elYield = document.getElementById('div-meta-yield');
-    const elDps = document.getElementById('div-meta-dps');
-    const elPe = document.getElementById('div-meta-pe');
-    const elSummary = document.getElementById('div-meta-summary');
-    if (!elYield) return;
-    const isEn = (currentLang === 'en');
-    elYield.innerText = `${Number(s.div_yield || 0).toFixed(2)}%`;
-    elDps.innerText = `$${(Number(s.price) * (Number(s.div_yield || 0) / 100)).toFixed(2)}`;
-    elPe.innerText = s.pe_forward ? `${Number(s.pe_forward).toFixed(1)}x` : '--';
-    elSummary.innerHTML = isEn
-      ? `<b>Shareholder Distribution Perspective</b>: Current dividend yield stands at <b>${Number(s.div_yield || 0).toFixed(2)}%</b>. Supported by strong free cash flows, the company exhibits robust capital return and share repurchase (buyback) endurance.`
-      : `<b>股東現金回報觀點</b>：該標的目前股息收益率為 <b>${Number(s.div_yield || 0).toFixed(2)}%</b>。結合自由現金流儲備，企業擁有充足之防禦空間與潛在股票回購（Buyback）支持能力。`;
-  }
-
   function renderNewsSubPage(ticker) {
     const list = document.getElementById('cmp-news-list');
     if (!list) return;
@@ -4496,7 +4513,6 @@
     renderFinancialsSubPage(s);
     renderRatiosSubPage(s);
     renderPeersSubPage(s);
-    renderDividendSubPage(s);
     renderNewsSubPage(ticker);
 
     // 強制重設 Tab 並顯示 1. 基本資料 (Profile)
@@ -4536,7 +4552,7 @@
 
     const fscoreBadge = document.getElementById('det-fscore-badge');
     const fval = defaultDcf.f_score;
-    fscoreBadge.innerText = `F-Score: ${fval}/9`;
+    fscoreBadge.innerText = `PF score: ${fval}/9`;
     fscoreBadge.className = `badge-fscore ${fval >= 7 ? 'fscore-green' : fval <= 3 ? 'fscore-red' : 'fscore-yellow'}`;
 
     updateDetailFavButton();
@@ -4826,30 +4842,43 @@
 
     const dcf = computeDCF(s, ticker);
     const score = dcf.f_score;
-    document.getElementById('fsc-total-score').innerText = `${score} / 9 分`;
+    const isEn = currentLang === 'en';
+    const unit = isEn ? '' : ' 分';
+    document.getElementById('fsc-total-score').innerText = `${score} / 9${unit}`;
 
     const breakdown = dcf.f_score_breakdown || [];
     const pCat = breakdown.filter(x => x.category === "盈利能力" && x.passed).length;
     const lCat = breakdown.filter(x => x.category === "槓桿與償債" && x.passed).length;
     const eCat = breakdown.filter(x => x.category === "營運效率" && x.passed).length;
 
-    document.getElementById('fsc-cat-profit').innerText = `${pCat} / 4 分`;
-    document.getElementById('fsc-cat-leverage').innerText = `${lCat} / 3 分`;
-    document.getElementById('fsc-cat-efficiency').innerText = `${eCat} / 2 分`;
+    document.getElementById('fsc-cat-profit').innerText = `${pCat} / 4${unit}`;
+    document.getElementById('fsc-cat-leverage').innerText = `${lCat} / 3${unit}`;
+    document.getElementById('fsc-cat-efficiency').innerText = `${eCat} / 2${unit}`;
 
     const tbody = document.getElementById('fscore-breakdown-body');
     tbody.innerHTML = breakdown.map(item => {
       const isPass = item.passed === 1;
       const mark = isPass ? '✔' : '✘';
       const circleClass = isPass ? 'score-pass' : 'score-fail';
-      const statusText = isPass ? '<span class="text-green" style="font-weight:700;">+1 分 通過</span>' : '<span class="text-red">未達標 (0分)</span>';
+      const statusText = isPass ? `<span class="text-green">+1 ${isEn ? 'Pass' : '分 通過'}</span>` : `<span class="text-red">${isEn ? 'Fail (0)' : '未達標 (0分)'}</span>`;
+      const category = isEn ? ({ '盈利能力': 'Profitability', '槓桿與償債': 'Leverage & liquidity', '營運效率': 'Operating efficiency' }[item.category] || item.category) : item.category;
+      const descriptions = ['ROA > 0', 'Operating cash flow > 0', 'Change in ROA > 0',
+        'Operating cash flow > net income', 'Change in leverage ≤ 0', 'Change in liquidity > 0',
+        'Change in shares ≤ 0', 'Change in gross margin > 0', 'Change in asset turnover > 0'];
+      const detail = isEn ? String(item.detail).replace('當期 ROA', 'Current ROA')
+        .replace('自由現金流', 'Free cash flow').replace('回報率穩步領先同業基準', 'Returns lead the peer benchmark')
+        .replace('真實現金流充沛，無虛報帳面獲利', 'Cash-flow quality assessment')
+        .replace('總負債資產比率', 'Liabilities / assets').replace('流動比率', 'Current ratio')
+        .replace('未大幅增發新股割韭菜', 'No substantial new share issuance')
+        .replace('產品定價權增強，毛利結構健康', 'Pricing power and gross-margin assessment')
+        .replace('每單位資產產出效益改善', 'Improved output per unit of assets') : item.detail;
 
       return `
         <tr>
           <td style="text-align: center;"><span class="score-badge-circle ${circleClass}">${mark}</span></td>
-          <td style="font-weight: 600; color: var(--text-secondary);">${item.category}</td>
-          <td><strong>#${item.id}. ${item.desc}</strong></td>
-          <td style="color: var(--text-muted);">${item.detail}</td>
+          <td style="font-weight: 600; color: var(--text-secondary);">${category}</td>
+          <td><strong>#${item.id}. ${isEn ? descriptions[Number(item.id) - 1] || item.desc : item.desc}</strong></td>
+          <td style="color: var(--text-muted);">${detail}</td>
           <td style="text-align: center;">${statusText}</td>
         </tr>
       `;

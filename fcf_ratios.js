@@ -156,6 +156,53 @@
     };
   }
 
+  function calculateEarnings(data, { period = 'quarterly', flow = 'ttm' } = {}) {
+    if (!['quarterly', 'annual'].includes(period) || !['single', 'ttm'].includes(flow)) {
+      throw new RangeError('Invalid earnings trend options');
+    }
+    const source = data?.[period];
+    if (!Array.isArray(source?.income) || !Array.isArray(source?.cashflow)) {
+      throw new TypeError('Missing earnings statement arrays');
+    }
+    const annual = period === 'annual';
+    const income = indexRows(source.income, annual);
+    const cashflow = indexRows(source.cashflow, annual);
+    const keys = [...new Set([...income.keys(), ...cashflow.keys()])].sort((a, b) => a - b);
+    if (!keys.length) return [];
+    const count = !annual && flow === 'ttm' ? 4 : 1;
+    return Array.from({ length: keys.at(-1) - keys[0] + 1 }, (_, i) => keys[0] + i).map(key => {
+      const end = income.get(key) || cashflow.get(key);
+      const column = {
+        label: annual ? `FY ${key}` : `FY ${Math.floor(key / 4)} Q${key % 4 + 1}`,
+        date: end?.date || null, currency: end?.reportedCurrency || null, amounts: {}
+      };
+      for (const [metric, index, field] of [
+        ['eps', income, 'epsDiluted'], ['fcf', cashflow, 'freeCashFlow'],
+        ['dividend', cashflow, 'commonDividendsPaid']
+      ]) {
+        const rows = Array.from({ length: count }, (_, i) => index.get(key - count + 1 + i));
+        let reason = null;
+        if (rows.some(row => !row)) reason = count === 4 ? 'incompleteTtm' : 'missingPeriod';
+        else if (rows.some((row, i) => i > 0 && (
+          (Date.parse(row.date) - Date.parse(rows[i - 1].date)) / dayMs < 60
+          || (Date.parse(row.date) - Date.parse(rows[i - 1].date)) / dayMs > 120
+        ))) reason = 'nonConsecutive';
+        else if (rows.some(row => {
+          const rowKey = annual ? Number(row.fiscalYear || row.calendarYear)
+            : Number(row.fiscalYear || row.calendarYear) * 4 + Number(row.period[1]) - 1;
+          const other = (metric === 'eps' ? cashflow : income).get(rowKey);
+          return other && other.date !== row.date;
+        })) reason = 'dateMismatch';
+        else if (!sameCurrency(rows) || rows.some(row => row.reportedCurrency !== column.currency)) reason = 'currencyMismatch';
+        else if (rows.some(row => numeric(row[field]) === null)) reason = 'missingField';
+        const value = reason ? null : rows.reduce((sum, row) => sum + numeric(row[field]), 0);
+        column.amounts[metric] = reason ? unavailable(reason) : !Number.isFinite(value)
+          ? unavailable('invalidValue') : { value, reason: null, warnings: [] };
+      }
+      return column;
+    });
+  }
+
   function balanceValue(row, metric) {
     if (metric !== 'rote') {
       return numeric(row[metric === 'equity' || metric === 'roe' ? 'totalStockholdersEquity' : 'totalAssets']);
@@ -434,5 +481,5 @@
     }
   }
 
-  return { calculate, calculateReturns, calculateBalances, loadStatements, financialReference, trend, render, renderReturns };
+  return { calculate, calculateReturns, calculateBalances, calculateEarnings, loadStatements, financialReference, trend, render, renderReturns };
 });
