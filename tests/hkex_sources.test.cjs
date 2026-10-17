@@ -1,6 +1,6 @@
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
-const { prepareStatements, flowValue, priceHistory } = require('../scripts/build_hkex.cjs');
+const { prepareStatements, flowValue, priceHistory, compileStock } = require('../scripts/build_hkex.cjs');
 const { convertStatements } = require('../usd_currency.js');
 
 function evidence(half = false) {
@@ -95,4 +95,38 @@ test('Genuine HK daily prices preserve dates, prices and missing volume and reje
   assert.deepEqual(prices.rows, [['2026-10-16', 417.8, null]]);
   source.responses.prices_recent.rows[0].symbol = 'CSCO';
   assert.throws(() => priceHistory(source), /invalid/);
+});
+
+test('quote-only checks preserve rating dates; actual financial or transcript changes invalidate assessed evidence', () => {
+  const source = evidence();
+  source.responses.profile = { ok: true, rows: [{ symbol: source.ticker, currency: 'HKD', companyName: 'Fixture company' }] };
+  source.responses.quote = { ok: true, rows: [{ symbol: source.ticker, price: 100, marketCap: 10000,
+    timestamp: Date.parse('2026-10-16T08:00:00Z') / 1000 }] };
+  source.responses.prices_recent = { ok: true, rows: [{ symbol: source.ticker, date: '2026-10-16', close: 100 }] };
+  source.responses.transcript_latest = { ok: true, rows: [{ symbol: source.ticker, date: '2026-08-12',
+    year: 2026, period: 'Q2', content: 'Fixture call evidence' }] };
+  const item = require('../hkex_stocks.json').find(row => row.ticker === source.ticker);
+  const rates = { source: 'Fixture FX metadata; financials already HKD', prepared: source.capturedAt };
+  const original = compileStock(item, source, rates);
+  const report = Object.fromEntries(['m1_brand_pricing', 'm2_patents_regulatory', 'm3_high_switching_costs',
+    'm4_network_effects', 'm5_cost_advantage_scale', 'm6_unique_geography_assets', 'm7_operational_efficiency',
+    'm8_capital_allocation', 'm9_customer_retention', 'm10_durability'].map(key => [key, { score: null }]));
+  const reports = { [source.ticker]: { evidenceHash: original.fingerprint, report, updatedAt: source.capturedAt } };
+  const checked = structuredClone(source);
+  checked.capturedAt = '2026-10-17T12:00:00Z';
+  checked.responses.quote.rows[0].price = 101;
+  const unchanged = compileStock(item, checked, rates, reports, original.stock);
+  assert.equal(unchanged.fingerprint, original.fingerprint);
+  assert.equal(unchanged.stock.ratingSources.fScore.updatedAt, source.capturedAt);
+  assert.equal(unchanged.stock.ratingSources.moat.updatedAt, source.capturedAt);
+  assert.equal(unchanged.stock.ratingSources.moat.checkedAt, checked.capturedAt);
+  assert.equal(unchanged.stock.ratingSources.moat.reason, null);
+  checked.responses.transcript_latest.rows[0].content = 'Changed fixture call evidence';
+  const changedCall = compileStock(item, checked, rates, reports, original.stock);
+  assert.notEqual(changedCall.fingerprint, original.fingerprint);
+  assert.equal(changedCall.stock.ratingSources.moat.reason, 'staleEvidence');
+  assert.equal(changedCall.stock.ratingSources.fScore.updatedAt, source.capturedAt);
+  checked.responses.income.rows.at(-1).netIncome = 8;
+  const changedStatement = compileStock(item, checked, rates, reports, original.stock);
+  assert.equal(changedStatement.stock.ratingSources.fScore.updatedAt, checked.capturedAt);
 });
