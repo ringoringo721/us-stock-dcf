@@ -5125,6 +5125,8 @@
     const dcf = computeDCF(tempS, activeDetailTicker);
     if (!dcf) return;
 
+    document.getElementById('det-res-fair').className = `stat-num ${dcf.fairVal === null
+      ? 'text-muted' : dcf.fairVal < 0 ? 'text-red' : 'text-green'}`;
     document.getElementById('det-res-fair').innerText = dcf.fairVal === null ? 'N/A' : `$${dcf.fairVal.toFixed(2)}`;
     document.querySelector('[onclick="saveCustomModel()"]').disabled = dcf.fairVal === null;
     document.getElementById('det-res-price').innerText = `$${Number(tempS.price).toFixed(2)}`;

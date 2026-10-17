@@ -99,6 +99,15 @@ const money = value => '$' + value.toLocaleString('en-US', { minimumFractionDigi
     assert.equal(await page.locator('#fcff-table thead th').count(), 1, 'Invalid inputs clear the previous forecast');
     await page.locator('[onclick="resetToFmpDefaults()"]').click();
     assert.equal(await page.locator('#det-res-fair').innerText(), money(baseline.fairVal));
+    await page.locator('#fcff-input-controls summary').click();
+    await page.locator('#fcff-preferred').fill('1000000000');
+    assert.ok((await page.locator('#det-res-fair').innerText()).startsWith('$-'));
+    assert.ok((await page.locator('#det-res-fair').getAttribute('class')).includes('text-red'));
+    assert.equal(await page.locator('#det-res-premium').innerText(), 'N/A');
+    await page.evaluate(() => openDetail('JPM'));
+    assert.ok((await page.locator('#det-res-fair').getAttribute('class')).includes('text-green'));
+    await page.evaluate(() => openDetail('CSCO'));
+    await page.locator('[onclick="resetToFmpDefaults()"]').click();
     for (const ticker of ['NVDA', 'TSM', 'BRK.B']) {
       await page.evaluate(ticker => openDetail(ticker), ticker);
       assert.equal(await page.locator('#det-res-fair').innerText(), 'N/A', ticker);

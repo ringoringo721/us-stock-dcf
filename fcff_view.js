@@ -187,7 +187,8 @@
       ? reasonText(result.reason, context.language())
       : text('分析師錨點以外均為模型推算，不是已知未來現金流。', 'Beyond analyst anchors, values are model extrapolations, not known future cash flow.');
     document.getElementById('det-res-fair').textContent = finite(result.fairVal) ? `$${amount(result.fairVal)}` : 'N/A';
-    document.getElementById('det-res-fair').className = `stat-num ${result.fairVal < 0 ? 'text-red' : 'text-green'}`;
+    document.getElementById('det-res-fair').className = `stat-num ${result.fairVal === null
+      ? 'text-muted' : result.fairVal < 0 ? 'text-red' : 'text-green'}`;
     const displayedPrice = finite(scenario.price) ? scenario.price : context.stock.price;
     document.getElementById('det-res-price').textContent = finite(displayedPrice) ? `$${amount(displayedPrice)}` : 'N/A';
     document.getElementById('det-res-wacc').textContent = percent(result.WACC);
