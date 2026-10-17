@@ -1,0 +1,84 @@
+name: Refresh six HKEX listings and release-driven ratings
+
+on:
+  schedule:
+    - cron: '30 11 * * 1-5'
+    - cron: '30 23 * * 0-4'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hkex-data-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh-hkex:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - run: pip install requests google-genai
+      - name: Refresh official dated currency observations
+        run: node scripts/refresh_usd_rates.cjs --hkd
+      - name: Capture genuine HKEX statements, prices, release dates and available call
+        env:
+          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+          CAPTURE_SYMBOLS: 0700.HK,9988.HK,0005.HK,0388.HK,0939.HK,0823.HK
+          CAPTURE_OUTPUT: hkex-source-output
+        run: python -u scripts/capture_valuation_sources.py
+      - name: Prepare HKD inputs and content-based rating evidence
+        env:
+          MOAT_EVIDENCE_OUTPUT: hkex-source-output/moat-inputs.json
+        run: node scripts/build_hkex.cjs hkex-source-output hkex-data-output
+      - name: Reassess moat only on changed evidence
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+        run: python -u scripts/refresh_hkex_moat.py hkex-source-output/moat-inputs.json hkex-data-output/cache/hkex_moat.json
+      - name: Apply only the six HKEX listings and dated score provenance
+        run: |
+          node scripts/build_hkex.cjs hkex-source-output . hkex-data-output/cache/hkex_moat.json
+          cp hkex-data-output/cache/hkex_moat.json cache/hkex_moat.json
+      - name: Validate source, currency, period and valuation consistency
+        run: |
+          node --test tests/hkd_currency.test.cjs tests/statement_scores.test.cjs tests/hkex_sources.test.cjs tests/usd_currency.test.cjs tests/fcff.test.cjs tests/fcff_drivers.test.cjs tests/fcff_sources.test.cjs tests/liquidation.test.cjs
+          python -m unittest discover -s tests -p test_hkex_moat.py
+      - name: Persist verified data without replacing US datasets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add hk_market_dcf.json hk_market_data.js hk_fcff_data.js
+          git add -f cache/hkex_moat.json cache/financials/*.HK_statements_v2.json cache/price_charts/*.HK.json cache/fx/hkd_rates.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Refresh real HKEX data and evidence-based ratings [skip ci]" -m "Co-authored-by: Copilot App <223556219+Copilot@users.noreply.github.com>"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Request production publication of the committed data
+        env:
+          VERCEL_DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$VERCEL_DEPLOY_HOOK" ]; then
+            echo "::warning::No production deploy hook configured. Repository data is refreshed; production publication is not confirmed."
+            exit 0
+          fi
+          curl --fail --silent --show-error --request POST "$VERCEL_DEPLOY_HOOK" --output /tmp/hkex-deployment.json
+          node -e "const r=require('/tmp/hkex-deployment.json');if(!r.job?.id)throw new Error('Deployment request not confirmed');console.log('Production deployment requested; final readiness is reported by Vercel.');"
+      - name: Preserve explicit source and model failures for diagnosis
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hkex-refresh-failure-evidence
+          path: hkex-source-output/
+          retention-days: 7

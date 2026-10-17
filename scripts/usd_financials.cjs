@@ -201,4 +201,4 @@ if (require.main === module) {
     process.stdout.write(JSON.stringify(convertStatements(JSON.parse(fs.readFileSync(0, 'utf8')), rates)));
   } else main();
 }
-module.exports = { normalizeStock };
+module.exports = { normalizeStock, value };

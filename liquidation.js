@@ -13,7 +13,9 @@
       balanceDate: null, quoteDate: null, shares: null };
     const unavailable = reason => ({ ...result, reasons: [reason, reason, reason] });
     if (!snapshot) return unavailable('missingSnapshot');
-    if (snapshot.version !== 1 || snapshot.ticker !== ticker || snapshot.currency !== 'USD'
+    const currency = ticker.endsWith('.HK') ? 'HKD' : 'USD';
+    if (currency === 'HKD' && snapshot.shareBasis === 'unverifiedMixedShareClasses') return unavailable('shareBasisUnverified');
+    if (snapshot.version !== 1 || snapshot.ticker !== ticker || snapshot.currency !== currency
         || snapshot.receivablesBasis !== 'trade' || snapshot.shareBasis !== 'marketCapOverPrice'
         || !date(snapshot.balanceDate) || !date(snapshot.quoteDate)
         || typeof snapshot.fetchedAt !== 'string' || !date(snapshot.fetchedAt.slice(0, 10))
@@ -28,7 +30,7 @@
       return unavailable('missingFx');
     }
     const quote = snapshot.quote;
-    if (quote?.currency !== 'USD' || !finite(quote.price) || quote.price <= 0
+    if (quote?.currency !== currency || !finite(quote.price) || quote.price <= 0
         || !finite(quote.marketCap) || quote.marketCap <= 0) return unavailable('invalidShares');
     const shares = quote.marketCap / quote.price;
     if (!finite(shares) || shares <= 0) return unavailable('invalidShares');

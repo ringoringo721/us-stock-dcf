@@ -105,9 +105,12 @@ test('All cached per-share trends match exact reported shares, EPS and common di
         }
         if (!column.date) continue;
         const rows = data[period].income.filter(row => row.date <= column.date).sort((a, b) => a.date.localeCompare(b.date));
-        const window = rows.slice(period === 'quarterly' && flow === 'ttm' ? -4 : -1);
+        const count = data.statementFrequencies?.income === 'semiannual' || data.reportingFrequency === 'semiannual' ? 2 : 4;
+        const window = rows.slice(period === 'quarterly' && flow === 'ttm' ? -count : -1);
         if (column.amounts.eps.value !== null) {
-          near(column.amounts.eps.value, window.reduce((sum, row) => sum + Number(row.epsDiluted), 0));
+          const annual = data.annual.income.find(row => row.date === column.date);
+          near(column.amounts.eps.value, column.amounts.eps.basis === 'reportedAnnualAtFiscalYearEnd'
+            ? annual.epsDiluted : window.reduce((sum, row) => sum + Number(row.epsDiluted), 0));
         }
         for (const [metric, field, sign] of [['fcf', 'freeCashFlow', 1], ['dividend', 'commonDividendsPaid', -1]]) {
           if (column.amounts[metric].value === null) continue;

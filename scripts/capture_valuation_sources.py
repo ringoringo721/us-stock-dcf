@@ -34,6 +34,7 @@ HK_EXTRA_ENDPOINTS = {
     "splits": ("splits", {"limit": 100}),
     "peers": ("stock-peers", {}),
     "news": ("news/stock", {"limit": 12}),
+    "shares_float": ("shares-float", {}),
 }
 
 def selected_symbols(market, supplied):
@@ -87,7 +88,9 @@ def main():
         raise RuntimeError("FMP_API_KEY is required for read-only source capture")
     market = json.loads((root / "full_market_dcf.json").read_text(encoding="utf-8"))
     symbols = selected_symbols(market, os.environ.get("CAPTURE_SYMBOLS", ""))
-    output = root / "valuation-audit-output"
+    output = (root / os.environ.get("CAPTURE_OUTPUT", "valuation-audit-output")).resolve()
+    if root not in output.parents:
+        raise ValueError("Capture output must be a dedicated repository subdirectory")
     output.mkdir(exist_ok=True)
     now = datetime.now(timezone.utc)
     leases_only = os.environ.get("CAPTURE_LEASE_SOURCES_ONLY") == "true"
@@ -110,6 +113,7 @@ def main():
             ticker_endpoints = dict(endpoints)
             if ticker.endswith(".HK") and not leases_only:
                 ticker_endpoints.update(HK_EXTRA_ENDPOINTS)
+                ticker_endpoints["news"] = ("news/stock", {"symbols": symbol, "limit": 12})
                 ticker_endpoints = {
                     name: (endpoint, {**params, "limit": 32 if params.get("period") == "quarter" else 8})
                     if name in ("income", "balance", "cashflow", "annual_income", "annual_balance", "annual_cashflow")
@@ -148,8 +152,10 @@ def main():
                     if result["ok"]:
                         summary["successfulResponses"] += 1
                         summary["emptyResponses"] += not bool(result["rows"])
+                        outcomes[f"transcript_latest: {'nonempty' if result['rows'] else 'empty'}"] += 1
                     else:
                         summary["errors"].append({"ticker": ticker, "endpoint": "transcript_latest", **result})
+                        outcomes["transcript_latest: error"] += 1
             if not leases_only and not fcff_only and ticker in ("NVDA", "JPM"):
                 record["responses"]["backend_estimates_query"] = capture(
                     session, "analyst-estimates", {"symbol": symbol, "limit": 4}, key)

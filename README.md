@@ -1,5 +1,67 @@
 # us-stock-dcf
 
+## HKEX six-stock pilot
+
+The shared interface has a US/HKEX selector, the same 33 screener columns and all
+nine company subpages. The initial real-data HKEX universe is Tencent (00700),
+Alibaba (09988), HSBC (00005), HKEX (00388), CCB (00939) and Link REIT (00823).
+Qualified provider identities retain `.HK`; they are not US sample aliases.
+US primary amounts remain USD; HKEX primary amounts, per-share values, tables,
+price charts and exports use HKD. Saved models cannot reinterpret USD as HKD.
+
+`scripts/build_hkex.cjs` compiles genuine protected FMP captures into separate
+`hk_market_dcf.json`, `hk_market_data.js`, `hk_fcff_data.js` and per-company
+statement/price caches without rebuilding the US universe. The isolated
+`cache/fx/hkd_rates.json` contains official USD-per-unit observations for the
+pilot currencies: source-to-HKD rates are constructed from matching daily
+observations, then averaged for flows; balances use closing rates. A quotient of
+period-average USD rates or a fixed USD/HKD peg is not used. Original currencies,
+periods, derivations and FX provenance remain available for audit.
+
+Actual quarterly reporters retain quarters. Link's reported H1 and full-year
+statements produce a separately identified H2 by subtraction in original
+currency before translation; no Q1/Q3 or half-year EPS/share counts are invented.
+Matching reported annual EPS remains available at fiscal-year-end TTM.
+Incomplete or all-zero provider cash-flow constructions are archived for audit,
+not presented as actual quarterly/TTM cash flows; genuine annual cash flows
+remain available. Annual/interim reconciliation differences are disclosed.
+
+HKEX Piotroski diagnostics compare nine actual statement-based criteria,
+including CFO (not FCF), changes in ROA/leverage/liquidity/margin/turnover and
+cash common-equity issuance. Comparable TTM is preferred; otherwise the last
+comparable full fiscal year is explicitly identified. Missing tests remain
+unknown and the overall score is N/A, not a neutral score or automatic point.
+Comparisons use original reporting currency to avoid spurious FX signals;
+displayed monetary diagnostics are HKD. Standard PF tests have reduced
+comparability for banks, which is disclosed.
+
+Economic Moat is a separately labeled AI qualitative assessment, anchored to
+dated financial evidence and the latest available earnings-call transcript.
+Every numeric assessment must cite supplied evidence IDs. Missing analysis
+does not produce neutral 5/10 scores. Financial/call content hashes, original
+assessment timestamps and separate check timestamps distinguish new evidence,
+unchanged evidence and retained stale/error states. Transcript dates alone do
+not count as transcript analysis.
+
+The HKEX refresh workflow checks at 07:30 and 19:30 Hong Kong time on business
+days. It refreshes sources, recomputes PF from actual comparable periods and
+reanalyzes moat only when financial or call content changes. It is not an
+instantaneous exchange-release feed. A protected Vercel deploy hook requests
+publication of committed data; a missing hook produces an explicit warning,
+not a claim that production updated.
+
+Unavailable HKD discount inputs, IFRS lease reconciliation, cash-flow coverage
+or an unreconciled A/H common-share denominator remain explicit N/A. US Treasury
+yields are not silently substituted for a missing HKD benchmark. The pilot does
+not certify six numerical fair values or implement a new REIT valuation model.
+No historical DCF track or score history is fabricated.
+
+Validation includes `tests/hkd_currency.test.cjs`,
+`tests/statement_scores.test.cjs`, `tests/hkex_sources.test.cjs`,
+`tests/hk_frontend.test.cjs`, `tests/test_hkex_moat.py` and
+`tests/hk_real.browser.cjs`. The optional `build_hkex` source-audit input
+produces review artifacts only; it does not merge or deploy them.
+
 ## Read-only valuation source audit
 
 The manually dispatched `valuation_audit.yml` workflow captures dated FMP profile,

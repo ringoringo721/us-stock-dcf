@@ -40,7 +40,12 @@
     try {
       const data = await FcfRatios.loadStatements(ticker, reload);
       if (id !== requestId) return;
+      labels = MarketContext.localize(get('panel'), labels, data);
+      labels.earnings_reason_annualCashflowOnly = lang === 'zh' ? '僅有年度現金流；無實際中期現金流，TTM 不可用。'
+        : 'Only annual cash flow is reported; genuine interim cash flows and TTM are unavailable.';
+      labels.earnings_reason_cadenceMismatch = lang === 'zh' ? '報表頻率無法對齊。' : 'Statement reporting frequencies cannot be aligned.';
       const columns = FcfRatios.calculateEarnings(data, { period, flow });
+      MarketContext.renderProvenance(get('panel'), data, ticker);
       if (!columns.length) {
         get('status').textContent = labels.fcf_no_periods;
         return;
@@ -64,7 +69,10 @@
       });
       const notes = new Set();
       const format = (result, metric) => {
-        const reason = result.reason
+        const reason = result.basis === 'reportedAnnualAtFiscalYearEnd'
+          ? (lang === 'zh' ? '財年期末 TTM EPS 採同日已報全年稀釋 EPS；不推算或加總缺少的 H2 EPS。'
+            : 'Fiscal-year-end TTM EPS uses the matching reported annual diluted EPS; missing H2 EPS is not inferred or summed.')
+          : result.reason
           ? labels[`earnings_reason_${result.reason}`] || labels[`fcf_reason_${result.reason}`] || labels[`balance_reason_${result.reason}`] : '';
         if (reason) notes.add(reason);
         return { text: result.value === null ? 'N/A'

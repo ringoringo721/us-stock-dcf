@@ -8,11 +8,12 @@
   function calculate(snapshot, scenario, helpers) {
     const { finite, day, days, yearLater, fail, operatingRatios, capitalInputs } = helpers;
     const own = (object, key) => Object.prototype.hasOwnProperty.call(object, key);
-    if ((scenario.modelVersion !== undefined && scenario.modelVersion !== 'fcff-v2')
+    if ((scenario.currency && scenario.currency !== snapshot?.currency)
+        || (scenario.modelVersion !== undefined && scenario.modelVersion !== 'fcff-v2')
         || ['fcf0', 'growth_10y'].some(key => own(scenario, key))) return fail('incompatibleSavedModel');
     const previewReasons = ['leaseClassificationRequired', 'leaseMappingUnverified', 'debtCompositionUnverified'];
     if (snapshot?.reason && !previewReasons.includes(snapshot.reason)) return fail(snapshot.reason);
-    if (!snapshot || snapshot.version !== 1 || snapshot.method !== 'FCFF' || snapshot.currency !== 'USD'
+    if (!snapshot || snapshot.version !== 1 || snapshot.method !== 'FCFF' || !['USD', 'HKD'].includes(snapshot.currency)
         || !day(snapshot.valuationDate) || !day(snapshot.balance?.date)
         || snapshot.balance.date > snapshot.valuationDate) return fail('invalidSource');
     const historical = operatingRatios(snapshot.ttm);
