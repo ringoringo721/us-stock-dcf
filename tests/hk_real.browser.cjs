@@ -134,16 +134,36 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
           assert.equal(await page.locator('#slider-fin-ke').isDisabled(), false);
           assert.equal(await page.locator('#disp-fin-ke').innerText(), `${stock.fin_valuation.ke.toFixed(2)}%`);
           assert.match(await page.locator('#fin-reference-note').innerText(), /USD Treasury 10Y proxy/);
-          if (stock.fin_valuation.unavailableReason) {
-            assert.equal(await page.locator('#det-res-fair').innerText(), 'N/A');
+          assert.equal(stock.fin_valuation.unavailableReason, null);
+          assert.notEqual(await page.locator('#det-res-fair').innerText(), 'N/A');
+          const fin = stock.fin_valuation;
+          const excess = fin.tbvps * (1 + (fin.rote - fin.ke) / Math.max(fin.ke - fin.g, 2));
+          let dividend = fin.dps_total, ddm = 0;
+          for (let year = 1; year <= 5; year++) { dividend *= 1.065; ddm += dividend / (1 + fin.ke / 100) ** year; }
+          ddm += dividend * (1 + fin.g / 100) / Math.max((fin.ke - fin.g) / 100, 0.02) / (1 + fin.ke / 100) ** 5;
+          const expected = excess * 0.55 + ddm * 0.45;
+          const baseline = await page.locator('#det-res-fair').innerText();
+          const shown = Number(baseline.replace(/[^\d.-]/g, ''));
+          assert.ok(Math.abs(shown - expected) < 0.011, `${ticker}: ${shown} versus ${expected}`);
+          if (ticker === '0939.HK') {
+            assert.equal(stock.shares_outstanding, 261600381459);
+            assert.equal(stock.shares, 261600.381459);
+            assert.equal(stock.liquidation.sharesOutstanding, stock.shares_outstanding);
+            assert.equal(fin.tbvps, fin.tangibleEquity / stock.shares);
+            assert.match(await page.locator('#fin-reference-note').innerText(), /A \+ H.*261,600,381,459.*2026-09-30/);
+            assert.equal(await page.locator('#fin-reference-note a').getAttribute('href'), stock.shareSource.providerSource);
+            await page.evaluate(() => applyLanguage('zh'));
+            assert.match(await page.locator('#fin-reference-note').innerText(), /全公司 A \+ H 普通股合計 261,600,381,459/);
+            await page.evaluate(() => applyLanguage('en'));
             await page.locator('details:has(#fin-shares) > summary').click();
             await page.locator('#fin-shares').fill('261600');
             await page.evaluate(() => onFinSharesChange());
-            assert.equal(await page.locator('#det-res-fair').innerText(), 'N/A', 'Unconfirmed share assumptions cannot unlock valuation');
+            assert.equal(await page.locator('#det-res-fair').innerText(), baseline, 'Unconfirmed assumptions cannot replace sourced shares');
             await page.locator('#fin-shares-confirm').check();
             await page.evaluate(() => onFinSharesChange());
             assert.notEqual(await page.locator('#det-res-fair').innerText(), 'N/A');
             assert.match(await page.locator('#fin-reference-note').innerText(), /user-confirmed scenario/);
+            assert.equal(await page.locator('#fin-reference-note a').count(), 0, 'A scenario is not attributed to the issuer return');
             assert.equal(await page.evaluate(ticker => stockUniverse[ticker].fin_valuation.tbvps, ticker),
               stock.fin_valuation.tangibleEquity / 261600);
             await page.evaluate(() => saveCustomModel());
@@ -152,18 +172,9 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
             assert.notEqual(await page.locator('#det-res-fair').innerText(), 'N/A');
             assert.match(await page.locator('#fin-reference-note').innerText(), /user-confirmed scenario/);
             await page.evaluate(() => resetToFmpDefaults());
-            assert.equal(await page.locator('#det-res-fair').innerText(), 'N/A');
-            assert.equal(await page.evaluate(ticker => stockUniverse[ticker].shares, ticker), null);
-          } else {
-            assert.notEqual(await page.locator('#det-res-fair').innerText(), 'N/A');
-            const fin = stock.fin_valuation;
-            const excess = fin.tbvps * (1 + (fin.rote - fin.ke) / Math.max(fin.ke - fin.g, 2));
-            let dividend = fin.dps_total, ddm = 0;
-            for (let year = 1; year <= 5; year++) { dividend *= 1.065; ddm += dividend / (1 + fin.ke / 100) ** year; }
-            ddm += dividend * (1 + fin.g / 100) / Math.max((fin.ke - fin.g) / 100, 0.02) / (1 + fin.ke / 100) ** 5;
-            const expected = excess * 0.55 + ddm * 0.45;
-            const shown = Number((await page.locator('#det-res-fair').innerText()).replace(/[^\d.-]/g, ''));
-            assert.ok(Math.abs(shown - expected) < 0.011, `${ticker}: ${shown} versus ${expected}`);
+            assert.equal(await page.locator('#det-res-fair').innerText(), baseline);
+            assert.equal(await page.evaluate(ticker => stockUniverse[ticker].shares, ticker), stock.shares);
+            assert.match(await page.locator('#fin-reference-note').innerText(), /A \+ H.*261,600,381,459/);
           }
         }
         if (tab === 'news' && !stock.news.length) assert.match(await page.locator('#cmp-news-list').innerText(), /N\/A/);
@@ -182,7 +193,7 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
         width: element.getBoundingClientRect().width, right: element.getBoundingClientRect().right })))));
     assert.deepEqual(errors, []);
     assert.deepEqual(failed, []);
-    console.log('PASS: six HKEX securities, localized markets, partial Moat, real half years, HKD prices, HSBC valuation and explicit CCB share scenarios.');
+    console.log('PASS: six HKEX securities, localized markets, partial Moat, real half years, HKD prices, HSBC/CCB automatic bank valuations and issuer-wide share scenario reset.');
   } finally {
     await browser.close();
     await new Promise(resolve => server.close(resolve));

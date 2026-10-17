@@ -31,6 +31,25 @@ function evidence() {
 }
 const treasury = { ok: true, rows: [{ date: '2026-10-16', year10: 4 }] };
 
+test('corporate FCFF uses the same sourced issuer-wide denominator as the HK market and liquidation paths', () => {
+  const shareSource = { shares: 261600.381459, date: '2026-09-30', filingDate: '2026-09-30',
+    basis: 'commonSharesOutstandingExcludingTreasury', scope: 'issuerWideOrdinaryShares' };
+  const input = evidence();
+  const snapshot = prepareSnapshot('TEST', input, treasury, null, null, { shareSource });
+  assert.equal(snapshot.defaults.shares, shareSource.shares);
+  assert.deepEqual(snapshot.provenance.shares, shareSource);
+  for (const invalid of [
+    { ...shareSource, shares: -1 }, { ...shareSource, date: '2026-10-18' },
+    { ...shareSource, filingDate: '2026-10-18' }, { ...shareSource, basis: 'dilutedWeightedAverage' }
+  ]) {
+    assert.throws(() => prepareSnapshot('TEST', input, treasury, null, null, { shareSource: invalid }), /invalid valuation share/);
+  }
+  const unavailable = prepareSnapshot('TEST', input, treasury, null, null, {
+    shareSource: { shares: null, basis: 'unavailable', reason: 'shareBasisUnverified' }
+  });
+  assert.equal(unavailable.defaults.shares, null);
+});
+
 test('reported debt already containing leases is preserved, never increased a second time', () => {
   const result = financingDebt({ totalDebt: 38860e6, shortTermDebt: 1000e6,
     longTermDebt: 32366e6, capitalLeaseObligations: 5494e6 });

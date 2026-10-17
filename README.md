@@ -83,10 +83,22 @@ DCF, financial-company and liquidation denominators use dated
 `shares-float.outstandingShares`, excluding treasury shares, **not** diluted
 weighted-average shares or float. Per-diluted-share financial trend tables
 retain their original accounting denominators. US captures cover all 230
-listings. Provider quoted/ADR units are not multiplied again. An unreconciled
-company-wide A/H denominator (CCB) remains unavailable by default; a class-only
-count is not divided into whole-group equity. Explicit, confirmed user share
-scenarios are labeled and saved separately.
+listings. Provider quoted/ADR units are not multiplied again. The
+company-wide A/H denominator must include every ordinary share class, not only
+the Hong Kong-listed H shares. Issuer capital returns in
+`cache/hkex_share_capital.json` take precedence over class-only provider counts.
+CCB's official September 2026 monthly return (PDF page 3) reports
+21,183,061,579 A shares and 240,417,319,880 H shares, with no treasury shares:
+261,600,381,459 ordinary shares in total as of 30 September 2026. Preference
+shares are not added to the ordinary-share denominator. The source URL, filing
+date, document hash and class breakdown remain attached to the valuation data.
+CCB retains the existing financial-company model, rather than corporate FCFF.
+A return cannot be used before its filing date; conflicting later provider
+counts require review instead of silently reverting to H shares. Capital
+returns require maintenance as new filings become available: their dates are
+not relabeled as current quote dates. Link's corresponding denominator is
+outstanding fund units. Explicit, confirmed user share scenarios remain
+labeled and saved separately.
 
 Unreconciled IFRS leases, debt composition and missing mandatory inputs still
 block automatic fair values. Editing financial assumptions does not silently

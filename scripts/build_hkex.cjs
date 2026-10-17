@@ -8,6 +8,7 @@ const ratios = require('../fcf_ratios.js');
 const liquidation = require('../liquidation.js');
 const { prepareSnapshot } = require('./fcff_sources.cjs');
 const config = require('../hkex_stocks.json');
+const shareCapital = require('../cache/hkex_share_capital.json');
 
 const finite = value => typeof value === 'number' && Number.isFinite(value);
 const day = value => typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value)
@@ -23,6 +24,48 @@ const readRows = (evidence, name) => evidence.responses?.[name]?.ok
   && Array.isArray(evidence.responses[name].rows) ? evidence.responses[name].rows : [];
 const flowFields = ['operatingCashFlow', 'capitalExpenditure',
   'netCashProvidedByInvestingActivities', 'netCashProvidedByFinancingActivities'];
+
+function valuationShares(item, evidence, capital = shareCapital[item.ticker]) {
+  const asOf = evidence.capturedAt?.slice(0, 10);
+  if (item.ticker !== evidence.ticker || item.ticker !== evidence.providerSymbol || !day(asOf)) {
+    throw new TypeError('Invalid valuation share identity or date');
+  }
+  const provider = require('./fcff_sources.cjs').outstandingShares(evidence, asOf);
+  const unavailable = reason => ({ ...provider, shares: null, basis: 'unavailable', reason,
+    providerComparison: { shares: provider.shares, date: provider.date } });
+  if (!capital) return item.shareClassReviewRequired ? unavailable('shareBasisUnverified') : provider;
+  const classes = capital.classes;
+  if (capital.ticker !== item.ticker || capital.coverage !== 'allOrdinaryShareClasses'
+      || !day(capital.date) || !day(capital.filingDate) || capital.filingDate < capital.date
+      || !/^https:\/\//.test(capital.url || '') || !/^[a-f0-9]{64}$/.test(capital.documentSha256 || '')
+      || !Array.isArray(classes) || !classes.length
+      || classes.some(row => !row || row.type !== 'ordinary' || typeof row.name !== 'string' || !row.name.trim()
+        || !Number.isSafeInteger(row.issuedShares) || row.issuedShares <= 0
+        || !Number.isSafeInteger(row.treasuryShares) || row.treasuryShares < 0 || row.treasuryShares > row.issuedShares)
+      || new Set(classes.map(row => row.name)).size !== classes.length
+      || item.shareClassReviewRequired && !['A', 'H'].every(name => classes.some(row => row.name === name))) {
+    throw new TypeError(`${item.ticker}: invalid issuer-wide ordinary share evidence`);
+  }
+  if (capital.filingDate > asOf) return unavailable('issuerShareReturnNotYetAvailable');
+  const issuedShares = sum(classes.map(row => row.issuedShares));
+  const treasuryShares = sum(classes.map(row => row.treasuryShares));
+  const outstanding = issuedShares - treasuryShares;
+  if (!Number.isSafeInteger(issuedShares) || !Number.isSafeInteger(treasuryShares)
+      || !Number.isSafeInteger(outstanding) || outstanding <= 0) {
+    throw new TypeError(`${item.ticker}: invalid issuer-wide ordinary share total`);
+  }
+  const knownCounts = [outstanding, ...classes.map(row => row.issuedShares - row.treasuryShares)];
+  if (provider.date > capital.date && provider.shares !== null
+      && !knownCounts.some(count => count / 1e6 === provider.shares)) {
+    return unavailable('issuerShareReturnNeedsReview');
+  }
+  return { shares: outstanding / 1e6, outstandingShares: outstanding, issuedShares, treasuryShares,
+    date: capital.date, filingDate: capital.filingDate, basis: 'commonSharesOutstandingExcludingTreasury',
+    scope: 'issuerWideOrdinaryShares', source: capital.source, providerSource: capital.url,
+    capturedAt: capital.verifiedAt, documentSha256: capital.documentSha256, pdfPages: capital.pdfPages,
+    classes, providerComparison: { shares: provider.shares, date: provider.date,
+      matchingClass: classes.find(row => (row.issuedShares - row.treasuryShares) / 1e6 === provider.shares)?.name || null } };
+}
 
 function prepareStatements(evidence) {
   const ticker = evidence.ticker, today = evidence.capturedAt?.slice(0, 10);
@@ -261,7 +304,8 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
   const quoteDate = new Date(quote.timestamp * 1000).toISOString().slice(0, 10);
   if (quoteDate > evidence.capturedAt.slice(0, 10)) throw new TypeError(`${item.ticker}: future quote`);
   const balance = field => value(bs, field), flow = (type, field) => flowValue(data, type, field);
-  const shareSource = require('./fcff_sources.cjs').outstandingShares(evidence, evidence.capturedAt.slice(0, 10));
+  const shareSource = valuationShares(item, evidence);
+  const shareClassUnverified = item.shareClassReviewRequired && shareSource.scope !== 'issuerWideOrdinaryShares';
   const treasuryCurve = treasury?.ok && Array.isArray(treasury.rows) ? sorted(treasury.rows.filter(row =>
     day(row.date) && row.date <= evidence.capturedAt.slice(0, 10) && finite(row.year10)
     && (Date.parse(evidence.capturedAt.slice(0, 10)) - Date.parse(row.date)) / 86400000 <= 14)).at(-1) : null;
@@ -296,9 +340,10 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
     market: 'HKEX', exchange: 'HKEX', sector: item.sector, industry: item.industry, fmp_symbol: item.ticker,
     reportedCurrency: latest?.sourceReportedCurrency, calculationCurrency: 'HKD',
     reportingFrequency: raw.reportingFrequency, statementFrequencies: raw.statementFrequencies,
-    qualityWarnings: raw.qualityWarnings, price: quote.price, quoteDate, shares: item.shareClassReviewRequired ? null : shareSource.shares,
-    shares_display: shareSource.shares, shares_outstanding: item.shareClassReviewRequired || shareSource.shares === null ? null : shareSource.shares * 1e6,
-    shareSource, shareBasis: item.shareClassReviewRequired ? 'unverifiedMixedShareClasses' : shareSource.basis,
+    qualityWarnings: raw.qualityWarnings, price: quote.price, quoteDate, shares: shareClassUnverified ? null : shareSource.shares,
+    shares_display: shareSource.shares, shares_outstanding: shareClassUnverified || shareSource.shares === null ? null
+      : shareSource.outstandingShares ?? Math.round(shareSource.shares * 1e6),
+    shareSource, shareBasis: shareClassUnverified ? 'unverifiedMixedShareClasses' : shareSource.basis,
     mcap: quote.marketCap / 1e6, debt: millions(balance('totalDebt')), cash: millions(balance('cashAndCashEquivalents')),
     short_term_investments: millions(balance('shortTermInvestments')), cash_and_short_term: millions(balance('cashAndShortTermInvestments')),
     beta: finite(p.beta) ? p.beta : null, beta_5y: null, rf: treasuryCurve?.year10 ?? null, erp: 4.75, kd: null, tax: null,
@@ -370,13 +415,13 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
       cashAndShortTermInvestments: balance('cashAndShortTermInvestments'), tradeReceivables: balance('accountsReceivables'),
       inventory: balance('inventory'), preferredStock: balance('preferredStock') } };
   liquidation.calculate(stock.liquidation, item.ticker).values.forEach((value, i) => { stock[`liq_val_${i + 1}`] = value; });
-  let snapshot = prepareSnapshot(item.ticker, evidence, treasury, rates, null, { statementData: raw });
+  let snapshot = prepareSnapshot(item.ticker, evidence, treasury, rates, null, { statementData: raw, shareSource });
   if (item.requiresSegmentValuation) snapshot.reason = 'requiresSegmentValuation';
   if (item.generalCorporateValuationWarning) snapshot.valuationCaution = 'generalCorporateFcffNotReitAffoOrNav';
   if (raw.qualityWarnings.some(warning => warning.code === 'annualInterimReconciliation') && !snapshot.reason) snapshot.reason = 'statementReconciliationRequired';
   if (item.financial) {
     const reference = ratios.financialReference(data, { shares: stock.shares });
-    if (item.shareClassReviewRequired) { reference.reason = 'shareBasisUnverified'; reference.tbvps = null; }
+    if (shareClassUnverified) { reference.reason = 'shareBasisUnverified'; reference.tbvps = null; }
     const annualPayout = sorted(data.annual.cashflow).at(-1);
     const payoutBasis = flow('cashflow', 'dividendsPaid') === null ? annualPayout : null;
     const dividends = payoutBasis ? value(payoutBasis, 'dividendsPaid') : flow('cashflow', 'dividendsPaid');
@@ -393,7 +438,7 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
       payoutSource: { basis: payoutBasis ? 'latestReportedAnnualNotCurrentTtm' : 'reportedTtm',
         date: payoutBasis?.date || latest?.date || null },
       excess_return_fair: null, ddm_fair: null, pb_tangible: divide(stock.price, reference.tbvps),
-      unavailableReason: item.shareClassReviewRequired ? 'shareBasisUnverified' : ke === null ? 'missingHkdRiskFreeRate' : null };
+      unavailableReason: shareClassUnverified ? 'shareBasisUnverified' : ke === null ? 'missingHkdRiskFreeRate' : null };
   }
   stock.currencyConversion = { sourceCurrency: stock.reportedCurrency, target: 'HKD', source: rates.source,
     prepared: rates.prepared, income: latest?.currencyConversion, balance: bs?.currencyConversion,
@@ -439,4 +484,4 @@ if (require.main === module) {
   if (process.env.MOAT_EVIDENCE_OUTPUT) fs.writeFileSync(process.env.MOAT_EVIDENCE_OUTPUT, JSON.stringify(inputs));
   console.log(`Built ${inputs.length} real HKEX listings in HKD; incomplete evidence remains explicitly unavailable.`);
 }
-module.exports = { prepareStatements, ttmRows, flowValue, statementTable, scoreBreakdown, priceHistory, compileStock, compile, hash };
+module.exports = { prepareStatements, ttmRows, flowValue, statementTable, scoreBreakdown, priceHistory, compileStock, compile, hash, valuationShares };

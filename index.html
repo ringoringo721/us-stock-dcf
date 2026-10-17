@@ -3149,8 +3149,25 @@
       : `派息／回購採截至 ${fin.payoutSource.date} 的最新實報年度，不是當前 TTM。`);
     notes.push(currentLang === 'en' ? 'Valuation denominator: common shares outstanding excluding treasury; not diluted weighted-average shares.'
       : '估值分母採不含庫存股的流通在外普通股，不採稀釋加權平均股數。');
+    const issuerShares = !fin.shareScenario && stock?.shareSource?.scope === 'issuerWideOrdinaryShares'
+      ? stock.shareSource : null;
+    if (issuerShares) {
+      const classes = issuerShares.classes.map(row => row.name).join(' + ');
+      const count = issuerShares.outstandingShares.toLocaleString('en-US');
+      notes.push(currentLang === 'en'
+        ? `Company-wide ${classes} ordinary shares: ${count}, excluding treasury, as of ${issuerShares.date}.`
+        : `全公司 ${classes} 普通股合計 ${count} 股，已扣除庫存股；股數截至 ${issuerShares.date}。`);
+    }
     if (fin.shareScenario) notes.push(currentLang === 'en' ? 'Share denominator is a user-confirmed scenario, not verified issuer data.' : '股數分母為使用者確認的情境，不代表已核實的公司披露。');
     document.getElementById('fin-reference-note').textContent += ' ' + notes.join(' ');
+    if (issuerShares && /^https:\/\//.test(issuerShares.providerSource)) {
+      const link = document.createElement('a');
+      link.href = issuerShares.providerSource;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.textContent = currentLang === 'en' ? 'Official share-capital return' : '官方股本月報';
+      document.getElementById('fin-reference-note').append(' ', link);
+    }
   }
 
   function onFinSharesChange() {

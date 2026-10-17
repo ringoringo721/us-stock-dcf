@@ -126,7 +126,13 @@ function prepareSnapshot(ticker, evidence, treasury, rates, leaseEvidence, optio
   }
   const income = sorted(raw.quarterly.income).slice(-count), balance = sorted(raw.quarterly.balance).at(-1);
   const converted = convertStatements(raw, rates, currency);
-  const shareSource = outstandingShares(evidence, valuationDate);
+  const shareSource = options.shareSource === undefined ? outstandingShares(evidence, valuationDate) : options.shareSource;
+  if (!shareSource || shareSource.shares !== null && (!finite(shareSource.shares) || shareSource.shares <= 0
+      || !day(shareSource.date) || shareSource.date > valuationDate
+      || shareSource.filingDate && (!day(shareSource.filingDate) || shareSource.filingDate > valuationDate)
+      || shareSource.basis !== 'commonSharesOutstandingExcludingTreasury')) {
+    throw new TypeError(`${ticker}: invalid valuation share source`);
+  }
   const closingBalance = sorted(converted.quarterly.balance).at(-1);
   const currentIncome = sorted(converted.quarterly.income).slice(-4);
   const completeIncome = currentIncome.length === 4 && currentIncome.every((row, i) =>

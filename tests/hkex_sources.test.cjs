@@ -1,7 +1,79 @@
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
-const { prepareStatements, flowValue, priceHistory, compileStock } = require('../scripts/build_hkex.cjs');
+const { prepareStatements, flowValue, priceHistory, compileStock, valuationShares } = require('../scripts/build_hkex.cjs');
 const { convertStatements } = require('../usd_currency.js');
+const ccb = require('../hkex_stocks.json').find(row => row.ticker === '0939.HK');
+const ccbCapital = require('../cache/hkex_share_capital.json')[ccb.ticker];
+
+function ccbShares(count = 240417319880) {
+  return { ticker: ccb.ticker, providerSymbol: ccb.ticker, capturedAt: '2026-10-17T00:00:00Z',
+    responses: { shares_float: { ok: true, rows: [
+      { symbol: ccb.ticker, date: '2026-10-16', outstandingShares: count, floatShares: 10 }
+    ] } } };
+}
+
+test('CCB uses all issued A and H ordinary shares, not H-only provider or preference shares', () => {
+  const result = valuationShares(ccb, ccbShares());
+  assert.equal(result.outstandingShares, 21183061579 + 240417319880);
+  assert.equal(result.outstandingShares, 261600381459);
+  assert.equal(result.shares, 261600.381459);
+  assert.equal(result.treasuryShares, 0);
+  assert.equal(result.date, '2026-09-30');
+  assert.equal(result.scope, 'issuerWideOrdinaryShares');
+  assert.equal(result.basis, 'commonSharesOutstandingExcludingTreasury');
+  assert.equal(result.providerComparison.matchingClass, 'H');
+  assert.equal(result.providerSource, ccbCapital.url);
+  assert.equal(result.documentSha256, ccbCapital.documentSha256);
+});
+
+test('ordinary share counts subtract each class treasury shares; no missing count is assumed zero', () => {
+  const capital = structuredClone(ccbCapital);
+  capital.classes[0].treasuryShares = 100;
+  capital.classes[1].treasuryShares = 200;
+  const source = ccbShares();
+  source.responses.shares_float.rows = [];
+  const result = valuationShares(ccb, source, capital);
+  assert.equal(result.outstandingShares, 261600381159);
+  assert.equal(result.treasuryShares, 300);
+  delete capital.classes[0].treasuryShares;
+  assert.throws(() => valuationShares(ccb, source, capital), /invalid issuer-wide/);
+});
+
+test('unverified or not-yet-filed A/H returns never fall back to H-only counts', () => {
+  assert.equal(valuationShares(ccb, ccbShares(), null).shares, null);
+  const capital = { ...ccbCapital, filingDate: '2026-10-18' };
+  assert.equal(valuationShares(ccb, ccbShares(), capital).reason, 'issuerShareReturnNotYetAvailable');
+  assert.equal(valuationShares(ccb, ccbShares(240417319881)).reason, 'issuerShareReturnNeedsReview');
+});
+
+test('issuer share evidence rejects other issuers, missing A/H classes, preference shares, duplicate classes and invalid totals', () => {
+  for (const mutate of [
+    capital => { capital.ticker = '0005.HK'; },
+    capital => { capital.classes.pop(); },
+    capital => { capital.classes.push({ name: 'Preferred', type: 'preference', issuedShares: 600000000, treasuryShares: 0 }); },
+    capital => { capital.classes.push({ ...capital.classes[0] }); },
+    capital => { capital.classes[0].issuedShares = 1.5; },
+    capital => { capital.classes[0].treasuryShares = -1; },
+    capital => { capital.classes[0].treasuryShares = capital.classes[0].issuedShares + 1; },
+    capital => { capital.filingDate = '2026-09-29'; },
+    capital => { capital.documentSha256 = ''; }
+  ]) {
+    const capital = structuredClone(ccbCapital);
+    mutate(capital);
+    assert.throws(() => valuationShares(ccb, ccbShares(), capital), /invalid issuer-wide/);
+  }
+});
+
+test('other HK listings retain dated outstanding counts, never float or weighted-average counts', () => {
+  for (const item of require('../hkex_stocks.json').filter(row => row.ticker !== ccb.ticker)) {
+    const source = ccbShares(2000000000);
+    source.ticker = source.providerSymbol = source.responses.shares_float.rows[0].symbol = item.ticker;
+    source.responses.shares_float.rows[0].weightedAverageShsOutDil = 3000000000;
+    assert.equal(valuationShares(item, source).shares, 2000);
+    delete source.responses.shares_float.rows[0].outstandingShares;
+    assert.equal(valuationShares(item, source).shares, null);
+  }
+});
 
 function evidence(half = false) {
   const ticker = half ? '0823.HK' : '0700.HK';

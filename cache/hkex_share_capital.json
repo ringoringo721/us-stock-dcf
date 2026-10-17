@@ -1,0 +1,17 @@
+{
+  "0939.HK": {
+    "ticker": "0939.HK",
+    "date": "2026-09-30",
+    "filingDate": "2026-09-30",
+    "verifiedAt": "2026-10-17T17:43:33Z",
+    "coverage": "allOrdinaryShareClasses",
+    "source": "CCB Monthly Return for Equity Issuer on Movements in Securities",
+    "url": "https://finance.ccb.com/eng/attachDir/2026/09/2026093016594981340.pdf",
+    "documentSha256": "05cac59b42ed5d39d57901cee6b39a0495651651b0ec05254e85a3e882e35370",
+    "pdfPages": [3],
+    "classes": [
+      { "name": "A", "type": "ordinary", "issuedShares": 21183061579, "treasuryShares": 0 },
+      { "name": "H", "type": "ordinary", "issuedShares": 240417319880, "treasuryShares": 0 }
+    ]
+  }
+}
