@@ -47,6 +47,9 @@ function prepareSnapshot(ticker, evidence, treasury, rates, leaseEvidence) {
   if (names.some(name => read(name).some(row => !row || row.symbol !== evidence.providerSymbol))) {
     return unavailable('sourceSymbolMismatch');
   }
+  if (read('annual_income').some(row => !day(row.date) || row.date > valuationDate)) {
+    return unavailable('sourceDateMismatch');
+  }
   const profile = read('profile')[0], quote = read('quote')[0];
   if (read('profile').length !== 1 || read('quote').length !== 1 || profile.currency !== 'USD'
       || !finite(quote.timestamp) || !finite(quote.price) || quote.price <= 0
@@ -97,7 +100,8 @@ function prepareSnapshot(ticker, evidence, treasury, rates, leaseEvidence) {
   if (!finite(forecastFx.rate)) return unavailable('missingForecastFx');
   const estimates = sorted(read('estimates').filter(row => day(row.date)
     && finite(row.revenueAvg) && row.revenueAvg > 0 && finite(row.ebitAvg)));
-  const overlaps = read('annual_income').map(row => {
+  const comparableAnnual = read('annual_income').filter(row => row.reportedCurrency === sourceCurrency);
+  const overlaps = comparableAnnual.map(row => {
     const estimate = estimates.find(other => Math.abs(Date.parse(other.date) - Date.parse(row.date)) < 30 * 86400000);
     return estimate && number(row, 'revenue') > 0 ? estimate.revenueAvg / row.revenue : null;
   }).filter(finite);
@@ -144,7 +148,7 @@ function prepareSnapshot(ticker, evidence, treasury, rates, leaseEvidence) {
       ? curve.year10 : null,
     erp: 4.75, kd, tax, g: 2.25, terminalRoic: null, preferredCost: null, minorityCost: null
   };
-  const lastAnnual = sorted(read('annual_income')).at(-1);
+  const lastAnnual = sorted(comparableAnnual).at(-1);
   const snapshot = {
     version: 1, method: 'FCFF', ticker, currency: 'USD', sourceCurrency,
     fetchedAt: evidence.capturedAt, valuationDate, quoteDate, quote: { price: quote.price, marketCap: quote.marketCap },
@@ -163,6 +167,7 @@ function prepareSnapshot(ticker, evidence, treasury, rates, leaseEvidence) {
       tax: 'TTM effective tax; scenario assumption, not a marginal-rate forecast',
       kd: 'TTM accounting interest / average reported debt; not a current financing quote',
       erp: '4.75% model assumption, not an FMP forecast',
+      beta: 'FMP profile beta; lookback, frequency and benchmark unspecified by the response',
       terminalG: '2.25% model assumption, not an FMP forecast',
       cash: 'All reported cash and short-term investments assumed nonoperating; adjustable',
       investments: 'Long-term investments assumed nonoperating at book value; adjustable, not fair-value evidence',
@@ -180,6 +185,20 @@ function prepareSnapshot(ticker, evidence, treasury, rates, leaseEvidence) {
     snapshot.reason = 'leaseClassificationRequired';
     snapshot.leaseEvidenceAvailable = !!leaseEvidence;
   }
+  const reportedBalance = leaseEvidence?.responses?.balance_as_reported?.rows
+    || read('balance_as_reported') || [];
+  const latestReported = sorted(reportedBalance.filter(row => day(row.date)
+    && row.date <= valuationDate)).at(-1);
+  const leaseTags = Object.entries(latestReported?.data || {})
+    .filter(([tag, value]) => /lease.*liabilit|capitalleaseobligation/i.test(tag)
+      && finite(value) && value > 0);
+  if (!snapshot.reason && bs.capitalLeaseObligations === 0 && leaseTags.length) {
+    snapshot.reason = 'leaseMappingUnverified';
+  }
+  snapshot.provenance.leaseEvidence = {
+    date: latestReported?.date || null,
+    positiveLiabilityTags: [...new Set(leaseTags.map(([tag]) => tag))]
+  };
   return snapshot;
 }
 

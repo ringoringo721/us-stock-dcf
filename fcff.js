@@ -86,7 +86,8 @@
     const WACC = Object.prototype.hasOwnProperty.call(scenario, 'discountRate')
       ? scenario.discountRate : wE * Ke + wD * Kd_after + wP * preferredCost + wM * minorityCost;
     const base = { E, V, wE, wD, wP, wM, Ke, Kd_after, preferredCost, minorityCost,
-      WACC, beta, reportedDebt: debt, leaseOverlap, financingDebt, NetDebt: financingDebt - cash };
+      WACC, beta, reportedDebt: debt, leaseOverlap, financingDebt, cash, investments,
+      preferred, minority, NetDebt: financingDebt - cash };
     if (!finite(WACC) || WACC <= g / 100 || WACC <= 0) return fail('invalidTerminalSpread', base);
     const terminalRoicInput = parameter('terminalRoic');
     const terminalRoic = terminalRoicInput === null ? WACC * 100 : terminalRoicInput;

@@ -17,11 +17,14 @@ The optional `lease_sources_only` input captures original balance, income and
 cash-flow tags to reconcile operating versus financing lease treatment, still
 without changing any published valuation.
 
-## FCFF development prototype (not connected to the website)
+## FCFF valuation and explicit source limitations
 
-`fcff.js` and `scripts/fcff_sources.cjs` are development-only calculation and
-source-reconciliation modules. They are not loaded by `index.html` and do not
-replace the published valuation datasets.
+The nonfinancial valuation page, screener defaults, forecast table, sensitivity
+matrix and versioned saved scenarios use the shared `fcff.js` engine.
+`scripts/fcff_sources.cjs` reconciles source records; `scripts/build_fcff.cjs`
+compiles `cache/fcff_sources.json` and `fcff_data.js` without rewriting reported
+financials, financial-company models, liquidation values or price history.
+These repository changes do not themselves deploy the website.
 
 The selected operating-ratio basis is latest TTM. Analyst revenue/EBIT anchors
 are distinguished from modeled cash flow and later extrapolation. The selected
@@ -35,6 +38,40 @@ missing financial inputs return explicit reasons instead of assumed prices.
 Financing treatment also requires consistent lease expense, depreciation and
 new leased-asset reinvestment inputs; balance-sheet lease debt alone is not
 enough to certify that reconciliation.
+
+Missing inputs and conflicting normalized/original lease mappings produce
+explicit bilingual N/A reasons, not legacy fallback prices. The source cache
+records individual valuation dates and coverage outcomes; availability is not
+certification of forecasts or issuer lease accounting. Some issuers require
+segment valuation instead of this general FCFF model.
+
+The ten-calendar-year horizon uses fiscal stubs and Actual/365.25 period-end
+discounting. Unpublished elapsed cash flows and working capital are estimated
+linearly; terminal cash flow uses the final fiscal year's annualized revenue.
+Future FX is a constant latest-observed scenario. Forecast reporting currency is
+inferred using historical annual revenue scale, not an explicit FMP estimate
+currency field. Tax and debt costs start from historical TTM proxies, while ERP,
+terminal growth, nonoperating assets and priority-claim values remain adjustable
+assumptions. Blank terminal ROIC follows each sensitivity cell's WACC.
+The legacy nonfinancial `fair_val` fields in the old market-generator output
+are not consumed by the website's new general valuation path; the independent
+FCFF cache and shared engine are authoritative for that path. Financial-company
+models retain their existing methodology and limitations.
+
+The Profile beta is the unaltered FMP Profile value, including genuine zero or
+negative values. The response does not specify lookback, frequency or benchmark:
+it is not labeled "5-year beta". The valuation input permits a manual scenario,
+not a 3/5/10-year selector or a claim of provider-supplied period-specific betas.
+Legacy FCF scenarios are not loaded into FCFF; replacing a saved legacy target
+archives the old record in `M7_LEGACY_VALUATIONS` before saving `fcff-v1`.
+
+Normal daily refreshes capture required dated FMP evidence with the protected
+secret and compile the independent FCFF cache. Dedicated peers/prices/liquidation
+refreshes do not change FCFF. Failed capture retains the original source dates
+with an explicit workflow warning. To compile a separately captured audit:
+`node scripts/build_fcff.cjs <source-directory> [original-lease-source-directory]`.
+Validate with `node --test tests/fcff*.test.cjs` and
+`node tests/fcff.browser.cjs` against a local `TEST_BASE_URL`.
 
 ## 清算價 I／II／III
 

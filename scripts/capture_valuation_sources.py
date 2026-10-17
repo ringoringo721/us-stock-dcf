@@ -63,9 +63,14 @@ def main():
     output.mkdir(exist_ok=True)
     now = datetime.now(timezone.utc)
     leases_only = os.environ.get("CAPTURE_LEASE_SOURCES_ONLY") == "true"
+    fcff_only = os.environ.get("CAPTURE_FCFF_SOURCES_ONLY") == "true"
     endpoints = LEASE_ENDPOINTS if leases_only else ENDPOINTS
+    if fcff_only:
+        endpoints = {name: value for name, value in ENDPOINTS.items()
+                     if name in ("profile", "quote", "balance", "income", "cashflow", "annual_income", "estimates")}
+        endpoints["balance_as_reported"] = LEASE_ENDPOINTS["balance_as_reported"]
     summary = {"gitCommit": os.environ.get("GITHUB_SHA"), "capturedAt": now.isoformat(),
-               "sourceScope": "leases" if leases_only else "valuation",
+               "sourceScope": "leases" if leases_only else "fcff" if fcff_only else "valuation",
                "stocks": len(market), "successfulResponses": 0, "emptyResponses": 0, "errors": []}
     outcomes = Counter()
     with requests.Session() as session:
@@ -83,10 +88,10 @@ def main():
                 else:
                     summary["errors"].append({"ticker": ticker, "endpoint": name, **result})
                     outcomes[f"{name}: error"] += 1
-            if not leases_only and ticker in ("NVDA", "JPM"):
+            if not leases_only and not fcff_only and ticker in ("NVDA", "JPM"):
                 record["responses"]["backend_estimates_query"] = capture(
                     session, "analyst-estimates", {"symbol": symbol, "limit": 4}, key)
-            if not leases_only and ticker == "BRK.B":
+            if not leases_only and not fcff_only and ticker == "BRK.B":
                 record["responses"]["backend_symbol_profile"] = capture(
                     session, "profile", {"symbol": "BRKB"}, key)
                 record["responses"]["backend_symbol_quote"] = capture(
