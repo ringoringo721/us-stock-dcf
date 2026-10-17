@@ -3,6 +3,10 @@ name: Read-only valuation source audit
 on:
   workflow_dispatch:
     inputs:
+      symbols:
+        description: Optional comma-separated provider symbols (maximum 20); empty captures the existing universe
+        type: string
+        default: ''
       lease_sources_only:
         description: Capture original lease classification evidence only, without changing valuations
         type: boolean
@@ -25,6 +29,7 @@ jobs:
         env:
           FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
           CAPTURE_LEASE_SOURCES_ONLY: ${{ inputs.lease_sources_only }}
+          CAPTURE_SYMBOLS: ${{ inputs.symbols }}
         run: python -u scripts/capture_valuation_sources.py
       - name: Preserve source evidence and explicit API limitations
         if: always()

@@ -1,10 +1,12 @@
 """Read-only FMP evidence capture; never modifies published financial or price datasets."""
 
 from collections import Counter
+import calendar
 from datetime import datetime, timedelta, timezone
 import json
 import os
 from pathlib import Path
+import re
 import time
 
 import requests
@@ -26,6 +28,24 @@ LEASE_ENDPOINTS = {
     "income_as_reported": ("income-statement-as-reported", {"period": "quarter", "limit": 8}),
     "cashflow_as_reported": ("cash-flow-statement-as-reported", {"period": "quarter", "limit": 8}),
 }
+
+def selected_symbols(market, supplied):
+    if not supplied:
+        return list(market)
+    symbols = list(dict.fromkeys(value.strip().upper() for value in supplied.split(",") if value.strip()))
+    if not symbols or len(symbols) > 20 or any(
+            not re.fullmatch(r"[A-Z0-9]+(?:[.-][A-Z0-9]+)*", symbol) for symbol in symbols):
+        raise ValueError("Source capture requires 1-20 valid comma-separated symbols")
+    return symbols
+
+
+def provider_symbol(ticker):
+    return ticker if ticker.endswith(".HK") else ticker.replace(".", "-")
+
+
+def years_before(day, years):
+    year = day.year - years
+    return day.replace(year=year, day=min(day.day, calendar.monthrange(year, day.month)[1]))
 
 
 def capture(session, endpoint, params, key):
@@ -59,6 +79,7 @@ def main():
     if not key:
         raise RuntimeError("FMP_API_KEY is required for read-only source capture")
     market = json.loads((root / "full_market_dcf.json").read_text(encoding="utf-8"))
+    symbols = selected_symbols(market, os.environ.get("CAPTURE_SYMBOLS", ""))
     output = root / "valuation-audit-output"
     output.mkdir(exist_ok=True)
     now = datetime.now(timezone.utc)
@@ -72,14 +93,29 @@ def main():
         endpoints["balance_as_reported"] = LEASE_ENDPOINTS["balance_as_reported"]
     summary = {"gitCommit": os.environ.get("GITHUB_SHA"), "capturedAt": now.isoformat(),
                "sourceScope": "leases" if leases_only else "fcff" if fcff_only else "valuation",
-               "stocks": len(market), "successfulResponses": 0, "emptyResponses": 0, "errors": []}
+               "stocks": len(symbols), "successfulResponses": 0, "emptyResponses": 0, "errors": []}
     outcomes = Counter()
     with requests.Session() as session:
-        for ticker in market:
-            symbol = ticker.replace(".", "-")
+        for ticker in symbols:
+            symbol = provider_symbol(ticker)
             record = {"ticker": ticker, "providerSymbol": symbol,
                       "capturedAt": datetime.now(timezone.utc).isoformat(), "responses": {}}
-            for name, (endpoint, params) in endpoints.items():
+            ticker_endpoints = dict(endpoints)
+            if ticker.endswith(".HK") and not leases_only:
+                ticker_endpoints = {
+                    name: (endpoint, {**params, "limit": 32 if params.get("period") == "quarter" else 8})
+                    if name in ("income", "balance", "cashflow", "annual_income", "annual_balance", "annual_cashflow")
+                    else (endpoint, params)
+                    for name, (endpoint, params) in ticker_endpoints.items()
+                }
+                ticker_endpoints["earnings_releases"] = ("earnings", {"limit": 20})
+                ticker_endpoints["transcript_dates"] = ("earning-call-transcript-dates", {})
+                for name, first, last in (
+                        ("prices_older", years_before(now.date(), 20).isoformat(),
+                         (years_before(now.date(), 10) - timedelta(days=1)).isoformat()),
+                        ("prices_recent", years_before(now.date(), 10).isoformat(), now.date().isoformat())):
+                    ticker_endpoints[name] = ("historical-price-eod/full", {"from": first, "to": last})
+            for name, (endpoint, params) in ticker_endpoints.items():
                 result = capture(session, endpoint, {"symbol": symbol, **params}, key)
                 record["responses"][name] = result
                 if result["ok"]:
