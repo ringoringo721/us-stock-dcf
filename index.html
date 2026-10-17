@@ -6,6 +6,10 @@
   <title>美股 DCF 估值雷達</title>
   <script src="site_theme.js"></script>
   <script src="market_data.js"></script>
+  <script src="fcff_data.js"></script>
+  <script src="dcf_drivers.js"></script>
+  <script src="fcff.js"></script>
+  <script src="fcff_view.js"></script>
   <script src="usd_currency.js"></script>
   <script src="liquidation.js"></script>
   <script src="peer_comparison.js"></script>
@@ -886,6 +890,31 @@
     #subpage-rating .ai-comment-card { border-radius: 10px; padding: 22px; border-left: 4px solid var(--accent); line-height: 1.9; font-size: 14px; }
     #fscore-view { margin-top: 34px; padding-top: 16px; border-top: 1px solid var(--card-border); }
     .valuation-intro { border-top: 3px solid var(--accent); }
+    #fcff-workspace { min-width: 0; }
+    #fcff-workspace .panel { margin-bottom: 20px; border-top: 3px solid var(--accent); }
+    #fcff-workspace .panel:nth-child(2) { border-top-color: var(--green); }
+    #fcff-workspace .panel:nth-child(3) { border-top-color: var(--gold); }
+    #fcff-workspace .panel:nth-child(4) { border-top-color: var(--nasdaq-purple); }
+    #fcff-workspace .fcff-inputs { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 310px), 1fr)); gap: 8px 24px; }
+    #fcff-workspace .form-group { min-width: 0; grid-template-columns: minmax(0, 1fr) 120px; }
+    #fcff-workspace .table-scroll-wrapper { overflow-x: auto; max-width: 100%; }
+    #fcff-workspace table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+    #fcff-workspace :is(th, td) { padding: 12px 14px; border-bottom: 1px solid var(--card-border); border-right: 1px solid var(--card-border); text-align: right; }
+    #fcff-workspace th { background: var(--header-bg); }
+    #fcff-workspace tr > :first-child { text-align: left; }
+    #fcff-table { min-width: 1900px; }
+    #fcff-table tr > :first-child { position: sticky; left: 0; min-width: 150px; max-width: 190px; background: var(--sticky-bg); z-index: 2; white-space: normal; }
+    #fcff-workspace .analysis-note { overflow-wrap: anywhere; line-height: 1.9; }
+    #fcff-workspace summary { cursor: pointer; color: var(--accent); padding: 12px 0; }
+    #fcff-workspace .fcff-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+    #fcff-workspace .fcff-tabs button { background: var(--header-bg); color: var(--text); border: 1px solid var(--card-border); border-radius: 6px; padding: 9px 12px; cursor: pointer; }
+    #fcff-workspace .fcff-tabs button[aria-pressed="true"] { color: var(--accent); border-color: var(--accent); font-weight: 700; }
+    #fcff-workspace .fcff-year-input { width: 125px; box-sizing: border-box; color: var(--accent); background: var(--bg); border: 1px solid var(--card-border); border-radius: 4px; padding: 8px; font-variant-numeric: tabular-nums; text-align: right; }
+    #fcff-workspace #fcff-method-controls { margin-top: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); }
+    #fcff-workspace #fcff-method-controls .form-group { display: flex; flex-direction: column; align-items: stretch; gap: 8px; }
+    #fcff-workspace #fcff-method-controls select { width: 100%; min-width: 0; box-sizing: border-box; }
+    #fcff-driver-detail td { min-width: 130px; max-width: 190px; white-space: normal; }
+    #fcff-driver-detail tr > :first-child { position: sticky; left: 0; min-width: 160px; max-width: 200px; background: var(--sticky-bg); z-index: 1; white-space: normal; }
     #subpage-valuation .main-layout > *, #subpage-valuation .form-group { min-width: 0; }
     #subpage-valuation .form-group { display: grid; grid-template-columns: minmax(0, 1fr) 120px; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--card-border); }
     #subpage-valuation .form-group input, #subpage-valuation .form-group select { width: 100%; padding: 8px 10px; }
@@ -1223,7 +1252,8 @@
       </div>
     </div>
 
-    <!-- 一般非金融 FCF DCF 版面 -->
+    <div id="fcff-workspace" hidden></div>
+    <!-- Legacy input elements retained for the separate financial-model controls. -->
     <div class="main-layout" id="panel-general-dcf">
       <div class="panel">
         <div class="panel-title" data-i18n="sec1_title">1. 基本面與資產負債表 (可手動自訂)</div>
@@ -1420,7 +1450,7 @@
           <div class="company-meta-item"><span class="label" data-i18n="lbl_ceo">執行長 (CEO):</span><span class="val" id="cmp-meta-ceo">--</span></div>
           <div class="company-meta-item"><span class="label" data-i18n="lbl_shares_out">總股本 (Shares Out):</span><span class="val text-gold" id="cmp-meta-shares">--</span></div>
           <div class="company-meta-item"><span class="label" data-i18n="lbl_emp">全職員工數:</span><span class="val" id="cmp-meta-emp">--</span></div>
-          <div class="company-meta-item"><span class="label" data-i18n="lbl_beta_5y">5 年期 Beta:</span><span class="val text-green" id="cmp-meta-beta">--</span></div>
+          <div class="company-meta-item"><span class="label" data-i18n="lbl_beta_5y">Beta（年期未明）:</span><span class="val text-green" id="cmp-meta-beta">--</span></div>
         </div>
       </div>
 
@@ -2190,7 +2220,7 @@
       profile_income_growth: "淨利年增率",
       profile_high: "52 週最高價",
       profile_low: "52 週最低價",
-      profile_beta: "Beta（5 年）",
+      profile_beta: "Beta（FMP；年期未明）",
       profile_div_yield: "股息率",
       profile_market_cap: "市值（USD 百萬）",
       profile_ev: "企業價值（USD 百萬）",
@@ -2210,7 +2240,7 @@
       profile_source_note: "僅呈現現有資料來源提供的紀錄；缺失資料顯示 N/A，不推算補齊。TTM 年增率比較連續八季中的前後四季；前期基數必須為正，否則顯示 N/A。這不是預測成長率。",
       rating_note: "先看評分總覽，再閱讀解讀與檢驗明細。護城河代表競爭優勢評估；PF score 為財務篩選訊號，兩者不是信用評等或買賣建議。",
       valuation_title: "估值模型與情境分析",
-      valuation_note: "以現有模型與假設估算每股價值。一般企業採 FCF DCF；金融企業採既有有形權益超額報酬與股利模型。調整參數屬情境分析，不會改寫財報或趨勢資料；可儲存目標價或重設來源預設值。",
+      valuation_note: "一般企業採十財年 EBITDA 分項 FCFF 模型；分析師預測、推導數值及模型假設分開列示，TTM 為比率起點，缺少來源或租賃核對時明示 N/A。金融企業保留既有有形權益超額報酬與股利模型。調整參數屬情境分析，不會改寫財報或趨勢資料。",
       treasury_1y: "1 年期美國公債",
       treasury_2y: "2 年期美國公債",
       treasury_3y: "3 年期美國公債",
@@ -2310,7 +2340,7 @@
       th_curr_ratio: "流動比率",
       th_fscore: "PF score 評分",
       btn_save_target: "💾 儲存自訂目標價",
-      btn_reset_defaults: "恢復官方預設",
+      btn_reset_defaults: "恢復來源與模型預設",
       btn_back_list: "← 返回總表",
       btn_goto_dcf: "📈 前往估值模型",
       det_label_fair: "每股合理內在價值 (公允價值 / 自訂目標)",
@@ -2378,7 +2408,7 @@
       lbl_ceo: "執行長 (CEO):",
       lbl_shares_out: "總股本 (Shares Out):",
       lbl_emp: "全職員工數:",
-      lbl_beta_5y: "5 年期 Beta:",
+      lbl_beta_5y: "Beta（年期未明）:",
       sec_52w_title: "📈 52 週價格區間與歷史高低點",
       lbl_52w_range: "52 週價格區間:",
       lbl_52w_highlow: "52 週最高 / 最低:",
@@ -2604,7 +2634,7 @@
       profile_income_growth: "Net income growth",
       profile_high: "52-week high",
       profile_low: "52-week low",
-      profile_beta: "5-year beta",
+      profile_beta: "Beta (FMP; window unspecified)",
       profile_div_yield: "Dividend yield",
       profile_market_cap: "Market cap (USD millions)",
       profile_ev: "Enterprise value (USD millions)",
@@ -2624,7 +2654,7 @@
       profile_source_note: "Only records supplied by the existing data source are shown. Missing data remains N/A rather than being estimated. TTM growth compares successive four-quarter totals from eight consecutive quarters, with a positive prior-year base; otherwise N/A. These are reported results, not growth forecasts.",
       rating_note: "Start with the scorecards, then review the interpretation and individual tests. Economic Moat assesses competitive advantages; PF score screens financial signals. Neither is a credit rating or an investment recommendation.",
       valuation_title: "Valuation Model & Scenario Analysis",
-      valuation_note: "Estimate per-share value using the existing models and assumptions. General companies use FCF DCF; financial institutions use the existing tangible-equity excess-return and dividend models. Parameter edits are scenarios and do not change reported financials or historical trends. Save a target price or reset source defaults.",
+      valuation_note: "General companies use a ten-fiscal-year EBITDA-driven FCFF model, with TTM starting ratios. Analyst estimates, derived values and model assumptions are distinguished; missing sources or unreconciled leases are explicitly N/A. Financial institutions retain the existing tangible-equity excess-return and dividend models. Parameter edits are scenarios, not changes to reported financials or trends.",
       treasury_1y: "1Y Treasury",
       treasury_2y: "2Y Treasury",
       treasury_3y: "3Y Treasury",
@@ -2724,7 +2754,7 @@
       th_curr_ratio: "Current Ratio",
       th_fscore: "PF score",
       btn_save_target: "💾 Save Custom Target",
-      btn_reset_defaults: "Restore Official Defaults",
+      btn_reset_defaults: "Reset Source / Model Defaults",
       btn_back_list: "← Back to List",
       btn_goto_dcf: "📈 DCF Valuation Model",
       det_label_fair: "Fair Intrinsic Value per Share (DCF / Target)",
@@ -2792,7 +2822,7 @@
       lbl_ceo: "Chief Executive (CEO):",
       lbl_shares_out: "Shares Outstanding:",
       lbl_emp: "Full-Time Employees:",
-      lbl_beta_5y: "5Y Rolling Beta:",
+      lbl_beta_5y: "Beta (window unspecified):",
       sec_52w_title: "📈 52-Week Range & Historical Extremes",
       lbl_52w_range: "52-Week Range:",
       lbl_52w_highlow: "52W High / Low:",
@@ -3088,6 +3118,11 @@
   function computeDCF(s, explicitTicker) {
     if (!s) return null;
     const sym = explicitTicker || s.ticker || "";
+    if (!s.fin_valuation?.is_financial) {
+      const source = window.FCFF_DATA?.stocks?.[sym];
+      const result = Fcff.calculate(source);
+      return { ...FcffView.metrics(s, source, result), moat: evaluateMoat(s, sym) };
+    }
     let localDebt = Number(s.debt) || 0;
     
     let localCash = Number(s.cash_and_short_term) || Number(s.cash) || 0;
@@ -3492,7 +3527,7 @@
       
       const defaultDcf = computeDCF(s, ticker);
       if (!defaultDcf) return null;
-      const fairVal = s.default_fair_val || defaultDcf.fairVal;
+      const fairVal = defaultDcf.fairVal;
 
       const isSaved = !!savedModels[ticker];
       const isFav = favs.includes(ticker);
@@ -3561,7 +3596,7 @@
       const fairNum = item.fairVal === null ? null : Number(item.fairVal);
       const premiumNum = Number(item.premiumPct) || 0;
 
-      const badgeHtml = item.fairVal === null ? '<span class="badge">N/A</span>' : item.isUndervalued
+      const badgeHtml = item.fairVal === null || item.premiumPct === null ? '<span class="badge">N/A</span>' : item.isUndervalued
         ? `<span class="badge badge-undervalued">${currentLang === 'zh' ? '低估' : 'Undervalued'} ${premiumNum.toFixed(1)}%</span>`
         : `<span class="badge badge-overvalued">${currentLang === 'zh' ? '高估' : 'Overvalued'} +${premiumNum.toFixed(1)}%</span>`;
 
@@ -3591,9 +3626,10 @@
       const moatBadgeCls = (item.moat && item.moat.badgeClass) ? item.moat.badgeClass : 'moat-weak';
       const moatGradeText = (item.moat && item.moat.grade) ? item.moat.grade.split(' ')[0] : 'Moat';
 
-      const waccVal = Number(item.WACC) || 0.08;
-      const gVal = Number(item.g) || 2.25;
-      const evVal = Number(item.EV) || 0;
+      const waccVal = Number.isFinite(item.WACC) ? item.WACC : null;
+      const gVal = item.fin_valuation?.is_financial ? Number(item.g)
+        : window.FCFF_DATA?.stocks?.[item.ticker]?.defaults?.g;
+      const evVal = Number.isFinite(item.EV) ? item.EV : null;
       const mcapVal = Number(item.mcap) || 0;
 
       return `
@@ -3607,7 +3643,7 @@
           <td style="color: var(--text-secondary); text-align: left;">${getStockDisplaySector(item)}</td>
           <td style="color: var(--text-muted); font-size: 11px; text-align: left;">${getStockDisplayIndustry(item.industry) || '--'}</td>
           <td style="font-weight: 700; color: var(--accent);">$${priceNum.toFixed(2)}</td>
-          <td class="text-green" style="font-size: 13px; font-weight: 700;">${fairNum === null ? 'N/A' : '$' + fairNum.toFixed(2)}</td>
+          <td class="text-green" style="font-size: 13px; font-weight: 700;" title="${item.reason ? FcffView.reasonText(item.reason, currentLang).replace(/"/g, '&quot;') : ''}">${fairNum === null ? 'N/A' : '$' + fairNum.toFixed(2)}${!item.fin_valuation?.is_financial ? `<small class="liquidation-asof">${window.FCFF_DATA?.stocks?.[item.ticker]?.valuationDate || ''}</small>` : ''}</td>
           <td>${targetPriceHtml}</td>
           <td style="text-align: center;">
             <button class="btn-nav" onclick="openDetail('${item.ticker}')">${currentLang === 'zh' ? '深度模型 →' : 'DCF Model →'}</button>
@@ -3618,10 +3654,10 @@
             <span class="badge-moat ${moatBadgeCls}" onclick="openMoat('${item.ticker}')">${moatTotal} pt · ${moatGradeText}</span>
           </td>
           <td>
-            <div>${(waccVal * 100).toFixed(2)}%</div>
-            <div style="font-size: 11px; color: var(--text-muted);">g: ${gVal.toFixed(2)}%</div>
+            <div>${waccVal === null ? 'N/A' : (waccVal * 100).toFixed(2) + '%'}</div>
+            <div style="font-size: 11px; color: var(--text-muted);">g: ${Number.isFinite(gVal) ? gVal.toFixed(2) + '%' : 'N/A'}</div>
           </td>
-          <td>$${evVal.toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
+          <td>${evVal === null ? 'N/A' : '$' + evVal.toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
           <td style="font-weight: 600;">$${mcapVal.toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
           
           ${renderLiquidationCell(item, 0)}
@@ -3632,8 +3668,8 @@
           <td>${item.pe_forward ? Number(item.pe_forward).toFixed(1) : '--'}</td>
           <td>${item.pb_trailing ? Number(item.pb_trailing).toFixed(1) : '--'}</td>
           <td style="color: var(--accent); font-weight: 700;">${Number(item.div_yield) > 0 ? Number(item.div_yield).toFixed(2) + '%' : '0.00%'}</td>
-          <td style="color: var(--accent); font-weight: 600;">${item.fcf_to_ev !== undefined ? Number(item.fcf_to_ev).toFixed(2) + '%' : '--'}</td>
-          <td style="color: var(--nasdaq-purple); font-weight: 600;">${item.fcf_to_mcap !== undefined ? Number(item.fcf_to_mcap).toFixed(2) + '%' : '--'}</td>
+          <td style="color: var(--accent); font-weight: 600;">${Number.isFinite(item.fcf_to_ev) ? item.fcf_to_ev.toFixed(2) + '%' : 'N/A'}</td>
+          <td style="color: var(--nasdaq-purple); font-weight: 600;">${Number.isFinite(item.fcf_to_mcap) ? item.fcf_to_mcap.toFixed(2) + '%' : 'N/A'}</td>
           <td style="color: var(--accent);">${item.cash_to_assets !== undefined ? Number(item.cash_to_assets).toFixed(1) + '%' : '--'}</td>
           <td>${item.liab_to_assets !== undefined ? Number(item.liab_to_assets).toFixed(1) + '%' : '--'}</td>
           <td>${item.current_ratio !== undefined ? Number(item.current_ratio).toFixed(2) : '--'}</td>
@@ -3642,10 +3678,10 @@
           <td style="text-align: center;">
             <span class="badge-fscore ${fScoreClass}" onclick="openFScore('${item.ticker}')">${fScoreVal} / 9</span>
           </td>
-          <td style="font-weight: 700; color: var(--accent);">${item.ev_to_ebitda !== undefined ? Number(item.ev_to_ebitda).toFixed(1) + 'x' : '--'}</td>
-          <td style="color: var(--text-secondary);">${item.debt_to_ebitda !== undefined ? Number(item.debt_to_ebitda).toFixed(2) + 'x' : '--'}</td>
+          <td style="font-weight: 700; color: var(--accent);">${Number.isFinite(item.ev_to_ebitda) ? item.ev_to_ebitda.toFixed(1) + 'x' : 'N/A'}</td>
+          <td style="color: var(--text-secondary);">${Number.isFinite(item.debt_to_ebitda) ? item.debt_to_ebitda.toFixed(2) + 'x' : 'N/A'}</td>
           <td style="${(Number(item.net_debt_to_ebitda) || 0) <= 0 ? 'color: var(--green); font-weight: 700;' : ((Number(item.net_debt_to_ebitda) || 0) > 3.5 ? 'color: var(--red); font-weight: 700;' : 'color: var(--text-secondary);')}">
-            ${item.net_debt_to_ebitda !== undefined ? Number(item.net_debt_to_ebitda).toFixed(2) + 'x' : '--'}
+            ${Number.isFinite(item.net_debt_to_ebitda) ? item.net_debt_to_ebitda.toFixed(2) + 'x' : 'N/A'}
           </td>
         </tr>
       `;
@@ -4871,7 +4907,7 @@
     document.getElementById('cmp-logo-img').src = s.image || s.logo || `https://assets.financialmodelingprep.com/symbol/${ticker}.png`;
 
     const profileNumber = value => value !== null && value !== undefined && value !== '' && Number.isFinite(Number(value)) ? Number(value) : null;
-    const profileFormat = (value, unit = '') => profileNumber(value) === null ? 'N/A' : `${Number(value).toLocaleString(currentLang === 'en' ? 'en-US' : 'zh-TW', { maximumFractionDigits: 2 })}${unit}`;
+    const profileFormat = (value, unit = '', digits = 2) => profileNumber(value) === null ? 'N/A' : `${Number(value).toLocaleString(currentLang === 'en' ? 'en-US' : 'zh-TW', { maximumFractionDigits: digits })}${unit}`;
     document.getElementById('cmp-card-mcap').innerText = profileNumber(s.mcap) === null ? 'N/A' : `USD ${profileFormat(s.mcap)} M`;
     document.getElementById('cmp-card-shares').innerText = profileFormat(s.shares, currentLang === 'en' ? ' M shares' : ' M 股');
     document.getElementById('cmp-card-pe').innerText = s.pe_trailing ? `${Number(s.pe_trailing).toFixed(1)}x` : '--';
@@ -4890,7 +4926,8 @@
     document.getElementById('cmp-meta-ceo').innerText = s.ceo || (isEn ? "Executive Team" : "管理團隊");
     document.getElementById('cmp-meta-emp').innerText = s.full_time_employees ? Number(s.full_time_employees).toLocaleString() : "--";
     document.getElementById('cmp-meta-shares').innerText = profileFormat(s.shares, ` ${shareUnit}`);
-    document.getElementById('cmp-meta-beta').innerText = profileFormat(s.beta_5y ?? s.beta);
+    document.getElementById('cmp-meta-beta').innerText = profileFormat(
+      window.FCFF_DATA?.betaSources?.[activeCompanyTicker]?.value, '', 6);
 
     const quote = value => profileNumber(value) === null ? 'N/A' : `USD ${profileFormat(value)}`;
     document.getElementById('cmp-meta-52w').innerText = s.range_52w || `${quote(s.year_low)} – ${quote(s.year_high)}`;
@@ -4967,6 +5004,30 @@
     const isFinancial = !!(s.fin_valuation && s.fin_valuation.is_financial);
     const finPanel = document.getElementById('panel-fin-models');
     const genLayout = document.getElementById('panel-general-dcf');
+    document.getElementById('fcff-workspace').hidden = isFinancial;
+    if (!isFinancial) {
+      finPanel.style.display = 'none';
+      genLayout.style.display = 'none';
+      FcffView.load({
+        stock: s, ticker, saved, language: () => currentLang,
+        save: model => {
+          const models = getSavedModels();
+          const previous = models[ticker];
+          if (previous && !FcffView.compatible(previous)) {
+            const archive = JSON.parse(localStorage.getItem('M7_LEGACY_VALUATIONS') || '{}');
+            const history = archive[ticker];
+            archive[ticker] = [...(Array.isArray(history) ? history : history ? [history] : []), previous];
+            localStorage.setItem('M7_LEGACY_VALUATIONS', JSON.stringify(archive));
+          }
+          models[ticker] = model;
+          localStorage.setItem('M7_CUSTOM_VALUATIONS', JSON.stringify(models));
+          document.getElementById('det-saved-badge').style.display = 'inline-block';
+          document.getElementById('det-saved-badge').textContent =
+            `${currentLang === 'en' ? 'Saved FCFF target' : '已存 FCFF 目標價'}: $${model.targetPrice.toFixed(2)}`;
+        }
+      });
+      return;
+    }
 
     if (isFinancial) {
       if (finPanel) finPanel.style.display = 'block';
@@ -5047,6 +5108,10 @@
   function recalculateDetail() {
     const s = stockUniverse[activeDetailTicker];
     if (!s) return;
+    if (!s.fin_valuation?.is_financial) {
+      FcffView.rerender();
+      return;
+    }
 
     const isFin = !!(s.fin_valuation && s.fin_valuation.is_financial);
 
@@ -5070,6 +5135,8 @@
     const dcf = computeDCF(tempS, activeDetailTicker);
     if (!dcf) return;
 
+    document.getElementById('det-res-fair').className = `stat-num ${dcf.fairVal === null
+      ? 'text-muted' : dcf.fairVal < 0 ? 'text-red' : 'text-green'}`;
     document.getElementById('det-res-fair').innerText = dcf.fairVal === null ? 'N/A' : `$${dcf.fairVal.toFixed(2)}`;
     document.querySelector('[onclick="saveCustomModel()"]').disabled = dcf.fairVal === null;
     document.getElementById('det-res-price').innerText = `$${Number(tempS.price).toFixed(2)}`;
@@ -5350,6 +5417,10 @@
   function saveCustomModel() {
     const s = stockUniverse[activeDetailTicker];
     if (!s) return;
+    if (!s.fin_valuation?.is_financial) {
+      FcffView.save();
+      return;
+    }
 
     const isFin = !!(s.fin_valuation && s.fin_valuation.is_financial);
 
@@ -5412,8 +5483,9 @@
     localStorage.setItem('M7_CUSTOM_VALUATIONS', JSON.stringify(models));
 
     if (stockUniverse[activeDetailTicker]) {
+      delete stockUniverse[activeDetailTicker].fcffScenario;
       delete stockUniverse[activeDetailTicker].custom_growth_10y;
-      if (stockUniverse[activeDetailTicker].fin_valuation.is_financial) {
+      if (stockUniverse[activeDetailTicker].fin_valuation?.is_financial) {
         stockUniverse[activeDetailTicker].fin_valuation = structuredClone(window.FULL_MARKET_DATA[activeDetailTicker].fin_valuation);
       }
     }

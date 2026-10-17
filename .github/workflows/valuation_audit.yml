@@ -2,6 +2,11 @@ name: Read-only valuation source audit
 
 on:
   workflow_dispatch:
+    inputs:
+      lease_sources_only:
+        description: Capture original lease classification evidence only, without changing valuations
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -19,6 +24,7 @@ jobs:
       - name: Capture dated FMP source evidence without changing valuations
         env:
           FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+          CAPTURE_LEASE_SOURCES_ONLY: ${{ inputs.lease_sources_only }}
         run: python -u scripts/capture_valuation_sources.py
       - name: Preserve source evidence and explicit API limitations
         if: always()

@@ -113,8 +113,8 @@
     }
     const id = ++requestId;
     const locale = lang === 'zh' ? 'zh-TW' : 'en-US';
-    const format = (value, unit = '') => numeric(value) === null ? 'N/A'
-      : `${Number(value).toLocaleString(locale, { maximumFractionDigits: 2, minimumFractionDigits: 2 })}${unit}`;
+    const format = (value, unit = '', digits = 2) => numeric(value) === null ? 'N/A'
+      : `${Number(value).toLocaleString(locale, { maximumFractionDigits: digits, minimumFractionDigits: 2 })}${unit}`;
     const usd = value => numeric(value) === null ? 'N/A' : `USD ${format(value)}`;
     get('quote-price').textContent = usd(stock.price);
     get('quote-ticker').textContent = `${ticker} · ${stock.exchange || 'N/A'}`;
@@ -156,7 +156,8 @@
       get('overview-groups').replaceChildren();
       group('profile_market', [
         ['profile_high', usd(stock.year_high)], ['profile_low', usd(stock.year_low)],
-        ['profile_beta', format(stock.beta_5y)], ['profile_div_yield', format(stock.div_yield, '%')]
+        ['profile_beta', format(window.FCFF_DATA?.betaSources?.[ticker]?.value, '', 6)],
+        ['profile_div_yield', format(stock.div_yield, '%')]
       ]);
       group('profile_capital', [
         ['profile_market_cap', usd(stock.mcap)], ['profile_ev', usd(stock.ev)],

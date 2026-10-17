@@ -604,22 +604,21 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
     assert.equal(await page.locator('#fcf-ratio-panel').isVisible(), false);
     assert.equal(await page.locator('#detail-view #fcf-ratio-panel').count(), 0);
     assert.equal(await page.locator('#det-ticker').getAttribute('type'), 'button');
-    const originalFair = await page.locator('#det-res-fair').innerText();
-    await page.locator('#inp-fcf0').fill('100');
-    await page.waitForFunction(before => document.querySelector('#det-res-fair').textContent !== before, originalFair);
+    assert.equal(await page.locator('#det-res-fair').innerText(), 'N/A');
+    assert.match(await page.locator('#fcff-status').innerText(), /租賃|[Ll]ease/);
     assert.equal(await page.locator('#fcf-ratio-body').textContent(), historical);
     assert.equal(await page.locator('#return-ratio-body').textContent(), returnsBeforeDcf);
-    assert.equal(await page.locator('#dcf-fcf td').count(), 11);
-    assert.equal(await page.locator('#sens-body tr').count(), 3);
+    assert.equal(await page.locator('#fcff-table thead th').count(), 11, 'Supported operating projections remain visible while lease valuation is blocked');
+    assert.equal(await page.locator('#fcff-sensitivity td').innerText(), 'N/A');
     assert.equal(await page.locator('#detailDcfHistoricalChart').count(), 0);
     assert.equal(await page.locator('#company-view #subpage-valuation #detail-view').count(), 1);
     assert.equal(await page.locator('#detail-view').count(), 1);
     await page.locator('button[onclick="switchSubPage(\'rating\')"]').click();
     await page.locator('.sub-tab-btn[onclick="switchSubPage(\'valuation\')"]').click();
-    assert.equal(await page.locator('#inp-fcf0').inputValue(), '100', 'Unsaved assumptions survive company tab switches');
+    assert.equal(await page.locator('#det-res-fair').innerText(), 'N/A', 'Unavailable sources stay unavailable across tabs');
     await page.locator('#btn-lang-toggle').click();
     assert.equal(await page.locator('#subpage-valuation').isVisible(), true);
-    assert.equal(await page.locator('#inp-fcf0').inputValue(), '100', 'Language switching must not reload source assumptions');
+    assert.equal(await page.locator('#det-res-fair').innerText(), 'N/A', 'Language switching must not invent a fallback value');
     await page.locator('#btn-lang-toggle').click();
     await page.locator('#det-ticker').click();
     assert.equal(await page.locator('#company-view').isVisible(), true);
@@ -894,18 +893,21 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
     assert.equal(await navigationPage.locator('#subpage-valuation').isVisible(), true, 'Back restores a legacy valuation deep link');
     await navigationPage.goForward();
     assert.equal(await navigationPage.locator('#subpage-basic').isVisible(), true);
+    await navigationPage.evaluate(() => openCompanyProfile('CSCO'));
     await navigationPage.locator('[data-i18n="profile_open_valuation"]').click();
-    await navigationPage.locator('#inp-fcf0').fill('12345');
-    navigationPage.once('dialog', dialog => dialog.accept());
+    await navigationPage.locator('#fcff-input-controls summary').click();
+    await navigationPage.locator('#fcff-cash').fill('12345');
     await navigationPage.locator('#detail-view [onclick="saveCustomModel()"]').click();
-    assert.equal(await navigationPage.evaluate(() => getSavedModels().NVDA.params.fcf0), 12345);
+    assert.equal(await navigationPage.evaluate(() => getSavedModels().CSCO.params.cash), 12345);
     await navigationPage.reload({ waitUntil: 'networkidle' });
     assert.equal(await navigationPage.locator('#subpage-valuation').isVisible(), true);
-    assert.equal(await navigationPage.locator('#inp-fcf0').inputValue(), '12345', 'Saved assumptions reload in the embedded model');
+    assert.equal(await navigationPage.locator('#fcff-cash').inputValue(), '12345.00', 'Saved assumptions reload with two-decimal formatting');
     await navigationPage.locator('#detail-view [onclick="resetToFmpDefaults()"]').click();
-    assert.equal(await navigationPage.evaluate(() => getSavedModels().NVDA), undefined);
-    assert.equal(Number(await navigationPage.locator('#inp-fcf0').inputValue()),
-      await navigationPage.evaluate(() => window.FULL_MARKET_DATA.NVDA.fcf0));
+    assert.equal(await navigationPage.evaluate(() => getSavedModels().CSCO), undefined);
+    assert.equal(await navigationPage.locator('#fcff-cash').inputValue(),
+      await navigationPage.evaluate(() => window.FCFF_DATA.stocks.CSCO.defaults.cash.toFixed(2)));
+    assert.equal(await navigationPage.evaluate(() => stockUniverse.CSCO.fcffScenario.cash),
+      await navigationPage.evaluate(() => window.FCFF_DATA.stocks.CSCO.defaults.cash));
     await navigationPage.evaluate(() => openDetail('JPM'));
     await navigationPage.locator('#slider-fin-ke').evaluate(input => {
       input.value = '10.25';
@@ -926,9 +928,13 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
       require('../full_market_dcf.json').TSM,
       JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'cache', 'financials', 'TSM_statements_v2.json'))),
       { ...usdRates, currencies: {} });
-    await navigationPage.evaluate(stock => { stockUniverse.TSM = stock; openDetail('TSM'); }, unavailableStock);
+    await navigationPage.evaluate(stock => {
+      stockUniverse.TSM = stock;
+      window.FCFF_DATA.stocks.TSM = { reason: 'missingFx' };
+      openDetail('TSM');
+    }, unavailableStock);
     assert.equal(await navigationPage.locator('#det-res-fair').innerText(), 'N/A');
-    assert.match(await navigationPage.locator('#det-res-status').innerText(), /historical FX|歷史匯率/);
+    assert.match(await navigationPage.locator('#det-res-status').innerText(), /exchange rates|美元匯率/);
     assert.equal(await navigationPage.locator('#panel-general-dcf').isVisible(), false);
     assert.equal(await navigationPage.locator('[onclick="saveCustomModel()"]').isDisabled(), true);
     assert.ok(!(await navigationPage.locator('#subpage-valuation').innerText()).includes('NaN'));

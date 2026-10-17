@@ -1,0 +1,138 @@
+const test = require('node:test');
+const assert = require('node:assert/strict');
+const { financingDebt, workingCapital } = require('../scripts/fcff_sources.cjs');
+const { prepareSnapshot } = require('../scripts/fcff_sources.cjs');
+
+function evidence() {
+  const periods = [['2025-09-30', 2025, 'Q3'], ['2025-12-31', 2025, 'Q4'],
+    ['2026-03-31', 2026, 'Q1'], ['2026-06-30', 2026, 'Q2'], ['2026-09-30', 2026, 'Q3']];
+  const rows = fields => periods.map(([date, fiscalYear, period]) => ({
+    symbol: 'TEST', reportedCurrency: 'USD', date, fiscalYear, period, ...fields
+  }));
+  const response = rows => ({ ok: true, rows });
+  return { ticker: 'TEST', providerSymbol: 'TEST', capturedAt: '2026-10-17T00:00:00Z',
+    responses: {
+      profile: response([{ symbol: 'TEST', currency: 'USD', beta: 0, industry: 'Software' }]),
+      quote: response([{ symbol: 'TEST', timestamp: Date.parse('2026-10-16') / 1000, price: 10, marketCap: 1e9 }]),
+      income: response(rows({ revenue: 250e6, operatingIncome: 50e6, incomeTaxExpense: 10e6,
+        incomeBeforeTax: 50e6, interestExpense: 1.25e6, ebitda: 57.5e6 })),
+      balance: response(rows({ totalCurrentAssets: 500e6, cashAndShortTermInvestments: 100e6,
+        totalCurrentLiabilities: 200e6, shortTermDebt: 100e6, longTermDebt: 0, totalDebt: 100e6,
+        capitalLeaseObligations: 0, capitalLeaseObligationsCurrent: 0, longTermInvestments: 0,
+        preferredStock: 0, minorityInterest: 0 })),
+      cashflow: response(rows({ depreciationAndAmortization: 7.5e6,
+        capitalExpenditure: -12.5e6, changeInWorkingCapital: 0, freeCashFlow: 30e6 })),
+      annual_income: response([{ symbol: 'TEST', reportedCurrency: 'USD', date: '2025-12-31',
+        fiscalYear: 2025, period: 'FY', revenue: 1e9 }]),
+      estimates: response([['2025-12-31', 1e9], ['2026-12-31', 1.1e9], ['2027-12-31', 1.2e9]]
+        .map(([date, revenueAvg]) => ({ symbol: 'TEST', date, revenueAvg, ebitAvg: revenueAvg * 0.2 })))
+    }
+  };
+}
+const treasury = { ok: true, rows: [{ date: '2026-10-16', year10: 4 }] };
+
+test('reported debt already containing leases is preserved, never increased a second time', () => {
+  const result = financingDebt({ totalDebt: 38860e6, shortTermDebt: 1000e6,
+    longTermDebt: 32366e6, capitalLeaseObligations: 5494e6 });
+  assert.equal(result.value, 38860e6);
+  assert.equal(result.leaseDebt, 5494e6);
+  assert.equal(result.reason, null);
+});
+
+test('unclear lease inclusion is explicit rather than guessing whether to add lease debt', () => {
+  const result = financingDebt({ totalDebt: 120, shortTermDebt: 20,
+    longTermDebt: 100, capitalLeaseObligations: 10 });
+  assert.equal(result.value, null);
+  assert.equal(result.reason, 'debtCompositionUnverified');
+  assert.equal(financingDebt({ totalDebt: 120 }).reason, 'debtCompositionUnverified');
+});
+
+test('reported zero debt and zero lease values remain actual zeros', () => {
+  assert.equal(financingDebt({ totalDebt: 0, capitalLeaseObligations: 0 }).value, 0);
+  assert.equal(financingDebt({ totalDebt: 120, capitalLeaseObligations: 0 }).value, 120);
+  assert.equal(financingDebt({ totalDebt: -1, capitalLeaseObligations: 0 }).value, null);
+});
+
+test('current financing leases are excluded from operating NWC, not counted like trade payables', () => {
+  const balance = { totalCurrentAssets: 500, cashAndShortTermInvestments: 100,
+    totalCurrentLiabilities: 200, shortTermDebt: 50, longTermDebt: 100,
+    capitalLeaseObligations: 30, capitalLeaseObligationsCurrent: 10, totalDebt: 180 };
+  assert.equal(workingCapital(balance), 260);
+  assert.equal(workingCapital({ ...balance, totalDebt: 150 }), null);
+  assert.equal(financingDebt({ ...balance, capitalLeaseObligationsCurrent: 40 }).value, null);
+});
+
+test('unavailable or malformed source records return reasons rather than fabricated snapshots', () => {
+  const { prepareSnapshot } = require('../scripts/fcff_sources.cjs');
+  assert.equal(prepareSnapshot('TEST', null, null, null).reason, 'sourceUnavailable');
+  assert.equal(prepareSnapshot('TEST', { ticker: 'TEST', providerSymbol: 'TEST',
+    capturedAt: 123 }, null, null).reason, 'sourceUnavailable');
+});
+
+test('source adapter constructs aligned TTM components and preserves zero and negative beta', () => {
+  const input = evidence(), snapshot = prepareSnapshot('TEST', input, treasury, null);
+  assert.equal(snapshot.reason, null);
+  assert.equal(snapshot.ttm.revenue, 1000);
+  assert.equal(snapshot.ttm.ebit, 200);
+  assert.equal(snapshot.ttm.capex, 50);
+  assert.equal(snapshot.defaults.beta, 0);
+  assert.equal(snapshot.defaults.tax, 20);
+  assert.equal(snapshot.defaults.kd, 5);
+  input.responses.profile.rows[0].beta = -0.047;
+  assert.equal(prepareSnapshot('TEST', input, treasury, null).defaults.beta, -0.047);
+});
+
+test('source support preserves real consensus EBITDA and available annual/quarterly history without filling gaps', () => {
+  const input = evidence();
+  input.responses.estimates.rows[1].ebitdaAvg = 260e6;
+  input.responses.annual_income.rows[0].operatingIncome = 200e6;
+  input.responses.annual_income.rows[0].incomeBeforeTax = 100e6;
+  input.responses.annual_income.rows[0].incomeTaxExpense = -10e6;
+  input.responses.annual_cashflow = { ok: true, rows: [
+    { symbol: 'TEST', date: '2025-12-31', reportedCurrency: 'USD', period: 'FY',
+      fiscalYear: 2025, depreciationAndAmortization: 30e6, capitalExpenditure: -50e6 }
+  ] };
+  const snapshot = prepareSnapshot('TEST', input, treasury, null);
+  assert.equal(snapshot.modelVersion, 'fcff-v2');
+  assert.equal(snapshot.forecasts[1].ebitda, 260);
+  assert.equal(snapshot.forecasts[2].ebitda, null);
+  assert.equal(snapshot.history.annual.length, 1, 'Do not pad to five years');
+  assert.equal(snapshot.history.annual[0].capex, 50);
+  assert.equal(snapshot.history.annual[0].depreciation, 30);
+  assert.equal(snapshot.history.annual[0].tax, -10, 'Retain reported historical tax benefits, unlike bounded forecast tax inputs');
+  assert.equal(snapshot.history.quarterly[2].ltmRevenue, null);
+  assert.equal(snapshot.history.quarterly.at(-1).ltmRevenue, 1000);
+  assert.equal(snapshot.history.quarterly.at(-1).workingCapitalRate, 0.3);
+  assert.equal(snapshot.ytd.ebitda, 172.5);
+  assert.equal(snapshot.ytd.depreciation, 22.5);
+  assert.equal(snapshot.ytd.capex, 37.5);
+  input.responses.annual_cashflow.rows[0].acceptedDate = '2027-01-01';
+  const invalid = prepareSnapshot('TEST', input, treasury, null);
+  assert.equal(invalid.history.annual[0].capex, null);
+  assert.equal(invalid.history.warnings[0].reason, 'sourceDateMismatch');
+});
+
+test('positive original lease liabilities cannot be hidden by a normalized zero, but closed older leases do not override a current zero', () => {
+  const input = evidence();
+  input.responses.balance_as_reported = { ok: true, rows: [
+    { date: '2026-09-30', data: { operatingleaseliabilitynoncurrent: 100 } }
+  ] };
+  assert.equal(prepareSnapshot('TEST', input, treasury, null).reason, 'leaseMappingUnverified');
+  input.responses.balance_as_reported.rows[0].date = '2026-06-30';
+  input.responses.balance_as_reported.rows.unshift({ date: '2026-09-30',
+    data: { operatingleaseliabilitynoncurrent: 0 } });
+  assert.equal(prepareSnapshot('TEST', input, treasury, null).reason, null);
+  input.responses.balance_as_reported.rows.unshift({ date: '2026-12-31',
+    data: { operatingleaseliabilitynoncurrent: 100 } });
+  assert.equal(prepareSnapshot('TEST', input, treasury, null).reason, null);
+});
+
+test('annual forecast currency checks cannot borrow a different reporting currency or a future annual statement', () => {
+  const input = evidence();
+  input.responses.annual_income.rows[0].reportedCurrency = 'EUR';
+  assert.equal(prepareSnapshot('TEST', input, treasury, null).reason, 'forecastCurrencyScaleUnverified');
+  input.responses.annual_income.rows[0].date = '2026-12-31';
+  assert.equal(prepareSnapshot('TEST', input, treasury, null).reason, 'sourceDateMismatch');
+  delete input.responses.annual_income.rows[0].date;
+  assert.equal(prepareSnapshot('TEST', input, treasury, null).reason, 'sourceDateMismatch');
+});

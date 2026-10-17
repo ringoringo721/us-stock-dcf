@@ -12,11 +12,19 @@ import requests
 ENDPOINTS = {
     "profile": ("profile", {}),
     "quote": ("quote", {}),
-    "balance": ("balance-sheet-statement", {"period": "quarter", "limit": 1}),
+    "balance": ("balance-sheet-statement", {"period": "quarter", "limit": 8}),
     "income": ("income-statement", {"period": "quarter", "limit": 8}),
     "cashflow": ("cash-flow-statement", {"period": "quarter", "limit": 8}),
+    "annual_income": ("income-statement", {"period": "annual", "limit": 5}),
+    "annual_balance": ("balance-sheet-statement", {"period": "annual", "limit": 5}),
+    "annual_cashflow": ("cash-flow-statement", {"period": "annual", "limit": 5}),
     "estimates": ("analyst-estimates", {"period": "annual", "limit": 12}),
     "enterprise_values": ("enterprise-values", {"period": "quarter", "limit": 1}),
+}
+LEASE_ENDPOINTS = {
+    "balance_as_reported": ("balance-sheet-statement-as-reported", {"period": "quarter", "limit": 8}),
+    "income_as_reported": ("income-statement-as-reported", {"period": "quarter", "limit": 8}),
+    "cashflow_as_reported": ("cash-flow-statement-as-reported", {"period": "quarter", "limit": 8}),
 }
 
 
@@ -54,7 +62,16 @@ def main():
     output = root / "valuation-audit-output"
     output.mkdir(exist_ok=True)
     now = datetime.now(timezone.utc)
+    leases_only = os.environ.get("CAPTURE_LEASE_SOURCES_ONLY") == "true"
+    fcff_only = os.environ.get("CAPTURE_FCFF_SOURCES_ONLY") == "true"
+    endpoints = LEASE_ENDPOINTS if leases_only else ENDPOINTS
+    if fcff_only:
+        endpoints = {name: value for name, value in ENDPOINTS.items()
+                     if name in ("profile", "quote", "balance", "income", "cashflow",
+                                 "annual_income", "annual_balance", "annual_cashflow", "estimates")}
+        endpoints["balance_as_reported"] = LEASE_ENDPOINTS["balance_as_reported"]
     summary = {"gitCommit": os.environ.get("GITHUB_SHA"), "capturedAt": now.isoformat(),
+               "sourceScope": "leases" if leases_only else "fcff" if fcff_only else "valuation",
                "stocks": len(market), "successfulResponses": 0, "emptyResponses": 0, "errors": []}
     outcomes = Counter()
     with requests.Session() as session:
@@ -62,7 +79,7 @@ def main():
             symbol = ticker.replace(".", "-")
             record = {"ticker": ticker, "providerSymbol": symbol,
                       "capturedAt": datetime.now(timezone.utc).isoformat(), "responses": {}}
-            for name, (endpoint, params) in ENDPOINTS.items():
+            for name, (endpoint, params) in endpoints.items():
                 result = capture(session, endpoint, {"symbol": symbol, **params}, key)
                 record["responses"][name] = result
                 if result["ok"]:
@@ -72,10 +89,10 @@ def main():
                 else:
                     summary["errors"].append({"ticker": ticker, "endpoint": name, **result})
                     outcomes[f"{name}: error"] += 1
-            if ticker in ("NVDA", "JPM"):
+            if not leases_only and not fcff_only and ticker in ("NVDA", "JPM"):
                 record["responses"]["backend_estimates_query"] = capture(
                     session, "analyst-estimates", {"symbol": symbol, "limit": 4}, key)
-            if ticker == "BRK.B":
+            if not leases_only and not fcff_only and ticker == "BRK.B":
                 record["responses"]["backend_symbol_profile"] = capture(
                     session, "profile", {"symbol": "BRKB"}, key)
                 record["responses"]["backend_symbol_quote"] = capture(
