@@ -120,11 +120,20 @@
   ];
   const text = (zh, en) => context.language() === 'en' ? en : zh;
   function snapshot() { return window.FCFF_DATA?.stocks?.[context.ticker]; }
+  function numericValue(input) {
+    const value = input.value === input.dataset.formattedValue ? input.dataset.preciseValue : input.value;
+    return value.trim() === '' ? null : Number(value);
+  }
+  function formatInput(input, value) {
+    input.dataset.preciseValue = finite(value) ? String(value) : '';
+    input.value = finite(value) ? value.toFixed(2) : '';
+    input.dataset.formattedValue = input.value;
+  }
   function readScenario() {
     const scenario = { modelVersion: 'fcff-v2', years: structuredClone(yearEdits) };
     for (const [key, , , mode] of fields) {
       const input = document.getElementById(`fcff-${key}`);
-      const value = input.value.trim() === '' ? null : Number(input.value);
+      const value = numericValue(input);
       if (mode === 'optionalRatio' && value === null) continue;
       scenario[key] = ['ratio', 'nullableRatio', 'optionalRatio'].includes(mode) && value !== null ? value / 100 : value;
     }
@@ -157,7 +166,8 @@
         <div class="fcff-inputs">${fields.map(([key, zh, en, mode]) => {
           const value = ['ratio', 'nullableRatio', 'optionalRatio'].includes(mode) && finite(defaults[key]) ? defaults[key] * 100 : defaults[key];
           return `<div class="form-group"><label for="fcff-${key}">${escape(text(zh, en))}</label>
-            <input type="number" id="fcff-${key}" step="any" value="${finite(value) ? value : ''}"
+            <input type="number" id="fcff-${key}" step="0.01" value="${finite(value) ? value.toFixed(2) : ''}"
+              data-precise-value="${finite(value) ? value : ''}" data-formatted-value="${finite(value) ? value.toFixed(2) : ''}"
               ${!source?.ttm ? 'disabled' : ''}></div>`;
         }).join('')}</div></details>
       <div class="fcff-inputs" id="fcff-method-controls"></div>
@@ -203,7 +213,14 @@
     document.getElementById('fcff-method-controls').innerHTML = choices.map(([key, zh, en, items]) =>
       `<div class="form-group"><label for="fcff-${key}">${text(zh, en)}</label>
       <select id="fcff-${key}">${items.map(([option, a, b]) => `<option value="${option}" ${defaults[key] === option ? 'selected' : ''}>${text(a, b)}</option>`).join('')}</select></div>`).join('');
-    for (const input of panel.querySelectorAll('input')) input.addEventListener('input', recalculate);
+    for (const input of panel.querySelectorAll('input')) {
+      input.addEventListener('input', () => {
+        input.dataset.preciseValue = input.value;
+        input.dataset.formattedValue = input.value;
+        recalculate();
+      });
+      input.addEventListener('blur', () => formatInput(input, numericValue(input)));
+    }
     for (const select of panel.querySelectorAll('select')) select.addEventListener('change', recalculate);
     renderTabs();
     document.getElementById('fcff-legacy').textContent = options.saved && !compatible(options.saved)
@@ -349,10 +366,10 @@
     const annuals = result.annuals || [];
     const editRow = (label, key, getter, ratio, pair) => [label, annuals.map(row => {
       const inputValue = getter(row);
-      return `<input class="fcff-year-input" type="number" step="any" data-end="${row.end}" data-key="${key}"
+      return `<input class="fcff-year-input" type="number" step="0.01" data-end="${row.end}" data-key="${key}"
         data-ratio="${ratio ? 'true' : 'false'}" data-pair="${pair || ''}"
         aria-label="${escape(label)} ${row.end}" title="${finite(inputValue) ? inputValue : ''}"
-        value="${finite(inputValue) ? Number(inputValue.toFixed(ratio ? 4 : 2)) : ''}">`;
+        value="${finite(inputValue) ? inputValue.toFixed(2) : ''}">`;
     })];
     const rows = {
       revenue: [
@@ -439,7 +456,7 @@
     button.type = 'button';
     button.textContent = text('套用為全期起點', 'Apply as baseline');
     button.addEventListener('click', () => {
-      document.getElementById(`fcff-${key}`).value = key === 'tax' ? mean : mean * 100;
+      formatInput(document.getElementById(`fcff-${key}`), key === 'tax' ? mean : mean * 100);
       if (key === 'depreciation') document.getElementById('fcff-depreciationBasis').value = 'ttm';
       recalculate();
     });

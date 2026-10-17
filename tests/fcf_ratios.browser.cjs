@@ -901,10 +901,12 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
     assert.equal(await navigationPage.evaluate(() => getSavedModels().CSCO.params.cash), 12345);
     await navigationPage.reload({ waitUntil: 'networkidle' });
     assert.equal(await navigationPage.locator('#subpage-valuation').isVisible(), true);
-    assert.equal(await navigationPage.locator('#fcff-cash').inputValue(), '12345', 'Saved assumptions reload in the embedded model');
+    assert.equal(await navigationPage.locator('#fcff-cash').inputValue(), '12345.00', 'Saved assumptions reload with two-decimal formatting');
     await navigationPage.locator('#detail-view [onclick="resetToFmpDefaults()"]').click();
     assert.equal(await navigationPage.evaluate(() => getSavedModels().CSCO), undefined);
-    assert.equal(Number(await navigationPage.locator('#fcff-cash').inputValue()),
+    assert.equal(await navigationPage.locator('#fcff-cash').inputValue(),
+      await navigationPage.evaluate(() => window.FCFF_DATA.stocks.CSCO.defaults.cash.toFixed(2)));
+    assert.equal(await navigationPage.evaluate(() => stockUniverse.CSCO.fcffScenario.cash),
       await navigationPage.evaluate(() => window.FCFF_DATA.stocks.CSCO.defaults.cash));
     await navigationPage.evaluate(() => openDetail('JPM'));
     await navigationPage.locator('#slider-fin-ke').evaluate(input => {

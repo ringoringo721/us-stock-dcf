@@ -21,6 +21,11 @@ const money = value => '$' + value.toLocaleString('en-US', { minimumFractionDigi
     await page.goto(`${baseUrl}/#CSCO/valuation`, { waitUntil: 'networkidle' });
     const baseline = calculate(sources.stocks.CSCO);
     assert.equal(await page.locator('#det-res-fair').innerText(), money(baseline.fairVal));
+    assert.deepEqual(await page.locator('#fcff-workspace input[type="number"]').evaluateAll(inputs =>
+      inputs.filter(input => input.value !== '' && !/^-?\d+\.\d{2}$/.test(input.value)).map(input => input.id)), []);
+    assert.equal(await page.locator('#fcff-shares').inputValue(), sources.stocks.CSCO.defaults.shares.toFixed(2));
+    assert.equal(await page.evaluate(() => stockUniverse.CSCO.fcffScenario.shares), sources.stocks.CSCO.defaults.shares,
+      'Formatting source amounts must not round the underlying valuation shares');
     assert.match(await page.locator('#fcff-legacy').innerText(), /legacy target|legacy FCF/i);
     assert.equal(await page.locator('#fcff-table thead th').count(), baseline.periods.length + 1);
     assert.equal(await page.locator('#fcff-sensitivity .sens-base').innerText(), money(baseline.fairVal));
@@ -56,10 +61,10 @@ const money = value => '$' + value.toLocaleString('en-US', { minimumFractionDigi
       sources.stocks.CSCO.defaults.beta, 'Manual beta is not written back to provider data');
     const fair = await page.locator('#det-res-fair').innerText();
     await page.evaluate(() => { switchSubPage('basic'); switchSubPage('valuation'); applyLanguage('zh'); });
-    assert.equal(await page.locator('#fcff-beta').inputValue(), '-0.047');
+    assert.equal(await page.locator('#fcff-beta').inputValue(), '-0.05');
     assert.equal(await page.locator('#det-res-fair').innerText(), fair);
     await page.evaluate(() => applyLanguage('en'));
-    assert.equal(await page.locator('#fcff-beta').inputValue(), '-0.047');
+    assert.equal(await page.locator('#fcff-beta').inputValue(), '-0.05');
     await page.locator('[onclick="saveCustomModel()"]').click();
     const stored = await page.evaluate(() => ({
       model: getSavedModels().CSCO,
@@ -70,7 +75,11 @@ const money = value => '$' + value.toLocaleString('en-US', { minimumFractionDigi
     assert.equal(stored.model.params.tax, 0);
     assert.equal(stored.archive[0].params.fcf0, 999);
     await page.evaluate(() => { delete stockUniverse.CSCO.fcffScenario; loadDetailTicker('CSCO'); });
-    assert.equal(await page.locator('#fcff-beta').inputValue(), '-0.047');
+    assert.equal(await page.locator('#fcff-beta').inputValue(), '-0.05');
+    await page.locator('#fcff-input-controls summary').click();
+    await page.locator('#fcff-beta').fill('-0.05');
+    assert.equal(await page.evaluate(() => stockUniverse.CSCO.fcffScenario.beta), -0.05,
+      'Explicitly entering the rounded displayed value replaces the previous full-precision scenario');
     await page.locator('[onclick="resetToFmpDefaults()"]').click();
     assert.equal(await page.locator('#det-res-fair').innerText(), money(baseline.fairVal));
     assert.equal(await page.evaluate(() => getSavedModels().CSCO), undefined);
@@ -97,13 +106,19 @@ const money = value => '$' + value.toLocaleString('en-US', { minimumFractionDigi
     await tax.fill('0');
     await tax.blur();
     await page.evaluate(() => { applyLanguage('zh'); applyLanguage('en'); });
-    assert.equal(await page.locator(`.fcff-year-input[data-end="${editedYear}"][data-key="tax"]`).inputValue(), '0');
+    assert.equal(await page.locator(`.fcff-year-input[data-end="${editedYear}"][data-key="tax"]`).inputValue(), '0.00');
     const annualScenario = await page.evaluate(() => stockUniverse.CSCO.fcffScenario);
     assert.equal(annualScenario.years[editedYear].ebitda, changedEbitda);
     assert.equal(annualScenario.years[editedYear].capexRate, 0);
     assert.equal(annualScenario.years[editedYear].workingCapitalRate, -0.01);
     assert.equal(annualScenario.years[editedYear].tax, 0);
     assert.equal(await page.locator('#det-res-fair').innerText(), money(calculate(sources.stocks.CSCO, annualScenario).fairVal));
+    for (const tab of ['revenue', 'capex', 'workingCapital', 'depreciation', 'tax']) {
+      await page.locator(`#fcff-driver-tabs [data-tab="${tab}"]`).click();
+      assert.deepEqual(await page.locator('#fcff-driver-detail input[type="number"]').evaluateAll(inputs =>
+        inputs.filter(input => input.value !== '' && !/^-?\d+\.\d{2}$/.test(input.value))
+          .map(input => input.getAttribute('aria-label'))), [], tab);
+    }
     await page.locator('#fcff-support-tabs [data-tab="periods"]').click();
     assert.ok((await page.locator('#fcff-support-other').innerText()).includes(baseline.periods[0].discountDate));
     await page.locator('#fcff-support-tabs [data-tab="history"]').click();
@@ -130,6 +145,15 @@ const money = value => '$' + value.toLocaleString('en-US', { minimumFractionDigi
     assert.deepEqual(await page.evaluate(() => getSavedModels().CSCO.params.years), annualScenario.years);
     await page.locator('[onclick="resetToFmpDefaults()"]').click();
     assert.equal(await page.locator('#fcff-terminalMethod').inputValue(), 'roic');
+    await page.locator('#fcff-driver-tabs [data-tab="capex"]').click();
+    const observedRatios = sources.stocks.CSCO.history.annual.filter(row => Number.isFinite(row.capex) && row.revenue > 0)
+      .map(row => row.capex / row.revenue);
+    const historicalMean = observedRatios.reduce((sum, value) => sum + value, 0) / observedRatios.length;
+    await page.locator('#fcff-driver-detail p button').click();
+    assert.equal(await page.locator('#fcff-capex').inputValue(), (historicalMean * 100).toFixed(2));
+    assert.ok(Math.abs(await page.evaluate(() => stockUniverse.CSCO.fcffScenario.capex) - historicalMean) < 1e-12);
+    assert.equal(await page.locator('#det-res-fair').innerText(), money(calculate(sources.stocks.CSCO, { capex: historicalMean }).fairVal));
+    await page.locator('[onclick="resetToFmpDefaults()"]').click();
     await page.locator('#fcff-driver-tabs [data-tab="revenue"]').click();
     await page.locator('#fcff-support-tabs [data-tab="cashflow"]').click();
 

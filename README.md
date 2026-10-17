@@ -30,6 +30,9 @@ These repository changes do not themselves deploy the website.
 The general-company page provides seven assumption categories: revenue/EBITDA,
 capex, working capital, D&A, tax, discount rate and terminal value. Full-year
 amounts and ratios can be edited separately for each of ten fiscal years.
+Available numeric input fields display two decimal places. Untouched source
+and saved values retain their underlying precision; input display formatting
+does not round the valuation, including beta and valuation share counts.
 Clearing an annual override restores the source/model default for that field.
 TTM is the starting operating-ratio basis. Available historical ratios can be
 explicitly selected instead, with the actual number of observations disclosed.
