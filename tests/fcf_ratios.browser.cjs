@@ -137,6 +137,38 @@ async function checkTable(page, ticker, options, prefix = 'fcf-ratio') {
     await page.locator('button[onclick="resetScreenerFilters()"]').click();
     assert.equal(await page.locator('#screener-tbody tr').count(), stockCount);
     await page.locator('.screener-industries summary').click();
+    for (const [lang, width] of ['zh', 'en'].flatMap(lang => [390, 768, 1440, 1920].map(width => [lang, width]))) {
+      await page.evaluate(lang => applyLanguage(lang), lang);
+      await page.setViewportSize({ width, height: 1080 });
+      const alignment = await page.locator('.screener-industries').evaluate(panel => {
+        const rows = [...panel.querySelectorAll('.filter-row')];
+        const rect = element => element.getBoundingClientRect();
+        return rows.map(row => ({
+          label: rect(row.querySelector('.filter-title')).toJSON(),
+          grid: rect(row.querySelector('.filter-btns')).toJSON(),
+          buttons: [...row.querySelectorAll('button')].map(button => ({
+            ...rect(button).toJSON(), fits: button.scrollWidth <= button.clientWidth + 1
+              && button.scrollHeight <= button.clientHeight + 1
+          }))
+        }));
+      });
+      assert.ok(Math.abs(alignment[0].grid.left - alignment[1].grid.left) < 1,
+        'Sector and industry grids start on the same vertical line');
+      assert.ok(Math.abs(alignment[0].grid.width - alignment[1].grid.width) < 1);
+      for (const row of alignment) {
+        const widths = row.buttons.map(button => button.width);
+        const heights = row.buttons.map(button => button.height);
+        assert.ok(Math.max(...widths) - Math.min(...widths) < 1, 'Filter buttons share equal column widths');
+        assert.ok(Math.max(...heights) - Math.min(...heights) < 1, 'Filter button rows share equal heights');
+        assert.ok(row.buttons.every(button => button.fits), 'Long bilingual industry labels stay within their buttons');
+        if (width > 600) assert.ok(row.label.top < row.grid.top + 18,
+          'Multi-row industry labels align at the top instead of the vertical center');
+      }
+      assert.ok(Math.abs(alignment[0].buttons[0].width - alignment[1].buttons[0].width) < 1);
+      assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
+    }
+    await page.evaluate(() => applyLanguage('zh'));
+    await page.setViewportSize({ width: 1440, height: 1000 });
     await page.locator('#sector-filters button').nth(1).click();
     assert.equal(await page.evaluate(() => [...document.querySelectorAll('#screener-tbody .ticker-link')]
       .every(link => stockUniverse[link.textContent].sector === currentSectorFilter)), true);
@@ -145,6 +177,89 @@ async function checkTable(page, ticker, options, prefix = 'fcf-ratio') {
       .every(link => stockUniverse[link.textContent].industry === currentSubIndustryFilter)), true);
     await page.locator('button[onclick="resetScreenerFilters()"]').click();
     await page.locator('.screener-industries summary').click();
+    await page.selectOption('#screener-columns', 'all');
+    for (const lang of ['en', 'zh', 'en', 'zh']) {
+      await page.evaluate(lang => applyLanguage(lang), lang);
+      assert.equal(await page.locator('#screener-table thead .screener-heading').count(), 33);
+      const headers = await page.locator('#screener-table thead th').evaluateAll(cells => cells.map(cell => {
+        const heading = cell.querySelector('.screener-heading');
+        const label = heading.querySelector('.screener-heading-label');
+        const rect = label.getBoundingClientRect();
+        const box = cell.getBoundingClientRect();
+        return {
+          height: box.height, labelTop: rect.top, center: getComputedStyle(cell).textAlign,
+          fits: label.scrollWidth <= label.clientWidth + 1, children: heading.children.length,
+          infoTop: heading.querySelector('.info-circle-btn')?.getBoundingClientRect().top
+        };
+      }));
+      assert.ok(headers.every(header => header.height === headers[0].height && header.center === 'center'));
+      assert.ok(headers.every(header => header.children === 2 && header.fits),
+        'All headers keep one aligned label area and one aligned unit/info area');
+      const info = headers.filter(header => header.infoTop !== undefined);
+      assert.equal(info.length, 3);
+      assert.ok(Math.max(...info.map(header => header.infoTop)) - Math.min(...info.map(header => header.infoTop)) < 1);
+      const values = await page.locator('#screener-tbody .liquidation-value').evaluateAll(cells => cells.map(cell => ({
+        value: Number(cell.textContent.replace(/[$,\s]/g, '')),
+        positive: cell.classList.contains('text-green'), negative: cell.classList.contains('text-red'),
+        neutral: cell.classList.contains('text-muted')
+      })));
+      assert.equal(values.length, stockCount * 3);
+      assert.ok(values.every(cell => cell.value > 0 ? cell.positive : cell.value < 0 ? cell.negative : cell.neutral));
+      assert.ok(await page.locator('#screener-liquidation-key').isVisible());
+    }
+    const priorLiquidation = await page.evaluate(() => {
+      const fields = ['liq_val_1', 'liq_val_2', 'liq_val_3'];
+      const original = fields.map(field => stockUniverse.NVDA[field]);
+      fields.forEach((field, i) => { stockUniverse.NVDA[field] = [12.34, -5.67, 0][i]; });
+      renderScreenerTable();
+      return original;
+    });
+    const nvdaValues = page.locator('#screener-tbody tr').filter({ has: page.locator('a[onclick="openCompanyProfile(\'NVDA\')"]') })
+      .locator('.liquidation-value');
+    assert.deepEqual((await nvdaValues.allTextContents()).map(text => text.trim()), ['$12.34', '-$5.67', '$0.00']);
+    assert.deepEqual(await nvdaValues.evaluateAll(cells => cells.map(cell => cell.className)),
+      ['liquidation-value text-green', 'liquidation-value text-red', 'liquidation-value text-muted']);
+    await page.evaluate(original => {
+      ['liq_val_1', 'liq_val_2', 'liq_val_3'].forEach((field, i) => { stockUniverse.NVDA[field] = original[i]; });
+      renderScreenerTable();
+    }, priorLiquidation);
+    await page.locator('#main-scroll-box').evaluate(box => { box.scrollLeft = 1500; });
+    const formulaInfo = page.locator('#screener-table .info-circle-btn').nth(1);
+    await formulaInfo.focus();
+    assert.equal(await formulaInfo.locator('.tooltip-box').evaluate(node => getComputedStyle(node).visibility), 'visible');
+    await page.keyboard.press('Tab');
+    await page.evaluate(() => SiteTheme.set('light'));
+    const rowCell = page.locator('#screener-tbody tr').nth(1).locator('.liquidation-value').nth(1);
+    await rowCell.hover();
+    const hoverStyles = await rowCell.evaluate(cell => {
+      const row = cell.closest('tr');
+      const background = getComputedStyle(cell).backgroundColor;
+      return {
+        background, stickyBackground: getComputedStyle(row.cells[0]).backgroundColor,
+        border: getComputedStyle(cell).boxShadow, cursor: getComputedStyle(cell).cursor,
+        normal: getComputedStyle(row.nextElementSibling.cells[16]).backgroundColor
+      };
+    });
+    assert.equal(hoverStyles.background, 'rgb(219, 234, 254)');
+    assert.equal(hoverStyles.stickyBackground, hoverStyles.background);
+    assert.notEqual(hoverStyles.normal, hoverStyles.background);
+    assert.notEqual(hoverStyles.border, 'none');
+    assert.match(hoverStyles.cursor, /data:image\/svg\+xml/);
+    const cursorImage = await rowCell.evaluate(async cell => {
+      const source = getComputedStyle(cell).cursor.match(/url\("([^"]+)"\)/)[1];
+      const image = new Image();
+      image.src = source;
+      await image.decode();
+      return { width: image.naturalWidth, height: image.naturalHeight };
+    });
+    assert.deepEqual(cursorImage, { width: 32, height: 32 }, 'High-contrast cursor SVG loads as a valid cursor image');
+    await page.mouse.down();
+    assert.match(await rowCell.evaluate(cell => getComputedStyle(cell).cursor), /16 16.*grabbing/);
+    await page.mouse.up();
+    await page.evaluate(() => SiteTheme.set('dark'));
+    assert.doesNotMatch(await rowCell.evaluate(cell => getComputedStyle(cell).cursor), /data:image\/svg\+xml/);
+    await page.selectOption('#screener-columns', 'overview');
+    assert.equal(await page.locator('#screener-liquidation-key').isVisible(), false);
     for (const width of [390, 768, 1440]) {
       await page.setViewportSize({ width, height: 1000 });
       assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1),
@@ -510,7 +625,7 @@ async function checkTable(page, ticker, options, prefix = 'fcf-ratio') {
     await checkTable(racePage, 'AAPL', {});
     await checkTable(racePage, 'AAPL', {}, 'return-ratio');
     await checkBalances(racePage, 'AAPL');
-    console.log('PASS: actual quarterly/annual balance analysis, date and presentation controls, screener column views and filters, responsive layout, shared financial DCF/Trend ROTE, persistent themes, translated continuous financial grids, existing FCF/return controls, navigation and retry/race regressions.');
+    console.log('PASS: aligned responsive bilingual industry grids and two-tier headers, signed liquidation colors, accessible formula tooltips, decoded high-contrast light cursors and hover/focus rows; existing balance analysis, screener, DCF/Trend ROTE, themes, financial grids, FCF/return controls and retry/race regressions.');
   } finally {
     await browser.close();
   }

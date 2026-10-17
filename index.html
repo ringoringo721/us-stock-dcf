@@ -43,6 +43,8 @@
       --hover-bg: rgba(255, 255, 255, 0.03);
       --chart-grid: rgba(51, 65, 85, 0.4);
       --shadow: rgba(0, 0, 0, 0.25);
+      --row-hover-bg: #21364d;
+      --row-hover-edge: #38bdf8;
       --orange: #f97316;
     }
     :root[data-theme="light"] {
@@ -71,6 +73,10 @@
       --hover-bg: rgba(3, 105, 161, 0.06);
       --chart-grid: rgba(71, 85, 105, 0.2);
       --shadow: rgba(15, 23, 42, 0.12);
+      --row-hover-bg: #dbeafe;
+      --row-hover-edge: #0369a1;
+      --table-cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M5 3v23l6-6 5 10 5-3-5-9h9z' fill='%230f172a' stroke='%230f172a' stroke-width='4' stroke-linejoin='round'/%3E%3Cpath d='M5 3v23l6-6 5 10 5-3-5-9h9z' fill='%230f172a' stroke='white' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E") 5 3;
+      --table-drag-cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M2 16l8-8v5h12V8l8 8-8 8v-5H10v5z' fill='%230f172a' stroke='%230f172a' stroke-width='4' stroke-linejoin='round'/%3E%3Cpath d='M2 16l8-8v5h12V8l8 8-8 8v-5H10v5z' fill='%230f172a' stroke='white' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E") 16 16;
       --orange: #c2410c;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: var(--font-family); }
@@ -286,7 +292,7 @@
       font-family: var(--font-family);
       margin: 4px 0;
     }
-    .info-circle-btn:hover .tooltip-box {
+    .info-circle-btn:hover .tooltip-box, .info-circle-btn:focus .tooltip-box {
       visibility: visible;
       opacity: 1;
       transform: translateX(-50%) translateY(4px);
@@ -756,12 +762,32 @@
     .screener-industries { border-top: 1px solid var(--card-border); padding-top: 16px; }
     .screener-industries summary { cursor: pointer; color: var(--text-secondary); font-size: 13px; font-weight: 600; }
     .screener-industries .filter-row { margin-top: 16px; }
+    #screener-view .screener-industries .filter-row { display: grid; grid-template-columns: 110px minmax(0, 1fr); align-items: start; gap: 16px; }
+    #screener-view .screener-industries .filter-title { padding-top: 12px; }
+    #screener-view .screener-industries .filter-btns { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); grid-auto-rows: 1fr; gap: 8px; }
+    #screener-view .screener-industries .f-btn { min-height: 48px; padding: 10px 12px; line-height: 1.5; white-space: normal; overflow-wrap: anywhere; text-align: center; }
+    #screener-view .screener-industries .f-btn:hover { border-color: var(--accent); background: var(--hover-bg); }
     .screener-table-tip { display: block; font-size: 12px; margin-top: 4px; }
     #screener-results { font-size: 14px; color: var(--text); }
     #screener-view .scroll-hint-bar { padding: 12px 16px; gap: 16px; background: transparent; border: 0; }
     #screener-view #screener-table { width: 100% !important; min-width: var(--screener-min-width, 1200px) !important; font-size: var(--table-font-size); }
     #screener-table .col-fixed-3 { left: var(--screener-name-left, 110px) !important; width: 220px !important; min-width: 220px !important; max-width: 220px; white-space: normal; }
     #screener-table th { white-space: normal; line-height: 1.5; }
+    #screener-table thead th { height: 92px; padding: 12px 10px; text-align: center !important; vertical-align: middle; }
+    #screener-table thead .screener-heading { display: grid; grid-template-rows: 40px 20px; gap: 4px; justify-items: center; align-items: center; }
+    #screener-table .screener-heading-label { display: flex; align-items: center; justify-content: center; text-align: center; line-height: 20px; min-width: 0; }
+    #screener-table .screener-heading-unit { font-size: 12px; font-weight: 500; line-height: 20px; white-space: nowrap; color: var(--text-muted); }
+    #screener-table .screener-heading .info-circle-btn { margin: 0; width: 18px; height: 18px; }
+    #screener-table thead th:has(.info-circle-btn:is(:hover, :focus)) { z-index: 35; }
+    #screener-table .liquidation-value { font-weight: 600; font-variant-numeric: tabular-nums; }
+    #screener-table .liquidation-value.text-muted { color: var(--text-muted); }
+    #screener-table tbody tr:is(:hover, :focus-within) > td { background-color: var(--row-hover-bg) !important; box-shadow: inset 0 1px var(--row-hover-edge), inset 0 -1px var(--row-hover-edge); }
+    #screener-table tbody tr:is(:hover, :focus-within) > td.col-fixed-3 { box-shadow: inset 0 1px var(--row-hover-edge), inset 0 -1px var(--row-hover-edge), 6px 0 10px var(--shadow) !important; }
+    :root[data-theme="light"] .table-scroll-wrapper { cursor: var(--table-cursor), grab !important; }
+    :root[data-theme="light"] .table-scroll-wrapper :is(th, a, button, [onclick]) { cursor: var(--table-cursor), pointer !important; }
+    :root[data-theme="light"] .table-scroll-wrapper:active { cursor: var(--table-drag-cursor), grabbing !important; }
+    :root[data-theme="light"] .table-scroll-wrapper:active :is(th, a, button, [onclick]) { cursor: var(--table-drag-cursor), grabbing !important; }
+    :root[data-theme="light"] #screener-table tbody tr:is(:hover, :focus-within) .text-green { color: #166534; }
     #screener-table td { height: 58px; }
     #screener-table .badge, #screener-table .badge-moat, #screener-table .badge-fscore { font-size: 12px; line-height: 1.5; }
     #main-scroll-box { max-height: 68vh !important; border-radius: 12px; }
@@ -784,6 +810,9 @@
       #screener-view .filter-row { align-items: flex-start; }
       #screener-view .filter-title { flex-basis: 100%; }
       #screener-view .filter-btns { flex-basis: 100%; }
+      #screener-view .screener-industries .filter-row { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+      #screener-view .screener-industries .filter-title { padding-top: 0; }
+      #screener-view .screener-industries .filter-btns { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       #screener-view .scroll-hint-bar { flex-wrap: wrap; padding: 8px 0; }
       #screener-table .col-fixed-3 { position: static !important; width: 180px !important; min-width: 180px !important; }
       #screener-table th.col-fixed-3 { position: sticky !important; left: auto !important; }
@@ -892,6 +921,7 @@
         <button class="scroll-arrow-btn" onclick="scrollTableBy(400)" data-i18n="scroll_right">向右滑 ▶</button>
       </div>
     </div>
+    <p id="screener-liquidation-key" class="analysis-note" data-i18n="screener_liquidation_key" hidden>清算價：正值為綠色、負值為紅色，零為中性色；正值不代表股價低估。</p>
 
     <div class="table-scroll-wrapper" id="main-scroll-box">
       <table id="screener-table">
@@ -1862,6 +1892,8 @@
       screener_results: "顯示 {shown}／{total} 檔",
       screener_empty: "沒有符合的股票，請調整或清除篩選。",
       screener_table_tip: "點選代號開啟公司頁；點選欄名排序。更多欄位可左右捲動。",
+      screener_liquidation_key: '清算價：<span class="text-green">正值</span>／<span class="text-red">負值</span>／零與缺值為中性色；正值不代表股價低估。',
+      screener_formula: "計算說明",
       balance_title: "資產與負債結構",
       balance_definition: "以實際財報期末餘額比較規模與財務結構；資產負債不做 TTM 加總。金額單位為財報幣別百萬，缺值不推算補齊。",
       balance_date: "重點財報日",
@@ -2144,6 +2176,8 @@
       screener_results: "Showing {shown} of {total} stocks",
       screener_empty: "No stocks match. Adjust or clear the filters.",
       screener_table_tip: "Open a company by ticker; sort by column heading. Scroll sideways for additional columns.",
+      screener_liquidation_key: 'Liquidation: <span class="text-green">positive</span> / <span class="text-red">negative</span> / zero and missing values are neutral. A positive value does not mean the stock is undervalued.',
+      screener_formula: "Calculation details",
       balance_title: "Assets & Balance Sheet",
       balance_definition: "Compare actual statement-end balances and financial structure; balance sheets are not summed as TTM. Amounts are in millions of the reported currency. Missing values are not estimated.",
       balance_date: "Focus statement date",
@@ -2840,6 +2874,43 @@
     renderScreenerTable();
   }
 
+  function formatScreenerHeaders() {
+    for (const header of document.querySelectorAll('#screener-table thead th')) {
+      let wrap = header.querySelector('.screener-heading');
+      if (!wrap) {
+        wrap = document.createElement('div');
+        wrap.className = 'screener-heading';
+        const info = header.querySelector('.info-circle-btn');
+        const label = document.createElement('span');
+        label.className = 'screener-heading-label';
+        if (info) {
+          const title = header.querySelector('[onclick^="sortTable"]');
+          label.append(title);
+          wrap.append(label, info);
+        } else {
+          const text = header.textContent.trim();
+          const parts = text.match(/^(.*?)\s+(EV \(\$M\)|\([^)]*\)|P\/[EB]|EBITDA)$/);
+          label.textContent = parts ? parts[1] : text;
+          const unit = document.createElement('span');
+          unit.className = 'screener-heading-unit';
+          unit.textContent = parts ? parts[2] : '';
+          if (!parts) unit.setAttribute('aria-hidden', 'true');
+          wrap.append(label, unit);
+        }
+        header.replaceChildren(wrap);
+      }
+      const info = wrap.querySelector('.info-circle-btn');
+      if (info) {
+        info.tabIndex = 0;
+        info.setAttribute('aria-label', `${I18N_DICT[currentLang].screener_formula}: ${wrap.querySelector('.screener-heading-label').textContent}`);
+        const tooltip = info.querySelector('.tooltip-box');
+        tooltip.id = `${tooltip.querySelector('b').id}-tooltip`;
+        tooltip.setAttribute('role', 'tooltip');
+        info.setAttribute('aria-describedby', tooltip.id);
+      }
+    }
+  }
+
   function applyScreenerColumns(resetScroll = false) {
     const mode = document.getElementById('screener-columns').value;
     const presets = {
@@ -2851,6 +2922,8 @@
     const preset = presets[mode];
     if (!preset) throw new RangeError('Invalid screener column view');
     const table = document.getElementById('screener-table');
+    formatScreenerHeaders();
+    document.getElementById('screener-liquidation-key').hidden = preset.fields !== null && !preset.fields.includes('liq_val_1');
     table.style.setProperty('--screener-min-width', `${preset.width}px`);
     table.style.setProperty('--screener-name-left', mode === 'all' ? '195px' : '110px');
     const hidden = [...table.tHead.rows[0].cells].map(header => {
@@ -3045,17 +3118,17 @@
           <td style="font-weight: 600;">$${mcapVal.toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
           
           <!-- 清算價 (I) 數值 -->
-          <td style="${item.price < item.liq_val_1 && item.liq_val_1 > 0 ? 'color: var(--green); font-weight: 800;' : 'color: var(--text-secondary);'}">
+          <td class="liquidation-value ${item.liq_val_1 > 0 ? 'text-green' : item.liq_val_1 < 0 ? 'text-red' : 'text-muted'}">
             ${item.liq_val_1 !== undefined && !isNaN(item.liq_val_1) ? (item.liq_val_1 < 0 ? `-$${Math.abs(item.liq_val_1).toFixed(2)}` : `$${item.liq_val_1.toFixed(2)}`) : '--'}
           </td>
 
           <!-- 清算價 (II) 數值 -->
-          <td style="${item.price < item.liq_val_2 && item.liq_val_2 > 0 ? 'color: var(--green); font-weight: 800;' : 'color: var(--text-secondary);'}">
+          <td class="liquidation-value ${item.liq_val_2 > 0 ? 'text-green' : item.liq_val_2 < 0 ? 'text-red' : 'text-muted'}">
             ${item.liq_val_2 !== undefined && !isNaN(item.liq_val_2) ? (item.liq_val_2 < 0 ? `-$${Math.abs(item.liq_val_2).toFixed(2)}` : `$${item.liq_val_2.toFixed(2)}`) : '--'}
           </td>
 
           <!-- 清算價 (III) 數值 -->
-          <td style="${item.price < item.liq_val_3 && item.liq_val_3 > 0 ? 'color: var(--green); font-weight: 800;' : 'color: var(--text-secondary);'}">
+          <td class="liquidation-value ${item.liq_val_3 > 0 ? 'text-green' : item.liq_val_3 < 0 ? 'text-red' : 'text-muted'}">
             ${item.liq_val_3 !== undefined && !isNaN(item.liq_val_3) ? (item.liq_val_3 < 0 ? `-$${Math.abs(item.liq_val_3).toFixed(2)}` : `$${item.liq_val_3.toFixed(2)}`) : '--'}
           </td>
           
