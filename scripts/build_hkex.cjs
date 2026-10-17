@@ -273,7 +273,8 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
     && row.date === scoreRelease.date && (finite(row.epsActual) || finite(row.revenueActual)));
   const transcripts = readRows(evidence, 'transcript_latest').filter(row => row.symbol === item.ticker && day(row.date?.slice(0, 10))
     && row.date.slice(0, 10) <= evidence.capturedAt.slice(0, 10));
-  const moatInput = { ticker: item.ticker, profile: { companyName: p.companyName, description: p.description, industry: item.industry },
+  const moatInput = { methodVersion: 'hkex-qualitative-evidence-v2', ticker: item.ticker,
+    profile: { companyName: p.companyName, description: p.description, industry: item.industry },
     reportingCurrency: latest?.sourceReportedCurrency, statements: raw, displayStatements: data, fScore: score, transcripts };
   const fingerprint = hash(moatInput), candidate = moatReports[item.ticker];
   const moat = candidate?.evidenceHash === fingerprint ? candidate.report : null;

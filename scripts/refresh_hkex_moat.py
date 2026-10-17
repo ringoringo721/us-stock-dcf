@@ -5,6 +5,7 @@ from datetime import datetime, timezone
 import json
 import os
 from pathlib import Path
+import re
 import time
 
 DIMENSIONS = {
@@ -77,10 +78,20 @@ def validate_report(report, ticker, source_ids):
         if any(not isinstance(item.get(field), str) or not item[field].strip()
                for field in ("comment_zh", "comment_en")):
             raise ValueError("Moat explanations must be bilingual")
+        for field in ("comment_zh", "comment_en"):
+            validate_narrative(item[field])
     for field in ("overall_moat_verdict_zh", "overall_moat_verdict_en"):
         if not isinstance(report.get(field), str) or not report[field].strip():
             raise ValueError("Missing bilingual moat verdict")
+        validate_narrative(report[field])
     return report
+
+
+def validate_narrative(text):
+    # Monetary facts belong in the FX-verified tables, not model-generated prose.
+    if re.search(r"[0-9$]|HKD|USD|RMB|CNY|\u6e2f\u5143|\u6e2f\u5e63|\u4eba\u6c11\u5e63|\u7f8e\u5143"
+                 r"|\b(?:million|billion|trillion)\b", text, re.IGNORECASE):
+        raise ValueError("Moat narrative must not invent numerical or currency claims")
 
 
 def needs_refresh(record):
@@ -122,8 +133,8 @@ def main():
 
         class Dimension(BaseModel):
             score: int | None = Field(default=None, ge=0, le=10)
-            comment_zh: str
-            comment_en: str
+            comment_zh: str = Field(description="Traditional Chinese qualitative prose; no digits, amounts, dates or currency units")
+            comment_en: str = Field(description="English qualitative prose; no digits, amounts, dates or currency units")
             sources: list[str]
 
         schema = create_model("EvidenceMoatReport", ticker=(str, ...), period=(str, ...),
@@ -145,9 +156,14 @@ def main():
                 "Each dimension needs short Traditional Chinese and English explanations and source IDs drawn "
                 "only from allowedSourceIds. Summarize/paraphrase; do not reproduce transcript passages. "
                 "Financial facts have already been translated to HKD using dated FX; amounts are full HKD units, "
-                "not millions. Express any monetary examples in HKD (divide by 1,000,000 when writing millions). "
+                "not millions. They provide evidence for qualitative assessment, not numbers to repeat in prose. "
                 "Do not copy foreign-currency monetary figures from the transcript into the verdict or invent a "
                 "conversion. Use its qualitative discussion and the supplied HKD financial facts instead. "
+                "CRITICAL: Comments and overall verdicts must be QUALITATIVE ONLY. Include NO digits, dates, "
+                "percentages, monetary amounts, currency units or million/billion/trillion magnitudes in those "
+                "prose fields. Software displays verified dates, scores and financial numbers separately. "
+                "All supplied financial rows are historical reported or explicitly derived actuals, NEVER "
+                "analyst forecasts or projections. Do not describe historical statements as projections. "
                 "The overall verdict must explain material limitations and that scores are AI qualitative "
                 "judgment, not reported financial measurements. Translate the supplied business description "
                 "into Traditional Chinese without adding facts (description_zh). Dimensions: "

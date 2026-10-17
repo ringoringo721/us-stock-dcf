@@ -35,6 +35,19 @@ class MoatEvidenceTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             validate_report(self.report(), "9988.HK", ["profile"])
 
+    def test_generated_prose_cannot_relabel_foreign_money_or_invent_numerical_claims(self):
+        for text in ["Deposits are HKD 1.8 trillion (USD 1.8 trillion)",
+                     "Cash flow grew 20%", "FY2025 projections",
+                     "\u5b58\u6b3e\u9054\u842c\u5104\u6e2f\u5143"]:
+            report = self.report()
+            report["m1_brand_pricing"]["comment_en"] = text
+            with self.assertRaises(ValueError):
+                validate_report(report, "0700.HK", ["profile"])
+            report = self.report()
+            report["overall_moat_verdict_en"] = text
+            with self.assertRaises(ValueError):
+                validate_report(report, "0700.HK", ["profile"])
+
 
 if __name__ == "__main__":
     unittest.main()

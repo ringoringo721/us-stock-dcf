@@ -42,7 +42,10 @@ comparability for banks, which is disclosed.
 
 Economic Moat is a separately labeled AI qualitative assessment, anchored to
 dated financial evidence and the latest available earnings-call transcript.
-Every numeric assessment must cite supplied evidence IDs. Missing analysis
+Every numeric assessment must cite supplied evidence IDs. Narratives are
+qualitative only: generated numerical/currency claims are rejected; verified
+financial amounts and dates are shown separately by the financial interface.
+Missing analysis
 does not produce neutral 5/10 scores. Financial/call content hashes, original
 assessment timestamps and separate check timestamps distinguish new evidence,
 unchanged evidence and retained stale/error states. Transcript dates alone do
@@ -50,7 +53,7 @@ not count as transcript analysis.
 
 The HKEX refresh workflow checks at 07:30 and 19:30 Hong Kong time on business
 days. It refreshes sources, recomputes PF from actual comparable periods and
-reanalyzes moat only when financial or call content changes. It is not an
+reanalyzes moat only when financial/call content or assessment rules change. It is not an
 instantaneous exchange-release feed. A protected Vercel deploy hook requests
 publication of committed data; a missing hook produces an explicit warning,
 not a claim that production updated.
