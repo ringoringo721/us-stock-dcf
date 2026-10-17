@@ -3026,7 +3026,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AMD",
+      "ARM",
+      "AVGO",
+      "CBRS",
+      "CRWV",
+      "INTC",
+      "MOVE",
+      "MRVL",
+      "QCOM",
+      "XLAB"
+    ],
     "beta": 2.22,
     "beta_5y": 2.22,
     "kd": 4.5,
@@ -6830,7 +6841,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "002241.SZ",
+      "066570.KS",
+      "300857.SZ",
+      "300866.SZ",
+      "603296.SS",
+      "688036.SS",
+      "PCRFF",
+      "SONY",
+      "SSNLF",
+      "XIACF"
+    ],
     "beta": 1.07,
     "beta_5y": 1.07,
     "kd": 4.5,
@@ -10628,7 +10650,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ACN",
+      "ADBE",
+      "AMZN",
+      "CRM",
+      "CTSH",
+      "GOOG",
+      "IBM",
+      "NOW",
+      "ORCL",
+      "SAP"
+    ],
     "beta": 1.1,
     "beta_5y": 1.1,
     "kd": 4.5,
@@ -14450,7 +14483,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ADI",
+      "LSCC",
+      "MPWR",
+      "MRVL",
+      "NXPI",
+      "QCOM",
+      "QRVO",
+      "SMTC",
+      "SWKS",
+      "TXN"
+    ],
     "beta": 1.48,
     "beta_5y": 1.48,
     "kd": 4.5,
@@ -18224,7 +18268,13 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "CRM",
+      "IBM",
+      "MSFT",
+      "NOW",
+      "SAP"
+    ],
     "beta": 1.77,
     "beta_5y": 1.77,
     "kd": 4.5,
@@ -22052,7 +22102,17 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "BRZE",
+      "CXM",
+      "GTM",
+      "HUBS",
+      "NICE",
+      "NOW",
+      "PEGA",
+      "SAP",
+      "ZETA"
+    ],
     "beta": 1.26,
     "beta_5y": 1.26,
     "kd": 4.5,
@@ -25826,7 +25886,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ALAB",
+      "ARM",
+      "AVGO",
+      "CBRS",
+      "INTC",
+      "LSCC",
+      "NVDA",
+      "QCOM",
+      "TSM",
+      "UMC"
+    ],
     "beta": 2.45,
     "beta_5y": 2.45,
     "kd": 4.5,
@@ -29630,7 +29701,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ANET",
+      "CIEN",
+      "ERIC",
+      "EXTR",
+      "MSI",
+      "NOK",
+      "RBBN",
+      "UI",
+      "VISN",
+      "ZTCOF"
+    ],
     "beta": 0.98,
     "beta_5y": 0.98,
     "kd": 4.5,
@@ -33452,7 +33534,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "CACI",
+      "CGEMY",
+      "CTSH",
+      "DXC",
+      "EPAM",
+      "GIB",
+      "GLOB",
+      "IBM",
+      "INFY",
+      "WIT"
+    ],
     "beta": 1.1,
     "beta_5y": 1.1,
     "kd": 4.5,
@@ -37219,7 +37312,17 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ADSK",
+      "CREX",
+      "CRM",
+      "DASTF",
+      "DV",
+      "MSFT",
+      "PTC",
+      "SAP",
+      "TEAM"
+    ],
     "beta": 1.42,
     "beta_5y": 1.42,
     "kd": 4.5,
@@ -41023,7 +41126,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AVGO",
+      "GCTS",
+      "IDCC",
+      "MRVL",
+      "MTSI",
+      "MXL",
+      "NXPI",
+      "QRVO",
+      "SMTC",
+      "TXN"
+    ],
     "beta": 1.65,
     "beta_5y": 1.65,
     "kd": 4.5,
@@ -44815,7 +44929,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ADI",
+      "AOSL",
+      "CRUS",
+      "HIMX",
+      "MCHP",
+      "MPWR",
+      "NXPI",
+      "ON",
+      "POWI",
+      "VSH"
+    ],
     "beta": 1.34,
     "beta_5y": 1.34,
     "kd": 4.5,
@@ -48619,7 +48744,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ACN",
+      "CGEMY",
+      "DXC",
+      "FJTSY",
+      "INFY",
+      "MSFT",
+      "NIPNF",
+      "ORCL",
+      "SAP",
+      "WIT"
+    ],
     "beta": 0.72,
     "beta_5y": 0.72,
     "kd": 4.5,
@@ -52435,7 +52571,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AMD",
+      "ARM",
+      "MRVL",
+      "MU",
+      "NVDA",
+      "NXPI",
+      "QCOM",
+      "STM",
+      "TSM",
+      "TXN"
+    ],
     "beta": 2.23,
     "beta_5y": 2.23,
     "kd": 4.5,
@@ -56263,7 +56410,16 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ACIW",
+      "BILL",
+      "FISV",
+      "GPN",
+      "JKHY",
+      "LSPD",
+      "PAYP",
+      "SGGEF"
+    ],
     "beta": 1.01,
     "beta_5y": 1.01,
     "kd": 4.5,
@@ -60049,7 +60205,12 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "PATH",
+      "PEGA",
+      "TEAM",
+      "WDAY"
+    ],
     "beta": 0.99,
     "beta_5y": 0.99,
     "kd": 4.5,
@@ -63823,7 +63984,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ACLS",
+      "ASML",
+      "ASMXF",
+      "BESIY",
+      "FORM",
+      "KLAC",
+      "LRCX",
+      "ONTO",
+      "TELWY",
+      "VECO"
+    ],
     "beta": 1.59,
     "beta_5y": 1.59,
     "kd": 4.5,
@@ -67645,7 +67817,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "002371.SZ",
+      "688012.SS",
+      "688072.SS",
+      "ACMR",
+      "AMAT",
+      "ASML",
+      "ASMXF",
+      "KLAC",
+      "TELWY",
+      "VECO"
+    ],
     "beta": 1.85,
     "beta_5y": 1.85,
     "kd": 4.5,
@@ -71431,7 +71614,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "2344.TW",
+      "285A.T",
+      "3986.HK",
+      "603986.SS",
+      "688110.SS",
+      "9976.HK",
+      "SKHY",
+      "SNDK",
+      "STX",
+      "WDC"
+    ],
     "beta": 2.23,
     "beta_5y": 2.23,
     "kd": 4.5,
@@ -72340,7 +72534,7 @@ window.FULL_MARKET_DATA = {
           12.388569059816925,
           -6.070006643984212,
           38.31830675025423,
-          -0.00003214206376061281,
+          -3.214206376061281e-05,
           -163.7615972807727
         ],
         "operatingExpenses": [
@@ -75308,7 +75502,17 @@ window.FULL_MARKET_DATA = {
         false
       ]
     },
-    "peers": [],
+    "peers": [
+      "5347.TWO",
+      "6770.TW",
+      "688249.SS",
+      "688396.SS",
+      "688981.SS",
+      "HHUSF",
+      "INTC",
+      "TSEM",
+      "UMC"
+    ],
     "beta": 1.38,
     "beta_5y": 1.38,
     "kd": 4.5,
@@ -79172,7 +79376,13 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ACIW",
+      "NCNO",
+      "NICE",
+      "TMSNY",
+      "TRU"
+    ],
     "beta": 1.34,
     "beta_5y": 1.34,
     "kd": 4.5,
@@ -82964,7 +83174,17 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "BSY",
+      "CDNS",
+      "DASTF",
+      "NEMTF",
+      "PCOR",
+      "PTC",
+      "SNPS",
+      "TRMB",
+      "U"
+    ],
     "beta": 1.33,
     "beta_5y": 1.33,
     "kd": 4.5,
@@ -86756,7 +86976,11 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "BSY",
+      "PTC",
+      "ROP"
+    ],
     "beta": 0.85,
     "beta_5y": 0.85,
     "kd": 4.5,
@@ -90548,7 +90772,13 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "BEKE",
+      "COMP",
+      "CSGP",
+      "OPEN",
+      "ZG"
+    ],
     "beta": 0.89,
     "beta_5y": 0.89,
     "kd": 4.5,
@@ -94315,7 +94545,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ALRM",
+      "BLKB",
+      "BRZE",
+      "EEFT",
+      "INTA",
+      "KC",
+      "NATL",
+      "NCNO",
+      "PAGS",
+      "RUM"
+    ],
     "beta": 0.99,
     "beta_5y": 0.99,
     "kd": 4.5,
@@ -98082,7 +98323,12 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AIOT",
+      "BMI",
+      "DGII",
+      "ST"
+    ],
     "beta": 1.32,
     "beta_5y": 1.32,
     "kd": 4.5,
@@ -101849,7 +102095,16 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "301269.SZ",
+      "3443.TW",
+      "3529.TWO",
+      "3661.TW",
+      "688521.SS",
+      "AIP",
+      "ARM",
+      "CDNS"
+    ],
     "beta": 1.21,
     "beta_5y": 1.21,
     "kd": 4.5,
@@ -105629,7 +105884,15 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "DFIN",
+      "FIS",
+      "FISV",
+      "ICE",
+      "JKHY",
+      "MSCI",
+      "NDAQ"
+    ],
     "beta": 0.93,
     "beta_5y": 0.93,
     "kd": 4.5,
@@ -109396,7 +109659,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ACLS",
+      "AMAT",
+      "ASML",
+      "CAMT",
+      "FORM",
+      "LRCX",
+      "NVMI",
+      "ONTO",
+      "TELWY",
+      "VECO"
+    ],
     "beta": 1.45,
     "beta_5y": 1.45,
     "kd": 4.5,
@@ -113200,7 +113474,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ADI",
+      "AMD",
+      "AVGO",
+      "INTC",
+      "NVDA",
+      "NXPI",
+      "ON",
+      "QCOM",
+      "STM",
+      "TXN"
+    ],
     "beta": 2.26,
     "beta_5y": 2.26,
     "kd": 4.5,
@@ -116980,7 +117265,12 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "DASTF",
+      "PDFS",
+      "SNPS",
+      "SVCO"
+    ],
     "beta": 1.13,
     "beta_5y": 1.13,
     "kd": 4.5,
@@ -120772,7 +121062,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AKAM",
+      "CHKP",
+      "CRWD",
+      "FFIV",
+      "NET",
+      "PANW",
+      "QLYS",
+      "S",
+      "TMICF",
+      "ZS"
+    ],
     "beta": 1.04,
     "beta_5y": 1.04,
     "kd": 4.5,
@@ -124552,7 +124853,17 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AKAM",
+      "CHKP",
+      "CRWD",
+      "CSCO",
+      "FTNT",
+      "NET",
+      "NTSK",
+      "TMICF",
+      "ZS"
+    ],
     "beta": 0.93,
     "beta_5y": 0.93,
     "kd": 4.5,
@@ -128332,7 +128643,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "CHKP",
+      "FTNT",
+      "NTSK",
+      "OKTA",
+      "PANW",
+      "QLYS",
+      "RBRK",
+      "S",
+      "TMICF",
+      "ZS"
+    ],
     "beta": 1.2,
     "beta_5y": 1.2,
     "kd": 4.5,
@@ -132106,7 +132428,17 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ADP",
+      "ASUR",
+      "BILL",
+      "BL",
+      "NSP",
+      "PAYC",
+      "PAYX",
+      "PCTY",
+      "SAP"
+    ],
     "beta": 1.07,
     "beta_5y": 1.07,
     "kd": 4.5,
@@ -135873,7 +136205,13 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "CSCO",
+      "DELL",
+      "HPE",
+      "IBM",
+      "NTAP"
+    ],
     "beta": 1.6,
     "beta_5y": 1.6,
     "kd": 4.5,
@@ -139653,7 +139991,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "002179.SZ",
+      "002475.SZ",
+      "300136.SZ",
+      "3665.TW",
+      "BDC",
+      "GLW",
+      "LGL",
+      "RFIL",
+      "SMTOY",
+      "TEL"
+    ],
     "beta": 1.24,
     "beta_5y": 1.24,
     "kd": 4.5,
@@ -143463,7 +143812,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "002179.SZ",
+      "APH",
+      "BDC",
+      "CTS",
+      "FUWAY",
+      "LFUS",
+      "MEI",
+      "NEXNY",
+      "NVT",
+      "ST"
+    ],
     "beta": 1.14,
     "beta_5y": 1.14,
     "kd": 4.5,
@@ -147230,7 +147590,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "035420.KS",
+      "035720.KS",
+      "AMZN",
+      "BIDU",
+      "META",
+      "MSFT",
+      "PINS",
+      "SNAP",
+      "TCEHY",
+      "YDEX.ME"
+    ],
     "beta": 1.21,
     "beta_5y": 1.21,
     "kd": 4.5,
@@ -151010,7 +151381,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "035420.KS",
+      "035720.KS",
+      "AMZN",
+      "BIDU",
+      "META",
+      "MSFT",
+      "PINS",
+      "SNAP",
+      "TCEHY",
+      "YDEX.ME"
+    ],
     "beta": 1.2,
     "beta_5y": 1.2,
     "kd": 4.5,
@@ -154790,7 +155172,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "DJT",
+      "GOOG",
+      "JOYY",
+      "KSHTY",
+      "MOMO",
+      "PINS",
+      "RDDT",
+      "SNAP",
+      "TCEHY",
+      "WB"
+    ],
     "beta": 1.19,
     "beta_5y": 1.19,
     "kd": 4.5,
@@ -158557,7 +158950,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AAPL",
+      "AMCX",
+      "AMZN",
+      "CMCSA",
+      "CURI",
+      "DIS",
+      "GAIA",
+      "IQ",
+      "SKYD",
+      "WBD"
+    ],
     "beta": 1.61,
     "beta_5y": 1.61,
     "kd": 4.5,
@@ -162343,7 +162747,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AMCX",
+      "CMCSA",
+      "FOX",
+      "LION",
+      "NFLX",
+      "SKYD",
+      "SONY",
+      "SPHR",
+      "TKCOF",
+      "WBD"
+    ],
     "beta": 1.42,
     "beta_5y": 1.42,
     "kd": 4.5,
@@ -166171,7 +166586,10 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "T",
+      "VZ"
+    ],
     "beta": 0.32,
     "beta_5y": 0.32,
     "kd": 4.5,
@@ -169945,7 +170363,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "BTGOF",
+      "CMCSA",
+      "DTEGY",
+      "KDDIY",
+      "NTTYY",
+      "ORANY",
+      "T",
+      "TLGPY",
+      "TMUS",
+      "VOD"
+    ],
     "beta": 0.25,
     "beta_5y": 0.25,
     "kd": 4.5,
@@ -173743,7 +174172,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "CHTR",
+      "CMCSA",
+      "DTEGY",
+      "KDDIY",
+      "NTTYY",
+      "ORANY",
+      "SKM",
+      "TMUS",
+      "VOD",
+      "VZ"
+    ],
     "beta": 0.43,
     "beta_5y": 0.43,
     "kd": 4.5,
@@ -177535,7 +177975,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "CHTR",
+      "DIS",
+      "FOX",
+      "LBTYK",
+      "SKYD",
+      "T",
+      "TMUS",
+      "TV",
+      "VZ",
+      "WBD"
+    ],
     "beta": 0.67,
     "beta_5y": 0.67,
     "kd": 4.5,
@@ -181363,7 +181814,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "DIS",
+      "FOX",
+      "FWONA",
+      "LYV",
+      "MANU",
+      "MSGS",
+      "NFLX",
+      "SKYD",
+      "SONY",
+      "WBD"
+    ],
     "beta": 0.69,
     "beta_5y": 0.69,
     "kd": 4.5,
@@ -185130,7 +185592,17 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "CEVMF",
+      "FWONA",
+      "IMAX",
+      "MSGE",
+      "SEAT",
+      "SPHR",
+      "STUB",
+      "TKO",
+      "TP"
+    ],
     "beta": 1.17,
     "beta_5y": 1.17,
     "kd": 4.5,
@@ -188897,7 +189369,13 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "GOGO",
+      "GSAT",
+      "NXPL",
+      "TSAT",
+      "VSAT"
+    ],
     "beta": 0.85,
     "beta_5y": 0.85,
     "kd": 4.5,
@@ -192573,7 +193051,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "CLS",
+      "FICO",
+      "GRMN",
+      "MPWR",
+      "NXPI",
+      "STX",
+      "TTWO",
+      "UI",
+      "WDC",
+      "XYZ"
+    ],
     "beta": 0.64,
     "beta_5y": 0.64,
     "kd": 4.5,
@@ -196365,7 +196854,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "002558.SZ",
+      "259960.KS",
+      "CCOEY",
+      "GRVY",
+      "KONMY",
+      "NEXOF",
+      "NTDOY",
+      "NTES",
+      "OTGLY",
+      "SQNXF"
+    ],
     "beta": 0.97,
     "beta_5y": 0.97,
     "kd": 4.5,
@@ -200139,7 +200639,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AMCX",
+      "CMCSA",
+      "CURI",
+      "DIS",
+      "FOX",
+      "LION",
+      "NFLX",
+      "SKYD",
+      "STRZ",
+      "TKCOF"
+    ],
     "beta": 1.54,
     "beta_5y": 1.54,
     "kd": 4.5,
@@ -203919,7 +204430,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "BABA",
+      "CPNG",
+      "EBAY",
+      "GLBE",
+      "JD",
+      "MELI",
+      "PDD",
+      "SE",
+      "SHOP",
+      "W"
+    ],
     "beta": 1.46,
     "beta_5y": 1.46,
     "kd": 4.5,
@@ -207711,7 +208233,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "BYDDY",
+      "F",
+      "GM",
+      "LCID",
+      "LI",
+      "NIO",
+      "RIVN",
+      "VFS",
+      "VWAGY",
+      "XPEV"
+    ],
     "beta": 1.92,
     "beta_5y": 1.92,
     "kd": 4.5,
@@ -211491,7 +212024,14 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "FND",
+      "KGFHY",
+      "LOW",
+      "SITE",
+      "URI",
+      "WFAFF"
+    ],
     "beta": 1.0,
     "beta_5y": 1.0,
     "kd": 4.5,
@@ -215319,7 +215859,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "6015.SR",
+      "CMG",
+      "DPZ",
+      "JACK",
+      "PZZA",
+      "QSR",
+      "SHAK",
+      "WEN",
+      "WING",
+      "YUM"
+    ],
     "beta": 0.45,
     "beta_5y": 0.45,
     "kd": 4.5,
@@ -219141,7 +219692,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ABNB",
+      "CCL",
+      "EXPE",
+      "MMYT",
+      "NCLH",
+      "NTRP",
+      "RCL",
+      "SABR",
+      "TCOM",
+      "VIK"
+    ],
     "beta": 1.13,
     "beta_5y": 1.13,
     "kd": 4.5,
@@ -222921,7 +223483,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ADDYY",
+      "AS",
+      "ASCCY",
+      "COLM",
+      "CROX",
+      "DECK",
+      "LULU",
+      "ONON",
+      "UA",
+      "VFC"
+    ],
     "beta": 1.1,
     "beta_5y": 1.1,
     "kd": 4.5,
@@ -226731,7 +227304,13 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "1364.HK",
+      "BROS",
+      "LKNCY",
+      "REBN",
+      "THCH"
+    ],
     "beta": 0.97,
     "beta_5y": 0.97,
     "kd": 4.5,
@@ -230535,7 +231114,15 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "FND",
+      "HD",
+      "HLMN",
+      "KGFHY",
+      "LIVE",
+      "SHW",
+      "SWK"
+    ],
     "beta": 0.88,
     "beta_5y": 0.88,
     "kd": 4.5,
@@ -234357,7 +234944,17 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "BURL",
+      "COST",
+      "DG",
+      "DLTR",
+      "KSS",
+      "M",
+      "ROST",
+      "TGT",
+      "WMT"
+    ],
     "beta": 0.56,
     "beta_5y": 0.56,
     "kd": 4.5,
@@ -238185,7 +238782,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "BALY",
+      "BYD",
+      "CDRO",
+      "CZR",
+      "DKNG",
+      "FLUT",
+      "MGM",
+      "PENN",
+      "RSI",
+      "SGHC"
+    ],
     "beta": 0.67,
     "beta_5y": 0.67,
     "kd": 4.5,
@@ -241971,7 +242579,12 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "CASY",
+      "DG",
+      "LOW",
+      "WMT"
+    ],
     "beta": 0.51,
     "beta_5y": 0.51,
     "kd": 4.5,
@@ -245769,7 +246382,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "BYD",
+      "CHDN",
+      "LEA",
+      "LNW",
+      "LTH",
+      "REYN",
+      "SGHC",
+      "THO",
+      "URBN",
+      "WH"
+    ],
     "beta": 0.77,
     "beta_5y": 0.77,
     "kd": 4.5,
@@ -249536,7 +250160,11 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "CSV",
+      "MATW",
+      "SNFCA"
+    ],
     "beta": 0.82,
     "beta_5y": 0.82,
     "kd": 4.5,
@@ -253346,7 +253974,12 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AAP",
+      "DORM",
+      "GPC",
+      "ORLY"
+    ],
     "beta": 0.34,
     "beta_5y": 0.34,
     "kd": 4.5,
@@ -257126,7 +257759,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ACCYY",
+      "ATAT",
+      "CHH",
+      "H",
+      "HLT",
+      "HTHT",
+      "IHG",
+      "INDHOTEL.NS",
+      "WH",
+      "WTBDY"
+    ],
     "beta": 1.17,
     "beta_5y": 1.17,
     "kd": 4.5,
@@ -260906,7 +261550,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ACCYY",
+      "ATAT",
+      "CHH",
+      "H",
+      "HTHT",
+      "IHG",
+      "INDHOTEL.NS",
+      "INTG",
+      "MAR",
+      "WH"
+    ],
     "beta": 1.1,
     "beta_5y": 1.1,
     "kd": 4.5,
@@ -264680,7 +265335,14 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "BROS",
+      "CAVA",
+      "FWRG",
+      "LOCO",
+      "PTLO",
+      "SHAK"
+    ],
     "beta": 0.96,
     "beta_5y": 0.96,
     "kd": 4.5,
@@ -268454,7 +269116,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "6015.SR",
+      "ARCO",
+      "DPZ",
+      "MCD",
+      "MDNDF",
+      "PZZA",
+      "QSR",
+      "RSTRF",
+      "WEN",
+      "YUMC"
+    ],
     "beta": 0.55,
     "beta_5y": 0.55,
     "kd": 4.5,
@@ -272240,7 +272913,11 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AAP",
+      "AZO",
+      "GPC"
+    ],
     "beta": 0.54,
     "beta_5y": 0.54,
     "kd": 4.5,
@@ -276032,7 +276709,17 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AEO",
+      "BURL",
+      "GAP",
+      "JILL",
+      "KSS",
+      "M",
+      "PLCE",
+      "TJX",
+      "URBN"
+    ],
     "beta": 0.84,
     "beta_5y": 0.84,
     "kd": 4.5,
@@ -279830,7 +280517,17 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ADDYY",
+      "ANPDF",
+      "AS",
+      "DKS",
+      "NKE",
+      "ONON",
+      "PTON",
+      "UA",
+      "YETI"
+    ],
     "beta": 0.92,
     "beta_5y": 0.92,
     "kd": 4.5,
@@ -283604,7 +284301,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "000270.KS",
+      "005380.KS",
+      "BAMXF",
+      "GM",
+      "HMC",
+      "MBGYY",
+      "STLA",
+      "TM",
+      "TSLA",
+      "VWAGY"
+    ],
     "beta": 1.94,
     "beta_5y": 1.94,
     "kd": 4.5,
@@ -287420,7 +288128,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "000270.KS",
+      "005380.KS",
+      "BYDDY",
+      "F",
+      "HMC",
+      "MBGYY",
+      "NSANY",
+      "RNSDF",
+      "TM",
+      "VWAGY"
+    ],
     "beta": 1.4,
     "beta_5y": 1.4,
     "kd": 4.5,
@@ -291187,7 +291906,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AMZN",
+      "BABA",
+      "CPNG",
+      "ETSY",
+      "JD",
+      "JMIA",
+      "MELI",
+      "OZON.ME",
+      "PDD",
+      "SE"
+    ],
     "beta": 1.32,
     "beta_5y": 1.32,
     "kd": 4.5,
@@ -298716,7 +299446,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "BAC",
+      "C",
+      "GS",
+      "HSBC",
+      "MFG",
+      "MS",
+      "MUFG",
+      "SAN",
+      "UBS",
+      "WFC"
+    ],
     "beta": 1.01,
     "beta_5y": 1.01,
     "kd": 4.5,
@@ -302528,7 +303269,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ADYEY",
+      "AXP",
+      "EEFT",
+      "FISV",
+      "GPN",
+      "MA",
+      "NEXXY",
+      "PAY",
+      "PYPL",
+      "RPAY"
+    ],
     "beta": 0.77,
     "beta_5y": 0.77,
     "kd": 4.5,
@@ -306302,7 +307054,17 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AXP",
+      "EVTC",
+      "FISV",
+      "GPN",
+      "NEXXY",
+      "PSFE",
+      "PYPL",
+      "V",
+      "WEX"
+    ],
     "beta": 0.76,
     "beta_5y": 0.76,
     "kd": 4.5,
@@ -310076,7 +310838,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "C",
+      "GS",
+      "HSBC",
+      "JPM",
+      "MS",
+      "RY",
+      "SAN",
+      "TD",
+      "UBS",
+      "WFC"
+    ],
     "beta": 1.21,
     "beta_5y": 1.21,
     "kd": 4.5,
@@ -313882,7 +314655,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "BAC",
+      "C",
+      "COF",
+      "FITB",
+      "HBAN",
+      "JPM",
+      "KEY",
+      "PNC",
+      "TFC",
+      "USB"
+    ],
     "beta": 0.95,
     "beta_5y": 0.95,
     "kd": 4.5,
@@ -317706,7 +318490,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "BAC",
+      "BCS",
+      "C",
+      "DB",
+      "GS",
+      "HSBC",
+      "JPM",
+      "MQBKY",
+      "NMR",
+      "UBS"
+    ],
     "beta": 1.21,
     "beta_5y": 1.21,
     "kd": 4.5,
@@ -321506,7 +322301,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "BAC",
+      "C",
+      "HLI",
+      "JEF",
+      "JPM",
+      "MS",
+      "NMR",
+      "OPY",
+      "SF",
+      "UBS"
+    ],
     "beta": 1.28,
     "beta_5y": 1.28,
     "kd": 4.5,
@@ -325293,7 +326099,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AFRM",
+      "COF",
+      "CPAY",
+      "GPN",
+      "MA",
+      "PYPL",
+      "SYF",
+      "V",
+      "WEX",
+      "WU"
+    ],
     "beta": 1.08,
     "beta_5y": 1.08,
     "kd": 4.5,
@@ -329117,7 +329934,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "APO",
+      "ARES",
+      "BAM",
+      "BEN",
+      "BN",
+      "BX",
+      "CG",
+      "IVZ",
+      "KKR",
+      "TROW"
+    ],
     "beta": 1.42,
     "beta_5y": 1.42,
     "kd": 4.5,
@@ -332884,7 +333712,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "CME",
+      "DBOEY",
+      "FDS",
+      "ICE",
+      "LSEGY",
+      "MCO",
+      "MORN",
+      "MSCI",
+      "NDAQ",
+      "VALU"
+    ],
     "beta": 1.09,
     "beta_5y": 1.09,
     "kd": 4.5,
@@ -336676,7 +337515,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "BAC",
+      "GS",
+      "HSBC",
+      "ING",
+      "JPM",
+      "MS",
+      "MUFG",
+      "SAN",
+      "UBS",
+      "WFC"
+    ],
     "beta": 1.11,
     "beta_5y": 1.11,
     "kd": 4.5,
@@ -340518,7 +341368,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AFG",
+      "ALL",
+      "CB",
+      "CINF",
+      "CNA",
+      "HIG",
+      "RLI",
+      "THG",
+      "TRV",
+      "WRB"
+    ],
     "beta": 0.24,
     "beta_5y": 0.24,
     "kd": 4.5,
@@ -344360,7 +345221,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AFG",
+      "CINF",
+      "CNA",
+      "HIG",
+      "L",
+      "MKL",
+      "SIGI",
+      "THG",
+      "TRV",
+      "WRB"
+    ],
     "beta": 0.37,
     "beta_5y": 0.37,
     "kd": 4.5,
@@ -348178,7 +349050,16 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "BR",
+      "CME",
+      "ICE",
+      "MCO",
+      "MORN",
+      "MSCI",
+      "TRU",
+      "VALU"
+    ],
     "beta": 0.77,
     "beta_5y": 0.77,
     "kd": 4.5,
@@ -351964,7 +352845,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "BGC",
+      "CME",
+      "DBOEY",
+      "HKXCY",
+      "ICE",
+      "LSEGY",
+      "MKTX",
+      "NDAQ",
+      "TMXXF",
+      "VIRT"
+    ],
     "beta": 0.61,
     "beta_5y": 0.61,
     "kd": 4.5,
@@ -355731,7 +356623,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "CBOE",
+      "DBOEY",
+      "EUXTF",
+      "HKXCY",
+      "ICE",
+      "LSEGY",
+      "NDAQ",
+      "OSCUF",
+      "TMXXF",
+      "TW"
+    ],
     "beta": 0.27,
     "beta_5y": 0.27,
     "kd": 4.5,
@@ -359505,7 +360408,14 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "FDS",
+      "MCO",
+      "MORN",
+      "RELX",
+      "SPGI",
+      "TRU"
+    ],
     "beta": 1.24,
     "beta_5y": 1.24,
     "kd": 4.5,
@@ -363272,7 +364182,17 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "EXPGY",
+      "FDS",
+      "MORN",
+      "MSCI",
+      "SPGI",
+      "TRI",
+      "TRU",
+      "VALU",
+      "VRSK"
+    ],
     "beta": 1.35,
     "beta_5y": 1.35,
     "kd": 4.5,
@@ -367046,7 +367966,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "BOLSY",
+      "CBOE",
+      "CME",
+      "DBOEY",
+      "EUXTF",
+      "HKXCY",
+      "LSEGY",
+      "NDAQ",
+      "OSCUF",
+      "TMXXF"
+    ],
     "beta": 0.94,
     "beta_5y": 0.94,
     "kd": 4.5,
@@ -370820,7 +371751,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ACGL",
+      "AFG",
+      "CB",
+      "CNA",
+      "HIG",
+      "MKL",
+      "ORI",
+      "THG",
+      "TRV",
+      "WRB"
+    ],
     "beta": 0.53,
     "beta_5y": 0.53,
     "kd": 4.5,
@@ -374668,7 +375610,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AFL",
+      "BHF",
+      "CNO",
+      "GL",
+      "LNC",
+      "MFC",
+      "PRI",
+      "PRU",
+      "UNM",
+      "VOYA"
+    ],
     "beta": 0.78,
     "beta_5y": 0.78,
     "kd": 4.5,
@@ -378464,7 +379417,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AIG",
+      "CRBD",
+      "EQH",
+      "GL",
+      "JXN",
+      "LNC",
+      "MET",
+      "PFG",
+      "PRI",
+      "VOYA"
+    ],
     "beta": 0.84,
     "beta_5y": 0.84,
     "kd": 4.5,
@@ -382251,7 +383215,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AFG",
+      "ALL",
+      "CB",
+      "CINF",
+      "CNA",
+      "L",
+      "PGR",
+      "THG",
+      "TKOMY",
+      "WRB"
+    ],
     "beta": 0.44,
     "beta_5y": 0.44,
     "kd": 4.5,
@@ -386057,7 +387032,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "BHF",
+      "CNO",
+      "FG",
+      "GL",
+      "HIG",
+      "LNC",
+      "MET",
+      "MFC",
+      "PRU",
+      "UNM"
+    ],
     "beta": 0.56,
     "beta_5y": 0.56,
     "kd": 4.5,
@@ -389905,7 +390891,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "CB",
+      "CINF",
+      "CNA",
+      "HIG",
+      "PGR",
+      "RLI",
+      "SAFT",
+      "SIGI",
+      "THG",
+      "TRV"
+    ],
     "beta": 0.14,
     "beta_5y": 0.14,
     "kd": 4.5,
@@ -393699,7 +394696,13 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AJG",
+      "BRO",
+      "BWIN",
+      "MRSH",
+      "WTW"
+    ],
     "beta": 0.69,
     "beta_5y": 0.69,
     "kd": 4.5,
@@ -397491,7 +398494,16 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AON",
+      "BRO",
+      "BWIN",
+      "CRD-A",
+      "MRSH",
+      "RYAN",
+      "WTW",
+      "ZBAO"
+    ],
     "beta": 0.55,
     "beta_5y": 0.55,
     "kd": 4.5,
@@ -401277,7 +402289,16 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AJG",
+      "AON",
+      "BRO",
+      "CB",
+      "ERIE",
+      "NTRS",
+      "PGR",
+      "WTW"
+    ],
     "beta": 0.75,
     "beta_5y": 0.75,
     "kd": 4.5,
@@ -405075,7 +406096,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "CFG",
+      "FITB",
+      "HBAN",
+      "KEY",
+      "MTB",
+      "PNC",
+      "TFC",
+      "WAL",
+      "WFC",
+      "ZION"
+    ],
     "beta": 0.97,
     "beta_5y": 0.97,
     "kd": 4.5,
@@ -408911,7 +409943,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ABBV",
+      "AMGN",
+      "AZN",
+      "JNJ",
+      "MRK",
+      "NVO",
+      "NVS",
+      "PFE",
+      "RHHBY",
+      "SNY"
+    ],
     "beta": 0.45,
     "beta_5y": 0.45,
     "kd": 4.5,
@@ -412703,7 +413746,16 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ALHC",
+      "CI",
+      "CNC",
+      "CVS",
+      "ELV",
+      "HUM",
+      "MOH",
+      "OSCR"
+    ],
     "beta": 0.61,
     "beta_5y": 0.61,
     "kd": 4.5,
@@ -416501,7 +417553,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ABBV",
+      "AMGN",
+      "AZN",
+      "BMY",
+      "GILD",
+      "GSK",
+      "MRK",
+      "NVS",
+      "PFE",
+      "SNY"
+    ],
     "beta": 0.23,
     "beta_5y": 0.23,
     "kd": 4.5,
@@ -420311,7 +421374,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AMGN",
+      "AZN",
+      "BMY",
+      "GSK",
+      "JNJ",
+      "LLY",
+      "MRK",
+      "NVS",
+      "PFE",
+      "RHHBY"
+    ],
     "beta": 0.28,
     "beta_5y": 0.28,
     "kd": 4.5,
@@ -424078,7 +425152,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ABBV",
+      "AMGN",
+      "AZN",
+      "GILD",
+      "JNJ",
+      "LLY",
+      "NVS",
+      "PFE",
+      "RHHBY",
+      "SNY"
+    ],
     "beta": 0.22,
     "beta_5y": 0.22,
     "kd": 4.5,
@@ -427888,7 +428973,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "A",
+      "BIO",
+      "BMXXY",
+      "BRKR",
+      "DHR",
+      "MTD",
+      "QGEN",
+      "RVTY",
+      "TECH",
+      "WAT"
+    ],
     "beta": 0.88,
     "beta_5y": 0.88,
     "kd": 4.5,
@@ -431704,7 +432800,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "BDX",
+      "BSX",
+      "DHR",
+      "EW",
+      "GEHC",
+      "JNJ",
+      "MDT",
+      "SMMNY",
+      "SYK",
+      "TMO"
+    ],
     "beta": 0.58,
     "beta_5y": 0.58,
     "kd": 4.5,
@@ -435526,7 +436633,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "A",
+      "BMXXY",
+      "BRKR",
+      "ILMN",
+      "MTD",
+      "QGEN",
+      "RVTY",
+      "SMMNY",
+      "TMO",
+      "WAT"
+    ],
     "beta": 0.8,
     "beta_5y": 0.8,
     "kd": 4.5,
@@ -439336,7 +440454,16 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "688617.SS",
+      "CNMD",
+      "GNGBY",
+      "MBOT",
+      "OCPNF",
+      "SMMNY",
+      "SNN",
+      "SYK"
+    ],
     "beta": 1.46,
     "beta_5y": 1.46,
     "kd": 4.5,
@@ -443122,7 +444249,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ABBV",
+      "AZN",
+      "BMY",
+      "GILD",
+      "GSK",
+      "JNJ",
+      "LLY",
+      "MRK",
+      "NVS",
+      "SNY"
+    ],
     "beta": 0.28,
     "beta_5y": 0.28,
     "kd": 4.5,
@@ -446926,7 +448064,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ABBV",
+      "AZN",
+      "BMY",
+      "GSK",
+      "JNJ",
+      "LLY",
+      "MRK",
+      "NVS",
+      "PFE",
+      "RHHBY"
+    ],
     "beta": 0.41,
     "beta_5y": 0.41,
     "kd": 4.5,
@@ -450724,7 +451873,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ABBV",
+      "AMGN",
+      "AZN",
+      "GILD",
+      "GSK",
+      "JNJ",
+      "LLY",
+      "MRK",
+      "NVS",
+      "PFE"
+    ],
     "beta": 0.23,
     "beta_5y": 0.23,
     "kd": 4.5,
@@ -454528,7 +455688,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "688617.SS",
+      "AVR",
+      "BSX",
+      "EW",
+      "GNGBY",
+      "LIVN",
+      "PEN",
+      "PHG",
+      "SYK",
+      "ZBH"
+    ],
     "beta": 0.57,
     "beta_5y": 0.57,
     "kd": 4.5,
@@ -458338,7 +459509,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ABBV",
+      "AZN",
+      "GSK",
+      "JNJ",
+      "LLY",
+      "MRK",
+      "NVS",
+      "PFE",
+      "RHHBY",
+      "SNY"
+    ],
     "beta": 0.33,
     "beta_5y": 0.33,
     "kd": 4.5,
@@ -462136,7 +463318,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "BLLN",
+      "GH",
+      "MYGN",
+      "NEO",
+      "NTRA",
+      "PACB",
+      "PSNL",
+      "SOPH",
+      "TXG",
+      "WGS"
+    ],
     "beta": 1.42,
     "beta_5y": 1.42,
     "kd": 4.5,
@@ -465910,7 +467103,13 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ELAN",
+      "IDXX",
+      "MRK",
+      "NEOG",
+      "PAHC"
+    ],
     "beta": 0.74,
     "beta_5y": 0.74,
     "kd": 4.5,
@@ -469677,7 +470876,12 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "MLSS",
+      "NVST",
+      "SAUHY",
+      "XRAY"
+    ],
     "beta": 1.67,
     "beta_5y": 1.67,
     "kd": 4.5,
@@ -473535,7 +474739,12 @@ window.FULL_MARKET_DATA = {
         false
       ]
     },
-    "peers": [],
+    "peers": [
+      "AKBA",
+      "DVA",
+      "RMTI",
+      "TVTX"
+    ],
     "beta": 0.72,
     "beta_5y": 0.72,
     "kd": 4.5,
@@ -477270,7 +478479,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ABT",
+      "BAX",
+      "BLFS",
+      "EMBC",
+      "ICUI",
+      "MDT",
+      "MMSI",
+      "SOLV",
+      "TFX",
+      "WST"
+    ],
     "beta": 0.28,
     "beta_5y": 0.28,
     "kd": 4.5,
@@ -481074,7 +482294,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ALGN",
+      "BSX",
+      "EW",
+      "GEHC",
+      "MDT",
+      "OFIX",
+      "PHG",
+      "SNN",
+      "SYK",
+      "TRUMY"
+    ],
     "beta": 0.48,
     "beta_5y": 0.48,
     "kd": 4.5,
@@ -484848,7 +486079,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "603087.SS",
+      "BBNX",
+      "DRIO",
+      "GCTK",
+      "MMED",
+      "MMEDV",
+      "PODD",
+      "SENS",
+      "TNDM",
+      "YPHDF"
+    ],
     "beta": 1.48,
     "beta_5y": 1.48,
     "kd": 4.5,
@@ -488622,7 +489864,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "BSX",
+      "ELMD",
+      "FSPKF",
+      "GEHC",
+      "GNGBY",
+      "INSP",
+      "ISRG",
+      "MDT",
+      "PHG",
+      "TFX"
+    ],
     "beta": 0.75,
     "beta_5y": 0.75,
     "kd": 4.5,
@@ -492414,7 +493667,16 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ACH",
+      "CAH",
+      "HSIC",
+      "MCK",
+      "SHPMY",
+      "SHTDY",
+      "SIG.AX",
+      "YI"
+    ],
     "beta": 0.58,
     "beta_5y": 0.58,
     "kd": 4.5,
@@ -496200,7 +497462,13 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "CNVVF",
+      "GNGBY",
+      "MLAB",
+      "SDMHF",
+      "SHC"
+    ],
     "beta": 0.93,
     "beta_5y": 0.93,
     "kd": 4.5,
@@ -499980,7 +501248,14 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ACH",
+      "CAH",
+      "COR",
+      "SHPMY",
+      "SHTDY",
+      "SIG.AX"
+    ],
     "beta": 0.3,
     "beta_5y": 0.3,
     "kd": 4.5,
@@ -503754,7 +505029,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ATEC",
+      "CNMD",
+      "ENOV",
+      "GMED",
+      "IART",
+      "MDT",
+      "OFIX",
+      "SNN",
+      "XTNT",
+      "ZBH"
+    ],
     "beta": 0.78,
     "beta_5y": 0.78,
     "kd": 4.5,
@@ -507576,7 +508862,13 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "DOCS",
+      "HCTI",
+      "HSTM",
+      "IQV",
+      "SDGR"
+    ],
     "beta": 0.93,
     "beta_5y": 0.93,
     "kd": 4.5,
@@ -511343,7 +512635,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "BMXXY",
+      "DGX",
+      "ERFSF",
+      "GH",
+      "GRAL",
+      "NTRA",
+      "QGEN",
+      "SKHCF",
+      "TMO",
+      "WUXIF"
+    ],
     "beta": 0.85,
     "beta_5y": 0.85,
     "kd": 4.5,
@@ -515135,7 +516438,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AMGN",
+      "AZN",
+      "BIIB",
+      "EYPT",
+      "GILD",
+      "GMAB",
+      "IVBXF",
+      "NVS",
+      "OCUL",
+      "REGMF"
+    ],
     "beta": 0.24,
     "beta_5y": 0.24,
     "kd": 4.5,
@@ -518902,7 +520216,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ALNY",
+      "BBIO",
+      "BEAM",
+      "BMRN",
+      "CRSP",
+      "IONS",
+      "NTLA",
+      "PTCT",
+      "RARE",
+      "SRPT"
+    ],
     "beta": 0.32,
     "beta_5y": 0.32,
     "kd": 4.5,
@@ -522676,7 +524001,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "BJ",
+      "COST",
+      "DG",
+      "DLTR",
+      "DMART.NS",
+      "OLLI",
+      "PCO.WA",
+      "PSMT",
+      "TGT",
+      "WMMVY"
+    ],
     "beta": 0.58,
     "beta_5y": 0.58,
     "kd": 4.5,
@@ -526504,7 +527840,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "BJ",
+      "CRRFY",
+      "DG",
+      "DLTR",
+      "KR",
+      "PSMT",
+      "SVNDF",
+      "TGT",
+      "TSCDY",
+      "WMT"
+    ],
     "beta": 0.87,
     "beta_5y": 0.87,
     "kd": 4.5,
@@ -530308,7 +531655,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "CHD",
+      "CL",
+      "CLX",
+      "EL",
+      "HENOY",
+      "KAOCF",
+      "KMB",
+      "KVUE",
+      "RBGLY",
+      "UL"
+    ],
     "beta": 0.38,
     "beta_5y": 0.38,
     "kd": 4.5,
@@ -534112,7 +535470,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "CELH",
+      "COCO",
+      "EMBVF",
+      "FIZZ",
+      "KDP",
+      "MNST",
+      "PEP",
+      "STBFF",
+      "VBL.NS",
+      "ZVIA"
+    ],
     "beta": 0.32,
     "beta_5y": 0.32,
     "kd": 4.5,
@@ -537934,7 +539303,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "CCEP",
+      "COKE",
+      "CPB",
+      "GIS",
+      "HSY",
+      "KDP",
+      "KO",
+      "KOF",
+      "MDLZ",
+      "MNST"
+    ],
     "beta": 0.36,
     "beta_5y": 0.36,
     "kd": 4.5,
@@ -541726,7 +543106,17 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "033780.KS",
+      "BTI",
+      "IMBBF",
+      "ITC.NS",
+      "JAPAF",
+      "MO",
+      "RLX",
+      "SMORF",
+      "TPB"
+    ],
     "beta": 0.36,
     "beta_5y": 0.36,
     "kd": 4.5,
@@ -545493,7 +546883,13 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "BRRLY",
+      "CHLSY",
+      "HSY",
+      "NSRGF",
+      "TR"
+    ],
     "beta": 0.39,
     "beta_5y": 0.39,
     "kd": 4.5,
@@ -549260,7 +550656,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "BDRFY",
+      "CHD",
+      "CLX",
+      "HENOY",
+      "KAOCF",
+      "KMB",
+      "KVUE",
+      "PG",
+      "RBGLY",
+      "UL"
+    ],
     "beta": 0.32,
     "beta_5y": 0.32,
     "kd": 4.5,
@@ -553058,7 +554465,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AJINF",
+      "CAG",
+      "CPB",
+      "DANOY",
+      "KHC",
+      "MDLZ",
+      "NESTLEIND.NS",
+      "NSRGF",
+      "SJM",
+      "TATACONSUM.NS"
+    ],
     "beta": 0.64,
     "beta_5y": 0.64,
     "kd": 4.5,
@@ -556862,7 +558280,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "CHD",
+      "CL",
+      "EPC",
+      "HELE",
+      "KMB",
+      "KVUE",
+      "PG",
+      "REYN",
+      "SPB",
+      "UL"
+    ],
     "beta": 0.57,
     "beta_5y": 0.57,
     "kd": 4.5,
@@ -560648,7 +562077,13 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "BRRLY",
+      "CHLSY",
+      "MDLZ",
+      "RMCF",
+      "TR"
+    ],
     "beta": 0.09,
     "beta_5y": 0.09,
     "kd": 4.5,
@@ -564440,7 +565875,13 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AGRO",
+      "BG",
+      "DOLE",
+      "FSRCY",
+      "WLMIY"
+    ],
     "beta": 0.63,
     "beta_5y": 0.63,
     "kd": 4.5,
@@ -568268,7 +569709,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "CL",
+      "CLX",
+      "ETTYF",
+      "HENOY",
+      "HINDUNILVR.NS",
+      "KAOCF",
+      "KMB",
+      "PG",
+      "RBGLY",
+      "UL"
+    ],
     "beta": 0.48,
     "beta_5y": 0.48,
     "kd": 4.5,
@@ -572084,7 +573536,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "BJ",
+      "COST",
+      "DG",
+      "DLTR",
+      "DMART.NS",
+      "KR",
+      "PCO.WA",
+      "PSMT",
+      "WMMVY",
+      "WMT"
+    ],
     "beta": 0.98,
     "beta_5y": 0.98,
     "kd": 4.5,
@@ -575882,7 +577345,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "CHD",
+      "CL",
+      "CLX",
+      "EPC",
+      "HENOY",
+      "HNST",
+      "KAOCF",
+      "PG",
+      "REYN",
+      "UL"
+    ],
     "beta": 0.28,
     "beta_5y": 0.28,
     "kd": 4.5,
@@ -579680,7 +581154,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "2097.HK",
+      "9980.HK",
+      "CELH",
+      "COCO",
+      "FIZZ",
+      "KDP",
+      "KO",
+      "PEP",
+      "REED",
+      "ZVIA"
+    ],
     "beta": 0.49,
     "beta_5y": 0.49,
     "kd": 4.5,
@@ -583490,7 +584975,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "BGS",
+      "CAG",
+      "CPB",
+      "HRL",
+      "HSY",
+      "JJSF",
+      "KHC",
+      "MKC",
+      "POST",
+      "SJM"
+    ],
     "beta": 0.75,
     "beta_5y": 0.75,
     "kd": 4.5,
@@ -587294,7 +588790,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "CAG",
+      "CPB",
+      "GIS",
+      "HRL",
+      "HSY",
+      "MDLZ",
+      "MKC",
+      "POST",
+      "SJM",
+      "TSN"
+    ],
     "beta": 0.08,
     "beta_5y": 0.08,
     "kd": 4.5,
@@ -591061,7 +592568,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "012450.KS",
+      "HEI",
+      "HONA",
+      "MOG-A",
+      "RTX",
+      "RYCEY",
+      "SAFRF",
+      "SARO",
+      "TDG",
+      "WWD"
+    ],
     "beta": 1.37,
     "beta_5y": 1.37,
     "kd": 4.5,
@@ -594889,7 +596407,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AGCO",
+      "ASTE",
+      "CNH",
+      "DE",
+      "EPIPF",
+      "FSS",
+      "KMTUF",
+      "KUBTF",
+      "OSK",
+      "SHKLY"
+    ],
     "beta": 1.58,
     "beta_5y": 1.58,
     "kd": 4.5,
@@ -598687,7 +600216,12 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "CNI",
+      "CP",
+      "CSX",
+      "NSC"
+    ],
     "beta": 0.95,
     "beta_5y": 0.95,
     "kd": 4.5,
@@ -602491,7 +604025,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "BA",
+      "GD",
+      "GE",
+      "HEI",
+      "LHX",
+      "LMT",
+      "NOC",
+      "RYCEY",
+      "SAFRF",
+      "TDG"
+    ],
     "beta": 0.31,
     "beta_5y": 0.31,
     "kd": 4.5,
@@ -606295,7 +607840,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "GE",
+      "HEI",
+      "HONA",
+      "LHX",
+      "MOG-A",
+      "NOC",
+      "RTX",
+      "SAFRF",
+      "TDG",
+      "WWD"
+    ],
     "beta": 0.89,
     "beta_5y": 0.89,
     "kd": 4.5,
@@ -610093,7 +611649,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "DUAVF",
+      "EADSF",
+      "FINMY",
+      "GD",
+      "GE",
+      "LHX",
+      "LMT",
+      "NOC",
+      "RTX",
+      "SAFRF"
+    ],
     "beta": 1.26,
     "beta_5y": 1.26,
     "kd": 4.5,
@@ -613909,7 +615476,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "BA",
+      "BAESY",
+      "DUAVF",
+      "FINMY",
+      "GD",
+      "LHX",
+      "NOC",
+      "RTX",
+      "SAABY",
+      "THLLY"
+    ],
     "beta": 0.1,
     "beta_5y": 0.1,
     "kd": 4.5,
@@ -617695,7 +619273,17 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AGCO",
+      "ASHOKLEY.NS",
+      "CAT",
+      "CNH",
+      "KUBTF",
+      "OSK",
+      "SHKLY",
+      "TRATF",
+      "TWI"
+    ],
     "beta": 0.87,
     "beta_5y": 0.87,
     "kd": 4.5,
@@ -621487,7 +623075,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "002352.SZ",
+      "1519.HK",
+      "9147.T",
+      "DHLGY",
+      "DSDVF",
+      "FDX",
+      "JDLGF",
+      "KHNGF",
+      "PITAF",
+      "ZTO"
+    ],
     "beta": 1.05,
     "beta_5y": 1.05,
     "kd": 4.5,
@@ -625254,7 +626853,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "BAH",
+      "EXPGY",
+      "FCN",
+      "FORR",
+      "ICFI",
+      "PAYX",
+      "RHI",
+      "SPGI",
+      "TRU",
+      "VRSK"
+    ],
     "beta": 1.34,
     "beta_5y": 1.34,
     "kd": 4.5,
@@ -629052,7 +630662,14 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "EFX",
+      "EXPGY",
+      "FICO",
+      "MCO",
+      "SPGI",
+      "VRSK"
+    ],
     "beta": 1.57,
     "beta_5y": 1.57,
     "kd": 4.5,
@@ -632819,7 +634436,16 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ACVA",
+      "CARG",
+      "CARS",
+      "CVNA",
+      "KMX",
+      "LQDT",
+      "OPLN",
+      "RBA"
+    ],
     "beta": 1.06,
     "beta_5y": 1.06,
     "kd": 4.5,
@@ -636629,7 +638255,16 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ADP",
+      "ASUR",
+      "BBSI",
+      "LGCL",
+      "NSP",
+      "PAYC",
+      "PCTY",
+      "WDAY"
+    ],
     "beta": 0.85,
     "beta_5y": 0.85,
     "kd": 4.5,
@@ -640457,7 +642092,13 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "FELE",
+      "PNR",
+      "WTS",
+      "XYL",
+      "ZWS"
+    ],
     "beta": 1.11,
     "beta_5y": 1.11,
     "kd": 4.5,
@@ -642859,7 +644500,7 @@ window.FULL_MARKET_DATA = {
             114.68073476315827,
             151.502429343735,
             179.66254540819577,
-            0.000002973579642081539,
+            2.973579642081539e-06,
             261.30492010863225,
             0,
             0
@@ -644346,7 +645987,11 @@ window.FULL_MARKET_DATA = {
         false
       ]
     },
-    "peers": [],
+    "peers": [
+      "CAAP",
+      "OMAB",
+      "PAC"
+    ],
     "beta": 0.18,
     "beta_5y": 0.18,
     "kd": 4.5,
@@ -648155,7 +649800,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "FELE",
+      "FLS",
+      "IEX",
+      "KTWIY",
+      "MWA",
+      "PNR",
+      "SULZF",
+      "VLTO",
+      "WTS",
+      "ZWS"
+    ],
     "beta": 0.99,
     "beta_5y": 0.99,
     "kd": 4.5,
@@ -651922,7 +653578,12 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "CTAS",
+      "ECL",
+      "FMC",
+      "RTO"
+    ],
     "beta": 0.73,
     "beta_5y": 0.73,
     "kd": 4.5,
@@ -655750,7 +657411,9 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "KNCRF"
+    ],
     "beta": 0.86,
     "beta_5y": 0.86,
     "kd": 4.5,
@@ -659517,7 +661180,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "CCC",
+      "EXPGY",
+      "GWRE",
+      "MCO",
+      "MORN",
+      "MSCI",
+      "NICE",
+      "SPGI",
+      "SSNC",
+      "TRU"
+    ],
     "beta": 0.69,
     "beta_5y": 0.69,
     "kd": 4.5,
@@ -663284,7 +664958,12 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "JBTM",
+      "MFP",
+      "NPK",
+      "SXI"
+    ],
     "beta": 1.33,
     "beta_5y": 1.33,
     "kd": 4.5,
@@ -667076,7 +668755,16 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ASUR",
+      "BBSI",
+      "NSP",
+      "PAYC",
+      "PAYX",
+      "PCTY",
+      "TNET",
+      "WDAY"
+    ],
     "beta": 0.84,
     "beta_5y": 0.84,
     "kd": 4.5,
@@ -670892,7 +672580,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "009540.KS",
+      "010140.KS",
+      "042660.KS",
+      "329180.KS",
+      "600150.SS",
+      "BA",
+      "BCKIY",
+      "GD",
+      "LMT",
+      "NOC"
+    ],
     "beta": 0.21,
     "beta_5y": 0.21,
     "kd": 4.5,
@@ -674659,7 +676358,16 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ALLE",
+      "APG",
+      "CDRE",
+      "FSS",
+      "GNTX",
+      "MG",
+      "OSIS",
+      "PRM"
+    ],
     "beta": 0.91,
     "beta_5y": 0.91,
     "kd": 4.5,
@@ -678457,7 +680165,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AIR",
+      "AIRI",
+      "ATRO",
+      "CW",
+      "GE",
+      "HEI",
+      "HWM",
+      "MOG-A",
+      "SAFRF",
+      "WWD"
+    ],
     "beta": 0.94,
     "beta_5y": 0.94,
     "kd": 4.5,
@@ -682224,7 +683943,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ALNT",
+      "ATLCY",
+      "DOV",
+      "GTES",
+      "IEX",
+      "IR",
+      "NPO",
+      "PH",
+      "TKR",
+      "WEGZY"
+    ],
     "beta": 1.07,
     "beta_5y": 1.07,
     "kd": 4.5,
@@ -686034,7 +687764,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "EMR",
+      "FELE",
+      "IEX",
+      "IR",
+      "ITT",
+      "NDSN",
+      "PH",
+      "PNR",
+      "SULZF",
+      "XYL"
+    ],
     "beta": 0.88,
     "beta_5y": 0.88,
     "kd": 4.5,
@@ -689862,7 +691603,11 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ATMU",
+      "CECO",
+      "WTS"
+    ],
     "beta": 0.87,
     "beta_5y": 0.87,
     "kd": 4.5,
@@ -693678,7 +695423,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AME",
+      "DCI",
+      "DOV",
+      "EMR",
+      "EPAC",
+      "IR",
+      "NDSN",
+      "PH",
+      "SNA",
+      "SXI"
+    ],
     "beta": 0.97,
     "beta_5y": 0.97,
     "kd": 4.5,
@@ -697567,7 +699323,12 @@ window.FULL_MARKET_DATA = {
         false
       ]
     },
-    "peers": [],
+    "peers": [
+      "CP.TO",
+      "CSX",
+      "NSC",
+      "UNP.TO"
+    ],
     "beta": 0.97,
     "beta_5y": 0.97,
     "kd": 4.5,
@@ -701310,7 +703071,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "CLH",
+      "CWST",
+      "FMOCF",
+      "GFL",
+      "NVRI",
+      "PESI",
+      "QRHC",
+      "RSG",
+      "VEOEY",
+      "WCN"
+    ],
     "beta": 0.43,
     "beta_5y": 0.43,
     "kd": 4.5,
@@ -705077,7 +706849,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "2222.SR",
+      "BP",
+      "CVE",
+      "CVX",
+      "IMO",
+      "PCCYF",
+      "REPYF",
+      "SHEL",
+      "SU",
+      "TTE"
+    ],
     "beta": 0.17,
     "beta_5y": 0.17,
     "kd": 4.5,
@@ -708875,7 +710658,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "BP",
+      "E",
+      "EQNR",
+      "IMO",
+      "PCCYF",
+      "SHEL",
+      "SNPMF",
+      "SU",
+      "TTE",
+      "XOM"
+    ],
     "beta": 0.52,
     "beta_5y": 0.52,
     "kd": 4.5,
@@ -712673,7 +714467,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "2222.SR",
+      "BP",
+      "CVE",
+      "CVX",
+      "E",
+      "EQNR",
+      "IMO",
+      "PBR",
+      "TTE",
+      "XOM"
+    ],
     "beta": 0.13,
     "beta_5y": 0.13,
     "kd": 4.5,
@@ -716465,7 +718270,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "BKR",
+      "FTI",
+      "HAL",
+      "INVX",
+      "NBR",
+      "NOV",
+      "OII",
+      "SAPMY",
+      "WFRD",
+      "XPRO"
+    ],
     "beta": 0.84,
     "beta_5y": 0.84,
     "kd": 4.5,
@@ -720275,7 +722091,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "APA",
+      "CNQ",
+      "COP",
+      "DVN",
+      "FANG",
+      "OVV",
+      "OXY",
+      "PR",
+      "SM",
+      "TRMLF"
+    ],
     "beta": 0.27,
     "beta_5y": 0.27,
     "kd": 4.5,
@@ -724061,7 +725888,17 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ENB",
+      "KMI",
+      "MPLX",
+      "OKE",
+      "PAA",
+      "PBA",
+      "TRGP",
+      "TRP",
+      "WMB"
+    ],
     "beta": 0.48,
     "beta_5y": 0.48,
     "kd": 4.5,
@@ -727932,7 +729769,17 @@ window.FULL_MARKET_DATA = {
         false
       ]
     },
-    "peers": [],
+    "peers": [
+      "ALA.TO",
+      "EPD",
+      "KMI",
+      "MPLX",
+      "OKE",
+      "PPL.TO",
+      "TRGP",
+      "TRP.TO",
+      "WMB"
+    ],
     "beta": 0.77,
     "beta_5y": 0.77,
     "kd": 4.5,
@@ -731766,7 +733613,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "BPCL.NS",
+      "CVI",
+      "DINO",
+      "DK",
+      "IDKOY",
+      "PARR",
+      "PBF",
+      "PSX",
+      "RELIANCE.NS",
+      "VLO"
+    ],
     "beta": 0.54,
     "beta_5y": 0.54,
     "kd": 4.5,
@@ -735540,7 +737398,17 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "CVI",
+      "DINO",
+      "DK",
+      "IDKOY",
+      "JXHLY",
+      "MPC",
+      "PARR",
+      "PBF",
+      "PSX"
+    ],
     "beta": 0.59,
     "beta_5y": 0.59,
     "kd": 4.5,
@@ -739326,7 +741194,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "010950.KS",
+      "6505.TW",
+      "DINO",
+      "DK",
+      "IDKOY",
+      "JXHLY",
+      "MPC",
+      "NTOIY",
+      "PBF",
+      "VLO"
+    ],
     "beta": 0.7,
     "beta_5y": 0.7,
     "kd": 4.5,
@@ -743093,7 +744972,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "APA",
+      "CHRD",
+      "CNQ",
+      "COP",
+      "DVN",
+      "EOG",
+      "FANG",
+      "OVV",
+      "PR",
+      "SM"
+    ],
     "beta": 0.16,
     "beta_5y": 0.16,
     "kd": 4.5,
@@ -746873,7 +748763,17 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "EPD",
+      "GEL",
+      "MPLX",
+      "NGL",
+      "OKE",
+      "PAA",
+      "TCPA",
+      "TRGP",
+      "WMB"
+    ],
     "beta": 0.58,
     "beta_5y": 0.58,
     "kd": 4.5,
@@ -750640,7 +752540,17 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "DTM",
+      "EPD",
+      "HESM",
+      "KMI",
+      "MPLX",
+      "OKE",
+      "PAA",
+      "TRGP",
+      "WES"
+    ],
     "beta": 0.66,
     "beta_5y": 0.66,
     "kd": 4.5,
@@ -754444,7 +756354,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "BKR",
+      "FET",
+      "FTI",
+      "INVX",
+      "KLXE",
+      "NINE",
+      "NOV",
+      "RES",
+      "SLB",
+      "WFRD"
+    ],
     "beta": 0.84,
     "beta_5y": 0.84,
     "kd": 4.5,
@@ -758242,7 +760163,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ACGYF",
+      "FTI",
+      "HAL",
+      "NOV",
+      "SAPMY",
+      "SBFFY",
+      "SLB",
+      "THNPY",
+      "TS",
+      "WFRD"
+    ],
     "beta": 1.04,
     "beta_5y": 1.04,
     "kd": 4.5,
@@ -762009,7 +763941,11 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AIQUY",
+      "APD",
+      "TYNPF"
+    ],
     "beta": 0.71,
     "beta_5y": 0.71,
     "kd": 4.5,
@@ -765783,7 +767719,15 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ASIANPAINT.NS",
+      "AXTA",
+      "BERGEPAINT.NS",
+      "NPCPF",
+      "PPG",
+      "RPM",
+      "SXYAY"
+    ],
     "beta": 1.08,
     "beta_5y": 1.08,
     "kd": 4.5,
@@ -769587,7 +771531,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ANFGF",
+      "BHP",
+      "FQVLF",
+      "JIAXF",
+      "LUNMF",
+      "NEM",
+      "RIO",
+      "SCCO",
+      "TECK",
+      "VALE"
+    ],
     "beta": 1.39,
     "beta_5y": 1.39,
     "kd": 4.5,
@@ -773361,7 +775316,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AEM",
+      "AU",
+      "B",
+      "BTG",
+      "EDVMF",
+      "EGO",
+      "GFI",
+      "HMY",
+      "IAG",
+      "KGC"
+    ],
     "beta": 0.53,
     "beta_5y": 0.53,
     "kd": 4.5,
@@ -777147,7 +779113,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ANFGF",
+      "BHP",
+      "FCX",
+      "FQVLF",
+      "GMBXF",
+      "HBM",
+      "JIAXF",
+      "RIO",
+      "TECK",
+      "VALE"
+    ],
     "beta": 1.12,
     "beta_5y": 1.12,
     "kd": 4.5,
@@ -780945,7 +782922,17 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ASH",
+      "BCPC",
+      "COIHY",
+      "DSFIR.AS",
+      "GVDNY",
+      "INGR",
+      "MKC",
+      "SXT",
+      "SYIEF"
+    ],
     "beta": 0.93,
     "beta_5y": 0.93,
     "kd": 4.5,
@@ -784725,7 +786712,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AXTA",
+      "CRH",
+      "CSL",
+      "CX",
+      "FUL",
+      "OC",
+      "PPG",
+      "SHW",
+      "SXYAY",
+      "VMC"
+    ],
     "beta": 1.04,
     "beta_5y": 1.04,
     "kd": 4.5,
@@ -788553,7 +790551,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ACA",
+      "CRH",
+      "CSL",
+      "CX",
+      "EXP",
+      "JHX",
+      "MDU",
+      "MLM",
+      "OC",
+      "USLM"
+    ],
     "beta": 1.05,
     "beta_5y": 1.05,
     "kd": 4.5,
@@ -792339,7 +794348,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ASH",
+      "AVNT",
+      "EMN",
+      "FUL",
+      "HWKN",
+      "IFF",
+      "INGR",
+      "IOSP",
+      "SCL",
+      "SXT"
+    ],
     "beta": 0.85,
     "beta_5y": 0.85,
     "kd": 4.5,
@@ -796155,7 +798175,11 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AIQUY",
+      "LIN",
+      "LINDEINDIA.NS"
+    ],
     "beta": 0.76,
     "beta_5y": 0.76,
     "kd": 4.5,
@@ -799971,7 +801995,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "CECO",
+      "CLH",
+      "CLX",
+      "CTAS",
+      "GFL",
+      "KTWIY",
+      "PG",
+      "RTO",
+      "VLTO",
+      "ZWS"
+    ],
     "beta": 0.88,
     "beta_5y": 0.88,
     "kd": 4.5,
@@ -803763,7 +805798,17 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AVD",
+      "BIOX",
+      "CTA-PA",
+      "CTA-PB",
+      "FMC",
+      "NTR",
+      "RKDA",
+      "SEED",
+      "VYLR"
+    ],
     "beta": 0.58,
     "beta_5y": 0.58,
     "kd": 4.5,
@@ -807537,7 +809582,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AVNT",
+      "BASFY",
+      "CE",
+      "DD",
+      "EMN",
+      "HUN",
+      "LYB",
+      "OLN",
+      "TROX",
+      "WLK"
+    ],
     "beta": 0.41,
     "beta_5y": 0.41,
     "kd": 4.5,
@@ -811304,7 +813360,17 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AVNT",
+      "CC",
+      "CE",
+      "DOW",
+      "EMN",
+      "ESI",
+      "LYB",
+      "MMM",
+      "SHECY"
+    ],
     "beta": 1.08,
     "beta_5y": 1.08,
     "kd": 4.5,
@@ -815120,7 +817186,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AHCHY",
+      "AMRZ",
+      "CRH",
+      "CX",
+      "EXP",
+      "HCMLY",
+      "HDLMY",
+      "ULTRACEMCO.NS",
+      "USLM",
+      "VMC"
+    ],
     "beta": 1.08,
     "beta_5y": 1.08,
     "kd": 4.5,
@@ -818887,7 +820964,17 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AEP",
+      "D",
+      "DUK",
+      "ED",
+      "ETR",
+      "EXC",
+      "PEG",
+      "SO",
+      "XEL"
+    ],
     "beta": 0.64,
     "beta_5y": 0.64,
     "kd": 4.5,
@@ -822673,7 +824760,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "CMS",
+      "CMS-PB",
+      "CNP",
+      "DTE",
+      "DUK",
+      "ED",
+      "ETR",
+      "EXC",
+      "PEG",
+      "XEL"
+    ],
     "beta": 0.3,
     "beta_5y": 0.3,
     "kd": 4.5,
@@ -826453,7 +828551,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "CMS",
+      "CMS-PB",
+      "CNP",
+      "D",
+      "ED",
+      "NEE",
+      "PEG",
+      "SO",
+      "WEC",
+      "XEL"
+    ],
     "beta": 0.34,
     "beta_5y": 0.34,
     "kd": 4.5,
@@ -830245,7 +832354,11 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "EXC",
+      "NRG",
+      "VST"
+    ],
     "beta": 1.13,
     "beta_5y": 1.13,
     "kd": 4.5,
@@ -834012,7 +836125,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ARTNA",
+      "AWR",
+      "CWT",
+      "GWRS",
+      "HTO",
+      "MSEX",
+      "PCYO",
+      "UUGRY",
+      "WTRG",
+      "YORW"
+    ],
     "beta": 0.57,
     "beta_5y": 0.57,
     "kd": 4.5,
@@ -837779,7 +839903,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ATO",
+      "AVA",
+      "CMS",
+      "CMS-PB",
+      "CNP",
+      "DUK",
+      "EIX",
+      "PEG",
+      "SO",
+      "WEC"
+    ],
     "beta": 0.56,
     "beta_5y": 0.56,
     "kd": 4.5,
@@ -841565,7 +843700,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "D",
+      "DUK",
+      "EIX",
+      "ETR",
+      "EXC",
+      "IDA",
+      "LNT",
+      "PCG",
+      "WEC",
+      "XEL"
+    ],
     "beta": 0.47,
     "beta_5y": 0.47,
     "kd": 4.5,
@@ -845339,7 +847485,17 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "AEP",
+      "DUK",
+      "ED",
+      "EXC",
+      "NEE",
+      "PCG",
+      "SO",
+      "WEC",
+      "XEL"
+    ],
     "beta": 0.62,
     "beta_5y": 0.62,
     "kd": 4.5,
@@ -849125,7 +851281,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "BBOX.L",
+      "CUBE",
+      "EGP",
+      "FR",
+      "LNSPF",
+      "PSA",
+      "REXR",
+      "SEGXF",
+      "STAG",
+      "TRNO"
+    ],
     "beta": 1.32,
     "beta_5y": 1.32,
     "kd": 4.5,
@@ -852892,7 +855059,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "CCI",
+      "CHWRF",
+      "DLR",
+      "EQIX",
+      "GLPI",
+      "INDUSTOWER.NS",
+      "IRM",
+      "LAMR",
+      "OUT",
+      "SBAC"
+    ],
     "beta": 0.89,
     "beta_5y": 0.89,
     "kd": 4.5,
@@ -856659,7 +858837,18 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ALAB",
+      "CBRS",
+      "DLR",
+      "DOCN",
+      "IREN",
+      "IRM",
+      "KEEL",
+      "NBIS",
+      "VRT",
+      "XLABW"
+    ],
     "beta": 0.97,
     "beta_5y": 0.97,
     "kd": 4.5,
@@ -860433,7 +862622,13 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ALX",
+      "CNRAF",
+      "MAC",
+      "SKT",
+      "STGPF"
+    ],
     "beta": 1.33,
     "beta_5y": 1.33,
     "kd": 4.5,
@@ -864213,7 +866408,12 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "APPF",
+      "SPGI",
+      "VRSK",
+      "ZG"
+    ],
     "beta": 0.8,
     "beta_5y": 0.8,
     "kd": 4.5,
@@ -867987,7 +870187,10 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "EPR",
+      "GLPI"
+    ],
     "beta": 0.67,
     "beta_5y": 0.67,
     "kd": 4.5,
@@ -871754,7 +873957,15 @@ window.FULL_MARKET_DATA = {
         ]
       }
     },
-    "peers": [],
+    "peers": [
+      "ADC",
+      "EPRT",
+      "GTY",
+      "NNN",
+      "NTST",
+      "SKT",
+      "WPC"
+    ],
     "beta": 0.7,
     "beta_5y": 0.7,
     "kd": 4.5,
