@@ -599,18 +599,6 @@
     #cmp-peers-table .fin-group-header-row td { text-align: left; }
     .financial-group-label { position: sticky; left: 14px; display: inline-block; }
 
-    /* 三表切換按鈕專用排版 */
-    .statement-selector-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 14px;
-      align-items: center;
-      background: var(--surface-bg);
-      padding: 8px 14px;
-      border-radius: 6px;
-      border: 1px solid var(--card-border);
-    }
     .stmt-btn {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
@@ -727,7 +715,6 @@
     #cmp-fin-table .fcf-trend-col { min-width: 140px; text-align: center; }
     #cmp-fin-table .fin-group-header-row td { height: 44px; text-transform: none; letter-spacing: normal; }
     #cmp-fin-table .fin-group-header-row .table-sticky-col { white-space: normal; }
-    .statement-selector-bar > div { flex-wrap: wrap; }
     .spark-line-wrap { width: 108px; height: 32px; }
     .btn-save, .btn-nav { color: #fff; }
     :root[data-theme="light"] .spark-line-svg path[stroke="#22c55e"] { stroke: var(--green); }
@@ -745,6 +732,20 @@
     .balance-card strong { font-size: clamp(18px, 1.6vw, 24px); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
     .balance-card > span:last-child { font-size: 12px; color: var(--text-muted); }
     .balance-chart { position: relative; height: 340px; }
+    .company-analysis-controls { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .peer-summary-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .company-analysis-scroll { max-height: 62vh; overflow: auto; }
+    .company-analysis-panel .panel-title { display: block; }
+    .company-analysis-table th, .company-analysis-table td { padding: 12px 14px !important; border-right: 1px solid var(--card-border); border-bottom: 1px solid var(--card-border); font-variant-numeric: tabular-nums; }
+    .company-analysis-table thead th:not(.table-sticky-col):not(.peer-sticky-col) { text-align: center !important; }
+    .company-analysis-table .th-cell-wrap { align-items: center !important; gap: 4px; }
+    .company-analysis-table .financial-group-label { position: static; white-space: normal; }
+    .company-analysis-table .fin-group-header-row td { text-transform: none; letter-spacing: normal; font-weight: 600 !important; }
+    .company-analysis-table .fcf-trend-col { min-width: 140px; }
+    #cmp-ratio-table td, #cmp-ratio-table th { min-width: 140px; }
+    #cmp-ratio-table thead .fcf-trend-col, #cmp-fin-table thead .fcf-trend-col { z-index: 30 !important; }
+    #cmp-peers-table .peer-current { background: var(--gold-bg) !important; font-weight: 700; }
+    #cmp-peers-table .peer-company-name { font-size: var(--table-font-size); font-weight: 400; }
     #balance-table .table-sticky-col, #earnings-table .table-sticky-col { width: 260px; min-width: 260px; max-width: 260px; text-align: left; white-space: normal; }
     #balance-table th, #balance-table td, #earnings-table th, #earnings-table td { min-width: 160px; }
     #balance-table .balance-selected, #earnings-table .balance-selected { background: var(--gold-bg); }
@@ -816,6 +817,9 @@
       .screener-intro p { display: none; }
       #screener-view .filter-panel { padding: 14px; }
       .screener-toolbar, .balance-controls { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+      .company-analysis-controls { grid-template-columns: minmax(0, 1fr); }
+      .peer-summary-cards { grid-template-columns: minmax(0, 1fr); }
+      .company-analysis-panel .form-group { min-width: 0; }
       #screener-view .filter-row { align-items: flex-start; }
       #screener-view .filter-title { flex-basis: 100%; }
       #screener-view .filter-btns { flex-basis: 100%; }
@@ -834,6 +838,7 @@
       #cmp-fin-table .table-sticky-col { width: 150px !important; min-width: 150px; max-width: 150px; }
       #cmp-fin-table th, #cmp-fin-table td { min-width: 125px; }
       #cmp-fin-table thead .fcf-trend-col { right: auto; }
+      #cmp-ratio-table thead .fcf-trend-col { right: auto; }
       .status-badge { white-space: normal; }
     }
   </style>
@@ -1339,23 +1344,30 @@
 
     <!-- 子分頁 2：財務報表 -->
     <div id="subpage-financials" class="subpage-content">
-      <div class="panel">
+      <div class="panel historical-ratio-panel company-analysis-panel">
         <div class="panel-title" style="display: flex; justify-content: space-between; align-items: center;">
-          <span data-i18n="sec_fin_title">5 年核心財務指標與 TTM 完整財務報表 ($M)</span>
+          <span data-i18n="sec_fin_title">財務報表</span>
         </div>
 
-        <div class="statement-selector-bar">
-          <span style="font-size: 12.5px; color: var(--text-muted); font-weight: 600;" data-i18n="lbl_select_stmt">選擇報表類型：</span>
-          <button class="stmt-btn active" id="btn-stmt-income" onclick="switchFinancialStatement('income')" data-i18n="btn_stmt_income">1. 損益表 (Income Statement)</button>
-          <button class="stmt-btn" id="btn-stmt-balance" onclick="switchFinancialStatement('balance')" data-i18n="btn_stmt_balance">2. 資產負債表 (Balance Sheet)</button>
-          <button class="stmt-btn" id="btn-stmt-cashflow" onclick="switchFinancialStatement('cashflow')" data-i18n="btn_stmt_cashflow">3. 現金流量表 (Cash Flow)</button>
-          <div style="margin-left: auto; display: flex; gap: 8px;">
-            <button class="stmt-btn active" id="btn-stmt-period-annual" onclick="switchStatementPeriod('annual')" data-i18n="btn_period_annual">年度 (5年 + TTM)</button>
-            <button class="stmt-btn" id="btn-stmt-period-quarterly" onclick="switchStatementPeriod('quarterly')" data-i18n="btn_period_quarter">季度 (近 20 季)</button>
-           </div>
+        <p class="analysis-note" data-i18n="analysis_fin_note"></p>
+        <div class="balance-controls company-analysis-controls">
+          <div class="form-group"><label for="statement-type" data-i18n="lbl_select_stmt">選擇報表類型：</label>
+            <select id="statement-type" onchange="switchFinancialStatement(this.value)">
+              <option value="income" data-i18n="btn_stmt_income">損益表</option>
+              <option value="balance" data-i18n="btn_stmt_balance">資產負債表</option>
+              <option value="cashflow" data-i18n="btn_stmt_cashflow">現金流量表</option>
+            </select>
+          </div>
+          <div class="form-group"><label for="statement-period" data-i18n="fcf_period">報表期間</label>
+            <select id="statement-period" onchange="switchStatementPeriod(this.value)">
+              <option value="annual" data-i18n="btn_period_annual">年度（5年＋TTM）</option>
+              <option value="quarterly" data-i18n="btn_period_quarter">季度（近20季）</option>
+            </select>
+          </div>
         </div>
-        <div class="table-scroll-wrapper" style="overflow-x: auto; max-height: 520px; overflow-y: auto;">
-          <table id="cmp-fin-table" class="historical-ratio-table" style="text-align: right;">
+        <p id="statement-status" class="analysis-note" role="status"></p>
+        <div class="table-scroll-wrapper company-analysis-scroll">
+          <table id="cmp-fin-table" class="historical-ratio-table company-analysis-table">
             <thead>
               <tr id="cmp-fin-thead">
                 <th style="text-align: left; width: 280px;" data-i18n="th_fin_item">會計項目 / 財務指標 ($M)</th>
@@ -1376,17 +1388,22 @@
 
     <!-- 子分頁 3：關鍵比率 (頂部完整比率總表 + 底部圖表分析) -->
     <div id="subpage-ratios" class="subpage-content">
-      <div class="panel" style="margin-bottom: 24px;">
-        <div class="panel-title" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+      <div class="panel historical-ratio-panel company-analysis-panel">
+        <div class="panel-title">
           <span id="ratio-table-title" data-i18n="sec_ratios_full_title">關鍵財務比率與營運效率矩陣</span>
-          <div style="display: flex; gap: 8px;">
-            <button class="stmt-btn active" id="btn-ratio-period-annual" onclick="switchRatioPeriod('annual')" data-i18n="btn_ratio_annual">年度 (5年 + TTM)</button>
-            <button class="stmt-btn" id="btn-ratio-period-quarterly" onclick="switchRatioPeriod('quarterly')" data-i18n="btn_ratio_quarter">季度 (近 20 季)</button>
+        </div>
+        <p class="analysis-note" data-i18n="analysis_ratio_note"></p>
+        <div class="balance-controls company-analysis-controls">
+          <div class="form-group"><label for="ratio-period" data-i18n="fcf_period">報表期間</label>
+            <select id="ratio-period" onchange="switchRatioPeriod(this.value)">
+              <option value="annual" data-i18n="btn_ratio_annual">年度（5年＋TTM）</option>
+              <option value="quarterly" data-i18n="btn_ratio_quarter">季度（近20季）</option>
+            </select>
           </div>
         </div>
-
-        <div class="table-scroll-wrapper" style="overflow-x: auto; max-height: 540px; overflow-y: auto;">
-          <table id="cmp-ratio-table" style="text-align: right;">
+        <p id="ratio-status" class="analysis-note" role="status"></p>
+        <div class="table-scroll-wrapper company-analysis-scroll">
+          <table id="cmp-ratio-table" class="historical-ratio-table company-analysis-table">
             <thead>
               <tr id="cmp-ratio-thead">
                 <th class="table-sticky-col" style="text-align: left; width: 320px;" data-i18n="th_ratio_metric">比率指標 / 財務維度</th>
@@ -1547,7 +1564,7 @@
         <ul id="balance-notes" class="analysis-note"></ul>
       </section>
       <section class="panel historical-ratio-panel" id="earnings-panel" aria-labelledby="earnings-title">
-        <div class="panel-title" id="earnings-title" data-i18n="earnings_title">EPS、FCF 與股息趨勢</div>
+        <div class="panel-title" id="earnings-title" data-i18n="earnings_title">稀釋每股盈餘、FCF 與股息趨勢</div>
         <p class="analysis-note" data-i18n="earnings_definition"></p>
         <div class="balance-controls">
           <div class="form-group"><label for="earnings-period" data-i18n="fcf_period">報表期間</label><select id="earnings-period"><option value="quarterly" data-i18n="fcf_quarterly">季度</option><option value="annual" data-i18n="fcf_annual">完整會計年度</option></select></div>
@@ -1890,8 +1907,7 @@
 
   function switchStatementPeriod(period) {
     activeStatementPeriod = period;
-    document.getElementById('btn-stmt-period-annual').className = (period === 'annual') ? 'stmt-btn active' : 'stmt-btn';
-    document.getElementById('btn-stmt-period-quarterly').className = (period === 'quarterly') ? 'stmt-btn active' : 'stmt-btn';
+    document.getElementById('statement-period').value = period;
     renderFinancialsSubPage(stockUniverse[activeCompanyTicker]);
   }
 
@@ -1914,6 +1930,13 @@
       screener_table_tip: "點選代號開啟公司頁；點選欄名排序。更多欄位可左右捲動。",
       screener_liquidation_key: '清算價：<span class="text-green">正值</span>／<span class="text-red">負值</span>／零與缺值為中性色；正值不代表股價低估。',
       screener_formula: "計算說明",
+      analysis_fin_note: "選擇報表與期間，依日期逐欄比較。金額沿用報表標示的百萬單位；EPS 為每股、股數另標單位。指標名稱固定於左側，右側顯示歷史趨勢。",
+      analysis_ratio_note: "依期間檢視獲利、現金流、資本結構及流動性。表格與趨勢分析使用一致排版；各比率仍沿用本頁原有計算口徑，不等同趨勢分析可切換的分母設定。迷你線圖顏色表示數值升降，不一定代表好壞。",
+      analysis_peer_note: "比較同板塊、同子行業，並優先採用現有同行名單，最多五家公司。這是最新 TTM 橫向比較，並非歷史趨勢；各公司財報日期可能不同。",
+      analysis_columns: "個期間欄",
+      analysis_peer_count: "同行數目",
+      analysis_peer_basis: "比較口徑",
+      analysis_peer_current: "目前標的",
       balance_title: "資產與負債結構",
       balance_definition: "以實際財報期末餘額比較規模與財務結構；資產負債不做 TTM 加總。金額單位為財報幣別百萬，缺值不推算補齊。",
       balance_date: "重點財報日",
@@ -2038,14 +2061,16 @@
       tab_ratios: "⚖️ 4. 關鍵比率",
       tab_peers: "👥 5. 同行業對比",
       tab_charts: "📊 6. 趨勢分析",
-      earnings_title: "EPS、FCF 與股息趨勢",
-      earnings_definition: "稀釋 EPS 採財報原值（每股）；FCF 為營業現金流減資本支出；普通股現金股息採現金流量表原始正負號，支出通常為負。FCF 與股息以財報幣別百萬列示，不是每股股息。季度可選單季或連續四季合計，年度採完整財年；不推算缺值。",
-      earnings_chart_note: "EPS 使用左軸（每股），FCF 與普通股現金股息使用右軸（百萬）。TTM EPS 為四季已報 EPS 合計，未另作拆股調整，可能不同於年度加權股數計算值。缺值及不同幣別不連線。",
-      earnings_eps: "稀釋 EPS（每股）",
-      earnings_fcf: "自由現金流 FCF（百萬）",
-      earnings_dividend: "普通股現金股息（百萬；支出為負）",
-      earnings_per_share: "每股",
-      earnings_metric: "指標（每股／百萬）",
+      earnings_title: "稀釋每股盈餘、FCF 與股息趨勢",
+      earnings_definition: "三項皆以財報幣別／稀釋股呈現。每稀釋股 FCF＝自由現金流 ÷ 同期稀釋加權平均股數；每稀釋股股息＝普通股現金股息支出 ÷ 同期股數（現金流量表支出負號轉為正值，不取絕對值）。股息為實際支付現金換算，不等同公告每股股息。",
+      earnings_chart_note: "單季／年度使用該期稀釋加權平均股數；TTM 的 FCF 與股息採四季合計 ÷ 四季稀釋加權平均股數的簡單平均。EPS 使用財報稀釋 EPS，TTM 合計四季已報 EPS，可能不同於年度加權股數計算值。未另做拆股調整；缺值及不同幣別不連線。三項共用每股刻度。",
+      earnings_eps: "每股稀釋盈餘（EPS）",
+      earnings_fcf: "每稀釋股自由現金流（FCF）",
+      earnings_dividend: "每稀釋股現金股息",
+      earnings_per_share: "／稀釋股",
+      earnings_metric: "指標（財報幣別／稀釋股）",
+      earnings_reason_missingDilutedShares: "N/A：缺少同期歷史稀釋加權平均股數，不以目前股數替代。",
+      earnings_reason_invalidDilutedShares: "N/A：同期稀釋加權平均股數為零或負數，無法計算每股值。",
       earnings_reason_incompleteTtm: "N/A：此指標缺少連續四季資料，無法計算 TTM。",
       tab_tradingview: "📈 8. TradingView 圖表",
       tab_news: "📰 7. 公司新聞",
@@ -2071,7 +2096,7 @@
       th_date: "申報日期", th_insider_name: "內部人姓名", th_title: "職位 / 關係", th_type: "交易類型", th_shares: "交易股數", th_avg_p: "成交均價 ($)", th_total_val: "總金額 ($M)",
       sec_splits_title: "歷年拆股與合股紀錄 (Stock Splits History)",
       th_effective_date: "除權生效日 (Date)", th_ratio: "拆股比例 (Ratio)", th_desc: "說明", th_nature: "性質",
-      sec_fin_title: "5 年核心財務指標與 TTM 完整財務報表 ($M)",
+      sec_fin_title: "財務報表",
       lbl_select_stmt: "選擇報表類型：",
       btn_stmt_income: "1. 損益表 (Income Statement)",
       btn_stmt_balance: "2. 資產負債表 (Balance Sheet)",
@@ -2222,6 +2247,13 @@
       screener_table_tip: "Open a company by ticker; sort by column heading. Scroll sideways for additional columns.",
       screener_liquidation_key: 'Liquidation: <span class="text-green">positive</span> / <span class="text-red">negative</span> / zero and missing values are neutral. A positive value does not mean the stock is undervalued.',
       screener_formula: "Calculation details",
+      analysis_fin_note: "Choose a statement and period to compare dated columns. Monetary amounts retain the table's millions convention; EPS is per share and share counts have separate units. Metric labels stay fixed on the left, with historical trends on the right.",
+      analysis_ratio_note: "Compare profitability, cash flow, capital structure and liquidity by period. The layout matches Trend Analysis; this page retains its existing calculation bases rather than the selectable denominators in Trend Analysis. Sparkline colors show numerical direction, not necessarily improvement or deterioration.",
+      analysis_peer_note: "Compare up to five companies in the same sector and sub-industry, prioritizing the existing peer list. This is a latest-TTM cross-section, not historical trends; reporting dates can differ between companies.",
+      analysis_columns: "period columns",
+      analysis_peer_count: "Peers included",
+      analysis_peer_basis: "Comparison basis",
+      analysis_peer_current: "Selected company",
       balance_title: "Assets & Balance Sheet",
       balance_definition: "Compare actual statement-end balances and financial structure; balance sheets are not summed as TTM. Amounts are in millions of the reported currency. Missing values are not estimated.",
       balance_date: "Focus statement date",
@@ -2346,14 +2378,16 @@
       tab_ratios: "⚖️ 4. Key Ratios",
       tab_peers: "👥 5. Peer Comparison",
       tab_charts: "📊 6. Trend Analysis",
-      earnings_title: "EPS, FCF & Dividend Trends",
-      earnings_definition: "Diluted EPS is reported per share. FCF is operating cash flow less capital expenditure. Common cash dividends retain the cash-flow statement sign (payments normally negative). FCF and dividends are in reported currency millions, not dividends per share. Choose single-quarter or consecutive four-quarter totals; annual uses complete fiscal years. Missing values are not estimated.",
-      earnings_chart_note: "EPS uses the left axis (per share); FCF and common cash dividends use the right axis (millions). TTM EPS sums four reported quarters without additional split adjustment and can differ from annual weighted-share EPS. Missing values and different currencies leave gaps.",
-      earnings_eps: "Diluted EPS (per share)",
-      earnings_fcf: "Free cash flow (millions)",
-      earnings_dividend: "Common cash dividends (millions; payments negative)",
-      earnings_per_share: "per share",
-      earnings_metric: "Metric (per share / millions)",
+      earnings_title: "Diluted EPS, FCF & Dividends per Diluted Share",
+      earnings_definition: "All three metrics use reported currency per diluted share. FCF per diluted share = free cash flow / same-period weighted-average diluted shares. Cash dividends per diluted share = common cash dividends paid / same-period shares (cash-flow outflows are sign-reversed, not made absolute). This cash-paid measure is not the announced dividend per share.",
+      earnings_chart_note: "Single-quarter and annual cash-flow metrics use that period's weighted-average diluted shares. TTM divides four-quarter cash-flow totals by the simple average of four quarterly diluted share counts. EPS uses reported diluted EPS; TTM sums four reported quarters and may differ from annual weighted-share EPS. No additional split adjustment; missing values and different currencies leave gaps. All three series share one per-share axis.",
+      earnings_eps: "Earnings per diluted share (EPS)",
+      earnings_fcf: "FCF per diluted share",
+      earnings_dividend: "Cash dividends per diluted share",
+      earnings_per_share: "per diluted share",
+      earnings_metric: "Metric (reported currency / diluted share)",
+      earnings_reason_missingDilutedShares: "N/A: Same-period historical weighted-average diluted shares are unavailable; current shares are not substituted.",
+      earnings_reason_invalidDilutedShares: "N/A: Same-period weighted-average diluted shares are zero or negative.",
       earnings_reason_incompleteTtm: "N/A: Four consecutive quarters are unavailable for this metric.",
       tab_tradingview: "📈 8. TradingView",
       tab_news: "📰 7. News Feed",
@@ -2379,7 +2413,7 @@
       th_date: "Filing Date", th_insider_name: "Insider Name", th_title: "Title / Relation", th_type: "Type", th_shares: "Shares", th_avg_p: "Avg Price ($)", th_total_val: "Total ($M)",
       sec_splits_title: "Stock Splits & Mergers History",
       th_effective_date: "Effective Date", th_ratio: "Ratio", th_desc: "Description", th_nature: "Type",
-      sec_fin_title: "5-Year Core Metrics & TTM Complete Financials ($M)",
+      sec_fin_title: "Financial Statements",
       lbl_select_stmt: "Select Statement:",
       btn_stmt_income: "1. Income Statement",
       btn_stmt_balance: "2. Balance Sheet",
@@ -3391,13 +3425,7 @@
 
   function switchFinancialStatement(type) {
     activeStatementType = type;
-    document.querySelectorAll('.statement-selector-bar .stmt-btn').forEach(btn => {
-      if (btn.id.startsWith('btn-stmt-income') || btn.id.startsWith('btn-stmt-balance') || btn.id.startsWith('btn-stmt-cashflow')) {
-        btn.classList.remove('active');
-      }
-    });
-    const activeBtn = document.getElementById(`btn-stmt-${type}`);
-    if (activeBtn) activeBtn.classList.add('active');
+    document.getElementById('statement-type').value = type;
     renderFinancialsSubPage(stockUniverse[activeCompanyTicker]);
   }
 
@@ -3545,8 +3573,7 @@
   let activeRatioPeriod = 'annual'; // 'annual' | 'quarterly'
   function switchRatioPeriod(period) {
     activeRatioPeriod = period;
-    document.getElementById('btn-ratio-period-annual').className = period === 'annual' ? 'stmt-btn active' : 'stmt-btn';
-    document.getElementById('btn-ratio-period-quarterly').className = period === 'quarterly' ? 'stmt-btn active' : 'stmt-btn';
+    document.getElementById('ratio-period').value = period;
 
     const s = stockUniverse[activeCompanyTicker];
     const rawStmts = (s && s.statements_raw) || {};
@@ -3560,11 +3587,11 @@
       if (period === 'annual') {
         const trendTitle = (currentLang === 'en') ? '5Y/TTM Trend' : '歷史趨勢';
         const metricTitle = (currentLang === 'en') ? 'Ratio Metric / Dimension' : '比率指標 / 財務維度';
-        const annualCols = ['2021', '2022', '2023', '2024', '2025', 'TTM'];
+        const annualCols = Array.from({ length: 6 }, (_, i) => i === 5 ? 'TTM' : aDates[i] || 'N/A');
 
         let aHeadHtml = `<th class="table-sticky-col" style="text-align: left; width: 320px;" data-i18n="th_ratio_metric">${metricTitle}</th>`;
         annualCols.forEach((yr, idx) => {
-          const subDate = aDates[idx] ? `<span class="th-period-subdate">(${aDates[idx]})</span>` : '';
+          const subDate = aDates[idx] && yr !== aDates[idx] ? `<span class="th-period-subdate">(${aDates[idx]})</span>` : '';
           aHeadHtml += `
             <th style="text-align: right; vertical-align: middle; padding: 8px 14px;">
               <div class="th-cell-wrap">
@@ -3574,7 +3601,7 @@
             </th>
           `;
         });
-        aHeadHtml += `<th style="text-align: center; width: 90px; vertical-align: middle;">${trendTitle}</th>`;
+        aHeadHtml += `<th class="fcf-trend-col">${trendTitle}</th>`;
         thead.innerHTML = aHeadHtml;
       } else {
         const qPeriods = qRaw.periods || [];
@@ -3594,7 +3621,7 @@
           `;
         });
         const ratioTrendTitle = (currentLang === 'en') ? 'Last 20Q Trend' : '近 20 季趨勢';
-        qHeadHtml += `<th style="text-align: center; width: 90px; vertical-align: middle;">${ratioTrendTitle}</th>`;
+        qHeadHtml += `<th class="fcf-trend-col">${ratioTrendTitle}</th>`;
         thead.innerHTML = qHeadHtml;
       }
     }
@@ -3604,6 +3631,14 @@
   // ========================================================
   // 1. 財務三表渲染 (加入自動計算 Fallback，徹底修復 0.00% 問題)
   // ========================================================
+  function renderAnalysisSparkline(values) {
+    const spark = FcfRatios.trend(values);
+    if (!spark) return '';
+    const paths = spark.segments.map(segment => `<path d="${segment.map((point, i) =>
+      `${i ? 'L' : 'M'} ${point.x} ${point.y}`).join(' ')}" fill="none" stroke="${spark.color}" stroke-width="2"/>`).join('');
+    return `<span class="spark-line-wrap"><svg class="spark-line-svg" viewBox="0 0 108 32" role="img" aria-label="${I18N_DICT[currentLang].th_trend}">${paths}<circle cx="${spark.last.x}" cy="${spark.last.y}" r="2.5" fill="${spark.color}"/></svg></span>`;
+  }
+
   function renderFinancialsSubPage(stockObj) {
     const ticker = activeCompanyTicker || 'NVDA';
     const s = stockObj || stockUniverse[ticker] || (window.FULL_MARKET_DATA && window.FULL_MARKET_DATA[ticker]);
@@ -3622,6 +3657,9 @@
     const datesList = isQuarter ? (qRaw.dates || []) : (rawStmts.annual_dates || []);
     const periods = isQuarter ? (qRaw.periods || []) : Array.from({ length: 6 },
       (_, i) => i === 5 ? 'TTM' : datesList[i] || 'N/A');
+    document.getElementById('statement-type').value = activeStatementType;
+    document.getElementById('statement-period').value = activeStatementPeriod;
+    document.getElementById('statement-status').textContent = `${ticker} · ${I18N_DICT[currentLang][isQuarter ? 'btn_period_quarter' : 'btn_period_annual']} · ${periods.length} ${I18N_DICT[currentLang].analysis_columns}`;
 
     if (theadRow) {
       let theadHtml = `<th class="table-sticky-col" data-i18n="th_fin_item">${I18N_DICT[currentLang].th_fin_item}</th>`;
@@ -3904,41 +3942,6 @@
       ];
     }
 
-    function drawRealTrendSparkline(values) {
-      if (!values || values.length < 2) return '';
-      const w = 90, h = 28, pad = 4;
-      let min = Math.min(...values), max = Math.max(...values);
-      if (min === max) { min -= 1; max += 1; }
-      const hasNeg = min < 0, hasPos = max > 0;
-      let zeroY = h - pad;
-      if (hasNeg && hasPos) zeroY = pad + ((max - 0) / (max - min)) * (h - pad * 2);
-      else if (max <= 0) zeroY = pad;
-
-      const points = values.map((v, i) => ({
-        x: Number((pad + (i / (values.length - 1)) * (w - pad * 2)).toFixed(1)),
-        y: Number((pad + ((max - v) / (max - min)) * (h - pad * 2)).toFixed(1)),
-        val: v
-      }));
-
-      const linePath = points.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x} ${p.y}`).join(' ');
-      const last = points[points.length - 1], first = points[0];
-      const areaPath = `${linePath} L ${last.x} ${zeroY.toFixed(1)} L ${first.x} ${zeroY.toFixed(1)} Z`;
-      const isPositive = last.val >= 0;
-      const strokeColor = isPositive ? "#22c55e" : "#ef4444";
-      const fillColor = isPositive ? "rgba(34, 197, 94, 0.22)" : "rgba(239, 68, 68, 0.22)";
-
-      return `
-        <div class="spark-line-wrap" title="Latest: ${last.val.toFixed(2)}">
-          <svg class="spark-line-svg" viewBox="0 0 ${w} ${h}">
-            ${(hasNeg && hasPos) ? `<line x1="${pad}" y1="${zeroY.toFixed(1)}" x2="${w-pad}" y2="${zeroY.toFixed(1)}" stroke="rgba(255,255,255,0.18)" stroke-dasharray="2,2" stroke-width="0.8"/>` : ''}
-            <path d="${areaPath}" fill="${fillColor}" />
-            <path d="${linePath}" fill="none" stroke="${strokeColor}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-            <circle cx="${last.x}" cy="${last.y}" r="2.4" fill="${strokeColor}" />
-          </svg>
-        </div>
-      `;
-    }
-
     let rowsHtml = '';
     sections.forEach(sec => {
       const groupTitle = isEn ? sec.groupTitleEn : sec.groupTitleZh;
@@ -3970,7 +3973,7 @@
             rowsHtml += `<td class="${dividerCls}" style="${it.highlight ? 'font-weight: 700;' : ''}">${valStr}</td>`;
           }
         });
-        rowsHtml += `<td class="fcf-trend-col">${drawRealTrendSparkline(it.series)}</td></tr>`;
+        rowsHtml += `<td class="fcf-trend-col">${renderAnalysisSparkline(it.series)}</td></tr>`;
       });
     });
     tbody.innerHTML = rowsHtml;
@@ -4014,8 +4017,9 @@
     const qRaw = rawStmts.quarterly_raw || {};
     const periods = (isQuarter && qRaw.periods && qRaw.periods.length > 0)
       ? qRaw.periods 
-      : ['2021', '2022', '2023', '2024', '2025', 'TTM'];
+      : Array.from({ length: 6 }, (_, i) => i === 5 ? 'TTM' : rawStmts.annual_dates?.[i] || 'N/A');
     const count = periods.length;
+    document.getElementById('ratio-status').textContent = `${activeCompanyTicker} · ${I18N_DICT[currentLang][isQuarter ? 'btn_ratio_quarter' : 'btn_ratio_annual']} · ${count} ${I18N_DICT[currentLang].analysis_columns}`;
 
     // 安全抓取對應長度序列
     function getArr(dictKey, fieldKey) {
@@ -4126,33 +4130,10 @@
       }
     ];
 
-    function drawSparkline(values) {
-      if (!values || values.length < 2) return '';
-      const w = 90, h = 28, pad = 4;
-      let min = Math.min(...values), max = Math.max(...values);
-      if (min === max) { min -= 1; max += 1; }
-      const points = values.map((v, i) => ({
-        x: Number((pad + (i / (values.length - 1)) * (w - pad * 2)).toFixed(1)),
-        y: Number((pad + ((max - v) / (max - min)) * (h - pad * 2)).toFixed(1)),
-        val: v
-      }));
-      const linePath = points.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x} ${p.y}`).join(' ');
-      const strokeColor = values[values.length - 1] >= values[0] ? "#22c55e" : "#ef4444";
-      return `
-        <div class="spark-line-wrap">
-          <svg class="spark-line-svg" viewBox="0 0 ${w} ${h}">
-            <path d="${linePath}" fill="none" stroke="${strokeColor}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-            <circle cx="${points[points.length-1].x}" cy="${points[points.length-1].y}" r="2.2" fill="${strokeColor}" />
-          </svg>
-        </div>
-      `;
-    }
-
     let html = '';
-    const colSpanTotal = count + 2;
     ratioGroups.forEach(grp => {
       const gTitle = isEn ? grp.groupTitleEn : grp.groupTitleZh;
-      html += `<tr class="fin-group-header-row"><td colspan="${colSpanTotal}"><span class="financial-group-label">${gTitle}</span></td></tr>`;
+      html += `<tr class="fin-group-header-row"><td class="table-sticky-col"><span class="financial-group-label">${gTitle}</span></td>${periods.map((period, i) => `<td class="${isQuarter && String(period).includes('Q4') && i < count - 1 ? 'year-divider-cell' : ''}"></td>`).join('')}<td class="fcf-trend-col"></td></tr>`;
       grp.items.forEach(it => {
         const label = isEn ? it.nameEn : it.nameZh;
         const hl = it.highlight ? 'font-weight: 700; color: var(--text);' : 'color: var(--text-secondary);';
@@ -4173,7 +4154,7 @@
 
           html += `<td class="${colorCls}${divCls}" style="${it.highlight ? 'font-weight: 700;' : ''}">${disp}</td>`;
         });
-        html += `<td style="text-align: center; padding: 4px 6px;">${drawSparkline(it.series)}</td></tr>`;
+        html += `<td class="fcf-trend-col">${renderAnalysisSparkline(it.series)}</td></tr>`;
       });
     });
     tbody.innerHTML = html;
@@ -4386,20 +4367,23 @@
       }
     ];
 
-    const mainTitle = isEn ? "🏛️ Direct Peer Financial Benchmark Matrix (TTM Cross-Sectional)" : "🏛️ 5 大核心競爭同儕全維度財務指標矩陣 (TTM 橫向對比)";
-    const subTitle = isEn ? "Direct benchmark against top 5 highest business-overlap competitors" : "本標的對比行業重疊度最高之 5 檔對標公司";
+    const mainTitle = isEn ? "Peer Financial Comparison (TTM)" : "同行財務指標比較（TTM）";
+    const labels = I18N_DICT[currentLang];
     const colHeaderTitle = isEn ? "Financial Metric \\ Ticker" : "指標維度 \\ 企業代碼";
     const currentTag = isEn ? "Current" : "當前標的";
 
     // 4. 組裝直向雙向凍結 HTML 表格
     let tableHtml = `
-      <div class="panel" style="padding: 16px; margin-bottom: 24px;">
-        <div class="panel-title" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
-          <span>${mainTitle}</span>
-          <span style="font-size: 12px; color: var(--text-muted);">${subTitle}</span>
+      <div class="panel historical-ratio-panel company-analysis-panel">
+        <div class="panel-title">${mainTitle}</div>
+        <p class="analysis-note">${labels.analysis_peer_note}</p>
+        <div class="balance-cards peer-summary-cards">
+          <div class="balance-card"><span class="stat-label">${labels.analysis_peer_current}</span><strong>${targetTicker}</strong></div>
+          <div class="balance-card"><span class="stat-label">${labels.analysis_peer_count}</span><strong>${peerStocks.length}</strong></div>
+          <div class="balance-card"><span class="stat-label">${labels.analysis_peer_basis}</span><strong>TTM</strong></div>
         </div>
-        <div class="table-scroll-wrapper" style="max-height: 72vh; overflow: auto; position: relative;">
-          <table id="cmp-peers-table" style="min-width: ${280 + allCols.length * 200}px !important;">
+        <div class="table-scroll-wrapper company-analysis-scroll">
+          <table id="cmp-peers-table" class="historical-ratio-table company-analysis-table" style="min-width: ${280 + allCols.length * 200}px !important;">
             <colgroup>
               <col style="width: 280px;">
               ${allCols.map(() => '<col style="width: 200px;">').join('')}
@@ -4411,15 +4395,14 @@
                 </th>
                 ${allCols.map((c, i) => {
                   const isCurrent = (i === 0);
-                  const thBg = isCurrent ? 'background: var(--group-bg) !important;' : 'background: var(--header-bg) !important;';
                   const dateStr = getLatestDate(c);
                   return `
-                    <th style="padding: 10px 14px; text-align: right; vertical-align: bottom; ${thBg}">
-                      <div class="th-cell-wrap" style="align-items: flex-end;">
+                    <th class="${isCurrent ? 'peer-current' : ''}">
+                      <div class="th-cell-wrap">
                         <div>
                           <span style="font-size: 14px; font-weight: 800; color: ${isCurrent ? 'var(--accent)' : 'var(--text)'};">${c.ticker}</span>${isCurrent ? `<span class="badge" style="background:rgba(56,189,248,0.25); color:var(--accent); font-size:10px; margin-left:4px;">${currentTag}</span>` : ''}
                         </div>
-                        <div class="peer-company-name" style="font-size: 11px; color: var(--text-muted); font-weight: 500;">${getStockDisplayName(c)}</div>
+                        <div class="peer-company-name">${getStockDisplayName(c)}</div>
                         <span class="th-period-subdate">(${dateStr})</span>
                       </div>
                     </th>
@@ -4435,9 +4418,9 @@
       const gTitle = isEn ? grp.titleEn : grp.titleZh;
       tableHtml += `
         <tr class="fin-group-header-row">
-          <td colspan="${allCols.length + 1}" style="padding: 9px 14px; text-transform: uppercase; letter-spacing: 0.5px;">
+          <td class="peer-sticky-col">
             <span class="financial-group-label">${gTitle}</span>
-          </td>
+          </td>${allCols.map(() => '<td></td>').join('')}
         </tr>
       `;
       grp.items.forEach(it => {
@@ -4449,9 +4432,8 @@
             </td>
             ${allCols.map((c, idx) => {
               const isCurrent = (idx === 0);
-              const cellBg = isCurrent ? 'background: rgba(30, 58, 138, 0.15);' : '';
               return `
-                <td style="padding: 8px 14px; font-weight: ${isCurrent ? '700' : '500'}; ${cellBg}">
+                <td class="${isCurrent ? 'peer-current' : ''}">
                   ${it.fn(c)}
                 </td>
               `;

@@ -91,8 +91,8 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
   for (const [index, metric] of ['eps', 'fcf', 'dividend'].entries()) {
     assert.deepEqual(await page.locator('#earnings-body tr').nth(index).locator('td').allTextContents(),
       columns.map(column => column.amounts[metric].value === null ? 'N/A'
-        : (column.amounts[metric].value / (metric === 'eps' ? 1 : 1e6)).toLocaleString(locale, {
-          minimumFractionDigits: 2, maximumFractionDigits: 2
+        : column.amounts[metric].value.toLocaleString(locale, {
+          minimumFractionDigits: 2, maximumFractionDigits: metric === 'dividend' ? 4 : 2
         })));
   }
   assert.ok(!(await page.locator('#earnings-notes').innerText()).includes('undefined'));
@@ -102,7 +102,9 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
       Chart.getChart(canvas).data.datasets.map(series => series.data)),
     ['eps', 'fcf', 'dividend'].map(metric => columns.map(column =>
       column.currency !== selected.currency || column.amounts[metric].value === null ? null
-        : column.amounts[metric].value / (metric === 'eps' ? 1 : 1e6))));
+        : column.amounts[metric].value)));
+    assert.deepEqual(await page.locator('#earnings-chart').evaluate(canvas => Object.keys(Chart.getChart(canvas).options.scales).sort()),
+      ['x', 'y'], 'All three metrics share one per-diluted-share axis');
   }
 }
 
@@ -597,7 +599,7 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
     for (const tab of ['ratios', 'peers']) {
       await page.locator(`button[onclick="switchSubPage('${tab}')"]`).click();
       const table = tab === 'ratios' ? '#cmp-ratio-table' : '#cmp-peers-table';
-      if (tab === 'ratios') await page.locator('#btn-ratio-period-quarterly').click();
+      if (tab === 'ratios') await page.selectOption('#ratio-period', 'quarterly');
       const sizes = await page.locator(table).evaluate(table => {
         const row = table.querySelector('tbody tr:not(.fin-group-header-row)');
         return {
@@ -616,12 +618,54 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
         assert.ok(Math.max(...peerWidths) - Math.min(...peerWidths) < 2, 'Peer columns should have equal widths');
       }
     }
+    const presentationState = await page.evaluate(() => ({ lang: currentLang, theme: SiteTheme.current }));
+    for (const lang of ['zh', 'en']) {
+      await page.evaluate(lang => applyLanguage(lang), lang);
+      for (const theme of ['dark', 'light']) {
+        await page.evaluate(theme => SiteTheme.set(theme), theme);
+        for (const width of [390, 1440]) {
+          await page.setViewportSize({ width, height: 1000 });
+          for (const [tab, id] of [['financials', 'cmp-fin-table'], ['ratios', 'cmp-ratio-table'], ['peers', 'cmp-peers-table']]) {
+            await page.evaluate(tab => switchSubPage(tab), tab);
+            const layout = await page.locator(`#${id}`).evaluate(table => {
+              const wrapper = table.closest('.table-scroll-wrapper');
+              const head = table.querySelector('thead tr');
+              const before = table.querySelector('tbody tr:not(.fin-group-header-row)').cells[0].getBoundingClientRect().left;
+              wrapper.scrollLeft = 300;
+              const after = table.querySelector('tbody tr:not(.fin-group-header-row)').cells[0].getBoundingClientRect().left;
+              return {
+                complete: [...table.querySelectorAll('tbody tr')].every(row => row.cells.length === head.cells.length),
+                inPanel: wrapper.getBoundingClientRect().right <= innerWidth + 1,
+                sticky: Math.abs(before - after) < 2,
+                font: getComputedStyle(table).fontFamily,
+                rows: table.querySelectorAll('tbody tr:not(.fin-group-header-row)').length,
+                grid: [...table.querySelectorAll('tbody tr:not(.fin-group-header-row) td')].every(cell =>
+                  getComputedStyle(cell).borderRightWidth !== '0px')
+              };
+            });
+            assert.ok(layout.complete && layout.inPanel && layout.sticky && layout.grid && layout.rows > 0,
+              `${tab}: aligned grid and frozen labels at ${width}px (${theme}/${lang})`);
+            assert.equal(layout.font, await page.locator('#fcf-ratio-table').evaluate(table => getComputedStyle(table).fontFamily));
+            assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1),
+              `${tab} must scroll within its panel, not overflow the page`);
+            if (process.env.UI_SCREENSHOT_DIR && width === 1440 && lang === 'en') {
+              await page.locator(`#${id}`).evaluate(table => { table.closest('.table-scroll-wrapper').scrollLeft = 0; });
+              await page.locator(`#subpage-${tab}`).screenshot({
+                path: path.join(process.env.UI_SCREENSHOT_DIR, `company-${tab}-${theme}.png`)
+              });
+            }
+          }
+        }
+      }
+    }
+    await page.evaluate(state => { SiteTheme.set(state.theme); applyLanguage(state.lang); }, presentationState);
+    await page.setViewportSize({ width: 1440, height: 1000 });
     await page.evaluate(() => openCompanyProfile('JPM'));
     await page.locator('button[onclick="switchSubPage(\'financials\')"]').click();
     for (const period of ['annual', 'quarterly']) {
-      await page.locator(`#btn-stmt-period-${period}`).click();
+      await page.selectOption('#statement-period', period);
       for (const type of ['income', 'balance', 'cashflow']) {
-        await page.locator(`#btn-stmt-${type}`).click();
+        await page.selectOption('#statement-type', type);
         assert.doesNotMatch(await page.locator('#cmp-fin-table').innerText(), /[\u3400-\u9fff]/,
           'English financial statements must not retain Chinese headings or group labels');
         const layout = await page.locator('#cmp-fin-table').evaluate(table => {

@@ -5,7 +5,7 @@ const path = require('node:path');
 const vm = require('node:vm');
 const { calculate, calculateReturns, calculateBalances, calculateEarnings, financialReference, trend } = require('../fcf_ratios.js');
 
-test('Earnings trends preserve reported units, signs, fiscal periods and missing data', () => {
+test('Per-diluted-share trends preserve reported EPS, historical shares, fiscal periods and missing data', () => {
   const data = fixture();
   for (const period of ['annual', 'quarterly']) {
     data[period].income.forEach((row, i) => { row.epsDiluted = i - 2; });
@@ -13,13 +13,13 @@ test('Earnings trends preserve reported units, signs, fiscal periods and missing
   }
   const single = calculateEarnings(data, { flow: 'single' });
   assert.equal(single.at(-1).amounts.eps.value, 6);
-  assert.equal(single.at(-1).amounts.dividend.value, -24);
-  assert.equal(single.at(-1).amounts.fcf.value, 80);
+  assert.equal(single.at(-1).amounts.dividend.value, 2.4);
+  assert.equal(single.at(-1).amounts.fcf.value, 8);
   const ttm = calculateEarnings(data);
   assert.equal(ttm[0].amounts.eps.reason, 'incompleteTtm');
   assert.equal(ttm.at(-1).amounts.eps.value, 18);
-  assert.equal(ttm.at(-1).amounts.fcf.value, 260);
-  assert.equal(ttm.at(-1).amounts.dividend.value, -78);
+  assert.equal(ttm.at(-1).amounts.fcf.value, 26);
+  assert.equal(ttm.at(-1).amounts.dividend.value, 7.8);
   assert.equal(calculateEarnings(data, { period: 'annual' }).at(-1).amounts.eps.value, 0);
   data.quarterly.cashflow.at(-1).date = '2025-12-30';
   assert.equal(calculateEarnings(data).at(-1).amounts.fcf.reason, 'dateMismatch');
@@ -59,7 +59,7 @@ function fixture() {
     dates.forEach((date, i) => {
       const base = { date, fiscalYear: date.slice(0, 4), reportedCurrency: 'USD',
         period: period === 'annual' ? 'FY' : `Q${Math.ceil(Number(date.slice(5, 7)) / 3)}` };
-      rows.income.push({ ...base, revenue: 100 + i * 10, ebitda: 20 + i * 2, netIncome: 10 + i });
+      rows.income.push({ ...base, revenue: 100 + i * 10, ebitda: 20 + i * 2, netIncome: 10 + i, weightedAverageShsOutDil: 10 });
       rows.balance.push({ ...base, totalStockholdersEquity: 100 + i * 10, totalAssets: 200 + i * 20,
         goodwill: 10 + i, intangibleAssets: 5 + i, goodwillAndIntangibleAssets: 15 + i * 2 });
       rows.cashflow.push({ ...base, freeCashFlow: i * 10 });
@@ -68,6 +68,57 @@ function fixture() {
   }
   return data;
 }
+
+test('Per-diluted-share cash flows use period-matched shares, not ending/current shares or sums of shares', () => {
+  const data = fixture();
+  data.quarterly.income.forEach((row, i) => { row.weightedAverageShsOutDil = (i + 1) * 10; row.epsDiluted = i; });
+  data.quarterly.cashflow.forEach(row => { row.commonDividendsPaid = -30; });
+  data.annual.cashflow.forEach(row => { row.commonDividendsPaid = -100; });
+  near(calculateEarnings(data).at(-1).amounts.fcf.value, 260 / 75);
+  near(calculateEarnings(data).at(-1).amounts.dividend.value, 120 / 75);
+  near(calculateEarnings(data)[5].amounts.fcf.value, 140 / 45, 'TTM crosses a fiscal-year boundary');
+  near(calculateEarnings(data, { flow: 'single' }).at(-1).amounts.fcf.value, 80 / 90);
+  near(calculateEarnings(data, { period: 'annual' }).at(-1).amounts.dividend.value, 10);
+  data.quarterly.cashflow.at(-1).freeCashFlow = -80;
+  assert.ok(calculateEarnings(data, { flow: 'single' }).at(-1).amounts.fcf.value < 0);
+  data.quarterly.cashflow.at(-1).commonDividendsPaid = 30;
+  assert.ok(calculateEarnings(data, { flow: 'single' }).at(-1).amounts.dividend.value < 0,
+    'Dividend reversals retain their direction instead of applying absolute value');
+  for (const shares of [null, undefined, '', 0, -10]) {
+    data.quarterly.income.at(-1).weightedAverageShsOutDil = shares;
+    const result = calculateEarnings(data).at(-1);
+    assert.equal(result.amounts.fcf.reason, shares === 0 || shares === -10 ? 'invalidDilutedShares' : 'missingDilutedShares');
+    assert.equal(result.amounts.dividend.value, null);
+    assert.equal(result.amounts.eps.value, 26, 'Reported EPS does not require a reconstructed denominator');
+  }
+});
+
+test('All cached per-share trends match exact reported shares, EPS and common dividends in every mode', () => {
+  const directory = path.join(__dirname, '..', 'cache', 'financials');
+  for (const file of fs.readdirSync(directory).filter(file => file.endsWith('_statements_v2.json'))) {
+    const data = JSON.parse(fs.readFileSync(path.join(directory, file), 'utf8'));
+    for (const [period, flow] of [['quarterly', 'single'], ['quarterly', 'ttm'], ['annual', 'ttm']]) {
+      const columns = calculateEarnings(data, { period, flow });
+      for (const column of columns) {
+        for (const result of Object.values(column.amounts)) {
+          assert.ok(result.value === null ? result.reason : Number.isFinite(result.value), file);
+        }
+        if (!column.date) continue;
+        const rows = data[period].income.filter(row => row.date <= column.date).sort((a, b) => a.date.localeCompare(b.date));
+        const window = rows.slice(period === 'quarterly' && flow === 'ttm' ? -4 : -1);
+        if (column.amounts.eps.value !== null) {
+          near(column.amounts.eps.value, window.reduce((sum, row) => sum + Number(row.epsDiluted), 0));
+        }
+        for (const [metric, field, sign] of [['fcf', 'freeCashFlow', 1], ['dividend', 'commonDividendsPaid', -1]]) {
+          if (column.amounts[metric].value === null) continue;
+          const flows = window.map(row => data[period].cashflow.find(flow => flow.date === row.date));
+          const shares = window.reduce((sum, row) => sum + Number(row.weightedAverageShsOutDil), 0) / window.length;
+          near(column.amounts[metric].value, sign * flows.reduce((sum, row) => sum + Number(row[field]), 0) / shares);
+        }
+      }
+    }
+  }
+});
 
 test('Financial health bands cover every score and do not infer missing or inconsistent details', () => {
   const html = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');

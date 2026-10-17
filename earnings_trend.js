@@ -59,12 +59,16 @@
       const number = new Intl.NumberFormat(lang === 'zh' ? 'zh-TW' : 'en-US', {
         minimumFractionDigits: 2, maximumFractionDigits: 2
       });
+      const dividendNumber = new Intl.NumberFormat(lang === 'zh' ? 'zh-TW' : 'en-US', {
+        minimumFractionDigits: 2, maximumFractionDigits: 4
+      });
       const notes = new Set();
       const format = (result, metric) => {
         const reason = result.reason
           ? labels[`earnings_reason_${result.reason}`] || labels[`fcf_reason_${result.reason}`] || labels[`balance_reason_${result.reason}`] : '';
         if (reason) notes.add(reason);
-        return { text: result.value === null ? 'N/A' : number.format(result.value / (metric === 'eps' ? 1 : 1e6)), reason };
+        return { text: result.value === null ? 'N/A'
+          : (metric === 'dividend' ? dividendNumber : number).format(result.value), reason };
       };
       get('status').textContent = `${ticker} · ${selected.label} · ${selected.date || 'N/A'} · ${selected.currency || 'N/A'} · ${
         period === 'annual' ? labels.fcf_annual : flow === 'ttm' ? labels.fcf_ttm : labels.fcf_single}`;
@@ -124,8 +128,8 @@
           datasets: metrics.map((metric, i) => ({
             label: labels[`earnings_${metric}`],
             data: columns.map(column => column.currency !== selected.currency || column.amounts[metric].value === null
-              ? null : column.amounts[metric].value / (metric === 'eps' ? 1 : 1e6)),
-            yAxisID: metric === 'eps' ? 'y' : 'cash',
+              ? null : column.amounts[metric].value),
+            yAxisID: 'y',
             borderColor: SiteTheme.color(['--accent', '--green', '--orange'][i]),
             backgroundColor: SiteTheme.color(['--accent', '--green', '--orange'][i]),
             borderDash: i === 2 ? [6, 4] : [], borderWidth: 2,
@@ -138,12 +142,11 @@
           interaction: { mode: 'index', intersect: false },
           plugins: {
             legend: { position: 'bottom', labels: { color: SiteTheme.color('--text-secondary') } },
-            tooltip: { callbacks: { label: item => `${item.dataset.label}: ${number.format(item.parsed.y)} ${selected.currency}` } }
+            tooltip: { callbacks: { label: item => `${item.dataset.label}: ${(metrics[item.datasetIndex] === 'dividend' ? dividendNumber : number).format(item.parsed.y)} ${selected.currency}` } }
           },
           scales: {
             x: { ticks: { color: SiteTheme.color('--text-muted'), maxTicksLimit: innerWidth < 600 ? 3 : 8, maxRotation: 0 }, grid: { display: false } },
-            y: axis(`${selected.currency || 'N/A'} ${labels.earnings_per_share}`),
-            cash: { ...axis(`${selected.currency || 'N/A'} ${labels.balance_millions}`), position: 'right', grid: { drawOnChartArea: false } }
+            y: axis(`${selected.currency || 'N/A'} ${labels.earnings_per_share}`)
           }
         }
       });

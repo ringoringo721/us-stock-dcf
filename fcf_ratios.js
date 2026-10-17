@@ -195,9 +195,19 @@
         })) reason = 'dateMismatch';
         else if (!sameCurrency(rows) || rows.some(row => row.reportedCurrency !== column.currency)) reason = 'currencyMismatch';
         else if (rows.some(row => numeric(row[field]) === null)) reason = 'missingField';
-        const value = reason ? null : rows.reduce((sum, row) => sum + numeric(row[field]), 0);
+        let denominator = 1;
+        if (!reason && metric !== 'eps') {
+          const shareRows = Array.from({ length: count }, (_, i) => income.get(key - count + 1 + i));
+          if (shareRows.some(row => !row || numeric(row.weightedAverageShsOutDil) === null)) reason = 'missingDilutedShares';
+          else if (shareRows.some((row, i) => row.date !== rows[i].date)) reason = 'dateMismatch';
+          else if (!sameCurrency([...rows, ...shareRows])) reason = 'currencyMismatch';
+          else if (shareRows.some(row => numeric(row.weightedAverageShsOutDil) <= 0)) reason = 'invalidDilutedShares';
+          else denominator = shareRows.reduce((sum, row) => sum + numeric(row.weightedAverageShsOutDil), 0) / count;
+        }
+        const value = reason ? null : rows.reduce((sum, row) => sum + numeric(row[field]), 0)
+          / denominator * (metric === 'dividend' ? -1 : 1);
         column.amounts[metric] = reason ? unavailable(reason) : !Number.isFinite(value)
-          ? unavailable('invalidValue') : { value, reason: null, warnings: [] };
+          ? unavailable('invalidValue') : { value: value === 0 ? 0 : value, reason: null, warnings: [] };
       }
       return column;
     });
