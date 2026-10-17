@@ -33,10 +33,12 @@ function financingDebt(row) {
   return { value: null, leaseDebt: leases, reason: 'debtCompositionUnverified' };
 }
 
-function prepareSnapshot(ticker, evidence, treasury, rates, leaseEvidence) {
-  const unavailable = reason => ({ version: 1, modelVersion: 'fcff-v2', method: 'FCFF', ticker, currency: 'USD',
+function prepareSnapshot(ticker, evidence, treasury, rates, leaseEvidence, options = {}) {
+  const currency = ticker.endsWith('.HK') ? 'HKD' : 'USD';
+  const providerSymbol = ticker.endsWith('.HK') ? ticker : ticker.replace(/\./g, '-');
+  const unavailable = reason => ({ version: 1, modelVersion: 'fcff-v2', method: 'FCFF', ticker, currency,
     fetchedAt: evidence?.capturedAt || null, reason });
-  if (!evidence || evidence.ticker !== ticker || evidence.providerSymbol !== ticker.replace(/\./g, '-')
+  if (!evidence || evidence.ticker !== ticker || evidence.providerSymbol !== providerSymbol
       || typeof evidence.capturedAt !== 'string' || !day(evidence.capturedAt.slice(0, 10))) {
     return unavailable('sourceUnavailable');
   }
@@ -51,7 +53,7 @@ function prepareSnapshot(ticker, evidence, treasury, rates, leaseEvidence) {
     return unavailable('sourceDateMismatch');
   }
   const profile = read('profile')[0], quote = read('quote')[0];
-  if (read('profile').length !== 1 || read('quote').length !== 1 || profile.currency !== 'USD'
+  if (read('profile').length !== 1 || read('quote').length !== 1 || profile.currency !== currency
       || !finite(quote.timestamp) || !finite(quote.price) || quote.price <= 0
       || !finite(quote.marketCap) || quote.marketCap <= 0) return unavailable('missingQuote');
   const quoteTime = new Date(quote.timestamp * 1000);
@@ -70,7 +72,7 @@ function prepareSnapshot(ticker, evidence, treasury, rates, leaseEvidence) {
     if (!valid) historyWarnings.push({ source: name, reason: 'sourceDateMismatch' });
     return valid;
   });
-  const raw = { annual: { income: annualRows('annual_income'), balance: annualRows('annual_balance'),
+  const raw = options.statementData || { annual: { income: annualRows('annual_income'), balance: annualRows('annual_balance'),
     cashflow: annualRows('annual_cashflow') },
     quarterly: { income: read('income'), balance: read('balance'), cashflow: read('cashflow') } };
   for (const rows of Object.values(raw.quarterly)) {
@@ -95,7 +97,7 @@ function prepareSnapshot(ticker, evidence, treasury, rates, leaseEvidence) {
   if (currencies.size !== 1 || !/^[A-Z]{3}$/.test(balance.reportedCurrency)) {
     return unavailable('sourceCurrencyMismatch');
   }
-  const converted = convertStatements(raw, rates);
+  const converted = convertStatements(raw, rates, currency);
   const inc = sorted(converted.quarterly.income).slice(-4);
   const cf = income.map(row => converted.quarterly.cashflow.find(other => other.date === row.date));
   const bs = converted.quarterly.balance.find(row => row.date === balance.date);
@@ -106,7 +108,7 @@ function prepareSnapshot(ticker, evidence, treasury, rates, leaseEvidence) {
   if (!observation || (Date.parse(valuationDate) - Date.parse(observation)) / 86400000 > 14) {
     return unavailable('missingForecastFx');
   }
-  const forecastFx = rateFor(rates, sourceCurrency, null, observation, 'closing');
+  const forecastFx = rateFor(rates, sourceCurrency, null, observation, 'closing', currency);
   if (!finite(forecastFx.rate)) return unavailable('missingForecastFx');
   const estimates = sorted(read('estimates').filter(row => day(row.date)
     && finite(row.revenueAvg) && row.revenueAvg > 0 && (finite(row.ebitAvg) || finite(row.ebitdaAvg))));
@@ -139,8 +141,9 @@ function prepareSnapshot(ticker, evidence, treasury, rates, leaseEvidence) {
   const interest = sum(inc, 'interestExpense');
   const kd = bs.totalDebt === 0 ? 0
     : averageDebt > 0 && interest > 0 ? interest / averageDebt * 100 : null;
-  const curve = treasury?.ok && Array.isArray(treasury.rows)
-    ? sorted(treasury.rows.filter(row => day(row.date) && row.date <= valuationDate && finite(row.year10))).at(-1) : null;
+  const rateSource = currency === 'HKD' ? options.hkdTreasury : treasury;
+  const curve = rateSource?.ok && Array.isArray(rateSource.rows)
+    ? sorted(rateSource.rows.filter(row => day(row.date) && row.date <= valuationDate && finite(row.year10))).at(-1) : null;
   const ttm = {
     dates: inc.map(row => row.date), fiscalPeriods: inc.map(period),
     revenue: millions(sum(inc, 'revenue')), ebit: millions(sum(inc, 'operatingIncome')),
@@ -207,7 +210,7 @@ function prepareSnapshot(ticker, evidence, treasury, rates, leaseEvidence) {
   const ytdDa = ytdFlow('depreciationAndAmortization');
   const lastAnnual = sorted(comparableAnnual).at(-1);
   const snapshot = {
-    version: 1, modelVersion: 'fcff-v2', method: 'FCFF', ticker, currency: 'USD', sourceCurrency,
+    version: 1, modelVersion: 'fcff-v2', method: 'FCFF', ticker, currency, sourceCurrency,
     fetchedAt: evidence.capturedAt, valuationDate, quoteDate, quote: { price: quote.price, marketCap: quote.marketCap },
     balance: { date: bs.date, workingCapital: ttm.workingCapital,
       fx: bs.currencyConversion, leaseDebt: millions(number(bs, 'capitalLeaseObligations')) },
@@ -225,7 +228,8 @@ function prepareSnapshot(ticker, evidence, treasury, rates, leaseEvidence) {
       depreciation: 'Analyst EBITDA minus EBIT when nonnegative and both available; otherwise modeled TTM D&A/revenue. Analyst measure definitions are not independently certified.',
       forecastCurrency: 'reportedCurrencyWithHistoricalAnnualScaleCheck',
       forecastFx: { ...forecastFx, assumption: 'constantLatestAvailableOfficialObservation' },
-      treasury: curve ? { date: curve.date, year10: curve.year10 } : null,
+      treasury: curve ? { date: curve.date, year10: curve.year10, ...(currency === 'HKD' ? { currency } : {}) } : null,
+      ...(currency === 'HKD' ? { riskFreeRate: 'A dated HKD benchmark is required; US Treasury yields are not substituted' } : {}),
       tax: 'TTM effective tax; scenario assumption, not a marginal-rate forecast',
       kd: 'TTM accounting interest / average reported debt; not a current financing quote',
       erp: '4.75% model assumption, not an FMP forecast',
@@ -234,7 +238,7 @@ function prepareSnapshot(ticker, evidence, treasury, rates, leaseEvidence) {
       cash: 'All reported cash and short-term investments assumed nonoperating; adjustable',
       investments: 'Long-term investments assumed nonoperating at book value; adjustable, not fair-value evidence',
       priority: 'Preferred and minority book values are adjustable value proxies; cost defaults to common Ke',
-      debt: { ...debtBasis, unit: 'USD', policy: 'preserveReportedDebtWithSeparateCashFlowMatchedLeaseAdjustment' },
+      debt: { ...debtBasis, unit: currency, policy: 'preserveReportedDebtWithSeparateCashFlowMatchedLeaseAdjustment' },
       leases: 'Cash-flow-matched debt reconciliation: liabilities whose payments remain in FCFF are not deducted again; financing treatment requires matching profit, depreciation and reinvestment adjustments',
       historicalFx: [...inc, ...cf].map(row => ({ date: row.date, ...row.currencyConversion }))
     },
@@ -257,6 +261,7 @@ function prepareSnapshot(ticker, evidence, treasury, rates, leaseEvidence) {
   if (!snapshot.reason && bs.capitalLeaseObligations === 0 && leaseTags.length) {
     snapshot.reason = 'leaseMappingUnverified';
   }
+  if (currency === 'HKD' && !latestReported && !snapshot.reason) snapshot.reason = 'leaseMappingUnverified';
   snapshot.provenance.leaseEvidence = {
     date: latestReported?.date || null,
     positiveLiabilityTags: [...new Set(leaseTags.map(([tag]) => tag))]

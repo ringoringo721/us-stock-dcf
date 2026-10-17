@@ -9,6 +9,7 @@
   const returnMetrics = ['roa', 'roe', 'rote'];
   const incomeFields = { sales: 'revenue', ebitda: 'ebitda', netIncome: 'netIncome' };
   const dayMs = 86400000;
+  const context = typeof module === 'object' && module.exports ? require('./market_context.js') : MarketContext;
 
   function numeric(value) {
     if (typeof value !== 'number' && (typeof value !== 'string' || !value.trim())) return null;
@@ -83,6 +84,7 @@
     if (!['quarterly', 'annual'].includes(period)) throw new RangeError('Invalid balance sheet period');
     if (!Array.isArray(data?.[period]?.balance)) throw new TypeError('Missing balance sheet array');
     const annual = period === 'annual';
+    const { stride } = context.cadence(data, 'balance');
     const rows = indexRows(data[period].balance, annual);
     const fields = {
       assets: 'totalAssets', currentAssets: 'totalCurrentAssets', nonCurrentAssets: 'totalNonCurrentAssets',
@@ -92,7 +94,8 @@
     };
     const keys = [...rows.keys()].sort((a, b) => a - b);
     if (!keys.length) return [];
-    return Array.from({ length: keys.at(-1) - keys[0] + 1 }, (_, index) => keys[0] + index).map(key => {
+    return Array.from({ length: Math.floor((keys.at(-1) - keys[0]) / (annual ? 1 : stride)) + 1 },
+      (_, index) => keys[0] + index * (annual ? 1 : stride)).map(key => {
       const row = rows.get(key);
       const currency = row && typeof row.reportedCurrency === 'string' && /^[A-Z]{3}$/.test(row.reportedCurrency)
         ? row.reportedCurrency : null;
@@ -117,7 +120,7 @@
       };
       const year = annual ? key : Math.floor(key / 4);
       return {
-        label: annual ? `FY ${year}` : `FY ${year} Q${key % 4 + 1}`,
+        label: context.label(key, annual, stride),
         date: row?.date || null, currency, amounts,
         ratios: {
           currentRatio: ratio(amounts.currentAssets, amounts.currentLiabilities),
@@ -130,8 +133,8 @@
   }
 
   function financialReference(data, { shares, fxRate = 1 } = {}) {
-    if (fxRate !== 1 || data?.quarterly?.income?.some(row => row.reportedCurrency !== 'USD')) {
-      throw new RangeError('Normalize financial statements with period-specific USD rates before valuation');
+    if (fxRate !== 1 || data?.quarterly?.income?.some(row => row.reportedCurrency !== (data.calculationCurrency || 'USD'))) {
+      throw new RangeError(`Normalize financial statements with period-specific ${data?.calculationCurrency || 'USD'} rates before valuation`);
     }
     const columns = calculateReturns(data);
     const latest = columns.at(-1);
@@ -169,27 +172,32 @@
       throw new TypeError('Missing earnings statement arrays');
     }
     const annual = period === 'annual';
+    const { stride, count: ttmCount, minDays, maxDays } = context.cadence(data);
     const income = indexRows(source.income, annual);
     const cashflow = indexRows(source.cashflow, annual);
+    const annualIncome = indexRows(data?.annual?.income || [], true);
     const keys = [...new Set([...income.keys(), ...cashflow.keys()])].sort((a, b) => a - b);
     if (!keys.length) return [];
-    const count = !annual && flow === 'ttm' ? 4 : 1;
-    return Array.from({ length: keys.at(-1) - keys[0] + 1 }, (_, i) => keys[0] + i).map(key => {
+    const count = !annual && flow === 'ttm' ? ttmCount : 1;
+    return Array.from({ length: Math.floor((keys.at(-1) - keys[0]) / (annual ? 1 : stride)) + 1 },
+      (_, i) => keys[0] + i * (annual ? 1 : stride)).map(key => {
       const end = income.get(key) || cashflow.get(key);
       const column = {
-        label: annual ? `FY ${key}` : `FY ${Math.floor(key / 4)} Q${key % 4 + 1}`,
+        label: context.label(key, annual, stride),
         date: end?.date || null, currency: end?.reportedCurrency || null, amounts: {}
       };
       for (const [metric, index, field] of [
         ['eps', income, 'epsDiluted'], ['fcf', cashflow, 'freeCashFlow'],
         ['dividend', cashflow, 'commonDividendsPaid']
       ]) {
-        const rows = Array.from({ length: count }, (_, i) => index.get(key - count + 1 + i));
+        const rows = Array.from({ length: count }, (_, i) => index.get(key - (count - 1 - i) * stride));
         let reason = null;
-        if (rows.some(row => !row)) reason = count === 4 ? 'incompleteTtm' : 'missingPeriod';
+        if (!annual && metric !== 'eps' && context.cadence(data, 'cashflow').frequency === 'annual') reason = 'annualCashflowOnly';
+        else if (!annual && metric !== 'eps' && context.cadence(data, 'cashflow').stride !== stride) reason = 'cadenceMismatch';
+        else if (rows.some(row => !row)) reason = count > 1 ? 'incompleteTtm' : 'missingPeriod';
         else if (rows.some((row, i) => i > 0 && (
-          (Date.parse(row.date) - Date.parse(rows[i - 1].date)) / dayMs < 60
-          || (Date.parse(row.date) - Date.parse(rows[i - 1].date)) / dayMs > 120
+          (Date.parse(row.date) - Date.parse(rows[i - 1].date)) / dayMs < minDays
+          || (Date.parse(row.date) - Date.parse(rows[i - 1].date)) / dayMs > maxDays
         ))) reason = 'nonConsecutive';
         else if (rows.some(row => {
           const rowKey = annual ? Number(row.fiscalYear || row.calendarYear)
@@ -200,9 +208,20 @@
         else if (rows.some(row => row.currencyConversion?.reason)) reason = 'missingFx';
         else if (!sameCurrency(rows) || rows.some(row => row.reportedCurrency !== column.currency)) reason = 'currencyMismatch';
         else if (rows.some(row => numeric(row[field]) === null)) reason = 'missingField';
+        if (metric === 'eps' && !annual && flow === 'ttm' && stride === 2 && reason === 'missingField'
+            && end?.period === 'Q4' && end.derivation === 'annualMinusReportedH1') {
+          const reported = annualIncome.get(Math.floor(key / 4));
+          if (reported?.date === end.date && reported.reportedCurrency === column.currency
+              && !reported.currencyConversion?.reason && numeric(reported.epsDiluted) !== null
+              && (!reported.periodStartDate || !rows[0].periodStartDate || reported.periodStartDate === rows[0].periodStartDate)) {
+            column.amounts[metric] = { value: numeric(reported.epsDiluted), reason: null, warnings: [],
+              basis: 'reportedAnnualAtFiscalYearEnd', sourceDate: reported.date };
+            continue;
+          }
+        }
         let denominator = 1;
         if (!reason && metric !== 'eps') {
-          const shareRows = Array.from({ length: count }, (_, i) => income.get(key - count + 1 + i));
+          const shareRows = Array.from({ length: count }, (_, i) => income.get(key - (count - 1 - i) * stride));
           if (shareRows.some(row => !row || numeric(row.weightedAverageShsOutDil) === null)) reason = 'missingDilutedShares';
           else if (shareRows.some((row, i) => row.date !== rows[i].date)) reason = 'dateMismatch';
           else if (!sameCurrency([...rows, ...shareRows])) reason = 'currencyMismatch';
@@ -243,6 +262,7 @@
       throw new RangeError('Invalid financial ratio options');
     }
     const annual = period === 'annual';
+    const { stride, count, minDays, maxDays } = context.cadence(data, returns ? 'income' : 'cashflow');
     const source = data && data[period];
     const required = returns ? ['income', 'balance'] : ['income', 'balance', 'cashflow'];
     if (!source || !required.every(key => Array.isArray(source[key]))) {
@@ -252,20 +272,21 @@
     const balances = indexRows(source.balance, annual);
     const flows = returns ? income : indexRows(source.cashflow, annual);
     const keys = [...new Set([...income.keys(), ...flows.keys()])].sort((a, b) => a - b);
-    const windowSize = !annual && flow === 'ttm' ? 4 : 1;
+    const windowSize = !annual && flow === 'ttm' ? count : 1;
 
     return keys.map(key => {
       const end = flows.get(key);
       const labelRow = end || income.get(key);
       const year = annual ? key : Math.floor(key / 4);
-      const label = annual ? `FY ${year}` : `FY ${year} Q${key % 4 + 1}`;
+      const label = context.label(key, annual, stride);
       const column = { label, date: labelRow ? labelRow.date : '', ratios: {} };
-      const window = Array.from({ length: windowSize }, (_, i) => flows.get(key - windowSize + 1 + i));
+      const window = Array.from({ length: windowSize }, (_, i) => flows.get(key - (windowSize - 1 - i) * (annual ? 1 : stride)));
       let issue = null;
-      if (window.some(row => !row)) issue = windowSize === 4 ? 'incompleteTtm' : missingNumerator;
+      if (!annual && !returns && context.cadence(data, 'cashflow').frequency === 'annual') issue = 'annualCashflowOnly';
+      else if (window.some(row => !row)) issue = windowSize > 1 ? 'incompleteTtm' : missingNumerator;
       else if (window.some((row, i) => i > 0 && (
-        (Date.parse(row.date) - Date.parse(window[i - 1].date)) / dayMs < 60
-        || (Date.parse(row.date) - Date.parse(window[i - 1].date)) / dayMs > 120
+        (Date.parse(row.date) - Date.parse(window[i - 1].date)) / dayMs < minDays
+        || (Date.parse(row.date) - Date.parse(window[i - 1].date)) / dayMs > maxDays
       ))) issue = 'nonConsecutive';
       else if (window.some(row => row.currencyConversion?.reason)) issue = 'missingFx';
       else if (window.some(row => numeric(row[numeratorField]) === null)) issue = missingNumerator;
@@ -299,7 +320,7 @@
           }
         } else {
           const closing = balances.get(key);
-          const opening = balances.get(key - windowSize);
+          const opening = balances.get(key - windowSize * (annual ? 1 : stride));
           const needsOpening = balance !== 'ending';
           const needsClosing = balance !== 'beginning';
           if (needsOpening && !opening) issue = 'missingOpening';
@@ -307,9 +328,9 @@
           else if (needsClosing && closing.date !== end.date) issue = 'dateMismatch';
           else if (needsOpening) {
             const days = (Date.parse(end.date) - Date.parse(opening.date)) / dayMs;
-            const previousFlow = flows.get(key - windowSize);
-            const longPeriod = annual || windowSize === 4;
-            if (days < (longPeriod ? 300 : 60) || days > (longPeriod ? 430 : 120)
+            const previousFlow = flows.get(key - windowSize * (annual ? 1 : stride));
+            const longPeriod = annual || windowSize === count;
+            if (days < (longPeriod ? 300 : minDays) || days > (longPeriod ? 430 : maxDays)
                 || (previousFlow && previousFlow.date !== opening.date)) issue = 'dateMismatch';
           }
           if (!issue) {
@@ -379,7 +400,10 @@
   async function renderPanel(kind, ticker, lang, labels) {
     const state = panels[kind];
     const getElement = suffix => document.getElementById(`${state.prefix}-${suffix}`);
-    const reasonLabel = reason => labels[`${kind}_reason_${reason}`] || labels[`fcf_reason_${reason}`];
+    const reasonLabel = reason => labels[`${kind}_reason_${reason}`] || labels[`fcf_reason_${reason}`]
+      || ({ annualCashflowOnly: lang === 'zh' ? '僅有年度現金流；無實際季度／半年資料，不能作為 TTM。'
+        : 'Only annual cash flow is reported; genuine interim cash flows are unavailable, so TTM is unavailable.',
+      cadenceMismatch: lang === 'zh' ? '報表頻率不一致，無法對齊。' : 'Statement reporting frequencies cannot be aligned.' }[reason] || reason);
     const panel = getElement('panel');
     if (!panel) return;
     state.current = { ticker, lang, labels };
@@ -413,6 +437,8 @@
     try {
       const data = await loadStatements(ticker);
       if (id !== state.requestId) return;
+      labels = context.localize(panel, labels, data);
+      context.renderProvenance(panel, data, ticker);
       const columns = state.calculate(data, { period, flow, balance });
       const explanation = period === 'annual' ? labels.fcf_annual
         : flow === 'ttm' ? labels.fcf_ttm : labels.fcf_single;

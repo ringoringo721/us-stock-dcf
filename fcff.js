@@ -88,9 +88,10 @@
         || (scenario.modelVersion !== undefined && scenario.modelVersion !== 'fcff-v1')) {
       return fail('incompatibleSavedModel');
     }
+    if (scenario.currency && scenario.currency !== snapshot?.currency) return fail('incompatibleSavedModel');
     if (snapshot?.reason) return fail(snapshot.reason);
     if (!snapshot || snapshot.version !== 1 || snapshot.method !== 'FCFF'
-        || snapshot.currency !== 'USD' || !day(snapshot.valuationDate)
+        || !['USD', 'HKD'].includes(snapshot.currency) || !day(snapshot.valuationDate)
         || !day(snapshot.balance?.date) || snapshot.balance.date > snapshot.valuationDate) {
       return fail('invalidSource');
     }

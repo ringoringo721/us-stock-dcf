@@ -7,7 +7,8 @@
   const day = 86400000;
   const metadata = new Set(['date', 'symbol', 'cik', 'fiscalYear', 'calendarYear', 'period', 'filingDate',
     'acceptedDate', 'fillingDate', 'link', 'finalLink', 'reportedCurrency', 'weightedAverageShsOut',
-    'weightedAverageShsOutDil', 'numberOfShares', 'periodLength', 'sourceReportedCurrency', 'currencyConversion']);
+    'weightedAverageShsOutDil', 'numberOfShares', 'periodLength', 'sourceReportedCurrency', 'currencyConversion',
+    'periodStartDate', 'reportingFrequency', 'derivation', 'sourceDates', 'sourceReleaseDate']);
   const numeric = value => (typeof value === 'number' || typeof value === 'string' && value.trim())
     && Number.isFinite(Number(value)) ? Number(value) : null;
   const iso = value => typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value)
@@ -18,12 +19,25 @@
     return annual ? year : year * 4 + Number(String(row.period)[1]) - 1;
   };
 
-  function rateFor(rates, currency, start, end, basis) {
+  function rateFor(rates, currency, start, end, basis, target = 'USD') {
     currency = code(currency);
-    if (currency === 'USD') return { rate: 1, basis, start, end, observationDate: end, reason: null };
+    target = code(target);
+    if (currency === target) return { rate: 1, basis, start, end, observationDate: end, reason: null };
     const unavailable = reason => ({ rate: null, basis, start, end, observationDate: null, reason });
     if (!iso(end) || basis === 'average' && !iso(start)) return unavailable('missingFxPeriod');
-    const series = rates?.currencies?.[currency];
+    let series = rates?.currencies?.[currency];
+    if (target !== 'USD') {
+      const targetSeries = rates?.currencies?.[target];
+      if (!targetSeries || !Array.isArray(targetSeries.observations)) return unavailable('missingFxCurrency');
+      const sourceObservations = currency === 'USD' ? targetSeries.observations.map(([date]) => [date, 1])
+        : series?.observations;
+      if (!Array.isArray(sourceObservations)) return unavailable('missingFxCurrency');
+      const denominators = new Map(targetSeries.observations);
+      series = { series: `${currency === 'USD' ? 'USD' : series.series}/${targetSeries.series}`,
+        observations: sourceObservations.filter(([date, value]) =>
+          numeric(value) > 0 && numeric(denominators.get(date)) > 0)
+          .map(([date, value]) => [date, Number(value) / Number(denominators.get(date))]) };
+    }
     if (!series || !Array.isArray(series.observations)) return unavailable('missingFxCurrency');
     const observations = series.observations;
     const last = observations.at(-1)?.[0];
@@ -42,9 +56,11 @@
     return { rate, basis, start, end, observationDate: closing[0], reason: null, source: series.series };
   }
 
-  function convertStatements(data, rates) {
+  function convertStatements(data, rates, target = data?.calculationCurrency || 'USD') {
     if (!data || !data.quarterly || !data.annual) throw new TypeError('Missing financial statement periods');
-    const result = { ...data, calculationCurrency: 'USD' };
+    target = code(target);
+    if (!['USD', 'HKD'].includes(target)) throw new TypeError('Unsupported calculation currency');
+    const result = { ...data, calculationCurrency: target };
     for (const period of ['annual', 'quarterly']) {
       const annual = period === 'annual';
       const rows = Object.values(data[period]).filter(Array.isArray).flat();
@@ -59,9 +75,11 @@
       for (const type of ['income', 'balance', 'cashflow']) {
         if (!Array.isArray(data[period][type])) throw new TypeError(`Missing ${period} ${type} statements`);
         result[period][type] = data[period][type].map(row => {
-          if (row.currencyConversion?.target === 'USD') return { ...row };
+          if (row.currencyConversion?.target === target) return { ...row };
+          if (row.currencyConversion?.target) throw new TypeError('Cannot reconvert previously translated statements');
           let start = row.periodStartDate;
-          const previous = endings.get(periodKey(row, annual) - 1);
+          const step = !annual && data.reportingFrequency === 'semiannual' ? 2 : 1;
+          const previous = endings.get(periodKey(row, annual) - step);
           if (!iso(start) && previous) start = new Date(Date.parse(previous) + day).toISOString().slice(0, 10);
           // Standard calendar periods have unambiguous starts even when the previous report is absent.
           if (!iso(start) && iso(row.date)) {
@@ -69,21 +87,21 @@
             const month = date.getUTCMonth();
             const calendarEnd = new Date(Date.UTC(date.getUTCFullYear(), month + 1, 0)).getUTCDate() === date.getUTCDate();
             if (annual && month === 11 && calendarEnd) start = `${date.getUTCFullYear()}-01-01`;
-            else if (!annual && calendarEnd && month % 3 === 2 && row.period === `Q${(month + 1) / 3}`) {
+            else if (!annual && step === 1 && calendarEnd && month % 3 === 2 && row.period === `Q${(month + 1) / 3}`) {
               start = `${date.getUTCFullYear()}-${String(month - 1).padStart(2, '0')}-01`;
             }
           }
           const source = row.reportedCurrency;
-          const fx = rateFor(rates, source, start, row.date, type === 'balance' ? 'closing' : 'average');
-          const converted = { ...row, sourceReportedCurrency: source, reportedCurrency: 'USD',
-            currencyConversion: { ...fx, sourceCurrency: source, target: 'USD' } };
+          const fx = rateFor(rates, source, start, row.date, type === 'balance' ? 'closing' : 'average', target);
+          const converted = { ...row, sourceReportedCurrency: source, reportedCurrency: target,
+            currencyConversion: { ...fx, sourceCurrency: source, target } };
           for (const [field, value] of Object.entries(row)) {
             if (metadata.has(field) || /ratio$/i.test(field) || numeric(value) === null) continue;
             let fieldFx = fx;
             if (type === 'cashflow' && ['cashAtEndOfPeriod', 'cashAtBeginningOfPeriod'].includes(field)) {
               const end = field === 'cashAtEndOfPeriod' ? row.date
                 : iso(start) ? new Date(Date.parse(start) - day).toISOString().slice(0, 10) : null;
-              fieldFx = rateFor(rates, source, null, end, 'closing');
+              fieldFx = rateFor(rates, source, null, end, 'closing', target);
             }
             converted[field] = fieldFx.rate === null ? null : numeric(value) * fieldFx.rate;
           }
@@ -93,21 +111,24 @@
     }
     return result;
   }
-  let pending;
-  function loadRates(reload = false) {
-    if (reload) pending = null;
-    if (!pending) {
-      pending = fetch('cache/fx/usd_rates.json').then(response => {
+  const pending = {};
+  function loadRates(reload = false, target = 'USD') {
+    if (!['USD', 'HKD'].includes(target)) throw new TypeError('Unsupported calculation currency');
+    if (reload) delete pending[target];
+    if (!pending[target]) {
+      const file = target === 'HKD' ? 'hkd_rates.json' : 'usd_rates.json';
+      pending[target] = fetch(`cache/fx/${file}`).then(response => {
         if (!response.ok) throw new Error(`Historical FX HTTP ${response.status}`);
         return response.json();
-      }).catch(error => { pending = null; throw error; });
+      }).catch(error => { delete pending[target]; throw error; });
     }
-    return pending;
+    return pending[target];
   }
   async function normalize(data, reload = false) {
+    const target = data.calculationCurrency || 'USD';
     const foreign = ['annual', 'quarterly'].some(period => Object.values(data[period] || {})
-      .filter(Array.isArray).flat().some(row => row.reportedCurrency !== 'USD'));
-    return convertStatements(data, foreign ? await loadRates(reload) : null);
+      .filter(Array.isArray).flat().some(row => code(row.reportedCurrency) !== target));
+    return convertStatements(data, foreign ? await loadRates(reload, target) : null);
   }
   return { rateFor, convertStatements, loadRates, normalize };
 });

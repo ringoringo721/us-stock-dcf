@@ -47,8 +47,13 @@ print(json.dumps({'version': 1, 'source': '${source}', 'prepared': prepared, 'un
   });
   if (parsed.status !== 0) throw new Error(parsed.stderr || parsed.error?.message || 'FX parser failed');
   const rates = JSON.parse(parsed.stdout);
-  const target = path.join(__dirname, '..', 'cache', 'fx', 'usd_rates.json');
+  const hkd = process.argv.includes('--hkd');
+  if (hkd) {
+    if (!rates.currencies.HKD || !rates.currencies.CNY) throw new Error('Required HKD cross-rate observations are absent');
+    rates.currencies = { HKD: rates.currencies.HKD, CNY: rates.currencies.CNY };
+  }
+  const target = path.join(__dirname, '..', 'cache', 'fx', hkd ? 'hkd_rates.json' : 'usd_rates.json');
   fs.mkdirSync(path.dirname(target), { recursive: true });
   fs.writeFileSync(target, JSON.stringify(rates) + '\n');
-  console.log(`Historical USD rates: ${Object.keys(rates.currencies).length} currencies; official release ${rates.prepared}`);
+  console.log(`${hkd ? 'HKD cross-rate source observations' : 'Historical USD rates'}: ${Object.keys(rates.currencies).length} currencies; official release ${rates.prepared}`);
 })().catch(error => { console.error(error); process.exitCode = 1; });

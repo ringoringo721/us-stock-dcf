@@ -9,7 +9,9 @@
     && Number.isFinite(Date.parse(value)) && new Date(value).toISOString().slice(0, 10) === value;
 
   function validate(record, ticker) {
-    if (record?.version !== 1 || record.ticker !== ticker || record.currency !== 'USD'
+    const currency = /\.HK$/i.test(ticker) ? 'HKD' : 'USD';
+    if (record?.version !== 1 || record.ticker !== ticker || record.currency !== currency
+        || currency === 'HKD' && record.providerSymbol != null && record.providerSymbol !== ticker
         || record.priceBasis !== 'splitAdjustedClose' || record.source !== 'FMP historical-price-eod/full'
         || !validDate(record.requestedFrom) || !validDate(record.requestedTo)
         || record.requestedFrom > record.requestedTo || !Array.isArray(record.rows)) {
@@ -63,8 +65,9 @@
       cagr: Number.isFinite(cagr) ? cagr : null, years: days / 365.25 };
   }
 
-  function csv(rows) {
-    return 'Date,Split-adjusted close (USD),Provider volume (shares)\r\n'
+  function csv(rows, currency = 'USD') {
+    if (!['USD', 'HKD'].includes(currency)) throw new TypeError('Unsupported price currency');
+    return `Date,Split-adjusted close (${currency}),Provider volume (shares)\r\n`
       + rows.map(row => `${row[0]},${row[1]},${row[2] ?? ''}`).join('\r\n') + '\r\n';
   }
 
@@ -99,7 +102,7 @@
   const signed = value => value === null ? 'N/A' : `${value >= 0 ? '+' : ''}${number(value)}%`;
   const compact = value => new Intl.NumberFormat(active.lang === 'zh' ? 'zh-TW' : 'en-US',
     { notation: 'compact', maximumFractionDigits: 1 }).format(value);
-  const price = value => value === null ? 'N/A' : `USD ${number(value)}`;
+  const price = value => value === null ? 'N/A' : `${active?.record?.currency || 'USD'} ${number(value)}`;
   function colorValue(suffix, value) {
     get(suffix).textContent = signed(value);
     get(suffix).className = value === null ? '' : value >= 0 ? 'text-green' : 'text-red';
@@ -202,7 +205,7 @@
         y: {
           position: 'right', grace: '5%', afterFit(axis) { axis.width = 66; },
           ticks: { color: muted, maxTicksLimit: 6, callback: value => compact(value) },
-          grid: { color: theme('--chart-grid') }, title: { display: true, text: 'USD', color: muted }
+          grid: { color: theme('--chart-grid') }, title: { display: true, text: active.record.currency, color: muted }
         }
       } }
     }));
@@ -291,7 +294,7 @@
     get('retry').addEventListener('click', () => { if (active) render(active.ticker, active.stock, active.lang, active.labels, true); });
     get('download').addEventListener('click', () => {
       if (!selected.length) return;
-      const url = URL.createObjectURL(new Blob(['\uFEFF', csv(selected)], { type: 'text/csv;charset=utf-8' }));
+      const url = URL.createObjectURL(new Blob(['\uFEFF', csv(selected, active.record.currency)], { type: 'text/csv;charset=utf-8' }));
       const link = document.createElement('a');
       link.href = url; link.download = `${active.ticker}-${selected[0][0]}-${selected.at(-1)[0]}.csv`;
       document.body.append(link); link.click(); link.remove();

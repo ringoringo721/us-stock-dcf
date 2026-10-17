@@ -44,7 +44,11 @@
     try {
       const statements = await FcfRatios.loadStatements(ticker, reload);
       if (id !== requestId) return;
+      labels = MarketContext.localize(get('panel'), labels, {
+        reportingFrequency: statements.statementFrequencies?.balance || statements.reportingFrequency
+      });
       const columns = FcfRatios.calculateBalances(statements, { period });
+      MarketContext.renderProvenance(get('panel'), statements, ticker);
       if (!columns.length) {
         get('status').textContent = labels.fcf_no_periods;
         return;

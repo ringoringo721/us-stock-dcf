@@ -4,6 +4,7 @@
   else root.ProfileOverview = api;
 })(typeof globalThis === 'object' ? globalThis : this, function () {
   'use strict';
+  const context = typeof module === 'object' && module.exports ? require('./market_context.js') : MarketContext;
   const numeric = value => ((typeof value === 'number' || typeof value === 'string' && value.trim())
     && Number.isFinite(Number(value))) ? Number(value) : null;
 
@@ -21,10 +22,12 @@
   }
 
   function growth(data, statement, field) {
+    const { stride, count, minDays, maxDays, frequency } = context.cadence(data, statement);
     const rows = data?.quarterly?.[statement];
     const income = data?.quarterly?.income;
     const result = { value: null, date: null, previousDate: null, reason: null };
     const unavailable = reason => ({ ...result, reason });
+    if (frequency === 'annual') return unavailable('annualCashflowOnly');
     if (!Array.isArray(rows) || !Array.isArray(income)) return unavailable('missingPeriod');
     const anchors = indexRows(income);
     const index = statement === 'income' ? anchors : indexRows(rows);
@@ -32,22 +35,22 @@
     const latest = anchors.get(key);
     result.date = latest?.date || null;
     result.previousDate = anchors.get(key - 4)?.date || null;
-    const keys = Array.from({ length: 8 }, (_, i) => key - 7 + i);
+    const keys = Array.from({ length: count * 2 }, (_, i) => key - (count * 2 - 1 - i) * stride);
     const history = keys.map(key => index.get(key));
     if (!latest || history.some(row => !row)) {
       return unavailable(keys.some(key => index.has(key) && index.get(key) === null) || anchors.get(key) === null
         ? 'ambiguousPeriod' : 'missingPeriod');
     }
-    if (history.some((row, i) => i && ((Date.parse(row.date) - Date.parse(history[i - 1].date)) / 86400000 < 60
-      || (Date.parse(row.date) - Date.parse(history[i - 1].date)) / 86400000 > 120))) return unavailable('nonConsecutive');
+    if (history.some((row, i) => i && ((Date.parse(row.date) - Date.parse(history[i - 1].date)) / 86400000 < minDays
+      || (Date.parse(row.date) - Date.parse(history[i - 1].date)) / 86400000 > maxDays))) return unavailable('nonConsecutive');
     if (history.some((row, i) => row.date !== anchors.get(keys[i])?.date)) return unavailable('dateMismatch');
     if (history.some(row => row.currencyConversion?.reason)) return unavailable('missingFx');
     if (history.some(row => !/^[A-Z]{3}$/.test(row.reportedCurrency) || row.reportedCurrency !== latest.reportedCurrency)) {
       return unavailable('currencyMismatch');
     }
     if (history.some(row => numeric(row[field]) === null)) return unavailable('missingField');
-    const previous = history.slice(0, 4).reduce((sum, row) => sum + numeric(row[field]), 0);
-    const present = history.slice(4).reduce((sum, row) => sum + numeric(row[field]), 0);
+    const previous = history.slice(0, count).reduce((sum, row) => sum + numeric(row[field]), 0);
+    const present = history.slice(count).reduce((sum, row) => sum + numeric(row[field]), 0);
     if (previous <= 0) return unavailable('nonPositivePrior');
     const value = (present / previous - 1) * 100;
     return Number.isFinite(value) ? { ...result, value } : unavailable('missingField');
@@ -56,23 +59,25 @@
   function storedGrowth(stock, field) {
     const record = stock?.reported_growth;
     const result = record?.fields?.[field];
-    if (record?.version !== 1 || record.currency !== 'USD' || !result || result.date !== record.date) return null;
+    if (record?.version !== 1 || record.currency !== (stock.calculationCurrency || 'USD') || !result || result.date !== record.date) return null;
     const latest = stock.statements_raw?.annual_dates?.at(-1);
     if (latest && record.date?.slice(0, 7) !== latest.slice(0, 7)) return null;
     return result;
   }
 
   function calculate(data) {
+    const { stride, count, minDays, maxDays } = context.cadence(data);
     const rows = data?.quarterly?.income;
     if (!Array.isArray(rows)) throw new TypeError('Missing quarterly income statements');
     const index = indexRows(rows);
     const key = Math.max(...index.keys());
     const latest = index.get(key);
-    const window = Array.from({ length: 4 }, (_, i) => index.get(key - 3 + i));
+    const window = Array.from({ length: count }, (_, i) => index.get(key - (count - 1 - i) * stride));
     const valid = rows => latest && rows.every((row, i) => row && typeof row.reportedCurrency === 'string'
       && /^[A-Z]{3}$/.test(row.reportedCurrency) && row.reportedCurrency === latest.reportedCurrency
-      && (!i || (Date.parse(row.date) - Date.parse(rows[i - 1].date)) / 86400000 >= 60
-        && (Date.parse(row.date) - Date.parse(rows[i - 1].date)) / 86400000 <= 120));
+      && !row.currencyConversion?.reason
+      && (!i || (Date.parse(row.date) - Date.parse(rows[i - 1].date)) / 86400000 >= minDays
+        && (Date.parse(row.date) - Date.parse(rows[i - 1].date)) / 86400000 <= maxDays));
     const total = (field, rows = window) => {
       if (!valid(rows) || !rows.every(row => numeric(row[field]) !== null)) return null;
       const sum = rows.reduce((sum, row) => sum + numeric(row[field]), 0);
@@ -115,7 +120,7 @@
     const locale = lang === 'zh' ? 'zh-TW' : 'en-US';
     const format = (value, unit = '', digits = 2) => numeric(value) === null ? 'N/A'
       : `${Number(value).toLocaleString(locale, { maximumFractionDigits: digits, minimumFractionDigits: 2 })}${unit}`;
-    const usd = value => numeric(value) === null ? 'N/A' : `USD ${format(value)}`;
+    const usd = value => numeric(value) === null ? 'N/A' : `${context.currencyFor(ticker, stock)} ${format(value)}`;
     get('quote-price').textContent = usd(stock.price);
     get('quote-ticker').textContent = `${ticker} · ${stock.exchange || 'N/A'}`;
     get('range-low').textContent = usd(stock.year_low);
@@ -156,7 +161,7 @@
       get('overview-groups').replaceChildren();
       group('profile_market', [
         ['profile_high', usd(stock.year_high)], ['profile_low', usd(stock.year_low)],
-        ['profile_beta', format(window.FCFF_DATA?.betaSources?.[ticker]?.value, '', 6)],
+        ['profile_beta', format(context.fcff()?.betaSources?.[ticker]?.value, '', 6)],
         ['profile_div_yield', format(stock.div_yield, '%')]
       ]);
       group('profile_capital', [
@@ -183,6 +188,8 @@
     try {
       const data = await FcfRatios.loadStatements(ticker, reload);
       if (id !== requestId) return;
+      labels = context.localize(get('overview-groups').parentElement, labels, data);
+      context.renderProvenance(get('overview-groups').parentElement, data, ticker);
       const summary = calculate(data);
       const returns = FcfRatios.calculateReturns(data).at(-1);
       draw(summary, returns?.date === summary.date ? returns : null);

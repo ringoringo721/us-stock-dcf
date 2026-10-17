@@ -4,8 +4,10 @@
   else root.FcffView = api;
 })(typeof globalThis === 'object' ? globalThis : this, function () {
   'use strict';
+  const market = typeof module === 'object' && module.exports ? require('./market_context.js') : MarketContext;
   const finite = value => typeof value === 'number' && Number.isFinite(value);
   const compatible = saved => saved?.params?.modelVersion === 'fcff-v2'
+    && (!context || market.compatibleSaved(saved, context.ticker, context.stock))
     && !['fcf0', 'growth_10y'].some(key => Object.prototype.hasOwnProperty.call(saved.params, key));
   const escape = value => String(value ?? '').replace(/[&<>"']/g, char => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
@@ -16,6 +18,9 @@
   const percent = value => finite(value) ? `${(value * 100).toFixed(2)}%` : 'N/A';
   const reasons = {
     sourceUnavailable: ['FMP 來源不完整，無法重建估值。', 'Required FMP sources are unavailable.'],
+    missingHkdRiskFreeRate: ['缺少可核實且日期對齊的港元無風險利率；不改用美債利率。', 'A verified, date-aligned HKD risk-free rate is unavailable; US Treasury yields are not substituted.'],
+    shareBasisUnverified: ['普通股／A、H 股或報價單位的股數基準尚未核實，不計算每股估值。', 'The common-share, A/H-share or quoted-unit denominator is unverified; per-share valuation is unavailable.'],
+    statementReconciliationRequired: ['年度與中期來源尚未調節一致；受影響估值不可用。', 'Annual and interim sources require reconciliation; affected valuations remain unavailable.'],
     sourceSymbolMismatch: ['來源股票代碼不一致。', 'Source ticker symbols do not match.'],
     missingQuote: ['缺少有效美元報價或總市值。', 'A valid USD quote and market capitalization are required.'],
     sourceDateMismatch: ['來源日期無效、未公布或不一致。', 'Source dates are invalid, unpublished or inconsistent.'],
@@ -49,7 +54,7 @@
   };
   function reasonText(reason, language) {
     const pair = reasons[reason];
-    return pair ? pair[language === 'en' ? 1 : 0]
+    return pair ? market.labels({ value: pair[language === 'en' ? 1 : 0] }).value
       : (language === 'en' ? 'Valuation unavailable: ' : '估值不可用：') + reason;
   }
   function metrics(stock, snapshot, result) {
@@ -118,8 +123,9 @@
     ['equity', '股權價值橋接', 'Equity waterfall'], ['history', '歷史財務', 'Historical financials'],
     ['multiples', '目前交易倍數', 'Current trading multiples']
   ];
-  const text = (zh, en) => context.language() === 'en' ? en : zh;
-  function snapshot() { return window.FCFF_DATA?.stocks?.[context.ticker]; }
+  const text = (zh, en) => market.labels({ value: context.language() === 'en' ? en : zh }, context.stock).value;
+  const money = () => market.currencyFor(context.ticker, context.stock) === 'HKD' ? 'HKD ' : '$';
+  function snapshot() { return market.fcff()?.stocks?.[context.ticker]; }
   function numericValue(input) {
     const value = input.value === input.dataset.formattedValue ? input.dataset.preciseValue : input.value;
     return value.trim() === '' ? null : Number(value);
@@ -130,7 +136,8 @@
     input.dataset.formattedValue = input.value;
   }
   function readScenario() {
-    const scenario = { modelVersion: 'fcff-v2', years: structuredClone(yearEdits) };
+    const scenario = { modelVersion: 'fcff-v2', years: structuredClone(yearEdits),
+      ...(snapshot()?.currency ? { currency: market.currency } : {}) };
     for (const [key, , , mode] of fields) {
       const input = document.getElementById(`fcff-${key}`);
       const value = numericValue(input);
@@ -146,7 +153,7 @@
     context = options;
     const source = snapshot();
     const saved = compatible(options.saved) ? options.saved.params : {};
-    const scenario = compatible({ params: options.stock.fcffScenario }) ? options.stock.fcffScenario : saved;
+    const scenario = compatible({ params: options.stock.fcffScenario, currency: market.currency }) ? options.stock.fcffScenario : saved;
     yearEdits = structuredClone(scenario.years || {});
     const ratios = window.Fcff.operatingRatios(source?.ttm);
     const defaults = { ...source?.defaults, ...ratios,
@@ -165,7 +172,9 @@
       <details id="fcff-input-controls"><summary>${text('調整假設（美元百萬；除每股／百分比）', 'Edit assumptions (USD millions, except per-share / percentages)')}</summary>
         <div class="fcff-inputs">${fields.map(([key, zh, en, mode]) => {
           const value = ['ratio', 'nullableRatio', 'optionalRatio'].includes(mode) && finite(defaults[key]) ? defaults[key] * 100 : defaults[key];
-          return `<div class="form-group"><label for="fcff-${key}">${escape(text(zh, en))}</label>
+          const label = key === 'rf' && market.currency === 'HKD'
+            ? text('港元無風險利率 (%)；須有可核實來源', 'HKD risk-free rate (%); verified source required') : text(zh, en);
+          return `<div class="form-group"><label for="fcff-${key}">${escape(label)}</label>
             <input type="number" id="fcff-${key}" step="0.01" value="${finite(value) ? value.toFixed(2) : ''}"
               data-precise-value="${finite(value) ? value : ''}" data-formatted-value="${finite(value) ? value.toFixed(2) : ''}"
               ${!source?.ttm ? 'disabled' : ''}></div>`;
@@ -241,10 +250,10 @@
     const result = window.Fcff.calculate(source, scenario);
     const ttm = source?.ttm;
     document.getElementById('fcff-source-note').textContent = [
-      context.ticker, 'USD', source?.valuationDate,
+      context.ticker, market.currencyFor(context.ticker, context.stock), source?.valuationDate,
       source?.quoteDate && `${text('報價日期', 'Quote date')}: ${source.quoteDate}`,
       ttm && `TTM ${ttm.dates[0]} — ${ttm.dates.at(-1)}`,
-      source?.provenance?.treasury && `10Y Treasury ${source.provenance.treasury.date}`
+      market.currency === 'USD' && source?.provenance?.treasury && `10Y Treasury ${source.provenance.treasury.date}`
     ].filter(Boolean).join(' · ');
     document.getElementById('fcff-assumptions').textContent = [
       text('股數＝總市值／股價，不是歷史加權稀釋股數。', 'Shares = market cap / price, not historical diluted weighted-average shares.'),
@@ -260,17 +269,17 @@
       ? reasonText(result.reason, context.language()) + (result.annuals?.length
         ? text(' 可用年度數據僅供建立假設，不代表估值已核准。', ' Available annual projections are a draft, not a validated valuation.') : '')
       : text('分析師錨點以外均為模型推算，不是已知未來現金流。', 'Beyond analyst anchors, values are model extrapolations, not known future cash flow.');
-    document.getElementById('det-res-fair').textContent = finite(result.fairVal) ? `$${amount(result.fairVal)}` : 'N/A';
+    document.getElementById('det-res-fair').textContent = finite(result.fairVal) ? `${money()}${amount(result.fairVal)}` : 'N/A';
     document.getElementById('det-res-fair').className = `stat-num ${result.fairVal === null
       ? 'text-muted' : result.fairVal < 0 ? 'text-red' : 'text-green'}`;
     const displayedPrice = finite(scenario.price) ? scenario.price : context.stock.price;
-    document.getElementById('det-res-price').textContent = finite(displayedPrice) ? `$${amount(displayedPrice)}` : 'N/A';
+    document.getElementById('det-res-price').textContent = finite(displayedPrice) ? `${money()}${amount(displayedPrice)}` : 'N/A';
     document.getElementById('det-res-wacc').textContent = percent(result.WACC);
     document.getElementById('det-res-g').textContent = finite(scenario.g) ? `${scenario.g.toFixed(2)}%` : 'N/A';
     document.getElementById('det-res-spread').textContent = finite(result.WACC) && finite(scenario.g)
       ? percent(result.WACC - scenario.g / 100) : 'N/A';
     const ratios = metrics({ ...context.stock, mcap: result.E }, source, result);
-    document.getElementById('det-res-ev').textContent = finite(ratios.EV) ? `$${amount(ratios.EV)} M` : 'N/A';
+    document.getElementById('det-res-ev').textContent = finite(ratios.EV) ? `${money()}${amount(ratios.EV)} M` : 'N/A';
     document.getElementById('det-res-evebitda').textContent = finite(ratios.ev_to_ebitda) ? `${ratios.ev_to_ebitda.toFixed(1)}x` : 'N/A';
     document.getElementById('det-res-nde').textContent = finite(ratios.net_debt_to_ebitda) ? `${ratios.net_debt_to_ebitda.toFixed(2)}x` : 'N/A';
     const premium = result.premiumPct;
@@ -396,7 +405,7 @@
       const reference = result.assumptions.revenueReference;
       const note = document.createElement('p');
       note.className = 'analysis-note';
-      note.textContent = `${text('首年增長比較基準', 'First-year growth reference')}: ${reference.date || 'N/A'} · $${amount(reference.revenue)} M · ${
+      note.textContent = `${text('首年增長比較基準', 'First-year growth reference')}: ${reference.date || 'N/A'} · ${money()}${amount(reference.revenue)} M · ${
         reference.source === 'reportedAnnual' ? text('已報告年度營收（按預測匯率對齊）', 'Reported annual revenue (forecast FX basis)')
           : text('前一年度分析師營收；不是已公布實績', 'Prior-year analyst revenue; not reported actuals')}.`;
       detail.append(note);
@@ -404,11 +413,12 @@
     const history = snapshot()?.history;
     const annualHistory = history?.annual || [];
     if (assumptionTab === 'workingCapital') {
-      const quarters = (history?.quarterly || []).slice(-4);
+      const cadence = market.cadence(context.stock, 'balance');
+      const quarters = (history?.quarterly || []).slice(-cadence.count);
       detail.innerHTML += `<p class="analysis-note">${text(
         '非現金 NWC＝流動資產－現金及短期投資－流動負債＋流動借款及列示流動租賃。每個季度餘額除以同季度結束的 LTM 營收，並非四季餘額相加；負 NWC 減少會增加 FCFF。租賃／債務未核對時，這些數字只作暫定財務支持。',
         'Noncash NWC = current assets − cash/short-term investments − current liabilities + current borrowings and reported current leases. Each balance uses its own matching LTM revenue, not summed quarterly balances. A fall in NWC increases FCFF. Unreconciled lease/debt inputs remain provisional support, not a validated valuation.')}</p>` +
-        schedule([text('季度', 'Quarter'), ...quarters.map(row => row.date)], [
+        schedule([cadence.stride === 2 ? text('半年', 'Half year') : text('季度', 'Quarter'), ...quarters.map(row => row.date)], [
           [text('流動資產', 'Current assets'), quarters.map(row => amount(row.currentAssets))],
           [text('現金及短期投資', 'Cash / short-term investments'), quarters.map(row => amount(row.cash))],
           [text('流動負債', 'Current liabilities'), quarters.map(row => amount(row.currentLiabilities))],
@@ -417,7 +427,7 @@
           [text('對應 LTM 營收', 'Matching LTM revenue'), quarters.map(row => amount(row.ltmRevenue))],
           [text('NWC／LTM 營收', 'NWC / LTM revenue'), quarters.map(row => percent(row.workingCapitalRate))]
         ]);
-      if (quarters.length === 4 && quarters.every(row => finite(row.workingCapitalRate))) {
+      if (quarters.length === cadence.count && quarters.every(row => finite(row.workingCapitalRate))) {
         addAverageControl(detail, 'workingCapital', quarters.map(row => row.workingCapitalRate), true);
       }
     } else if (['capex', 'depreciation', 'tax'].includes(assumptionTab)) {
@@ -449,7 +459,9 @@
     const mean = values.reduce((sum, value) => sum + value, 0) / values.length;
     const note = document.createElement('p');
     note.className = 'analysis-note';
-    note.textContent = quarterly ? text('最近四季各自 NWC／LTM 營收比率的簡單平均', 'Simple average of four matching quarterly NWC/LTM ratios')
+    note.textContent = quarterly ? market.cadence(context.stock, 'balance').stride === 2
+      ? text('最近兩個半年各自 NWC／LTM 營收比率的簡單平均', 'Simple average of two matching half-year NWC/LTM ratios')
+      : text('最近四季各自 NWC／LTM 營收比率的簡單平均', 'Simple average of four matching quarterly NWC/LTM ratios')
       : text(`實際可用 ${values.length} 個年度比率的簡單平均（不補缺值）`, `Simple average of ${values.length} available annual ratios (no gap filling)`);
     note.textContent += `: ${key === 'tax' ? amount(mean) + '%' : percent(mean)}. `;
     const button = document.createElement('button');
@@ -503,7 +515,7 @@
         '部分歷史來源的代碼／公布日期無法核對，已排除。', 'Some historical rows were excluded because ticker/publication dates could not be reconciled.')}</p>`;
     } else if (supportTab === 'multiples') {
       const value = metrics({ ...context.stock, mcap: result.E }, snapshot(), result);
-      other.innerHTML = schedule([text('指標（非模型終值倍數）', 'Metric (not terminal exit multiples)'), 'USD / TTM'], [
+      other.innerHTML = schedule([text('指標（非模型終值倍數）', 'Metric (not terminal exit multiples)'), `${market.currency} / TTM`], [
         [text('報價市值 ($M)', 'Quoted market cap ($M)'), [amount(result.E)]],
         [text('報價企業價值 ($M)', 'Quoted enterprise value ($M)'), [amount(value.EV)]],
         [text('實際 TTM EBITDA ($M)', 'Reported TTM EBITDA ($M)'), [amount(snapshot()?.ttm?.ebitda)]],
@@ -559,7 +571,7 @@
       ['普通股權價值', 'Common equity value', result.EquityVal]
     ];
     document.getElementById('fcff-bridge').innerHTML = rows.map(([zh, en, value]) =>
-      `<tr><th>${text(zh, en)} ($M)</th><td>${amount(value)}</td></tr>`).join('');
+      `<tr><th>${text(zh, en)} (${market.currency} M)</th><td>${amount(value)}</td></tr>`).join('');
     document.getElementById('fcff-terminal-note').textContent = result.assumptions
       ? [result.assumptions.terminalMethod === 'roic'
         ? `${text('終值 ROIC', 'Terminal ROIC')}: ${amount(result.assumptions.terminalRoic)}%; ${text('再投資＝NOPAT × g／ROIC。', 'Reinvestment = NOPAT × g / ROIC.')}`
@@ -576,14 +588,14 @@
     table.innerHTML = `<thead><tr><th>WACC / g</th>${gs.map(g => `<th>${g.toFixed(2)}%</th>`).join('')}</tr></thead><tbody>${ws.map((w, wi) =>
       `<tr><th>${percent(w)}</th>${gs.map((g, gi) => {
         const value = window.Fcff.calculate(source, { ...scenario, discountRate: w, g });
-        return `<td class="sens-cell${wi === 1 && gi === 1 ? ' sens-base' : ''}">${finite(value.fairVal) ? `$${amount(value.fairVal)}` : 'N/A'}</td>`;
+        return `<td class="sens-cell${wi === 1 && gi === 1 ? ' sens-base' : ''}">${finite(value.fairVal) ? `${money()}${amount(value.fairVal)}` : 'N/A'}</td>`;
       }).join('')}</tr>`).join('')}</tbody>`;
   }
   function save() {
     const result = recalculate();
     if (!result || result.fairVal === null) return;
-    context.save({ targetPrice: result.fairVal, savedAt: new Date().toISOString(), params: readScenario() });
-    context.saved = { params: readScenario() };
+    context.save({ targetPrice: result.fairVal, currency: market.currency, savedAt: new Date().toISOString(), params: readScenario() });
+    context.saved = { params: readScenario(), currency: market.currency };
     document.getElementById('fcff-legacy').textContent = '';
   }
   return { compatible, metrics, reasonText, load, rerender, recalculate, save };

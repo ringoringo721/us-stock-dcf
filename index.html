@@ -7,6 +7,17 @@
   <script src="site_theme.js"></script>
   <script src="market_data.js"></script>
   <script src="fcff_data.js"></script>
+  <script src="market_context.js"></script>
+  <script>
+    if (MarketContext.market === 'HKEX') {
+      for (const filename of ['hk_market_data.js', 'hk_fcff_data.js']) {
+        const script = document.createElement('script');
+        script.src = filename;
+        script.async = false;
+        document.head.append(script);
+      }
+    }
+  </script>
   <script src="dcf_drivers.js"></script>
   <script src="fcff.js"></script>
   <script src="fcff_view.js"></script>
@@ -116,6 +127,8 @@
       gap: 14px; 
     }
     .header-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+    .header-actions label { color: var(--text-secondary); font-size: 12px; }
+    .header-actions select { background: var(--card-bg); color: var(--text); border: 1px solid var(--card-border); border-radius: 6px; padding: 7px; }
     h1 { font-size: 22px; font-weight: 700; color: var(--text); }
     .status-badge { 
       background: rgba(74, 222, 128, 0.15); 
@@ -994,6 +1007,11 @@
       <span style="font-size: 13px; color: var(--text-muted);" id="app-subtitle" data-i18n="subtitle">估值篩選 · 公司財報 · 趨勢分析</span>
     </div>
     <div class="header-actions">
+      <label for="market-select">Market / 市場</label>
+      <select id="market-select" aria-label="Market" onchange="changeMarket(this.value)">
+        <option value="US">US · USD</option>
+        <option value="HKEX">HKEX · HKD</option>
+      </select>
       <div class="status-badge" id="app-status" data-i18n="status_ready">● FMP 財報</div>
       <button class="lang-btn" id="btn-lang-toggle" onclick="toggleLanguage()">English</button>
       <button class="lang-btn theme-icon-button" id="btn-theme-toggle" type="button" onclick="SiteTheme.toggle()" aria-pressed="false" aria-label="切換淺色模式"></button>
@@ -2965,11 +2983,47 @@
     }
   };
 
+  for (const lang of Object.keys(I18N_DICT)) I18N_DICT[lang] = MarketContext.labels(I18N_DICT[lang]);
+  const moneyPrefix = () => MarketContext.currency === 'HKD' ? 'HKD ' : '$';
+  function changeMarket(market) {
+    const url = new URL(location.href);
+    url.searchParams.set('market', market);
+    url.hash = '';
+    location.assign(url.href);
+  }
+  function ratingProvenance(stock, kind) {
+    const source = stock?.ratingSources?.[kind];
+    return source ? [source.asOfDate, source.period, source.basis, source.status, ratingState(stock, kind), source.reason,
+      source.updatedAt, source.evidenceHash].filter(Boolean).join(' · ') : '';
+  }
+  function ratingState(stock, kind) {
+    const source = stock?.ratingSources?.[kind];
+    if (!source) return '';
+    const latest = [...(stock.statements_raw?.annual_dates || []), ...(stock.statements_raw?.quarterly_raw?.dates || [])]
+      .filter(date => /^\d{4}-\d{2}(?:-\d{2})?$/.test(date)).sort().at(-1);
+    const outdated = source.asOfDate && latest && (latest.length === 7 ? source.asOfDate.slice(0, 7) < latest : source.asOfDate < latest);
+    if (source.status === 'stale' || source.stale || outdated) return 'Stale';
+    if (kind === 'fScore' && source.evaluatedTests != null && source.evaluatedTests < 9) return `Partial (${source.evaluatedTests}/9)`;
+    return source.status || '';
+  }
+  function loadFinancialProvenance(panel, ticker, stock) {
+    MarketContext.renderProvenance(panel, stock, ticker);
+    FcfRatios.loadStatements(ticker).then(data => {
+      if (activeCompanyTicker !== ticker) return;
+      MarketContext.renderProvenance(panel, {
+        ...data, qualityWarnings: { stock: stock.qualityWarnings, statements: data.qualityWarnings }
+      }, ticker);
+    }).catch(error => {
+      if (activeCompanyTicker === ticker) MarketContext.renderProvenance(panel, {
+        ...stock, qualityWarnings: { source: stock.qualityWarnings, unavailable: String(error.message) }
+      }, ticker);
+    });
+  }
   function applyLanguage(lang) {
     currentLang = lang;
     document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : 'en';
     localStorage.setItem('RADAR_LANG', lang);
-    const dict = I18N_DICT[lang];
+    const dict = MarketContext.labels(I18N_DICT[lang], stockUniverse[activeCompanyTicker]);
     document.title = dict.title;
 
     document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -3064,16 +3118,18 @@
     const reference = fin.reference;
     const warnings = reference && reference.warnings || [];
     document.getElementById('fin-reference-note').textContent = reference
-      ? `${dict.fin_reference}${reference.label} (${reference.date}) · ROTE ${reference.rote === null ? 'N/A' : reference.rote.toFixed(2) + '%'} · ${dict.fin_reference_basis}${reference.reason ? ' ' + dict.fin_unavailable : ''}${warnings.includes('negativeTangibleEquity') ? ' ' + dict.fin_negative_capital : ''}${warnings.includes('negativeNetIncome') ? ' ' + dict.returns_reason_negativeNetIncome : ''}`
-      : dict.fin_unavailable;
+      ? `${dict.fin_reference}${reference.label || 'N/A'} (${reference.date || 'N/A'}) · ROTE ${Number.isFinite(reference.rote) ? reference.rote.toFixed(2) + '%' : 'N/A'} · ${dict.fin_reference_basis}${reference.reason || fin.reason || fin.unavailableReason ? ' ' + FcffView.reasonText(fin.unavailableReason || fin.reason || reference.reason, currentLang) : ''}${warnings.includes('negativeTangibleEquity') ? ' ' + dict.fin_negative_capital : ''}${warnings.includes('negativeNetIncome') ? ' ' + dict.returns_reason_negativeNetIncome : ''}`
+      : fin.unavailableReason || fin.reason ? FcffView.reasonText(fin.unavailableReason || fin.reason, currentLang) : dict.fin_unavailable;
   }
 
   function getStockDefaultRf(s) {
+    if (s?.calculationCurrency === 'HKD') return Number.isFinite(s.rf) ? s.rf / 100 : NaN;
     const tenor = (s && s.rf_tenor) ? parseInt(s.rf_tenor) : 5;
     return US_TREASURY_CURVE[tenor] || 0.0430;
   }
 
   function onRfTenorChange() {
+    if (MarketContext.currency === 'HKD') return;
     const sel = document.getElementById('inp-rf-tenor');
     const tenor = parseInt(sel.value) || 5;
     const rfVal = US_TREASURY_CURVE[tenor] || 0.0430;
@@ -3092,19 +3148,20 @@
     const s = stockUniverse[activeDetailTicker];
     if (!s || !s.fin_valuation) return;
 
-    const valKe = parseFloat(document.getElementById('slider-fin-ke').value) || 9.49;
-    const valG = parseFloat(document.getElementById('slider-fin-g').value) || 2.25;
-    const valRote = parseFloat(document.getElementById('slider-fin-rote').value);
-    if (!Number.isFinite(valRote)) throw new RangeError('Invalid ROTE scenario');
+    const read = key => {
+      const input = document.getElementById(`slider-fin-${key}`);
+      return input.disabled ? null : Number.isFinite(parseFloat(input.value)) ? parseFloat(input.value) : null;
+    };
+    const valKe = read('ke'), valG = read('g'), valRote = read('rote');
 
-    document.getElementById('disp-fin-ke').innerText = `${valKe.toFixed(2)}%`;
-    document.getElementById('disp-fin-g').innerText = `${valG.toFixed(2)}%`;
-    document.getElementById('disp-fin-rote').innerText = `${valRote.toFixed(2)}%`;
+    document.getElementById('disp-fin-ke').innerText = valKe === null ? 'N/A' : `${valKe.toFixed(2)}%`;
+    document.getElementById('disp-fin-g').innerText = valG === null ? 'N/A' : `${valG.toFixed(2)}%`;
+    document.getElementById('disp-fin-rote').innerText = valRote === null ? 'N/A' : `${valRote.toFixed(2)}%`;
 
     const spreadVal = valRote - valKe;
     const elSpread = document.getElementById('fin-spread-disp');
     if (elSpread) {
-      elSpread.innerText = `${spreadVal > 0 ? '+' : ''}${spreadVal.toFixed(2)}%`;
+      elSpread.innerText = valKe === null || valRote === null ? 'N/A' : `${spreadVal > 0 ? '+' : ''}${spreadVal.toFixed(2)}%`;
     }
 
     s.fin_valuation.ke = valKe;
@@ -3119,7 +3176,7 @@
     if (!s) return null;
     const sym = explicitTicker || s.ticker || "";
     if (!s.fin_valuation?.is_financial) {
-      const source = window.FCFF_DATA?.stocks?.[sym];
+      const source = MarketContext.fcff()?.stocks?.[sym];
       const result = Fcff.calculate(source);
       return { ...FcffView.metrics(s, source, result), moat: evaluateMoat(s, sym) };
     }
@@ -3130,7 +3187,7 @@
       localCash = Math.max(localCash, (Number(s.cash) || 0) + Number(s.short_term_investments));
     }
 
-    let localFCF0 = s.calculationCurrency === 'USD'
+    let localFCF0 = s.calculationCurrency
       ? (Number.isFinite(s.fcf0) ? s.fcf0 : NaN) : Number(s.fcf0) || 100;
     const shares = Number(s.shares) || 1;
     const currentPrice = Number(s.price) || 1;
@@ -3146,7 +3203,7 @@
       beta = Number(s.beta);
     }
 
-    const localRf = (s.rf !== undefined && !isNaN(Number(s.rf))) ? (Number(s.rf) / 100) : getStockDefaultRf(s);
+    const localRf = Number.isFinite(s.rf) ? s.rf / 100 : getStockDefaultRf(s);
     const localERP = (s.erp !== undefined && !isNaN(Number(s.erp))) ? (Number(s.erp) / 100) : 0.0475;
 
     const kd = Number(s.kd) || 4.5;
@@ -3202,7 +3259,7 @@
       const g_val = (fin.g || s.g || 2.25) / 100;
       const rote_val = Number.isFinite(fin.rote) ? fin.rote / 100 : null;
       const tbvps = Number.isFinite(fin.tbvps) ? fin.tbvps : null;
-      const dps = fin.dps_total || 6.5;
+      const dps = Number.isFinite(fin.dps_total) ? fin.dps_total : null;
 
       const spread = rote_val - ke_val;
       const exVal = !fin.reference || fin.reference.reason || rote_val === null || !(tbvps > 0)
@@ -3218,14 +3275,21 @@
       const tvDDM = (curD * (1 + g_val)) / Math.max(ke_val - g_val, 0.02);
       const ddmVal = ddmSum + (tvDDM / Math.pow(1 + ke_val, 5));
 
-      fairVal = exVal === null ? null : Number(((exVal * 0.55) + (ddmVal * 0.45)).toFixed(2));
+      fairVal = exVal === null || dps === null ? null : Number(((exVal * 0.55) + (ddmVal * 0.45)).toFixed(2));
       fin.excess_return_fair = exVal === null ? null : Number(exVal.toFixed(2));
-      fin.ddm_fair = Number(ddmVal.toFixed(2));
+      fin.ddm_fair = dps === null ? null : Number(ddmVal.toFixed(2));
     } else {
       fairVal = (shares > 0 ? (EquityVal / shares) : currentPrice);
     }
 
-    const safeFairVal = s.currencyConversion?.reason || !Number.isFinite(fairVal) ? null : Math.max(fairVal, 0.01);
+    const financialReason = s.fin_valuation?.unavailableReason || s.fin_valuation?.reason || s.fin_valuation?.reference?.reason
+      || (s.calculationCurrency === 'HKD' && !Number.isFinite(s.fin_valuation?.ke) ? 'missingHkdRiskFreeRate' : null)
+      || (s.calculationCurrency === 'HKD' && !['g', 'rote', 'tbvps', 'dps_total'].every(key => Number.isFinite(s.fin_valuation?.[key])) ? 'missingParameters' : null);
+    if (financialReason) {
+      s.fin_valuation.excess_return_fair = null;
+      s.fin_valuation.ddm_fair = null;
+    }
+    const safeFairVal = s.currencyConversion?.reason || financialReason || !Number.isFinite(fairVal) ? null : Math.max(fairVal, 0.01);
     const premiumPct = safeFairVal === null ? null : ((currentPrice / safeFairVal) - 1) * 100;
     const estimatedEbitda = Math.max(localFCF0 * 1.25, 100);
 
@@ -3237,6 +3301,7 @@
       ModelEV: ModelEV,
       EquityVal, 
       fairVal: safeFairVal, 
+      reason: financialReason,
       premiumPct,
       isUndervalued: premiumPct === null ? null : premiumPct < 0,
       mcap: baseMcap,
@@ -3245,13 +3310,22 @@
       ev_to_ebitda: Math.round((officialMarketEV / estimatedEbitda) * 10) / 10,
       debt_to_ebitda: Math.round((localDebt / estimatedEbitda) * 100) / 100,
       net_debt_to_ebitda: Math.round((NetDebt / estimatedEbitda) * 100) / 100,
-      div_yield: Number(s.div_yield) || 0,
-      f_score: s.f_score !== undefined ? s.f_score : 7,
+      div_yield: Number.isFinite(s.div_yield) ? s.div_yield : null,
+      f_score: s.f_score ?? null,
       f_score_breakdown: s.f_score_breakdown || [],
       moat: evaluateMoat(s, sym),
       localFCF0,
       localDebt,
-      localCash
+      localCash,
+      ...(s.calculationCurrency === 'HKD' ? {
+        EV: Number.isFinite(s.fmp_official_ev) ? s.fmp_official_ev : Number.isFinite(s.ev) ? s.ev : null,
+        localFCF0: Number.isFinite(s.fcf0) ? s.fcf0 : null,
+        localDebt: Number.isFinite(s.debt) ? s.debt : null,
+        localCash: Number.isFinite(s.cash_and_short_term) ? s.cash_and_short_term : Number.isFinite(s.cash) ? s.cash : null,
+        fcf_to_ev: s.fcf_to_ev ?? null, fcf_to_mcap: s.fcf_to_mcap ?? null,
+        ev_to_ebitda: s.ev_to_ebitda ?? null, debt_to_ebitda: s.debt_to_ebitda ?? null,
+        net_debt_to_ebitda: s.net_debt_to_ebitda ?? null
+      } : {})
     };
   }
 
@@ -3282,7 +3356,24 @@
   }
 
   function getSavedModels() {
-    try { return JSON.parse(localStorage.getItem('M7_CUSTOM_VALUATIONS') || '{}'); } catch (e) { return {}; }
+    try {
+      return Object.fromEntries(Object.entries(JSON.parse(localStorage.getItem('M7_CUSTOM_VALUATIONS') || '{}'))
+        .filter(([ticker, model]) => MarketContext.compatibleSaved(model, ticker, stockUniverse[ticker])));
+    } catch (e) { return {}; }
+  }
+
+  function storeSavedModels(models) {
+    const all = JSON.parse(localStorage.getItem('M7_CUSTOM_VALUATIONS') || '{}');
+    const archive = JSON.parse(localStorage.getItem('M7_LEGACY_VALUATIONS') || '{}');
+    for (const ticker of Object.keys(stockUniverse)) {
+      if (all[ticker] && !MarketContext.compatibleSaved(all[ticker], ticker, stockUniverse[ticker])) {
+        const previous = archive[ticker];
+        archive[ticker] = [...(Array.isArray(previous) ? previous : previous ? [previous] : []), all[ticker]];
+      }
+      delete all[ticker];
+    }
+    localStorage.setItem('M7_LEGACY_VALUATIONS', JSON.stringify(archive));
+    localStorage.setItem('M7_CUSTOM_VALUATIONS', JSON.stringify({ ...all, ...models }));
   }
 
   function evaluateMoat(s, explicitTicker) {
@@ -3291,10 +3382,13 @@
     const moatObj = (s && s.moat) || {};
     const isEn = (currentLang === 'en');
     
-    let m = [6, 6, 6, 5, 6, 6, 6, 6, 6, 6];
+    let m = Array(10).fill(null);
     let comments = Array(10).fill("");
-    let ref = isEn ? `Vertex AI Enterprise Deep Audit (${moatObj.period || 'Latest'})` : `Vertex AI 企業級深度分析 (基準季: ${moatObj.period || '最新'})`;
-    let overallComment = isEn ? (moatObj.overall_moat_verdict_en || moatObj.overall_moat_verdict || "Demonstrates defined structural barriers.") : (moatObj.overall_moat_verdict_zh || moatObj.overall_moat_verdict || "具備明確的商業競爭壁壘與巴菲特護城河特徵。");
+    const ratingSource = s?.ratingSources?.moat;
+    let ref = [ratingSource?.asOfDate, ratingSource?.period || moatObj.period, ratingState(s, 'moat'),
+      ratingSource?.updatedAt, ratingSource?.evidenceHash].filter(Boolean).join(' · ');
+    let overallComment = isEn ? (moatObj.overall_moat_verdict_en || moatObj.overall_moat_verdict || ratingSource?.reason || "Evidence-grounded analysis unavailable.")
+      : (moatObj.overall_moat_verdict_zh || moatObj.overall_moat_verdict || ratingSource?.reason || "尚無具證據支持的分析。");
 
     const dimKeys = [
       "m1_brand_pricing", "m2_patents_regulatory", "m3_high_switching_costs",
@@ -3305,18 +3399,19 @@
     dimKeys.forEach((key, idx) => {
       const item = moatObj[key];
       if (item) {
-        if (item.score !== undefined) m[idx] = Number(item.score);
+        if (typeof item.score === 'number' && Number.isFinite(item.score) && item.score >= 0 && item.score <= 10) m[idx] = item.score;
         comments[idx] = isEn ? (item.comment_en || item.comment || "") : (item.comment_zh || item.comment || "");
       }
     });
 
-    const total = m.reduce((a, b) => a + b, 0);
+    const total = m.every(Number.isFinite) ? m.reduce((a, b) => a + b, 0) : null;
     let grade = isEn ? "Moderate Moat" : "Moderate Moat (中等)";
     let badgeClass = "moat-weak";
     if (total >= 88) { grade = isEn ? "Wide Moat 🏆" : "Wide Moat (極寬) 🏆"; badgeClass = "moat-wide"; }
     else if (total >= 75) { grade = isEn ? "Narrow Moat 🛡️" : "Narrow Moat (優質) 🛡️"; badgeClass = "moat-narrow"; }
     else if (total >= 55) { grade = isEn ? "Moderate Moat ⚖️" : "Moderate Moat (中等) ⚖️"; badgeClass = "moat-weak"; }
     else { grade = isEn ? "Weak / No Moat ⚠️" : "Weak / No Moat (微弱) ⚠️"; badgeClass = "moat-none"; }
+    if (total === null) { grade = m.some(Number.isFinite) ? 'Partial / N/A' : 'N/A'; badgeClass = ''; }
 
     const criteriaDefs = [
       { id: "M1", catZh: "無形資產", catEn: "Intangibles", titleZh: "品牌心智與定價權 (Pricing Power)", titleEn: "Brand & Pricing Power", descZh: "提價後客戶黏性與議價權。", descEn: "Pricing power without customer churn." },
@@ -3496,7 +3591,7 @@
       result.quoteDate && `${dict.liquidation_quote_date}: ${result.quoteDate}`,
       snapshot?.quote && `${dict.liquidation_share_quote}: ${snapshot.quote.price ?? 'N/A'} / ${snapshot.quote.marketCap ?? 'N/A'}`,
       result.shares !== null && `${dict.liquidation_shares}: ${result.shares.toLocaleString(currentLang === 'en' ? 'en-US' : 'zh-TW', { maximumFractionDigits: 0 })}`,
-      snapshot?.sourceCurrency && `${snapshot.sourceCurrency} → USD; FX ${snapshot.fx?.rate ?? 'N/A'} (${snapshot.fx?.observationDate ?? 'N/A'})`,
+      snapshot?.sourceCurrency && `${snapshot.sourceCurrency} → ${MarketContext.currency}; FX ${snapshot.fx?.rate ?? 'N/A'} (${snapshot.fx?.observationDate ?? 'N/A'})`,
       snapshot?.fetchedAt && `${dict.liquidation_captured}: ${snapshot.fetchedAt}`,
       ...result.warnings.map(warning => warning === 'preferredClaims'
         ? dict.liquidation_preferred : dict.liquidation_preferred_unknown),
@@ -3505,7 +3600,7 @@
     const title = details.replace(/&/g, '&amp;').replace(/"/g, '&quot;')
       .replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, '&#10;');
     const amount = value === null ? 'N/A'
-      : value < 0 ? `-$${Math.abs(value).toFixed(2)}` : `$${value.toFixed(2)}`;
+      : value < 0 ? `-${moneyPrefix()}${Math.abs(value).toFixed(2)}` : `${moneyPrefix()}${value.toFixed(2)}`;
     const color = value > 0 ? 'text-green' : value < 0 ? 'text-red' : 'text-muted';
     return `<td class="liquidation-value ${color}" title="${title}" data-value="${value ?? ''}">
       <span class="liquidation-amount">${amount}</span>
@@ -3533,7 +3628,7 @@
       const isFav = favs.includes(ticker);
       const target_price = isSaved ? Number(savedModels[ticker].targetPrice) : null;
       const target_spread = (isSaved && target_price > 0 && s.price) ? (((s.price / target_price) - 1) * 100) : null;
-      const moat_score = (defaultDcf.moat && defaultDcf.moat.total !== undefined) ? defaultDcf.moat.total : 50;
+      const moat_score = defaultDcf.moat?.total ?? null;
 
       const liquidationResult = Liquidation.calculate(s.liquidation, ticker);
       const liquidationValues = liquidationResult.values.map(value =>
@@ -3573,8 +3668,10 @@
       if (typeof va === 'string' && typeof vb === 'string') {
         return sortAsc ? va.localeCompare(vb) : vb.localeCompare(va);
       }
-      va = (va !== undefined && va !== null) ? Number(va) : 0;
-      vb = (vb !== undefined && vb !== null) ? Number(vb) : 0;
+      if (va == null || !Number.isFinite(Number(va))) return vb == null ? 0 : 1;
+      if (vb == null || !Number.isFinite(Number(vb))) return -1;
+      va = Number(va);
+      vb = Number(vb);
       return sortAsc ? va - vb : vb - va;
     });
 
@@ -3582,8 +3679,8 @@
     const totalCount = allCalc.length;
     const underCount = allCalc.filter(x => x.isUndervalued).length;
     const overCount = allCalc.filter(x => x.isUndervalued === false).length;
-    const savedCount = Object.keys(savedModels).length;
-    const favCount = favs.length;
+    const savedCount = Object.keys(savedModels).filter(ticker => stockUniverse[ticker]).length;
+    const favCount = favs.filter(ticker => stockUniverse[ticker]).length;
 
     document.getElementById('stat-total').textContent = totalCount;
     document.getElementById('stat-fav-count').textContent = favCount;
@@ -3592,7 +3689,7 @@
     document.getElementById('stat-saved-count').textContent = savedCount;
 
     tbody.innerHTML = list.map(item => {
-      const priceNum = Number(item.price) || 0;
+      const priceNum = Number.isFinite(item.price) ? item.price : null;
       const fairNum = item.fairVal === null ? null : Number(item.fairVal);
       const premiumNum = Number(item.premiumPct) || 0;
 
@@ -3601,7 +3698,7 @@
         : `<span class="badge badge-overvalued">${currentLang === 'zh' ? '高估' : 'Overvalued'} +${premiumNum.toFixed(1)}%</span>`;
 
       const targetPriceHtml = (item.isSaved && item.target_price)
-        ? `<span class="badge badge-target">$${Number(item.target_price).toFixed(2)}</span>`
+        ? `<span class="badge badge-target">${moneyPrefix()}${Number(item.target_price).toFixed(2)}</span>`
         : `<span style="color: var(--text-muted);">--</span>`;
 
       let targetSpreadHtml = `<span style="color: var(--text-muted);">--</span>`;
@@ -3613,24 +3710,25 @@
         }
       }
 
-      const fScoreVal = item.f_score !== undefined ? item.f_score : 7;
+      const fScoreVal = item.f_score ?? null;
       let fScoreClass = "fscore-yellow";
       if (fScoreVal >= 7) fScoreClass = "fscore-green";
-      else if (fScoreVal <= 3) fScoreClass = "fscore-red";
+      else if (fScoreVal !== null && fScoreVal <= 3) fScoreClass = "fscore-red";
+      if (fScoreVal === null) fScoreClass = '';
 
       const exchClass = `badge-exch-${item.exchange || 'NASDAQ'}`;
       const favHeart = item.isFav ? '❤' : '♡';
       const favActiveClass = item.isFav ? 'active' : '';
 
-      const moatTotal = (item.moat && item.moat.total !== undefined) ? item.moat.total : 50;
-      const moatBadgeCls = (item.moat && item.moat.badgeClass) ? item.moat.badgeClass : 'moat-weak';
+      const moatTotal = item.moat?.total ?? 'N/A';
+      const moatBadgeCls = item.moat?.badgeClass || '';
       const moatGradeText = (item.moat && item.moat.grade) ? item.moat.grade.split(' ')[0] : 'Moat';
 
       const waccVal = Number.isFinite(item.WACC) ? item.WACC : null;
-      const gVal = item.fin_valuation?.is_financial ? Number(item.g)
-        : window.FCFF_DATA?.stocks?.[item.ticker]?.defaults?.g;
+      const gVal = item.fin_valuation?.is_financial ? item.g
+        : MarketContext.fcff()?.stocks?.[item.ticker]?.defaults?.g;
       const evVal = Number.isFinite(item.EV) ? item.EV : null;
-      const mcapVal = Number(item.mcap) || 0;
+      const mcapVal = Number.isFinite(item.mcap) ? item.mcap : null;
 
       return `
         <tr>
@@ -3642,8 +3740,8 @@
           <td class="col-fixed-3" style="font-weight: 600; color: var(--text);">${getStockDisplayName(item)}</td>
           <td style="color: var(--text-secondary); text-align: left;">${getStockDisplaySector(item)}</td>
           <td style="color: var(--text-muted); font-size: 11px; text-align: left;">${getStockDisplayIndustry(item.industry) || '--'}</td>
-          <td style="font-weight: 700; color: var(--accent);">$${priceNum.toFixed(2)}</td>
-          <td class="text-green" style="font-size: 13px; font-weight: 700;" title="${item.reason ? FcffView.reasonText(item.reason, currentLang).replace(/"/g, '&quot;') : ''}">${fairNum === null ? 'N/A' : '$' + fairNum.toFixed(2)}${!item.fin_valuation?.is_financial ? `<small class="liquidation-asof">${window.FCFF_DATA?.stocks?.[item.ticker]?.valuationDate || ''}</small>` : ''}</td>
+          <td style="font-weight: 700; color: var(--accent);">${priceNum === null ? 'N/A' : moneyPrefix() + priceNum.toFixed(2)}</td>
+          <td class="text-green" style="font-size: 13px; font-weight: 700;" title="${item.reason ? FcffView.reasonText(item.reason, currentLang).replace(/"/g, '&quot;') : ''}">${fairNum === null ? 'N/A' : MarketContext.currency + ' ' + fairNum.toFixed(2)}${!item.fin_valuation?.is_financial ? `<small class="liquidation-asof">${MarketContext.fcff()?.stocks?.[item.ticker]?.valuationDate || ''}</small>` : ''}</td>
           <td>${targetPriceHtml}</td>
           <td style="text-align: center;">
             <button class="btn-nav" onclick="openDetail('${item.ticker}')">${currentLang === 'zh' ? '深度模型 →' : 'DCF Model →'}</button>
@@ -3651,14 +3749,14 @@
           <td>${targetSpreadHtml}</td>
           <td>${badgeHtml}</td>
           <td style="text-align: center;">
-            <span class="badge-moat ${moatBadgeCls}" onclick="openMoat('${item.ticker}')">${moatTotal} pt · ${moatGradeText}</span>
+            <span class="badge-moat ${moatBadgeCls}" title="${ratingProvenance(item, 'moat').replace(/"/g, '&quot;')}" onclick="openMoat('${item.ticker}')">${moatTotal} pt · ${moatGradeText} ${ratingState(item, 'moat')}</span>
           </td>
           <td>
             <div>${waccVal === null ? 'N/A' : (waccVal * 100).toFixed(2) + '%'}</div>
             <div style="font-size: 11px; color: var(--text-muted);">g: ${Number.isFinite(gVal) ? gVal.toFixed(2) + '%' : 'N/A'}</div>
           </td>
-          <td>${evVal === null ? 'N/A' : '$' + evVal.toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
-          <td style="font-weight: 600;">$${mcapVal.toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
+          <td>${evVal === null ? 'N/A' : moneyPrefix() + evVal.toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
+          <td style="font-weight: 600;">${mcapVal === null ? 'N/A' : moneyPrefix() + mcapVal.toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
           
           ${renderLiquidationCell(item, 0)}
           ${renderLiquidationCell(item, 1)}
@@ -3667,16 +3765,16 @@
           <td>${item.pe_trailing ? Number(item.pe_trailing).toFixed(1) : '--'}</td>
           <td>${item.pe_forward ? Number(item.pe_forward).toFixed(1) : '--'}</td>
           <td>${item.pb_trailing ? Number(item.pb_trailing).toFixed(1) : '--'}</td>
-          <td style="color: var(--accent); font-weight: 700;">${Number(item.div_yield) > 0 ? Number(item.div_yield).toFixed(2) + '%' : '0.00%'}</td>
+          <td style="color: var(--accent); font-weight: 700;">${Number.isFinite(item.div_yield) ? item.div_yield.toFixed(2) + '%' : 'N/A'}</td>
           <td style="color: var(--accent); font-weight: 600;">${Number.isFinite(item.fcf_to_ev) ? item.fcf_to_ev.toFixed(2) + '%' : 'N/A'}</td>
           <td style="color: var(--nasdaq-purple); font-weight: 600;">${Number.isFinite(item.fcf_to_mcap) ? item.fcf_to_mcap.toFixed(2) + '%' : 'N/A'}</td>
-          <td style="color: var(--accent);">${item.cash_to_assets !== undefined ? Number(item.cash_to_assets).toFixed(1) + '%' : '--'}</td>
-          <td>${item.liab_to_assets !== undefined ? Number(item.liab_to_assets).toFixed(1) + '%' : '--'}</td>
-          <td>${item.current_ratio !== undefined ? Number(item.current_ratio).toFixed(2) : '--'}</td>
-          <td style="font-weight: 600; color: var(--gold);">${item.roe !== undefined ? Number(item.roe).toFixed(1) + '%' : '--'}</td>
-          <td style="color: var(--green);">${item.roa !== undefined ? Number(item.roa).toFixed(1) + '%' : '--'}</td>
+          <td style="color: var(--accent);">${Number.isFinite(item.cash_to_assets) ? item.cash_to_assets.toFixed(1) + '%' : 'N/A'}</td>
+          <td>${Number.isFinite(item.liab_to_assets) ? item.liab_to_assets.toFixed(1) + '%' : 'N/A'}</td>
+          <td>${Number.isFinite(item.current_ratio) ? item.current_ratio.toFixed(2) : 'N/A'}</td>
+          <td style="font-weight: 600; color: var(--gold);">${Number.isFinite(item.roe) ? item.roe.toFixed(1) + '%' : 'N/A'}</td>
+          <td style="color: var(--green);">${Number.isFinite(item.roa) ? item.roa.toFixed(1) + '%' : 'N/A'}</td>
           <td style="text-align: center;">
-            <span class="badge-fscore ${fScoreClass}" onclick="openFScore('${item.ticker}')">${fScoreVal} / 9</span>
+            <span class="badge-fscore ${fScoreClass}" title="${ratingProvenance(item, 'fScore').replace(/"/g, '&quot;')}" onclick="openFScore('${item.ticker}')">${fScoreVal ?? 'N/A'} / 9 ${ratingState(item, 'fScore')}</span>
           </td>
           <td style="font-weight: 700; color: var(--accent);">${Number.isFinite(item.ev_to_ebitda) ? item.ev_to_ebitda.toFixed(1) + 'x' : 'N/A'}</td>
           <td style="color: var(--text-secondary);">${Number.isFinite(item.debt_to_ebitda) ? item.debt_to_ebitda.toFixed(2) + 'x' : 'N/A'}</td>
@@ -3834,6 +3932,7 @@
     const curTicker = activeCompanyTicker || 'NVDA';
     const curStock = stockUniverse[curTicker];
     if (!curStock) return;
+    MarketContext.localize(document.getElementById('company-view'), I18N_DICT[currentLang], curStock);
     if (updateHistory && document.getElementById('company-view').style.display === 'block') {
       const route = `#${curTicker}/${tabKey === 'basic' ? 'profile' : tabKey}`;
       if (location.hash !== route) history.pushState({ view: 'company', ticker: curTicker, tab: tabKey }, '', route);
@@ -3849,7 +3948,7 @@
         loadedValuationTicker = curTicker;
       } else {
         document.getElementById('det-name').textContent = getStockDisplayName(curStock);
-        document.getElementById('det-moat-badge').textContent = `${currentLang === 'zh' ? '護城河' : 'Moat'}: ${computeDCF(curStock, curTicker).moat.total}/100`;
+        document.getElementById('det-moat-badge').textContent = `${currentLang === 'zh' ? '護城河' : 'Moat'}: ${computeDCF(curStock, curTicker).moat.total ?? 'N/A'}/100`;
         renderFinancialReference(curStock.fin_valuation);
         recalculateDetail();
       }
@@ -3922,7 +4021,7 @@
             <td style="text-align: center; font-weight: 700; color: var(--text-muted);">${h.rank}</td>
             <td style="text-align: left; font-weight: 600; color: var(--text);">${currentLang === 'en' ? h.name.replace(/\s*\([^)]*[\u4e00-\u9fff][^)]*\)/g, '') : h.name}</td>
             <td>${Number(h.shares).toLocaleString()}</td>
-            <td class="text-gold">$${Number(h.val_m).toLocaleString()}</td>
+            <td class="text-gold">${moneyPrefix()}${Number(h.val_m).toLocaleString()}</td>
             <td style="font-weight: 700; color: var(--accent);">${Number(h.pct).toFixed(2)}%</td>
             <td style="text-align: center;"><span class="${colorCls}">${h.change}</span></td>
           </tr>
@@ -3953,8 +4052,8 @@
             <td style="text-align: left; color: var(--text-secondary);">${t.title}</td>
             <td style="text-align: center;">${typeHtml}</td>
             <td style="font-weight: 600;">${Number(t.shares).toLocaleString()}</td>
-            <td>$${Number(t.price).toFixed(2)}</td>
-            <td class="${valColor}" style="font-weight: 700;">$${Number(t.total_val).toFixed(2)}M</td>
+            <td>${moneyPrefix()}${Number(t.price).toFixed(2)}</td>
+            <td class="${valColor}" style="font-weight: 700;">${moneyPrefix()}${Number(t.total_val).toFixed(2)}M</td>
           </tr>
         `;
       }).join('');
@@ -4039,7 +4138,9 @@
         aHeadHtml += `<th class="fcf-trend-col">${trendTitle}</th>`;
         thead.innerHTML = aHeadHtml;
       } else {
-        const qPeriods = qRaw.periods || [];
+        const half = MarketContext.cadence(s).stride === 2;
+        const qPeriods = (qRaw.periods || []).map(value => half
+          ? String(value).replace(/Q2\b/g, 'H1').replace(/Q4\b/g, 'H2') : value);
         const metricTitle = (currentLang === 'en') ? 'Ratio Metric / Dimension' : '比率指標 / 財務維度';
         let qHeadHtml = `<th class="table-sticky-col" style="text-align: left; width: 320px;">${metricTitle}</th>`;
         
@@ -4055,7 +4156,8 @@
             </th>
           `;
         });
-        const ratioTrendTitle = (currentLang === 'en') ? 'Last 20Q Trend' : '近 20 季趨勢';
+        const ratioTrendTitle = (currentLang === 'en') ? half ? 'Reported half-year trend' : 'Last 20Q Trend'
+          : half ? '實際半年趨勢' : '近 20 季趨勢';
         qHeadHtml += `<th class="fcf-trend-col">${ratioTrendTitle}</th>`;
         thead.innerHTML = qHeadHtml;
       }
@@ -4076,25 +4178,31 @@
 
   function renderFinancialsSubPage(stockObj) {
     const ticker = activeCompanyTicker || 'NVDA';
-    const s = stockObj || stockUniverse[ticker] || (window.FULL_MARKET_DATA && window.FULL_MARKET_DATA[ticker]);
+    const s = stockObj || stockUniverse[ticker] || MarketContext.stocks()?.[ticker];
     const tbody = document.getElementById('cmp-fin-tbody');
     if (!tbody || !s) return;
+    loadFinancialProvenance(document.getElementById('subpage-financials'), ticker, s);
 
     const isEn = (currentLang === 'en');
     const rawStmts = s.statements_raw || {};
     const isQuarter = (activeStatementPeriod === 'quarterly');
     const qRaw = rawStmts.quarterly_raw || {};
+    const cadence = MarketContext.cadence(s, activeStatementType);
     const curStmt = isQuarter ? (qRaw[activeStatementType] || {}) : (rawStmts[activeStatementType] || {});
     const incStmt = isQuarter ? (qRaw.income || {}) : (rawStmts.income || {});
 
     // 動態更新表頭 (包含凍結第一欄與雙層申報日期)
     const theadRow = document.getElementById('cmp-fin-thead');
     const datesList = isQuarter ? (qRaw.dates || []) : (rawStmts.annual_dates || []);
-    const periods = isQuarter ? (qRaw.periods || []) : Array.from({ length: 6 },
+    const periods = isQuarter ? (qRaw.periods || []).map(value => cadence.stride === 2
+      ? String(value).replace(/Q2\b/g, 'H1').replace(/Q4\b/g, 'H2') : value) : Array.from({ length: 6 },
       (_, i) => i === 5 ? 'TTM' : datesList[i] || 'N/A');
     document.getElementById('statement-type').value = activeStatementType;
     document.getElementById('statement-period').value = activeStatementPeriod;
-    document.getElementById('statement-status').textContent = `${ticker} · ${I18N_DICT[currentLang][isQuarter ? 'btn_period_quarter' : 'btn_period_annual']} · ${periods.length} ${I18N_DICT[currentLang].analysis_columns}`;
+    const statementLabels = MarketContext.localize(document.getElementById('subpage-financials'), I18N_DICT[currentLang],
+      { reportingFrequency: cadence.frequency });
+    document.getElementById('statement-status').textContent = `${ticker} · ${statementLabels[isQuarter ? 'btn_period_quarter' : 'btn_period_annual']} · ${periods.length} ${statementLabels.analysis_columns}${
+      activeStatementType === 'cashflow' && cadence.frequency === 'annual' && isQuarter ? ' · N/A: Annual cash flow only; no interim/TTM cash flow is reported.' : ''}`;
 
     if (theadRow) {
       let theadHtml = `<th class="table-sticky-col" data-i18n="th_fin_item">${I18N_DICT[currentLang].th_fin_item}</th>`;
@@ -4114,25 +4222,26 @@
       });
 
       const trendHeaderTitle = isEn 
-        ? (isQuarter ? 'Last 20Q Trend' : '5Y/TTM Trend') 
-        : (isQuarter ? '近 20 季趨勢' : '近 5 年/TTM 趨勢');
+        ? (isQuarter ? cadence.stride === 2 ? 'Reported half-year trend' : 'Last 20Q Trend' : '5Y/TTM Trend')
+        : (isQuarter ? cadence.stride === 2 ? '實際半年趨勢' : '近 20 季趨勢' : '近 5 年/TTM 趨勢');
       theadHtml += `<th class="fcf-trend-col">${trendHeaderTitle}</th>`;
       theadRow.innerHTML = theadHtml;
     }
 
     function getSeries(field) {
+      if (isQuarter && activeStatementType === 'cashflow' && cadence.frequency === 'annual') return Array(periods.length).fill(NaN);
       if (isQuarter) {
         const qStmt = (qRaw[activeStatementType] || {});
         const arr = qStmt[field] || [];
         return arr.length > 0 ? arr.map(value => Number.isFinite(value) ? value : NaN)
-          : Array(periods.length).fill(s.calculationCurrency === 'USD' ? NaN : 0.0);
+          : Array(periods.length).fill(NaN);
       } else {
         const aStmt = (rawStmts[activeStatementType] || {});
         const arr = aStmt[field] || [];
         if (Array.isArray(arr) && arr.length >= 6) {
           return arr.slice(-6).map(value => Number.isFinite(value) ? value : NaN);
         }
-        return Array(6).fill(s.calculationCurrency === 'USD' ? NaN : 0.0);
+        return Array(6).fill(NaN);
       }
     }
 
@@ -4154,7 +4263,7 @@
         if (numArr.length === 6 && denArr.length === 6) {
           raw = numArr.map((n, i) => {
             const d = denArr[i];
-            return (d && Math.abs(d) > 0.01) ? (n / d) * 100 : 0.0;
+            return Number.isFinite(n) && Number.isFinite(d) && Math.abs(d) > 0.01 ? (n / d) * 100 : NaN;
           });
         }
       }
@@ -4404,12 +4513,12 @@
           if (it.isPercent) {
             rowsHtml += `<td class="${dividerCls}" style="font-weight: 600;">${Number(val).toFixed(2)}%</td>`;
           } else if (it.isPerShare) {
-            rowsHtml += `<td class="${dividerCls}" style="font-weight: 600;">$${Number(val).toFixed(2)}</td>`;
+            rowsHtml += `<td class="${dividerCls}" style="font-weight: 600;">${moneyPrefix()}${Number(val).toFixed(2)}</td>`;
           } else if (it.isShares) {
             const sharesInM = Math.round(val > 1e8 ? val / 1e6 : val);
             rowsHtml += `<td class="${dividerCls}" style="font-weight: 600;">${sharesInM.toLocaleString()}M</td>`;
           } else {
-            const valStr = val < 0 ? `-$${Math.abs(Math.round(val)).toLocaleString()}` : `$${Math.round(val).toLocaleString()}`;
+            const valStr = val < 0 ? `-${moneyPrefix()}${Math.abs(Math.round(val)).toLocaleString()}` : `${moneyPrefix()}${Math.round(val).toLocaleString()}`;
             rowsHtml += `<td class="${dividerCls}" style="${it.highlight ? 'font-weight: 700;' : ''}">${valStr}</td>`;
           }
         });
@@ -4449,31 +4558,34 @@
   function renderKeyRatiosTable(s) {
     const tbody = document.getElementById('cmp-ratio-tbody');
     if (!tbody || !s) return;
+    loadFinancialProvenance(document.getElementById('subpage-ratios'), activeCompanyTicker, s);
 
     const isEn = (currentLang === 'en');
     const isQuarter = (typeof activeRatioPeriod !== 'undefined' && activeRatioPeriod === 'quarterly');
 
     const rawStmts = s.statements_raw || {};
     const qRaw = rawStmts.quarterly_raw || {};
-    const periods = (isQuarter && qRaw.periods && qRaw.periods.length > 0)
-      ? qRaw.periods 
+    const periods = isQuarter
+      ? (qRaw.periods || [])
       : Array.from({ length: 6 }, (_, i) => i === 5 ? 'TTM' : rawStmts.annual_dates?.[i] || 'N/A');
     const count = periods.length;
-    document.getElementById('ratio-status').textContent = `${activeCompanyTicker} · ${I18N_DICT[currentLang][isQuarter ? 'btn_ratio_quarter' : 'btn_ratio_annual']} · ${count} ${I18N_DICT[currentLang].analysis_columns}`;
+    const ratioLabels = MarketContext.labels(I18N_DICT[currentLang], s);
+    document.getElementById('ratio-status').textContent = `${activeCompanyTicker} · ${ratioLabels[isQuarter ? 'btn_ratio_quarter' : 'btn_ratio_annual']} · ${count} ${ratioLabels.analysis_columns}`;
 
     // 安全抓取對應長度序列
     function getArr(dictKey, fieldKey) {
+      if (isQuarter && dictKey === 'cashflow' && MarketContext.cadence(s, 'cashflow').frequency === 'annual') return Array(count).fill(NaN);
       if (isQuarter && qRaw[dictKey] && qRaw[dictKey][fieldKey]) {
         const qArr = qRaw[dictKey][fieldKey];
         if (Array.isArray(qArr) && qArr.length > 0) return qArr.map(value => Number.isFinite(value) ? value : NaN);
       }
-      if (rawStmts[dictKey] && rawStmts[dictKey][fieldKey]) {
+      if (!isQuarter && rawStmts[dictKey] && rawStmts[dictKey][fieldKey]) {
         const aArr = rawStmts[dictKey][fieldKey];
         if (Array.isArray(aArr) && aArr.length > 0) {
           return aArr.slice(-count).map(value => Number.isFinite(value) ? value : NaN);
         }
       }
-      return Array(count).fill(0.0);
+      return Array(count).fill(NaN);
     }
 
     const rev = getArr('income', 'revenue');
@@ -4482,16 +4594,8 @@
     const ni = getArr('income', 'netIncome');
     const ebitda = getArr('income', 'ebitda');
 
-    // EPS 容錯：優先取 epsdiluted，若全為 0 則改取 eps，若仍為 0 則以 Net Income / Shares 自動計算
     let eps = getArr('income', 'epsdiluted');
-    if (eps.every(v => Math.abs(v) < 0.0001)) {
-      eps = getArr('income', 'eps');
-    }
-    if (eps.every(v => Math.abs(v) < 0.0001)) {
-      const netIncArr = getArr('income', 'netIncome');
-      const sharesCount = Math.max(Number(s.shares || 1), 1);
-      eps = netIncArr.map(ni => Number((ni / sharesCount).toFixed(2)));
-    }
+    if (!eps.some(Number.isFinite)) eps = getArr('income', 'epsDiluted');
 
     const cfo = getArr('cashflow', 'netCashProvidedByOperatingActivities');
     const capex = getArr('cashflow', 'capitalExpenditure');
@@ -4514,6 +4618,11 @@
           return record && !record.reason && Number.isFinite(record.value) ? record.value : NaN;
         }
         const prev = arr[i - 1];
+        if (isQuarter) {
+          const cadence = MarketContext.cadence(s, field === 'freeCashFlow' ? 'cashflow' : 'income');
+          const days = (Date.parse(qRaw.dates?.[i]) - Date.parse(qRaw.dates?.[i - 1])) / 86400000;
+          if (!Number.isFinite(days) || days < cadence.minDays || days > cadence.maxDays) return NaN;
+        }
         return Number.isFinite(v) && Number.isFinite(prev) && prev > 0 ? (v / prev - 1) * 100 : NaN;
       });
     }
@@ -4531,23 +4640,23 @@
         items: [
           { nameZh: "營業收入 (Revenue, $M)", nameEn: "Revenue ($M)", series: rev, highlight: true },
           { nameZh: isQuarter ? "營收季增率 % (Revenue Growth QoQ)" : "營收年增率 % (Revenue Growth YoY)", nameEn: isQuarter ? "Revenue Growth % (QoQ)" : "Revenue Growth % (YoY)", series: revGrowth, isPercent: true, color: "text-green" },
-          { nameZh: "毛利率 % (Gross Profit Margin)", nameEn: "Gross Profit Margin %", series: gp.map((g, i) => (rev[i] ? (g / rev[i]) * 100 : 0)), isPercent: true, color: "text-gold" },
+          { nameZh: "毛利率 % (Gross Profit Margin)", nameEn: "Gross Profit Margin %", series: gp.map((g, i) => (rev[i] ? (g / rev[i]) * 100 : NaN)), isPercent: true, color: "text-gold" },
           { nameZh: "息稅前利潤 (EBIT, $M)", nameEn: "EBIT ($M)", series: ebit, highlight: true },
           { nameZh: isQuarter ? "EBIT 季增率 % (EBIT Growth QoQ)" : "EBIT 年增率 % (EBIT Growth YoY)", nameEn: isQuarter ? "EBIT Growth % (QoQ)" : "EBIT Growth % (YoY)", series: ebitGrowth, isPercent: true },
-          { nameZh: "EBIT 利潤率 % (EBIT Margin)", nameEn: "EBIT Margin %", series: ebit.map((e, i) => (rev[i] ? (e / rev[i]) * 100 : 0)), isPercent: true },
+          { nameZh: "EBIT 利潤率 % (EBIT Margin)", nameEn: "EBIT Margin %", series: ebit.map((e, i) => (rev[i] ? (e / rev[i]) * 100 : NaN)), isPercent: true },
           { nameZh: "稅後淨利潤 (Net Income, $M)", nameEn: "Net Income ($M)", series: ni, highlight: true, color: "text-green" },
           { nameZh: isQuarter ? "淨利潤季增率 % (Net Income Growth QoQ)" : "淨利潤年增率 % (Net Income Growth YoY)", nameEn: isQuarter ? "Net Income Growth % (QoQ)" : "Net Income Growth % (YoY)", series: niGrowth, isPercent: true, color: "text-green" },
-          { nameZh: "淨利率 % (Net Income Margin)", nameEn: "Net Income Margin %", series: ni.map((n, i) => (rev[i] ? (n / rev[i]) * 100 : 0)), isPercent: true, color: "text-green" },
+          { nameZh: "淨利率 % (Net Income Margin)", nameEn: "Net Income Margin %", series: ni.map((n, i) => (rev[i] ? (n / rev[i]) * 100 : NaN)), isPercent: true, color: "text-green" },
           { nameZh: "息稅折舊攤銷前利益 (EBITDA, $M)", nameEn: "EBITDA ($M)", series: ebitda, highlight: true },
           { nameZh: isQuarter ? "EBITDA 季增率 % (EBITDA Growth QoQ)" : "EBITDA 年增率 % (EBITDA Growth YoY)", nameEn: isQuarter ? "EBITDA Growth % (QoQ)" : "EBITDA Growth % (YoY)", series: ebitdaGrowth, isPercent: true },
-          { nameZh: "EBITDA 利潤率 % (EBITDA Margin)", nameEn: "EBITDA Margin %", series: ebitda.map((eb, i) => (rev[i] ? (eb / rev[i]) * 100 : 0)), isPercent: true, color: "text-gold" },
+          { nameZh: "EBITDA 利潤率 % (EBITDA Margin)", nameEn: "EBITDA Margin %", series: ebitda.map((eb, i) => (rev[i] ? (eb / rev[i]) * 100 : NaN)), isPercent: true, color: "text-gold" },
           { nameZh: "每股盈餘 (EPS, $)", nameEn: "EPS ($)", series: eps, isPerShare: true, highlight: true },
           { nameZh: isQuarter ? "EPS 季增率 % (EPS Growth QoQ)" : "EPS 年增率 % (EPS Growth YoY)", nameEn: isQuarter ? "EPS Growth % (QoQ)" : "EPS Growth % (YoY)", series: epsGrowth, isPercent: true },
           { nameZh: "營運現金流 (Operating Cash Flow, $M)", nameEn: "Operating Cash Flow ($M)", series: cfo },
           { nameZh: "自由現金流 (Free Cash Flow, $M)", nameEn: "Free Cash Flow ($M)", series: fcf, highlight: true, color: "text-green" },
           { nameZh: isQuarter ? "自由現金流季增率 % (FCF Growth QoQ)" : "自由現金流年增率 % (FCF Growth YoY)", nameEn: isQuarter ? "FCF Growth % (QoQ)" : "FCF Growth % (YoY)", series: fcfGrowth, isPercent: true, color: "text-green" },
-          { nameZh: "資產報酬率 % (ROA)", nameEn: "ROA %", series: ni.map((n, i) => (totAssets[i] ? (n / totAssets[i]) * 100 : 0)), isPercent: true, color: "text-green" },
-          { nameZh: "股東權益報酬率 % (ROE)", nameEn: "ROE %", series: ni.map((n, i) => (equity[i] ? (n / equity[i]) * 100 : 0)), isPercent: true, color: "text-gold" }
+          { nameZh: "資產報酬率 % (ROA)", nameEn: "ROA %", series: ni.map((n, i) => (totAssets[i] ? (n / totAssets[i]) * 100 : NaN)), isPercent: true, color: "text-green" },
+          { nameZh: "股東權益報酬率 % (ROE)", nameEn: "ROE %", series: ni.map((n, i) => (equity[i] ? (n / equity[i]) * 100 : NaN)), isPercent: true, color: "text-gold" }
         ]
       },
       {
@@ -4566,10 +4675,10 @@
       {
         groupTitleZh: "3. 流動性與槓桿覆蓋 (Liquidity & Leverage)", groupTitleEn: "3. Liquidity & Leverage",
         items: [
-          { nameZh: "流動比率 (Current Ratio)", nameEn: "Current Ratio", series: curAssets.map((ca, i) => (curLiab[i] ? ca / curLiab[i] : 0)), isRatioVal: true, color: "text-green" },
-          { nameZh: "總負債 / EBITDA (Total Debt / EBITDA)", nameEn: "Total Debt / EBITDA", series: totDebt.map((d, i) => (ebitda[i] ? d / ebitda[i] : 0)), isMultiple: true },
-          { nameZh: "淨負債 / EBITDA (Net Debt / EBITDA)", nameEn: "Net Debt / EBITDA", series: totDebt.map((d, i) => (ebitda[i] ? (d - cash[i]) / ebitda[i] : 0)), isMultiple: true },
-          { nameZh: "資產負債率 % (Total Liab / Assets)", nameEn: "Total Liabilities / Total Assets %", series: totLiab.map((l, i) => (totAssets[i] ? (l / totAssets[i]) * 100 : 0)), isPercent: true }
+          { nameZh: "流動比率 (Current Ratio)", nameEn: "Current Ratio", series: curAssets.map((ca, i) => (curLiab[i] ? ca / curLiab[i] : NaN)), isRatioVal: true, color: "text-green" },
+          { nameZh: "總負債 / EBITDA (Total Debt / EBITDA)", nameEn: "Total Debt / EBITDA", series: totDebt.map((d, i) => (ebitda[i] ? d / ebitda[i] : NaN)), isMultiple: true },
+          { nameZh: "淨負債 / EBITDA (Net Debt / EBITDA)", nameEn: "Net Debt / EBITDA", series: totDebt.map((d, i) => (ebitda[i] ? (d - cash[i]) / ebitda[i] : NaN)), isMultiple: true },
+          { nameZh: "資產負債率 % (Total Liab / Assets)", nameEn: "Total Liabilities / Total Assets %", series: totLiab.map((l, i) => (totAssets[i] ? (l / totAssets[i]) * 100 : NaN)), isPercent: true }
         ]
       }
     ];
@@ -4579,7 +4688,7 @@
       const gTitle = isEn ? grp.groupTitleEn : grp.groupTitleZh;
       html += `<tr class="fin-group-header-row"><td class="table-sticky-col"><span class="financial-group-label">${gTitle}</span></td>${periods.map((period, i) => `<td class="${isQuarter && String(period).includes('Q4') && i < count - 1 ? 'year-divider-cell' : ''}"></td>`).join('')}<td class="fcf-trend-col"></td></tr>`;
       grp.items.forEach(it => {
-        const label = isEn ? it.nameEn : it.nameZh;
+        const label = MarketContext.labels({ value: isEn ? it.nameEn : it.nameZh }, s).value;
         const hl = it.highlight ? 'font-weight: 700; color: var(--text);' : 'color: var(--text-secondary);';
         const colorCls = it.color || '';
 
@@ -4588,10 +4697,10 @@
           let disp = '';
           if (!Number.isFinite(val) || (isQuarter ? qRaw.fxUnavailable : rawStmts.fxUnavailable)?.[cIdx]) disp = 'N/A';
           else if (it.isPercent) disp = `${Number(val).toFixed(2)}%`;
-          else if (it.isPerShare) disp = `$${Number(val).toFixed(2)}`;
+          else if (it.isPerShare) disp = `${moneyPrefix()}${Number(val).toFixed(2)}`;
           else if (it.isMultiple) disp = `${Number(val).toFixed(2)}x`;
           else if (it.isRatioVal) disp = Number(val).toFixed(2);
-          else disp = val < 0 ? `-$${Math.abs(Math.round(val)).toLocaleString()}` : `$${Math.round(val).toLocaleString()}`;
+          else disp = val < 0 ? `-${moneyPrefix()}${Math.abs(Math.round(val)).toLocaleString()}` : `${moneyPrefix()}${Math.round(val).toLocaleString()}`;
 
           // 在 Q4 與 Q1 交界處加入分割線
           const isQ4 = isQuarter && periods[cIdx] && String(periods[cIdx]).toUpperCase().includes('Q4') && (cIdx < count - 1);
@@ -4655,7 +4764,7 @@
     }
 
     // 數值格式化輔助函式
-    const fmtM = v => (v === null || isNaN(v) || v === 0) ? '--' : `$${Math.round(v).toLocaleString()}M`;
+    const fmtM = v => (v === null || isNaN(v)) ? 'N/A' : `${moneyPrefix()}${Math.round(v).toLocaleString()}M`;
     const fmtX = v => (v === null || isNaN(v) || v === 0) ? '--' : `${Number(v).toFixed(2)}x`;
     const fmtPct = (v, colorize = false) => {
       if (v === null || isNaN(v)) return '--';
@@ -4671,9 +4780,9 @@
         titleZh: "1. 規模與市場定價 (Size & Valuation)",
         titleEn: "1. Size & Valuation",
         items: [
-          { labelZh: "市值 ($M)", labelEn: "Market Cap ($M)", fn: x => fmtM(Number(x.mcap) || 0) },
-          { labelZh: "最新股價 ($)", labelEn: "Stock Price ($)", fn: x => `$${Number(x.price || 0).toFixed(2)}` },
-          { labelZh: "企業價值 EV ($M)", labelEn: "Enterprise Value EV ($M)", fn: x => fmtM(Number(x.EV || x.fmp_official_ev) || 0) },
+          { labelZh: "市值 ($M)", labelEn: "Market Cap ($M)", fn: x => fmtM(Number.isFinite(x.mcap) ? x.mcap : null) },
+          { labelZh: `最新股價 (${MarketContext.currency})`, labelEn: `Stock Price (${MarketContext.currency})`, fn: x => Number.isFinite(x.price) ? `${moneyPrefix()}${x.price.toFixed(2)}` : 'N/A' },
+          { labelZh: "企業價值 EV ($M)", labelEn: "Enterprise Value EV ($M)", fn: x => fmtM(x.EV ?? x.fmp_official_ev ?? null) },
           { labelZh: "EV / FCF", labelEn: "EV / FCF", fn: x => { const f = getFinVal(x, 'cashflow', 'freeCashFlow'); return f > 0 ? fmtX((Number(x.EV || x.mcap)) / f) : '--'; } },
           { labelZh: "EV / EBITDA", labelEn: "EV / EBITDA", fn: x => fmtX(x.ev_to_ebitda) },
           { labelZh: "EV / Revenue", labelEn: "EV / Revenue", fn: x => { const r = getFinVal(x, 'income', 'revenue'); return r > 0 ? fmtX((Number(x.EV || x.mcap)) / r) : '--'; } },
@@ -4683,7 +4792,7 @@
           { labelZh: "動態 P/E", labelEn: "Forward P/E", fn: x => x.pe_forward ? `${Number(x.pe_forward).toFixed(1)}x` : '--' },
           { labelZh: "靜態 P/B", labelEn: "Trailing P/B", fn: x => x.pb_trailing ? `${Number(x.pb_trailing).toFixed(2)}x` : '--' },
           { labelZh: "動態 P/B (估)", labelEn: "Forward P/B (Est.)", fn: x => { const eq = getFinVal(x, 'balance', 'totalStockholdersEquity'); return eq > 0 ? `${(Number(x.mcap) / eq).toFixed(2)}x` : '--'; } },
-          { labelZh: "股息率 (%)", labelEn: "Dividend Yield %", fn: x => Number(x.div_yield) > 0 ? `${Number(x.div_yield).toFixed(2)}%` : '0.00%' }
+          { labelZh: "股息率 (%)", labelEn: "Dividend Yield %", fn: x => Number.isFinite(x.div_yield) ? `${x.div_yield.toFixed(2)}%` : 'N/A' }
         ]
       },
       {
@@ -4703,7 +4812,7 @@
         titleZh: "3. 獲利品質與商業壁壘 (Profitability & Moat)",
         titleEn: "3. Profitability & Moat",
         items: [
-          { labelZh: "巴菲特護城河評分 (Moat Score)", labelEn: "Buffett Moat Score", fn: x => { const d = computeDCF(x, x.ticker); return d && d.moat ? `<b style="color:var(--accent);">${d.moat.total} / 100</b>` : '--'; } },
+          { labelZh: "巴菲特護城河評分 (Moat Score)", labelEn: "Buffett Moat Score", fn: x => { const d = computeDCF(x, x.ticker); return `<b title="${ratingProvenance(x, 'moat').replace(/"/g, '&quot;')}" style="color:var(--accent);">${d?.moat?.total ?? 'N/A'} / 100 ${ratingState(x, 'moat')}</b>`; } },
           { labelZh: "營業收入 (Revenue, $M)", labelEn: "Revenue ($M)", fn: x => fmtM(getFinVal(x, 'income', 'revenue')) },
           { labelZh: "毛利 (Gross Profit, $M)", labelEn: "Gross Profit ($M)", fn: x => fmtM(getFinVal(x, 'income', 'grossProfit')) },
           { labelZh: "毛利率 % (Gross Margin)", labelEn: "Gross Profit Margin %", fn: x => { const r = getFinVal(x, 'income', 'revenue'), g = getFinVal(x, 'income', 'grossProfit'); return r ? fmtPct((g/r)*100) : '--'; } },
@@ -4842,7 +4951,7 @@
         </tr>
       `;
       grp.items.forEach(it => {
-        const itemLabel = isEn ? it.labelEn : it.labelZh;
+        const itemLabel = MarketContext.labels({ value: isEn ? it.labelEn : it.labelZh }, s).value;
         tableHtml += `
           <tr>
             <td class="peer-sticky-col" style="text-align: left; color: var(--text-secondary); padding-left: 22px; font-weight: 600;">
@@ -4873,6 +4982,29 @@
   }
 
   function renderNewsSubPage(ticker) {
+    if (MarketContext.market === 'HKEX') {
+      const list = document.getElementById('cmp-news-list');
+      const news = (stockUniverse[ticker]?.news || []).filter(item => item.symbol === ticker && item.title);
+      list.replaceChildren();
+      for (const item of news) {
+        const article = document.createElement('article');
+        article.className = 'analysis-note';
+        const title = document.createElement('a');
+        title.textContent = item.title;
+        try {
+          const url = new URL(item.url);
+          if (['http:', 'https:'].includes(url.protocol)) { title.href = url.href; title.target = '_blank'; title.rel = 'noopener noreferrer'; }
+        } catch {}
+        const source = document.createElement('p');
+        source.textContent = [item.publisher || item.site, item.publishedDate, ticker].filter(Boolean).join(' · ');
+        article.append(title, source);
+        list.append(article);
+      }
+      if (!news.length) list.textContent = currentLang === 'en'
+          ? 'N/A — No verified news or earnings-call feed is supplied for this security.'
+          : 'N/A — 尚無此證券的已核實新聞或業績電話會議來源。';
+      return;
+    }
     const list = document.getElementById('cmp-news-list');
     if (!list) return;
     const isEn = (currentLang === 'en');
@@ -4908,7 +5040,7 @@
 
     const profileNumber = value => value !== null && value !== undefined && value !== '' && Number.isFinite(Number(value)) ? Number(value) : null;
     const profileFormat = (value, unit = '', digits = 2) => profileNumber(value) === null ? 'N/A' : `${Number(value).toLocaleString(currentLang === 'en' ? 'en-US' : 'zh-TW', { maximumFractionDigits: digits })}${unit}`;
-    document.getElementById('cmp-card-mcap').innerText = profileNumber(s.mcap) === null ? 'N/A' : `USD ${profileFormat(s.mcap)} M`;
+    document.getElementById('cmp-card-mcap').innerText = profileNumber(s.mcap) === null ? 'N/A' : `${MarketContext.currency} ${profileFormat(s.mcap)} M`;
     document.getElementById('cmp-card-shares').innerText = profileFormat(s.shares, currentLang === 'en' ? ' M shares' : ' M 股');
     document.getElementById('cmp-card-pe').innerText = s.pe_trailing ? `${Number(s.pe_trailing).toFixed(1)}x` : '--';
     document.getElementById('cmp-card-ind').innerText = getStockDisplayIndustry(s.industry) || 'N/A';
@@ -4927,9 +5059,9 @@
     document.getElementById('cmp-meta-emp').innerText = s.full_time_employees ? Number(s.full_time_employees).toLocaleString() : "--";
     document.getElementById('cmp-meta-shares').innerText = profileFormat(s.shares, ` ${shareUnit}`);
     document.getElementById('cmp-meta-beta').innerText = profileFormat(
-      window.FCFF_DATA?.betaSources?.[activeCompanyTicker]?.value, '', 6);
+      MarketContext.fcff()?.betaSources?.[activeCompanyTicker]?.value, '', 6);
 
-    const quote = value => profileNumber(value) === null ? 'N/A' : `USD ${profileFormat(value)}`;
+    const quote = value => profileNumber(value) === null ? 'N/A' : `${MarketContext.currency} ${profileFormat(value)}`;
     document.getElementById('cmp-meta-52w').innerText = s.range_52w || `${quote(s.year_low)} – ${quote(s.year_high)}`;
     document.getElementById('cmp-meta-year-high').innerText = quote(s.year_high);
     document.getElementById('cmp-meta-year-low').innerText = quote(s.year_low);
@@ -4978,7 +5110,7 @@
 
     if (saved) {
       document.getElementById('det-saved-badge').style.display = 'inline-block';
-      document.getElementById('det-saved-badge').innerText = `${currentLang === 'zh' ? '已存目標價' : 'Saved target'}: $${Number(saved.targetPrice).toFixed(2)}`;
+      document.getElementById('det-saved-badge').innerText = `${currentLang === 'zh' ? '已存目標價' : 'Saved target'}: ${moneyPrefix()}${Number(saved.targetPrice).toFixed(2)}`;
     } else {
       document.getElementById('det-saved-badge').style.display = 'none';
     }
@@ -4991,13 +5123,15 @@
 
     const defaultDcf = computeDCF(s, ticker);
     const moatBadge = document.getElementById('det-moat-badge');
-    moatBadge.innerText = `${currentLang === 'zh' ? '護城河' : 'Moat'}: ${defaultDcf.moat.total}/100 🏆`;
+    moatBadge.innerText = `${currentLang === 'zh' ? '護城河' : 'Moat'}: ${defaultDcf.moat.total ?? 'N/A'}/100`;
+    moatBadge.title = ratingProvenance(s, 'moat');
     moatBadge.className = `badge-moat ${defaultDcf.moat.badgeClass}`;
 
     const fscoreBadge = document.getElementById('det-fscore-badge');
     const fval = defaultDcf.f_score;
-    fscoreBadge.innerText = `PF score: ${fval}/9`;
-    fscoreBadge.className = `badge-fscore ${fval >= 7 ? 'fscore-green' : fval <= 3 ? 'fscore-red' : 'fscore-yellow'}`;
+    fscoreBadge.innerText = `PF score: ${fval ?? 'N/A'}/9`;
+    fscoreBadge.title = ratingProvenance(s, 'fScore');
+    fscoreBadge.className = `badge-fscore ${fval == null ? '' : fval >= 7 ? 'fscore-green' : fval <= 3 ? 'fscore-red' : 'fscore-yellow'}`;
 
     updateDetailFavButton();
 
@@ -5020,10 +5154,10 @@
             localStorage.setItem('M7_LEGACY_VALUATIONS', JSON.stringify(archive));
           }
           models[ticker] = model;
-          localStorage.setItem('M7_CUSTOM_VALUATIONS', JSON.stringify(models));
+          storeSavedModels(models);
           document.getElementById('det-saved-badge').style.display = 'inline-block';
           document.getElementById('det-saved-badge').textContent =
-            `${currentLang === 'en' ? 'Saved FCFF target' : '已存 FCFF 目標價'}: $${model.targetPrice.toFixed(2)}`;
+            `${currentLang === 'en' ? 'Saved FCFF target' : '已存 FCFF 目標價'}: ${moneyPrefix()}${model.targetPrice.toFixed(2)}`;
         }
       });
       return;
@@ -5040,25 +5174,29 @@
           if (Number.isFinite(savedFin[key]) && (key !== 'rote' || savedFin.reference)) fin[key] = savedFin[key];
         }
       }
-      document.getElementById('slider-fin-ke').value = (fin.ke || 9.49).toFixed(2);
-      document.getElementById('slider-fin-g').value = (fin.g || 2.25).toFixed(2);
+      for (const key of ['ke', 'g']) {
+        const slider = document.getElementById(`slider-fin-${key}`);
+        slider.disabled = !Number.isFinite(fin[key]);
+        if (!slider.disabled) slider.value = fin[key].toFixed(2);
+      }
       const roteSlider = document.getElementById('slider-fin-rote');
       roteSlider.disabled = !Number.isFinite(fin.rote);
       roteSlider.min = Math.min(-25, Math.floor((fin.rote || 0) / 5) * 5);
       roteSlider.max = Math.max(50, Math.ceil((fin.rote || 0) / 5) * 5);
       if (!roteSlider.disabled) roteSlider.value = String(fin.rote);
 
-      document.getElementById('disp-fin-ke').innerText = `${Number(document.getElementById('slider-fin-ke').value).toFixed(2)}%`;
-      document.getElementById('disp-fin-g').innerText = `${Number(document.getElementById('slider-fin-g').value).toFixed(2)}%`;
+      document.getElementById('disp-fin-ke').innerText = Number.isFinite(fin.ke) ? `${fin.ke.toFixed(2)}%` : 'N/A';
+      document.getElementById('disp-fin-g').innerText = Number.isFinite(fin.g) ? `${fin.g.toFixed(2)}%` : 'N/A';
       document.getElementById('disp-fin-rote').innerText = Number.isFinite(fin.rote) ? `${fin.rote.toFixed(2)}%` : 'N/A';
       renderFinancialReference(fin);
 
-      document.getElementById('fin-tbvps').innerText = fin.tbvps === null ? 'N/A' : `$${Number(fin.tbvps).toFixed(2)}`;
-      document.getElementById('fin-ptbv').innerText = fin.pb_tangible === null ? 'N/A' : `${Number(fin.pb_tangible).toFixed(2)}x`;
-      document.getElementById('fin-dps').innerText = `$${Number(fin.dps_total).toFixed(2)}`;
+      document.getElementById('fin-tbvps').innerText = fin.tbvps == null ? 'N/A' : `${moneyPrefix()}${Number(fin.tbvps).toFixed(2)}`;
+      document.getElementById('fin-ptbv').innerText = Number.isFinite(fin.pb_tangible) ? `${fin.pb_tangible.toFixed(2)}x` : 'N/A';
+      document.getElementById('fin-dps').innerText = fin.dps_total == null ? 'N/A' : `${moneyPrefix()}${Number(fin.dps_total).toFixed(2)}`;
 
       const spreadVal = Number(document.getElementById('slider-fin-rote').value) - Number(document.getElementById('slider-fin-ke').value);
-      document.getElementById('fin-spread-disp').innerText = `${spreadVal > 0 ? '+' : ''}${spreadVal.toFixed(2)}%`;
+      document.getElementById('fin-spread-disp').innerText = Number.isFinite(fin.ke) && Number.isFinite(fin.rote)
+        ? `${spreadVal > 0 ? '+' : ''}${spreadVal.toFixed(2)}%` : 'N/A';
     } else {
       if (finPanel) finPanel.style.display = 'none';
       if (genLayout) genLayout.style.display = 'grid';
@@ -5137,9 +5275,9 @@
 
     document.getElementById('det-res-fair').className = `stat-num ${dcf.fairVal === null
       ? 'text-muted' : dcf.fairVal < 0 ? 'text-red' : 'text-green'}`;
-    document.getElementById('det-res-fair').innerText = dcf.fairVal === null ? 'N/A' : `$${dcf.fairVal.toFixed(2)}`;
+    document.getElementById('det-res-fair').innerText = dcf.fairVal === null ? 'N/A' : `${moneyPrefix()}${dcf.fairVal.toFixed(2)}`;
     document.querySelector('[onclick="saveCustomModel()"]').disabled = dcf.fairVal === null;
-    document.getElementById('det-res-price').innerText = `$${Number(tempS.price).toFixed(2)}`;
+    document.getElementById('det-res-price').innerText = `${moneyPrefix()}${Number(tempS.price).toFixed(2)}`;
     if (s.currencyConversion?.reason) {
       for (const id of ['det-res-fair', 'det-res-wacc', 'det-res-g', 'det-res-spread',
         'det-res-premium', 'det-res-ev', 'det-res-evebitda', 'det-res-nde', 'det-badge']) {
@@ -5153,14 +5291,14 @@
     if (isFin && tempS.fin_valuation) {
       const elExcess = document.getElementById('fin-excess-val');
       const elDdm = document.getElementById('fin-ddm-val');
-      if (elExcess) elExcess.innerText = tempS.fin_valuation.excess_return_fair === null ? 'N/A' : `$${Number(tempS.fin_valuation.excess_return_fair).toFixed(2)}`;
-      if (elDdm) elDdm.innerText = `$${Number(tempS.fin_valuation.ddm_fair || 0).toFixed(2)}`;
+      if (elExcess) elExcess.innerText = tempS.fin_valuation.excess_return_fair === null ? 'N/A' : `${moneyPrefix()}${Number(tempS.fin_valuation.excess_return_fair).toFixed(2)}`;
+      if (elDdm) elDdm.innerText = tempS.fin_valuation.ddm_fair == null ? 'N/A' : `${moneyPrefix()}${tempS.fin_valuation.ddm_fair.toFixed(2)}`;
 
-      const keVal = Number(tempS.fin_valuation.ke || 9.49);
-      const gVal = Number(tempS.fin_valuation.g || 2.25);
-      document.getElementById('det-res-wacc').innerText = `${keVal.toFixed(2)}% (Ke)`;
-      document.getElementById('det-res-g').innerText = `${gVal.toFixed(2)}%`;
-      document.getElementById('det-res-spread').innerText = `${(keVal - gVal).toFixed(2)}%`;
+      const keVal = tempS.fin_valuation.ke;
+      const gVal = tempS.fin_valuation.g;
+      document.getElementById('det-res-wacc').innerText = Number.isFinite(keVal) ? `${keVal.toFixed(2)}% (Ke)` : 'N/A';
+      document.getElementById('det-res-g').innerText = Number.isFinite(gVal) ? `${gVal.toFixed(2)}%` : 'N/A';
+      document.getElementById('det-res-spread').innerText = Number.isFinite(keVal) && Number.isFinite(gVal) ? `${(keVal - gVal).toFixed(2)}%` : 'N/A';
     } else {
       document.getElementById('det-res-wacc').innerText = `${(dcf.WACC * 100).toFixed(2)}%`;
       document.getElementById('det-res-g').innerText = `${Number(tempS.g).toFixed(2)}%`;
@@ -5186,7 +5324,7 @@
       document.getElementById('det-res-status').innerText = currentLang === 'zh' ? `市價高於內在價值，留意回撤風險` : `Trading at premium to intrinsic value, watch for pullback`;
     }
 
-    document.getElementById('det-res-ev').innerText = `$${dcf.EV.toLocaleString(undefined, {maximumFractionDigits: 0})} M`;
+    document.getElementById('det-res-ev').innerText = Number.isFinite(dcf.EV) ? `${moneyPrefix()}${dcf.EV.toLocaleString(undefined, {maximumFractionDigits: 0})} M` : 'N/A';
     document.getElementById('det-res-evebitda').innerText = `${Number(dcf.ev_to_ebitda).toFixed(1)}x`;
     document.getElementById('det-res-nde').innerText = `${Number(dcf.net_debt_to_ebitda).toFixed(2)}x`;
 
@@ -5251,7 +5389,7 @@
           cellVal = shares > 0 ? (eqVal / shares) : 0;
         }
         const isBase = isBaseW && isBaseG;
-        tbody += `<td class="sens-cell ${isBase ? 'sens-base' : ''}">$${cellVal.toFixed(2)}</td>`;
+        tbody += `<td class="sens-cell ${isBase ? 'sens-base' : ''}">${moneyPrefix()}${cellVal.toFixed(2)}</td>`;
       });
       tbody += `</tr>`;
     });
@@ -5274,17 +5412,18 @@
       if (!dcf || !dcf.moat) return;
       const moat = dcf.moat;
 
-      document.getElementById('moat-total-score').innerText = `${moat.total} / 100`;
+      document.getElementById('moat-total-score').innerText = `${moat.total ?? 'N/A'} / 100`;
       const elGrade = document.getElementById('moat-grade-badge');
       if (elGrade) {
         elGrade.innerText = moat.grade;
         elGrade.className = `badge-moat ${moat.badgeClass}`;
       }
 
-      const m = moat.m || [6, 6, 6, 5, 6, 6, 6, 6, 6, 6];
-      document.getElementById('moat-cat-intangible').innerText = `${(m[0]||0) + (m[1]||0)} / 20`;
-      document.getElementById('moat-cat-structural').innerText = `${(m[2]||0) + (m[3]||0) + (m[4]||0) + (m[5]||0)} / 40`;
-      document.getElementById('moat-cat-resilience').innerText = `${(m[6]||0) + (m[7]||0) + (m[8]||0) + (m[9]||0)} / 40`;
+      const m = moat.m || Array(10).fill(null);
+      const categoryScore = values => values.every(Number.isFinite) ? values.reduce((a, b) => a + b, 0) : 'N/A';
+      document.getElementById('moat-cat-intangible').innerText = `${categoryScore(m.slice(0, 2))} / 20`;
+      document.getElementById('moat-cat-structural').innerText = `${categoryScore(m.slice(2, 6))} / 40`;
+      document.getElementById('moat-cat-resilience').innerText = `${categoryScore(m.slice(6, 10))} / 40`;
 
       document.getElementById('moat-ai-comment').innerHTML = `
         <div style="font-size: 11px; color: var(--gold); margin-bottom: 4px; font-weight: 600;">📚 ${moat.ref || ''}</div>
@@ -5294,8 +5433,8 @@
       const tbody = document.getElementById('moat-breakdown-body');
       if (tbody && Array.isArray(moat.criteria)) {
         tbody.innerHTML = moat.criteria.map((c, idx) => {
-          const scoreVal = Number(c.score) || 0;
-          const pct = (scoreVal / 10) * 100;
+          const scoreVal = Number.isFinite(c.score) ? c.score : null;
+          const pct = scoreVal === null ? 0 : (scoreVal / 10) * 100;
           let barColor = scoreVal < 5 ? "var(--red)" : scoreVal < 8 ? "var(--accent)" : "var(--green)";
 
           return `
@@ -5304,7 +5443,7 @@
               <td><strong>${c.id || ''}. ${c.title || ''}</strong></td>
               <td style="color: var(--text-muted); font-size: 12px;">${c.desc || ''}</td>
               <td class="moat-score-cell">
-                <span style="font-weight: 700; font-size: 13.5px; color: ${barColor}; display: inline-block; width: 45px;">${scoreVal} / 10</span>
+                <span style="font-weight: 700; font-size: 13.5px; color: ${scoreVal === null ? 'var(--text-muted)' : barColor}; display: inline-block; width: 45px;">${scoreVal ?? 'N/A'} / 10</span>
                 <div class="moat-bar-bg">
                   <div class="moat-bar-fill" style="width: ${pct}%; background: ${barColor};"></div>
                 </div>
@@ -5350,7 +5489,8 @@
 
     const rawBreakdown = dcf.f_score_breakdown;
     const health = financialHealthAssessment(score, rawBreakdown);
-    const breakdown = Array.isArray(rawBreakdown) ? rawBreakdown.filter(item => item && typeof item === 'object') : [];
+    const breakdown = Array.from({ length: 9 }, (_, i) => (Array.isArray(rawBreakdown) && rawBreakdown.find(item => item?.id === i + 1))
+      || { id: i + 1, passed: null, category: i < 4 ? '盈利能力' : i < 7 ? '槓桿與償債' : '營運效率', reason: s.ratingSources?.fScore?.reason || 'N/A' });
     document.getElementById('fsc-total-score').innerText = health.validScore ? `${score} / 9${unit}` : 'N/A';
     const healthBadge = document.getElementById('fsc-health-level');
     healthBadge.textContent = labels[`fsc_health_${health.level}`];
@@ -5359,7 +5499,8 @@
     }[health.level]}`;
     const descriptions = ['ROA > 0', 'Operating cash flow > 0', 'Change in ROA > 0',
       'Operating cash flow > net income', 'Change in leverage ≤ 0', 'Change in liquidity > 0',
-      'Change in shares ≤ 0', 'Change in gross margin > 0', 'Change in asset turnover > 0'];
+      'Change in shares ≤ 0', 'Change in gross margin > 0', 'Change in asset turnover > 0']
+      .map((fallback, i) => breakdown[i].desc_en || fallback);
     const comment = document.getElementById('fsc-health-comment');
     comment.replaceChildren();
     const paragraph = text => {
@@ -5368,6 +5509,7 @@
       comment.append(p);
     };
     paragraph(`${ticker} · ${labels[`fsc_health_${health.level}_comment`]}`);
+    if (ratingProvenance(s, 'fScore')) paragraph(ratingProvenance(s, 'fScore'));
     if (health.validBreakdown) {
       const tests = items => items.map(item => `#${item.id} ${isEn ? descriptions[item.id - 1] : item.desc}`).join(isEn ? '; ' : '；');
       if (health.passed.length) paragraph(labels.fsc_health_passed + tests(health.passed));
@@ -5380,30 +5522,31 @@
     const lCat = breakdown.filter(x => x.category === "槓桿與償債" && x.passed).length;
     const eCat = breakdown.filter(x => x.category === "營運效率" && x.passed).length;
 
-    document.getElementById('fsc-cat-profit').innerText = `${pCat} / 4${unit}`;
-    document.getElementById('fsc-cat-leverage').innerText = `${lCat} / 3${unit}`;
-    document.getElementById('fsc-cat-efficiency').innerText = `${eCat} / 2${unit}`;
+    document.getElementById('fsc-cat-profit').innerText = `${breakdown.slice(0, 4).every(x => x.passed === 0 || x.passed === 1) ? pCat : 'N/A'} / 4${unit}`;
+    document.getElementById('fsc-cat-leverage').innerText = `${breakdown.slice(4, 7).every(x => x.passed === 0 || x.passed === 1) ? lCat : 'N/A'} / 3${unit}`;
+    document.getElementById('fsc-cat-efficiency').innerText = `${breakdown.slice(7).every(x => x.passed === 0 || x.passed === 1) ? eCat : 'N/A'} / 2${unit}`;
 
     const tbody = document.getElementById('fscore-breakdown-body');
     tbody.innerHTML = breakdown.map(item => {
       const isPass = item.passed === 1;
-      const mark = isPass ? '✔' : '✘';
-      const circleClass = isPass ? 'score-pass' : 'score-fail';
-      const statusText = isPass ? `<span class="text-green">+1 ${isEn ? 'Pass' : '分 通過'}</span>` : `<span class="text-red">${isEn ? 'Fail (0)' : '未達標 (0分)'}</span>`;
+      const unknown = item.passed !== 0 && item.passed !== 1;
+      const mark = unknown ? '—' : isPass ? '✔' : '✘';
+      const circleClass = unknown ? '' : isPass ? 'score-pass' : 'score-fail';
+      const statusText = unknown ? '<span class="text-muted">N/A</span>' : isPass ? `<span class="text-green">+1 ${isEn ? 'Pass' : '分 通過'}</span>` : `<span class="text-red">${isEn ? 'Fail (0)' : '未達標 (0分)'}</span>`;
       const category = isEn ? ({ '盈利能力': 'Profitability', '槓桿與償債': 'Leverage & liquidity', '營運效率': 'Operating efficiency' }[item.category] || item.category) : item.category;
-      const detail = isEn ? String(item.detail).replace('當期 ROA', 'Current ROA')
+      const detail = isEn ? String(item.detail_en || item.detail || item.reason || '').replace('當期 ROA', 'Current ROA')
         .replace('自由現金流', 'Free cash flow').replace('回報率穩步領先同業基準', 'Returns lead the peer benchmark')
         .replace('真實現金流充沛，無虛報帳面獲利', 'Cash-flow quality assessment')
         .replace('總負債資產比率', 'Liabilities / assets').replace('流動比率', 'Current ratio')
         .replace('未大幅增發新股割韭菜', 'No substantial new share issuance')
         .replace('產品定價權增強，毛利結構健康', 'Pricing power and gross-margin assessment')
-        .replace('每單位資產產出效益改善', 'Improved output per unit of assets') : item.detail;
+        .replace('每單位資產產出效益改善', 'Improved output per unit of assets') : item.detail_zh || item.detail || item.reason || '';
 
       return `
         <tr>
           <td style="text-align: center;"><span class="score-badge-circle ${circleClass}">${mark}</span></td>
           <td style="font-weight: 600; color: var(--text-secondary);">${category}</td>
-          <td><strong>#${item.id}. ${isEn ? descriptions[Number(item.id) - 1] || item.desc : item.desc}</strong></td>
+          <td><strong>#${item.id}. ${isEn ? descriptions[Number(item.id) - 1] || item.desc : item.desc || descriptions[Number(item.id) - 1]}</strong></td>
           <td style="color: var(--text-muted);">${detail}</td>
           <td style="text-align: center;">${statusText}</td>
         </tr>
@@ -5450,6 +5593,7 @@
 
     models[activeDetailTicker] = {
       targetPrice: dcf.fairVal,
+      currency: MarketContext.currency,
       savedAt: new Date().toISOString(),
       params: {
         price: tempS.price,
@@ -5469,24 +5613,24 @@
       }
     };
 
-    localStorage.setItem('M7_CUSTOM_VALUATIONS', JSON.stringify(models));
+    storeSavedModels(models);
     document.getElementById('det-saved-badge').style.display = 'inline-block';
-    document.getElementById('det-saved-badge').innerText = `${currentLang === 'zh' ? '已存目標價' : 'Saved target'}: $${dcf.fairVal.toFixed(2)}`;
+    document.getElementById('det-saved-badge').innerText = `${currentLang === 'zh' ? '已存目標價' : 'Saved target'}: ${moneyPrefix()}${dcf.fairVal.toFixed(2)}`;
     alert(currentLang === 'en'
-      ? `Saved ${getStockDisplayName(s)} target price: $${dcf.fairVal.toFixed(2)}.`
-      : `✅ 已成功儲存 ${getStockDisplayName(s)} 的自訂目標價值：$${dcf.fairVal.toFixed(2)}！`);
+      ? `Saved ${getStockDisplayName(s)} target price: ${moneyPrefix()}${dcf.fairVal.toFixed(2)}.`
+      : `✅ 已成功儲存 ${getStockDisplayName(s)} 的自訂目標價值：${moneyPrefix()}${dcf.fairVal.toFixed(2)}！`);
   }
 
   function resetToFmpDefaults() {
     const models = getSavedModels();
     delete models[activeDetailTicker];
-    localStorage.setItem('M7_CUSTOM_VALUATIONS', JSON.stringify(models));
+    storeSavedModels(models);
 
     if (stockUniverse[activeDetailTicker]) {
       delete stockUniverse[activeDetailTicker].fcffScenario;
       delete stockUniverse[activeDetailTicker].custom_growth_10y;
       if (stockUniverse[activeDetailTicker].fin_valuation?.is_financial) {
-        stockUniverse[activeDetailTicker].fin_valuation = structuredClone(window.FULL_MARKET_DATA[activeDetailTicker].fin_valuation);
+        stockUniverse[activeDetailTicker].fin_valuation = structuredClone(MarketContext.stocks()[activeDetailTicker].fin_valuation);
       }
     }
     loadDetailTicker(activeDetailTicker);
@@ -5533,8 +5677,10 @@
 
   function markAppLoaded(data) {
     if (isAppReady || !data || Object.keys(data).length === 0) return;
+    if (MarketContext.market === 'HKEX' && !MarketContext.fcff()) return;
     isAppReady = true;
     stockUniverse = JSON.parse(JSON.stringify(data));
+    document.getElementById('market-select').value = MarketContext.market;
     if (typeof Chart !== 'undefined') {
       Chart.defaults.font.family = themeColor('--font-family');
       Chart.defaults.color = themeColor('--text-secondary');
@@ -5562,19 +5708,19 @@
   }
 
   function checkGlobalData() {
-    if (typeof window.FULL_MARKET_DATA !== 'undefined' && window.FULL_MARKET_DATA && Object.keys(window.FULL_MARKET_DATA).length > 0) {
-      markAppLoaded(window.FULL_MARKET_DATA);
-      return true;
+    if (MarketContext.stocks() && Object.keys(MarketContext.stocks()).length > 0) {
+      markAppLoaded(MarketContext.stocks());
+      return isAppReady;
     }
     return false;
   }
 
   document.addEventListener('DOMContentLoaded', () => {
     if (!checkGlobalData()) {
-      fetch('market_data.js?t=' + Date.now())
+      fetch((MarketContext.market === 'HKEX' ? 'hk_market_data.js' : 'market_data.js') + '?t=' + Date.now())
         .then(r => r.text())
         .then(text => {
-          const m = text.match(/window\.FULL_MARKET_DATA\s*=\s*({[\s\S]*?});/);
+          const m = text.match(MarketContext.market === 'HKEX' ? /window\.HK_MARKET_DATA\s*=\s*({[\s\S]*?});/ : /window\.FULL_MARKET_DATA\s*=\s*({[\s\S]*?});/);
           if (m && m[1]) markAppLoaded(JSON.parse(m[1]));
         })
         .catch(e => console.warn(e));
