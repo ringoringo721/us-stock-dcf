@@ -80,7 +80,7 @@ function prepareStatements(evidence) {
       && rows.length === (semiannual ? 2 : 4) && rows.every(isPlaceholder);
   });
   const cashMovements = ['capitalExpenditure', 'netCashProvidedByInvestingActivities',
-    'netCashProvidedByFinancingActivities', 'cashAtBeginningOfPeriod', 'cashAtEndOfPeriod', 'netChangeInCash'];
+    'netCashProvidedByFinancingActivities'];
   const incompleteCashflowCoverage = statements.annual.cashflow.some(annual => {
     const rows = statements.quarterly.cashflow.filter(row => Number(row.fiscalYear || row.calendarYear)
       === Number(annual.fiscalYear || annual.calendarYear));

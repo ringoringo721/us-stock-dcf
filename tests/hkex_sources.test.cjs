@@ -54,7 +54,8 @@ test('Unreported quarterly cash-flow placeholders cannot masquerade as true zero
   assert.equal(raw.statementFrequencies.cashflow, 'annual');
   assert.equal(raw.annual.cashflow.at(-1).operatingCashFlow, 20);
   assert.equal(flowValue(raw, 'cashflow', 'operatingCashFlow'), null);
-  assert.ok(raw.qualityWarnings.some(row => row.code === 'providerCashflowPlaceholder'));
+  assert.ok(raw.qualityWarnings.some(row => row.code === 'incompleteCashflowCoverage'));
+  assert.equal(raw.unverifiedInterimCashflow.rows.length, 8);
 });
 test('An actual zero CFO within otherwise disclosed cash flows is retained', () => {
   const source = evidence();
@@ -64,17 +65,20 @@ test('An actual zero CFO within otherwise disclosed cash flows is retained', () 
   assert.equal(raw.quarterly.cashflow[0].operatingCashFlow, 0);
 });
 test('Incomplete cash-flow constructions retain their original evidence but cannot become quarterly or TTM financials', () => {
-  const source = evidence();
-  source.responses.cashflow.rows.forEach(row => Object.assign(row, {
-    operatingCashFlow: 1, capitalExpenditure: 0, netCashProvidedByInvestingActivities: 0,
-    netCashProvidedByFinancingActivities: 0, cashAtBeginningOfPeriod: 0, cashAtEndOfPeriod: 0, netChangeInCash: 0
-  }));
-  const raw = prepareStatements(source);
-  assert.equal(raw.quarterly.cashflow.length, 0);
-  assert.equal(raw.statementFrequencies.cashflow, 'annual');
-  assert.equal(raw.unverifiedInterimCashflow.rows.length, 8);
-  assert.equal(raw.unverifiedInterimCashflow.rows[0].operatingCashFlow, 1);
-  assert.equal(flowValue(raw, 'cashflow', 'operatingCashFlow'), null);
+  for (const cashBalance of [0, 100]) {
+    const source = evidence();
+    source.responses.cashflow.rows.forEach(row => Object.assign(row, {
+      operatingCashFlow: 1, capitalExpenditure: 0, netCashProvidedByInvestingActivities: 0,
+      netCashProvidedByFinancingActivities: 0, cashAtBeginningOfPeriod: cashBalance,
+      cashAtEndOfPeriod: cashBalance, netChangeInCash: 0
+    }));
+    const raw = prepareStatements(source);
+    assert.equal(raw.quarterly.cashflow.length, 0);
+    assert.equal(raw.statementFrequencies.cashflow, 'annual');
+    assert.equal(raw.unverifiedInterimCashflow.rows.length, 8);
+    assert.equal(raw.unverifiedInterimCashflow.rows[0].operatingCashFlow, 1);
+    assert.equal(flowValue(raw, 'cashflow', 'operatingCashFlow'), null);
+  }
 });
 test('Source identity and future statement dates fail rather than aliasing another company', () => {
   for (const mutate of [
