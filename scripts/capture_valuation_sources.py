@@ -28,6 +28,13 @@ LEASE_ENDPOINTS = {
     "income_as_reported": ("income-statement-as-reported", {"period": "quarter", "limit": 8}),
     "cashflow_as_reported": ("cash-flow-statement-as-reported", {"period": "quarter", "limit": 8}),
 }
+HK_EXTRA_ENDPOINTS = {
+    **LEASE_ENDPOINTS,
+    "dividends": ("dividends", {"limit": 100}),
+    "splits": ("splits", {"limit": 100}),
+    "peers": ("stock-peers", {}),
+    "news": ("news/stock", {"limit": 12}),
+}
 
 def selected_symbols(market, supplied):
     if not supplied:
@@ -102,6 +109,7 @@ def main():
                       "capturedAt": datetime.now(timezone.utc).isoformat(), "responses": {}}
             ticker_endpoints = dict(endpoints)
             if ticker.endswith(".HK") and not leases_only:
+                ticker_endpoints.update(HK_EXTRA_ENDPOINTS)
                 ticker_endpoints = {
                     name: (endpoint, {**params, "limit": 32 if params.get("period") == "quarter" else 8})
                     if name in ("income", "balance", "cashflow", "annual_income", "annual_balance", "annual_cashflow")
@@ -125,6 +133,23 @@ def main():
                 else:
                     summary["errors"].append({"ticker": ticker, "endpoint": name, **result})
                     outcomes[f"{name}: error"] += 1
+            if ticker.endswith(".HK") and not leases_only:
+                dates = record["responses"].get("transcript_dates", {}).get("rows", [])
+                available = [row for row in dates if isinstance(row, dict)
+                             and str(row.get("date", ""))[:10] <= now.date().isoformat()
+                             and str(row.get("fiscalYear", "")).isdigit()
+                             and str(row.get("quarter", "")) in ("1", "2", "3", "4")]
+                if available:
+                    latest = max(available, key=lambda row: str(row["date"]))
+                    result = capture(session, "earning-call-transcript", {
+                        "symbol": symbol, "year": latest["fiscalYear"], "quarter": latest["quarter"]
+                    }, key)
+                    record["responses"]["transcript_latest"] = result
+                    if result["ok"]:
+                        summary["successfulResponses"] += 1
+                        summary["emptyResponses"] += not bool(result["rows"])
+                    else:
+                        summary["errors"].append({"ticker": ticker, "endpoint": "transcript_latest", **result})
             if not leases_only and not fcff_only and ticker in ("NVDA", "JPM"):
                 record["responses"]["backend_estimates_query"] = capture(
                     session, "analyst-estimates", {"symbol": symbol, "limit": 4}, key)
