@@ -15,9 +15,9 @@ ENDPOINTS = {
     "balance": ("balance-sheet-statement", {"period": "quarter", "limit": 8}),
     "income": ("income-statement", {"period": "quarter", "limit": 8}),
     "cashflow": ("cash-flow-statement", {"period": "quarter", "limit": 8}),
-    "annual_income": ("income-statement", {"period": "annual", "limit": 4}),
-    "annual_balance": ("balance-sheet-statement", {"period": "annual", "limit": 4}),
-    "annual_cashflow": ("cash-flow-statement", {"period": "annual", "limit": 4}),
+    "annual_income": ("income-statement", {"period": "annual", "limit": 5}),
+    "annual_balance": ("balance-sheet-statement", {"period": "annual", "limit": 5}),
+    "annual_cashflow": ("cash-flow-statement", {"period": "annual", "limit": 5}),
     "estimates": ("analyst-estimates", {"period": "annual", "limit": 12}),
     "enterprise_values": ("enterprise-values", {"period": "quarter", "limit": 1}),
 }
@@ -67,7 +67,8 @@ def main():
     endpoints = LEASE_ENDPOINTS if leases_only else ENDPOINTS
     if fcff_only:
         endpoints = {name: value for name, value in ENDPOINTS.items()
-                     if name in ("profile", "quote", "balance", "income", "cashflow", "annual_income", "estimates")}
+                     if name in ("profile", "quote", "balance", "income", "cashflow",
+                                 "annual_income", "annual_balance", "annual_cashflow", "estimates")}
         endpoints["balance_as_reported"] = LEASE_ENDPOINTS["balance_as_reported"]
     summary = {"gitCommit": os.environ.get("GITHUB_SHA"), "capturedAt": now.isoformat(),
                "sourceScope": "leases" if leases_only else "fcff" if fcff_only else "valuation",

@@ -34,7 +34,7 @@ function financingDebt(row) {
 }
 
 function prepareSnapshot(ticker, evidence, treasury, rates, leaseEvidence) {
-  const unavailable = reason => ({ version: 1, method: 'FCFF', ticker, currency: 'USD',
+  const unavailable = reason => ({ version: 1, modelVersion: 'fcff-v2', method: 'FCFF', ticker, currency: 'USD',
     fetchedAt: evidence?.capturedAt || null, reason });
   if (!evidence || evidence.ticker !== ticker || evidence.providerSymbol !== ticker.replace(/\./g, '-')
       || typeof evidence.capturedAt !== 'string' || !day(evidence.capturedAt.slice(0, 10))) {
@@ -61,7 +61,17 @@ function prepareSnapshot(ticker, evidence, treasury, rates, leaseEvidence) {
       || (Date.parse(valuationDate) - Date.parse(quoteDate)) / 86400000 > 14) {
     return unavailable('sourceDateMismatch');
   }
-  const raw = { annual: { income: read('annual_income'), balance: [], cashflow: [] },
+  const historyWarnings = [];
+  const annualRows = name => (read(name) || []).filter(row => {
+    const valid = row?.symbol === evidence.providerSymbol && day(row.date) && row.date <= valuationDate
+      && ['filingDate', 'acceptedDate'].every(field => !row[field]
+        || (typeof row[field] === 'string' && day(row[field].slice(0, 10))
+          && row[field].slice(0, 10) <= valuationDate));
+    if (!valid) historyWarnings.push({ source: name, reason: 'sourceDateMismatch' });
+    return valid;
+  });
+  const raw = { annual: { income: annualRows('annual_income'), balance: annualRows('annual_balance'),
+    cashflow: annualRows('annual_cashflow') },
     quarterly: { income: read('income'), balance: read('balance'), cashflow: read('cashflow') } };
   for (const rows of Object.values(raw.quarterly)) {
     if (rows.some(row => !day(row.date) || row.date > valuationDate
@@ -99,7 +109,7 @@ function prepareSnapshot(ticker, evidence, treasury, rates, leaseEvidence) {
   const forecastFx = rateFor(rates, sourceCurrency, null, observation, 'closing');
   if (!finite(forecastFx.rate)) return unavailable('missingForecastFx');
   const estimates = sorted(read('estimates').filter(row => day(row.date)
-    && finite(row.revenueAvg) && row.revenueAvg > 0 && finite(row.ebitAvg)));
+    && finite(row.revenueAvg) && row.revenueAvg > 0 && (finite(row.ebitAvg) || finite(row.ebitdaAvg))));
   const comparableAnnual = read('annual_income').filter(row => row.reportedCurrency === sourceCurrency);
   const overlaps = comparableAnnual.map(row => {
     const estimate = estimates.find(other => Math.abs(Date.parse(other.date) - Date.parse(row.date)) < 30 * 86400000);
@@ -109,7 +119,9 @@ function prepareSnapshot(ticker, evidence, treasury, rates, leaseEvidence) {
     return unavailable('forecastCurrencyScaleUnverified');
   }
   const forecasts = estimates.map(row => ({ date: row.date, revenue: row.revenueAvg * forecastFx.rate / 1e6,
-    ebit: row.ebitAvg * forecastFx.rate / 1e6, analystsRevenue: number(row, 'numAnalystsRevenue') }));
+    ebit: finite(row.ebitAvg) ? row.ebitAvg * forecastFx.rate / 1e6 : null,
+    ebitda: number(row, 'ebitdaAvg') === null ? null : row.ebitdaAvg * forecastFx.rate / 1e6,
+    analystsRevenue: number(row, 'numAnalystsRevenue') }));
   const next = forecasts.find(row => row.date > valuationDate);
   if (!next) return unavailable('missingAnalystAnchors');
   const fy = Number(next.date.slice(0, 4));
@@ -146,21 +158,71 @@ function prepareSnapshot(ticker, evidence, treasury, rates, leaseEvidence) {
     preferred: millions(number(bs, 'preferredStock')), minority: millions(number(bs, 'minorityInterest')),
     beta: number(profile, 'beta'), rf: curve && (Date.parse(valuationDate) - Date.parse(curve.date)) / 86400000 <= 14
       ? curve.year10 : null,
-    erp: 4.75, kd, tax, g: 2.25, terminalRoic: null, preferredCost: null, minorityCost: null
+    erp: 4.75, kd, tax, g: 2.25, terminalRoic: null, preferredCost: null, minorityCost: null,
+    discountRate: null, forecastGrowth: 2.25, terminalMethod: 'roic', discountTiming: 'midYear',
+    depreciationBasis: 'analystSpread', extrapolation: 'fade'
   };
+  const supportRow = (row, flow) => {
+    const valid = !row.currencyConversion.reason;
+    const cfValid = flow && !flow.currencyConversion.reason && row.reportedCurrency === flow.reportedCurrency;
+    const pretax = valid ? number(row, 'incomeBeforeTax') : null;
+    const expense = valid ? number(row, 'incomeTaxExpense') : null;
+    return { date: row.date, fiscalYear: row.fiscalYear || row.calendarYear, period: row.period,
+      revenue: valid ? millions(number(row, 'revenue')) : null,
+      ebit: valid ? millions(number(row, 'operatingIncome')) : null,
+      ebitda: valid ? millions(number(row, 'ebitda')) : null,
+      depreciation: cfValid ? millions(number(flow, 'depreciationAndAmortization')) : null,
+      capex: cfValid && number(flow, 'capitalExpenditure') !== null ? -flow.capitalExpenditure / 1e6 : null,
+      tax: finite(pretax) && pretax !== 0 && finite(expense)
+        ? expense / pretax * 100 : null,
+      fxReason: row.currencyConversion.reason || flow?.currencyConversion.reason || null
+    };
+  };
+  const annualHistory = sorted(converted.annual.income).slice(-5).map(row => supportRow(row,
+    converted.annual.cashflow.find(other => other.date === row.date)));
+  const quarterIncome = sorted(converted.quarterly.income);
+  const quarterlyHistory = quarterIncome.map((row, index) => {
+    const closing = converted.quarterly.balance.find(other => other.date === row.date && period(other) === period(row));
+    const matching = converted.quarterly.cashflow.find(other => other.date === row.date && period(other) === period(row));
+    const window = quarterIncome.slice(Math.max(0, index - 3), index + 1);
+    const complete = window.length === 4 && window.every((other, i) => !other.currencyConversion.reason
+      && (i === 0 || (period(other) === period(window[i - 1]) + 1
+        && (Date.parse(other.date) - Date.parse(window[i - 1].date)) / 86400000 >= 60
+        && (Date.parse(other.date) - Date.parse(window[i - 1].date)) / 86400000 <= 120)));
+    const ltmRevenue = complete ? millions(sum(window, 'revenue')) : null;
+    const balanceValid = closing && !closing.currencyConversion.reason;
+    const wc = balanceValid ? millions(workingCapital(closing)) : null;
+    return { ...supportRow(row, matching), ltmRevenue, workingCapital: wc,
+      currentAssets: balanceValid ? millions(number(closing, 'totalCurrentAssets')) : null,
+      cash: balanceValid ? millions(number(closing, 'cashAndShortTermInvestments')) : null,
+      currentLiabilities: balanceValid ? millions(number(closing, 'totalCurrentLiabilities')) : null,
+      currentDebt: balanceValid && finite(closing.shortTermDebt) && finite(closing.capitalLeaseObligationsCurrent)
+        ? millions(closing.shortTermDebt + closing.capitalLeaseObligationsCurrent) : null,
+      workingCapitalRate: finite(wc) && ltmRevenue > 0 ? wc / ltmRevenue : null };
+  });
+  const ytdCf = ytdRows.map(row => raw.quarterly.cashflow.find(other => other.date === row.date));
+  const ytdFlow = field => ytdRows.length ? millions(sum(ytdCf, field) === null ? null
+    : sum(ytdCf, field) * forecastFx.rate) : 0;
+  const ytdEbit = ytdRows.length ? sum(ytdRows, 'operatingIncome') * forecastFx.rate / 1e6 : 0;
+  const ytdDa = ytdFlow('depreciationAndAmortization');
   const lastAnnual = sorted(comparableAnnual).at(-1);
   const snapshot = {
-    version: 1, method: 'FCFF', ticker, currency: 'USD', sourceCurrency,
+    version: 1, modelVersion: 'fcff-v2', method: 'FCFF', ticker, currency: 'USD', sourceCurrency,
     fetchedAt: evidence.capturedAt, valuationDate, quoteDate, quote: { price: quote.price, marketCap: quote.marketCap },
     balance: { date: bs.date, workingCapital: ttm.workingCapital,
       fx: bs.currencyConversion, leaseDebt: millions(number(bs, 'capitalLeaseObligations')) },
     ttm, defaults, forecasts,
+    history: { annual: annualHistory, quarterly: quarterlyHistory, warnings: historyWarnings,
+      annualCashflowAvailable: !!read('annual_cashflow')?.length },
     annualReference: { date: lastAnnual?.date,
       revenue: millions(number(lastAnnual, 'revenue') === null ? null : lastAnnual.revenue * forecastFx.rate) },
     ytd: { date: bs.date, revenue: ytdRows.length ? sum(ytdRows, 'revenue') * forecastFx.rate / 1e6 : 0,
-      ebit: ytdRows.length ? sum(ytdRows, 'operatingIncome') * forecastFx.rate / 1e6 : 0 },
+      ebit: ytdEbit, depreciation: ytdDa, capex: ytdFlow('capitalExpenditure') === null ? null : -ytdFlow('capitalExpenditure'),
+      ebitda: finite(ytdDa) && finite(ytdEbit) ? ytdEbit + ytdDa : null },
     provenance: {
       operatingRatios: 'latestFourConsecutiveFiscalQuarters',
+      ebitda: 'Analyst ebitdaAvg when supplied; otherwise analyst EBIT plus modeled D&A, explicitly derived. YTD operating EBITDA is reported operating EBIT plus cash-flow D&A, not an adjusted analyst measure.',
+      depreciation: 'Analyst EBITDA minus EBIT when nonnegative and both available; otherwise modeled TTM D&A/revenue. Analyst measure definitions are not independently certified.',
       forecastCurrency: 'reportedCurrencyWithHistoricalAnnualScaleCheck',
       forecastFx: { ...forecastFx, assumption: 'constantLatestAvailableOfficialObservation' },
       treasury: curve ? { date: curve.date, year10: curve.year10 } : null,

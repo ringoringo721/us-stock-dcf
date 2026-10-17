@@ -65,7 +65,7 @@ const money = value => '$' + value.toLocaleString('en-US', { minimumFractionDigi
       model: getSavedModels().CSCO,
       archive: JSON.parse(localStorage.getItem('M7_LEGACY_VALUATIONS')).CSCO
     }));
-    assert.equal(stored.model.params.modelVersion, 'fcff-v1');
+    assert.equal(stored.model.params.modelVersion, 'fcff-v2');
     assert.equal(stored.model.params.beta, -0.047);
     assert.equal(stored.model.params.tax, 0);
     assert.equal(stored.archive[0].params.fcf0, 999);
@@ -75,6 +75,63 @@ const money = value => '$' + value.toLocaleString('en-US', { minimumFractionDigi
     assert.equal(await page.locator('#det-res-fair').innerText(), money(baseline.fairVal));
     assert.equal(await page.evaluate(() => getSavedModels().CSCO), undefined);
     assert.equal(await page.evaluate(() => JSON.parse(localStorage.getItem('M7_LEGACY_VALUATIONS')).CSCO[0].targetPrice), 123);
+
+    assert.equal(await page.locator('#fcff-driver-tabs button').count(), 7);
+    assert.equal(await page.locator('#fcff-support-tabs button').count(), 7);
+    const editedYear = baseline.annuals[1].end;
+    const changedEbitda = baseline.annuals[1].ebitda + 100;
+    await page.locator(`.fcff-year-input[data-end="${editedYear}"][data-key="ebitda"]`).fill(String(changedEbitda));
+    await page.locator(`.fcff-year-input[data-end="${editedYear}"][data-key="ebitda"]`).blur();
+    assert.equal(await page.locator('#det-res-fair').innerText(),
+      money(calculate(sources.stocks.CSCO, { years: { [editedYear]: { ebitda: changedEbitda } } }).fairVal));
+    await page.locator('#fcff-driver-tabs [data-tab="capex"]').click();
+    const rate = page.locator(`.fcff-year-input[data-end="${editedYear}"][data-key="capexRate"]`);
+    await rate.fill('0');
+    await rate.blur();
+    await page.locator('#fcff-driver-tabs [data-tab="workingCapital"]').click();
+    const nwc = page.locator(`.fcff-year-input[data-end="${editedYear}"][data-key="workingCapitalRate"]`);
+    await nwc.fill('-1');
+    await nwc.blur();
+    await page.locator('#fcff-driver-tabs [data-tab="tax"]').click();
+    const tax = page.locator(`.fcff-year-input[data-end="${editedYear}"][data-key="tax"]`);
+    await tax.fill('0');
+    await tax.blur();
+    await page.evaluate(() => { applyLanguage('zh'); applyLanguage('en'); });
+    assert.equal(await page.locator(`.fcff-year-input[data-end="${editedYear}"][data-key="tax"]`).inputValue(), '0');
+    const annualScenario = await page.evaluate(() => stockUniverse.CSCO.fcffScenario);
+    assert.equal(annualScenario.years[editedYear].ebitda, changedEbitda);
+    assert.equal(annualScenario.years[editedYear].capexRate, 0);
+    assert.equal(annualScenario.years[editedYear].workingCapitalRate, -0.01);
+    assert.equal(annualScenario.years[editedYear].tax, 0);
+    assert.equal(await page.locator('#det-res-fair').innerText(), money(calculate(sources.stocks.CSCO, annualScenario).fairVal));
+    await page.locator('#fcff-support-tabs [data-tab="periods"]').click();
+    assert.ok((await page.locator('#fcff-support-other').innerText()).includes(baseline.periods[0].discountDate));
+    await page.locator('#fcff-support-tabs [data-tab="history"]').click();
+    assert.ok((await page.locator('#fcff-support-other').innerText()).includes('4 annual periods'));
+    for (const tab of ['discount', 'terminal']) {
+      await page.locator(`#fcff-driver-tabs [data-tab="${tab}"]`).click();
+      assert.match(await page.locator('#fcff-driver-detail').innerText(), /Lower value.*Base.*Higher value/s);
+    }
+    await page.locator('#fcff-terminalMethod').selectOption('components');
+    await page.locator('#fcff-discountTiming').selectOption('periodEnd');
+    await page.locator('#fcff-input-controls summary').click();
+    await page.locator('#fcff-discountRate').fill('9');
+    await page.locator('#fcff-terminalEbitdaMargin').fill('30');
+    await page.locator('#fcff-terminalCapex').fill('0');
+    const componentScenario = await page.evaluate(() => stockUniverse.CSCO.fcffScenario);
+    assert.equal(componentScenario.discountRate, 0.09);
+    assert.equal(componentScenario.terminalEbitdaMargin, 0.3);
+    assert.equal(componentScenario.terminalCapex, 0);
+    assert.equal(componentScenario.discountTiming, 'periodEnd');
+    assert.match(await page.locator('#fcff-terminal-note').innerText(), /Warning: growth is positive/);
+    assert.equal(await page.locator('#det-res-fair').innerText(), money(calculate(sources.stocks.CSCO, componentScenario).fairVal));
+    await page.locator('[onclick="saveCustomModel()"]').click();
+    await page.evaluate(() => { delete stockUniverse.CSCO.fcffScenario; loadDetailTicker('CSCO'); });
+    assert.deepEqual(await page.evaluate(() => getSavedModels().CSCO.params.years), annualScenario.years);
+    await page.locator('[onclick="resetToFmpDefaults()"]').click();
+    assert.equal(await page.locator('#fcff-terminalMethod').inputValue(), 'roic');
+    await page.locator('#fcff-driver-tabs [data-tab="revenue"]').click();
+    await page.locator('#fcff-support-tabs [data-tab="cashflow"]').click();
 
     for (const language of ['en', 'zh']) {
       await page.evaluate(language => applyLanguage(language), language);
@@ -96,7 +153,7 @@ const money = value => '$' + value.toLocaleString('en-US', { minimumFractionDigi
     await page.locator('#fcff-shares').fill('');
     assert.equal(await page.locator('#det-res-fair').innerText(), 'N/A');
     assert.equal(await page.locator('[onclick="saveCustomModel()"]').isDisabled(), true);
-    assert.equal(await page.locator('#fcff-table thead th').count(), 1, 'Invalid inputs clear the previous forecast');
+    assert.equal(await page.locator('#fcff-table thead th').count(), 11, 'Valid operating projections remain visible when capital inputs are missing');
     await page.locator('[onclick="resetToFmpDefaults()"]').click();
     assert.equal(await page.locator('#det-res-fair').innerText(), money(baseline.fairVal));
     await page.locator('#fcff-input-controls summary').click();
@@ -114,6 +171,10 @@ const money = value => '$' + value.toLocaleString('en-US', { minimumFractionDigi
       assert.equal(await page.locator('[onclick="saveCustomModel()"]').isDisabled(), true);
       assert.ok(await page.locator('#fcff-status').innerText());
       assert.equal(await page.locator('#fcff-sensitivity td').innerText(), 'N/A');
+      if (ticker === 'NVDA' || ticker === 'TSM') {
+        assert.equal(await page.locator('#fcff-table thead th').count(), 11,
+          'Available operating projections remain visible without certifying lease-adjusted valuation');
+      }
     }
     await page.evaluate(() => { openCompanyProfile('GIS'); applyLanguage('en'); });
     assert.equal(await page.locator('#cmp-meta-beta').innerText(), String(sources.betaSources.GIS.value));

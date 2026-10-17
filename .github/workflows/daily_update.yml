@@ -122,7 +122,7 @@ jobs:
           python -m unittest discover -s tests -p test_price_charts.py
           python -m unittest discover -s tests -p test_liquidation.py
           node --test tests/peer_comparison.test.cjs tests/reported_growth.test.cjs tests/price_history.test.cjs tests/liquidation.test.cjs
-          node --test tests/fcff.test.cjs tests/fcff_sources.test.cjs tests/fcff_integration.test.cjs
+          node --test tests/fcff.test.cjs tests/fcff_drivers.test.cjs tests/fcff_sources.test.cjs tests/fcff_integration.test.cjs
 
       - name: Commit & Push New DCF Dataset & Persistent Cache
         run: |

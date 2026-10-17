@@ -82,6 +82,36 @@ test('source adapter constructs aligned TTM components and preserves zero and ne
   assert.equal(prepareSnapshot('TEST', input, treasury, null).defaults.beta, -0.047);
 });
 
+test('source support preserves real consensus EBITDA and available annual/quarterly history without filling gaps', () => {
+  const input = evidence();
+  input.responses.estimates.rows[1].ebitdaAvg = 260e6;
+  input.responses.annual_income.rows[0].operatingIncome = 200e6;
+  input.responses.annual_income.rows[0].incomeBeforeTax = 100e6;
+  input.responses.annual_income.rows[0].incomeTaxExpense = -10e6;
+  input.responses.annual_cashflow = { ok: true, rows: [
+    { symbol: 'TEST', date: '2025-12-31', reportedCurrency: 'USD', period: 'FY',
+      fiscalYear: 2025, depreciationAndAmortization: 30e6, capitalExpenditure: -50e6 }
+  ] };
+  const snapshot = prepareSnapshot('TEST', input, treasury, null);
+  assert.equal(snapshot.modelVersion, 'fcff-v2');
+  assert.equal(snapshot.forecasts[1].ebitda, 260);
+  assert.equal(snapshot.forecasts[2].ebitda, null);
+  assert.equal(snapshot.history.annual.length, 1, 'Do not pad to five years');
+  assert.equal(snapshot.history.annual[0].capex, 50);
+  assert.equal(snapshot.history.annual[0].depreciation, 30);
+  assert.equal(snapshot.history.annual[0].tax, -10, 'Retain reported historical tax benefits, unlike bounded forecast tax inputs');
+  assert.equal(snapshot.history.quarterly[2].ltmRevenue, null);
+  assert.equal(snapshot.history.quarterly.at(-1).ltmRevenue, 1000);
+  assert.equal(snapshot.history.quarterly.at(-1).workingCapitalRate, 0.3);
+  assert.equal(snapshot.ytd.ebitda, 172.5);
+  assert.equal(snapshot.ytd.depreciation, 22.5);
+  assert.equal(snapshot.ytd.capex, 37.5);
+  input.responses.annual_cashflow.rows[0].acceptedDate = '2027-01-01';
+  const invalid = prepareSnapshot('TEST', input, treasury, null);
+  assert.equal(invalid.history.annual[0].capex, null);
+  assert.equal(invalid.history.warnings[0].reason, 'sourceDateMismatch');
+});
+
 test('positive original lease liabilities cannot be hidden by a normalized zero, but closed older leases do not override a current zero', () => {
   const input = evidence();
   input.responses.balance_as_reported = { ok: true, rows: [

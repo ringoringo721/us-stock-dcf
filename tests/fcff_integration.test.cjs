@@ -25,7 +25,7 @@ test('every available real-source valuation independently reconciles component a
     outcomes[status] = (outcomes[status] || 0) + 1;
     if (result.reason) {
       assert.equal(result.fairVal, null, ticker);
-      assert.equal(result.periods.length, 0, ticker);
+      assert.ok(result.periods.every(row => row.pv === null && row.df === null), ticker);
       assert.ok(!reasonText(result.reason, 'zh').includes(result.reason), ticker);
       assert.ok(!reasonText(result.reason, 'en').includes(result.reason), ticker);
       continue;
@@ -40,7 +40,8 @@ test('every available real-source valuation independently reconciles component a
     }
     near(result.sumPV, result.periods.reduce((sum, row) => sum + row.pv, 0));
     near(result.terminalFcff, result.terminalNopat * (1 - defaults.g / result.assumptions.terminalRoic));
-    near(result.pvTV, result.terminalFcff / (result.WACC - defaults.g / 100) * result.periods.at(-1).df);
+    assert.equal(result.periods.length, 10, ticker);
+    near(result.pvTV, result.terminalFcff / (result.WACC - defaults.g / 100) * result.terminalDf);
     near(result.EquityVal, result.ModelEV - result.financingDebt + defaults.cash + defaults.investments
       - defaults.preferred - defaults.minority);
     near(result.fairVal, result.EquityVal / defaults.shares);
@@ -83,6 +84,7 @@ test('beta provenance preserves negative/zero provider values and never invents 
   records.TEST.responses.profile.rows[0].beta = null;
   assert.equal(compile({ TEST: base }, records, null, null).betaSources.TEST.value, null);
   assert.equal(compatible({ params: { fcf0: 10 } }), false);
-  assert.equal(compatible({ params: { modelVersion: 'fcff-v1' } }), true);
+  assert.equal(compatible({ params: { modelVersion: 'fcff-v1' } }), false);
+  assert.equal(compatible({ params: { modelVersion: 'fcff-v2' } }), true);
   assert.equal(compatible({ params: { modelVersion: 'fcff-v1', fcf0: 100 } }), false);
 });

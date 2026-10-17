@@ -3,7 +3,7 @@
 ## Read-only valuation source audit
 
 The manually dispatched `valuation_audit.yml` workflow captures dated FMP profile,
-quote, eight quarterly statements, four annual statements, annual analyst estimates, enterprise values and
+quote, eight quarterly statements, up to five annual statements, annual analyst estimates, enterprise values and
 Treasury evidence using the existing protected API secret. It uploads a seven-day
 artifact, records HTTP/coverage limitations explicitly, and never updates or
 commits valuation datasets. This is source evidence, not certification of the
@@ -20,15 +20,36 @@ without changing any published valuation.
 ## FCFF valuation and explicit source limitations
 
 The nonfinancial valuation page, screener defaults, forecast table, sensitivity
-matrix and versioned saved scenarios use the shared `fcff.js` engine.
+matrix and versioned saved scenarios use `fcff.js` with the shared
+`dcf_drivers.js` operating-driver engine.
 `scripts/fcff_sources.cjs` reconciles source records; `scripts/build_fcff.cjs`
 compiles `cache/fcff_sources.json` and `fcff_data.js` without rewriting reported
 financials, financial-company models, liquidation values or price history.
 These repository changes do not themselves deploy the website.
 
-The selected operating-ratio basis is latest TTM. Analyst revenue/EBIT anchors
-are distinguished from modeled cash flow and later extrapolation. The selected
-terminal ROIC default is WACC, with an explicit override.
+The general-company page provides seven assumption categories: revenue/EBITDA,
+capex, working capital, D&A, tax, discount rate and terminal value. Full-year
+amounts and ratios can be edited separately for each of ten fiscal years.
+Clearing an annual override restores the source/model default for that field.
+TTM is the starting operating-ratio basis. Available historical ratios can be
+explicitly selected instead, with the actual number of observations disclosed.
+Historical NWC ratios use each quarter's own matching LTM revenue; closing
+balances are never added across quarters.
+
+FMP `revenueAvg` / `ebitdaAvg` are consensus anchors when available. Missing
+EBITDA is explicitly derived from analyst EBIT plus modeled D&A. Default D&A
+uses a nonnegative analyst EBITDA-minus-EBIT spread when both are available;
+otherwise it uses the TTM cash-flow D&A ratio. This is a derived assumption, not
+an independent analyst D&A forecast. The ratio-only D&A option is also available.
+YTD operating EBITDA is reconstructed from reported operating EBIT plus
+cash-flow D&A. Analyst adjusted/accounting definitions are not independently
+certified to match those actuals or Finbox. Beyond actual consensus coverage,
+growth/margins fade to disclosed long-term assumptions, or the user can select
+flat scale/margins. Forecast revenue growth and terminal growth are separate.
+First-year growth uses aligned reported annual revenue when available;
+otherwise its prior-year analyst reference is explicitly identified, not
+presented as a reported actual.
+No screenshot values or Finbox branding are copied into stock defaults.
 
 Reported debt is preserved separately from the lease adjustment and valuation
 financing debt. A verified lease liability whose payments remain in forecast
@@ -45,9 +66,35 @@ records individual valuation dates and coverage outcomes; availability is not
 certification of forecasts or issuer lease accounting. Some issuers require
 segment valuation instead of this general FCFF model.
 
-The ten-calendar-year horizon uses fiscal stubs and Actual/365.25 period-end
-discounting. Unpublished elapsed cash flows and working capital are estimated
-linearly; terminal cash flow uses the final fiscal year's annualized revenue.
+The horizon consists of ten fiscal-year columns, not ten calendar years plus
+an extra fiscal bucket. Reported YTD revenue, EBITDA, D&A and capex are removed
+from the first full-year forecast; remaining unreported flows are allocated
+uniformly by day and elapsed flows are excluded. Forecasts below reported YTD
+revenue/D&A/capex are rejected rather than silently clipped. Opening NWC at the
+valuation date is linearly estimated from the last closing balance to the
+first annual target. This is a scenario allocation, not known actual cash flow.
+
+Actual/365.25 cash-flow discounting defaults to the midpoint of each remaining
+period; period-end timing is selectable. Supporting schedules expose starts,
+ends, precise UTC discount dates, years and factors. Gordon terminal value
+always uses the tenth fiscal year-end factor, never the mid-year factor.
+Terminal revenue already includes one year of growth: its resulting FCFF is
+divided by WACC minus g without a second growth multiplier.
+
+Terminal ROIC still defaults to WACC and can be overridden: reinvestment =
+next-year NOPAT times g/ROIC. Alternatively, normalized EBITDA, D&A, capex and
+incremental NWC explicitly construct next-year FCFF. Component scenarios with
+positive growth but nonpositive net reinvestment are visibly flagged for
+sustainability review, not independently certified. Low/base/high cases share
+the same operating forecast and shift WACC by +0.5/0/-0.5 percentage points and
+terminal g by -0.5/0/+0.5 points; they are not probability intervals.
+
+The supported historical cash flows/consensus anchors remain viewable as
+provisional modeling support when lease reconciliation alone blocks valuation;
+no fair value, present value or saveable target is manufactured in that state.
+Only actual supplied annual history is shown (the current earlier capture has
+four annual periods, not five). Missing annual cash flows stay N/A. Subsequent
+protected capture requests five annual periods without fabricating gaps.
 Future FX is a constant latest-observed scenario. Forecast reporting currency is
 inferred using historical annual revenue scale, not an explicit FMP estimate
 currency field. Tax and debt costs start from historical TTM proxies, while ERP,
@@ -63,7 +110,10 @@ negative values. The response does not specify lookback, frequency or benchmark:
 it is not labeled "5-year beta". The valuation input permits a manual scenario,
 not a 3/5/10-year selector or a claim of provider-supplied period-specific betas.
 Legacy FCF scenarios are not loaded into FCFF; replacing a saved legacy target
-archives the old record in `M7_LEGACY_VALUATIONS` before saving `fcff-v1`.
+archives the old record in `M7_LEGACY_VALUATIONS` before saving `fcff-v2`.
+The older `fcff-v1` calendar-year/period-end scenario is not silently reinterpreted.
+Saved annual overrides use fiscal dates; a rolled-out fiscal period is rejected
+explicitly rather than shifted onto another year.
 
 Normal daily refreshes capture required dated FMP evidence with the protected
 secret and compile the independent FCFF cache. Dedicated peers/prices/liquidation

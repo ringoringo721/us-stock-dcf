@@ -608,7 +608,7 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
     assert.match(await page.locator('#fcff-status').innerText(), /租賃|[Ll]ease/);
     assert.equal(await page.locator('#fcf-ratio-body').textContent(), historical);
     assert.equal(await page.locator('#return-ratio-body').textContent(), returnsBeforeDcf);
-    assert.equal(await page.locator('#fcff-table thead th').count(), 1);
+    assert.equal(await page.locator('#fcff-table thead th').count(), 11, 'Supported operating projections remain visible while lease valuation is blocked');
     assert.equal(await page.locator('#fcff-sensitivity td').innerText(), 'N/A');
     assert.equal(await page.locator('#detailDcfHistoricalChart').count(), 0);
     assert.equal(await page.locator('#company-view #subpage-valuation #detail-view').count(), 1);

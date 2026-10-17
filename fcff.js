@@ -1,8 +1,8 @@
 (function (root, factory) {
-  const api = factory();
+  const api = factory(typeof module === 'object' && module.exports ? require('./dcf_drivers.js') : root.DcfDrivers);
   if (typeof module === 'object' && module.exports) module.exports = api;
   else root.Fcff = api;
-})(typeof globalThis === 'object' ? globalThis : this, function () {
+})(typeof globalThis === 'object' ? globalThis : this, function (drivers) {
   'use strict';
   const finite = value => typeof value === 'number' && Number.isFinite(value);
   const day = value => typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value)
@@ -38,7 +38,51 @@
     };
   }
 
+  function capitalInputs(snapshot, scenario) {
+    const parameter = name => Object.prototype.hasOwnProperty.call(scenario, name)
+      ? scenario[name] : snapshot.defaults?.[name];
+    const tax = parameter('tax'), rf = parameter('rf'), erp = parameter('erp');
+    const beta = parameter('beta'), kd = parameter('kd'), g = parameter('g');
+    const price = parameter('price'), shares = parameter('shares');
+    const debt = parameter('debt'), cash = parameter('cash'), investments = parameter('investments');
+    const leaseOverlap = parameter('leaseOverlap');
+    if (!finite(snapshot.balance.leaseDebt) || snapshot.balance.leaseDebt < 0
+        || !finite(leaseOverlap) || (snapshot.balance.leaseDebt > 0 && snapshot.leaseReconciled !== true)) {
+      return fail('leaseClassificationRequired');
+    }
+    const preferred = parameter('preferred'), minority = parameter('minority');
+    const manualRate = scenario.discountRate != null;
+    if (![tax, g, price, shares, debt, cash, investments, preferred, minority].every(finite)
+        || (!manualRate && ![rf, erp, beta, kd].every(finite))) {
+      return fail('missingParameters');
+    }
+    if (tax < 0 || tax > 100 || erp < 0 || kd < 0 || price <= 0 || shares <= 0
+        || debt < 0 || cash < 0 || investments < 0 || preferred < 0 || minority < 0 || g <= -100
+        || leaseOverlap < 0 || leaseOverlap > snapshot.balance.leaseDebt || leaseOverlap > debt) {
+      return fail('invalidParameters');
+    }
+    const financingDebt = debt - leaseOverlap;
+    const E = price * shares, V = E + financingDebt + preferred + minority;
+    const wE = E / V, wD = financingDebt / V, wP = preferred / V, wM = minority / V;
+    const Ke = [rf, beta, erp].every(finite) ? rf / 100 + beta * erp / 100 : null;
+    const Kd_after = finite(kd) ? kd / 100 * (1 - tax / 100) : null;
+    const priorityCost = name => parameter(name) === null ? Ke
+      : finite(parameter(name)) ? parameter(name) / 100 : null;
+    const preferredCost = priorityCost('preferredCost'), minorityCost = priorityCost('minorityCost');
+    if (!manualRate && (!finite(preferredCost) || !finite(minorityCost))) return fail('missingParameters');
+    const WACC = manualRate
+      ? scenario.discountRate : wE * Ke + wD * Kd_after + wP * preferredCost + wM * minorityCost;
+    const base = { E, V, wE, wD, wP, wM, Ke, Kd_after, preferredCost, minorityCost,
+      WACC, beta, reportedDebt: debt, leaseOverlap, financingDebt, cash, investments,
+      preferred, minority, NetDebt: financingDebt - cash, tax, g, price, shares };
+    if (!finite(WACC) || WACC <= g / 100 || WACC <= 0) return fail('invalidTerminalSpread', base);
+    return { reason: null, ...base };
+  }
+
   function calculate(snapshot, scenario = {}) {
+    if (snapshot?.modelVersion === 'fcff-v2' || scenario.modelVersion === 'fcff-v2') {
+      return drivers.calculate(snapshot, scenario, { finite, day, days, yearLater, fail, operatingRatios, capitalInputs });
+    }
     if (Object.prototype.hasOwnProperty.call(scenario, 'fcf0')
         || Object.prototype.hasOwnProperty.call(scenario, 'growth_10y')
         || (scenario.modelVersion !== undefined && scenario.modelVersion !== 'fcff-v1')) {
@@ -56,39 +100,11 @@
         || snapshot.ttm.workingCapital !== snapshot.balance.workingCapital) {
       return fail('statementDateMismatch');
     }
+    const { reason, ...base } = capitalInputs(snapshot, scenario);
+    if (reason) return fail(reason, base);
+    const { WACC, tax, g, price, shares, financingDebt, cash, investments, preferred, minority } = base;
     const parameter = name => Object.prototype.hasOwnProperty.call(scenario, name)
       ? scenario[name] : snapshot.defaults?.[name];
-    const tax = parameter('tax'), rf = parameter('rf'), erp = parameter('erp');
-    const beta = parameter('beta'), kd = parameter('kd'), g = parameter('g');
-    const price = parameter('price'), shares = parameter('shares');
-    const debt = parameter('debt'), cash = parameter('cash'), investments = parameter('investments');
-    const leaseOverlap = parameter('leaseOverlap');
-    if (!finite(snapshot.balance.leaseDebt) || snapshot.balance.leaseDebt < 0
-        || !finite(leaseOverlap) || (snapshot.balance.leaseDebt > 0 && snapshot.leaseReconciled !== true)) {
-      return fail('leaseClassificationRequired');
-    }
-    const preferred = parameter('preferred'), minority = parameter('minority');
-    if (![tax, rf, erp, beta, kd, g, price, shares, debt, cash, investments, preferred, minority].every(finite)) {
-      return fail('missingParameters');
-    }
-    if (tax < 0 || tax > 100 || erp < 0 || kd < 0 || price <= 0 || shares <= 0
-        || debt < 0 || cash < 0 || investments < 0 || preferred < 0 || minority < 0 || g <= -100
-        || leaseOverlap < 0 || leaseOverlap > snapshot.balance.leaseDebt || leaseOverlap > debt) {
-      return fail('invalidParameters');
-    }
-    const financingDebt = debt - leaseOverlap;
-    const E = price * shares, V = E + financingDebt + preferred + minority;
-    const wE = E / V, wD = financingDebt / V, wP = preferred / V, wM = minority / V;
-    const Ke = rf / 100 + beta * erp / 100, Kd_after = kd / 100 * (1 - tax / 100);
-    const preferredCost = parameter('preferredCost') === null ? Ke : parameter('preferredCost') / 100;
-    const minorityCost = parameter('minorityCost') === null ? Ke : parameter('minorityCost') / 100;
-    if (!finite(preferredCost) || !finite(minorityCost)) return fail('missingParameters');
-    const WACC = Object.prototype.hasOwnProperty.call(scenario, 'discountRate')
-      ? scenario.discountRate : wE * Ke + wD * Kd_after + wP * preferredCost + wM * minorityCost;
-    const base = { E, V, wE, wD, wP, wM, Ke, Kd_after, preferredCost, minorityCost,
-      WACC, beta, reportedDebt: debt, leaseOverlap, financingDebt, cash, investments,
-      preferred, minority, NetDebt: financingDebt - cash };
-    if (!finite(WACC) || WACC <= g / 100 || WACC <= 0) return fail('invalidTerminalSpread', base);
     const terminalRoicInput = parameter('terminalRoic');
     const terminalRoic = terminalRoicInput === null ? WACC * 100 : terminalRoicInput;
     if (!finite(terminalRoic) || terminalRoic <= 0 || terminalRoic < g) {

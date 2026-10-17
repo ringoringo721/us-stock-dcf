@@ -7,6 +7,7 @@
   <script src="site_theme.js"></script>
   <script src="market_data.js"></script>
   <script src="fcff_data.js"></script>
+  <script src="dcf_drivers.js"></script>
   <script src="fcff.js"></script>
   <script src="fcff_view.js"></script>
   <script src="usd_currency.js"></script>
@@ -905,6 +906,15 @@
     #fcff-table tr > :first-child { position: sticky; left: 0; min-width: 150px; max-width: 190px; background: var(--sticky-bg); z-index: 2; white-space: normal; }
     #fcff-workspace .analysis-note { overflow-wrap: anywhere; line-height: 1.9; }
     #fcff-workspace summary { cursor: pointer; color: var(--accent); padding: 12px 0; }
+    #fcff-workspace .fcff-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+    #fcff-workspace .fcff-tabs button { background: var(--header-bg); color: var(--text); border: 1px solid var(--card-border); border-radius: 6px; padding: 9px 12px; cursor: pointer; }
+    #fcff-workspace .fcff-tabs button[aria-pressed="true"] { color: var(--accent); border-color: var(--accent); font-weight: 700; }
+    #fcff-workspace .fcff-year-input { width: 125px; box-sizing: border-box; color: var(--accent); background: var(--bg); border: 1px solid var(--card-border); border-radius: 4px; padding: 8px; font-variant-numeric: tabular-nums; text-align: right; }
+    #fcff-workspace #fcff-method-controls { margin-top: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); }
+    #fcff-workspace #fcff-method-controls .form-group { display: flex; flex-direction: column; align-items: stretch; gap: 8px; }
+    #fcff-workspace #fcff-method-controls select { width: 100%; min-width: 0; box-sizing: border-box; }
+    #fcff-driver-detail td { min-width: 130px; max-width: 190px; white-space: normal; }
+    #fcff-driver-detail tr > :first-child { position: sticky; left: 0; min-width: 160px; max-width: 200px; background: var(--sticky-bg); z-index: 1; white-space: normal; }
     #subpage-valuation .main-layout > *, #subpage-valuation .form-group { min-width: 0; }
     #subpage-valuation .form-group { display: grid; grid-template-columns: minmax(0, 1fr) 120px; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--card-border); }
     #subpage-valuation .form-group input, #subpage-valuation .form-group select { width: 100%; padding: 8px 10px; }
@@ -2230,7 +2240,7 @@
       profile_source_note: "僅呈現現有資料來源提供的紀錄；缺失資料顯示 N/A，不推算補齊。TTM 年增率比較連續八季中的前後四季；前期基數必須為正，否則顯示 N/A。這不是預測成長率。",
       rating_note: "先看評分總覽，再閱讀解讀與檢驗明細。護城河代表競爭優勢評估；PF score 為財務篩選訊號，兩者不是信用評等或買賣建議。",
       valuation_title: "估值模型與情境分析",
-      valuation_note: "一般企業採最新 TTM 營運比率的 FCFF 模型；分析師營收／EBIT 錨點與模型推算分開列示，缺少來源或租賃核對時明示 N/A。金融企業保留既有有形權益超額報酬與股利模型。調整參數屬情境分析，不會改寫財報或趨勢資料。",
+      valuation_note: "一般企業採十財年 EBITDA 分項 FCFF 模型；分析師預測、推導數值及模型假設分開列示，TTM 為比率起點，缺少來源或租賃核對時明示 N/A。金融企業保留既有有形權益超額報酬與股利模型。調整參數屬情境分析，不會改寫財報或趨勢資料。",
       treasury_1y: "1 年期美國公債",
       treasury_2y: "2 年期美國公債",
       treasury_3y: "3 年期美國公債",
@@ -2644,7 +2654,7 @@
       profile_source_note: "Only records supplied by the existing data source are shown. Missing data remains N/A rather than being estimated. TTM growth compares successive four-quarter totals from eight consecutive quarters, with a positive prior-year base; otherwise N/A. These are reported results, not growth forecasts.",
       rating_note: "Start with the scorecards, then review the interpretation and individual tests. Economic Moat assesses competitive advantages; PF score screens financial signals. Neither is a credit rating or an investment recommendation.",
       valuation_title: "Valuation Model & Scenario Analysis",
-      valuation_note: "General companies use FCFF with latest TTM operating ratios. Analyst revenue/EBIT anchors are separated from model extrapolation; missing sources or unreconciled leases are explicitly N/A. Financial institutions retain the existing tangible-equity excess-return and dividend models. Parameter edits are scenarios, not changes to reported financials or trends.",
+      valuation_note: "General companies use a ten-fiscal-year EBITDA-driven FCFF model, with TTM starting ratios. Analyst estimates, derived values and model assumptions are distinguished; missing sources or unreconciled leases are explicitly N/A. Financial institutions retain the existing tangible-equity excess-return and dividend models. Parameter edits are scenarios, not changes to reported financials or trends.",
       treasury_1y: "1Y Treasury",
       treasury_2y: "2Y Treasury",
       treasury_3y: "3Y Treasury",
