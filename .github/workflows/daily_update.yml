@@ -14,6 +14,10 @@ on:
         description: Refresh real Profile price and volume charts only
         type: boolean
         default: false
+      liquidation_only:
+        description: Refresh latest-quarter liquidation inputs only, preserving DCF calculations
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -53,7 +57,7 @@ jobs:
         run: node scripts/refresh_usd_rates.cjs
 
       - name: Run Market Engine with FMP Key
-        if: inputs.peers_only != true && inputs.prices_only != true
+        if: inputs.peers_only != true && inputs.prices_only != true && inputs.liquidation_only != true
         env:
           FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -69,7 +73,7 @@ jobs:
 
       - name: Refresh real Profile daily prices and volume
         id: price-refresh
-        if: inputs.peers_only != true
+        if: inputs.peers_only != true && inputs.liquidation_only != true
         continue-on-error: ${{ inputs.prices_only != true }}
         env:
           FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
@@ -79,11 +83,28 @@ jobs:
         if: steps.price-refresh.outcome == 'failure' && inputs.prices_only != true
         run: echo "::warning::Profile prices could not be refreshed. Existing dated price caches are retained; independent financial updates continue."
 
+      - name: Refresh latest-quarter liquidation sources
+        id: liquidation-refresh
+        if: inputs.peers_only != true && inputs.prices_only != true
+        continue-on-error: ${{ inputs.liquidation_only != true }}
+        env:
+          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+        run: python -u scripts/refresh_liquidation.py
+
+      - name: Report retained liquidation snapshot
+        if: steps.liquidation-refresh.outcome == 'failure' && inputs.liquidation_only != true
+        run: echo "::warning::Liquidation source refresh failed. The existing explicitly dated snapshot is retained; independent financial updates continue."
+
+      - name: Apply shared liquidation calculations
+        if: inputs.peers_only != true && inputs.prices_only != true
+        run: node scripts/apply_liquidation.cjs
+
       - name: Validate provider parsing and comparison coverage
         run: |
           python -m unittest discover -s tests -p test_peer_cache.py
           python -m unittest discover -s tests -p test_price_charts.py
-          node --test tests/peer_comparison.test.cjs tests/reported_growth.test.cjs tests/price_history.test.cjs
+          python -m unittest discover -s tests -p test_liquidation.py
+          node --test tests/peer_comparison.test.cjs tests/reported_growth.test.cjs tests/price_history.test.cjs tests/liquidation.test.cjs
 
       - name: Commit & Push New DCF Dataset & Persistent Cache
         run: |

@@ -232,7 +232,7 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
       assert.equal(info.length, 3);
       assert.ok(Math.max(...info.map(header => header.infoTop)) - Math.min(...info.map(header => header.infoTop)) < 1);
       const values = await page.locator('#screener-tbody .liquidation-value').evaluateAll(cells => cells.map(cell => ({
-        value: Number(cell.textContent.replace(/[$,\s]/g, '')),
+        value: Number(cell.dataset.value),
         positive: cell.classList.contains('text-green'), negative: cell.classList.contains('text-red'),
         neutral: cell.classList.contains('text-muted')
       })));
@@ -241,19 +241,23 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
       assert.ok(await page.locator('#screener-liquidation-key').isVisible());
     }
     const priorLiquidation = await page.evaluate(() => {
-      const fields = ['liq_val_1', 'liq_val_2', 'liq_val_3'];
-      const original = fields.map(field => stockUniverse.NVDA[field]);
-      fields.forEach((field, i) => { stockUniverse.NVDA[field] = [12.34, -5.67, 0][i]; });
+      const original = structuredClone(stockUniverse.NVDA.liquidation);
+      stockUniverse.NVDA.liquidation.quote.price = 100;
+      stockUniverse.NVDA.liquidation.quote.marketCap = 100;
+      Object.assign(stockUniverse.NVDA.liquidation.amounts, {
+        currentAssets: 112.34, totalLiabilities: 100, cashAndShortTermInvestments: 94.33,
+        tradeReceivables: 7.0875, inventory: 0
+      });
       renderScreenerTable();
       return original;
     });
     const nvdaValues = page.locator('#screener-tbody tr').filter({ has: page.locator('a[onclick="openCompanyProfile(\'NVDA\')"]') })
       .locator('.liquidation-value');
-    assert.deepEqual((await nvdaValues.allTextContents()).map(text => text.trim()), ['$12.34', '-$5.67', '$0.00']);
+    assert.deepEqual((await nvdaValues.locator('.liquidation-amount').allTextContents()).map(text => text.trim()), ['$12.34', '$0.00', '-$5.67']);
     assert.deepEqual(await nvdaValues.evaluateAll(cells => cells.map(cell => cell.className)),
-      ['liquidation-value text-green', 'liquidation-value text-red', 'liquidation-value text-muted']);
+      ['liquidation-value text-green', 'liquidation-value text-muted', 'liquidation-value text-red']);
     await page.evaluate(original => {
-      ['liq_val_1', 'liq_val_2', 'liq_val_3'].forEach((field, i) => { stockUniverse.NVDA[field] = original[i]; });
+      stockUniverse.NVDA.liquidation = original;
       renderScreenerTable();
     }, priorLiquidation);
     await page.locator('#main-scroll-box').evaluate(box => { box.scrollLeft = 1500; });

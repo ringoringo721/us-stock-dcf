@@ -9,6 +9,36 @@ artifact, records HTTP/coverage limitations explicitly, and never updates or
 commits valuation datasets. This is source evidence, not certification of the
 website's assumptions or financial methodology.
 
+## 清算價 I／II／III
+
+三項使用獨立的最新可用季度資產負債表，並非四季餘額的 TTM 加總。
+`scripts/refresh_liquidation.py` 以既有 GitHub secret 取得 FMP stable 季度資產負債表、
+美元上市報價及幣別確認，將來源與實際日期保存於 `cache/liquidation_sources.json`。
+所有股票抓取及驗證成功後才取代快取；錯誤、權限不足或空資料會明確中止，不填造資料。
+類股代碼使用 `BRK-B`，不使用 `BRKB`。同一季度的來源修訂亦會重新取得。
+
+`scripts/apply_liquidation.cjs` 使用共用期末 USD 匯率轉換餘額，僅更新兩份市場資料中的
+三項清算值及獨立 `liquidation` 來源資訊，不變更 DCF 參數、股價或其他財務數字。
+前後端共用 `liquidation.js`：I 為流動資產減總負債；II 為現金短投加貿易應收的
+80%、存貨的 50% 再減總負債；III 為現金短投減總負債。II 不混用總應收或其他應收款。
+三項分母均為同一筆 FMP 美元市值除以股價推算的普通股／ADR 股數，不稱為財報
+稀釋加權平均股數、不補 1 股，也不額外乘 ADR 倍數。資產負債表日期與報價日期分開揭露。
+
+篩選表逐格顯示財報日期；提示包含報價日期、股數、期末匯率與擷取時間。
+特別股帳面值不等於實際清算求償額，因此保留原本未扣優先權的簡化公式，
+以 `*` 及中英文說明揭露有特別股／資料不完整；不宣稱為普通股可分得金額、
+保證底價或正式清算鑑價。三項均未扣清算費及稅。缺少必要欄位或匯率時僅將
+受影響的值列為 N/A，顯示原因，不回退到舊季度、補零或套用 DCF 現金。
+
+每日流程及手動 `liquidation_only=true` 均更新來源與清算值。專用更新不執行
+一般市場／DCF 重算、同行或歷史價格更新；匯率仍先更新以涵蓋新財報日。
+專用來源更新失敗會明確失敗；一般每日流程則警告並保留已註明日期的舊清算快取，
+不阻斷獨立的財務資料更新，也不將舊快取重新標成最新擷取時間。
+完整市場產生器亦套用已註明日期的獨立快取，不再從永久財報快取重建清算值。
+驗證：`node --test tests/liquidation.test.cjs`、
+`python -m unittest discover -s tests -p test_liquidation.py`、
+`node tests/liquidation.browser.cjs`。
+
 ## Profile 歷史股價與成交量
 
 每檔股票的 Profile 最上方提供獨立的真實日收盤價與成交量圖，支援

@@ -67,9 +67,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 24100000000,
     "shares_display": "24,100.00 M",
     "mcap": 5160533.0,
-    "liq_val_1": 4.4,
-    "liq_val_2": 3.08,
-    "liq_val_3": 0.34,
+    "liq_val_1": 4.403485477178423,
+    "liq_val_2": 3.0836390041493775,
+    "liq_val_3": 0.3353112033195021,
     "debt": 38860.0,
     "cash": 33123.0,
     "short_term_investments": 76926.0,
@@ -3868,7 +3868,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "NVDA",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "NVDA",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:56:32.246908+00:00",
+      "balanceDate": "2026-07-26",
+      "filingDate": "2026-08-26",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-07-26",
+        "observationDate": "2026-07-26",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 214.13,
+        "marketCap": 5160533000000
+      },
+      "amounts": {
+        "currentAssets": 197412000000,
+        "totalLiabilities": 91288000000,
+        "cashAndShortTermInvestments": 99369000000,
+        "tradeReceivables": 63059000000,
+        "inventory": 31575000000,
+        "preferredStock": 0
+      }
+    }
   },
   "AAPL": {
     "reported_growth": {
@@ -3938,9 +3973,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 14594180000,
     "shares_display": "14,594.18 M",
     "mcap": 5012517.1,
-    "liq_val_1": -8.63,
-    "liq_val_2": -12.52,
-    "liq_val_3": -14.62,
+    "liq_val_1": -8.628645117437225,
+    "liq_val_2": -12.51749670073961,
+    "liq_val_3": -14.618635647908961,
     "debt": 84307.0,
     "cash": 62399.0,
     "short_term_investments": 22855.0,
@@ -7733,7 +7768,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "AAPL",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "AAPL",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:56:33.976180+00:00",
+      "balanceDate": "2026-06-27",
+      "filingDate": "2026-07-31",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-27",
+        "observationDate": "2026-06-27",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 343.46,
+        "marketCap": 5012517062800
+      },
+      "amounts": {
+        "currentAssets": 149818000000,
+        "totalLiabilities": 275746000000,
+        "cashAndShortTermInvestments": 62399000000,
+        "tradeReceivables": 31398000000,
+        "inventory": 11092000000,
+        "preferredStock": 0
+      }
+    }
   },
   "MSFT": {
     "reported_growth": {
@@ -7803,9 +7873,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 7425550000,
     "shares_display": "7,425.55 M",
     "mcap": 3928487.2,
-    "liq_val_1": -14.58,
-    "liq_val_2": -23.4,
-    "liq_val_3": -32.21,
+    "liq_val_1": -14.581950158574111,
+    "liq_val_2": -23.398495734322708,
+    "liq_val_3": -32.20582987118799,
     "debt": 128808.3,
     "cash": 76843.0,
     "short_term_investments": 55908.0,
@@ -11622,7 +11692,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "MSFT",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "MSFT",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:56:35.366800+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-29",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 529.05,
+        "marketCap": 3928487227500
+      },
+      "amounts": {
+        "currentAssets": 207710000000,
+        "totalLiabilities": 315989000000,
+        "cashAndShortTermInvestments": 76843000000,
+        "tradeReceivables": 80876000000,
+        "inventory": 1397000000,
+        "preferredStock": 0
+      }
+    }
   },
   "AVGO": {
     "reported_growth": {
@@ -11692,9 +11797,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 4773630000,
     "shares_display": "4,773.63 M",
     "mcap": 1569330.8,
-    "liq_val_1": -7.6,
-    "liq_val_2": -10.74,
-    "liq_val_3": -13.51,
+    "liq_val_1": -7.601133943382144,
+    "liq_val_2": -10.737300848521452,
+    "liq_val_3": -13.508169217889233,
     "debt": 59419.0,
     "cash": 23975.0,
     "short_term_investments": 0.0,
@@ -15463,7 +15568,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "AVGO",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "AVGO",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:56:36.747300+00:00",
+      "balanceDate": "2026-08-02",
+      "filingDate": "2026-09-10",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-08-02",
+        "observationDate": "2026-08-02",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 328.75,
+        "marketCap": 1569330818119
+      },
+      "amounts": {
+        "currentAssets": 52173000000,
+        "totalLiabilities": 88458000000,
+        "cashAndShortTermInvestments": 23975000000,
+        "tradeReceivables": 13707000000,
+        "inventory": 4523000000,
+        "preferredStock": 0
+      }
+    }
   },
   "ORCL": {
     "reported_growth": {
@@ -15533,9 +15673,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 3023740000,
     "shares_display": "3,023.74 M",
     "mcap": 387703.5,
-    "liq_val_1": -59.67,
-    "liq_val_2": -62.79,
-    "liq_val_3": -65.81,
+    "liq_val_1": -59.67220322563653,
+    "liq_val_2": -62.79344113446093,
+    "liq_val_3": -65.80798984141765,
     "debt": 155931.0,
     "cash": 37077.0,
     "short_term_investments": 708.0,
@@ -19353,7 +19493,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "ORCL",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "ORCL",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:56:38.130291+00:00",
+      "balanceDate": "2026-08-31",
+      "filingDate": "2026-09-11",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-08-31",
+        "observationDate": "2026-08-31",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 128.22,
+        "marketCap": 387703453357
+      },
+      "amounts": {
+        "currentAssets": 55630000000,
+        "totalLiabilities": 236063000000,
+        "cashAndShortTermInvestments": 37077000000,
+        "tradeReceivables": 11394000000,
+        "inventory": 0,
+        "preferredStock": 4954000000
+      }
+    }
   },
   "CRM": {
     "reported_growth": {
@@ -19423,9 +19598,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 823000000,
     "shares_display": "823.00 M",
     "mcap": 198096.1,
-    "liq_val_1": -59.73,
-    "liq_val_2": -66.57,
-    "liq_val_3": -72.71,
+    "liq_val_1": -59.7314716097491,
+    "liq_val_2": -66.56500761197105,
+    "liq_val_3": -72.70838563957315,
     "debt": 41743.0,
     "cash": 11403.0,
     "short_term_investments": 3093.0,
@@ -23193,7 +23368,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "CRM",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "CRM",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:56:39.511057+00:00",
+      "balanceDate": "2026-07-31",
+      "filingDate": "2026-08-27",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-07-31",
+        "observationDate": "2026-07-31",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 240.7,
+        "marketCap": 198096095427
+      },
+      "amounts": {
+        "currentAssets": 22083000000,
+        "totalLiabilities": 71242000000,
+        "cashAndShortTermInvestments": 11403000000,
+        "tradeReceivables": 6320000000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "AMD": {
     "reported_growth": {
@@ -23263,9 +23473,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 1632480000,
     "shares_display": "1,632.48 M",
     "mcap": 863171.2,
-    "liq_val_1": 8.75,
-    "liq_val_2": 3.63,
-    "liq_val_3": -2.53,
+    "liq_val_1": 8.748678975965609,
+    "liq_val_2": 3.6323985850497738,
+    "liq_val_3": -2.529288299381179,
     "debt": 4276.0,
     "cash": 13111.0,
     "short_term_investments": 8025.0,
@@ -27064,7 +27274,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "AMD",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "AMD",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:56:40.908137+00:00",
+      "balanceDate": "2026-06-27",
+      "filingDate": "2026-08-05",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-27",
+        "observationDate": "2026-06-27",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 528.75,
+        "marketCap": 863171173699
+      },
+      "amounts": {
+        "currentAssets": 31522000000,
+        "totalLiabilities": 17240000000,
+        "cashAndShortTermInvestments": 13111000000,
+        "tradeReceivables": 7281000000,
+        "inventory": 8468000000,
+        "preferredStock": 0
+      }
+    }
   },
   "CSCO": {
     "reported_growth": {
@@ -27134,9 +27379,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 3942590000,
     "shares_display": "3,942.59 M",
     "mcap": 423394.4,
-    "liq_val_1": -10.32,
-    "liq_val_2": -13.85,
-    "liq_val_3": -16.09,
+    "liq_val_1": -10.319874060019265,
+    "liq_val_2": -13.851565421183967,
+    "liq_val_3": -16.089436211154965,
     "debt": 29533.0,
     "cash": 15918.0,
     "short_term_investments": 8700.0,
@@ -30953,7 +31198,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "CSCO",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "CSCO",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:56:42.991682+00:00",
+      "balanceDate": "2026-07-25",
+      "filingDate": "2026-09-02",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-07-25",
+        "observationDate": "2026-07-25",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 107.39,
+        "marketCap": 423394404291
+      },
+      "amounts": {
+        "currentAssets": 38665000000,
+        "totalLiabilities": 79352000000,
+        "cashAndShortTermInvestments": 15918000000,
+        "tradeReceivables": 7470000000,
+        "inventory": 5694000000,
+        "preferredStock": 0
+      }
+    }
   },
   "ACN": {
     "reported_growth": {
@@ -31023,9 +31303,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 611940000,
     "shares_display": "611.94 M",
     "mcap": 140550.9,
-    "liq_val_1": -13.91,
-    "liq_val_2": -23.6,
-    "liq_val_3": -44.94,
+    "liq_val_1": -13.905785980169025,
+    "liq_val_2": -23.597812256473315,
+    "liq_val_3": -44.943641882999565,
     "debt": 13397.0,
     "cash": 12837.8,
     "short_term_investments": 6.3,
@@ -34787,7 +35067,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "ACN",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "ACN",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:56:44.377250+00:00",
+      "balanceDate": "2026-08-31",
+      "filingDate": "2026-10-16",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-08-31",
+        "observationDate": "2026-08-31",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 229.68,
+        "marketCap": 140550863595
+      },
+      "amounts": {
+        "currentAssets": 31831140000,
+        "totalLiabilities": 40340676000,
+        "cashAndShortTermInvestments": 12837769000,
+        "tradeReceivables": 16328015000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "ADBE": {
     "reported_growth": {
@@ -34857,9 +35172,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 389200000,
     "shares_display": "389.20 M",
     "mcap": 95431.8,
-    "liq_val_1": -23.28,
-    "liq_val_2": -28.04,
-    "liq_val_3": -32.32,
+    "liq_val_1": -23.275950668036998,
+    "liq_val_2": -28.040082219938334,
+    "liq_val_3": -32.31757451181912,
     "debt": 6762.0,
     "cash": 5639.0,
     "short_term_investments": 1280.0,
@@ -38657,7 +38972,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "ADBE",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "ADBE",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:56:45.808282+00:00",
+      "balanceDate": "2026-08-28",
+      "filingDate": "2026-09-22",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-08-28",
+        "observationDate": "2026-08-28",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 245.2,
+        "marketCap": 95431840000
+      },
+      "amounts": {
+        "currentAssets": 9158000000,
+        "totalLiabilities": 18217000000,
+        "cashAndShortTermInvestments": 5639000000,
+        "tradeReceivables": 2081000000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "QCOM": {
     "reported_growth": {
@@ -38727,9 +39077,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 1067839999,
     "shares_display": "1,067.84 M",
     "mcap": 183785.9,
-    "liq_val_1": -6.28,
-    "liq_val_2": -12.62,
-    "liq_val_3": -20.05,
+    "liq_val_1": -6.279033465271116,
+    "liq_val_2": -12.624649969972623,
+    "liq_val_3": -20.04514710277826,
     "debt": 15270.0,
     "cash": 8304.0,
     "short_term_investments": 3771.0,
@@ -42516,7 +42866,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "QCOM",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "QCOM",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:56:47.449120+00:00",
+      "balanceDate": "2026-06-28",
+      "filingDate": "2026-07-29",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-28",
+        "observationDate": "2026-06-28",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 172.11,
+        "marketCap": 183785857550
+      },
+      "amounts": {
+        "currentAssets": 23004000000,
+        "totalLiabilities": 29709000000,
+        "cashAndShortTermInvestments": 8304000000,
+        "tradeReceivables": 4668000000,
+        "inventory": 8379000000,
+        "preferredStock": 0
+      }
+    }
   },
   "TXN": {
     "reported_growth": {
@@ -42586,9 +42971,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 913250000,
     "shares_display": "913.25 M",
     "mcap": 252494.7,
-    "liq_val_1": -2.32,
-    "liq_val_2": -7.18,
-    "liq_val_3": -11.91,
+    "liq_val_1": -2.319195583488562,
+    "liq_val_2": -7.178227878923167,
+    "liq_val_3": -11.906955984350624,
     "debt": 14052.0,
     "cash": 7001.0,
     "short_term_investments": 3341.0,
@@ -46387,7 +46772,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "TXN",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "TXN",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:56:48.840124+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-24",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 276.48,
+        "marketCap": 252494720225
+      },
+      "amounts": {
+        "currentAssets": 15757000000,
+        "totalLiabilities": 17875000000,
+        "cashAndShortTermInvestments": 7001000000,
+        "tradeReceivables": 2520000000,
+        "inventory": 4605000000,
+        "preferredStock": 0
+      }
+    }
   },
   "IBM": {
     "reported_growth": {
@@ -46457,9 +46877,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 942130000,
     "shares_display": "942.13 M",
     "mcap": 218707.0,
-    "liq_val_1": -94.64,
-    "liq_val_2": -110.09,
-    "liq_val_3": -116.15,
+    "liq_val_1": -94.63621947621039,
+    "liq_val_2": -110.08816155663632,
+    "liq_val_3": -116.14695998658365,
     "debt": 65272.0,
     "cash": 8132.0,
     "short_term_investments": 960.0,
@@ -50270,7 +50690,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "IBM",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "IBM",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:56:50.220227+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-23",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 232.14,
+        "marketCap": 218706986760
+      },
+      "amounts": {
+        "currentAssets": 28398000000,
+        "totalLiabilities": 117558000000,
+        "cashAndShortTermInvestments": 8132000000,
+        "tradeReceivables": 6044000000,
+        "inventory": 1746000000,
+        "preferredStock": 0
+      }
+    }
   },
   "INTC": {
     "reported_growth": {
@@ -50340,9 +50795,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 5286110000,
     "shares_display": "5,286.11 M",
     "mcap": 474956.6,
-    "liq_val_1": -7.96,
-    "liq_val_2": -11.37,
-    "liq_val_3": -13.16,
+    "liq_val_1": -7.961059781100784,
+    "liq_val_2": -11.368786095119201,
+    "liq_val_3": -13.160729223472671,
     "debt": 50537.0,
     "cash": 29727.0,
     "short_term_investments": 16853.0,
@@ -54165,7 +54620,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "INTC",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "INTC",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:56:51.601657+00:00",
+      "balanceDate": "2026-06-27",
+      "filingDate": "2026-07-24",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-27",
+        "observationDate": "2026-06-27",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 89.85,
+        "marketCap": 474956557791
+      },
+      "amounts": {
+        "currentAssets": 57213000000,
+        "totalLiabilities": 99296000000,
+        "cashAndShortTermInvestments": 29727000000,
+        "tradeReceivables": 4033000000,
+        "inventory": 12492000000,
+        "preferredStock": 0
+      }
+    }
   },
   "INTU": {
     "reported_growth": {
@@ -54235,9 +54725,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 267240000,
     "shares_display": "267.24 M",
     "mcap": 86891.8,
-    "liq_val_1": -9.29,
-    "liq_val_2": -37.77,
-    "liq_val_3": -39.64,
+    "liq_val_1": -9.291412729342682,
+    "liq_val_2": -37.771856661290784,
+    "liq_val_3": -39.64286204376012,
     "debt": 8421.0,
     "cash": 7200.0,
     "short_term_investments": 2495.0,
@@ -58016,7 +58506,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "INTU",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "INTU",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:56:53.040046+00:00",
+      "balanceDate": "2026-07-31",
+      "filingDate": "2026-09-09",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-07-31",
+        "observationDate": "2026-07-31",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 325.15,
+        "marketCap": 86891786375
+      },
+      "amounts": {
+        "currentAssets": 15311000000,
+        "totalLiabilities": 17794000000,
+        "cashAndShortTermInvestments": 7200000000,
+        "tradeReceivables": 625000000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "NOW": {
     "reported_growth": {
@@ -58086,9 +58611,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 1033859999,
     "shares_display": "1,033.86 M",
     "mcap": 146777.4,
-    "liq_val_1": -10.29,
-    "liq_val_2": -12.31,
-    "liq_val_3": -14.01,
+    "liq_val_1": -10.287639936471212,
+    "liq_val_2": -12.308412534748351,
+    "liq_val_3": -14.01154119215137,
     "debt": 8453.0,
     "cash": 4664.0,
     "short_term_investments": 2161.0,
@@ -61851,7 +62376,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "NOW",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "NOW",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:56:54.714211+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-23",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 141.97,
+        "marketCap": 146777388140
+      },
+      "amounts": {
+        "currentAssets": 8514000000,
+        "totalLiabilities": 19150000000,
+        "cashAndShortTermInvestments": 4664000000,
+        "tradeReceivables": 2201000000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "AMAT": {
     "reported_growth": {
@@ -61921,9 +62481,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 793600000,
     "shares_display": "793.60 M",
     "mcap": 324811.5,
-    "liq_val_1": 9.07,
-    "liq_val_2": 0.97,
-    "liq_val_3": -10.92,
+    "liq_val_1": 9.071349792656044,
+    "liq_val_2": 0.9725333754649167,
+    "liq_val_3": -10.916113801052829,
     "debt": 7346.0,
     "cash": 9233.0,
     "short_term_investments": 2196.0,
@@ -65740,7 +66300,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "AMAT",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "AMAT",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:56:56.189206+00:00",
+      "balanceDate": "2026-07-26",
+      "filingDate": "2026-08-20",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-07-26",
+        "observationDate": "2026-07-26",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 409.29,
+        "marketCap": 324811497445
+      },
+      "amounts": {
+        "currentAssets": 25095000000,
+        "totalLiabilities": 17896000000,
+        "cashAndShortTermInvestments": 9233000000,
+        "tradeReceivables": 7691000000,
+        "inventory": 6564000000,
+        "preferredStock": 0
+      }
+    }
   },
   "LRCX": {
     "reported_growth": {
@@ -65810,9 +66405,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 1251420000,
     "shares_display": "1,251.42 M",
     "mcap": 330299.8,
-    "liq_val_1": 3.64,
-    "liq_val_2": 0.74,
-    "liq_val_3": -4.38,
+    "liq_val_1": 3.63737434274664,
+    "liq_val_2": 0.743275718783462,
+    "liq_val_3": -4.3787465439261,
     "debt": 4121.6,
     "cash": 5579.2,
     "short_term_investments": 0.0,
@@ -69593,7 +70188,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "LRCX",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "LRCX",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:56:57.585155+00:00",
+      "balanceDate": "2026-06-28",
+      "filingDate": "2026-08-07",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-28",
+        "observationDate": "2026-06-28",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 263.94,
+        "marketCap": 330299794800
+      },
+      "amounts": {
+        "currentAssets": 15610705000,
+        "totalLiabilities": 11058822000,
+        "cashAndShortTermInvestments": 5579171000,
+        "tradeReceivables": 5339682000,
+        "inventory": 4276111000,
+        "preferredStock": 0
+      }
+    }
   },
   "MU": {
     "reported_growth": {
@@ -69663,9 +70293,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 1131420000,
     "shares_display": "1,131.42 M",
     "mcap": 994337.2,
-    "liq_val_1": 29.66,
-    "liq_val_2": 17.74,
-    "liq_val_3": -12.44,
+    "liq_val_1": 29.66184087253186,
+    "liq_val_2": 14.622686535504057,
+    "liq_val_3": -12.441003340934401,
     "debt": 5179.0,
     "cash": 43434.0,
     "short_term_investments": 5070.0,
@@ -73446,7 +74076,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "MU",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "MU",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:56:58.970025+00:00",
+      "balanceDate": "2026-09-03",
+      "filingDate": "2026-10-09",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-09-03",
+        "observationDate": "2026-09-03",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 878.84,
+        "marketCap": 994337152800
+      },
+      "amounts": {
+        "currentAssets": 91070000000,
+        "totalLiabilities": 57510000000,
+        "cashAndShortTermInvestments": 43434000000,
+        "tradeReceivables": 31793000000,
+        "inventory": 10372000000,
+        "preferredStock": 0
+      }
+    }
   },
   "TSM": {
     "reported_growth": {
@@ -73516,9 +74181,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 5186480000,
     "shares_display": "5,186.48 M",
     "mcap": 2139993.5,
-    "liq_val_1": 10.076416046774144,
-    "liq_val_2": 7.036347274317646,
-    "liq_val_3": 3.7340715857607036,
+    "liq_val_1": 12.534729161899913,
+    "liq_val_2": 9.712663182697908,
+    "liq_val_3": 6.084266230225393,
     "debt": 33549.71751962323,
     "cash": 98405.58869701726,
     "short_term_investments": 12050.078492935634,
@@ -77467,7 +78132,43 @@ window.FULL_MARKET_DATA = {
       },
       "reason": null
     },
-    "enterpriseValueBasis": "USD market capitalization + USD debt - USD cash and short-term investments"
+    "enterpriseValueBasis": "USD market capitalization + USD debt - USD cash and short-term investments",
+    "liquidation": {
+      "version": 1,
+      "ticker": "TSM",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:00.391913+00:00",
+      "balanceDate": "2026-09-30",
+      "filingDate": "2026-09-30",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "TWD",
+      "fx": {
+        "rate": 0.03139717425431711,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-09-30",
+        "observationDate": "2026-09-30",
+        "reason": null,
+        "source": "RXI_N.B.TA"
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 412.61,
+        "marketCap": 2139993512800
+      },
+      "amounts": {
+        "currentAssets": 159293673720.56512,
+        "totalLiabilities": 94282551616.95447,
+        "cashAndShortTermInvestments": 125838476734.69386,
+        "tradeReceivables": 15148218681.31868,
+        "inventory": 13400066562.009418,
+        "preferredStock": 0
+      }
+    }
   },
   "FICO": {
     "reported_growth": {
@@ -77537,9 +78238,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 21600000,
     "shares_display": "21.60 M",
     "mcap": 16655.9,
-    "liq_val_1": -243.19,
-    "liq_val_2": -250.56,
-    "liq_val_3": -272.5,
+    "liq_val_1": -243.21852831986547,
+    "liq_val_2": -250.5848441223437,
+    "liq_val_3": -272.5328027756888,
     "debt": 5598.0,
     "cash": 248.4,
     "short_term_investments": 0.0,
@@ -81321,7 +82022,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "FICO",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "FICO",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:01.902061+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-29",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 771.19,
+        "marketCap": 16655880136
+      },
+      "amounts": {
+        "currentAssets": 881563000,
+        "totalLiabilities": 6134508000,
+        "cashAndShortTermInvestments": 248444000,
+        "tradeReceivables": 592530000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "ADSK": {
     "reported_growth": {
@@ -81391,9 +82127,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 209000000,
     "shares_display": "209.00 M",
     "mcap": 50139.1,
-    "liq_val_1": -18.8,
-    "liq_val_2": -23.43,
-    "liq_val_3": -26.05,
+    "liq_val_1": -18.803827751196174,
+    "liq_val_2": -23.43444976076555,
+    "liq_val_3": -26.05263157894737,
     "debt": 3705.0,
     "cash": 4155.0,
     "short_term_investments": 57.0,
@@ -85179,7 +85915,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "ADSK",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "ADSK",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:03.645409+00:00",
+      "balanceDate": "2026-07-31",
+      "filingDate": "2026-08-28",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-07-31",
+        "observationDate": "2026-07-31",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 239.9,
+        "marketCap": 50139100000
+      },
+      "amounts": {
+        "currentAssets": 5670000000,
+        "totalLiabilities": 9600000000,
+        "cashAndShortTermInvestments": 4155000000,
+        "tradeReceivables": 684000000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "TYL": {
     "reported_growth": {
@@ -85249,9 +86020,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 40950000,
     "shares_display": "40.95 M",
     "mcap": 14778.5,
-    "liq_val_1": -23.42,
-    "liq_val_2": -29.95,
-    "liq_val_3": -44.11,
+    "liq_val_1": -23.422933510449962,
+    "liq_val_2": -29.94745594264547,
+    "liq_val_3": -44.10765695699631,
     "debt": 1455.0,
     "cash": 970.0,
     "short_term_investments": 74.7,
@@ -89031,7 +89802,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "TYL",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "TYL",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:05.480081+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-29",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 360.87,
+        "marketCap": 14778456501
+      },
+      "amounts": {
+        "currentAssets": 1817122000,
+        "totalLiabilities": 2776345000,
+        "cashAndShortTermInvestments": 970035000,
+        "tradeReceivables": 724866000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "APPF": {
     "reported_growth": {
@@ -89101,9 +89907,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 35420000,
     "shares_display": "35.42 M",
     "mcap": 7513.1,
-    "liq_val_1": 5.73,
-    "liq_val_2": 3.95,
-    "liq_val_3": 2.81,
+    "liq_val_1": 5.7304092006349165,
+    "liq_val_2": 3.947487229631484,
+    "liq_val_3": 2.808113962919777,
     "debt": 35.8,
     "cash": 221.7,
     "short_term_investments": 4.3,
@@ -92860,7 +93666,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "APPF",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "APPF",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:06.887155+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-23",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 212.13,
+        "marketCap": 7513085850
+      },
+      "amounts": {
+        "currentAssets": 325185000,
+        "totalLiabilities": 122229000,
+        "cashAndShortTermInvestments": 221685000,
+        "tradeReceivables": 50442000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "YOU": {
     "reported_growth": {
@@ -92930,9 +93771,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 102910000,
     "shares_display": "102.91 M",
     "mcap": 4520.9,
-    "liq_val_1": -3.03,
-    "liq_val_2": -3.64,
-    "liq_val_3": -3.65,
+    "liq_val_1": -3.028199123514493,
+    "liq_val_2": -3.6428622790566605,
+    "liq_val_3": -3.6526804714753527,
     "debt": 109.8,
     "cash": 959.3,
     "short_term_investments": 831.0,
@@ -96694,7 +97535,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "YOU",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "YOU",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:08.833953+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-05",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 43.93,
+        "marketCap": 4520880230
+      },
+      "amounts": {
+        "currentAssets": 1023534000,
+        "totalLiabilities": 1335169000,
+        "cashAndShortTermInvestments": 959268000,
+        "tradeReceivables": 1263000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "ITRI": {
     "reported_growth": {
@@ -96764,9 +97640,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 43790000,
     "shares_display": "43.79 M",
     "mcap": 3636.1,
-    "liq_val_1": -18.4,
-    "liq_val_2": -27.4,
-    "liq_val_3": -36.77,
+    "liq_val_1": -18.404998766751625,
+    "liq_val_2": -27.40408753322919,
+    "liq_val_3": -36.77336548914285,
     "debt": 147.6,
     "cash": 745.2,
     "short_term_investments": 0.0,
@@ -100522,7 +101398,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "ITRI",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "ITRI",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:10.288978+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-28",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 83.04,
+        "marketCap": 3636055872
+      },
+      "amounts": {
+        "currentAssets": 1549521000,
+        "totalLiabilities": 2355417000,
+        "cashAndShortTermInvestments": 745229000,
+        "tradeReceivables": 351109000,
+        "inventory": 258727000,
+        "preferredStock": 0
+      }
+    }
   },
   "SNPS": {
     "reported_growth": {
@@ -100592,9 +101503,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 191640000,
     "shares_display": "191.64 M",
     "mcap": 87123.8,
-    "liq_val_1": -51.82,
-    "liq_val_2": -60.91,
-    "liq_val_3": -67.66,
+    "liq_val_1": -51.819672357087285,
+    "liq_val_2": -60.91033937059714,
+    "liq_val_3": -67.66563463405117,
     "debt": 10841.8,
     "cash": 3607.7,
     "short_term_investments": 1.4,
@@ -104367,7 +105278,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "SNPS",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "SNPS",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:11.778601+00:00",
+      "balanceDate": "2026-07-31",
+      "filingDate": "2026-08-26",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-07-31",
+        "observationDate": "2026-07-31",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 454.63,
+        "marketCap": 87123766552
+      },
+      "amounts": {
+        "currentAssets": 6644336000,
+        "totalLiabilities": 16574884000,
+        "cashAndShortTermInvestments": 3607669000,
+        "tradeReceivables": 1318747000,
+        "inventory": 479129000,
+        "preferredStock": 0
+      }
+    }
   },
   "BR": {
     "reported_growth": {
@@ -104437,9 +105383,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 112900000,
     "shares_display": "112.90 M",
     "mcap": 19769.9,
-    "liq_val_1": -38.59,
-    "liq_val_2": -42.34,
-    "liq_val_3": -50.5,
+    "liq_val_1": -38.58811946808365,
+    "liq_val_2": -42.34480567062653,
+    "liq_val_3": -50.50308487883196,
     "debt": 3517.6,
     "cash": 402.9,
     "short_term_investments": 0.0,
@@ -108198,7 +109144,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "BR",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "BR",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:13.159342+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-04",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 175.11,
+        "marketCap": 19769924954
+      },
+      "amounts": {
+        "currentAssets": 1748100000,
+        "totalLiabilities": 6104700000,
+        "cashAndShortTermInvestments": 402900000,
+        "tradeReceivables": 1129400000,
+        "inventory": 35100000,
+        "preferredStock": 0
+      }
+    }
   },
   "KLAC": {
     "reported_growth": {
@@ -108268,9 +109249,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 1305010000,
     "shares_display": "1,305.01 M",
     "mcap": 216292.4,
-    "liq_val_1": 0.6,
-    "liq_val_2": -1.96,
-    "liq_val_3": -5.13,
+    "liq_val_1": 0.5977540401989256,
+    "liq_val_2": -1.9644842568256182,
+    "liq_val_3": -5.1335292449866285,
     "debt": 6151.7,
     "cash": 4902.4,
     "short_term_investments": 3252.6,
@@ -112069,7 +113050,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "KLAC",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "KLAC",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:14.543109+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-06",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 165.74,
+        "marketCap": 216292357400
+      },
+      "amounts": {
+        "currentAssets": 12381790000,
+        "totalLiabilities": 11601715000,
+        "cashAndShortTermInvestments": 4902408000,
+        "tradeReceivables": 2889208000,
+        "inventory": 3648538000,
+        "preferredStock": 0
+      }
+    }
   },
   "MRVL": {
     "reported_growth": {
@@ -112139,9 +113155,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 875770000,
     "shares_display": "875.77 M",
     "mcap": 199525.9,
-    "liq_val_1": -1.26,
-    "liq_val_2": -3.01,
-    "liq_val_3": -5.81,
+    "liq_val_1": -1.2602675451060286,
+    "liq_val_2": -3.008998667674644,
+    "liq_val_3": -5.81228038243971,
     "debt": 5286.1,
     "cash": 3932.8,
     "short_term_investments": 0.0,
@@ -115916,7 +116932,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "MRVL",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "MRVL",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:15.925724+00:00",
+      "balanceDate": "2026-08-01",
+      "filingDate": "2026-08-28",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-08-01",
+        "observationDate": "2026-08-01",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 227.83,
+        "marketCap": 199525864152
+      },
+      "amounts": {
+        "currentAssets": 7919300000,
+        "totalLiabilities": 9023000000,
+        "cashAndShortTermInvestments": 3932800000,
+        "tradeReceivables": 2218400000,
+        "inventory": 1360600000,
+        "preferredStock": 0
+      }
+    }
   },
   "CDNS": {
     "reported_growth": {
@@ -115986,9 +117037,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 275390000,
     "shares_display": "275.39 M",
     "mcap": 87990.8,
-    "liq_val_1": -7.26,
-    "liq_val_2": -9.93,
-    "liq_val_3": -13.73,
+    "liq_val_1": -7.264051736972254,
+    "liq_val_2": -9.930214638716308,
+    "liq_val_3": -13.73280729720799,
     "debt": 2482.2,
     "cash": 1440.4,
     "short_term_investments": 0.0,
@@ -119769,7 +120820,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "CDNS",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "CDNS",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:17.308923+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-29",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 319.51,
+        "marketCap": 87990817430
+      },
+      "amounts": {
+        "currentAssets": 3221893000,
+        "totalLiabilities": 5222362000,
+        "cashAndShortTermInvestments": 1440443000,
+        "tradeReceivables": 1065023000,
+        "inventory": 390378000,
+        "preferredStock": 0
+      }
+    }
   },
   "FTNT": {
     "reported_growth": {
@@ -119839,9 +120925,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 733710000,
     "shares_display": "733.71 M",
     "mcap": 124093.0,
-    "liq_val_1": -4.22,
-    "liq_val_2": -5.26,
-    "liq_val_3": -7.14,
+    "liq_val_1": -4.224808939186051,
+    "liq_val_2": -5.26209371218635,
+    "liq_val_3": -7.1397063126415015,
     "debt": 496.9,
     "cash": 4069.6,
     "short_term_investments": 1134.7,
@@ -123616,7 +124702,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "FTNT",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "FTNT",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:18.701308+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-30",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 169.13,
+        "marketCap": 124092990132
+      },
+      "amounts": {
+        "currentAssets": 6208300000,
+        "totalLiabilities": 9308100000,
+        "cashAndShortTermInvestments": 4069600000,
+        "tradeReceivables": 1455600000,
+        "inventory": 426300000,
+        "preferredStock": 0
+      }
+    }
   },
   "PANW": {
     "reported_growth": {
@@ -123686,9 +124807,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 818000000,
     "shares_display": "818.00 M",
     "mcap": 279756.0,
-    "liq_val_1": -15.07,
-    "liq_val_2": -18.33,
-    "liq_val_3": -21.88,
+    "liq_val_1": -15.067237311171025,
+    "liq_val_2": -18.329829030120578,
+    "liq_val_3": -21.878973319109765,
     "debt": 2500.0,
     "cash": 3071.0,
     "short_term_investments": 557.0,
@@ -127462,7 +128583,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "PANW",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "PANW",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:20.228178+00:00",
+      "balanceDate": "2026-07-31",
+      "filingDate": "2026-09-10",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-07-31",
+        "observationDate": "2026-07-31",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 342,
+        "marketCap": 279755997264
+      },
+      "amounts": {
+        "currentAssets": 8643000000,
+        "totalLiabilities": 20968000000,
+        "cashAndShortTermInvestments": 3071000000,
+        "tradeReceivables": 3629000000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "CRWD": {
     "reported_growth": {
@@ -127532,9 +128688,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 1023930000,
     "shares_display": "1,023.93 M",
     "mcap": 232832.5,
-    "liq_val_1": 0.07,
-    "liq_val_2": -1.04,
-    "liq_val_3": -1.83,
+    "liq_val_1": 0.06807269089893296,
+    "liq_val_2": -1.0354848341040537,
+    "liq_val_3": -1.8278790048273936,
     "debt": 820.2,
     "cash": 5013.8,
     "short_term_investments": 0.0,
@@ -131303,7 +132459,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "CRWD",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "CRWD",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:21.624170+00:00",
+      "balanceDate": "2026-07-31",
+      "filingDate": "2026-08-27",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-07-31",
+        "observationDate": "2026-07-31",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 227.39,
+        "marketCap": 232832543722
+      },
+      "amounts": {
+        "currentAssets": 6955178000,
+        "totalLiabilities": 6885476000,
+        "cashAndShortTermInvestments": 5013847000,
+        "tradeReceivables": 1038575000,
+        "inventory": -39000000,
+        "preferredStock": 0
+      }
+    }
   },
   "WDAY": {
     "reported_growth": {
@@ -131373,9 +132564,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 241000000,
     "shares_display": "241.00 M",
     "mcap": 45985.2,
-    "liq_val_1": -14.22,
-    "liq_val_2": -18.58,
-    "liq_val_3": -24.87,
+    "liq_val_1": -14.224065918021802,
+    "liq_val_2": -18.58091224647072,
+    "liq_val_3": -24.871368469259828,
     "debt": 3772.0,
     "cash": 3403.0,
     "short_term_investments": 2742.0,
@@ -135136,7 +136327,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "WDAY",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "WDAY",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:23.463291+00:00",
+      "balanceDate": "2026-07-31",
+      "filingDate": "2026-08-27",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-07-31",
+        "observationDate": "2026-07-31",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 190.81,
+        "marketCap": 45985211526
+      },
+      "amounts": {
+        "currentAssets": 5969000000,
+        "totalLiabilities": 9397000000,
+        "cashAndShortTermInvestments": 3403000000,
+        "tradeReceivables": 1895000000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "ANET": {
     "reported_growth": {
@@ -135206,9 +136432,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 1261220000,
     "shares_display": "1,261.22 M",
     "mcap": 223210.7,
-    "liq_val_1": 8.91,
-    "liq_val_2": 5.95,
-    "liq_val_3": 3.51,
+    "liq_val_1": 8.912798718700941,
+    "liq_val_2": 5.947820364409064,
+    "liq_val_3": 3.5052568148300853,
     "debt": 0.0,
     "cash": 13343.3,
     "short_term_investments": 11053.1,
@@ -138978,7 +140204,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "ANET",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "ANET",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:24.849841+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-05",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 176.98,
+        "marketCap": 223210715600
+      },
+      "amounts": {
+        "currentAssets": 20163400000,
+        "totalLiabilities": 8922400000,
+        "cashAndShortTermInvestments": 13343300000,
+        "tradeReceivables": 2266200000,
+        "inventory": 2535300000,
+        "preferredStock": 0
+      }
+    }
   },
   "APH": {
     "reported_growth": {
@@ -139048,9 +140309,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 2465970000,
     "shares_display": "2,465.97 M",
     "mcap": 195674.5,
-    "liq_val_1": -4.61,
-    "liq_val_2": -6.51,
-    "liq_val_3": -9.64,
+    "liq_val_1": -4.60983496490557,
+    "liq_val_2": -6.511652941727041,
+    "liq_val_3": -9.63735600648916,
     "debt": 18811.3,
     "cash": 5419.1,
     "short_term_investments": 689.7,
@@ -142855,7 +144116,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "APH",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "APH",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:26.678256+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-31",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 79.35,
+        "marketCap": 195674465977
+      },
+      "amounts": {
+        "currentAssets": 17816800000,
+        "totalLiabilities": 29184500000,
+        "cashAndShortTermInvestments": 5419100000,
+        "tradeReceivables": 6790100000,
+        "inventory": 4551600000,
+        "preferredStock": 0
+      }
+    }
   },
   "TEL": {
     "reported_growth": {
@@ -142925,9 +144221,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 289510000,
     "shares_display": "289.51 M",
     "mcap": 61562.1,
-    "liq_val_1": -13.59,
-    "liq_val_2": -23.92,
-    "liq_val_3": -39.51,
+    "liq_val_1": -13.588325573831424,
+    "liq_val_2": -23.92049595741097,
+    "liq_val_3": -39.50769392818602,
     "debt": 5632.0,
     "cash": 1239.0,
     "short_term_investments": 0.0,
@@ -146689,7 +147985,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "TEL",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "TEL",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:28.065736+00:00",
+      "balanceDate": "2026-06-26",
+      "filingDate": "2026-07-24",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-26",
+        "observationDate": "2026-06-26",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 212.64,
+        "marketCap": 61562092802
+      },
+      "amounts": {
+        "currentAssets": 8743000000,
+        "totalLiabilities": 12677000000,
+        "cashAndShortTermInvestments": 1239000000,
+        "tradeReceivables": 3749000000,
+        "inventory": 3027000000,
+        "preferredStock": 0
+      }
+    }
   },
   "GOOGL": {
     "reported_growth": {
@@ -146759,9 +148090,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 12157530000,
     "shares_display": "12,157.53 M",
     "mcap": 4140732.7,
-    "liq_val_1": 5.1,
-    "liq_val_2": 1.75,
-    "liq_val_3": -3.21,
+    "liq_val_1": 5.1014479637309496,
+    "liq_val_2": 1.7525354483035338,
+    "liq_val_3": -3.210274142249484,
     "debt": 112756.0,
     "cash": 96989.6,
     "short_term_investments": 186563.0,
@@ -150536,7 +151867,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "GOOGL",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "GOOGL",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:29.456948+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-23",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 340.59,
+        "marketCap": 4140732697888.9995
+      },
+      "amounts": {
+        "currentAssets": 343524000000,
+        "totalLiabilities": 281503000000,
+        "cashAndShortTermInvestments": 242474000000,
+        "tradeReceivables": 69175000000,
+        "inventory": 9991000000,
+        "preferredStock": 0
+      }
+    }
   },
   "GOOG": {
     "reported_growth": {
@@ -150606,9 +151972,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 12229940000,
     "shares_display": "12,229.94 M",
     "mcap": 4120387.6,
-    "liq_val_1": 5.07,
-    "liq_val_2": 1.74,
-    "liq_val_3": -3.19,
+    "liq_val_1": 5.071245067575912,
+    "liq_val_2": 1.7421596399978423,
+    "liq_val_3": -3.191267856732724,
     "debt": 112756.0,
     "cash": 96989.6,
     "short_term_investments": 186563.0,
@@ -154383,7 +155749,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "GOOG",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "GOOG",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:30.849414+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-23",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 336.91,
+        "marketCap": 4120387563914
+      },
+      "amounts": {
+        "currentAssets": 343524000000,
+        "totalLiabilities": 281503000000,
+        "cashAndShortTermInvestments": 242474000000,
+        "tradeReceivables": 69175000000,
+        "inventory": 9991000000,
+        "preferredStock": 0
+      }
+    }
   },
   "META": {
     "reported_growth": {
@@ -154453,9 +155854,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 2547510000,
     "shares_display": "2,547.51 M",
     "mcap": 1807009.8,
-    "liq_val_1": -24.83,
-    "liq_val_2": -31.82,
-    "liq_val_3": -38.66,
+    "liq_val_1": -24.83212850123581,
+    "liq_val_2": -31.824614082075424,
+    "liq_val_3": -38.65545137779318,
     "debt": 112318.0,
     "cash": 90260.0,
     "short_term_investments": 74798.0,
@@ -158217,7 +159618,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "META",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "META",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:32.223063+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-30",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 709.325,
+        "marketCap": 1807009797721
+      },
+      "amounts": {
+        "currentAssets": 125475000000,
+        "totalLiabilities": 188735000000,
+        "cashAndShortTermInvestments": 90260000000,
+        "tradeReceivables": 21752000000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "NFLX": {
     "reported_growth": {
@@ -158287,9 +159723,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 4163939999,
     "shares_display": "4,163.94 M",
     "mcap": 293682.7,
-    "liq_val_1": -3.47,
-    "liq_val_2": -4.22,
-    "liq_val_3": -4.6,
+    "liq_val_1": -3.4690908130280453,
+    "liq_val_2": -4.218915882553543,
+    "liq_val_3": -4.603927770332906,
     "debt": 14309.3,
     "cash": 9127.9,
     "short_term_investments": 28.7,
@@ -162070,7 +163506,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "NFLX",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "NFLX",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:33.636086+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-17",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 70.53,
+        "marketCap": 293682688200
+      },
+      "amounts": {
+        "currentAssets": 13853303000,
+        "totalLiabilities": 28298389000,
+        "cashAndShortTermInvestments": 9127910000,
+        "tradeReceivables": 2003958000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "DIS": {
     "reported_growth": {
@@ -162140,9 +163611,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 1726690000,
     "shares_display": "1,726.69 M",
     "mcap": 190885.6,
-    "liq_val_1": -36.49,
-    "liq_val_2": -40.56,
-    "liq_val_3": -47.9,
+    "liq_val_1": -36.48946828903856,
+    "liq_val_2": -40.557424899663516,
+    "liq_val_3": -47.90263452038293,
     "debt": 46041.0,
     "cash": 5185.0,
     "short_term_investments": 0.0,
@@ -165965,7 +167436,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "DIS",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "DIS",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:35.041646+00:00",
+      "balanceDate": "2026-06-27",
+      "filingDate": "2026-08-05",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-27",
+        "observationDate": "2026-06-27",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 110.55,
+        "marketCap": 190885579500
+      },
+      "amounts": {
+        "currentAssets": 24892000000,
+        "totalLiabilities": 87898000000,
+        "cashAndShortTermInvestments": 5185000000,
+        "tradeReceivables": 14553000000,
+        "inventory": 2081000000,
+        "preferredStock": 0
+      }
+    }
   },
   "TMUS": {
     "reported_growth": {
@@ -166035,9 +167541,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 1072670000,
     "shares_display": "1,072.67 M",
     "mcap": 170662.1,
-    "liq_val_1": -126.34,
-    "liq_val_2": -139.06,
-    "liq_val_3": -144.0,
+    "liq_val_1": -126.33782637467652,
+    "liq_val_2": -139.06390193646544,
+    "liq_val_3": -143.99840373166612,
     "debt": 116000.0,
     "cash": 2825.0,
     "short_term_investments": 0.0,
@@ -169798,7 +171304,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "TMUS",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "TMUS",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:36.472510+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-23",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 159.1,
+        "marketCap": 170662053628
+      },
+      "amounts": {
+        "currentAssets": 21769000000,
+        "totalLiabilities": 157288000000,
+        "cashAndShortTermInvestments": 2825000000,
+        "tradeReceivables": 5247000000,
+        "inventory": 2191000000,
+        "preferredStock": 0
+      }
+    }
   },
   "VZ": {
     "reported_growth": {
@@ -169868,9 +171409,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 4154779999,
     "shares_display": "4,154.78 M",
     "mcap": 186092.6,
-    "liq_val_1": -64.36,
-    "liq_val_2": -67.64,
-    "liq_val_3": -72.99,
+    "liq_val_1": -64.36417812736174,
+    "liq_val_2": -67.64045268341525,
+    "liq_val_3": -72.98533255671781,
     "debt": 188458.0,
     "cash": 1752.0,
     "short_term_investments": 0.0,
@@ -173663,7 +175204,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "VZ",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "VZ",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:37.860781+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-31",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 44.79,
+        "marketCap": 186092596200
+      },
+      "amounts": {
+        "currentAssets": 37571000000,
+        "totalLiabilities": 304990000000,
+        "cashAndShortTermInvestments": 1752000000,
+        "tradeReceivables": 26486000000,
+        "inventory": 2036000000,
+        "preferredStock": 0
+      }
+    }
   },
   "T": {
     "reported_growth": {
@@ -173733,9 +175309,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 6852390000,
     "shares_display": "6,852.39 M",
     "mcap": 160551.5,
-    "liq_val_1": -36.5,
-    "liq_val_2": -40.33,
-    "liq_val_3": -41.5,
+    "liq_val_1": -36.49690108122859,
+    "liq_val_2": -40.329607625952406,
+    "liq_val_3": -41.497200246921146,
     "debt": 162888.0,
     "cash": 17570.0,
     "short_term_investments": 0.0,
@@ -177522,7 +179098,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "T",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "T",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:39.247242+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-22",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 23.43,
+        "marketCap": 160551497700
+      },
+      "amounts": {
+        "currentAssets": 51834000000,
+        "totalLiabilities": 301925000000,
+        "cashAndShortTermInvestments": 17570000000,
+        "tradeReceivables": 8521000000,
+        "inventory": 2368000000,
+        "preferredStock": 0
+      }
+    }
   },
   "CMCSA": {
     "reported_growth": {
@@ -177592,9 +179203,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 3539190000,
     "shares_display": "3,539.19 M",
     "mcap": 77508.3,
-    "liq_val_1": -39.97,
-    "liq_val_2": -42.09,
-    "liq_val_3": -45.24,
+    "liq_val_1": -39.967594887980425,
+    "liq_val_2": -42.089548028661305,
+    "liq_val_3": -45.24394015416881,
     "debt": 90381.0,
     "cash": 7661.0,
     "short_term_investments": 0.0,
@@ -181417,7 +183028,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "CMCSA",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "CMCSA",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:40.721411+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-23",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 21.9,
+        "marketCap": 77508309136
+      },
+      "amounts": {
+        "currentAssets": 26335000000,
+        "totalLiabilities": 167788000000,
+        "cashAndShortTermInvestments": 7661000000,
+        "tradeReceivables": 13955000000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "TKO": {
     "reported_growth": {
@@ -181487,9 +183133,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 73110000,
     "shares_display": "73.11 M",
     "mcap": 12831.0,
-    "liq_val_1": -65.94,
-    "liq_val_2": -74.86,
-    "liq_val_3": -86.8,
+    "liq_val_1": -65.94054801528085,
+    "liq_val_2": -74.86011700001778,
+    "liq_val_3": -86.80272899737523,
     "debt": 4953.6,
     "cash": 1552.2,
     "short_term_investments": 0.0,
@@ -185251,7 +186897,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "TKO",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "TKO",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:42.106614+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-03",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 175.5,
+        "marketCap": 12830998050
+      },
+      "amounts": {
+        "currentAssets": 3077424000,
+        "totalLiabilities": 7898410000,
+        "cashAndShortTermInvestments": 1552167000,
+        "tradeReceivables": 1059900000,
+        "inventory": 50435000,
+        "preferredStock": 0
+      }
+    }
   },
   "LYV": {
     "reported_growth": {
@@ -185321,9 +187002,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 232960000,
     "shares_display": "232.96 M",
     "mcap": 39721.9,
-    "liq_val_1": -48.96,
-    "liq_val_2": -64.31,
-    "liq_val_3": -74.22,
+    "liq_val_1": -48.961350599842596,
+    "liq_val_2": -64.30951508001478,
+    "liq_val_3": -74.21767143523132,
     "debt": 11282.7,
     "cash": 9071.9,
     "short_term_investments": 0.0,
@@ -189084,7 +190765,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "LYV",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "LYV",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:43.524554+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-30",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 170.51,
+        "marketCap": 39721925198
+      },
+      "amounts": {
+        "currentAssets": 14955649000,
+        "totalLiabilities": 26361661000,
+        "cashAndShortTermInvestments": 9071949000,
+        "tradeReceivables": 2885249000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "IRDM": {
     "reported_growth": {
@@ -189154,9 +190870,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 105980000,
     "shares_display": "105.98 M",
     "mcap": 4637.8,
-    "liq_val_1": -16.19,
-    "liq_val_2": -16.92,
-    "liq_val_3": -18.01,
+    "liq_val_1": -16.18693034257931,
+    "liq_val_2": -16.918236862717627,
+    "liq_val_3": -18.006605525105794,
     "debt": 1761.9,
     "cash": 184.2,
     "short_term_investments": 0.0,
@@ -192822,7 +194538,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "IRDM",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "IRDM",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:44.910655+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-22",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 43.76,
+        "marketCap": 4637752716
+      },
+      "amounts": {
+        "currentAssets": 377066000,
+        "totalLiabilities": 2092582000,
+        "cashAndShortTermInvestments": 184214000,
+        "tradeReceivables": 104515000,
+        "inventory": 63470000,
+        "preferredStock": 0
+      }
+    }
   },
   "EA": {
     "reported_growth": {
@@ -192892,9 +194643,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 252390000,
     "shares_display": "252.39 M",
     "mcap": 52925.6,
-    "liq_val_1": -8.39,
-    "liq_val_2": -10.62,
-    "liq_val_3": -12.28,
+    "liq_val_1": -8.391860750898786,
+    "liq_val_2": -10.617803796156077,
+    "liq_val_3": -12.278742430139443,
     "debt": 1486.0,
     "cash": 2404.0,
     "short_term_investments": 116.0,
@@ -196681,7 +198432,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "EA",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "EA",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:46.417001+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-03",
+      "quoteDate": "2026-08-05",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-08-05",
+        "price": 209.7,
+        "marketCap": 52925639877
+      },
+      "amounts": {
+        "currentAssets": 3385000000,
+        "totalLiabilities": 5503000000,
+        "cashAndShortTermInvestments": 2404000000,
+        "tradeReceivables": 524000000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "TTWO": {
     "reported_growth": {
@@ -196751,9 +198537,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 186980000,
     "shares_display": "186.98 M",
     "mcap": 38383.3,
-    "liq_val_1": -13.36,
-    "liq_val_2": -16.63,
-    "liq_val_3": -19.41,
+    "liq_val_1": -13.363461332762862,
+    "liq_val_2": -16.62653759760402,
+    "liq_val_3": -19.40956252005562,
     "debt": 2944.7,
     "cash": 1826.6,
     "short_term_investments": 461.7,
@@ -200522,7 +202308,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "TTWO",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "TTWO",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:47.818127+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-07",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 205.28,
+        "marketCap": 38383254400
+      },
+      "amounts": {
+        "currentAssets": 2957100000,
+        "totalLiabilities": 5455800000,
+        "cashAndShortTermInvestments": 1826600000,
+        "tradeReceivables": 606900000,
+        "inventory": 69700000,
+        "preferredStock": 0
+      }
+    }
   },
   "WBD": {
     "reported_growth": {
@@ -200592,9 +202413,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 2507140000,
     "shares_display": "2,507.14 M",
     "mcap": 77595.9,
-    "liq_val_1": -20.23,
-    "liq_val_2": -22.31,
-    "liq_val_3": -23.89,
+    "liq_val_1": -20.22785592803094,
+    "liq_val_2": -22.305285529631217,
+    "liq_val_3": -23.885414765039336,
     "debt": 32023.0,
     "cash": 3369.0,
     "short_term_investments": 0.0,
@@ -204369,7 +206190,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "WBD",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "WBD",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:49.796908+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-06",
+      "quoteDate": "2026-10-06",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-06",
+        "price": 30.95,
+        "marketCap": 77595880927
+      },
+      "amounts": {
+        "currentAssets": 12539000000,
+        "totalLiabilities": 63253000000,
+        "cashAndShortTermInvestments": 3369000000,
+        "tradeReceivables": 4952000000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "AMZN": {
     "reported_growth": {
@@ -204439,9 +206295,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 10786300000,
     "shares_display": "10,786.30 M",
     "mcap": 2696575.0,
-    "liq_val_1": -27.33,
-    "liq_val_2": -30.73,
-    "liq_val_3": -39.04,
+    "liq_val_1": -27.331429683950937,
+    "liq_val_2": -30.734858107043195,
+    "liq_val_3": -39.03850254489491,
     "debt": 223232.0,
     "cash": 122988.0,
     "short_term_investments": 44775.0,
@@ -208228,7 +210084,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "AMZN",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "AMZN",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:51.211032+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-31",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 250,
+        "marketCap": 2696575000000
+      },
+      "amounts": {
+        "currentAssets": 249264000000,
+        "totalLiabilities": 544069000000,
+        "cashAndShortTermInvestments": 122988000000,
+        "tradeReceivables": 88092000000,
+        "inventory": 38184000000,
+        "preferredStock": 0
+      }
+    }
   },
   "TSLA": {
     "reported_growth": {
@@ -208298,9 +210189,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 3949550000,
     "shares_display": "3,949.55 M",
     "mcap": 1400983.5,
-    "liq_val_1": 1.95,
-    "liq_val_2": -1.87,
-    "liq_val_3": -4.44,
+    "liq_val_1": 1.949337286519024,
+    "liq_val_2": -1.870948557605361,
+    "liq_val_3": -4.439749229654641,
     "debt": 9342.0,
     "cash": 43524.0,
     "short_term_investments": 28305.0,
@@ -212075,7 +213966,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "TSLA",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "TSLA",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:52.658262+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-23",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 354.72,
+        "marketCap": 1400983451600
+      },
+      "amounts": {
+        "currentAssets": 68758000000,
+        "totalLiabilities": 61059000000,
+        "cashAndShortTermInvestments": 43524000000,
+        "tradeReceivables": 4087000000,
+        "inventory": 13752000000,
+        "preferredStock": 0
+      }
+    }
   },
   "HD": {
     "reported_growth": {
@@ -212145,9 +214071,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 997690000,
     "shares_display": "997.69 M",
     "mcap": 308914.6,
-    "liq_val_1": -55.17,
-    "liq_val_2": -71.85,
-    "liq_val_3": -90.89,
+    "liq_val_1": -55.1744736694974,
+    "liq_val_2": -71.85410986731878,
+    "liq_val_3": -90.89199450101484,
     "debt": 62567.0,
     "cash": 2085.0,
     "short_term_investments": 0.0,
@@ -215966,7 +217892,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "HD",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "HD",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:54.035854+00:00",
+      "balanceDate": "2026-08-02",
+      "filingDate": "2026-08-25",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-08-02",
+        "observationDate": "2026-08-02",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 309.63,
+        "marketCap": 308914638898
+      },
+      "amounts": {
+        "currentAssets": 37720000000,
+        "totalLiabilities": 92767000000,
+        "cashAndShortTermInvestments": 2085000000,
+        "tradeReceivables": 6963000000,
+        "inventory": 26847000000,
+        "preferredStock": 0
+      }
+    }
   },
   "MCD": {
     "reported_growth": {
@@ -216036,9 +217997,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 707640000,
     "shares_display": "707.64 M",
     "mcap": 171935.8,
-    "liq_val_1": -79.98,
-    "liq_val_2": -82.11,
-    "liq_val_3": -84.96,
+    "liq_val_1": -79.98112039703692,
+    "liq_val_2": -82.10931516218653,
+    "liq_val_3": -84.95962647779527,
     "debt": 54592.0,
     "cash": 822.0,
     "short_term_investments": 0.0,
@@ -219855,7 +221816,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "MCD",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "MCD",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:55.480425+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-07",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 242.97,
+        "marketCap": 171935776740
+      },
+      "amounts": {
+        "currentAssets": 4345000000,
+        "totalLiabilities": 60943000000,
+        "cashAndShortTermInvestments": 822000000,
+        "tradeReceivables": 2485000000,
+        "inventory": 58000000,
+        "preferredStock": 0
+      }
+    }
   },
   "BKNG": {
     "reported_growth": {
@@ -219925,9 +221921,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 751380000,
     "shares_display": "751.38 M",
     "mcap": 122813.2,
-    "liq_val_1": -23.17,
-    "liq_val_2": -26.32,
-    "liq_val_3": -30.94,
+    "liq_val_1": -23.16800664376661,
+    "liq_val_2": -26.32246490129508,
+    "liq_val_3": -30.944354461984002,
     "debt": 20694.0,
     "cash": 17214.0,
     "short_term_investments": 0.0,
@@ -223702,7 +225698,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "BKNG",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "BKNG",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:56.904347+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-04",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 163.45,
+        "marketCap": 122813224450
+      },
+      "amounts": {
+        "currentAssets": 23057000000,
+        "totalLiabilities": 40465000000,
+        "cashAndShortTermInvestments": 17214000000,
+        "tradeReceivables": 4341000000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "NKE": {
     "reported_growth": {
@@ -223772,9 +225803,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 1485310000,
     "shares_display": "1,485.31 M",
     "mcap": 55149.5,
-    "liq_val_1": 0.74,
-    "liq_val_2": -4.1,
-    "liq_val_3": -9.56,
+    "liq_val_1": 0.7399134734434796,
+    "liq_val_2": -4.099753507904208,
+    "liq_val_3": -9.56434104070798,
     "debt": 11072.0,
     "cash": 8368.0,
     "short_term_investments": 1465.0,
@@ -227579,7 +229610,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "NKE",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "NKE",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:58.285502+00:00",
+      "balanceDate": "2026-08-31",
+      "filingDate": "2026-10-02",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-08-31",
+        "observationDate": "2026-08-31",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 37.13,
+        "marketCap": 55149516078
+      },
+      "amounts": {
+        "currentAssets": 23673000000,
+        "totalLiabilities": 22574000000,
+        "cashAndShortTermInvestments": 8368000000,
+        "tradeReceivables": 5242000000,
+        "inventory": 7846000000,
+        "preferredStock": 0
+      }
+    }
   },
   "SBUX": {
     "reported_growth": {
@@ -227649,9 +229715,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 1140000000,
     "shares_display": "1,140.00 M",
     "mcap": 111172.8,
-    "liq_val_1": -24.94,
-    "liq_val_2": -26.49,
-    "liq_val_3": -28.38,
+    "liq_val_1": -24.936491228070174,
+    "liq_val_2": -26.4944649122807,
+    "liq_val_3": -28.378508771929823,
     "debt": 22434.1,
     "cash": 3610.3,
     "short_term_investments": 160.5,
@@ -231445,7 +233511,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "SBUX",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "SBUX",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:57:59.685199+00:00",
+      "balanceDate": "2026-06-28",
+      "filingDate": "2026-07-29",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-28",
+        "observationDate": "2026-06-28",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 97.52,
+        "marketCap": 111172800000
+      },
+      "amounts": {
+        "currentAssets": 7534200000,
+        "totalLiabilities": 35961800000,
+        "cashAndShortTermInvestments": 3610300000,
+        "tradeReceivables": 1304200000,
+        "inventory": 2208900000,
+        "preferredStock": 0
+      }
+    }
   },
   "LOW": {
     "reported_growth": {
@@ -231515,9 +233616,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 561050000,
     "shares_display": "561.05 M",
     "mcap": 110701.6,
-    "liq_val_1": -71.25,
-    "liq_val_2": -89.21,
-    "liq_val_3": -106.78,
+    "liq_val_1": -71.25160857956632,
+    "liq_val_2": -89.21084245010285,
+    "liq_val_3": -106.78294780894531,
     "debt": 42023.0,
     "cash": 3407.0,
     "short_term_investments": 235.0,
@@ -235331,7 +237432,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "LOW",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "LOW",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:01.078144+00:00",
+      "balanceDate": "2026-07-31",
+      "filingDate": "2026-08-27",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-07-31",
+        "observationDate": "2026-07-31",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 197.31,
+        "marketCap": 110701564740
+      },
+      "amounts": {
+        "currentAssets": 23342000000,
+        "totalLiabilities": 63318000000,
+        "cashAndShortTermInvestments": 3407000000,
+        "tradeReceivables": 1238000000,
+        "inventory": 17737000000,
+        "preferredStock": 0
+      }
+    }
   },
   "TJX": {
     "reported_growth": {
@@ -235401,9 +237537,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 1099970000,
     "shares_display": "1,099.97 M",
     "mcap": 162048.2,
-    "liq_val_1": -10.12,
-    "liq_val_2": -14.54,
-    "liq_val_3": -18.6,
+    "liq_val_1": -10.122965981437828,
+    "liq_val_2": -13.962692889313965,
+    "liq_val_3": -18.600438615196943,
     "debt": 14317.0,
     "cash": 6004.0,
     "short_term_investments": 0.0,
@@ -239225,7 +241361,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "TJX",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "TJX",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:02.479515+00:00",
+      "balanceDate": "2026-08-01",
+      "filingDate": "2026-08-28",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-08-01",
+        "observationDate": "2026-08-01",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 147.32,
+        "marketCap": 162048178667
+      },
+      "amounts": {
+        "currentAssets": 15329000000,
+        "totalLiabilities": 26464000000,
+        "cashAndShortTermInvestments": 6004000000,
+        "tradeReceivables": 1463000000,
+        "inventory": 7862000000,
+        "preferredStock": 0
+      }
+    }
   },
   "CHDN": {
     "reported_growth": {
@@ -239295,9 +241466,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 69700000,
     "shares_display": "69.70 M",
     "mcap": 5694.5,
-    "liq_val_1": -81.0,
-    "liq_val_2": -83.58,
-    "liq_val_3": -85.14,
+    "liq_val_1": -81.0040717243279,
+    "liq_val_2": -84.46030283987707,
+    "liq_val_3": -85.1360541289695,
     "debt": 4781.0,
     "cash": 196.0,
     "short_term_investments": 0.0,
@@ -243078,7 +245249,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "CHDN",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "CHDN",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:04.486330+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-29",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 81.7,
+        "marketCap": 5694506340
+      },
+      "amounts": {
+        "currentAssets": 484000000,
+        "totalLiabilities": 6130000000,
+        "cashAndShortTermInvestments": 196000000,
+        "tradeReceivables": 52000000,
+        "inventory": 11000000,
+        "preferredStock": 0
+      }
+    }
   },
   "TSCO": {
     "reported_growth": {
@@ -243148,9 +245354,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 521039999,
     "shares_display": "521.04 M",
     "mcap": 17277.7,
-    "liq_val_1": -10.13,
-    "liq_val_2": -14.47,
-    "liq_val_3": -17.85,
+    "liq_val_1": -10.125400377697911,
+    "liq_val_2": -14.469984104055865,
+    "liq_val_3": -17.846356431379764,
     "debt": 6545.0,
     "cash": 231.6,
     "short_term_investments": 0.0,
@@ -246937,7 +249143,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "TSCO",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "TSCO",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:05.879141+00:00",
+      "balanceDate": "2026-06-27",
+      "filingDate": "2026-08-06",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-27",
+        "observationDate": "2026-06-27",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 33.16,
+        "marketCap": 17277690943
+      },
+      "amounts": {
+        "currentAssets": 4254516000,
+        "totalLiabilities": 9530256000,
+        "cashAndShortTermInvestments": 231588000,
+        "tradeReceivables": 0,
+        "inventory": 3518451000,
+        "preferredStock": 0
+      }
+    }
   },
   "MTN": {
     "reported_growth": {
@@ -247007,9 +249248,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 35640000,
     "shares_display": "35.64 M",
     "mcap": 5381.3,
-    "liq_val_1": -114.83,
-    "liq_val_2": -122.03,
-    "liq_val_3": -131.89,
+    "liq_val_1": -114.84636229227158,
+    "liq_val_2": -122.06195009637453,
+    "liq_val_3": -131.90823872669847,
     "debt": 3422.3,
     "cash": 268.5,
     "short_term_investments": 37.1,
@@ -250771,7 +253012,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "MTN",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "MTN",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:07.263405+00:00",
+      "balanceDate": "2026-07-31",
+      "filingDate": "2026-09-28",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-07-31",
+        "observationDate": "2026-07-31",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 151.01,
+        "marketCap": 5381285898
+      },
+      "amounts": {
+        "currentAssets": 876466000,
+        "totalLiabilities": 4969050000,
+        "cashAndShortTermInvestments": 268461000,
+        "tradeReceivables": 354448000,
+        "inventory": 134634000,
+        "preferredStock": 0
+      }
+    }
   },
   "SCI": {
     "reported_growth": {
@@ -250841,9 +253117,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 136290000,
     "shares_display": "136.29 M",
     "mcap": 11090.1,
-    "liq_val_1": -126.4,
-    "liq_val_2": -127.04,
-    "liq_val_3": -127.79,
+    "liq_val_1": -126.3976388929651,
+    "liq_val_2": -127.03546282980659,
+    "liq_val_3": -127.78682534558155,
     "debt": 5303.2,
     "cash": 260.4,
     "short_term_investments": 0.0,
@@ -254641,7 +256917,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "SCI",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "SCI",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:08.751925+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-30",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 81.37,
+        "marketCap": 11090080040
+      },
+      "amounts": {
+        "currentAssets": 449746000,
+        "totalLiabilities": 17676733000,
+        "cashAndShortTermInvestments": 260411000,
+        "tradeReceivables": 104109000,
+        "inventory": 38235000,
+        "preferredStock": 0
+      }
+    }
   },
   "AZO": {
     "reported_growth": {
@@ -254711,9 +257022,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 16329999,
     "shares_display": "16.33 M",
     "mcap": 50944.9,
-    "liq_val_1": -920.2,
-    "liq_val_2": -1221.01,
-    "liq_val_3": -1457.86,
+    "liq_val_1": -920.4580592206011,
+    "liq_val_2": -1221.3535349822976,
+    "liq_val_3": -1458.2714665490585,
     "debt": 12447.4,
     "cash": 326.1,
     "short_term_investments": 0.0,
@@ -258482,7 +260793,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "AZO",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "AZO",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:10.148459+00:00",
+      "balanceDate": "2026-08-29",
+      "filingDate": "2026-09-22",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-08-29",
+        "observationDate": "2026-08-29",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 3120.59,
+        "marketCap": 50944879986
+      },
+      "amounts": {
+        "currentAssets": 9106134000,
+        "totalLiabilities": 24132980000,
+        "cashAndShortTermInvestments": 326115000,
+        "tradeReceivables": 0,
+        "inventory": 7735560000,
+        "preferredStock": 0
+      }
+    }
   },
   "MAR": {
     "reported_growth": {
@@ -258552,9 +260898,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 260769999,
     "shares_display": "260.77 M",
     "mcap": 101190.4,
-    "liq_val_1": -108.85,
-    "liq_val_2": -113.04,
-    "liq_val_3": -123.28,
+    "liq_val_1": -108.84842599021927,
+    "liq_val_2": -113.04221962969586,
+    "liq_val_3": -123.2828071707148,
     "debt": 17774.0,
     "cash": 462.0,
     "short_term_investments": 0.0,
@@ -262329,7 +264675,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "MAR",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "MAR",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:11.528006+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-03",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 388.05,
+        "marketCap": 101190358058
+      },
+      "amounts": {
+        "currentAssets": 4226000000,
+        "totalLiabilities": 32610000000,
+        "cashAndShortTermInvestments": 462000000,
+        "tradeReceivables": 3338000000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "HLT": {
     "reported_growth": {
@@ -262399,9 +264780,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 225060000,
     "shares_display": "225.06 M",
     "mcap": 77666.6,
-    "liq_val_1": -88.43,
-    "liq_val_2": -98.55,
-    "liq_val_3": -98.59,
+    "liq_val_1": -88.43223068891209,
+    "liq_val_2": -92.22669006731388,
+    "liq_val_3": -98.58929642547709,
     "debt": 14023.0,
     "cash": 1009.0,
     "short_term_investments": 0.0,
@@ -266170,7 +268551,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "HLT",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "HLT",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:13.457156+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-28",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 345.085,
+        "marketCap": 77666555525
+      },
+      "amounts": {
+        "currentAssets": 3295000000,
+        "totalLiabilities": 23198000000,
+        "cashAndShortTermInvestments": 1009000000,
+        "tradeReceivables": 1790000000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "CMG": {
     "reported_growth": {
@@ -266240,9 +268656,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 1265420000,
     "shares_display": "1,265.42 M",
     "mcap": 37807.8,
-    "liq_val_1": -4.52,
-    "liq_val_2": -4.65,
-    "liq_val_3": -4.74,
+    "liq_val_1": -4.523442809501984,
+    "liq_val_2": -4.653928656098371,
+    "liq_val_3": -4.735764410235337,
     "debt": 5419.2,
     "cash": 672.1,
     "short_term_investments": 443.9,
@@ -270007,7 +272423,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "CMG",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "CMG",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:14.845131+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-31",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 29.8777,
+        "marketCap": 37807839134
+      },
+      "amounts": {
+        "currentAssets": 940739000,
+        "totalLiabilities": 6664794000,
+        "cashAndShortTermInvestments": 672063000,
+        "tradeReceivables": 100307000,
+        "inventory": 46622000,
+        "preferredStock": 0
+      }
+    }
   },
   "YUM": {
     "reported_growth": {
@@ -270077,9 +272528,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 272900000,
     "shares_display": "272.90 M",
     "mcap": 41074.3,
-    "liq_val_1": -48.55,
-    "liq_val_2": -53.56,
-    "liq_val_3": -55.39,
+    "liq_val_1": -48.54506131050822,
+    "liq_val_2": -53.56006515331932,
+    "liq_val_3": -55.386367882573346,
     "debt": 12275.0,
     "cash": 674.0,
     "short_term_investments": 0.0,
@@ -273860,7 +276311,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "YUM",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "YUM",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:16.222683+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-05",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 150.51,
+        "marketCap": 41074342604
+      },
+      "amounts": {
+        "currentAssets": 2541000000,
+        "totalLiabilities": 15789000000,
+        "cashAndShortTermInvestments": 674000000,
+        "tradeReceivables": 623000000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "ORLY": {
     "reported_growth": {
@@ -273930,9 +276416,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 808960000,
     "shares_display": "808.96 M",
     "mcap": 72215.9,
-    "liq_val_1": -14.87,
-    "liq_val_2": -19.3,
-    "liq_val_3": -23.44,
+    "liq_val_1": -14.865004617033454,
+    "liq_val_2": -19.29697970606741,
+    "liq_val_3": -23.440759196055186,
     "debt": 9587.4,
     "cash": 262.2,
     "short_term_investments": 0.0,
@@ -277712,7 +280198,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "ORLY",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "ORLY",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:17.614040+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-07",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 89.27,
+        "marketCap": 72215948470
+      },
+      "amounts": {
+        "currentAssets": 7199632000,
+        "totalLiabilities": 19224841000,
+        "cashAndShortTermInvestments": 262181000,
+        "tradeReceivables": 457785000,
+        "inventory": 5971856000,
+        "preferredStock": 0
+      }
+    }
   },
   "ROST": {
     "reported_growth": {
@@ -277782,9 +280303,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 320780000,
     "shares_display": "320.78 M",
     "mcap": 75989.8,
-    "liq_val_1": -4.25,
-    "liq_val_2": -10.0,
-    "liq_val_3": -15.43,
+    "liq_val_1": -4.248180774833313,
+    "liq_val_2": -10.00300591293234,
+    "liq_val_3": -15.434114947530583,
     "debt": 4739.2,
     "cash": 4288.1,
     "short_term_investments": 0.0,
@@ -281576,7 +284097,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "ROST",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "ROST",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:19.006058+00:00",
+      "balanceDate": "2026-08-01",
+      "filingDate": "2026-09-01",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-08-01",
+        "observationDate": "2026-08-01",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 236.89,
+        "marketCap": 75989829094
+      },
+      "amounts": {
+        "currentAssets": 7876360000,
+        "totalLiabilities": 9239096000,
+        "cashAndShortTermInvestments": 4288124000,
+        "tradeReceivables": 248140000,
+        "inventory": 3087370000,
+        "preferredStock": 0
+      }
+    }
   },
   "LULU": {
     "reported_growth": {
@@ -281646,9 +284202,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 115830000,
     "shares_display": "115.83 M",
     "mcap": 11246.7,
-    "liq_val_1": 2.18,
-    "liq_val_2": -11.32,
-    "liq_val_3": -19.89,
+    "liq_val_1": 2.1772575660481253,
+    "liq_val_2": -11.318796998492388,
+    "liq_val_3": -19.889034571741103,
     "debt": 2141.1,
     "cash": 1389.7,
     "short_term_investments": 0.0,
@@ -285416,7 +287972,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "LULU",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "LULU",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:20.400368+00:00",
+      "balanceDate": "2026-08-02",
+      "filingDate": "2026-09-03",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-08-02",
+        "observationDate": "2026-08-02",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 97.1,
+        "marketCap": 11246703046
+      },
+      "amounts": {
+        "currentAssets": 3945587000,
+        "totalLiabilities": 3693404000,
+        "cashAndShortTermInvestments": 1389737000,
+        "tradeReceivables": 171164000,
+        "inventory": 1711450000,
+        "preferredStock": 0
+      }
+    }
   },
   "F": {
     "reported_growth": {
@@ -285486,9 +288077,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 3987600000,
     "shares_display": "3,987.60 M",
     "mcap": 49565.8,
-    "liq_val_1": -33.17,
-    "liq_val_2": -49.07,
-    "liq_val_3": -54.78,
+    "liq_val_1": -33.17412672408134,
+    "liq_val_2": -43.537063364248844,
+    "liq_val_3": -54.780380162994874,
     "debt": 163296.0,
     "cash": 31334.0,
     "short_term_investments": 12731.0,
@@ -289299,7 +291890,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "F",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "F",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:21.800915+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-29",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 12.43,
+        "marketCap": 49565812649
+      },
+      "amounts": {
+        "currentAssets": 117491000000,
+        "totalLiabilities": 249776000000,
+        "cashAndShortTermInvestments": 31334000000,
+        "tradeReceivables": 45451000000,
+        "inventory": 16946000000,
+        "preferredStock": 0
+      }
+    }
   },
   "GM": {
     "reported_growth": {
@@ -289369,9 +291995,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 877450000,
     "shares_display": "877.45 M",
     "mcap": 73670.9,
-    "liq_val_1": -124.33,
-    "liq_val_2": -197.15,
-    "liq_val_3": -221.53,
+    "liq_val_1": -124.32930804192137,
+    "liq_val_2": -197.15152509766912,
+    "liq_val_3": -221.53006660193375,
     "debt": 127697.0,
     "cash": 24719.0,
     "short_term_investments": 4585.0,
@@ -293133,7 +295759,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "GM",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "GM",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:23.190806+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-21",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 83.96,
+        "marketCap": 73670869920
+      },
+      "amounts": {
+        "currentAssets": 110008000000,
+        "totalLiabilities": 219101000000,
+        "cashAndShortTermInvestments": 24719000000,
+        "tradeReceivables": 16770000000,
+        "inventory": 15950000000,
+        "preferredStock": 0
+      }
+    }
   },
   "EBAY": {
     "reported_growth": {
@@ -293203,9 +295864,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 445000000,
     "shares_display": "445.00 M",
     "mcap": 53524.6,
-    "liq_val_1": -16.33,
-    "liq_val_2": -18.64,
-    "liq_val_3": -22.38,
+    "liq_val_1": -16.325842696629213,
+    "liq_val_2": -19.892584269662922,
+    "liq_val_3": -22.384269662921348,
     "debt": 7130.0,
     "cash": 3307.0,
     "short_term_investments": 997.0,
@@ -296998,7 +299659,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "EBAY",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "EBAY",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:24.829704+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-06",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 120.28,
+        "marketCap": 53524600000
+      },
+      "amounts": {
+        "currentAssets": 6003000000,
+        "totalLiabilities": 13268000000,
+        "cashAndShortTermInvestments": 3307000000,
+        "tradeReceivables": 1386000000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "BRK.B": {
     "reported_growth": {
@@ -297068,9 +299764,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 666700000,
     "shares_display": "666.70 M",
     "mcap": 100000.0,
-    "liq_val_1": -519.72,
-    "liq_val_2": -519.72,
-    "liq_val_3": -519.72,
+    "liq_val_1": -17.229799723406575,
+    "liq_val_2": -31.27733709306186,
+    "liq_val_3": -68.8463258658405,
     "debt": 37486.0,
     "cash": 38717.0,
     "short_term_investments": 0.0,
@@ -300785,7 +303481,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "BRKB",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "BRK.B",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:26.224897+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-10",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 532.14,
+        "marketCap": 1139157278383
+      },
+      "amounts": {
+        "currentAssets": 476010000000,
+        "totalLiabilities": 512894000000,
+        "cashAndShortTermInvestments": 365514000000,
+        "tradeReceivables": 83921000000,
+        "inventory": 26575000000,
+        "preferredStock": 0
+      }
+    }
   },
   "JPM": {
     "reported_growth": {
@@ -300855,9 +303586,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 2658190000,
     "shares_display": "2,658.19 M",
     "mcap": 903040.3,
-    "liq_val_1": -555.08,
-    "liq_val_2": -595.89,
-    "liq_val_3": -759.13,
+    "liq_val_1": -572.227342665498,
+    "liq_val_2": -708.7342891215451,
+    "liq_val_3": -758.391236141886,
     "debt": 1234891.0,
     "cash": 2703229.0,
     "short_term_investments": 2376958.0,
@@ -304664,7 +307395,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "JPM",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "JPM",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:28.019018+00:00",
+      "balanceDate": "2026-09-30",
+      "filingDate": "2026-10-13",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-09-30",
+        "observationDate": "2026-09-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 339.72,
+        "marketCap": 903040306800
+      },
+      "amounts": {
+        "currentAssets": 3198088000000,
+        "totalLiabilities": 4719177000000,
+        "cashAndShortTermInvestments": 2703229000000,
+        "tradeReceivables": 164997000000,
+        "inventory": 0,
+        "preferredStock": 21040000000
+      }
+    }
   },
   "V": {
     "reported_growth": {
@@ -304734,9 +307500,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 1867050000,
     "shares_display": "1,867.05 M",
     "mcap": 751691.9,
-    "liq_val_1": -15.22,
-    "liq_val_2": -22.92,
-    "liq_val_3": -24.43,
+    "liq_val_1": -15.216539666692666,
+    "liq_val_2": -22.923039467475515,
+    "liq_val_3": -24.43430269604081,
     "debt": 23858.0,
     "cash": 13792.0,
     "short_term_investments": 1433.0,
@@ -308505,7 +311271,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "V",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "V",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:29.606108+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-29",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 402.61,
+        "marketCap": 751691931973
+      },
+      "amounts": {
+        "currentAssets": 31002000000,
+        "totalLiabilities": 59412000000,
+        "cashAndShortTermInvestments": 13792000000,
+        "tradeReceivables": 3527000000,
+        "inventory": 0,
+        "preferredStock": 514000000
+      }
+    }
   },
   "MA": {
     "reported_growth": {
@@ -308575,9 +311376,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 876010000,
     "shares_display": "876.01 M",
     "mcap": 540866.0,
-    "liq_val_1": -29.18,
-    "liq_val_2": -41.6,
-    "liq_val_3": -46.2,
+    "liq_val_1": -29.181176762224958,
+    "liq_val_2": -41.59587651420639,
+    "liq_val_3": -46.20495679802126,
     "debt": 24643.0,
     "cash": 11609.0,
     "short_term_investments": 318.0,
@@ -312345,7 +315146,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "MA",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "MA",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:30.989753+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-30",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 617.42,
+        "marketCap": 540866038015
+      },
+      "amounts": {
+        "currentAssets": 26522000000,
+        "totalLiabilities": 52085000000,
+        "cashAndShortTermInvestments": 11609000000,
+        "tradeReceivables": 5047000000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "BAC": {
     "reported_growth": {
@@ -312415,9 +315251,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 6992750000,
     "shares_display": "6,992.75 M",
     "mcap": 358238.6,
-    "liq_val_1": -453.22,
-    "liq_val_2": -452.74,
-    "liq_val_3": -453.22,
+    "liq_val_1": -443.8951771477602,
+    "liq_val_2": -443.8951771477602,
+    "liq_val_3": -443.8951771477602,
     "debt": 380917.0,
     "cash": 26907.0,
     "short_term_investments": 0.0,
@@ -316218,7 +319054,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "BAC",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "BAC",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:32.372043+00:00",
+      "balanceDate": "2026-09-30",
+      "filingDate": "2026-10-14",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-09-30",
+        "observationDate": "2026-09-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 51.23,
+        "marketCap": 358238582500
+      },
+      "amounts": {
+        "currentAssets": 26907000000,
+        "totalLiabilities": 3130955000000,
+        "cashAndShortTermInvestments": 26907000000,
+        "tradeReceivables": 0,
+        "inventory": 0,
+        "preferredStock": 24996000000
+      }
+    }
   },
   "WFC": {
     "reported_growth": {
@@ -316288,9 +319159,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 3024000000,
     "shares_display": "3,024.00 M",
     "mcap": 253622.9,
-    "liq_val_1": -383.65,
-    "liq_val_2": -383.65,
-    "liq_val_3": -383.65,
+    "liq_val_1": -588.3220899470899,
+    "liq_val_2": -588.3220899470899,
+    "liq_val_3": -588.3220899470899,
     "debt": 221043.0,
     "cash": 296328.0,
     "short_term_investments": 255772.0,
@@ -320109,7 +322980,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "WFC",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "WFC",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:33.781303+00:00",
+      "balanceDate": "2026-09-30",
+      "filingDate": "2026-10-13",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-09-30",
+        "observationDate": "2026-09-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 83.87,
+        "marketCap": 253622880000
+      },
+      "amounts": {
+        "currentAssets": 296328000000,
+        "totalLiabilities": 2075414000000,
+        "cashAndShortTermInvestments": 296328000000,
+        "tradeReceivables": 0,
+        "inventory": 0,
+        "preferredStock": 17098000000
+      }
+    }
   },
   "MS": {
     "reported_growth": {
@@ -320179,9 +323085,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 1577280000,
     "shares_display": "1,577.28 M",
     "mcap": 284763.0,
-    "liq_val_1": -337.98,
-    "liq_val_2": -365.6,
-    "liq_val_3": -442.19,
+    "liq_val_1": 76.14160657965422,
+    "liq_val_2": 76.14160657965422,
+    "liq_val_3": 76.14160657965422,
     "debt": 0.0,
     "cash": 120097.0,
     "short_term_investments": 120097.0,
@@ -323976,7 +326882,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "MS",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "MS",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:35.221953+00:00",
+      "balanceDate": "2026-09-30",
+      "filingDate": "2026-10-14",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-09-30",
+        "observationDate": "2026-09-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 180.54,
+        "marketCap": 284763000861
+      },
+      "amounts": {
+        "currentAssets": 120097000000,
+        "totalLiabilities": 0,
+        "cashAndShortTermInvestments": 120097000000,
+        "tradeReceivables": 0,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "GS": {
     "reported_growth": {
@@ -324046,9 +326987,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 291170000,
     "shares_display": "291.17 M",
     "mcap": 256597.7,
-    "liq_val_1": -2691.89,
-    "liq_val_2": -3018.08,
-    "liq_val_3": -4322.85,
+    "liq_val_1": -6.456677916674381,
+    "liq_val_2": -6.456677916674381,
+    "liq_val_3": -6.456677916674381,
     "debt": 839000.0,
     "cash": 177.0,
     "short_term_investments": 0.0,
@@ -327830,7 +330771,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "GS",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "GS",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:36.664194+00:00",
+      "balanceDate": "2026-09-30",
+      "filingDate": "2026-10-13",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-09-30",
+        "observationDate": "2026-09-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 881.26,
+        "marketCap": 256597715014
+      },
+      "amounts": {
+        "currentAssets": 177000000,
+        "totalLiabilities": 2057000000,
+        "cashAndShortTermInvestments": 177000000,
+        "tradeReceivables": 0,
+        "inventory": 0,
+        "preferredStock": 14778000000
+      }
+    }
   },
   "AXP": {
     "reported_growth": {
@@ -327900,9 +330876,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 675310000,
     "shares_display": "675.31 M",
     "mcap": 211770.5,
-    "liq_val_1": -4.89,
-    "liq_val_2": -73.62,
-    "liq_val_3": -338.15,
+    "liq_val_1": -4.8925678577246,
+    "liq_val_2": -86.78769750188802,
+    "liq_val_3": -338.1543291229213,
     "debt": 59049.0,
     "cash": 45564.0,
     "short_term_investments": 321.0,
@@ -331721,7 +334697,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "AXP",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "AXP",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:38.048642+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-24",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 313.59,
+        "marketCap": 211770462900
+      },
+      "amounts": {
+        "currentAssets": 270619000000,
+        "totalLiabilities": 273923000000,
+        "cashAndShortTermInvestments": 45564000000,
+        "tradeReceivables": 212188000000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "BLK": {
     "reported_growth": {
@@ -331791,9 +334802,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 154870000,
     "shares_display": "154.87 M",
     "mcap": 175680.6,
-    "liq_val_1": -56.3,
-    "liq_val_2": -525.24,
-    "liq_val_3": -553.36,
+    "liq_val_1": -56.299100649928505,
+    "liq_val_2": -525.2417460084475,
+    "liq_val_3": -553.3635309781193,
     "debt": 14968.0,
     "cash": 25636.0,
     "short_term_investments": 15144.0,
@@ -335555,7 +338566,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "BLK",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "BLK",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:39.434888+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-06",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 1134.38,
+        "marketCap": 175680590024
+      },
+      "amounts": {
+        "currentAssets": 102616000000,
+        "totalLiabilities": 111335000000,
+        "cashAndShortTermInvestments": 25636000000,
+        "tradeReceivables": 5444000000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "SPGI": {
     "reported_growth": {
@@ -335625,9 +338671,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 294800000,
     "shares_display": "294.80 M",
     "mcap": 126657.9,
-    "liq_val_1": -59.56,
-    "liq_val_2": -65.72,
-    "liq_val_3": -75.05,
+    "liq_val_1": -59.55563093622795,
+    "liq_val_2": -65.72116689280868,
+    "liq_val_3": -75.05088195386703,
     "debt": 15748.0,
     "cash": 4141.0,
     "short_term_investments": 0.0,
@@ -339414,7 +342460,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "SPGI",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "SPGI",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:40.834324+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-28",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 429.64,
+        "marketCap": 126657872000
+      },
+      "amounts": {
+        "currentAssets": 8709000000,
+        "totalLiabilities": 26266000000,
+        "cashAndShortTermInvestments": 4141000000,
+        "tradeReceivables": 3438000000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "C": {
     "reported_growth": {
@@ -339484,9 +342565,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 1677440000,
     "shares_display": "1,677.44 M",
     "mcap": 208421.5,
-    "liq_val_1": -953.91,
-    "liq_val_2": -963.85,
-    "liq_val_3": -1003.59,
+    "liq_val_1": -448.72689547973096,
+    "liq_val_2": -706.191262766997,
+    "liq_val_3": -755.2022304726584,
     "debt": 817477.0,
     "cash": 1462684.0,
     "short_term_investments": 1107843.0,
@@ -343323,7 +346404,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "C",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "C",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:42.215407+00:00",
+      "balanceDate": "2026-09-30",
+      "filingDate": "2026-10-13",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-09-30",
+        "observationDate": "2026-09-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 124.25,
+        "marketCap": 208421520288
+      },
+      "amounts": {
+        "currentAssets": 1976777000000,
+        "totalLiabilities": 2729488000000,
+        "cashAndShortTermInvestments": 1462684000000,
+        "tradeReceivables": 102766000000,
+        "inventory": 0,
+        "preferredStock": 18050000000
+      }
+    }
   },
   "PGR": {
     "reported_growth": {
@@ -343393,9 +346509,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 581100000,
     "shares_display": "581.10 M",
     "mcap": 126964.5,
-    "liq_val_1": 44.56,
-    "liq_val_2": 33.3,
-    "liq_val_3": 3.95,
+    "liq_val_1": -126.99535363964894,
+    "liq_val_2": -132.9623128549303,
+    "liq_val_3": -156.83014971605576,
     "debt": 8389.0,
     "cash": 2125.0,
     "short_term_investments": 2125.0,
@@ -347232,7 +350348,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "PGR",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "PGR",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:43.613607+00:00",
+      "balanceDate": "2026-09-30",
+      "filingDate": "2026-10-14",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-09-30",
+        "observationDate": "2026-09-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 218.49,
+        "marketCap": 126964539000
+      },
+      "amounts": {
+        "currentAssets": 19462000000,
+        "totalLiabilities": 93259000000,
+        "cashAndShortTermInvestments": 2125000000,
+        "tradeReceivables": 17337000000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "CB": {
     "reported_growth": {
@@ -347302,9 +350453,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 385800000,
     "shares_display": "385.80 M",
     "mcap": 138807.0,
-    "liq_val_1": -436.79,
-    "liq_val_2": -458.82,
-    "liq_val_3": -498.36,
+    "liq_val_1": -436.7936754795231,
+    "liq_val_2": -458.8170036288232,
+    "liq_val_3": -498.3566614826335,
     "debt": 18115.0,
     "cash": 8211.0,
     "short_term_investments": 5458.0,
@@ -351117,7 +354268,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "CB",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "CB",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:45.064162+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-28",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 359.79,
+        "marketCap": 138806982000
+      },
+      "amounts": {
+        "currentAssets": 31962000000,
+        "totalLiabilities": 200477000000,
+        "cashAndShortTermInvestments": 8211000000,
+        "tradeReceivables": 19068000000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "FDS": {
     "reported_growth": {
@@ -351187,9 +354373,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 35570000,
     "shares_display": "35.57 M",
     "mcap": 10729.1,
-    "liq_val_1": -41.78,
-    "liq_val_2": -45.95,
-    "liq_val_3": -52.73,
+    "liq_val_1": -41.78943647714531,
+    "liq_val_2": -45.95722888220924,
+    "liq_val_3": -52.737701768444374,
     "debt": 1542.4,
     "cash": 265.3,
     "short_term_investments": 32.0,
@@ -354968,7 +358154,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "FDS",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "FDS",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:46.581637+00:00",
+      "balanceDate": "2026-08-31",
+      "filingDate": "2026-09-30",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-08-31",
+        "observationDate": "2026-08-31",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 301.67,
+        "marketCap": 10729057357
+      },
+      "amounts": {
+        "currentAssets": 654713000,
+        "totalLiabilities": 2140977000,
+        "cashAndShortTermInvestments": 265332000,
+        "tradeReceivables": 301439000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "TW": {
     "reported_growth": {
@@ -355038,9 +358259,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 216030000,
     "shares_display": "216.03 M",
     "mcap": 24517.0,
-    "liq_val_1": 6.73,
-    "liq_val_2": 6.45,
-    "liq_val_3": 5.3,
+    "liq_val_1": 6.733415652676605,
+    "liq_val_2": 6.447001260120362,
+    "liq_val_3": 5.301343689895391,
     "debt": 150.3,
     "cash": 2057.9,
     "short_term_investments": 0.0,
@@ -358802,7 +362023,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "TW",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "TW",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:47.988684+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-30",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 113.49,
+        "marketCap": 24517046093
+      },
+      "amounts": {
+        "currentAssets": 2367297000,
+        "totalLiabilities": 912689000,
+        "cashAndShortTermInvestments": 2057929000,
+        "tradeReceivables": 309368000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "CME": {
     "reported_growth": {
@@ -358872,9 +362128,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 359580000,
     "shares_display": "359.58 M",
     "mcap": 105669.6,
-    "liq_val_1": -18.34,
-    "liq_val_2": -459.83,
-    "liq_val_3": -461.51,
+    "liq_val_1": -18.335595477128518,
+    "liq_val_2": -459.8321836515068,
+    "liq_val_3": -461.5076973799593,
     "debt": 3424.2,
     "cash": 2275.6,
     "short_term_investments": 131.4,
@@ -362643,7 +365899,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "CME",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "CME",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:49.711719+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-24",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 293.87,
+        "marketCap": 105669559487
+      },
+      "amounts": {
+        "currentAssets": 161631100000,
+        "totalLiabilities": 168224200000,
+        "cashAndShortTermInvestments": 2275600000,
+        "tradeReceivables": 753100000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "MSCI": {
     "reported_growth": {
@@ -362713,9 +366004,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 72700000,
     "shares_display": "72.70 M",
     "mcap": 41372.1,
-    "liq_val_1": -94.3,
-    "liq_val_2": -99.42,
-    "liq_val_3": -109.16,
+    "liq_val_1": -94.30261348005502,
+    "liq_val_2": -99.42338376891334,
+    "liq_val_3": -109.15543328748281,
     "debt": 6544.2,
     "cash": 356.4,
     "short_term_investments": 0.0,
@@ -366473,7 +369764,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "MSCI",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "MSCI",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:51.095829+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-21",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 569.08,
+        "marketCap": 41372116000
+      },
+      "amounts": {
+        "currentAssets": 1436200000,
+        "totalLiabilities": 8292000000,
+        "cashAndShortTermInvestments": 356400000,
+        "tradeReceivables": 884400000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "MCO": {
     "reported_growth": {
@@ -366543,9 +369869,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 173200000,
     "shares_display": "173.20 M",
     "mcap": 84014.1,
-    "liq_val_1": -43.46,
-    "liq_val_2": -48.95,
-    "liq_val_3": -57.81,
+    "liq_val_1": -43.45842956120092,
+    "liq_val_2": -48.94803695150115,
+    "liq_val_3": -57.81177829099307,
     "debt": 7522.0,
     "cash": 1496.0,
     "short_term_investments": 29.0,
@@ -370313,7 +373639,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "MCO",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "MCO",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:52.554782+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-23",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 485.07,
+        "marketCap": 84014124000
+      },
+      "amounts": {
+        "currentAssets": 3982000000,
+        "totalLiabilities": 11509000000,
+        "cashAndShortTermInvestments": 1496000000,
+        "tradeReceivables": 1919000000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "ICE": {
     "reported_growth": {
@@ -370383,9 +373744,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 561390000,
     "shares_display": "561.39 M",
     "mcap": 90699.0,
-    "liq_val_1": -40.13,
-    "liq_val_2": -147.3,
-    "liq_val_3": -254.09,
+    "liq_val_1": -40.13395203021046,
+    "liq_val_2": -147.29521994317727,
+    "liq_val_3": -254.08491347446986,
     "debt": 20527.0,
     "cash": 1953.0,
     "short_term_investments": 886.0,
@@ -374154,7 +377515,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "ICE",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "ICE",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:54.050797+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-30",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 161.56,
+        "marketCap": 90698976200
+      },
+      "amounts": {
+        "currentAssets": 122064000000,
+        "totalLiabilities": 144595000000,
+        "cashAndShortTermInvestments": 1953000000,
+        "tradeReceivables": 1869000000,
+        "inventory": 116912000000,
+        "preferredStock": 0
+      }
+    }
   },
   "AIG": {
     "reported_growth": {
@@ -374224,9 +377620,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 530210000,
     "shares_display": "530.21 M",
     "mcap": 42808.9,
-    "liq_val_1": 29.01,
-    "liq_val_2": 5.11,
-    "liq_val_3": -73.77,
+    "liq_val_1": 29.00569512524589,
+    "liq_val_2": -53.428267865788776,
+    "liq_val_3": -73.76752374917858,
     "debt": 9127.0,
     "cash": 83726.0,
     "short_term_investments": 82236.0,
@@ -378069,7 +381465,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "AIG",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "AIG",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:55.437059+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-07",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 80.74,
+        "marketCap": 42808850284
+      },
+      "amounts": {
+        "currentAssets": 138217000000,
+        "totalLiabilities": 122838000000,
+        "cashAndShortTermInvestments": 83726000000,
+        "tradeReceivables": 13480000000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "MET": {
     "reported_growth": {
@@ -378139,9 +381570,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 635480000,
     "shares_display": "635.48 M",
     "mcap": 64030.7,
-    "liq_val_1": -858.87,
-    "liq_val_2": -876.52,
-    "liq_val_3": -947.13,
+    "liq_val_1": -858.8697938713754,
+    "liq_val_2": -883.1359750234863,
+    "liq_val_3": -947.1357735999886,
     "debt": 21345.0,
     "cash": 129528.0,
     "short_term_investments": 110227.0,
@@ -381932,7 +385363,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "MET",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "MET",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:56.844408+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-06",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 100.76,
+        "marketCap": 64030662520
+      },
+      "amounts": {
+        "currentAssets": 185619000000,
+        "totalLiabilities": 731411000000,
+        "cashAndShortTermInvestments": 129528000000,
+        "tradeReceivables": 50838000000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "PRU": {
     "reported_growth": {
@@ -382002,9 +385468,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 345000000,
     "shares_display": "345.00 M",
     "mcap": 39988.9,
-    "liq_val_1": -965.43,
-    "liq_val_2": -1056.67,
-    "liq_val_3": -1167.92,
+    "liq_val_1": -965.4347826086956,
+    "liq_val_2": -1159.2017391304348,
+    "liq_val_3": -1167.9159420289855,
     "debt": 20618.0,
     "cash": 348688.0,
     "short_term_investments": 333526.0,
@@ -385786,7 +389252,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "PRU",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "PRU",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:58.242191+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-05",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 115.91,
+        "marketCap": 39988950000
+      },
+      "amounts": {
+        "currentAssets": 418544000000,
+        "totalLiabilities": 751619000000,
+        "cashAndShortTermInvestments": 348688000000,
+        "tradeReceivables": 3758000000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "TRV": {
     "reported_growth": {
@@ -385856,9 +389357,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 208580000,
     "shares_display": "208.58 M",
     "mcap": 81248.3,
-    "liq_val_1": -430.54,
-    "liq_val_2": -445.36,
-    "liq_val_3": -504.65,
+    "liq_val_1": 60.49142356068584,
+    "liq_val_2": -30.460982044104096,
+    "liq_val_3": -80.3308077799232,
     "debt": 9813.0,
     "cash": 96339.0,
     "short_term_investments": 95573.0,
@@ -389659,7 +393160,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "TRV",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "TRV",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:58:59.632610+00:00",
+      "balanceDate": "2026-09-30",
+      "filingDate": "2026-10-16",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-09-30",
+        "observationDate": "2026-09-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 389.54,
+        "marketCap": 81248314070
+      },
+      "amounts": {
+        "currentAssets": 125711000000,
+        "totalLiabilities": 113094000000,
+        "cashAndShortTermInvestments": 96339000000,
+        "tradeReceivables": 13002000000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "AFL": {
     "reported_growth": {
@@ -389729,9 +393265,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 501430000,
     "shares_display": "501.43 M",
     "mcap": 60156.2,
-    "liq_val_1": 37.05,
-    "liq_val_2": 18.55,
-    "liq_val_3": 15.95,
+    "liq_val_1": 37.046257976833,
+    "liq_val_2": 18.551847017855902,
+    "liq_val_3": 15.954460799669679,
     "debt": 8729.0,
     "cash": 93649.0,
     "short_term_investments": 87529.0,
@@ -393574,7 +397110,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "AFL",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "AFL",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:01.140330+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-07",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 119.97,
+        "marketCap": 60156216625
+      },
+      "amounts": {
+        "currentAssets": 104225000000,
+        "totalLiabilities": 85649000000,
+        "cashAndShortTermInvestments": 93649000000,
+        "tradeReceivables": 1628000000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "ALL": {
     "reported_growth": {
@@ -393644,9 +397215,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 252860000,
     "shares_display": "252.86 M",
     "mcap": 62678.4,
-    "liq_val_1": -290.68,
-    "liq_val_2": -300.07,
-    "liq_val_3": -337.6,
+    "liq_val_1": -290.6848903337051,
+    "liq_val_2": -337.6045052954623,
+    "liq_val_3": -337.6045052954623,
     "debt": 7492.0,
     "cash": 5712.0,
     "short_term_investments": 4872.0,
@@ -397435,7 +401006,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "ALL",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "ALL",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:02.677707+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-05",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 247.88,
+        "marketCap": 62678441040
+      },
+      "amounts": {
+        "currentAssets": 17576000000,
+        "totalLiabilities": 91078000000,
+        "cashAndShortTermInvestments": 5712000000,
+        "tradeReceivables": 0,
+        "inventory": 0,
+        "preferredStock": 2001000000
+      }
+    }
   },
   "AON": {
     "reported_growth": {
@@ -397505,9 +401111,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 212130000,
     "shares_display": "212.13 M",
     "mcap": 62057.3,
-    "liq_val_1": -73.18,
-    "liq_val_2": -179.57,
-    "liq_val_3": -199.74,
+    "liq_val_1": -73.17840066234093,
+    "liq_val_2": -179.57111168392873,
+    "liq_val_3": -199.7403102533908,
     "debt": 15874.0,
     "cash": 1267.0,
     "short_term_investments": 205.0,
@@ -401289,7 +404895,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "AON",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "AON",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:04.177033+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-29",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 292.55,
+        "marketCap": 62057295717
+      },
+      "amounts": {
+        "currentAssets": 28114000000,
+        "totalLiabilities": 43637000000,
+        "cashAndShortTermInvestments": 1267000000,
+        "tradeReceivables": 5348000000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "AJG": {
     "reported_growth": {
@@ -401359,9 +405000,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 256339999,
     "shares_display": "256.34 M",
     "mcap": 65336.2,
-    "liq_val_1": -49.19,
-    "liq_val_2": -202.13,
-    "liq_val_3": -221.09,
+    "liq_val_1": -49.18838578299999,
+    "liq_val_2": -202.12997530633024,
+    "liq_val_3": -221.09221700781382,
     "debt": 2017.0,
     "cash": 1386.0,
     "short_term_investments": 0.0,
@@ -405140,7 +408781,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "AJG",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "AJG",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:05.586417+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-05",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 254.88,
+        "marketCap": 65336194080
+      },
+      "amounts": {
+        "currentAssets": 45452000000,
+        "totalLiabilities": 58061000000,
+        "cashAndShortTermInvestments": 1386000000,
+        "tradeReceivables": 6076000000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "MMC": {
     "reported_growth": {
@@ -405210,9 +408886,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 491620000,
     "shares_display": "491.62 M",
     "mcap": 89819.7,
-    "liq_val_1": -40.51,
-    "liq_val_2": -72.0,
-    "liq_val_3": -86.55,
+    "liq_val_1": -42.28637931167882,
+    "liq_val_2": -87.5750529070672,
+    "liq_val_3": -87.5750529070672,
     "debt": 22332.0,
     "cash": 1842.0,
     "short_term_investments": 0.0,
@@ -409003,7 +412679,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "MMC",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "MMC",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:07.025683+00:00",
+      "balanceDate": "2026-09-30",
+      "filingDate": "2026-10-15",
+      "quoteDate": "2026-01-13",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-09-30",
+        "observationDate": "2026-09-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-01-13",
+        "price": 182.7,
+        "marketCap": 89819709368
+      },
+      "amounts": {
+        "currentAssets": 24107000000,
+        "totalLiabilities": 44896000000,
+        "cashAndShortTermInvestments": 1842000000,
+        "tradeReceivables": 0,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "USB": {
     "reported_growth": {
@@ -409073,9 +412784,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 1558050000,
     "shares_display": "1,558.05 M",
     "mcap": 91504.3,
-    "liq_val_1": -379.66,
-    "liq_val_2": -379.66,
-    "liq_val_3": -379.66,
+    "liq_val_1": -276.6137158627772,
+    "liq_val_2": -278.17079041109076,
+    "liq_val_3": -278.17079041109076,
     "debt": 73040.0,
     "cash": 202674.0,
     "short_term_investments": 153151.0,
@@ -412906,7 +416617,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "USB",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "USB",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:08.421232+00:00",
+      "balanceDate": "2026-09-30",
+      "filingDate": "2026-10-15",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-09-30",
+        "observationDate": "2026-09-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 58.73,
+        "marketCap": 91504276500
+      },
+      "amounts": {
+        "currentAssets": 205100000000,
+        "totalLiabilities": 636078000000,
+        "cashAndShortTermInvestments": 202674000000,
+        "tradeReceivables": 0,
+        "inventory": 0,
+        "preferredStock": 6808000000
+      }
+    }
   },
   "LLY": {
     "reported_growth": {
@@ -412976,9 +416722,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 941360000,
     "shares_display": "941.36 M",
     "mcap": 1183314.1,
-    "liq_val_1": -46.46,
-    "liq_val_2": -79.66,
-    "liq_val_3": -105.65,
+    "liq_val_1": -46.456336724656104,
+    "liq_val_2": -79.66275937419644,
+    "liq_val_3": -105.64960469710849,
     "debt": 54908.0,
     "cash": 8950.0,
     "short_term_investments": 60.0,
@@ -416765,7 +420511,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "LLY",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "LLY",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:09.834137+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-05",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 1257.03,
+        "marketCap": 1183314050047
+      },
+      "amounts": {
+        "currentAssets": 64672000000,
+        "totalLiabilities": 108404000000,
+        "cashAndShortTermInvestments": 8950000000,
+        "tradeReceivables": 20083000000,
+        "inventory": 16793000000,
+        "preferredStock": 0
+      }
+    }
   },
   "UNH": {
     "reported_growth": {
@@ -416835,9 +420616,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 897600000,
     "shares_display": "897.60 M",
     "mcap": 360321.6,
-    "liq_val_1": -130.26,
-    "liq_val_2": -172.74,
-    "liq_val_3": -191.97,
+    "liq_val_1": -135.51991711183774,
+    "liq_val_2": -180.7648215509222,
+    "liq_val_3": -199.07419270383636,
     "debt": 74331.0,
     "cash": 28549.0,
     "short_term_investments": 2704.0,
@@ -420628,7 +424409,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "UNH",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "UNH",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:11.239890+00:00",
+      "balanceDate": "2026-09-30",
+      "filingDate": "2026-10-13",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-09-30",
+        "observationDate": "2026-09-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 401.43,
+        "marketCap": 360321560850
+      },
+      "amounts": {
+        "currentAssets": 85595000000,
+        "totalLiabilities": 207237000000,
+        "cashAndShortTermInvestments": 28549000000,
+        "tradeReceivables": 20543000000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "JNJ": {
     "reported_growth": {
@@ -420698,9 +424514,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 2409900000,
     "shares_display": "2,409.90 M",
     "mcap": 615873.7,
-    "liq_val_1": -23.37,
-    "liq_val_2": -30.09,
-    "liq_val_3": -39.56,
+    "liq_val_1": -23.36861811120813,
+    "liq_val_2": -30.09388033601054,
+    "liq_val_3": -39.558510934329384,
     "debt": 49036.0,
     "cash": 20758.0,
     "short_term_investments": 336.0,
@@ -424505,7 +428321,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "JNJ",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "JNJ",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:12.626276+00:00",
+      "balanceDate": "2026-06-28",
+      "filingDate": "2026-07-23",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-28",
+        "observationDate": "2026-06-28",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 255.56,
+        "marketCap": 615873685449
+      },
+      "amounts": {
+        "currentAssets": 59774000000,
+        "totalLiabilities": 116090000000,
+        "cashAndShortTermInvestments": 20758000000,
+        "tradeReceivables": 19046000000,
+        "inventory": 15144000000,
+        "preferredStock": 0
+      }
+    }
   },
   "ABBV": {
     "reported_growth": {
@@ -424575,9 +428426,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 1767120000,
     "shares_display": "1,767.12 M",
     "mcap": 504370.6,
-    "liq_val_1": -60.74,
-    "liq_val_2": -68.37,
-    "liq_val_3": -76.08,
+    "liq_val_1": -60.73960167275268,
+    "liq_val_2": -68.36631672692181,
+    "liq_val_3": -76.07531268074267,
     "debt": 70822.0,
     "cash": 6569.0,
     "short_term_investments": 0.0,
@@ -428339,7 +432190,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "ABBV",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "ABBV",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:14.015685+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-03",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 285.42,
+        "marketCap": 504370615485
+      },
+      "amounts": {
+        "currentAssets": 33669000000,
+        "totalLiabilities": 141003000000,
+        "cashAndShortTermInvestments": 6569000000,
+        "tradeReceivables": 13824000000,
+        "inventory": 5127000000,
+        "preferredStock": 0
+      }
+    }
   },
   "MRK": {
     "reported_growth": {
@@ -428409,9 +432295,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 2467170000,
     "shares_display": "2,467.17 M",
     "mcap": 360120.7,
-    "liq_val_1": -20.73,
-    "liq_val_2": -27.37,
-    "liq_val_3": -32.7,
+    "liq_val_1": -20.72778367434894,
+    "liq_val_2": -27.368302618246187,
+    "liq_val_3": -32.700197569280775,
     "debt": 53906.0,
     "cash": 7141.0,
     "short_term_investments": 292.0,
@@ -432216,7 +436102,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "MRK",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "MRK",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:15.407151+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-07",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 145.965,
+        "marketCap": 360120708141
+      },
+      "amounts": {
+        "currentAssets": 36679000000,
+        "totalLiabilities": 87818000000,
+        "cashAndShortTermInvestments": 7141000000,
+        "tradeReceivables": 12564000000,
+        "inventory": 6207000000,
+        "preferredStock": 0
+      }
+    }
   },
   "TMO": {
     "reported_growth": {
@@ -432286,9 +436207,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 369750000,
     "shares_display": "369.75 M",
     "mcap": 255125.6,
-    "liq_val_1": -100.4,
-    "liq_val_2": -124.54,
-    "liq_val_3": -152.6,
+    "liq_val_1": -100.40100740590697,
+    "liq_val_2": -124.5437133512861,
+    "liq_val_3": -152.6015257891575,
     "debt": 42549.0,
     "cash": 4064.0,
     "short_term_investments": 0.0,
@@ -436099,7 +440020,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "TMO",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "TMO",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:16.791319+00:00",
+      "balanceDate": "2026-06-27",
+      "filingDate": "2026-07-31",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-27",
+        "observationDate": "2026-06-27",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 690,
+        "marketCap": 255125627340
+      },
+      "amounts": {
+        "currentAssets": 23365000000,
+        "totalLiabilities": 60488000000,
+        "cashAndShortTermInvestments": 4064000000,
+        "tradeReceivables": 9451000000,
+        "inventory": 5627000000,
+        "preferredStock": 0
+      }
+    }
   },
   "ABT": {
     "reported_growth": {
@@ -436169,9 +440125,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 1730380000,
     "shares_display": "1,730.38 M",
     "mcap": 181482.6,
-    "liq_val_1": -19.03,
-    "liq_val_2": -23.88,
-    "liq_val_3": -29.96,
+    "liq_val_1": -19.033933161642768,
+    "liq_val_2": -23.87523047385524,
+    "liq_val_3": -29.964459388850422,
     "debt": 32608.0,
     "cash": 5603.0,
     "short_term_investments": 499.0,
@@ -439988,7 +443944,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "ABT",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "ABT",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:18.180604+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-28",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 104.88,
+        "marketCap": 181482600084
+      },
+      "amounts": {
+        "currentAssets": 24517000000,
+        "totalLiabilities": 57453000000,
+        "cashAndShortTermInvestments": 5603000000,
+        "tradeReceivables": 8599000000,
+        "inventory": 7315000000,
+        "preferredStock": 0
+      }
+    }
   },
   "DHR": {
     "reported_growth": {
@@ -440058,9 +444049,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 702990000,
     "shares_display": "702.99 M",
     "mcap": 161011.9,
-    "liq_val_1": -37.56,
-    "liq_val_2": -43.58,
-    "liq_val_3": -50.41,
+    "liq_val_1": -37.561200325072505,
+    "liq_val_2": -43.57981189770579,
+    "liq_val_3": -50.410672869529236,
     "debt": 26558.0,
     "cash": 4348.0,
     "short_term_investments": 0.0,
@@ -443865,7 +447856,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "DHR",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "DHR",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:19.580280+00:00",
+      "balanceDate": "2026-06-26",
+      "filingDate": "2026-07-21",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-26",
+        "observationDate": "2026-06-26",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 229.04,
+        "marketCap": 161011925808
+      },
+      "amounts": {
+        "currentAssets": 13381000000,
+        "totalLiabilities": 39786000000,
+        "cashAndShortTermInvestments": 4348000000,
+        "tradeReceivables": 3965000000,
+        "inventory": 3260000000,
+        "preferredStock": 0
+      }
+    }
   },
   "ISRG": {
     "reported_growth": {
@@ -443935,9 +447961,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 353280000,
     "shares_display": "353.28 M",
     "mcap": 150743.7,
-    "liq_val_1": 19.71,
-    "liq_val_2": 14.13,
-    "liq_val_3": 7.47,
+    "liq_val_1": 19.711954891048975,
+    "liq_val_2": 14.12544794750876,
+    "liq_val_3": 7.46522568628672,
     "debt": 0.0,
     "cash": 5216.2,
     "short_term_investments": 2455.8,
@@ -447716,7 +451742,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "ISRG",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "ISRG",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:21.678028+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-21",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 426.7,
+        "marketCap": 150743722600
+      },
+      "amounts": {
+        "currentAssets": 9542700000,
+        "totalLiabilities": 2578900000,
+        "cashAndShortTermInvestments": 5216200000,
+        "tradeReceivables": 1673200000,
+        "inventory": 2028700000,
+        "preferredStock": 0
+      }
+    }
   },
   "PFE": {
     "reported_growth": {
@@ -447786,9 +451847,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 5699670000,
     "shares_display": "5,699.67 M",
     "mcap": 168596.2,
-    "liq_val_1": -13.03,
-    "liq_val_2": -15.61,
-    "liq_val_3": -18.24,
+    "liq_val_1": -13.03250889963805,
+    "liq_val_2": -15.610640616035665,
+    "liq_val_3": -18.236143496026962,
     "debt": 63194.0,
     "cash": 11699.0,
     "short_term_investments": 10723.0,
@@ -451587,7 +455648,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "PFE",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "PFE",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:23.061447+00:00",
+      "balanceDate": "2026-06-28",
+      "filingDate": "2026-08-04",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-28",
+        "observationDate": "2026-06-28",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 29.58,
+        "marketCap": 168596238600
+      },
+      "amounts": {
+        "currentAssets": 41358000000,
+        "totalLiabilities": 115639000000,
+        "cashAndShortTermInvestments": 11699000000,
+        "tradeReceivables": 12490000000,
+        "inventory": 9945000000,
+        "preferredStock": 0
+      }
+    }
   },
   "AMGN": {
     "reported_growth": {
@@ -451657,9 +455753,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 540630000,
     "shares_display": "540.63 M",
     "mcap": 233817.9,
-    "liq_val_1": -90.62,
-    "liq_val_2": -108.52,
-    "liq_val_3": -129.41,
+    "liq_val_1": -90.61616774441764,
+    "liq_val_2": -108.52187809822578,
+    "liq_val_3": -129.40780419952944,
     "debt": 57304.0,
     "cash": 13989.0,
     "short_term_investments": 0.0,
@@ -455452,7 +459548,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "AMGN",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "AMGN",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:24.445911+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-05",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 432.49,
+        "marketCap": 233817933680
+      },
+      "amounts": {
+        "currentAssets": 34961000000,
+        "totalLiabilities": 83951000000,
+        "cashAndShortTermInvestments": 13989000000,
+        "tradeReceivables": 10227000000,
+        "inventory": 6220000000,
+        "preferredStock": 0
+      }
+    }
   },
   "BMY": {
     "reported_growth": {
@@ -455522,9 +459653,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 2042710000,
     "shares_display": "2,042.71 M",
     "mcap": 122051.9,
-    "liq_val_1": -17.98,
-    "liq_val_2": -21.75,
-    "liq_val_3": -26.56,
+    "liq_val_1": -17.983952690298672,
+    "liq_val_2": -21.753993469459687,
+    "liq_val_3": -26.556877873021623,
     "debt": 43120.0,
     "cash": 11067.0,
     "short_term_investments": 2345.0,
@@ -459323,7 +463454,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "BMY",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "BMY",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:25.908714+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-30",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 59.75,
+        "marketCap": 122051922500
+      },
+      "amounts": {
+        "currentAssets": 28579000000,
+        "totalLiabilities": 65315000000,
+        "cashAndShortTermInvestments": 11067000000,
+        "tradeReceivables": 10553000000,
+        "inventory": 2737000000,
+        "preferredStock": 0
+      }
+    }
   },
   "MDT": {
     "reported_growth": {
@@ -459393,9 +463559,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 1279170000,
     "shares_display": "1,279.17 M",
     "mcap": 121201.4,
-    "liq_val_1": -14.12,
-    "liq_val_2": -22.41,
-    "liq_val_3": -26.3,
+    "liq_val_1": -14.123220525809705,
+    "liq_val_2": -26.249677525270293,
+    "liq_val_3": -26.295957534964078,
     "debt": 28153.0,
     "cash": 8819.0,
     "short_term_investments": 7128.0,
@@ -463200,7 +467366,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "MDT",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "MDT",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:27.818150+00:00",
+      "balanceDate": "2026-07-31",
+      "filingDate": "2026-09-03",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-07-31",
+        "observationDate": "2026-07-31",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 94.75,
+        "marketCap": 121201357500
+      },
+      "amounts": {
+        "currentAssets": 24390000000,
+        "totalLiabilities": 42456000000,
+        "cashAndShortTermInvestments": 8819000000,
+        "tradeReceivables": 224000000,
+        "inventory": -240000000,
+        "preferredStock": 0
+      }
+    }
   },
   "GILD": {
     "reported_growth": {
@@ -463270,9 +467471,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 1239960000,
     "shares_display": "1,239.96 M",
     "mcap": 193668.6,
-    "liq_val_1": -19.09,
-    "liq_val_2": -23.73,
-    "liq_val_3": -27.77,
+    "liq_val_1": -19.09181949411308,
+    "liq_val_2": -23.725454812975357,
+    "liq_val_3": -27.774391566669216,
     "debt": 26246.0,
     "cash": 3179.0,
     "short_term_investments": 0.0,
@@ -467065,7 +471266,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "GILD",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "GILD",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:29.237132+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-06",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 156.19,
+        "marketCap": 193668595659
+      },
+      "amounts": {
+        "currentAssets": 13945000000,
+        "totalLiabilities": 37618000000,
+        "cashAndShortTermInvestments": 3179000000,
+        "tradeReceivables": 5055000000,
+        "inventory": 1953000000,
+        "preferredStock": 0
+      }
+    }
   },
   "ILMN": {
     "reported_growth": {
@@ -467135,9 +471371,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 151000000,
     "shares_display": "151.00 M",
     "mcap": 39643.5,
-    "liq_val_1": -6.48,
-    "liq_val_2": -11.38,
-    "liq_val_3": -17.51,
+    "liq_val_1": -6.47682119205298,
+    "liq_val_2": -11.379470198675497,
+    "liq_val_3": -17.509933774834437,
     "debt": 2527.0,
     "cash": 1168.0,
     "short_term_investments": 128.0,
@@ -470906,7 +475142,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "ILMN",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "ILMN",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:30.621877+00:00",
+      "balanceDate": "2026-06-28",
+      "filingDate": "2026-07-31",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-28",
+        "observationDate": "2026-06-28",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 262.54,
+        "marketCap": 39643540000
+      },
+      "amounts": {
+        "currentAssets": 2834000000,
+        "totalLiabilities": 3812000000,
+        "cashAndShortTermInvestments": 1168000000,
+        "tradeReceivables": 764000000,
+        "inventory": 629000000,
+        "preferredStock": 0
+      }
+    }
   },
   "ZTS": {
     "reported_growth": {
@@ -470976,9 +475247,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 413220000,
     "shares_display": "413.22 M",
     "mcap": 32776.9,
-    "liq_val_1": -13.49,
-    "liq_val_2": -18.66,
-    "liq_val_3": -24.81,
+    "liq_val_1": -13.486631947805547,
+    "liq_val_2": -18.65622519505159,
+    "liq_val_3": -24.812208390606543,
     "debt": 9238.0,
     "cash": 1676.0,
     "short_term_investments": 200.0,
@@ -474735,7 +479006,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "ZTS",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "ZTS",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:32.072858+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-06",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 79.32,
+        "marketCap": 32776927680
+      },
+      "amounts": {
+        "currentAssets": 6356000000,
+        "totalLiabilities": 11929000000,
+        "cashAndShortTermInvestments": 1676000000,
+        "tradeReceivables": 1571000000,
+        "inventory": 2574000000,
+        "preferredStock": 0
+      }
+    }
   },
   "ALGN": {
     "reported_growth": {
@@ -474805,9 +479111,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 71040000,
     "shares_display": "71.04 M",
     "mcap": 10464.9,
-    "liq_val_1": 6.73,
-    "liq_val_2": -0.81,
-    "liq_val_3": -15.24,
+    "liq_val_1": 6.727501024072388,
+    "liq_val_2": -0.8122674722233562,
+    "liq_val_3": -15.238436427979206,
     "debt": 120.8,
     "cash": 1102.6,
     "short_term_investments": 0.0,
@@ -478563,7 +482869,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "ALGN",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "ALGN",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:33.455514+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-05",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 147.31,
+        "marketCap": 10464887669
+      },
+      "amounts": {
+        "currentAssets": 2663049000,
+        "totalLiabilities": 2185128000,
+        "cashAndShortTermInvestments": 1102591000,
+        "tradeReceivables": 1148392000,
+        "inventory": 212240000,
+        "preferredStock": 0
+      }
+    }
   },
   "FMS": {
     "reported_growth": {
@@ -478633,9 +482974,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 532220000,
     "shares_display": "532.22 M",
     "mcap": 11799.3,
-    "liq_val_1": -21.60760242925858,
-    "liq_val_2": -26.545434550186016,
-    "liq_val_3": -34.99330235522904,
+    "liq_val_1": -21.60759796281958,
+    "liq_val_2": -26.742808277158343,
+    "liq_val_3": -34.993295121874446,
     "debt": 12516.8509865,
     "cash": 1211.6302667,
     "short_term_investments": 443.09377,
@@ -482450,7 +486791,43 @@ window.FULL_MARKET_DATA = {
       },
       "reason": null
     },
-    "enterpriseValueBasis": "USD market capitalization + USD debt - USD cash and short-term investments"
+    "enterpriseValueBasis": "USD market capitalization + USD debt - USD cash and short-term investments",
+    "liquidation": {
+      "version": 1,
+      "ticker": "FMS",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:34.850554+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-04",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "EUR",
+      "fx": {
+        "rate": 1.1417,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null,
+        "source": "RXI$US_N.B.EU"
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 22.17,
+        "marketCap": 11799319839
+      },
+      "amounts": {
+        "currentAssets": 8778861251.3,
+        "totalLiabilities": 20278859416.2,
+        "cashAndShortTermInvestments": 1654724036.6999998,
+        "tradeReceivables": 3824924481.7,
+        "inventory": 2662270861.6,
+        "preferredStock": 0
+      }
+    }
   },
   "BDX": {
     "reported_growth": {
@@ -482520,9 +486897,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 272390000,
     "shares_display": "272.39 M",
     "mcap": 52230.2,
-    "liq_val_1": -66.72,
-    "liq_val_2": -80.97,
-    "liq_val_3": -94.0,
+    "liq_val_1": -66.72491712159538,
+    "liq_val_2": -80.97229309768822,
+    "liq_val_3": -94.00228351573313,
     "debt": 16808.0,
     "cash": 709.0,
     "short_term_investments": 1.0,
@@ -486321,7 +490698,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "BDX",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "BDX",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:36.237271+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-06",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 191.75,
+        "marketCap": 52230207250
+      },
+      "amounts": {
+        "currentAssets": 8139000000,
+        "totalLiabilities": 26314000000,
+        "cashAndShortTermInvestments": 709000000,
+        "tradeReceivables": 2364000000,
+        "inventory": 3316000000,
+        "preferredStock": 0
+      }
+    }
   },
   "ZBH": {
     "reported_growth": {
@@ -486391,9 +490803,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 190740000,
     "shares_display": "190.74 M",
     "mcap": 18116.3,
-    "liq_val_1": -26.57,
-    "liq_val_2": -43.72,
-    "liq_val_3": -51.14,
+    "liq_val_1": -26.57362455305183,
+    "liq_val_2": -43.723327286644505,
+    "liq_val_3": -51.14502616154096,
     "debt": 7479.0,
     "cash": 410.0,
     "short_term_investments": 0.0,
@@ -490162,7 +494574,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "ZBH",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "ZBH",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:37.844247+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-05",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 94.98,
+        "marketCap": 18116295240
+      },
+      "amounts": {
+        "currentAssets": 5096700000,
+        "totalLiabilities": 10165300000,
+        "cashAndShortTermInvestments": 410000000,
+        "tradeReceivables": 1769500000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "DXCM": {
     "reported_growth": {
@@ -490232,9 +494679,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 377360000,
     "shares_display": "377.36 M",
     "mcap": 32468.1,
-    "liq_val_1": 0.67,
-    "liq_val_2": -1.37,
-    "liq_val_3": -5.0,
+    "liq_val_1": 0.6696505468238636,
+    "liq_val_2": -1.371471879712,
+    "liq_val_3": -5.000251748325874,
     "debt": 1398.4,
     "cash": 1947.0,
     "short_term_investments": 842.0,
@@ -494003,7 +498450,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "DXCM",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "DXCM",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:39.245969+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-30",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 86.04,
+        "marketCap": 32468140440
+      },
+      "amounts": {
+        "currentAssets": 4086600000,
+        "totalLiabilities": 3833900000,
+        "cashAndShortTermInvestments": 1947000000,
+        "tradeReceivables": 1257700000,
+        "inventory": 726400000,
+        "preferredStock": 0
+      }
+    }
   },
   "RMD": {
     "reported_growth": {
@@ -494073,9 +498555,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 140640000,
     "shares_display": "140.64 M",
     "mcap": 33608.6,
-    "liq_val_1": 13.82,
-    "liq_val_2": 2.78,
-    "liq_val_3": -6.48,
+    "liq_val_1": 13.823893695735462,
+    "liq_val_2": 2.7770761599373137,
+    "liq_val_3": -6.479862623189973,
     "debt": 825.9,
     "cash": 1469.2,
     "short_term_investments": 0.0,
@@ -497862,7 +502344,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "RMD",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "RMD",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:40.632063+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-13",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 238.97,
+        "marketCap": 33608560856
+      },
+      "amounts": {
+        "currentAssets": 4324739000,
+        "totalLiabilities": 2380557000,
+        "cashAndShortTermInvestments": 1469234000,
+        "tradeReceivables": 1036233000,
+        "inventory": 945805000,
+        "preferredStock": 0
+      }
+    }
   },
   "COR": {
     "reported_growth": {
@@ -497932,9 +502449,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 190830000,
     "shares_display": "190.83 M",
     "mcap": 65056.8,
-    "liq_val_1": -132.22,
-    "liq_val_2": -245.65,
-    "liq_val_3": -407.44,
+    "liq_val_1": -132.22082401068232,
+    "liq_val_2": -245.6543071310413,
+    "liq_val_3": -407.4428868644618,
     "debt": 11723.2,
     "cash": 2815.3,
     "short_term_investments": 0.0,
@@ -501713,7 +506230,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "COR",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "COR",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:42.022805+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-05",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 340.92,
+        "marketCap": 65056797092
+      },
+      "amounts": {
+        "currentAssets": 55335137000,
+        "totalLiabilities": 80566462000,
+        "cashAndShortTermInvestments": 2815291000,
+        "tradeReceivables": 25448105000,
+        "inventory": 21030344000,
+        "preferredStock": 0
+      }
+    }
   },
   "STE": {
     "reported_growth": {
@@ -501783,9 +506335,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 97500000,
     "shares_display": "97.50 M",
     "mcap": 21709.4,
-    "liq_val_1": -10.96,
-    "liq_val_2": -19.14,
-    "liq_val_3": -31.1,
+    "liq_val_1": -10.9640913188807,
+    "liq_val_2": -19.137313705319276,
+    "liq_val_3": -31.102532202531073,
     "debt": 2044.5,
     "cash": 482.3,
     "short_term_investments": 0.0,
@@ -505555,7 +510107,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "STE",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "STE",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:43.416169+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-07",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 222.66,
+        "marketCap": 21709372266
+      },
+      "amounts": {
+        "currentAssets": 2445800000,
+        "totalLiabilities": 3514800000,
+        "cashAndShortTermInvestments": 482300000,
+        "tradeReceivables": 1013200000,
+        "inventory": 712100000,
+        "preferredStock": 0
+      }
+    }
   },
   "MCK": {
     "reported_growth": {
@@ -505625,9 +510212,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 116590000,
     "shares_display": "116.59 M",
     "mcap": 117154.7,
-    "liq_val_1": -251.8,
-    "liq_val_2": -425.83,
-    "liq_val_3": -746.46,
+    "liq_val_1": -251.79611114153536,
+    "liq_val_2": -425.83022063295317,
+    "liq_val_3": -746.4596366334374,
     "debt": 11701.0,
     "cash": 5164.0,
     "short_term_investments": 0.0,
@@ -509392,7 +513979,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "MCK",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "MCK",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:44.952874+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-05",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 1004.84,
+        "marketCap": 117154660357
+      },
+      "amounts": {
+        "currentAssets": 62837000000,
+        "totalLiabilities": 92194000000,
+        "cashAndShortTermInvestments": 5164000000,
+        "tradeReceivables": 30316000000,
+        "inventory": 26259000000,
+        "preferredStock": 0
+      }
+    }
   },
   "SYK": {
     "reported_growth": {
@@ -509462,9 +514084,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 383570000,
     "shares_display": "383.57 M",
     "mcap": 113023.6,
-    "liq_val_1": -24.83,
-    "liq_val_2": -38.35,
-    "liq_val_3": -53.36,
+    "liq_val_1": -24.82969343514794,
+    "liq_val_2": -38.35280376877414,
+    "liq_val_3": -53.35620598947268,
     "debt": 14942.0,
     "cash": 3476.0,
     "short_term_investments": 85.0,
@@ -513281,7 +517903,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "SYK",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "SYK",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:46.373308+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-31",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 294.66,
+        "marketCap": 113023620180
+      },
+      "amounts": {
+        "currentAssets": 14418000000,
+        "totalLiabilities": 23942000000,
+        "cashAndShortTermInvestments": 3476000000,
+        "tradeReceivables": 3743000000,
+        "inventory": 5521000000,
+        "preferredStock": 0
+      }
+    }
   },
   "VEEV": {
     "reported_growth": {
@@ -513351,9 +518008,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 161910000,
     "shares_display": "161.91 M",
     "mcap": 50250.1,
-    "liq_val_1": 39.02,
-    "liq_val_2": 37.13,
-    "liq_val_3": 34.67,
+    "liq_val_1": 39.018541279360626,
+    "liq_val_2": 37.12897121222415,
+    "liq_val_3": 34.67486674613517,
     "debt": 151.7,
     "cash": 7242.9,
     "short_term_investments": 5430.9,
@@ -517110,7 +521767,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "VEEV",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "VEEV",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:47.758024+00:00",
+      "balanceDate": "2026-07-31",
+      "filingDate": "2026-08-27",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-07-31",
+        "observationDate": "2026-07-31",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 310.36,
+        "marketCap": 50250077240
+      },
+      "amounts": {
+        "currentAssets": 7946227000,
+        "totalLiabilities": 1628774000,
+        "cashAndShortTermInvestments": 7242947000,
+        "tradeReceivables": 496677000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "LH": {
     "reported_growth": {
@@ -517180,9 +521872,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 81100000,
     "shares_display": "81.10 M",
     "mcap": 25785.7,
-    "liq_val_1": -75.14,
-    "liq_val_2": -93.86,
-    "liq_val_3": -120.44,
+    "liq_val_1": -75.1442663378545,
+    "liq_val_2": -93.8628853267571,
+    "liq_val_3": -120.43526510480888,
     "debt": 6766.1,
     "cash": 141.8,
     "short_term_investments": 0.0,
@@ -520969,7 +525661,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "LH",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "LH",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:49.137629+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-05",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 317.95,
+        "marketCap": 25785745000
+      },
+      "amounts": {
+        "currentAssets": 3814900000,
+        "totalLiabilities": 9909100000,
+        "cashAndShortTermInvestments": 141800000,
+        "tradeReceivables": 2342400000,
+        "inventory": 562200000,
+        "preferredStock": 0
+      }
+    }
   },
   "REGN": {
     "reported_growth": {
@@ -521039,9 +525766,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 102950000,
     "shares_display": "102.95 M",
     "mcap": 81410.6,
-    "liq_val_1": 81.86,
-    "liq_val_2": -2.95,
-    "liq_val_3": -19.66,
+    "liq_val_1": 81.85130697525592,
+    "liq_val_2": 46.331608385363594,
+    "liq_val_3": -19.662962601246956,
     "debt": 1986.6,
     "cash": 7994.6,
     "short_term_investments": 5538.8,
@@ -524803,7 +529530,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "REGN",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "REGN",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:50.566279+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-30",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 790.74,
+        "marketCap": 81410624048
+      },
+      "amounts": {
+        "currentAssets": 18446000000,
+        "totalLiabilities": 10019000000,
+        "cashAndShortTermInvestments": 7994600000,
+        "tradeReceivables": 6565400000,
+        "inventory": 3084300000,
+        "preferredStock": 0
+      }
+    }
   },
   "VRTX": {
     "reported_growth": {
@@ -524873,9 +529635,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 253460000,
     "shares_display": "253.46 M",
     "mcap": 126664.6,
-    "liq_val_1": 21.18,
-    "liq_val_2": 12.89,
-    "liq_val_3": 2.67,
+    "liq_val_1": 21.179984297386973,
+    "liq_val_2": 12.889517519460588,
+    "liq_val_3": 2.6710223663601105,
     "debt": 1977.6,
     "cash": 7852.4,
     "short_term_investments": 1708.9,
@@ -528644,7 +533406,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "VRTX",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "VRTX",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:51.953084+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-04",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 499.74,
+        "marketCap": 126664600140
+      },
+      "amounts": {
+        "currentAssets": 12543700000,
+        "totalLiabilities": 7175400000,
+        "cashAndShortTermInvestments": 7852400000,
+        "tradeReceivables": 2134300000,
+        "inventory": 1765100000,
+        "preferredStock": 0
+      }
+    }
   },
   "WMT": {
     "reported_growth": {
@@ -528714,9 +533511,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 7958080000,
     "shares_display": "7,958.08 M",
     "mcap": 945499.4,
-    "liq_val_1": -12.65,
-    "liq_val_2": -17.37,
-    "liq_val_3": -22.35,
+    "liq_val_1": -12.654435579053006,
+    "liq_val_2": -17.368387183368526,
+    "liq_val_3": -22.352001850616848,
     "debt": 73755.0,
     "cash": 11529.0,
     "short_term_investments": 0.0,
@@ -532539,7 +537336,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "WMT",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "WMT",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:53.331598+00:00",
+      "balanceDate": "2026-07-31",
+      "filingDate": "2026-08-28",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-07-31",
+        "observationDate": "2026-07-31",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 118.81,
+        "marketCap": 945499384406
+      },
+      "amounts": {
+        "currentAssets": 88703000000,
+        "totalLiabilities": 189408000000,
+        "cashAndShortTermInvestments": 11529000000,
+        "tradeReceivables": 11075000000,
+        "inventory": 61600000000,
+        "preferredStock": 0
+      }
+    }
   },
   "COST": {
     "reported_growth": {
@@ -532609,9 +537441,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 443130000,
     "shares_display": "443.13 M",
     "mcap": 438303.7,
-    "liq_val_1": -15.03,
-    "liq_val_2": -43.13,
-    "liq_val_3": -72.08,
+    "liq_val_1": -15.029471676916453,
+    "liq_val_2": -43.1291676869207,
+    "liq_val_3": -72.08053375861688,
     "debt": 8576.0,
     "cash": 21301.0,
     "short_term_investments": 1094.0,
@@ -536410,7 +541242,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "COST",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "COST",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:54.800112+00:00",
+      "balanceDate": "2026-08-30",
+      "filingDate": "2026-10-07",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-08-30",
+        "observationDate": "2026-08-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 989.11,
+        "marketCap": 438303670389
+      },
+      "amounts": {
+        "currentAssets": 46582000000,
+        "totalLiabilities": 53242000000,
+        "cashAndShortTermInvestments": 21301000000,
+        "tradeReceivables": 3959000000,
+        "inventory": 19324000000,
+        "preferredStock": 0
+      }
+    }
   },
   "PG": {
     "reported_growth": {
@@ -536480,9 +541347,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 2322670000,
     "shares_display": "2,322.67 M",
     "mcap": 370024.9,
-    "liq_val_1": -19.81,
-    "liq_val_2": -22.96,
-    "liq_val_3": -26.81,
+    "liq_val_1": -19.80563498445199,
+    "liq_val_2": -22.964151991819858,
+    "liq_val_3": -26.808775253507598,
     "debt": 35026.0,
     "cash": 9942.0,
     "short_term_investments": 0.0,
@@ -540281,7 +545148,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "PG",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "PG",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:56.183728+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-04",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 159.31,
+        "marketCap": 370024926025
+      },
+      "amounts": {
+        "currentAssets": 26208000000,
+        "totalLiabilities": 72210000000,
+        "cashAndShortTermInvestments": 9942000000,
+        "tradeReceivables": 6056000000,
+        "inventory": 8170000000,
+        "preferredStock": 0
+      }
+    }
   },
   "KO": {
     "reported_growth": {
@@ -540351,9 +545253,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 4302550000,
     "shares_display": "4,302.55 M",
     "mcap": 404009.4,
-    "liq_val_1": -8.54,
-    "liq_val_2": -11.14,
-    "liq_val_3": -12.37,
+    "liq_val_1": -8.537031867730962,
+    "liq_val_2": -11.139186861821214,
+    "liq_val_3": -12.373129740832688,
     "debt": 43543.0,
     "cash": 16371.0,
     "short_term_investments": 3464.0,
@@ -544170,7 +549072,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "KO",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "KO",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:57.570193+00:00",
+      "balanceDate": "2026-07-03",
+      "filingDate": "2026-07-29",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-07-03",
+        "observationDate": "2026-07-03",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 93.9,
+        "marketCap": 404009373918
+      },
+      "amounts": {
+        "currentAssets": 32876000000,
+        "totalLiabilities": 69607000000,
+        "cashAndShortTermInvestments": 16371000000,
+        "tradeReceivables": 3732000000,
+        "inventory": 4647000000,
+        "preferredStock": 0
+      }
+    }
   },
   "PEP": {
     "reported_growth": {
@@ -544240,9 +549177,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 1362740000,
     "shares_display": "1,362.74 M",
     "mcap": 179186.8,
-    "liq_val_1": -41.78,
-    "liq_val_2": -47.12,
-    "liq_val_3": -57.48,
+    "liq_val_1": -41.77609084330691,
+    "liq_val_2": -47.1187047023229,
+    "liq_val_3": -57.47679767069835,
     "debt": 51881.0,
     "cash": 11163.0,
     "short_term_investments": 488.0,
@@ -548029,7 +552966,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "PEP",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "PEP",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T04:59:58.962840+00:00",
+      "balanceDate": "2026-09-05",
+      "filingDate": "2026-10-08",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-09-05",
+        "observationDate": "2026-09-05",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 131.49,
+        "marketCap": 179186839862
+      },
+      "amounts": {
+        "currentAssets": 32559000000,
+        "totalLiabilities": 89489000000,
+        "cashAndShortTermInvestments": 11163000000,
+        "tradeReceivables": 13623000000,
+        "inventory": 6434000000,
+        "preferredStock": 0
+      }
+    }
   },
   "PM": {
     "reported_growth": {
@@ -548099,9 +553071,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 1558610000,
     "shares_display": "1,558.61 M",
     "mcap": 319826.8,
-    "liq_val_1": -31.39,
-    "liq_val_2": -37.9,
-    "liq_val_3": -44.22,
+    "liq_val_1": -31.388224122776062,
+    "liq_val_2": -37.897742219028494,
+    "liq_val_3": -44.224661717812666,
     "debt": 49113.0,
     "cash": 5999.0,
     "short_term_investments": 0.0,
@@ -551862,7 +556834,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "PM",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "PM",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:00:00.360805+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-24",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 205.2,
+        "marketCap": 319826772000
+      },
+      "amounts": {
+        "currentAssets": 26006000000,
+        "totalLiabilities": 74928000000,
+        "cashAndShortTermInvestments": 5999000000,
+        "tradeReceivables": 5179000000,
+        "inventory": 11436000000,
+        "preferredStock": 0
+      }
+    }
   },
   "MDLZ": {
     "reported_growth": {
@@ -551932,9 +556939,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 1276310000,
     "shares_display": "1,276.31 M",
     "mcap": 81569.0,
-    "liq_val_1": -24.77,
-    "liq_val_2": -29.33,
-    "liq_val_3": -33.56,
+    "liq_val_1": -24.77219484294568,
+    "liq_val_2": -29.325555703551643,
+    "liq_val_3": -33.564729571969195,
     "debt": 22059.0,
     "cash": 1716.0,
     "short_term_investments": 0.0,
@@ -555691,7 +560698,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "MDLZ",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "MDLZ",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:00:03.185956+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-28",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 63.91,
+        "marketCap": 81568972100
+      },
+      "amounts": {
+        "currentAssets": 12938000000,
+        "totalLiabilities": 44555000000,
+        "cashAndShortTermInvestments": 1716000000,
+        "tradeReceivables": 4010000000,
+        "inventory": 4405000000,
+        "preferredStock": 0
+      }
+    }
   },
   "CL": {
     "reported_growth": {
@@ -555761,9 +560803,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 797170000,
     "shares_display": "797.17 M",
     "mcap": 75022.0,
-    "liq_val_1": -12.44,
-    "liq_val_2": -15.3,
-    "liq_val_3": -18.63,
+    "liq_val_1": -12.438956161335119,
+    "liq_val_2": -15.296428755113382,
+    "liq_val_3": -18.633345584960857,
     "debt": 7857.0,
     "cash": 1370.0,
     "short_term_investments": 0.0,
@@ -559556,7 +564598,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "CL",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "CL",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:00:05.057356+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-31",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 94.11,
+        "marketCap": 75021951030
+      },
+      "amounts": {
+        "currentAssets": 6308000000,
+        "totalLiabilities": 16224000000,
+        "cashAndShortTermInvestments": 1370000000,
+        "tradeReceivables": 1962000000,
+        "inventory": 2181000000,
+        "preferredStock": 0
+      }
+    }
   },
   "MKC": {
     "reported_growth": {
@@ -559626,9 +564703,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 269060000,
     "shares_display": "269.06 M",
     "mcap": 12471.1,
-    "liq_val_1": -22.89,
-    "liq_val_2": -29.98,
-    "liq_val_3": -32.46,
+    "liq_val_1": -22.889308912123965,
+    "liq_val_2": -29.98240421775479,
+    "liq_val_3": -32.454674061771364,
     "debt": 4246.3,
     "cash": 331.1,
     "short_term_investments": 0.0,
@@ -563427,7 +568504,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "MKC",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "MKC",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:00:07.367126+00:00",
+      "balanceDate": "2026-08-31",
+      "filingDate": "2026-10-01",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-08-31",
+        "observationDate": "2026-08-31",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 46.35,
+        "marketCap": 12471138648
+      },
+      "amounts": {
+        "currentAssets": 2904800000,
+        "totalLiabilities": 9063500000,
+        "cashAndShortTermInvestments": 331100000,
+        "tradeReceivables": 831500000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "CLX": {
     "reported_growth": {
@@ -563497,9 +568609,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 120940000,
     "shares_display": "120.94 M",
     "mcap": 10532.5,
-    "liq_val_1": -47.28,
-    "liq_val_2": -52.73,
-    "liq_val_3": -61.18,
+    "liq_val_1": -47.28042468041476,
+    "liq_val_2": -52.73528584894739,
+    "liq_val_3": -61.18010881608758,
     "debt": 5520.0,
     "cash": 143.0,
     "short_term_investments": 0.0,
@@ -567280,7 +572392,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "CLX",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "CLX",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:00:10.408052+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-07",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 87.09,
+        "marketCap": 10532490420
+      },
+      "amounts": {
+        "currentAssets": 1824000000,
+        "totalLiabilities": 7542000000,
+        "cashAndShortTermInvestments": 143000000,
+        "tradeReceivables": 791000000,
+        "inventory": 777000000,
+        "preferredStock": 0
+      }
+    }
   },
   "HSY": {
     "reported_growth": {
@@ -567350,9 +572497,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 200930000,
     "shares_display": "200.93 M",
     "mcap": 34324.1,
-    "liq_val_1": -27.14,
-    "liq_val_2": -34.95,
-    "liq_val_3": -42.9,
+    "liq_val_1": -27.144969935488678,
+    "liq_val_2": -34.946236334169996,
+    "liq_val_3": -42.897203871072406,
     "debt": 5610.7,
     "cash": 791.2,
     "short_term_investments": 0.0,
@@ -571134,7 +576281,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "HSY",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "HSY",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:00:11.929110+00:00",
+      "balanceDate": "2026-06-28",
+      "filingDate": "2026-07-30",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-28",
+        "observationDate": "2026-06-28",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 170.83,
+        "marketCap": 34324130498
+      },
+      "amounts": {
+        "currentAssets": 3956241000,
+        "totalLiabilities": 9410362000,
+        "cashAndShortTermInvestments": 791213000,
+        "tradeReceivables": 907368000,
+        "inventory": 1743318000,
+        "preferredStock": 0
+      }
+    }
   },
   "ADM": {
     "reported_growth": {
@@ -571204,9 +576386,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 481960000,
     "shares_display": "481.96 M",
     "mcap": 39814.7,
-    "liq_val_1": -3.85,
-    "liq_val_2": -29.5,
-    "liq_val_3": -41.59,
+    "liq_val_1": -3.850945318754565,
+    "liq_val_2": -25.053138117367386,
+    "liq_val_3": -41.5926992778847,
     "debt": 9342.0,
     "cash": 9609.0,
     "short_term_investments": 33.0,
@@ -575024,7 +580206,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "ADM",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "ADM",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:00:13.712400+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-04",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 82.61,
+        "marketCap": 39814681152
+      },
+      "amounts": {
+        "currentAssets": 27799000000,
+        "totalLiabilities": 29655000000,
+        "cashAndShortTermInvestments": 9609000000,
+        "tradeReceivables": 3348000000,
+        "inventory": 10586000000,
+        "preferredStock": 0
+      }
+    }
   },
   "CHD": {
     "reported_growth": {
@@ -575094,9 +580311,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 237200000,
     "shares_display": "237.20 M",
     "mcap": 24794.9,
-    "liq_val_1": -13.64,
-    "liq_val_2": -15.7,
-    "liq_val_3": -18.98,
+    "liq_val_1": -13.643114234042315,
+    "liq_val_2": -15.702565978208934,
+    "liq_val_3": -18.984088655619537,
     "debt": 2428.3,
     "cash": 254.8,
     "short_term_investments": 0.0,
@@ -578907,7 +584124,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "CHD",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "CHD",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:00:15.819512+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-31",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 104.53,
+        "marketCap": 24794924399
+      },
+      "amounts": {
+        "currentAssets": 1521700000,
+        "totalLiabilities": 4757900000,
+        "cashAndShortTermInvestments": 254800000,
+        "tradeReceivables": 596800000,
+        "inventory": 601900000,
+        "preferredStock": 0
+      }
+    }
   },
   "TGT": {
     "reported_growth": {
@@ -578977,9 +584229,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 454300000,
     "shares_display": "454.30 M",
     "mcap": 70070.7,
-    "liq_val_1": -49.45,
-    "liq_val_2": -69.02,
-    "liq_val_3": -83.6,
+    "liq_val_1": -49.44785702703375,
+    "liq_val_2": -69.02206770246543,
+    "liq_val_3": -83.60394665882161,
     "debt": 18701.0,
     "cash": 5411.0,
     "short_term_investments": 0.0,
@@ -582772,7 +588024,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "TGT",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "TGT",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:00:17.347260+00:00",
+      "balanceDate": "2026-08-01",
+      "filingDate": "2026-08-28",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-08-01",
+        "observationDate": "2026-08-01",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 154.24,
+        "marketCap": 70070728406
+      },
+      "amounts": {
+        "currentAssets": 20928000000,
+        "totalLiabilities": 43392000000,
+        "cashAndShortTermInvestments": 5411000000,
+        "tradeReceivables": 0,
+        "inventory": 13249000000,
+        "preferredStock": 0
+      }
+    }
   },
   "KMB": {
     "reported_growth": {
@@ -582842,9 +588129,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 332580000,
     "shares_display": "332.58 M",
     "mcap": 35110.4,
-    "liq_val_1": -30.98,
-    "liq_val_2": -40.43,
-    "liq_val_3": -47.21,
+    "liq_val_1": -30.982112520634196,
+    "liq_val_2": -40.429792620700646,
+    "liq_val_3": -47.212842662946244,
     "debt": 6517.0,
     "cash": 956.0,
     "short_term_investments": 0.0,
@@ -586637,7 +591924,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "KMB",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "KMB",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:00:18.776119+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-04",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 105.57,
+        "marketCap": 35110365030
+      },
+      "amounts": {
+        "currentAssets": 6354000000,
+        "totalLiabilities": 16658000000,
+        "cashAndShortTermInvestments": 956000000,
+        "tradeReceivables": 1858000000,
+        "inventory": 1539000000,
+        "preferredStock": 0
+      }
+    }
   },
   "MNST": {
     "reported_growth": {
@@ -586707,9 +592029,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 1959050000,
     "shares_display": "1,959.05 M",
     "mcap": 89587.4,
-    "liq_val_1": 2.24,
-    "liq_val_2": 1.71,
-    "liq_val_3": 0.72,
+    "liq_val_1": 2.2393165054490693,
+    "liq_val_2": 1.7135278834128784,
+    "liq_val_3": 0.7152002245986574,
     "debt": 0.0,
     "cash": 3419.3,
     "short_term_investments": 1226.8,
@@ -590514,7 +595836,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "MNST",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "MNST",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:00:20.194103+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-07",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 45.73,
+        "marketCap": 89587356500
+      },
+      "amounts": {
+        "currentAssets": 6405076000,
+        "totalLiabilities": 2018143000,
+        "cashAndShortTermInvestments": 3419256000,
+        "tradeReceivables": 1902421000,
+        "inventory": 867674000,
+        "preferredStock": 0
+      }
+    }
   },
   "GIS": {
     "reported_growth": {
@@ -590584,9 +595941,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 534690000,
     "shares_display": "534.69 M",
     "mcap": 17714.2,
-    "liq_val_1": -33.55,
-    "liq_val_2": -37.2,
-    "liq_val_3": -41.88,
+    "liq_val_1": -33.524847247081006,
+    "liq_val_2": -37.17079338005226,
+    "liq_val_3": -41.8497176853,
     "debt": 13614.0,
     "cash": 433.1,
     "short_term_investments": 0.0,
@@ -594385,7 +599742,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "GIS",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "GIS",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:00:21.588279+00:00",
+      "balanceDate": "2026-08-30",
+      "filingDate": "2026-09-23",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-08-30",
+        "observationDate": "2026-08-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 33.13,
+        "marketCap": 17714180310
+      },
+      "amounts": {
+        "currentAssets": 4884300000,
+        "totalLiabilities": 22809600000,
+        "cashAndShortTermInvestments": 433100000,
+        "tradeReceivables": 1775200000,
+        "inventory": 2163200000,
+        "preferredStock": 0
+      }
+    }
   },
   "KHC": {
     "reported_growth": {
@@ -594455,9 +599847,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 1185820000,
     "shares_display": "1,185.82 M",
     "mcap": 28080.3,
-    "liq_val_1": -23.35,
-    "liq_val_2": -25.95,
-    "liq_val_3": -28.89,
+    "liq_val_1": -23.345796383035356,
+    "liq_val_2": -25.94921867004976,
+    "liq_val_3": -28.886248710608765,
     "debt": 19001.0,
     "cash": 2681.0,
     "short_term_investments": 262.0,
@@ -598219,7 +603611,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "KHC",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "KHC",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:00:23.534213+00:00",
+      "balanceDate": "2026-06-27",
+      "filingDate": "2026-08-05",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-27",
+        "observationDate": "2026-06-27",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 23.68,
+        "marketCap": 28080306589
+      },
+      "amounts": {
+        "currentAssets": 9251000000,
+        "totalLiabilities": 36935000000,
+        "cashAndShortTermInvestments": 2681000000,
+        "tradeReceivables": 2286000000,
+        "inventory": 3308000000,
+        "preferredStock": 0
+      }
+    }
   },
   "GE": {
     "reported_growth": {
@@ -598289,9 +603716,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 1037560000,
     "shares_display": "1,037.56 M",
     "mcap": 325618.2,
-    "liq_val_1": -67.57,
-    "liq_val_2": -81.3,
-    "liq_val_3": -96.82,
+    "liq_val_1": -67.56990458073227,
+    "liq_val_2": -81.29823402741381,
+    "liq_val_3": -96.82308173361618,
     "debt": 19157.0,
     "cash": 9345.0,
     "short_term_investments": 0.0,
@@ -602114,7 +607541,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "GE",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "GE",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:00:24.999975+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-16",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 313.83,
+        "marketCap": 325618243455
+      },
+      "amounts": {
+        "currentAssets": 39697000000,
+        "totalLiabilities": 109805000000,
+        "cashAndShortTermInvestments": 9345000000,
+        "tradeReceivables": 12360000000,
+        "inventory": 12440000000,
+        "preferredStock": 0
+      }
+    }
   },
   "CAT": {
     "reported_growth": {
@@ -602184,9 +607646,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 459680000,
     "shares_display": "459.68 M",
     "mcap": 335912.1,
-    "liq_val_1": -62.58,
-    "liq_val_2": -121.04,
-    "liq_val_3": -166.42,
+    "liq_val_1": -62.57682057975744,
+    "liq_val_2": -121.03790721705553,
+    "liq_val_3": -166.42627943655845,
     "debt": 45146.0,
     "cash": 6713.0,
     "short_term_investments": 0.0,
@@ -605979,7 +611441,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "CAT",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "CAT",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:00:26.395445+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-05",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 730.76,
+        "marketCap": 335912103000
+      },
+      "amounts": {
+        "currentAssets": 54450000000,
+        "totalLiabilities": 83215000000,
+        "cashAndShortTermInvestments": 6713000000,
+        "tradeReceivables": 13188000000,
+        "inventory": 20627000000,
+        "preferredStock": 0
+      }
+    }
   },
   "UNP": {
     "reported_growth": {
@@ -606049,9 +611546,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 594080000,
     "shares_display": "594.08 M",
     "mcap": 171711.6,
-    "liq_val_1": -75.76,
-    "liq_val_2": -77.87,
-    "liq_val_3": -81.51,
+    "liq_val_1": -75.75636455550139,
+    "liq_val_2": -77.86973230796072,
+    "liq_val_3": -81.51152532464391,
     "debt": 31169.0,
     "cash": 2114.0,
     "short_term_investments": 500.0,
@@ -609844,7 +615341,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "UNP",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "UNP",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:00:27.984910+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-23",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 289.04,
+        "marketCap": 171711581942
+      },
+      "amounts": {
+        "currentAssets": 5533000000,
+        "totalLiabilities": 50538000000,
+        "cashAndShortTermInvestments": 2114000000,
+        "tradeReceivables": 2130000000,
+        "inventory": 919000000,
+        "preferredStock": 0
+      }
+    }
   },
   "RTX": {
     "reported_growth": {
@@ -609914,9 +615446,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 1347760000,
     "shares_display": "1,347.76 M",
     "mcap": 261357.3,
-    "liq_val_1": -31.1,
-    "liq_val_2": -47.47,
-    "liq_val_3": -72.36,
+    "liq_val_1": -31.100536674669726,
+    "liq_val_2": -47.47209483081345,
+    "liq_val_3": -72.35942451865196,
     "debt": 38856.0,
     "cash": 8305.0,
     "short_term_investments": 0.0,
@@ -613715,7 +619247,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "RTX",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "RTX",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:00:29.405944+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-23",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 193.92,
+        "marketCap": 261357249395
+      },
+      "amounts": {
+        "currentAssets": 63912000000,
+        "totalLiabilities": 105828000000,
+        "cashAndShortTermInvestments": 8305000000,
+        "tradeReceivables": 32922000000,
+        "inventory": 14409000000,
+        "preferredStock": 0
+      }
+    }
   },
   "HON": {
     "reported_growth": {
@@ -613785,9 +619352,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 316940000,
     "shares_display": "316.94 M",
     "mcap": 67004.3,
-    "liq_val_1": -95.94,
-    "liq_val_2": -124.38,
-    "liq_val_3": -155.52,
+    "liq_val_1": -95.94244967501736,
+    "liq_val_2": -124.37969331734713,
+    "liq_val_3": -155.52154982015523,
     "debt": 33988.0,
     "cash": 9196.0,
     "short_term_investments": 445.0,
@@ -617580,7 +623147,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "HON",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "HON",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:00:30.887023+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-23",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 211.41,
+        "marketCap": 67004285400
+      },
+      "amounts": {
+        "currentAssets": 28079000000,
+        "totalLiabilities": 58487000000,
+        "cashAndShortTermInvestments": 9196000000,
+        "tradeReceivables": 8337000000,
+        "inventory": 6401000000,
+        "preferredStock": 0
+      }
+    }
   },
   "BA": {
     "reported_growth": {
@@ -617650,9 +623252,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 790370000,
     "shares_display": "790.37 M",
     "mcap": 150336.3,
-    "liq_val_1": -44.44,
-    "liq_val_2": -117.32,
-    "liq_val_3": -176.79,
+    "liq_val_1": -44.44121107835571,
+    "liq_val_2": -117.32100155623316,
+    "liq_val_3": -176.79441274339865,
     "debt": 45890.0,
     "cash": 20022.0,
     "short_term_investments": 12783.0,
@@ -621463,7 +627065,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "BA",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "BA",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:00:32.305212+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-28",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 190.21,
+        "marketCap": 150336277700
+      },
+      "amounts": {
+        "currentAssets": 124630000000,
+        "totalLiabilities": 159755000000,
+        "cashAndShortTermInvestments": 20022000000,
+        "tradeReceivables": 3515000000,
+        "inventory": 88388000000,
+        "preferredStock": 6000000
+      }
+    }
   },
   "LMT": {
     "reported_growth": {
@@ -621533,9 +627170,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 230790000,
     "shares_display": "230.79 M",
     "mcap": 127417.4,
-    "liq_val_1": -109.54,
-    "liq_val_2": -194.99,
-    "liq_val_3": -216.17,
+    "liq_val_1": -109.54066666377805,
+    "liq_val_2": -194.98463978231388,
+    "liq_val_3": -216.17394092490608,
     "debt": 20538.0,
     "cash": 3791.0,
     "short_term_investments": 0.0,
@@ -625316,7 +630953,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "LMT",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "LMT",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:00:34.072860+00:00",
+      "balanceDate": "2026-06-28",
+      "filingDate": "2026-07-23",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-28",
+        "observationDate": "2026-06-28",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 552.09,
+        "marketCap": 127417403190
+      },
+      "amounts": {
+        "currentAssets": 28401000000,
+        "totalLiabilities": 53682000000,
+        "cashAndShortTermInvestments": 3791000000,
+        "tradeReceivables": 3356000000,
+        "inventory": 4411000000,
+        "preferredStock": 0
+      }
+    }
   },
   "DE": {
     "reported_growth": {
@@ -625386,9 +631058,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 269630000,
     "shares_display": "269.63 M",
     "mcap": 173061.8,
-    "liq_val_1": -190.22,
-    "liq_val_2": -212.26,
-    "liq_val_3": -256.97,
+    "liq_val_1": -190.21945898814178,
+    "liq_val_2": -219.57908032833888,
+    "liq_val_3": -256.9787450158003,
     "debt": 64180.0,
     "cash": 10278.0,
     "short_term_investments": 1350.0,
@@ -629174,7 +634846,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "DE",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "DE",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:00:35.917529+00:00",
+      "balanceDate": "2026-08-02",
+      "filingDate": "2026-08-27",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-08-02",
+        "observationDate": "2026-08-02",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 641.86,
+        "marketCap": 173061766946
+      },
+      "amounts": {
+        "currentAssets": 28278000000,
+        "totalLiabilities": 79566000000,
+        "cashAndShortTermInvestments": 10278000000,
+        "tradeReceivables": 7723000000,
+        "inventory": 7811000000,
+        "preferredStock": 0
+      }
+    }
   },
   "UPS": {
     "reported_growth": {
@@ -629244,9 +634951,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 749350000,
     "shares_display": "749.35 M",
     "mcap": 73061.6,
-    "liq_val_1": -51.54,
-    "liq_val_2": -57.31,
-    "liq_val_3": -68.75,
+    "liq_val_1": -51.54204399446434,
+    "liq_val_2": -57.31238286591565,
+    "liq_val_3": -68.7463013327507,
     "debt": 28673.0,
     "cash": 4653.0,
     "short_term_investments": 0.0,
@@ -633008,7 +638715,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "UPS",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "UPS",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:00:37.325037+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-05",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 97.5,
+        "marketCap": 73061566988
+      },
+      "amounts": {
+        "currentAssets": 17545000000,
+        "totalLiabilities": 56168000000,
+        "cashAndShortTermInvestments": 4653000000,
+        "tradeReceivables": 10710000000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "EFX": {
     "reported_growth": {
@@ -633078,9 +638820,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 117480000,
     "shares_display": "117.48 M",
     "mcap": 18944.4,
-    "liq_val_1": -50.06,
-    "liq_val_2": -54.55,
-    "liq_val_3": -62.07,
+    "liq_val_1": -50.054093761976006,
+    "liq_val_2": -54.54828848807935,
+    "liq_val_3": -62.06585057537949,
     "debt": 5467.1,
     "cash": 170.1,
     "short_term_investments": 0.0,
@@ -636873,7 +642615,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "EFX",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "EFX",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:00:38.738156+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-21",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 161.25,
+        "marketCap": 18944439480
+      },
+      "amounts": {
+        "currentAssets": 1581300000,
+        "totalLiabilities": 7461900000,
+        "cashAndShortTermInvestments": 170100000,
+        "tradeReceivables": 1104000000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "TRU": {
     "reported_growth": {
@@ -636943,9 +642720,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 191600000,
     "shares_display": "191.60 M",
     "mcap": 14193.7,
-    "liq_val_1": -26.17,
-    "liq_val_2": -28.78,
-    "liq_val_3": -33.15,
+    "liq_val_1": -26.16544885177453,
+    "liq_val_2": -28.77974947807933,
+    "liq_val_3": -33.15344467640919,
     "debt": 5659.0,
     "cash": 839.5,
     "short_term_investments": 0.4,
@@ -640703,7 +646480,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "TRU",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "TRU",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:00:40.254476+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-28",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 74.08,
+        "marketCap": 14193728000
+      },
+      "amounts": {
+        "currentAssets": 2178000000,
+        "totalLiabilities": 7191300000,
+        "cashAndShortTermInvestments": 839100000,
+        "tradeReceivables": 1047500000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "CPRT": {
     "reported_growth": {
@@ -640773,9 +646585,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 926330000,
     "shares_display": "926.33 M",
     "mcap": 25816.8,
-    "liq_val_1": 5.02,
-    "liq_val_2": 4.59,
-    "liq_val_3": 3.86,
+    "liq_val_1": 5.024412466399663,
+    "liq_val_2": 4.586875735429059,
+    "liq_val_3": 3.8602571437824533,
     "debt": 88.4,
     "cash": 4489.8,
     "short_term_investments": 2581.9,
@@ -644578,7 +650390,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "CPRT",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "CPRT",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:00:41.664851+00:00",
+      "balanceDate": "2026-07-31",
+      "filingDate": "2026-09-29",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-07-31",
+        "observationDate": "2026-07-31",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 27.87,
+        "marketCap": 25816817100
+      },
+      "amounts": {
+        "currentAssets": 5568194000,
+        "totalLiabilities": 913930000,
+        "cashAndShortTermInvestments": 4489802000,
+        "tradeReceivables": 809247000,
+        "inventory": 51382000,
+        "preferredStock": 0
+      }
+    }
   },
   "PAYX": {
     "reported_growth": {
@@ -644648,9 +650495,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 355980000,
     "shares_display": "355.98 M",
     "mcap": 39738.0,
-    "liq_val_1": -10.85,
-    "liq_val_2": -25.71,
-    "liq_val_3": -30.96,
+    "liq_val_1": -10.847800438226866,
+    "liq_val_2": -27.327883588965673,
+    "liq_val_3": -30.959604472161356,
     "debt": 4620.9,
     "cash": 934.2,
     "short_term_investments": 333.3,
@@ -648471,7 +654318,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "PAYX",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "PAYX",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:00:44.398081+00:00",
+      "balanceDate": "2026-08-31",
+      "filingDate": "2026-09-24",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-08-31",
+        "observationDate": "2026-08-31",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 111.63,
+        "marketCap": 39738047400
+      },
+      "amounts": {
+        "currentAssets": 8093600000,
+        "totalLiabilities": 11955200000,
+        "cashAndShortTermInvestments": 934200000,
+        "tradeReceivables": 1615900000,
+        "inventory": 200000,
+        "preferredStock": 0
+      }
+    }
   },
   "AOS": {
     "reported_growth": {
@@ -648541,9 +654423,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 135910000,
     "shares_display": "135.91 M",
     "mcap": 8048.5,
-    "liq_val_1": -3.04,
-    "liq_val_2": -6.21,
-    "liq_val_3": -11.93,
+    "liq_val_1": -3.0410148433598785,
+    "liq_val_2": -6.21086629428625,
+    "liq_val_3": -11.929342766850644,
     "debt": 676.7,
     "cash": 181.3,
     "short_term_investments": 0.0,
@@ -652331,7 +658213,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "AOS",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "AOS",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:00:45.826355+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-30",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 59.22,
+        "marketCap": 8048505930
+      },
+      "amounts": {
+        "currentAssets": 1389300000,
+        "totalLiabilities": 1802600000,
+        "cashAndShortTermInvestments": 181300000,
+        "tradeReceivables": 669800000,
+        "inventory": 482700000,
+        "preferredStock": 0
+      }
+    }
   },
   "ASR": {
     "reported_growth": {
@@ -652401,9 +658318,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 29780000,
     "shares_display": "29.78 M",
     "mcap": 7122,
-    "liq_val_1": -44.761860151512835,
-    "liq_val_2": -47.72085306960578,
-    "liq_val_3": -57.93694227994999,
+    "liq_val_1": -44.75902250965236,
+    "liq_val_2": -53.73966159562195,
+    "liq_val_3": -57.933269414431784,
     "debt": 1975.132729669322,
     "cash": 667.3651785202591,
     "short_term_investments": 0,
@@ -656291,7 +662208,43 @@ window.FULL_MARKET_DATA = {
       },
       "reason": null
     },
-    "enterpriseValueBasis": "USD market capitalization + USD debt - USD cash and short-term investments"
+    "enterpriseValueBasis": "USD market capitalization + USD debt - USD cash and short-term investments",
+    "liquidation": {
+      "version": 1,
+      "ticker": "ASR",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:00:47.265211+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-09-28",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "MXN",
+      "fx": {
+        "rate": 0.05730987449137486,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null,
+        "source": "RXI_N.B.MX"
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 239.14,
+        "marketCap": 7122040696
+      },
+      "amounts": {
+        "currentAssets": 1059719124.3051177,
+        "totalLiabilities": 2392727319.61717,
+        "cashAndShortTermInvestments": 667365178.520259,
+        "tradeReceivables": 151472806.46455383,
+        "inventory": 7430626.39692819,
+        "preferredStock": 0
+      }
+    }
   },
   "XYL": {
     "reported_growth": {
@@ -656361,9 +662314,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 233490000,
     "shares_display": "233.49 M",
     "mcap": 24299.0,
-    "liq_val_1": -10.81,
-    "liq_val_2": -15.56,
-    "liq_val_3": -24.16,
+    "liq_val_1": -10.810023684402129,
+    "liq_val_2": -15.564035685070259,
+    "liq_val_3": -24.16408622321585,
     "debt": 3055.0,
     "cash": 1276.0,
     "short_term_investments": 0.0,
@@ -660125,7 +666078,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "XYL",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "XYL",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:00:48.717686+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-28",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 104.07,
+        "marketCap": 24298992090
+      },
+      "amounts": {
+        "currentAssets": 4394000000,
+        "totalLiabilities": 6918000000,
+        "cashAndShortTermInvestments": 1276000000,
+        "tradeReceivables": 1875000000,
+        "inventory": 1016000000,
+        "preferredStock": 0
+      }
+    }
   },
   "ROL": {
     "reported_growth": {
@@ -660195,9 +666183,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 481150000,
     "shares_display": "481.15 M",
     "mcap": 16094.3,
-    "liq_val_1": -2.77,
-    "liq_val_2": -3.33,
-    "liq_val_3": -3.77,
+    "liq_val_1": -2.7744918456779257,
+    "liq_val_2": -3.332995154163567,
+    "liq_val_3": -3.774846407921689,
     "debt": 1115.3,
     "cash": 109.1,
     "short_term_investments": 0.0,
@@ -664014,7 +670002,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "ROL",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "ROL",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:00:50.100281+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-23",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 33.45,
+        "marketCap": 16094313764
+      },
+      "amounts": {
+        "currentAssets": 590401000,
+        "totalLiabilities": 1925335000,
+        "cashAndShortTermInvestments": 109085000,
+        "tradeReceivables": 238989000,
+        "inventory": 42807000,
+        "preferredStock": 0
+      }
+    }
   },
   "OTIS": {
     "reported_growth": {
@@ -664084,9 +670107,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 380670000,
     "shares_display": "380.67 M",
     "mcap": 27153.1,
-    "liq_val_1": -25.95,
-    "liq_val_2": -32.5,
-    "liq_val_3": -41.78,
+    "liq_val_1": -25.946402791196988,
+    "liq_val_2": -32.50064749748802,
+    "liq_val_3": -41.776414254166816,
     "debt": 8846.0,
     "cash": 813.0,
     "short_term_investments": 0.0,
@@ -667839,7 +673862,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "OTIS",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "OTIS",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:00:51.489982+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-23",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 71.33,
+        "marketCap": 27153143951
+      },
+      "amounts": {
+        "currentAssets": 6839000000,
+        "totalLiabilities": 16716000000,
+        "cashAndShortTermInvestments": 813000000,
+        "tradeReceivables": 3985000000,
+        "inventory": 686000000,
+        "preferredStock": 0
+      }
+    }
   },
   "VRSK": {
     "reported_growth": {
@@ -667909,9 +673967,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 130160000,
     "shares_display": "130.16 M",
     "mcap": 24846.8,
-    "liq_val_1": -35.05,
-    "liq_val_2": -36.98,
-    "liq_val_3": -39.44,
+    "liq_val_1": -35.054084630812994,
+    "liq_val_2": -36.982539478447855,
+    "liq_val_3": -39.441127332006246,
     "debt": 4617.1,
     "cash": 551.4,
     "short_term_investments": 0.0,
@@ -671673,7 +677731,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "VRSK",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "VRSK",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:00:52.873161+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-29",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 190.9,
+        "marketCap": 24846783454
+      },
+      "amounts": {
+        "currentAssets": 1122400000,
+        "totalLiabilities": 5684900000,
+        "cashAndShortTermInvestments": 551400000,
+        "tradeReceivables": 400000000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "MIDD": {
     "reported_growth": {
@@ -671743,9 +677836,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 45220000,
     "shares_display": "45.22 M",
     "mcap": 4874.1,
-    "liq_val_1": -33.32,
-    "liq_val_2": -47.36,
-    "liq_val_3": -66.15,
+    "liq_val_1": -33.32185669459537,
+    "liq_val_2": -47.36075122229519,
+    "liq_val_3": -66.15145625056664,
     "debt": 1979.5,
     "cash": 159.2,
     "short_term_investments": 0.0,
@@ -675526,7 +681619,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "MIDD",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "MIDD",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:00:54.331249+00:00",
+      "balanceDate": "2026-07-04",
+      "filingDate": "2026-08-13",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-07-04",
+        "observationDate": "2026-07-04",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 107.78,
+        "marketCap": 4874059494
+      },
+      "amounts": {
+        "currentAssets": 1643808000,
+        "totalLiabilities": 3150699000,
+        "cashAndShortTermInvestments": 159178000,
+        "tradeReceivables": 601178000,
+        "inventory": 737633000,
+        "preferredStock": 0
+      }
+    }
   },
   "ADP": {
     "reported_growth": {
@@ -675596,9 +681724,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 396250000,
     "shares_display": "396.25 M",
     "mcap": 114477.2,
-    "liq_val_1": -122.55,
-    "liq_val_2": -126.47,
-    "liq_val_3": -133.58,
+    "liq_val_1": -122.54524898297042,
+    "liq_val_2": -126.47285061021772,
+    "liq_val_3": -133.5816601556585,
     "debt": 5270.8,
     "cash": 4230.1,
     "short_term_investments": 0.0,
@@ -679407,7 +685535,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "ADP",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "ADP",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:00:56.129844+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-05",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 288.9,
+        "marketCap": 114477202800
+      },
+      "amounts": {
+        "currentAssets": 8603300000,
+        "totalLiabilities": 57162100000,
+        "cashAndShortTermInvestments": 4230100000,
+        "tradeReceivables": 3521100000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "HII": {
     "reported_growth": {
@@ -679477,9 +685640,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 39400000,
     "shares_display": "39.40 M",
     "mcap": 10718.1,
-    "liq_val_1": -104.85,
-    "liq_val_2": -174.58,
-    "liq_val_3": -186.75,
+    "liq_val_1": -104.83548138214734,
+    "liq_val_2": -174.55830915975847,
+    "liq_val_3": -186.7294776107093,
     "debt": 2935.0,
     "cash": 12.0,
     "short_term_investments": 0.0,
@@ -683241,7 +689404,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "HII",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "HII",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:00:57.941947+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-30",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 272,
+        "marketCap": 10718050656
+      },
+      "amounts": {
+        "currentAssets": 3239000000,
+        "totalLiabilities": 7370000000,
+        "cashAndShortTermInvestments": 12000000,
+        "tradeReceivables": 452000000,
+        "inventory": 236000000,
+        "preferredStock": 0
+      }
+    }
   },
   "MSA": {
     "reported_growth": {
@@ -683311,9 +689509,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 38600000,
     "shares_display": "38.60 M",
     "mcap": 6912.1,
-    "liq_val_1": -6.87,
-    "liq_val_2": -14.16,
-    "liq_val_3": -25.9,
+    "liq_val_1": -6.864920449677063,
+    "liq_val_2": -14.154871004353321,
+    "liq_val_3": -25.898733164382936,
     "debt": 643.5,
     "cash": 200.1,
     "short_term_investments": 0.0,
@@ -687104,7 +693302,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "MSA",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "MSA",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:00:59.362894+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-31",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 179.05,
+        "marketCap": 6912062135
+      },
+      "amounts": {
+        "currentAssets": 934840000,
+        "totalLiabilities": 1199854000,
+        "cashAndShortTermInvestments": 200057000,
+        "tradeReceivables": 347877000,
+        "inventory": 350119000,
+        "preferredStock": 3569000
+      }
+    }
   },
   "TDG": {
     "reported_growth": {
@@ -687174,9 +693407,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 55280000,
     "shares_display": "55.28 M",
     "mcap": 62978.8,
-    "liq_val_1": -519.21,
-    "liq_val_2": -559.94,
-    "liq_val_3": -609.62,
+    "liq_val_1": -519.2439285976799,
+    "liq_val_2": -555.0240359762769,
+    "liq_val_3": -609.6620581751032,
     "debt": 33485.0,
     "cash": 2773.0,
     "short_term_investments": 0.0,
@@ -690938,7 +697171,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "TDG",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "TDG",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:01:00.997016+00:00",
+      "balanceDate": "2026-06-27",
+      "filingDate": "2026-08-04",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-27",
+        "observationDate": "2026-06-27",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 1139.34,
+        "marketCap": 62978755993
+      },
+      "amounts": {
+        "currentAssets": 7771000000,
+        "totalLiabilities": 36473000000,
+        "cashAndShortTermInvestments": 2773000000,
+        "tradeReceivables": 2159000000,
+        "inventory": 2586000000,
+        "preferredStock": 0
+      }
+    }
   },
   "RRX": {
     "reported_growth": {
@@ -691008,9 +697276,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 66569999,
     "shares_display": "66.57 M",
     "mcap": 10252.4,
-    "liq_val_1": -60.18,
-    "liq_val_2": -78.62,
-    "liq_val_3": -95.94,
+    "liq_val_1": -60.18214958197933,
+    "liq_val_2": -78.61925146886806,
+    "liq_val_3": -95.93872563718872,
     "debt": 4766.4,
     "cash": 441.6,
     "short_term_investments": 0.0,
@@ -694815,7 +701083,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "RRX",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "RRX",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:01:03.481209+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-05",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 154.01,
+        "marketCap": 10252379938
+      },
+      "amounts": {
+        "currentAssets": 2821900000,
+        "totalLiabilities": 6828200000,
+        "cashAndShortTermInvestments": 441600000,
+        "tradeReceivables": 580000000,
+        "inventory": 1377900000,
+        "preferredStock": 0
+      }
+    }
   },
   "GGG": {
     "reported_growth": {
@@ -694885,9 +701188,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 161950000,
     "shares_display": "161.95 M",
     "mcap": 13278.6,
-    "liq_val_1": 4.73,
-    "liq_val_2": 2.69,
-    "liq_val_3": -0.62,
+    "liq_val_1": 4.734590274238545,
+    "liq_val_2": 2.6924063243614356,
+    "liq_val_3": -0.618633123464804,
     "debt": 45.2,
     "cash": 507.6,
     "short_term_investments": 0.0,
@@ -698710,7 +705013,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "GGG",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "GGG",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:01:05.081062+00:00",
+      "balanceDate": "2026-06-26",
+      "filingDate": "2026-07-22",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-26",
+        "observationDate": "2026-06-26",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 81.99,
+        "marketCap": 13278594030
+      },
+      "amounts": {
+        "currentAssets": 1374550000,
+        "totalLiabilities": 607765000,
+        "cashAndShortTermInvestments": 507575000,
+        "tradeReceivables": 424220000,
+        "inventory": 393719000,
+        "preferredStock": 0
+      }
+    }
   },
   "DCI": {
     "reported_growth": {
@@ -698780,9 +705118,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 115820000,
     "shares_display": "115.82 M",
     "mcap": 10188.8,
-    "liq_val_1": -4.77,
-    "liq_val_2": -9.46,
-    "liq_val_3": -17.03,
+    "liq_val_1": -4.772018891220072,
+    "liq_val_2": -9.464345844017924,
+    "liq_val_3": -17.026273301042124,
     "debt": 1382.7,
     "cash": 250.4,
     "short_term_investments": 0.0,
@@ -702586,7 +708924,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "DCI",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "DCI",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:01:06.514226+00:00",
+      "balanceDate": "2026-07-31",
+      "filingDate": "2026-09-25",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-07-31",
+        "observationDate": "2026-07-31",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 87.97,
+        "marketCap": 10188773370
+      },
+      "amounts": {
+        "currentAssets": 1669700000,
+        "totalLiabilities": 2222400000,
+        "cashAndShortTermInvestments": 250400000,
+        "tradeReceivables": 758100000,
+        "inventory": 538700000,
+        "preferredStock": 0
+      }
+    }
   },
   "ITW": {
     "reported_growth": {
@@ -702656,9 +709029,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 284800000,
     "shares_display": "284.80 M",
     "mcap": 77545.3,
-    "liq_val_1": -24.58,
-    "liq_val_2": -31.71,
-    "liq_val_3": -44.8,
+    "liq_val_1": -24.5751404494382,
+    "liq_val_2": -31.709269662921347,
+    "liq_val_3": -44.80337078651685,
     "debt": 9694.0,
     "cash": 839.0,
     "short_term_investments": 0.0,
@@ -706451,7 +712824,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "ITW",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "ITW",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:01:07.907886+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-06",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 272.28,
+        "marketCap": 77545344000
+      },
+      "amounts": {
+        "currentAssets": 6600000000,
+        "totalLiabilities": 13599000000,
+        "cashAndShortTermInvestments": 839000000,
+        "tradeReceivables": 3564000000,
+        "inventory": 1756000000,
+        "preferredStock": 0
+      }
+    }
   },
   "CNI": {
     "reported_growth": {
@@ -706521,9 +712929,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 605150000,
     "shares_display": "605.15 M",
     "mcap": 73701,
-    "liq_val_1": -41.13619592688278,
-    "liq_val_2": -42.383921714308165,
-    "liq_val_3": -44.10741496744053,
+    "liq_val_1": -41.136331881049124,
+    "liq_val_2": -42.38406179217908,
+    "liq_val_3": -44.10756074141637,
     "debt": 15928.0528405491,
     "cash": 207.0590524463217,
     "short_term_investments": 0,
@@ -710346,7 +716754,43 @@ window.FULL_MARKET_DATA = {
       },
       "reason": null
     },
-    "enterpriseValueBasis": "USD market capitalization + USD debt - USD cash and short-term investments"
+    "enterpriseValueBasis": "USD market capitalization + USD debt - USD cash and short-term investments",
+    "liquidation": {
+      "version": 1,
+      "ticker": "CNI",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:01:09.376069+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-24",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "CAD",
+      "fx": {
+        "rate": 0.7039774727208729,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null,
+        "source": "RXI_N.B.CA"
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 121.79,
+        "marketCap": 73700974920
+      },
+      "amounts": {
+        "currentAssets": 2005092254.839845,
+        "totalLiabilities": 26898661219.992958,
+        "cashAndShortTermInvestments": 207059052.4463217,
+        "tradeReceivables": 924722911.650827,
+        "inventory": 606387225.6247799,
+        "preferredStock": 0
+      }
+    }
   },
   "WM": {
     "reported_growth": {
@@ -710416,9 +716860,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 399720000,
     "shares_display": "399.72 M",
     "mcap": 90679.4,
-    "liq_val_1": -77.85,
-    "liq_val_2": -82.67,
-    "liq_val_3": -89.96,
+    "liq_val_1": -77.85043262225025,
+    "liq_val_2": -82.67386710054893,
+    "liq_val_3": -89.9590544453652,
     "debt": 23356.0,
     "cash": 557.0,
     "short_term_investments": 0.0,
@@ -714180,7 +720624,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "WM",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "WM",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:01:10.791212+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-29",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 226.86,
+        "marketCap": 90679386642
+      },
+      "amounts": {
+        "currentAssets": 5397000000,
+        "totalLiabilities": 36515000000,
+        "cashAndShortTermInvestments": 557000000,
+        "tradeReceivables": 3495000000,
+        "inventory": 232000000,
+        "preferredStock": 0
+      }
+    }
   },
   "XOM": {
     "reported_growth": {
@@ -714250,9 +720729,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 4111910000,
     "shares_display": "4,111.91 M",
     "mcap": 735950.0,
-    "liq_val_1": -23.73,
-    "liq_val_2": -30.78,
-    "liq_val_3": -45.67,
+    "liq_val_1": -23.73056644918377,
+    "liq_val_2": -30.777677448124546,
+    "liq_val_3": -45.66804976046932,
     "debt": 42368.0,
     "cash": 10588.0,
     "short_term_investments": 0.0,
@@ -718045,7 +724524,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "XOM",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "XOM",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:01:12.492643+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-03",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 178.98,
+        "marketCap": 735950002601
+      },
+      "amounts": {
+        "currentAssets": 100793000000,
+        "totalLiabilities": 198371000000,
+        "cashAndShortTermInvestments": 10588000000,
+        "tradeReceivables": 60558000000,
+        "inventory": 25563000000,
+        "preferredStock": 0
+      }
+    }
   },
   "CVX": {
     "reported_growth": {
@@ -718115,9 +724629,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 1975770000,
     "shares_display": "1,975.77 M",
     "mcap": 444508.7,
-    "liq_val_1": -43.24,
-    "liq_val_2": -51.18,
-    "liq_val_3": -63.8,
+    "liq_val_1": -43.24440597842867,
+    "liq_val_2": -51.183083051164864,
+    "liq_val_3": -63.796393304888724,
     "debt": 37075.0,
     "cash": 8530.0,
     "short_term_investments": 3.0,
@@ -721910,7 +728424,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "CVX",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "CVX",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:01:14.473088+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-06",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 224.98,
+        "marketCap": 444508734600
+      },
+      "amounts": {
+        "currentAssets": 49136000000,
+        "totalLiabilities": 134577000000,
+        "cashAndShortTermInvestments": 8530000000,
+        "tradeReceivables": 24575000000,
+        "inventory": 10522000000,
+        "preferredStock": 0
+      }
+    }
   },
   "COP": {
     "reported_growth": {
@@ -721980,9 +728529,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 1201340000,
     "shares_display": "1,201.34 M",
     "mcap": 176008.3,
-    "liq_val_1": -33.06,
-    "liq_val_2": -37.22,
-    "liq_val_3": -42.64,
+    "liq_val_1": -33.06058234970949,
+    "liq_val_2": -37.220853380391894,
+    "liq_val_3": -42.63572344215626,
     "debt": 23290.0,
     "cash": 7692.0,
     "short_term_investments": 1118.0,
@@ -725769,7 +732318,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "COP",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "COP",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:01:16.480698+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-06",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 146.51,
+        "marketCap": 176008323400
+      },
+      "amounts": {
+        "currentAssets": 19195000000,
+        "totalLiabilities": 58912000000,
+        "cashAndShortTermInvestments": 7692000000,
+        "tradeReceivables": 6957000000,
+        "inventory": 1879000000,
+        "preferredStock": 0
+      }
+    }
   },
   "SLB": {
     "reported_growth": {
@@ -725839,9 +732423,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 1484140000,
     "shares_display": "1,484.14 M",
     "mcap": 73465.1,
-    "liq_val_1": -5.41,
-    "liq_val_2": -9.56,
-    "liq_val_3": -16.31,
+    "liq_val_1": -5.4132241633660225,
+    "liq_val_2": -9.556624794459253,
+    "liq_val_3": -16.310420378715623,
     "debt": 12798.0,
     "cash": 4071.0,
     "short_term_investments": 1328.0,
@@ -729646,7 +736230,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "SLB",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "SLB",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:01:18.099075+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-29",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 49.5,
+        "marketCap": 73465089935
+      },
+      "amounts": {
+        "currentAssets": 20244000000,
+        "totalLiabilities": 28278000000,
+        "cashAndShortTermInvestments": 4071000000,
+        "tradeReceivables": 9132000000,
+        "inventory": 5436000000,
+        "preferredStock": 0
+      }
+    }
   },
   "EOG": {
     "reported_growth": {
@@ -729716,9 +736335,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 524530000,
     "shares_display": "524.53 M",
     "mcap": 82880.9,
-    "liq_val_1": -24.86,
-    "liq_val_2": -28.07,
-    "liq_val_3": -34.34,
+    "liq_val_1": -24.864202031078534,
+    "liq_val_2": -28.070505893666166,
+    "liq_val_3": -34.33936566353217,
     "debt": 8250.0,
     "cash": 4907.0,
     "short_term_investments": 0.0,
@@ -733499,7 +740118,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "EOG",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "EOG",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:01:20.210474+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-04",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 158.01,
+        "marketCap": 82880858892
+      },
+      "amounts": {
+        "currentAssets": 9877000000,
+        "totalLiabilities": 22919000000,
+        "cashAndShortTermInvestments": 4907000000,
+        "tradeReceivables": 3529000000,
+        "inventory": 930000000,
+        "preferredStock": 0
+      }
+    }
   },
   "EPD": {
     "reported_growth": {
@@ -733569,9 +740223,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 2159480000,
     "shares_display": "2,159.48 M",
     "mcap": 79512.1,
-    "liq_val_1": -16.11,
-    "liq_val_2": -22.28,
-    "liq_val_3": -23.36,
+    "liq_val_1": -16.109896827013912,
+    "liq_val_2": -18.798136588437956,
+    "liq_val_3": -23.36117954322337,
     "debt": 34019.0,
     "cash": 246.0,
     "short_term_investments": 0.0,
@@ -737345,7 +743999,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "EPD",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "EPD",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:01:21.642048+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-07",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 36.82,
+        "marketCap": 79512053600
+      },
+      "amounts": {
+        "currentAssets": 15905000000,
+        "totalLiabilities": 50694000000,
+        "cashAndShortTermInvestments": 246000000,
+        "tradeReceivables": 9401000000,
+        "inventory": 4666000000,
+        "preferredStock": 0
+      }
+    }
   },
   "ENB": {
     "reported_growth": {
@@ -737415,9 +744104,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 2228840000,
     "shares_display": "2,228.84 M",
     "mcap": 107207.4,
-    "liq_val_1": -45.82404286413097,
-    "liq_val_2": -47.648231391625345,
-    "liq_val_3": -50.51781781184039,
+    "liq_val_1": -45.823968047852105,
+    "liq_val_2": -47.64815359701918,
+    "liq_val_3": -50.5177353321003,
     "debt": 78938.40197113692,
     "cash": 2012.8074621612104,
     "short_term_investments": 0,
@@ -741336,7 +748025,43 @@ window.FULL_MARKET_DATA = {
       },
       "reason": null
     },
-    "enterpriseValueBasis": "USD market capitalization + USD debt - USD cash and short-term investments"
+    "enterpriseValueBasis": "USD market capitalization + USD debt - USD cash and short-term investments",
+    "liquidation": {
+      "version": 1,
+      "ticker": "ENB",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:01:23.056136+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-31",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "CAD",
+      "fx": {
+        "rate": 0.7039774727208729,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null,
+        "source": "RXI_N.B.CA"
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 48.1,
+        "marketCap": 107207379036
+      },
+      "amounts": {
+        "currentAssets": 12474480816.613867,
+        "totalLiabilities": 114608940513.90355,
+        "cashAndShortTermInvestments": 2012807462.1612105,
+        "tradeReceivables": 6997536078.845476,
+        "inventory": 1595640267.5114396,
+        "preferredStock": 4799718409.010911
+      }
+    }
   },
   "MPC": {
     "reported_growth": {
@@ -741406,9 +748131,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 280820000,
     "shares_display": "280.82 M",
     "mcap": 134254.0,
-    "liq_val_1": -122.16,
-    "liq_val_2": -196.88,
-    "liq_val_3": -216.59,
+    "liq_val_1": -122.15436659841538,
+    "liq_val_2": -153.98735867533162,
+    "liq_val_3": -216.58328140300898,
     "debt": 34292.0,
     "cash": 7768.0,
     "short_term_investments": 0.0,
@@ -745177,7 +751902,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "MPC",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "MPC",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:01:24.489234+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-04",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 478.07,
+        "marketCap": 134254007750
+      },
+      "amounts": {
+        "currentAssets": 34286000000,
+        "totalLiabilities": 68590000000,
+        "cashAndShortTermInvestments": 7768000000,
+        "tradeReceivables": 15740000000,
+        "inventory": 9973000000,
+        "preferredStock": 0
+      }
+    }
   },
   "VLO": {
     "reported_growth": {
@@ -745247,9 +752007,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 287930000,
     "shares_display": "287.93 M",
     "mcap": 128044.2,
-    "liq_val_1": -19.88,
-    "liq_val_2": -47.12,
-    "liq_val_3": -99.06,
+    "liq_val_1": -19.883480304832265,
+    "liq_val_2": -47.11638116391004,
+    "liq_val_3": -99.05619943652769,
     "debt": 11349.0,
     "cash": 7874.0,
     "short_term_investments": 0.0,
@@ -749029,7 +755789,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "VLO",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "VLO",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:01:25.890041+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-30",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 444.71,
+        "marketCap": 128044221181
+      },
+      "amounts": {
+        "currentAssets": 30670000000,
+        "totalLiabilities": 36395000000,
+        "cashAndShortTermInvestments": 7874000000,
+        "tradeReceivables": 13928000000,
+        "inventory": 7625000000,
+        "preferredStock": 0
+      }
+    }
   },
   "PSX": {
     "reported_growth": {
@@ -749099,9 +755894,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 400940000,
     "shares_display": "400.94 M",
     "mcap": 117542.1,
-    "liq_val_1": -62.07,
-    "liq_val_2": -81.49,
-    "liq_val_3": -112.26,
+    "liq_val_1": -62.06990848563113,
+    "liq_val_2": -82.8199043329091,
+    "liq_val_3": -112.2575922655825,
     "debt": 20565.0,
     "cash": 4099.0,
     "short_term_investments": 0.0,
@@ -752863,7 +759658,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "PSX",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "PSX",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:01:27.278226+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-05",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 293.17,
+        "marketCap": 117542119813
+      },
+      "amounts": {
+        "currentAssets": 24221000000,
+        "totalLiabilities": 49107000000,
+        "cashAndShortTermInvestments": 4099000000,
+        "tradeReceivables": 11052000000,
+        "inventory": 5922000000,
+        "preferredStock": 0
+      }
+    }
   },
   "OXY": {
     "reported_growth": {
@@ -752933,9 +759763,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 999640000,
     "shares_display": "999.64 M",
     "mcap": 62357.4,
-    "liq_val_1": -26.85,
-    "liq_val_2": -29.51,
-    "liq_val_3": -33.84,
+    "liq_val_1": -26.854748273623326,
+    "liq_val_2": -30.231874170323827,
+    "liq_val_3": -33.839283659968565,
     "debt": 14626.0,
     "cash": 4150.0,
     "short_term_investments": 0.0,
@@ -756710,7 +763540,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "OXY",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "OXY",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:01:28.675014+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-05",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 62.38,
+        "marketCap": 62357356060
+      },
+      "amounts": {
+        "currentAssets": 11132000000,
+        "totalLiabilities": 37977000000,
+        "cashAndShortTermInvestments": 4150000000,
+        "tradeReceivables": 3142000000,
+        "inventory": 2185000000,
+        "preferredStock": 8287000000
+      }
+    }
   },
   "KMI": {
     "reported_growth": {
@@ -756780,9 +763645,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 2226800000,
     "shares_display": "2,226.80 M",
     "mcap": 76156.6,
-    "liq_val_1": -17.21,
-    "liq_val_2": -17.77,
-    "liq_val_3": -18.45,
+    "liq_val_1": -17.21079576073289,
+    "liq_val_2": -17.765897251661578,
+    "liq_val_3": -18.454284174600325,
     "debt": 32248.0,
     "cash": 89.0,
     "short_term_investments": 0.0,
@@ -760543,7 +767408,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "KMI",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "KMI",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:01:30.688493+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-24",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 34.2,
+        "marketCap": 76156560000
+      },
+      "amounts": {
+        "currentAssets": 2858000000,
+        "totalLiabilities": 41183000000,
+        "cashAndShortTermInvestments": 89000000,
+        "tradeReceivables": 1563000000,
+        "inventory": 565000000,
+        "preferredStock": 0
+      }
+    }
   },
   "WMB": {
     "reported_growth": {
@@ -760613,9 +767513,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 1223170000,
     "shares_display": "1,223.17 M",
     "mcap": 87187.4,
-    "liq_val_1": -34.43,
-    "liq_val_2": -36.66,
-    "liq_val_3": -36.82,
+    "liq_val_1": -34.43436893494932,
+    "liq_val_2": -35.39752404409873,
+    "liq_val_3": -36.82161358202195,
     "debt": 30793.0,
     "cash": 203.0,
     "short_term_investments": 0.0,
@@ -764413,7 +771313,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "WMB",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "WMB",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:01:32.398905+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-03",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 71.28,
+        "marketCap": 87187377404
+      },
+      "amounts": {
+        "currentAssets": 3123000000,
+        "totalLiabilities": 45242000000,
+        "cashAndShortTermInvestments": 203000000,
+        "tradeReceivables": 1968000000,
+        "inventory": 335000000,
+        "preferredStock": 35000000
+      }
+    }
   },
   "HAL": {
     "reported_growth": {
@@ -764483,9 +771418,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 833130000,
     "shares_display": "833.13 M",
     "mcap": 27909.9,
-    "liq_val_1": -3.47,
-    "liq_val_2": -8.33,
-    "liq_val_3": -15.28,
+    "liq_val_1": -3.4736459063572767,
+    "liq_val_2": -8.33002853839651,
+    "liq_val_3": -15.277320351111063,
     "debt": 8199.0,
     "cash": 2048.0,
     "short_term_investments": 0.0,
@@ -768278,7 +775213,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "HAL",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "HAL",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:01:34.663818+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-24",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 33.5,
+        "marketCap": 27909868367
+      },
+      "amounts": {
+        "currentAssets": 11882000000,
+        "totalLiabilities": 14776000000,
+        "cashAndShortTermInvestments": 2048000000,
+        "tradeReceivables": 5325000000,
+        "inventory": 3056000000,
+        "preferredStock": 0
+      }
+    }
   },
   "BKR": {
     "reported_growth": {
@@ -768348,9 +775318,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 992670000,
     "shares_display": "992.67 M",
     "mcap": 55291.9,
-    "liq_val_1": -1.97,
-    "liq_val_2": -7.73,
-    "liq_val_3": -15.59,
+    "liq_val_1": -1.9674132696131863,
+    "liq_val_2": -8.857993661564622,
+    "liq_val_3": -15.594243427348758,
     "debt": 16253.0,
     "cash": 17056.0,
     "short_term_investments": 1329.0,
@@ -772112,7 +779082,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "BKR",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "BKR",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:01:36.145879+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-27",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 55.7,
+        "marketCap": 55291941800
+      },
+      "amounts": {
+        "currentAssets": 30583000000,
+        "totalLiabilities": 32536000000,
+        "cashAndShortTermInvestments": 17056000000,
+        "tradeReceivables": 5258000000,
+        "inventory": 4961000000,
+        "preferredStock": 0
+      }
+    }
   },
   "LIN": {
     "reported_growth": {
@@ -772182,9 +779187,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 460980000,
     "shares_display": "460.98 M",
     "mcap": 229766.3,
-    "liq_val_1": -72.79,
-    "liq_val_2": -80.84,
-    "liq_val_3": -92.92,
+    "liq_val_1": -72.79272015011446,
+    "liq_val_2": -80.8438258112521,
+    "liq_val_3": -92.91939965758739,
     "debt": 28013.0,
     "cash": 4898.0,
     "short_term_investments": 0.0,
@@ -775946,7 +782951,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "LIN",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "LIN",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:01:37.550208+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-31",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 498.43,
+        "marketCap": 229766342644
+      },
+      "amounts": {
+        "currentAssets": 14176000000,
+        "totalLiabilities": 47732000000,
+        "cashAndShortTermInvestments": 4898000000,
+        "tradeReceivables": 5632000000,
+        "inventory": 2122000000,
+        "preferredStock": 0
+      }
+    }
   },
   "SHW": {
     "reported_growth": {
@@ -776016,9 +783056,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 242760000,
     "shares_display": "242.76 M",
     "mcap": 81372.5,
-    "liq_val_1": -66.31,
-    "liq_val_2": -76.95,
-    "liq_val_3": -93.93,
+    "liq_val_1": -66.31085273029437,
+    "liq_val_2": -76.95473838094077,
+    "liq_val_3": -93.93381810712525,
     "debt": 14215.4,
     "cash": 293.5,
     "short_term_investments": 0.0,
@@ -779814,7 +786854,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "SHW",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "SHW",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:01:39.036410+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-28",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 335.2,
+        "marketCap": 81372532215
+      },
+      "amounts": {
+        "currentAssets": 6999200000,
+        "totalLiabilities": 23096700000,
+        "cashAndShortTermInvestments": 293500000,
+        "tradeReceivables": 3571200000,
+        "inventory": 2529700000,
+        "preferredStock": 0
+      }
+    }
   },
   "FCX": {
     "reported_growth": {
@@ -779884,9 +786959,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 1437560000,
     "shares_display": "1,437.56 M",
     "mcap": 99967.9,
-    "liq_val_1": -9.28,
-    "liq_val_2": -13.16,
-    "liq_val_3": -16.29,
+    "liq_val_1": -9.27961354848575,
+    "liq_val_2": -13.161330154427292,
+    "liq_val_3": -16.294973566212796,
     "debt": 10359.0,
     "cash": 4080.0,
     "short_term_investments": 0.0,
@@ -783655,7 +790730,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "FCX",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "FCX",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:01:40.495964+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-06",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 69.54,
+        "marketCap": 99967913012
+      },
+      "amounts": {
+        "currentAssets": 14165000000,
+        "totalLiabilities": 27505000000,
+        "cashAndShortTermInvestments": 4080000000,
+        "tradeReceivables": 716000000,
+        "inventory": 7864000000,
+        "preferredStock": 0
+      }
+    }
   },
   "NEM": {
     "reported_growth": {
@@ -783725,9 +790835,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 1053690000,
     "shares_display": "1,053.69 M",
     "mcap": 124967.9,
-    "liq_val_1": -8.47,
-    "liq_val_2": -6.21,
-    "liq_val_3": -8.63,
+    "liq_val_1": -8.46641875004457,
+    "liq_val_2": -6.206935535146452,
+    "liq_val_3": -8.6325013956289,
     "debt": 5466.0,
     "cash": 13131.0,
     "short_term_investments": 4122.0,
@@ -787508,7 +794618,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "NEM",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "NEM",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:01:41.881988+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-23",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 118.6,
+        "marketCap": 124967903341
+      },
+      "amounts": {
+        "currentAssets": 13306000000,
+        "totalLiabilities": 22227000000,
+        "cashAndShortTermInvestments": 13131000000,
+        "tradeReceivables": 686000000,
+        "inventory": 4014000000,
+        "preferredStock": 0
+      }
+    }
   },
   "SCCO": {
     "reported_growth": {
@@ -787578,9 +794723,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 844340000,
     "shares_display": "844.34 M",
     "mcap": 169299.4,
-    "liq_val_1": -0.75,
-    "liq_val_2": -2.32,
-    "liq_val_3": -4.84,
+    "liq_val_1": -0.748036623559802,
+    "liq_val_2": -2.31378528955848,
+    "liq_val_3": -4.8430515532944,
     "debt": 8528.8,
     "cash": 7329.9,
     "short_term_investments": 1664.9,
@@ -791373,7 +798518,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "SCCO",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "SCCO",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:01:43.342494+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-31",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 200.51,
+        "marketCap": 169299352480
+      },
+      "amounts": {
+        "currentAssets": 10787500000,
+        "totalLiabilities": 11419100000,
+        "cashAndShortTermInvestments": 7329900000,
+        "tradeReceivables": 2006400000,
+        "inventory": 1060900000,
+        "preferredStock": 0
+      }
+    }
   },
   "IFF": {
     "reported_growth": {
@@ -791443,9 +798623,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 255150000,
     "shares_display": "255.15 M",
     "mcap": 23137.0,
-    "liq_val_1": -8.06,
-    "liq_val_2": -32.77,
-    "liq_val_3": -41.45,
+    "liq_val_1": -8.061925527246796,
+    "liq_val_2": -34.03606215666959,
+    "liq_val_3": -41.450133386563984,
     "debt": 6243.0,
     "cash": 569.0,
     "short_term_investments": 0.0,
@@ -795219,7 +802399,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "IFF",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "IFF",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:01:44.935032+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-04",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 90.68,
+        "marketCap": 23136998645
+      },
+      "amounts": {
+        "currentAssets": 9088000000,
+        "totalLiabilities": 11145000000,
+        "cashAndShortTermInvestments": 569000000,
+        "tradeReceivables": 1424000000,
+        "inventory": 1505000000,
+        "preferredStock": 0
+      }
+    }
   },
   "RPM": {
     "reported_growth": {
@@ -795289,9 +802504,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 127530000,
     "shares_display": "127.53 M",
     "mcap": 12719.0,
-    "liq_val_1": -10.77,
-    "liq_val_2": -20.8,
-    "liq_val_3": -34.8,
+    "liq_val_1": -10.773033073533332,
+    "liq_val_2": -20.80133611429109,
+    "liq_val_3": -34.79436071949441,
     "debt": 2741.3,
     "cash": 312.8,
     "short_term_investments": 0.0,
@@ -799114,7 +806329,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "RPM",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "RPM",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:01:46.651240+00:00",
+      "balanceDate": "2026-08-31",
+      "filingDate": "2026-10-06",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-08-31",
+        "observationDate": "2026-08-31",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 99.73,
+        "marketCap": 12718965820
+      },
+      "amounts": {
+        "currentAssets": 3376378000,
+        "totalLiabilities": 4750306000,
+        "cashAndShortTermInvestments": 312842000,
+        "tradeReceivables": 1517963000,
+        "inventory": 1140432000,
+        "preferredStock": 0
+      }
+    }
   },
   "VMC": {
     "reported_growth": {
@@ -799184,9 +806434,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 129580000,
     "shares_display": "129.58 M",
     "mcap": 33383.4,
-    "liq_val_1": -44.68,
-    "liq_val_2": -50.36,
-    "liq_val_3": -59.88,
+    "liq_val_1": -44.67853587386845,
+    "liq_val_2": -50.3634848239298,
+    "liq_val_3": -59.88007316000278,
     "debt": 4885.5,
     "cash": 194.2,
     "short_term_investments": 0.0,
@@ -802967,7 +810217,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "VMC",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "VMC",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:01:48.198750+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-29",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 257.63,
+        "marketCap": 33383437770
+      },
+      "amounts": {
+        "currentAssets": 2164000000,
+        "totalLiabilities": 7953400000,
+        "cashAndShortTermInvestments": 194200000,
+        "tradeReceivables": 1111000000,
+        "inventory": 688700000,
+        "preferredStock": 0
+      }
+    }
   },
   "BCPC": {
     "reported_growth": {
@@ -803037,9 +810322,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 31880000,
     "shares_display": "31.88 M",
     "mcap": 5442.5,
-    "liq_val_1": 0.12,
-    "liq_val_2": -7.44,
-    "liq_val_3": -10.08,
+    "liq_val_1": 0.11914164935866897,
+    "liq_val_2": -3.9175487087975798,
+    "liq_val_3": -10.083812919863838,
     "debt": 166.7,
     "cash": 63.2,
     "short_term_investments": 0.0,
@@ -806850,7 +814135,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "BCPC",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "BCPC",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:01:49.607434+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-31",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 170.73,
+        "marketCap": 5442534525
+      },
+      "amounts": {
+        "currentAssets": 388424000,
+        "totalLiabilities": 384626000,
+        "cashAndShortTermInvestments": 63174000,
+        "tradeReceivables": 144741000,
+        "inventory": 161551000,
+        "preferredStock": 0
+      }
+    }
   },
   "APD": {
     "reported_growth": {
@@ -806920,9 +814240,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 222690000,
     "shares_display": "222.69 M",
     "mcap": 66714.4,
-    "liq_val_1": -84.81,
-    "liq_val_2": -100.29,
-    "liq_val_3": -102.69,
+    "liq_val_1": -84.80883333512992,
+    "liq_val_2": -94.24815343819431,
+    "liq_val_3": -102.69504264555115,
     "debt": 18157.3,
     "cash": 980.5,
     "short_term_investments": 0.0,
@@ -810726,7 +818046,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "APD",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "APD",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:01:51.170106+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-30",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 299.59,
+        "marketCap": 66714357933
+      },
+      "amounts": {
+        "currentAssets": 4963500000,
+        "totalLiabilities": 23849200000,
+        "cashAndShortTermInvestments": 980500000,
+        "tradeReceivables": 1881500000,
+        "inventory": 751600000,
+        "preferredStock": 0
+      }
+    }
   },
   "ECL": {
     "reported_growth": {
@@ -810796,9 +818151,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 280330000,
     "shares_display": "280.33 M",
     "mcap": 80984.2,
-    "liq_val_1": -31.47,
-    "liq_val_2": -39.68,
-    "liq_val_3": -52.46,
+    "liq_val_1": -31.473019202437136,
+    "liq_val_2": -39.67905568100339,
+    "liq_val_3": -52.46442572834063,
     "debt": 13752.9,
     "cash": 5135.3,
     "short_term_investments": 0.0,
@@ -814585,7 +821940,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "ECL",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "ECL",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:01:52.609034+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-06",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 288.89,
+        "marketCap": 80984244810
+      },
+      "amounts": {
+        "currentAssets": 11019800000,
+        "totalLiabilities": 19842600000,
+        "cashAndShortTermInvestments": 5135300000,
+        "tradeReceivables": 3452700000,
+        "inventory": 1643900000,
+        "preferredStock": 0
+      }
+    }
   },
   "CTVA": {
     "reported_growth": {
@@ -814655,9 +822045,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 667300000,
     "shares_display": "667.30 M",
     "mcap": 8594.8,
-    "liq_val_1": 0.18,
-    "liq_val_2": -7.04,
-    "liq_val_3": -20.79,
+    "liq_val_1": 0.17683200959088866,
+    "liq_val_2": -7.036864978270643,
+    "liq_val_3": -20.791248314101605,
     "debt": 4875.0,
     "cash": 2365.0,
     "short_term_investments": 0.0,
@@ -818425,7 +825815,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "CTVA",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "CTVA",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:01:54.020312+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-31",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 12.88,
+        "marketCap": 8594824000
+      },
+      "amounts": {
+        "currentAssets": 16357000000,
+        "totalLiabilities": 16239000000,
+        "cashAndShortTermInvestments": 2365000000,
+        "tradeReceivables": 8696000000,
+        "inventory": 4443000000,
+        "preferredStock": 0
+      }
+    }
   },
   "DOW": {
     "reported_growth": {
@@ -818495,9 +825920,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 722340000,
     "shares_display": "722.34 M",
     "mcap": 21619.7,
-    "liq_val_1": -20.34,
-    "liq_val_2": -31.6,
-    "liq_val_3": -43.73,
+    "liq_val_1": -20.33804792729769,
+    "liq_val_2": -31.603507392847003,
+    "liq_val_3": -43.73144074436095,
     "debt": 20861.0,
     "cash": 3973.0,
     "short_term_investments": 0.0,
@@ -822259,7 +829684,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "DOW",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "DOW",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:01:55.417191+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-24",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 29.93,
+        "marketCap": 21619657480
+      },
+      "amounts": {
+        "currentAssets": 20871000000,
+        "totalLiabilities": 35562000000,
+        "cashAndShortTermInvestments": 3973000000,
+        "tradeReceivables": 6430000000,
+        "inventory": 7233000000,
+        "preferredStock": 0
+      }
+    }
   },
   "DD": {
     "reported_growth": {
@@ -822329,9 +829789,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 135040000,
     "shares_display": "135.04 M",
     "mcap": 17616.4,
-    "liq_val_1": -17.21,
-    "liq_val_2": -25.43,
-    "liq_val_3": -40.28,
+    "liq_val_1": -17.2093368920581,
+    "liq_val_2": -25.430423732661758,
+    "liq_val_3": -40.283473619963885,
     "debt": 3125.0,
     "cash": 1740.0,
     "short_term_investments": 0.0,
@@ -826141,7 +833601,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "DD",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "DD",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:01:56.796025+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-04",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 130.45,
+        "marketCap": 17616355697
+      },
+      "amounts": {
+        "currentAssets": 4856000000,
+        "totalLiabilities": 7180000000,
+        "cashAndShortTermInvestments": 1740000000,
+        "tradeReceivables": 1751000000,
+        "inventory": 1210000000,
+        "preferredStock": 0
+      }
+    }
   },
   "MLM": {
     "reported_growth": {
@@ -826211,9 +833706,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 60070000,
     "shares_display": "60.07 M",
     "mcap": 30083.4,
-    "liq_val_1": -121.84,
-    "liq_val_2": -137.25,
-    "liq_val_3": -160.56,
+    "liq_val_1": -121.84970482371,
+    "liq_val_2": -137.25780727135907,
+    "liq_val_3": -160.5739039519993,
     "debt": 5951.0,
     "cash": 112.0,
     "short_term_investments": 0.0,
@@ -829975,7 +837470,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "MLM",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "MLM",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:01:58.212376+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-30",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 500.84,
+        "marketCap": 30083355272
+      },
+      "amounts": {
+        "currentAssets": 2438000000,
+        "totalLiabilities": 9757000000,
+        "cashAndShortTermInvestments": 112000000,
+        "tradeReceivables": 1020000000,
+        "inventory": 1169000000,
+        "preferredStock": 0
+      }
+    }
   },
   "NEE": {
     "reported_growth": {
@@ -830045,9 +837575,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 2085980000,
     "shares_display": "2,085.98 M",
     "mcap": 166461.1,
-    "liq_val_1": -71.52,
-    "liq_val_2": -75.12,
-    "liq_val_3": -77.56,
+    "liq_val_1": -71.5160874435478,
+    "liq_val_2": -75.12427470434245,
+    "liq_val_3": -77.55689839049242,
     "debt": 110197.0,
     "cash": 2866.0,
     "short_term_investments": 0.0,
@@ -833827,7 +841357,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "NEE",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "NEE",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:01:59.598331+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-24",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 79.8,
+        "marketCap": 166461061078
+      },
+      "amounts": {
+        "currentAssets": 15467000000,
+        "totalLiabilities": 164648000000,
+        "cashAndShortTermInvestments": 2866000000,
+        "tradeReceivables": 4708000000,
+        "inventory": 2616000000,
+        "preferredStock": 0
+      }
+    }
   },
   "SO": {
     "reported_growth": {
@@ -833897,9 +841462,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 1150360000,
     "shares_display": "1,150.36 M",
     "mcap": 104889.8,
-    "liq_val_1": -93.28,
-    "liq_val_2": -97.26,
-    "liq_val_3": -101.45,
+    "liq_val_1": -93.28123370075454,
+    "liq_val_2": -98.47838937376126,
+    "liq_val_3": -101.44737299627943,
     "debt": 77087.0,
     "cash": 2984.0,
     "short_term_investments": 0.0,
@@ -837674,7 +845239,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "SO",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "SO",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:02:01.297618+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-30",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 91.18,
+        "marketCap": 104889824800
+      },
+      "amounts": {
+        "currentAssets": 12378000000,
+        "totalLiabilities": 119685000000,
+        "cashAndShortTermInvestments": 2984000000,
+        "tradeReceivables": 2203000000,
+        "inventory": 3306000000,
+        "preferredStock": 0
+      }
+    }
   },
   "DUK": {
     "reported_growth": {
@@ -837744,9 +845344,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 779700000,
     "shares_display": "779.70 M",
     "mcap": 94710.4,
-    "liq_val_1": -168.11,
-    "liq_val_2": -176.53,
-    "liq_val_3": -184.12,
+    "liq_val_1": -168.11422825643643,
+    "liq_val_2": -176.52500570730868,
+    "liq_val_3": -184.1152132481384,
     "debt": 91238.0,
     "cash": 673.0,
     "short_term_investments": 0.0,
@@ -841533,7 +849133,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "DUK",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "DUK",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:02:03.222975+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-04",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 121.47,
+        "marketCap": 94710401940
+      },
+      "amounts": {
+        "currentAssets": 13149000000,
+        "totalLiabilities": 144228000000,
+        "cashAndShortTermInvestments": 673000000,
+        "tradeReceivables": 4482000000,
+        "inventory": 4665000000,
+        "preferredStock": 973000000
+      }
+    }
   },
   "CEG": {
     "reported_growth": {
@@ -841603,9 +849238,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 354310000,
     "shares_display": "354.31 M",
     "mcap": 96148.4,
-    "liq_val_1": -132.56,
-    "liq_val_2": -167.81,
-    "liq_val_3": -183.04,
+    "liq_val_1": -132.557211416134,
+    "liq_val_2": -167.7673149774029,
+    "liq_val_3": -183.04444468726214,
     "debt": 24700.0,
     "cash": 1077.0,
     "short_term_investments": 0.0,
@@ -845360,7 +852995,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "CEG",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "CEG",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:02:04.904800+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-06",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 271.37,
+        "marketCap": 96148397238
+      },
+      "amounts": {
+        "currentAssets": 18965000000,
+        "totalLiabilities": 65931000000,
+        "cashAndShortTermInvestments": 1077000000,
+        "tradeReceivables": 4661000000,
+        "inventory": 3368000000,
+        "preferredStock": 0
+      }
+    }
   },
   "AWK": {
     "reported_growth": {
@@ -845430,9 +853100,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 198730000,
     "shares_display": "198.73 M",
     "mcap": 26816.5,
-    "liq_val_1": -116.13,
-    "liq_val_2": -121.76,
-    "liq_val_3": -123.77,
+    "liq_val_1": -116.1330318029615,
+    "liq_val_2": -121.75576457893226,
+    "liq_val_3": -123.77157516605763,
     "debt": 16061.0,
     "cash": 191.0,
     "short_term_investments": 0.0,
@@ -849194,7 +856864,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "AWK",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "AWK",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:02:06.294822+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-29",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 134.94,
+        "marketCap": 26816489776
+      },
+      "amounts": {
+        "currentAssets": 1709000000,
+        "totalLiabilities": 24788000000,
+        "cashAndShortTermInvestments": 191000000,
+        "tradeReceivables": 432000000,
+        "inventory": 110000000,
+        "preferredStock": 0
+      }
+    }
   },
   "SRE": {
     "reported_growth": {
@@ -849264,9 +856969,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 653900000,
     "shares_display": "653.90 M",
     "mcap": 54541.8,
-    "liq_val_1": -54.57,
-    "liq_val_2": -109.07,
-    "liq_val_3": -109.83,
+    "liq_val_1": -54.57256461232604,
+    "liq_val_2": -107.75485548248967,
+    "liq_val_3": -109.8348371310598,
     "debt": 36664.0,
     "cash": 154.0,
     "short_term_investments": 0.0,
@@ -853047,7 +860752,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "SRE",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "SRE",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:02:07.721179+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-06",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 83.41,
+        "marketCap": 54541799000
+      },
+      "amounts": {
+        "currentAssets": 36290000000,
+        "totalLiabilities": 71975000000,
+        "cashAndShortTermInvestments": 154000000,
+        "tradeReceivables": 1632000000,
+        "inventory": 109000000,
+        "preferredStock": 20000000
+      }
+    }
   },
   "AEP": {
     "reported_growth": {
@@ -853117,9 +860857,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 544400000,
     "shares_display": "544.40 M",
     "mcap": 69214.6,
-    "liq_val_1": -148.94,
-    "liq_val_2": -159.03,
-    "liq_val_3": -160.94,
+    "liq_val_1": -148.94093832258443,
+    "liq_val_2": -157.43418865276627,
+    "liq_val_3": -160.937698040217,
     "debt": 53498.0,
     "cash": 603.0,
     "short_term_investments": 228.0,
@@ -856888,7 +864628,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "AEP",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "AEP",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:02:09.227308+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-30",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 127.14,
+        "marketCap": 69214634580
+      },
+      "amounts": {
+        "currentAssets": 7134000000,
+        "totalLiabilities": 88217000000,
+        "cashAndShortTermInvestments": 603000000,
+        "tradeReceivables": 1266000000,
+        "inventory": 1789000000,
+        "preferredStock": 0
+      }
+    }
   },
   "D": {
     "reported_growth": {
@@ -856958,9 +864733,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 879530000,
     "shares_display": "879.53 M",
     "mcap": 55902.7,
-    "liq_val_1": -89.33,
-    "liq_val_2": -96.9,
-    "liq_val_3": -100.04,
+    "liq_val_1": -89.32993971348809,
+    "liq_val_2": -96.37248349186244,
+    "liq_val_3": -100.03570684950024,
     "debt": 53424.0,
     "cash": 296.0,
     "short_term_investments": 0.0,
@@ -860740,7 +868515,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "D",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "D",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:02:10.756800+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-31",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 63.56,
+        "marketCap": 55902669318
+      },
+      "amounts": {
+        "currentAssets": 9712000000,
+        "totalLiabilities": 88280000000,
+        "cashAndShortTermInvestments": 296000000,
+        "tradeReceivables": 2773000000,
+        "inventory": 2007000000,
+        "preferredStock": 991000000
+      }
+    }
   },
   "PLD": {
     "reported_growth": {
@@ -860810,9 +868620,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 950330000,
     "shares_display": "950.33 M",
     "mcap": 119504.1,
-    "liq_val_1": -43.28,
-    "liq_val_2": -43.28,
-    "liq_val_3": -43.28,
+    "liq_val_1": -43.27683091470235,
+    "liq_val_2": -43.27683091470235,
+    "liq_val_3": -43.27683091470235,
     "debt": 36442.1,
     "cash": 1765.0,
     "short_term_investments": 0.0,
@@ -864574,7 +872384,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "PLD",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "PLD",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:02:12.532236+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-29",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 125.75,
+        "marketCap": 119504123250
+      },
+      "amounts": {
+        "currentAssets": 1765043000,
+        "totalLiabilities": 42892357000,
+        "cashAndShortTermInvestments": 1765043000,
+        "tradeReceivables": 0,
+        "inventory": 0,
+        "preferredStock": 63948000
+      }
+    }
   },
   "AMT": {
     "reported_growth": {
@@ -864644,9 +872489,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 465960000,
     "shares_display": "465.96 M",
     "mcap": 86328.4,
-    "liq_val_1": -107.14,
-    "liq_val_2": -108.95,
-    "liq_val_3": -110.06,
+    "liq_val_1": -107.1448192977938,
+    "liq_val_2": -108.94578933814061,
+    "liq_val_3": -110.06331015537815,
     "debt": 44979.9,
     "cash": 1762.5,
     "short_term_investments": 0.0,
@@ -868408,7 +876253,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "AMT",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "AMT",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:02:14.246347+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-28",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 185.27,
+        "marketCap": 86328409200
+      },
+      "amounts": {
+        "currentAssets": 3122400000,
+        "totalLiabilities": 53047600000,
+        "cashAndShortTermInvestments": 1762500000,
+        "tradeReceivables": 650900000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "EQIX": {
     "reported_growth": {
@@ -868478,9 +876358,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 98670000,
     "shares_display": "98.67 M",
     "mcap": 97288.3,
-    "liq_val_1": -226.83,
-    "liq_val_2": -246.91,
-    "liq_val_3": -248.09,
+    "liq_val_1": -226.8229206103199,
+    "liq_val_2": -237.90208672493506,
+    "liq_val_3": -248.08535246950632,
     "debt": 23356.0,
     "cash": 2224.0,
     "short_term_investments": 1245.0,
@@ -872249,7 +880129,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "EQIX",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "EQIX",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:02:16.098401+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-29",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 985.98,
+        "marketCap": 97288308962
+      },
+      "amounts": {
+        "currentAssets": 4322000000,
+        "totalLiabilities": 26703000000,
+        "cashAndShortTermInvestments": 2224000000,
+        "tradeReceivables": 1256000000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "SPG": {
     "reported_growth": {
@@ -872319,9 +880234,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 323550000,
     "shares_display": "323.55 M",
     "mcap": 66470.4,
-    "liq_val_1": -99.62,
-    "liq_val_2": -100.16,
-    "liq_val_3": -102.35,
+    "liq_val_1": -99.61680445169927,
+    "liq_val_2": -100.16338881863983,
+    "liq_val_3": -102.34972628640209,
     "debt": 29427.5,
     "cash": 1019.1,
     "short_term_investments": 0.0,
@@ -876091,7 +884006,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "SPG",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "SPG",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:02:17.498930+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-10",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 205.44,
+        "marketCap": 66470423242
+      },
+      "amounts": {
+        "currentAssets": 1903332000,
+        "totalLiabilities": 34134500000,
+        "cashAndShortTermInvestments": 1019091000,
+        "tradeReceivables": 884241000,
+        "inventory": 0,
+        "preferredStock": 40287000
+      }
+    }
   },
   "CSGP": {
     "reported_growth": {
@@ -876161,9 +884111,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 405200000,
     "shares_display": "405.20 M",
     "mcap": 13091.9,
-    "liq_val_1": -1.33,
-    "liq_val_2": -1.79,
-    "liq_val_3": -2.29,
+    "liq_val_1": -1.3326818000088845,
+    "liq_val_2": -1.7907294705304566,
+    "liq_val_3": -2.2902383526078607,
     "debt": 1155.0,
     "cash": 1266.0,
     "short_term_investments": 0.0,
@@ -879926,7 +887876,42 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "CSGP",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "CSGP",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:02:19.255818+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-29",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 32.31,
+        "marketCap": 13091947380
+      },
+      "amounts": {
+        "currentAssets": 1654000000,
+        "totalLiabilities": 2194000000,
+        "cashAndShortTermInvestments": 1266000000,
+        "tradeReceivables": 253000000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "VICI": {
     "reported_growth": {
@@ -879996,9 +887981,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 1101080000,
     "shares_display": "1,101.08 M",
     "mcap": 25985.4,
-    "liq_val_1": -16.69,
-    "liq_val_2": -0.6,
-    "liq_val_3": -16.69,
+    "liq_val_1": -16.693143760009058,
+    "liq_val_2": -16.68978777480489,
+    "liq_val_3": -16.693143760009058,
     "debt": 17843.7,
     "cash": 288.1,
     "short_term_investments": 0.0,
@@ -883752,7 +891737,42 @@ window.FULL_MARKET_DATA = {
     "stock_splits": [],
     "fmp_symbol": "VICI",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "VICI",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:02:20.684710+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-07-29",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 23.6,
+        "marketCap": 25985430416
+      },
+      "amounts": {
+        "currentAssets": 288063000,
+        "totalLiabilities": 18668509000,
+        "cashAndShortTermInvestments": 288063000,
+        "tradeReceivables": 4619000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   },
   "O": {
     "reported_growth": {
@@ -883822,9 +891842,9 @@ window.FULL_MARKET_DATA = {
     "shares_outstanding": 946220000,
     "shares_display": "946.22 M",
     "mcap": 53063.9,
-    "liq_val_1": -34.49,
-    "liq_val_2": -34.93,
-    "liq_val_3": -35.88,
+    "liq_val_1": -34.49312209237195,
+    "liq_val_2": -34.92510224916457,
+    "liq_val_3": -35.88470098856712,
     "debt": 2760.4,
     "cash": 552.6,
     "short_term_investments": 0.0,
@@ -887596,6 +895616,41 @@ window.FULL_MARKET_DATA = {
     ],
     "fmp_symbol": "O",
     "real_5y_prices": [],
-    "historical_dcf_series": []
+    "historical_dcf_series": [],
+    "liquidation": {
+      "version": 1,
+      "ticker": "O",
+      "currency": "USD",
+      "source": "FMP stable balance-sheet-statement and quote",
+      "fetchedAt": "2026-10-17T05:02:22.085087+00:00",
+      "balanceDate": "2026-06-30",
+      "filingDate": "2026-08-06",
+      "quoteDate": "2026-10-16",
+      "sourceCurrency": "USD",
+      "fx": {
+        "rate": 1,
+        "basis": "closing",
+        "start": null,
+        "end": "2026-06-30",
+        "observationDate": "2026-06-30",
+        "reason": null
+      },
+      "receivablesBasis": "trade",
+      "shareBasis": "marketCapOverPrice",
+      "quote": {
+        "currency": "USD",
+        "date": "2026-10-16",
+        "price": 56.08,
+        "marketCap": 53063905440
+      },
+      "amounts": {
+        "currentAssets": 1869385000,
+        "totalLiabilities": 34507398000,
+        "cashAndShortTermInvestments": 552648000,
+        "tradeReceivables": 1134987000,
+        "inventory": 0,
+        "preferredStock": 0
+      }
+    }
   }
 };

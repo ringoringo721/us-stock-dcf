@@ -130,13 +130,6 @@ function normalizeStock(stock, source, rates) {
   output.liab_to_assets = ratio(balance('totalLiabilities'), balance('totalAssets'), 100);
   output.cash_to_assets = ratio(balance('cashAndShortTermInvestments'), balance('totalAssets'), 100);
   output.current_ratio = ratio(balance('totalCurrentAssets'), balance('totalCurrentLiabilities'));
-  const subtraction = (a, b) => a === null || b === null ? null : a - b;
-  const liabilities = millions(balance('totalLiabilities'));
-  output.liq_val_1 = ratio(subtraction(millions(balance('totalCurrentAssets')), liabilities), stock.shares);
-  const receivables = millions(balance('netReceivables')), inventory = millions(balance('inventory'));
-  output.liq_val_2 = receivables === null || inventory === null || output.cash_and_short_term === null || liabilities === null
-    ? null : (receivables * 0.8 + inventory * 0.5 + output.cash_and_short_term - liabilities) / stock.shares;
-  output.liq_val_3 = ratio(subtraction(output.cash_and_short_term, liabilities), stock.shares);
   for (const [field, type, sourceField, negative] of [
     ['revenue', 'income', 'revenue'], ['net_income', 'income', 'netIncome'],
     ['gross_profit', 'income', 'grossProfit'], ['operating_income', 'income', 'operatingIncome'],

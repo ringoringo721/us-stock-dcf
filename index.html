@@ -7,6 +7,7 @@
   <script src="site_theme.js"></script>
   <script src="market_data.js"></script>
   <script src="usd_currency.js"></script>
+  <script src="liquidation.js"></script>
   <script src="peer_comparison.js"></script>
   <script src="fcf_ratios.js"></script>
   <script src="balance_sheet.js"></script>
@@ -795,6 +796,9 @@
     #screener-table thead th:has(.info-circle-btn:is(:hover, :focus)) { z-index: 35; }
     #screener-table .liquidation-value { font-weight: 600; font-variant-numeric: tabular-nums; }
     #screener-table .liquidation-value.text-muted { color: var(--text-muted); }
+    #screener-table .liquidation-asof { display: block; margin-top: 3px; font-size: 10px; font-weight: 400; color: var(--text-muted); white-space: nowrap; }
+    #screener-liquidation-method summary { cursor: pointer; color: var(--text-secondary); }
+    #screener-liquidation-method p { margin: 8px 0; line-height: 1.7; }
     #screener-table tbody tr:is(:hover, :focus-within) > td { background-color: var(--row-hover-bg) !important; box-shadow: inset 0 1px var(--row-hover-edge), inset 0 -1px var(--row-hover-edge); }
     #screener-table tbody tr:is(:hover, :focus-within) > td.col-fixed-3 { box-shadow: inset 0 1px var(--row-hover-edge), inset 0 -1px var(--row-hover-edge), 6px 0 10px var(--shadow) !important; }
     :root[data-theme="light"] .table-scroll-wrapper { cursor: var(--table-cursor), grab !important; }
@@ -1047,6 +1051,10 @@
       </div>
     </div>
     <p id="screener-liquidation-key" class="analysis-note" data-i18n="screener_liquidation_key" hidden>清算價：正值為綠色、負值為紅色，零為中性色；正值不代表股價低估。</p>
+    <details id="screener-liquidation-method" class="analysis-note" hidden>
+      <summary data-i18n="liquidation_method_title">清算指標的資料口徑與限制</summary>
+      <p data-i18n="liquidation_method"></p>
+    </details>
 
     <div class="table-scroll-wrapper" id="main-scroll-box">
       <table id="screener-table">
@@ -1074,8 +1082,8 @@
               <span class="info-circle-btn" onclick="event.stopPropagation()">i
                 <span class="tooltip-box">
                   <b id="tt-liq1-title" data-i18n="liq_1_tt_title">清算價 (I) · NCAV</b>
-                  <span id="tt-liq1-desc" data-i18n="liq_1_tt_desc">流動資產償還所有內外負債後的剩餘價值。</span>
-                  <code id="tt-liq1-formula" data-i18n="liq_1_tt_formula">(流動資產 - 總負債) / 稀釋總股數</code>
+                  <span id="tt-liq1-desc" data-i18n="liq_1_tt_desc">最新季度流動資產扣除總負債的每股篩選值；未扣特別股優先權、清算費及稅。</span>
+                  <code id="tt-liq1-formula" data-i18n="liq_1_tt_formula">(流動資產 - 總負債) / 報價推算普通股或 ADR 股數</code>
                 </span>
               </span>
             </th>
@@ -1086,8 +1094,8 @@
               <span class="info-circle-btn" onclick="event.stopPropagation()">i
                 <span class="tooltip-box">
                   <b id="tt-liq2-title" data-i18n="liq_2_tt_title">清算價 (II) · 葛拉漢淨清算</b>
-                  <span id="tt-liq2-desc" data-i18n="liq_2_tt_desc">考慮壞帳與存貨折價拍賣之保守清算底線。</span>
-                  <code id="tt-liq2-formula" data-i18n="liq_2_tt_formula">[(應收×0.8 + 存貨×0.5 + 現金短期投資) - 總負債] / 稀釋股數</code>
+                  <span id="tt-liq2-desc" data-i18n="liq_2_tt_desc">貿易應收回收率 80%、存貨回收率 50% 的假設篩選值；非保證清算底線。</span>
+                  <code id="tt-liq2-formula" data-i18n="liq_2_tt_formula">[(貿易應收×0.8 + 存貨×0.5 + 現金短期投資) - 總負債] / 報價推算普通股或 ADR 股數</code>
                 </span>
               </span>
             </th>
@@ -1098,8 +1106,8 @@
               <span class="info-circle-btn" onclick="event.stopPropagation()">i
                 <span class="tooltip-box">
                   <b id="tt-liq3-title" data-i18n="liq_3_tt_title">清算價 (III) · 極致現金清算</b>
-                  <span id="tt-liq3-desc" data-i18n="liq_3_tt_desc">假設應收及存貨全部歸零，僅憑現金清償債務。</span>
-                  <code id="tt-liq3-formula" data-i18n="liq_3_tt_formula">(現金及短期投資 - 總負債) / 稀釋總股數</code>
+                  <span id="tt-liq3-desc" data-i18n="liq_3_tt_desc">最新季度現金及短期投資扣除總負債的每股篩選值；非保證可分配金額。</span>
+                  <code id="tt-liq3-formula" data-i18n="liq_3_tt_formula">(現金及短期投資 - 總負債) / 報價推算普通股或 ADR 股數</code>
                 </span>
               </span>
             </th>
@@ -2120,7 +2128,22 @@
       screener_results: "顯示 {shown}／{total} 檔",
       screener_empty: "沒有符合的股票，請調整或清除篩選。",
       screener_table_tip: "點選代號開啟公司頁；點選欄名排序。更多欄位可左右捲動。",
-      screener_liquidation_key: '清算價：<span class="text-green">正值</span>／<span class="text-red">負值</span>／零與缺值為中性色；正值不代表股價低估。',
+      screener_liquidation_key: '清算指標：最新可用季度期末餘額，非 TTM 加總；每股 USD。<span class="text-green">正值</span>／<span class="text-red">負值</span>／零與缺值為中性色；正值不代表低估。* 優先受償限制，詳見下方說明。',
+      liquidation_method_title: '清算指標的資料口徑與限制',
+      liquidation_method: '三項共用同一份最新可用季度資產負債表，逐筆顯示截至日期；非美元金額以該財報日或之前最近交易日的期末匯率換算美元。分母為 FMP 美元市值除以美元股價推算的普通股或 ADR 股數，報價日期與財報日期分別列於數值提示中，並非財報稀釋加權平均股數，不重複套用 ADR 倍數。II 固定採貿易應收款的 80% 及存貨的 50%，不混用其他應收款；這些比例是模型假設。三項均未扣除特別股優先受償、清算費用或稅；* 表示有特別股或優先權資料不完整。這是未調整優先權的資產篩選指標，不是普通股實際可分配金額、保證底價或投資目標價。缺少必要資料顯示 N/A，不補零或套用 DCF 現金。',
+      liquidation_balance_date: '財報截至',
+      liquidation_quote_date: '股數報價日',
+      liquidation_share_quote: '股數來源美元股價／市值',
+      liquidation_captured: '來源擷取',
+      liquidation_shares: '報價推算普通股／ADR 股數',
+      liquidation_preferred: '未扣除特別股優先受償權',
+      liquidation_preferred_unknown: '特別股資料不完整，未確認優先受償權',
+      liquidation_reason_missingSnapshot: '缺少已核對的清算資料',
+      liquidation_reason_invalidSnapshot: '來源日期、幣別或資料格式無效',
+      liquidation_reason_missingFx: '缺少財報日所需的期末匯率',
+      liquidation_reason_invalidShares: '缺少可確認的美元報價及股數',
+      liquidation_reason_missingInputs: '缺少此項公式所需的財報欄位',
+      liquidation_reason_invalidCalculation: '計算結果無效',
       screener_formula: "計算說明",
       currency_usd_note: "金額與每股數據統一以 USD 計算及呈現。損益／現金流採各期每日 USD 換算率平均，資產負債餘額採期末最近可用交易日匯率；TTM 先逐季換算再合計。股數與比率不直接乘匯率。資料來源：美國聯準會 H.10。缺少匯率顯示 N/A，不用固定匯率代替。",
       currency_original: "原始財報幣別",
@@ -2491,17 +2514,17 @@
       th_liq_1: "清算價 (I)",
       th_liq_2: "清算價 (II)",
       th_liq_3: "清算價 (III)",
-      liq_1_tt_title: "清算價 (I) · 淨流動資產價值 (NCAV)",
-      liq_1_tt_desc: "流動資產償還所有內外負債後的剩餘價值。",
-      liq_1_tt_formula: "(流動資產 - 總負債) / 稀釋總股數",
+      liq_1_tt_title: "清算價 (I) · 淨流動資產指標 (NCAV)",
+      liq_1_tt_desc: "最新季度流動資產扣除總負債的每股篩選值；未扣特別股優先權、清算費及稅。",
+      liq_1_tt_formula: "(流動資產 - 總負債) / 報價推算普通股或 ADR 股數",
     
-      liq_2_tt_title: "清算價 (II) · 葛拉漢淨清算價值 (Net-Net)",
-      liq_2_tt_desc: "考慮壞帳與存貨折價拍賣之保守清算底線。",
-      liq_2_tt_formula: "[(應收×0.8 + 存貨×0.5 + 現金短期投資) - 總負債] / 稀釋股數",
+      liq_2_tt_title: "清算價 (II) · 折價資產指標 (Net-Net)",
+      liq_2_tt_desc: "貿易應收回收率 80%、存貨回收率 50% 的假設篩選值；非保證清算底線。",
+      liq_2_tt_formula: "[(貿易應收×0.8 + 存貨×0.5 + 現金短期投資) - 總負債] / 報價推算普通股或 ADR 股數",
   
-      liq_3_tt_title: "清算價 (III) · 極致現金清算價值 (Cash-Net)",
-      liq_3_tt_desc: "假設應收及存貨全部歸零，僅憑手上現金清償債務的終極防禦底線。",
-      liq_3_tt_formula: "(現金及短期投資 - 總負債) / 稀釋總股數",
+      liq_3_tt_title: "清算價 (III) · 現金淨額指標 (Cash-Net)",
+      liq_3_tt_desc: "最新季度現金及短期投資扣除總負債的每股篩選值；非保證可分配金額。",
+      liq_3_tt_formula: "(現金及短期投資 - 總負債) / 報價推算普通股或 ADR 股數",
     },
     en: {
       title: "US Stock DCF Radar",
@@ -2519,7 +2542,22 @@
       screener_results: "Showing {shown} of {total} stocks",
       screener_empty: "No stocks match. Adjust or clear the filters.",
       screener_table_tip: "Open a company by ticker; sort by column heading. Scroll sideways for additional columns.",
-      screener_liquidation_key: 'Liquidation: <span class="text-green">positive</span> / <span class="text-red">negative</span> / zero and missing values are neutral. A positive value does not mean the stock is undervalued.',
+      screener_liquidation_key: 'Liquidation screens: latest available quarter-end balances, not TTM sums; USD per quoted unit. <span class="text-green">Positive</span> / <span class="text-red">negative</span> / zero and missing values are neutral. Positive does not mean undervalued. * Priority-claim limitation; see below.',
+      liquidation_method_title: 'Liquidation data basis and limitations',
+      liquidation_method: 'All three screens use one latest available quarterly balance sheet, with its date shown. Foreign balances use the closing USD exchange rate on or immediately before that report date. The denominator is common shares or ADR units implied by FMP USD market capitalization divided by USD price; quote and balance dates are disclosed separately in each value tooltip. It is not reported diluted weighted-average shares; no extra ADR multiplier is applied. II consistently uses 80% of trade receivables and 50% of inventory, excluding other receivables; these recovery rates are model assumptions. All screens are before preferred priority claims, liquidation costs and taxes. * Indicates reported preferred stock or incomplete preferred-claim information. These are unadjusted asset screens, not common-share liquidation proceeds, guaranteed floors or price targets. Missing required inputs display N/A, never zero or substituted DCF cash.',
+      liquidation_balance_date: 'Balance sheet as of',
+      liquidation_quote_date: 'Share quote date',
+      liquidation_share_quote: 'Share source USD price / market cap',
+      liquidation_captured: 'Source captured',
+      liquidation_shares: 'Quote-implied common shares / ADR units',
+      liquidation_preferred: 'Before preferred priority claims',
+      liquidation_preferred_unknown: 'Preferred claims could not be verified',
+      liquidation_reason_missingSnapshot: 'Verified liquidation snapshot unavailable',
+      liquidation_reason_invalidSnapshot: 'Invalid source dates, currency or format',
+      liquidation_reason_missingFx: 'Required closing USD exchange rate unavailable',
+      liquidation_reason_invalidShares: 'Verified USD quote and share count unavailable',
+      liquidation_reason_missingInputs: 'Required balance-sheet fields unavailable',
+      liquidation_reason_invalidCalculation: 'Invalid calculation result',
       screener_formula: "Calculation details",
       currency_usd_note: "Monetary amounts and per-share figures are calculated and displayed in USD. Income/cash flows use each period's average daily USD conversion rate; balance sheet amounts use the latest available observation at period end. TTM sums separately converted quarters. Share counts and ratios are not multiplied by FX rates. Source: Federal Reserve H.10. Missing rates remain N/A; no fixed-rate substitutions.",
       currency_original: "Original reporting currency",
@@ -2884,16 +2922,16 @@
       th_liq_2: "Net-Net (L2)",
       th_liq_3: "Cash-Net (L3)",
       liq_1_tt_title: "Level 1 · Net Current Asset Value (NCAV)",
-      liq_1_tt_desc: "Residual value after all liabilities are paid using current assets.",
-      liq_1_tt_formula: "(Current Assets - Total Liabilities) / Diluted Shares",
+      liq_1_tt_desc: "Latest-quarter current assets less total liabilities per quoted unit, before preferred claims, liquidation costs and taxes.",
+      liq_1_tt_formula: "(Current Assets - Total Liabilities) / Quote-implied Common Shares or ADR Units",
         
-      liq_2_tt_title: "Level 2 · Graham Net-Net Liquidation Value",
-      liq_2_tt_desc: "Haircut liquidation accounting for uncollected AR and discounted inventory.",
-      liq_2_tt_formula: "[(AR × 0.8 + Inv × 0.5 + Cash) - Total Liab] / Diluted Shares",
+      liq_2_tt_title: "Level 2 · Haircut Asset Screen",
+      liq_2_tt_desc: "Assumes 80% trade-receivable and 50% inventory recovery; not a guaranteed liquidation floor.",
+      liq_2_tt_formula: "[(Trade AR × 0.8 + Inventory × 0.5 + Cash & ST Investments) - Total Liabilities] / Quote-implied Common Shares or ADR Units",
         
-      liq_3_tt_title: "Level 3 · Ultra-Conservative Cash-Net Value",
-      liq_3_tt_desc: "Ultimate cash cushion assuming zero recovery on inventory and receivables.",
-      liq_3_tt_formula: "(Total Cash & ST Inv. - Total Liabilities) / Diluted Shares",
+      liq_3_tt_title: "Level 3 · Cash-Net Asset Screen",
+      liq_3_tt_desc: "Latest-quarter cash and short-term investments less total liabilities; not guaranteed distributable proceeds.",
+      liq_3_tt_formula: "(Cash & ST Investments - Total Liabilities) / Quote-implied Common Shares or ADR Units",
     }
   };
 
@@ -3381,7 +3419,9 @@
     if (!preset) throw new RangeError('Invalid screener column view');
     const table = document.getElementById('screener-table');
     formatScreenerHeaders();
-    document.getElementById('screener-liquidation-key').hidden = preset.fields !== null && !preset.fields.includes('liq_val_1');
+    const hideLiquidation = preset.fields !== null && !preset.fields.includes('liq_val_1');
+    document.getElementById('screener-liquidation-key').hidden = hideLiquidation;
+    document.getElementById('screener-liquidation-method').hidden = hideLiquidation;
     table.style.setProperty('--screener-min-width', `${preset.width}px`);
     table.style.setProperty('--screener-name-left', mode === 'all' ? '195px' : '110px');
     const hidden = [...table.tHead.rows[0].cells].map(header => {
@@ -3409,6 +3449,35 @@
     renderScreenerTable();
   }
 
+  function renderLiquidationCell(item, index) {
+    const dict = I18N_DICT[currentLang];
+    const result = item.liquidationResult;
+    const snapshot = item.liquidation;
+    const value = item[`liq_val_${index + 1}`];
+    const reason = result.reasons[index];
+    const details = [
+      'FMP',
+      result.balanceDate && `${dict.liquidation_balance_date}: ${result.balanceDate}`,
+      result.quoteDate && `${dict.liquidation_quote_date}: ${result.quoteDate}`,
+      snapshot?.quote && `${dict.liquidation_share_quote}: ${snapshot.quote.price ?? 'N/A'} / ${snapshot.quote.marketCap ?? 'N/A'}`,
+      result.shares !== null && `${dict.liquidation_shares}: ${result.shares.toLocaleString(currentLang === 'en' ? 'en-US' : 'zh-TW', { maximumFractionDigits: 0 })}`,
+      snapshot?.sourceCurrency && `${snapshot.sourceCurrency} → USD; FX ${snapshot.fx?.rate ?? 'N/A'} (${snapshot.fx?.observationDate ?? 'N/A'})`,
+      snapshot?.fetchedAt && `${dict.liquidation_captured}: ${snapshot.fetchedAt}`,
+      ...result.warnings.map(warning => warning === 'preferredClaims'
+        ? dict.liquidation_preferred : dict.liquidation_preferred_unknown),
+      reason && dict[`liquidation_reason_${reason}`]
+    ].filter(Boolean).join('\n');
+    const title = details.replace(/&/g, '&amp;').replace(/"/g, '&quot;')
+      .replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, '&#10;');
+    const amount = value === null ? 'N/A'
+      : value < 0 ? `-$${Math.abs(value).toFixed(2)}` : `$${value.toFixed(2)}`;
+    const color = value > 0 ? 'text-green' : value < 0 ? 'text-red' : 'text-muted';
+    return `<td class="liquidation-value ${color}" title="${title}" data-value="${value ?? ''}">
+      <span class="liquidation-amount">${amount}</span>
+      <small class="liquidation-asof">${result.balanceDate || 'N/A'}${result.warnings.length ? ' *' : ''}</small>
+    </td>`;
+  }
+
   function renderScreenerTable() {
     const tbody = document.getElementById('screener-tbody');
     if (!tbody) return;
@@ -3431,38 +3500,18 @@
       const target_spread = (isSaved && target_price > 0 && s.price) ? (((s.price / target_price) - 1) * 100) : null;
       const moat_score = (defaultDcf.moat && defaultDcf.moat.total !== undefined) ? defaultDcf.moat.total : 50;
 
-      // 1. 資產負債表數據安全提取 (全函式只在此宣告一次，杜絕 SyntaxError)
-      const bsRaw = (s.statements_raw && s.statements_raw.balance) || {};
-      const caArr = bsRaw.totalCurrentAssets || [];
-      const tlArr = bsRaw.totalLiabilities || [];
-      const cashArr = bsRaw.cashAndShortTermInvestments || [];
-      const arArr = bsRaw.tradeAccountsReceivables || bsRaw.netReceivables || [];
-      const invArr = bsRaw.inventory || [];
-
-      const shs = Math.max(Number(s.shares) || (Number(s.mcap) / Math.max(Number(s.price), 1)) || 1, 0.01);
-
-      const latestCA = (caArr.length > 0 && caArr[caArr.length - 1] !== null) ? Number(caArr[caArr.length - 1]) : 0;
-      const latestTL = (tlArr.length > 0 && tlArr[tlArr.length - 1] !== null) ? Number(tlArr[tlArr.length - 1]) : (Number(s.debt) || 0);
-      const latestCash = (cashArr.length > 0 && cashArr[cashArr.length - 1] !== null) ? Number(cashArr[cashArr.length - 1]) : (Number(s.cash) || 0);
-      const latestAR = (arArr.length > 0 && arArr[arArr.length - 1] !== null) ? Number(arArr[arArr.length - 1]) : 0;
-      const latestInv = (invArr.length > 0 && invArr[invArr.length - 1] !== null) ? Number(invArr[invArr.length - 1]) : 0;
-
-      // 2. 清算價安全計算 (後端有值優先取後端，無值前端自動補算，杜絕 $NaN)
-      let v1 = (s.liq_val_1 !== undefined && s.liq_val_1 !== null) ? Number(s.liq_val_1) : ((latestCA - latestTL) / shs);
-      let v2 = (s.liq_val_2 !== undefined && s.liq_val_2 !== null) ? Number(s.liq_val_2) : (((latestAR * 0.8 + latestInv * 0.5 + latestCash) - latestTL) / shs);
-      let v3 = (s.liq_val_3 !== undefined && s.liq_val_3 !== null) ? Number(s.liq_val_3) : ((latestCash - latestTL) / shs);
-
-      const cleanLiq1 = isNaN(v1) ? 0.0 : Number(v1.toFixed(2));
-      const cleanLiq2 = isNaN(v2) ? 0.0 : Number(v2.toFixed(2));
-      const cleanLiq3 = isNaN(v3) ? 0.0 : Number(v3.toFixed(2));
+      const liquidationResult = Liquidation.calculate(s.liquidation, ticker);
+      const liquidationValues = liquidationResult.values.map(value =>
+        value === null ? null : Number(value.toFixed(2)));
 
       return { 
         ticker, ...s, ...defaultDcf, 
         fairVal: fairVal,
         isSaved, isFav, target_price, target_spread, moat_score,
-        liq_val_1: cleanLiq1,
-        liq_val_2: cleanLiq2,
-        liq_val_3: cleanLiq3
+        liquidationResult,
+        liq_val_1: liquidationValues[0],
+        liq_val_2: liquidationValues[1],
+        liq_val_3: liquidationValues[2]
       };
     }).filter(x => x !== null);
 
@@ -3575,20 +3624,9 @@
           <td>$${evVal.toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
           <td style="font-weight: 600;">$${mcapVal.toLocaleString(undefined, {maximumFractionDigits: 0})}</td>
           
-          <!-- 清算價 (I) 數值 -->
-          <td class="liquidation-value ${item.liq_val_1 > 0 ? 'text-green' : item.liq_val_1 < 0 ? 'text-red' : 'text-muted'}">
-            ${item.liq_val_1 !== undefined && !isNaN(item.liq_val_1) ? (item.liq_val_1 < 0 ? `-$${Math.abs(item.liq_val_1).toFixed(2)}` : `$${item.liq_val_1.toFixed(2)}`) : '--'}
-          </td>
-
-          <!-- 清算價 (II) 數值 -->
-          <td class="liquidation-value ${item.liq_val_2 > 0 ? 'text-green' : item.liq_val_2 < 0 ? 'text-red' : 'text-muted'}">
-            ${item.liq_val_2 !== undefined && !isNaN(item.liq_val_2) ? (item.liq_val_2 < 0 ? `-$${Math.abs(item.liq_val_2).toFixed(2)}` : `$${item.liq_val_2.toFixed(2)}`) : '--'}
-          </td>
-
-          <!-- 清算價 (III) 數值 -->
-          <td class="liquidation-value ${item.liq_val_3 > 0 ? 'text-green' : item.liq_val_3 < 0 ? 'text-red' : 'text-muted'}">
-            ${item.liq_val_3 !== undefined && !isNaN(item.liq_val_3) ? (item.liq_val_3 < 0 ? `-$${Math.abs(item.liq_val_3).toFixed(2)}` : `$${item.liq_val_3.toFixed(2)}`) : '--'}
-          </td>
+          ${renderLiquidationCell(item, 0)}
+          ${renderLiquidationCell(item, 1)}
+          ${renderLiquidationCell(item, 2)}
           
           <td>${item.pe_trailing ? Number(item.pe_trailing).toFixed(1) : '--'}</td>
           <td>${item.pe_forward ? Number(item.pe_forward).toFixed(1) : '--'}</td>
