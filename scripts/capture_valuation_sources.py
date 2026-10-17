@@ -22,6 +22,7 @@ ENDPOINTS = {
     "annual_cashflow": ("cash-flow-statement", {"period": "annual", "limit": 5}),
     "estimates": ("analyst-estimates", {"period": "annual", "limit": 12}),
     "enterprise_values": ("enterprise-values", {"period": "quarter", "limit": 1}),
+    "shares_float": ("shares-float", {}),
 }
 LEASE_ENDPOINTS = {
     "balance_as_reported": ("balance-sheet-statement-as-reported", {"period": "quarter", "limit": 8}),
@@ -95,14 +96,18 @@ def main():
     now = datetime.now(timezone.utc)
     leases_only = os.environ.get("CAPTURE_LEASE_SOURCES_ONLY") == "true"
     fcff_only = os.environ.get("CAPTURE_FCFF_SOURCES_ONLY") == "true"
+    shares_only = os.environ.get("CAPTURE_SHARES_ONLY") == "true"
     endpoints = LEASE_ENDPOINTS if leases_only else ENDPOINTS
     if fcff_only:
         endpoints = {name: value for name, value in ENDPOINTS.items()
                      if name in ("profile", "quote", "balance", "income", "cashflow",
                                  "annual_income", "annual_balance", "annual_cashflow", "estimates")}
         endpoints["balance_as_reported"] = LEASE_ENDPOINTS["balance_as_reported"]
+        endpoints["shares_float"] = ENDPOINTS["shares_float"]
+    if shares_only:
+        endpoints = {"shares_float": ENDPOINTS["shares_float"]}
     summary = {"gitCommit": os.environ.get("GITHUB_SHA"), "capturedAt": now.isoformat(),
-               "sourceScope": "leases" if leases_only else "fcff" if fcff_only else "valuation",
+               "sourceScope": "shares" if shares_only else "leases" if leases_only else "fcff" if fcff_only else "valuation",
                "stocks": len(symbols), "successfulResponses": 0, "emptyResponses": 0, "errors": []}
     outcomes = Counter()
     with requests.Session() as session:
@@ -111,7 +116,7 @@ def main():
             record = {"ticker": ticker, "providerSymbol": symbol,
                       "capturedAt": datetime.now(timezone.utc).isoformat(), "responses": {}}
             ticker_endpoints = dict(endpoints)
-            if ticker.endswith(".HK") and not leases_only:
+            if ticker.endswith(".HK") and not leases_only and not shares_only:
                 ticker_endpoints.update(HK_EXTRA_ENDPOINTS)
                 ticker_endpoints["news"] = ("news/stock", {"symbols": symbol, "limit": 12})
                 ticker_endpoints = {
@@ -156,10 +161,10 @@ def main():
                     else:
                         summary["errors"].append({"ticker": ticker, "endpoint": "transcript_latest", **result})
                         outcomes["transcript_latest: error"] += 1
-            if not leases_only and not fcff_only and ticker in ("NVDA", "JPM"):
+            if not leases_only and not fcff_only and not shares_only and ticker in ("NVDA", "JPM"):
                 record["responses"]["backend_estimates_query"] = capture(
                     session, "analyst-estimates", {"symbol": symbol, "limit": 4}, key)
-            if not leases_only and not fcff_only and ticker == "BRK.B":
+            if not leases_only and not fcff_only and not shares_only and ticker == "BRK.B":
                 record["responses"]["backend_symbol_profile"] = capture(
                     session, "profile", {"symbol": "BRKB"}, key)
                 record["responses"]["backend_symbol_quote"] = capture(

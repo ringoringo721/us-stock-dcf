@@ -11,6 +11,10 @@ on:
         description: Capture original lease classification evidence only, without changing valuations
         type: boolean
         default: false
+      shares_only:
+        description: Capture dated outstanding-share counts only, without publishing or changing valuations
+        type: boolean
+        default: false
       build_hkex:
         description: Build the six-stock HKEX pilot and evidence-based ratings as review artifacts only
         type: boolean
@@ -42,6 +46,7 @@ jobs:
         env:
           FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
           CAPTURE_LEASE_SOURCES_ONLY: ${{ inputs.lease_sources_only }}
+          CAPTURE_SHARES_ONLY: ${{ inputs.shares_only }}
           CAPTURE_SYMBOLS: ${{ inputs.build_hkex && '0700.HK,9988.HK,0005.HK,0388.HK,0939.HK,0823.HK' || inputs.symbols }}
         run: python -u scripts/capture_valuation_sources.py
       - name: Build real HKD inputs without publishing
