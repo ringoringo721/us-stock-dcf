@@ -34,7 +34,8 @@ def parse_prices(payload, symbol, start, end):
             if isinstance(close, bool) or not isinstance(close, (int, float)) or not math.isfinite(close) or close <= 0:
                 raise ValueError("Invalid EOD close")
             if volume is not None and (isinstance(volume, bool) or not isinstance(volume, (int, float))
-                                       or not math.isfinite(volume) or volume < 0 or int(volume) != volume):
+                                       or not math.isfinite(volume) or not 0 <= volume <= 9007199254740991
+                                       or int(volume) != volume):
                 raise ValueError("Invalid EOD volume")
         except (KeyError, TypeError, ValueError):
             raise ValueError("Invalid EOD date, close or volume") from None
@@ -93,6 +94,10 @@ def main():
             if not re.fullmatch(r"[A-Z0-9]+(?:[.-][A-Z0-9]+)*", ticker):
                 raise ValueError("Invalid market ticker")
             prices[ticker] = fetch_prices(session, ticker, key, datetime.now(timezone.utc).date())
+            previous = root / "cache" / "price_charts" / f"{ticker}.json"
+            if not prices[ticker]["rows"] and previous.exists():
+                if json.loads(previous.read_text(encoding="utf-8")).get("rows"):
+                    raise RuntimeError(f"{ticker}: empty provider response would erase existing history; all caches retained")
             print(f"{ticker}: {len(prices[ticker]['rows'])} real daily price records", flush=True)
     # Fetch and validate every company before replacing any published cache.
     folder = root / "cache" / "price_charts"

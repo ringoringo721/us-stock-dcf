@@ -12,6 +12,7 @@
   <script src="balance_sheet.js"></script>
   <script src="earnings_trend.js"></script>
   <script src="profile_overview.js"></script>
+  <script src="price_history.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   
   <style>
@@ -808,6 +809,40 @@
     #subpage-basic .panel, #subpage-rating .panel, #subpage-valuation .panel { border-radius: 12px; padding: 22px; }
     #subpage-basic .panel-title, #subpage-rating .panel-title, #subpage-valuation .panel-title { flex-wrap: wrap; gap: 10px; line-height: 1.6; }
     .profile-overview-layout { display: grid; grid-template-columns: minmax(220px, .8fr) minmax(0, 2fr); gap: 20px; align-items: start; }
+    .price-heading { display: flex; align-items: start; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .price-heading h2 { font-size: 18px; margin: 0 0 6px; color: var(--accent); }
+    #price-company { font-size: 13px; color: var(--text-secondary); overflow-wrap: anywhere; }
+    .price-actions, #price-periods, .price-custom { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+    .price-actions button, #price-periods button, .price-custom button { min-height: 36px; }
+    .price-summary { display: flex; flex-wrap: wrap; gap: 16px 32px; margin: 20px 0; }
+    .price-summary > div { display: flex; flex-direction: column; gap: 6px; min-width: 140px; }
+    .price-summary dt { font-size: 12px; color: var(--text-muted); }
+    .price-summary dd { margin: 0; font-size: 22px; font-weight: 700; font-variant-numeric: tabular-nums; }
+    .price-summary > div:first-child dd { color: var(--gold); }
+    #price-periods { margin-bottom: 12px; }
+    .price-custom { font-size: 12px; color: var(--text-secondary); }
+    .price-custom label { display: flex; align-items: center; gap: 6px; }
+    .price-custom input { min-width: 0; width: 145px; padding: 8px; border: 1px solid var(--card-border); border-radius: 6px; color: var(--text); background: var(--surface-bg); font: inherit; }
+    .price-main-chart { position: relative; height: 320px; }
+    .price-volume-chart { position: relative; height: 88px; }
+    .price-volume-label { margin: 6px 0; font-size: 11px; color: var(--text-muted); }
+    .price-navigator-chart { position: relative; height: 68px; margin-top: 12px; }
+    .price-range-handles { position: relative; height: 28px; margin: 0 10px; }
+    .price-range-handles input { position: absolute; left: 0; width: 100%; height: 24px; margin: 0; background: transparent; appearance: none; pointer-events: none; }
+    .price-range-handles input::-webkit-slider-thumb { appearance: none; pointer-events: auto; width: 18px; height: 18px; border: 2px solid var(--card-bg); border-radius: 50%; background: var(--gold); cursor: ew-resize; }
+    .price-range-handles input::-moz-range-thumb { pointer-events: auto; width: 16px; height: 16px; border: 2px solid var(--card-bg); border-radius: 50%; background: var(--gold); cursor: ew-resize; }
+    #price-history-panel :is(button, input, canvas):focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    #price-point { min-height: 20px; font-variant-numeric: tabular-nums; }
+    #price-history-panel:fullscreen { background: var(--card-bg); overflow: auto; padding: 24px; }
+    #price-history-panel:fullscreen .price-main-chart { height: max(280px, calc(100vh - 440px)); }
+    @media (max-width: 600px) {
+      .price-main-chart { height: 260px; }
+      .price-summary { gap: 16px; }
+      .price-summary > div { min-width: 110px; }
+      .price-summary dd { font-size: 19px; }
+      .price-custom label { width: 100%; justify-content: space-between; }
+      .price-custom input { flex: 1; max-width: 230px; }
+    }
     .profile-quote-card { display: flex; flex-direction: column; gap: 12px; padding: 24px; min-width: 0; border-radius: 12px; border: 1px solid var(--card-border); border-top: 3px solid var(--accent); background: var(--surface-bg); }
     .profile-quote-card > strong { font-size: clamp(24px, 2.8vw, 36px); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
     #profile-quote-ticker { color: var(--text-secondary); font-size: 13px; }
@@ -1296,6 +1331,52 @@
 
     <!-- 子分頁 1：基本資料 -->
     <div id="subpage-basic" class="subpage-content active">
+      <section class="panel historical-ratio-panel" id="price-history-panel" aria-labelledby="price-title">
+        <div class="price-heading">
+          <div><h2 id="price-title" data-i18n="price_title">歷史股價與成交量</h2><span id="price-company"></span></div>
+          <div class="price-actions">
+            <button id="price-download" class="stmt-btn" type="button" data-i18n="price_download" disabled>下載 CSV</button>
+            <button id="price-fullscreen" class="stmt-btn" type="button" data-i18n="price_fullscreen" disabled>⛶ 全螢幕</button>
+          </div>
+        </div>
+        <dl class="price-summary">
+          <div><dt data-i18n="price_last_close">所選期間最後收盤價（USD）</dt><dd id="price-last-close">N/A</dd></div>
+          <div><dt data-i18n="price_return">期間價格報酬</dt><dd id="price-return">N/A</dd></div>
+          <div><dt data-i18n="price_cagr">年化價格報酬（CAGR）</dt><dd id="price-cagr">N/A</dd></div>
+        </dl>
+        <div id="price-controls" hidden>
+          <div id="price-periods" role="group" aria-label="Price period">
+            <button type="button" class="stmt-btn" data-period="3m" data-i18n="price_3m">3 個月</button>
+            <button type="button" class="stmt-btn" data-period="6m" data-i18n="price_6m">6 個月</button>
+            <button type="button" class="stmt-btn" data-period="ytd" data-i18n="price_ytd">今年至今</button>
+            <button type="button" class="stmt-btn" data-period="1y" data-i18n="price_1y">1 年</button>
+            <button type="button" class="stmt-btn" data-period="3y" data-i18n="price_3y">3 年</button>
+            <button type="button" class="stmt-btn active" data-period="5y" data-i18n="price_5y">5 年</button>
+            <button type="button" class="stmt-btn" data-period="10y" data-i18n="price_10y">10 年</button>
+            <button type="button" class="stmt-btn" data-period="all" data-i18n="price_all">全部可用</button>
+          </div>
+          <form id="price-custom" class="price-custom">
+            <label><span data-i18n="price_from">開始日期</span><input id="price-from" type="date" required></label>
+            <label><span data-i18n="price_to">結束日期</span><input id="price-to" type="date" required></label>
+            <button type="submit" class="stmt-btn" data-i18n="price_apply">套用日期</button>
+          </form>
+        </div>
+        <p id="price-range-error" class="analysis-note text-red" role="alert"></p>
+        <p id="price-history-status" class="analysis-note" role="status"></p>
+        <div id="price-history-plots" hidden>
+          <div class="price-main-chart"><canvas id="price-chart" role="img" tabindex="0" aria-describedby="price-point price-source-note"></canvas></div>
+          <p class="price-volume-label" data-i18n="price_volume">每日成交量（股）</p>
+          <div class="price-volume-chart"><canvas id="price-volume-chart" role="img" aria-labelledby="price-title" aria-describedby="price-source-note"></canvas></div>
+          <div class="price-navigator-chart"><canvas id="price-navigator" aria-hidden="true"></canvas></div>
+          <div class="price-range-handles">
+            <input id="price-range-start" type="range" min="0" step="1" aria-label="Start of selected price range">
+            <input id="price-range-end" type="range" min="0" step="1" aria-label="End of selected price range">
+          </div>
+        </div>
+        <p id="price-point" class="analysis-note" aria-live="polite"></p>
+        <details class="analysis-note"><summary data-i18n="price_data_notes">資料來源與報酬口徑</summary><p id="price-source-note" data-i18n="price_source_note"></p></details>
+        <button id="price-retry" type="button" class="stmt-btn" data-i18n="fcf_retry" hidden>重新載入</button>
+      </section>
       <section class="panel historical-ratio-panel profile-overview" id="profile-overview-panel" aria-labelledby="profile-overview-title">
         <div class="panel-title" id="profile-overview-title" data-i18n="profile_overview_title">市場與財務摘要</div>
         <div class="profile-overview-layout">
@@ -2049,6 +2130,29 @@
       balance_reason_missingFx: "N/A：缺少財報日對應的期末美元匯率。",
       earnings_reason_missingFx: "N/A：缺少本期完整的平均美元匯率。",
       profile_overview_title: "市場與財務摘要",
+      price_title: "歷史股價與成交量",
+      price_data_notes: "資料來源與報酬口徑（拆股調整，不含股息）",
+      price_download: "下載 CSV",
+      price_fullscreen: "⛶ 全螢幕",
+      price_exit_fullscreen: "⛶ 離開全螢幕",
+      price_last_close: "所選期間最後收盤價（USD）",
+      price_return: "期間價格報酬",
+      price_cagr: "年化價格報酬（CAGR）",
+      price_cagr_note: "依所選區間首末實際收盤價及日數年化；不足一年不計算 CAGR。",
+      price_3m: "3 個月", price_6m: "6 個月", price_ytd: "今年至今", price_1y: "1 年",
+      price_3y: "3 年", price_5y: "5 年", price_10y: "10 年", price_all: "全部可用",
+      price_from: "開始日期", price_to: "結束日期", price_apply: "套用日期",
+      price_close: "收盤價", price_volume: "每日成交量（股）", price_sessions: "個交易日",
+      price_available: "可用資料",
+      price_loading: "正在載入真實歷史股價與成交量…",
+      price_empty: "資料供應商未提供這檔股票的歷史價格。不以現價或估值補畫走勢。",
+      price_error: "歷史價格未能載入或資料格式不符。請重試；不以模擬資料替代。",
+      price_no_range: "所選日期沒有交易資料，請改選其他日期。",
+      price_invalid_range: "請選擇可用資料範圍內的有效日期，開始日期不得晚於結束日期。",
+      price_library_error: "圖表元件未能載入；仍可下載所選期間的真實 CSV 資料。",
+      price_fullscreen_error: "瀏覽器未能開啟全螢幕，請使用一般圖表。",
+      price_hover: "滑鼠移入圖表可查看日期、股價與成交量；聚焦股價圖後可用左右鍵、Home／End 瀏覽。",
+      price_source_note: "來源：FMP 歷史日資料。美元收盤價採供應商拆股調整口徑，不含股息；成交量保留供應商回報值，缺值不補零。報酬以區間首末實際價格計算；今年至今含上年度最後收盤價（如可用）。非即時報價；全部可用最多涵蓋最近 20 年，上市較短或來源不足時僅顯示實際資料。拖動下方兩端圓點可縮放；CSV 匯出所選區間。",
       profile_quote: "最新股價（USD）",
       profile_range: "52 週價格區間",
       profile_quote_note: "價格與估值為現有市場資料快照，非即時報價。區間條僅標示現價在 52 週高低價的位置，不是歷史走勢圖。",
@@ -2425,6 +2529,29 @@
       balance_reason_missingFx: "N/A: The statement date's closing USD exchange rate is unavailable.",
       earnings_reason_missingFx: "N/A: The complete period's average USD exchange rate is unavailable.",
       profile_overview_title: "Market & Financial Snapshot",
+      price_title: "Historical Price & Volume",
+      price_data_notes: "Data & methodology (split-adjusted; excludes dividends)",
+      price_download: "Download CSV",
+      price_fullscreen: "⛶ Fullscreen",
+      price_exit_fullscreen: "⛶ Exit fullscreen",
+      price_last_close: "Last selected close (USD)",
+      price_return: "Period price return",
+      price_cagr: "Annualized price return (CAGR)",
+      price_cagr_note: "Annualized from actual first/last selected closes and elapsed days; unavailable for periods shorter than one year.",
+      price_3m: "3m", price_6m: "6m", price_ytd: "YTD", price_1y: "1yr",
+      price_3y: "3yr", price_5y: "5yr", price_10y: "10yr", price_all: "All available",
+      price_from: "From", price_to: "To", price_apply: "Apply dates",
+      price_close: "Close", price_volume: "Daily volume (shares)", price_sessions: "trading sessions",
+      price_available: "Available history",
+      price_loading: "Loading real historical prices and volume…",
+      price_empty: "No historical prices were supplied for this stock. Current quotes or valuations are not used to invent a history.",
+      price_error: "Historical prices could not be loaded or validated. Retry; simulated data is never substituted.",
+      price_no_range: "No trading observations in this date range. Choose different dates.",
+      price_invalid_range: "Choose valid dates within available history, with the start on or before the end.",
+      price_library_error: "The chart library could not load; the selected real data can still be downloaded as CSV.",
+      price_fullscreen_error: "The browser could not open fullscreen. Please use the normal chart.",
+      price_hover: "Hover for date, price and volume; focus the price chart and use arrow keys or Home/End to explore.",
+      price_source_note: "Source: FMP daily historical data. USD closes use the provider's split-adjusted basis, excluding dividends; volume is provider-reported and missing values are not filled with zero. Returns use actual first/last selected closes; YTD includes the prior year's final close when available. Not live quotes. All available covers at most the latest 20 years, or less for shorter listings or limited source coverage. Drag the two handles below to change the range; CSV exports the selected observations.",
       profile_quote: "Latest stock price (USD)",
       profile_range: "52-week price range",
       profile_quote_note: "Price and valuation data are the available market snapshot, not a live quote. The range marker locates price between the 52-week low and high; it is not a historical price chart.",
@@ -3554,6 +3681,7 @@
     BalanceSheet.deactivate();
     EarningsTrend.deactivate();
     ProfileOverview.deactivate();
+    PriceHistory.deactivate();
     if (viewName === 'moat' || viewName === 'fscore' || viewName === 'detail') {
       activeCompanyTicker = viewName === 'detail' ? activeDetailTicker
         : viewName === 'moat' ? activeMoatTicker : activeFScoreTicker;
@@ -3606,6 +3734,7 @@
     BalanceSheet.deactivate();
     EarningsTrend.deactivate();
     ProfileOverview.deactivate();
+    PriceHistory.deactivate();
     document.getElementById('detail-view').style.display = tabKey === 'valuation' ? 'block' : 'none';
     // 1. 移除所有子分頁按鈕與內容容器的 active 狀態
     document.querySelectorAll('.sub-tab-btn').forEach(btn => btn.classList.remove('active'));
@@ -3638,6 +3767,7 @@
 
     if (tabKey === 'basic') {
       ProfileOverview.render(curTicker, curStock, currentLang, I18N_DICT[currentLang]);
+      PriceHistory.render(curTicker, curStock, currentLang, I18N_DICT[currentLang]);
     } else if (tabKey === 'valuation') {
       activeDetailTicker = curTicker;
       if (loadedValuationTicker !== curTicker) {

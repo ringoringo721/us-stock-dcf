@@ -1,8 +1,11 @@
 from datetime import date
+import json
+from pathlib import Path
+import tempfile
 import unittest
 from unittest.mock import Mock, patch
 
-from scripts.refresh_price_charts import fetch_prices, parse_prices, years_before
+from scripts.refresh_price_charts import fetch_prices, main, parse_prices, years_before
 
 
 class PriceChartTests(unittest.TestCase):
@@ -46,6 +49,25 @@ class PriceChartTests(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError, "HTTP 403") as error:
             fetch_prices(session, "AAPL", "secret", date(2026, 10, 17))
         self.assertNotIn("secret", str(error.exception))
+
+    @patch("scripts.refresh_price_charts.time.sleep")
+    @patch("scripts.refresh_price_charts.requests.Session")
+    def test_empty_response_cannot_erase_existing_real_history(self, session_factory, sleep):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            folder = root / "cache" / "price_charts"
+            folder.mkdir(parents=True)
+            (root / "full_market_dcf.json").write_text('{"AAPL": {}}', encoding="utf-8")
+            previous = json.dumps({"rows": [["2024-01-02", 100, 1000]]})
+            target = folder / "AAPL.json"
+            target.write_text(previous, encoding="utf-8")
+            session_factory.return_value.__enter__.return_value.get.return_value = Mock(
+                status_code=200, json=Mock(return_value=[]))
+            with patch("scripts.refresh_price_charts.__file__", str(root / "scripts" / "refresh_price_charts.py")), \
+                    patch.dict("os.environ", {"FMP_API_KEY": "secret"}):
+                with self.assertRaisesRegex(RuntimeError, "would erase existing history"):
+                    main()
+            self.assertEqual(target.read_text(encoding="utf-8"), previous)
 
 
 if __name__ == "__main__":

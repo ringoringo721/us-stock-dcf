@@ -68,16 +68,22 @@ jobs:
         run: python -u scripts/refresh_peers.py
 
       - name: Refresh real Profile daily prices and volume
+        id: price-refresh
         if: inputs.peers_only != true
+        continue-on-error: ${{ inputs.prices_only != true }}
         env:
           FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
         run: python -u scripts/refresh_price_charts.py
+
+      - name: Report retained price history
+        if: steps.price-refresh.outcome == 'failure' && inputs.prices_only != true
+        run: echo "::warning::Profile prices could not be refreshed. Existing dated price caches are retained; independent financial updates continue."
 
       - name: Validate provider parsing and comparison coverage
         run: |
           python -m unittest discover -s tests -p test_peer_cache.py
           python -m unittest discover -s tests -p test_price_charts.py
-          node --test tests/peer_comparison.test.cjs tests/reported_growth.test.cjs
+          node --test tests/peer_comparison.test.cjs tests/reported_growth.test.cjs tests/price_history.test.cjs
 
       - name: Commit & Push New DCF Dataset & Persistent Cache
         run: |
