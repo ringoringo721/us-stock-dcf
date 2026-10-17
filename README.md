@@ -9,10 +9,10 @@ artifact, records HTTP/coverage limitations explicitly, and never updates or
 commits valuation datasets. This is source evidence, not certification of the
 website's assumptions or financial methodology.
 
-The annual income, balance-sheet and cash-flow responses support checking three
-complete fiscal years of FCFF operating assumptions. The extra balance-sheet
-quarter supports a period-matched opening debt balance; no missing period is
-replaced with a current balance.
+The annual statements support fiscal-year and analyst-forecast reconciliation.
+The selected FCFF operating-ratio basis is the latest TTM, not a three-year
+average. The extra balance-sheet quarter supports a period-matched opening debt
+balance; no missing period is replaced with a current balance.
 
 ## 清算價 I／II／III
 
