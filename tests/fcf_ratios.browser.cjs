@@ -244,6 +244,7 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
       const original = structuredClone(stockUniverse.NVDA.liquidation);
       stockUniverse.NVDA.liquidation.quote.price = 100;
       stockUniverse.NVDA.liquidation.quote.marketCap = 100;
+      stockUniverse.NVDA.liquidation.sharesOutstanding = 1;
       Object.assign(stockUniverse.NVDA.liquidation.amounts, {
         currentAssets: 112.34, totalLiabilities: 100, cashAndShortTermInvestments: 94.33,
         tradeReceivables: 7.0875, inventory: 0

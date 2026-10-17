@@ -36,7 +36,7 @@
   function labels(dictionary, data) {
     const half = cadence(data).stride === 2;
     const result = Object.fromEntries(Object.entries(dictionary).map(([key, value]) => [key,
-      typeof value !== 'string' ? value : value.replace(/\bUSD\b/g, currency).replace(currency === 'HKD' ? /美元/g : /$^/g, '港元')
+      typeof value !== 'string' || key.startsWith('market_') ? value : value.replace(/\bUSD\b/g, currency).replace(currency === 'HKD' ? /美元/g : /$^/g, '港元')
         .replace(currency === 'HKD' ? /\$/g : /$^/g, 'HKD ')
         .replace(half ? /QoQ|季增率/g : /$^/g, match => match === 'QoQ' ? 'HoH' : '半年增率')
         .replace(half ? /four consecutive|four quarterly|four matching quarterly|four quarters|四季|近20季|單季|季度|Quarterly|quarterly|Single-quarter/g : /$^/g,
@@ -69,9 +69,24 @@
   }
   function localize(panel, dictionary, data) {
     const translated = labels(dictionary, data);
+    panel?.querySelectorAll('select[id$="-period"]').forEach(select => {
+      if (!select.querySelector('option[value="quarterly"]')) return;
+      let half = select.querySelector('option[value="semiannual"]');
+      if (market === 'HKEX' && !half) {
+        half = root.document.createElement('option');
+        half.value = 'semiannual';
+        half.dataset.i18n = 'fcf_semiannual';
+        select.append(half);
+      }
+      if (half) half.textContent = translated.fcf_semiannual || (root.document.documentElement.lang === 'en' ? 'Half year' : '半年');
+      const quarter = select.querySelector('option[value="quarterly"]');
+      quarter.disabled = cadence(data).stride === 2 && data?.periodView !== 'semiannual';
+      if (quarter.disabled && select.value === 'quarterly') select.value = 'semiannual';
+    });
     panel?.querySelectorAll('[data-i18n]').forEach(element => {
       const value = translated[element.dataset.i18n];
-      if (value) element.innerHTML = value;
+      if (value) element.innerHTML = element.tagName === 'OPTION' && element.value === 'quarterly' && data?.periodView === 'semiannual'
+        ? dictionary[element.dataset.i18n] || value : value;
     });
     return translated;
   }

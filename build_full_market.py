@@ -9,6 +9,7 @@ import subprocess
 from typing import Dict, Any, Optional
 from pydantic import BaseModel, Field
 from scripts.peer_cache import get_stock_peers_cached
+from scripts.capture_valuation_sources import outstanding_share_record
 
 HIST_CACHE_DIR = "cache/historical_prices"
 os.makedirs(HIST_CACHE_DIR, exist_ok=True)
@@ -1008,14 +1009,19 @@ def main():
             price = float(q.get("price") or 0.0)
             mcap_raw = float(q.get("marketCap") or 0.0)
             mcap = round(mcap_raw / 1e6, 1) if mcap_raw > 0 else 0.0
-            if price > 0 and mcap_raw > 0:
-                shares = round(mcap_raw / price / 1e6, 2)
-            else:
-                shares = float(q.get("sharesOutstanding") or 0.0) / 1e6
+        share_rows = fetch_json("shares-float", {"symbol": sym.replace(".", "-")})
+        today = time.strftime("%Y-%m-%d", time.gmtime())
+        share_row = outstanding_share_record(share_rows, sym.replace(".", "-"), today)
+        if not share_row:
+            raise ValueError(f"{sym}: verified outstanding-share count is required; no diluted or market-cap proxy")
+        shares = share_row["outstandingShares"] / 1e6
+        share_source = {"shares": shares, "date": share_row["date"][:10],
+                        "basis": "commonSharesOutstandingExcludingTreasury",
+                        "source": "FMP shares-float outstandingShares", "providerSource": share_row.get("source"),
+                        "capturedAt": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())}
 
         if price <= 0: price = 150.0
         if mcap <= 0: mcap = 100000.0
-        if shares <= 0: shares = round(mcap / price, 1)
         time.sleep(0.04)
 
         # 1.1 取得 13F 機構股東、內部人與拆股數據
@@ -1558,6 +1564,8 @@ def main():
             "shares": shares,
             "shares_outstanding": int(shares * 1e6) if shares > 0 else 0,
             "shares_display": f"{shares:,.2f} M",
+            "shareSource": share_source,
+            "shareBasis": share_source["basis"],
             "mcap": mcap,
             "liq_val_1": None,
             "liq_val_2": None,

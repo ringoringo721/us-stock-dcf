@@ -20,16 +20,18 @@
   });
 
   function operatingRatios(ttm) {
-    if (!ttm || !Array.isArray(ttm.dates) || ttm.dates.length !== 4
-        || !Array.isArray(ttm.fiscalPeriods) || ttm.fiscalPeriods.length !== 4
+    const count = ttm?.reportingFrequency === 'annual' ? 1 : ttm?.reportingFrequency === 'semiannual' ? 2 : 4;
+    const stride = 4 / count;
+    if (!ttm || !Array.isArray(ttm.dates) || ttm.dates.length !== count
+        || !Array.isArray(ttm.fiscalPeriods) || ttm.fiscalPeriods.length !== count
         || ttm.fiscalPeriods.some((period, i) => !Number.isInteger(period)
-          || (i > 0 && period !== ttm.fiscalPeriods[i - 1] + 1))
+          || (i > 0 && period !== ttm.fiscalPeriods[i - 1] + stride))
         || ttm.dates.some((date, i) => !day(date) || (i > 0
-          && (days(ttm.dates[i - 1], date) < 60 || days(ttm.dates[i - 1], date) > 120)))
+          && (days(ttm.dates[i - 1], date) < stride * 60 || days(ttm.dates[i - 1], date) > stride * 120)))
         || !finite(ttm.revenue) || ttm.revenue <= 0
         || !['ebit', 'depreciation', 'capex', 'workingCapital'].every(key => finite(ttm[key]))) return null;
     return {
-      basis: 'latestFourConsecutiveFiscalQuarters',
+      basis: count === 1 ? 'latestCompleteReportedAnnualPeriod' : count === 2 ? 'latestTwoConsecutiveHalfYears' : 'latestFourConsecutiveFiscalQuarters',
       dates: [...ttm.dates],
       depreciation: ttm.depreciation / ttm.revenue,
       capex: ttm.capex / ttm.revenue,
@@ -80,6 +82,18 @@
   }
 
   function calculate(snapshot, scenario = {}) {
+    if (scenario.confirmFinancingAssumptions === true
+        && snapshot && (!snapshot.reason
+          || ['leaseClassificationRequired', 'leaseMappingUnverified', 'debtCompositionUnverified'].includes(snapshot.reason))) {
+      if (!finite(scenario.leaseDebt)) return fail('missingParameters');
+      if (scenario.leaseDebt < 0) return fail('invalidParameters');
+      const assumed = { ...snapshot, reason: null, leaseReconciled: true,
+        balance: { ...snapshot.balance, leaseDebt: scenario.leaseDebt,
+          ...(finite(scenario.openingWorkingCapital) ? { workingCapital: scenario.openingWorkingCapital } : {}) },
+        ttm: { ...snapshot.ttm, ...(finite(scenario.openingWorkingCapital) ? { workingCapital: scenario.openingWorkingCapital } : {}) } };
+      const result = calculate(assumed, { ...scenario, confirmFinancingAssumptions: false });
+      return { ...result, financingBasis: 'userConfirmedAssumptionsNotIssuerReconciliation' };
+    }
     if (snapshot?.modelVersion === 'fcff-v2' || scenario.modelVersion === 'fcff-v2') {
       return drivers.calculate(snapshot, scenario, { finite, day, days, yearLater, fail, operatingRatios, capitalInputs });
     }

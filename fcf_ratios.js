@@ -80,7 +80,53 @@
     return calculateRatios(data, options, true);
   }
 
+  function halfYearStatements(data) {
+    const quarterly = {};
+    const frequencies = { ...data.statementFrequencies };
+    for (const type of ['income', 'balance', 'cashflow']) {
+      const cadence = context.cadence(data, type);
+      if (cadence.frequency !== 'quarterly') {
+        quarterly[type] = data.quarterly?.[type] || [];
+        continue;
+      }
+      frequencies[type] = 'semiannual';
+      const rows = indexRows(data.quarterly?.[type] || [], false);
+      const ends = [...new Set([...rows.keys()].map(key => key + (key % 2 === 0 ? 1 : 0)))].sort((a, b) => a - b);
+      quarterly[type] = ends.flatMap(key => {
+        const opening = rows.get(key - 1), closing = rows.get(key);
+        if (!closing) return [];
+        if (type === 'balance') return [{ ...closing, derivation: 'reportedHalfYearClosingBalance' }];
+        const valid = opening && sameCurrency([opening, closing])
+          && !opening.currencyConversion?.reason && !closing.currencyConversion?.reason
+          && (Date.parse(closing.date) - Date.parse(opening.date)) / dayMs >= 60
+          && (Date.parse(closing.date) - Date.parse(opening.date)) / dayMs <= 120;
+        const result = { ...closing, derivation: 'sumOfTwoReportedQuarters',
+          sourceDates: [opening?.date || null, closing.date],
+          periodStartDate: opening?.periodStartDate || null, periodLength: 6,
+          currencyConversion: { basis: 'sumOfSeparatelyTranslatedQuarterFlows',
+            periods: [opening?.currencyConversion || null, closing.currencyConversion || null],
+            reason: opening?.currencyConversion?.reason || closing.currencyConversion?.reason || null } };
+        for (const field of new Set([...Object.keys(opening || {}), ...Object.keys(closing)])) {
+          if (['fiscalYear', 'calendarYear', 'periodLength'].includes(field)) continue;
+          if (typeof opening?.[field] !== 'number' && typeof closing[field] !== 'number') continue;
+          const a = numeric(opening?.[field]), b = numeric(closing[field]);
+          result[field] = !valid || a === null || b === null ? null
+            : /^weightedAverageShs/.test(field) ? (a + b) / 2
+            : /ratio$/i.test(field) || /^eps/i.test(field) ? null
+            : field === 'cashAtBeginningOfPeriod' ? a
+            : field === 'cashAtEndOfPeriod' ? b : a + b;
+        }
+        result.weightedSharesBasis = 'simpleAverageOfTwoReportedQuarterlyDilutedShareCounts';
+        result.epsBasis = 'unavailableNonAdditiveQuarterlyEps';
+        return [result];
+      });
+    }
+    return { ...data, quarterly, reportingFrequency: 'semiannual', statementFrequencies: frequencies,
+      periodView: data.reportingFrequency === 'semiannual' ? data.periodView : 'semiannual' };
+  }
+
   function calculateBalances(data, { period = 'quarterly' } = {}) {
+    if (period === 'semiannual') return calculateBalances(halfYearStatements(data), { period: 'quarterly' });
     if (!['quarterly', 'annual'].includes(period)) throw new RangeError('Invalid balance sheet period');
     if (!Array.isArray(data?.[period]?.balance)) throw new TypeError('Missing balance sheet array');
     const annual = period === 'annual';
@@ -164,6 +210,17 @@
   }
 
   function calculateEarnings(data, { period = 'quarterly', flow = 'ttm' } = {}) {
+    if (period === 'semiannual') {
+      const halves = calculateEarnings(halfYearStatements(data), { period: 'quarterly', flow });
+      if (flow === 'ttm' && data.reportingFrequency !== 'semiannual') {
+        const quarters = calculateEarnings(data, { period: 'quarterly', flow });
+        for (const column of halves) {
+          const original = quarters.find(row => row.date === column.date);
+          if (original) column.amounts.eps = { ...original.amounts.eps, basis: 'sumOfFourReportedQuarterlyEps' };
+        }
+      }
+      return halves;
+    }
     if (!['quarterly', 'annual'].includes(period) || !['single', 'ttm'].includes(flow)) {
       throw new RangeError('Invalid earnings trend options');
     }
@@ -253,6 +310,9 @@
   }
 
   function calculateRatios(data, options, returns) {
+    if (options.period === 'semiannual') {
+      return calculateRatios(halfYearStatements(data), { ...options, period: 'quarterly' }, returns);
+    }
     const selectedMetrics = returns ? returnMetrics : metrics;
     const numeratorField = returns ? 'netIncome' : 'freeCashFlow';
     const missingNumerator = returns ? 'missingNetIncome' : 'missingFcf';
@@ -437,7 +497,7 @@
     try {
       const data = await loadStatements(ticker);
       if (id !== state.requestId) return;
-      labels = context.localize(panel, labels, data);
+      labels = context.localize(panel, labels, period === 'semiannual' ? halfYearStatements(data) : data);
       context.renderProvenance(panel, data, ticker);
       const columns = state.calculate(data, { period, flow, balance });
       const explanation = period === 'annual' ? labels.fcf_annual
@@ -525,5 +585,5 @@
     }
   }
 
-  return { calculate, calculateReturns, calculateBalances, calculateEarnings, loadStatements, financialReference, trend, render, renderReturns };
+  return { calculate, calculateReturns, calculateBalances, calculateEarnings, halfYearStatements, loadStatements, financialReference, trend, render, renderReturns };
 });

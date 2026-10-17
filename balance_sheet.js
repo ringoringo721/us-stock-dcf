@@ -45,7 +45,8 @@
       const statements = await FcfRatios.loadStatements(ticker, reload);
       if (id !== requestId) return;
       labels = MarketContext.localize(get('panel'), labels, {
-        reportingFrequency: statements.statementFrequencies?.balance || statements.reportingFrequency
+        reportingFrequency: period === 'semiannual' ? 'semiannual' : statements.statementFrequencies?.balance || statements.reportingFrequency,
+        periodView: period === 'semiannual' && statements.reportingFrequency !== 'semiannual' ? 'semiannual' : null
       });
       const columns = FcfRatios.calculateBalances(statements, { period });
       MarketContext.renderProvenance(get('panel'), statements, ticker);

@@ -120,7 +120,15 @@ const money = value => '$' + value.toLocaleString('en-US', { minimumFractionDigi
           .map(input => input.getAttribute('aria-label'))), [], tab);
     }
     await page.locator('#fcff-support-tabs [data-tab="periods"]').click();
-    assert.ok((await page.locator('#fcff-support-other').innerText()).includes(baseline.periods[0].discountDate));
+    const periodSchedule = await page.locator('#fcff-support-other').innerText();
+    assert.ok(periodSchedule.includes(baseline.periods[0].discountDate));
+    await page.locator('#fcff-support-tabs [data-tab="factors"]').click();
+    const factorSchedule = await page.locator('#fcff-support-other').innerText();
+    assert.notEqual(factorSchedule, periodSchedule);
+    assert.match(factorSchedule, /WACC.*Discount exponent.*Discount factor.*FCFF.*Present value/s);
+    const edited = calculate(sources.stocks.CSCO, annualScenario);
+    assert.ok(factorSchedule.includes(edited.periods[0].df.toFixed(6)));
+    assert.ok(factorSchedule.includes(edited.periods[0].pv.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })));
     await page.locator('#fcff-support-tabs [data-tab="history"]').click();
     assert.ok((await page.locator('#fcff-support-other').innerText()).includes('4 annual periods'));
     for (const tab of ['discount', 'terminal']) {

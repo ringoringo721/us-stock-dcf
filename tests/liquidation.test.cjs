@@ -105,13 +105,13 @@ test('all covered stocks publish the shared source-derived liquidation outputs a
   for (const [ticker, stock] of Object.entries(market)) {
     const record = sources.stocks[ticker];
     assert.ok(record, ticker);
-    const snapshot = prepareSnapshot(ticker, record, rates);
+    const snapshot = prepareSnapshot(ticker, record, rates, stock);
     assert.deepEqual(stock.liquidation, snapshot, ticker);
     const result = calculate(snapshot, ticker);
     assert.deepEqual([stock.liq_val_1, stock.liq_val_2, stock.liq_val_3], result.values, ticker);
     const b = record.balance, r = rateFor(rates, b.reportedCurrency, null, b.date, 'closing').rate;
     if (result.values.every(value => value !== null)) {
-      const shares = record.quote.marketCap / record.quote.price;
+      const shares = stock.shares_outstanding;
       near(result.values[0], (b.totalCurrentAssets - b.totalLiabilities) * r / shares);
       near(result.values[1], (b.cashAndShortTermInvestments + b.accountsReceivables * 0.8
         + b.inventory * 0.5 - b.totalLiabilities) * r / shares);

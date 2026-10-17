@@ -52,6 +52,28 @@ def provider_symbol(ticker):
     return ticker if ticker.endswith(".HK") else ticker.replace(".", "-")
 
 
+def outstanding_share_record(rows, symbol, as_of):
+    if not isinstance(rows, list):
+        raise ValueError("Outstanding-share source must be a list of dated records")
+    cutoff = datetime.strptime(as_of, "%Y-%m-%d").date()
+    eligible = []
+    for row in rows:
+        if not isinstance(row, dict) or row.get("symbol") != symbol:
+            continue
+        count, source_date = row.get("outstandingShares"), row.get("date")
+        if (type(count) not in (int, float) or not 0 < count <= 9007199254740991
+                or count % 1 != 0 or not isinstance(source_date, str)
+                or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", source_date[:10])):
+            continue
+        try:
+            observed = datetime.strptime(source_date[:10], "%Y-%m-%d").date()
+        except ValueError:
+            continue
+        if observed <= cutoff:
+            eligible.append(row)
+    return max(eligible, key=lambda row: row["date"][:10], default=None)
+
+
 def years_before(day, years):
     year = day.year - years
     return day.replace(year=year, day=min(day.day, calendar.monthrange(year, day.month)[1]))

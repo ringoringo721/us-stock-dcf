@@ -4,7 +4,7 @@ const { rateFor } = require('../usd_currency.js');
 const { calculate } = require('../liquidation.js');
 const finite = value => typeof value === 'number' && Number.isFinite(value);
 
-function prepareSnapshot(ticker, record, rates) {
+function prepareSnapshot(ticker, record, rates, stock) {
   if (!record) return null;
   if (record.ticker !== ticker || record.providerSymbol !== ticker.replace(/\./g, '-')) {
     throw new TypeError(`${ticker}: incorrect liquidation source symbol`);
@@ -12,7 +12,7 @@ function prepareSnapshot(ticker, record, rates) {
   const b = record.balance;
   const fx = rateFor(rates, b.reportedCurrency, null, b.date, 'closing');
   const usd = field => finite(b[field]) && finite(fx.rate) ? b[field] * fx.rate : null;
-  return {
+  const snapshot = {
     version: 1, ticker, currency: 'USD', source: 'FMP stable balance-sheet-statement and quote',
     fetchedAt: record.fetchedAt, balanceDate: b.date, filingDate: b.filingDate,
     quoteDate: record.quote.date, sourceCurrency: b.reportedCurrency, fx,
@@ -23,13 +23,20 @@ function prepareSnapshot(ticker, record, rates) {
       tradeReceivables: usd('accountsReceivables'), inventory: usd('inventory'),
       preferredStock: usd('preferredStock') }
   };
+  if (stock?.shareBasis === 'commonSharesOutstandingExcludingTreasury') {
+    snapshot.shareBasis = stock.shareBasis;
+    snapshot.sharesOutstanding = stock.shares_outstanding;
+    snapshot.shareSource = stock.shareSource;
+    if (stock.shareSource?.capturedAt > snapshot.fetchedAt) snapshot.fetchedAt = stock.shareSource.capturedAt;
+  }
+  return snapshot;
 }
 
 function applyToMarket(market, sources, rates) {
   if (sources.version !== 1 || !sources.stocks) throw new TypeError('Invalid liquidation source dataset');
   const updates = {};
   for (const ticker of Object.keys(market)) {
-    const liquidation = prepareSnapshot(ticker, sources.stocks[ticker], rates);
+    const liquidation = prepareSnapshot(ticker, sources.stocks[ticker], rates, market[ticker]);
     const result = calculate(liquidation, ticker);
     updates[ticker] = { liquidation, liq_val_1: result.values[0],
       liq_val_2: result.values[1], liq_val_3: result.values[2] };

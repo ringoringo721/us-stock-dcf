@@ -30,6 +30,13 @@ Matching reported annual EPS remains available at fiscal-year-end TTM.
 Incomplete or all-zero provider cash-flow constructions are archived for audit,
 not presented as actual quarterly/TTM cash flows; genuine annual cash flows
 remain available. Annual/interim reconciliation differences are disclosed.
+HKEX also offers a separate half-year view in financial statements, key ratios,
+FCF/return ratios, balance analysis and per-share trends. Quarterly flows are
+summed **after** each quarter's historical FX conversion; balances use the
+half-year closing report. Derived half-year diluted counts are explicitly simple
+averages, not issued shares or reported half-year counts. Nonadditive half-year
+EPS is unavailable; genuine four-quarter TTM EPS remains available. Missing
+quarters, annual-only cash flows and FX gaps are never filled.
 
 HKEX Piotroski diagnostics compare nine actual statement-based criteria,
 including CFO (not FCF), changes in ROA/leverage/liquidity/margin/turnover and
@@ -50,6 +57,11 @@ does not produce neutral 5/10 scores. Financial/call content hashes, original
 assessment timestamps and separate check timestamps distinguish new evidence,
 unchanged evidence and retained stale/error states. Transcript dates alone do
 not count as transcript analysis.
+Partial assessments display earned points over the assessed maximum, with the
+dimension coverage: e.g. `72 / 90`, not `N/A pt`, zero-filled `/100`, a normalized
+percentage or a complete overall moat grade. PF health comments use the same
+strong/moderate/weak/unavailable categories in both markets; statement freshness
+and annual fallback provenance are separate from financial-health labels.
 
 The HKEX refresh workflow checks at 07:30 and 19:30 Hong Kong time on business
 days. It refreshes sources, recomputes PF from actual comparable periods and
@@ -60,11 +72,49 @@ not a claim that production updated.
 Historical workflow reruns also check out current `main`, preserving the last
 published generated data rather than rebasing a second refresh onto an old snapshot.
 
-Unavailable HKD discount inputs, IFRS lease reconciliation, cash-flow coverage
-or an unreconciled A/H common-share denominator remain explicit N/A. US Treasury
-yields are not silently substituted for a missing HKD benchmark. The pilot does
-not certify six numerical fair values or implement a new REIT valuation model.
+At the user's direction, HKEX discount rates now use a dated US 10-year Treasury
+**proxy under the HKD/USD peg**, not an observed HKD risk-free yield or another
+stock's WACC. Company-specific beta, equity risk premium, financing, debt cost
+and tax still determine WACC; financial-company models use Ke. The proxy is
+disclosed in both valuation interfaces. Actual historical HKD FX conversion is
+unchanged and never uses this peg assumption.
+
+DCF, financial-company and liquidation denominators use dated
+`shares-float.outstandingShares`, excluding treasury shares, **not** diluted
+weighted-average shares or float. Per-diluted-share financial trend tables
+retain their original accounting denominators. US captures cover all 230
+listings. Provider quoted/ADR units are not multiplied again. An unreconciled
+company-wide A/H denominator (CCB) remains unavailable by default; a class-only
+count is not divided into whole-group equity. Explicit, confirmed user share
+scenarios are labeled and saved separately.
+
+Unreconciled IFRS leases, debt composition and missing mandatory inputs still
+block automatic fair values. Editing financial assumptions does not silently
+certify issuer evidence. Confirmed financing scenarios may specify lease debt,
+the cash-flow-matched lease exclusion and opening NWC; the source snapshot stays
+unchanged and the resulting value is labeled as user-assumed. The same controls
+apply to US and HKEX stocks. The general corporate FCFF model can be used for
+Link with an explicit REIT warning; it is not a dedicated AFFO/NAV model, and
+nonoperating asset/priority-claim assumptions require review.
+
+When HKEX cash flow is annual-only, the valuation may use the latest complete
+aligned annual dataset, explicitly **not current TTM**. Unknown interim cash
+flows are not treated as reported zero; first-year unreported flows use the
+existing uniform-day modeling assumption. Current trading multiples do not
+borrow annual cash flow to fabricate current TTM. The forecast scale check
+uses the latest matched annual revenue; older forecast/actual differences are
+retained in provenance rather than automatically being called currency errors.
+HSBC's payout fallback explicitly identifies its latest reported annual period.
+The pilot does not certify six automatic numerical fair values.
 No historical DCF track or score history is fabricated.
+
+Quoted metrics are independent of fair-value eligibility. Quoted EV uses market
+cap + reported total debt − cash/short-term investments + preferred and
+noncontrolling book proxies. It includes reported leases and does not subtract
+unverified nonoperating long-term investments. The modeled equity waterfall
+separately uses FCFF-matched financing debt and adjustable nonoperating assets.
+Discounting periods show dates, stub timing and elapsed years; discount factors
+separately show WACC, exponents, factors, cash flow and present-value arithmetic.
 
 Validation includes `tests/hkd_currency.test.cjs`,
 `tests/statement_scores.test.cjs`, `tests/hkex_sources.test.cjs`,
@@ -210,8 +260,9 @@ Validate with `node --test tests/fcff*.test.cjs` and
 三項清算值及獨立 `liquidation` 來源資訊，不變更 DCF 參數、股價或其他財務數字。
 前後端共用 `liquidation.js`：I 為流動資產減總負債；II 為現金短投加貿易應收的
 80%、存貨的 50% 再減總負債；III 為現金短投減總負債。II 不混用總應收或其他應收款。
-三項分母均為同一筆 FMP 美元市值除以股價推算的普通股／ADR 股數，不稱為財報
-稀釋加權平均股數、不補 1 股，也不額外乘 ADR 倍數。資產負債表日期與報價日期分開揭露。
+三項分母均採有日期來源、不含庫存股的流通在外普通股／報價 ADR 單位，不採市值除以
+股價反推或財報稀釋加權平均股數，不補 1 股，也不額外乘 ADR 倍數。
+全公司 A／H 股數未核實時保留 N/A；資產負債表、股數及報價日期分開揭露。
 
 篩選表逐格顯示財報日期；提示包含報價日期、股數、期末匯率與擷取時間。
 特別股帳面值不等於實際清算求償額，因此保留原本未扣優先權的簡化公式，
@@ -258,7 +309,7 @@ CAGR 依實際相隔日數／365.25 年化，不足 365 天或僅有一筆資料
 
 ## 統一美元與歷史匯率
 
-全站的財務金額、每股數字、歷史趨勢及估值輸入統一以 USD 計算及呈現；
+美股市場的財務金額、每股數字、歷史趨勢及估值輸入統一以 USD 計算及呈現；
 公司頁保留原始申報幣別提示。原始 `cache/financials/*_statements_v2.json` 不修改，
 前端與市場資料產生器共用 `usd_currency.js`，依每一筆報告的實際日期換算。
 損益及現金流量採該財務期間內每日「USD／原幣」匯率的算術平均；

@@ -18,13 +18,13 @@
   const percent = value => finite(value) ? `${(value * 100).toFixed(2)}%` : 'N/A';
   const reasons = {
     sourceUnavailable: ['FMP 來源不完整，無法重建估值。', 'Required FMP sources are unavailable.'],
-    missingHkdRiskFreeRate: ['缺少可核實且日期對齊的港元無風險利率；不改用美債利率。', 'A verified, date-aligned HKD risk-free rate is unavailable; US Treasury yields are not substituted.'],
+    missingHkdRiskFreeRate: ['缺少日期對齊的美債代理或港元基準；不猜測利率。', 'A dated Treasury proxy or HKD benchmark is unavailable; no rate is guessed.'],
     shareBasisUnverified: ['普通股／A、H 股或報價單位的股數基準尚未核實，不計算每股估值。', 'The common-share, A/H-share or quoted-unit denominator is unverified; per-share valuation is unavailable.'],
     statementReconciliationRequired: ['年度與中期來源尚未調節一致；受影響估值不可用。', 'Annual and interim sources require reconciliation; affected valuations remain unavailable.'],
     sourceSymbolMismatch: ['來源股票代碼不一致。', 'Source ticker symbols do not match.'],
     missingQuote: ['缺少有效美元報價或總市值。', 'A valid USD quote and market capitalization are required.'],
     sourceDateMismatch: ['來源日期無效、未公布或不一致。', 'Source dates are invalid, unpublished or inconsistent.'],
-    incompleteTtm: ['缺少四個連續且對齊的季度。', 'Four consecutive, aligned fiscal quarters are required.'],
+    incompleteTtm: ['缺少連續且對齊的營運資料或期末營運資金：須有四季、兩個半年或已標示的完整年度基準。', 'Consecutive aligned operating data or closing working capital is missing: four quarters, two half years or an explicitly labeled complete annual base is required.'],
     sourceCurrencyMismatch: ['財報幣別不一致。', 'Statement reporting currencies do not match.'],
     missingFx: ['缺少期間對應的美元匯率。', 'Period-matched historical USD exchange rates are missing.'],
     missingForecastFx: ['缺少足夠近期的預測換匯基準。', 'A sufficiently recent forecast FX observation is missing.'],
@@ -36,7 +36,7 @@
     leaseClassificationRequired: ['租賃付款、折舊與新增租賃資產尚未核對；不猜測調整金額。', 'Lease payments, depreciation and new leased assets are not reconciled; no adjustment is guessed.'],
     leaseMappingUnverified: ['原始財報有租賃負債，但標準化欄位為零，須先核對映射。', 'Original statements contain lease liabilities but the normalized field is zero; mapping requires reconciliation.'],
     missingParameters: ['請補入空白的必要假設；不使用隱藏預設值。', 'Enter missing required assumptions; no hidden defaults are used.'],
-    invalidParameters: ['參數超出有效範圍，或租賃調整超過對應負債。', 'Parameters are out of range or the lease adjustment exceeds the corresponding liability.'],
+    invalidParameters: ['請核對：股價及股數須為正；現金、債務、投資及優先受償代理不可為負；租賃排除不可超過租賃及總債務。', 'Review inputs: price/shares must be positive; cash, debt, investments and priority-claim proxies cannot be negative; lease exclusions cannot exceed lease or total debt.'],
     invalidTerminalSpread: ['WACC 必須大於終值增長率且大於零。', 'WACC must exceed terminal growth and zero.'],
     invalidTerminalReinvestment: ['終值 ROIC 必須為正且不低於終值增長率。', 'Terminal ROIC must be positive and at least terminal growth.'],
     invalidOperatingAssumptions: ['營運假設無效；請核對資本支出、折舊及長期利潤率。', 'Invalid operating assumptions; check capital expenditure, depreciation and terminal margin.'],
@@ -58,19 +58,22 @@
       : (language === 'en' ? 'Valuation unavailable: ' : '估值不可用：') + reason;
   }
   function metrics(stock, snapshot, result) {
-    const defaults = snapshot?.defaults || {};
+    const defaults = { ...snapshot?.defaults, ...snapshot?.quotedCapital };
     const mcap = finite(stock.mcap) ? stock.mcap : finite(result.E) ? result.E : null;
     const premiumPct = finite(result.fairVal) && result.fairVal > 0 && finite(stock.price) && stock.price > 0
       ? (stock.price / result.fairVal - 1) * 100 : null;
-    const cash = result.cash ?? defaults.cash, debt = result.reportedDebt ?? defaults.debt;
-    const net = finite(result.NetDebt) ? result.NetDebt : null;
-    const ev = finite(net) && finite(mcap) && finite(result.preferred)
-      && finite(result.minority) && finite(result.investments)
-      ? mcap + net + result.preferred + result.minority - result.investments : null;
-    const ebitda = snapshot?.ttm?.ebitda, fcf = snapshot?.ttm?.reportedFcf;
+    const cash = snapshot?.quotedCapital ? defaults.cash : defaults.cash ?? stock.cash_and_short_term;
+    const debt = snapshot?.quotedCapital ? defaults.reportedDebt : defaults.reportedDebt ?? defaults.debt ?? stock.debt;
+    const preferred = defaults.preferred, minority = defaults.minority;
+    const net = finite(debt) && finite(cash) ? debt - cash : null;
+    const ev = finite(net) && finite(mcap) && [preferred, minority].every(finite)
+      ? mcap + net + preferred + minority : null;
+    const quotedTtm = snapshot?.quotedTtm || snapshot?.ttm;
+    const ebitda = quotedTtm?.ebitda;
+    const fcf = snapshot?.quotedTtm ? quotedTtm.reportedFcf : quotedTtm?.reportedFcf ?? stock.fcf0;
     const ratio = (a, b, scale = 1) => finite(a) && finite(b) && b > 0 ? a / b * scale : null;
     return {
-      ...result, premiumPct, mcap, EV: ev, localFCF0: fcf, localDebt: debt, localCash: cash,
+      ...result, premiumPct, mcap, EV: ev, quotedNetDebt: net, localFCF0: fcf, localDebt: debt, localCash: cash,
       isUndervalued: premiumPct === null ? null : premiumPct < 0,
       fcf_to_ev: ratio(fcf, ev, 100), fcf_to_mcap: ratio(fcf, mcap, 100),
       ev_to_ebitda: ratio(ev, ebitda), debt_to_ebitda: ratio(debt, ebitda),
@@ -82,9 +85,11 @@
 
   const fields = [
     ['price', '股價 ($)', 'Share price ($)'],
-    ['shares', '估值股數 (百萬股；總市值／股價)', 'Valuation shares (M; market cap / price)'],
+    ['shares', '流通在外普通股（百萬股；不含庫存股）', 'Common shares outstanding (M; excluding treasury shares)'],
     ['debt', '帳面總債務（含已列租賃，$M）', 'Reported total debt (including reported leases, $M)'],
     ['leaseOverlap', '已在 FCFF 承擔的對應租賃負債 ($M)', 'Matching lease debt already borne by FCFF ($M)'],
+    ['leaseDebt', '情境租賃負債總額 ($M)', 'Scenario total lease liabilities ($M)'],
+    ['openingWorkingCapital', '情境期末非現金營運資金 ($M)', 'Scenario closing noncash working capital ($M)'],
     ['cash', '非營運現金及短期投資 ($M)', 'Nonoperating cash and short-term investments ($M)'],
     ['investments', '非營運長期投資 ($M；帳面值代理)', 'Nonoperating long-term investments ($M; book proxy)'],
     ['preferred', '優先股權益 ($M；帳面值代理)', 'Preferred equity ($M; book proxy)'],
@@ -147,6 +152,7 @@
     for (const key of ['terminalMethod', 'discountTiming', 'depreciationBasis', 'extrapolation']) {
       scenario[key] = document.getElementById(`fcff-${key}`).value;
     }
+    scenario.confirmFinancingAssumptions = document.getElementById('fcff-confirm-financing').checked;
     return scenario;
   }
   function load(options) {
@@ -155,10 +161,15 @@
     const saved = compatible(options.saved) ? options.saved.params : {};
     const scenario = compatible({ params: options.stock.fcffScenario, currency: market.currency }) ? options.stock.fcffScenario : saved;
     yearEdits = structuredClone(scenario.years || {});
-    const ratios = window.Fcff.operatingRatios(source?.ttm);
-    const defaults = { ...source?.defaults, ...ratios,
+    const ttm = source?.ttm;
+    const baseline = key => finite(ttm?.[key]) && ttm.revenue > 0 ? ttm[key] / ttm.revenue : null;
+    const ratios = window.Fcff.operatingRatios(ttm) || { operatingMargin: baseline('ebit'),
+      depreciation: baseline('depreciation'), capex: baseline('capex'), workingCapital: baseline('workingCapital') };
+    const defaults = { ...source?.defaults, ...ratios, leaseDebt: source?.balance?.leaseDebt,
+      openingWorkingCapital: source?.balance?.workingCapital,
       terminalMargin: ratios?.operatingMargin,
-      ebitdaMargin: ratios ? ratios.operatingMargin + ratios.depreciation : null, ...scenario };
+      ebitdaMargin: finite(ratios.operatingMargin) && finite(ratios.depreciation)
+        ? ratios.operatingMargin + ratios.depreciation : null, ...scenario };
     const panel = document.getElementById('fcff-workspace');
     panel.hidden = false;
     panel.innerHTML = `<section class="panel historical-ratio-panel">
@@ -173,12 +184,15 @@
         <div class="fcff-inputs">${fields.map(([key, zh, en, mode]) => {
           const value = ['ratio', 'nullableRatio', 'optionalRatio'].includes(mode) && finite(defaults[key]) ? defaults[key] * 100 : defaults[key];
           const label = key === 'rf' && market.currency === 'HKD'
-            ? text('港元無風險利率 (%)；須有可核實來源', 'HKD risk-free rate (%); verified source required') : text(zh, en);
+            ? text('無風險利率 (%)；聯匯下採美債代理，非港元實報利率', 'Risk-free rate (%); Treasury proxy under the peg, not an observed HKD yield') : text(zh, en);
           return `<div class="form-group"><label for="fcff-${key}">${escape(label)}</label>
             <input type="number" id="fcff-${key}" step="0.01" value="${finite(value) ? value.toFixed(2) : ''}"
               data-precise-value="${finite(value) ? value : ''}" data-formatted-value="${finite(value) ? value.toFixed(2) : ''}"
-              ${!source?.ttm ? 'disabled' : ''}></div>`;
-        }).join('')}</div></details>
+              ${!source?.ttm || ['leaseDebt', 'openingWorkingCapital'].includes(key) && !defaults.confirmFinancingAssumptions ? 'disabled' : ''}></div>`;
+        }).join('')}</div>
+        <label><input type="checkbox" id="fcff-confirm-financing" ${defaults.confirmFinancingAssumptions ? 'checked' : ''}>
+          ${text('我確認此情境的總債務、租賃負債、期末營運資金及 FCFF 租賃處理已互相對齊；勾選後可編輯情境租賃及營運資金。這是使用者假設，不代表公司披露已核實。', 'I confirm this scenario aligns total debt, lease liabilities, closing working capital and FCFF lease treatment. Check to edit scenario leases and working capital. These are user assumptions, not verified issuer reconciliation.')}</label>
+        </details>
       <div class="fcff-inputs" id="fcff-method-controls"></div>
     </section>
     <section class="panel historical-ratio-panel">
@@ -222,7 +236,7 @@
     document.getElementById('fcff-method-controls').innerHTML = choices.map(([key, zh, en, items]) =>
       `<div class="form-group"><label for="fcff-${key}">${text(zh, en)}</label>
       <select id="fcff-${key}">${items.map(([option, a, b]) => `<option value="${option}" ${defaults[key] === option ? 'selected' : ''}>${text(a, b)}</option>`).join('')}</select></div>`).join('');
-    for (const input of panel.querySelectorAll('input')) {
+    for (const input of panel.querySelectorAll('input[type="number"]')) {
       input.addEventListener('input', () => {
         input.dataset.preciseValue = input.value;
         input.dataset.formattedValue = input.value;
@@ -230,6 +244,10 @@
       });
       input.addEventListener('blur', () => formatInput(input, numericValue(input)));
     }
+    document.getElementById('fcff-confirm-financing').addEventListener('change', event => {
+      for (const key of ['leaseDebt', 'openingWorkingCapital']) document.getElementById(`fcff-${key}`).disabled = !source?.ttm || !event.target.checked;
+      recalculate();
+    });
     for (const select of panel.querySelectorAll('select')) select.addEventListener('change', recalculate);
     renderTabs();
     document.getElementById('fcff-legacy').textContent = options.saved && !compatible(options.saved)
@@ -252,11 +270,22 @@
     document.getElementById('fcff-source-note').textContent = [
       context.ticker, market.currencyFor(context.ticker, context.stock), source?.valuationDate,
       source?.quoteDate && `${text('報價日期', 'Quote date')}: ${source.quoteDate}`,
-      ttm && `TTM ${ttm.dates[0]} — ${ttm.dates.at(-1)}`,
+      ttm?.dates && (ttm.reportingFrequency === 'annual'
+        ? `${text('最新完整年度截至', 'Latest complete annual period ended')} ${ttm.dates.at(-1)}`
+        : `TTM ${ttm.dates[0]} — ${ttm.dates.at(-1)}`),
       market.currency === 'USD' && source?.provenance?.treasury && `10Y Treasury ${source.provenance.treasury.date}`
     ].filter(Boolean).join(' · ');
     document.getElementById('fcff-assumptions').textContent = [
-      text('股數＝總市值／股價，不是歷史加權稀釋股數。', 'Shares = market cap / price, not historical diluted weighted-average shares.'),
+      text('估值分母採流通在外普通股，不含庫存股；不使用稀釋加權平均股數。缺少或未核實全公司股數時不以市值／股價代填。', 'Valuation uses common shares outstanding excluding treasury shares, not diluted weighted-average shares. Missing or unverified company-wide counts are not filled from market cap / price.'),
+      source?.provenance?.shares && `${text('股數來源／日期', 'Share-count source / date')}: ${source.provenance.shares.source} · ${source.provenance.shares.date || 'N/A'}`,
+      market.currency === 'HKD' ? (context.language() === 'en'
+        ? 'User-directed rate proxy: USD Treasury 10Y under the HKD/USD peg, not an observed HKD yield. WACC still uses this company’s beta, capital structure, debt cost and tax.'
+        : '按使用者要求，聯匯下以美元 10 年期美債作利率代理，並非實報港元收益率。WACC 仍按本公司的 Beta、資本結構、債務成本及稅率計算。') : '',
+      source?.ttm?.reportingFrequency === 'annual' ? text(
+        '估值起點採最新完整實報年度，不是當前 TTM；中期現金流不明，不當作零或已知實績。首年尚未公布的流量按日均分。交易倍數仍採可獨立核實的當前 TTM；缺值不以年度數值代填。',
+        'Valuation starts from the latest complete reported annual period, not current TTM. Unknown interim cash flows are not zero or known actuals; unreported first-year flows are modeled uniformly by day. Trading multiples still use independently verified current TTM; annual values do not fill missing current TTM.') : '',
+      source?.valuationCaution ? text('此 REIT 按要求先採與美股相同的一般企業 FCFF 情境，不是專用 AFFO 或資產淨值估值。營運物業不能再當作非營運投資加回；須核對長期投資、稅率及非控制權益代理，不能把帳面負值視作負數優先索償。',
+        'As requested, this REIT uses general corporate FCFF, not dedicated AFFO/NAV. Operating properties must not also be added as nonoperating investments. Review long-term investments, tax and noncontrolling claim proxies; negative book equity is not a negative priority claim.') : '',
       text('營運比率採最新 TTM；現金及投資視作非營運資產，優先股及非控制權益採可調整帳面值代理。', 'Operating ratios use latest TTM; cash/investments are assumed nonoperating and priority claims use adjustable book-value proxies.'),
       source?.provenance?.forecastFx && `${text('未來匯率固定於', 'Future FX fixed at')} ${source.provenance.forecastFx.observationDate || source.valuationDate}: ${source.provenance.forecastFx.rate}`,
       text('分析師幣別以歷史年度金額尺度核對，非 API 明示幣別；稅率與 Kd 是歷史代理，ERP 與 g 是模型假設。', 'Analyst currency is inferred from historical annual scale, not an explicit API currency field; tax and Kd are historical proxies, ERP and g are model assumptions.'),
@@ -269,6 +298,12 @@
       ? reasonText(result.reason, context.language()) + (result.annuals?.length
         ? text(' 可用年度數據僅供建立假設，不代表估值已核准。', ' Available annual projections are a draft, not a validated valuation.') : '')
       : text('分析師錨點以外均為模型推算，不是已知未來現金流。', 'Beyond analyst anchors, values are model extrapolations, not known future cash flow.');
+    if (result.financingBasis) document.getElementById('fcff-status').textContent += text(
+      ' 此估值採使用者確認的融資／租賃假設，並非公司披露已對帳。', ' This value uses user-confirmed financing/lease assumptions, not reconciled issuer evidence.');
+    if (source?.ttm?.reportingFrequency === 'annual' || source?.valuationCaution) {
+      document.getElementById('fcff-status').textContent += text(
+        ' 注意：採較早完整年度或一般企業 REIT 情境，詳見來源／代理假設說明。', ' Caution: earlier complete annual basis or general corporate REIT scenario; see source/proxy disclosures.');
+    }
     document.getElementById('det-res-fair').textContent = finite(result.fairVal) ? `${money()}${amount(result.fairVal)}` : 'N/A';
     document.getElementById('det-res-fair').className = `stat-num ${result.fairVal === null
       ? 'text-muted' : result.fairVal < 0 ? 'text-red' : 'text-green'}`;
@@ -278,7 +313,7 @@
     document.getElementById('det-res-g').textContent = finite(scenario.g) ? `${scenario.g.toFixed(2)}%` : 'N/A';
     document.getElementById('det-res-spread').textContent = finite(result.WACC) && finite(scenario.g)
       ? percent(result.WACC - scenario.g / 100) : 'N/A';
-    const ratios = metrics({ ...context.stock, mcap: result.E }, source, result);
+    const ratios = metrics(context.stock, source, result);
     document.getElementById('det-res-ev').textContent = finite(ratios.EV) ? `${money()}${amount(ratios.EV)} M` : 'N/A';
     document.getElementById('det-res-evebitda').textContent = finite(ratios.ev_to_ebitda) ? `${ratios.ev_to_ebitda.toFixed(1)}x` : 'N/A';
     document.getElementById('det-res-nde').textContent = finite(ratios.net_debt_to_ebitda) ? `${ratios.net_debt_to_ebitda.toFixed(2)}x` : 'N/A';
@@ -481,13 +516,18 @@
     const other = document.getElementById('fcff-support-other');
     other.hidden = ['cashflow', 'equity'].includes(supportTab);
     const periods = result.periods, headers = [text('期間', 'Period'), ...periods.map(row => row.end)];
-    if (supportTab === 'periods' || supportTab === 'factors') {
+    if (supportTab === 'periods') {
       other.innerHTML = schedule(headers, [
         [text('完整財年起點', 'Fiscal-year start'), periods.map(row => escape(row.fiscalStart))],
         [text('現金流起點', 'Cash-flow start'), periods.map(row => escape(row.start))],
         [text('財年期末', 'Fiscal-year end'), periods.map(row => escape(row.end))],
         [text('採用折現日期 (UTC)', 'Discount date (UTC)'), periods.map(row => escape(row.discountDate))],
-        [text('Actual/365.25 年數', 'Actual/365.25 years'), periods.map(row => finite(row.time) ? row.time.toFixed(6) : 'N/A')],
+        [text('Actual/365.25 年數', 'Actual/365.25 years'), periods.map(row => finite(row.time) ? row.time.toFixed(6) : 'N/A')]
+      ]);
+    } else if (supportTab === 'factors') {
+      other.innerHTML = `<p class="analysis-note">${text('折現因子＝1／(1＋WACC)^年數；現值＝FCFF × 折現因子。', 'Discount factor = 1 / (1 + WACC)^years; present value = FCFF × discount factor.')}</p>` + schedule(headers, [
+        ['WACC', periods.map(() => percent(result.WACC))],
+        [text('折現年數', 'Discount exponent (years)'), periods.map(row => finite(row.time) ? row.time.toFixed(6) : 'N/A')],
         [text('折現因子', 'Discount factor'), periods.map(row => finite(row.df) ? row.df.toFixed(6) : 'N/A')],
         ['FCFF', periods.map(row => amount(row.fcff))],
         [text('現值', 'Present value'), periods.map(row => amount(row.pv))]
@@ -514,13 +554,14 @@
       if (snapshot()?.history?.warnings?.length) other.innerHTML += `<p class="analysis-note">${text(
         '部分歷史來源的代碼／公布日期無法核對，已排除。', 'Some historical rows were excluded because ticker/publication dates could not be reconciled.')}</p>`;
     } else if (supportTab === 'multiples') {
-      const value = metrics({ ...context.stock, mcap: result.E }, snapshot(), result);
-      other.innerHTML = schedule([text('指標（非模型終值倍數）', 'Metric (not terminal exit multiples)'), `${market.currency} / TTM`], [
-        [text('報價市值 ($M)', 'Quoted market cap ($M)'), [amount(result.E)]],
+      const value = metrics(context.stock, snapshot(), result);
+      other.innerHTML = `<p class="analysis-note">${text('報價 EV＝市值＋已報總債務－現金及短投＋優先股及非控制權益帳面代理。包含列示租賃，不扣除未核實為非營運的長期投資；獨立於模型估值及 FCFF 租賃調整。', 'Quoted EV = market cap + reported total debt − cash/short-term investments + preferred and noncontrolling book proxies. Includes reported leases; long-term investments are not deducted without verified nonoperating classification. Independent of model valuation and its FCFF-matched lease adjustment.')}</p>` + schedule([text('指標（非模型終值倍數）', 'Metric (not terminal exit multiples)'), `${market.currency} / TTM`], [
+        [text('報價市值 ($M)', 'Quoted market cap ($M)'), [amount(value.mcap)]],
         [text('報價企業價值 ($M)', 'Quoted enterprise value ($M)'), [amount(value.EV)]],
-        [text('實際 TTM EBITDA ($M)', 'Reported TTM EBITDA ($M)'), [amount(snapshot()?.ttm?.ebitda)]],
+        [text('實際 TTM EBITDA ($M)', 'Reported TTM EBITDA ($M)'), [amount((snapshot()?.quotedTtm || snapshot()?.ttm)?.ebitda)]],
         ['EV / EBITDA', [finite(value.ev_to_ebitda) ? amount(value.ev_to_ebitda) + 'x' : 'N/A']],
-        [text('總債務／EBITDA', 'Total debt / EBITDA'), [finite(value.debt_to_ebitda) ? amount(value.debt_to_ebitda) + 'x' : 'N/A']]
+        [text('總債務／EBITDA', 'Total debt / EBITDA'), [finite(value.debt_to_ebitda) ? amount(value.debt_to_ebitda) + 'x' : 'N/A']],
+        [text('淨債務／EBITDA', 'Net debt / EBITDA'), [finite(value.net_debt_to_ebitda) ? amount(value.net_debt_to_ebitda) + 'x' : 'N/A']]
       ]);
     }
   }

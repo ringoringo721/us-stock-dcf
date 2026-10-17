@@ -136,3 +136,64 @@ test('annual forecast currency checks cannot borrow a different reporting curren
   delete input.responses.annual_income.rows[0].date;
   assert.equal(prepareSnapshot('TEST', input, treasury, null).reason, 'sourceDateMismatch');
 });
+
+function hkEvidence() {
+  const input = evidence();
+  input.ticker = input.providerSymbol = 'TEST.HK';
+  for (const response of Object.values(input.responses)) for (const row of response.rows) row.symbol = 'TEST.HK';
+  input.responses.profile.rows[0].currency = 'HKD';
+  return input;
+}
+const hkdRates = require('../cache/fx/hkd_rates.json');
+
+test('HK discount inputs explicitly use a dated USD proxy while retaining company-specific beta', () => {
+  const input = hkEvidence();
+  for (const beta of [0.5, 1.5]) {
+    input.responses.profile.rows[0].beta = beta;
+    const snapshot = prepareSnapshot('TEST.HK', input, treasury, hkdRates);
+    assert.equal(snapshot.defaults.rf, 4);
+    assert.equal(snapshot.defaults.beta, beta);
+    assert.equal(snapshot.provenance.treasury.currency, 'USD');
+    assert.equal(snapshot.provenance.treasury.date, '2026-10-16');
+    assert.match(snapshot.provenance.riskFreeRate, /USD Treasury proxy/);
+  }
+});
+
+test('latest matched forecast scale controls eligibility and older differences remain disclosed', () => {
+  const input = evidence();
+  input.responses.annual_income.rows.unshift({ symbol: 'TEST', date: '2024-12-31',
+    fiscalYear: 2024, period: 'FY', reportedCurrency: 'USD', revenue: 500e6 });
+  input.responses.estimates.rows.unshift({ symbol: 'TEST', date: '2024-12-31', revenueAvg: 1e9, ebitAvg: 200e6 });
+  const snapshot = prepareSnapshot('TEST', input, treasury, null);
+  assert.equal(snapshot.reason, null);
+  assert.equal(snapshot.provenance.forecastScaleCheck.date, '2025-12-31');
+  assert.deepEqual(snapshot.provenance.forecastScaleCheck.earlierDifferences, [{ date: '2024-12-31', ratio: 2 }]);
+  input.responses.estimates.rows.find(row => row.date === '2025-12-31').revenueAvg = 2e9;
+  const blocked = prepareSnapshot('TEST', input, treasury, null);
+  assert.equal(blocked.reason, 'forecastCurrencyScaleUnverified');
+  assert.equal(blocked.defaults.reportedDebt, 100);
+  assert.equal(blocked.ttm.ebitda, 230);
+  assert.equal(blocked.history.annual.length, 2);
+});
+
+test('HK annual-only cash flow selects one complete annual base but preserves independent current quote inputs', () => {
+  const input = hkEvidence();
+  const annual = type => ({ ...input.responses[type].rows[1], period: 'FY' });
+  const annualIncome = { ...annual('income'), revenue: 1e9, operatingIncome: 200e6,
+    incomeTaxExpense: 40e6, incomeBeforeTax: 200e6, interestExpense: 5e6, ebitda: 230e6 };
+  const statements = {
+    reportingFrequency: 'quarterly', statementFrequencies: { cashflow: 'annual' },
+    annual: { income: [annualIncome], balance: [annual('balance')], cashflow: [{
+      ...annual('cashflow'), depreciationAndAmortization: 30e6, capitalExpenditure: -50e6, freeCashFlow: 120e6
+    }] },
+    quarterly: { income: input.responses.income.rows, balance: input.responses.balance.rows, cashflow: [] }
+  };
+  const snapshot = prepareSnapshot('TEST.HK', input, treasury, hkdRates, null, { statementData: statements });
+  assert.equal(snapshot.ttm.reportingFrequency, 'annual', snapshot.reason);
+  assert.deepEqual(snapshot.ttm.dates, ['2025-12-31']);
+  assert.equal(snapshot.provenance.operatingRatios, 'latestCompleteReportedAnnualPeriodNotCurrentTtm');
+  assert.equal(snapshot.quotedTtm.reportedFcf, null);
+  assert.ok(snapshot.quotedTtm.ebitda > 0);
+  assert.equal(snapshot.quotedCapital.date, '2026-09-30');
+  assert.equal(snapshot.balance.date, '2025-12-31');
+});

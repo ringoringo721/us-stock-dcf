@@ -173,7 +173,7 @@ function flowValue(data, type, field) {
   const total = sum(rows.map(row => value(row, field)));
   return /^weightedAverageShs/.test(field) && total !== null ? total / rows.length : total;
 }
-function statementTable(data) {
+function statementTable(data, includeHalfYears = true) {
   const dates = sorted(data.annual.income).slice(-5), quarters = sorted(data.quarterly.income).slice(-20);
   const latest = quarters.at(-1), raw = { annual_dates: [...dates.map(row => row.date.slice(0, 7)), latest?.date.slice(0, 7)],
     calculationCurrency: 'HKD', reportingFrequency: data.reportingFrequency,
@@ -200,6 +200,7 @@ function statementTable(data) {
   for (const field of ['tradeAccountsReceivables', 'vendorNonTradeReceivables']) {
     raw[field] = raw.balance[field]; raw.quarterly_raw[field] = raw.quarterly_raw.balance[field];
   }
+  if (includeHalfYears) raw.semiannual_raw = statementTable(ratios.halfYearStatements(data), false).quarterly_raw;
   return raw;
 }
 
@@ -248,7 +249,7 @@ function priceHistory(evidence) {
     columns: ['date', 'close', 'volume'], rows: ordered };
 }
 
-function compileStock(item, evidence, rates, moatReports = {}, previousStock = {}) {
+function compileStock(item, evidence, rates, moatReports = {}, previousStock = {}, treasury = null) {
   const profile = readRows(evidence, 'profile'), quotes = readRows(evidence, 'quote');
   if (profile.length !== 1 || profile[0].symbol !== item.ticker || profile[0].currency !== 'HKD'
       || quotes.length !== 1 || quotes[0].symbol !== item.ticker || !finite(quotes[0].price) || quotes[0].price <= 0
@@ -260,6 +261,10 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
   const quoteDate = new Date(quote.timestamp * 1000).toISOString().slice(0, 10);
   if (quoteDate > evidence.capturedAt.slice(0, 10)) throw new TypeError(`${item.ticker}: future quote`);
   const balance = field => value(bs, field), flow = (type, field) => flowValue(data, type, field);
+  const shareSource = require('./fcff_sources.cjs').outstandingShares(evidence, evidence.capturedAt.slice(0, 10));
+  const treasuryCurve = treasury?.ok && Array.isArray(treasury.rows) ? sorted(treasury.rows.filter(row =>
+    day(row.date) && row.date <= evidence.capturedAt.slice(0, 10) && finite(row.year10)
+    && (Date.parse(evidence.capturedAt.slice(0, 10)) - Date.parse(row.date)) / 86400000 <= 14)).at(-1) : null;
   const table = statementTable(data), score = scores.calculate(raw);
   const scoreHash = hash({ annual: raw.annual, interim: raw.quarterly });
   const previousScore = previousStock.ratingSources?.fScore;
@@ -291,12 +296,14 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
     market: 'HKEX', exchange: 'HKEX', sector: item.sector, industry: item.industry, fmp_symbol: item.ticker,
     reportedCurrency: latest?.sourceReportedCurrency, calculationCurrency: 'HKD',
     reportingFrequency: raw.reportingFrequency, statementFrequencies: raw.statementFrequencies,
-    qualityWarnings: raw.qualityWarnings, price: quote.price, quoteDate, shares: quote.marketCap / quote.price / 1e6,
-    shares_display: quote.marketCap / quote.price / 1e6, shares_outstanding: quote.marketCap / quote.price,
-    shareBasis: item.shareClassReviewRequired ? 'unverifiedMixedShareClasses' : 'marketCapOverPrice',
+    qualityWarnings: raw.qualityWarnings, price: quote.price, quoteDate, shares: item.shareClassReviewRequired ? null : shareSource.shares,
+    shares_display: shareSource.shares, shares_outstanding: item.shareClassReviewRequired || shareSource.shares === null ? null : shareSource.shares * 1e6,
+    shareSource, shareBasis: item.shareClassReviewRequired ? 'unverifiedMixedShareClasses' : shareSource.basis,
     mcap: quote.marketCap / 1e6, debt: millions(balance('totalDebt')), cash: millions(balance('cashAndCashEquivalents')),
     short_term_investments: millions(balance('shortTermInvestments')), cash_and_short_term: millions(balance('cashAndShortTermInvestments')),
-    beta: finite(p.beta) ? p.beta : null, beta_5y: null, rf: null, kd: null, tax: null,
+    beta: finite(p.beta) ? p.beta : null, beta_5y: null, rf: treasuryCurve?.year10 ?? null, erp: 4.75, kd: null, tax: null,
+    rateSource: { currency: 'USD', date: treasuryCurve?.date || null, year10: treasuryCurve?.year10 ?? null,
+      basis: 'userDirectedUsdTreasuryProxyUnderHkdUsdPeg' },
     growth_10y: Array(10).fill(null), g1: null, g2: null, g: 2.25, wacc: null,
     fcf0: millions(flow('cashflow', 'freeCashFlow')), f_score: score.score, f_score_breakdown: scoreBreakdown(score, data), moat: priorMoat,
     fair_val: null, default_fair_val: null, premium_pct: null, is_undervalued: null,
@@ -312,7 +319,7 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
     top_holders: [], insider_trades: [], stock_splits: readRows(evidence, 'splits').filter(row => row.symbol === item.ticker),
     news: readRows(evidence, 'news').filter(row => row.symbol === item.ticker && row.publishedDate?.slice(0, 10) <= evidence.capturedAt.slice(0, 10)),
     historical_dcf_series: null, real_5y_prices: [],
-    dataAvailability: { hkdRiskFreeRate: 'missingHkdRiskFreeRate', asReportedLeases: readRows(evidence, 'balance_as_reported').length ? null : 'sourceUnavailable',
+    dataAvailability: { hkdRiskFreeRate: treasuryCurve ? 'usdTreasuryProxyNotObservedHkdYield' : 'missingHkdRiskFreeRate', asReportedLeases: readRows(evidence, 'balance_as_reported').length ? null : 'sourceUnavailable',
       ownership: 'Provider coverage has not been verified for HKEX', historicalDcf: 'No point-in-time historical valuations are available' },
     ratingSources: {
       fScore: { asOfDate: score.date, period: score.period, basis: score.basis, evaluatedTests: score.evaluatedTests,
@@ -358,22 +365,35 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
     fetchedAt: evidence.capturedAt, balanceDate: sourceBalance.date, quoteDate, sourceCurrency: sourceBalance.reportedCurrency,
     fx, receivablesBasis: 'trade', shareBasis: stock.shareBasis,
     quote: { currency: 'HKD', date: quoteDate, price: quote.price, marketCap: quote.marketCap },
+    sharesOutstanding: stock.shares_outstanding, shareSource,
     amounts: { currentAssets: balance('totalCurrentAssets'), totalLiabilities: balance('totalLiabilities'),
       cashAndShortTermInvestments: balance('cashAndShortTermInvestments'), tradeReceivables: balance('accountsReceivables'),
       inventory: balance('inventory'), preferredStock: balance('preferredStock') } };
   liquidation.calculate(stock.liquidation, item.ticker).values.forEach((value, i) => { stock[`liq_val_${i + 1}`] = value; });
-  let snapshot = prepareSnapshot(item.ticker, evidence, null, rates, null, { statementData: raw });
+  let snapshot = prepareSnapshot(item.ticker, evidence, treasury, rates, null, { statementData: raw });
   if (item.requiresSegmentValuation) snapshot.reason = 'requiresSegmentValuation';
+  if (item.generalCorporateValuationWarning) snapshot.valuationCaution = 'generalCorporateFcffNotReitAffoOrNav';
   if (raw.qualityWarnings.some(warning => warning.code === 'annualInterimReconciliation') && !snapshot.reason) snapshot.reason = 'statementReconciliationRequired';
   if (item.financial) {
     const reference = ratios.financialReference(data, { shares: stock.shares });
     if (item.shareClassReviewRequired) { reference.reason = 'shareBasisUnverified'; reference.tbvps = null; }
-    const dividends = flow('cashflow', 'dividendsPaid'), buybacks = flow('cashflow', 'commonStockRepurchased');
+    const annualPayout = sorted(data.annual.cashflow).at(-1);
+    const payoutBasis = flow('cashflow', 'dividendsPaid') === null ? annualPayout : null;
+    const dividends = payoutBasis ? value(payoutBasis, 'dividendsPaid') : flow('cashflow', 'dividendsPaid');
+    const buybacks = payoutBasis ? value(payoutBasis, 'commonStockRepurchased') : flow('cashflow', 'commonStockRepurchased');
+    const ke = finite(stock.rf) && finite(stock.beta) ? stock.rf + stock.beta * stock.erp : null;
     stock.fin_valuation = { is_financial: true, reference, tbvps: reference.tbvps, rote: reference.rote,
-      bvps: stock.pb_trailing === null ? null : divide(stock.price, stock.pb_trailing), ke: null, g: 2.25,
-      dps_total: finite(dividends) && finite(buybacks) ? (Math.abs(dividends) + Math.abs(buybacks)) / (stock.shares * 1e6) : null,
+      bvps: divide(millions(balance('totalStockholdersEquity')), stock.shares), ke, g: 2.25,
+      tangibleEquity: finite(balance('totalStockholdersEquity')) && finite(balance('goodwillAndIntangibleAssets'))
+        ? millions(balance('totalStockholdersEquity') - balance('goodwillAndIntangibleAssets')) : null,
+      totalPayout: finite(dividends) && finite(buybacks)
+        ? millions(Math.abs(dividends) + Math.min(Math.abs(buybacks), Math.abs(dividends) * 1.5)) : null,
+      dps_total: stock.shares > 0 && finite(dividends) && finite(buybacks)
+        ? (Math.abs(dividends) + Math.min(Math.abs(buybacks), Math.abs(dividends) * 1.5)) / (stock.shares * 1e6) : null,
+      payoutSource: { basis: payoutBasis ? 'latestReportedAnnualNotCurrentTtm' : 'reportedTtm',
+        date: payoutBasis?.date || latest?.date || null },
       excess_return_fair: null, ddm_fair: null, pb_tangible: divide(stock.price, reference.tbvps),
-      unavailableReason: item.shareClassReviewRequired ? 'shareBasisUnverified' : 'missingHkdRiskFreeRate' };
+      unavailableReason: item.shareClassReviewRequired ? 'shareBasisUnverified' : ke === null ? 'missingHkdRiskFreeRate' : null };
   }
   stock.currencyConversion = { sourceCurrency: stock.reportedCurrency, target: 'HKD', source: rates.source,
     prepared: rates.prepared, income: latest?.currencyConversion, balance: bs?.currencyConversion,
@@ -381,7 +401,7 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
   return { stock, statements: raw, chart, snapshot, moatInput, fingerprint };
 }
 
-function compile(directory, output, rates, reports = {}, previous = {}) {
+function compile(directory, output, rates, reports = {}, previous = {}, treasury = null) {
   const market = {}, fcff = { version: 1, method: 'FCFF', stocks: {}, betaSources: {}, outcomes: {} }, evidenceInputs = [];
   const write = (file, data, prefix = '') => {
     const target = path.join(output, file); fs.mkdirSync(path.dirname(target), { recursive: true });
@@ -389,7 +409,7 @@ function compile(directory, output, rates, reports = {}, previous = {}) {
   };
   for (const item of config) {
     const evidence = JSON.parse(fs.readFileSync(path.join(directory, `${item.ticker}.json`), 'utf8'));
-    const result = compileStock(item, evidence, rates, reports, previous[item.ticker]);
+    const result = compileStock(item, evidence, rates, reports, previous[item.ticker], treasury);
     market[item.ticker] = result.stock;
     if (!item.financial) fcff.stocks[item.ticker] = result.snapshot;
     fcff.betaSources[item.ticker] = { value: result.stock.beta, source: 'FMP profile beta', lookback: null,
@@ -413,7 +433,9 @@ if (require.main === module) {
   const rates = JSON.parse(fs.readFileSync(path.join(root, 'cache', 'fx', 'hkd_rates.json'), 'utf8'));
   const previousPath = path.join(root, 'hk_market_dcf.json');
   const previous = fs.existsSync(previousPath) ? JSON.parse(fs.readFileSync(previousPath, 'utf8')) : {};
-  const inputs = compile(input, output, rates, reports, previous);
+  const treasuryPath = path.join(input, 'treasury.json');
+  const treasury = fs.existsSync(treasuryPath) ? JSON.parse(fs.readFileSync(treasuryPath, 'utf8')) : null;
+  const inputs = compile(input, output, rates, reports, previous, treasury);
   if (process.env.MOAT_EVIDENCE_OUTPUT) fs.writeFileSync(process.env.MOAT_EVIDENCE_OUTPUT, JSON.stringify(inputs));
   console.log(`Built ${inputs.length} real HKEX listings in HKD; incomplete evidence remains explicitly unavailable.`);
 }
