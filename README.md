@@ -57,6 +57,8 @@ reanalyzes moat only when financial/call content or assessment rules change. It 
 instantaneous exchange-release feed. A protected Vercel deploy hook requests
 publication of committed data; a missing hook produces an explicit warning,
 not a claim that production updated.
+Historical workflow reruns also check out current `main`, preserving the last
+published generated data rather than rebasing a second refresh onto an old snapshot.
 
 Unavailable HKD discount inputs, IFRS lease reconciliation, cash-flow coverage
 or an unreconciled A/H common-share denominator remain explicit N/A. US Treasury
