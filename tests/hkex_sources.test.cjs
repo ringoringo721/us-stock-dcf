@@ -1,9 +1,34 @@
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
-const { prepareStatements, flowValue, priceHistory, compileStock, valuationShares, forwardPriceEarnings } = require('../scripts/build_hkex.cjs');
+const { prepareStatements, flowValue, priceHistory, compileStock, valuationShares, forwardPriceEarnings, applyForecastTaxAssumption } = require('../scripts/build_hkex.cjs');
 const { convertStatements } = require('../usd_currency.js');
 const ccb = require('../hkex_stocks.json').find(row => row.ticker === '0939.HK');
 const ccbCapital = require('../cache/hkex_share_capital.json')[ccb.ticker];
+
+test('Link forecast tax scenario is explicit, adjustable and cannot overwrite actual tax or clear source guards', () => {
+  const item = require('../hkex_stocks.json').find(row => row.ticker === '0823.HK');
+  const original = { reason: 'leaseClassificationRequired', defaults: { tax: null },
+    history: { annual: [{ tax: null }] }, provenance: { tax: 'Observed TTM effective tax' } };
+  const snapshot = applyForecastTaxAssumption(original, item);
+  assert.equal(snapshot.defaults.tax, 16.5);
+  assert.equal(snapshot.forecastTaxAssumption.observedEffectiveTax, null);
+  assert.equal(snapshot.forecastTaxAssumption.basis, 'userApprovedHongKongStatutoryForecastScenario');
+  assert.match(snapshot.provenance.tax, /not an observed group effective tax/);
+  assert.equal(snapshot.reason, original.reason);
+  assert.equal(original.defaults.tax, null);
+  assert.equal(snapshot.history.annual[0].tax, null);
+  for (const tax of [0, 12, 23]) {
+    const observed = { ...original, defaults: { tax } };
+    assert.equal(applyForecastTaxAssumption(observed, item), observed);
+  }
+  assert.equal(applyForecastTaxAssumption(original, ccb), original);
+  const incomplete = { reason: 'sourceUnavailable' };
+  assert.equal(applyForecastTaxAssumption(incomplete, item), incomplete);
+  for (const rate of [null, -1, 101, '16.5', NaN, Infinity]) {
+    assert.throws(() => applyForecastTaxAssumption(original,
+      { ...item, forecastTaxAssumption: { ...item.forecastTaxAssumption, rate } }), /invalid forecast tax assumption/);
+  }
+});
 
 function forwardFixture() {
   const ticker = '0700.HK';

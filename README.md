@@ -150,6 +150,12 @@ unchanged and the resulting value is labeled as user-assumed. The same controls
 apply to US and HKEX stocks. The general corporate FCFF model can be used for
 Link with an explicit REIT warning; it is not a dedicated AFFO/NAV model, and
 nonoperating asset/priority-claim assumptions require review.
+When Link has no valid observed effective tax rate, its user-approved forecast
+scenario starts at Hong Kong's 16.5% statutory rate. This adjustable assumption
+is disclosed beside the model status and tax control; it is neither a reported
+group effective rate nor a jurisdiction-weighted forecast. Existing observed
+rates, historical tax tables and unrelated companies are unchanged. This tax
+scenario does not clear lease, investment-property or priority-claim guards.
 
 When HKEX cash flow is annual-only, the valuation may use the latest complete
 aligned annual dataset, explicitly **not current TTM**. Unknown interim cash

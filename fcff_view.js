@@ -184,7 +184,10 @@
         <div class="fcff-inputs">${fields.map(([key, zh, en, mode]) => {
           const value = ['ratio', 'nullableRatio', 'optionalRatio'].includes(mode) && finite(defaults[key]) ? defaults[key] * 100 : defaults[key];
           const label = key === 'rf' && market.currency === 'HKD'
-            ? text('無風險利率 (%)；聯匯下採美債代理，非港元實報利率', 'Risk-free rate (%); Treasury proxy under the peg, not an observed HKD yield') : text(zh, en);
+            ? text('無風險利率 (%)；聯匯下採美債代理，非港元實報利率', 'Risk-free rate (%); Treasury proxy under the peg, not an observed HKD yield')
+            : key === 'tax' && source?.forecastTaxAssumption
+              ? text('預測稅率 (%)；使用者同意的情境，非實報集團有效稅率', 'Forecast tax (%); user-approved scenario, not reported group effective tax')
+              : text(zh, en);
           return `<div class="form-group"><label for="fcff-${key}">${escape(label)}</label>
             <input type="number" id="fcff-${key}" step="0.01" value="${finite(value) ? value.toFixed(2) : ''}"
               data-precise-value="${finite(value) ? value : ''}" data-formatted-value="${finite(value) ? value.toFixed(2) : ''}"
@@ -267,6 +270,10 @@
     context.stock.fcffScenario = scenario;
     const result = window.Fcff.calculate(source, scenario);
     const ttm = source?.ttm;
+    const forecastTaxNote = source?.forecastTaxAssumption
+      ? text(`預設預測稅率 ${amount(source.forecastTaxAssumption.rate)}%：使用者同意採用香港法定稅率情境，可自行調整；不是實報集團有效稅率，也未按各地業務加權。歷史財報稅率不變。`,
+        `Default forecast tax ${amount(source.forecastTaxAssumption.rate)}%: user-approved, adjustable Hong Kong statutory scenario; not a reported group effective rate or a jurisdiction-weighted forecast. Historical reported tax rates are unchanged.`)
+      : '';
     document.getElementById('fcff-source-note').textContent = [
       context.ticker, market.currencyFor(context.ticker, context.stock), source?.valuationDate,
       source?.quoteDate && `${text('報價日期', 'Quote date')}: ${source.quoteDate}`,
@@ -288,7 +295,8 @@
         'As requested, this REIT uses general corporate FCFF, not dedicated AFFO/NAV. Operating properties must not also be added as nonoperating investments. Review long-term investments, tax and noncontrolling claim proxies; negative book equity is not a negative priority claim.') : '',
       text('營運比率採最新 TTM；現金及投資視作非營運資產，優先股及非控制權益採可調整帳面值代理。', 'Operating ratios use latest TTM; cash/investments are assumed nonoperating and priority claims use adjustable book-value proxies.'),
       source?.provenance?.forecastFx && `${text('未來匯率固定於', 'Future FX fixed at')} ${source.provenance.forecastFx.observationDate || source.valuationDate}: ${source.provenance.forecastFx.rate}`,
-      text('分析師幣別以歷史年度金額尺度核對，非 API 明示幣別；稅率與 Kd 是歷史代理，ERP 與 g 是模型假設。', 'Analyst currency is inferred from historical annual scale, not an explicit API currency field; tax and Kd are historical proxies, ERP and g are model assumptions.'),
+      text('分析師幣別以歷史年度金額尺度核對，非 API 明示幣別；Kd 是歷史代理，ERP 與 g 是模型假設。', 'Analyst currency is inferred from historical annual scale, not an explicit API currency field; Kd is a historical proxy, ERP and g are model assumptions.'),
+      forecastTaxNote || text('預測稅率起點為 TTM 有效稅率代理，不代表未來實際稅率。', 'Forecast tax starts from a TTM effective-rate proxy, not a known future actual rate.'),
       text('EBITDA 缺值時使用分析師 EBIT＋模型 D&A；D&A 可由分析師 EBITDA－EBIT 推導，兩者均非獨立現金流預測。本財年累計營運 EBITDA＝實際營業 EBIT＋現金流 D&A，未獨立認證與分析師調整口徑一致。', 'Missing EBITDA uses analyst EBIT + modeled D&A; D&A can be derived from analyst EBITDA − EBIT, neither being independent cash-flow consensus. YTD operating EBITDA = reported operating EBIT + cash-flow D&A; comparability with analyst-adjusted definitions is not independently certified.'),
       text('預估稅項＝EBIT × 情境稅率；虧損會產生假設稅益，未另建稅損抵扣／遞延稅模型，不代表已知退稅。', 'Pro forma tax = EBIT × scenario tax rate; losses imply assumed tax benefits. No separate NOL/deferred-tax schedule is modeled and refunds are not known actuals.'),
       text('Beta 預設來自 FMP Profile，回應未明示年期／頻率／基準；手動修改均屬使用者情境，不是 FMP 預測。', 'Default beta comes from FMP Profile; lookback/frequency/benchmark are unspecified. Manual edits are user scenarios, not FMP forecasts.'),
@@ -304,6 +312,7 @@
       document.getElementById('fcff-status').textContent += text(
         ' 注意：採較早完整年度或一般企業 REIT 情境，詳見來源／代理假設說明。', ' Caution: earlier complete annual basis or general corporate REIT scenario; see source/proxy disclosures.');
     }
+    if (forecastTaxNote) document.getElementById('fcff-status').textContent += ` ${forecastTaxNote}`;
     document.getElementById('det-res-fair').textContent = finite(result.fairVal) ? `${money()}${amount(result.fairVal)}` : 'N/A';
     document.getElementById('det-res-fair').className = `stat-num ${result.fairVal === null
       ? 'text-muted' : result.fairVal < 0 ? 'text-red' : 'text-green'}`;

@@ -267,6 +267,33 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
       }
       assert.doesNotMatch(await page.locator('#company-view').innerText(), /\bNaN\b|\bundefined\b/);
     }
+    await page.goto(`${url}/?market=HKEX&test=forecast-tax#0823.HK/valuation`, { waitUntil: 'domcontentloaded' });
+    await page.waitForFunction(() => isAppReady && document.getElementById('fcff-tax'));
+    await page.evaluate(() => applyLanguage('en'));
+    await page.waitForFunction(() => document.getElementById('fcff-status').textContent.includes('Default forecast tax 16.50%'));
+    assert.equal(await page.locator('#fcff-tax').inputValue(), '16.50');
+    assert.match(await page.locator('label[for="fcff-tax"]').textContent(), /not reported group effective tax/);
+    assert.match(await page.locator('#fcff-assumptions').textContent(), /not a reported group effective rate or a jurisdiction-weighted forecast/);
+    assert.equal(await page.locator('#det-res-fair').innerText(), 'N/A', 'Tax approval does not waive other reconciliation guards');
+    const sourceTax = await page.evaluate(() => ({
+      tax: HK_FCFF_DATA.stocks['0823.HK'].defaults.tax,
+      reason: HK_FCFF_DATA.stocks['0823.HK'].reason,
+      history: HK_FCFF_DATA.stocks['0823.HK'].history
+    }));
+    await page.locator('#fcff-input-controls summary').click();
+    await page.locator('#fcff-tax').fill('20');
+    assert.equal(await page.evaluate(() => stockUniverse['0823.HK'].fcffScenario.tax), 20);
+    await page.evaluate(() => applyLanguage('zh'));
+    assert.equal(await page.locator('#fcff-tax').inputValue(), '20.00');
+    assert.match(await page.locator('#fcff-status').innerText(), /預設預測稅率 16.50%.*不是實報集團有效稅率/);
+    assert.match(await page.locator('label[for="fcff-tax"]').textContent(), /使用者同意的情境，非實報集團有效稅率/);
+    await page.evaluate(() => resetToFmpDefaults());
+    assert.equal(await page.locator('#fcff-tax').inputValue(), '16.50');
+    assert.deepEqual(await page.evaluate(() => ({
+      tax: HK_FCFF_DATA.stocks['0823.HK'].defaults.tax,
+      reason: HK_FCFF_DATA.stocks['0823.HK'].reason,
+      history: HK_FCFF_DATA.stocks['0823.HK'].history
+    })), sourceTax, 'User tax edits and resets cannot rewrite historical tax or issuer evidence');
     await page.goto(`${url}/#0823.HK/charts`, { waitUntil: 'networkidle' });
     assert.equal(await page.locator('#market-select').inputValue(), 'HKEX');
     await page.setViewportSize({ width: 390, height: 844 });
@@ -279,7 +306,7 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
         width: element.getBoundingClientRect().width, right: element.getBoundingClientRect().right })))));
     assert.deepEqual(errors, []);
     assert.deepEqual(failed, []);
-    console.log('PASS: six HKEX securities, sourced FY1 P/E across screener/overview/peers, localized missing Moat dimensions and mobile layout, real half years, HKD prices, HSBC/CCB automatic bank valuations and issuer-wide share scenario reset.');
+    console.log('PASS: six HKEX securities, sourced FY1 P/E across screener/overview/peers, localized missing Moat dimensions and mobile layout, disclosed/resettable Link forecast-tax scenario without changing history or source guards, real half years, HKD prices, HSBC/CCB automatic bank valuations and issuer-wide share scenario reset.');
   } finally {
     await browser.close();
     await new Promise(resolve => server.close(resolve));

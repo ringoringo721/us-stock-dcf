@@ -347,6 +347,22 @@ function forwardPriceEarnings(item, evidence, rates, shareSource, price) {
     noteEn: `FY1 ends ${forecast.date}: price / analyst forecast EPS. ${currencyNoteEn} Analyst forecast, not reported earnings or the DCF share denominator; basic/diluted and adjusted/GAAP definitions are not independently certified.` };
 }
 
+function applyForecastTaxAssumption(snapshot, item) {
+  const assumption = item.forecastTaxAssumption;
+  if (!assumption) return snapshot;
+  if (!finite(assumption.rate) || assumption.rate < 0 || assumption.rate > 100
+      || assumption.basis !== 'userApprovedHongKongStatutoryForecastScenario') {
+    throw new TypeError(`${item.ticker}: invalid forecast tax assumption`);
+  }
+  if (snapshot.defaults?.tax !== null) return snapshot;
+  return { ...snapshot,
+    defaults: { ...snapshot.defaults, tax: assumption.rate },
+    forecastTaxAssumption: { ...assumption, observedEffectiveTax: null },
+    provenance: { ...snapshot.provenance,
+      tax: 'User-approved Hong Kong statutory forecast scenario, adjustable; not an observed group effective tax rate or a jurisdiction-weighted forecast' }
+  };
+}
+
 function compileStock(item, evidence, rates, moatReports = {}, previousStock = {}, treasury = null) {
   const profile = readRows(evidence, 'profile'), quotes = readRows(evidence, 'quote');
   if (profile.length !== 1 || profile[0].symbol !== item.ticker || profile[0].currency !== 'HKD'
@@ -472,7 +488,8 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
       cashAndShortTermInvestments: balance('cashAndShortTermInvestments'), tradeReceivables: balance('accountsReceivables'),
       inventory: balance('inventory'), preferredStock: balance('preferredStock') } };
   liquidation.calculate(stock.liquidation, item.ticker).values.forEach((value, i) => { stock[`liq_val_${i + 1}`] = value; });
-  let snapshot = prepareSnapshot(item.ticker, evidence, treasury, rates, null, { statementData: raw, shareSource });
+  let snapshot = applyForecastTaxAssumption(
+    prepareSnapshot(item.ticker, evidence, treasury, rates, null, { statementData: raw, shareSource }), item);
   if (item.requiresSegmentValuation) snapshot.reason = 'requiresSegmentValuation';
   if (item.generalCorporateValuationWarning) snapshot.valuationCaution = 'generalCorporateFcffNotReitAffoOrNav';
   if (raw.qualityWarnings.some(warning => warning.code === 'annualInterimReconciliation') && !snapshot.reason) snapshot.reason = 'statementReconciliationRequired';
@@ -541,4 +558,4 @@ if (require.main === module) {
   if (process.env.MOAT_EVIDENCE_OUTPUT) fs.writeFileSync(process.env.MOAT_EVIDENCE_OUTPUT, JSON.stringify(inputs));
   console.log(`Built ${inputs.length} real HKEX listings in HKD; incomplete evidence remains explicitly unavailable.`);
 }
-module.exports = { prepareStatements, ttmRows, flowValue, statementTable, scoreBreakdown, priceHistory, compileStock, compile, hash, valuationShares, forwardPriceEarnings };
+module.exports = { prepareStatements, ttmRows, flowValue, statementTable, scoreBreakdown, priceHistory, compileStock, compile, hash, valuationShares, forwardPriceEarnings, applyForecastTaxAssumption };

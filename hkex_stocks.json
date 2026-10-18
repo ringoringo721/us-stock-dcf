@@ -4,5 +4,5 @@
   {"ticker":"0005.HK","displayCode":"00005","name":"滙豐控股","name_en":"HSBC Holdings plc","sector":"Financials","industry":"Diversified Banks","financial":true},
   {"ticker":"0388.HK","displayCode":"00388","name":"香港交易所","name_en":"Hong Kong Exchanges and Clearing Limited","sector":"Financials","industry":"Financial Exchanges & Data"},
   {"ticker":"0939.HK","displayCode":"00939","name":"建設銀行","name_en":"China Construction Bank Corporation","sector":"Financials","industry":"Diversified Banks","financial":true,"shareClassReviewRequired":true},
-  {"ticker":"0823.HK","displayCode":"00823","name":"領展房產基金","name_en":"Link Real Estate Investment Trust","sector":"Real Estate","industry":"Retail REITs","generalCorporateValuationWarning":true}
+  {"ticker":"0823.HK","displayCode":"00823","name":"領展房產基金","name_en":"Link Real Estate Investment Trust","sector":"Real Estate","industry":"Retail REITs","generalCorporateValuationWarning":true,"forecastTaxAssumption":{"rate":16.5,"basis":"userApprovedHongKongStatutoryForecastScenario"}}
 ]
