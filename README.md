@@ -38,6 +38,39 @@ averages, not issued shares or reported half-year counts. Nonadditive half-year
 EPS is unavailable; genuine four-quarter TTM EPS remains available. Missing
 quarters, annual-only cash flows and FX gaps are never filled.
 
+For HKEX and HSBC, `cache/hkex_cashflow_sources.json` preserves reviewed official
+FY2025/H1 2025/H1 2026 disclosures, original currency, PDF pages and SHA-256
+hashes. These replace invalid FMP cash-flow rows without overwriting raw FMP
+model forecasts. H2 is official FY minus official H1 in original currency;
+TTM is H2 2025 plus H1 2026. Income remains quarterly while cash flow is
+semiannual. Numerators, denominators and per-share trends respect each
+statement's cadence. Missing breakdowns stay unavailable: pre-tax starting
+profit is not net income, combined D&A/impairment is not pure D&A, and HSBC's
+net PPE/intangible investment is not gross purchases or distributable bank FCF.
+Cash opening/closing balances are not summed. HSBC flows use each half-year's
+historical average FX and cash balances use their own closing FX; translated
+HKD cash totals need not reconcile without additional translation differences.
+Earlier FMP years remain identified separately, not silently certified.
+HSBC's ordinary cash dividends are separately verified from the dividend notes
+(FY2025 PDF p.304, H1 2025 p.88, H1 2026 p.90), excluding equity-capital coupons
+and noncontrolling distributions. This preserves the existing bank valuation
+method without substituting the larger group distribution for ordinary payouts.
+
+`cache/hkex_balance_classifications.json` records HKEX's official current and
+non-current classification for 2025-12-31 and 2026-06-30 (Interim Report 2026,
+printed p.56 / PDF p.58). All component subtotals and the accounting equation
+must reconcile; changed provider total assets/liabilities/parent equity block
+reuse pending review. The original provider rows are archived. Financial assets,
+derivatives, participant deposits and Clearing House Funds retain their actual
+classifications. Borrowings and lease liabilities are separate and counted once;
+combined receivables/prepayments/deposits and goodwill/intangibles are not
+invented trade-receivable or goodwill splits. The financial table uses source
+categories, links the report, labels the latest balance as a closing snapshot
+instead of TTM, and withholds earlier unverified classifications while retaining
+the original data and overall totals. These are retrospective source corrections,
+not point-in-time historical snapshots. Evidence changes invalidate prior AI
+assessment freshness; retained narratives are not relabelled as newly assessed.
+
 Both screeners show FCF / equity attributable to equity holders of the Company
 between FCF/EV and FCF/market cap. This percentage uses actual TTM free cash flow
 and closing `totalStockholdersEquity`, excluding noncontrolling interests,
@@ -98,9 +131,29 @@ divide vendor equity value by verified outstanding common shares, excluding
 treasury shares; A/H companies use all ordinary classes. Vendor diluted-share
 values remain separately identified. The two additional screener references,
 DCF Valuation and Levered DCF, retain the vendor's direct per-share values.
-Existing bank/insurance models and separately accessible issuer-reconciled FCFF
-models are preserved. Missing coverage, unverified currency and missing issued
+Existing bank/insurance models are preserved. The old non-FMP FCFF workspace is
+no longer exposed; its calculation/source modules remain for audit and regression
+coverage. Missing coverage, unverified currency and missing issued
 shares remain explicitly unavailable.
+
+FMP's native ten-row response includes historical and projected rows; it does
+not support independent ten-year arrays through the scalar override API.
+The separate, explicitly labelled **FMP-data ten-year custom scenario** provides
+ten future fiscal years. Existing FMP projected operating ratios and capital
+costs seed available years; later revenue growth fades to terminal growth while
+other ratios/rates hold the last available assumption. Each field distinguishes
+FMP values, derived values, standard extensions and user overrides. EBIT,
+EBITDA and D&A stay linked; Advanced uses after-tax EBIT plus D&A once, whereas
+the CFO model never adds D&A again. Annual capital costs produce annual WACC and
+compound discount factors. Net debt is a separately editable snapshot deducted
+once; projected cash is disclosure, not an extra terminal-value add-on.
+Invalid implied FMP tax is explicitly flagged before a disclosed valid stated
+tax rate is used. This local model is not an original FMP API result.
+
+Save recalculates pending native overrides first and persists only a successful
+result; failures cannot overwrite an existing target. Native and local scenario
+edits are isolated. Saved local models retain all ten-year inputs and provenance,
+reload in their original mode, and supply the homepage target, including zero.
 
 Run `node scripts/capture_company_data.cjs` with `FMP_API_KEY` to refresh the
 236-company snapshot, or pass comma-separated symbols for a limited refresh.
@@ -115,6 +168,17 @@ keys in browser assets. For local use, place credentials in ignored
 `.env.local`, build with `node scripts/build_site.cjs`, then run
 `node scripts/serve_preview.cjs` (loopback port 57102). A static-only preview
 cannot execute the API.
+
+Chinese company-news headlines use saved exact-title matches in
+`cache/news_translations.json`. The original headline and article link remain
+available; translations are labelled AI Traditional Chinese, not official
+Chinese articles. Untranslated titles and cache failures remain explicitly
+original-language. Browsing and language switching never call Vertex. The manual
+read-only `translate_news` audit job uses Gemini 2.5 Flash-Lite, skips saved
+titles, atomically preserves completed batches and exports token usage.
+`scripts/apply_news_translations.cjs` validates and imports its artifact; it
+cannot change source headlines or overwrite a different saved translation.
+No automatic translation schedule or deployment is enabled by this path.
 
 ### Vertex AI reassessment
 
@@ -344,7 +408,12 @@ The optional `lease_sources_only` input captures original balance, income and
 cash-flow tags to reconcile operating versus financing lease treatment, still
 without changing any published valuation.
 
-## FCFF valuation and explicit source limitations
+## Archived FCFF engine and explicit source limitations
+
+This section documents the retained legacy engine and its former interface for
+audit purposes, not the current valuation workspace. Nonfinancial company pages
+now use the native FMP models or the separately labelled ten-year scenario
+described above; legacy FCFF controls, saving and sensitivity tables are removed.
 
 The nonfinancial valuation page, screener defaults, forecast table, sensitivity
 matrix and versioned saved scenarios use `fcff.js` with the shared
@@ -450,8 +519,10 @@ secret and compile the independent FCFF cache. Dedicated peers/prices/liquidatio
 refreshes do not change FCFF. Failed capture retains the original source dates
 with an explicit workflow warning. To compile a separately captured audit:
 `node scripts/build_fcff.cjs <source-directory> [original-lease-source-directory]`.
-Validate with `node --test tests/fcff*.test.cjs` and
-`node tests/fcff.browser.cjs` against a local `TEST_BASE_URL`.
+Validate retained arithmetic with `node --test tests/fcff*.test.cjs`.
+Current valuation UI coverage uses `node tests/fmp_models.browser.cjs`
+(`TEST_LIVE_FMP=1` also exercises the real provider API); official-statement
+coverage uses `node tests/official_statements.browser.cjs`.
 
 ## 清算價 I／II／III
 

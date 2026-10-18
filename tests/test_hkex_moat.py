@@ -8,6 +8,17 @@ from scripts.refresh_hkex_moat import ASSESSMENT_POLICY, DIMENSIONS, create_clie
 
 
 class MoatEvidenceTests(unittest.TestCase):
+    def test_service_account_location_can_use_global_without_changing_default_or_exposing_credentials(self):
+        credentials = object()
+        client = Mock()
+        account = SimpleNamespace(Credentials=SimpleNamespace(from_service_account_info=Mock(return_value=credentials)))
+        google = SimpleNamespace(genai=SimpleNamespace(Client=client))
+        with patch.dict(sys.modules, {"google": google, "google.oauth2": SimpleNamespace(service_account=account)}), \
+             patch.dict(os.environ, {"GCP_SA_KEY": '{"project_id":"credential-project"}',
+                                     "GOOGLE_CLOUD_LOCATION": "global"}, clear=True):
+            create_client()
+        client.assert_called_once_with(vertexai=True, project="credential-project", location="global", credentials=credentials)
+
     def test_adc_uses_standard_vertex_project_credentials_before_express_key(self):
         credentials = object()
         client = Mock()

@@ -7,6 +7,7 @@
   let requestId = 0;
   const cache = new Map();
   const loaded = new Map();
+  let translationCache = null;
   const safeUrl = value => {
     try { const url = new URL(value); return ['https:', 'http:'].includes(url.protocol) ? url.href : null; }
     catch (error) { if (error instanceof TypeError) return null; throw error; }
@@ -80,29 +81,63 @@
     return cache.get(ticker);
   }
 
+  function loadTranslations() {
+    if (!translationCache) translationCache = (async () => {
+      const response = await root.fetch('cache/news_translations.json');
+      if (!response.ok) throw new Error(`NEWS_TRANSLATION_HTTP_${response.status}`);
+      const data = await response.json();
+      if (data.version !== 1 || data.language !== 'zh-Hant' || data.provider !== 'Vertex AI'
+          || !data.titles || typeof data.titles !== 'object' || Array.isArray(data.titles)) {
+        throw new Error('NEWS_TRANSLATION_INVALID_CACHE');
+      }
+      return data.titles;
+    })().catch(error => { translationCache = null; throw error; });
+    return translationCache;
+  }
+
   async function renderNews(container, symbol, storedRows, language) {
     if (!container) return;
     const id = ++requestId, en = language === 'en';
-    let rows = newsRows(storedRows, symbol), page = 0, hasMore = true;
+    let rows = newsRows(storedRows, symbol), page = 0, hasMore = true, translations = null, translationError = null;
     let sourceText = rows.length ? (en ? 'Previously captured FMP news; live refresh pending.' : '\u5df2\u64f7\u53d6\u7684 FMP \u65b0\u805e\uff1b\u6b63\u5728\u66f4\u65b0\u3002') : '';
     const status = root.document.createElement('p'), articles = root.document.createElement('div');
+    const languageNote = root.document.createElement('p');
+    languageNote.className = 'analysis-note';
     const more = root.document.createElement('button');
     more.type = 'button';
     more.className = 'action-btn';
-    container.replaceChildren(status, articles, more);
+    container.replaceChildren(languageNote, status, articles, more);
     function draw() {
+      languageNote.dataset.newsLanguage = en ? 'original' : translations ? 'ai-zh-Hant' : 'original';
+      languageNote.textContent = en
+        ? 'Original provider headlines. Article links open the original publication.'
+        : translationError ? `\u7e41\u4e2d\u7ffb\u8b6f\u5feb\u53d6\u7121\u6cd5\u8b80\u53d6 (${translationError})\uff1b\u4ee5\u4e0b\u4fdd\u7559\u539f\u6587\u6a19\u984c\uff0c\u4e26\u975e\u5df2\u7ffb\u8b6f\u5167\u5bb9\u3002`
+          : translations ? '\u5df2\u5b58\u7684 AI \u7e41\u4e2d\u6a19\u984c\u7ffb\u8b6f\uff08Vertex AI\uff09\uff1b\u4fdd\u7559\u539f\u6a19\u984c\u53ca\u539f\u6587\u9023\u7d50\u3002\u672a\u7ffb\u8b6f\u7684\u65b0\u6a19\u984c\u4ecd\u986f\u793a\u539f\u6587\uff1b\u4e0d\u7ffb\u8b6f\u6587\u7ae0\u5168\u6587\u3002AI \u53ef\u80fd\u6709\u8aa4\uff0c\u4ee5\u539f\u6587\u70ba\u6e96\u3002\u91cd\u958b\u9801\u9762\u4e0d\u6703\u91cd\u8907\u547c\u53eb Vertex\u3002'
+            : '\u6b63\u5728\u8f09\u5165\u5df2\u5132\u5b58\u7684\u7e41\u4e2d\u6a19\u984c\u7ffb\u8b6f\uff1b\u6682\u986f\u793a\u539f\u6587\u3002';
       articles.replaceChildren();
       for (const item of rows) {
         const article = root.document.createElement('article');
         article.className = 'analysis-note';
         const title = root.document.createElement('a');
-        title.textContent = item.title;
+        const translated = !en && translations && Object.hasOwn(translations, item.title) ? translations[item.title] : null;
+        const titleZh = translated?.model === 'gemini-2.5-flash-lite' && typeof translated.text === 'string'
+          && /[\u3400-\u9fff]/.test(translated.text) ? translated.text : null;
+        title.textContent = titleZh || item.title;
         title.href = safeUrl(item.url);
         title.target = '_blank';
         title.rel = 'noopener noreferrer';
         const source = root.document.createElement('p');
-        source.textContent = [item.publisher || item.site, item.publishedDate, symbol, 'FMP'].filter(Boolean).join(' \u00b7 ');
+        source.textContent = [item.publisher || item.site, item.publishedDate, symbol, 'FMP',
+          !en ? titleZh ? 'AI \u7e41\u4e2d\u6a19\u984c\u7ffb\u8b6f \u00b7 Vertex AI' : '\u539f\u6587\u6a19\u984c\uff08\u5c1a\u7121\u7ffb\u8b6f\uff09' : ''].filter(Boolean).join(' \u00b7 ');
         article.append(title, source);
+        if (titleZh) {
+          const original = root.document.createElement('details'), label = root.document.createElement('summary');
+          const originalTitle = root.document.createElement('p');
+          label.textContent = '\u539f\u6587\u6a19\u984c';
+          originalTitle.textContent = item.title;
+          original.append(label, originalTitle);
+          article.append(original);
+        }
         articles.append(article);
       }
       status.textContent = sourceText;
@@ -149,7 +184,20 @@
     }
     more.addEventListener('click', load);
     draw();
-    await load();
+    const translate = async () => {
+      if (en) return;
+      try {
+        const data = await loadTranslations();
+        if (id !== requestId) return;
+        translations = data;
+      } catch (error) {
+        if (id !== requestId) return;
+        console.error('Saved headline translations unavailable', error.message);
+        translationError = error.message;
+      }
+      if (id === requestId) draw();
+    };
+    await Promise.all([load(), translate()]);
   }
 
   return { safeUrl, splits, newsRows, metadata, renderNews, load, peek: ticker => loaded.get(ticker) };

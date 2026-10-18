@@ -1,6 +1,9 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { newsRows } = require('../company_data.js');
+const { baseSource } = require('../fmp_scenario.js');
+const { sourceReview } = require('./fmp_source_review.cjs');
+const reconciliations = require('../cache/hkex_valuation_reconciliations.json').stocks;
 const root = path.resolve(__dirname, '..');
 const env = path.join(root, '.env.local');
 if (fs.existsSync(env)) process.loadEnvFile(env);
@@ -59,7 +62,7 @@ async function currencyEvidence(symbol, stock, currency, models) {
   const rows = models.advanced.data;
   const matchesYear = row => row.revenue > 0
     && rows.some(model => Number(model.year) === Number(row.fiscalYear || row.calendarYear));
-  let actual = source.annual.income.slice().reverse().find(matchesYear);
+  let actual = source.annual.income.slice().sort((a, b) => b.date.localeCompare(a.date)).find(matchesYear);
   let financialSource = 'storedAnnualFinancials';
   if (!actual) {
     const fresh = await request('income-statement', symbol, { period: 'annual', limit: '10' });
@@ -120,7 +123,17 @@ async function capture(symbol) {
   const companyDirectory = path.join(path.dirname(target), 'cache', 'company');
   fs.mkdirSync(companyDirectory, { recursive: true });
   const ordered = Object.fromEntries(Object.keys(markets).filter(symbol => stocks[symbol]).map(symbol => {
-    const data = stocks[symbol];
+    const companyPath = path.join(companyDirectory, `${symbol}.json`);
+    const data = process.argv[2] === '--repack' && fs.existsSync(companyPath)
+      ? JSON.parse(fs.readFileSync(companyPath, 'utf8')) : stocks[symbol];
+    if (data.symbol !== symbol) throw new Error('Company cache security mismatch');
+    if (data.models.advanced?.data.length) {
+      const financials = JSON.parse(fs.readFileSync(path.join(root, 'cache', 'financials', `${symbol}_statements_v2.json`)));
+      data.forecastBase = baseSource(data, financials);
+      const review = sourceReview(data, financials, reconciliations?.[symbol]);
+      if (review) data.sourceReview = review;
+      else delete data.sourceReview;
+    }
     if (data.holders || data.news) fs.writeFileSync(path.join(companyDirectory, `${symbol}.json`), JSON.stringify(data) + '\n');
     const { news, ownership, holders, insiders, ...summary } = data;
     summary.models = Object.fromEntries(Object.entries(data.models).map(([name, model]) => [name, { ...model,

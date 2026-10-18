@@ -145,7 +145,14 @@ test('All cached per-share trends match exact reported shares, EPS and common di
         }
         for (const [metric, field, sign] of [['fcf', 'freeCashFlow', 1], ['dividend', 'commonDividendsPaid', -1]]) {
           if (column.amounts[metric].value === null) continue;
-          const flows = window.map(row => data[period].cashflow.find(flow => flow.date === row.date));
+          const mixedCadence = period === 'quarterly' && flow === 'ttm'
+            && data.statementFrequencies?.cashflow === 'semiannual' && count === 4;
+          const flows = mixedCadence
+            ? data[period].cashflow.filter(row => row.date <= column.date)
+              .sort((a, b) => a.date.localeCompare(b.date)).slice(-2)
+            : window.map(row => data[period].cashflow.find(flow => flow.date === row.date));
+          assert.ok(flows.every(Boolean), `${file}: missing source flow`);
+          if (mixedCadence) assert.equal(flows.at(-1).date, column.date);
           const shares = window.reduce((sum, row) => sum + Number(row.weightedAverageShsOutDil), 0) / window.length;
           near(column.amounts[metric].value, sign * flows.reduce((sum, row) => sum + Number(row[field]), 0) / shares);
         }

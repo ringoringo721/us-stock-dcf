@@ -7,8 +7,9 @@ const assets = [
   'hk_market_data.js', 'hk_fcff_data.js', 'dcf_drivers.js', 'fcff.js', 'fcff_view.js',
   'usd_currency.js', 'liquidation.js', 'peer_comparison.js', 'fcf_ratios.js',
   'balance_sheet.js', 'earnings_trend.js', 'profile_overview.js', 'price_history.js', 'stock_search.js', 'company_data.js',
-  'fmp_model_data.js', 'fmp_models.js',
+  'fmp_model_data.js', 'fmp_scenario.js', 'fmp_models.js',
   'full_market_dcf.json', 'hk_market_dcf.json',
+  'cache/news_translations.json',
 ];
 
 function buildSite(output = path.join(root, 'public')) {

@@ -7,7 +7,6 @@ const Ratios = require('../fcf_ratios.js');
 const Currency = require('../usd_currency.js');
 const market = require('../hk_market_dcf.json');
 const rates = require('../cache/fx/hkd_rates.json');
-const { calculate: calculateFcff } = require('../fcff.js');
 const root = path.resolve(process.env.TEST_STATIC_ROOT || path.resolve(__dirname, '..'));
 const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
 
@@ -142,7 +141,10 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
           continue;
         }
         await page.selectOption(selector, 'semiannual');
-        if (stock.reportingFrequency !== 'semiannual') await page.selectOption(selector, 'quarterly');
+        if (stock.reportingFrequency !== 'semiannual'
+            && !(selector === '#fcf-ratio-period' && stock.statementFrequencies.cashflow === 'semiannual')) {
+          await page.selectOption(selector, 'quarterly');
+        }
       }
       await page.selectOption('#balance-period', stock.reportingFrequency === 'semiannual' ? 'semiannual' : 'quarterly');
       await page.waitForFunction(() => document.getElementById('balance-body').children.length === 9);
@@ -198,51 +200,11 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
           if (stock.reportingFrequency !== 'semiannual') await page.selectOption(selector, 'quarterly');
         }
         if (tab === 'valuation' && !stock.fin_valuation.is_financial) {
-          await page.locator('details:has(#fmp-legacy) > summary').click();
-          await page.locator('#fmp-legacy').click();
-          if (['0823.HK', '0700.HK', '0388.HK', '9988.HK'].includes(ticker)) {
-            const baseline = await page.evaluate(ticker => Fcff.calculate(HK_FCFF_DATA.stocks[ticker]), ticker);
-            assert.equal(baseline.reason, null);
-            assert.equal(await page.locator('#det-res-fair').innerText(),
-              'HKD ' + baseline.fairVal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
-            if (ticker === '0823.HK') {
-              assert.match(await page.locator('#fcff-status').innerText(), /not analyst profit consensus/);
-              assert.match(await page.locator('#fcff-driver-detail').innerText(), /Normalized rental-margin scenario/);
-            } else {
-              assert.match(await page.locator('#fcff-assumptions').textContent(), ticker === '0700.HK'
-                ? /FY2025 less H1 2025 plus H1 2026/ : ticker === '9988.HK'
-                  ? /not a current TTM stitched across inconsistent/ : /Matched client balances are excluded together/);
-              assert.equal(await page.locator('#fcff-assumptions a').count(), ticker === '0388.HK' ? 1 : 2);
-              if (ticker === '9988.HK') {
-                assert.match(await page.locator('#fcff-source-note').innerText(), /Latest complete annual period ended.*2026-03-31/);
-                assert.match(await page.locator('label[for="fcff-depreciation"]').textContent(), /impairment/);
-                assert.match(await page.locator('#fcff-assumptions').textContent(), /operating lease claims are not deducted again/);
-              }
-              if (ticker === '0388.HK') {
-                assert.match(await page.locator('#fcff-driver-detail').innerText(), /not direct consensus/);
-                assert.match(await page.locator('label[for="fcff-openingWorkingCapital"]').textContent(), /required capital/);
-              }
-            }
-          } else {
-            assert.equal(await page.locator('#det-res-fair').innerText(), 'N/A', 'Unreconciled sources remain unavailable');
-          }
-          await page.locator('#fcff-input-controls summary').click();
-          assert.equal(await page.locator('#fcff-openingWorkingCapital').isDisabled(), true);
-          await page.locator('#fcff-confirm-financing').check();
-          const edits = { leaseOverlap: 0, ...(ticker === '0388.HK'
-            ? { openingWorkingCapital: 0, workingCapital: 0, discountRate: 10, cash: 0, investments: 0 } : {}),
-          ...(ticker === '0823.HK' ? { tax: 0, minority: 0, investments: 0 } : {}) };
-          for (const [key, value] of Object.entries(edits)) await page.locator(`#fcff-${key}`).fill(String(value));
-          await page.locator('#fcff-input-controls summary').click();
-          const { source, scenario } = await page.evaluate(ticker => ({
-            source: HK_FCFF_DATA.stocks[ticker], scenario: stockUniverse[ticker].fcffScenario
-          }), ticker);
-          const expected = calculateFcff(source, scenario);
-          assert.equal(expected.reason, null, `${ticker}: manual scenario ${expected.reason}`);
-          assert.equal(await page.locator('#det-res-fair').innerText(),
-            'HKD ' + expected.fairVal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
-          assert.match(await page.locator('#fcff-status').innerText(), /user|assumption/i);
-          assert.equal(await page.evaluate(ticker => HK_FCFF_DATA.stocks[ticker].reason, ticker), source.reason);
+          await page.waitForSelector('#fmp-model');
+          assert.equal(await page.locator('#fmp-mode').inputValue(), 'vendor');
+          assert.equal(await page.locator('#fcff-workspace').count(), 0);
+          assert.notEqual(await page.locator('#det-res-fair').innerText(), 'N/A');
+          assert.match(await page.locator('#fmp-workspace').innerText(), /vendor projections\/extrapolations/);
         }
         if (tab === 'valuation' && stock.fin_valuation.is_financial) {
           assert.equal(await page.locator('#slider-fin-ke').isDisabled(), false);
@@ -321,50 +283,11 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
       assert.doesNotMatch(await page.locator('#company-view').innerText(), /\bNaN\b|\bundefined\b/);
     }
     await page.goto(`${url}/?market=HKEX&test=forecast-tax#0823.HK/valuation`, { waitUntil: 'domcontentloaded' });
-    await page.waitForFunction(() => isAppReady && document.getElementById('fmp-legacy'));
+    await page.waitForFunction(() => isAppReady && document.getElementById('fmp-model'));
     await page.evaluate(() => applyLanguage('en'));
-    await page.locator('details:has(#fmp-legacy) > summary').click();
-    await page.locator('#fmp-legacy').click();
-    await page.waitForFunction(() => document.getElementById('fcff-status').textContent.includes('Default forecast tax 16.50%'));
-    assert.equal(await page.locator('#fcff-tax').inputValue(), '16.50');
-    assert.match(await page.locator('label[for="fcff-tax"]').textContent(), /not reported group effective tax/);
-    assert.match(await page.locator('#fcff-assumptions').textContent(), /not a reported group effective rate or a jurisdiction-weighted forecast/);
-    assert.equal(await page.locator('#fcff-minority').inputValue(), '0.00');
-    assert.match(await page.locator('label[for="fcff-minority"]').textContent(), /unverified fair value/);
-    assert.match(await page.locator('#fcff-status').innerText(), /common unitholder value may be overstated/);
-    assert.notEqual(await page.locator('#det-res-fair').innerText(), 'N/A', 'Matched official operating and financing inputs enable the rental scenario');
-    assert.equal(await page.evaluate(() => HK_FCFF_DATA.stocks['0823.HK'].officialReconciliation.basis),
-      'matchedOfficialAnnualComponents');
-    const sourceTax = await page.evaluate(() => ({
-      tax: HK_FCFF_DATA.stocks['0823.HK'].defaults.tax,
-      minority: HK_FCFF_DATA.stocks['0823.HK'].defaults.minority,
-      minorityAssumption: HK_FCFF_DATA.stocks['0823.HK'].noncontrollingClaimAssumption,
-      reason: HK_FCFF_DATA.stocks['0823.HK'].reason,
-      history: HK_FCFF_DATA.stocks['0823.HK'].history,
-      quotedEv: computeDCF(stockUniverse['0823.HK'], '0823.HK').EV
-    }));
-    await page.locator('#fcff-input-controls summary').click();
-    await page.locator('#fcff-tax').fill('20');
-    await page.locator('#fcff-minority').fill('10');
-    assert.equal(await page.evaluate(() => stockUniverse['0823.HK'].fcffScenario.tax), 20);
-    assert.equal(await page.evaluate(() => stockUniverse['0823.HK'].fcffScenario.minority), 10);
-    await page.evaluate(() => applyLanguage('zh'));
-    assert.equal(await page.locator('#fcff-tax').inputValue(), '20.00');
-    assert.match(await page.locator('#fcff-status').innerText(), /預設預測稅率 16.50%.*不是實報集團有效稅率/);
-    assert.match(await page.locator('label[for="fcff-tax"]').textContent(), /使用者同意的情境，非實報集團有效稅率/);
-    assert.equal(await page.locator('#fcff-minority').inputValue(), '10.00');
-    assert.match(await page.locator('#fcff-status').innerText(), /不是實報零權益.*估值會偏高/);
-    await page.evaluate(() => resetToFmpDefaults());
-    assert.equal(await page.locator('#fcff-tax').inputValue(), '16.50');
-    assert.equal(await page.locator('#fcff-minority').inputValue(), '0.00');
-    assert.deepEqual(await page.evaluate(() => ({
-      tax: HK_FCFF_DATA.stocks['0823.HK'].defaults.tax,
-      minority: HK_FCFF_DATA.stocks['0823.HK'].defaults.minority,
-      minorityAssumption: HK_FCFF_DATA.stocks['0823.HK'].noncontrollingClaimAssumption,
-      reason: HK_FCFF_DATA.stocks['0823.HK'].reason,
-      history: HK_FCFF_DATA.stocks['0823.HK'].history,
-      quotedEv: computeDCF(stockUniverse['0823.HK'], '0823.HK').EV
-    })), sourceTax, 'Model edits and resets cannot rewrite historical tax, quoted book EV or issuer evidence');
+    await page.waitForSelector('#fmp-source-review');
+    assert.match(await page.locator('#fmp-source-review').innerText(), /annual-report \/ FMP reconciliation/);
+    assert.equal(await page.locator('#fcff-workspace').count(), 0);
     await page.goto(`${url}/#0823.HK/charts`, { waitUntil: 'networkidle' });
     assert.equal(await page.locator('#market-select').inputValue(), 'HKEX');
     await page.setViewportSize({ width: 390, height: 844 });
@@ -377,7 +300,7 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
         width: element.getBoundingClientRect().width, right: element.getBoundingClientRect().right })))));
     assert.deepEqual(errors, []);
     assert.deepEqual(failed, []);
-    console.log('PASS: all six HKEX automatic homepage/subpage valuations, sourced FY1 P/E, partial Moat, mobile layout, Link rental FCFF and resettable tax/NCI scenarios, Tencent reconstructed TTM, HKEX corporate/client-fund classification, Alibaba annual operating-lease/copyright reconciliation, disclosed model anchors, real half years, HKD prices, automatic bank models and issuer-wide shares.');
+    console.log('PASS: all six HKEX company pages, native FMP valuation availability, sourced FY1 P/E, partial Moat, mobile layout, Link source reconciliation, real half-year controls, HKD prices, existing bank models and issuer-wide shares.');
   } finally {
     await browser.close();
     await new Promise(resolve => server.close(resolve));

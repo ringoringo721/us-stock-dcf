@@ -111,7 +111,7 @@ def create_client():
         credentials = service_account.Credentials.from_service_account_info(
             info, scopes=["https://www.googleapis.com/auth/cloud-platform"])
         return genai.Client(vertexai=True, project=info["project_id"],
-                            location="us-central1", credentials=credentials)
+                            location=os.environ.get("GOOGLE_CLOUD_LOCATION", "us-central1"), credentials=credentials)
     if os.environ.get("GOOGLE_APPLICATION_CREDENTIALS") or os.environ.get("GOOGLE_CLOUD_PROJECT"):
         import google.auth
         credentials, default_project = google.auth.default(

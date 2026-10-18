@@ -146,6 +146,26 @@
       "currency": "HKD",
       "unit": "millions",
       "financialFingerprint": "6f2bb527cd367941b5348c91ae55a8229ba1af92e9ae701bcee32383b6c45eef",
+      "cashFlowDisclosure": {
+        "year": 2026,
+        "reportedOperatingCashFlow": 8461,
+        "cashInterestPaid": 1812,
+        "cashInterestReceived": 80,
+        "cashDividendsReceived": 87,
+        "cashPropertyAdditions": 1895,
+        "cashOtherCapex": 39,
+        "bankDepositPlacements": 467,
+        "jointVentureCapitalInjection": 17,
+        "comparative": {
+          "year": 2025,
+          "reportedOperatingCashFlow": 9013,
+          "cashInterestPaid": 2412,
+          "cashInterestReceived": 212,
+          "cashDividendsReceived": 96,
+          "cashPropertyAdditions": 1133,
+          "cashOtherCapex": 69
+        }
+      },
       "document": {
         "title": "Link REIT Annual Report 2025/2026, Governance, Disclosures and Financial Statements",
         "url": "https://www.linkreit.com/-/media/linkreit/investor-relations/financial-reports-and-presentations/financial-report/2026/fy2526-annual-report_governance-disclosures-and-financial-statements_b2_en.pdf?rev=6d28d1c56614433fb185c3b1210fce86&hash=1526F2F567F1DACA81E177AA69545FD5",

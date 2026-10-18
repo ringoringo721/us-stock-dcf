@@ -601,25 +601,25 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
     assert.equal(await page.locator('#fcf-ratio-period').inputValue(), 'annual');
     assert.equal(await page.locator('#fcf-ratio-balance').inputValue(), 'average');
     const returnsBeforeDcf = await page.locator('#return-ratio-body').textContent();
-    await page.evaluate(() => { openDetail('NVDA'); FmpModels.showLegacy(); });
+    await page.evaluate(() => openDetail('NVDA'));
     assert.equal(await page.locator('#fcf-ratio-panel').isVisible(), false);
     assert.equal(await page.locator('#detail-view #fcf-ratio-panel').count(), 0);
     assert.equal(await page.locator('#det-ticker').getAttribute('type'), 'button');
-    assert.equal(await page.locator('#det-res-fair').innerText(), 'N/A');
-    assert.match(await page.locator('#fcff-status').innerText(), /租賃|[Ll]ease/);
+    assert.notEqual(await page.locator('#det-res-fair').innerText(), 'N/A');
+    const nativePrice = await page.locator('#det-res-fair').innerText();
     assert.equal(await page.locator('#fcf-ratio-body').textContent(), historical);
     assert.equal(await page.locator('#return-ratio-body').textContent(), returnsBeforeDcf);
-    assert.equal(await page.locator('#fcff-table thead th').count(), 11, 'Supported operating projections remain visible while lease valuation is blocked');
-    assert.equal(await page.locator('#fcff-sensitivity td').innerText(), 'N/A');
+    assert.equal(await page.locator('#fmp-vendor-years').isVisible(), true);
+    assert.equal(await page.locator('#fcff-workspace').count(), 0);
     assert.equal(await page.locator('#detailDcfHistoricalChart').count(), 0);
     assert.equal(await page.locator('#company-view #subpage-valuation #detail-view').count(), 1);
     assert.equal(await page.locator('#detail-view').count(), 1);
     await page.locator('button[onclick="switchSubPage(\'rating\')"]').click();
     await page.locator('.sub-tab-btn[onclick="switchSubPage(\'valuation\')"]').click();
-    assert.equal(await page.locator('#det-res-fair').innerText(), 'N/A', 'Unavailable sources stay unavailable across tabs');
+    assert.equal(await page.locator('#det-res-fair').innerText(), nativePrice);
     await page.locator('#btn-lang-toggle').click();
     assert.equal(await page.locator('#subpage-valuation').isVisible(), true);
-    assert.equal(await page.locator('#det-res-fair').innerText(), 'N/A', 'Language switching must not invent a fallback value');
+    assert.equal(await page.locator('#det-res-fair').innerText(), nativePrice);
     await page.locator('#btn-lang-toggle').click();
     await page.locator('#det-ticker').click();
     assert.equal(await page.locator('#company-view').isVisible(), true);
@@ -896,21 +896,16 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
     assert.equal(await navigationPage.locator('#subpage-basic').isVisible(), true);
     await navigationPage.evaluate(() => openCompanyProfile('CSCO'));
     await navigationPage.locator('[data-i18n="profile_open_valuation"]').click();
-    await navigationPage.evaluate(() => FmpModels.showLegacy());
-    await navigationPage.locator('#fcff-input-controls summary').click();
-    await navigationPage.locator('#fcff-cash').fill('12345');
+    await navigationPage.selectOption('#fmp-mode', 'ten-year');
+    await navigationPage.locator('[data-scenario-year="0"][data-scenario-key="growth"]').fill('12');
     await navigationPage.locator('#detail-view [onclick="saveCustomModel()"]').click();
-    assert.equal(await navigationPage.evaluate(() => getSavedModels().CSCO.params.cash), 12345);
+    assert.equal(await navigationPage.evaluate(() => getSavedModels().CSCO.scenario.years[0].values.growth), 12);
     await navigationPage.reload({ waitUntil: 'networkidle' });
-    await navigationPage.evaluate(() => FmpModels.showLegacy());
     assert.equal(await navigationPage.locator('#subpage-valuation').isVisible(), true);
-    assert.equal(await navigationPage.locator('#fcff-cash').inputValue(), '12345.00', 'Saved assumptions reload with two-decimal formatting');
+    assert.equal(await navigationPage.locator('[data-scenario-year="0"][data-scenario-key="growth"]').inputValue(), '12');
     await navigationPage.locator('#detail-view [onclick="resetToFmpDefaults()"]').click();
     assert.equal(await navigationPage.evaluate(() => getSavedModels().CSCO), undefined);
-    assert.equal(await navigationPage.locator('#fcff-cash').inputValue(),
-      await navigationPage.evaluate(() => window.FCFF_DATA.stocks.CSCO.defaults.cash.toFixed(2)));
-    assert.equal(await navigationPage.evaluate(() => stockUniverse.CSCO.fcffScenario.cash),
-      await navigationPage.evaluate(() => window.FCFF_DATA.stocks.CSCO.defaults.cash));
+    assert.equal(await navigationPage.locator('#fmp-mode').inputValue(), 'vendor');
     await navigationPage.evaluate(() => openDetail('JPM'));
     await navigationPage.locator('#slider-fin-ke').evaluate(input => {
       input.value = '10.25';
@@ -927,21 +922,6 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
     await navigationPage.locator('#company-view > .detail-header [onclick="navigateBack()"]').click();
     assert.equal(await navigationPage.locator('#screener-view').isVisible(), true);
     assert.equal(await navigationPage.locator('#screener-tbody tr').count(), 230);
-    const unavailableStock = normalizeStock(
-      require('../full_market_dcf.json').TSM,
-      JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'cache', 'financials', 'TSM_statements_v2.json'))),
-      { ...usdRates, currencies: {} });
-    await navigationPage.evaluate(stock => {
-      stockUniverse.TSM = stock;
-      window.FCFF_DATA.stocks.TSM = { reason: 'missingFx' };
-      openDetail('TSM');
-      FmpModels.showLegacy();
-    }, unavailableStock);
-    assert.equal(await navigationPage.locator('#det-res-fair').innerText(), 'N/A');
-    assert.match(await navigationPage.locator('#det-res-status').innerText(), /exchange rates|美元匯率/);
-    assert.equal(await navigationPage.locator('#panel-general-dcf').isVisible(), false);
-    assert.equal(await navigationPage.locator('[onclick="saveCustomModel()"]').isDisabled(), true);
-    assert.ok(!(await navigationPage.locator('#subpage-valuation').innerText()).includes('NaN'));
     await navigationPage.close();
     assert.deepEqual(errors, []);
     assert.deepEqual(firstPartyFailures, []);

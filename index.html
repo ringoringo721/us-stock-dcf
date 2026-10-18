@@ -27,6 +27,7 @@
   <script src="stock_search.js"></script>
   <script src="company_data.js"></script>
   <script src="fmp_model_data.js"></script>
+  <script src="fmp_scenario.js"></script>
   <script src="fmp_models.js"></script>
   <script src="fcf_ratios.js?v=parent-equity-1"></script>
   <script src="balance_sheet.js"></script>
@@ -908,31 +909,20 @@
     #subpage-rating .ai-comment-card { border-radius: 10px; padding: 22px; border-left: 4px solid var(--accent); line-height: 1.9; font-size: 14px; overflow-wrap: anywhere; }
     #fscore-view { margin-top: 34px; padding-top: 16px; border-top: 1px solid var(--card-border); }
     .valuation-intro { border-top: 3px solid var(--accent); }
-    #fcff-workspace { min-width: 0; }
-    #fcff-workspace .panel { margin-bottom: 20px; border-top: 3px solid var(--accent); }
-    #fcff-workspace .panel:nth-child(2) { border-top-color: var(--green); }
-    #fcff-workspace .panel:nth-child(3) { border-top-color: var(--gold); }
-    #fcff-workspace .panel:nth-child(4) { border-top-color: var(--nasdaq-purple); }
-    #fcff-workspace .fcff-inputs { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 310px), 1fr)); gap: 8px 24px; }
-    #fcff-workspace .form-group { min-width: 0; grid-template-columns: minmax(0, 1fr) 120px; }
-    #fcff-workspace .table-scroll-wrapper { overflow-x: auto; max-width: 100%; }
-    #fcff-workspace table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
-    #fcff-workspace :is(th, td) { padding: 12px 14px; border-bottom: 1px solid var(--card-border); border-right: 1px solid var(--card-border); text-align: right; }
-    #fcff-workspace th { background: var(--header-bg); }
-    #fcff-workspace tr > :first-child { text-align: left; }
-    #fcff-table { min-width: 1900px; }
-    #fcff-table tr > :first-child { position: sticky; left: 0; min-width: 150px; max-width: 190px; background: var(--sticky-bg); z-index: 2; white-space: normal; }
-    #fcff-workspace .analysis-note { overflow-wrap: anywhere; line-height: 1.9; }
-    #fcff-workspace summary { cursor: pointer; color: var(--accent); padding: 12px 0; }
-    #fcff-workspace .fcff-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
-    #fcff-workspace .fcff-tabs button { background: var(--header-bg); color: var(--text); border: 1px solid var(--card-border); border-radius: 6px; padding: 9px 12px; cursor: pointer; }
-    #fcff-workspace .fcff-tabs button[aria-pressed="true"] { color: var(--accent); border-color: var(--accent); font-weight: 700; }
-    #fcff-workspace .fcff-year-input { width: 125px; box-sizing: border-box; color: var(--accent); background: var(--bg); border: 1px solid var(--card-border); border-radius: 4px; padding: 8px; font-variant-numeric: tabular-nums; text-align: right; }
-    #fcff-workspace #fcff-method-controls { margin-top: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); }
-    #fcff-workspace #fcff-method-controls .form-group { display: flex; flex-direction: column; align-items: stretch; gap: 8px; }
-    #fcff-workspace #fcff-method-controls select { width: 100%; min-width: 0; box-sizing: border-box; }
-    #fcff-driver-detail td { min-width: 130px; max-width: 190px; white-space: normal; }
-    #fcff-driver-detail tr > :first-child { position: sticky; left: 0; min-width: 160px; max-width: 200px; background: var(--sticky-bg); z-index: 1; white-space: normal; }
+    #fmp-workspace { min-width: 0; }
+    #fmp-workspace .panel { margin-bottom: 20px; border-top: 3px solid var(--accent); }
+    #fmp-workspace .table-scroll-wrapper { overflow-x: auto; max-width: 100%; }
+    #fmp-workspace table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+    #fmp-workspace :is(th, td) { padding: 12px 14px; border-bottom: 1px solid var(--card-border); border-right: 1px solid var(--card-border); text-align: right; }
+    #fmp-workspace th { background: var(--header-bg); }
+    #fmp-workspace tr > :first-child { text-align: left; }
+    #fmp-workspace .analysis-note { overflow-wrap: anywhere; line-height: 1.9; }
+    #fmp-workspace > .panel > select { width: 100%; margin: 8px 0 16px; padding: 10px; }
+    #fmp-ten-year-inputs { min-width: 2050px; }
+    #fmp-ten-year-inputs tr > :first-child { position: sticky; left: 0; min-width: 220px; max-width: 260px; background: var(--sticky-bg); z-index: 2; white-space: normal; }
+    #fmp-ten-year-inputs input { width: 145px; padding: 8px; box-sizing: border-box; background: var(--bg); color: var(--text); border: 1px solid var(--card-border); border-radius: 4px; }
+    #fmp-ten-year-inputs small { display: block; max-width: 150px; margin-top: 6px; color: var(--text-muted); white-space: normal; }
+    #fmp-ten-year-results { min-width: 1400px; }
     #subpage-valuation .main-layout > *, #subpage-valuation .form-group { min-width: 0; }
     #subpage-valuation .form-group { display: grid; grid-template-columns: minmax(0, 1fr) 120px; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--card-border); }
     #subpage-valuation .form-group input, #subpage-valuation .form-group select { width: 100%; padding: 8px 10px; }
@@ -1290,8 +1280,6 @@
     </div>
 
     <div id="fmp-workspace" hidden></div>
-    <button type="button" id="fmp-return" class="btn-nav" hidden onclick="loadDetailTicker(activeDetailTicker)">FMP Custom DCF →</button>
-    <div id="fcff-workspace" hidden></div>
     <!-- Legacy input elements retained for the separate financial-model controls. -->
     <div class="main-layout" id="panel-general-dcf">
       <div class="panel">
@@ -2283,7 +2271,7 @@
       profile_source_note: "僅呈現現有資料來源提供的紀錄；缺失資料顯示 N/A，不推算補齊。TTM 年增率比較連續八季中的前後四季；前期基數必須為正，否則顯示 N/A。這不是預測成長率。",
       rating_note: "先看評分總覽，再閱讀解讀與檢驗明細。護城河代表競爭優勢評估；PF score 為財務篩選訊號，兩者不是信用評等或買賣建議。",
       valuation_title: "估值模型與情境分析",
-      valuation_note: "一般企業採十財年 EBITDA 分項 FCFF 模型；分析師預測、推導數值及模型假設分開列示，TTM 為比率起點，缺少來源或租賃核對時明示 N/A。金融企業保留既有有形權益超額報酬與股利模型。調整參數屬情境分析，不會改寫財報或趨勢資料。",
+      valuation_note: "一般企業提供 FMP Custom DCF Advanced 及 Custom DCF Levered 原始模型，另可選擇以 FMP 資料為基礎、由本站計算的十年逐年自訂情境；供應商預測、標準延伸及用戶修改分開標示。舊 FCFF 介面已移除。金融企業保留有形權益超額報酬及股利模型。調整假設不會改寫財報或歷史資料。",
       treasury_1y: "1 年期美國公債",
       treasury_2y: "2 年期美國公債",
       treasury_3y: "3 年期美國公債",
@@ -2701,7 +2689,7 @@
       profile_source_note: "Only records supplied by the existing data source are shown. Missing data remains N/A rather than being estimated. TTM growth compares successive four-quarter totals from eight consecutive quarters, with a positive prior-year base; otherwise N/A. These are reported results, not growth forecasts.",
       rating_note: "Start with the scorecards, then review the interpretation and individual tests. Economic Moat assesses competitive advantages; PF score screens financial signals. Neither is a credit rating or an investment recommendation.",
       valuation_title: "Valuation Model & Scenario Analysis",
-      valuation_note: "General companies use a ten-fiscal-year EBITDA-driven FCFF model, with TTM starting ratios. Analyst estimates, derived values and model assumptions are distinguished; missing sources or unreconciled leases are explicitly N/A. Financial institutions retain the existing tangible-equity excess-return and dividend models. Parameter edits are scenarios, not changes to reported financials or trends.",
+      valuation_note: "General companies offer the original FMP Custom DCF Advanced and Custom DCF Levered models, plus a separately labeled site-calculated ten-year scenario based on FMP inputs. Vendor projections, standard extensions and user edits are distinguished. The legacy FCFF interface has been removed. Financial institutions retain tangible-equity excess-return and dividend models. Assumptions do not rewrite financial statements or history.",
       treasury_1y: "1Y Treasury",
       treasury_2y: "2Y Treasury",
       treasury_3y: "3Y Treasury",
@@ -3832,8 +3820,10 @@
         ? `<span class="badge badge-undervalued">${currentLang === 'zh' ? '低估' : 'Undervalued'} ${premiumNum.toFixed(1)}%</span>`
         : `<span class="badge badge-overvalued">${currentLang === 'zh' ? '高估' : 'Overvalued'} +${premiumNum.toFixed(1)}%</span>`;
 
-      const targetPriceHtml = (item.isSaved && item.target_price)
-        ? `<span class="badge badge-target">${moneyPrefix()}${Number(item.target_price).toFixed(2)}</span>`
+      const targetPriceHtml = (item.isSaved && Number.isFinite(item.target_price))
+        ? `<span class="badge badge-target" title="${savedModels[item.ticker]?.modelType === 'FMP_TEN_YEAR_SCENARIO'
+          ? (currentLang === 'en' ? 'Site-calculated ten-year scenario, not an FMP API result' : '本站計算的十年情境，非 FMP API 原始結果') : 'FMP / custom'}${savedModels[item.ticker]?.sourceReviewRequired
+            ? (currentLang === 'en' ? '; report/model basis requires review' : '；年報／模型口徑差異須審閱') : ''}">${moneyPrefix()}${Number(item.target_price).toFixed(2)}</span>`
         : `<span style="color: var(--text-muted);">--</span>`;
 
       let targetSpreadHtml = `<span style="color: var(--text-muted);">--</span>`;
@@ -4349,16 +4339,46 @@
     const datesList = isQuarter ? (qRaw.dates || []) : (rawStmts.annual_dates || []);
     const periods = isQuarter ? (qRaw.periods || []).map(value => cadence.stride === 2
       ? String(value).replace(/Q2\b/g, 'H1').replace(/Q4\b/g, 'H2') : value) : Array.from({ length: 6 },
-      (_, i) => i === 5 ? 'TTM' : datesList[i] || 'N/A');
+      (_, i) => i === 5 ? activeStatementType === 'balance'
+        ? (isEn ? 'Latest balance' : '最新期末') : 'TTM' : datesList[i] || 'N/A');
     document.getElementById('statement-type').value = activeStatementType;
     document.getElementById('statement-period').value = activeStatementPeriod;
     const statementLabels = MarketContext.localize(document.getElementById('subpage-financials'), I18N_DICT[currentLang],
       { reportingFrequency: nativeCadence.frequency,
         periodView: activeStatementPeriod === 'semiannual' && nativeCadence.frequency === 'quarterly' ? 'semiannual' : null });
-    document.getElementById('statement-status').textContent = `${ticker} · ${statementLabels[activeStatementPeriod === 'semiannual' ? 'btn_period_half' : isQuarter ? 'btn_period_quarter' : 'btn_period_annual']} · ${periods.length} ${statementLabels.analysis_columns}${
-      activeStatementType === 'cashflow' && MarketContext.cadence(s, 'cashflow').frequency === 'annual' && isQuarter ? ' · N/A: Annual cash flow only; no interim/TTM cash flow is reported.' : ''}${
-      activeStatementPeriod === 'semiannual' && s.reportingFrequency !== 'semiannual'
+    const balanceAnnualLabel = isEn ? 'Annual (5Y + latest balance)' : '年度（5 年＋最新期末餘額）';
+    if (activeStatementType === 'balance') {
+      document.querySelector('#statement-period option[value="annual"]').textContent = balanceAnnualLabel;
+    }
+    const periodLabel = activeStatementType === 'balance' && !isQuarter ? balanceAnnualLabel
+      : statementLabels[activeStatementPeriod === 'semiannual' ? 'btn_period_half' : isQuarter ? 'btn_period_quarter' : 'btn_period_annual'];
+    document.getElementById('statement-status').textContent = `${ticker} · ${periodLabel} · ${periods.length} ${statementLabels.analysis_columns}${
+      activeStatementType === 'cashflow' && MarketContext.cadence(s, 'cashflow').frequency === 'annual'
+        ? (isEn ? ' · The FMP cache lacks verified interim cash flow for TTM; this does not mean the issuer has not published it.'
+          : ' · FMP 快取缺少已核實期中現金流，TTM 暫缺；並非公司未披露半年現金流。') : ''}${
+      activeStatementPeriod === 'semiannual' && nativeCadence.frequency === 'quarterly'
         ? (isEn ? ' · Derived from two reported quarters; closing balances are not summed. Nonadditive EPS remains N/A.' : ' · 合計兩個實報季度；資產負債採期末餘額、不加總。不可加總的 EPS 維持 N/A。') : ''}`;
+    const status = document.getElementById('statement-status');
+    const addSource = (source, label) => {
+      const link = document.createElement('a');
+      link.href = source.url;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.textContent = label;
+      status.append(document.createTextNode(' · '), link);
+    };
+    if (activeStatementType === 'balance' && s.balanceClassificationSource) {
+      status.append(document.createTextNode(isEn
+        ? ' · Official current/non-current classification verified for 2025-12 and 2026-06. Earlier unverified classifications are not shown; original FMP data is retained. Balances are closing snapshots, not TTM sums. Vendor DCF forecasts are not rewritten.'
+        : ' · 已按官方報表核實 2025-12、2026-06 的流動／非流動分類。較早未核實分類不展示，原始 FMP 資料仍保留。資產負債採期末快照，不作 TTM 加總；未改寫 FMP 原生 DCF 預測。'));
+      addSource(s.balanceClassificationSource, isEn ? 'Official report p.56 (PDF p.58)' : '官方報表第 56 頁（PDF 第 58 頁）');
+    }
+    if (activeStatementType === 'cashflow' && s.cashflowProvenance) {
+      status.append(document.createTextNode(isEn
+        ? ' · FY2025 and H1 figures use cited official reports. H2 = official FY − official H1; TTM = H2 2025 + H1 2026, not invented quarters. Earlier years retain FMP data. Combined D&A/impairment and net fixed/intangible investment are labelled separately; unreported breakdowns remain N/A. HSBC uses each half-year’s historical HKD FX, not today’s rate; cash balances use closing FX, so translated cash bridges can have additional translation differences.'
+        : ' · FY2025 及半年數字採官方報表；H2＝官方全年減官方 H1，TTM＝2025 H2＋2026 H1，不虛構季度。較早年度保留 FMP 資料。折舊／攤銷／減值及固定／無形資產淨投資另列；未披露細分維持 N/A。滙控按各半年的歷史匯率換算港元，現金餘額採期末匯率，不用現價；港元現金對帳可能另有換算差額。'));
+      s.cashflowProvenance.documents.forEach(source => addSource(source, source.id));
+    }
 
     if (theadRow) {
       let theadHtml = `<th class="table-sticky-col" data-i18n="th_fin_item">${I18N_DICT[currentLang].th_fin_item}</th>`;
@@ -4377,7 +4397,8 @@
         `;
       });
 
-      const trendHeaderTitle = isEn 
+      const trendHeaderTitle = activeStatementType === 'balance'
+        ? (isEn ? 'Available balance trend' : '可用期末餘額趨勢') : isEn
         ? (isQuarter ? cadence.stride === 2 ? 'Reported half-year trend' : 'Last 20Q Trend' : '5Y/TTM Trend')
         : (isQuarter ? cadence.stride === 2 ? '實際半年趨勢' : '近 20 季趨勢' : '近 5 年/TTM 趨勢');
       theadHtml += `<th class="fcf-trend-col">${trendHeaderTitle}</th>`;
@@ -4643,6 +4664,97 @@
       ];
     }
 
+    if (activeStatementType === 'balance' && s.balanceClassificationSource) {
+      const sourceDates = new Set(s.balanceClassificationSource.dates.map(date => date.slice(0, 7)));
+      const reportedGroup = (zh, en, rows) => ({ groupTitleZh: zh, groupTitleEn: en,
+        items: rows.map(([field, nameZh, nameEn, highlight]) => ({ nameZh, nameEn, highlight: !!highlight,
+          series: getSeries(field).map((value, index) => sourceDates.has(datesList[index])
+            || ['totalAssets', 'totalLiabilities', 'totalStockholdersEquity', 'totalEquity', 'totalLiabilitiesAndTotalEquity'].includes(field) ? value : NaN) })) });
+      sections.splice(0, 4,
+        reportedGroup('流動資產（官方分類）', 'Current Assets — Official Classification', [
+          ['cashAndCashEquivalents', '現金及現金等價物', 'Cash and cash equivalents'],
+          ['financialAssetsFvplCurrent', '按公平值計入損益的金融資產', 'Financial assets at FVTPL'],
+          ['financialAssetsFvociCurrent', '按公平值計入其他全面收益的金融資產', 'Financial assets at FVOCI'],
+          ['financialAssetsAmortisedCostCurrent', '按攤銷成本計量的金融資產', 'Financial assets at amortised cost'],
+          ['derivativeAssetsCurrent', '衍生金融工具資產', 'Derivative financial assets'],
+          ['receivablesPrepaymentsDepositsCurrent', '應收帳款、預付款項及按金（合併披露）', 'Receivables, prepayments and deposits (combined)'],
+          ['taxRecoverableCurrent', '可收回稅項', 'Tax recoverable'],
+          ['totalCurrentAssets', '流動資產合計', 'Total Current Assets', true]]),
+        reportedGroup('非流動資產（官方分類）', 'Non-Current Assets — Official Classification', [
+          ['financialAssetsFvplNonCurrent', '按公平值計入損益的金融資產', 'Financial assets at FVTPL'],
+          ['financialAssetsFvociNonCurrent', '按公平值計入其他全面收益的金融資產', 'Financial assets at FVOCI'],
+          ['financialAssetsAmortisedCostNonCurrent', '按攤銷成本計量的金融資產', 'Financial assets at amortised cost'],
+          ['receivablesPrepaymentsDepositsNonCurrent', '應收帳款、預付款項及按金（合併披露）', 'Receivables, prepayments and deposits (combined)'],
+          ['jointVentureAndAssociateInterests', '於合營企業及聯營公司的權益', 'Joint venture and associate interests'],
+          ['goodwillAndIntangibleAssets', '商譽及其他無形資產（合併披露）', 'Goodwill and other intangible assets (combined)'],
+          ['propertyPlantEquipmentNet', '固定資產', 'Fixed assets'],
+          ['rightOfUseAssets', '使用權資產', 'Right-of-use assets'],
+          ['taxAssets', '遞延稅項資產', 'Deferred tax assets'],
+          ['totalNonCurrentAssets', '非流動資產合計', 'Total Non-Current Assets', true],
+          ['totalAssets', '資產總額', 'Total Assets', true]]),
+        reportedGroup('流動負債（官方分類）', 'Current Liabilities — Official Classification', [
+          ['derivativeLiabilitiesCurrent', '衍生金融工具負債', 'Derivative financial liabilities'],
+          ['participantDepositsCollateralCurrent', '參與者保證金、內地證券及交收按金與現金抵押品', 'Participant margin, Mainland security/settlement deposits and cash collateral'],
+          ['payablesAccrualsOtherLiabilitiesCurrent', '應付帳款、應計費用及其他負債（合併披露）', 'Payables, accruals and other liabilities (combined)'],
+          ['deferredRevenue', '遞延收入', 'Deferred revenue'],
+          ['taxPayables', '應付稅項', 'Taxation payable'],
+          ['otherFinancialLiabilitiesCurrent', '其他金融負債', 'Other financial liabilities'],
+          ['clearingHouseFundContributionsCurrent', '參與者對結算所基金的供款', 'Participant contributions to Clearing House Funds'],
+          ['capitalLeaseObligationsCurrent', '租賃負債', 'Lease liabilities'],
+          ['shortTermDebt', '借款（不含租賃負債）', 'Borrowings (excluding leases)'],
+          ['provisionsCurrent', '撥備', 'Provisions'],
+          ['totalCurrentLiabilities', '流動負債合計', 'Total Current Liabilities', true]]),
+        reportedGroup('非流動負債（官方分類）', 'Non-Current Liabilities — Official Classification', [
+          ['deferredRevenueNonCurrent', '遞延收入', 'Deferred revenue'],
+          ['taxPayablesNonCurrent', '應付稅項', 'Taxation payable'],
+          ['capitalLeaseObligationsNonCurrent', '租賃負債', 'Lease liabilities'],
+          ['longTermDebt', '借款（不含租賃負債）', 'Borrowings (excluding leases)'],
+          ['provisionsNonCurrent', '撥備', 'Provisions'],
+          ['deferredTaxLiabilitiesNonCurrent', '遞延稅項負債', 'Deferred tax liabilities'],
+          ['totalNonCurrentLiabilities', '非流動負債合計', 'Total Non-Current Liabilities', true],
+          ['totalLiabilities', '負債總額', 'Total Liabilities', true],
+          ['totalDebt', '借款及租賃負債總額（各計一次）', 'Total borrowings and lease liabilities (counted once)', true],
+          ['netDebt', '淨借款及租賃負債', 'Net borrowings and lease liabilities']]));
+      sections[4] = reportedGroup('股東權益（官方列報項目）', 'Equity — Official Reported Items', [
+        ['commonStock', '股本', 'Share capital'],
+        ['treasuryStock', '股份獎勵計劃持有的股份', 'Shares held for Share Award Scheme'],
+        ['employeeShareBasedCompensationReserve', '僱員股份基礎薪酬儲備', 'Employee share-based compensation reserve'],
+        ['hedgingRevaluationReserves', '對沖及重估儲備', 'Hedging and revaluation reserves'],
+        ['exchangeReserve', '匯兌儲備', 'Exchange reserve'],
+        ['designatedReserves', '指定儲備', 'Designated reserves'],
+        ['writtenPutReserveNonControllingInterests', '非控股權益認沽期權儲備', 'Reserve for written put options to NCI'],
+        ['retainedEarnings', '保留盈餘', 'Retained earnings'],
+        ['totalStockholdersEquity', '港交所股東應佔權益', 'Equity attributable to HKEX shareholders', true],
+        ['minorityInterest', '非控股權益', 'Non-controlling interests'],
+        ['totalEquity', '總權益', 'Total Equity', true],
+        ['totalLiabilitiesAndTotalEquity', '負債與權益總額', 'Total Liabilities and Equity', true]]);
+    }
+    if (activeStatementType === 'cashflow' && s.cashflowProvenance) {
+      sections[0].items.splice(1, 0,
+        { nameZh: '稅前溢利（官方現金流調節起點；非淨利）', nameEn: 'Profit before tax (official CF reconciliation start, not net income)', series: getSeries('incomeBeforeTax') },
+        { nameZh: '折舊、攤銷及減值（合併口徑）', nameEn: 'Depreciation, amortisation and impairment (combined)', series: getSeries('depreciationAmortizationAndImpairment') },
+        { nameZh: '已付所得稅', nameEn: 'Income taxes paid', series: getSeries('incomeTaxesPaid') });
+      const extraRows = ticker === '0388.HK' ? [
+        ['principalOperatingCashFlowNonHKFRS', '主要業務經營現金流（非 HKFRS，並非 CFO 合計）', 'Principal operating cash flow (non-HKFRS, not total CFO)'],
+        ['otherOperatingFundManagerRedemptions', '其他營運基金贖回', 'Other operating fund-manager redemptions'],
+        ['headquartersPremisesAcquisitionPayments', '總部物業購置付款', 'Headquarters premises acquisition payments'],
+        ['otherFixedAssetAndIntangiblePurchasesCombined', '其他固定及無形資產購置（合併披露）', 'Other fixed and intangible asset purchases (combined)']
+      ] : [
+        ['changeInOperatingAssetsAndLiabilitiesCombined', '營運資產及負債變動（合併口徑）', 'Changes in operating assets and liabilities (combined)'],
+        ['eliminationOfExchangeDifferencesAdjustment', '營運現金流匯兌差異剔除調整（非期末現金匯率影響）', 'Operating exchange-difference elimination (not cash-balance FX)'],
+        ['netPropertyPlantAndEquipmentPurchasesAndSales', '固定資產買賣淨額（非購置總額）', 'Net PPE purchases and sales (not gross purchases)'],
+        ['netIntangibleAssetInvestment', '無形資產淨投資', 'Net intangible asset investment'],
+        ['dividendsPaidToParentShareholdersAndNonControllingInterests', '已付母公司股東及非控股權益股息（非普通股股息單項）', 'Dividends paid to parent shareholders and NCI (not ordinary dividends alone)']
+      ];
+      sections.splice(3, 0, { groupTitleZh: '官方來源補充項目（不得與上方合計重複相加）',
+        groupTitleEn: 'Official source-specific items (do not add again to totals above)',
+        items: extraRows.map(([field, nameZh, nameEn]) => ({ nameZh, nameEn, series: getSeries(field) })) });
+      const footer = sections.at(-1);
+      footer.items.find(item => item.nameEn === 'Capital Expenditure').nameEn = 'Fixed/intangible cash investment (source-defined; HSBC net)';
+      footer.items.find(item => item.nameZh.startsWith('資本支出')).nameZh = '固定／無形資產現金投資（來源口徑；滙控為淨額）';
+      footer.items.find(item => item.nameEn === 'Free Cash Flow').nameEn = 'CFO less fixed/intangible cash investment (not distributable bank FCF)';
+      footer.items.find(item => item.nameZh.startsWith('自由現金流')).nameZh = 'CFO 減固定／無形投資（非銀行可分派股東現金流）';
+    }
     let rowsHtml = '';
     sections.forEach(sec => {
       const groupTitle = isEn ? sec.groupTitleEn : sec.groupTitleZh;
@@ -5296,17 +5408,15 @@
     const isFinancial = !!(s.fin_valuation && s.fin_valuation.is_financial);
     const finPanel = document.getElementById('panel-fin-models');
     const genLayout = document.getElementById('panel-general-dcf');
-    document.getElementById('fcff-workspace').hidden = true;
     document.getElementById('fmp-workspace').hidden = isFinancial;
-    document.getElementById('fmp-return').hidden = true;
     if (!isFinancial) {
       finPanel.style.display = 'none';
       genLayout.style.display = 'none';
       const save = model => {
           const models = getSavedModels();
           const previous = models[ticker];
-          const compatiblePrevious = model.modelType === 'FMP_CUSTOM_DCF'
-            ? FmpModels.compatible(previous) : FcffView.compatible(previous);
+          const compatiblePrevious = FmpModels.compatible(previous)
+            && previous.modelType === model.modelType;
           if (previous && !compatiblePrevious) {
             const archive = JSON.parse(localStorage.getItem('M7_LEGACY_VALUATIONS') || '{}');
             const history = archive[ticker];
@@ -5321,13 +5431,7 @@
           renderScreenerTable();
       };
       FmpModels.load({
-        stock: s, ticker, saved, language: () => currentLang, save, data: CompanyData.peek(ticker),
-        legacy: () => {
-          document.getElementById('fmp-workspace').hidden = true;
-          document.getElementById('fcff-workspace').hidden = false;
-          document.getElementById('fmp-return').hidden = false;
-          FcffView.load({ stock: s, ticker, saved, language: () => currentLang, save });
-        }
+        stock: s, ticker, saved, language: () => currentLang, save, data: CompanyData.peek(ticker)
       });
       CompanyData.load(ticker).then(data => FmpModels.details(data)).catch(error =>
         { console.error('Detailed FMP model rows could not be loaded', ticker, error.message);
@@ -5336,6 +5440,8 @@
     }
 
     if (isFinancial) {
+      FmpModels.deactivate();
+      document.querySelector('[onclick="saveCustomModel()"]').disabled = false;
       if (finPanel) finPanel.style.display = 'block';
       if (genLayout) genLayout.style.display = 'none';
 
@@ -5436,8 +5542,7 @@
     const s = stockUniverse[activeDetailTicker];
     if (!s) return;
     if (!s.fin_valuation?.is_financial) {
-      if (document.getElementById('fmp-workspace').hidden) FcffView.rerender();
-      else FmpModels.rerender();
+      FmpModels.rerender();
       return;
     }
 
@@ -5756,8 +5861,7 @@
     const s = stockUniverse[activeDetailTicker];
     if (!s) return;
     if (!s.fin_valuation?.is_financial) {
-      if (document.getElementById('fmp-workspace').hidden) FcffView.save();
-      else FmpModels.save();
+      FmpModels.save();
       return;
     }
 
@@ -5818,8 +5922,6 @@
   }
 
   function resetToFmpDefaults() {
-    const resetLegacy = !stockUniverse[activeDetailTicker]?.fin_valuation?.is_financial
-      && !document.getElementById('fcff-workspace').hidden;
     const models = getSavedModels();
     delete models[activeDetailTicker];
     storeSavedModels(models);
@@ -5834,7 +5936,6 @@
     }
     if (!stockUniverse[activeDetailTicker]?.fin_valuation?.is_financial) FmpModels.reset();
     loadDetailTicker(activeDetailTicker);
-    if (resetLegacy) FmpModels.showLegacy();
     document.getElementById('det-saved-badge').style.display = 'none';
   }
 

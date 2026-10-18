@@ -5,17 +5,20 @@ const http = require('node:http');
 const { chromium } = require('playwright');
 const { createHandler } = require('../api/fmp.js');
 const Models = require('../fmp_models.js');
+const Scenario = require('../fmp_scenario.js');
 const root = path.resolve(__dirname, '..');
 const live = process.env.TEST_LIVE_FMP === '1';
 if (live) process.loadEnvFile(path.join(root, '.env.local'));
 const read = symbol => JSON.parse(fs.readFileSync(path.join(root, 'cache', 'company', `${symbol}.json`)));
 const queries = [];
+let rejectCalculation = false;
 const handler = createHandler(live ? {} : { apiKey: () => 'test-placeholder', fetch: async url => {
   queries.push(new URL(url));
   const symbol = url.searchParams.get('symbol') || url.searchParams.get('symbols');
   const data = read(symbol);
   const kinds = { 'custom-discounted-cash-flow': 'advanced', 'custom-levered-discounted-cash-flow': 'customLevered' };
   const endpoint = url.pathname.slice('/stable/'.length);
+  if (rejectCalculation && endpoint !== 'news/stock') return { ok: false, status: 503, json: async () => ({}) };
   return { ok: true, json: async () => endpoint === 'news/stock'
     ? data.news.data : data.models[kinds[endpoint]].data };
 } });
@@ -63,6 +66,12 @@ const handler = createHandler(live ? {} : { apiKey: () => 'test-placeholder', fe
       assert.equal(await page.locator('#fmp-model').inputValue(), 'advanced');
       assert.equal(await page.locator('#fmp-revenueGrowthPct').inputValue(), '', 'Blank overrides preserve actual FMP defaults');
       assert.ok(await page.locator('#fmp-workspace tbody tr').count() > 10, 'Detailed model rows load lazily');
+      assert.equal(await page.locator('#fmp-legacy, #fcff-workspace, #fmp-return').count(), 0);
+      assert.equal(await page.evaluate(() => typeof FmpModels.showLegacy), 'undefined');
+      assert.equal(await page.locator('#fmp-vendor-years thead th').nth(3).innerText(), 'EBITDA');
+      const sourceFirst = record.models.advanced.data.slice().sort((a, b) => Number(a.year) - Number(b.year))[0];
+      const firstEbitda = Number((await page.locator('#fmp-vendor-years tbody tr').first().locator('td').nth(2).innerText()).replace(/[^\d.-]/g, ''));
+      assert.ok(Math.abs(firstEbitda - sourceFirst.ebitda) < 0.011, 'Label and actual field both use EBITDA, not EBIT');
       await page.selectOption('#fmp-model', 'customLevered');
       const levered = Models.value(record, 'customLevered', sourceStock);
       displayed = Number((await page.locator('#det-res-fair').innerText()).replace(/[^\d.-]/g, ''));
@@ -74,18 +83,30 @@ const handler = createHandler(live ? {} : { apiKey: () => 'test-placeholder', fe
       assert.equal(saved.targetPrice, levered.fairVal);
       assert.equal(saved.issuedShares, sourceStock.shares_outstanding);
       await page.locator('#fmp-revenueGrowthPct').fill('9');
-      assert.equal(await page.locator('[onclick="saveCustomModel()"]').isDisabled(), true);
+      assert.equal(await page.locator('[onclick="saveCustomModel()"]').isEnabled(), true);
+      await page.selectOption('#fmp-mode', 'ten-year');
+      await page.locator('[data-scenario-year="0"][data-scenario-key="growth"]').fill('13');
+      await page.locator('#fmp-calculate').click();
+      await page.selectOption('#fmp-mode', 'vendor');
       await page.selectOption('#fmp-model', 'advanced');
       await page.selectOption('#fmp-model', 'customLevered');
-      assert.equal(await page.locator('[onclick="saveCustomModel()"]').isDisabled(), true, 'Switching models cannot save stale results');
-      await page.locator('#fmp-calculate').click();
-      await page.waitForFunction(() => !document.getElementById('fmp-calculate').disabled);
+      assert.equal(await page.locator('[onclick="saveCustomModel()"]').isEnabled(), true, 'Save will calculate pending overrides first');
+      await page.locator('[onclick="saveCustomModel()"]').click();
+      await page.waitForFunction(ticker => getSavedModels()[ticker]?.params?.revenueGrowthPct === 0.09, ticker);
       assert.equal(await page.locator('[onclick="saveCustomModel()"]').isDisabled(), false);
       if (!live) assert.equal(queries.at(-1).searchParams.get('revenueGrowthPct'), '0.09');
       await page.locator('[onclick="saveCustomModel()"]').click();
       const scenario = await page.evaluate(ticker => getSavedModels()[ticker], ticker);
       assert.equal(scenario.params.revenueGrowthPct, 0.09);
       if (live) assert.notEqual(scenario.targetPrice, saved.targetPrice, 'Actual FMP recalculation changes the valuation');
+      if (!live) {
+        rejectCalculation = true;
+        await page.locator('#fmp-revenueGrowthPct').fill('8');
+        await page.locator('[onclick="saveCustomModel()"]').click();
+        await page.waitForFunction(() => document.getElementById('fmp-status').textContent.includes('Calculation failed'));
+        assert.deepEqual(await page.evaluate(ticker => getSavedModels()[ticker], ticker), scenario, 'Failed calculation cannot overwrite saved target');
+        rejectCalculation = false;
+      }
       await page.reload({ waitUntil: 'networkidle' });
       await page.waitForFunction(() => isAppReady && document.getElementById('fmp-model'));
       assert.equal(await page.locator('#fmp-model').inputValue(), 'customLevered');
@@ -101,6 +122,40 @@ const handler = createHandler(live ? {} : { apiKey: () => 'test-placeholder', fe
       assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1),
         'Detailed model tables scroll internally on mobile');
       await page.setViewportSize({ width: 1440, height: 1000 });
+      await page.selectOption('#fmp-mode', 'ten-year');
+      const initial = Scenario.defaults(record, 'customLevered', Models.issuedShares(sourceStock));
+      assert.equal(await page.locator('#fmp-ten-year-inputs thead th').count(), 11, 'Ten future fiscal years, not ten historical-plus-projected rows');
+      assert.equal(await page.locator('#fmp-ten-year-results tbody tr').count(), 10);
+      assert.equal(await page.locator('#fmp-ten-year-inputs [data-scenario-key="growth"]').count(), 10);
+      assert.equal(await page.locator('[data-origin="5-growth"]').innerText(), 'Standard extension');
+      await page.locator('[data-scenario-year="0"][data-scenario-key="growth"]').fill('12');
+      await page.locator('[onclick="saveCustomModel()"]').click();
+      await page.waitForFunction(ticker => getSavedModels()[ticker]?.modelType === 'FMP_TEN_YEAR_SCENARIO', ticker);
+      const tenYear = await page.evaluate(ticker => getSavedModels()[ticker], ticker);
+      assert.equal(tenYear.scenario.years[0].values.growth, 12);
+      assert.equal(tenYear.scenario.years.length, 10);
+      assert.equal(tenYear.targetPrice, Scenario.calculate(tenYear.scenario).targetPrice);
+      assert.notEqual(tenYear.targetPrice, Scenario.calculate(initial).targetPrice);
+      await page.selectOption('#fmp-model', 'advanced');
+      await page.locator('[data-scenario-year="0"][data-scenario-key="ebit"]').fill('20');
+      const da = Number(await page.locator('[data-scenario-year="0"][data-scenario-key="da"]').inputValue());
+      assert.ok(Math.abs(Number(await page.locator('[data-scenario-year="0"][data-scenario-key="ebitda"]').inputValue()) - 20 - da) < 1e-10);
+      await page.locator('[data-scenario-year="1"][data-scenario-key="beta"]').fill('2');
+      assert.equal(await page.locator('[data-origin="1-ke"]').innerText(), 'CAPM');
+      await page.selectOption('#fmp-model', 'customLevered');
+      await page.reload({ waitUntil: 'networkidle' });
+      await page.waitForFunction(() => isAppReady && document.getElementById('fmp-mode'));
+      assert.equal(await page.locator('#fmp-mode').inputValue(), 'ten-year');
+      assert.equal(await page.locator('[data-scenario-year="0"][data-scenario-key="growth"]').inputValue(), '12');
+      assert.equal(await page.locator('#fmp-ten-year-results tbody tr').count(), 10);
+      await page.evaluate(() => navigateBack());
+      const tenYearCell = page.locator('#screener-tbody tr').filter({ hasText: ticker }).locator('.badge-target');
+      assert.match(await tenYearCell.getAttribute('title'), /Site-calculated/);
+      assert.ok(Math.abs(Number((await tenYearCell.innerText()).replace(/[^\d.-]/g, '')) - tenYear.targetPrice) < 0.011);
+      await page.evaluate(ticker => { openCompanyProfile(ticker); switchSubPage('valuation'); }, ticker);
+      await page.setViewportSize({ width: 390, height: 844 });
+      assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), 'Ten-year inputs scroll inside the mobile panel');
+      await page.setViewportSize({ width: 1440, height: 1000 });
       await page.evaluate(() => resetToFmpDefaults());
       assert.equal(await page.locator('#fmp-revenueGrowthPct').inputValue(), '');
       await page.evaluate(() => applyLanguage('zh'));
@@ -114,7 +169,7 @@ const handler = createHandler(live ? {} : { apiKey: () => 'test-placeholder', fe
         }
         await page.evaluate(() => openCompanyProfile('0005.HK'));
         await page.evaluate(() => switchSubPage('charts'));
-        await page.waitForFunction(() => document.getElementById('fcf-ratio-period')?.value === 'annual');
+        await page.waitForFunction(() => document.getElementById('fcf-ratio-period')?.value === 'semiannual');
         assert.equal(await page.locator('#fcf-ratio-period option[value="quarterly"]').getAttribute('hidden'), '');
         await page.evaluate(() => openCompanyProfile('0823.HK'));
         await page.evaluate(() => switchSubPage('financials'));
@@ -127,13 +182,29 @@ const handler = createHandler(live ? {} : { apiKey: () => 'test-placeholder', fe
     await page.goto(`${base}/?market=US#CSCO/valuation`, { waitUntil: 'domcontentloaded' });
     await page.waitForFunction(() => isAppReady && document.getElementById('fmp-model'));
     const sourceRoute = await pendingSource;
-    await page.evaluate(() => FmpModels.showLegacy());
-    const legacyPrice = await page.locator('#det-res-fair').innerText();
+    await page.selectOption('#fmp-mode', 'ten-year');
     await sourceRoute.continue();
     await page.waitForFunction(() => stockUniverse.CSCO.companyDataLoaded);
-    assert.equal(await page.locator('#fcff-workspace').isVisible(), true);
-    assert.equal(await page.locator('#det-res-fair').innerText(), legacyPrice,
-      'Late FMP source loading cannot overwrite a separately selected legacy valuation');
+    assert.equal(await page.locator('#fmp-mode').inputValue(), 'ten-year');
+    assert.equal(await page.locator('#fmp-ten-year-results tbody tr').count(), 10, 'Late source load initializes local annual inputs without switching back to vendor mode');
+    await page.selectOption('#fmp-mode', 'vendor');
+    let holdCalculation;
+    const held = new Promise(resolve => { holdCalculation = resolve; });
+    await page.route('**/api/fmp?**', route => {
+      if (new URL(route.request().url()).searchParams.get('action') === 'custom-dcf') { holdCalculation(route); return; }
+      return route.continue();
+    });
+    await page.locator('#fmp-revenueGrowthPct').fill('7');
+    await page.locator('[onclick="saveCustomModel()"]').click();
+    const heldRoute = await held;
+    await page.evaluate(() => { openCompanyProfile('JPM'); switchSubPage('valuation'); });
+    const bankPrice = await page.locator('#det-res-fair').innerText();
+    await heldRoute.fulfill({ contentType: 'application/json', body: JSON.stringify({
+      data: read('CSCO').models.advanced.data, source: { symbol: 'CSCO', capturedAt: new Date().toISOString() }
+    }) });
+    await page.waitForTimeout(100);
+    assert.equal(await page.locator('#det-res-fair').innerText(), bankPrice, 'Late nonfinancial calculation cannot replace bank valuation');
+    assert.equal(await page.locator('[onclick="saveCustomModel()"]').isEnabled(), true);
     assert.deepEqual(errors, []);
     console.log(`FMP browser PASS (${live ? 'actual FMP API' : 'recorded-source mock'}): both markets, both Custom models, issued shares, overrides, saved homepage targets, persistence, search, cadence and localization.`);
   } finally { await browser.close(); await new Promise(resolve => server.close(resolve)); }

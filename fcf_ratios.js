@@ -253,6 +253,10 @@
     const keys = [...new Set([...income.keys(), ...cashflow.keys()])].sort((a, b) => a - b);
     if (!keys.length) return [];
     const count = !annual && flow === 'ttm' ? ttmCount : 1;
+    const cashHalves = !annual && flow === 'ttm' && stride === 1
+      && context.cadence(data, 'cashflow').frequency === 'semiannual'
+      ? new Map(calculateEarnings(halfYearStatements(data), { period: 'quarterly', flow })
+        .map(column => [column.date, column])) : null;
     return Array.from({ length: Math.floor((keys.at(-1) - keys[0]) / (annual ? 1 : stride)) + 1 },
       (_, i) => keys[0] + i * (annual ? 1 : stride)).map(key => {
       const end = income.get(key) || cashflow.get(key);
@@ -264,6 +268,10 @@
         ['eps', income, 'epsDiluted'], ['fcf', cashflow, 'freeCashFlow'],
         ['dividend', cashflow, 'commonDividendsPaid']
       ]) {
+        if (cashHalves && metric !== 'eps') {
+          column.amounts[metric] = cashHalves.get(column.date)?.amounts[metric] || unavailable('missingPeriod');
+          continue;
+        }
         const rows = Array.from({ length: count }, (_, i) => index.get(key - (count - 1 - i) * stride));
         let reason = null;
         if (!annual && metric !== 'eps' && context.cadence(data, 'cashflow').frequency === 'annual') reason = 'annualCashflowOnly';
@@ -327,6 +335,10 @@
   }
 
   function calculateRatios(data, options, returns) {
+    if (!returns && options.period !== 'annual' && context.cadence(data, 'cashflow').frequency === 'semiannual'
+        && context.cadence(data, 'income').frequency === 'quarterly') {
+      return calculateRatios(halfYearStatements(data), options, returns);
+    }
     if (options.period === 'semiannual') {
       return calculateRatios(halfYearStatements(data), { ...options, period: 'quarterly' }, returns);
     }
@@ -478,8 +490,8 @@
     const state = panels[kind];
     const getElement = suffix => document.getElementById(`${state.prefix}-${suffix}`);
     const reasonLabel = reason => labels[`${kind}_reason_${reason}`] || labels[`fcf_reason_${reason}`]
-      || ({ annualCashflowOnly: lang === 'zh' ? '僅有年度現金流；無實際季度／半年資料，不能作為 TTM。'
-        : 'Only annual cash flow is reported; genuine interim cash flows are unavailable, so TTM is unavailable.',
+      || ({ annualCashflowOnly: lang === 'zh' ? '目前快取僅有已核實年度現金流，缺少可用期中來源，不能冒稱 TTM；不代表公司未披露半年現金流。'
+        : 'The current cache has verified annual cash flow only, without usable interim sources for TTM; this does not mean the issuer publishes no interim cash flow.',
       cadenceMismatch: lang === 'zh' ? '報表頻率不一致，無法對齊。' : 'Statement reporting frequencies cannot be aligned.' }[reason] || reason);
     const panel = getElement('panel');
     if (!panel) return;
@@ -518,8 +530,17 @@
         period = 'annual';
         getElement('period').value = period;
         getElement('flow').disabled = true;
+      } else if (kind === 'fcf') {
+        getElement('flow').disabled = period === 'annual';
+        if (context.cadence(data, 'cashflow').frequency === 'semiannual' && period === 'quarterly') {
+          period = 'semiannual';
+          getElement('period').value = period;
+        }
       }
-      labels = context.localize(panel, labels, period === 'semiannual' ? halfYearStatements(data) : data);
+      const presentation = period === 'semiannual' ? halfYearStatements(data) : data;
+      labels = context.localize(panel, labels, kind === 'fcf'
+        && context.cadence(data, 'cashflow').frequency === 'semiannual'
+        ? { ...presentation, periodView: undefined } : presentation);
       context.renderProvenance(panel, data, ticker);
       const columns = state.calculate(data, { period, flow, balance });
       const explanation = period === 'annual' ? labels.fcf_annual

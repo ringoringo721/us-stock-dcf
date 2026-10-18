@@ -5,6 +5,9 @@ const { convertStatements, rateFor } = require('../usd_currency.js');
 const { value } = require('./usd_financials.cjs');
 const scores = require('../statement_scores.js');
 const ratios = require('../fcf_ratios.js');
+const context = require('../market_context.js');
+const { applyOfficialBalance } = require('./official_balance.cjs');
+const { applyOfficialCashflows, reviewedSource } = require('./official_cashflows.cjs');
 const liquidation = require('../liquidation.js');
 const { prepareSnapshot, forecastFxRate } = require('./fcff_sources.cjs');
 const { reconcileValuation } = require('./hkex_valuation_sources.cjs');
@@ -194,18 +197,25 @@ function prepareStatements(evidence) {
 }
 
 function ttmRows(data, type) {
-  const step = data.reportingFrequency === 'semiannual' ? 2 : 1, count = 4 / step;
+  const { stride: step, count, minDays, maxDays, frequency } = context.cadence(data, type);
+  if (frequency === 'annual') return [];
   const income = sorted(data.quarterly.income), latest = income.at(-1);
-  const recent = income.slice(-count);
-  if (!latest || recent.length !== count || recent.some((row, i) => i && (key(row) !== key(recent[i - 1]) + step
-      || (Date.parse(row.date) - Date.parse(recent[i - 1].date)) / 86400000 < step * 60
-      || (Date.parse(row.date) - Date.parse(recent[i - 1].date)) / 86400000 > step * 120))) return [];
-  const matches = recent.map(row => data.quarterly[type].find(other => other.date === row.date && key(other) === key(row)));
-  return matches.every(Boolean) ? matches : [];
+  if (!latest) return [];
+  const matches = Array.from({ length: count }, (_, index) => {
+    const expected = key(latest) - (count - index - 1) * step;
+    const rows = data.quarterly[type].filter(row => key(row) === expected);
+    const anchor = income.find(row => key(row) === expected);
+    return rows.length === 1 && anchor?.date === rows[0].date ? rows[0] : null;
+  });
+  if (matches.some(row => !row) || matches.some(row => row.reportedCurrency !== latest.reportedCurrency)
+      || matches.some((row, index) => index
+      && ((Date.parse(row.date) - Date.parse(matches[index - 1].date)) / 86400000 < minDays
+        || (Date.parse(row.date) - Date.parse(matches[index - 1].date)) / 86400000 > maxDays))) return [];
+  return matches;
 }
 function flowValue(data, type, field) {
   const rows = ttmRows(data, type);
-  if (data.reportingFrequency === 'semiannual' && rows.length === 2 && /^eps|^weightedAverageShs/i.test(field)) {
+  if (context.cadence(data, type).frequency === 'semiannual' && rows.length === 2 && /^eps|^weightedAverageShs/i.test(field)) {
     return value(data.annual[type].find(row => row.date === rows.at(-1).date), field);
   }
   if (field === 'cashAtEndOfPeriod') return value(rows.at(-1), field);
@@ -389,7 +399,10 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
       || !finite(quotes[0].marketCap) || quotes[0].marketCap <= 0 || !finite(quotes[0].timestamp)) {
     throw new TypeError(`${item.ticker}: HKD quote identity cannot be verified`);
   }
-  const p = profile[0], quote = quotes[0], raw = prepareStatements(evidence), data = convertStatements(raw, rates);
+  const p = profile[0], quote = quotes[0];
+  const raw = applyOfficialCashflows(applyOfficialBalance(prepareStatements(evidence), item.ticker),
+    item.ticker, reviewedSource(item.ticker));
+  const data = convertStatements(raw, rates);
   const chart = priceHistory(evidence), latest = sorted(data.quarterly.income).at(-1), bs = sorted(data.quarterly.balance).at(-1);
   const quoteDate = new Date(quote.timestamp * 1000).toISOString().slice(0, 10);
   if (quoteDate > evidence.capturedAt.slice(0, 10)) throw new TypeError(`${item.ticker}: future quote`);
@@ -430,6 +443,7 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
     market: 'HKEX', exchange: 'HKEX', sector: item.sector, industry: item.industry, fmp_symbol: item.ticker,
     reportedCurrency: latest?.sourceReportedCurrency, calculationCurrency: 'HKD',
     reportingFrequency: raw.reportingFrequency, statementFrequencies: raw.statementFrequencies,
+    balanceClassificationSource: raw.balanceClassificationSource, cashflowProvenance: raw.cashflowProvenance,
     qualityWarnings: raw.qualityWarnings, price: quote.price, quoteDate, shares: shareClassUnverified ? null : shareSource.shares,
     shares_display: shareSource.shares, shares_outstanding: shareClassUnverified || shareSource.shares === null ? null
       : shareSource.outstandingShares ?? Math.round(shareSource.shares * 1e6),
@@ -499,7 +513,10 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
     millions(flow(type, sourceField))];
   const sourceBalance = sorted(raw.quarterly.balance).at(-1);
   const fx = rateFor(rates, sourceBalance.reportedCurrency, null, sourceBalance.date, 'closing', 'HKD');
-  stock.liquidation = { version: 1, ticker: item.ticker, currency: 'HKD', source: 'FMP stable balance-sheet-statement and quote',
+  stock.liquidation = { version: 1, ticker: item.ticker, currency: 'HKD',
+    source: sourceBalance.balanceClassificationSource ? 'HKEX official classified balance sheet; FMP quote'
+      : 'FMP stable balance-sheet-statement and quote',
+    balanceSource: sourceBalance.balanceClassificationSource || null,
     fetchedAt: evidence.capturedAt, balanceDate: sourceBalance.date, quoteDate, sourceCurrency: sourceBalance.reportedCurrency,
     fx, receivablesBasis: 'trade', shareBasis: stock.shareBasis,
     quote: { currency: 'HKD', date: quoteDate, price: quote.price, marketCap: quote.marketCap },
