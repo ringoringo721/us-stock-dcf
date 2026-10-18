@@ -46,6 +46,10 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
     assert.equal(await page.locator('#screener-tbody tr').first().locator('td').count(), 34);
     assert.deepEqual(await page.evaluate(() => Object.keys(stockUniverse)), Object.keys(market));
     for (const [ticker, stock] of Object.entries(market)) {
+      const homepageValue = await page.evaluate(ticker => stockUniverse[ticker].default_fair_val, ticker);
+      assert.ok(Number.isFinite(homepageValue), `${ticker}: automatic homepage valuation`);
+      const cells = await page.locator('#screener-tbody tr').filter({ hasText: ticker }).locator('td').allTextContents();
+      assert.ok(cells.some(value => value.startsWith(`HKD ${homepageValue.toFixed(2)}`)), `${ticker}: sourced homepage fair-value cell`);
       const forecast = stock.pe_forward_source;
       assert.equal(forecast.reason, null, `${ticker}: supported analyst forecast`);
       assert.equal(forecast.basis, 'nextFiscalYearConsensusEps');
@@ -175,13 +179,29 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
           if (stock.reportingFrequency !== 'semiannual') await page.selectOption(selector, 'quarterly');
         }
         if (tab === 'valuation' && !stock.fin_valuation.is_financial) {
-          if (ticker === '0823.HK') {
-            const baseline = await page.evaluate(() => Fcff.calculate(HK_FCFF_DATA.stocks['0823.HK']));
+          if (['0823.HK', '0700.HK', '0388.HK', '9988.HK'].includes(ticker)) {
+            const baseline = await page.evaluate(ticker => Fcff.calculate(HK_FCFF_DATA.stocks[ticker]), ticker);
             assert.equal(baseline.reason, null);
             assert.equal(await page.locator('#det-res-fair').innerText(),
               'HKD ' + baseline.fairVal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
-            assert.match(await page.locator('#fcff-status').innerText(), /not analyst profit consensus/);
-            assert.match(await page.locator('#fcff-driver-detail').innerText(), /Normalized rental-margin scenario/);
+            if (ticker === '0823.HK') {
+              assert.match(await page.locator('#fcff-status').innerText(), /not analyst profit consensus/);
+              assert.match(await page.locator('#fcff-driver-detail').innerText(), /Normalized rental-margin scenario/);
+            } else {
+              assert.match(await page.locator('#fcff-assumptions').textContent(), ticker === '0700.HK'
+                ? /FY2025 less H1 2025 plus H1 2026/ : ticker === '9988.HK'
+                  ? /not a current TTM stitched across inconsistent/ : /Matched client balances are excluded together/);
+              assert.equal(await page.locator('#fcff-assumptions a').count(), ticker === '0388.HK' ? 1 : 2);
+              if (ticker === '9988.HK') {
+                assert.match(await page.locator('#fcff-source-note').innerText(), /Latest complete annual period ended.*2026-03-31/);
+                assert.match(await page.locator('label[for="fcff-depreciation"]').textContent(), /impairment/);
+                assert.match(await page.locator('#fcff-assumptions').textContent(), /operating lease claims are not deducted again/);
+              }
+              if (ticker === '0388.HK') {
+                assert.match(await page.locator('#fcff-driver-detail').innerText(), /not direct consensus/);
+                assert.match(await page.locator('label[for="fcff-openingWorkingCapital"]').textContent(), /required capital/);
+              }
+            }
           } else {
             assert.equal(await page.locator('#det-res-fair').innerText(), 'N/A', 'Unreconciled sources remain unavailable');
           }
@@ -331,7 +351,7 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
         width: element.getBoundingClientRect().width, right: element.getBoundingClientRect().right })))));
     assert.deepEqual(errors, []);
     assert.deepEqual(failed, []);
-    console.log('PASS: six HKEX securities, sourced FY1 P/E across screener/overview/peers, localized missing Moat dimensions and mobile layout, disclosed/resettable Link forecast-tax scenario without changing history or source guards, real half years, HKD prices, HSBC/CCB automatic bank valuations and issuer-wide share scenario reset.');
+    console.log('PASS: all six HKEX automatic homepage/subpage valuations, sourced FY1 P/E, partial Moat, mobile layout, Link rental FCFF and resettable tax/NCI scenarios, Tencent reconstructed TTM, HKEX corporate/client-fund classification, Alibaba annual operating-lease/copyright reconciliation, disclosed model anchors, real half years, HKD prices, automatic bank models and issuer-wide shares.');
   } finally {
     await browser.close();
     await new Promise(resolve => server.close(resolve));

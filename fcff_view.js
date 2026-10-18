@@ -193,6 +193,18 @@
             '預測稅率 (%)；使用者同意的情境，非實報集團有效稅率', 'Forecast tax (%); user-approved scenario, not reported group effective tax');
           if (key === 'minority' && source?.noncontrollingClaimAssumption) label = text(
             '非控制權益估值情境 ($M；未核實公允價值)', 'Noncontrolling claim scenario ($M; unverified fair value)');
+          if (source?.officialReconciliation?.workingCapitalBasis === 'operatingAndRequiredCapital') {
+            if (key === 'openingWorkingCapital') label = text('期末營運及必要資本 ($M)', 'Closing operating and required capital ($M)');
+            if (key === 'workingCapital') label = text('營運及必要資本／營收 (%)', 'Operating and required capital / revenue (%)');
+          }
+          if (key === 'kd' && source?.officialReconciliation?.method === 'officialOperatingComponents') label = text(
+            '稅前債務成本 (%)；來源所列期間的歷史代理', 'Pretax debt cost (%); historical proxy for the disclosed source period');
+          if (key === 'investments' && source?.officialReconciliation?.capital?.otherClaims > 0) label = text(
+            '非營運投資帳面代理（已扣其他金融索償；$M）', 'Nonoperating investment book proxy, net of other financial claims ($M)');
+          if (key === 'cash' && source?.officialReconciliation?.cashBasis) label = text(
+            '現金及短期投資（整體抵押扣除另見投資代理；$M）', 'Cash / short-term investments (pooled collateral deducted in investment proxy; $M)');
+          if (key === 'depreciation' && source?.officialReconciliation?.depreciationBasis === 'noncashDepreciationAmortizationAndImpairment') label = text(
+            '非現金折舊、攤銷及減值／營收 (%)；不含另列營運版權成本', 'Noncash depreciation, amortization and impairment / revenue (%); separate operating copyrights excluded');
           return `<div class="form-group"><label for="fcff-${key}">${escape(label)}</label>
             <input type="number" id="fcff-${key}" step="0.01" value="${finite(value) ? value.toFixed(2) : ''}"
               data-precise-value="${finite(value) ? value : ''}" data-formatted-value="${finite(value) ? value.toFixed(2) : ''}"
@@ -303,28 +315,33 @@
         ? 'User-directed rate proxy: USD Treasury 10Y under the HKD/USD peg, not an observed HKD yield. WACC still uses this company’s beta, capital structure, debt cost and tax.'
         : '按使用者要求，聯匯下以美元 10 年期美債作利率代理，並非實報港元收益率。WACC 仍按本公司的 Beta、資本結構、債務成本及稅率計算。') : '',
       source?.ttm?.reportingFrequency === 'annual' ? text(
-        '估值起點採最新完整實報年度，不是當前 TTM；中期現金流不明，不當作零或已知實績。首年尚未公布的流量按日均分。交易倍數仍採可獨立核實的當前 TTM；缺值不以年度數值代填。',
-        'Valuation starts from the latest complete reported annual period, not current TTM. Unknown interim cash flows are not zero or known actuals; unreported first-year flows are modeled uniformly by day. Trading multiples still use independently verified current TTM; annual values do not fill missing current TTM.') : '',
+        '估值起點採最新完整實報年度，不是當前 TTM；中期現金流不明，不當作零或已知實績。首年尚未公布的流量按日均分。交易倍數另沿用有來源的當前 TTM／供應商口徑，並非官方模型分項的重編歷史；缺值不以年度數值代填。',
+        'Valuation starts from the latest complete reported annual period, not current TTM. Unknown interim cash flows are not zero or known actuals; unreported first-year flows are modeled uniformly by day. Trading multiples separately retain sourced current TTM/provider definitions, not official-component restated history; annual values do not fill missing current TTM.') : '',
       source?.valuationCaution ? text('此 REIT 按要求先採與美股相同的一般企業 FCFF 情境，不是專用 AFFO 或資產淨值估值。營運物業不能再當作非營運投資加回；須核對長期投資、稅率及非控制權益代理，不能把帳面負值視作負數優先索償。',
         'As requested, this REIT uses general corporate FCFF, not dedicated AFFO/NAV. Operating properties must not also be added as nonoperating investments. Review long-term investments, tax and noncontrolling claim proxies; negative book equity is not a negative priority claim.') : '',
       text('營運比率採最新 TTM；現金及投資視作非營運資產，優先股及非控制權益採已標示、可調整的估值代理。', 'Operating ratios use latest TTM; cash/investments are assumed nonoperating and priority claims use disclosed, adjustable value proxies.'),
       source?.provenance?.forecastFx && `${text('未來匯率固定於', 'Future FX fixed at')} ${source.provenance.forecastFx.observationDate || source.valuationDate}: ${source.provenance.forecastFx.rate}`,
       text('分析師幣別以歷史年度金額尺度核對，非 API 明示幣別；Kd 是歷史代理，ERP 與 g 是模型假設。', 'Analyst currency is inferred from historical annual scale, not an explicit API currency field; Kd is a historical proxy, ERP and g are model assumptions.'),
-      forecastTaxNote || text('預測稅率起點為 TTM 有效稅率代理，不代表未來實際稅率。', 'Forecast tax starts from a TTM effective-rate proxy, not a known future actual rate.'),
+      forecastTaxNote || (ttm?.reportingFrequency === 'annual'
+        ? text('預測稅率起點為完整年度有效稅率代理，不代表當前 TTM 或未來實際稅率。', 'Forecast tax starts from a complete-annual effective-rate proxy, not current TTM or known future actual tax.')
+        : text('預測稅率起點為 TTM 有效稅率代理，不代表未來實際稅率。', 'Forecast tax starts from a TTM effective-rate proxy, not a known future actual rate.')),
       noncontrollingNote,
       rentalNote,
+      source?.officialReconciliation?.method === 'officialOperatingComponents'
+        ? text(source.officialReconciliation.noteZh, source.officialReconciliation.noteEn) : '',
       text('EBITDA 缺值時使用分析師 EBIT＋模型 D&A；D&A 可由分析師 EBITDA－EBIT 推導，兩者均非獨立現金流預測。本財年累計營運 EBITDA＝實際營業 EBIT＋現金流 D&A，未獨立認證與分析師調整口徑一致。', 'Missing EBITDA uses analyst EBIT + modeled D&A; D&A can be derived from analyst EBITDA − EBIT, neither being independent cash-flow consensus. YTD operating EBITDA = reported operating EBIT + cash-flow D&A; comparability with analyst-adjusted definitions is not independently certified.'),
       text('預估稅項＝EBIT × 情境稅率；虧損會產生假設稅益，未另建稅損抵扣／遞延稅模型，不代表已知退稅。', 'Pro forma tax = EBIT × scenario tax rate; losses imply assumed tax benefits. No separate NOL/deferred-tax schedule is modeled and refunds are not known actuals.'),
       text('Beta 預設來自 FMP Profile，回應未明示年期／頻率／基準；手動修改均屬使用者情境，不是 FMP 預測。', 'Default beta comes from FMP Profile; lookback/frequency/benchmark are unspecified. Manual edits are user scenarios, not FMP forecasts.'),
       text('租賃付款已在 FCFF 承擔時，只排除對應負債；WACC 與股權橋接使用相同債務口徑。', 'Only matching lease claims already borne by FCFF are excluded; WACC and the equity bridge use identical financing debt.')
     ].filter(Boolean).join(' · ');
-    if (source?.officialReconciliation?.document) {
-      const documentSource = source.officialReconciliation.document;
+    const documents = source?.officialReconciliation?.documents
+      || (source?.officialReconciliation?.document ? [source.officialReconciliation.document] : []);
+    for (const documentSource of documents) {
       const link = document.createElement('a');
       link.href = documentSource.url;
       link.target = '_blank';
       link.rel = 'noopener noreferrer';
-      link.textContent = ` ${text('官方年報及對帳依據', 'Official annual report and reconciliation evidence')} · PDF ${documentSource.pdfPages.join(', ')}`;
+      link.textContent = ` ${text('官方財報及對帳依據', 'Official statement and reconciliation evidence')}: ${documentSource.title} · PDF ${documentSource.pdfPages.join(', ')}`;
       document.getElementById('fcff-assumptions').append(link);
     }
     document.getElementById('fcff-status').textContent = result.reason
@@ -395,6 +412,7 @@
       analyst: text('FMP 分析師預測', 'FMP analyst estimate'),
       model: text('模型推算', 'Modeled'),
       normalizedRentalMargin: text('正常化租賃利潤率情境（非分析師盈利預測）', 'Normalized rental-margin scenario (not analyst profit consensus)'),
+      exCorporateInvestmentIncome: text('分析師總額扣除模型化自有資金收益／費用（非直接共識）', 'Analyst aggregate less modeled corporate-portfolio income/cost (not direct consensus)'),
       user: text('使用者情境', 'User scenario'),
       analystEbitPlusModelDa: text('分析師 EBIT＋模型 D&A（非直接 EBITDA 預測）', 'Analyst EBIT + modeled D&A (not direct EBITDA consensus)'),
       analystSpread: text('分析師 EBITDA－EBIT（推導，非獨立 D&A 預測）', 'Analyst EBITDA − EBIT (derived, not independent D&A consensus)')
@@ -463,7 +481,9 @@
       ],
       capex: [editRow('CapEx', 'capex', row => row.capex, false, 'capexRate'),
         editRow(text('CapEx／營收 (%)', 'Capex / revenue (%)'), 'capexRate', row => row.capex / row.revenue * 100, true, 'capex')],
-      workingCapital: [editRow(text('期末非現金 NWC', 'Closing noncash NWC'), 'workingCapital', row => row.workingCapital, false, 'workingCapitalRate'),
+      workingCapital: [editRow(snapshot()?.officialReconciliation?.workingCapitalBasis === 'operatingAndRequiredCapital'
+        ? text('期末營運及必要資本', 'Closing operating and required capital')
+        : text('期末非現金 NWC', 'Closing noncash NWC'), 'workingCapital', row => row.workingCapital, false, 'workingCapitalRate'),
         editRow(text('NWC／營收 (%)', 'NWC / revenue (%)'), 'workingCapitalRate', row => row.workingCapital / row.revenue * 100, true, 'workingCapital')],
       depreciation: [editRow('D&A', 'depreciation', row => row.depreciation, false, 'depreciationRate'),
         editRow(text('D&A／營收 (%)', 'D&A / revenue (%)'), 'depreciationRate', row => row.depreciation / row.revenue * 100, true, 'depreciation'),
@@ -487,6 +507,9 @@
     if (assumptionTab === 'workingCapital') {
       const cadence = market.cadence(context.stock, 'balance');
       const quarters = (history?.quarterly || []).slice(-cadence.count);
+      if (snapshot()?.officialReconciliation) detail.innerHTML += `<p class="analysis-note">${text(
+        '以下為保留的供應商歷史口徑，不代表已按官方模型分項重編；上方預測採「來源、代理值與假設說明」所列的獨立對帳營運資金／必要資本基準。',
+        'The following retains provider historical definitions, not an official-component restatement. Projections above use the separate reconciled operating/required-capital basis in the source disclosures.')}</p>`;
       detail.innerHTML += `<p class="analysis-note">${text(
         '非現金 NWC＝流動資產－現金及短期投資－流動負債＋流動借款及列示流動租賃。每個季度餘額除以同季度結束的 LTM 營收，並非四季餘額相加；負 NWC 減少會增加 FCFF。租賃／債務未核對時，這些數字只作暫定財務支持。',
         'Noncash NWC = current assets − cash/short-term investments − current liabilities + current borrowings and reported current leases. Each balance uses its own matching LTM revenue, not summed quarterly balances. A fall in NWC increases FCFF. Unreconciled lease/debt inputs remain provisional support, not a validated valuation.')}</p>` +

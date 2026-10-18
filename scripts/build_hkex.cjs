@@ -507,12 +507,12 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
       inventory: balance('inventory'), preferredStock: balance('preferredStock') } };
   liquidation.calculate(stock.liquidation, item.ticker).values.forEach((value, i) => { stock[`liq_val_${i + 1}`] = value; });
   let snapshot = applyForecastTaxAssumption(reconcileValuation(
-    prepareSnapshot(item.ticker, evidence, treasury, rates, null, { statementData: raw, shareSource }), raw), item);
+    prepareSnapshot(item.ticker, evidence, treasury, rates, null, { statementData: raw, shareSource }), raw, undefined, rates), item);
   snapshot = applyNoncontrollingClaimAssumption(snapshot, item);
   if (item.requiresSegmentValuation) snapshot.reason = 'requiresSegmentValuation';
   if (item.generalCorporateValuationWarning) snapshot.valuationCaution = 'generalCorporateFcffNotReitAffoOrNav';
   if (raw.qualityWarnings.some(warning => warning.code === 'annualInterimReconciliation') && !snapshot.reason
-      && snapshot.officialReconciliation?.basis !== 'matchedOfficialAnnualComponents') {
+      && !['matchedOfficialAnnualComponents', 'matchedOfficialTtmComponents'].includes(snapshot.officialReconciliation?.basis)) {
     snapshot.reason = 'statementReconciliationRequired';
   }
   if (item.financial) {

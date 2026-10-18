@@ -122,8 +122,55 @@ evidence. They apply only to the exact reviewed financial-content fingerprint
 and model period. Changed statements require fresh review; unrelated source/FX
 failures remain blocking. Original annual/interim discrepancy warnings are not
 erased: the Link model uses independently reconciled official annual components
-rather than treating those provider discrepancies as resolved. Other issuers'
-unreconciled models remain unavailable.
+rather than treating those provider discrepancies as resolved.
+
+Tencent also uses issuer-specific official components: FY2025 minus H1 2025 plus
+H1 2026 reconstructs TTM. H2 is derived in CNY before each half is converted at
+its own historical average FX; individual quarterly components are not invented.
+Cash investment includes PPE, intangibles and land, plus actual organic ROU
+additions. Acquisition ROU assets are not treated as recurring lease additions.
+Lease debt remains in financing and principal is not deducted a second time.
+Identified capital/financial balances are excluded from the operating-capital
+proxy; disclosed noncurrent royalty balances, cash-settled employee awards and
+deferred revenue are included, not mislabeled financial claims. Unclassified
+long-term other balances are not certified nonoperating additions. Investment
+book proxies are net of other financial
+claims, not certified realizable values or tax-adjusted disposal proceeds.
+Kd annualizes the latest half-year interest over matching average financing
+debt; it is not TTM interest or a marginal borrowing quote.
+
+HKEX uses complete FY2025 cash-flow components, **not current TTM**. Client margin
+and clearing assets/liabilities are excluded together; participant balances and
+gross derivatives are not shareholder cash or investments. The operating and
+required-capital proxy includes own clearing capital and regulatory reserves.
+Cash capex includes HQ payments; only actual new leases from the financing
+rollforward are added, not total ROU additions. Corporate portfolio income is
+excluded before adding available portfolio assets. Future portfolio income and
+facility commitment fees use disclosed FY2025 proportions of analyst aggregate
+revenue: explicitly labeled model adjustments, not direct analyst consensus.
+Other financial claims are deducted from the investment book proxy.
+
+Alibaba uses complete official FY ended **2026-03-31**, not current TTM assembled
+from inconsistent quarterly/annual licensed-copyright amortization scopes.
+Published quarters remain in the financial/history tables. Model EBIT removes
+goodwill impairment and property-disposal gains but retains SBC. Noncash addbacks
+use the PPE/land cost and income-statement intangible amortization/impairment
+lines; broader cash-flow licensed-copyright amortization is not added again.
+Related film/copyright operating balances enter operating capital while their
+costs remain in EBIT. US GAAP operating rentals remain expenses; operating lease
+claims are not deducted again as financing debt. Paid land-use rights retain
+cash-investment/noncash-amortization treatment. Buyer-protection balances are
+excluded as matched pairs. Pledged treasury funds remain required capital and
+are deducted once from pooled nonoperating investment value, not again from
+cash. Acquisition claims, mezzanine equity and NCI use disclosed book proxies.
+Sourced June-quarter quoted capital remains separate from the March annual
+model; provider TTM multiples are not rewritten as normalized annual history.
+
+These reconciliations preserve original statement tables, supported historical
+periods and provider-multiple definitions rather than restating them as official
+normalized history. They do not certify point-in-time historical valuations,
+all balance-sheet fair values, realization taxes or analyst profit comparability.
+Exact financial-content and period gates still apply to every reconciled model.
 
 The HKEX refresh workflow checks at 07:30 and 19:30 Hong Kong time on business
 days. It refreshes sources, recomputes PF from actual comparable periods and
