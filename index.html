@@ -1164,6 +1164,7 @@
             <th onclick="sortTable('pb_trailing')" style="width: 90px;" data-i18n="th_pb">靜態 P/B</th>
             <th onclick="sortTable('div_yield')" style="width: 105px;" data-i18n="th_div">股息率 (%)</th>
             <th onclick="sortTable('fcf_to_ev')" style="width: 110px;">FCF / EV (%)</th>
+            <th onclick="sortTable('fcf_to_equity')" style="width: 170px;" data-i18n="fcf_equity_label">FCF / 股東應佔權益 (%)</th>
             <th onclick="sortTable('fcf_to_mcap')" style="width: 120px;">FCF / Mcap (%)</th>
             <th onclick="sortTable('cash_to_assets')" style="width: 110px;" data-i18n="th_cash_assets">現金/資產 (%)</th>
             <th onclick="sortTable('liab_to_assets')" style="width: 110px;" data-i18n="th_liab_assets">負債/資產 (%)</th>
@@ -2181,6 +2182,8 @@
       screener_overview: "重點概覽",
       screener_valuation: "估值與目標價",
       screener_financial: "財務與品質",
+      fcf_equity_label: "FCF / 股東應佔權益 (%)",
+      fcf_equity_basis: "自由現金流 ÷ 同期期末本公司股東應佔權益（不含非控股權益）× 100%。首頁使用真實 TTM 現金流；缺失或零權益顯示 N/A。負權益的比率僅表示算術結果，不代表正面回報。",
       screener_all_columns: "全部欄位",
       screener_reset: "清除篩選",
       screener_industries: "板塊與子行業篩選",
@@ -2595,6 +2598,8 @@
       screener_overview: "Essential overview",
       screener_valuation: "Valuation & targets",
       screener_financial: "Financials & quality",
+      fcf_equity_label: "FCF / Parent equity (%)",
+      fcf_equity_basis: "Free cash flow / same-period closing equity attributable to equity holders of the Company (excluding noncontrolling interests) x 100%. The screener uses actual TTM cash flow; missing inputs or zero equity show N/A. Ratios with negative equity are arithmetic results, not evidence of a positive return.",
       screener_all_columns: "All columns",
       screener_reset: "Clear filters",
       screener_industries: "Sector & industry filters",
@@ -3646,12 +3651,13 @@
     const presets = {
       overview: { width: 1200, fields: ['ticker', 'name', 'price', 'fairVal', 'target_price', 'action', 'premiumPct', 'moat_score', 'f_score'] },
       valuation: { width: 1900, fields: ['ticker', 'name', 'sector', 'price', 'fairVal', 'target_price', 'action', 'target_spread', 'premiumPct', 'moat_score', 'WACC', 'EV', 'mcap', 'liq_val_1', 'liq_val_2', 'liq_val_3'] },
-      financial: { width: 2200, fields: ['ticker', 'name', 'price', 'mcap', 'pe_trailing', 'pe_forward', 'pb_trailing', 'div_yield', 'fcf_to_ev', 'fcf_to_mcap', 'cash_to_assets', 'liab_to_assets', 'current_ratio', 'roe', 'roa', 'f_score', 'ev_to_ebitda', 'debt_to_ebitda', 'net_debt_to_ebitda'] },
-      all: { width: 4280, fields: null }
+      financial: { width: 2370, fields: ['ticker', 'name', 'price', 'mcap', 'pe_trailing', 'pe_forward', 'pb_trailing', 'div_yield', 'fcf_to_ev', 'fcf_to_equity', 'fcf_to_mcap', 'cash_to_assets', 'liab_to_assets', 'current_ratio', 'roe', 'roa', 'f_score', 'ev_to_ebitda', 'debt_to_ebitda', 'net_debt_to_ebitda'] },
+      all: { width: 4450, fields: null }
     };
     const preset = presets[mode];
     if (!preset) throw new RangeError('Invalid screener column view');
     const table = document.getElementById('screener-table');
+    table.querySelector('th[onclick="sortTable(\'fcf_to_equity\')"]').title = I18N_DICT[currentLang].fcf_equity_basis;
     formatScreenerHeaders();
     const hideLiquidation = preset.fields !== null && !preset.fields.includes('liq_val_1');
     document.getElementById('screener-liquidation-key').hidden = hideLiquidation;
@@ -3741,6 +3747,7 @@
 
       return { 
         ticker, ...s, ...defaultDcf, 
+        fcf_to_equity: FcfRatios.storedTtmFcfToEquity(s.statements_raw, s.currencyConversion?.reason),
         fairVal: fairVal,
         isSaved, isFav, target_price, target_spread, moat_score,
         liquidationResult,
@@ -3876,6 +3883,7 @@
           <td>${item.pb_trailing ? Number(item.pb_trailing).toFixed(1) : '--'}</td>
           <td style="color: var(--accent); font-weight: 700;">${Number.isFinite(item.div_yield) ? item.div_yield.toFixed(2) + '%' : 'N/A'}</td>
           <td style="color: var(--accent); font-weight: 600;">${Number.isFinite(item.fcf_to_ev) ? item.fcf_to_ev.toFixed(2) + '%' : 'N/A'}</td>
+          <td data-metric="fcf_to_equity" title="${I18N_DICT[currentLang].fcf_equity_basis}" style="color: var(--accent); font-weight: 600;">${Number.isFinite(item.fcf_to_equity) ? item.fcf_to_equity.toFixed(2) + '%' : 'N/A'}</td>
           <td style="color: var(--nasdaq-purple); font-weight: 600;">${Number.isFinite(item.fcf_to_mcap) ? item.fcf_to_mcap.toFixed(2) + '%' : 'N/A'}</td>
           <td style="color: var(--accent);">${Number.isFinite(item.cash_to_assets) ? item.cash_to_assets.toFixed(1) + '%' : 'N/A'}</td>
           <td>${Number.isFinite(item.liab_to_assets) ? item.liab_to_assets.toFixed(1) + '%' : 'N/A'}</td>
@@ -4748,6 +4756,11 @@
     const ebitdaGrowth = calcGrowth(ebitda, 'ebitda');
     const epsGrowth = calcGrowth(eps, 'epsDiluted');
     const fcfGrowth = calcGrowth(fcf, 'freeCashFlow');
+    const fcfEquity = fcf.map((value, i) =>
+      (isQuarter ? qRaw.fxUnavailable : rawStmts.fxUnavailable)?.[i] ? null
+        : !isQuarter && i === count - 1
+          ? FcfRatios.storedTtmFcfToEquity(rawStmts, s.currencyConversion?.reason)
+          : FcfRatios.fcfToEquity(value, equity[i]));
 
     const ratioGroups = [
       {
@@ -4770,6 +4783,7 @@
           { nameZh: "營運現金流 (Operating Cash Flow, $M)", nameEn: "Operating Cash Flow ($M)", series: cfo },
           { nameZh: "自由現金流 (Free Cash Flow, $M)", nameEn: "Free Cash Flow ($M)", series: fcf, highlight: true, color: "text-green" },
           { nameZh: isQuarter ? "自由現金流季增率 % (FCF Growth QoQ)" : "自由現金流年增率 % (FCF Growth YoY)", nameEn: isQuarter ? "FCF Growth % (QoQ)" : "FCF Growth % (YoY)", series: fcfGrowth, isPercent: true, color: "text-green" },
+          { nameZh: "FCF / 本公司股東應佔權益 (%)", nameEn: "FCF / Equity attributable to equity holders of the Company (%)", series: fcfEquity, isPercent: true, color: "text-green", note: I18N_DICT[currentLang].fcf_equity_basis },
           { nameZh: "資產報酬率 % (ROA)", nameEn: "ROA %", series: ni.map((n, i) => (totAssets[i] ? (n / totAssets[i]) * 100 : NaN)), isPercent: true, color: "text-green" },
           { nameZh: "股東權益報酬率 % (ROE)", nameEn: "ROE %", series: ni.map((n, i) => (equity[i] ? (n / equity[i]) * 100 : NaN)), isPercent: true, color: "text-gold" }
         ]
@@ -4807,7 +4821,7 @@
         const hl = it.highlight ? 'font-weight: 700; color: var(--text);' : 'color: var(--text-secondary);';
         const colorCls = it.color || '';
 
-        html += `<tr><td class="table-sticky-col" style="text-align: left; ${hl} padding-left: 24px;">${label}</td>`;
+        html += `<tr><td class="table-sticky-col"${it.note ? ` title="${it.note}"` : ''} style="text-align: left; ${hl} padding-left: 24px;">${label}</td>`;
         it.series.forEach((val, cIdx) => {
           let disp = '';
           if (!Number.isFinite(val) || (isQuarter ? qRaw.fxUnavailable : rawStmts.fxUnavailable)?.[cIdx]) disp = 'N/A';

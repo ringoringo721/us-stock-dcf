@@ -3,7 +3,38 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
-const { calculate, calculateReturns, calculateBalances, calculateEarnings, financialReference, trend } = require('../fcf_ratios.js');
+const { calculate, fcfToEquity, storedTtmFcfToEquity, calculateReturns, calculateBalances, calculateEarnings, financialReference, trend } = require('../fcf_ratios.js');
+
+test('FCF / closing parent equity preserves zero and negative values without filling missing inputs', () => {
+  assert.equal(fcfToEquity(120, 600), 20);
+  assert.equal(fcfToEquity(0, 600), 0);
+  assert.equal(fcfToEquity(-120, 600), -20);
+  assert.equal(fcfToEquity(120, -600), -20);
+  for (const missing of [null, undefined, NaN, Infinity, '120']) {
+    assert.equal(fcfToEquity(missing, 600), null);
+    assert.equal(fcfToEquity(120, missing), null);
+  }
+  assert.equal(fcfToEquity(120, 0), null);
+  assert.equal(fcfToEquity(Number.MAX_VALUE, Number.MIN_VALUE), null);
+});
+
+test('stored TTM FCF / parent equity uses the closing slot, not annual FCF or total equity including NCI', () => {
+  const statements = {
+    cashflow: { freeCashFlow: [10, 60] },
+    balance: { totalStockholdersEquity: [100, 200], totalEquity: [400, 600] }
+  };
+  assert.equal(storedTtmFcfToEquity(statements), 30);
+  assert.equal(storedTtmFcfToEquity(statements, 'dateMismatch'), null);
+  assert.equal(storedTtmFcfToEquity(statements, 'missingFinancialData'), 30,
+    'Unrelated missing valuation inputs must not hide supported FCF/equity');
+  const missing = structuredClone(statements);
+  missing.cashflow.freeCashFlow[1] = null;
+  assert.equal(storedTtmFcfToEquity(missing), null, 'Annual FCF must not fill missing TTM');
+  assert.equal(storedTtmFcfToEquity({ ...statements, fxUnavailable: [false, true] }), null);
+  assert.equal(storedTtmFcfToEquity({ ...statements, cashflow: { freeCashFlow: [10] } }), null);
+  assert.equal(storedTtmFcfToEquity({ ...statements, balance: { totalEquity: [400, 600] } }), null);
+  assert.equal(storedTtmFcfToEquity(undefined), null);
+});
 
 test('Per-diluted-share trends preserve reported EPS, historical shares, fiscal periods and missing data', () => {
   const data = fixture();

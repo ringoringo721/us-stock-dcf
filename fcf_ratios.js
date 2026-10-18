@@ -76,6 +76,23 @@
     return calculateRatios(data, options, false);
   }
 
+  function fcfToEquity(fcf, equity) {
+    if (!Number.isFinite(fcf) || !Number.isFinite(equity) || equity === 0) return null;
+    const value = fcf / equity * 100;
+    return Number.isFinite(value) ? value : null;
+  }
+
+  function storedTtmFcfToEquity(statements, sourceReason) {
+    if (sourceReason === 'dateMismatch') return null;
+    const cashflow = statements?.cashflow?.freeCashFlow;
+    const equity = statements?.balance?.totalStockholdersEquity;
+    if (!Array.isArray(cashflow) || !Array.isArray(equity)
+      || !cashflow.length || cashflow.length !== equity.length) return null;
+    const index = cashflow.length - 1;
+    if (statements.fxUnavailable?.[index]) return null;
+    return fcfToEquity(cashflow[index], equity[index]);
+  }
+
   function calculateReturns(data, options = {}) {
     return calculateRatios(data, options, true);
   }
@@ -585,5 +602,5 @@
     }
   }
 
-  return { calculate, calculateReturns, calculateBalances, calculateEarnings, halfYearStatements, loadStatements, financialReference, trend, render, renderReturns };
+  return { calculate, fcfToEquity, storedTtmFcfToEquity, calculateReturns, calculateBalances, calculateEarnings, halfYearStatements, loadStatements, financialReference, trend, render, renderReturns };
 });

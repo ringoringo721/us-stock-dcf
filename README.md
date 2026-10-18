@@ -7,7 +7,7 @@ allowlisted browser assets and financial/price/FX caches in `public/`. Backend
 programs, raw source captures and private rating inputs are not public assets.
 `vercel.json` makes browsers revalidate data rather than retaining stale scores.
 
-The shared interface has a US/HKEX selector, the same 33 screener columns and all
+The shared interface has a US/HKEX selector, the same 34 screener columns and all
 nine company subpages. The initial real-data HKEX universe is Tencent (00700),
 Alibaba (09988), HSBC (00005), HKEX (00388), CCB (00939) and Link REIT (00823).
 Qualified provider identities retain `.HK`; they are not US sample aliases.
@@ -37,6 +37,15 @@ half-year closing report. Derived half-year diluted counts are explicitly simple
 averages, not issued shares or reported half-year counts. Nonadditive half-year
 EPS is unavailable; genuine four-quarter TTM EPS remains available. Missing
 quarters, annual-only cash flows and FX gaps are never filled.
+
+Both screeners show FCF / equity attributable to equity holders of the Company
+between FCF/EV and FCF/market cap. This percentage uses actual TTM free cash flow
+and closing `totalStockholdersEquity`, excluding noncontrolling interests,
+independently of DCF model availability. The profitability table shows the same
+ratio immediately after FCF growth, using each displayed period's cash flow and
+closing parent equity. Missing cash flows, FX gaps and zero equity remain N/A;
+negative equity is not treated as a positive-return signal. Full-year cash flow
+is not substituted for missing TTM or interim cash flow.
 
 HKEX Piotroski diagnostics compare nine actual statement-based criteria,
 including CFO (not FCF), changes in ROA/leverage/liquidity/margin/turnover and

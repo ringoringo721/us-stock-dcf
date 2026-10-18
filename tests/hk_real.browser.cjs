@@ -43,7 +43,7 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
     assert.match(await page.locator('#market-select').innerText(), /🇺🇸 United States \(USD\)/);
     assert.match(await page.locator('#market-select').innerText(), /🇭🇰 Hong Kong \(HKD\)/);
     assert.equal(await page.locator('#screener-tbody tr').count(), 6);
-    assert.equal(await page.locator('#screener-tbody tr').first().locator('td').count(), 33);
+    assert.equal(await page.locator('#screener-tbody tr').first().locator('td').count(), 34);
     assert.deepEqual(await page.evaluate(() => Object.keys(stockUniverse)), Object.keys(market));
     for (const [ticker, stock] of Object.entries(market)) {
       const raw = read(`cache\\financials\\${ticker}_statements_v2.json`);

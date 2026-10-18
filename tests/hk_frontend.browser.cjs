@@ -84,7 +84,7 @@ const price = ticker => ({ version: 1, ticker, providerSymbol: ticker, currency:
     await page.waitForFunction(() => isAppReady);
     assert.deepEqual(await page.evaluate(() => Object.keys(stockUniverse)), tickers);
     assert.equal(await page.locator('#screener-tbody tr').count(), 6);
-    assert.equal(await page.locator('#screener-tbody tr').first().locator('td').count(), 33);
+    assert.equal(await page.locator('#screener-tbody tr').first().locator('td').count(), 34);
     assert.match(await page.locator('#screener-tbody').innerText(), /HKD/);
     assert.doesNotMatch(await page.locator('#screener-tbody').innerText(), /null|undefined|50 pt/);
     const saved = await page.evaluate(() => {
@@ -125,7 +125,8 @@ const price = ticker => ({ version: 1, ticker, providerSymbol: ticker, currency:
       assert.doesNotMatch(await page.locator('#fscore-breakdown-body').innerText(), /Fail \(0\)|undefined/);
       await page.evaluate(() => switchSubPage('charts'));
       await page.waitForFunction(() => document.getElementById('balance-body').children.length === 9);
-      await page.selectOption('#balance-period', 'quarterly');
+      assert.equal(await page.locator('#balance-period option[value="quarterly"]').isDisabled(), true);
+      await page.selectOption('#balance-period', 'semiannual');
       await page.waitForFunction(() => document.getElementById('balance-head').textContent.includes('H2'));
       assert.equal(await page.locator('#balance-date option').count(), 6);
       assert.doesNotMatch(await page.locator('#balance-head').innerText(), /\bQ[1-4]\b/);
@@ -158,7 +159,7 @@ const price = ticker => ({ version: 1, ticker, providerSymbol: ticker, currency:
     assert.equal(await page.locator('#market-select').inputValue(), 'US');
     assert.equal(await page.evaluate(() => Object.keys(stockUniverse).length), 230);
     assert.deepEqual(errors, []);
-    console.log('HK frontend browser passed: six isolated fixtures, 33 columns, nine tabs, HKD prices, half-year charts, unavailable ratings and US isolation.');
+    console.log('HK frontend browser passed: six isolated fixtures, 34 columns, nine tabs, HKD prices, half-year charts, unavailable ratings and US isolation.');
   } finally {
     await browser.close();
     await new Promise(resolve => server.close(resolve));
