@@ -88,6 +88,43 @@ discarding the category or assigning missing dimensions zero points. The
 diagnostic table scrolls horizontally on narrow screens. These presentation
 changes do not regenerate assessments or alter their source timestamps.
 
+Link's rental FCFF scenario uses the matching official complete annual operating
+components in `cache/hkex_valuation_reconciliations.json`, not the unreconciled
+provider half-year cash-flow construction. Raw financial tables and historical
+reported-multiple inputs are retained separately. Net property income less
+corporate expenses excludes property fair-value changes, noncash impairment,
+interest and joint-venture profit. Cash reinvestment includes investment-property
+additions as well as PPE; disclosed new ROU assets are actually nil, not assumed
+missing zeros. All disclosed operating balances, including noncurrent deposits
+and provisions, form an explicit working-capital proxy; financing and cash-capex
+accruals are excluded to avoid counting them again.
+
+The financing waterfall retains the annual financing-liability rollforward,
+including NCI shareholder loans and net financing derivatives at book proxies.
+The approved zero NCI **equity** scenario does not cancel those loans. Only
+unrestricted cash and the joint-venture book proxy are added; rental properties
+are not added again. Kd uses cash interest over average book financing claims,
+an adjustable historical proxy, not marginal borrowing cost. Quoted capital
+separately retains total reported cash and reported NCI book equity.
+
+Only analyst **revenue** remains a consensus anchor in this rental scenario.
+EBIT and D&A use constant normalized rental margins and are explicitly labeled
+model assumptions; original consensus profit measures remain in the data.
+Component terminal reinvestment retains property cash capex net of D&A and
+incremental operating working capital, instead of assuming property maintenance
+equals accounting depreciation. This remains FCFF/WACC, not AFFO, DDM or NAV.
+Rent, occupancy, reinvestment and capitalization-rate risks still require
+scenario analysis; removing noncash revaluations does not remove economic risk.
+
+Official reconciliation records include the PDF hash, page references and
+approval/document-modification dates, **not** certified point-in-time publication
+evidence. They apply only to the exact reviewed financial-content fingerprint
+and model period. Changed statements require fresh review; unrelated source/FX
+failures remain blocking. Original annual/interim discrepancy warnings are not
+erased: the Link model uses independently reconciled official annual components
+rather than treating those provider discrepancies as resolved. Other issuers'
+unreconciled models remain unavailable.
+
 The HKEX refresh workflow checks at 07:30 and 19:30 Hong Kong time on business
 days. It refreshes sources, recomputes PF from actual comparable periods and
 reanalyzes moat only when financial/call content or assessment rules change. It is not an

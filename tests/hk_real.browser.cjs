@@ -175,7 +175,16 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
           if (stock.reportingFrequency !== 'semiannual') await page.selectOption(selector, 'quarterly');
         }
         if (tab === 'valuation' && !stock.fin_valuation.is_financial) {
-          assert.equal(await page.locator('#det-res-fair').innerText(), 'N/A', 'Source guards remain effective by default');
+          if (ticker === '0823.HK') {
+            const baseline = await page.evaluate(() => Fcff.calculate(HK_FCFF_DATA.stocks['0823.HK']));
+            assert.equal(baseline.reason, null);
+            assert.equal(await page.locator('#det-res-fair').innerText(),
+              'HKD ' + baseline.fairVal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
+            assert.match(await page.locator('#fcff-status').innerText(), /not analyst profit consensus/);
+            assert.match(await page.locator('#fcff-driver-detail').innerText(), /Normalized rental-margin scenario/);
+          } else {
+            assert.equal(await page.locator('#det-res-fair').innerText(), 'N/A', 'Unreconciled sources remain unavailable');
+          }
           await page.locator('#fcff-input-controls summary').click();
           assert.equal(await page.locator('#fcff-openingWorkingCapital').isDisabled(), true);
           await page.locator('#fcff-confirm-financing').check();
@@ -277,7 +286,9 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
     assert.equal(await page.locator('#fcff-minority').inputValue(), '0.00');
     assert.match(await page.locator('label[for="fcff-minority"]').textContent(), /unverified fair value/);
     assert.match(await page.locator('#fcff-status').innerText(), /common unitholder value may be overstated/);
-    assert.equal(await page.locator('#det-res-fair').innerText(), 'N/A', 'Tax approval does not waive other reconciliation guards');
+    assert.notEqual(await page.locator('#det-res-fair').innerText(), 'N/A', 'Matched official operating and financing inputs enable the rental scenario');
+    assert.equal(await page.evaluate(() => HK_FCFF_DATA.stocks['0823.HK'].officialReconciliation.basis),
+      'matchedOfficialAnnualComponents');
     const sourceTax = await page.evaluate(() => ({
       tax: HK_FCFF_DATA.stocks['0823.HK'].defaults.tax,
       minority: HK_FCFF_DATA.stocks['0823.HK'].defaults.minority,

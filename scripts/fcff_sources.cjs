@@ -216,9 +216,14 @@ function prepareSnapshot(ticker, evidence, treasury, rates, leaseEvidence, optio
   const tax = finite(taxExpense) && finite(pretax) && pretax > 0 && taxExpense >= 0 && taxExpense <= pretax
     ? taxExpense / pretax * 100 : null;
   const debtBasis = financingDebt(bs);
-  const olderBalance = converted.quarterly.balance.find(row => period(row) === period(bs) - 4);
-  const averageDebt = olderBalance && number(olderBalance, 'totalDebt') !== null && number(bs, 'totalDebt') !== null
-    ? (olderBalance.totalDebt + bs.totalDebt) / 2 : null;
+  const olderBalance = (frequency === 'annual' ? converted.annual.balance : converted.quarterly.balance)
+    .find(row => period(row) === period(bs) - 4
+      && row.reportedCurrency === bs.reportedCurrency && !row.currencyConversion?.reason
+      && (Date.parse(bs.date) - Date.parse(row.date)) / 86400000 >= 330
+      && (Date.parse(bs.date) - Date.parse(row.date)) / 86400000 <= 400);
+  const olderDebt = olderBalance ? financingDebt(olderBalance) : null;
+  const averageDebt = debtBasis.value !== null && olderDebt?.value != null
+    ? (olderDebt.value + debtBasis.value) / 2 : null;
   const interest = sum(inc, 'interestExpense');
   const kd = bs.totalDebt === 0 ? 0
     : averageDebt > 0 && interest > 0 ? interest / averageDebt * 100 : null;
@@ -305,6 +310,9 @@ function prepareSnapshot(ticker, evidence, treasury, rates, leaseEvidence, optio
         : 'User-directed USD Treasury proxy under the HKD/USD peg; not an observed HKD yield or a copied US-stock WACC' } : {}),
       tax: 'TTM effective tax; scenario assumption, not a marginal-rate forecast',
       kd: 'TTM accounting interest / average reported debt; not a current financing quote',
+      debtCost: { basis: frequency === 'annual' ? 'reportedAnnualInterestOverAverageAnnualDebt'
+        : 'reportedTtmInterestOverAverageDebt', openingDate: olderBalance?.date || null,
+        closingDate: bs.date, interest: millions(interest), averageDebt: millions(averageDebt) },
       erp: '4.75% model assumption, not an FMP forecast',
       beta: 'FMP profile beta; lookback, frequency and benchmark unspecified by the response',
       terminalG: '2.25% model assumption, not an FMP forecast',

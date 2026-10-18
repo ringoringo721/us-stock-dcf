@@ -216,3 +216,35 @@ test('HK annual-only cash flow selects one complete annual base but preserves in
   assert.equal(snapshot.quotedCapital.date, '2026-09-30');
   assert.equal(snapshot.balance.date, '2025-12-31');
 });
+
+test('annual model debt costs use the previous annual balance, not a discarded quarterly placeholder', () => {
+  const input = hkEvidence();
+  for (const response of Object.values(input.responses)) {
+    for (const row of response.rows) if (row.reportedCurrency) row.reportedCurrency = 'HKD';
+  }
+  const annual = type => ({ ...input.responses[type].rows[1], period: 'FY' });
+  const statements = {
+    reportingFrequency: 'quarterly', statementFrequencies: { cashflow: 'annual' },
+    annual: {
+      income: [{ ...annual('income'), revenue: 1e9, operatingIncome: 200e6,
+        incomeTaxExpense: 40e6, incomeBeforeTax: 200e6, interestExpense: 5e6 }],
+      balance: [{ ...annual('balance'), date: '2024-12-31', fiscalYear: 2024, totalDebt: 80e6 },
+        annual('balance')],
+      cashflow: [{ ...annual('cashflow'), depreciationAndAmortization: 30e6, capitalExpenditure: -50e6 }]
+    },
+    quarterly: { income: input.responses.income.rows, balance: input.responses.balance.rows, cashflow: [] }
+  };
+  const build = () => prepareSnapshot('TEST.HK', input, treasury, hkdRates, null, { statementData: statements });
+  assert.equal(build().defaults.kd, 5e6 / 90e6 * 100);
+  assert.deepEqual(build().provenance.debtCost, {
+    basis: 'reportedAnnualInterestOverAverageAnnualDebt', openingDate: '2024-12-31',
+    closingDate: '2025-12-31', interest: 5, averageDebt: 90
+  });
+  statements.annual.balance[0].capitalLeaseObligations = 10e6;
+  assert.equal(build().defaults.kd, null, 'Do not mix unreconciled opening debt with the current debt basis');
+  statements.annual.balance[0].capitalLeaseObligations = 0;
+  statements.annual.balance[0].date = '2024-01-01';
+  assert.equal(build().defaults.kd, null, 'A matching fiscal label cannot substitute for a matching balance date');
+  statements.annual.balance = statements.annual.balance.slice(1);
+  assert.equal(build().defaults.kd, null, 'Never fabricate an opening balance when the annual source is absent');
+});

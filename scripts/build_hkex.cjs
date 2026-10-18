@@ -7,6 +7,7 @@ const scores = require('../statement_scores.js');
 const ratios = require('../fcf_ratios.js');
 const liquidation = require('../liquidation.js');
 const { prepareSnapshot, forecastFxRate } = require('./fcff_sources.cjs');
+const { reconcileValuation } = require('./hkex_valuation_sources.cjs');
 const config = require('../hkex_stocks.json');
 const shareCapital = require('../cache/hkex_share_capital.json');
 
@@ -505,12 +506,15 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
       cashAndShortTermInvestments: balance('cashAndShortTermInvestments'), tradeReceivables: balance('accountsReceivables'),
       inventory: balance('inventory'), preferredStock: balance('preferredStock') } };
   liquidation.calculate(stock.liquidation, item.ticker).values.forEach((value, i) => { stock[`liq_val_${i + 1}`] = value; });
-  let snapshot = applyForecastTaxAssumption(
-    prepareSnapshot(item.ticker, evidence, treasury, rates, null, { statementData: raw, shareSource }), item);
+  let snapshot = applyForecastTaxAssumption(reconcileValuation(
+    prepareSnapshot(item.ticker, evidence, treasury, rates, null, { statementData: raw, shareSource }), raw), item);
   snapshot = applyNoncontrollingClaimAssumption(snapshot, item);
   if (item.requiresSegmentValuation) snapshot.reason = 'requiresSegmentValuation';
   if (item.generalCorporateValuationWarning) snapshot.valuationCaution = 'generalCorporateFcffNotReitAffoOrNav';
-  if (raw.qualityWarnings.some(warning => warning.code === 'annualInterimReconciliation') && !snapshot.reason) snapshot.reason = 'statementReconciliationRequired';
+  if (raw.qualityWarnings.some(warning => warning.code === 'annualInterimReconciliation') && !snapshot.reason
+      && snapshot.officialReconciliation?.basis !== 'matchedOfficialAnnualComponents') {
+    snapshot.reason = 'statementReconciliationRequired';
+  }
   if (item.financial) {
     const reference = ratios.financialReference(data, { shares: stock.shares });
     if (shareClassUnverified) { reference.reason = 'shareBasisUnverified'; reference.tbvps = null; }

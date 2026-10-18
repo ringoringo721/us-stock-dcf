@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "stocks": {
+    "0823.HK": {
+      "ticker": "0823.HK",
+      "balanceDate": "2026-03-31",
+      "statementApprovalDate": "2026-05-28",
+      "currency": "HKD",
+      "unit": "millions",
+      "financialFingerprint": "6f2bb527cd367941b5348c91ae55a8229ba1af92e9ae701bcee32383b6c45eef",
+      "document": {
+        "title": "Link REIT Annual Report 2025/2026, Governance, Disclosures and Financial Statements",
+        "url": "https://www.linkreit.com/-/media/linkreit/investor-relations/financial-reports-and-presentations/financial-report/2026/fy2526-annual-report_governance-disclosures-and-financial-statements_b2_en.pdf?rev=6d28d1c56614433fb185c3b1210fce86&hash=1526F2F567F1DACA81E177AA69545FD5",
+        "sha256": "73734a23c216add2661fcedfa9fca0aeb66afb3f5d3b8a94026a3d9748198ec9",
+        "modifiedDate": "2026-06-11",
+        "pdfPages": [114, 117, 119, 133, 141, 142, 143, 144, 149, 160, 161]
+      },
+      "inputs": {
+        "revenue": 13938,
+        "netPropertyIncome": 10230,
+        "corporateExpenses": 829,
+        "propertyFairValueLoss": 14491,
+        "propertyPlantEquipmentImpairment": 44,
+        "depreciation": 90,
+        "cashPropertyAdditions": 1895,
+        "cashOtherCapex": 39,
+        "newNoncashLeaseAssets": 0,
+        "leaseDebt": 9,
+        "receivables": 1094,
+        "depositsAndPrepayments": 233,
+        "payablesAndAccruals": 2442,
+        "accruedCapex": 559,
+        "securityDeposits": 2216,
+        "incentiveProvision": 187,
+        "financingAccrualsIncludingLeases": 163,
+        "borrowings": 53029,
+        "convertibleBonds": 3262,
+        "noncontrollingLoans": 3063,
+        "netFinancingDerivatives": 1650,
+        "openingFinancingLiabilities": 56501,
+        "cashInterestPaid": 1812,
+        "unrestrictedCashAndDeposits": 3350,
+        "totalCashAndDeposits": 3805,
+        "jointVentureBookValue": 2324,
+        "noncontrollingBookEquity": -386,
+        "preferredEquity": 0
+      }
+    }
+  }
+}

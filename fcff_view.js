@@ -21,6 +21,7 @@
     missingHkdRiskFreeRate: ['缺少日期對齊的美債代理或港元基準；不猜測利率。', 'A dated Treasury proxy or HKD benchmark is unavailable; no rate is guessed.'],
     shareBasisUnverified: ['普通股／A、H 股或報價單位的股數基準尚未核實，不計算每股估值。', 'The common-share, A/H-share or quoted-unit denominator is unverified; per-share valuation is unavailable.'],
     statementReconciliationRequired: ['年度與中期來源尚未調節一致；受影響估值不可用。', 'Annual and interim sources require reconciliation; affected valuations remain unavailable.'],
+    officialReconciliationRequired: ['財報期間或內容已改變，須重新核對官方估值輸入；不沿用舊期對帳。', 'Statement periods or content changed; official valuation inputs require fresh reconciliation rather than reusing an older review.'],
     sourceSymbolMismatch: ['來源股票代碼不一致。', 'Source ticker symbols do not match.'],
     missingQuote: ['缺少有效美元報價或總市值。', 'A valid USD quote and market capitalization are required.'],
     sourceDateMismatch: ['來源日期無效、未公布或不一致。', 'Source dates are invalid, unpublished or inconsistent.'],
@@ -283,6 +284,10 @@
       ? text(`非控制權益預設估值情境 ${amount(noncontrolling.value)}（${source.currency} 百萬）；原始帳面值 ${amount(noncontrolling.reportedBookValue)}。這是使用者同意、可調整的情境，不是實報零權益，也不是已核實公允價值；若實際索償有正值，普通單位持有人的估值會偏高。此情境僅限股權，不代表免除股東借款或其他融資負債。`,
         `Default noncontrolling claim scenario ${source.currency} ${amount(noncontrolling.value)}M; reported book equity ${amount(noncontrolling.reportedBookValue)}M. User-approved and adjustable, not reported zero equity or verified fair value; common unitholder value may be overstated if the actual claim has positive value. This equity-only scenario does not waive shareholder loans or other financing liabilities.`)
       : '';
+    const rentalNote = source?.officialReconciliation?.method === 'normalizedRentalFcffScenario'
+      ? text('此收租 FCFF 情境採官方全年租賃營運數據，剔除物業重估及非現金減值。預測只沿用分析師營收，EBIT／D&A 以正常化租賃比率推算，不是分析師盈利預測；終值保留物業現金資本支出。營運資金包括非流動營運餘額；融資負債包括非控股股東借款及淨融資衍生工具帳面代理，並非市場報價。原始財報與供應商歷史倍數口徑保留供對照。重估所反映的租金、出租率及資本化率風險仍須調整情境，不能因剔除會計損失而忽略。',
+        'Rental FCFF scenario uses official full-year rental operating components, excluding property revaluation and noncash impairment. Only revenue retains analyst anchors; EBIT/D&A use modeled normalized rental margins, not analyst profit consensus. Terminal reinvestment retains property cash capex. Operating working capital includes noncurrent operating balances; financing includes NCI loans and net financing derivatives at book proxies, not market quotes. Original statements and provider historical-multiple definitions remain available for comparison. Adjust for rent, occupancy and capitalization-rate risks reflected by revaluations; excluding accounting losses does not remove economic risk.')
+      : '';
     document.getElementById('fcff-source-note').textContent = [
       context.ticker, market.currencyFor(context.ticker, context.stock), source?.valuationDate,
       source?.quoteDate && `${text('報價日期', 'Quote date')}: ${source.quoteDate}`,
@@ -307,11 +312,21 @@
       text('分析師幣別以歷史年度金額尺度核對，非 API 明示幣別；Kd 是歷史代理，ERP 與 g 是模型假設。', 'Analyst currency is inferred from historical annual scale, not an explicit API currency field; Kd is a historical proxy, ERP and g are model assumptions.'),
       forecastTaxNote || text('預測稅率起點為 TTM 有效稅率代理，不代表未來實際稅率。', 'Forecast tax starts from a TTM effective-rate proxy, not a known future actual rate.'),
       noncontrollingNote,
+      rentalNote,
       text('EBITDA 缺值時使用分析師 EBIT＋模型 D&A；D&A 可由分析師 EBITDA－EBIT 推導，兩者均非獨立現金流預測。本財年累計營運 EBITDA＝實際營業 EBIT＋現金流 D&A，未獨立認證與分析師調整口徑一致。', 'Missing EBITDA uses analyst EBIT + modeled D&A; D&A can be derived from analyst EBITDA − EBIT, neither being independent cash-flow consensus. YTD operating EBITDA = reported operating EBIT + cash-flow D&A; comparability with analyst-adjusted definitions is not independently certified.'),
       text('預估稅項＝EBIT × 情境稅率；虧損會產生假設稅益，未另建稅損抵扣／遞延稅模型，不代表已知退稅。', 'Pro forma tax = EBIT × scenario tax rate; losses imply assumed tax benefits. No separate NOL/deferred-tax schedule is modeled and refunds are not known actuals.'),
       text('Beta 預設來自 FMP Profile，回應未明示年期／頻率／基準；手動修改均屬使用者情境，不是 FMP 預測。', 'Default beta comes from FMP Profile; lookback/frequency/benchmark are unspecified. Manual edits are user scenarios, not FMP forecasts.'),
       text('租賃付款已在 FCFF 承擔時，只排除對應負債；WACC 與股權橋接使用相同債務口徑。', 'Only matching lease claims already borne by FCFF are excluded; WACC and the equity bridge use identical financing debt.')
     ].filter(Boolean).join(' · ');
+    if (source?.officialReconciliation?.document) {
+      const documentSource = source.officialReconciliation.document;
+      const link = document.createElement('a');
+      link.href = documentSource.url;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.textContent = ` ${text('官方年報及對帳依據', 'Official annual report and reconciliation evidence')} · PDF ${documentSource.pdfPages.join(', ')}`;
+      document.getElementById('fcff-assumptions').append(link);
+    }
     document.getElementById('fcff-status').textContent = result.reason
       ? reasonText(result.reason, context.language()) + (result.annuals?.length
         ? text(' 可用年度數據僅供建立假設，不代表估值已核准。', ' Available annual projections are a draft, not a validated valuation.') : '')
@@ -324,6 +339,7 @@
     }
     if (forecastTaxNote) document.getElementById('fcff-status').textContent += ` ${forecastTaxNote}`;
     if (noncontrollingNote) document.getElementById('fcff-status').textContent += ` ${noncontrollingNote}`;
+    if (rentalNote) document.getElementById('fcff-status').textContent += ` ${rentalNote}`;
     document.getElementById('det-res-fair').textContent = finite(result.fairVal) ? `${money()}${amount(result.fairVal)}` : 'N/A';
     document.getElementById('det-res-fair').className = `stat-num ${result.fairVal === null
       ? 'text-muted' : result.fairVal < 0 ? 'text-red' : 'text-green'}`;
@@ -378,6 +394,7 @@
     return {
       analyst: text('FMP 分析師預測', 'FMP analyst estimate'),
       model: text('模型推算', 'Modeled'),
+      normalizedRentalMargin: text('正常化租賃利潤率情境（非分析師盈利預測）', 'Normalized rental-margin scenario (not analyst profit consensus)'),
       user: text('使用者情境', 'User scenario'),
       analystEbitPlusModelDa: text('分析師 EBIT＋模型 D&A（非直接 EBITDA 預測）', 'Analyst EBIT + modeled D&A (not direct EBITDA consensus)'),
       analystSpread: text('分析師 EBITDA－EBIT（推導，非獨立 D&A 預測）', 'Analyst EBITDA − EBIT (derived, not independent D&A consensus)')
