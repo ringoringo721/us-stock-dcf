@@ -1,9 +1,51 @@
 import unittest
+import os
+import sys
+from types import SimpleNamespace
+from unittest.mock import Mock, patch
 
-from scripts.refresh_hkex_moat import ASSESSMENT_POLICY, DIMENSIONS, needs_refresh, validate_report
+from scripts.refresh_hkex_moat import ASSESSMENT_POLICY, DIMENSIONS, create_client, needs_refresh, validate_report
 
 
 class MoatEvidenceTests(unittest.TestCase):
+    def test_service_account_location_can_use_global_without_changing_default_or_exposing_credentials(self):
+        credentials = object()
+        client = Mock()
+        account = SimpleNamespace(Credentials=SimpleNamespace(from_service_account_info=Mock(return_value=credentials)))
+        google = SimpleNamespace(genai=SimpleNamespace(Client=client))
+        with patch.dict(sys.modules, {"google": google, "google.oauth2": SimpleNamespace(service_account=account)}), \
+             patch.dict(os.environ, {"GCP_SA_KEY": '{"project_id":"credential-project"}',
+                                     "GOOGLE_CLOUD_LOCATION": "global"}, clear=True):
+            create_client()
+        client.assert_called_once_with(vertexai=True, project="credential-project", location="global", credentials=credentials)
+
+    def test_adc_uses_standard_vertex_project_credentials_before_express_key(self):
+        credentials = object()
+        client = Mock()
+        auth = SimpleNamespace(default=Mock(return_value=(credentials, "credential-project")))
+        google = SimpleNamespace(genai=SimpleNamespace(Client=client), auth=auth)
+        with patch.dict(sys.modules, {"google": google, "google.auth": auth}), patch.dict(os.environ, {
+            "GOOGLE_APPLICATION_CREDENTIALS": "test-file.json",
+            "GOOGLE_CLOUD_PROJECT": "selected-project",
+            "GOOGLE_CLOUD_LOCATION": "europe-west4",
+            "GEMINI_API_KEY": "test-express-placeholder"
+        }, clear=True):
+            create_client()
+        client.assert_called_once_with(vertexai=True, project="selected-project",
+                                       location="europe-west4", credentials=credentials)
+        auth.default.assert_called_once_with(scopes=["https://www.googleapis.com/auth/cloud-platform"])
+
+    def test_adc_without_a_project_fails_instead_of_falling_back_to_an_api_key(self):
+        auth = SimpleNamespace(default=Mock(return_value=(object(), None)))
+        google = SimpleNamespace(genai=SimpleNamespace(Client=Mock()), auth=auth)
+        with patch.dict(sys.modules, {"google": google, "google.auth": auth}), patch.dict(os.environ, {
+            "GOOGLE_APPLICATION_CREDENTIALS": "test-file.json",
+            "GEMINI_API_KEY": "test-express-placeholder"
+        }, clear=True):
+            with self.assertRaisesRegex(ValueError, "GOOGLE_CLOUD_PROJECT"):
+                create_client()
+        google.genai.Client.assert_not_called()
+
     def report(self):
         return {"ticker": "0700.HK", "overall_moat_verdict_zh": "Evidence", "overall_moat_verdict_en": "Evidence",
                 **{name: {"score": 7, "sources": ["profile"], "comment_zh": "Evidence", "comment_en": "Evidence"}

@@ -99,6 +99,7 @@ jobs:
       - name: Translate and save exact-title matches, without articles or deployment
         env:
           GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+          GOOGLE_CLOUD_LOCATION: global
         run: python -u scripts/translate_news.py
       - name: Preserve translations and actual token usage
         if: always()
