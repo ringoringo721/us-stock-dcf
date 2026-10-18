@@ -6,7 +6,7 @@ const { value } = require('./usd_financials.cjs');
 const scores = require('../statement_scores.js');
 const ratios = require('../fcf_ratios.js');
 const liquidation = require('../liquidation.js');
-const { prepareSnapshot } = require('./fcff_sources.cjs');
+const { prepareSnapshot, forecastFxRate } = require('./fcff_sources.cjs');
 const config = require('../hkex_stocks.json');
 const shareCapital = require('../cache/hkex_share_capital.json');
 
@@ -292,6 +292,61 @@ function priceHistory(evidence) {
     columns: ['date', 'close', 'volume'], rows: ordered };
 }
 
+function forwardPriceEarnings(item, evidence, rates, shareSource, price) {
+  const asOf = evidence.capturedAt.slice(0, 10);
+  const unavailable = reason => ({ value: null, reason, asOf, source: 'FMP analyst-estimates',
+    basis: 'nextFiscalYearConsensusEps', fetchedAt: evidence.capturedAt });
+  if (!finite(price) || price <= 0) return unavailable('missingQuote');
+  const annual = readRows(evidence, 'annual_income').filter(row => row.symbol === item.ticker
+    && day(row.date) && row.date <= asOf && ['filingDate', 'acceptedDate'].every(field =>
+      !row[field] || (typeof row[field] === 'string' && day(row[field].slice(0, 10))
+        && row[field].slice(0, 10) <= asOf)))
+    .sort((a, b) => a.date.localeCompare(b.date)).at(-1);
+  const estimates = readRows(evidence, 'estimates');
+  if (!annual || !/^[A-Z]{3}$/.test(annual.reportedCurrency)) return unavailable('forecastCurrencyUnverified');
+  if (estimates.some(row => row.symbol !== item.ticker)) return unavailable('forecastSymbolMismatch');
+  const year = Number(asOf.slice(0, 4)), end = annual.date.slice(4);
+  const expected = `${year}${end}` > asOf ? `${year}${end}` : `${year + 1}${end}`;
+  const next = estimates.filter(row => day(row.date) && row.date > asOf
+    && Math.abs(Date.parse(row.date) - Date.parse(expected)) <= 10 * 86400000);
+  if (next.length !== 1) return unavailable(next.length ? 'ambiguousForecast' : 'missingNextFiscalForecast');
+  const forecast = next[0];
+  if (!finite(forecast.epsAvg) || forecast.epsAvg <= 0 || !Number.isInteger(forecast.numAnalystsEps)
+      || forecast.numAnalystsEps <= 0) {
+    return unavailable('nonPositiveOrMissingForecastEps');
+  }
+  const matched = estimates.filter(row => day(row.date)
+    && Math.abs(Date.parse(row.date) - Date.parse(annual.date)) <= 10 * 86400000);
+  const scaleField = item.financial ? 'netIncome' : 'revenue';
+  const actual = annual[scaleField], historical = matched.length === 1 ? matched[0][`${scaleField}Avg`] : null;
+  const currencyScale = finite(actual) && actual > 0 && finite(historical) ? historical / actual : null;
+  if (currencyScale === null || currencyScale < 0.75 || currencyScale > 1.25) {
+    return unavailable('forecastCurrencyScaleUnverified');
+  }
+  const impliedShares = finite(forecast.netIncomeAvg) ? forecast.netIncomeAvg / forecast.epsAvg : null;
+  const shareScale = impliedShares !== null && finite(shareSource?.shares) && shareSource.shares > 0
+    ? impliedShares / (shareSource.shares * 1e6) : null;
+  if (shareScale === null || shareScale < 0.75 || shareScale > 1.25) return unavailable('forecastShareScaleUnverified');
+  const fx = forecastFxRate(rates, annual.reportedCurrency, 'HKD', asOf);
+  if (fx.reason || !finite(fx.rate) || fx.rate <= 0) return unavailable('missingForecastFx');
+  const epsHkd = forecast.epsAvg * fx.rate;
+  const value = price / epsHkd;
+  if (!finite(value) || value <= 0) return unavailable('invalidForecastMultiple');
+  const currencyNoteZh = annual.reportedCurrency === 'HKD'
+    ? `預測 EPS 已以 HKD 列示：${epsHkd.toFixed(4)}，無須匯率換算。`
+    : `EPS ${annual.reportedCurrency} ${forecast.epsAvg.toFixed(4)} 換算為 HKD ${epsHkd.toFixed(4)}；匯率觀察日 ${fx.observationDate}。`;
+  const currencyNoteEn = annual.reportedCurrency === 'HKD'
+    ? `Forecast EPS is already HKD ${epsHkd.toFixed(4)}; no FX conversion is needed.`
+    : `EPS ${annual.reportedCurrency} ${forecast.epsAvg.toFixed(4)} converts to HKD ${epsHkd.toFixed(4)}; FX observation ${fx.observationDate}.`;
+  return { ...unavailable(null), value, fiscalDate: forecast.date, eps: forecast.epsAvg, epsHkd,
+    currency: annual.reportedCurrency, fx, analysts: forecast.numAnalystsEps,
+    currencyScaleCheck: { date: annual.date, field: scaleField, ratio: currencyScale },
+    shareScaleCheck: { impliedForecastShares: impliedShares, currentOutstandingShares: shareSource.shares * 1e6, ratio: shareScale },
+    epsBasis: 'Provider analyst EPS; basic/diluted and adjusted/GAAP definitions are not independently certified',
+    noteZh: `下一財年截至 ${forecast.date}：股價 ÷ 分析師預測 EPS。${currencyNoteZh}這是分析師預測，基本／攤薄及經調整／會計準則口徑未獨立核實，不是已公布盈利或 DCF 股數分母。`,
+    noteEn: `FY1 ends ${forecast.date}: price / analyst forecast EPS. ${currencyNoteEn} Analyst forecast, not reported earnings or the DCF share denominator; basic/diluted and adjusted/GAAP definitions are not independently certified.` };
+}
+
 function compileStock(item, evidence, rates, moatReports = {}, previousStock = {}, treasury = null) {
   const profile = readRows(evidence, 'profile'), quotes = readRows(evidence, 'quote');
   if (profile.length !== 1 || profile[0].symbol !== item.ticker || profile[0].currency !== 'HKD'
@@ -384,6 +439,8 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
   stock.net_debt = finite(stock.debt) && finite(stock.cash_and_short_term) ? stock.debt - stock.cash_and_short_term : null;
   stock.ev = finite(stock.net_debt) ? stock.mcap + stock.net_debt : null; stock.fmp_official_ev = stock.ev;
   stock.pe_trailing = divide(stock.price, flow('income', 'epsdiluted'));
+  stock.pe_forward_source = forwardPriceEarnings(item, evidence, rates, shareSource, stock.price);
+  stock.pe_forward = stock.pe_forward_source.value;
   stock.pb_trailing = item.shareClassReviewRequired ? null : divide(stock.mcap, millions(balance('totalStockholdersEquity')));
   stock.ps_ratio = item.shareClassReviewRequired ? null : divide(stock.mcap, millions(flow('income', 'revenue')));
   stock.ev_to_ebitda = divide(stock.ev, millions(flow('income', 'ebitda')));
@@ -484,4 +541,4 @@ if (require.main === module) {
   if (process.env.MOAT_EVIDENCE_OUTPUT) fs.writeFileSync(process.env.MOAT_EVIDENCE_OUTPUT, JSON.stringify(inputs));
   console.log(`Built ${inputs.length} real HKEX listings in HKD; incomplete evidence remains explicitly unavailable.`);
 }
-module.exports = { prepareStatements, ttmRows, flowValue, statementTable, scoreBreakdown, priceHistory, compileStock, compile, hash, valuationShares };
+module.exports = { prepareStatements, ttmRows, flowValue, statementTable, scoreBreakdown, priceHistory, compileStock, compile, hash, valuationShares, forwardPriceEarnings };

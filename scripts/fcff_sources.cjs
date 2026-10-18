@@ -8,6 +8,18 @@ const sum = (rows, field) => rows.length && rows.every(row => number(row, field)
   ? rows.reduce((total, row) => total + row[field], 0) : null;
 const millions = value => finite(value) ? value / 1e6 : null;
 const sorted = rows => rows.slice().sort((a, b) => a.date.localeCompare(b.date));
+
+function forecastFxRate(rates, sourceCurrency, currency, valuationDate) {
+  const targetDates = currency === 'USD' ? null : new Set(rates?.currencies?.[currency]?.observations?.map(row => row[0]));
+  const observations = rates?.currencies?.[sourceCurrency === 'USD' ? currency : sourceCurrency]?.observations;
+  const observation = sourceCurrency === currency ? valuationDate : observations
+    ?.filter(row => row[0] <= valuationDate && finite(row[1]) && row[1] > 0
+      && (!targetDates || targetDates.has(row[0]))).slice().sort((a, b) => a[0].localeCompare(b[0])).at(-1)?.[0];
+  if (!day(valuationDate) || !observation || (Date.parse(valuationDate) - Date.parse(observation)) / 86400000 > 14) {
+    return { rate: null, reason: 'missingForecastFx' };
+  }
+  return rateFor(rates, sourceCurrency, null, observation, 'closing', currency);
+}
 const workingCapital = row => ['totalCurrentAssets', 'cashAndShortTermInvestments',
   'totalCurrentLiabilities', 'shortTermDebt', 'capitalLeaseObligationsCurrent']
   .every(field => number(row, field) !== null)
@@ -176,15 +188,7 @@ function prepareSnapshot(ticker, evidence, treasury, rates, leaseEvidence, optio
   const bs = converted.quarterly.balance.find(row => row.date === balance.date);
   if ([...inc, ...cf, bs].some(row => row.currencyConversion.reason)) return unavailable('missingFx');
   const sourceCurrency = balance.reportedCurrency;
-  const targetDates = currency === 'USD' ? null : new Set(rates?.currencies?.[currency]?.observations?.map(row => row[0]));
-  const forecastObservations = rates?.currencies?.[sourceCurrency === 'USD' ? currency : sourceCurrency]?.observations;
-  const observation = sourceCurrency === currency ? valuationDate : forecastObservations
-    ?.filter(row => row[0] <= valuationDate && finite(row[1]) && row[1] > 0
-      && (!targetDates || targetDates.has(row[0]))).at(-1)?.[0];
-  if (!observation || (Date.parse(valuationDate) - Date.parse(observation)) / 86400000 > 14) {
-    return unavailable('missingForecastFx');
-  }
-  const forecastFx = rateFor(rates, sourceCurrency, null, observation, 'closing', currency);
+  const forecastFx = forecastFxRate(rates, sourceCurrency, currency, valuationDate);
   if (!finite(forecastFx.rate)) return unavailable('missingForecastFx');
   const estimates = sorted(read('estimates').filter(row => day(row.date)
     && finite(row.revenueAvg) && row.revenueAvg > 0 && (finite(row.ebitAvg) || finite(row.ebitdaAvg))));
@@ -338,4 +342,4 @@ function prepareSnapshot(ticker, evidence, treasury, rates, leaseEvidence, optio
   return snapshot;
 }
 
-module.exports = { prepareSnapshot, financingDebt, workingCapital, outstandingShares };
+module.exports = { prepareSnapshot, financingDebt, workingCapital, outstandingShares, forecastFxRate };

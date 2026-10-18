@@ -27,7 +27,7 @@
   <script src="fcf_ratios.js?v=parent-equity-1"></script>
   <script src="balance_sheet.js"></script>
   <script src="earnings_trend.js"></script>
-  <script src="profile_overview.js"></script>
+  <script src="profile_overview.js?v=forecast-evidence-1"></script>
   <script src="price_history.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   
@@ -490,6 +490,7 @@
     .btn-nav:hover { background: var(--accent); color: var(--on-accent); }
 
     .fscore-table, .moat-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .moat-table { min-width: 1180px; table-layout: fixed; }
     .fscore-table th, .fscore-table td, .moat-table th, .moat-table td { padding: 12px 14px; border-bottom: 1px solid var(--card-border); text-align: left; }
     .fscore-table th, .moat-table th { background: var(--header-bg); color: var(--text-secondary); font-weight: 600; }
     
@@ -900,7 +901,7 @@
     #subpage-rating .stat-box:nth-child(4) { border-top-color: var(--nasdaq-purple); }
     #subpage-rating .stat-label { text-transform: none; letter-spacing: normal; line-height: 1.6; min-height: 38px; }
     #subpage-rating .stat-num { font-size: clamp(23px, 2.5vw, 32px); font-variant-numeric: tabular-nums; margin: 10px 0; }
-    #subpage-rating .ai-comment-card { border-radius: 10px; padding: 22px; border-left: 4px solid var(--accent); line-height: 1.9; font-size: 14px; }
+    #subpage-rating .ai-comment-card { border-radius: 10px; padding: 22px; border-left: 4px solid var(--accent); line-height: 1.9; font-size: 14px; overflow-wrap: anywhere; }
     #fscore-view { margin-top: 34px; padding-top: 16px; border-top: 1px solid var(--card-border); }
     .valuation-intro { border-top: 3px solid var(--accent); }
     #fcff-workspace { min-width: 0; }
@@ -2183,6 +2184,8 @@
       screener_valuation: "估值與目標價",
       screener_financial: "財務與品質",
       fcf_equity_label: "FCF / 股東應佔權益 (%)",
+      moat_unassessed: "未評分",
+      moat_unassessed_help: "目前證據不足以評分；不代表零分，也不代表沒有護城河。",
       fcf_equity_basis: "自由現金流 ÷ 同期期末本公司股東應佔權益（不含非控股權益）× 100%。首頁使用真實 TTM 現金流；缺失或零權益顯示 N/A。負權益的比率僅表示算術結果，不代表正面回報。",
       screener_all_columns: "全部欄位",
       screener_reset: "清除篩選",
@@ -2599,6 +2602,8 @@
       screener_valuation: "Valuation & targets",
       screener_financial: "Financials & quality",
       fcf_equity_label: "FCF / Parent equity (%)",
+      moat_unassessed: "Not assessed",
+      moat_unassessed_help: "Insufficient evidence to assess this dimension; not a zero score or evidence of no moat.",
       fcf_equity_basis: "Free cash flow / same-period closing equity attributable to equity holders of the Company (excluding noncontrolling interests) x 100%. The screener uses actual TTM cash flow; missing inputs or zero equity show N/A. Ratios with negative equity are arithmetic results, not evidence of a positive return.",
       screener_all_columns: "All columns",
       screener_reset: "Clear filters",
@@ -3689,6 +3694,16 @@
     renderScreenerTable();
   }
 
+  function escapeAttribute(text) {
+    return String(text ?? '').replace(/&/g, '&amp;').replace(/"/g, '&quot;')
+      .replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, '&#10;');
+  }
+
+  function forwardPeNote(stock) {
+    const source = stock.pe_forward_source;
+    return source ? (currentLang === 'en' ? source.noteEn : source.noteZh) || source.reason || '' : '';
+  }
+
   function renderLiquidationCell(item, index) {
     const dict = I18N_DICT[currentLang];
     const result = item.liquidationResult;
@@ -3708,8 +3723,7 @@
         ? dict.liquidation_preferred : dict.liquidation_preferred_unknown),
       reason && dict[`liquidation_reason_${reason}`]
     ].filter(Boolean).join('\n');
-    const title = details.replace(/&/g, '&amp;').replace(/"/g, '&quot;')
-      .replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, '&#10;');
+    const title = escapeAttribute(details);
     const amount = value === null ? 'N/A'
       : value < 0 ? `-${moneyPrefix()}${Math.abs(value).toFixed(2)}` : `${moneyPrefix()}${value.toFixed(2)}`;
     const color = value > 0 ? 'text-green' : value < 0 ? 'text-red' : 'text-muted';
@@ -3879,7 +3893,7 @@
           ${renderLiquidationCell(item, 2)}
           
           <td>${item.pe_trailing ? Number(item.pe_trailing).toFixed(1) : '--'}</td>
-          <td>${item.pe_forward ? Number(item.pe_forward).toFixed(1) : '--'}</td>
+          <td data-metric="pe_forward" title="${escapeAttribute(forwardPeNote(item))}">${Number.isFinite(item.pe_forward) && item.pe_forward > 0 ? item.pe_forward.toFixed(1) : '--'}</td>
           <td>${item.pb_trailing ? Number(item.pb_trailing).toFixed(1) : '--'}</td>
           <td style="color: var(--accent); font-weight: 700;">${Number.isFinite(item.div_yield) ? item.div_yield.toFixed(2) + '%' : 'N/A'}</td>
           <td style="color: var(--accent); font-weight: 600;">${Number.isFinite(item.fcf_to_ev) ? item.fcf_to_ev.toFixed(2) + '%' : 'N/A'}</td>
@@ -4918,7 +4932,7 @@
           { labelZh: "Market Cap / FCF", labelEn: "Market Cap / FCF", fn: x => { const f = getFinVal(x, 'cashflow', 'freeCashFlow'); return f > 0 ? fmtX(Number(x.mcap) / f) : '--'; } },
           { labelZh: "Market Cap / EBITDA", labelEn: "Market Cap / EBITDA", fn: x => { const eb = getFinVal(x, 'income', 'ebitda'); return eb > 0 ? fmtX(Number(x.mcap) / eb) : '--'; } },
           { labelZh: "靜態 P/E", labelEn: "Trailing P/E", fn: x => x.pe_trailing ? `${Number(x.pe_trailing).toFixed(1)}x` : '--' },
-          { labelZh: "動態 P/E", labelEn: "Forward P/E", fn: x => x.pe_forward ? `${Number(x.pe_forward).toFixed(1)}x` : '--' },
+          { labelZh: "動態 P/E", labelEn: "Forward P/E", fn: x => `<span title="${escapeAttribute(forwardPeNote(x))}">${Number.isFinite(x.pe_forward) && x.pe_forward > 0 ? `${x.pe_forward.toFixed(1)}x` : '--'}</span>` },
           { labelZh: "靜態 P/B", labelEn: "Trailing P/B", fn: x => x.pb_trailing ? `${Number(x.pb_trailing).toFixed(2)}x` : '--' },
           { labelZh: "動態 P/B (估)", labelEn: "Forward P/B (Est.)", fn: x => { const eq = getFinVal(x, 'balance', 'totalStockholdersEquity'); return eq > 0 ? `${(Number(x.mcap) / eq).toFixed(2)}x` : '--'; } },
           { labelZh: "股息率 (%)", labelEn: "Dividend Yield %", fn: x => Number.isFinite(x.div_yield) ? `${x.div_yield.toFixed(2)}%` : 'N/A' }
@@ -5567,10 +5581,14 @@
       }
 
       const m = moat.m || Array(10).fill(null);
-      const categoryScore = values => values.every(Number.isFinite) ? values.reduce((a, b) => a + b, 0) : 'N/A';
-      document.getElementById('moat-cat-intangible').innerText = `${categoryScore(m.slice(0, 2))} / 20`;
-      document.getElementById('moat-cat-structural').innerText = `${categoryScore(m.slice(2, 6))} / 40`;
-      document.getElementById('moat-cat-resilience').innerText = `${categoryScore(m.slice(6, 10))} / 40`;
+      const categoryScore = values => {
+        const assessed = values.filter(Number.isFinite);
+        return assessed.length ? `${assessed.reduce((a, b) => a + b, 0)} / ${assessed.length * 10}${assessed.length < values.length ? ` · ${assessed.length}/${values.length}` : ''}`
+          : I18N_DICT[currentLang].moat_unassessed;
+      };
+      document.getElementById('moat-cat-intangible').innerText = categoryScore(m.slice(0, 2));
+      document.getElementById('moat-cat-structural').innerText = categoryScore(m.slice(2, 6));
+      document.getElementById('moat-cat-resilience').innerText = categoryScore(m.slice(6, 10));
 
       document.getElementById('moat-ai-comment').innerHTML = `
         <div style="font-size: 11px; color: var(--gold); margin-bottom: 4px; font-weight: 600;">📚 ${moat.ref || ''}</div>
@@ -5590,10 +5608,10 @@
               <td><strong>${c.id || ''}. ${c.title || ''}</strong></td>
               <td style="color: var(--text-muted); font-size: 12px;">${c.desc || ''}</td>
               <td class="moat-score-cell">
-                <span style="font-weight: 700; font-size: 13.5px; color: ${scoreVal === null ? 'var(--text-muted)' : barColor}; display: inline-block; width: 45px;">${scoreVal ?? 'N/A'} / 10</span>
-                <div class="moat-bar-bg">
+                <span title="${scoreVal === null ? I18N_DICT[currentLang].moat_unassessed_help : ''}" style="font-weight: 700; font-size: 13.5px; color: ${scoreVal === null ? 'var(--text-muted)' : barColor}; display: inline-block; min-width: 45px;">${scoreVal === null ? I18N_DICT[currentLang].moat_unassessed : `${scoreVal} / 10`}</span>
+                ${scoreVal === null ? '' : `<div class="moat-bar-bg">
                   <div class="moat-bar-fill" style="width: ${pct}%; background: ${barColor};"></div>
-                </div>
+                </div>`}
               </td>
               <td class="moat-comment-cell">${c.comment || ''}</td>
             </tr>

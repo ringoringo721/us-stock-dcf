@@ -1,9 +1,80 @@
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
-const { prepareStatements, flowValue, priceHistory, compileStock, valuationShares } = require('../scripts/build_hkex.cjs');
+const { prepareStatements, flowValue, priceHistory, compileStock, valuationShares, forwardPriceEarnings } = require('../scripts/build_hkex.cjs');
 const { convertStatements } = require('../usd_currency.js');
 const ccb = require('../hkex_stocks.json').find(row => row.ticker === '0939.HK');
 const ccbCapital = require('../cache/hkex_share_capital.json')[ccb.ticker];
+
+function forwardFixture() {
+  const ticker = '0700.HK';
+  return {
+    item: { ticker }, shares: { shares: 10 },
+    rates: { currencies: {
+      CNY: { observations: [['2026-10-16', 0.16]] },
+      HKD: { observations: [['2026-10-16', 0.125]] }
+    } },
+    source: { capturedAt: '2026-10-17T00:00:00Z', responses: {
+      annual_income: { ok: true, rows: [{ symbol: ticker, date: '2025-12-31',
+        reportedCurrency: 'CNY', revenue: 100e6, netIncome: 10e6 }] },
+      estimates: { ok: true, rows: [
+        { symbol: ticker, date: '2027-12-31', revenueAvg: 140e6, netIncomeAvg: 30e6, epsAvg: 3, numAnalystsEps: 5 },
+        { symbol: ticker, date: '2025-12-31', revenueAvg: 100e6, netIncomeAvg: 10e6, epsAvg: 1, numAnalystsEps: 5 },
+        { symbol: ticker, date: '2026-12-31', revenueAvg: 120e6, netIncomeAvg: 20e6, epsAvg: 2, numAnalystsEps: 5 }
+      ] }
+    } }
+  };
+}
+
+test('forward P/E uses the actual next fiscal forecast and matched official cross-currency FX, independent of DCF', () => {
+  const f = forwardFixture();
+  const result = forwardPriceEarnings(f.item, f.source, f.rates, f.shares, 20);
+  assert.equal(result.reason, null);
+  assert.equal(result.fiscalDate, '2026-12-31');
+  assert.equal(result.epsHkd, 2.56);
+  assert.equal(result.value, 7.8125);
+  assert.equal(result.fx.observationDate, '2026-10-16');
+  assert.match(result.noteEn, /not reported earnings or the DCF share denominator/);
+  assert.match(result.noteZh, /分析師預測/);
+  f.item.financial = true;
+  f.source.responses.annual_income.rows[0].revenue *= 2;
+  assert.equal(forwardPriceEarnings(f.item, f.source, f.rates, f.shares, 20).value, result.value,
+    'Banks compare earnings, not incompatible gross and net revenue definitions');
+  f.source.responses.annual_income.rows[0].reportedCurrency = 'HKD';
+  const sameCurrency = forwardPriceEarnings(f.item, f.source, f.rates, f.shares, 20);
+  assert.equal(sameCurrency.value, 10);
+  assert.match(sameCurrency.noteZh, /無須匯率換算/);
+  assert.doesNotMatch(sameCurrency.noteEn, /FX observation/);
+});
+
+test('forward P/E retains missing/loss forecasts and rejects stale FX, ADR scale, duplicates and missing FY1', () => {
+  for (const mutate of [
+    f => { f.source.responses.estimates.rows[2].epsAvg = null; },
+    f => { f.source.responses.estimates.rows[2].epsAvg = 0; },
+    f => { f.source.responses.estimates.rows[2].epsAvg = -2; },
+    f => { f.source.responses.estimates.rows[2].epsAvg *= 8; },
+    f => { f.source.responses.estimates.rows[2].numAnalystsEps = 0; },
+    f => { f.source.responses.estimates.rows[2].symbol = 'BABA'; },
+    f => { f.source.responses.estimates.rows.push({ ...f.source.responses.estimates.rows[2] }); },
+    f => { f.source.responses.estimates.rows.pop(); },
+    f => { f.source.responses.estimates.rows[1].revenueAvg /= 8; },
+    f => { f.rates.currencies.CNY.observations[0][0] = '2026-09-01'; },
+    f => { f.rates.currencies.CNY.observations = []; },
+    f => { f.source.responses.annual_income.rows[0].filingDate = '2026-10-18'; },
+    f => { f.source.responses.annual_income.rows[0].acceptedDate = '2026-10-18T10:00:00'; },
+    f => { f.shares.shares = null; }
+  ]) {
+    const f = forwardFixture();
+    mutate(f);
+    const result = forwardPriceEarnings(f.item, f.source, f.rates, f.shares, 20);
+    assert.equal(result.value, null);
+    assert.ok(result.reason);
+  }
+  const f = forwardFixture();
+  f.source.responses.annual_income.rows[0].date = '2026-03-31';
+  f.source.responses.estimates.rows[1].date = '2026-03-31';
+  f.source.responses.estimates.rows[2].date = '2027-03-31';
+  assert.equal(forwardPriceEarnings(f.item, f.source, f.rates, f.shares, 20).fiscalDate, '2027-03-31');
+});
 
 function ccbShares(count = 240417319880) {
   return { ticker: ccb.ticker, providerSymbol: ccb.ticker, capturedAt: '2026-10-17T00:00:00Z',

@@ -175,7 +175,9 @@
         returnCell('roa', 'profile_roa'), returnCell('roe', 'profile_roe')
       ]);
       group('profile_valuation', [
-        ['profile_pe', format(stock.pe_trailing, '×')], ['profile_forward_pe', format(stock.pe_forward, '×')],
+        ['profile_pe', format(stock.pe_trailing, '×')],
+        ['profile_forward_pe', format(stock.pe_forward, '×'),
+          stock.pe_forward_source?.[lang === 'en' ? 'noteEn' : 'noteZh'] || stock.pe_forward_source?.reason || ''],
         ['profile_pb', format(stock.pb_trailing, '×')], ['profile_ev_ebitda', format(stock.ev_to_ebitda, '×')]
       ]);
       group('profile_growth', [

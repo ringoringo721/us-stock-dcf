@@ -46,6 +46,18 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
     assert.equal(await page.locator('#screener-tbody tr').first().locator('td').count(), 34);
     assert.deepEqual(await page.evaluate(() => Object.keys(stockUniverse)), Object.keys(market));
     for (const [ticker, stock] of Object.entries(market)) {
+      const forecast = stock.pe_forward_source;
+      assert.equal(forecast.reason, null, `${ticker}: supported analyst forecast`);
+      assert.equal(forecast.basis, 'nextFiscalYearConsensusEps');
+      assert.ok(forecast.fiscalDate > forecast.asOf);
+      const fx = Currency.rateFor(rates, stock.reportedCurrency, null,
+        forecast.fx.observationDate, 'closing', 'HKD');
+      const forwardPe = stock.price / (forecast.eps * fx.rate);
+      assert.ok(Math.abs(stock.pe_forward - forwardPe) < 1e-10, `${ticker}: price / FY1 EPS in HKD`);
+      const forwardCell = page.locator('#screener-tbody tr').filter({ hasText: ticker })
+        .locator('[data-metric="pe_forward"]');
+      assert.equal(await forwardCell.innerText(), forwardPe.toFixed(1));
+      assert.equal(await forwardCell.getAttribute('title'), forecast.noteEn);
       const raw = read(`cache\\financials\\${ticker}_statements_v2.json`);
       const statements = Currency.convertStatements(raw, rates);
       const prices = read(`cache\\price_charts\\${ticker}.json`);
@@ -56,6 +68,10 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
         && document.getElementById('profile-overview-status').textContent.includes(date),
       { ticker, date: statements.quarterly.income.at(-1).date });
       assert.equal(await page.locator('.sub-tab-btn').count(), 9);
+      const overviewForward = page.getByRole('rowheader', { name: 'Forward P/E', exact: true })
+        .locator('..').locator('td');
+      assert.equal(await overviewForward.innerText(), `${forwardPe.toFixed(2)}×`);
+      assert.equal(await overviewForward.getAttribute('title'), forecast.noteEn);
       assert.equal(await page.locator('#profile-quote-price').innerText(),
         `HKD ${stock.price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`);
       assert.match(await page.locator('#cmp-currency-note').innerText(), new RegExp(stock.reportedCurrency));
@@ -69,6 +85,37 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
       assert.equal(await page.locator('#moat-total-score').innerText(),
         await page.evaluate(ticker => evaluateMoat(stockUniverse[ticker]).scoreText, ticker));
       assert.doesNotMatch(await page.locator('#moat-total-score').innerText(), /N\/A.*pt/);
+      const moat = await page.evaluate(ticker => evaluateMoat(stockUniverse[ticker]), ticker);
+      const moatRows = page.locator('#moat-breakdown-body tr');
+      for (let i = 0; i < moat.m.length; i++) {
+        const cell = moatRows.nth(i).locator('.moat-score-cell');
+        if (moat.m[i] === null) {
+          assert.equal(await cell.innerText(), 'Not assessed', `${ticker}: missing dimension ${i + 1}`);
+          assert.equal(await cell.locator('.moat-bar-bg').count(), 0, 'Unknown is not a zero-length score bar');
+          assert.match(await cell.locator('span').getAttribute('title'), /not a zero score/);
+        } else {
+          assert.equal((await cell.innerText()).trim(), `${moat.m[i]} / 10`);
+          assert.equal(await cell.locator('.moat-bar-bg').count(), 1);
+        }
+      }
+      if (ticker === '0700.HK') {
+        assert.equal(moat.m[1], null, 'Do not invent a Tencent patent/regulatory assessment');
+        assert.equal(await page.locator('#moat-cat-intangible').innerText(), `${moat.m[0]} / 10 · 1/2`);
+        const total = await page.locator('#moat-total-score').innerText();
+        await page.evaluate(() => applyLanguage('zh'));
+        assert.equal(await moatRows.nth(1).locator('.moat-score-cell').innerText(), '未評分');
+        assert.match(await moatRows.nth(1).locator('.moat-score-cell span').getAttribute('title'), /不代表零分/);
+        assert.equal(await page.locator('#moat-total-score').innerText(), total);
+        assert.ok(await moatRows.nth(1).locator('td').nth(1).evaluate(el => el.getBoundingClientRect().width >= 190));
+        assert.ok(await moatRows.nth(1).locator('td').last().evaluate(el => el.getBoundingClientRect().width >= 380));
+        await page.setViewportSize({ width: 390, height: 844 });
+        assert.ok(await page.locator('.moat-table').evaluate(el =>
+          el.getBoundingClientRect().width >= 1180 && el.parentElement.scrollWidth > el.parentElement.clientWidth));
+        assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1),
+          'The moat table scrolls inside its wrapper, not the whole mobile page');
+        await page.setViewportSize({ width: 1440, height: 1000 });
+        await page.evaluate(() => applyLanguage('en'));
+      }
       await page.evaluate(() => switchSubPage('charts'));
       for (const selector of ['#fcf-ratio-period', '#return-ratio-period', '#earnings-period']) {
         await page.selectOption(selector, 'semiannual');
@@ -104,6 +151,23 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
       }
       for (const tab of ['financials', 'ratios', 'peers', 'valuation', 'news', 'chart']) {
         await page.evaluate(tab => switchSubPage(tab), tab);
+        if (tab === 'peers') {
+          const peerForward = page.locator('#cmp-peers-table tbody tr').filter({ hasText: /Forward P\/E/ })
+            .locator('td').nth(1).locator('span');
+          assert.equal(await peerForward.innerText(), `${forwardPe.toFixed(1)}x`);
+          assert.equal(await peerForward.getAttribute('title'), forecast.noteEn);
+          await page.evaluate(() => applyLanguage('zh'));
+          const localized = page.locator('#cmp-peers-table tbody tr').filter({ hasText: /動態 P\/E/ })
+            .locator('td').nth(1).locator('span');
+          assert.equal(await localized.getAttribute('title'), forecast.noteZh);
+          await page.evaluate(() => switchSubPage('basic'));
+          await page.waitForFunction(() => [...document.querySelectorAll('.profile-metric-table th')]
+            .some(el => el.textContent === '預估本益比'));
+          assert.equal(await page.getByRole('rowheader', { name: '預估本益比', exact: true })
+            .locator('..').locator('td').getAttribute('title'), forecast.noteZh);
+          await page.evaluate(() => applyLanguage('en'));
+          await page.evaluate(() => switchSubPage('peers'));
+        }
         if (['financials', 'ratios'].includes(tab)) {
           const selector = tab === 'financials' ? '#statement-period' : '#ratio-period';
           await page.selectOption(selector, 'semiannual');
@@ -215,7 +279,7 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
         width: element.getBoundingClientRect().width, right: element.getBoundingClientRect().right })))));
     assert.deepEqual(errors, []);
     assert.deepEqual(failed, []);
-    console.log('PASS: six HKEX securities, localized markets, partial Moat, real half years, HKD prices, HSBC/CCB automatic bank valuations and issuer-wide share scenario reset.');
+    console.log('PASS: six HKEX securities, sourced FY1 P/E across screener/overview/peers, localized missing Moat dimensions and mobile layout, real half years, HKD prices, HSBC/CCB automatic bank valuations and issuer-wide share scenario reset.');
   } finally {
     await browser.close();
     await new Promise(resolve => server.close(resolve));

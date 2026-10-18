@@ -47,6 +47,17 @@ closing parent equity. Missing cash flows, FX gaps and zero equity remain N/A;
 negative equity is not treated as a positive-return signal. Full-year cash flow
 is not substituted for missing TTM or interim cash flow.
 
+HKEX forward P/E is independent of DCF availability. It uses the next fiscal
+year-end analyst consensus EPS, converted from the reporting currency to HKD
+using a common-date official closing FX observation no older than 14 days.
+Historical consensus/reporting scale and implied ordinary-share scale are
+checked before use; a missing FY1, loss forecast, ambiguous estimate, ADR-unit
+mismatch or missing FX remains unavailable. The source record and bilingual
+tooltips preserve the fiscal year, EPS, FX date and analyst basis across the
+screener, overview and peer table. Analyst EPS definitions (basic/diluted and
+adjusted/GAAP) are not independently certified and must not be confused with
+the issued-share denominator used for DCF.
+
 HKEX Piotroski diagnostics compare nine actual statement-based criteria,
 including CFO (not FCF), changes in ROA/leverage/liquidity/margin/turnover and
 cash common-equity issuance. Comparable TTM is preferred; otherwise the last
@@ -71,6 +82,11 @@ dimension coverage: e.g. `72 / 90`, not `N/A pt`, zero-filled `/100`, a normaliz
 percentage or a complete overall moat grade. PF health comments use the same
 strong/moderate/weak/unavailable categories in both markets; statement freshness
 and annual fallback provenance are separate from financial-health labels.
+An unknown dimension is labeled **Not assessed**, without a zero-score bar.
+Category subtotals retain assessed dimensions and their coverage instead of
+discarding the category or assigning missing dimensions zero points. The
+diagnostic table scrolls horizontally on narrow screens. These presentation
+changes do not regenerate assessments or alter their source timestamps.
 
 The HKEX refresh workflow checks at 07:30 and 19:30 Hong Kong time on business
 days. It refreshes sources, recomputes PF from actual comparable periods and
