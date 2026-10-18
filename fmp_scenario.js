@@ -63,7 +63,8 @@
     if (!opening || !projected.length || projected.length > 10 || !(opening.revenue > 0)
         || projected.some((row, index) => Number(row.year) !== base.year + index + 1)) fail('SCENARIO_FORECAST_UNAVAILABLE');
     const last = projected.at(-1);
-    if (!finite(last.longTermGrowthRate) || !finite(last.netDebt)) fail('SCENARIO_SOURCE_UNAVAILABLE');
+    if (!finite(last.longTermGrowthRate) || !finite(opening.netDebt)
+        || source.some(row => row.netDebt !== opening.netDebt)) fail('SCENARIO_SNAPSHOT_NET_DEBT_UNVERIFIED');
     const years = [], warnings = [];
     let previousRevenue = opening.revenue;
     for (let index = 0; index < 10; index++) {
@@ -103,7 +104,7 @@
     return { version: 1, kind, symbol: data.symbol, currency: data.currency, shares,
       baseYear: base.year, baseDate: base.date, baseRevenue: opening.revenue, openingNwc,
       sourceCapturedAt: data.models[kind].capturedAt || data.capturedAt,
-      providerYears: projected.map(row => Number(row.year)), warnings, netDebt: last.netDebt,
+      providerYears: projected.map(row => Number(row.year)), warnings, netDebt: opening.netDebt,
       terminalGrowth: last.longTermGrowthRate, years };
   }
 
@@ -164,8 +165,84 @@
     const enterpriseValue = presentFlows + presentTerminalValue, equityValue = enterpriseValue - scenario.netDebt;
     const targetPrice = equityValue / scenario.shares;
     if (![enterpriseValue, equityValue, targetPrice, presentTerminalValue].every(finite)) fail('SCENARIO_NONFINITE_RESULT');
-    return { targetPrice, enterpriseValue, equityValue, terminalValue, presentTerminalValue, presentFlows,
+    const warnings = [];
+    if (last.cashFlow <= 0) warnings.push('NONPOSITIVE_TERMINAL_CASH_FLOW');
+    if (equityValue < 0) warnings.push('NEGATIVE_EQUITY_VALUE');
+    return { targetPrice, enterpriseValue, equityValue, terminalValue, presentTerminalValue, presentFlows, warnings,
       netDebt: scenario.netDebt, wacc: last.wacc, g: scenario.terminalGrowth, rows };
   }
-  return { fields, activeFields, baseSource, defaults, update, calculate };
+
+  function actualReference(data, statements, base = data?.forecastBase) {
+    const unavailable = reason => ({ reason, year: base?.year, date: base?.date, items: {} });
+    if (!base || base.reason || !statements) return unavailable('ACTUAL_STATEMENTS_UNAVAILABLE');
+    const income = statements.annual?.income?.find(row => row.date === base.date
+      && Number(row.fiscalYear || row.calendarYear) === base.year);
+    if (!income || !(income.revenue > 0)) return unavailable('ACTUAL_PERIOD_UNAVAILABLE');
+    if (finite(income.periodLength) && income.periodLength !== 12) return unavailable('ACTUAL_PERIOD_NOT_FULL_YEAR');
+    if (income.reportedCurrency !== data.currency) return unavailable('ACTUAL_CURRENCY_UNVERIFIED');
+    const rowFor = type => statements.annual?.[type]?.find(row =>
+      row.date === base.date && row.reportedCurrency === data.currency);
+    const balance = rowFor('balance'), cashflow = rowFor('cashflow');
+    const previous = statements.annual.income.find(row => {
+      const gap = (Date.parse(base.date) - Date.parse(row.date)) / 86400000;
+      return Number(row.fiscalYear || row.calendarYear) === base.year - 1
+        && row.reportedCurrency === data.currency && gap >= 330 && gap <= 400
+        && (!finite(row.periodLength) || row.periodLength === 12);
+    });
+    const source = row => row?.balanceClassificationSource ? 'officialBalance'
+      : row?.sourceIds?.length ? 'officialCashflow' : 'fmpStandardizedActual';
+    const item = (amount, row, basis = 'revenueRatio', denominator = income.revenue) => ({
+      amount: finite(amount) ? amount : null,
+      percent: finite(amount) && finite(denominator) && denominator !== 0 ? amount / denominator * 100 : null,
+      source: source(row), basis,
+      provenance: { date: row?.date, sourceIds: row?.sourceIds, sourceBasis: row?.sourceBasis,
+        currencyConversion: row?.currencyConversion,
+        documents: row?.balanceClassificationSource ? [row.balanceClassificationSource]
+          : row?.sourceIds?.length ? (statements.cashflowProvenance?.documents || [])
+            .filter(document => row.sourceIds.includes(document.id)) : [] }
+    });
+    const da = finite(income.depreciationAndAmortization)
+      ? income.depreciationAndAmortization : cashflow?.depreciationAndAmortization;
+    const ebit = finite(income.ebit) ? income.ebit
+      : finite(income.ebitda) && finite(da) ? income.ebitda - da : null;
+    const items = {
+      growth: { ...item(income.revenue, income, 'annualRevenueGrowth'),
+        percent: previous?.revenue > 0 ? (income.revenue / previous.revenue - 1) * 100 : null },
+      ebitda: item(income.ebitda, income), ebit: item(ebit, income, finite(income.ebit) ? 'revenueRatio' : 'derivedEbitdaLessDa'),
+      da: item(da, finite(income.depreciationAndAmortization) ? income : cashflow),
+      cash: item(balance?.cashAndShortTermInvestments, balance, 'closingBalanceRevenueRatio'),
+      receivables: item(balance?.netReceivables, balance, 'closingBalanceRevenueRatio'),
+      inventories: item(balance?.inventory, balance, 'closingBalanceRevenueRatio'),
+      payables: item(balance?.accountPayables, balance, 'closingBalanceRevenueRatio'),
+      cfo: item(cashflow?.operatingCashFlow ?? cashflow?.netCashProvidedByOperatingActivities, cashflow),
+      capex: item(cashflow?.capitalExpenditure, cashflow),
+      tax: item(income.incomeTaxExpense, income, 'historicalEffectiveTaxNotForecastOperatingTax', income.incomeBeforeTax)
+    };
+    const review = data.sourceReview;
+    const reported = !review?.reason && review?.years?.find(year => year.year === base.year);
+    if (reported && review.currency === data.currency && review.unit === 'millions') {
+      for (const [key, amount] of [['cfo', reported.official.reportedOperatingCashFlow], ['capex', -reported.fullCashCapex]]) {
+        if (finite(amount)) items[key] = { ...item(amount * 1e6, null), source: 'officialReport',
+          document: review.document, basis: key === 'capex' ? 'propertyAndPpeCashAdditions' : 'reportedCfoNotFmpReclassified' };
+      }
+    }
+    return { reason: null, year: base.year, date: base.date, currency: data.currency, revenue: income.revenue, items,
+      basis: 'Actual annual financial statements; flows for the full year, balances at that year end. Reference only.',
+      fxBasis: income.currencyConversion || null };
+  }
+
+  const formulas = {
+    units: 'Amounts in calculation-currency units (not millions); shares in individual issued common shares. Input percentages are percentage points, divided by 100 in formulas.',
+    revenue: 'Revenue[t] = Revenue[t-1] * (1 + growth[t]/100)',
+    advanced: 'EBITDA = Revenue*ebitda/100; DA = Revenue*da/100; EBIT = EBITDA-DA; NWC = Revenue*(receivables+inventories-payables)/100; FCFF = EBIT*(1-tax/100)+DA+negativeCapEx-(NWC[t]-NWC[t-1])',
+    cfo: 'CFO = Revenue*cfo/100; CashFlow = CFO+negativeCapEx. No additional DA or working-capital deduction. Vendor-style WACC/EV bridge, not independently defined FCFE.',
+    capex: 'negativeCapEx = Revenue*capex/100 (input <= 0)',
+    capm: 'Editing rf, beta or erp updates ke = rf+beta*erp; direct ke overrides are respected.',
+    wacc: 'WACC[t] = ke[t]/100*(1-debtWeight[t]/100)+kd[t]/100*(1-tax[t]/100)*debtWeight[t]/100',
+    discount: 'Discount[t] = PRODUCT(1+WACC[1], ..., 1+WACC[t]); PV[t] = CashFlow[t]/Discount[t]. End-of-year convention; no stub-year adjustment.',
+    terminal: 'TV = CashFlow[10]*(1+terminalGrowth/100)/(WACC[10]-terminalGrowth/100); PVTV = TV/Discount[10]. Requires WACC[10] > terminalGrowth/100.',
+    bridge: 'EV = SUM(PV[1:10])+PVTV; Equity = EV-netDebt; Target = Equity/issuedShares. Snapshot net debt subtracted once; projected cash is disclosure only.',
+    native: 'Native API internals are not independently reproduced. Site native target = returned equityValue/verified issued common shares. Returned equityValuePerShare and dilutedSharesOutstanding are preserved separately. Reconciliation residuals are checks, not replacements for vendor outputs.'
+  };
+  return { fields, activeFields, baseSource, defaults, update, calculate, actualReference, formulas };
 });

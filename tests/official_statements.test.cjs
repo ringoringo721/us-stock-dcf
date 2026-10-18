@@ -18,7 +18,7 @@ function statements(ticker) {
   return { reportingFrequency: 'quarterly', calculationCurrency: ticker === '0005.HK' ? 'USD' : 'HKD',
     statementFrequencies: { income: 'quarterly', cashflow: 'annual', balance: 'quarterly' },
     annual: { income: [{ ...income[3], period: 'FY' }], cashflow: [],
-      balance: review.periods.slice(0, 1).map(period => ({ symbol: ticker, date: period.date, reportedCurrency: 'HKD',
+      balance: review.periods.filter(period => period.date === '2025-12-31').map(period => ({ symbol: ticker, date: period.date, reportedCurrency: 'HKD',
         fiscalYear: '2025', period: 'FY', totalAssets: period.fields.totalAssets * 1e6,
         totalLiabilities: period.fields.totalLiabilities * 1e6,
         totalStockholdersEquity: period.fields.totalStockholdersEquity * 1e6 })) },
@@ -62,6 +62,32 @@ test('HKEX official classification reconciles all components, preserves provider
   invalid.periods[0].fields.totalCurrentAssets++;
   assert.throws(() => applyOfficialBalance(data, '0388.HK', invalid), /DOES_NOT_RECONCILE/);
   assert.equal(applyOfficialBalance(data, '0700.HK'), data);
+});
+
+test('HKEX 2021–2024 detailed balances are restored from independently cited official comparatives', () => {
+  const fs = require('node:fs');
+  const data = JSON.parse(fs.readFileSync(require('node:path').join(__dirname, '..', 'cache', 'financials', '0388.HK_statements_v2.json')));
+  const expected = [
+    ['2021-12-31', 375069, 24235, 345964, 3430, 28335, 137],
+    ['2022-12-31', 382478, 23573, 352948, 3004, 19054, 139],
+    ['2023-12-31', 316202, 24977, 286511, 2872, 27849, 139],
+    ['2024-12-31', 353576, 28053, 324525, 2697, 37584, 145]
+  ];
+  for (const [date, ca, nca, cl, ncl, payable, pdfPage] of expected) {
+    const row = data.annual.balance.find(row => row.date === date);
+    assert.deepEqual([row.totalCurrentAssets, row.totalNonCurrentAssets, row.totalCurrentLiabilities,
+      row.totalNonCurrentLiabilities, row.payablesAccrualsOtherLiabilitiesCurrent].map(value => value / 1e6), [ca, nca, cl, ncl, payable]);
+    assert.equal(row.balanceClassificationSource.pdfPage, pdfPage);
+    assert.equal(row.totalAssets, row.totalLiabilitiesAndTotalEquity);
+    assert.equal(row.accountPayables, null, 'No fabricated trade-payable split of the combined report line');
+    assert.ok(data.archivedProviderBalance.some(original => original.date === date && !original.balanceClassificationSource));
+  }
+  assert.equal(data.balanceClassificationSource.documents.length, 4);
+  const out = applyOfficialBalance(data, '0388.HK');
+  assert.deepEqual(out.archivedProviderBalance, data.archivedProviderBalance, 'Reapplication retains the original archive');
+  const invalid = structuredClone(review);
+  invalid.periods[0].source.sha256 = 'unverified';
+  assert.throws(() => applyOfficialBalance(data, '0388.HK', invalid), /INVALID_OFFICIAL_BALANCE_SOURCE/);
 });
 
 for (const [ticker, cfo, investment, opening, closing] of [

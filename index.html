@@ -4368,10 +4368,15 @@
       status.append(document.createTextNode(' · '), link);
     };
     if (activeStatementType === 'balance' && s.balanceClassificationSource) {
+      const verifiedDates = s.balanceClassificationSource.dates.map(date => date.slice(0, 7)).join(', ');
       status.append(document.createTextNode(isEn
-        ? ' · Official current/non-current classification verified for 2025-12 and 2026-06. Earlier unverified classifications are not shown; original FMP data is retained. Balances are closing snapshots, not TTM sums. Vendor DCF forecasts are not rewritten.'
-        : ' · 已按官方報表核實 2025-12、2026-06 的流動／非流動分類。較早未核實分類不展示，原始 FMP 資料仍保留。資產負債採期末快照，不作 TTM 加總；未改寫 FMP 原生 DCF 預測。'));
-      addSource(s.balanceClassificationSource, isEn ? 'Official report p.56 (PDF p.58)' : '官方報表第 56 頁（PDF 第 58 頁）');
+        ? ` · Official current/non-current classification verified for ${verifiedDates}. Each period retains its cited report/comparative source; original FMP data is preserved. Unverified dates remain N/A. Balances are closing snapshots, not TTM sums. Vendor DCF forecasts are not rewritten.`
+        : ` · 已按官方報表核實 ${verifiedDates} 的流動／非流動分類，各期保留年報／比較欄來源及原始 FMP 資料。未核實日期維持 N/A。資產負債採期末快照，不作 TTM 加總；未改寫 FMP 原生 DCF 預測。`));
+      for (const source of s.balanceClassificationSource.documents || [s.balanceClassificationSource]) {
+        const sourceDates = (s.balanceClassificationSource.periods || [])
+          .filter(period => period.source.url === source.url).map(period => period.date.slice(0, 7)).join(', ');
+        addSource(source, `${sourceDates} · ${isEn ? 'Report' : '報表'} p.${source.printedPage} (PDF p.${source.pdfPage})`);
+      }
     }
     if (activeStatementType === 'cashflow' && s.cashflowProvenance) {
       status.append(document.createTextNode(isEn
@@ -5432,6 +5437,10 @@
       };
       FmpModels.load({
         stock: s, ticker, saved, language: () => currentLang, save, data: CompanyData.peek(ticker)
+      });
+      FcfRatios.loadStatements(ticker).then(data => FmpModels.actuals(ticker, data)).catch(error => {
+        console.error('Actual FMP scenario references could not be loaded', ticker, error.message);
+        FmpModels.actuals(ticker, null, error.message);
       });
       CompanyData.load(ticker).then(data => FmpModels.details(data)).catch(error =>
         { console.error('Detailed FMP model rows could not be loaded', ticker, error.message);

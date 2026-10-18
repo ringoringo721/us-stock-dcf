@@ -21,7 +21,16 @@ const groups = {
 function applyOfficialBalance(statements, ticker, review = reviewed) {
   if (ticker !== review.ticker) return statements;
   if (review.currency !== 'HKD' || review.unit !== 'millions') throw new Error('INVALID_OFFICIAL_BALANCE_SOURCE');
+  const dates = new Set();
   for (const period of review.periods) {
+    const source = period.source || review.source;
+    if (!source || !/^https:\/\/(?:www1\.hkexnews\.hk|www\.hkexgroup\.com)\//.test(source.url)
+        || !/^[a-f0-9]{64}$/.test(source.sha256) || !Number.isInteger(source.pdfPage) || source.pdfPage < 1
+        || !Number.isInteger(source.printedPage) || source.printedPage < 1
+        || !/^\d{4}-\d{2}-\d{2}$/.test(period.date) || dates.has(period.date)) {
+      throw new Error('INVALID_OFFICIAL_BALANCE_SOURCE');
+    }
+    dates.add(period.date);
     const fields = period.fields;
     for (const [total, items] of Object.entries(groups)) {
       if (!Number.isFinite(fields[total]) || fields[total] < 0
@@ -32,7 +41,7 @@ function applyOfficialBalance(statements, ticker, review = reviewed) {
     }
     if (fields.totalAssets !== fields.totalLiabilitiesAndTotalEquity) throw new Error('OFFICIAL_BALANCE_NOT_BALANCED');
   }
-  const archive = [], applied = new Set();
+  const archive = [...(statements.archivedProviderBalance || [])], applied = new Set();
   const replace = row => {
     const report = review.periods.find(period => period.date === row.date);
     if (!report) return row;
@@ -51,7 +60,7 @@ function applyOfficialBalance(statements, ticker, review = reviewed) {
       'financialAssetsAmortisedCostNonCurrent', 'jointVentureAndAssociateInterests']);
     const capitalLeaseObligations = sum(['capitalLeaseObligationsCurrent', 'capitalLeaseObligationsNonCurrent']);
     const totalDebt = mapped.shortTermDebt + mapped.longTermDebt + capitalLeaseObligations;
-    return { ...row, ...mapped, balanceClassificationSource: review.source,
+    return { ...row, ...mapped, balanceClassificationSource: report.source || review.source,
       filingDate: null, acceptedDate: null, availabilityBasis: 'retrospectiveOfficialCorrectionNotPointInTime',
       netReceivables: null, accountsReceivables: null, tradeAccountsReceivables: null, otherReceivables: null,
       prepaids: null, goodwill: null, intangibleAssets: null, accountPayables: null, otherPayables: null,
@@ -70,9 +79,12 @@ function applyOfficialBalance(statements, ticker, review = reviewed) {
   const annual = { ...statements.annual, balance: statements.annual.balance.map(replace) };
   const quarterly = { ...statements.quarterly, balance: statements.quarterly.balance.map(replace) };
   if (!applied.size) throw new Error('OFFICIAL_BALANCE_PERIOD_COVERAGE_REVIEW_REQUIRED');
+  const periods = review.periods.filter(period => applied.has(period.date))
+    .map(period => ({ date: period.date, source: period.source || review.source }));
+  const documents = [...new Map(periods.map(period => [period.source.url, period.source])).values()];
   return { ...statements, annual, quarterly,
     archivedProviderBalance: archive.length ? archive : statements.archivedProviderBalance,
-    balanceClassificationSource: { ...review.source, dates: [...applied].sort(),
+    balanceClassificationSource: { ...review.source, dates: [...applied].sort(), documents, periods,
       debtBasis: 'Borrowings plus current and non-current lease liabilities, counted once.',
       coverage: 'Only the cited dates are verified; earlier FMP classifications remain unreviewed.' } };
 }

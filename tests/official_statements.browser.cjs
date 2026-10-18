@@ -40,8 +40,17 @@ const root = path.resolve(__dirname, '..');
     assert.match(await cell('Total Current Liabilities', 5).innerText(), /518,875/);
     assert.match(await cell('Participant margin, Mainland', 6).innerText(), /288,066/);
     assert.match(await page.locator('#cmp-fin-thead').innerText(), /Latest balance/);
-    assert.match(await page.locator('#statement-status').innerText(), /Earlier unverified classifications are not shown/);
-    assert.match(await page.locator('#statement-status a').getAttribute('href'), /2026083100411\.pdf/);
+    assert.match(await page.locator('#statement-status').innerText(), /2021-12, 2022-12, 2023-12, 2024-12, 2025-12, 2026-06/);
+    for (const [index, ca, cl, payable] of [
+      [1, '375,069', '345,964', '28,335'], [2, '382,478', '352,948', '19,054'],
+      [3, '316,202', '286,511', '27,849'], [4, '353,576', '324,525', '37,584']
+    ]) {
+      assert.ok((await cell('Total Current Assets', index).innerText()).includes(ca));
+      assert.ok((await cell('Total Current Liabilities', index).innerText()).includes(cl));
+      assert.ok((await cell('Payables, accruals', index).innerText()).includes(payable));
+    }
+    assert.equal(await page.locator('#statement-status a').count(), 4);
+    assert.match(await page.locator('#statement-status a').last().getAttribute('href'), /2026083100411\.pdf/);
     await page.evaluate(() => switchSubPage('valuation'));
     assert.match(await page.locator('#fmp-official-source-warning').innerText(), /have not been rewritten/);
     await page.evaluate(() => switchSubPage('financials'));

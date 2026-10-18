@@ -57,17 +57,20 @@ and noncontrolling distributions. This preserves the existing bank valuation
 method without substituting the larger group distribution for ordinary payouts.
 
 `cache/hkex_balance_classifications.json` records HKEX's official current and
-non-current classification for 2025-12-31 and 2026-06-30 (Interim Report 2026,
-printed p.56 / PDF p.58). All component subtotals and the accounting equation
+non-current classification for all five year ends 2021-2025 plus 2026-06-30.
+Each period cites its own official report/comparative: Annual Report 2022
+(2021, PDF p.137), Annual Report 2023 (2022/2023, PDF p.139), Annual Report 2025
+(2024, PDF p.145), and Interim Report 2026 (2025/2026-06, PDF p.58).
+All component subtotals and the accounting equation
 must reconcile; changed provider total assets/liabilities/parent equity block
 reuse pending review. The original provider rows are archived. Financial assets,
 derivatives, participant deposits and Clearing House Funds retain their actual
 classifications. Borrowings and lease liabilities are separate and counted once;
 combined receivables/prepayments/deposits and goodwill/intangibles are not
 invented trade-receivable or goodwill splits. The financial table uses source
-categories, links the report, labels the latest balance as a closing snapshot
-instead of TTM, and withholds earlier unverified classifications while retaining
-the original data and overall totals. These are retrospective source corrections,
+categories, links each report, restores all verified 2021-2024 detail, labels the
+latest balance as a closing snapshot instead of TTM, and withholds only
+unverified dates while retaining original data and overall totals. These are retrospective source corrections,
 not point-in-time historical snapshots. Evidence changes invalidate prior AI
 assessment freshness; retained narratives are not relabelled as newly assessed.
 
@@ -147,6 +150,29 @@ EBITDA and D&A stay linked; Advanced uses after-tax EBIT plus D&A once, whereas
 the CFO model never adds D&A again. Annual capital costs produce annual WACC and
 compound discount factors. Net debt is a separately editable snapshot deducted
 once; projected cash is disclosure, not an extra terminal-value add-on.
+The snapshot must agree across native source years; a varying/absent net-debt
+basis blocks default construction pending review, rather than treating year-ten
+debt as current debt. Negative terminal cash flows/equity are retained for audit
+with an explicit economic-interpretation warning, not claimed to be tradable
+negative prices.
+
+Ten-year percentage inputs display two decimal places without rounding the
+underlying source/entered precision; tooltips and the JSON calculation download
+retain exact values. A separate actual full-year reference column uses the
+exact baseline financial period, not a historical vendor-model row or fabricated
+TTM. It shows ratios and monetary amounts, with FY-end balances, actual-source
+labels and historical FX. Missing breakdowns/capital-cost history stay N/A.
+Historical effective tax is distinguished from forecast operating tax.
+Reviewed Link references use the report's CFO and full property/PPE cash additions,
+without silently rewriting FMP forecasts or the calculation baseline.
+
+Both model modes provide a JSON calculation download containing vendor rows,
+override parameters, denominator/source metadata, native identity residuals,
+and (in ten-year mode) all annual inputs, formulas and results.
+[FMP calculation models](FMP_CALCULATION_MODELS.md) explains the separate methods,
+known source discrepancies, independent Decimal audit, and an editable
+formula-based Excel export requiring only Node and Python's standard library.
+
 Invalid implied FMP tax is explicitly flagged before a disclosed valid stated
 tax rate is used. This local model is not an original FMP API result.
 

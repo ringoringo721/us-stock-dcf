@@ -77,6 +77,7 @@
       SCENARIO_BASE_UNVERIFIED: ['缺少與實際年度財報核對的基期；不猜測預測起點。', 'A verified actual fiscal-year baseline is unavailable; the projection start is not guessed.'],
       SCENARIO_FORECAST_UNAVAILABLE: ['完整 FMP 年度來源尚不可用，不能建立十年情境。', 'Full annual FMP source rows are unavailable; a ten-year scenario cannot be created.'],
       SCENARIO_SOURCE_UNAVAILABLE: ['缺少有效 FMP 模型或普通股股數，不能建立十年情境。', 'A valid FMP model or issued-share denominator is unavailable.'],
+      SCENARIO_SNAPSHOT_NET_DEBT_UNVERIFIED: ['FMP 淨債務並非一致的來源快照，須核實後才能作股權價值調整。', 'FMP net debt is not a consistent source snapshot; verify its basis before the equity bridge.'],
       SCENARIO_INVALID_TERMINAL_SPREAD: ['第十年 WACC 必須高於終值增長率。', 'Year-ten WACC must exceed terminal growth.'],
       FMP_NO_COVERAGE: ['FMP 未提供此模型資料；不製造估值。', 'FMP supplies no rows for this model; no valuation is fabricated.'],
       FMP_MODEL_CURRENCY_UNVERIFIED: ['FMP 模型金額幣別尚未與財報核對，不能冒稱美元或港元。', 'FMP model currency could not be reconciled with financials; amounts are not relabeled as USD/HKD.'],
@@ -94,6 +95,7 @@
       scenarios: previous?.scenarios || (saved?.modelType === 'FMP_TEN_YEAR_SCENARIO' ? { [saved.kind]: structuredClone(saved.scenario) } : {}),
       scenarioDirty: previous?.scenarioDirty || { advanced: false, customLevered: false },
       sourceData: previous?.sourceData || options.data || record(options.ticker),
+      actualStatements: previous?.actualStatements || null, actualError: previous?.actualError || null,
       params: previous?.params || { advanced: {}, customLevered: {}, ...(saved?.modelType === 'FMP_CUSTOM_DCF' ? { [saved.kind]: saved.params || {} } : {}) },
       dirty: previous?.dirty || { advanced: false, customLevered: false,
         ...(saved?.modelType === 'FMP_CUSTOM_DCF' ? { [saved.kind]: Object.keys(saved.params || {}).length > 0 && !saved.modelSummary } : {}) },
@@ -123,9 +125,44 @@
     }
   }
 
+  const inputValue = (key, number) => finite(number) ? key === 'beta' ? String(number) : number.toFixed(2) : '';
+  function actualColumn(text, money) {
+    const scenario = state.scenarios[state.kind];
+    const reference = Scenario.actualReference(state.sourceData, state.actualStatements,
+      scenario ? { year: scenario.baseYear, date: scenario.baseDate } : undefined);
+    const sources = {
+      fmpStandardizedActual: text('FMP 標準化實績', 'FMP standardized actual'),
+      officialBalance: text('官方期末報表', 'Official closing balance'),
+      officialCashflow: text('官方現金流報表', 'Official cash-flow statement'),
+      officialReport: text('官方年報', 'Official annual report')
+    };
+    const cells = Object.fromEntries(Scenario.activeFields(state.kind).map(([key]) => {
+      const item = reference.items[key];
+      const basis = item?.basis === 'historicalEffectiveTaxNotForecastOperatingTax'
+        ? text('歷史所得稅／稅前利潤，非預測營運稅率', 'Historical income tax / PBT, not forecast operating tax')
+        : item?.basis === 'closingBalanceRevenueRatio' ? text('同一財年期末餘額／全年營收', 'Same FY closing balance / annual revenue')
+          : item?.basis === 'propertyAndPpeCashAdditions' ? text('物業＋PPE 現金添置', 'Property + PPE cash additions')
+            : item?.basis === 'reportedCfoNotFmpReclassified' ? text('年報原列 CFO，非 FMP 重分類口徑', 'As-reported CFO, not FMP reclassification')
+              : item?.basis === 'derivedEbitdaLessDa' ? text('實績 EBITDA 減 D&A 推導', 'Derived actual EBITDA less D&A') : '';
+      return [key, `${finite(item?.percent) ? `${item.percent.toFixed(2)}%` : 'N/A'}${finite(item?.amount)
+        ? `<small>${money(item.amount)}</small>` : ''}
+        <small>${escape(item ? sources[item.source] : text('非財報實績項目；不虛構歷史資本成本', 'Not a reported financial actual; historical capital costs are not invented'))}</small>
+        ${basis ? `<small>${escape(basis)}</small>` : ''}`];
+    }));
+    return {
+      header: `${text('實際全年參考', 'Actual FY reference')}<small>${escape(reference.date || 'N/A')}</small>`,
+      cells,
+      note: reference.reason ? `${text('實際財報參考暫不可用', 'Actual financial reference unavailable')}: ${escape(state.actualError || reference.reason)}`
+        : text(
+          '參考欄採基期實際全年（非 TTM），不改寫 FMP 模型基期、十年預設或淨債務。流量為全年，資產負債為同年期末；金額及百分比並列，缺少細分維持 N/A。外幣實績採各期歷史匯率，FMP 模型可能採即期匯率。融資成本／Beta 不是已公布財報實績。百分比顯示兩位小數，計算仍保留來源／輸入完整精度；滑鼠提示及下載檔可查精確值。',
+          'Reference uses actual baseline full-year financials (not TTM), without rewriting the FMP model baseline, ten-year defaults or net debt. Flows cover the FY; balances are at that FY end. Amounts and ratios are shown together; unavailable breakdowns stay N/A. Foreign actuals use period-specific historical FX; FMP models may use spot FX. Capital costs/beta are not reported financial actuals. Percentages display two decimals; calculations retain full source/entered precision, available in input tooltips and the audit download.')
+    };
+  }
+
   function scenarioHtml(text, money, result) {
     const scenario = state.scenarios[state.kind];
     if (!scenario) return `<p id="fmp-status" role="status">${escape(reasonText(result.reason, state.language()))}</p>`;
+    const actual = actualColumn(text, money);
     const origins = {
       fmp: text('FMP 模型', 'FMP model'), extension: text('標準延伸假設', 'Standard extension'),
       user: text('用戶修改', 'User override'), derived: text('連動推導', 'Linked derivation'),
@@ -143,19 +180,23 @@
       <p class="analysis-note">${text(
         '逐年 WACC 由股權／稅後債務成本與資本權重計算；修改 Beta、無風險利率或風險溢價會以 CAPM 更新該年的股權成本，亦可直接覆寫股權成本。每年折現因子連乘。終值增長率僅用於第十年後終值。現金比例僅展示預測餘額；EV 只減一次基期淨債務，不額外加上預測現金。負存貨或負稅率照來源標示，必須審視其適用性，未經獨立核實。',
         'Annual WACC uses equity/after-tax debt costs and capital weights; editing beta, risk-free rate or premium updates that year’s equity cost through CAPM, which can also be overridden directly. Annual discount factors compound. Terminal growth applies only beyond year ten. Cash ratios disclose projected balances only: EV subtracts snapshot net debt once, with no extra addition of projected cash. Negative inventory/tax inputs require review and are not independently certified.')}</p>
-      <div class="table-scroll-wrapper"><table id="fmp-ten-year-inputs"><thead><tr><th>${text('假設／來源', 'Assumption / source')}</th>${scenario.years.map(item => `<th>${item.year}</th>`).join('')}</tr></thead><tbody>
-        ${Scenario.activeFields(state.kind).map(([key, zh, en, min, max]) => `<tr><th>${escape(text(zh, en))}</th>${scenario.years.map((item, index) => `<td>
-          <input aria-label="${escape(text(zh, en))} ${item.year}" data-scenario-key="${key}" data-scenario-year="${index}" type="number" step="any" min="${min}" max="${max}" required value="${finite(item.values[key]) ? item.values[key] : ''}">
+      <p class="analysis-note" id="fmp-actual-note">${actual.note}</p>
+      <div class="table-scroll-wrapper"><table id="fmp-ten-year-inputs"><thead><tr><th>${text('假設／來源', 'Assumption / source')}</th><th id="fmp-actual-period">${actual.header}</th>${scenario.years.map(item => `<th>${item.year}</th>`).join('')}</tr></thead><tbody>
+        ${Scenario.activeFields(state.kind).map(([key, zh, en, min, max]) => `<tr><th>${escape(text(zh, en))}</th><td data-actual-key="${key}">${actual.cells[key]}</td>${scenario.years.map((item, index) => `<td>
+          <input aria-label="${escape(text(zh, en))} ${item.year}" data-scenario-key="${key}" data-scenario-year="${index}" type="number" step="any" min="${min}" max="${max}" required title="${escape(item.values[key])}" value="${inputValue(key, item.values[key])}">
           <small data-origin="${index}-${key}">${escape(origins[item.origins[key]] || item.origins[key])}</small></td>`).join('')}</tr>`).join('')}
       </tbody></table></div>
       <div class="fin-model-grid"><div class="form-group"><label for="fmp-terminal-growth">${text('第十年後終值增長率 (%)', 'Terminal growth after year ten (%)')}</label>
-      <input id="fmp-terminal-growth" type="number" required step="any" min="-10" max="20" value="${scenario.terminalGrowth}"></div>
+      <input id="fmp-terminal-growth" type="number" required step="any" min="-10" max="20" title="${escape(scenario.terminalGrowth)}" value="${inputValue('terminalGrowth', scenario.terminalGrowth)}"></div>
       <div class="form-group"><label for="fmp-snapshot-net-debt">${text('來源快照淨債務（可調整）', 'Snapshot net debt (editable)')} · ${escape(scenario.currency)}</label>
       <input id="fmp-snapshot-net-debt" type="number" required step="any" value="${scenario.netDebt}"></div></div>
       <p class="analysis-note">${text('調整終值增長率不會悄悄改寫已填好的十年增長率；需要時請逐年修改。', 'Changing terminal growth does not silently overwrite the ten populated annual growth inputs; edit those years explicitly if needed.')}</p>
       <button id="fmp-calculate" type="button" class="btn-save">${text('計算十年情境', 'Calculate ten-year scenario')}</button>
       <p id="fmp-status" role="status">${escape(result.reason ? reasonText(result.reason, state.language())
         : text('本站十年情境；不是 FMP 原始結果。可按「儲存目標價」一次計算並儲存。', 'Site-calculated ten-year scenario, not an FMP API result. Save target calculates and saves in one step.'))}</p>
+      ${result.result?.warnings?.length ? `<p id="fmp-negative-scenario-warning" class="analysis-note text-red">${text(
+        '此情境有非正數終期現金流及／或負股權值。負數照算以便審閱，不代表可交易的負股價；Gordon 終值並非經濟上可靠的正值持續經營估值。請先審閱 FMP 預測的 CapEx、營運利潤及終期假設。',
+        'This scenario has nonpositive terminal cash flow and/or negative equity. Negative arithmetic is retained for review, not interpreted as a tradable negative share price; its Gordon terminal is not an economically reliable positive going-concern valuation. Review FMP projected CapEx, operating profit and terminal assumptions first.')}</p>` : ''}
       <div class="table-scroll-wrapper"><table id="fmp-ten-year-results"><thead><tr><th>${text('預測財年', 'Projected FY')}</th><th>${text('營收', 'Revenue')}</th><th>${state.kind === 'advanced' ? 'EBITDA' : 'CFO'}</th><th>CapEx</th>
         ${state.kind === 'advanced' ? `<th>${text('營運資金增加', 'Change in NWC')}</th><th>${text('現金餘額（僅展示）', 'Cash balance (disclosure)')}</th>` : ''}
         <th>${text('現金流', 'Cash flow')}</th><th>WACC</th><th>${text('現金流現值', 'PV cash flow')}</th></tr></thead><tbody>
@@ -285,6 +326,8 @@
           <td>${money(r.revenue)}</td><td>${money(kind === 'advanced' ? r.ebitda : r.operatingCashFlow)}</td><td>${money(r.capitalExpenditure)}</td><td>${money(kind === 'advanced' ? r.ufcf : r.freeCashFlow)}</td></tr>`).join('')}</tbody></table></div>
       <p class="analysis-note">${text('FMP 的租賃、投資、非控制權益及優先股處理未等同本網站原官方 FCFF 對帳；不保證兩模型可直接比較。此處顯示供應商模型，不代表所有假設均經獨立驗證。', 'FMP treatment of leases, investments, NCI and preferred claims is not the prior issuer-reconciled FCFF bridge. Models are not guaranteed comparable; displaying a vendor model does not independently certify all assumptions.')}</p>
       `}
+      <button id="fmp-download-audit" type="button" class="btn-save">${text('下載計算模型與完整精度輸入（JSON）', 'Download calculation model and full-precision inputs (JSON)')}</button>
+      <p class="analysis-note">${text('下載包含原生 API 資料、每股分母、對帳差額、十年逐年公式／輸入／結果及實際參考來源；未保存或部署任何改動。原生 API 內部規則未經獨立重現，不以差額倒推或修改供應商數字。', 'The download includes native API rows, share denominators, reconciliation residuals, annual ten-year formulas/inputs/results and actual-reference provenance. It does not save or deploy changes. Native API internals are not independently reproduced; residuals are not used to back-solve or modify vendor figures.')}</p>
     </div>`;
     box.querySelector('#fmp-mode').value = state.mode;
     box.querySelector('#fmp-mode').addEventListener('change', event => { state.requestId++; state.mode = event.target.value; render(); });
@@ -310,7 +353,8 @@
       Scenario.update(scenario, index, key, input.value.trim() ? input.valueAsNumber : null);
       for (const field of Scenario.activeFields(kind)) {
         const control = box.querySelector(`[data-scenario-year="${index}"][data-scenario-key="${field[0]}"]`);
-        if (control !== input) control.value = finite(item.values[field[0]]) ? item.values[field[0]] : '';
+        control.title = finite(item.values[field[0]]) ? String(item.values[field[0]]) : '';
+        if (control !== input) control.value = inputValue(field[0], item.values[field[0]]);
         box.querySelector(`[data-origin="${index}-${field[0]}"]`).textContent = item.origins[field[0]] === 'user'
           ? text('用戶修改', 'User override') : item.origins[field[0]] === 'capm' ? 'CAPM'
             : item.origins[field[0]] === 'derived' ? text('連動推導', 'Linked derivation')
@@ -320,14 +364,73 @@
       }
       changed();
     }));
+    box.querySelectorAll('[data-scenario-key]').forEach(input => input.addEventListener('blur', () => {
+      input.value = inputValue(input.dataset.scenarioKey,
+        state.scenarios[kind].years[Number(input.dataset.scenarioYear)].values[input.dataset.scenarioKey]);
+    }));
     for (const [id, key] of [['fmp-terminal-growth', 'terminalGrowth'], ['fmp-snapshot-net-debt', 'netDebt']]) {
       box.querySelector(`#${id}`)?.addEventListener('input', event => {
         state.scenarios[kind][key] = event.target.value.trim() ? event.target.valueAsNumber : null;
+        event.target.title = String(state.scenarios[kind][key] ?? '');
         changed();
       });
     }
+    box.querySelector('#fmp-terminal-growth')?.addEventListener('blur', event => {
+      event.target.value = inputValue('terminalGrowth', state.scenarios[kind].terminalGrowth);
+    });
     box.querySelector('#fmp-calculate')?.addEventListener('click', calculate);
+    box.querySelector('#fmp-download-audit').addEventListener('click', downloadAudit);
+    box.querySelector('#fmp-download-audit').disabled = !!state.busy;
     if (state.busy && box.querySelector('#fmp-calculate')) box.querySelector('#fmp-calculate').disabled = true;
+  }
+
+  function auditPacket({ data, sourceData = data, kind, stock, scenario = null, statements = null, params = {} }) {
+    const native = value(data, kind, stock), rows = data?.models?.[kind]?.data || [];
+    const residual = (actual, expected) => finite(actual) && finite(expected) ? actual - expected : null;
+    return { version: 1, symbol: stock.ticker, currency: data?.currency, kind,
+      sourceCapturedAt: data?.models?.[kind]?.capturedAt || data?.capturedAt,
+      native: { params, selectedYear: native.row?.year, reason: native.reason,
+        rowCoverage: rows.length < (sourceData?.models?.[kind]?.data?.length || 0) ? 'partialVersusCachedSource' : 'availableApiRows',
+        targetPrice: native.fairVal, issuedShares: issuedShares(stock), shareSource: stock.shareSource,
+        rows, checks: rows.map(row => ({ year: row.year,
+          evResidual: residual(row.enterpriseValue, (row.sumPvUfcf ?? row.sumPvLfcf) + row.presentTerminalValue),
+          equityResidual: residual(row.equityValue, row.enterpriseValue - row.netDebt),
+          dilutedPriceResidual: residual(row.equityValuePerShare, row.equityValue / row.dilutedSharesOutstanding),
+          ebitIdentityResidual: kind === 'advanced' ? residual(row.ebit, row.ebitda - row.depreciation) : null,
+          cfoCashFlowResidual: kind === 'customLevered' ? residual(row.freeCashFlow, row.operatingCashFlow + row.capitalExpenditure) : null
+        })) },
+      originalSourceModels: sourceData?.models,
+      tenYear: scenario ? { input: structuredClone(scenario), result: Scenario.calculate(scenario) } : null,
+      actualReference: Scenario.actualReference(sourceData, statements,
+        scenario ? { year: scenario.baseYear, date: scenario.baseDate } : undefined),
+      formulas: Scenario.formulas };
+  }
+
+  async function downloadAudit() {
+    if (!state || state.busy) return;
+    const current = state, kind = state.kind, mode = state.mode;
+    if (mode === 'ten-year' || state.dirty[kind]) {
+      if (!await calculate() || state !== current || state.kind !== kind || state.mode !== mode) return;
+    }
+    const packet = auditPacket({ ...state, scenario: mode === 'ten-year' ? state.scenarios[kind] : null,
+      statements: state.actualStatements, params: state.params[kind] });
+    const url = root.URL.createObjectURL(new root.Blob([JSON.stringify(packet, null, 2)], { type: 'application/json' }));
+    const link = root.document.createElement('a');
+    link.href = url; link.download = `${state.ticker}-${kind}-${mode}-calculation.json`;
+    link.click();
+    root.setTimeout(() => root.URL.revokeObjectURL(url), 0);
+  }
+
+  function actuals(ticker, statements, reason = null) {
+    if (!state || state.ticker !== ticker) return;
+    state.actualStatements = statements; state.actualError = reason;
+    if (state.mode !== 'ten-year' || !root.document.getElementById('fmp-actual-period')) return;
+    const text = (zh, en) => state.language() === 'en' ? en : zh;
+    const money = value => finite(value) ? `${state.stock.calculationCurrency || 'USD'} ${value.toLocaleString('en-US', { maximumFractionDigits: 2 })}` : 'N/A';
+    const column = actualColumn(text, money);
+    root.document.getElementById('fmp-actual-period').innerHTML = column.header;
+    root.document.getElementById('fmp-actual-note').innerHTML = column.note;
+    root.document.querySelectorAll('[data-actual-key]').forEach(cell => { cell.innerHTML = column.cells[cell.dataset.actualKey]; });
   }
 
   async function calculate() {
@@ -354,6 +457,7 @@
     state.busy = true;
     state.busyRequest = id;
     button.disabled = true;
+    root.document.getElementById('fmp-download-audit').disabled = true;
     root.document.querySelector('[onclick="saveCustomModel()"]').disabled = true;
     status.textContent = state.language() === 'en' ? 'Calculating with FMP…' : '正在向 FMP 計算…';
     try {
@@ -386,6 +490,8 @@
         root.document.querySelector('[onclick="saveCustomModel()"]').disabled = false;
         const activeButton = root.document.getElementById('fmp-calculate');
         if (activeButton) activeButton.disabled = false;
+        const auditButton = root.document.getElementById('fmp-download-audit');
+        if (auditButton) auditButton.disabled = false;
       }
     }
   }
@@ -433,6 +539,6 @@
       if (!root.document.getElementById('fmp-workspace').hidden) render();
     }
   }
-  return { record, value, issuedShares, reference, compatible, load, save, reset, details, detailsError, reasonText,
+  return { record, value, issuedShares, reference, compatible, load, save, reset, details, detailsError, reasonText, actuals, auditPacket,
     deactivate: () => { state = null; }, rerender: () => { if (state) render(); } };
 });

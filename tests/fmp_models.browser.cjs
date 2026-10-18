@@ -124,7 +124,21 @@ const handler = createHandler(live ? {} : { apiKey: () => 'test-placeholder', fe
       await page.setViewportSize({ width: 1440, height: 1000 });
       await page.selectOption('#fmp-mode', 'ten-year');
       const initial = Scenario.defaults(record, 'customLevered', Models.issuedShares(sourceStock));
-      assert.equal(await page.locator('#fmp-ten-year-inputs thead th').count(), 11, 'Ten future fiscal years, not ten historical-plus-projected rows');
+      assert.equal(await page.locator('#fmp-ten-year-inputs thead th').count(), 12, 'Actual reference plus ten future fiscal years');
+      await page.waitForFunction(() => !document.getElementById('fmp-actual-note').textContent.startsWith('Actual financial reference unavailable'));
+      assert.match(await page.locator('#fmp-actual-period').innerText(), new RegExp(initial.baseDate));
+      assert.match(await page.locator('[data-actual-key="cfo"]').innerText(), /FMP standardized actual/);
+      assert.match(await page.locator('[data-actual-key="beta"]').innerText(), /N\/A/);
+      assert.equal(await page.locator('[data-scenario-year="0"][data-scenario-key="growth"]').getAttribute('title'), String(initial.years[0].values.growth));
+      for (const control of await page.locator('[data-scenario-key]:not([data-scenario-key="beta"]), #fmp-terminal-growth').all()) {
+        assert.match(await control.inputValue(), /^-?\d+\.\d{2}$/, 'Percentage input displays exactly two decimal places');
+      }
+      const [download] = await Promise.all([page.waitForEvent('download'), page.locator('#fmp-download-audit').click()]);
+      const packet = JSON.parse(fs.readFileSync(await download.path(), 'utf8'));
+      assert.equal(packet.tenYear.input.years[0].values.growth, initial.years[0].values.growth, 'Formatting/rerender/export must not round internal source values');
+      assert.equal(packet.tenYear.result.targetPrice, Scenario.calculate(initial).targetPrice);
+      assert.equal(packet.actualReference.date, initial.baseDate);
+      assert.deepEqual(packet.originalSourceModels.customLevered.data, record.models.customLevered.data);
       assert.equal(await page.locator('#fmp-ten-year-results tbody tr').count(), 10);
       assert.equal(await page.locator('#fmp-ten-year-inputs [data-scenario-key="growth"]').count(), 10);
       assert.equal(await page.locator('[data-origin="5-growth"]').innerText(), 'Standard extension');
@@ -146,7 +160,7 @@ const handler = createHandler(live ? {} : { apiKey: () => 'test-placeholder', fe
       await page.reload({ waitUntil: 'networkidle' });
       await page.waitForFunction(() => isAppReady && document.getElementById('fmp-mode'));
       assert.equal(await page.locator('#fmp-mode').inputValue(), 'ten-year');
-      assert.equal(await page.locator('[data-scenario-year="0"][data-scenario-key="growth"]').inputValue(), '12');
+      assert.equal(await page.locator('[data-scenario-year="0"][data-scenario-key="growth"]').inputValue(), '12.00');
       assert.equal(await page.locator('#fmp-ten-year-results tbody tr').count(), 10);
       await page.evaluate(() => navigateBack());
       const tenYearCell = page.locator('#screener-tbody tr').filter({ hasText: ticker }).locator('.badge-target');
@@ -179,6 +193,9 @@ const handler = createHandler(live ? {} : { apiKey: () => 'test-placeholder', fe
     let receivedSource;
     const pendingSource = new Promise(resolve => { receivedSource = resolve; });
     await page.route('**/cache/company/CSCO.json', route => { receivedSource(route); });
+    let receivedActuals;
+    const pendingActuals = new Promise(resolve => { receivedActuals = resolve; });
+    await page.route('**/cache/financials/CSCO_statements_v2.json', route => { receivedActuals(route); });
     await page.goto(`${base}/?market=US#CSCO/valuation`, { waitUntil: 'domcontentloaded' });
     await page.waitForFunction(() => isAppReady && document.getElementById('fmp-model'));
     const sourceRoute = await pendingSource;
@@ -187,6 +204,14 @@ const handler = createHandler(live ? {} : { apiKey: () => 'test-placeholder', fe
     await page.waitForFunction(() => stockUniverse.CSCO.companyDataLoaded);
     assert.equal(await page.locator('#fmp-mode').inputValue(), 'ten-year');
     assert.equal(await page.locator('#fmp-ten-year-results tbody tr').count(), 10, 'Late source load initializes local annual inputs without switching back to vendor mode');
+    const actualsRoute = await pendingActuals;
+    await page.locator('[data-scenario-year="0"][data-scenario-key="growth"]').fill('12.345');
+    await page.locator('[data-scenario-year="0"][data-scenario-key="growth"]').press('Tab');
+    await actualsRoute.continue();
+    await page.waitForFunction(() => !document.getElementById('fmp-actual-note').textContent.startsWith('Actual financial reference unavailable'));
+    assert.equal(await page.locator('[data-scenario-year="0"][data-scenario-key="growth"]').inputValue(), '12.35');
+    assert.equal(await page.locator('[data-scenario-year="0"][data-scenario-key="growth"]').getAttribute('title'), '12.345',
+      'Asynchronous actual-reference loading must not replace or round user input state');
     await page.selectOption('#fmp-mode', 'vendor');
     let holdCalculation;
     const held = new Promise(resolve => { holdCalculation = resolve; });

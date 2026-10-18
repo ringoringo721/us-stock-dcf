@@ -95,6 +95,76 @@ test('negative equity results are retained rather than clamped or replaced with 
   const input = flat();
   input.netDebt = 200;
   near(Scenario.calculate(input).targetPrice, -5);
+  assert.deepEqual(Scenario.calculate(input).warnings, ['NEGATIVE_EQUITY_VALUE']);
+});
+
+test('annual reference uses exact financial dates and units, not vendor historical model rows or TTM placeholders', () => {
+  const data = read('AAPL');
+  const raw = require('../cache/financials/AAPL_statements_v2.json');
+  const before = JSON.stringify(raw);
+  const reference = Scenario.actualReference(data, raw);
+  const actualRow = raw.annual.income.find(row => row.date === data.forecastBase.date);
+  const cashRow = raw.annual.cashflow.find(row => row.date === data.forecastBase.date);
+  assert.equal(reference.date, data.forecastBase.date);
+  assert.equal(reference.revenue, actualRow.revenue);
+  assert.equal(reference.items.cfo.amount, cashRow.operatingCashFlow);
+  near(reference.items.ebitda.percent, reference.items.ebitda.amount / reference.revenue * 100);
+  assert.equal(reference.items.beta, undefined, 'Financing assumptions are not invented historical actuals');
+  assert.equal(reference.items.tax.basis, 'historicalEffectiveTaxNotForecastOperatingTax');
+  assert.equal(JSON.stringify(raw), before);
+  const absent = structuredClone(raw);
+  absent.annual.income = absent.annual.income.filter(row => row.date !== data.forecastBase.date);
+  assert.equal(Scenario.actualReference(data, absent).reason, 'ACTUAL_PERIOD_UNAVAILABLE');
+  const foreign = structuredClone(raw);
+  foreign.annual.income.find(row => row.date === data.forecastBase.date).reportedCurrency = 'CNY';
+  assert.equal(Scenario.actualReference(data, foreign).reason, 'ACTUAL_CURRENCY_UNVERIFIED');
+  const incomplete = structuredClone(raw);
+  const incompleteCash = incomplete.annual.cashflow.find(row => row.date === data.forecastBase.date);
+  delete incompleteCash.operatingCashFlow;
+  incompleteCash.netCashProvidedByOperatingActivities = 0;
+  assert.equal(Scenario.actualReference(data, incomplete).items.cfo.amount, 0, 'Genuine printed zero is not missing');
+  const shifted = structuredClone(raw);
+  const prior = shifted.annual.income.find(row => Number(row.fiscalYear || row.calendarYear) === data.forecastBase.year - 1);
+  prior.date = `${data.forecastBase.year - 1}-09-28`;
+  assert.notEqual(Scenario.actualReference(data, shifted).items.growth.percent, null, '52/53-week fiscal calendars still have genuine annual growth');
+  prior.periodLength = 9;
+  assert.equal(Scenario.actualReference(data, shifted).items.growth.percent, null, 'A known short reporting year cannot silently form full-year growth');
+  shifted.annual.income.find(row => row.date === data.forecastBase.date).periodLength = 9;
+  assert.equal(Scenario.actualReference(data, shifted).reason, 'ACTUAL_PERIOD_NOT_FULL_YEAR');
+});
+
+test('Link actual reference preserves official reported CFO and full property/PPE cash investment, without rewriting model defaults', () => {
+  const data = read('0823.HK'), raw = require('../cache/financials/0823.HK_statements_v2.json');
+  const before = Scenario.defaults(data, 'customLevered', 10);
+  const actual = Scenario.actualReference(data, raw);
+  assert.equal(actual.items.cfo.amount, 8461e6);
+  assert.equal(actual.items.capex.amount, -1934e6);
+  assert.equal(actual.items.capex.basis, 'propertyAndPpeCashAdditions');
+  assert.equal(actual.items.cfo.source, 'officialReport');
+  assert.deepEqual(Scenario.defaults(data, 'customLevered', 10), before);
+  const result = Scenario.calculate(Scenario.defaults(data, 'advanced', 10));
+  assert.ok(result.rows[0].capex < -4900e6);
+  assert.ok(result.rows[0].cashFlow < -2300e6);
+  assert.ok(result.warnings.includes('NONPOSITIVE_TERMINAL_CASH_FLOW'));
+  const unreviewed = structuredClone(data);
+  unreviewed.sourceReview.reason = 'FINGERPRINT_CHANGED';
+  assert.equal(Scenario.actualReference(unreviewed, raw).items.cfo.amount, 6816e6);
+});
+
+test('audit export preserves native rows, full-precision local inputs, denominators and source inconsistencies', () => {
+  const data = read('0823.HK'), stock = require('../hk_market_dcf.json')['0823.HK'];
+  const scenario = Scenario.defaults(data, 'advanced', Models.issuedShares(stock));
+  const packet = Models.auditPacket({ data, kind: 'advanced', stock, scenario,
+    statements: require('../cache/financials/0823.HK_statements_v2.json') });
+  assert.deepEqual(packet.native.rows, data.models.advanced.data);
+  assert.deepEqual(packet.tenYear.input, scenario);
+  assert.equal(packet.tenYear.result.targetPrice, Scenario.calculate(scenario).targetPrice);
+  assert.ok(packet.native.checks.some(check => Math.abs(check.ebitIdentityResidual) > 20e6));
+  assert.equal(packet.native.issuedShares, stock.shares_outstanding);
+  assert.match(packet.formulas.native, /not independently reproduced/);
+  const varying = structuredClone(data);
+  varying.models.advanced.data[0].netDebt++;
+  assert.throws(() => Scenario.defaults(varying, 'advanced', 10), /SNAPSHOT_NET_DEBT_UNVERIFIED/);
 });
 
 test('forecast baseline is sourced from actual annual financials, not snapshot calendar year or oldest FX match', () => {
