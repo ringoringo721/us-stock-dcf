@@ -56,10 +56,37 @@
     return Number.isFinite(value) ? { ...result, value } : unavailable('missingField');
   }
 
+  function annualGrowth(data, statement, field) {
+    const rows = data?.annual?.[statement] || [];
+    const present = rows.at(-1), previous = rows.at(-2);
+    const result = { value: null, date: present?.date || null, previousDate: previous?.date || null,
+      reason: null, basis: 'annual' };
+    const unavailable = reason => ({ ...result, reason });
+    if (!present || !previous) return unavailable('missingPeriod');
+    if ([present, previous].some(row => !/^\d{4}-\d{2}-\d{2}$/.test(row.date)
+        || !Number.isFinite(Date.parse(row.date)) || new Date(row.date).toISOString().slice(0, 10) !== row.date)) {
+      return unavailable('dateMismatch');
+    }
+    const days = (Date.parse(present.date) - Date.parse(previous.date)) / 86400000;
+    if (!(days >= 330 && days <= 400)) return unavailable('nonConsecutive');
+    if (present.currencyConversion?.reason || previous.currencyConversion?.reason) return unavailable('missingFx');
+    if (!/^[A-Z]{3}$/.test(present.reportedCurrency) || present.reportedCurrency !== previous.reportedCurrency) {
+      return unavailable('currencyMismatch');
+    }
+    const a = numeric(previous[field]), b = numeric(present[field]);
+    if (a === null || b === null) return unavailable('missingField');
+    if (a <= 0) return unavailable('nonPositivePrior');
+    const value = (b / a - 1) * 100;
+    return Number.isFinite(value) ? { ...result, value } : unavailable('missingField');
+  }
+
   function storedGrowth(stock, field) {
     const record = stock?.reported_growth;
     const result = record?.fields?.[field];
-    if (record?.version !== 1 || record.currency !== (stock.calculationCurrency || 'USD') || !result || result.date !== record.date) return null;
+    if (record?.version !== 1 || record.currency !== (stock.calculationCurrency || 'USD') || !result) return null;
+    if (result.basis === 'annual') {
+      if (result.date !== record.annualDate || result.date > record.date) return null;
+    } else if (result.date !== record.date) return null;
     const latest = stock.statements_raw?.annual_dates?.at(-1);
     if (latest && record.date?.slice(0, 7) !== latest.slice(0, 7)) return null;
     return result;
@@ -203,5 +230,5 @@
       get('overview-retry').hidden = false;
     }
   }
-  return { calculate, growth, storedGrowth, render, deactivate };
+  return { calculate, growth, annualGrowth, storedGrowth, render, deactivate };
 });

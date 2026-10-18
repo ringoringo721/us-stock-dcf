@@ -80,8 +80,15 @@
       }
       if (half) half.textContent = translated.fcf_semiannual || (root.document.documentElement.lang === 'en' ? 'Half year' : '半年');
       const quarter = select.querySelector('option[value="quarterly"]');
-      quarter.disabled = cadence(data).stride === 2 && data?.periodView !== 'semiannual';
-      if (quarter.disabled && select.value === 'quarterly') select.value = 'semiannual';
+      const frequency = cadence(data, select.id === 'fcf-ratio-period' ? 'cashflow' : data?.presentationStatement || 'income').frequency;
+      quarter.disabled = frequency !== 'quarterly' && data?.periodView !== 'semiannual';
+      quarter.hidden = quarter.disabled || frequency === 'annual';
+      if (half) {
+        half.disabled = frequency === 'annual';
+        half.hidden = half.disabled;
+      }
+      if (frequency === 'annual') select.value = 'annual';
+      else if (quarter.disabled && select.value === 'quarterly') select.value = 'semiannual';
     });
     panel?.querySelectorAll('[data-i18n]').forEach(element => {
       const value = translated[element.dataset.i18n];

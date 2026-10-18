@@ -55,11 +55,17 @@ jobs:
         run: |
           node --test tests/hkd_currency.test.cjs tests/statement_scores.test.cjs tests/hkex_sources.test.cjs tests/usd_currency.test.cjs tests/fcff.test.cjs tests/fcff_drivers.test.cjs tests/fcff_sources.test.cjs tests/liquidation.test.cjs
           python -m unittest discover -s tests -p test_hkex_moat.py
+      - name: Capture genuine HKEX FMP models and company disclosures
+        env:
+          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+        run: node scripts/capture_company_data.cjs 0700.HK,9988.HK,0005.HK,0388.HK,0939.HK,0823.HK
       - name: Persist verified data without replacing US datasets
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add hk_market_dcf.json hk_market_data.js hk_fcff_data.js
+          git add fmp_model_data.js
+          git add -f cache/company/*.HK.json
           git add -f cache/hkex_moat.json cache/financials/*.HK_statements_v2.json cache/price_charts/*.HK.json cache/fx/hkd_rates.json
           if ! git diff --cached --quiet; then
             git commit -m "Refresh real HKEX data and evidence-based ratings [skip ci]" -m "Co-authored-by: Copilot App <223556219+Copilot@users.noreply.github.com>"

@@ -491,7 +491,7 @@
       state.bound = true;
     }
     const id = ++state.requestId;
-    const period = getElement('period').value;
+    let period = getElement('period').value;
     const flow = getElement('flow').value;
     const balance = getElement('balance').value;
     getElement('flow').disabled = period === 'annual';
@@ -514,6 +514,11 @@
     try {
       const data = await loadStatements(ticker);
       if (id !== state.requestId) return;
+      if (kind === 'fcf' && context.cadence(data, 'cashflow').frequency === 'annual') {
+        period = 'annual';
+        getElement('period').value = period;
+        getElement('flow').disabled = true;
+      }
       labels = context.localize(panel, labels, period === 'semiannual' ? halfYearStatements(data) : data);
       context.renderProvenance(panel, data, ticker);
       const columns = state.calculate(data, { period, flow, balance });

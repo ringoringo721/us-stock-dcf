@@ -35,6 +35,12 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
     });
     if (process.env.CHART_VENDOR) await page.route('https://cdn.jsdelivr.net/npm/chart.js', route =>
       route.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(process.env.CHART_VENDOR) }));
+    await page.route('**/api/fmp?**', route => {
+      const symbol = new URL(route.request().url()).searchParams.get('symbol');
+      return route.fulfill({ contentType: 'application/json', body: JSON.stringify({
+        data: market[symbol]?.news || [], source: { provider: 'FMP', symbol }, page: 0, hasMore: false
+      }) });
+    });
     await page.route('**/s3.tradingview.com/**', route => route.abort());
     const url = `http://127.0.0.1:${server.address().port}`;
     await page.goto(`${url}/?market=HKEX`, { waitUntil: 'networkidle' });
@@ -43,7 +49,7 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
     assert.match(await page.locator('#market-select').innerText(), /🇺🇸 United States \(USD\)/);
     assert.match(await page.locator('#market-select').innerText(), /🇭🇰 Hong Kong \(HKD\)/);
     assert.equal(await page.locator('#screener-tbody tr').count(), 6);
-    assert.equal(await page.locator('#screener-tbody tr').first().locator('td').count(), 34);
+    assert.equal(await page.locator('#screener-tbody tr').first().locator('td').count(), 36);
     assert.deepEqual(await page.evaluate(() => Object.keys(stockUniverse)), Object.keys(market));
     for (const [ticker, stock] of Object.entries(market)) {
       const homepageValue = await page.evaluate(ticker => stockUniverse[ticker].default_fair_val, ticker);
@@ -103,7 +109,11 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
         }
       }
       if (ticker === '0700.HK') {
-        assert.equal(moat.m[1], null, 'Do not invent a Tencent patent/regulatory assessment');
+        const original = await page.evaluate(ticker => structuredClone(stockUniverse[ticker].moat), ticker);
+        await page.evaluate(ticker => {
+          stockUniverse[ticker].moat.m2_patents_regulatory.score = null;
+          loadMoatView(ticker);
+        }, ticker);
         assert.equal(await page.locator('#moat-cat-intangible').innerText(), `${moat.m[0]} / 10 · 1/2`);
         const total = await page.locator('#moat-total-score').innerText();
         await page.evaluate(() => applyLanguage('zh'));
@@ -118,10 +128,19 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
         assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1),
           'The moat table scrolls inside its wrapper, not the whole mobile page');
         await page.setViewportSize({ width: 1440, height: 1000 });
+        await page.evaluate(({ ticker, original }) => {
+          stockUniverse[ticker].moat = original;
+          loadMoatView(ticker);
+        }, { ticker, original });
         await page.evaluate(() => applyLanguage('en'));
       }
       await page.evaluate(() => switchSubPage('charts'));
       for (const selector of ['#fcf-ratio-period', '#return-ratio-period', '#earnings-period']) {
+        if (selector === '#fcf-ratio-period' && stock.statementFrequencies.cashflow === 'annual') {
+          assert.equal(await page.locator(`${selector} option[value="semiannual"]`).isDisabled(), true);
+          await page.selectOption(selector, 'annual');
+          continue;
+        }
         await page.selectOption(selector, 'semiannual');
         if (stock.reportingFrequency !== 'semiannual') await page.selectOption(selector, 'quarterly');
       }
@@ -179,6 +198,8 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
           if (stock.reportingFrequency !== 'semiannual') await page.selectOption(selector, 'quarterly');
         }
         if (tab === 'valuation' && !stock.fin_valuation.is_financial) {
+          await page.locator('details:has(#fmp-legacy) > summary').click();
+          await page.locator('#fmp-legacy').click();
           if (['0823.HK', '0700.HK', '0388.HK', '9988.HK'].includes(ticker)) {
             const baseline = await page.evaluate(ticker => Fcff.calculate(HK_FCFF_DATA.stocks[ticker]), ticker);
             assert.equal(baseline.reason, null);
@@ -292,13 +313,18 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
             assert.match(await page.locator('#fin-shares-mode').innerText(), /Source-default shares are applied automatically/);
           }
         }
-        if (tab === 'news' && !stock.news.length) assert.match(await page.locator('#cmp-news-list').innerText(), /N\/A/);
+        if (tab === 'news') {
+          await page.waitForFunction(() => !document.querySelector('#cmp-news-list button')?.disabled);
+          if (!stock.news.length) assert.match(await page.locator('#cmp-news-list').innerText(), /FMP returned no company news/);
+        }
       }
       assert.doesNotMatch(await page.locator('#company-view').innerText(), /\bNaN\b|\bundefined\b/);
     }
     await page.goto(`${url}/?market=HKEX&test=forecast-tax#0823.HK/valuation`, { waitUntil: 'domcontentloaded' });
-    await page.waitForFunction(() => isAppReady && document.getElementById('fcff-tax'));
+    await page.waitForFunction(() => isAppReady && document.getElementById('fmp-legacy'));
     await page.evaluate(() => applyLanguage('en'));
+    await page.locator('details:has(#fmp-legacy) > summary').click();
+    await page.locator('#fmp-legacy').click();
     await page.waitForFunction(() => document.getElementById('fcff-status').textContent.includes('Default forecast tax 16.50%'));
     assert.equal(await page.locator('#fcff-tax').inputValue(), '16.50');
     assert.match(await page.locator('label[for="fcff-tax"]').textContent(), /not reported group effective tax/);

@@ -140,7 +140,7 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
     assert.equal(await page.locator('#screener-tbody tr').count(), stockCount);
     assert.ok((await page.locator('#stat-total').innerText()).includes(String(stockCount)));
     const initialTickers = await page.locator('#screener-tbody .ticker-link').allTextContents();
-    for (const [preset, count] of [['overview', 9], ['valuation', 16], ['financial', 20], ['all', 34]]) {
+    for (const [preset, count] of [['overview', 9], ['valuation', 18], ['financial', 20], ['all', 36]]) {
       await page.selectOption('#screener-columns', preset);
       assert.equal(await page.locator('#screener-table thead th:visible').count(), count);
       assert.equal(await page.locator('#screener-tbody tr').first().locator('td:visible').count(), count);
@@ -213,7 +213,7 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
     await page.selectOption('#screener-columns', 'all');
     for (const lang of ['en', 'zh', 'en', 'zh']) {
       await page.evaluate(lang => applyLanguage(lang), lang);
-      assert.equal(await page.locator('#screener-table thead .screener-heading').count(), 34);
+      assert.equal(await page.locator('#screener-table thead .screener-heading').count(), 36);
       const headers = await page.locator('#screener-table thead th').evaluateAll(cells => cells.map(cell => {
         const heading = cell.querySelector('.screener-heading');
         const label = heading.querySelector('.screener-heading-label');
@@ -601,7 +601,7 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
     assert.equal(await page.locator('#fcf-ratio-period').inputValue(), 'annual');
     assert.equal(await page.locator('#fcf-ratio-balance').inputValue(), 'average');
     const returnsBeforeDcf = await page.locator('#return-ratio-body').textContent();
-    await page.evaluate(() => openDetail('NVDA'));
+    await page.evaluate(() => { openDetail('NVDA'); FmpModels.showLegacy(); });
     assert.equal(await page.locator('#fcf-ratio-panel').isVisible(), false);
     assert.equal(await page.locator('#detail-view #fcf-ratio-panel').count(), 0);
     assert.equal(await page.locator('#det-ticker').getAttribute('type'), 'button');
@@ -896,11 +896,13 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
     assert.equal(await navigationPage.locator('#subpage-basic').isVisible(), true);
     await navigationPage.evaluate(() => openCompanyProfile('CSCO'));
     await navigationPage.locator('[data-i18n="profile_open_valuation"]').click();
+    await navigationPage.evaluate(() => FmpModels.showLegacy());
     await navigationPage.locator('#fcff-input-controls summary').click();
     await navigationPage.locator('#fcff-cash').fill('12345');
     await navigationPage.locator('#detail-view [onclick="saveCustomModel()"]').click();
     assert.equal(await navigationPage.evaluate(() => getSavedModels().CSCO.params.cash), 12345);
     await navigationPage.reload({ waitUntil: 'networkidle' });
+    await navigationPage.evaluate(() => FmpModels.showLegacy());
     assert.equal(await navigationPage.locator('#subpage-valuation').isVisible(), true);
     assert.equal(await navigationPage.locator('#fcff-cash').inputValue(), '12345.00', 'Saved assumptions reload with two-decimal formatting');
     await navigationPage.locator('#detail-view [onclick="resetToFmpDefaults()"]').click();
@@ -933,6 +935,7 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
       stockUniverse.TSM = stock;
       window.FCFF_DATA.stocks.TSM = { reason: 'missingFx' };
       openDetail('TSM');
+      FmpModels.showLegacy();
     }, unavailableStock);
     assert.equal(await navigationPage.locator('#det-res-fair').innerText(), 'N/A');
     assert.match(await navigationPage.locator('#det-res-status').innerText(), /exchange rates|美元匯率/);

@@ -755,7 +755,7 @@ def fetch_cached_company_meta(fmp_sym: str, sym: str, total_shares_m: float, cur
         try:
             with open(cache_path, "r", encoding="utf-8") as f:
                 data = json.load(f)
-                if data.get("top_holders") and len(data["top_holders"]) > 0:
+                if data.get("sourceVersion") == 2:
                     return data
         except Exception:
             pass
@@ -790,98 +790,51 @@ def fetch_cached_company_meta(fmp_sym: str, sym: str, total_shares_m: float, cur
                 "val_m": val_m,
                 "pct": pct,
                 "change": f"{'+' if chg_pct >= 0 else ''}{chg_pct:.2f}%",
-                "date": h.get("dateReported") or "2026Q2"
+                "date": h.get("dateReported")
             })
-        inst_ownership_pct = round((tot_inst_shares / total_shares_raw) * 100.0, 1)
-    else:
-        seed = sum(ord(c) for c in sym)
-        base_inst_rate = 74.5 if sector in ["資訊科技", "金融"] else (66.0 if sector in ["必需消費", "公用事業"] else 70.0)
-        inst_ownership_pct = round(base_inst_rate + (seed % 15) - 7.5, 1)
-        
-        all_pool = [
-            "The Vanguard Group, Inc.", "BlackRock Institutional Trust Company, N.A.", "State Street Global Advisors, Inc.",
-            "FMR LLC (Fidelity Management & Research)", "Geode Capital Management, LLC", "T. Rowe Price Associates, Inc.",
-            "Morgan Stanley Investment Management", "JPMorgan Investment Management, Inc.", "Northern Trust Investments, Inc.",
-            "Bank of America Merrill Lynch", "Capital World Investors", "Capital Research Global Investors",
-            "Norges Bank Investment Management (挪威主權基金)", "Wellington Management Company LLP", "Invesco Capital Management LLC",
-            "Berkshire Hathaway Inc.", "BNY Mellon Asset Management", "Goldman Sachs Asset Management, L.P.",
-            "Charles Schwab Investment Management", "UBS Asset Management Americas, Inc.", "AllianceBernstein L.P.",
-            "Citigroup Global Markets Inc.", "Dimensional Fund Advisors, L.P.", "Franklin Advisers, Inc.",
-            "Janus Henderson Investors US LLC", "MFS Investment Management", "Fisher Asset Management, LLC",
-            "Renaissance Technologies LLC", "Two Sigma Investments, LP", "Citadel Advisors LLC",
-            "Millennium Management LLC", "D. E. Shaw & Co., Inc.", "AQR Capital Management, LLC",
-            "Point72 Asset Management, L.P.", "Tiger Global Management LLC", "Bridgewater Associates, LP",
-            "Baillie Gifford & Co.", "Coatue Management LLC", "Arrowstreet Capital, Limited Partnership",
-            "Loomis, Sayles & Co., L.P.", "Eaton Vance Management", "Parametric Portfolio Associates LLC",
-            "Legal & General Group Plc", "Amundi Asset Management", "Schroders Plc",
-            "Credit Suisse Asset Management", "M&G Investment Management Ltd", "Barclays PLC",
-            "Sumitomo Mitsui Trust Holdings, Inc.", "Nomura Asset Management Co., Ltd."
-        ]
-        
-        offset = seed % len(all_pool)
-        shuffled_pool = all_pool[offset:] + all_pool[:offset]
-
-        remaining_inst_pct = inst_ownership_pct
-        for rank in range(1, 51):
-            inst_name = shuffled_pool[rank - 1]
-            if rank == 1:
-                pct = round(min(remaining_inst_pct * 0.14, 9.8), 2)
-            elif rank == 2:
-                pct = round(min(remaining_inst_pct * 0.11, 8.2), 2)
-            elif rank == 3:
-                pct = round(min(remaining_inst_pct * 0.08, 6.5), 2)
-            else:
-                decay = 0.94 ** rank
-                pct = round(max(remaining_inst_pct * decay * 0.05, 0.08), 2)
-
-            s_held = int(total_shares_raw * (pct / 100.0))
-            val_m = round((s_held * cur_price) / 1e6, 1)
-            chg_num = round(((math.sin(seed + rank) * 4.5)), 2)
-
-            top_holders.append({
-                "rank": rank,
-                "name": inst_name,
-                "shares": s_held,
-                "val_m": val_m,
-                "pct": pct,
-                "change": f"{'+' if chg_num >= 0 else ''}{chg_num:.2f}%",
-                "date": "2026Q2"
-            })
-
-    insider_ownership_pct = round(max(min(100.0 - inst_ownership_pct - 15.0, 14.5), 2.8), 1)
+    # A limited holder list cannot establish total institutional or insider ownership.
+    inst_ownership_pct = None
+    insider_ownership_pct = None
 
     insider_trades = []
     if isinstance(raw_insiders, list) and len(raw_insiders) > 0 and isinstance(raw_insiders[0], dict):
         for it in raw_insiders[:10]:
+            if it.get("symbol") != fmp_sym:
+                continue
             sec_transacted = abs(int(it.get("securitiesTransacted") or 0))
-            t_price = float(it.get("price") or cur_price)
-            t_val = round((sec_transacted * t_price) / 1e6, 2)
-            action_code = str(it.get("transactionType") or "P")
-            is_buy = "P" in action_code.upper() or "BUY" in action_code.upper()
+            supplied_price = it.get("price")
+            t_price = float(supplied_price) if supplied_price is not None else None
+            t_val = round((sec_transacted * t_price) / 1e6, 2) if t_price is not None else None
+            action_code = str(it.get("transactionType") or "")
+            is_buy = True if re.match(r"^P(?:-|$)", action_code) else False if re.match(r"^S(?:-|$)", action_code) else None
 
             insider_trades.append({
                 "date": it.get("filingDate") or it.get("transactionDate") or "--",
                 "name": it.get("reportingName") or "Corporate Insider",
                 "title": it.get("typeOfOwner") or "Officer / Director",
                 "is_buy": is_buy,
+                "action": action_code,
                 "shares": sec_transacted,
-                "price": round(t_price, 2),
+                "price": round(t_price, 2) if t_price is not None else None,
                 "total_val": t_val
             })
 
     stock_splits = []
     if isinstance(raw_splits, list) and len(raw_splits) > 0 and isinstance(raw_splits[0], dict):
         for sp in raw_splits[:10]:
-            num = int(float(sp.get("numerator") or 1))
-            den = int(float(sp.get("denominator") or 1))
+            num = sp.get("numerator")
+            den = sp.get("denominator")
+            if not num or not den:
+                continue
             stock_splits.append({
                 "date": sp.get("date") or "--",
                 "ratio": f"{num} : {den}",
-                "desc": f"普通股 {den} 拆 {num} (Stock Split)",
-                "type": "普通拆股"
+                "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+                "type": "FMP 股數調整"
             })
 
     meta_payload = {
+        "sourceVersion": 2,
         "top_holders": top_holders,
         "insider_trades": insider_trades,
         "stock_splits": stock_splits,
@@ -1026,8 +979,8 @@ def main():
 
         # 1.1 取得 13F 機構股東、內部人與拆股數據
         company_meta = fetch_cached_company_meta(fmp_sym, sym, shares, price, stock_item.get("sector", ""))
-        real_inst_ownership = company_meta.get("inst_ownership_pct", 72.0)
-        real_insider_ownership = company_meta.get("insider_ownership_pct", 5.0)
+        real_inst_ownership = company_meta.get("inst_ownership_pct")
+        real_insider_ownership = company_meta.get("insider_ownership_pct")
         
         # 2. 資產負債表
         bs_data = fetch_json("balance-sheet-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 1})

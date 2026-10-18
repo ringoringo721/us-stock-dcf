@@ -7,7 +7,7 @@ allowlisted browser assets and financial/price/FX caches in `public/`. Backend
 programs, raw source captures and private rating inputs are not public assets.
 `vercel.json` makes browsers revalidate data rather than retaining stale scores.
 
-The shared interface has a US/HKEX selector, the same 34 screener columns and all
+The shared interface has a US/HKEX selector, the same 36 screener columns and all
 nine company subpages. The initial real-data HKEX universe is Tencent (00700),
 Alibaba (09988), HSBC (00005), HKEX (00388), CCB (00939) and Link REIT (00823).
 Qualified provider identities retain `.HK`; they are not US sample aliases.
@@ -87,6 +87,59 @@ Category subtotals retain assessed dimensions and their coverage instead of
 discarding the category or assigning missing dimensions zero points. The
 diagnostic table scrolls horizontally on narrow screens. These presentation
 changes do not regenerate assessments or alter their source timestamps.
+
+### FMP company data and editable valuations
+
+Non-bank/non-insurer companies default to FMP Custom DCF Advanced, with a
+separate Custom DCF Levered model. Defaults and model rows come from FMP, not
+invented analyst forecasts. They are vendor projections/extrapolations, not
+necessarily issuer guidance or analyst consensus. Site custom per-share values
+divide vendor equity value by verified outstanding common shares, excluding
+treasury shares; A/H companies use all ordinary classes. Vendor diluted-share
+values remain separately identified. The two additional screener references,
+DCF Valuation and Levered DCF, retain the vendor's direct per-share values.
+Existing bank/insurance models and separately accessible issuer-reconciled FCFF
+models are preserved. Missing coverage, unverified currency and missing issued
+shares remain explicitly unavailable.
+
+Run `node scripts/capture_company_data.cjs` with `FMP_API_KEY` to refresh the
+236-company snapshot, or pass comma-separated symbols for a limited refresh.
+`fmp_model_data.js` contains only screener model summaries; detailed models,
+dated news and supported ownership disclosures load from `cache/company/`.
+13F holdings are not a complete HK share register. Missing holders, insiders,
+news or split coverage are not fabricated.
+
+The same server-side key must be configured in the Vercel environment for
+`api/fmp.js` to calculate custom scenarios and paginate company news. Never put
+keys in browser assets. For local use, place credentials in ignored
+`.env.local`, build with `node scripts/build_site.cjs`, then run
+`node scripts/serve_preview.cjs` (loopback port 57102). A static-only preview
+cannot execute the API.
+
+### Vertex AI reassessment
+
+`scripts/refresh_hkex_moat.py` uses Vertex AI. It accepts the existing
+`GCP_SA_KEY` environment secret, or standard Application Default Credentials via
+`GOOGLE_APPLICATION_CREDENTIALS` / `GOOGLE_CLOUD_PROJECT`. The latter also
+supports local user ADC without creating a service-account private key;
+authentication and appropriate project permissions must already be configured.
+`GOOGLE_CLOUD_LOCATION` defaults to `us-central1` for ADC. Credential files must
+remain outside the repository and published assets.
+
+An assessment-policy change triggers reassessment even if financial evidence
+has not changed. `--retry-incomplete` additionally retries partial reports.
+All new scores still require cited evidence and bilingual qualitative comments;
+insufficient evidence may legitimately remain unassessed. Failed authorization
+does not count as a successful refresh or replace prior reports with invented
+scores. A Vertex Express API key is a separate authorization path; a blocked key
+is not silently rerouted to the Gemini Developer API.
+
+The read-only `valuation_audit.yml` workflow accepts `build_hkex=true` and
+`force_moat=true` to regenerate all six assessments with GitHub Secrets, without
+committing data or invoking a deploy hook. Download its `hkex-pilot-data`
+artifact and run `node scripts/apply_hkex_moat.cjs <assessment-json-path>` to apply
+only matching reports locally. This refuses mismatched evidence hashes or failed
+assessments and preserves financials, quoted prices and valuation inputs.
 
 Link's rental FCFF scenario uses the matching official complete annual operating
 components in `cache/hkex_valuation_reconciliations.json`, not the unreconciled

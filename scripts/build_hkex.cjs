@@ -8,6 +8,7 @@ const ratios = require('../fcf_ratios.js');
 const liquidation = require('../liquidation.js');
 const { prepareSnapshot, forecastFxRate } = require('./fcff_sources.cjs');
 const { reconcileValuation } = require('./hkex_valuation_sources.cjs');
+const { reportedGrowth } = require('./reported_growth.cjs');
 const config = require('../hkex_stocks.json');
 const shareCapital = require('../cache/hkex_share_capital.json');
 
@@ -442,7 +443,8 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
     fcf0: millions(flow('cashflow', 'freeCashFlow')), f_score: score.score, f_score_breakdown: scoreBreakdown(score, data), moat: priorMoat,
     fair_val: null, default_fair_val: null, premium_pct: null, is_undervalued: null,
     pe_forward: null, pb_forward: null, target_price: null, dcf_model_ev: null,
-    statements_raw: table, real_history: {}, peers: readRows(evidence, 'peers').map(row => row.symbol).filter(symbol => typeof symbol === 'string'),
+    statements_raw: table, reported_growth: reportedGrowth(data, rates), real_history: {},
+    peers: readRows(evidence, 'peers').map(row => row.symbol).filter(symbol => typeof symbol === 'string'),
     fin_valuation: { is_financial: !!item.financial }, image: p.image || null, logo: p.image || null,
     website: p.website || null, ceo: p.ceo || null, full_time_employees: Number(p.fullTimeEmployees) > 0 ? Number(p.fullTimeEmployees) : null,
     description: p.description || null, description_en: p.description || null, description_zh: priorMoat?.description_zh || null,

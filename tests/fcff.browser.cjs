@@ -19,6 +19,7 @@ const money = value => '$' + value.toLocaleString('en-US', { minimumFractionDigi
       }));
     });
     await page.goto(`${baseUrl}/#CSCO/valuation`, { waitUntil: 'networkidle' });
+    await page.evaluate(() => FmpModels.showLegacy());
     const baseline = calculate(sources.stocks.CSCO);
     assert.equal(await page.locator('#det-res-fair').innerText(), money(baseline.fairVal));
     assert.deepEqual(await page.locator('#fcff-workspace input[type="number"]').evaluateAll(inputs =>
@@ -35,7 +36,7 @@ const money = value => '$' + value.toLocaleString('en-US', { minimumFractionDigi
 
     const browserResults = await page.evaluate(() => Object.fromEntries(Object.keys(window.FCFF_DATA.stocks)
       .map(ticker => {
-        const result = computeDCF(stockUniverse[ticker], ticker);
+        const result = Fcff.calculate(FCFF_DATA.stocks[ticker]);
         return [ticker, { fairVal: result.fairVal, reason: result.reason, premiumPct: result.premiumPct }];
       })));
     for (const [ticker, source] of Object.entries(sources.stocks)) {
@@ -74,7 +75,7 @@ const money = value => '$' + value.toLocaleString('en-US', { minimumFractionDigi
     assert.equal(stored.model.params.beta, -0.047);
     assert.equal(stored.model.params.tax, 0);
     assert.equal(stored.archive[0].params.fcf0, 999);
-    await page.evaluate(() => { delete stockUniverse.CSCO.fcffScenario; loadDetailTicker('CSCO'); });
+    await page.evaluate(() => { delete stockUniverse.CSCO.fcffScenario; loadDetailTicker('CSCO'); FmpModels.showLegacy(); });
     assert.equal(await page.locator('#fcff-beta').inputValue(), '-0.05');
     await page.locator('#fcff-input-controls summary').click();
     await page.locator('#fcff-beta').fill('-0.05');
@@ -149,7 +150,7 @@ const money = value => '$' + value.toLocaleString('en-US', { minimumFractionDigi
     assert.match(await page.locator('#fcff-terminal-note').innerText(), /Warning: growth is positive/);
     assert.equal(await page.locator('#det-res-fair').innerText(), money(calculate(sources.stocks.CSCO, componentScenario).fairVal));
     await page.locator('[onclick="saveCustomModel()"]').click();
-    await page.evaluate(() => { delete stockUniverse.CSCO.fcffScenario; loadDetailTicker('CSCO'); });
+    await page.evaluate(() => { delete stockUniverse.CSCO.fcffScenario; loadDetailTicker('CSCO'); FmpModels.showLegacy(); });
     assert.deepEqual(await page.evaluate(() => getSavedModels().CSCO.params.years), annualScenario.years);
     await page.locator('[onclick="resetToFmpDefaults()"]').click();
     assert.equal(await page.locator('#fcff-terminalMethod').inputValue(), 'roic');
@@ -195,10 +196,10 @@ const money = value => '$' + value.toLocaleString('en-US', { minimumFractionDigi
     assert.equal(await page.locator('#det-res-premium').innerText(), 'N/A');
     await page.evaluate(() => openDetail('JPM'));
     assert.ok((await page.locator('#det-res-fair').getAttribute('class')).includes('text-green'));
-    await page.evaluate(() => openDetail('CSCO'));
+    await page.evaluate(() => { openDetail('CSCO'); FmpModels.showLegacy(); });
     await page.locator('[onclick="resetToFmpDefaults()"]').click();
     for (const ticker of ['NVDA', 'TSM', 'BRK.B']) {
-      await page.evaluate(ticker => openDetail(ticker), ticker);
+      await page.evaluate(ticker => { openDetail(ticker); FmpModels.showLegacy(); }, ticker);
       assert.equal(await page.locator('#det-res-fair').innerText(), 'N/A', ticker);
       assert.equal(await page.locator('[onclick="saveCustomModel()"]').isDisabled(), true);
       assert.ok(await page.locator('#fcff-status').innerText());

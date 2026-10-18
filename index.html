@@ -24,6 +24,10 @@
   <script src="usd_currency.js"></script>
   <script src="liquidation.js"></script>
   <script src="peer_comparison.js"></script>
+  <script src="stock_search.js"></script>
+  <script src="company_data.js"></script>
+  <script src="fmp_model_data.js"></script>
+  <script src="fmp_models.js"></script>
   <script src="fcf_ratios.js?v=parent-equity-1"></script>
   <script src="balance_sheet.js"></script>
   <script src="earnings_trend.js"></script>
@@ -1115,6 +1119,8 @@
             <th onclick="sortTable('industry')" style="text-align: left; width: 180px;" data-i18n="th_industry">細分子行業</th>
             <th onclick="sortTable('price')" style="width: 110px;" data-i18n="th_price">最新股價 ($)</th>
             <th onclick="sortTable('fairVal')" style="width: 110px;" data-i18n="th_fair">公允價值 ($)</th>
+            <th onclick="sortTable('fmp_dcf')" data-i18n="th_fmp_dcf">FMP DCF Valuation</th>
+            <th onclick="sortTable('fmp_levered')" data-i18n="th_fmp_levered">FMP Levered DCF</th>
             <th onclick="sortTable('target_price')" style="width: 110px;" data-i18n="th_target">目標價值 ($)</th>
             <th style="text-align: center; width: 110px;" data-i18n="th_action">操作</th>
             <th onclick="sortTable('target_spread')" style="width: 125px;" data-i18n="th_target_spread">目標 vs 市價溢價</th>
@@ -1283,6 +1289,8 @@
       </div>
     </div>
 
+    <div id="fmp-workspace" hidden></div>
+    <button type="button" id="fmp-return" class="btn-nav" hidden onclick="loadDetailTicker(activeDetailTicker)">FMP Custom DCF →</button>
     <div id="fcff-workspace" hidden></div>
     <!-- Legacy input elements retained for the separate financial-model controls. -->
     <div class="main-layout" id="panel-general-dcf">
@@ -3024,6 +3032,10 @@
     fin_shares_missing: '來源預設股數尚未取得；可自行輸入股數作情境分析，但不會視為公司披露。',
     fin_shares_confirm: '我選擇以自訂股數覆寫估值分母；這是我的假設，不是公司披露股數。',
     fin_shares_apply: '套用自訂股數情境' });
+  Object.assign(I18N_DICT.zh, { th_fmp_dcf: 'FMP DCF 參考價', th_fmp_levered: 'FMP Levered DCF 參考價',
+    lbl_own_inst: 'FMP 收錄的 13F 機構披露佔比' });
+  Object.assign(I18N_DICT.en, { th_fmp_dcf: 'FMP DCF Valuation', th_fmp_levered: 'FMP Levered DCF',
+    lbl_own_inst: 'Institutional ownership disclosed in covered 13F filings' });
   for (const lang of Object.keys(I18N_DICT)) I18N_DICT[lang] = MarketContext.labels(I18N_DICT[lang]);
   const moneyPrefix = () => MarketContext.currency === 'HKD' ? 'HKD ' : '$';
   function changeMarket(market) {
@@ -3278,7 +3290,7 @@
     const sym = explicitTicker || s.ticker || "";
     if (!s.fin_valuation?.is_financial) {
       const source = MarketContext.fcff()?.stocks?.[sym];
-      const result = Fcff.calculate(source);
+      const result = FmpModels.value(FmpModels.record(sym), 'advanced', { ...s, ticker: sym });
       return { ...FcffView.metrics(s, source, result), moat: evaluateMoat(s, sym) };
     }
     let localDebt = Number(s.debt) || 0;
@@ -3655,7 +3667,7 @@
     const mode = document.getElementById('screener-columns').value;
     const presets = {
       overview: { width: 1200, fields: ['ticker', 'name', 'price', 'fairVal', 'target_price', 'action', 'premiumPct', 'moat_score', 'f_score'] },
-      valuation: { width: 1900, fields: ['ticker', 'name', 'sector', 'price', 'fairVal', 'target_price', 'action', 'target_spread', 'premiumPct', 'moat_score', 'WACC', 'EV', 'mcap', 'liq_val_1', 'liq_val_2', 'liq_val_3'] },
+      valuation: { width: 2100, fields: ['ticker', 'name', 'sector', 'price', 'fairVal', 'fmp_dcf', 'fmp_levered', 'target_price', 'action', 'target_spread', 'premiumPct', 'moat_score', 'WACC', 'EV', 'mcap', 'liq_val_1', 'liq_val_2', 'liq_val_3'] },
       financial: { width: 2370, fields: ['ticker', 'name', 'price', 'mcap', 'pe_trailing', 'pe_forward', 'pb_trailing', 'div_yield', 'fcf_to_ev', 'fcf_to_equity', 'fcf_to_mcap', 'cash_to_assets', 'liab_to_assets', 'current_ratio', 'roe', 'roa', 'f_score', 'ev_to_ebitda', 'debt_to_ebitda', 'net_debt_to_ebitda'] },
       all: { width: 4450, fields: null }
     };
@@ -3761,6 +3773,8 @@
 
       return { 
         ticker, ...s, ...defaultDcf, 
+        fmp_dcf: FmpModels.reference(FmpModels.record(ticker), 'dcf'),
+        fmp_levered: FmpModels.reference(FmpModels.record(ticker), 'levered'),
         fcf_to_equity: FcfRatios.storedTtmFcfToEquity(s.statements_raw, s.currencyConversion?.reason),
         fairVal: fairVal,
         isSaved, isFav, target_price, target_spread, moat_score,
@@ -3780,12 +3794,7 @@
     if (currentSubIndustryFilter !== 'ALL') list = list.filter(item => item.industry === currentSubIndustryFilter);
 
     if (searchVal) {
-      list = list.filter(item => 
-        (item.ticker && item.ticker.toUpperCase().includes(searchVal)) || 
-        (item.name && item.name.toUpperCase().includes(searchVal)) || 
-        (item.sector && item.sector.includes(searchVal)) || 
-        (item.industry && item.industry.toUpperCase().includes(searchVal))
-      );
+      list = list.filter(item => StockSearch.matches(item, searchVal));
     }
 
     list.sort((a, b) => {
@@ -3871,7 +3880,14 @@
           <td style="color: var(--text-secondary); text-align: left;">${getStockDisplaySector(item)}</td>
           <td style="color: var(--text-muted); font-size: 11px; text-align: left;">${getStockDisplayIndustry(item.industry) || '--'}</td>
           <td style="font-weight: 700; color: var(--accent);">${priceNum === null ? 'N/A' : moneyPrefix() + priceNum.toFixed(2)}</td>
-          <td class="text-green" style="font-size: 13px; font-weight: 700;" title="${item.reason ? FcffView.reasonText(item.reason, currentLang).replace(/"/g, '&quot;') : ''}">${fairNum === null ? 'N/A' : MarketContext.currency + ' ' + fairNum.toFixed(2)}${!item.fin_valuation?.is_financial ? `<small class="liquidation-asof">${MarketContext.fcff()?.stocks?.[item.ticker]?.valuationDate || ''}</small>` : ''}</td>
+          <td class="text-green" style="font-size: 13px; font-weight: 700;" title="${escapeAttribute(item.reason ? (item.fin_valuation?.is_financial ? FcffView.reasonText(item.reason, currentLang) : FmpModels.reasonText(item.reason, currentLang)) : 'FMP Custom DCF Advanced / issued common shares')}">${fairNum === null ? 'N/A' : MarketContext.currency + ' ' + fairNum.toFixed(2)}${!item.fin_valuation?.is_financial ? `<small class="liquidation-asof">${FmpModels.record(item.ticker)?.capturedAt?.slice(0, 10) || ''}</small>` : ''}</td>
+          ${['dcf', 'levered'].map(kind => {
+            const data = FmpModels.record(item.ticker), val = FmpModels.reference(data, kind);
+            const note = currentLang === 'en'
+              ? 'Direct FMP reference; provider share denominator and methodology, not the site issued-share custom value.'
+              : 'FMP 直接回傳參考值；保留供應商股數及算法，不是本網站已發行股數自訂估值。';
+            return `<td data-fmp-reference="${kind}" title="${escapeAttribute(`${note} ${data?.models?.[kind]?.reason || data?.currencyCheck?.reason || ''}`)}">${val === null ? 'N/A' : moneyPrefix() + val.toFixed(2)}<small class="liquidation-asof">${data?.models?.[kind]?.data?.[0]?.date || ''}</small></td>`;
+          }).join('')}
           <td>${targetPriceHtml}</td>
           <td style="text-align: center;">
             <button class="btn-nav" onclick="openDetail('${item.ticker}')">${currentLang === 'zh' ? '深度模型 →' : 'DCF Model →'}</button>
@@ -4146,16 +4162,17 @@
     const holders = s.top_holders || [];
     if (holders.length > 0) {
       tbody.innerHTML = holders.map(h => {
-        const isUp = !h.change.includes('-');
+        const change = typeof h.change === 'string' ? h.change : 'N/A';
+        const isUp = !change.includes('-');
         const colorCls = isUp ? "text-green" : "text-red";
         return `
           <tr>
             <td style="text-align: center; font-weight: 700; color: var(--text-muted);">${h.rank}</td>
-            <td style="text-align: left; font-weight: 600; color: var(--text);">${currentLang === 'en' ? h.name.replace(/\s*\([^)]*[\u4e00-\u9fff][^)]*\)/g, '') : h.name}</td>
+            <td style="text-align: left; font-weight: 600; color: var(--text);" title="${escapeAttribute(h.date || '')}">${escapeAttribute(h.name)}</td>
             <td>${Number(h.shares).toLocaleString()}</td>
-            <td class="text-gold">${moneyPrefix()}${Number(h.val_m).toLocaleString()}</td>
-            <td style="font-weight: 700; color: var(--accent);">${Number(h.pct).toFixed(2)}%</td>
-            <td style="text-align: center;"><span class="${colorCls}">${h.change}</span></td>
+            <td class="text-gold">${Number.isFinite(h.val_m) ? moneyPrefix() + h.val_m.toLocaleString() : 'N/A'}</td>
+            <td style="font-weight: 700; color: var(--accent);">${Number.isFinite(h.pct) ? h.pct.toLocaleString(undefined, { maximumFractionDigits: 4 }) + '%' : 'N/A'}</td>
+            <td style="text-align: center;"><span class="${colorCls}">${escapeAttribute(change)}</span></td>
           </tr>
         `;
       }).join('');
@@ -4172,20 +4189,20 @@
     const trades = s.insider_trades || [];
     if (trades.length > 0) {
       tbody.innerHTML = trades.map(t => {
-        const typeHtml = t.is_buy 
+        const typeHtml = t.is_buy === null ? `<span class="badge">${escapeAttribute(t.action)}</span>` : t.is_buy
           ? `<span class="badge badge-undervalued">${currentLang === 'en' ? 'Buy' : 'P - 集中買入'}</span>`
           : `<span class="badge badge-overvalued">${currentLang === 'en' ? 'Sell' : 'S - 減持套現'}</span>`;
-        const valColor = t.is_buy ? "text-green" : "text-red";
+        const valColor = t.is_buy === null ? 'text-muted' : t.is_buy ? "text-green" : "text-red";
 
         return `
           <tr>
             <td style="text-align: left; color:var(--text-muted);">${t.date}</td>
-            <td style="text-align: left; font-weight: 700; color: var(--text);">${t.name}</td>
-            <td style="text-align: left; color: var(--text-secondary);">${t.title}</td>
+            <td style="text-align: left; font-weight: 700; color: var(--text);">${escapeAttribute(t.name)}</td>
+            <td style="text-align: left; color: var(--text-secondary);">${escapeAttribute(t.title)}</td>
             <td style="text-align: center;">${typeHtml}</td>
             <td style="font-weight: 600;">${Number(t.shares).toLocaleString()}</td>
-            <td>${moneyPrefix()}${Number(t.price).toFixed(2)}</td>
-            <td class="${valColor}" style="font-weight: 700;">${moneyPrefix()}${Number(t.total_val).toFixed(2)}M</td>
+            <td>${Number.isFinite(t.price) ? moneyPrefix() + t.price.toFixed(2) : 'N/A'}</td>
+            <td class="${valColor}" style="font-weight: 700;">${Number.isFinite(t.total_val) ? moneyPrefix() + t.total_val.toFixed(2) + 'M' : 'N/A'}</td>
           </tr>
         `;
       }).join('');
@@ -4205,19 +4222,19 @@
     const tbody = document.getElementById('cmp-splits-tbody');
     if (!tbody || !s) return;
 
-    const splits = s.stock_splits || [];
+    const splits = CompanyData.splits(s.stock_splits);
     if (splits.length > 0) {
       tbody.innerHTML = splits.map(sp => {
         const ratio = String(sp.ratio || '').match(/^\s*([\d.]+)\s*:\s*([\d.]+)\s*$/);
         const validRatio = ratio && Number(ratio[1]) > 0 && Number(ratio[2]) > 0;
-        const type = validRatio
+        const type = sp.verifiedEventType === false ? 'FMP share adjustment (event type unverified)' : validRatio
           ? (Number(ratio[1]) >= Number(ratio[2]) ? 'Stock split' : 'Reverse stock split')
           : 'Corporate action';
         return `
         <tr>
           <td style="text-align: left; font-weight: 600; color: var(--text);">${sp.date}</td>
           <td style="text-align: center; font-weight: 700; color: var(--accent); font-size: 13px;">${sp.ratio}</td>
-          <td style="text-align: left; color: var(--text-secondary);">${currentLang === 'en' ? (validRatio ? `${ratio[2]} existing share(s) → ${ratio[1]} share(s)` : 'Reported share adjustment') : sp.desc}</td>
+          <td style="text-align: left; color: var(--text-secondary);">${currentLang === 'en' ? (sp.verifiedEventType === false ? 'Provider-reported adjustment factor; not independently verified as a split or rights issue.' : validRatio ? `${ratio[2]} existing share(s) → ${ratio[1]} share(s)` : 'Reported share adjustment') : sp.desc}</td>
           <td style="text-align: center;"><span class="badge badge-target">${currentLang === 'en' ? type : sp.type}</span></td>
         </tr>
       `; }).join('');
@@ -4318,7 +4335,9 @@
 
     const isEn = (currentLang === 'en');
     const rawStmts = s.statements_raw || {};
-    if (activeStatementPeriod === 'quarterly' && MarketContext.cadence(s).stride === 2) activeStatementPeriod = 'semiannual';
+    const nativeCadence = MarketContext.cadence(s, activeStatementType);
+    if (nativeCadence.frequency === 'annual') activeStatementPeriod = 'annual';
+    else if (activeStatementPeriod === 'quarterly' && nativeCadence.stride === 2) activeStatementPeriod = 'semiannual';
     const isQuarter = activeStatementPeriod !== 'annual';
     const qRaw = (activeStatementPeriod === 'semiannual' ? rawStmts.semiannual_raw : rawStmts.quarterly_raw) || {};
     const cadence = MarketContext.cadence(activeStatementPeriod === 'semiannual' ? { reportingFrequency: 'semiannual' } : s, activeStatementType);
@@ -4334,7 +4353,8 @@
     document.getElementById('statement-type').value = activeStatementType;
     document.getElementById('statement-period').value = activeStatementPeriod;
     const statementLabels = MarketContext.localize(document.getElementById('subpage-financials'), I18N_DICT[currentLang],
-      { reportingFrequency: cadence.frequency, periodView: activeStatementPeriod === 'semiannual' && s.reportingFrequency !== 'semiannual' ? 'semiannual' : null });
+      { reportingFrequency: nativeCadence.frequency,
+        periodView: activeStatementPeriod === 'semiannual' && nativeCadence.frequency === 'quarterly' ? 'semiannual' : null });
     document.getElementById('statement-status').textContent = `${ticker} · ${statementLabels[activeStatementPeriod === 'semiannual' ? 'btn_period_half' : isQuarter ? 'btn_period_quarter' : 'btn_period_annual']} · ${periods.length} ${statementLabels.analysis_columns}${
       activeStatementType === 'cashflow' && MarketContext.cadence(s, 'cashflow').frequency === 'annual' && isQuarter ? ' · N/A: Annual cash flow only; no interim/TTM cash flow is reported.' : ''}${
       activeStatementPeriod === 'semiannual' && s.reportingFrequency !== 'semiannual'
@@ -4893,8 +4913,9 @@
       const reason = record?.reason === 'nonPositivePrior' ? labels.analysis_growth_non_positive
         : labels[`fcf_reason_${record?.reason || 'missingField'}`] || labels.fcf_error;
       const available = record && !record.reason && Number.isFinite(record.value);
-      const title = available ? `TTM ${record.previousDate} / TTM ${record.date}` : reason;
-      return `<span data-peer-growth="${field}" data-growth-value="${available ? record.value : ''}" title="${title}">${available ? fmtPct(record.value, true) : 'N/A'}</span>`;
+      const basis = record?.basis === 'annual' ? (isEn ? 'FY' : '年度') : 'TTM';
+      const title = available ? `${basis} ${record.previousDate} / ${basis} ${record.date}` : reason;
+      return `<span data-peer-growth="${field}" data-growth-value="${available ? record.value : ''}" title="${title}">${available ? fmtPct(record.value, true) + (record.basis === 'annual' ? ` (${basis})` : '') : 'N/A'}</span>`;
     }
 
     // 取得最新申報月份 (YYYY-MM)
@@ -5125,42 +5146,7 @@
   }
 
   function renderNewsSubPage(ticker) {
-    if (MarketContext.market === 'HKEX') {
-      const list = document.getElementById('cmp-news-list');
-      const news = (stockUniverse[ticker]?.news || []).filter(item => item.symbol === ticker && item.title);
-      list.replaceChildren();
-      for (const item of news) {
-        const article = document.createElement('article');
-        article.className = 'analysis-note';
-        const title = document.createElement('a');
-        title.textContent = item.title;
-        try {
-          const url = new URL(item.url);
-          if (['http:', 'https:'].includes(url.protocol)) { title.href = url.href; title.target = '_blank'; title.rel = 'noopener noreferrer'; }
-        } catch {}
-        const source = document.createElement('p');
-        source.textContent = [item.publisher || item.site, item.publishedDate, ticker].filter(Boolean).join(' · ');
-        article.append(title, source);
-        list.append(article);
-      }
-      if (!news.length) list.textContent = currentLang === 'en'
-          ? 'N/A — No verified news or earnings-call feed is supplied for this security.'
-          : 'N/A — 尚無此證券的已核實新聞或業績電話會議來源。';
-      return;
-    }
-    const list = document.getElementById('cmp-news-list');
-    if (!list) return;
-    const isEn = (currentLang === 'en');
-    list.innerHTML = `
-      <div style="background:var(--surface-bg); padding:12px 16px; border-radius:6px; border:1px solid var(--card-border);">
-        <div style="font-weight:700; color:var(--text); font-size:13.5px;">${ticker} ${isEn ? 'Reports Latest Earnings & Healthy Free Cash Flow Expansion' : '公佈最新季度營收與獲利，現金流保持健康增長'}</div>
-        <div style="color:var(--text-muted); font-size:11.5px; margin-top:4px;">${isEn ? 'Source: MarketWatch · Realtime Feed' : '來源: MarketWatch · 即時快訊'}</div>
-      </div>
-      <div style="background:var(--surface-bg); padding:12px 16px; border-radius:6px; border:1px solid var(--card-border);">
-        <div style="font-weight:700; color:var(--text); font-size:13.5px;">${isEn ? 'Wall Street Analysts Reiterate Durable Economic Moat Rating' : '華爾街分析師調整目標價，關注長期經濟護城河壁壘'}</div>
-        <div style="color:var(--text-muted); font-size:11.5px; margin-top:4px;">${isEn ? 'Source: Bloomberg Terminal · Analysis' : '來源: Bloomberg · 即時快訊'}</div>
-      </div>
-    `;
+    return CompanyData.renderNews(document.getElementById('cmp-news-list'), ticker, stockUniverse[ticker]?.news, currentLang);
   }
 
   // ========================================================
@@ -5211,28 +5197,57 @@
     document.getElementById('cmp-meta-ath').innerText = quote(s.all_time_high);
     document.getElementById('cmp-meta-atl').innerText = quote(s.all_time_low);
 
+    function renderOwnership() {
     const inst = profileNumber(s.inst_ownership_pct);
     const insider = profileNumber(s.insider_ownership_pct);
     const retail = inst !== null && insider !== null && inst + insider <= 100 && inst >= 0 && insider >= 0
       ? Number((100 - inst - insider).toFixed(1)) : null;
 
-    document.getElementById('cmp-own-inst').innerText = profileFormat(inst, '%');
+    document.getElementById('cmp-own-inst').innerText = profileFormat(inst, '%', 4);
     document.getElementById('cmp-own-insider').innerText = profileFormat(insider, '%');
     document.getElementById('cmp-own-retail').innerText = profileFormat(retail, '%');
 
     document.getElementById('bar-own-inst').style.width = `${Math.max(0, Math.min(inst ?? 0, 100))}%`;
     document.getElementById('bar-own-insider').style.width = `${Math.max(0, Math.min(insider ?? 0, 100))}%`;
     document.getElementById('bar-own-retail').style.width = `${Math.max(0, Math.min(retail ?? 0, 100))}%`;
+    let ownershipNote = document.getElementById('cmp-ownership-note');
+    if (!ownershipNote) {
+      ownershipNote = document.createElement('p');
+      ownershipNote.id = 'cmp-ownership-note';
+      ownershipNote.className = 'analysis-note';
+      document.getElementById('cmp-own-inst').closest('.panel').append(ownershipNote);
+    }
+    ownershipNote.textContent = `${currentLang === 'en'
+      ? 'FMP 13F coverage only, not the complete HKEX/issuer share register. Insiders and retail cannot be inferred by subtraction; unavailable is not zero. Holder values use disclosed share counts × the displayed current quote, not USD filing market values. Holdings date'
+      : '僅限 FMP 收錄的美國 13F 披露，並非完整港交所／公司股東名冊。內部人及散戶比例不可由差額推算；缺資料不等於零。持股估值採披露股數 × 畫面現價，不把美元申報值冒充港元。持股報告日'}: ${s.ownershipDate || 'N/A'} · ${s.metadataSourceReason || 'FMP'}`;
+    }
+    renderOwnership();
 
     // 預先載入各模組數據
     // 預先載入各模組數據
     renderTop50Holders(s);
     renderInsiderTrades(s);
+    if (document.getElementById('subpage-news').classList.contains('active')) renderNewsSubPage(ticker);
     renderStockSplits(s);
     renderFinancialsSubPage(s);
     renderRatiosSubPage(s);
     renderPeersSubPage(s);
-    renderNewsSubPage(ticker);
+    if (!s.companyDataLoaded && !s.companyDataLoading) {
+      s.companyDataLoading = true;
+      CompanyData.load(ticker).then(data => {
+        Object.assign(s, CompanyData.metadata(data, s));
+        s.companyDataLoaded = true;
+        s.companyDataLoading = false;
+        if (activeCompanyTicker !== ticker) return;
+        renderOwnership();
+        renderTop50Holders(s);
+        renderInsiderTrades(s);
+      }).catch(error => {
+        s.companyDataLoading = false;
+        console.error('Company source data could not be loaded', ticker, error.message);
+        if (activeCompanyTicker === ticker) document.getElementById('cmp-ownership-note').textContent += ` · ${error.message}`;
+      });
+    }
 
     // 強制重設 Tab 並顯示 1. 基本資料 (Profile)
     switchSubPage('basic', false);
@@ -5281,16 +5296,18 @@
     const isFinancial = !!(s.fin_valuation && s.fin_valuation.is_financial);
     const finPanel = document.getElementById('panel-fin-models');
     const genLayout = document.getElementById('panel-general-dcf');
-    document.getElementById('fcff-workspace').hidden = isFinancial;
+    document.getElementById('fcff-workspace').hidden = true;
+    document.getElementById('fmp-workspace').hidden = isFinancial;
+    document.getElementById('fmp-return').hidden = true;
     if (!isFinancial) {
       finPanel.style.display = 'none';
       genLayout.style.display = 'none';
-      FcffView.load({
-        stock: s, ticker, saved, language: () => currentLang,
-        save: model => {
+      const save = model => {
           const models = getSavedModels();
           const previous = models[ticker];
-          if (previous && !FcffView.compatible(previous)) {
+          const compatiblePrevious = model.modelType === 'FMP_CUSTOM_DCF'
+            ? FmpModels.compatible(previous) : FcffView.compatible(previous);
+          if (previous && !compatiblePrevious) {
             const archive = JSON.parse(localStorage.getItem('M7_LEGACY_VALUATIONS') || '{}');
             const history = archive[ticker];
             archive[ticker] = [...(Array.isArray(history) ? history : history ? [history] : []), previous];
@@ -5300,9 +5317,21 @@
           storeSavedModels(models);
           document.getElementById('det-saved-badge').style.display = 'inline-block';
           document.getElementById('det-saved-badge').textContent =
-            `${currentLang === 'en' ? 'Saved FCFF target' : '已存 FCFF 目標價'}: ${moneyPrefix()}${model.targetPrice.toFixed(2)}`;
+            `${currentLang === 'en' ? 'Saved target' : '已存目標價'}: ${moneyPrefix()}${model.targetPrice.toFixed(2)}`;
+          renderScreenerTable();
+      };
+      FmpModels.load({
+        stock: s, ticker, saved, language: () => currentLang, save, data: CompanyData.peek(ticker),
+        legacy: () => {
+          document.getElementById('fmp-workspace').hidden = true;
+          document.getElementById('fcff-workspace').hidden = false;
+          document.getElementById('fmp-return').hidden = false;
+          FcffView.load({ stock: s, ticker, saved, language: () => currentLang, save });
         }
       });
+      CompanyData.load(ticker).then(data => FmpModels.details(data)).catch(error =>
+        { console.error('Detailed FMP model rows could not be loaded', ticker, error.message);
+          FmpModels.detailsError(ticker, error.message); });
       return;
     }
 
@@ -5407,7 +5436,8 @@
     const s = stockUniverse[activeDetailTicker];
     if (!s) return;
     if (!s.fin_valuation?.is_financial) {
-      FcffView.rerender();
+      if (document.getElementById('fmp-workspace').hidden) FcffView.rerender();
+      else FmpModels.rerender();
       return;
     }
 
@@ -5726,7 +5756,8 @@
     const s = stockUniverse[activeDetailTicker];
     if (!s) return;
     if (!s.fin_valuation?.is_financial) {
-      FcffView.save();
+      if (document.getElementById('fmp-workspace').hidden) FcffView.save();
+      else FmpModels.save();
       return;
     }
 
@@ -5787,6 +5818,8 @@
   }
 
   function resetToFmpDefaults() {
+    const resetLegacy = !stockUniverse[activeDetailTicker]?.fin_valuation?.is_financial
+      && !document.getElementById('fcff-workspace').hidden;
     const models = getSavedModels();
     delete models[activeDetailTicker];
     storeSavedModels(models);
@@ -5799,7 +5832,9 @@
         stockUniverse[activeDetailTicker].shares = MarketContext.stocks()[activeDetailTicker].shares;
       }
     }
+    if (!stockUniverse[activeDetailTicker]?.fin_valuation?.is_financial) FmpModels.reset();
     loadDetailTicker(activeDetailTicker);
+    if (resetLegacy) FmpModels.showLegacy();
     document.getElementById('det-saved-badge').style.display = 'none';
   }
 
@@ -5846,6 +5881,10 @@
     if (MarketContext.market === 'HKEX' && !MarketContext.fcff()) return;
     isAppReady = true;
     stockUniverse = JSON.parse(JSON.stringify(data));
+    for (const [ticker, stock] of Object.entries(stockUniverse)) {
+      stock.ticker = ticker;
+      Object.assign(stock, CompanyData.metadata(FmpModels.record(ticker), stock));
+    }
     document.getElementById('market-select').value = MarketContext.market;
     if (typeof Chart !== 'undefined') {
       Chart.defaults.font.family = themeColor('--font-family');

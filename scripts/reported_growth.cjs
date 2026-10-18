@@ -1,7 +1,8 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { convertStatements } = require('../usd_currency.js');
-const { calculate, growth } = require('../profile_overview.js');
+const { calculate, growth, annualGrowth } = require('../profile_overview.js');
+const { cadence } = require('../market_context.js');
 const fields = {
   revenue: 'income', grossProfit: 'income', operatingIncome: 'income', netIncome: 'income',
   ebitda: 'income', epsDiluted: 'income', operatingCashFlow: 'cashflow', freeCashFlow: 'cashflow'
@@ -10,8 +11,11 @@ const fields = {
 function reportedGrowth(source, rates) {
   const data = convertStatements(source, rates);
   return {
-    version: 1, currency: 'USD', basis: 'TTM versus prior-year TTM', date: calculate(data).date,
-    fields: Object.fromEntries(Object.entries(fields).map(([field, statement]) => [field, growth(data, statement, field)]))
+    version: 1, currency: data.calculationCurrency || 'USD', basis: 'TTM versus prior-year TTM',
+    date: calculate(data).date,
+    ...(cadence(data, 'cashflow').frequency === 'annual' ? { annualDate: data.annual?.cashflow?.at(-1)?.date || null } : {}),
+    fields: Object.fromEntries(Object.entries(fields).map(([field, statement]) => [field,
+      cadence(data, statement).frequency === 'annual' ? annualGrowth(data, statement, field) : growth(data, statement, field)]))
   };
 }
 
