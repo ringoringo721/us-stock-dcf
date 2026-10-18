@@ -23,12 +23,17 @@ on:
         description: Regenerate all HKEX moat scores and bilingual comments using Vertex AI (artifacts only)
         type: boolean
         default: false
+      translate_news:
+        description: Translate captured news headlines only using Vertex Flash-Lite; save artifacts without publishing
+        type: boolean
+        default: false
 
 permissions:
   contents: read
 
 jobs:
   capture-fmp:
+    if: inputs.translate_news != true
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
@@ -80,4 +85,27 @@ jobs:
         with:
           name: valuation-fmp-sources
           path: valuation-audit-output/
+          retention-days: 7
+  translate-news:
+    if: inputs.translate_news == true
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - run: pip install google-genai
+      - name: Translate and save exact-title matches, without articles or deployment
+        env:
+          GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+        run: python -u scripts/translate_news.py
+      - name: Preserve translations and actual token usage
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: news-title-translations
+          path: |
+            cache/news_translations.json
+            news-translation-usage.json
           retention-days: 7
