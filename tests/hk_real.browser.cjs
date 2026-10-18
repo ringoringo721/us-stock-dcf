@@ -135,6 +135,9 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
           assert.equal(await page.locator('#disp-fin-ke').innerText(), `${stock.fin_valuation.ke.toFixed(2)}%`);
           assert.match(await page.locator('#fin-reference-note').innerText(), /USD Treasury 10Y proxy/);
           assert.equal(stock.fin_valuation.unavailableReason, null);
+          assert.match(await page.locator('#fin-shares-mode').innerText(), /Source-default shares are applied automatically/);
+          assert.equal(await page.locator('details:has(#fin-shares) > summary').innerText(), 'Custom share-count scenario (optional)');
+          assert.match(await page.locator('#fin-shares-help').textContent(), /no checkbox confirmation is needed/);
           assert.notEqual(await page.locator('#det-res-fair').innerText(), 'N/A');
           const fin = stock.fin_valuation;
           const excess = fin.tbvps * (1 + (fin.rote - fin.ke) / Math.max(fin.ke - fin.g, 2));
@@ -154,15 +157,32 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
             assert.equal(await page.locator('#fin-reference-note a').getAttribute('href'), stock.shareSource.providerSource);
             await page.evaluate(() => applyLanguage('zh'));
             assert.match(await page.locator('#fin-reference-note').innerText(), /全公司 A \+ H 普通股合計 261,600,381,459/);
+            assert.equal(await page.locator('details:has(#fin-shares) > summary').innerText(), '自訂股數情境（選填）');
+            assert.match(await page.locator('#fin-shares-mode').innerText(), /無須勾選或手動確認/);
+            assert.match(await page.locator('#fin-shares-confirm + span').textContent(), /這是我的假設/);
             await page.evaluate(() => applyLanguage('en'));
+            const missingMode = await page.evaluate(ticker => {
+              const stock = stockUniverse[ticker], shares = stock.shares;
+              try {
+                stock.shares = null;
+                renderFinancialReference(stock.fin_valuation);
+                return document.getElementById('fin-shares-mode').textContent;
+              } finally {
+                stock.shares = shares;
+                renderFinancialReference(stock.fin_valuation);
+              }
+            }, ticker);
+            assert.match(missingMode, /Source-default shares are unavailable/);
             await page.locator('details:has(#fin-shares) > summary').click();
             await page.locator('#fin-shares').fill('261600');
             await page.evaluate(() => onFinSharesChange());
             assert.equal(await page.locator('#det-res-fair').innerText(), baseline, 'Unconfirmed assumptions cannot replace sourced shares');
+            assert.match(await page.locator('#fin-shares-mode').innerText(), /Source-default shares are applied automatically/);
             await page.locator('#fin-shares-confirm').check();
             await page.evaluate(() => onFinSharesChange());
             assert.notEqual(await page.locator('#det-res-fair').innerText(), 'N/A');
             assert.match(await page.locator('#fin-reference-note').innerText(), /user-confirmed scenario/);
+            assert.match(await page.locator('#fin-shares-mode').innerText(), /custom share-count scenario is active/);
             assert.equal(await page.locator('#fin-reference-note a').count(), 0, 'A scenario is not attributed to the issuer return');
             assert.equal(await page.evaluate(ticker => stockUniverse[ticker].fin_valuation.tbvps, ticker),
               stock.fin_valuation.tangibleEquity / 261600);
@@ -171,10 +191,12 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
             assert.equal(await page.locator('#fin-shares').inputValue(), '261600.00');
             assert.notEqual(await page.locator('#det-res-fair').innerText(), 'N/A');
             assert.match(await page.locator('#fin-reference-note').innerText(), /user-confirmed scenario/);
+            assert.match(await page.locator('#fin-shares-mode').innerText(), /custom share-count scenario is active/);
             await page.evaluate(() => resetToFmpDefaults());
             assert.equal(await page.locator('#det-res-fair').innerText(), baseline);
             assert.equal(await page.evaluate(ticker => stockUniverse[ticker].shares, ticker), stock.shares);
             assert.match(await page.locator('#fin-reference-note').innerText(), /A \+ H.*261,600,381,459/);
+            assert.match(await page.locator('#fin-shares-mode').innerText(), /Source-default shares are applied automatically/);
           }
         }
         if (tab === 'news' && !stock.news.length) assert.match(await page.locator('#cmp-news-list').innerText(), /N\/A/);

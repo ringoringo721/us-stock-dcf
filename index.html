@@ -1267,10 +1267,12 @@
             <input type="range" class="fin-slider" id="slider-fin-rote" min="-25" max="50" step="any" oninput="onFinSliderChange()">
           </div>
         </div>
+        <p id="fin-shares-mode" class="analysis-note" role="status"></p>
         <details>
-          <summary data-i18n="fin_shares">全公司流通在外普通股（百萬股；不含庫存股）</summary>
+          <summary data-i18n="fin_shares_scenario">自訂股數情境（選填）</summary>
+          <p id="fin-shares-help" class="analysis-note" data-i18n="fin_shares_help"></p>
           <div class="form-group"><label for="fin-shares" data-i18n="fin_shares"></label>
-            <input id="fin-shares" type="number" min="0.01" step="0.01">
+            <input id="fin-shares" type="number" min="0.01" step="0.01" aria-describedby="fin-shares-help">
           </div>
           <label><input id="fin-shares-confirm" type="checkbox"><span data-i18n="fin_shares_confirm"></span></label>
           <button type="button" onclick="onFinSharesChange()" data-i18n="fin_shares_apply">套用已確認的股數情境</button>
@@ -2995,13 +2997,23 @@
   Object.assign(I18N_DICT.en, { market_label: 'Market', market_us: '🇺🇸 United States (USD)', market_hk: '🇭🇰 Hong Kong (HKD)',
     fcf_semiannual: 'Half year', btn_period_half: 'Half year', btn_ratio_half: 'Half year',
     fin_shares: 'Company-wide common shares outstanding (millions; excludes treasury)',
-    fin_shares_confirm: 'I confirm this scenario uses all equivalent common shares, including A and H classes where applicable; not verified issuer data.',
-    fin_shares_apply: 'Apply confirmed share-count scenario' });
+    fin_shares_scenario: 'Custom share-count scenario (optional)',
+    fin_shares_help: 'Source-default shares apply automatically when available; no checkbox confirmation is needed. Use this section only to override shares for a valuation scenario. Include all equivalent ordinary-share classes (A and H where applicable), excluding treasury. Issuer disclosures and historical statements are not changed.',
+    fin_shares_default: 'Source-default shares are applied automatically; no checkbox confirmation is needed.',
+    fin_shares_custom: 'Your confirmed custom share-count scenario is active; this is not an issuer disclosure.',
+    fin_shares_missing: 'Source-default shares are unavailable. You may enter a custom scenario, but it will not be treated as an issuer disclosure.',
+    fin_shares_confirm: 'Use my custom share count to override the valuation denominator; this is my assumption, not an issuer disclosure.',
+    fin_shares_apply: 'Apply custom share-count scenario' });
   Object.assign(I18N_DICT.zh, { market_label: '市場', market_us: '🇺🇸 美國 (USD)', market_hk: '🇭🇰 香港 (HKD)',
     fcf_semiannual: '半年', btn_period_half: '半年', btn_ratio_half: '半年',
     fin_shares: '全公司流通在外普通股（百萬股；不含庫存股）',
-    fin_shares_confirm: '我確認此情境採全公司同權普通股，適用時包含 A、H 股；這不是已核實的公司披露。',
-    fin_shares_apply: '套用已確認的股數情境' });
+    fin_shares_scenario: '自訂股數情境（選填）',
+    fin_shares_help: '來源預設股數（如有）會自動套用，無須勾選確認。只有自行覆寫股數作估值情境時才使用本區塊；股數須包含全公司同權普通股（適用時 A、H 股），並扣除庫存股。不會改寫公司披露或歷史財報。',
+    fin_shares_default: '目前已自動套用來源預設股數，無須勾選或手動確認。',
+    fin_shares_custom: '目前採用你確認的自訂股數情境；這是你的假設，並非公司披露股數。',
+    fin_shares_missing: '來源預設股數尚未取得；可自行輸入股數作情境分析，但不會視為公司披露。',
+    fin_shares_confirm: '我選擇以自訂股數覆寫估值分母；這是我的假設，不是公司披露股數。',
+    fin_shares_apply: '套用自訂股數情境' });
   for (const lang of Object.keys(I18N_DICT)) I18N_DICT[lang] = MarketContext.labels(I18N_DICT[lang]);
   const moneyPrefix = () => MarketContext.currency === 'HKD' ? 'HKD ' : '$';
   function changeMarket(market) {
@@ -3140,6 +3152,9 @@
       ? `${dict.fin_reference}${reference.label || 'N/A'} (${reference.date || 'N/A'}) · ROTE ${Number.isFinite(reference.rote) ? reference.rote.toFixed(2) + '%' : 'N/A'} · ${dict.fin_reference_basis}${reference.reason || fin.reason || fin.unavailableReason ? ' ' + FcffView.reasonText(fin.unavailableReason || fin.reason || reference.reason, currentLang) : ''}${warnings.includes('negativeTangibleEquity') ? ' ' + dict.fin_negative_capital : ''}${warnings.includes('negativeNetIncome') ? ' ' + dict.returns_reason_negativeNetIncome : ''}`
       : fin.unavailableReason || fin.reason ? FcffView.reasonText(fin.unavailableReason || fin.reason, currentLang) : dict.fin_unavailable;
     const stock = stockUniverse[activeDetailTicker];
+    document.getElementById('fin-shares-mode').textContent = dict[fin.shareScenario ? 'fin_shares_custom'
+      : Number.isFinite(stock?.shares) && stock.shares > 0 && fin.unavailableReason !== 'shareBasisUnverified'
+        ? 'fin_shares_default' : 'fin_shares_missing'];
     const notes = [];
     if (stock?.rateSource?.basis === 'userDirectedUsdTreasuryProxyUnderHkdUsdPeg') notes.push(currentLang === 'en'
       ? `USD Treasury 10Y proxy under the HKD/USD peg (${stock.rateSource.date}); not an observed HKD yield. Ke uses this company's beta and ERP.`

@@ -112,6 +112,10 @@ returns require maintenance as new filings become available: their dates are
 not relabeled as current quote dates. Link's corresponding denominator is
 outstanding fund units. Explicit, confirmed user share scenarios remain
 labeled and saved separately.
+The optional custom share-count panel distinguishes source-default, active
+custom-scenario and unavailable-source states. Source-default shares apply
+automatically; its checkbox authorizes only a manual scenario override, not
+verification or acceptance of the company's disclosed shares.
 
 Unreconciled IFRS leases, debt composition and missing mandatory inputs still
 block automatic fair values. Editing financial assumptions does not silently
