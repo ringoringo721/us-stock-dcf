@@ -274,26 +274,40 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
     assert.equal(await page.locator('#fcff-tax').inputValue(), '16.50');
     assert.match(await page.locator('label[for="fcff-tax"]').textContent(), /not reported group effective tax/);
     assert.match(await page.locator('#fcff-assumptions').textContent(), /not a reported group effective rate or a jurisdiction-weighted forecast/);
+    assert.equal(await page.locator('#fcff-minority').inputValue(), '0.00');
+    assert.match(await page.locator('label[for="fcff-minority"]').textContent(), /unverified fair value/);
+    assert.match(await page.locator('#fcff-status').innerText(), /common unitholder value may be overstated/);
     assert.equal(await page.locator('#det-res-fair').innerText(), 'N/A', 'Tax approval does not waive other reconciliation guards');
     const sourceTax = await page.evaluate(() => ({
       tax: HK_FCFF_DATA.stocks['0823.HK'].defaults.tax,
+      minority: HK_FCFF_DATA.stocks['0823.HK'].defaults.minority,
+      minorityAssumption: HK_FCFF_DATA.stocks['0823.HK'].noncontrollingClaimAssumption,
       reason: HK_FCFF_DATA.stocks['0823.HK'].reason,
-      history: HK_FCFF_DATA.stocks['0823.HK'].history
+      history: HK_FCFF_DATA.stocks['0823.HK'].history,
+      quotedEv: computeDCF(stockUniverse['0823.HK'], '0823.HK').EV
     }));
     await page.locator('#fcff-input-controls summary').click();
     await page.locator('#fcff-tax').fill('20');
+    await page.locator('#fcff-minority').fill('10');
     assert.equal(await page.evaluate(() => stockUniverse['0823.HK'].fcffScenario.tax), 20);
+    assert.equal(await page.evaluate(() => stockUniverse['0823.HK'].fcffScenario.minority), 10);
     await page.evaluate(() => applyLanguage('zh'));
     assert.equal(await page.locator('#fcff-tax').inputValue(), '20.00');
     assert.match(await page.locator('#fcff-status').innerText(), /預設預測稅率 16.50%.*不是實報集團有效稅率/);
     assert.match(await page.locator('label[for="fcff-tax"]').textContent(), /使用者同意的情境，非實報集團有效稅率/);
+    assert.equal(await page.locator('#fcff-minority').inputValue(), '10.00');
+    assert.match(await page.locator('#fcff-status').innerText(), /不是實報零權益.*估值會偏高/);
     await page.evaluate(() => resetToFmpDefaults());
     assert.equal(await page.locator('#fcff-tax').inputValue(), '16.50');
+    assert.equal(await page.locator('#fcff-minority').inputValue(), '0.00');
     assert.deepEqual(await page.evaluate(() => ({
       tax: HK_FCFF_DATA.stocks['0823.HK'].defaults.tax,
+      minority: HK_FCFF_DATA.stocks['0823.HK'].defaults.minority,
+      minorityAssumption: HK_FCFF_DATA.stocks['0823.HK'].noncontrollingClaimAssumption,
       reason: HK_FCFF_DATA.stocks['0823.HK'].reason,
-      history: HK_FCFF_DATA.stocks['0823.HK'].history
-    })), sourceTax, 'User tax edits and resets cannot rewrite historical tax or issuer evidence');
+      history: HK_FCFF_DATA.stocks['0823.HK'].history,
+      quotedEv: computeDCF(stockUniverse['0823.HK'], '0823.HK').EV
+    })), sourceTax, 'Model edits and resets cannot rewrite historical tax, quoted book EV or issuer evidence');
     await page.goto(`${url}/#0823.HK/charts`, { waitUntil: 'networkidle' });
     assert.equal(await page.locator('#market-select').inputValue(), 'HKEX');
     await page.setViewportSize({ width: 390, height: 844 });

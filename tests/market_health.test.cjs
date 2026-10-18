@@ -43,6 +43,15 @@ test('Moat partial coverage displays actual earned points without inventing a fu
   assert.equal(result.scoreText, '72 / 100');
   assert.equal(context.evaluateMoat({}).scoreText, 'N/A');
 });
+test('a model-only noncontrolling claim scenario cannot rewrite quoted book-based enterprise value', () => {
+  const stock = { price: 20, mcap: 2000 };
+  const source = { defaults: { reportedDebt: 100, cash: 200, preferred: 0, minority: 0 },
+    noncontrollingClaimAssumption: { value: 0, reportedBookValue: -5 },
+    ttm: { ebitda: 100, reportedFcf: 30 } };
+  assert.equal(View.metrics(stock, source, {}).EV, 1895);
+  source.quotedCapital = { reportedDebt: 100, cash: 200, preferred: 0, minority: 7 };
+  assert.equal(View.metrics(stock, source, {}).EV, 1907, 'An independently dated quoted balance keeps its own book proxy');
+});
 test('annual valuation fallback cannot become current quoted cash flow or a stale quoted balance', () => {
   const result = View.metrics({ mcap: 2000, fcf0: 999 }, {
     defaults: { reportedDebt: 100, cash: 200, preferred: 0, minority: 0 },

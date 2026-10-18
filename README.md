@@ -156,6 +156,14 @@ is disclosed beside the model status and tax control; it is neither a reported
 group effective rate nor a jurisdiction-weighted forecast. Existing observed
 rates, historical tax tables and unrelated companies are unchanged. This tax
 scenario does not clear lease, investment-property or priority-claim guards.
+For Link's negative reported noncontrolling equity, a separately user-approved
+zero-value claim scenario is adjustable and explicitly **not verified fair
+value**. A positive actual claim would make this scenario overstate common
+unitholder value. The original book balance remains in financial history and
+quoted book-based multiples; the scenario applies only to model capital costs
+and the common-equity waterfall. Nonnegative observed balances are not replaced.
+This equity-only scenario does not waive shareholder loans or other financing
+liabilities, whose source reconciliation remains separate.
 
 When HKEX cash flow is annual-only, the valuation may use the latest complete
 aligned annual dataset, explicitly **not current TTM**. Unknown interim cash

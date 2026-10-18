@@ -1,6 +1,6 @@
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
-const { prepareStatements, flowValue, priceHistory, compileStock, valuationShares, forwardPriceEarnings, applyForecastTaxAssumption } = require('../scripts/build_hkex.cjs');
+const { prepareStatements, flowValue, priceHistory, compileStock, valuationShares, forwardPriceEarnings, applyForecastTaxAssumption, applyNoncontrollingClaimAssumption } = require('../scripts/build_hkex.cjs');
 const { convertStatements } = require('../usd_currency.js');
 const ccb = require('../hkex_stocks.json').find(row => row.ticker === '0939.HK');
 const ccbCapital = require('../cache/hkex_share_capital.json')[ccb.ticker];
@@ -27,6 +27,30 @@ test('Link forecast tax scenario is explicit, adjustable and cannot overwrite ac
   for (const rate of [null, -1, 101, '16.5', NaN, Infinity]) {
     assert.throws(() => applyForecastTaxAssumption(original,
       { ...item, forecastTaxAssumption: { ...item.forecastTaxAssumption, rate } }), /invalid forecast tax assumption/);
+  }
+});
+
+test('Link zero noncontrolling claim scenario retains negative book evidence and all other source guards', () => {
+  const item = require('../hkex_stocks.json').find(row => row.ticker === '0823.HK');
+  const original = { reason: 'leaseClassificationRequired', defaults: { minority: -386 },
+    history: { annual: [{ minority: -386 }] }, provenance: { priority: 'Book value proxies' } };
+  const snapshot = applyNoncontrollingClaimAssumption(original, item);
+  assert.equal(snapshot.defaults.minority, 0);
+  assert.equal(snapshot.noncontrollingClaimAssumption.reportedBookValue, -386);
+  assert.match(snapshot.provenance.priority, /not verified fair value/);
+  assert.match(snapshot.provenance.priority, /overstated/);
+  assert.equal(snapshot.reason, original.reason);
+  assert.equal(original.defaults.minority, -386);
+  assert.equal(snapshot.history.annual[0].minority, -386);
+  for (const minority of [null, 0, 12, NaN, undefined]) {
+    const observed = { ...original, defaults: { minority } };
+    assert.equal(applyNoncontrollingClaimAssumption(observed, item), observed);
+  }
+  assert.equal(applyNoncontrollingClaimAssumption(original, ccb), original);
+  for (const value of [null, -1, 1, '0', NaN, Infinity]) {
+    assert.throws(() => applyNoncontrollingClaimAssumption(original, {
+      ...item, noncontrollingClaimAssumption: { ...item.noncontrollingClaimAssumption, value }
+    }), /invalid noncontrolling claim assumption/);
   }
 });
 

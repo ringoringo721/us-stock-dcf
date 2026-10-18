@@ -363,6 +363,23 @@ function applyForecastTaxAssumption(snapshot, item) {
   };
 }
 
+function applyNoncontrollingClaimAssumption(snapshot, item) {
+  const assumption = item.noncontrollingClaimAssumption;
+  if (!assumption) return snapshot;
+  if (assumption.value !== 0 || assumption.basis !== 'userApprovedZeroNoncontrollingClaimScenario') {
+    throw new TypeError(`${item.ticker}: invalid noncontrolling claim assumption`);
+  }
+  const reportedBookValue = snapshot.defaults?.minority;
+  if (!finite(reportedBookValue) || reportedBookValue >= 0) return snapshot;
+  return { ...snapshot,
+    defaults: { ...snapshot.defaults, minority: assumption.value },
+    noncontrollingClaimAssumption: { ...assumption, reportedBookValue,
+      scope: 'noncontrollingEquityOnlyExcludingShareholderLoans' },
+    provenance: { ...snapshot.provenance,
+      priority: 'Preferred book proxy; noncontrolling equity uses a user-approved adjustable zero-value scenario, not verified fair value. Common equity may be overstated if the actual equity claim has positive value. Shareholder loans and other financing liabilities are not waived by this equity scenario.' }
+  };
+}
+
 function compileStock(item, evidence, rates, moatReports = {}, previousStock = {}, treasury = null) {
   const profile = readRows(evidence, 'profile'), quotes = readRows(evidence, 'quote');
   if (profile.length !== 1 || profile[0].symbol !== item.ticker || profile[0].currency !== 'HKD'
@@ -490,6 +507,7 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
   liquidation.calculate(stock.liquidation, item.ticker).values.forEach((value, i) => { stock[`liq_val_${i + 1}`] = value; });
   let snapshot = applyForecastTaxAssumption(
     prepareSnapshot(item.ticker, evidence, treasury, rates, null, { statementData: raw, shareSource }), item);
+  snapshot = applyNoncontrollingClaimAssumption(snapshot, item);
   if (item.requiresSegmentValuation) snapshot.reason = 'requiresSegmentValuation';
   if (item.generalCorporateValuationWarning) snapshot.valuationCaution = 'generalCorporateFcffNotReitAffoOrNav';
   if (raw.qualityWarnings.some(warning => warning.code === 'annualInterimReconciliation') && !snapshot.reason) snapshot.reason = 'statementReconciliationRequired';
@@ -558,4 +576,4 @@ if (require.main === module) {
   if (process.env.MOAT_EVIDENCE_OUTPUT) fs.writeFileSync(process.env.MOAT_EVIDENCE_OUTPUT, JSON.stringify(inputs));
   console.log(`Built ${inputs.length} real HKEX listings in HKD; incomplete evidence remains explicitly unavailable.`);
 }
-module.exports = { prepareStatements, ttmRows, flowValue, statementTable, scoreBreakdown, priceHistory, compileStock, compile, hash, valuationShares, forwardPriceEarnings, applyForecastTaxAssumption };
+module.exports = { prepareStatements, ttmRows, flowValue, statementTable, scoreBreakdown, priceHistory, compileStock, compile, hash, valuationShares, forwardPriceEarnings, applyForecastTaxAssumption, applyNoncontrollingClaimAssumption };
