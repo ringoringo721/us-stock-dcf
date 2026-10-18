@@ -72,6 +72,19 @@ not a claim that production updated.
 Historical workflow reruns also check out current `main`, preserving the last
 published generated data rather than rebasing a second refresh onto an old snapshot.
 
+Official HSICS is the selected future HK classification standard, but is **not
+activated**. Existing HK sector/industry labels are not certified HSICS mappings.
+The [official definition](https://www.hsi.com.hk/content/dam/wpb/hsil/index_review/en_hk/B_HSICS.pdf)
+uses Industry / Sector / Subsector and excludes Chapter 18B companies.
+[HKEX's HSICS dissemination notice](https://www.hkex.com.hk/eng/invest/company/HsicDisclaimer.htm)
+requires a licence agreement with Hang Seng Indexes Company before further
+disseminating classification results. Publicly readable definitions or HKEX
+lookups do not themselves grant website redistribution rights. Integration is
+pending confirmation of suitable stock-level mapping coverage, public-display
+and storage rights, delivery/update arrangements and fees. No free public bulk
+mapping API or applicable redistribution permission has been confirmed.
+Classification must remain separate from bank/insurance valuation routing.
+
 At the user's direction, HKEX discount rates now use a dated US 10-year Treasury
 **proxy under the HKD/USD peg**, not an observed HKD risk-free yield or another
 stock's WACC. Company-specific beta, equity risk premium, financing, debt cost
