@@ -1,6 +1,6 @@
 import unittest
 
-from scripts.refresh_hkex_moat import DIMENSIONS, needs_refresh, validate_report
+from scripts.refresh_hkex_moat import ASSESSMENT_POLICY, DIMENSIONS, needs_refresh, validate_report
 
 
 class MoatEvidenceTests(unittest.TestCase):
@@ -11,8 +11,19 @@ class MoatEvidenceTests(unittest.TestCase):
 
     def test_only_actual_evidence_changes_trigger_refresh(self):
         self.assertTrue(needs_refresh({"evidenceHash": "new", "existing": None}))
-        self.assertFalse(needs_refresh({"evidenceHash": "old", "existing": {"evidenceHash": "old", "report": {"score": 7}}}))
+        self.assertFalse(needs_refresh({"evidenceHash": "old", "existing": {
+            "evidenceHash": "old", "assessmentPolicy": ASSESSMENT_POLICY, "report": {"score": 7}}}))
         self.assertTrue(needs_refresh({"evidenceHash": "new", "existing": {"evidenceHash": "old", "report": {"score": 7}}}))
+
+    def test_policy_changes_and_explicit_partial_retry_trigger_reassessment(self):
+        record = {"evidenceHash": "same", "existing": {"evidenceHash": "same", "report": self.report()}}
+        self.assertTrue(needs_refresh(record))
+        record["existing"]["assessmentPolicy"] = ASSESSMENT_POLICY
+        self.assertFalse(needs_refresh(record))
+        self.assertTrue(needs_refresh(record, force=True))
+        record["existing"]["report"]["m2_patents_regulatory"]["score"] = None
+        self.assertFalse(needs_refresh(record))
+        self.assertTrue(needs_refresh(record, retry_incomplete=True))
 
     def test_unavailable_dimensions_are_not_neutral_scores(self):
         report = self.report()

@@ -19,6 +19,10 @@ on:
         description: Build the six-stock HKEX pilot and evidence-based ratings as review artifacts only
         type: boolean
         default: false
+      force_moat:
+        description: Regenerate all HKEX moat scores and bilingual comments using Vertex AI (artifacts only)
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -54,17 +58,17 @@ jobs:
         env:
           MOAT_EVIDENCE_OUTPUT: valuation-audit-output/hkex-moat-inputs.json
         run: node scripts/build_hkex.cjs valuation-audit-output hkex-data-output
-      - name: Refresh moat only against changed financial and transcript evidence
+      - name: Refresh cited moat scores and bilingual comments
         if: inputs.build_hkex == true
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
-        run: python -u scripts/refresh_hkex_moat.py valuation-audit-output/hkex-moat-inputs.json hkex-data-output/cache/hkex_moat.json
+        run: python -u scripts/refresh_hkex_moat.py valuation-audit-output/hkex-moat-inputs.json hkex-data-output/cache/hkex_moat.json ${{ inputs.force_moat && '--force' || '' }}
       - name: Build final dated HKEX review artifact
         if: inputs.build_hkex == true
         run: node scripts/build_hkex.cjs valuation-audit-output hkex-data-output hkex-data-output/cache/hkex_moat.json
       - name: Preserve unpublished real HKEX pilot
-        if: inputs.build_hkex == true
+        if: always() && inputs.build_hkex == true
         uses: actions/upload-artifact@v4
         with:
           name: hkex-pilot-data

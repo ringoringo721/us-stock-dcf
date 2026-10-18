@@ -1,6 +1,11 @@
 {
   "buildCommand": "node scripts/build_site.cjs",
   "outputDirectory": "public",
+  "git": {
+    "deploymentEnabled": {
+      "ringoringo721-dcf-historical-chart-fix": false
+    }
+  },
   "headers": [
     {
       "source": "/(.*)",
