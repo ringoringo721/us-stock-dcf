@@ -37,7 +37,9 @@ class MoatReportValidationError(ValueError):
 def validation_feedback(error):
     if isinstance(error, MoatReportValidationError):
         return ("\nOUTPUT CORRECTION: " + str(error) + ". Regenerate the complete report using the same evidence. "
-                "Use qualitative words only in comments and verdicts, including technology/product terms; "
+                "Use qualitative words only in comments and verdicts, including technology/product terms and "
+                "regulatory acronyms. Say core capital instead of numbered capital tiers or digit-bearing "
+                "capital acronyms, and flagship properties instead of numbered property names; "
                 "do not include digits, currency names or units, amounts, dates or percentages.")
     if isinstance(error, json.JSONDecodeError):
         return "\nOUTPUT CORRECTION: Return one valid JSON object matching the requested schema."
@@ -209,7 +211,9 @@ def main():
                 "conversion. Use its qualitative discussion and the supplied HKD financial facts instead. "
                 "CRITICAL: Comments and overall verdicts must be QUALITATIVE ONLY. Include NO digits, dates, "
                 "percentages, monetary amounts, currency units or million/billion/trillion magnitudes in those "
-                "prose fields. Software displays verified dates, scores and financial numbers separately. "
+                "prose fields. Avoid digits even inside regulatory capital acronyms, technology terms and "
+                "property names: describe core capital, next-generation technology or flagship properties "
+                "qualitatively instead. Software displays verified dates, scores and financial numbers separately. "
                 "All supplied financial rows are historical reported or explicitly derived actuals, NEVER "
                 "analyst forecasts or projections. Do not describe historical statements as projections. "
                 "The overall verdict must explain material limitations and that scores are AI qualitative "
