@@ -1,4 +1,4 @@
-"""Refresh qualitative moat evidence only when dated financial/call content changes."""
+"""Refresh cited qualitative moat reports on evidence/policy changes or explicit retry."""
 
 import argparse
 from datetime import datetime, timezone
@@ -20,6 +20,7 @@ DIMENSIONS = {
     "m9_customer_retention": "Resistance to technological and demand disruption",
     "m10_durability": "Management integrity and capital allocation",
 }
+ASSESSMENT_POLICY = "grounded-business-judgment-v3"
 FACT_FIELDS = (
     "date", "period", "fiscalYear", "reportedCurrency", "sourceReportedCurrency", "periodStartDate", "derivation",
     "revenue", "grossProfit", "operatingIncome", "incomeBeforeTax", "incomeTaxExpense", "netIncome",
@@ -94,9 +95,12 @@ def validate_narrative(text):
         raise ValueError("Moat narrative must not invent numerical or currency claims")
 
 
-def needs_refresh(record):
+def needs_refresh(record, retry_incomplete=False, force=False):
     existing = record.get("existing") or {}
-    return existing.get("evidenceHash") != record["evidenceHash"] or not existing.get("report")
+    report = existing.get("report") or {}
+    return (force or existing.get("evidenceHash") != record["evidenceHash"] or not report
+            or existing.get("assessmentPolicy") != ASSESSMENT_POLICY
+            or retry_incomplete and any(report.get(name, {}).get("score") is None for name in DIMENSIONS))
 
 
 def create_client():
@@ -107,9 +111,19 @@ def create_client():
         credentials = service_account.Credentials.from_service_account_info(
             info, scopes=["https://www.googleapis.com/auth/cloud-platform"])
         return genai.Client(vertexai=True, project=info["project_id"],
-                            location="us-central1", credentials=credentials)
+                            location=os.environ.get("GOOGLE_CLOUD_LOCATION", "us-central1"), credentials=credentials)
+    if os.environ.get("GOOGLE_APPLICATION_CREDENTIALS") or os.environ.get("GOOGLE_CLOUD_PROJECT"):
+        import google.auth
+        credentials, default_project = google.auth.default(
+            scopes=["https://www.googleapis.com/auth/cloud-platform"])
+        project = os.environ.get("GOOGLE_CLOUD_PROJECT") or default_project
+        if not project:
+            raise ValueError("Vertex AI requires GOOGLE_CLOUD_PROJECT or a project in application default credentials")
+        return genai.Client(vertexai=True, project=project,
+                            location=os.environ.get("GOOGLE_CLOUD_LOCATION", "us-central1"),
+                            credentials=credentials)
     if os.environ.get("GEMINI_API_KEY"):
-        return genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+        return genai.Client(vertexai=True, api_key=os.environ["GEMINI_API_KEY"])
     return None
 
 
@@ -117,10 +131,14 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("input")
     parser.add_argument("output")
+    parser.add_argument("--retry-incomplete", action="store_true",
+                        help="Explicitly reassess partial reports even when their source evidence is unchanged")
+    parser.add_argument("--force", action="store_true",
+                        help="Explicitly regenerate all reports, including scores and bilingual comments")
     args = parser.parse_args()
     records = json.loads(Path(args.input).read_text(encoding="utf-8"))
     reports = {row["ticker"]: row["existing"] for row in records if row.get("existing")}
-    pending = [row for row in records if needs_refresh(row)]
+    pending = [row for row in records if needs_refresh(row, args.retry_incomplete, args.force)]
     updated, failed = 0, 0
     client = create_client() if pending else None
     if pending and client is None:
@@ -150,6 +168,14 @@ def main():
                 "Distinguish objective accounting observations from qualitative analyst judgment. Score each "
                 "dimension 0-10 only when its cited evidence reasonably supports a qualitative assessment; "
                 "otherwise score=null and explain the insufficiency. Do not use neutral fallback scores. "
+                "Use qualitative business-economics reasoning about the products and activities actually "
+                "described in the supplied profile, not only explicit numeric moat metrics. A dimension "
+                "does not require a reported moat score or quantified ROIC/WACC to be assessable. "
+                "Clearly distinguish reasoned analyst inference from an explicitly disclosed fact. "
+                "Do not mistake absent evidence for proof of no patents, licences, switching costs or "
+                "network effects. Patent/regulatory protection can be weak or irrelevant rather than "
+                "automatically unknown, but only score that conclusion when the described business "
+                "reasonably supports it. Never invent a specific patent, licence or management action. "
                 "Do not invent ROIC, WACC, historical scores, regulatory privileges, release dates or facts. "
                 "Mention missing/reconciliation-limited evidence and the period actually available; annual "
                 "cash flows are NOT current TTM flows. No transcript means no claim to have reviewed a call. "
@@ -185,6 +211,7 @@ def main():
                     reports[record["ticker"]] = {
                         "evidenceHash": record["evidenceHash"], "updatedAt": datetime.now(timezone.utc).isoformat(),
                         "model": os.environ.get("MOAT_MODEL", "gemini-2.5-flash"), "report": report,
+                        "assessmentPolicy": ASSESSMENT_POLICY, "provider": "Vertex AI",
                     }
                     updated += 1
                     print(f"{record['ticker']}: dated evidence-based moat assessment updated", flush=True)
@@ -205,6 +232,8 @@ def main():
     output.write_text(json.dumps(reports, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
     print(f"Moat evidence refresh: {updated} updated, {len(records) - len(pending)} unchanged, "
           f"{failed} failed, {len(pending) if client is None else 0} not run (missing credentials).")
+    if failed or pending and client is None:
+        raise SystemExit(1)
 
 
 if __name__ == "__main__":

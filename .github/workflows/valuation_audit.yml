@@ -1,74 +1,78 @@
-name: Read-only valuation source audit
+name: HK moat assessments - artifacts only
 
 on:
   workflow_dispatch:
-    inputs:
-      symbols:
-        description: Optional comma-separated provider symbols (maximum 20); empty captures the existing universe
-        type: string
-        default: ''
-      lease_sources_only:
-        description: Capture original lease classification evidence only, without changing valuations
-        type: boolean
-        default: false
-      build_hkex:
-        description: Build the six-stock HKEX pilot and evidence-based ratings as review artifacts only
-        type: boolean
-        default: false
 
 permissions:
   contents: read
 
 jobs:
-  capture-fmp:
+  preflight:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
-      - run: pip install requests
-      - uses: actions/setup-node@v4
-        if: inputs.build_hkex == true
-        with:
-          node-version: '24'
-      - run: pip install google-genai
-        if: inputs.build_hkex == true
-      - name: Refresh isolated HKD cross-rate observations
-        if: inputs.build_hkex == true
-        run: node scripts/refresh_usd_rates.cjs --hkd
-      - name: Capture dated FMP source evidence without changing valuations
+          python-version: '3.11'
+      - run: pip install --quiet google-genai
+      - name: Select the AIA preflight
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          rows = json.loads(Path("valuation-audit-input/hk-moat-evidence.json").read_text())
+          Path("moat-preflight-input.json").write_text(json.dumps([r for r in rows if r["ticker"] == "1299.HK"]))
+          PY
+      - name: Generate the first cited assessment using existing Vertex credentials
         env:
-          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
-          CAPTURE_LEASE_SOURCES_ONLY: ${{ inputs.lease_sources_only }}
-          CAPTURE_SYMBOLS: ${{ inputs.build_hkex && '0700.HK,9988.HK,0005.HK,0388.HK,0939.HK,0823.HK' || inputs.symbols }}
-        run: python -u scripts/capture_valuation_sources.py
-      - name: Build real HKD inputs without publishing
-        if: inputs.build_hkex == true
-        env:
-          MOAT_EVIDENCE_OUTPUT: valuation-audit-output/hkex-moat-inputs.json
-        run: node scripts/build_hkex.cjs valuation-audit-output hkex-data-output
-      - name: Refresh moat only against changed financial and transcript evidence
-        if: inputs.build_hkex == true
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
-        run: python -u scripts/refresh_hkex_moat.py valuation-audit-output/hkex-moat-inputs.json hkex-data-output/cache/hkex_moat.json
-      - name: Build final dated HKEX review artifact
-        if: inputs.build_hkex == true
-        run: node scripts/build_hkex.cjs valuation-audit-output hkex-data-output hkex-data-output/cache/hkex_moat.json
-      - name: Preserve unpublished real HKEX pilot
-        if: inputs.build_hkex == true
-        uses: actions/upload-artifact@v4
-        with:
-          name: hkex-pilot-data
-          path: hkex-data-output/
-          retention-days: 7
-      - name: Preserve source evidence and explicit API limitations
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python -u scripts/refresh_hkex_moat.py moat-preflight-input.json moat-preflight-results.json --force
+      - uses: actions/upload-artifact@v4
         if: always()
-        uses: actions/upload-artifact@v4
         with:
-          name: valuation-fmp-sources
-          path: valuation-audit-output/
+          name: hk-moat-preflight
+          path: moat-preflight-results.json
+          if-no-files-found: warn
+          retention-days: 7
+
+  assess:
+    needs: preflight
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install --quiet google-genai
+      - name: Select a disjoint saved-evidence batch
+        env:
+          SHARD: ${{ matrix.shard }}
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          rows = json.loads(Path("valuation-audit-input/hk-moat-evidence.json").read_text())
+          rows = [r for r in rows if r["ticker"] != "1299.HK"]
+          rows = [r for i, r in enumerate(rows) if i % 5 == int(os.environ["SHARD"])]
+          Path("moat-batch-input.json").write_text(json.dumps(rows))
+          print(f"Assessing {len(rows)} companies from saved evidence; no financial-data refresh.")
+          PY
+      - name: Generate cited bilingual comments and scores
+        env:
+          GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python -u scripts/refresh_hkex_moat.py moat-batch-input.json moat-batch-results.json --force
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hk-moat-batch-${{ matrix.shard }}
+          path: moat-batch-results.json
+          if-no-files-found: warn
           retention-days: 7
