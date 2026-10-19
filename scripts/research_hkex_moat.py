@@ -9,9 +9,9 @@ import time
 from urllib.parse import urlparse
 
 if __package__:
-    from .refresh_hkex_moat import create_client, validate_business_research
+    from .refresh_hkex_moat import create_client, validate_business_research, business_research
 else:
-    from refresh_hkex_moat import create_client, validate_business_research
+    from refresh_hkex_moat import create_client, validate_business_research, business_research
 
 
 def research_result(record, response, model):
@@ -58,12 +58,19 @@ def main():
     parser.add_argument("research_output")
     args = parser.parse_args()
     records = json.loads(Path(args.input).read_text(encoding="utf-8"))
-    client = create_client() if records else None
-    if records and client is None:
+    pending = [record for record in records if not business_research(record)]
+    client = create_client() if pending else None
+    if pending and client is None:
         raise SystemExit("Vertex credentials are required for business research")
     model = "gemini-2.5-flash"
     completed, evidence, failures = [], {}, {}
     for record in records:
+        saved = business_research(record)
+        if saved:
+            evidence[record["ticker"]] = saved
+            completed.append({**record, "businessResearch": saved})
+            print(f"{record['ticker']}: cached business research reused", flush=True)
+            continue
         profile = record["profile"]
         identity = {key: profile.get(key) for key in ("companyName", "website", "industry", "sector", "description")}
         prompt = (

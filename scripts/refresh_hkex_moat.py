@@ -9,6 +9,7 @@ from pathlib import Path
 import re
 import time
 from urllib.parse import urlparse
+from typing import Literal
 
 DIMENSIONS = {
     "m1_brand_pricing": "Pricing power and brand",
@@ -168,6 +169,20 @@ def validate_report(report, ticker, source_ids):
     return report
 
 
+def report_schema(ticker, source_ids):
+    from pydantic import BaseModel, Field, create_model
+
+    class Dimension(BaseModel):
+        score: int | None = Field(default=None, ge=0, le=10)
+        comment_zh: str = Field(description="Traditional Chinese qualitative prose; no digits, amounts, dates or currency units")
+        comment_en: str = Field(description="English qualitative prose; no digits, amounts, dates or currency units")
+        sources: list[Literal[tuple(source_ids)]]
+
+    return create_model("EvidenceMoatReport", ticker=(Literal[ticker], ...), period=(str, ...),
+                        description_zh=(str, ...), overall_moat_verdict_zh=(str, ...),
+                        overall_moat_verdict_en=(str, ...), **{name: (Dimension, ...) for name in DIMENSIONS})
+
+
 def validate_narrative(text):
     # Monetary facts belong in the FX-verified tables, not model-generated prose.
     match = re.search(r"[0-9$]|HKD|USD|RMB|CNY|\u6e2f\u5143|\u6e2f\u5e63|\u4eba\u6c11\u5e63|\u7f8e\u5143"
@@ -226,23 +241,13 @@ def main():
     if pending and client is None:
         print("::warning::Moat model credentials are unavailable. No neutral scores are fabricated.")
     if client:
-        from pydantic import BaseModel, Field, create_model
         from google.genai import types, errors
         from google.auth.exceptions import GoogleAuthError
         from httpx import HTTPError
 
-        class Dimension(BaseModel):
-            score: int | None = Field(default=None, ge=0, le=10)
-            comment_zh: str = Field(description="Traditional Chinese qualitative prose; no digits, amounts, dates or currency units")
-            comment_en: str = Field(description="English qualitative prose; no digits, amounts, dates or currency units")
-            sources: list[str]
-
-        schema = create_model("EvidenceMoatReport", ticker=(str, ...), period=(str, ...),
-                              description_zh=(str, ...),
-                              overall_moat_verdict_zh=(str, ...), overall_moat_verdict_en=(str, ...),
-                              **{name: (Dimension, ...) for name in DIMENSIONS})
         for record in pending:
             context = evidence_context(record)
+            schema = report_schema(record["ticker"], context["allowedSourceIds"])
             instructions = (
                 "Assess this HKEX company's ten economic-moat dimensions using ONLY the supplied public financial "
                 "evidence, attributable business research when present, company description and available "
