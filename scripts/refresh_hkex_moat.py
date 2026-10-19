@@ -26,7 +26,9 @@ DIMENSIONS = {
 ASSESSMENT_POLICY = "grounded-business-judgment-v3"
 RESEARCH_ASSESSMENT_POLICY = "researched-business-judgment-v4"
 FACT_FIELDS = (
-    "date", "period", "fiscalYear", "reportedCurrency", "sourceReportedCurrency", "periodStartDate", "derivation",
+    "date", "period", "fiscalYear", "reportedCurrency", "sourceReportedCurrency", "periodStartDate", "periodLength",
+    "reportType", "comparabilityGroup", "operatingIncomeBasis", "earningsIncludeDiscontinued",
+    "netIncomeFromContinuingOperations", "derivation",
     "revenue", "grossProfit", "operatingIncome", "incomeBeforeTax", "incomeTaxExpense", "netIncome",
     "totalAssets", "totalLiabilities", "totalDebt", "totalStockholdersEquity",
     "cashAndShortTermInvestments", "operatingCashFlow", "capitalExpenditure", "freeCashFlow",
@@ -325,7 +327,8 @@ def main():
                     latest = max(record["statements"]["quarterly"]["income"], key=lambda row: row["date"])
                     year = latest.get("fiscalYear") or latest.get("calendarYear")
                     half = record["statements"].get("reportingFrequency") == "semiannual"
-                    report["period"] = (f"FY {year}" if half and latest["period"] == "Q4" else
+                    report["period"] = (f"{year}I2 ({latest['periodLength']}M)" if latest.get("reportType") == "secondInterim" else
+                                        f"FY {year}" if half and latest["period"] == "Q4" else
                                         f"{year}H1" if half else f"{year}{latest['period']}")
                     reports[record["ticker"]] = {
                         "evidenceHash": record["evidenceHash"], "updatedAt": datetime.now(timezone.utc).isoformat(),
