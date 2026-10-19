@@ -8,7 +8,8 @@
   const metadata = new Set(['date', 'symbol', 'cik', 'fiscalYear', 'calendarYear', 'period', 'filingDate',
     'acceptedDate', 'fillingDate', 'link', 'finalLink', 'reportedCurrency', 'weightedAverageShsOut',
     'weightedAverageShsOutDil', 'numberOfShares', 'periodLength', 'sourceReportedCurrency', 'currencyConversion',
-    'periodStartDate', 'reportingFrequency', 'derivation', 'sourceDates', 'sourceReleaseDate']);
+    'periodStartDate', 'reportingFrequency', 'derivation', 'sourceDates', 'sourceReleaseDate',
+    'comparabilityGroup', 'operatingIncomeBasis', 'earningsIncludeDiscontinued', 'reportType']);
   const numeric = value => (typeof value === 'number' || typeof value === 'string' && value.trim())
     && Number.isFinite(Number(value)) ? Number(value) : null;
   const iso = value => typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value)
@@ -78,11 +79,12 @@
           if (row.currencyConversion?.target === target) return { ...row };
           if (row.currencyConversion?.target) throw new TypeError('Cannot reconvert previously translated statements');
           let start = row.periodStartDate;
+          const unknownDuration = row.periodLength === null;
           const step = !annual && data.reportingFrequency === 'semiannual' ? 2 : 1;
           const previous = endings.get(periodKey(row, annual) - step);
-          if (!iso(start) && previous) start = new Date(Date.parse(previous) + day).toISOString().slice(0, 10);
+          if (!unknownDuration && !iso(start) && previous) start = new Date(Date.parse(previous) + day).toISOString().slice(0, 10);
           // Standard calendar periods have unambiguous starts even when the previous report is absent.
-          if (!iso(start) && iso(row.date)) {
+          if (!unknownDuration && !iso(start) && iso(row.date)) {
             const date = new Date(row.date);
             const month = date.getUTCMonth();
             const calendarEnd = new Date(Date.UTC(date.getUTCFullYear(), month + 1, 0)).getUTCDate() === date.getUTCDate();

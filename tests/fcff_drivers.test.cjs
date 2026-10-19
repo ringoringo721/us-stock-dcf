@@ -20,6 +20,42 @@ function source() {
       preferred: 0, minority: 0, preferredCost: null, minorityCost: null, terminalRoic: null }
   };
 }
+test('only an explicit user-confirmed financing scenario unlocks a lease draft; source facts remain unchanged', () => {
+  const input = source();
+  input.reason = 'leaseClassificationRequired';
+  input.balance.leaseDebt = 10;
+  input.defaults.leaseOverlap = null;
+  assert.equal(calculate(input).reason, 'leaseClassificationRequired');
+  const assumed = { confirmFinancingAssumptions: true, leaseDebt: 10, leaseOverlap: 10 };
+  const result = calculate(input, assumed);
+  assert.equal(result.reason, null);
+  assert.equal(result.financingDebt, 90);
+  assert.equal(result.financingBasis, 'userConfirmedAssumptionsNotIssuerReconciliation');
+  assert.equal(input.reason, 'leaseClassificationRequired');
+  assert.equal(input.defaults.leaseOverlap, null);
+  assert.equal(calculate(input, { ...assumed, confirmFinancingAssumptions: false }).reason, input.reason);
+  assert.equal(calculate(input, { ...assumed, leaseOverlap: 11 }).reason, 'invalidParameters');
+});
+test('a confirmed starting NWC scenario resolves missing operating data without rewriting issuer balances', () => {
+  const input = source();
+  input.reason = 'debtCompositionUnverified';
+  input.ttm.workingCapital = null;
+  input.balance.workingCapital = null;
+  const scenario = { confirmFinancingAssumptions: true, leaseDebt: 0, openingWorkingCapital: 50 };
+  assert.equal(calculate(input, { ...scenario, confirmFinancingAssumptions: false }).reason, input.reason);
+  assert.equal(calculate(input, { ...scenario, openingWorkingCapital: null }).reason, 'incompleteTtm');
+  const result = calculate(input, scenario);
+  assert.equal(result.reason, null);
+  assert.equal(result.financingBasis, 'userConfirmedAssumptionsNotIssuerReconciliation');
+  assert.equal(input.balance.workingCapital, null);
+  assert.equal(input.ttm.workingCapital, null);
+  const verified = source();
+  const adjusted = calculate(verified, scenario);
+  assert.equal(adjusted.reason, null);
+  near(adjusted.estimatedOpeningWorkingCapital, 50 + 5 * 17 / 92);
+  assert.equal(verified.ttm.workingCapital, 100);
+  assert.equal(calculate(verified, { ...scenario, leaseDebt: -1 }).reason, 'invalidParameters');
+});
 test('ten fiscal columns remove reported YTD and elapsed unreported flows before mid-year discounting', () => {
   const result = calculate(source()), first = result.periods[0];
   assert.equal(result.reason, null);

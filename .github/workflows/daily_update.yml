@@ -71,6 +71,12 @@ jobs:
           FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
         run: python -u scripts/refresh_peers.py
 
+      - name: Capture real FMP models, company news and supported disclosures
+        if: inputs.peers_only != true && inputs.prices_only != true && inputs.liquidation_only != true
+        env:
+          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+        run: node scripts/capture_company_data.cjs
+
       - name: Capture current FCFF source evidence
         id: fcff-refresh
         if: inputs.peers_only != true && inputs.prices_only != true && inputs.liquidation_only != true
@@ -135,6 +141,7 @@ jobs:
           # 暫存資料集與強制追蹤快取資料夾
           git add full_market_dcf.json market_data.js 2>/dev/null || true
           git add fcff_data.js
+          git add fmp_model_data.js
           git add -f cache/
           
           # 檢查是否有更動，有更動才提交以節省 Actions 次數

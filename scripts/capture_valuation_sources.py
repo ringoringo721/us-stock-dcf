@@ -22,6 +22,7 @@ ENDPOINTS = {
     "annual_cashflow": ("cash-flow-statement", {"period": "annual", "limit": 5}),
     "estimates": ("analyst-estimates", {"period": "annual", "limit": 12}),
     "enterprise_values": ("enterprise-values", {"period": "quarter", "limit": 1}),
+    "shares_float": ("shares-float", {}),
 }
 LEASE_ENDPOINTS = {
     "balance_as_reported": ("balance-sheet-statement-as-reported", {"period": "quarter", "limit": 8}),
@@ -37,6 +38,15 @@ HK_EXTRA_ENDPOINTS = {
     "shares_float": ("shares-float", {}),
 }
 
+def configured_market(root, name):
+    if name == "HKEX":
+        return {stock["ticker"]: stock for stock in
+                json.loads((root / "hkex_stocks.json").read_text(encoding="utf-8"))}
+    if name == "US":
+        return json.loads((root / "full_market_dcf.json").read_text(encoding="utf-8"))
+    raise ValueError("CAPTURE_MARKET must be US or HKEX")
+
+
 def selected_symbols(market, supplied):
     if not supplied:
         return list(market)
@@ -49,6 +59,28 @@ def selected_symbols(market, supplied):
 
 def provider_symbol(ticker):
     return ticker if ticker.endswith(".HK") else ticker.replace(".", "-")
+
+
+def outstanding_share_record(rows, symbol, as_of):
+    if not isinstance(rows, list):
+        raise ValueError("Outstanding-share source must be a list of dated records")
+    cutoff = datetime.strptime(as_of, "%Y-%m-%d").date()
+    eligible = []
+    for row in rows:
+        if not isinstance(row, dict) or row.get("symbol") != symbol:
+            continue
+        count, source_date = row.get("outstandingShares"), row.get("date")
+        if (type(count) not in (int, float) or not 0 < count <= 9007199254740991
+                or count % 1 != 0 or not isinstance(source_date, str)
+                or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", source_date[:10])):
+            continue
+        try:
+            observed = datetime.strptime(source_date[:10], "%Y-%m-%d").date()
+        except ValueError:
+            continue
+        if observed <= cutoff:
+            eligible.append(row)
+    return max(eligible, key=lambda row: row["date"][:10], default=None)
 
 
 def years_before(day, years):
@@ -86,7 +118,7 @@ def main():
     key = os.environ.get("FMP_API_KEY")
     if not key:
         raise RuntimeError("FMP_API_KEY is required for read-only source capture")
-    market = json.loads((root / "full_market_dcf.json").read_text(encoding="utf-8"))
+    market = configured_market(root, os.environ.get("CAPTURE_MARKET", "US"))
     symbols = selected_symbols(market, os.environ.get("CAPTURE_SYMBOLS", ""))
     output = (root / os.environ.get("CAPTURE_OUTPUT", "valuation-audit-output")).resolve()
     if root not in output.parents:
@@ -95,14 +127,18 @@ def main():
     now = datetime.now(timezone.utc)
     leases_only = os.environ.get("CAPTURE_LEASE_SOURCES_ONLY") == "true"
     fcff_only = os.environ.get("CAPTURE_FCFF_SOURCES_ONLY") == "true"
+    shares_only = os.environ.get("CAPTURE_SHARES_ONLY") == "true"
     endpoints = LEASE_ENDPOINTS if leases_only else ENDPOINTS
     if fcff_only:
         endpoints = {name: value for name, value in ENDPOINTS.items()
                      if name in ("profile", "quote", "balance", "income", "cashflow",
                                  "annual_income", "annual_balance", "annual_cashflow", "estimates")}
         endpoints["balance_as_reported"] = LEASE_ENDPOINTS["balance_as_reported"]
+        endpoints["shares_float"] = ENDPOINTS["shares_float"]
+    if shares_only:
+        endpoints = {"shares_float": ENDPOINTS["shares_float"]}
     summary = {"gitCommit": os.environ.get("GITHUB_SHA"), "capturedAt": now.isoformat(),
-               "sourceScope": "leases" if leases_only else "fcff" if fcff_only else "valuation",
+               "sourceScope": "shares" if shares_only else "leases" if leases_only else "fcff" if fcff_only else "valuation",
                "stocks": len(symbols), "successfulResponses": 0, "emptyResponses": 0, "errors": []}
     outcomes = Counter()
     with requests.Session() as session:
@@ -111,7 +147,7 @@ def main():
             record = {"ticker": ticker, "providerSymbol": symbol,
                       "capturedAt": datetime.now(timezone.utc).isoformat(), "responses": {}}
             ticker_endpoints = dict(endpoints)
-            if ticker.endswith(".HK") and not leases_only:
+            if ticker.endswith(".HK") and not leases_only and not shares_only:
                 ticker_endpoints.update(HK_EXTRA_ENDPOINTS)
                 ticker_endpoints["news"] = ("news/stock", {"symbols": symbol, "limit": 12})
                 ticker_endpoints = {
@@ -156,10 +192,10 @@ def main():
                     else:
                         summary["errors"].append({"ticker": ticker, "endpoint": "transcript_latest", **result})
                         outcomes["transcript_latest: error"] += 1
-            if not leases_only and not fcff_only and ticker in ("NVDA", "JPM"):
+            if not leases_only and not fcff_only and not shares_only and ticker in ("NVDA", "JPM"):
                 record["responses"]["backend_estimates_query"] = capture(
                     session, "analyst-estimates", {"symbol": symbol, "limit": 4}, key)
-            if not leases_only and not fcff_only and ticker == "BRK.B":
+            if not leases_only and not fcff_only and not shares_only and ticker == "BRK.B":
                 record["responses"]["backend_symbol_profile"] = capture(
                     session, "profile", {"symbol": "BRKB"}, key)
                 record["responses"]["backend_symbol_quote"] = capture(

@@ -1,0 +1,681 @@
+{
+  "version": 1,
+  "index": "Hang Seng Index",
+  "announcedDate": "2026-08-21",
+  "effectiveDate": "2026-09-07",
+  "sourceUrl": "https://www.hsi.com.hk/static/uploads/contents/en/news/pressRelease/20260821T174500.pdf",
+  "sourceSha256": "c33c17bd8909f48b972ba690f7540eab431099cd79e1ff8ec8363521ff82ee4f",
+  "pdfPages": [
+    1,
+    5,
+    6
+  ],
+  "constituentCount": 95,
+  "constituents": [
+    {
+      "ticker": "0005.HK",
+      "displayCode": "00005",
+      "hsiName": "HSBC HOLDINGS",
+      "hShare": false,
+      "pdfPage": 5
+    },
+    {
+      "ticker": "0939.HK",
+      "displayCode": "00939",
+      "hsiName": "CCB (H)",
+      "hShare": true,
+      "pdfPage": 5
+    },
+    {
+      "ticker": "1299.HK",
+      "displayCode": "01299",
+      "hsiName": "AIA",
+      "hShare": false,
+      "pdfPage": 5
+    },
+    {
+      "ticker": "1398.HK",
+      "displayCode": "01398",
+      "hsiName": "ICBC (H)",
+      "hShare": true,
+      "pdfPage": 5
+    },
+    {
+      "ticker": "0388.HK",
+      "displayCode": "00388",
+      "hsiName": "HKEX",
+      "hShare": false,
+      "pdfPage": 5
+    },
+    {
+      "ticker": "3988.HK",
+      "displayCode": "03988",
+      "hsiName": "BANK OF CHINA (H)",
+      "hShare": true,
+      "pdfPage": 5
+    },
+    {
+      "ticker": "2318.HK",
+      "displayCode": "02318",
+      "hsiName": "PING AN (H)",
+      "hShare": true,
+      "pdfPage": 5
+    },
+    {
+      "ticker": "2628.HK",
+      "displayCode": "02628",
+      "hsiName": "CHINA LIFE (H)",
+      "hShare": true,
+      "pdfPage": 5
+    },
+    {
+      "ticker": "3968.HK",
+      "displayCode": "03968",
+      "hsiName": "CM BANK (H)",
+      "hShare": true,
+      "pdfPage": 5
+    },
+    {
+      "ticker": "2388.HK",
+      "displayCode": "02388",
+      "hsiName": "BOC HONG KONG",
+      "hShare": false,
+      "pdfPage": 5
+    },
+    {
+      "ticker": "9988.HK",
+      "displayCode": "09988",
+      "hsiName": "BABA - W",
+      "hShare": false,
+      "pdfPage": 5
+    },
+    {
+      "ticker": "3690.HK",
+      "displayCode": "03690",
+      "hsiName": "MEITUAN - W",
+      "hShare": false,
+      "pdfPage": 5
+    },
+    {
+      "ticker": "1211.HK",
+      "displayCode": "01211",
+      "hsiName": "BYD COMPANY (H)",
+      "hShare": true,
+      "pdfPage": 5
+    },
+    {
+      "ticker": "0669.HK",
+      "displayCode": "00669",
+      "hsiName": "TECHTRONIC IND",
+      "hShare": false,
+      "pdfPage": 5
+    },
+    {
+      "ticker": "9618.HK",
+      "displayCode": "09618",
+      "hsiName": "JD - SW",
+      "hShare": false,
+      "pdfPage": 5
+    },
+    {
+      "ticker": "9888.HK",
+      "displayCode": "09888",
+      "hsiName": "BIDU - SW",
+      "hShare": false,
+      "pdfPage": 5
+    },
+    {
+      "ticker": "9961.HK",
+      "displayCode": "09961",
+      "hsiName": "TRIP.COM - S",
+      "hShare": false,
+      "pdfPage": 5
+    },
+    {
+      "ticker": "0175.HK",
+      "displayCode": "00175",
+      "hsiName": "GEELY AUTO",
+      "hShare": false,
+      "pdfPage": 5
+    },
+    {
+      "ticker": "1024.HK",
+      "displayCode": "01024",
+      "hsiName": "KUAISHOU - W",
+      "hShare": false,
+      "pdfPage": 5
+    },
+    {
+      "ticker": "9992.HK",
+      "displayCode": "09992",
+      "hsiName": "POP MART",
+      "hShare": false,
+      "pdfPage": 5
+    },
+    {
+      "ticker": "2020.HK",
+      "displayCode": "02020",
+      "hsiName": "ANTA SPORTS",
+      "hShare": false,
+      "pdfPage": 5
+    },
+    {
+      "ticker": "9633.HK",
+      "displayCode": "09633",
+      "hsiName": "NONGFU SPRING (H)",
+      "hShare": true,
+      "pdfPage": 5
+    },
+    {
+      "ticker": "0027.HK",
+      "displayCode": "00027",
+      "hsiName": "GALAXY ENT",
+      "hShare": false,
+      "pdfPage": 5
+    },
+    {
+      "ticker": "0288.HK",
+      "displayCode": "00288",
+      "hsiName": "WH GROUP",
+      "hShare": false,
+      "pdfPage": 5
+    },
+    {
+      "ticker": "2015.HK",
+      "displayCode": "02015",
+      "hsiName": "LI AUTO - W",
+      "hShare": false,
+      "pdfPage": 5
+    },
+    {
+      "ticker": "0066.HK",
+      "displayCode": "00066",
+      "hsiName": "MTR CORPORATION",
+      "hShare": false,
+      "pdfPage": 5
+    },
+    {
+      "ticker": "0300.HK",
+      "displayCode": "00300",
+      "hsiName": "MIDEA GROUP (H)",
+      "hShare": true,
+      "pdfPage": 5
+    },
+    {
+      "ticker": "2319.HK",
+      "displayCode": "02319",
+      "hsiName": "MENGNIU DAIRY",
+      "hShare": false,
+      "pdfPage": 5
+    },
+    {
+      "ticker": "6690.HK",
+      "displayCode": "06690",
+      "hsiName": "HAIER SMARTHOME (H)",
+      "hShare": true,
+      "pdfPage": 5
+    },
+    {
+      "ticker": "9901.HK",
+      "displayCode": "09901",
+      "hsiName": "NEW ORIENTAL - S",
+      "hShare": false,
+      "pdfPage": 5
+    },
+    {
+      "ticker": "1928.HK",
+      "displayCode": "01928",
+      "hsiName": "SANDS CHINA LTD",
+      "hShare": false,
+      "pdfPage": 5
+    },
+    {
+      "ticker": "0291.HK",
+      "displayCode": "00291",
+      "hsiName": "CHINA RES BEER",
+      "hShare": false,
+      "pdfPage": 5
+    },
+    {
+      "ticker": "2313.HK",
+      "displayCode": "02313",
+      "hsiName": "SHENZHOU INTL",
+      "hShare": false,
+      "pdfPage": 5
+    },
+    {
+      "ticker": "2331.HK",
+      "displayCode": "02331",
+      "hsiName": "LI NING",
+      "hShare": false,
+      "pdfPage": 5
+    },
+    {
+      "ticker": "0322.HK",
+      "displayCode": "00322",
+      "hsiName": "TINGYI",
+      "hShare": false,
+      "pdfPage": 5
+    },
+    {
+      "ticker": "1929.HK",
+      "displayCode": "01929",
+      "hsiName": "CHOW TAI FOOK",
+      "hShare": false,
+      "pdfPage": 5
+    },
+    {
+      "ticker": "6862.HK",
+      "displayCode": "06862",
+      "hsiName": "HAIDILAO",
+      "hShare": false,
+      "pdfPage": 5
+    },
+    {
+      "ticker": "6181.HK",
+      "displayCode": "06181",
+      "hsiName": "LAOPU GOLD (H)",
+      "hShare": true,
+      "pdfPage": 5
+    },
+    {
+      "ticker": "1044.HK",
+      "displayCode": "01044",
+      "hsiName": "HENGAN INT'L",
+      "hShare": false,
+      "pdfPage": 5
+    },
+    {
+      "ticker": "1876.HK",
+      "displayCode": "01876",
+      "hsiName": "BUD APAC",
+      "hShare": false,
+      "pdfPage": 5
+    },
+    {
+      "ticker": "0700.HK",
+      "displayCode": "00700",
+      "hsiName": "TENCENT",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "1810.HK",
+      "displayCode": "01810",
+      "hsiName": "XIAOMI - W",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "9999.HK",
+      "displayCode": "09999",
+      "hsiName": "NTES",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "0981.HK",
+      "displayCode": "00981",
+      "hsiName": "SMIC",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "0992.HK",
+      "displayCode": "00992",
+      "hsiName": "LENOVO GROUP",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "1347.HK",
+      "displayCode": "01347",
+      "hsiName": "HUA HONG GRACE",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "2382.HK",
+      "displayCode": "02382",
+      "hsiName": "SUNNY OPTICAL",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "0285.HK",
+      "displayCode": "00285",
+      "hsiName": "BYD ELECTRONIC",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "0883.HK",
+      "displayCode": "00883",
+      "hsiName": "CNOOC",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "0857.HK",
+      "displayCode": "00857",
+      "hsiName": "PETROCHINA (H)",
+      "hShare": true,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "2899.HK",
+      "displayCode": "02899",
+      "hsiName": "ZIJIN MINING (H)",
+      "hShare": true,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "0001.HK",
+      "displayCode": "00001",
+      "hsiName": "CKH HOLDINGS",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "1088.HK",
+      "displayCode": "01088",
+      "hsiName": "CHINA SHENHUA (H)",
+      "hShare": true,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "3750.HK",
+      "displayCode": "03750",
+      "hsiName": "CATL (H)",
+      "hShare": true,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "0386.HK",
+      "displayCode": "00386",
+      "hsiName": "SINOPEC CORP (H)",
+      "hShare": true,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "1378.HK",
+      "displayCode": "01378",
+      "hsiName": "CHINAHONGQIAO",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "0267.HK",
+      "displayCode": "00267",
+      "hsiName": "CITIC",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "1519.HK",
+      "displayCode": "01519",
+      "hsiName": "J&T EXPRESS - W",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "2057.HK",
+      "displayCode": "02057",
+      "hsiName": "ZTO EXPRESS - W",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "2338.HK",
+      "displayCode": "02338",
+      "hsiName": "WEICHAI POWER (H)",
+      "hShare": true,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "3993.HK",
+      "displayCode": "03993",
+      "hsiName": "CMOC (H)",
+      "hShare": true,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "2600.HK",
+      "displayCode": "02600",
+      "hsiName": "CHALCO (H)",
+      "hShare": true,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "2618.HK",
+      "displayCode": "02618",
+      "hsiName": "JD LOGISTICS",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "0316.HK",
+      "displayCode": "00316",
+      "hsiName": "OOIL",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "0868.HK",
+      "displayCode": "00868",
+      "hsiName": "XINYI GLASS",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "0968.HK",
+      "displayCode": "00968",
+      "hsiName": "XINYI SOLAR",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "0941.HK",
+      "displayCode": "00941",
+      "hsiName": "CHINA MOBILE",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "0002.HK",
+      "displayCode": "00002",
+      "hsiName": "CLP HOLDINGS",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "0006.HK",
+      "displayCode": "00006",
+      "hsiName": "POWER ASSETS",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "0003.HK",
+      "displayCode": "00003",
+      "hsiName": "HK & CHINA GAS",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "0728.HK",
+      "displayCode": "00728",
+      "hsiName": "CHINA TELECOM (H)",
+      "hShare": true,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "1038.HK",
+      "displayCode": "01038",
+      "hsiName": "CKI HOLDINGS",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "2688.HK",
+      "displayCode": "02688",
+      "hsiName": "ENN ENERGY",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "0836.HK",
+      "displayCode": "00836",
+      "hsiName": "CHINA RES POWER",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "0762.HK",
+      "displayCode": "00762",
+      "hsiName": "CHINA UNICOM",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "6160.HK",
+      "displayCode": "06160",
+      "hsiName": "BEONE MEDICINES",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "2269.HK",
+      "displayCode": "02269",
+      "hsiName": "WUXI BIO",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "1801.HK",
+      "displayCode": "01801",
+      "hsiName": "INNOVENT BIO",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "2359.HK",
+      "displayCode": "02359",
+      "hsiName": "WUXI APPTEC (H)",
+      "hShare": true,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "1093.HK",
+      "displayCode": "01093",
+      "hsiName": "CSPC PHARMA",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "3692.HK",
+      "displayCode": "03692",
+      "hsiName": "HANSOH PHARMA",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "1177.HK",
+      "displayCode": "01177",
+      "hsiName": "SBP GROUP",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "6618.HK",
+      "displayCode": "06618",
+      "hsiName": "JD HEALTH",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "1099.HK",
+      "displayCode": "01099",
+      "hsiName": "SINOPHARM (H)",
+      "hShare": true,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "0241.HK",
+      "displayCode": "00241",
+      "hsiName": "ALI HEALTH",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "0016.HK",
+      "displayCode": "00016",
+      "hsiName": "SHK PPT",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "1109.HK",
+      "displayCode": "01109",
+      "hsiName": "CHINA RES LAND",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "0823.HK",
+      "displayCode": "00823",
+      "hsiName": "LINK REIT",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "1113.HK",
+      "displayCode": "01113",
+      "hsiName": "CK ASSET",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "1997.HK",
+      "displayCode": "01997",
+      "hsiName": "WHARF REIC",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "0688.HK",
+      "displayCode": "00688",
+      "hsiName": "CHINA OVERSEAS",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "0012.HK",
+      "displayCode": "00012",
+      "hsiName": "HENDERSON LAND",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "1209.HK",
+      "displayCode": "01209",
+      "hsiName": "CHINA RES MIXC",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "0960.HK",
+      "displayCode": "00960",
+      "hsiName": "LONGFOR GROUP",
+      "hShare": false,
+      "pdfPage": 6
+    },
+    {
+      "ticker": "0101.HK",
+      "displayCode": "00101",
+      "hsiName": "HANG LUNG PPT",
+      "hShare": false,
+      "pdfPage": 6
+    }
+  ]
+}

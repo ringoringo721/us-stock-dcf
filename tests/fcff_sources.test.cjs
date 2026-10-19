@@ -31,6 +31,39 @@ function evidence() {
 }
 const treasury = { ok: true, rows: [{ date: '2026-10-16', year10: 4 }] };
 
+test('consensus scale reconciliation uses reviewed statement revenue, not an inconsistent original provider denominator', () => {
+  const input = evidence();
+  const corrected = structuredClone(input.responses.annual_income.rows);
+  input.responses.annual_income.rows[0].revenue = 0.6e9;
+  assert.equal(prepareSnapshot('TEST', input, treasury, null, null).reason, 'forecastCurrencyScaleUnverified');
+  const statementData = { annual: { income: corrected, balance: [], cashflow: [] },
+    quarterly: { income: input.responses.income.rows, balance: input.responses.balance.rows,
+      cashflow: input.responses.cashflow.rows } };
+  const snapshot = prepareSnapshot('TEST', input, treasury, null, null, { statementData });
+  assert.notEqual(snapshot.reason, 'forecastCurrencyScaleUnverified');
+  assert.ok(snapshot.forecasts?.length || snapshot.defaults, 'Reviewed revenue allows genuine consensus anchors');
+  assert.equal(input.responses.annual_income.rows[0].revenue, 0.6e9, 'Original evidence is preserved');
+});
+
+test('corporate FCFF uses the same sourced issuer-wide denominator as the HK market and liquidation paths', () => {
+  const shareSource = { shares: 261600.381459, date: '2026-09-30', filingDate: '2026-09-30',
+    basis: 'commonSharesOutstandingExcludingTreasury', scope: 'issuerWideOrdinaryShares' };
+  const input = evidence();
+  const snapshot = prepareSnapshot('TEST', input, treasury, null, null, { shareSource });
+  assert.equal(snapshot.defaults.shares, shareSource.shares);
+  assert.deepEqual(snapshot.provenance.shares, shareSource);
+  for (const invalid of [
+    { ...shareSource, shares: -1 }, { ...shareSource, date: '2026-10-18' },
+    { ...shareSource, filingDate: '2026-10-18' }, { ...shareSource, basis: 'dilutedWeightedAverage' }
+  ]) {
+    assert.throws(() => prepareSnapshot('TEST', input, treasury, null, null, { shareSource: invalid }), /invalid valuation share/);
+  }
+  const unavailable = prepareSnapshot('TEST', input, treasury, null, null, {
+    shareSource: { shares: null, basis: 'unavailable', reason: 'shareBasisUnverified' }
+  });
+  assert.equal(unavailable.defaults.shares, null);
+});
+
 test('reported debt already containing leases is preserved, never increased a second time', () => {
   const result = financingDebt({ totalDebt: 38860e6, shortTermDebt: 1000e6,
     longTermDebt: 32366e6, capitalLeaseObligations: 5494e6 });
@@ -135,4 +168,97 @@ test('annual forecast currency checks cannot borrow a different reporting curren
   assert.equal(prepareSnapshot('TEST', input, treasury, null).reason, 'sourceDateMismatch');
   delete input.responses.annual_income.rows[0].date;
   assert.equal(prepareSnapshot('TEST', input, treasury, null).reason, 'sourceDateMismatch');
+});
+
+function hkEvidence() {
+  const input = evidence();
+  input.ticker = input.providerSymbol = 'TEST.HK';
+  for (const response of Object.values(input.responses)) for (const row of response.rows) row.symbol = 'TEST.HK';
+  input.responses.profile.rows[0].currency = 'HKD';
+  return input;
+}
+const hkdRates = require('../cache/fx/hkd_rates.json');
+
+test('HK discount inputs explicitly use a dated USD proxy while retaining company-specific beta', () => {
+  const input = hkEvidence();
+  for (const beta of [0.5, 1.5]) {
+    input.responses.profile.rows[0].beta = beta;
+    const snapshot = prepareSnapshot('TEST.HK', input, treasury, hkdRates);
+    assert.equal(snapshot.defaults.rf, 4);
+    assert.equal(snapshot.defaults.beta, beta);
+    assert.equal(snapshot.provenance.treasury.currency, 'USD');
+    assert.equal(snapshot.provenance.treasury.date, '2026-10-16');
+    assert.match(snapshot.provenance.riskFreeRate, /USD Treasury proxy/);
+  }
+});
+
+test('latest matched forecast scale controls eligibility and older differences remain disclosed', () => {
+  const input = evidence();
+  input.responses.annual_income.rows.unshift({ symbol: 'TEST', date: '2024-12-31',
+    fiscalYear: 2024, period: 'FY', reportedCurrency: 'USD', revenue: 500e6 });
+  input.responses.estimates.rows.unshift({ symbol: 'TEST', date: '2024-12-31', revenueAvg: 1e9, ebitAvg: 200e6 });
+  const snapshot = prepareSnapshot('TEST', input, treasury, null);
+  assert.equal(snapshot.reason, null);
+  assert.equal(snapshot.provenance.forecastScaleCheck.date, '2025-12-31');
+  assert.deepEqual(snapshot.provenance.forecastScaleCheck.earlierDifferences, [{ date: '2024-12-31', ratio: 2 }]);
+  input.responses.estimates.rows.find(row => row.date === '2025-12-31').revenueAvg = 2e9;
+  const blocked = prepareSnapshot('TEST', input, treasury, null);
+  assert.equal(blocked.reason, 'forecastCurrencyScaleUnverified');
+  assert.equal(blocked.defaults.reportedDebt, 100);
+  assert.equal(blocked.ttm.ebitda, 230);
+  assert.equal(blocked.history.annual.length, 2);
+});
+
+test('HK annual-only cash flow selects one complete annual base but preserves independent current quote inputs', () => {
+  const input = hkEvidence();
+  const annual = type => ({ ...input.responses[type].rows[1], period: 'FY' });
+  const annualIncome = { ...annual('income'), revenue: 1e9, operatingIncome: 200e6,
+    incomeTaxExpense: 40e6, incomeBeforeTax: 200e6, interestExpense: 5e6, ebitda: 230e6 };
+  const statements = {
+    reportingFrequency: 'quarterly', statementFrequencies: { cashflow: 'annual' },
+    annual: { income: [annualIncome], balance: [annual('balance')], cashflow: [{
+      ...annual('cashflow'), depreciationAndAmortization: 30e6, capitalExpenditure: -50e6, freeCashFlow: 120e6
+    }] },
+    quarterly: { income: input.responses.income.rows, balance: input.responses.balance.rows, cashflow: [] }
+  };
+  const snapshot = prepareSnapshot('TEST.HK', input, treasury, hkdRates, null, { statementData: statements });
+  assert.equal(snapshot.ttm.reportingFrequency, 'annual', snapshot.reason);
+  assert.deepEqual(snapshot.ttm.dates, ['2025-12-31']);
+  assert.equal(snapshot.provenance.operatingRatios, 'latestCompleteReportedAnnualPeriodNotCurrentTtm');
+  assert.equal(snapshot.quotedTtm.reportedFcf, null);
+  assert.ok(snapshot.quotedTtm.ebitda > 0);
+  assert.equal(snapshot.quotedCapital.date, '2026-09-30');
+  assert.equal(snapshot.balance.date, '2025-12-31');
+});
+
+test('annual model debt costs use the previous annual balance, not a discarded quarterly placeholder', () => {
+  const input = hkEvidence();
+  for (const response of Object.values(input.responses)) {
+    for (const row of response.rows) if (row.reportedCurrency) row.reportedCurrency = 'HKD';
+  }
+  const annual = type => ({ ...input.responses[type].rows[1], period: 'FY' });
+  const statements = {
+    reportingFrequency: 'quarterly', statementFrequencies: { cashflow: 'annual' },
+    annual: {
+      income: [{ ...annual('income'), revenue: 1e9, operatingIncome: 200e6,
+        incomeTaxExpense: 40e6, incomeBeforeTax: 200e6, interestExpense: 5e6 }],
+      balance: [{ ...annual('balance'), date: '2024-12-31', fiscalYear: 2024, totalDebt: 80e6 },
+        annual('balance')],
+      cashflow: [{ ...annual('cashflow'), depreciationAndAmortization: 30e6, capitalExpenditure: -50e6 }]
+    },
+    quarterly: { income: input.responses.income.rows, balance: input.responses.balance.rows, cashflow: [] }
+  };
+  const build = () => prepareSnapshot('TEST.HK', input, treasury, hkdRates, null, { statementData: statements });
+  assert.equal(build().defaults.kd, 5e6 / 90e6 * 100);
+  assert.deepEqual(build().provenance.debtCost, {
+    basis: 'reportedAnnualInterestOverAverageAnnualDebt', openingDate: '2024-12-31',
+    closingDate: '2025-12-31', interest: 5, averageDebt: 90
+  });
+  statements.annual.balance[0].capitalLeaseObligations = 10e6;
+  assert.equal(build().defaults.kd, null, 'Do not mix unreconciled opening debt with the current debt basis');
+  statements.annual.balance[0].capitalLeaseObligations = 0;
+  statements.annual.balance[0].date = '2024-01-01';
+  assert.equal(build().defaults.kd, null, 'A matching fiscal label cannot substitute for a matching balance date');
+  statements.annual.balance = statements.annual.balance.slice(1);
+  assert.equal(build().defaults.kd, null, 'Never fabricate an opening balance when the annual source is absent');
 });

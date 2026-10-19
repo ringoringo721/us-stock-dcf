@@ -13,7 +13,7 @@ function halfYears() {
     fiscalYear: 2022 + Math.floor(i / 2), period: i % 2 ? 'Q4' : 'Q2',
     date: `${2022 + Math.floor(i / 2)}-${i % 2 ? '12-31' : '06-30'}`,
     periodStartDate: `${2022 + Math.floor(i / 2)}-${i % 2 ? '07-01' : '01-01'}`,
-    periodLength: '6M', reportedCurrency: 'HKD',
+    periodLength: 6, reportedCurrency: 'HKD',
     revenue: (i + 1) * 100, grossProfit: (i + 1) * 40, operatingIncome: (i + 1) * 25,
     netIncome: (i + 1) * 20, ebitda: (i + 1) * 30,
     freeCashFlow: (i + 1) * 10, epsDiluted: i + 1, commonDividendsPaid: -(i + 1) * 2,
@@ -129,7 +129,7 @@ test('fiscal-year-end TTM preserves verified annual EPS without inventing derive
   latest.epsDiluted = null;
   latest.weightedAverageShsOutDil = null;
   latest.derivation = 'annualMinusReportedH1';
-  data.annual.income.push({ ...latest, period: 'FY', periodStartDate: '2024-01-01', epsDiluted: -2.86 });
+  data.annual.income.push({ ...latest, period: 'FY', periodLength: 12, periodStartDate: '2024-01-01', epsDiluted: -2.86 });
   const result = Ratios.calculateEarnings(data).at(-1);
   assert.equal(result.amounts.eps.value, -2.86);
   assert.equal(result.amounts.eps.basis, 'reportedAnnualAtFiscalYearEnd');

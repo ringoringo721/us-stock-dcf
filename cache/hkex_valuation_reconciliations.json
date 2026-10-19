@@ -1,0 +1,208 @@
+{
+  "version": 1,
+  "stocks": {
+    "0700.HK": {
+      "ticker": "0700.HK",
+      "method": "officialOperatingComponents",
+      "basis": "reconstructedTtm",
+      "balanceDate": "2026-06-30",
+      "currency": "CNY",
+      "unit": "millions",
+      "financialFingerprint": "a183eb7dee25ed0319d80ec918c53c3806125f537ff2a9b062f9a278f3904f05",
+      "documents": [
+        {
+          "title": "Tencent Interim Report 2026",
+          "url": "https://www.tencent.com/wp-content/uploads/2026/08/E700_IR.pdf",
+          "sha256": "4170f80ec8548ea2fb92ec04691a4b252a52de20941e48fb516baf3f98082639",
+          "availableDate": "2026-08-25",
+          "pdfPages": [16, 25, 27, 28, 29, 34, 51, 59, 67, 85, 86, 87]
+        },
+        {
+          "title": "Tencent Annual Report 2025",
+          "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0409/2026040901231.pdf",
+          "sha256": "2a7547168077c3d9994af673125e77612e8656bc0f17ad189371d7e4088f4e98",
+          "availableDate": "2026-04-09",
+          "pdfPages": [130, 139, 218, 263]
+        }
+      ],
+      "annualReference": { "date": "2025-12-31", "revenue": 751766 },
+      "flows": [
+        { "start": "2025-07-01", "end": "2025-12-31", "revenue": 387240, "ebit": 123892, "depreciation": 35389, "cashCapex": 55424, "newNoncashLeaseAssets": 4181, "taxExpense": 22380, "pretax": 146412 },
+        { "start": "2026-01-01", "end": "2026-06-30", "revenue": 401243, "ebit": 134651, "depreciation": 36162, "cashCapex": 107163, "newNoncashLeaseAssets": 3974, "taxExpense": 26290, "pretax": 143659 }
+      ],
+      "ytd": { "start": "2026-01-01", "end": "2026-06-30", "revenue": 401243, "ebit": 134651, "depreciation": 36162, "cashCapex": 107163, "newNoncashLeaseAssets": 3974, "taxExpense": 26290, "pretax": 143659 },
+      "capital": { "debt": 471828, "leaseDebt": 18865, "cash": 421205, "investments": 983896, "otherClaims": 14266, "preferred": 0, "minority": 86660, "workingCapital": -225901 },
+      "debtCost": { "start": "2025-12-31", "end": "2026-06-30", "interest": 6346, "openingDebt": 406399, "closingDebt": 471828, "annualization": 2 },
+      "leaseBasis": "IFRS financing treatment: actual organic new ROU assets are included in reinvestment alongside cash PPE, intangible and land payments; ROU depreciation remains in D&A. Lease debt is included once; principal repayment is not deducted again.",
+      "componentChecks": {
+        "ttmCashCapexCny": "112875 - 57451 + 107163 = 162587",
+        "ttmNewLeaseAssetsCny": "6839 - 2658 + 3974 = 8155; excludes acquired ROU assets",
+        "operatingCurrentAssetsCny": "685 + 55606 + 137449 - 11389 - 4717 - 2582 = 175052",
+        "operatingCurrentLiabilitiesCny": "175579 + 88586 - 4243 - 2072 - 1331 + 4324 + 133676 = 394519",
+        "nonoperatingInvestmentsCny": "920502 + 28041 + 9658 + 3051 + 3196 + 760 + 4717 + 11389 + 2582 = 983896",
+        "otherFinancialClaimsCny": "1813 + 2072 + 1331 + 4403 + 4647 = 14266; only capital-transaction payables, acquisition consideration, interest and financial liabilities are netted against investment book proxies",
+        "operatingWorkingCapitalCny": "175052 - 394519 + 71 - 3582 - 796 - 2127 = -225901; includes disclosed noncurrent royalty prepayments, cash-settled employee awards, royalty payables and deferred revenue; unclassified long-term other assets/payables are not certified nonoperating additions/claims"
+      },
+      "noteZh": "騰訊模型 TTM 以官方 2025 全年減 2025 上半年、加 2026 上半年重建；先在人民幣推導下半年，再分別按兩個半年的實際平均匯率換為港元，不捏造季度分項。現金 CapEx 包含設備、無形資產及土地現金付款，另加實際新增租賃使用權資產；購併取得的 ROU 不當作日常租賃再投資。營運資金採已分類流動餘額，加已披露長期版權預付、現金結算員工獎勵、版權應付及遞延營收；不把全部長期應付款誤當金融索償，也不把未分類長期其他餘額當作已核實非營運資產。非營運投資採帳面代理，扣除 14,266 百萬人民幣其他金融索償；NCI 與贖回負債可能重疊、變現稅及未識別調整仍有不確定性，並非全資產負債的公允價值鑑證。Kd 採最近上半年利息年化／同期間平均含租賃借款，不是 TTM 利息率或當前新增融資報價。分析師盈利口徑未獨立認證；原財報及供應商歷史倍數口徑保留。",
+      "noteEn": "Tencent model TTM is reconstructed from official FY2025 less H1 2025 plus H1 2026. H2 is derived in CNY before translating each half at its own historical average FX; no individual quarterly components are invented. Cash capex includes PPE, intangibles and land payments, plus actual organic ROU additions, excluding acquired ROU assets. Working capital includes classified current balances and disclosed noncurrent royalty prepayments, cash-settled employee awards, royalty payables and deferred revenue. Long-term payables are not all financial claims; unclassified long-term other balances are not certified nonoperating additions. Nonoperating investment book proxies are net of CNY 14,266M other financial claims. Potential NCI/redemption-claim overlap, realization tax and unidentified adjustments remain uncertain, not a balance-sheet fair-value certification. Kd annualizes the latest half-year interest over matching average borrowings including leases, not TTM interest or marginal debt quotes. Analyst profit comparability is not independently certified. Original statements and provider historical-multiple definitions are preserved."
+    },
+    "0388.HK": {
+      "ticker": "0388.HK",
+      "method": "officialOperatingComponents",
+      "workingCapitalBasis": "operatingAndRequiredCapital",
+      "basis": "annual",
+      "fiscalYear": 2025,
+      "balanceDate": "2025-12-31",
+      "currency": "HKD",
+      "unit": "millions",
+      "financialFingerprint": "6542e280dfa6e92a8310c131c08153c9540a4ac29b2bb8a991e722db2f1a6f05",
+      "documents": [
+        {
+          "title": "HKEX Annual Report 2025",
+          "url": "https://www.hkexgroup.com/-/media/HKEX-Group-Site/ssd/Investor-Relations/Regulatory-Reports/documents/2026/260316ar_e.pdf",
+          "sha256": "01f90f3b213f368e1ed66887ec6ec862f5129c74d5c89d3c11cf5b0fda8887ee",
+          "availableDate": "2026-03-16",
+          "pdfPages": [143, 145, 147, 150, 153, 160, 175, 177, 189, 191, 206]
+        }
+      ],
+      "annualReference": { "date": "2025-12-31", "revenue": 27291 },
+      "flows": [
+        { "start": "2025-01-01", "end": "2025-12-31", "revenue": 27291, "ebit": 19308, "depreciation": 1568, "cashCapex": 4881, "newNoncashLeaseAssets": 112, "taxExpense": 3321, "pretax": 21158 }
+      ],
+      "ytd": null,
+      "capital": { "debt": 1249, "leaseDebt": 851, "cash": 18821, "investments": 18983, "otherClaims": 32, "preferred": 0, "minority": 582, "workingCapital": 444 },
+      "debtCost": { "start": "2024-12-31", "end": "2025-12-31", "interest": 46, "openingDebt": 1746, "closingDebt": 1249, "annualization": 1 },
+      "forecastExclusion": { "referenceRevenue": 29161, "revenue": 1870, "profit": 1920 },
+      "leaseBasis": "Actual new lease liabilities 112 are taken from the financing rollforward, not gross ROU additions 2488. Cash investment includes HQ payments 3148 plus other capex 1733. ROU depreciation remains in D&A; financing lease debt is deducted once.",
+      "componentChecks": {
+        "operatingRevenue": "29161 - 1870 = 27291",
+        "operatingEbit": "21228 - 1870 - 50 = 19308; corporate investment income excluded and facility commitment fees retained as operating support cost",
+        "debt": "398 + 851 = 1249; no repeated noncurrent lease",
+        "cash": "20676 - 1323 - 532 = 18821; regulatory cash and previously declared unclaimed dividends are not available equity additions",
+        "investments": "18717 - 953 + 869 + 350 = 18983; excludes participant assets, gross derivatives and reserved securities",
+        "operatingAndRequiredCapital": "68691 - 43088 - 21688 - 350 - 715 - (50846 - 45637 - 532) - 1593 - 151 + 1817 + 2276 - 78 = 444",
+        "matchedClientBalances": "247555 + 21688 = 269243; 43088 + 2549 = 45637"
+      },
+      "noteZh": "港交所採官方 2025 完整年度基準，不冒充當前 TTM。剔除 1,870 百萬港元自有資金投資收益後才另加相應可用投資，避免重複估值；50 百萬融資承諾費保留為營運支援成本。客戶保證金、結算款及總額衍生工具不當作股東現金／投資。444 百萬營運及必要資本代理含自有結算基金與監管儲備，不是純非現金營運資金；已配對客戶資產負債成套排除，總部預付款不與現金 CapEx 重扣。CapEx 包含 3,148 百萬總部現金付款及 112 百萬實際新增租賃，並非把 2,488 百萬全部 ROU 新增再加一次。未來自有資金收益及承諾費按 2025 佔分析師總營收比例扣除，是模型情境，不是直接分析師共識。投資、借款（包含非控制權益賣出認沽期權）及其他金融索償採帳面代理，並未核實可變現公允價值；相關營運費用未另行假設可全數節省。",
+      "noteEn": "HKEX uses official complete FY2025, not current TTM. Corporate investment income of HKD 1,870M is excluded before adding available portfolio assets, avoiding double valuation; HKD 50M facility commitment fees remain an operating support cost. Participant margin, clearing balances and gross derivatives are not shareholder cash/investments. The HKD 444M operating and required-capital proxy includes own clearing funds and regulatory reserves, not merely noncash working capital. Matched client balances are excluded together; HQ prepayments are not deducted again alongside cash capex. Investment includes HKD 3,148M cash HQ payments and actual new leases of 112, not gross ROU additions of 2,488. Future corporate income and commitment fees are removed at their FY2025 share of analyst aggregate revenue: a model scenario, not direct consensus. Investments, borrowings (including written puts to NCI) and other financial claims use book proxies, not verified realizable fair values. Related operating expenses are not assumed fully avoidable."
+    },
+    "9988.HK": {
+      "ticker": "9988.HK",
+      "method": "officialOperatingComponents",
+      "basis": "annual",
+      "fiscalYear": 2026,
+      "balanceDate": "2026-03-31",
+      "reviewedSnapshotDate": "2026-06-30",
+      "currency": "CNY",
+      "unit": "millions",
+      "workingCapitalBasis": "operatingAndRequiredCapital",
+      "depreciationBasis": "noncashDepreciationAmortizationAndImpairment",
+      "cashBasis": "Reported annual cash and short-term treasury investments. The pooled collateral reserve is deducted in the investment proxy, not again from cash; restricted buyer-protection cash is excluded.",
+      "financialFingerprint": "ff6235303b87bee9cecd66d2ec7919c2544885379f14a91e5d27eae8ebc4d168",
+      "documents": [
+        {
+          "title": "Alibaba Fiscal Year 2026 Annual Report",
+          "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0618/2026061800844.pdf",
+          "sha256": "cfd546af210e57bbf687c4c34eba6826fa61b6cf2c4c54638a703c1d74ed4cc7",
+          "availableDate": "2026-06-18",
+          "pdfPages": [183, 185, 186, 190, 218, 231, 236, 238, 239, 241]
+        },
+        {
+          "title": "Alibaba June Quarter 2026 Results",
+          "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0820/2026082000745.pdf",
+          "sha256": "20f681e2561f5af21de9a513e3233160e1492fcbcdfdf69c0b2676aa7c44924a",
+          "availableDate": "2026-08-20",
+          "pdfPages": [5, 15, 18, 19, 20, 21, 23, 26]
+        }
+      ],
+      "annualReference": { "date": "2026-03-31", "revenue": 1023670 },
+      "flows": [
+        { "start": "2025-04-01", "end": "2026-03-31", "revenue": 1023670, "ebit": 57817, "depreciation": 42146, "cashCapex": 126937, "newNoncashLeaseAssets": 0, "taxExpense": 30045, "pretax": 129387 }
+      ],
+      "ytd": null,
+      "capital": { "debt": 259996, "leaseDebt": 0, "cash": 286840, "investments": 686906, "otherClaims": 7130, "preferred": 7845, "minority": 57539, "workingCapital": -99575 },
+      "quotedCapital": { "date": "2026-06-30", "reportedDebt": 266530, "cash": 297567, "preferred": 7584, "minority": 57272 },
+      "debtCost": { "start": "2025-03-31", "end": "2026-03-31", "interest": 9793, "openingDebt": 230703, "closingDebt": 259996, "annualization": 1 },
+      "leaseBasis": "US GAAP operating rentals remain in operating expense and are not added to financing debt or noncash lease reinvestment. Current operating lease liabilities 4318 are excluded from the operating-capital proxy. Prepaid land-use-right cash acquisitions and their noncash cost remain in capital investment/noncash addbacks; this does not capitalize office rental expenses a second time.",
+      "componentChecks": {
+        "normalizedEbit": "50150 + 9515 - 1848 = 57817; remove goodwill impairment and nonrecurring property disposal gain, retain SBC and other operating costs",
+        "noncashAddback": "37067 + 5079 = 42146; PPE/land-use noncash cost plus income-statement intangible amortization/impairment, not the broader 10051 cash-flow amortization of intangibles AND licensed copyrights",
+        "cashCapex": "126063 + 874 = 126937; includes land and campus investment rather than management's adjusted FCF exclusions",
+        "operatingAssets": "251837 - 4198 + 10964 = 258603; interest receivable excluded, noncurrent film/copyright operating capital included",
+        "operatingLiabilities": "359893 - 33685 - 4318 - 6192 - 35965 + 236 + 77415 + 4885 = 362269",
+        "requiredOperatingCapital": "258603 - 362269 + 4091 = -99575; paired buyer-protection balances excluded and collateral treasury reserve retained as required capital",
+        "investmentProxy": "30054 + 449942 + 206803 + 4198 - 4091 = 686906; pooled treasury restriction deducted once here",
+        "otherClaims": "6192 + 938 = 7130; contingent/deferred acquisition consideration deducted separately from investment book proxies",
+        "financingDebt": "28224 + 47450 + 117485 + 55861 + 10976 = 259996; excludes operating lease obligations of 21726",
+        "quotedCurrentDebt": "30614 + 56007 + 115716 + 54905 + 9288 = 266530"
+      },
+      "noteZh": "阿里巴巴採截至 2026-03-31 的完整官方年度模型，不把季度版權攤銷口徑差異拼成當前 TTM；已公布的 2026-06 季度財報與供應商歷史資料保留。已知季度收入不代表同口徑營運現金流各分項均已核對，首年未建完整累計實績的部分仍按日期作模型推算。EBIT 剔除商譽減值及物業處置收益，但保留股份薪酬；非現金加回採物業／土地成本及損益表無形資產攤銷減值，不把現金流表更廣的版權攤銷再加回。長期電影／版權營運餘額納入營運資金代理，相關成本仍留在營業利潤。US GAAP 營業租賃費留在費用，不再把營業租賃負債當融資債務扣一次；已支付土地使用權仍按現金投資與非現金攤銷處理。買家保障金資產負債成套排除；4,091 百萬人民幣抵押資金留作必要資本，於整體投資代理扣除一次，不重扣現金。另扣 7,130 百萬收購索償；夾層及 NCI 採帳面代理，非已核實公允價值。報價交易倍數另外保留有來源的當前季度資本與供應商 TTM，並非本年度模型重編歷史。分析師盈利可比性、變現稅及未分類餘額仍有不確定性。",
+      "noteEn": "Alibaba uses complete official FY ended 2026-03-31, not a current TTM stitched across inconsistent quarterly licensed-copyright amortization scopes. Published June-quarter statements and provider history remain available. Known quarterly revenue does not establish a fully reconciled same-basis YTD cash-flow schedule; first-year flows without that complete schedule remain modeled by date. EBIT removes goodwill impairment and property-disposal gains but retains SBC. Noncash addbacks use PPE/land cost and income-statement intangible amortization/impairment, not the broader cash-flow licensed-copyright amortization again. Noncurrent film/copyright operating balances enter the operating-capital proxy while related costs remain in operating profit. US GAAP operating rental expense remains in EBIT; operating lease claims are not deducted again as financing debt. Paid land-use rights retain cash-investment/noncash-amortization treatment. Paired buyer-protection balances are excluded. CNY 4,091M pledged treasury funds remain required capital and are deducted once from pooled investment value, not again from cash. Acquisition claims of 7,130 are deducted separately; mezzanine/NCI claims use unverified book proxies. Quoted multiples separately retain sourced current-quarter capital and provider TTM, not restated annual-model history. Analyst comparability, realization taxes and unclassified balances remain uncertain."
+    },
+    "0823.HK": {
+      "ticker": "0823.HK",
+      "balanceDate": "2026-03-31",
+      "statementApprovalDate": "2026-05-28",
+      "currency": "HKD",
+      "unit": "millions",
+      "financialFingerprint": "6f2bb527cd367941b5348c91ae55a8229ba1af92e9ae701bcee32383b6c45eef",
+      "cashFlowDisclosure": {
+        "year": 2026,
+        "reportedOperatingCashFlow": 8461,
+        "cashInterestPaid": 1812,
+        "cashInterestReceived": 80,
+        "cashDividendsReceived": 87,
+        "cashPropertyAdditions": 1895,
+        "cashOtherCapex": 39,
+        "bankDepositPlacements": 467,
+        "jointVentureCapitalInjection": 17,
+        "comparative": {
+          "year": 2025,
+          "reportedOperatingCashFlow": 9013,
+          "cashInterestPaid": 2412,
+          "cashInterestReceived": 212,
+          "cashDividendsReceived": 96,
+          "cashPropertyAdditions": 1133,
+          "cashOtherCapex": 69
+        }
+      },
+      "document": {
+        "title": "Link REIT Annual Report 2025/2026, Governance, Disclosures and Financial Statements",
+        "url": "https://www.linkreit.com/-/media/linkreit/investor-relations/financial-reports-and-presentations/financial-report/2026/fy2526-annual-report_governance-disclosures-and-financial-statements_b2_en.pdf?rev=6d28d1c56614433fb185c3b1210fce86&hash=1526F2F567F1DACA81E177AA69545FD5",
+        "sha256": "73734a23c216add2661fcedfa9fca0aeb66afb3f5d3b8a94026a3d9748198ec9",
+        "modifiedDate": "2026-06-11",
+        "pdfPages": [114, 117, 119, 133, 141, 142, 143, 144, 149, 160, 161]
+      },
+      "inputs": {
+        "revenue": 13938,
+        "netPropertyIncome": 10230,
+        "corporateExpenses": 829,
+        "propertyFairValueLoss": 14491,
+        "propertyPlantEquipmentImpairment": 44,
+        "depreciation": 90,
+        "cashPropertyAdditions": 1895,
+        "cashOtherCapex": 39,
+        "newNoncashLeaseAssets": 0,
+        "leaseDebt": 9,
+        "receivables": 1094,
+        "depositsAndPrepayments": 233,
+        "payablesAndAccruals": 2442,
+        "accruedCapex": 559,
+        "securityDeposits": 2216,
+        "incentiveProvision": 187,
+        "financingAccrualsIncludingLeases": 163,
+        "borrowings": 53029,
+        "convertibleBonds": 3262,
+        "noncontrollingLoans": 3063,
+        "netFinancingDerivatives": 1650,
+        "openingFinancingLiabilities": 56501,
+        "cashInterestPaid": 1812,
+        "unrestrictedCashAndDeposits": 3350,
+        "totalCashAndDeposits": 3805,
+        "jointVentureBookValue": 2324,
+        "noncontrollingBookEquity": -386,
+        "preferredEquity": 0
+      }
+    }
+  }
+}

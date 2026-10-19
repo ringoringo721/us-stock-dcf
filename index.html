@@ -18,16 +18,23 @@
       }
     }
   </script>
-  <script src="dcf_drivers.js"></script>
+  <script src="dcf_drivers.js?v=official-operating-2"></script>
   <script src="fcff.js"></script>
-  <script src="fcff_view.js"></script>
+  <script src="fcff_view.js?v=reported-multiples-1"></script>
   <script src="usd_currency.js"></script>
   <script src="liquidation.js"></script>
-  <script src="peer_comparison.js"></script>
-  <script src="fcf_ratios.js"></script>
+  <script src="peer_comparison.js?v=hk-full-fy-3"></script>
+  <script src="stock_search.js"></script>
+  <script src="fmp_cache.js"></script>
+  <script src="company_data.js"></script>
+  <script src="fmp_model_data.js"></script>
+  <script src="fmp_scenario.js"></script>
+  <script src="fmp_models.js"></script>
+  <script src="fcf_ratios.js?v=sign-trends-1"></script>
   <script src="balance_sheet.js"></script>
   <script src="earnings_trend.js"></script>
-  <script src="profile_overview.js"></script>
+  <script src="profile_overview.js?v=forecast-evidence-1"></script>
+  <script src="technical_indicators.js"></script>
   <script src="price_history.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   
@@ -36,13 +43,13 @@
       color-scheme: dark;
       --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       --table-font-size: 14px;
-      --bg: #0b1120;
-      --card-bg: #1e293b;
-      --card-border: #334155;
+      --bg: #000000;
+      --card-bg: #121212;
+      --card-border: #383838;
       --accent: #38bdf8;
       --accent-hover: #0284c7;
-      --text: #f8fafc;
-      --text-muted: #94a3b8;
+      --text: #fafafa;
+      --text-muted: #a3a3a3;
       --green: #4ade80;
       --green-bg: rgba(74, 222, 128, 0.12);
       --red: #f87171;
@@ -53,18 +60,18 @@
       --nyse-blue: #60a5fa;
       --amex-green: #34d399;
       --fav-pink: #f43f5e;
-      --sticky-bg: #162032;
-      --surface-bg: #0f172a;
-      --header-bg: #162032;
-      --group-bg: #111c30;
-      --text-secondary: #cbd5e1;
-      --button-bg: #475569;
-      --on-accent: #0b1120;
+      --sticky-bg: #181818;
+      --surface-bg: #0a0a0a;
+      --header-bg: #181818;
+      --group-bg: #101010;
+      --text-secondary: #d4d4d4;
+      --button-bg: #404040;
+      --on-accent: #000000;
       --logo-bg: #fff;
       --hover-bg: rgba(255, 255, 255, 0.03);
-      --chart-grid: rgba(51, 65, 85, 0.4);
+      --chart-grid: rgba(64, 64, 64, 0.4);
       --shadow: rgba(0, 0, 0, 0.25);
-      --row-hover-bg: #21364d;
+      --row-hover-bg: #262626;
       --row-hover-edge: #38bdf8;
       --orange: #f97316;
     }
@@ -490,6 +497,7 @@
     .btn-nav:hover { background: var(--accent); color: var(--on-accent); }
 
     .fscore-table, .moat-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .moat-table { min-width: 1180px; table-layout: fixed; }
     .fscore-table th, .fscore-table td, .moat-table th, .moat-table td { padding: 12px 14px; border-bottom: 1px solid var(--card-border); text-align: left; }
     .fscore-table th, .moat-table th { background: var(--header-bg); color: var(--text-secondary); font-weight: 600; }
     
@@ -846,6 +854,11 @@
     .price-custom input { min-width: 0; width: 145px; padding: 8px; border: 1px solid var(--card-border); border-radius: 6px; color: var(--text); background: var(--surface-bg); font: inherit; }
     .price-main-chart { position: relative; height: 320px; }
     .price-volume-chart { position: relative; height: 88px; }
+    .price-indicator-chart { position: relative; height: 165px; }
+    .price-technical-choices { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 10px; margin: 14px 0; }
+    .price-technical-choices > div { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; padding: 8px; border: 1px solid var(--card-border); border-radius: 6px; }
+    .price-technical-choices label { display: flex; align-items: center; gap: 6px; font-size: 12px; }
+    .price-technical-choices input[type="number"] { width: 65px; padding: 6px; color: var(--text); background: var(--surface-bg); border: 1px solid var(--card-border); border-radius: 4px; }
     .price-volume-label { margin: 6px 0; font-size: 11px; color: var(--text-muted); }
     .price-navigator-chart { position: relative; height: 68px; margin-top: 12px; }
     .price-range-handles { position: relative; height: 28px; margin: 0 10px; }
@@ -900,34 +913,23 @@
     #subpage-rating .stat-box:nth-child(4) { border-top-color: var(--nasdaq-purple); }
     #subpage-rating .stat-label { text-transform: none; letter-spacing: normal; line-height: 1.6; min-height: 38px; }
     #subpage-rating .stat-num { font-size: clamp(23px, 2.5vw, 32px); font-variant-numeric: tabular-nums; margin: 10px 0; }
-    #subpage-rating .ai-comment-card { border-radius: 10px; padding: 22px; border-left: 4px solid var(--accent); line-height: 1.9; font-size: 14px; }
+    #subpage-rating .ai-comment-card { border-radius: 10px; padding: 22px; border-left: 4px solid var(--accent); line-height: 1.9; font-size: 14px; overflow-wrap: anywhere; }
     #fscore-view { margin-top: 34px; padding-top: 16px; border-top: 1px solid var(--card-border); }
     .valuation-intro { border-top: 3px solid var(--accent); }
-    #fcff-workspace { min-width: 0; }
-    #fcff-workspace .panel { margin-bottom: 20px; border-top: 3px solid var(--accent); }
-    #fcff-workspace .panel:nth-child(2) { border-top-color: var(--green); }
-    #fcff-workspace .panel:nth-child(3) { border-top-color: var(--gold); }
-    #fcff-workspace .panel:nth-child(4) { border-top-color: var(--nasdaq-purple); }
-    #fcff-workspace .fcff-inputs { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 310px), 1fr)); gap: 8px 24px; }
-    #fcff-workspace .form-group { min-width: 0; grid-template-columns: minmax(0, 1fr) 120px; }
-    #fcff-workspace .table-scroll-wrapper { overflow-x: auto; max-width: 100%; }
-    #fcff-workspace table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
-    #fcff-workspace :is(th, td) { padding: 12px 14px; border-bottom: 1px solid var(--card-border); border-right: 1px solid var(--card-border); text-align: right; }
-    #fcff-workspace th { background: var(--header-bg); }
-    #fcff-workspace tr > :first-child { text-align: left; }
-    #fcff-table { min-width: 1900px; }
-    #fcff-table tr > :first-child { position: sticky; left: 0; min-width: 150px; max-width: 190px; background: var(--sticky-bg); z-index: 2; white-space: normal; }
-    #fcff-workspace .analysis-note { overflow-wrap: anywhere; line-height: 1.9; }
-    #fcff-workspace summary { cursor: pointer; color: var(--accent); padding: 12px 0; }
-    #fcff-workspace .fcff-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
-    #fcff-workspace .fcff-tabs button { background: var(--header-bg); color: var(--text); border: 1px solid var(--card-border); border-radius: 6px; padding: 9px 12px; cursor: pointer; }
-    #fcff-workspace .fcff-tabs button[aria-pressed="true"] { color: var(--accent); border-color: var(--accent); font-weight: 700; }
-    #fcff-workspace .fcff-year-input { width: 125px; box-sizing: border-box; color: var(--accent); background: var(--bg); border: 1px solid var(--card-border); border-radius: 4px; padding: 8px; font-variant-numeric: tabular-nums; text-align: right; }
-    #fcff-workspace #fcff-method-controls { margin-top: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); }
-    #fcff-workspace #fcff-method-controls .form-group { display: flex; flex-direction: column; align-items: stretch; gap: 8px; }
-    #fcff-workspace #fcff-method-controls select { width: 100%; min-width: 0; box-sizing: border-box; }
-    #fcff-driver-detail td { min-width: 130px; max-width: 190px; white-space: normal; }
-    #fcff-driver-detail tr > :first-child { position: sticky; left: 0; min-width: 160px; max-width: 200px; background: var(--sticky-bg); z-index: 1; white-space: normal; }
+    #fmp-workspace { min-width: 0; }
+    #fmp-workspace .panel { margin-bottom: 20px; border-top: 3px solid var(--accent); }
+    #fmp-workspace .table-scroll-wrapper { overflow-x: auto; max-width: 100%; }
+    #fmp-workspace table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+    #fmp-workspace :is(th, td) { padding: 12px 14px; border-bottom: 1px solid var(--card-border); border-right: 1px solid var(--card-border); text-align: right; }
+    #fmp-workspace th { background: var(--header-bg); }
+    #fmp-workspace tr > :first-child { text-align: left; }
+    #fmp-workspace .analysis-note { overflow-wrap: anywhere; line-height: 1.9; }
+    #fmp-workspace > .panel > select { width: 100%; margin: 8px 0 16px; padding: 10px; }
+    #fmp-ten-year-inputs { min-width: 2050px; }
+    #fmp-ten-year-inputs tr > :first-child { position: sticky; left: 0; min-width: 220px; max-width: 260px; background: var(--sticky-bg); z-index: 2; white-space: normal; }
+    #fmp-ten-year-inputs input { width: 145px; padding: 8px; box-sizing: border-box; background: var(--bg); color: var(--text); border: 1px solid var(--card-border); border-radius: 4px; }
+    #fmp-ten-year-inputs small { display: block; max-width: 150px; margin-top: 6px; color: var(--text-muted); white-space: normal; }
+    #fmp-ten-year-results { min-width: 1400px; }
     #subpage-valuation .main-layout > *, #subpage-valuation .form-group { min-width: 0; }
     #subpage-valuation .form-group { display: grid; grid-template-columns: minmax(0, 1fr) 120px; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--card-border); }
     #subpage-valuation .form-group input, #subpage-valuation .form-group select { width: 100%; padding: 8px 10px; }
@@ -1007,10 +1009,10 @@
       <span style="font-size: 13px; color: var(--text-muted);" id="app-subtitle" data-i18n="subtitle">估值篩選 · 公司財報 · 趨勢分析</span>
     </div>
     <div class="header-actions">
-      <label for="market-select">Market / 市場</label>
+      <label for="market-select" data-i18n="market_label">市場</label>
       <select id="market-select" aria-label="Market" onchange="changeMarket(this.value)">
-        <option value="US">US · USD</option>
-        <option value="HKEX">HKEX · HKD</option>
+        <option value="US" data-i18n="market_us">🇺🇸 美國 (USD)</option>
+        <option value="HKEX" data-i18n="market_hk">🇭🇰 香港 (HKD)</option>
       </select>
       <div class="status-badge" id="app-status" data-i18n="status_ready">● FMP 財報</div>
       <button class="lang-btn" id="btn-lang-toggle" onclick="toggleLanguage()">English</button>
@@ -1103,6 +1105,7 @@
       <p data-i18n="liquidation_method"></p>
     </details>
 
+    <p class="analysis-note" data-i18n="property_fv_coverage"></p>
     <div class="table-scroll-wrapper" id="main-scroll-box">
       <table id="screener-table">
         <thead>
@@ -1113,11 +1116,13 @@
             <th onclick="sortTable('sector')" style="text-align: left; width: 120px;" data-i18n="th_sector">主板塊</th>
             <th onclick="sortTable('industry')" style="text-align: left; width: 180px;" data-i18n="th_industry">細分子行業</th>
             <th onclick="sortTable('price')" style="width: 110px;" data-i18n="th_price">最新股價 ($)</th>
-            <th onclick="sortTable('fairVal')" style="width: 110px;" data-i18n="th_fair">公允價值 ($)</th>
+            <th onclick="sortTable('fmp_dcf')" data-i18n="th_fmp_dcf">FMP DCF Valuation</th>
+            <th onclick="sortTable('fmp_dcf_upside')" data-i18n="th_fmp_dcf_upside">FMP DCF vs 市價溢價 (%)</th>
+            <th onclick="sortTable('fmp_levered')" data-i18n="th_fmp_levered">FMP Levered DCF</th>
+            <th onclick="sortTable('fmp_levered_upside')" data-i18n="th_fmp_levered_upside">FMP Levered vs 市價溢價 (%)</th>
             <th onclick="sortTable('target_price')" style="width: 110px;" data-i18n="th_target">目標價值 ($)</th>
             <th style="text-align: center; width: 110px;" data-i18n="th_action">操作</th>
             <th onclick="sortTable('target_spread')" style="width: 125px;" data-i18n="th_target_spread">目標 vs 市價溢價</th>
-            <th onclick="sortTable('premiumPct')" style="width: 110px;" data-i18n="th_premium">公允溢價幅度</th>
             <th onclick="sortTable('moat_score')" style="width: 140px; text-align: center;" data-i18n="th_moat">巴菲特護城河</th>
             <th onclick="sortTable('WACC')" style="width: 125px;" data-i18n="th_wacc">加權成本 WACC / g</th>
             <th onclick="sortTable('EV')" style="width: 135px;" data-i18n="th_ev">企業價值 EV ($M)</th>
@@ -1164,6 +1169,7 @@
             <th onclick="sortTable('pb_trailing')" style="width: 90px;" data-i18n="th_pb">靜態 P/B</th>
             <th onclick="sortTable('div_yield')" style="width: 105px;" data-i18n="th_div">股息率 (%)</th>
             <th onclick="sortTable('fcf_to_ev')" style="width: 110px;">FCF / EV (%)</th>
+            <th onclick="sortTable('fcf_to_equity')" style="width: 170px;" data-i18n="fcf_equity_label">FCF / 股東應佔權益 (%)</th>
             <th onclick="sortTable('fcf_to_mcap')" style="width: 120px;">FCF / Mcap (%)</th>
             <th onclick="sortTable('cash_to_assets')" style="width: 110px;" data-i18n="th_cash_assets">現金/資產 (%)</th>
             <th onclick="sortTable('liab_to_assets')" style="width: 110px;" data-i18n="th_liab_assets">負債/資產 (%)</th>
@@ -1267,10 +1273,32 @@
             <input type="range" class="fin-slider" id="slider-fin-rote" min="-25" max="50" step="any" oninput="onFinSliderChange()">
           </div>
         </div>
+        <p id="fin-shares-mode" class="analysis-note" role="status"></p>
+        <details>
+          <summary data-i18n="fin_shares_scenario">自訂股數情境（選填）</summary>
+          <p id="fin-shares-help" class="analysis-note" data-i18n="fin_shares_help"></p>
+          <div class="form-group"><label for="fin-shares" data-i18n="fin_shares"></label>
+            <input id="fin-shares" type="number" min="0.01" step="0.01" aria-describedby="fin-shares-help">
+          </div>
+          <label><input id="fin-shares-confirm" type="checkbox"><span data-i18n="fin_shares_confirm"></span></label>
+          <button type="button" onclick="onFinSharesChange()" data-i18n="fin_shares_apply">套用已確認的股數情境</button>
+          <p id="fin-shares-status" class="analysis-note" role="status"></p>
+        </details>
+      </div>
+      <div class="panel" id="fin-rote-history-panel" style="margin-top: 20px;">
+        <div class="panel-title" data-i18n="fin_rote_history_title">最近十年年度 ROTE 參考</div>
+        <p class="analysis-note" data-i18n="fin_rote_history_basis"></p>
+        <p id="fin-rote-history-status" class="analysis-note" role="status"></p>
+        <div style="overflow-x: auto;">
+          <table id="fin-rote-history-table" style="width: 100%; min-width: 900px;">
+            <thead id="fin-rote-history-head"></thead>
+            <tbody id="fin-rote-history-body"></tbody>
+          </table>
+        </div>
       </div>
     </div>
 
-    <div id="fcff-workspace" hidden></div>
+    <div id="fmp-workspace" hidden></div>
     <!-- Legacy input elements retained for the separate financial-model controls. -->
     <div class="main-layout" id="panel-general-dcf">
       <div class="panel">
@@ -1384,6 +1412,7 @@
       <button class="sub-tab-btn" onclick="switchSubPage('chart')" data-i18n="tab_tradingview">📈 9. TradingView 圖表</button>
     </div>
     <p class="analysis-note company-currency-note" id="cmp-currency-note" role="status"></p>
+    <p class="analysis-note" id="cmp-property-fv-note" hidden></p>
 
     <!-- 子分頁 1：基本資料 -->
     <div id="subpage-basic" class="subpage-content active">
@@ -1419,10 +1448,18 @@
         </div>
         <p id="price-range-error" class="analysis-note text-red" role="alert"></p>
         <p id="price-history-status" class="analysis-note" role="status"></p>
+        <details id="price-technical-controls" class="analysis-note" hidden>
+          <summary data-i18n="technical_title">FMP 技術指標（日線）</summary>
+          <p data-i18n="technical_note"></p>
+          <div id="price-technical-choices" class="price-technical-choices"></div>
+          <p id="price-technical-status" role="status" aria-live="polite"></p>
+          <button id="price-technical-retry" type="button" class="stmt-btn" data-i18n="fcf_retry" hidden>重新載入</button>
+        </details>
         <div id="price-history-plots" hidden>
           <div class="price-main-chart"><canvas id="price-chart" role="img" tabindex="0" aria-describedby="price-point price-source-note"></canvas></div>
           <p class="price-volume-label" data-i18n="price_volume">每日成交量（股）</p>
           <div class="price-volume-chart"><canvas id="price-volume-chart" role="img" aria-labelledby="price-title" aria-describedby="price-source-note"></canvas></div>
+          <div id="price-indicator-plots"></div>
           <div class="price-navigator-chart"><canvas id="price-navigator" aria-hidden="true"></canvas></div>
           <div class="price-range-handles">
             <input id="price-range-start" type="range" min="0" step="1" aria-label="Start of selected price range">
@@ -1978,6 +2015,8 @@
     "Building Products": "建築建材與設備",
     "Cable & Satellite": "有線電視與衛星",
     "Casinos & Gaming": "博彩與賭場娛樂",
+    "Hotels & Gaming-related Assets": "酒店與博彩相關資產",
+    "Lottery & Digital Financial Services": "彩票與數字金融服務",
     "Commercial & Professional Services": "商業與專業服務",
     "Commodity Chemicals": "大宗商品化學品",
     "Communications Equipment": "通訊設備與器材",
@@ -2013,6 +2052,7 @@
     "Industrial Conglomerates": "工業綜合控股集團",
     "Industrial Gases": "工業氣體製造",
     "Industrial Machinery": "工業機械與設備製造",
+    "Industrial Machinery & Supplies & Components": "工業機械、用品與零件",
     "Industrial REITs": "工業與倉儲物流信託",
     "Insurance Brokers": "保險經紀與風險諮詢",
     "Integrated Oil & Gas": "整合型綜合油氣巨頭",
@@ -2037,6 +2077,22 @@
     "Property & Casualty Insurance": "財產與意外傷害險",
     "Rail Transportation": "鐵路重載貨運物流",
     "Real Estate Services": "房地產專業服務與資訊",
+    "Real Estate Development": "房地產開發",
+    "Real Estate Operating Companies": "房地產經營公司",
+    "Aluminum": "鋁業",
+    "Automotive Parts & Equipment": "汽車零件與設備",
+    "Brewers": "啤酒釀造",
+    "Coal & Consumable Fuels": "煤炭與消耗性燃料",
+    "Diversified Metals & Mining": "多元金屬與採礦",
+    "Education Services": "教育服務",
+    "Electronic Manufacturing Services": "電子製造服務",
+    "Gas Utilities": "燃氣公用事業",
+    "Household Appliances": "家用電器",
+    "Independent Power Producers & Energy Traders": "獨立發電與能源交易",
+    "Leisure Products": "休閒產品",
+    "Marine Transportation": "海運",
+    "Other Specialty Retail": "其他專業零售",
+    "Textiles": "紡織品",
     "Research & Consulting Services": "徵信調查與諮詢服務",
     "Restaurants": "連鎖餐飲與快餐咖啡",
     "Retail REITs": "零售與購物中心信託",
@@ -2170,6 +2226,10 @@
       screener_overview: "重點概覽",
       screener_valuation: "估值與目標價",
       screener_financial: "財務與品質",
+      fcf_equity_label: "FCF / 股東應佔權益 (%)",
+      moat_unassessed: "未評分",
+      moat_unassessed_help: "目前證據不足以評分；不代表零分，也不代表沒有護城河。",
+      fcf_equity_basis: "自由現金流 ÷ 同期期末本公司股東應佔權益（不含非控股權益）× 100%。首頁使用真實 TTM 現金流；缺失或零權益顯示 N/A。負權益的比率僅表示算術結果，不代表正面回報。",
       screener_all_columns: "全部欄位",
       screener_reset: "清除篩選",
       screener_industries: "板塊與子行業篩選",
@@ -2178,18 +2238,20 @@
       screener_table_tip: "點選代號開啟公司頁；點選欄名排序。更多欄位可左右捲動。",
       screener_liquidation_key: '清算指標：最新可用季度期末餘額，非 TTM 加總；每股 USD。<span class="text-green">正值</span>／<span class="text-red">負值</span>／零與缺值為中性色；正值不代表低估。* 優先受償限制，詳見下方說明。',
       liquidation_method_title: '清算指標的資料口徑與限制',
-      liquidation_method: '三項共用同一份最新可用季度資產負債表，逐筆顯示截至日期；非美元金額以該財報日或之前最近交易日的期末匯率換算美元。分母為 FMP 美元市值除以美元股價推算的普通股或 ADR 股數，報價日期與財報日期分別列於數值提示中，並非財報稀釋加權平均股數，不重複套用 ADR 倍數。II 固定採貿易應收款的 80% 及存貨的 50%，不混用其他應收款；這些比例是模型假設。三項均未扣除特別股優先受償、清算費用或稅；* 表示有特別股或優先權資料不完整。這是未調整優先權的資產篩選指標，不是普通股實際可分配金額、保證底價或投資目標價。缺少必要資料顯示 N/A，不補零或套用 DCF 現金。',
+      liquidation_method: '三項共用同一份最新可用財報資產負債表，逐筆顯示截至日期；非美元金額以該財報日或之前最近交易日的期末匯率換算美元。分母採有日期來源、不含庫存股的流通在外普通股或報價 ADR 單位，並非財報稀釋加權平均股數或市值反推股數，不重複套用 ADR 倍數。A／H 全公司股數未核實則不計算；報價、股數及財報日期分別披露。II 固定採貿易應收款的 80% 及存貨的 50%，不混用其他應收款；這些比例是模型假設。三項均未扣除特別股優先受償、清算費用或稅；* 表示有特別股或優先權資料不完整。這是未調整優先權的資產篩選指標，不是普通股實際可分配金額、保證底價或投資目標價。缺少必要資料顯示 N/A，不補零或套用 DCF 現金。',
       liquidation_balance_date: '財報截至',
       liquidation_quote_date: '股數報價日',
       liquidation_share_quote: '股數來源美元股價／市值',
       liquidation_captured: '來源擷取',
-      liquidation_shares: '報價推算普通股／ADR 股數',
+      liquidation_shares: '流通在外普通股／ADR 單位（不含庫存股）',
       liquidation_preferred: '未扣除特別股優先受償權',
       liquidation_preferred_unknown: '特別股資料不完整，未確認優先受償權',
       liquidation_reason_missingSnapshot: '缺少已核對的清算資料',
       liquidation_reason_invalidSnapshot: '來源日期、幣別或資料格式無效',
       liquidation_reason_missingFx: '缺少財報日所需的期末匯率',
       liquidation_reason_invalidShares: '缺少可確認的美元報價及股數',
+      liquidation_reason_shareBasisUnverified: '尚未核實全公司普通股各類別股數，不能以 H 股股數代替',
+      liquidation_reason_staleQuote: '報價已過期，不能作為現價或用其推算目前股數',
       liquidation_reason_missingInputs: '缺少此項公式所需的財報欄位',
       liquidation_reason_invalidCalculation: '計算結果無效',
       screener_formula: "計算說明",
@@ -2258,7 +2320,7 @@
       profile_source_note: "僅呈現現有資料來源提供的紀錄；缺失資料顯示 N/A，不推算補齊。TTM 年增率比較連續八季中的前後四季；前期基數必須為正，否則顯示 N/A。這不是預測成長率。",
       rating_note: "先看評分總覽，再閱讀解讀與檢驗明細。護城河代表競爭優勢評估；PF score 為財務篩選訊號，兩者不是信用評等或買賣建議。",
       valuation_title: "估值模型與情境分析",
-      valuation_note: "一般企業採十財年 EBITDA 分項 FCFF 模型；分析師預測、推導數值及模型假設分開列示，TTM 為比率起點，缺少來源或租賃核對時明示 N/A。金融企業保留既有有形權益超額報酬與股利模型。調整參數屬情境分析，不會改寫財報或趨勢資料。",
+      valuation_note: "一般企業保留 FMP Custom DCF Advanced 及 Custom DCF Levered 原始模型。另設本站十年情境：使用可用分析師共識；CapEx、CFO、D&A 缺共識時採最近全年實績比率，淨營運資金變動／營收採五年平均，資本成本設定保留。缺項為 N/A，未補齊前不產生新估值；來源及用戶修改分開標示，已儲存情境不自動重設。金融企業保留有形權益超額報酬及股利模型，財報及歷史資料不變。",
       treasury_1y: "1 年期美國公債",
       treasury_2y: "2 年期美國公債",
       treasury_3y: "3 年期美國公債",
@@ -2269,7 +2331,20 @@
       analysis_ratio_note: "依期間檢視獲利、現金流、資本結構及流動性。年度表最後一欄的 TTM 年增率比較去年同季截止的 TTM，不與最新完整年度比較；缺值或基期非正數顯示 N/A。其他比率仍沿用本頁口徑，不等同趨勢分析可切換的分母。迷你線圖顏色不一定代表好壞。",
       analysis_growth_note: "年增率比較最近連續四季合計與前四季合計，依實際財年及日期對齊，不用 TTM 與同一年度重複比較。缺季、缺值、匯率不足或去年基數非正數時顯示 N/A；真正沒有增長才顯示 0%。",
       analysis_growth_non_positive: "去年同期基數為零或負值，百分比年增率不具可比性。",
+      analysis_growth_negativeToPositive: "負轉正",
+      analysis_growth_positiveToNegative: "正轉負",
+      analysis_growth_transition_note: "前後完整財年數值正負翻轉，以方向標示取代百分比。",
+      analysis_annual_growth_missingField: "年度來源缺少所需欄位，無法計算可比較的年增率；不代表財報載入失敗。",
+      analysis_annual_growth_missingPeriod: "缺少同一口徑的完整財年或前一完整財年資料。",
+      analysis_annual_growth_nonConsecutive: "兩個完整財年的期間不連續，不直接計算年增率。",
+      analysis_annual_growth_invalidPeriodLength: "來源期間不是已核實的完整十二個月財年。",
+      analysis_annual_growth_accountingBasisMismatch: "前後年度會計或業務口徑不同，不能直接比較。",
+      analysis_annual_growth_missingFx: "缺少所需歷史匯率，不能比較換算後的年度金額。",
+      analysis_annual_growth_currencyMismatch: "前後年度報告幣別不同，未建立可比較口徑。",
+      analysis_annual_growth_dateMismatch: "來源財年日期無效或未能對齊。",
+      analysis_annual_growth_unavailable: "年度成長率不可用；不以 TTM 或推測數字補代。",
       analysis_peer_note: "優先比較同子行業與資料供應商同行，不足時加入同板塊、相關產業群組的參考公司，最多五家。每欄標示比較關係；相關產業參考不代表直接競爭對手。這是最新 TTM 橫向比較，各公司財報日期可能不同。",
+      analysis_peer_annual_note: "優先比較同子行業與資料供應商同行，不足時加入同板塊相關產業參考，最多五家。相關參考不代表直接競爭對手。港股財務數據採各公司最新完整財年，各欄財年截止日可能不同。",
       analysis_peer_industry: "同子行業",
       analysis_peer_provider: "供應商同行",
       analysis_peer_related: "相關產業參考",
@@ -2340,11 +2415,9 @@
       th_sector: "主板塊",
       th_industry: "細分子行業",
       th_price: "最新股價 ($)",
-      th_fair: "公允價值 ($)",
       th_target: "目標價值 ($)",
       th_action: "操作",
       th_target_spread: "目標 vs 市價溢價",
-      th_premium: "公允溢價幅度",
       th_moat: "巴菲特護城河",
       th_wacc: "加權成本 WACC / g",
       th_ev: "企業價值 EV ($M)",
@@ -2416,6 +2489,8 @@
       earnings_reason_missingDilutedShares: "N/A：缺少同期歷史稀釋加權平均股數，不以目前股數替代。",
       earnings_reason_invalidDilutedShares: "N/A：同期稀釋加權平均股數為零或負數，無法計算每股值。",
       earnings_reason_incompleteTtm: "N/A：此指標缺少連續四季資料，無法計算 TTM。",
+      earnings_reason_invalidPeriodLength: "N/A：過渡財年或期間長度未核實，不與一般年度／TTM 比較。",
+      earnings_reason_accountingBasisMismatch: "N/A：持續經營／會計列報口徑不一致，不自動視為同口徑增長。",
       tab_valuation: "📐 7. 估值模型",
       tab_tradingview: "📈 9. TradingView 圖表",
       tab_news: "📰 8. 公司新聞",
@@ -2483,6 +2558,8 @@
       fsc_health_moderate: "財務健康訊號中等",
       fsc_health_weak: "財務健康訊號較弱",
       fsc_health_unavailable: "資料不足，無法分級",
+      fsc_health_adjusted: "適用項目評分（非標準 PF）",
+      fsc_health_adjusted_comment: "僅加總八個適用項目的實得分，不換算為九分；流動比率改善不適用。不套用標準九項 PF 的財務健康分級，其他檢驗亦須配合保險業會計及監管指標判讀。",
       fsc_health_strong_comment: "多數財務檢驗項目通過，整體財務健康訊號較強；仍須留意未通過項目，不能據此認定沒有風險。",
       fsc_health_moderate_comment: "財務檢驗結果好壞參半，整體訊號中等；宜逐項檢視獲利品質、負債與流動性，以及營運效率。",
       fsc_health_weak_comment: "通過的財務檢驗項目較少，整體財務健康訊號偏弱；應優先查核現金流、償債壓力及營運變化，而非直接推定公司將破產。",
@@ -2527,12 +2604,15 @@
       fcf_basis_note: "期初是本期間開始前的餘額：單季往前一季、TTM 往前四季、年度往前一財年。平均為期初與期末的簡單平均。營收、EBITDA 與淨利始終採與 FCF 相同期間。",
       fcf_metric: "比率（%）",
       fcf_trend: "趨勢",
+      fcf_trend_sign_note: "綠色代表零或正值，紅色代表負值；跨零處切換顏色，缺值不連線。顏色只代表正負，不代表好壞。",
       fcf_loading: "正在載入原始財報…",
       fcf_select_ratio: "請至少勾選一項比率。",
       fcf_no_periods: "沒有可辨識財年、季度與完整日期的財報期間。",
       fcf_error: "無法載入或解析原始財報，未以模擬值替代。請重試。",
       fcf_retry: "重新載入",
       fcf_reason_incompleteTtm: "N/A：缺少連續四季的 FCF 財報（最早三季通常無足夠資料）。",
+      fcf_reason_invalidPeriodLength: "N/A：過渡財年或期間長度未核實，不能當作一般完整年度／TTM。",
+      fcf_reason_accountingBasisMismatch: "N/A：會計／持續經營口徑不一致，不拼湊為 TTM。",
       fcf_reason_nonConsecutive: "N/A：季度財報日期不連續，無法計算 TTM。",
       fcf_reason_missingFcf: "N/A：缺少該期間的 freeCashFlow。",
       fcf_reason_missingIncome: "N/A：缺少對應期間的損益表。",
@@ -2556,6 +2636,8 @@
       returns_rote: "有形股東權益報酬率（ROTE）",
       returns_basis_note: "淨利採相同期間的財報 netIncome；單季不年化，TTM 加總連續四季，年度採完整會計年度。期初為期間開始前餘額，平均為期初與期末簡單平均；ROTE 先各自計算期初與期末有形權益再平均。控制獨立於上方 FCF 表與 DCF 模擬。",
       returns_reason_incompleteTtm: "N/A：缺少連續四季的損益表（最早三季通常無足夠資料）。",
+      returns_reason_invalidPeriodLength: "N/A：過渡財年或期間長度不一致，不能當作一般完整年度／TTM。",
+      returns_reason_accountingBasisMismatch: "N/A：會計／持續經營口徑不一致，不拼湊為 TTM。",
       returns_reason_missingNetIncome: "N/A：缺少該期間的財報 netIncome。",
       returns_reason_negativeNetIncome: "警示：本期間淨利為負；保留實際算術值。",
       returns_reason_negativeTangibleEquity: "警示：有形股東權益或其期初／期末組成為負，正比率不代表正向回報。",
@@ -2564,15 +2646,15 @@
       th_liq_3: "清算價 (III)",
       liq_1_tt_title: "清算價 (I) · 淨流動資產指標 (NCAV)",
       liq_1_tt_desc: "最新季度流動資產扣除總負債的每股篩選值；未扣特別股優先權、清算費及稅。",
-      liq_1_tt_formula: "(流動資產 - 總負債) / 報價推算普通股或 ADR 股數",
+      liq_1_tt_formula: "(流動資產 - 總負債) / 流通在外普通股或 ADR 單位",
     
       liq_2_tt_title: "清算價 (II) · 折價資產指標 (Net-Net)",
       liq_2_tt_desc: "貿易應收回收率 80%、存貨回收率 50% 的假設篩選值；非保證清算底線。",
-      liq_2_tt_formula: "[(貿易應收×0.8 + 存貨×0.5 + 現金短期投資) - 總負債] / 報價推算普通股或 ADR 股數",
+      liq_2_tt_formula: "[(貿易應收×0.8 + 存貨×0.5 + 現金短期投資) - 總負債] / 流通在外普通股或 ADR 單位",
   
       liq_3_tt_title: "清算價 (III) · 現金淨額指標 (Cash-Net)",
       liq_3_tt_desc: "最新季度現金及短期投資扣除總負債的每股篩選值；非保證可分配金額。",
-      liq_3_tt_formula: "(現金及短期投資 - 總負債) / 報價推算普通股或 ADR 股數",
+      liq_3_tt_formula: "(現金及短期投資 - 總負債) / 流通在外普通股或 ADR 單位",
     },
     en: {
       title: "US Stock DCF Radar",
@@ -2584,6 +2666,10 @@
       screener_overview: "Essential overview",
       screener_valuation: "Valuation & targets",
       screener_financial: "Financials & quality",
+      fcf_equity_label: "FCF / Parent equity (%)",
+      moat_unassessed: "Not assessed",
+      moat_unassessed_help: "Insufficient evidence to assess this dimension; not a zero score or evidence of no moat.",
+      fcf_equity_basis: "Free cash flow / same-period closing equity attributable to equity holders of the Company (excluding noncontrolling interests) x 100%. The screener uses actual TTM cash flow; missing inputs or zero equity show N/A. Ratios with negative equity are arithmetic results, not evidence of a positive return.",
       screener_all_columns: "All columns",
       screener_reset: "Clear filters",
       screener_industries: "Sector & industry filters",
@@ -2592,18 +2678,20 @@
       screener_table_tip: "Open a company by ticker; sort by column heading. Scroll sideways for additional columns.",
       screener_liquidation_key: 'Liquidation screens: latest available quarter-end balances, not TTM sums; USD per quoted unit. <span class="text-green">Positive</span> / <span class="text-red">negative</span> / zero and missing values are neutral. Positive does not mean undervalued. * Priority-claim limitation; see below.',
       liquidation_method_title: 'Liquidation data basis and limitations',
-      liquidation_method: 'All three screens use one latest available quarterly balance sheet, with its date shown. Foreign balances use the closing USD exchange rate on or immediately before that report date. The denominator is common shares or ADR units implied by FMP USD market capitalization divided by USD price; quote and balance dates are disclosed separately in each value tooltip. It is not reported diluted weighted-average shares; no extra ADR multiplier is applied. II consistently uses 80% of trade receivables and 50% of inventory, excluding other receivables; these recovery rates are model assumptions. All screens are before preferred priority claims, liquidation costs and taxes. * Indicates reported preferred stock or incomplete preferred-claim information. These are unadjusted asset screens, not common-share liquidation proceeds, guaranteed floors or price targets. Missing required inputs display N/A, never zero or substituted DCF cash.',
+      liquidation_method: 'All three screens use one latest available reported balance sheet, with its date shown. Foreign balances use the closing USD exchange rate on or immediately before that report date. The denominator is dated common shares outstanding excluding treasury, or corresponding quoted ADR units; not reported diluted weighted-average shares or market-cap/price estimates. No extra ADR multiplier is applied. Unverified company-wide A/H counts block calculation. Quote, share and balance dates are disclosed separately. II consistently uses 80% of trade receivables and 50% of inventory, excluding other receivables; these recovery rates are model assumptions. All screens are before preferred priority claims, liquidation costs and taxes. * Indicates reported preferred stock or incomplete preferred-claim information. These are unadjusted asset screens, not common-share liquidation proceeds, guaranteed floors or price targets. Missing required inputs display N/A, never zero or substituted DCF cash.',
       liquidation_balance_date: 'Balance sheet as of',
       liquidation_quote_date: 'Share quote date',
       liquidation_share_quote: 'Share source USD price / market cap',
       liquidation_captured: 'Source captured',
-      liquidation_shares: 'Quote-implied common shares / ADR units',
+      liquidation_shares: 'Common shares outstanding / ADR units, excluding treasury',
       liquidation_preferred: 'Before preferred priority claims',
       liquidation_preferred_unknown: 'Preferred claims could not be verified',
       liquidation_reason_missingSnapshot: 'Verified liquidation snapshot unavailable',
       liquidation_reason_invalidSnapshot: 'Invalid source dates, currency or format',
       liquidation_reason_missingFx: 'Required closing USD exchange rate unavailable',
       liquidation_reason_invalidShares: 'Verified USD quote and share count unavailable',
+      liquidation_reason_shareBasisUnverified: 'Issuer-wide ordinary share classes are unverified; H-only counts cannot substitute for total shares',
+      liquidation_reason_staleQuote: 'Quote is stale; it cannot represent the current price or establish current shares',
       liquidation_reason_missingInputs: 'Required balance-sheet fields unavailable',
       liquidation_reason_invalidCalculation: 'Invalid calculation result',
       screener_formula: "Calculation details",
@@ -2672,7 +2760,7 @@
       profile_source_note: "Only records supplied by the existing data source are shown. Missing data remains N/A rather than being estimated. TTM growth compares successive four-quarter totals from eight consecutive quarters, with a positive prior-year base; otherwise N/A. These are reported results, not growth forecasts.",
       rating_note: "Start with the scorecards, then review the interpretation and individual tests. Economic Moat assesses competitive advantages; PF score screens financial signals. Neither is a credit rating or an investment recommendation.",
       valuation_title: "Valuation Model & Scenario Analysis",
-      valuation_note: "General companies use a ten-fiscal-year EBITDA-driven FCFF model, with TTM starting ratios. Analyst estimates, derived values and model assumptions are distinguished; missing sources or unreconciled leases are explicitly N/A. Financial institutions retain the existing tangible-equity excess-return and dividend models. Parameter edits are scenarios, not changes to reported financials or trends.",
+      valuation_note: "General companies retain the original FMP Custom DCF Advanced and Custom DCF Levered models. New site-calculated ten-year scenarios use available analyst consensus; missing CapEx/CFO/D&A forecasts use latest full-FY actual ratios, change-in-NWC/revenue uses a five-year mean, and capital settings are retained. Missing inputs stay N/A and block new valuations until complete. Sources/user edits are distinguished; saved scenarios are not reseeded. Financial institutions retain tangible-equity excess-return and dividend models. Financial statements and history are unchanged.",
       treasury_1y: "1Y Treasury",
       treasury_2y: "2Y Treasury",
       treasury_3y: "3Y Treasury",
@@ -2683,7 +2771,20 @@
       analysis_ratio_note: "Compare profitability, cash flow, capital structure and liquidity by period. The final TTM column compares with TTM ending in the same fiscal quarter last year, not the latest full year. Missing data or a nonpositive prior base is N/A. Other ratios retain this page's bases, not Trend Analysis's selectable denominators. Sparkline colors do not necessarily indicate improvement.",
       analysis_growth_note: "Year-over-year growth compares the latest four consecutive quarters with the preceding four, aligned by actual fiscal periods and dates, not TTM against a duplicate full year. Missing quarters, fields, FX or a nonpositive prior-year base are N/A; only genuine unchanged results show 0%.",
       analysis_growth_non_positive: "The prior-year base is zero or negative; percentage growth is not comparable.",
+      analysis_growth_negativeToPositive: "Negative to positive",
+      analysis_growth_positiveToNegative: "Positive to negative",
+      analysis_growth_transition_note: "The values change sign between complete fiscal years; the direction is shown instead of a percentage.",
+      analysis_annual_growth_missingField: "A required annual source field is missing; comparable growth cannot be calculated. This is not a statement-loading failure.",
+      analysis_annual_growth_missingPeriod: "A matching complete fiscal year or prior complete fiscal year is missing.",
+      analysis_annual_growth_nonConsecutive: "The complete fiscal-year periods are not consecutive and cannot be compared directly.",
+      analysis_annual_growth_invalidPeriodLength: "The source period is not a verified complete twelve-month fiscal year.",
+      analysis_annual_growth_accountingBasisMismatch: "The accounting or business bases differ between years and cannot be compared directly.",
+      analysis_annual_growth_missingFx: "Required historical FX is missing; translated annual amounts cannot be compared.",
+      analysis_annual_growth_currencyMismatch: "The annual reporting currencies differ without a verified comparable basis.",
+      analysis_annual_growth_dateMismatch: "Fiscal-year source dates are invalid or cannot be aligned.",
+      analysis_annual_growth_unavailable: "Annual growth is unavailable; no TTM or guessed values are substituted.",
       analysis_peer_note: "Prioritize the same sub-industry and provider-listed peers, then add references from a related industry family within the same sector, up to five companies. Each column identifies its comparison basis; related references are not necessarily direct competitors. This is a latest-TTM cross-section; reporting dates can differ.",
+      analysis_peer_annual_note: "Prioritize the same sub-industry and provider-listed peers, then related industry references in the same sector, up to five companies. Related references are not necessarily direct competitors. HK financials use each company's latest full fiscal year; fiscal year-end dates can differ.",
       analysis_peer_industry: "Same sub-industry",
       analysis_peer_provider: "Provider-listed peer",
       analysis_peer_related: "Related-industry reference",
@@ -2754,11 +2855,9 @@
       th_sector: "Sector",
       th_industry: "Sub-Industry",
       th_price: "Current Price ($)",
-      th_fair: "Fair Value ($)",
       th_target: "Target Value ($)",
       th_action: "Action",
       th_target_spread: "Target vs Market Spread",
-      th_premium: "Fair Spread %",
       th_moat: "Economic Moat",
       th_wacc: "Cost of Capital WACC / g",
       th_ev: "Enterprise Value EV ($M)",
@@ -2830,6 +2929,8 @@
       earnings_reason_missingDilutedShares: "N/A: Same-period historical weighted-average diluted shares are unavailable; current shares are not substituted.",
       earnings_reason_invalidDilutedShares: "N/A: Same-period weighted-average diluted shares are zero or negative.",
       earnings_reason_incompleteTtm: "N/A: Four consecutive quarters are unavailable for this metric.",
+      earnings_reason_invalidPeriodLength: "N/A: Transition or unverified-duration periods cannot be compared as ordinary years/TTM.",
+      earnings_reason_accountingBasisMismatch: "N/A: Continuing-operation/accounting bases differ; like-for-like growth is not assumed.",
       tab_valuation: "📐 7. Valuation Model",
       tab_tradingview: "📈 9. TradingView",
       tab_news: "📰 8. News Feed",
@@ -2890,6 +2991,8 @@
       fsc_health_moderate: "Mixed financial-health signals",
       fsc_health_weak: "Weaker financial-health signals",
       fsc_health_unavailable: "Insufficient data to classify",
+      fsc_health_adjusted: "Applicable items (nonstandard PF)",
+      fsc_health_adjusted_comment: "The score counts passes among eight applicable tests, without rescaling to nine; current-ratio improvement is not applicable. Standard nine-test health bands are not applied. Interpret the remaining tests alongside insurance accounting and regulatory measures.",
       fsc_health_strong_comment: "Most financial tests pass, indicating stronger overall financial-health signals. Review any failed tests; a high score does not mean the company is risk-free.",
       fsc_health_moderate_comment: "The financial tests show a mixed picture. Review earnings quality, leverage and liquidity, and operating efficiency individually.",
       fsc_health_weak_comment: "Relatively few financial tests pass, indicating weaker overall financial-health signals. Prioritize cash flow, debt-service pressure and operating changes; this is not a prediction of bankruptcy.",
@@ -2934,12 +3037,15 @@
       fcf_basis_note: "Beginning means the balance before the period: one quarter back for single-quarter, four quarters back for TTM, and one fiscal year back for annual. Average is the simple mean of beginning and ending balances. Sales, EBITDA and net income always cover the same period as FCF.",
       fcf_metric: "Ratio (%)",
       fcf_trend: "Trend",
+      fcf_trend_sign_note: "Green means zero or positive; red means negative. Colors switch at zero crossings; missing values remain gaps. Colors indicate sign, not improvement.",
       fcf_loading: "Loading original financial statements...",
       fcf_select_ratio: "Select at least one ratio.",
       fcf_no_periods: "No statement periods with identifiable fiscal years, quarters and full dates.",
       fcf_error: "Could not load or parse original statements. No simulated values were substituted. Please retry.",
       fcf_retry: "Retry",
       fcf_reason_incompleteTtm: "N/A: Four consecutive FCF quarters are unavailable (usually the earliest three columns).",
+      fcf_reason_invalidPeriodLength: "N/A: A transition or unverified-length period cannot be treated as an ordinary full year/TTM.",
+      fcf_reason_accountingBasisMismatch: "N/A: Incompatible accounting/continuing-operation bases cannot be combined into TTM.",
       fcf_reason_nonConsecutive: "N/A: Nonconsecutive statement dates prevent TTM calculation.",
       fcf_reason_missingFcf: "N/A: Reported freeCashFlow is missing for this period.",
       fcf_reason_missingIncome: "N/A: Matching income statements are unavailable.",
@@ -2963,6 +3069,8 @@
       returns_rote: "Return on Tangible Equity (ROTE)",
       returns_basis_note: "Uses reported netIncome for the selected period: single-quarter returns are not annualized, TTM sums four consecutive quarters, and annual uses the full fiscal year. Beginning is the balance before the period; average is the simple mean of beginning and ending balances. ROTE averages the separately calculated opening and closing tangible equity. Controls are independent of the FCF table and DCF simulation.",
       returns_reason_incompleteTtm: "N/A: Four consecutive income statements are unavailable (usually the earliest three columns).",
+      returns_reason_invalidPeriodLength: "N/A: Transition or inconsistent period lengths cannot be treated as ordinary full years/TTM.",
+      returns_reason_accountingBasisMismatch: "N/A: Incompatible accounting/continuing-operation bases cannot be combined into TTM.",
       returns_reason_missingNetIncome: "N/A: Reported netIncome is missing for this period.",
       returns_reason_negativeNetIncome: "Warning: Net income for this period is negative; actual arithmetic values are retained.",
       returns_reason_negativeTangibleEquity: "Warning: Tangible equity or a component opening/closing balance is negative. A positive ratio does not imply a positive return.",
@@ -2971,18 +3079,87 @@
       th_liq_3: "Cash-Net (L3)",
       liq_1_tt_title: "Level 1 · Net Current Asset Value (NCAV)",
       liq_1_tt_desc: "Latest-quarter current assets less total liabilities per quoted unit, before preferred claims, liquidation costs and taxes.",
-      liq_1_tt_formula: "(Current Assets - Total Liabilities) / Quote-implied Common Shares or ADR Units",
+      liq_1_tt_formula: "(Current Assets - Total Liabilities) / Common Shares Outstanding or ADR Units",
         
       liq_2_tt_title: "Level 2 · Haircut Asset Screen",
       liq_2_tt_desc: "Assumes 80% trade-receivable and 50% inventory recovery; not a guaranteed liquidation floor.",
-      liq_2_tt_formula: "[(Trade AR × 0.8 + Inventory × 0.5 + Cash & ST Investments) - Total Liabilities] / Quote-implied Common Shares or ADR Units",
+      liq_2_tt_formula: "[(Trade AR × 0.8 + Inventory × 0.5 + Cash & ST Investments) - Total Liabilities] / Common Shares Outstanding or ADR Units",
         
       liq_3_tt_title: "Level 3 · Cash-Net Asset Screen",
       liq_3_tt_desc: "Latest-quarter cash and short-term investments less total liabilities; not guaranteed distributable proceeds.",
-      liq_3_tt_formula: "(Cash & ST Investments - Total Liabilities) / Quote-implied Common Shares or ADR Units",
+      liq_3_tt_formula: "(Cash & ST Investments - Total Liabilities) / Common Shares Outstanding or ADR Units",
     }
   };
 
+  Object.assign(I18N_DICT.en, { market_label: 'Market', market_us: '🇺🇸 United States (USD)', market_hk: '🇭🇰 Hong Kong (HKD)',
+    fcf_semiannual: 'Half year', btn_period_half: 'Half year', btn_ratio_half: 'Half year',
+    fin_shares: 'Company-wide common shares outstanding (millions; excludes treasury)',
+    fin_shares_scenario: 'Custom share-count scenario (optional)',
+    fin_shares_help: 'Source-default shares apply automatically when available; no checkbox confirmation is needed. Use this section only to override shares for a valuation scenario. Include all equivalent ordinary-share classes (A and H where applicable), excluding treasury. Issuer disclosures and historical statements are not changed.',
+    fin_shares_default: 'Source-default shares are applied automatically; no checkbox confirmation is needed.',
+    fin_shares_custom: 'Your confirmed custom share-count scenario is active; this is not an issuer disclosure.',
+    fin_shares_missing: 'Source-default shares are unavailable. You may enter a custom scenario, but it will not be treated as an issuer disclosure.',
+    fin_shares_confirm: 'Use my custom share count to override the valuation denominator; this is my assumption, not an issuer disclosure.',
+    fin_shares_apply: 'Apply custom share-count scenario' });
+  Object.assign(I18N_DICT.zh, { market_label: '市場', market_us: '🇺🇸 美國 (USD)', market_hk: '🇭🇰 香港 (HKD)',
+    fcf_semiannual: '半年', btn_period_half: '半年', btn_ratio_half: '半年',
+    fin_shares: '全公司流通在外普通股（百萬股；不含庫存股）',
+    fin_shares_scenario: '自訂股數情境（選填）',
+    fin_shares_help: '來源預設股數（如有）會自動套用，無須勾選確認。只有自行覆寫股數作估值情境時才使用本區塊；股數須包含全公司同權普通股（適用時 A、H 股），並扣除庫存股。不會改寫公司披露或歷史財報。',
+    fin_shares_default: '目前已自動套用來源預設股數，無須勾選或手動確認。',
+    fin_shares_custom: '目前採用你確認的自訂股數情境；這是你的假設，並非公司披露股數。',
+    fin_shares_missing: '來源預設股數尚未取得；可自行輸入股數作情境分析，但不會視為公司披露。',
+    fin_shares_confirm: '我選擇以自訂股數覆寫估值分母；這是我的假設，不是公司披露股數。',
+    fin_shares_apply: '套用自訂股數情境' });
+  Object.assign(I18N_DICT.zh, { th_fmp_dcf: 'FMP DCF 參考價', th_fmp_levered: 'FMP Levered DCF 參考價',
+    lbl_own_inst: 'FMP 收錄的 13F 機構披露佔比' });
+  Object.assign(I18N_DICT.en, { th_fmp_dcf: 'FMP DCF Valuation', th_fmp_levered: 'FMP Levered DCF',
+    lbl_own_inst: 'Institutional ownership disclosed in covered 13F filings' });
+  Object.assign(I18N_DICT.zh, {
+    th_fmp_dcf_upside: 'FMP DCF vs 市價溢價 (%)',
+    th_fmp_levered_upside: 'FMP Levered vs 市價溢價 (%)',
+    valuation_price_difference_note: '(當前股價 ÷ 估值 − 1) × 100%，與「目標 vs 市價溢價」相同口徑。正值以紅色顯示「高估」，負值以綠色顯示「低估」；顯示一位小數，排序保留完整精度。估值或股價缺失、為零或負數時顯示 N/A；負估值不是可交易的目標價。',
+    technical_title: 'FMP 技術指標（日線）', technical_period: '交易日數',
+    technical_note: '可同時選用 FMP 九個技術指標，並分別設定 1–500 個交易日。均線疊加於股價，其餘各用獨立座標。只顯示供應商實際回傳且與股價日期／收盤口徑核對相符的資料；缺少暖機資料不補零，覆蓋範圍可能短於股價歷史。指標採收盤日資料，並非即時交易訊號。股價 CSV 不包含指標。',
+    technical_loading: '載入中', technical_available: '所選期間有效點數：', technical_error: '無法顯示；可重試',
+    technical_refresh: '重新查詢所選指標（FMP API）'
+  });
+  Object.assign(I18N_DICT.en, {
+    th_fmp_dcf_upside: 'FMP DCF vs market premium (%)',
+    th_fmp_levered_upside: 'FMP Levered vs market premium (%)',
+    valuation_price_difference_note: '(Current price / valuation - 1) × 100%, matching Target vs Market Spread. Positive is red Overvalued; negative is green Undervalued. Displayed to one decimal; sorting retains full precision. Missing, zero or negative valuations/prices show N/A; a negative valuation is not a tradable price target.',
+    technical_title: 'FMP technical indicators (daily)', technical_period: 'Sessions',
+    technical_note: 'Select any of FMP’s nine indicators together, each with a 1–500-session lookback. Moving averages overlay price; other indicators have separate scales. Only actual provider observations matching price dates and closing-price basis are plotted. Missing warmup values are not zero-filled; coverage may be shorter than price history. End-of-day indicators, not live trading signals. The price CSV does not include indicators.',
+    technical_loading: 'Loading', technical_available: 'Valid points in selected range:', technical_error: 'Unavailable; retry supported',
+    technical_refresh: 'Refresh selected indicators (FMP API)', technical_coverage: 'Actual indicator coverage:'
+  });
+  Object.assign(I18N_DICT.zh, { dcf_not_applicable: '不適用',
+    dcf_not_applicable_note: '銀行及保險公司不採用企業現金流 DCF；保留金融業專用公允價值（超額回報／股息模型）。FMP DCF 及 Levered DCF 參考價與其價格差幅不適用。' });
+  Object.assign(I18N_DICT.en, { dcf_not_applicable: 'Not applicable',
+    dcf_not_applicable_note: 'Banks and insurers use the financial-sector excess-return/dividend valuation, not corporate cash-flow DCF. FMP DCF and Levered DCF reference prices and their price differences are not applicable.' });
+  Object.assign(I18N_DICT.en, {
+    property_fv_coverage: 'Property-FV adjustments are applied only to independently verified periods and fields (Link FY2019–FY2026); see company-page limitations. Other stocks/periods remain reported unless explicitly noted. Missing isolated FMP tags are not evidence of zero FV change. Native FMP model forecasts and API valuations are not normalized.'
+  });
+  Object.assign(I18N_DICT.zh, {
+    technical_coverage: '指標實際收錄期間：',
+    property_fv_coverage: '物業公允值僅按獨立核實的期間／欄位調整（領展 FY2019–FY2026）；限制詳見公司頁。其他股票／期間除另註均保留報告值。FMP 缺少獨立標籤不代表公允值變動為零。FMP 原生模型預測及 API 估值不作此調整。'
+  });
+  Object.assign(I18N_DICT.zh, {
+    fin_rote_history_title: '最近十年年度 ROTE 參考',
+    fin_rote_history_basis: '各完整會計年度淨利 ÷ 期初有形股東權益 × 100%；有形權益為股東權益扣除商譽及其他無形資產，不另扣優先股，與本站模型的期初權益口徑一致。年度參考並非當前 TTM，也非公司自行公布的調整後 ROTE。沿用本站歷史匯率換算；缺少資料不補值，負值保留並標示。僅供預測參考，不會自動更改模型假設。',
+    fin_rote_history_loading: '正在讀取已存的年度 ROTE…',
+    fin_rote_history_source: '已存財報快照；開啟此表不會呼叫 FMP 或 AI。擷取：',
+    fin_rote_history_error: '年度 ROTE 快取無法讀取：',
+    fin_rote_history_year: '會計年度'
+  });
+  Object.assign(I18N_DICT.en, {
+    fin_rote_history_title: 'Last 10 fiscal years: annual ROTE reference',
+    fin_rote_history_basis: 'Full-year net income / beginning tangible shareholders’ equity × 100%. Tangible equity deducts goodwill and other intangibles, without separately deducting preferred stock, consistent with the model’s beginning-equity basis. Annual history is not current TTM or the issuer’s adjusted reported ROTE. Uses the site’s historical FX translation. Missing data stays unavailable; negative values are retained and flagged. Reference only; model assumptions are not changed automatically.',
+    fin_rote_history_loading: 'Loading saved annual ROTE…',
+    fin_rote_history_source: 'Saved statement snapshot; opening this table makes no FMP or AI calls. Captured: ',
+    fin_rote_history_error: 'Annual ROTE cache unavailable: ',
+    fin_rote_history_year: 'Fiscal year'
+  });
   for (const lang of Object.keys(I18N_DICT)) I18N_DICT[lang] = MarketContext.labels(I18N_DICT[lang]);
   const moneyPrefix = () => MarketContext.currency === 'HKD' ? 'HKD ' : '$';
   function changeMarket(market) {
@@ -3002,8 +3179,10 @@
     const latest = [...(stock.statements_raw?.annual_dates || []), ...(stock.statements_raw?.quarterly_raw?.dates || [])]
       .filter(date => /^\d{4}-\d{2}(?:-\d{2})?$/.test(date)).sort().at(-1);
     const outdated = source.asOfDate && latest && (latest.length === 7 ? source.asOfDate.slice(0, 7) < latest : source.asOfDate < latest);
-    if (source.status === 'stale' || source.stale || outdated) return 'Stale';
-    if (kind === 'fScore' && source.evaluatedTests != null && source.evaluatedTests < 9) return `Partial (${source.evaluatedTests}/9)`;
+    if (source.status === 'stale' || source.stale || outdated) return currentLang === 'en' ? 'Earlier statement basis' : '採較早期財報';
+    if (kind === 'fScore' && source.assessmentType === 'applicableItems') return currentLang === 'en'
+      ? 'Applicable items only; not standard 9-test PF' : '僅計適用項目；非標準九項 PF';
+    if (kind === 'fScore' && source.evaluatedTests != null && source.evaluatedTests < 9) return `${currentLang === 'en' ? 'Partial' : '部分評分'} (${source.evaluatedTests}/9)`;
     return source.status || '';
   }
   function loadFinancialProvenance(panel, ticker, stock) {
@@ -3069,6 +3248,7 @@
     if (document.getElementById('detail-view').style.display === 'block') {
       document.getElementById('det-name').textContent = getStockDisplayName(stockUniverse[activeDetailTicker]);
       renderFinancialReference(stockUniverse[activeDetailTicker].fin_valuation);
+      if (stockUniverse[activeDetailTicker].fin_valuation?.is_financial) renderFinancialRoteHistory(activeDetailTicker);
       recalculateDetail();
     }
 
@@ -3112,6 +3292,58 @@
     }
   });
 
+  const financialRoteCache = new Map();
+  let financialRoteRequest = 0;
+  async function renderFinancialRoteHistory(ticker) {
+    const id = ++financialRoteRequest, lang = currentLang, dict = I18N_DICT[lang];
+    const status = document.getElementById('fin-rote-history-status');
+    const head = document.getElementById('fin-rote-history-head'), body = document.getElementById('fin-rote-history-body');
+    head.replaceChildren(); body.replaceChildren();
+    status.textContent = dict.fin_rote_history_loading;
+    try {
+      if (!financialRoteCache.has(ticker)) {
+        const pending = fetch(`cache/rote_history/${encodeURIComponent(ticker)}.json`).then(async response => {
+          if (!response.ok) throw new Error(`ROTE_HISTORY_HTTP_${response.status}`);
+          const data = await response.json();
+          if (data.version !== 1 || data.symbol !== ticker || data.method !== 'reportedNetIncomeOverBeginningTangibleEquity'
+              || !Array.isArray(data.years) || data.years.length !== 10
+              || data.years.some((row, index) => !Number.isInteger(row.year) || row.label !== `FY ${row.year}`
+                || index > 0 && row.year !== data.years[index - 1].year + 1
+                || row.value !== null && !Number.isFinite(row.value)
+                || row.value === null && !row.reason || !Array.isArray(row.warnings))) {
+            throw new Error('INVALID_ROTE_HISTORY_CACHE');
+          }
+          return data;
+        });
+        financialRoteCache.set(ticker, pending);
+        pending.catch(() => { if (financialRoteCache.get(ticker) === pending) financialRoteCache.delete(ticker); });
+      }
+      const data = await financialRoteCache.get(ticker);
+      if (id !== financialRoteRequest || lang !== currentLang || ticker !== activeDetailTicker) return;
+      const years = document.createElement('tr'), values = document.createElement('tr');
+      const heading = document.createElement('th'), metric = document.createElement('th');
+      heading.scope = 'col'; heading.textContent = dict.fin_rote_history_year;
+      metric.scope = 'row'; metric.textContent = 'ROTE (%)';
+      years.append(heading); values.append(metric);
+      for (const row of data.years) {
+        const year = document.createElement('th'), value = document.createElement('td');
+        year.scope = 'col'; year.textContent = row.label;
+        if (row.date) { const date = document.createElement('small'); date.textContent = row.date; year.append(document.createElement('br'), date); }
+        value.dataset.roteYear = row.year;
+        value.textContent = row.value === null ? 'N/A' : `${row.value.toFixed(2)}%${row.warnings.length ? ' *' : ''}`;
+        value.title = row.reason ? dict[`returns_reason_${row.reason}`] || row.reason
+          : row.warnings.map(reason => dict[`returns_reason_${reason}`] || reason).join(' · ');
+        if (row.value === null) { const reason = document.createElement('small'); reason.textContent = value.title; value.append(document.createElement('br'), reason); }
+        years.append(year); values.append(value);
+      }
+      head.append(years); body.append(values);
+      status.textContent = `${ticker} · ${data.years.filter(row => row.value !== null).length}/10 · ${dict.fin_rote_history_source}${data.capturedAt || 'N/A'}`;
+    } catch (error) {
+      if (id !== financialRoteRequest || lang !== currentLang || ticker !== activeDetailTicker) return;
+      console.error('Annual ROTE history unavailable', ticker, error.message);
+      status.textContent = `${dict.fin_rote_history_error}${error.message}`;
+    }
+  }
   function renderFinancialReference(fin) {
     if (!fin || !fin.is_financial) return;
     const dict = I18N_DICT[currentLang];
@@ -3120,6 +3352,69 @@
     document.getElementById('fin-reference-note').textContent = reference
       ? `${dict.fin_reference}${reference.label || 'N/A'} (${reference.date || 'N/A'}) · ROTE ${Number.isFinite(reference.rote) ? reference.rote.toFixed(2) + '%' : 'N/A'} · ${dict.fin_reference_basis}${reference.reason || fin.reason || fin.unavailableReason ? ' ' + FcffView.reasonText(fin.unavailableReason || fin.reason || reference.reason, currentLang) : ''}${warnings.includes('negativeTangibleEquity') ? ' ' + dict.fin_negative_capital : ''}${warnings.includes('negativeNetIncome') ? ' ' + dict.returns_reason_negativeNetIncome : ''}`
       : fin.unavailableReason || fin.reason ? FcffView.reasonText(fin.unavailableReason || fin.reason, currentLang) : dict.fin_unavailable;
+    const stock = stockUniverse[activeDetailTicker];
+    document.getElementById('fin-shares-mode').textContent = dict[fin.shareScenario ? 'fin_shares_custom'
+      : Number.isFinite(stock?.shares) && stock.shares > 0 && fin.unavailableReason !== 'shareBasisUnverified'
+        ? 'fin_shares_default' : 'fin_shares_missing'];
+    const notes = [];
+    if (stock?.rateSource?.basis === 'userDirectedUsdTreasuryProxyUnderHkdUsdPeg') notes.push(currentLang === 'en'
+      ? `USD Treasury 10Y proxy under the HKD/USD peg (${stock.rateSource.date}); not an observed HKD yield. Ke uses this company's beta and ERP.`
+      : `聯匯下採美元 10 年期美債代理（${stock.rateSource.date}），不是實報港元利率；Ke 按本公司的 Beta 及 ERP 計算。`);
+    if (fin.payoutSource?.basis === 'latestReportedAnnualNotCurrentTtm') notes.push(currentLang === 'en'
+      ? `Payout uses the latest reported annual period ended ${fin.payoutSource.date}, not current TTM.`
+      : `派息／回購採截至 ${fin.payoutSource.date} 的最新實報年度，不是當前 TTM。`);
+    notes.push(currentLang === 'en' ? 'Valuation denominator: common shares outstanding excluding treasury; not diluted weighted-average shares.'
+      : '估值分母採不含庫存股的流通在外普通股，不採稀釋加權平均股數。');
+    const issuerShares = !fin.shareScenario && stock?.shareSource?.scope === 'issuerWideOrdinaryShares'
+      ? stock.shareSource : null;
+    if (issuerShares) {
+      const classes = issuerShares.classes.map(row => row.name).join(' + ');
+      const count = issuerShares.outstandingShares.toLocaleString('en-US');
+      notes.push(currentLang === 'en'
+        ? `Company-wide ${classes} ordinary shares: ${count}, excluding treasury, as of ${issuerShares.date}.`
+        : `全公司 ${classes} 普通股合計 ${count} 股，已扣除庫存股；股數截至 ${issuerShares.date}。`);
+      if (issuerShares.providerComparison?.reason === 'reviewedProviderShareMismatch') notes.push(currentLang === 'en'
+        ? 'The captured FMP share count disagrees with the official ordinary-share return; this exact discrepancy was reviewed and the official count is used. The existing FMP shareholders-equity/ROTE proxy is retained without a separate preference-equity deduction; these are model scenarios, not audited ordinary-common-equity valuations.'
+        : '此次 FMP 股數與官方普通股月報不符，已核對並採用官方股數。股東權益／ROTE 仍沿用本站 FMP 簡化口徑，不另扣優先股權益；結果是模型情境，不是經審計的普通股股東估值。');
+    }
+    if (fin.shareScenario) notes.push(currentLang === 'en' ? 'Share denominator is a user-confirmed scenario, not verified issuer data.' : '股數分母為使用者確認的情境，不代表已核實的公司披露。');
+    document.getElementById('fin-reference-note').textContent += ' ' + notes.join(' ');
+    if (issuerShares && /^https:\/\//.test(issuerShares.providerSource)) {
+      const link = document.createElement('a');
+      link.href = issuerShares.providerSource;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.textContent = currentLang === 'en' ? 'Official share-capital return' : '官方股本月報';
+      document.getElementById('fin-reference-note').append(' ', link);
+    }
+  }
+
+  function onFinSharesChange() {
+    const stock = stockUniverse[activeDetailTicker], fin = stock?.fin_valuation;
+    if (!fin) return;
+    const input = document.getElementById('fin-shares');
+    const shares = input.value === input.dataset.formattedValue ? Number(input.dataset.preciseValue)
+      : input.value.trim() ? Number(input.value) : null;
+    const confirmed = document.getElementById('fin-shares-confirm').checked;
+    const status = document.getElementById('fin-shares-status');
+    if (!confirmed || !Number.isFinite(shares) || shares <= 0) {
+      status.textContent = currentLang === 'en' ? 'Enter positive company-wide outstanding shares and confirm their basis before applying.' : '請輸入正數的全公司流通在外普通股，並確認股數口徑後再套用。';
+      return;
+    }
+    status.textContent = currentLang === 'en' ? 'Applied as a user-confirmed scenario, not verified issuer data.' : '已套用為使用者確認的情境，並非已核實的公司披露。';
+    stock.shares = shares;
+    document.getElementById('inp-shares').value = shares;
+    fin.shareScenario = true;
+    fin.tbvps = Number.isFinite(fin.tangibleEquity) ? fin.tangibleEquity / shares : null;
+    fin.dps_total = Number.isFinite(fin.totalPayout) ? fin.totalPayout / shares : null;
+    if (fin.unavailableReason === 'shareBasisUnverified') fin.unavailableReason = null;
+    if (fin.reference?.reason === 'shareBasisUnverified') fin.reference = { ...fin.reference, reason: null };
+    fin.pb_tangible = fin.tbvps > 0 ? stock.price / fin.tbvps : null;
+    renderFinancialReference(fin);
+    document.getElementById('fin-tbvps').textContent = Number.isFinite(fin.tbvps) ? moneyPrefix() + fin.tbvps.toFixed(2) : 'N/A';
+    document.getElementById('fin-dps').textContent = Number.isFinite(fin.dps_total) ? moneyPrefix() + fin.dps_total.toFixed(2) : 'N/A';
+    document.getElementById('fin-ptbv').textContent = Number.isFinite(fin.pb_tangible) ? fin.pb_tangible.toFixed(2) + 'x' : 'N/A';
+    recalculateDetail();
   }
 
   function getStockDefaultRf(s) {
@@ -3177,7 +3472,7 @@
     const sym = explicitTicker || s.ticker || "";
     if (!s.fin_valuation?.is_financial) {
       const source = MarketContext.fcff()?.stocks?.[sym];
-      const result = Fcff.calculate(source);
+      const result = FmpModels.value(FmpModels.record(sym), 'advanced', { ...s, ticker: sym });
       return { ...FcffView.metrics(s, source, result), moat: evaluateMoat(s, sym) };
     }
     let localDebt = Number(s.debt) || 0;
@@ -3255,14 +3550,14 @@
 
     if (isFin) {
       const fin = s.fin_valuation;
-      const ke_val = (fin.ke || (Ke * 100)) / 100;
-      const g_val = (fin.g || s.g || 2.25) / 100;
+      const ke_val = Number.isFinite(fin.ke) ? fin.ke / 100 : null;
+      const g_val = Number.isFinite(fin.g) ? fin.g / 100 : null;
       const rote_val = Number.isFinite(fin.rote) ? fin.rote / 100 : null;
       const tbvps = Number.isFinite(fin.tbvps) ? fin.tbvps : null;
       const dps = Number.isFinite(fin.dps_total) ? fin.dps_total : null;
 
       const spread = rote_val - ke_val;
-      const exVal = !fin.reference || fin.reference.reason || rote_val === null || !(tbvps > 0)
+      const exVal = !fin.reference || fin.reference.reason || rote_val === null || ke_val === null || g_val === null || !(tbvps > 0)
         ? null : tbvps + (tbvps * spread) / Math.max(ke_val - g_val, 0.02);
 
       let ddmSum = 0;
@@ -3284,7 +3579,8 @@
 
     const financialReason = s.fin_valuation?.unavailableReason || s.fin_valuation?.reason || s.fin_valuation?.reference?.reason
       || (s.calculationCurrency === 'HKD' && !Number.isFinite(s.fin_valuation?.ke) ? 'missingHkdRiskFreeRate' : null)
-      || (s.calculationCurrency === 'HKD' && !['g', 'rote', 'tbvps', 'dps_total'].every(key => Number.isFinite(s.fin_valuation?.[key])) ? 'missingParameters' : null);
+      || (!['ke', 'g', 'rote', 'tbvps', 'dps_total'].every(key => Number.isFinite(s.fin_valuation?.[key])) ? 'missingParameters' : null)
+      || (!(s.fin_valuation.ke > s.fin_valuation.g) || s.fin_valuation.ke <= 0 ? 'invalidTerminalSpread' : null);
     if (financialReason) {
       s.fin_valuation.excess_return_fair = null;
       s.fin_valuation.ddm_fair = null;
@@ -3294,7 +3590,8 @@
     const estimatedEbitda = Math.max(localFCF0 * 1.25, 100);
 
     return {
-      E: baseMcap, V, wE, wD, NetDebt, Ke, Kd_after, WACC, beta,
+      E: baseMcap, V, wE, wD, NetDebt, Ke, Kd_after,
+      WACC: Number.isFinite(s.fin_valuation?.ke) ? s.fin_valuation.ke / 100 : null, beta,
       growth: growthRates, fcfList, dfList, pvList, sumPV,
       fcf11, tv, pvTV, 
       EV: officialMarketEV,
@@ -3379,16 +3676,23 @@
   function evaluateMoat(s, explicitTicker) {
     const rawSym = explicitTicker || (s && s.ticker) || "";
     const sym = rawSym.toUpperCase().trim();
-    const moatObj = (s && s.moat) || {};
+    const stale = s?.ratingSources?.moat?.reason === 'staleEvidence';
+    const moatObj = !stale && s?.moat || {};
     const isEn = (currentLang === 'en');
     
     let m = Array(10).fill(null);
     let comments = Array(10).fill("");
     const ratingSource = s?.ratingSources?.moat;
-    let ref = [ratingSource?.asOfDate, ratingSource?.period || moatObj.period, ratingState(s, 'moat'),
-      ratingSource?.updatedAt, ratingSource?.evidenceHash].filter(Boolean).join(' · ');
+    const updatedAt = ratingSource?.updatedAt;
+    const updatedDate = typeof updatedAt === 'string' && /^\d{4}-\d{2}-\d{2}(?:T|$)/.test(updatedAt)
+      && Number.isFinite(Date.parse(updatedAt)) ? updatedAt.slice(0, 10) : 'N/A';
+    const ref = `${stale ? (isEn ? 'Archived assessment; not refreshed' : '已封存舊評估；未重新評分')
+      : isEn ? 'Updated' : '更新日期'}: ${updatedDate}`;
     let overallComment = isEn ? (moatObj.overall_moat_verdict_en || moatObj.overall_moat_verdict || ratingSource?.reason || "Evidence-grounded analysis unavailable.")
       : (moatObj.overall_moat_verdict_zh || moatObj.overall_moat_verdict || ratingSource?.reason || "尚無具證據支持的分析。");
+    if (stale) overallComment = isEn
+      ? 'The financial evidence has changed. Previous figures and judgments are archived, not presented as a current assessment; no new AI research or update date is invented.'
+      : '財報依據已更正。舊數字及判斷只作封存參考，不當作現行評估；未虛構新 AI 研究或更新日期。';
 
     const dimKeys = [
       "m1_brand_pricing", "m2_patents_regulatory", "m3_high_switching_costs",
@@ -3404,14 +3708,25 @@
       }
     });
 
-    const total = m.every(Number.isFinite) ? m.reduce((a, b) => a + b, 0) : null;
+    const evaluated = m.filter(Number.isFinite);
+    const scoredTotal = evaluated.length ? evaluated.reduce((a, b) => a + b, 0) : null;
+    const total = evaluated.length === 10 ? scoredTotal : null;
+    const scoreText = total !== null ? `${total} / 100`
+      : scoredTotal !== null ? `${scoredTotal} / ${evaluated.length * 10}` : 'N/A';
+    const coverage = isEn ? `${evaluated.length}/10 dimensions assessed` : `已評估 ${evaluated.length}/10 個維度`;
     let grade = isEn ? "Moderate Moat" : "Moderate Moat (中等)";
     let badgeClass = "moat-weak";
     if (total >= 88) { grade = isEn ? "Wide Moat 🏆" : "Wide Moat (極寬) 🏆"; badgeClass = "moat-wide"; }
     else if (total >= 75) { grade = isEn ? "Narrow Moat 🛡️" : "Narrow Moat (優質) 🛡️"; badgeClass = "moat-narrow"; }
     else if (total >= 55) { grade = isEn ? "Moderate Moat ⚖️" : "Moderate Moat (中等) ⚖️"; badgeClass = "moat-weak"; }
     else { grade = isEn ? "Weak / No Moat ⚠️" : "Weak / No Moat (微弱) ⚠️"; badgeClass = "moat-none"; }
-    if (total === null) { grade = m.some(Number.isFinite) ? 'Partial / N/A' : 'N/A'; badgeClass = ''; }
+    if (total === null) {
+      grade = evaluated.length ? (isEn ? 'Partial assessment' : '部分評分') : (isEn ? 'Unavailable' : '尚無評分');
+      badgeClass = '';
+      overallComment = `${coverage}. ${isEn
+        ? 'Unknown dimensions are not zero or a complete /100 score; no overall moat grade is assigned.'
+        : '未知維度不作零分，也不換算為完整百分制；不給予整體護城河等級。'} ${overallComment}`;
+    }
 
     const criteriaDefs = [
       { id: "M1", catZh: "無形資產", catEn: "Intangibles", titleZh: "品牌心智與定價權 (Pricing Power)", titleEn: "Brand & Pricing Power", descZh: "提價後客戶黏性與議價權。", descEn: "Pricing power without customer churn." },
@@ -3432,10 +3747,11 @@
       title: isEn ? def.titleEn : def.titleZh,
       score: m[idx],
       desc: isEn ? def.descEn : def.descZh,
-      comment: comments[idx]
+      comment: comments[idx],
+      sources: moatObj[dimKeys[idx]]?.sources || []
     }));
 
-    return { total, grade, badgeClass, criteria, comment: overallComment, ref, m };
+    return { total, scoredTotal, scoreText, coverage, grade, badgeClass, criteria, comment: overallComment, ref, m };
   }
 
   function setValFilter(val) {
@@ -3540,14 +3856,18 @@
   function applyScreenerColumns(resetScroll = false) {
     const mode = document.getElementById('screener-columns').value;
     const presets = {
-      overview: { width: 1200, fields: ['ticker', 'name', 'price', 'fairVal', 'target_price', 'action', 'premiumPct', 'moat_score', 'f_score'] },
-      valuation: { width: 1900, fields: ['ticker', 'name', 'sector', 'price', 'fairVal', 'target_price', 'action', 'target_spread', 'premiumPct', 'moat_score', 'WACC', 'EV', 'mcap', 'liq_val_1', 'liq_val_2', 'liq_val_3'] },
-      financial: { width: 2200, fields: ['ticker', 'name', 'price', 'mcap', 'pe_trailing', 'pe_forward', 'pb_trailing', 'div_yield', 'fcf_to_ev', 'fcf_to_mcap', 'cash_to_assets', 'liab_to_assets', 'current_ratio', 'roe', 'roa', 'f_score', 'ev_to_ebitda', 'debt_to_ebitda', 'net_debt_to_ebitda'] },
-      all: { width: 4280, fields: null }
+      overview: { width: 990, fields: ['ticker', 'name', 'price', 'target_price', 'action', 'moat_score', 'f_score'] },
+      valuation: { width: 2170, fields: ['ticker', 'name', 'sector', 'price', 'fmp_dcf', 'fmp_dcf_upside', 'fmp_levered', 'fmp_levered_upside', 'target_price', 'action', 'target_spread', 'moat_score', 'WACC', 'EV', 'mcap', 'liq_val_1', 'liq_val_2', 'liq_val_3'] },
+      financial: { width: 2370, fields: ['ticker', 'name', 'price', 'mcap', 'pe_trailing', 'pe_forward', 'pb_trailing', 'div_yield', 'fcf_to_ev', 'fcf_to_equity', 'fcf_to_mcap', 'cash_to_assets', 'liab_to_assets', 'current_ratio', 'roe', 'roa', 'f_score', 'ev_to_ebitda', 'debt_to_ebitda', 'net_debt_to_ebitda'] },
+      all: { width: 4520, fields: null }
     };
     const preset = presets[mode];
     if (!preset) throw new RangeError('Invalid screener column view');
     const table = document.getElementById('screener-table');
+    table.querySelector('th[onclick="sortTable(\'fcf_to_equity\')"]').title = I18N_DICT[currentLang].fcf_equity_basis;
+    for (const field of ['fmp_dcf_upside', 'fmp_levered_upside']) {
+      table.querySelector(`th[onclick="sortTable('${field}')"]`).title = I18N_DICT[currentLang].valuation_price_difference_note;
+    }
     formatScreenerHeaders();
     const hideLiquidation = preset.fields !== null && !preset.fields.includes('liq_val_1');
     document.getElementById('screener-liquidation-key').hidden = hideLiquidation;
@@ -3579,6 +3899,111 @@
     renderScreenerTable();
   }
 
+  function escapeAttribute(text) {
+    return String(text ?? '').replace(/&/g, '&amp;').replace(/"/g, '&quot;')
+      .replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, '&#10;');
+  }
+
+  function forwardPeNote(stock) {
+    const source = stock.pe_forward_source;
+    return source ? (currentLang === 'en' ? source.noteEn : source.noteZh) || source.reason || '' : '';
+  }
+
+  function renderMarketPremium(value) {
+    const under = value < 0;
+    const label = currentLang === 'zh' ? (under ? '低估' : '高估') : (under ? 'Undervalued' : 'Overvalued');
+    return `<span class="${under ? 'text-green' : 'text-red'}" style="font-weight: 700;">${label} ${under ? '' : '+'}${value.toFixed(1)}%</span>`;
+  }
+
+  function renderPriceDifference(field, value, applicable = true) {
+    if (!applicable) return `<td data-price-difference="${field}" data-applicable="false" class="text-muted" title="${escapeAttribute(I18N_DICT[currentLang].dcf_not_applicable_note)}">${I18N_DICT[currentLang].dcf_not_applicable}</td>`;
+    return `<td data-price-difference="${field}" data-value="${value ?? ''}" class="${value === null ? 'text-muted' : ''}" title="${escapeAttribute(I18N_DICT[currentLang].valuation_price_difference_note)}">${value === null ? 'N/A' : renderMarketPremium(value)}</td>`;
+  }
+
+  function marketRatioNote(item, kind) {
+    const source = item.marketRatioSources?.[kind];
+    if (!source) return '';
+    const en = currentLang === 'en';
+    const reasons = {
+      shareBasisUnverified: en ? 'Issuer-wide ordinary shares are not verified.' : '尚未核實全公司流通普通股股數。',
+      missingTtmEarnings: en ? 'A compatible twelve-month earnings period is unavailable.' : '缺少相容的十二個月盈利期間。',
+      preferredEarningsUnverified: en ? 'Earnings attributable to ordinary shares cannot be separated from preferred distributions.' : '尚未核實扣除優先股分派後的普通股盈利。',
+      zeroEarnings: en ? 'Zero earnings cannot form a P/E denominator.' : '盈利為零，無法計算本益比。',
+      currentPriceUnavailable: en ? 'Current stock price is unavailable or stale.' : '缺少現價或報價已過期。',
+      missingBookEquity: en ? 'Reported book equity is missing or zero.' : '缺少報告股東權益或權益為零。',
+      missingBalance: en ? 'A reported balance sheet is unavailable.' : '缺少報告資產負債表。',
+      missingField: en ? 'Required reported inputs or market capitalization are unavailable.' : '缺少所需報告數據或市值。',
+      missingFx: en ? 'Required historical currency conversion is unavailable.' : '缺少所需歷史匯率換算。',
+      zeroDenominator: en ? 'The reported denominator is zero.' : '報告分母為零。',
+      invalidCalculation: en ? 'The reported inputs cannot form a finite ratio.' : '報告數據無法得出有限比率。'
+    };
+    const basis = kind === 'pb' ? source.basis === 'marketCapOverReportedParentEquity' ? (en
+      ? 'Market capitalization / reported parent equity. Preferred equity is not separately deducted.'
+      : '市值 ÷ 報告母公司股東權益；未另扣優先股權益。') : (en
+        ? 'Quoted price / (reported parent equity / verified ordinary shares). Preferred equity is not separately deducted.'
+        : '報價 ÷（報告母公司股東權益 ÷ 已核實流通普通股）；未另扣優先股權益。')
+      : source.basis === 'reportedDilutedTtmEps' ? (en ? 'Reported diluted TTM EPS; half-year EPS is never added.' : '採實報稀釋 TTM 每股盈利，不加總半年 EPS。')
+        : (en ? 'TTM earnings attributable to common shares / current verified ordinary shares; not reported diluted EPS or an addition of half-year EPS.'
+          : 'TTM 普通股盈利 ÷ 現時已核實流通普通股；並非實報稀釋 EPS，亦非加總半年 EPS。');
+    return [basis, source.reportType === 'secondInterim' && (en
+      ? 'Reported twelve-month second interim; overlapping first interim is not added.'
+      : '採用實報十二個月第二次中期業績，不另加重疊的第一次中期業績。'),
+      source.date, source.shareDate && `${en ? 'Shares' : '股數日期'}: ${source.shareDate}`,
+      source.reason && reasons[source.reason]].filter(Boolean).join(' · ');
+  }
+
+  function balanceRatioNote(item, kind) {
+    const source = item.marketRatioSources?.[kind];
+    if (!source) return '';
+    const en = currentLang === 'en';
+    const basis = {
+      current_ratio: en ? 'Reported current assets / current liabilities; not a regulatory bank liquidity ratio.'
+        : '報告流動資產 ÷ 流動負債；並非銀行監管流動性比率。',
+      cash_to_assets: en ? 'Reported cash and short-term investments / closing total assets × 100%.'
+        : '報告現金及短期投資 ÷ 期末資產總額 × 100%。',
+      liab_to_assets: en ? 'Reported closing total liabilities / total assets × 100%.'
+        : '報告期末負債總額 ÷ 資產總額 × 100%。',
+      roe: en ? 'TTM net income / beginning parent equity × 100%; same historical return engine as company analysis.'
+        : 'TTM 淨利潤 ÷ 期初母公司股東權益 × 100%；與公司分析採用同一歷史回報率引擎。',
+      roa: en ? 'TTM net income / beginning total assets × 100%; same historical return engine as company analysis.'
+        : 'TTM 淨利潤 ÷ 期初資產總額 × 100%；與公司分析採用同一歷史回報率引擎。'
+    }[kind];
+    return [basis, source.date, source.reason && (en
+      ? `N/A: required reported inputs, period or FX could not be verified (${source.reason}).`
+      : `N/A：未能核實所需報告數據、期間或匯率（${source.reason}）。`)].filter(Boolean).join(' · ');
+  }
+
+  function leverageRatioNote(item, kind) {
+    const source = item.reportedMultiples;
+    if (!source) return '';
+    const en = currentLang === 'en';
+    const reasons = {
+      missingEbitdaPeriod: en ? 'Compatible actual twelve-month income periods are unavailable.' : '缺少相容的實際十二個月損益期間。',
+      missingEbitda: en ? 'Required actual EBITDA or disclosed D&A is unavailable; no forecast is substituted.' : '缺少所需 EBITDA 實績或披露 D&A；不以預測補代。',
+      missingFx: en ? 'Required historical FX is unavailable.' : '缺少所需歷史匯率。',
+      nonPositiveEbitda: en ? 'TTM EBITDA is zero or negative; these multiples are not meaningful.' : 'TTM EBITDA 為零或負數，這些倍數不具可比性。',
+      currentMarketCapUnavailable: en ? 'A current market capitalization is unavailable or the quote is stale.' : '缺少目前市值或報價已過期。',
+      missingReportedCapital: en ? 'Required reported debt, cash or priority-claim inputs are unavailable.' : '缺少所需已報債務、現金或優先權益數據。',
+      invalidCalculation: en ? 'Inputs cannot form a finite multiple.' : '來源數據無法得出有限倍數。'
+    };
+    const numerator = kind === 'ev_to_ebitda' ? (en
+      ? 'Quoted EV = market cap + reported debt − cash/short-term investments + preferred/noncontrolling book proxies.'
+      : '報價 EV＝市值＋已報總債務－現金及短投＋優先股及非控制權益帳面代理。')
+      : kind === 'debt_to_ebitda' ? (en ? 'Reported total debt, including reported leases.' : '採用已報總債務，包括已列示租賃。')
+        : (en ? 'Net debt = reported debt − cash/short-term investments; negative means net cash.'
+          : '淨債務＝已報總債務－現金及短投；負值表示淨現金。');
+    return [numerator, en ? 'Actual or explicitly derived EBITDA, not a forecast or adjusted EBITDA.'
+      : '採用實績或已明示推導的 EBITDA，並非預測或 adjusted EBITDA。',
+    source.periodBasis === 'reportedTwelveMonthSecondInterim' && (en
+      ? 'Reported twelve-month second interim; overlapping first interim is not added.'
+      : '採用實報十二個月第二次中期業績，不另加重疊的第一次中期業績。'),
+    source.incomeDates.length && `${en ? 'Income periods' : '損益期間'}: ${source.incomeDates.join(', ')}`,
+    source.balanceDate && `${en ? 'Balance date' : '資產負債表日期'}: ${source.balanceDate}`,
+    kind === 'ev_to_ebitda' && source.quoteDate && `${en ? 'Quote date' : '報價日期'}: ${source.quoteDate}`,
+    Number.isFinite(source.ebitda) && `EBITDA: ${source.currency} ${source.ebitda.toLocaleString('en-US', { maximumFractionDigits: 3 })} ${en ? 'million' : '百萬'}`,
+    source.reasons[kind] && reasons[source.reasons[kind]]].filter(Boolean).join(' · ');
+  }
+
   function renderLiquidationCell(item, index) {
     const dict = I18N_DICT[currentLang];
     const result = item.liquidationResult;
@@ -3591,14 +4016,14 @@
       result.quoteDate && `${dict.liquidation_quote_date}: ${result.quoteDate}`,
       snapshot?.quote && `${dict.liquidation_share_quote}: ${snapshot.quote.price ?? 'N/A'} / ${snapshot.quote.marketCap ?? 'N/A'}`,
       result.shares !== null && `${dict.liquidation_shares}: ${result.shares.toLocaleString(currentLang === 'en' ? 'en-US' : 'zh-TW', { maximumFractionDigits: 0 })}`,
+      snapshot?.shareSource?.date && `${dict.liquidation_shares} (${snapshot.shareSource.date})`,
       snapshot?.sourceCurrency && `${snapshot.sourceCurrency} → ${MarketContext.currency}; FX ${snapshot.fx?.rate ?? 'N/A'} (${snapshot.fx?.observationDate ?? 'N/A'})`,
       snapshot?.fetchedAt && `${dict.liquidation_captured}: ${snapshot.fetchedAt}`,
-      ...result.warnings.map(warning => warning === 'preferredClaims'
-        ? dict.liquidation_preferred : dict.liquidation_preferred_unknown),
+      ...result.warnings.map(warning => warning === 'staleQuote' ? dict.liquidation_reason_staleQuote
+        : warning === 'preferredClaims' ? dict.liquidation_preferred : dict.liquidation_preferred_unknown),
       reason && dict[`liquidation_reason_${reason}`]
     ].filter(Boolean).join('\n');
-    const title = details.replace(/&/g, '&amp;').replace(/"/g, '&quot;')
-      .replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, '&#10;');
+    const title = escapeAttribute(details);
     const amount = value === null ? 'N/A'
       : value < 0 ? `-${moneyPrefix()}${Math.abs(value).toFixed(2)}` : `${moneyPrefix()}${value.toFixed(2)}`;
     const color = value > 0 ? 'text-green' : value < 0 ? 'text-red' : 'text-muted';
@@ -3622,12 +4047,13 @@
       
       const defaultDcf = computeDCF(s, ticker);
       if (!defaultDcf) return null;
-      const fairVal = defaultDcf.fairVal;
+      const fmpDcf = FmpModels.reference(FmpModels.record(ticker), 'dcf', s);
+      const fmpLevered = FmpModels.reference(FmpModels.record(ticker), 'levered', s);
 
       const isSaved = !!savedModels[ticker];
       const isFav = favs.includes(ticker);
       const target_price = isSaved ? Number(savedModels[ticker].targetPrice) : null;
-      const target_spread = (isSaved && target_price > 0 && s.price) ? (((s.price / target_price) - 1) * 100) : null;
+      const target_spread = isSaved ? FmpModels.priceDifference(target_price, s.price) : null;
       const moat_score = defaultDcf.moat?.total ?? null;
 
       const liquidationResult = Liquidation.calculate(s.liquidation, ticker);
@@ -3636,7 +4062,10 @@
 
       return { 
         ticker, ...s, ...defaultDcf, 
-        fairVal: fairVal,
+        fmp_dcf: fmpDcf, fmp_levered: fmpLevered,
+        fmp_dcf_upside: FmpModels.priceDifference(fmpDcf, s.price),
+        fmp_levered_upside: FmpModels.priceDifference(fmpLevered, s.price),
+        fcf_to_equity: FcfRatios.storedTtmFcfToEquity(s.statements_raw, s.currencyConversion?.reason),
         isSaved, isFav, target_price, target_spread, moat_score,
         liquidationResult,
         liq_val_1: liquidationValues[0],
@@ -3654,12 +4083,7 @@
     if (currentSubIndustryFilter !== 'ALL') list = list.filter(item => item.industry === currentSubIndustryFilter);
 
     if (searchVal) {
-      list = list.filter(item => 
-        (item.ticker && item.ticker.toUpperCase().includes(searchVal)) || 
-        (item.name && item.name.toUpperCase().includes(searchVal)) || 
-        (item.sector && item.sector.includes(searchVal)) || 
-        (item.industry && item.industry.toUpperCase().includes(searchVal))
-      );
+      list = list.filter(item => StockSearch.matches(item, searchVal));
     }
 
     list.sort((a, b) => {
@@ -3690,25 +4114,14 @@
 
     tbody.innerHTML = list.map(item => {
       const priceNum = Number.isFinite(item.price) ? item.price : null;
-      const fairNum = item.fairVal === null ? null : Number(item.fairVal);
-      const premiumNum = Number(item.premiumPct) || 0;
-
-      const badgeHtml = item.fairVal === null || item.premiumPct === null ? '<span class="badge">N/A</span>' : item.isUndervalued
-        ? `<span class="badge badge-undervalued">${currentLang === 'zh' ? '低估' : 'Undervalued'} ${premiumNum.toFixed(1)}%</span>`
-        : `<span class="badge badge-overvalued">${currentLang === 'zh' ? '高估' : 'Overvalued'} +${premiumNum.toFixed(1)}%</span>`;
-
-      const targetPriceHtml = (item.isSaved && item.target_price)
-        ? `<span class="badge badge-target">${moneyPrefix()}${Number(item.target_price).toFixed(2)}</span>`
+      const targetPriceHtml = (item.isSaved && Number.isFinite(item.target_price))
+        ? `<span class="badge badge-target" title="${savedModels[item.ticker]?.modelType === 'FMP_TEN_YEAR_SCENARIO'
+          ? (currentLang === 'en' ? 'Site-calculated ten-year scenario, not an FMP API result' : '本站計算的十年情境，非 FMP API 原始結果') : 'FMP / custom'}${savedModels[item.ticker]?.sourceReviewRequired
+            ? (currentLang === 'en' ? '; report/model basis requires review' : '；年報／模型口徑差異須審閱') : ''}">${moneyPrefix()}${Number(item.target_price).toFixed(2)}</span>`
         : `<span style="color: var(--text-muted);">--</span>`;
 
-      let targetSpreadHtml = `<span style="color: var(--text-muted);">--</span>`;
-      if (item.isSaved && item.target_spread !== null && !isNaN(item.target_spread)) {
-        if (item.target_spread < 0) {
-          targetSpreadHtml = `<span class="text-green" style="font-weight: 700;">${currentLang === 'zh' ? '低估' : 'Undervalued'} ${item.target_spread.toFixed(1)}%</span>`;
-        } else {
-          targetSpreadHtml = `<span class="text-red" style="font-weight: 700;">${currentLang === 'zh' ? '高估' : 'Overvalued'} +${item.target_spread.toFixed(1)}%</span>`;
-        }
-      }
+      const targetSpreadHtml = item.isSaved && item.target_spread !== null
+        ? renderMarketPremium(item.target_spread) : `<span style="color: var(--text-muted);">--</span>`;
 
       const fScoreVal = item.f_score ?? null;
       let fScoreClass = "fscore-yellow";
@@ -3720,9 +4133,14 @@
       const favHeart = item.isFav ? '❤' : '♡';
       const favActiveClass = item.isFav ? 'active' : '';
 
-      const moatTotal = item.moat?.total ?? 'N/A';
+      const moatScore = item.moat?.scoredTotal == null ? 'N/A'
+        : item.moat.total !== null ? `${item.moat.total} pt` : item.moat.scoreText;
       const moatBadgeCls = item.moat?.badgeClass || '';
-      const moatGradeText = (item.moat && item.moat.grade) ? item.moat.grade.split(' ')[0] : 'Moat';
+      const moatGradeText = item.moat?.total === null ? item.moat.grade
+        : (item.moat && item.moat.grade) ? item.moat.grade.split(' ')[0] : 'Moat';
+      const health = financialHealthAssessment(fScoreVal, item.f_score_breakdown, item.ratingSources?.fScore);
+      if (health.adjusted) fScoreClass = '';
+      const healthComment = I18N_DICT[currentLang][`fsc_health_${health.level}`];
 
       const waccVal = Number.isFinite(item.WACC) ? item.WACC : null;
       const gVal = item.fin_valuation?.is_financial ? item.g
@@ -3741,15 +4159,22 @@
           <td style="color: var(--text-secondary); text-align: left;">${getStockDisplaySector(item)}</td>
           <td style="color: var(--text-muted); font-size: 11px; text-align: left;">${getStockDisplayIndustry(item.industry) || '--'}</td>
           <td style="font-weight: 700; color: var(--accent);">${priceNum === null ? 'N/A' : moneyPrefix() + priceNum.toFixed(2)}</td>
-          <td class="text-green" style="font-size: 13px; font-weight: 700;" title="${item.reason ? FcffView.reasonText(item.reason, currentLang).replace(/"/g, '&quot;') : ''}">${fairNum === null ? 'N/A' : MarketContext.currency + ' ' + fairNum.toFixed(2)}${!item.fin_valuation?.is_financial ? `<small class="liquidation-asof">${MarketContext.fcff()?.stocks?.[item.ticker]?.valuationDate || ''}</small>` : ''}</td>
+          ${['dcf', 'levered'].map(kind => {
+            const applicable = FmpModels.dcfApplicable(item);
+            if (!applicable) return `<td data-fmp-reference="${kind}" data-applicable="false" class="text-muted" title="${escapeAttribute(I18N_DICT[currentLang].dcf_not_applicable_note)}">${I18N_DICT[currentLang].dcf_not_applicable}</td>${renderPriceDifference(kind, null, false)}`;
+            const data = FmpModels.record(item.ticker), val = FmpModels.reference(data, kind, item);
+            const note = currentLang === 'en'
+              ? 'Direct FMP reference; provider share denominator and methodology, not the site issued-share custom value.'
+              : 'FMP 直接回傳參考值；保留供應商股數及算法，不是本網站已發行股數自訂估值。';
+            return `<td data-fmp-reference="${kind}" title="${escapeAttribute(`${note} ${data?.models?.[kind]?.reason || data?.currencyCheck?.reason || ''}`)}">${val === null ? 'N/A' : moneyPrefix() + val.toFixed(2)}<small class="liquidation-asof">${data?.models?.[kind]?.data?.[0]?.date || ''}</small></td>${renderPriceDifference(kind, kind === 'dcf' ? item.fmp_dcf_upside : item.fmp_levered_upside)}`;
+          }).join('')}
           <td>${targetPriceHtml}</td>
           <td style="text-align: center;">
             <button class="btn-nav" onclick="openDetail('${item.ticker}')">${currentLang === 'zh' ? '深度模型 →' : 'DCF Model →'}</button>
           </td>
           <td>${targetSpreadHtml}</td>
-          <td>${badgeHtml}</td>
           <td style="text-align: center;">
-            <span class="badge-moat ${moatBadgeCls}" title="${ratingProvenance(item, 'moat').replace(/"/g, '&quot;')}" onclick="openMoat('${item.ticker}')">${moatTotal} pt · ${moatGradeText} ${ratingState(item, 'moat')}</span>
+            <span class="badge-moat ${moatBadgeCls}" title="${[item.moat?.coverage, ratingProvenance(item, 'moat')].filter(Boolean).join(' · ').replace(/"/g, '&quot;')}" onclick="openMoat('${item.ticker}')">${moatScore} · ${moatGradeText}</span>
           </td>
           <td>
             <div>${waccVal === null ? 'N/A' : (waccVal * 100).toFixed(2) + '%'}</div>
@@ -3762,23 +4187,25 @@
           ${renderLiquidationCell(item, 1)}
           ${renderLiquidationCell(item, 2)}
           
-          <td>${item.pe_trailing ? Number(item.pe_trailing).toFixed(1) : '--'}</td>
-          <td>${item.pe_forward ? Number(item.pe_forward).toFixed(1) : '--'}</td>
-          <td>${item.pb_trailing ? Number(item.pb_trailing).toFixed(1) : '--'}</td>
+          <td data-metric="pe_trailing" title="${escapeAttribute(marketRatioNote(item, 'pe'))}">${Number.isFinite(item.pe_trailing) ? item.pe_trailing.toFixed(1) : 'N/A'}</td>
+          <td data-metric="pe_forward" title="${escapeAttribute(forwardPeNote(item))}">${Number.isFinite(item.pe_forward) && item.pe_forward > 0 ? item.pe_forward.toFixed(1) : '--'}</td>
+          <td data-metric="pb_trailing" title="${escapeAttribute(marketRatioNote(item, 'pb'))}">${Number.isFinite(item.pb_trailing) ? item.pb_trailing.toFixed(1) : 'N/A'}</td>
           <td style="color: var(--accent); font-weight: 700;">${Number.isFinite(item.div_yield) ? item.div_yield.toFixed(2) + '%' : 'N/A'}</td>
           <td style="color: var(--accent); font-weight: 600;">${Number.isFinite(item.fcf_to_ev) ? item.fcf_to_ev.toFixed(2) + '%' : 'N/A'}</td>
+          <td data-metric="fcf_to_equity" title="${I18N_DICT[currentLang].fcf_equity_basis}" style="color: var(--accent); font-weight: 600;">${Number.isFinite(item.fcf_to_equity) ? item.fcf_to_equity.toFixed(2) + '%' : 'N/A'}</td>
           <td style="color: var(--nasdaq-purple); font-weight: 600;">${Number.isFinite(item.fcf_to_mcap) ? item.fcf_to_mcap.toFixed(2) + '%' : 'N/A'}</td>
-          <td style="color: var(--accent);">${Number.isFinite(item.cash_to_assets) ? item.cash_to_assets.toFixed(1) + '%' : 'N/A'}</td>
-          <td>${Number.isFinite(item.liab_to_assets) ? item.liab_to_assets.toFixed(1) + '%' : 'N/A'}</td>
-          <td>${Number.isFinite(item.current_ratio) ? item.current_ratio.toFixed(2) : 'N/A'}</td>
-          <td style="font-weight: 600; color: var(--gold);">${Number.isFinite(item.roe) ? item.roe.toFixed(1) + '%' : 'N/A'}</td>
-          <td style="color: var(--green);">${Number.isFinite(item.roa) ? item.roa.toFixed(1) + '%' : 'N/A'}</td>
+          <td data-metric="cash_to_assets" title="${escapeAttribute(balanceRatioNote(item, 'cash_to_assets'))}" style="color: var(--accent);">${Number.isFinite(item.cash_to_assets) ? item.cash_to_assets.toFixed(1) + '%' : 'N/A'}</td>
+          <td data-metric="liab_to_assets" title="${escapeAttribute(balanceRatioNote(item, 'liab_to_assets'))}">${Number.isFinite(item.liab_to_assets) ? item.liab_to_assets.toFixed(1) + '%' : 'N/A'}</td>
+          <td data-metric="current_ratio" title="${escapeAttribute(balanceRatioNote(item, 'current_ratio'))}">${Number.isFinite(item.current_ratio) ? item.current_ratio.toFixed(2) : 'N/A'}</td>
+          <td data-metric="roe" title="${escapeAttribute(balanceRatioNote(item, 'roe'))}" style="font-weight: 600; color: var(--gold);">${Number.isFinite(item.roe) ? item.roe.toFixed(1) + '%' : 'N/A'}</td>
+          <td data-metric="roa" title="${escapeAttribute(balanceRatioNote(item, 'roa'))}" style="color: var(--green);">${Number.isFinite(item.roa) ? item.roa.toFixed(1) + '%' : 'N/A'}</td>
           <td style="text-align: center;">
-            <span class="badge-fscore ${fScoreClass}" title="${ratingProvenance(item, 'fScore').replace(/"/g, '&quot;')}" onclick="openFScore('${item.ticker}')">${fScoreVal ?? 'N/A'} / 9 ${ratingState(item, 'fScore')}</span>
+            <span class="badge-fscore ${fScoreClass}" title="${ratingProvenance(item, 'fScore').replace(/"/g, '&quot;')}" onclick="openFScore('${item.ticker}')">${fScoreVal ?? 'N/A'} / ${health.applicableTests} · ${healthComment}</span>
+            ${ratingState(item, 'fScore') ? `<small class="liquidation-asof">${ratingState(item, 'fScore')}</small>` : ''}
           </td>
-          <td style="font-weight: 700; color: var(--accent);">${Number.isFinite(item.ev_to_ebitda) ? item.ev_to_ebitda.toFixed(1) + 'x' : 'N/A'}</td>
-          <td style="color: var(--text-secondary);">${Number.isFinite(item.debt_to_ebitda) ? item.debt_to_ebitda.toFixed(2) + 'x' : 'N/A'}</td>
-          <td style="${(Number(item.net_debt_to_ebitda) || 0) <= 0 ? 'color: var(--green); font-weight: 700;' : ((Number(item.net_debt_to_ebitda) || 0) > 3.5 ? 'color: var(--red); font-weight: 700;' : 'color: var(--text-secondary);')}">
+          <td data-metric="ev_to_ebitda" title="${escapeAttribute(leverageRatioNote(item, 'ev_to_ebitda'))}" style="font-weight: 700; color: ${Number.isFinite(item.ev_to_ebitda) ? 'var(--accent)' : 'var(--text-muted)'};">${Number.isFinite(item.ev_to_ebitda) ? item.ev_to_ebitda.toFixed(1) + 'x' : 'N/A'}</td>
+          <td data-metric="debt_to_ebitda" title="${escapeAttribute(leverageRatioNote(item, 'debt_to_ebitda'))}" style="color: var(--text-secondary);">${Number.isFinite(item.debt_to_ebitda) ? item.debt_to_ebitda.toFixed(2) + 'x' : 'N/A'}</td>
+          <td data-metric="net_debt_to_ebitda" title="${escapeAttribute(leverageRatioNote(item, 'net_debt_to_ebitda'))}" style="${!Number.isFinite(item.net_debt_to_ebitda) ? 'color: var(--text-muted);' : item.net_debt_to_ebitda < 0 ? 'color: var(--green); font-weight: 700;' : item.net_debt_to_ebitda > 3.5 ? 'color: var(--red); font-weight: 700;' : 'color: var(--text-secondary);'}">
             ${Number.isFinite(item.net_debt_to_ebitda) ? item.net_debt_to_ebitda.toFixed(2) + 'x' : 'N/A'}
           </td>
         </tr>
@@ -3948,7 +4375,7 @@
         loadedValuationTicker = curTicker;
       } else {
         document.getElementById('det-name').textContent = getStockDisplayName(curStock);
-        document.getElementById('det-moat-badge').textContent = `${currentLang === 'zh' ? '護城河' : 'Moat'}: ${computeDCF(curStock, curTicker).moat.total ?? 'N/A'}/100`;
+        document.getElementById('det-moat-badge').textContent = `${currentLang === 'zh' ? '護城河' : 'Moat'}: ${computeDCF(curStock, curTicker).moat.scoreText}`;
         renderFinancialReference(curStock.fin_valuation);
         recalculateDetail();
       }
@@ -4014,16 +4441,17 @@
     const holders = s.top_holders || [];
     if (holders.length > 0) {
       tbody.innerHTML = holders.map(h => {
-        const isUp = !h.change.includes('-');
+        const change = typeof h.change === 'string' ? h.change : 'N/A';
+        const isUp = !change.includes('-');
         const colorCls = isUp ? "text-green" : "text-red";
         return `
           <tr>
             <td style="text-align: center; font-weight: 700; color: var(--text-muted);">${h.rank}</td>
-            <td style="text-align: left; font-weight: 600; color: var(--text);">${currentLang === 'en' ? h.name.replace(/\s*\([^)]*[\u4e00-\u9fff][^)]*\)/g, '') : h.name}</td>
+            <td style="text-align: left; font-weight: 600; color: var(--text);" title="${escapeAttribute(h.date || '')}">${escapeAttribute(h.name)}</td>
             <td>${Number(h.shares).toLocaleString()}</td>
-            <td class="text-gold">${moneyPrefix()}${Number(h.val_m).toLocaleString()}</td>
-            <td style="font-weight: 700; color: var(--accent);">${Number(h.pct).toFixed(2)}%</td>
-            <td style="text-align: center;"><span class="${colorCls}">${h.change}</span></td>
+            <td class="text-gold">${Number.isFinite(h.val_m) ? moneyPrefix() + h.val_m.toLocaleString() : 'N/A'}</td>
+            <td style="font-weight: 700; color: var(--accent);">${Number.isFinite(h.pct) ? h.pct.toLocaleString(undefined, { maximumFractionDigits: 4 }) + '%' : 'N/A'}</td>
+            <td style="text-align: center;"><span class="${colorCls}">${escapeAttribute(change)}</span></td>
           </tr>
         `;
       }).join('');
@@ -4040,20 +4468,20 @@
     const trades = s.insider_trades || [];
     if (trades.length > 0) {
       tbody.innerHTML = trades.map(t => {
-        const typeHtml = t.is_buy 
+        const typeHtml = t.is_buy === null ? `<span class="badge">${escapeAttribute(t.action)}</span>` : t.is_buy
           ? `<span class="badge badge-undervalued">${currentLang === 'en' ? 'Buy' : 'P - 集中買入'}</span>`
           : `<span class="badge badge-overvalued">${currentLang === 'en' ? 'Sell' : 'S - 減持套現'}</span>`;
-        const valColor = t.is_buy ? "text-green" : "text-red";
+        const valColor = t.is_buy === null ? 'text-muted' : t.is_buy ? "text-green" : "text-red";
 
         return `
           <tr>
             <td style="text-align: left; color:var(--text-muted);">${t.date}</td>
-            <td style="text-align: left; font-weight: 700; color: var(--text);">${t.name}</td>
-            <td style="text-align: left; color: var(--text-secondary);">${t.title}</td>
+            <td style="text-align: left; font-weight: 700; color: var(--text);">${escapeAttribute(t.name)}</td>
+            <td style="text-align: left; color: var(--text-secondary);">${escapeAttribute(t.title)}</td>
             <td style="text-align: center;">${typeHtml}</td>
             <td style="font-weight: 600;">${Number(t.shares).toLocaleString()}</td>
-            <td>${moneyPrefix()}${Number(t.price).toFixed(2)}</td>
-            <td class="${valColor}" style="font-weight: 700;">${moneyPrefix()}${Number(t.total_val).toFixed(2)}M</td>
+            <td>${Number.isFinite(t.price) ? moneyPrefix() + t.price.toFixed(2) : 'N/A'}</td>
+            <td class="${valColor}" style="font-weight: 700;">${Number.isFinite(t.total_val) ? moneyPrefix() + t.total_val.toFixed(2) + 'M' : 'N/A'}</td>
           </tr>
         `;
       }).join('');
@@ -4073,19 +4501,19 @@
     const tbody = document.getElementById('cmp-splits-tbody');
     if (!tbody || !s) return;
 
-    const splits = s.stock_splits || [];
+    const splits = CompanyData.splits(s.stock_splits);
     if (splits.length > 0) {
       tbody.innerHTML = splits.map(sp => {
         const ratio = String(sp.ratio || '').match(/^\s*([\d.]+)\s*:\s*([\d.]+)\s*$/);
         const validRatio = ratio && Number(ratio[1]) > 0 && Number(ratio[2]) > 0;
-        const type = validRatio
+        const type = sp.verifiedEventType === false ? 'FMP share adjustment (event type unverified)' : validRatio
           ? (Number(ratio[1]) >= Number(ratio[2]) ? 'Stock split' : 'Reverse stock split')
           : 'Corporate action';
         return `
         <tr>
           <td style="text-align: left; font-weight: 600; color: var(--text);">${sp.date}</td>
           <td style="text-align: center; font-weight: 700; color: var(--accent); font-size: 13px;">${sp.ratio}</td>
-          <td style="text-align: left; color: var(--text-secondary);">${currentLang === 'en' ? (validRatio ? `${ratio[2]} existing share(s) → ${ratio[1]} share(s)` : 'Reported share adjustment') : sp.desc}</td>
+          <td style="text-align: left; color: var(--text-secondary);">${currentLang === 'en' ? (sp.verifiedEventType === false ? 'Provider-reported adjustment factor; not independently verified as a split or rights issue.' : validRatio ? `${ratio[2]} existing share(s) → ${ratio[1]} share(s)` : 'Reported share adjustment') : sp.desc}</td>
           <td style="text-align: center;"><span class="badge badge-target">${currentLang === 'en' ? type : sp.type}</span></td>
         </tr>
       `; }).join('');
@@ -4106,12 +4534,13 @@
   // ========================================================
   let activeRatioPeriod = 'annual'; // 'annual' | 'quarterly'
   function switchRatioPeriod(period) {
+    if (period === 'quarterly' && MarketContext.cadence(stockUniverse[activeCompanyTicker]).stride === 2) period = 'semiannual';
     activeRatioPeriod = period;
     document.getElementById('ratio-period').value = period;
 
     const s = stockUniverse[activeCompanyTicker];
     const rawStmts = (s && s.statements_raw) || {};
-    const qRaw = rawStmts.quarterly_raw || {};
+    const qRaw = (period === 'semiannual' ? rawStmts.semiannual_raw : rawStmts.quarterly_raw) || {};
     const thead = document.getElementById('cmp-ratio-thead');
 
     const aDates = rawStmts.annual_dates || [];
@@ -4138,7 +4567,7 @@
         aHeadHtml += `<th class="fcf-trend-col">${trendTitle}</th>`;
         thead.innerHTML = aHeadHtml;
       } else {
-        const half = MarketContext.cadence(s).stride === 2;
+        const half = period === 'semiannual' || MarketContext.cadence(s).stride === 2;
         const qPeriods = (qRaw.periods || []).map(value => half
           ? String(value).replace(/Q2\b/g, 'H1').replace(/Q4\b/g, 'H2') : value);
         const metricTitle = (currentLang === 'en') ? 'Ratio Metric / Dimension' : '比率指標 / 財務維度';
@@ -4171,9 +4600,10 @@
   function renderAnalysisSparkline(values) {
     const spark = FcfRatios.trend(values);
     if (!spark) return '';
-    const paths = spark.segments.map(segment => `<path d="${segment.map((point, i) =>
-      `${i ? 'L' : 'M'} ${point.x} ${point.y}`).join(' ')}" fill="none" stroke="${spark.color}" stroke-width="2"/>`).join('');
-    return `<span class="spark-line-wrap"><svg class="spark-line-svg" viewBox="0 0 108 32" role="img" aria-label="${I18N_DICT[currentLang].th_trend}">${paths}<circle cx="${spark.last.x}" cy="${spark.last.y}" r="2.5" fill="${spark.color}"/></svg></span>`;
+    const paths = spark.strokes.map(segment => `<path d="${segment.points.map((point, i) =>
+      `${i ? 'L' : 'M'} ${point.x} ${point.y}`).join(' ')}" fill="none" stroke="${segment.color}" stroke-width="2"/>`).join('');
+    const note = I18N_DICT[currentLang].fcf_trend_sign_note;
+    return `<span class="spark-line-wrap"><svg class="spark-line-svg" viewBox="0 0 108 32" role="img" aria-label="${I18N_DICT[currentLang].th_trend}. ${note}"><title>${note}</title>${paths}<circle cx="${spark.last.x}" cy="${spark.last.y}" r="2.5" fill="${spark.color}"/></svg></span>`;
   }
 
   function renderFinancialsSubPage(stockObj) {
@@ -4185,24 +4615,85 @@
 
     const isEn = (currentLang === 'en');
     const rawStmts = s.statements_raw || {};
-    const isQuarter = (activeStatementPeriod === 'quarterly');
-    const qRaw = rawStmts.quarterly_raw || {};
-    const cadence = MarketContext.cadence(s, activeStatementType);
+    const nativeCadence = MarketContext.cadence(s, activeStatementType);
+    if (nativeCadence.frequency === 'annual') activeStatementPeriod = 'annual';
+    else if (activeStatementPeriod === 'quarterly' && nativeCadence.stride === 2) activeStatementPeriod = 'semiannual';
+    const isQuarter = activeStatementPeriod !== 'annual';
+    const qRaw = (activeStatementPeriod === 'semiannual' ? rawStmts.semiannual_raw : rawStmts.quarterly_raw) || {};
+    const cadence = MarketContext.cadence(activeStatementPeriod === 'semiannual' ? { reportingFrequency: 'semiannual' } : s, activeStatementType);
     const curStmt = isQuarter ? (qRaw[activeStatementType] || {}) : (rawStmts[activeStatementType] || {});
     const incStmt = isQuarter ? (qRaw.income || {}) : (rawStmts.income || {});
 
     // 動態更新表頭 (包含凍結第一欄與雙層申報日期)
     const theadRow = document.getElementById('cmp-fin-thead');
     const datesList = isQuarter ? (qRaw.dates || []) : (rawStmts.annual_dates || []);
-    const periods = isQuarter ? (qRaw.periods || []).map(value => cadence.stride === 2
+    const basePeriods = isQuarter ? (qRaw.periods || []).map(value => cadence.stride === 2
       ? String(value).replace(/Q2\b/g, 'H1').replace(/Q4\b/g, 'H2') : value) : Array.from({ length: 6 },
-      (_, i) => i === 5 ? 'TTM' : datesList[i] || 'N/A');
+      (_, i) => i === 5 ? activeStatementType === 'balance'
+        ? (isEn ? 'Latest balance' : '最新期末') : 'TTM' : datesList[i] || 'N/A');
+    const lengths = (isQuarter ? qRaw.statementPeriodLengths : rawStmts.statementPeriodLengths)?.[activeStatementType]
+      || (isQuarter ? qRaw.periodLengths : rawStmts.annual_period_lengths);
+    const periods = basePeriods.map((label, i) => {
+      if (activeStatementType === 'balance' || !isQuarter && i === 5 || !lengths) return label;
+      const months = lengths[i], standard = isQuarter ? cadence.stride * 3 : 12;
+      return months === null ? `${label} (${isEn ? 'duration unverified' : '期間未核實'})`
+        : Number.isInteger(months) && months !== standard ? `${label} (${months}${isEn ? 'M' : ' 個月'})` : label;
+    });
     document.getElementById('statement-type').value = activeStatementType;
     document.getElementById('statement-period').value = activeStatementPeriod;
     const statementLabels = MarketContext.localize(document.getElementById('subpage-financials'), I18N_DICT[currentLang],
-      { reportingFrequency: cadence.frequency });
-    document.getElementById('statement-status').textContent = `${ticker} · ${statementLabels[isQuarter ? 'btn_period_quarter' : 'btn_period_annual']} · ${periods.length} ${statementLabels.analysis_columns}${
-      activeStatementType === 'cashflow' && cadence.frequency === 'annual' && isQuarter ? ' · N/A: Annual cash flow only; no interim/TTM cash flow is reported.' : ''}`;
+      { reportingFrequency: nativeCadence.frequency,
+        periodView: activeStatementPeriod === 'semiannual' && nativeCadence.frequency === 'quarterly' ? 'semiannual' : null });
+    const balanceAnnualLabel = isEn ? 'Annual (5Y + latest balance)' : '年度（5 年＋最新期末餘額）';
+    if (activeStatementType === 'balance') {
+      document.querySelector('#statement-period option[value="annual"]').textContent = balanceAnnualLabel;
+    }
+    const periodLabel = activeStatementType === 'balance' && !isQuarter ? balanceAnnualLabel
+      : statementLabels[activeStatementPeriod === 'semiannual' ? 'btn_period_half' : isQuarter ? 'btn_period_quarter' : 'btn_period_annual'];
+    document.getElementById('statement-status').textContent = `${ticker} · ${periodLabel} · ${periods.length} ${statementLabels.analysis_columns}${
+      activeStatementType === 'cashflow' && MarketContext.cadence(s, 'cashflow').frequency === 'annual'
+        ? (isEn ? ' · The FMP cache lacks verified interim cash flow for TTM; this does not mean the issuer has not published it.'
+          : ' · FMP 快取缺少已核實期中現金流，TTM 暫缺；並非公司未披露半年現金流。') : ''}${
+      activeStatementPeriod === 'semiannual' && nativeCadence.frequency === 'quarterly'
+        ? (isEn ? ' · Derived from two reported quarters; closing balances are not summed. Nonadditive EPS remains N/A.' : ' · 合計兩個實報季度；資產負債採期末餘額、不加總。不可加總的 EPS 維持 N/A。') : ''}`;
+    const status = document.getElementById('statement-status');
+    const addSource = (source, label) => {
+      const link = document.createElement('a');
+      link.href = source.url;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.textContent = label;
+      status.append(document.createTextNode(' · '), link);
+    };
+    if (activeStatementType === 'income' && s.revenueProvenance) {
+      status.append(document.createTextNode(isEn
+        ? ' · Reviewed revenue and specified income lines use cited issuer reports; other fields are not certified. Operating profit may be a cited derived subtotal, not reported/adjusted EBITDA. Reported gross profit is preserved where available, otherwise N/A. Net margin requires earnings compatible with continuing revenue. I2 means a second interim report, not another half-year; transition durations are shown explicitly. Published accounting changes, comparative restatements and historical EPS share bases are retained; periods are not automatically like-for-like or restated to current shares. No historical DCF or unpublished bridge is invented.'
+        : ' · 已核對營收與指定損益項目採發行人原報表；未核對欄位不代表已獲官方認證。營業利潤可能按引用項目推算，不等同實報／經調整 EBITDA。有披露的毛利予以保留，未披露則為 N/A。淨利率須採與持續經營營收相容的盈利。I2 代表第二份中期報告，不是另一個半年；過渡期明示月數。保留各期會計變更、比較欄重列與歷史 EPS 股數基礎，不保證同口徑可比，亦不自動換成現時股數；不虛構歷史 DCF 或未公布的調整橋接。'));
+      const years = new Set(datesList.filter(date => typeof date === 'string').map(date => date.slice(0, 4)));
+      const ids = new Set([...s.revenueProvenance.annual, ...s.revenueProvenance.halfYear,
+        ...(s.revenueProvenance.interimPeriods || [])]
+        .filter(row => years.has(row.date.slice(0, 4))).map(row => row.sourceId));
+      for (const [id, source] of Object.entries(s.revenueProvenance.documents)) {
+        if (ids.has(id)) addSource(source, `${id} · PDF p.${source.pdfPages.join(', ')}`);
+      }
+    }
+    if (activeStatementType === 'balance' && s.balanceClassificationSource) {
+      const verifiedDates = s.balanceClassificationSource.dates.map(date => date.slice(0, 7)).join(', ');
+      status.append(document.createTextNode(isEn
+        ? ` · Official current/non-current classification verified for ${verifiedDates}. Each period retains its cited report/comparative source; original FMP data is preserved. Unverified dates remain N/A. Balances are closing snapshots, not TTM sums. Vendor DCF forecasts are not rewritten.`
+        : ` · 已按官方報表核實 ${verifiedDates} 的流動／非流動分類，各期保留年報／比較欄來源及原始 FMP 資料。未核實日期維持 N/A。資產負債採期末快照，不作 TTM 加總；未改寫 FMP 原生 DCF 預測。`));
+      for (const source of s.balanceClassificationSource.documents || [s.balanceClassificationSource]) {
+        const sourceDates = (s.balanceClassificationSource.periods || [])
+          .filter(period => period.source.url === source.url).map(period => period.date.slice(0, 7)).join(', ');
+        addSource(source, `${sourceDates} · ${isEn ? 'Report' : '報表'} p.${source.printedPage} (PDF p.${source.pdfPage})`);
+      }
+    }
+    if (activeStatementType === 'cashflow' && s.cashflowProvenance) {
+      status.append(document.createTextNode(isEn
+        ? ' · FY2025 and H1 figures use cited official reports. H2 = official FY − official H1; TTM = H2 2025 + H1 2026, not invented quarters. Earlier years retain FMP data. Combined D&A/impairment and net fixed/intangible investment are labelled separately; unreported breakdowns remain N/A. HSBC uses each half-year’s historical HKD FX, not today’s rate; cash balances use closing FX, so translated cash bridges can have additional translation differences.'
+        : ' · FY2025 及半年數字採官方報表；H2＝官方全年減官方 H1，TTM＝2025 H2＋2026 H1，不虛構季度。較早年度保留 FMP 資料。折舊／攤銷／減值及固定／無形資產淨投資另列；未披露細分維持 N/A。滙控按各半年的歷史匯率換算港元，現金餘額採期末匯率，不用現價；港元現金對帳可能另有換算差額。'));
+      s.cashflowProvenance.documents.forEach(source => addSource(source, source.id));
+    }
 
     if (theadRow) {
       let theadHtml = `<th class="table-sticky-col" data-i18n="th_fin_item">${I18N_DICT[currentLang].th_fin_item}</th>`;
@@ -4210,18 +4701,23 @@
       periods.forEach((p, pIdx) => {
         const isQ4 = isQuarter && String(p).toUpperCase().includes('Q4') && (pIdx < periods.length - 1);
         const subDate = datesList[pIdx] && String(p) !== datesList[pIdx] ? `<span class="th-period-subdate">(${datesList[pIdx]})</span>` : '';
+        const reviewPeriod = s.propertyFvProvenance && activeStatementType !== 'balance'
+          ? `<span class="th-period-subdate">${datesList[pIdx] >= '2018-09' && datesList[pIdx] <= '2026-03'
+            ? (isEn ? 'Reviewed fields' : '已審核欄位') : (isEn ? 'Reported; unreviewed' : '報告值；未審核')}</span>` : '';
         
         theadHtml += `
           <th class="${isQ4 ? 'year-divider-cell' : ''}" style="text-align: right; vertical-align: middle; padding: 8px 14px;">
             <div class="th-cell-wrap">
               <span class="th-period-title">${p}</span>
               ${subDate}
+              ${reviewPeriod}
             </div>
           </th>
         `;
       });
 
-      const trendHeaderTitle = isEn 
+      const trendHeaderTitle = activeStatementType === 'balance'
+        ? (isEn ? 'Available balance trend' : '可用期末餘額趨勢') : isEn
         ? (isQuarter ? cadence.stride === 2 ? 'Reported half-year trend' : 'Last 20Q Trend' : '5Y/TTM Trend')
         : (isQuarter ? cadence.stride === 2 ? '實際半年趨勢' : '近 20 季趨勢' : '近 5 年/TTM 趨勢');
       theadHtml += `<th class="fcf-trend-col">${trendHeaderTitle}</th>`;
@@ -4247,6 +4743,9 @@
 
     // 季度視角：各項利潤率直接除以當季營收計算
     function getRatioSeries(field, numeratorField, denominatorField) {
+      if (s.revenueProvenance && Array.isArray(incStmt[field])) {
+        return incStmt[field].map(value => Number.isFinite(value) ? value * 100 : NaN);
+      }
       if (isQuarter) {
         const numArr = incStmt[numeratorField] || [];
         const denArr = incStmt[denominatorField] || [];
@@ -4487,6 +4986,120 @@
       ];
     }
 
+    if (activeStatementType === 'balance' && s.balanceClassificationSource) {
+      const sourceDates = new Set(s.balanceClassificationSource.dates.map(date => date.slice(0, 7)));
+      const reportedGroup = (zh, en, rows) => ({ groupTitleZh: zh, groupTitleEn: en,
+        items: rows.map(([field, nameZh, nameEn, highlight]) => ({ nameZh, nameEn, highlight: !!highlight,
+          series: getSeries(field).map((value, index) => sourceDates.has(datesList[index])
+            || ['totalAssets', 'totalLiabilities', 'totalStockholdersEquity', 'totalEquity', 'totalLiabilitiesAndTotalEquity'].includes(field) ? value : NaN) })) });
+      sections.splice(0, 4,
+        reportedGroup('流動資產（官方分類）', 'Current Assets — Official Classification', [
+          ['cashAndCashEquivalents', '現金及現金等價物', 'Cash and cash equivalents'],
+          ['financialAssetsFvplCurrent', '按公平值計入損益的金融資產', 'Financial assets at FVTPL'],
+          ['financialAssetsFvociCurrent', '按公平值計入其他全面收益的金融資產', 'Financial assets at FVOCI'],
+          ['financialAssetsAmortisedCostCurrent', '按攤銷成本計量的金融資產', 'Financial assets at amortised cost'],
+          ['derivativeAssetsCurrent', '衍生金融工具資產', 'Derivative financial assets'],
+          ['receivablesPrepaymentsDepositsCurrent', '應收帳款、預付款項及按金（合併披露）', 'Receivables, prepayments and deposits (combined)'],
+          ['taxRecoverableCurrent', '可收回稅項', 'Tax recoverable'],
+          ['totalCurrentAssets', '流動資產合計', 'Total Current Assets', true]]),
+        reportedGroup('非流動資產（官方分類）', 'Non-Current Assets — Official Classification', [
+          ['financialAssetsFvplNonCurrent', '按公平值計入損益的金融資產', 'Financial assets at FVTPL'],
+          ['financialAssetsFvociNonCurrent', '按公平值計入其他全面收益的金融資產', 'Financial assets at FVOCI'],
+          ['financialAssetsAmortisedCostNonCurrent', '按攤銷成本計量的金融資產', 'Financial assets at amortised cost'],
+          ['receivablesPrepaymentsDepositsNonCurrent', '應收帳款、預付款項及按金（合併披露）', 'Receivables, prepayments and deposits (combined)'],
+          ['jointVentureAndAssociateInterests', '於合營企業及聯營公司的權益', 'Joint venture and associate interests'],
+          ['goodwillAndIntangibleAssets', '商譽及其他無形資產（合併披露）', 'Goodwill and other intangible assets (combined)'],
+          ['propertyPlantEquipmentNet', '固定資產', 'Fixed assets'],
+          ['rightOfUseAssets', '使用權資產', 'Right-of-use assets'],
+          ['taxAssets', '遞延稅項資產', 'Deferred tax assets'],
+          ['totalNonCurrentAssets', '非流動資產合計', 'Total Non-Current Assets', true],
+          ['totalAssets', '資產總額', 'Total Assets', true]]),
+        reportedGroup('流動負債（官方分類）', 'Current Liabilities — Official Classification', [
+          ['derivativeLiabilitiesCurrent', '衍生金融工具負債', 'Derivative financial liabilities'],
+          ['participantDepositsCollateralCurrent', '參與者保證金、內地證券及交收按金與現金抵押品', 'Participant margin, Mainland security/settlement deposits and cash collateral'],
+          ['payablesAccrualsOtherLiabilitiesCurrent', '應付帳款、應計費用及其他負債（合併披露）', 'Payables, accruals and other liabilities (combined)'],
+          ['deferredRevenue', '遞延收入', 'Deferred revenue'],
+          ['taxPayables', '應付稅項', 'Taxation payable'],
+          ['otherFinancialLiabilitiesCurrent', '其他金融負債', 'Other financial liabilities'],
+          ['clearingHouseFundContributionsCurrent', '參與者對結算所基金的供款', 'Participant contributions to Clearing House Funds'],
+          ['capitalLeaseObligationsCurrent', '租賃負債', 'Lease liabilities'],
+          ['shortTermDebt', '借款（不含租賃負債）', 'Borrowings (excluding leases)'],
+          ['provisionsCurrent', '撥備', 'Provisions'],
+          ['totalCurrentLiabilities', '流動負債合計', 'Total Current Liabilities', true]]),
+        reportedGroup('非流動負債（官方分類）', 'Non-Current Liabilities — Official Classification', [
+          ['deferredRevenueNonCurrent', '遞延收入', 'Deferred revenue'],
+          ['taxPayablesNonCurrent', '應付稅項', 'Taxation payable'],
+          ['capitalLeaseObligationsNonCurrent', '租賃負債', 'Lease liabilities'],
+          ['longTermDebt', '借款（不含租賃負債）', 'Borrowings (excluding leases)'],
+          ['provisionsNonCurrent', '撥備', 'Provisions'],
+          ['deferredTaxLiabilitiesNonCurrent', '遞延稅項負債', 'Deferred tax liabilities'],
+          ['totalNonCurrentLiabilities', '非流動負債合計', 'Total Non-Current Liabilities', true],
+          ['totalLiabilities', '負債總額', 'Total Liabilities', true],
+          ['totalDebt', '借款及租賃負債總額（各計一次）', 'Total borrowings and lease liabilities (counted once)', true],
+          ['netDebt', '淨借款及租賃負債', 'Net borrowings and lease liabilities']]));
+      sections[4] = reportedGroup('股東權益（官方列報項目）', 'Equity — Official Reported Items', [
+        ['commonStock', '股本', 'Share capital'],
+        ['treasuryStock', '股份獎勵計劃持有的股份', 'Shares held for Share Award Scheme'],
+        ['employeeShareBasedCompensationReserve', '僱員股份基礎薪酬儲備', 'Employee share-based compensation reserve'],
+        ['hedgingRevaluationReserves', '對沖及重估儲備', 'Hedging and revaluation reserves'],
+        ['exchangeReserve', '匯兌儲備', 'Exchange reserve'],
+        ['designatedReserves', '指定儲備', 'Designated reserves'],
+        ['writtenPutReserveNonControllingInterests', '非控股權益認沽期權儲備', 'Reserve for written put options to NCI'],
+        ['retainedEarnings', '保留盈餘', 'Retained earnings'],
+        ['totalStockholdersEquity', '港交所股東應佔權益', 'Equity attributable to HKEX shareholders', true],
+        ['minorityInterest', '非控股權益', 'Non-controlling interests'],
+        ['totalEquity', '總權益', 'Total Equity', true],
+        ['totalLiabilitiesAndTotalEquity', '負債與權益總額', 'Total Liabilities and Equity', true]]);
+    }
+    if (activeStatementType === 'cashflow' && s.cashflowProvenance) {
+      sections[0].items.splice(1, 0,
+        { nameZh: '稅前溢利（官方現金流調節起點；非淨利）', nameEn: 'Profit before tax (official CF reconciliation start, not net income)', series: getSeries('incomeBeforeTax') },
+        { nameZh: '折舊、攤銷及減值（合併口徑）', nameEn: 'Depreciation, amortisation and impairment (combined)', series: getSeries('depreciationAmortizationAndImpairment') },
+        { nameZh: '已付所得稅', nameEn: 'Income taxes paid', series: getSeries('incomeTaxesPaid') });
+      const extraRows = ticker === '0388.HK' ? [
+        ['principalOperatingCashFlowNonHKFRS', '主要業務經營現金流（非 HKFRS，並非 CFO 合計）', 'Principal operating cash flow (non-HKFRS, not total CFO)'],
+        ['otherOperatingFundManagerRedemptions', '其他營運基金贖回', 'Other operating fund-manager redemptions'],
+        ['headquartersPremisesAcquisitionPayments', '總部物業購置付款', 'Headquarters premises acquisition payments'],
+        ['otherFixedAssetAndIntangiblePurchasesCombined', '其他固定及無形資產購置（合併披露）', 'Other fixed and intangible asset purchases (combined)']
+      ] : [
+        ['changeInOperatingAssetsAndLiabilitiesCombined', '營運資產及負債變動（合併口徑）', 'Changes in operating assets and liabilities (combined)'],
+        ['eliminationOfExchangeDifferencesAdjustment', '營運現金流匯兌差異剔除調整（非期末現金匯率影響）', 'Operating exchange-difference elimination (not cash-balance FX)'],
+        ['netPropertyPlantAndEquipmentPurchasesAndSales', '固定資產買賣淨額（非購置總額）', 'Net PPE purchases and sales (not gross purchases)'],
+        ['netIntangibleAssetInvestment', '無形資產淨投資', 'Net intangible asset investment'],
+        ['dividendsPaidToParentShareholdersAndNonControllingInterests', '已付母公司股東及非控股權益股息（非普通股股息單項）', 'Dividends paid to parent shareholders and NCI (not ordinary dividends alone)']
+      ];
+      sections.splice(3, 0, { groupTitleZh: '官方來源補充項目（不得與上方合計重複相加）',
+        groupTitleEn: 'Official source-specific items (do not add again to totals above)',
+        items: extraRows.map(([field, nameZh, nameEn]) => ({ nameZh, nameEn, series: getSeries(field) })) });
+      const footer = sections.at(-1);
+      footer.items.find(item => item.nameEn === 'Capital Expenditure').nameEn = 'Fixed/intangible cash investment (source-defined; HSBC net)';
+      footer.items.find(item => item.nameZh.startsWith('資本支出')).nameZh = '固定／無形資產現金投資（來源口徑；滙控為淨額）';
+      footer.items.find(item => item.nameEn === 'Free Cash Flow').nameEn = 'CFO less fixed/intangible cash investment (not distributable bank FCF)';
+      footer.items.find(item => item.nameZh.startsWith('自由現金流')).nameZh = 'CFO 減固定／無形投資（非銀行可分派股東現金流）';
+    }
+    if (activeStatementType === 'cashflow' && s.propertyFvProvenance) {
+      sections[0].items[0] = { nameEn: 'Reported pretax profit (official cash-flow reconciliation start)',
+        nameZh: '報告稅前溢利（官方現金流調節起點）', series: getSeries('incomeBeforeTax') };
+      sections.splice(3, 0, { groupTitleEn: 'Reviewed property cash items (do not add again to totals)',
+        groupTitleZh: '已核實物業現金項目（不得與合計重複相加）', items: [
+          { nameEn: 'Cash investment-property additions (positive spending)', nameZh: '投資物業現金投入（正數支出）',
+            series: getSeries('cashInvestmentPropertyAdditions') },
+          { nameEn: 'Cash PPE additions (positive spending)', nameZh: '固定資產現金投入（正數支出）',
+            series: getSeries('cashPpeAdditions') },
+          { nameEn: 'Held-for-sale cash reclassification', nameZh: '待售項目現金重分類',
+            series: getSeries('heldForSaleCashMovement') }
+        ] });
+      const footer = sections.at(-1);
+      const capex = footer.items.find(item => item.nameEn === 'Capital Expenditure');
+      capex.nameEn = 'Cash investment-property + PPE additions (negative outflow)';
+      capex.nameZh = '投資物業＋固定資產現金投入（負數支出）';
+      const fcf = footer.items.find(item => item.nameEn === 'Free Cash Flow');
+      fcf.nameEn = 'Statutory CFO less property/PPE cash investment (before financing interest)';
+      fcf.nameZh = '法定 CFO 減物業／固定資產現金投入（未扣融資分類利息）';
+      status.append(document.createTextNode(isEn
+        ? ' · Reviewed cash totals and cash bridge; unverified component breakdowns remain N/A, not zero. Original FMP components are preserved in the source archive.'
+        : ' · 現金合計及現金餘額調節已核實；未核實的分項維持 N/A，而非零。原始 FMP 分項保存在來源審核資料。'));
+    }
     let rowsHtml = '';
     sections.forEach(sec => {
       const groupTitle = isEn ? sec.groupTitleEn : sec.groupTitleZh;
@@ -4497,13 +5110,19 @@
       });
       rowsHtml += '<td class="fcf-trend-col"></td></tr>';
       sec.items.forEach(it => {
-        const label = isEn ? it.nameEn : it.nameZh;
+        let label = isEn ? it.nameEn : it.nameZh;
+        if (s.propertyFvProvenance && activeStatementType === 'income') {
+          const adjusted = /^(Operating Income|EBITDA|EBIT$|Net Income|EPS \(Basic\)|EPS \(Diluted\))/.test(it.nameEn);
+          label += adjusted ? (isEn ? ' [property-FV adjusted]' : '【物業公允值調整】')
+            : (isEn ? ' [reported]' : '【報告值】');
+        }
         const highlightStyle = it.highlight ? 'font-weight: 700; color: var(--text);' : 'color: var(--text-secondary);';
 
         rowsHtml += `<tr><td class="table-sticky-col" style="text-align: left; ${highlightStyle} padding-left: 24px;">${label}</td>`;
         it.series.forEach((val, colIdx) => {
           if (!Number.isFinite(val)) {
-            rowsHtml += `<td class="text-muted" title="${I18N_DICT[currentLang].currency_missing}">N/A</td>`;
+            rowsHtml += `<td class="text-muted" title="${s.propertyFvProvenance
+              ? MarketContext.propertyFvNote(s, currentLang) : I18N_DICT[currentLang].currency_missing}">N/A</td>`;
             return;
           }
           // 只在季度模式且當期標籤為 Q4（且非最後一欄）時加上直線
@@ -4561,16 +5180,26 @@
     loadFinancialProvenance(document.getElementById('subpage-ratios'), activeCompanyTicker, s);
 
     const isEn = (currentLang === 'en');
-    const isQuarter = (typeof activeRatioPeriod !== 'undefined' && activeRatioPeriod === 'quarterly');
+    const isQuarter = activeRatioPeriod !== 'annual';
 
     const rawStmts = s.statements_raw || {};
-    const qRaw = rawStmts.quarterly_raw || {};
+    const qRaw = (activeRatioPeriod === 'semiannual' ? rawStmts.semiannual_raw : rawStmts.quarterly_raw) || {};
     const periods = isQuarter
       ? (qRaw.periods || [])
       : Array.from({ length: 6 }, (_, i) => i === 5 ? 'TTM' : rawStmts.annual_dates?.[i] || 'N/A');
     const count = periods.length;
-    const ratioLabels = MarketContext.labels(I18N_DICT[currentLang], s);
-    document.getElementById('ratio-status').textContent = `${activeCompanyTicker} · ${ratioLabels[isQuarter ? 'btn_ratio_quarter' : 'btn_ratio_annual']} · ${count} ${ratioLabels.analysis_columns}`;
+    const ratioLabels = MarketContext.localize(document.getElementById('subpage-ratios'), I18N_DICT[currentLang],
+      activeRatioPeriod === 'semiannual' ? { reportingFrequency: 'semiannual', periodView: s.reportingFrequency !== 'semiannual' ? 'semiannual' : null } : s);
+    document.getElementById('ratio-status').textContent = `${activeCompanyTicker} · ${ratioLabels[activeRatioPeriod === 'semiannual' ? 'btn_ratio_half' : isQuarter ? 'btn_ratio_quarter' : 'btn_ratio_annual']} · ${count} ${ratioLabels.analysis_columns}`;
+    if (s.revenueProvenance) {
+      const beforeGamingTax = s.revenueProvenance.basisCode === 'issuerRevenueBeforeGamingTax'
+        || s.revenueProvenance.symbol === '0027.HK';
+      const noGrossProfit = s.revenueProvenance.grossProfitPolicy === 'notReported'
+        || s.revenueProvenance.symbol === '0027.HK';
+      document.getElementById('ratio-status').textContent += currentLang === 'en'
+        ? ` · Reviewed periods use official revenue${beforeGamingTax ? ' before gaming tax' : ' on the issuer’s consolidated reporting basis'}.${noGrossProfit ? ' Issuer gross profit is not reported; gross margins stay N/A.' : ' Gross profit is retained only where supported by the cited statement.'} Unreviewed financial fields are not certified; issuer accounting bases may differ.`
+        : ` · 已核對期間採官方${beforeGamingTax ? '博彩稅前營收' : '合併財報認列口徑'}。${noGrossProfit ? '年報未列毛利，毛利率維持 N/A。' : '僅保留原報表有依據的毛利。'}未核對欄位不代表已獲官方驗證，各公司會計口徑亦可能不同。`;
+    }
 
     // 安全抓取對應長度序列
     function getArr(dictKey, fieldKey) {
@@ -4619,7 +5248,7 @@
         }
         const prev = arr[i - 1];
         if (isQuarter) {
-          const cadence = MarketContext.cadence(s, field === 'freeCashFlow' ? 'cashflow' : 'income');
+          const cadence = MarketContext.cadence(activeRatioPeriod === 'semiannual' ? { reportingFrequency: 'semiannual' } : s, field === 'freeCashFlow' ? 'cashflow' : 'income');
           const days = (Date.parse(qRaw.dates?.[i]) - Date.parse(qRaw.dates?.[i - 1])) / 86400000;
           if (!Number.isFinite(days) || days < cadence.minDays || days > cadence.maxDays) return NaN;
         }
@@ -4633,6 +5262,11 @@
     const ebitdaGrowth = calcGrowth(ebitda, 'ebitda');
     const epsGrowth = calcGrowth(eps, 'epsDiluted');
     const fcfGrowth = calcGrowth(fcf, 'freeCashFlow');
+    const fcfEquity = fcf.map((value, i) =>
+      (isQuarter ? qRaw.fxUnavailable : rawStmts.fxUnavailable)?.[i] ? null
+        : !isQuarter && i === count - 1
+          ? FcfRatios.storedTtmFcfToEquity(rawStmts, s.currencyConversion?.reason)
+          : FcfRatios.fcfToEquity(value, equity[i]));
 
     const ratioGroups = [
       {
@@ -4655,6 +5289,7 @@
           { nameZh: "營運現金流 (Operating Cash Flow, $M)", nameEn: "Operating Cash Flow ($M)", series: cfo },
           { nameZh: "自由現金流 (Free Cash Flow, $M)", nameEn: "Free Cash Flow ($M)", series: fcf, highlight: true, color: "text-green" },
           { nameZh: isQuarter ? "自由現金流季增率 % (FCF Growth QoQ)" : "自由現金流年增率 % (FCF Growth YoY)", nameEn: isQuarter ? "FCF Growth % (QoQ)" : "FCF Growth % (YoY)", series: fcfGrowth, isPercent: true, color: "text-green" },
+          { nameZh: "FCF / 本公司股東應佔權益 (%)", nameEn: "FCF / Equity attributable to equity holders of the Company (%)", series: fcfEquity, isPercent: true, color: "text-green", note: I18N_DICT[currentLang].fcf_equity_basis },
           { nameZh: "資產報酬率 % (ROA)", nameEn: "ROA %", series: ni.map((n, i) => (totAssets[i] ? (n / totAssets[i]) * 100 : NaN)), isPercent: true, color: "text-green" },
           { nameZh: "股東權益報酬率 % (ROE)", nameEn: "ROE %", series: ni.map((n, i) => (equity[i] ? (n / equity[i]) * 100 : NaN)), isPercent: true, color: "text-gold" }
         ]
@@ -4692,7 +5327,7 @@
         const hl = it.highlight ? 'font-weight: 700; color: var(--text);' : 'color: var(--text-secondary);';
         const colorCls = it.color || '';
 
-        html += `<tr><td class="table-sticky-col" style="text-align: left; ${hl} padding-left: 24px;">${label}</td>`;
+        html += `<tr><td class="table-sticky-col"${it.note ? ` title="${it.note}"` : ''} style="text-align: left; ${hl} padding-left: 24px;">${label}</td>`;
         it.series.forEach((val, cIdx) => {
           let disp = '';
           if (!Number.isFinite(val) || (isQuarter ? qRaw.fxUnavailable : rawStmts.fxUnavailable)?.[cIdx]) disp = 'N/A';
@@ -4717,9 +5352,12 @@
   // ========================================================
   // 4. 直向 5 家同行深度財務矩陣 (雙語切換 + 雙向滾動凍結 + 45+ 項指標)
   // ========================================================
-  function renderPeersSubPage(s) {
+  let peerRenderRequestId = 0;
+  async function renderPeersSubPage(s, reload = false) {
     const container = document.getElementById('subpage-peers');
     if (!container || !s) return;
+    const requestId = ++peerRenderRequestId, market = MarketContext.market;
+    const annual = market === 'HKEX';
     const isEn = (currentLang === 'en');
 
     // 統一在此宣告一次 targetTicker
@@ -4730,10 +5368,30 @@
     const peerStocks = selection.peers.map(peer => ({ ...peer.stock, ticker: peer.ticker, peerBasis: peer.basis }));
 
     // 第 1 欄為本標的，右側並列同行
-    const allCols = [currentStock, ...peerStocks];
+    let allCols = [currentStock, ...peerStocks];
+    if (annual) {
+      container.innerHTML = `<p role="status" class="analysis-note">${I18N_DICT[currentLang].fcf_loading}</p>`;
+      try {
+        const data = await Promise.all(allCols.map(stock => FcfRatios.loadStatements(stock.ticker, reload)));
+        if (requestId !== peerRenderRequestId || market !== MarketContext.market) return;
+        allCols = allCols.map((stock, index) => PeerComparison.annualView(stock, data[index]));
+      } catch (error) {
+        if (requestId !== peerRenderRequestId || market !== MarketContext.market) return;
+        console.error('Annual peer financial statements could not be loaded', targetTicker, error);
+        container.innerHTML = `<p role="alert" class="analysis-note">${isEn
+          ? 'Annual peer financial statements could not be loaded. No TTM values are substituted.'
+          : '無法載入同業年度財報，不會以 TTM 數字替代。'}</p><button id="peer-annual-retry" class="btn">${isEn ? 'Retry' : '重試'}</button>`;
+        document.getElementById('peer-annual-retry').onclick = () => renderPeersSubPage(s, true);
+        return;
+      }
+    }
 
-    // 輔助數據提取函式 (安全提取 TTM 數值)
+    // 依比較口徑讀取財務數值。
     function getFinVal(stock, stmtKey, fieldKey, idx = -1) {
+      if (annual) {
+        const value = stock.peerAnnual[stmtKey]?.[fieldKey];
+        return Number.isFinite(value) ? value : NaN;
+      }
       const stmts = (stock && stock.statements_raw && stock.statements_raw[stmtKey]) || {};
       const arr = stmts[fieldKey];
       if (Array.isArray(arr) && arr.length > 0) {
@@ -4745,17 +5403,23 @@
     }
 
     function growthCell(stock, field) {
-      const record = ProfileOverview.storedGrowth(stock, field);
+      const record = annual ? stock.peerAnnual.growth[field] : ProfileOverview.storedGrowth(stock, field);
       const labels = I18N_DICT[currentLang];
       const reason = record?.reason === 'nonPositivePrior' ? labels.analysis_growth_non_positive
-        : labels[`fcf_reason_${record?.reason || 'missingField'}`] || labels.fcf_error;
+        : annual ? labels[`analysis_annual_growth_${record?.reason}`] || labels.analysis_annual_growth_unavailable
+          : labels[`fcf_reason_${record?.reason || 'missingField'}`] || labels.fcf_error;
       const available = record && !record.reason && Number.isFinite(record.value);
-      const title = available ? `TTM ${record.previousDate} / TTM ${record.date}` : reason;
-      return `<span data-peer-growth="${field}" data-growth-value="${available ? record.value : ''}" title="${title}">${available ? fmtPct(record.value, true) : 'N/A'}</span>`;
+      const basis = record?.basis === 'annual' ? (isEn ? 'FY' : '年度') : 'TTM';
+      const transition = annual && record?.transition ? labels[`analysis_growth_${record.transition}`] : null;
+      const dates = `${basis} ${record?.previousDate} / ${basis} ${record?.date}`;
+      const title = transition ? `${dates}: ${transition}. ${labels.analysis_growth_transition_note}`
+        : available ? dates : reason;
+      return `<span data-peer-growth="${field}" data-growth-transition="${transition ? record.transition : ''}" data-growth-value="${available ? record.value : ''}" title="${title}">${transition || (available ? fmtPct(record.value, true) + (record.basis === 'annual' ? ` (${basis})` : '') : 'N/A')}</span>`;
     }
 
     // 取得最新申報月份 (YYYY-MM)
     function getLatestDate(stock) {
+      if (annual) return stock.peerAnnual.date ? `${stock.peerAnnual.label} · ${stock.peerAnnual.date}` : 'N/A';
       const dates = (stock && stock.statements_raw && stock.statements_raw.annual_dates) || [];
       if (dates.length > 0) return dates[dates.length - 1];
       const qDates = (stock && stock.statements_raw && stock.statements_raw.quarterly_raw && stock.statements_raw.quarterly_raw.dates) || [];
@@ -4764,9 +5428,18 @@
     }
 
     // 數值格式化輔助函式
-    const fmtM = v => (v === null || isNaN(v)) ? 'N/A' : `${moneyPrefix()}${Math.round(v).toLocaleString()}M`;
-    const fmtX = v => (v === null || isNaN(v) || v === 0) ? '--' : `${Number(v).toFixed(2)}x`;
+    const fmtM = v => (annual ? !Number.isFinite(v) : v === null || isNaN(v)) ? 'N/A' : `${moneyPrefix()}${Math.round(v).toLocaleString()}M`;
+    const fmtX = v => annual ? Number.isFinite(v) ? `${v.toFixed(2)}x` : 'N/A'
+      : (v === null || isNaN(v) || v === 0) ? '--' : `${Number(v).toFixed(2)}x`;
+    const annualNote = stock => isEn
+      ? `${getLatestDate(stock)}. Actual full-year flows and matching fiscal year-end balances; current quote ${stock.quoteDate || 'N/A'}. P/E uses ${stock.peerAnnual.epsBasis === 'reportedAnnualDilutedEps' ? 'reported diluted annual EPS' : 'annual common earnings / dated verified common shares'}; P/B uses FY-end parent equity / dated verified shares (${stock.shareSource?.date || 'N/A'}). EV includes preferred/noncontrolling book proxies; net debt deducts cash/short-term investments. Missing inputs and nonpositive FCF/EBITDA denominators remain N/A.`
+      : `${getLatestDate(stock)}。採完整年度實績及同一財年期末餘額；目前報價日期 ${stock.quoteDate || 'N/A'}。P/E 採${stock.peerAnnual.epsBasis === 'reportedAnnualDilutedEps' ? '實報年度稀釋 EPS' : '年度普通股盈利／有日期已核實普通股股數'}；P/B 採財年末母公司權益／有日期已核實股數（${stock.shareSource?.date || 'N/A'}）。EV 包括優先股及非控制權益帳面代理；淨債務扣除現金與短投。缺值及非正 FCF／EBITDA 倍數分母保留 N/A。`;
+    const leverageCell = (stock, kind) => `<span data-peer-metric="${kind}" title="${escapeAttribute(annual ? annualNote(stock) : leverageRatioNote(stock, kind))}">${Number.isFinite(stock[kind]) ? stock[kind].toFixed(2) + 'x' : 'N/A'}</span>`;
+    const valuationMultiple = (numerator, denominator) => Number.isFinite(numerator) && denominator > 0
+      ? numerator / denominator : null;
+    const marketEv = stock => annual ? stock.EV : Number(stock.EV || stock.mcap);
     const fmtPct = (v, colorize = false) => {
+      if (annual && !Number.isFinite(v)) return 'N/A';
       if (v === null || isNaN(v)) return '--';
       const num = Number(v);
       const str = `${num >= 0 ? '+' : ''}${num.toFixed(2)}%`;
@@ -4782,17 +5455,17 @@
         items: [
           { labelZh: "市值 ($M)", labelEn: "Market Cap ($M)", fn: x => fmtM(Number.isFinite(x.mcap) ? x.mcap : null) },
           { labelZh: `最新股價 (${MarketContext.currency})`, labelEn: `Stock Price (${MarketContext.currency})`, fn: x => Number.isFinite(x.price) ? `${moneyPrefix()}${x.price.toFixed(2)}` : 'N/A' },
-          { labelZh: "企業價值 EV ($M)", labelEn: "Enterprise Value EV ($M)", fn: x => fmtM(x.EV ?? x.fmp_official_ev ?? null) },
-          { labelZh: "EV / FCF", labelEn: "EV / FCF", fn: x => { const f = getFinVal(x, 'cashflow', 'freeCashFlow'); return f > 0 ? fmtX((Number(x.EV || x.mcap)) / f) : '--'; } },
-          { labelZh: "EV / EBITDA", labelEn: "EV / EBITDA", fn: x => fmtX(x.ev_to_ebitda) },
-          { labelZh: "EV / Revenue", labelEn: "EV / Revenue", fn: x => { const r = getFinVal(x, 'income', 'revenue'); return r > 0 ? fmtX((Number(x.EV || x.mcap)) / r) : '--'; } },
-          { labelZh: "Market Cap / FCF", labelEn: "Market Cap / FCF", fn: x => { const f = getFinVal(x, 'cashflow', 'freeCashFlow'); return f > 0 ? fmtX(Number(x.mcap) / f) : '--'; } },
-          { labelZh: "Market Cap / EBITDA", labelEn: "Market Cap / EBITDA", fn: x => { const eb = getFinVal(x, 'income', 'ebitda'); return eb > 0 ? fmtX(Number(x.mcap) / eb) : '--'; } },
-          { labelZh: "靜態 P/E", labelEn: "Trailing P/E", fn: x => x.pe_trailing ? `${Number(x.pe_trailing).toFixed(1)}x` : '--' },
-          { labelZh: "動態 P/E", labelEn: "Forward P/E", fn: x => x.pe_forward ? `${Number(x.pe_forward).toFixed(1)}x` : '--' },
-          { labelZh: "靜態 P/B", labelEn: "Trailing P/B", fn: x => x.pb_trailing ? `${Number(x.pb_trailing).toFixed(2)}x` : '--' },
+          { labelZh: "企業價值 EV ($M)", labelEn: "Enterprise Value EV ($M)", fn: x => fmtM(annual ? x.EV : x.EV ?? x.fmp_official_ev ?? null) },
+          { labelZh: "EV / FCF", labelEn: "EV / FCF", fn: x => { const f = getFinVal(x, 'cashflow', 'freeCashFlow'); return annual ? fmtX(valuationMultiple(marketEv(x), f)) : f > 0 ? fmtX((Number(x.EV || x.mcap)) / f) : '--'; } },
+          { labelZh: "EV / EBITDA", labelEn: "EV / EBITDA", fn: x => leverageCell(x, 'ev_to_ebitda') },
+          { labelZh: "EV / Revenue", labelEn: "EV / Revenue", fn: x => { const r = getFinVal(x, 'income', 'revenue'); return annual ? fmtX(valuationMultiple(marketEv(x), r)) : r > 0 ? fmtX((Number(x.EV || x.mcap)) / r) : '--'; } },
+          { labelZh: "Market Cap / FCF", labelEn: "Market Cap / FCF", fn: x => { const f = getFinVal(x, 'cashflow', 'freeCashFlow'); return annual ? fmtX(valuationMultiple(x.mcap, f)) : f > 0 ? fmtX(Number(x.mcap) / f) : '--'; } },
+          { labelZh: "Market Cap / EBITDA", labelEn: "Market Cap / EBITDA", fn: x => { const eb = getFinVal(x, 'income', 'ebitda'); return annual ? fmtX(valuationMultiple(x.mcap, eb)) : eb > 0 ? fmtX(Number(x.mcap) / eb) : '--'; } },
+          { labelZh: annual ? "P/E（最新完整財年）" : "靜態 P/E", labelEn: annual ? "P/E (latest full FY)" : "Trailing P/E", fn: x => annual ? Number.isFinite(x.pe_trailing) ? `${x.pe_trailing.toFixed(1)}x` : 'N/A' : x.pe_trailing ? `${Number(x.pe_trailing).toFixed(1)}x` : '--' },
+          { labelZh: "動態 P/E", labelEn: "Forward P/E", fn: x => `<span title="${escapeAttribute(forwardPeNote(x))}">${Number.isFinite(x.pe_forward) && x.pe_forward > 0 ? `${x.pe_forward.toFixed(1)}x` : '--'}</span>` },
+          { labelZh: annual ? "P/B（最新財年末）" : "靜態 P/B", labelEn: annual ? "P/B (latest FY-end)" : "Trailing P/B", fn: x => annual ? Number.isFinite(x.pb_trailing) ? `${x.pb_trailing.toFixed(2)}x` : 'N/A' : x.pb_trailing ? `${Number(x.pb_trailing).toFixed(2)}x` : '--' },
           { labelZh: "動態 P/B (估)", labelEn: "Forward P/B (Est.)", fn: x => { const eq = getFinVal(x, 'balance', 'totalStockholdersEquity'); return eq > 0 ? `${(Number(x.mcap) / eq).toFixed(2)}x` : '--'; } },
-          { labelZh: "股息率 (%)", labelEn: "Dividend Yield %", fn: x => Number.isFinite(x.div_yield) ? `${x.div_yield.toFixed(2)}%` : 'N/A' }
+          { labelZh: annual ? "年度現金股息／目前市值 (%)" : "股息率 (%)", labelEn: annual ? "FY Cash Dividends / Current Market Cap %" : "Dividend Yield %", fn: x => Number.isFinite(x.div_yield) ? `${x.div_yield.toFixed(2)}%` : 'N/A' }
         ]
       },
       {
@@ -4812,10 +5485,10 @@
         titleZh: "3. 獲利品質與商業壁壘 (Profitability & Moat)",
         titleEn: "3. Profitability & Moat",
         items: [
-          { labelZh: "巴菲特護城河評分 (Moat Score)", labelEn: "Buffett Moat Score", fn: x => { const d = computeDCF(x, x.ticker); return `<b title="${ratingProvenance(x, 'moat').replace(/"/g, '&quot;')}" style="color:var(--accent);">${d?.moat?.total ?? 'N/A'} / 100 ${ratingState(x, 'moat')}</b>`; } },
+          { labelZh: "巴菲特護城河評分 (Moat Score)", labelEn: "Buffett Moat Score", fn: x => { const moat = annual ? evaluateMoat(x) : computeDCF(x, x.ticker)?.moat; return `<b title="${ratingProvenance(x, 'moat').replace(/"/g, '&quot;')}" style="color:var(--accent);">${moat?.scoreText ?? 'N/A'} ${ratingState(x, 'moat')}</b>`; } },
           { labelZh: "營業收入 (Revenue, $M)", labelEn: "Revenue ($M)", fn: x => fmtM(getFinVal(x, 'income', 'revenue')) },
           { labelZh: "毛利 (Gross Profit, $M)", labelEn: "Gross Profit ($M)", fn: x => fmtM(getFinVal(x, 'income', 'grossProfit')) },
-          { labelZh: "毛利率 % (Gross Margin)", labelEn: "Gross Profit Margin %", fn: x => { const r = getFinVal(x, 'income', 'revenue'), g = getFinVal(x, 'income', 'grossProfit'); return r ? fmtPct((g/r)*100) : '--'; } },
+          { labelZh: "毛利率 % (Gross Margin)", labelEn: "Gross Profit Margin %", fn: x => { const r = getFinVal(x, 'income', 'revenue'), g = getFinVal(x, 'income', 'grossProfit'); return Number.isFinite(r) && r !== 0 && Number.isFinite(g) ? fmtPct((g/r)*100) : '--'; } },
           { labelZh: "營業利益 (Operating Income, $M)", labelEn: "Operating Profit ($M)", fn: x => fmtM(getFinVal(x, 'income', 'operatingIncome')) },
           { labelZh: "營業利益率 % (Operating Margin)", labelEn: "Operating Margin %", fn: x => { const r = getFinVal(x, 'income', 'revenue'), op = getFinVal(x, 'income', 'operatingIncome'); return r ? fmtPct((op/r)*100) : '--'; } },
           { labelZh: "稅後淨利 (Net Income, $M)", labelEn: "Net Profit ($M)", fn: x => fmtM(getFinVal(x, 'income', 'netIncome')) },
@@ -4834,8 +5507,8 @@
         titleEn: "4. Capital Efficiency",
         items: [
           { labelZh: "FCF / 股東權益 (%)", labelEn: "FCF / Equity %", fn: x => { const eq = getFinVal(x, 'balance', 'totalStockholdersEquity'), f = getFinVal(x, 'cashflow', 'freeCashFlow'); return eq ? fmtPct((f/eq)*100) : '--'; } },
-          { labelZh: "股東權益報酬率 (ROE %)", labelEn: "ROE %", fn: x => x.roe ? `${Number(x.roe).toFixed(2)}%` : '--' },
-          { labelZh: "資產報酬率 (ROA %)", labelEn: "ROA %", fn: x => x.roa ? `${Number(x.roa).toFixed(2)}%` : '--' },
+          { labelZh: "股東權益報酬率 (ROE %)", labelEn: "ROE %", fn: x => annual ? fmtPct(x.roe) : x.roe ? `${Number(x.roe).toFixed(2)}%` : '--' },
+          { labelZh: "資產報酬率 (ROA %)", labelEn: "ROA %", fn: x => annual ? fmtPct(x.roa) : x.roa ? `${Number(x.roa).toFixed(2)}%` : '--' },
           { labelZh: "投入資本回報率 (ROIC %)", labelEn: "ROIC % (Est.)", fn: x => {
               const ebit = getFinVal(x, 'income', 'operatingIncome');
               const debt = getFinVal(x, 'balance', 'totalDebt');
@@ -4850,14 +5523,16 @@
         titleZh: "5. 財務防禦與償債彈性 (Solvency & Leverage)",
         titleEn: "5. Solvency & Leverage",
         items: [
-          { labelZh: "有息負債 / EBITDA", labelEn: "Debt / EBITDA", fn: x => fmtX(x.debt_to_ebitda) },
-          { labelZh: "淨有息負債 / EBITDA", labelEn: "Net Debt / EBITDA", fn: x => fmtX(x.net_debt_to_ebitda) },
+          { labelZh: "有息負債 / EBITDA", labelEn: "Debt / EBITDA", fn: x => leverageCell(x, 'debt_to_ebitda') },
+          { labelZh: "淨有息負債 / EBITDA", labelEn: "Net Debt / EBITDA", fn: x => leverageCell(x, 'net_debt_to_ebitda') },
           { labelZh: "有息負債 / FCF", labelEn: "Debt / FCF", fn: x => { const d = getFinVal(x, 'balance', 'totalDebt'), f = getFinVal(x, 'cashflow', 'freeCashFlow'); return f > 0 ? fmtX(d/f) : '--'; } },
           { labelZh: "淨負債 / FCF", labelEn: "Net Debt / FCF", fn: x => { const nd = getFinVal(x, 'balance', 'netDebt'), f = getFinVal(x, 'cashflow', 'freeCashFlow'); return f > 0 ? fmtX(nd/f) : '--'; } },
-          { labelZh: "流動比率 (Current Ratio)", labelEn: "Current Ratio", fn: x => x.current_ratio ? Number(x.current_ratio).toFixed(2) : '--' },
+          { labelZh: "流動比率 (Current Ratio)", labelEn: "Current Ratio", fn: x => Number.isFinite(x.current_ratio) ? x.current_ratio.toFixed(2) : 'N/A' },
           { labelZh: "利息保障倍數 (EBITDA / 利息)", labelEn: "EBITDA Interest Coverage", fn: x => {
               const eb = getFinVal(x, 'income', 'ebitda');
               const interest = Math.abs(getFinVal(x, 'income', 'interestExpense'));
+              if (annual && (!Number.isFinite(eb) || !Number.isFinite(interest))) return 'N/A';
+              if (annual && interest === 0) return isEn ? 'No interest expense' : '無利息支出';
               return interest > 0 ? fmtX(eb / interest) : (isEn ? 'High (>50x)' : '高覆蓋 (>50x)');
             }
           },
@@ -4866,7 +5541,8 @@
           { labelZh: "股東權益合計 (Total Equity, $M)", labelEn: "Total Equity ($M)", fn: x => fmtM(getFinVal(x, 'balance', 'totalStockholdersEquity')) },
           { labelZh: "有形資產淨值 (Tangible Net Worth, $M)", labelEn: "Tangible Net Worth ($M)", fn: x => {
               const eq = getFinVal(x, 'balance', 'totalStockholdersEquity');
-              const gw = getFinVal(x, 'balance', 'goodwillAndIntangibleAssets') || (getFinVal(x, 'balance', 'goodwill') + getFinVal(x, 'balance', 'intangibleAssets'));
+              const total = getFinVal(x, 'balance', 'goodwillAndIntangibleAssets');
+              const gw = annual && Number.isFinite(total) ? total : total || (getFinVal(x, 'balance', 'goodwill') + getFinVal(x, 'balance', 'intangibleAssets'));
               return fmtM(eq - gw);
             }
           },
@@ -4889,7 +5565,11 @@
       }
     ];
 
-    const mainTitle = isEn ? "Peer Financial Comparison (TTM)" : "同行財務指標比較（TTM）";
+    if (annual) for (const group of metricGroups) {
+      group.items = group.items.filter(item => !['Forward P/E', 'Forward P/B (Est.)'].includes(item.labelEn));
+    }
+    const mainTitle = annual ? (isEn ? "Peer Financial Comparison (Latest Full Fiscal Year)" : "同行財務指標比較（最新完整財年）")
+      : isEn ? "Peer Financial Comparison (TTM)" : "同行財務指標比較（TTM）";
     const labels = I18N_DICT[currentLang];
     const colHeaderTitle = isEn ? "Financial Metric \\ Ticker" : "指標維度 \\ 企業代碼";
     const currentTag = isEn ? "Current" : "當前標的";
@@ -4898,18 +5578,20 @@
     let tableHtml = `
       <div class="panel historical-ratio-panel company-analysis-panel">
         <div class="panel-title">${mainTitle}</div>
-        <p class="analysis-note">${labels.analysis_peer_note}</p>
-        <p id="peer-growth-note" class="analysis-note">${labels.analysis_growth_note}</p>
+        <p class="analysis-note">${annual ? labels.analysis_peer_annual_note : labels.analysis_peer_note}</p>
+        <p id="peer-growth-note" class="analysis-note">${annual ? (isEn
+          ? "Each company uses its own latest reported twelve-month fiscal year, with matching FY-end balances, never TTM or interim substitutes. Growth compares consecutive comparable full fiscal years; ROE/ROA use beginning balances. ROIC retains its labeled 21% tax proxy. Forecast P/E/P/B are excluded. Price, market cap and Moat remain current references."
+          : "各公司採最新已報完整十二個月財年及同一財年末餘額，不混用 TTM 或中期數字。成長率比較連續且口徑相容的完整財年；ROE／ROA 採期初餘額。ROIC 保留估算的 21% 稅率假設。不列入預測 P/E／P/B；股價、市值與護城河評分仍為目前參考。") : labels.analysis_growth_note}</p>
         <p id="peer-coverage-note" class="analysis-note">${!peerStocks.length ? labels.analysis_peer_empty
           : selection.counts.industry === 0 ? labels.analysis_peer_no_exact : ''}</p>
         ${selection.unavailable.length ? `<p id="peer-unavailable-note" class="analysis-note">${labels.analysis_peer_unavailable.replace('{count}', selection.unavailable.length)}</p>` : ''}
         <div class="balance-cards peer-summary-cards">
           <div class="balance-card"><span class="stat-label">${labels.analysis_peer_current}</span><strong>${targetTicker}</strong></div>
           <div class="balance-card"><span class="stat-label">${labels.analysis_peer_count}</span><strong id="peer-comparison-count">${peerStocks.length}</strong><small id="peer-comparison-breakdown">${labels.analysis_peer_counts.replace('{industry}', selection.counts.industry).replace('{provider}', selection.counts.provider).replace('{related}', selection.counts.related)}</small></div>
-          <div class="balance-card"><span class="stat-label">${labels.analysis_peer_basis}</span><strong>TTM</strong></div>
+          <div class="balance-card"><span class="stat-label">${labels.analysis_peer_basis}</span><strong>${annual ? (isEn ? 'Latest full FY' : '最新完整財年') : 'TTM'}</strong></div>
         </div>
         <div class="table-scroll-wrapper company-analysis-scroll">
-          <table id="cmp-peers-table" class="historical-ratio-table company-analysis-table" style="min-width: ${280 + allCols.length * 200}px !important;">
+          <table id="cmp-peers-table" data-peer-period="${annual ? 'annual' : 'ttm'}" class="historical-ratio-table company-analysis-table" style="min-width: ${280 + allCols.length * 200}px !important;">
             <colgroup>
               <col style="width: 280px;">
               ${allCols.map(() => '<col style="width: 200px;">').join('')}
@@ -4953,15 +5635,16 @@
       grp.items.forEach(it => {
         const itemLabel = MarketContext.labels({ value: isEn ? it.labelEn : it.labelZh }, s).value;
         tableHtml += `
-          <tr>
+          <tr data-peer-label="${escapeAttribute(it.labelEn)}">
             <td class="peer-sticky-col" style="text-align: left; color: var(--text-secondary); padding-left: 22px; font-weight: 600;">
               ${itemLabel}
             </td>
             ${allCols.map((c, idx) => {
               const isCurrent = (idx === 0);
+              const value = !annual && c.currencyConversion?.reason && !['Market Cap ($M)', 'Stock Price ($)'].includes(it.labelEn) ? 'N/A' : it.fn(c);
               return `
-                <td class="${isCurrent ? 'peer-current' : ''}">
-                  ${c.currencyConversion?.reason && !['Market Cap ($M)', 'Stock Price ($)'].includes(it.labelEn) ? 'N/A' : it.fn(c)}
+                <td class="${isCurrent ? 'peer-current' : ''}"${annual ? ` title="${escapeAttribute(annualNote(c))}"` : ''}>
+                  ${annual && value === '--' ? 'N/A' : value}
                 </td>
               `;
             }).join('')}
@@ -4982,42 +5665,7 @@
   }
 
   function renderNewsSubPage(ticker) {
-    if (MarketContext.market === 'HKEX') {
-      const list = document.getElementById('cmp-news-list');
-      const news = (stockUniverse[ticker]?.news || []).filter(item => item.symbol === ticker && item.title);
-      list.replaceChildren();
-      for (const item of news) {
-        const article = document.createElement('article');
-        article.className = 'analysis-note';
-        const title = document.createElement('a');
-        title.textContent = item.title;
-        try {
-          const url = new URL(item.url);
-          if (['http:', 'https:'].includes(url.protocol)) { title.href = url.href; title.target = '_blank'; title.rel = 'noopener noreferrer'; }
-        } catch {}
-        const source = document.createElement('p');
-        source.textContent = [item.publisher || item.site, item.publishedDate, ticker].filter(Boolean).join(' · ');
-        article.append(title, source);
-        list.append(article);
-      }
-      if (!news.length) list.textContent = currentLang === 'en'
-          ? 'N/A — No verified news or earnings-call feed is supplied for this security.'
-          : 'N/A — 尚無此證券的已核實新聞或業績電話會議來源。';
-      return;
-    }
-    const list = document.getElementById('cmp-news-list');
-    if (!list) return;
-    const isEn = (currentLang === 'en');
-    list.innerHTML = `
-      <div style="background:var(--surface-bg); padding:12px 16px; border-radius:6px; border:1px solid var(--card-border);">
-        <div style="font-weight:700; color:var(--text); font-size:13.5px;">${ticker} ${isEn ? 'Reports Latest Earnings & Healthy Free Cash Flow Expansion' : '公佈最新季度營收與獲利，現金流保持健康增長'}</div>
-        <div style="color:var(--text-muted); font-size:11.5px; margin-top:4px;">${isEn ? 'Source: MarketWatch · Realtime Feed' : '來源: MarketWatch · 即時快訊'}</div>
-      </div>
-      <div style="background:var(--surface-bg); padding:12px 16px; border-radius:6px; border:1px solid var(--card-border);">
-        <div style="font-weight:700; color:var(--text); font-size:13.5px;">${isEn ? 'Wall Street Analysts Reiterate Durable Economic Moat Rating' : '華爾街分析師調整目標價，關注長期經濟護城河壁壘'}</div>
-        <div style="color:var(--text-muted); font-size:11.5px; margin-top:4px;">${isEn ? 'Source: Bloomberg Terminal · Analysis' : '來源: Bloomberg · 即時快訊'}</div>
-      </div>
-    `;
+    return CompanyData.renderNews(document.getElementById('cmp-news-list'), ticker, stockUniverse[ticker]?.news, currentLang);
   }
 
   // ========================================================
@@ -5027,6 +5675,16 @@
     activeCompanyTicker = ticker;
     const s = stockUniverse[ticker];
     if (!s) return;
+    const propertyNote = document.getElementById('cmp-property-fv-note');
+    propertyNote.textContent = MarketContext.propertyFvNote(s, currentLang);
+    propertyNote.hidden = !propertyNote.textContent;
+    if (s.propertyFvProvenance) {
+      const auditLink = document.createElement('a');
+      auditLink.href = `cache/financials/${encodeURIComponent(ticker)}_statements_v2.json`;
+      auditLink.target = '_blank'; auditLink.rel = 'noopener noreferrer';
+      auditLink.textContent = currentLang === 'en' ? 'Saved sources and original provider archive' : '已存來源及原始供應商資料';
+      propertyNote.append(document.createTextNode(' '), auditLink);
+    }
     document.getElementById('cmp-ticker').innerText = ticker;
     document.getElementById('cmp-name').innerText = getStockDisplayName(s);
     document.getElementById('cmp-exchange').innerText = s.exchange || 'US';
@@ -5042,7 +5700,9 @@
     const profileFormat = (value, unit = '', digits = 2) => profileNumber(value) === null ? 'N/A' : `${Number(value).toLocaleString(currentLang === 'en' ? 'en-US' : 'zh-TW', { maximumFractionDigits: digits })}${unit}`;
     document.getElementById('cmp-card-mcap').innerText = profileNumber(s.mcap) === null ? 'N/A' : `${MarketContext.currency} ${profileFormat(s.mcap)} M`;
     document.getElementById('cmp-card-shares').innerText = profileFormat(s.shares, currentLang === 'en' ? ' M shares' : ' M 股');
-    document.getElementById('cmp-card-pe').innerText = s.pe_trailing ? `${Number(s.pe_trailing).toFixed(1)}x` : '--';
+    document.getElementById('cmp-card-pe').innerText = s.pe_trailing ? `${Number(s.pe_trailing).toFixed(1)}x`
+      : s.propertyFvProvenance ? 'N/A' : '--';
+    document.getElementById('cmp-card-pe').title = s.propertyFvProvenance ? MarketContext.propertyFvNote(s, currentLang) : '';
     document.getElementById('cmp-card-ind').innerText = getStockDisplayIndustry(s.industry) || 'N/A';
     document.getElementById('cmp-site-link').href = s.website || `https://www.google.com/finance/quote/${ticker}`;
 
@@ -5068,28 +5728,57 @@
     document.getElementById('cmp-meta-ath').innerText = quote(s.all_time_high);
     document.getElementById('cmp-meta-atl').innerText = quote(s.all_time_low);
 
+    function renderOwnership() {
     const inst = profileNumber(s.inst_ownership_pct);
     const insider = profileNumber(s.insider_ownership_pct);
     const retail = inst !== null && insider !== null && inst + insider <= 100 && inst >= 0 && insider >= 0
       ? Number((100 - inst - insider).toFixed(1)) : null;
 
-    document.getElementById('cmp-own-inst').innerText = profileFormat(inst, '%');
+    document.getElementById('cmp-own-inst').innerText = profileFormat(inst, '%', 4);
     document.getElementById('cmp-own-insider').innerText = profileFormat(insider, '%');
     document.getElementById('cmp-own-retail').innerText = profileFormat(retail, '%');
 
     document.getElementById('bar-own-inst').style.width = `${Math.max(0, Math.min(inst ?? 0, 100))}%`;
     document.getElementById('bar-own-insider').style.width = `${Math.max(0, Math.min(insider ?? 0, 100))}%`;
     document.getElementById('bar-own-retail').style.width = `${Math.max(0, Math.min(retail ?? 0, 100))}%`;
+    let ownershipNote = document.getElementById('cmp-ownership-note');
+    if (!ownershipNote) {
+      ownershipNote = document.createElement('p');
+      ownershipNote.id = 'cmp-ownership-note';
+      ownershipNote.className = 'analysis-note';
+      document.getElementById('cmp-own-inst').closest('.panel').append(ownershipNote);
+    }
+    ownershipNote.textContent = `${currentLang === 'en'
+      ? 'FMP 13F coverage only, not the complete HKEX/issuer share register. Insiders and retail cannot be inferred by subtraction; unavailable is not zero. Holder values use disclosed share counts × the displayed current quote, not USD filing market values. Holdings date'
+      : '僅限 FMP 收錄的美國 13F 披露，並非完整港交所／公司股東名冊。內部人及散戶比例不可由差額推算；缺資料不等於零。持股估值採披露股數 × 畫面現價，不把美元申報值冒充港元。持股報告日'}: ${s.ownershipDate || 'N/A'} · ${s.metadataSourceReason || 'FMP'}`;
+    }
+    renderOwnership();
 
     // 預先載入各模組數據
     // 預先載入各模組數據
     renderTop50Holders(s);
     renderInsiderTrades(s);
+    if (document.getElementById('subpage-news').classList.contains('active')) renderNewsSubPage(ticker);
     renderStockSplits(s);
     renderFinancialsSubPage(s);
     renderRatiosSubPage(s);
     renderPeersSubPage(s);
-    renderNewsSubPage(ticker);
+    if (!s.companyDataLoaded && !s.companyDataLoading) {
+      s.companyDataLoading = true;
+      CompanyData.load(ticker).then(data => {
+        Object.assign(s, CompanyData.metadata(data, s));
+        s.companyDataLoaded = true;
+        s.companyDataLoading = false;
+        if (activeCompanyTicker !== ticker) return;
+        renderOwnership();
+        renderTop50Holders(s);
+        renderInsiderTrades(s);
+      }).catch(error => {
+        s.companyDataLoading = false;
+        console.error('Company source data could not be loaded', ticker, error.message);
+        if (activeCompanyTicker === ticker) document.getElementById('cmp-ownership-note').textContent += ` · ${error.message}`;
+      });
+    }
 
     // 強制重設 Tab 並顯示 1. 基本資料 (Profile)
     switchSubPage('basic', false);
@@ -5123,31 +5812,33 @@
 
     const defaultDcf = computeDCF(s, ticker);
     const moatBadge = document.getElementById('det-moat-badge');
-    moatBadge.innerText = `${currentLang === 'zh' ? '護城河' : 'Moat'}: ${defaultDcf.moat.total ?? 'N/A'}/100`;
+    moatBadge.innerText = `${currentLang === 'zh' ? '護城河' : 'Moat'}: ${defaultDcf.moat.scoreText}`;
     moatBadge.title = ratingProvenance(s, 'moat');
     moatBadge.className = `badge-moat ${defaultDcf.moat.badgeClass}`;
 
     const fscoreBadge = document.getElementById('det-fscore-badge');
     const fval = defaultDcf.f_score;
-    fscoreBadge.innerText = `PF score: ${fval ?? 'N/A'}/9`;
+    const fHealth = financialHealthAssessment(fval, s.f_score_breakdown, s.ratingSources?.fScore);
+    fscoreBadge.innerText = `PF score: ${fval ?? 'N/A'}/${fHealth.applicableTests}${fHealth.adjusted ? (currentLang === 'en' ? ' (applicable items)' : '（適用項目）') : ''}`;
     fscoreBadge.title = ratingProvenance(s, 'fScore');
-    fscoreBadge.className = `badge-fscore ${fval == null ? '' : fval >= 7 ? 'fscore-green' : fval <= 3 ? 'fscore-red' : 'fscore-yellow'}`;
+    fscoreBadge.className = `badge-fscore ${fval == null || fHealth.adjusted ? '' : fval >= 7 ? 'fscore-green' : fval <= 3 ? 'fscore-red' : 'fscore-yellow'}`;
 
     updateDetailFavButton();
 
     const isFinancial = !!(s.fin_valuation && s.fin_valuation.is_financial);
     const finPanel = document.getElementById('panel-fin-models');
     const genLayout = document.getElementById('panel-general-dcf');
-    document.getElementById('fcff-workspace').hidden = isFinancial;
+    document.getElementById('fmp-workspace').hidden = isFinancial
+      || s.corporateDcfApplicability === 'requiresSegmentValuation';
     if (!isFinancial) {
       finPanel.style.display = 'none';
       genLayout.style.display = 'none';
-      FcffView.load({
-        stock: s, ticker, saved, language: () => currentLang,
-        save: model => {
+      const save = model => {
           const models = getSavedModels();
           const previous = models[ticker];
-          if (previous && !FcffView.compatible(previous)) {
+          const compatiblePrevious = FmpModels.compatible(previous)
+            && previous.modelType === model.modelType;
+          if (previous && !compatiblePrevious) {
             const archive = JSON.parse(localStorage.getItem('M7_LEGACY_VALUATIONS') || '{}');
             const history = archive[ticker];
             archive[ticker] = [...(Array.isArray(history) ? history : history ? [history] : []), previous];
@@ -5157,13 +5848,25 @@
           storeSavedModels(models);
           document.getElementById('det-saved-badge').style.display = 'inline-block';
           document.getElementById('det-saved-badge').textContent =
-            `${currentLang === 'en' ? 'Saved FCFF target' : '已存 FCFF 目標價'}: ${moneyPrefix()}${model.targetPrice.toFixed(2)}`;
-        }
+            `${currentLang === 'en' ? 'Saved target' : '已存目標價'}: ${moneyPrefix()}${model.targetPrice.toFixed(2)}`;
+          renderScreenerTable();
+      };
+      FmpModels.load({
+        stock: s, ticker, saved, language: () => currentLang, save, data: CompanyData.peek(ticker)
       });
+      FcfRatios.loadStatements(ticker).then(data => FmpModels.actuals(ticker, data)).catch(error => {
+        console.error('Actual FMP scenario references could not be loaded', ticker, error.message);
+        FmpModels.actuals(ticker, null, error.message);
+      });
+      CompanyData.load(ticker).then(data => FmpModels.details(data)).catch(error =>
+        { console.error('Detailed FMP model rows could not be loaded', ticker, error.message);
+          FmpModels.detailsError(ticker, error.message); });
       return;
     }
 
     if (isFinancial) {
+      FmpModels.deactivate();
+      document.querySelector('[onclick="saveCustomModel()"]').disabled = false;
       if (finPanel) finPanel.style.display = 'block';
       if (genLayout) genLayout.style.display = 'none';
 
@@ -5173,12 +5876,29 @@
         for (const key of ['ke', 'g', 'rote']) {
           if (Number.isFinite(savedFin[key]) && (key !== 'rote' || savedFin.reference)) fin[key] = savedFin[key];
         }
+        if (savedFin.shareScenario && Number.isFinite(saved.params.shares) && saved.params.shares > 0) {
+          s.shares = saved.params.shares;
+          fin.shareScenario = true;
+          fin.tbvps = Number.isFinite(fin.tangibleEquity) ? fin.tangibleEquity / s.shares : null;
+          fin.dps_total = Number.isFinite(fin.totalPayout) ? fin.totalPayout / s.shares : null;
+          if (fin.unavailableReason === 'shareBasisUnverified') fin.unavailableReason = null;
+          if (fin.reference?.reason === 'shareBasisUnverified') fin.reference = { ...fin.reference, reason: null };
+          fin.pb_tangible = fin.tbvps > 0 ? s.price / fin.tbvps : null;
+        }
       }
       for (const key of ['ke', 'g']) {
         const slider = document.getElementById(`slider-fin-${key}`);
         slider.disabled = !Number.isFinite(fin[key]);
-        if (!slider.disabled) slider.value = fin[key].toFixed(2);
+        slider.min = key === 'ke' ? Math.min(0.01, fin[key] ?? 0.01) : Math.min(-5, fin[key] ?? -5);
+        slider.max = Math.max(key === 'ke' ? 30 : 10, fin[key] ?? 0);
+        slider.step = 'any';
+        if (!slider.disabled) slider.value = String(fin[key]);
       }
+      document.getElementById('fin-shares').value = Number.isFinite(s.shares) ? s.shares.toFixed(2) : '';
+      document.getElementById('fin-shares').dataset.formattedValue = document.getElementById('fin-shares').value;
+      document.getElementById('fin-shares').dataset.preciseValue = Number.isFinite(s.shares) ? String(s.shares) : '';
+      document.getElementById('fin-shares-confirm').checked = !!fin.shareScenario;
+      document.getElementById('fin-shares-status').textContent = '';
       const roteSlider = document.getElementById('slider-fin-rote');
       roteSlider.disabled = !Number.isFinite(fin.rote);
       roteSlider.min = Math.min(-25, Math.floor((fin.rote || 0) / 5) * 5);
@@ -5189,6 +5909,7 @@
       document.getElementById('disp-fin-g').innerText = Number.isFinite(fin.g) ? `${fin.g.toFixed(2)}%` : 'N/A';
       document.getElementById('disp-fin-rote').innerText = Number.isFinite(fin.rote) ? `${fin.rote.toFixed(2)}%` : 'N/A';
       renderFinancialReference(fin);
+      renderFinancialRoteHistory(ticker);
 
       document.getElementById('fin-tbvps').innerText = fin.tbvps == null ? 'N/A' : `${moneyPrefix()}${Number(fin.tbvps).toFixed(2)}`;
       document.getElementById('fin-ptbv').innerText = Number.isFinite(fin.pb_tangible) ? `${fin.pb_tangible.toFixed(2)}x` : 'N/A';
@@ -5247,7 +5968,7 @@
     const s = stockUniverse[activeDetailTicker];
     if (!s) return;
     if (!s.fin_valuation?.is_financial) {
-      FcffView.rerender();
+      FmpModels.rerender();
       return;
     }
 
@@ -5311,7 +6032,8 @@
       badgeEl.className = 'badge';
       badgeEl.innerText = 'N/A';
       premEl.innerText = 'N/A';
-      document.getElementById('det-res-status').innerText = I18N_DICT[currentLang].fin_unavailable;
+      document.getElementById('det-res-status').innerText = dcf.reason
+        ? FcffView.reasonText(dcf.reason, currentLang) : I18N_DICT[currentLang].fin_unavailable;
     } else if (dcf.isUndervalued) {
       badgeEl.className = "badge badge-undervalued";
       badgeEl.innerText = `${currentLang === 'zh' ? '低估' : 'Undervalued'} ${dcf.premiumPct.toFixed(1)}%`;
@@ -5411,8 +6133,9 @@
       const dcf = computeDCF(s, ticker);
       if (!dcf || !dcf.moat) return;
       const moat = dcf.moat;
+      const research = s.ratingSources?.moat?.businessResearch;
 
-      document.getElementById('moat-total-score').innerText = `${moat.total ?? 'N/A'} / 100`;
+      document.getElementById('moat-total-score').innerText = moat.scoreText;
       const elGrade = document.getElementById('moat-grade-badge');
       if (elGrade) {
         elGrade.innerText = moat.grade;
@@ -5420,15 +6143,49 @@
       }
 
       const m = moat.m || Array(10).fill(null);
-      const categoryScore = values => values.every(Number.isFinite) ? values.reduce((a, b) => a + b, 0) : 'N/A';
-      document.getElementById('moat-cat-intangible').innerText = `${categoryScore(m.slice(0, 2))} / 20`;
-      document.getElementById('moat-cat-structural').innerText = `${categoryScore(m.slice(2, 6))} / 40`;
-      document.getElementById('moat-cat-resilience').innerText = `${categoryScore(m.slice(6, 10))} / 40`;
+      const categoryScore = values => {
+        const assessed = values.filter(Number.isFinite);
+        return assessed.length ? `${assessed.reduce((a, b) => a + b, 0)} / ${assessed.length * 10}${assessed.length < values.length ? ` · ${assessed.length}/${values.length}` : ''}`
+          : I18N_DICT[currentLang].moat_unassessed;
+      };
+      document.getElementById('moat-cat-intangible').innerText = categoryScore(m.slice(0, 2));
+      document.getElementById('moat-cat-structural').innerText = categoryScore(m.slice(2, 6));
+      document.getElementById('moat-cat-resilience').innerText = categoryScore(m.slice(6, 10));
 
       document.getElementById('moat-ai-comment').innerHTML = `
-        <div style="font-size: 11px; color: var(--gold); margin-bottom: 4px; font-weight: 600;">📚 ${moat.ref || ''}</div>
-        <div id="moat-overall-text">${moat.comment || ''}</div>
+        <div id="moat-updated-date" style="font-size: 11px; color: var(--gold); margin-bottom: 4px; font-weight: 600;">${escapeAttribute(moat.ref || '')}</div>
+        <div id="moat-overall-text">${escapeAttribute(moat.comment || '')}</div>
       `;
+      const commentPanel = document.getElementById('moat-ai-comment');
+      if (s.ratingSources?.moat?.reason === 'staleEvidence' && s.moat) {
+        const previous = document.createElement('details');
+        previous.id = 'moat-previous-assessment';
+        previous.className = 'analysis-note';
+        const summary = document.createElement('summary');
+        summary.textContent = currentLang === 'en' ? 'Previous AI assessment — stale, not current financial evidence'
+          : '舊 AI 評估 — 已過時，非現行財報依據';
+        const verdict = document.createElement('p');
+        verdict.textContent = currentLang === 'en'
+          ? s.moat.overall_moat_verdict_en || s.moat.overall_moat_verdict || ''
+          : s.moat.overall_moat_verdict_zh || s.moat.overall_moat_verdict || '';
+        previous.append(summary, verdict);
+        Object.entries(s.moat).filter(([key]) => /^m\d+_/.test(key)).forEach(([key, item]) => {
+          const text = document.createElement('p');
+          text.textContent = `${key}: ${Number.isFinite(item.score) ? item.score : 'N/A'} / 10 · ${currentLang === 'en'
+            ? item.comment_en || item.comment || '' : item.comment_zh || item.comment || ''}`;
+          previous.append(text);
+        });
+        commentPanel.append(previous);
+      }
+      if (research) {
+        const note = document.createElement('p');
+        note.id = 'moat-research-note';
+        note.className = 'model-reference-note';
+        note.textContent = currentLang === 'en'
+          ? 'AI qualitative judgment, not an audited moat measurement or a point-in-time historical rating.'
+          : 'AI 定性判斷，並非經審計的護城河數據，亦不是當時可得資訊的歷史評分。';
+        commentPanel.append(note);
+      }
 
       const tbody = document.getElementById('moat-breakdown-body');
       if (tbody && Array.isArray(moat.criteria)) {
@@ -5443,12 +6200,12 @@
               <td><strong>${c.id || ''}. ${c.title || ''}</strong></td>
               <td style="color: var(--text-muted); font-size: 12px;">${c.desc || ''}</td>
               <td class="moat-score-cell">
-                <span style="font-weight: 700; font-size: 13.5px; color: ${scoreVal === null ? 'var(--text-muted)' : barColor}; display: inline-block; width: 45px;">${scoreVal ?? 'N/A'} / 10</span>
-                <div class="moat-bar-bg">
+                <span title="${scoreVal === null ? I18N_DICT[currentLang].moat_unassessed_help : ''}" style="font-weight: 700; font-size: 13.5px; color: ${scoreVal === null ? 'var(--text-muted)' : barColor}; display: inline-block; min-width: 45px;">${scoreVal === null ? I18N_DICT[currentLang].moat_unassessed : `${scoreVal} / 10`}</span>
+                ${scoreVal === null ? '' : `<div class="moat-bar-bg">
                   <div class="moat-bar-fill" style="width: ${pct}%; background: ${barColor};"></div>
-                </div>
+                </div>`}
               </td>
-              <td class="moat-comment-cell">${c.comment || ''}</td>
+              <td class="moat-comment-cell">${escapeAttribute(c.comment || '')}</td>
             </tr>
           `;
         }).join('');
@@ -5458,16 +6215,19 @@
     }
   }
 
-  function financialHealthAssessment(score, breakdown) {
-    const validScore = Number.isInteger(score) && score >= 0 && score <= 9;
-    const level = !validScore ? 'unavailable' : score >= 7 ? 'strong' : score >= 4 ? 'moderate' : 'weak';
+  function financialHealthAssessment(score, breakdown, source) {
+    const adjusted = source?.assessmentType === 'applicableItems' && source.applicableTests === 8;
+    const applicableTests = adjusted ? 8 : 9;
+    const validScore = Number.isInteger(score) && score >= 0 && score <= applicableTests;
+    const level = !validScore ? 'unavailable' : adjusted ? 'adjusted' : score >= 7 ? 'strong' : score >= 4 ? 'moderate' : 'weak';
     const validBreakdown = validScore && Array.isArray(breakdown) && breakdown.length === 9
       && new Set(breakdown.map(item => item?.id)).size === 9
       && breakdown.every(item => Number.isInteger(item?.id) && item.id >= 1 && item.id <= 9
-        && (item.passed === 0 || item.passed === 1))
-      && breakdown.reduce((sum, item) => sum + item.passed, 0) === score;
+        && (adjusted && item.id === 6 ? item.applicable === false && item.passed === null
+          : item.passed === 0 || item.passed === 1))
+      && breakdown.reduce((sum, item) => sum + (item.passed || 0), 0) === score;
     return {
-      level, validScore, validBreakdown,
+      level, validScore, validBreakdown, adjusted, applicableTests,
       passed: validBreakdown ? breakdown.filter(item => item.passed === 1) : [],
       failed: validBreakdown ? breakdown.filter(item => item.passed === 0) : []
     };
@@ -5488,14 +6248,15 @@
     const unit = isEn ? '' : ' 分';
 
     const rawBreakdown = dcf.f_score_breakdown;
-    const health = financialHealthAssessment(score, rawBreakdown);
+    const health = financialHealthAssessment(score, rawBreakdown, s.ratingSources?.fScore);
     const breakdown = Array.from({ length: 9 }, (_, i) => (Array.isArray(rawBreakdown) && rawBreakdown.find(item => item?.id === i + 1))
       || { id: i + 1, passed: null, category: i < 4 ? '盈利能力' : i < 7 ? '槓桿與償債' : '營運效率', reason: s.ratingSources?.fScore?.reason || 'N/A' });
-    document.getElementById('fsc-total-score').innerText = health.validScore ? `${score} / 9${unit}` : 'N/A';
+    document.getElementById('fsc-total-score').innerText = health.validScore ? `${score} / ${health.applicableTests}${unit}` : 'N/A';
+    document.querySelector('[data-i18n="fsc_health_bands"]').hidden = health.adjusted;
     const healthBadge = document.getElementById('fsc-health-level');
     healthBadge.textContent = labels[`fsc_health_${health.level}`];
     healthBadge.className = `financial-health-level ${{
-      strong: 'fscore-green', moderate: 'fscore-yellow', weak: 'fscore-red', unavailable: 'text-muted'
+      strong: 'fscore-green', moderate: 'fscore-yellow', weak: 'fscore-red', unavailable: 'text-muted', adjusted: 'text-muted'
     }[health.level]}`;
     const descriptions = ['ROA > 0', 'Operating cash flow > 0', 'Change in ROA > 0',
       'Operating cash flow > net income', 'Change in leverage ≤ 0', 'Change in liquidity > 0',
@@ -5510,11 +6271,25 @@
     };
     paragraph(`${ticker} · ${labels[`fsc_health_${health.level}_comment`]}`);
     if (ratingProvenance(s, 'fScore')) paragraph(ratingProvenance(s, 'fScore'));
+    if (health.adjusted) {
+      const review = s.ratingSources.fScore.currentRatioApplicability;
+      paragraph(isEn ? review.noteEn : review.noteZh);
+      const links = document.createElement('p');
+      for (const source of review.sources) {
+        const a = document.createElement('a');
+        a.textContent = `${source.title} (PDF ${source.pdfPages.join(', ')})`;
+        a.href = source.url;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        links.append(a, document.createTextNode(' · '));
+      }
+      comment.append(links);
+    }
     if (health.validBreakdown) {
       const tests = items => items.map(item => `#${item.id} ${isEn ? descriptions[item.id - 1] : item.desc}`).join(isEn ? '; ' : '；');
       if (health.passed.length) paragraph(labels.fsc_health_passed + tests(health.passed));
       if (health.failed.length) paragraph(labels.fsc_health_review + tests(health.failed));
-      else paragraph(labels.fsc_health_all_passed);
+      else if (!health.adjusted) paragraph(labels.fsc_health_all_passed);
     } else {
       paragraph(labels.fsc_health_incomplete);
     }
@@ -5523,7 +6298,8 @@
     const eCat = breakdown.filter(x => x.category === "營運效率" && x.passed).length;
 
     document.getElementById('fsc-cat-profit').innerText = `${breakdown.slice(0, 4).every(x => x.passed === 0 || x.passed === 1) ? pCat : 'N/A'} / 4${unit}`;
-    document.getElementById('fsc-cat-leverage').innerText = `${breakdown.slice(4, 7).every(x => x.passed === 0 || x.passed === 1) ? lCat : 'N/A'} / 3${unit}`;
+    const leverageItems = breakdown.slice(4, 7).filter(x => x.applicable !== false);
+    document.getElementById('fsc-cat-leverage').innerText = `${leverageItems.every(x => x.passed === 0 || x.passed === 1) ? lCat : 'N/A'} / ${leverageItems.length}${unit}`;
     document.getElementById('fsc-cat-efficiency').innerText = `${breakdown.slice(7).every(x => x.passed === 0 || x.passed === 1) ? eCat : 'N/A'} / 2${unit}`;
 
     const tbody = document.getElementById('fscore-breakdown-body');
@@ -5532,7 +6308,8 @@
       const unknown = item.passed !== 0 && item.passed !== 1;
       const mark = unknown ? '—' : isPass ? '✔' : '✘';
       const circleClass = unknown ? '' : isPass ? 'score-pass' : 'score-fail';
-      const statusText = unknown ? '<span class="text-muted">N/A</span>' : isPass ? `<span class="text-green">+1 ${isEn ? 'Pass' : '分 通過'}</span>` : `<span class="text-red">${isEn ? 'Fail (0)' : '未達標 (0分)'}</span>`;
+      const statusText = item.applicable === false ? `<span class="text-muted">${isEn ? 'Not applicable' : '不適用'}</span>`
+        : unknown ? '<span class="text-muted">N/A</span>' : isPass ? `<span class="text-green">+1 ${isEn ? 'Pass' : '分 通過'}</span>` : `<span class="text-red">${isEn ? 'Fail (0)' : '未達標 (0分)'}</span>`;
       const category = isEn ? ({ '盈利能力': 'Profitability', '槓桿與償債': 'Leverage & liquidity', '營運效率': 'Operating efficiency' }[item.category] || item.category) : item.category;
       const detail = isEn ? String(item.detail_en || item.detail || item.reason || '').replace('當期 ROA', 'Current ROA')
         .replace('自由現金流', 'Free cash flow').replace('回報率穩步領先同業基準', 'Returns lead the peer benchmark')
@@ -5561,7 +6338,7 @@
     const s = stockUniverse[activeDetailTicker];
     if (!s) return;
     if (!s.fin_valuation?.is_financial) {
-      FcffView.save();
+      FmpModels.save();
       return;
     }
 
@@ -5631,8 +6408,10 @@
       delete stockUniverse[activeDetailTicker].custom_growth_10y;
       if (stockUniverse[activeDetailTicker].fin_valuation?.is_financial) {
         stockUniverse[activeDetailTicker].fin_valuation = structuredClone(MarketContext.stocks()[activeDetailTicker].fin_valuation);
+        stockUniverse[activeDetailTicker].shares = MarketContext.stocks()[activeDetailTicker].shares;
       }
     }
+    if (!stockUniverse[activeDetailTicker]?.fin_valuation?.is_financial) FmpModels.reset();
     loadDetailTicker(activeDetailTicker);
     document.getElementById('det-saved-badge').style.display = 'none';
   }
@@ -5680,6 +6459,10 @@
     if (MarketContext.market === 'HKEX' && !MarketContext.fcff()) return;
     isAppReady = true;
     stockUniverse = JSON.parse(JSON.stringify(data));
+    for (const [ticker, stock] of Object.entries(stockUniverse)) {
+      stock.ticker = ticker;
+      Object.assign(stock, CompanyData.metadata(FmpModels.record(ticker), stock));
+    }
     document.getElementById('market-select').value = MarketContext.market;
     if (typeof Chart !== 'undefined') {
       Chart.defaults.font.family = themeColor('--font-family');

@@ -11,8 +11,20 @@ on:
         description: Capture original lease classification evidence only, without changing valuations
         type: boolean
         default: false
+      shares_only:
+        description: Capture dated outstanding-share counts only, without publishing or changing valuations
+        type: boolean
+        default: false
       build_hkex:
-        description: Build the six-stock HKEX pilot and evidence-based ratings as review artifacts only
+        description: Build configured HSI constituents and evidence-based ratings as review artifacts only
+        type: boolean
+        default: false
+      force_moat:
+        description: Regenerate all HKEX moat scores and bilingual comments using Vertex AI (artifacts only)
+        type: boolean
+        default: false
+      translate_news:
+        description: Translate captured news headlines only using Vertex Flash-Lite; save artifacts without publishing
         type: boolean
         default: false
 
@@ -21,8 +33,9 @@ permissions:
 
 jobs:
   capture-fmp:
+    if: inputs.translate_news != true
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -42,24 +55,26 @@ jobs:
         env:
           FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
           CAPTURE_LEASE_SOURCES_ONLY: ${{ inputs.lease_sources_only }}
-          CAPTURE_SYMBOLS: ${{ inputs.build_hkex && '0700.HK,9988.HK,0005.HK,0388.HK,0939.HK,0823.HK' || inputs.symbols }}
+          CAPTURE_SHARES_ONLY: ${{ inputs.shares_only }}
+          CAPTURE_MARKET: ${{ inputs.build_hkex && 'HKEX' || 'US' }}
+          CAPTURE_SYMBOLS: ${{ !inputs.build_hkex && inputs.symbols || '' }}
         run: python -u scripts/capture_valuation_sources.py
       - name: Build real HKD inputs without publishing
         if: inputs.build_hkex == true
         env:
           MOAT_EVIDENCE_OUTPUT: valuation-audit-output/hkex-moat-inputs.json
         run: node scripts/build_hkex.cjs valuation-audit-output hkex-data-output
-      - name: Refresh moat only against changed financial and transcript evidence
+      - name: Refresh cited moat scores and bilingual comments
         if: inputs.build_hkex == true
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
-        run: python -u scripts/refresh_hkex_moat.py valuation-audit-output/hkex-moat-inputs.json hkex-data-output/cache/hkex_moat.json
+        run: python -u scripts/refresh_hkex_moat.py valuation-audit-output/hkex-moat-inputs.json hkex-data-output/cache/hkex_moat.json ${{ inputs.force_moat && '--force' || '' }}
       - name: Build final dated HKEX review artifact
         if: inputs.build_hkex == true
         run: node scripts/build_hkex.cjs valuation-audit-output hkex-data-output hkex-data-output/cache/hkex_moat.json
-      - name: Preserve unpublished real HKEX pilot
-        if: inputs.build_hkex == true
+      - name: Preserve unpublished real HKEX constituent data
+        if: always() && inputs.build_hkex == true
         uses: actions/upload-artifact@v4
         with:
           name: hkex-pilot-data
@@ -71,4 +86,28 @@ jobs:
         with:
           name: valuation-fmp-sources
           path: valuation-audit-output/
+          retention-days: 7
+  translate-news:
+    if: inputs.translate_news == true
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - run: pip install google-genai
+      - name: Translate and save exact-title matches, without articles or deployment
+        env:
+          GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+          GOOGLE_CLOUD_LOCATION: global
+        run: python -u scripts/translate_news.py
+      - name: Preserve translations and actual token usage
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: news-title-translations
+          path: |
+            cache/news_translations.json
+            news-translation-usage.json
           retention-days: 7

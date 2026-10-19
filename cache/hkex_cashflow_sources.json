@@ -1,0 +1,826 @@
+{
+  "schemaVersion": 1,
+  "signConvention": "Cash inflows positive; cash outflows negative.",
+  "missingValueConvention": {
+    "zero": "Printed nil/dash in cited source.",
+    "null": "Not separately reported; must not default to zero."
+  },
+  "sources": {
+    "hkexFY2025": {
+      "url": "https://www.hkexgroup.com/-/media/HKEX-Group-Site/ssd/Investor-Relations/Regulatory-Reports/documents/2026/260316ar_e.pdf",
+      "sha256": "01f90f3b213f368e1ed66887ec6ec862f5129c74d5c89d3c11cf5b0fda8887ee",
+      "bytes": 14616555,
+      "pages": {
+        "noOrdinaryShareIssuance": { "pdf": 136, "printed": 134 },
+        "shareCapitalMovements": { "pdf": 198, "printed": 196 },
+        "cashFlowStatement": {
+          "pdf": 147,
+          "printed": 145
+        },
+        "operatingBridge": {
+          "pdf": 205,
+          "printed": 203
+        },
+        "currencyAndPolicies": {
+          "pdf": 148,
+          "printed": 146
+        },
+        "cashFlowCashExclusions": {
+          "pdf": 168,
+          "printed": 166
+        }
+      }
+    },
+    "hkexH12025": {
+      "url": "https://www.hkexgroup.com/-/media/HKEX-Group-Site/ssd/Investor-Relations/Regulatory-Reports/documents/2025/250901_2qr_e.pdf",
+      "sha256": "262b12d9abb494697b774ff9dc81ea03780c7174272155fd02146b4967ad00e5",
+      "bytes": 8959753,
+      "pages": { "cashFlowStatement": { "pdf": 58, "printed": 56 } }
+    },
+    "hkexH12026": {
+      "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0831/2026083100411.pdf",
+      "sha256": "152c64437b0e5421260723485c64c16a0fe6b3557228a6919e7674d861696f73",
+      "bytes": 11529252,
+      "pages": {
+        "cashFlowStatement": {
+          "pdf": 61,
+          "printed": 59
+        },
+        "operatingBridge": {
+          "pdf": 79,
+          "printed": 77
+        },
+        "policies": {
+          "pdf": 62,
+          "printed": 60
+        },
+        "cashFlowCashExclusions": {
+          "pdf": 72,
+          "printed": 70
+        }
+      }
+    },
+    "hsbcFY2025": {
+      "url": "https://www.hsbc.com/-/files/hsbc/investors/hsbc-results/2025/annual/pdfs/hsbc-holdings-plc/260225-annual-report-and-accounts-2025.pdf",
+      "sha256": "94aab2f5c83d1060ee95d344f1915833869fe4502dc635e4ab9ca84f496ee94b",
+      "bytes": 10110145,
+      "pages": {
+        "ordinaryAndOtherEquityMovements2025": { "pdf": 267, "printed": 265 },
+        "capitalIssueFootnotes": { "pdf": 269, "printed": 267 },
+        "ordinaryShareCapitalNote32": { "pdf": 342, "printed": 340 },
+        "additionalTier1CapitalNote32": { "pdf": 343, "printed": 341 },
+        "ordinaryCashDividends": { "pdf": 304, "printed": 302 },
+        "cashFlowStatement": {
+          "pdf": 270,
+          "printed": 268
+        },
+        "cashCompositionAndSupplementalDisclosures": {
+          "pdf": 271,
+          "printed": 269
+        }
+      }
+    },
+    "hsbcH12026": {
+      "url": "https://www.hsbc.com/-/files/hsbc/investors/hsbc-results/2026/interim/pdfs/hsbc-holdings-plc/260804-hsbc-holdings-plc-interim-report-2026.pdf",
+      "sha256": "dd3fa89385225dac3f5aba33e52614de1040c82a1f5964cb36636144ee35b150",
+      "bytes": 1603979,
+      "pages": {
+        "ordinaryCashDividends": { "pdf": 90, "printed": 88 },
+        "cashFlowStatement": {
+          "pdf": 88,
+          "printed": 86
+        },
+        "policies": {
+          "pdf": 89,
+          "printed": 87
+        },
+        "reportingCurrency": {
+          "pdf": 2,
+          "printed": null
+        }
+      }
+    },
+    "hsbcH12025": {
+      "url": "https://www.hsbc.com/-/files/hsbc/investors/hsbc-results/2025/interim/pdfs/hsbc-holdings-plc/250730-hsbc-holdings-plc-interim-report-2025.pdf",
+      "sha256": "82d11630e40eab9d9e240b271a4f0cd2f03259566b9db8769ca9181c2cf66c2f",
+      "bytes": 7559209,
+      "pages": {
+        "ordinaryCashDividends": { "pdf": 88, "printed": 86 },
+        "cashFlowStatement": {
+          "pdf": 85,
+          "printed": 83
+        }
+      }
+    }
+  },
+  "issuers": [
+    {
+      "symbol": "0388.HK",
+      "name": "Hong Kong Exchanges and Clearing Limited",
+      "currency": "HKD",
+      "unit": "millions",
+      "comparabilityNotes": [
+        "Statutory operating cash flow includes principal operating cash flow plus other operating fund-manager redemptions.",
+        "Principal operating cash flow is explicitly a non-HKFRS measure and is not mapped to operatingCashFlow.",
+        "Headquarters premises purchases are separate from other fixed-asset and intangible purchases.",
+        "Other fixed-asset and intangible purchases are combined and cannot safely be mapped to pure PPE purchases.",
+        "Annual depreciation/amortisation adjustment includes impairment; interim wording is depreciation and amortisation. The combined generic field deliberately does not claim pure D&A.",
+        "Cash-flow cash excludes Margin Funds, Clearing House Funds, A-share cash and reserved Corporate Funds.",
+        "H1 2025 figures below are the comparative columns published in the official H1 2026 report.",
+        "FY2024 and H1 2024 official comparatives provide H2 2024, allowing June 2025 versus June 2026 TTM comparisons on the same statutory CFO and cash CapEx basis.",
+        "FY2025 common-stock cash issuance is zero because the annual report explicitly confirms no HKEX shares were issued; share-award scheme market purchases are not negative issuance.",
+        "H1 2026 policies are consistent with FY2025; newly adopted amendments had no material impact."
+      ],
+      "periods": [
+        {
+          "start": "2024-01-01", "end": "2024-12-31", "fiscalYear": 2024, "period": "FY",
+          "currency": "HKD", "unit": "millions",
+          "sourceRefs": [{ "sourceId": "hkexFY2025", "column": "2024",
+            "pdfPages": [147, 198, 205], "printedPages": [145, 196, 203] }],
+          "fields": {
+            "incomeBeforeTax": 14853, "depreciationAmortizationAndImpairment": 1402,
+            "stockBasedCompensation": 390, "operatingCashFlow": 12774, "incomeTaxesPaid": -1283,
+            "netCashProvidedByInvestingActivities": 3194, "netCashProvidedByFinancingActivities": -11261,
+            "netChangeInCash": 4707, "effectOfForexChangesOnCash": -9,
+            "cashAtBeginningOfPeriod": 9212, "cashAtEndOfPeriod": 13910, "commonStockIssuance": 0
+          },
+          "lines": {
+            "principalOperatingCashFlowNonHKFRS": 12783, "otherOperatingFundManagerRedemptions": -9,
+            "headquartersPremisesAcquisitionPayments": 0, "otherFixedAssetAndIntangiblePurchasesCombined": -1604,
+            "changeInTimeDepositsWithOriginalMaturityOverThreeMonths": 11034,
+            "changeInShortTermDebtSecurities": -4173, "longTermDebtSecurityPurchases": -3055,
+            "longTermDebtSecuritySalesAndMaturityProceeds": 0, "interestReceivedOnLongTermDebtSecurities": 967,
+            "jointVentureDividendsReceived": 25, "shareAwardSchemeSharePurchases": -481,
+            "otherFinanceCostsPaid": -54, "dividendsPaidToHKEXShareholders": -10416,
+            "dividendsPaidToNonControllingInterests": 0, "leasePrincipalPayments": -255,
+            "leaseInterestPayments": -55, "corporateCashBankBalancesAndShortTermInvestments": 15045,
+            "reservedCorporateCashDeduction": -1135
+          },
+          "lineNotes": { "commonStockIssuance": "The complete FY2024 share-capital movement table in the FY2025 annual report shows no issued-share movements; share-award purchases and vesting concern existing shares, not cash issuance." }
+        },
+        {
+          "start": "2024-01-01", "end": "2024-06-30", "fiscalYear": 2024, "period": "H1",
+          "currency": "HKD", "unit": "millions",
+          "sourceRefs": [{ "sourceId": "hkexH12025", "column": "Six months ended 30 Jun 2024",
+            "pdfPages": [58], "printedPages": [56] }],
+          "fields": {
+            "operatingCashFlow": 5697, "netCashProvidedByInvestingActivities": 3572,
+            "netCashProvidedByFinancingActivities": -5141, "netChangeInCash": 4128,
+            "effectOfForexChangesOnCash": -6, "cashAtBeginningOfPeriod": 9212, "cashAtEndOfPeriod": 13334
+          },
+          "lines": {
+            "principalOperatingCashFlowNonHKFRS": 5852, "otherOperatingFundManagerRedemptions": -155,
+            "headquartersPremisesAcquisitionPayments": 0, "otherFixedAssetAndIntangiblePurchasesCombined": -784,
+            "changeInTimeDepositsWithOriginalMaturityOverThreeMonths": 8117,
+            "longTermDebtSecurityPurchases": -4417, "interestReceivedOnLongTermDebtSecurities": 656,
+            "shareAwardSchemeSharePurchases": -31, "otherFinanceCostsPaid": -29,
+            "dividendsPaidToHKEXShareholders": -4923, "leasePrincipalPayments": -130,
+            "leaseInterestPayments": -28, "corporateCashBankBalancesAndShortTermInvestments": 14538,
+            "reservedCorporateCashDeduction": -1204
+          }
+        },
+        {
+          "start": "2025-01-01",
+          "end": "2025-12-31",
+          "fiscalYear": 2025,
+          "period": "FY",
+          "currency": "HKD",
+          "unit": "millions",
+          "sourceRefs": [
+            {
+              "sourceId": "hkexFY2025",
+              "column": "2025",
+              "pdfPages": [
+                136,
+                147,
+                198,
+                205
+              ],
+              "printedPages": [
+                134,
+                145,
+                196,
+                203
+              ]
+            }
+          ],
+          "fields": {
+            "commonStockIssuance": 0,
+            "incomeBeforeTax": 21158,
+            "depreciationAmortizationAndImpairment": 1568,
+            "stockBasedCompensation": 361,
+            "operatingCashFlow": 25627,
+            "incomeTaxesPaid": -1533,
+            "netCashProvidedByInvestingActivities": -5565,
+            "netCashProvidedByFinancingActivities": -14635,
+            "netChangeInCash": 5427,
+            "effectOfForexChangesOnCash": 16,
+            "cashAtBeginningOfPeriod": 13910,
+            "cashAtEndOfPeriod": 19353
+          },
+          "lines": {
+            "netInterestIncomeAdjustment": -5111,
+            "fairValueLossesOrGainsAdjustment": 94,
+            "leaseModificationGainAdjustment": -76,
+            "financeCostsAdjustment": 96,
+            "shareOfJointVentureAndAssociateResultsAdjustment": -26,
+            "otherNonCashAdjustments": 1,
+            "changeInMarginFundFinancialAssets": -80198,
+            "changeInMarginFundFinancialLiabilities": 80386,
+            "changeInClearingHouseFundFinancialAssets": -7073,
+            "changeInClearingHouseFundFinancialLiabilities": 6866,
+            "changeInAShareCashPrepaymentsAndCollateral": -374,
+            "changeInCorporateFundsSupportingSkinInTheGameAndDefaultFundCredits": -196,
+            "changeInCorporateFundsTransferredToShanghaiClearingHouse": -145,
+            "changeInReceivablesPrepaymentsAndDeposits": -11679,
+            "changeInOtherLiabilities": 13353,
+            "netCashInflowFromPrincipalOperations": 19005,
+            "interestReceivedOnShortTermSecuritiesDepositsAndCash": 7519,
+            "interestPaidToParticipants": -4626,
+            "cashPaidForForeignExchangeSwaps": -510,
+            "principalOperatingCashFlowNonHKFRS": 19855,
+            "otherOperatingFundManagerRedemptions": 5772,
+            "headquartersPremisesAcquisitionPayments": -3148,
+            "otherFixedAssetAndIntangiblePurchasesCombined": -1733,
+            "associateInterestAcquisitionPayments": -455,
+            "additionalSubsidiaryInterestAcquisitionPayments": null,
+            "changeInTimeDepositsWithOriginalMaturityOverThreeMonths": 2348,
+            "changeInShortTermDebtSecurities": -2057,
+            "longTermDebtSecurityPurchases": -2824,
+            "longTermDebtSecuritySalesAndMaturityProceeds": 126,
+            "interestReceivedOnLongTermDebtSecurities": 2151,
+            "jointVentureDividendsReceived": 27,
+            "shareAwardSchemeSharePurchases": -512,
+            "otherFinanceCostsPaid": -50,
+            "dividendsPaidToHKEXShareholders": -13722,
+            "paymentsForWrittenPutsExercisedByNonControllingInterests": null,
+            "dividendsPaidToNonControllingInterests": -59,
+            "leasePrincipalPayments": -251,
+            "leaseInterestPayments": -41,
+            "corporateCashBankBalancesAndShortTermInvestments": 20676,
+            "reservedCorporateCashDeduction": -1323
+          },
+          "lineNotes": {
+            "longTermDebtSecuritySalesAndMaturityProceeds": "FY2025 source wording is proceeds received upon maturity; no separate sales line.",
+            "depreciationAmortizationAndImpairment": "Original annual wording explicitly includes impairment."
+          }
+        },
+        {
+          "start": "2025-01-01",
+          "end": "2025-06-30",
+          "fiscalYear": 2025,
+          "period": "H1",
+          "currency": "HKD",
+          "unit": "millions",
+          "sourceRefs": [
+            {
+              "sourceId": "hkexH12026",
+              "column": "Six months ended 30 Jun 2025",
+              "pdfPages": [
+                61,
+                79
+              ],
+              "printedPages": [
+                59,
+                77
+              ]
+            }
+          ],
+          "fields": {
+            "incomeBeforeTax": 10164,
+            "depreciationAmortizationAndImpairment": 743,
+            "stockBasedCompensation": 190,
+            "operatingCashFlow": 14399,
+            "incomeTaxesPaid": -753,
+            "netCashProvidedByInvestingActivities": -3457,
+            "netCashProvidedByFinancingActivities": -6427,
+            "netChangeInCash": 4515,
+            "effectOfForexChangesOnCash": 45,
+            "cashAtBeginningOfPeriod": 13910,
+            "cashAtEndOfPeriod": 18470
+          },
+          "lines": {
+            "netInterestIncomeAdjustment": -2609,
+            "fairValueLossesOrGainsAdjustment": -122,
+            "leaseModificationGainAdjustment": -76,
+            "financeCostsAdjustment": 49,
+            "shareOfJointVentureAndAssociateResultsAdjustment": -17,
+            "otherNonCashAdjustments": 16,
+            "changeInMarginFundFinancialAssets": -45517,
+            "changeInMarginFundFinancialLiabilities": 45651,
+            "changeInClearingHouseFundFinancialAssets": -1668,
+            "changeInClearingHouseFundFinancialLiabilities": 1512,
+            "changeInAShareCashPrepaymentsAndCollateral": 1455,
+            "changeInCorporateFundsSupportingSkinInTheGameAndDefaultFundCredits": 103,
+            "changeInCorporateFundsTransferredToShanghaiClearingHouse": 29,
+            "changeInReceivablesPrepaymentsAndDeposits": -2542,
+            "changeInOtherLiabilities": 1774,
+            "netCashInflowFromPrincipalOperations": 9135,
+            "interestReceivedOnShortTermSecuritiesDepositsAndCash": 3844,
+            "interestPaidToParticipants": -2121,
+            "cashPaidForForeignExchangeSwaps": -36,
+            "principalOperatingCashFlowNonHKFRS": 10069,
+            "otherOperatingFundManagerRedemptions": 4330,
+            "headquartersPremisesAcquisitionPayments": -2559,
+            "otherFixedAssetAndIntangiblePurchasesCombined": -931,
+            "associateInterestAcquisitionPayments": null,
+            "additionalSubsidiaryInterestAcquisitionPayments": 0,
+            "changeInTimeDepositsWithOriginalMaturityOverThreeMonths": 1622,
+            "changeInShortTermDebtSecurities": -26,
+            "longTermDebtSecurityPurchases": -2536,
+            "longTermDebtSecuritySalesAndMaturityProceeds": 0,
+            "interestReceivedOnLongTermDebtSecurities": 947,
+            "jointVentureDividendsReceived": 26,
+            "shareAwardSchemeSharePurchases": -19,
+            "otherFinanceCostsPaid": -25,
+            "dividendsPaidToHKEXShareholders": -6169,
+            "paymentsForWrittenPutsExercisedByNonControllingInterests": 0,
+            "dividendsPaidToNonControllingInterests": -59,
+            "leasePrincipalPayments": -133,
+            "leaseInterestPayments": -22,
+            "corporateCashBankBalancesAndShortTermInvestments": 19510,
+            "reservedCorporateCashDeduction": -1040
+          },
+          "lineNotes": {
+            "depreciationAmortizationAndImpairment": "Original interim wording is depreciation and amortisation; no separate impairment adjustment is printed."
+          }
+        },
+        {
+          "start": "2026-01-01",
+          "end": "2026-06-30",
+          "fiscalYear": 2026,
+          "period": "H1",
+          "currency": "HKD",
+          "unit": "millions",
+          "sourceRefs": [
+            {
+              "sourceId": "hkexH12026",
+              "column": "Six months ended 30 Jun 2026",
+              "pdfPages": [
+                61,
+                79
+              ],
+              "printedPages": [
+                59,
+                77
+              ]
+            }
+          ],
+          "fields": {
+            "incomeBeforeTax": 12606,
+            "depreciationAmortizationAndImpairment": 777,
+            "stockBasedCompensation": 217,
+            "operatingCashFlow": 11480,
+            "incomeTaxesPaid": -1202,
+            "netCashProvidedByInvestingActivities": -3278,
+            "netCashProvidedByFinancingActivities": -8475,
+            "netChangeInCash": -273,
+            "effectOfForexChangesOnCash": 34,
+            "cashAtBeginningOfPeriod": 19353,
+            "cashAtEndOfPeriod": 19114
+          },
+          "lines": {
+            "netInterestIncomeAdjustment": -2191,
+            "fairValueLossesOrGainsAdjustment": -253,
+            "leaseModificationGainAdjustment": 0,
+            "financeCostsAdjustment": 42,
+            "shareOfJointVentureAndAssociateResultsAdjustment": -14,
+            "otherNonCashAdjustments": -7,
+            "changeInMarginFundFinancialAssets": -19485,
+            "changeInMarginFundFinancialLiabilities": 19210,
+            "changeInClearingHouseFundFinancialAssets": -1775,
+            "changeInClearingHouseFundFinancialLiabilities": 1688,
+            "changeInAShareCashPrepaymentsAndCollateral": -1771,
+            "changeInCorporateFundsSupportingSkinInTheGameAndDefaultFundCredits": 90,
+            "changeInCorporateFundsTransferredToShanghaiClearingHouse": 152,
+            "changeInReceivablesPrepaymentsAndDeposits": -12816,
+            "changeInOtherLiabilities": 14781,
+            "netCashInflowFromPrincipalOperations": 11251,
+            "interestReceivedOnShortTermSecuritiesDepositsAndCash": 3909,
+            "interestPaidToParticipants": -3216,
+            "cashPaidForForeignExchangeSwaps": -116,
+            "principalOperatingCashFlowNonHKFRS": 10626,
+            "otherOperatingFundManagerRedemptions": 854,
+            "headquartersPremisesAcquisitionPayments": -2275,
+            "otherFixedAssetAndIntangiblePurchasesCombined": -1006,
+            "associateInterestAcquisitionPayments": null,
+            "additionalSubsidiaryInterestAcquisitionPayments": -305,
+            "changeInTimeDepositsWithOriginalMaturityOverThreeMonths": -515,
+            "changeInShortTermDebtSecurities": 574,
+            "longTermDebtSecurityPurchases": -2500,
+            "longTermDebtSecuritySalesAndMaturityProceeds": 1165,
+            "interestReceivedOnLongTermDebtSecurities": 1584,
+            "jointVentureDividendsReceived": 0,
+            "shareAwardSchemeSharePurchases": -41,
+            "otherFinanceCostsPaid": -23,
+            "dividendsPaidToHKEXShareholders": -8206,
+            "paymentsForWrittenPutsExercisedByNonControllingInterests": -19,
+            "dividendsPaidToNonControllingInterests": -36,
+            "leasePrincipalPayments": -133,
+            "leaseInterestPayments": -17,
+            "corporateCashBankBalancesAndShortTermInvestments": 20784,
+            "reservedCorporateCashDeduction": -1670
+          },
+          "lineNotes": {
+            "depreciationAmortizationAndImpairment": "Original interim wording is depreciation and amortisation; no separate impairment adjustment is printed."
+          }
+        }
+      ]
+    },
+    {
+      "symbol": "0005.HK",
+      "name": "HSBC Holdings plc",
+      "currency": "USD",
+      "unit": "millions",
+      "comparabilityNotes": [
+        "Cash-flow starting profit is profit before tax, not net income.",
+        "H1 2026 aggregates operating asset and liability changes. Footnote 4 explicitly identifies the former separate categories.",
+        "Original H1 2025 operating assets -136572 plus operating liabilities 174060 equals the H1 2026 report's H1 2025 combined comparative 37488.",
+        "Separate H1 2026 operating asset and liability changes are not disclosed and remain null.",
+        "FY2025 combined operating movement 30790 is derived by summing ten original lines, not directly reported.",
+        "Do not sum combined operating movement and its detailed constituent lines together.",
+        "Elimination of exchange differences in the operating bridge is distinct from FX on cash equivalents.",
+        "PPE cash flow is a net purchase/sale amount, not gross capital expenditure.",
+        "Rounded cash-interest disclosures retain billions and are not exact-million generic fields.",
+        "H1 2026 policies follow FY2025 except financial-instrument amendments with no material effect.",
+        "FY2025 ordinary cash issuance is zero: the USD4096m combined cash-flow issuance exactly matches capital securities issued wholly in other equity instruments. Employee-plan share capital/premium USD116m is offset by retained earnings, not a cash subscription. FY2024 and interim ordinary cash issuance are not inferred from this annual evidence."
+      ],
+      "periods": [
+        {
+          "start": "2025-01-01",
+          "end": "2025-12-31",
+          "fiscalYear": 2025,
+          "period": "FY",
+          "currency": "USD",
+          "unit": "millions",
+          "sourceRefs": [
+            {
+              "sourceId": "hsbcFY2025",
+              "column": "2025",
+              "pdfPages": [
+                270,
+                271
+              ],
+              "printedPages": [
+                268,
+                269
+              ]
+            },
+            {
+              "sourceId": "hsbcFY2025",
+              "column": "2025",
+              "pdfPages": [267, 269, 342, 343],
+              "printedPages": [265, 267, 340, 341]
+            }
+          ],
+          "lineNotes": {
+            "commonStockIssuance": "FY2025 cash-flow issuance USD4096m (PDF270) equals the complete equity movement's capital securities issued USD4096m, all in other equity instruments (PDF267). Employee remuneration/share plans transfer USD116m from retained earnings to share capital/premium with zero total equity effect. Note32 identifies only employee-plan ordinary share issuance and separately lists AT1 instruments (PDF342-343); footnote6 identifies the three AT1 issuances (PDF269). No buybacks, net issuance or year-end FX-translated AT1 balances are used to infer ordinary cash proceeds."
+          },
+          "fields": {
+            "commonStockIssuance": 0,
+            "incomeBeforeTax": 29907,
+            "depreciationAmortizationAndImpairment": 4916,
+            "stockBasedCompensation": 621,
+            "operatingCashFlow": 29766,
+            "incomeTaxesPaid": -5058,
+            "netCashProvidedByInvestingActivities": -37068,
+            "netCashProvidedByFinancingActivities": -21961,
+            "netChangeInCash": -29263,
+            "effectOfForexChangesOnCash": 27210,
+            "cashAtBeginningOfPeriod": 434940,
+            "cashAtEndOfPeriod": 432887
+          },
+          "lines": {
+            "investingLossesOrGainsAdjustment": 2614,
+            "shareOfAssociateAndJointVentureProfitsAdjustment": -2911,
+            "associateInterestImpairmentAdjustment": 1000,
+            "acquisitionDisposalLossesOrGainsAdjustment": 93,
+            "expectedCreditLossAndOtherCreditImpairmentAdjustment": 4170,
+            "provisionsIncludingPensionsAdjustment": 2103,
+            "otherNonCashAdjustments": -4690,
+            "eliminationOfExchangeDifferencesAdjustment": -34682,
+            "changeInNetTradingSecuritiesAndDerivatives": -38630,
+            "changeInLoansAndAdvancesToBanksAndCustomers": -74071,
+            "changeInNonTradingReverseRepurchaseAgreements": -32342,
+            "changeInFinancialAssetsDesignatedAndMandatorilyAtFairValue": -23393,
+            "changeInOtherOperatingAssets": -38389,
+            "changeInBankDepositsAndCustomerAccounts": 168907,
+            "changeInNonTradingRepurchaseAgreements": 24094,
+            "changeInDebtSecuritiesInIssue": -5613,
+            "changeInFinancialLiabilitiesDesignatedAtFairValue": 46129,
+            "changeInOtherOperatingLiabilities": 4098,
+            "changeInOperatingAssetsAndLiabilitiesCombined": 30790,
+            "changeInOperatingAssets": null,
+            "changeInOperatingLiabilities": null,
+            "dividendsReceivedFromAssociates": 1040,
+            "definedBenefitPlanContributionsPaid": -147,
+            "financialInvestmentPurchases": -502391,
+            "financialInvestmentSaleAndMaturityProceeds": 470309,
+            "netPropertyPlantAndEquipmentPurchasesAndSales": -1447,
+            "loanPortfolioAndCustomerAccountDisposalCashFlow": 0,
+            "netIntangibleAssetInvestment": -3214,
+            "acquisitionDisposalCashInflows": 1126,
+            "acquisitionDisposalCashOutflows": -1451,
+            "ordinaryShareCapitalAndOtherEquityIssued": 4096,
+            "shareBuybacks": -9091,
+            "ownShareMarketMakingAndInvestmentPurchasesOrSales": -1123,
+            "cashFlowFromChangesInSubsidiaryStakes": -154,
+            "preferenceShareAndOtherEquityRedemptions": -2450,
+            "subordinatedLoanCapitalIssued": 3834,
+            "subordinatedLoanCapitalRepaid": -3591,
+            "dividendsPaidToParentShareholdersAndNonControllingInterests": -13482,
+            "dividendsPaidOnOrdinaryShares": -11581,
+            "couponsPaidOnEquityCapitalSecurities": -1183,
+            "parentDividendsAndEquityCouponsPaid": -12764,
+            "endingCashAndCentralBankBalances": 242859,
+            "endingBankLoansAndAdvancesMaturingWithinOneMonth": 74404,
+            "endingBankReverseReposMaturingWithinOneMonth": 71790,
+            "endingBillsAndCertificatesOfDepositUnderThreeMonths": 41232,
+            "endingCashCollateralSettlementAndCollectionItems": 2214,
+            "endingCashAndCashEquivalentsHeldForSale": 387,
+            "supplementalInterestReceived": {
+              "value": 99.6,
+              "currency": "USD",
+              "unit": "billions",
+              "precision": "roundedToOneDecimalBillion"
+            },
+            "supplementalInterestPaid": {
+              "value": -68.8,
+              "currency": "USD",
+              "unit": "billions",
+              "precision": "roundedToOneDecimalBillion"
+            },
+            "supplementalDividendsReceivedExcludingAssociates": {
+              "value": 2.7,
+              "currency": "USD",
+              "unit": "billions",
+              "precision": "roundedToOneDecimalBillion"
+            }
+          },
+          "derivedLines": {
+            "changeInOperatingAssetsAndLiabilitiesCombined": {
+              "directlyReported": false,
+              "method": "sum",
+              "value": 30790,
+              "constituentLineKeys": [
+                "changeInNetTradingSecuritiesAndDerivatives",
+                "changeInLoansAndAdvancesToBanksAndCustomers",
+                "changeInNonTradingReverseRepurchaseAgreements",
+                "changeInFinancialAssetsDesignatedAndMandatorilyAtFairValue",
+                "changeInOtherOperatingAssets",
+                "changeInBankDepositsAndCustomerAccounts",
+                "changeInNonTradingRepurchaseAgreements",
+                "changeInDebtSecuritiesInIssue",
+                "changeInFinancialLiabilitiesDesignatedAtFairValue",
+                "changeInOtherOperatingLiabilities"
+              ]
+            }
+          }
+        },
+        {
+          "start": "2025-01-01",
+          "end": "2025-06-30",
+          "fiscalYear": 2025,
+          "period": "H1",
+          "currency": "USD",
+          "unit": "millions",
+          "sourceRefs": [
+            {
+              "sourceId": "hsbcH12025",
+              "column": "30 Jun 2025",
+              "pdfPages": [
+                85
+              ],
+              "printedPages": [
+                83
+              ]
+            },
+            {
+              "sourceId": "hsbcH12026",
+              "column": "30 Jun 2025 comparative",
+              "pdfPages": [
+                88
+              ],
+              "printedPages": [
+                86
+              ]
+            }
+          ],
+          "fields": {
+            "incomeBeforeTax": 15810,
+            "depreciationAmortizationAndImpairment": 2225,
+            "stockBasedCompensation": 315,
+            "operatingCashFlow": 13182,
+            "incomeTaxesPaid": -2197,
+            "netCashProvidedByInvestingActivities": -36430,
+            "netCashProvidedByFinancingActivities": -13657,
+            "netChangeInCash": -36905,
+            "effectOfForexChangesOnCash": 30872,
+            "cashAtBeginningOfPeriod": 434940,
+            "cashAtEndOfPeriod": 428907
+          },
+          "lines": {
+            "investingLossesOrGainsAdjustment": 1127,
+            "shareOfAssociateAndJointVentureProfitsAdjustment": -1651,
+            "associateInterestImpairmentAdjustment": 1000,
+            "acquisitionDisposalLossesOrGainsAdjustment": 73,
+            "expectedCreditLossAndOtherCreditImpairmentAdjustment": 2077,
+            "provisionsIncludingPensionsAdjustment": 584,
+            "otherNonCashAdjustments": -2732,
+            "eliminationOfExchangeDifferencesAdjustment": -41720,
+            "changeInNetTradingSecuritiesAndDerivatives": null,
+            "changeInLoansAndAdvancesToBanksAndCustomers": null,
+            "changeInNonTradingReverseRepurchaseAgreements": null,
+            "changeInFinancialAssetsDesignatedAndMandatorilyAtFairValue": null,
+            "changeInOtherOperatingAssets": null,
+            "changeInBankDepositsAndCustomerAccounts": null,
+            "changeInNonTradingRepurchaseAgreements": null,
+            "changeInDebtSecuritiesInIssue": null,
+            "changeInFinancialLiabilitiesDesignatedAtFairValue": null,
+            "changeInOtherOperatingLiabilities": null,
+            "changeInOperatingAssetsAndLiabilitiesCombined": 37488,
+            "changeInOperatingAssets": -136572,
+            "changeInOperatingLiabilities": 174060,
+            "dividendsReceivedFromAssociates": 850,
+            "definedBenefitPlanContributionsPaid": -67,
+            "financialInvestmentPurchases": -266941,
+            "financialInvestmentSaleAndMaturityProceeds": 232360,
+            "netPropertyPlantAndEquipmentPurchasesAndSales": -504,
+            "loanPortfolioAndCustomerAccountDisposalCashFlow": null,
+            "netIntangibleAssetInvestment": -1316,
+            "acquisitionDisposalCashInflows": 0,
+            "acquisitionDisposalCashOutflows": -29,
+            "ordinaryShareCapitalAndOtherEquityIssued": 4096,
+            "shareBuybacks": -5386,
+            "ownShareMarketMakingAndInvestmentPurchasesOrSales": -1100,
+            "cashFlowFromChangesInSubsidiaryStakes": 0,
+            "preferenceShareAndOtherEquityRedemptions": -2450,
+            "subordinatedLoanCapitalIssued": 2340,
+            "subordinatedLoanCapitalRepaid": -1986,
+            "dividendsPaidToParentShareholdersAndNonControllingInterests": -9171,
+            "dividendsPaidOnOrdinaryShares": -8147,
+            "couponsPaidOnEquityCapitalSecurities": -547,
+            "parentDividendsAndEquityCouponsPaid": -8694,
+            "supplementalInterestReceived": {
+              "value": 50078,
+              "currency": "USD",
+              "unit": "millions",
+              "precision": "asReportedInOriginalH12025Report"
+            },
+            "supplementalInterestPaid": {
+              "value": -35065,
+              "currency": "USD",
+              "unit": "millions",
+              "precision": "asReportedInOriginalH12025Report"
+            },
+            "supplementalDividendsReceivedExcludingAssociates": {
+              "value": 1339,
+              "currency": "USD",
+              "unit": "millions",
+              "precision": "asReportedInOriginalH12025Report"
+            },
+            "supplementalEndingCashHeldForSale": {
+              "value": 2.5,
+              "currency": "USD",
+              "unit": "billions",
+              "precision": "roundedToOneDecimalBillion"
+            }
+          },
+          "lineNotes": {
+            "changeInOperatingAssetsAndLiabilitiesCombined": "Directly reported in H1 2026 comparative; equals sum of the two original H1 2025 rows. Do not double count.",
+            "changeInOperatingAssets": "Directly reported in original H1 2025 report.",
+            "changeInOperatingLiabilities": "Directly reported in original H1 2025 report.",
+            "cashFlowFromChangesInSubsidiaryStakes": "Printed nil in H1 2026 comparative; no separate row in original H1 2025 report.",
+            "supplementalInterestReceived": "Original exact-million disclosure retained instead of the rounded 50.1bn later comparative.",
+            "supplementalInterestPaid": "Original exact-million disclosure retained instead of the rounded 35.1bn later comparative.",
+            "supplementalDividendsReceivedExcludingAssociates": "Original exact-million disclosure retained instead of the rounded 1.3bn later comparative."
+          }
+        },
+        {
+          "start": "2026-01-01",
+          "end": "2026-06-30",
+          "fiscalYear": 2026,
+          "period": "H1",
+          "currency": "USD",
+          "unit": "millions",
+          "sourceRefs": [
+            {
+              "sourceId": "hsbcH12026",
+              "column": "30 Jun 2026",
+              "pdfPages": [
+                88
+              ],
+              "printedPages": [
+                86
+              ]
+            }
+          ],
+          "fields": {
+            "incomeBeforeTax": 19522,
+            "depreciationAmortizationAndImpairment": 2456,
+            "stockBasedCompensation": 319,
+            "operatingCashFlow": 81762,
+            "incomeTaxesPaid": -3647,
+            "netCashProvidedByInvestingActivities": -63402,
+            "netCashProvidedByFinancingActivities": -21519,
+            "netChangeInCash": -3159,
+            "effectOfForexChangesOnCash": -5456,
+            "cashAtBeginningOfPeriod": 432887,
+            "cashAtEndOfPeriod": 424272
+          },
+          "lines": {
+            "investingLossesOrGainsAdjustment": -239,
+            "shareOfAssociateAndJointVentureProfitsAdjustment": -1559,
+            "associateInterestImpairmentAdjustment": 0,
+            "acquisitionDisposalLossesOrGainsAdjustment": 355,
+            "expectedCreditLossAndOtherCreditImpairmentAdjustment": 2548,
+            "provisionsIncludingPensionsAdjustment": 175,
+            "otherNonCashAdjustments": -1420,
+            "eliminationOfExchangeDifferencesAdjustment": 8390,
+            "changeInNetTradingSecuritiesAndDerivatives": null,
+            "changeInLoansAndAdvancesToBanksAndCustomers": null,
+            "changeInNonTradingReverseRepurchaseAgreements": null,
+            "changeInFinancialAssetsDesignatedAndMandatorilyAtFairValue": null,
+            "changeInOtherOperatingAssets": null,
+            "changeInBankDepositsAndCustomerAccounts": null,
+            "changeInNonTradingRepurchaseAgreements": null,
+            "changeInDebtSecuritiesInIssue": null,
+            "changeInFinancialLiabilitiesDesignatedAtFairValue": null,
+            "changeInOtherOperatingLiabilities": null,
+            "changeInOperatingAssetsAndLiabilitiesCombined": 54736,
+            "changeInOperatingAssets": null,
+            "changeInOperatingLiabilities": null,
+            "dividendsReceivedFromAssociates": 222,
+            "definedBenefitPlanContributionsPaid": -96,
+            "financialInvestmentPurchases": -262844,
+            "financialInvestmentSaleAndMaturityProceeds": 204080,
+            "netPropertyPlantAndEquipmentPurchasesAndSales": -1002,
+            "loanPortfolioAndCustomerAccountDisposalCashFlow": null,
+            "netIntangibleAssetInvestment": -1366,
+            "acquisitionDisposalCashInflows": 390,
+            "acquisitionDisposalCashOutflows": -2660,
+            "ordinaryShareCapitalAndOtherEquityIssued": 3992,
+            "shareBuybacks": 0,
+            "ownShareMarketMakingAndInvestmentPurchasesOrSales": -750,
+            "cashFlowFromChangesInSubsidiaryStakes": -13643,
+            "preferenceShareAndOtherEquityRedemptions": -1000,
+            "subordinatedLoanCapitalIssued": 0,
+            "subordinatedLoanCapitalRepaid": 0,
+            "dividendsPaidToParentShareholdersAndNonControllingInterests": -10118,
+            "dividendsPaidOnOrdinaryShares": -9416,
+            "couponsPaidOnEquityCapitalSecurities": -633,
+            "parentDividendsAndEquityCouponsPaid": -10049,
+            "supplementalInterestReceived": {
+              "value": 50.4,
+              "currency": "USD",
+              "unit": "billions",
+              "precision": "roundedToOneDecimalBillion"
+            },
+            "supplementalInterestPaid": {
+              "value": -32.7,
+              "currency": "USD",
+              "unit": "billions",
+              "precision": "roundedToOneDecimalBillion"
+            },
+            "supplementalDividendsReceivedExcludingAssociates": {
+              "value": 1.5,
+              "currency": "USD",
+              "unit": "billions",
+              "precision": "roundedToOneDecimalBillion"
+            },
+            "supplementalEndingCashHeldForSale": {
+              "value": 1.7,
+              "currency": "USD",
+              "unit": "billions",
+              "precision": "roundedToOneDecimalBillion"
+            }
+          },
+          "lineNotes": {
+            "changeInOperatingAssetsAndLiabilitiesCombined": "Directly reported combined row; footnote 4 identifies aggregation of former separate operating asset/liability rows.",
+            "cashFlowFromChangesInSubsidiaryStakes": "Footnote 5: relates to privatisation of Hang Seng Bank."
+          }
+        }
+      ]
+    }
+  ],
+  "bridgeVerificationRules": {
+    "hkex": [
+      "incomeBeforeTax plus non-cash adjustments and operating asset/liability changes equals netCashInflowFromPrincipalOperations.",
+      "netCashInflowFromPrincipalOperations plus short-term interest received, participant interest paid, FX-swap cash paid and incomeTaxesPaid equals principalOperatingCashFlowNonHKFRS.",
+      "principalOperatingCashFlowNonHKFRS plus otherOperatingFundManagerRedemptions equals operatingCashFlow."
+    ],
+    "hsbc": [
+      "incomeBeforeTax plus non-cash adjustments, eliminationOfExchangeDifferencesAdjustment, one combined operating movement, associate dividends, defined-benefit contributions and incomeTaxesPaid equals operatingCashFlow.",
+      "For FY2025 use either the ten operating movement constituents or derived combined 30790, never both.",
+      "For H1 2025 use either original operating assets plus liabilities or comparative combined 37488, never both.",
+      "For H1 2026 use reported combined 54736; separate asset/liability changes are unavailable."
+    ],
+    "all": [
+      "operatingCashFlow plus netCashProvidedByInvestingActivities plus netCashProvidedByFinancingActivities equals netChangeInCash.",
+      "cashAtBeginningOfPeriod plus netChangeInCash plus effectOfForexChangesOnCash equals cashAtEndOfPeriod.",
+      "TTM flow calculation is FY2025 minus H1 2025 plus H1 2026.",
+      "TTM beginning and ending cash are point-in-time balances at 2025-06-30 and 2026-06-30, not sums of period balance fields.",
+      "Do not construct a TTM source-specific line when a constituent is null unless an explicitly documented comparable aggregation resolves the missing category."
+    ]
+  }
+}

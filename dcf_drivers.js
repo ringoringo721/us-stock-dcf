@@ -107,9 +107,13 @@
         revenue, revenueGrowth: revenue / previous - 1, ebitda, ebit, nopat,
         depreciation, capex, workingCapital, tax: yearTax, anchor: !!anchor,
         sources: {
-          revenue: own(edit, 'revenue') || own(edit, 'revenueGrowth') ? 'user' : anchor ? 'analyst' : 'model',
+          revenue: own(edit, 'revenue') || own(edit, 'revenueGrowth') ? 'user'
+            : anchor?.operatingBasis === 'exCorporateInvestmentIncomeScenario' ? 'exCorporateInvestmentIncome'
+              : anchor ? 'analyst' : 'model',
           ebitda: own(edit, 'ebitda') || own(edit, 'ebitdaMargin') ? 'user'
-            : anchor ? finite(anchor.ebitda) ? 'analyst' : 'analystEbitPlusModelDa' : 'model',
+            : anchor?.operatingBasis === 'normalizedRentalMarginScenario' ? 'normalizedRentalMargin'
+              : anchor?.operatingBasis === 'exCorporateInvestmentIncomeScenario' ? 'exCorporateInvestmentIncome'
+              : anchor ? finite(anchor.ebitda) ? 'analyst' : 'analystEbitPlusModelDa' : 'model',
           depreciation: own(edit, 'depreciation') || own(edit, 'depreciationRate') ? 'user'
             : spreadAvailable ? 'analystSpread' : 'model'
         }

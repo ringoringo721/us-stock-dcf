@@ -36,7 +36,7 @@
   function labels(dictionary, data) {
     const half = cadence(data).stride === 2;
     const result = Object.fromEntries(Object.entries(dictionary).map(([key, value]) => [key,
-      typeof value !== 'string' ? value : value.replace(/\bUSD\b/g, currency).replace(currency === 'HKD' ? /美元/g : /$^/g, '港元')
+      typeof value !== 'string' || key.startsWith('market_') ? value : value.replace(/\bUSD\b/g, currency).replace(currency === 'HKD' ? /美元/g : /$^/g, '港元')
         .replace(currency === 'HKD' ? /\$/g : /$^/g, 'HKD ')
         .replace(half ? /QoQ|季增率/g : /$^/g, match => match === 'QoQ' ? 'HoH' : '半年增率')
         .replace(half ? /four consecutive|four quarterly|four matching quarterly|four quarters|四季|近20季|單季|季度|Quarterly|quarterly|Single-quarter/g : /$^/g,
@@ -69,11 +69,39 @@
   }
   function localize(panel, dictionary, data) {
     const translated = labels(dictionary, data);
+    panel?.querySelectorAll('select[id$="-period"]').forEach(select => {
+      if (!select.querySelector('option[value="quarterly"]')) return;
+      let half = select.querySelector('option[value="semiannual"]');
+      if (market === 'HKEX' && !half) {
+        half = root.document.createElement('option');
+        half.value = 'semiannual';
+        half.dataset.i18n = 'fcf_semiannual';
+        select.append(half);
+      }
+      if (half) half.textContent = translated.fcf_semiannual || (root.document.documentElement.lang === 'en' ? 'Half year' : '半年');
+      const quarter = select.querySelector('option[value="quarterly"]');
+      const frequency = cadence(data, select.id === 'fcf-ratio-period' ? 'cashflow' : data?.presentationStatement || 'income').frequency;
+      quarter.disabled = frequency !== 'quarterly' && data?.periodView !== 'semiannual';
+      quarter.hidden = quarter.disabled || frequency === 'annual';
+      if (half) {
+        half.disabled = frequency === 'annual';
+        half.hidden = half.disabled;
+      }
+      if (frequency === 'annual') select.value = 'annual';
+      else if (quarter.disabled && select.value === 'quarterly') select.value = 'semiannual';
+    });
     panel?.querySelectorAll('[data-i18n]').forEach(element => {
       const value = translated[element.dataset.i18n];
-      if (value) element.innerHTML = value;
+      if (value) element.innerHTML = element.tagName === 'OPTION' && element.value === 'quarterly' && data?.periodView === 'semiannual'
+        ? dictionary[element.dataset.i18n] || value : value;
     });
     return translated;
+  }
+  function propertyFvNote(data, language = 'en') {
+    if (!data?.propertyFvProvenance) return '';
+    return language === 'en'
+      ? 'Link FY2019–FY2026: operating income and EBIT exclude independently verified consolidated investment-property FV changes, retaining other impairments; EBITDA adds FMP D&A. Unseparated JV FV may remain in EBIT/EBITDA. Attributable NPAT uses the issuer’s property-FV/deferred-tax bridge, respecting JV/NCI scope; combined, inseparable adjustments show N/A. Basic EPS uses verified units; adjusted diluted EPS/P-E are unavailable pending convertible dilution review. Pretax, tax and other statement rows remain reported, not a restated GAAP income statement. CFO is statutory, already FV-free: no second addback. FCF deducts cash investment-property plus PPE additions, before financing-classified interest, not distributable equity cash. Native FMP forecasts/valuations and reported-basis F-score are unchanged. Earlier history is unreviewed; original FMP statements and official source pages are saved in the statement audit data.'
+      : '領展 FY2019–FY2026：營業利益及 EBIT 按已核實的合併投資物業公允值變動調整，保留其他減值；EBITDA 加回 FMP 折舊攤銷。EBIT／EBITDA 仍可能含未能分拆的合營公允值影響。股東 NPAT 採官方分派調節中的物業公允值及遞延稅調整，保留合營／非控股歸屬；無法分拆的合併調整顯示 N/A。基本 EPS 採核實單位數；調整後稀釋 EPS／本益比因需重測可換股攤薄而不可用。稅前、稅項及其他列仍為報告值，並非重編會計損益表。CFO 採法定現金流，已排除非現金公允值，不再加回；FCF 扣投資物業及固定資產現金投入，未扣融資分類利息，非可分派股東現金。FMP 原生預測／估值及按報告值計算的 F-score 不變。更早歷史未核實；原始 FMP 數據及官方頁碼已存入報表審核資料。';
   }
   function renderProvenance(panel, data, ticker) {
     if (!panel || !data) return;
@@ -91,7 +119,8 @@
     details.querySelector('summary').textContent = root.document.documentElement.lang === 'en'
       ? 'Source periods, FX provenance and data limitations' : '原始報告期間、換匯與資料限制';
     const fields = ['date', 'period', 'periodStartDate', 'periodLength', 'duration', 'derivation',
-      'sourceDates', 'sourceReleaseDate', 'sourceReportedCurrency', 'reportedCurrency', 'currencyConversion'];
+      'sourceDates', 'sourceReleaseDate', 'sourceReportedCurrency', 'reportedCurrency', 'currencyConversion',
+      'comparabilityGroup', 'operatingIncomeBasis', 'earningsIncludeDiscontinued', 'revenueCorrection', 'reportType'];
     const periods = {};
     for (const frequency of ['annual', 'quarterly']) {
       for (const statement of ['income', 'balance', 'cashflow']) {
@@ -102,10 +131,12 @@
     details.querySelector('pre').textContent = JSON.stringify({
       ticker, calculationCurrency: data.calculationCurrency || currency, reportedCurrency: data.reportedCurrency,
       reportingFrequency: data.reportingFrequency, statementFrequencies: data.statementFrequencies,
+      propertyFvProvenance: data.propertyFvProvenance,
       qualityWarnings: data.qualityWarnings, currencyConversion: data.currencyConversion,
       periods: Object.keys(periods).length ? periods : data.statements_raw?.periodMetadata,
       rawStatementWarnings: data.statements_raw?.qualityWarnings
     }, null, 2);
   }
-  return { market, currency, resolve, stocks, fcff, currencyFor, compatibleSaved, cadence, label, labels, localize, renderProvenance };
+  return { market, currency, resolve, stocks, fcff, currencyFor, compatibleSaved, cadence, label, labels, localize,
+    propertyFvNote, renderProvenance };
 });

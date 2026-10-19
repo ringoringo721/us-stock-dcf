@@ -4,6 +4,7 @@
   else root.PriceHistory = api;
 })(typeof globalThis === 'object' ? globalThis : this, function () {
   'use strict';
+  const Technical = typeof module === 'object' && module.exports ? require('./technical_indicators.js') : TechnicalIndicators;
   const DAY = 86400000;
   const validDate = value => typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value)
     && Number.isFinite(Date.parse(value)) && new Date(value).toISOString().slice(0, 10) === value;
@@ -108,12 +109,74 @@
     get(suffix).className = value === null ? '' : value >= 0 ? 'text-green' : 'text-red';
   }
 
+  const technicalLabel = item => `${item.id === 'standarddeviation' ? 'STDDEV' : item.id.toUpperCase()} · ${item[active.lang === 'en' ? 'en' : 'zh']}`;
+  const technicalName = (item, state) => `${technicalLabel(item)} (${state.period})`;
+  const technicalColors = ['#38bdf8', '#a78bfa', '#fb7185', '#34d399', '#f97316', '#38bdf8', '#a78bfa', '#fb7185', '#34d399'];
+  function remember() {
+    preferences.set(active.ticker, { period: active.period, range: active.range,
+      technical: Object.fromEntries(Object.entries(active.technical).map(([key, value]) => [key, value.period])) });
+  }
+  function technicalStatus() {
+    const selected = Technical.catalog.filter(item => active.technical[item.id]);
+    get('technical-retry').hidden = !selected.length;
+    get('technical-retry').textContent = active.labels.technical_refresh;
+    get('technical-status').textContent = selected.map(item => {
+      const state = active.technical[item.id], name = technicalName(item, state);
+      return `${name}: ${state.error ? `${active.labels.technical_error} (${state.error})`
+        : !state.values ? active.labels.technical_loading
+          : `${active.labels.technical_available} ${[...state.values].filter(([date, value]) => value !== null
+            && date >= active.range[0] && date <= active.range[1]).length}`} ${
+              state.values?.size ? `${active.labels.technical_coverage} ${[...state.values.keys()][0]} — ${[...state.values.keys()].at(-1)}. ` : ''
+            }${state.response ? Technical.cacheNote(state.response, active.lang) : ''}`;
+    }).join(' · ');
+  }
+  function technicalControls() {
+    get('technical-choices').replaceChildren();
+    for (const item of Technical.catalog) {
+      const row = document.createElement('div'), label = document.createElement('label');
+      const checkbox = document.createElement('input'), periodLabel = document.createElement('label');
+      const period = document.createElement('input');
+      checkbox.type = 'checkbox'; checkbox.dataset.technical = item.id;
+      checkbox.checked = !!active.technical[item.id];
+      label.append(checkbox, document.createTextNode(technicalLabel(item)));
+      period.type = 'number'; period.min = '1'; period.max = '500'; period.step = '1'; period.required = true;
+      period.dataset.technicalPeriod = item.id;
+      period.value = active.technical[item.id]?.period || item.period;
+      period.setAttribute('aria-label', `${technicalLabel(item)} · ${active.labels.technical_period}`);
+      periodLabel.append(document.createTextNode(active.labels.technical_period), period);
+      row.append(label, periodLabel); get('technical-choices').append(row);
+    }
+  }
+  async function setTechnical(indicator, enabled, period, reload = false) {
+    if (!active?.record?.rows.length) return;
+    const current = active;
+    if (!enabled) { delete current.technical[indicator]; remember(); draw(); return; }
+    const state = { period, values: null, error: null };
+    current.technical[indicator] = state; remember(); draw();
+    try {
+      const rows = current.record.rows;
+      const data = await Technical.load(current.ticker, indicator, period, rows[0][0], rows.at(-1)[0], reload);
+      if (active !== current || current.technical[indicator] !== state) return;
+      state.response = data;
+      if (!data.rows.length) throw new Error('FMP_NO_TECHNICAL_COVERAGE');
+      state.values = Technical.align(data.rows, rows);
+    } catch (error) {
+      if (active !== current || current.technical[indicator] !== state) return;
+      console.error('FMP technical indicator could not load', current.ticker, indicator, error.message);
+      state.error = error.message;
+    }
+    if (active === current && current.technical[indicator] === state) draw();
+  }
+
   function draw() {
     if (!active?.record) return;
     destroy();
+    get('indicator-plots').replaceChildren();
     const { record, labels, range } = active;
     const all = record.rows;
     selected = range ? select(all, ...range) : [];
+    get('technical-controls').hidden = !all.length;
+    technicalStatus();
     const summary = summarize(selected);
     get('last-close').textContent = price(summary.price);
     colorValue('return', summary.change);
@@ -159,6 +222,7 @@
       callbacks: {
         title: items => selected[items[0]?.dataIndex]?.[0] || '',
         label: item => {
+          if (item.datasetIndex > 0) return `${item.dataset.label}: ${number(item.parsed.y)}`;
           const row = selected[item.dataIndex];
           return [`${labels.price_close}: ${price(row[1])}`,
             `${labels.price_volume}: ${row[2] === null ? 'N/A' : row[2].toLocaleString(active.lang === 'zh' ? 'zh-TW' : 'en-US')}`];
@@ -187,6 +251,13 @@
       onHover(event, elements) { if (elements.length) details(elements[0].index); },
       plugins: { legend: { display: false }, tooltip }
     };
+    const technical = Technical.catalog.map((item, i) => ({ item, state: active.technical[item.id], color: technicalColors[i] }))
+      .filter(({ state }) => state?.values);
+    const indicatorDataset = ({ item, state, color }) => ({
+      label: technicalName(item, state), borderColor: color, borderWidth: 1.5, pointRadius: 0,
+      pointHoverRadius: 3, fill: false, tension: 0, spanGaps: false,
+      data: selected.map(row => ({ x: Date.parse(row[0]), y: state.values.get(row[0]) ?? null }))
+    });
     charts.push(new Chart(get('chart'), {
       type: 'line', plugins: [crosshair],
       data: { datasets: [{
@@ -199,7 +270,7 @@
           gradient.addColorStop(0, `${gold}45`); gradient.addColorStop(1, `${gold}00`);
           return gradient;
         }
-      }] },
+      }, ...technical.filter(({ item }) => item.overlay).map(indicatorDataset)] },
       options: { ...common, scales: {
         x: { ...xScale, ticks: { display: false }, border: { display: false } },
         y: {
@@ -207,7 +278,8 @@
           ticks: { color: muted, maxTicksLimit: 6, callback: value => compact(value) },
           grid: { color: theme('--chart-grid') }, title: { display: true, text: active.record.currency, color: muted }
         }
-      } }
+      }, plugins: { ...common.plugins, legend: { display: technical.some(({ item }) => item.overlay),
+        labels: { color: muted, boxWidth: 12 } } } }
     }));
     charts.push(new Chart(get('volume-chart'), {
       type: 'bar', plugins: [crosshair],
@@ -245,6 +317,26 @@
         }
       }
     }));
+    for (const series of technical.filter(({ item }) => !item.overlay)) {
+      const heading = document.createElement('h3'), wrapper = document.createElement('div'), canvas = document.createElement('canvas');
+      heading.textContent = technicalName(series.item, series.state);
+      heading.className = 'price-volume-label';
+      wrapper.className = 'price-indicator-chart';
+      canvas.id = `price-indicator-${series.item.id}`;
+      canvas.setAttribute('role', 'img');
+      canvas.setAttribute('aria-label', `${active.ticker} · ${heading.textContent}`);
+      wrapper.append(canvas); get('indicator-plots').append(heading, wrapper);
+      const bounds = series.item.bounds;
+      charts.push(new Chart(canvas, {
+        type: 'line', plugins: [crosshair], data: { datasets: [indicatorDataset(series)] },
+        options: { ...common, plugins: { legend: { display: false }, tooltip: { ...tooltip,
+          callbacks: { title: tooltip.callbacks.title, label: item => `${item.dataset.label}: ${number(item.parsed.y)}` } } },
+          scales: { x: xScale, y: { position: 'right',
+            ...(bounds ? { min: bounds[0], max: bounds[1] } : { beginAtZero: true }),
+            afterFit(axis) { axis.width = 66; }, ticks: { color: muted, maxTicksLimit: 4 },
+            grid: { color: theme('--chart-grid') } } } }
+      }));
+    }
     const startIndex = all.findIndex(row => row[0] >= range[0]);
     const endIndex = all.findLastIndex(row => row[0] <= range[1]);
     for (const suffix of ['range-start', 'range-end']) { get(suffix).max = all.length - 1; get(suffix).disabled = all.length < 2; }
@@ -260,7 +352,7 @@
     if (!active?.record) return;
     active.period = period;
     active.range = range;
-    preferences.set(active.ticker, { period, range });
+    remember();
     get('range-error').textContent = '';
     draw();
   }
@@ -268,6 +360,21 @@
   function bind() {
     if (bound) return;
     bound = true;
+    get('technical-choices').addEventListener('change', event => {
+      if (!active?.record) return;
+      const id = event.target.dataset.technical || event.target.dataset.technicalPeriod;
+      if (!id) return;
+      const checkbox = get('technical-choices').querySelector(`[data-technical="${id}"]`);
+      const input = get('technical-choices').querySelector(`[data-technical-period="${id}"]`);
+      if (checkbox.checked && !input.reportValidity()) return;
+      setTechnical(id, checkbox.checked, Number(input.value));
+    });
+    get('technical-retry').addEventListener('click', () => {
+      if (!active) return;
+      for (const [id, state] of Object.entries(active.technical)) {
+        setTechnical(id, true, state.period, true);
+      }
+    });
     get('periods').addEventListener('click', event => {
       const period = event.target.closest('button')?.dataset.period;
       if (period && active?.record) updateRange(period, periodRange(active.record.rows, period));
@@ -336,7 +443,7 @@
     const id = ++requestId;
     destroy();
     selected = [];
-    active = { ticker, stock, lang, labels, record: null };
+    active = { ticker, stock, lang, labels, record: null, technical: {} };
     get('periods').setAttribute('aria-label', labels.price_title);
     get('range-start').setAttribute('aria-label', labels.price_from);
     get('range-end').setAttribute('aria-label', labels.price_to);
@@ -347,6 +454,8 @@
     colorValue('return', null); colorValue('cagr', null);
     get('history-status').textContent = labels.price_loading;
     get('history-plots').hidden = true; get('controls').hidden = true;
+    get('technical-controls').hidden = true; get('technical-status').textContent = '';
+    get('indicator-plots').replaceChildren();
     get('point').textContent = ''; get('range-error').textContent = '';
     get('retry').hidden = true; get('download').disabled = true; get('fullscreen').disabled = true;
     try {
@@ -356,7 +465,11 @@
       const previous = preferences.get(ticker);
       active.period = previous?.period || '5y';
       active.range = previous?.period === 'custom' ? previous.range : periodRange(record.rows, active.period);
+      active.technical = Object.fromEntries(Object.entries(previous?.technical || {}).map(([id, period]) =>
+        [id, { period, values: null, error: null }]));
+      technicalControls();
       draw();
+      for (const [indicator, period] of Object.entries(previous?.technical || {})) setTechnical(indicator, true, period, reload);
     } catch (error) {
       if (id !== requestId) return;
       console.error('Profile historical prices could not be loaded', ticker, error);

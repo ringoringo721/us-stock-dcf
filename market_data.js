@@ -56,6 +56,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-07-26",
+        "reason": null,
+        "bookEquity": 228984000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-07-26",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-07-26",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-07-26",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-07-26",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-07-26",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "NVIDIA",
     "company_name": "NVIDIA Corporation",
     "exchange": "NASDAQ",
@@ -63,9 +99,9 @@ window.FULL_MARKET_DATA = {
     "industry": "Semiconductors",
     "reportedCurrency": "USD",
     "price": 214.13,
-    "shares": 24100.0,
+    "shares": 24100,
     "shares_outstanding": 24100000000,
-    "shares_display": "24,100.00 M",
+    "shares_display": "24100.00 M",
     "mcap": 5160533.0,
     "liq_val_1": 4.403485477178423,
     "liq_val_2": 3.0836390041493775,
@@ -3188,21 +3224,21 @@ window.FULL_MARKET_DATA = {
     ],
     "fair_val": 81.42,
     "default_fair_val": 81.42,
-    "premium_pct": 163.0,
+    "premium_pct": 163,
     "is_undervalued": false,
     "pe_trailing": 26.8,
     "pe_forward": 23.6,
-    "pb_trailing": 22.5,
+    "pb_trailing": 22.53665321594522,
     "pb_forward": 20.2,
     "div_yield": 0.13,
     "ps_ratio": 10.2,
     "fcf_to_ev": 6.45,
     "fcf_to_mcap": 2.46,
-    "liab_to_assets": 28.5,
-    "cash_to_assets": 31.0,
-    "current_ratio": 4.59,
-    "roe": 84.2,
-    "roa": 60.2,
+    "liab_to_assets": 28.50327221861418,
+    "cash_to_assets": 31.02644002597792,
+    "current_ratio": 4.588949069016016,
+    "roe": 192.62665907660966,
+    "roa": 137.04632655961348,
     "moat": {
       "ticker": "NVDA",
       "period": "2027Q2",
@@ -3874,7 +3910,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "NVDA",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:50:51.938971+00:00",
+      "fetchedAt": "2026-10-17T16:36:43.470196+00:00",
       "balanceDate": "2026-07-26",
       "filingDate": "2026-08-26",
       "quoteDate": "2026-10-16",
@@ -3888,7 +3924,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -3902,8 +3938,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 63059000000,
         "inventory": 31575000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 24100000000,
+      "shareSource": {
+        "shares": 24100,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:43.470196+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000075/nvda-20260726.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 24100,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:43.470196+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000075/nvda-20260726.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "AAPL": {
     "reported_growth": {
@@ -3962,6 +4016,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-27",
+        "reason": null,
+        "bookEquity": 107520000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-27",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-27",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Apple",
     "company_name": "Apple Inc.",
     "exchange": "NASDAQ",
@@ -3971,7 +4061,7 @@ window.FULL_MARKET_DATA = {
     "price": 343.46,
     "shares": 14594.18,
     "shares_outstanding": 14594180000,
-    "shares_display": "14,594.18 M",
+    "shares_display": "14594.18 M",
     "mcap": 5012517.1,
     "liq_val_1": -8.628645117437225,
     "liq_val_2": -12.51749670073961,
@@ -7098,17 +7188,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 38.9,
     "pe_forward": 34.2,
-    "pb_trailing": 46.6,
+    "pb_trailing": 46.619392671130946,
     "pb_forward": 41.9,
     "div_yield": 0.31,
     "ps_ratio": 9.2,
     "fcf_to_ev": 5.95,
     "fcf_to_mcap": 2.73,
-    "liab_to_assets": 71.9,
-    "cash_to_assets": 16.3,
-    "current_ratio": 1.0,
-    "roe": 119.9,
-    "roa": 33.6,
+    "liab_to_assets": 71.94637666790167,
+    "cash_to_assets": 16.280859768411496,
+    "current_ratio": 1.0032948046555858,
+    "roe": 195.85295457997873,
+    "roa": 38.893497639481744,
     "moat": {
       "ticker": "AAPL",
       "period": "2026Q3",
@@ -7774,7 +7864,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AAPL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:50:52.471456+00:00",
+      "fetchedAt": "2026-10-17T16:36:43.933591+00:00",
       "balanceDate": "2026-06-27",
       "filingDate": "2026-07-31",
       "quoteDate": "2026-10-16",
@@ -7788,7 +7878,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -7802,8 +7892,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 31398000000,
         "inventory": 11092000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 14594180000,
+      "shareSource": {
+        "shares": 14594.18,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:43.933591+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000020/aapl-20260627.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 14594.18,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:43.933591+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000020/aapl-20260627.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "MSFT": {
     "reported_growth": {
@@ -7862,6 +7970,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 442387000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Microsoft",
     "company_name": "Microsoft Corporation",
     "exchange": "NASDAQ",
@@ -7871,11 +8015,11 @@ window.FULL_MARKET_DATA = {
     "price": 529.05,
     "shares": 7425.55,
     "shares_outstanding": 7425550000,
-    "shares_display": "7,425.55 M",
+    "shares_display": "7425.55 M",
     "mcap": 3928487.2,
-    "liq_val_1": -14.581950158574111,
-    "liq_val_2": -23.398495734322708,
-    "liq_val_3": -32.20582987118799,
+    "liq_val_1": -14.581950158574113,
+    "liq_val_2": -23.39849573432271,
+    "liq_val_3": -32.205829871187994,
     "debt": 128808.3,
     "cash": 76843.0,
     "short_term_investments": 55908.0,
@@ -10998,17 +11142,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 29.4,
     "pe_forward": 25.9,
-    "pb_trailing": 8.9,
+    "pb_trailing": 8.880204888479996,
     "pb_forward": 8.0,
     "div_yield": 0.67,
     "ps_ratio": 14.7,
     "fcf_to_ev": 5.06,
     "fcf_to_mcap": 1.71,
-    "liab_to_assets": 41.7,
-    "cash_to_assets": 10.1,
-    "current_ratio": 1.23,
-    "roe": 30.2,
-    "roa": 17.6,
+    "liab_to_assets": 41.66653480595377,
+    "cash_to_assets": 10.132572760741374,
+    "current_ratio": 1.2303272619576484,
+    "roe": 38.93949848462351,
+    "roa": 21.607165070282374,
     "moat": {
       "ticker": "MSFT",
       "period": "2026Q4",
@@ -11698,7 +11842,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MSFT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:50:53.068209+00:00",
+      "fetchedAt": "2026-10-17T16:36:44.169036+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-29",
       "quoteDate": "2026-10-16",
@@ -11712,7 +11856,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -11726,8 +11870,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 80876000000,
         "inventory": 1397000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 7425550000,
+      "shareSource": {
+        "shares": 7425.55,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:44.169036+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 7425.55,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:44.169036+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "AVGO": {
     "reported_growth": {
@@ -11786,6 +11948,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-08-02",
+        "reason": null,
+        "bookEquity": 99690000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-08-02",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-08-02",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-08-02",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-08-02",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-08-02",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Broadcom",
     "company_name": "Broadcom Inc.",
     "exchange": "NASDAQ",
@@ -11793,13 +11991,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Semiconductors",
     "reportedCurrency": "USD",
     "price": 328.75,
-    "shares": 4773.63,
-    "shares_outstanding": 4773630000,
-    "shares_display": "4,773.63 M",
+    "shares": 4773.629865,
+    "shares_outstanding": 4773629865,
+    "shares_display": "4773.63 M",
     "mcap": 1569330.8,
-    "liq_val_1": -7.601133943382144,
-    "liq_val_2": -10.737300848521452,
-    "liq_val_3": -13.508169217889233,
+    "liq_val_1": -7.6011339433833545,
+    "liq_val_2": -10.73730084852316,
+    "liq_val_3": -13.508169217891384,
     "debt": 59419.0,
     "cash": 23975.0,
     "short_term_investments": 0.0,
@@ -14922,17 +15120,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 41.0,
     "pe_forward": 36.1,
-    "pb_trailing": 15.7,
+    "pb_trailing": 15.742108536463036,
     "pb_forward": 14.1,
     "div_yield": 0.77,
     "ps_ratio": 10.0,
     "fcf_to_ev": 5.42,
     "fcf_to_mcap": 2.51,
-    "liab_to_assets": 47.0,
-    "cash_to_assets": 12.7,
-    "current_ratio": 2.5,
-    "roe": 38.4,
-    "roa": 20.3,
+    "liab_to_assets": 47.015115759933664,
+    "cash_to_assets": 12.742628143801687,
+    "current_ratio": 2.503743161531817,
+    "roe": 52.219659647638416,
+    "roa": 23.103954208705417,
     "moat": {
       "ticker": "AVGO",
       "period": "2026Q3",
@@ -15574,7 +15772,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AVGO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:50:53.947437+00:00",
+      "fetchedAt": "2026-10-17T16:36:44.403301+00:00",
       "balanceDate": "2026-08-02",
       "filingDate": "2026-09-10",
       "quoteDate": "2026-10-16",
@@ -15588,7 +15786,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -15602,8 +15800,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 13707000000,
         "inventory": 4523000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 4773629865,
+      "shareSource": {
+        "shares": 4773.629865,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:44.403301+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000080/avgo-20260802.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 4773.629865,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:44.403301+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000080/avgo-20260802.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "ORCL": {
     "reported_growth": {
@@ -15662,6 +15878,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-08-31",
+        "reason": null,
+        "bookEquity": 66772000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-08-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-08-31",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Oracle",
     "company_name": "Oracle Corporation",
     "exchange": "NYSE",
@@ -15669,13 +15921,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Application Software",
     "reportedCurrency": "USD",
     "price": 128.22,
-    "shares": 3023.74,
-    "shares_outstanding": 3023740000,
-    "shares_display": "3,023.74 M",
+    "shares": 3023.736111,
+    "shares_outstanding": 3023736111,
+    "shares_display": "3023.74 M",
     "mcap": 387703.5,
-    "liq_val_1": -59.67220322563653,
-    "liq_val_2": -62.79344113446093,
-    "liq_val_3": -65.80798984141765,
+    "liq_val_1": -59.672204642331636,
+    "liq_val_2": -62.793442625258244,
+    "liq_val_3": -65.80799140378424,
     "debt": 155931.0,
     "cash": 37077.0,
     "short_term_investments": 708.0,
@@ -18793,17 +19045,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 20.5,
     "pe_forward": 18.0,
-    "pb_trailing": 5.8,
+    "pb_trailing": 5.8063784220930925,
     "pb_forward": 5.2,
     "div_yield": 1.53,
     "ps_ratio": 6.6,
     "fcf_to_ev": 5.65,
     "fcf_to_mcap": 3.8,
-    "liab_to_assets": 77.8,
-    "cash_to_assets": 12.2,
-    "current_ratio": 1.17,
-    "roe": 28.3,
-    "roa": 6.2,
+    "liab_to_assets": 77.8420426104419,
+    "cash_to_assets": 12.226182899765547,
+    "current_ratio": 1.1708128130656228,
+    "roe": 78.33071126935496,
+    "roa": 10.48495696845092,
     "moat": {
       "ticker": "ORCL",
       "period": "2027Q1",
@@ -19499,7 +19751,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ORCL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:50:54.802764+00:00",
+      "fetchedAt": "2026-10-17T16:36:44.639380+00:00",
       "balanceDate": "2026-08-31",
       "filingDate": "2026-09-11",
       "quoteDate": "2026-10-16",
@@ -19513,7 +19765,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -19527,8 +19779,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 11394000000,
         "inventory": 0,
         "preferredStock": 4954000000
+      },
+      "sharesOutstanding": 3023736111,
+      "shareSource": {
+        "shares": 3023.736111,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:44.639380+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/orcl-20260831.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 3023.736111,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:44.639380+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/orcl-20260831.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "CRM": {
     "reported_growth": {
@@ -19587,6 +19857,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "bookEquity": 38378000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Salesforce",
     "company_name": "Salesforce, Inc.",
     "exchange": "NYSE",
@@ -19594,13 +19900,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Application Software",
     "reportedCurrency": "USD",
     "price": 240.7,
-    "shares": 823.0,
-    "shares_outstanding": 823000000,
+    "shares": 822.999989,
+    "shares_outstanding": 822999989,
     "shares_display": "823.00 M",
     "mcap": 198096.1,
-    "liq_val_1": -59.7314716097491,
-    "liq_val_2": -66.56500761197105,
-    "liq_val_3": -72.70838563957315,
+    "liq_val_1": -59.731471029217715,
+    "liq_val_2": -66.5650069650244,
+    "liq_val_3": -72.70838493291888,
     "debt": 41743.0,
     "cash": 11403.0,
     "short_term_investments": 3093.0,
@@ -22722,17 +23028,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 20.5,
     "pe_forward": 18.0,
-    "pb_trailing": 5.2,
+    "pb_trailing": 5.161709833758924,
     "pb_forward": 4.7,
     "div_yield": 0.76,
     "ps_ratio": 3.3,
     "fcf_to_ev": 5.36,
     "fcf_to_mcap": 7.65,
-    "liab_to_assets": 65.0,
-    "cash_to_assets": 10.4,
-    "current_ratio": 0.84,
-    "roe": 25.2,
-    "roa": 8.8,
+    "liab_to_assets": 64.98996533479293,
+    "cash_to_assets": 10.402298850574713,
+    "current_ratio": 0.8385100243013366,
+    "roe": 15.754630837464129,
+    "roa": 9.902329537884457,
     "moat": {
       "ticker": "CRM",
       "period": "2027Q2",
@@ -23374,7 +23680,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CRM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:50:55.329797+00:00",
+      "fetchedAt": "2026-10-17T16:36:44.873350+00:00",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-08-27",
       "quoteDate": "2026-10-16",
@@ -23388,7 +23694,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -23402,8 +23708,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 6320000000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 822999989,
+      "shareSource": {
+        "shares": 822.999989,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:44.873350+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1108524/000110852426000190/crm-20260731.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 822.999989,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:44.873350+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1108524/000110852426000190/crm-20260731.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "AMD": {
     "reported_growth": {
@@ -23462,6 +23786,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-27",
+        "reason": null,
+        "bookEquity": 67224000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-27",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-27",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "AMD",
     "company_name": "Advanced Micro Devices, Inc.",
     "exchange": "NASDAQ",
@@ -23469,13 +23829,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Semiconductors",
     "reportedCurrency": "USD",
     "price": 528.75,
-    "shares": 1632.48,
-    "shares_outstanding": 1632480000,
-    "shares_display": "1,632.48 M",
+    "shares": 1632.475042,
+    "shares_outstanding": 1632475042,
+    "shares_display": "1632.48 M",
     "mcap": 863171.2,
-    "liq_val_1": 8.748678975965609,
-    "liq_val_2": 3.6323985850497738,
-    "liq_val_3": -2.529288299381179,
+    "liq_val_1": 8.74867892773579,
+    "liq_val_2": 3.6323985650250448,
+    "liq_val_3": -2.5292882854376892,
     "debt": 4276.0,
     "cash": 13111.0,
     "short_term_investments": 8025.0,
@@ -26598,17 +26958,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 134.2,
     "pe_forward": 118.1,
-    "pb_trailing": 12.8,
+    "pb_trailing": 12.840223729620373,
     "pb_forward": 11.5,
     "div_yield": 0.0,
     "ps_ratio": 25.7,
     "fcf_to_ev": 8.4,
     "fcf_to_mcap": 0.97,
-    "liab_to_assets": 20.4,
-    "cash_to_assets": 15.5,
-    "current_ratio": 2.61,
-    "roe": 9.6,
-    "roa": 7.6,
+    "liab_to_assets": 20.41106270126918,
+    "cash_to_assets": 15.52258950558818,
+    "current_ratio": 2.6092210909692906,
+    "roe": 10.78354143970502,
+    "roa": 8.59930499866346,
     "moat": {
       "ticker": "AMD",
       "period": "2026Q2",
@@ -27280,7 +27640,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AMD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:50:55.853914+00:00",
+      "fetchedAt": "2026-10-17T16:36:45.108585+00:00",
       "balanceDate": "2026-06-27",
       "filingDate": "2026-08-05",
       "quoteDate": "2026-10-16",
@@ -27294,7 +27654,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -27308,8 +27668,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 7281000000,
         "inventory": 8468000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 1632475042,
+      "shareSource": {
+        "shares": 1632.475042,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:45.108585+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000123/amd-20260627.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 1632.475042,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:45.108585+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000123/amd-20260627.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "CSCO": {
     "reported_growth": {
@@ -27368,6 +27746,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-07-25",
+        "reason": null,
+        "bookEquity": 50285000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-07-25",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-07-25",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-07-25",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-07-25",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-07-25",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Cisco Systems",
     "company_name": "Cisco Systems, Inc.",
     "exchange": "NASDAQ",
@@ -27375,13 +27789,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Communications Equipment",
     "reportedCurrency": "USD",
     "price": 107.39,
-    "shares": 3942.59,
-    "shares_outstanding": 3942590000,
-    "shares_display": "3,942.59 M",
+    "shares": 3942.586873,
+    "shares_outstanding": 3942586873,
+    "shares_display": "3942.59 M",
     "mcap": 423394.4,
-    "liq_val_1": -10.319874060019265,
-    "liq_val_2": -13.851565421183967,
-    "liq_val_3": -16.089436211154965,
+    "liq_val_1": -10.319874060007809,
+    "liq_val_2": -13.85156542116859,
+    "liq_val_3": -16.0894362111371,
     "debt": 29533.0,
     "cash": 15918.0,
     "short_term_investments": 8700.0,
@@ -30500,21 +30914,21 @@ window.FULL_MARKET_DATA = {
     ],
     "fair_val": 55.94,
     "default_fair_val": 55.94,
-    "premium_pct": 92.0,
+    "premium_pct": 92,
     "is_undervalued": false,
     "pe_trailing": 31.9,
     "pe_forward": 28.1,
-    "pb_trailing": 8.4,
+    "pb_trailing": 8.41989460077558,
     "pb_forward": 7.6,
     "div_yield": 1.53,
     "ps_ratio": 7.8,
     "fcf_to_ev": 5.81,
     "fcf_to_mcap": 3.21,
-    "liab_to_assets": 61.2,
-    "cash_to_assets": 12.3,
-    "current_ratio": 0.93,
-    "roe": 26.4,
-    "roa": 10.2,
+    "liab_to_assets": 61.21091972199295,
+    "cash_to_assets": 12.278901856723005,
+    "current_ratio": 0.9311258278145695,
+    "roe": 28.32226800162244,
+    "roa": 10.848713314961854,
     "moat": {
       "ticker": "CSCO",
       "period": "2026Q4",
@@ -31204,7 +31618,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CSCO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:50:56.608561+00:00",
+      "fetchedAt": "2026-10-17T16:36:45.348762+00:00",
       "balanceDate": "2026-07-25",
       "filingDate": "2026-09-02",
       "quoteDate": "2026-10-16",
@@ -31218,7 +31632,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -31232,8 +31646,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 7470000000,
         "inventory": 5694000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 3942586873,
+      "shareSource": {
+        "shares": 3942.586873,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:45.348762+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/858877/000085887726000132/csco-20260725.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 3942.586873,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:45.348762+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/858877/000085887726000132/csco-20260725.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "ACN": {
     "reported_growth": {
@@ -31292,6 +31724,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-08-31",
+        "reason": null,
+        "bookEquity": 31567256000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-08-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-08-31",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Accenture",
     "company_name": "Accenture plc",
     "exchange": "NYSE",
@@ -31299,13 +31767,13 @@ window.FULL_MARKET_DATA = {
     "industry": "IT Consulting & Other Services",
     "reportedCurrency": "USD",
     "price": 229.68,
-    "shares": 611.94,
-    "shares_outstanding": 611940000,
+    "shares": 611.942109,
+    "shares_outstanding": 611942109,
     "shares_display": "611.94 M",
     "mcap": 140550.9,
-    "liq_val_1": -13.905785980169025,
-    "liq_val_2": -23.597812256473315,
-    "liq_val_3": -44.943641882999565,
+    "liq_val_1": -13.905785980157152,
+    "liq_val_2": -23.597812256453167,
+    "liq_val_3": -44.94364188296119,
     "debt": 13397.0,
     "cash": 12837.8,
     "short_term_investments": 6.3,
@@ -34428,17 +34896,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 16.7,
     "pe_forward": 14.7,
-    "pb_trailing": 4.5,
+    "pb_trailing": 4.452426907172419,
     "pb_forward": 4.0,
     "div_yield": 2.84,
     "ps_ratio": 3.0,
     "fcf_to_ev": 5.93,
     "fcf_to_mcap": 8.27,
-    "liab_to_assets": 54.8,
-    "cash_to_assets": 17.4,
-    "current_ratio": 1.43,
-    "roe": 26.6,
-    "roa": 11.4,
+    "liab_to_assets": 54.81234545732024,
+    "cash_to_assets": 17.44314421823959,
+    "current_ratio": 1.4271254597864975,
+    "roe": 26.930869973777583,
+    "roa": 12.846881615242852,
     "moat": {
       "ticker": "ACN",
       "period": "2026Q4",
@@ -35073,7 +35541,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ACN",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:50:57.133321+00:00",
+      "fetchedAt": "2026-10-17T16:36:45.582005+00:00",
       "balanceDate": "2026-08-31",
       "filingDate": "2026-10-16",
       "quoteDate": "2026-10-16",
@@ -35087,7 +35555,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -35101,8 +35569,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 16328015000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 611942109,
+      "shareSource": {
+        "shares": 611.942109,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:45.582005+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000049/acn-20260831.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 611.942109,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:45.582005+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000049/acn-20260831.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "ADBE": {
     "reported_growth": {
@@ -35159,6 +35645,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-08-29",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-08-28",
+        "reason": null,
+        "bookEquity": 11764000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-08-28",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-08-28",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-08-28",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-08-28",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-08-28",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Adobe",
@@ -38292,21 +38814,21 @@ window.FULL_MARKET_DATA = {
     ],
     "fair_val": 445.84,
     "default_fair_val": 445.84,
-    "premium_pct": -45.0,
+    "premium_pct": -45,
     "is_undervalued": true,
     "pe_trailing": 13.1,
     "pe_forward": 11.5,
-    "pb_trailing": 8.1,
+    "pb_trailing": 8.112189731383884,
     "pb_forward": 7.3,
     "div_yield": 0.0,
     "ps_ratio": 2.2,
     "fcf_to_ev": 6.26,
     "fcf_to_mcap": 11.46,
-    "liab_to_assets": 60.8,
-    "cash_to_assets": 18.8,
-    "current_ratio": 0.77,
-    "roe": 61.9,
-    "roa": 24.3,
+    "liab_to_assets": 60.76181581668389,
+    "cash_to_assets": 18.80857876655215,
+    "current_ratio": 0.7703566621803499,
+    "roe": 61.88615123194563,
+    "roa": 25.33212770397162,
     "moat": {
       "ticker": "ADBE",
       "period": "2026Q3",
@@ -38978,7 +39500,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ADBE",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:50:57.655974+00:00",
+      "fetchedAt": "2026-10-17T16:36:45.820731+00:00",
       "balanceDate": "2026-08-28",
       "filingDate": "2026-09-22",
       "quoteDate": "2026-10-16",
@@ -38992,7 +39514,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -39006,8 +39528,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 2081000000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 389200000,
+      "shareSource": {
+        "shares": 389.2,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:45.820731+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/796343/000079634326000156/adbe-20260828.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 389.2,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:45.820731+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/796343/000079634326000156/adbe-20260828.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "QCOM": {
     "reported_growth": {
@@ -39066,6 +39606,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-28",
+        "reason": null,
+        "bookEquity": 27658000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-28",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-28",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Qualcomm",
     "company_name": "QUALCOMM Incorporated",
     "exchange": "NASDAQ",
@@ -39073,13 +39649,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Semiconductors",
     "reportedCurrency": "USD",
     "price": 172.11,
-    "shares": 1067.84,
-    "shares_outstanding": 1067839999,
-    "shares_display": "1,067.84 M",
+    "shares": 1067.839507,
+    "shares_outstanding": 1067839506.9999999,
+    "shares_display": "1067.84 M",
     "mcap": 183785.9,
-    "liq_val_1": -6.279033465271116,
-    "liq_val_2": -12.624649969972623,
-    "liq_val_3": -20.04514710277826,
+    "liq_val_1": -6.279033465278974,
+    "liq_val_2": -12.624649969988422,
+    "liq_val_3": -20.045147102803345,
     "debt": 15270.0,
     "cash": 8304.0,
     "short_term_investments": 3771.0,
@@ -42202,17 +42778,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 19.8,
     "pe_forward": 17.4,
-    "pb_trailing": 6.6,
+    "pb_trailing": 6.644945404584568,
     "pb_forward": 5.9,
     "div_yield": 2.08,
     "ps_ratio": 4.4,
     "fcf_to_ev": 7.65,
     "fcf_to_mcap": 5.67,
-    "liab_to_assets": 51.8,
-    "cash_to_assets": 14.5,
-    "current_ratio": 2.02,
-    "roe": 33.5,
-    "roa": 16.1,
+    "liab_to_assets": 51.787613087663644,
+    "cash_to_assets": 14.475220945839942,
+    "current_ratio": 2.015596249890476,
+    "roe": 34.029181520820316,
+    "roa": 16.87689110859976,
     "moat": {
       "ticker": "QCOM",
       "period": "2026Q3",
@@ -42872,7 +43448,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "QCOM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:50:58.183890+00:00",
+      "fetchedAt": "2026-10-17T16:36:46.056147+00:00",
       "balanceDate": "2026-06-28",
       "filingDate": "2026-07-29",
       "quoteDate": "2026-10-16",
@@ -42886,7 +43462,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -42900,8 +43476,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 4668000000,
         "inventory": 8379000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 1067839506.9999999,
+      "shareSource": {
+        "shares": 1067.839507,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:46.056147+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/804328/000080432826000086/qcom-20260628.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 1067.839507,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:46.056147+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/804328/000080432826000086/qcom-20260628.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "TXN": {
     "reported_growth": {
@@ -42960,6 +43554,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 18007000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Texas Instruments",
     "company_name": "Texas Instruments Incorporated",
     "exchange": "NASDAQ",
@@ -42967,13 +43597,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Semiconductors",
     "reportedCurrency": "USD",
     "price": 276.48,
-    "shares": 913.25,
-    "shares_outstanding": 913250000,
+    "shares": 913.247686,
+    "shares_outstanding": 913247686,
     "shares_display": "913.25 M",
     "mcap": 252494.7,
-    "liq_val_1": -2.319195583488562,
-    "liq_val_2": -7.178227878923167,
-    "liq_val_3": -11.906955984350624,
+    "liq_val_1": -2.31919558348599,
+    "liq_val_2": -7.178227878915206,
+    "liq_val_3": -11.906955984337419,
     "debt": 14052.0,
     "cash": 7001.0,
     "short_term_investments": 3341.0,
@@ -46096,17 +46726,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 41.7,
     "pe_forward": 36.7,
-    "pb_trailing": 14.0,
+    "pb_trailing": 14.022030321541623,
     "pb_forward": 12.6,
     "div_yield": 2.02,
     "ps_ratio": 11.8,
     "fcf_to_ev": 6.94,
     "fcf_to_mcap": 2.12,
-    "liab_to_assets": 49.8,
-    "cash_to_assets": 19.5,
-    "current_ratio": 4.86,
-    "roe": 33.6,
-    "roa": 16.9,
+    "liab_to_assets": 49.81606376456162,
+    "cash_to_assets": 19.51117551975921,
+    "current_ratio": 4.85727496917386,
+    "roe": 36.895689812839116,
+    "roa": 17.32459279191595,
     "moat": {
       "ticker": "TXN",
       "period": "2026Q2",
@@ -46778,7 +47408,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TXN",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:50:58.709570+00:00",
+      "fetchedAt": "2026-10-17T16:36:46.291798+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-24",
       "quoteDate": "2026-10-16",
@@ -46792,7 +47422,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -46806,8 +47436,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 2520000000,
         "inventory": 4605000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 913247686,
+      "shareSource": {
+        "shares": 913.247686,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:46.291798+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/97476/000009747626000152/txn-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 913.247686,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:46.291798+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/97476/000009747626000152/txn-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "IBM": {
     "reported_growth": {
@@ -46866,6 +47514,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 34452000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "IBM",
     "company_name": "International Business Machines Corporation",
     "exchange": "NYSE",
@@ -46873,8 +47557,8 @@ window.FULL_MARKET_DATA = {
     "industry": "IT Consulting & Other Services",
     "reportedCurrency": "USD",
     "price": 232.14,
-    "shares": 942.13,
-    "shares_outstanding": 942130000,
+    "shares": 942.134,
+    "shares_outstanding": 942134000,
     "shares_display": "942.13 M",
     "mcap": 218707.0,
     "liq_val_1": -94.63621947621039,
@@ -50002,17 +50686,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 20.4,
     "pe_forward": 18.0,
-    "pb_trailing": 6.3,
+    "pb_trailing": 6.348165563682805,
     "pb_forward": 5.7,
     "div_yield": 2.88,
     "ps_ratio": 4.0,
     "fcf_to_ev": 4.15,
     "fcf_to_mcap": 6.23,
-    "liab_to_assets": 77.3,
-    "cash_to_assets": 5.3,
-    "current_ratio": 0.79,
-    "roe": 31.1,
-    "roa": 7.1,
+    "liab_to_assets": 77.2904489838855,
+    "cash_to_assets": 5.346517728584672,
+    "current_ratio": 0.7907663176654043,
+    "roe": 38.98724053945981,
+    "roa": 7.218090655180537,
     "moat": {
       "ticker": "IBM",
       "period": "2026Q2",
@@ -50696,7 +51380,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "IBM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:50:59.232579+00:00",
+      "fetchedAt": "2026-10-17T16:36:46.554402+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-23",
       "quoteDate": "2026-10-16",
@@ -50710,7 +51394,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -50724,8 +51408,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 6044000000,
         "inventory": 1746000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 942134000,
+      "shareSource": {
+        "shares": 942.134,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:46.554402+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/51143/000005114326000078/ibm-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 942.134,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:46.554402+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/51143/000005114326000078/ibm-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "INTC": {
     "reported_growth": {
@@ -50784,6 +51486,46 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-27",
+        "reason": null,
+        "bookEquity": 87542000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-27",
+        "reason": null,
+        "warnings": [
+          "negativeNetIncome"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-27",
+        "reason": null,
+        "warnings": [
+          "negativeNetIncome"
+        ]
+      }
+    },
     "name": "Intel",
     "company_name": "Intel Corp.",
     "exchange": "NASDAQ",
@@ -50791,13 +51533,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Semiconductors",
     "reportedCurrency": "USD",
     "price": 89.85,
-    "shares": 5286.11,
-    "shares_outstanding": 5286110000,
-    "shares_display": "5,286.11 M",
+    "shares": 5286.105262,
+    "shares_outstanding": 5286105262,
+    "shares_display": "5286.11 M",
     "mcap": 474956.6,
-    "liq_val_1": -7.961059781100784,
-    "liq_val_2": -11.368786095119201,
-    "liq_val_3": -13.160729223472671,
+    "liq_val_1": -7.961059781105812,
+    "liq_val_2": -11.368786095126381,
+    "liq_val_3": -13.160729223480983,
     "debt": 50537.0,
     "cash": 29727.0,
     "short_term_investments": 16853.0,
@@ -53920,17 +54662,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 24.0,
     "pe_forward": 21.1,
-    "pb_trailing": 5.4,
+    "pb_trailing": 5.425471202394279,
     "pb_forward": 4.9,
     "div_yield": 3.02,
     "ps_ratio": 41.9,
     "fcf_to_ev": 10.29,
     "fcf_to_mcap": 0.6,
-    "liab_to_assets": 49.0,
-    "cash_to_assets": 14.7,
-    "current_ratio": 1.6,
-    "roe": 18.0,
-    "roa": 8.0,
+    "liab_to_assets": 49.04983723492015,
+    "cash_to_assets": 14.684423455954635,
+    "current_ratio": 1.6039529015979814,
+    "roe": -11.533156932255856,
+    "roa": -5.86380635778101,
     "moat": {
       "ticker": "INTC",
       "period": "2026Q2",
@@ -54626,7 +55368,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "INTC",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:50:59.755151+00:00",
+      "fetchedAt": "2026-10-17T16:36:46.787720+00:00",
       "balanceDate": "2026-06-27",
       "filingDate": "2026-07-24",
       "quoteDate": "2026-10-16",
@@ -54640,7 +55382,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -54654,8 +55396,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 4033000000,
         "inventory": 12492000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 5286105262,
+      "shareSource": {
+        "shares": 5286.105262,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:46.787720+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/50863/000005086326000157/intc-20260627.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 5286.105262,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:46.787720+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/50863/000005086326000157/intc-20260627.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "INTU": {
     "reported_growth": {
@@ -54714,6 +55474,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "bookEquity": 18992000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Intuit",
     "company_name": "Intuit Inc.",
     "exchange": "NASDAQ",
@@ -54721,13 +55517,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Application Software",
     "reportedCurrency": "USD",
     "price": 325.15,
-    "shares": 267.24,
-    "shares_outstanding": 267240000,
+    "shares": 267.236003,
+    "shares_outstanding": 267236002.99999997,
     "shares_display": "267.24 M",
     "mcap": 86891.8,
-    "liq_val_1": -9.291412729342682,
-    "liq_val_2": -37.771856661290784,
-    "liq_val_3": -39.64286204376012,
+    "liq_val_1": -9.291412729294564,
+    "liq_val_2": -37.77185666109518,
+    "liq_val_3": -39.642862043554814,
     "debt": 8421.0,
     "cash": 7200.0,
     "short_term_investments": 2495.0,
@@ -57848,17 +58644,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 19.0,
     "pe_forward": 16.7,
-    "pb_trailing": 4.6,
+    "pb_trailing": 4.575179022746419,
     "pb_forward": 4.1,
     "div_yield": 1.55,
     "ps_ratio": 2.5,
     "fcf_to_ev": 4.52,
     "fcf_to_mcap": 9.92,
-    "liab_to_assets": 48.4,
-    "cash_to_assets": 19.6,
-    "current_ratio": 1.51,
-    "roe": 24.0,
-    "roa": 12.4,
+    "liab_to_assets": 48.371663132713536,
+    "cash_to_assets": 19.5726635132931,
+    "current_ratio": 1.5065433435009348,
+    "roe": 23.165905631659058,
+    "roa": 12.354564640943774,
     "moat": {
       "ticker": "INTU",
       "period": "2026Q4",
@@ -58512,7 +59308,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "INTU",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:00.575474+00:00",
+      "fetchedAt": "2026-10-17T16:36:47.022304+00:00",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-09-09",
       "quoteDate": "2026-10-16",
@@ -58526,7 +59322,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -58540,8 +59336,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 625000000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 267236002.99999997,
+      "shareSource": {
+        "shares": 267.236003,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:47.022304+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/896878/000089687826000037/intu-20260731.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 267.236003,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:47.022304+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/896878/000089687826000037/intu-20260731.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "NOW": {
     "reported_growth": {
@@ -58600,6 +59414,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 12516000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "ServiceNow",
     "company_name": "ServiceNow, Inc.",
     "exchange": "NYSE",
@@ -58607,13 +59457,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Systems Software",
     "reportedCurrency": "USD",
     "price": 141.97,
-    "shares": 1033.86,
-    "shares_outstanding": 1033859999,
-    "shares_display": "1,033.86 M",
+    "shares": 1033.862,
+    "shares_outstanding": 1033862000.0000001,
+    "shares_display": "1033.86 M",
     "mcap": 146777.4,
-    "liq_val_1": -10.287639936471212,
-    "liq_val_2": -12.308412534748351,
-    "liq_val_3": -14.01154119215137,
+    "liq_val_1": -10.28763993647121,
+    "liq_val_2": -12.30841253474835,
+    "liq_val_3": -14.011541192151368,
     "debt": 8453.0,
     "cash": 4664.0,
     "short_term_investments": 2161.0,
@@ -61730,17 +62580,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 87.9,
     "pe_forward": 77.4,
-    "pb_trailing": 11.7,
+    "pb_trailing": 11.727181208053691,
     "pb_forward": 10.5,
     "div_yield": 0.0,
     "ps_ratio": 8.0,
     "fcf_to_ev": 3.63,
     "fcf_to_mcap": 3.12,
-    "liab_to_assets": 60.5,
-    "cash_to_assets": 14.7,
-    "current_ratio": 0.7,
-    "roe": 13.3,
-    "roa": 5.3,
+    "liab_to_assets": 60.47495736752353,
+    "cash_to_assets": 14.72873113118171,
+    "current_ratio": 0.7005677610466552,
+    "roe": 15.276253201609952,
+    "roa": 7.57335268241803,
     "moat": {
       "ticker": "NOW",
       "period": "2026Q2",
@@ -62382,7 +63232,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "NOW",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:01.105953+00:00",
+      "fetchedAt": "2026-10-17T16:36:47.259604+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-23",
       "quoteDate": "2026-10-16",
@@ -62396,7 +63246,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -62410,8 +63260,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 2201000000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 1033862000.0000001,
+      "shareSource": {
+        "shares": 1033.862,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:47.259604+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1373715/000137371526000076/now-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 1033.862,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:47.259604+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1373715/000137371526000076/now-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "AMAT": {
     "reported_growth": {
@@ -62470,6 +63338,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-07-26",
+        "reason": null,
+        "bookEquity": 25626000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-07-26",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-07-26",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-07-26",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-07-26",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-07-26",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Applied Materials",
     "company_name": "Applied Materials, Inc.",
     "exchange": "NASDAQ",
@@ -62477,13 +63381,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Semiconductor Materials & Equipment",
     "reportedCurrency": "USD",
     "price": 409.29,
-    "shares": 793.6,
-    "shares_outstanding": 793600000,
+    "shares": 793.597443,
+    "shares_outstanding": 793597443,
     "shares_display": "793.60 M",
     "mcap": 324811.5,
-    "liq_val_1": 9.071349792656044,
-    "liq_val_2": 0.9725333754649167,
-    "liq_val_3": -10.916113801052829,
+    "liq_val_1": 9.071349792642918,
+    "liq_val_2": 0.9725333754635094,
+    "liq_val_3": -10.916113801037033,
     "debt": 7346.0,
     "cash": 9233.0,
     "short_term_investments": 2196.0,
@@ -65606,17 +66510,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 35.1,
     "pe_forward": 30.9,
-    "pb_trailing": 12.7,
+    "pb_trailing": 12.67507609459143,
     "pb_forward": 11.4,
     "div_yield": 0.47,
     "ps_ratio": 14.4,
     "fcf_to_ev": 7.28,
     "fcf_to_mcap": 1.73,
-    "liab_to_assets": 41.1,
-    "cash_to_assets": 21.2,
-    "current_ratio": 2.42,
-    "roe": 36.2,
-    "roa": 21.3,
+    "liab_to_assets": 41.119433849547356,
+    "cash_to_assets": 21.214558154496576,
+    "current_ratio": 2.422998937916385,
+    "roe": 47.51333059885152,
+    "roa": 27.087778784601447,
     "moat": {
       "ticker": "AMAT",
       "period": "2026Q3",
@@ -66306,7 +67210,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AMAT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:01.685667+00:00",
+      "fetchedAt": "2026-10-17T16:36:47.494903+00:00",
       "balanceDate": "2026-07-26",
       "filingDate": "2026-08-20",
       "quoteDate": "2026-10-16",
@@ -66320,7 +67224,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -66334,8 +67238,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 7691000000,
         "inventory": 6564000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 793597443,
+      "shareSource": {
+        "shares": 793.597443,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:47.494903+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/6951/000162828026058235/amat-20260726.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 793.597443,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:47.494903+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/6951/000162828026058235/amat-20260726.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "LRCX": {
     "reported_growth": {
@@ -66394,6 +67316,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-28",
+        "reason": null,
+        "bookEquity": 12470921000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-28",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-28",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Lam Research",
     "company_name": "Lam Research Corporation",
     "exchange": "NASDAQ",
@@ -66403,7 +67361,7 @@ window.FULL_MARKET_DATA = {
     "price": 263.94,
     "shares": 1251.42,
     "shares_outstanding": 1251420000,
-    "shares_display": "1,251.42 M",
+    "shares_display": "1251.42 M",
     "mcap": 330299.8,
     "liq_val_1": 3.63737434274664,
     "liq_val_2": 0.743275718783462,
@@ -69530,17 +70488,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 45.5,
     "pe_forward": 40.0,
-    "pb_trailing": 26.5,
+    "pb_trailing": 26.485597976284186,
     "pb_forward": 23.9,
     "div_yield": 0.38,
     "ps_ratio": 16.9,
     "fcf_to_ev": 8.02,
     "fcf_to_mcap": 1.48,
-    "liab_to_assets": 47.0,
-    "cash_to_assets": 23.7,
-    "current_ratio": 2.63,
-    "roe": 58.3,
-    "roa": 30.9,
+    "liab_to_assets": 46.99933186690564,
+    "cash_to_assets": 23.711142956385032,
+    "current_ratio": 2.629282517879914,
+    "roe": 73.67346071674437,
+    "roa": 34.037514651964884,
     "moat": {
       "ticker": "LRCX",
       "period": "2026Q4",
@@ -70194,7 +71152,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "LRCX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:02.470149+00:00",
+      "fetchedAt": "2026-10-17T16:36:47.731090+00:00",
       "balanceDate": "2026-06-28",
       "filingDate": "2026-08-07",
       "quoteDate": "2026-10-16",
@@ -70208,7 +71166,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -70222,8 +71180,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 5339682000,
         "inventory": 4276111000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 1251420000,
+      "shareSource": {
+        "shares": 1251.42,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:47.731090+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/707549/000070754926000037/lrcx-20260628.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 1251.42,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:47.731090+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/707549/000070754926000037/lrcx-20260628.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "MU": {
     "reported_growth": {
@@ -70282,6 +71258,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-09-03",
+        "reason": null,
+        "bookEquity": 138378000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-09-03",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-09-03",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-09-03",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-09-03",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-09-03",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Micron Technology",
     "company_name": "Micron Technology, Inc.",
     "exchange": "NASDAQ",
@@ -70291,7 +71303,7 @@ window.FULL_MARKET_DATA = {
     "price": 878.84,
     "shares": 1131.42,
     "shares_outstanding": 1131420000,
-    "shares_display": "1,131.42 M",
+    "shares_display": "1131.42 M",
     "mcap": 994337.2,
     "liq_val_1": 29.66184087253186,
     "liq_val_2": 14.622686535504057,
@@ -73418,17 +74430,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 11.7,
     "pe_forward": 10.3,
-    "pb_trailing": 7.2,
+    "pb_trailing": 7.185659570162887,
     "pb_forward": 6.5,
     "div_yield": 0.06,
     "ps_ratio": 4.7,
     "fcf_to_ev": 8.24,
     "fcf_to_mcap": 5.32,
-    "liab_to_assets": 29.4,
-    "cash_to_assets": 22.2,
-    "current_ratio": 3.31,
-    "roe": 61.4,
-    "roa": 43.4,
+    "liab_to_assets": 29.35861308502818,
+    "cash_to_assets": 22.172874295515804,
+    "current_ratio": 3.313805399898115,
+    "roe": 156.8706729437829,
+    "roa": 102.6220440107249,
     "moat": {
       "ticker": "MU",
       "period": "2026Q4",
@@ -74082,7 +75094,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MU",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:03.289235+00:00",
+      "fetchedAt": "2026-10-17T16:36:47.966818+00:00",
       "balanceDate": "2026-09-03",
       "filingDate": "2026-10-09",
       "quoteDate": "2026-10-16",
@@ -74096,7 +75108,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -74110,8 +75122,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 31793000000,
         "inventory": 10372000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 1131420000,
+      "shareSource": {
+        "shares": 1131.42,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:47.966818+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000023/mu-20260903.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 1131.42,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:47.966818+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000023/mu-20260903.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "TSM": {
     "reported_growth": {
@@ -74170,6 +75200,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 201962888540.03137,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "TSMC (台積電 ADR)",
     "company_name": "Taiwan Semiconductor Manufacturing Company Limited",
     "exchange": "NYSE",
@@ -74179,7 +75245,7 @@ window.FULL_MARKET_DATA = {
     "price": 412.61,
     "shares": 5186.48,
     "shares_outstanding": 5186480000,
-    "shares_display": "5,186.48 M",
+    "shares_display": "5186.48 M",
     "mcap": 2139993.5,
     "liq_val_1": 12.534729161899913,
     "liq_val_2": 9.712663182697908,
@@ -78138,7 +79204,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TSM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:03.825442+00:00",
+      "fetchedAt": "2026-10-17T16:36:48.200313+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-09-30",
       "quoteDate": "2026-10-16",
@@ -78153,7 +79219,7 @@ window.FULL_MARKET_DATA = {
         "source": "RXI_N.B.TA"
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -78167,8 +79233,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 15148218681.31868,
         "inventory": 13400066562.009418,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 5186480000,
+      "shareSource": {
+        "shares": 5186.48,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:48.200313+00:00",
+        "providerSource": null
       }
-    }
+    },
+    "shareSource": {
+      "shares": 5186.48,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:48.200313+00:00",
+      "providerSource": null
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "FICO": {
     "reported_growth": {
@@ -78227,6 +79311,44 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": -4097135000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeEquity"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Fair Isaac",
     "company_name": "Fair Isaac Corporation",
     "exchange": "NYSE",
@@ -78234,13 +79356,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Application Software",
     "reportedCurrency": "USD",
     "price": 771.19,
-    "shares": 21.6,
-    "shares_outstanding": 21600000,
+    "shares": 21.597635,
+    "shares_outstanding": 21597635,
     "shares_display": "21.60 M",
     "mcap": 16655.9,
-    "liq_val_1": -243.21852831986547,
-    "liq_val_2": -250.5848441223437,
-    "liq_val_3": -272.5328027756888,
+    "liq_val_1": -243.21852832497632,
+    "liq_val_2": -250.58484412760933,
+    "liq_val_3": -272.5328027814156,
     "debt": 5598.0,
     "cash": 248.4,
     "short_term_investments": 0.0,
@@ -81358,17 +82480,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 20.4,
     "pe_forward": 18.0,
-    "pb_trailing": 5.0,
+    "pb_trailing": -4.0652553552665465,
     "pb_forward": 4.5,
     "div_yield": 0.0,
     "ps_ratio": 4.2,
     "fcf_to_ev": 4.32,
     "fcf_to_mcap": 5.98,
-    "liab_to_assets": 301.1,
-    "cash_to_assets": 12.2,
-    "current_ratio": 1.18,
-    "roe": 18.0,
-    "roa": 40.0,
+    "liab_to_assets": 301.0989151225623,
+    "cash_to_assets": 12.194330640486548,
+    "current_ratio": 1.183002746946756,
+    "roe": -58.32189580134044,
+    "roa": 43.77051196467498,
     "moat": {
       "ticker": "FICO",
       "period": "2026Q3",
@@ -82028,7 +83150,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "FICO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:04.349173+00:00",
+      "fetchedAt": "2026-10-17T16:36:48.433897+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-29",
       "quoteDate": "2026-10-16",
@@ -82042,7 +83164,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -82056,8 +83178,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 592530000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 21597635,
+      "shareSource": {
+        "shares": 21.597635,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:48.433897+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/814547/000081454726000030/fico-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 21.597635,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:48.433897+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/814547/000081454726000030/fico-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "ADSK": {
     "reported_growth": {
@@ -82116,6 +83256,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "bookEquity": 3383000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Autodesk",
     "company_name": "Autodesk, Inc.",
     "exchange": "NASDAQ",
@@ -82123,7 +83299,7 @@ window.FULL_MARKET_DATA = {
     "industry": "Application Software",
     "reportedCurrency": "USD",
     "price": 239.9,
-    "shares": 209.0,
+    "shares": 209,
     "shares_outstanding": 209000000,
     "shares_display": "209.00 M",
     "mcap": 50139.1,
@@ -85251,17 +86427,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 30.5,
     "pe_forward": 26.8,
-    "pb_trailing": 14.8,
+    "pb_trailing": 14.820898610700562,
     "pb_forward": 13.3,
     "div_yield": 0.0,
     "ps_ratio": 4.4,
     "fcf_to_ev": 6.18,
     "fcf_to_mcap": 5.65,
-    "liab_to_assets": 73.9,
-    "cash_to_assets": 32.0,
-    "current_ratio": 0.86,
-    "roe": 48.5,
-    "roa": 12.6,
+    "liab_to_assets": 73.9428483401371,
+    "cash_to_assets": 32.00338904721559,
+    "current_ratio": 0.8554616777308389,
+    "roe": 60.47882136279926,
+    "roa": 15.125276344878408,
     "moat": {
       "ticker": "ADSK",
       "period": "2027Q2",
@@ -85921,7 +87097,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ADSK",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:04.893947+00:00",
+      "fetchedAt": "2026-10-17T16:36:48.668462+00:00",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-08-28",
       "quoteDate": "2026-10-16",
@@ -85935,7 +87111,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -85949,8 +87125,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 684000000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 209000000,
+      "shareSource": {
+        "shares": 209,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:48.668462+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/769397/000076939726000061/adsk-20260731.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 209,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:48.668462+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/769397/000076939726000061/adsk-20260731.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "TYL": {
     "reported_growth": {
@@ -86009,6 +87203,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 3037231000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Tyler Technologies",
     "company_name": "Tyler Technologies, Inc.",
     "exchange": "NYSE",
@@ -86016,8 +87246,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Application Software",
     "reportedCurrency": "USD",
     "price": 360.87,
-    "shares": 40.95,
-    "shares_outstanding": 40950000,
+    "shares": 40.9523,
+    "shares_outstanding": 40952300,
     "shares_display": "40.95 M",
     "mcap": 14778.5,
     "liq_val_1": -23.422933510449962,
@@ -89138,17 +90368,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 45.5,
     "pe_forward": 40.0,
-    "pb_trailing": 4.9,
+    "pb_trailing": 4.8657807061761185,
     "pb_forward": 4.4,
     "div_yield": 0.0,
     "ps_ratio": 5.2,
     "fcf_to_ev": 4.42,
     "fcf_to_mcap": 4.83,
-    "liab_to_assets": 47.8,
-    "cash_to_assets": 16.7,
-    "current_ratio": 1.55,
-    "roe": 10.7,
-    "roa": 5.6,
+    "liab_to_assets": 47.7562347168077,
+    "cash_to_assets": 16.685685368179584,
+    "current_ratio": 1.5536587618076978,
+    "roe": 8.931107031263112,
+    "roa": 5.982872429735585,
     "moat": {
       "ticker": "TYL",
       "period": "2026Q2",
@@ -89808,7 +91038,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TYL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:05.419322+00:00",
+      "fetchedAt": "2026-10-17T16:36:48.904247+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-29",
       "quoteDate": "2026-10-16",
@@ -89822,7 +91052,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -89836,8 +91066,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 724866000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 40952300,
+      "shareSource": {
+        "shares": 40.9523,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:48.904247+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/860731/000086073126000050/tyl-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 40.9523,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:48.904247+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/860731/000086073126000050/tyl-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "APPF": {
     "reported_growth": {
@@ -89896,6 +91144,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 526142000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "AppFolio",
     "company_name": "AppFolio Inc.",
     "exchange": "NASDAQ",
@@ -89903,13 +91187,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Application Software",
     "reportedCurrency": "USD",
     "price": 212.13,
-    "shares": 35.42,
-    "shares_outstanding": 35420000,
+    "shares": 35.417368,
+    "shares_outstanding": 35417368,
     "shares_display": "35.42 M",
     "mcap": 7513.1,
-    "liq_val_1": 5.7304092006349165,
-    "liq_val_2": 3.947487229631484,
-    "liq_val_3": 2.808113962919777,
+    "liq_val_1": 5.730408877362089,
+    "liq_val_2": 3.947487006939646,
+    "liq_val_3": 2.80811380450405,
     "debt": 35.8,
     "cash": 221.7,
     "short_term_investments": 4.3,
@@ -93023,21 +94307,21 @@ window.FULL_MARKET_DATA = {
     ],
     "fair_val": 220.96,
     "default_fair_val": 220.96,
-    "premium_pct": -4.0,
+    "premium_pct": -4,
     "is_undervalued": true,
     "pe_trailing": 47.7,
     "pe_forward": 42.0,
-    "pb_trailing": 14.3,
+    "pb_trailing": 14.279605125612477,
     "pb_forward": 12.9,
     "div_yield": 0.0,
     "ps_ratio": 7.0,
     "fcf_to_ev": 3.52,
     "fcf_to_mcap": 3.58,
-    "liab_to_assets": 18.9,
-    "cash_to_assets": 34.2,
-    "current_ratio": 3.83,
-    "roe": 29.9,
-    "roa": 24.3,
+    "liab_to_assets": 18.851706816005034,
+    "cash_to_assets": 34.191072703745235,
+    "current_ratio": 3.831024245423058,
+    "roe": 34.57245317636937,
+    "roa": 27.762983276436675,
     "moat": {
       "ticker": "APPF",
       "period": "2026Q2",
@@ -93672,7 +94956,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "APPF",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:06.070474+00:00",
+      "fetchedAt": "2026-10-17T16:36:49.140257+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-23",
       "quoteDate": "2026-10-16",
@@ -93686,7 +94970,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -93700,8 +94984,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 50442000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 35417368,
+      "shareSource": {
+        "shares": 35.417368,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:49.140257+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1433195/000143319526000058/appf-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 35.417368,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:49.140257+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1433195/000143319526000058/appf-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "YOU": {
     "reported_growth": {
@@ -93760,6 +95062,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 206243000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Clear Secure",
     "company_name": "Clear Secure, Inc.",
     "exchange": "NYSE",
@@ -93767,8 +95105,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Application Software",
     "reportedCurrency": "USD",
     "price": 43.93,
-    "shares": 102.91,
-    "shares_outstanding": 102910000,
+    "shares": 102.911,
+    "shares_outstanding": 102911000,
     "shares_display": "102.91 M",
     "mcap": 4520.9,
     "liq_val_1": -3.028199123514493,
@@ -96896,17 +98234,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 30.6,
     "pe_forward": 26.9,
-    "pb_trailing": 21.9,
+    "pb_trailing": 21.9202591118244,
     "pb_forward": 19.7,
     "div_yield": 1.74,
     "ps_ratio": 2.2,
     "fcf_to_ev": 4.02,
     "fcf_to_mcap": 11.25,
-    "liab_to_assets": 84.6,
-    "cash_to_assets": 60.8,
-    "current_ratio": 1.04,
-    "roe": 71.7,
-    "roa": 9.4,
+    "liab_to_assets": 84.59367230722053,
+    "cash_to_assets": 60.7773269502234,
+    "current_ratio": 1.040329072547202,
+    "roe": 121.87837381221208,
+    "roa": 12.532372003471092,
     "moat": {
       "ticker": "YOU",
       "period": "2026Q2",
@@ -97541,7 +98879,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "YOU",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:06.666135+00:00",
+      "fetchedAt": "2026-10-17T16:36:49.375369+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-05",
       "quoteDate": "2026-10-16",
@@ -97555,7 +98893,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -97569,8 +98907,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1263000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 102911000,
+      "shareSource": {
+        "shares": 102.911,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:49.375369+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1856314/000185631426000042/you-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 102.911,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:49.375369+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1856314/000185631426000042/you-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "ITRI": {
     "reported_growth": {
@@ -97629,6 +98985,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 1616199000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Itron",
     "company_name": "Itron, Inc.",
     "exchange": "NASDAQ",
@@ -97636,8 +99028,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Electronic Equipment & Instruments",
     "reportedCurrency": "USD",
     "price": 83.04,
-    "shares": 43.79,
-    "shares_outstanding": 43790000,
+    "shares": 43.7868,
+    "shares_outstanding": 43786800,
     "shares_display": "43.79 M",
     "mcap": 3636.1,
     "liq_val_1": -18.404998766751625,
@@ -100759,17 +102151,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 13.3,
     "pe_forward": 11.7,
-    "pb_trailing": 2.2,
+    "pb_trailing": 2.249784834664543,
     "pb_forward": 2.0,
     "div_yield": 0.0,
     "ps_ratio": 2.4,
     "fcf_to_ev": 6.56,
     "fcf_to_mcap": 10.54,
-    "liab_to_assets": 59.0,
-    "cash_to_assets": 18.7,
-    "current_ratio": 2.75,
-    "roe": 17.0,
-    "roa": 6.9,
+    "liab_to_assets": 58.98061972022845,
+    "cash_to_assets": 18.66084360157294,
+    "current_ratio": 2.746282068323807,
+    "roe": 16.98200219672871,
+    "roa": 7.560417775089355,
     "moat": {
       "ticker": "ITRI",
       "period": "2026Q2",
@@ -101404,7 +102796,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ITRI",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:07.190137+00:00",
+      "fetchedAt": "2026-10-17T16:36:49.611244+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-28",
       "quoteDate": "2026-10-16",
@@ -101418,7 +102810,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -101432,8 +102824,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 351109000,
         "inventory": 258727000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 43786800,
+      "shareSource": {
+        "shares": 43.7868,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:49.611244+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/780571/000078057126000178/itri-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 43.7868,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:49.611244+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/780571/000078057126000178/itri-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "SNPS": {
     "reported_growth": {
@@ -101492,6 +102902,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "bookEquity": 31152539000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Synopsys",
     "company_name": "Synopsys, Inc.",
     "exchange": "NASDAQ",
@@ -101499,13 +102945,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Application Software",
     "reportedCurrency": "USD",
     "price": 454.63,
-    "shares": 191.64,
-    "shares_outstanding": 191640000,
+    "shares": 191.636646,
+    "shares_outstanding": 191636646,
     "shares_display": "191.64 M",
     "mcap": 87123.8,
-    "liq_val_1": -51.819672357087285,
-    "liq_val_2": -60.91033937059714,
-    "liq_val_3": -67.66563463405117,
+    "liq_val_1": -51.81967127519024,
+    "liq_val_2": -60.91033809890411,
+    "liq_val_3": -67.6656332213203,
     "debt": 10841.8,
     "cash": 3607.7,
     "short_term_investments": 1.4,
@@ -104626,17 +106072,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 80.9,
     "pe_forward": 71.2,
-    "pb_trailing": 2.8,
+    "pb_trailing": 2.796683763079472,
     "pb_forward": 2.5,
     "div_yield": 0.0,
     "ps_ratio": 7.8,
     "fcf_to_ev": 4.83,
     "fcf_to_mcap": 3.2,
-    "liab_to_assets": 34.7,
-    "cash_to_assets": 7.6,
-    "current_ratio": 1.34,
-    "roe": 3.5,
-    "roa": 2.3,
+    "liab_to_assets": 34.729063115626715,
+    "cash_to_assets": 7.559085445261029,
+    "current_ratio": 1.3369275361152388,
+    "roe": 3.8976472205883197,
+    "roa": 2.2316219926346648,
     "moat": {
       "ticker": "SNPS",
       "period": "2026Q3",
@@ -105284,7 +106730,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "SNPS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:07.761481+00:00",
+      "fetchedAt": "2026-10-17T16:36:49.844541+00:00",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-08-26",
       "quoteDate": "2026-10-16",
@@ -105298,7 +106744,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -105312,8 +106758,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1318747000,
         "inventory": 479129000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 191636646,
+      "shareSource": {
+        "shares": 191.636646,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:49.844541+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/883241/000088324126000025/snps-20260731.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 191.636646,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:49.844541+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/883241/000088324126000025/snps-20260731.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "BR": {
     "reported_growth": {
@@ -105372,6 +106836,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 2840600000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Broadridge Financial",
     "company_name": "Broadridge Financial Solutions, Inc.",
     "exchange": "NYSE",
@@ -105379,13 +106879,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Data Processing & Outsourced Services",
     "reportedCurrency": "USD",
     "price": 175.11,
-    "shares": 112.9,
-    "shares_outstanding": 112900000,
+    "shares": 112.900032,
+    "shares_outstanding": 112900032,
     "shares_display": "112.90 M",
     "mcap": 19769.9,
-    "liq_val_1": -38.58811946808365,
-    "liq_val_2": -42.34480567062653,
-    "liq_val_3": -50.50308487883196,
+    "liq_val_1": -38.588120152171435,
+    "liq_val_2": -42.34480642131262,
+    "liq_val_3": -50.50308577414752,
     "debt": 3517.6,
     "cash": 402.9,
     "short_term_investments": 0.0,
@@ -108505,17 +110005,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 17.6,
     "pe_forward": 15.5,
-    "pb_trailing": 7.0,
+    "pb_trailing": 6.959762022108006,
     "pb_forward": 6.3,
     "div_yield": 2.24,
     "ps_ratio": 3.8,
     "fcf_to_ev": 4.8,
     "fcf_to_mcap": 6.64,
-    "liab_to_assets": 68.2,
-    "cash_to_assets": 4.5,
-    "current_ratio": 1.24,
-    "roe": 39.6,
-    "roa": 12.6,
+    "liab_to_assets": 68.24477658658738,
+    "cash_to_assets": 4.504041228354555,
+    "current_ratio": 1.2355810008481765,
+    "roe": 42.347092497740285,
+    "roa": 13.158572264482155,
     "moat": {
       "ticker": "BR",
       "period": "2026Q4",
@@ -109150,7 +110650,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "BR",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:08.287124+00:00",
+      "fetchedAt": "2026-10-17T16:36:50.079600+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-04",
       "quoteDate": "2026-10-16",
@@ -109164,7 +110664,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -109178,8 +110678,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1129400000,
         "inventory": 35100000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 112900032,
+      "shareSource": {
+        "shares": 112.900032,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:50.079600+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1383312/000162828026052243/br-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 112.900032,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:50.079600+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1383312/000162828026052243/br-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "KLAC": {
     "reported_growth": {
@@ -109238,6 +110756,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 6349820000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "KLA Corporation",
     "company_name": "KLA Corporation",
     "exchange": "NASDAQ",
@@ -109247,7 +110801,7 @@ window.FULL_MARKET_DATA = {
     "price": 165.74,
     "shares": 1305.01,
     "shares_outstanding": 1305010000,
-    "shares_display": "1,305.01 M",
+    "shares_display": "1305.01 M",
     "mcap": 216292.4,
     "liq_val_1": 0.5977540401989256,
     "liq_val_2": -1.9644842568256182,
@@ -112370,21 +113924,21 @@ window.FULL_MARKET_DATA = {
     ],
     "fair_val": 44.43,
     "default_fair_val": 44.43,
-    "premium_pct": 273.0,
+    "premium_pct": 273,
     "is_undervalued": false,
     "pe_trailing": 44.8,
     "pe_forward": 39.4,
-    "pb_trailing": 34.1,
+    "pb_trailing": 34.06276083416538,
     "pb_forward": 30.7,
     "div_yield": 0.49,
     "ps_ratio": 14.4,
     "fcf_to_ev": 6.36,
     "fcf_to_mcap": 1.74,
-    "liab_to_assets": 64.6,
-    "cash_to_assets": 27.3,
-    "current_ratio": 2.88,
-    "roe": 76.1,
-    "roa": 26.9,
+    "liab_to_assets": 64.62798306662913,
+    "cash_to_assets": 27.309129832072855,
+    "current_ratio": 2.876190467341258,
+    "roe": 102.94766937463197,
+    "roa": 30.0646828968468,
     "moat": {
       "ticker": "KLAC",
       "period": "2026Q4",
@@ -113056,7 +114610,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "KLAC",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:08.813696+00:00",
+      "fetchedAt": "2026-10-17T16:36:50.316349+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-06",
       "quoteDate": "2026-10-16",
@@ -113070,7 +114624,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -113084,8 +114638,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 2889208000,
         "inventory": 3648538000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 1305010000,
+      "shareSource": {
+        "shares": 1305.01,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:50.316349+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000027/klac-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 1305.01,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:50.316349+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000027/klac-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "MRVL": {
     "reported_growth": {
@@ -113144,6 +114716,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-08-01",
+        "reason": null,
+        "bookEquity": 18531600000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-08-01",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-08-01",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-08-01",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-08-01",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-08-01",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Marvell Technology",
     "company_name": "Marvell Technology, Inc.",
     "exchange": "NASDAQ",
@@ -113151,13 +114759,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Semiconductors",
     "reportedCurrency": "USD",
     "price": 227.83,
-    "shares": 875.77,
-    "shares_outstanding": 875770000,
+    "shares": 875.766423,
+    "shares_outstanding": 875766423,
     "shares_display": "875.77 M",
     "mcap": 199525.9,
-    "liq_val_1": -1.2602675451060286,
-    "liq_val_2": -3.008998667674644,
-    "liq_val_3": -5.81228038243971,
+    "liq_val_1": -1.2602675451054601,
+    "liq_val_2": -3.0089986676732865,
+    "liq_val_3": -5.812280382437088,
     "debt": 5286.1,
     "cash": 3932.8,
     "short_term_investments": 0.0,
@@ -116280,17 +117888,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 75.6,
     "pe_forward": 66.5,
-    "pb_trailing": 10.8,
+    "pb_trailing": 10.766792937468972,
     "pb_forward": 9.7,
     "div_yield": 0.1,
     "ps_ratio": 28.8,
     "fcf_to_ev": 8.47,
     "fcf_to_mcap": 0.87,
-    "liab_to_assets": 32.7,
-    "cash_to_assets": 14.3,
-    "current_ratio": 3.17,
-    "roe": 14.2,
-    "roa": 9.6,
+    "liab_to_assets": 32.745893607600905,
+    "cash_to_assets": 14.272753006757494,
+    "current_ratio": 3.1683536707341466,
+    "roe": 19.668894402348435,
+    "roa": 12.82357684479484,
     "moat": {
       "ticker": "MRVL",
       "period": "2027Q2",
@@ -116938,7 +118546,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MRVL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:09.340180+00:00",
+      "fetchedAt": "2026-10-17T16:36:50.555611+00:00",
       "balanceDate": "2026-08-01",
       "filingDate": "2026-08-28",
       "quoteDate": "2026-10-16",
@@ -116952,7 +118560,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -116966,8 +118574,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 2218400000,
         "inventory": 1360600000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 875766423,
+      "shareSource": {
+        "shares": 875.766423,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:50.555611+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1835632/000183563226000025/mrvl-20260801.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 875.766423,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:50.555611+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1835632/000183563226000025/mrvl-20260801.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "CDNS": {
     "reported_growth": {
@@ -117026,6 +118652,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 6857963000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Cadence Design Systems",
     "company_name": "Cadence Design Systems, Inc.",
     "exchange": "NASDAQ",
@@ -117033,8 +118695,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Application Software",
     "reportedCurrency": "USD",
     "price": 319.51,
-    "shares": 275.39,
-    "shares_outstanding": 275390000,
+    "shares": 275.393,
+    "shares_outstanding": 275393000,
     "shares_display": "275.39 M",
     "mcap": 87990.8,
     "liq_val_1": -7.264051736972254,
@@ -120156,17 +121818,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 63.9,
     "pe_forward": 56.2,
-    "pb_trailing": 12.8,
+    "pb_trailing": 12.8304570905384,
     "pb_forward": 11.5,
     "div_yield": 0.0,
     "ps_ratio": 13.1,
     "fcf_to_ev": 5.07,
     "fcf_to_mcap": 1.91,
-    "liab_to_assets": 43.2,
-    "cash_to_assets": 11.9,
-    "current_ratio": 1.74,
-    "roe": 20.1,
-    "roa": 11.4,
+    "liab_to_assets": 43.2303104428068,
+    "cash_to_assets": 11.923876220217586,
+    "current_ratio": 1.7426545913604299,
+    "roe": 27.52388976174754,
+    "roa": 14.491931492618654,
     "moat": {
       "ticker": "CDNS",
       "period": "2026Q2",
@@ -120826,7 +122488,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CDNS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:09.863265+00:00",
+      "fetchedAt": "2026-10-17T16:36:50.795840+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-29",
       "quoteDate": "2026-10-16",
@@ -120840,7 +122502,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -120854,8 +122516,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1065023000,
         "inventory": 390378000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 275393000,
+      "shareSource": {
+        "shares": 275.393,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:50.795840+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/813672/000081367226000092/cdns-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 275.393,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:50.795840+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/813672/000081367226000092/cdns-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "FTNT": {
     "reported_growth": {
@@ -120914,6 +122594,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 1551100000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Fortinet",
     "company_name": "Fortinet, Inc.",
     "exchange": "NASDAQ",
@@ -120921,13 +122637,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Systems Software",
     "reportedCurrency": "USD",
     "price": 169.13,
-    "shares": 733.71,
-    "shares_outstanding": 733710000,
+    "shares": 733.713653,
+    "shares_outstanding": 733713653,
     "shares_display": "733.71 M",
     "mcap": 124093.0,
-    "liq_val_1": -4.224808939186051,
-    "liq_val_2": -5.26209371218635,
-    "liq_val_3": -7.1397063126415015,
+    "liq_val_1": -4.224808939189796,
+    "liq_val_2": -5.262093712191015,
+    "liq_val_3": -7.139706312647831,
     "debt": 496.9,
     "cash": 4069.6,
     "short_term_investments": 1134.7,
@@ -124046,21 +125762,21 @@ window.FULL_MARKET_DATA = {
     ],
     "fair_val": 93.94,
     "default_fair_val": 93.94,
-    "premium_pct": 80.0,
+    "premium_pct": 80,
     "is_undervalued": false,
     "pe_trailing": 58.5,
     "pe_forward": 51.5,
-    "pb_trailing": 80.0,
+    "pb_trailing": 80.00322351879312,
     "pb_forward": 72.0,
     "div_yield": 0.0,
     "ps_ratio": 10.0,
     "fcf_to_ev": 4.77,
     "fcf_to_mcap": 2.51,
-    "liab_to_assets": 85.7,
-    "cash_to_assets": 37.5,
-    "current_ratio": 1.28,
-    "roe": 136.7,
-    "roa": 19.5,
+    "liab_to_assets": 85.71625902460586,
+    "cash_to_assets": 37.47605716811552,
+    "current_ratio": 1.2824946289869443,
+    "roe": 102.92661619103087,
+    "roa": 19.92876877102637,
     "moat": {
       "ticker": "FTNT",
       "period": "2026Q2",
@@ -124708,7 +126424,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "FTNT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:10.736766+00:00",
+      "fetchedAt": "2026-10-17T16:36:51.032759+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-30",
       "quoteDate": "2026-10-16",
@@ -124722,7 +126438,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -124736,8 +126452,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1455600000,
         "inventory": 426300000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 733713653,
+      "shareSource": {
+        "shares": 733.713653,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:51.032759+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1262039/000126203926000021/ftnt-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 733.713653,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:51.032759+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1262039/000126203926000021/ftnt-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "PANW": {
     "reported_growth": {
@@ -124796,6 +126530,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "bookEquity": 27492000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Palo Alto Networks",
     "company_name": "Palo Alto Networks, Inc.",
     "exchange": "NASDAQ",
@@ -124803,8 +126573,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Systems Software",
     "reportedCurrency": "USD",
     "price": 342.0,
-    "shares": 818.0,
-    "shares_outstanding": 818000000,
+    "shares": 817.999992,
+    "shares_outstanding": 817999992,
     "shares_display": "818.00 M",
     "mcap": 279756.0,
     "liq_val_1": -15.067237311171025,
@@ -127927,21 +129697,21 @@ window.FULL_MARKET_DATA = {
     ],
     "fair_val": 124.81,
     "default_fair_val": 124.81,
-    "premium_pct": 174.0,
+    "premium_pct": 174,
     "is_undervalued": false,
     "pe_trailing": 911.3,
     "pe_forward": 801.9,
-    "pb_trailing": 10.2,
+    "pb_trailing": 10.175905718027062,
     "pb_forward": 9.2,
     "div_yield": 0.0,
     "ps_ratio": 17.0,
     "fcf_to_ev": 4.05,
     "fcf_to_mcap": 1.47,
-    "liab_to_assets": 43.3,
-    "cash_to_assets": 6.3,
-    "current_ratio": 0.87,
-    "roe": 1.1,
-    "roa": 0.6,
+    "liab_to_assets": 43.26867519603797,
+    "cash_to_assets": 6.337185307470078,
+    "current_ratio": 0.8710067519903255,
+    "roe": 3.923623536629007,
+    "roa": 1.3021606535404349,
     "moat": {
       "ticker": "PANW",
       "period": "2026Q4",
@@ -128589,7 +130359,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "PANW",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:11.262657+00:00",
+      "fetchedAt": "2026-10-17T16:36:51.486458+00:00",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-09-10",
       "quoteDate": "2026-10-16",
@@ -128603,7 +130373,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -128617,8 +130387,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 3629000000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 817999992,
+      "shareSource": {
+        "shares": 817.999992,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:51.486458+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000023/panw-20260731.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 817.999992,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:51.486458+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000023/panw-20260731.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "CRWD": {
     "reported_growth": {
@@ -128677,6 +130465,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "bookEquity": 5101724000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "CrowdStrike",
     "company_name": "CrowdStrike Holdings, Inc.",
     "exchange": "NASDAQ",
@@ -128684,13 +130508,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Systems Software",
     "reportedCurrency": "USD",
     "price": 227.39,
-    "shares": 1023.93,
-    "shares_outstanding": 1023930000,
-    "shares_display": "1,023.93 M",
+    "shares": 1023.934842,
+    "shares_outstanding": 1023934842,
+    "shares_display": "1023.93 M",
     "mcap": 232832.5,
-    "liq_val_1": 0.06807269089893296,
-    "liq_val_2": -1.0354848341040537,
-    "liq_val_3": -1.8278790048273936,
+    "liq_val_1": 0.06807269089882186,
+    "liq_val_2": -1.0354848341023637,
+    "liq_val_3": -1.8278790048244105,
     "debt": 820.2,
     "cash": 5013.8,
     "short_term_investments": 0.0,
@@ -131813,17 +133637,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 3982.8,
     "pe_forward": 3504.9,
-    "pb_trailing": 45.6,
+    "pb_trailing": 45.6380039374925,
     "pb_forward": 41.0,
     "div_yield": 0.01,
     "ps_ratio": 37.0,
     "fcf_to_ev": 3.79,
     "fcf_to_mcap": 0.68,
-    "liab_to_assets": 57.3,
-    "cash_to_assets": 41.7,
-    "current_ratio": 1.57,
-    "roe": 1.1,
-    "roa": 0.5,
+    "liab_to_assets": 57.25967091395668,
+    "cash_to_assets": 41.69518987981789,
+    "current_ratio": 1.5701281896151602,
+    "roe": 1.5561612913530032,
+    "roa": 0.6293560920668513,
     "moat": {
       "ticker": "CRWD",
       "period": "2027Q2",
@@ -132465,7 +134289,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CRWD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:11.789692+00:00",
+      "fetchedAt": "2026-10-17T16:36:51.721977+00:00",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-08-27",
       "quoteDate": "2026-10-16",
@@ -132479,7 +134303,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -132493,8 +134317,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1038575000,
         "inventory": -39000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 1023934842,
+      "shareSource": {
+        "shares": 1023.934842,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:51.721977+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000031/crwd-20260731.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 1023.934842,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:51.721977+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000031/crwd-20260731.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "WDAY": {
     "reported_growth": {
@@ -132553,6 +134395,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "bookEquity": 6460000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Workday",
     "company_name": "Workday, Inc.",
     "exchange": "NASDAQ",
@@ -132560,13 +134438,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Application Software",
     "reportedCurrency": "USD",
     "price": 190.81,
-    "shares": 241.0,
-    "shares_outstanding": 241000000,
+    "shares": 241.000005,
+    "shares_outstanding": 241000005,
     "shares_display": "241.00 M",
     "mcap": 45985.2,
-    "liq_val_1": -14.224065918021802,
-    "liq_val_2": -18.58091224647072,
-    "liq_val_3": -24.871368469259828,
+    "liq_val_1": -14.224066094936388,
+    "liq_val_2": -18.58091247757443,
+    "liq_val_3": -24.871368778602307,
     "debt": 3772.0,
     "cash": 3403.0,
     "short_term_investments": 2742.0,
@@ -135688,17 +137566,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 36.8,
     "pe_forward": 32.4,
-    "pb_trailing": 7.1,
+    "pb_trailing": 7.118452012383901,
     "pb_forward": 6.4,
     "div_yield": 0.0,
     "ps_ratio": 4.0,
     "fcf_to_ev": 4.47,
     "fcf_to_mcap": 6.18,
-    "liab_to_assets": 59.3,
-    "cash_to_assets": 21.5,
-    "current_ratio": 0.91,
-    "roe": 19.4,
-    "roa": 7.9,
+    "liab_to_assets": 59.260894242290476,
+    "cash_to_assets": 21.46055369868197,
+    "current_ratio": 0.9081089304731478,
+    "roe": 13.639337112952463,
+    "roa": 6.965091030566227,
     "moat": {
       "ticker": "WDAY",
       "period": "2027Q2",
@@ -136333,7 +138211,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "WDAY",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:12.316303+00:00",
+      "fetchedAt": "2026-10-17T16:36:51.957730+00:00",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-08-27",
       "quoteDate": "2026-10-16",
@@ -136347,7 +138225,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -136361,8 +138239,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1895000000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 241000005,
+      "shareSource": {
+        "shares": 241.000005,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:51.957730+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1327811/000132781126000044/wday-20260731.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 241.000005,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:51.957730+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1327811/000132781126000044/wday-20260731.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "ANET": {
     "reported_growth": {
@@ -136421,6 +138317,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 14797700000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Arista Networks",
     "company_name": "Arista Networks, Inc.",
     "exchange": "NYSE",
@@ -136430,7 +138362,7 @@ window.FULL_MARKET_DATA = {
     "price": 176.98,
     "shares": 1261.22,
     "shares_outstanding": 1261220000,
-    "shares_display": "1,261.22 M",
+    "shares_display": "1261.22 M",
     "mcap": 223210.7,
     "liq_val_1": 8.912798718700941,
     "liq_val_2": 5.947820364409064,
@@ -139552,17 +141484,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 55.2,
     "pe_forward": 48.6,
-    "pb_trailing": 15.1,
+    "pb_trailing": 15.08414821222217,
     "pb_forward": 13.6,
     "div_yield": 0.0,
     "ps_ratio": 10.8,
     "fcf_to_ev": 5.98,
     "fcf_to_mcap": 2.31,
-    "liab_to_assets": 37.6,
-    "cash_to_assets": 56.3,
-    "current_ratio": 2.96,
-    "roe": 27.3,
-    "roa": 17.1,
+    "liab_to_assets": 37.615355753137635,
+    "cash_to_assets": 56.25313552641009,
+    "current_ratio": 2.9572040361375103,
+    "roe": 37.10097600352242,
+    "roa": 24.46202416808796,
     "moat": {
       "ticker": "ANET",
       "period": "2026Q2",
@@ -140210,7 +142142,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ANET",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:12.843540+00:00",
+      "fetchedAt": "2026-10-17T16:36:52.194256+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-05",
       "quoteDate": "2026-10-16",
@@ -140224,7 +142156,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -140238,8 +142170,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 2266200000,
         "inventory": 2535300000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 1261220000,
+      "shareSource": {
+        "shares": 1261.22,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:52.194256+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1596532/000159653226000175/anet-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 1261.22,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:52.194256+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1596532/000159653226000175/anet-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "APH": {
     "reported_growth": {
@@ -140298,6 +142248,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 15491600000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Amphenol",
     "company_name": "Amphenol Corporation",
     "exchange": "NYSE",
@@ -140305,13 +142291,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Electronic Components",
     "reportedCurrency": "USD",
     "price": 79.35,
-    "shares": 2465.97,
-    "shares_outstanding": 2465970000,
-    "shares_display": "2,465.97 M",
+    "shares": 2465.966886,
+    "shares_outstanding": 2465966886,
+    "shares_display": "2465.97 M",
     "mcap": 195674.5,
-    "liq_val_1": -4.60983496490557,
-    "liq_val_2": -6.511652941727041,
-    "liq_val_3": -9.63735600648916,
+    "liq_val_1": -4.6098348134914895,
+    "liq_val_2": -6.511652727846078,
+    "liq_val_3": -9.637355689941733,
     "debt": 18811.3,
     "cash": 5419.1,
     "short_term_investments": 689.7,
@@ -143434,17 +145420,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 38.0,
     "pe_forward": 33.4,
-    "pb_trailing": 12.6,
+    "pb_trailing": 12.631006480931601,
     "pb_forward": 11.3,
     "div_yield": 0.52,
     "ps_ratio": 10.4,
     "fcf_to_ev": 5.43,
     "fcf_to_mcap": 2.41,
-    "liab_to_assets": 65.1,
-    "cash_to_assets": 12.1,
-    "current_ratio": 1.89,
-    "roe": 33.3,
-    "roa": 11.5,
+    "liab_to_assets": 65.13437752473966,
+    "cash_to_assets": 12.094423589381922,
+    "current_ratio": 1.8877728332273787,
+    "roe": 44.739697724688135,
+    "roa": 20.07799473282324,
     "moat": {
       "ticker": "APH",
       "period": "2026Q2",
@@ -144122,7 +146108,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "APH",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:13.368956+00:00",
+      "fetchedAt": "2026-10-17T16:36:52.454474+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-31",
       "quoteDate": "2026-10-16",
@@ -144136,7 +146122,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -144150,8 +146136,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 6790100000,
         "inventory": 4551600000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 2465966886,
+      "shareSource": {
+        "shares": 2465.966886,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:52.454474+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/820313/000110465926089194/aph-20260630x10q.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 2465.966886,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:52.454474+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/820313/000110465926089194/aph-20260630x10q.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "TEL": {
     "reported_growth": {
@@ -144210,6 +146214,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-26",
+        "reason": null,
+        "bookEquity": 13246000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-26",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-26",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-26",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-26",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-26",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "TE Connectivity",
     "company_name": "TE Connectivity plc",
     "exchange": "NYSE",
@@ -144217,13 +146257,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Electronic Components",
     "reportedCurrency": "USD",
     "price": 212.64,
-    "shares": 289.51,
-    "shares_outstanding": 289510000,
+    "shares": 289.513228,
+    "shares_outstanding": 289513228,
     "shares_display": "289.51 M",
     "mcap": 61562.1,
-    "liq_val_1": -13.588325573831424,
-    "liq_val_2": -23.92049595741097,
-    "liq_val_3": -39.50769392818602,
+    "liq_val_1": -13.588325573849081,
+    "liq_val_2": -23.920495957442053,
+    "liq_val_3": -39.507693928237366,
     "debt": 5632.0,
     "cash": 1239.0,
     "short_term_investments": 0.0,
@@ -147346,17 +149386,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 20.4,
     "pe_forward": 18.0,
-    "pb_trailing": 4.6,
+    "pb_trailing": 4.647599275252906,
     "pb_forward": 4.1,
     "div_yield": 1.38,
     "ps_ratio": 4.2,
     "fcf_to_ev": 6.1,
     "fcf_to_mcap": 5.91,
-    "liab_to_assets": 48.6,
-    "cash_to_assets": 4.8,
-    "current_ratio": 1.88,
-    "roe": 22.8,
-    "roa": 11.6,
+    "liab_to_assets": 48.62677406981204,
+    "cash_to_assets": 4.752589182968929,
+    "current_ratio": 1.8761802575107296,
+    "roe": 24.35990630805266,
+    "roa": 12.129011501648838,
     "moat": {
       "ticker": "TEL",
       "period": "2026Q3",
@@ -147991,7 +150031,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TEL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:14.190181+00:00",
+      "fetchedAt": "2026-10-17T16:36:52.688979+00:00",
       "balanceDate": "2026-06-26",
       "filingDate": "2026-07-24",
       "quoteDate": "2026-10-16",
@@ -148005,7 +150045,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -148019,8 +150059,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 3749000000,
         "inventory": 3027000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 289513228,
+      "shareSource": {
+        "shares": 289.513228,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:52.688979+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1385157/000110465926086509/tel-20260626x10q.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 289.513228,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:52.688979+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1385157/000110465926086509/tel-20260626x10q.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "GOOGL": {
     "reported_growth": {
@@ -148079,6 +150137,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 640480000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Alphabet (Class A)",
     "company_name": "Alphabet Inc.",
     "exchange": "NASDAQ",
@@ -148086,13 +150180,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Interactive Media & Services",
     "reportedCurrency": "USD",
     "price": 340.59,
-    "shares": 12157.53,
-    "shares_outstanding": 12157530000,
-    "shares_display": "12,157.53 M",
+    "shares": 12170.281968,
+    "shares_outstanding": 12170281968,
+    "shares_display": "12170.28 M",
     "mcap": 4140732.7,
-    "liq_val_1": 5.1014479637309496,
-    "liq_val_2": 1.7525354483035338,
-    "liq_val_3": -3.210274142249484,
+    "liq_val_1": 5.096102141517778,
+    "liq_val_2": 1.7506989612913133,
+    "liq_val_3": -3.206910086604495,
     "debt": 112756.0,
     "cash": 96989.6,
     "short_term_investments": 186563.0,
@@ -151215,17 +153309,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 17.0,
     "pe_forward": 15.0,
-    "pb_trailing": 6.5,
+    "pb_trailing": 6.465046059205596,
     "pb_forward": 5.9,
     "div_yield": 0.25,
     "ps_ratio": 19.4,
     "fcf_to_ev": 5.65,
     "fcf_to_mcap": 1.29,
-    "liab_to_assets": 30.5,
-    "cash_to_assets": 26.3,
-    "current_ratio": 2.72,
-    "roe": 38.1,
-    "roa": 26.5,
+    "liab_to_assets": 30.532341702612737,
+    "cash_to_assets": 26.299183390583124,
+    "current_ratio": 2.723981254609035,
+    "roe": 67.2896758478546,
+    "roa": 48.641278908800466,
     "moat": {
       "ticker": "GOOGL",
       "period": "2026Q2",
@@ -151873,7 +153967,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "GOOGL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:14.730780+00:00",
+      "fetchedAt": "2026-10-17T16:36:52.922605+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-23",
       "quoteDate": "2026-10-16",
@@ -151887,7 +153981,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -151901,8 +153995,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 69175000000,
         "inventory": 9991000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 12170281968,
+      "shareSource": {
+        "shares": 12170.281968,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:52.922605+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/goog-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 12170.281968,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:52.922605+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/goog-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "GOOG": {
     "reported_growth": {
@@ -151961,6 +154073,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 640480000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Alphabet (Class C)",
     "company_name": "Alphabet Inc.",
     "exchange": "NASDAQ",
@@ -151968,13 +154116,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Interactive Media & Services",
     "reportedCurrency": "USD",
     "price": 336.91,
-    "shares": 12229.94,
-    "shares_outstanding": 12229940000,
-    "shares_display": "12,229.94 M",
+    "shares": 12229.935349,
+    "shares_outstanding": 12229935349,
+    "shares_display": "12229.94 M",
     "mcap": 4120387.6,
-    "liq_val_1": 5.071245067575912,
-    "liq_val_2": 1.7421596399978423,
-    "liq_val_3": -3.191267856732724,
+    "liq_val_1": 5.071245123554251,
+    "liq_val_2": 1.7421596592284652,
+    "liq_val_3": -3.1912678919591566,
     "debt": 112756.0,
     "cash": 96989.6,
     "short_term_investments": 186563.0,
@@ -155097,17 +157245,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 16.9,
     "pe_forward": 14.9,
-    "pb_trailing": 6.4,
+    "pb_trailing": 6.433280664501624,
     "pb_forward": 5.8,
     "div_yield": 0.25,
     "ps_ratio": 19.3,
     "fcf_to_ev": 5.61,
     "fcf_to_mcap": 1.29,
-    "liab_to_assets": 30.5,
-    "cash_to_assets": 26.3,
-    "current_ratio": 2.72,
-    "roe": 38.1,
-    "roa": 26.5,
+    "liab_to_assets": 30.532341702612737,
+    "cash_to_assets": 26.299183390583124,
+    "current_ratio": 2.723981254609035,
+    "roe": 67.2896758478546,
+    "roa": 48.641278908800466,
     "moat": {
       "ticker": "GOOG",
       "period": "2026Q2",
@@ -155755,7 +157903,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "GOOG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:15.252400+00:00",
+      "fetchedAt": "2026-10-17T16:36:53.156828+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-23",
       "quoteDate": "2026-10-16",
@@ -155769,7 +157917,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -155783,8 +157931,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 69175000000,
         "inventory": 9991000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 12229935349,
+      "shareSource": {
+        "shares": 12229.935349,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:53.156828+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/goog-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 12229.935349,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:53.156828+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/goog-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "META": {
     "reported_growth": {
@@ -155843,6 +158009,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 261221000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Meta Platforms",
     "company_name": "Meta Platforms, Inc.",
     "exchange": "NASDAQ",
@@ -155850,13 +158052,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Interactive Media & Services",
     "reportedCurrency": "USD",
     "price": 709.325,
-    "shares": 2547.51,
-    "shares_outstanding": 2547510000,
-    "shares_display": "2,547.51 M",
+    "shares": 2547.506147,
+    "shares_outstanding": 2547506147,
+    "shares_display": "2547.51 M",
     "mcap": 1807009.8,
-    "liq_val_1": -24.83212850123581,
-    "liq_val_2": -31.824614082075424,
-    "liq_val_3": -38.65545137779318,
+    "liq_val_1": -24.832128501238902,
+    "liq_val_2": -31.824614082079385,
+    "liq_val_3": -38.65545137779799,
     "debt": 112318.0,
     "cash": 90260.0,
     "short_term_investments": 74798.0,
@@ -158975,21 +161177,21 @@ window.FULL_MARKET_DATA = {
     ],
     "fair_val": 331.41,
     "default_fair_val": 331.41,
-    "premium_pct": 114.0,
+    "premium_pct": 114,
     "is_undervalued": false,
     "pe_trailing": 26.5,
     "pe_forward": 23.3,
-    "pb_trailing": 6.9,
+    "pb_trailing": 6.917551804793642,
     "pb_forward": 6.2,
     "div_yield": 0.3,
     "ps_ratio": 11.0,
     "fcf_to_ev": 4.73,
     "fcf_to_mcap": 2.27,
-    "liab_to_assets": 41.9,
-    "cash_to_assets": 20.1,
-    "current_ratio": 2.23,
-    "roe": 26.1,
-    "roa": 15.1,
+    "liab_to_assets": 41.94521242077003,
+    "cash_to_assets": 20.059739174497064,
+    "current_ratio": 2.225562709519502,
+    "roe": 34.90951965960937,
+    "roa": 23.104117471432836,
     "moat": {
       "ticker": "META",
       "period": "2026Q2",
@@ -159624,7 +161826,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "META",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:15.773871+00:00",
+      "fetchedAt": "2026-10-17T16:36:53.391481+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-30",
       "quoteDate": "2026-10-16",
@@ -159638,7 +161840,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -159652,8 +161854,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 21752000000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 2547506147,
+      "shareSource": {
+        "shares": 2547.506147,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:53.391481+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026050705/meta-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 2547.506147,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:53.391481+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026050705/meta-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "NFLX": {
     "reported_growth": {
@@ -159712,6 +161932,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 30152052000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Netflix",
     "company_name": "Netflix, Inc.",
     "exchange": "NASDAQ",
@@ -159720,12 +161976,12 @@ window.FULL_MARKET_DATA = {
     "reportedCurrency": "USD",
     "price": 70.53,
     "shares": 4163.94,
-    "shares_outstanding": 4163939999,
-    "shares_display": "4,163.94 M",
+    "shares_outstanding": 4163939999.9999995,
+    "shares_display": "4163.94 M",
     "mcap": 293682.7,
-    "liq_val_1": -3.4690908130280453,
+    "liq_val_1": -3.469090813028046,
     "liq_val_2": -4.218915882553543,
-    "liq_val_3": -4.603927770332906,
+    "liq_val_3": -4.6039277703329065,
     "debt": 14309.3,
     "cash": 9127.9,
     "short_term_investments": 28.7,
@@ -162848,17 +165104,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 21.5,
     "pe_forward": 18.9,
-    "pb_trailing": 9.7,
+    "pb_trailing": 9.74005682929971,
     "pb_forward": 8.7,
     "div_yield": 0.0,
     "ps_ratio": 6.7,
     "fcf_to_ev": 6.43,
     "fcf_to_mcap": 3.74,
-    "liab_to_assets": 48.4,
-    "cash_to_assets": 15.6,
-    "current_ratio": 1.14,
-    "roe": 45.3,
-    "roa": 23.4,
+    "liab_to_assets": 48.41432932901225,
+    "cash_to_assets": 15.616494664257537,
+    "current_ratio": 1.1416085244391836,
+    "roe": 54.70382033848406,
+    "roa": 25.70570314719882,
     "moat": {
       "ticker": "NFLX",
       "period": "2026Q2",
@@ -163512,7 +165768,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "NFLX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:16.296978+00:00",
+      "fetchedAt": "2026-10-17T16:36:53.627759+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-17",
       "quoteDate": "2026-10-16",
@@ -163526,7 +165782,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -163540,8 +165796,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 2003958000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 4163939999.9999995,
+      "shareSource": {
+        "shares": 4163.94,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:53.627759+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000212/nflx-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 4163.94,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:53.627759+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000212/nflx-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "DIS": {
     "reported_growth": {
@@ -163600,6 +165874,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-27",
+        "reason": null,
+        "bookEquity": 110032000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-27",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-27",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Walt Disney",
     "company_name": "The Walt Disney Company",
     "exchange": "NYSE",
@@ -163609,7 +165919,7 @@ window.FULL_MARKET_DATA = {
     "price": 110.55,
     "shares": 1726.69,
     "shares_outstanding": 1726690000,
-    "shares_display": "1,726.69 M",
+    "shares_display": "1726.69 M",
     "mcap": 190885.6,
     "liq_val_1": -36.48946828903856,
     "liq_val_2": -40.557424899663516,
@@ -166736,17 +169046,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 22.2,
     "pe_forward": 19.5,
-    "pb_trailing": 1.7,
+    "pb_trailing": 1.73481896175658,
     "pb_forward": 1.5,
     "div_yield": 1.17,
     "ps_ratio": 5.8,
     "fcf_to_ev": 6.52,
     "fcf_to_mcap": 4.34,
-    "liab_to_assets": 42.9,
-    "cash_to_assets": 2.5,
-    "current_ratio": 0.71,
-    "roe": 7.8,
-    "roa": 4.2,
+    "liab_to_assets": 42.93152290710169,
+    "cash_to_assets": 2.5324802188141056,
+    "current_ratio": 0.7090727816550348,
+    "roe": 7.879426451051354,
+    "roa": 4.37409720668118,
     "moat": {
       "ticker": "DIS",
       "period": "2026Q3",
@@ -167442,7 +169752,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "DIS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:16.822778+00:00",
+      "fetchedAt": "2026-10-17T16:36:53.861174+00:00",
       "balanceDate": "2026-06-27",
       "filingDate": "2026-08-05",
       "quoteDate": "2026-10-16",
@@ -167456,7 +169766,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -167470,8 +169780,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 14553000000,
         "inventory": 2081000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 1726690000,
+      "shareSource": {
+        "shares": 1726.69,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:53.861174+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1744489/000174448926000057/dis-20260627.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 1726.69,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:53.861174+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1744489/000174448926000057/dis-20260627.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "TMUS": {
     "reported_growth": {
@@ -167530,6 +169858,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 56265000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "T-Mobile US",
     "company_name": "T-Mobile US, Inc.",
     "exchange": "NASDAQ",
@@ -167537,13 +169901,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Wireless Telecommunication Services",
     "reportedCurrency": "USD",
     "price": 159.1,
-    "shares": 1072.67,
-    "shares_outstanding": 1072670000,
-    "shares_display": "1,072.67 M",
+    "shares": 1072.671613,
+    "shares_outstanding": 1072671613,
+    "shares_display": "1072.67 M",
     "mcap": 170662.1,
-    "liq_val_1": -126.33782637467652,
-    "liq_val_2": -139.06390193646544,
-    "liq_val_3": -143.99840373166612,
+    "liq_val_1": -126.33782637445445,
+    "liq_val_2": -139.063901936221,
+    "liq_val_3": -143.998403731413,
     "debt": 116000.0,
     "cash": 2825.0,
     "short_term_investments": 0.0,
@@ -170658,17 +173022,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 16.2,
     "pe_forward": 14.3,
-    "pb_trailing": 3.0,
+    "pb_trailing": 3.033184039811606,
     "pb_forward": 2.7,
     "div_yield": 2.54,
     "ps_ratio": 2.7,
     "fcf_to_ev": 2.41,
     "fcf_to_mcap": 9.28,
-    "liab_to_assets": 73.7,
-    "cash_to_assets": 1.3,
-    "current_ratio": 0.92,
-    "roe": 18.8,
-    "roa": 4.9,
+    "liab_to_assets": 73.65291051870028,
+    "cash_to_assets": 1.3228566210729888,
+    "current_ratio": 0.9242166935552347,
+    "roe": 17.281162550935246,
+    "roa": 4.9660698917904655,
     "moat": {
       "ticker": "TMUS",
       "period": "2026Q2",
@@ -171310,7 +173674,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TMUS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:17.383265+00:00",
+      "fetchedAt": "2026-10-17T16:36:54.095327+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-23",
       "quoteDate": "2026-10-16",
@@ -171324,7 +173688,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -171338,8 +173702,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 5247000000,
         "inventory": 2191000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 1072671613,
+      "shareSource": {
+        "shares": 1072.671613,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:54.095327+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1283699/000128369926000101/tmus-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 1072.671613,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:54.095327+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1283699/000128369926000101/tmus-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "VZ": {
     "reported_growth": {
@@ -171398,6 +173780,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 103920000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Verizon",
     "company_name": "Verizon Communications Inc.",
     "exchange": "NYSE",
@@ -171406,8 +173824,8 @@ window.FULL_MARKET_DATA = {
     "reportedCurrency": "USD",
     "price": 44.79,
     "shares": 4154.78,
-    "shares_outstanding": 4154779999,
-    "shares_display": "4,154.78 M",
+    "shares_outstanding": 4154779999.9999995,
+    "shares_display": "4154.78 M",
     "mcap": 186092.6,
     "liq_val_1": -64.36417812736174,
     "liq_val_2": -67.64045268341525,
@@ -174530,21 +176948,21 @@ window.FULL_MARKET_DATA = {
     ],
     "fair_val": 186.69,
     "default_fair_val": 186.69,
-    "premium_pct": -76.0,
+    "premium_pct": -76,
     "is_undervalued": true,
     "pe_trailing": 11.5,
     "pe_forward": 10.1,
-    "pb_trailing": 1.8,
+    "pb_trailing": 1.7907294072363358,
     "pb_forward": 1.6,
     "div_yield": 6.25,
     "ps_ratio": 2.3,
     "fcf_to_ev": 2.09,
     "fcf_to_mcap": 10.83,
-    "liab_to_assets": 74.4,
-    "cash_to_assets": 0.4,
-    "current_ratio": 0.6,
-    "roe": 15.6,
-    "roa": 3.9,
+    "liab_to_assets": 74.3540735178675,
+    "cash_to_assets": 0.427123305037227,
+    "current_ratio": 0.6039285656877401,
+    "roe": 15.691373237728378,
+    "roa": 4.219314609233338,
     "moat": {
       "ticker": "VZ",
       "period": "2026Q2",
@@ -175210,7 +177628,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "VZ",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:18.456120+00:00",
+      "fetchedAt": "2026-10-17T16:36:54.330617+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-31",
       "quoteDate": "2026-10-16",
@@ -175224,7 +177642,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -175238,8 +177656,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 26486000000,
         "inventory": 2036000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 4154779999.9999995,
+      "shareSource": {
+        "shares": 4154.78,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:54.330617+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/732712/000073271226000046/vz-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 4154.78,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:54.330617+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/732712/000073271226000046/vz-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "T": {
     "reported_growth": {
@@ -175298,6 +177734,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 110444000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "AT&T",
     "company_name": "AT&T Inc.",
     "exchange": "NYSE",
@@ -175307,7 +177779,7 @@ window.FULL_MARKET_DATA = {
     "price": 23.43,
     "shares": 6852.39,
     "shares_outstanding": 6852390000,
-    "shares_display": "6,852.39 M",
+    "shares_display": "6852.39 M",
     "mcap": 160551.5,
     "liq_val_1": -36.49690108122859,
     "liq_val_2": -40.329607625952406,
@@ -178434,17 +180906,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 7.5,
     "pe_forward": 6.6,
-    "pb_trailing": 1.5,
+    "pb_trailing": 1.453691463547137,
     "pb_forward": 1.4,
     "div_yield": 4.99,
     "ps_ratio": 2.3,
     "fcf_to_ev": 2.47,
     "fcf_to_mcap": 11.0,
-    "liab_to_assets": 70.5,
-    "cash_to_assets": 4.1,
-    "current_ratio": 0.97,
-    "roe": 19.5,
-    "roa": 5.0,
+    "liab_to_assets": 70.48410328719602,
+    "cash_to_assets": 4.101699742505701,
+    "current_ratio": 0.9710014611666854,
+    "roe": 20.41758492286648,
+    "roa": 5.300734171658557,
     "moat": {
       "ticker": "T",
       "period": "2026Q2",
@@ -179104,7 +181576,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "T",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:19.020279+00:00",
+      "fetchedAt": "2026-10-17T16:36:54.564033+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-22",
       "quoteDate": "2026-10-16",
@@ -179118,7 +181590,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -179132,8 +181604,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 8521000000,
         "inventory": 2368000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 6852390000,
+      "shareSource": {
+        "shares": 6852.39,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:54.564033+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/732717/000073271726000297/t-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 6852.39,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:54.564033+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/732717/000073271726000297/t-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "CMCSA": {
     "reported_growth": {
@@ -179192,6 +181682,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 89770000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Comcast",
     "company_name": "Comcast Corporation",
     "exchange": "NASDAQ",
@@ -179199,13 +181725,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Cable & Satellite",
     "reportedCurrency": "USD",
     "price": 21.9,
-    "shares": 3539.19,
-    "shares_outstanding": 3539190000,
-    "shares_display": "3,539.19 M",
+    "shares": 3539.192198,
+    "shares_outstanding": 3539192198,
+    "shares_display": "3539.19 M",
     "mcap": 77508.3,
-    "liq_val_1": -39.967594887980425,
-    "liq_val_2": -42.089548028661305,
-    "liq_val_3": -45.24394015416881,
+    "liq_val_1": -39.96759488787729,
+    "liq_val_2": -42.0895480285527,
+    "liq_val_3": -45.24394015405207,
     "debt": 90381.0,
     "cash": 7661.0,
     "short_term_investments": 0.0,
@@ -182328,17 +184854,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 6.9,
     "pe_forward": 6.1,
-    "pb_trailing": 0.9,
+    "pb_trailing": 0.863409825108611,
     "pb_forward": 0.8,
     "div_yield": 6.28,
     "ps_ratio": 0.9,
     "fcf_to_ev": 2.85,
     "fcf_to_mcap": 26.38,
-    "liab_to_assets": 65.2,
-    "cash_to_assets": 3.0,
-    "current_ratio": 0.8,
-    "roe": 12.5,
-    "roa": 4.3,
+    "liab_to_assets": 65.15583376695999,
+    "cash_to_assets": 2.9749376742596634,
+    "current_ratio": 0.7957876288036745,
+    "roe": 11.564155248784216,
+    "roa": 4.089830199014059,
     "moat": {
       "ticker": "CMCSA",
       "period": "2026Q2",
@@ -183034,7 +185560,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CMCSA",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:19.608577+00:00",
+      "fetchedAt": "2026-10-17T16:36:54.800013+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-23",
       "quoteDate": "2026-10-16",
@@ -183048,7 +185574,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -183062,8 +185588,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 13955000000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 3539192198,
+      "shareSource": {
+        "shares": 3539.192198,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:54.800013+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1166691/000162828026049360/cmcsa-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 3539.192198,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:54.800013+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1166691/000162828026049360/cmcsa-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "TKO": {
     "reported_growth": {
@@ -183122,6 +185666,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 3395932000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "TKO Group Holdings",
     "company_name": "TKO Group Holdings, Inc.",
     "exchange": "NYSE",
@@ -183129,8 +185709,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Movies & Entertainment",
     "reportedCurrency": "USD",
     "price": 175.5,
-    "shares": 73.11,
-    "shares_outstanding": 73110000,
+    "shares": 73.1111,
+    "shares_outstanding": 73111100,
     "shares_display": "73.11 M",
     "mcap": 12831.0,
     "liq_val_1": -65.94054801528085,
@@ -186258,17 +188838,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 55.9,
     "pe_forward": 49.2,
-    "pb_trailing": 3.8,
+    "pb_trailing": 3.7783442071278226,
     "pb_forward": 3.4,
     "div_yield": 4.62,
     "ps_ratio": 1.9,
     "fcf_to_ev": 2.96,
     "fcf_to_mcap": 13.03,
-    "liab_to_assets": 48.6,
-    "cash_to_assets": 9.5,
-    "current_ratio": 1.22,
-    "roe": 6.8,
-    "roa": 1.4,
+    "liab_to_assets": 48.56460250970904,
+    "cash_to_assets": 9.543740244389383,
+    "current_ratio": 1.224805886854991,
+    "roe": 5.381906061642607,
+    "roa": 1.4962874074296175,
     "moat": {
       "ticker": "TKO",
       "period": "2026Q2",
@@ -186903,7 +189483,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TKO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:20.134524+00:00",
+      "fetchedAt": "2026-10-17T16:36:55.033824+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-03",
       "quoteDate": "2026-10-16",
@@ -186917,7 +189497,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -186931,8 +189511,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1059900000,
         "inventory": 50435000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 73111100,
+      "shareSource": {
+        "shares": 73.1111,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:55.033824+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1973266/000119312526330592/tko-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 73.1111,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:55.033824+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1973266/000119312526330592/tko-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "LYV": {
     "reported_growth": {
@@ -186991,6 +189589,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 82330000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Live Nation",
     "company_name": "Live Nation Entertainment, Inc.",
     "exchange": "NYSE",
@@ -186998,13 +189632,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Movies & Entertainment",
     "reportedCurrency": "USD",
     "price": 170.51,
-    "shares": 232.96,
-    "shares_outstanding": 232960000,
+    "shares": 232.959505,
+    "shares_outstanding": 232959505,
     "shares_display": "232.96 M",
     "mcap": 39721.9,
-    "liq_val_1": -48.961350599842596,
-    "liq_val_2": -64.30951508001478,
-    "liq_val_3": -74.21767143523132,
+    "liq_val_1": -48.96135060039727,
+    "liq_val_2": -64.30951508074332,
+    "liq_val_3": -74.21767143607212,
     "debt": 11282.7,
     "cash": 9071.9,
     "short_term_investments": 0.0,
@@ -190126,17 +192760,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 294.9,
     "pe_forward": 259.5,
-    "pb_trailing": 482.5,
+    "pb_trailing": 482.47175999028303,
     "pb_forward": 434.2,
     "div_yield": 0.0,
     "ps_ratio": 7.2,
     "fcf_to_ev": 4.93,
     "fcf_to_mcap": 3.46,
-    "liab_to_assets": 93.5,
-    "cash_to_assets": 32.2,
-    "current_ratio": 0.85,
-    "roe": 163.6,
-    "roa": 0.5,
+    "liab_to_assets": 93.54467111787284,
+    "cash_to_assets": 32.191920137472195,
+    "current_ratio": 0.8515305961224158,
+    "roe": 37.40939261810203,
+    "roa": 0.5818490818253025,
     "moat": {
       "ticker": "LYV",
       "period": "2026Q2",
@@ -190771,7 +193405,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "LYV",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:20.661587+00:00",
+      "fetchedAt": "2026-10-17T16:36:55.269188+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-30",
       "quoteDate": "2026-10-16",
@@ -190785,7 +193419,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -190799,8 +193433,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 2885249000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 232959505,
+      "shareSource": {
+        "shares": 232.959505,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:55.269188+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1335258/000133525826000035/lyv-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 232.959505,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:55.269188+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1335258/000133525826000035/lyv-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "IRDM": {
     "reported_growth": {
@@ -190859,6 +193511,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 472511000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Iridium Communications",
     "company_name": "Iridium Communications Inc.",
     "exchange": "NASDAQ",
@@ -190866,13 +193554,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Alternative Carriers",
     "reportedCurrency": "USD",
     "price": 43.76,
-    "shares": 105.98,
-    "shares_outstanding": 105980000,
+    "shares": 105.981552,
+    "shares_outstanding": 105981552,
     "shares_display": "105.98 M",
     "mcap": 4637.8,
-    "liq_val_1": -16.18693034257931,
-    "liq_val_2": -16.918236862717627,
-    "liq_val_3": -18.006605525105794,
+    "liq_val_1": -16.18693034425463,
+    "liq_val_2": -16.91823686446864,
+    "liq_val_3": -18.006605526969448,
     "debt": 1761.9,
     "cash": 184.2,
     "short_term_investments": 0.0,
@@ -193990,17 +196678,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 49.7,
     "pe_forward": 43.7,
-    "pb_trailing": 9.8,
+    "pb_trailing": 9.815221232944841,
     "pb_forward": 8.8,
     "div_yield": 1.4,
     "ps_ratio": 4.0,
     "fcf_to_ev": 4.11,
     "fcf_to_mcap": 6.22,
-    "liab_to_assets": 81.6,
-    "cash_to_assets": 7.2,
-    "current_ratio": 2.78,
-    "roe": 19.7,
-    "roa": 3.6,
+    "liab_to_assets": 81.57918640766631,
+    "cash_to_assets": 7.1815719741935276,
+    "current_ratio": 2.782056295421847,
+    "roe": 19.692155020427986,
+    "roa": 3.631657665887495,
     "moat": {
       "ticker": "IRDM",
       "period": "2026Q2",
@@ -194544,7 +197232,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "IRDM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:21.593505+00:00",
+      "fetchedAt": "2026-10-17T16:36:55.506782+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-22",
       "quoteDate": "2026-10-16",
@@ -194558,7 +197246,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -194572,8 +197260,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 104515000,
         "inventory": 63470000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 105981552,
+      "shareSource": {
+        "shares": 105.981552,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:55.506782+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1418819/000141881926000045/irdm-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 105.981552,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:55.506782+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1418819/000141881926000045/irdm-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "EA": {
     "reported_growth": {
@@ -194632,6 +197338,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 7079000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Electronic Arts",
     "company_name": "Electronic Arts Inc.",
     "exchange": "NASDAQ",
@@ -194639,8 +197381,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Interactive Home Entertainment",
     "reportedCurrency": "USD",
     "price": 209.7,
-    "shares": 252.39,
-    "shares_outstanding": 252390000,
+    "shares": 252.38741,
+    "shares_outstanding": 252387410,
     "shares_display": "252.39 M",
     "mcap": 52925.6,
     "liq_val_1": -8.391860750898786,
@@ -197764,21 +200506,21 @@ window.FULL_MARKET_DATA = {
     ],
     "fair_val": 188.88,
     "default_fair_val": 188.88,
-    "premium_pct": 11.0,
+    "premium_pct": 11,
     "is_undervalued": false,
     "pe_trailing": 48.9,
     "pe_forward": 43.0,
-    "pb_trailing": 7.5,
+    "pb_trailing": 7.476423223619155,
     "pb_forward": 6.8,
     "div_yield": 0.36,
     "ps_ratio": 6.4,
     "fcf_to_ev": 4.41,
     "fcf_to_mcap": 3.89,
-    "liab_to_assets": 43.7,
-    "cash_to_assets": 19.1,
-    "current_ratio": 1.21,
-    "roe": 15.3,
-    "roa": 8.6,
+    "liab_to_assets": 43.747515700771125,
+    "cash_to_assets": 19.111217107878208,
+    "current_ratio": 1.2089285714285714,
+    "roe": 17.806642551792173,
+    "roa": 9.257201470211129,
     "moat": {
       "ticker": "EA",
       "period": "2027Q1",
@@ -198438,7 +201180,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "EA",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:22.116535+00:00",
+      "fetchedAt": "2026-10-17T16:36:55.744469+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-03",
       "quoteDate": "2026-08-05",
@@ -198452,7 +201194,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-08-05",
@@ -198466,8 +201208,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 524000000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 252387410,
+      "shareSource": {
+        "shares": 252.38741,
+        "date": "2026-08-06",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:55.744469+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/712515/000162828026051829/ea-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 252.38741,
+      "date": "2026-08-06",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:55.744469+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/712515/000162828026051829/ea-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "TTWO": {
     "reported_growth": {
@@ -198524,6 +201284,46 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": "nonPositivePrior"
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 3608400000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeNetIncome"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeNetIncome"
+        ]
       }
     },
     "name": "Take-Two Interactive",
@@ -201662,17 +204462,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 24.0,
     "pe_forward": 21.1,
-    "pb_trailing": 10.6,
+    "pb_trailing": 10.63720762664893,
     "pb_forward": 9.5,
     "div_yield": 0.0,
     "ps_ratio": 29.4,
     "fcf_to_ev": 4.11,
     "fcf_to_mcap": 0.85,
-    "liab_to_assets": 60.2,
-    "cash_to_assets": 20.2,
-    "current_ratio": 1.06,
-    "roe": 18.0,
-    "roa": 8.0,
+    "liab_to_assets": 60.19064010061561,
+    "cash_to_assets": 20.151806006045764,
+    "current_ratio": 1.0623293576663313,
+    "roe": -9.204516073429286,
+    "roa": -3.308481857045497,
     "moat": {
       "ticker": "TTWO",
       "period": "2027Q1",
@@ -202314,7 +205114,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TTWO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:22.683709+00:00",
+      "fetchedAt": "2026-10-17T16:36:55.978624+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-07",
       "quoteDate": "2026-10-16",
@@ -202328,7 +205128,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -202342,8 +205142,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 606900000,
         "inventory": 69700000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 186980000,
+      "shareSource": {
+        "shares": 186.98,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:55.978624+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/946581/000162828026054870/ttwo-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 186.98,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:55.978624+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/946581/000162828026054870/ttwo-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "WBD": {
     "reported_growth": {
@@ -202402,6 +205220,46 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 32838000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeNetIncome"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeNetIncome"
+        ]
+      }
+    },
     "name": "Warner Bros. Discovery",
     "company_name": "Warner Bros. Discovery, Inc.",
     "exchange": "NASDAQ",
@@ -202409,13 +205267,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Movies & Entertainment",
     "reportedCurrency": "USD",
     "price": 30.95,
-    "shares": 2507.14,
-    "shares_outstanding": 2507140000,
-    "shares_display": "2,507.14 M",
+    "shares": 2507.136702,
+    "shares_outstanding": 2507136702,
+    "shares_display": "2507.14 M",
     "mcap": 77595.9,
-    "liq_val_1": -20.22785592803094,
-    "liq_val_2": -22.305285529631217,
-    "liq_val_3": -23.885414765039336,
+    "liq_val_1": -20.22785592805701,
+    "liq_val_2": -22.30528552965996,
+    "liq_val_3": -23.885414765070117,
     "debt": 32023.0,
     "cash": 3369.0,
     "short_term_investments": 0.0,
@@ -205538,17 +208396,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 24.0,
     "pe_forward": 21.1,
-    "pb_trailing": 2.4,
+    "pb_trailing": 2.362991046957793,
     "pb_forward": 2.2,
     "div_yield": 0.0,
     "ps_ratio": 8.9,
     "fcf_to_ev": 6.41,
     "fcf_to_mcap": 2.81,
-    "liab_to_assets": 65.0,
-    "cash_to_assets": 3.5,
-    "current_ratio": 0.78,
-    "roe": 18.0,
-    "roa": 8.0,
+    "liab_to_assets": 65.04298288910826,
+    "cash_to_assets": 3.4643385982230996,
+    "current_ratio": 0.7767453385368271,
+    "roe": -8.785264501095732,
+    "roa": -3.113234441200468,
     "moat": {
       "ticker": "WBD",
       "period": "2026Q2",
@@ -206196,7 +209054,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "WBD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:23.213281+00:00",
+      "fetchedAt": "2026-10-17T16:36:56.212961+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-06",
       "quoteDate": "2026-10-06",
@@ -206210,7 +209068,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-06",
@@ -206224,8 +209082,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 4952000000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 2507136702,
+      "shareSource": {
+        "shares": 2507.136702,
+        "date": "2026-10-09",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:56.212961+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1437107/000143710726000075/wbd-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 2507.136702,
+      "date": "2026-10-09",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:56.212961+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1437107/000143710726000075/wbd-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "AMZN": {
     "reported_growth": {
@@ -206284,6 +209160,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 551620000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Amazon",
     "company_name": "Amazon.com, Inc.",
     "exchange": "NASDAQ",
@@ -206293,7 +209205,7 @@ window.FULL_MARKET_DATA = {
     "price": 250.0,
     "shares": 10786.3,
     "shares_outstanding": 10786300000,
-    "shares_display": "10,786.30 M",
+    "shares_display": "10786.30 M",
     "mcap": 2696575.0,
     "liq_val_1": -27.331429683950937,
     "liq_val_2": -30.734858107043195,
@@ -209416,21 +212328,21 @@ window.FULL_MARKET_DATA = {
     ],
     "fair_val": 155.25,
     "default_fair_val": 155.25,
-    "premium_pct": 61.0,
+    "premium_pct": 61,
     "is_undervalued": false,
     "pe_trailing": 19.9,
     "pe_forward": 17.5,
-    "pb_trailing": 4.9,
+    "pb_trailing": 4.888464885247091,
     "pb_forward": 4.4,
     "div_yield": 0.0,
     "ps_ratio": 6.6,
     "fcf_to_ev": 5.77,
     "fcf_to_mcap": 3.8,
-    "liab_to_assets": 49.7,
-    "cash_to_assets": 11.2,
-    "current_ratio": 1.03,
-    "roe": 24.5,
-    "roa": 12.3,
+    "liab_to_assets": 49.65542229592521,
+    "cash_to_assets": 11.224717962852598,
+    "current_ratio": 1.0331158765552857,
+    "roe": 40.53059695902929,
+    "roa": 19.830980547370892,
     "moat": {
       "ticker": "AMZN",
       "period": "2026Q2",
@@ -210090,7 +213002,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AMZN",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:23.739044+00:00",
+      "fetchedAt": "2026-10-17T16:36:56.447825+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-31",
       "quoteDate": "2026-10-16",
@@ -210104,7 +213016,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -210118,8 +213030,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 88092000000,
         "inventory": 38184000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 10786300000,
+      "shareSource": {
+        "shares": 10786.3,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:56.447825+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/amzn-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 10786.3,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:56.447825+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/amzn-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "TSLA": {
     "reported_growth": {
@@ -210178,6 +213108,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 86858000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Tesla",
     "company_name": "Tesla, Inc.",
     "exchange": "NASDAQ",
@@ -210185,13 +213151,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Automobile Manufacturers",
     "reportedCurrency": "USD",
     "price": 354.72,
-    "shares": 3949.55,
-    "shares_outstanding": 3949550000,
-    "shares_display": "3,949.55 M",
+    "shares": 3949.547394,
+    "shares_outstanding": 3949547394,
+    "shares_display": "3949.55 M",
     "mcap": 1400983.5,
-    "liq_val_1": 1.949337286519024,
-    "liq_val_2": -1.870948557605361,
-    "liq_val_3": -4.439749229654641,
+    "liq_val_1": 1.949337286519469,
+    "liq_val_2": -1.8709485576057883,
+    "liq_val_3": -4.439749229655655,
     "debt": 9342.0,
     "cash": 43524.0,
     "short_term_investments": 28305.0,
@@ -213314,17 +216280,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 366.9,
     "pe_forward": 322.9,
-    "pb_trailing": 16.1,
+    "pb_trailing": 16.12958506988418,
     "pb_forward": 14.5,
     "div_yield": 0.0,
     "ps_ratio": 60.8,
     "fcf_to_ev": 6.95,
     "fcf_to_mcap": 0.41,
-    "liab_to_assets": 41.1,
-    "cash_to_assets": 29.3,
-    "current_ratio": 1.94,
-    "roe": 4.4,
-    "roa": 2.6,
+    "liab_to_assets": 41.110527591500365,
+    "cash_to_assets": 29.30435485174113,
+    "current_ratio": 1.9409456598447423,
+    "roe": 4.938303541402592,
+    "roa": 2.9696578437701744,
     "moat": {
       "ticker": "TSLA",
       "period": "2026Q2",
@@ -213972,7 +216938,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TSLA",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:24.266152+00:00",
+      "fetchedAt": "2026-10-17T16:36:56.686216+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-23",
       "quoteDate": "2026-10-16",
@@ -213986,7 +216952,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -214000,8 +216966,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 4087000000,
         "inventory": 13752000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 3949547394,
+      "shareSource": {
+        "shares": 3949.547394,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:56.686216+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026049270/tsla-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 3949.547394,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:56.686216+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026049270/tsla-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "HD": {
     "reported_growth": {
@@ -214060,6 +217044,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-08-02",
+        "reason": null,
+        "bookEquity": 16617000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-08-02",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-08-02",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-08-02",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-08-02",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-08-02",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Home Depot",
     "company_name": "The Home Depot, Inc.",
     "exchange": "NYSE",
@@ -214067,13 +217087,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Home Improvement Retail",
     "reportedCurrency": "USD",
     "price": 309.63,
-    "shares": 997.69,
-    "shares_outstanding": 997690000,
+    "shares": 997.689626,
+    "shares_outstanding": 997689626,
     "shares_display": "997.69 M",
     "mcap": 308914.6,
-    "liq_val_1": -55.1744736694974,
-    "liq_val_2": -71.85410986731878,
-    "liq_val_3": -90.89199450101484,
+    "liq_val_1": -55.17447366942953,
+    "liq_val_2": -71.85410986723039,
+    "liq_val_3": -90.89199450090302,
     "debt": 62567.0,
     "cash": 2085.0,
     "short_term_investments": 0.0,
@@ -217192,17 +220212,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 21.7,
     "pe_forward": 19.1,
-    "pb_trailing": 18.6,
+    "pb_trailing": 18.590275019558284,
     "pb_forward": 16.7,
     "div_yield": 2.98,
     "ps_ratio": 5.1,
     "fcf_to_ev": 5.39,
     "fcf_to_mcap": 4.89,
-    "liab_to_assets": 84.8,
-    "cash_to_assets": 1.9,
-    "current_ratio": 1.08,
-    "roe": 85.6,
-    "roa": 13.0,
+    "liab_to_assets": 84.80856432384992,
+    "cash_to_assets": 1.9061288671103633,
+    "current_ratio": 1.0780839144849663,
+    "roe": 133.39896858884202,
+    "roa": 14.220032184229728,
     "moat": {
       "ticker": "HD",
       "period": "2026Q2",
@@ -217898,7 +220918,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "HD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:24.795280+00:00",
+      "fetchedAt": "2026-10-17T16:36:56.922269+00:00",
       "balanceDate": "2026-08-02",
       "filingDate": "2026-08-25",
       "quoteDate": "2026-10-16",
@@ -217912,7 +220932,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -217926,8 +220946,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 6963000000,
         "inventory": 26847000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 997689626,
+      "shareSource": {
+        "shares": 997.689626,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:56.922269+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/354950/000162828026058715/hd-20260802.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 997.689626,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:56.922269+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/354950/000162828026058715/hd-20260802.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "MCD": {
     "reported_growth": {
@@ -217986,6 +221024,44 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": -1023000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeEquity"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "McDonald's",
     "company_name": "McDonald's Corporation",
     "exchange": "NYSE",
@@ -217993,8 +221069,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Restaurants",
     "reportedCurrency": "USD",
     "price": 242.97,
-    "shares": 707.64,
-    "shares_outstanding": 707640000,
+    "shares": 707.642,
+    "shares_outstanding": 707642000,
     "shares_display": "707.64 M",
     "mcap": 171935.8,
     "liq_val_1": -79.98112039703692,
@@ -221122,17 +224198,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 19.6,
     "pe_forward": 17.2,
-    "pb_trailing": 5.0,
+    "pb_trailing": -168.07018572825024,
     "pb_forward": 4.5,
     "div_yield": 3.04,
     "ps_ratio": 5.5,
     "fcf_to_ev": 3.21,
     "fcf_to_mcap": 4.51,
-    "liab_to_assets": 101.7,
-    "cash_to_assets": 1.4,
-    "current_ratio": 1.08,
-    "roe": 18.0,
-    "roa": 14.7,
+    "liab_to_assets": 101.70727636849134,
+    "cash_to_assets": 1.3718291054739653,
+    "current_ratio": 1.0813837730214038,
+    "roe": -318.3695652173913,
+    "roa": 14.754428679372008,
     "moat": {
       "ticker": "MCD",
       "period": "2026Q2",
@@ -221822,7 +224898,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MCD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:25.324137+00:00",
+      "fetchedAt": "2026-10-17T16:36:57.156277+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-07",
       "quoteDate": "2026-10-16",
@@ -221836,7 +224912,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -221850,8 +224926,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 2485000000,
         "inventory": 58000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 707642000,
+      "shareSource": {
+        "shares": 707.642,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:57.156277+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/63908/000006390826000073/mcd-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 707.642,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:57.156277+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/63908/000006390826000073/mcd-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "BKNG": {
     "reported_growth": {
@@ -221910,6 +225004,44 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": -10783000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeEquity"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Booking Holdings",
     "company_name": "Booking Holdings Inc.",
     "exchange": "NASDAQ",
@@ -221917,8 +225049,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Hotels, Resorts & Cruise Lines",
     "reportedCurrency": "USD",
     "price": 163.45,
-    "shares": 751.38,
-    "shares_outstanding": 751380000,
+    "shares": 751.381,
+    "shares_outstanding": 751381000,
     "shares_display": "751.38 M",
     "mcap": 122813.2,
     "liq_val_1": -23.16800664376661,
@@ -225046,17 +228178,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 17.0,
     "pe_forward": 15.0,
-    "pb_trailing": 5.0,
+    "pb_trailing": -11.389520541593248,
     "pb_forward": 4.5,
     "div_yield": 1.04,
     "ps_ratio": 3.2,
     "fcf_to_ev": 5.2,
     "fcf_to_mcap": 7.77,
-    "liab_to_assets": 136.3,
-    "cash_to_assets": 58.0,
-    "current_ratio": 1.09,
-    "roe": 18.0,
-    "roa": 24.3,
+    "liab_to_assets": 136.32841452732296,
+    "cash_to_assets": 57.99474428946837,
+    "current_ratio": 1.094252764463006,
+    "roe": -108.29202343397928,
+    "roa": 23.494329292139227,
     "moat": {
       "ticker": "BKNG",
       "period": "2026Q2",
@@ -225704,7 +228836,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "BKNG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:25.849471+00:00",
+      "fetchedAt": "2026-10-17T16:36:57.391793+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-04",
       "quoteDate": "2026-10-16",
@@ -225718,7 +228850,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -225732,8 +228864,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 4341000000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 751381000,
+      "shareSource": {
+        "shares": 751.381,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:57.391793+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1075531/000107553126000037/bkng-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 751.381,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:57.391793+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1075531/000107553126000037/bkng-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "NKE": {
     "reported_growth": {
@@ -225792,6 +228942,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-08-31",
+        "reason": null,
+        "bookEquity": 15220000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-08-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-08-31",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Nike",
     "company_name": "NIKE, Inc.",
     "exchange": "NYSE",
@@ -225799,13 +228985,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Footwear",
     "reportedCurrency": "USD",
     "price": 37.13,
-    "shares": 1485.31,
-    "shares_outstanding": 1485310000,
-    "shares_display": "1,485.31 M",
+    "shares": 1485.308862,
+    "shares_outstanding": 1485308862,
+    "shares_display": "1485.31 M",
     "mcap": 55149.5,
-    "liq_val_1": 0.7399134734434796,
-    "liq_val_2": -4.099753507904208,
-    "liq_val_3": -9.56434104070798,
+    "liq_val_1": 0.7399134470390037,
+    "liq_val_2": -4.099753361600828,
+    "liq_val_3": -9.564340699395894,
     "debt": 11072.0,
     "cash": 8368.0,
     "short_term_investments": 1465.0,
@@ -228928,17 +232114,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 17.8,
     "pe_forward": 15.7,
-    "pb_trailing": 3.6,
+    "pb_trailing": 3.6234888304862025,
     "pb_forward": 3.2,
     "div_yield": 4.4,
     "ps_ratio": 6.5,
     "fcf_to_ev": 5.77,
     "fcf_to_mcap": 3.82,
-    "liab_to_assets": 59.7,
-    "cash_to_assets": 22.1,
-    "current_ratio": 2.07,
-    "roe": 20.3,
-    "roa": 8.2,
+    "liab_to_assets": 59.72905752235804,
+    "cash_to_assets": 22.14108059480341,
+    "current_ratio": 2.0749408361819617,
+    "roe": 22.965547965547966,
+    "roa": 8.284673487973429,
     "moat": {
       "ticker": "NKE",
       "period": "2027Q1",
@@ -229616,7 +232802,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "NKE",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:26.378693+00:00",
+      "fetchedAt": "2026-10-17T16:36:57.627659+00:00",
       "balanceDate": "2026-08-31",
       "filingDate": "2026-10-02",
       "quoteDate": "2026-10-16",
@@ -229630,7 +232816,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -229644,8 +232830,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 5242000000,
         "inventory": 7846000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 1485308862,
+      "shareSource": {
+        "shares": 1485.308862,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:57.627659+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/320187/000032018726000193/nke-20260831.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 1485.308862,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:57.627659+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/320187/000032018726000193/nke-20260831.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "SBUX": {
     "reported_growth": {
@@ -229704,6 +232908,44 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-28",
+        "reason": null,
+        "bookEquity": -7674300000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-28",
+        "reason": null,
+        "warnings": [
+          "negativeEquity"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-28",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Starbucks",
     "company_name": "Starbucks Corporation",
     "exchange": "NASDAQ",
@@ -229711,9 +232953,9 @@ window.FULL_MARKET_DATA = {
     "industry": "Restaurants",
     "reportedCurrency": "USD",
     "price": 97.52,
-    "shares": 1140.0,
+    "shares": 1140,
     "shares_outstanding": 1140000000,
-    "shares_display": "1,140.00 M",
+    "shares_display": "1140.00 M",
     "mcap": 111172.8,
     "liq_val_1": -24.936491228070174,
     "liq_val_2": -26.4944649122807,
@@ -232835,17 +236077,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 56.1,
     "pe_forward": 49.4,
-    "pb_trailing": 5.0,
+    "pb_trailing": -14.486376607638482,
     "pb_forward": 4.5,
     "div_yield": 2.53,
     "ps_ratio": 7.6,
     "fcf_to_ev": 5.19,
     "fcf_to_mcap": 3.28,
-    "liab_to_assets": 127.1,
-    "cash_to_assets": 12.8,
-    "current_ratio": 0.76,
-    "roe": 18.0,
-    "roa": 7.0,
+    "liab_to_assets": 127.09730090794389,
+    "cash_to_assets": 12.759633429582218,
+    "current_ratio": 0.7597333844245682,
+    "roe": -25.794951860525632,
+    "roa": 5.891967713942679,
     "moat": {
       "ticker": "SBUX",
       "period": "2026Q3",
@@ -233517,7 +236759,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "SBUX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:26.925276+00:00",
+      "fetchedAt": "2026-10-17T16:36:57.864566+00:00",
       "balanceDate": "2026-06-28",
       "filingDate": "2026-07-29",
       "quoteDate": "2026-10-16",
@@ -233531,7 +236773,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -233545,8 +236787,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1304200000,
         "inventory": 2208900000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 1140000000,
+      "shareSource": {
+        "shares": 1140,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:57.864566+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/829224/000082922426000130/sbux-20260628.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 1140,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:57.864566+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/829224/000082922426000130/sbux-20260628.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "LOW": {
     "reported_growth": {
@@ -233605,6 +236865,44 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "bookEquity": -7437000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": [
+          "negativeEquity"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Lowe's",
     "company_name": "Lowe's Companies, Inc.",
     "exchange": "NYSE",
@@ -233612,8 +236910,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Home Improvement Retail",
     "reportedCurrency": "USD",
     "price": 197.31,
-    "shares": 561.05,
-    "shares_outstanding": 561050000,
+    "shares": 561.054,
+    "shares_outstanding": 561054000,
     "shares_display": "561.05 M",
     "mcap": 110701.6,
     "liq_val_1": -71.25160857956632,
@@ -236738,17 +240036,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 16.7,
     "pe_forward": 14.7,
-    "pb_trailing": 5.0,
+    "pb_trailing": -14.885249428533012,
     "pb_forward": 4.5,
     "div_yield": 2.43,
     "ps_ratio": 4.0,
     "fcf_to_ev": 4.48,
     "fcf_to_mcap": 6.32,
-    "liab_to_assets": 113.3,
-    "cash_to_assets": 6.1,
-    "current_ratio": 1.1,
-    "roe": 18.0,
-    "roa": 11.9,
+    "liab_to_assets": 113.30863799860418,
+    "cash_to_assets": 6.096884450886705,
+    "current_ratio": 1.1045807306454667,
+    "roe": -58.263157894736835,
+    "roa": 14.248938087269918,
     "moat": {
       "ticker": "LOW",
       "period": "2026Q2",
@@ -237438,7 +240736,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "LOW",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:27.448501+00:00",
+      "fetchedAt": "2026-10-17T16:36:58.098524+00:00",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-08-27",
       "quoteDate": "2026-10-16",
@@ -237452,7 +240750,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -237466,8 +240764,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1238000000,
         "inventory": 17737000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 561054000,
+      "shareSource": {
+        "shares": 561.054,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:58.098524+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/60667/000006066726000117/low-20260731.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 561.054,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:58.098524+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/60667/000006066726000117/low-20260731.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "TJX": {
     "reported_growth": {
@@ -237526,6 +240842,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-08-01",
+        "reason": null,
+        "bookEquity": 10651000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-08-01",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-08-01",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-08-01",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-08-01",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-08-01",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "TJX Companies",
     "company_name": "The TJX Companies, Inc.",
     "exchange": "NYSE",
@@ -237533,13 +240885,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Apparel Retail",
     "reportedCurrency": "USD",
     "price": 147.32,
-    "shares": 1099.97,
-    "shares_outstanding": 1099970000,
-    "shares_display": "1,099.97 M",
+    "shares": 1099.974061,
+    "shares_outstanding": 1099974061,
+    "shares_display": "1099.97 M",
     "mcap": 162048.2,
-    "liq_val_1": -10.122965981437828,
-    "liq_val_2": -13.962692889313965,
-    "liq_val_3": -18.600438615196943,
+    "liq_val_1": -10.122965981467813,
+    "liq_val_2": -13.962692889355324,
+    "liq_val_3": -18.60043861525204,
     "debt": 14317.0,
     "cash": 6004.0,
     "short_term_investments": 0.0,
@@ -240661,17 +244013,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 26.7,
     "pe_forward": 23.5,
-    "pb_trailing": 15.2,
+    "pb_trailing": 15.214364848371046,
     "pb_forward": 13.7,
     "div_yield": 1.2,
     "ps_ratio": 6.9,
     "fcf_to_ev": 3.92,
     "fcf_to_mcap": 3.63,
-    "liab_to_assets": 71.3,
-    "cash_to_assets": 16.2,
-    "current_ratio": 1.15,
-    "roe": 57.0,
-    "roa": 16.3,
+    "liab_to_assets": 71.30270780008084,
+    "cash_to_assets": 16.176747945574565,
+    "current_ratio": 1.147380239520958,
+    "roe": 68.42995713963455,
+    "roa": 18.449140945719932,
     "moat": {
       "ticker": "TJX",
       "period": "2027Q2",
@@ -241367,7 +244719,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TJX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:27.974564+00:00",
+      "fetchedAt": "2026-10-17T16:36:58.334586+00:00",
       "balanceDate": "2026-08-01",
       "filingDate": "2026-08-28",
       "quoteDate": "2026-10-16",
@@ -241381,7 +244733,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -241395,8 +244747,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1463000000,
         "inventory": 7862000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 1099974061,
+      "shareSource": {
+        "shares": 1099.974061,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:58.334586+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/109198/000010919826000048/tjx-20260801.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 1099.974061,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:58.334586+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/109198/000010919826000048/tjx-20260801.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "CHDN": {
     "reported_growth": {
@@ -241455,6 +244825,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 1341000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Churchill Downs",
     "company_name": "Churchill Downs Incorporated",
     "exchange": "NASDAQ",
@@ -241462,8 +244868,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Casinos & Gaming",
     "reportedCurrency": "USD",
     "price": 81.7,
-    "shares": 69.7,
-    "shares_outstanding": 69700000,
+    "shares": 69.7002,
+    "shares_outstanding": 69700200,
     "shares_display": "69.70 M",
     "mcap": 5694.5,
     "liq_val_1": -81.0040717243279,
@@ -244591,17 +247997,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 13.9,
     "pe_forward": 12.2,
-    "pb_trailing": 4.2,
+    "pb_trailing": 4.246457867263237,
     "pb_forward": 3.8,
     "div_yield": 0.56,
     "ps_ratio": 3.7,
     "fcf_to_ev": 2.82,
     "fcf_to_mcap": 6.72,
-    "liab_to_assets": 81.5,
-    "cash_to_assets": 2.6,
-    "current_ratio": 0.36,
-    "roe": 30.6,
-    "roa": 5.4,
+    "liab_to_assets": 81.50511900013296,
+    "cash_to_assets": 2.6060364313256215,
+    "current_ratio": 0.3561442236938926,
+    "roe": 39.333717357910906,
+    "roa": 5.554727008961861,
     "moat": {
       "ticker": "CHDN",
       "period": "2026Q2",
@@ -245255,7 +248661,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CHDN",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:28.496254+00:00",
+      "fetchedAt": "2026-10-17T16:36:58.569245+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-29",
       "quoteDate": "2026-10-16",
@@ -245269,7 +248675,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -245283,8 +248689,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 52000000,
         "inventory": 11000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 69700200,
+      "shareSource": {
+        "shares": 69.7002,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:58.569245+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/20212/000002021226000059/chdn-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 69.7002,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:58.569245+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/20212/000002021226000059/chdn-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "TSCO": {
     "reported_growth": {
@@ -245343,6 +248767,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-27",
+        "reason": null,
+        "bookEquity": 2631565000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-27",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-27",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Tractor Supply",
     "company_name": "Tractor Supply Company",
     "exchange": "NASDAQ",
@@ -245350,13 +248810,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Specialty Stores",
     "reportedCurrency": "USD",
     "price": 33.16,
-    "shares": 521.04,
-    "shares_outstanding": 521039999,
+    "shares": 521.040137,
+    "shares_outstanding": 521040136.99999994,
     "shares_display": "521.04 M",
     "mcap": 17277.7,
-    "liq_val_1": -10.125400377697911,
-    "liq_val_2": -14.469984104055865,
-    "liq_val_3": -17.846356431379764,
+    "liq_val_1": -10.125400377744796,
+    "liq_val_2": -14.469984104122867,
+    "liq_val_3": -17.846356431462404,
     "debt": 6545.0,
     "cash": 231.6,
     "short_term_investments": 0.0,
@@ -248473,17 +251933,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 17.1,
     "pe_forward": 15.0,
-    "pb_trailing": 6.6,
+    "pb_trailing": 6.5655607974722265,
     "pb_forward": 5.9,
     "div_yield": 2.87,
     "ps_ratio": 14.1,
     "fcf_to_ev": 3.17,
     "fcf_to_mcap": 1.78,
-    "liab_to_assets": 78.4,
-    "cash_to_assets": 1.9,
-    "current_ratio": 1.33,
-    "roe": 38.5,
-    "roa": 8.3,
+    "liab_to_assets": 78.36208081010237,
+    "cash_to_assets": 1.904221415526507,
+    "current_ratio": 1.3338090238448228,
+    "roe": 40.634073924159615,
+    "roa": 9.583612523966986,
     "moat": {
       "ticker": "TSCO",
       "period": "2026Q2",
@@ -249149,7 +252609,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TSCO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:29.023043+00:00",
+      "fetchedAt": "2026-10-17T16:36:58.803838+00:00",
       "balanceDate": "2026-06-27",
       "filingDate": "2026-08-06",
       "quoteDate": "2026-10-16",
@@ -249163,7 +252623,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -249177,8 +252637,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 0,
         "inventory": 3518451000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 521040136.99999994,
+      "shareSource": {
+        "shares": 521.040137,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:58.803838+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/916365/000091636526000059/tsco-20260627.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 521.040137,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:58.803838+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/916365/000091636526000059/tsco-20260627.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "MTN": {
     "reported_growth": {
@@ -249237,6 +252715,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "bookEquity": 240527000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Vail Resorts",
     "company_name": "Vail Resorts, Inc.",
     "exchange": "NYSE",
@@ -249244,13 +252758,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Hotels, Resorts & Cruise Lines",
     "reportedCurrency": "USD",
     "price": 151.01,
-    "shares": 35.64,
-    "shares_outstanding": 35640000,
+    "shares": 35.635295,
+    "shares_outstanding": 35635295,
     "shares_display": "35.64 M",
     "mcap": 5381.3,
-    "liq_val_1": -114.84636229227158,
-    "liq_val_2": -122.06195009637453,
-    "liq_val_3": -131.90823872669847,
+    "liq_val_1": -114.84636229333867,
+    "liq_val_2": -122.06195009750867,
+    "liq_val_3": -131.9082387279241,
     "debt": 3422.3,
     "cash": 268.5,
     "short_term_investments": 37.1,
@@ -252373,17 +255887,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 36.5,
     "pe_forward": 32.1,
-    "pb_trailing": 22.4,
+    "pb_trailing": 22.37295605067207,
     "pb_forward": 20.2,
     "div_yield": 5.89,
     "ps_ratio": 4.3,
     "fcf_to_ev": 3.63,
     "fcf_to_mcap": 5.8,
-    "liab_to_assets": 89.9,
-    "cash_to_assets": 4.9,
-    "current_ratio": 0.8,
-    "roe": 61.3,
-    "roa": 2.7,
+    "liab_to_assets": 89.91399177193018,
+    "cash_to_assets": 4.857749498412,
+    "current_ratio": 0.7989735549093429,
+    "roe": 34.75508776227977,
+    "roa": 2.5534429986058913,
     "moat": {
       "ticker": "MTN",
       "period": "2026Q4",
@@ -253018,7 +256532,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MTN",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:29.623227+00:00",
+      "fetchedAt": "2026-10-17T16:36:59.043047+00:00",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-09-28",
       "quoteDate": "2026-10-16",
@@ -253032,7 +256546,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -253046,8 +256560,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 354448000,
         "inventory": 134634000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 35635295,
+      "shareSource": {
+        "shares": 35.635295,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:59.043047+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/812011/000081201126000049/mtn-20260731.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 35.635295,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:59.043047+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/812011/000081201126000049/mtn-20260731.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "SCI": {
     "reported_growth": {
@@ -253106,6 +256638,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 1537251000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Service Corp International",
     "company_name": "Service Corporation International",
     "exchange": "NYSE",
@@ -253113,8 +256681,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Personal Services",
     "reportedCurrency": "USD",
     "price": 81.37,
-    "shares": 136.29,
-    "shares_outstanding": 136290000,
+    "shares": 136.292,
+    "shares_outstanding": 136292000,
     "shares_display": "136.29 M",
     "mcap": 11090.1,
     "liq_val_1": -126.3976388929651,
@@ -256235,17 +259803,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 17.7,
     "pe_forward": 15.6,
-    "pb_trailing": 7.2,
+    "pb_trailing": 7.21424152594469,
     "pb_forward": 6.5,
     "div_yield": 1.7,
     "ps_ratio": 3.9,
     "fcf_to_ev": 4.05,
     "fcf_to_mcap": 6.37,
-    "liab_to_assets": 92.0,
-    "cash_to_assets": 1.4,
-    "current_ratio": 0.53,
-    "roe": 40.9,
-    "roa": 3.3,
+    "liab_to_assets": 91.99687444264077,
+    "cash_to_assets": 1.3552842638106557,
+    "current_ratio": 0.5314714237770436,
+    "roe": 40.28015345675182,
+    "roa": 3.494314998077052,
     "moat": {
       "ticker": "SCI",
       "period": "2026Q2",
@@ -256923,7 +260491,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "SCI",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:30.185850+00:00",
+      "fetchedAt": "2026-10-17T16:36:59.277966+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-30",
       "quoteDate": "2026-10-16",
@@ -256937,7 +260505,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -256951,8 +260519,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 104109000,
         "inventory": 38235000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 136292000,
+      "shareSource": {
+        "shares": 136.292,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:59.277966+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/89089/000008908926000081/sci-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 136.292,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:59.277966+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/89089/000008908926000081/sci-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "AZO": {
     "reported_growth": {
@@ -257011,6 +260597,44 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-08-29",
+        "reason": null,
+        "bookEquity": -2502470000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-08-29",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-08-29",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-08-29",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-08-29",
+        "reason": null,
+        "warnings": [
+          "negativeEquity"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-08-29",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "AutoZone",
     "company_name": "AutoZone, Inc.",
     "exchange": "NYSE",
@@ -257018,13 +260642,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Automotive Retail",
     "reportedCurrency": "USD",
     "price": 3120.59,
-    "shares": 16.33,
-    "shares_outstanding": 16329999,
+    "shares": 16.3254,
+    "shares_outstanding": 16325399.999999998,
     "shares_display": "16.33 M",
     "mcap": 50944.9,
-    "liq_val_1": -920.4580592206011,
+    "liq_val_1": -920.4580592206012,
     "liq_val_2": -1221.3535349822976,
-    "liq_val_3": -1458.2714665490585,
+    "liq_val_3": -1458.2714665490587,
     "debt": 12447.4,
     "cash": 326.1,
     "short_term_investments": 0.0,
@@ -260141,17 +263765,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 19.8,
     "pe_forward": 17.4,
-    "pb_trailing": 5.0,
+    "pb_trailing": -20.357846447709665,
     "pb_forward": 4.5,
     "div_yield": 0.0,
     "ps_ratio": 11.4,
     "fcf_to_ev": 2.84,
     "fcf_to_mcap": 2.2,
-    "liab_to_assets": 111.6,
-    "cash_to_assets": 1.5,
-    "current_ratio": 0.9,
-    "roe": 18.0,
-    "roa": 11.9,
+    "liab_to_assets": 111.56916780972801,
+    "cash_to_assets": 1.5076620939589498,
+    "current_ratio": 0.9010148883939394,
+    "roe": -75.35269906420413,
+    "roa": 13.292347883197408,
     "moat": {
       "ticker": "AZO",
       "period": "2026Q4",
@@ -260799,7 +264423,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AZO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:30.834761+00:00",
+      "fetchedAt": "2026-10-17T16:36:59.517943+00:00",
       "balanceDate": "2026-08-29",
       "filingDate": "2026-09-22",
       "quoteDate": "2026-10-16",
@@ -260813,7 +264437,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -260827,8 +264451,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 0,
         "inventory": 7735560000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 16325399.999999998,
+      "shareSource": {
+        "shares": 16.3254,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:59.517943+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/866787/000117184326006159/exh_991.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 16.3254,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:59.517943+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/866787/000117184326006159/exh_991.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "MAR": {
     "reported_growth": {
@@ -260887,6 +264529,44 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": -4525000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeEquity"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Marriott International",
     "company_name": "Marriott International, Inc.",
     "exchange": "NASDAQ",
@@ -260894,13 +264574,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Hotels, Resorts & Cruise Lines",
     "reportedCurrency": "USD",
     "price": 388.05,
-    "shares": 260.77,
-    "shares_outstanding": 260769999,
+    "shares": 260.766288,
+    "shares_outstanding": 260766287.99999997,
     "shares_display": "260.77 M",
     "mcap": 101190.4,
-    "liq_val_1": -108.84842599021927,
-    "liq_val_2": -113.04221962969586,
-    "liq_val_3": -123.2828071707148,
+    "liq_val_1": -108.84842598978899,
+    "liq_val_2": -113.04221962924902,
+    "liq_val_3": -123.28280717022749,
     "debt": 17774.0,
     "cash": 462.0,
     "short_term_investments": 0.0,
@@ -264023,17 +267703,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 39.1,
     "pe_forward": 34.4,
-    "pb_trailing": 5.0,
+    "pb_trailing": -22.362519337016572,
     "pb_forward": 4.5,
     "div_yield": 0.72,
     "ps_ratio": 8.1,
     "fcf_to_ev": 5.5,
     "fcf_to_mcap": 3.1,
-    "liab_to_assets": 116.1,
-    "cash_to_assets": 1.6,
-    "current_ratio": 0.53,
-    "roe": 18.0,
-    "roa": 9.2,
+    "liab_to_assets": 116.11180345380096,
+    "cash_to_assets": 1.6450062310842086,
+    "current_ratio": 0.534665991902834,
+    "roe": -87.28070175438597,
+    "roa": 9.461634116011997,
     "moat": {
       "ticker": "MAR",
       "period": "2026Q2",
@@ -264681,7 +268361,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MAR",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:31.361067+00:00",
+      "fetchedAt": "2026-10-17T16:36:59.769482+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-03",
       "quoteDate": "2026-10-16",
@@ -264695,7 +268375,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -264709,8 +268389,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 3338000000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 260766287.99999997,
+      "shareSource": {
+        "shares": 260.766288,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:36:59.769482+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1048286/000104828626000035/mar-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 260.766288,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:36:59.769482+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1048286/000104828626000035/mar-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "HLT": {
     "reported_growth": {
@@ -264769,6 +268467,44 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": -6303000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeEquity"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Hilton Worldwide",
     "company_name": "Hilton Worldwide Holdings Inc.",
     "exchange": "NYSE",
@@ -264776,8 +268512,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Hotels, Resorts & Cruise Lines",
     "reportedCurrency": "USD",
     "price": 345.085,
-    "shares": 225.06,
-    "shares_outstanding": 225060000,
+    "shares": 225.065,
+    "shares_outstanding": 225065000,
     "shares_display": "225.06 M",
     "mcap": 77666.6,
     "liq_val_1": -88.43223068891209,
@@ -267905,17 +271641,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 49.0,
     "pe_forward": 43.1,
-    "pb_trailing": 5.0,
+    "pb_trailing": -12.32216404886562,
     "pb_forward": 4.5,
     "div_yield": 0.18,
     "ps_ratio": 9.7,
     "fcf_to_ev": 5.16,
     "fcf_to_mcap": 2.58,
-    "liab_to_assets": 137.0,
-    "cash_to_assets": 6.0,
-    "current_ratio": 0.65,
-    "roe": 18.0,
-    "roa": 9.4,
+    "liab_to_assets": 137.03922495274102,
+    "cash_to_assets": 5.960538752362949,
+    "current_ratio": 0.6491331757289204,
+    "roe": -34.509803921568626,
+    "roa": 9.959758551307846,
     "moat": {
       "ticker": "HLT",
       "period": "2026Q2",
@@ -268557,7 +272293,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "HLT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:32.063529+00:00",
+      "fetchedAt": "2026-10-17T16:37:00.006984+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-28",
       "quoteDate": "2026-10-16",
@@ -268571,7 +272307,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -268585,8 +272321,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1790000000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 225065000,
+      "shareSource": {
+        "shares": 225.065,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:00.006984+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1585689/000158568926000043/hlt-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 225.065,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:00.006984+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1585689/000158568926000043/hlt-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "CMG": {
     "reported_growth": {
@@ -268645,6 +272399,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 2199791000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Chipotle Mexican Grill",
     "company_name": "Chipotle Mexican Grill, Inc.",
     "exchange": "NYSE",
@@ -268654,7 +272444,7 @@ window.FULL_MARKET_DATA = {
     "price": 29.8777,
     "shares": 1265.42,
     "shares_outstanding": 1265420000,
-    "shares_display": "1,265.42 M",
+    "shares_display": "1265.42 M",
     "mcap": 37807.8,
     "liq_val_1": -4.523442809501984,
     "liq_val_2": -4.653928656098371,
@@ -271777,17 +275567,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 26.6,
     "pe_forward": 23.4,
-    "pb_trailing": 17.2,
+    "pb_trailing": 17.186996401021734,
     "pb_forward": 15.5,
     "div_yield": 0.0,
     "ps_ratio": 6.0,
     "fcf_to_ev": 3.88,
     "fcf_to_mcap": 4.15,
-    "liab_to_assets": 75.2,
-    "cash_to_assets": 7.6,
-    "current_ratio": 0.72,
-    "roe": 64.5,
-    "roa": 16.0,
+    "liab_to_assets": 75.18450102289053,
+    "cash_to_assets": 7.581437822526378,
+    "current_ratio": 0.7153473552939745,
+    "roe": 40.230372754340394,
+    "roa": 15.313815367997174,
     "moat": {
       "ticker": "CMG",
       "period": "2026Q2",
@@ -272429,7 +276219,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CMG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:33.057859+00:00",
+      "fetchedAt": "2026-10-17T16:37:00.288002+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-31",
       "quoteDate": "2026-10-16",
@@ -272443,7 +276233,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -272457,8 +276247,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 100307000,
         "inventory": 46622000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 1265420000,
+      "shareSource": {
+        "shares": 1265.42,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:00.288002+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1058090/000105809026000066/cmg-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 1265.42,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:00.288002+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1058090/000105809026000066/cmg-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "YUM": {
     "reported_growth": {
@@ -272517,6 +276325,44 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": -7107000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeEquity"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Yum! Brands",
     "company_name": "Yum! Brands, Inc.",
     "exchange": "NYSE",
@@ -272524,13 +276370,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Restaurants",
     "reportedCurrency": "USD",
     "price": 150.51,
-    "shares": 272.9,
-    "shares_outstanding": 272900000,
+    "shares": 272.901085,
+    "shares_outstanding": 272901085,
     "shares_display": "272.90 M",
     "mcap": 41074.3,
-    "liq_val_1": -48.545061666254966,
-    "liq_val_2": -53.5600655458169,
-    "liq_val_3": -55.38636828845439,
+    "liq_val_1": -48.54506166584131,
+    "liq_val_2": -53.56006554536051,
+    "liq_val_3": -55.386368287982435,
     "debt": 12275.0,
     "cash": 674.0,
     "short_term_investments": 0.0,
@@ -275653,17 +279499,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 18.5,
     "pe_forward": 16.3,
-    "pb_trailing": 5.0,
+    "pb_trailing": -5.779414661601239,
     "pb_forward": 4.5,
     "div_yield": 1.96,
     "ps_ratio": 6.1,
     "fcf_to_ev": 3.43,
     "fcf_to_mcap": 4.09,
-    "liab_to_assets": 181.9,
-    "cash_to_assets": 7.8,
-    "current_ratio": 0.59,
-    "roe": 18.0,
-    "roa": 25.5,
+    "liab_to_assets": 181.8590186592951,
+    "cash_to_assets": 7.763188205482607,
+    "current_ratio": 0.5920316868592731,
+    "roe": -28.867187500000004,
+    "roa": 32.05146739916149,
     "moat": {
       "ticker": "YUM",
       "period": "2026Q2",
@@ -276317,7 +280163,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "YUM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:33.588127+00:00",
+      "fetchedAt": "2026-10-17T16:37:00.531047+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-05",
       "quoteDate": "2026-10-16",
@@ -276331,7 +280177,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -276345,8 +280191,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 623000000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 272901085,
+      "shareSource": {
+        "shares": 272.901085,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:00.531047+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1041061/000104106126000160/yum-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 272.901085,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:00.531047+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1041061/000104106126000160/yum-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "ORLY": {
     "reported_growth": {
@@ -276405,6 +280269,44 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": -1835725000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeEquity"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "O'Reilly Automotive",
     "company_name": "O'Reilly Automotive, Inc.",
     "exchange": "NASDAQ",
@@ -276412,8 +280314,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Automotive Retail",
     "reportedCurrency": "USD",
     "price": 89.27,
-    "shares": 808.96,
-    "shares_outstanding": 808960000,
+    "shares": 808.961,
+    "shares_outstanding": 808961000,
     "shares_display": "808.96 M",
     "mcap": 72215.9,
     "liq_val_1": -14.865004617033454,
@@ -279534,17 +283436,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 27.2,
     "pe_forward": 23.9,
-    "pb_trailing": 5.0,
+    "pb_trailing": -39.33917117215269,
     "pb_forward": 4.5,
     "div_yield": 0.0,
     "ps_ratio": 8.4,
     "fcf_to_ev": 3.59,
     "fcf_to_mcap": 2.99,
-    "liab_to_assets": 110.6,
-    "cash_to_assets": 1.5,
-    "current_ratio": 0.75,
-    "roe": 18.0,
-    "roa": 15.2,
+    "liab_to_assets": 110.55674710548828,
+    "cash_to_assets": 1.5077304677247538,
+    "current_ratio": 0.7519453926055342,
+    "roe": -215.15185954270854,
+    "roa": 16.75265677025659,
     "moat": {
       "ticker": "ORLY",
       "period": "2026Q2",
@@ -280204,7 +284106,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ORLY",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:34.111933+00:00",
+      "fetchedAt": "2026-10-17T16:37:00.825954+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-07",
       "quoteDate": "2026-10-16",
@@ -280218,7 +284120,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -280232,8 +284134,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 457785000,
         "inventory": 5971856000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 808961000,
+      "shareSource": {
+        "shares": 808.961,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:00.825954+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/898173/000089817326000045/orly-20260630x10q.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 808.961,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:00.825954+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/898173/000089817326000045/orly-20260630x10q.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "ROST": {
     "reported_growth": {
@@ -280292,6 +284212,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-08-01",
+        "reason": null,
+        "bookEquity": 6743184000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-08-01",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-08-01",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-08-01",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-08-01",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-08-01",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Ross Stores",
     "company_name": "Ross Stores, Inc.",
     "exchange": "NASDAQ",
@@ -280299,13 +284255,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Apparel Retail",
     "reportedCurrency": "USD",
     "price": 236.89,
-    "shares": 320.78,
-    "shares_outstanding": 320780000,
+    "shares": 320.781076,
+    "shares_outstanding": 320781076,
     "shares_display": "320.78 M",
     "mcap": 75989.8,
-    "liq_val_1": -4.248180774833313,
-    "liq_val_2": -10.00300591293234,
-    "liq_val_3": -15.434114947530583,
+    "liq_val_1": -4.24818077485344,
+    "liq_val_2": -10.003005912979729,
+    "liq_val_3": -15.434114947603705,
     "debt": 4739.2,
     "cash": 4288.1,
     "short_term_investments": 0.0,
@@ -283427,17 +287383,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 28.6,
     "pe_forward": 25.2,
-    "pb_trailing": 11.3,
+    "pb_trailing": 11.269127462634863,
     "pb_forward": 10.2,
     "div_yield": 0.72,
     "ps_ratio": 6.8,
     "fcf_to_ev": 5.07,
     "fcf_to_mcap": 3.67,
-    "liab_to_assets": 57.8,
-    "cash_to_assets": 26.8,
-    "current_ratio": 1.61,
-    "roe": 39.4,
-    "roa": 16.6,
+    "liab_to_assets": 57.80837277284593,
+    "cash_to_assets": 26.830489767417415,
+    "current_ratio": 1.6121786382584682,
+    "roe": 46.3851896069633,
+    "roa": 18.34403445644133,
     "moat": {
       "ticker": "ROST",
       "period": "2026Q2",
@@ -284103,7 +288059,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ROST",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:34.636920+00:00",
+      "fetchedAt": "2026-10-17T16:37:01.069274+00:00",
       "balanceDate": "2026-08-01",
       "filingDate": "2026-09-01",
       "quoteDate": "2026-10-16",
@@ -284117,7 +288073,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -284131,8 +288087,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 248140000,
         "inventory": 3087370000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 320781076,
+      "shareSource": {
+        "shares": 320.781076,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:01.069274+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/745732/000074573226000041/rost-20260801.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 320.781076,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:01.069274+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/745732/000074573226000041/rost-20260801.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "LULU": {
     "reported_growth": {
@@ -284191,6 +288165,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-08-02",
+        "reason": null,
+        "bookEquity": 4791174000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-08-02",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-08-02",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-08-02",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-08-02",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-08-02",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Lululemon Athletica",
     "company_name": "Lululemon Athletica Inc.",
     "exchange": "NASDAQ",
@@ -284198,13 +288208,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Apparel Retail",
     "reportedCurrency": "USD",
     "price": 97.1,
-    "shares": 115.83,
-    "shares_outstanding": 115830000,
+    "shares": 115.825984,
+    "shares_outstanding": 115825984,
     "shares_display": "115.83 M",
     "mcap": 11246.7,
-    "liq_val_1": 2.1772575660481253,
-    "liq_val_2": -11.318796998492388,
-    "liq_val_3": -19.889034571741103,
+    "liq_val_1": 2.1772575659706894,
+    "liq_val_2": -11.318796998089825,
+    "liq_val_3": -19.889034571033733,
     "debt": 2141.1,
     "cash": 1389.7,
     "short_term_investments": 0.0,
@@ -287326,17 +291336,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 7.9,
     "pe_forward": 7.0,
-    "pb_trailing": 2.3,
+    "pb_trailing": 2.347378742663072,
     "pb_forward": 2.1,
     "div_yield": 0.0,
     "ps_ratio": 2.1,
     "fcf_to_ev": 4.03,
     "fcf_to_mcap": 12.04,
-    "liab_to_assets": 43.5,
-    "cash_to_assets": 16.4,
-    "current_ratio": 2.19,
-    "roe": 29.6,
-    "roa": 16.7,
+    "liab_to_assets": 43.530791985175924,
+    "cash_to_assets": 16.379565371430377,
+    "current_ratio": 2.1899840757172173,
+    "roe": 32.32019208260974,
+    "roa": 18.84745792449437,
     "moat": {
       "ticker": "LULU",
       "period": "2026Q2",
@@ -287978,7 +291988,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "LULU",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:35.158797+00:00",
+      "fetchedAt": "2026-10-17T16:37:01.648940+00:00",
       "balanceDate": "2026-08-02",
       "filingDate": "2026-09-03",
       "quoteDate": "2026-10-16",
@@ -287992,7 +292002,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -288006,8 +292016,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 171164000,
         "inventory": 1711450000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 115825984,
+      "shareSource": {
+        "shares": 115.825984,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:01.648940+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1397187/000139718726000127/lulu-20260802.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 115.825984,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:01.648940+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1397187/000139718726000127/lulu-20260802.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "F": {
     "reported_growth": {
@@ -288066,6 +292094,46 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 35719000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeNetIncome"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeNetIncome"
+        ]
+      }
+    },
     "name": "Ford Motor Company",
     "company_name": "Ford Motor Company",
     "exchange": "NYSE",
@@ -288073,13 +292141,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Automobile Manufacturers",
     "reportedCurrency": "USD",
     "price": 12.43,
-    "shares": 3987.6,
-    "shares_outstanding": 3987600000,
-    "shares_display": "3,987.60 M",
+    "shares": 3987.595582,
+    "shares_outstanding": 3987595582,
+    "shares_display": "3987.60 M",
     "mcap": 49565.8,
-    "liq_val_1": -33.17412672408134,
-    "liq_val_2": -43.537063364248844,
-    "liq_val_3": -54.780380162994874,
+    "liq_val_1": -33.17412643276421,
+    "liq_val_2": -43.53706298193005,
+    "liq_val_3": -54.78037968194338,
     "debt": 163296.0,
     "cash": 31334.0,
     "short_term_investments": 12731.0,
@@ -291202,17 +295270,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 24.0,
     "pe_forward": 21.1,
-    "pb_trailing": 1.4,
+    "pb_trailing": 1.3876592289817744,
     "pb_forward": 1.3,
     "div_yield": 4.85,
     "ps_ratio": 1.7,
     "fcf_to_ev": 3.26,
     "fcf_to_mcap": 14.69,
-    "liab_to_assets": 87.5,
-    "cash_to_assets": 11.0,
-    "current_ratio": 1.09,
-    "roe": 18.0,
-    "roa": 8.0,
+    "liab_to_assets": 87.47771695542691,
+    "cash_to_assets": 10.97393978237039,
+    "current_ratio": 1.0885549368589773,
+    "roe": -16.414763521761326,
+    "roa": -2.526603467418225,
     "moat": {
       "ticker": "F",
       "period": "2026Q2",
@@ -291896,7 +295964,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "F",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:35.689216+00:00",
+      "fetchedAt": "2026-10-17T16:37:01.887817+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-29",
       "quoteDate": "2026-10-16",
@@ -291910,7 +295978,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -291924,8 +295992,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 45451000000,
         "inventory": 16946000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 3987595582,
+      "shareSource": {
+        "shares": 3987.595582,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:01.887817+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/37996/000003799626000156/f-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 3987.595582,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:01.887817+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/37996/000003799626000156/f-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "GM": {
     "reported_growth": {
@@ -291984,6 +296070,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 62000000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "General Motors",
     "company_name": "General Motors Company",
     "exchange": "NYSE",
@@ -291991,13 +296113,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Automobile Manufacturers",
     "reportedCurrency": "USD",
     "price": 83.96,
-    "shares": 877.45,
-    "shares_outstanding": 877450000,
+    "shares": 877.452,
+    "shares_outstanding": 877452000,
     "shares_display": "877.45 M",
     "mcap": 73670.9,
-    "liq_val_1": -124.32930804192137,
-    "liq_val_2": -197.15152509766912,
-    "liq_val_3": -221.53006660193375,
+    "liq_val_1": -124.32930804192138,
+    "liq_val_2": -197.15152509766915,
+    "liq_val_3": -221.53006660193378,
     "debt": 127697.0,
     "cash": 24719.0,
     "short_term_investments": 4585.0,
@@ -295116,21 +299238,21 @@ window.FULL_MARKET_DATA = {
     ],
     "fair_val": 399.99,
     "default_fair_val": 399.99,
-    "premium_pct": -79.0,
+    "premium_pct": -79,
     "is_undervalued": true,
     "pe_trailing": 38.4,
     "pe_forward": 33.8,
-    "pb_trailing": 1.2,
+    "pb_trailing": 1.188240322580645,
     "pb_forward": 1.1,
     "div_yield": 1.59,
     "ps_ratio": 1.1,
     "fcf_to_ev": 3.63,
     "fcf_to_mcap": 22.4,
-    "liab_to_assets": 77.5,
-    "cash_to_assets": 8.7,
-    "current_ratio": 1.14,
-    "roe": 3.1,
-    "roa": 0.7,
+    "liab_to_assets": 77.491494012209,
+    "cash_to_assets": 8.74259926010285,
+    "current_ratio": 1.1360472561290456,
+    "roe": 2.891671563973901,
+    "roa": 0.6631327233019102,
     "moat": {
       "ticker": "GM",
       "period": "2026Q2",
@@ -295765,7 +299887,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "GM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:36.232860+00:00",
+      "fetchedAt": "2026-10-17T16:37:02.133788+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-21",
       "quoteDate": "2026-10-16",
@@ -295779,7 +299901,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -295793,8 +299915,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 16770000000,
         "inventory": 15950000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 877452000,
+      "shareSource": {
+        "shares": 877.452,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:02.133788+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1467858/000146785826000051/gm-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 877.452,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:02.133788+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1467858/000146785826000051/gm-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "EBAY": {
     "reported_growth": {
@@ -295853,6 +299993,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 4665000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "eBay",
     "company_name": "eBay Inc.",
     "exchange": "NASDAQ",
@@ -295860,7 +300036,7 @@ window.FULL_MARKET_DATA = {
     "industry": "Broadline Retail",
     "reportedCurrency": "USD",
     "price": 120.28,
-    "shares": 445.0,
+    "shares": 445,
     "shares_outstanding": 445000000,
     "shares_display": "445.00 M",
     "mcap": 53524.6,
@@ -298989,17 +303165,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 24.1,
     "pe_forward": 21.2,
-    "pb_trailing": 11.5,
+    "pb_trailing": 11.473654876741692,
     "pb_forward": 10.3,
     "div_yield": 1.01,
     "ps_ratio": 5.5,
     "fcf_to_ev": 6.89,
     "fcf_to_mcap": 4.54,
-    "liab_to_assets": 74.0,
-    "cash_to_assets": 18.4,
-    "current_ratio": 1.02,
-    "roe": 47.6,
-    "roa": 12.4,
+    "liab_to_assets": 73.98650532537779,
+    "cash_to_assets": 18.440863213070873,
+    "current_ratio": 1.0188391038696538,
+    "roe": 46.78879764160876,
+    "roa": 12.37124881688102,
     "moat": {
       "ticker": "EBAY",
       "period": "2026Q2",
@@ -299665,7 +303841,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "EBAY",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:36.781049+00:00",
+      "fetchedAt": "2026-10-17T16:37:02.370867+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-06",
       "quoteDate": "2026-10-16",
@@ -299679,7 +303855,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -299693,8 +303869,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1386000000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 445000000,
+      "shareSource": {
+        "shares": 445,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:02.370867+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1065088/000106508826000177/ebay-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 445,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:02.370867+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1065088/000106508826000177/ebay-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "BRK.B": {
     "reported_growth": {
@@ -299753,6 +303947,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2020-03-31",
+        "reason": null,
+        "bookEquity": 375235000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2020-03-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2020-03-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2020-03-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2020-03-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2020-03-31",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Berkshire Hathaway (Class B)",
     "company_name": "Berkshire Hathaway (Class B)",
     "exchange": "NYSE",
@@ -299760,13 +303990,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Multi-Sector Holdings",
     "reportedCurrency": "USD",
     "price": 150.0,
-    "shares": 666.7,
-    "shares_outstanding": 666700000,
-    "shares_display": "666.70 M",
+    "shares": 2140.709862,
+    "shares_outstanding": 2140709862.0000002,
+    "shares_display": "2140.71 M",
     "mcap": 100000.0,
-    "liq_val_1": -17.229799723406575,
-    "liq_val_2": -31.27733709306186,
-    "liq_val_3": -68.8463258658405,
+    "liq_val_1": -17.229798701231,
+    "liq_val_2": -31.277335237501696,
+    "liq_val_3": -68.84632178146147,
     "debt": 37486.0,
     "cash": 38717.0,
     "short_term_investments": 0.0,
@@ -302878,17 +307108,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 10.2,
     "pe_forward": 9.0,
-    "pb_trailing": 0.3,
+    "pb_trailing": 0.26649966021293325,
     "pb_forward": 0.3,
     "div_yield": 0.0,
     "ps_ratio": 1.1,
     "fcf_to_ev": 4.86,
     "fcf_to_mcap": 22.11,
-    "liab_to_assets": 260.9,
-    "cash_to_assets": 26.2,
-    "current_ratio": 0.57,
-    "roe": 2.6,
-    "roa": 6.6,
+    "liab_to_assets": 260.8819027753322,
+    "cash_to_assets": 26.2207262728738,
+    "current_ratio": 0.5665183927892072,
+    "roe": 2.6455973129254464,
+    "roa": 1.3210617226460764,
     "moat": {
       "ticker": "BRK.B",
       "period": "2020Q1",
@@ -303487,7 +307717,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "BRK.B",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:37.305635+00:00",
+      "fetchedAt": "2026-10-17T16:37:02.628498+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-10",
       "quoteDate": "2026-10-16",
@@ -303501,7 +307731,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -303515,8 +307745,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 83921000000,
         "inventory": 26575000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 2140709862.0000002,
+      "shareSource": {
+        "shares": 2140.709862,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:02.628498+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526341032/brka-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 2140.709862,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:02.628498+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526341032/brka-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "JPM": {
     "reported_growth": {
@@ -303575,6 +307823,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 374598000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "JPMorgan Chase",
     "company_name": "JPMorgan Chase & Co.",
     "exchange": "NYSE",
@@ -303584,7 +307868,7 @@ window.FULL_MARKET_DATA = {
     "price": 339.72,
     "shares": 2658.19,
     "shares_outstanding": 2658190000,
-    "shares_display": "2,658.19 M",
+    "shares_display": "2658.19 M",
     "mcap": 903040.3,
     "liq_val_1": -572.227342665498,
     "liq_val_2": -708.7342891215451,
@@ -306707,21 +310991,21 @@ window.FULL_MARKET_DATA = {
     ],
     "fair_val": 304.23,
     "default_fair_val": 304.23,
-    "premium_pct": 11.7,
+    "premium_pct": 11.665516221279958,
     "is_undervalued": false,
     "pe_trailing": 13.9,
     "pe_forward": 12.2,
-    "pb_trailing": 2.4,
+    "pb_trailing": 2.4106917281992963,
     "pb_forward": 2.2,
     "div_yield": 1.92,
     "ps_ratio": 6.6,
     "fcf_to_ev": 3.25,
     "fcf_to_mcap": 3.8,
-    "liab_to_assets": 92.7,
-    "cash_to_assets": 53.1,
-    "current_ratio": 0.83,
-    "roe": 17.5,
-    "roa": 1.3,
+    "liab_to_assets": 92.53055142411799,
+    "cash_to_assets": 52.29335827682531,
+    "current_ratio": 0.8403662699432636,
+    "roe": 18.229931301901807,
+    "roa": 1.429264300221286,
     "moat": {
       "ticker": "JPM",
       "period": "2026Q3",
@@ -306799,7 +311083,9 @@ window.FULL_MARKET_DATA = {
       "dps_total": 16.28,
       "excess_return_fair": 331.2410834105514,
       "ddm_fair": 271.22,
-      "pb_tangible": 2.91
+      "pb_tangible": 2.910273182207842,
+      "tangibleEquity": 310294,
+      "totalPayout": 43275.3332
     },
     "image": "https://images.financialmodelingprep.com/symbol/JPM.png",
     "logo": "https://images.financialmodelingprep.com/symbol/JPM.png",
@@ -307401,7 +311687,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "JPM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:37.827214+00:00",
+      "fetchedAt": "2026-10-17T16:37:02.865081+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-13",
       "quoteDate": "2026-10-16",
@@ -307415,7 +311701,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -307429,8 +311715,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 164997000000,
         "inventory": 0,
         "preferredStock": 21040000000
+      },
+      "sharesOutstanding": 2658190000,
+      "shareSource": {
+        "shares": 2658.19,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:02.865081+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/19617/000162828026065582/a3q26erfex992supplement.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 2658.19,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:02.865081+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/19617/000162828026065582/a3q26erfex992supplement.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "V": {
     "reported_growth": {
@@ -307489,6 +311793,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 35178000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Visa",
     "company_name": "Visa Inc.",
     "exchange": "NYSE",
@@ -307496,13 +311836,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Transaction & Payment Processing Services",
     "reportedCurrency": "USD",
     "price": 402.61,
-    "shares": 1867.05,
-    "shares_outstanding": 1867050000,
-    "shares_display": "1,867.05 M",
+    "shares": 1867.047323,
+    "shares_outstanding": 1867047323,
+    "shares_display": "1867.05 M",
     "mcap": 751691.9,
-    "liq_val_1": -15.216539854143342,
-    "liq_val_2": -22.923039749861612,
-    "liq_val_3": -24.43430299704397,
+    "liq_val_1": -15.216539854142733,
+    "liq_val_2": -22.923039749860695,
+    "liq_val_3": -24.434302997042995,
     "debt": 23858.0,
     "cash": 13792.0,
     "short_term_investments": 1433.0,
@@ -310625,17 +314965,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 33.3,
     "pe_forward": 29.3,
-    "pb_trailing": 21.4,
+    "pb_trailing": 21.36823867189721,
     "pb_forward": 19.3,
     "div_yield": 0.66,
     "ps_ratio": 8.9,
     "fcf_to_ev": 4.28,
     "fcf_to_mcap": 2.8,
-    "liab_to_assets": 62.8,
-    "cash_to_assets": 14.6,
-    "current_ratio": 0.99,
-    "roe": 64.2,
-    "roa": 23.9,
+    "liab_to_assets": 62.81002220107834,
+    "cash_to_assets": 14.580822497092715,
+    "current_ratio": 0.9852226141672228,
+    "roe": 58.43161597351541,
+    "roa": 22.586579220986962,
     "moat": {
       "ticker": "V",
       "period": "2026Q3",
@@ -311277,7 +315617,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "V",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:38.679612+00:00",
+      "fetchedAt": "2026-10-17T16:37:03.099597+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-29",
       "quoteDate": "2026-10-16",
@@ -311291,7 +315631,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -311305,8 +315645,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 3527000000,
         "inventory": 0,
         "preferredStock": 514000000
+      },
+      "sharesOutstanding": 1867047323,
+      "shareSource": {
+        "shares": 1867.047323,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:03.099597+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1403161/000140316126000104/v-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 1867.047323,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:03.099597+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1403161/000140316126000104/v-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "MA": {
     "reported_growth": {
@@ -311365,6 +315723,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 5611000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Mastercard",
     "company_name": "Mastercard Incorporated",
     "exchange": "NYSE",
@@ -311372,13 +315766,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Transaction & Payment Processing Services",
     "reportedCurrency": "USD",
     "price": 617.42,
-    "shares": 876.01,
-    "shares_outstanding": 876010000,
+    "shares": 876.009909,
+    "shares_outstanding": 876009909,
     "shares_display": "876.01 M",
     "mcap": 540866.0,
-    "liq_val_1": -29.181176762224958,
-    "liq_val_2": -41.59587651420639,
-    "liq_val_3": -46.20495679802126,
+    "liq_val_1": -29.18117676223683,
+    "liq_val_2": -41.59587651422331,
+    "liq_val_3": -46.20495679804006,
     "debt": 24643.0,
     "cash": 11609.0,
     "short_term_investments": 318.0,
@@ -314500,17 +318894,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 33.3,
     "pe_forward": 29.3,
-    "pb_trailing": 96.4,
+    "pb_trailing": 96.39386918552843,
     "pb_forward": 86.8,
     "div_yield": 0.54,
     "ps_ratio": 8.3,
     "fcf_to_ev": 4.03,
     "fcf_to_mcap": 3.01,
-    "liab_to_assets": 90.3,
-    "cash_to_assets": 20.1,
-    "current_ratio": 1.06,
-    "roe": 289.7,
-    "roa": 28.2,
+    "liab_to_assets": 90.2827130748297,
+    "cash_to_assets": 20.122722781716384,
+    "current_ratio": 1.0607102863541833,
+    "roe": 207.01642684324463,
+    "roa": 31.609340670023915,
     "moat": {
       "ticker": "MA",
       "period": "2026Q2",
@@ -315152,7 +319546,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MA",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:39.220751+00:00",
+      "fetchedAt": "2026-10-17T16:37:03.337798+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-30",
       "quoteDate": "2026-10-16",
@@ -315166,7 +319560,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -315180,8 +319574,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 5047000000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 876009909,
+      "shareSource": {
+        "shares": 876.009909,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:03.337798+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1141391/000114139126000083/ma-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 876.009909,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:03.337798+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1141391/000114139126000083/ma-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "BAC": {
     "reported_growth": {
@@ -315240,6 +319652,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 301094000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Bank of America",
     "company_name": "Bank of America Corporation",
     "exchange": "NYSE",
@@ -315249,7 +319697,7 @@ window.FULL_MARKET_DATA = {
     "price": 51.23,
     "shares": 6992.75,
     "shares_outstanding": 6992750000,
-    "shares_display": "6,992.75 M",
+    "shares_display": "6992.75 M",
     "mcap": 358238.6,
     "liq_val_1": -443.8951771477602,
     "liq_val_2": -443.8951771477602,
@@ -318372,21 +322820,21 @@ window.FULL_MARKET_DATA = {
     ],
     "fair_val": 50.25,
     "default_fair_val": 50.25,
-    "premium_pct": 2.0,
+    "premium_pct": 1.9502487562188975,
     "is_undervalued": false,
     "pe_trailing": 10.6,
     "pe_forward": 9.3,
-    "pb_trailing": 1.2,
+    "pb_trailing": 1.189789899499824,
     "pb_forward": 1.1,
     "div_yield": 2.73,
     "ps_ratio": 0.9,
     "fcf_to_ev": 4.05,
     "fcf_to_mcap": 26.45,
-    "liab_to_assets": 91.3,
-    "cash_to_assets": 0.8,
-    "current_ratio": 0.43,
-    "roe": 11.3,
-    "roa": 1.0,
+    "liab_to_assets": 91.39474746181432,
+    "cash_to_assets": 0.8179582709814013,
+    "current_ratio": 0.07297353115908586,
+    "roe": 11.233348575929826,
+    "roa": 0.9780183439102484,
     "moat": {
       "ticker": "BAC",
       "period": "2026Q3",
@@ -318464,7 +322912,9 @@ window.FULL_MARKET_DATA = {
       "dps_total": 3.49,
       "excess_return_fair": 51.232567738761404,
       "ddm_fair": 49.04,
-      "pb_tangible": 1.54
+      "pb_tangible": 1.54364610488941,
+      "tangibleEquity": 232072.99999999997,
+      "totalPayout": 24404.697500000002
     },
     "image": "https://images.financialmodelingprep.com/symbol/BAC.png",
     "logo": "https://images.financialmodelingprep.com/symbol/BAC.png",
@@ -319060,7 +323510,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "BAC",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:39.748536+00:00",
+      "fetchedAt": "2026-10-17T16:37:03.574476+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-14",
       "quoteDate": "2026-10-16",
@@ -319074,7 +323524,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -319088,8 +323538,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 0,
         "inventory": 0,
         "preferredStock": 24996000000
+      },
+      "sharesOutstanding": 6992750000,
+      "shareSource": {
+        "shares": 6992.75,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:03.574476+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000481/bac-09302026ex993.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 6992.75,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:03.574476+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000481/bac-09302026ex993.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "WFC": {
     "reported_growth": {
@@ -319148,6 +323616,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 180190000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Wells Fargo",
     "company_name": "Wells Fargo & Company",
     "exchange": "NYSE",
@@ -319155,9 +323659,9 @@ window.FULL_MARKET_DATA = {
     "industry": "Diversified Banks",
     "reportedCurrency": "USD",
     "price": 83.87,
-    "shares": 3024.0,
+    "shares": 3024,
     "shares_outstanding": 3024000000,
-    "shares_display": "3,024.00 M",
+    "shares_display": "3024.00 M",
     "mcap": 253622.9,
     "liq_val_1": -588.3220899470899,
     "liq_val_2": -588.3220899470899,
@@ -322280,21 +326784,21 @@ window.FULL_MARKET_DATA = {
     ],
     "fair_val": 93.89,
     "default_fair_val": 93.89,
-    "premium_pct": -10.7,
+    "premium_pct": -10.672063052508252,
     "is_undervalued": true,
     "pe_trailing": 11.2,
     "pe_forward": 9.9,
-    "pb_trailing": 1.4,
+    "pb_trailing": 1.4075303845940397,
     "pb_forward": 1.3,
     "div_yield": 2.59,
     "ps_ratio": 3.3,
     "fcf_to_ev": 3.76,
     "fcf_to_mcap": 7.56,
-    "liab_to_assets": 92.1,
-    "cash_to_assets": 13.2,
-    "current_ratio": 7.76,
-    "roe": 12.9,
-    "roa": 1.0,
+    "liab_to_assets": 92.01231618073956,
+    "cash_to_assets": 41.17766138915898,
+    "current_ratio": 0.5121191082899736,
+    "roe": 12.504486199071287,
+    "roa": 1.1430552842647819,
     "moat": {
       "ticker": "WFC",
       "period": "2026Q3",
@@ -322372,7 +326876,9 @@ window.FULL_MARKET_DATA = {
       "dps_total": 5.43,
       "excess_return_fair": 98.29984419966475,
       "ddm_fair": 88.51,
-      "pb_tangible": 1.63
+      "pb_tangible": 1.6338837959891,
+      "tangibleEquity": 155227,
+      "totalPayout": 16420.32
     },
     "image": "https://images.financialmodelingprep.com/symbol/WFC.png",
     "logo": "https://images.financialmodelingprep.com/symbol/WFC.png",
@@ -322986,7 +327492,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "WFC",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:40.332385+00:00",
+      "fetchedAt": "2026-10-17T16:37:03.820364+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-13",
       "quoteDate": "2026-10-16",
@@ -323000,7 +327506,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -323014,8 +327520,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 0,
         "inventory": 0,
         "preferredStock": 17098000000
+      },
+      "sharesOutstanding": 3024000000,
+      "shareSource": {
+        "shares": 3024,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:03.820364+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/72971/000007297126000318/wfc3qer10-13x26ex992xsuppl.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 3024,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:03.820364+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/72971/000007297126000318/wfc3qer10-13x26ex992xsuppl.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "MS": {
     "reported_growth": {
@@ -323074,6 +327598,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 110417000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Morgan Stanley",
     "company_name": "Morgan Stanley",
     "exchange": "NYSE",
@@ -323081,13 +327641,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Investment Banking & Brokerage",
     "reportedCurrency": "USD",
     "price": 180.54,
-    "shares": 1577.28,
-    "shares_outstanding": 1577280000,
-    "shares_display": "1,577.28 M",
+    "shares": 1577.284817,
+    "shares_outstanding": 1577284817,
+    "shares_display": "1577.28 M",
     "mcap": 284763.0,
-    "liq_val_1": 76.14160657965422,
-    "liq_val_2": 76.14160657965422,
-    "liq_val_3": 76.14160657965422,
+    "liq_val_1": 76.1416065796061,
+    "liq_val_2": 76.1416065796061,
+    "liq_val_3": 76.1416065796061,
     "debt": 0.0,
     "cash": 120097.0,
     "short_term_investments": 120097.0,
@@ -326204,23 +330764,23 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 148.62,
-    "default_fair_val": 148.62,
-    "premium_pct": 21.5,
+    "fair_val": 148.6195461171424,
+    "default_fair_val": 148.6195461171424,
+    "premium_pct": 21.477964855105803,
     "is_undervalued": false,
     "pe_trailing": 14.1,
     "pe_forward": 12.4,
-    "pb_trailing": 284763000000.0,
+    "pb_trailing": 2.5789778747837744,
     "pb_forward": 256286700000.0,
     "div_yield": 2.38,
     "ps_ratio": 6.6,
     "fcf_to_ev": 7.12,
     "fcf_to_mcap": 3.8,
-    "liab_to_assets": 0.0,
-    "cash_to_assets": 7.1,
-    "current_ratio": 120097000000.0,
-    "roe": 2022600000000.0,
-    "roa": 1.2,
+    "liab_to_assets": 93.34183851654004,
+    "cash_to_assets": 51.70373306699414,
+    "current_ratio": 1.2360095864350504,
+    "roe": 18.69592546032685,
+    "roa": 1.4939395953821268,
     "moat": {
       "ticker": "MS",
       "period": "2026Q3",
@@ -326279,8 +330839,8 @@ window.FULL_MARKET_DATA = {
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 55.43657435585311,
-      "bvps": 0.0,
+      "tbvps": 55.43640505353321,
+      "bvps": 0,
       "rote": 23.721339353779396,
       "reference": {
         "date": "2026-06-30",
@@ -326290,15 +330850,17 @@ window.FULL_MARKET_DATA = {
         "balance": "beginning",
         "rote": 23.721339353779396,
         "warnings": [],
-        "tbvps": 55.43657435585311,
+        "tbvps": 55.43640505353321,
         "reason": null
       },
       "ke": 10.25,
       "g": 2.25,
-      "dps_total": 10.34,
-      "excess_return_fair": 148.83369810635156,
-      "ddm_fair": 148.36,
-      "pb_tangible": 3.26
+      "dps_total": 10.339968421822448,
+      "excess_return_fair": 148.83324357086371,
+      "ddm_fair": 148.35954691117783,
+      "pb_tangible": 3.256704683964592,
+      "tangibleEquity": 87439,
+      "totalPayout": 16309.0752
     },
     "image": "https://images.financialmodelingprep.com/symbol/MS.png",
     "logo": "https://images.financialmodelingprep.com/symbol/MS.png",
@@ -326888,7 +331450,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:40.858613+00:00",
+      "fetchedAt": "2026-10-17T16:37:04.070267+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-14",
       "quoteDate": "2026-10-16",
@@ -326902,7 +331464,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -326916,8 +331478,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 0,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 1577284817,
+      "shareSource": {
+        "shares": 1577.284817,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:04.070267+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/895421/000089542126000288/a3q26msfinancialsupplement.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 1577.284817,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:04.070267+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/895421/000089542126000288/a3q26msfinancialsupplement.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "GS": {
     "reported_growth": {
@@ -326976,6 +331556,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 122742000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Goldman Sachs",
     "company_name": "The Goldman Sachs Group, Inc.",
     "exchange": "NYSE",
@@ -326983,13 +331599,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Investment Banking & Brokerage",
     "reportedCurrency": "USD",
     "price": 881.26,
-    "shares": 291.17,
-    "shares_outstanding": 291170000,
+    "shares": 291.171408,
+    "shares_outstanding": 291171408,
     "shares_display": "291.17 M",
     "mcap": 256597.7,
-    "liq_val_1": -6.456677916674381,
-    "liq_val_2": -6.456677916674381,
-    "liq_val_3": -6.456677916674381,
+    "liq_val_1": -6.456677916672367,
+    "liq_val_2": -6.456677916672367,
+    "liq_val_3": -6.456677916672367,
     "debt": 839000.0,
     "cash": 177.0,
     "short_term_investments": 0.0,
@@ -330106,23 +334722,23 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 735.2,
-    "default_fair_val": 735.2,
-    "premium_pct": 19.9,
+    "fair_val": 735.1964448377433,
+    "default_fair_val": 735.1964448377433,
+    "premium_pct": 19.86728257295811,
     "is_undervalued": false,
     "pe_trailing": 12.2,
     "pe_forward": 10.7,
-    "pb_trailing": 2.1,
+    "pb_trailing": 2.0905452086490364,
     "pb_forward": 1.9,
     "div_yield": 2.39,
     "ps_ratio": 6.6,
     "fcf_to_ev": 2.57,
     "fcf_to_mcap": 3.8,
-    "liab_to_assets": 0.1,
-    "cash_to_assets": 0.0,
-    "current_ratio": 1.92,
-    "roe": 16.8,
-    "roa": 1.0,
+    "liab_to_assets": 94.23126543031455,
+    "cash_to_assets": 35.07459424705705,
+    "current_ratio": 0.832635135964392,
+    "roe": 16.9006253223311,
+    "roa": 1.1749520590652485,
     "moat": {
       "ticker": "GS",
       "period": "2026Q3",
@@ -330181,8 +334797,8 @@ window.FULL_MARKET_DATA = {
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 389.70704399491706,
-      "bvps": 429.3,
+      "tbvps": 389.7051595120906,
+      "bvps": 429.2979240599064,
       "rote": 17.886504741761616,
       "reference": {
         "date": "2026-06-30",
@@ -330192,15 +334808,17 @@ window.FULL_MARKET_DATA = {
         "balance": "beginning",
         "rote": 17.886504741761616,
         "warnings": [],
-        "tbvps": 389.70704399491706,
+        "tbvps": 389.7051595120906,
         "reason": null
       },
       "ke": 10.58,
       "g": 2.25,
-      "dps_total": 52.63,
-      "excess_return_fair": 731.5313374939283,
-      "ddm_fair": 739.69,
-      "pb_tangible": 2.26
+      "dps_total": 52.62974550028622,
+      "excess_return_fair": 731.5278000720014,
+      "ddm_fair": 739.6864231257214,
+      "pb_tangible": 2.261350609530893,
+      "tangibleEquity": 113471,
+      "totalPayout": 15324.277100000001
     },
     "image": "https://images.financialmodelingprep.com/symbol/GS.png",
     "logo": "https://images.financialmodelingprep.com/symbol/GS.png",
@@ -330777,7 +335395,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "GS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:41.382420+00:00",
+      "fetchedAt": "2026-10-17T16:37:04.304479+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-13",
       "quoteDate": "2026-10-16",
@@ -330791,7 +335409,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -330805,8 +335423,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 0,
         "inventory": 0,
         "preferredStock": 14778000000
+      },
+      "sharesOutstanding": 291171408,
+      "shareSource": {
+        "shares": 291.171408,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:04.304479+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/886982/000088698226000529/a3q26gsearningsresults.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 291.171408,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:04.304479+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/886982/000088698226000529/a3q26gsearningsresults.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "AXP": {
     "reported_growth": {
@@ -330863,6 +335499,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 34280000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "American Express",
@@ -333997,21 +338669,21 @@ window.FULL_MARKET_DATA = {
     ],
     "fair_val": 192.24,
     "default_fair_val": 192.24,
-    "premium_pct": 63.1,
+    "premium_pct": 63.1242197253433,
     "is_undervalued": false,
     "pe_trailing": 18.5,
     "pe_forward": 16.3,
-    "pb_trailing": 6.2,
+    "pb_trailing": 6.177669194865811,
     "pb_forward": 5.6,
     "div_yield": 1.14,
     "ps_ratio": 3.5,
     "fcf_to_ev": 4.78,
     "fcf_to_mcap": 7.11,
-    "liab_to_assets": 88.9,
-    "cash_to_assets": 14.8,
-    "current_ratio": 1.55,
-    "roe": 33.4,
-    "roa": 3.7,
+    "liab_to_assets": 88.87746063471154,
+    "cash_to_assets": 14.783762649941758,
+    "current_ratio": 1.551305274984809,
+    "roe": 35.421373526043766,
+    "roa": 3.8723625979509806,
     "moat": {
       "ticker": "AXP",
       "period": "2026Q2",
@@ -334089,7 +338761,9 @@ window.FULL_MARKET_DATA = {
       "dps_total": 8.95,
       "excess_return_fair": 228.16274089213434,
       "ddm_fair": 148.34,
-      "pb_tangible": 6.18
+      "pb_tangible": 6.1776681126021,
+      "tangibleEquity": 34280,
+      "totalPayout": 6044.024499999999
     },
     "image": "https://images.financialmodelingprep.com/symbol/AXP.png",
     "logo": "https://images.financialmodelingprep.com/symbol/AXP.png",
@@ -334703,7 +339377,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AXP",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:41.907960+00:00",
+      "fetchedAt": "2026-10-17T16:37:04.538945+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-24",
       "quoteDate": "2026-10-16",
@@ -334717,7 +339391,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -334731,8 +339405,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 212188000000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 675310000,
+      "shareSource": {
+        "shares": 675.31,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:04.538945+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/4962/000000496226000322/axp-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 675.31,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:04.538945+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/4962/000000496226000322/axp-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "BLK": {
     "reported_growth": {
@@ -334791,6 +339483,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 57613000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "BlackRock",
     "company_name": "BlackRock, Inc.",
     "exchange": "NYSE",
@@ -334798,13 +339526,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Asset Management & Custody Banks",
     "reportedCurrency": "USD",
     "price": 1134.38,
-    "shares": 154.87,
-    "shares_outstanding": 154870000,
+    "shares": 154.869259,
+    "shares_outstanding": 154869259,
     "shares_display": "154.87 M",
     "mcap": 175680.6,
-    "liq_val_1": -56.299100649928505,
-    "liq_val_2": -525.2417460084475,
-    "liq_val_3": -553.3635309781193,
+    "liq_val_1": -56.2991006497939,
+    "liq_val_2": -525.2417460071918,
+    "liq_val_3": -553.3635309767964,
     "debt": 14968.0,
     "cash": 25636.0,
     "short_term_investments": 15144.0,
@@ -337927,17 +342655,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 26.7,
     "pe_forward": 23.5,
-    "pb_trailing": 3.0,
+    "pb_trailing": 3.0493222015864476,
     "pb_forward": 2.7,
     "div_yield": 2.61,
     "ps_ratio": 18.9,
     "fcf_to_ev": 6.93,
     "fcf_to_mcap": 1.32,
-    "liab_to_assets": 63.3,
-    "cash_to_assets": 14.6,
-    "current_ratio": 1.35,
-    "roe": 11.4,
-    "roa": 3.7,
+    "liab_to_assets": 63.30348258706467,
+    "cash_to_assets": 14.576261549395877,
+    "current_ratio": 1.3505659384048434,
+    "roe": 13.381901060214485,
+    "roa": 4.4896565849662045,
     "moat": {
       "ticker": "BLK",
       "period": "2026Q2",
@@ -338572,7 +343300,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "BLK",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:42.525668+00:00",
+      "fetchedAt": "2026-10-17T16:37:04.776166+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-06",
       "quoteDate": "2026-10-16",
@@ -338586,7 +343314,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -338600,8 +343328,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 5444000000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 154869259,
+      "shareSource": {
+        "shares": 154.869259,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:04.776166+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/2012383/000119312526420979/blk-ex99_1.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 154.869259,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:04.776166+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/2012383/000119312526420979/blk-ex99_1.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "SPGI": {
     "reported_growth": {
@@ -338658,6 +343404,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 31616000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "S&P Global",
@@ -341796,17 +346578,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 25.7,
     "pe_forward": 22.6,
-    "pb_trailing": 4.0,
+    "pb_trailing": 4.006132970647773,
     "pb_forward": 3.6,
     "div_yield": 0.91,
     "ps_ratio": 5.7,
     "fcf_to_ev": 5.34,
     "fcf_to_mcap": 4.4,
-    "liab_to_assets": 41.8,
-    "cash_to_assets": 6.6,
-    "current_ratio": 0.95,
-    "roe": 15.6,
-    "roa": 7.8,
+    "liab_to_assets": 41.754363653705525,
+    "cash_to_assets": 6.582837885098401,
+    "current_ratio": 0.9544109589041095,
+    "roe": 14.694291855743968,
+    "roa": 8.149681265005382,
     "moat": {
       "ticker": "SPGI",
       "period": "2026Q2",
@@ -342466,7 +347248,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "SPGI",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:43.046479+00:00",
+      "fetchedAt": "2026-10-17T16:37:05.012381+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-28",
       "quoteDate": "2026-10-16",
@@ -342480,7 +347262,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -342494,8 +347276,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 3438000000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 294800000,
+      "shareSource": {
+        "shares": 294.8,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:05.012381+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/64040/000006404026000045/spgi-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 294.8,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:05.012381+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/64040/000006404026000045/spgi-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "C": {
     "reported_growth": {
@@ -342554,6 +347354,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 212015000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Citigroup",
     "company_name": "Citigroup Inc.",
     "exchange": "NYSE",
@@ -342561,13 +347397,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Diversified Banks",
     "reportedCurrency": "USD",
     "price": 124.25,
-    "shares": 1677.44,
-    "shares_outstanding": 1677440000,
-    "shares_display": "1,677.44 M",
+    "shares": 1677.436783,
+    "shares_outstanding": 1677436783,
+    "shares_display": "1677.44 M",
     "mcap": 208421.5,
-    "liq_val_1": -448.72689547973096,
-    "liq_val_2": -706.191262766997,
-    "liq_val_3": -755.2022304726584,
+    "liq_val_1": -448.7268954802692,
+    "liq_val_2": -706.191262767844,
+    "liq_val_3": -755.2022304735641,
     "debt": 817477.0,
     "cash": 1462684.0,
     "short_term_investments": 1107843.0,
@@ -345684,23 +350520,23 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 111.18,
-    "default_fair_val": 111.18,
-    "premium_pct": 11.8,
+    "fair_val": 111.18021322178195,
+    "default_fair_val": 111.18021322178195,
+    "premium_pct": 11.7554971334211,
     "is_undervalued": false,
     "pe_trailing": 11.7,
     "pe_forward": 10.3,
-    "pb_trailing": 1.0,
+    "pb_trailing": 0.9830507275428625,
     "pb_forward": 0.9,
     "div_yield": 2.61,
     "ps_ratio": 6.6,
     "fcf_to_ev": 2.28,
     "fcf_to_mcap": 3.8,
-    "liab_to_assets": 92.8,
-    "cash_to_assets": 49.7,
-    "current_ratio": 0.86,
-    "roe": 8.5,
-    "roa": 0.6,
+    "liab_to_assets": 92.59151525536386,
+    "cash_to_assets": 34.434132714998064,
+    "current_ratio": 0.47455206109016773,
+    "roe": 8.366397463676357,
+    "roa": 0.6801582447883384,
     "moat": {
       "ticker": "C",
       "period": "2026Q3",
@@ -345759,8 +350595,8 @@ window.FULL_MARKET_DATA = {
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 112.07494753910721,
-      "bvps": 124.84,
+      "tbvps": 112.07516247722583,
+      "bvps": 124.84023941902554,
       "rote": 9.441871543123296,
       "reference": {
         "date": "2026-06-30",
@@ -345770,15 +350606,17 @@ window.FULL_MARKET_DATA = {
         "balance": "beginning",
         "rote": 9.441871543123296,
         "warnings": [],
-        "tbvps": 112.07494753910721,
+        "tbvps": 112.07516247722583,
         "reason": null
       },
       "ke": 9.77,
       "g": 2.25,
-      "dps_total": 8.1,
-      "excess_return_fair": 107.14903634477122,
-      "ddm_fair": 116.1,
-      "pb_tangible": 1.11
+      "dps_total": 8.100015534236677,
+      "excess_return_fair": 107.14924183594286,
+      "ddm_fair": 116.10022265739237,
+      "pb_tangible": 1.108631004886994,
+      "tangibleEquity": 187999,
+      "totalPayout": 13587.264
     },
     "image": "https://images.financialmodelingprep.com/symbol/C.png",
     "logo": "https://images.financialmodelingprep.com/symbol/C.png",
@@ -346410,7 +351248,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "C",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:43.572910+00:00",
+      "fetchedAt": "2026-10-17T16:37:05.247610+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-13",
       "quoteDate": "2026-10-16",
@@ -346424,7 +351262,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -346438,8 +351276,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 102766000000,
         "inventory": 0,
         "preferredStock": 18050000000
+      },
+      "sharesOutstanding": 1677436783,
+      "shareSource": {
+        "shares": 1677.436783,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:05.247610+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/831001/000110465926115323/c-ex99d2.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 1677.436783,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:05.247610+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/831001/000110465926115323/c-ex99d2.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "PGR": {
     "reported_growth": {
@@ -346496,6 +351352,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-08-31",
+        "reason": null,
+        "bookEquity": 4909000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Progressive",
@@ -349630,21 +354522,21 @@ window.FULL_MARKET_DATA = {
     ],
     "fair_val": 293.89,
     "default_fair_val": 293.89,
-    "premium_pct": -25.7,
+    "premium_pct": -25.655857633808566,
     "is_undervalued": true,
     "pe_trailing": 10.9,
     "pe_forward": 9.6,
-    "pb_trailing": 3.7,
+    "pb_trailing": 25.863617844774904,
     "pb_forward": 3.3,
     "div_yield": 6.42,
     "ps_ratio": 2.0,
     "fcf_to_ev": 2.48,
     "fcf_to_mcap": 12.56,
-    "liab_to_assets": 73.0,
-    "cash_to_assets": 1.7,
-    "current_ratio": 0.23,
-    "roe": 33.9,
-    "roa": 9.2,
+    "liab_to_assets": 72.33995947647993,
+    "cash_to_assets": 74.1337902008183,
+    "current_ratio": 1.599637803576014,
+    "roe": 35.869831922463504,
+    "roa": 10.127294769657084,
     "moat": {
       "ticker": "PGR",
       "period": "2026Q3",
@@ -349717,12 +354609,14 @@ window.FULL_MARKET_DATA = {
         "tbvps": 55.27792118396145,
         "reason": null
       },
-      "ke": 9.0,
+      "ke": 9,
       "g": 2.25,
       "dps_total": 16.07,
       "excess_return_fair": 295.649309203897,
       "ddm_fair": 291.75,
-      "pb_tangible": 3.95
+      "pb_tangible": 3.9525726604819127,
+      "tangibleEquity": 32122,
+      "totalPayout": 9338.277
     },
     "image": "https://images.financialmodelingprep.com/symbol/PGR.png",
     "logo": "https://images.financialmodelingprep.com/symbol/PGR.png",
@@ -350354,7 +355248,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "PGR",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:44.096161+00:00",
+      "fetchedAt": "2026-10-17T16:37:05.480949+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-14",
       "quoteDate": "2026-10-16",
@@ -350368,7 +355262,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -350382,8 +355276,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 17337000000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 581100000,
+      "shareSource": {
+        "shares": 581.1,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:05.480949+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/80661/000008066126000367/pgr202609ex99earningsrelea.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 581.1,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:05.480949+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/80661/000008066126000367/pgr202609ex99earningsrelea.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "CB": {
     "reported_growth": {
@@ -350440,6 +355352,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 75372000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Chubb",
@@ -353574,21 +358522,21 @@ window.FULL_MARKET_DATA = {
     ],
     "fair_val": 442.02,
     "default_fair_val": 442.02,
-    "premium_pct": -18.6,
+    "premium_pct": -18.603230623048727,
     "is_undervalued": true,
     "pe_trailing": 12.4,
     "pe_forward": 10.9,
-    "pb_trailing": 1.8,
+    "pb_trailing": 1.8416255373348194,
     "pb_forward": 1.6,
     "div_yield": 1.1,
     "ps_ratio": 2.2,
     "fcf_to_ev": 3.13,
     "fcf_to_mcap": 11.58,
-    "liab_to_assets": 71.3,
-    "cash_to_assets": 2.9,
-    "current_ratio": 0.83,
-    "roe": 14.9,
-    "roa": 4.0,
+    "liab_to_assets": 71.26246791932377,
+    "cash_to_assets": 2.9187194744811995,
+    "current_ratio": 0.8297723201536904,
+    "roe": 16.15822465595504,
+    "roa": 4.28692131532365,
     "moat": {
       "ticker": "CB",
       "period": "2026Q2",
@@ -353661,12 +358609,14 @@ window.FULL_MARKET_DATA = {
         "tbvps": 126.70813893208917,
         "reason": null
       },
-      "ke": 9.0,
+      "ke": 9,
       "g": 2.25,
       "dps_total": 9.93,
       "excess_return_fair": 656.1702289443726,
       "ddm_fair": 180.28,
-      "pb_tangible": 2.84
+      "pb_tangible": 2.8395176744947226,
+      "tangibleEquity": 48884,
+      "totalPayout": 3830.994
     },
     "image": "https://images.financialmodelingprep.com/symbol/CB.png",
     "logo": "https://images.financialmodelingprep.com/symbol/CB.png",
@@ -354274,7 +359224,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CB",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:44.674712+00:00",
+      "fetchedAt": "2026-10-17T16:37:05.716753+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-28",
       "quoteDate": "2026-10-16",
@@ -354288,7 +359238,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -354302,8 +359252,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 19068000000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 385800000,
+      "shareSource": {
+        "shares": 385.8,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:05.716753+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/896159/000089615926000017/cb-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 385.8,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:05.716753+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/896159/000089615926000017/cb-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "FDS": {
     "reported_growth": {
@@ -354362,6 +359330,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-08-31",
+        "reason": null,
+        "bookEquity": 2001866000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-08-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-08-31",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "FactSet",
     "company_name": "FactSet Research Systems Inc.",
     "exchange": "NYSE",
@@ -354369,13 +359373,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Financial Exchanges & Data",
     "reportedCurrency": "USD",
     "price": 301.67,
-    "shares": 35.57,
-    "shares_outstanding": 35570000,
+    "shares": 35.565543,
+    "shares_outstanding": 35565543,
     "shares_display": "35.57 M",
     "mcap": 10729.1,
-    "liq_val_1": -41.78943647714531,
-    "liq_val_2": -45.95722888220924,
-    "liq_val_3": -52.737701768444374,
+    "liq_val_1": -41.78943647788535,
+    "liq_val_2": -45.9572288830231,
+    "liq_val_3": -52.7377017693783,
     "debt": 1542.4,
     "cash": 265.3,
     "short_term_investments": 32.0,
@@ -357496,17 +362500,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 20.1,
     "pe_forward": 17.7,
-    "pb_trailing": 5.4,
+    "pb_trailing": 5.35954954027892,
     "pb_forward": 4.9,
     "div_yield": 1.53,
     "ps_ratio": 3.8,
     "fcf_to_ev": 4.53,
     "fcf_to_mcap": 6.59,
-    "liab_to_assets": 51.7,
-    "cash_to_assets": 6.4,
-    "current_ratio": 0.6,
-    "roe": 26.6,
-    "roa": 12.9,
+    "liab_to_assets": 51.67893159359406,
+    "cash_to_assets": 6.404587381177612,
+    "current_ratio": 0.5993772898467667,
+    "roe": 24.399827479986627,
+    "roa": 12.394221368909772,
     "moat": {
       "ticker": "FDS",
       "period": "2026Q4",
@@ -358160,7 +363164,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "FDS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:45.201751+00:00",
+      "fetchedAt": "2026-10-17T16:37:05.954461+00:00",
       "balanceDate": "2026-08-31",
       "filingDate": "2026-09-30",
       "quoteDate": "2026-10-16",
@@ -358174,7 +363178,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -358188,8 +363192,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 301439000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 35565543,
+      "shareSource": {
+        "shares": 35.565543,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:05.954461+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1013237/000162828026063888/fdsq42026earningsrelease.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 35.565543,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:05.954461+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1013237/000162828026063888/fdsq42026earningsrelease.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "TW": {
     "reported_growth": {
@@ -358248,6 +363270,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 6634531000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Tradeweb Markets",
     "company_name": "Tradeweb Markets Inc.",
     "exchange": "NASDAQ",
@@ -358255,13 +363313,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Financial Exchanges & Data",
     "reportedCurrency": "USD",
     "price": 113.49,
-    "shares": 216.03,
-    "shares_outstanding": 216030000,
+    "shares": 216.028251,
+    "shares_outstanding": 216028251,
     "shares_display": "216.03 M",
     "mcap": 24517.0,
-    "liq_val_1": 6.7334156216420356,
-    "liq_val_2": 6.4470012304058875,
-    "liq_val_3": 5.301343665461296,
+    "liq_val_1": 6.733415621644782,
+    "liq_val_2": 6.447001230408517,
+    "liq_val_3": 5.301343665463459,
     "debt": 150.3,
     "cash": 2057.9,
     "short_term_investments": 0.0,
@@ -361380,21 +366438,21 @@ window.FULL_MARKET_DATA = {
     ],
     "fair_val": 151.36,
     "default_fair_val": 151.36,
-    "premium_pct": -25.0,
+    "premium_pct": -25,
     "is_undervalued": true,
     "pe_trailing": 27.3,
     "pe_forward": 24.0,
-    "pb_trailing": 3.7,
+    "pb_trailing": 3.6953629427611387,
     "pb_forward": 3.3,
     "div_yield": 0.45,
     "ps_ratio": 5.8,
     "fcf_to_ev": 3.42,
     "fcf_to_mcap": 4.3,
-    "liab_to_assets": 11.1,
-    "cash_to_assets": 24.9,
-    "current_ratio": 6.05,
-    "roe": 13.5,
-    "roa": 10.9,
+    "liab_to_assets": 11.061766658267524,
+    "cash_to_assets": 24.94204531585439,
+    "current_ratio": 6.051573799742834,
+    "roe": 14.71406518873864,
+    "roa": 11.137337071308476,
     "moat": {
       "ticker": "TW",
       "period": "2026Q2",
@@ -362029,7 +367087,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TW",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:45.747250+00:00",
+      "fetchedAt": "2026-10-17T16:37:06.200678+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-30",
       "quoteDate": "2026-10-16",
@@ -362043,7 +367101,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -362057,8 +367115,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 309368000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 216028251,
+      "shareSource": {
+        "shares": 216.028251,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:06.200678+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1758730/000175873026000133/tw-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 216.028251,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:06.200678+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1758730/000175873026000133/tw-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "CME": {
     "reported_growth": {
@@ -362117,6 +367193,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 26520400000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "CME Group",
     "company_name": "CME Group Inc.",
     "exchange": "NASDAQ",
@@ -362124,13 +367236,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Financial Exchanges & Data",
     "reportedCurrency": "USD",
     "price": 293.87,
-    "shares": 359.58,
-    "shares_outstanding": 359580000,
+    "shares": 359.579263,
+    "shares_outstanding": 359579263,
     "shares_display": "359.58 M",
     "mcap": 105669.6,
-    "liq_val_1": -18.335595477128518,
-    "liq_val_2": -459.8321836515068,
-    "liq_val_3": -461.5076973799593,
+    "liq_val_1": -18.335595732059776,
+    "liq_val_2": -459.83219004484135,
+    "liq_val_3": -461.5077037965896,
     "debt": 3424.2,
     "cash": 2275.6,
     "short_term_investments": 131.4,
@@ -365253,17 +370365,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 24.7,
     "pe_forward": 21.7,
-    "pb_trailing": 4.0,
+    "pb_trailing": 3.9844647893696927,
     "pb_forward": 3.6,
     "div_yield": 3.86,
     "ps_ratio": 6.3,
     "fcf_to_ev": 2.98,
     "fcf_to_mcap": 3.99,
-    "liab_to_assets": 86.4,
-    "cash_to_assets": 1.2,
-    "current_ratio": 1.02,
-    "roe": 16.1,
-    "roa": 2.2,
+    "liab_to_assets": 86.41213170971756,
+    "cash_to_assets": 1.1689129561539497,
+    "current_ratio": 1.0179223139673508,
+    "roe": 15.40105987959191,
+    "roa": 2.3746157737053033,
     "moat": {
       "ticker": "CME",
       "period": "2026Q2",
@@ -365905,7 +371017,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CME",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:46.690145+00:00",
+      "fetchedAt": "2026-10-17T16:37:06.436438+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-24",
       "quoteDate": "2026-10-16",
@@ -365919,7 +371031,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -365933,8 +371045,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 753100000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 359579263,
+      "shareSource": {
+        "shares": 359.579263,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:06.436438+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1156375/000115637526000047/cme-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 359.579263,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:06.436438+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1156375/000115637526000047/cme-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "MSCI": {
     "reported_growth": {
@@ -365991,6 +371121,44 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": -2689500000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeEquity"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "MSCI Inc.",
@@ -369125,17 +374293,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 30.5,
     "pe_forward": 26.8,
-    "pb_trailing": 5.0,
+    "pb_trailing": -15.38282208588957,
     "pb_forward": 4.5,
     "div_yield": 1.38,
     "ps_ratio": 6.5,
     "fcf_to_ev": 5.6,
     "fcf_to_mcap": 3.86,
-    "liab_to_assets": 148.0,
-    "cash_to_assets": 6.4,
-    "current_ratio": 0.89,
-    "roe": 18.0,
-    "roa": 24.2,
+    "liab_to_assets": 148.0053547523427,
+    "cash_to_assets": 6.36144578313253,
+    "current_ratio": 0.8944385626206639,
+    "roe": -153.2433695024193,
+    "roa": 25.272364764827653,
     "moat": {
       "ticker": "MSCI",
       "period": "2026Q2",
@@ -369770,7 +374938,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MSCI",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:47.214099+00:00",
+      "fetchedAt": "2026-10-17T16:37:06.671677+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-21",
       "quoteDate": "2026-10-16",
@@ -369784,7 +374952,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -369798,8 +374966,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 884400000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 72700000,
+      "shareSource": {
+        "shares": 72.7,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:06.671677+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1408198/000140819826000046/msci-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 72.7,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:06.671677+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1408198/000140819826000046/msci-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "MCO": {
     "reported_growth": {
@@ -369856,6 +375042,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 3025000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Moody's",
@@ -372993,17 +378215,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 30.1,
     "pe_forward": 26.5,
-    "pb_trailing": 27.8,
+    "pb_trailing": 27.77325619834711,
     "pb_forward": 25.0,
     "div_yield": 0.83,
     "ps_ratio": 6.2,
     "fcf_to_ev": 6.17,
     "fcf_to_mcap": 4.04,
-    "liab_to_assets": 78.4,
-    "cash_to_assets": 10.2,
-    "current_ratio": 1.19,
-    "roe": 92.4,
-    "roa": 19.0,
+    "liab_to_assets": 78.4258943781942,
+    "cash_to_assets": 10.19420783645656,
+    "current_ratio": 1.1904334828101644,
+    "roe": 70.77741200303875,
+    "roa": 18.04739458901014,
     "moat": {
       "ticker": "MCO",
       "period": "2026Q2",
@@ -373645,7 +378867,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MCO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:47.738204+00:00",
+      "fetchedAt": "2026-10-17T16:37:07.081883+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-23",
       "quoteDate": "2026-10-16",
@@ -373659,7 +378881,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -373673,8 +378895,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1919000000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 173200000,
+      "shareSource": {
+        "shares": 173.2,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:07.081883+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1059556/000162828026049398/mco-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 173.2,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:07.081883+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1059556/000162828026049398/mco-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "ICE": {
     "reported_growth": {
@@ -373733,6 +378973,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 29551000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Intercontinental Exchange",
     "company_name": "Intercontinental Exchange, Inc.",
     "exchange": "NYSE",
@@ -373740,8 +379016,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Financial Exchanges & Data",
     "reportedCurrency": "USD",
     "price": 161.56,
-    "shares": 561.39,
-    "shares_outstanding": 561390000,
+    "shares": 561.395,
+    "shares_outstanding": 561395000,
     "shares_display": "561.39 M",
     "mcap": 90699.0,
     "liq_val_1": -40.13395203021046,
@@ -376869,17 +382145,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 22.5,
     "pe_forward": 19.8,
-    "pb_trailing": 3.1,
+    "pb_trailing": 3.0692362356603837,
     "pb_forward": 2.8,
     "div_yield": 1.26,
     "ps_ratio": 4.7,
     "fcf_to_ev": 4.68,
     "fcf_to_mcap": 5.35,
-    "liab_to_assets": 83.0,
-    "cash_to_assets": 1.1,
-    "current_ratio": 1.01,
-    "roe": 13.6,
-    "roa": 2.3,
+    "liab_to_assets": 82.98277732184772,
+    "cash_to_assets": 1.120822740133259,
+    "current_ratio": 1.0123407643312101,
+    "roe": 14.157643088173252,
+    "roa": 2.793133344893359,
     "moat": {
       "ticker": "ICE",
       "period": "2026Q2",
@@ -377521,7 +382797,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ICE",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:48.264107+00:00",
+      "fetchedAt": "2026-10-17T16:37:07.319439+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-30",
       "quoteDate": "2026-10-16",
@@ -377535,7 +382811,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -377549,8 +382825,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1869000000,
         "inventory": 116912000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 561395000,
+      "shareSource": {
+        "shares": 561.395,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:07.319439+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1571949/000157194926000011/ice-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 561.395,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:07.319439+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1571949/000157194926000011/ice-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "AIG": {
     "reported_growth": {
@@ -377609,6 +382903,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 40606000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "American International Group",
     "company_name": "American International Group, Inc.",
     "exchange": "NYSE",
@@ -377616,13 +382946,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Multi-line Insurance",
     "reportedCurrency": "USD",
     "price": 80.74,
-    "shares": 530.21,
-    "shares_outstanding": 530210000,
+    "shares": 530.206221,
+    "shares_outstanding": 530206221,
     "shares_display": "530.21 M",
     "mcap": 42808.9,
-    "liq_val_1": 29.00569512524589,
-    "liq_val_2": -53.428267865788776,
-    "liq_val_3": -73.76752374917858,
+    "liq_val_1": 29.00569512555757,
+    "liq_val_2": -53.42826786636289,
+    "liq_val_3": -73.76752374997125,
     "debt": 9127.0,
     "cash": 83726.0,
     "short_term_investments": 82236.0,
@@ -380739,23 +386069,23 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 69.48,
-    "default_fair_val": 69.48,
-    "premium_pct": 16.2,
+    "fair_val": 69.480495212824,
+    "default_fair_val": 69.480495212824,
+    "premium_pct": 16.205274232268053,
     "is_undervalued": false,
     "pe_trailing": 14.4,
     "pe_forward": 12.7,
-    "pb_trailing": 1.1,
+    "pb_trailing": 1.0542506033591095,
     "pb_forward": 1.0,
     "div_yield": 2.32,
     "ps_ratio": 2.8,
     "fcf_to_ev": 3.7,
     "fcf_to_mcap": 8.99,
-    "liab_to_assets": 75.1,
-    "cash_to_assets": 51.2,
-    "current_ratio": 1.36,
-    "roe": 7.3,
-    "roa": 1.8,
+    "liab_to_assets": 75.14682131845544,
+    "cash_to_assets": 51.219840454167276,
+    "current_ratio": 1.3584380866266328,
+    "roe": 7.144406158887738,
+    "roa": 1.786456670141169,
     "moat": {
       "ticker": "AIG",
       "period": "2026Q2",
@@ -380814,8 +386144,8 @@ window.FULL_MARKET_DATA = {
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 70.13070292902812,
-      "bvps": 76.58,
+      "tbvps": 70.13120277968221,
+      "bvps": 76.58054581747353,
       "rote": 8.259743154024013,
       "reference": {
         "date": "2026-06-30",
@@ -380825,15 +386155,17 @@ window.FULL_MARKET_DATA = {
         "balance": "beginning",
         "rote": 8.259743154024013,
         "warnings": [],
-        "tbvps": 70.13070292902812,
+        "tbvps": 70.13120277968221,
         "reason": null
       },
-      "ke": 9.0,
+      "ke": 9,
       "g": 2.25,
-      "dps_total": 4.68,
-      "excess_return_fair": 62.43963137994349,
-      "ddm_fair": 78.08,
-      "pb_tangible": 1.15
+      "dps_total": 4.6800333563042065,
+      "excess_return_fair": 62.44007641313556,
+      "ddm_fair": 78.08055650859667,
+      "pb_tangible": 1.151270715456648,
+      "tangibleEquity": 37184,
+      "totalPayout": 2481.3828
     },
     "image": "https://images.financialmodelingprep.com/symbol/AIG.png",
     "logo": "https://images.financialmodelingprep.com/symbol/AIG.png",
@@ -381471,7 +386803,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AIG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:48.789085+00:00",
+      "fetchedAt": "2026-10-17T16:37:07.555848+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-07",
       "quoteDate": "2026-10-16",
@@ -381485,7 +386817,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -381499,8 +386831,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 13480000000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 530206221,
+      "shareSource": {
+        "shares": 530.206221,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:07.555848+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/5272/000000527226000076/aig-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 530.206221,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:07.555848+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/5272/000000527226000076/aig-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "MET": {
     "reported_growth": {
@@ -381559,6 +386909,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 27441000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "MetLife",
     "company_name": "MetLife, Inc.",
     "exchange": "NYSE",
@@ -381566,8 +386952,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Life & Health Insurance",
     "reportedCurrency": "USD",
     "price": 100.76,
-    "shares": 635.48,
-    "shares_outstanding": 635480000,
+    "shares": 635.477,
+    "shares_outstanding": 635477000,
     "shares_display": "635.48 M",
     "mcap": 64030.7,
     "liq_val_1": -858.8697938713754,
@@ -384695,17 +390081,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": null,
     "pe_trailing": 17.7,
     "pe_forward": 15.6,
-    "pb_trailing": 2.3,
+    "pb_trailing": 2.33339528442841,
     "pb_forward": 2.1,
     "div_yield": 2.63,
     "ps_ratio": 1.0,
     "fcf_to_ev": 4.26,
     "fcf_to_mcap": 25.88,
-    "liab_to_assets": 96.3,
-    "cash_to_assets": 17.1,
-    "current_ratio": 0.65,
-    "roe": 13.2,
-    "roa": 0.5,
+    "liab_to_assets": 96.31787845746221,
+    "cash_to_assets": 17.057252571862012,
+    "current_ratio": 0.6497672139181573,
+    "roe": 13.097345132743362,
+    "roa": 0.5161786268452745,
     "moat": {
       "ticker": "MET",
       "period": "2026Q2",
@@ -384764,8 +390150,8 @@ window.FULL_MARKET_DATA = {
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": -5.768867627620066,
-      "bvps": 43.18,
+      "tbvps": -5.768894861655103,
+      "bvps": 43.180203846874086,
       "rote": -148,
       "reference": {
         "date": "2026-06-30",
@@ -384777,15 +390163,17 @@ window.FULL_MARKET_DATA = {
         "warnings": [
           "negativeTangibleEquity"
         ],
-        "tbvps": -5.768867627620066,
+        "tbvps": -5.768894861655103,
         "reason": "nonPositiveTangibleEquity"
       },
-      "ke": 9.0,
+      "ke": 9,
       "g": 2.25,
-      "dps_total": 6.48,
+      "dps_total": 6.480030591193703,
       "excess_return_fair": null,
-      "ddm_fair": 108.1,
-      "pb_tangible": null
+      "ddm_fair": 108.10051032531469,
+      "pb_tangible": null,
+      "tangibleEquity": -3666,
+      "totalPayout": 4117.910400000001
     },
     "image": "https://images.financialmodelingprep.com/symbol/MET.png",
     "logo": "https://images.financialmodelingprep.com/symbol/MET.png",
@@ -385369,7 +390757,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MET",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:49.371241+00:00",
+      "fetchedAt": "2026-10-17T16:37:07.790814+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-06",
       "quoteDate": "2026-10-16",
@@ -385383,7 +390771,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -385397,8 +390785,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 50838000000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 635477000,
+      "shareSource": {
+        "shares": 635.477,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:07.790814+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1099219/000109921926000050/met-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 635.477,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:07.790814+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1099219/000109921926000050/met-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "PRU": {
     "reported_growth": {
@@ -385457,6 +390863,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 31577000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Prudential Financial",
     "company_name": "Prudential Financial, Inc.",
     "exchange": "NYSE",
@@ -385464,7 +390906,7 @@ window.FULL_MARKET_DATA = {
     "industry": "Life & Health Insurance",
     "reportedCurrency": "USD",
     "price": 115.91,
-    "shares": 345.0,
+    "shares": 345,
     "shares_outstanding": 345000000,
     "shares_display": "345.00 M",
     "mcap": 39988.9,
@@ -388589,21 +394031,21 @@ window.FULL_MARKET_DATA = {
     ],
     "fair_val": 364.03,
     "default_fair_val": 364.03,
-    "premium_pct": -68.2,
+    "premium_pct": -68.15921764689723,
     "is_undervalued": true,
     "pe_trailing": 10.4,
     "pe_forward": 9.2,
-    "pb_trailing": 1.3,
+    "pb_trailing": 1.2663932609177566,
     "pb_forward": 1.2,
     "div_yield": 4.87,
     "ps_ratio": 0.9,
     "fcf_to_ev": 4.06,
     "fcf_to_mcap": 27.43,
-    "liab_to_assets": 95.9,
-    "cash_to_assets": 44.5,
-    "current_ratio": 1.79,
-    "roe": 12.2,
-    "roa": 0.5,
+    "liab_to_assets": 95.92433961156475,
+    "cash_to_assets": 44.500825724838364,
+    "current_ratio": 1.7906698155183627,
+    "roe": 12.562945523510564,
+    "roa": 0.5062243725558402,
     "moat": {
       "ticker": "PRU",
       "period": "2026Q2",
@@ -388676,12 +394118,14 @@ window.FULL_MARKET_DATA = {
         "tbvps": 90.46666666666667,
         "reason": null
       },
-      "ke": 9.0,
+      "ke": 9,
       "g": 2.25,
       "dps_total": 8.54,
       "excess_return_fair": 547.7601169444791,
       "ddm_fair": 139.47,
-      "pb_tangible": 1.28
+      "pb_tangible": 1.2812453942520265,
+      "tangibleEquity": 31211,
+      "totalPayout": 2946.2999999999997
     },
     "image": "https://images.financialmodelingprep.com/symbol/PRU.png",
     "logo": "https://images.financialmodelingprep.com/symbol/PRU.png",
@@ -389258,7 +394702,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "PRU",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:49.892736+00:00",
+      "fetchedAt": "2026-10-17T16:37:08.024485+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-05",
       "quoteDate": "2026-10-16",
@@ -389272,7 +394716,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -389286,8 +394730,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 3758000000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 345000000,
+      "shareSource": {
+        "shares": 345,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:08.024485+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1137774/000113777426000176/pru-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 345,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:08.024485+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1137774/000113777426000176/pru-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "TRV": {
     "reported_growth": {
@@ -389346,6 +394808,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 33121000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "The Travelers Companies",
     "company_name": "The Travelers Companies, Inc.",
     "exchange": "NYSE",
@@ -389353,13 +394851,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Property & Casualty Insurance",
     "reportedCurrency": "USD",
     "price": 389.54,
-    "shares": 208.58,
-    "shares_outstanding": 208580000,
+    "shares": 208.575022,
+    "shares_outstanding": 208575022,
     "shares_display": "208.58 M",
     "mcap": 81248.3,
-    "liq_val_1": 60.49142356068584,
-    "liq_val_2": -30.460982044104096,
-    "liq_val_3": -80.3308077799232,
+    "liq_val_1": 60.491423560775175,
+    "liq_val_2": -30.460982044149084,
+    "liq_val_3": -80.33080778004185,
     "debt": 9813.0,
     "cash": 96339.0,
     "short_term_investments": 95573.0,
@@ -392476,23 +397974,23 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 506.8,
-    "default_fair_val": 506.8,
-    "premium_pct": -23.1,
+    "fair_val": 506.8120956496891,
+    "default_fair_val": 506.8120956496891,
+    "premium_pct": -23.139166696358426,
     "is_undervalued": true,
     "pe_trailing": 9.8,
     "pe_forward": 8.6,
-    "pb_trailing": 2.8,
+    "pb_trailing": 2.453075088312551,
     "pb_forward": 2.5,
     "div_yield": 1.22,
     "ps_ratio": 1.8,
     "fcf_to_ev": 3.5,
     "fcf_to_mcap": 13.57,
-    "liab_to_assets": 79.6,
-    "cash_to_assets": 67.8,
-    "current_ratio": 1.32,
-    "roe": 28.6,
-    "roa": 5.8,
+    "liab_to_assets": 76.93202395876864,
+    "cash_to_assets": 3.6216743279008217,
+    "current_ratio": 0.20374589460603013,
+    "roe": 28.128599498611017,
+    "roa": 5.978843979751283,
     "moat": {
       "ticker": "TRV",
       "period": "2026Q3",
@@ -392551,8 +398049,8 @@ window.FULL_MARKET_DATA = {
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 137.7696806980535,
-      "bvps": 139.01,
+      "tbvps": 137.77296880735796,
+      "bvps": 139.01331771164814,
       "rote": 39.12818096135721,
       "reference": {
         "date": "2026-06-30",
@@ -392562,15 +398060,17 @@ window.FULL_MARKET_DATA = {
         "balance": "beginning",
         "rote": 39.12818096135721,
         "warnings": [],
-        "tbvps": 137.7696806980535,
+        "tbvps": 137.77296880735796,
         "reason": null
       },
-      "ke": 9.0,
+      "ke": 9,
       "g": 2.25,
-      "dps_total": 11.85,
-      "excess_return_fair": 752.695587521662,
-      "ddm_fair": 206.26,
-      "pb_tangible": 2.83
+      "dps_total": 11.850282820538311,
+      "excess_return_fair": 752.7135518905436,
+      "ddm_fair": 206.26492274803644,
+      "pb_tangible": 2.827405138846047,
+      "tangibleEquity": 28736,
+      "totalPayout": 2471.6730000000002
     },
     "image": "https://images.financialmodelingprep.com/symbol/TRV.png",
     "logo": "https://images.financialmodelingprep.com/symbol/TRV.png",
@@ -393166,7 +398666,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TRV",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:50.416790+00:00",
+      "fetchedAt": "2026-10-17T16:37:08.259334+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-16",
       "quoteDate": "2026-10-16",
@@ -393180,7 +398680,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -393194,8 +398694,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 13002000000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 208575022,
+      "shareSource": {
+        "shares": 208.575022,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:08.259334+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/86312/000008631226000181/trv-20260930.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 208.575022,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:08.259334+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/86312/000008631226000181/trv-20260930.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "AFL": {
     "reported_growth": {
@@ -393254,6 +398772,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 30312000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Aflac",
     "company_name": "Aflac Incorporated",
     "exchange": "NYSE",
@@ -393261,13 +398815,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Life & Health Insurance",
     "reportedCurrency": "USD",
     "price": 119.97,
-    "shares": 501.43,
-    "shares_outstanding": 501430000,
-    "shares_display": "501.43 M",
+    "shares": 501.343335,
+    "shares_outstanding": 501343335,
+    "shares_display": "501.34 M",
     "mcap": 60156.2,
-    "liq_val_1": 37.046257976833,
-    "liq_val_2": 18.551847017855902,
-    "liq_val_3": 15.954460799669679,
+    "liq_val_1": 37.05245228801137,
+    "liq_val_2": 18.5549489752367,
+    "liq_val_3": 15.95712846167587,
     "debt": 8729.0,
     "cash": 93649.0,
     "short_term_investments": 87529.0,
@@ -396384,23 +401938,23 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 166.4,
-    "default_fair_val": 166.4,
-    "premium_pct": -27.9,
+    "fair_val": 166.42876483039313,
+    "default_fair_val": 166.42876483039313,
+    "premium_pct": -27.915105226995507,
     "is_undervalued": true,
     "pe_trailing": 12.4,
     "pe_forward": 10.9,
-    "pb_trailing": 2.0,
+    "pb_trailing": 1.9845671681182369,
     "pb_forward": 1.8,
     "div_yield": 1.98,
     "ps_ratio": 5.7,
     "fcf_to_ev": 3.97,
     "fcf_to_mcap": 4.4,
-    "liab_to_assets": 73.9,
-    "cash_to_assets": 80.8,
-    "current_ratio": 11.31,
-    "roe": 16.0,
-    "roa": 4.2,
+    "liab_to_assets": 73.86017712851735,
+    "cash_to_assets": 80.75904830072179,
+    "current_ratio": 11.305456123223777,
+    "roe": 17.875,
+    "roa": 3.897832221652129,
     "moat": {
       "ticker": "AFL",
       "period": "2026Q2",
@@ -396459,8 +402013,8 @@ window.FULL_MARKET_DATA = {
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 60.45110982589793,
-      "bvps": 60.45,
+      "tbvps": 60.46155974128987,
+      "bvps": 60.46044972354125,
       "rote": 27.155942806076855,
       "reference": {
         "date": "2026-06-30",
@@ -396470,15 +402024,17 @@ window.FULL_MARKET_DATA = {
         "balance": "beginning",
         "rote": 27.155942806076855,
         "warnings": [],
-        "tbvps": 60.45110982589793,
+        "tbvps": 60.46155974128987,
         "reason": null
       },
-      "ke": 9.0,
+      "ke": 9,
       "g": 2.25,
-      "dps_total": 5.95,
-      "excess_return_fair": 223.05064946484214,
-      "ddm_fair": 97.17,
-      "pb_tangible": 1.98
+      "dps_total": 5.951028550125234,
+      "excess_return_fair": 223.08920724189102,
+      "ddm_fair": 97.18679734717128,
+      "pb_tangible": 1.9842359428592637,
+      "tangibleEquity": 30312,
+      "totalPayout": 2983.5085
     },
     "image": "https://images.financialmodelingprep.com/symbol/AFL.png",
     "logo": "https://images.financialmodelingprep.com/symbol/AFL.png",
@@ -397116,7 +402672,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AFL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:51.016362+00:00",
+      "fetchedAt": "2026-10-17T16:37:08.505292+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-07",
       "quoteDate": "2026-10-16",
@@ -397130,7 +402686,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -397144,8 +402700,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1628000000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 501343335,
+      "shareSource": {
+        "shares": 501.343335,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:08.505292+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/4977/000162828026054618/afl-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 501.343335,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:08.505292+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/4977/000162828026054618/afl-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "ALL": {
     "reported_growth": {
@@ -397204,6 +402778,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 33698000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Allstate",
     "company_name": "The Allstate Corporation",
     "exchange": "NYSE",
@@ -397211,8 +402821,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Property & Casualty Insurance",
     "reportedCurrency": "USD",
     "price": 247.88,
-    "shares": 252.86,
-    "shares_outstanding": 252860000,
+    "shares": 252.858,
+    "shares_outstanding": 252858000,
     "shares_display": "252.86 M",
     "mcap": 62678.4,
     "liq_val_1": -290.6848903337051,
@@ -400334,23 +405944,23 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 947.6,
-    "default_fair_val": 947.6,
-    "premium_pct": -73.8,
+    "fair_val": 947.6074951158358,
+    "default_fair_val": 947.6074951158358,
+    "premium_pct": -73.84149014464063,
     "is_undervalued": true,
     "pe_trailing": 4.7,
     "pe_forward": 4.1,
-    "pb_trailing": 1.9,
+    "pb_trailing": 1.8600035610421983,
     "pb_forward": 1.7,
     "div_yield": 1.89,
     "ps_ratio": 1.3,
     "fcf_to_ev": 2.35,
     "fcf_to_mcap": 19.54,
-    "liab_to_assets": 73.0,
-    "cash_to_assets": 4.6,
-    "current_ratio": 0.24,
-    "roe": 39.5,
-    "roa": 10.7,
+    "liab_to_assets": 73.00490557568374,
+    "cash_to_assets": 4.578537304819006,
+    "current_ratio": 0.24449143111506788,
+    "roe": 55.410300179024944,
+    "roa": 11.483769651578166,
     "moat": {
       "ticker": "ALL",
       "period": "2026Q2",
@@ -400409,8 +406019,8 @@ window.FULL_MARKET_DATA = {
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 120.93648659337182,
-      "bvps": 133.27,
+      "tbvps": 120.93744314991022,
+      "bvps": 133.2710541094211,
       "rote": 88.89853717186561,
       "reference": {
         "date": "2026-06-30",
@@ -400420,15 +406030,17 @@ window.FULL_MARKET_DATA = {
         "balance": "beginning",
         "rote": 88.89853717186561,
         "warnings": [],
-        "tbvps": 120.93648659337182,
+        "tbvps": 120.93744314991022,
         "reason": null
       },
-      "ke": 9.0,
+      "ke": 9,
       "g": 2.25,
-      "dps_total": 11.72,
-      "excess_return_fair": 1552.4399487437936,
-      "ddm_fair": 208.35,
-      "pb_tangible": 2.05
+      "dps_total": 11.720092700250735,
+      "excess_return_fair": 1552.4522278882048,
+      "ddm_fair": 208.35164796051538,
+      "pb_tangible": 2.049654710268149,
+      "tangibleEquity": 30580,
+      "totalPayout": 2963.5192
     },
     "image": "https://images.financialmodelingprep.com/symbol/ALL.png",
     "logo": "https://images.financialmodelingprep.com/symbol/ALL.png",
@@ -401012,7 +406624,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ALL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:51.582273+00:00",
+      "fetchedAt": "2026-10-17T16:37:09.181421+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-05",
       "quoteDate": "2026-10-16",
@@ -401026,7 +406638,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -401040,8 +406652,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 0,
         "inventory": 0,
         "preferredStock": 2001000000
+      },
+      "sharesOutstanding": 252858000,
+      "shareSource": {
+        "shares": 252.858,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:09.181421+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/899051/000089905126000118/all-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 252.858,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:09.181421+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/899051/000089905126000118/all-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "AON": {
     "reported_growth": {
@@ -401100,6 +406730,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 9662000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Aon plc",
     "company_name": "Aon plc",
     "exchange": "NYSE",
@@ -401107,13 +406773,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Insurance Brokers",
     "reportedCurrency": "USD",
     "price": 292.55,
-    "shares": 212.13,
-    "shares_outstanding": 212130000,
+    "shares": 212.125434,
+    "shares_outstanding": 212125434,
     "shares_display": "212.13 M",
     "mcap": 62057.3,
-    "liq_val_1": -73.17840066234093,
-    "liq_val_2": -179.57111168392873,
-    "liq_val_3": -199.7403102533908,
+    "liq_val_1": -73.1784006626947,
+    "liq_val_2": -179.57111168479685,
+    "liq_val_3": -199.7403102543564,
     "debt": 15874.0,
     "cash": 1267.0,
     "short_term_investments": 205.0,
@@ -404231,17 +409897,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 15.9,
     "pe_forward": 14.0,
-    "pb_trailing": 6.4,
+    "pb_trailing": 6.422821362036846,
     "pb_forward": 5.8,
     "div_yield": 1.06,
     "ps_ratio": 4.8,
     "fcf_to_ev": 3.9,
     "fcf_to_mcap": 5.23,
-    "liab_to_assets": 81.8,
-    "cash_to_assets": 2.4,
-    "current_ratio": 1.03,
-    "roe": 40.5,
-    "roa": 7.3,
+    "liab_to_assets": 81.79841415637243,
+    "cash_to_assets": 2.3750164020469757,
+    "current_ratio": 1.032615881877617,
+    "roe": 49.90437332653321,
+    "roa": 7.246806147009813,
     "moat": {
       "ticker": "AON",
       "period": "2026Q2",
@@ -404901,7 +410567,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AON",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:52.106853+00:00",
+      "fetchedAt": "2026-10-17T16:37:09.415350+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-29",
       "quoteDate": "2026-10-16",
@@ -404915,7 +410581,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -404929,8 +410595,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 5348000000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 212125434,
+      "shareSource": {
+        "shares": 212.125434,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:09.415350+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/315293/000162828026050610/aon-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 212.125434,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:09.415350+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/315293/000162828026050610/aon-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "AJG": {
     "reported_growth": {
@@ -404989,6 +410673,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 23717000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Arthur J. Gallagher",
     "company_name": "Arthur J. Gallagher & Co.",
     "exchange": "NYSE",
@@ -404996,8 +410716,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Insurance Brokers",
     "reportedCurrency": "USD",
     "price": 254.88,
-    "shares": 256.34,
-    "shares_outstanding": 256339999,
+    "shares": 256.341,
+    "shares_outstanding": 256341000,
     "shares_display": "256.34 M",
     "mcap": 65336.2,
     "liq_val_1": -49.18838578299999,
@@ -408123,17 +413843,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 41.6,
     "pe_forward": 36.6,
-    "pb_trailing": 2.8,
+    "pb_trailing": 2.7548256524855588,
     "pb_forward": 2.5,
     "div_yield": 1.06,
     "ps_ratio": 7.1,
     "fcf_to_ev": 3.73,
     "fcf_to_mcap": 3.5,
-    "liab_to_assets": 71.0,
-    "cash_to_assets": 1.7,
-    "current_ratio": 1.05,
-    "roe": 6.6,
-    "roa": 1.9,
+    "liab_to_assets": 70.97227654997066,
+    "cash_to_assets": 1.694210835126149,
+    "current_ratio": 1.052787621893313,
+    "roe": 6.813591566730805,
+    "roa": 1.957874557241028,
     "moat": {
       "ticker": "AJG",
       "period": "2026Q2",
@@ -408787,7 +414507,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AJG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:52.679195+00:00",
+      "fetchedAt": "2026-10-17T16:37:09.967860+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-05",
       "quoteDate": "2026-10-16",
@@ -408801,7 +414521,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -408815,8 +414535,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 6076000000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 256341000,
+      "shareSource": {
+        "shares": 256.341,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:09.967860+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/354190/000162828026053489/ajg-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 256.341,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:09.967860+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/354190/000162828026053489/ajg-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "MMC": {
     "reported_growth": {
@@ -408875,6 +414613,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 15183000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Marsh McLennan",
     "company_name": "Marsh & McLennan Companies, Inc.",
     "exchange": "NYSE",
@@ -408882,13 +414656,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Insurance Brokers",
     "reportedCurrency": "USD",
     "price": 182.7,
-    "shares": 491.62,
-    "shares_outstanding": 491620000,
+    "shares": 491.624025,
+    "shares_outstanding": 491624025,
     "shares_display": "491.62 M",
     "mcap": 89819.7,
-    "liq_val_1": -42.28637931167882,
-    "liq_val_2": -87.5750529070672,
-    "liq_val_3": -87.5750529070672,
+    "liq_val_1": -42.286379311914224,
+    "liq_val_2": -87.5750529075547,
+    "liq_val_3": -87.5750529075547,
     "debt": 22332.0,
     "cash": 1842.0,
     "short_term_investments": 0.0,
@@ -412009,17 +417783,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 22.6,
     "pe_forward": 19.9,
-    "pb_trailing": 6.0,
+    "pb_trailing": 5.915807152736613,
     "pb_forward": 5.4,
     "div_yield": 1.97,
     "ps_ratio": 4.7,
     "fcf_to_ev": 4.01,
     "fcf_to_mcap": 5.31,
-    "liab_to_assets": 75.1,
-    "cash_to_assets": 3.1,
-    "current_ratio": 1.09,
-    "roe": 26.7,
-    "roa": 6.7,
+    "liab_to_assets": 74.14128212861499,
+    "cash_to_assets": 2.848430012399048,
+    "current_ratio": 1.139238728404888,
+    "roe": 25.242595293968417,
+    "roa": 6.797028434804885,
     "moat": {
       "ticker": "MMC",
       "period": "2026Q3",
@@ -412685,7 +418459,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MMC",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:53.234763+00:00",
+      "fetchedAt": "2026-10-17T16:37:10.204983+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-15",
       "quoteDate": "2026-01-13",
@@ -412699,7 +418473,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-01-13",
@@ -412713,8 +418487,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 0,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 491624025,
+      "shareSource": {
+        "shares": 491.624025,
+        "date": "2026-08-01",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:10.204983+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/62709/000006270926000258/mrsh-20260930.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 491.624025,
+      "date": "2026-08-01",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:10.204983+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/62709/000006270926000258/mrsh-20260930.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "USB": {
     "reported_growth": {
@@ -412773,6 +418565,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 67432000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "U.S. Bancorp",
     "company_name": "U.S. Bancorp",
     "exchange": "NYSE",
@@ -412782,7 +418610,7 @@ window.FULL_MARKET_DATA = {
     "price": 58.73,
     "shares": 1558.05,
     "shares_outstanding": 1558050000,
-    "shares_display": "1,558.05 M",
+    "shares_display": "1558.05 M",
     "mcap": 91504.3,
     "liq_val_1": -276.6137158627772,
     "liq_val_2": -278.17079041109076,
@@ -415905,21 +421733,21 @@ window.FULL_MARKET_DATA = {
     ],
     "fair_val": 61.62,
     "default_fair_val": 61.62,
-    "premium_pct": -4.7,
+    "premium_pct": -4.690035702693929,
     "is_undervalued": true,
     "pe_trailing": 11.2,
     "pe_forward": 9.9,
-    "pb_trailing": 1.4,
+    "pb_trailing": 1.3569862973069167,
     "pb_forward": 1.3,
     "div_yield": 3.88,
     "ps_ratio": 1.8,
     "fcf_to_ev": 3.91,
     "fcf_to_mcap": 13.53,
-    "liab_to_assets": 90.5,
-    "cash_to_assets": 28.8,
-    "current_ratio": 0.37,
-    "roe": 12.3,
-    "roa": 1.2,
+    "liab_to_assets": 90.64701522761524,
+    "cash_to_assets": 9.159574497395022,
+    "current_ratio": 1.780834025229665,
+    "roe": 13.304469546534717,
+    "roa": 1.1909028658012442,
     "moat": {
       "ticker": "USB",
       "period": "2026Q3",
@@ -415997,7 +421825,9 @@ window.FULL_MARKET_DATA = {
       "dps_total": 2.73,
       "excess_return_fair": 76.13498369670712,
       "ddm_fair": 43.88,
-      "pb_tangible": 1.86
+      "pb_tangible": 1.859880820748389,
+      "tangibleEquity": 49199,
+      "totalPayout": 4253.4765
     },
     "image": "https://images.financialmodelingprep.com/symbol/USB.png",
     "logo": "https://images.financialmodelingprep.com/symbol/USB.png",
@@ -416623,7 +422453,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "USB",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:53.784826+00:00",
+      "fetchedAt": "2026-10-17T16:37:10.441261+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-15",
       "quoteDate": "2026-10-16",
@@ -416637,7 +422467,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -416651,8 +422481,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 0,
         "inventory": 0,
         "preferredStock": 6808000000
+      },
+      "sharesOutstanding": 1558050000,
+      "shareSource": {
+        "shares": 1558.05,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:10.441261+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/36104/000003610426000054/a3q26earningsrelease.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 1558.05,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:10.441261+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/36104/000003610426000054/a3q26earningsrelease.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "LLY": {
     "reported_growth": {
@@ -416711,6 +422559,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 33879000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Eli Lilly",
     "company_name": "Eli Lilly and Company",
     "exchange": "NYSE",
@@ -416718,13 +422602,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Pharmaceuticals",
     "reportedCurrency": "USD",
     "price": 1257.03,
-    "shares": 941.36,
-    "shares_outstanding": 941360000,
+    "shares": 941.357048,
+    "shares_outstanding": 941357048,
     "shares_display": "941.36 M",
     "mcap": 1183314.1,
-    "liq_val_1": -46.456336724656104,
-    "liq_val_2": -79.66275937419644,
-    "liq_val_3": -105.64960469710849,
+    "liq_val_1": -46.45633672463883,
+    "liq_val_2": -79.66275937416681,
+    "liq_val_3": -105.64960469706921,
     "debt": 54908.0,
     "cash": 8950.0,
     "short_term_investments": 60.0,
@@ -419847,17 +425731,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 44.3,
     "pe_forward": 39.0,
-    "pb_trailing": 34.9,
+    "pb_trailing": 34.92765725080434,
     "pb_forward": 31.4,
     "div_yield": 0.49,
     "ps_ratio": 14.8,
     "fcf_to_ev": 1.78,
     "fcf_to_mcap": 1.69,
-    "liab_to_assets": 76.2,
-    "cash_to_assets": 6.3,
-    "current_ratio": 1.35,
-    "roe": 78.8,
-    "roa": 18.8,
+    "liab_to_assets": 76.18900360549047,
+    "cash_to_assets": 6.2902806378836535,
+    "current_ratio": 1.3546427598919168,
+    "roe": 146.17931472289564,
+    "roa": 26.467015316688236,
     "moat": {
       "ticker": "LLY",
       "period": "2026Q2",
@@ -420517,7 +426401,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "LLY",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:54.305843+00:00",
+      "fetchedAt": "2026-10-17T16:37:10.674332+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-05",
       "quoteDate": "2026-10-16",
@@ -420531,7 +426415,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -420545,8 +426429,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 20083000000,
         "inventory": 16793000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 941357048,
+      "shareSource": {
+        "shares": 941.357048,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:10.674332+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/59478/000005947826000081/lly-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 941.357048,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:10.674332+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/59478/000005947826000081/lly-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "UNH": {
     "reported_growth": {
@@ -420605,6 +426507,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 98447000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "UnitedHealth Group",
     "company_name": "UnitedHealth Group Incorporated",
     "exchange": "NYSE",
@@ -420612,8 +426550,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Managed Healthcare",
     "reportedCurrency": "USD",
     "price": 401.43,
-    "shares": 897.6,
-    "shares_outstanding": 897600000,
+    "shares": 897.595,
+    "shares_outstanding": 897595000,
     "shares_display": "897.60 M",
     "mcap": 360321.6,
     "liq_val_1": -135.51991711183774,
@@ -423739,17 +429677,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 25.5,
     "pe_forward": 22.4,
-    "pb_trailing": 3.5,
+    "pb_trailing": 3.660056680244192,
     "pb_forward": 3.1,
     "div_yield": 2.25,
     "ps_ratio": 3.8,
     "fcf_to_ev": 3.58,
     "fcf_to_mcap": 6.55,
-    "liab_to_assets": 66.3,
-    "cash_to_assets": 9.1,
-    "current_ratio": 0.74,
-    "roe": 13.6,
-    "roa": 4.5,
+    "liab_to_assets": 65.79277880197722,
+    "cash_to_assets": 10.159915021938675,
+    "current_ratio": 0.7767841173314255,
+    "roe": 14.908576495925002,
+    "roa": 4.576550767565536,
     "moat": {
       "ticker": "UNH",
       "period": "2026Q3",
@@ -424415,7 +430353,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "UNH",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:54.829157+00:00",
+      "fetchedAt": "2026-10-17T16:37:10.914371+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-13",
       "quoteDate": "2026-10-16",
@@ -424429,7 +430367,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -424443,8 +430381,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 20543000000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 897595000,
+      "shareSource": {
+        "shares": 897.595,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:10.914371+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/731766/000073176626000255/earningsrelease3q26unh.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 897.595,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:10.914371+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/731766/000073176626000255/earningsrelease3q26unh.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "JNJ": {
     "reported_growth": {
@@ -424503,6 +430459,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-28",
+        "reason": null,
+        "bookEquity": 84971000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-28",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-28",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Johnson & Johnson",
     "company_name": "Johnson & Johnson",
     "exchange": "NYSE",
@@ -424510,13 +430502,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Pharmaceuticals",
     "reportedCurrency": "USD",
     "price": 255.56,
-    "shares": 2409.9,
-    "shares_outstanding": 2409900000,
-    "shares_display": "2,409.90 M",
+    "shares": 2409.898597,
+    "shares_outstanding": 2409898597,
+    "shares_display": "2409.90 M",
     "mcap": 615873.7,
-    "liq_val_1": -23.36861811120813,
-    "liq_val_2": -30.09388033601054,
-    "liq_val_3": -39.558510934329384,
+    "liq_val_1": -23.36861811119599,
+    "liq_val_2": -30.0938803359949,
+    "liq_val_3": -39.55851093430883,
     "debt": 49036.0,
     "cash": 20758.0,
     "short_term_investments": 336.0,
@@ -427639,17 +433631,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 29.3,
     "pe_forward": 25.8,
-    "pb_trailing": 7.2,
+    "pb_trailing": 7.248045803862493,
     "pb_forward": 6.5,
     "div_yield": 2.05,
     "ps_ratio": 8.2,
     "fcf_to_ev": 2.83,
     "fcf_to_mcap": 3.04,
-    "liab_to_assets": 57.7,
-    "cash_to_assets": 10.3,
-    "current_ratio": 1.09,
-    "roe": 24.8,
-    "roa": 10.5,
+    "liab_to_assets": 57.73898338804337,
+    "cash_to_assets": 10.324281309061972,
+    "current_ratio": 1.0888787685581565,
+    "roe": 26.807946682298372,
+    "roa": 10.878074761232542,
     "moat": {
       "ticker": "JNJ",
       "period": "2026Q2",
@@ -428327,7 +434319,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "JNJ",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:55.353558+00:00",
+      "fetchedAt": "2026-10-17T16:37:11.147460+00:00",
       "balanceDate": "2026-06-28",
       "filingDate": "2026-07-23",
       "quoteDate": "2026-10-16",
@@ -428341,7 +434333,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -428355,8 +434347,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 19046000000,
         "inventory": 15144000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 2409898597,
+      "shareSource": {
+        "shares": 2409.898597,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:11.147460+00:00",
+        "providerSource": null
       }
-    }
+    },
+    "shareSource": {
+      "shares": 2409.898597,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:11.147460+00:00",
+      "providerSource": null
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "ABBV": {
     "reported_growth": {
@@ -428415,6 +434425,44 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": -5935000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeEquity"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "AbbVie",
     "company_name": "AbbVie Inc.",
     "exchange": "NYSE",
@@ -428422,13 +434470,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Biotechnology",
     "reportedCurrency": "USD",
     "price": 285.42,
-    "shares": 1767.12,
-    "shares_outstanding": 1767120000,
-    "shares_display": "1,767.12 M",
+    "shares": 1767.117285,
+    "shares_outstanding": 1767117285,
+    "shares_display": "1767.12 M",
     "mcap": 504370.6,
-    "liq_val_1": -60.73960167275268,
-    "liq_val_2": -68.36631672692181,
-    "liq_val_3": -76.07531268074267,
+    "liq_val_1": -60.7396016727888,
+    "liq_val_2": -68.36631672696247,
+    "liq_val_3": -76.0753126807879,
     "debt": 70822.0,
     "cash": 6569.0,
     "short_term_investments": 0.0,
@@ -431551,17 +437599,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 79.9,
     "pe_forward": 70.3,
-    "pb_trailing": 5.0,
+    "pb_trailing": -84.9824094355518,
     "pb_forward": 4.5,
     "div_yield": 2.37,
     "ps_ratio": 6.9,
     "fcf_to_ev": 2.84,
     "fcf_to_mcap": 3.61,
-    "liab_to_assets": 104.3,
-    "cash_to_assets": 4.9,
-    "current_ratio": 0.81,
-    "roe": 18.0,
-    "roa": 4.7,
+    "liab_to_assets": 104.34309648201045,
+    "cash_to_assets": 4.861100833246999,
+    "current_ratio": 0.8085346525142885,
+    "roe": -3450.2732240437163,
+    "roa": 4.6026446618361,
     "moat": {
       "ticker": "ABBV",
       "period": "2026Q2",
@@ -432196,7 +438244,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ABBV",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:55.877520+00:00",
+      "fetchedAt": "2026-10-17T16:37:11.385278+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-03",
       "quoteDate": "2026-10-16",
@@ -432210,7 +438258,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -432224,8 +438272,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 13824000000,
         "inventory": 5127000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 1767117285,
+      "shareSource": {
+        "shares": 1767.117285,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:11.385278+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1551152/000155115226000026/abbv-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 1767.117285,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:11.385278+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1551152/000155115226000026/abbv-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "MRK": {
     "reported_growth": {
@@ -432284,6 +438350,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 41933000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Merck & Co.",
     "company_name": "Merck & Co., Inc.",
     "exchange": "NYSE",
@@ -432291,13 +438393,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Pharmaceuticals",
     "reportedCurrency": "USD",
     "price": 145.965,
-    "shares": 2467.17,
-    "shares_outstanding": 2467170000,
-    "shares_display": "2,467.17 M",
+    "shares": 2467.171638,
+    "shares_outstanding": 2467171638,
+    "shares_display": "2467.17 M",
     "mcap": 360120.7,
-    "liq_val_1": -20.72778367434894,
-    "liq_val_2": -27.368302618246187,
-    "liq_val_3": -32.700197569280775,
+    "liq_val_1": -20.727783674367938,
+    "liq_val_2": -27.36830261827126,
+    "liq_val_3": -32.70019756931074,
     "debt": 53906.0,
     "cash": 7141.0,
     "short_term_investments": 292.0,
@@ -435420,17 +441522,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 113.5,
     "pe_forward": 99.9,
-    "pb_trailing": 8.6,
+    "pb_trailing": 8.58800228936637,
     "pb_forward": 7.7,
     "div_yield": 2.3,
     "ps_ratio": 5.6,
     "fcf_to_ev": 2.64,
     "fcf_to_mcap": 4.46,
-    "liab_to_assets": 67.7,
-    "cash_to_assets": 5.5,
-    "current_ratio": 1.32,
-    "roe": 7.6,
-    "roa": 2.4,
+    "liab_to_assets": 67.65535199765797,
+    "cash_to_assets": 5.501456063851096,
+    "current_ratio": 1.3226713786015651,
+    "roe": 6.476435409140081,
+    "roa": 2.699897041430188,
     "moat": {
       "ticker": "MRK",
       "period": "2026Q2",
@@ -436108,7 +442210,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MRK",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:56.402721+00:00",
+      "fetchedAt": "2026-10-17T16:37:11.619339+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-07",
       "quoteDate": "2026-10-16",
@@ -436122,7 +442224,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -436136,8 +442238,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 12564000000,
         "inventory": 6207000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 2467171638,
+      "shareSource": {
+        "shares": 2467.171638,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:11.619339+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/310158/000031015826000212/mrk-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 2467.171638,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:11.619339+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/310158/000031015826000212/mrk-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "TMO": {
     "reported_growth": {
@@ -436196,6 +442316,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-27",
+        "reason": null,
+        "bookEquity": 52679000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-27",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-27",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Thermo Fisher Scientific",
     "company_name": "Thermo Fisher Scientific Inc.",
     "exchange": "NYSE",
@@ -436203,8 +442359,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Life Sciences Tools & Services",
     "reportedCurrency": "USD",
     "price": 690.0,
-    "shares": 369.75,
-    "shares_outstanding": 369750000,
+    "shares": 369.747286,
+    "shares_outstanding": 369747286,
     "shares_display": "369.75 M",
     "mcap": 255125.6,
     "liq_val_1": -100.40100740590697,
@@ -439332,17 +445488,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 36.6,
     "pe_forward": 32.2,
-    "pb_trailing": 4.8,
+    "pb_trailing": 4.843022836424382,
     "pb_forward": 4.3,
     "div_yield": 0.26,
     "ps_ratio": 8.7,
     "fcf_to_ev": 4.85,
     "fcf_to_mcap": 2.87,
-    "liab_to_assets": 53.4,
-    "cash_to_assets": 3.6,
-    "current_ratio": 1.55,
-    "roe": 13.2,
-    "roa": 6.2,
+    "liab_to_assets": 53.446904766112354,
+    "cash_to_assets": 3.590930779154223,
+    "current_ratio": 1.5505342093038688,
+    "roe": 13.814812615073944,
+    "roa": 6.893213474266521,
     "moat": {
       "ticker": "TMO",
       "period": "2026Q2",
@@ -440026,7 +446182,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TMO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:56.961815+00:00",
+      "fetchedAt": "2026-10-17T16:37:11.855254+00:00",
       "balanceDate": "2026-06-27",
       "filingDate": "2026-07-31",
       "quoteDate": "2026-10-16",
@@ -440040,7 +446196,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -440054,8 +446210,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 9451000000,
         "inventory": 5627000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 369747286,
+      "shareSource": {
+        "shares": 369.747286,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:11.855254+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/97745/000009774526000144/tmo-20260627.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 369.747286,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:11.855254+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/97745/000009774526000144/tmo-20260627.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "ABT": {
     "reported_growth": {
@@ -440114,6 +446288,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 51110000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Abbott Laboratories",
     "company_name": "Abbott Laboratories",
     "exchange": "NYSE",
@@ -440121,13 +446331,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Health Care Equipment",
     "reportedCurrency": "USD",
     "price": 104.88,
-    "shares": 1730.38,
-    "shares_outstanding": 1730380000,
-    "shares_display": "1,730.38 M",
+    "shares": 1730.383296,
+    "shares_outstanding": 1730383296,
+    "shares_display": "1730.38 M",
     "mcap": 181482.6,
-    "liq_val_1": -19.033933161642768,
-    "liq_val_2": -23.87523047385524,
-    "liq_val_3": -29.964459388850422,
+    "liq_val_1": -19.033933161592426,
+    "liq_val_2": -23.87523047379209,
+    "liq_val_3": -29.964459388771168,
     "debt": 32608.0,
     "cash": 5603.0,
     "short_term_investments": 499.0,
@@ -443250,17 +449460,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 33.5,
     "pe_forward": 29.5,
-    "pb_trailing": 3.6,
+    "pb_trailing": 3.5508237135589904,
     "pb_forward": 3.2,
     "div_yield": 2.35,
     "ps_ratio": 5.2,
     "fcf_to_ev": 3.83,
     "fcf_to_mcap": 4.8,
-    "liab_to_assets": 52.6,
-    "cash_to_assets": 5.1,
-    "current_ratio": 1.38,
-    "roe": 10.6,
-    "roa": 5.0,
+    "liab_to_assets": 52.605411344595524,
+    "cash_to_assets": 5.1302476766012,
+    "current_ratio": 1.3762770854384192,
+    "roe": 10.728764955997232,
+    "roa": 6.458410219169276,
     "moat": {
       "ticker": "ABT",
       "period": "2026Q2",
@@ -443950,7 +450160,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ABT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:57.486370+00:00",
+      "fetchedAt": "2026-10-17T16:37:12.231020+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-28",
       "quoteDate": "2026-10-16",
@@ -443964,7 +450174,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -443978,8 +450188,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 8599000000,
         "inventory": 7315000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 1730383296,
+      "shareSource": {
+        "shares": 1730.383296,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:12.231020+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1800/000162828026050134/abt-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 1730.383296,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:12.231020+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1800/000162828026050134/abt-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "DHR": {
     "reported_growth": {
@@ -444038,6 +450266,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-26",
+        "reason": null,
+        "bookEquity": 52581000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-26",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-26",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-26",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-26",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-26",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Danaher",
     "company_name": "Danaher Corporation",
     "exchange": "NYSE",
@@ -444045,13 +450309,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Life Sciences Tools & Services",
     "reportedCurrency": "USD",
     "price": 229.04,
-    "shares": 702.99,
-    "shares_outstanding": 702990000,
+    "shares": 702.986054,
+    "shares_outstanding": 702986054,
     "shares_display": "702.99 M",
     "mcap": 161011.9,
-    "liq_val_1": -37.561200325072505,
-    "liq_val_2": -43.57981189770579,
-    "liq_val_3": -50.410672869529236,
+    "liq_val_1": -37.56120032503518,
+    "liq_val_2": -43.57981189766248,
+    "liq_val_3": -50.41067286947914,
     "debt": 26558.0,
     "cash": 4348.0,
     "short_term_investments": 0.0,
@@ -447174,17 +453438,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 40.2,
     "pe_forward": 35.4,
-    "pb_trailing": 3.1,
+    "pb_trailing": 3.062168844259333,
     "pb_forward": 2.8,
     "div_yield": 0.6,
     "ps_ratio": 7.4,
     "fcf_to_ev": 4.65,
     "fcf_to_mcap": 3.39,
-    "liab_to_assets": 43.1,
-    "cash_to_assets": 4.7,
-    "current_ratio": 1.65,
-    "roe": 7.6,
-    "roa": 4.3,
+    "liab_to_assets": 43.0738250673942,
+    "cash_to_assets": 4.7073088873731965,
+    "current_ratio": 1.6509561998766193,
+    "roe": 7.650857950854128,
+    "roa": 4.905660377358491,
     "moat": {
       "ticker": "DHR",
       "period": "2026Q2",
@@ -447862,7 +454126,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "DHR",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:58.068638+00:00",
+      "fetchedAt": "2026-10-17T16:37:12.466779+00:00",
       "balanceDate": "2026-06-26",
       "filingDate": "2026-07-21",
       "quoteDate": "2026-10-16",
@@ -447876,7 +454140,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -447890,8 +454154,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 3965000000,
         "inventory": 3260000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 702986054,
+      "shareSource": {
+        "shares": 702.986054,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:12.466779+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/313616/000031361626000161/dhr-20260626.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 702.986054,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:12.466779+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/313616/000031361626000161/dhr-20260626.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "ISRG": {
     "reported_growth": {
@@ -447950,6 +454232,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 18168400000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Intuitive Surgical",
     "company_name": "Intuitive Surgical, Inc.",
     "exchange": "NASDAQ",
@@ -447957,8 +454275,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Health Care Equipment",
     "reportedCurrency": "USD",
     "price": 426.7,
-    "shares": 353.28,
-    "shares_outstanding": 353280000,
+    "shares": 353.278,
+    "shares_outstanding": 353278000,
     "shares_display": "353.28 M",
     "mcap": 150743.7,
     "liq_val_1": 19.711954891048975,
@@ -451084,17 +457402,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 48.0,
     "pe_forward": 42.2,
-    "pb_trailing": 8.3,
+    "pb_trailing": 8.297026705708813,
     "pb_forward": 7.5,
     "div_yield": 0.0,
     "ps_ratio": 11.7,
     "fcf_to_ev": 6.08,
     "fcf_to_mcap": 2.14,
-    "liab_to_assets": 12.4,
-    "cash_to_assets": 25.0,
-    "current_ratio": 4.96,
-    "roe": 17.3,
-    "roa": 15.0,
+    "liab_to_assets": 12.353065154287576,
+    "cash_to_assets": 24.985869346541104,
+    "current_ratio": 4.962660564771959,
+    "roe": 17.58855074331632,
+    "roa": 15.566973496270434,
     "moat": {
       "ticker": "ISRG",
       "period": "2026Q2",
@@ -451748,7 +458066,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ISRG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:58.592976+00:00",
+      "fetchedAt": "2026-10-17T16:37:12.700778+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-21",
       "quoteDate": "2026-10-16",
@@ -451762,7 +458080,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -451776,8 +458094,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1673200000,
         "inventory": 2028700000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 353278000,
+      "shareSource": {
+        "shares": 353.278,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:12.700778+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 353.278,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:12.700778+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "PFE": {
     "reported_growth": {
@@ -451836,6 +458172,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-28",
+        "reason": null,
+        "bookEquity": 85190000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-28",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-28",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Pfizer",
     "company_name": "Pfizer Inc.",
     "exchange": "NYSE",
@@ -451845,7 +458217,7 @@ window.FULL_MARKET_DATA = {
     "price": 29.58,
     "shares": 5699.67,
     "shares_outstanding": 5699670000,
-    "shares_display": "5,699.67 M",
+    "shares_display": "5699.67 M",
     "mcap": 168596.2,
     "liq_val_1": -13.03250889963805,
     "liq_val_2": -15.610640616035665,
@@ -454968,21 +461340,21 @@ window.FULL_MARKET_DATA = {
     ],
     "fair_val": 64.35,
     "default_fair_val": 64.35,
-    "premium_pct": -54.0,
+    "premium_pct": -54,
     "is_undervalued": true,
     "pe_trailing": 38.9,
     "pe_forward": 34.2,
-    "pb_trailing": 2.0,
+    "pb_trailing": 1.979060922643503,
     "pb_forward": 1.8,
     "div_yield": 5.8,
     "ps_ratio": 3.8,
     "fcf_to_ev": 2.63,
     "fcf_to_mcap": 6.52,
-    "liab_to_assets": 57.5,
-    "cash_to_assets": 5.8,
-    "current_ratio": 1.27,
-    "roe": 5.1,
-    "roa": 2.2,
+    "liab_to_assets": 57.49436934137453,
+    "cash_to_assets": 5.816607086923447,
+    "current_ratio": 1.2668627090608344,
+    "roe": 4.887535937764248,
+    "roa": 2.10339891797472,
     "moat": {
       "ticker": "PFE",
       "period": "2026Q2",
@@ -455654,7 +462026,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "PFE",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:59.197210+00:00",
+      "fetchedAt": "2026-10-17T16:37:12.936969+00:00",
       "balanceDate": "2026-06-28",
       "filingDate": "2026-08-04",
       "quoteDate": "2026-10-16",
@@ -455668,7 +462040,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -455682,8 +462054,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 12490000000,
         "inventory": 9945000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 5699670000,
+      "shareSource": {
+        "shares": 5699.67,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:12.936969+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/78003/000007800326000095/pfe-20260628.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 5699.67,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:12.936969+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/78003/000007800326000095/pfe-20260628.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "AMGN": {
     "reported_growth": {
@@ -455742,6 +462132,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 11688000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Amgen",
     "company_name": "Amgen Inc.",
     "exchange": "NASDAQ",
@@ -455749,8 +462175,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Biotechnology",
     "reportedCurrency": "USD",
     "price": 432.49,
-    "shares": 540.63,
-    "shares_outstanding": 540630000,
+    "shares": 540.632,
+    "shares_outstanding": 540632000,
     "shares_display": "540.63 M",
     "mcap": 233817.9,
     "liq_val_1": -90.61616774441764,
@@ -458878,17 +465304,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 26.7,
     "pe_forward": 23.5,
-    "pb_trailing": 20.0,
+    "pb_trailing": 20.004953798767968,
     "pb_forward": 18.0,
     "div_yield": 2.26,
     "ps_ratio": 5.7,
     "fcf_to_ev": 3.2,
     "fcf_to_mcap": 4.35,
-    "liab_to_assets": 87.8,
-    "cash_to_assets": 14.6,
-    "current_ratio": 1.37,
-    "roe": 74.8,
-    "roa": 9.1,
+    "liab_to_assets": 87.77904411380295,
+    "cash_to_assets": 14.626878156400632,
+    "current_ratio": 1.370912085326641,
+    "roe": 117.70328486806679,
+    "roa": 9.946869631500507,
     "moat": {
       "ticker": "AMGN",
       "period": "2026Q2",
@@ -459554,7 +465980,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AMGN",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:51:59.721788+00:00",
+      "fetchedAt": "2026-10-17T16:37:13.175449+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-05",
       "quoteDate": "2026-10-16",
@@ -459568,7 +465994,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -459582,8 +466008,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 10227000000,
         "inventory": 6220000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 540632000,
+      "shareSource": {
+        "shares": 540.632,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:13.175449+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/318154/000031815426000126/amgn-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 540.632,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:13.175449+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/318154/000031815426000126/amgn-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "BMY": {
     "reported_growth": {
@@ -459642,6 +466086,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 22319000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Bristol-Myers Squibb",
     "company_name": "Bristol-Myers Squibb Company",
     "exchange": "NYSE",
@@ -459651,7 +466131,7 @@ window.FULL_MARKET_DATA = {
     "price": 59.75,
     "shares": 2042.71,
     "shares_outstanding": 2042710000,
-    "shares_display": "2,042.71 M",
+    "shares_display": "2042.71 M",
     "mcap": 122051.9,
     "liq_val_1": -17.983952690298672,
     "liq_val_2": -21.753993469459687,
@@ -462778,17 +469258,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 13.1,
     "pe_forward": 11.5,
-    "pb_trailing": 5.5,
+    "pb_trailing": 5.468520094986334,
     "pb_forward": 5.0,
     "div_yield": 4.17,
     "ps_ratio": 2.7,
     "fcf_to_ev": 2.49,
     "fcf_to_mcap": 9.37,
-    "liab_to_assets": 74.5,
-    "cash_to_assets": 12.6,
-    "current_ratio": 1.53,
-    "roe": 41.6,
-    "roa": 10.6,
+    "liab_to_assets": 74.53157450304676,
+    "cash_to_assets": 12.62866010909008,
+    "current_ratio": 1.5316469264162067,
+    "roe": 53.237740177803275,
+    "roa": 9.80396298956441,
     "moat": {
       "ticker": "BMY",
       "period": "2026Q2",
@@ -463460,7 +469940,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "BMY",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:00.288577+00:00",
+      "fetchedAt": "2026-10-17T16:37:13.409846+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-30",
       "quoteDate": "2026-10-16",
@@ -463474,7 +469954,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -463488,8 +469968,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 10553000000,
         "inventory": 2737000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 2042710000,
+      "shareSource": {
+        "shares": 2042.71,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:13.409846+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/14272/000001427226000020/bmy-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 2042.71,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:13.409846+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/14272/000001427226000020/bmy-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "MDT": {
     "reported_growth": {
@@ -463548,6 +470046,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "bookEquity": 50232000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Medtronic",
     "company_name": "Medtronic Plc",
     "exchange": "NYSE",
@@ -463557,7 +470091,7 @@ window.FULL_MARKET_DATA = {
     "price": 94.75,
     "shares": 1279.17,
     "shares_outstanding": 1279170000,
-    "shares_display": "1,279.17 M",
+    "shares_display": "1279.17 M",
     "mcap": 121201.4,
     "liq_val_1": -14.123220525809705,
     "liq_val_2": -26.249677525270293,
@@ -466684,17 +473218,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 23.2,
     "pe_forward": 20.4,
-    "pb_trailing": 2.4,
+    "pb_trailing": 2.4128324573976747,
     "pb_forward": 2.2,
     "div_yield": 3.01,
     "ps_ratio": 4.9,
     "fcf_to_ev": 3.8,
     "fcf_to_mcap": 5.06,
-    "liab_to_assets": 45.5,
-    "cash_to_assets": 9.5,
-    "current_ratio": 2.07,
-    "roe": 10.4,
-    "roa": 5.6,
+    "liab_to_assets": 45.50189698411678,
+    "cash_to_assets": 9.451696568280711,
+    "current_ratio": 2.0671243325705566,
+    "roe": 10.920176226170838,
+    "roa": 5.749021676999516,
     "moat": {
       "ticker": "MDT",
       "period": "2027Q1",
@@ -467372,7 +473906,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MDT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:00.815858+00:00",
+      "fetchedAt": "2026-10-17T16:37:13.643623+00:00",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-09-03",
       "quoteDate": "2026-10-16",
@@ -467386,7 +473920,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -467400,8 +473934,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 224000000,
         "inventory": -240000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 1279170000,
+      "shareSource": {
+        "shares": 1279.17,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:13.643623+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1613103/000162828026060473/mdt-20260731.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 1279.17,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:13.643623+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1613103/000162828026060473/mdt-20260731.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "GILD": {
     "reported_growth": {
@@ -467460,6 +474012,46 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 11828000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeNetIncome"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeNetIncome"
+        ]
+      }
+    },
     "name": "Gilead Sciences",
     "company_name": "Gilead Sciences, Inc.",
     "exchange": "NASDAQ",
@@ -467467,13 +474059,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Biotechnology",
     "reportedCurrency": "USD",
     "price": 156.19,
-    "shares": 1239.96,
-    "shares_outstanding": 1239960000,
-    "shares_display": "1,239.96 M",
+    "shares": 1239.955155,
+    "shares_outstanding": 1239955155,
+    "shares_display": "1239.96 M",
     "mcap": 193668.6,
-    "liq_val_1": -19.09181949411308,
-    "liq_val_2": -23.725454812975357,
-    "liq_val_3": -27.774391566669216,
+    "liq_val_1": -19.09181949406872,
+    "liq_val_2": -23.72545481292023,
+    "liq_val_3": -27.77439156660468,
     "debt": 26246.0,
     "cash": 3179.0,
     "short_term_investments": 0.0,
@@ -470596,17 +477188,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 24.0,
     "pe_forward": 21.1,
-    "pb_trailing": 16.4,
+    "pb_trailing": 16.373740277308084,
     "pb_forward": 14.8,
     "div_yield": 2.1,
     "ps_ratio": 3.7,
     "fcf_to_ev": 3.13,
     "fcf_to_mcap": 6.82,
-    "liab_to_assets": 76.2,
-    "cash_to_assets": 6.4,
-    "current_ratio": 1.27,
-    "roe": 18.0,
-    "roa": 8.0,
+    "liab_to_assets": 76.2084194319517,
+    "cash_to_assets": 6.440176654106397,
+    "current_ratio": 1.265426497277677,
+    "roe": -16.467598475222363,
+    "roa": -5.814683871430878,
     "moat": {
       "ticker": "GILD",
       "period": "2026Q2",
@@ -471272,7 +477864,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "GILD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:01.361788+00:00",
+      "fetchedAt": "2026-10-17T16:37:13.879374+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-06",
       "quoteDate": "2026-10-16",
@@ -471286,7 +477878,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -471300,8 +477892,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 5055000000,
         "inventory": 1953000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 1239955155,
+      "shareSource": {
+        "shares": 1239.955155,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:13.879374+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/882095/000088209526000031/gild-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 1239.955155,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:13.879374+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/882095/000088209526000031/gild-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "ILMN": {
     "reported_growth": {
@@ -471360,6 +477970,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-28",
+        "reason": null,
+        "bookEquity": 2838000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-28",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-28",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Illumina",
     "company_name": "Illumina, Inc.",
     "exchange": "NASDAQ",
@@ -471367,7 +478013,7 @@ window.FULL_MARKET_DATA = {
     "industry": "Life Sciences Tools & Services",
     "reportedCurrency": "USD",
     "price": 262.54,
-    "shares": 151.0,
+    "shares": 151,
     "shares_outstanding": 151000000,
     "shares_display": "151.00 M",
     "mcap": 39643.5,
@@ -474496,17 +481142,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 48.1,
     "pe_forward": 42.3,
-    "pb_trailing": 14.0,
+    "pb_trailing": 13.968816067653277,
     "pb_forward": 12.6,
     "div_yield": 0.0,
     "ps_ratio": 10.6,
     "fcf_to_ev": 6.8,
     "fcf_to_mcap": 2.37,
-    "liab_to_assets": 57.3,
-    "cash_to_assets": 17.6,
-    "current_ratio": 1.8,
-    "roe": 29.1,
-    "roa": 12.4,
+    "liab_to_assets": 57.32330827067669,
+    "cash_to_assets": 17.56390977443609,
+    "current_ratio": 1.7959442332065907,
+    "roe": 36.53675819309123,
+    "roa": 13.553474618038441,
     "moat": {
       "ticker": "ILMN",
       "period": "2026Q2",
@@ -475148,7 +481794,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ILMN",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:01.930839+00:00",
+      "fetchedAt": "2026-10-17T16:37:14.113239+00:00",
       "balanceDate": "2026-06-28",
       "filingDate": "2026-07-31",
       "quoteDate": "2026-10-16",
@@ -475162,7 +481808,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -475176,8 +481822,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 764000000,
         "inventory": 629000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 151000000,
+      "shareSource": {
+        "shares": 151,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:14.113239+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1110803/000111080326000160/ilmn-20260628.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 151,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:14.113239+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1110803/000111080326000160/ilmn-20260628.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "ZTS": {
     "reported_growth": {
@@ -475236,6 +481900,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 3148000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Zoetis",
     "company_name": "Zoetis Inc.",
     "exchange": "NYSE",
@@ -475243,13 +481943,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Pharmaceuticals",
     "reportedCurrency": "USD",
     "price": 79.32,
-    "shares": 413.22,
-    "shares_outstanding": 413220000,
+    "shares": 413.224,
+    "shares_outstanding": 413224000,
     "shares_display": "413.22 M",
     "mcap": 32776.9,
-    "liq_val_1": -13.486631947805547,
-    "liq_val_2": -18.65622519505159,
-    "liq_val_3": -24.812208390606543,
+    "liq_val_1": -13.486631947805549,
+    "liq_val_2": -18.656225195051594,
+    "liq_val_3": -24.812208390606546,
     "debt": 9238.0,
     "cash": 1676.0,
     "short_term_investments": 200.0,
@@ -478367,17 +485067,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 12.5,
     "pe_forward": 11.0,
-    "pb_trailing": 10.4,
+    "pb_trailing": 10.411975857687422,
     "pb_forward": 9.4,
     "div_yield": 2.71,
     "ps_ratio": 3.5,
     "fcf_to_ev": 3.9,
     "fcf_to_mcap": 7.22,
-    "liab_to_assets": 79.1,
-    "cash_to_assets": 11.1,
-    "current_ratio": 3.08,
-    "roe": 83.1,
-    "roa": 17.4,
+    "liab_to_assets": 79.12051469125157,
+    "cash_to_assets": 11.116269814949924,
+    "current_ratio": 3.083939835031538,
+    "roe": 52.561784207353824,
+    "roa": 18.067546101250088,
     "moat": {
       "ticker": "ZTS",
       "period": "2026Q2",
@@ -479012,7 +485712,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ZTS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:02.972185+00:00",
+      "fetchedAt": "2026-10-17T16:37:14.349038+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-06",
       "quoteDate": "2026-10-16",
@@ -479026,7 +485726,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -479040,8 +485740,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1571000000,
         "inventory": 2574000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 413224000,
+      "shareSource": {
+        "shares": 413.224,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:14.349038+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1555280/000155528026000040/zts-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 413.224,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:14.349038+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1555280/000155528026000040/zts-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "ALGN": {
     "reported_growth": {
@@ -479100,6 +485818,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 4232453000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Align Technology",
     "company_name": "Align Technology, Inc.",
     "exchange": "NASDAQ",
@@ -479107,8 +485861,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Health Care Supplies",
     "reportedCurrency": "USD",
     "price": 147.31,
-    "shares": 71.04,
-    "shares_outstanding": 71040000,
+    "shares": 71.0399,
+    "shares_outstanding": 71039900,
     "shares_display": "71.04 M",
     "mcap": 10464.9,
     "liq_val_1": 6.727501024072388,
@@ -482230,17 +488984,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 25.3,
     "pe_forward": 22.3,
-    "pb_trailing": 2.5,
+    "pb_trailing": 2.4725377930953987,
     "pb_forward": 2.2,
     "div_yield": 0.0,
     "ps_ratio": 3.5,
     "fcf_to_ev": 8.55,
     "fcf_to_mcap": 7.22,
-    "liab_to_assets": 34.0,
-    "cash_to_assets": 17.2,
-    "current_ratio": 1.4,
-    "roe": 9.8,
-    "roa": 6.4,
+    "liab_to_assets": 34.04909108276156,
+    "cash_to_assets": 17.180788212879587,
+    "current_ratio": 1.3952914103920315,
+    "roe": 10.569929965377549,
+    "roa": 6.650132639898995,
     "moat": {
       "ticker": "ALGN",
       "period": "2026Q2",
@@ -482875,7 +489629,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ALGN",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:03.557563+00:00",
+      "fetchedAt": "2026-10-17T16:37:14.584712+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-05",
       "quoteDate": "2026-10-16",
@@ -482889,7 +489643,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -482903,8 +489657,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1148392000,
         "inventory": 212240000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 71039900,
+      "shareSource": {
+        "shares": 71.0399,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:14.584712+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1097149/000109714926000060/algn-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 71.0399,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:14.584712+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1097149/000109714926000060/algn-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "FMS": {
     "reported_growth": {
@@ -482963,6 +489735,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 14335996948.699999,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Fresenius Medical Care",
     "company_name": "Fresenius Medical Care AG & Co. KGaA",
     "exchange": "NYSE",
@@ -482970,13 +489778,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Health Care Services",
     "reportedCurrency": "EUR",
     "price": 22.17,
-    "shares": 532.22,
-    "shares_outstanding": 532220000,
+    "shares": 532.22011,
+    "shares_outstanding": 532220110,
     "shares_display": "532.22 M",
     "mcap": 11799.3,
-    "liq_val_1": -21.60759796281958,
-    "liq_val_2": -26.742808277158343,
-    "liq_val_3": -34.993295121874446,
+    "liq_val_1": -21.607597963368956,
+    "liq_val_2": -26.74280827783828,
+    "liq_val_3": -34.99329512276415,
     "debt": 12516.8509865,
     "cash": 1211.6302667,
     "short_term_investments": 443.09377,
@@ -486178,9 +492986,9 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 111.03035220251215,
-    "default_fair_val": 111.03035220251215,
-    "premium_pct": -80.0324870089907,
+    "fair_val": 111.03032925460299,
+    "default_fair_val": 111.03032925460299,
+    "premium_pct": -80.03248288207621,
     "is_undervalued": true,
     "pe_trailing": 10.791216716098411,
     "pe_forward": 9.496270710166602,
@@ -486797,7 +493605,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "FMS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:04.193710+00:00",
+      "fetchedAt": "2026-10-17T16:37:14.820767+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-04",
       "quoteDate": "2026-10-16",
@@ -486812,7 +493620,7 @@ window.FULL_MARKET_DATA = {
         "source": "RXI$US_N.B.EU"
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -486826,8 +493634,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 3824924481.7,
         "inventory": 2662270861.6,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 532220110,
+      "shareSource": {
+        "shares": 532.22011,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:14.820767+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1333141/000110465926090080/fms-20260630x6k.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 532.22011,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:14.820767+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1333141/000110465926090080/fms-20260630x6k.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "BDX": {
     "reported_growth": {
@@ -486886,6 +493712,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 24416000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Becton Dickinson",
     "company_name": "Becton, Dickinson and Company",
     "exchange": "NYSE",
@@ -486893,8 +493755,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Health Care Equipment",
     "reportedCurrency": "USD",
     "price": 191.75,
-    "shares": 272.39,
-    "shares_outstanding": 272390000,
+    "shares": 272.387,
+    "shares_outstanding": 272387000,
     "shares_display": "272.39 M",
     "mcap": 52230.2,
     "liq_val_1": -66.72491712159538,
@@ -490018,21 +496880,21 @@ window.FULL_MARKET_DATA = {
     ],
     "fair_val": 304.25,
     "default_fair_val": 304.25,
-    "premium_pct": -37.0,
+    "premium_pct": -37,
     "is_undervalued": true,
     "pe_trailing": 55.5,
     "pe_forward": 48.8,
-    "pb_trailing": 2.1,
+    "pb_trailing": 2.139179226736566,
     "pb_forward": 1.9,
     "div_yield": 3.37,
     "ps_ratio": 5.0,
     "fcf_to_ev": 2.63,
     "fcf_to_mcap": 4.99,
-    "liab_to_assets": 51.9,
-    "cash_to_assets": 1.4,
-    "current_ratio": 0.87,
-    "roe": 3.9,
-    "roa": 1.9,
+    "liab_to_assets": 51.86966549052847,
+    "cash_to_assets": 1.3975675622400505,
+    "current_ratio": 0.8654827732879625,
+    "roe": 3.6941074863581043,
+    "roa": 1.713963061454956,
     "moat": {
       "ticker": "BDX",
       "period": "2026Q3",
@@ -490704,7 +497566,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "BDX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:04.723583+00:00",
+      "fetchedAt": "2026-10-17T16:37:15.059528+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-06",
       "quoteDate": "2026-10-16",
@@ -490718,7 +497580,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -490732,8 +497594,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 2364000000,
         "inventory": 3316000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 272387000,
+      "shareSource": {
+        "shares": 272.387,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:15.059528+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/10795/000001079526000035/bdx-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 272.387,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:15.059528+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/10795/000001079526000035/bdx-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "ZBH": {
     "reported_growth": {
@@ -490792,6 +497672,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 12623900000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Zimmer Biomet",
     "company_name": "Zimmer Biomet Holdings, Inc.",
     "exchange": "NYSE",
@@ -490799,8 +497715,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Health Care Equipment",
     "reportedCurrency": "USD",
     "price": 94.98,
-    "shares": 190.74,
-    "shares_outstanding": 190740000,
+    "shares": 190.738,
+    "shares_outstanding": 190738000,
     "shares_display": "190.74 M",
     "mcap": 18116.3,
     "liq_val_1": -26.57362455305183,
@@ -493928,17 +500844,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 22.5,
     "pe_forward": 19.8,
-    "pb_trailing": 1.4,
+    "pb_trailing": 1.4350794920745569,
     "pb_forward": 1.3,
     "div_yield": 1.04,
     "ps_ratio": 2.5,
     "fcf_to_ev": 3.18,
     "fcf_to_mcap": 10.1,
-    "liab_to_assets": 44.6,
-    "cash_to_assets": 1.8,
-    "current_ratio": 1.69,
-    "roe": 6.4,
-    "roa": 3.5,
+    "liab_to_assets": 44.58895156550193,
+    "cash_to_assets": 1.798419145707042,
+    "current_ratio": 1.6912891986062717,
+    "roe": 6.441516966067865,
+    "roa": 3.52852163340637,
     "moat": {
       "ticker": "ZBH",
       "period": "2026Q2",
@@ -494580,7 +501496,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ZBH",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:05.252673+00:00",
+      "fetchedAt": "2026-10-17T16:37:15.302560+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-05",
       "quoteDate": "2026-10-16",
@@ -494594,7 +501510,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -494608,8 +501524,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1769500000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 190738000,
+      "shareSource": {
+        "shares": 190.738,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:15.302560+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1136869/000119312526335044/zbh-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 190.738,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:15.302560+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1136869/000119312526335044/zbh-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "DXCM": {
     "reported_growth": {
@@ -494668,6 +501602,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 2621400000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Dexcom",
     "company_name": "DexCom, Inc.",
     "exchange": "NASDAQ",
@@ -494675,8 +501645,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Health Care Equipment",
     "reportedCurrency": "USD",
     "price": 86.04,
-    "shares": 377.36,
-    "shares_outstanding": 377360000,
+    "shares": 377.361,
+    "shares_outstanding": 377361000,
     "shares_display": "377.36 M",
     "mcap": 32468.1,
     "liq_val_1": 0.6696505468238636,
@@ -497798,23 +504768,23 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 68.0,
-    "default_fair_val": 68.0,
+    "fair_val": 68,
+    "default_fair_val": 68,
     "premium_pct": 26.5,
     "is_undervalued": false,
     "pe_trailing": 32.5,
     "pe_forward": 28.6,
-    "pb_trailing": 12.4,
+    "pb_trailing": 12.385786221103226,
     "pb_forward": 11.2,
     "div_yield": 0.0,
     "ps_ratio": 5.8,
     "fcf_to_ev": 5.59,
     "fcf_to_mcap": 4.33,
-    "liab_to_assets": 59.4,
-    "cash_to_assets": 30.2,
-    "current_ratio": 1.73,
-    "roe": 38.1,
-    "roa": 15.5,
+    "liab_to_assets": 59.391507753318976,
+    "cash_to_assets": 30.161262838287918,
+    "current_ratio": 1.733299401959537,
+    "roe": 38.851968442734446,
+    "roa": 13.644056230380782,
     "moat": {
       "ticker": "DXCM",
       "period": "2026Q2",
@@ -498456,7 +505426,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "DXCM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:05.777946+00:00",
+      "fetchedAt": "2026-10-17T16:37:15.539896+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-30",
       "quoteDate": "2026-10-16",
@@ -498470,7 +505440,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -498484,8 +505454,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1257700000,
         "inventory": 726400000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 377361000,
+      "shareSource": {
+        "shares": 377.361,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:15.539896+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1093557/000109355726000143/dxcm-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 377.361,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:15.539896+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1093557/000109355726000143/dxcm-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "RMD": {
     "reported_growth": {
@@ -498544,6 +505532,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 6585393000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "ResMed",
     "company_name": "ResMed Inc.",
     "exchange": "NYSE",
@@ -498551,13 +505575,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Health Care Equipment",
     "reportedCurrency": "USD",
     "price": 238.97,
-    "shares": 140.64,
-    "shares_outstanding": 140640000,
+    "shares": 140.639247,
+    "shares_outstanding": 140639247,
     "shares_display": "140.64 M",
     "mcap": 33608.6,
-    "liq_val_1": 13.823893695735462,
-    "liq_val_2": 2.7770761599373137,
-    "liq_val_3": -6.479862623189973,
+    "liq_val_1": 13.823893695904102,
+    "liq_val_2": 2.777076159971192,
+    "liq_val_3": -6.479862623269023,
     "debt": 825.9,
     "cash": 1469.2,
     "short_term_investments": 0.0,
@@ -501680,17 +508704,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 22.1,
     "pe_forward": 19.4,
-    "pb_trailing": 5.1,
+    "pb_trailing": 5.103507110357726,
     "pb_forward": 4.6,
     "div_yield": 1.82,
     "ps_ratio": 2.9,
     "fcf_to_ev": 4.4,
     "fcf_to_mcap": 8.6,
-    "liab_to_assets": 26.6,
-    "cash_to_assets": 16.4,
-    "current_ratio": 3.1,
-    "roe": 23.1,
-    "roa": 17.0,
+    "liab_to_assets": 26.55108493801549,
+    "cash_to_assets": 16.38681902085111,
+    "current_ratio": 3.0999268874855748,
+    "roe": 25.52494956734065,
+    "roa": 18.634941734497406,
     "moat": {
       "ticker": "RMD",
       "period": "2026Q4",
@@ -502350,7 +509374,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "RMD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:06.305707+00:00",
+      "fetchedAt": "2026-10-17T16:37:15.776701+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-13",
       "quoteDate": "2026-10-16",
@@ -502364,7 +509388,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -502378,8 +509402,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1036233000,
         "inventory": 945805000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 140639247,
+      "shareSource": {
+        "shares": 140.639247,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:15.776701+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/943819/000094381926000047/rmd-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 140.639247,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:15.776701+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/943819/000094381926000047/rmd-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "COR": {
     "reported_growth": {
@@ -502438,6 +509480,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 3050958000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Cencora",
     "company_name": "Cencora, Inc.",
     "exchange": "NYSE",
@@ -502445,13 +509523,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Health Care Distributors",
     "reportedCurrency": "USD",
     "price": 340.92,
-    "shares": 190.83,
-    "shares_outstanding": 190830000,
+    "shares": 190.827165,
+    "shares_outstanding": 190827165,
     "shares_display": "190.83 M",
     "mcap": 65056.8,
-    "liq_val_1": -132.22082401068232,
-    "liq_val_2": -245.6543071310413,
-    "liq_val_3": -407.4428868644618,
+    "liq_val_1": -132.22082401108878,
+    "liq_val_2": -245.65430713179646,
+    "liq_val_3": -407.44288686571434,
     "debt": 11723.2,
     "cash": 2815.3,
     "short_term_investments": 0.0,
@@ -505572,17 +512650,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 24.8,
     "pe_forward": 21.8,
-    "pb_trailing": 21.3,
+    "pb_trailing": 21.32340071544741,
     "pb_forward": 19.2,
     "div_yield": 0.72,
     "ps_ratio": 4.0,
     "fcf_to_ev": 3.7,
     "fcf_to_mcap": 6.24,
-    "liab_to_assets": 96.1,
-    "cash_to_assets": 3.4,
-    "current_ratio": 0.93,
-    "roe": 86.0,
-    "roa": 3.1,
+    "liab_to_assets": 96.13499239125598,
+    "cash_to_assets": 3.3593131949144226,
+    "current_ratio": 0.9347608953093532,
+    "roe": 132.55238252028968,
+    "roa": 3.5490844296418302,
     "moat": {
       "ticker": "COR",
       "period": "2026Q3",
@@ -506236,7 +513314,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "COR",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:06.831926+00:00",
+      "fetchedAt": "2026-10-17T16:37:16.012475+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-05",
       "quoteDate": "2026-10-16",
@@ -506250,7 +513328,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -506264,8 +513342,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 25448105000,
         "inventory": 21030344000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 190827165,
+      "shareSource": {
+        "shares": 190.827165,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:16.012475+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1140859/000114085926000034/cor-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 190.827165,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:16.012475+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1140859/000114085926000034/cor-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "STE": {
     "reported_growth": {
@@ -506324,6 +513420,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 7206700000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "STERIS",
     "company_name": "STERIS plc",
     "exchange": "NYSE",
@@ -506331,8 +513463,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Health Care Equipment",
     "reportedCurrency": "USD",
     "price": 222.66,
-    "shares": 97.5,
-    "shares_outstanding": 97500000,
+    "shares": 97.5001,
+    "shares_outstanding": 97500100,
     "shares_display": "97.50 M",
     "mcap": 21709.4,
     "liq_val_1": -10.9640913188807,
@@ -509455,17 +516587,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 27.0,
     "pe_forward": 23.8,
-    "pb_trailing": 3.0,
+    "pb_trailing": 3.01239124703401,
     "pb_forward": 2.7,
     "div_yield": 1.14,
     "ps_ratio": 5.9,
     "fcf_to_ev": 5.21,
     "fcf_to_mcap": 4.26,
-    "liab_to_assets": 32.7,
-    "cash_to_assets": 4.5,
-    "current_ratio": 1.91,
-    "roe": 11.2,
-    "roa": 7.5,
+    "liab_to_assets": 32.738145136502084,
+    "cash_to_assets": 4.492320302530714,
+    "current_ratio": 1.9058676848749319,
+    "roe": 11.572516889463849,
+    "roa": 7.737626141278231,
     "moat": {
       "ticker": "STE",
       "period": "2027Q1",
@@ -510113,7 +517245,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "STE",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:07.551746+00:00",
+      "fetchedAt": "2026-10-17T16:37:16.249147+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-07",
       "quoteDate": "2026-10-16",
@@ -510127,7 +517259,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -510141,8 +517273,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1013200000,
         "inventory": 712100000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 97500100,
+      "shareSource": {
+        "shares": 97.5001,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:16.249147+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1757898/000162828026054830/ste-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 97.5001,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:16.249147+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1757898/000162828026054830/ste-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "MCK": {
     "reported_growth": {
@@ -510201,6 +517351,44 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": -4240000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeEquity"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "McKesson",
     "company_name": "McKesson Corporation",
     "exchange": "NYSE",
@@ -510208,13 +517396,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Health Care Distributors",
     "reportedCurrency": "USD",
     "price": 1004.84,
-    "shares": 116.59,
-    "shares_outstanding": 116590000,
+    "shares": 116.590363,
+    "shares_outstanding": 116590363,
     "shares_display": "116.59 M",
     "mcap": 117154.7,
-    "liq_val_1": -251.79611114153536,
-    "liq_val_2": -425.83022063295317,
-    "liq_val_3": -746.4596366334374,
+    "liq_val_1": -251.7961111417073,
+    "liq_val_2": -425.8302206332439,
+    "liq_val_3": -746.4596366339472,
     "debt": 11701.0,
     "cash": 5164.0,
     "short_term_investments": 0.0,
@@ -513333,17 +520521,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 25.5,
     "pe_forward": 22.4,
-    "pb_trailing": 5.0,
+    "pb_trailing": -27.630825471698113,
     "pb_forward": 4.5,
     "div_yield": 0.34,
     "ps_ratio": 4.7,
     "fcf_to_ev": 2.74,
     "fcf_to_mcap": 5.28,
-    "liab_to_assets": 104.4,
-    "cash_to_assets": 5.8,
-    "current_ratio": 0.89,
-    "roe": 18.0,
-    "roa": 5.2,
+    "liab_to_assets": 104.37450469829051,
+    "cash_to_assets": 5.846258349371674,
+    "current_ratio": 0.8931292284950821,
+    "roe": -233.45195729537366,
+    "roa": 5.647452374217511,
     "moat": {
       "ticker": "MCK",
       "period": "2027Q1",
@@ -513985,7 +521173,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MCK",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:08.083832+00:00",
+      "fetchedAt": "2026-10-17T16:37:16.483848+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-05",
       "quoteDate": "2026-10-16",
@@ -513999,7 +521187,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -514013,8 +521201,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 30316000000,
         "inventory": 26259000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 116590363,
+      "shareSource": {
+        "shares": 116.590363,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:16.483848+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/927653/000092765326000234/mck-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 116.590363,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:16.483848+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/927653/000092765326000234/mck-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "SYK": {
     "reported_growth": {
@@ -514073,6 +521279,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 23988000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Stryker",
     "company_name": "Stryker Corporation",
     "exchange": "NYSE",
@@ -514080,13 +521322,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Health Care Equipment",
     "reportedCurrency": "USD",
     "price": 294.66,
-    "shares": 383.57,
-    "shares_outstanding": 383570000,
+    "shares": 383.573,
+    "shares_outstanding": 383573000,
     "shares_display": "383.57 M",
     "mcap": 113023.6,
-    "liq_val_1": -24.82969343514794,
-    "liq_val_2": -38.35280376877414,
-    "liq_val_3": -53.35620598947268,
+    "liq_val_1": -24.829693435147938,
+    "liq_val_2": -38.35280376877413,
+    "liq_val_3": -53.35620598947267,
     "debt": 14942.0,
     "cash": 3476.0,
     "short_term_investments": 85.0,
@@ -517209,17 +524451,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 30.3,
     "pe_forward": 26.7,
-    "pb_trailing": 4.7,
+    "pb_trailing": 4.711672502918126,
     "pb_forward": 4.2,
     "div_yield": 1.17,
     "ps_ratio": 6.0,
     "fcf_to_ev": 4.09,
     "fcf_to_mcap": 4.16,
-    "liab_to_assets": 50.0,
-    "cash_to_assets": 7.3,
-    "current_ratio": 2.16,
-    "roe": 15.5,
-    "roa": 7.8,
+    "liab_to_assets": 49.952013352806176,
+    "cash_to_assets": 7.25224285416232,
+    "current_ratio": 2.157091561938959,
+    "roe": 17.597093105563683,
+    "roa": 8.04860676436943,
     "moat": {
       "ticker": "SYK",
       "period": "2026Q2",
@@ -517909,7 +525151,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "SYK",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:08.681459+00:00",
+      "fetchedAt": "2026-10-17T16:37:16.720322+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-31",
       "quoteDate": "2026-10-16",
@@ -517923,7 +525165,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -517937,8 +525179,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 3743000000,
         "inventory": 5521000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 383573000,
+      "shareSource": {
+        "shares": 383.573,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:16.720322+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/310764/000031076426000050/syk-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 383.573,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:16.720322+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/310764/000031076426000050/syk-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "VEEV": {
     "reported_growth": {
@@ -517997,6 +525257,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "bookEquity": 7431449000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Veeva Systems",
     "company_name": "Veeva Systems Inc.",
     "exchange": "NYSE",
@@ -518004,8 +525300,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Health Care Technology",
     "reportedCurrency": "USD",
     "price": 310.36,
-    "shares": 161.91,
-    "shares_outstanding": 161910000,
+    "shares": 161.909,
+    "shares_outstanding": 161909000,
     "shares_display": "161.91 M",
     "mcap": 50250.1,
     "liq_val_1": 39.018541279360626,
@@ -521128,17 +528424,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 49.5,
     "pe_forward": 43.6,
-    "pb_trailing": 6.8,
+    "pb_trailing": 6.761817244523915,
     "pb_forward": 6.1,
     "div_yield": 0.0,
     "ps_ratio": 7.6,
     "fcf_to_ev": 4.32,
     "fcf_to_mcap": 3.27,
-    "liab_to_assets": 18.0,
-    "cash_to_assets": 79.9,
-    "current_ratio": 5.46,
-    "roe": 13.7,
-    "roa": 11.2,
+    "liab_to_assets": 17.977195484040514,
+    "cash_to_assets": 79.94225969934735,
+    "current_ratio": 5.457760912119235,
+    "roe": 15.28607422506669,
+    "roa": 12.685558590634056,
     "moat": {
       "ticker": "VEEV",
       "period": "2027Q2",
@@ -521773,7 +529069,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "VEEV",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:09.206160+00:00",
+      "fetchedAt": "2026-10-17T16:37:16.958254+00:00",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-08-27",
       "quoteDate": "2026-10-16",
@@ -521787,7 +529083,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -521801,8 +529097,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 496677000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 161909000,
+      "shareSource": {
+        "shares": 161.909,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:16.958254+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1393052/000139305226000036/veev-20260731.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 161.909,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:16.958254+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1393052/000139305226000036/veev-20260731.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "LH": {
     "reported_growth": {
@@ -521859,6 +529173,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 8606800000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Labcorp",
@@ -524997,17 +532347,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 25.7,
     "pe_forward": 22.6,
-    "pb_trailing": 3.0,
+    "pb_trailing": 2.995968304131617,
     "pb_forward": 2.7,
     "div_yield": 0.93,
     "ps_ratio": 5.6,
     "fcf_to_ev": 4.6,
     "fcf_to_mcap": 4.48,
-    "liab_to_assets": 53.5,
-    "cash_to_assets": 0.8,
-    "current_ratio": 1.8,
-    "roe": 11.6,
-    "roa": 5.4,
+    "liab_to_assets": 53.469348111135695,
+    "cash_to_assets": 0.765150574942128,
+    "current_ratio": 1.7955850513037748,
+    "roe": 11.829759108666659,
+    "roa": 5.549864617190571,
     "moat": {
       "ticker": "LH",
       "period": "2026Q2",
@@ -525667,7 +533017,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "LH",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:09.731801+00:00",
+      "fetchedAt": "2026-10-17T16:37:17.193818+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-05",
       "quoteDate": "2026-10-16",
@@ -525681,7 +533031,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -525695,8 +533045,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 2342400000,
         "inventory": 562200000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 81100000,
+      "shareSource": {
+        "shares": 81.1,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:17.193818+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/920148/000092014826000175/lh-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 81.1,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:17.193818+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/920148/000092014826000175/lh-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "REGN": {
     "reported_growth": {
@@ -525755,6 +533123,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 31711000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Regeneron",
     "company_name": "Regeneron Pharmaceuticals, Inc.",
     "exchange": "NASDAQ",
@@ -525762,13 +533166,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Biotechnology",
     "reportedCurrency": "USD",
     "price": 790.74,
-    "shares": 102.95,
-    "shares_outstanding": 102950000,
+    "shares": 102.954984,
+    "shares_outstanding": 102954984,
     "shares_display": "102.95 M",
     "mcap": 81410.6,
-    "liq_val_1": 81.85130697525592,
-    "liq_val_2": 46.331608385363594,
-    "liq_val_3": -19.662962601246956,
+    "liq_val_1": 81.85130697509506,
+    "liq_val_2": 46.33160838527254,
+    "liq_val_3": -19.66296260120831,
     "debt": 1986.6,
     "cash": 7994.6,
     "short_term_investments": 5538.8,
@@ -528891,17 +536295,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 18.8,
     "pe_forward": 16.5,
-    "pb_trailing": 2.6,
+    "pb_trailing": 2.567266879000978,
     "pb_forward": 2.3,
     "div_yield": 0.46,
     "ps_ratio": 5.8,
     "fcf_to_ev": 2.65,
     "fcf_to_mcap": 4.33,
-    "liab_to_assets": 24.0,
-    "cash_to_assets": 19.2,
-    "current_ratio": 3.34,
-    "roe": 13.7,
-    "roa": 10.4,
+    "liab_to_assets": 24.00910615863887,
+    "cash_to_assets": 19.15791996165828,
+    "current_ratio": 3.33526199689003,
+    "roe": 14.458447037132293,
+    "roa": 11.325982752124586,
     "moat": {
       "ticker": "REGN",
       "period": "2026Q2",
@@ -529536,7 +536940,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "REGN",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:10.255784+00:00",
+      "fetchedAt": "2026-10-17T16:37:17.431194+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-30",
       "quoteDate": "2026-10-16",
@@ -529550,7 +536954,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -529564,8 +536968,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 6565400000,
         "inventory": 3084300000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 102954984,
+      "shareSource": {
+        "shares": 102.954984,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:17.431194+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/872589/000087258926000025/regn-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 102.954984,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:17.431194+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/872589/000087258926000025/regn-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "VRTX": {
     "reported_growth": {
@@ -529624,6 +537046,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 20247900000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Vertex Pharmaceuticals",
     "company_name": "Vertex Pharmaceuticals Incorporated",
     "exchange": "NASDAQ",
@@ -529631,8 +537089,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Biotechnology",
     "reportedCurrency": "USD",
     "price": 499.74,
-    "shares": 253.46,
-    "shares_outstanding": 253460000,
+    "shares": 253.461,
+    "shares_outstanding": 253461000,
     "shares_display": "253.46 M",
     "mcap": 126664.6,
     "liq_val_1": 21.179984297386973,
@@ -532760,17 +540218,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 28.8,
     "pe_forward": 25.3,
-    "pb_trailing": 6.3,
+    "pb_trailing": 6.255690713604867,
     "pb_forward": 5.7,
     "div_yield": 0.0,
     "ps_ratio": 8.3,
     "fcf_to_ev": 2.68,
     "fcf_to_mcap": 3.0,
-    "liab_to_assets": 26.2,
-    "cash_to_assets": 28.6,
-    "current_ratio": 3.19,
-    "roe": 21.8,
-    "roa": 16.1,
+    "liab_to_assets": 26.165341151502552,
+    "cash_to_assets": 28.63404477214631,
+    "current_ratio": 3.1853779933467075,
+    "roe": 25.648310956367826,
+    "roa": 18.326975000728055,
     "moat": {
       "ticker": "VRTX",
       "period": "2026Q2",
@@ -533412,7 +540870,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "VRTX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:10.930625+00:00",
+      "fetchedAt": "2026-10-17T16:37:17.665879+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-04",
       "quoteDate": "2026-10-16",
@@ -533426,7 +540884,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -533440,8 +540898,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 2134300000,
         "inventory": 1765100000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 253461000,
+      "shareSource": {
+        "shares": 253.461,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:17.665879+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/875320/000087532026000259/vrtx-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 253.461,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:17.665879+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/875320/000087532026000259/vrtx-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "WMT": {
     "reported_growth": {
@@ -533500,6 +540976,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "bookEquity": 98238000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Walmart",
     "company_name": "Walmart Inc.",
     "exchange": "NYSE",
@@ -533507,13 +541019,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Consumer Staples Merchandise Retail",
     "reportedCurrency": "USD",
     "price": 118.81,
-    "shares": 7958.08,
-    "shares_outstanding": 7958080000,
-    "shares_display": "7,958.08 M",
+    "shares": 7958.079155,
+    "shares_outstanding": 7958079155,
+    "shares_display": "7958.08 M",
     "mcap": 945499.4,
-    "liq_val_1": -12.654435579053006,
-    "liq_val_2": -17.368387183368526,
-    "liq_val_3": -22.352001850616848,
+    "liq_val_1": -12.654435579059028,
+    "liq_val_2": -17.36838718337679,
+    "liq_val_3": -22.352001850627484,
     "debt": 73755.0,
     "cash": 11529.0,
     "short_term_investments": 0.0,
@@ -536636,17 +544148,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 42.8,
     "pe_forward": 37.7,
-    "pb_trailing": 9.6,
+    "pb_trailing": 9.624579083450396,
     "pb_forward": 8.6,
     "div_yield": 0.81,
     "ps_ratio": 17.5,
     "fcf_to_ev": 4.19,
     "fcf_to_mcap": 1.43,
-    "liab_to_assets": 64.4,
-    "cash_to_assets": 3.9,
-    "current_ratio": 0.77,
-    "roe": 22.5,
-    "roa": 7.5,
+    "liab_to_assets": 64.44334056900998,
+    "cash_to_assets": 3.9225759916165956,
+    "current_ratio": 0.7671279079823575,
+    "roe": 24.498945732993008,
+    "roa": 8.151028109157906,
     "moat": {
       "ticker": "WMT",
       "period": "2027Q2",
@@ -537342,7 +544854,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "WMT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:11.463786+00:00",
+      "fetchedAt": "2026-10-17T16:37:17.901264+00:00",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-08-28",
       "quoteDate": "2026-10-16",
@@ -537356,7 +544868,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -537370,8 +544882,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 11075000000,
         "inventory": 61600000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 7958079155,
+      "shareSource": {
+        "shares": 7958.079155,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:17.901264+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000154/wmt-20260731.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 7958.079155,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:17.901264+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000154/wmt-20260731.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "COST": {
     "reported_growth": {
@@ -537430,6 +544960,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-08-30",
+        "reason": null,
+        "bookEquity": 35803000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-08-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-08-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-08-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-08-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-08-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Costco Wholesale",
     "company_name": "Costco Wholesale Corporation",
     "exchange": "NASDAQ",
@@ -537437,13 +545003,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Consumer Staples Merchandise Retail",
     "reportedCurrency": "USD",
     "price": 989.11,
-    "shares": 443.13,
-    "shares_outstanding": 443130000,
+    "shares": 443.129349,
+    "shares_outstanding": 443129349,
     "shares_display": "443.13 M",
     "mcap": 438303.7,
-    "liq_val_1": -15.029471676916453,
-    "liq_val_2": -43.1291676869207,
-    "liq_val_3": -72.08053375861688,
+    "liq_val_1": -15.02947167690308,
+    "liq_val_2": -43.129167686882326,
+    "liq_val_3": -72.08053375855275,
     "debt": 8576.0,
     "cash": 21301.0,
     "short_term_investments": 1094.0,
@@ -540566,17 +548132,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 47.5,
     "pe_forward": 41.8,
-    "pb_trailing": 12.2,
+    "pb_trailing": 12.242094237913024,
     "pb_forward": 11.0,
     "div_yield": 0.56,
     "ps_ratio": 11.7,
     "fcf_to_ev": 5.15,
     "fcf_to_mcap": 2.14,
-    "liab_to_assets": 59.8,
-    "cash_to_assets": 23.9,
-    "current_ratio": 1.06,
-    "roe": 25.8,
-    "roa": 10.4,
+    "liab_to_assets": 59.792239878713005,
+    "cash_to_assets": 23.92161266775226,
+    "current_ratio": 1.0598380050964689,
+    "roe": 31.634892333013305,
+    "roa": 11.966432768258992,
     "moat": {
       "ticker": "COST",
       "period": "2026Q4",
@@ -541248,7 +548814,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "COST",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:11.991618+00:00",
+      "fetchedAt": "2026-10-17T16:37:18.138359+00:00",
       "balanceDate": "2026-08-30",
       "filingDate": "2026-10-07",
       "quoteDate": "2026-10-16",
@@ -541262,7 +548828,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -541276,8 +548842,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 3959000000,
         "inventory": 19324000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 443129349,
+      "shareSource": {
+        "shares": 443.129349,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:18.138359+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/cost-20260830.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 443.129349,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:18.138359+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/cost-20260830.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "PG": {
     "reported_growth": {
@@ -541336,6 +548920,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 54311000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Procter & Gamble",
     "company_name": "The Procter & Gamble Company",
     "exchange": "NYSE",
@@ -541343,13 +548963,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Household Products",
     "reportedCurrency": "USD",
     "price": 159.31,
-    "shares": 2322.67,
-    "shares_outstanding": 2322670000,
-    "shares_display": "2,322.67 M",
+    "shares": 2322.672312,
+    "shares_outstanding": 2322672312,
+    "shares_display": "2322.67 M",
     "mcap": 370024.9,
-    "liq_val_1": -19.80563498445199,
-    "liq_val_2": -22.964151991819858,
-    "liq_val_3": -26.808775253507598,
+    "liq_val_1": -19.805634984466977,
+    "liq_val_2": -22.964151991837237,
+    "liq_val_3": -26.808775253527884,
     "debt": 35026.0,
     "cash": 9942.0,
     "short_term_investments": 0.0,
@@ -544466,23 +552086,23 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 191.0,
-    "default_fair_val": 191.0,
+    "fair_val": 191,
+    "default_fair_val": 191,
     "premium_pct": -16.6,
     "is_undervalued": true,
     "pe_trailing": 23.1,
     "pe_forward": 20.3,
-    "pb_trailing": 6.8,
+    "pb_trailing": 6.813074699416325,
     "pb_forward": 6.1,
     "div_yield": 2.77,
     "ps_ratio": 5.8,
     "fcf_to_ev": 3.4,
     "fcf_to_mcap": 4.3,
-    "liab_to_assets": 57.1,
-    "cash_to_assets": 7.9,
-    "current_ratio": 0.68,
-    "roe": 29.5,
-    "roa": 12.7,
+    "liab_to_assets": 57.07352929553197,
+    "cash_to_assets": 7.857984050078643,
+    "current_ratio": 0.6773143122964801,
+    "roe": 30.850572944705068,
+    "roa": 12.81312135174198,
     "moat": {
       "ticker": "PG",
       "period": "2026Q4",
@@ -545154,7 +552774,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "PG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:12.515733+00:00",
+      "fetchedAt": "2026-10-17T16:37:18.373283+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-04",
       "quoteDate": "2026-10-16",
@@ -545168,7 +552788,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -545182,8 +552802,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 6056000000,
         "inventory": 8170000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 2322672312,
+      "shareSource": {
+        "shares": 2322.672312,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:18.373283+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/80424/000008042426000103/pg-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 2322.672312,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:18.373283+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/80424/000008042426000103/pg-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "KO": {
     "reported_growth": {
@@ -545242,6 +552880,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-07-03",
+        "reason": null,
+        "bookEquity": 36150000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-07-03",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-07-03",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-07-03",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-07-03",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-07-03",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Coca-Cola",
     "company_name": "The Coca-Cola Company",
     "exchange": "NYSE",
@@ -545249,13 +552923,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Soft Drinks & Non-alcoholic Beverages",
     "reportedCurrency": "USD",
     "price": 93.9,
-    "shares": 4302.55,
-    "shares_outstanding": 4302550000,
-    "shares_display": "4,302.55 M",
+    "shares": 4302.549243,
+    "shares_outstanding": 4302549243,
+    "shares_display": "4302.55 M",
     "mcap": 404009.4,
-    "liq_val_1": -8.537031867730962,
-    "liq_val_2": -11.139186861821214,
-    "liq_val_3": -12.373129740832688,
+    "liq_val_1": -8.537031867737301,
+    "liq_val_2": -11.139186861829486,
+    "liq_val_3": -12.373129740841875,
     "debt": 43543.0,
     "cash": 16371.0,
     "short_term_investments": 3464.0,
@@ -548378,17 +556052,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 28.2,
     "pe_forward": 24.8,
-    "pb_trailing": 11.2,
+    "pb_trailing": 11.175917012448133,
     "pb_forward": 10.1,
     "div_yield": 2.74,
     "ps_ratio": 7.1,
     "fcf_to_ev": 3.13,
     "fcf_to_mcap": 3.54,
-    "liab_to_assets": 64.5,
-    "cash_to_assets": 15.2,
-    "current_ratio": 1.3,
-    "roe": 39.6,
-    "roa": 13.3,
+    "liab_to_assets": 64.49750745909083,
+    "cash_to_assets": 15.169288930894535,
+    "current_ratio": 1.3046031746031745,
+    "roe": 50.08221094979884,
+    "roa": 13.721449589295812,
     "moat": {
       "ticker": "KO",
       "period": "2026Q2",
@@ -549078,7 +556752,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "KO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:13.073143+00:00",
+      "fetchedAt": "2026-10-17T16:37:18.609650+00:00",
       "balanceDate": "2026-07-03",
       "filingDate": "2026-07-29",
       "quoteDate": "2026-10-16",
@@ -549092,7 +556766,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -549106,8 +556780,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 3732000000,
         "inventory": 4647000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 4302549243,
+      "shareSource": {
+        "shares": 4302.549243,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:18.609650+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/21344/000162828026050503/ko-20260703.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 4302.549243,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:18.609650+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/21344/000162828026050503/ko-20260703.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "PEP": {
     "reported_growth": {
@@ -549166,6 +556858,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-09-05",
+        "reason": null,
+        "bookEquity": 22292000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-09-05",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-09-05",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-09-05",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-09-05",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-09-05",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "PepsiCo",
     "company_name": "PepsiCo, Inc.",
     "exchange": "NASDAQ",
@@ -549173,13 +556901,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Soft Drinks & Non-alcoholic Beverages",
     "reportedCurrency": "USD",
     "price": 131.49,
-    "shares": 1362.74,
-    "shares_outstanding": 1362740000,
-    "shares_display": "1,362.74 M",
+    "shares": 1362.741178,
+    "shares_outstanding": 1362741178,
+    "shares_display": "1362.74 M",
     "mcap": 179186.8,
-    "liq_val_1": -41.77609084330691,
-    "liq_val_2": -47.1187047023229,
-    "liq_val_3": -57.47679767069835,
+    "liq_val_1": -41.77609139510423,
+    "liq_val_2": -47.11870532468785,
+    "liq_val_3": -57.47679842987763,
     "debt": 51881.0,
     "cash": 11163.0,
     "short_term_investments": 488.0,
@@ -552302,17 +560030,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 16.4,
     "pe_forward": 14.4,
-    "pb_trailing": 8.0,
+    "pb_trailing": 8.038166158263053,
     "pb_forward": 7.2,
     "div_yield": 4.4,
     "ps_ratio": 3.5,
     "fcf_to_ev": 2.98,
     "fcf_to_mcap": 7.06,
-    "liab_to_assets": 79.9,
-    "cash_to_assets": 10.0,
-    "current_ratio": 0.94,
-    "roe": 49.0,
-    "roa": 9.8,
+    "liab_to_assets": 79.91801814674572,
+    "cash_to_assets": 9.96910052154033,
+    "current_ratio": 0.9429465087317906,
+    "roe": 56.37507736744378,
+    "roa": 10.257324649486664,
     "moat": {
       "ticker": "PEP",
       "period": "2026Q3",
@@ -552972,7 +560700,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "PEP",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:13.598648+00:00",
+      "fetchedAt": "2026-10-17T16:37:18.844517+00:00",
       "balanceDate": "2026-09-05",
       "filingDate": "2026-10-08",
       "quoteDate": "2026-10-16",
@@ -552986,7 +560714,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -553000,8 +560728,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 13623000000,
         "inventory": 6434000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 1362741178,
+      "shareSource": {
+        "shares": 1362.741178,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:18.844517+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/77476/000007747626000048/pep-20260905.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 1362.741178,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:18.844517+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/77476/000007747626000048/pep-20260905.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "PM": {
     "reported_growth": {
@@ -553060,6 +560806,44 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": -8583000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeEquity"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Philip Morris",
     "company_name": "Philip Morris International Inc.",
     "exchange": "NYSE",
@@ -553069,7 +560853,7 @@ window.FULL_MARKET_DATA = {
     "price": 205.2,
     "shares": 1558.61,
     "shares_outstanding": 1558610000,
-    "shares_display": "1,558.61 M",
+    "shares_display": "1558.61 M",
     "mcap": 319826.8,
     "liq_val_1": -31.388224122776062,
     "liq_val_2": -37.897742219028494,
@@ -556195,17 +563979,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 29.4,
     "pe_forward": 25.9,
-    "pb_trailing": 5.0,
+    "pb_trailing": -37.2628218571595,
     "pb_forward": 4.5,
     "div_yield": 2.82,
     "ps_ratio": 6.3,
     "fcf_to_ev": 3.14,
     "fcf_to_mcap": 3.98,
-    "liab_to_assets": 109.8,
-    "cash_to_assets": 8.8,
-    "current_ratio": 0.98,
-    "roe": 18.0,
-    "roa": 15.9,
+    "liab_to_assets": 109.75084589357121,
+    "cash_to_assets": 8.787039885163539,
+    "current_ratio": 0.9798055911385728,
+    "roe": -90.8741434063179,
+    "roa": 15.87306221352874,
     "moat": {
       "ticker": "PM",
       "period": "2026Q2",
@@ -556840,7 +564624,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "PM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:14.641237+00:00",
+      "fetchedAt": "2026-10-17T16:37:19.109141+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-24",
       "quoteDate": "2026-10-16",
@@ -556854,7 +564638,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -556868,8 +564652,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 5179000000,
         "inventory": 11436000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 1558610000,
+      "shareSource": {
+        "shares": 1558.61,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:19.109141+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1413329/000162828026049493/pm-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 1558.61,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:19.109141+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1413329/000162828026049493/pm-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "MDLZ": {
     "reported_growth": {
@@ -556928,6 +564730,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 26639000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Mondelez",
     "company_name": "Mondelez International, Inc.",
     "exchange": "NASDAQ",
@@ -556937,7 +564775,7 @@ window.FULL_MARKET_DATA = {
     "price": 63.91,
     "shares": 1276.31,
     "shares_outstanding": 1276310000,
-    "shares_display": "1,276.31 M",
+    "shares_display": "1276.31 M",
     "mcap": 81569.0,
     "liq_val_1": -24.77219484294568,
     "liq_val_2": -29.325555703551643,
@@ -560059,17 +567897,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 23.2,
     "pe_forward": 20.4,
-    "pb_trailing": 3.1,
+    "pb_trailing": 3.062014339877623,
     "pb_forward": 2.8,
     "div_yield": 3.12,
     "ps_ratio": 6.6,
     "fcf_to_ev": 3.11,
     "fcf_to_mcap": 3.78,
-    "liab_to_assets": 62.5,
-    "cash_to_assets": 2.4,
-    "current_ratio": 0.6,
-    "roe": 13.2,
-    "roa": 4.9,
+    "liab_to_assets": 62.535966426656564,
+    "cash_to_assets": 2.4085224641037515,
+    "current_ratio": 0.5991756587783078,
+    "roe": 13.423433741839421,
+    "roa": 4.950718107575331,
     "moat": {
       "ticker": "MDLZ",
       "period": "2026Q2",
@@ -560704,7 +568542,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MDLZ",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:15.180757+00:00",
+      "fetchedAt": "2026-10-17T16:37:19.342270+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-28",
       "quoteDate": "2026-10-16",
@@ -560718,7 +568556,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -560732,8 +568570,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 4010000000,
         "inventory": 4405000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 1276310000,
+      "shareSource": {
+        "shares": 1276.31,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:19.342270+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1103982/000162828026050179/mdlz-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 1276.31,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:19.342270+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1103982/000162828026050179/mdlz-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "CL": {
     "reported_growth": {
@@ -560792,6 +568648,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 236000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Colgate-Palmolive",
     "company_name": "Colgate-Palmolive Company",
     "exchange": "NYSE",
@@ -560799,8 +568691,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Household Products",
     "reportedCurrency": "USD",
     "price": 94.11,
-    "shares": 797.17,
-    "shares_outstanding": 797170000,
+    "shares": 797.173,
+    "shares_outstanding": 797173000,
     "shares_display": "797.17 M",
     "mcap": 75022.0,
     "liq_val_1": -12.438956161335119,
@@ -563928,17 +571820,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 36.8,
     "pe_forward": 32.4,
-    "pb_trailing": 317.9,
+    "pb_trailing": 317.8898305084746,
     "pb_forward": 286.1,
     "div_yield": 2.43,
     "ps_ratio": 4.9,
     "fcf_to_ev": 3.14,
     "fcf_to_mcap": 5.14,
-    "liab_to_assets": 96.6,
-    "cash_to_assets": 8.2,
-    "current_ratio": 1.03,
-    "roe": 863.1,
-    "roa": 12.1,
+    "liab_to_assets": 96.62894580107206,
+    "cash_to_assets": 8.159618820726623,
+    "current_ratio": 1.026024723487313,
+    "roe": 290.1709401709402,
+    "roa": 11.65998855180309,
     "moat": {
       "ticker": "CL",
       "period": "2026Q2",
@@ -564604,7 +572496,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:15.705264+00:00",
+      "fetchedAt": "2026-10-17T16:37:19.576479+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-31",
       "quoteDate": "2026-10-16",
@@ -564618,7 +572510,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -564632,8 +572524,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1962000000,
         "inventory": 2181000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 797173000,
+      "shareSource": {
+        "shares": 797.173,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:19.576479+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/21665/000002166526000042/cl-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 797.173,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:19.576479+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/21665/000002166526000042/cl-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "MKC": {
     "reported_growth": {
@@ -564692,6 +572602,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-08-31",
+        "reason": null,
+        "bookEquity": 7003300000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-08-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-08-31",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "McCormick",
     "company_name": "McCormick & Company, Incorporated",
     "exchange": "NYSE",
@@ -564699,13 +572645,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Packaged Foods & Meats",
     "reportedCurrency": "USD",
     "price": 46.35,
-    "shares": 269.06,
-    "shares_outstanding": 269060000,
+    "shares": 269.064479,
+    "shares_outstanding": 269064479,
     "shares_display": "269.06 M",
     "mcap": 12471.1,
-    "liq_val_1": -22.889308996551556,
-    "liq_val_2": -29.982404328345382,
-    "liq_val_3": -32.45467418148096,
+    "liq_val_1": -22.88930899719394,
+    "liq_val_2": -29.982404329186835,
+    "liq_val_3": -32.4546741823918,
     "debt": 4246.3,
     "cash": 331.1,
     "short_term_investments": 0.0,
@@ -567824,21 +575770,21 @@ window.FULL_MARKET_DATA = {
     ],
     "fair_val": 75.96,
     "default_fair_val": 75.96,
-    "premium_pct": -39.0,
+    "premium_pct": -39,
     "is_undervalued": true,
     "pe_trailing": 8.3,
     "pe_forward": 7.3,
-    "pb_trailing": 1.8,
+    "pb_trailing": 1.780746219639313,
     "pb_forward": 1.6,
     "div_yield": 4.07,
     "ps_ratio": 3.4,
     "fcf_to_ev": 3.8,
     "fcf_to_mcap": 7.42,
-    "liab_to_assets": 54.4,
-    "cash_to_assets": 2.0,
-    "current_ratio": 0.66,
-    "roe": 21.4,
-    "roa": 9.0,
+    "liab_to_assets": 54.433473868809536,
+    "cash_to_assets": 1.9885169303208292,
+    "current_ratio": 0.6571945701357466,
+    "roe": 26.084689194826865,
+    "roa": 11.327847814599531,
     "moat": {
       "ticker": "MKC",
       "period": "2026Q3",
@@ -568510,7 +576456,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MKC",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:16.230286+00:00",
+      "fetchedAt": "2026-10-17T16:37:19.811362+00:00",
       "balanceDate": "2026-08-31",
       "filingDate": "2026-10-01",
       "quoteDate": "2026-10-16",
@@ -568524,7 +576470,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -568538,8 +576484,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 831500000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 269064479,
+      "shareSource": {
+        "shares": 269.064479,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:19.811362+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/63754/000006375426000329/mkc-20260831.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 269.064479,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:19.811362+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/63754/000006375426000329/mkc-20260831.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "CLX": {
     "reported_growth": {
@@ -568598,6 +576562,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 90000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Clorox",
     "company_name": "The Clorox Company",
     "exchange": "NYSE",
@@ -568605,8 +576605,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Household Products",
     "reportedCurrency": "USD",
     "price": 87.09,
-    "shares": 120.94,
-    "shares_outstanding": 120940000,
+    "shares": 120.938,
+    "shares_outstanding": 120938000,
     "shares_display": "120.94 M",
     "mcap": 10532.5,
     "liq_val_1": -47.28042468041476,
@@ -571730,21 +579730,21 @@ window.FULL_MARKET_DATA = {
     ],
     "fair_val": 57.29,
     "default_fair_val": 57.29,
-    "premium_pct": 52.0,
+    "premium_pct": 52,
     "is_undervalued": false,
     "pe_trailing": 17.9,
     "pe_forward": 15.8,
-    "pb_trailing": 117.0,
+    "pb_trailing": 117.02777777777777,
     "pb_forward": 105.3,
     "div_yield": 5.72,
     "ps_ratio": 6.5,
     "fcf_to_ev": 3.29,
     "fcf_to_mcap": 3.85,
-    "liab_to_assets": 96.8,
-    "cash_to_assets": 1.8,
-    "current_ratio": 0.66,
-    "roe": 652.2,
-    "roa": 7.5,
+    "liab_to_assets": 96.76674364896074,
+    "cash_to_assets": 1.8347446753913266,
+    "current_ratio": 0.6577713667508114,
+    "roe": 182.86604361370718,
+    "roa": 10.5556554576515,
     "moat": {
       "ticker": "CLX",
       "period": "2026Q4",
@@ -572398,7 +580398,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CLX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:16.770786+00:00",
+      "fetchedAt": "2026-10-17T16:37:20.048104+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-07",
       "quoteDate": "2026-10-16",
@@ -572412,7 +580412,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -572426,8 +580426,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 791000000,
         "inventory": 777000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 120938000,
+      "shareSource": {
+        "shares": 120.938,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:20.048104+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/21076/000002107626000034/clx-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 120.938,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:20.048104+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/21076/000002107626000034/clx-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "HSY": {
     "reported_growth": {
@@ -572486,6 +580504,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-28",
+        "reason": null,
+        "bookEquity": 4562690000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-28",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-28",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Hershey Company",
     "company_name": "The Hershey Company",
     "exchange": "NYSE",
@@ -572493,13 +580547,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Packaged Foods & Meats",
     "reportedCurrency": "USD",
     "price": 170.83,
-    "shares": 200.93,
-    "shares_outstanding": 200930000,
+    "shares": 200.925662,
+    "shares_outstanding": 200925662,
     "shares_display": "200.93 M",
     "mcap": 34324.1,
-    "liq_val_1": -27.144969935488678,
-    "liq_val_2": -34.946236334169996,
-    "liq_val_3": -42.897203871072406,
+    "liq_val_1": -27.14496966544771,
+    "liq_val_2": -34.94623598652122,
+    "liq_val_3": -42.897203444326585,
     "debt": 5610.7,
     "cash": 791.2,
     "short_term_investments": 0.0,
@@ -575613,21 +583667,21 @@ window.FULL_MARKET_DATA = {
     ],
     "fair_val": 551.15,
     "default_fair_val": 551.15,
-    "premium_pct": -69.0,
+    "premium_pct": -69,
     "is_undervalued": true,
     "pe_trailing": 23.1,
     "pe_forward": 20.3,
-    "pb_trailing": 7.5,
+    "pb_trailing": 7.5227771336645715,
     "pb_forward": 6.8,
     "div_yield": 3.25,
     "ps_ratio": 3.4,
     "fcf_to_ev": 2.2,
     "fcf_to_mcap": 7.41,
-    "liab_to_assets": 67.3,
-    "cash_to_assets": 5.7,
-    "current_ratio": 1.18,
-    "roe": 32.6,
-    "roa": 10.7,
+    "liab_to_assets": 67.34650382751026,
+    "cash_to_assets": 5.66242077965501,
+    "current_ratio": 1.1800970090419873,
+    "roe": 32.98411958664055,
+    "roa": 10.91261688540531,
     "moat": {
       "ticker": "HSY",
       "period": "2026Q2",
@@ -576287,7 +584341,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "HSY",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:17.296296+00:00",
+      "fetchedAt": "2026-10-17T16:37:20.284982+00:00",
       "balanceDate": "2026-06-28",
       "filingDate": "2026-07-30",
       "quoteDate": "2026-10-16",
@@ -576301,7 +584355,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -576315,8 +584369,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 907368000,
         "inventory": 1743318000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 200925662,
+      "shareSource": {
+        "shares": 200.925662,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:20.284982+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/47111/000162828026050900/hsy-20260628.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 200.925662,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:20.284982+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/47111/000162828026050900/hsy-20260628.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "ADM": {
     "reported_growth": {
@@ -576375,6 +584447,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 23580000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Archer-Daniels-Midland",
     "company_name": "Archer-Daniels-Midland Company",
     "exchange": "NYSE",
@@ -576382,13 +584490,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Agricultural Products & Services",
     "reportedCurrency": "USD",
     "price": 82.61,
-    "shares": 481.96,
-    "shares_outstanding": 481960000,
+    "shares": 481.959583,
+    "shares_outstanding": 481959583,
     "shares_display": "481.96 M",
     "mcap": 39814.7,
-    "liq_val_1": -3.850945318754565,
-    "liq_val_2": -25.053138117367386,
-    "liq_val_3": -41.5926992778847,
+    "liq_val_1": -3.8509453187903517,
+    "liq_val_2": -25.053138117600206,
+    "liq_val_3": -41.592699278271226,
     "debt": 9342.0,
     "cash": 9609.0,
     "short_term_investments": 33.0,
@@ -579506,17 +587614,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 22.5,
     "pe_forward": 19.8,
-    "pb_trailing": 1.7,
+    "pb_trailing": 1.6884944868532654,
     "pb_forward": 1.5,
     "div_yield": 2.52,
     "ps_ratio": 5.9,
     "fcf_to_ev": 4.0,
     "fcf_to_mcap": 4.21,
-    "liab_to_assets": 55.4,
-    "cash_to_assets": 18.0,
-    "current_ratio": 1.39,
-    "roe": 7.5,
-    "roa": 3.3,
+    "liab_to_assets": 55.4019466811142,
+    "cash_to_assets": 17.951687933192595,
+    "current_ratio": 1.3891165300819508,
+    "roe": 7.891217119928667,
+    "roa": 3.4041080083083313,
     "moat": {
       "ticker": "ADM",
       "period": "2026Q2",
@@ -580212,7 +588320,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ADM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:17.826525+00:00",
+      "fetchedAt": "2026-10-17T16:37:20.521144+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-04",
       "quoteDate": "2026-10-16",
@@ -580226,7 +588334,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -580240,8 +588348,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 3348000000,
         "inventory": 10586000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 481959583,
+      "shareSource": {
+        "shares": 481.959583,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:20.521144+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/7084/000000708426000042/adm-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 481.959583,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:20.521144+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/7084/000000708426000042/adm-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "CHD": {
     "reported_growth": {
@@ -580300,6 +588426,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 4347800000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Church & Dwight",
     "company_name": "Church & Dwight Co., Inc.",
     "exchange": "NYSE",
@@ -580307,13 +588469,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Household Products",
     "reportedCurrency": "USD",
     "price": 104.53,
-    "shares": 237.2,
-    "shares_outstanding": 237200000,
+    "shares": 237.203907,
+    "shares_outstanding": 237203907,
     "shares_display": "237.20 M",
     "mcap": 24794.9,
-    "liq_val_1": -13.643114234042315,
-    "liq_val_2": -15.702565978208934,
-    "liq_val_3": -18.984088655619537,
+    "liq_val_1": -13.643114234201885,
+    "liq_val_2": -15.70256597839259,
+    "liq_val_3": -18.984088655841575,
     "debt": 2428.3,
     "cash": 254.8,
     "short_term_investments": 0.0,
@@ -583436,17 +591598,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 33.3,
     "pe_forward": 29.3,
-    "pb_trailing": 5.7,
+    "pb_trailing": 5.702861217167303,
     "pb_forward": 5.1,
     "div_yield": 1.16,
     "ps_ratio": 5.6,
     "fcf_to_ev": 3.75,
     "fcf_to_mcap": 4.5,
-    "liab_to_assets": 52.3,
-    "cash_to_assets": 2.8,
-    "current_ratio": 1.15,
-    "roe": 17.1,
-    "roa": 8.2,
+    "liab_to_assets": 52.25188618118322,
+    "cash_to_assets": 2.798247251721449,
+    "current_ratio": 1.1465491259795058,
+    "roe": 16.951544256549152,
+    "roa": 8.47500056894472,
     "moat": {
       "ticker": "CHD",
       "period": "2026Q2",
@@ -584130,7 +592292,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CHD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:18.405293+00:00",
+      "fetchedAt": "2026-10-17T16:37:20.756395+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-31",
       "quoteDate": "2026-10-16",
@@ -584144,7 +592306,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -584158,8 +592320,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 596800000,
         "inventory": 601900000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 237203907,
+      "shareSource": {
+        "shares": 237.203907,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:20.756395+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/313927/000119312526327567/chd-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 237.203907,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:20.756395+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/313927/000119312526327567/chd-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "TGT": {
     "reported_growth": {
@@ -584218,6 +592398,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-08-01",
+        "reason": null,
+        "bookEquity": 17843000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-08-01",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-08-01",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-08-01",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-08-01",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-08-01",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Target",
     "company_name": "Target Corporation",
     "exchange": "NYSE",
@@ -584225,13 +592441,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Consumer Staples Merchandise Retail",
     "reportedCurrency": "USD",
     "price": 154.24,
-    "shares": 454.3,
-    "shares_outstanding": 454300000,
+    "shares": 454.296736,
+    "shares_outstanding": 454296736,
     "shares_display": "454.30 M",
     "mcap": 70070.7,
-    "liq_val_1": -49.44785702703375,
-    "liq_val_2": -69.02206770246543,
-    "liq_val_3": -83.60394665882161,
+    "liq_val_1": -49.44785691790663,
+    "liq_val_2": -69.02206755013974,
+    "liq_val_3": -83.60394647431497,
     "debt": 18701.0,
     "cash": 5411.0,
     "short_term_investments": 0.0,
@@ -587354,17 +595570,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 16.0,
     "pe_forward": 14.1,
-    "pb_trailing": 3.9,
+    "pb_trailing": 3.9270694389956846,
     "pb_forward": 3.5,
     "div_yield": 2.95,
     "ps_ratio": 3.8,
     "fcf_to_ev": 5.11,
     "fcf_to_mcap": 6.49,
-    "liab_to_assets": 70.9,
-    "cash_to_assets": 8.8,
-    "current_ratio": 0.99,
-    "roe": 24.6,
-    "roa": 7.2,
+    "liab_to_assets": 70.86143545358047,
+    "cash_to_assets": 8.836449742794155,
+    "current_ratio": 0.9881019830028328,
+    "roe": 28.48249027237354,
+    "roa": 7.5919171665139755,
     "moat": {
       "ticker": "TGT",
       "period": "2026Q2",
@@ -588030,7 +596246,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TGT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:18.929942+00:00",
+      "fetchedAt": "2026-10-17T16:37:20.991335+00:00",
       "balanceDate": "2026-08-01",
       "filingDate": "2026-08-28",
       "quoteDate": "2026-10-16",
@@ -588044,7 +596260,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -588058,8 +596274,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 0,
         "inventory": 13249000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 454296736,
+      "shareSource": {
+        "shares": 454.296736,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:20.991335+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/27419/000002741926000042/tgt-20260801.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 454.296736,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:20.991335+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/27419/000002741926000042/tgt-20260801.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "KMB": {
     "reported_growth": {
@@ -588118,6 +596352,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 1750000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Kimberly-Clark",
     "company_name": "Kimberly-Clark Corporation",
     "exchange": "NYSE",
@@ -588125,8 +596395,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Household Products",
     "reportedCurrency": "USD",
     "price": 105.57,
-    "shares": 332.58,
-    "shares_outstanding": 332580000,
+    "shares": 332.579,
+    "shares_outstanding": 332579000,
     "shares_display": "332.58 M",
     "mcap": 35110.4,
     "liq_val_1": -30.982112520634196,
@@ -591254,17 +599524,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 18.0,
     "pe_forward": 15.8,
-    "pb_trailing": 20.1,
+    "pb_trailing": 20.063085714285716,
     "pb_forward": 18.1,
     "div_yield": 4.78,
     "ps_ratio": 3.4,
     "fcf_to_ev": 2.86,
     "fcf_to_mcap": 7.29,
-    "liab_to_assets": 89.8,
-    "cash_to_assets": 5.2,
-    "current_ratio": 0.91,
-    "roe": 111.7,
-    "roa": 10.5,
+    "liab_to_assets": 89.78117926053682,
+    "cash_to_assets": 5.152527756817936,
+    "current_ratio": 0.9092730394962794,
+    "roe": 153.81589299763965,
+    "roa": 11.657027010911692,
     "moat": {
       "ticker": "KMB",
       "period": "2026Q2",
@@ -591930,7 +600200,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "KMB",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:19.454238+00:00",
+      "fetchedAt": "2026-10-17T16:37:21.227209+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-04",
       "quoteDate": "2026-10-16",
@@ -591944,7 +600214,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -591958,8 +600228,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1858000000,
         "inventory": 1539000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 332579000,
+      "shareSource": {
+        "shares": 332.579,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:21.227209+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/55785/000162828026052348/kmb-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 332.579,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:21.227209+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/55785/000162828026052348/kmb-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "MNST": {
     "reported_growth": {
@@ -592018,6 +600306,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 9364148000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Monster Beverage",
     "company_name": "Monster Beverage Corporation",
     "exchange": "NASDAQ",
@@ -592027,11 +600351,11 @@ window.FULL_MARKET_DATA = {
     "price": 45.73,
     "shares": 1959.05,
     "shares_outstanding": 1959050000,
-    "shares_display": "1,959.05 M",
+    "shares_display": "1959.05 M",
     "mcap": 89587.4,
-    "liq_val_1": 2.2393165054490693,
-    "liq_val_2": 1.7135278834128784,
-    "liq_val_3": 0.7152002245986574,
+    "liq_val_1": 2.23931650544907,
+    "liq_val_2": 1.7135278834128786,
+    "liq_val_3": 0.7152002245986575,
     "debt": 0.0,
     "cash": 3419.3,
     "short_term_investments": 1226.8,
@@ -595154,17 +603478,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 42.1,
     "pe_forward": 37.0,
-    "pb_trailing": 9.6,
+    "pb_trailing": 9.5670636559781,
     "pb_forward": 8.6,
     "div_yield": 0.0,
     "ps_ratio": 10.7,
     "fcf_to_ev": 3.37,
     "fcf_to_mcap": 2.34,
-    "liab_to_assets": 17.7,
-    "cash_to_assets": 30.0,
-    "current_ratio": 3.73,
-    "roe": 22.7,
-    "roa": 18.7,
+    "liab_to_assets": 17.730551784346403,
+    "cash_to_assets": 30.040138668041433,
+    "current_ratio": 3.729314920459693,
+    "roe": 29.58670638871615,
+    "roa": 24.37224853285632,
     "moat": {
       "ticker": "MNST",
       "period": "2026Q2",
@@ -595842,7 +604166,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MNST",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:19.980103+00:00",
+      "fetchedAt": "2026-10-17T16:37:21.461883+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-07",
       "quoteDate": "2026-10-16",
@@ -595856,7 +604180,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -595870,8 +604194,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1902421000,
         "inventory": 867674000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 1959050000,
+      "shareSource": {
+        "shares": 1959.05,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:21.461883+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/865752/000110465926092193/mnst-20260630x10q.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 1959.05,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:21.461883+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/865752/000110465926092193/mnst-20260630x10q.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "GIS": {
     "reported_growth": {
@@ -595930,6 +604272,46 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-08-30",
+        "reason": null,
+        "bookEquity": 7450400000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-08-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-08-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-08-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-08-30",
+        "reason": null,
+        "warnings": [
+          "negativeNetIncome"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-08-30",
+        "reason": null,
+        "warnings": [
+          "negativeNetIncome"
+        ]
+      }
+    },
     "name": "General Mills",
     "company_name": "General Mills, Inc.",
     "exchange": "NYSE",
@@ -595937,12 +604319,12 @@ window.FULL_MARKET_DATA = {
     "industry": "Packaged Foods & Meats",
     "reportedCurrency": "USD",
     "price": 33.13,
-    "shares": 534.69,
-    "shares_outstanding": 534690000,
+    "shares": 534.687,
+    "shares_outstanding": 534687000,
     "shares_display": "534.69 M",
     "mcap": 17714.2,
     "liq_val_1": -33.524847247081006,
-    "liq_val_2": -37.17079338005226,
+    "liq_val_2": -37.17079338005225,
     "liq_val_3": -41.8497176853,
     "debt": 13614.0,
     "cash": 433.1,
@@ -599066,17 +607448,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 24.0,
     "pe_forward": 21.1,
-    "pb_trailing": 2.4,
+    "pb_trailing": 2.3776173091377646,
     "pb_forward": 2.2,
     "div_yield": 7.42,
     "ps_ratio": 2.9,
     "fcf_to_ev": 3.43,
     "fcf_to_mcap": 8.73,
-    "liab_to_assets": 75.3,
-    "cash_to_assets": 1.4,
-    "current_ratio": 0.7,
-    "roe": 18.0,
-    "roa": 8.0,
+    "liab_to_assets": 75.39820436422734,
+    "cash_to_assets": 1.4306288689080182,
+    "current_ratio": 0.7037896253602306,
+    "roe": -9.412408221656534,
+    "roa": -2.71023395001151,
     "moat": {
       "ticker": "GIS",
       "period": "2027Q1",
@@ -599748,7 +608130,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "GIS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:21.014524+00:00",
+      "fetchedAt": "2026-10-17T16:37:21.697263+00:00",
       "balanceDate": "2026-08-30",
       "filingDate": "2026-09-23",
       "quoteDate": "2026-10-16",
@@ -599762,7 +608144,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -599776,8 +608158,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1775200000,
         "inventory": 2163200000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 534687000,
+      "shareSource": {
+        "shares": 534.687,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:21.697263+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/40704/000162828026063201/gis-20260830.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 534.687,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:21.697263+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/40704/000162828026063201/gis-20260830.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "KHC": {
     "reported_growth": {
@@ -599836,6 +608236,46 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-27",
+        "reason": null,
+        "bookEquity": 36006000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-27",
+        "reason": null,
+        "warnings": [
+          "negativeNetIncome"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-27",
+        "reason": null,
+        "warnings": [
+          "negativeNetIncome"
+        ]
+      }
+    },
     "name": "Kraft Heinz",
     "company_name": "The Kraft Heinz Company",
     "exchange": "NASDAQ",
@@ -599843,13 +608283,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Packaged Foods & Meats",
     "reportedCurrency": "USD",
     "price": 23.68,
-    "shares": 1185.82,
-    "shares_outstanding": 1185820000,
-    "shares_display": "1,185.82 M",
+    "shares": 1185.823758,
+    "shares_outstanding": 1185823758,
+    "shares_display": "1185.82 M",
     "mcap": 28080.3,
-    "liq_val_1": -23.345796383035356,
-    "liq_val_2": -25.94921867004976,
-    "liq_val_3": -28.886248710608765,
+    "liq_val_1": -23.34579638266954,
+    "liq_val_2": -25.949218669643148,
+    "liq_val_3": -28.886248710156135,
     "debt": 19001.0,
     "cash": 2681.0,
     "short_term_investments": 262.0,
@@ -602972,17 +611412,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 24.0,
     "pe_forward": 21.1,
-    "pb_trailing": 0.8,
+    "pb_trailing": 0.779878353607732,
     "pb_forward": 0.7,
     "div_yield": 6.75,
     "ps_ratio": 1.8,
     "fcf_to_ev": 1.85,
     "fcf_to_mcap": 13.59,
-    "liab_to_assets": 50.6,
-    "cash_to_assets": 3.7,
-    "current_ratio": 1.06,
-    "roe": 18.0,
-    "roa": 8.0,
+    "liab_to_assets": 50.55087935399987,
+    "cash_to_assets": 3.6693355231643054,
+    "current_ratio": 1.0613813675998165,
+    "roe": -8.211228782823154,
+    "roa": -4.162733969919467,
     "moat": {
       "ticker": "KHC",
       "period": "2026Q2",
@@ -603617,7 +612057,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "KHC",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:21.539972+00:00",
+      "fetchedAt": "2026-10-17T16:37:21.930651+00:00",
       "balanceDate": "2026-06-27",
       "filingDate": "2026-08-05",
       "quoteDate": "2026-10-16",
@@ -603631,7 +612071,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -603645,8 +612085,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 2286000000,
         "inventory": 3308000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 1185823758,
+      "shareSource": {
+        "shares": 1185.823758,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:21.930651+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1637459/000163745926000054/khc-20260627.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 1185.823758,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:21.930651+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1637459/000163745926000054/khc-20260627.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "GE": {
     "reported_growth": {
@@ -603705,6 +612163,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 17640000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "GE Aerospace",
     "company_name": "GE Aerospace",
     "exchange": "NYSE",
@@ -603712,13 +612206,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Aerospace & Defense",
     "reportedCurrency": "USD",
     "price": 313.83,
-    "shares": 1037.56,
-    "shares_outstanding": 1037560000,
-    "shares_display": "1,037.56 M",
+    "shares": 1037.562513,
+    "shares_outstanding": 1037562513.0000001,
+    "shares_display": "1037.56 M",
     "mcap": 325618.2,
-    "liq_val_1": -67.56990458073227,
-    "liq_val_2": -81.29823402741381,
-    "liq_val_3": -96.82308173361618,
+    "liq_val_1": -67.56990458077584,
+    "liq_val_2": -81.29823402746625,
+    "liq_val_3": -96.82308173367862,
     "debt": 19157.0,
     "cash": 9345.0,
     "short_term_investments": 0.0,
@@ -606841,17 +615335,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 36.3,
     "pe_forward": 31.9,
-    "pb_trailing": 18.5,
+    "pb_trailing": 18.459081632653064,
     "pb_forward": 16.7,
     "div_yield": 0.5,
     "ps_ratio": 9.7,
     "fcf_to_ev": 5.84,
     "fcf_to_mcap": 2.58,
-    "liab_to_assets": 86.0,
-    "cash_to_assets": 7.3,
-    "current_ratio": 0.98,
-    "roe": 50.9,
-    "roa": 7.0,
+    "liab_to_assets": 86.00554546024188,
+    "cash_to_assets": 7.319537565010339,
+    "current_ratio": 0.9818698985901558,
+    "roe": 46.88267572511105,
+    "roa": 7.162131953758702,
     "moat": {
       "ticker": "GE",
       "period": "2026Q2",
@@ -607547,7 +616041,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "GE",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:22.065877+00:00",
+      "fetchedAt": "2026-10-17T16:37:22.166536+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-16",
       "quoteDate": "2026-10-16",
@@ -607561,7 +616055,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -607575,8 +616069,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 12360000000,
         "inventory": 12440000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 1037562513.0000001,
+      "shareSource": {
+        "shares": 1037.562513,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:22.166536+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/40545/000004054526000049/ge-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 1037.562513,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:22.166536+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/40545/000004054526000049/ge-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "CAT": {
     "reported_growth": {
@@ -607635,6 +616147,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 19395000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Caterpillar",
     "company_name": "Caterpillar Inc.",
     "exchange": "NYSE",
@@ -607642,8 +616190,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Construction Machinery & Heavy Transportation Equipment",
     "reportedCurrency": "USD",
     "price": 730.76,
-    "shares": 459.68,
-    "shares_outstanding": 459680000,
+    "shares": 459.675,
+    "shares_outstanding": 459675000,
     "shares_display": "459.68 M",
     "mcap": 335912.1,
     "liq_val_1": -62.57682057975744,
@@ -610771,17 +619319,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 31.0,
     "pe_forward": 27.3,
-    "pb_trailing": 17.3,
+    "pb_trailing": 17.31952049497293,
     "pb_forward": 15.6,
     "div_yield": 0.84,
     "ps_ratio": 9.3,
     "fcf_to_ev": 7.81,
     "fcf_to_mcap": 2.68,
-    "liab_to_assets": 81.1,
-    "cash_to_assets": 6.5,
-    "current_ratio": 1.37,
-    "roe": 55.9,
-    "roa": 10.6,
+    "liab_to_assets": 81.09912385853093,
+    "cash_to_assets": 6.542311103314525,
+    "current_ratio": 1.3684342799698417,
+    "roe": 58.05155136380687,
+    "roa": 11.993357320786052,
     "moat": {
       "ticker": "CAT",
       "period": "2026Q2",
@@ -611447,7 +619995,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CAT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:22.590157+00:00",
+      "fetchedAt": "2026-10-17T16:37:22.399823+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-05",
       "quoteDate": "2026-10-16",
@@ -611461,7 +620009,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -611475,8 +620023,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 13188000000,
         "inventory": 20627000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 459675000,
+      "shareSource": {
+        "shares": 459.675,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:22.399823+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/18230/000001823026000046/cat-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 459.675,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:22.399823+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/18230/000001823026000046/cat-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "UNP": {
     "reported_growth": {
@@ -611535,6 +620101,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 20673000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Union Pacific",
     "company_name": "Union Pacific Corporation",
     "exchange": "NYSE",
@@ -611542,13 +620144,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Rail Transportation",
     "reportedCurrency": "USD",
     "price": 289.04,
-    "shares": 594.08,
-    "shares_outstanding": 594080000,
+    "shares": 594.075498,
+    "shares_outstanding": 594075498,
     "shares_display": "594.08 M",
     "mcap": 171711.6,
-    "liq_val_1": -75.75636455550139,
-    "liq_val_2": -77.86973230796072,
-    "liq_val_3": -81.51152532464391,
+    "liq_val_1": -75.75636455553668,
+    "liq_val_2": -77.86973230799698,
+    "liq_val_3": -81.51152532468188,
     "debt": 31169.0,
     "cash": 2114.0,
     "short_term_investments": 500.0,
@@ -614665,17 +623267,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 23.4,
     "pe_forward": 20.6,
-    "pb_trailing": 8.3,
+    "pb_trailing": 8.306080394717748,
     "pb_forward": 7.5,
     "div_yield": 1.91,
     "ps_ratio": 6.6,
     "fcf_to_ev": 5.29,
     "fcf_to_mcap": 3.79,
-    "liab_to_assets": 71.0,
-    "cash_to_assets": 3.0,
-    "current_ratio": 0.99,
-    "roe": 35.5,
-    "roa": 10.3,
+    "liab_to_assets": 70.96937270927245,
+    "cash_to_assets": 2.9686424850093385,
+    "current_ratio": 0.9859230220955096,
+    "roe": 45.08549637101735,
+    "roa": 10.688870741950536,
     "moat": {
       "ticker": "UNP",
       "period": "2026Q2",
@@ -615347,7 +623949,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "UNP",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:23.117907+00:00",
+      "fetchedAt": "2026-10-17T16:37:22.633152+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-23",
       "quoteDate": "2026-10-16",
@@ -615361,7 +623963,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -615375,8 +623977,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 2130000000,
         "inventory": 919000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 594075498,
+      "shareSource": {
+        "shares": 594.075498,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:22.633152+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/100885/000010088526000250/unp-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 594.075498,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:22.633152+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/100885/000010088526000250/unp-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "RTX": {
     "reported_growth": {
@@ -615435,6 +624055,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 66377000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "RTX Corporation",
     "company_name": "RTX Corporation",
     "exchange": "NYSE",
@@ -615442,13 +624098,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Aerospace & Defense",
     "reportedCurrency": "USD",
     "price": 193.92,
-    "shares": 1347.76,
-    "shares_outstanding": 1347760000,
-    "shares_display": "1,347.76 M",
+    "shares": 1347.758093,
+    "shares_outstanding": 1347758093,
+    "shares_display": "1347.76 M",
     "mcap": 261357.3,
-    "liq_val_1": -31.100536674669726,
-    "liq_val_2": -47.47209483081345,
-    "liq_val_3": -72.35942451865196,
+    "liq_val_1": -31.100536674722086,
+    "liq_val_2": -47.47209483089337,
+    "liq_val_3": -72.35942451877379,
     "debt": 38856.0,
     "cash": 8305.0,
     "short_term_investments": 0.0,
@@ -618571,17 +627227,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 33.8,
     "pe_forward": 29.7,
-    "pb_trailing": 3.9,
+    "pb_trailing": 3.9374677975804873,
     "pb_forward": 3.5,
     "div_yield": 1.42,
     "ps_ratio": 5.8,
     "fcf_to_ev": 2.83,
     "fcf_to_mcap": 4.3,
-    "liab_to_assets": 60.8,
-    "cash_to_assets": 4.8,
-    "current_ratio": 1.01,
-    "roe": 11.7,
-    "roa": 4.4,
+    "liab_to_assets": 60.83047846779942,
+    "cash_to_assets": 4.773756696479893,
+    "current_ratio": 1.01054628824413,
+    "roe": 12.401038494823553,
+    "roa": 4.629679488330073,
     "moat": {
       "ticker": "RTX",
       "period": "2026Q2",
@@ -619253,7 +627909,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "RTX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:23.770373+00:00",
+      "fetchedAt": "2026-10-17T16:37:22.867448+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-23",
       "quoteDate": "2026-10-16",
@@ -619267,7 +627923,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -619281,8 +627937,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 32922000000,
         "inventory": 14409000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 1347758093,
+      "shareSource": {
+        "shares": 1347.758093,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:22.867448+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/101829/000010182926000027/rtx-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 1347.758093,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:22.867448+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/101829/000010182926000027/rtx-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "HON": {
     "reported_growth": {
@@ -619339,6 +628013,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 18537000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Honeywell",
@@ -622477,17 +631187,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 8.2,
     "pe_forward": 7.2,
-    "pb_trailing": 3.6,
+    "pb_trailing": 3.614624804445164,
     "pb_forward": 3.2,
     "div_yield": 4.59,
     "ps_ratio": 4.1,
     "fcf_to_ev": 4.21,
     "fcf_to_mcap": 6.15,
-    "liab_to_assets": 75.6,
-    "cash_to_assets": 11.9,
-    "current_ratio": 1.21,
-    "roe": 44.3,
-    "roa": 10.6,
+    "liab_to_assets": 75.61931112949938,
+    "cash_to_assets": 11.889739346297063,
+    "current_ratio": 1.21061481417608,
+    "roe": 51.0282696489593,
+    "roa": 10.473227151583163,
     "moat": {
       "ticker": "HON",
       "period": "2026Q2",
@@ -623153,7 +631863,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "HON",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:24.316829+00:00",
+      "fetchedAt": "2026-10-17T16:37:23.103024+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-23",
       "quoteDate": "2026-10-16",
@@ -623167,7 +631877,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -623181,8 +631891,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 8337000000,
         "inventory": 6401000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 316940000,
+      "shareSource": {
+        "shares": 316.94,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:23.103024+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000124/hon-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 316.94,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:23.103024+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000124/hon-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "BA": {
     "reported_growth": {
@@ -623239,6 +631967,44 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": "nonPositivePrior"
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 6100000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeEquity"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Boeing",
@@ -626377,17 +635143,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 61.7,
     "pe_forward": 54.3,
-    "pb_trailing": 24.6,
+    "pb_trailing": 24.645295081967213,
     "pb_forward": 22.1,
     "div_yield": 0.23,
     "ps_ratio": 6.6,
     "fcf_to_ev": 5.13,
     "fcf_to_mcap": 3.8,
-    "liab_to_assets": 96.3,
-    "cash_to_assets": 12.1,
-    "current_ratio": 1.14,
-    "roe": 39.9,
-    "roa": 1.5,
+    "liab_to_assets": 96.31337794658468,
+    "cash_to_assets": 12.070898896726352,
+    "current_ratio": 1.1375190529649608,
+    "roe": -73.89984825493171,
+    "roa": 1.5697524497163484,
     "moat": {
       "ticker": "BA",
       "period": "2026Q2",
@@ -627071,7 +635837,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "BA",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:24.842862+00:00",
+      "fetchedAt": "2026-10-17T16:37:23.337791+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-28",
       "quoteDate": "2026-10-16",
@@ -627085,7 +635851,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -627099,8 +635865,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 3515000000,
         "inventory": 88388000000,
         "preferredStock": 6000000
+      },
+      "sharesOutstanding": 790370000,
+      "shareSource": {
+        "shares": 790.37,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:23.337791+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/12927/000162828026050038/ba-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 790.37,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:23.337791+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/12927/000162828026050038/ba-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "LMT": {
     "reported_growth": {
@@ -627159,6 +635943,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-28",
+        "reason": null,
+        "bookEquity": 8768000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-28",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-28",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Lockheed Martin",
     "company_name": "Lockheed Martin Corporation",
     "exchange": "NYSE",
@@ -627166,8 +635986,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Aerospace & Defense",
     "reportedCurrency": "USD",
     "price": 552.09,
-    "shares": 230.79,
-    "shares_outstanding": 230790000,
+    "shares": 230.791,
+    "shares_outstanding": 230791000,
     "shares_display": "230.79 M",
     "mcap": 127417.4,
     "liq_val_1": -109.54066666377805,
@@ -630295,17 +639115,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 20.3,
     "pe_forward": 17.9,
-    "pb_trailing": 14.5,
+    "pb_trailing": 14.53209397810219,
     "pb_forward": 13.1,
     "div_yield": 2.49,
     "ps_ratio": 3.6,
     "fcf_to_ev": 2.24,
     "fcf_to_mcap": 6.85,
-    "liab_to_assets": 86.0,
-    "cash_to_assets": 6.1,
-    "current_ratio": 1.19,
-    "roe": 71.7,
-    "roa": 10.1,
+    "liab_to_assets": 85.95996797437951,
+    "cash_to_assets": 6.070456365092074,
+    "current_ratio": 1.1928682431013482,
+    "roe": 117.86651668541433,
+    "roa": 10.679463224052999,
     "moat": {
       "ticker": "LMT",
       "period": "2026Q2",
@@ -630959,7 +639779,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "LMT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:25.366049+00:00",
+      "fetchedAt": "2026-10-17T16:37:23.573426+00:00",
       "balanceDate": "2026-06-28",
       "filingDate": "2026-07-23",
       "quoteDate": "2026-10-16",
@@ -630973,7 +639793,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -630987,8 +639807,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 3356000000,
         "inventory": 4411000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 230791000,
+      "shareSource": {
+        "shares": 230.791,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:23.573426+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/936468/000162828026049411/lmt-20260628.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 230.791,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:23.573426+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/936468/000162828026049411/lmt-20260628.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "DE": {
     "reported_growth": {
@@ -631047,6 +639885,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-08-02",
+        "reason": null,
+        "bookEquity": 27990000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-08-02",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-08-02",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-08-02",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-08-02",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-08-02",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Deere & Company",
     "company_name": "Deere & Company",
     "exchange": "NYSE",
@@ -631054,13 +639928,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Agricultural & Farm Machinery",
     "reportedCurrency": "USD",
     "price": 641.86,
-    "shares": 269.63,
-    "shares_outstanding": 269630000,
+    "shares": 269.625412,
+    "shares_outstanding": 269625412,
     "shares_display": "269.63 M",
     "mcap": 173061.8,
-    "liq_val_1": -190.21945898814178,
-    "liq_val_2": -219.57908032833888,
-    "liq_val_3": -256.9787450158003,
+    "liq_val_1": -190.21945898779006,
+    "liq_val_2": -219.5790803279329,
+    "liq_val_3": -256.97874501532516,
     "debt": 64180.0,
     "cash": 10278.0,
     "short_term_investments": 1350.0,
@@ -634182,17 +643056,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 35.5,
     "pe_forward": 31.2,
-    "pb_trailing": 6.2,
+    "pb_trailing": 6.182986780993211,
     "pb_forward": 5.6,
     "div_yield": 1.01,
     "ps_ratio": 11.2,
     "fcf_to_ev": 4.47,
     "fcf_to_mcap": 2.23,
-    "liab_to_assets": 73.9,
-    "cash_to_assets": 9.6,
-    "current_ratio": 0.77,
-    "roe": 17.4,
-    "roa": 4.5,
+    "liab_to_assets": 73.94128634754244,
+    "cash_to_assets": 9.551423234547938,
+    "current_ratio": 0.7667986333315255,
+    "roe": 19.356504468718967,
+    "roa": 4.519695409814779,
     "moat": {
       "ticker": "DE",
       "period": "2026Q3",
@@ -634852,7 +643726,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "DE",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:25.894330+00:00",
+      "fetchedAt": "2026-10-17T16:37:23.807235+00:00",
       "balanceDate": "2026-08-02",
       "filingDate": "2026-08-27",
       "quoteDate": "2026-10-16",
@@ -634866,7 +643740,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -634880,8 +643754,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 7723000000,
         "inventory": 7811000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 269625412,
+      "shareSource": {
+        "shares": 269.625412,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:23.807235+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/315189/000110465926102213/de-20260802x10q.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 269.625412,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:23.807235+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/315189/000110465926102213/de-20260802x10q.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "UPS": {
     "reported_growth": {
@@ -634940,6 +643832,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 15067000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "United Parcel Service",
     "company_name": "United Parcel Service, Inc.",
     "exchange": "NYSE",
@@ -634947,13 +643875,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Air Freight & Logistics",
     "reportedCurrency": "USD",
     "price": 97.5,
-    "shares": 749.35,
-    "shares_outstanding": 749350000,
+    "shares": 749.349405,
+    "shares_outstanding": 749349405,
     "shares_display": "749.35 M",
     "mcap": 73061.6,
-    "liq_val_1": -51.54204399446434,
-    "liq_val_2": -57.31238286591565,
-    "liq_val_3": -68.7463013327507,
+    "liq_val_1": -51.54204399481708,
+    "liq_val_2": -57.31238286630787,
+    "liq_val_3": -68.74630133322118,
     "debt": 28673.0,
     "cash": 4653.0,
     "short_term_investments": 0.0,
@@ -638076,17 +647004,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 16.0,
     "pe_forward": 14.1,
-    "pb_trailing": 4.8,
+    "pb_trailing": 4.849113957655804,
     "pb_forward": 4.3,
     "div_yield": 7.4,
     "ps_ratio": 3.3,
     "fcf_to_ev": 4.97,
     "fcf_to_mcap": 7.51,
-    "liab_to_assets": 78.8,
-    "cash_to_assets": 6.5,
-    "current_ratio": 1.18,
-    "roe": 30.3,
-    "roa": 6.4,
+    "liab_to_assets": 78.81347608289951,
+    "cash_to_assets": 6.528968526807639,
+    "current_ratio": 1.1790202271352732,
+    "roe": 29.015873015873016,
+    "roa": 6.443607856407653,
     "moat": {
       "ticker": "UPS",
       "period": "2026Q2",
@@ -638721,7 +647649,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "UPS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:26.544115+00:00",
+      "fetchedAt": "2026-10-17T16:37:24.044496+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-05",
       "quoteDate": "2026-10-16",
@@ -638735,7 +647663,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -638749,8 +647677,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 10710000000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 749349405,
+      "shareSource": {
+        "shares": 749.349405,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:24.044496+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1090727/000162828026053249/ups-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 749.349405,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:24.044496+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1090727/000162828026053249/ups-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "EFX": {
     "reported_growth": {
@@ -638809,6 +647755,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 4380200000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Equifax",
     "company_name": "Equifax Inc.",
     "exchange": "NYSE",
@@ -638816,8 +647798,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Research & Consulting Services",
     "reportedCurrency": "USD",
     "price": 161.25,
-    "shares": 117.48,
-    "shares_outstanding": 117480000,
+    "shares": 117.484896,
+    "shares_outstanding": 117484896,
     "shares_display": "117.48 M",
     "mcap": 18944.4,
     "liq_val_1": -50.054093761976006,
@@ -641945,17 +650927,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 27.4,
     "pe_forward": 24.1,
-    "pb_trailing": 4.3,
+    "pb_trailing": 4.3250079905027174,
     "pb_forward": 3.9,
     "div_yield": 1.35,
     "ps_ratio": 4.3,
     "fcf_to_ev": 5.53,
     "fcf_to_mcap": 5.83,
-    "liab_to_assets": 62.3,
-    "cash_to_assets": 1.4,
-    "current_ratio": 0.6,
-    "roe": 15.8,
-    "roa": 5.8,
+    "liab_to_assets": 62.276953379291925,
+    "cash_to_assets": 1.4196531405965713,
+    "current_ratio": 0.6022852789944773,
+    "roe": 13.54756539629666,
+    "roa": 5.80135762172866,
     "moat": {
       "ticker": "EFX",
       "period": "2026Q2",
@@ -642621,7 +651603,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "EFX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:27.072322+00:00",
+      "fetchedAt": "2026-10-17T16:37:24.279551+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-21",
       "quoteDate": "2026-10-16",
@@ -642635,7 +651617,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -642649,8 +651631,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1104000000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 117484896,
+      "shareSource": {
+        "shares": 117.484896,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:24.279551+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/33185/000003318526000028/efx-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 117.484896,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:24.279551+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/33185/000003318526000028/efx-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "TRU": {
     "reported_growth": {
@@ -642707,6 +651707,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 4842900000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "TransUnion",
@@ -645841,17 +654877,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 16.7,
     "pe_forward": 14.7,
-    "pb_trailing": 2.9,
+    "pb_trailing": 2.9308265708563055,
     "pb_forward": 2.6,
     "div_yield": 1.06,
     "ps_ratio": 4.5,
     "fcf_to_ev": 6.15,
     "fcf_to_mcap": 5.55,
-    "liab_to_assets": 59.0,
-    "cash_to_assets": 6.9,
-    "current_ratio": 1.9,
-    "roe": 17.5,
-    "roa": 7.0,
+    "liab_to_assets": 58.99392119705658,
+    "cash_to_assets": 6.8835675436221795,
+    "current_ratio": 1.9003577349271443,
+    "roe": 18.758019556656784,
+    "roa": 7.62657743957833,
     "moat": {
       "ticker": "TRU",
       "period": "2026Q2",
@@ -646486,7 +655522,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TRU",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:27.597504+00:00",
+      "fetchedAt": "2026-10-17T16:37:25.008423+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-28",
       "quoteDate": "2026-10-16",
@@ -646500,7 +655536,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -646514,8 +655550,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1047500000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 191600000,
+      "shareSource": {
+        "shares": 191.6,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:25.008423+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1552033/000155203326000047/tru-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 191.6,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:25.008423+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1552033/000155203326000047/tru-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "CPRT": {
     "reported_growth": {
@@ -646572,6 +655626,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-07-31",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "bookEquity": 9097295000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Copart",
@@ -649708,17 +658798,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 17.4,
     "pe_forward": 15.3,
-    "pb_trailing": 2.8,
+    "pb_trailing": 2.8378545490720044,
     "pb_forward": 2.5,
     "div_yield": 0.0,
     "ps_ratio": 5.1,
     "fcf_to_ev": 5.65,
     "fcf_to_mcap": 4.91,
-    "liab_to_assets": 9.1,
-    "cash_to_assets": 44.8,
-    "current_ratio": 7.91,
-    "roe": 16.3,
-    "roa": 14.8,
+    "liab_to_assets": 9.113954093665516,
+    "cash_to_assets": 44.7735048829206,
+    "current_ratio": 7.91227738614064,
+    "roe": 16.156140943436252,
+    "roa": 14.708992318030639,
     "moat": {
       "ticker": "CPRT",
       "period": "2026Q4",
@@ -650396,7 +659486,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CPRT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:28.125242+00:00",
+      "fetchedAt": "2026-10-17T16:37:25.249932+00:00",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-09-29",
       "quoteDate": "2026-10-16",
@@ -650410,7 +659500,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -650424,8 +659514,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 809247000,
         "inventory": 51382000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 926330000,
+      "shareSource": {
+        "shares": 926.33,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:25.249932+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/900075/000119312526405731/cprt-20260731.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 926.33,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:25.249932+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/900075/000119312526405731/cprt-20260731.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "PAYX": {
     "reported_growth": {
@@ -650482,6 +659590,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-08-31",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-08-31",
+        "reason": null,
+        "bookEquity": 3705500000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-08-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-08-31",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Paychex",
@@ -653618,17 +662762,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 22.0,
     "pe_forward": 19.4,
-    "pb_trailing": 10.7,
+    "pb_trailing": 10.724058831466738,
     "pb_forward": 9.6,
     "div_yield": 4.09,
     "ps_ratio": 4.9,
     "fcf_to_ev": 4.99,
     "fcf_to_mcap": 5.07,
-    "liab_to_assets": 76.3,
-    "cash_to_assets": 6.0,
-    "current_ratio": 1.28,
-    "roe": 48.7,
-    "roa": 11.5,
+    "liab_to_assets": 76.3388609704547,
+    "cash_to_assets": 5.96525059543954,
+    "current_ratio": 1.2765930599369084,
+    "roe": 45.48430967611948,
+    "roa": 10.838384444577807,
     "moat": {
       "ticker": "PAYX",
       "period": "2027Q1",
@@ -654324,7 +663468,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "PAYX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:28.693809+00:00",
+      "fetchedAt": "2026-10-17T16:37:25.490512+00:00",
       "balanceDate": "2026-08-31",
       "filingDate": "2026-09-24",
       "quoteDate": "2026-10-16",
@@ -654338,7 +663482,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -654352,8 +663496,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1615900000,
         "inventory": 200000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 355980000,
+      "shareSource": {
+        "shares": 355.98,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:25.490512+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/723531/000072353126000006/payx-20260831.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 355.98,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:25.490512+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/723531/000072353126000006/payx-20260831.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "AOS": {
     "reported_growth": {
@@ -654412,6 +663574,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 1841900000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "A. O. Smith",
     "company_name": "A. O. Smith Corporation",
     "exchange": "NYSE",
@@ -654419,13 +663617,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Building Products",
     "reportedCurrency": "USD",
     "price": 59.22,
-    "shares": 135.91,
-    "shares_outstanding": 135910000,
+    "shares": 135.908575,
+    "shares_outstanding": 135908575,
     "shares_display": "135.91 M",
     "mcap": 8048.5,
-    "liq_val_1": -3.0410148433598785,
-    "liq_val_2": -6.21086629428625,
-    "liq_val_3": -11.929342766850644,
+    "liq_val_1": -3.0410148881334385,
+    "liq_val_2": -6.21086638573026,
+    "liq_val_3": -11.929342942489097,
     "debt": 676.7,
     "cash": 181.3,
     "short_term_investments": 0.0,
@@ -657543,17 +666741,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 16.1,
     "pe_forward": 14.2,
-    "pb_trailing": 4.4,
+    "pb_trailing": 4.3696726206634455,
     "pb_forward": 4.0,
     "div_yield": 2.46,
     "ps_ratio": 3.1,
     "fcf_to_ev": 6.19,
     "fcf_to_mcap": 7.94,
-    "liab_to_assets": 49.5,
-    "cash_to_assets": 5.0,
-    "current_ratio": 1.59,
-    "roe": 27.2,
-    "roa": 13.7,
+    "liab_to_assets": 49.460831389765396,
+    "cash_to_assets": 4.974619289340102,
+    "current_ratio": 1.593782264540553,
+    "roe": 27.103310038463626,
+    "roa": 15.409492715680537,
     "moat": {
       "ticker": "AOS",
       "period": "2026Q2",
@@ -658219,7 +667417,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AOS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:29.220834+00:00",
+      "fetchedAt": "2026-10-17T16:37:25.726460+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-30",
       "quoteDate": "2026-10-16",
@@ -658233,7 +667431,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -658247,8 +667445,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 669800000,
         "inventory": 482700000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 135908575,
+      "shareSource": {
+        "shares": 135.908575,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:25.726460+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/91142/000009114226000098/aos-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 135.908575,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:25.726460+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/91142/000009114226000098/aos-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "ASR": {
     "reported_growth": {
@@ -658307,6 +667523,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 2376475614.6484036,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Grupo Aeroportuario",
     "company_name": "Grupo Aeroportuario del Sureste, S. A. B. de C. V.",
     "exchange": "NYSE",
@@ -658314,13 +667566,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Airport Services",
     "reportedCurrency": "MXN",
     "price": 239.14,
-    "shares": 29.78,
-    "shares_outstanding": 29780000,
-    "shares_display": "29.78 M",
+    "shares": 30.157468,
+    "shares_outstanding": 30157468,
+    "shares_display": "30.16 M",
     "mcap": 7122,
-    "liq_val_1": -44.75902250965236,
-    "liq_val_2": -53.73966159562195,
-    "liq_val_3": -57.933269414431784,
+    "liq_val_1": -44.2015952835315,
+    "liq_val_2": -53.07038981942396,
+    "liq_val_3": -57.21177060013496,
     "debt": 1975.132729669322,
     "cash": 667.3651785202591,
     "short_term_investments": 0,
@@ -661521,9 +670773,9 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 280.754013193746,
-    "default_fair_val": 280.754013193746,
-    "premium_pct": -14.822232715522588,
+    "fair_val": 277.23993648637065,
+    "default_fair_val": 277.23993648637065,
+    "premium_pct": -13.742585923671102,
     "is_undervalued": true,
     "pe_trailing": 12.77221181683668,
     "pe_forward": 11.239546398816278,
@@ -662214,7 +671466,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ASR",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:29.750907+00:00",
+      "fetchedAt": "2026-10-17T16:37:25.962960+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-09-28",
       "quoteDate": "2026-10-16",
@@ -662229,7 +671481,7 @@ window.FULL_MARKET_DATA = {
         "source": "RXI_N.B.MX"
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -662243,8 +671495,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 151472806.46455383,
         "inventory": 7430626.39692819,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 30157468,
+      "shareSource": {
+        "shares": 30.157468,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:25.962960+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1123452/000110465926111185/tm2626158d1_ex99-1.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 30.157468,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:25.962960+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1123452/000110465926111185/tm2626158d1_ex99-1.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "XYL": {
     "reported_growth": {
@@ -662303,6 +671573,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 10421000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Xylem",
     "company_name": "Xylem Inc.",
     "exchange": "NYSE",
@@ -662310,13 +671616,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Industrial Machinery",
     "reportedCurrency": "USD",
     "price": 104.07,
-    "shares": 233.49,
-    "shares_outstanding": 233490000,
+    "shares": 233.487,
+    "shares_outstanding": 233487000,
     "shares_display": "233.49 M",
     "mcap": 24299.0,
     "liq_val_1": -10.810023684402129,
-    "liq_val_2": -15.564035685070259,
-    "liq_val_3": -24.16408622321585,
+    "liq_val_2": -15.56403568507026,
+    "liq_val_3": -24.164086223215854,
     "debt": 3055.0,
     "cash": 1276.0,
     "short_term_investments": 0.0,
@@ -665439,17 +674745,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 24.1,
     "pe_forward": 21.2,
-    "pb_trailing": 2.3,
+    "pb_trailing": 2.331733998656559,
     "pb_forward": 2.1,
     "div_yield": 1.65,
     "ps_ratio": 6.3,
     "fcf_to_ev": 5.18,
     "fcf_to_mcap": 3.95,
-    "liab_to_assets": 39.9,
-    "cash_to_assets": 7.4,
-    "current_ratio": 1.61,
-    "roe": 9.7,
-    "roa": 5.8,
+    "liab_to_assets": 39.89159266520586,
+    "cash_to_assets": 7.357859531772576,
+    "current_ratio": 1.6130690161527166,
+    "roe": 9.120462344229727,
+    "roa": 5.875167238671398,
     "moat": {
       "ticker": "XYL",
       "period": "2026Q2",
@@ -666084,7 +675390,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "XYL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:30.275942+00:00",
+      "fetchedAt": "2026-10-17T16:37:26.199117+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-28",
       "quoteDate": "2026-10-16",
@@ -666098,7 +675404,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -666112,8 +675418,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1875000000,
         "inventory": 1016000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 233487000,
+      "shareSource": {
+        "shares": 233.487,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:26.199117+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1524472/000152447226000110/xyl-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 233.487,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:26.199117+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1524472/000152447226000110/xyl-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "ROL": {
     "reported_growth": {
@@ -666172,6 +675496,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 1429597000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Rollins",
     "company_name": "Rollins, Inc.",
     "exchange": "NYSE",
@@ -666179,13 +675539,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Environmental & Facilities Services",
     "reportedCurrency": "USD",
     "price": 33.45,
-    "shares": 481.15,
-    "shares_outstanding": 481150000,
+    "shares": 481.145404,
+    "shares_outstanding": 481145404,
     "shares_display": "481.15 M",
     "mcap": 16094.3,
-    "liq_val_1": -2.7744918456779257,
-    "liq_val_2": -3.332995154163567,
-    "liq_val_3": -3.774846407921689,
+    "liq_val_1": -2.7744918457124035,
+    "liq_val_2": -3.3329951542049856,
+    "liq_val_3": -3.774846407968598,
     "debt": 1115.3,
     "cash": 109.1,
     "short_term_investments": 0.0,
@@ -669302,17 +678662,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 30.3,
     "pe_forward": 26.7,
-    "pb_trailing": 11.3,
+    "pb_trailing": 11.257927933536514,
     "pb_forward": 10.2,
     "div_yield": 2.14,
     "ps_ratio": 6.5,
     "fcf_to_ev": 4.27,
     "fcf_to_mcap": 3.85,
-    "liab_to_assets": 57.4,
-    "cash_to_assets": 3.3,
-    "current_ratio": 0.63,
-    "roe": 37.2,
-    "roa": 15.8,
+    "liab_to_assets": 57.388197435894384,
+    "cash_to_assets": 3.2514816991819804,
+    "current_ratio": 0.6293576064837368,
+    "roe": 36.82572750612763,
+    "roa": 16.720418611086654,
     "moat": {
       "ticker": "ROL",
       "period": "2026Q2",
@@ -670008,7 +679368,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ROL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:31.549816+00:00",
+      "fetchedAt": "2026-10-17T16:37:26.434852+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-23",
       "quoteDate": "2026-10-16",
@@ -670022,7 +679382,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -670036,8 +679396,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 238989000,
         "inventory": 42807000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 481145404,
+      "shareSource": {
+        "shares": 481.145404,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:26.434852+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/84839/000008483926000040/rol-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 481.145404,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:26.434852+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/84839/000008483926000040/rol-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "OTIS": {
     "reported_growth": {
@@ -670096,6 +679474,44 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": -5748000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeEquity"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Otis Worldwide",
     "company_name": "Otis Worldwide Corporation",
     "exchange": "NYSE",
@@ -670103,13 +679519,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Industrial Machinery",
     "reportedCurrency": "USD",
     "price": 71.33,
-    "shares": 380.67,
-    "shares_outstanding": 380670000,
+    "shares": 380.669339,
+    "shares_outstanding": 380669339,
     "shares_display": "380.67 M",
     "mcap": 27153.1,
-    "liq_val_1": -25.946402791196988,
-    "liq_val_2": -32.50064749748802,
-    "liq_val_3": -41.776414254166816,
+    "liq_val_1": -25.94640279132121,
+    "liq_val_2": -32.50064749764362,
+    "liq_val_3": -41.776414254366834,
     "debt": 8846.0,
     "cash": 813.0,
     "short_term_investments": 0.0,
@@ -673223,17 +682639,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 17.9,
     "pe_forward": 15.8,
-    "pb_trailing": 5.0,
+    "pb_trailing": -4.723921363952679,
     "pb_forward": 4.5,
     "div_yield": 2.42,
     "ps_ratio": 4.0,
     "fcf_to_ev": 4.41,
     "fcf_to_mcap": 6.3,
-    "liab_to_assets": 149.8,
-    "cash_to_assets": 7.3,
-    "current_ratio": 0.83,
-    "roe": 18.0,
-    "roa": 13.6,
+    "liab_to_assets": 149.83865184653996,
+    "cash_to_assets": 7.287558264610972,
+    "current_ratio": 0.8314893617021276,
+    "roe": -28.246692752002982,
+    "roa": 14.444973797046213,
     "moat": {
       "ticker": "OTIS",
       "period": "2026Q2",
@@ -673868,7 +683284,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "OTIS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:32.072085+00:00",
+      "fetchedAt": "2026-10-17T16:37:26.668194+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-23",
       "quoteDate": "2026-10-16",
@@ -673882,7 +683298,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -673896,8 +683312,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 3985000000,
         "inventory": 686000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 380669339,
+      "shareSource": {
+        "shares": 380.669339,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:26.668194+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1781335/000178133526000113/otis-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 380.669339,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:26.668194+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1781335/000178133526000113/otis-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "VRSK": {
     "reported_growth": {
@@ -673956,6 +683390,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": -1189000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Verisk Analytics",
     "company_name": "Verisk Analytics, Inc.",
     "exchange": "NASDAQ",
@@ -673963,13 +683433,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Research & Consulting Services",
     "reportedCurrency": "USD",
     "price": 190.9,
-    "shares": 130.16,
-    "shares_outstanding": 130160000,
+    "shares": 130.156013,
+    "shares_outstanding": 130156013,
     "shares_display": "130.16 M",
     "mcap": 24846.8,
-    "liq_val_1": -35.054085437796196,
-    "liq_val_2": -36.982540329826186,
-    "liq_val_3": -39.44112823998395,
+    "liq_val_1": -35.05408543821944,
+    "liq_val_2": -36.98254033027272,
+    "liq_val_3": -39.44112824046016,
     "debt": 4617.1,
     "cash": 551.4,
     "short_term_investments": 0.0,
@@ -677092,17 +686562,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 28.1,
     "pe_forward": 24.7,
-    "pb_trailing": 5.0,
+    "pb_trailing": -20.897224558452482,
     "pb_forward": 4.5,
     "div_yield": 1.03,
     "ps_ratio": 5.0,
     "fcf_to_ev": 3.97,
     "fcf_to_mcap": 4.98,
-    "liab_to_assets": 126.4,
-    "cash_to_assets": 12.3,
-    "current_ratio": 1.01,
-    "roe": 18.0,
-    "roa": 19.7,
+    "liab_to_assets": 126.44631775617785,
+    "cash_to_assets": 12.264507662536978,
+    "current_ratio": 1.005464480874317,
+    "roe": 284.0872633942894,
+    "roa": 18.467538426244552,
     "moat": {
       "ticker": "VRSK",
       "period": "2026Q2",
@@ -677737,7 +687207,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "VRSK",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:32.597138+00:00",
+      "fetchedAt": "2026-10-17T16:37:26.903479+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-29",
       "quoteDate": "2026-10-16",
@@ -677751,7 +687221,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -677765,8 +687235,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 400000000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 130156013,
+      "shareSource": {
+        "shares": 130.156013,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:26.903479+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1442145/000143774926024749/vrsk20260630_10q.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 130.156013,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:26.903479+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1442145/000143774926024749/vrsk20260630_10q.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "MIDD": {
     "reported_growth": {
@@ -677825,6 +687313,46 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-07-04",
+        "reason": null,
+        "bookEquity": 2209954000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-07-04",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-07-04",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-07-04",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-07-04",
+        "reason": null,
+        "warnings": [
+          "negativeNetIncome"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-07-04",
+        "reason": null,
+        "warnings": [
+          "negativeNetIncome"
+        ]
+      }
+    },
     "name": "Middleby",
     "company_name": "The Middleby Corporation",
     "exchange": "NASDAQ",
@@ -677832,8 +687360,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Industrial Machinery",
     "reportedCurrency": "USD",
     "price": 107.78,
-    "shares": 45.22,
-    "shares_outstanding": 45220000,
+    "shares": 45.2223,
+    "shares_outstanding": 45222300,
     "shares_display": "45.22 M",
     "mcap": 4874.1,
     "liq_val_1": -33.32185669459537,
@@ -680955,17 +690483,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 24.0,
     "pe_forward": 21.1,
-    "pb_trailing": 2.2,
+    "pb_trailing": 2.205521019894532,
     "pb_forward": 2.0,
     "div_yield": 0.0,
     "ps_ratio": 2.5,
     "fcf_to_ev": 5.74,
     "fcf_to_mcap": 10.17,
-    "liab_to_assets": 58.8,
-    "cash_to_assets": 3.0,
-    "current_ratio": 1.99,
-    "roe": 18.0,
-    "roa": 8.0,
+    "liab_to_assets": 58.77453735580348,
+    "cash_to_assets": 2.9693770516390448,
+    "current_ratio": 1.9869863783668786,
+    "roe": -13.010154435198363,
+    "roa": -6.424584470608378,
     "moat": {
       "ticker": "MIDD",
       "period": "2026Q2",
@@ -681625,7 +691153,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MIDD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:33.124394+00:00",
+      "fetchedAt": "2026-10-17T16:37:27.138628+00:00",
       "balanceDate": "2026-07-04",
       "filingDate": "2026-08-13",
       "quoteDate": "2026-10-16",
@@ -681639,7 +691167,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -681653,8 +691181,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 601178000,
         "inventory": 737633000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 45222300,
+      "shareSource": {
+        "shares": 45.2223,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:27.138628+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/769520/000076952026000047/midd-20260704.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 45.2223,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:27.138628+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/769520/000076952026000047/midd-20260704.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "ADP": {
     "reported_growth": {
@@ -681713,6 +691259,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 6031200000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Automatic Data Processing",
     "company_name": "Automatic Data Processing, Inc.",
     "exchange": "NASDAQ",
@@ -681720,12 +691302,12 @@ window.FULL_MARKET_DATA = {
     "industry": "Human Resource & Employment Services",
     "reportedCurrency": "USD",
     "price": 288.9,
-    "shares": 396.25,
-    "shares_outstanding": 396250000,
+    "shares": 396.252,
+    "shares_outstanding": 396252000,
     "shares_display": "396.25 M",
     "mcap": 114477.2,
-    "liq_val_1": -122.54524898297042,
-    "liq_val_2": -126.47285061021772,
+    "liq_val_1": -122.54524898297043,
+    "liq_val_2": -126.47285061021773,
     "liq_val_3": -133.5816601556585,
     "debt": 5270.8,
     "cash": 4230.1,
@@ -684847,17 +694429,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 25.9,
     "pe_forward": 22.8,
-    "pb_trailing": 19.0,
+    "pb_trailing": 18.980833001724367,
     "pb_forward": 17.1,
     "div_yield": 2.29,
     "ps_ratio": 5.7,
     "fcf_to_ev": 5.13,
     "fcf_to_mcap": 4.35,
-    "liab_to_assets": 90.5,
-    "cash_to_assets": 6.7,
-    "current_ratio": 0.17,
-    "roe": 73.2,
-    "roa": 7.0,
+    "liab_to_assets": 90.45595023523063,
+    "cash_to_assets": 6.693905841283806,
+    "current_ratio": 0.17198035378381565,
+    "roe": 71.32352941176471,
+    "roa": 8.269735597056735,
     "moat": {
       "ticker": "ADP",
       "period": "2026Q4",
@@ -685541,7 +695123,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ADP",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:33.645655+00:00",
+      "fetchedAt": "2026-10-17T16:37:27.374191+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-05",
       "quoteDate": "2026-10-16",
@@ -685555,7 +695137,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -685569,8 +695151,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 3521100000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 396252000,
+      "shareSource": {
+        "shares": 396.252,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:27.374191+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/8670/000000867026000030/adp-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 396.252,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:27.374191+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/8670/000000867026000030/adp-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "HII": {
     "reported_growth": {
@@ -685629,6 +695229,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 5312000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Huntington Ingalls",
     "company_name": "Huntington Ingalls Industries, Inc.",
     "exchange": "NYSE",
@@ -685636,8 +695272,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Aerospace & Defense",
     "reportedCurrency": "USD",
     "price": 272.0,
-    "shares": 39.4,
-    "shares_outstanding": 39400000,
+    "shares": 39.404598,
+    "shares_outstanding": 39404598,
     "shares_display": "39.40 M",
     "mcap": 10718.1,
     "liq_val_1": -104.83548138214734,
@@ -688761,21 +698397,21 @@ window.FULL_MARKET_DATA = {
     ],
     "fair_val": 309.24,
     "default_fair_val": 309.24,
-    "premium_pct": -12.0,
+    "premium_pct": -12,
     "is_undervalued": true,
     "pe_trailing": 16.2,
     "pe_forward": 14.3,
-    "pb_trailing": 2.0,
+    "pb_trailing": 2.017714608433735,
     "pb_forward": 1.8,
     "div_yield": 2.02,
     "ps_ratio": 7.1,
     "fcf_to_ev": 2.49,
     "fcf_to_mcap": 3.51,
-    "liab_to_assets": 58.1,
-    "cash_to_assets": 0.1,
-    "current_ratio": 1.23,
-    "roe": 12.4,
-    "roa": 5.2,
+    "liab_to_assets": 58.11386216685065,
+    "cash_to_assets": 0.09462229932187352,
+    "current_ratio": 1.2301557159134067,
+    "roe": 13.539532978287589,
+    "roa": 5.463713010414945,
     "moat": {
       "ticker": "HII",
       "period": "2026Q2",
@@ -689410,7 +699046,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "HII",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:34.198968+00:00",
+      "fetchedAt": "2026-10-17T16:37:27.611184+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-30",
       "quoteDate": "2026-10-16",
@@ -689424,7 +699060,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -689438,8 +699074,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 452000000,
         "inventory": 236000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 39404598,
+      "shareSource": {
+        "shares": 39.404598,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:27.611184+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1501585/000150158526000047/hii-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 39.404598,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:27.611184+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1501585/000150158526000047/hii-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "MSA": {
     "reported_growth": {
@@ -689498,6 +699152,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 1401657000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "MSA Safety",
     "company_name": "MSA Safety Incorporated",
     "exchange": "NYSE",
@@ -689505,13 +699195,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Commercial & Professional Services",
     "reportedCurrency": "USD",
     "price": 179.05,
-    "shares": 38.6,
-    "shares_outstanding": 38600000,
+    "shares": 38.604089,
+    "shares_outstanding": 38604089,
     "shares_display": "38.60 M",
     "mcap": 6912.1,
-    "liq_val_1": -6.864920449677063,
-    "liq_val_2": -14.154871004353321,
-    "liq_val_3": -25.898733164382936,
+    "liq_val_1": -6.864920449230132,
+    "liq_val_2": -14.154871003431786,
+    "liq_val_3": -25.898733162696832,
     "debt": 643.5,
     "cash": 200.1,
     "short_term_investments": 0.0,
@@ -692628,21 +702318,21 @@ window.FULL_MARKET_DATA = {
     ],
     "fair_val": 164.3,
     "default_fair_val": 164.3,
-    "premium_pct": 9.0,
+    "premium_pct": 9,
     "is_undervalued": false,
     "pe_trailing": 22.0,
     "pe_forward": 19.4,
-    "pb_trailing": 4.9,
+    "pb_trailing": 4.9313776480265865,
     "pb_forward": 4.4,
     "div_yield": 1.2,
     "ps_ratio": 4.9,
     "fcf_to_ev": 5.22,
     "fcf_to_mcap": 5.13,
-    "liab_to_assets": 46.1,
-    "cash_to_assets": 7.7,
-    "current_ratio": 3.24,
-    "roe": 22.4,
-    "roa": 12.1,
+    "liab_to_assets": 46.12142712446728,
+    "cash_to_assets": 7.690030908960216,
+    "current_ratio": 3.2358713598870192,
+    "roe": 25.067736831433084,
+    "roa": 12.313059586049938,
     "moat": {
       "ticker": "MSA",
       "period": "2026Q2",
@@ -693308,7 +702998,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MSA",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:34.726824+00:00",
+      "fetchedAt": "2026-10-17T16:37:27.938971+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-31",
       "quoteDate": "2026-10-16",
@@ -693322,7 +703012,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -693336,8 +703026,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 347877000,
         "inventory": 350119000,
         "preferredStock": 3569000
+      },
+      "sharesOutstanding": 38604089,
+      "shareSource": {
+        "shares": 38.604089,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:27.938971+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/66570/000006657026000027/msa-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 38.604089,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:27.938971+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/66570/000006657026000027/msa-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "TDG": {
     "reported_growth": {
@@ -693396,6 +703104,44 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-27",
+        "reason": null,
+        "bookEquity": -9809000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-27",
+        "reason": null,
+        "warnings": [
+          "negativeEquity"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-27",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "TransDigm",
     "company_name": "TransDigm Group Incorporated",
     "exchange": "NYSE",
@@ -693403,13 +703149,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Aerospace & Defense",
     "reportedCurrency": "USD",
     "price": 1139.34,
-    "shares": 55.28,
-    "shares_outstanding": 55280000,
+    "shares": 55.276525,
+    "shares_outstanding": 55276525,
     "shares_display": "55.28 M",
     "mcap": 62978.8,
-    "liq_val_1": -519.2439285976799,
-    "liq_val_2": -555.0240359762769,
-    "liq_val_3": -609.6620581751032,
+    "liq_val_1": -519.2439285935576,
+    "liq_val_2": -555.0240359718705,
+    "liq_val_3": -609.6620581702631,
     "debt": 33485.0,
     "cash": 2773.0,
     "short_term_investments": 0.0,
@@ -696532,17 +706278,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 29.6,
     "pe_forward": 26.0,
-    "pb_trailing": 5.0,
+    "pb_trailing": -6.420511774900602,
     "pb_forward": 4.5,
     "div_yield": 8.4,
     "ps_ratio": 8.2,
     "fcf_to_ev": 3.35,
     "fcf_to_mcap": 3.06,
-    "liab_to_assets": 136.3,
-    "cash_to_assets": 10.4,
-    "current_ratio": 3.02,
-    "roe": 18.0,
-    "roa": 8.0,
+    "liab_to_assets": 136.32727816401285,
+    "cash_to_assets": 10.364805262764447,
+    "current_ratio": 3.019036519036519,
+    "roe": -42.545963229416465,
+    "roa": 9.37885462555066,
     "moat": {
       "ticker": "TDG",
       "period": "2026Q3",
@@ -697177,7 +706923,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TDG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:35.256191+00:00",
+      "fetchedAt": "2026-10-17T16:37:28.173147+00:00",
       "balanceDate": "2026-06-27",
       "filingDate": "2026-08-04",
       "quoteDate": "2026-10-16",
@@ -697191,7 +706937,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -697205,8 +706951,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 2159000000,
         "inventory": 2586000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 55276525,
+      "shareSource": {
+        "shares": 55.276525,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:28.173147+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1260221/000126022126000053/tdg-20260627.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 55.276525,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:28.173147+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1260221/000126022126000053/tdg-20260627.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "RRX": {
     "reported_growth": {
@@ -697265,6 +707029,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 6915500000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Regal Rexnord",
     "company_name": "Regal Rexnord Corporation",
     "exchange": "NYSE",
@@ -697272,13 +707072,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Electrical Components & Equipment",
     "reportedCurrency": "USD",
     "price": 154.01,
-    "shares": 66.57,
-    "shares_outstanding": 66569999,
+    "shares": 66.569573,
+    "shares_outstanding": 66569573.00000001,
     "shares_display": "66.57 M",
     "mcap": 10252.4,
-    "liq_val_1": -60.18214958197933,
-    "liq_val_2": -78.61925146886806,
-    "liq_val_3": -95.93872563718872,
+    "liq_val_1": -60.18214958356425,
+    "liq_val_2": -78.61925147093852,
+    "liq_val_3": -95.9387256397153,
     "debt": 4766.4,
     "cash": 441.6,
     "short_term_investments": 0.0,
@@ -700401,17 +710201,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 31.6,
     "pe_forward": 27.8,
-    "pb_trailing": 1.5,
+    "pb_trailing": 1.482524763213072,
     "pb_forward": 1.4,
     "div_yield": 0.91,
     "ps_ratio": 5.5,
     "fcf_to_ev": 4.69,
     "fcf_to_mcap": 4.55,
-    "liab_to_assets": 49.7,
-    "cash_to_assets": 3.2,
-    "current_ratio": 2.28,
-    "roe": 4.7,
-    "roa": 2.4,
+    "liab_to_assets": 49.653136316700355,
+    "cash_to_assets": 3.2112159862708887,
+    "current_ratio": 2.276092918212615,
+    "roe": 4.836109618484686,
+    "roa": 2.330482568134247,
     "moat": {
       "ticker": "RRX",
       "period": "2026Q2",
@@ -701089,7 +710889,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "RRX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:35.780663+00:00",
+      "fetchedAt": "2026-10-17T16:37:28.410167+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-05",
       "quoteDate": "2026-10-16",
@@ -701103,7 +710903,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -701117,8 +710917,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 580000000,
         "inventory": 1377900000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 66569573.00000001,
+      "shareSource": {
+        "shares": 66.569573,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:28.410167+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/82811/000008281126000229/rbc-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 66.569573,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:28.410167+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/82811/000008281126000229/rbc-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "GGG": {
     "reported_growth": {
@@ -701177,6 +710995,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-26",
+        "reason": null,
+        "bookEquity": 2522688000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-26",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-26",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-26",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-26",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-26",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Graco",
     "company_name": "Graco Inc.",
     "exchange": "NYSE",
@@ -701184,13 +711038,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Industrial Machinery",
     "reportedCurrency": "USD",
     "price": 81.99,
-    "shares": 161.95,
-    "shares_outstanding": 161950000,
+    "shares": 161.953824,
+    "shares_outstanding": 161953824,
     "shares_display": "161.95 M",
     "mcap": 13278.6,
-    "liq_val_1": 4.734590274238545,
-    "liq_val_2": 2.6924063243614356,
-    "liq_val_3": -0.618633123464804,
+    "liq_val_1": 4.734590274324119,
+    "liq_val_2": 2.6924063244100984,
+    "liq_val_3": -0.6186331234759853,
     "debt": 45.2,
     "cash": 507.6,
     "short_term_investments": 0.0,
@@ -704313,17 +714167,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 24.9,
     "pe_forward": 21.9,
-    "pb_trailing": 5.3,
+    "pb_trailing": 5.263671131745186,
     "pb_forward": 4.8,
     "div_yield": 1.42,
     "ps_ratio": 5.4,
     "fcf_to_ev": 5.63,
     "fcf_to_mcap": 4.65,
-    "liab_to_assets": 19.4,
-    "cash_to_assets": 16.2,
-    "current_ratio": 2.99,
-    "roe": 21.1,
-    "roa": 17.0,
+    "liab_to_assets": 19.414602295578305,
+    "cash_to_assets": 16.2141070317938,
+    "current_ratio": 2.992367509012696,
+    "roe": 21.33317606416582,
+    "roa": 17.515609185840493,
     "moat": {
       "ticker": "GGG",
       "period": "2026Q2",
@@ -705019,7 +714873,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "GGG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:36.304803+00:00",
+      "fetchedAt": "2026-10-17T16:37:28.647800+00:00",
       "balanceDate": "2026-06-26",
       "filingDate": "2026-07-22",
       "quoteDate": "2026-10-16",
@@ -705033,7 +714887,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -705047,8 +714901,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 424220000,
         "inventory": 393719000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 161953824,
+      "shareSource": {
+        "shares": 161.953824,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:28.647800+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/42888/000004288826000123/ggg-20260626.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 161.953824,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:28.647800+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/42888/000004288826000123/ggg-20260626.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "DCI": {
     "reported_growth": {
@@ -705107,6 +714979,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "bookEquity": 1764400000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Donaldson",
     "company_name": "Donaldson Company, Inc.",
     "exchange": "NYSE",
@@ -705114,8 +715022,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Industrial Machinery",
     "reportedCurrency": "USD",
     "price": 87.97,
-    "shares": 115.82,
-    "shares_outstanding": 115820000,
+    "shares": 115.821,
+    "shares_outstanding": 115821000,
     "shares_display": "115.82 M",
     "mcap": 10188.8,
     "liq_val_1": -4.772018891220072,
@@ -708236,17 +718144,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 22.5,
     "pe_forward": 19.8,
-    "pb_trailing": 5.8,
+    "pb_trailing": 5.77465427340739,
     "pb_forward": 5.2,
     "div_yield": 1.39,
     "ps_ratio": 6.0,
     "fcf_to_ev": 5.06,
     "fcf_to_mcap": 4.18,
-    "liab_to_assets": 55.7,
-    "cash_to_assets": 6.3,
-    "current_ratio": 2.08,
-    "roe": 25.7,
-    "roa": 11.4,
+    "liab_to_assets": 55.74395505167051,
+    "cash_to_assets": 6.280726397110464,
+    "current_ratio": 2.0764830244994403,
+    "roe": 31.221190230478157,
+    "roa": 15.242509740695956,
     "moat": {
       "ticker": "DCI",
       "period": "2026Q4",
@@ -708930,7 +718838,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "DCI",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:36.828199+00:00",
+      "fetchedAt": "2026-10-17T16:37:28.881928+00:00",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-09-25",
       "quoteDate": "2026-10-16",
@@ -708944,7 +718852,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -708958,8 +718866,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 758100000,
         "inventory": 538700000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 115821000,
+      "shareSource": {
+        "shares": 115.821,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:28.881928+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/29644/000002964426000085/dci-20260731.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 115.821,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:28.881928+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/29644/000002964426000085/dci-20260731.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "ITW": {
     "reported_growth": {
@@ -709016,6 +718942,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 2894000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Illinois Tool Works",
@@ -712150,21 +722112,21 @@ window.FULL_MARKET_DATA = {
     ],
     "fair_val": 152.95,
     "default_fair_val": 152.95,
-    "premium_pct": 78.0,
+    "premium_pct": 78,
     "is_undervalued": false,
     "pe_trailing": 24.3,
     "pe_forward": 21.4,
-    "pb_trailing": 26.8,
+    "pb_trailing": 26.795196959225986,
     "pb_forward": 24.1,
     "div_yield": 2.36,
     "ps_ratio": 6.6,
     "fcf_to_ev": 5.57,
     "fcf_to_mcap": 3.77,
-    "liab_to_assets": 82.4,
-    "cash_to_assets": 5.1,
-    "current_ratio": 1.11,
-    "roe": 110.4,
-    "roa": 19.4,
+    "liab_to_assets": 82.41818181818181,
+    "cash_to_assets": 5.084848484848485,
+    "current_ratio": 1.1086846967915336,
+    "roe": 99.50155763239876,
+    "roa": 19.902791625124628,
     "moat": {
       "ticker": "ITW",
       "period": "2026Q2",
@@ -712830,7 +722792,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ITW",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:37.350303+00:00",
+      "fetchedAt": "2026-10-17T16:37:29.117044+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-06",
       "quoteDate": "2026-10-16",
@@ -712844,7 +722806,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -712858,8 +722820,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 3564000000,
         "inventory": 1756000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 284800000,
+      "shareSource": {
+        "shares": 284.8,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:29.117044+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/49826/000004982626000049/itw-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 284.8,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:29.117044+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/49826/000004982626000049/itw-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "CNI": {
     "reported_growth": {
@@ -712918,6 +722898,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 15424490858.852514,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Canadian National Railway",
     "company_name": "Canadian National Railway Company",
     "exchange": "NYSE",
@@ -712925,8 +722941,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Rail Transportation",
     "reportedCurrency": "CAD",
     "price": 121.79,
-    "shares": 605.15,
-    "shares_outstanding": 605150000,
+    "shares": 605.148,
+    "shares_outstanding": 605148000,
     "shares_display": "605.15 M",
     "mcap": 73701,
     "liq_val_1": -41.136331881049124,
@@ -716133,9 +726149,9 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 58.9086376111712,
-    "default_fair_val": 58.9086376111712,
-    "premium_pct": 106.7438748182902,
+    "fair_val": 58.90883230284203,
+    "default_fair_val": 58.90883230284203,
+    "premium_pct": 106.74319153687297,
     "is_undervalued": false,
     "pe_trailing": 21.28359543141604,
     "pe_forward": 18.729563979646116,
@@ -716760,7 +726776,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CNI",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:37.894734+00:00",
+      "fetchedAt": "2026-10-17T16:37:29.354236+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-24",
       "quoteDate": "2026-10-16",
@@ -716775,7 +726791,7 @@ window.FULL_MARKET_DATA = {
         "source": "RXI_N.B.CA"
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -716789,8 +726805,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 924722911.650827,
         "inventory": 606387225.6247799,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 605148000,
+      "shareSource": {
+        "shares": 605.148,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:29.354236+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/16868/000001686826000036/a2026q2pressreleasestatssu.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 605.148,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:29.354236+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/16868/000001686826000036/a2026q2pressreleasestatssu.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "WM": {
     "reported_growth": {
@@ -716849,6 +726883,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 9926000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Waste Management",
     "company_name": "Waste Management, Inc.",
     "exchange": "NYSE",
@@ -716856,13 +726926,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Environmental & Facilities Services",
     "reportedCurrency": "USD",
     "price": 226.86,
-    "shares": 399.72,
-    "shares_outstanding": 399720000,
+    "shares": 399.715184,
+    "shares_outstanding": 399715184,
     "shares_display": "399.72 M",
     "mcap": 90679.4,
-    "liq_val_1": -77.85043262225025,
-    "liq_val_2": -82.67386710054893,
-    "liq_val_3": -89.9590544453652,
+    "liq_val_1": -77.8504326220442,
+    "liq_val_2": -82.67386710033011,
+    "liq_val_3": -89.95905444512711,
     "debt": 23356.0,
     "cash": 557.0,
     "short_term_investments": 0.0,
@@ -719985,17 +730055,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 31.8,
     "pe_forward": 28.0,
-    "pb_trailing": 9.1,
+    "pb_trailing": 9.135543018335683,
     "pb_forward": 8.2,
     "div_yield": 1.58,
     "ps_ratio": 6.3,
     "fcf_to_ev": 3.12,
     "fcf_to_mcap": 3.94,
-    "liab_to_assets": 78.6,
-    "cash_to_assets": 1.2,
-    "current_ratio": 0.91,
-    "roe": 28.7,
-    "roa": 6.1,
+    "liab_to_assets": 78.626644559764,
+    "cash_to_assets": 1.1993712452358907,
+    "current_ratio": 0.9073638197713517,
+    "roe": 31.00749918487121,
+    "roa": 6.239884519487336,
     "moat": {
       "ticker": "WM",
       "period": "2026Q2",
@@ -720630,7 +730700,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "WM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:38.466229+00:00",
+      "fetchedAt": "2026-10-17T16:37:29.588443+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-29",
       "quoteDate": "2026-10-16",
@@ -720644,7 +730714,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -720658,8 +730728,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 3495000000,
         "inventory": 232000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 399715184,
+      "shareSource": {
+        "shares": 399.715184,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:29.588443+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/823768/000110465926088016/wm-20260630x10q.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 399.715184,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:29.588443+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/823768/000110465926088016/wm-20260630x10q.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "XOM": {
     "reported_growth": {
@@ -720718,6 +730806,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 259380000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "ExxonMobil",
     "company_name": "Exxonmobil Holdings Corporation",
     "exchange": "NYSE",
@@ -720725,13 +730849,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Integrated Oil & Gas",
     "reportedCurrency": "USD",
     "price": 178.98,
-    "shares": 4111.91,
-    "shares_outstanding": 4111910000,
-    "shares_display": "4,111.91 M",
+    "shares": 4111.91196,
+    "shares_outstanding": 4111911960.0000005,
+    "shares_display": "4111.91 M",
     "mcap": 735950.0,
-    "liq_val_1": -23.73056644918377,
-    "liq_val_2": -30.777677448124546,
-    "liq_val_3": -45.66804976046932,
+    "liq_val_1": -23.730566449190217,
+    "liq_val_2": -30.77767744813291,
+    "liq_val_3": -45.668049760481736,
     "debt": 42368.0,
     "cash": 10588.0,
     "short_term_investments": 0.0,
@@ -723854,17 +733978,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 22.5,
     "pe_forward": 19.8,
-    "pb_trailing": 2.8,
+    "pb_trailing": 2.837342894594803,
     "pb_forward": 2.5,
     "div_yield": 2.34,
     "ps_ratio": 6.0,
     "fcf_to_ev": 2.63,
     "fcf_to_mcap": 4.15,
-    "liab_to_assets": 42.7,
-    "cash_to_assets": 2.3,
-    "current_ratio": 1.13,
-    "roe": 12.6,
-    "roa": 7.1,
+    "liab_to_assets": 42.70800590765627,
+    "cash_to_assets": 2.279528593142468,
+    "current_ratio": 1.1346729708431835,
+    "roe": 12.474437627811861,
+    "roa": 7.318413662289962,
     "moat": {
       "ticker": "XOM",
       "period": "2026Q2",
@@ -724530,7 +734654,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "XOM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:38.994842+00:00",
+      "fetchedAt": "2026-10-17T16:37:29.824252+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-03",
       "quoteDate": "2026-10-16",
@@ -724544,7 +734668,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -724558,8 +734682,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 60558000000,
         "inventory": 25563000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 4111911960.0000005,
+      "shareSource": {
+        "shares": 4111.91196,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:29.824252+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/34088/000003408826000093/xom-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 4111.91196,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:29.824252+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/34088/000003408826000093/xom-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "CVX": {
     "reported_growth": {
@@ -724618,6 +734760,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 189883000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Chevron",
     "company_name": "Chevron Corporation",
     "exchange": "NYSE",
@@ -724627,7 +734805,7 @@ window.FULL_MARKET_DATA = {
     "price": 224.98,
     "shares": 1975.77,
     "shares_outstanding": 1975770000,
-    "shares_display": "1,975.77 M",
+    "shares_display": "1975.77 M",
     "mcap": 444508.7,
     "liq_val_1": -43.24440597842867,
     "liq_val_2": -51.183083051164864,
@@ -727754,17 +737932,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 21.6,
     "pe_forward": 19.0,
-    "pb_trailing": 2.3,
+    "pb_trailing": 2.340961012834219,
     "pb_forward": 2.1,
     "div_yield": 3.12,
     "ps_ratio": 4.1,
     "fcf_to_ev": 3.97,
     "fcf_to_mcap": 6.08,
-    "liab_to_assets": 40.8,
-    "cash_to_assets": 2.6,
-    "current_ratio": 1.25,
-    "roe": 10.8,
-    "roa": 6.2,
+    "liab_to_assets": 40.76423281384888,
+    "cash_to_assets": 2.58379147924334,
+    "current_ratio": 1.252159730893708,
+    "roe": 14.063257681826563,
+    "roa": 8.209472928793558,
     "moat": {
       "ticker": "CVX",
       "period": "2026Q2",
@@ -728430,7 +738608,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CVX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:39.525027+00:00",
+      "fetchedAt": "2026-10-17T16:37:30.059736+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-06",
       "quoteDate": "2026-10-16",
@@ -728444,7 +738622,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -728458,8 +738636,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 24575000000,
         "inventory": 10522000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 1975770000,
+      "shareSource": {
+        "shares": 1975.77,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:30.059736+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000167/cvx-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 1975.77,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:30.059736+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000167/cvx-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "COP": {
     "reported_growth": {
@@ -728518,6 +738714,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 65349000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "ConocoPhillips",
     "company_name": "ConocoPhillips",
     "exchange": "NYSE",
@@ -728527,7 +738759,7 @@ window.FULL_MARKET_DATA = {
     "price": 146.51,
     "shares": 1201.34,
     "shares_outstanding": 1201340000,
-    "shares_display": "1,201.34 M",
+    "shares_display": "1201.34 M",
     "mcap": 176008.3,
     "liq_val_1": -33.06058234970949,
     "liq_val_2": -37.220853380391894,
@@ -731654,17 +741886,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 19.0,
     "pe_forward": 16.7,
-    "pb_trailing": 2.7,
+    "pb_trailing": 2.6933587354052855,
     "pb_forward": 2.4,
     "div_yield": 2.31,
     "ps_ratio": 4.4,
     "fcf_to_ev": 2.38,
     "fcf_to_mcap": 5.72,
-    "liab_to_assets": 47.4,
-    "cash_to_assets": 6.2,
-    "current_ratio": 1.54,
-    "roe": 14.2,
-    "roa": 7.5,
+    "liab_to_assets": 47.40988725344235,
+    "cash_to_assets": 6.190196441361328,
+    "current_ratio": 1.5415194346289753,
+    "roe": 14.15543219666931,
+    "roa": 7.571024233476618,
     "moat": {
       "ticker": "COP",
       "period": "2026Q2",
@@ -732324,7 +742556,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "COP",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:42.083214+00:00",
+      "fetchedAt": "2026-10-17T16:37:30.294687+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-06",
       "quoteDate": "2026-10-16",
@@ -732338,7 +742570,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -732352,8 +742584,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 6957000000,
         "inventory": 1879000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 1201340000,
+      "shareSource": {
+        "shares": 1201.34,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:30.294687+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1163165/000116316526000032/cop-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 1201.34,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:30.294687+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1163165/000116316526000032/cop-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "SLB": {
     "reported_growth": {
@@ -732412,6 +742662,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 26074000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Schlumberger",
     "company_name": "Slb N.V.",
     "exchange": "NYSE",
@@ -732419,13 +742705,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Oil & Gas Equipment & Services",
     "reportedCurrency": "USD",
     "price": 49.5,
-    "shares": 1484.14,
-    "shares_outstanding": 1484140000,
-    "shares_display": "1,484.14 M",
+    "shares": 1484.143231,
+    "shares_outstanding": 1484143231,
+    "shares_display": "1484.14 M",
     "mcap": 73465.1,
-    "liq_val_1": -5.4132241633660225,
-    "liq_val_2": -9.556624794459253,
-    "liq_val_3": -16.310420378715623,
+    "liq_val_1": -5.413224163402865,
+    "liq_val_2": -9.556624794524296,
+    "liq_val_3": -16.31042037882663,
     "debt": 12798.0,
     "cash": 4071.0,
     "short_term_investments": 1328.0,
@@ -735548,17 +745834,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 23.9,
     "pe_forward": 21.0,
-    "pb_trailing": 2.8,
+    "pb_trailing": 2.8175615555726012,
     "pb_forward": 2.5,
     "div_yield": 2.31,
     "ps_ratio": 4.0,
     "fcf_to_ev": 4.69,
     "fcf_to_mcap": 6.2,
-    "liab_to_assets": 50.9,
-    "cash_to_assets": 7.3,
-    "current_ratio": 1.44,
-    "roe": 11.8,
-    "roa": 5.5,
+    "liab_to_assets": 50.92199092415184,
+    "cash_to_assets": 7.330908305121371,
+    "current_ratio": 1.4392151286790844,
+    "roe": 15.156142251994877,
+    "roa": 6.309335848592343,
     "moat": {
       "ticker": "SLB",
       "period": "2026Q2",
@@ -736236,7 +746522,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "SLB",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:42.605803+00:00",
+      "fetchedAt": "2026-10-17T16:37:30.530194+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-29",
       "quoteDate": "2026-10-16",
@@ -736250,7 +746536,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -736264,8 +746550,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 9132000000,
         "inventory": 5436000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 1484143231,
+      "shareSource": {
+        "shares": 1484.143231,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:30.530194+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/87347/000119312526322595/slb-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 1484.143231,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:30.530194+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/87347/000119312526322595/slb-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "EOG": {
     "reported_growth": {
@@ -736324,6 +746628,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 31864000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "EOG Resources",
     "company_name": "EOG Resources, Inc.",
     "exchange": "NYSE",
@@ -736331,13 +746671,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Oil & Gas Exploration & Production",
     "reportedCurrency": "USD",
     "price": 158.01,
-    "shares": 524.53,
-    "shares_outstanding": 524530000,
+    "shares": 524.529182,
+    "shares_outstanding": 524529182,
     "shares_display": "524.53 M",
     "mcap": 82880.9,
-    "liq_val_1": -24.864202031078534,
-    "liq_val_2": -28.070505893666166,
-    "liq_val_3": -34.33936566353217,
+    "liq_val_1": -24.864202884330656,
+    "liq_val_2": -28.07050685694738,
+    "liq_val_3": -34.33936684193864,
     "debt": 8250.0,
     "cash": 4907.0,
     "short_term_investments": 0.0,
@@ -739460,17 +749800,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 12.1,
     "pe_forward": 10.6,
-    "pb_trailing": 2.6,
+    "pb_trailing": 2.601082726587999,
     "pb_forward": 2.3,
     "div_yield": 2.63,
     "ps_ratio": 3.1,
     "fcf_to_ev": 2.96,
     "fcf_to_mcap": 7.98,
-    "liab_to_assets": 41.8,
-    "cash_to_assets": 9.0,
-    "current_ratio": 1.85,
-    "roe": 21.6,
-    "roa": 12.6,
+    "liab_to_assets": 41.83597101290547,
+    "cash_to_assets": 8.957158242520489,
+    "current_ratio": 1.8513589503280226,
+    "roe": 23.517340447363022,
+    "roa": 14.85610578169562,
     "moat": {
       "ticker": "EOG",
       "period": "2026Q2",
@@ -740124,7 +750464,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "EOG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:43.131430+00:00",
+      "fetchedAt": "2026-10-17T16:37:30.892935+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-04",
       "quoteDate": "2026-10-16",
@@ -740138,7 +750478,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -740152,8 +750492,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 3529000000,
         "inventory": 930000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 524529182,
+      "shareSource": {
+        "shares": 524.529182,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:30.892935+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/821189/000082118926000149/eog-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 524.529182,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:30.892935+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/821189/000082118926000149/eog-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "EPD": {
     "reported_growth": {
@@ -740212,6 +750570,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 30248000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Enterprise Products",
     "company_name": "Enterprise Products Partners L.P.",
     "exchange": "NYSE",
@@ -740221,7 +750615,7 @@ window.FULL_MARKET_DATA = {
     "price": 36.82,
     "shares": 2159.48,
     "shares_outstanding": 2159480000,
-    "shares_display": "2,159.48 M",
+    "shares_display": "2159.48 M",
     "mcap": 79512.1,
     "liq_val_1": -16.109896827013912,
     "liq_val_2": -18.798136588437956,
@@ -743347,17 +753741,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 12.6,
     "pe_forward": 11.1,
-    "pb_trailing": 2.6,
+    "pb_trailing": 2.6286729701137266,
     "pb_forward": 2.3,
     "div_yield": 5.96,
     "ps_ratio": 5.7,
     "fcf_to_ev": 3.14,
     "fcf_to_mcap": 4.35,
-    "liab_to_assets": 62.0,
-    "cash_to_assets": 0.3,
-    "current_ratio": 0.93,
-    "roe": 20.8,
-    "roa": 7.7,
+    "liab_to_assets": 62.004941412461164,
+    "cash_to_assets": 0.30088798649673426,
+    "current_ratio": 0.9272971082089553,
+    "roe": 21.65760682584463,
+    "roa": 8.128664032437179,
     "moat": {
       "ticker": "EPD",
       "period": "2026Q2",
@@ -744005,7 +754399,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "EPD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:43.657558+00:00",
+      "fetchedAt": "2026-10-17T16:37:31.126027+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-07",
       "quoteDate": "2026-10-16",
@@ -744019,7 +754413,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -744033,8 +754427,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 9401000000,
         "inventory": 4666000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 2159480000,
+      "shareSource": {
+        "shares": 2159.48,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:31.126027+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1061219/000106121926000021/epd-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 2159.48,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:31.126027+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1061219/000106121926000021/epd-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "ENB": {
     "reported_growth": {
@@ -744093,6 +754505,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 46004223864.83632,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Enbridge",
     "company_name": "Enbridge Inc.",
     "exchange": "NYSE",
@@ -744100,13 +754548,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Oil & Gas Storage & Transportation",
     "reportedCurrency": "CAD",
     "price": 48.1,
-    "shares": 2228.84,
-    "shares_outstanding": 2228840000,
-    "shares_display": "2,228.84 M",
+    "shares": 2228.843639,
+    "shares_outstanding": 2228843639,
+    "shares_display": "2228.84 M",
     "mcap": 107207.4,
-    "liq_val_1": -45.823968047852105,
-    "liq_val_2": -47.64815359701918,
-    "liq_val_3": -50.5177353321003,
+    "liq_val_1": -45.82396804789485,
+    "liq_val_2": -47.648153597063626,
+    "liq_val_3": -50.517735332147424,
     "debt": 78938.40197113692,
     "cash": 2012.8074621612104,
     "short_term_investments": 0,
@@ -748031,7 +758479,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ENB",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:44.203177+00:00",
+      "fetchedAt": "2026-10-17T16:37:31.361290+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-31",
       "quoteDate": "2026-10-16",
@@ -748046,7 +758494,7 @@ window.FULL_MARKET_DATA = {
         "source": "RXI_N.B.CA"
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -748060,8 +758508,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 6997536078.845476,
         "inventory": 1595640267.5114396,
         "preferredStock": 4799718409.010911
+      },
+      "sharesOutstanding": 2228843639,
+      "shareSource": {
+        "shares": 2228.843639,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:31.361290+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/895728/000119312526326752/enb-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 2228.843639,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:31.361290+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/895728/000119312526326752/enb-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "MPC": {
     "reported_growth": {
@@ -748120,6 +758586,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 19077000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Marathon Petroleum",
     "company_name": "Marathon Petroleum Corporation",
     "exchange": "NYSE",
@@ -748127,8 +758629,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Oil & Gas Refining & Marketing",
     "reportedCurrency": "USD",
     "price": 478.07,
-    "shares": 280.82,
-    "shares_outstanding": 280820000,
+    "shares": 280.825,
+    "shares_outstanding": 280825000,
     "shares_display": "280.82 M",
     "mcap": 134254.0,
     "liq_val_1": -122.15436659841538,
@@ -751256,17 +761758,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 15.7,
     "pe_forward": 13.8,
-    "pb_trailing": 7.0,
+    "pb_trailing": 7.037479687581905,
     "pb_forward": 6.3,
     "div_yield": 0.86,
     "ps_ratio": 2.6,
     "fcf_to_ev": 3.65,
     "fcf_to_mcap": 9.61,
-    "liab_to_assets": 72.7,
-    "cash_to_assets": 8.2,
-    "current_ratio": 1.25,
-    "roe": 44.8,
-    "roa": 9.1,
+    "liab_to_assets": 72.72823666631322,
+    "cash_to_assets": 8.23666631322235,
+    "current_ratio": 1.25035556690128,
+    "roe": 51.45572666025024,
+    "roa": 10.899036746343203,
     "moat": {
       "ticker": "MPC",
       "period": "2026Q2",
@@ -751908,7 +762410,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MPC",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:44.750437+00:00",
+      "fetchedAt": "2026-10-17T16:37:31.595734+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-04",
       "quoteDate": "2026-10-16",
@@ -751922,7 +762424,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -751936,8 +762438,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 15740000000,
         "inventory": 9973000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 280825000,
+      "shareSource": {
+        "shares": 280.825,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:31.595734+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1510295/000151029526000061/mpc-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 280.825,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:31.595734+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1510295/000151029526000061/mpc-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "VLO": {
     "reported_growth": {
@@ -751996,6 +762516,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 25001000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Valero Energy",
     "company_name": "Valero Energy Corporation",
     "exchange": "NYSE",
@@ -752003,13 +762559,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Oil & Gas Refining & Marketing",
     "reportedCurrency": "USD",
     "price": 444.71,
-    "shares": 287.93,
-    "shares_outstanding": 287930000,
+    "shares": 287.927461,
+    "shares_outstanding": 287927461,
     "shares_display": "287.93 M",
     "mcap": 128044.2,
-    "liq_val_1": -19.883480304832265,
-    "liq_val_2": -47.11638116391004,
-    "liq_val_3": -99.05619943652769,
+    "liq_val_1": -19.88348030478413,
+    "liq_val_2": -47.11638116379597,
+    "liq_val_3": -99.05619943628788,
     "debt": 11349.0,
     "cash": 7874.0,
     "short_term_investments": 0.0,
@@ -755131,17 +765687,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 17.8,
     "pe_forward": 15.7,
-    "pb_trailing": 5.1,
+    "pb_trailing": 5.121563137474501,
     "pb_forward": 4.6,
     "div_yield": 1.1,
     "ps_ratio": 3.2,
     "fcf_to_ev": 4.23,
     "fcf_to_mcap": 7.9,
-    "liab_to_assets": 56.3,
-    "cash_to_assets": 12.2,
-    "current_ratio": 1.64,
-    "roe": 28.8,
-    "roa": 11.2,
+    "liab_to_assets": 56.284119202635196,
+    "cash_to_assets": 12.176979107062772,
+    "current_ratio": 1.6364315441254935,
+    "roe": 29.952653874906552,
+    "roa": 12.134672656604916,
     "moat": {
       "ticker": "VLO",
       "period": "2026Q2",
@@ -755795,7 +766351,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "VLO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:45.322868+00:00",
+      "fetchedAt": "2026-10-17T16:37:31.830872+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-30",
       "quoteDate": "2026-10-16",
@@ -755809,7 +766365,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -755823,8 +766379,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 13928000000,
         "inventory": 7625000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 287927461,
+      "shareSource": {
+        "shares": 287.927461,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:31.830872+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1035002/000162828026050937/vlo-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 287.927461,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:31.830872+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1035002/000162828026050937/vlo-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "PSX": {
     "reported_growth": {
@@ -755883,6 +766457,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 31506000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Phillips 66",
     "company_name": "Phillips 66",
     "exchange": "NYSE",
@@ -755890,13 +766500,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Oil & Gas Refining & Marketing",
     "reportedCurrency": "USD",
     "price": 293.17,
-    "shares": 400.94,
-    "shares_outstanding": 400940000,
+    "shares": 400.93502,
+    "shares_outstanding": 400935020,
     "shares_display": "400.94 M",
     "mcap": 117542.1,
-    "liq_val_1": -62.06990848563113,
-    "liq_val_2": -82.8199043329091,
-    "liq_val_3": -112.2575922655825,
+    "liq_val_1": -62.06990848541991,
+    "liq_val_2": -82.81990433262726,
+    "liq_val_3": -112.25759226520049,
     "debt": 20565.0,
     "cash": 4099.0,
     "short_term_investments": 0.0,
@@ -759019,17 +769629,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 16.6,
     "pe_forward": 14.6,
-    "pb_trailing": 3.7,
+    "pb_trailing": 3.7307846124547708,
     "pb_forward": 3.3,
     "div_yield": 1.69,
     "ps_ratio": 4.6,
     "fcf_to_ev": 4.41,
     "fcf_to_mcap": 5.44,
-    "liab_to_assets": 60.0,
-    "cash_to_assets": 5.0,
-    "current_ratio": 1.32,
-    "roe": 22.5,
-    "roa": 8.7,
+    "liab_to_assets": 60.02566923359003,
+    "cash_to_assets": 5.010389927881677,
+    "current_ratio": 1.3196578402528059,
+    "roe": 25.801171292422975,
+    "roa": 9.340022648863606,
     "moat": {
       "ticker": "PSX",
       "period": "2026Q2",
@@ -759664,7 +770274,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "PSX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:45.862374+00:00",
+      "fetchedAt": "2026-10-17T16:37:32.066940+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-05",
       "quoteDate": "2026-10-16",
@@ -759678,7 +770288,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -759692,8 +770302,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 11052000000,
         "inventory": 5922000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 400935020,
+      "shareSource": {
+        "shares": 400.93502,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:32.066940+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1534701/000153470126000032/psx-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 400.93502,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:32.066940+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1534701/000153470126000032/psx-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "OXY": {
     "reported_growth": {
@@ -759752,6 +770380,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 41746000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Occidental Petroleum",
     "company_name": "Occidental Petroleum Corporation",
     "exchange": "NYSE",
@@ -759759,8 +770423,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Oil & Gas Exploration & Production",
     "reportedCurrency": "USD",
     "price": 62.38,
-    "shares": 999.64,
-    "shares_outstanding": 999640000,
+    "shares": 999.637,
+    "shares_outstanding": 999637000,
     "shares_display": "999.64 M",
     "mcap": 62357.4,
     "liq_val_1": -26.854748273623326,
@@ -762888,17 +773552,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 8.6,
     "pe_forward": 7.6,
-    "pb_trailing": 1.5,
+    "pb_trailing": 1.4937335313562976,
     "pb_forward": 1.4,
     "div_yield": 2.65,
     "ps_ratio": 2.9,
     "fcf_to_ev": 2.36,
     "fcf_to_mcap": 8.52,
-    "liab_to_assets": 47.3,
-    "cash_to_assets": 5.2,
-    "current_ratio": 1.41,
-    "roe": 17.4,
-    "roa": 9.0,
+    "liab_to_assets": 47.259762562532664,
+    "cash_to_assets": 5.164389357624629,
+    "current_ratio": 1.410542321338064,
+    "roe": 20.3068137282347,
+    "roa": 8.598862019914652,
     "moat": {
       "ticker": "OXY",
       "period": "2026Q2",
@@ -763546,7 +774210,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "OXY",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:46.390089+00:00",
+      "fetchedAt": "2026-10-17T16:37:32.304029+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-05",
       "quoteDate": "2026-10-16",
@@ -763560,7 +774224,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -763574,8 +774238,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 3142000000,
         "inventory": 2185000000,
         "preferredStock": 8287000000
+      },
+      "sharesOutstanding": 999637000,
+      "shareSource": {
+        "shares": 999.637,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:32.304029+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/797468/000162828026053388/oxy-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 999.637,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:32.304029+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/797468/000162828026053388/oxy-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "KMI": {
     "reported_growth": {
@@ -763634,6 +774316,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 31631000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Kinder Morgan",
     "company_name": "Kinder Morgan, Inc.",
     "exchange": "NYSE",
@@ -763643,7 +774361,7 @@ window.FULL_MARKET_DATA = {
     "price": 34.2,
     "shares": 2226.8,
     "shares_outstanding": 2226800000,
-    "shares_display": "2,226.80 M",
+    "shares_display": "2226.80 M",
     "mcap": 76156.6,
     "liq_val_1": -17.21079576073289,
     "liq_val_2": -17.765897251661578,
@@ -766769,17 +777487,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 22.0,
     "pe_forward": 19.4,
-    "pb_trailing": 2.4,
+    "pb_trailing": 2.407657045303658,
     "pb_forward": 2.2,
     "div_yield": 3.45,
     "ps_ratio": 6.0,
     "fcf_to_ev": 3.47,
     "fcf_to_mcap": 4.15,
-    "liab_to_assets": 55.6,
-    "cash_to_assets": 0.1,
-    "current_ratio": 0.51,
-    "roe": 11.0,
-    "roa": 4.7,
+    "liab_to_assets": 55.60611379654884,
+    "cash_to_assets": 0.12016958764278578,
+    "current_ratio": 0.5061094386399858,
+    "roe": 11.267468313292166,
+    "roa": 4.79059291705241,
     "moat": {
       "ticker": "KMI",
       "period": "2026Q2",
@@ -767414,7 +778132,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "KMI",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:47.377064+00:00",
+      "fetchedAt": "2026-10-17T16:37:32.539047+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-24",
       "quoteDate": "2026-10-16",
@@ -767428,7 +778146,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -767442,8 +778160,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1563000000,
         "inventory": 565000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 2226800000,
+      "shareSource": {
+        "shares": 2226.8,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:32.539047+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1506307/000150630726000085/kmi-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 2226.8,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:32.539047+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1506307/000150630726000085/kmi-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "WMB": {
     "reported_growth": {
@@ -767502,6 +778238,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 13190000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Williams Companies",
     "company_name": "The Williams Companies, Inc.",
     "exchange": "NYSE",
@@ -767509,13 +778281,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Oil & Gas Storage & Transportation",
     "reportedCurrency": "USD",
     "price": 71.28,
-    "shares": 1223.17,
-    "shares_outstanding": 1223170000,
-    "shares_display": "1,223.17 M",
+    "shares": 1223.167472,
+    "shares_outstanding": 1223167472,
+    "shares_display": "1223.17 M",
     "mcap": 87187.4,
-    "liq_val_1": -34.43436893494932,
-    "liq_val_2": -35.39752404409873,
-    "liq_val_3": -36.82161358202195,
+    "liq_val_1": -34.43436893488613,
+    "liq_val_2": -35.397524044033766,
+    "liq_val_3": -36.821613581954374,
     "debt": 30793.0,
     "cash": 203.0,
     "short_term_investments": 0.0,
@@ -770637,17 +781409,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 28.4,
     "pe_forward": 25.0,
-    "pb_trailing": 6.6,
+    "pb_trailing": 6.610113722517058,
     "pb_forward": 5.9,
     "div_yield": 2.87,
     "ps_ratio": 6.6,
     "fcf_to_ev": 3.77,
     "fcf_to_mcap": 3.8,
-    "liab_to_assets": 74.6,
-    "cash_to_assets": 0.3,
-    "current_ratio": 0.48,
-    "roe": 23.3,
-    "roa": 5.1,
+    "liab_to_assets": 74.6444481108728,
+    "cash_to_assets": 0.3349282296650718,
+    "current_ratio": 0.4770852428964253,
+    "roe": 24.7065444605242,
+    "roa": 5.473717960136086,
     "moat": {
       "ticker": "WMB",
       "period": "2026Q2",
@@ -771319,7 +782091,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "WMB",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:47.901375+00:00",
+      "fetchedAt": "2026-10-17T16:37:32.775346+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-03",
       "quoteDate": "2026-10-16",
@@ -771333,7 +782105,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -771347,8 +782119,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1968000000,
         "inventory": 335000000,
         "preferredStock": 35000000
+      },
+      "sharesOutstanding": 1223167472,
+      "shareSource": {
+        "shares": 1223.167472,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:32.775346+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/99250/000010726326000026/wmb-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 1223.167472,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:32.775346+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/99250/000010726326000026/wmb-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "HAL": {
     "reported_growth": {
@@ -771407,6 +782197,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 11010000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Halliburton",
     "company_name": "Halliburton Company",
     "exchange": "NYSE",
@@ -771414,13 +782240,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Oil & Gas Equipment & Services",
     "reportedCurrency": "USD",
     "price": 33.5,
-    "shares": 833.13,
-    "shares_outstanding": 833130000,
+    "shares": 833.130399,
+    "shares_outstanding": 833130399,
     "shares_display": "833.13 M",
     "mcap": 27909.9,
-    "liq_val_1": -3.4736459063572767,
-    "liq_val_2": -8.33002853839651,
-    "liq_val_3": -15.277320351111063,
+    "liq_val_1": -3.4736459064195064,
+    "liq_val_2": -8.330028538545742,
+    "liq_val_3": -15.277320351384754,
     "debt": 8199.0,
     "cash": 2048.0,
     "short_term_investments": 0.0,
@@ -774543,17 +785369,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 17.4,
     "pe_forward": 15.3,
-    "pb_trailing": 2.5,
+    "pb_trailing": 2.5349591280653954,
     "pb_forward": 2.2,
     "div_yield": 2.05,
     "ps_ratio": 4.0,
     "fcf_to_ev": 4.48,
     "fcf_to_mcap": 6.18,
-    "liab_to_assets": 57.2,
-    "cash_to_assets": 7.9,
-    "current_ratio": 2.02,
-    "roe": 14.6,
-    "roa": 6.2,
+    "liab_to_assets": 57.20923029270559,
+    "cash_to_assets": 7.9293789685612515,
+    "current_ratio": 2.018345507049431,
+    "roe": 15.249881009043312,
+    "roa": 6.312802931788627,
     "moat": {
       "ticker": "HAL",
       "period": "2026Q2",
@@ -775219,7 +786045,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "HAL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:48.761313+00:00",
+      "fetchedAt": "2026-10-17T16:37:33.008496+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-24",
       "quoteDate": "2026-10-16",
@@ -775233,7 +786059,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -775247,8 +786073,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 5325000000,
         "inventory": 3056000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 833130399,
+      "shareSource": {
+        "shares": 833.130399,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:33.008496+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/45012/000004501226000061/hal-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 833.130399,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:33.008496+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/45012/000004501226000061/hal-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "BKR": {
     "reported_growth": {
@@ -775307,6 +786151,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 19908000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Baker Hughes",
     "company_name": "Baker Hughes Company",
     "exchange": "NASDAQ",
@@ -775314,8 +786194,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Oil & Gas Equipment & Services",
     "reportedCurrency": "USD",
     "price": 55.7,
-    "shares": 992.67,
-    "shares_outstanding": 992670000,
+    "shares": 992.674,
+    "shares_outstanding": 992674000,
     "shares_display": "992.67 M",
     "mcap": 55291.9,
     "liq_val_1": -1.9674132696131863,
@@ -778439,21 +789319,21 @@ window.FULL_MARKET_DATA = {
     ],
     "fair_val": 63.99,
     "default_fair_val": 63.99,
-    "premium_pct": -13.0,
+    "premium_pct": -13,
     "is_undervalued": true,
     "pe_trailing": 17.9,
     "pe_forward": 15.8,
-    "pb_trailing": 2.8,
+    "pb_trailing": 2.7773709061683745,
     "pb_forward": 2.5,
     "div_yield": 1.65,
     "ps_ratio": 4.4,
     "fcf_to_ev": 4.99,
     "fcf_to_mcap": 5.66,
-    "liab_to_assets": 61.8,
-    "cash_to_assets": 32.4,
-    "current_ratio": 2.09,
-    "roe": 15.6,
-    "roa": 5.9,
+    "liab_to_assets": 61.83200304066895,
+    "cash_to_assets": 32.4135309768149,
+    "current_ratio": 2.0948695116103844,
+    "roe": 17.500141266881393,
+    "roa": 7.994321115126485,
     "moat": {
       "ticker": "BKR",
       "period": "2026Q2",
@@ -779088,7 +789968,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "BKR",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:49.285488+00:00",
+      "fetchedAt": "2026-10-17T16:37:33.243646+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-27",
       "quoteDate": "2026-10-16",
@@ -779102,7 +789982,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -779116,8 +789996,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 5258000000,
         "inventory": 4961000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 992674000,
+      "shareSource": {
+        "shares": 992.674,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:33.243646+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1701605/000170160526000023/bkr-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 992.674,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:33.243646+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1701605/000170160526000023/bkr-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "LIN": {
     "reported_growth": {
@@ -779176,6 +790074,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 39081000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Linde",
     "company_name": "Linde plc",
     "exchange": "NYSE",
@@ -779183,13 +790117,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Industrial Gases",
     "reportedCurrency": "USD",
     "price": 498.43,
-    "shares": 460.98,
-    "shares_outstanding": 460980000,
+    "shares": 460.980163,
+    "shares_outstanding": 460980163,
     "shares_display": "460.98 M",
     "mcap": 229766.3,
-    "liq_val_1": -72.79272015011446,
-    "liq_val_2": -80.8438258112521,
-    "liq_val_3": -92.91939965758739,
+    "liq_val_1": -72.79272015008594,
+    "liq_val_2": -80.84382581122043,
+    "liq_val_3": -92.919399657551,
     "debt": 28013.0,
     "cash": 4898.0,
     "short_term_investments": 0.0,
@@ -782305,17 +793239,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 31.7,
     "pe_forward": 27.9,
-    "pb_trailing": 5.9,
+    "pb_trailing": 5.879232875310253,
     "pb_forward": 5.3,
     "div_yield": 1.25,
     "ps_ratio": 11.5,
     "fcf_to_ev": 4.38,
     "fcf_to_mcap": 2.17,
-    "liab_to_assets": 54.0,
-    "cash_to_assets": 5.5,
-    "current_ratio": 0.88,
-    "roe": 18.5,
-    "roa": 8.2,
+    "liab_to_assets": 54.02664433100545,
+    "cash_to_assets": 5.543922398668915,
+    "current_ratio": 0.8790227568673653,
+    "roe": 18.80825652343243,
+    "roa": 8.415623039568763,
     "moat": {
       "ticker": "LIN",
       "period": "2026Q2",
@@ -782957,7 +793891,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "LIN",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:50.472504+00:00",
+      "fetchedAt": "2026-10-17T16:37:33.490604+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-31",
       "quoteDate": "2026-10-16",
@@ -782971,7 +793905,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -782985,8 +793919,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 5632000000,
         "inventory": 2122000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 460980163,
+      "shareSource": {
+        "shares": 460.980163,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:33.490604+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1707925/000162828026051289/lin-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 460.980163,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:33.490604+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1707925/000162828026051289/lin-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "SHW": {
     "reported_growth": {
@@ -783045,6 +793997,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 3854700000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Sherwin-Williams",
     "company_name": "The Sherwin-Williams Company",
     "exchange": "NYSE",
@@ -783052,13 +794040,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Specialty Chemicals",
     "reportedCurrency": "USD",
     "price": 335.2,
-    "shares": 242.76,
-    "shares_outstanding": 242760000,
+    "shares": 242.758151,
+    "shares_outstanding": 242758151,
     "shares_display": "242.76 M",
     "mcap": 81372.5,
-    "liq_val_1": -66.31085273029437,
-    "liq_val_2": -76.95473838094077,
-    "liq_val_3": -93.93381810712525,
+    "liq_val_1": -66.3108527301314,
+    "liq_val_2": -76.95473838075164,
+    "liq_val_3": -93.93381810689438,
     "debt": 14215.4,
     "cash": 293.5,
     "short_term_investments": 0.0,
@@ -786174,21 +797162,21 @@ window.FULL_MARKET_DATA = {
     ],
     "fair_val": 175.46,
     "default_fair_val": 175.46,
-    "premium_pct": 91.0,
+    "premium_pct": 91,
     "is_undervalued": false,
     "pe_trailing": 30.3,
     "pe_forward": 26.7,
-    "pb_trailing": 21.1,
+    "pb_trailing": 21.109943705087296,
     "pb_forward": 19.0,
     "div_yield": 0.97,
     "ps_ratio": 6.3,
     "fcf_to_ev": 5.69,
     "fcf_to_mcap": 3.95,
-    "liab_to_assets": 85.7,
-    "cash_to_assets": 1.1,
-    "current_ratio": 0.73,
-    "roe": 69.7,
-    "roa": 10.0,
+    "liab_to_assets": 85.69758899352166,
+    "cash_to_assets": 1.0889972320547356,
+    "current_ratio": 0.7270385374467643,
+    "roe": 61.082960303574275,
+    "roa": 10.598653188033245,
     "moat": {
       "ticker": "SHW",
       "period": "2026Q2",
@@ -786860,7 +797848,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "SHW",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:51.053975+00:00",
+      "fetchedAt": "2026-10-17T16:37:33.727659+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-28",
       "quoteDate": "2026-10-16",
@@ -786874,7 +797862,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -786888,8 +797876,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 3571200000,
         "inventory": 2529700000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 242758151,
+      "shareSource": {
+        "shares": 242.758151,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:33.727659+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/89800/000008980026000049/shw-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 242.758151,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:33.727659+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/89800/000008980026000049/shw-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "FCX": {
     "reported_growth": {
@@ -786948,6 +797954,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 20109000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Freeport-McMoRan",
     "company_name": "Freeport-McMoRan Inc.",
     "exchange": "NYSE",
@@ -786955,13 +797997,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Copper",
     "reportedCurrency": "USD",
     "price": 69.54,
-    "shares": 1437.56,
-    "shares_outstanding": 1437560000,
-    "shares_display": "1,437.56 M",
+    "shares": 1437.559865,
+    "shares_outstanding": 1437559865,
+    "shares_display": "1437.56 M",
     "mcap": 99967.9,
-    "liq_val_1": -9.27961354848575,
-    "liq_val_2": -13.161330154427292,
-    "liq_val_3": -16.294973566212796,
+    "liq_val_1": -9.279613548476467,
+    "liq_val_2": -13.161330154414125,
+    "liq_val_3": -16.294973566196493,
     "debt": 10359.0,
     "cash": 4080.0,
     "short_term_investments": 0.0,
@@ -790084,17 +801126,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 33.9,
     "pe_forward": 29.8,
-    "pb_trailing": 5.0,
+    "pb_trailing": 4.971301407330051,
     "pb_forward": 4.5,
     "div_yield": 1.52,
     "ps_ratio": 4.2,
     "fcf_to_ev": 6.87,
     "fcf_to_mcap": 5.92,
-    "liab_to_assets": 46.1,
-    "cash_to_assets": 6.8,
-    "current_ratio": 2.07,
-    "roe": 14.6,
-    "roa": 4.9,
+    "liab_to_assets": 46.05119962496024,
+    "cash_to_assets": 6.831081420463107,
+    "current_ratio": 2.066073512252042,
+    "roe": 16.17420913884007,
+    "roa": 5.213127522481059,
     "moat": {
       "ticker": "FCX",
       "period": "2026Q2",
@@ -790736,7 +801778,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "FCX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:51.579095+00:00",
+      "fetchedAt": "2026-10-17T16:37:33.962414+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-06",
       "quoteDate": "2026-10-16",
@@ -790750,7 +801792,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -790764,8 +801806,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 716000000,
         "inventory": 7864000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 1437559865,
+      "shareSource": {
+        "shares": 1437.559865,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:33.962414+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/831259/000083125926000036/fcx-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 1437.559865,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:33.962414+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/831259/000083125926000036/fcx-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "NEM": {
     "reported_growth": {
@@ -790824,6 +801884,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 35414000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Newmont",
     "company_name": "Newmont Corporation",
     "exchange": "NYSE",
@@ -790831,13 +801927,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Gold",
     "reportedCurrency": "USD",
     "price": 118.6,
-    "shares": 1053.69,
-    "shares_outstanding": 1053690000,
-    "shares_display": "1,053.69 M",
+    "shares": 1053.692271,
+    "shares_outstanding": 1053692270.9999999,
+    "shares_display": "1053.69 M",
     "mcap": 124967.9,
-    "liq_val_1": -8.46641875004457,
-    "liq_val_2": -6.206935535146452,
-    "liq_val_3": -8.6325013956289,
+    "liq_val_1": -8.466418750071671,
+    "liq_val_2": -6.206935535166321,
+    "liq_val_3": -8.632501395656533,
     "debt": 5466.0,
     "cash": 13131.0,
     "short_term_investments": 4122.0,
@@ -793960,17 +805056,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 14.5,
     "pe_forward": 12.8,
-    "pb_trailing": 3.5,
+    "pb_trailing": 3.5287711074716213,
     "pb_forward": 3.1,
     "div_yield": 0.88,
     "ps_ratio": 3.2,
     "fcf_to_ev": 4.08,
     "fcf_to_mcap": 7.79,
-    "liab_to_assets": 38.6,
-    "cash_to_assets": 22.8,
-    "current_ratio": 2.55,
-    "roe": 24.3,
-    "roa": 14.9,
+    "liab_to_assets": 38.561093665966936,
+    "cash_to_assets": 22.780659599937543,
+    "current_ratio": 2.546115575966322,
+    "roe": 26.771923268560037,
+    "roa": 15.584156621045953,
     "moat": {
       "ticker": "NEM",
       "period": "2026Q2",
@@ -794624,7 +805720,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "NEM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:52.101222+00:00",
+      "fetchedAt": "2026-10-17T16:37:34.197966+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-23",
       "quoteDate": "2026-10-16",
@@ -794638,7 +805734,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -794652,8 +805748,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 686000000,
         "inventory": 4014000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 1053692270.9999999,
+      "shareSource": {
+        "shares": 1053.692271,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:34.197966+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1164727/000116472726000036/nem-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 1053.692271,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:34.197966+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1164727/000116472726000036/nem-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "SCCO": {
     "reported_growth": {
@@ -794712,6 +805826,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 12632200000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Southern Copper",
     "company_name": "Southern Copper Corporation",
     "exchange": "NYSE",
@@ -794719,13 +805869,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Copper",
     "reportedCurrency": "USD",
     "price": 200.51,
-    "shares": 844.34,
-    "shares_outstanding": 844340000,
+    "shares": 844.343686,
+    "shares_outstanding": 844343686,
     "shares_display": "844.34 M",
     "mcap": 169299.4,
-    "liq_val_1": -0.748036623559802,
-    "liq_val_2": -2.31378528955848,
-    "liq_val_3": -4.8430515532944,
+    "liq_val_1": -0.7480366235604207,
+    "liq_val_2": -2.3137852895603936,
+    "liq_val_3": -4.843051553298404,
     "debt": 8528.8,
     "cash": 7329.9,
     "short_term_investments": 1664.9,
@@ -797848,17 +808998,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 29.9,
     "pe_forward": 26.3,
-    "pb_trailing": 13.4,
+    "pb_trailing": 13.402210224663953,
     "pb_forward": 12.1,
     "div_yield": 1.78,
     "ps_ratio": 7.1,
     "fcf_to_ev": 6.31,
     "fcf_to_mcap": 3.52,
-    "liab_to_assets": 47.3,
-    "cash_to_assets": 30.4,
-    "current_ratio": 5.06,
-    "roe": 44.9,
-    "roa": 23.5,
+    "liab_to_assets": 47.32776020922011,
+    "cash_to_assets": 30.379605184083026,
+    "current_ratio": 5.059803001876173,
+    "roe": 56.758272574312954,
+    "roa": 28.98126793047196,
     "moat": {
       "ticker": "SCCO",
       "period": "2026Q2",
@@ -798524,7 +809674,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "SCCO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:52.623159+00:00",
+      "fetchedAt": "2026-10-17T16:37:34.432878+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-31",
       "quoteDate": "2026-10-16",
@@ -798538,7 +809688,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -798552,8 +809702,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 2006400000,
         "inventory": 1060900000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 844343686,
+      "shareSource": {
+        "shares": 844.343686,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:34.432878+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1001838/000110465926089169/scco-20260630x10q.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 844.343686,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:34.432878+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1001838/000110465926089169/scco-20260630x10q.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "IFF": {
     "reported_growth": {
@@ -798612,6 +809780,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 13976000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Intl Flavors & Fragrances",
     "company_name": "International Flavors & Fragrances Inc.",
     "exchange": "NYSE",
@@ -798619,13 +809823,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Specialty Chemicals",
     "reportedCurrency": "USD",
     "price": 90.68,
-    "shares": 255.15,
-    "shares_outstanding": 255150000,
+    "shares": 255.149963,
+    "shares_outstanding": 255149963,
     "shares_display": "255.15 M",
     "mcap": 23137.0,
-    "liq_val_1": -8.061925527246796,
-    "liq_val_2": -34.03606215666959,
-    "liq_val_3": -41.450133386563984,
+    "liq_val_1": -8.061925527302545,
+    "liq_val_2": -34.036062156904954,
+    "liq_val_3": -41.45013338685062,
     "debt": 6243.0,
     "cash": 569.0,
     "short_term_investments": 0.0,
@@ -801747,17 +812951,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 79.8,
     "pe_forward": 70.2,
-    "pb_trailing": 1.7,
+    "pb_trailing": 1.6554808242701775,
     "pb_forward": 1.5,
     "div_yield": 1.77,
     "ps_ratio": 10.8,
     "fcf_to_ev": 4.93,
     "fcf_to_mcap": 2.32,
-    "liab_to_assets": 44.3,
-    "cash_to_assets": 2.3,
-    "current_ratio": 2.06,
-    "roe": 2.1,
-    "roa": 1.2,
+    "liab_to_assets": 44.30706845829689,
+    "cash_to_assets": 2.262065675439294,
+    "current_ratio": 2.0607709750566894,
+    "roe": 2.0133296306581503,
+    "roa": 1.1102178323953906,
     "moat": {
       "ticker": "IFF",
       "period": "2026Q2",
@@ -802405,7 +813609,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "IFF",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:53.148030+00:00",
+      "fetchedAt": "2026-10-17T16:37:34.667435+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-04",
       "quoteDate": "2026-10-16",
@@ -802419,7 +813623,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -802433,8 +813637,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1424000000,
         "inventory": 1505000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 255149963,
+      "shareSource": {
+        "shares": 255.149963,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:34.667435+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/51253/000005125326000030/iff-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 255.149963,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:34.667435+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/51253/000005125326000030/iff-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "RPM": {
     "reported_growth": {
@@ -802493,6 +813715,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-08-31",
+        "reason": null,
+        "bookEquity": 3478823000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-08-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-08-31",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "RPM International",
     "company_name": "RPM International Inc.",
     "exchange": "NYSE",
@@ -802500,8 +813758,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Specialty Chemicals",
     "reportedCurrency": "USD",
     "price": 99.73,
-    "shares": 127.53,
-    "shares_outstanding": 127530000,
+    "shares": 127.534,
+    "shares_outstanding": 127534000,
     "shares_display": "127.53 M",
     "mcap": 12719.0,
     "liq_val_1": -10.773033073533332,
@@ -805629,17 +816887,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 18.4,
     "pe_forward": 16.2,
-    "pb_trailing": 3.7,
+    "pb_trailing": 3.656121625043873,
     "pb_forward": 3.3,
     "div_yield": 2.16,
     "ps_ratio": 4.5,
     "fcf_to_ev": 5.39,
     "fcf_to_mcap": 5.55,
-    "liab_to_assets": 57.7,
-    "cash_to_assets": 3.8,
-    "current_ratio": 1.76,
-    "roe": 19.8,
-    "roa": 8.4,
+    "liab_to_assets": 57.714918333183896,
+    "cash_to_assets": 3.800944714127872,
+    "current_ratio": 1.7560607479065897,
+    "roe": 22.58917425319079,
+    "roa": 8.687017318172407,
     "moat": {
       "ticker": "RPM",
       "period": "2027Q1",
@@ -806335,7 +817593,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "RPM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:53.670228+00:00",
+      "fetchedAt": "2026-10-17T16:37:34.902473+00:00",
       "balanceDate": "2026-08-31",
       "filingDate": "2026-10-06",
       "quoteDate": "2026-10-16",
@@ -806349,7 +817607,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -806363,8 +817621,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1517963000,
         "inventory": 1140432000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 127534000,
+      "shareSource": {
+        "shares": 127.534,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:34.902473+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/110621/000119312526415321/rpm-20260831.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 127.534,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:34.902473+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/110621/000119312526415321/rpm-20260831.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "VMC": {
     "reported_growth": {
@@ -806423,6 +817699,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 8464700000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Vulcan Materials",
     "company_name": "Vulcan Materials Company",
     "exchange": "NYSE",
@@ -806430,13 +817742,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Construction Materials",
     "reportedCurrency": "USD",
     "price": 257.63,
-    "shares": 129.58,
-    "shares_outstanding": 129580000,
+    "shares": 129.579,
+    "shares_outstanding": 129579000.00000001,
     "shares_display": "129.58 M",
     "mcap": 33383.4,
     "liq_val_1": -44.67853587386845,
-    "liq_val_2": -50.3634848239298,
-    "liq_val_3": -59.88007316000278,
+    "liq_val_2": -50.363484823929795,
+    "liq_val_3": -59.88007316000277,
     "debt": 4885.5,
     "cash": 194.2,
     "short_term_investments": 0.0,
@@ -809559,17 +820871,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 29.8,
     "pe_forward": 26.2,
-    "pb_trailing": 3.9,
+    "pb_trailing": 3.943837348045412,
     "pb_forward": 3.5,
     "div_yield": 0.79,
     "ps_ratio": 8.1,
     "fcf_to_ev": 5.44,
     "fcf_to_mcap": 3.08,
-    "liab_to_assets": 48.4,
-    "cash_to_assets": 1.2,
-    "current_ratio": 1.76,
-    "roe": 13.2,
-    "roa": 6.8,
+    "liab_to_assets": 48.37246077119572,
+    "cash_to_assets": 1.181121518063496,
+    "current_ratio": 1.757492081539836,
+    "roe": 13.323579440697522,
+    "roa": 6.598643864103638,
     "moat": {
       "ticker": "VMC",
       "period": "2026Q2",
@@ -810223,7 +821535,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "VMC",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:54.202847+00:00",
+      "fetchedAt": "2026-10-17T16:37:35.140547+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-29",
       "quoteDate": "2026-10-16",
@@ -810237,7 +821549,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -810251,8 +821563,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1111000000,
         "inventory": 688700000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 129579000.00000001,
+      "shareSource": {
+        "shares": 129.579,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:35.140547+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1396009/000162828026050486/vmc-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 129.579,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:35.140547+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1396009/000162828026050486/vmc-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "BCPC": {
     "reported_growth": {
@@ -810311,6 +821641,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 1302378000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Balchem",
     "company_name": "Balchem Corp",
     "exchange": "NASDAQ",
@@ -810318,13 +821684,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Specialty Chemicals",
     "reportedCurrency": "USD",
     "price": 170.73,
-    "shares": 31.88,
-    "shares_outstanding": 31880000,
+    "shares": 31.878021,
+    "shares_outstanding": 31878021,
     "shares_display": "31.88 M",
     "mcap": 5442.5,
-    "liq_val_1": 0.11914164935866897,
-    "liq_val_2": -3.9175487087975798,
-    "liq_val_3": -10.083812919863838,
+    "liq_val_1": 0.119141649351445,
+    "liq_val_2": -3.9175487085600453,
+    "liq_val_3": -10.083812919252422,
     "debt": 166.7,
     "cash": 63.2,
     "short_term_investments": 0.0,
@@ -813447,17 +824813,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 33.1,
     "pe_forward": 29.1,
-    "pb_trailing": 4.2,
+    "pb_trailing": 4.178894299504445,
     "pb_forward": 3.8,
     "div_yield": 0.57,
     "ps_ratio": 7.9,
     "fcf_to_ev": 5.15,
     "fcf_to_mcap": 3.15,
-    "liab_to_assets": 22.8,
-    "cash_to_assets": 3.7,
-    "current_ratio": 2.66,
-    "roe": 12.6,
-    "roa": 9.7,
+    "liab_to_assets": 22.79935317284369,
+    "cash_to_assets": 3.744745122121821,
+    "current_ratio": 2.664910294672567,
+    "roe": 12.967293497266768,
+    "roa": 9.796770082115446,
     "moat": {
       "ticker": "BCPC",
       "period": "2026Q2",
@@ -814141,7 +825507,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "BCPC",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:54.728342+00:00",
+      "fetchedAt": "2026-10-17T16:37:35.384649+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-31",
       "quoteDate": "2026-10-16",
@@ -814155,7 +825521,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -814169,8 +825535,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 144741000,
         "inventory": 161551000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 31878021,
+      "shareSource": {
+        "shares": 31.878021,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:35.384649+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/9326/000000932626000028/bcpc-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 31.878021,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:35.384649+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/9326/000000932626000028/bcpc-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "APD": {
     "reported_growth": {
@@ -814229,6 +825613,46 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 13883800000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeNetIncome"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeNetIncome"
+        ]
+      }
+    },
     "name": "Air Products & Chemicals",
     "company_name": "Air Products and Chemicals, Inc.",
     "exchange": "NYSE",
@@ -814236,13 +825660,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Industrial Gases",
     "reportedCurrency": "USD",
     "price": 299.59,
-    "shares": 222.69,
-    "shares_outstanding": 222690000,
+    "shares": 222.68553,
+    "shares_outstanding": 222685530,
     "shares_display": "222.69 M",
     "mcap": 66714.4,
-    "liq_val_1": -84.80883333512992,
-    "liq_val_2": -94.24815343819431,
-    "liq_val_3": -102.69504264555115,
+    "liq_val_1": -84.8088333355113,
+    "liq_val_2": -94.24815343861813,
+    "liq_val_3": -102.69504264601296,
     "debt": 18157.3,
     "cash": 980.5,
     "short_term_investments": 0.0,
@@ -817354,21 +828778,21 @@ window.FULL_MARKET_DATA = {
     ],
     "fair_val": 145.42,
     "default_fair_val": 145.42,
-    "premium_pct": 106.0,
+    "premium_pct": 106,
     "is_undervalued": false,
     "pe_trailing": 24.0,
     "pe_forward": 21.1,
-    "pb_trailing": 4.8,
+    "pb_trailing": 4.805197424336277,
     "pb_forward": 4.3,
     "div_yield": 2.4,
     "ps_ratio": 8.1,
     "fcf_to_ev": 4.15,
     "fcf_to_mcap": 3.08,
-    "liab_to_assets": 59.0,
-    "cash_to_assets": 2.4,
-    "current_ratio": 1.08,
-    "roe": 18.0,
-    "roa": 8.0,
+    "liab_to_assets": 58.9661174515893,
+    "cash_to_assets": 2.4242439227011094,
+    "current_ratio": 1.084846895285555,
+    "roe": -0.30442477876106194,
+    "roa": -0.1135406189764061,
     "moat": {
       "ticker": "APD",
       "period": "2026Q3",
@@ -818052,7 +829476,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "APD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:55.253865+00:00",
+      "fetchedAt": "2026-10-17T16:37:35.617634+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-30",
       "quoteDate": "2026-10-16",
@@ -818066,7 +829490,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -818080,8 +829504,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1881500000,
         "inventory": 751600000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 222685530,
+      "shareSource": {
+        "shares": 222.68553,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:35.617634+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/2969/000000296926000036/apd-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 222.68553,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:35.617634+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/2969/000000296926000036/apd-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "ECL": {
     "reported_growth": {
@@ -818140,6 +829582,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 10055500000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Ecolab",
     "company_name": "Ecolab Inc.",
     "exchange": "NYSE",
@@ -818147,8 +829625,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Specialty Chemicals",
     "reportedCurrency": "USD",
     "price": 288.89,
-    "shares": 280.33,
-    "shares_outstanding": 280330000,
+    "shares": 280.329,
+    "shares_outstanding": 280329000,
     "shares_display": "280.33 M",
     "mcap": 80984.2,
     "liq_val_1": -31.473019202437136,
@@ -821276,17 +832754,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 38.3,
     "pe_forward": 33.7,
-    "pb_trailing": 8.1,
+    "pb_trailing": 8.053721843767093,
     "pb_forward": 7.3,
     "div_yield": 0.99,
     "ps_ratio": 10.8,
     "fcf_to_ev": 4.55,
     "fcf_to_mcap": 2.31,
-    "liab_to_assets": 66.3,
-    "cash_to_assets": 17.2,
-    "current_ratio": 1.84,
-    "roe": 21.0,
-    "roa": 7.1,
+    "liab_to_assets": 66.3033381227654,
+    "cash_to_assets": 17.15942125839543,
+    "current_ratio": 1.8407443290014365,
+    "roe": 22.707423580786028,
+    "roa": 8.916413886080216,
     "moat": {
       "ticker": "ECL",
       "period": "2026Q2",
@@ -821946,7 +833424,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ECL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:55.778327+00:00",
+      "fetchedAt": "2026-10-17T16:37:35.853378+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-06",
       "quoteDate": "2026-10-16",
@@ -821960,7 +833438,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -821974,8 +833452,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 3452700000,
         "inventory": 1643900000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 280329000,
+      "shareSource": {
+        "shares": 280.329,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:35.853378+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/31462/000162828026053886/ecl-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 280.329,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:35.853378+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/31462/000162828026053886/ecl-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "CTVA": {
     "reported_growth": {
@@ -822032,6 +833528,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 25159000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Corteva",
@@ -825165,21 +836697,21 @@ window.FULL_MARKET_DATA = {
     ],
     "fair_val": 25.74,
     "default_fair_val": 25.74,
-    "premium_pct": -50.0,
+    "premium_pct": -50,
     "is_undervalued": true,
     "pe_trailing": 8.5,
     "pe_forward": 7.5,
-    "pb_trailing": 0.3,
+    "pb_trailing": 0.34161930124408757,
     "pb_forward": 0.3,
     "div_yield": 5.63,
     "ps_ratio": 3.4,
     "fcf_to_ev": 3.2,
     "fcf_to_mcap": 7.32,
-    "liab_to_assets": 39.0,
-    "cash_to_assets": 5.7,
-    "current_ratio": 1.52,
-    "roe": 4.0,
-    "roa": 2.4,
+    "liab_to_assets": 38.99668603813458,
+    "cash_to_assets": 5.679362182411988,
+    "current_ratio": 1.5160811938085086,
+    "roe": 3.8943996294723844,
+    "roa": 2.416245599750952,
     "moat": {
       "ticker": "CTVA",
       "period": "2026Q2",
@@ -825821,7 +837353,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CTVA",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:56.304462+00:00",
+      "fetchedAt": "2026-10-17T16:37:36.092044+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-31",
       "quoteDate": "2026-10-16",
@@ -825835,7 +837367,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -825849,8 +837381,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 8696000000,
         "inventory": 4443000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 667300000,
+      "shareSource": {
+        "shares": 667.3,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:36.092044+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/30554/000175567226000025/ctva-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 667.3,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:36.092044+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/30554/000175567226000025/ctva-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "DOW": {
     "reported_growth": {
@@ -825909,6 +837459,46 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 24424000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeNetIncome"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeNetIncome"
+        ]
+      }
+    },
     "name": "Dow Inc.",
     "company_name": "Dow Inc.",
     "exchange": "NYSE",
@@ -825916,13 +837506,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Commodity Chemicals",
     "reportedCurrency": "USD",
     "price": 29.93,
-    "shares": 722.34,
-    "shares_outstanding": 722340000,
+    "shares": 722.340711,
+    "shares_outstanding": 722340711,
     "shares_display": "722.34 M",
     "mcap": 21619.7,
-    "liq_val_1": -20.33804792729769,
-    "liq_val_2": -31.603507392847003,
-    "liq_val_3": -43.73144074436095,
+    "liq_val_1": -20.338047927081323,
+    "liq_val_2": -31.60350739251079,
+    "liq_val_3": -43.73144074389572,
     "debt": 20861.0,
     "cash": 3973.0,
     "short_term_investments": 0.0,
@@ -829045,17 +840635,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 24.0,
     "pe_forward": 21.1,
-    "pb_trailing": 0.9,
+    "pb_trailing": 0.8851826072715362,
     "pb_forward": 0.8,
     "div_yield": 10.38,
     "ps_ratio": 12.4,
     "fcf_to_ev": 2.46,
     "fcf_to_mcap": 2.02,
-    "liab_to_assets": 57.7,
-    "cash_to_assets": 6.5,
-    "current_ratio": 11.07,
-    "roe": 18.0,
-    "roa": 8.0,
+    "liab_to_assets": 57.74458066087521,
+    "cash_to_assets": 6.451246245027198,
+    "current_ratio": 11.072148541114059,
+    "roe": -6.993209912367244,
+    "roa": -2.0426844772931463,
     "moat": {
       "ticker": "DOW",
       "period": "2026Q2",
@@ -829690,7 +841280,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "DOW",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:56.828901+00:00",
+      "fetchedAt": "2026-10-17T16:37:36.326848+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-24",
       "quoteDate": "2026-10-16",
@@ -829704,7 +841294,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -829718,8 +841308,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 6430000000,
         "inventory": 7233000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 722340711,
+      "shareSource": {
+        "shares": 722.340711,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:36.326848+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/29915/000175178826000147/dow-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 722.340711,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:36.326848+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/29915/000175178826000147/dow-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "DD": {
     "reported_growth": {
@@ -829778,6 +841386,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 13769000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "DuPont",
     "company_name": "DuPont de Nemours, Inc.",
     "exchange": "NYSE",
@@ -829785,13 +841429,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Specialty Chemicals",
     "reportedCurrency": "USD",
     "price": 130.45,
-    "shares": 135.04,
-    "shares_outstanding": 135040000,
+    "shares": 135.042969,
+    "shares_outstanding": 135042969,
     "shares_display": "135.04 M",
     "mcap": 17616.4,
-    "liq_val_1": -17.2093368920581,
-    "liq_val_2": -25.430423732661758,
-    "liq_val_3": -40.283473619963885,
+    "liq_val_1": -17.20933727397537,
+    "liq_val_2": -25.430424297025045,
+    "liq_val_3": -40.28347451395267,
     "debt": 3125.0,
     "cash": 1740.0,
     "short_term_investments": 0.0,
@@ -832913,17 +844557,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 320.3,
     "pe_forward": 281.9,
-    "pb_trailing": 1.3,
+    "pb_trailing": 1.2794247948289637,
     "pb_forward": 1.2,
     "div_yield": 2.37,
     "ps_ratio": 3.9,
     "fcf_to_ev": 5.78,
     "fcf_to_mcap": 6.4,
-    "liab_to_assets": 34.1,
-    "cash_to_assets": 8.3,
-    "current_ratio": 2.43,
-    "roe": 0.4,
-    "roa": 0.3,
+    "liab_to_assets": 34.09144864916196,
+    "cash_to_assets": 8.261715967902758,
+    "current_ratio": 2.4267866066966515,
+    "roe": 0.23846687478321196,
+    "roa": 0.15044175168905058,
     "moat": {
       "ticker": "DD",
       "period": "2026Q2",
@@ -833607,7 +845251,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "DD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:57.356081+00:00",
+      "fetchedAt": "2026-10-17T16:37:36.562982+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-04",
       "quoteDate": "2026-10-16",
@@ -833621,7 +845265,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -833635,8 +845279,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1751000000,
         "inventory": 1210000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 135042969,
+      "shareSource": {
+        "shares": 135.042969,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:36.562982+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000053/dd-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 135.042969,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:36.562982+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000053/dd-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "MLM": {
     "reported_growth": {
@@ -833695,6 +845357,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 11548000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Martin Marietta",
     "company_name": "Martin Marietta Materials, Inc.",
     "exchange": "NYSE",
@@ -833702,8 +845400,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Construction Materials",
     "reportedCurrency": "USD",
     "price": 500.84,
-    "shares": 60.07,
-    "shares_outstanding": 60070000,
+    "shares": 60.0658,
+    "shares_outstanding": 60065800,
     "shares_display": "60.07 M",
     "mcap": 30083.4,
     "liq_val_1": -121.84970482371,
@@ -836831,17 +848529,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 12.2,
     "pe_forward": 10.7,
-    "pb_trailing": 2.6,
+    "pb_trailing": 2.6050744717700036,
     "pb_forward": 2.3,
     "div_yield": 0.67,
     "ps_ratio": 9.3,
     "fcf_to_ev": 5.35,
     "fcf_to_mcap": 2.69,
-    "liab_to_assets": 45.8,
-    "cash_to_assets": 0.5,
-    "current_ratio": 1.4,
-    "roe": 21.3,
-    "roa": 11.6,
+    "liab_to_assets": 45.79676132363295,
+    "cash_to_assets": 0.5256981929124618,
+    "current_ratio": 1.4019551466359976,
+    "roe": 26.294990921713122,
+    "roa": 13.624792473713338,
     "moat": {
       "ticker": "MLM",
       "period": "2026Q2",
@@ -837476,7 +849174,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MLM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:59.133592+00:00",
+      "fetchedAt": "2026-10-17T16:37:36.797497+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-30",
       "quoteDate": "2026-10-16",
@@ -837490,7 +849188,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -837504,8 +849202,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1020000000,
         "inventory": 1169000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 60065800,
+      "shareSource": {
+        "shares": 60.0658,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:36.797497+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/916076/000119312526326001/mlm-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 60.0658,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:36.797497+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/916076/000119312526326001/mlm-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "NEE": {
     "reported_growth": {
@@ -837564,6 +849280,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 57126000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "NextEra Energy",
     "company_name": "NextEra Energy, Inc.",
     "exchange": "NYSE",
@@ -837571,13 +849323,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Electric Utilities",
     "reportedCurrency": "USD",
     "price": 79.8,
-    "shares": 2085.98,
-    "shares_outstanding": 2085980000,
-    "shares_display": "2,085.98 M",
+    "shares": 2085.978209,
+    "shares_outstanding": 2085978208.9999998,
+    "shares_display": "2085.98 M",
     "mcap": 166461.1,
-    "liq_val_1": -71.5160874435478,
-    "liq_val_2": -75.12427470434245,
-    "liq_val_3": -77.55689839049242,
+    "liq_val_1": -71.51608744346188,
+    "liq_val_2": -75.1242747042522,
+    "liq_val_3": -77.55689839039925,
     "debt": 110197.0,
     "cash": 2866.0,
     "short_term_investments": 0.0,
@@ -840695,21 +852447,21 @@ window.FULL_MARKET_DATA = {
     ],
     "fair_val": -2.85,
     "default_fair_val": -2.85,
-    "premium_pct": -2900.0,
+    "premium_pct": -2900,
     "is_undervalued": true,
     "pe_trailing": 17.9,
     "pe_forward": 15.8,
-    "pb_trailing": 2.9,
+    "pb_trailing": 2.913928859013409,
     "pb_forward": 2.6,
     "div_yield": 2.97,
     "ps_ratio": 13.7,
     "fcf_to_ev": 3.01,
     "fcf_to_mcap": 1.83,
-    "liab_to_assets": 70.7,
-    "cash_to_assets": 1.2,
-    "current_ratio": 0.53,
-    "roe": 16.3,
-    "roa": 4.0,
+    "liab_to_assets": 70.7229593611876,
+    "cash_to_assets": 1.231062639869076,
+    "current_ratio": 0.5338234279008767,
+    "roe": 18.30619918499124,
+    "roa": 4.676859628828647,
     "moat": {
       "ticker": "NEE",
       "period": "2026Q2",
@@ -841363,7 +853115,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "NEE",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:52:59.655609+00:00",
+      "fetchedAt": "2026-10-17T16:37:37.031550+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-24",
       "quoteDate": "2026-10-16",
@@ -841377,7 +853129,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -841391,8 +853143,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 4708000000,
         "inventory": 2616000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 2085978208.9999998,
+      "shareSource": {
+        "shares": 2085.978209,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:37.031550+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/37634/000075330826000060/nee-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 2085.978209,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:37.031550+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/37634/000075330826000060/nee-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "SO": {
     "reported_growth": {
@@ -841451,6 +853221,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 39570000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Southern Company",
     "company_name": "The Southern Company",
     "exchange": "NYSE",
@@ -841460,7 +853266,7 @@ window.FULL_MARKET_DATA = {
     "price": 91.18,
     "shares": 1150.36,
     "shares_outstanding": 1150360000,
-    "shares_display": "1,150.36 M",
+    "shares_display": "1150.36 M",
     "mcap": 104889.8,
     "liq_val_1": -93.28123370075454,
     "liq_val_2": -98.47838937376126,
@@ -844587,17 +856393,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 22.5,
     "pe_forward": 19.8,
-    "pb_trailing": 2.7,
+    "pb_trailing": 2.6507404599444024,
     "pb_forward": 2.4,
     "div_yield": 2.96,
     "ps_ratio": 10.2,
     "fcf_to_ev": 2.37,
     "fcf_to_mcap": 2.45,
-    "liab_to_assets": 73.9,
-    "cash_to_assets": 1.8,
-    "current_ratio": 0.79,
-    "roe": 11.8,
-    "roa": 2.9,
+    "liab_to_assets": 73.86731840989465,
+    "cash_to_assets": 1.8416683639146563,
+    "current_ratio": 0.7867039532223211,
+    "roe": 13.691421179514318,
+    "roa": 3.1285899511598694,
     "moat": {
       "ticker": "SO",
       "period": "2026Q2",
@@ -845245,7 +857051,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "SO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:53:00.250317+00:00",
+      "fetchedAt": "2026-10-17T16:37:37.271726+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-30",
       "quoteDate": "2026-10-16",
@@ -845259,7 +857065,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -845273,8 +857079,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 2203000000,
         "inventory": 3306000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 1150360000,
+      "shareSource": {
+        "shares": 1150.36,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:37.271726+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/3153/000009212226000054/so-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 1150.36,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:37.271726+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/3153/000009212226000054/so-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "DUK": {
     "reported_growth": {
@@ -845333,6 +857157,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 54751000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Duke Energy",
     "company_name": "Duke Energy Corporation",
     "exchange": "NYSE",
@@ -845340,8 +857200,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Electric Utilities",
     "reportedCurrency": "USD",
     "price": 121.47,
-    "shares": 779.7,
-    "shares_outstanding": 779700000,
+    "shares": 779.702,
+    "shares_outstanding": 779702000,
     "shares_display": "779.70 M",
     "mcap": 94710.4,
     "liq_val_1": -168.11422825643643,
@@ -848469,17 +860329,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 18.1,
     "pe_forward": 15.9,
-    "pb_trailing": 1.7,
+    "pb_trailing": 1.72983872440686,
     "pb_forward": 1.5,
     "div_yield": 4.38,
     "ps_ratio": 6.6,
     "fcf_to_ev": 2.31,
     "fcf_to_mcap": 3.8,
-    "liab_to_assets": 71.7,
-    "cash_to_assets": 0.3,
-    "current_ratio": 0.66,
-    "roe": 9.6,
-    "roa": 2.6,
+    "liab_to_assets": 71.72275238573582,
+    "cash_to_assets": 0.33467435141304186,
+    "current_ratio": 0.6611524537409493,
+    "roe": 10.310270971291583,
+    "roa": 2.7657566956402566,
     "moat": {
       "ticker": "DUK",
       "period": "2026Q2",
@@ -849139,7 +860999,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "DUK",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:53:00.796092+00:00",
+      "fetchedAt": "2026-10-17T16:37:37.507887+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-04",
       "quoteDate": "2026-10-16",
@@ -849153,7 +861013,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -849167,8 +861027,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 4482000000,
         "inventory": 4665000000,
         "preferredStock": 973000000
+      },
+      "sharesOutstanding": 779702000,
+      "shareSource": {
+        "shares": 779.702,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:37.507887+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/20290/000132616026000040/duk-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 779.702,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:37.507887+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/20290/000132616026000040/duk-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "CEG": {
     "reported_growth": {
@@ -849227,6 +861105,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 31977000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Constellation Energy",
     "company_name": "Constellation Energy Corporation",
     "exchange": "NASDAQ",
@@ -849234,13 +861148,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Multi-Utilities",
     "reportedCurrency": "USD",
     "price": 271.37,
-    "shares": 354.31,
-    "shares_outstanding": 354310000,
+    "shares": 354.307396,
+    "shares_outstanding": 354307396,
     "shares_display": "354.31 M",
     "mcap": 96148.4,
-    "liq_val_1": -132.557211416134,
-    "liq_val_2": -167.7673149774029,
-    "liq_val_3": -183.04444468726214,
+    "liq_val_1": -132.55721029317718,
+    "liq_val_2": -167.76731355616408,
+    "liq_val_3": -183.04444313660335,
     "debt": 24700.0,
     "cash": 1077.0,
     "short_term_investments": 0.0,
@@ -852356,17 +864270,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 27.7,
     "pe_forward": 24.4,
-    "pb_trailing": 3.0,
+    "pb_trailing": 3.0067986365199983,
     "pb_forward": 2.7,
     "div_yield": 0.57,
     "ps_ratio": 77.8,
     "fcf_to_ev": 3.86,
     "fcf_to_mcap": 0.32,
-    "liab_to_assets": 67.1,
-    "cash_to_assets": 1.1,
-    "current_ratio": 1.46,
-    "roe": 10.8,
-    "roa": 3.5,
+    "liab_to_assets": 67.10329455589142,
+    "cash_to_assets": 1.0961497358859271,
+    "current_ratio": 1.4552639656230817,
+    "roe": 25.76974564926372,
+    "roa": 6.53305177419963,
     "moat": {
       "ticker": "CEG",
       "period": "2026Q2",
@@ -853001,7 +864915,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CEG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:53:01.322210+00:00",
+      "fetchedAt": "2026-10-17T16:37:37.742035+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-06",
       "quoteDate": "2026-10-16",
@@ -853015,7 +864929,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -853029,8 +864943,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 4661000000,
         "inventory": 3368000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 354307396,
+      "shareSource": {
+        "shares": 354.307396,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:37.742035+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1168165/000186827526000104/ceg-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 354.307396,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:37.742035+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1168165/000186827526000104/ceg-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "AWK": {
     "reported_growth": {
@@ -853089,6 +865021,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 11665000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "American Water Works",
     "company_name": "American Water Works Company, Inc.",
     "exchange": "NYSE",
@@ -853096,13 +865064,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Water Utilities",
     "reportedCurrency": "USD",
     "price": 134.94,
-    "shares": 198.73,
-    "shares_outstanding": 198730000,
+    "shares": 198.728989,
+    "shares_outstanding": 198728989,
     "shares_display": "198.73 M",
     "mcap": 26816.5,
-    "liq_val_1": -116.1330318029615,
-    "liq_val_2": -121.75576457893226,
-    "liq_val_3": -123.77157516605763,
+    "liq_val_1": -116.13303180443393,
+    "liq_val_2": -121.75576458047598,
+    "liq_val_3": -123.7715751676269,
     "debt": 16061.0,
     "cash": 191.0,
     "short_term_investments": 0.0,
@@ -856225,17 +868193,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 23.8,
     "pe_forward": 20.9,
-    "pb_trailing": 2.3,
+    "pb_trailing": 2.298885555079297,
     "pb_forward": 2.1,
     "div_yield": 2.45,
     "ps_ratio": 6.6,
     "fcf_to_ev": 3.09,
     "fcf_to_mcap": 3.8,
-    "liab_to_assets": 68.0,
-    "cash_to_assets": 0.5,
-    "current_ratio": 0.52,
-    "roe": 9.7,
-    "roa": 3.1,
+    "liab_to_assets": 67.9998902696623,
+    "cash_to_assets": 0.5239623624941706,
+    "current_ratio": 0.5227898439889874,
+    "roe": 10.559820258378581,
+    "roa": 3.326158110459116,
     "moat": {
       "ticker": "AWK",
       "period": "2026Q2",
@@ -856870,7 +868838,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AWK",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:53:01.935540+00:00",
+      "fetchedAt": "2026-10-17T16:37:37.976397+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-29",
       "quoteDate": "2026-10-16",
@@ -856884,7 +868852,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -856898,8 +868866,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 432000000,
         "inventory": 110000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 198728989,
+      "shareSource": {
+        "shares": 198.728989,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:37.976397+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1410636/000141063626000120/awk-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 198.728989,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:37.976397+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1410636/000141063626000120/awk-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "SRE": {
     "reported_growth": {
@@ -856956,6 +868942,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": "nonPositivePrior"
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 32705000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Sempra",
@@ -860094,17 +872116,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 23.9,
     "pe_forward": 21.0,
-    "pb_trailing": 1.7,
+    "pb_trailing": 1.6676899556642717,
     "pb_forward": 1.5,
     "div_yield": 3.04,
     "ps_ratio": 6.6,
     "fcf_to_ev": 3.01,
     "fcf_to_mcap": 3.8,
-    "liab_to_assets": 62.4,
-    "cash_to_assets": 0.1,
-    "current_ratio": 1.64,
-    "roe": 7.0,
-    "roa": 2.0,
+    "liab_to_assets": 62.43439942401609,
+    "cash_to_assets": 0.13358662745812405,
+    "current_ratio": 1.6417100203573851,
+    "roe": 7.191726834189867,
+    "roa": 2.2831233046733463,
     "moat": {
       "ticker": "SRE",
       "period": "2026Q2",
@@ -860758,7 +872780,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "SRE",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:53:02.642973+00:00",
+      "fetchedAt": "2026-10-17T16:37:38.212410+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-06",
       "quoteDate": "2026-10-16",
@@ -860772,7 +872794,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -860786,8 +872808,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1632000000,
         "inventory": 109000000,
         "preferredStock": 20000000
+      },
+      "sharesOutstanding": 653900000,
+      "shareSource": {
+        "shares": 653.9,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:38.212410+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/86521/000103220826000045/sre-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 653.9,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:38.212410+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/86521/000103220826000045/sre-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "AEP": {
     "reported_growth": {
@@ -860846,6 +872886,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 32143000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "American Electric Power",
     "company_name": "American Electric Power Company, Inc.",
     "exchange": "NASDAQ",
@@ -860853,8 +872929,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Electric Utilities",
     "reportedCurrency": "USD",
     "price": 127.14,
-    "shares": 544.4,
-    "shares_outstanding": 544400000,
+    "shares": 544.397,
+    "shares_outstanding": 544397000,
     "shares_display": "544.40 M",
     "mcap": 69214.6,
     "liq_val_1": -148.94093832258443,
@@ -863982,17 +876058,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 22.0,
     "pe_forward": 19.4,
-    "pb_trailing": 2.2,
+    "pb_trailing": 2.153333540739819,
     "pb_forward": 2.0,
     "div_yield": 2.96,
     "ps_ratio": 1.9,
     "fcf_to_ev": 2.74,
     "fcf_to_mcap": 12.94,
-    "liab_to_assets": 72.6,
-    "cash_to_assets": 0.5,
-    "current_ratio": 0.5,
-    "roe": 9.8,
-    "roa": 2.6,
+    "liab_to_assets": 72.56477749444764,
+    "cash_to_assets": 0.49601052891338326,
+    "current_ratio": 0.5039915224302367,
+    "roe": 10.515180224364018,
+    "roa": 2.9143103680233073,
     "moat": {
       "ticker": "AEP",
       "period": "2026Q2",
@@ -864634,7 +876710,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AEP",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:53:03.193865+00:00",
+      "fetchedAt": "2026-10-17T16:37:38.446313+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-30",
       "quoteDate": "2026-10-16",
@@ -864648,7 +876724,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -864662,8 +876738,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1266000000,
         "inventory": 1789000000,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 544397000,
+      "shareSource": {
+        "shares": 544.397,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:38.446313+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/4904/000000490426000059/aep-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 544.397,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:38.446313+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/4904/000000490426000059/aep-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "D": {
     "reported_growth": {
@@ -864722,6 +876816,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 28922000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Dominion Energy",
     "company_name": "Dominion Energy, Inc.",
     "exchange": "NYSE",
@@ -864729,13 +876859,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Multi-Utilities",
     "reportedCurrency": "USD",
     "price": 63.56,
-    "shares": 879.53,
-    "shares_outstanding": 879530000,
+    "shares": 879.525949,
+    "shares_outstanding": 879525949,
     "shares_display": "879.53 M",
     "mcap": 55902.7,
-    "liq_val_1": -89.32993971348809,
-    "liq_val_2": -96.37248349186244,
-    "liq_val_3": -100.03570684950024,
+    "liq_val_1": -89.32993971278498,
+    "liq_val_2": -96.3724834911039,
+    "liq_val_3": -100.03570684871289,
     "debt": 53424.0,
     "cash": 296.0,
     "short_term_investments": 0.0,
@@ -867853,21 +879983,21 @@ window.FULL_MARKET_DATA = {
     ],
     "fair_val": 22.15,
     "default_fair_val": 22.15,
-    "premium_pct": 187.0,
+    "premium_pct": 187,
     "is_undervalued": false,
     "pe_trailing": 21.9,
     "pe_forward": 19.3,
-    "pb_trailing": 1.9,
+    "pb_trailing": 1.9328780858861765,
     "pb_forward": 1.7,
     "div_yield": 4.14,
     "ps_ratio": 6.6,
     "fcf_to_ev": 2.93,
     "fcf_to_mcap": 3.8,
-    "liab_to_assets": 72.4,
-    "cash_to_assets": 0.2,
-    "current_ratio": 0.81,
-    "roe": 8.8,
-    "roa": 2.1,
+    "liab_to_assets": 72.42536364456768,
+    "cash_to_assets": 0.24283991434970587,
+    "current_ratio": 0.8089288688988839,
+    "roe": 9.380856145507991,
+    "roa": 2.376187861244776,
     "moat": {
       "ticker": "D",
       "period": "2026Q2",
@@ -868521,7 +880651,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "D",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:53:03.735391+00:00",
+      "fetchedAt": "2026-10-17T16:37:38.680365+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-31",
       "quoteDate": "2026-10-16",
@@ -868535,7 +880665,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -868549,8 +880679,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 2773000000,
         "inventory": 2007000000,
         "preferredStock": 991000000
+      },
+      "sharesOutstanding": 879525949,
+      "shareSource": {
+        "shares": 879.525949,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:38.680365+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/103682/000119312526327487/d-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 879.525949,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:38.680365+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/103682/000119312526327487/d-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "PLD": {
     "reported_growth": {
@@ -868609,6 +880757,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 53725722000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Prologis",
     "company_name": "Prologis, Inc.",
     "exchange": "NYSE",
@@ -868616,8 +880800,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Industrial REITs",
     "reportedCurrency": "USD",
     "price": 125.75,
-    "shares": 950.33,
-    "shares_outstanding": 950330000,
+    "shares": 950.331,
+    "shares_outstanding": 950331000,
     "shares_display": "950.33 M",
     "mcap": 119504.1,
     "liq_val_1": -43.27683091470235,
@@ -871745,17 +883929,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 28.4,
     "pe_forward": 25.0,
-    "pb_trailing": 2.2,
+    "pb_trailing": 2.224336789741048,
     "pb_forward": 2.0,
     "div_yield": 3.27,
     "ps_ratio": 5.7,
     "fcf_to_ev": 5.74,
     "fcf_to_mcap": 4.39,
-    "liab_to_assets": 42.5,
-    "cash_to_assets": 1.7,
-    "current_ratio": 0.7,
-    "roe": 7.8,
-    "roa": 4.2,
+    "liab_to_assets": 42.46268894016735,
+    "cash_to_assets": 1.7473619338526862,
+    "current_ratio": 0.6977452900375469,
+    "roe": 7.9809023471789695,
+    "roa": 4.3065319716467085,
     "moat": {
       "ticker": "PLD",
       "period": "2026Q2",
@@ -872390,7 +884574,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "PLD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:53:04.272125+00:00",
+      "fetchedAt": "2026-10-17T16:37:38.914431+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-29",
       "quoteDate": "2026-10-16",
@@ -872404,7 +884588,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -872418,8 +884602,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 0,
         "inventory": 0,
         "preferredStock": 63948000
+      },
+      "sharesOutstanding": 950331000,
+      "shareSource": {
+        "shares": 950.331,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:38.914431+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1045609/000119312526422375/pld-ex99_1.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 950.331,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:38.914431+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1045609/000119312526422375/pld-ex99_1.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "AMT": {
     "reported_growth": {
@@ -872476,6 +884678,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 3719700000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "American Tower",
@@ -875614,17 +887852,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 25.6,
     "pe_forward": 22.5,
-    "pb_trailing": 23.2,
+    "pb_trailing": 23.208430787429094,
     "pb_forward": 20.9,
     "div_yield": 3.75,
     "ps_ratio": 5.5,
     "fcf_to_ev": 4.11,
     "fcf_to_mcap": 4.59,
-    "liab_to_assets": 83.8,
-    "cash_to_assets": 2.8,
-    "current_ratio": 0.35,
-    "roe": 90.8,
-    "roa": 5.3,
+    "liab_to_assets": 83.8033431226807,
+    "cash_to_assets": 2.7843557909071235,
+    "current_ratio": 0.3519981962685305,
+    "roe": 90.99870717517776,
+    "roa": 5.299390631249558,
     "moat": {
       "ticker": "AMT",
       "period": "2026Q2",
@@ -876259,7 +888497,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AMT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:53:04.820729+00:00",
+      "fetchedAt": "2026-10-17T16:37:39.147866+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-28",
       "quoteDate": "2026-10-16",
@@ -876273,7 +888511,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -876287,8 +888525,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 650900000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 465960000,
+      "shareSource": {
+        "shares": 465.96,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:39.147866+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1053507/000105350726000133/amt-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 465.96,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:39.147866+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1053507/000105350726000133/amt-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "EQIX": {
     "reported_growth": {
@@ -876347,6 +888603,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 14382000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Equinix",
     "company_name": "Equinix, Inc.",
     "exchange": "NASDAQ",
@@ -876354,13 +888646,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Data Center REITs",
     "reportedCurrency": "USD",
     "price": 985.98,
-    "shares": 98.67,
-    "shares_outstanding": 98670000,
+    "shares": 98.671686,
+    "shares_outstanding": 98671686,
     "shares_display": "98.67 M",
     "mcap": 97288.3,
-    "liq_val_1": -226.8229206103199,
-    "liq_val_2": -237.90208672493506,
-    "liq_val_3": -248.08535246950632,
+    "liq_val_1": -226.82292060966708,
+    "liq_val_2": -237.90208672425035,
+    "liq_val_3": -248.0853524687923,
     "debt": 23356.0,
     "cash": 2224.0,
     "short_term_investments": 1245.0,
@@ -879483,17 +891775,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 63.5,
     "pe_forward": 55.9,
-    "pb_trailing": 6.8,
+    "pb_trailing": 6.764587679043249,
     "pb_forward": 6.1,
     "div_yield": 2.01,
     "ps_ratio": 17.8,
     "fcf_to_ev": 4.56,
     "fcf_to_mcap": 1.41,
-    "liab_to_assets": 65.0,
-    "cash_to_assets": 5.4,
-    "current_ratio": 1.13,
-    "roe": 10.7,
-    "roa": 3.7,
+    "liab_to_assets": 65.00876424189308,
+    "cash_to_assets": 5.414353880611549,
+    "current_ratio": 1.131413612565445,
+    "roe": 10.884691848906561,
+    "roa": 3.9460475173106127,
     "moat": {
       "ticker": "EQIX",
       "period": "2026Q2",
@@ -880135,7 +892427,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "EQIX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:53:06.321028+00:00",
+      "fetchedAt": "2026-10-17T16:37:39.382385+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-29",
       "quoteDate": "2026-10-16",
@@ -880149,7 +892441,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -880163,8 +892455,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1256000000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 98671686,
+      "shareSource": {
+        "shares": 98.671686,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:39.382385+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1101239/000110123926000147/eqix-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 98.671686,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:39.382385+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1101239/000110123926000147/eqix-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "SPG": {
     "reported_growth": {
@@ -880223,6 +892533,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 4434416000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Simon Property Group",
     "company_name": "Simon Property Group, Inc.",
     "exchange": "NYSE",
@@ -880230,13 +892576,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Retail REITs",
     "reportedCurrency": "USD",
     "price": 205.44,
-    "shares": 323.55,
-    "shares_outstanding": 323550000,
+    "shares": 323.551515,
+    "shares_outstanding": 323551515,
     "shares_display": "323.55 M",
     "mcap": 66470.4,
-    "liq_val_1": -99.61680445169927,
-    "liq_val_2": -100.16338881863983,
-    "liq_val_3": -102.34972628640209,
+    "liq_val_1": -99.61680445229874,
+    "liq_val_2": -100.16338881924258,
+    "liq_val_3": -102.349726287018,
     "debt": 29427.5,
     "cash": 1019.1,
     "short_term_investments": 0.0,
@@ -883354,17 +895700,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 14.4,
     "pe_forward": 12.7,
-    "pb_trailing": 15.0,
+    "pb_trailing": 14.98966267485955,
     "pb_forward": 13.5,
     "div_yield": 5.03,
     "ps_ratio": 5.2,
     "fcf_to_ev": 5.66,
     "fcf_to_mcap": 4.84,
-    "liab_to_assets": 86.0,
-    "cash_to_assets": 2.6,
-    "current_ratio": 1.05,
-    "roe": 103.9,
-    "roa": 11.6,
+    "liab_to_assets": 85.96114670500067,
+    "cash_to_assets": 2.5663838918614843,
+    "current_ratio": 1.0525881520152192,
+    "roe": 187.95965585264253,
+    "roa": 13.839203147610906,
     "moat": {
       "ticker": "SPG",
       "period": "2026Q2",
@@ -884012,7 +896358,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "SPG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:53:06.908422+00:00",
+      "fetchedAt": "2026-10-17T16:37:39.614933+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-10",
       "quoteDate": "2026-10-16",
@@ -884026,7 +896372,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -884040,8 +896386,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 884241000,
         "inventory": 0,
         "preferredStock": 40287000
+      },
+      "sharesOutstanding": 323551515,
+      "shareSource": {
+        "shares": 323.551515,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:39.614933+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1022344/000110465926093360/spg-20260630x10q.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 323.551515,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:39.614933+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1022344/000110465926093360/spg-20260630x10q.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "CSGP": {
     "reported_growth": {
@@ -884100,6 +896464,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 7932000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "CoStar Group",
     "company_name": "CoStar Group, Inc.",
     "exchange": "NASDAQ",
@@ -884107,8 +896507,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Real Estate Services",
     "reportedCurrency": "USD",
     "price": 32.31,
-    "shares": 405.2,
-    "shares_outstanding": 405200000,
+    "shares": 405.198,
+    "shares_outstanding": 405198000,
     "shares_display": "405.20 M",
     "mcap": 13091.9,
     "liq_val_1": -1.3326818000088845,
@@ -887230,17 +899630,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 176.7,
     "pe_forward": 155.5,
-    "pb_trailing": 1.7,
+    "pb_trailing": 1.6505168935955623,
     "pb_forward": 1.5,
     "div_yield": 0.0,
     "ps_ratio": 10.5,
     "fcf_to_ev": 4.03,
     "fcf_to_mcap": 2.38,
-    "liab_to_assets": 21.6,
-    "cash_to_assets": 12.5,
-    "current_ratio": 2.21,
-    "roe": 0.9,
-    "roa": 0.7,
+    "liab_to_assets": 21.639214912713285,
+    "cash_to_assets": 12.486438504783509,
+    "current_ratio": 2.214190093708166,
+    "roe": 0.8614876647987537,
+    "roa": 0.7052374108935863,
     "moat": {
       "ticker": "CSGP",
       "period": "2026Q2",
@@ -887882,7 +900282,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CSGP",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:53:07.429766+00:00",
+      "fetchedAt": "2026-10-17T16:37:39.850421+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-29",
       "quoteDate": "2026-10-16",
@@ -887896,7 +900296,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -887910,8 +900310,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 253000000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 405198000,
+      "shareSource": {
+        "shares": 405.198,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:39.850421+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1057352/000105735226000066/csgp-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 405.198,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:39.850421+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1057352/000105735226000066/csgp-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "VICI": {
     "reported_growth": {
@@ -887970,6 +900388,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 29170749000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "VICI Properties",
     "company_name": "VICI Properties Inc.",
     "exchange": "NYSE",
@@ -887977,13 +900431,13 @@ window.FULL_MARKET_DATA = {
     "industry": "Hotel & Resort REITs",
     "reportedCurrency": "USD",
     "price": 23.6,
-    "shares": 1101.08,
-    "shares_outstanding": 1101080000,
-    "shares_display": "1,101.08 M",
+    "shares": 1101.077562,
+    "shares_outstanding": 1101077562,
+    "shares_display": "1101.08 M",
     "mcap": 25985.4,
-    "liq_val_1": -16.69314372981607,
-    "liq_val_2": -16.689787744617977,
-    "liq_val_3": -16.69314372981607,
+    "liq_val_1": -16.69314372968759,
+    "liq_val_2": -16.68978774448952,
+    "liq_val_3": -16.69314372968759,
     "debt": 17843.7,
     "cash": 288.1,
     "short_term_investments": 0.0,
@@ -891098,17 +903552,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 9.4,
     "pe_forward": 8.3,
-    "pb_trailing": 0.9,
+    "pb_trailing": 0.8908033180772973,
     "pb_forward": 0.8,
     "div_yield": 7.31,
     "ps_ratio": 2.5,
     "fcf_to_ev": 3.27,
     "fcf_to_mcap": 10.16,
-    "liab_to_assets": 38.7,
-    "cash_to_assets": 0.6,
-    "current_ratio": 0.4,
-    "roe": 9.5,
-    "roa": 5.7,
+    "liab_to_assets": 38.674201729312,
+    "cash_to_assets": 0.596759311241771,
+    "current_ratio": 0.3994384125795582,
+    "roe": 10.234132045827685,
+    "roa": 6.005377640950065,
     "moat": {
       "ticker": "VICI",
       "period": "2026Q2",
@@ -891743,7 +904197,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "VICI",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:53:07.954451+00:00",
+      "fetchedAt": "2026-10-17T16:37:40.088466+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-29",
       "quoteDate": "2026-10-16",
@@ -891757,7 +904211,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -891771,8 +904225,26 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 4619000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 1101077562,
+      "shareSource": {
+        "shares": 1101.077562,
+        "date": "2026-10-17",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:40.088466+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/1705696/000170569626000090/vici-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 1101.077562,
+      "date": "2026-10-17",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:40.088466+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/1705696/000170569626000090/vici-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   },
   "O": {
     "reported_growth": {
@@ -891831,6 +904303,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 39549557000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Realty Income",
     "company_name": "Realty Income Corporation",
     "exchange": "NYSE",
@@ -891838,8 +904346,8 @@ window.FULL_MARKET_DATA = {
     "industry": "Retail REITs",
     "reportedCurrency": "USD",
     "price": 56.08,
-    "shares": 946.22,
-    "shares_outstanding": 946220000,
+    "shares": 946.218,
+    "shares_outstanding": 946218000,
     "shares_display": "946.22 M",
     "mcap": 53063.9,
     "liq_val_1": -34.49312209237195,
@@ -894964,17 +907472,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 40.2,
     "pe_forward": 35.4,
-    "pb_trailing": 1.3,
+    "pb_trailing": 1.341706558179653,
     "pb_forward": 1.2,
     "div_yield": 5.65,
     "ps_ratio": 6.1,
     "fcf_to_ev": 4.75,
     "fcf_to_mcap": 4.11,
-    "liab_to_assets": 45.1,
-    "cash_to_assets": 0.7,
-    "current_ratio": 1.66,
-    "roe": 3.3,
-    "roa": 1.7,
+    "liab_to_assets": 45.14224509665728,
+    "cash_to_assets": 0.7229687810184195,
+    "current_ratio": 1.655577145164833,
+    "roe": 3.3731755534286347,
+    "roa": 1.849100652660903,
     "moat": {
       "ticker": "O",
       "period": "2026Q2",
@@ -895622,7 +908130,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "O",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-17T05:53:08.514540+00:00",
+      "fetchedAt": "2026-10-17T16:37:40.839390+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-06",
       "quoteDate": "2026-10-16",
@@ -895636,7 +908144,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       },
       "receivablesBasis": "trade",
-      "shareBasis": "marketCapOverPrice",
+      "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
         "date": "2026-10-16",
@@ -895650,7 +908158,25 @@ window.FULL_MARKET_DATA = {
         "tradeReceivables": 1134987000,
         "inventory": 0,
         "preferredStock": 0
+      },
+      "sharesOutstanding": 946218000,
+      "shareSource": {
+        "shares": 946.218,
+        "date": "2026-10-16",
+        "basis": "commonSharesOutstandingExcludingTreasury",
+        "source": "FMP shares-float outstandingShares",
+        "capturedAt": "2026-10-17T16:37:40.839390+00:00",
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/726728/000072672826000048/o-20260630.htm"
       }
-    }
+    },
+    "shareSource": {
+      "shares": 946.218,
+      "date": "2026-10-16",
+      "basis": "commonSharesOutstandingExcludingTreasury",
+      "source": "FMP shares-float outstandingShares",
+      "capturedAt": "2026-10-17T16:37:40.839390+00:00",
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/726728/000072672826000048/o-20260630.htm"
+    },
+    "shareBasis": "commonSharesOutstandingExcludingTreasury"
   }
 };

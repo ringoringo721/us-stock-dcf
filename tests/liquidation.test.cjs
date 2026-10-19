@@ -82,6 +82,17 @@ test('preferred claims are explicitly flagged rather than treating book value as
   assert.deepEqual(calculate(snapshot, 'TEST').warnings, ['preferredUnknown']);
 });
 
+test('stale prices cannot imply current shares, while independently dated outstanding shares preserve intrinsic screens', () => {
+  const snapshot = prepareSnapshot('TEST', fixture(), null);
+  snapshot.quote = { ...snapshot.quote, price: null, marketCap: null, availabilityReason: 'staleQuote' };
+  assert.deepEqual(calculate(snapshot, 'TEST').reasons, ['staleQuote', 'staleQuote', 'staleQuote']);
+  snapshot.shareBasis = 'commonSharesOutstandingExcludingTreasury';
+  snapshot.sharesOutstanding = 100;
+  const result = calculate(snapshot, 'TEST');
+  assert.deepEqual(result.values, [3, 0.3, -1]);
+  assert.deepEqual(result.warnings, ['staleQuote']);
+});
+
 test('targeted market patch is idempotent and preserves unrelated numeric text and financial values', () => {
   const text = '{\n  "TEST": {\n    "price": 1.000000,\n    "mcap": 1e-6,\n    "liq_val_1": 9,\n    "liq_val_2": 9,\n    "liq_val_3": 9\n  }\n}';
   const update = applyToMarket(JSON.parse(text), { version: 1, stocks: { TEST: fixture() } }, null);
@@ -105,13 +116,13 @@ test('all covered stocks publish the shared source-derived liquidation outputs a
   for (const [ticker, stock] of Object.entries(market)) {
     const record = sources.stocks[ticker];
     assert.ok(record, ticker);
-    const snapshot = prepareSnapshot(ticker, record, rates);
+    const snapshot = prepareSnapshot(ticker, record, rates, stock);
     assert.deepEqual(stock.liquidation, snapshot, ticker);
     const result = calculate(snapshot, ticker);
     assert.deepEqual([stock.liq_val_1, stock.liq_val_2, stock.liq_val_3], result.values, ticker);
     const b = record.balance, r = rateFor(rates, b.reportedCurrency, null, b.date, 'closing').rate;
     if (result.values.every(value => value !== null)) {
-      const shares = record.quote.marketCap / record.quote.price;
+      const shares = stock.shares_outstanding;
       near(result.values[0], (b.totalCurrentAssets - b.totalLiabilities) * r / shares);
       near(result.values[1], (b.cashAndShortTermInvestments + b.accountsReceivables * 0.8
         + b.inventory * 0.5 - b.totalLiabilities) * r / shares);

@@ -40,7 +40,12 @@
     try {
       const data = await FcfRatios.loadStatements(ticker, reload);
       if (id !== requestId) return;
-      labels = MarketContext.localize(get('panel'), labels, data);
+      labels = MarketContext.localize(get('panel'), labels, period === 'semiannual' ? FcfRatios.halfYearStatements(data) : data);
+      if (period === 'semiannual' && data.reportingFrequency !== 'semiannual') {
+        labels.earnings_chart_note += lang === 'en'
+          ? ' Half-year flows sum two reported quarters after period-specific FX; diluted shares are the simple average of the two quarterly counts. Half-year EPS is not reconstructed from nonadditive quarterly EPS.'
+          : ' 半年流量合計各自換匯後的兩個實報季度；稀釋股數採兩季簡單平均。季度 EPS 不具可加性，不重建半年 EPS。';
+      }
       labels.earnings_reason_annualCashflowOnly = lang === 'zh' ? '僅有年度現金流；無實際中期現金流，TTM 不可用。'
         : 'Only annual cash flow is reported; genuine interim cash flows and TTM are unavailable.';
       labels.earnings_reason_cadenceMismatch = lang === 'zh' ? '報表頻率無法對齊。' : 'Statement reporting frequencies cannot be aligned.';

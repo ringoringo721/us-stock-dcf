@@ -1,0 +1,104 @@
+{
+  "version": 1,
+  "currency": "HKD",
+  "unit": "millions",
+  "ticker": "0823.HK",
+  "incomeColumns": ["year", "netPropertyIncome", "corporateExpenses", "operatingImpairment", "pretax", "financeCosts", "propertyFvGain", "attributableProfit", "attributableFvAddback", "propertyDeferredTaxAdjustment"],
+  "annualIncome": [
+    [2019, 7689, 405, 0, 21801, 598, 12269, 20329, -12151, 250],
+    [2020, 8220, 416, 0, -16591, 630, -23948, -17122, 23831, -454],
+    [2021, 8238, 428, 46, 1844, 770, -5276, 1185, null, -12],
+    [2022, 8776, 512, 0, 8136, 1005, 426, 6894, -714, 172],
+    [2023, 9198, 653, 50, 16299, 1754, 9367, 15451, -9443, -60],
+    [2024, 10070, 766, 458, -915, 2319, -7361, -1983, 7710, 458],
+    [2025, 10619, 915, 0, -8867, 2096, -16280, -8863, 16181, -332],
+    [2026, 10230, 829, 44, -6844, 1962, -14491, -7397, 13934, -107]
+  ],
+  "halfYearIncome": [
+    [2019, 3759, 151, 0, 10067, 302, 6702, 9226, -6591, 145],
+    [2020, 4071, 201, 0, 7394, 233, 3662, 6742, -3644, 65],
+    [2021, 4037, 220, null, -3792, 405, null, -4093, null, -61],
+    [2022, 4391, 237, 0, 7059, 477, 3065, 6288, -3282, 152],
+    [2023, 4587, 328, 0, 14705, 604, 10853, 13993, -10879, 84],
+    [2024, 5063, 383, 102, -3080, 1010, -6530, -3374, null, -42],
+    [2025, 5359, 441, 4, -3593, 997, -7246, -3684, 7384, -98],
+    [2026, 5178, 461, 2, -1222, 796, -5211, -1614, 5034, -73]
+  ],
+  "cashColumns": ["year", "operatingCashFlow", "investmentPropertyAdditions", "ppeAdditions", "investingCashFlow", "financingCashFlow", "netChange", "openingCash", "fxOnCash", "closingCash", "heldForSaleCashMovement", "cashDistributions", "unitRepurchases"],
+  "annualCash": [
+    [2019, 5941, 2623, 49, 6775, -13142, -426, 3164, -44, 2694, 0, -5517, -3216],
+    [2020, 6589, 1388, 218, -532, -766, 5291, 2694, -108, 7877, 0, -5930, -4240],
+    [2021, 7078, 859, 37, -10542, -2060, -5524, 7877, 177, 2530, 0, -3966, -379],
+    [2022, 6698, 858, 28, -10582, 4138, 254, 2530, -5, 2779, 0, -4405, -82],
+    [2023, 7641, 758, 62, -24634, 28267, 11274, 2779, -66, 13987, 0, -5050, -407],
+    [2024, 8481, 977, 85, -509, -14710, -6738, 13987, -65, 7184, 0, -5401, -935],
+    [2025, 9013, 1133, 69, 1517, -14357, -3827, 7184, -14, 3343, 0, -5348, -574],
+    [2026, 8461, 1895, 39, -1740, -6460, 261, 3343, 105, 3664, -45, -6220, 0]
+  ],
+  "halfYearCash": [
+    [2019, 2832, 1297, 16, 4604, -9343, -1907, 3164, -57, 1200, 0, -2758, -3007],
+    [2020, 3318, 615, 193, -2407, -957, -46, 2694, -95, 2553, 0, -2964, -1138],
+    [2021, 3167, 416, 20, -7086, -2228, -6147, 7877, 84, 1814, 0, -2339, -379],
+    [2022, 3076, 437, 8, -3472, -85, -481, 2530, 13, 2062, 0, -2336, -82],
+    [2023, 3745, 1155, 28, -7393, 3081, -567, 2779, -115, 2097, 0, -2825, -301],
+    [2024, 4041, 487, 48, -5735, -8998, -10692, 13987, -78, 3217, 0, -2683, 0],
+    [2025, 4402, 538, 31, 234, -9151, -4515, 7184, 68, 2737, 0, -2653, null],
+    [2026, 4249, 700, 14, -694, -3586, -31, 3343, 40, 3352, 0, -3339, null]
+  ],
+  "reportedBasicUnitsAnnual": [2125852061, 2096244109, 2066880618, 2092485656, 2179285281, 2561266590, 2569453567, 2588542771],
+  "reportedBasicUnitsHalfYear": [2140748585, 2108821279, 2061326280, 2084598832, 2172092819, 2540413467, 2559858384, 2583947746],
+  "reportedDilutedUnitsAnnual": [2126334234, 2096244109, 2066880618, 2129052070, 2243025578, 2561266590, 2569453567, 2588542771],
+  "reportedDilutedUnitsHalfYear": [2141182035, 2145387693, 2061326280, 2121165246, 2179682019, 2540413467, 2559858384, 2583947746],
+  "notes": [
+    "Operating income is reconstructed as net property income less corporate expenses and disclosed non-property-FV operating impairments; no blanket addback to FMP operating income.",
+    "EBIT is reconstructed as official pretax profit plus finance costs less the signed consolidated investment-property FV gain. EBITDA adds the retained FMP historical D&A. JV FV embedded in share-of-profit is not independently removed from EBIT/EBITDA; these are explicitly consolidated-property-FV-adjusted measures, not fully FV-free group measures.",
+    "Attributable NPAT uses only the unitholder distribution bridge's property-FV and related deferred-tax adjustments, already reflecting relevant JV and NCI scope. Other noncash adjustments, impairments, derivative/financial-instrument FV and discretionary distributions are not removed.",
+    "FY2021 and H1 FY2021, and H1 FY2024, combine unitholder property FV and other impairments; adjusted NPAT remains unavailable rather than assuming impairment ownership. H1 FY2021 consolidated FV/impairment split is unverified and adjusted EBIT/EBITDA also remain unavailable.",
+    "CFO is official statutory operating cash flow, already excluding noncash property FV; it receives no FV addback. FCF is that CFO less cash investment-property and PPE additions. Financing-classified interest remains outside CFO/FCF; FCF is not distributable income or levered equity cash flow.",
+    "Adjusted basic EPS uses verified reported basic units. Adjusted diluted EPS is unavailable because changed earnings require re-testing convertible dilution; reported diluted EPS is preserved only in the original provider archive.",
+    "H2 flows are annual minus reported H1. H2 cash opens at H1 closing cash; balances are not summed. FY2026 cash movement includes the separately reported HKD45m held-for-sale cash reclassification.",
+    "Native FMP forecast rows, model defaults and direct API valuations remain unmodified. Earlier unreviewed history remains explicitly reported, not certified as FV-adjusted."
+  ],
+  "documents": {
+    "2026annual": {
+      "url": "https://www.linkreit.com/-/media/linkreit/investor-relations/financial-reports-and-presentations/financial-report/2026/fy2526-annual-report_governance-disclosures-and-financial-statements_b2_en.pdf?rev=6d28d1c56614433fb185c3b1210fce86&hash=1526F2F567F1DACA81E177AA69545FD5",
+      "sha256": "73734a23c216add2661fcedfa9fca0aeb66afb3f5d3b8a94026a3d9748198ec9",
+      "pdfPages": [114, 116, 119, 136]
+    },
+    "2026interim": {
+      "url": "https://www.linkreit.com/-/media/linkreit/investor-relations/financial-reports-and-presentations/financial-report/2026/2526-interim-report_en.pdf?rev=07090908dc434fb3b4d95c77c8e936e7&hash=ADBF62161340738A26A3F5DFA9DA1B92",
+      "sha256": "c5fc4ce70f8471bd4adccbb31f270926371972dc8f91c475a5a6ebf2d69bd834",
+      "pdfPages": [52, 54, 57, 65]
+    },
+    "2024annual": {
+      "url": "https://www.linkreit.com/-/media/linkreit/investor-relations/financial-reports-and-presentations/financial-report/2024/annual-report-2324-e-book-2.pdf?rev=409d825c085748bcbaf65976437fd8cf&hash=B1A2266CA0411C685B8FE7E64E607FA7",
+      "sha256": "f60f27c2710da5f8c7c511e9a9ee8acccff26b3694a706de0dc26c762d24aab2",
+      "pdfPages": [103, 105, 108, 125]
+    },
+    "2024interim": {
+      "url": "https://www.linkreit.com/-/media/linkreit/investor-relations/financial-reports-and-presentations/financial-report/2023/interim-report-2324-e.pdf?rev=6f14245e941a440283e04a88079ebc04&hash=96720AB821C63C7BF29AF099BDBCC361",
+      "sha256": "8dceed75efc802dd710ec0a8b1cd4c8da430f2051821cdf05c1e4e55ca88869c",
+      "pdfPages": [46, 48, 51, 58, 59]
+    },
+    "2022annual": {
+      "url": "https://www.linkreit.com/-/media/linkreit/investor-relations/financial-reports-and-presentations/financial-report/2022/annual-report-2122_e_book-2.pdf?rev=03376b45b1a34be69a6f683c6c6ffab6&hash=9F3D48E29C6B762028BC4CCAB8D4F64E",
+      "sha256": "db12ae7f271ceb9526d090c2f0c9e46feb687ef02b9ff405ad8114994023d760",
+      "pdfPages": [96, 98, 101, 128, 129]
+    },
+    "2022interim": {
+      "url": "https://www.linkreit.com/-/media/linkreit/investor-relations/financial-reports-and-presentations/financial-report/2022/202122_interim-report_eng.pdf?rev=8f806e7791bc4066b2a58aef80989a56&hash=39A8FA5C16C756C3288509AC4FA314CB",
+      "sha256": "41ee9ccd98f9c84c8a2187c6cffd2a5804d204b8727378b41bcd15679b959ef3",
+      "pdfPages": [52, 54, 57, 65]
+    },
+    "2020annual": {
+      "url": "https://www.linkreit.com/-/media/linkreit/investor-relations/financial-reports-and-presentations/financial-report/2020/governance-disclosures-and-financial-statements/ew00823_book-2.pdf?rev=bc9de9239ae84abeb0f165b695648dac&hash=E17BBAFF2E43FF25395ADEDF99E8DFED",
+      "sha256": "d0a5f692958a4b058ba8998a8898d93daac6281aab8ba2d7b7071b8b28855708",
+      "pdfPages": [94, 96, 99, 122]
+    },
+    "2020interim": {
+      "url": "https://www.linkreit.com/-/media/linkreit/investor-relations/financial-reports-and-presentations/financial-report/2020/interim-report/link_ir1920_e.pdf?rev=dee4ededaef74e079f340bdd1f8e009c&hash=42C6F44E386AF191208174C4AB495B5E",
+      "sha256": "25b9f5c2ef2c3cf6a2a3c40d2cf86f04d7d4a369bcd79e39d1dedca38dd976ae",
+      "pdfPages": [51, 53, 57, 64]
+    }
+  }
+}

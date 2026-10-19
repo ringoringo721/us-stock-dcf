@@ -59,3 +59,30 @@ test('Currency changes cannot silently produce comparable ROA or turnover', () =
   assert.equal(result.items[8].passed, null);
   assert.equal(result.score, null);
 });
+
+test('audited insurer presentation excludes liquidity without awarding or normalizing a ninth point', () => {
+  const data = fixture();
+  data.annual.balance.at(-1).totalCurrentLiabilities = 0;
+  const review = require('../cache/pf_applicability.json').tickers['1299.HK'];
+  const result = calculate(data, { currentRatioNotApplicable: review });
+  assert.equal(result.score, 8);
+  assert.equal(result.standardScore, null);
+  assert.equal(result.applicableTests, 8);
+  assert.equal(result.assessmentType, 'applicableItems');
+  assert.equal(result.items[5].applicable, false);
+  assert.equal(result.items[5].passed, null);
+  assert.equal(result.items[5].reason, 'unclassifiedInsuranceBalanceSheet');
+  assert.deepEqual(result.items[5].sources, review.sources);
+  assert.equal(result.reason, null);
+  assert.equal(calculate(data).score, null, 'No industry-wide automatic exemption');
+  delete data.annual.cashflow.at(-1).commonStockIssuance;
+  assert.equal(calculate(data, { currentRatioNotApplicable: review }).score, null, 'Other missing inputs remain unknown');
+});
+
+test('insurer exclusions require evidence and never extend to unreviewed future statements', () => {
+  const review = require('../cache/pf_applicability.json').tickers['1299.HK'];
+  assert.throws(() => calculate(fixture(), { currentRatioNotApplicable: { ...review, sources: [] } }), /requires audited/);
+  const result = calculate(fixture(), { currentRatioNotApplicable: { ...review, reviewedThrough: '2024-12-31' } });
+  assert.equal(result.score, 9);
+  assert.equal(result.assessmentType, undefined);
+});

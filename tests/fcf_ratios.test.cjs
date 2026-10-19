@@ -3,7 +3,38 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
-const { calculate, calculateReturns, calculateBalances, calculateEarnings, financialReference, trend } = require('../fcf_ratios.js');
+const { calculate, fcfToEquity, storedTtmFcfToEquity, calculateReturns, calculateBalances, calculateEarnings, financialReference, trend } = require('../fcf_ratios.js');
+
+test('FCF / closing parent equity preserves zero and negative values without filling missing inputs', () => {
+  assert.equal(fcfToEquity(120, 600), 20);
+  assert.equal(fcfToEquity(0, 600), 0);
+  assert.equal(fcfToEquity(-120, 600), -20);
+  assert.equal(fcfToEquity(120, -600), -20);
+  for (const missing of [null, undefined, NaN, Infinity, '120']) {
+    assert.equal(fcfToEquity(missing, 600), null);
+    assert.equal(fcfToEquity(120, missing), null);
+  }
+  assert.equal(fcfToEquity(120, 0), null);
+  assert.equal(fcfToEquity(Number.MAX_VALUE, Number.MIN_VALUE), null);
+});
+
+test('stored TTM FCF / parent equity uses the closing slot, not annual FCF or total equity including NCI', () => {
+  const statements = {
+    cashflow: { freeCashFlow: [10, 60] },
+    balance: { totalStockholdersEquity: [100, 200], totalEquity: [400, 600] }
+  };
+  assert.equal(storedTtmFcfToEquity(statements), 30);
+  assert.equal(storedTtmFcfToEquity(statements, 'dateMismatch'), null);
+  assert.equal(storedTtmFcfToEquity(statements, 'missingFinancialData'), 30,
+    'Unrelated missing valuation inputs must not hide supported FCF/equity');
+  const missing = structuredClone(statements);
+  missing.cashflow.freeCashFlow[1] = null;
+  assert.equal(storedTtmFcfToEquity(missing), null, 'Annual FCF must not fill missing TTM');
+  assert.equal(storedTtmFcfToEquity({ ...statements, fxUnavailable: [false, true] }), null);
+  assert.equal(storedTtmFcfToEquity({ ...statements, cashflow: { freeCashFlow: [10] } }), null);
+  assert.equal(storedTtmFcfToEquity({ ...statements, balance: { totalEquity: [400, 600] } }), null);
+  assert.equal(storedTtmFcfToEquity(undefined), null);
+});
 
 test('Per-diluted-share trends preserve reported EPS, historical shares, fiscal periods and missing data', () => {
   const data = fixture();
@@ -114,7 +145,14 @@ test('All cached per-share trends match exact reported shares, EPS and common di
         }
         for (const [metric, field, sign] of [['fcf', 'freeCashFlow', 1], ['dividend', 'commonDividendsPaid', -1]]) {
           if (column.amounts[metric].value === null) continue;
-          const flows = window.map(row => data[period].cashflow.find(flow => flow.date === row.date));
+          const mixedCadence = period === 'quarterly' && flow === 'ttm'
+            && data.statementFrequencies?.cashflow === 'semiannual' && count === 4;
+          const flows = mixedCadence
+            ? data[period].cashflow.filter(row => row.date <= column.date)
+              .sort((a, b) => a.date.localeCompare(b.date)).slice(-2)
+            : window.map(row => data[period].cashflow.find(flow => flow.date === row.date));
+          assert.ok(flows.every(Boolean), `${file}: missing source flow`);
+          if (mixedCadence) assert.equal(flows.at(-1).date, column.date);
           const shares = window.reduce((sum, row) => sum + Number(row.weightedAverageShsOutDil), 0) / window.length;
           near(column.amounts[metric].value, sign * flows.reduce((sum, row) => sum + Number(row[field]), 0) / shares);
         }
@@ -315,10 +353,68 @@ test('trend lines retain actual chronology, negative/zero values and gaps withou
   near(chart.segments[0][0].x, 4);
   near(chart.segments[1][0].x, 4 + 200 / 3);
   assert.equal(chart.color, '#22c55e');
-  assert.equal(trend([2, 1]).color, '#ef4444');
+  assert.equal(trend([2, 1]).color, '#22c55e');
+  assert.equal(trend([-2, -1]).color, '#ef4444');
   assert.equal(trend([0, 0]).last.y, 16);
   assert.equal(trend([null, 0]).last.x, 104);
   assert.equal(trend([false, '', NaN, Infinity]), null);
+});
+
+test('trend strokes change color at interpolated zero crossings, not at period boundaries or by slope', () => {
+  for (const [values, colors, crossingX] of [
+    [[-10, 30], ['#ef4444', '#22c55e'], 29],
+    [[30, -10], ['#22c55e', '#ef4444'], 79]
+  ]) {
+    const chart = trend(values);
+    assert.deepEqual(chart.strokes.map(stroke => stroke.color), colors);
+    const zero = chart.strokes[0].points.at(-1);
+    assert.equal(zero, chart.strokes[1].points[0]);
+    assert.equal(zero.value, 0);
+    near(zero.x, crossingX);
+    near(zero.y, 22);
+  }
+  for (const [values, colors] of [
+    [[3, 2, 1], ['#22c55e']],
+    [[-3, -2, -1], ['#ef4444']],
+    [[-1, 0, 1], ['#ef4444', '#22c55e']],
+    [[1, 0, -1], ['#22c55e', '#ef4444']],
+    [[0, 0], ['#22c55e']],
+    [[-1, null, 1], ['#ef4444', '#22c55e']],
+    [[-1, 1, -1], ['#ef4444', '#22c55e', '#ef4444']]
+  ]) {
+    const chart = trend(values);
+    assert.deepEqual(chart.strokes.map(stroke => stroke.color), colors);
+    for (const stroke of chart.strokes) {
+      assert.ok(stroke.points.every(point => stroke.color === '#ef4444' ? point.value <= 0 : point.value >= 0));
+    }
+  }
+  assert.ok(trend([-1, null, 1]).strokes.every(stroke => stroke.points.length === 1),
+    'No segment crosses missing data');
+});
+
+test('all cached stocks use sign-colored FCF and return trends in annual and quarterly modes', () => {
+  const directory = path.join(__dirname, '..', 'cache', 'financials');
+  for (const file of fs.readdirSync(directory).filter(file => file.endsWith('_statements_v2.json'))) {
+    const data = JSON.parse(fs.readFileSync(path.join(directory, file), 'utf8'));
+    for (const period of ['annual', 'quarterly']) {
+      for (const engine of [calculate, calculateReturns]) {
+        const columns = engine(data, { period });
+        for (const metric of Object.keys(columns[0]?.ratios || {})) {
+          const values = columns.map(column => column.ratios[metric].value);
+          const chart = trend(values), valid = values.filter(value => Number.isFinite(value));
+          if (!valid.length) {
+            assert.equal(chart, null, `${file}/${period}/${metric}`);
+            continue;
+          }
+          assert.equal(chart.color, valid.at(-1) < 0 ? '#ef4444' : '#22c55e');
+          for (const stroke of chart.strokes) {
+            assert.ok(stroke.points.every(point => Number.isFinite(point.x) && Number.isFinite(point.y)
+              && (stroke.color === '#ef4444' ? point.value <= 0 : point.value >= 0)), `${file}/${period}/${metric}`);
+          }
+        }
+      }
+    }
+  }
 });
 
 test('ROA, ROE and ROTE use reported net income and the correct balances in every mode', () => {
@@ -535,7 +631,7 @@ test('the exact shipped HTML scripts compile and the removed chart cannot initia
   assert.doesNotMatch(html, /renderDetailHistoricalChart|detailDcfHistoricalChart|chartjs-adapter-date-fns/);
   assert.doesNotMatch(html, /renderChartsSubPage|chart-bars-wrap|cmp-analytics-chart-container/);
   assert.match(html, /id="fcf-ratio-panel"/);
-  assert.match(html, /src="fcf_ratios.js"/);
+  assert.match(html, /src="fcf_ratios\.js\?v=sign-trends-1"/);
   assert.equal((html.match(/id="fcf-ratio-panel"/g) || []).length, 1);
   const detail = html.slice(html.indexOf('id="detail-view"'), html.indexOf('id="company-view"'));
   assert.doesNotMatch(detail, /id="fcf-ratio-panel"/);

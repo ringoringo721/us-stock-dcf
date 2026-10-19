@@ -1,8 +1,10 @@
 (function (root, factory) {
-  const api = factory();
+  const api = factory(
+    () => typeof module === 'object' && module.exports ? require('./fcf_ratios.js') : root.FcfRatios,
+    () => typeof module === 'object' && module.exports ? require('./profile_overview.js') : root.ProfileOverview);
   if (typeof module === 'object' && module.exports) module.exports = api;
   else root.PeerComparison = api;
-})(typeof globalThis === 'object' ? globalThis : this, function () {
+})(typeof globalThis === 'object' ? globalThis : this, function (returnsEngine, growthEngine) {
   'use strict';
   // Comparison families broaden coverage; membership does not imply direct competition.
   const families = [
@@ -83,5 +85,95 @@
       unavailable: [...provided].filter(key => key !== symbol(targetTicker) && !available.has(key))
     };
   }
-  return { select };
+  function annualView(stock, data) {
+    if (!Array.isArray(data?.annual?.income) || !Array.isArray(data?.annual?.balance)
+        || !Array.isArray(data?.annual?.cashflow)) throw new TypeError('Missing annual peer statements');
+    if (data.calculationCurrency !== (stock.calculationCurrency || 'HKD')) {
+      throw new TypeError('Annual peer statement currency mismatch');
+    }
+    const finite = Number.isFinite;
+    const sorted = rows => rows.slice().sort((a, b) => a.date.localeCompare(b.date));
+    const fullYears = rows => sorted(rows.filter(row => row.period === 'FY' && row.periodLength === 12
+      && /^\d{4}-\d{2}-\d{2}$/.test(row.date) && Number.isFinite(Date.parse(row.date))
+      && new Date(row.date).toISOString().slice(0, 10) === row.date));
+    const years = fullYears(data.annual.income);
+    const latest = years.at(-1), date = latest?.date || null;
+    const matching = type => {
+      const rows = data.annual[type].filter(row => row.date === date
+        && (type === 'balance' || row.period === 'FY' && row.periodLength === 12));
+      return rows.length === 1 ? rows[0] : null;
+    };
+    const fields = {
+      income: ['revenue', 'grossProfit', 'operatingIncome', 'netIncome', 'ebitda', 'interestExpense',
+        'netIncomeDeductions', 'epsdiluted'],
+      balance: ['totalDebt', 'cashAndShortTermInvestments', 'preferredStock', 'minorityInterest',
+        'totalStockholdersEquity', 'totalAssets', 'totalLiabilities', 'goodwillAndIntangibleAssets',
+        'goodwill', 'intangibleAssets', 'totalCurrentAssets', 'totalCurrentLiabilities'],
+      cashflow: ['operatingCashFlow', 'netCashProvidedByOperatingActivities', 'capitalExpenditure',
+        'freeCashFlow', 'dividendsPaid', 'commonDividendsPaid', 'commonStockDividendsPaid', 'netDividendsPaid']
+    };
+    const reference = { basis: 'latestFullFiscalYear', currency: data.calculationCurrency, date,
+      label: latest ? `FY ${latest.fiscalYear || latest.calendarYear || date.slice(0, 4)}` : 'N/A',
+      reason: latest ? null : 'missingFullFiscalYear' };
+    for (const [type, names] of Object.entries(fields)) {
+      const row = matching(type);
+      reference[type] = Object.fromEntries(names.map(field => [field,
+        row && !row.currencyConversion?.reason && finite(row[field])
+          ? row[field] / (field === 'epsdiluted' ? 1 : 1e6) : null]));
+    }
+    const { income, balance, cashflow } = reference;
+    const divide = (a, b, positive = false) => {
+      const value = finite(a) && finite(b) && (positive ? b > 0 : b !== 0) ? a / b : null;
+      return finite(value) ? value : null;
+    };
+    balance.netDebt = finite(balance.totalDebt) && finite(balance.cashAndShortTermInvestments)
+      ? balance.totalDebt - balance.cashAndShortTermInvestments : null;
+    const evInputs = [stock.mcap, balance.netDebt, balance.preferredStock, balance.minorityInterest];
+    reference.ev = stock.mcap > 0 && evInputs.every(finite) ? evInputs.reduce((sum, value) => sum + value, 0) : null;
+    const shares = stock.shareBasis === 'commonSharesOutstandingExcludingTreasury' && stock.shares > 0
+      && finite(stock.shares) ? stock.shares : null;
+    const commonEarnings = finite(income.netIncome) && (balance.preferredStock === 0 || finite(income.netIncomeDeductions))
+      ? income.netIncome - (finite(income.netIncomeDeductions) ? income.netIncomeDeductions : 0) : null;
+    reference.epsBasis = finite(income.epsdiluted) ? 'reportedAnnualDilutedEps' : 'annualCommonEarningsOverDatedShares';
+    reference.eps = finite(income.epsdiluted) ? income.epsdiluted : divide(commonEarnings, shares, true);
+    const annualData = { ...data, annual: {
+      income: years.filter(row => row.date <= date),
+      balance: sorted(data.annual.balance.filter(row => row.date <= date)),
+      cashflow: fullYears(data.annual.cashflow).filter(row => row.date <= date)
+    } };
+    const returns = latest ? returnsEngine().calculateReturns(annualData,
+      { period: 'annual', flow: 'single', balance: 'beginning' }).find(row => row.date === date) : null;
+    reference.growth = Object.fromEntries([
+      ['revenue', 'income'], ['grossProfit', 'income'], ['operatingIncome', 'income'], ['netIncome', 'income'],
+      ['ebitda', 'income'], ['operatingCashFlow', 'cashflow'], ['freeCashFlow', 'cashflow']
+    ].map(([field, type]) => {
+      const record = growthEngine().annualGrowth(annualData, type, field);
+      if (record.date !== date) {
+        return [field, { value: null, date, previousDate: null, reason: 'missingPeriod', basis: 'annual' }];
+      }
+      const previous = annualData.annual[type].at(-2)?.[field];
+      const present = annualData.annual[type].at(-1)?.[field];
+      const comparable = !record.reason || record.reason === 'nonPositivePrior';
+      const transition = !comparable ? null
+        : previous < 0 && present > 0 ? 'negativeToPositive'
+          : previous > 0 && present < 0 ? 'positiveToNegative' : null;
+      return [field, { ...record, transition }];
+    }));
+    const commonDividendField = ['commonDividendsPaid', 'commonStockDividendsPaid'].find(field => finite(cashflow[field]));
+    const totalDividendField = ['dividendsPaid', 'netDividendsPaid'].find(field => finite(cashflow[field]));
+    reference.dividendField = commonDividendField || (balance.preferredStock === 0 ? totalDividendField : null) || null;
+    const dividends = reference.dividendField ? cashflow[reference.dividendField] : null;
+    const dividendYield = finite(dividends)
+      ? divide(dividends === 0 ? 0 : -dividends, stock.mcap, true) : null;
+    return { ...stock, peerAnnual: reference, EV: reference.ev,
+      pe_trailing: divide(stock.price, reference.eps), pb_trailing: divide(stock.price, divide(balance.totalStockholdersEquity, shares, true)),
+      roe: returns?.ratios.roe.value ?? null, roa: returns?.ratios.roa.value ?? null,
+      current_ratio: divide(balance.totalCurrentAssets, balance.totalCurrentLiabilities),
+      div_yield: dividendYield === null ? null : dividendYield * 100,
+      ev_to_ebitda: divide(reference.ev, income.ebitda, true),
+      debt_to_ebitda: divide(balance.totalDebt, income.ebitda, true),
+      net_debt_to_ebitda: divide(balance.netDebt, income.ebitda, true)
+    };
+  }
+  return { select, annualView };
 });

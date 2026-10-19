@@ -34,15 +34,44 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
     });
     if (process.env.CHART_VENDOR) await page.route('https://cdn.jsdelivr.net/npm/chart.js', route =>
       route.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(process.env.CHART_VENDOR) }));
+    await page.route('**/api/fmp?**', route => {
+      const symbol = new URL(route.request().url()).searchParams.get('symbol');
+      return route.fulfill({ contentType: 'application/json', body: JSON.stringify({
+        data: market[symbol]?.news || [], source: { provider: 'FMP', symbol }, page: 0, hasMore: false
+      }) });
+    });
     await page.route('**/s3.tradingview.com/**', route => route.abort());
     const url = `http://127.0.0.1:${server.address().port}`;
     await page.goto(`${url}/?market=HKEX`, { waitUntil: 'networkidle' });
     await page.waitForFunction(() => isAppReady);
     await page.evaluate(() => applyLanguage('en'));
-    assert.equal(await page.locator('#screener-tbody tr').count(), 6);
-    assert.equal(await page.locator('#screener-tbody tr').first().locator('td').count(), 33);
+    assert.match(await page.locator('#market-select').innerText(), /🇺🇸 United States \(USD\)/);
+    assert.match(await page.locator('#market-select').innerText(), /🇭🇰 Hong Kong \(HKD\)/);
+    assert.equal(await page.locator('#screener-tbody tr').count(), Object.keys(market).length);
+    assert.equal(await page.locator('#screener-tbody tr').first().locator('td').count(), 36);
     assert.deepEqual(await page.evaluate(() => Object.keys(stockUniverse)), Object.keys(market));
-    for (const [ticker, stock] of Object.entries(market)) {
+    for (const ticker of ['0005.HK', '0939.HK']) {
+      const row = page.locator('#screener-tbody tr').filter({ hasText: ticker });
+      assert.deepEqual(await row.locator('[data-fmp-reference]').allTextContents(), ['Not applicable', 'Not applicable']);
+      assert.deepEqual(await row.locator('[data-price-difference][data-applicable="false"]').allTextContents(),
+        ['Not applicable', 'Not applicable']);
+      assert.equal(await row.locator('[data-fmp-reference] small').count(), 0);
+    }
+    const audited = new Set(['0700.HK', '9988.HK', '0005.HK', '0388.HK', '0939.HK', '0823.HK']);
+    for (const [ticker, stock] of Object.entries(market).filter(([ticker]) => audited.has(ticker))) {
+      assert.equal(await page.locator('#screener-table th[data-i18n="th_fair"], #screener-tbody [data-price-difference="fair"]').count(), 0);
+      const forecast = stock.pe_forward_source;
+      assert.equal(forecast.reason, null, `${ticker}: supported analyst forecast`);
+      assert.equal(forecast.basis, 'nextFiscalYearConsensusEps');
+      assert.ok(forecast.fiscalDate > forecast.asOf);
+      const fx = Currency.rateFor(rates, stock.reportedCurrency, null,
+        forecast.fx.observationDate, 'closing', 'HKD');
+      const forwardPe = stock.price / (forecast.eps * fx.rate);
+      assert.ok(Math.abs(stock.pe_forward - forwardPe) < 1e-10, `${ticker}: price / FY1 EPS in HKD`);
+      const forwardCell = page.locator('#screener-tbody tr').filter({ hasText: ticker })
+        .locator('[data-metric="pe_forward"]');
+      assert.equal(await forwardCell.innerText(), forwardPe.toFixed(1));
+      assert.equal(await forwardCell.getAttribute('title'), forecast.noteEn);
       const raw = read(`cache\\financials\\${ticker}_statements_v2.json`);
       const statements = Currency.convertStatements(raw, rates);
       const prices = read(`cache\\price_charts\\${ticker}.json`);
@@ -53,6 +82,10 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
         && document.getElementById('profile-overview-status').textContent.includes(date),
       { ticker, date: statements.quarterly.income.at(-1).date });
       assert.equal(await page.locator('.sub-tab-btn').count(), 9);
+      const overviewForward = page.getByRole('rowheader', { name: 'Forward P/E', exact: true })
+        .locator('..').locator('td');
+      assert.equal(await overviewForward.innerText(), `${forwardPe.toFixed(2)}×`);
+      assert.equal(await overviewForward.getAttribute('title'), forecast.noteEn);
       assert.equal(await page.locator('#profile-quote-price').innerText(),
         `HKD ${stock.price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`);
       assert.match(await page.locator('#cmp-currency-note').innerText(), new RegExp(stock.reportedCurrency));
@@ -63,23 +96,90 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
       assert.equal(await page.locator('#moat-breakdown-body tr').count(), 10);
       assert.equal(await page.locator('#fscore-breakdown-body tr').count(), 9);
       assert.equal(await page.locator('#fsc-total-score').innerText(), stock.f_score == null ? 'N/A' : `${stock.f_score} / 9`);
+      assert.equal(await page.locator('#moat-total-score').innerText(),
+        await page.evaluate(ticker => evaluateMoat(stockUniverse[ticker]).scoreText, ticker));
+      assert.doesNotMatch(await page.locator('#moat-total-score').innerText(), /N\/A.*pt/);
+      const moat = await page.evaluate(ticker => evaluateMoat(stockUniverse[ticker]), ticker);
+      const moatRows = page.locator('#moat-breakdown-body tr');
+      for (let i = 0; i < moat.m.length; i++) {
+        const cell = moatRows.nth(i).locator('.moat-score-cell');
+        if (moat.m[i] === null) {
+          assert.equal(await cell.innerText(), 'Not assessed', `${ticker}: missing dimension ${i + 1}`);
+          assert.equal(await cell.locator('.moat-bar-bg').count(), 0, 'Unknown is not a zero-length score bar');
+          assert.match(await cell.locator('span').getAttribute('title'), /not a zero score/);
+        } else {
+          assert.equal((await cell.innerText()).trim(), `${moat.m[i]} / 10`);
+          assert.equal(await cell.locator('.moat-bar-bg').count(), 1);
+        }
+      }
+      if (ticker === '0700.HK') {
+        const original = await page.evaluate(ticker => structuredClone(stockUniverse[ticker].moat), ticker);
+        await page.evaluate(ticker => {
+          stockUniverse[ticker].moat.m2_patents_regulatory.score = null;
+          loadMoatView(ticker);
+        }, ticker);
+        assert.equal(await page.locator('#moat-cat-intangible').innerText(), `${moat.m[0]} / 10 · 1/2`);
+        const total = await page.locator('#moat-total-score').innerText();
+        await page.evaluate(() => applyLanguage('zh'));
+        assert.equal(await moatRows.nth(1).locator('.moat-score-cell').innerText(), '未評分');
+        assert.match(await moatRows.nth(1).locator('.moat-score-cell span').getAttribute('title'), /不代表零分/);
+        assert.equal(await page.locator('#moat-total-score').innerText(), total);
+        assert.ok(await moatRows.nth(1).locator('td').nth(1).evaluate(el => el.getBoundingClientRect().width >= 190));
+        assert.ok(await moatRows.nth(1).locator('td').last().evaluate(el => el.getBoundingClientRect().width >= 380));
+        await page.setViewportSize({ width: 390, height: 844 });
+        assert.ok(await page.locator('.moat-table').evaluate(el =>
+          el.getBoundingClientRect().width >= 1180 && el.parentElement.scrollWidth > el.parentElement.clientWidth));
+        assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1),
+          'The moat table scrolls inside its wrapper, not the whole mobile page');
+        await page.setViewportSize({ width: 1440, height: 1000 });
+        await page.evaluate(({ ticker, original }) => {
+          stockUniverse[ticker].moat = original;
+          loadMoatView(ticker);
+        }, { ticker, original });
+        await page.evaluate(() => applyLanguage('en'));
+      }
       await page.evaluate(() => switchSubPage('charts'));
-      await page.selectOption('#balance-period', 'quarterly');
+      for (const selector of ['#fcf-ratio-period', '#return-ratio-period', '#earnings-period']) {
+        if (selector === '#fcf-ratio-period' && stock.statementFrequencies.cashflow === 'annual') {
+          assert.equal(await page.locator(`${selector} option[value="semiannual"]`).isDisabled(), true);
+          await page.selectOption(selector, 'annual');
+          continue;
+        }
+        await page.selectOption(selector, 'semiannual');
+        if (stock.reportingFrequency !== 'semiannual'
+            && !(selector === '#fcf-ratio-period' && stock.statementFrequencies.cashflow === 'semiannual')) {
+          await page.selectOption(selector, 'quarterly');
+        }
+      }
+      await page.selectOption('#balance-period', stock.reportingFrequency === 'semiannual' ? 'semiannual' : 'quarterly');
       await page.waitForFunction(() => document.getElementById('balance-body').children.length === 9);
       const balances = Ratios.calculateBalances(statements);
       assert.equal(await page.locator('#balance-date option').count(), balances.length, ticker);
       if (stock.reportingFrequency === 'semiannual') {
         assert.doesNotMatch(await page.locator('#balance-head').innerText(), /\bQ[1-4]\b/);
         assert.match(await page.locator('#balance-head').innerText(), /H1|H2/);
-        await page.selectOption('#earnings-period', 'quarterly');
+        await page.selectOption('#earnings-period', 'semiannual');
         await page.selectOption('#earnings-flow', 'ttm');
         await page.waitForFunction(() => document.getElementById('earnings-cards').children.length === 3);
         const expected = Ratios.calculateEarnings(statements).at(-1).amounts.eps;
         const annual = statements.annual.income.find(row => row.date === statements.quarterly.income.at(-1).date);
         assert.equal(expected.value, annual.epsDiluted);
         assert.equal(await page.locator('#earnings-cards strong').first().innerText(),
-          annual.epsDiluted.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
+          annual.epsDiluted === null ? 'N/A' : annual.epsDiluted.toLocaleString('en-US',
+            { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
+        if (stock.propertyFvProvenance) {
+          assert.match(await page.locator('#cmp-property-fv-note').innerText(), /convertible dilution|可換股/);
+          assert.equal(raw.propertyFvOriginal.annual.income.at(-1).netIncome, -7397e6);
+          assert.equal(annual.netIncome, 6430e6);
+        }
         assert.equal(raw.quarterly.income.at(-1).epsDiluted, null);
+      }
+      if (stock.reportingFrequency !== 'semiannual') {
+        await page.selectOption('#balance-period', 'semiannual');
+        const half = Ratios.calculateBalances(statements, { period: 'semiannual' });
+        await page.waitForFunction(count => document.querySelectorAll('#balance-date option').length === count, half.length);
+        await page.selectOption('#balance-period', 'quarterly');
+        await page.waitForFunction(count => document.querySelectorAll('#balance-date option').length === count, balances.length);
       }
       if (stock.statementFrequencies.cashflow === 'annual') {
         const fcf = Ratios.calculate(statements).at(-1);
@@ -87,21 +187,129 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
       }
       for (const tab of ['financials', 'ratios', 'peers', 'valuation', 'news', 'chart']) {
         await page.evaluate(tab => switchSubPage(tab), tab);
-        if (tab === 'valuation' && stock.fin_valuation.is_financial) {
-          assert.equal(await page.locator('#det-res-fair').innerText(), 'N/A');
-          assert.equal(await page.locator('#disp-fin-ke').innerText(), 'N/A');
-          assert.equal(await page.locator('#slider-fin-ke').isDisabled(), true);
-          await page.locator('#slider-fin-g').evaluate(input => {
-            input.value = '2.5'; input.dispatchEvent(new Event('input', { bubbles: true }));
-          });
-          assert.equal(await page.locator('#disp-fin-ke').innerText(), 'N/A');
-          assert.equal(await page.locator('#det-res-fair').innerText(), 'N/A');
-          assert.equal(await page.evaluate(ticker => stockUniverse[ticker].fin_valuation.ke, ticker), null);
+        if (tab === 'peers') {
+          const growth = page.locator('td.peer-current [data-peer-growth]');
+          for (const cell of await growth.all()) {
+            const field = await cell.getAttribute('data-peer-growth');
+            const value = stock.reported_growth.fields[field].value;
+            assert.equal(await cell.innerText(), value === null ? 'N/A'
+              : `${value >= 0 ? '+' : ''}${value.toFixed(2)}%`, `${ticker}: ${field}`);
+          }
+          if (ticker === '0388.HK') {
+            assert.equal(await page.locator('td.peer-current [data-peer-growth="operatingCashFlow"]').innerText(), '+5.74%');
+            assert.equal(await page.locator('td.peer-current [data-peer-growth="freeCashFlow"]').innerText(), '+5.07%');
+          }
+          const peerForward = page.locator('#cmp-peers-table tbody tr').filter({ hasText: /Forward P\/E/ })
+            .locator('td').nth(1).locator('span');
+          assert.equal(await peerForward.innerText(), `${forwardPe.toFixed(1)}x`);
+          assert.equal(await peerForward.getAttribute('title'), forecast.noteEn);
+          await page.evaluate(() => applyLanguage('zh'));
+          const localized = page.locator('#cmp-peers-table tbody tr').filter({ hasText: /動態 P\/E/ })
+            .locator('td').nth(1).locator('span');
+          assert.equal(await localized.getAttribute('title'), forecast.noteZh);
+          await page.evaluate(() => switchSubPage('basic'));
+          await page.waitForFunction(() => [...document.querySelectorAll('.profile-metric-table th')]
+            .some(el => el.textContent === '預估本益比'));
+          assert.equal(await page.getByRole('rowheader', { name: '預估本益比', exact: true })
+            .locator('..').locator('td').getAttribute('title'), forecast.noteZh);
+          await page.evaluate(() => applyLanguage('en'));
+          await page.evaluate(() => switchSubPage('peers'));
         }
-        if (tab === 'news' && !stock.news.length) assert.match(await page.locator('#cmp-news-list').innerText(), /N\/A/);
+        if (['financials', 'ratios'].includes(tab)) {
+          const selector = tab === 'financials' ? '#statement-period' : '#ratio-period';
+          await page.selectOption(selector, 'semiannual');
+          assert.match(await page.locator(tab === 'financials' ? '#statement-status' : '#ratio-status').innerText(), /Half year/);
+          if (stock.reportingFrequency !== 'semiannual') await page.selectOption(selector, 'quarterly');
+        }
+        if (tab === 'valuation' && !stock.fin_valuation.is_financial) {
+          await page.waitForSelector('#fmp-model');
+          assert.equal(await page.locator('#fmp-mode').inputValue(), 'vendor');
+          assert.equal(await page.locator('#fcff-workspace').count(), 0);
+          assert.notEqual(await page.locator('#det-res-fair').innerText(), 'N/A');
+          assert.match(await page.locator('#fmp-workspace').innerText(), /vendor projections\/extrapolations/);
+        }
+        if (tab === 'valuation' && stock.fin_valuation.is_financial) {
+          assert.equal(await page.locator('#slider-fin-ke').isDisabled(), false);
+          assert.equal(await page.locator('#disp-fin-ke').innerText(), `${stock.fin_valuation.ke.toFixed(2)}%`);
+          assert.match(await page.locator('#fin-reference-note').innerText(), /USD Treasury 10Y proxy/);
+          assert.equal(stock.fin_valuation.unavailableReason, null);
+          assert.match(await page.locator('#fin-shares-mode').innerText(), /Source-default shares are applied automatically/);
+          assert.equal(await page.locator('details:has(#fin-shares) > summary').innerText(), 'Custom share-count scenario (optional)');
+          assert.match(await page.locator('#fin-shares-help').textContent(), /no checkbox confirmation is needed/);
+          assert.notEqual(await page.locator('#det-res-fair').innerText(), 'N/A');
+          const fin = stock.fin_valuation;
+          const excess = fin.tbvps * (1 + (fin.rote - fin.ke) / Math.max(fin.ke - fin.g, 2));
+          let dividend = fin.dps_total, ddm = 0;
+          for (let year = 1; year <= 5; year++) { dividend *= 1.065; ddm += dividend / (1 + fin.ke / 100) ** year; }
+          ddm += dividend * (1 + fin.g / 100) / Math.max((fin.ke - fin.g) / 100, 0.02) / (1 + fin.ke / 100) ** 5;
+          const expected = excess * 0.55 + ddm * 0.45;
+          const baseline = await page.locator('#det-res-fair').innerText();
+          const shown = Number(baseline.replace(/[^\d.-]/g, ''));
+          assert.ok(Math.abs(shown - expected) < 0.011, `${ticker}: ${shown} versus ${expected}`);
+          if (ticker === '0939.HK') {
+            assert.equal(stock.shares_outstanding, 261600381459);
+            assert.equal(stock.shares, 261600.381459);
+            assert.equal(stock.liquidation.sharesOutstanding, stock.shares_outstanding);
+            assert.equal(fin.tbvps, fin.tangibleEquity / stock.shares);
+            assert.match(await page.locator('#fin-reference-note').innerText(), /A \+ H.*261,600,381,459.*2026-09-30/);
+            assert.equal(await page.locator('#fin-reference-note a').getAttribute('href'), stock.shareSource.providerSource);
+            await page.evaluate(() => applyLanguage('zh'));
+            assert.match(await page.locator('#fin-reference-note').innerText(), /全公司 A \+ H 普通股合計 261,600,381,459/);
+            assert.equal(await page.locator('details:has(#fin-shares) > summary').innerText(), '自訂股數情境（選填）');
+            assert.match(await page.locator('#fin-shares-mode').innerText(), /無須勾選或手動確認/);
+            assert.match(await page.locator('#fin-shares-confirm + span').textContent(), /這是我的假設/);
+            await page.evaluate(() => applyLanguage('en'));
+            const missingMode = await page.evaluate(ticker => {
+              const stock = stockUniverse[ticker], shares = stock.shares;
+              try {
+                stock.shares = null;
+                renderFinancialReference(stock.fin_valuation);
+                return document.getElementById('fin-shares-mode').textContent;
+              } finally {
+                stock.shares = shares;
+                renderFinancialReference(stock.fin_valuation);
+              }
+            }, ticker);
+            assert.match(missingMode, /Source-default shares are unavailable/);
+            await page.locator('details:has(#fin-shares) > summary').click();
+            await page.locator('#fin-shares').fill('261600');
+            await page.evaluate(() => onFinSharesChange());
+            assert.equal(await page.locator('#det-res-fair').innerText(), baseline, 'Unconfirmed assumptions cannot replace sourced shares');
+            assert.match(await page.locator('#fin-shares-mode').innerText(), /Source-default shares are applied automatically/);
+            await page.locator('#fin-shares-confirm').check();
+            await page.evaluate(() => onFinSharesChange());
+            assert.notEqual(await page.locator('#det-res-fair').innerText(), 'N/A');
+            assert.match(await page.locator('#fin-reference-note').innerText(), /user-confirmed scenario/);
+            assert.match(await page.locator('#fin-shares-mode').innerText(), /custom share-count scenario is active/);
+            assert.equal(await page.locator('#fin-reference-note a').count(), 0, 'A scenario is not attributed to the issuer return');
+            assert.equal(await page.evaluate(ticker => stockUniverse[ticker].fin_valuation.tbvps, ticker),
+              stock.fin_valuation.tangibleEquity / 261600);
+            await page.evaluate(() => saveCustomModel());
+            await page.reload({ waitUntil: 'networkidle' });
+            assert.equal(await page.locator('#fin-shares').inputValue(), '261600.00');
+            assert.notEqual(await page.locator('#det-res-fair').innerText(), 'N/A');
+            assert.match(await page.locator('#fin-reference-note').innerText(), /user-confirmed scenario/);
+            assert.match(await page.locator('#fin-shares-mode').innerText(), /custom share-count scenario is active/);
+            await page.evaluate(() => resetToFmpDefaults());
+            assert.equal(await page.locator('#det-res-fair').innerText(), baseline);
+            assert.equal(await page.evaluate(ticker => stockUniverse[ticker].shares, ticker), stock.shares);
+            assert.match(await page.locator('#fin-reference-note').innerText(), /A \+ H.*261,600,381,459/);
+            assert.match(await page.locator('#fin-shares-mode').innerText(), /Source-default shares are applied automatically/);
+          }
+        }
+        if (tab === 'news') {
+          await page.waitForFunction(() => !document.querySelector('#cmp-news-list button')?.disabled);
+          if (!stock.news.length) assert.match(await page.locator('#cmp-news-list').innerText(), /FMP returned no company news/);
+        }
       }
       assert.doesNotMatch(await page.locator('#company-view').innerText(), /\bNaN\b|\bundefined\b/);
     }
+    await page.goto(`${url}/?market=HKEX&test=forecast-tax#0823.HK/valuation`, { waitUntil: 'domcontentloaded' });
+    await page.waitForFunction(() => isAppReady && document.getElementById('fmp-model'));
+    await page.evaluate(() => applyLanguage('en'));
+    await page.waitForSelector('#fmp-source-review');
+    assert.match(await page.locator('#fmp-source-review').innerText(), /annual-report \/ FMP reconciliation/);
+    assert.equal(await page.locator('#fcff-workspace').count(), 0);
     await page.goto(`${url}/#0823.HK/charts`, { waitUntil: 'networkidle' });
     assert.equal(await page.locator('#market-select').inputValue(), 'HKEX');
     await page.setViewportSize({ width: 390, height: 844 });
@@ -114,7 +322,7 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
         width: element.getBoundingClientRect().width, right: element.getBoundingClientRect().right })))));
     assert.deepEqual(errors, []);
     assert.deepEqual(failed, []);
-    console.log('PASS: six genuine HKEX securities, HKD charts, 33 columns/nine tabs, source ratings, Link annual EPS, provenance and bank unavailability.');
+    console.log('PASS: all six HKEX company pages, native FMP valuation availability, sourced FY1 P/E, partial Moat, mobile layout, Link source reconciliation, real half-year controls, HKD prices, existing bank models and issuer-wide shares.');
   } finally {
     await browser.close();
     await new Promise(resolve => server.close(resolve));
