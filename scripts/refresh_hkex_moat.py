@@ -21,6 +21,7 @@ DIMENSIONS = {
     "m10_durability": "Management integrity and capital allocation",
 }
 ASSESSMENT_POLICY = "grounded-business-judgment-v3"
+RESEARCH_ASSESSMENT_POLICY = "researched-business-judgment-v4"
 FACT_FIELDS = (
     "date", "period", "fiscalYear", "reportedCurrency", "sourceReportedCurrency", "periodStartDate", "derivation",
     "revenue", "grossProfit", "operatingIncome", "incomeBeforeTax", "incomeTaxExpense", "netIncome",
@@ -46,6 +47,18 @@ def validation_feedback(error):
     return ""
 
 
+def business_research(record):
+    research = record.get("businessResearch") or (record.get("existing") or {}).get("businessResearch")
+    if research is not None and (not isinstance(research, dict) or research.get("ticker") != record["ticker"]
+                                 or not research.get("sources") or not research.get("summary")):
+        raise MoatReportValidationError("Business research identity or evidence is invalid")
+    return research
+
+
+def assessment_policy(record):
+    return RESEARCH_ASSESSMENT_POLICY if business_research(record) else ASSESSMENT_POLICY
+
+
 def evidence_context(record):
     source_ids = ["profile", "financial-quality", "piotroski"]
     facts = {}
@@ -66,6 +79,9 @@ def evidence_context(record):
         source_id = f"transcript:{row['date']}:{row['year']}:{row['period']}"
         source_ids.append(source_id)
         calls.append({"sourceId": source_id, **row})
+    research = business_research(record)
+    if research:
+        source_ids.extend(item["id"] for item in research["sources"])
     return {
         "ticker": record["ticker"], "profile": record["profile"],
         "reportingCurrency": record["reportingCurrency"], "financials": facts,
@@ -73,6 +89,8 @@ def evidence_context(record):
                              for row in record["statements"].get("qualityWarnings", [])],
         "piotroski": {key: record["fScore"][key] for key in ("score", "date", "period", "basis", "evaluatedTests", "reason")},
         "transcripts": calls,
+        **({"businessResearch": {"researchedAt": research["researchedAt"],
+                                "summary": research["summary"], "sources": research["sources"]}} if research else {}),
         "allowedSourceIds": source_ids,
     }
 
@@ -123,7 +141,7 @@ def needs_refresh(record, retry_incomplete=False, force=False):
     existing = record.get("existing") or {}
     report = existing.get("report") or {}
     return (force or existing.get("evidenceHash") != record["evidenceHash"] or not report
-            or existing.get("assessmentPolicy") != ASSESSMENT_POLICY
+            or existing.get("assessmentPolicy") != assessment_policy(record)
             or retry_incomplete and any(report.get(name, {}).get("score") is None for name in DIMENSIONS))
 
 
@@ -221,6 +239,24 @@ def main():
                 "into Traditional Chinese without adding facts (description_zh). Dimensions: "
                 + json.dumps(DIMENSIONS) + "\nSOURCE DATA:\n" + json.dumps(context, ensure_ascii=False)
             )
+            research = business_research(record)
+            if research:
+                instructions += (
+                    "\nRESEARCHED ASSESSMENT RULES: The cited business research above supplies additional "
+                    "attributable evidence. Assess all dimensions that can reasonably be judged from the "
+                    "verified business structure, competition, financial history and capital allocation. "
+                    "A numerical score is a qualitative analyst judgment, NOT a reported measurement. "
+                    "A commodity or competitive business with little structural protection can receive a "
+                    "justified LOW score; lack of a strong moat is not missing data. Do not require an "
+                    "explicit reported moat metric, patent count, retention statistic or quantified ROIC "
+                    "spread to form a supported qualitative judgment. For sustained capital returns, "
+                    "use evidenced profitability/cash conversion/reinvestment and state limitations; "
+                    "never imply ROIC exceeds WACC without evidence. Assess governance through disclosed "
+                    "allocation decisions, not an unverified claim of personal integrity. Identify "
+                    "inferences explicitly in comments. Use web source IDs for research-dependent facts. "
+                    "Avoid default neutral scores or forced completeness: use null only when a specific "
+                    "essential factual gap genuinely prevents reasoned judgment, and explain that gap."
+                )
             error_code = None
             retry_feedback = ""
             for attempt in range(3):
@@ -242,6 +278,9 @@ def main():
                         "model": os.environ.get("MOAT_MODEL", "gemini-2.5-flash"), "report": report,
                         "assessmentPolicy": ASSESSMENT_POLICY, "provider": "Vertex AI",
                     }
+                    reports[record["ticker"]]["assessmentPolicy"] = assessment_policy(record)
+                    if research:
+                        reports[record["ticker"]]["businessResearch"] = research
                     updated += 1
                     print(f"{record['ticker']}: dated evidence-based moat assessment updated", flush=True)
                     break
