@@ -195,7 +195,10 @@ def validate_narrative(text):
 def needs_refresh(record, retry_incomplete=False, force=False):
     existing = record.get("existing") or {}
     report = existing.get("report") or {}
+    research = business_research(record)
+    changed_research = bool(research and research["evidenceHash"] != (existing.get("businessResearch") or {}).get("evidenceHash"))
     return (force or existing.get("evidenceHash") != record["evidenceHash"] or not report
+            or changed_research
             or existing.get("assessmentPolicy") != assessment_policy(record)
             or retry_incomplete and any(report.get(name, {}).get("score") is None for name in DIMENSIONS))
 
@@ -293,8 +296,13 @@ def main():
                     "verified business structure, competition, financial history and capital allocation. "
                     "A numerical score is a qualitative analyst judgment, NOT a reported measurement. "
                     "A commodity or competitive business with little structural protection can receive a "
-                    "justified LOW score; lack of a strong moat is not missing data. Do not require an "
-                    "explicit reported moat metric, patent count, retention statistic or quantified ROIC "
+                    "justified LOW score; lack of a strong moat is not missing data. "
+                    "For network effects, distinguish a distribution network or economies of scale from "
+                    "user-to-user value creation. If the evidenced business structure supports little "
+                    "or no genuine network effect, explain that inference and assess its weak protection; "
+                    "do not mark it unknown merely because the company is not a network platform. "
+                    "Do not require an explicit reported moat metric, patent count, retention statistic "
+                    "or quantified ROIC "
                     "spread to form a supported qualitative judgment. For sustained capital returns, "
                     "use evidenced profitability/cash conversion/reinvestment and state limitations; "
                     "never imply ROIC exceeds WACC without evidence. Assess governance through disclosed "
