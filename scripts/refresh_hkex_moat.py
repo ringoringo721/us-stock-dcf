@@ -125,7 +125,9 @@ def evidence_context(record):
         "reportingCurrency": record["reportingCurrency"], "financials": facts,
         "financialQuality": [{key: row[key] for key in ("code", "message", "date") if key in row}
                              for row in record["statements"].get("qualityWarnings", [])],
-        "piotroski": {key: record["fScore"][key] for key in ("score", "date", "period", "basis", "evaluatedTests", "reason")},
+        "piotroski": {key: record["fScore"][key] for key in (
+            "score", "date", "period", "basis", "evaluatedTests", "reason", "assessmentType",
+            "applicableTests", "standardScore", "applicability") if key in record["fScore"]},
         "transcripts": calls,
         **({"businessResearch": {"researchedAt": research["researchedAt"],
                                 "summary": research["summary"], "sources": research["sources"]}} if research else {}),
