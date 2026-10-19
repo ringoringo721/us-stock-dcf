@@ -9,9 +9,9 @@ import time
 from urllib.parse import urlparse
 
 if __package__:
-    from .refresh_hkex_moat import create_client
+    from .refresh_hkex_moat import create_client, validate_business_research
 else:
-    from refresh_hkex_moat import create_client
+    from refresh_hkex_moat import create_client, validate_business_research
 
 
 def research_result(record, response, model):
@@ -44,7 +44,7 @@ def research_result(record, response, model):
     }
     result["evidenceHash"] = hashlib.sha256(
         json.dumps({"summary": result["summary"], "sources": sources}, sort_keys=True).encode()).hexdigest()
-    return result
+    return validate_business_research(result, record["ticker"])
 
 
 def main():

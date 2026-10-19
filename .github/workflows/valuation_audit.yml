@@ -1,4 +1,4 @@
-name: HK researched moat preflight - artifacts only
+name: HK researched moat reassessment - artifacts only
 on:
   workflow_dispatch:
 permissions:
@@ -6,19 +6,28 @@ permissions:
 jobs:
   research-and-assess:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
       - run: pip install --quiet google-genai
+      - name: Select independent research shard
+        run: python -c "import json; a=json.load(open('valuation-audit-input/hk-moat-evidence.json')); json.dump(a[${{ matrix.shard }}::5],open('input.json','w'))"
       - name: Retrieve attributable business evidence
+        id: research
+        continue-on-error: true
         env:
           GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: python -u scripts/research_hkex_moat.py valuation-audit-input/hk-moat-evidence.json researched-input.json business-research.json
-      - name: Reassess using verified business and financial evidence
+        run: python -u scripts/research_hkex_moat.py input.json researched-input.json business-research.json
+      - name: Reassess successfully researched companies
+        if: always()
         env:
           GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -26,9 +35,13 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: researched-moat-preflight
+          name: researched-moats-${{ matrix.shard }}
           path: |
+            input.json
             researched-input.json
             business-research.json
             researched-assessments.json
           retention-days: 7
+      - name: Surface any research failures
+        if: always() && steps.research.outcome == 'failure'
+        run: exit 1
