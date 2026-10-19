@@ -30,6 +30,20 @@ FACT_FIELDS = (
 )
 
 
+class MoatReportValidationError(ValueError):
+    pass
+
+
+def validation_feedback(error):
+    if isinstance(error, MoatReportValidationError):
+        return ("\nOUTPUT CORRECTION: " + str(error) + ". Regenerate the complete report using the same evidence. "
+                "Use qualitative words only in comments and verdicts, including technology/product terms; "
+                "do not include digits, currency names or units, amounts, dates or percentages.")
+    if isinstance(error, json.JSONDecodeError):
+        return "\nOUTPUT CORRECTION: Return one valid JSON object matching the requested schema."
+    return ""
+
+
 def evidence_context(record):
     source_ids = ["profile", "financial-quality", "piotroski"]
     facts = {}
@@ -63,27 +77,27 @@ def evidence_context(record):
 
 def validate_report(report, ticker, source_ids):
     if not isinstance(report, dict) or report.get("ticker") != ticker:
-        raise ValueError("Moat report identity mismatch")
+        raise MoatReportValidationError("Moat report identity mismatch")
     for name in DIMENSIONS:
         item = report.get(name)
         if not isinstance(item, dict):
-            raise ValueError("Missing moat dimension")
+            raise MoatReportValidationError("Missing moat dimension")
         score = item.get("score")
         if score is not None and (isinstance(score, bool) or not isinstance(score, int) or not 0 <= score <= 10):
-            raise ValueError("Invalid moat score")
+            raise MoatReportValidationError("Invalid moat score")
         sources = item.get("sources")
         if not isinstance(sources, list) or any(source not in source_ids for source in sources):
-            raise ValueError("Moat citation is not provided evidence")
+            raise MoatReportValidationError("Moat citation is not provided evidence")
         if score is not None and not sources:
-            raise ValueError("Numeric moat assessment requires source evidence")
+            raise MoatReportValidationError("Numeric moat assessment requires source evidence")
         if any(not isinstance(item.get(field), str) or not item[field].strip()
                for field in ("comment_zh", "comment_en")):
-            raise ValueError("Moat explanations must be bilingual")
+            raise MoatReportValidationError("Moat explanations must be bilingual")
         for field in ("comment_zh", "comment_en"):
             validate_narrative(item[field])
     for field in ("overall_moat_verdict_zh", "overall_moat_verdict_en"):
         if not isinstance(report.get(field), str) or not report[field].strip():
-            raise ValueError("Missing bilingual moat verdict")
+            raise MoatReportValidationError("Missing bilingual moat verdict")
         validate_narrative(report[field])
     return report
 
@@ -92,7 +106,7 @@ def validate_narrative(text):
     # Monetary facts belong in the FX-verified tables, not model-generated prose.
     if re.search(r"[0-9$]|HKD|USD|RMB|CNY|\u6e2f\u5143|\u6e2f\u5e63|\u4eba\u6c11\u5e63|\u7f8e\u5143"
                  r"|\b(?:million|billion|trillion)\b", text, re.IGNORECASE):
-        raise ValueError("Moat narrative must not invent numerical or currency claims")
+        raise MoatReportValidationError("Moat narrative must not invent numerical or currency claims")
 
 
 def needs_refresh(record, retry_incomplete=False, force=False):
@@ -196,10 +210,11 @@ def main():
                 + json.dumps(DIMENSIONS) + "\nSOURCE DATA:\n" + json.dumps(context, ensure_ascii=False)
             )
             error_code = None
+            retry_feedback = ""
             for attempt in range(3):
                 try:
                     response = client.models.generate_content(
-                        model=os.environ.get("MOAT_MODEL", "gemini-2.5-flash"), contents=instructions,
+                        model=os.environ.get("MOAT_MODEL", "gemini-2.5-flash"), contents=instructions + retry_feedback,
                         config=types.GenerateContentConfig(response_mime_type="application/json",
                                                          response_schema=schema, temperature=0.1))
                     report = validate_report(json.loads(response.text), record["ticker"], context["allowedSourceIds"])
@@ -219,6 +234,9 @@ def main():
                 except (errors.APIError, GoogleAuthError, HTTPError, ValueError, TypeError) as error:
                     # SDK error strings can contain request URLs. Log only safe classification.
                     error_code = {"type": type(error).__name__, "code": getattr(error, "code", None)}
+                    retry_feedback = validation_feedback(error)
+                    if isinstance(error, MoatReportValidationError):
+                        error_code["validation"] = str(error)
                     if attempt < 2:
                         time.sleep(2 * (attempt + 1))
             else:
