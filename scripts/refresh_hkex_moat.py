@@ -326,10 +326,14 @@ def main():
                                                          response_schema=schema, temperature=0.1))
                     candidate = json.loads(response.text)
                     report = validate_report(candidate, record["ticker"], context["allowedSourceIds"])
-                    latest = max(record["statements"]["quarterly"]["income"], key=lambda row: row["date"])
-                    year = latest.get("fiscalYear") or latest.get("calendarYear")
+                    quarterly = record["statements"]["quarterly"]["income"]
+                    latest = max(quarterly or record["statements"]["annual"]["income"],
+                                 key=lambda row: row["date"], default=None)
+                    year = (latest.get("fiscalYear") or latest.get("calendarYear")) if latest else None
                     half = record["statements"].get("reportingFrequency") == "semiannual"
-                    report["period"] = (f"{year}I2 ({latest['periodLength']}M)" if latest.get("reportType") == "secondInterim" else
+                    report["period"] = ("Financial period unavailable; researched business evidence only" if not latest else
+                                        f"FY {year}" if not quarterly else
+                                        f"{year}I2 ({latest['periodLength']}M)" if latest.get("reportType") == "secondInterim" else
                                         f"FY {year}" if half and latest["period"] == "Q4" else
                                         f"{year}H1" if half else f"{year}{latest['period']}")
                     reports[record["ticker"]] = {

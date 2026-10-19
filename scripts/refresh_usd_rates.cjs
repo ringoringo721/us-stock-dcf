@@ -56,7 +56,9 @@ print(json.dumps({'version': 1, 'source': '${source}', 'prepared': prepared, 'un
     if (!['HKD', 'CNY', 'JPY'].every(currency => rates.currencies[currency])) {
       throw new Error('Required HKD cross-rate observations are absent');
     }
-    rates.currencies = Object.fromEntries(['HKD', 'CNY', 'JPY'].map(currency => [currency, rates.currencies[currency]]));
+    if (!process.argv.includes('--all-hkd-currencies')) {
+      rates.currencies = Object.fromEntries(['HKD', 'CNY', 'JPY'].map(currency => [currency, rates.currencies[currency]]));
+    }
   }
   const target = path.join(__dirname, '..', 'cache', 'fx', hkd ? 'hkd_rates.json' : 'usd_rates.json');
   if (extension) {

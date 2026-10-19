@@ -12,11 +12,18 @@ const Currency = require('../usd_currency.js');
 const hkdRates = require('../cache/fx/hkd_rates.json');
 const Overview = require('../profile_overview.js');
 const root = path.resolve(__dirname, '..', 'public');
+const catalogue = require('../cache/hkex_universe.json');
+const HkUniverse = require('../hkex_universe.js');
 const annualViews = new Map();
 function annualView(ticker) {
   if (!annualViews.has(ticker)) {
-    const data = JSON.parse(fs.readFileSync(path.join(root, 'cache', 'financials', `${ticker}_statements_v2.json`)));
-    annualViews.set(ticker, Peers.annualView(market[ticker], Currency.convertStatements(data, hkdRates)));
+    const financialFile = path.join(root, 'cache', 'financials', `${ticker}_statements_v2.json`);
+    const companyFile = path.join(root, 'cache', 'hk_companies', `${ticker}.json`);
+    const stock = market[ticker] || (fs.existsSync(companyFile)
+      ? JSON.parse(fs.readFileSync(companyFile)).stock
+      : HkUniverse.listingStock(catalogue.stocks.find(item => item.ticker === ticker)));
+    const data = fs.existsSync(financialFile) ? JSON.parse(fs.readFileSync(financialFile)) : HkUniverse.emptyStatements(ticker);
+    annualViews.set(ticker, Peers.annualView(stock, Currency.convertStatements(data, hkdRates)));
   }
   return annualViews.get(ticker);
 }
@@ -112,6 +119,21 @@ function expectedAnnualCells(stock) {
     });
     await page.goto(`${base}/?market=HKEX`, { waitUntil: 'domcontentloaded' });
     await page.waitForFunction(() => isAppReady);
+    assert.equal(await page.locator('#screener-tbody tr').count(), 100);
+    assert.equal(await page.locator('#stat-total').innerText(), '2787');
+    await page.locator('#screener-more').click();
+    assert.equal(await page.locator('#screener-tbody tr').count(), 200);
+    await page.evaluate(() => {
+      document.getElementById('search-ticker').value = '87001';
+      renderScreenerTable();
+    });
+    assert.equal(await page.locator('#screener-tbody tr').count(), 1);
+    assert.match(await page.locator('#screener-tbody').innerText(), /87001\.HK/);
+    await page.evaluate(tickers => {
+      document.getElementById('search-ticker').value = '';
+      localStorage.setItem('M7_FAVORITES', JSON.stringify(tickers));
+      currentValFilter = 'FAVORITES'; renderScreenerTable();
+    }, config.map(item => item.ticker));
     assert.equal(await page.locator('#screener-tbody tr').count(), config.length);
     assert.equal(await page.locator('#screener-table thead th').count(), 36);
     assert.equal(await page.locator('[data-i18n="th_premium"]').count(), 0);
@@ -194,7 +216,8 @@ function expectedAnnualCells(stock) {
             assert.ok(stock, `${ticker}: peer column ${cell.ticker}`);
             const expected = expectedAnnualCells(stock)[cell.metric];
             if (expected !== undefined) assert.equal(cell.text, expected, `${ticker}/${cell.ticker}/${cell.metric}/FY peer`);
-            assert.ok(cell.note.includes(stock.peerAnnual.date), `${ticker}: FY peer source date`);
+            if (stock.peerAnnual.date) assert.ok(cell.note.includes(stock.peerAnnual.date), `${ticker}: FY peer source date`);
+            else assert.ok(cell.note.length, `${ticker}: unavailable FY explanation`);
             if (cell.growthReason) assert.doesNotMatch(cell.growthReason, /^Could not load or parse original statements/,
               `${ticker}/${cell.ticker}: unavailable annual growth is not a loading failure`);
           }

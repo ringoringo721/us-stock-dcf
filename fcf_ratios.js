@@ -506,6 +506,9 @@
 
   const cache = new Map();
   function loadStatements(ticker, reload = false) {
+    if (typeof HkUniverse !== 'undefined' && HkUniverse.uncaptured(ticker)) {
+      return Promise.resolve(HkUniverse.emptyStatements(ticker));
+    }
     if (reload) cache.delete(ticker);
     if (!cache.has(ticker)) {
       const pending = fetch(`cache/financials/${encodeURIComponent(ticker)}_statements_v2.json`)

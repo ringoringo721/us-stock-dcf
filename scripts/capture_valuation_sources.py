@@ -40,8 +40,10 @@ HK_EXTRA_ENDPOINTS = {
 
 def configured_market(root, name):
     if name == "HKEX":
-        return {stock["ticker"]: stock for stock in
-                json.loads((root / "hkex_stocks.json").read_text(encoding="utf-8"))}
+        reviewed = json.loads((root / "hkex_stocks.json").read_text(encoding="utf-8"))
+        listed = json.loads((root / "cache" / "hkex_universe.json").read_text(encoding="utf-8"))["stocks"] \
+            if os.environ.get("CAPTURE_ALL_HK") == "true" else []
+        return {stock["ticker"]: stock for stock in [*listed, *reviewed]}
     if name == "US":
         return json.loads((root / "full_market_dcf.json").read_text(encoding="utf-8"))
     raise ValueError("CAPTURE_MARKET must be US or HKEX")
@@ -99,7 +101,7 @@ def capture(session, endpoint, params, key):
         if response.status_code not in (429, 500, 502, 503, 504) or attempt == 2:
             break
         time.sleep(5 * (attempt + 1))
-    time.sleep(0.16)
+    time.sleep(max(0.16, float(os.environ.get("CAPTURE_REQUEST_DELAY", "0.16"))))
     if response.status_code != 200:
         return {"ok": False, "httpStatus": response.status_code}
     try:
@@ -146,6 +148,15 @@ def main():
             symbol = provider_symbol(ticker)
             record = {"ticker": ticker, "providerSymbol": symbol,
                       "capturedAt": datetime.now(timezone.utc).isoformat(), "responses": {}}
+            saved_path = output / f"{ticker}.json"
+            if os.environ.get("CAPTURE_RESUME") == "true" and saved_path.exists():
+                saved = json.loads(saved_path.read_text(encoding="utf-8"))
+                captured = datetime.fromisoformat(saved["capturedAt"])
+                if saved.get("ticker") != ticker or saved.get("providerSymbol") != symbol:
+                    raise ValueError("Resume source identity mismatch")
+                if timedelta(0) <= now - captured <= timedelta(days=7):
+                    record["responses"] = {name: value for name, value in saved["responses"].items()
+                                           if value.get("ok") is True}
             ticker_endpoints = dict(endpoints)
             if ticker.endswith(".HK") and not leases_only and not shares_only:
                 ticker_endpoints.update(HK_EXTRA_ENDPOINTS)
@@ -164,7 +175,7 @@ def main():
                         ("prices_recent", years_before(now.date(), 10).isoformat(), now.date().isoformat())):
                     ticker_endpoints[name] = ("historical-price-eod/full", {"from": first, "to": last})
             for name, (endpoint, params) in ticker_endpoints.items():
-                result = capture(session, endpoint, {"symbol": symbol, **params}, key)
+                result = record["responses"].get(name) or capture(session, endpoint, {"symbol": symbol, **params}, key)
                 record["responses"][name] = result
                 if result["ok"]:
                     summary["successfulResponses"] += 1

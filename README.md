@@ -1,5 +1,46 @@
 # us-stock-dcf
 
+## Full HKEX company expansion
+
+`cache/hkex_universe.json` and `hkex_universe_data.js` import **2,787** ordinary-equity,
+listed investment-company and REIT primary counters from HKEX's official securities
+workbook. Main Board and GEM companies are included; ETPs, debt, warrants, CBBCs,
+preference shares, trading-only securities, depositary receipts and temporary
+Main Board counters are excluded. Verified duplicate ISINs select the HKD counter;
+blank ISINs never collapse unrelated companies. Sole USD/RMB listings remain in
+the catalogue, but unsupported trading currencies do not become HKD quotes.
+The workbook labels itself **20 October 2026**, retrieved **19 October 2026**;
+both dates and the workbook SHA-256 are retained. This is not a point-in-time
+membership/backtest feed. FMP sector/industry enrichment is not official HSICS.
+
+The previously reviewed 114-company dataset and its corrections remain unchanged.
+Additional companies start with explicit unavailable financials, prices and ratings,
+not zero values or template scores. The screener searches the entire catalogue
+but initially renders 100 rows, with a show-more control. Completed company
+snapshots load on demand from `cache/hk_companies/`; they do not duplicate all
+financial histories in the initial JavaScript asset.
+New-company foreign statements reference content-addressed historical HKD FX
+snapshots. These retain additional supported reporting currencies without
+rewriting the original 114-company FX observations or saved model evidence.
+
+The existing **Read-only valuation source audit** workflow accepts `expand_all_hk`.
+It partitions additional companies into batches of at most twenty, captures actual
+FMP statements, dated prices and native model/company data, calculates supported
+Piotroski tests, researches each business using attributable sources, and assesses
+ten moat dimensions with bilingual comments through Vertex AI. Required source,
+currency, date and share-basis guards remain active; unsupported or incomplete
+inputs carry explicit limitations. A batch/job finishing is not proof of complete
+ratings: each artifact's `manifest.json` records actual coverage counts.
+This mode only uploads `hkex-expanded-*` artifacts: it cannot push, merge, invoke
+a deployment hook or publish the captured results. `resume_run_id` reuses successful
+endpoints from the same batch of a previous run when captured within seven days.
+
+Download the artifacts to an ignored directory and explicitly integrate them with
+`node scripts/build_hkex_expansion.cjs integrate <download-directory>`.
+The importer validates universe/source and company identity, refuses to overwrite
+the reviewed 114, and preserves newer snapshots. Build and review before publishing;
+cloud artifacts alone do not update the live site.
+
 ## Hang Seng Index and gaming extension
 
 Production builds run `node scripts/build_site.cjs` and publish only the

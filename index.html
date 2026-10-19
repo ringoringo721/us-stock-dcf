@@ -8,9 +8,10 @@
   <script src="market_data.js"></script>
   <script src="fcff_data.js"></script>
   <script src="market_context.js"></script>
+  <script src="hkex_universe.js"></script>
   <script>
     if (MarketContext.market === 'HKEX') {
-      for (const filename of ['hk_market_data.js', 'hk_fcff_data.js']) {
+      for (const filename of ['hkex_universe_data.js', 'hkex_expansion_data.js', 'hk_market_data.js', 'hk_fcff_data.js']) {
         const script = document.createElement('script');
         script.src = filename;
         script.async = false;
@@ -3229,6 +3230,9 @@
     
     updateSubIndustryButtons();
     renderScreenerTable();
+    if (document.getElementById('hk-expansion-status')?.hidden === false) {
+      showExpansionStock(activeCompanyTicker, stockUniverse[activeCompanyTicker]?.expansion?.requestedTab || 'basic');
+    }
 
     const moatView = document.getElementById('moat-view');
     if (moatView && moatView.style.display === 'block') {
@@ -4033,6 +4037,8 @@
     </td>`;
   }
 
+  let screenerVisibleRows = 100, screenerPageKey = '';
+  function showMoreStocks() { screenerVisibleRows += 100; renderScreenerTable(); }
   function renderScreenerTable() {
     const tbody = document.getElementById('screener-tbody');
     if (!tbody) return;
@@ -4112,7 +4118,18 @@
     document.getElementById('stat-overvalued').innerHTML = `${overCount}<small>${totalCount > 0 ? ((overCount/totalCount)*100).toFixed(0) : 0}%</small>`;
     document.getElementById('stat-saved-count').textContent = savedCount;
 
-    tbody.innerHTML = list.map(item => {
+    const pageKey = JSON.stringify([searchVal, currentValFilter, currentSectorFilter, currentSubIndustryFilter, sortField, sortAsc]);
+    if (pageKey !== screenerPageKey) { screenerVisibleRows = 100; screenerPageKey = pageKey; }
+    const visible = MarketContext.market === 'HKEX' && list.length > 200 ? list.slice(0, screenerVisibleRows) : list;
+    let more = document.getElementById('screener-more');
+    if (!more) {
+      more = document.createElement('button'); more.id = 'screener-more'; more.className = 'f-btn';
+      more.onclick = showMoreStocks;
+      document.getElementById('main-scroll-box').after(more);
+    }
+    more.hidden = visible.length >= list.length;
+    more.textContent = currentLang === 'en' ? `Show 100 more (${visible.length} / ${list.length})` : `再顯示 100 家（${visible.length} / ${list.length}）`;
+    tbody.innerHTML = visible.map(item => {
       const priceNum = Number.isFinite(item.price) ? item.price : null;
       const targetPriceHtml = (item.isSaved && Number.isFinite(item.target_price))
         ? `<span class="badge badge-target" title="${savedModels[item.ticker]?.modelType === 'FMP_TEN_YEAR_SCENARIO'
@@ -4213,8 +4230,20 @@
     }).join('');
     const labels = I18N_DICT[currentLang];
     document.getElementById('screener-results').textContent = list.length
-      ? labels.screener_results.replace('{shown}', list.length).replace('{total}', totalCount)
+      ? labels.screener_results.replace('{shown}', visible.length).replace('{total}', totalCount)
       : labels.screener_empty;
+    let universeNote = document.getElementById('hk-universe-note');
+    if (MarketContext.market === 'HKEX' && window.HKEX_LISTINGS) {
+      if (!universeNote) {
+        universeNote = document.createElement('small'); universeNote.id = 'hk-universe-note';
+        universeNote.className = 'screener-table-tip';
+        document.getElementById('screener-results').parentElement.append(universeNote);
+      }
+      const source = window.HKEX_LISTINGS.source;
+      universeNote.textContent = currentLang === 'en'
+        ? `Official list label: ${source.asOf}; retrieved: ${source.retrievedAt.slice(0, 10)}. Membership is not proof of trading on that date or point-in-time backtest data. Additional-company financials and ratings are being captured in batches; unavailable is not zero.`
+        : `官方名單標示日期：${source.asOf}；擷取日期：${source.retrievedAt.slice(0, 10)}。名單不代表該日已成交，亦非時點回測資料。新增公司財報及評分正分批補齊；缺資料不等於零。`;
+    }
     const industryCount = Number(currentSectorFilter !== 'ALL') + Number(currentSubIndustryFilter !== 'ALL');
     document.getElementById('screener-industry-count').textContent = industryCount ? `(${industryCount})` : '';
     applyScreenerColumns();
@@ -4277,6 +4306,8 @@
   }
 
   function showView(viewName, pushState = true) {
+    const expansionPanel = document.getElementById('hk-expansion-status');
+    if (expansionPanel) expansionPanel.hidden = true;
     BalanceSheet.deactivate();
     EarningsTrend.deactivate();
     ProfileOverview.deactivate();
@@ -4329,7 +4360,61 @@
   function openFScore(ticker) { activeFScoreTicker = ticker; showView('fscore', true); }
   function openMoat(ticker) { activeMoatTicker = ticker; showView('moat', true); }
 
+  function showExpansionStock(ticker, tabKey, retry = false) {
+    const stock = stockUniverse[ticker];
+    const company = document.getElementById('company-view');
+    company.style.display = 'none';
+    document.getElementById('detail-view').style.display = 'none';
+    let panel = document.getElementById('hk-expansion-status');
+    if (!panel) {
+      panel = document.createElement('section'); panel.id = 'hk-expansion-status'; panel.className = 'panel';
+      panel.setAttribute('role', 'status'); company.after(panel);
+    }
+    panel.hidden = false;
+    panel.replaceChildren();
+    const title = document.createElement('h2'); title.textContent = `${ticker} · ${getStockDisplayName(stock)}`;
+    const note = document.createElement('p');
+    const available = ['available', 'loading', 'loadFailed'].includes(stock.expansion.status);
+    stock.expansion.requestedTab = tabKey;
+    note.textContent = currentLang === 'en'
+      ? available ? 'Loading saved company evidence. A failed request can be retried; unavailable values are not zero.'
+        : 'Listed in the official HKEX universe. Financial statements, price history, Piotroski F-score and researched moat assessment are not yet available in this saved dataset; no values or ratings have been invented.'
+      : available ? '正在載入已保存的公司來源資料。載入失敗可重試；缺值不等於零。'
+        : '已納入港交所官方公司名單。目前保存資料尚未提供此公司的財報、歷史股價、Piotroski F-score 及經研究的護城河評分；不會以假數字或預設分數填補。';
+    const reason = document.createElement('p');
+    reason.textContent = stock.expansion.error || stock.expansion.reason || stock.expansion.status;
+    panel.append(title, note, reason);
+    const back = document.createElement('button'); back.className = 'f-btn';
+    back.textContent = currentLang === 'en' ? 'Back to screener' : '返回股票總表'; back.onclick = navigateBack;
+    panel.append(back);
+    const retryButton = () => {
+      const button = document.createElement('button'); button.className = 'f-btn';
+      button.textContent = currentLang === 'en' ? 'Retry' : '重試';
+      button.onclick = () => showExpansionStock(ticker, stock.expansion.requestedTab, true); panel.append(button);
+    };
+    if (stock.expansion.status === 'loadFailed' && !retry) { retryButton(); return; }
+    if (!available || stock.expansion.status === 'loading' && !retry) return;
+    stock.expansion.status = 'loading';
+    HkUniverse.load(ticker, retry).then(full => {
+      stockUniverse[ticker] = { ...full, expansion: { ...full.expansion, status: 'loaded' } };
+      if (activeCompanyTicker !== ticker || panel.hidden) return;
+      panel.hidden = true; loadedValuationTicker = null;
+      showView('company', false); switchSubPage(stock.expansion.requestedTab, false);
+    }).catch(error => {
+      stock.expansion.status = 'loadFailed'; stock.expansion.error = error.message;
+      console.error('HK company evidence failed to load', ticker, error.message);
+      if (activeCompanyTicker !== ticker || panel.hidden) return;
+      reason.textContent = error.message;
+      retryButton();
+    });
+  }
+
   function switchSubPage(tabKey, updateHistory = true) {
+    const expansionStock = stockUniverse[activeCompanyTicker];
+    if (expansionStock?.expansion && expansionStock.expansion.status !== 'loaded') {
+      if (updateHistory) history.pushState({ view: 'company', ticker: activeCompanyTicker, tab: tabKey }, '', `#${activeCompanyTicker}/${tabKey === 'basic' ? 'profile' : tabKey}`);
+      showExpansionStock(activeCompanyTicker, tabKey); return;
+    }
     BalanceSheet.deactivate();
     EarningsTrend.deactivate();
     ProfileOverview.deactivate();
@@ -5675,6 +5760,7 @@
     activeCompanyTicker = ticker;
     const s = stockUniverse[ticker];
     if (!s) return;
+    if (s.expansion && s.expansion.status !== 'loaded') { showExpansionStock(ticker, 'basic'); return; }
     const propertyNote = document.getElementById('cmp-property-fv-note');
     propertyNote.textContent = MarketContext.propertyFvNote(s, currentLang);
     propertyNote.hidden = !propertyNote.textContent;
@@ -6457,6 +6543,9 @@
   function markAppLoaded(data) {
     if (isAppReady || !data || Object.keys(data).length === 0) return;
     if (MarketContext.market === 'HKEX' && !MarketContext.fcff()) return;
+    if (MarketContext.market === 'HKEX' && !window.HKEX_LISTINGS) return;
+    HkUniverse.install();
+    if (MarketContext.market === 'HKEX') data = HkUniverse.merge(window.HK_MARKET_DATA || data);
     isAppReady = true;
     stockUniverse = JSON.parse(JSON.stringify(data));
     for (const [ticker, stock] of Object.entries(stockUniverse)) {

@@ -15,6 +15,7 @@ const { prepareSnapshot, forecastFxRate } = require('./fcff_sources.cjs');
 const { reconcileValuation } = require('./hkex_valuation_sources.cjs');
 const { reportedGrowth } = require('./reported_growth.cjs');
 const config = require('../hkex_stocks.json');
+const registered = new Map([...require('../cache/hkex_universe.json').stocks, ...config].map(item => [item.ticker, item]));
 const shareCapital = require('../cache/hkex_share_capital.json');
 
 const finite = value => typeof value === 'number' && Number.isFinite(value);
@@ -90,13 +91,13 @@ function valuationShares(item, evidence, capital = shareCapital[item.ticker]) {
       matchingClass: classes.find(row => (row.issuedShares - row.treasuryShares) / 1e6 === provider.shares)?.name || null } };
 }
 
-function prepareStatements(evidence) {
+function prepareStatements(evidence, { allowIncomplete = false, sourceWarnings = [] } = {}) {
   const ticker = evidence.ticker, today = evidence.capturedAt?.slice(0, 10);
-  if (!config.some(stock => stock.ticker === ticker) || evidence.providerSymbol !== ticker || !day(today)) {
+  if (!registered.has(ticker) || evidence.providerSymbol !== ticker || !day(today)) {
     throw new TypeError('Invalid HKEX source identity or capture date');
   }
-  const qualityWarnings = [];
-  const reviewedPeriodsRequired = config.find(stock => stock.ticker === ticker).reviewedPeriodsRequired;
+  const qualityWarnings = [...sourceWarnings];
+  const reviewedPeriodsRequired = registered.get(ticker).reviewedPeriodsRequired;
   const incomeSource = reviewedIncomeSource(ticker);
   const warn = (code, message, extra = {}) => qualityWarnings.push({ code, message, ...extra });
   const statements = { calculationCurrency: 'HKD', fetchedAt: evidence.capturedAt, annual: {}, quarterly: {}, qualityWarnings };
@@ -109,8 +110,10 @@ function prepareStatements(evidence) {
     for (const type of ['income', 'balance', 'cashflow']) {
       const rows = readRows(evidence, `${prefix}${type}`);
       if (!rows.length && period === 'annual') {
-        if (!reviewedPeriodsRequired || !incomeSource) throw new TypeError(`${ticker}: missing annual ${type}`);
-        warn('providerStatementUnavailable', 'Provider statement is unavailable; reviewed income is retained without inventing balance sheets or cash flows.',
+        if (!allowIncomplete && (!reviewedPeriodsRequired || !incomeSource)) throw new TypeError(`${ticker}: missing annual ${type}`);
+        warn('providerStatementUnavailable', allowIncomplete
+          ? 'Provider statement is unavailable; missing financial statements are not fabricated.'
+          : 'Provider statement is unavailable; reviewed income is retained without inventing balance sheets or cash flows.',
           { period, type });
       }
       if (rows.some(row => row.symbol !== ticker || !day(row.date) || row.date > today
@@ -152,6 +155,16 @@ function prepareStatements(evidence) {
           return;
         }
         const previous = rows[i - 1];
+        if (allowIncomplete && !annual && !semiannual && original.length < 4
+            && original.every(row => ['Q2', 'Q4'].includes(row.period))) {
+          row.periodStartDate = null;
+          row.periodLength = null;
+          row.reportingFrequency = 'unknown';
+          row.derivation = 'providerReported';
+          warn('unverifiedProviderPeriod', 'Short Q2/Q4-only source history cannot establish quarter or half-year duration.',
+            { type, date: row.date });
+          return;
+        }
         if (previous && (annual || key(row) === key(previous) + (semiannual ? 2 : 1))) {
           row.periodStartDate = nextDay(previous.date);
         } else {
@@ -534,7 +547,7 @@ function applyNoncontrollingClaimAssumption(snapshot, item) {
   };
 }
 
-function compileStock(item, evidence, rates, moatReports = {}, previousStock = {}, treasury = null) {
+function compileStock(item, evidence, rates, moatReports = {}, previousStock = {}, treasury = null, options = {}) {
   const profile = readRows(evidence, 'profile'), quotes = readRows(evidence, 'quote');
   if (profile.length !== 1 || profile[0].symbol !== item.ticker || profile[0].currency !== 'HKD'
       || quotes.length !== 1 || quotes[0].symbol !== item.ticker || !finite(quotes[0].price) || quotes[0].price <= 0
@@ -547,7 +560,7 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
   const quoteAgeDays = (Date.parse(evidence.capturedAt.slice(0, 10)) - Date.parse(quoteDate)) / 86400000;
   const staleQuote = quoteAgeDays > 14;
   const quote = staleQuote ? { ...observedQuote, price: null, marketCap: null } : observedQuote;
-  const reported = applyOfficialRevenue(applyOfficialCashflows(applyOfficialBalance(prepareStatements(evidence), item.ticker),
+  const reported = applyOfficialRevenue(applyOfficialCashflows(applyOfficialBalance(prepareStatements(evidence, options), item.ticker),
     item.ticker, reviewedSource(item.ticker)), item.ticker);
   if (item.reviewedPeriodsRequired) {
     reported.providerReportedBalance = structuredClone({
@@ -574,7 +587,10 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
   }
   const raw = applyPropertyFv(reported, item.ticker);
   const data = convertStatements(raw, rates);
-  const chart = priceHistory(evidence), latest = sorted(data.quarterly.income).at(-1),
+  const chart = options.allowIncomplete && !['prices_older', 'prices_recent'].some(name => readRows(evidence, name).length)
+    ? { version: 1, ticker: item.ticker, currency: 'HKD', priceBasis: 'splitAdjustedClose', rows: [], reason: 'sourceUnavailable' }
+    : priceHistory(evidence);
+  const latest = sorted(data.quarterly.income).at(-1),
     bs = sorted([...data.annual.balance, ...data.quarterly.balance]).at(-1);
   const balance = field => value(bs, field), flow = (type, field) => flowValue(data, type, field);
   const shareSource = valuationShares(item, evidence);

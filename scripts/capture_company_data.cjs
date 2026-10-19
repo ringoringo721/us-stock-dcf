@@ -12,6 +12,14 @@ const key = process.env.FMP_API_KEY;
 const repack = process.argv[2] === '--repack';
 if (!key && !repack) throw new Error('FMP_API_KEY is required; no embedded fallback credential is used');
 const markets = { ...require('../full_market_dcf.json'), ...require('../hk_market_dcf.json') };
+if (process.env.CAPTURE_MARKET_FILE) {
+  const extra = JSON.parse(fs.readFileSync(process.env.CAPTURE_MARKET_FILE, 'utf8'));
+  const approved = new Set(require('../cache/hkex_universe.json').stocks.map(item => item.ticker));
+  for (const [ticker, stock] of Object.entries(extra)) {
+    if (!approved.has(ticker) || stock.ticker !== ticker) throw new Error('Unregistered HKEX capture identity');
+    markets[ticker] = stock;
+  }
+}
 const symbols = repack ? [] : process.argv[2] ? process.argv[2].split(',') : Object.keys(markets);
 if (symbols.some(symbol => !Object.hasOwn(markets, symbol))) throw new Error('Requested symbol is not in the configured universe');
 const target = path.resolve(process.argv[3] || path.join(root, 'fmp_model_data.js'));
@@ -38,6 +46,7 @@ async function request(endpoint, symbol, parameters = {}) {
   for (const [name, value] of Object.entries(parameters)) url.searchParams.set(name, value);
   url.searchParams.set('apikey', key);
   for (let attempt = 0; attempt < 3; attempt++) {
+    if (process.env.FMP_REQUEST_DELAY) await new Promise(resolve => setTimeout(resolve, Number(process.env.FMP_REQUEST_DELAY) * 1000));
     let response;
     try { response = await fetch(url, { signal: AbortSignal.timeout(25000), redirect: 'error' }); }
     catch (error) {
@@ -133,7 +142,9 @@ async function capture(symbol) {
 }
 
 (async () => {
-  for (let i = 0; i < symbols.length; i += 3) await Promise.all(symbols.slice(i, i + 3).map(capture));
+  const parallelism = Number(process.env.CAPTURE_PARALLELISM || 3);
+  if (!Number.isInteger(parallelism) || parallelism < 1 || parallelism > 3) throw new Error('Capture parallelism must be 1-3');
+  for (let i = 0; i < symbols.length; i += parallelism) await Promise.all(symbols.slice(i, i + parallelism).map(capture));
   const companyDirectory = path.join(path.dirname(target), 'cache', 'company');
   fs.mkdirSync(companyDirectory, { recursive: true });
   const ordered = Object.fromEntries(Object.keys(markets).filter(symbol => stocks[symbol]).map(symbol => {
