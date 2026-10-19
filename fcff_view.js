@@ -17,6 +17,7 @@
   }) : 'N/A';
   const percent = value => finite(value) ? `${(value * 100).toFixed(2)}%` : 'N/A';
   const reasons = {
+    staleQuote: ['報價已過期，不作現價或目前估值比較。', 'Quote is stale; current-price valuation comparisons are unavailable.'],
     sourceUnavailable: ['FMP 來源不完整，無法重建估值。', 'Required FMP sources are unavailable.'],
     missingHkdRiskFreeRate: ['缺少日期對齊的美債代理或港元基準；不猜測利率。', 'A dated Treasury proxy or HKD benchmark is unavailable; no rate is guessed.'],
     shareBasisUnverified: ['普通股／A、H 股或報價單位的股數基準尚未核實，不計算每股估值。', 'The common-share, A/H-share or quoted-unit denominator is unverified; per-share valuation is unavailable.'],
@@ -60,27 +61,30 @@
   }
   function metrics(stock, snapshot, result) {
     const defaults = { ...snapshot?.defaults, ...snapshot?.quotedCapital };
-    const mcap = finite(stock.mcap) ? stock.mcap : finite(result.E) ? result.E : null;
+    const reported = stock.reportedMultiples?.version === 1 ? stock.reportedMultiples : null;
+    const mcap = reported ? reported.mcap : finite(stock.mcap) ? stock.mcap : finite(result.E) ? result.E : null;
     const premiumPct = finite(result.fairVal) && result.fairVal > 0 && finite(stock.price) && stock.price > 0
       ? (stock.price / result.fairVal - 1) * 100 : null;
-    const cash = snapshot?.quotedCapital ? defaults.cash : defaults.cash ?? stock.cash_and_short_term;
-    const debt = snapshot?.quotedCapital ? defaults.reportedDebt : defaults.reportedDebt ?? defaults.debt ?? stock.debt;
-    const preferred = defaults.preferred;
-    const minority = snapshot?.quotedCapital ? defaults.minority
+    const cash = reported ? reported.cash : snapshot?.quotedCapital ? defaults.cash : defaults.cash ?? stock.cash_and_short_term;
+    const debt = reported ? reported.debt : snapshot?.quotedCapital ? defaults.reportedDebt : defaults.reportedDebt ?? defaults.debt ?? stock.debt;
+    const preferred = reported ? reported.preferred : defaults.preferred;
+    const minority = reported ? reported.minority : snapshot?.quotedCapital ? defaults.minority
       : snapshot?.noncontrollingClaimAssumption?.reportedBookValue ?? defaults.minority;
     const net = finite(debt) && finite(cash) ? debt - cash : null;
     const ev = finite(net) && finite(mcap) && [preferred, minority].every(finite)
       ? mcap + net + preferred + minority : null;
     const quotedTtm = snapshot?.quotedTtm || snapshot?.ttm;
-    const ebitda = quotedTtm?.ebitda;
+    const ebitda = reported ? reported.ebitda : quotedTtm?.ebitda;
     const fcf = snapshot?.quotedTtm ? quotedTtm.reportedFcf : quotedTtm?.reportedFcf ?? stock.fcf0;
     const ratio = (a, b, scale = 1) => finite(a) && finite(b) && b > 0 ? a / b * scale : null;
     return {
       ...result, premiumPct, mcap, EV: ev, quotedNetDebt: net, localFCF0: fcf, localDebt: debt, localCash: cash,
+      reportedEbitda: ebitda,
       isUndervalued: premiumPct === null ? null : premiumPct < 0,
       fcf_to_ev: ratio(fcf, ev, 100), fcf_to_mcap: ratio(fcf, mcap, 100),
-      ev_to_ebitda: ratio(ev, ebitda), debt_to_ebitda: ratio(debt, ebitda),
-      net_debt_to_ebitda: ratio(net, ebitda),
+      ev_to_ebitda: reported ? reported.values.ev_to_ebitda : ratio(ev, ebitda),
+      debt_to_ebitda: reported ? reported.values.debt_to_ebitda : ratio(debt, ebitda),
+      net_debt_to_ebitda: reported ? reported.values.net_debt_to_ebitda : ratio(net, ebitda),
       div_yield: stock.div_yield, f_score: stock.f_score,
       f_score_breakdown: stock.f_score_breakdown || []
     };
@@ -618,11 +622,19 @@
       other.innerHTML = `<p class="analysis-note">${text('報價 EV＝市值＋已報總債務－現金及短投＋優先股及非控制權益帳面代理。包含列示租賃，不扣除未核實為非營運的長期投資；獨立於模型估值及 FCFF 租賃調整。', 'Quoted EV = market cap + reported total debt − cash/short-term investments + preferred and noncontrolling book proxies. Includes reported leases; long-term investments are not deducted without verified nonoperating classification. Independent of model valuation and its FCFF-matched lease adjustment.')}</p>` + schedule([text('指標（非模型終值倍數）', 'Metric (not terminal exit multiples)'), `${market.currency} / TTM`], [
         [text('報價市值 ($M)', 'Quoted market cap ($M)'), [amount(value.mcap)]],
         [text('報價企業價值 ($M)', 'Quoted enterprise value ($M)'), [amount(value.EV)]],
-        [text('實際 TTM EBITDA ($M)', 'Reported TTM EBITDA ($M)'), [amount((snapshot()?.quotedTtm || snapshot()?.ttm)?.ebitda)]],
+        [text('實績 TTM EBITDA／明示推導值 ($M)', 'Actual TTM EBITDA / explicitly derived ($M)'), [amount(value.reportedEbitda)]],
         ['EV / EBITDA', [finite(value.ev_to_ebitda) ? amount(value.ev_to_ebitda) + 'x' : 'N/A']],
         [text('總債務／EBITDA', 'Total debt / EBITDA'), [finite(value.debt_to_ebitda) ? amount(value.debt_to_ebitda) + 'x' : 'N/A']],
         [text('淨債務／EBITDA', 'Net debt / EBITDA'), [finite(value.net_debt_to_ebitda) ? amount(value.net_debt_to_ebitda) + 'x' : 'N/A']]
       ]);
+      const source = context.stock.reportedMultiples;
+      if (source) other.innerHTML += `<p class="analysis-note">${escape([
+        text('市場倍數不以 DCF 能否估值作為門檻；EBITDA 並非預測或 adjusted EBITDA。EBITDA 為零或負數時，倍數不具可比性而顯示 N/A。',
+          'Trading multiples do not depend on DCF availability. EBITDA is not a forecast or adjusted EBITDA. Zero or negative EBITDA makes these multiples not meaningful (N/A).'),
+        `${text('損益期間', 'Income periods')}: ${source.incomeDates.join(', ') || 'N/A'}`,
+        `${text('資產負債表日期', 'Balance date')}: ${source.balanceDate || 'N/A'}`,
+        !finite(source.mcap) ? text('缺少目前市值或報價已過期，EV 不可用。', 'Current market capitalization is missing or the quote is stale; EV is unavailable.') : ''
+      ].filter(Boolean).join(' · '))}</p>`;
     }
   }
   function renderTable(result) {

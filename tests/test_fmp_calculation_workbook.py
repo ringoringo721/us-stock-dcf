@@ -21,6 +21,31 @@ def flat(kind="advanced"):
 
 
 class CalculationWorkbookTests(unittest.TestCase):
+    def test_single_nwc_change_ratio_sign_and_no_extra_opening_balance_deduction(self):
+        scenario = flat()
+        scenario["workingCapitalMethod"] = "cash-change-to-revenue"
+        scenario["openingNwc"] = None
+        for year in scenario["years"]:
+            year["values"]["nwcChange"] = 5
+            for key in ["receivables", "inventories", "payables", "cash"]:
+                del year["values"][key]
+        result = model.calculate(scenario)
+        self.assertEqual(result["rows"][0]["changeNwc"], 5)
+        self.assertEqual(result["rows"][0]["cashFlow"], 10)
+        self.assertAlmostEqual(result["targetPrice"], model.number(8), places=40)
+        scenario["years"][0]["values"]["nwcChange"] = -5
+        self.assertEqual(model.calculate(scenario)["rows"][0]["cashFlow"], 20)
+
+    def test_unavailable_inputs_are_reported_not_counted_as_audited_valuations(self):
+        packet = {"symbol": "TEST", "kind": "advanced",
+                  "tenYear": {"input": {}, "result": None, "reason": "SCENARIO_INCOMPLETE_ASSUMPTIONS"}}
+        result = model.audit([packet])
+        self.assertEqual(result["auditedScenarios"], 0)
+        self.assertEqual(result["unavailableScenarios"][0]["reason"], "SCENARIO_INCOMPLETE_ASSUMPTIONS")
+        packet["tenYear"]["reason"] = None
+        with self.assertRaisesRegex(ValueError, "without an unavailable reason"):
+            model.audit([packet])
+
     def test_independent_known_perpetuity_and_debt_bridge(self):
         for kind, flow, ev, price in [("advanced", 15, 150, 13), ("customLevered", 20, 200, 18)]:
             result = model.calculate(flat(kind))

@@ -14,11 +14,12 @@ def number(value):
 def calculate(scenario):
     with localcontext() as context:
         context.prec = 50
-        revenue, nwc = number(scenario["baseRevenue"]), number(scenario["openingNwc"])
+        revenue = number(scenario["baseRevenue"])
+        nwc = None if scenario.get("workingCapitalMethod") == "cash-change-to-revenue" else number(scenario["openingNwc"])
         discount, present_flows = Decimal(1), Decimal(0)
         rows = []
         for year in scenario["years"]:
-            v = {key: number(value) for key, value in year["values"].items()}
+            v = {key: number(value) for key, value in year["values"].items() if value is not None}
             revenue *= 1 + v["growth"] / 100
             wacc = ((1 - v["debtWeight"] / 100) * v["ke"]
                     + v["debtWeight"] / 100 * v["kd"] * (1 - v["tax"] / 100)) / 100
@@ -30,11 +31,15 @@ def calculate(scenario):
                 row["da"] = revenue * v["da"] / 100
                 row["ebit"] = row["ebitda"] - row["da"]
                 row["nopat"] = row["ebit"] * (1 - v["tax"] / 100)
-                row["nwc"] = revenue * (v["receivables"] + v["inventories"] - v["payables"]) / 100
-                row["changeNwc"] = row["nwc"] - nwc
-                row["projectedCash"] = revenue * v["cash"] / 100
+                if scenario.get("workingCapitalMethod") == "cash-change-to-revenue":
+                    row["changeNwc"] = revenue * v["nwcChange"] / 100
+                else:
+                    row["nwc"] = revenue * (v["receivables"] + v["inventories"] - v["payables"]) / 100
+                    row["changeNwc"] = row["nwc"] - nwc
+                    nwc = row["nwc"]
+                if "cash" in v:
+                    row["projectedCash"] = revenue * v["cash"] / 100
                 cash_flow = row["nopat"] + row["da"] + capex - row["changeNwc"]
-                nwc = row["nwc"]
             else:
                 row["cfo"] = revenue * v["cfo"] / 100
                 cash_flow = row["cfo"] + capex
@@ -56,8 +61,14 @@ def calculate(scenario):
 
 def audit(packets):
     count, max_money, max_price = 0, Decimal(0), Decimal(0)
+    unavailable = []
     for packet in packets:
         if not packet.get("tenYear"):
+            continue
+        if not packet["tenYear"].get("result"):
+            if not packet["tenYear"].get("reason"):
+                raise ValueError("Missing ten-year result without an unavailable reason")
+            unavailable.append({"symbol": packet["symbol"], "kind": packet["kind"], "reason": packet["tenYear"]["reason"]})
             continue
         calculated = calculate(packet["tenYear"]["input"])
         actual = packet["tenYear"]["result"]
@@ -77,6 +88,7 @@ def audit(packets):
                 max_money = max(max_money, delta)
         count += 1
     return {"auditedScenarios": count, "maxMonetaryDifference": str(max_money),
+            "unavailableScenarios": unavailable,
             "maxPerShareDifference": str(max_price),
             "tolerance": "0.01 currency units; 1e-8 per share; 1e-12 WACC/discount factor"}
 
@@ -135,6 +147,21 @@ def write_xlsx(output, sheets):
 
 def scenario_sheet(packet):
     s = packet["tenYear"]["input"]
+    if not packet["tenYear"].get("result"):
+        return [
+            [f'{packet["symbol"]}: incomplete ten-year {s["kind"]} inputs'],
+            ["Status", packet["tenYear"].get("reason")],
+            ["Valuation", "N/A: no price or formula result is fabricated. Complete inputs on the site and export again for a formula model."],
+            ["Assumption policy", s.get("assumptionPolicy", "legacy")],
+            ["Consensus captured", s["sourceCapturedAt"]],
+            ["Actual-ratio source FY end", s.get("actualRatioDate")],
+            ["Working-capital FYs", json.dumps(s.get("workingCapitalYears"))],
+            ["Missing inputs", json.dumps(packet["tenYear"].get("missingInputs"))],
+            ["Projected FY"] + [year["year"] for year in s["years"]],
+            *[[key] + [year["values"].get(key) for year in s["years"]] for key in s["years"][0]["values"]],
+            ["Input units", "Percentage points; blank cells are unavailable, NOT zero."],
+            ["Per-field origins"] + [json.dumps(year["origins"]) for year in s["years"]]
+        ]
     result = calculate(s)
     advanced = s["kind"] == "advanced"
     rows = [
@@ -147,8 +174,9 @@ def scenario_sheet(packet):
         ["Negative CapEx inputs. EBIT is linked to EBITDA less DA. Ke override takes precedence over CAPM."],
         ["Full precision retained. Percent display 2dp. Year-end discounting; no stub-year adjustment."],
         ["Projected fiscal year"] + [year["year"] for year in s["years"]],
-        ["Year source (not analyst consensus)"] + [
-            "FMP model projection" if year["year"] in s["providerYears"] else "Standard extension"
+        ["Year source (see per-field origins)"] + [
+            "Analyst / latest FY / user inputs" if s.get("assumptionPolicy") == "analyst-consensus-v1"
+            else "FMP model projection" if year["year"] in s["providerYears"] else "Legacy extension"
             for year in s["years"]]
     ]
     keys = list(s["years"][0]["values"])
@@ -187,11 +215,15 @@ def scenario_sheet(packet):
             formulae.update({
                 "ebitda": f'{out("revenue")}*{get("ebitda")}', "da": f'{out("revenue")}*{get("da")}',
                 "ebit": f'{out("ebitda")}-{out("da")}', "nopat": f'{out("ebit")}*(1-{get("tax")})',
-                "nwc": f'{out("revenue")}*({get("receivables")}+{get("inventories")}-{get("payables")})',
-                "changeNwc": f'{out("nwc")}-{"$B$7" if i == 0 else previous + str(outputs["nwc"])}',
-                "projectedCash": f'{out("revenue")}*{get("cash")}',
                 "cashFlow": f'{out("nopat")}+{out("da")}+{out("capex")}-{out("changeNwc")}'
             })
+            if s.get("workingCapitalMethod") == "cash-change-to-revenue":
+                formulae["changeNwc"] = f'{out("revenue")}*{get("nwcChange")}'
+            else:
+                formulae["nwc"] = f'{out("revenue")}*({get("receivables")}+{get("inventories")}-{get("payables")})'
+                formulae["changeNwc"] = f'{out("nwc")}-{"$B$7" if i == 0 else previous + str(outputs["nwc"])}'
+            if "cash" in locations and "projectedCash" in expected:
+                formulae["projectedCash"] = f'{out("revenue")}*{get("cash")}'
         else:
             formulae.update({"cfo": f'{out("revenue")}*{get("cfo")}', "cashFlow": f'{out("cfo")}+{out("capex")}'})
         for key in outputs:
@@ -266,7 +298,7 @@ def workbook(packets, output):
         ["Scenario tabs", "Site formula-based ten-year models. Change numeric assumptions; Excel recalculates formulas on opening."],
         ["Precision", "Full source precision retained. Percentages format to 2dp without rounding calculations. Rates are stored as fractions in scenario tabs."],
         ["CAPM", "Initial Ke retained until rf/beta/erp change. Optional Ke override has precedence. EBIT derives from EBITDA less DA."],
-        ["Forecast origin", "Scenario columns distinguish vendor projection years from standard extensions, with per-field origins. Extensions are not analyst consensus."],
+        ["Forecast origin", "New defaults distinguish analyst consensus, latest-FY CFO/CapEx/DA ratios, five-year working-capital ratios, missing inputs and user edits. Legacy scenarios retain their origins. Incomplete inputs have no valuation/formula result."],
         ["Actual reference", "Reference only; exact annual financial period, not fabricated TTM. Actual balances are FY-end snapshots. Capital costs/beta unavailable as reported actuals."],
         ["Currency", "Financial actuals use historical FX; FMP model baseline may use spot FX. Do not mix annual actual values into model baseline without review."],
         ["CFO method", "CFO+negative CapEx with vendor-style WACC/EV less debt, NOT independently defined FCFE discounted at Ke."],

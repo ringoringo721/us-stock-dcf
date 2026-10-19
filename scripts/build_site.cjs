@@ -6,10 +6,11 @@ const assets = [
   'index.html', 'site_theme.js', 'market_context.js', 'market_data.js', 'fcff_data.js',
   'hk_market_data.js', 'hk_fcff_data.js', 'dcf_drivers.js', 'fcff.js', 'fcff_view.js',
   'usd_currency.js', 'liquidation.js', 'peer_comparison.js', 'fcf_ratios.js',
-  'balance_sheet.js', 'earnings_trend.js', 'profile_overview.js', 'price_history.js', 'stock_search.js', 'company_data.js',
-  'fmp_model_data.js', 'fmp_scenario.js', 'fmp_models.js',
+  'balance_sheet.js', 'earnings_trend.js', 'profile_overview.js', 'technical_indicators.js', 'price_history.js', 'stock_search.js', 'company_data.js',
+  'fmp_model_data.js', 'fmp_scenario.js', 'fmp_models.js', 'fmp_cache.js',
   'full_market_dcf.json', 'hk_market_dcf.json',
-  'cache/news_translations.json',
+  'cache/news_translations.json', 'cache/hsi_constituents.json',
+  'cache/property_fv_sources.json', 'cache/property_fv_coverage.json', 'cache/property_fv_reviews.json',
 ];
 
 function buildSite(output = path.join(root, 'public')) {
@@ -18,7 +19,7 @@ function buildSite(output = path.join(root, 'public')) {
     throw new Error('Static output must not replace the repository root');
   }
   const files = [...assets];
-  for (const directory of ['financials', 'price_charts', 'company']) {
+  for (const directory of ['financials', 'price_charts', 'company', 'rote_history']) {
     for (const filename of fs.readdirSync(path.join(root, 'cache', directory))) {
       const pattern = directory === 'financials'
         ? /^[A-Z0-9.-]+_statements_v2\.json$/ : /^[A-Z0-9.-]+\.json$/;

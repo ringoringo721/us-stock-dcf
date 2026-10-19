@@ -4,7 +4,8 @@ const { rateFor, convertStatements } = require('../usd_currency.js');
 
 const rates = { currencies: {
   HKD: { series: 'HKD_USD', observations: [['2025-01-02', 0.125], ['2025-01-03', 0.1]] },
-  CNY: { series: 'CNY_USD', observations: [['2025-01-02', 0.15], ['2025-01-03', 0.14]] }
+  CNY: { series: 'CNY_USD', observations: [['2025-01-02', 0.15], ['2025-01-03', 0.14]] },
+  JPY: { series: 'JPY_USD', observations: [['2025-01-02', 0.01], ['2025-01-03', 0.009]] }
 } };
 
 test('HKD period averages use aligned daily cross rates, not a quotient of averages', () => {
@@ -21,6 +22,20 @@ test('Missing target dates do not get forward-filled or use a fixed HKD peg', ()
   const missing = structuredClone(rates);
   missing.currencies.HKD.observations.pop();
   assert.equal(rateFor(missing, 'CNY', null, '2025-01-03', 'closing', 'HKD').reason, 'missingFxDate');
+});
+
+test('JPY gaming financials use daily HKD cross rates without mistaking yen amounts for HK dollars', () => {
+  const fx = rateFor(rates, 'JPY', '2025-01-01', '2025-01-03', 'average', 'HKD');
+  assert.ok(Math.abs(fx.rate - 0.085) < 1e-12);
+  assert.ok(Math.abs(rateFor(rates, 'JPY', null, '2025-01-03', 'closing', 'HKD').rate - 0.09) < 1e-12);
+  const cached = require('../cache/fx/hkd_rates.json');
+  assert.ok(cached.currencies.JPY.observations[0][0] <= '2010-01-04');
+  const historical = rateFor(cached, 'JPY', '2011-01-01', '2011-06-30', 'average', 'HKD');
+  assert.equal(historical.reason, null);
+  assert.ok(historical.rate > 0 && historical.rate < 1);
+  const usd = rateFor(cached, 'USD', '2011-01-01', '2011-06-30', 'average', 'HKD');
+  assert.equal(usd.reason, null);
+  assert.ok(usd.rate > 7 && usd.rate < 9);
 });
 
 test('HKD conversion retains original currency, source dates, shares and nonadditive metadata', () => {

@@ -8,6 +8,8 @@ const ratios = require('../fcf_ratios.js');
 const context = require('../market_context.js');
 const { applyOfficialBalance } = require('./official_balance.cjs');
 const { applyOfficialCashflows, reviewedSource } = require('./official_cashflows.cjs');
+const { applyOfficialRevenue, reviewedSource: reviewedIncomeSource } = require('./official_revenue.cjs');
+const { applyPropertyFv } = require('./property_fv.cjs');
 const liquidation = require('../liquidation.js');
 const { prepareSnapshot, forecastFxRate } = require('./fcff_sources.cjs');
 const { reconcileValuation } = require('./hkex_valuation_sources.cjs');
@@ -20,6 +22,10 @@ const day = value => typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(val
   && Number.isFinite(Date.parse(value)) && new Date(value).toISOString().slice(0, 10) === value;
 const key = row => Number(row.fiscalYear || row.calendarYear) * 4 + Number(String(row.period)[1]);
 const sorted = rows => rows.slice().sort((a, b) => a.date.localeCompare(b.date));
+const annualColumns = rows => {
+  const latest = sorted(rows).slice(-5);
+  return [...Array(5 - latest.length).fill(null), ...latest];
+};
 const nextDay = date => new Date(Date.parse(date) + 86400000).toISOString().slice(0, 10);
 const millions = value => finite(value) ? value / 1e6 : null;
 const divide = (a, b, scale = 1) => finite(a) && finite(b) && b !== 0 ? a / b * scale : null;
@@ -40,6 +46,7 @@ function valuationShares(item, evidence, capital = shareCapital[item.ticker]) {
     providerComparison: { shares: provider.shares, date: provider.date } });
   if (!capital) return item.shareClassReviewRequired ? unavailable('shareBasisUnverified') : provider;
   const classes = capital.classes;
+  const requiredClasses = item.ordinaryShareClasses || ['A', 'H'];
   if (capital.ticker !== item.ticker || capital.coverage !== 'allOrdinaryShareClasses'
       || !day(capital.date) || !day(capital.filingDate) || capital.filingDate < capital.date
       || !/^https:\/\//.test(capital.url || '') || !/^[a-f0-9]{64}$/.test(capital.documentSha256 || '')
@@ -48,7 +55,10 @@ function valuationShares(item, evidence, capital = shareCapital[item.ticker]) {
         || !Number.isSafeInteger(row.issuedShares) || row.issuedShares <= 0
         || !Number.isSafeInteger(row.treasuryShares) || row.treasuryShares < 0 || row.treasuryShares > row.issuedShares)
       || new Set(classes.map(row => row.name)).size !== classes.length
-      || item.shareClassReviewRequired && !['A', 'H'].every(name => classes.some(row => row.name === name))) {
+      || item.shareClassReviewRequired && (!Array.isArray(requiredClasses) || requiredClasses.length < 2
+        || new Set(requiredClasses).size !== requiredClasses.length
+        || requiredClasses.some(name => typeof name !== 'string' || !name.trim()
+          || !classes.some(row => row.name === name)))) {
     throw new TypeError(`${item.ticker}: invalid issuer-wide ordinary share evidence`);
   }
   if (capital.filingDate > asOf) return unavailable('issuerShareReturnNotYetAvailable');
@@ -60,8 +70,15 @@ function valuationShares(item, evidence, capital = shareCapital[item.ticker]) {
     throw new TypeError(`${item.ticker}: invalid issuer-wide ordinary share total`);
   }
   const knownCounts = [outstanding, ...classes.map(row => row.issuedShares - row.treasuryShares)];
+  const review = capital.providerReview;
+  const reviewedMismatch = review?.basis === 'officialOrdinaryShareReturnOverridesReviewedProviderMismatch'
+    && day(review.providerDate) && review.providerDate === provider.date
+    && day(review.reviewedThrough) && review.reviewedThrough >= asOf
+    && Number.isSafeInteger(review.outstandingShares) && review.outstandingShares > 0
+    && review.outstandingShares / 1e6 === provider.shares
+    && typeof review.note === 'string' && review.note.trim().length > 0;
   if (provider.date > capital.date && provider.shares !== null
-      && !knownCounts.some(count => count / 1e6 === provider.shares)) {
+      && !knownCounts.some(count => count / 1e6 === provider.shares) && !reviewedMismatch) {
     return unavailable('issuerShareReturnNeedsReview');
   }
   return { shares: outstanding / 1e6, outstandingShares: outstanding, issuedShares, treasuryShares,
@@ -69,6 +86,7 @@ function valuationShares(item, evidence, capital = shareCapital[item.ticker]) {
     scope: 'issuerWideOrdinaryShares', source: capital.source, providerSource: capital.url,
     capturedAt: capital.verifiedAt, documentSha256: capital.documentSha256, pdfPages: capital.pdfPages,
     classes, providerComparison: { shares: provider.shares, date: provider.date,
+      ...(reviewedMismatch ? { reason: 'reviewedProviderShareMismatch', review } : {}),
       matchingClass: classes.find(row => (row.issuedShares - row.treasuryShares) / 1e6 === provider.shares)?.name || null } };
 }
 
@@ -78,12 +96,23 @@ function prepareStatements(evidence) {
     throw new TypeError('Invalid HKEX source identity or capture date');
   }
   const qualityWarnings = [];
+  const reviewedPeriodsRequired = config.find(stock => stock.ticker === ticker).reviewedPeriodsRequired;
+  const incomeSource = reviewedIncomeSource(ticker);
   const warn = (code, message, extra = {}) => qualityWarnings.push({ code, message, ...extra });
-  const statements = { calculationCurrency: 'HKD', annual: {}, quarterly: {}, qualityWarnings };
+  const statements = { calculationCurrency: 'HKD', fetchedAt: evidence.capturedAt, annual: {}, quarterly: {}, qualityWarnings };
+  if (reviewedPeriodsRequired) statements.providerReportedIncome = {
+    annual: structuredClone(readRows(evidence, 'annual_income')),
+    interim: structuredClone(readRows(evidence, 'income')),
+    use: 'Unmodified provider archive; canonical dates and income amounts come from cited reviewed issuer statements.'
+  };
   for (const [period, prefix] of [['annual', 'annual_'], ['quarterly', '']]) {
     for (const type of ['income', 'balance', 'cashflow']) {
       const rows = readRows(evidence, `${prefix}${type}`);
-      if (!rows.length && period === 'annual') throw new TypeError(`${ticker}: missing annual ${type}`);
+      if (!rows.length && period === 'annual') {
+        if (!reviewedPeriodsRequired || !incomeSource) throw new TypeError(`${ticker}: missing annual ${type}`);
+        warn('providerStatementUnavailable', 'Provider statement is unavailable; reviewed income is retained without inventing balance sheets or cash flows.',
+          { period, type });
+      }
       if (rows.some(row => row.symbol !== ticker || !day(row.date) || row.date > today
           || !/^[A-Z]{3}$/.test(row.reportedCurrency)
           || !/^(FY|Q[1-4])$/.test(row.period)
@@ -96,13 +125,32 @@ function prepareStatements(evidence) {
   }
   const original = statements.quarterly.income;
   const semiannual = original.length >= 4 && original.every(row => ['Q2', 'Q4'].includes(row.period))
-    && original.every((row, i) => !i || key(row) === key(original[i - 1]) + 2);
+    && original.some(row => row.period === 'Q2') && original.some(row => row.period === 'Q4')
+    && original.every((row, i) => !i || key(row) > key(original[i - 1])
+      && (key(row) - key(original[i - 1])) % 2 === 0);
   statements.reportingFrequency = semiannual ? 'semiannual' : 'quarterly';
   for (const period of ['annual', 'quarterly']) {
     const annual = period === 'annual';
     for (const type of ['income', 'cashflow']) {
       const rows = statements[period][type];
       rows.forEach((row, i) => {
+        if (reviewedPeriodsRequired) {
+          const reviewed = (annual ? incomeSource?.annual : type === 'income' && row.period === 'Q2' ? incomeSource?.halfYear : [])
+            ?.find(period => period.date === row.date);
+          row.periodLength = Number.isSafeInteger(reviewed?.periodLength) ? reviewed.periodLength : null;
+          row.periodStartDate = reviewed?.periodStartDate || null;
+          if (!row.periodStartDate && row.periodLength) {
+            const end = new Date(row.date);
+            if (new Date(Date.UTC(end.getUTCFullYear(), end.getUTCMonth() + 1, 0)).getUTCDate() === end.getUTCDate()) {
+              row.periodStartDate = new Date(Date.UTC(end.getUTCFullYear(), end.getUTCMonth() + 1 - row.periodLength, 1)).toISOString().slice(0, 10);
+            }
+          }
+          row.reportingFrequency = annual ? 'annual' : statements.reportingFrequency;
+          row.derivation = 'providerReported';
+          if (!row.periodLength) warn('unverifiedProviderPeriod', 'Provider period duration/date is not matched to a reviewed issuer reporting period.',
+            { type, date: row.date });
+          return;
+        }
         const previous = rows[i - 1];
         if (previous && (annual || key(row) === key(previous) + (semiannual ? 2 : 1))) {
           row.periodStartDate = nextDay(previous.date);
@@ -160,7 +208,8 @@ function prepareStatements(evidence) {
       for (const annual of statements.annual[type]) {
         const first = halves.find(row => Number(row.fiscalYear || row.calendarYear) === Number(annual.fiscalYear || annual.calendarYear)
           && row.reportedCurrency === annual.reportedCurrency);
-        if (!first || !day(first.periodStartDate)) continue;
+        if (!first || !day(first.periodStartDate) || annual.periodLength !== 12 || first.periodLength !== 6
+            || annual.periodStartDate !== first.periodStartDate) continue;
         const second = { ...annual, period: 'Q4', periodStartDate: nextDay(first.date),
           periodLength: 6, reportingFrequency: 'semiannual', derivation: 'annualMinusReportedH1',
           sourceDates: [annual.date, first.date] };
@@ -207,7 +256,9 @@ function ttmRows(data, type) {
     const anchor = income.find(row => key(row) === expected);
     return rows.length === 1 && anchor?.date === rows[0].date ? rows[0] : null;
   });
-  if (matches.some(row => !row) || matches.some(row => row.reportedCurrency !== latest.reportedCurrency)
+  if (matches.some(row => !row || row.periodLength !== undefined && row.periodLength !== (step === 2 ? 6 : 3))
+      || new Set(matches.map(row => row?.comparabilityGroup).filter(Boolean)).size > 1
+      || matches.some(row => row.reportedCurrency !== latest.reportedCurrency)
       || matches.some((row, index) => index
       && ((Date.parse(row.date) - Date.parse(matches[index - 1].date)) / 86400000 < minDays
         || (Date.parse(row.date) - Date.parse(matches[index - 1].date)) / 86400000 > maxDays))) return [];
@@ -216,24 +267,109 @@ function ttmRows(data, type) {
 function flowValue(data, type, field) {
   const rows = ttmRows(data, type);
   if (context.cadence(data, type).frequency === 'semiannual' && rows.length === 2 && /^eps|^weightedAverageShs/i.test(field)) {
-    return value(data.annual[type].find(row => row.date === rows.at(-1).date), field);
+    return value(data.annual[type].find(row => row.date === rows.at(-1).date
+      && (row.periodLength === undefined || row.periodLength === 12)), field);
   }
+
   if (field === 'cashAtEndOfPeriod') return value(rows.at(-1), field);
   if (field === 'cashAtBeginningOfPeriod') return value(rows[0], field);
   if (/ratio$/i.test(field)) {
-    const numerator = { grossProfitRatio: 'grossProfit', operatingIncomeRatio: 'operatingIncome',
+    let numerator = { grossProfitRatio: 'grossProfit', operatingIncomeRatio: 'operatingIncome',
       incomeBeforeTaxRatio: 'incomeBeforeTax', netIncomeRatio: 'netIncome', ebitdaratio: 'ebitda' }[field];
+    if (field === 'netIncomeRatio' && rows.some(row => row.earningsIncludeDiscontinued)) numerator = 'netIncomeFromContinuingOperations';
     return numerator ? divide(sum(rows.map(row => value(row, numerator))), sum(rows.map(row => value(row, 'revenue')))) : null;
   }
   const total = sum(rows.map(row => value(row, field)));
   return /^weightedAverageShs/.test(field) && total !== null ? total / rows.length : total;
 }
+function marketIncomeRows(data) {
+  const latestIncome = sorted([...data.annual.income, ...data.quarterly.income]).at(-1);
+  const reportedTwelveMonths = latestIncome?.reportType === 'secondInterim' && latestIncome.periodLength === 12
+    && !latestIncome.currencyConversion?.reason;
+  return reportedTwelveMonths ? [latestIncome] : ttmRows(data, 'income');
+}
+
+function marketLeverage(data, stock) {
+  const rows = marketIncomeRows(data);
+  const balance = sorted([...data.annual.balance, ...data.quarterly.balance]).at(-1);
+  const amount = field => !balance || balance.currencyConversion?.reason ? null : millions(value(balance, field));
+  const debt = amount('totalDebt'), cash = amount('cashAndShortTermInvestments');
+  const preferred = amount('preferredStock'), minority = amount('minorityInterest');
+  const netDebt = finite(debt) && finite(cash) ? debt - cash : null;
+  const mcap = finite(stock.mcap) && stock.mcap > 0 ? stock.mcap : null;
+  const ev = [mcap, netDebt, preferred, minority].every(finite) ? mcap + netDebt + preferred + minority : null;
+  const missingFx = rows.some(row => row.currencyConversion?.reason);
+  const ebitda = missingFx ? null : millions(sum(rows.map(row => value(row, 'ebitda'))));
+  const reason = !rows.length ? 'missingEbitdaPeriod'
+    : missingFx ? 'missingFx'
+      : !finite(ebitda) ? 'missingEbitda' : ebitda <= 0 ? 'nonPositiveEbitda' : null;
+  const numerators = { ev_to_ebitda: ev, debt_to_ebitda: debt, net_debt_to_ebitda: netDebt };
+  const reasons = {}, values = {};
+  for (const [field, numerator] of Object.entries(numerators)) {
+    reasons[field] = reason || (finite(numerator) ? null : field === 'ev_to_ebitda' && mcap === null
+      ? 'currentMarketCapUnavailable' : balance?.currencyConversion?.reason ? 'missingFx' : 'missingReportedCapital');
+    values[field] = reasons[field] ? null : divide(numerator, ebitda);
+    if (!reasons[field] && !finite(values[field])) {
+      reasons[field] = 'invalidCalculation';
+      values[field] = null;
+    }
+  }
+  return { ...values, reportedMultiples: {
+    version: 1, currency: data.calculationCurrency || 'HKD', unit: 'millions',
+    quoteDate: stock.quoteDate || null, balanceDate: balance?.date || null, incomeDates: rows.map(row => row.date),
+    periodBasis: rows.length === 1 ? 'reportedTwelveMonthSecondInterim' : 'compatibleReportedTtmPeriods',
+    ebitdaBasis: 'reportedOrExplicitlyDerivedEbitda', ebitda, mcap, ev, debt, cash, preferred, minority, netDebt,
+    reasons, values
+  } };
+}
+
+function marketMultiples(data, price, shareSource, shareClassUnverified = false) {
+  const rows = marketIncomeRows(data);
+  const reportedTwelveMonths = rows.length === 1 && rows[0].reportType === 'secondInterim';
+  const balance = sorted([...data.annual.balance, ...data.quarterly.balance]).at(-1);
+  const shares = !shareClassUnverified && finite(shareSource.shares) && shareSource.shares > 0
+    ? shareSource.shares * 1e6 : null;
+  const reportedEps = reportedTwelveMonths ? value(rows[0], 'epsdiluted') : flowValue(data, 'income', 'epsdiluted');
+  let eps = reportedEps, basis = 'reportedDilutedTtmEps', reason = null;
+  if (!finite(eps)) {
+    const earnings = sum(rows.map(row => value(row, 'netIncome')));
+    const deductions = sum(rows.map(row => value(row, 'netIncomeDeductions')));
+    const noPreferred = value(balance, 'preferredStock') === 0;
+    if (shares === null) reason = 'shareBasisUnverified';
+    else if (earnings === null) reason = 'missingTtmEarnings';
+    else if (!noPreferred && deductions === null) reason = 'preferredEarningsUnverified';
+    else {
+      eps = (earnings - (deductions ?? 0)) / shares;
+      basis = 'ttmCommonEarningsOverCurrentOrdinaryShares';
+    }
+  }
+  const book = value(balance, 'totalStockholdersEquity');
+  return {
+    pe_trailing: divide(price, eps),
+    pb_trailing: divide(price, shares === null ? null : divide(book, shares)),
+    marketRatioSources: {
+      pe: { basis, reason: finite(price) ? reason || (eps === 0 ? 'zeroEarnings' : null) : 'currentPriceUnavailable',
+        ...(reportedTwelveMonths ? { reportType: 'secondInterim', periodLength: 12 } : {}),
+        date: rows.at(-1)?.date || null, eps: finite(eps) ? eps : null,
+        dates: rows.map(row => row.date), shareDate: basis === 'reportedDilutedTtmEps' ? null : shareSource.date },
+      pb: { basis: 'quotedPriceOverIssuerBookValuePerOrdinaryShare',
+        reason: !finite(price) ? 'currentPriceUnavailable' : shares === null ? 'shareBasisUnverified'
+          : !finite(book) || book === 0 ? 'missingBookEquity' : null,
+        date: balance?.date || null, shareDate: shareSource.date, bookEquity: book,
+        preferredEquityDeducted: false }
+    }
+  };
+}
+
 function statementTable(data, includeHalfYears = true) {
-  const dates = sorted(data.annual.income).slice(-5), quarters = sorted(data.quarterly.income).slice(-20);
-  const latest = quarters.at(-1), raw = { annual_dates: [...dates.map(row => row.date.slice(0, 7)), latest?.date.slice(0, 7)],
+  const dates = annualColumns(data.annual.income), quarters = sorted(data.quarterly.income).slice(-20);
+  const latest = quarters.at(-1), raw = { annual_dates: [...dates.map(row => row?.date.slice(0, 7) || null), latest?.date.slice(0, 7)],
+    annual_period_lengths: [...dates.map(row => row?.periodLength), null],
     calculationCurrency: 'HKD', reportingFrequency: data.reportingFrequency,
     quarterly_raw: { dates: quarters.map(row => row.date.slice(0, 7)),
-      periods: quarters.map(row => `${row.fiscalYear || row.calendarYear}${data.reportingFrequency === 'semiannual'
+      periodLengths: quarters.map(row => row.periodLength),
+      periods: quarters.map(row => row.reportType === 'secondInterim' ? `${row.fiscalYear || row.calendarYear}I2`
+        : `${row.fiscalYear || row.calendarYear}${data.reportingFrequency === 'semiannual'
         ? `H${Number(row.period[1]) / 2}` : row.period}`), derivations: quarters.map(row => row.derivation || 'providerReported') } };
   const extras = {
     income: ['epsdiluted', 'grossProfitRatio', 'operatingIncomeRatio', 'incomeBeforeTaxRatio', 'netIncomeRatio', 'ebitdaratio'],
@@ -241,15 +377,20 @@ function statementTable(data, includeHalfYears = true) {
     cashflow: ['netCashProvidedByOperatingActivities', 'netCashUsedForInvestingActivites',
       'netCashUsedProvidedByFinancingActivities', 'otherInvestingActivites', 'otherFinancingActivites', 'dividendsPaid']
   };
+  raw.statementPeriodLengths = {};
+  raw.quarterly_raw.statementPeriodLengths = {};
   for (const type of ['income', 'balance', 'cashflow']) {
+    raw.statementPeriodLengths[type] = [...dates.map(date => data.annual[type].find(row => row.date === date?.date)?.periodLength ?? null), null];
+    raw.quarterly_raw.statementPeriodLengths[type] = quarters.map(date => data.quarterly[type].find(row => row.date === date.date)?.periodLength ?? null);
     const fields = new Set([...extras[type], ...[...data.annual[type], ...data.quarterly[type]].flatMap(row =>
       Object.keys(row).filter(field => typeof row[field] === 'number' && !['periodLength', 'fiscalYear', 'calendarYear'].includes(field)))]);
     raw[type] = {}; raw.quarterly_raw[type] = {};
     const scale = (field, amount) => !finite(amount) ? null : /^weightedAverageShs|^eps|ratio$/i.test(field) ? amount : amount / 1e6;
     for (const field of fields) {
-      raw[type][field] = [...dates.map(date => scale(field, value(data.annual[type].find(row => row.date === date.date), field))),
+      const reported = row => type !== 'balance' && row?.periodLength === null ? null : value(row, field);
+      raw[type][field] = [...dates.map(date => scale(field, reported(data.annual[type].find(row => row.date === date?.date)))),
         scale(field, type === 'balance' ? value(data.quarterly.balance.find(row => row.date === latest?.date), field) : flowValue(data, type, field))];
-      raw.quarterly_raw[type][field] = quarters.map(date => scale(field, value(data.quarterly[type].find(row => row.date === date.date), field)));
+      raw.quarterly_raw[type][field] = quarters.map(date => scale(field, reported(data.quarterly[type].find(row => row.date === date.date))));
     }
   }
   for (const field of ['tradeAccountsReceivables', 'vendorNonTradeReceivables']) {
@@ -269,6 +410,7 @@ function scoreBreakdown(score, data) {
     7: [sum(rows('cashflow').map(row => finite(row.commonStockIssuance) ? row.commonStockIssuance : value(row, 'commonStockIssued')))]
   };
   return score.items.map(item => {
+    if (item.applicable === false) return { ...item, metrics: [], displayCurrency: null };
     const monetary = [2, 4, 7].includes(item.id);
     const values = monetary ? shown[item.id] : item.metrics || [];
     const percent = [1, 3, 5, 8].includes(item.id);
@@ -304,12 +446,12 @@ function priceHistory(evidence) {
     columns: ['date', 'close', 'volume'], rows: ordered };
 }
 
-function forwardPriceEarnings(item, evidence, rates, shareSource, price) {
+function forwardPriceEarnings(item, evidence, rates, shareSource, price, annualIncome = null) {
   const asOf = evidence.capturedAt.slice(0, 10);
   const unavailable = reason => ({ value: null, reason, asOf, source: 'FMP analyst-estimates',
     basis: 'nextFiscalYearConsensusEps', fetchedAt: evidence.capturedAt });
   if (!finite(price) || price <= 0) return unavailable('missingQuote');
-  const annual = readRows(evidence, 'annual_income').filter(row => row.symbol === item.ticker
+  const annual = (annualIncome || readRows(evidence, 'annual_income')).filter(row => row.symbol === item.ticker
     && day(row.date) && row.date <= asOf && ['filingDate', 'acceptedDate'].every(field =>
       !row[field] || (typeof row[field] === 'string' && day(row[field].slice(0, 10))
         && row[field].slice(0, 10) <= asOf)))
@@ -399,21 +541,51 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
       || !finite(quotes[0].marketCap) || quotes[0].marketCap <= 0 || !finite(quotes[0].timestamp)) {
     throw new TypeError(`${item.ticker}: HKD quote identity cannot be verified`);
   }
-  const p = profile[0], quote = quotes[0];
-  const raw = applyOfficialCashflows(applyOfficialBalance(prepareStatements(evidence), item.ticker),
-    item.ticker, reviewedSource(item.ticker));
-  const data = convertStatements(raw, rates);
-  const chart = priceHistory(evidence), latest = sorted(data.quarterly.income).at(-1), bs = sorted(data.quarterly.balance).at(-1);
-  const quoteDate = new Date(quote.timestamp * 1000).toISOString().slice(0, 10);
+  const p = profile[0], observedQuote = quotes[0];
+  const quoteDate = new Date(observedQuote.timestamp * 1000).toISOString().slice(0, 10);
   if (quoteDate > evidence.capturedAt.slice(0, 10)) throw new TypeError(`${item.ticker}: future quote`);
+  const quoteAgeDays = (Date.parse(evidence.capturedAt.slice(0, 10)) - Date.parse(quoteDate)) / 86400000;
+  const staleQuote = quoteAgeDays > 14;
+  const quote = staleQuote ? { ...observedQuote, price: null, marketCap: null } : observedQuote;
+  const reported = applyOfficialRevenue(applyOfficialCashflows(applyOfficialBalance(prepareStatements(evidence), item.ticker),
+    item.ticker, reviewedSource(item.ticker)), item.ticker);
+  if (item.reviewedPeriodsRequired) {
+    reported.providerReportedBalance = structuredClone({
+      annual: reported.annual.balance, quarterly: reported.quarterly.balance
+    });
+    const closing = new Map([...reported.quarterly.balance, ...reported.annual.balance].map(row => [row.date, row]));
+    for (const period of ['annual', 'quarterly']) {
+      const aligned = new Map();
+      const anchors = period === 'annual' ? reported.annual.income
+        : [...reported.annual.income.map(row => ({ ...row, period: 'Q4' })), ...reported.quarterly.income];
+      for (const income of anchors) {
+        const balance = closing.get(income.date);
+        if (balance && balance.reportedCurrency === income.reportedCurrency) aligned.set(income.date, { ...balance, period: income.period, fiscalYear: income.fiscalYear,
+          reportType: income.reportType, derivation: 'reportedExactDateClosingBalance' });
+      }
+      reported[period].balance = sorted([...aligned.values()]);
+    }
+    reported.statementFrequencies.balance = 'semiannual';
+    const usedDates = new Set([...reported.annual.balance, ...reported.quarterly.balance].map(row => row.date));
+    if ([...closing.keys()].some(date => !usedDates.has(date))) reported.qualityWarnings.push({
+      code: 'unmatchedProviderBalanceArchived',
+      message: 'Provider balances without an exact reviewed reporting-date/currency match remain archived, not used as certified current or annual closing balances.'
+    });
+  }
+  const raw = applyPropertyFv(reported, item.ticker);
+  const data = convertStatements(raw, rates);
+  const chart = priceHistory(evidence), latest = sorted(data.quarterly.income).at(-1),
+    bs = sorted([...data.annual.balance, ...data.quarterly.balance]).at(-1);
   const balance = field => value(bs, field), flow = (type, field) => flowValue(data, type, field);
   const shareSource = valuationShares(item, evidence);
   const shareClassUnverified = item.shareClassReviewRequired && shareSource.scope !== 'issuerWideOrdinaryShares';
   const treasuryCurve = treasury?.ok && Array.isArray(treasury.rows) ? sorted(treasury.rows.filter(row =>
     day(row.date) && row.date <= evidence.capturedAt.slice(0, 10) && finite(row.year10)
     && (Date.parse(evidence.capturedAt.slice(0, 10)) - Date.parse(row.date)) / 86400000 <= 14)).at(-1) : null;
-  const table = statementTable(data), score = scores.calculate(raw);
-  const scoreHash = hash({ annual: raw.annual, interim: raw.quarterly });
+  const currentRatioNotApplicable = require('../cache/pf_applicability.json').tickers[item.ticker] || null;
+  const table = statementTable(data), score = scores.calculate(reported, { currentRatioNotApplicable });
+  const scoreHash = hash({ annual: reported.annual, interim: reported.quarterly,
+    ...(score.applicability ? { applicability: score.applicability } : {}) });
   const previousScore = previousStock.ratingSources?.fScore;
   const scoreRelease = readRows(evidence, 'transcript_dates').find(row => {
     const sourceRow = [...raw.quarterly.income, ...raw.annual.income].find(row => row.date === score.date);
@@ -427,7 +599,8 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
     && row.date.slice(0, 10) <= evidence.capturedAt.slice(0, 10));
   const moatInput = { methodVersion: 'hkex-qualitative-evidence-v2', ticker: item.ticker,
     profile: { companyName: p.companyName, description: p.description, industry: item.industry },
-    reportingCurrency: latest?.sourceReportedCurrency, statements: raw, displayStatements: data, fScore: score, transcripts };
+    reportingCurrency: latest?.sourceReportedCurrency, statements: { ...raw, fetchedAt: undefined },
+    displayStatements: { ...data, fetchedAt: undefined }, fScore: score, transcripts };
   const fingerprint = hash(moatInput), candidate = moatReports[item.ticker];
   const moat = candidate?.evidenceHash === fingerprint ? candidate.report : null;
   const priorMoat = moat || candidate?.report || null;
@@ -444,17 +617,26 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
     reportedCurrency: latest?.sourceReportedCurrency, calculationCurrency: 'HKD',
     reportingFrequency: raw.reportingFrequency, statementFrequencies: raw.statementFrequencies,
     balanceClassificationSource: raw.balanceClassificationSource, cashflowProvenance: raw.cashflowProvenance,
+    revenueProvenance: raw.revenueProvenance,
+    universeMembership: item.universeMembership || 'Hang Seng Index',
+    businessScopeNote: item.businessScopeNote || null,
+    ...(item.corporateDcfApplicability ? { corporateDcfApplicability: item.corporateDcfApplicability } : {}),
+    propertyFvProvenance: raw.propertyFvProvenance,
     qualityWarnings: raw.qualityWarnings, price: quote.price, quoteDate, shares: shareClassUnverified ? null : shareSource.shares,
+    quoteAvailability: { reason: staleQuote ? 'staleQuote' : null, ageDays: quoteAgeDays, capturedAt: evidence.capturedAt },
+    ...(staleQuote ? { lastTrade: { date: quoteDate, price: observedQuote.price,
+      marketCap: observedQuote.marketCap, currency: 'HKD' } } : {}),
     shares_display: shareSource.shares, shares_outstanding: shareClassUnverified || shareSource.shares === null ? null
       : shareSource.outstandingShares ?? Math.round(shareSource.shares * 1e6),
     shareSource, shareBasis: shareClassUnverified ? 'unverifiedMixedShareClasses' : shareSource.basis,
-    mcap: quote.marketCap / 1e6, debt: millions(balance('totalDebt')), cash: millions(balance('cashAndCashEquivalents')),
+    mcap: millions(quote.marketCap), debt: millions(balance('totalDebt')), cash: millions(balance('cashAndCashEquivalents')),
     short_term_investments: millions(balance('shortTermInvestments')), cash_and_short_term: millions(balance('cashAndShortTermInvestments')),
     beta: finite(p.beta) ? p.beta : null, beta_5y: null, rf: treasuryCurve?.year10 ?? null, erp: 4.75, kd: null, tax: null,
     rateSource: { currency: 'USD', date: treasuryCurve?.date || null, year10: treasuryCurve?.year10 ?? null,
       basis: 'userDirectedUsdTreasuryProxyUnderHkdUsdPeg' },
     growth_10y: Array(10).fill(null), g1: null, g2: null, g: 2.25, wacc: null,
-    fcf0: millions(flow('cashflow', 'freeCashFlow')), f_score: score.score, f_score_breakdown: scoreBreakdown(score, data), moat: priorMoat,
+    fcf0: millions(flow('cashflow', 'freeCashFlow')), f_score: score.score,
+    f_score_breakdown: scoreBreakdown(score, raw.propertyFvProvenance ? convertStatements(reported, rates) : data), moat: priorMoat,
     fair_val: null, default_fair_val: null, premium_pct: null, is_undervalued: null,
     pe_forward: null, pb_forward: null, target_price: null, dcf_model_ev: null,
     statements_raw: table, reported_growth: reportedGrowth(data, rates), real_history: {},
@@ -464,38 +646,43 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
     description: p.description || null, description_en: p.description || null, description_zh: priorMoat?.description_zh || null,
     address: p.address || null, city: p.city || null, state: p.state || null, zip: p.zip || null, country: p.country || null,
     phone: p.phone || null, full_address: [p.address, p.city, p.state, p.zip, p.country].filter(Boolean).join(', '),
-    year_high: quote.yearHigh ?? null, year_low: quote.yearLow ?? null, range_52w: p.range || null,
+    year_high: staleQuote ? null : quote.yearHigh ?? null, year_low: staleQuote ? null : quote.yearLow ?? null, range_52w: staleQuote ? null : p.range || null,
     all_time_high: null, all_time_low: null, inst_ownership_pct: null, insider_ownership_pct: null,
     top_holders: [], insider_trades: [], stock_splits: readRows(evidence, 'splits').filter(row => row.symbol === item.ticker),
     news: readRows(evidence, 'news').filter(row => row.symbol === item.ticker && row.publishedDate?.slice(0, 10) <= evidence.capturedAt.slice(0, 10)),
     historical_dcf_series: null, real_5y_prices: [],
-    dataAvailability: { hkdRiskFreeRate: treasuryCurve ? 'usdTreasuryProxyNotObservedHkdYield' : 'missingHkdRiskFreeRate', asReportedLeases: readRows(evidence, 'balance_as_reported').length ? null : 'sourceUnavailable',
+    dataAvailability: { currentPrice: staleQuote ? 'staleQuote' : null,
+      hkdRiskFreeRate: treasuryCurve ? 'usdTreasuryProxyNotObservedHkdYield' : 'missingHkdRiskFreeRate', asReportedLeases: readRows(evidence, 'balance_as_reported').length ? null : 'sourceUnavailable',
       ownership: 'Provider coverage has not been verified for HKEX', historicalDcf: 'No point-in-time historical valuations are available' },
     ratingSources: {
       fScore: { asOfDate: score.date, period: score.period, basis: score.basis, evaluatedTests: score.evaluatedTests,
         passedTests: score.passedTests, reason: score.reason, evidenceHash: scoreHash, checkedAt: evidence.capturedAt,
+        ...(score.assessmentType ? { assessmentType: score.assessmentType, applicableTests: score.applicableTests,
+          standardScore: score.standardScore, currentRatioApplicability: score.applicability } : {}),
         releaseDate: release?.date || null, relatedCallDate: scoreRelease?.date || null,
         scoringCurrency: raw.annual.income.at(-1)?.reportedCurrency || null,
         updatedAt: previousScore?.evidenceHash === scoreHash ? previousScore.updatedAt : evidence.capturedAt,
-        applicability: item.financial ? 'Bank accounting limits comparability of the standard nonfinancial-company tests' : null },
+        applicability: item.financial ? 'Financial-sector accounting limits comparability of standard nonfinancial-company tests' : null },
       moat: { asOfDate: latest?.date || null, period: latest ? `${latest.fiscalYear || latest.calendarYear}${latest.period}` : null,
         evidenceHash: candidate?.evidenceHash || null, currentEvidenceHash: fingerprint, updatedAt: candidate?.updatedAt || null,
         reason: moat ? null : priorMoat ? 'staleEvidence' : 'analysisUnavailable',
         checkedAt: evidence.capturedAt, lastError: candidate?.lastError || null,
+        ...(candidate?.businessResearch ? { businessResearch: candidate.businessResearch } : {}),
+        ...(candidate?.assessmentPolicy ? { assessmentPolicy: candidate.assessmentPolicy, provider: candidate.provider, model: candidate.model } : {}),
         statementDate: latest?.date || null, transcriptDate: transcripts[0]?.date || null,
         method: 'AI qualitative assessment anchored to dated financial statements and available transcript; not a reported accounting measure' }
     }
   };
   stock.net_debt = finite(stock.debt) && finite(stock.cash_and_short_term) ? stock.debt - stock.cash_and_short_term : null;
-  stock.ev = finite(stock.net_debt) ? stock.mcap + stock.net_debt : null; stock.fmp_official_ev = stock.ev;
-  stock.pe_trailing = divide(stock.price, flow('income', 'epsdiluted'));
-  stock.pe_forward_source = forwardPriceEarnings(item, evidence, rates, shareSource, stock.price);
+  stock.ev = finite(stock.mcap) && finite(stock.net_debt) ? stock.mcap + stock.net_debt : null; stock.fmp_official_ev = stock.ev;
+  Object.assign(stock, marketMultiples(data, stock.price, shareSource, shareClassUnverified));
+  stock.pe_forward_source = forwardPriceEarnings(item, evidence, rates, shareSource, stock.price, raw.annual.income);
   stock.pe_forward = stock.pe_forward_source.value;
-  stock.pb_trailing = item.shareClassReviewRequired ? null : divide(stock.mcap, millions(balance('totalStockholdersEquity')));
   stock.ps_ratio = item.shareClassReviewRequired ? null : divide(stock.mcap, millions(flow('income', 'revenue')));
   stock.ev_to_ebitda = divide(stock.ev, millions(flow('income', 'ebitda')));
   stock.debt_to_ebitda = divide(stock.debt, millions(flow('income', 'ebitda')));
   stock.net_debt_to_ebitda = divide(stock.net_debt, millions(flow('income', 'ebitda')));
+  if (!item.financial) Object.assign(stock, marketLeverage(data, stock));
   stock.fcf_to_ev = divide(stock.fcf0, stock.ev, 100); stock.fcf_to_mcap = divide(stock.fcf0, stock.mcap, 100);
   stock.div_yield = divide(-flow('cashflow', 'dividendsPaid'), quote.marketCap, 100);
   if (flow('cashflow', 'dividendsPaid') === null) stock.div_yield = null;
@@ -504,31 +691,34 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
   stock.current_ratio = divide(balance('totalCurrentAssets'), balance('totalCurrentLiabilities'));
   const returns = ratios.calculateReturns(data).at(-1);
   stock.roe = returns?.ratios.roe.value ?? null; stock.roa = returns?.ratios.roa.value ?? null;
-  const annual = sorted(data.annual.income).slice(-5);
+  const annual = annualColumns(data.annual.income);
   for (const [field, type, sourceField] of [
     ['revenue', 'income', 'revenue'], ['net_income', 'income', 'netIncome'], ['gross_profit', 'income', 'grossProfit'],
     ['operating_income', 'income', 'operatingIncome'], ['cfo', 'cashflow', 'operatingCashFlow'],
     ['capex', 'cashflow', 'capitalExpenditure'], ['fcf', 'cashflow', 'freeCashFlow']
-  ]) stock.real_history[field] = [...annual.map(date => millions(value(data.annual[type].find(row => row.date === date.date), sourceField))),
+  ]) stock.real_history[field] = [...annual.map(date => millions(value(data.annual[type].find(row => row.date === date?.date), sourceField))),
     millions(flow(type, sourceField))];
-  const sourceBalance = sorted(raw.quarterly.balance).at(-1);
-  const fx = rateFor(rates, sourceBalance.reportedCurrency, null, sourceBalance.date, 'closing', 'HKD');
+  const sourceBalance = sorted([...raw.annual.balance, ...raw.quarterly.balance]).at(-1);
+  const fx = sourceBalance ? rateFor(rates, sourceBalance.reportedCurrency, null, sourceBalance.date, 'closing', 'HKD')
+    : { reason: 'missingBalance' };
   stock.liquidation = { version: 1, ticker: item.ticker, currency: 'HKD',
-    source: sourceBalance.balanceClassificationSource ? 'HKEX official classified balance sheet; FMP quote'
+    source: sourceBalance?.balanceClassificationSource ? 'HKEX official classified balance sheet; FMP quote'
       : 'FMP stable balance-sheet-statement and quote',
-    balanceSource: sourceBalance.balanceClassificationSource || null,
-    fetchedAt: evidence.capturedAt, balanceDate: sourceBalance.date, quoteDate, sourceCurrency: sourceBalance.reportedCurrency,
+    balanceSource: sourceBalance?.balanceClassificationSource || null,
+    fetchedAt: evidence.capturedAt, balanceDate: sourceBalance?.date || null, quoteDate, sourceCurrency: sourceBalance?.reportedCurrency || null,
     fx, receivablesBasis: 'trade', shareBasis: stock.shareBasis,
-    quote: { currency: 'HKD', date: quoteDate, price: quote.price, marketCap: quote.marketCap },
+    quote: { currency: 'HKD', date: quoteDate, price: quote.price, marketCap: quote.marketCap,
+      availabilityReason: staleQuote ? 'staleQuote' : null },
     sharesOutstanding: stock.shares_outstanding, shareSource,
     amounts: { currentAssets: balance('totalCurrentAssets'), totalLiabilities: balance('totalLiabilities'),
       cashAndShortTermInvestments: balance('cashAndShortTermInvestments'), tradeReceivables: balance('accountsReceivables'),
       inventory: balance('inventory'), preferredStock: balance('preferredStock') } };
   liquidation.calculate(stock.liquidation, item.ticker).values.forEach((value, i) => { stock[`liq_val_${i + 1}`] = value; });
   let snapshot = applyForecastTaxAssumption(reconcileValuation(
-    prepareSnapshot(item.ticker, evidence, treasury, rates, null, { statementData: raw, shareSource }), raw, undefined, rates), item);
+    prepareSnapshot(item.ticker, evidence, treasury, rates, null, { statementData: reported, shareSource }), reported, undefined, rates), item);
   snapshot = applyNoncontrollingClaimAssumption(snapshot, item);
   if (item.requiresSegmentValuation) snapshot.reason = 'requiresSegmentValuation';
+  if (staleQuote) snapshot.reason = 'staleQuote';
   if (item.generalCorporateValuationWarning) snapshot.valuationCaution = 'generalCorporateFcffNotReitAffoOrNav';
   if (raw.qualityWarnings.some(warning => warning.code === 'annualInterimReconciliation') && !snapshot.reason
       && !['matchedOfficialAnnualComponents', 'matchedOfficialTtmComponents'].includes(snapshot.officialReconciliation?.basis)) {
@@ -599,4 +789,4 @@ if (require.main === module) {
   if (process.env.MOAT_EVIDENCE_OUTPUT) fs.writeFileSync(process.env.MOAT_EVIDENCE_OUTPUT, JSON.stringify(inputs));
   console.log(`Built ${inputs.length} real HKEX listings in HKD; incomplete evidence remains explicitly unavailable.`);
 }
-module.exports = { prepareStatements, ttmRows, flowValue, statementTable, scoreBreakdown, priceHistory, compileStock, compile, hash, valuationShares, forwardPriceEarnings, applyForecastTaxAssumption, applyNoncontrollingClaimAssumption };
+module.exports = { prepareStatements, ttmRows, flowValue, marketMultiples, marketLeverage, statementTable, scoreBreakdown, priceHistory, compileStock, compile, hash, valuationShares, forwardPriceEarnings, applyForecastTaxAssumption, applyNoncontrollingClaimAssumption };

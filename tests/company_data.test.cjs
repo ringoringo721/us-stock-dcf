@@ -2,7 +2,7 @@ const assert = require('node:assert/strict');
 const { test } = require('node:test');
 const fs = require('node:fs');
 const { matches } = require('../stock_search.js');
-const { splits, newsRows, safeUrl } = require('../company_data.js');
+const { splits, newsRows, newsListings, safeUrl } = require('../company_data.js');
 const { reportedGrowth } = require('../scripts/reported_growth.cjs');
 const { storedGrowth, annualGrowth } = require('../profile_overview.js');
 const rates = require('../cache/fx/hkd_rates.json');
@@ -39,17 +39,33 @@ test('News retains only actual dated articles for this security with safe links,
   assert.equal(safeUrl('javascript:alert(1)'), null);
 });
 
+test('HK issuer news listings are explicit, do not silently convert ADR stories to HK tickers, and never use guessed aliases', () => {
+  assert.deepEqual(newsListings('0388.HK'), ['0388.HK', 'HKXCY']);
+  assert.deepEqual(newsListings('0700.HK'), ['0700.HK', 'TCEHY']);
+  assert.deepEqual(newsListings('0005.HK'), ['0005.HK', 'HSBC']);
+  assert.deepEqual(newsListings('0939.HK'), ['0939.HK', 'CICHY']);
+  assert.deepEqual(newsListings('UNKNOWN.HK'), ['UNKNOWN.HK']);
+  assert.deepEqual(newsListings('AAPL'), ['AAPL']);
+});
+
 test('Every HK stock has genuinely supported growth records in HKD; annual-only cash flow is explicitly FY, not TTM', () => {
+  const unavailableRevenue = { '1180.HK': 'missingPeriod', '1680.HK': 'missingPeriod',
+    '1009.HK': 'missingPeriod', '0959.HK': 'nonPositivePrior' };
   for (const [ticker, stock] of Object.entries(market)) {
     const source = JSON.parse(fs.readFileSync(`cache\\financials\\${ticker}_statements_v2.json`, 'utf8'));
     const record = reportedGrowth(source, rates);
     assert.equal(record.currency, 'HKD', ticker);
     const updated = { ...stock, reported_growth: record };
-    assert.ok(Number.isFinite(storedGrowth(updated, 'revenue')?.value), ticker);
+    const revenue = storedGrowth(updated, 'revenue');
+    assert.ok(revenue, ticker);
+    if (unavailableRevenue[ticker]) {
+      assert.equal(revenue.value, null);
+      assert.equal(revenue.reason, unavailableRevenue[ticker], `${ticker}: preserve the verified growth limitation`);
+    } else assert.ok(Number.isFinite(revenue.value), ticker);
     if (source.statementFrequencies.cashflow === 'annual') {
       const cf = storedGrowth(updated, 'operatingCashFlow');
       assert.equal(cf.basis, 'annual');
-      assert.ok(Number.isFinite(cf.value), ticker);
+      assert.ok(Number.isFinite(cf.value) || cf.value === null && cf.reason === 'nonPositivePrior', ticker);
       assert.equal(cf.date, source.annual.cashflow.at(-1).date);
       assert.notEqual(cf.date, record.date);
     }

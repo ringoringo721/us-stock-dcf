@@ -6,20 +6,33 @@ const { flowValue, statementTable } = require('../scripts/build_hkex.cjs');
 const ratios = require('../fcf_ratios.js');
 const review = require('../cache/hkex_balance_classifications.json');
 
+test('Reviewed HSBC FY2025 ordinary issuance excludes the complete matching AT1 issue and noncash employee shares', () => {
+  const source = reviewedSource('0005.HK');
+  const annual = source.periods.find(period => period.end === '2025-12-31' && period.period === 'FY');
+  assert.equal(annual.fields.commonStockIssuance, 0);
+  assert.equal(annual.lines.ordinaryShareCapitalAndOtherEquityIssued, 4096);
+  assert.ok(annual.sourceRefs.some(ref => ref.pdfPages.includes(267) && ref.pdfPages.includes(342)));
+  assert.match(annual.lineNotes.commonStockIssuance, /USD4096m/);
+  const data = applyOfficialCashflows(statements('0005.HK'), '0005.HK', source);
+  assert.equal(data.annual.cashflow.find(row => row.date === '2025-12-31').commonStockIssuance, 0);
+  assert.equal(data.quarterly.cashflow.find(row => row.date === '2026-06-30').commonStockIssuance, undefined,
+    'Annual evidence cannot certify the subsequent interim period');
+});
+
 function statements(ticker) {
-  const income = Array.from({ length: 8 }, (_, index) => {
-    const year = 2025 + Math.floor(index / 4), quarter = index % 4 + 1;
+  const income = Array.from({ length: 12 }, (_, index) => {
+    const year = 2024 + Math.floor(index / 4), quarter = index % 4 + 1;
     const month = quarter * 3;
     return { symbol: ticker, fiscalYear: String(year), period: `Q${quarter}`,
       date: `${year}-${String(month).padStart(2, '0')}-${quarter % 2 ? '30' : '31'}`,
       reportedCurrency: ticker === '0005.HK' ? 'USD' : 'HKD',
       revenue: 100, netIncome: 10, ebitda: 20, weightedAverageShsOutDil: 10, epsDiluted: 1 };
-  }).slice(0, 6).map(row => ({ ...row, date: row.date.replace('06-31', '06-30') }));
+  }).slice(0, 10).map(row => ({ ...row, date: row.date.replace('06-31', '06-30') }));
   return { reportingFrequency: 'quarterly', calculationCurrency: ticker === '0005.HK' ? 'USD' : 'HKD',
     statementFrequencies: { income: 'quarterly', cashflow: 'annual', balance: 'quarterly' },
-    annual: { income: [{ ...income[3], period: 'FY' }], cashflow: [],
-      balance: review.periods.filter(period => period.date === '2025-12-31').map(period => ({ symbol: ticker, date: period.date, reportedCurrency: 'HKD',
-        fiscalYear: '2025', period: 'FY', totalAssets: period.fields.totalAssets * 1e6,
+    annual: { income: [income[3], income[7]].map(row => ({ ...row, period: 'FY' })), cashflow: [],
+      balance: review.periods.filter(period => ['2024-12-31', '2025-12-31'].includes(period.date)).map(period => ({ symbol: ticker, date: period.date, reportedCurrency: 'HKD',
+        fiscalYear: period.date.slice(0, 4), period: 'FY', totalAssets: period.fields.totalAssets * 1e6,
         totalLiabilities: period.fields.totalLiabilities * 1e6,
         totalStockholdersEquity: period.fields.totalStockholdersEquity * 1e6 })) },
     quarterly: { income, cashflow: [], balance: income.map(row => ({ ...row, totalAssets: 1000 })) } };
@@ -34,7 +47,7 @@ test('HKEX official classification reconciles all components, preserves provider
       totalStockholdersEquity: report.fields.totalStockholdersEquity * 1e6 });
   }
   const out = applyOfficialBalance(data, '0388.HK');
-  const latest = out.quarterly.balance.at(-1), annual = out.annual.balance[0];
+  const latest = out.quarterly.balance.at(-1), annual = out.annual.balance.find(row => row.date === '2025-12-31');
   assert.equal(latest.totalCurrentAssets, 539820e6);
   assert.equal(latest.totalNonCurrentAssets, 37258e6);
   assert.equal(latest.totalCurrentLiabilities, 513308e6);
@@ -52,7 +65,7 @@ test('HKEX official classification reconciles all components, preserves provider
   assert.equal(latest.availabilityBasis, 'retrospectiveOfficialCorrectionNotPointInTime');
   assert.equal(annual.totalDebt, 1249e6);
   assert.equal(latest.totalDebt, 946e6);
-  assert.equal(out.archivedProviderBalance.length, 3);
+  assert.equal(out.archivedProviderBalance.length, 5);
   assert.equal(data.quarterly.balance.at(-1).totalCurrentAssets, undefined);
   assert.equal(out.quarterly.balance[0], data.quarterly.balance[0]);
   const changed = structuredClone(data);
@@ -96,7 +109,8 @@ for (const [ticker, cfo, investment, opening, closing] of [
 ]) {
   test(`${ticker} official FY/H1 produce genuine mixed-cadence TTM with closing cash, not fabricated quarters`, () => {
     const out = applyOfficialCashflows(statements(ticker), ticker, reviewedSource(ticker));
-    assert.deepEqual(out.quarterly.cashflow.map(row => row.period), ['Q2', 'Q4', 'Q2']);
+    const expectedPeriods = ticker === '0388.HK' ? ['Q2', 'Q4', 'Q2', 'Q4', 'Q2'] : ['Q2', 'Q4', 'Q2'];
+    assert.deepEqual(out.quarterly.cashflow.map(row => row.period), expectedPeriods);
     assert.equal(out.quarterly.cashflow[1].derivation, 'annualMinusOfficialH1');
     assert.equal(flowValue(out, 'cashflow', 'operatingCashFlow'), cfo * 1e6);
     assert.equal(flowValue(out, 'cashflow', 'capitalExpenditure'), investment * 1e6);
@@ -109,8 +123,9 @@ for (const [ticker, cfo, investment, opening, closing] of [
       assert.equal(flowValue(out, 'cashflow', 'changeInOperatingAssets'), null);
     }
     assert.equal(flowValue(out, 'cashflow', 'depreciationAndAmortization'), null);
-    assert.equal(out.quarterly.cashflow[1].periodStartDate, '2025-07-01');
-    assert.equal(out.quarterly.cashflow[1].periodLength, 6);
+    const secondIndex = out.quarterly.cashflow.findIndex(row => row.date === '2025-12-31');
+    assert.equal(out.quarterly.cashflow[secondIndex].periodStartDate, '2025-07-01');
+    assert.equal(out.quarterly.cashflow[secondIndex].periodLength, 6);
     assert.equal(statementTable(out).cashflow.operatingCashFlow.at(-1), cfo);
     const result = ratios.calculate(out).at(-1);
     assert.equal(result.date, '2026-06-30');
@@ -118,7 +133,7 @@ for (const [ticker, cfo, investment, opening, closing] of [
     assert.equal(ratios.calculateEarnings(out).at(-1).amounts.fcf.value, (cfo + investment) * 1e6 / 10);
     assert.equal(ratios.calculateEarnings(out, { flow: 'single' }).at(-1).amounts.fcf.reason, 'cadenceMismatch');
     const gap = structuredClone(out);
-    gap.quarterly.cashflow.splice(1, 1);
+    gap.quarterly.cashflow.splice(secondIndex, 1);
     assert.equal(flowValue(gap, 'cashflow', 'operatingCashFlow'), null);
     const mismatchedCurrency = structuredClone(out);
     mismatchedCurrency.quarterly.cashflow.at(-1).reportedCurrency = 'EUR';
@@ -126,7 +141,7 @@ for (const [ticker, cfo, investment, opening, closing] of [
     const later = structuredClone(out);
     later.quarterly.income.push({ ...later.quarterly.income.at(-1), date: '2026-09-30', period: 'Q3' });
     assert.equal(flowValue(later, 'cashflow', 'operatingCashFlow'), null);
-    assert.equal(applyOfficialCashflows(out, ticker, reviewedSource(ticker)).quarterly.cashflow.length, 3);
+    assert.equal(applyOfficialCashflows(out, ticker, reviewedSource(ticker)).quarterly.cashflow.length, expectedPeriods.length);
     const invalid = reviewedSource(ticker);
     invalid.periods[0].fields.operatingCashFlow++;
     assert.throws(() => applyOfficialCashflows(statements(ticker), ticker, invalid), /INVALID_OFFICIAL/);

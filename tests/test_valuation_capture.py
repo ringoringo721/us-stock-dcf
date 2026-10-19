@@ -1,10 +1,24 @@
 import unittest
 from datetime import date
+from pathlib import Path
 
-from scripts.capture_valuation_sources import outstanding_share_record, provider_symbol, selected_symbols, years_before
+from scripts.capture_valuation_sources import configured_market, outstanding_share_record, provider_symbol, selected_symbols, years_before
 
 
 class SourceSelectionTests(unittest.TestCase):
+    def test_hk_refresh_uses_the_entire_configured_universe_not_the_old_six(self):
+        root = Path(__file__).resolve().parent.parent
+        market = configured_market(root, "HKEX")
+        self.assertEqual(len(market), 114)
+        self.assertEqual(selected_symbols(market, ""), list(market))
+        self.assertTrue(all(symbol.endswith(".HK") for symbol in market))
+        self.assertIn("1347.HK", market)
+        self.assertIn("2338.HK", market)
+        self.assertIn("3918.HK", market)
+        self.assertEqual(len(configured_market(root, "US")), 230)
+        with self.assertRaises(ValueError):
+            configured_market(root, "ALL")
+
     def test_default_universe_is_preserved(self):
         self.assertEqual(selected_symbols({"CSCO": {}, "BRK.B": {}}, ""), ["CSCO", "BRK.B"])
 

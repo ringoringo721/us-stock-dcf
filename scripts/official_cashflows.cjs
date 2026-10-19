@@ -23,7 +23,7 @@ function reviewedSource(ticker) {
         : ['netPropertyPlantAndEquipmentPurchasesAndSales', 'netIntangibleAssetInvestment'];
       fields.capitalExpenditure = items.every(field => finite(fields[field]))
         ? items.reduce((sum, field) => sum + fields[field], 0) : null;
-      fields.otherNonCashItems = fields.otherNonCashAdjustments;
+      if (Object.hasOwn(fields, 'otherNonCashAdjustments')) fields.otherNonCashItems = fields.otherNonCashAdjustments;
       if (ticker === '0388.HK') fields.commonDividendsPaid = fields.dividendsPaidToHKEXShareholders;
       if (ticker === '0005.HK') {
         fields.commonStockRepurchased = fields.shareBuybacks;
@@ -117,7 +117,9 @@ function applyOfficialCashflows(statements, ticker, record) {
         ? { code: 'officialCashflowSourceReplacement',
           message: 'Invalid FMP interim cash flow is archived; cited official annual and half-year reports now supply verified periods.',
           originalWarning: warning } : warning),
-    archivedProviderAnnualCashflow: originalAnnual.length ? originalAnnual : statements.archivedProviderAnnualCashflow,
+    archivedProviderAnnualCashflow: ordered([...new Map([
+      ...(statements.archivedProviderAnnualCashflow || []), ...originalAnnual
+    ].map(row => [row.date, row])).values()]),
     cashflowProvenance: { ticker, currency: record.currency, unit: record.unit,
       documents: record.documents, annualDates: [...sourceDates], interimDates: halves.map(row => row.date),
       derivation: 'officialAnnualMinusOfficialH1PlusOfficialH1', notes: record.notes || [] }

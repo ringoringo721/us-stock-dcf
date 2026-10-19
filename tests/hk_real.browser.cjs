@@ -47,14 +47,19 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
     await page.evaluate(() => applyLanguage('en'));
     assert.match(await page.locator('#market-select').innerText(), /🇺🇸 United States \(USD\)/);
     assert.match(await page.locator('#market-select').innerText(), /🇭🇰 Hong Kong \(HKD\)/);
-    assert.equal(await page.locator('#screener-tbody tr').count(), 6);
+    assert.equal(await page.locator('#screener-tbody tr').count(), Object.keys(market).length);
     assert.equal(await page.locator('#screener-tbody tr').first().locator('td').count(), 36);
     assert.deepEqual(await page.evaluate(() => Object.keys(stockUniverse)), Object.keys(market));
-    for (const [ticker, stock] of Object.entries(market)) {
-      const homepageValue = await page.evaluate(ticker => stockUniverse[ticker].default_fair_val, ticker);
-      assert.ok(Number.isFinite(homepageValue), `${ticker}: automatic homepage valuation`);
-      const cells = await page.locator('#screener-tbody tr').filter({ hasText: ticker }).locator('td').allTextContents();
-      assert.ok(cells.some(value => value.startsWith(`HKD ${homepageValue.toFixed(2)}`)), `${ticker}: sourced homepage fair-value cell`);
+    for (const ticker of ['0005.HK', '0939.HK']) {
+      const row = page.locator('#screener-tbody tr').filter({ hasText: ticker });
+      assert.deepEqual(await row.locator('[data-fmp-reference]').allTextContents(), ['Not applicable', 'Not applicable']);
+      assert.deepEqual(await row.locator('[data-price-difference][data-applicable="false"]').allTextContents(),
+        ['Not applicable', 'Not applicable']);
+      assert.equal(await row.locator('[data-fmp-reference] small').count(), 0);
+    }
+    const audited = new Set(['0700.HK', '9988.HK', '0005.HK', '0388.HK', '0939.HK', '0823.HK']);
+    for (const [ticker, stock] of Object.entries(market).filter(([ticker]) => audited.has(ticker))) {
+      assert.equal(await page.locator('#screener-table th[data-i18n="th_fair"], #screener-tbody [data-price-difference="fair"]').count(), 0);
       const forecast = stock.pe_forward_source;
       assert.equal(forecast.reason, null, `${ticker}: supported analyst forecast`);
       assert.equal(forecast.basis, 'nextFiscalYearConsensusEps');
@@ -160,7 +165,13 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
         const annual = statements.annual.income.find(row => row.date === statements.quarterly.income.at(-1).date);
         assert.equal(expected.value, annual.epsDiluted);
         assert.equal(await page.locator('#earnings-cards strong').first().innerText(),
-          annual.epsDiluted.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
+          annual.epsDiluted === null ? 'N/A' : annual.epsDiluted.toLocaleString('en-US',
+            { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
+        if (stock.propertyFvProvenance) {
+          assert.match(await page.locator('#cmp-property-fv-note').innerText(), /convertible dilution|可換股/);
+          assert.equal(raw.propertyFvOriginal.annual.income.at(-1).netIncome, -7397e6);
+          assert.equal(annual.netIncome, 6430e6);
+        }
         assert.equal(raw.quarterly.income.at(-1).epsDiluted, null);
       }
       if (stock.reportingFrequency !== 'semiannual') {
@@ -177,6 +188,17 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
       for (const tab of ['financials', 'ratios', 'peers', 'valuation', 'news', 'chart']) {
         await page.evaluate(tab => switchSubPage(tab), tab);
         if (tab === 'peers') {
+          const growth = page.locator('td.peer-current [data-peer-growth]');
+          for (const cell of await growth.all()) {
+            const field = await cell.getAttribute('data-peer-growth');
+            const value = stock.reported_growth.fields[field].value;
+            assert.equal(await cell.innerText(), value === null ? 'N/A'
+              : `${value >= 0 ? '+' : ''}${value.toFixed(2)}%`, `${ticker}: ${field}`);
+          }
+          if (ticker === '0388.HK') {
+            assert.equal(await page.locator('td.peer-current [data-peer-growth="operatingCashFlow"]').innerText(), '+5.74%');
+            assert.equal(await page.locator('td.peer-current [data-peer-growth="freeCashFlow"]').innerText(), '+5.07%');
+          }
           const peerForward = page.locator('#cmp-peers-table tbody tr').filter({ hasText: /Forward P\/E/ })
             .locator('td').nth(1).locator('span');
           assert.equal(await peerForward.innerText(), `${forwardPe.toFixed(1)}x`);

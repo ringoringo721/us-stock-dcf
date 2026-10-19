@@ -44,6 +44,8 @@
     if (history.some((row, i) => i && ((Date.parse(row.date) - Date.parse(history[i - 1].date)) / 86400000 < minDays
       || (Date.parse(row.date) - Date.parse(history[i - 1].date)) / 86400000 > maxDays))) return unavailable('nonConsecutive');
     if (history.some((row, i) => row.date !== anchors.get(keys[i])?.date)) return unavailable('dateMismatch');
+    if (history.some(row => row.periodLength !== undefined && row.periodLength !== stride * 3)) return unavailable('invalidPeriodLength');
+    if (new Set(history.map(row => row.comparabilityGroup).filter(Boolean)).size > 1) return unavailable('accountingBasisMismatch');
     if (history.some(row => row.currencyConversion?.reason)) return unavailable('missingFx');
     if (history.some(row => !/^[A-Z]{3}$/.test(row.reportedCurrency) || row.reportedCurrency !== latest.reportedCurrency)) {
       return unavailable('currencyMismatch');
@@ -69,6 +71,9 @@
     }
     const days = (Date.parse(present.date) - Date.parse(previous.date)) / 86400000;
     if (!(days >= 330 && days <= 400)) return unavailable('nonConsecutive');
+    if ([present, previous].some(row => row.periodLength !== undefined && row.periodLength !== 12)) return unavailable('invalidPeriodLength');
+    if (present.comparabilityGroup && previous.comparabilityGroup
+        && present.comparabilityGroup !== previous.comparabilityGroup) return unavailable('accountingBasisMismatch');
     if (present.currencyConversion?.reason || previous.currencyConversion?.reason) return unavailable('missingFx');
     if (!/^[A-Z]{3}$/.test(present.reportedCurrency) || present.reportedCurrency !== previous.reportedCurrency) {
       return unavailable('currencyMismatch');
@@ -103,10 +108,12 @@
     const valid = rows => latest && rows.every((row, i) => row && typeof row.reportedCurrency === 'string'
       && /^[A-Z]{3}$/.test(row.reportedCurrency) && row.reportedCurrency === latest.reportedCurrency
       && !row.currencyConversion?.reason
+      && (row.periodLength === undefined || row.periodLength === stride * 3)
       && (!i || (Date.parse(row.date) - Date.parse(rows[i - 1].date)) / 86400000 >= minDays
         && (Date.parse(row.date) - Date.parse(rows[i - 1].date)) / 86400000 <= maxDays));
     const total = (field, rows = window) => {
-      if (!valid(rows) || !rows.every(row => numeric(row[field]) !== null)) return null;
+      if (!valid(rows) || new Set(rows.map(row => row?.comparabilityGroup).filter(Boolean)).size > 1
+          || !rows.every(row => numeric(row[field]) !== null)) return null;
       const sum = rows.reduce((sum, row) => sum + numeric(row[field]), 0);
       return Number.isFinite(sum) ? sum : null;
     };
@@ -118,7 +125,7 @@
     return {
       date: latest?.date || null, currency: latest?.reportedCurrency || null,
       revenue, grossMargin: divide(total('grossProfit')), operatingMargin: divide(total('operatingIncome')),
-      netMargin: divide(total('netIncome')),
+      netMargin: divide(total(window.some(row => row?.earningsIncludeDiscontinued) ? 'netIncomeFromContinuingOperations' : 'netIncome')),
       revenueGrowth: growth(data, 'income', 'revenue').value,
       operatingGrowth: growth(data, 'income', 'operatingIncome').value,
       netIncomeGrowth: growth(data, 'income', 'netIncome').value
@@ -150,6 +157,12 @@
     const usd = value => numeric(value) === null ? 'N/A' : `${context.currencyFor(ticker, stock)} ${format(value)}`;
     get('quote-price').textContent = usd(stock.price);
     get('quote-ticker').textContent = `${ticker} · ${stock.exchange || 'N/A'}`;
+    if (stock.businessScopeNote) get('quote-ticker').textContent += ` · ${stock.businessScopeNote[lang] || stock.businessScopeNote.en}`;
+    if (stock.quoteAvailability?.reason === 'staleQuote' && stock.lastTrade) {
+      get('quote-ticker').textContent += lang === 'zh'
+        ? ` · 現價不可用；最後成交 ${stock.lastTrade.date}：${usd(stock.lastTrade.price)}（非現價）`
+        : ` · Current price unavailable; last trade ${stock.lastTrade.date}: ${usd(stock.lastTrade.price)} (not current)`;
+    }
     get('range-low').textContent = usd(stock.year_low);
     get('range-high').textContent = usd(stock.year_high);
     const low = numeric(stock.year_low), high = numeric(stock.year_high), price = numeric(stock.price);

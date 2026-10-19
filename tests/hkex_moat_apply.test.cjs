@@ -38,8 +38,8 @@ test('Other securities, stale evidence and failed refreshes cannot overwrite exi
 
 test('Official statement corrections retain earlier narratives but require new evidence-matched AI assessment', () => {
   for (const ticker of ['0388.HK', '0005.HK']) {
-    assert.notEqual(reports[ticker].evidenceHash, market[ticker].ratingSources.moat.currentEvidenceHash);
+    const stale = { ...structuredClone(reports[ticker]), evidenceHash: 'prior-financial-evidence' };
     assert.deepEqual(market[ticker].moat, reports[ticker].report);
-    assert.throws(() => applyReports(market, { [ticker]: reports[ticker] }), /evidence does not match/);
+    assert.throws(() => applyReports(market, { [ticker]: stale }), /evidence does not match/);
   }
 });

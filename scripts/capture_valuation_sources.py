@@ -38,6 +38,15 @@ HK_EXTRA_ENDPOINTS = {
     "shares_float": ("shares-float", {}),
 }
 
+def configured_market(root, name):
+    if name == "HKEX":
+        return {stock["ticker"]: stock for stock in
+                json.loads((root / "hkex_stocks.json").read_text(encoding="utf-8"))}
+    if name == "US":
+        return json.loads((root / "full_market_dcf.json").read_text(encoding="utf-8"))
+    raise ValueError("CAPTURE_MARKET must be US or HKEX")
+
+
 def selected_symbols(market, supplied):
     if not supplied:
         return list(market)
@@ -109,7 +118,7 @@ def main():
     key = os.environ.get("FMP_API_KEY")
     if not key:
         raise RuntimeError("FMP_API_KEY is required for read-only source capture")
-    market = json.loads((root / "full_market_dcf.json").read_text(encoding="utf-8"))
+    market = configured_market(root, os.environ.get("CAPTURE_MARKET", "US"))
     symbols = selected_symbols(market, os.environ.get("CAPTURE_SYMBOLS", ""))
     output = (root / os.environ.get("CAPTURE_OUTPUT", "valuation-audit-output")).resolve()
     if root not in output.parents:

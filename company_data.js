@@ -8,6 +8,12 @@
   const cache = new Map();
   const loaded = new Map();
   let translationCache = null;
+  // Matched issuer names and official websites in both FMP profiles; ADRs are not the HK security.
+  const relatedListings = {
+    '0823.HK': 'LKREF', '0388.HK': 'HKXCY', '0700.HK': 'TCEHY',
+    '9988.HK': 'BABA', '0005.HK': 'HSBC', '0939.HK': 'CICHY'
+  };
+  const newsListings = symbol => relatedListings[symbol] ? [symbol, relatedListings[symbol]] : [symbol];
   const safeUrl = value => {
     try { const url = new URL(value); return ['https:', 'http:'].includes(url.protocol) ? url.href : null; }
     catch (error) { if (error instanceof TypeError) return null; throw error; }
@@ -95,18 +101,54 @@
     return translationCache;
   }
 
-  async function renderNews(container, symbol, storedRows, language) {
+  const selectedNewsListings = new Map();
+  async function renderNews(container, symbol, storedRows, language, feedSymbol = selectedNewsListings.get(symbol) || symbol) {
     if (!container) return;
+    const listings = newsListings(symbol);
+    if (!listings.includes(feedSymbol)) throw new Error('UNVERIFIED_NEWS_LISTING');
     const id = ++requestId, en = language === 'en';
-    let rows = newsRows(storedRows, symbol), page = 0, hasMore = true, translations = null, translationError = null;
-    let sourceText = rows.length ? (en ? 'Previously captured FMP news; live refresh pending.' : '\u5df2\u64f7\u53d6\u7684 FMP \u65b0\u805e\uff1b\u6b63\u5728\u66f4\u65b0\u3002') : '';
+    let rows = newsRows(storedRows, feedSymbol), page = 0, hasMore = true, translations = null, translationError = null;
+    let sourceText = rows.length ? (en ? 'Previously captured FMP news; checking saved responses.' : '已擷取的 FMP 新聞；正在讀取已存快照。') : '';
     const status = root.document.createElement('p'), articles = root.document.createElement('div');
     const languageNote = root.document.createElement('p');
     languageNote.className = 'analysis-note';
     const more = root.document.createElement('button');
     more.type = 'button';
     more.className = 'action-btn';
-    container.replaceChildren(languageNote, status, articles, more);
+    more.dataset.newsMore = '';
+    const refresh = root.document.createElement('button');
+    refresh.type = 'button';
+    refresh.className = 'action-btn';
+    refresh.textContent = en ? 'Refresh FMP news' : '重新查詢 FMP 新聞';
+    const listingNote = root.document.createElement('p');
+    listingNote.className = 'analysis-note';
+    listingNote.dataset.newsListing = feedSymbol;
+    listingNote.textContent = feedSymbol !== symbol
+      ? (en ? `Same issuer, different listing: ${feedSymbol}. Articles keep FMP's original symbol; these are not a dedicated ${symbol} news feed. Provider tags may include affiliates or broader market articles.`
+        : `同一發行人、不同上市代號：${feedSymbol}。保留 FMP 原始新聞代號；並非 ${symbol} 專屬新聞。供應商標籤亦可能涵蓋關聯企業或綜合市場文章。`)
+      : listings.length > 1 ? (en ? `News tagged by FMP as ${symbol}. If coverage is empty, select the verified same-issuer US/OTC listing separately; it is never substituted silently.`
+        : `FMP 標記為 ${symbol} 的新聞。如回傳空白，可另外選取已核對發行人的美國／場外上市代號；不會自動混入或改標為港股新聞。`) : '';
+    const listingControl = root.document.createElement('label');
+    if (listings.length > 1) {
+      listingControl.textContent = en ? 'FMP news listing: ' : 'FMP 新聞上市代號：';
+      const select = root.document.createElement('select');
+      select.dataset.newsListingSelect = symbol;
+      for (const listing of listings) {
+        const option = root.document.createElement('option');
+        option.value = listing;
+        option.textContent = listing === symbol ? `${symbol} (HKEX)`
+          : `${listing} (${en ? 'same issuer · US / OTC' : '同一發行人 · 美國／場外'})`;
+        select.append(option);
+      }
+      select.value = feedSymbol;
+      select.addEventListener('change', () => {
+        selectedNewsListings.set(symbol, select.value);
+        renderNews(container, symbol, storedRows, language, select.value)
+          .catch(error => { console.error('News listing could not change', symbol, error.message); status.textContent = error.message; });
+      });
+      listingControl.append(select);
+    }
+    container.replaceChildren(listingControl, listingNote, languageNote, status, articles, more, refresh);
     function draw() {
       languageNote.dataset.newsLanguage = en ? 'original' : translations ? 'ai-zh-Hant' : 'original';
       languageNote.textContent = en
@@ -127,7 +169,7 @@
         title.target = '_blank';
         title.rel = 'noopener noreferrer';
         const source = root.document.createElement('p');
-        source.textContent = [item.publisher || item.site, item.publishedDate, symbol, 'FMP',
+        source.textContent = [item.publisher || item.site, item.publishedDate, feedSymbol, 'FMP',
           !en ? titleZh ? 'AI \u7e41\u4e2d\u6a19\u984c\u7ffb\u8b6f \u00b7 Vertex AI' : '\u539f\u6587\u6a19\u984c\uff08\u5c1a\u7121\u7ffb\u8b6f\uff09' : ''].filter(Boolean).join(' \u00b7 ');
         article.append(title, source);
         if (titleZh) {
@@ -144,20 +186,26 @@
       more.hidden = !hasMore;
       more.textContent = en ? 'Load more FMP company news' : '\u8f09\u5165\u66f4\u591a FMP \u516c\u53f8\u65b0\u805e';
     }
-    async function load() {
+    async function load(force = false) {
       more.disabled = true;
+      refresh.disabled = true;
       status.textContent = en ? 'Loading FMP company news\u2026' : '\u6b63\u5728\u8f09\u5165 FMP \u516c\u53f8\u65b0\u805e\u2026';
       try {
-        const response = await root.fetch(`/api/fmp?action=news&symbol=${encodeURIComponent(symbol)}&page=${page}`);
-        if (!response.headers.get('content-type')?.includes('application/json')) throw new Error('FMP_API_UNAVAILABLE');
-        const result = await response.json();
-        if (!response.ok) throw new Error(result.error || `HTTP_${response.status}`);
-        if (!Array.isArray(result.data) || result.source?.symbol !== symbol || result.page !== page) {
+        const saved = loaded.get(feedSymbol);
+        const snapshot = page === 0 && Array.isArray(saved?.news?.data)
+          && [null, undefined, 'FMP_NO_COVERAGE'].includes(saved.news.reason)
+          ? { data: newsRows(saved.news.data, feedSymbol), page: 0, hasMore: saved.news.data.length >= 50,
+            source: { symbol: feedSymbol, provider: 'FMP', capturedAt: saved.news.capturedAt || saved.capturedAt || null } }
+          : null;
+        const result = await root.FmpCache.request(new URLSearchParams({ action: 'news', symbol: feedSymbol, page }),
+          { refresh: force, snapshot });
+        if (!Array.isArray(result.data) || result.source?.symbol !== feedSymbol || result.page !== page
+            || result.data.some(row => row?.symbol !== feedSymbol)) {
           throw new Error('FMP_INVALID_RESPONSE');
         }
         if (id !== requestId) return;
         const retainedArchive = page === 0 && result.data.length === 0 && rows.length > 0;
-        rows = newsRows(page === 0 && !retainedArchive ? result.data : [...rows, ...result.data], symbol);
+        rows = newsRows(page === 0 && !retainedArchive ? result.data : [...rows, ...result.data], feedSymbol);
         hasMore = result.hasMore === true;
         page++;
         sourceText = rows.length ? (en
@@ -170,6 +218,7 @@
         if (result.limitReached) sourceText += en
           ? ' The supported pagination limit was reached; additional archive coverage is not claimed.'
           : ' \u5df2\u9054\u5206\u9801\u4e0a\u9650\uff1b\u4e0d\u4ee3\u8868\u5df2\u6536\u9304\u5168\u90e8\u6b77\u53f2\u65b0\u805e\u3002';
+        sourceText += ` ${root.FmpCache.note(result, language)}`;
         draw();
       } catch (error) {
         if (id !== requestId) return;
@@ -180,9 +229,10 @@
         draw();
         more.textContent = en ? 'Retry FMP news' : '\u91cd\u8a66 FMP \u65b0\u805e';
         more.hidden = false;
-      } finally { if (id === requestId) more.disabled = false; }
+      } finally { if (id === requestId) { more.disabled = false; refresh.disabled = false; } }
     }
-    more.addEventListener('click', load);
+    more.addEventListener('click', () => load());
+    refresh.addEventListener('click', () => { page = 0; load(true); });
     draw();
     const translate = async () => {
       if (en) return;
@@ -200,5 +250,5 @@
     await Promise.all([load(), translate()]);
   }
 
-  return { safeUrl, splits, newsRows, metadata, renderNews, load, peek: ticker => loaded.get(ticker) };
+  return { safeUrl, splits, newsRows, newsListings, metadata, renderNews, load, peek: ticker => loaded.get(ticker) };
 });

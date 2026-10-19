@@ -31,6 +31,20 @@ function evidence() {
 }
 const treasury = { ok: true, rows: [{ date: '2026-10-16', year10: 4 }] };
 
+test('consensus scale reconciliation uses reviewed statement revenue, not an inconsistent original provider denominator', () => {
+  const input = evidence();
+  const corrected = structuredClone(input.responses.annual_income.rows);
+  input.responses.annual_income.rows[0].revenue = 0.6e9;
+  assert.equal(prepareSnapshot('TEST', input, treasury, null, null).reason, 'forecastCurrencyScaleUnverified');
+  const statementData = { annual: { income: corrected, balance: [], cashflow: [] },
+    quarterly: { income: input.responses.income.rows, balance: input.responses.balance.rows,
+      cashflow: input.responses.cashflow.rows } };
+  const snapshot = prepareSnapshot('TEST', input, treasury, null, null, { statementData });
+  assert.notEqual(snapshot.reason, 'forecastCurrencyScaleUnverified');
+  assert.ok(snapshot.forecasts?.length || snapshot.defaults, 'Reviewed revenue allows genuine consensus anchors');
+  assert.equal(input.responses.annual_income.rows[0].revenue, 0.6e9, 'Original evidence is preserved');
+});
+
 test('corporate FCFF uses the same sourced issuer-wide denominator as the HK market and liquidation paths', () => {
   const shareSource = { shares: 261600.381459, date: '2026-09-30', filingDate: '2026-09-30',
     basis: 'commonSharesOutstandingExcludingTreasury', scope: 'issuerWideOrdinaryShares' };

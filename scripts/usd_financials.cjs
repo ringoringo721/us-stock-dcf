@@ -43,10 +43,104 @@ function total(rows, field, type) {
   const sum = values.reduce((a, b) => a + b, 0);
   return /^weightedAverageShs/.test(field) ? sum / 4 : sum;
 }
-const ratio = (a, b, scale = 1) => a === null || b === null || b === 0 ? null : a / b * scale;
+const ratio = (a, b, scale = 1) => {
+  const result = Number.isFinite(a) && Number.isFinite(b) && b !== 0 ? a / b * scale : null;
+  return Number.isFinite(result) ? result : null;
+};
+const balanceRatioFields = ['pb_trailing', 'current_ratio', 'cash_to_assets', 'liab_to_assets', 'roe', 'roa'];
+
+function marketBalanceRatios(stock, data) {
+  const balance = [...data.annual.balance, ...data.quarterly.balance].sort((a, b) => a.date.localeCompare(b.date)).at(-1);
+  const returns = calculateReturns(data).at(-1);
+  const sources = { ...stock.marketRatioSources };
+  const metric = (numerator, denominator, basis, scale = 1) => {
+    let reason = !balance ? 'missingBalance' : balance.currencyConversion?.reason ? 'missingFx'
+      : !Number.isFinite(numerator) || !Number.isFinite(denominator) ? 'missingField'
+        : denominator === 0 ? 'zeroDenominator' : null;
+    const amount = reason ? null : ratio(numerator, denominator, scale);
+    if (!reason && amount === null) reason = 'invalidCalculation';
+    return { value: amount,
+      source: { basis, date: balance?.date || null, reason } };
+  };
+  const equity = value(balance, 'totalStockholdersEquity');
+  const ratios = {
+    pb_trailing: metric(Number.isFinite(stock.mcap) && stock.mcap > 0 ? stock.mcap : null,
+      equity === null ? null : equity / 1e6, 'marketCapOverReportedParentEquity'),
+    current_ratio: metric(value(balance, 'totalCurrentAssets'), value(balance, 'totalCurrentLiabilities'),
+      'reportedCurrentAssetsOverCurrentLiabilities'),
+    cash_to_assets: metric(value(balance, 'cashAndShortTermInvestments'), value(balance, 'totalAssets'),
+      'reportedCashAndShortTermInvestmentsOverAssets', 100),
+    liab_to_assets: metric(value(balance, 'totalLiabilities'), value(balance, 'totalAssets'),
+      'reportedLiabilitiesOverAssets', 100)
+  };
+  ratios.pb_trailing.source.bookEquity = equity;
+  ratios.pb_trailing.source.preferredEquityDeducted = false;
+  const output = {};
+  for (const [field, result] of Object.entries(ratios)) {
+    output[field] = result.value;
+    sources[field === 'pb_trailing' ? 'pb' : field] = result.source;
+  }
+  for (const field of ['roe', 'roa']) {
+    const result = returns?.ratios[field];
+    output[field] = result?.value ?? null;
+    sources[field] = { basis: field === 'roe' ? 'ttmNetIncomeOverBeginningParentEquity'
+      : 'ttmNetIncomeOverBeginningAssets', date: returns?.date || null,
+      reason: result?.reason || (result ? null : 'missingPeriod'), warnings: result?.warnings || [] };
+  }
+  output.marketRatioSources = sources;
+  return output;
+}
+
+function updateRatioBlocks(text, updates) {
+  const starts = [...text.matchAll(/\n  "([^"]+)": \{/g)];
+  if (starts.length !== Object.keys(updates).length) throw new Error('Incomplete market-ratio output');
+  const end = text.lastIndexOf('\n}');
+  const chunks = [text.slice(0, starts[0].index)];
+  for (const [i, match] of starts.entries()) {
+    const ticker = match[1], update = updates[ticker];
+    if (!update) throw new Error(`Missing market ratios for ${ticker}`);
+    let block = text.slice(match.index, starts[i + 1]?.index ?? end);
+    for (const field of balanceRatioFields) {
+      const pattern = new RegExp(`^(    "${field}": )[^\\n]+`, 'm');
+      if (!pattern.test(block)) throw new Error(`${ticker}: missing ${field}`);
+      block = block.replace(pattern, (_, prefix) => `${prefix}${JSON.stringify(update[field])},`);
+    }
+    const metadata = `    "marketRatioSources": ${JSON.stringify(update.marketRatioSources, null, 2).replace(/\n/g, '\n    ')},`;
+    const existing = /^    "marketRatioSources": \{[\s\S]*?^    \},/m;
+    if (existing.test(block)) block = block.replace(existing, () => metadata);
+    else {
+      if (!/^    "name":/m.test(block)) throw new Error(`${ticker}: missing record boundary`);
+      block = block.replace(/^    "name":/m, () => `${metadata}\n    "name":`);
+    }
+    chunks.push(block);
+  }
+  chunks.push(text.slice(end));
+  return chunks.join('');
+}
+
+function refreshMarketRatios(root) {
+  const market = JSON.parse(fs.readFileSync(path.join(root, 'full_market_dcf.json'), 'utf8'));
+  const rates = JSON.parse(fs.readFileSync(path.join(root, 'cache', 'fx', 'usd_rates.json'), 'utf8'));
+  const updates = {};
+  for (const [ticker, stock] of Object.entries(market)) {
+    const source = JSON.parse(fs.readFileSync(path.join(root, 'cache', 'financials', `${ticker}_statements_v2.json`), 'utf8'));
+    updates[ticker] = marketBalanceRatios(stock, convertStatements(source, rates));
+  }
+  for (const file of ['full_market_dcf.json', 'market_data.js']) {
+    const target = path.join(root, file);
+    const original = fs.readFileSync(target, 'utf8');
+    const updated = updateRatioBlocks(original, updates);
+    if (updated === original) continue;
+    const temporary = `${target}.ratios-${process.pid}.tmp`;
+    fs.writeFileSync(temporary, updated);
+    fs.renameSync(temporary, target);
+  }
+  console.log(`Refreshed statement-backed balance/return ratios for ${Object.keys(updates).length} US listings; no DCF inputs changed.`);
+}
 
 function normalizeStock(stock, source, rates) {
   const data = convertStatements(source, rates);
+  const balanceMetrics = marketBalanceRatios(stock, data);
   const output = structuredClone(stock);
   const sorted = (period, type) => data[period][type].slice().sort((a, b) => a.date.localeCompare(b.date));
   const latest = type => sorted('quarterly', type).at(-1);
@@ -108,12 +202,11 @@ function normalizeStock(stock, source, rates) {
   const revenue = millions(flow('income', 'revenue'));
   const netIncome = millions(flow('income', 'netIncome'));
   const ebitda = millions(flow('income', 'ebitda'));
-  const equity = millions(balance('totalStockholdersEquity'));
   output.ev = output.net_debt === null ? null : output.mcap + output.net_debt;
   output.fmp_official_ev = output.ev;
   output.enterpriseValueBasis = 'USD market capitalization + USD debt - USD cash and short-term investments';
   output.pe_trailing = ratio(output.mcap, netIncome);
-  output.pb_trailing = ratio(output.mcap, equity);
+  output.pb_trailing = balanceMetrics.pb_trailing;
   output.pe_forward = output.pe_trailing === null ? null : output.pe_trailing * 0.88;
   output.pb_forward = output.pb_trailing === null ? null : output.pb_trailing * 0.9;
   output.ps_ratio = ratio(output.mcap, revenue);
@@ -124,12 +217,7 @@ function normalizeStock(stock, source, rates) {
   output.fcf_to_mcap = ratio(output.fcf0, output.mcap, 100);
   const dividends = flow('cashflow', 'dividendsPaid');
   output.div_yield = ratio(dividends === null ? null : -dividends / 1e6, output.mcap, 100);
-  const returns = calculateReturns(data).at(-1);
-  output.roe = returns.ratios.roe.value;
-  output.roa = returns.ratios.roa.value;
-  output.liab_to_assets = ratio(balance('totalLiabilities'), balance('totalAssets'), 100);
-  output.cash_to_assets = ratio(balance('cashAndShortTermInvestments'), balance('totalAssets'), 100);
-  output.current_ratio = ratio(balance('totalCurrentAssets'), balance('totalCurrentLiabilities'));
+  Object.assign(output, balanceMetrics);
   for (const [field, type, sourceField, negative] of [
     ['revenue', 'income', 'revenue'], ['net_income', 'income', 'netIncome'],
     ['gross_profit', 'income', 'grossProfit'], ['operating_income', 'income', 'operatingIncome'],
@@ -195,10 +283,12 @@ function main() {
   }
 }
 if (require.main === module) {
-  if (process.argv.includes('--statements')) {
+  if (process.argv.includes('--market-ratios')) {
+    refreshMarketRatios(path.join(__dirname, '..'));
+  } else if (process.argv.includes('--statements')) {
     const root = path.join(__dirname, '..');
     const rates = JSON.parse(fs.readFileSync(path.join(root, 'cache', 'fx', 'usd_rates.json'), 'utf8'));
     process.stdout.write(JSON.stringify(convertStatements(JSON.parse(fs.readFileSync(0, 'utf8')), rates)));
   } else main();
 }
-module.exports = { normalizeStock, value };
+module.exports = { normalizeStock, value, marketBalanceRatios, updateRatioBlocks };

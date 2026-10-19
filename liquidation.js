@@ -30,8 +30,11 @@
       return unavailable('missingFx');
     }
     const quote = snapshot.quote;
-    if (quote?.currency !== currency || !finite(quote.price) || quote.price <= 0
-        || !finite(quote.marketCap) || quote.marketCap <= 0) return unavailable('invalidShares');
+    const stale = quote?.availabilityReason === 'staleQuote';
+    if (stale && snapshot.shareBasis !== 'commonSharesOutstandingExcludingTreasury') return unavailable('staleQuote');
+    if (quote?.currency !== currency || (!stale || snapshot.shareBasis !== 'commonSharesOutstandingExcludingTreasury')
+        && (!finite(quote.price) || quote.price <= 0 || !finite(quote.marketCap) || quote.marketCap <= 0)) return unavailable('invalidShares');
+    if (stale) result.warnings.push('staleQuote');
     const shares = snapshot.shareBasis === 'commonSharesOutstandingExcludingTreasury'
       ? snapshot.sharesOutstanding : quote.marketCap / quote.price;
     if (!finite(shares) || shares <= 0) return unavailable('invalidShares');

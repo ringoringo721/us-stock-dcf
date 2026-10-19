@@ -40,6 +40,15 @@
   function unavailable(reason) {
     return { value: null, reason, warnings: [] };
   }
+  const periodLabel = (label, row, annual, stride) => {
+    if (row?.reportType === 'secondInterim') label = `${row.fiscalYear || row.calendarYear}I2`;
+    return row?.periodLength === null ? `${label} (?)`
+      : Number.isSafeInteger(row?.periodLength) && row.periodLength !== (annual ? 12 : stride * 3)
+        ? `${label} (${row.periodLength}M)` : label;
+  };
+  const timelineKeys = (keys, stride) => [...new Set([...keys,
+    ...Array.from({ length: Math.floor((keys.at(-1) - keys[0]) / stride) + 1 }, (_, i) => keys[0] + i * stride)
+  ])].sort((a, b) => a - b);
 
   function trend(values) {
     const valid = values.filter(value => typeof value === 'number' && Number.isFinite(value));
@@ -48,7 +57,8 @@
     const max = Math.max(...valid);
     const points = values.map((value, i) => typeof value === 'number' && Number.isFinite(value) ? {
       x: 4 + (values.length > 1 ? i / (values.length - 1) : 0.5) * 100,
-      y: max === min ? 16 : 4 + (max - value) / (max - min) * 24
+      y: max === min ? 16 : 4 + (max - value) / (max - min) * 24,
+      value
     } : null);
     const segments = [];
     for (const point of points) {
@@ -59,10 +69,32 @@
         segments[segments.length - 1].push(point);
       }
     }
+    const contiguous = segments.filter(segment => segment.length);
+    const strokes = [];
+    const color = value => value < 0 ? '#ef4444' : '#22c55e';
+    const append = (points, strokeColor) => {
+      const previous = strokes.at(-1);
+      if (previous?.color === strokeColor && previous.points.at(-1) === points[0]) {
+        previous.points.push(...points.slice(1));
+      } else strokes.push({ points, color: strokeColor });
+    };
+    for (const segment of contiguous) {
+      if (segment.length === 1) append(segment, color(segment[0].value));
+      for (let i = 1; i < segment.length; i++) {
+        const a = segment[i - 1], b = segment[i];
+        if (a.value < 0 && b.value > 0 || a.value > 0 && b.value < 0) {
+          const fraction = Math.abs(a.value) / (Math.abs(a.value) + Math.abs(b.value));
+          const zero = { x: a.x + (b.x - a.x) * fraction, y: a.y + (b.y - a.y) * fraction, value: 0 };
+          append([a, zero], color(a.value));
+          append([zero, b], color(b.value));
+        } else append([a, b], color(a.value < 0 || b.value < 0 ? -1 : 0));
+      }
+    }
     return {
-      segments: segments.filter(segment => segment.length),
+      segments: contiguous,
+      strokes,
       last: points.filter(Boolean).at(-1),
-      color: valid[valid.length - 1] >= valid[0] ? '#22c55e' : '#ef4444'
+      color: color(valid.at(-1))
     };
   }
 
@@ -95,6 +127,19 @@
 
   function calculateReturns(data, options = {}) {
     return calculateRatios(data, options, true);
+  }
+
+  function annualRoteHistory(data) {
+    const years = [...indexRows(data?.annual?.income || [], true).keys()];
+    if (!years.length) return [];
+    const latest = Math.max(...years);
+    const columns = new Map(calculateReturns(data, { period: 'annual', flow: 'single', balance: 'beginning' })
+      .map(column => [column.label, column]));
+    return Array.from({ length: 10 }, (_, index) => {
+      const year = latest - 9 + index, label = `FY ${year}`, column = columns.get(label);
+      return { year, label, date: column?.date || null,
+        ...(column?.ratios.rote || unavailable('missingPeriod')) };
+    });
   }
 
   function halfYearStatements(data) {
@@ -157,8 +202,7 @@
     };
     const keys = [...rows.keys()].sort((a, b) => a - b);
     if (!keys.length) return [];
-    return Array.from({ length: Math.floor((keys.at(-1) - keys[0]) / (annual ? 1 : stride)) + 1 },
-      (_, index) => keys[0] + index * (annual ? 1 : stride)).map(key => {
+    return timelineKeys(keys, annual ? 1 : stride).map(key => {
       const row = rows.get(key);
       const currency = row && typeof row.reportedCurrency === 'string' && /^[A-Z]{3}$/.test(row.reportedCurrency)
         ? row.reportedCurrency : null;
@@ -183,7 +227,7 @@
       };
       const year = annual ? key : Math.floor(key / 4);
       return {
-        label: context.label(key, annual, stride),
+        label: periodLabel(context.label(key, annual, stride), row, annual, stride),
         date: row?.date || null, currency, amounts,
         ratios: {
           currentRatio: ratio(amounts.currentAssets, amounts.currentLiabilities),
@@ -257,11 +301,10 @@
       && context.cadence(data, 'cashflow').frequency === 'semiannual'
       ? new Map(calculateEarnings(halfYearStatements(data), { period: 'quarterly', flow })
         .map(column => [column.date, column])) : null;
-    return Array.from({ length: Math.floor((keys.at(-1) - keys[0]) / (annual ? 1 : stride)) + 1 },
-      (_, i) => keys[0] + i * (annual ? 1 : stride)).map(key => {
+    return timelineKeys(keys, annual ? 1 : stride).map(key => {
       const end = income.get(key) || cashflow.get(key);
       const column = {
-        label: context.label(key, annual, stride),
+        label: periodLabel(context.label(key, annual, stride), end, annual, stride),
         date: end?.date || null, currency: end?.reportedCurrency || null, amounts: {}
       };
       for (const [metric, index, field] of [
@@ -277,6 +320,9 @@
         if (!annual && metric !== 'eps' && context.cadence(data, 'cashflow').frequency === 'annual') reason = 'annualCashflowOnly';
         else if (!annual && metric !== 'eps' && context.cadence(data, 'cashflow').stride !== stride) reason = 'cadenceMismatch';
         else if (rows.some(row => !row)) reason = count > 1 ? 'incompleteTtm' : 'missingPeriod';
+        else if (rows.some(row => row.periodLength === null
+            || !annual && flow === 'ttm' && row.periodLength !== undefined && row.periodLength !== stride * 3)) reason = 'invalidPeriodLength';
+        else if (new Set(rows.map(row => row.comparabilityGroup).filter(Boolean)).size > 1) reason = 'accountingBasisMismatch';
         else if (rows.some((row, i) => i > 0 && (
           (Date.parse(row.date) - Date.parse(rows[i - 1].date)) / dayMs < minDays
           || (Date.parse(row.date) - Date.parse(rows[i - 1].date)) / dayMs > maxDays
@@ -291,9 +337,10 @@
         else if (!sameCurrency(rows) || rows.some(row => row.reportedCurrency !== column.currency)) reason = 'currencyMismatch';
         else if (rows.some(row => numeric(row[field]) === null)) reason = 'missingField';
         if (metric === 'eps' && !annual && flow === 'ttm' && stride === 2 && reason === 'missingField'
-            && end?.period === 'Q4' && end.derivation === 'annualMinusReportedH1') {
+            && end?.period === 'Q4' && ['annualMinusReportedH1', 'officialAnnualMinusOfficialH1'].includes(end.derivation)) {
           const reported = annualIncome.get(Math.floor(key / 4));
-          if (reported?.date === end.date && reported.reportedCurrency === column.currency
+          if (reported?.date === end.date && (reported.periodLength === undefined || reported.periodLength === 12)
+              && reported.reportedCurrency === column.currency
               && !reported.currencyConversion?.reason && numeric(reported.epsDiluted) !== null
               && (!reported.periodStartDate || !rows[0].periodStartDate || reported.periodStartDate === rows[0].periodStartDate)) {
             column.amounts[metric] = { value: numeric(reported.epsDiluted), reason: null, warnings: [],
@@ -367,12 +414,16 @@
       const end = flows.get(key);
       const labelRow = end || income.get(key);
       const year = annual ? key : Math.floor(key / 4);
-      const label = context.label(key, annual, stride);
+      const label = periodLabel(context.label(key, annual, stride), labelRow, annual, stride);
       const column = { label, date: labelRow ? labelRow.date : '', ratios: {} };
       const window = Array.from({ length: windowSize }, (_, i) => flows.get(key - (windowSize - 1 - i) * (annual ? 1 : stride)));
       let issue = null;
       if (!annual && !returns && context.cadence(data, 'cashflow').frequency === 'annual') issue = 'annualCashflowOnly';
       else if (window.some(row => !row)) issue = windowSize > 1 ? 'incompleteTtm' : missingNumerator;
+      else if (window.some(row => row.periodLength === null
+          || (!annual && flow === 'ttm' || annual && returns)
+          && row.periodLength !== undefined && row.periodLength !== (annual ? 12 : stride * 3))) issue = 'invalidPeriodLength';
+      else if (new Set(window.map(row => row.comparabilityGroup).filter(Boolean)).size > 1) issue = 'accountingBasisMismatch';
       else if (window.some((row, i) => i > 0 && (
         (Date.parse(row.date) - Date.parse(window[i - 1].date)) / dayMs < minDays
         || (Date.parse(row.date) - Date.parse(window[i - 1].date)) / dayMs > maxDays
@@ -398,6 +449,9 @@
           });
           if (rows.some(row => !row)) issue = 'missingIncome';
           else if (rows.some((row, i) => row.date !== window[i].date)) issue = 'dateMismatch';
+          else if (rows.some((row, i) => row.periodLength === null || window[i].periodLength === null
+              || row.periodLength !== undefined && window[i].periodLength !== undefined
+              && row.periodLength !== window[i].periodLength)) issue = 'invalidPeriodLength';
           else if (rows.some(row => row.currencyConversion?.reason)) issue = 'missingFx';
           else {
             denominatorValues = rows.map(row => numeric(row[incomeFields[metric]]));
@@ -562,9 +616,10 @@
       }
       const trendHeading = element('th', labels.fcf_trend, 'fcf-trend-col');
       trendHeading.scope = 'col';
+      trendHeading.title = labels.fcf_trend_sign_note;
       heading.append(trendHeading);
       head.append(heading);
-      const explanations = new Set();
+      const explanations = new Set([labels.fcf_trend_sign_note]);
       for (const metric of selected) {
         const row = element('tr');
         const name = element('th', labels[`${kind}_${metric}`], 'table-sticky-col');
@@ -592,15 +647,15 @@
           svg.setAttribute('viewBox', '0 0 108 32');
           svg.setAttribute('class', 'spark-line-svg');
           svg.setAttribute('role', 'img');
-          svg.setAttribute('aria-label', `${labels[`${kind}_${metric}`]} ${labels.fcf_trend}`);
+          svg.setAttribute('aria-label', `${labels[`${kind}_${metric}`]} ${labels.fcf_trend}. ${labels.fcf_trend_sign_note}`);
           const title = document.createElementNS(ns, 'title');
-          title.textContent = columns.map((column, i) => `${column.label}: ${values[i] === null ? 'N/A' : values[i].toFixed(2) + '%'}`).join('; ');
+          title.textContent = labels.fcf_trend_sign_note + ' ' + columns.map((column, i) => `${column.label}: ${values[i] === null ? 'N/A' : values[i].toFixed(2) + '%'}`).join('; ');
           svg.append(title);
-          for (const segment of chart.segments) {
+          for (const segment of chart.strokes) {
             const line = document.createElementNS(ns, 'path');
-            line.setAttribute('d', segment.map((point, i) => `${i ? 'L' : 'M'} ${point.x} ${point.y}`).join(' '));
+            line.setAttribute('d', segment.points.map((point, i) => `${i ? 'L' : 'M'} ${point.x} ${point.y}`).join(' '));
             line.setAttribute('fill', 'none');
-            line.setAttribute('stroke', chart.color);
+            line.setAttribute('stroke', segment.color);
             line.setAttribute('stroke-width', '2');
             line.setAttribute('stroke-linecap', 'round');
             svg.append(line);
@@ -628,5 +683,5 @@
     }
   }
 
-  return { calculate, fcfToEquity, storedTtmFcfToEquity, calculateReturns, calculateBalances, calculateEarnings, halfYearStatements, loadStatements, financialReference, trend, render, renderReturns };
+  return { calculate, fcfToEquity, storedTtmFcfToEquity, calculateReturns, annualRoteHistory, calculateBalances, calculateEarnings, halfYearStatements, loadStatements, financialReference, trend, render, renderReturns };
 });

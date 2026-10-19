@@ -34,6 +34,7 @@ const translatedArticle = articles.find(article => Object.hasOwn(savedTranslatio
         }) });
     });
     await page.setContent('<base href="http://company-news.test/"><div id="news"></div>');
+    await page.addScriptTag({ path: path.resolve(__dirname, '..', 'fmp_cache.js') });
     await page.addScriptTag({ path: path.resolve(__dirname, '..', 'company_data.js') });
     const render = language => page.evaluate(async ({ articles, language }) =>
       CompanyData.renderNews(document.getElementById('news'), 'AAPL', articles, language), { articles, language });
@@ -44,7 +45,7 @@ const translatedArticle = articles.find(article => Object.hasOwn(savedTranslatio
     await page.waitForFunction(() => document.querySelectorAll('#news article').length === 3);
     assert.deepEqual(pages, [0, 1]);
     assert.match(await page.locator('#news').innerText(), /3 articles loaded/);
-    assert.equal(await page.locator('#news button').isVisible(), false);
+    assert.equal(await page.locator('#news [data-news-more]').isVisible(), false);
     for (const anchor of await page.locator('#news article a').all()) {
       assert.match(await anchor.getAttribute('href'), /^https?:\/\//);
       assert.equal(await anchor.getAttribute('rel'), 'noopener noreferrer');
@@ -78,6 +79,48 @@ const translatedArticle = articles.find(article => Object.hasOwn(savedTranslatio
     assert.match(await page.locator('[data-news-language]').innerText(), /NEWS_TRANSLATION_HTTP_503/);
     assert.deepEqual(await page.locator('#news article a').allTextContents(), articles.map(article => article.title));
     assert.deepEqual(errors, []);
+    const hk = await browser.newPage(), requests = [];
+    let release = null, hold = false;
+    await hk.route('http://hk-company-news.test/**', async route => {
+      const u = new URL(route.request().url());
+      if (u.pathname === '/cache/news_translations.json') return route.fulfill({ json: savedTranslations });
+      if (!u.pathname.startsWith('/api/')) return route.fulfill({ contentType: 'text/html', body: '<div id="news"></div>' });
+      const symbol = u.searchParams.get('symbol'), number = Number(u.searchParams.get('page'));
+      requests.push({ symbol, page: number });
+      if (hold && symbol === 'HKXCY') await new Promise(resolve => { release = resolve; });
+      const data = symbol === 'HKXCY' ? (number ? articles.slice(1) : articles.slice(0, 2))
+        .map(row => ({ ...row, symbol })) : [];
+      return route.fulfill({ json: { data, page: number, hasMore: symbol === 'HKXCY' && number === 0,
+        source: { symbol, provider: 'FMP', capturedAt: '2026-10-17T00:00:00Z' } } });
+    });
+    await hk.goto('http://hk-company-news.test/');
+    for (const name of ['fmp_cache.js', 'company_data.js']) await hk.addScriptTag({ path: path.resolve(__dirname, '..', name) });
+    await hk.evaluate(() => CompanyData.renderNews(document.getElementById('news'), '0388.HK', [], 'en'));
+    assert.deepEqual(requests.map(row => row.symbol), ['0388.HK'], 'Empty HK coverage never automatically substitutes an ADR');
+    assert.match(await hk.locator('#news').innerText(), /no company news/);
+    await hk.selectOption('[data-news-listing-select]', 'HKXCY');
+    await hk.waitForFunction(() => document.querySelectorAll('#news article').length === 2);
+    assert.match(await hk.locator('[data-news-listing]').innerText(), /Same issuer, different listing: HKXCY/);
+    assert.match(await hk.locator('#news article').first().innerText(), /HKXCY/);
+    await hk.getByRole('button', { name: 'Load more FMP company news' }).click();
+    await hk.waitForFunction(() => document.querySelectorAll('#news article').length === 3);
+    const beforeLanguage = requests.length;
+    await hk.evaluate(() => CompanyData.renderNews(document.getElementById('news'), '0388.HK', [], 'zh'));
+    assert.equal(await hk.locator('[data-news-listing-select]').inputValue(), 'HKXCY', 'Language changes preserve the explicitly chosen listing');
+    assert.equal(requests.length, beforeLanguage, 'Listing responses reuse the persistent cache');
+    await assert.rejects(() => hk.evaluate(() =>
+      CompanyData.renderNews(document.getElementById('news'), '0388.HK', [], 'en', 'AAPL')), /UNVERIFIED_NEWS_LISTING/);
+    hold = true;
+    const started = hk.waitForRequest(request => request.url().includes('symbol=HKXCY'));
+    await hk.getByRole('button', { name: '重新查詢 FMP 新聞' }).click();
+    await started;
+    await hk.evaluate(() => CompanyData.renderNews(document.getElementById('news'), '0939.HK', [], 'en'));
+    while (!release) await new Promise(resolve => setImmediate(resolve));
+    release();
+    await hk.waitForLoadState('networkidle');
+    assert.equal(await hk.locator('[data-news-listing-select]').inputValue(), '0939.HK');
+    assert.equal(await hk.locator('#news article').count(), 0, 'A delayed old-listing response cannot overwrite the next issuer');
     console.log('Company news browser PASS: actual captured articles, pagination, deduplication, safe links, dated archive fallback and explicit API errors.');
+    console.log('HK listing browser PASS (routing fixtures): explicit same-issuer selection, original-symbol provenance, language persistence, cached pagination and stale-response protection.');
   } finally { await browser.close(); }
 })().catch(error => { console.error(error); process.exitCode = 1; });

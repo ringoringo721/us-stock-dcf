@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "coverage": "property_fv_coverage.json",
+  "limitation": "This is an isolated-tag coverage review, not certification that untagged companies have zero property FV movements. No candidate tag is applied automatically.",
+  "candidates": {
+    "T": "Benefit-plan real-estate asset fair-value disclosures, not a consolidated investment-property P&L adjustment.",
+    "JPM": "Mortgage servicing-rights cash-flow realization, not investment-property FV.",
+    "BAC": "Fair value of real-estate-backed financial instruments, not investment-property FV.",
+    "AFL": "Real-estate-owned asset fair-value disclosure; not an isolated current-period investment-property P&L movement.",
+    "PLD": "Combined property dispositions and equity-investment revaluation upon control acquisition, not an isolated investment-property FV movement.",
+    "ASR": {
+      "decision": "EXCLUDE_BALANCE_AND_SENSITIVITIES_NOT_PNL",
+      "document": "2025 Form 20-F, filed 2026-04-16, consolidated financial statements F-9/F-10 and F-28/F-29",
+      "url": "https://www.sec.gov/Archives/edgar/data/1123452/000110465926044448/asurb-20251231x20f.htm",
+      "sha256": "b4821dfdf85dd5de5f61eef6b3ecbf03a174a9ed4069bc24b221a70c3bbe056a",
+      "explanation": "The MXN2,824,478,000 candidate is the closing IAS40 fair-value component of acquired airport commercial-property rights, not a profit-and-loss gain. The note reconciles acquisition value MXN2,855,384,000 less FX MXN30,906,000 to that closing balance. Separate increase/decrease discount-rate tags are sensitivity cases, not actual results. The acquisition allocation and balance roll-forward must not be subtracted from earnings or added to CFO."
+    }
+  }
+}

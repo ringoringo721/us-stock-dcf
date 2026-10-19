@@ -81,7 +81,9 @@ async function checkTable(page, ticker, options, prefix = 'fcf-ratio') {
     const spark = trend(columns.map(column => column.ratios[metric].value));
     assert.equal(await row.locator('.fcf-trend-col svg').count(), spark ? 1 : 0);
     if (spark) {
-      assert.equal(await row.locator('.fcf-trend-col path').count(), spark.segments.length);
+      assert.equal(await row.locator('.fcf-trend-col path').count(), spark.strokes.length);
+      assert.deepEqual(await row.locator('.fcf-trend-col path').evaluateAll(paths => paths.map(path => path.getAttribute('stroke'))),
+        spark.strokes.map(stroke => stroke.color));
       assert.equal(await row.locator('.fcf-trend-col circle').getAttribute('fill'), spark.color);
     }
   }
@@ -140,7 +142,7 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
     assert.equal(await page.locator('#screener-tbody tr').count(), stockCount);
     assert.ok((await page.locator('#stat-total').innerText()).includes(String(stockCount)));
     const initialTickers = await page.locator('#screener-tbody .ticker-link').allTextContents();
-    for (const [preset, count] of [['overview', 9], ['valuation', 18], ['financial', 20], ['all', 36]]) {
+    for (const [preset, count] of [['overview', 7], ['valuation', 18], ['financial', 20], ['all', 36]]) {
       await page.selectOption('#screener-columns', preset);
       assert.equal(await page.locator('#screener-table thead th:visible').count(), count);
       assert.equal(await page.locator('#screener-tbody tr').first().locator('td:visible').count(), count);
@@ -275,7 +277,7 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
       return {
         background, stickyBackground: getComputedStyle(row.cells[0]).backgroundColor,
         border: getComputedStyle(cell).boxShadow, cursor: getComputedStyle(cell).cursor,
-        normal: getComputedStyle(row.nextElementSibling.cells[16]).backgroundColor
+        normal: getComputedStyle(row.nextElementSibling.cells[cell.cellIndex]).backgroundColor
       };
     });
     assert.equal(hoverStyles.background, 'rgb(219, 234, 254)');

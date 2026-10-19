@@ -56,6 +56,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-07-26",
+        "reason": null,
+        "bookEquity": 228984000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-07-26",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-07-26",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-07-26",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-07-26",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-07-26",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "NVIDIA",
     "company_name": "NVIDIA Corporation",
     "exchange": "NASDAQ",
@@ -3192,17 +3228,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 26.8,
     "pe_forward": 23.6,
-    "pb_trailing": 22.5,
+    "pb_trailing": 22.53665321594522,
     "pb_forward": 20.2,
     "div_yield": 0.13,
     "ps_ratio": 10.2,
     "fcf_to_ev": 6.45,
     "fcf_to_mcap": 2.46,
-    "liab_to_assets": 28.5,
-    "cash_to_assets": 31.0,
-    "current_ratio": 4.59,
-    "roe": 84.2,
-    "roa": 60.2,
+    "liab_to_assets": 28.50327221861418,
+    "cash_to_assets": 31.02644002597792,
+    "current_ratio": 4.588949069016016,
+    "roe": 192.62665907660966,
+    "roa": 137.04632655961348,
     "moat": {
       "ticker": "NVDA",
       "period": "2027Q2",
@@ -3978,6 +4014,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-28",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-27",
+        "reason": null,
+        "bookEquity": 107520000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-27",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-27",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Apple",
@@ -7116,17 +7188,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 38.9,
     "pe_forward": 34.2,
-    "pb_trailing": 46.6,
+    "pb_trailing": 46.619392671130946,
     "pb_forward": 41.9,
     "div_yield": 0.31,
     "ps_ratio": 9.2,
     "fcf_to_ev": 5.95,
     "fcf_to_mcap": 2.73,
-    "liab_to_assets": 71.9,
-    "cash_to_assets": 16.3,
-    "current_ratio": 1.0,
-    "roe": 119.9,
-    "roa": 33.6,
+    "liab_to_assets": 71.94637666790167,
+    "cash_to_assets": 16.280859768411496,
+    "current_ratio": 1.0032948046555858,
+    "roe": 195.85295457997873,
+    "roa": 38.893497639481744,
     "moat": {
       "ticker": "AAPL",
       "period": "2026Q3",
@@ -7896,6 +7968,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 442387000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Microsoft",
@@ -11034,17 +11142,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 29.4,
     "pe_forward": 25.9,
-    "pb_trailing": 8.9,
+    "pb_trailing": 8.880204888479996,
     "pb_forward": 8.0,
     "div_yield": 0.67,
     "ps_ratio": 14.7,
     "fcf_to_ev": 5.06,
     "fcf_to_mcap": 1.71,
-    "liab_to_assets": 41.7,
-    "cash_to_assets": 10.1,
-    "current_ratio": 1.23,
-    "roe": 30.2,
-    "roa": 17.6,
+    "liab_to_assets": 41.66653480595377,
+    "cash_to_assets": 10.132572760741374,
+    "current_ratio": 1.2303272619576484,
+    "roe": 38.93949848462351,
+    "roa": 21.607165070282374,
     "moat": {
       "ticker": "MSFT",
       "period": "2026Q4",
@@ -11838,6 +11946,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-08-03",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-08-02",
+        "reason": null,
+        "bookEquity": 99690000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-08-02",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-08-02",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-08-02",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-08-02",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-08-02",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Broadcom",
@@ -14976,17 +15120,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 41.0,
     "pe_forward": 36.1,
-    "pb_trailing": 15.7,
+    "pb_trailing": 15.742108536463036,
     "pb_forward": 14.1,
     "div_yield": 0.77,
     "ps_ratio": 10.0,
     "fcf_to_ev": 5.42,
     "fcf_to_mcap": 2.51,
-    "liab_to_assets": 47.0,
-    "cash_to_assets": 12.7,
-    "current_ratio": 2.5,
-    "roe": 38.4,
-    "roa": 20.3,
+    "liab_to_assets": 47.015115759933664,
+    "cash_to_assets": 12.742628143801687,
+    "current_ratio": 2.503743161531817,
+    "roe": 52.219659647638416,
+    "roa": 23.103954208705417,
     "moat": {
       "ticker": "AVGO",
       "period": "2026Q3",
@@ -15732,6 +15876,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-08-31",
           "reason": "nonPositivePrior"
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-08-31",
+        "reason": null,
+        "bookEquity": 66772000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-08-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-08-31",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Oracle",
@@ -18865,17 +19045,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 20.5,
     "pe_forward": 18.0,
-    "pb_trailing": 5.8,
+    "pb_trailing": 5.8063784220930925,
     "pb_forward": 5.2,
     "div_yield": 1.53,
     "ps_ratio": 6.6,
     "fcf_to_ev": 5.65,
     "fcf_to_mcap": 3.8,
-    "liab_to_assets": 77.8,
-    "cash_to_assets": 12.2,
-    "current_ratio": 1.17,
-    "roe": 28.3,
-    "roa": 6.2,
+    "liab_to_assets": 77.8420426104419,
+    "cash_to_assets": 12.226182899765547,
+    "current_ratio": 1.1708128130656228,
+    "roe": 78.33071126935496,
+    "roa": 10.48495696845092,
     "moat": {
       "ticker": "ORCL",
       "period": "2027Q1",
@@ -19675,6 +19855,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-07-31",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "bookEquity": 38378000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Salesforce",
@@ -22812,17 +23028,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 20.5,
     "pe_forward": 18.0,
-    "pb_trailing": 5.2,
+    "pb_trailing": 5.161709833758924,
     "pb_forward": 4.7,
     "div_yield": 0.76,
     "ps_ratio": 3.3,
     "fcf_to_ev": 5.36,
     "fcf_to_mcap": 7.65,
-    "liab_to_assets": 65.0,
-    "cash_to_assets": 10.4,
-    "current_ratio": 0.84,
-    "roe": 25.2,
-    "roa": 8.8,
+    "liab_to_assets": 64.98996533479293,
+    "cash_to_assets": 10.402298850574713,
+    "current_ratio": 0.8385100243013366,
+    "roe": 15.754630837464129,
+    "roa": 9.902329537884457,
     "moat": {
       "ticker": "CRM",
       "period": "2027Q2",
@@ -23568,6 +23784,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-28",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-27",
+        "reason": null,
+        "bookEquity": 67224000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-27",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-27",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "AMD",
@@ -26706,17 +26958,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 134.2,
     "pe_forward": 118.1,
-    "pb_trailing": 12.8,
+    "pb_trailing": 12.840223729620373,
     "pb_forward": 11.5,
     "div_yield": 0.0,
     "ps_ratio": 25.7,
     "fcf_to_ev": 8.4,
     "fcf_to_mcap": 0.97,
-    "liab_to_assets": 20.4,
-    "cash_to_assets": 15.5,
-    "current_ratio": 2.61,
-    "roe": 9.6,
-    "roa": 7.6,
+    "liab_to_assets": 20.41106270126918,
+    "cash_to_assets": 15.52258950558818,
+    "current_ratio": 2.6092210909692906,
+    "roe": 10.78354143970502,
+    "roa": 8.59930499866346,
     "moat": {
       "ticker": "AMD",
       "period": "2026Q2",
@@ -27492,6 +27744,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-07-26",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-07-25",
+        "reason": null,
+        "bookEquity": 50285000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-07-25",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-07-25",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-07-25",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-07-25",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-07-25",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Cisco Systems",
@@ -30630,17 +30918,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 31.9,
     "pe_forward": 28.1,
-    "pb_trailing": 8.4,
+    "pb_trailing": 8.41989460077558,
     "pb_forward": 7.6,
     "div_yield": 1.53,
     "ps_ratio": 7.8,
     "fcf_to_ev": 5.81,
     "fcf_to_mcap": 3.21,
-    "liab_to_assets": 61.2,
-    "cash_to_assets": 12.3,
-    "current_ratio": 0.93,
-    "roe": 26.4,
-    "roa": 10.2,
+    "liab_to_assets": 61.21091972199295,
+    "cash_to_assets": 12.278901856723005,
+    "current_ratio": 0.9311258278145695,
+    "roe": 28.32226800162244,
+    "roa": 10.848713314961854,
     "moat": {
       "ticker": "CSCO",
       "period": "2026Q4",
@@ -31434,6 +31722,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-08-31",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-08-31",
+        "reason": null,
+        "bookEquity": 31567256000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-08-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-08-31",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Accenture",
@@ -34572,17 +34896,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 16.7,
     "pe_forward": 14.7,
-    "pb_trailing": 4.5,
+    "pb_trailing": 4.452426907172419,
     "pb_forward": 4.0,
     "div_yield": 2.84,
     "ps_ratio": 3.0,
     "fcf_to_ev": 5.93,
     "fcf_to_mcap": 8.27,
-    "liab_to_assets": 54.8,
-    "cash_to_assets": 17.4,
-    "current_ratio": 1.43,
-    "roe": 26.6,
-    "roa": 11.4,
+    "liab_to_assets": 54.81234545732024,
+    "cash_to_assets": 17.44314421823959,
+    "current_ratio": 1.4271254597864975,
+    "roe": 26.930869973777583,
+    "roa": 12.846881615242852,
     "moat": {
       "ticker": "ACN",
       "period": "2026Q4",
@@ -35321,6 +35645,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-08-29",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-08-28",
+        "reason": null,
+        "bookEquity": 11764000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-08-28",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-08-28",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-08-28",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-08-28",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-08-28",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Adobe",
@@ -38458,17 +38818,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 13.1,
     "pe_forward": 11.5,
-    "pb_trailing": 8.1,
+    "pb_trailing": 8.112189731383884,
     "pb_forward": 7.3,
     "div_yield": 0.0,
     "ps_ratio": 2.2,
     "fcf_to_ev": 6.26,
     "fcf_to_mcap": 11.46,
-    "liab_to_assets": 60.8,
-    "cash_to_assets": 18.8,
-    "current_ratio": 0.77,
-    "roe": 61.9,
-    "roa": 24.3,
+    "liab_to_assets": 60.76181581668389,
+    "cash_to_assets": 18.80857876655215,
+    "current_ratio": 0.7703566621803499,
+    "roe": 61.88615123194563,
+    "roa": 25.33212770397162,
     "moat": {
       "ticker": "ADBE",
       "period": "2026Q3",
@@ -39244,6 +39604,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-29",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-28",
+        "reason": null,
+        "bookEquity": 27658000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-28",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-28",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Qualcomm",
@@ -42382,17 +42778,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 19.8,
     "pe_forward": 17.4,
-    "pb_trailing": 6.6,
+    "pb_trailing": 6.644945404584568,
     "pb_forward": 5.9,
     "div_yield": 2.08,
     "ps_ratio": 4.4,
     "fcf_to_ev": 7.65,
     "fcf_to_mcap": 5.67,
-    "liab_to_assets": 51.8,
-    "cash_to_assets": 14.5,
-    "current_ratio": 2.02,
-    "roe": 33.5,
-    "roa": 16.1,
+    "liab_to_assets": 51.787613087663644,
+    "cash_to_assets": 14.475220945839942,
+    "current_ratio": 2.015596249890476,
+    "roe": 34.029181520820316,
+    "roa": 16.87689110859976,
     "moat": {
       "ticker": "QCOM",
       "period": "2026Q3",
@@ -43156,6 +43552,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 18007000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Texas Instruments",
@@ -46294,17 +46726,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 41.7,
     "pe_forward": 36.7,
-    "pb_trailing": 14.0,
+    "pb_trailing": 14.022030321541623,
     "pb_forward": 12.6,
     "div_yield": 2.02,
     "ps_ratio": 11.8,
     "fcf_to_ev": 6.94,
     "fcf_to_mcap": 2.12,
-    "liab_to_assets": 49.8,
-    "cash_to_assets": 19.5,
-    "current_ratio": 4.86,
-    "roe": 33.6,
-    "roa": 16.9,
+    "liab_to_assets": 49.81606376456162,
+    "cash_to_assets": 19.51117551975921,
+    "current_ratio": 4.85727496917386,
+    "roe": 36.895689812839116,
+    "roa": 17.32459279191595,
     "moat": {
       "ticker": "TXN",
       "period": "2026Q2",
@@ -47080,6 +47512,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 34452000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "IBM",
@@ -50218,17 +50686,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 20.4,
     "pe_forward": 18.0,
-    "pb_trailing": 6.3,
+    "pb_trailing": 6.348165563682805,
     "pb_forward": 5.7,
     "div_yield": 2.88,
     "ps_ratio": 4.0,
     "fcf_to_ev": 4.15,
     "fcf_to_mcap": 6.23,
-    "liab_to_assets": 77.3,
-    "cash_to_assets": 5.3,
-    "current_ratio": 0.79,
-    "roe": 31.1,
-    "roa": 7.1,
+    "liab_to_assets": 77.2904489838855,
+    "cash_to_assets": 5.346517728584672,
+    "current_ratio": 0.7907663176654043,
+    "roe": 38.98724053945981,
+    "roa": 7.218090655180537,
     "moat": {
       "ticker": "IBM",
       "period": "2026Q2",
@@ -51016,6 +51484,46 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-28",
           "reason": "nonPositivePrior"
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-27",
+        "reason": null,
+        "bookEquity": 87542000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-27",
+        "reason": null,
+        "warnings": [
+          "negativeNetIncome"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-27",
+        "reason": null,
+        "warnings": [
+          "negativeNetIncome"
+        ]
       }
     },
     "name": "Intel",
@@ -54154,17 +54662,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 24.0,
     "pe_forward": 21.1,
-    "pb_trailing": 5.4,
+    "pb_trailing": 5.425471202394279,
     "pb_forward": 4.9,
     "div_yield": 3.02,
     "ps_ratio": 41.9,
     "fcf_to_ev": 10.29,
     "fcf_to_mcap": 0.6,
-    "liab_to_assets": 49.0,
-    "cash_to_assets": 14.7,
-    "current_ratio": 1.6,
-    "roe": 18.0,
-    "roa": 8.0,
+    "liab_to_assets": 49.04983723492015,
+    "cash_to_assets": 14.684423455954635,
+    "current_ratio": 1.6039529015979814,
+    "roe": -11.533156932255856,
+    "roa": -5.86380635778101,
     "moat": {
       "ticker": "INTC",
       "period": "2026Q2",
@@ -54964,6 +55472,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-07-31",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "bookEquity": 18992000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Intuit",
@@ -58100,17 +58644,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 19.0,
     "pe_forward": 16.7,
-    "pb_trailing": 4.6,
+    "pb_trailing": 4.575179022746419,
     "pb_forward": 4.1,
     "div_yield": 1.55,
     "ps_ratio": 2.5,
     "fcf_to_ev": 4.52,
     "fcf_to_mcap": 9.92,
-    "liab_to_assets": 48.4,
-    "cash_to_assets": 19.6,
-    "current_ratio": 1.51,
-    "roe": 24.0,
-    "roa": 12.4,
+    "liab_to_assets": 48.371663132713536,
+    "cash_to_assets": 19.5726635132931,
+    "current_ratio": 1.5065433435009348,
+    "roe": 23.165905631659058,
+    "roa": 12.354564640943774,
     "moat": {
       "ticker": "INTU",
       "period": "2026Q4",
@@ -58868,6 +59412,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 12516000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "ServiceNow",
@@ -62000,17 +62580,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 87.9,
     "pe_forward": 77.4,
-    "pb_trailing": 11.7,
+    "pb_trailing": 11.727181208053691,
     "pb_forward": 10.5,
     "div_yield": 0.0,
     "ps_ratio": 8.0,
     "fcf_to_ev": 3.63,
     "fcf_to_mcap": 3.12,
-    "liab_to_assets": 60.5,
-    "cash_to_assets": 14.7,
-    "current_ratio": 0.7,
-    "roe": 13.3,
-    "roa": 5.3,
+    "liab_to_assets": 60.47495736752353,
+    "cash_to_assets": 14.72873113118171,
+    "current_ratio": 0.7005677610466552,
+    "roe": 15.276253201609952,
+    "roa": 7.57335268241803,
     "moat": {
       "ticker": "NOW",
       "period": "2026Q2",
@@ -62756,6 +63336,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-07-27",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-07-26",
+        "reason": null,
+        "bookEquity": 25626000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-07-26",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-07-26",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-07-26",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-07-26",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-07-26",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Applied Materials",
@@ -65894,17 +66510,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 35.1,
     "pe_forward": 30.9,
-    "pb_trailing": 12.7,
+    "pb_trailing": 12.67507609459143,
     "pb_forward": 11.4,
     "div_yield": 0.47,
     "ps_ratio": 14.4,
     "fcf_to_ev": 7.28,
     "fcf_to_mcap": 1.73,
-    "liab_to_assets": 41.1,
-    "cash_to_assets": 21.2,
-    "current_ratio": 2.42,
-    "roe": 36.2,
-    "roa": 21.3,
+    "liab_to_assets": 41.119433849547356,
+    "cash_to_assets": 21.214558154496576,
+    "current_ratio": 2.422998937916385,
+    "roe": 47.51333059885152,
+    "roa": 27.087778784601447,
     "moat": {
       "ticker": "AMAT",
       "period": "2026Q3",
@@ -66698,6 +67314,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-29",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-28",
+        "reason": null,
+        "bookEquity": 12470921000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-28",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-28",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Lam Research",
@@ -69836,17 +70488,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 45.5,
     "pe_forward": 40.0,
-    "pb_trailing": 26.5,
+    "pb_trailing": 26.485597976284186,
     "pb_forward": 23.9,
     "div_yield": 0.38,
     "ps_ratio": 16.9,
     "fcf_to_ev": 8.02,
     "fcf_to_mcap": 1.48,
-    "liab_to_assets": 47.0,
-    "cash_to_assets": 23.7,
-    "current_ratio": 2.63,
-    "roe": 58.3,
-    "roa": 30.9,
+    "liab_to_assets": 46.99933186690564,
+    "cash_to_assets": 23.711142956385032,
+    "current_ratio": 2.629282517879914,
+    "roe": 73.67346071674437,
+    "roa": 34.037514651964884,
     "moat": {
       "ticker": "LRCX",
       "period": "2026Q4",
@@ -70604,6 +71256,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-08-28",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-09-03",
+        "reason": null,
+        "bookEquity": 138378000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-09-03",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-09-03",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-09-03",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-09-03",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-09-03",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Micron Technology",
@@ -73742,17 +74430,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 11.7,
     "pe_forward": 10.3,
-    "pb_trailing": 7.2,
+    "pb_trailing": 7.185659570162887,
     "pb_forward": 6.5,
     "div_yield": 0.06,
     "ps_ratio": 4.7,
     "fcf_to_ev": 8.24,
     "fcf_to_mcap": 5.32,
-    "liab_to_assets": 29.4,
-    "cash_to_assets": 22.2,
-    "current_ratio": 3.31,
-    "roe": 61.4,
-    "roa": 43.4,
+    "liab_to_assets": 29.35861308502818,
+    "cash_to_assets": 22.172874295515804,
+    "current_ratio": 3.313805399898115,
+    "roe": 156.8706729437829,
+    "roa": 102.6220440107249,
     "moat": {
       "ticker": "MU",
       "period": "2026Q4",
@@ -74510,6 +75198,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 201962888540.03137,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "TSMC (台積電 ADR)",
@@ -78587,6 +79311,44 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": -4097135000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeEquity"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Fair Isaac",
     "company_name": "Fair Isaac Corporation",
     "exchange": "NYSE",
@@ -81718,17 +82480,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 20.4,
     "pe_forward": 18.0,
-    "pb_trailing": 5.0,
+    "pb_trailing": -4.0652553552665465,
     "pb_forward": 4.5,
     "div_yield": 0.0,
     "ps_ratio": 4.2,
     "fcf_to_ev": 4.32,
     "fcf_to_mcap": 5.98,
-    "liab_to_assets": 301.1,
-    "cash_to_assets": 12.2,
-    "current_ratio": 1.18,
-    "roe": 18.0,
-    "roa": 40.0,
+    "liab_to_assets": 301.0989151225623,
+    "cash_to_assets": 12.194330640486548,
+    "current_ratio": 1.183002746946756,
+    "roe": -58.32189580134044,
+    "roa": 43.77051196467498,
     "moat": {
       "ticker": "FICO",
       "period": "2026Q3",
@@ -82492,6 +83254,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-07-31",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "bookEquity": 3383000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Autodesk",
@@ -85629,17 +86427,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 30.5,
     "pe_forward": 26.8,
-    "pb_trailing": 14.8,
+    "pb_trailing": 14.820898610700562,
     "pb_forward": 13.3,
     "div_yield": 0.0,
     "ps_ratio": 4.4,
     "fcf_to_ev": 6.18,
     "fcf_to_mcap": 5.65,
-    "liab_to_assets": 73.9,
-    "cash_to_assets": 32.0,
-    "current_ratio": 0.86,
-    "roe": 48.5,
-    "roa": 12.6,
+    "liab_to_assets": 73.9428483401371,
+    "cash_to_assets": 32.00338904721559,
+    "current_ratio": 0.8554616777308389,
+    "roe": 60.47882136279926,
+    "roa": 15.125276344878408,
     "moat": {
       "ticker": "ADSK",
       "period": "2027Q2",
@@ -86403,6 +87201,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 3037231000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Tyler Technologies",
@@ -89534,17 +90368,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 45.5,
     "pe_forward": 40.0,
-    "pb_trailing": 4.9,
+    "pb_trailing": 4.8657807061761185,
     "pb_forward": 4.4,
     "div_yield": 0.0,
     "ps_ratio": 5.2,
     "fcf_to_ev": 4.42,
     "fcf_to_mcap": 4.83,
-    "liab_to_assets": 47.8,
-    "cash_to_assets": 16.7,
-    "current_ratio": 1.55,
-    "roe": 10.7,
-    "roa": 5.6,
+    "liab_to_assets": 47.7562347168077,
+    "cash_to_assets": 16.685685368179584,
+    "current_ratio": 1.5536587618076978,
+    "roe": 8.931107031263112,
+    "roa": 5.982872429735585,
     "moat": {
       "ticker": "TYL",
       "period": "2026Q2",
@@ -90308,6 +91142,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 526142000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "AppFolio",
@@ -93441,17 +94311,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 47.7,
     "pe_forward": 42.0,
-    "pb_trailing": 14.3,
+    "pb_trailing": 14.279605125612477,
     "pb_forward": 12.9,
     "div_yield": 0.0,
     "ps_ratio": 7.0,
     "fcf_to_ev": 3.52,
     "fcf_to_mcap": 3.58,
-    "liab_to_assets": 18.9,
-    "cash_to_assets": 34.2,
-    "current_ratio": 3.83,
-    "roe": 29.9,
-    "roa": 24.3,
+    "liab_to_assets": 18.851706816005034,
+    "cash_to_assets": 34.191072703745235,
+    "current_ratio": 3.831024245423058,
+    "roe": 34.57245317636937,
+    "roa": 27.762983276436675,
     "moat": {
       "ticker": "APPF",
       "period": "2026Q2",
@@ -94190,6 +95060,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 206243000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Clear Secure",
@@ -97328,17 +98234,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 30.6,
     "pe_forward": 26.9,
-    "pb_trailing": 21.9,
+    "pb_trailing": 21.9202591118244,
     "pb_forward": 19.7,
     "div_yield": 1.74,
     "ps_ratio": 2.2,
     "fcf_to_ev": 4.02,
     "fcf_to_mcap": 11.25,
-    "liab_to_assets": 84.6,
-    "cash_to_assets": 60.8,
-    "current_ratio": 1.04,
-    "roe": 71.7,
-    "roa": 9.4,
+    "liab_to_assets": 84.59367230722053,
+    "cash_to_assets": 60.7773269502234,
+    "current_ratio": 1.040329072547202,
+    "roe": 121.87837381221208,
+    "roa": 12.532372003471092,
     "moat": {
       "ticker": "YOU",
       "period": "2026Q2",
@@ -98077,6 +98983,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 1616199000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Itron",
@@ -101209,17 +102151,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 13.3,
     "pe_forward": 11.7,
-    "pb_trailing": 2.2,
+    "pb_trailing": 2.249784834664543,
     "pb_forward": 2.0,
     "div_yield": 0.0,
     "ps_ratio": 2.4,
     "fcf_to_ev": 6.56,
     "fcf_to_mcap": 10.54,
-    "liab_to_assets": 59.0,
-    "cash_to_assets": 18.7,
-    "current_ratio": 2.75,
-    "roe": 17.0,
-    "roa": 6.9,
+    "liab_to_assets": 58.98061972022845,
+    "cash_to_assets": 18.66084360157294,
+    "current_ratio": 2.746282068323807,
+    "roe": 16.98200219672871,
+    "roa": 7.560417775089355,
     "moat": {
       "ticker": "ITRI",
       "period": "2026Q2",
@@ -101958,6 +102900,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-07-31",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "bookEquity": 31152539000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Synopsys",
@@ -105094,17 +106072,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 80.9,
     "pe_forward": 71.2,
-    "pb_trailing": 2.8,
+    "pb_trailing": 2.796683763079472,
     "pb_forward": 2.5,
     "div_yield": 0.0,
     "ps_ratio": 7.8,
     "fcf_to_ev": 4.83,
     "fcf_to_mcap": 3.2,
-    "liab_to_assets": 34.7,
-    "cash_to_assets": 7.6,
-    "current_ratio": 1.34,
-    "roe": 3.5,
-    "roa": 2.3,
+    "liab_to_assets": 34.729063115626715,
+    "cash_to_assets": 7.559085445261029,
+    "current_ratio": 1.3369275361152388,
+    "roe": 3.8976472205883197,
+    "roa": 2.2316219926346648,
     "moat": {
       "ticker": "SNPS",
       "period": "2026Q3",
@@ -105856,6 +106834,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 2840600000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Broadridge Financial",
@@ -108991,17 +110005,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 17.6,
     "pe_forward": 15.5,
-    "pb_trailing": 7.0,
+    "pb_trailing": 6.959762022108006,
     "pb_forward": 6.3,
     "div_yield": 2.24,
     "ps_ratio": 3.8,
     "fcf_to_ev": 4.8,
     "fcf_to_mcap": 6.64,
-    "liab_to_assets": 68.2,
-    "cash_to_assets": 4.5,
-    "current_ratio": 1.24,
-    "roe": 39.6,
-    "roa": 12.6,
+    "liab_to_assets": 68.24477658658738,
+    "cash_to_assets": 4.504041228354555,
+    "current_ratio": 1.2355810008481765,
+    "roe": 42.347092497740285,
+    "roa": 13.158572264482155,
     "moat": {
       "ticker": "BR",
       "period": "2026Q4",
@@ -109740,6 +110754,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 6349820000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "KLA Corporation",
@@ -112878,17 +113928,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 44.8,
     "pe_forward": 39.4,
-    "pb_trailing": 34.1,
+    "pb_trailing": 34.06276083416538,
     "pb_forward": 30.7,
     "div_yield": 0.49,
     "ps_ratio": 14.4,
     "fcf_to_ev": 6.36,
     "fcf_to_mcap": 1.74,
-    "liab_to_assets": 64.6,
-    "cash_to_assets": 27.3,
-    "current_ratio": 2.88,
-    "roe": 76.1,
-    "roa": 26.9,
+    "liab_to_assets": 64.62798306662913,
+    "cash_to_assets": 27.309129832072855,
+    "current_ratio": 2.876190467341258,
+    "roe": 102.94766937463197,
+    "roa": 30.0646828968468,
     "moat": {
       "ticker": "KLAC",
       "period": "2026Q4",
@@ -113664,6 +114714,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-08-02",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-08-01",
+        "reason": null,
+        "bookEquity": 18531600000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-08-01",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-08-01",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-08-01",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-08-01",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-08-01",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Marvell Technology",
@@ -116802,17 +117888,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 75.6,
     "pe_forward": 66.5,
-    "pb_trailing": 10.8,
+    "pb_trailing": 10.766792937468972,
     "pb_forward": 9.7,
     "div_yield": 0.1,
     "ps_ratio": 28.8,
     "fcf_to_ev": 8.47,
     "fcf_to_mcap": 0.87,
-    "liab_to_assets": 32.7,
-    "cash_to_assets": 14.3,
-    "current_ratio": 3.17,
-    "roe": 14.2,
-    "roa": 9.6,
+    "liab_to_assets": 32.745893607600905,
+    "cash_to_assets": 14.272753006757494,
+    "current_ratio": 3.1683536707341466,
+    "roe": 19.668894402348435,
+    "roa": 12.82357684479484,
     "moat": {
       "ticker": "MRVL",
       "period": "2027Q2",
@@ -117564,6 +118650,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 6857963000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Cadence Design Systems",
@@ -120696,17 +121818,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 63.9,
     "pe_forward": 56.2,
-    "pb_trailing": 12.8,
+    "pb_trailing": 12.8304570905384,
     "pb_forward": 11.5,
     "div_yield": 0.0,
     "ps_ratio": 13.1,
     "fcf_to_ev": 5.07,
     "fcf_to_mcap": 1.91,
-    "liab_to_assets": 43.2,
-    "cash_to_assets": 11.9,
-    "current_ratio": 1.74,
-    "roe": 20.1,
-    "roa": 11.4,
+    "liab_to_assets": 43.2303104428068,
+    "cash_to_assets": 11.923876220217586,
+    "current_ratio": 1.7426545913604299,
+    "roe": 27.52388976174754,
+    "roa": 14.491931492618654,
     "moat": {
       "ticker": "CDNS",
       "period": "2026Q2",
@@ -121470,6 +122592,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 1551100000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Fortinet",
@@ -124608,17 +125766,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 58.5,
     "pe_forward": 51.5,
-    "pb_trailing": 80.0,
+    "pb_trailing": 80.00322351879312,
     "pb_forward": 72.0,
     "div_yield": 0.0,
     "ps_ratio": 10.0,
     "fcf_to_ev": 4.77,
     "fcf_to_mcap": 2.51,
-    "liab_to_assets": 85.7,
-    "cash_to_assets": 37.5,
-    "current_ratio": 1.28,
-    "roe": 136.7,
-    "roa": 19.5,
+    "liab_to_assets": 85.71625902460586,
+    "cash_to_assets": 37.47605716811552,
+    "current_ratio": 1.2824946289869443,
+    "roe": 102.92661619103087,
+    "roa": 19.92876877102637,
     "moat": {
       "ticker": "FTNT",
       "period": "2026Q2",
@@ -125370,6 +126528,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-07-31",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "bookEquity": 27492000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Palo Alto Networks",
@@ -128507,17 +129701,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 911.3,
     "pe_forward": 801.9,
-    "pb_trailing": 10.2,
+    "pb_trailing": 10.175905718027062,
     "pb_forward": 9.2,
     "div_yield": 0.0,
     "ps_ratio": 17.0,
     "fcf_to_ev": 4.05,
     "fcf_to_mcap": 1.47,
-    "liab_to_assets": 43.3,
-    "cash_to_assets": 6.3,
-    "current_ratio": 0.87,
-    "roe": 1.1,
-    "roa": 0.6,
+    "liab_to_assets": 43.26867519603797,
+    "cash_to_assets": 6.337185307470078,
+    "current_ratio": 0.8710067519903255,
+    "roe": 3.923623536629007,
+    "roa": 1.3021606535404349,
     "moat": {
       "ticker": "PANW",
       "period": "2026Q4",
@@ -129269,6 +130463,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-07-31",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "bookEquity": 5101724000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "CrowdStrike",
@@ -132407,17 +133637,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 3982.8,
     "pe_forward": 3504.9,
-    "pb_trailing": 45.6,
+    "pb_trailing": 45.6380039374925,
     "pb_forward": 41.0,
     "div_yield": 0.01,
     "ps_ratio": 37.0,
     "fcf_to_ev": 3.79,
     "fcf_to_mcap": 0.68,
-    "liab_to_assets": 57.3,
-    "cash_to_assets": 41.7,
-    "current_ratio": 1.57,
-    "roe": 1.1,
-    "roa": 0.5,
+    "liab_to_assets": 57.25967091395668,
+    "cash_to_assets": 41.69518987981789,
+    "current_ratio": 1.5701281896151602,
+    "roe": 1.5561612913530032,
+    "roa": 0.6293560920668513,
     "moat": {
       "ticker": "CRWD",
       "period": "2027Q2",
@@ -133163,6 +134393,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-07-31",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "bookEquity": 6460000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Workday",
@@ -136300,17 +137566,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 36.8,
     "pe_forward": 32.4,
-    "pb_trailing": 7.1,
+    "pb_trailing": 7.118452012383901,
     "pb_forward": 6.4,
     "div_yield": 0.0,
     "ps_ratio": 4.0,
     "fcf_to_ev": 4.47,
     "fcf_to_mcap": 6.18,
-    "liab_to_assets": 59.3,
-    "cash_to_assets": 21.5,
-    "current_ratio": 0.91,
-    "roe": 19.4,
-    "roa": 7.9,
+    "liab_to_assets": 59.260894242290476,
+    "cash_to_assets": 21.46055369868197,
+    "current_ratio": 0.9081089304731478,
+    "roe": 13.639337112952463,
+    "roa": 6.965091030566227,
     "moat": {
       "ticker": "WDAY",
       "period": "2027Q2",
@@ -137049,6 +138315,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 14797700000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Arista Networks",
@@ -140182,17 +141484,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 55.2,
     "pe_forward": 48.6,
-    "pb_trailing": 15.1,
+    "pb_trailing": 15.08414821222217,
     "pb_forward": 13.6,
     "div_yield": 0.0,
     "ps_ratio": 10.8,
     "fcf_to_ev": 5.98,
     "fcf_to_mcap": 2.31,
-    "liab_to_assets": 37.6,
-    "cash_to_assets": 56.3,
-    "current_ratio": 2.96,
-    "roe": 27.3,
-    "roa": 17.1,
+    "liab_to_assets": 37.615355753137635,
+    "cash_to_assets": 56.25313552641009,
+    "current_ratio": 2.9572040361375103,
+    "roe": 37.10097600352242,
+    "roa": 24.46202416808796,
     "moat": {
       "ticker": "ANET",
       "period": "2026Q2",
@@ -140944,6 +142246,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 15491600000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Amphenol",
@@ -144082,17 +145420,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 38.0,
     "pe_forward": 33.4,
-    "pb_trailing": 12.6,
+    "pb_trailing": 12.631006480931601,
     "pb_forward": 11.3,
     "div_yield": 0.52,
     "ps_ratio": 10.4,
     "fcf_to_ev": 5.43,
     "fcf_to_mcap": 2.41,
-    "liab_to_assets": 65.1,
-    "cash_to_assets": 12.1,
-    "current_ratio": 1.89,
-    "roe": 33.3,
-    "roa": 11.5,
+    "liab_to_assets": 65.13437752473966,
+    "cash_to_assets": 12.094423589381922,
+    "current_ratio": 1.8877728332273787,
+    "roe": 44.739697724688135,
+    "roa": 20.07799473282324,
     "moat": {
       "ticker": "APH",
       "period": "2026Q2",
@@ -144874,6 +146212,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-27",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-26",
+        "reason": null,
+        "bookEquity": 13246000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-26",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-26",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-26",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-26",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-26",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "TE Connectivity",
@@ -148012,17 +149386,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 20.4,
     "pe_forward": 18.0,
-    "pb_trailing": 4.6,
+    "pb_trailing": 4.647599275252906,
     "pb_forward": 4.1,
     "div_yield": 1.38,
     "ps_ratio": 4.2,
     "fcf_to_ev": 6.1,
     "fcf_to_mcap": 5.91,
-    "liab_to_assets": 48.6,
-    "cash_to_assets": 4.8,
-    "current_ratio": 1.88,
-    "roe": 22.8,
-    "roa": 11.6,
+    "liab_to_assets": 48.62677406981204,
+    "cash_to_assets": 4.752589182968929,
+    "current_ratio": 1.8761802575107296,
+    "roe": 24.35990630805266,
+    "roa": 12.129011501648838,
     "moat": {
       "ticker": "TEL",
       "period": "2026Q3",
@@ -148761,6 +150135,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 640480000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Alphabet (Class A)",
@@ -151899,17 +153309,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 17.0,
     "pe_forward": 15.0,
-    "pb_trailing": 6.5,
+    "pb_trailing": 6.465046059205596,
     "pb_forward": 5.9,
     "div_yield": 0.25,
     "ps_ratio": 19.4,
     "fcf_to_ev": 5.65,
     "fcf_to_mcap": 1.29,
-    "liab_to_assets": 30.5,
-    "cash_to_assets": 26.3,
-    "current_ratio": 2.72,
-    "roe": 38.1,
-    "roa": 26.5,
+    "liab_to_assets": 30.532341702612737,
+    "cash_to_assets": 26.299183390583124,
+    "current_ratio": 2.723981254609035,
+    "roe": 67.2896758478546,
+    "roa": 48.641278908800466,
     "moat": {
       "ticker": "GOOGL",
       "period": "2026Q2",
@@ -152661,6 +154071,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 640480000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Alphabet (Class C)",
@@ -155799,17 +157245,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 16.9,
     "pe_forward": 14.9,
-    "pb_trailing": 6.4,
+    "pb_trailing": 6.433280664501624,
     "pb_forward": 5.8,
     "div_yield": 0.25,
     "ps_ratio": 19.3,
     "fcf_to_ev": 5.61,
     "fcf_to_mcap": 1.29,
-    "liab_to_assets": 30.5,
-    "cash_to_assets": 26.3,
-    "current_ratio": 2.72,
-    "roe": 38.1,
-    "roa": 26.5,
+    "liab_to_assets": 30.532341702612737,
+    "cash_to_assets": 26.299183390583124,
+    "current_ratio": 2.723981254609035,
+    "roe": 67.2896758478546,
+    "roa": 48.641278908800466,
     "moat": {
       "ticker": "GOOG",
       "period": "2026Q2",
@@ -156561,6 +158007,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 261221000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Meta Platforms",
@@ -159699,17 +161181,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 26.5,
     "pe_forward": 23.3,
-    "pb_trailing": 6.9,
+    "pb_trailing": 6.917551804793642,
     "pb_forward": 6.2,
     "div_yield": 0.3,
     "ps_ratio": 11.0,
     "fcf_to_ev": 4.73,
     "fcf_to_mcap": 2.27,
-    "liab_to_assets": 41.9,
-    "cash_to_assets": 20.1,
-    "current_ratio": 2.23,
-    "roe": 26.1,
-    "roa": 15.1,
+    "liab_to_assets": 41.94521242077003,
+    "cash_to_assets": 20.059739174497064,
+    "current_ratio": 2.225562709519502,
+    "roe": 34.90951965960937,
+    "roa": 23.104117471432836,
     "moat": {
       "ticker": "META",
       "period": "2026Q2",
@@ -160448,6 +161930,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 30152052000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Netflix",
@@ -163586,17 +165104,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 21.5,
     "pe_forward": 18.9,
-    "pb_trailing": 9.7,
+    "pb_trailing": 9.74005682929971,
     "pb_forward": 8.7,
     "div_yield": 0.0,
     "ps_ratio": 6.7,
     "fcf_to_ev": 6.43,
     "fcf_to_mcap": 3.74,
-    "liab_to_assets": 48.4,
-    "cash_to_assets": 15.6,
-    "current_ratio": 1.14,
-    "roe": 45.3,
-    "roa": 23.4,
+    "liab_to_assets": 48.41432932901225,
+    "cash_to_assets": 15.616494664257537,
+    "current_ratio": 1.1416085244391836,
+    "roe": 54.70382033848406,
+    "roa": 25.70570314719882,
     "moat": {
       "ticker": "NFLX",
       "period": "2026Q2",
@@ -164354,6 +165872,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-28",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-27",
+        "reason": null,
+        "bookEquity": 110032000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-27",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-27",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Walt Disney",
@@ -167492,17 +169046,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 22.2,
     "pe_forward": 19.5,
-    "pb_trailing": 1.7,
+    "pb_trailing": 1.73481896175658,
     "pb_forward": 1.5,
     "div_yield": 1.17,
     "ps_ratio": 5.8,
     "fcf_to_ev": 6.52,
     "fcf_to_mcap": 4.34,
-    "liab_to_assets": 42.9,
-    "cash_to_assets": 2.5,
-    "current_ratio": 0.71,
-    "roe": 7.8,
-    "roa": 4.2,
+    "liab_to_assets": 42.93152290710169,
+    "cash_to_assets": 2.5324802188141056,
+    "current_ratio": 0.7090727816550348,
+    "roe": 7.879426451051354,
+    "roa": 4.37409720668118,
     "moat": {
       "ticker": "DIS",
       "period": "2026Q3",
@@ -168302,6 +169856,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 56265000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "T-Mobile US",
@@ -171432,17 +173022,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 16.2,
     "pe_forward": 14.3,
-    "pb_trailing": 3.0,
+    "pb_trailing": 3.033184039811606,
     "pb_forward": 2.7,
     "div_yield": 2.54,
     "ps_ratio": 2.7,
     "fcf_to_ev": 2.41,
     "fcf_to_mcap": 9.28,
-    "liab_to_assets": 73.7,
-    "cash_to_assets": 1.3,
-    "current_ratio": 0.92,
-    "roe": 18.8,
-    "roa": 4.9,
+    "liab_to_assets": 73.65291051870028,
+    "cash_to_assets": 1.3228566210729888,
+    "current_ratio": 0.9242166935552347,
+    "roe": 17.281162550935246,
+    "roa": 4.9660698917904655,
     "moat": {
       "ticker": "TMUS",
       "period": "2026Q2",
@@ -172188,6 +173778,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 103920000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Verizon",
@@ -175326,17 +176952,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 11.5,
     "pe_forward": 10.1,
-    "pb_trailing": 1.8,
+    "pb_trailing": 1.7907294072363358,
     "pb_forward": 1.6,
     "div_yield": 6.25,
     "ps_ratio": 2.3,
     "fcf_to_ev": 2.09,
     "fcf_to_mcap": 10.83,
-    "liab_to_assets": 74.4,
-    "cash_to_assets": 0.4,
-    "current_ratio": 0.6,
-    "roe": 15.6,
-    "roa": 3.9,
+    "liab_to_assets": 74.3540735178675,
+    "cash_to_assets": 0.427123305037227,
+    "current_ratio": 0.6039285656877401,
+    "roe": 15.691373237728378,
+    "roa": 4.219314609233338,
     "moat": {
       "ticker": "VZ",
       "period": "2026Q2",
@@ -176106,6 +177732,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 110444000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "AT&T",
@@ -179244,17 +180906,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 7.5,
     "pe_forward": 6.6,
-    "pb_trailing": 1.5,
+    "pb_trailing": 1.453691463547137,
     "pb_forward": 1.4,
     "div_yield": 4.99,
     "ps_ratio": 2.3,
     "fcf_to_ev": 2.47,
     "fcf_to_mcap": 11.0,
-    "liab_to_assets": 70.5,
-    "cash_to_assets": 4.1,
-    "current_ratio": 0.97,
-    "roe": 19.5,
-    "roa": 5.0,
+    "liab_to_assets": 70.48410328719602,
+    "cash_to_assets": 4.101699742505701,
+    "current_ratio": 0.9710014611666854,
+    "roe": 20.41758492286648,
+    "roa": 5.300734171658557,
     "moat": {
       "ticker": "T",
       "period": "2026Q2",
@@ -180018,6 +181680,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 89770000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Comcast",
@@ -183156,17 +184854,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 6.9,
     "pe_forward": 6.1,
-    "pb_trailing": 0.9,
+    "pb_trailing": 0.863409825108611,
     "pb_forward": 0.8,
     "div_yield": 6.28,
     "ps_ratio": 0.9,
     "fcf_to_ev": 2.85,
     "fcf_to_mcap": 26.38,
-    "liab_to_assets": 65.2,
-    "cash_to_assets": 3.0,
-    "current_ratio": 0.8,
-    "roe": 12.5,
-    "roa": 4.3,
+    "liab_to_assets": 65.15583376695999,
+    "cash_to_assets": 2.9749376742596634,
+    "current_ratio": 0.7957876288036745,
+    "roe": 11.564155248784216,
+    "roa": 4.089830199014059,
     "moat": {
       "ticker": "CMCSA",
       "period": "2026Q2",
@@ -183966,6 +185664,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 3395932000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "TKO Group Holdings",
@@ -187104,17 +188838,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 55.9,
     "pe_forward": 49.2,
-    "pb_trailing": 3.8,
+    "pb_trailing": 3.7783442071278226,
     "pb_forward": 3.4,
     "div_yield": 4.62,
     "ps_ratio": 1.9,
     "fcf_to_ev": 2.96,
     "fcf_to_mcap": 13.03,
-    "liab_to_assets": 48.6,
-    "cash_to_assets": 9.5,
-    "current_ratio": 1.22,
-    "roe": 6.8,
-    "roa": 1.4,
+    "liab_to_assets": 48.56460250970904,
+    "cash_to_assets": 9.543740244389383,
+    "current_ratio": 1.224805886854991,
+    "roe": 5.381906061642607,
+    "roa": 1.4962874074296175,
     "moat": {
       "ticker": "TKO",
       "period": "2026Q2",
@@ -187853,6 +189587,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 82330000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Live Nation",
@@ -190990,17 +192760,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 294.9,
     "pe_forward": 259.5,
-    "pb_trailing": 482.5,
+    "pb_trailing": 482.47175999028303,
     "pb_forward": 434.2,
     "div_yield": 0.0,
     "ps_ratio": 7.2,
     "fcf_to_ev": 4.93,
     "fcf_to_mcap": 3.46,
-    "liab_to_assets": 93.5,
-    "cash_to_assets": 32.2,
-    "current_ratio": 0.85,
-    "roe": 163.6,
-    "roa": 0.5,
+    "liab_to_assets": 93.54467111787284,
+    "cash_to_assets": 32.191920137472195,
+    "current_ratio": 0.8515305961224158,
+    "roe": 37.40939261810203,
+    "roa": 0.5818490818253025,
     "moat": {
       "ticker": "LYV",
       "period": "2026Q2",
@@ -191739,6 +193509,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 472511000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Iridium Communications",
@@ -194872,17 +196678,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 49.7,
     "pe_forward": 43.7,
-    "pb_trailing": 9.8,
+    "pb_trailing": 9.815221232944841,
     "pb_forward": 8.8,
     "div_yield": 1.4,
     "ps_ratio": 4.0,
     "fcf_to_ev": 4.11,
     "fcf_to_mcap": 6.22,
-    "liab_to_assets": 81.6,
-    "cash_to_assets": 7.2,
-    "current_ratio": 2.78,
-    "roe": 19.7,
-    "roa": 3.6,
+    "liab_to_assets": 81.57918640766631,
+    "cash_to_assets": 7.1815719741935276,
+    "current_ratio": 2.782056295421847,
+    "roe": 19.692155020427986,
+    "roa": 3.631657665887495,
     "moat": {
       "ticker": "IRDM",
       "period": "2026Q2",
@@ -195530,6 +197336,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 7079000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Electronic Arts",
@@ -198668,17 +200510,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 48.9,
     "pe_forward": 43.0,
-    "pb_trailing": 7.5,
+    "pb_trailing": 7.476423223619155,
     "pb_forward": 6.8,
     "div_yield": 0.36,
     "ps_ratio": 6.4,
     "fcf_to_ev": 4.41,
     "fcf_to_mcap": 3.89,
-    "liab_to_assets": 43.7,
-    "cash_to_assets": 19.1,
-    "current_ratio": 1.21,
-    "roe": 15.3,
-    "roa": 8.6,
+    "liab_to_assets": 43.747515700771125,
+    "cash_to_assets": 19.111217107878208,
+    "current_ratio": 1.2089285714285714,
+    "roe": 17.806642551792173,
+    "roa": 9.257201470211129,
     "moat": {
       "ticker": "EA",
       "period": "2027Q1",
@@ -199442,6 +201284,46 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": "nonPositivePrior"
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 3608400000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeNetIncome"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeNetIncome"
+        ]
       }
     },
     "name": "Take-Two Interactive",
@@ -202580,17 +204462,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 24.0,
     "pe_forward": 21.1,
-    "pb_trailing": 10.6,
+    "pb_trailing": 10.63720762664893,
     "pb_forward": 9.5,
     "div_yield": 0.0,
     "ps_ratio": 29.4,
     "fcf_to_ev": 4.11,
     "fcf_to_mcap": 0.85,
-    "liab_to_assets": 60.2,
-    "cash_to_assets": 20.2,
-    "current_ratio": 1.06,
-    "roe": 18.0,
-    "roa": 8.0,
+    "liab_to_assets": 60.19064010061561,
+    "cash_to_assets": 20.151806006045764,
+    "current_ratio": 1.0623293576663313,
+    "roe": -9.204516073429286,
+    "roa": -3.308481857045497,
     "moat": {
       "ticker": "TTWO",
       "period": "2027Q1",
@@ -203336,6 +205218,46 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 32838000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeNetIncome"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeNetIncome"
+        ]
       }
     },
     "name": "Warner Bros. Discovery",
@@ -206474,17 +208396,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 24.0,
     "pe_forward": 21.1,
-    "pb_trailing": 2.4,
+    "pb_trailing": 2.362991046957793,
     "pb_forward": 2.2,
     "div_yield": 0.0,
     "ps_ratio": 8.9,
     "fcf_to_ev": 6.41,
     "fcf_to_mcap": 2.81,
-    "liab_to_assets": 65.0,
-    "cash_to_assets": 3.5,
-    "current_ratio": 0.78,
-    "roe": 18.0,
-    "roa": 8.0,
+    "liab_to_assets": 65.04298288910826,
+    "cash_to_assets": 3.4643385982230996,
+    "current_ratio": 0.7767453385368271,
+    "roe": -8.785264501095732,
+    "roa": -3.113234441200468,
     "moat": {
       "ticker": "WBD",
       "period": "2026Q2",
@@ -207236,6 +209158,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 551620000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Amazon",
@@ -210374,17 +212332,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 19.9,
     "pe_forward": 17.5,
-    "pb_trailing": 4.9,
+    "pb_trailing": 4.888464885247091,
     "pb_forward": 4.4,
     "div_yield": 0.0,
     "ps_ratio": 6.6,
     "fcf_to_ev": 5.77,
     "fcf_to_mcap": 3.8,
-    "liab_to_assets": 49.7,
-    "cash_to_assets": 11.2,
-    "current_ratio": 1.03,
-    "roe": 24.5,
-    "roa": 12.3,
+    "liab_to_assets": 49.65542229592521,
+    "cash_to_assets": 11.224717962852598,
+    "current_ratio": 1.0331158765552857,
+    "roe": 40.53059695902929,
+    "roa": 19.830980547370892,
     "moat": {
       "ticker": "AMZN",
       "period": "2026Q2",
@@ -211148,6 +213106,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 86858000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Tesla",
@@ -214286,17 +216280,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 366.9,
     "pe_forward": 322.9,
-    "pb_trailing": 16.1,
+    "pb_trailing": 16.12958506988418,
     "pb_forward": 14.5,
     "div_yield": 0.0,
     "ps_ratio": 60.8,
     "fcf_to_ev": 6.95,
     "fcf_to_mcap": 0.41,
-    "liab_to_assets": 41.1,
-    "cash_to_assets": 29.3,
-    "current_ratio": 1.94,
-    "roe": 4.4,
-    "roa": 2.6,
+    "liab_to_assets": 41.110527591500365,
+    "cash_to_assets": 29.30435485174113,
+    "current_ratio": 1.9409456598447423,
+    "roe": 4.938303541402592,
+    "roa": 2.9696578437701744,
     "moat": {
       "ticker": "TSLA",
       "period": "2026Q2",
@@ -215048,6 +217042,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-08-03",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-08-02",
+        "reason": null,
+        "bookEquity": 16617000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-08-02",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-08-02",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-08-02",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-08-02",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-08-02",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Home Depot",
@@ -218182,17 +220212,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 21.7,
     "pe_forward": 19.1,
-    "pb_trailing": 18.6,
+    "pb_trailing": 18.590275019558284,
     "pb_forward": 16.7,
     "div_yield": 2.98,
     "ps_ratio": 5.1,
     "fcf_to_ev": 5.39,
     "fcf_to_mcap": 4.89,
-    "liab_to_assets": 84.8,
-    "cash_to_assets": 1.9,
-    "current_ratio": 1.08,
-    "roe": 85.6,
-    "roa": 13.0,
+    "liab_to_assets": 84.80856432384992,
+    "cash_to_assets": 1.9061288671103633,
+    "current_ratio": 1.0780839144849663,
+    "roe": 133.39896858884202,
+    "roa": 14.220032184229728,
     "moat": {
       "ticker": "HD",
       "period": "2026Q2",
@@ -218992,6 +221022,44 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": -1023000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeEquity"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "McDonald's",
@@ -222130,17 +224198,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 19.6,
     "pe_forward": 17.2,
-    "pb_trailing": 5.0,
+    "pb_trailing": -168.07018572825024,
     "pb_forward": 4.5,
     "div_yield": 3.04,
     "ps_ratio": 5.5,
     "fcf_to_ev": 3.21,
     "fcf_to_mcap": 4.51,
-    "liab_to_assets": 101.7,
-    "cash_to_assets": 1.4,
-    "current_ratio": 1.08,
-    "roe": 18.0,
-    "roa": 14.7,
+    "liab_to_assets": 101.70727636849134,
+    "cash_to_assets": 1.3718291054739653,
+    "current_ratio": 1.0813837730214038,
+    "roe": -318.3695652173913,
+    "roa": 14.754428679372008,
     "moat": {
       "ticker": "MCD",
       "period": "2026Q2",
@@ -222934,6 +225002,44 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": -10783000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeEquity"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Booking Holdings",
@@ -226072,17 +228178,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 17.0,
     "pe_forward": 15.0,
-    "pb_trailing": 5.0,
+    "pb_trailing": -11.389520541593248,
     "pb_forward": 4.5,
     "div_yield": 1.04,
     "ps_ratio": 3.2,
     "fcf_to_ev": 5.2,
     "fcf_to_mcap": 7.77,
-    "liab_to_assets": 136.3,
-    "cash_to_assets": 58.0,
-    "current_ratio": 1.09,
-    "roe": 18.0,
-    "roa": 24.3,
+    "liab_to_assets": 136.32841452732296,
+    "cash_to_assets": 57.99474428946837,
+    "current_ratio": 1.094252764463006,
+    "roe": -108.29202343397928,
+    "roa": 23.494329292139227,
     "moat": {
       "ticker": "BKNG",
       "period": "2026Q2",
@@ -226834,6 +228940,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-08-31",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-08-31",
+        "reason": null,
+        "bookEquity": 15220000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-08-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-08-31",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Nike",
@@ -229972,17 +232114,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 17.8,
     "pe_forward": 15.7,
-    "pb_trailing": 3.6,
+    "pb_trailing": 3.6234888304862025,
     "pb_forward": 3.2,
     "div_yield": 4.4,
     "ps_ratio": 6.5,
     "fcf_to_ev": 5.77,
     "fcf_to_mcap": 3.82,
-    "liab_to_assets": 59.7,
-    "cash_to_assets": 22.1,
-    "current_ratio": 2.07,
-    "roe": 20.3,
-    "roa": 8.2,
+    "liab_to_assets": 59.72905752235804,
+    "cash_to_assets": 22.14108059480341,
+    "current_ratio": 2.0749408361819617,
+    "roe": 22.965547965547966,
+    "roa": 8.284673487973429,
     "moat": {
       "ticker": "NKE",
       "period": "2027Q1",
@@ -230764,6 +232906,44 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-29",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-28",
+        "reason": null,
+        "bookEquity": -7674300000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-28",
+        "reason": null,
+        "warnings": [
+          "negativeEquity"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-28",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Starbucks",
@@ -233897,17 +236077,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 56.1,
     "pe_forward": 49.4,
-    "pb_trailing": 5.0,
+    "pb_trailing": -14.486376607638482,
     "pb_forward": 4.5,
     "div_yield": 2.53,
     "ps_ratio": 7.6,
     "fcf_to_ev": 5.19,
     "fcf_to_mcap": 3.28,
-    "liab_to_assets": 127.1,
-    "cash_to_assets": 12.8,
-    "current_ratio": 0.76,
-    "roe": 18.0,
-    "roa": 7.0,
+    "liab_to_assets": 127.09730090794389,
+    "cash_to_assets": 12.759633429582218,
+    "current_ratio": 0.7597333844245682,
+    "roe": -25.794951860525632,
+    "roa": 5.891967713942679,
     "moat": {
       "ticker": "SBUX",
       "period": "2026Q3",
@@ -234683,6 +236863,44 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-08-01",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "bookEquity": -7437000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": [
+          "negativeEquity"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Lowe's",
@@ -237818,17 +240036,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 16.7,
     "pe_forward": 14.7,
-    "pb_trailing": 5.0,
+    "pb_trailing": -14.885249428533012,
     "pb_forward": 4.5,
     "div_yield": 2.43,
     "ps_ratio": 4.0,
     "fcf_to_ev": 4.48,
     "fcf_to_mcap": 6.32,
-    "liab_to_assets": 113.3,
-    "cash_to_assets": 6.1,
-    "current_ratio": 1.1,
-    "roe": 18.0,
-    "roa": 11.9,
+    "liab_to_assets": 113.30863799860418,
+    "cash_to_assets": 6.096884450886705,
+    "current_ratio": 1.1045807306454667,
+    "roe": -58.263157894736835,
+    "roa": 14.248938087269918,
     "moat": {
       "ticker": "LOW",
       "period": "2026Q2",
@@ -238622,6 +240840,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-08-02",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-08-01",
+        "reason": null,
+        "bookEquity": 10651000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-08-01",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-08-01",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-08-01",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-08-01",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-08-01",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "TJX Companies",
@@ -241759,17 +244013,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 26.7,
     "pe_forward": 23.5,
-    "pb_trailing": 15.2,
+    "pb_trailing": 15.214364848371046,
     "pb_forward": 13.7,
     "div_yield": 1.2,
     "ps_ratio": 6.9,
     "fcf_to_ev": 3.92,
     "fcf_to_mcap": 3.63,
-    "liab_to_assets": 71.3,
-    "cash_to_assets": 16.2,
-    "current_ratio": 1.15,
-    "roe": 57.0,
-    "roa": 16.3,
+    "liab_to_assets": 71.30270780008084,
+    "cash_to_assets": 16.176747945574565,
+    "current_ratio": 1.147380239520958,
+    "roe": 68.42995713963455,
+    "roa": 18.449140945719932,
     "moat": {
       "ticker": "TJX",
       "period": "2027Q2",
@@ -242569,6 +244823,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 1341000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Churchill Downs",
@@ -245707,17 +247997,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 13.9,
     "pe_forward": 12.2,
-    "pb_trailing": 4.2,
+    "pb_trailing": 4.246457867263237,
     "pb_forward": 3.8,
     "div_yield": 0.56,
     "ps_ratio": 3.7,
     "fcf_to_ev": 2.82,
     "fcf_to_mcap": 6.72,
-    "liab_to_assets": 81.5,
-    "cash_to_assets": 2.6,
-    "current_ratio": 0.36,
-    "roe": 30.6,
-    "roa": 5.4,
+    "liab_to_assets": 81.50511900013296,
+    "cash_to_assets": 2.6060364313256215,
+    "current_ratio": 0.3561442236938926,
+    "roe": 39.333717357910906,
+    "roa": 5.554727008961861,
     "moat": {
       "ticker": "CHDN",
       "period": "2026Q2",
@@ -246475,6 +248765,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-28",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-27",
+        "reason": null,
+        "bookEquity": 2631565000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-27",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-27",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Tractor Supply",
@@ -249607,17 +251933,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 17.1,
     "pe_forward": 15.0,
-    "pb_trailing": 6.6,
+    "pb_trailing": 6.5655607974722265,
     "pb_forward": 5.9,
     "div_yield": 2.87,
     "ps_ratio": 14.1,
     "fcf_to_ev": 3.17,
     "fcf_to_mcap": 1.78,
-    "liab_to_assets": 78.4,
-    "cash_to_assets": 1.9,
-    "current_ratio": 1.33,
-    "roe": 38.5,
-    "roa": 8.3,
+    "liab_to_assets": 78.36208081010237,
+    "cash_to_assets": 1.904221415526507,
+    "current_ratio": 1.3338090238448228,
+    "roe": 40.634073924159615,
+    "roa": 9.583612523966986,
     "moat": {
       "ticker": "TSCO",
       "period": "2026Q2",
@@ -250387,6 +252713,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-07-31",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "bookEquity": 240527000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Vail Resorts",
@@ -253525,17 +255887,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 36.5,
     "pe_forward": 32.1,
-    "pb_trailing": 22.4,
+    "pb_trailing": 22.37295605067207,
     "pb_forward": 20.2,
     "div_yield": 5.89,
     "ps_ratio": 4.3,
     "fcf_to_ev": 3.63,
     "fcf_to_mcap": 5.8,
-    "liab_to_assets": 89.9,
-    "cash_to_assets": 4.9,
-    "current_ratio": 0.8,
-    "roe": 61.3,
-    "roa": 2.7,
+    "liab_to_assets": 89.91399177193018,
+    "cash_to_assets": 4.857749498412,
+    "current_ratio": 0.7989735549093429,
+    "roe": 34.75508776227977,
+    "roa": 2.5534429986058913,
     "moat": {
       "ticker": "MTN",
       "period": "2026Q4",
@@ -254274,6 +256636,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 1537251000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Service Corp International",
@@ -257405,17 +259803,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 17.7,
     "pe_forward": 15.6,
-    "pb_trailing": 7.2,
+    "pb_trailing": 7.21424152594469,
     "pb_forward": 6.5,
     "div_yield": 1.7,
     "ps_ratio": 3.9,
     "fcf_to_ev": 4.05,
     "fcf_to_mcap": 6.37,
-    "liab_to_assets": 92.0,
-    "cash_to_assets": 1.4,
-    "current_ratio": 0.53,
-    "roe": 40.9,
-    "roa": 3.3,
+    "liab_to_assets": 91.99687444264077,
+    "cash_to_assets": 1.3552842638106557,
+    "current_ratio": 0.5314714237770436,
+    "roe": 40.28015345675182,
+    "roa": 3.494314998077052,
     "moat": {
       "ticker": "SCI",
       "period": "2026Q2",
@@ -258197,6 +260595,44 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-08-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-08-29",
+        "reason": null,
+        "bookEquity": -2502470000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-08-29",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-08-29",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-08-29",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-08-29",
+        "reason": null,
+        "warnings": [
+          "negativeEquity"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-08-29",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "AutoZone",
@@ -261329,17 +263765,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 19.8,
     "pe_forward": 17.4,
-    "pb_trailing": 5.0,
+    "pb_trailing": -20.357846447709665,
     "pb_forward": 4.5,
     "div_yield": 0.0,
     "ps_ratio": 11.4,
     "fcf_to_ev": 2.84,
     "fcf_to_mcap": 2.2,
-    "liab_to_assets": 111.6,
-    "cash_to_assets": 1.5,
-    "current_ratio": 0.9,
-    "roe": 18.0,
-    "roa": 11.9,
+    "liab_to_assets": 111.56916780972801,
+    "cash_to_assets": 1.5076620939589498,
+    "current_ratio": 0.9010148883939394,
+    "roe": -75.35269906420413,
+    "roa": 13.292347883197408,
     "moat": {
       "ticker": "AZO",
       "period": "2026Q4",
@@ -262091,6 +264527,44 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": -4525000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeEquity"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Marriott International",
@@ -265229,17 +267703,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 39.1,
     "pe_forward": 34.4,
-    "pb_trailing": 5.0,
+    "pb_trailing": -22.362519337016572,
     "pb_forward": 4.5,
     "div_yield": 0.72,
     "ps_ratio": 8.1,
     "fcf_to_ev": 5.5,
     "fcf_to_mcap": 3.1,
-    "liab_to_assets": 116.1,
-    "cash_to_assets": 1.6,
-    "current_ratio": 0.53,
-    "roe": 18.0,
-    "roa": 9.2,
+    "liab_to_assets": 116.11180345380096,
+    "cash_to_assets": 1.6450062310842086,
+    "current_ratio": 0.534665991902834,
+    "roe": -87.28070175438597,
+    "roa": 9.461634116011997,
     "moat": {
       "ticker": "MAR",
       "period": "2026Q2",
@@ -265991,6 +268465,44 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": -6303000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeEquity"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Hilton Worldwide",
@@ -269129,17 +271641,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 49.0,
     "pe_forward": 43.1,
-    "pb_trailing": 5.0,
+    "pb_trailing": -12.32216404886562,
     "pb_forward": 4.5,
     "div_yield": 0.18,
     "ps_ratio": 9.7,
     "fcf_to_ev": 5.16,
     "fcf_to_mcap": 2.58,
-    "liab_to_assets": 137.0,
-    "cash_to_assets": 6.0,
-    "current_ratio": 0.65,
-    "roe": 18.0,
-    "roa": 9.4,
+    "liab_to_assets": 137.03922495274102,
+    "cash_to_assets": 5.960538752362949,
+    "current_ratio": 0.6491331757289204,
+    "roe": -34.509803921568626,
+    "roa": 9.959758551307846,
     "moat": {
       "ticker": "HLT",
       "period": "2026Q2",
@@ -269885,6 +272397,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 2199791000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Chipotle Mexican Grill",
@@ -273019,17 +275567,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 26.6,
     "pe_forward": 23.4,
-    "pb_trailing": 17.2,
+    "pb_trailing": 17.186996401021734,
     "pb_forward": 15.5,
     "div_yield": 0.0,
     "ps_ratio": 6.0,
     "fcf_to_ev": 3.88,
     "fcf_to_mcap": 4.15,
-    "liab_to_assets": 75.2,
-    "cash_to_assets": 7.6,
-    "current_ratio": 0.72,
-    "roe": 64.5,
-    "roa": 16.0,
+    "liab_to_assets": 75.18450102289053,
+    "cash_to_assets": 7.581437822526378,
+    "current_ratio": 0.7153473552939745,
+    "roe": 40.230372754340394,
+    "roa": 15.313815367997174,
     "moat": {
       "ticker": "CMG",
       "period": "2026Q2",
@@ -273775,6 +276323,44 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": -7107000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeEquity"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Yum! Brands",
@@ -276913,17 +279499,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 18.5,
     "pe_forward": 16.3,
-    "pb_trailing": 5.0,
+    "pb_trailing": -5.779414661601239,
     "pb_forward": 4.5,
     "div_yield": 1.96,
     "ps_ratio": 6.1,
     "fcf_to_ev": 3.43,
     "fcf_to_mcap": 4.09,
-    "liab_to_assets": 181.9,
-    "cash_to_assets": 7.8,
-    "current_ratio": 0.59,
-    "roe": 18.0,
-    "roa": 25.5,
+    "liab_to_assets": 181.8590186592951,
+    "cash_to_assets": 7.763188205482607,
+    "current_ratio": 0.5920316868592731,
+    "roe": -28.867187500000004,
+    "roa": 32.05146739916149,
     "moat": {
       "ticker": "YUM",
       "period": "2026Q2",
@@ -277681,6 +280267,44 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": -1835725000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeEquity"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "O'Reilly Automotive",
@@ -280812,17 +283436,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 27.2,
     "pe_forward": 23.9,
-    "pb_trailing": 5.0,
+    "pb_trailing": -39.33917117215269,
     "pb_forward": 4.5,
     "div_yield": 0.0,
     "ps_ratio": 8.4,
     "fcf_to_ev": 3.59,
     "fcf_to_mcap": 2.99,
-    "liab_to_assets": 110.6,
-    "cash_to_assets": 1.5,
-    "current_ratio": 0.75,
-    "roe": 18.0,
-    "roa": 15.2,
+    "liab_to_assets": 110.55674710548828,
+    "cash_to_assets": 1.5077304677247538,
+    "current_ratio": 0.7519453926055342,
+    "roe": -215.15185954270854,
+    "roa": 16.75265677025659,
     "moat": {
       "ticker": "ORLY",
       "period": "2026Q2",
@@ -281586,6 +284210,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-08-02",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-08-01",
+        "reason": null,
+        "bookEquity": 6743184000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-08-01",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-08-01",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-08-01",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-08-01",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-08-01",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Ross Stores",
@@ -284723,17 +287383,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 28.6,
     "pe_forward": 25.2,
-    "pb_trailing": 11.3,
+    "pb_trailing": 11.269127462634863,
     "pb_forward": 10.2,
     "div_yield": 0.72,
     "ps_ratio": 6.8,
     "fcf_to_ev": 5.07,
     "fcf_to_mcap": 3.67,
-    "liab_to_assets": 57.8,
-    "cash_to_assets": 26.8,
-    "current_ratio": 1.61,
-    "roe": 39.4,
-    "roa": 16.6,
+    "liab_to_assets": 57.80837277284593,
+    "cash_to_assets": 26.830489767417415,
+    "current_ratio": 1.6121786382584682,
+    "roe": 46.3851896069633,
+    "roa": 18.34403445644133,
     "moat": {
       "ticker": "ROST",
       "period": "2026Q2",
@@ -285503,6 +288163,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-08-03",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-08-02",
+        "reason": null,
+        "bookEquity": 4791174000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-08-02",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-08-02",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-08-02",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-08-02",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-08-02",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Lululemon Athletica",
@@ -288640,17 +291336,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 7.9,
     "pe_forward": 7.0,
-    "pb_trailing": 2.3,
+    "pb_trailing": 2.347378742663072,
     "pb_forward": 2.1,
     "div_yield": 0.0,
     "ps_ratio": 2.1,
     "fcf_to_ev": 4.03,
     "fcf_to_mcap": 12.04,
-    "liab_to_assets": 43.5,
-    "cash_to_assets": 16.4,
-    "current_ratio": 2.19,
-    "roe": 29.6,
-    "roa": 16.7,
+    "liab_to_assets": 43.530791985175924,
+    "cash_to_assets": 16.379565371430377,
+    "current_ratio": 2.1899840757172173,
+    "roe": 32.32019208260974,
+    "roa": 18.84745792449437,
     "moat": {
       "ticker": "LULU",
       "period": "2026Q2",
@@ -289396,6 +292092,46 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 35719000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeNetIncome"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeNetIncome"
+        ]
       }
     },
     "name": "Ford Motor Company",
@@ -292534,17 +295270,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 24.0,
     "pe_forward": 21.1,
-    "pb_trailing": 1.4,
+    "pb_trailing": 1.3876592289817744,
     "pb_forward": 1.3,
     "div_yield": 4.85,
     "ps_ratio": 1.7,
     "fcf_to_ev": 3.26,
     "fcf_to_mcap": 14.69,
-    "liab_to_assets": 87.5,
-    "cash_to_assets": 11.0,
-    "current_ratio": 1.09,
-    "roe": 18.0,
-    "roa": 8.0,
+    "liab_to_assets": 87.47771695542691,
+    "cash_to_assets": 10.97393978237039,
+    "current_ratio": 1.0885549368589773,
+    "roe": -16.414763521761326,
+    "roa": -2.526603467418225,
     "moat": {
       "ticker": "F",
       "period": "2026Q2",
@@ -293332,6 +296068,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": "nonPositivePrior"
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 62000000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "General Motors",
@@ -296470,17 +299242,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 38.4,
     "pe_forward": 33.8,
-    "pb_trailing": 1.2,
+    "pb_trailing": 1.188240322580645,
     "pb_forward": 1.1,
     "div_yield": 1.59,
     "ps_ratio": 1.1,
     "fcf_to_ev": 3.63,
     "fcf_to_mcap": 22.4,
-    "liab_to_assets": 77.5,
-    "cash_to_assets": 8.7,
-    "current_ratio": 1.14,
-    "roe": 3.1,
-    "roa": 0.7,
+    "liab_to_assets": 77.491494012209,
+    "cash_to_assets": 8.74259926010285,
+    "current_ratio": 1.1360472561290456,
+    "roe": 2.891671563973901,
+    "roa": 0.6631327233019102,
     "moat": {
       "ticker": "GM",
       "period": "2026Q2",
@@ -297219,6 +299991,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 4665000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "eBay",
@@ -300357,17 +303165,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 24.1,
     "pe_forward": 21.2,
-    "pb_trailing": 11.5,
+    "pb_trailing": 11.473654876741692,
     "pb_forward": 10.3,
     "div_yield": 1.01,
     "ps_ratio": 5.5,
     "fcf_to_ev": 6.89,
     "fcf_to_mcap": 4.54,
-    "liab_to_assets": 74.0,
-    "cash_to_assets": 18.4,
-    "current_ratio": 1.02,
-    "roe": 47.6,
-    "roa": 12.4,
+    "liab_to_assets": 73.98650532537779,
+    "cash_to_assets": 18.440863213070873,
+    "current_ratio": 1.0188391038696538,
+    "roe": 46.78879764160876,
+    "roa": 12.37124881688102,
     "moat": {
       "ticker": "EBAY",
       "period": "2026Q2",
@@ -301137,6 +303945,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2019-03-31",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2020-03-31",
+        "reason": null,
+        "bookEquity": 375235000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2020-03-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2020-03-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2020-03-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2020-03-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2020-03-31",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Berkshire Hathaway (Class B)",
@@ -304264,17 +307108,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 10.2,
     "pe_forward": 9.0,
-    "pb_trailing": 0.3,
+    "pb_trailing": 0.26649966021293325,
     "pb_forward": 0.3,
     "div_yield": 0.0,
     "ps_ratio": 1.1,
     "fcf_to_ev": 4.86,
     "fcf_to_mcap": 22.11,
-    "liab_to_assets": 260.9,
-    "cash_to_assets": 26.2,
-    "current_ratio": 0.57,
-    "roe": 2.6,
-    "roa": 6.6,
+    "liab_to_assets": 260.8819027753322,
+    "cash_to_assets": 26.2207262728738,
+    "current_ratio": 0.5665183927892072,
+    "roe": 2.6455973129254464,
+    "roa": 1.3210617226460764,
     "moat": {
       "ticker": "BRK.B",
       "period": "2020Q1",
@@ -304977,6 +307821,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": "nonPositivePrior"
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 374598000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "JPMorgan Chase",
@@ -308115,17 +310995,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 13.9,
     "pe_forward": 12.2,
-    "pb_trailing": 2.4,
+    "pb_trailing": 2.4106917281992963,
     "pb_forward": 2.2,
     "div_yield": 1.92,
     "ps_ratio": 6.6,
     "fcf_to_ev": 3.25,
     "fcf_to_mcap": 3.8,
-    "liab_to_assets": 92.7,
-    "cash_to_assets": 53.1,
-    "current_ratio": 0.83,
-    "roe": 17.5,
-    "roa": 1.3,
+    "liab_to_assets": 92.53055142411799,
+    "cash_to_assets": 52.29335827682531,
+    "current_ratio": 0.8403662699432636,
+    "roe": 18.229931301901807,
+    "roa": 1.429264300221286,
     "moat": {
       "ticker": "JPM",
       "period": "2026Q3",
@@ -308911,6 +311791,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 35178000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Visa",
@@ -312049,17 +314965,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 33.3,
     "pe_forward": 29.3,
-    "pb_trailing": 21.4,
+    "pb_trailing": 21.36823867189721,
     "pb_forward": 19.3,
     "div_yield": 0.66,
     "ps_ratio": 8.9,
     "fcf_to_ev": 4.28,
     "fcf_to_mcap": 2.8,
-    "liab_to_assets": 62.8,
-    "cash_to_assets": 14.6,
-    "current_ratio": 0.99,
-    "roe": 64.2,
-    "roa": 23.9,
+    "liab_to_assets": 62.81002220107834,
+    "cash_to_assets": 14.580822497092715,
+    "current_ratio": 0.9852226141672228,
+    "roe": 58.43161597351541,
+    "roa": 22.586579220986962,
     "moat": {
       "ticker": "V",
       "period": "2026Q3",
@@ -312805,6 +315721,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 5611000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Mastercard",
@@ -315942,17 +318894,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 33.3,
     "pe_forward": 29.3,
-    "pb_trailing": 96.4,
+    "pb_trailing": 96.39386918552843,
     "pb_forward": 86.8,
     "div_yield": 0.54,
     "ps_ratio": 8.3,
     "fcf_to_ev": 4.03,
     "fcf_to_mcap": 3.01,
-    "liab_to_assets": 90.3,
-    "cash_to_assets": 20.1,
-    "current_ratio": 1.06,
-    "roe": 289.7,
-    "roa": 28.2,
+    "liab_to_assets": 90.2827130748297,
+    "cash_to_assets": 20.122722781716384,
+    "current_ratio": 1.0607102863541833,
+    "roe": 207.01642684324463,
+    "roa": 31.609340670023915,
     "moat": {
       "ticker": "MA",
       "period": "2026Q2",
@@ -316698,6 +319650,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": "nonPositivePrior"
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 301094000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Bank of America",
@@ -319836,17 +322824,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 10.6,
     "pe_forward": 9.3,
-    "pb_trailing": 1.2,
+    "pb_trailing": 1.189789899499824,
     "pb_forward": 1.1,
     "div_yield": 2.73,
     "ps_ratio": 0.9,
     "fcf_to_ev": 4.05,
     "fcf_to_mcap": 26.45,
-    "liab_to_assets": 91.3,
-    "cash_to_assets": 0.8,
-    "current_ratio": 0.43,
-    "roe": 11.3,
-    "roa": 1.0,
+    "liab_to_assets": 91.39474746181432,
+    "cash_to_assets": 0.8179582709814013,
+    "current_ratio": 0.07297353115908586,
+    "roe": 11.233348575929826,
+    "roa": 0.9780183439102484,
     "moat": {
       "ticker": "BAC",
       "period": "2026Q3",
@@ -320626,6 +323614,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": "nonPositivePrior"
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 180190000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Wells Fargo",
@@ -323764,17 +326788,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 11.2,
     "pe_forward": 9.9,
-    "pb_trailing": 1.4,
+    "pb_trailing": 1.4075303845940397,
     "pb_forward": 1.3,
     "div_yield": 2.59,
     "ps_ratio": 3.3,
     "fcf_to_ev": 3.76,
     "fcf_to_mcap": 7.56,
-    "liab_to_assets": 92.1,
-    "cash_to_assets": 13.2,
-    "current_ratio": 7.76,
-    "roe": 12.9,
-    "roa": 1.0,
+    "liab_to_assets": 92.01231618073956,
+    "cash_to_assets": 41.17766138915898,
+    "current_ratio": 0.5121191082899736,
+    "roe": 12.504486199071287,
+    "roa": 1.1430552842647819,
     "moat": {
       "ticker": "WFC",
       "period": "2026Q3",
@@ -324572,6 +327596,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": "nonPositivePrior"
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 110417000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Morgan Stanley",
@@ -327710,17 +330770,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 14.1,
     "pe_forward": 12.4,
-    "pb_trailing": 284763000000.0,
+    "pb_trailing": 2.5789778747837744,
     "pb_forward": 256286700000.0,
     "div_yield": 2.38,
     "ps_ratio": 6.6,
     "fcf_to_ev": 7.12,
     "fcf_to_mcap": 3.8,
-    "liab_to_assets": 0.0,
-    "cash_to_assets": 7.1,
-    "current_ratio": 120097000000.0,
-    "roe": 2022600000000.0,
-    "roa": 1.2,
+    "liab_to_assets": 93.34183851654004,
+    "cash_to_assets": 51.70373306699414,
+    "current_ratio": 1.2360095864350504,
+    "roe": 18.69592546032685,
+    "roa": 1.4939395953821268,
     "moat": {
       "ticker": "MS",
       "period": "2026Q3",
@@ -328494,6 +331554,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": "nonPositivePrior"
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 122742000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Goldman Sachs",
@@ -331632,17 +334728,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 12.2,
     "pe_forward": 10.7,
-    "pb_trailing": 2.1,
+    "pb_trailing": 2.0905452086490364,
     "pb_forward": 1.9,
     "div_yield": 2.39,
     "ps_ratio": 6.6,
     "fcf_to_ev": 2.57,
     "fcf_to_mcap": 3.8,
-    "liab_to_assets": 0.1,
-    "cash_to_assets": 0.0,
-    "current_ratio": 1.92,
-    "roe": 16.8,
-    "roa": 1.0,
+    "liab_to_assets": 94.23126543031455,
+    "cash_to_assets": 35.07459424705705,
+    "current_ratio": 0.832635135964392,
+    "roe": 16.9006253223311,
+    "roa": 1.1749520590652485,
     "moat": {
       "ticker": "GS",
       "period": "2026Q3",
@@ -332403,6 +335499,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 34280000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "American Express",
@@ -335541,17 +338673,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 18.5,
     "pe_forward": 16.3,
-    "pb_trailing": 6.2,
+    "pb_trailing": 6.177669194865811,
     "pb_forward": 5.6,
     "div_yield": 1.14,
     "ps_ratio": 3.5,
     "fcf_to_ev": 4.78,
     "fcf_to_mcap": 7.11,
-    "liab_to_assets": 88.9,
-    "cash_to_assets": 14.8,
-    "current_ratio": 1.55,
-    "roe": 33.4,
-    "roa": 3.7,
+    "liab_to_assets": 88.87746063471154,
+    "cash_to_assets": 14.783762649941758,
+    "current_ratio": 1.551305274984809,
+    "roe": 35.421373526043766,
+    "roa": 3.8723625979509806,
     "moat": {
       "ticker": "AXP",
       "period": "2026Q2",
@@ -336349,6 +339481,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 57613000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "BlackRock",
@@ -339487,17 +342655,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 26.7,
     "pe_forward": 23.5,
-    "pb_trailing": 3.0,
+    "pb_trailing": 3.0493222015864476,
     "pb_forward": 2.7,
     "div_yield": 2.61,
     "ps_ratio": 18.9,
     "fcf_to_ev": 6.93,
     "fcf_to_mcap": 1.32,
-    "liab_to_assets": 63.3,
-    "cash_to_assets": 14.6,
-    "current_ratio": 1.35,
-    "roe": 11.4,
-    "roa": 3.7,
+    "liab_to_assets": 63.30348258706467,
+    "cash_to_assets": 14.576261549395877,
+    "current_ratio": 1.3505659384048434,
+    "roe": 13.381901060214485,
+    "roa": 4.4896565849662045,
     "moat": {
       "ticker": "BLK",
       "period": "2026Q2",
@@ -340236,6 +343404,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 31616000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "S&P Global",
@@ -343374,17 +346578,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 25.7,
     "pe_forward": 22.6,
-    "pb_trailing": 4.0,
+    "pb_trailing": 4.006132970647773,
     "pb_forward": 3.6,
     "div_yield": 0.91,
     "ps_ratio": 5.7,
     "fcf_to_ev": 5.34,
     "fcf_to_mcap": 4.4,
-    "liab_to_assets": 41.8,
-    "cash_to_assets": 6.6,
-    "current_ratio": 0.95,
-    "roe": 15.6,
-    "roa": 7.8,
+    "liab_to_assets": 41.754363653705525,
+    "cash_to_assets": 6.582837885098401,
+    "current_ratio": 0.9544109589041095,
+    "roe": 14.694291855743968,
+    "roa": 8.149681265005382,
     "moat": {
       "ticker": "SPGI",
       "period": "2026Q2",
@@ -344148,6 +347352,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": "nonPositivePrior"
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 212015000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Citigroup",
@@ -347286,17 +350526,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 11.7,
     "pe_forward": 10.3,
-    "pb_trailing": 1.0,
+    "pb_trailing": 0.9830507275428625,
     "pb_forward": 0.9,
     "div_yield": 2.61,
     "ps_ratio": 6.6,
     "fcf_to_ev": 2.28,
     "fcf_to_mcap": 3.8,
-    "liab_to_assets": 92.8,
-    "cash_to_assets": 49.7,
-    "current_ratio": 0.86,
-    "roe": 8.5,
-    "roa": 0.6,
+    "liab_to_assets": 92.59151525536386,
+    "cash_to_assets": 34.434132714998064,
+    "current_ratio": 0.47455206109016773,
+    "roe": 8.366397463676357,
+    "roa": 0.6801582447883384,
     "moat": {
       "ticker": "C",
       "period": "2026Q3",
@@ -348112,6 +351352,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-08-31",
+        "reason": null,
+        "bookEquity": 4909000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Progressive",
@@ -351250,17 +354526,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 10.9,
     "pe_forward": 9.6,
-    "pb_trailing": 3.7,
+    "pb_trailing": 25.863617844774904,
     "pb_forward": 3.3,
     "div_yield": 6.42,
     "ps_ratio": 2.0,
     "fcf_to_ev": 2.48,
     "fcf_to_mcap": 12.56,
-    "liab_to_assets": 73.0,
-    "cash_to_assets": 1.7,
-    "current_ratio": 0.23,
-    "roe": 33.9,
-    "roa": 9.2,
+    "liab_to_assets": 72.33995947647993,
+    "cash_to_assets": 74.1337902008183,
+    "current_ratio": 1.599637803576014,
+    "roe": 35.869831922463504,
+    "roa": 10.127294769657084,
     "moat": {
       "ticker": "PGR",
       "period": "2026Q3",
@@ -352076,6 +355352,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 75372000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Chubb",
@@ -355214,17 +358526,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 12.4,
     "pe_forward": 10.9,
-    "pb_trailing": 1.8,
+    "pb_trailing": 1.8416255373348194,
     "pb_forward": 1.6,
     "div_yield": 1.1,
     "ps_ratio": 2.2,
     "fcf_to_ev": 3.13,
     "fcf_to_mcap": 11.58,
-    "liab_to_assets": 71.3,
-    "cash_to_assets": 2.9,
-    "current_ratio": 0.83,
-    "roe": 14.9,
-    "roa": 4.0,
+    "liab_to_assets": 71.26246791932377,
+    "cash_to_assets": 2.9187194744811995,
+    "current_ratio": 0.8297723201536904,
+    "roe": 16.15822465595504,
+    "roa": 4.28692131532365,
     "moat": {
       "ticker": "CB",
       "period": "2026Q2",
@@ -356016,6 +359328,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-08-31",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-08-31",
+        "reason": null,
+        "bookEquity": 2001866000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-08-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-08-31",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "FactSet",
@@ -359152,17 +362500,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 20.1,
     "pe_forward": 17.7,
-    "pb_trailing": 5.4,
+    "pb_trailing": 5.35954954027892,
     "pb_forward": 4.9,
     "div_yield": 1.53,
     "ps_ratio": 3.8,
     "fcf_to_ev": 4.53,
     "fcf_to_mcap": 6.59,
-    "liab_to_assets": 51.7,
-    "cash_to_assets": 6.4,
-    "current_ratio": 0.6,
-    "roe": 26.6,
-    "roa": 12.9,
+    "liab_to_assets": 51.67893159359406,
+    "cash_to_assets": 6.404587381177612,
+    "current_ratio": 0.5993772898467667,
+    "roe": 24.399827479986627,
+    "roa": 12.394221368909772,
     "moat": {
       "ticker": "FDS",
       "period": "2026Q4",
@@ -359920,6 +363268,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 6634531000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Tradeweb Markets",
@@ -363058,17 +366442,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 27.3,
     "pe_forward": 24.0,
-    "pb_trailing": 3.7,
+    "pb_trailing": 3.6953629427611387,
     "pb_forward": 3.3,
     "div_yield": 0.45,
     "ps_ratio": 5.8,
     "fcf_to_ev": 3.42,
     "fcf_to_mcap": 4.3,
-    "liab_to_assets": 11.1,
-    "cash_to_assets": 24.9,
-    "current_ratio": 6.05,
-    "roe": 13.5,
-    "roa": 10.9,
+    "liab_to_assets": 11.061766658267524,
+    "cash_to_assets": 24.94204531585439,
+    "current_ratio": 6.051573799742834,
+    "roe": 14.71406518873864,
+    "roa": 11.137337071308476,
     "moat": {
       "ticker": "TW",
       "period": "2026Q2",
@@ -363807,6 +367191,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 26520400000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "CME Group",
@@ -366945,17 +370365,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 24.7,
     "pe_forward": 21.7,
-    "pb_trailing": 4.0,
+    "pb_trailing": 3.9844647893696927,
     "pb_forward": 3.6,
     "div_yield": 3.86,
     "ps_ratio": 6.3,
     "fcf_to_ev": 2.98,
     "fcf_to_mcap": 3.99,
-    "liab_to_assets": 86.4,
-    "cash_to_assets": 1.2,
-    "current_ratio": 1.02,
-    "roe": 16.1,
-    "roa": 2.2,
+    "liab_to_assets": 86.41213170971756,
+    "cash_to_assets": 1.1689129561539497,
+    "current_ratio": 1.0179223139673508,
+    "roe": 15.40105987959191,
+    "roa": 2.3746157737053033,
     "moat": {
       "ticker": "CME",
       "period": "2026Q2",
@@ -367701,6 +371121,44 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": -2689500000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeEquity"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "MSCI Inc.",
@@ -370835,17 +374293,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 30.5,
     "pe_forward": 26.8,
-    "pb_trailing": 5.0,
+    "pb_trailing": -15.38282208588957,
     "pb_forward": 4.5,
     "div_yield": 1.38,
     "ps_ratio": 6.5,
     "fcf_to_ev": 5.6,
     "fcf_to_mcap": 3.86,
-    "liab_to_assets": 148.0,
-    "cash_to_assets": 6.4,
-    "current_ratio": 0.89,
-    "roe": 18.0,
-    "roa": 24.2,
+    "liab_to_assets": 148.0053547523427,
+    "cash_to_assets": 6.36144578313253,
+    "current_ratio": 0.8944385626206639,
+    "roe": -153.2433695024193,
+    "roa": 25.272364764827653,
     "moat": {
       "ticker": "MSCI",
       "period": "2026Q2",
@@ -371584,6 +375042,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 3025000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Moody's",
@@ -374721,17 +378215,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 30.1,
     "pe_forward": 26.5,
-    "pb_trailing": 27.8,
+    "pb_trailing": 27.77325619834711,
     "pb_forward": 25.0,
     "div_yield": 0.83,
     "ps_ratio": 6.2,
     "fcf_to_ev": 6.17,
     "fcf_to_mcap": 4.04,
-    "liab_to_assets": 78.4,
-    "cash_to_assets": 10.2,
-    "current_ratio": 1.19,
-    "roe": 92.4,
-    "roa": 19.0,
+    "liab_to_assets": 78.4258943781942,
+    "cash_to_assets": 10.19420783645656,
+    "current_ratio": 1.1904334828101644,
+    "roe": 70.77741200303875,
+    "roa": 18.04739458901014,
     "moat": {
       "ticker": "MCO",
       "period": "2026Q2",
@@ -375477,6 +378971,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 29551000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Intercontinental Exchange",
@@ -378615,17 +382145,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 22.5,
     "pe_forward": 19.8,
-    "pb_trailing": 3.1,
+    "pb_trailing": 3.0692362356603837,
     "pb_forward": 2.8,
     "div_yield": 1.26,
     "ps_ratio": 4.7,
     "fcf_to_ev": 4.68,
     "fcf_to_mcap": 5.35,
-    "liab_to_assets": 83.0,
-    "cash_to_assets": 1.1,
-    "current_ratio": 1.01,
-    "roe": 13.6,
-    "roa": 2.3,
+    "liab_to_assets": 82.98277732184772,
+    "cash_to_assets": 1.120822740133259,
+    "current_ratio": 1.0123407643312101,
+    "roe": 14.157643088173252,
+    "roa": 2.793133344893359,
     "moat": {
       "ticker": "ICE",
       "period": "2026Q2",
@@ -379371,6 +382901,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 40606000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "American International Group",
@@ -382509,17 +386075,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 14.4,
     "pe_forward": 12.7,
-    "pb_trailing": 1.1,
+    "pb_trailing": 1.0542506033591095,
     "pb_forward": 1.0,
     "div_yield": 2.32,
     "ps_ratio": 2.8,
     "fcf_to_ev": 3.7,
     "fcf_to_mcap": 8.99,
-    "liab_to_assets": 75.1,
-    "cash_to_assets": 51.2,
-    "current_ratio": 1.36,
-    "roe": 7.3,
-    "roa": 1.8,
+    "liab_to_assets": 75.14682131845544,
+    "cash_to_assets": 51.219840454167276,
+    "current_ratio": 1.3584380866266328,
+    "roe": 7.144406158887738,
+    "roa": 1.786456670141169,
     "moat": {
       "ticker": "AIG",
       "period": "2026Q2",
@@ -383341,6 +386907,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 27441000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "MetLife",
@@ -386479,17 +390081,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": null,
     "pe_trailing": 17.7,
     "pe_forward": 15.6,
-    "pb_trailing": 2.3,
+    "pb_trailing": 2.33339528442841,
     "pb_forward": 2.1,
     "div_yield": 2.63,
     "ps_ratio": 1.0,
     "fcf_to_ev": 4.26,
     "fcf_to_mcap": 25.88,
-    "liab_to_assets": 96.3,
-    "cash_to_assets": 17.1,
-    "current_ratio": 0.65,
-    "roe": 13.2,
-    "roa": 0.5,
+    "liab_to_assets": 96.31787845746221,
+    "cash_to_assets": 17.057252571862012,
+    "current_ratio": 0.6497672139181573,
+    "roe": 13.097345132743362,
+    "roa": 0.5161786268452745,
     "moat": {
       "ticker": "MET",
       "period": "2026Q2",
@@ -387259,6 +390861,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 31577000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Prudential Financial",
@@ -390397,17 +394035,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 10.4,
     "pe_forward": 9.2,
-    "pb_trailing": 1.3,
+    "pb_trailing": 1.2663932609177566,
     "pb_forward": 1.2,
     "div_yield": 4.87,
     "ps_ratio": 0.9,
     "fcf_to_ev": 4.06,
     "fcf_to_mcap": 27.43,
-    "liab_to_assets": 95.9,
-    "cash_to_assets": 44.5,
-    "current_ratio": 1.79,
-    "roe": 12.2,
-    "roa": 0.5,
+    "liab_to_assets": 95.92433961156475,
+    "cash_to_assets": 44.500825724838364,
+    "current_ratio": 1.7906698155183627,
+    "roe": 12.562945523510564,
+    "roa": 0.5062243725558402,
     "moat": {
       "ticker": "PRU",
       "period": "2026Q2",
@@ -391168,6 +394806,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 33121000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "The Travelers Companies",
@@ -394306,17 +397980,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 9.8,
     "pe_forward": 8.6,
-    "pb_trailing": 2.8,
+    "pb_trailing": 2.453075088312551,
     "pb_forward": 2.5,
     "div_yield": 1.22,
     "ps_ratio": 1.8,
     "fcf_to_ev": 3.5,
     "fcf_to_mcap": 13.57,
-    "liab_to_assets": 79.6,
-    "cash_to_assets": 67.8,
-    "current_ratio": 1.32,
-    "roe": 28.6,
-    "roa": 5.8,
+    "liab_to_assets": 76.93202395876864,
+    "cash_to_assets": 3.6216743279008217,
+    "current_ratio": 0.20374589460603013,
+    "roe": 28.128599498611017,
+    "roa": 5.978843979751283,
     "moat": {
       "ticker": "TRV",
       "period": "2026Q3",
@@ -395096,6 +398770,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 30312000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Aflac",
@@ -398234,17 +401944,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 12.4,
     "pe_forward": 10.9,
-    "pb_trailing": 2.0,
+    "pb_trailing": 1.9845671681182369,
     "pb_forward": 1.8,
     "div_yield": 1.98,
     "ps_ratio": 5.7,
     "fcf_to_ev": 3.97,
     "fcf_to_mcap": 4.4,
-    "liab_to_assets": 73.9,
-    "cash_to_assets": 80.8,
-    "current_ratio": 11.31,
-    "roe": 16.0,
-    "roa": 4.2,
+    "liab_to_assets": 73.86017712851735,
+    "cash_to_assets": 80.75904830072179,
+    "current_ratio": 11.305456123223777,
+    "roe": 17.875,
+    "roa": 3.897832221652129,
     "moat": {
       "ticker": "AFL",
       "period": "2026Q2",
@@ -399066,6 +402776,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 33698000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Allstate",
@@ -402204,17 +405950,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 4.7,
     "pe_forward": 4.1,
-    "pb_trailing": 1.9,
+    "pb_trailing": 1.8600035610421983,
     "pb_forward": 1.7,
     "div_yield": 1.89,
     "ps_ratio": 1.3,
     "fcf_to_ev": 2.35,
     "fcf_to_mcap": 19.54,
-    "liab_to_assets": 73.0,
-    "cash_to_assets": 4.6,
-    "current_ratio": 0.24,
-    "roe": 39.5,
-    "roa": 10.7,
+    "liab_to_assets": 73.00490557568374,
+    "cash_to_assets": 4.578537304819006,
+    "current_ratio": 0.24449143111506788,
+    "roe": 55.410300179024944,
+    "roa": 11.483769651578166,
     "moat": {
       "ticker": "ALL",
       "period": "2026Q2",
@@ -402982,6 +406728,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 9662000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Aon plc",
@@ -406115,17 +409897,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 15.9,
     "pe_forward": 14.0,
-    "pb_trailing": 6.4,
+    "pb_trailing": 6.422821362036846,
     "pb_forward": 5.8,
     "div_yield": 1.06,
     "ps_ratio": 4.8,
     "fcf_to_ev": 3.9,
     "fcf_to_mcap": 5.23,
-    "liab_to_assets": 81.8,
-    "cash_to_assets": 2.4,
-    "current_ratio": 1.03,
-    "roe": 40.5,
-    "roa": 7.3,
+    "liab_to_assets": 81.79841415637243,
+    "cash_to_assets": 2.3750164020469757,
+    "current_ratio": 1.032615881877617,
+    "roe": 49.90437332653321,
+    "roa": 7.246806147009813,
     "moat": {
       "ticker": "AON",
       "period": "2026Q2",
@@ -406889,6 +410671,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 23717000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Arthur J. Gallagher",
@@ -410025,17 +413843,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 41.6,
     "pe_forward": 36.6,
-    "pb_trailing": 2.8,
+    "pb_trailing": 2.7548256524855588,
     "pb_forward": 2.5,
     "div_yield": 1.06,
     "ps_ratio": 7.1,
     "fcf_to_ev": 3.73,
     "fcf_to_mcap": 3.5,
-    "liab_to_assets": 71.0,
-    "cash_to_assets": 1.7,
-    "current_ratio": 1.05,
-    "roe": 6.6,
-    "roa": 1.9,
+    "liab_to_assets": 70.97227654997066,
+    "cash_to_assets": 1.694210835126149,
+    "current_ratio": 1.052787621893313,
+    "roe": 6.813591566730805,
+    "roa": 1.957874557241028,
     "moat": {
       "ticker": "AJG",
       "period": "2026Q2",
@@ -410793,6 +414611,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 15183000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Marsh McLennan",
@@ -413929,17 +417783,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 22.6,
     "pe_forward": 19.9,
-    "pb_trailing": 6.0,
+    "pb_trailing": 5.915807152736613,
     "pb_forward": 5.4,
     "div_yield": 1.97,
     "ps_ratio": 4.7,
     "fcf_to_ev": 4.01,
     "fcf_to_mcap": 5.31,
-    "liab_to_assets": 75.1,
-    "cash_to_assets": 3.1,
-    "current_ratio": 1.09,
-    "roe": 26.7,
-    "roa": 6.7,
+    "liab_to_assets": 74.14128212861499,
+    "cash_to_assets": 2.848430012399048,
+    "current_ratio": 1.139238728404888,
+    "roe": 25.242595293968417,
+    "roa": 6.797028434804885,
     "moat": {
       "ticker": "MMC",
       "period": "2026Q3",
@@ -414709,6 +418563,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 67432000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "U.S. Bancorp",
@@ -417847,17 +421737,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 11.2,
     "pe_forward": 9.9,
-    "pb_trailing": 1.4,
+    "pb_trailing": 1.3569862973069167,
     "pb_forward": 1.3,
     "div_yield": 3.88,
     "ps_ratio": 1.8,
     "fcf_to_ev": 3.91,
     "fcf_to_mcap": 13.53,
-    "liab_to_assets": 90.5,
-    "cash_to_assets": 28.8,
-    "current_ratio": 0.37,
-    "roe": 12.3,
-    "roa": 1.2,
+    "liab_to_assets": 90.64701522761524,
+    "cash_to_assets": 9.159574497395022,
+    "current_ratio": 1.780834025229665,
+    "roe": 13.304469546534717,
+    "roa": 1.1909028658012442,
     "moat": {
       "ticker": "USB",
       "period": "2026Q3",
@@ -418667,6 +422557,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": "nonPositivePrior"
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 33879000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Eli Lilly",
@@ -421805,17 +425731,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 44.3,
     "pe_forward": 39.0,
-    "pb_trailing": 34.9,
+    "pb_trailing": 34.92765725080434,
     "pb_forward": 31.4,
     "div_yield": 0.49,
     "ps_ratio": 14.8,
     "fcf_to_ev": 1.78,
     "fcf_to_mcap": 1.69,
-    "liab_to_assets": 76.2,
-    "cash_to_assets": 6.3,
-    "current_ratio": 1.35,
-    "roe": 78.8,
-    "roa": 18.8,
+    "liab_to_assets": 76.18900360549047,
+    "cash_to_assets": 6.2902806378836535,
+    "current_ratio": 1.3546427598919168,
+    "roe": 146.17931472289564,
+    "roa": 26.467015316688236,
     "moat": {
       "ticker": "LLY",
       "period": "2026Q2",
@@ -422579,6 +426505,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 98447000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "UnitedHealth Group",
@@ -425715,17 +429677,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 25.5,
     "pe_forward": 22.4,
-    "pb_trailing": 3.5,
+    "pb_trailing": 3.660056680244192,
     "pb_forward": 3.1,
     "div_yield": 2.25,
     "ps_ratio": 3.8,
     "fcf_to_ev": 3.58,
     "fcf_to_mcap": 6.55,
-    "liab_to_assets": 66.3,
-    "cash_to_assets": 9.1,
-    "current_ratio": 0.74,
-    "roe": 13.6,
-    "roa": 4.5,
+    "liab_to_assets": 65.79277880197722,
+    "cash_to_assets": 10.159915021938675,
+    "current_ratio": 0.7767841173314255,
+    "roe": 14.908576495925002,
+    "roa": 4.576550767565536,
     "moat": {
       "ticker": "UNH",
       "period": "2026Q3",
@@ -426495,6 +430457,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-29",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-28",
+        "reason": null,
+        "bookEquity": 84971000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-28",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-28",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Johnson & Johnson",
@@ -429633,17 +433631,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 29.3,
     "pe_forward": 25.8,
-    "pb_trailing": 7.2,
+    "pb_trailing": 7.248045803862493,
     "pb_forward": 6.5,
     "div_yield": 2.05,
     "ps_ratio": 8.2,
     "fcf_to_ev": 2.83,
     "fcf_to_mcap": 3.04,
-    "liab_to_assets": 57.7,
-    "cash_to_assets": 10.3,
-    "current_ratio": 1.09,
-    "roe": 24.8,
-    "roa": 10.5,
+    "liab_to_assets": 57.73898338804337,
+    "cash_to_assets": 10.324281309061972,
+    "current_ratio": 1.0888787685581565,
+    "roe": 26.807946682298372,
+    "roa": 10.878074761232542,
     "moat": {
       "ticker": "JNJ",
       "period": "2026Q2",
@@ -430425,6 +434423,44 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": -5935000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeEquity"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "AbbVie",
@@ -433563,17 +437599,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 79.9,
     "pe_forward": 70.3,
-    "pb_trailing": 5.0,
+    "pb_trailing": -84.9824094355518,
     "pb_forward": 4.5,
     "div_yield": 2.37,
     "ps_ratio": 6.9,
     "fcf_to_ev": 2.84,
     "fcf_to_mcap": 3.61,
-    "liab_to_assets": 104.3,
-    "cash_to_assets": 4.9,
-    "current_ratio": 0.81,
-    "roe": 18.0,
-    "roa": 4.7,
+    "liab_to_assets": 104.34309648201045,
+    "cash_to_assets": 4.861100833246999,
+    "current_ratio": 0.8085346525142885,
+    "roe": -3450.2732240437163,
+    "roa": 4.6026446618361,
     "moat": {
       "ticker": "ABBV",
       "period": "2026Q2",
@@ -434312,6 +438348,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 41933000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Merck & Co.",
@@ -437450,17 +441522,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 113.5,
     "pe_forward": 99.9,
-    "pb_trailing": 8.6,
+    "pb_trailing": 8.58800228936637,
     "pb_forward": 7.7,
     "div_yield": 2.3,
     "ps_ratio": 5.6,
     "fcf_to_ev": 2.64,
     "fcf_to_mcap": 4.46,
-    "liab_to_assets": 67.7,
-    "cash_to_assets": 5.5,
-    "current_ratio": 1.32,
-    "roe": 7.6,
-    "roa": 2.4,
+    "liab_to_assets": 67.65535199765797,
+    "cash_to_assets": 5.501456063851096,
+    "current_ratio": 1.3226713786015651,
+    "roe": 6.476435409140081,
+    "roa": 2.699897041430188,
     "moat": {
       "ticker": "MRK",
       "period": "2026Q2",
@@ -438242,6 +442314,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-28",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-27",
+        "reason": null,
+        "bookEquity": 52679000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-27",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-27",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Thermo Fisher Scientific",
@@ -441380,17 +445488,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 36.6,
     "pe_forward": 32.2,
-    "pb_trailing": 4.8,
+    "pb_trailing": 4.843022836424382,
     "pb_forward": 4.3,
     "div_yield": 0.26,
     "ps_ratio": 8.7,
     "fcf_to_ev": 4.85,
     "fcf_to_mcap": 2.87,
-    "liab_to_assets": 53.4,
-    "cash_to_assets": 3.6,
-    "current_ratio": 1.55,
-    "roe": 13.2,
-    "roa": 6.2,
+    "liab_to_assets": 53.446904766112354,
+    "cash_to_assets": 3.590930779154223,
+    "current_ratio": 1.5505342093038688,
+    "roe": 13.814812615073944,
+    "roa": 6.893213474266521,
     "moat": {
       "ticker": "TMO",
       "period": "2026Q2",
@@ -442178,6 +446286,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 51110000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Abbott Laboratories",
@@ -445316,17 +449460,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 33.5,
     "pe_forward": 29.5,
-    "pb_trailing": 3.6,
+    "pb_trailing": 3.5508237135589904,
     "pb_forward": 3.2,
     "div_yield": 2.35,
     "ps_ratio": 5.2,
     "fcf_to_ev": 3.83,
     "fcf_to_mcap": 4.8,
-    "liab_to_assets": 52.6,
-    "cash_to_assets": 5.1,
-    "current_ratio": 1.38,
-    "roe": 10.6,
-    "roa": 5.0,
+    "liab_to_assets": 52.605411344595524,
+    "cash_to_assets": 5.1302476766012,
+    "current_ratio": 1.3762770854384192,
+    "roe": 10.728764955997232,
+    "roa": 6.458410219169276,
     "moat": {
       "ticker": "ABT",
       "period": "2026Q2",
@@ -446120,6 +450264,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-27",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-26",
+        "reason": null,
+        "bookEquity": 52581000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-26",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-26",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-26",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-26",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-26",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Danaher",
@@ -449258,17 +453438,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 40.2,
     "pe_forward": 35.4,
-    "pb_trailing": 3.1,
+    "pb_trailing": 3.062168844259333,
     "pb_forward": 2.8,
     "div_yield": 0.6,
     "ps_ratio": 7.4,
     "fcf_to_ev": 4.65,
     "fcf_to_mcap": 3.39,
-    "liab_to_assets": 43.1,
-    "cash_to_assets": 4.7,
-    "current_ratio": 1.65,
-    "roe": 7.6,
-    "roa": 4.3,
+    "liab_to_assets": 43.0738250673942,
+    "cash_to_assets": 4.7073088873731965,
+    "current_ratio": 1.6509561998766193,
+    "roe": 7.650857950854128,
+    "roa": 4.905660377358491,
     "moat": {
       "ticker": "DHR",
       "period": "2026Q2",
@@ -450050,6 +454230,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 18168400000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Intuitive Surgical",
@@ -453186,17 +457402,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 48.0,
     "pe_forward": 42.2,
-    "pb_trailing": 8.3,
+    "pb_trailing": 8.297026705708813,
     "pb_forward": 7.5,
     "div_yield": 0.0,
     "ps_ratio": 11.7,
     "fcf_to_ev": 6.08,
     "fcf_to_mcap": 2.14,
-    "liab_to_assets": 12.4,
-    "cash_to_assets": 25.0,
-    "current_ratio": 4.96,
-    "roe": 17.3,
-    "roa": 15.0,
+    "liab_to_assets": 12.353065154287576,
+    "cash_to_assets": 24.985869346541104,
+    "current_ratio": 4.962660564771959,
+    "roe": 17.58855074331632,
+    "roa": 15.566973496270434,
     "moat": {
       "ticker": "ISRG",
       "period": "2026Q2",
@@ -453954,6 +458170,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-29",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-28",
+        "reason": null,
+        "bookEquity": 85190000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-28",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-28",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Pfizer",
@@ -457092,17 +461344,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 38.9,
     "pe_forward": 34.2,
-    "pb_trailing": 2.0,
+    "pb_trailing": 1.979060922643503,
     "pb_forward": 1.8,
     "div_yield": 5.8,
     "ps_ratio": 3.8,
     "fcf_to_ev": 2.63,
     "fcf_to_mcap": 6.52,
-    "liab_to_assets": 57.5,
-    "cash_to_assets": 5.8,
-    "current_ratio": 1.27,
-    "roe": 5.1,
-    "roa": 2.2,
+    "liab_to_assets": 57.49436934137453,
+    "cash_to_assets": 5.816607086923447,
+    "current_ratio": 1.2668627090608344,
+    "roe": 4.887535937764248,
+    "roa": 2.10339891797472,
     "moat": {
       "ticker": "PFE",
       "period": "2026Q2",
@@ -457878,6 +462130,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 11688000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Amgen",
@@ -461016,17 +465304,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 26.7,
     "pe_forward": 23.5,
-    "pb_trailing": 20.0,
+    "pb_trailing": 20.004953798767968,
     "pb_forward": 18.0,
     "div_yield": 2.26,
     "ps_ratio": 5.7,
     "fcf_to_ev": 3.2,
     "fcf_to_mcap": 4.35,
-    "liab_to_assets": 87.8,
-    "cash_to_assets": 14.6,
-    "current_ratio": 1.37,
-    "roe": 74.8,
-    "roa": 9.1,
+    "liab_to_assets": 87.77904411380295,
+    "cash_to_assets": 14.626878156400632,
+    "current_ratio": 1.370912085326641,
+    "roe": 117.70328486806679,
+    "roa": 9.946869631500507,
     "moat": {
       "ticker": "AMGN",
       "period": "2026Q2",
@@ -461796,6 +466084,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 22319000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Bristol-Myers Squibb",
@@ -464934,17 +469258,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 13.1,
     "pe_forward": 11.5,
-    "pb_trailing": 5.5,
+    "pb_trailing": 5.468520094986334,
     "pb_forward": 5.0,
     "div_yield": 4.17,
     "ps_ratio": 2.7,
     "fcf_to_ev": 2.49,
     "fcf_to_mcap": 9.37,
-    "liab_to_assets": 74.5,
-    "cash_to_assets": 12.6,
-    "current_ratio": 1.53,
-    "roe": 41.6,
-    "roa": 10.6,
+    "liab_to_assets": 74.53157450304676,
+    "cash_to_assets": 12.62866010909008,
+    "current_ratio": 1.5316469264162067,
+    "roe": 53.237740177803275,
+    "roa": 9.80396298956441,
     "moat": {
       "ticker": "BMY",
       "period": "2026Q2",
@@ -465720,6 +470044,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-07-25",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "bookEquity": 50232000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Medtronic",
@@ -468858,17 +473218,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 23.2,
     "pe_forward": 20.4,
-    "pb_trailing": 2.4,
+    "pb_trailing": 2.4128324573976747,
     "pb_forward": 2.2,
     "div_yield": 3.01,
     "ps_ratio": 4.9,
     "fcf_to_ev": 3.8,
     "fcf_to_mcap": 5.06,
-    "liab_to_assets": 45.5,
-    "cash_to_assets": 9.5,
-    "current_ratio": 2.07,
-    "roe": 10.4,
-    "roa": 5.6,
+    "liab_to_assets": 45.50189698411678,
+    "cash_to_assets": 9.451696568280711,
+    "current_ratio": 2.0671243325705566,
+    "roe": 10.920176226170838,
+    "roa": 5.749021676999516,
     "moat": {
       "ticker": "MDT",
       "period": "2027Q1",
@@ -469650,6 +474010,46 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 11828000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeNetIncome"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeNetIncome"
+        ]
       }
     },
     "name": "Gilead Sciences",
@@ -472788,17 +477188,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 24.0,
     "pe_forward": 21.1,
-    "pb_trailing": 16.4,
+    "pb_trailing": 16.373740277308084,
     "pb_forward": 14.8,
     "div_yield": 2.1,
     "ps_ratio": 3.7,
     "fcf_to_ev": 3.13,
     "fcf_to_mcap": 6.82,
-    "liab_to_assets": 76.2,
-    "cash_to_assets": 6.4,
-    "current_ratio": 1.27,
-    "roe": 18.0,
-    "roa": 8.0,
+    "liab_to_assets": 76.2084194319517,
+    "cash_to_assets": 6.440176654106397,
+    "current_ratio": 1.265426497277677,
+    "roe": -16.467598475222363,
+    "roa": -5.814683871430878,
     "moat": {
       "ticker": "GILD",
       "period": "2026Q2",
@@ -473568,6 +477968,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-29",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-28",
+        "reason": null,
+        "bookEquity": 2838000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-28",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-28",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Illumina",
@@ -476706,17 +481142,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 48.1,
     "pe_forward": 42.3,
-    "pb_trailing": 14.0,
+    "pb_trailing": 13.968816067653277,
     "pb_forward": 12.6,
     "div_yield": 0.0,
     "ps_ratio": 10.6,
     "fcf_to_ev": 6.8,
     "fcf_to_mcap": 2.37,
-    "liab_to_assets": 57.3,
-    "cash_to_assets": 17.6,
-    "current_ratio": 1.8,
-    "roe": 29.1,
-    "roa": 12.4,
+    "liab_to_assets": 57.32330827067669,
+    "cash_to_assets": 17.56390977443609,
+    "current_ratio": 1.7959442332065907,
+    "roe": 36.53675819309123,
+    "roa": 13.553474618038441,
     "moat": {
       "ticker": "ILMN",
       "period": "2026Q2",
@@ -477462,6 +481898,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 3148000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Zoetis",
@@ -480595,17 +485067,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 12.5,
     "pe_forward": 11.0,
-    "pb_trailing": 10.4,
+    "pb_trailing": 10.411975857687422,
     "pb_forward": 9.4,
     "div_yield": 2.71,
     "ps_ratio": 3.5,
     "fcf_to_ev": 3.9,
     "fcf_to_mcap": 7.22,
-    "liab_to_assets": 79.1,
-    "cash_to_assets": 11.1,
-    "current_ratio": 3.08,
-    "roe": 83.1,
-    "roa": 17.4,
+    "liab_to_assets": 79.12051469125157,
+    "cash_to_assets": 11.116269814949924,
+    "current_ratio": 3.083939835031538,
+    "roe": 52.561784207353824,
+    "roa": 18.067546101250088,
     "moat": {
       "ticker": "ZTS",
       "period": "2026Q2",
@@ -481344,6 +485816,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 4232453000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Align Technology",
@@ -484476,17 +488984,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 25.3,
     "pe_forward": 22.3,
-    "pb_trailing": 2.5,
+    "pb_trailing": 2.4725377930953987,
     "pb_forward": 2.2,
     "div_yield": 0.0,
     "ps_ratio": 3.5,
     "fcf_to_ev": 8.55,
     "fcf_to_mcap": 7.22,
-    "liab_to_assets": 34.0,
-    "cash_to_assets": 17.2,
-    "current_ratio": 1.4,
-    "roe": 9.8,
-    "roa": 6.4,
+    "liab_to_assets": 34.04909108276156,
+    "cash_to_assets": 17.180788212879587,
+    "current_ratio": 1.3952914103920315,
+    "roe": 10.569929965377549,
+    "roa": 6.650132639898995,
     "moat": {
       "ticker": "ALGN",
       "period": "2026Q2",
@@ -485225,6 +489733,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 14335996948.699999,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Fresenius Medical Care",
@@ -489168,6 +493712,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 24416000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Becton Dickinson",
     "company_name": "Becton, Dickinson and Company",
     "exchange": "NYSE",
@@ -492304,17 +496884,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 55.5,
     "pe_forward": 48.8,
-    "pb_trailing": 2.1,
+    "pb_trailing": 2.139179226736566,
     "pb_forward": 1.9,
     "div_yield": 3.37,
     "ps_ratio": 5.0,
     "fcf_to_ev": 2.63,
     "fcf_to_mcap": 4.99,
-    "liab_to_assets": 51.9,
-    "cash_to_assets": 1.4,
-    "current_ratio": 0.87,
-    "roe": 3.9,
-    "roa": 1.9,
+    "liab_to_assets": 51.86966549052847,
+    "cash_to_assets": 1.3975675622400505,
+    "current_ratio": 0.8654827732879625,
+    "roe": 3.6941074863581043,
+    "roa": 1.713963061454956,
     "moat": {
       "ticker": "BDX",
       "period": "2026Q3",
@@ -493090,6 +497670,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 12623900000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Zimmer Biomet",
@@ -496228,17 +500844,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 22.5,
     "pe_forward": 19.8,
-    "pb_trailing": 1.4,
+    "pb_trailing": 1.4350794920745569,
     "pb_forward": 1.3,
     "div_yield": 1.04,
     "ps_ratio": 2.5,
     "fcf_to_ev": 3.18,
     "fcf_to_mcap": 10.1,
-    "liab_to_assets": 44.6,
-    "cash_to_assets": 1.8,
-    "current_ratio": 1.69,
-    "roe": 6.4,
-    "roa": 3.5,
+    "liab_to_assets": 44.58895156550193,
+    "cash_to_assets": 1.798419145707042,
+    "current_ratio": 1.6912891986062717,
+    "roe": 6.441516966067865,
+    "roa": 3.52852163340637,
     "moat": {
       "ticker": "ZBH",
       "period": "2026Q2",
@@ -496984,6 +501600,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 2621400000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Dexcom",
@@ -500122,17 +504774,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 32.5,
     "pe_forward": 28.6,
-    "pb_trailing": 12.4,
+    "pb_trailing": 12.385786221103226,
     "pb_forward": 11.2,
     "div_yield": 0.0,
     "ps_ratio": 5.8,
     "fcf_to_ev": 5.59,
     "fcf_to_mcap": 4.33,
-    "liab_to_assets": 59.4,
-    "cash_to_assets": 30.2,
-    "current_ratio": 1.73,
-    "roe": 38.1,
-    "roa": 15.5,
+    "liab_to_assets": 59.391507753318976,
+    "cash_to_assets": 30.161262838287918,
+    "current_ratio": 1.733299401959537,
+    "roe": 38.851968442734446,
+    "roa": 13.644056230380782,
     "moat": {
       "ticker": "DXCM",
       "period": "2026Q2",
@@ -500878,6 +505530,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 6585393000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "ResMed",
@@ -504016,17 +508704,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 22.1,
     "pe_forward": 19.4,
-    "pb_trailing": 5.1,
+    "pb_trailing": 5.103507110357726,
     "pb_forward": 4.6,
     "div_yield": 1.82,
     "ps_ratio": 2.9,
     "fcf_to_ev": 4.4,
     "fcf_to_mcap": 8.6,
-    "liab_to_assets": 26.6,
-    "cash_to_assets": 16.4,
-    "current_ratio": 3.1,
-    "roe": 23.1,
-    "roa": 17.0,
+    "liab_to_assets": 26.55108493801549,
+    "cash_to_assets": 16.38681902085111,
+    "current_ratio": 3.0999268874855748,
+    "roe": 25.52494956734065,
+    "roa": 18.634941734497406,
     "moat": {
       "ticker": "RMD",
       "period": "2026Q4",
@@ -504790,6 +509478,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 3050958000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Cencora",
@@ -507926,17 +512650,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 24.8,
     "pe_forward": 21.8,
-    "pb_trailing": 21.3,
+    "pb_trailing": 21.32340071544741,
     "pb_forward": 19.2,
     "div_yield": 0.72,
     "ps_ratio": 4.0,
     "fcf_to_ev": 3.7,
     "fcf_to_mcap": 6.24,
-    "liab_to_assets": 96.1,
-    "cash_to_assets": 3.4,
-    "current_ratio": 0.93,
-    "roe": 86.0,
-    "roa": 3.1,
+    "liab_to_assets": 96.13499239125598,
+    "cash_to_assets": 3.3593131949144226,
+    "current_ratio": 0.9347608953093532,
+    "roe": 132.55238252028968,
+    "roa": 3.5490844296418302,
     "moat": {
       "ticker": "COR",
       "period": "2026Q3",
@@ -508694,6 +513418,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 7206700000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "STERIS",
@@ -511827,17 +516587,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 27.0,
     "pe_forward": 23.8,
-    "pb_trailing": 3.0,
+    "pb_trailing": 3.01239124703401,
     "pb_forward": 2.7,
     "div_yield": 1.14,
     "ps_ratio": 5.9,
     "fcf_to_ev": 5.21,
     "fcf_to_mcap": 4.26,
-    "liab_to_assets": 32.7,
-    "cash_to_assets": 4.5,
-    "current_ratio": 1.91,
-    "roe": 11.2,
-    "roa": 7.5,
+    "liab_to_assets": 32.738145136502084,
+    "cash_to_assets": 4.492320302530714,
+    "current_ratio": 1.9058676848749319,
+    "roe": 11.572516889463849,
+    "roa": 7.737626141278231,
     "moat": {
       "ticker": "STE",
       "period": "2027Q1",
@@ -512589,6 +517349,44 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": -4240000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeEquity"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "McKesson",
@@ -515723,17 +520521,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 25.5,
     "pe_forward": 22.4,
-    "pb_trailing": 5.0,
+    "pb_trailing": -27.630825471698113,
     "pb_forward": 4.5,
     "div_yield": 0.34,
     "ps_ratio": 4.7,
     "fcf_to_ev": 2.74,
     "fcf_to_mcap": 5.28,
-    "liab_to_assets": 104.4,
-    "cash_to_assets": 5.8,
-    "current_ratio": 0.89,
-    "roe": 18.0,
-    "roa": 5.2,
+    "liab_to_assets": 104.37450469829051,
+    "cash_to_assets": 5.846258349371674,
+    "current_ratio": 0.8931292284950821,
+    "roe": -233.45195729537366,
+    "roa": 5.647452374217511,
     "moat": {
       "ticker": "MCK",
       "period": "2027Q1",
@@ -516479,6 +521277,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 23988000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Stryker",
@@ -519617,17 +524451,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 30.3,
     "pe_forward": 26.7,
-    "pb_trailing": 4.7,
+    "pb_trailing": 4.711672502918126,
     "pb_forward": 4.2,
     "div_yield": 1.17,
     "ps_ratio": 6.0,
     "fcf_to_ev": 4.09,
     "fcf_to_mcap": 4.16,
-    "liab_to_assets": 50.0,
-    "cash_to_assets": 7.3,
-    "current_ratio": 2.16,
-    "roe": 15.5,
-    "roa": 7.8,
+    "liab_to_assets": 49.952013352806176,
+    "cash_to_assets": 7.25224285416232,
+    "current_ratio": 2.157091561938959,
+    "roe": 17.597093105563683,
+    "roa": 8.04860676436943,
     "moat": {
       "ticker": "SYK",
       "period": "2026Q2",
@@ -520421,6 +525255,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-07-31",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "bookEquity": 7431449000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Veeva Systems",
@@ -523554,17 +528424,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 49.5,
     "pe_forward": 43.6,
-    "pb_trailing": 6.8,
+    "pb_trailing": 6.761817244523915,
     "pb_forward": 6.1,
     "div_yield": 0.0,
     "ps_ratio": 7.6,
     "fcf_to_ev": 4.32,
     "fcf_to_mcap": 3.27,
-    "liab_to_assets": 18.0,
-    "cash_to_assets": 79.9,
-    "current_ratio": 5.46,
-    "roe": 13.7,
-    "roa": 11.2,
+    "liab_to_assets": 17.977195484040514,
+    "cash_to_assets": 79.94225969934735,
+    "current_ratio": 5.457760912119235,
+    "roe": 15.28607422506669,
+    "roa": 12.685558590634056,
     "moat": {
       "ticker": "VEEV",
       "period": "2027Q2",
@@ -524303,6 +529173,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 8606800000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Labcorp",
@@ -527441,17 +532347,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 25.7,
     "pe_forward": 22.6,
-    "pb_trailing": 3.0,
+    "pb_trailing": 2.995968304131617,
     "pb_forward": 2.7,
     "div_yield": 0.93,
     "ps_ratio": 5.6,
     "fcf_to_ev": 4.6,
     "fcf_to_mcap": 4.48,
-    "liab_to_assets": 53.5,
-    "cash_to_assets": 0.8,
-    "current_ratio": 1.8,
-    "roe": 11.6,
-    "roa": 5.4,
+    "liab_to_assets": 53.469348111135695,
+    "cash_to_assets": 0.765150574942128,
+    "current_ratio": 1.7955850513037748,
+    "roe": 11.829759108666659,
+    "roa": 5.549864617190571,
     "moat": {
       "ticker": "LH",
       "period": "2026Q2",
@@ -528215,6 +533121,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 31711000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Regeneron",
@@ -531353,17 +536295,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 18.8,
     "pe_forward": 16.5,
-    "pb_trailing": 2.6,
+    "pb_trailing": 2.567266879000978,
     "pb_forward": 2.3,
     "div_yield": 0.46,
     "ps_ratio": 5.8,
     "fcf_to_ev": 2.65,
     "fcf_to_mcap": 4.33,
-    "liab_to_assets": 24.0,
-    "cash_to_assets": 19.2,
-    "current_ratio": 3.34,
-    "roe": 13.7,
-    "roa": 10.4,
+    "liab_to_assets": 24.00910615863887,
+    "cash_to_assets": 19.15791996165828,
+    "current_ratio": 3.33526199689003,
+    "roe": 14.458447037132293,
+    "roa": 11.325982752124586,
     "moat": {
       "ticker": "REGN",
       "period": "2026Q2",
@@ -532102,6 +537044,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 20247900000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Vertex Pharmaceuticals",
@@ -535240,17 +540218,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 28.8,
     "pe_forward": 25.3,
-    "pb_trailing": 6.3,
+    "pb_trailing": 6.255690713604867,
     "pb_forward": 5.7,
     "div_yield": 0.0,
     "ps_ratio": 8.3,
     "fcf_to_ev": 2.68,
     "fcf_to_mcap": 3.0,
-    "liab_to_assets": 26.2,
-    "cash_to_assets": 28.6,
-    "current_ratio": 3.19,
-    "roe": 21.8,
-    "roa": 16.1,
+    "liab_to_assets": 26.165341151502552,
+    "cash_to_assets": 28.63404477214631,
+    "current_ratio": 3.1853779933467075,
+    "roe": 25.648310956367826,
+    "roa": 18.326975000728055,
     "moat": {
       "ticker": "VRTX",
       "period": "2026Q2",
@@ -535996,6 +540974,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-07-31",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "bookEquity": 98238000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Walmart",
@@ -539134,17 +544148,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 42.8,
     "pe_forward": 37.7,
-    "pb_trailing": 9.6,
+    "pb_trailing": 9.624579083450396,
     "pb_forward": 8.6,
     "div_yield": 0.81,
     "ps_ratio": 17.5,
     "fcf_to_ev": 4.19,
     "fcf_to_mcap": 1.43,
-    "liab_to_assets": 64.4,
-    "cash_to_assets": 3.9,
-    "current_ratio": 0.77,
-    "roe": 22.5,
-    "roa": 7.5,
+    "liab_to_assets": 64.44334056900998,
+    "cash_to_assets": 3.9225759916165956,
+    "current_ratio": 0.7671279079823575,
+    "roe": 24.498945732993008,
+    "roa": 8.151028109157906,
     "moat": {
       "ticker": "WMT",
       "period": "2027Q2",
@@ -539944,6 +544958,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-08-31",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-08-30",
+        "reason": null,
+        "bookEquity": 35803000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-08-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-08-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-08-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-08-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-08-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Costco Wholesale",
@@ -543082,17 +548132,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 47.5,
     "pe_forward": 41.8,
-    "pb_trailing": 12.2,
+    "pb_trailing": 12.242094237913024,
     "pb_forward": 11.0,
     "div_yield": 0.56,
     "ps_ratio": 11.7,
     "fcf_to_ev": 5.15,
     "fcf_to_mcap": 2.14,
-    "liab_to_assets": 59.8,
-    "cash_to_assets": 23.9,
-    "current_ratio": 1.06,
-    "roe": 25.8,
-    "roa": 10.4,
+    "liab_to_assets": 59.792239878713005,
+    "cash_to_assets": 23.92161266775226,
+    "current_ratio": 1.0598380050964689,
+    "roe": 31.634892333013305,
+    "roa": 11.966432768258992,
     "moat": {
       "ticker": "COST",
       "period": "2026Q4",
@@ -543868,6 +548918,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 54311000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Procter & Gamble",
@@ -547006,17 +552092,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 23.1,
     "pe_forward": 20.3,
-    "pb_trailing": 6.8,
+    "pb_trailing": 6.813074699416325,
     "pb_forward": 6.1,
     "div_yield": 2.77,
     "ps_ratio": 5.8,
     "fcf_to_ev": 3.4,
     "fcf_to_mcap": 4.3,
-    "liab_to_assets": 57.1,
-    "cash_to_assets": 7.9,
-    "current_ratio": 0.68,
-    "roe": 29.5,
-    "roa": 12.7,
+    "liab_to_assets": 57.07352929553197,
+    "cash_to_assets": 7.857984050078643,
+    "current_ratio": 0.6773143122964801,
+    "roe": 30.850572944705068,
+    "roa": 12.81312135174198,
     "moat": {
       "ticker": "PG",
       "period": "2026Q4",
@@ -547792,6 +552878,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-27",
           "reason": "nonPositivePrior"
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-07-03",
+        "reason": null,
+        "bookEquity": 36150000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-07-03",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-07-03",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-07-03",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-07-03",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-07-03",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Coca-Cola",
@@ -550930,17 +556052,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 28.2,
     "pe_forward": 24.8,
-    "pb_trailing": 11.2,
+    "pb_trailing": 11.175917012448133,
     "pb_forward": 10.1,
     "div_yield": 2.74,
     "ps_ratio": 7.1,
     "fcf_to_ev": 3.13,
     "fcf_to_mcap": 3.54,
-    "liab_to_assets": 64.5,
-    "cash_to_assets": 15.2,
-    "current_ratio": 1.3,
-    "roe": 39.6,
-    "roa": 13.3,
+    "liab_to_assets": 64.49750745909083,
+    "cash_to_assets": 15.169288930894535,
+    "current_ratio": 1.3046031746031745,
+    "roe": 50.08221094979884,
+    "roa": 13.721449589295812,
     "moat": {
       "ticker": "KO",
       "period": "2026Q2",
@@ -551734,6 +556856,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-09-06",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-09-05",
+        "reason": null,
+        "bookEquity": 22292000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-09-05",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-09-05",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-09-05",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-09-05",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-09-05",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "PepsiCo",
@@ -554872,17 +560030,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 16.4,
     "pe_forward": 14.4,
-    "pb_trailing": 8.0,
+    "pb_trailing": 8.038166158263053,
     "pb_forward": 7.2,
     "div_yield": 4.4,
     "ps_ratio": 3.5,
     "fcf_to_ev": 2.98,
     "fcf_to_mcap": 7.06,
-    "liab_to_assets": 79.9,
-    "cash_to_assets": 10.0,
-    "current_ratio": 0.94,
-    "roe": 49.0,
-    "roa": 9.8,
+    "liab_to_assets": 79.91801814674572,
+    "cash_to_assets": 9.96910052154033,
+    "current_ratio": 0.9429465087317906,
+    "roe": 56.37507736744378,
+    "roa": 10.257324649486664,
     "moat": {
       "ticker": "PEP",
       "period": "2026Q3",
@@ -555646,6 +560804,44 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": -8583000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeEquity"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Philip Morris",
@@ -558783,17 +563979,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 29.4,
     "pe_forward": 25.9,
-    "pb_trailing": 5.0,
+    "pb_trailing": -37.2628218571595,
     "pb_forward": 4.5,
     "div_yield": 2.82,
     "ps_ratio": 6.3,
     "fcf_to_ev": 3.14,
     "fcf_to_mcap": 3.98,
-    "liab_to_assets": 109.8,
-    "cash_to_assets": 8.8,
-    "current_ratio": 0.98,
-    "roe": 18.0,
-    "roa": 15.9,
+    "liab_to_assets": 109.75084589357121,
+    "cash_to_assets": 8.787039885163539,
+    "current_ratio": 0.9798055911385728,
+    "roe": -90.8741434063179,
+    "roa": 15.87306221352874,
     "moat": {
       "ticker": "PM",
       "period": "2026Q2",
@@ -559532,6 +564728,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 26639000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Mondelez",
@@ -562665,17 +567897,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 23.2,
     "pe_forward": 20.4,
-    "pb_trailing": 3.1,
+    "pb_trailing": 3.062014339877623,
     "pb_forward": 2.8,
     "div_yield": 3.12,
     "ps_ratio": 6.6,
     "fcf_to_ev": 3.11,
     "fcf_to_mcap": 3.78,
-    "liab_to_assets": 62.5,
-    "cash_to_assets": 2.4,
-    "current_ratio": 0.6,
-    "roe": 13.2,
-    "roa": 4.9,
+    "liab_to_assets": 62.535966426656564,
+    "cash_to_assets": 2.4085224641037515,
+    "current_ratio": 0.5991756587783078,
+    "roe": 13.423433741839421,
+    "roa": 4.950718107575331,
     "moat": {
       "ticker": "MDLZ",
       "period": "2026Q2",
@@ -563414,6 +568646,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 236000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Colgate-Palmolive",
@@ -566552,17 +571820,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 36.8,
     "pe_forward": 32.4,
-    "pb_trailing": 317.9,
+    "pb_trailing": 317.8898305084746,
     "pb_forward": 286.1,
     "div_yield": 2.43,
     "ps_ratio": 4.9,
     "fcf_to_ev": 3.14,
     "fcf_to_mcap": 5.14,
-    "liab_to_assets": 96.6,
-    "cash_to_assets": 8.2,
-    "current_ratio": 1.03,
-    "roe": 863.1,
-    "roa": 12.1,
+    "liab_to_assets": 96.62894580107206,
+    "cash_to_assets": 8.159618820726623,
+    "current_ratio": 1.026024723487313,
+    "roe": 290.1709401709402,
+    "roa": 11.65998855180309,
     "moat": {
       "ticker": "CL",
       "period": "2026Q2",
@@ -567332,6 +572600,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-08-31",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-08-31",
+        "reason": null,
+        "bookEquity": 7003300000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-08-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-08-31",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "McCormick",
@@ -570470,17 +575774,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 8.3,
     "pe_forward": 7.3,
-    "pb_trailing": 1.8,
+    "pb_trailing": 1.780746219639313,
     "pb_forward": 1.6,
     "div_yield": 4.07,
     "ps_ratio": 3.4,
     "fcf_to_ev": 3.8,
     "fcf_to_mcap": 7.42,
-    "liab_to_assets": 54.4,
-    "cash_to_assets": 2.0,
-    "current_ratio": 0.66,
-    "roe": 21.4,
-    "roa": 9.0,
+    "liab_to_assets": 54.433473868809536,
+    "cash_to_assets": 1.9885169303208292,
+    "current_ratio": 0.6571945701357466,
+    "roe": 26.084689194826865,
+    "roa": 11.327847814599531,
     "moat": {
       "ticker": "MKC",
       "period": "2026Q3",
@@ -571256,6 +576560,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 90000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Clorox",
@@ -574394,17 +579734,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 17.9,
     "pe_forward": 15.8,
-    "pb_trailing": 117.0,
+    "pb_trailing": 117.02777777777777,
     "pb_forward": 105.3,
     "div_yield": 5.72,
     "ps_ratio": 6.5,
     "fcf_to_ev": 3.29,
     "fcf_to_mcap": 3.85,
-    "liab_to_assets": 96.8,
-    "cash_to_assets": 1.8,
-    "current_ratio": 0.66,
-    "roe": 652.2,
-    "roa": 7.5,
+    "liab_to_assets": 96.76674364896074,
+    "cash_to_assets": 1.8347446753913266,
+    "current_ratio": 0.6577713667508114,
+    "roe": 182.86604361370718,
+    "roa": 10.5556554576515,
     "moat": {
       "ticker": "CLX",
       "period": "2026Q4",
@@ -575162,6 +580502,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-29",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-28",
+        "reason": null,
+        "bookEquity": 4562690000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-28",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-28",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Hershey Company",
@@ -578295,17 +583671,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 23.1,
     "pe_forward": 20.3,
-    "pb_trailing": 7.5,
+    "pb_trailing": 7.5227771336645715,
     "pb_forward": 6.8,
     "div_yield": 3.25,
     "ps_ratio": 3.4,
     "fcf_to_ev": 2.2,
     "fcf_to_mcap": 7.41,
-    "liab_to_assets": 67.3,
-    "cash_to_assets": 5.7,
-    "current_ratio": 1.18,
-    "roe": 32.6,
-    "roa": 10.7,
+    "liab_to_assets": 67.34650382751026,
+    "cash_to_assets": 5.66242077965501,
+    "current_ratio": 1.1800970090419873,
+    "roe": 32.98411958664055,
+    "roa": 10.91261688540531,
     "moat": {
       "ticker": "HSY",
       "period": "2026Q2",
@@ -579069,6 +584445,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 23580000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Archer-Daniels-Midland",
@@ -582202,17 +587614,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 22.5,
     "pe_forward": 19.8,
-    "pb_trailing": 1.7,
+    "pb_trailing": 1.6884944868532654,
     "pb_forward": 1.5,
     "div_yield": 2.52,
     "ps_ratio": 5.9,
     "fcf_to_ev": 4.0,
     "fcf_to_mcap": 4.21,
-    "liab_to_assets": 55.4,
-    "cash_to_assets": 18.0,
-    "current_ratio": 1.39,
-    "roe": 7.5,
-    "roa": 3.3,
+    "liab_to_assets": 55.4019466811142,
+    "cash_to_assets": 17.951687933192595,
+    "current_ratio": 1.3891165300819508,
+    "roe": 7.891217119928667,
+    "roa": 3.4041080083083313,
     "moat": {
       "ticker": "ADM",
       "period": "2026Q2",
@@ -583012,6 +588424,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 4347800000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Church & Dwight",
@@ -586150,17 +591598,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 33.3,
     "pe_forward": 29.3,
-    "pb_trailing": 5.7,
+    "pb_trailing": 5.702861217167303,
     "pb_forward": 5.1,
     "div_yield": 1.16,
     "ps_ratio": 5.6,
     "fcf_to_ev": 3.75,
     "fcf_to_mcap": 4.5,
-    "liab_to_assets": 52.3,
-    "cash_to_assets": 2.8,
-    "current_ratio": 1.15,
-    "roe": 17.1,
-    "roa": 8.2,
+    "liab_to_assets": 52.25188618118322,
+    "cash_to_assets": 2.798247251721449,
+    "current_ratio": 1.1465491259795058,
+    "roe": 16.951544256549152,
+    "roa": 8.47500056894472,
     "moat": {
       "ticker": "CHD",
       "period": "2026Q2",
@@ -586948,6 +592396,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-08-02",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-08-01",
+        "reason": null,
+        "bookEquity": 17843000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-08-01",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-08-01",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-08-01",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-08-01",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-08-01",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Target",
@@ -590086,17 +595570,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 16.0,
     "pe_forward": 14.1,
-    "pb_trailing": 3.9,
+    "pb_trailing": 3.9270694389956846,
     "pb_forward": 3.5,
     "div_yield": 2.95,
     "ps_ratio": 3.8,
     "fcf_to_ev": 5.11,
     "fcf_to_mcap": 6.49,
-    "liab_to_assets": 70.9,
-    "cash_to_assets": 8.8,
-    "current_ratio": 0.99,
-    "roe": 24.6,
-    "roa": 7.2,
+    "liab_to_assets": 70.86143545358047,
+    "cash_to_assets": 8.836449742794155,
+    "current_ratio": 0.9881019830028328,
+    "roe": 28.48249027237354,
+    "roa": 7.5919171665139755,
     "moat": {
       "ticker": "TGT",
       "period": "2026Q2",
@@ -590866,6 +596350,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 1750000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Kimberly-Clark",
@@ -594004,17 +599524,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 18.0,
     "pe_forward": 15.8,
-    "pb_trailing": 20.1,
+    "pb_trailing": 20.063085714285716,
     "pb_forward": 18.1,
     "div_yield": 4.78,
     "ps_ratio": 3.4,
     "fcf_to_ev": 2.86,
     "fcf_to_mcap": 7.29,
-    "liab_to_assets": 89.8,
-    "cash_to_assets": 5.2,
-    "current_ratio": 0.91,
-    "roe": 111.7,
-    "roa": 10.5,
+    "liab_to_assets": 89.78117926053682,
+    "cash_to_assets": 5.152527756817936,
+    "current_ratio": 0.9092730394962794,
+    "roe": 153.81589299763965,
+    "roa": 11.657027010911692,
     "moat": {
       "ticker": "KMB",
       "period": "2026Q2",
@@ -594784,6 +600304,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 9364148000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Monster Beverage",
@@ -597922,17 +603478,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 42.1,
     "pe_forward": 37.0,
-    "pb_trailing": 9.6,
+    "pb_trailing": 9.5670636559781,
     "pb_forward": 8.6,
     "div_yield": 0.0,
     "ps_ratio": 10.7,
     "fcf_to_ev": 3.37,
     "fcf_to_mcap": 2.34,
-    "liab_to_assets": 17.7,
-    "cash_to_assets": 30.0,
-    "current_ratio": 3.73,
-    "roe": 22.7,
-    "roa": 18.7,
+    "liab_to_assets": 17.730551784346403,
+    "cash_to_assets": 30.040138668041433,
+    "current_ratio": 3.729314920459693,
+    "roe": 29.58670638871615,
+    "roa": 24.37224853285632,
     "moat": {
       "ticker": "MNST",
       "period": "2026Q2",
@@ -598714,6 +604270,46 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-08-24",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-08-30",
+        "reason": null,
+        "bookEquity": 7450400000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-08-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-08-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-08-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-08-30",
+        "reason": null,
+        "warnings": [
+          "negativeNetIncome"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-08-30",
+        "reason": null,
+        "warnings": [
+          "negativeNetIncome"
+        ]
       }
     },
     "name": "General Mills",
@@ -601852,17 +607448,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 24.0,
     "pe_forward": 21.1,
-    "pb_trailing": 2.4,
+    "pb_trailing": 2.3776173091377646,
     "pb_forward": 2.2,
     "div_yield": 7.42,
     "ps_ratio": 2.9,
     "fcf_to_ev": 3.43,
     "fcf_to_mcap": 8.73,
-    "liab_to_assets": 75.3,
-    "cash_to_assets": 1.4,
-    "current_ratio": 0.7,
-    "roe": 18.0,
-    "roa": 8.0,
+    "liab_to_assets": 75.39820436422734,
+    "cash_to_assets": 1.4306288689080182,
+    "current_ratio": 0.7037896253602306,
+    "roe": -9.412408221656534,
+    "roa": -2.71023395001151,
     "moat": {
       "ticker": "GIS",
       "period": "2027Q1",
@@ -602638,6 +608234,46 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-28",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-27",
+        "reason": null,
+        "bookEquity": 36006000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-27",
+        "reason": null,
+        "warnings": [
+          "negativeNetIncome"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-27",
+        "reason": null,
+        "warnings": [
+          "negativeNetIncome"
+        ]
       }
     },
     "name": "Kraft Heinz",
@@ -605776,17 +611412,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 24.0,
     "pe_forward": 21.1,
-    "pb_trailing": 0.8,
+    "pb_trailing": 0.779878353607732,
     "pb_forward": 0.7,
     "div_yield": 6.75,
     "ps_ratio": 1.8,
     "fcf_to_ev": 1.85,
     "fcf_to_mcap": 13.59,
-    "liab_to_assets": 50.6,
-    "cash_to_assets": 3.7,
-    "current_ratio": 1.06,
-    "roe": 18.0,
-    "roa": 8.0,
+    "liab_to_assets": 50.55087935399987,
+    "cash_to_assets": 3.6693355231643054,
+    "current_ratio": 1.0613813675998165,
+    "roe": -8.211228782823154,
+    "roa": -4.162733969919467,
     "moat": {
       "ticker": "KHC",
       "period": "2026Q2",
@@ -606525,6 +612161,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 17640000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "GE Aerospace",
@@ -609663,17 +615335,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 36.3,
     "pe_forward": 31.9,
-    "pb_trailing": 18.5,
+    "pb_trailing": 18.459081632653064,
     "pb_forward": 16.7,
     "div_yield": 0.5,
     "ps_ratio": 9.7,
     "fcf_to_ev": 5.84,
     "fcf_to_mcap": 2.58,
-    "liab_to_assets": 86.0,
-    "cash_to_assets": 7.3,
-    "current_ratio": 0.98,
-    "roe": 50.9,
-    "roa": 7.0,
+    "liab_to_assets": 86.00554546024188,
+    "cash_to_assets": 7.319537565010339,
+    "current_ratio": 0.9818698985901558,
+    "roe": 46.88267572511105,
+    "roa": 7.162131953758702,
     "moat": {
       "ticker": "GE",
       "period": "2026Q2",
@@ -610473,6 +616145,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 19395000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Caterpillar",
@@ -613611,17 +619319,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 31.0,
     "pe_forward": 27.3,
-    "pb_trailing": 17.3,
+    "pb_trailing": 17.31952049497293,
     "pb_forward": 15.6,
     "div_yield": 0.84,
     "ps_ratio": 9.3,
     "fcf_to_ev": 7.81,
     "fcf_to_mcap": 2.68,
-    "liab_to_assets": 81.1,
-    "cash_to_assets": 6.5,
-    "current_ratio": 1.37,
-    "roe": 55.9,
-    "roa": 10.6,
+    "liab_to_assets": 81.09912385853093,
+    "cash_to_assets": 6.542311103314525,
+    "current_ratio": 1.3684342799698417,
+    "roe": 58.05155136380687,
+    "roa": 11.993357320786052,
     "moat": {
       "ticker": "CAT",
       "period": "2026Q2",
@@ -614391,6 +620099,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 20673000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Union Pacific",
@@ -617523,17 +623267,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 23.4,
     "pe_forward": 20.6,
-    "pb_trailing": 8.3,
+    "pb_trailing": 8.306080394717748,
     "pb_forward": 7.5,
     "div_yield": 1.91,
     "ps_ratio": 6.6,
     "fcf_to_ev": 5.29,
     "fcf_to_mcap": 3.79,
-    "liab_to_assets": 71.0,
-    "cash_to_assets": 3.0,
-    "current_ratio": 0.99,
-    "roe": 35.5,
-    "roa": 10.3,
+    "liab_to_assets": 70.96937270927245,
+    "cash_to_assets": 2.9686424850093385,
+    "current_ratio": 0.9859230220955096,
+    "roe": 45.08549637101735,
+    "roa": 10.688870741950536,
     "moat": {
       "ticker": "UNP",
       "period": "2026Q2",
@@ -618309,6 +624053,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 66377000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "RTX Corporation",
@@ -621447,17 +627227,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 33.8,
     "pe_forward": 29.7,
-    "pb_trailing": 3.9,
+    "pb_trailing": 3.9374677975804873,
     "pb_forward": 3.5,
     "div_yield": 1.42,
     "ps_ratio": 5.8,
     "fcf_to_ev": 2.83,
     "fcf_to_mcap": 4.3,
-    "liab_to_assets": 60.8,
-    "cash_to_assets": 4.8,
-    "current_ratio": 1.01,
-    "roe": 11.7,
-    "roa": 4.4,
+    "liab_to_assets": 60.83047846779942,
+    "cash_to_assets": 4.773756696479893,
+    "current_ratio": 1.01054628824413,
+    "roe": 12.401038494823553,
+    "roa": 4.629679488330073,
     "moat": {
       "ticker": "RTX",
       "period": "2026Q2",
@@ -622233,6 +628013,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 18537000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Honeywell",
@@ -625371,17 +631187,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 8.2,
     "pe_forward": 7.2,
-    "pb_trailing": 3.6,
+    "pb_trailing": 3.614624804445164,
     "pb_forward": 3.2,
     "div_yield": 4.59,
     "ps_ratio": 4.1,
     "fcf_to_ev": 4.21,
     "fcf_to_mcap": 6.15,
-    "liab_to_assets": 75.6,
-    "cash_to_assets": 11.9,
-    "current_ratio": 1.21,
-    "roe": 44.3,
-    "roa": 10.6,
+    "liab_to_assets": 75.61931112949938,
+    "cash_to_assets": 11.889739346297063,
+    "current_ratio": 1.21061481417608,
+    "roe": 51.0282696489593,
+    "roa": 10.473227151583163,
     "moat": {
       "ticker": "HON",
       "period": "2026Q2",
@@ -626151,6 +631967,44 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": "nonPositivePrior"
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 6100000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeEquity"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Boeing",
@@ -629289,17 +635143,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 61.7,
     "pe_forward": 54.3,
-    "pb_trailing": 24.6,
+    "pb_trailing": 24.645295081967213,
     "pb_forward": 22.1,
     "div_yield": 0.23,
     "ps_ratio": 6.6,
     "fcf_to_ev": 5.13,
     "fcf_to_mcap": 3.8,
-    "liab_to_assets": 96.3,
-    "cash_to_assets": 12.1,
-    "current_ratio": 1.14,
-    "roe": 39.9,
-    "roa": 1.5,
+    "liab_to_assets": 96.31337794658468,
+    "cash_to_assets": 12.070898896726352,
+    "current_ratio": 1.1375190529649608,
+    "roe": -73.89984825493171,
+    "roa": 1.5697524497163484,
     "moat": {
       "ticker": "BA",
       "period": "2026Q2",
@@ -630087,6 +635941,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-29",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-28",
+        "reason": null,
+        "bookEquity": 8768000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-28",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-28",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-28",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Lockheed Martin",
@@ -633225,17 +639115,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 20.3,
     "pe_forward": 17.9,
-    "pb_trailing": 14.5,
+    "pb_trailing": 14.53209397810219,
     "pb_forward": 13.1,
     "div_yield": 2.49,
     "ps_ratio": 3.6,
     "fcf_to_ev": 2.24,
     "fcf_to_mcap": 6.85,
-    "liab_to_assets": 86.0,
-    "cash_to_assets": 6.1,
-    "current_ratio": 1.19,
-    "roe": 71.7,
-    "roa": 10.1,
+    "liab_to_assets": 85.95996797437951,
+    "cash_to_assets": 6.070456365092074,
+    "current_ratio": 1.1928682431013482,
+    "roe": 117.86651668541433,
+    "roa": 10.679463224052999,
     "moat": {
       "ticker": "LMT",
       "period": "2026Q2",
@@ -633993,6 +639883,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-07-27",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-08-02",
+        "reason": null,
+        "bookEquity": 27990000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-08-02",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-08-02",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-08-02",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-08-02",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-08-02",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Deere & Company",
@@ -637130,17 +643056,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 35.5,
     "pe_forward": 31.2,
-    "pb_trailing": 6.2,
+    "pb_trailing": 6.182986780993211,
     "pb_forward": 5.6,
     "div_yield": 1.01,
     "ps_ratio": 11.2,
     "fcf_to_ev": 4.47,
     "fcf_to_mcap": 2.23,
-    "liab_to_assets": 73.9,
-    "cash_to_assets": 9.6,
-    "current_ratio": 0.77,
-    "roe": 17.4,
-    "roa": 4.5,
+    "liab_to_assets": 73.94128634754244,
+    "cash_to_assets": 9.551423234547938,
+    "current_ratio": 0.7667986333315255,
+    "roe": 19.356504468718967,
+    "roa": 4.519695409814779,
     "moat": {
       "ticker": "DE",
       "period": "2026Q3",
@@ -637904,6 +643830,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 15067000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "United Parcel Service",
@@ -641042,17 +647004,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 16.0,
     "pe_forward": 14.1,
-    "pb_trailing": 4.8,
+    "pb_trailing": 4.849113957655804,
     "pb_forward": 4.3,
     "div_yield": 7.4,
     "ps_ratio": 3.3,
     "fcf_to_ev": 4.97,
     "fcf_to_mcap": 7.51,
-    "liab_to_assets": 78.8,
-    "cash_to_assets": 6.5,
-    "current_ratio": 1.18,
-    "roe": 30.3,
-    "roa": 6.4,
+    "liab_to_assets": 78.81347608289951,
+    "cash_to_assets": 6.528968526807639,
+    "current_ratio": 1.1790202271352732,
+    "roe": 29.015873015873016,
+    "roa": 6.443607856407653,
     "moat": {
       "ticker": "UPS",
       "period": "2026Q2",
@@ -641791,6 +647753,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 4380200000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Equifax",
@@ -644929,17 +650927,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 27.4,
     "pe_forward": 24.1,
-    "pb_trailing": 4.3,
+    "pb_trailing": 4.3250079905027174,
     "pb_forward": 3.9,
     "div_yield": 1.35,
     "ps_ratio": 4.3,
     "fcf_to_ev": 5.53,
     "fcf_to_mcap": 5.83,
-    "liab_to_assets": 62.3,
-    "cash_to_assets": 1.4,
-    "current_ratio": 0.6,
-    "roe": 15.8,
-    "roa": 5.8,
+    "liab_to_assets": 62.276953379291925,
+    "cash_to_assets": 1.4196531405965713,
+    "current_ratio": 0.6022852789944773,
+    "roe": 13.54756539629666,
+    "roa": 5.80135762172866,
     "moat": {
       "ticker": "EFX",
       "period": "2026Q2",
@@ -645709,6 +651707,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 4842900000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "TransUnion",
@@ -648843,17 +654877,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 16.7,
     "pe_forward": 14.7,
-    "pb_trailing": 2.9,
+    "pb_trailing": 2.9308265708563055,
     "pb_forward": 2.6,
     "div_yield": 1.06,
     "ps_ratio": 4.5,
     "fcf_to_ev": 6.15,
     "fcf_to_mcap": 5.55,
-    "liab_to_assets": 59.0,
-    "cash_to_assets": 6.9,
-    "current_ratio": 1.9,
-    "roe": 17.5,
-    "roa": 7.0,
+    "liab_to_assets": 58.99392119705658,
+    "cash_to_assets": 6.8835675436221795,
+    "current_ratio": 1.9003577349271443,
+    "roe": 18.758019556656784,
+    "roa": 7.62657743957833,
     "moat": {
       "ticker": "TRU",
       "period": "2026Q2",
@@ -649592,6 +655626,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-07-31",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "bookEquity": 9097295000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Copart",
@@ -652728,17 +658798,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 17.4,
     "pe_forward": 15.3,
-    "pb_trailing": 2.8,
+    "pb_trailing": 2.8378545490720044,
     "pb_forward": 2.5,
     "div_yield": 0.0,
     "ps_ratio": 5.1,
     "fcf_to_ev": 5.65,
     "fcf_to_mcap": 4.91,
-    "liab_to_assets": 9.1,
-    "cash_to_assets": 44.8,
-    "current_ratio": 7.91,
-    "roe": 16.3,
-    "roa": 14.8,
+    "liab_to_assets": 9.113954093665516,
+    "cash_to_assets": 44.7735048829206,
+    "current_ratio": 7.91227738614064,
+    "roe": 16.156140943436252,
+    "roa": 14.708992318030639,
     "moat": {
       "ticker": "CPRT",
       "period": "2026Q4",
@@ -653520,6 +659590,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-08-31",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-08-31",
+        "reason": null,
+        "bookEquity": 3705500000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-08-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-08-31",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Paychex",
@@ -656656,17 +662762,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 22.0,
     "pe_forward": 19.4,
-    "pb_trailing": 10.7,
+    "pb_trailing": 10.724058831466738,
     "pb_forward": 9.6,
     "div_yield": 4.09,
     "ps_ratio": 4.9,
     "fcf_to_ev": 4.99,
     "fcf_to_mcap": 5.07,
-    "liab_to_assets": 76.3,
-    "cash_to_assets": 6.0,
-    "current_ratio": 1.28,
-    "roe": 48.7,
-    "roa": 11.5,
+    "liab_to_assets": 76.3388609704547,
+    "cash_to_assets": 5.96525059543954,
+    "current_ratio": 1.2765930599369084,
+    "roe": 45.48430967611948,
+    "roa": 10.838384444577807,
     "moat": {
       "ticker": "PAYX",
       "period": "2027Q1",
@@ -657466,6 +663572,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 1841900000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "A. O. Smith",
@@ -660599,17 +666741,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 16.1,
     "pe_forward": 14.2,
-    "pb_trailing": 4.4,
+    "pb_trailing": 4.3696726206634455,
     "pb_forward": 4.0,
     "div_yield": 2.46,
     "ps_ratio": 3.1,
     "fcf_to_ev": 6.19,
     "fcf_to_mcap": 7.94,
-    "liab_to_assets": 49.5,
-    "cash_to_assets": 5.0,
-    "current_ratio": 1.59,
-    "roe": 27.2,
-    "roa": 13.7,
+    "liab_to_assets": 49.460831389765396,
+    "cash_to_assets": 4.974619289340102,
+    "current_ratio": 1.593782264540553,
+    "roe": 27.103310038463626,
+    "roa": 15.409492715680537,
     "moat": {
       "ticker": "AOS",
       "period": "2026Q2",
@@ -661379,6 +667521,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 2376475614.6484036,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Grupo Aeroportuario",
@@ -665395,6 +671573,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 10421000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Xylem",
     "company_name": "Xylem Inc.",
     "exchange": "NYSE",
@@ -668531,17 +674745,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 24.1,
     "pe_forward": 21.2,
-    "pb_trailing": 2.3,
+    "pb_trailing": 2.331733998656559,
     "pb_forward": 2.1,
     "div_yield": 1.65,
     "ps_ratio": 6.3,
     "fcf_to_ev": 5.18,
     "fcf_to_mcap": 3.95,
-    "liab_to_assets": 39.9,
-    "cash_to_assets": 7.4,
-    "current_ratio": 1.61,
-    "roe": 9.7,
-    "roa": 5.8,
+    "liab_to_assets": 39.89159266520586,
+    "cash_to_assets": 7.357859531772576,
+    "current_ratio": 1.6130690161527166,
+    "roe": 9.120462344229727,
+    "roa": 5.875167238671398,
     "moat": {
       "ticker": "XYL",
       "period": "2026Q2",
@@ -669280,6 +675494,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 1429597000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Rollins",
@@ -672412,17 +678662,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 30.3,
     "pe_forward": 26.7,
-    "pb_trailing": 11.3,
+    "pb_trailing": 11.257927933536514,
     "pb_forward": 10.2,
     "div_yield": 2.14,
     "ps_ratio": 6.5,
     "fcf_to_ev": 4.27,
     "fcf_to_mcap": 3.85,
-    "liab_to_assets": 57.4,
-    "cash_to_assets": 3.3,
-    "current_ratio": 0.63,
-    "roe": 37.2,
-    "roa": 15.8,
+    "liab_to_assets": 57.388197435894384,
+    "cash_to_assets": 3.2514816991819804,
+    "current_ratio": 0.6293576064837368,
+    "roe": 36.82572750612763,
+    "roa": 16.720418611086654,
     "moat": {
       "ticker": "ROL",
       "period": "2026Q2",
@@ -673222,6 +679472,44 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": -5748000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeEquity"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Otis Worldwide",
@@ -676351,17 +682639,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 17.9,
     "pe_forward": 15.8,
-    "pb_trailing": 5.0,
+    "pb_trailing": -4.723921363952679,
     "pb_forward": 4.5,
     "div_yield": 2.42,
     "ps_ratio": 4.0,
     "fcf_to_ev": 4.41,
     "fcf_to_mcap": 6.3,
-    "liab_to_assets": 149.8,
-    "cash_to_assets": 7.3,
-    "current_ratio": 0.83,
-    "roe": 18.0,
-    "roa": 13.6,
+    "liab_to_assets": 149.83865184653996,
+    "cash_to_assets": 7.287558264610972,
+    "current_ratio": 0.8314893617021276,
+    "roe": -28.246692752002982,
+    "roa": 14.444973797046213,
     "moat": {
       "ticker": "OTIS",
       "period": "2026Q2",
@@ -677100,6 +683388,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": -1189000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Verisk Analytics",
@@ -680238,17 +686562,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 28.1,
     "pe_forward": 24.7,
-    "pb_trailing": 5.0,
+    "pb_trailing": -20.897224558452482,
     "pb_forward": 4.5,
     "div_yield": 1.03,
     "ps_ratio": 5.0,
     "fcf_to_ev": 3.97,
     "fcf_to_mcap": 4.98,
-    "liab_to_assets": 126.4,
-    "cash_to_assets": 12.3,
-    "current_ratio": 1.01,
-    "roe": 18.0,
-    "roa": 19.7,
+    "liab_to_assets": 126.44631775617785,
+    "cash_to_assets": 12.264507662536978,
+    "current_ratio": 1.005464480874317,
+    "roe": 284.0872633942894,
+    "roa": 18.467538426244552,
     "moat": {
       "ticker": "VRSK",
       "period": "2026Q2",
@@ -680987,6 +687311,46 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-28",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-07-04",
+        "reason": null,
+        "bookEquity": 2209954000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-07-04",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-07-04",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-07-04",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-07-04",
+        "reason": null,
+        "warnings": [
+          "negativeNetIncome"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-07-04",
+        "reason": null,
+        "warnings": [
+          "negativeNetIncome"
+        ]
       }
     },
     "name": "Middleby",
@@ -684119,17 +690483,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 24.0,
     "pe_forward": 21.1,
-    "pb_trailing": 2.2,
+    "pb_trailing": 2.205521019894532,
     "pb_forward": 2.0,
     "div_yield": 0.0,
     "ps_ratio": 2.5,
     "fcf_to_ev": 5.74,
     "fcf_to_mcap": 10.17,
-    "liab_to_assets": 58.8,
-    "cash_to_assets": 3.0,
-    "current_ratio": 1.99,
-    "roe": 18.0,
-    "roa": 8.0,
+    "liab_to_assets": 58.77453735580348,
+    "cash_to_assets": 2.9693770516390448,
+    "current_ratio": 1.9869863783668786,
+    "roe": -13.010154435198363,
+    "roa": -6.424584470608378,
     "moat": {
       "ticker": "MIDD",
       "period": "2026Q2",
@@ -684893,6 +691257,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 6031200000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Automatic Data Processing",
@@ -688029,17 +694429,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 25.9,
     "pe_forward": 22.8,
-    "pb_trailing": 19.0,
+    "pb_trailing": 18.980833001724367,
     "pb_forward": 17.1,
     "div_yield": 2.29,
     "ps_ratio": 5.7,
     "fcf_to_ev": 5.13,
     "fcf_to_mcap": 4.35,
-    "liab_to_assets": 90.5,
-    "cash_to_assets": 6.7,
-    "current_ratio": 0.17,
-    "roe": 73.2,
-    "roa": 7.0,
+    "liab_to_assets": 90.45595023523063,
+    "cash_to_assets": 6.693905841283806,
+    "current_ratio": 0.17198035378381565,
+    "roe": 71.32352941176471,
+    "roa": 8.269735597056735,
     "moat": {
       "ticker": "ADP",
       "period": "2026Q4",
@@ -688827,6 +695227,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 5312000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Huntington Ingalls",
@@ -691965,17 +698401,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 16.2,
     "pe_forward": 14.3,
-    "pb_trailing": 2.0,
+    "pb_trailing": 2.017714608433735,
     "pb_forward": 1.8,
     "div_yield": 2.02,
     "ps_ratio": 7.1,
     "fcf_to_ev": 2.49,
     "fcf_to_mcap": 3.51,
-    "liab_to_assets": 58.1,
-    "cash_to_assets": 0.1,
-    "current_ratio": 1.23,
-    "roe": 12.4,
-    "roa": 5.2,
+    "liab_to_assets": 58.11386216685065,
+    "cash_to_assets": 0.09462229932187352,
+    "current_ratio": 1.2301557159134067,
+    "roe": 13.539532978287589,
+    "roa": 5.463713010414945,
     "moat": {
       "ticker": "HII",
       "period": "2026Q2",
@@ -692714,6 +699150,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 1401657000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "MSA Safety",
@@ -695850,17 +702322,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 22.0,
     "pe_forward": 19.4,
-    "pb_trailing": 4.9,
+    "pb_trailing": 4.9313776480265865,
     "pb_forward": 4.4,
     "div_yield": 1.2,
     "ps_ratio": 4.9,
     "fcf_to_ev": 5.22,
     "fcf_to_mcap": 5.13,
-    "liab_to_assets": 46.1,
-    "cash_to_assets": 7.7,
-    "current_ratio": 3.24,
-    "roe": 22.4,
-    "roa": 12.1,
+    "liab_to_assets": 46.12142712446728,
+    "cash_to_assets": 7.690030908960216,
+    "current_ratio": 3.2358713598870192,
+    "roe": 25.067736831433084,
+    "roa": 12.313059586049938,
     "moat": {
       "ticker": "MSA",
       "period": "2026Q2",
@@ -696630,6 +703102,44 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-28",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-27",
+        "reason": null,
+        "bookEquity": -9809000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-27",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-27",
+        "reason": null,
+        "warnings": [
+          "negativeEquity"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-27",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "TransDigm",
@@ -699768,17 +706278,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 29.6,
     "pe_forward": 26.0,
-    "pb_trailing": 5.0,
+    "pb_trailing": -6.420511774900602,
     "pb_forward": 4.5,
     "div_yield": 8.4,
     "ps_ratio": 8.2,
     "fcf_to_ev": 3.35,
     "fcf_to_mcap": 3.06,
-    "liab_to_assets": 136.3,
-    "cash_to_assets": 10.4,
-    "current_ratio": 3.02,
-    "roe": 18.0,
-    "roa": 8.0,
+    "liab_to_assets": 136.32727816401285,
+    "cash_to_assets": 10.364805262764447,
+    "current_ratio": 3.019036519036519,
+    "roe": -42.545963229416465,
+    "roa": 9.37885462555066,
     "moat": {
       "ticker": "TDG",
       "period": "2026Q3",
@@ -700517,6 +707027,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 6915500000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Regal Rexnord",
@@ -703655,17 +710201,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 31.6,
     "pe_forward": 27.8,
-    "pb_trailing": 1.5,
+    "pb_trailing": 1.482524763213072,
     "pb_forward": 1.4,
     "div_yield": 0.91,
     "ps_ratio": 5.5,
     "fcf_to_ev": 4.69,
     "fcf_to_mcap": 4.55,
-    "liab_to_assets": 49.7,
-    "cash_to_assets": 3.2,
-    "current_ratio": 2.28,
-    "roe": 4.7,
-    "roa": 2.4,
+    "liab_to_assets": 49.653136316700355,
+    "cash_to_assets": 3.2112159862708887,
+    "current_ratio": 2.276092918212615,
+    "roe": 4.836109618484686,
+    "roa": 2.330482568134247,
     "moat": {
       "ticker": "RRX",
       "period": "2026Q2",
@@ -704447,6 +710993,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-27",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-26",
+        "reason": null,
+        "bookEquity": 2522688000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-26",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-26",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-26",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-26",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-26",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Graco",
@@ -707585,17 +714167,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 24.9,
     "pe_forward": 21.9,
-    "pb_trailing": 5.3,
+    "pb_trailing": 5.263671131745186,
     "pb_forward": 4.8,
     "div_yield": 1.42,
     "ps_ratio": 5.4,
     "fcf_to_ev": 5.63,
     "fcf_to_mcap": 4.65,
-    "liab_to_assets": 19.4,
-    "cash_to_assets": 16.2,
-    "current_ratio": 2.99,
-    "roe": 21.1,
-    "roa": 17.0,
+    "liab_to_assets": 19.414602295578305,
+    "cash_to_assets": 16.2141070317938,
+    "current_ratio": 2.992367509012696,
+    "roe": 21.33317606416582,
+    "roa": 17.515609185840493,
     "moat": {
       "ticker": "GGG",
       "period": "2026Q2",
@@ -708395,6 +714977,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-07-31",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "bookEquity": 1764400000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-07-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-07-31",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Donaldson",
@@ -711526,17 +718144,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 22.5,
     "pe_forward": 19.8,
-    "pb_trailing": 5.8,
+    "pb_trailing": 5.77465427340739,
     "pb_forward": 5.2,
     "div_yield": 1.39,
     "ps_ratio": 6.0,
     "fcf_to_ev": 5.06,
     "fcf_to_mcap": 4.18,
-    "liab_to_assets": 55.7,
-    "cash_to_assets": 6.3,
-    "current_ratio": 2.08,
-    "roe": 25.7,
-    "roa": 11.4,
+    "liab_to_assets": 55.74395505167051,
+    "cash_to_assets": 6.280726397110464,
+    "current_ratio": 2.0764830244994403,
+    "roe": 31.221190230478157,
+    "roa": 15.242509740695956,
     "moat": {
       "ticker": "DCI",
       "period": "2026Q4",
@@ -712324,6 +718942,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 2894000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Illinois Tool Works",
@@ -715462,17 +722116,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 24.3,
     "pe_forward": 21.4,
-    "pb_trailing": 26.8,
+    "pb_trailing": 26.795196959225986,
     "pb_forward": 24.1,
     "div_yield": 2.36,
     "ps_ratio": 6.6,
     "fcf_to_ev": 5.57,
     "fcf_to_mcap": 3.77,
-    "liab_to_assets": 82.4,
-    "cash_to_assets": 5.1,
-    "current_ratio": 1.11,
-    "roe": 110.4,
-    "roa": 19.4,
+    "liab_to_assets": 82.41818181818181,
+    "cash_to_assets": 5.084848484848485,
+    "current_ratio": 1.1086846967915336,
+    "roe": 99.50155763239876,
+    "roa": 19.902791625124628,
     "moat": {
       "ticker": "ITW",
       "period": "2026Q2",
@@ -716242,6 +722896,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 15424490858.852514,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Canadian National Railway",
@@ -720193,6 +726883,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 9926000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Waste Management",
     "company_name": "Waste Management, Inc.",
     "exchange": "NYSE",
@@ -723329,17 +730055,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 31.8,
     "pe_forward": 28.0,
-    "pb_trailing": 9.1,
+    "pb_trailing": 9.135543018335683,
     "pb_forward": 8.2,
     "div_yield": 1.58,
     "ps_ratio": 6.3,
     "fcf_to_ev": 3.12,
     "fcf_to_mcap": 3.94,
-    "liab_to_assets": 78.6,
-    "cash_to_assets": 1.2,
-    "current_ratio": 0.91,
-    "roe": 28.7,
-    "roa": 6.1,
+    "liab_to_assets": 78.626644559764,
+    "cash_to_assets": 1.1993712452358907,
+    "current_ratio": 0.9073638197713517,
+    "roe": 31.00749918487121,
+    "roa": 6.239884519487336,
     "moat": {
       "ticker": "WM",
       "period": "2026Q2",
@@ -724078,6 +730804,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 259380000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "ExxonMobil",
@@ -727216,17 +733978,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 22.5,
     "pe_forward": 19.8,
-    "pb_trailing": 2.8,
+    "pb_trailing": 2.837342894594803,
     "pb_forward": 2.5,
     "div_yield": 2.34,
     "ps_ratio": 6.0,
     "fcf_to_ev": 2.63,
     "fcf_to_mcap": 4.15,
-    "liab_to_assets": 42.7,
-    "cash_to_assets": 2.3,
-    "current_ratio": 1.13,
-    "roe": 12.6,
-    "roa": 7.1,
+    "liab_to_assets": 42.70800590765627,
+    "cash_to_assets": 2.279528593142468,
+    "current_ratio": 1.1346729708431835,
+    "roe": 12.474437627811861,
+    "roa": 7.318413662289962,
     "moat": {
       "ticker": "XOM",
       "period": "2026Q2",
@@ -727996,6 +734758,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 189883000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Chevron",
@@ -731134,17 +737932,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 21.6,
     "pe_forward": 19.0,
-    "pb_trailing": 2.3,
+    "pb_trailing": 2.340961012834219,
     "pb_forward": 2.1,
     "div_yield": 3.12,
     "ps_ratio": 4.1,
     "fcf_to_ev": 3.97,
     "fcf_to_mcap": 6.08,
-    "liab_to_assets": 40.8,
-    "cash_to_assets": 2.6,
-    "current_ratio": 1.25,
-    "roe": 10.8,
-    "roa": 6.2,
+    "liab_to_assets": 40.76423281384888,
+    "cash_to_assets": 2.58379147924334,
+    "current_ratio": 1.252159730893708,
+    "roe": 14.063257681826563,
+    "roa": 8.209472928793558,
     "moat": {
       "ticker": "CVX",
       "period": "2026Q2",
@@ -731914,6 +738712,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 65349000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "ConocoPhillips",
@@ -735052,17 +741886,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 19.0,
     "pe_forward": 16.7,
-    "pb_trailing": 2.7,
+    "pb_trailing": 2.6933587354052855,
     "pb_forward": 2.4,
     "div_yield": 2.31,
     "ps_ratio": 4.4,
     "fcf_to_ev": 2.38,
     "fcf_to_mcap": 5.72,
-    "liab_to_assets": 47.4,
-    "cash_to_assets": 6.2,
-    "current_ratio": 1.54,
-    "roe": 14.2,
-    "roa": 7.5,
+    "liab_to_assets": 47.40988725344235,
+    "cash_to_assets": 6.190196441361328,
+    "current_ratio": 1.5415194346289753,
+    "roe": 14.15543219666931,
+    "roa": 7.571024233476618,
     "moat": {
       "ticker": "COP",
       "period": "2026Q2",
@@ -735826,6 +742660,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 26074000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Schlumberger",
@@ -738964,17 +745834,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 23.9,
     "pe_forward": 21.0,
-    "pb_trailing": 2.8,
+    "pb_trailing": 2.8175615555726012,
     "pb_forward": 2.5,
     "div_yield": 2.31,
     "ps_ratio": 4.0,
     "fcf_to_ev": 4.69,
     "fcf_to_mcap": 6.2,
-    "liab_to_assets": 50.9,
-    "cash_to_assets": 7.3,
-    "current_ratio": 1.44,
-    "roe": 11.8,
-    "roa": 5.5,
+    "liab_to_assets": 50.92199092415184,
+    "cash_to_assets": 7.330908305121371,
+    "current_ratio": 1.4392151286790844,
+    "roe": 15.156142251994877,
+    "roa": 6.309335848592343,
     "moat": {
       "ticker": "SLB",
       "period": "2026Q2",
@@ -739756,6 +746626,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 31864000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "EOG Resources",
@@ -742894,17 +749800,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 12.1,
     "pe_forward": 10.6,
-    "pb_trailing": 2.6,
+    "pb_trailing": 2.601082726587999,
     "pb_forward": 2.3,
     "div_yield": 2.63,
     "ps_ratio": 3.1,
     "fcf_to_ev": 2.96,
     "fcf_to_mcap": 7.98,
-    "liab_to_assets": 41.8,
-    "cash_to_assets": 9.0,
-    "current_ratio": 1.85,
-    "roe": 21.6,
-    "roa": 12.6,
+    "liab_to_assets": 41.83597101290547,
+    "cash_to_assets": 8.957158242520489,
+    "current_ratio": 1.8513589503280226,
+    "roe": 23.517340447363022,
+    "roa": 14.85610578169562,
     "moat": {
       "ticker": "EOG",
       "period": "2026Q2",
@@ -743662,6 +750568,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 30248000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Enterprise Products",
@@ -746799,17 +753741,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 12.6,
     "pe_forward": 11.1,
-    "pb_trailing": 2.6,
+    "pb_trailing": 2.6286729701137266,
     "pb_forward": 2.3,
     "div_yield": 5.96,
     "ps_ratio": 5.7,
     "fcf_to_ev": 3.14,
     "fcf_to_mcap": 4.35,
-    "liab_to_assets": 62.0,
-    "cash_to_assets": 0.3,
-    "current_ratio": 0.93,
-    "roe": 20.8,
-    "roa": 7.7,
+    "liab_to_assets": 62.004941412461164,
+    "cash_to_assets": 0.30088798649673426,
+    "current_ratio": 0.9272971082089553,
+    "roe": 21.65760682584463,
+    "roa": 8.128664032437179,
     "moat": {
       "ticker": "EPD",
       "period": "2026Q2",
@@ -747561,6 +754503,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 46004223864.83632,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Enbridge",
@@ -751608,6 +758586,42 @@ window.FULL_MARKET_DATA = {
         }
       }
     },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 19077000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      }
+    },
     "name": "Marathon Petroleum",
     "company_name": "Marathon Petroleum Corporation",
     "exchange": "NYSE",
@@ -754744,17 +761758,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 15.7,
     "pe_forward": 13.8,
-    "pb_trailing": 7.0,
+    "pb_trailing": 7.037479687581905,
     "pb_forward": 6.3,
     "div_yield": 0.86,
     "ps_ratio": 2.6,
     "fcf_to_ev": 3.65,
     "fcf_to_mcap": 9.61,
-    "liab_to_assets": 72.7,
-    "cash_to_assets": 8.2,
-    "current_ratio": 1.25,
-    "roe": 44.8,
-    "roa": 9.1,
+    "liab_to_assets": 72.72823666631322,
+    "cash_to_assets": 8.23666631322235,
+    "current_ratio": 1.25035556690128,
+    "roe": 51.45572666025024,
+    "roa": 10.899036746343203,
     "moat": {
       "ticker": "MPC",
       "period": "2026Q2",
@@ -755500,6 +762514,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 25001000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Valero Energy",
@@ -758637,17 +765687,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 17.8,
     "pe_forward": 15.7,
-    "pb_trailing": 5.1,
+    "pb_trailing": 5.121563137474501,
     "pb_forward": 4.6,
     "div_yield": 1.1,
     "ps_ratio": 3.2,
     "fcf_to_ev": 4.23,
     "fcf_to_mcap": 7.9,
-    "liab_to_assets": 56.3,
-    "cash_to_assets": 12.2,
-    "current_ratio": 1.64,
-    "roe": 28.8,
-    "roa": 11.2,
+    "liab_to_assets": 56.284119202635196,
+    "cash_to_assets": 12.176979107062772,
+    "current_ratio": 1.6364315441254935,
+    "roe": 29.952653874906552,
+    "roa": 12.134672656604916,
     "moat": {
       "ticker": "VLO",
       "period": "2026Q2",
@@ -759405,6 +766455,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 31506000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Phillips 66",
@@ -762543,17 +769629,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 16.6,
     "pe_forward": 14.6,
-    "pb_trailing": 3.7,
+    "pb_trailing": 3.7307846124547708,
     "pb_forward": 3.3,
     "div_yield": 1.69,
     "ps_ratio": 4.6,
     "fcf_to_ev": 4.41,
     "fcf_to_mcap": 5.44,
-    "liab_to_assets": 60.0,
-    "cash_to_assets": 5.0,
-    "current_ratio": 1.32,
-    "roe": 22.5,
-    "roa": 8.7,
+    "liab_to_assets": 60.02566923359003,
+    "cash_to_assets": 5.010389927881677,
+    "current_ratio": 1.3196578402528059,
+    "roe": 25.801171292422975,
+    "roa": 9.340022648863606,
     "moat": {
       "ticker": "PSX",
       "period": "2026Q2",
@@ -763292,6 +770378,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 41746000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Occidental Petroleum",
@@ -766430,17 +773552,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 8.6,
     "pe_forward": 7.6,
-    "pb_trailing": 1.5,
+    "pb_trailing": 1.4937335313562976,
     "pb_forward": 1.4,
     "div_yield": 2.65,
     "ps_ratio": 2.9,
     "fcf_to_ev": 2.36,
     "fcf_to_mcap": 8.52,
-    "liab_to_assets": 47.3,
-    "cash_to_assets": 5.2,
-    "current_ratio": 1.41,
-    "roe": 17.4,
-    "roa": 9.0,
+    "liab_to_assets": 47.259762562532664,
+    "cash_to_assets": 5.164389357624629,
+    "current_ratio": 1.410542321338064,
+    "roe": 20.3068137282347,
+    "roa": 8.598862019914652,
     "moat": {
       "ticker": "OXY",
       "period": "2026Q2",
@@ -767192,6 +774314,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 31631000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Kinder Morgan",
@@ -770329,17 +777487,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 22.0,
     "pe_forward": 19.4,
-    "pb_trailing": 2.4,
+    "pb_trailing": 2.407657045303658,
     "pb_forward": 2.2,
     "div_yield": 3.45,
     "ps_ratio": 6.0,
     "fcf_to_ev": 3.47,
     "fcf_to_mcap": 4.15,
-    "liab_to_assets": 55.6,
-    "cash_to_assets": 0.1,
-    "current_ratio": 0.51,
-    "roe": 11.0,
-    "roa": 4.7,
+    "liab_to_assets": 55.60611379654884,
+    "cash_to_assets": 0.12016958764278578,
+    "current_ratio": 0.5061094386399858,
+    "roe": 11.267468313292166,
+    "roa": 4.79059291705241,
     "moat": {
       "ticker": "KMI",
       "period": "2026Q2",
@@ -771078,6 +778236,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 13190000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Williams Companies",
@@ -774215,17 +781409,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 28.4,
     "pe_forward": 25.0,
-    "pb_trailing": 6.6,
+    "pb_trailing": 6.610113722517058,
     "pb_forward": 5.9,
     "div_yield": 2.87,
     "ps_ratio": 6.6,
     "fcf_to_ev": 3.77,
     "fcf_to_mcap": 3.8,
-    "liab_to_assets": 74.6,
-    "cash_to_assets": 0.3,
-    "current_ratio": 0.48,
-    "roe": 23.3,
-    "roa": 5.1,
+    "liab_to_assets": 74.6444481108728,
+    "cash_to_assets": 0.3349282296650718,
+    "current_ratio": 0.4770852428964253,
+    "roe": 24.7065444605242,
+    "roa": 5.473717960136086,
     "moat": {
       "ticker": "WMB",
       "period": "2026Q2",
@@ -775001,6 +782195,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 11010000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Halliburton",
@@ -778139,17 +785369,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 17.4,
     "pe_forward": 15.3,
-    "pb_trailing": 2.5,
+    "pb_trailing": 2.5349591280653954,
     "pb_forward": 2.2,
     "div_yield": 2.05,
     "ps_ratio": 4.0,
     "fcf_to_ev": 4.48,
     "fcf_to_mcap": 6.18,
-    "liab_to_assets": 57.2,
-    "cash_to_assets": 7.9,
-    "current_ratio": 2.02,
-    "roe": 14.6,
-    "roa": 6.2,
+    "liab_to_assets": 57.20923029270559,
+    "cash_to_assets": 7.9293789685612515,
+    "current_ratio": 2.018345507049431,
+    "roe": 15.249881009043312,
+    "roa": 6.312802931788627,
     "moat": {
       "ticker": "HAL",
       "period": "2026Q2",
@@ -778919,6 +786149,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 19908000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Baker Hughes",
@@ -782057,17 +789323,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 17.9,
     "pe_forward": 15.8,
-    "pb_trailing": 2.8,
+    "pb_trailing": 2.7773709061683745,
     "pb_forward": 2.5,
     "div_yield": 1.65,
     "ps_ratio": 4.4,
     "fcf_to_ev": 4.99,
     "fcf_to_mcap": 5.66,
-    "liab_to_assets": 61.8,
-    "cash_to_assets": 32.4,
-    "current_ratio": 2.09,
-    "roe": 15.6,
-    "roa": 5.9,
+    "liab_to_assets": 61.83200304066895,
+    "cash_to_assets": 32.4135309768149,
+    "current_ratio": 2.0948695116103844,
+    "roe": 17.500141266881393,
+    "roa": 7.994321115126485,
     "moat": {
       "ticker": "BKR",
       "period": "2026Q2",
@@ -782806,6 +790072,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 39081000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Linde",
@@ -785937,17 +793239,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 31.7,
     "pe_forward": 27.9,
-    "pb_trailing": 5.9,
+    "pb_trailing": 5.879232875310253,
     "pb_forward": 5.3,
     "div_yield": 1.25,
     "ps_ratio": 11.5,
     "fcf_to_ev": 4.38,
     "fcf_to_mcap": 2.17,
-    "liab_to_assets": 54.0,
-    "cash_to_assets": 5.5,
-    "current_ratio": 0.88,
-    "roe": 18.5,
-    "roa": 8.2,
+    "liab_to_assets": 54.02664433100545,
+    "cash_to_assets": 5.543922398668915,
+    "current_ratio": 0.8790227568673653,
+    "roe": 18.80825652343243,
+    "roa": 8.415623039568763,
     "moat": {
       "ticker": "LIN",
       "period": "2026Q2",
@@ -786693,6 +793995,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 3854700000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Sherwin-Williams",
@@ -789828,17 +797166,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 30.3,
     "pe_forward": 26.7,
-    "pb_trailing": 21.1,
+    "pb_trailing": 21.109943705087296,
     "pb_forward": 19.0,
     "div_yield": 0.97,
     "ps_ratio": 6.3,
     "fcf_to_ev": 5.69,
     "fcf_to_mcap": 3.95,
-    "liab_to_assets": 85.7,
-    "cash_to_assets": 1.1,
-    "current_ratio": 0.73,
-    "roe": 69.7,
-    "roa": 10.0,
+    "liab_to_assets": 85.69758899352166,
+    "cash_to_assets": 1.0889972320547356,
+    "current_ratio": 0.7270385374467643,
+    "roe": 61.082960303574275,
+    "roa": 10.598653188033245,
     "moat": {
       "ticker": "SHW",
       "period": "2026Q2",
@@ -790614,6 +797952,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 20109000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Freeport-McMoRan",
@@ -793752,17 +801126,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 33.9,
     "pe_forward": 29.8,
-    "pb_trailing": 5.0,
+    "pb_trailing": 4.971301407330051,
     "pb_forward": 4.5,
     "div_yield": 1.52,
     "ps_ratio": 4.2,
     "fcf_to_ev": 6.87,
     "fcf_to_mcap": 5.92,
-    "liab_to_assets": 46.1,
-    "cash_to_assets": 6.8,
-    "current_ratio": 2.07,
-    "roe": 14.6,
-    "roa": 4.9,
+    "liab_to_assets": 46.05119962496024,
+    "cash_to_assets": 6.831081420463107,
+    "current_ratio": 2.066073512252042,
+    "roe": 16.17420913884007,
+    "roa": 5.213127522481059,
     "moat": {
       "ticker": "FCX",
       "period": "2026Q2",
@@ -794508,6 +801882,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 35414000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Newmont",
@@ -797646,17 +805056,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 14.5,
     "pe_forward": 12.8,
-    "pb_trailing": 3.5,
+    "pb_trailing": 3.5287711074716213,
     "pb_forward": 3.1,
     "div_yield": 0.88,
     "ps_ratio": 3.2,
     "fcf_to_ev": 4.08,
     "fcf_to_mcap": 7.79,
-    "liab_to_assets": 38.6,
-    "cash_to_assets": 22.8,
-    "current_ratio": 2.55,
-    "roe": 24.3,
-    "roa": 14.9,
+    "liab_to_assets": 38.561093665966936,
+    "cash_to_assets": 22.780659599937543,
+    "current_ratio": 2.546115575966322,
+    "roe": 26.771923268560037,
+    "roa": 15.584156621045953,
     "moat": {
       "ticker": "NEM",
       "period": "2026Q2",
@@ -798414,6 +805824,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 12632200000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Southern Copper",
@@ -801552,17 +808998,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 29.9,
     "pe_forward": 26.3,
-    "pb_trailing": 13.4,
+    "pb_trailing": 13.402210224663953,
     "pb_forward": 12.1,
     "div_yield": 1.78,
     "ps_ratio": 7.1,
     "fcf_to_ev": 6.31,
     "fcf_to_mcap": 3.52,
-    "liab_to_assets": 47.3,
-    "cash_to_assets": 30.4,
-    "current_ratio": 5.06,
-    "roe": 44.9,
-    "roa": 23.5,
+    "liab_to_assets": 47.32776020922011,
+    "cash_to_assets": 30.379605184083026,
+    "current_ratio": 5.059803001876173,
+    "roe": 56.758272574312954,
+    "roa": 28.98126793047196,
     "moat": {
       "ticker": "SCCO",
       "period": "2026Q2",
@@ -802332,6 +809778,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 13976000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Intl Flavors & Fragrances",
@@ -805469,17 +812951,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 79.8,
     "pe_forward": 70.2,
-    "pb_trailing": 1.7,
+    "pb_trailing": 1.6554808242701775,
     "pb_forward": 1.5,
     "div_yield": 1.77,
     "ps_ratio": 10.8,
     "fcf_to_ev": 4.93,
     "fcf_to_mcap": 2.32,
-    "liab_to_assets": 44.3,
-    "cash_to_assets": 2.3,
-    "current_ratio": 2.06,
-    "roe": 2.1,
-    "roa": 1.2,
+    "liab_to_assets": 44.30706845829689,
+    "cash_to_assets": 2.262065675439294,
+    "current_ratio": 2.0607709750566894,
+    "roe": 2.0133296306581503,
+    "roa": 1.1102178323953906,
     "moat": {
       "ticker": "IFF",
       "period": "2026Q2",
@@ -806231,6 +813713,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-08-31",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-08-31",
+        "reason": null,
+        "bookEquity": 3478823000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-08-31",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-08-31",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-08-31",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "RPM International",
@@ -809369,17 +816887,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 18.4,
     "pe_forward": 16.2,
-    "pb_trailing": 3.7,
+    "pb_trailing": 3.656121625043873,
     "pb_forward": 3.3,
     "div_yield": 2.16,
     "ps_ratio": 4.5,
     "fcf_to_ev": 5.39,
     "fcf_to_mcap": 5.55,
-    "liab_to_assets": 57.7,
-    "cash_to_assets": 3.8,
-    "current_ratio": 1.76,
-    "roe": 19.8,
-    "roa": 8.4,
+    "liab_to_assets": 57.714918333183896,
+    "cash_to_assets": 3.800944714127872,
+    "current_ratio": 1.7560607479065897,
+    "roe": 22.58917425319079,
+    "roa": 8.687017318172407,
     "moat": {
       "ticker": "RPM",
       "period": "2027Q1",
@@ -810179,6 +817697,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 8464700000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Vulcan Materials",
@@ -813317,17 +820871,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 29.8,
     "pe_forward": 26.2,
-    "pb_trailing": 3.9,
+    "pb_trailing": 3.943837348045412,
     "pb_forward": 3.5,
     "div_yield": 0.79,
     "ps_ratio": 8.1,
     "fcf_to_ev": 5.44,
     "fcf_to_mcap": 3.08,
-    "liab_to_assets": 48.4,
-    "cash_to_assets": 1.2,
-    "current_ratio": 1.76,
-    "roe": 13.2,
-    "roa": 6.8,
+    "liab_to_assets": 48.37246077119572,
+    "cash_to_assets": 1.181121518063496,
+    "current_ratio": 1.757492081539836,
+    "roe": 13.323579440697522,
+    "roa": 6.598643864103638,
     "moat": {
       "ticker": "VMC",
       "period": "2026Q2",
@@ -814085,6 +821639,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 1302378000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Balchem",
@@ -817223,17 +824813,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 33.1,
     "pe_forward": 29.1,
-    "pb_trailing": 4.2,
+    "pb_trailing": 4.178894299504445,
     "pb_forward": 3.8,
     "div_yield": 0.57,
     "ps_ratio": 7.9,
     "fcf_to_ev": 5.15,
     "fcf_to_mcap": 3.15,
-    "liab_to_assets": 22.8,
-    "cash_to_assets": 3.7,
-    "current_ratio": 2.66,
-    "roe": 12.6,
-    "roa": 9.7,
+    "liab_to_assets": 22.79935317284369,
+    "cash_to_assets": 3.744745122121821,
+    "current_ratio": 2.664910294672567,
+    "roe": 12.967293497266768,
+    "roa": 9.796770082115446,
     "moat": {
       "ticker": "BCPC",
       "period": "2026Q2",
@@ -818021,6 +825611,46 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": "nonPositivePrior"
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 13883800000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeNetIncome"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeNetIncome"
+        ]
       }
     },
     "name": "Air Products & Chemicals",
@@ -821152,17 +828782,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 24.0,
     "pe_forward": 21.1,
-    "pb_trailing": 4.8,
+    "pb_trailing": 4.805197424336277,
     "pb_forward": 4.3,
     "div_yield": 2.4,
     "ps_ratio": 8.1,
     "fcf_to_ev": 4.15,
     "fcf_to_mcap": 3.08,
-    "liab_to_assets": 59.0,
-    "cash_to_assets": 2.4,
-    "current_ratio": 1.08,
-    "roe": 18.0,
-    "roa": 8.0,
+    "liab_to_assets": 58.9661174515893,
+    "cash_to_assets": 2.4242439227011094,
+    "current_ratio": 1.084846895285555,
+    "roe": -0.30442477876106194,
+    "roa": -0.1135406189764061,
     "moat": {
       "ticker": "APD",
       "period": "2026Q3",
@@ -821950,6 +829580,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 10055500000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Ecolab",
@@ -825088,17 +832754,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 38.3,
     "pe_forward": 33.7,
-    "pb_trailing": 8.1,
+    "pb_trailing": 8.053721843767093,
     "pb_forward": 7.3,
     "div_yield": 0.99,
     "ps_ratio": 10.8,
     "fcf_to_ev": 4.55,
     "fcf_to_mcap": 2.31,
-    "liab_to_assets": 66.3,
-    "cash_to_assets": 17.2,
-    "current_ratio": 1.84,
-    "roe": 21.0,
-    "roa": 7.1,
+    "liab_to_assets": 66.3033381227654,
+    "cash_to_assets": 17.15942125839543,
+    "current_ratio": 1.8407443290014365,
+    "roe": 22.707423580786028,
+    "roa": 8.916413886080216,
     "moat": {
       "ticker": "ECL",
       "period": "2026Q2",
@@ -825862,6 +833528,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 25159000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Corteva",
@@ -828999,17 +836701,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 8.5,
     "pe_forward": 7.5,
-    "pb_trailing": 0.3,
+    "pb_trailing": 0.34161930124408757,
     "pb_forward": 0.3,
     "div_yield": 5.63,
     "ps_ratio": 3.4,
     "fcf_to_ev": 3.2,
     "fcf_to_mcap": 7.32,
-    "liab_to_assets": 39.0,
-    "cash_to_assets": 5.7,
-    "current_ratio": 1.52,
-    "roe": 4.0,
-    "roa": 2.4,
+    "liab_to_assets": 38.99668603813458,
+    "cash_to_assets": 5.679362182411988,
+    "current_ratio": 1.5160811938085086,
+    "roe": 3.8943996294723844,
+    "roa": 2.416245599750952,
     "moat": {
       "ticker": "CTVA",
       "period": "2026Q2",
@@ -829755,6 +837457,46 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": "nonPositivePrior"
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 24424000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeNetIncome"
+        ]
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": [
+          "negativeNetIncome"
+        ]
       }
     },
     "name": "Dow Inc.",
@@ -832893,17 +840635,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 24.0,
     "pe_forward": 21.1,
-    "pb_trailing": 0.9,
+    "pb_trailing": 0.8851826072715362,
     "pb_forward": 0.8,
     "div_yield": 10.38,
     "ps_ratio": 12.4,
     "fcf_to_ev": 2.46,
     "fcf_to_mcap": 2.02,
-    "liab_to_assets": 57.7,
-    "cash_to_assets": 6.5,
-    "current_ratio": 11.07,
-    "roe": 18.0,
-    "roa": 8.0,
+    "liab_to_assets": 57.74458066087521,
+    "cash_to_assets": 6.451246245027198,
+    "current_ratio": 11.072148541114059,
+    "roe": -6.993209912367244,
+    "roa": -2.0426844772931463,
     "moat": {
       "ticker": "DOW",
       "period": "2026Q2",
@@ -833642,6 +841384,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 13769000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "DuPont",
@@ -836779,17 +844557,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 320.3,
     "pe_forward": 281.9,
-    "pb_trailing": 1.3,
+    "pb_trailing": 1.2794247948289637,
     "pb_forward": 1.2,
     "div_yield": 2.37,
     "ps_ratio": 3.9,
     "fcf_to_ev": 5.78,
     "fcf_to_mcap": 6.4,
-    "liab_to_assets": 34.1,
-    "cash_to_assets": 8.3,
-    "current_ratio": 2.43,
-    "roe": 0.4,
-    "roa": 0.3,
+    "liab_to_assets": 34.09144864916196,
+    "cash_to_assets": 8.261715967902758,
+    "current_ratio": 2.4267866066966515,
+    "roe": 0.23846687478321196,
+    "roa": 0.15044175168905058,
     "moat": {
       "ticker": "DD",
       "period": "2026Q2",
@@ -837577,6 +845355,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 11548000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Martin Marietta",
@@ -840715,17 +848529,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 12.2,
     "pe_forward": 10.7,
-    "pb_trailing": 2.6,
+    "pb_trailing": 2.6050744717700036,
     "pb_forward": 2.3,
     "div_yield": 0.67,
     "ps_ratio": 9.3,
     "fcf_to_ev": 5.35,
     "fcf_to_mcap": 2.69,
-    "liab_to_assets": 45.8,
-    "cash_to_assets": 0.5,
-    "current_ratio": 1.4,
-    "roe": 21.3,
-    "roa": 11.6,
+    "liab_to_assets": 45.79676132363295,
+    "cash_to_assets": 0.5256981929124618,
+    "current_ratio": 1.4019551466359976,
+    "roe": 26.294990921713122,
+    "roa": 13.624792473713338,
     "moat": {
       "ticker": "MLM",
       "period": "2026Q2",
@@ -841464,6 +849278,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 57126000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "NextEra Energy",
@@ -844601,17 +852451,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 17.9,
     "pe_forward": 15.8,
-    "pb_trailing": 2.9,
+    "pb_trailing": 2.913928859013409,
     "pb_forward": 2.6,
     "div_yield": 2.97,
     "ps_ratio": 13.7,
     "fcf_to_ev": 3.01,
     "fcf_to_mcap": 1.83,
-    "liab_to_assets": 70.7,
-    "cash_to_assets": 1.2,
-    "current_ratio": 0.53,
-    "roe": 16.3,
-    "roa": 4.0,
+    "liab_to_assets": 70.7229593611876,
+    "cash_to_assets": 1.231062639869076,
+    "current_ratio": 0.5338234279008767,
+    "roe": 18.30619918499124,
+    "roa": 4.676859628828647,
     "moat": {
       "ticker": "NEE",
       "period": "2026Q2",
@@ -845369,6 +853219,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": "nonPositivePrior"
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 39570000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Southern Company",
@@ -848507,17 +856393,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 22.5,
     "pe_forward": 19.8,
-    "pb_trailing": 2.7,
+    "pb_trailing": 2.6507404599444024,
     "pb_forward": 2.4,
     "div_yield": 2.96,
     "ps_ratio": 10.2,
     "fcf_to_ev": 2.37,
     "fcf_to_mcap": 2.45,
-    "liab_to_assets": 73.9,
-    "cash_to_assets": 1.8,
-    "current_ratio": 0.79,
-    "roe": 11.8,
-    "roa": 2.9,
+    "liab_to_assets": 73.86731840989465,
+    "cash_to_assets": 1.8416683639146563,
+    "current_ratio": 0.7867039532223211,
+    "roe": 13.691421179514318,
+    "roa": 3.1285899511598694,
     "moat": {
       "ticker": "SO",
       "period": "2026Q2",
@@ -849269,6 +857155,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": "nonPositivePrior"
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 54751000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Duke Energy",
@@ -852407,17 +860329,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 18.1,
     "pe_forward": 15.9,
-    "pb_trailing": 1.7,
+    "pb_trailing": 1.72983872440686,
     "pb_forward": 1.5,
     "div_yield": 4.38,
     "ps_ratio": 6.6,
     "fcf_to_ev": 2.31,
     "fcf_to_mcap": 3.8,
-    "liab_to_assets": 71.7,
-    "cash_to_assets": 0.3,
-    "current_ratio": 0.66,
-    "roe": 9.6,
-    "roa": 2.6,
+    "liab_to_assets": 71.72275238573582,
+    "cash_to_assets": 0.33467435141304186,
+    "current_ratio": 0.6611524537409493,
+    "roe": 10.310270971291583,
+    "roa": 2.7657566956402566,
     "moat": {
       "ticker": "DUK",
       "period": "2026Q2",
@@ -853181,6 +861103,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": "nonPositivePrior"
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 31977000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Constellation Energy",
@@ -856312,17 +864270,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 27.7,
     "pe_forward": 24.4,
-    "pb_trailing": 3.0,
+    "pb_trailing": 3.0067986365199983,
     "pb_forward": 2.7,
     "div_yield": 0.57,
     "ps_ratio": 77.8,
     "fcf_to_ev": 3.86,
     "fcf_to_mcap": 0.32,
-    "liab_to_assets": 67.1,
-    "cash_to_assets": 1.1,
-    "current_ratio": 1.46,
-    "roe": 10.8,
-    "roa": 3.5,
+    "liab_to_assets": 67.10329455589142,
+    "cash_to_assets": 1.0961497358859271,
+    "current_ratio": 1.4552639656230817,
+    "roe": 25.76974564926372,
+    "roa": 6.53305177419963,
     "moat": {
       "ticker": "CEG",
       "period": "2026Q2",
@@ -857061,6 +865019,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": "nonPositivePrior"
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 11665000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "American Water Works",
@@ -860199,17 +868193,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 23.8,
     "pe_forward": 20.9,
-    "pb_trailing": 2.3,
+    "pb_trailing": 2.298885555079297,
     "pb_forward": 2.1,
     "div_yield": 2.45,
     "ps_ratio": 6.6,
     "fcf_to_ev": 3.09,
     "fcf_to_mcap": 3.8,
-    "liab_to_assets": 68.0,
-    "cash_to_assets": 0.5,
-    "current_ratio": 0.52,
-    "roe": 9.7,
-    "roa": 3.1,
+    "liab_to_assets": 67.9998902696623,
+    "cash_to_assets": 0.5239623624941706,
+    "current_ratio": 0.5227898439889874,
+    "roe": 10.559820258378581,
+    "roa": 3.326158110459116,
     "moat": {
       "ticker": "AWK",
       "period": "2026Q2",
@@ -860948,6 +868942,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": "nonPositivePrior"
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 32705000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Sempra",
@@ -864086,17 +872116,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 23.9,
     "pe_forward": 21.0,
-    "pb_trailing": 1.7,
+    "pb_trailing": 1.6676899556642717,
     "pb_forward": 1.5,
     "div_yield": 3.04,
     "ps_ratio": 6.6,
     "fcf_to_ev": 3.01,
     "fcf_to_mcap": 3.8,
-    "liab_to_assets": 62.4,
-    "cash_to_assets": 0.1,
-    "current_ratio": 1.64,
-    "roe": 7.0,
-    "roa": 2.0,
+    "liab_to_assets": 62.43439942401609,
+    "cash_to_assets": 0.13358662745812405,
+    "current_ratio": 1.6417100203573851,
+    "roe": 7.191726834189867,
+    "roa": 2.2831233046733463,
     "moat": {
       "ticker": "SRE",
       "period": "2026Q2",
@@ -864854,6 +872884,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 32143000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "American Electric Power",
@@ -867992,17 +876058,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 22.0,
     "pe_forward": 19.4,
-    "pb_trailing": 2.2,
+    "pb_trailing": 2.153333540739819,
     "pb_forward": 2.0,
     "div_yield": 2.96,
     "ps_ratio": 1.9,
     "fcf_to_ev": 2.74,
     "fcf_to_mcap": 12.94,
-    "liab_to_assets": 72.6,
-    "cash_to_assets": 0.5,
-    "current_ratio": 0.5,
-    "roe": 9.8,
-    "roa": 2.6,
+    "liab_to_assets": 72.56477749444764,
+    "cash_to_assets": 0.49601052891338326,
+    "current_ratio": 0.5039915224302367,
+    "roe": 10.515180224364018,
+    "roa": 2.9143103680233073,
     "moat": {
       "ticker": "AEP",
       "period": "2026Q2",
@@ -868748,6 +876814,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": "nonPositivePrior"
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 28922000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Dominion Energy",
@@ -871885,17 +879987,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 21.9,
     "pe_forward": 19.3,
-    "pb_trailing": 1.9,
+    "pb_trailing": 1.9328780858861765,
     "pb_forward": 1.7,
     "div_yield": 4.14,
     "ps_ratio": 6.6,
     "fcf_to_ev": 2.93,
     "fcf_to_mcap": 3.8,
-    "liab_to_assets": 72.4,
-    "cash_to_assets": 0.2,
-    "current_ratio": 0.81,
-    "roe": 8.8,
-    "roa": 2.1,
+    "liab_to_assets": 72.42536364456768,
+    "cash_to_assets": 0.24283991434970587,
+    "current_ratio": 0.8089288688988839,
+    "roe": 9.380856145507991,
+    "roa": 2.376187861244776,
     "moat": {
       "ticker": "D",
       "period": "2026Q2",
@@ -872653,6 +880755,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 53725722000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Prologis",
@@ -875791,17 +883929,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 28.4,
     "pe_forward": 25.0,
-    "pb_trailing": 2.2,
+    "pb_trailing": 2.224336789741048,
     "pb_forward": 2.0,
     "div_yield": 3.27,
     "ps_ratio": 5.7,
     "fcf_to_ev": 5.74,
     "fcf_to_mcap": 4.39,
-    "liab_to_assets": 42.5,
-    "cash_to_assets": 1.7,
-    "current_ratio": 0.7,
-    "roe": 7.8,
-    "roa": 4.2,
+    "liab_to_assets": 42.46268894016735,
+    "cash_to_assets": 1.7473619338526862,
+    "current_ratio": 0.6977452900375469,
+    "roe": 7.9809023471789695,
+    "roa": 4.3065319716467085,
     "moat": {
       "ticker": "PLD",
       "period": "2026Q2",
@@ -876540,6 +884678,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 3719700000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "American Tower",
@@ -879678,17 +887852,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 25.6,
     "pe_forward": 22.5,
-    "pb_trailing": 23.2,
+    "pb_trailing": 23.208430787429094,
     "pb_forward": 20.9,
     "div_yield": 3.75,
     "ps_ratio": 5.5,
     "fcf_to_ev": 4.11,
     "fcf_to_mcap": 4.59,
-    "liab_to_assets": 83.8,
-    "cash_to_assets": 2.8,
-    "current_ratio": 0.35,
-    "roe": 90.8,
-    "roa": 5.3,
+    "liab_to_assets": 83.8033431226807,
+    "cash_to_assets": 2.7843557909071235,
+    "current_ratio": 0.3519981962685305,
+    "roe": 90.99870717517776,
+    "roa": 5.299390631249558,
     "moat": {
       "ticker": "AMT",
       "period": "2026Q2",
@@ -880427,6 +888601,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 14382000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Equinix",
@@ -883565,17 +891775,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 63.5,
     "pe_forward": 55.9,
-    "pb_trailing": 6.8,
+    "pb_trailing": 6.764587679043249,
     "pb_forward": 6.1,
     "div_yield": 2.01,
     "ps_ratio": 17.8,
     "fcf_to_ev": 4.56,
     "fcf_to_mcap": 1.41,
-    "liab_to_assets": 65.0,
-    "cash_to_assets": 5.4,
-    "current_ratio": 1.13,
-    "roe": 10.7,
-    "roa": 3.7,
+    "liab_to_assets": 65.00876424189308,
+    "cash_to_assets": 5.414353880611549,
+    "current_ratio": 1.131413612565445,
+    "roe": 10.884691848906561,
+    "roa": 3.9460475173106127,
     "moat": {
       "ticker": "EQIX",
       "period": "2026Q2",
@@ -884321,6 +892531,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 4434416000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Simon Property Group",
@@ -887454,17 +895700,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 14.4,
     "pe_forward": 12.7,
-    "pb_trailing": 15.0,
+    "pb_trailing": 14.98966267485955,
     "pb_forward": 13.5,
     "div_yield": 5.03,
     "ps_ratio": 5.2,
     "fcf_to_ev": 5.66,
     "fcf_to_mcap": 4.84,
-    "liab_to_assets": 86.0,
-    "cash_to_assets": 2.6,
-    "current_ratio": 1.05,
-    "roe": 103.9,
-    "roa": 11.6,
+    "liab_to_assets": 85.96114670500067,
+    "cash_to_assets": 2.5663838918614843,
+    "current_ratio": 1.0525881520152192,
+    "roe": 187.95965585264253,
+    "roa": 13.839203147610906,
     "moat": {
       "ticker": "SPG",
       "period": "2026Q2",
@@ -888216,6 +896462,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": "nonPositivePrior"
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 7932000000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "CoStar Group",
@@ -891348,17 +899630,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 176.7,
     "pe_forward": 155.5,
-    "pb_trailing": 1.7,
+    "pb_trailing": 1.6505168935955623,
     "pb_forward": 1.5,
     "div_yield": 0.0,
     "ps_ratio": 10.5,
     "fcf_to_ev": 4.03,
     "fcf_to_mcap": 2.38,
-    "liab_to_assets": 21.6,
-    "cash_to_assets": 12.5,
-    "current_ratio": 2.21,
-    "roe": 0.9,
-    "roa": 0.7,
+    "liab_to_assets": 21.639214912713285,
+    "cash_to_assets": 12.486438504783509,
+    "current_ratio": 2.214190093708166,
+    "roe": 0.8614876647987537,
+    "roa": 0.7052374108935863,
     "moat": {
       "ticker": "CSGP",
       "period": "2026Q2",
@@ -892104,6 +900386,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 29170749000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "VICI Properties",
@@ -895234,17 +903552,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 9.4,
     "pe_forward": 8.3,
-    "pb_trailing": 0.9,
+    "pb_trailing": 0.8908033180772973,
     "pb_forward": 0.8,
     "div_yield": 7.31,
     "ps_ratio": 2.5,
     "fcf_to_ev": 3.27,
     "fcf_to_mcap": 10.16,
-    "liab_to_assets": 38.7,
-    "cash_to_assets": 0.6,
-    "current_ratio": 0.4,
-    "roe": 9.5,
-    "roa": 5.7,
+    "liab_to_assets": 38.674201729312,
+    "cash_to_assets": 0.596759311241771,
+    "current_ratio": 0.3994384125795582,
+    "roe": 10.234132045827685,
+    "roa": 6.005377640950065,
     "moat": {
       "ticker": "VICI",
       "period": "2026Q2",
@@ -895983,6 +904301,42 @@ window.FULL_MARKET_DATA = {
           "previousDate": "2025-06-30",
           "reason": null
         }
+      }
+    },
+    "marketRatioSources": {
+      "pb": {
+        "basis": "marketCapOverReportedParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "bookEquity": 39549557000,
+        "preferredEquityDeducted": false
+      },
+      "current_ratio": {
+        "basis": "reportedCurrentAssetsOverCurrentLiabilities",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "cash_to_assets": {
+        "basis": "reportedCashAndShortTermInvestmentsOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "liab_to_assets": {
+        "basis": "reportedLiabilitiesOverAssets",
+        "date": "2026-06-30",
+        "reason": null
+      },
+      "roe": {
+        "basis": "ttmNetIncomeOverBeginningParentEquity",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
+      },
+      "roa": {
+        "basis": "ttmNetIncomeOverBeginningAssets",
+        "date": "2026-06-30",
+        "reason": null,
+        "warnings": []
       }
     },
     "name": "Realty Income",
@@ -899118,17 +907472,17 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 40.2,
     "pe_forward": 35.4,
-    "pb_trailing": 1.3,
+    "pb_trailing": 1.341706558179653,
     "pb_forward": 1.2,
     "div_yield": 5.65,
     "ps_ratio": 6.1,
     "fcf_to_ev": 4.75,
     "fcf_to_mcap": 4.11,
-    "liab_to_assets": 45.1,
-    "cash_to_assets": 0.7,
-    "current_ratio": 1.66,
-    "roe": 3.3,
-    "roa": 1.7,
+    "liab_to_assets": 45.14224509665728,
+    "cash_to_assets": 0.7229687810184195,
+    "current_ratio": 1.655577145164833,
+    "roe": 3.3731755534286347,
+    "roa": 1.849100652660903,
     "moat": {
       "ticker": "O",
       "period": "2026Q2",

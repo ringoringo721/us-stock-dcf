@@ -29,6 +29,10 @@ test('advanced cash-flow identity, terminal bridge and no extra projected cash',
   input.years.forEach(item => { item.values.cash = 900; });
   near(Scenario.calculate(input).targetPrice, 13);
   assert.equal(Scenario.calculate(input).rows[0].projectedCash, 900);
+  assert.ok(!Scenario.activeFields('advanced').some(field => field[0] === 'cash'));
+  input.years.forEach(item => { delete item.values.cash; });
+  near(Scenario.calculate(input).targetPrice, result.targetPrice);
+  assert.equal(Scenario.calculate(input).rows[0].projectedCash, null);
 });
 
 test('CFO scenario deducts CapEx once and does not add D&A', () => {
@@ -56,6 +60,46 @@ test('opening working capital is reconciled against first projection, and zero C
   near(result.rows[0].cashFlow, 5);
   input.years.forEach(item => { item.values.capex = 0; });
   near(Scenario.calculate(input).rows[0].cashFlow, 25);
+});
+
+test('single working-capital change ratio deducts increases, adds releases, and never differences closing balances again', () => {
+  const input = flat();
+  input.workingCapitalMethod = 'cash-change-to-revenue';
+  for (const year of input.years) {
+    year.values.nwcChange = 5;
+    for (const key of ['receivables', 'inventories', 'payables']) delete year.values[key];
+  }
+  input.years[0].values.growth = 100;
+  input.years[1].values.nwcChange = -5;
+  const result = Scenario.calculate(input);
+  near(result.rows[0].changeNwc, 10);
+  near(result.rows[0].cashFlow, 20);
+  near(result.rows[1].changeNwc, -10);
+  near(result.rows[1].cashFlow, 40);
+  input.openingNwc = null;
+  near(Scenario.calculate(input).targetPrice, result.targetPrice);
+});
+
+test('legacy three-ratio inputs convert to one editable ratio without changing cash flows or saved input objects', () => {
+  const input = flat();
+  input.years.forEach((year, index) => {
+    year.values.growth = 3 + index;
+    year.values.receivables += index;
+  });
+  const original = structuredClone(input), before = Scenario.calculate(input);
+  const converted = Scenario.upgradeWorkingCapital(input);
+  const after = Scenario.calculate(converted);
+  assert.deepEqual(input, original);
+  near(after.targetPrice, before.targetPrice);
+  after.rows.forEach((row, index) => near(row.cashFlow, before.rows[index].cashFlow));
+  assert.equal(converted.years[0].values.receivables, undefined);
+  assert.equal(converted.years[0].origins.nwcChange, 'derived-legacy');
+  assert.equal(converted.legacyWorkingCapital.years[0].values.receivables, 20);
+  assert.equal(Scenario.upgradeWorkingCapital(converted), converted);
+  const shrinking = flat();
+  shrinking.years[0].values.growth = -99.9;
+  near(Scenario.calculate(Scenario.upgradeWorkingCapital(shrinking)).targetPrice,
+    Scenario.calculate(shrinking).targetPrice);
 });
 
 test('editing EBIT/EBITDA/D&A and CAPM drivers updates linked assumptions, but manual Ke is respected', () => {
@@ -133,7 +177,7 @@ test('annual reference uses exact financial dates and units, not vendor historic
   assert.equal(Scenario.actualReference(data, shifted).reason, 'ACTUAL_PERIOD_NOT_FULL_YEAR');
 });
 
-test('Link actual reference preserves official reported CFO and full property/PPE cash investment, without rewriting model defaults', () => {
+test('Link actual reference and new defaults use official reported CFO and full property/PPE cash investment', () => {
   const data = read('0823.HK'), raw = require('../cache/financials/0823.HK_statements_v2.json');
   const before = Scenario.defaults(data, 'customLevered', 10);
   const actual = Scenario.actualReference(data, raw);
@@ -142,13 +186,19 @@ test('Link actual reference preserves official reported CFO and full property/PP
   assert.equal(actual.items.capex.basis, 'propertyAndPpeCashAdditions');
   assert.equal(actual.items.cfo.source, 'officialReport');
   assert.deepEqual(Scenario.defaults(data, 'customLevered', 10), before);
-  const result = Scenario.calculate(Scenario.defaults(data, 'advanced', 10));
-  assert.ok(result.rows[0].capex < -4900e6);
-  assert.ok(result.rows[0].cashFlow < -2300e6);
-  assert.ok(result.warnings.includes('NONPOSITIVE_TERMINAL_CASH_FLOW'));
+  near(before.years[0].values.cfo, data.forecastActuals.latest.items.cfo.percent);
+  near(before.years[0].values.capex, data.forecastActuals.latest.items.capex.percent);
+  assert.equal(before.years[0].origins.capex, 'latest-fy');
+  assert.throws(() => Scenario.calculate(before), /INCOMPLETE_ASSUMPTIONS/);
   const unreviewed = structuredClone(data);
   unreviewed.sourceReview.reason = 'FINGERPRINT_CHANGED';
-  assert.equal(Scenario.actualReference(unreviewed, raw).items.cfo.amount, 6816e6);
+  assert.equal(Scenario.actualReference(unreviewed, raw).items.cfo.amount, 8461e6,
+    'Historical statutory CFO is independently source-reviewed, not restored to the old provider classification');
+  assert.equal(Scenario.actualReference(unreviewed, raw.propertyFvOriginal).items.cfo.amount, 6816e6);
+  assert.equal(actual.items.ebit.amount, 9609e6);
+  assert.equal(actual.items.ebitda.amount, 9699e6);
+  assert.equal(actual.items.ebit.source, 'officialPropertyFv');
+  assert.ok(actual.propertyFvProvenance);
 });
 
 test('audit export preserves native rows, full-precision local inputs, denominators and source inconsistencies', () => {
@@ -158,7 +208,10 @@ test('audit export preserves native rows, full-precision local inputs, denominat
     statements: require('../cache/financials/0823.HK_statements_v2.json') });
   assert.deepEqual(packet.native.rows, data.models.advanced.data);
   assert.deepEqual(packet.tenYear.input, scenario);
-  assert.equal(packet.tenYear.result.targetPrice, Scenario.calculate(scenario).targetPrice);
+  assert.equal(packet.tenYear.result, null);
+  assert.equal(packet.tenYear.reason, 'SCENARIO_INCOMPLETE_ASSUMPTIONS');
+  assert.ok(packet.tenYear.missingInputs.length > 0);
+  assert.deepEqual(packet.analystEstimates, data.analystEstimates);
   assert.ok(packet.native.checks.some(check => Math.abs(check.ebitIdentityResidual) > 20e6));
   assert.equal(packet.native.issuedShares, stock.shares_outstanding);
   assert.match(packet.formulas.native, /not independently reproduced/);
@@ -179,45 +232,65 @@ test('forecast baseline is sourced from actual annual financials, not snapshot c
   assert.equal(Scenario.baseSource({ ...data, currencyCheck: { reason: 'unverified' } }, raw).reason, 'SCENARIO_BASE_UNVERIFIED');
 });
 
-test('FMP projected values and ratios are distinguished from five extension years without mutating vendor rows', () => {
+test('analyst values and approved actual ratios replace vendor forecasts without inventing extension years', () => {
   const data = read('AAPL'), before = JSON.stringify(data);
-  const input = Scenario.defaults(data, 'advanced', 10), result = Scenario.calculate(input);
+  const input = Scenario.defaults(data, 'advanced', 10);
   assert.equal(input.years.length, 10);
-  assert.deepEqual(input.providerYears, [2026, 2027, 2028, 2029, 2030]);
+  assert.deepEqual(input.analystYears, [2026, 2027, 2028, 2029, 2030]);
+  assert.deepEqual(input.providerYears, []);
   const provider = data.models.advanced.data.find(row => row.year === '2026');
-  near(result.rows[0].revenue, provider.revenue);
-  near(result.rows[0].ebitda, provider.ebitda);
-  near(input.years[0].values.tax, (1 - provider.ebiat / provider.ebit) * 100);
+  const consensus = data.analystEstimates.rows.find(row => row.date.startsWith('2026'));
+  near(input.baseRevenue * (1 + input.years[0].values.growth / 100), consensus.revenueAvg * data.analystEstimates.fx.rate);
+  near(input.years[0].values.ebitda, consensus.ebitdaAvg / consensus.revenueAvg * 100);
+  assert.equal(input.years[0].values.tax, null);
   assert.equal(input.years[0].origins.ebit, 'derived');
-  assert.equal(input.years[5].origins.growth, 'extension');
-  near(input.years[9].values.growth, input.terminalGrowth);
+  assert.equal(input.years[5].origins.growth, 'unavailable');
+  assert.equal(input.years[9].values.growth, null);
+  assert.equal(input.terminalGrowth, null);
+  near(input.years[0].values.beta, provider.beta);
+  near(input.years[9].values.beta, data.models.advanced.data.find(row => row.year === '2030').beta);
   assert.equal(JSON.stringify(data), before);
-  assert.notEqual(result.targetPrice, data.models.advanced.data[0].equityValue / 10);
+  assert.throws(() => Scenario.calculate(input), /INCOMPLETE_ASSUMPTIONS/);
 });
 
-test('out-of-range vendor implied taxes are explicitly normalized, not silently copied or hidden', () => {
+test('new defaults do not import or normalize vendor implied taxes as analyst forecasts', () => {
   const input = Scenario.defaults(read('AMAT'), 'advanced', 10);
-  assert.equal(input.years[0].origins.tax, 'normalized-fmp-tax');
-  assert.ok(input.warnings.some(warning => warning.original > 100 && warning.replacement === 24.52));
-  Scenario.calculate(input);
+  assert.equal(input.years[0].origins.tax, 'unavailable');
+  assert.equal(input.years[0].values.tax, null);
+  assert.deepEqual(input.warnings, []);
+  assert.throws(() => Scenario.calculate(input), /INCOMPLETE_ASSUMPTIONS/);
 });
 
-test('all 430 covered company/model pairs create ten sourced fiscal-year projections; absent coverage stays absent', () => {
+test('all supported company/model pairs create ten sourced fiscal-year projections; absent or unverified coverage stays absent', () => {
   const market = { ...require('../full_market_dcf.json'), ...require('../hk_market_dcf.json') };
   let count = 0;
+  let eligibleModels = 0;
   for (const [ticker, stock] of Object.entries(market)) {
-    if (stock.fin_valuation?.is_financial) continue;
+    if (!Models.dcfApplicable(stock)) continue;
     const data = read(ticker);
     for (const kind of ['advanced', 'customLevered']) {
-      if (data.models[kind].reason) {
+      if (Models.value(data, kind, { ...stock, ticker }).fairVal !== null) eligibleModels++;
+      if (data.models[kind].reason || data.currencyCheck?.reason || Models.issuedShares(stock) === null) {
         assert.throws(() => Scenario.defaults(data, kind, Models.issuedShares(stock)), /SOURCE_UNAVAILABLE/);
         continue;
       }
       const input = Scenario.defaults(data, kind, Models.issuedShares(stock));
       assert.equal(input.years.length, 10, `${ticker} ${kind}`);
-      assert.equal(Scenario.calculate(input).rows.at(-1).year, data.forecastBase.year + 10);
+      assert.equal(input.years.at(-1).year, data.forecastBase.year + 10);
+      assert.equal(input.assumptionPolicy, 'analyst-consensus-v1');
+      assert.throws(() => Scenario.calculate(input), /INCOMPLETE_ASSUMPTIONS/);
+      const capital = data.models[kind].data.filter(row => Number(row.year) > data.forecastBase.year)
+        .sort((a, b) => Number(a.year) - Number(b.year));
+      input.years.forEach((year, index) => {
+        const expected = capital[index] || capital.at(-1);
+        for (const [key, source] of Object.entries({ beta: 'beta', rf: 'riskFreeRate',
+          erp: 'marketRiskPremium', kd: 'costofDebt', ke: 'costOfEquity', debtWeight: 'debtWeighting' })) {
+          assert.equal(year.values[key], expected[source], `${ticker}/${kind}/${year.year}/${key}: retained setting`);
+        }
+      });
       count++;
     }
   }
-  assert.equal(count, 430);
+  assert.equal(count, eligibleModels, 'Every currently source-verified native model supports the corresponding scenario; unsupported coverage is not filled');
+  assert.ok(count >= 546, 'The industry extension does not remove existing source-supported scenarios');
 });

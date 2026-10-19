@@ -353,10 +353,68 @@ test('trend lines retain actual chronology, negative/zero values and gaps withou
   near(chart.segments[0][0].x, 4);
   near(chart.segments[1][0].x, 4 + 200 / 3);
   assert.equal(chart.color, '#22c55e');
-  assert.equal(trend([2, 1]).color, '#ef4444');
+  assert.equal(trend([2, 1]).color, '#22c55e');
+  assert.equal(trend([-2, -1]).color, '#ef4444');
   assert.equal(trend([0, 0]).last.y, 16);
   assert.equal(trend([null, 0]).last.x, 104);
   assert.equal(trend([false, '', NaN, Infinity]), null);
+});
+
+test('trend strokes change color at interpolated zero crossings, not at period boundaries or by slope', () => {
+  for (const [values, colors, crossingX] of [
+    [[-10, 30], ['#ef4444', '#22c55e'], 29],
+    [[30, -10], ['#22c55e', '#ef4444'], 79]
+  ]) {
+    const chart = trend(values);
+    assert.deepEqual(chart.strokes.map(stroke => stroke.color), colors);
+    const zero = chart.strokes[0].points.at(-1);
+    assert.equal(zero, chart.strokes[1].points[0]);
+    assert.equal(zero.value, 0);
+    near(zero.x, crossingX);
+    near(zero.y, 22);
+  }
+  for (const [values, colors] of [
+    [[3, 2, 1], ['#22c55e']],
+    [[-3, -2, -1], ['#ef4444']],
+    [[-1, 0, 1], ['#ef4444', '#22c55e']],
+    [[1, 0, -1], ['#22c55e', '#ef4444']],
+    [[0, 0], ['#22c55e']],
+    [[-1, null, 1], ['#ef4444', '#22c55e']],
+    [[-1, 1, -1], ['#ef4444', '#22c55e', '#ef4444']]
+  ]) {
+    const chart = trend(values);
+    assert.deepEqual(chart.strokes.map(stroke => stroke.color), colors);
+    for (const stroke of chart.strokes) {
+      assert.ok(stroke.points.every(point => stroke.color === '#ef4444' ? point.value <= 0 : point.value >= 0));
+    }
+  }
+  assert.ok(trend([-1, null, 1]).strokes.every(stroke => stroke.points.length === 1),
+    'No segment crosses missing data');
+});
+
+test('all cached stocks use sign-colored FCF and return trends in annual and quarterly modes', () => {
+  const directory = path.join(__dirname, '..', 'cache', 'financials');
+  for (const file of fs.readdirSync(directory).filter(file => file.endsWith('_statements_v2.json'))) {
+    const data = JSON.parse(fs.readFileSync(path.join(directory, file), 'utf8'));
+    for (const period of ['annual', 'quarterly']) {
+      for (const engine of [calculate, calculateReturns]) {
+        const columns = engine(data, { period });
+        for (const metric of Object.keys(columns[0]?.ratios || {})) {
+          const values = columns.map(column => column.ratios[metric].value);
+          const chart = trend(values), valid = values.filter(value => Number.isFinite(value));
+          if (!valid.length) {
+            assert.equal(chart, null, `${file}/${period}/${metric}`);
+            continue;
+          }
+          assert.equal(chart.color, valid.at(-1) < 0 ? '#ef4444' : '#22c55e');
+          for (const stroke of chart.strokes) {
+            assert.ok(stroke.points.every(point => Number.isFinite(point.x) && Number.isFinite(point.y)
+              && (stroke.color === '#ef4444' ? point.value <= 0 : point.value >= 0)), `${file}/${period}/${metric}`);
+          }
+        }
+      }
+    }
+  }
 });
 
 test('ROA, ROE and ROTE use reported net income and the correct balances in every mode', () => {
@@ -573,7 +631,7 @@ test('the exact shipped HTML scripts compile and the removed chart cannot initia
   assert.doesNotMatch(html, /renderDetailHistoricalChart|detailDcfHistoricalChart|chartjs-adapter-date-fns/);
   assert.doesNotMatch(html, /renderChartsSubPage|chart-bars-wrap|cmp-analytics-chart-container/);
   assert.match(html, /id="fcf-ratio-panel"/);
-  assert.match(html, /src="fcf_ratios\.js\?v=parent-equity-1"/);
+  assert.match(html, /src="fcf_ratios\.js\?v=sign-trends-1"/);
   assert.equal((html.match(/id="fcf-ratio-panel"/g) || []).length, 1);
   const detail = html.slice(html.indexOf('id="detail-view"'), html.indexOf('id="company-view"'));
   assert.doesNotMatch(detail, /id="fcf-ratio-panel"/);

@@ -17,7 +17,10 @@
     return values.length && values.every(finite) ? values.reduce((a, b) => a + b, 0) : null;
   };
   const aligned = (income, cashflow, balance, opening) => income.length && income.length === cashflow.length
-    && balance && opening && income.every((row, i) => row.date === cashflow[i]?.date)
+    && balance && opening && income.every((row, i) => row.date === cashflow[i]?.date
+      && row.periodLength !== null && cashflow[i]?.periodLength !== null
+      && (row.periodLength === undefined || cashflow[i]?.periodLength === undefined
+        || row.periodLength === cashflow[i].periodLength))
     && new Set([...income, ...cashflow, balance, opening].map(row => row.reportedCurrency)).size === 1;
   function observations(data) {
     const step = data.reportingFrequency === 'semiannual' ? 2 : 1, count = 4 / step;
@@ -25,16 +28,18 @@
     const balances = data.quarterly?.balance || [], last = income.at(-1);
     if (last && income.length >= count * 2) {
       const flows = income.slice(-count * 2), finalKey = key(last);
-      const valid = flows.every((row, i) => !i || key(row) === key(flows[i - 1]) + step
-        && (Date.parse(row.date) - Date.parse(flows[i - 1].date)) / 86400000 >= step * 60
-        && (Date.parse(row.date) - Date.parse(flows[i - 1].date)) / 86400000 <= step * 120);
+      const valid = flows.every((row, i) => (row.periodLength === undefined || row.periodLength === step * 3)
+        && (!i || key(row) === key(flows[i - 1]) + step
+          && (Date.parse(row.date) - Date.parse(flows[i - 1].date)) / 86400000 >= step * 60
+          && (Date.parse(row.date) - Date.parse(flows[i - 1].date)) / 86400000 <= step * 120));
       const closing = balances.find(row => key(row) === finalKey && row.date === last.date);
       const opening = balances.find(row => key(row) === finalKey - 4);
       const earlier = balances.find(row => key(row) === finalKey - 8);
       const currentIncome = flows.slice(-count), priorIncome = flows.slice(0, count);
       const matching = rows => rows.map(row => cashflow.find(other => other.date === row.date && key(other) === key(row)));
       const currentCf = matching(currentIncome), priorCf = matching(priorIncome);
-      if (valid && aligned(currentIncome, currentCf, closing, opening)
+      if (valid && new Set(flows.map(row => row.comparabilityGroup).filter(Boolean)).size <= 1
+          && aligned(currentIncome, currentCf, closing, opening)
           && aligned(priorIncome, priorCf, opening, earlier)) {
         return { date: last.date, period: `FY ${last.fiscalYear || last.calendarYear} ${step === 2 ? `H${Number(last.period[1]) / 2}` : last.period}`,
           basis: 'comparableTtm', income: currentIncome, priorIncome, cashflow: currentCf,
@@ -44,6 +49,9 @@
     const annual = sorted(data.annual?.income);
     for (let i = annual.length - 1; i >= 1; i--) {
       const current = annual[i], previous = annual[i - 1];
+      if ([current, previous].some(row => row.periodLength !== undefined && row.periodLength !== 12)) continue;
+      if (current.comparabilityGroup && previous.comparabilityGroup
+          && current.comparabilityGroup !== previous.comparabilityGroup) continue;
       if (Number(current.fiscalYear || current.calendarYear) !== Number(previous.fiscalYear || previous.calendarYear) + 1) continue;
       const duration = (Date.parse(current.date) - Date.parse(previous.date)) / 86400000;
       if (duration < 330 || duration > 400) continue;
@@ -60,7 +68,7 @@
     }
     return null;
   }
-  function calculate(data) {
+  function calculate(data, { currentRatioNotApplicable = null } = {}) {
     const source = observations(data);
     const descriptions = [
       ['盈利能力', '資產回報率 ROA > 0', 'Positive ROA'],
@@ -100,6 +108,15 @@
       [[margin, priorMargin], () => margin > priorMargin], [[turnover, priorTurnover], () => turnover > priorTurnover]
     ];
     checks.forEach(([values, compare], i) => {
+      if (i === 5 && currentRatioNotApplicable
+          && source.date <= currentRatioNotApplicable.reviewedThrough
+          && source.date >= currentRatioNotApplicable.reviewedFrom) {
+        if (!currentRatioNotApplicable.sources?.length) throw new TypeError('Current-ratio exclusion requires audited source evidence');
+        Object.assign(items[i], { applicable: false, reason: 'unclassifiedInsuranceBalanceSheet',
+          detail: 'Not applicable', detail_zh: currentRatioNotApplicable.noteZh,
+          detail_en: currentRatioNotApplicable.noteEn, sources: currentRatioNotApplicable.sources });
+        return;
+      }
       items[i].metrics = values;
       if (!values.every(finite)) { items[i].reason = 'missingCriterionInputs'; return; }
       items[i].passed = compare() ? 1 : 0;
@@ -108,7 +125,10 @@
     });
     result.evaluatedTests = items.filter(item => item.passed !== null).length;
     result.passedTests = items.filter(item => item.passed === 1).length;
-    result.reason = result.evaluatedTests === 9 ? null : 'incompleteCriteria';
+    const applicableTests = items.filter(item => item.applicable !== false).length;
+    if (applicableTests < 9) Object.assign(result, { applicableTests, assessmentType: 'applicableItems',
+      standardScore: null, applicability: currentRatioNotApplicable });
+    result.reason = result.evaluatedTests === applicableTests ? null : 'incompleteCriteria';
     result.score = result.reason ? null : result.passedTests;
     return result;
   }

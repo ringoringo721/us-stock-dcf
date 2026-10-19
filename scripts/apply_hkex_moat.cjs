@@ -24,6 +24,19 @@ function applyReports(market, reports) {
     if (!report.overall_moat_verdict_zh?.trim() || !report.overall_moat_verdict_en?.trim()) {
       throw new Error(`${ticker}: missing bilingual verdict`);
     }
+    const research = assessment.businessResearch;
+    if (research) {
+      if (research.ticker !== ticker || !research.summary?.trim() || !research.searchEntryPointHtml?.trim()
+          || !Array.isArray(research.sources) || research.sources.length < 2
+          || research.sources.some((source, index) => source.id !== `web:${index + 1}`
+            || !/^https:\/\//.test(source.url) || !source.title?.trim())) {
+        throw new Error(`${ticker}: incomplete or mismatched business research attribution`);
+      }
+      const ids = new Set(research.sources.map(source => source.id));
+      if (dimensions.some(key => report[key].sources.some(id => id.startsWith('web:') && !ids.has(id)))) {
+        throw new Error(`${ticker}: research citation does not exist`);
+      }
+    }
     stock.moat = structuredClone(report);
     stock.description_zh = report.description_zh || stock.description_zh;
     Object.assign(stock.ratingSources.moat, {
@@ -31,6 +44,8 @@ function applyReports(market, reports) {
       lastError: null, reason: null, model: assessment.model,
       provider: assessment.provider, assessmentPolicy: assessment.assessmentPolicy
     });
+    if (assessment.businessResearch) stock.ratingSources.moat.businessResearch = structuredClone(assessment.businessResearch);
+    else delete stock.ratingSources.moat.businessResearch;
   }
   return result;
 }
@@ -41,7 +56,9 @@ if (require.main === module) {
   const reports = JSON.parse(fs.readFileSync(process.argv[2], 'utf8'));
   const market = JSON.parse(fs.readFileSync(path.join(root, 'hk_market_dcf.json'), 'utf8'));
   const updated = applyReports(market, reports);
-  fs.writeFileSync(path.join(root, 'cache', 'hkex_moat.json'), JSON.stringify(reports) + '\n');
+  const cachePath = path.join(root, 'cache', 'hkex_moat.json');
+  const previous = JSON.parse(fs.readFileSync(cachePath, 'utf8'));
+  fs.writeFileSync(cachePath, JSON.stringify({ ...previous, ...reports }) + '\n');
   fs.writeFileSync(path.join(root, 'hk_market_dcf.json'), JSON.stringify(updated) + '\n');
   fs.writeFileSync(path.join(root, 'hk_market_data.js'), `window.HK_MARKET_DATA = ${JSON.stringify(updated)};\n`);
   console.log(`Applied ${Object.keys(reports).length} matching assessments without changing financials or valuation inputs.`);

@@ -25,6 +25,9 @@ test('official comparisons cannot silently survive changed financial fingerprint
   const modified = structuredClone(statements);
   modified.annual.cashflow.at(-1).operatingCashFlow++;
   assert.equal(sourceReview(data, modified, official).reason, 'OFFICIAL_COMPARISON_REVIEW_REQUIRED');
+  const changedOriginal = structuredClone(statements);
+  changedOriginal.propertyFvOriginal.annual.cashflow.at(-1).operatingCashFlow++;
+  assert.equal(sourceReview(data, changedOriginal, official).reason, 'OFFICIAL_COMPARISON_REVIEW_REQUIRED');
   assert.equal(sourceReview({ ...data, currency: 'USD' }, statements, official).reason, 'OFFICIAL_COMPARISON_REVIEW_REQUIRED');
   assert.equal(sourceReview({ ...data, forecastBase: { year: 2027 } }, statements, official).reason, 'OFFICIAL_COMPARISON_REVIEW_REQUIRED');
   const changedProvider = structuredClone(data);

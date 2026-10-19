@@ -82,6 +82,17 @@ test('preferred claims are explicitly flagged rather than treating book value as
   assert.deepEqual(calculate(snapshot, 'TEST').warnings, ['preferredUnknown']);
 });
 
+test('stale prices cannot imply current shares, while independently dated outstanding shares preserve intrinsic screens', () => {
+  const snapshot = prepareSnapshot('TEST', fixture(), null);
+  snapshot.quote = { ...snapshot.quote, price: null, marketCap: null, availabilityReason: 'staleQuote' };
+  assert.deepEqual(calculate(snapshot, 'TEST').reasons, ['staleQuote', 'staleQuote', 'staleQuote']);
+  snapshot.shareBasis = 'commonSharesOutstandingExcludingTreasury';
+  snapshot.sharesOutstanding = 100;
+  const result = calculate(snapshot, 'TEST');
+  assert.deepEqual(result.values, [3, 0.3, -1]);
+  assert.deepEqual(result.warnings, ['staleQuote']);
+});
+
 test('targeted market patch is idempotent and preserves unrelated numeric text and financial values', () => {
   const text = '{\n  "TEST": {\n    "price": 1.000000,\n    "mcap": 1e-6,\n    "liq_val_1": 9,\n    "liq_val_2": 9,\n    "liq_val_3": 9\n  }\n}';
   const update = applyToMarket(JSON.parse(text), { version: 1, stocks: { TEST: fixture() } }, null);

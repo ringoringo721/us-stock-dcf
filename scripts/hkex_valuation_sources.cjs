@@ -9,9 +9,12 @@ const inputNames = ('revenue netPropertyIncome corporateExpenses propertyFairVal
   + 'payablesAndAccruals accruedCapex securityDeposits incentiveProvision financingAccrualsIncludingLeases borrowings '
   + 'convertibleBonds noncontrollingLoans netFinancingDerivatives openingFinancingLiabilities cashInterestPaid '
   + 'unrestrictedCashAndDeposits totalCashAndDeposits jointVentureBookValue noncontrollingBookEquity preferredEquity').split(' ');
-const fingerprint = statements => crypto.createHash('sha256').update(JSON.stringify({
-  annual: statements.annual, quarterly: statements.quarterly
-})).digest('hex');
+const fingerprint = statements => {
+  const original = statements.propertyFvOriginal || statements;
+  return crypto.createHash('sha256').update(JSON.stringify({
+    annual: original.annual, quarterly: original.quarterly
+  })).digest('hex');
+};
 
 function reconcileOperatingComponents(snapshot, statements, record, rates) {
   const invalid = () => { throw new TypeError(`${snapshot.ticker}: invalid official operating reconciliation`); };

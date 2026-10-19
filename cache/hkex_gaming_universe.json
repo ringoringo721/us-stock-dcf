@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "reviewDate": "2026-10-19",
+  "scope": "Curated HK-listed casinos, pachinko, lottery, gaming suppliers and material gaming-related investments or historical gaming exposures. This extension is not HSI membership or certified HSICS classification.",
+  "listingSource": {
+    "url": "https://www.hkex.com.hk/eng/services/trading/securities/securitieslists/ListOfSecurities.xlsx",
+    "sha256": "43900020cb53d80d3cf90ad67819e7edc9aa9a8cbc2081afe1395531b5db7906"
+  },
+  "nameSource": "https://www1.hkexnews.hk/ncms/script/eds/activestock_sehk_c.json",
+  "symbols": [
+    "0027.HK", "1928.HK", "2282.HK", "1128.HK", "0200.HK", "0880.HK", "3918.HK",
+    "6889.HK", "1245.HK", "1655.HK", "1180.HK", "2536.HK", "0582.HK", "8400.HK",
+    "1371.HK", "0296.HK", "1680.HK", "0959.HK", "0487.HK", "1009.HK", "8279.HK"
+  ],
+  "officialHsiMembers": ["0027.HK", "1928.HK"],
+  "exclusions": [
+    {"symbol": "0102.HK", "reason": "Not on the captured current official HKEX securities list; not added as a currently listed gaming issuer."},
+    {"symbol": "1076.HK", "reason": "Not on the captured current official HKEX securities list; not added as a currently listed gaming issuer."},
+    {
+      "symbol": "0070.HK",
+      "reason": "Latest reviewed principal activities are money lending, hotel operations and property leasing, not current gaming operations.",
+      "source": {
+        "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2025/1030/2025103000475.pdf",
+        "sha256": "646103a631e488c3b43d35100907aa6d5e9f387335948a32e7b524005d8c774a",
+        "pdfPage": 6
+      }
+    },
+    {
+      "symbol": "8308.HK",
+      "reason": "Official FY2025 principal activities are resort/hotel operations, consultancy/management and tourism property development; the provider gaming classification is not adopted.",
+      "source": {
+        "url": "https://www1.hkexnews.hk/listedco/listconews/gem/2026/0430/2026043004398.pdf",
+        "sha256": "4f2efc14a1f83c21369a3bff2a5d3803cd4b4b5d3735a2c6df6e9da56aa448c5",
+        "pdfPage": 21
+      }
+    }
+  ]
+}

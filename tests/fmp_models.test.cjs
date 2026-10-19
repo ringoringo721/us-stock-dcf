@@ -43,6 +43,21 @@ test('Issued-share validation tolerates only binary conversion noise, not fracti
   assert.equal(Models.issuedShares({ ...stock, shareSource: { reason: 'unverified' } }), null);
 });
 
+test('Price comparisons match the saved-target market premium, rejecting nonpositive valuations', () => {
+  assert.equal(Models.priceDifference(120, 100), (100 / 120 - 1) * 100);
+  assert.equal(Models.priceDifference(80, 100), 25);
+  assert.equal(Models.priceDifference(100, 100), 0);
+  assert.equal(Models.priceDifference(0, 100), null);
+  assert.equal(Models.priceDifference(-20, 100), null);
+  assert.equal(Models.priceDifference(Number.MIN_VALUE, 100), null);
+  for (const invalid of [null, undefined, NaN, Infinity, '100']) {
+    assert.equal(Models.priceDifference(invalid, 100), null);
+    assert.equal(Models.priceDifference(100, invalid), null);
+  }
+  assert.equal(Models.priceDifference(100, 0), null);
+  assert.equal(Models.priceDifference(100, -100), null);
+});
+
 test('Vendor direct DCF references remain unmodified, separate from the issued-share custom valuation', () => {
   for (const [ticker, data] of Object.entries(records)) {
     for (const kind of ['dcf', 'levered']) {
@@ -53,6 +68,20 @@ test('Vendor direct DCF references remain unmodified, separate from the issued-s
   const data = records.AAPL;
   const site = Models.value(data, 'advanced', { ...market.AAPL, ticker: 'AAPL' });
   assert.notEqual(site.fairVal, site.providerFairValue);
+});
+
+test('Bank, insurer and segment-required DCF references are inapplicable without hiding financial-sector fair values', () => {
+  for (const [ticker, stock] of Object.entries(market)) {
+    const applicable = stock.fin_valuation?.is_financial !== true
+      && stock.corporateDcfApplicability !== 'requiresSegmentValuation';
+    assert.equal(Models.dcfApplicable(stock), applicable, ticker);
+    for (const kind of ['dcf', 'levered']) {
+      assert.equal(Models.reference(records[ticker], kind, stock),
+        applicable ? Models.reference(records[ticker], kind) : null, `${ticker}/${kind}`);
+    }
+  }
+  for (const ticker of ['0005.HK', '0939.HK', 'JPM', 'MS', 'PGR', 'MET', '0487.HK', '8279.HK']) assert.equal(Models.dcfApplicable(market[ticker]), false);
+  for (const ticker of ['0388.HK', 'BLK', 'AON', 'AJG', 'MMC']) assert.equal(Models.dcfApplicable(market[ticker]), true);
 });
 
 test('Source identity, currency, issued shares and terminal-spread failures never produce synthetic values', () => {

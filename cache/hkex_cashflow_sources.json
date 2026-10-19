@@ -11,6 +11,8 @@
       "sha256": "01f90f3b213f368e1ed66887ec6ec862f5129c74d5c89d3c11cf5b0fda8887ee",
       "bytes": 14616555,
       "pages": {
+        "noOrdinaryShareIssuance": { "pdf": 136, "printed": 134 },
+        "shareCapitalMovements": { "pdf": 198, "printed": 196 },
         "cashFlowStatement": {
           "pdf": 147,
           "printed": 145
@@ -28,6 +30,12 @@
           "printed": 166
         }
       }
+    },
+    "hkexH12025": {
+      "url": "https://www.hkexgroup.com/-/media/HKEX-Group-Site/ssd/Investor-Relations/Regulatory-Reports/documents/2025/250901_2qr_e.pdf",
+      "sha256": "262b12d9abb494697b774ff9dc81ea03780c7174272155fd02146b4967ad00e5",
+      "bytes": 8959753,
+      "pages": { "cashFlowStatement": { "pdf": 58, "printed": 56 } }
     },
     "hkexH12026": {
       "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0831/2026083100411.pdf",
@@ -57,6 +65,10 @@
       "sha256": "94aab2f5c83d1060ee95d344f1915833869fe4502dc635e4ab9ca84f496ee94b",
       "bytes": 10110145,
       "pages": {
+        "ordinaryAndOtherEquityMovements2025": { "pdf": 267, "printed": 265 },
+        "capitalIssueFootnotes": { "pdf": 269, "printed": 267 },
+        "ordinaryShareCapitalNote32": { "pdf": 342, "printed": 340 },
+        "additionalTier1CapitalNote32": { "pdf": 343, "printed": 341 },
         "ordinaryCashDividends": { "pdf": 304, "printed": 302 },
         "cashFlowStatement": {
           "pdf": 270,
@@ -115,9 +127,58 @@
         "Annual depreciation/amortisation adjustment includes impairment; interim wording is depreciation and amortisation. The combined generic field deliberately does not claim pure D&A.",
         "Cash-flow cash excludes Margin Funds, Clearing House Funds, A-share cash and reserved Corporate Funds.",
         "H1 2025 figures below are the comparative columns published in the official H1 2026 report.",
+        "FY2024 and H1 2024 official comparatives provide H2 2024, allowing June 2025 versus June 2026 TTM comparisons on the same statutory CFO and cash CapEx basis.",
+        "FY2025 common-stock cash issuance is zero because the annual report explicitly confirms no HKEX shares were issued; share-award scheme market purchases are not negative issuance.",
         "H1 2026 policies are consistent with FY2025; newly adopted amendments had no material impact."
       ],
       "periods": [
+        {
+          "start": "2024-01-01", "end": "2024-12-31", "fiscalYear": 2024, "period": "FY",
+          "currency": "HKD", "unit": "millions",
+          "sourceRefs": [{ "sourceId": "hkexFY2025", "column": "2024",
+            "pdfPages": [147, 198, 205], "printedPages": [145, 196, 203] }],
+          "fields": {
+            "incomeBeforeTax": 14853, "depreciationAmortizationAndImpairment": 1402,
+            "stockBasedCompensation": 390, "operatingCashFlow": 12774, "incomeTaxesPaid": -1283,
+            "netCashProvidedByInvestingActivities": 3194, "netCashProvidedByFinancingActivities": -11261,
+            "netChangeInCash": 4707, "effectOfForexChangesOnCash": -9,
+            "cashAtBeginningOfPeriod": 9212, "cashAtEndOfPeriod": 13910, "commonStockIssuance": 0
+          },
+          "lines": {
+            "principalOperatingCashFlowNonHKFRS": 12783, "otherOperatingFundManagerRedemptions": -9,
+            "headquartersPremisesAcquisitionPayments": 0, "otherFixedAssetAndIntangiblePurchasesCombined": -1604,
+            "changeInTimeDepositsWithOriginalMaturityOverThreeMonths": 11034,
+            "changeInShortTermDebtSecurities": -4173, "longTermDebtSecurityPurchases": -3055,
+            "longTermDebtSecuritySalesAndMaturityProceeds": 0, "interestReceivedOnLongTermDebtSecurities": 967,
+            "jointVentureDividendsReceived": 25, "shareAwardSchemeSharePurchases": -481,
+            "otherFinanceCostsPaid": -54, "dividendsPaidToHKEXShareholders": -10416,
+            "dividendsPaidToNonControllingInterests": 0, "leasePrincipalPayments": -255,
+            "leaseInterestPayments": -55, "corporateCashBankBalancesAndShortTermInvestments": 15045,
+            "reservedCorporateCashDeduction": -1135
+          },
+          "lineNotes": { "commonStockIssuance": "The complete FY2024 share-capital movement table in the FY2025 annual report shows no issued-share movements; share-award purchases and vesting concern existing shares, not cash issuance." }
+        },
+        {
+          "start": "2024-01-01", "end": "2024-06-30", "fiscalYear": 2024, "period": "H1",
+          "currency": "HKD", "unit": "millions",
+          "sourceRefs": [{ "sourceId": "hkexH12025", "column": "Six months ended 30 Jun 2024",
+            "pdfPages": [58], "printedPages": [56] }],
+          "fields": {
+            "operatingCashFlow": 5697, "netCashProvidedByInvestingActivities": 3572,
+            "netCashProvidedByFinancingActivities": -5141, "netChangeInCash": 4128,
+            "effectOfForexChangesOnCash": -6, "cashAtBeginningOfPeriod": 9212, "cashAtEndOfPeriod": 13334
+          },
+          "lines": {
+            "principalOperatingCashFlowNonHKFRS": 5852, "otherOperatingFundManagerRedemptions": -155,
+            "headquartersPremisesAcquisitionPayments": 0, "otherFixedAssetAndIntangiblePurchasesCombined": -784,
+            "changeInTimeDepositsWithOriginalMaturityOverThreeMonths": 8117,
+            "longTermDebtSecurityPurchases": -4417, "interestReceivedOnLongTermDebtSecurities": 656,
+            "shareAwardSchemeSharePurchases": -31, "otherFinanceCostsPaid": -29,
+            "dividendsPaidToHKEXShareholders": -4923, "leasePrincipalPayments": -130,
+            "leaseInterestPayments": -28, "corporateCashBankBalancesAndShortTermInvestments": 14538,
+            "reservedCorporateCashDeduction": -1204
+          }
+        },
         {
           "start": "2025-01-01",
           "end": "2025-12-31",
@@ -130,16 +191,21 @@
               "sourceId": "hkexFY2025",
               "column": "2025",
               "pdfPages": [
+                136,
                 147,
+                198,
                 205
               ],
               "printedPages": [
+                134,
                 145,
+                196,
                 203
               ]
             }
           ],
           "fields": {
+            "commonStockIssuance": 0,
             "incomeBeforeTax": 21158,
             "depreciationAmortizationAndImpairment": 1568,
             "stockBasedCompensation": 361,
@@ -376,7 +442,8 @@
         "Elimination of exchange differences in the operating bridge is distinct from FX on cash equivalents.",
         "PPE cash flow is a net purchase/sale amount, not gross capital expenditure.",
         "Rounded cash-interest disclosures retain billions and are not exact-million generic fields.",
-        "H1 2026 policies follow FY2025 except financial-instrument amendments with no material effect."
+        "H1 2026 policies follow FY2025 except financial-instrument amendments with no material effect.",
+        "FY2025 ordinary cash issuance is zero: the USD4096m combined cash-flow issuance exactly matches capital securities issued wholly in other equity instruments. Employee-plan share capital/premium USD116m is offset by retained earnings, not a cash subscription. FY2024 and interim ordinary cash issuance are not inferred from this annual evidence."
       ],
       "periods": [
         {
@@ -398,9 +465,19 @@
                 268,
                 269
               ]
+            },
+            {
+              "sourceId": "hsbcFY2025",
+              "column": "2025",
+              "pdfPages": [267, 269, 342, 343],
+              "printedPages": [265, 267, 340, 341]
             }
           ],
+          "lineNotes": {
+            "commonStockIssuance": "FY2025 cash-flow issuance USD4096m (PDF270) equals the complete equity movement's capital securities issued USD4096m, all in other equity instruments (PDF267). Employee remuneration/share plans transfer USD116m from retained earnings to share capital/premium with zero total equity effect. Note32 identifies only employee-plan ordinary share issuance and separately lists AT1 instruments (PDF342-343); footnote6 identifies the three AT1 issuances (PDF269). No buybacks, net issuance or year-end FX-translated AT1 balances are used to infer ordinary cash proceeds."
+          },
           "fields": {
+            "commonStockIssuance": 0,
             "incomeBeforeTax": 29907,
             "depreciationAmortizationAndImpairment": 4916,
             "stockBasedCompensation": 621,

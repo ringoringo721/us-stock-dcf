@@ -4,7 +4,10 @@ import sys
 from types import SimpleNamespace
 from unittest.mock import Mock, patch
 
-from scripts.refresh_hkex_moat import ASSESSMENT_POLICY, DIMENSIONS, create_client, needs_refresh, validate_report
+from scripts.refresh_hkex_moat import (
+    ASSESSMENT_POLICY, DIMENSIONS, MoatReportValidationError, create_client,
+    needs_refresh, validate_report, validation_feedback,
+)
 
 
 class MoatEvidenceTests(unittest.TestCase):
@@ -100,6 +103,24 @@ class MoatEvidenceTests(unittest.TestCase):
             report["overall_moat_verdict_en"] = text
             with self.assertRaises(ValueError):
                 validate_report(report, "0700.HK", ["profile"])
+
+    def test_invalid_report_retries_receive_safe_actionable_feedback_without_weakening_validation(self):
+        report = self.report()
+        report["m1_brand_pricing"]["comment_en"] = "A leading 5G network"
+        with self.assertRaises(MoatReportValidationError) as rejected:
+            validate_report(report, "0700.HK", ["profile"])
+        feedback = validation_feedback(rejected.exception)
+        self.assertIn("numerical or currency claims", feedback)
+        self.assertIn("technology/product terms", feedback)
+        self.assertIn("numbered industry tiers", feedback)
+        self.assertIn("m1_brand_pricing.comment_en", feedback)
+        self.assertIn("prohibited token: 5", feedback)
+        report["m1_brand_pricing"]["comment_en"] = "A leading next-generation network"
+        self.assertEqual(validate_report(report, "0700.HK", ["profile"]), report)
+
+    def test_external_error_strings_never_enter_retry_prompts(self):
+        self.assertEqual(validation_feedback(ValueError("https://example.invalid/?key=private-token")), "")
+        self.assertEqual(validation_feedback(TypeError("private-token")), "")
 
 
 if __name__ == "__main__":

@@ -1,16 +1,20 @@
 const { fingerprint } = require('./hkex_valuation_sources.cjs');
+const { displayFingerprint, reviewedSourceHash } = require('./property_fv.cjs');
 
 function sourceReview(data, financials, record) {
   if (!record?.cashFlowDisclosure || data.symbol !== record.ticker) return null;
   const disclosure = record.cashFlowDisclosure;
   if (record.financialFingerprint !== fingerprint(financials) || data.currency !== record.currency
-      || record.unit !== 'millions' || data.forecastBase?.year !== disclosure.year) {
+      || record.unit !== 'millions' || data.forecastBase?.year !== disclosure.year
+      || financials.propertyFvOriginal && (financials.propertyFvProvenance?.sourceHash !== reviewedSourceHash
+        || financials.propertyFvProvenance?.adjustedFingerprint !== displayFingerprint(financials))) {
     return { reason: 'OFFICIAL_COMPARISON_REVIEW_REQUIRED' };
   }
+  const original = financials.propertyFvOriginal || financials;
   const years = [disclosure.comparative, disclosure].map(official => {
     const advanced = data.models.advanced.data.find(row => Number(row.year) === official.year);
     const levered = data.models.customLevered.data.find(row => Number(row.year) === official.year);
-    const cashflow = financials.annual.cashflow.find(row => Number(row.fiscalYear) === official.year);
+    const cashflow = original.annual.cashflow.find(row => Number(row.fiscalYear) === official.year);
     if (!advanced || !levered || !cashflow) throw new Error('OFFICIAL_COMPARISON_SOURCE_MISSING');
     const afterReclassification = official.reportedOperatingCashFlow - official.cashInterestPaid
       + official.cashInterestReceived + official.cashDividendsReceived;

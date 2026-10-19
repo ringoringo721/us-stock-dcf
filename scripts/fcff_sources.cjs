@@ -192,7 +192,8 @@ function prepareSnapshot(ticker, evidence, treasury, rates, leaseEvidence, optio
   if (!finite(forecastFx.rate)) return unavailable('missingForecastFx');
   const estimates = sorted(read('estimates').filter(row => day(row.date)
     && finite(row.revenueAvg) && row.revenueAvg > 0 && (finite(row.ebitAvg) || finite(row.ebitdaAvg))));
-  const comparableAnnual = read('annual_income').filter(row => row.reportedCurrency === sourceCurrency);
+  const comparableAnnual = (original.annual?.income || read('annual_income'))
+    .filter(row => row.reportedCurrency === sourceCurrency);
   const overlaps = sorted(comparableAnnual).map(row => {
     const estimate = estimates.find(other => Math.abs(Date.parse(other.date) - Date.parse(row.date)) < 30 * 86400000);
     return estimate && number(row, 'revenue') > 0 ? { date: row.date, ratio: estimate.revenueAvg / row.revenue } : null;

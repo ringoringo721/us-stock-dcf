@@ -16,7 +16,7 @@ on:
         type: boolean
         default: false
       build_hkex:
-        description: Build the six-stock HKEX pilot and evidence-based ratings as review artifacts only
+        description: Build configured HSI constituents and evidence-based ratings as review artifacts only
         type: boolean
         default: false
       force_moat:
@@ -35,7 +35,7 @@ jobs:
   capture-fmp:
     if: inputs.translate_news != true
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -56,7 +56,8 @@ jobs:
           FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
           CAPTURE_LEASE_SOURCES_ONLY: ${{ inputs.lease_sources_only }}
           CAPTURE_SHARES_ONLY: ${{ inputs.shares_only }}
-          CAPTURE_SYMBOLS: ${{ inputs.build_hkex && '0700.HK,9988.HK,0005.HK,0388.HK,0939.HK,0823.HK' || inputs.symbols }}
+          CAPTURE_MARKET: ${{ inputs.build_hkex && 'HKEX' || 'US' }}
+          CAPTURE_SYMBOLS: ${{ !inputs.build_hkex && inputs.symbols || '' }}
         run: python -u scripts/capture_valuation_sources.py
       - name: Build real HKD inputs without publishing
         if: inputs.build_hkex == true
@@ -72,7 +73,7 @@ jobs:
       - name: Build final dated HKEX review artifact
         if: inputs.build_hkex == true
         run: node scripts/build_hkex.cjs valuation-audit-output hkex-data-output hkex-data-output/cache/hkex_moat.json
-      - name: Preserve unpublished real HKEX pilot
+      - name: Preserve unpublished real HKEX constituent data
         if: always() && inputs.build_hkex == true
         uses: actions/upload-artifact@v4
         with:

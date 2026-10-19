@@ -32,6 +32,27 @@ try {
     fs.writeFileSync(input, JSON.stringify(report));
     execFileSync(process.env.PYTHON || 'python', [path.join(__dirname, '..', 'scripts', 'fmp_calculation_workbook.py'),
       '--input', input, '--output', output], { encoding: 'utf8' });
+    const incomplete = XLSX.readFile(output);
+    assert.equal(incomplete.Sheets['10Y Advanced'].B2.v, 'SCENARIO_INCOMPLETE_ASSUMPTIONS');
+    assert.match(incomplete.Sheets['10Y CFO'].B3.v, /N\/A/);
+    // Manual test assumptions exercise complete formulas without inventing production forecasts.
+    const manual = { growth: 3, ebitda: 30, ebit: 25, da: 5, nwcChange: 2,
+      cfo: 30, capex: -10, tax: 20, beta: 1, rf: 4, erp: 5, kd: 5, ke: 9, debtWeight: 20 };
+    for (const packet of report.packets) {
+      const scenario = packet.tenYear.input;
+      for (let index = 0; index < scenario.years.length; index++) {
+        for (const [key] of Scenario.activeFields(scenario.kind, scenario)) {
+          if (!Number.isFinite(scenario.years[index].values[key])) Scenario.update(scenario, index, key, manual[key]);
+        }
+      }
+      scenario.terminalGrowth = 2;
+      packet.tenYear.result = Scenario.calculate(scenario);
+      packet.tenYear.reason = null;
+      packet.tenYear.missingInputs = [];
+    }
+    fs.writeFileSync(input, JSON.stringify(report));
+    execFileSync(process.env.PYTHON || 'python', [path.join(__dirname, '..', 'scripts', 'fmp_calculation_workbook.py'),
+      '--input', input, '--output', output], { encoding: 'utf8' });
     const book = XLSX.readFile(output, { cellFormula: true, cellNF: true });
     assert.equal(book.SheetNames.length, 6);
     recalculate(book);
@@ -79,7 +100,7 @@ try {
     console.log(`${ticker}: native residuals and both actual Excel-formula models recalculate correctly, including edited inputs and Ke overrides.`);
   }
   for (const ticker of ['0823.HK', '0388.HK']) {
-    const book = XLSX.readFile(path.join(__dirname, '..', 'calculation_models', `${ticker}-dcf-models.xlsx`), { cellFormula: true });
+    const book = XLSX.readFile(path.join(__dirname, '..', 'DCF_calculation_models', `${ticker}-dcf-models.xlsx`), { cellFormula: true });
     const expected = ['Advanced', 'CFO'].map(kind => {
       const sheet = book.Sheets[`10Y ${kind}`], cell = `B${find(sheet, 'targetPrice')}`;
       return { sheet, cell, value: sheet[cell].v };

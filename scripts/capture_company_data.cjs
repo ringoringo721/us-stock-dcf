@@ -1,16 +1,18 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { newsRows } = require('../company_data.js');
-const { baseSource } = require('../fmp_scenario.js');
+const { baseSource, verifiedRevenueCorrection, fullAnnualPeriod } = require('../fmp_scenario.js');
 const { sourceReview } = require('./fmp_source_review.cjs');
+const { buildAnalystSources } = require('./analyst_sources.cjs');
 const reconciliations = require('../cache/hkex_valuation_reconciliations.json').stocks;
 const root = path.resolve(__dirname, '..');
 const env = path.join(root, '.env.local');
 if (fs.existsSync(env)) process.loadEnvFile(env);
 const key = process.env.FMP_API_KEY;
-if (!key) throw new Error('FMP_API_KEY is required; no embedded fallback credential is used');
+const repack = process.argv[2] === '--repack';
+if (!key && !repack) throw new Error('FMP_API_KEY is required; no embedded fallback credential is used');
 const markets = { ...require('../full_market_dcf.json'), ...require('../hk_market_dcf.json') };
-const symbols = process.argv[2] === '--repack' ? [] : process.argv[2] ? process.argv[2].split(',') : Object.keys(markets);
+const symbols = repack ? [] : process.argv[2] ? process.argv[2].split(',') : Object.keys(markets);
 if (symbols.some(symbol => !Object.hasOwn(markets, symbol))) throw new Error('Requested symbol is not in the configured universe');
 const target = path.resolve(process.argv[3] || path.join(root, 'fmp_model_data.js'));
 const existing = fs.existsSync(target) ? (() => {
@@ -60,7 +62,7 @@ async function request(endpoint, symbol, parameters = {}) {
 async function currencyEvidence(symbol, stock, currency, models) {
   const source = JSON.parse(fs.readFileSync(path.join(root, 'cache', 'financials', `${symbol}_statements_v2.json`)));
   const rows = models.advanced.data;
-  const matchesYear = row => row.revenue > 0
+  const matchesYear = row => row.revenue > 0 && fullAnnualPeriod(row)
     && rows.some(model => Number(model.year) === Number(row.fiscalYear || row.calendarYear));
   let actual = source.annual.income.slice().sort((a, b) => b.date.localeCompare(a.date)).find(matchesYear);
   let financialSource = 'storedAnnualFinancials';
@@ -79,9 +81,18 @@ async function currencyEvidence(symbol, stock, currency, models) {
     if (!conversion || !(conversion.price > 0)) return { reason: 'FMP_MODEL_FX_UNAVAILABLE' };
   }
   const model = rows.find(row => Number(row.year) === Number(actual.fiscalYear || actual.calendarYear));
-  const ratio = model.revenue / actual.revenue;
+  const correction = actual.revenueCorrection;
+  if (correction && !verifiedRevenueCorrection(symbol, actual, source.revenueProvenance)) {
+    return { reason: 'FMP_OFFICIAL_REVENUE_SOURCE_UNVERIFIED' };
+  }
+  const reportedRatio = model.revenue / actual.revenue;
+  const originalRevenue = Math.abs(reportedRatio / conversion.price - 1) < 0.005 ? actual.revenue
+    : actual.revenueCorrection?.providerRevenue ?? actual.revenue;
+  const ratio = model.revenue / originalRevenue;
   return { reason: Math.abs(ratio / conversion.price - 1) < 0.005 ? null : 'FMP_MODEL_CURRENCY_UNVERIFIED',
-    sourceCurrency: original, currency, sourceDate: actual.date, financialSource, originalRevenue: actual.revenue,
+    sourceCurrency: original, currency, sourceDate: actual.date, sourcePeriodLength: actual.periodLength,
+    financialSource, originalRevenue,
+    ...(actual.revenueCorrection ? { officialReportedRevenue: actual.revenue, revenueCorrection: actual.revenueCorrection } : {}),
     modelRevenue: model.revenue, impliedRate: ratio, fx: conversion,
     basis: original === currency ? 'matchingHistoricalRevenue' : 'matchingHistoricalRevenueAtFmpCurrentSpotNotHistoricalFx' };
 }
@@ -115,6 +126,9 @@ async function capture(symbol) {
     news: { ...news, data: newsRows(news.data, symbol).map(({ symbol, title, url, publisher, site, publishedDate, image }) =>
       ({ symbol, title, url, publisher, site, publishedDate, image })) },
     ownership, holders, insiders };
+  if (models.advanced?.data.length) {
+    stocks[symbol].analystResponse = await request('analyst-estimates', symbol, { period: 'annual', limit: '12' });
+  }
   console.log(`${symbol}: ${Object.entries(models).map(([name, result]) => `${name}=${result.reason || 'available'}`).join(', ')}; currency=${currencyCheck.reason || 'verified'}`);
 }
 
@@ -123,9 +137,10 @@ async function capture(symbol) {
   const companyDirectory = path.join(path.dirname(target), 'cache', 'company');
   fs.mkdirSync(companyDirectory, { recursive: true });
   const ordered = Object.fromEntries(Object.keys(markets).filter(symbol => stocks[symbol]).map(symbol => {
+    if (!repack && !symbols.includes(symbol)) return [symbol, stocks[symbol]];
     const companyPath = path.join(companyDirectory, `${symbol}.json`);
-    const data = process.argv[2] === '--repack' && fs.existsSync(companyPath)
-      ? JSON.parse(fs.readFileSync(companyPath, 'utf8')) : stocks[symbol];
+    if (repack && !fs.existsSync(companyPath)) throw new Error(`Full company cache required for repack: ${symbol}`);
+    const data = repack ? JSON.parse(fs.readFileSync(companyPath, 'utf8')) : stocks[symbol];
     if (data.symbol !== symbol) throw new Error('Company cache security mismatch');
     if (data.models.advanced?.data.length) {
       const financials = JSON.parse(fs.readFileSync(path.join(root, 'cache', 'financials', `${symbol}_statements_v2.json`)));
@@ -133,9 +148,13 @@ async function capture(symbol) {
       const review = sourceReview(data, financials, reconciliations?.[symbol]);
       if (review) data.sourceReview = review;
       else delete data.sourceReview;
+      if (data.analystResponse) {
+        Object.assign(data, buildAnalystSources(data, financials, data.analystResponse, data.capturedAt));
+        delete data.analystResponse;
+      }
     }
     if (data.holders || data.news) fs.writeFileSync(path.join(companyDirectory, `${symbol}.json`), JSON.stringify(data) + '\n');
-    const { news, ownership, holders, insiders, ...summary } = data;
+    const { news, ownership, holders, insiders, analystEstimates, forecastActuals, ...summary } = data;
     summary.models = Object.fromEntries(Object.entries(data.models).map(([name, model]) => [name, { ...model,
       data: model.data.length ? [model.data.slice().sort((a, b) => Number(b.year || 0) - Number(a.year || 0))[0]] : []
     }]));

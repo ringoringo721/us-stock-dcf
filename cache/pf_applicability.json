@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "tickers": {
+    "1299.HK": {
+      "reviewedFrom": "2024-12-31",
+      "reviewedThrough": "2026-06-30",
+      "noteZh": "不適用：官方合併資產負債表按流動性列示，沒有流動／非流動資產負債總額。FMP 的零值不是零負債，不能計算可比流動比率。",
+      "noteEn": "Not applicable: the official consolidated balance sheet uses a liquidity presentation without current/non-current asset and liability totals. FMP zeros do not mean zero liabilities and cannot establish a comparable current ratio.",
+      "sources": [
+        {
+          "title": "AIA Annual Report 2025, Note 2.7",
+          "url": "https://www.aia.com/content/dam/group-wise/en/docs/investor-relations/2026/2025%20Annual%20Report%20(Eng).pdf",
+          "pdfPages": [186],
+          "sha256": "18537f928c3bb4879c35566252f2f8420c6a3a237016af4706b081a77d126977"
+        },
+        {
+          "title": "AIA Interim Results 2026, consolidated financial position",
+          "url": "https://www.aia.com/content/dam/group-wise/en/docs/investor-relations/2026/AIA%20Group%202026%20Interim%20Results%20Ann_Eng.pdf",
+          "pdfPages": [70, 71],
+          "sha256": "f0aca7f02e756ca801957c3deb440be58d74cff97aa38d9da9135d105be0ffd7"
+        }
+      ]
+    },
+    "2318.HK": {
+      "reviewedFrom": "2024-12-31",
+      "reviewedThrough": "2026-06-30",
+      "noteZh": "不適用：官方合併資產負債表沒有流動／非流動資產負債總額，保險及銀行項目不能以 FMP 的不完整分類推算可比流動比率。",
+      "noteEn": "Not applicable: the official consolidated balance sheet does not report current/non-current asset and liability totals. Its insurance and banking items cannot establish a comparable current ratio from incomplete FMP classifications.",
+      "sources": [
+        {
+          "title": "Ping An Annual Report 2025, consolidated financial position",
+          "url": "https://group.pingan.com/resource/pingan/IR-Docs/2026/pingan-ar25-report.pdf",
+          "pdfPages": [206, 207],
+          "sha256": "e7a94dc6959c3091ba8c46d937533141d3e73f0fc8a6211f393f9f8bbbac4d2a"
+        },
+        {
+          "title": "Ping An Interim Results 2026, consolidated financial position",
+          "url": "https://group.pingan.com/resource/pingan/IR-Docs/2026/pingan-interim26-results.pdf",
+          "pdfPages": [129, 130],
+          "sha256": "1e87a02f225c1764c64ebdda16f36ae3b846303c46dd9ec6a057522e17c7bd9f"
+        }
+      ]
+    },
+    "2628.HK": {
+      "reviewedFrom": "2024-12-31",
+      "reviewedThrough": "2026-06-30",
+      "noteZh": "不適用：官方合併資產負債表沒有流動／非流動資產負債總額。流動所得稅負債只是單一項目，並非流動負債總額；FMP 的零值及不一致分類不可作流動比率。",
+      "noteEn": "Not applicable: the official consolidated balance sheet does not report current/non-current asset and liability totals. Current tax liabilities are only one item, not total current liabilities; FMP zeros and inconsistent classifications cannot establish a current ratio.",
+      "sources": [
+        {
+          "title": "China Life Annual Report 2025, consolidated financial position",
+          "url": "https://www.e-chinalife.com/jw/web/json/plugin/com.chinalife.cms.DocumentDownload/service?id=1cac91e4-18ec-437d-bcab-694b1f9b4712",
+          "pdfPages": [104, 105],
+          "sha256": "92f7e416145ecdf5fac7593f07a02762d9bcfae5a0d82d20f7295b0dff1fdcd0"
+        },
+        {
+          "title": "China Life Interim Report 2026, consolidated financial position",
+          "url": "https://www.e-chinalife.com/jw/web/json/plugin/com.chinalife.cms.DocumentDownload/service?id=b8189b74-e004-4ae3-9e04-4db8c352e09a",
+          "pdfPages": [52, 53],
+          "sha256": "92c947726e67a6a635a4195703d85b762c3602aee4e02b9ff2862cfe173f41ed"
+        }
+      ]
+    }
+  }
+}

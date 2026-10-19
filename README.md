@@ -1,6 +1,6 @@
 # us-stock-dcf
 
-## HKEX six-stock pilot
+## Hang Seng Index and gaming extension
 
 Production builds run `node scripts/build_site.cjs` and publish only the
 allowlisted browser assets and financial/price/FX caches in `public/`. Backend
@@ -8,11 +8,173 @@ programs, raw source captures and private rating inputs are not public assets.
 `vercel.json` makes browsers revalidate data rather than retaining stale scores.
 
 The shared interface has a US/HKEX selector, the same 36 screener columns and all
-nine company subpages. The initial real-data HKEX universe is Tencent (00700),
-Alibaba (09988), HSBC (00005), HKEX (00388), CCB (00939) and Link REIT (00823).
+nine company subpages. The automatic site fair-value and its market-premium
+columns are omitted from every screener view in both markets; individual
+valuation models, FMP reference prices and saved target prices remain available.
+The HKEX universe contains all **95 Hang Seng Index
+constituents effective 7 September 2026**, verified against Appendix 1 of
+[Hang Seng Indexes' 21 August 2026 review](https://www.hsi.com.hk/static/uploads/contents/en/news/pressRelease/20260821T174500.pdf).
+`cache/hsi_constituents.json` saves the exact constituent codes, effective date,
+source pages and official-document SHA-256. The original Tencent (00700),
+Alibaba (09988), HSBC (00005), HKEX (00388), CCB (00939) and Link REIT (00823)
+retain their audited data and issuer-specific corrections; 89 listings are added.
+It also includes **19 separately curated gaming-related listings**, for 114
+configured HK stocks, not 114 HSI constituents. `cache/hkex_gaming_universe.json`
+records the 21-company gaming scope (including Galaxy and Sands), official HKEX
+listing evidence and exclusions. It includes pachinko, lottery, suppliers,
+equity-accounted investments and disclosed historical gaming exposures rather
+than labeling every issuer a pure casino. Membership is a dated configuration,
+not a live index-membership feed.
 Qualified provider identities retain `.HK`; they are not US sample aliases.
 US primary amounts remain USD; HKEX primary amounts, per-share values, tables,
 price charts and exports use HKD. Saved models cannot reinterpret USD as HKD.
+
+All configured listings have saved statement, actual daily-price and company/model
+snapshots. Coverage starts at the actual available listing/provider date; recent
+listings do not receive invented five-year histories. Banks/insurers use the
+financial model, not corporate DCF. Issuer-wide equity valuation is unavailable
+when mixed-class shares have not been independently verified; H-only counts
+are not substituted for total issuer shares. Vendor model/currency gaps remain
+explicit N/A rather than estimates. Native FMP reference values remain separately
+identified as provider results. Quotes older than 14 days are not current
+prices: the dated last trade is preserved separately, while current market cap,
+market multiples and price comparisons remain N/A.
+
+The prior 89-constituent expansion saved Vertex AI moat assessments and bilingual
+comments across ten dimensions. The 42 initially
+partial companies were reassessed using additional attributable business
+research, together with the three insurers whose PF evidence changed. Scores
+in this saved batch cover all 890 dimensions with bilingual explanations. They
+remain qualitative judgments, not reported financial measurements.
+When corrected financial evidence invalidates an assessment, its original
+timestamp and report are preserved in a clearly marked archive; the current
+score/grade is unavailable until reassessment. New gaming listings do not
+receive fabricated research or neutral scores. Genuinely missing evidence
+is not filled with neutral scores or prorated to a
+complete assessment. The original six dated assessments are preserved.
+Generation used explicitly authorized, artifact-only GitHub Actions runs with
+existing Vertex credentials after the
+local API-key route returned HTTP 403; it did not deploy or merge site changes.
+Rejected outputs are retried with safe, field-specific validation feedback,
+without relaxing citation or qualitative-only narrative checks. Unchanged
+financial evidence, business research and assessment policy reuse the saved
+reports without model requests;
+partial assessments are only retried when explicitly requested.
+The regular HK refresh reads every symbol from `hkex_stocks.json`, rather than
+a six-symbol workflow list, and persists financial-company ROTE references.
+
+### Reviewed gaming financial history
+
+Galaxy's source registry and `cache/hkex_gaming_revenue_sources.json` supply
+issuer-specific annual/interim corrections across all 21 gaming-related listings.
+Historical revenue, operating earnings, disclosed D&A, tax, attributable earnings,
+interest and genuinely reported gross profit use cited primary reports, not a
+blanket gaming-tax addback. Original provider statements and native FMP models
+remain separately available; reviewed fields are not an audit of every balance
+or cash-flow line item.
+
+All subpages consume the same corrected statements and recalculated supported
+ratios. Actual reporting dates, currencies, month counts and compatible
+accounting bases are retained. H2/TTM is reconstructed only from compatible
+reported amounts; discontinued earnings cannot inflate continuing-operation
+margins. Twelve-month second interims stay explicitly labeled `I2 (12M)`,
+not ordinary half years or audited FY. Unsupported periods, cash-flow durations,
+D&A and currency coverage remain N/A. Mixed bank/lottery AGTech and
+equity-accounted Success Universe require segment valuation, not an endorsed
+single corporate DCF. See [the source and limitation details](FMP_CALCULATION_MODELS.md).
+
+### Saved financial-model ROTE references
+
+Banks and insurers show the last ten complete fiscal years of annual ROTE below
+the Excess Return on Tangible Book + DDM model. These are statement-based returns:
+full-year `netIncome` divided by **beginning** shareholders' equity less goodwill
+and other intangibles, using the existing ratio engine and historical currency
+translation. Preferred stock is not separately deducted. These are not issuer
+adjusted ROTE, current TTM, or automatically applied forecast assumptions.
+Missing values remain N/A with reasons; losses/negative tangible equity are
+retained with warnings. Figures display two decimal places.
+
+`cache/rote_history/` persists annual inputs, all ten calculated references,
+capture dates and input/FX hashes for all 25 financial-model stocks. Opening the
+reference table needs no FMP or AI call. `node scripts/capture_rote_history.cjs`
+reuses matching saved inputs; `--refresh` explicitly requests new FMP data.
+Eleven year-end balance periods support ten beginning-equity returns. Older
+HKD/CNY FX observations were appended from the Federal Reserve without changing
+any previously saved observation.
+
+Live technical indicators, custom FMP calculation responses and news pages also
+persist in IndexedDB in the same browser and site origin. Identical requests
+reuse snapshots across page reloads; changed parameters are separate keys.
+Custom model keys include their underlying source snapshot. Existing saved
+company-news captures seed the news cache; empty provider coverage is saved too.
+Refresh controls explicitly bypass saved indicator/news responses. Capture
+dates are preserved and cached data is not described as live. Storage failures
+are visibly reported, and failed refreshes do not replace successful snapshots.
+Browser clearing, private-session expiry, a different browser/device/origin or
+previously unseen parameters can require another request. Saved Vertex headline
+translations remain file-backed and are not inferred again when opening news.
+
+### Reviewed property-FV history and market references
+
+Link's FY2019–FY2026 annual/half-year historical overlay is independently
+source-driven, not a blanket FV addback. Operating income retains other
+impairments; EBIT excludes the signed consolidated property-FV movement, and
+EBITDA adds FMP D&A. Attributable NPAT uses the issuer's property-FV/tax bridge;
+inseparable ownership/impairment adjustments stay N/A. Unseparated JV FV can
+remain in EBIT/EBITDA. Verified basic/diluted unit counts replace mis-mapped
+provider counts, but adjusted diluted EPS requires a new dilution review and
+is not fabricated. Other income-statement rows remain explicitly reported,
+not a restated GAAP statement.
+
+Statutory CFO already excludes noncash FV. FCF deducts cash investment-property
+and PPE additions, without adding FV again; FY2026 is HKD6,527m. This is before
+financing-classified interest, not distributable equity cash. Core cash totals
+and the cash bridge reconcile; unreviewed breakdowns remain N/A. Original
+provider statements/cadence, eight hashed official reports and period-specific
+adjustment provenance are saved. The native FMP source review reads the original
+archive and separately guards the reviewed historical overlay; native forecast
+defaults, API valuations and reported-basis F-score are unchanged.
+
+The 325-stock isolated-tag scan and six reviewed false-positive categories are
+saved in `cache/property_fv_coverage.json` and `cache/property_fv_reviews.json`.
+The 19 subsequent gaming-universe additions are explicitly `NOT_REVIEWED`,
+with no response hash or claimed tag-scan evidence; all 344 listings are indexed.
+ASR's apparent FV tag was verified against the SEC filing: it is an acquired
+property's closing valuation component after FX, not a P&L gain. Missing tags
+are never treated as zero; unsupported stocks/periods remain reported.
+See [calculation/source details](FMP_CALCULATION_MODELS.md).
+
+The company price chart supports FMP's nine daily indicators (SMA, EMA, WMA,
+DEMA, TEMA, RSI, ADX, Williams %R and standard deviation), independently
+selectable with 1–500-session lookbacks. Actual date and closing-price bases
+must match. No interpolated history, zero-filled warmup or rescaling of
+mismatched bases is allowed. Available indicator dates and saved capture times
+are shown: actual FMP coverage can be shorter than the twenty-year price cache.
+
+US screener P/B, current ratio, cash/assets, liabilities/assets, ROE and ROA are
+rebuilt from the same saved, dated statements used in company analysis, for all
+230 listings including USD reporters. Missing or zero denominators remain N/A,
+never an assumed one-dollar equity/liability balance or a capped outlier.
+P/B uses market capitalization over closing reported parent equity; ROE/ROA use
+the shared TTM/beginning-balance return engine. Historical FX applies where
+required. `node scripts/usd_financials.cjs --market-ratios` refreshes only these
+six ratios and their provenance, without rebuilding DCF assumptions, forecasts,
+saved scenarios or native FMP models. The main generation pipeline runs it
+before publishing its outputs.
+
+Empty HK news coverage is explicit. Users can separately select six verified
+same-issuer US/OTC listings; articles retain their original FMP symbols and are
+not relabelled as dedicated HK feeds. The selection survives language changes;
+saved headline translations and response caches are reused. Fair Value, FMP
+DCF and FMP Levered DCF each have an adjacent `(price / valuation − 1) × 100%`
+market-premium column, matching the saved-target comparison: red
+`Overvalued +X.X%` or green `Undervalued -X.X%`, with Traditional Chinese labels
+`高估` / `低估`. Display uses one decimal; sorting retains full precision.
+Missing or nonpositive valuations/prices show N/A, not a misleading premium
+against zero/negative equity values. The redundant standalone Fair Spread %
+column is removed; company-model premiums and under/overvaluation filters remain.
+Banks/insurers retain financial
+fair values while corporate DCF references/differences are Not applicable.
 
 `scripts/build_hkex.cjs` compiles genuine protected FMP captures into separate
 `hk_market_dcf.json`, `hk_market_data.js`, `hk_fcff_data.js` and per-company
@@ -55,6 +217,12 @@ HSBC's ordinary cash dividends are separately verified from the dividend notes
 (FY2025 PDF p.304, H1 2025 p.88, H1 2026 p.90), excluding equity-capital coupons
 and noncontrolling distributions. This preserves the existing bank valuation
 method without substituting the larger group distribution for ordinary payouts.
+FY2025 gross ordinary cash issuance is separately verified as zero for F-score
+criterion 7: the USD4,096m combined issuance cash flow equals capital securities
+issued entirely in other equity instruments (annual report PDF pp.267/270);
+employee-plan shares are a noncash transfer within equity. Note 32 and footnote 6
+(PDF pp.269/342/343) identify the ordinary-share movements and AT1 issues.
+This does not imply zero issuance in other periods or a current-TTM score.
 
 `cache/hkex_balance_classifications.json` records HKEX's official current and
 non-current classification for all five year ends 2021-2025 plus 2026-06-30.
@@ -103,6 +271,18 @@ Comparisons use original reporting currency to avoid spurious FX signals;
 displayed monetary diagnostics are HKD. Standard PF tests have reduced
 comparability for banks, which is disclosed.
 
+AIA (1299.HK), Ping An (2318.HK) and China Life (2628.HK) have a separately
+labeled **applicable-items score**, respectively **5/8, 6/8 and 7/8** in the
+current cache, not a standard nine-test Piotroski score. Their official
+consolidated statements do not supply current/non-current totals suitable for
+the liquidity-improvement test. `cache/pf_applicability.json` records the
+reviewed statement-date window, official PDF pages and document hashes.
+Criterion six is **Not applicable**, not an automatic pass, zero or missing
+extraction to be estimated. No normalization to /9 or standard health band is
+applied; the leverage-category denominator is two. Other genuinely missing
+criteria still prevent a complete applicable-items score. The exclusion does
+not automatically extend to other insurers or unreviewed future statements.
+
 Economic Moat is a separately labeled AI qualitative assessment, anchored to
 dated financial evidence and the latest available earnings-call transcript.
 Every numeric assessment must cite supplied evidence IDs. Narratives are
@@ -141,11 +321,28 @@ shares remain explicitly unavailable.
 
 FMP's native ten-row response includes historical and projected rows; it does
 not support independent ten-year arrays through the scalar override API.
-The separate, explicitly labelled **FMP-data ten-year custom scenario** provides
-ten future fiscal years. Existing FMP projected operating ratios and capital
-costs seed available years; later revenue growth fades to terminal growth while
-other ratios/rates hold the last available assumption. Each field distinguishes
-FMP values, derived values, standard extensions and user overrides. EBIT,
+The separate, explicitly labelled **ten-year custom scenario** uses the annual
+FMP `analyst-estimates` feed for available consensus revenue/EBITDA, rather than
+the prebuilt DCF model's historical-average operating forecasts. Missing
+consensus CapEx, CFO and D&A use their **latest complete FY amount/revenue
+ratios**, explicitly labeled actual-ratio carry-forwards, not analyst forecasts.
+Only **change in NWC/revenue** uses a five-consecutive-FY arithmetic average.
+This single input replaces the three receivables/inventory/payables ratios.
+Positive NWC increases consume cash; historical amounts reverse the sign of
+FMP's cash-flow working-capital cash impact, including other operating working
+capital. The CFO model does not deduct working capital again.
+
+Beta, risk-free rate, risk premium, debt cost, debt/capital and existing
+equity-cost settings are unchanged; later years retain the last native capital
+inputs. These settings are not labeled analyst consensus. Other missing
+forecasts, operating tax and terminal growth remain N/A, with no invented
+ten-year revenue/margin extension. Incomplete assumptions cannot produce or
+save a new valuation, but their full inputs/reasons remain downloadable.
+Consensus security identity, fiscal dates, reporting-currency scale and FX
+are checked before use; per-metric analyst coverage/adjusted-GAAP definitions
+are not independently certified. Each field distinguishes consensus, actual
+ratio, working-capital average, retained capital setting, derivation, missing
+input and user override. EBIT,
 EBITDA and D&A stay linked; Advanced uses after-tax EBIT plus D&A once, whereas
 the CFO model never adds D&A again. Annual capital costs produce annual WACC and
 compound discount factors. Net debt is a separately editable snapshot deducted
@@ -155,6 +352,31 @@ basis blocks default construction pending review, rather than treating year-ten
 debt as current debt. Negative terminal cash flows/equity are retained for audit
 with an explicit economic-interpretation warning, not claimed to be tradable
 negative prices.
+
+Galaxy's reviewed FY2018-FY2025 and H1 2011-H1 2026 revenues use issuer
+consolidated revenue **before gaming tax**, correcting incompatible FMP
+classifications. FY2025 revenue is HKD49,242.325m, not HKD29,591.615m; official
+growth is +13.3770%. Reviewed operating-cost lines across those periods
+also support consistent core operating income/EBITDA, not adjusted EBITDA.
+H1 2017 is the published restated comparative; H1 2011-H1 2016 commissions
+remain a separately deducted expense rather than being silently netted against
+revenue. These accounting presentations are not automatically like-for-like.
+Unreported gross profit remains N/A. Original provider income is
+archived; native FMP models and saved user targets are not rewritten.
+New site scenarios use the corrected official revenue baseline and actual
+ratios. See `FMP_CALCULATION_MODELS.md` and `cache/hkex_revenue_sources.json`
+for sources, scope and targeted cache regeneration.
+
+Sands China's reviewed FY2018-FY2025 and available H1 history also use official
+consolidated income statements, recorded in `cache/hkex_gaming_revenue_sources.json`.
+Its reported net revenue is already **before gaming tax**; that tax is not added
+again. FY2025 income-statement D&A is USD792m and reported operating profit is
+USD1,231m, giving core operating EBITDA of USD2,023m, **not adjusted property
+EBITDA**. Officially unreported gross profit remains N/A. USD historical flows
+and Japanese gaming-company evidence can use dated HKD cross rates from 2010,
+including JPY; existing cached HKD/CNY observations are preserved.
+The wider HK gaming-universe review and additional listings are still pending;
+captured primary reports alone do not certify a company's figures.
 
 Ten-year percentage inputs display two decimal places without rounding the
 underlying source/entered precision; tooltips and the JSON calculation download
@@ -173,8 +395,11 @@ and (in ten-year mode) all annual inputs, formulas and results.
 known source discrepancies, independent Decimal audit, and an editable
 formula-based Excel export requiring only Node and Python's standard library.
 
-Invalid implied FMP tax is explicitly flagged before a disclosed valid stated
-tax rate is used. This local model is not an original FMP API result.
+Legacy saved scenarios retain their operating forecasts and tax assumptions.
+Their three NWC component ratios convert to mathematically equivalent annual
+change/revenue inputs in memory, with originals retained in the download and
+no automatic changes to stored targets. The local model is not an original
+FMP API result.
 
 Save recalculates pending native overrides first and persists only a successful
 result; failures cannot overwrite an existing target. Native and local scenario
@@ -182,7 +407,13 @@ edits are isolated. Saved local models retain all ten-year inputs and provenance
 reload in their original mode, and supply the homepage target, including zero.
 
 Run `node scripts/capture_company_data.cjs` with `FMP_API_KEY` to refresh the
-236-company snapshot, or pass comma-separated symbols for a limited refresh.
+325-company snapshot, or pass comma-separated symbols for a limited refresh.
+This also refreshes separate annual analyst estimates and approved actual-ratio
+defaults for supported nonfinancial companies. Existing captured valuation
+sources can be imported without credentials or new financial/API-model calls:
+`node scripts/import_analyst_sources.cjs CAPTURE_DIRECTORY [CAPTURE_DIRECTORY ...]`.
+Only analyst/forecast-actual metadata is added to detailed company caches;
+native model data and financial statements remain unchanged.
 `fmp_model_data.js` contains only screener model summaries; detailed models,
 dated news and supported ownership disclosures load from `cache/company/`.
 13F holdings are not a complete HK share register. Missing holders, insiders,
@@ -224,12 +455,35 @@ does not count as a successful refresh or replace prior reports with invented
 scores. A Vertex Express API key is a separate authorization path; a blocked key
 is not silently rerouted to the Gemini Developer API.
 
+`scripts/research_hkex_moat.py <input> <researched-input> <research-output>`
+can first collect attributable issuer/business evidence through Vertex AI
+Google Search grounding. It separates research from structured scoring,
+preserves source links, grounding supports, search queries and the unmodified
+Google Search Suggestions HTML, and validates issuer identity and the research
+hash. Valid saved research is reused without another search. Researched
+assessments use the distinct `researched-business-judgment-v4` policy; the
+response schema limits citation IDs to actual supplied evidence. Supported weak
+moats may receive low qualitative scores rather than being mislabeled unknown;
+genuine essential gaps still remain unassessed. The rating page displays scores,
+bilingual comments and a short AI-judgment limitation, without website citation
+lists, the research-source drawer, Google Search Suggestions or the raw research
+narrative. The verdict header shows only the assessment update date, without
+financial-period metadata, timestamp precision or evidence hashes. Missing
+update dates remain N/A rather than using the statement date as a substitute.
+Source links, research, grounding metadata and provenance remain in the saved
+cache for auditing; no scores or evidence are discarded. Research is explicitly dated
+and may include sources published after the financial statements, not
+point-in-time history.
+Saved research, financial hashes and assessment policy determine cache reuse.
+
 The read-only `valuation_audit.yml` workflow accepts `build_hkex=true` and
-`force_moat=true` to regenerate all six assessments with GitHub Secrets, without
+`force_moat=true` to regenerate all configured HKEX assessments with GitHub Secrets, without
 committing data or invoking a deploy hook. Download its `hkex-pilot-data`
 artifact and run `node scripts/apply_hkex_moat.cjs <assessment-json-path>` to apply
 only matching reports locally. This refuses mismatched evidence hashes or failed
 assessments and preserves financials, quoted prices and valuation inputs.
+Applying a validated subset merges those cache entries without deleting other
+companies' reports.
 
 Link's rental FCFF scenario uses the matching official complete annual operating
 components in `cache/hkex_valuation_reconciliations.json`, not the unreconciled
@@ -364,10 +618,102 @@ returns require maintenance as new filings become available: their dates are
 not relabeled as current quote dates. Link's corresponding denominator is
 outstanding fund units. Explicit, confirmed user share scenarios remain
 labeled and saved separately.
+
+ICBC and Bank of China's September 2026 official returns now also establish
+issuer-wide ordinary denominators: **356,406,257,089** for 1398.HK
+(269,612,212,539 A plus 86,794,044,550 H) and **322,212,411,814** for 3988.HK
+(238,590,135,419 A plus 83,622,276,395 H), with zero treasury shares. The captured
+FMP counts do not reconcile to these totals or either class. A dated,
+snapshot-specific provider-discrepancy review permits these documented official
+counts; changed or later conflicting provider snapshots still require review.
+This fixes the share-basis N/A in their existing Excess Return + DDM scenarios,
+without changing the site's declared FMP shareholders-equity/ROTE proxy or
+claiming an audited ordinary-common-equity valuation. Preference **share
+counts/nominal capital** are excluded from the ordinary denominator; this is
+distinct from the existing model's choice not to separately deduct preference
+**equity** from its tangible-equity proxy, disclosed on the valuation page.
 The optional custom share-count panel distinguishes source-default, active
 custom-scenario and unavailable-source states. Source-default shares apply
 automatically; its checkbox authorizes only a manual scenario override, not
 verification or acceptance of the company's disclosed shares.
+
+### HK market metrics and refreshed Moat coverage
+
+All 26 configured mixed-class issuers now have reviewed September 2026 monthly
+returns in `cache/hkex_share_capital.json`. Coverage follows each issuer's actual
+ordinary classes, including Haier's A/D/H shares, domestic/unlisted classes and
+Hong Kong/RMB classes; it does not assume every issuer is A/H. Each class's
+treasury shares are explicitly excluded. The dated returns are references,
+not certification that shares remained unchanged after September month-end.
+Provider discrepancies are reviewed only for the exact captured count/date;
+changed or later mismatches remain blocked.
+
+Trailing P/E prefers supported reported diluted TTM EPS. When semiannual EPS
+cannot legitimately be added, it uses compatible actual TTM earnings
+attributable to ordinary holders divided by dated current ordinary shares,
+explicitly labeled rather than misrepresented as reported diluted EPS.
+Disclosed preferred distributions are required where applicable. P/B uses quoted
+price divided by reported parent equity per verified ordinary share; this
+existing book-equity proxy does not separately deduct preferred equity.
+The same share sources feed liquidation and financial-model per-share references,
+without changing native FMP projections or capital-cost assumptions.
+
+The saved 114-company dataset has 113 trailing P/E ratios, 113 P/B ratios and all
+114 liquidation I/III values. Century's stale last trade is not a current quote;
+International Entertainment's explicitly reported twelve-month second interim
+supplies current twelve-month earnings without adding the overlapping first interim.
+HKEX liquidation II still lacks required reported inputs. These remain explicit
+N/A rather than invented prices, earnings or zero balances.
+
+Nonfinancial HK trading multiples are independent of DCF availability. Their
+`reportedMultiples` source records compatible actual income dates, separately
+converted TTM EBITDA, dated reported capital and per-metric gap reasons.
+Reported debt includes listed leases; quoted EV includes preferred and
+noncontrolling book proxies, without substituting scenario adjustments.
+Missing cash-flow forecasts do not erase supported income-based multiples.
+A genuine twelve-month second interim is used once, without overlapping H1.
+Zero/negative EBITDA remains N/A with an explanation; negative net debt with
+positive EBITDA remains a valid net-cash multiple. A stale quote blocks EV,
+not independently supported dated debt/net-debt multiples. These sources are
+shared by the screener and valuation reference; DCF inputs are unchanged.
+
+HK peer comparisons instead use **each company's latest reported full
+twelve-month fiscal year**, with the exact FY-end date shown in its column.
+Income, cash flow and balances must match that fiscal year; no interim, TTM or
+older cash-flow substitute fills a missing field. Every financial amount,
+margin, growth rate, P/E, P/B, cash-dividend yield and debt multiple uses this
+annual basis. ROE/ROA retain the shared beginning-balance convention; the
+labeled ROIC estimate retains its 21% tax proxy. Quoted price, market cap and
+the qualitative Moat assessment remain current references; EV combines current
+market cap with matching FY-end reported capital. Forward P/E/P/B are omitted
+from this annual-only HK view. US peer comparisons and other pages retain
+their existing bases. Failed annual loads show an explicit retry state, never
+a TTM fallback.
+Annual cash dividends recognize the canonical `commonDividendsPaid` and
+`commonStockDividendsPaid` fields as well as the existing total-payment aliases.
+Explicit common-share payments take priority; total payments are used only
+when reported preferred equity is zero. A reported zero distribution displays
+0.00% when current market cap is available; missing payments never become zero.
+Annual growth tooltips distinguish nonpositive prior bases, missing fields,
+nonconsecutive periods and incompatible accounting/currency bases. A missing
+gross-profit field is not mislabeled as a failed statement download.
+HK annual peer growth displays "Positive to negative" / "Negative to positive"
+(正轉負 / 負轉正) instead of a percentage when two verified comparable full
+fiscal years strictly cross zero. This is a display-only classification; stored
+growth calculations and DCF assumptions are unchanged. Zero endpoints,
+negative-to-negative results and missing or incompatible source data retain
+their existing growth rules.
+
+The five financial-correction-invalidated Moat assessments and all 19 gaming
+additions have now been independently reassessed with Vertex AI using matching
+financial evidence and attributable business research. All 114 companies have
+ten scored dimensions and bilingual comments; the other 90 assessments retain
+their original dates. These scores are qualitative AI judgments, not issuer
+measurements. Exact artifact-run provenance is saved with the 24 new cached
+assessments. Stale-report archival safeguards remain active for future changes.
+The additions' saved annual income, balance-sheet and cash-flow tables are
+included in the local site build; missing compatible interim/TTM disclosures
+remain unavailable, not replaced with annual amounts.
 
 Unreconciled IFRS leases, debt composition and missing mandatory inputs still
 block automatic fair values. Editing financial assumptions does not silently
@@ -400,7 +746,7 @@ borrow annual cash flow to fabricate current TTM. The forecast scale check
 uses the latest matched annual revenue; older forecast/actual differences are
 retained in provenance rather than automatically being called currency errors.
 HSBC's payout fallback explicitly identifies its latest reported annual period.
-The pilot does not certify six automatic numerical fair values.
+Universe coverage does not certify an automatic numerical fair value for every stock.
 No historical DCF track or score history is fabricated.
 
 Quoted metrics are independent of fair-value eligibility. Quoted EV uses market
@@ -612,7 +958,8 @@ CAGR 依實際相隔日數／365.25 年化，不足 365 天或僅有一筆資料
 ## 統一美元與歷史匯率
 
 美股市場的財務金額、每股數字、歷史趨勢及估值輸入統一以 USD 計算及呈現；
-公司頁保留原始申報幣別提示。原始 `cache/financials/*_statements_v2.json` 不修改，
+公司頁保留原始申報幣別提示。換匯本身不覆寫 `cache/financials/*_statements_v2.json` 的來源幣別；
+另行核實的官方修正／領展物業公允值覆蓋層保留原始資料於各自來源存檔，
 前端與市場資料產生器共用 `usd_currency.js`，依每一筆報告的實際日期換算。
 損益及現金流量採該財務期間內每日「USD／原幣」匯率的算術平均；
 資產負債表採財報日或之前最近交易日的期末匯率。
@@ -686,7 +1033,10 @@ TTM EPS 合計四季已報數字；本表未另做拆股調整，可能與年度
 財務報表、關鍵比率及同行比較沿用趨勢分析的面板、說明文字、表格格線、字體與間距，
 固定指標欄及兩層日期表頭，長表於面板內捲動。
 財務報表與關鍵比率改用相同風格的報表／期間下拉選單，保留原有計算口徑與表格內容；
-歷史表的右側迷你線圖共用趨勢分析的繪圖資料與升降配色，顏色不代表所有指標的好壞。
+所有港股及美股歷史表的右側迷你線圖共用趨勢分析的繪圖資料及正負配色：
+負值紅色、零或正值綠色，跨零的線段在零點切換顏色，缺值保留斷線。
+此規則適用於財務報表、關鍵比率、FCF 及 ROA／ROE／ROTE 表格，
+末端圓點依最後有效數值的正負著色；顏色不再比較首尾升跌，也不代表指標的好壞。
 同行比較顯示目前標的、實際同行數目及 TTM 口徑摘要，並醒目標示目前股票欄；
 不將不同公司的 TTM 充當同一報告日期。
 
