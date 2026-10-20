@@ -64,16 +64,18 @@ def main():
         raise SystemExit("Vertex credentials are required for business research")
     model = "gemini-2.5-flash"
     completed, evidence, failures = [], {}, {}
-    def checkpoint():
-        write_json_checkpoint(args.output, completed)
-        write_json_checkpoint(args.research_output, {"research": evidence, "failures": failures})
-    checkpoint()
     for record in records:
         saved = business_research(record)
         if saved:
             evidence[record["ticker"]] = saved
             completed.append({**record, "businessResearch": saved})
-            checkpoint()
+    def checkpoint():
+        write_json_checkpoint(args.output, completed)
+        write_json_checkpoint(args.research_output, {"research": evidence, "failures": failures})
+    checkpoint()
+    for record in records:
+        saved = evidence.get(record["ticker"])
+        if saved:
             print(f"{record['ticker']}: cached business research reused", flush=True)
             continue
         profile = record["profile"]

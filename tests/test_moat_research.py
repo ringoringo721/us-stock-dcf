@@ -1,14 +1,18 @@
 import copy
 import hashlib
 import json
+import sys
+from pathlib import Path
+import tempfile
 from types import SimpleNamespace
 import unittest
+from unittest.mock import Mock, patch
 
 from scripts.refresh_hkex_moat import (
     RESEARCH_ASSESSMENT_POLICY, business_research, needs_refresh, validate_business_research,
     report_schema,
 )
-from scripts.research_hkex_moat import research_result
+from scripts.research_hkex_moat import research_result, main
 
 
 def response():
@@ -26,6 +30,28 @@ def response():
 
 
 class BusinessResearchTests(unittest.TestCase):
+    def test_interrupted_new_research_preserves_all_cached_companies_even_later_in_the_input(self):
+        research = research_result({"ticker": "0700.HK"}, response(), "test-model")
+        client = Mock()
+        client.models.generate_content.side_effect = KeyboardInterrupt
+        types = SimpleNamespace(GenerateContentConfig=Mock(), Tool=Mock(), GoogleSearch=Mock(), ThinkingConfig=Mock())
+        modules = {"google.genai": SimpleNamespace(types=types, errors=SimpleNamespace(APIError=RuntimeError)),
+                   "google.auth.exceptions": SimpleNamespace(GoogleAuthError=RuntimeError),
+                   "httpx": SimpleNamespace(HTTPError=RuntimeError)}
+        with tempfile.TemporaryDirectory() as directory:
+            source, output, cache = [Path(directory) / name for name in ("input.json", "ready.json", "research.json")]
+            source.write_text(json.dumps([
+                {"ticker": "0004.HK", "profile": {"companyName": "Issuer"}},
+                {"ticker": "0700.HK", "businessResearch": research}
+            ]), encoding="utf-8")
+            with patch.dict(sys.modules, modules), patch.object(sys, "argv", [
+                    "research_hkex_moat.py", str(source), str(output), str(cache)]), \
+                 patch("scripts.research_hkex_moat.create_client", return_value=client):
+                with self.assertRaises(KeyboardInterrupt):
+                    main()
+            self.assertEqual(json.loads(cache.read_text(encoding="utf-8"))["research"]["0700.HK"], research)
+            self.assertEqual([record["ticker"] for record in json.loads(output.read_text(encoding="utf-8"))], ["0700.HK"])
+
     def test_response_schema_constrains_each_citation_to_actual_supplied_ids(self):
         schema = report_schema("0700.HK", ["profile", "web:1"])
         dimension = schema.model_json_schema()["$defs"]["Dimension"]
