@@ -346,7 +346,16 @@ def main():
                         "SOURCE DATA:\n" + json.dumps({"rejectedNarratives": invalid, "evidence": context},
                                                     ensure_ascii=False)),
                     config=types.GenerateContentConfig(response_mime_type="application/json",
-                                                       response_schema=correction_schema, temperature=0.1))
+                                                       response_schema=correction_schema, temperature=0.1,
+                                                       system_instruction=(
+                                                           "Return only the requested JSON correction object. "
+                                                           "Copy field names exactly, including their digits, "
+                                                           "but include NO ASCII digits in narrative VALUES. "
+                                                           "Spell business-to-business, business-to-consumer "
+                                                           "and online-to-offline in full instead of marketing "
+                                                           "acronyms; translate these terms into Traditional "
+                                                           "Chinese for Chinese fields. Preserve supported "
+                                                           "reasoning and uncertainty; add no facts.")))
                 return json.loads(correction.text)
 
             instructions = (
