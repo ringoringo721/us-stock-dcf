@@ -6,7 +6,7 @@ const vm = require('node:vm');
 const universe = require('../hkex_universe.js');
 const catalogue = require('../cache/hkex_universe.json');
 const market = require('../hk_market_dcf.json');
-const { matrix, build, packageResults, integrate, preferSavedMoat } = require('../scripts/build_hkex_expansion.cjs');
+const { matrix, build, packageResults, integrate, preferSavedMoat, needsMoatRecovery } = require('../scripts/build_hkex_expansion.cjs');
 const { prepareStatements, priceHistory, hash } = require('../scripts/build_hkex.cjs');
 const root = path.resolve(__dirname, '..');
 test('official full-market namespace retains every reviewed company without inventing financials', () => {
@@ -47,6 +47,24 @@ test('targeted recovery preserves original artifact batch identities and selects
   assert.throws(() => matrix(20, '1', second), /Invalid selected HKEX symbols/);
   assert.throws(() => matrix(20, '', batches.slice(0, 2).flatMap(item => item.symbols.split(',')).slice(0, 21).join(',')),
     /Invalid selected HKEX symbols/);
+});
+test('incomplete recovery skips current complete and below-cap reports without treating unknown cap as zero', () => {
+  const stock = { ticker: '1911.HK', calculationCurrency: 'HKD', mcap: 1500,
+    ratingSources: { moat: { evidenceHash: 'same', currentEvidenceHash: 'same', updatedAt: '2026-10-20T00:00:00Z' } },
+    moat: Object.fromEntries(Array.from({ length: 10 }, (_, i) =>
+      [`m${i + 1}_test`, { score: 0, comment_zh: 'Evidence-based.', comment_en: 'Evidence-based.' }])) };
+  stock.moat.overall_moat_verdict_zh = stock.moat.overall_moat_verdict_en = 'Evidence-based.';
+  assert.equal(needsMoatRecovery(stock), false);
+  stock.moat.m1_test.score = null;
+  assert.equal(needsMoatRecovery(stock), true);
+  stock.mcap = 999;
+  assert.equal(needsMoatRecovery(stock), false);
+  stock.mcap = null;
+  assert.equal(needsMoatRecovery(stock), true);
+  stock.moat.m1_test.score = 1;
+  stock.ratingSources.moat.currentEvidenceHash = 'changed';
+  assert.equal(needsMoatRecovery(stock), true);
+  assert.equal(needsMoatRecovery(null), true);
 });
 test('ratings recovery reuses newer verified assessments without inventing update dates or changing evidence', () => {
   const previous = { evidenceHash: 'same', updatedAt: '2026-10-19T00:00:00Z', report: { previous: true } };

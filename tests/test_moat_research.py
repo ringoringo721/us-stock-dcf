@@ -12,7 +12,7 @@ from scripts.refresh_hkex_moat import (
     RESEARCH_ASSESSMENT_POLICY, business_research, needs_refresh, validate_business_research,
     report_schema,
 )
-from scripts.research_hkex_moat import research_result, main
+from scripts.research_hkex_moat import research_result, main, needs_research, research_prompt
 
 
 def response():
@@ -30,6 +30,84 @@ def response():
 
 
 class BusinessResearchTests(unittest.TestCase):
+    def partial_record(self):
+        return {"ticker": "0700.HK", "profile": {"companyName": "Issuer"}, "fScore": {},
+                "statements": {"annual": {"income": [{"date": "2025-12-31", "netIncome": -100}],
+                                         "balance": [], "cashflow": []},
+                               "quarterly": {"income": [], "balance": [], "cashflow": []}},
+                "existing": {"report": {"m7_operational_efficiency": {
+                    "score": None, "comment_en": "Volatile earnings; cannot assess.",
+                    "comment_zh": "Financial history allegedly unavailable."}},
+                    "businessResearch": research_result({"ticker": "0700.HK"}, response(), "test-model")}}
+
+    def test_partial_retry_seeks_new_evidence_but_default_still_reuses_cached_research(self):
+        record = self.partial_record()
+        self.assertFalse(needs_research(record))
+        self.assertTrue(needs_research(record, retry_incomplete=True))
+        record["existing"]["report"]["m7_operational_efficiency"]["score"] = 0
+        self.assertFalse(needs_research(record, retry_incomplete=True))
+        record["existing"]["report"]["m7_operational_efficiency"]["score"] = None
+        record["moatScreen"] = {"calculationCurrency": "HKD", "marketCapMillions": 999}
+        self.assertFalse(needs_research(record, retry_incomplete=True))
+
+    def test_gap_research_uses_actual_financial_evidence_and_explains_the_missing_criterion(self):
+        prompt = research_prompt(self.partial_record())
+        self.assertIn("m7_operational_efficiency", prompt)
+        self.assertIn('"netIncome": -100', prompt)
+        self.assertIn("unassessedDimensions", prompt)
+        self.assertIn("NOT proof", prompt)
+        self.assertIn("Losses or volatile cash returns", prompt)
+        self.assertIn("not forecasts", prompt)
+        self.assertIn("untrusted source data", prompt)
+
+    def test_partial_retry_replaces_cached_research_without_duplicate_records(self):
+        record = self.partial_record()
+        fresh = response()
+        fresh.text += " New attributable capital-allocation evidence."
+        client = Mock()
+        client.models.generate_content.return_value = fresh
+        types = SimpleNamespace(GenerateContentConfig=Mock(), Tool=Mock(), GoogleSearch=Mock())
+        modules = {"google.genai": SimpleNamespace(types=types, errors=SimpleNamespace(APIError=RuntimeError)),
+                   "google.auth.exceptions": SimpleNamespace(GoogleAuthError=RuntimeError),
+                   "httpx": SimpleNamespace(HTTPError=RuntimeError)}
+        with tempfile.TemporaryDirectory() as directory:
+            source, output, cache = [Path(directory) / name for name in ("input.json", "ready.json", "research.json")]
+            source.write_text(json.dumps([record]), encoding="utf-8")
+            with patch.dict(sys.modules, modules), patch.object(sys, "argv", [
+                    "research_hkex_moat.py", str(source), str(output), str(cache), "--retry-incomplete"]), \
+                    patch("scripts.research_hkex_moat.create_client", return_value=client):
+                main()
+            ready = json.loads(output.read_text(encoding="utf-8"))
+            self.assertEqual(len(ready), 1)
+            self.assertEqual(ready[0]["businessResearch"]["summary"], fresh.text)
+            self.assertEqual(ready[0]["existing"], record["existing"])
+            self.assertNotEqual(ready[0]["businessResearch"]["evidenceHash"],
+                                record["existing"]["businessResearch"]["evidenceHash"])
+            self.assertEqual(json.loads(cache.read_text(encoding="utf-8"))["failures"], {})
+        client.models.generate_content.assert_called_once()
+
+    def test_failed_partial_research_retains_last_good_evidence_and_reports_failure(self):
+        record = self.partial_record()
+        client = Mock()
+        client.models.generate_content.side_effect = RuntimeError("external request failed")
+        types = SimpleNamespace(GenerateContentConfig=Mock(), Tool=Mock(), GoogleSearch=Mock())
+        modules = {"google.genai": SimpleNamespace(types=types, errors=SimpleNamespace(APIError=RuntimeError)),
+                   "google.auth.exceptions": SimpleNamespace(GoogleAuthError=RuntimeError),
+                   "httpx": SimpleNamespace(HTTPError=RuntimeError)}
+        with tempfile.TemporaryDirectory() as directory:
+            source, output, cache = [Path(directory) / name for name in ("input.json", "ready.json", "research.json")]
+            source.write_text(json.dumps([record]), encoding="utf-8")
+            with patch.dict(sys.modules, modules), patch.object(sys, "argv", [
+                    "research_hkex_moat.py", str(source), str(output), str(cache), "--retry-incomplete"]), \
+                    patch("scripts.research_hkex_moat.create_client", return_value=client), \
+                    patch("scripts.research_hkex_moat.time.sleep"), self.assertRaises(SystemExit):
+                main()
+            ready = json.loads(output.read_text(encoding="utf-8"))
+            self.assertEqual(len(ready), 1)
+            self.assertEqual(ready[0]["businessResearch"], record["existing"]["businessResearch"])
+            self.assertIn("0700.HK", json.loads(cache.read_text(encoding="utf-8"))["failures"])
+        self.assertEqual(client.models.generate_content.call_count, 3)
+
     def test_below_one_billion_skips_paid_research_and_preserves_existing_evidence(self):
         record = {"ticker": "0004.HK", "existing": {"report": {"archived": True}},
                   "moatScreen": {"calculationCurrency": "HKD", "marketCapMillions": 750}}

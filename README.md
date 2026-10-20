@@ -50,8 +50,18 @@ FX basis rather than recapturing market data. `hk_batches` restricts recovery
 to selected batch indices. The optional `symbols` input narrows those batches
 to at most twenty additional company tickers while retaining their original
 artifact batch indices; unknown, reviewed or out-of-selection tickers are rejected.
+Ratings-only planning omits already current, complete reports and below-cap
+companies before scheduling workers, without changing the original batch indices.
 Research and assessments checkpoint each completed
 company atomically, so a later timeout cannot erase the earlier results.
+Partial-report retries perform new gap-specific business research rather than
+perpetually reusing the same incomplete summary. The search receives the missing
+criteria, prior caveats and available historical financials, seeks attributable
+issuer disclosures, and retains the previous evidence if research fails.
+Documented losses or volatile cash conversion can support a weak sustained-return
+assessment; they are not automatically missing evidence. Capital-allocation
+judgment uses disclosed actions and outcomes, not unverifiable personal integrity.
+Essential factual gaps still remain unscored, never zero-filled or normalized.
 Digit-bearing product codes and similar rejected narrative terms receive a
 bounded, prose-only correction request rather than requiring an otherwise
 supported report to be regenerated wholesale. Corrections cannot change scores,

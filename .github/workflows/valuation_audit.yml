@@ -142,6 +142,7 @@ jobs:
         env:
           HK_EXPANSION_BATCHES: ${{ inputs.hk_batches }}
           HK_EXPANSION_SYMBOLS: ${{ inputs.symbols }}
+          HK_EXPANSION_INCOMPLETE_ONLY: ${{ inputs.moat_only }}
           MOAT_ONLY: ${{ inputs.moat_only }}
           RESUME_RUN_ID: ${{ inputs.resume_run_id }}
         run: |
@@ -217,7 +218,7 @@ jobs:
           GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
           GOOGLE_CLOUD_LOCATION: global
           MOAT_REQUEST_TIMEOUT_MS: '120000'
-        run: python -u scripts/research_hkex_moat.py hkex-data-output/moat-inputs.json hkex-data-output/researched-inputs.json hkex-data-output/business-research.json
+        run: python -u scripts/research_hkex_moat.py hkex-data-output/moat-inputs.json hkex-data-output/researched-inputs.json hkex-data-output/business-research.json --retry-incomplete
       - name: Assess ten moat dimensions and bilingual comments
         continue-on-error: true
         env:

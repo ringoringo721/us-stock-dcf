@@ -4,7 +4,7 @@ const vm = require('node:vm');
 const root = path.resolve(__dirname, '..');
 const catalogue = require('../cache/hkex_universe.json');
 const reviewed = new Set(require('../hkex_stocks.json').map(item => item.ticker));
-const { listingStock } = require('../hkex_universe.js');
+const { listingStock, belowMoatMarketCap } = require('../hkex_universe.js');
 const { compileStock, prepareStatements, statementTable, scoreBreakdown, hash, priceHistory } = require('./build_hkex.cjs');
 const { convertStatements } = require('../usd_currency.js');
 const scores = require('../statement_scores.js');
@@ -15,7 +15,19 @@ function write(directory, file, data, prefix = '') {
   fs.mkdirSync(path.dirname(target), { recursive: true });
   fs.writeFileSync(target, prefix + JSON.stringify(data) + (prefix ? ';' : '') + '\n');
 }
-function matrix(size = 20, selected = '', symbols = '') {
+function needsMoatRecovery(stock) {
+  if (belowMoatMarketCap(stock)) return false;
+  const source = stock?.ratingSources?.moat, report = stock?.moat;
+  if (!source?.evidenceHash || source.evidenceHash !== source.currentEvidenceHash || source.reason
+      || !Number.isFinite(Date.parse(source.updatedAt))) return true;
+  const dimensions = Object.entries(report || {}).filter(([key]) => /^m\d+_/.test(key)).map(([, value]) => value);
+  return dimensions.length !== 10 || dimensions.some(value => !Number.isInteger(value?.score)
+    || value.score < 0 || value.score > 10 || typeof value.comment_zh !== 'string' || !value.comment_zh.trim()
+    || typeof value.comment_en !== 'string' || !value.comment_en.trim())
+    || typeof report.overall_moat_verdict_zh !== 'string' || !report.overall_moat_verdict_zh.trim()
+    || typeof report.overall_moat_verdict_en !== 'string' || !report.overall_moat_verdict_en.trim();
+}
+function matrix(size = 20, selected = '', symbols = '', incompleteOnly = false) {
   if (!Number.isInteger(size) || size < 1 || size > 20) throw new Error('Batch size must be 1-20');
   const listed = catalogue.stocks.filter(item => !reviewed.has(item.ticker));
   const batches = Array.from({ length: Math.ceil(listed.length / size) }, (_, batch) =>
@@ -35,6 +47,13 @@ function matrix(size = 20, selected = '', symbols = '') {
     result = result.map(item => ({ ...item,
       symbols: item.symbols.split(',').filter(ticker => wanted.includes(ticker)).join(',')
     })).filter(item => item.symbols);
+  }
+  if (incompleteOnly) {
+    result = result.map(item => ({ ...item, symbols: item.symbols.split(',').filter(ticker => {
+      const file = path.join(root, 'cache', 'hk_companies', `${ticker}.json`);
+      return needsMoatRecovery(fs.existsSync(file) ? read(file).stock : null);
+    }).join(',') })).filter(item => item.symbols);
+    if (!result.length) throw new Error('No eligible incomplete HKEX assessments selected');
   }
   return result;
 }
@@ -280,10 +299,11 @@ function integrate(input, output = root) {
 if (require.main === module) {
   const [command, input, output, supplied, reportsFile] = process.argv.slice(2);
   if (command === 'matrix') console.log(JSON.stringify({ include: matrix(20,
-    process.env.HK_EXPANSION_BATCHES || '', process.env.HK_EXPANSION_SYMBOLS || '') }));
+    process.env.HK_EXPANSION_BATCHES || '', process.env.HK_EXPANSION_SYMBOLS || '',
+    process.env.HK_EXPANSION_INCOMPLETE_ONLY === 'true') }));
   else if (command === 'build') build(input, output, supplied.split(','), reportsFile && fs.existsSync(reportsFile) ? read(reportsFile) : {});
   else if (command === 'package') packageResults(input);
   else if (command === 'integrate') console.log(`Integrated ${integrate(input, output)} additional company outcomes without replacing reviewed stocks.`);
   else throw new Error('Expected matrix, build, package or integrate');
 }
-module.exports = { matrix, build, packageResults, integrate, preferSavedMoat };
+module.exports = { matrix, build, packageResults, integrate, preferSavedMoat, needsMoatRecovery };
