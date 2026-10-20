@@ -31,6 +31,9 @@ test('bounded matrix covers every additional listing exactly once and never over
   assert.ok(batches.every(item => item.symbols.split(',').length <= 20));
   assert.ok(symbols.every(ticker => !market[ticker]));
   assert.throws(() => matrix(21), /1-20/);
+  assert.deepEqual(matrix(20, '1,3').map(item => item.batch), [1, 3]);
+  assert.throws(() => matrix(20, '134'), /Invalid selected/);
+  assert.throws(() => matrix(20, '1,,3'), /Invalid selected/);
 });
 test('a short Q2/Q4-only new-company history does not acquire fabricated three-month durations', () => {
   const statements = prepareStatements({
@@ -42,6 +45,50 @@ test('a short Q2/Q4-only new-company history does not acquire fabricated three-m
   }, { allowIncomplete: true });
   assert.ok(statements.quarterly.income.every(row => row.periodLength === null));
   assert.ok(statements.qualityWarnings.some(row => row.code === 'unverifiedProviderPeriod'));
+});
+test('a changed fiscal closing date cannot invent a zero-length H2 or a duplicate Q4 balance', () => {
+  const row = (year, period, date, more = {}) => ({ symbol: '0004.HK', fiscalYear: year, period, date, reportedCurrency: 'HKD', ...more });
+  const income = [row(2024, 'Q2', '2023-12-31'), row(2024, 'Q4', '2024-06-30'),
+    row(2025, 'Q2', '2024-12-31'), row(2025, 'Q4', '2025-06-30'), row(2026, 'Q2', '2025-12-31')];
+  const annual = [row(2024, 'FY', '2024-06-30'), row(2025, 'FY', '2025-06-30'), row(2026, 'FY', '2025-12-31')];
+  const statements = prepareStatements({ ticker: '0004.HK', providerSymbol: '0004.HK',
+    capturedAt: '2026-10-19T00:00:00Z', responses: {
+      income: { ok: true, rows: income }, balance: { ok: true, rows: income },
+      annual_income: { ok: true, rows: annual }, annual_balance: { ok: true, rows: annual }
+    } }, { allowIncomplete: true });
+  assert.equal(statements.annual.income.at(-1).periodLength, 6);
+  for (const type of ['income', 'balance']) {
+    const rows = statements.quarterly[type];
+    assert.equal(rows.filter(row => row.date === '2025-12-31').length, 1);
+    assert.equal(rows.find(row => row.date === '2025-12-31').period, 'Q2');
+  }
+  assert.ok(statements.qualityWarnings.some(row => row.code === 'nonFullFiscalPeriod'));
+  assert.ok(statements.qualityWarnings.some(row => row.code === 'annualInterimReconciliation'));
+});
+test('annual period checks distinguish eleven-month stubs from missing fiscal years', () => {
+  const row = (fiscalYear, date) => ({ symbol: '0004.HK', fiscalYear, date, period: 'FY', reportedCurrency: 'HKD' });
+  const statements = prepareStatements({ ticker: '0004.HK', providerSymbol: '0004.HK',
+    capturedAt: '2026-10-19T00:00:00Z',
+    responses: { annual_income: { ok: true, rows: [
+      row(2022, '2022-12-31'), row(2024, '2024-12-31'), row(2025, '2025-11-30')
+    ] } } }, { allowIncomplete: true });
+  assert.equal(statements.annual.income[1].periodLength, 12);
+  assert.equal(statements.annual.income[1].periodStartDate, '2024-01-01');
+  assert.equal(statements.annual.income[2].periodLength, 11);
+});
+test('nominal FY and H1 labels alone do not establish a real subsequent H2', () => {
+  const row = (fiscalYear, period, date) => ({ symbol: '0004.HK', fiscalYear, period, date, reportedCurrency: 'HKD' });
+  const statements = prepareStatements({ ticker: '0004.HK', providerSymbol: '0004.HK',
+    capturedAt: '2026-10-19T00:00:00Z',
+    responses: {
+      income: { ok: true, rows: [row(2024, 'Q2', '2024-06-30'), row(2024, 'Q4', '2024-12-31'),
+        row(2025, 'Q2', '2025-12-31'), row(2025, 'Q4', '2026-06-30')] },
+      annual_income: { ok: true, rows: [row(2024, 'FY', '2024-12-31'), row(2025, 'FY', '2025-12-31')] }
+    } }, { allowIncomplete: true });
+  assert.equal(statements.quarterly.income.filter(row => row.date === '2025-12-31').length, 1);
+  assert.ok(statements.qualityWarnings.some(row => row.code === 'annualInterimReconciliation'));
+  assert.ok(statements.quarterly.income.some(row => row.period === 'Q4' && row.date === '2024-12-31'
+    && row.periodLength === 6 && row.derivation === 'annualMinusReportedH1'));
 });
 test('lazy company loading rejects mismatched identities and supports retry without leaking models', async () => {
   let calls = 0;
@@ -59,6 +106,10 @@ test('partial provider evidence persists real missingness, and artifact integrat
   try {
     const sources = path.join(temporary, 'sources'), output = path.join(temporary, 'built'), integrated = path.join(temporary, 'integrated');
     fs.mkdirSync(sources);
+    fs.mkdirSync(path.join(output, 'cache', 'fx'), { recursive: true });
+    const captured = structuredClone(require('../cache/fx/hkd_rates.json'));
+    captured.currencies.HKD.observations = [['2025-12-31', 0.1]];
+    fs.writeFileSync(path.join(output, 'cache', 'fx', 'hkd_rates.json'), JSON.stringify(captured));
     fs.writeFileSync(path.join(sources, '0004.HK.json'), JSON.stringify({
       ticker: '0004.HK', providerSymbol: '0004.HK', capturedAt: '2026-10-19T00:00:00Z', responses: {}
     }));
@@ -79,6 +130,14 @@ test('partial provider evidence persists real missingness, and artifact integrat
     assert.equal(result[0].status, 'available');
     assert.equal(result[0].fScore, null);
     assert.equal(result[0].moat, false);
+    fs.writeFileSync(path.join(output, 'fmp_model_data.js'), 'window.FMP_MODEL_DATA = ' + JSON.stringify({
+      stocks: { [other]: { symbol: other, currencyCheck: { reason: null, sourceDate: '2025-12-31', sourcePeriodLength: 12 },
+        models: { advanced: { data: [{ symbol: other }] } } } }
+    }) + ';');
+    fs.mkdirSync(path.join(output, 'cache', 'company'));
+    fs.writeFileSync(path.join(output, 'cache', 'company', `${other}.json`), JSON.stringify({
+      symbol: other, currencyCheck: { reason: null, sourceDate: '2025-12-31' }
+    }));
     packageResults(output);
     assert.equal(integrate(output, integrated), 2);
     const full = JSON.parse(fs.readFileSync(path.join(integrated, 'cache', 'hk_companies', '0004.HK.json')));
@@ -91,8 +150,13 @@ test('partial provider evidence persists real missingness, and artifact integrat
     assert.equal(foreign.annual.balance[0].totalAssets, 100);
     assert.ok(foreign.qualityWarnings.some(row => row.code === 'providerStatementInvalid' && row.endpoint === 'annual_income'));
     const capturedRates = JSON.parse(fs.readFileSync(path.join(integrated, foreign.hkdFxSource.path)));
+    assert.deepEqual(capturedRates, captured);
     const converted = require('../usd_currency.js').convertStatements(foreign, capturedRates);
-    assert.ok(converted.annual.balance[0].totalAssets > 700);
+    assert.equal(converted.annual.balance[0].totalAssets, 1000);
+    const native = JSON.parse(fs.readFileSync(path.join(integrated, 'cache', 'hk_companies', `${other}.json`)));
+    assert.equal(native.model.currencyCheck.reason, 'FMP_MODEL_CURRENCY_UNVERIFIED');
+    const nativeDetails = JSON.parse(fs.readFileSync(path.join(integrated, 'cache', 'company', `${other}.json`)));
+    assert.equal(nativeDetails.currencyCheck.reason, 'FMP_MODEL_CURRENCY_UNVERIFIED');
     assert.throws(() => build(sources, output, ['0005.HK']), /may not overwrite/);
   } finally { fs.rmSync(temporary, { recursive: true, force: true }); }
 });

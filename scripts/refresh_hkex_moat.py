@@ -126,7 +126,7 @@ def evidence_context(record):
         source_ids.extend(item["id"] for item in research["sources"])
     return {
         "ticker": record["ticker"], "profile": record["profile"],
-        "reportingCurrency": record["reportingCurrency"], "financials": facts,
+        "reportingCurrency": record.get("reportingCurrency"), "financials": facts,
         "financialQuality": [{key: row[key] for key in ("code", "message", "date") if key in row}
                              for row in record["statements"].get("qualityWarnings", [])],
         "piotroski": {key: record["fScore"][key] for key in (
@@ -206,15 +206,29 @@ def needs_refresh(record, retry_incomplete=False, force=False):
             or retry_incomplete and any(report.get(name, {}).get("score") is None for name in DIMENSIONS))
 
 
+def write_json_checkpoint(output, value):
+    output = Path(output)
+    output.parent.mkdir(parents=True, exist_ok=True)
+    temporary = output.with_name(output.name + ".tmp")
+    temporary.write_text(json.dumps(value, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
+    temporary.replace(output)
+
+
 def create_client():
     from google import genai
+    options = {}
+    if os.environ.get("MOAT_REQUEST_TIMEOUT_MS"):
+        timeout = int(os.environ["MOAT_REQUEST_TIMEOUT_MS"])
+        if not 1000 <= timeout <= 600000:
+            raise ValueError("MOAT_REQUEST_TIMEOUT_MS must be between 1000 and 600000")
+        options["http_options"] = {"timeout": timeout}
     if os.environ.get("GCP_SA_KEY"):
         from google.oauth2 import service_account
         info = json.loads(os.environ["GCP_SA_KEY"])
         credentials = service_account.Credentials.from_service_account_info(
             info, scopes=["https://www.googleapis.com/auth/cloud-platform"])
         return genai.Client(vertexai=True, project=info["project_id"],
-                            location=os.environ.get("GOOGLE_CLOUD_LOCATION", "us-central1"), credentials=credentials)
+                            location=os.environ.get("GOOGLE_CLOUD_LOCATION", "us-central1"), credentials=credentials, **options)
     if os.environ.get("GOOGLE_APPLICATION_CREDENTIALS") or os.environ.get("GOOGLE_CLOUD_PROJECT"):
         import google.auth
         credentials, default_project = google.auth.default(
@@ -224,9 +238,9 @@ def create_client():
             raise ValueError("Vertex AI requires GOOGLE_CLOUD_PROJECT or a project in application default credentials")
         return genai.Client(vertexai=True, project=project,
                             location=os.environ.get("GOOGLE_CLOUD_LOCATION", "us-central1"),
-                            credentials=credentials)
+                            credentials=credentials, **options)
     if os.environ.get("GEMINI_API_KEY"):
-        return genai.Client(vertexai=True, api_key=os.environ["GEMINI_API_KEY"])
+        return genai.Client(vertexai=True, api_key=os.environ["GEMINI_API_KEY"], **options)
     return None
 
 
@@ -240,7 +254,11 @@ def main():
                         help="Explicitly regenerate all reports, including scores and bilingual comments")
     args = parser.parse_args()
     records = json.loads(Path(args.input).read_text(encoding="utf-8"))
-    reports = {row["ticker"]: row["existing"] for row in records if row.get("existing")}
+    reports = json.loads(Path(args.output).read_text(encoding="utf-8")) if Path(args.output).exists() else {}
+    if not isinstance(reports, dict):
+        raise ValueError("Moat report checkpoint must be an object keyed by ticker")
+    reports.update({row["ticker"]: row["existing"] for row in records if row.get("existing")})
+    write_json_checkpoint(args.output, reports)
     pending = [row for row in records if needs_refresh(row, args.retry_incomplete, args.force)]
     updated, failed = 0, 0
     client = create_client() if pending else None
@@ -344,6 +362,7 @@ def main():
                     reports[record["ticker"]]["assessmentPolicy"] = assessment_policy(record)
                     if research:
                         reports[record["ticker"]]["businessResearch"] = research
+                    write_json_checkpoint(args.output, reports)
                     updated += 1
                     print(f"{record['ticker']}: dated evidence-based moat assessment updated", flush=True)
                     break
@@ -362,10 +381,9 @@ def main():
                 prior = reports.get(record["ticker"], {})
                 reports[record["ticker"]] = {**prior, "lastError": error_code,
                     "attemptedEvidenceHash": record["evidenceHash"], "lastAttemptAt": datetime.now(timezone.utc).isoformat()}
+                write_json_checkpoint(args.output, reports)
                 print(f"::warning::{record['ticker']}: moat update failed ({error_code}); previous dated evidence retained, or N/A.")
-    output = Path(args.output)
-    output.parent.mkdir(parents=True, exist_ok=True)
-    output.write_text(json.dumps(reports, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
+    write_json_checkpoint(args.output, reports)
     print(f"Moat evidence refresh: {updated} updated, {len(records) - len(pending)} unchanged, "
           f"{failed} failed, {len(pending) if client is None else 0} not run (missing credentials).")
     if failed or pending and client is None:

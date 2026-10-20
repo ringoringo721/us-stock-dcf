@@ -5762,6 +5762,22 @@
     if (!s) return;
     if (s.expansion && s.expansion.status !== 'loaded') { showExpansionStock(ticker, 'basic'); return; }
     const propertyNote = document.getElementById('cmp-property-fv-note');
+    let expansionNote = document.getElementById('cmp-expansion-note');
+    if (!expansionNote) {
+      expansionNote = document.createElement('p'); expansionNote.id = 'cmp-expansion-note';
+      expansionNote.className = 'analysis-note'; propertyNote.after(expansionNote);
+    }
+    const sourceWarnings = Array.isArray(s.qualityWarnings) ? s.qualityWarnings
+      : Array.isArray(s.dataAvailability?.financials) ? s.dataAvailability.financials : [];
+    const sourceLimited = !!s.expansion && (!!s.expansion.reason || sourceWarnings.length > 0);
+    expansionNote.hidden = !sourceLimited;
+    const sourceReason = s.expansion?.reason || (currentLang === 'en'
+      ? 'Annual/interim reporting periods or financial coverage could not be fully reconciled.'
+      : '年度／中期報告期間或財報涵蓋範圍未能完全核實。');
+    expansionNote.title = sourceLimited ? sourceWarnings.map(row => row.message).filter(Boolean).join('\n') : '';
+    expansionNote.textContent = sourceLimited ? (currentLang === 'en'
+      ? 'Some source data could not be verified. Available financials are retained; unavailable values are not zero. Reason: '
+      : '部分來源未能核實；已保留可用財報，缺值不等於零。原因：')       + sourceReason : '';
     propertyNote.textContent = MarketContext.propertyFvNote(s, currentLang);
     propertyNote.hidden = !propertyNote.textContent;
     if (s.propertyFvProvenance) {

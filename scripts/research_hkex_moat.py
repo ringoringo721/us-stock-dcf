@@ -9,9 +9,9 @@ import time
 from urllib.parse import urlparse
 
 if __package__:
-    from .refresh_hkex_moat import create_client, validate_business_research, business_research
+    from .refresh_hkex_moat import create_client, validate_business_research, business_research, write_json_checkpoint
 else:
-    from refresh_hkex_moat import create_client, validate_business_research, business_research
+    from refresh_hkex_moat import create_client, validate_business_research, business_research, write_json_checkpoint
 
 
 def research_result(record, response, model):
@@ -64,11 +64,16 @@ def main():
         raise SystemExit("Vertex credentials are required for business research")
     model = "gemini-2.5-flash"
     completed, evidence, failures = [], {}, {}
+    def checkpoint():
+        write_json_checkpoint(args.output, completed)
+        write_json_checkpoint(args.research_output, {"research": evidence, "failures": failures})
+    checkpoint()
     for record in records:
         saved = business_research(record)
         if saved:
             evidence[record["ticker"]] = saved
             completed.append({**record, "businessResearch": saved})
+            checkpoint()
             print(f"{record['ticker']}: cached business research reused", flush=True)
             continue
         profile = record["profile"]
@@ -101,6 +106,7 @@ def main():
                 research = research_result(record, response, model)
                 evidence[record["ticker"]] = research
                 completed.append({**record, "businessResearch": research})
+                checkpoint()
                 print(f"{record['ticker']}: attributable business research saved", flush=True)
                 break
             except (errors.APIError, GoogleAuthError, HTTPError, ValueError, TypeError) as error:
@@ -109,10 +115,9 @@ def main():
                     time.sleep(2 * (attempt + 1))
         else:
             failures[record["ticker"]] = classification
+            checkpoint()
             print(f"::warning::{record['ticker']}: business research failed ({classification})", flush=True)
-    Path(args.output).write_text(json.dumps(completed, ensure_ascii=False), encoding="utf-8")
-    Path(args.research_output).write_text(json.dumps({"research": evidence, "failures": failures},
-                                                    ensure_ascii=False), encoding="utf-8")
+    checkpoint()
     if failures:
         raise SystemExit(1)
 

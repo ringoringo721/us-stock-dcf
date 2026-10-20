@@ -1,16 +1,57 @@
 import unittest
 import os
 import sys
+import json
+from pathlib import Path
+import tempfile
 from types import SimpleNamespace
 from unittest.mock import Mock, patch
 
 from scripts.refresh_hkex_moat import (
     ASSESSMENT_POLICY, DIMENSIONS, MoatReportValidationError, create_client,
-    needs_refresh, validate_report, validation_feedback,
+    needs_refresh, validate_report, validation_feedback, evidence_context, write_json_checkpoint, main,
 )
 
 
 class MoatEvidenceTests(unittest.TestCase):
+    def test_legacy_annual_only_inputs_without_currency_metadata_remain_assessable(self):
+        record = {"ticker": "0004.HK", "profile": {"companyName": "Issuer"}, "fScore": {},
+                  "statements": {"annual": {"income": [], "balance": [], "cashflow": []},
+                                 "quarterly": {"income": [], "balance": [], "cashflow": []}}}
+        context = evidence_context(record)
+        self.assertIsNone(context["reportingCurrency"])
+        self.assertEqual(context["ticker"], "0004.HK")
+        self.assertIn("financial-quality", context["allowedSourceIds"])
+
+    def test_completed_company_checkpoints_replace_atomically_and_preserve_prior_results(self):
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "reports.json"
+            write_json_checkpoint(output, {"0004.HK": {"report": {"score": 7}}})
+            write_json_checkpoint(output, {"0004.HK": {"report": {"score": 7}},
+                                           "0008.HK": {"lastError": {"type": "ValueError"}}})
+            saved = json.loads(output.read_text(encoding="utf-8"))
+            self.assertEqual(saved["0004.HK"]["report"]["score"], 7)
+            self.assertEqual(saved["0008.HK"]["lastError"]["type"], "ValueError")
+            self.assertFalse(output.with_name("reports.json.tmp").exists())
+
+    def test_filtered_research_inputs_do_not_erase_existing_report_checkpoints(self):
+        with tempfile.TemporaryDirectory() as directory:
+            source, output = Path(directory) / "inputs.json", Path(directory) / "reports.json"
+            source.write_text("[]", encoding="utf-8")
+            saved = {"0004.HK": {"evidenceHash": "prior-evidence", "report": {"score": 7}}}
+            write_json_checkpoint(output, saved)
+            with patch.object(sys, "argv", ["refresh_hkex_moat.py", str(source), str(output)]):
+                main()
+            self.assertEqual(json.loads(output.read_text(encoding="utf-8")), saved)
+
+    def test_authorized_timeout_is_explicit_and_does_not_change_default_clients(self):
+        client = Mock()
+        google = SimpleNamespace(genai=SimpleNamespace(Client=client))
+        with patch.dict(sys.modules, {"google": google}), patch.dict(os.environ, {
+                "GEMINI_API_KEY": "test-placeholder", "MOAT_REQUEST_TIMEOUT_MS": "120000"}, clear=True):
+            create_client()
+        client.assert_called_once_with(vertexai=True, api_key="test-placeholder", http_options={"timeout": 120000})
+
     def test_service_account_location_can_use_global_without_changing_default_or_exposing_credentials(self):
         credentials = object()
         client = Mock()

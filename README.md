@@ -34,6 +34,14 @@ ratings: each artifact's `manifest.json` records actual coverage counts.
 This mode only uploads `hkex-expanded-*` artifacts: it cannot push, merge, invoke
 a deployment hook or publish the captured results. `resume_run_id` reuses successful
 endpoints from the same batch of a previous run when captured within seven days.
+For ratings-only recovery, also set `moat_only`; this requires a saved run ID
+and reuses its financials, model data, attributable research and exact captured
+FX basis rather than recapturing market data. `hk_batches` restricts recovery
+to selected batch indices. Research and assessments checkpoint each completed
+company atomically, so a later timeout cannot erase the earlier results.
+Expansion imports also check fiscal closing-date changes before treating a
+provider FY row as twelve months or deriving H2. Conflicting annual/interim
+dates remain flagged; they do not generate duplicate quarterly observations.
 
 Download the artifacts to an ignored directory and explicitly integrate them with
 `node scripts/build_hkex_expansion.cjs integrate <download-directory>`.

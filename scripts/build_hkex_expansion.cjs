@@ -15,13 +15,18 @@ function write(directory, file, data, prefix = '') {
   fs.mkdirSync(path.dirname(target), { recursive: true });
   fs.writeFileSync(target, prefix + JSON.stringify(data) + (prefix ? ';' : '') + '\n');
 }
-function matrix(size = 20) {
+function matrix(size = 20, selected = '') {
   if (!Number.isInteger(size) || size < 1 || size > 20) throw new Error('Batch size must be 1-20');
   const listed = catalogue.stocks.filter(item => !reviewed.has(item.ticker));
-  return Array.from({ length: Math.ceil(listed.length / size) }, (_, batch) =>
+  const batches = Array.from({ length: Math.ceil(listed.length / size) }, (_, batch) =>
     ({ batch, symbols: listed.slice(batch * size, (batch + 1) * size).map(item => item.ticker).join(',') }));
+  if (!selected) return batches;
+  const wanted = selected.split(',').map(value => Number(value.trim()));
+  if (wanted.some(value => !Number.isInteger(value) || value < 0 || value >= batches.length)
+      || selected.split(',').some(value => !value.trim())) throw new Error('Invalid selected HKEX batch');
+  return batches.filter(item => wanted.includes(item.batch));
 }
-function partial(item, original, error, reports, treasury) {
+function partial(item, original, error, reports, treasury, capturedRates = rates) {
   const evidence = structuredClone(original), sourceWarnings = [];
   for (const name of ['income', 'balance', 'cashflow', 'annual_income', 'annual_balance', 'annual_cashflow']) {
     if (!evidence.responses[name]) continue;
@@ -38,7 +43,7 @@ function partial(item, original, error, reports, treasury) {
   }
   if (item.tradingCurrency === 'HKD') {
     try {
-      return { ...compileStock(item, evidence, rates, reports, {}, treasury, { allowIncomplete: true, sourceWarnings }),
+      return { ...compileStock(item, evidence, capturedRates, reports, {}, treasury, { allowIncomplete: true, sourceWarnings }),
         limitation: error.message };
     } catch (remainingError) {
       sourceWarnings.push({ code: 'companySnapshotIncomplete', message: remainingError.message });
@@ -46,7 +51,7 @@ function partial(item, original, error, reports, treasury) {
   }
   const stock = listingStock(item), profile = evidence.responses.profile?.rows?.find(row => row.symbol === item.ticker);
   const statements = prepareStatements(evidence, { allowIncomplete: true, sourceWarnings });
-  const display = convertStatements(statements, rates), score = scores.calculate(statements);
+  const display = convertStatements(statements, capturedRates), score = scores.calculate(statements);
   stock.statements_raw = statementTable(display);
   stock.f_score = score.score; stock.f_score_breakdown = scoreBreakdown(score, display);
   stock.ratingSources.fScore = { ...score, checkedAt: evidence.capturedAt, evidenceHash: hash(statements) };
@@ -70,9 +75,13 @@ function partial(item, original, error, reports, treasury) {
     fingerprint: moatInput ? hash(moatInput) : null, limitation: error.message };
 }
 function build(input, output, symbols, reports = {}) {
+  const capturedRateFile = path.join(output, 'cache', 'fx', 'hkd_rates.json');
+  const capturedRates = fs.existsSync(capturedRateFile) ? read(capturedRateFile) : rates;
   const approved = new Map(catalogue.stocks.map(item => [item.ticker, item]));
   const treasury = fs.existsSync(path.join(input, 'treasury.json')) ? read(path.join(input, 'treasury.json')) : null;
   const inputs = [], market = {}, manifest = [];
+  const savedResearch = fs.existsSync(path.join(output, 'business-research.json'))
+    ? read(path.join(output, 'business-research.json')).research || {} : {};
   for (const ticker of symbols) {
     if (!approved.has(ticker) || reviewed.has(ticker)) throw new Error('Expansion may not overwrite reviewed or unregistered stocks');
     const listing = approved.get(ticker);
@@ -85,10 +94,10 @@ function build(input, output, symbols, reports = {}) {
       let result;
       try {
         if (listing.tradingCurrency !== 'HKD') throw new Error('unsupportedTradingCurrency');
-        result = compileStock(item, evidence, rates, reports, {}, treasury, { allowIncomplete: true });
+        result = compileStock(item, evidence, capturedRates, reports, {}, treasury, { allowIncomplete: true });
       } catch (error) {
         console.error(`${ticker}: incomplete company snapshot: ${error.message}`);
-        result = partial(item, evidence, error, reports, treasury);
+        result = partial(item, evidence, error, reports, treasury, capturedRates);
       }
       const candidate = reports[ticker];
       if (!result.stock.moat && candidate?.evidenceHash === result.fingerprint && candidate.report) {
@@ -99,7 +108,8 @@ function build(input, output, symbols, reports = {}) {
       }
       result.stock.expansion = { status: 'available', capturedAt: evidence.capturedAt,
         reason: result.limitation || null, detailPath: `cache/hk_companies/${ticker}.json` };
-      if (result.moatInput) inputs.push({ ...result.moatInput, evidenceHash: result.fingerprint, existing: candidate || null });
+      if (result.moatInput) inputs.push({ ...result.moatInput, evidenceHash: result.fingerprint,
+        existing: candidate || null, ...(savedResearch[ticker] ? { businessResearch: savedResearch[ticker] } : {}) });
       market[ticker] = result.stock;
       write(output, `cache/financials/${ticker}_statements_v2.json`, result.statements);
       write(output, `cache/price_charts/${ticker}.json`, result.chart);
@@ -118,6 +128,8 @@ function build(input, output, symbols, reports = {}) {
   return manifest;
 }
 function packageResults(output) {
+  const capturedRateFile = path.join(output, 'cache', 'fx', 'hkd_rates.json');
+  const capturedRates = fs.existsSync(capturedRateFile) ? read(capturedRateFile) : rates;
   const modelFile = path.join(output, 'fmp_model_data.js'), context = { window: {} };
   if (fs.existsSync(modelFile)) vm.runInNewContext(fs.readFileSync(modelFile, 'utf8'), context);
   const models = context.window.FMP_MODEL_DATA?.stocks || {};
@@ -125,12 +137,25 @@ function packageResults(output) {
   const counts = { companies: manifest.stocks.length, financialSnapshots: 0, fScores: 0, completeMoats: 0, nativeAdvancedModels: 0 };
   for (const [ticker, stock] of Object.entries(read(path.join(output, 'market.json')))) {
     const file = `cache/hk_companies/${ticker}.json`, record = read(path.join(output, file));
-    record.model = models[ticker] || null; write(output, file, record);
     const financials = read(path.join(output, 'cache', 'financials', `${ticker}_statements_v2.json`));
+    record.model = models[ticker] || null;
+    if (record.model?.currencyCheck?.sourceDate && !record.model.currencyCheck.reason) {
+      const annual = financials.annual.income.find(row => row.date === record.model.currencyCheck.sourceDate);
+      if (!annual || annual.periodLength !== 12) {
+        record.model.currencyCheck = { ...record.model.currencyCheck, reason: 'FMP_MODEL_CURRENCY_UNVERIFIED',
+          sourcePeriodLength: annual?.periodLength ?? null, reviewReason: 'nonFullFiscalPeriod' };
+        const fullFile = path.join(output, 'cache', 'company', `${ticker}.json`);
+        if (fs.existsSync(fullFile)) {
+          const company = read(fullFile); company.currencyCheck = record.model.currencyCheck;
+          write(output, `cache/company/${ticker}.json`, company);
+        }
+      }
+    }
+    write(output, file, record);
     if (['annual', 'quarterly'].some(period => ['income', 'balance', 'cashflow']
       .some(type => financials[period][type].some(row => row.reportedCurrency !== 'HKD')))) {
-      const sha256 = hash(rates), fxPath = `cache/fx/hk_expansion_${sha256}.json`;
-      write(output, fxPath, rates);
+      const sha256 = hash(capturedRates), fxPath = `cache/fx/hk_expansion_${sha256}.json`;
+      write(output, fxPath, capturedRates);
       financials.hkdFxSource = { path: fxPath, sha256, basis: 'SHA-256 of JSON.stringify(rate snapshot)' };
       write(output, `cache/financials/${ticker}_statements_v2.json`, financials);
     }
@@ -139,7 +164,8 @@ function packageResults(output) {
     }
     if (Number.isFinite(stock.f_score)) counts.fScores++;
     const dimensions = Object.entries(stock.moat || {}).filter(([key]) => /^m\d+_/.test(key));
-    if (dimensions.length === 10 && dimensions.every(([, value]) => Number.isInteger(value.score))) counts.completeMoats++;
+    if (!stock.ratingSources.moat?.reason && dimensions.length === 10
+        && dimensions.every(([, value]) => Number.isInteger(value.score))) counts.completeMoats++;
     if (record.model?.models?.advanced?.data?.length && !record.model.currencyCheck?.reason) counts.nativeAdvancedModels++;
   }
   manifest.coverage = counts; write(output, 'manifest.json', manifest);
@@ -200,7 +226,19 @@ function integrate(input, output = root) {
       }
       const compact = { ...record.stock };
       for (const key of ['statements_raw', 'real_history', 'news', 'top_holders', 'insider_trades', 'stock_splits',
-        'historical_dcf_series', 'real_5y_prices']) delete compact[key];
+        'historical_dcf_series', 'real_5y_prices', 'description', 'description_en', 'description_zh', 'reported_growth']) delete compact[key];
+      compact.f_score_breakdown = [];
+      if (compact.ratingSources?.moat?.businessResearch) {
+        const { businessResearch, ...provenance } = compact.ratingSources.moat;
+        compact.ratingSources = { ...compact.ratingSources, moat: {
+          ...provenance, businessResearchSourceCount: businessResearch.sources.length
+        } };
+      }
+      if (compact.moat) {
+        compact.moat = Object.fromEntries(Object.entries(compact.moat).filter(([key]) =>
+          /^m\d+_/.test(key) || key.startsWith('overall_moat_verdict')).map(([key, value]) =>
+          [key, /^m\d+_/.test(key) ? { score: value.score } : value]));
+      }
       expansion.stocks[ticker] = compact;
       if (record.model) expansion.models[ticker] = record.model;
       if (record.snapshot) {
@@ -215,7 +253,7 @@ function integrate(input, output = root) {
 }
 if (require.main === module) {
   const [command, input, output, supplied, reportsFile] = process.argv.slice(2);
-  if (command === 'matrix') console.log(JSON.stringify({ include: matrix() }));
+  if (command === 'matrix') console.log(JSON.stringify({ include: matrix(20, process.env.HK_EXPANSION_BATCHES || '') }));
   else if (command === 'build') build(input, output, supplied.split(','), reportsFile && fs.existsSync(reportsFile) ? read(reportsFile) : {});
   else if (command === 'package') packageResults(input);
   else if (command === 'integrate') console.log(`Integrated ${integrate(input, output)} additional company outcomes without replacing reviewed stocks.`);

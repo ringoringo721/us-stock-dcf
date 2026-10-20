@@ -23,7 +23,8 @@ function annualView(ticker) {
       ? JSON.parse(fs.readFileSync(companyFile)).stock
       : HkUniverse.listingStock(catalogue.stocks.find(item => item.ticker === ticker)));
     const data = fs.existsSync(financialFile) ? JSON.parse(fs.readFileSync(financialFile)) : HkUniverse.emptyStatements(ticker);
-    annualViews.set(ticker, Peers.annualView(stock, Currency.convertStatements(data, hkdRates)));
+    const rates = data.hkdFxSource ? JSON.parse(fs.readFileSync(path.join(root, data.hkdFxSource.path))) : hkdRates;
+    annualViews.set(ticker, Peers.annualView(stock, Currency.convertStatements(data, rates)));
   }
   return annualViews.get(ticker);
 }

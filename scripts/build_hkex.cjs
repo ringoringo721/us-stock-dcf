@@ -165,7 +165,9 @@ function prepareStatements(evidence, { allowIncomplete = false, sourceWarnings =
             { type, date: row.date });
           return;
         }
-        if (previous && (annual || key(row) === key(previous) + (semiannual ? 2 : 1))) {
+        const consecutiveAnnual = annual && (!allowIncomplete || previous
+          && Number(row.fiscalYear || row.calendarYear) === Number(previous.fiscalYear || previous.calendarYear) + 1);
+        if (previous && (consecutiveAnnual || !annual && key(row) === key(previous) + (semiannual ? 2 : 1))) {
           row.periodStartDate = nextDay(previous.date);
         } else {
           const end = new Date(row.date), months = annual ? 12 : semiannual ? 6 : 3;
@@ -174,6 +176,18 @@ function prepareStatements(evidence, { allowIncomplete = false, sourceWarnings =
         }
         row.reportingFrequency = annual ? 'annual' : statements.reportingFrequency;
         row.periodLength = annual ? 12 : semiannual ? 6 : 3;
+        if (allowIncomplete && annual && previous && consecutiveAnnual) {
+          const days = (Date.parse(row.date) - Date.parse(previous.date)) / 86400000;
+          const start = new Date(row.periodStartDate), end = new Date(row.date);
+          const calendarEnd = new Date(Date.UTC(end.getUTCFullYear(), end.getUTCMonth() + 1, 0)).getUTCDate() === end.getUTCDate();
+          const months = start.getUTCDate() === 1 && calendarEnd
+            ? (end.getUTCFullYear() - start.getUTCFullYear()) * 12 + end.getUTCMonth() - start.getUTCMonth() + 1 : null;
+          if (months !== null ? months !== 12 : ![364, 365, 366, 371].includes(days)) {
+            row.periodLength = months;
+            warn('nonFullFiscalPeriod', 'Consecutive fiscal-year closing dates do not establish a twelve-month period.',
+              { type, date: row.date, periodLength: row.periodLength });
+          }
+        }
         row.derivation = 'providerReported';
       });
     }
@@ -223,6 +237,12 @@ function prepareStatements(evidence, { allowIncomplete = false, sourceWarnings =
           && row.reportedCurrency === annual.reportedCurrency);
         if (!first || !day(first.periodStartDate) || annual.periodLength !== 12 || first.periodLength !== 6
             || annual.periodStartDate !== first.periodStartDate) continue;
+        if (allowIncomplete && ((Date.parse(annual.date) - Date.parse(first.date)) / 86400000 < 150
+            || (Date.parse(annual.date) - Date.parse(first.date)) / 86400000 > 220)) {
+          warn('annualInterimReconciliation', 'Annual and H1 dates cannot establish a subsequent six-month H2.',
+            { type, date: annual.date, interimDate: first.date });
+          continue;
+        }
         const second = { ...annual, period: 'Q4', periodStartDate: nextDay(first.date),
           periodLength: 6, reportingFrequency: 'semiannual', derivation: 'annualMinusReportedH1',
           sourceDates: [annual.date, first.date] };
@@ -239,10 +259,15 @@ function prepareStatements(evidence, { allowIncomplete = false, sourceWarnings =
       }
       statements.quarterly[type] = sorted([...halves, ...derived]);
     }
-    statements.quarterly.balance = sorted([
-      ...statements.quarterly.balance.filter(row => row.period === 'Q2'),
-      ...statements.annual.balance.map(row => ({ ...row, period: 'Q4', derivation: 'reportedAnnualClosingBalance' }))
-    ]);
+    const interimBalances = statements.quarterly.balance.filter(row => row.period === 'Q2');
+    const annualBalances = statements.annual.balance.filter(row => {
+      if (!allowIncomplete || !interimBalances.some(interim => interim.date === row.date)) return true;
+      warn('annualInterimReconciliation', 'Annual and H1 balance sources assign conflicting fiscal periods to one date; no duplicate Q4 is constructed.',
+        { type: 'balance', date: row.date });
+      return false;
+    });
+    statements.quarterly.balance = sorted([...interimBalances,
+      ...annualBalances.map(row => ({ ...row, period: 'Q4', derivation: 'reportedAnnualClosingBalance' }))]);
   }
   statements.statementFrequencies = Object.fromEntries(['income', 'balance', 'cashflow'].map(type =>
     [type, statements.quarterly[type].length ? statements.reportingFrequency : 'annual']));
@@ -615,7 +640,8 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
     && row.date.slice(0, 10) <= evidence.capturedAt.slice(0, 10));
   const moatInput = { methodVersion: 'hkex-qualitative-evidence-v2', ticker: item.ticker,
     profile: { companyName: p.companyName, description: p.description, industry: item.industry },
-    reportingCurrency: latest?.sourceReportedCurrency, statements: { ...raw, fetchedAt: undefined },
+    reportingCurrency: latest?.sourceReportedCurrency || data.annual.income.at(-1)?.sourceReportedCurrency || null,
+    statements: { ...raw, fetchedAt: undefined },
     displayStatements: { ...data, fetchedAt: undefined }, fScore: score, transcripts };
   const fingerprint = hash(moatInput), candidate = moatReports[item.ticker];
   const moat = candidate?.evidenceHash === fingerprint ? candidate.report : null;
@@ -630,7 +656,8 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
   const stock = {
     name: item.name, company_name: p.companyName, ticker: item.ticker, displayCode: item.displayCode,
     market: 'HKEX', exchange: 'HKEX', sector: item.sector, industry: item.industry, fmp_symbol: item.ticker,
-    reportedCurrency: latest?.sourceReportedCurrency, calculationCurrency: 'HKD',
+    reportedCurrency: latest?.sourceReportedCurrency || data.annual.income.at(-1)?.sourceReportedCurrency || null,
+    calculationCurrency: 'HKD',
     reportingFrequency: raw.reportingFrequency, statementFrequencies: raw.statementFrequencies,
     balanceClassificationSource: raw.balanceClassificationSource, cashflowProvenance: raw.cashflowProvenance,
     revenueProvenance: raw.revenueProvenance,

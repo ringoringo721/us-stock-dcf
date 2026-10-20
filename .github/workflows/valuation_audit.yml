@@ -35,6 +35,14 @@ on:
         description: Optional previous all-HK run ID to reuse successfully captured endpoints
         type: string
         default: ''
+      moat_only:
+        description: With expand_all_hk and resume_run_id, reuse saved sources and models and retry ratings only
+        type: boolean
+        default: false
+      hk_batches:
+        description: Optional comma-separated all-HK batch indices; empty selects all
+        type: string
+        default: ''
 
 permissions:
   contents: read
@@ -131,7 +139,13 @@ jobs:
         with:
           node-version: '24'
       - id: plan
-        run: echo "matrix=$(node scripts/build_hkex_expansion.cjs matrix)" >> "$GITHUB_OUTPUT"
+        env:
+          HK_EXPANSION_BATCHES: ${{ inputs.hk_batches }}
+          MOAT_ONLY: ${{ inputs.moat_only }}
+          RESUME_RUN_ID: ${{ inputs.resume_run_id }}
+        run: |
+          node -e "if(process.env.MOAT_ONLY==='true'&&!/^\d+$/.test(process.env.RESUME_RUN_ID||''))throw Error('Ratings-only mode requires a saved run ID')"
+          echo "matrix=$(node scripts/build_hkex_expansion.cjs matrix)" >> "$GITHUB_OUTPUT"
   hk-expansion-batch:
     needs: hk-expansion-plan
     runs-on: ubuntu-latest
@@ -151,15 +165,20 @@ jobs:
       - run: pip install requests google-genai
       - uses: actions/download-artifact@v4
         if: inputs.resume_run_id != ''
-        continue-on-error: true
+        continue-on-error: ${{ inputs.moat_only != true }}
         with:
           name: hkex-expanded-${{ matrix.batch }}
           path: hkex-data-output
           run-id: ${{ inputs.resume_run_id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Refresh dated historical HKD FX observations in the isolated runner
+        if: inputs.moat_only != true
         run: node scripts/refresh_usd_rates.cjs --hkd --all-hkd-currencies
+      - name: Reuse the exact captured FX basis for ratings-only retries
+        if: inputs.moat_only == true
+        run: cp hkex-data-output/cache/fx/hkd_rates.json cache/fx/hkd_rates.json
       - name: Capture public evidence for twenty additional companies
+        if: inputs.moat_only != true
         env:
           FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
           CAPTURE_MARKET: HKEX
@@ -178,6 +197,7 @@ jobs:
           node scripts/build_hkex_expansion.cjs build hkex-data-output/sources hkex-data-output "$SYMBOLS" hkex-data-output/moat-reports.json
           cp hkex-data-output/cache/financials/* cache/financials/
       - name: Capture native models and company-page data
+        if: inputs.moat_only != true
         continue-on-error: true
         env:
           FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
@@ -192,12 +212,14 @@ jobs:
         env:
           GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
           GOOGLE_CLOUD_LOCATION: global
+          MOAT_REQUEST_TIMEOUT_MS: '120000'
         run: python -u scripts/research_hkex_moat.py hkex-data-output/moat-inputs.json hkex-data-output/researched-inputs.json hkex-data-output/business-research.json
       - name: Assess ten moat dimensions and bilingual comments
         continue-on-error: true
         env:
           GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
           GOOGLE_CLOUD_LOCATION: global
+          MOAT_REQUEST_TIMEOUT_MS: '120000'
         run: python -u scripts/refresh_hkex_moat.py hkex-data-output/researched-inputs.json hkex-data-output/moat-reports.json --retry-incomplete
       - name: Package real coverage and explicit per-company limitations
         if: always()
