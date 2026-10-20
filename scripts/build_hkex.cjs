@@ -465,6 +465,10 @@ function scoreBreakdown(score, data) {
 }
 
 function priceHistory(evidence) {
+  const tradingCurrency = registered.get(evidence.ticker)?.tradingCurrency;
+  if (tradingCurrency && tradingCurrency !== 'HKD') {
+    throw new TypeError(`${evidence.ticker}: unsupportedTradingCurrency (${tradingCurrency}); original prices are not HKD quotes`);
+  }
   const rows = new Map();
   for (const name of ['prices_older', 'prices_recent']) {
     const sourceRows = readRows(evidence, name);

@@ -7,7 +7,7 @@ const universe = require('../hkex_universe.js');
 const catalogue = require('../cache/hkex_universe.json');
 const market = require('../hk_market_dcf.json');
 const { matrix, build, packageResults, integrate } = require('../scripts/build_hkex_expansion.cjs');
-const { prepareStatements } = require('../scripts/build_hkex.cjs');
+const { prepareStatements, priceHistory } = require('../scripts/build_hkex.cjs');
 const root = path.resolve(__dirname, '..');
 test('official full-market namespace retains every reviewed company without inventing financials', () => {
   assert.equal(catalogue.stocks.length, 2787);
@@ -167,4 +167,12 @@ test('captured HKD FX paths cannot select arbitrary resources or silently fall b
   assert.throws(() => currency.loadRates(false, 'USD', {
     path: `cache/fx/hk_expansion_${'a'.repeat(64)}.json`, sha256: 'a'.repeat(64)
   }), /Invalid captured HKD FX/);
+});
+test('non-HKD listing prices cannot become a falsely HKD-labelled historical chart', () => {
+  for (const ticker of ['0770.HK', '87001.HK']) {
+    assert.throws(() => priceHistory({ ticker, capturedAt: '2026-10-19T00:00:00Z',
+      responses: { prices_recent: { ok: true, rows: [
+        { symbol: ticker, date: '2026-10-16', close: 1.23, volume: 100 }
+      ] } } }), /unsupportedTradingCurrency/);
+  }
 });
