@@ -185,7 +185,7 @@ function prepareStatements(evidence, { allowIncomplete = false, sourceWarnings =
           const expectedMonths = annual ? 12 : semiannual ? 6 : 3;
           const expectedDays = annual ? [364, 365, 366, 371] : semiannual ? [181, 182, 183, 184, 189] : [89, 90, 91, 92, 98];
           if (months !== null ? months !== expectedMonths : !expectedDays.includes(days)) {
-            row.periodLength = months;
+            row.periodLength = annual ? months : null;
             warn(annual ? 'nonFullFiscalPeriod' : 'unverifiedProviderPeriod',
               `Consecutive reporting dates do not establish the claimed ${expectedMonths}-month period.`,
               { type, date: row.date, periodLength: row.periodLength });

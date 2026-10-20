@@ -86,7 +86,7 @@ test('nominal FY and H1 labels alone do not establish a real subsequent H2', () 
       annual_income: { ok: true, rows: [row(2024, 'FY', '2024-12-31'), row(2025, 'FY', '2025-12-31')] }
     } }, { allowIncomplete: true });
   assert.equal(statements.quarterly.income.filter(row => row.date === '2025-12-31').length, 1);
-  assert.equal(statements.quarterly.income.find(row => row.date === '2025-12-31').periodLength, 12);
+  assert.equal(statements.quarterly.income.find(row => row.date === '2025-12-31').periodLength, null);
   assert.ok(statements.qualityWarnings.some(row => row.code === 'unverifiedProviderPeriod'));
   assert.ok(statements.quarterly.income.some(row => row.period === 'Q4' && row.date === '2024-12-31'
     && row.periodLength === 6 && row.derivation === 'annualMinusReportedH1'));
