@@ -176,15 +176,18 @@ function prepareStatements(evidence, { allowIncomplete = false, sourceWarnings =
         }
         row.reportingFrequency = annual ? 'annual' : statements.reportingFrequency;
         row.periodLength = annual ? 12 : semiannual ? 6 : 3;
-        if (allowIncomplete && annual && previous && consecutiveAnnual) {
+        if (allowIncomplete && previous && (annual ? consecutiveAnnual : key(row) === key(previous) + (semiannual ? 2 : 1))) {
           const days = (Date.parse(row.date) - Date.parse(previous.date)) / 86400000;
           const start = new Date(row.periodStartDate), end = new Date(row.date);
           const calendarEnd = new Date(Date.UTC(end.getUTCFullYear(), end.getUTCMonth() + 1, 0)).getUTCDate() === end.getUTCDate();
           const months = start.getUTCDate() === 1 && calendarEnd
             ? (end.getUTCFullYear() - start.getUTCFullYear()) * 12 + end.getUTCMonth() - start.getUTCMonth() + 1 : null;
-          if (months !== null ? months !== 12 : ![364, 365, 366, 371].includes(days)) {
+          const expectedMonths = annual ? 12 : semiannual ? 6 : 3;
+          const expectedDays = annual ? [364, 365, 366, 371] : semiannual ? [181, 182, 183, 184, 189] : [89, 90, 91, 92, 98];
+          if (months !== null ? months !== expectedMonths : !expectedDays.includes(days)) {
             row.periodLength = months;
-            warn('nonFullFiscalPeriod', 'Consecutive fiscal-year closing dates do not establish a twelve-month period.',
+            warn(annual ? 'nonFullFiscalPeriod' : 'unverifiedProviderPeriod',
+              `Consecutive reporting dates do not establish the claimed ${expectedMonths}-month period.`,
               { type, date: row.date, periodLength: row.periodLength });
           }
         }
