@@ -303,6 +303,47 @@ function expectedAnnualCells(stock) {
       }
       assert.doesNotMatch(await page.locator('#company-view').innerText(), /\bNaN\b|\bundefined\b/, ticker);
     }
+    const expansionSamples = await page.evaluate(() => {
+      const stocks = Object.values(stockUniverse).filter(stock => stock.expansion?.status === 'available');
+      return [...new Set(['0004.HK', '0122.HK', '1069.HK', '87001.HK',
+        stocks.find(stock => stock.statementFrequencies?.income === 'annual')?.ticker,
+        stocks.find(stock => !stock.price)?.ticker,
+        stocks.find(stock => stock.ratingSources?.moat?.reason === 'staleEvidence')?.ticker,
+        stocks.find(stock => stock.moat && !stock.ratingSources?.moat?.reason)?.ticker])]
+        .filter(ticker => ticker && stocks.some(stock => stock.ticker === ticker));
+    });
+    for (const ticker of expansionSamples) {
+      const full = JSON.parse(fs.readFileSync(path.join(root, 'cache', 'hk_companies', `${ticker}.json`)));
+      const stock = full.stock, dimensions = Object.entries(stock.moat || {})
+        .filter(([key, value]) => /^m\d+_/.test(key) && Number.isFinite(value.score));
+      const fresh = stock.ratingSources?.moat?.reason !== 'staleEvidence';
+      const expectedMoat = fresh && dimensions.length
+        ? `${dimensions.reduce((sum, [, value]) => sum + value.score, 0)} / ${dimensions.length * 10}` : 'N/A';
+      for (const language of ['en', 'zh']) {
+        await page.evaluate(({ ticker, language }) => { applyLanguage(language); openCompanyProfile(ticker); }, { ticker, language });
+        await page.waitForFunction(ticker => stockUniverse[ticker]?.expansion?.status === 'loaded'
+          && stockUniverse[ticker].companyDataLoaded
+          && document.getElementById('profile-overview-status').textContent.startsWith(ticker), ticker);
+        assert.equal(await page.locator('.sub-tab-btn').count(), 9, ticker);
+        assert.equal(await page.locator('#profile-quote-price').innerText(), stock.price === null ? 'N/A'
+          : `HKD ${stock.price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`, ticker);
+        const warnings = stock.qualityWarnings || stock.dataAvailability?.financials || [];
+        assert.equal(await page.locator('#cmp-expansion-note').isVisible(), !!stock.expansion.reason
+          || Array.isArray(warnings) && warnings.length > 0, `${ticker}: source limitation is visible`);
+        for (const tab of ['financials', 'ratios', 'peers', 'charts', 'rating', 'valuation', 'news', 'chart']) {
+          await page.evaluate(tab => switchSubPage(tab), tab);
+          if (tab === 'rating') {
+            assert.equal(await page.locator('#moat-total-score').innerText(), expectedMoat, ticker);
+            const fScore = Number.isInteger(stock.f_score)
+              ? `${stock.f_score} / ${stock.ratingSources.fScore.applicableTests || 9}${language === 'zh' ? ' 分' : ''}` : 'N/A';
+            assert.equal(await page.locator('#fsc-total-score').innerText(), fScore, ticker);
+            if (fresh && stock.moat) assert.ok((await page.locator('#moat-overall-text').innerText())
+              .includes(stock.moat[`overall_moat_verdict_${language}`]), `${ticker}: complete localized research is lazy-loaded`);
+          }
+        }
+        assert.doesNotMatch(await page.locator('#company-view').innerText(), /\bNaN\b|\bundefined\b/, ticker);
+      }
+    }
     for (const language of ['en', 'zh']) {
       await page.evaluate(language => applyLanguage(language), language);
       for (const [ticker, field, transition] of [
@@ -423,7 +464,7 @@ function expectedAnnualCells(stock) {
     assert.deepEqual(errors, []);
     assert.deepEqual(failures, []);
     assert.ok(api.every(action => action === 'news'), 'No live model, history or indicator API request is required');
-    console.log(`Browser PASS: all ${config.length} HK company pages/nine tabs, full-FY peer financial values/growth/multiples and source dates, annual load failure/retry/race guards, unchanged TTM screener, all 230 US peer growth and balance/return rows including MS, native models, saved ROTE, both languages and mobile scrolling.`);
+    console.log(`Browser PASS: all ${config.length} reviewed HK company pages and ${expansionSamples.length} captured expansion samples/nine tabs, source limitations, real prices and PF/moat research, full-FY peer financial values/growth/multiples and source dates, annual load failure/retry/race guards, unchanged TTM screener, all 230 US peer growth and balance/return rows including MS, native models, saved ROTE, both languages and mobile scrolling.`);
   } finally {
     await browser.close();
     await new Promise(resolve => server.close(resolve));
