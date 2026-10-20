@@ -52,6 +52,25 @@ class MoatEvidenceTests(unittest.TestCase):
         self.assertEqual(context["ticker"], "0004.HK")
         self.assertIn("financial-quality", context["allowedSourceIds"])
 
+    def test_existing_cost_and_allocation_fields_and_available_history_reach_the_assessment(self):
+        record = {"ticker": "1911.HK", "profile": {}, "fScore": {},
+                  "statements": {"annual": {
+                      "income": [{"date": f"{year}-12-31", "operatingExpenses": 40, "costOfRevenue": 30,
+                                  "generalAndAdministrativeExpenses": 0} for year in range(2018, 2026)],
+                      "balance": [{"date": "2025-12-31", "goodwill": None, "longTermInvestments": 12}],
+                      "cashflow": [{"date": "2025-12-31", "acquisitionsNet": -10,
+                                    "netDebtIssuance": 15, "purchasesOfInvestments": -20}]},
+                                 "quarterly": {"income": [], "balance": [], "cashflow": []}}}
+        original = json.loads(json.dumps(record))
+        context = evidence_context(record)
+        self.assertEqual(len(context["financials"]["annual"]["income"]), 8)
+        self.assertEqual(context["financials"]["annual"]["income"][-1]["operatingExpenses"], 40)
+        self.assertEqual(context["financials"]["annual"]["income"][-1]["generalAndAdministrativeExpenses"], 0)
+        self.assertIsNone(context["financials"]["annual"]["balance"][0]["goodwill"])
+        self.assertEqual(context["financials"]["annual"]["cashflow"][0]["acquisitionsNet"], -10)
+        self.assertIn("annual:income:2018-12-31", context["allowedSourceIds"])
+        self.assertEqual(record, original)
+
     def test_completed_company_checkpoints_replace_atomically_and_preserve_prior_results(self):
         with tempfile.TemporaryDirectory() as directory:
             output = Path(directory) / "reports.json"

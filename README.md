@@ -62,6 +62,12 @@ Documented losses or volatile cash conversion can support a weak sustained-retur
 assessment; they are not automatically missing evidence. Capital-allocation
 judgment uses disclosed actions and outcomes, not unverifiable personal integrity.
 Essential factual gaps still remain unscored, never zero-filled or normalized.
+Moat evidence passes through captured cost/operating-expense breakdowns,
+investment/acquisition/financing cash flows and up to eight available annual
+observations, preserving actual zero/null values and quality warnings. This
+does not recalculate financials or change DCF assumptions. Governance narratives
+must distinguish allegations, convictions and acquittals, and the listed company,
+subsidiaries and former individuals.
 Digit-bearing product codes and similar rejected narrative terms receive a
 bounded, prose-only correction request rather than requiring an otherwise
 supported report to be regenerated wholesale. Corrections cannot change scores,

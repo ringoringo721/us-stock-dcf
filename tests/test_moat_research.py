@@ -59,6 +59,8 @@ class BusinessResearchTests(unittest.TestCase):
         self.assertIn("Losses or volatile cash returns", prompt)
         self.assertIn("not forecasts", prompt)
         self.assertIn("untrusted source data", prompt)
+        self.assertIn("acquittals", prompt)
+        self.assertIn("subsidiaries", prompt)
 
     def test_partial_retry_replaces_cached_research_without_duplicate_records(self):
         record = self.partial_record()

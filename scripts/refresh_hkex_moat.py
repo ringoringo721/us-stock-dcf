@@ -32,9 +32,17 @@ FACT_FIELDS = (
     "reportType", "comparabilityGroup", "operatingIncomeBasis", "earningsIncludeDiscontinued",
     "netIncomeFromContinuingOperations", "derivation",
     "revenue", "grossProfit", "operatingIncome", "incomeBeforeTax", "incomeTaxExpense", "netIncome",
+    "costOfRevenue", "operatingExpenses", "costAndExpenses", "generalAndAdministrativeExpenses",
+    "sellingAndMarketingExpenses", "sellingGeneralAndAdministrativeExpenses",
+    "researchAndDevelopmentExpenses", "otherExpenses", "interestIncome", "interestExpense",
     "totalAssets", "totalLiabilities", "totalDebt", "totalStockholdersEquity",
+    "propertyPlantEquipmentNet", "goodwill", "intangibleAssets", "longTermInvestments",
+    "totalCurrentAssets", "totalCurrentLiabilities",
     "cashAndShortTermInvestments", "operatingCashFlow", "capitalExpenditure", "freeCashFlow",
     "commonStockIssuance", "commonStockRepurchased", "commonDividendsPaid",
+    "acquisitionsNet", "purchasesOfInvestments", "salesMaturitiesOfInvestments",
+    "netDebtIssuance", "netStockIssuance", "netCashProvidedByInvestingActivities",
+    "netCashProvidedByFinancingActivities",
 )
 
 
@@ -120,7 +128,7 @@ def evidence_context(record):
         for kind in ("income", "balance", "cashflow"):
             rows = sorted(statements[period][kind], key=lambda row: row["date"])
             facts[period][kind] = []
-            for row in rows[-(3 if period == "annual" else 8):]:
+            for row in rows[-8:]:
                 source_id = f"{period}:{kind}:{row['date']}"
                 source_ids.append(source_id)
                 facts[period][kind].append({"sourceId": source_id, **{
@@ -375,6 +383,10 @@ def main():
                 "automatically unknown, but only score that conclusion when the described business "
                 "reasonably supports it. Never invent a specific patent, licence or management action. "
                 "Do not invent ROIC, WACC, historical scores, regulatory privileges, release dates or facts. "
+                "Distinguish allegations from proven findings and preserve acquittals, dismissals and "
+                "later resolutions when discussing legal events. Identify whether the subject was the "
+                "listed issuer, a subsidiary or a former individual; never imply that all charges led "
+                "to convictions or attribute a former manager's conduct to current management. "
                 "Mention missing/reconciliation-limited evidence and the period actually available; annual "
                 "cash flows are NOT current TTM flows. No transcript means no claim to have reviewed a call. "
                 "Each dimension needs short Traditional Chinese and English explanations and source IDs drawn "
@@ -418,6 +430,8 @@ def main():
                     "moat is weak with an absence of evidence. For cost advantages, judge the disclosed "
                     "scale, cost drivers, operating leverage and competitive structure; an explicit peer "
                     "cost-ranking statistic is not mandatory for a supported qualitative assessment. "
+                    "Use the supplied costOfRevenue, operatingExpenses and cost breakdowns when present; "
+                    "do not claim those fields are unavailable merely because an earlier summary omitted them. "
                     "For capital allocation, assess disclosed investment, financing, distributions and "
                     "outcomes rather than demanding proof of a manager's personal honesty. Supplied "
                     "financial rows and quality warnings take precedence over a research summary's "
