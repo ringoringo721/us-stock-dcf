@@ -691,6 +691,9 @@
     #cmp-peers-table td.peer-sticky-col:not([colspan]) { white-space: normal; text-align: left; }
     #cmp-peers-table .th-cell-wrap { min-width: 0 !important; white-space: normal !important; }
     #cmp-peers-table .peer-company-name { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; overflow-wrap: anywhere; }
+    #cmp-peers-table .peer-company-link { color: inherit; text-decoration: none; cursor: pointer; }
+    #cmp-peers-table .peer-company-link:hover, #cmp-peers-table .peer-company-link:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+    #cmp-peers-table .peer-company-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
     @media (max-width: 600px) {
       .historical-ratio-table .fcf-trend-col { position: static; }
       .historical-ratio-table .table-sticky-col { width: 150px; min-width: 150px; max-width: 150px; white-space: normal; }
@@ -5715,9 +5718,9 @@
                     <th class="${isCurrent ? 'peer-current' : ''}" data-peer-ticker="${c.ticker}" data-peer-basis="${isCurrent ? 'current' : c.peerBasis}">
                       <div class="th-cell-wrap">
                         <div>
-                          <span style="font-size: 14px; font-weight: 800; color: ${isCurrent ? 'var(--accent)' : 'var(--text)'};">${c.ticker}</span>${isCurrent ? `<span class="badge" style="background:rgba(56,189,248,0.25); color:var(--accent); font-size:10px; margin-left:4px;">${currentTag}</span>` : ''}
+                          <a class="peer-company-link" href="#${encodeURIComponent(c.ticker)}/profile" data-peer-profile="${escapeAttribute(c.ticker)}" style="font-size: 14px; font-weight: 800; color: ${isCurrent ? 'var(--accent)' : 'var(--text)'};">${escapeAttribute(c.ticker)}</a>${isCurrent ? `<span class="badge" style="background:rgba(56,189,248,0.25); color:var(--accent); font-size:10px; margin-left:4px;">${currentTag}</span>` : ''}
                         </div>
-                        <div class="peer-company-name">${getStockDisplayName(c)}</div>
+                        <a class="peer-company-name peer-company-link" href="#${encodeURIComponent(c.ticker)}/profile" data-peer-profile="${escapeAttribute(c.ticker)}">${escapeAttribute(getStockDisplayName(c))}</a>
                         ${isCurrent ? '' : `<span class="th-period-subdate">${labels[`analysis_peer_${c.peerBasis}`]}</span>`}
                         <span class="th-period-subdate">(${dateStr})</span>
                       </div>
@@ -5763,6 +5766,13 @@
     tableHtml += `</tbody></table></div></div>`;
     container.innerHTML = tableHtml;
     container.querySelectorAll('.peer-company-name').forEach(label => { label.title = label.textContent; });
+    container.querySelectorAll('a[data-peer-profile]').forEach(link => {
+      link.addEventListener('click', event => {
+        if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        openCompanyProfile(link.dataset.peerProfile);
+      });
+    });
 
     // 6. 綁定滑鼠拖曳左右滑動
     const peerWrapper = container.querySelector('.table-scroll-wrapper');

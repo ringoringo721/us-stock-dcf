@@ -82,7 +82,10 @@ programs, raw source captures and private rating inputs are not public assets.
 `vercel.json` makes browsers revalidate data rather than retaining stale scores.
 
 The shared interface has a US/HKEX selector, the same 36 screener columns and all
-nine company subpages. The automatic site fair-value and its market-premium
+nine company subpages. Company names and stock codes in peer-comparison headers
+link to that stock's company profile, including lazily loaded HK listings.
+Keyboard activation and browser Back are supported.
+The automatic site fair-value and its market-premium
 columns are omitted from every screener view in both markets; individual
 valuation models, FMP reference prices and saved target prices remain available.
 The HKEX universe contains all **95 Hang Seng Index
