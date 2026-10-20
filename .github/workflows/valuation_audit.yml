@@ -173,7 +173,10 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Refresh dated historical HKD FX observations in the isolated runner
         if: inputs.moat_only != true
-        run: node scripts/refresh_usd_rates.cjs --hkd --all-hkd-currencies
+        run: |
+          node scripts/refresh_usd_rates.cjs --hkd --all-hkd-currencies
+          mkdir -p hkex-data-output/cache/fx
+          cp cache/fx/hkd_rates.json hkex-data-output/cache/fx/hkd_rates.json
       - name: Reuse the exact captured FX basis for ratings-only retries
         if: inputs.moat_only == true
         run: cp hkex-data-output/cache/fx/hkd_rates.json cache/fx/hkd_rates.json
