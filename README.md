@@ -47,8 +47,16 @@ endpoints from the same batch of a previous run when captured within seven days.
 For ratings-only recovery, also set `moat_only`; this requires a saved run ID
 and reuses its financials, model data, attributable research and exact captured
 FX basis rather than recapturing market data. `hk_batches` restricts recovery
-to selected batch indices. Research and assessments checkpoint each completed
+to selected batch indices. The optional `symbols` input narrows those batches
+to at most twenty additional company tickers while retaining their original
+artifact batch indices; unknown, reviewed or out-of-selection tickers are rejected.
+Research and assessments checkpoint each completed
 company atomically, so a later timeout cannot erase the earlier results.
+Digit-bearing product codes and similar rejected narrative terms receive a
+bounded, prose-only correction request rather than requiring an otherwise
+supported report to be regenerated wholesale. Corrections cannot change scores,
+null assessments or citations, and the complete report must still pass the
+unchanged evidence and qualitative-only validation before it is saved.
 Recovery also reuses a newer saved company assessment when its financial evidence
 hash still matches, retaining its original assessment date and business research
 instead of replacing it with an older resumed artifact or paying to recreate it.

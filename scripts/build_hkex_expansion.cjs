@@ -15,16 +15,28 @@ function write(directory, file, data, prefix = '') {
   fs.mkdirSync(path.dirname(target), { recursive: true });
   fs.writeFileSync(target, prefix + JSON.stringify(data) + (prefix ? ';' : '') + '\n');
 }
-function matrix(size = 20, selected = '') {
+function matrix(size = 20, selected = '', symbols = '') {
   if (!Number.isInteger(size) || size < 1 || size > 20) throw new Error('Batch size must be 1-20');
   const listed = catalogue.stocks.filter(item => !reviewed.has(item.ticker));
   const batches = Array.from({ length: Math.ceil(listed.length / size) }, (_, batch) =>
     ({ batch, symbols: listed.slice(batch * size, (batch + 1) * size).map(item => item.ticker).join(',') }));
-  if (!selected) return batches;
-  const wanted = selected.split(',').map(value => Number(value.trim()));
-  if (wanted.some(value => !Number.isInteger(value) || value < 0 || value >= batches.length)
-      || selected.split(',').some(value => !value.trim())) throw new Error('Invalid selected HKEX batch');
-  return batches.filter(item => wanted.includes(item.batch));
+  let result = batches;
+  if (selected) {
+    const wanted = selected.split(',').map(value => Number(value.trim()));
+    if (wanted.some(value => !Number.isInteger(value) || value < 0 || value >= batches.length)
+        || selected.split(',').some(value => !value.trim())) throw new Error('Invalid selected HKEX batch');
+    result = result.filter(item => wanted.includes(item.batch));
+  }
+  if (symbols) {
+    const wanted = symbols.split(',').map(value => value.trim());
+    const available = new Set(result.flatMap(item => item.symbols.split(',')));
+    if (wanted.length > 20 || new Set(wanted).size !== wanted.length
+        || wanted.some(ticker => !available.has(ticker))) throw new Error('Invalid selected HKEX symbols');
+    result = result.map(item => ({ ...item,
+      symbols: item.symbols.split(',').filter(ticker => wanted.includes(ticker)).join(',')
+    })).filter(item => item.symbols);
+  }
+  return result;
 }
 function preferSavedMoat(stock, fingerprint, previous) {
   const source = stock?.ratingSources?.moat;
@@ -267,7 +279,8 @@ function integrate(input, output = root) {
 }
 if (require.main === module) {
   const [command, input, output, supplied, reportsFile] = process.argv.slice(2);
-  if (command === 'matrix') console.log(JSON.stringify({ include: matrix(20, process.env.HK_EXPANSION_BATCHES || '') }));
+  if (command === 'matrix') console.log(JSON.stringify({ include: matrix(20,
+    process.env.HK_EXPANSION_BATCHES || '', process.env.HK_EXPANSION_SYMBOLS || '') }));
   else if (command === 'build') build(input, output, supplied.split(','), reportsFile && fs.existsSync(reportsFile) ? read(reportsFile) : {});
   else if (command === 'package') packageResults(input);
   else if (command === 'integrate') console.log(`Integrated ${integrate(input, output)} additional company outcomes without replacing reviewed stocks.`);

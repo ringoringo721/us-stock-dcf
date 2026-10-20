@@ -35,6 +35,19 @@ test('bounded matrix covers every additional listing exactly once and never over
   assert.throws(() => matrix(20, '134'), /Invalid selected/);
   assert.throws(() => matrix(20, '1,,3'), /Invalid selected/);
 });
+test('targeted recovery preserves original artifact batch identities and selects only requested companies', () => {
+  const batches = matrix();
+  const first = batches[1].symbols.split(',')[0], second = batches[3].symbols.split(',')[0];
+  const expected = [{ batch: 1, symbols: first }, { batch: 3, symbols: second }];
+  assert.deepEqual(matrix(20, '', `${first}, ${second}`), expected);
+  assert.deepEqual(matrix(20, '1,2,3', `${first},${second}`), expected);
+  for (const symbols of [`${first},`, `${first},${first}`, '0005.HK', '99999.HK']) {
+    assert.throws(() => matrix(20, '', symbols), /Invalid selected HKEX symbols/);
+  }
+  assert.throws(() => matrix(20, '1', second), /Invalid selected HKEX symbols/);
+  assert.throws(() => matrix(20, '', batches.slice(0, 2).flatMap(item => item.symbols.split(',')).slice(0, 21).join(',')),
+    /Invalid selected HKEX symbols/);
+});
 test('ratings recovery reuses newer verified assessments without inventing update dates or changing evidence', () => {
   const previous = { evidenceHash: 'same', updatedAt: '2026-10-19T00:00:00Z', report: { previous: true } };
   const stock = { moat: { current: true }, ratingSources: { moat: {

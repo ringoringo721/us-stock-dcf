@@ -11,6 +11,7 @@ from scripts.refresh_hkex_moat import (
     ASSESSMENT_POLICY, DIMENSIONS, MoatReportValidationError, create_client,
     needs_refresh, validate_report, validation_feedback, evidence_context, write_json_checkpoint, main,
     below_moat_market_cap,
+    repair_narratives,
 )
 
 
@@ -190,6 +191,56 @@ class MoatEvidenceTests(unittest.TestCase):
     def test_external_error_strings_never_enter_retry_prompts(self):
         self.assertEqual(validation_feedback(ValueError("https://example.invalid/?key=private-token")), "")
         self.assertEqual(validation_feedback(TypeError("private-token")), "")
+
+    def test_narrative_correction_changes_only_rejected_prose_and_preserves_scores_and_citations(self):
+        report = self.report()
+        report["m1_brand_pricing"]["comment_en"] = "Its 5G products face competition."
+        report["m3_high_switching_costs"]["score"] = None
+        report["overall_moat_verdict_en"] = "The B2B platform has limited protection."
+        before = json.loads(json.dumps(report))
+        rewrite = Mock(return_value={
+            "m1_brand_pricing.comment_en": "Its next-generation products face competition.",
+            "overall_moat_verdict_en": "The business-facing platform has limited protection.",
+        })
+        corrected = repair_narratives(report, rewrite)
+        rewrite.assert_called_once_with({
+            "m1_brand_pricing.comment_en": before["m1_brand_pricing"]["comment_en"],
+            "overall_moat_verdict_en": before["overall_moat_verdict_en"],
+        })
+        self.assertEqual(report, before)
+        for name in DIMENSIONS:
+            self.assertEqual(corrected[name]["score"], before[name]["score"])
+            self.assertEqual(corrected[name]["sources"], before[name]["sources"])
+            self.assertEqual(corrected[name]["comment_zh"], before[name]["comment_zh"])
+        self.assertEqual(validate_report(corrected, "0700.HK", ["profile"]), corrected)
+
+    def test_narrative_correction_does_not_call_model_for_valid_reports(self):
+        rewrite = Mock()
+        report = self.report()
+        self.assertIs(repair_narratives(report, rewrite), report)
+        rewrite.assert_not_called()
+
+    def test_narrative_correction_rejects_missing_extra_or_invalid_fields(self):
+        report = self.report()
+        report["m1_brand_pricing"]["comment_en"] = "A 5G network."
+        field = "m1_brand_pricing.comment_en"
+        for replacement in [None, {}, {field: "Qualitative.", "score": 10},
+                            {field: ""}, {field: True}, {field: "A 6G network."},
+                            {field: "Cash flow of HKD billion."}]:
+            with self.subTest(replacement=replacement), self.assertRaises(MoatReportValidationError):
+                repair_narratives(report, Mock(return_value=replacement))
+        self.assertEqual(report[field.split(".")[0]]["comment_en"], "A 5G network.")
+
+    def test_narrative_correction_does_not_bypass_score_or_citation_validation(self):
+        for key, value in [("score", 11), ("sources", ["invented-evidence"])]:
+            report = self.report()
+            report["m1_brand_pricing"][key] = value
+            report["m1_brand_pricing"]["comment_en"] = "A 5G network."
+            corrected = repair_narratives(report, Mock(return_value={
+                "m1_brand_pricing.comment_en": "A next-generation network.",
+            }))
+            with self.assertRaises(MoatReportValidationError):
+                validate_report(corrected, "0700.HK", ["profile"])
 
 
 if __name__ == "__main__":

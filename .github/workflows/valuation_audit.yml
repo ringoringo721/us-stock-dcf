@@ -141,6 +141,7 @@ jobs:
       - id: plan
         env:
           HK_EXPANSION_BATCHES: ${{ inputs.hk_batches }}
+          HK_EXPANSION_SYMBOLS: ${{ inputs.symbols }}
           MOAT_ONLY: ${{ inputs.moat_only }}
           RESUME_RUN_ID: ${{ inputs.resume_run_id }}
         run: |
@@ -222,7 +223,7 @@ jobs:
         env:
           GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
           GOOGLE_CLOUD_LOCATION: global
-          MOAT_REQUEST_TIMEOUT_MS: '120000'
+          MOAT_REQUEST_TIMEOUT_MS: '180000'
         run: python -u scripts/refresh_hkex_moat.py hkex-data-output/researched-inputs.json hkex-data-output/moat-reports.json --retry-incomplete
       - name: Package real coverage and explicit per-company limitations
         if: always()
