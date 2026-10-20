@@ -16,7 +16,17 @@ membership/backtest feed. FMP sector/industry enrichment is not official HSICS.
 The previously reviewed 114-company dataset and its corrections remain unchanged.
 Additional companies start with explicit unavailable financials, prices and ratings,
 not zero values or template scores. The screener searches the entire catalogue
-but initially renders 100 rows, with a show-more control. Completed company
+but initially renders the 100 highest available market caps, with missing market
+caps last. Both show-more and one-click show-all controls are available; changing
+filters or returning to HKEX restores the initial window. The compact catalogue
+still loads upfront; the window reduces rendered rows, not the catalogue download.
+Chinese names use the [official HKEX Chinese securities list](https://www.hkex.com.hk/chi/services/trading/securities/securitieslists/ListOfSecurities_c.xlsx),
+matched by stock code, ISIN and trading currency. Names without an ISIN require
+same-date lists. The Chinese workbook has separate source/date/hash metadata and
+does not change the financial-evidence identity or original English universe.
+To supplement names without recapturing financials, run
+`python scripts/import_hkex_universe.py --chinese-names-only --chinese-workbook <workbook>`.
+Completed company
 snapshots load on demand from `cache/hk_companies/`; they do not duplicate all
 financial histories in the initial JavaScript asset.
 New-company foreign statements reference content-addressed historical HKD FX
@@ -39,6 +49,9 @@ and reuses its financials, model data, attributable research and exact captured
 FX basis rather than recapturing market data. `hk_batches` restricts recovery
 to selected batch indices. Research and assessments checkpoint each completed
 company atomically, so a later timeout cannot erase the earlier results.
+Recovery also reuses a newer saved company assessment when its financial evidence
+hash still matches, retaining its original assessment date and business research
+instead of replacing it with an older resumed artifact or paying to recreate it.
 Expansion imports also check fiscal closing-date changes before treating a
 provider FY row as twelve months or deriving H2. Conflicting annual/interim
 dates remain flagged; they do not generate duplicate quarterly observations.
@@ -48,6 +61,18 @@ Download the artifacts to an ignored directory and explicitly integrate them wit
 The importer validates universe/source and company identity, refuses to overwrite
 the reviewed 114, and preserves newer snapshots. Build and review before publishing;
 cloud artifacts alone do not update the live site.
+Known unfinished reassessment/result-import batches are labeled separately from
+completed assessments. This status does not supply missing scores or comments.
+For HK stocks with a known positive market capitalisation **below HKD 1 billion**,
+moat displays read **N/A - 尚無評分** (English: **N/A - Not assessed**).
+The screener, peer comparisons and rating page suppress their scores and business
+commentary, including previously saved assessments. Historical source records
+remain stored; PF scores and other financial calculations are unaffected.
+New research and scoring inputs carry an HKD-million market-cap screen outside
+the financial-evidence hash, and both workers skip these companies even on forced
+refresh. Exactly HKD 1 billion remains eligible. Unknown/invalid market caps
+and non-HKD amounts are not treated as zero or assumed below the threshold.
+This is a site screening rule, not a factual claim about Buffett's criteria.
 
 ## Hang Seng Index and gaming extension
 

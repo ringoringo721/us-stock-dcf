@@ -11,6 +11,7 @@ import xml.etree.ElementTree as ET
 import zipfile
 
 SOURCE_URL = "https://www.hkex.com.hk/eng/services/trading/securities/securitieslists/ListOfSecurities.xlsx"
+CHINESE_SOURCE_URL = "https://www.hkex.com.hk/chi/services/trading/securities/securitieslists/ListOfSecurities_c.xlsx"
 ALLOCATION_URL = "https://www.hkex.com.hk/-/media/HKEX-Market/Products/Securities/Stock-Code-Allocation-Plan/scap.pdf"
 NS = {"m": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
 SUBCATEGORIES = {"Equity Securities (Main Board)", "Equity Securities (GEM)", "Investment Companies"}
@@ -83,12 +84,60 @@ def select_listings(rows):
     return as_of, result, dict(excluded), counters
 
 
+def supplement_chinese_names(catalogue, rows, source):
+    if len(rows) < 3 or rows[2].get("A") != "\u80a1\u4efd\u4ee3\u865f" or rows[2].get("B") != "\u80a1\u4efd\u540d\u7a31":
+        raise ValueError("Unrecognized HKEX Chinese securities workbook schema")
+    match = re.fullmatch(r"\u622a \u81f3 (\d{2})/(\d{2})/(\d{4})", rows[1].get("A", ""))
+    if not match:
+        raise ValueError("HKEX Chinese list date is missing")
+    as_of = datetime(int(match[3]), int(match[2]), int(match[1])).date().isoformat()
+    by_code = {}
+    for row in rows[3:]:
+        if not re.fullmatch(r"\d{5}", row.get("A", "")):
+            continue
+        if row["A"] in by_code:
+            raise ValueError("Duplicate HKEX Chinese stock code")
+        by_code[row["A"]] = row
+    missing = []
+    for stock in catalogue["stocks"]:
+        row = by_code.get(stock["displayCode"])
+        if not row or not row.get("B"):
+            missing.append(stock["ticker"])
+            continue
+        if row.get("Q") != stock["tradingCurrency"] or (row.get("F") or None) != stock["isin"]:
+            raise ValueError(f"HKEX Chinese listing identity mismatch: {stock['ticker']}")
+        if not stock["isin"] and as_of != catalogue["source"]["asOf"]:
+            missing.append(stock["ticker"])
+            continue
+        stock["name_zh"] = row["B"]
+    catalogue["chineseNameSource"] = {**source, "provider": "HKEX official Chinese security short names",
+                                     "asOf": as_of, "unmatchedTickers": missing}
+    return len(catalogue["stocks"]) - len(missing)
+
+
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("workbook", type=Path)
+    parser.add_argument("workbook", type=Path, nargs="?")
+    parser.add_argument("--chinese-workbook", type=Path)
+    parser.add_argument("--chinese-names-only", action="store_true")
     parser.add_argument("--screener", type=Path)
     parser.add_argument("--output", type=Path, default=Path("cache/hkex_universe.json"))
     args = parser.parse_args()
+    if args.chinese_names_only:
+        if not args.chinese_workbook:
+            parser.error("--chinese-names-only requires --chinese-workbook")
+        result = json.loads(args.output.read_text(encoding="utf-8"))
+        count = supplement_chinese_names(result, workbook_rows(args.chinese_workbook), {
+            "url": CHINESE_SOURCE_URL, "retrievedAt": datetime.now(timezone.utc).isoformat(),
+            "sha256": hashlib.sha256(args.chinese_workbook.read_bytes()).hexdigest(),
+        })
+        args.output.write_text(json.dumps(result, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
+        Path("hkex_universe_data.js").write_text(
+            "window.HKEX_LISTINGS = " + json.dumps(result, ensure_ascii=False, separators=(",", ":")) + ";\n", encoding="utf-8")
+        print(json.dumps({"chineseNames": count, "listDate": result["chineseNameSource"]["asOf"]}))
+        return
+    if not args.workbook:
+        parser.error("An English workbook is required when not supplementing Chinese names")
     as_of, stocks, excluded, counters = select_listings(workbook_rows(args.workbook))
     profiles = {}
     if args.screener:
@@ -110,6 +159,11 @@ def main():
         "scope": "Main Board/GEM ordinary equities, listed investment companies and REITs; one counter per verified ISIN",
         "excluded": excluded, "additionalCounters": counters, "stocks": stocks,
     }
+    if args.chinese_workbook:
+        supplement_chinese_names(result, workbook_rows(args.chinese_workbook), {
+            "url": CHINESE_SOURCE_URL, "retrievedAt": datetime.now(timezone.utc).isoformat(),
+            "sha256": hashlib.sha256(args.chinese_workbook.read_bytes()).hexdigest(),
+        })
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
     Path("hkex_universe_data.js").write_text(

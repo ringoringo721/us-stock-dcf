@@ -26,6 +26,15 @@ function matrix(size = 20, selected = '') {
       || selected.split(',').some(value => !value.trim())) throw new Error('Invalid selected HKEX batch');
   return batches.filter(item => wanted.includes(item.batch));
 }
+function preferSavedMoat(stock, fingerprint, previous) {
+  const source = stock?.ratingSources?.moat;
+  if (!stock?.moat || source?.reason === 'staleEvidence' || source?.evidenceHash !== fingerprint
+      || source.currentEvidenceHash !== fingerprint || !Number.isFinite(Date.parse(source.updatedAt))) return previous;
+  if (previous?.report && previous.evidenceHash === fingerprint
+      && Date.parse(previous.updatedAt) >= Date.parse(source.updatedAt)) return previous;
+  const { evidenceHash, updatedAt, model, assessmentPolicy, provider, businessResearch, lastError } = source;
+  return { evidenceHash, updatedAt, model, assessmentPolicy, provider, businessResearch, lastError, report: stock.moat };
+}
 function partial(item, original, error, reports, treasury, capturedRates = rates) {
   const evidence = structuredClone(original), sourceWarnings = [];
   for (const name of ['income', 'balance', 'cashflow', 'annual_income', 'annual_balance', 'annual_cashflow']) {
@@ -99,17 +108,22 @@ function build(input, output, symbols, reports = {}) {
         console.error(`${ticker}: incomplete company snapshot: ${error.message}`);
         result = partial(item, evidence, error, reports, treasury, capturedRates);
       }
-      const candidate = reports[ticker];
-      if (!result.stock.moat && candidate?.evidenceHash === result.fingerprint && candidate.report) {
+      const savedFile = path.join(root, 'cache', 'hk_companies', `${ticker}.json`);
+      const saved = fs.existsSync(savedFile) ? read(savedFile) : null;
+      if (saved && (saved.ticker !== ticker || saved.stock?.ticker !== ticker)) throw new Error('Invalid saved moat company identity');
+      const candidate = preferSavedMoat(saved?.stock, result.fingerprint, reports[ticker]);
+      if (candidate?.evidenceHash === result.fingerprint && candidate.report) {
         result.stock.moat = candidate.report;
         result.stock.description_zh = candidate.report.description_zh;
-        result.stock.ratingSources.moat = { ...candidate, report: undefined, reason: null,
+        result.stock.ratingSources.moat = { ...result.stock.ratingSources.moat, ...candidate, report: undefined, reason: null,
           currentEvidenceHash: result.fingerprint, checkedAt: evidence.capturedAt };
       }
       result.stock.expansion = { status: 'available', capturedAt: evidence.capturedAt,
         reason: result.limitation || null, detailPath: `cache/hk_companies/${ticker}.json` };
       if (result.moatInput) inputs.push({ ...result.moatInput, evidenceHash: result.fingerprint,
-        existing: candidate || null, ...(savedResearch[ticker] ? { businessResearch: savedResearch[ticker] } : {}) });
+        moatScreen: { calculationCurrency: result.stock.calculationCurrency, marketCapMillions: result.stock.mcap },
+        existing: candidate || null, ...((candidate?.businessResearch || savedResearch[ticker])
+          ? { businessResearch: candidate?.businessResearch || savedResearch[ticker] } : {}) });
       market[ticker] = result.stock;
       write(output, `cache/financials/${ticker}_statements_v2.json`, result.statements);
       write(output, `cache/price_charts/${ticker}.json`, result.chart);
@@ -259,4 +273,4 @@ if (require.main === module) {
   else if (command === 'integrate') console.log(`Integrated ${integrate(input, output)} additional company outcomes without replacing reviewed stocks.`);
   else throw new Error('Expected matrix, build, package or integrate');
 }
-module.exports = { matrix, build, packageResults, integrate };
+module.exports = { matrix, build, packageResults, integrate, preferSavedMoat };

@@ -122,8 +122,39 @@ function expectedAnnualCells(stock) {
     await page.waitForFunction(() => isAppReady);
     assert.equal(await page.locator('#screener-tbody tr').count(), 100);
     assert.equal(await page.locator('#stat-total').innerText(), '2787');
+    assert.equal(await page.evaluate(() => sortField), 'mcap');
+    assert.equal(await page.evaluate(() => sortAsc), false);
+    const top100 = await page.evaluate(() => Object.entries(stockUniverse)
+      .sort((a, b) => (b[1].mcap ?? -Infinity) - (a[1].mcap ?? -Infinity))
+      .slice(0, 100).map(([ticker]) => ticker));
+    assert.deepEqual(await page.locator('#screener-tbody tr').evaluateAll(rows =>
+      rows.map(row => row.cells[0].textContent.match(/\b\d{4,5}\.HK\b/)[0])), top100);
     await page.locator('#screener-more').click();
     assert.equal(await page.locator('#screener-tbody tr').count(), 200);
+    await page.evaluate(() => applyLanguage('en'));
+    assert.match(await page.locator('#screener-all').innerText(), /Show all 2787 stocks/);
+    await page.evaluate(() => applyLanguage('zh'));
+    assert.match(await page.locator('#screener-all').innerText(), /顯示全部 2787 家/);
+    const names = await page.evaluate(() => Object.fromEntries(Object.entries(stockUniverse)
+      .map(([ticker, stock]) => [ticker, getStockDisplayName(stock)])));
+    for (const listing of catalogue.stocks) {
+      assert.equal(names[listing.ticker], market[listing.ticker]?.name || listing.name_zh,
+        `${listing.ticker}: every HK listing has its reviewed or official Chinese-list name`);
+    }
+    await page.locator('#screener-all').click();
+    assert.equal(await page.locator('#screener-tbody tr').count(), 2787);
+    assert.equal(await page.locator('#screener-all').isVisible(), false);
+    await page.evaluate(() => {
+      document.getElementById('search-ticker').value = '上美';
+      renderScreenerTable();
+    });
+    assert.equal(await page.locator('#screener-tbody tr').count(), 1);
+    assert.match(await page.locator('#screener-tbody').innerText(), /2145\.HK[\s\S]*上美股份/);
+    await page.evaluate(() => {
+      document.getElementById('search-ticker').value = '';
+      renderScreenerTable();
+    });
+    assert.equal(await page.locator('#screener-tbody tr').count(), 100);
     await page.evaluate(() => {
       document.getElementById('search-ticker').value = '87001';
       renderScreenerTable();
@@ -269,7 +300,12 @@ function expectedAnnualCells(stock) {
           }
           await page.selectOption('#statement-type', 'income');
         }
-        if (tab === 'rating' && stock.ratingSources?.moat?.reason === 'staleEvidence') {
+        if (tab === 'rating' && HkUniverse.belowMoatMarketCap(stock)) {
+          assert.equal(await page.locator('#moat-total-score').innerText(), 'N/A - Not assessed', ticker);
+          assert.equal(await page.locator('#moat-previous-assessment').count(), 0, ticker);
+          assert.equal(await page.locator('#moat-research-note').count(), 0, ticker);
+          assert.ok((await page.locator('.moat-comment-cell').allTextContents()).every(text => !text.trim()), ticker);
+        } else if (tab === 'rating' && stock.ratingSources?.moat?.reason === 'staleEvidence') {
           assert.equal(await page.locator('#moat-total-score').innerText(), 'N/A', ticker);
           assert.match(await page.locator('#moat-updated-date').innerText(), /Archived assessment; not refreshed/);
           assert.equal(await page.locator('#moat-previous-assessment').count(), stock.moat ? 1 : 0);
@@ -305,7 +341,7 @@ function expectedAnnualCells(stock) {
     }
     const expansionSamples = await page.evaluate(() => {
       const stocks = Object.values(stockUniverse).filter(stock => stock.expansion?.status === 'available');
-      return [...new Set(['0004.HK', '0122.HK', '1069.HK', '87001.HK',
+      return [...new Set(['0004.HK', '0122.HK', '1069.HK', '2145.HK', '87001.HK',
         stocks.find(stock => stock.statementFrequencies?.income === 'annual')?.ticker,
         stocks.find(stock => !stock.price)?.ticker,
         stocks.find(stock => stock.ratingSources?.moat?.reason === 'staleEvidence')?.ticker,
@@ -324,6 +360,10 @@ function expectedAnnualCells(stock) {
         await page.waitForFunction(ticker => stockUniverse[ticker]?.expansion?.status === 'loaded'
           && stockUniverse[ticker].companyDataLoaded
           && document.getElementById('profile-overview-status').textContent.startsWith(ticker), ticker);
+        if (ticker === '2145.HK' && language === 'zh') {
+          assert.equal(await page.evaluate(() => getStockDisplayName(stockUniverse['2145.HK'])), '上美股份');
+          assert.match(await page.locator('#cmp-full-name').innerText(), /^上美股份 \(/);
+        }
         assert.equal(await page.locator('.sub-tab-btn').count(), 9, ticker);
         assert.equal(await page.locator('#profile-quote-price').innerText(), stock.price === null ? 'N/A'
           : `HKD ${stock.price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`, ticker);
@@ -333,11 +373,18 @@ function expectedAnnualCells(stock) {
         for (const tab of ['financials', 'ratios', 'peers', 'charts', 'rating', 'valuation', 'news', 'chart']) {
           await page.evaluate(tab => switchSubPage(tab), tab);
           if (tab === 'rating') {
-            assert.equal(await page.locator('#moat-total-score').innerText(), expectedMoat, ticker);
+            const excluded = HkUniverse.belowMoatMarketCap(stock);
+            assert.equal(await page.locator('#moat-total-score').innerText(), excluded
+              ? language === 'zh' ? 'N/A - 尚無評分' : 'N/A - Not assessed' : expectedMoat, ticker);
             const fScore = Number.isInteger(stock.f_score)
               ? `${stock.f_score} / ${stock.ratingSources.fScore.applicableTests || 9}${language === 'zh' ? ' 分' : ''}` : 'N/A';
             assert.equal(await page.locator('#fsc-total-score').innerText(), fScore, ticker);
-            if (fresh && stock.moat) assert.ok((await page.locator('#moat-overall-text').innerText())
+            if (excluded) {
+              assert.equal(await page.locator('#moat-previous-assessment').count(), 0);
+              assert.equal(await page.locator('#moat-research-note').count(), 0);
+              assert.ok((await page.locator('.moat-comment-cell').allTextContents()).every(text => !text.trim()));
+            }
+            if (!excluded && fresh && stock.moat) assert.ok((await page.locator('#moat-overall-text').innerText())
               .includes(stock.moat[`overall_moat_verdict_${language}`]), `${ticker}: complete localized research is lazy-loaded`);
           }
         }
@@ -460,6 +507,34 @@ function expectedAnnualCells(stock) {
           `${row.ticker}: US peer growth unchanged`);
         assert.equal(cell.value, available ? String(record.value) : '');
       }
+    }
+    await page.selectOption('#market-select', 'HKEX');
+    await page.waitForFunction(() => typeof isAppReady !== 'undefined' && isAppReady && MarketContext.market === 'HKEX');
+    assert.equal(await page.evaluate(() => sortField), 'mcap');
+    assert.equal(await page.evaluate(() => sortAsc), false);
+    assert.equal(await page.locator('#screener-tbody tr').count(), 100);
+    for (const language of ['zh', 'en']) {
+      const results = await page.evaluate(language => {
+        applyLanguage(language);
+        const progress = window.HKEX_EXPANSION.moatProgress;
+        try {
+          window.HKEX_EXPANSION.moatProgress = { pending: { '2145.HK': true } };
+          const missing = evaluateMoat({ ticker: '2145.HK', moat: null });
+          const complete = evaluateMoat(stockUniverse['0027.HK'], '2145.HK');
+          window.HKEX_EXPANSION.moatProgress = { pending: {} };
+          const unavailable = evaluateMoat({ ticker: '2145.HK', moat: null });
+          return { missing, complete, unavailable };
+        } finally {
+          window.HKEX_EXPANSION.moatProgress = progress;
+        }
+      }, language);
+      const pendingText = language === 'zh' ? /補評分或成果匯入尚未完成/ : /Reassessment or result import is not finished/;
+      assert.equal(results.missing.total, null);
+      assert.match(results.missing.comment, pendingText);
+      assert.ok(Number.isFinite(results.complete.total));
+      assert.doesNotMatch(results.complete.comment, pendingText);
+      assert.equal(results.unavailable.total, null);
+      assert.doesNotMatch(results.unavailable.comment, pendingText);
     }
     assert.deepEqual(errors, []);
     assert.deepEqual(failures, []);

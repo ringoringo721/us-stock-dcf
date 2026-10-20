@@ -4,6 +4,7 @@ import argparse
 from datetime import datetime, timezone
 import hashlib
 import json
+import math
 import os
 from pathlib import Path
 import re
@@ -38,6 +39,14 @@ FACT_FIELDS = (
 
 class MoatReportValidationError(ValueError):
     pass
+
+
+def below_moat_market_cap(record):
+    screen = record.get("moatScreen") or {}
+    value = screen.get("marketCapMillions")
+    return (bool(re.fullmatch(r"\d{4,5}\.HK", record.get("ticker", "")))
+            and screen.get("calculationCurrency") == "HKD"
+            and type(value) in (int, float) and math.isfinite(value) and 0 < value < 1000)
 
 
 def validation_feedback(error):
@@ -196,6 +205,8 @@ def validate_narrative(text):
 
 
 def needs_refresh(record, retry_incomplete=False, force=False):
+    if below_moat_market_cap(record):
+        return False
     existing = record.get("existing") or {}
     report = existing.get("report") or {}
     research = business_research(record)
@@ -260,6 +271,9 @@ def main():
     reports.update({row["ticker"]: row["existing"] for row in records if row.get("existing")})
     write_json_checkpoint(args.output, reports)
     pending = [row for row in records if needs_refresh(row, args.retry_incomplete, args.force)]
+    excluded = sum(below_moat_market_cap(row) for row in records)
+    if excluded:
+        print(f"Moat market-cap screen: {excluded} below HKD 1 billion; no assessment requested.")
     updated, failed = 0, 0
     client = create_client() if pending else None
     if pending and client is None:
@@ -384,7 +398,7 @@ def main():
                 write_json_checkpoint(args.output, reports)
                 print(f"::warning::{record['ticker']}: moat update failed ({error_code}); previous dated evidence retained, or N/A.")
     write_json_checkpoint(args.output, reports)
-    print(f"Moat evidence refresh: {updated} updated, {len(records) - len(pending)} unchanged, "
+    print(f"Moat evidence refresh: {updated} updated, {len(records) - len(pending) - excluded} unchanged, {excluded} excluded, "
           f"{failed} failed, {len(pending) if client is None else 0} not run (missing credentials).")
     if failed or pending and client is None:
         raise SystemExit(1)

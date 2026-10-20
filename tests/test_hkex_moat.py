@@ -10,10 +10,38 @@ from unittest.mock import Mock, patch
 from scripts.refresh_hkex_moat import (
     ASSESSMENT_POLICY, DIMENSIONS, MoatReportValidationError, create_client,
     needs_refresh, validate_report, validation_feedback, evidence_context, write_json_checkpoint, main,
+    below_moat_market_cap,
 )
 
 
 class MoatEvidenceTests(unittest.TestCase):
+    def test_market_cap_screen_uses_hkd_millions_and_preserves_unknowns(self):
+        record = {"ticker": "0004.HK", "evidenceHash": "unchanged",
+                  "moatScreen": {"calculationCurrency": "HKD", "marketCapMillions": 999.999}}
+        self.assertTrue(below_moat_market_cap(record))
+        self.assertFalse(needs_refresh(record, retry_incomplete=True, force=True))
+        for amount in [1000, 1000.001, None, 0, -1, True, "999", float("nan"), float("inf")]:
+            record["moatScreen"]["marketCapMillions"] = amount
+            self.assertFalse(below_moat_market_cap(record), repr(amount))
+        record["moatScreen"]["marketCapMillions"] = 750
+        self.assertTrue(below_moat_market_cap(record))
+        record["moatScreen"] = {"calculationCurrency": "USD", "marketCapMillions": 100}
+        self.assertFalse(below_moat_market_cap(record))
+        self.assertFalse(below_moat_market_cap({"ticker": "0004.HK"}))
+
+    def test_excluded_companies_make_no_client_call_and_preserve_stored_reports(self):
+        with tempfile.TemporaryDirectory() as directory:
+            source, output = Path(directory) / "inputs.json", Path(directory) / "reports.json"
+            stored = {"evidenceHash": "old", "report": {"archived": True}}
+            record = {"ticker": "0004.HK", "evidenceHash": "new", "existing": stored,
+                      "moatScreen": {"calculationCurrency": "HKD", "marketCapMillions": 100}}
+            source.write_text(json.dumps([record]), encoding="utf-8")
+            with patch.object(sys, "argv", ["refresh_hkex_moat.py", str(source), str(output), "--force"]), \
+                    patch("scripts.refresh_hkex_moat.create_client") as client:
+                main()
+            client.assert_not_called()
+            self.assertEqual(json.loads(output.read_text(encoding="utf-8"))["0004.HK"], stored)
+
     def test_legacy_annual_only_inputs_without_currency_metadata_remain_assessable(self):
         record = {"ticker": "0004.HK", "profile": {"companyName": "Issuer"}, "fScore": {},
                   "statements": {"annual": {"income": [], "balance": [], "cashflow": []},

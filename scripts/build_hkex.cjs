@@ -818,7 +818,9 @@ function compile(directory, output, rates, reports = {}, previous = {}, treasury
     fcff.outcomes[status] = (fcff.outcomes[status] || 0) + 1;
     write(path.join('cache', 'financials', `${item.ticker}_statements_v2.json`), result.statements);
     write(path.join('cache', 'price_charts', `${item.ticker}.json`), result.chart);
-    evidenceInputs.push({ ...result.moatInput, evidenceHash: result.fingerprint, existing: reports[item.ticker] || null });
+    evidenceInputs.push({ ...result.moatInput, evidenceHash: result.fingerprint,
+      moatScreen: { calculationCurrency: result.stock.calculationCurrency, marketCapMillions: result.stock.mcap },
+      existing: reports[item.ticker] || null });
   }
   write('hk_market_dcf.json', market);
   write('hk_market_data.js', market, 'window.HK_MARKET_DATA = ');

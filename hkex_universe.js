@@ -6,12 +6,16 @@
   'use strict';
   let cached, previousMarket, previousList, previousExpansion;
   const pending = new Map();
+  function belowMoatMarketCap(stock, ticker = stock?.ticker) {
+    return /^\d{4,5}\.HK$/.test(ticker || '') && stock?.calculationCurrency === 'HKD'
+      && Number.isFinite(stock.mcap) && stock.mcap > 0 && stock.mcap < 1000;
+  }
   function emptyStatements(ticker) {
     return { ticker, calculationCurrency: 'HKD', sourceAvailability: 'pendingCapture',
       annual: { income: [], balance: [], cashflow: [] }, quarterly: { income: [], balance: [], cashflow: [] } };
   }
   function listingStock(item) {
-    return { ticker: item.ticker, displayCode: item.displayCode, name: item.name,
+    return { ticker: item.ticker, displayCode: item.displayCode, name: item.name, name_zh: item.name_zh, name_en: item.name_en,
       company_name: item.name_en, market: 'HKEX', exchange: 'HKEX',
       sector: item.sector || 'Unclassified', industry: item.industry || 'Unclassified',
       calculationCurrency: 'HKD', tradingCurrency: item.tradingCurrency, universeMembership: item.universeMembership,
@@ -27,11 +31,14 @@
       ratingSources: { moat: { reason: 'analysisUnavailable' }, fScore: { reason: 'pendingCapture' } },
       expansion: { status: 'pendingCapture', source: item.universeMembership } };
   }
+  function listingNames(stock, item) {
+    return item?.name_zh ? { ...stock, name_zh: item.name_zh, name_en: stock.name_en || item.name_en } : stock;
+  }
   function merge(market, list = root.HKEX_LISTINGS, expansion = root.HKEX_EXPANSION) {
     if (!market || !list) return market;
     if (cached && market === previousMarket && list === previousList && expansion === previousExpansion) return cached;
     const result = Object.fromEntries(list.stocks.map(item => [item.ticker,
-      expansion?.stocks?.[item.ticker] || listingStock(item)]));
+      listingNames(expansion?.stocks?.[item.ticker] || listingStock(item), item)]));
     Object.assign(result, market);
     previousMarket = market; previousList = list; previousExpansion = expansion; cached = result;
     return result;
@@ -59,11 +66,11 @@
               || record.stock.calculationCurrency !== 'HKD') throw new Error('INVALID_HK_COMPANY_SNAPSHOT');
           if (record.model && root.FMP_MODEL_DATA?.stocks) root.FMP_MODEL_DATA.stocks[ticker] = record.model;
           if (record.snapshot && root.HK_FCFF_DATA?.stocks) root.HK_FCFF_DATA.stocks[ticker] = record.snapshot;
-          return record.stock;
+          return listingNames(record.stock, root.HKEX_LISTINGS?.stocks.find(item => item.ticker === ticker));
         }).catch(error => { pending.delete(ticker); throw error; });
       pending.set(ticker, request);
     }
     return pending.get(ticker);
   }
-  return { merge, listingStock, emptyStatements, install, load, uncaptured };
+  return { merge, listingStock, emptyStatements, install, load, uncaptured, belowMoatMarketCap };
 });

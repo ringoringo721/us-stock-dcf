@@ -6,8 +6,8 @@ const vm = require('node:vm');
 const universe = require('../hkex_universe.js');
 const catalogue = require('../cache/hkex_universe.json');
 const market = require('../hk_market_dcf.json');
-const { matrix, build, packageResults, integrate } = require('../scripts/build_hkex_expansion.cjs');
-const { prepareStatements, priceHistory } = require('../scripts/build_hkex.cjs');
+const { matrix, build, packageResults, integrate, preferSavedMoat } = require('../scripts/build_hkex_expansion.cjs');
+const { prepareStatements, priceHistory, hash } = require('../scripts/build_hkex.cjs');
 const root = path.resolve(__dirname, '..');
 test('official full-market namespace retains every reviewed company without inventing financials', () => {
   assert.equal(catalogue.stocks.length, 2787);
@@ -34,6 +34,38 @@ test('bounded matrix covers every additional listing exactly once and never over
   assert.deepEqual(matrix(20, '1,3').map(item => item.batch), [1, 3]);
   assert.throws(() => matrix(20, '134'), /Invalid selected/);
   assert.throws(() => matrix(20, '1,,3'), /Invalid selected/);
+});
+test('ratings recovery reuses newer verified assessments without inventing update dates or changing evidence', () => {
+  const previous = { evidenceHash: 'same', updatedAt: '2026-10-19T00:00:00Z', report: { previous: true } };
+  const stock = { moat: { current: true }, ratingSources: { moat: {
+    evidenceHash: 'same', currentEvidenceHash: 'same', updatedAt: '2026-10-20T00:00:00Z',
+    reason: null, assessmentPolicy: 'saved-policy', businessResearch: { evidenceHash: 'research' }
+  } } };
+  const saved = JSON.stringify(stock);
+  const selected = preferSavedMoat(stock, 'same', previous);
+  assert.equal(selected.report, stock.moat);
+  assert.equal(selected.updatedAt, stock.ratingSources.moat.updatedAt);
+  assert.equal(selected.businessResearch, stock.ratingSources.moat.businessResearch);
+  assert.equal(preferSavedMoat(stock, 'changed', previous), previous);
+  assert.equal(preferSavedMoat(stock, 'same', { ...previous, updatedAt: '2026-10-21T00:00:00Z' }).report, previous.report);
+  assert.equal(JSON.stringify(stock), saved);
+  stock.ratingSources.moat.reason = 'staleEvidence';
+  assert.equal(preferSavedMoat(stock, 'same', previous), previous);
+});
+test('official Chinese names enrich both compact listings and lazy full company records', async () => {
+  assert.ok(catalogue.stocks.every(stock => typeof stock.name_zh === 'string' && stock.name_zh.length > 0));
+  assert.equal(catalogue.chineseNameSource.unmatchedTickers.length, 0);
+  assert.equal(catalogue.source.sha256, '43900020cb53d80d3cf90ad67819e7edc9aa9a8cbc2081afe1395531b5db7906');
+  const stock = { ticker: '2145.HK', calculationCurrency: 'HKD', name: 'Shanghai Chicmax' };
+  const merged = universe.merge(market, catalogue, { stocks: { '2145.HK': stock } });
+  assert.equal(merged['2145.HK'].name_zh, '上美股份');
+  assert.equal(merged['2145.HK'].name, stock.name);
+  assert.equal(stock.name_zh, undefined);
+  for (const ticker of Object.keys(market)) assert.equal(merged[ticker], market[ticker]);
+  const context = { HKEX_LISTINGS: catalogue,
+    fetch: async () => ({ ok: true, json: async () => ({ version: 1, ticker: '2145.HK', stock }) }) };
+  vm.runInNewContext(fs.readFileSync(path.join(root, 'hkex_universe.js'), 'utf8'), context);
+  assert.equal((await context.HkUniverse.load('2145.HK')).name_zh, '上美股份');
 });
 test('a short Q2/Q4-only new-company history does not acquire fabricated three-month durations', () => {
   const statements = prepareStatements({
@@ -131,6 +163,10 @@ test('partial provider evidence persists real missingness, and artifact integrat
     assert.equal(result[0].status, 'available');
     assert.equal(result[0].fScore, null);
     assert.equal(result[0].moat, false);
+    const input = JSON.parse(fs.readFileSync(path.join(output, 'moat-inputs.json'), 'utf8'))[0];
+    const { evidenceHash, existing, businessResearch, moatScreen, ...financialEvidence } = input;
+    assert.deepEqual(moatScreen, { calculationCurrency: 'HKD', marketCapMillions: null });
+    assert.equal(evidenceHash, hash(financialEvidence), 'Eligibility metadata cannot invalidate genuine financial evidence');
     fs.writeFileSync(path.join(output, 'fmp_model_data.js'), 'window.FMP_MODEL_DATA = ' + JSON.stringify({
       stocks: { [other]: { symbol: other, currencyCheck: { reason: null, sourceDate: '2025-12-31', sourcePeriodLength: 12 },
         models: { advanced: { data: [{ symbol: other }] } } } }

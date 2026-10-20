@@ -9,9 +9,9 @@ import time
 from urllib.parse import urlparse
 
 if __package__:
-    from .refresh_hkex_moat import create_client, validate_business_research, business_research, write_json_checkpoint
+    from .refresh_hkex_moat import create_client, validate_business_research, business_research, write_json_checkpoint, below_moat_market_cap
 else:
-    from refresh_hkex_moat import create_client, validate_business_research, business_research, write_json_checkpoint
+    from refresh_hkex_moat import create_client, validate_business_research, business_research, write_json_checkpoint, below_moat_market_cap
 
 
 def research_result(record, response, model):
@@ -58,7 +58,7 @@ def main():
     parser.add_argument("research_output")
     args = parser.parse_args()
     records = json.loads(Path(args.input).read_text(encoding="utf-8"))
-    pending = [record for record in records if not business_research(record)]
+    pending = [record for record in records if not below_moat_market_cap(record) and not business_research(record)]
     client = create_client() if pending else None
     if pending and client is None:
         raise SystemExit("Vertex credentials are required for business research")
@@ -69,11 +69,16 @@ def main():
         if saved:
             evidence[record["ticker"]] = saved
             completed.append({**record, "businessResearch": saved})
+        elif below_moat_market_cap(record):
+            completed.append(record)
     def checkpoint():
         write_json_checkpoint(args.output, completed)
         write_json_checkpoint(args.research_output, {"research": evidence, "failures": failures})
     checkpoint()
     for record in records:
+        if below_moat_market_cap(record):
+            print(f"{record['ticker']}: below HKD 1 billion; no new moat research requested", flush=True)
+            continue
         saved = evidence.get(record["ticker"])
         if saved:
             print(f"{record['ticker']}: cached business research reused", flush=True)

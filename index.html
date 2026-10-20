@@ -3170,11 +3170,13 @@
     location.assign(url.href);
   }
   function ratingProvenance(stock, kind) {
+    if (kind === 'moat' && HkUniverse.belowMoatMarketCap(stock)) return '';
     const source = stock?.ratingSources?.[kind];
     return source ? [source.asOfDate, source.period, source.basis, source.status, ratingState(stock, kind), source.reason,
       source.updatedAt, source.evidenceHash].filter(Boolean).join(' · ') : '';
   }
   function ratingState(stock, kind) {
+    if (kind === 'moat' && HkUniverse.belowMoatMarketCap(stock)) return '';
     const source = stock?.ratingSources?.[kind];
     if (!source) return '';
     const latest = [...(stock.statements_raw?.annual_dates || []), ...(stock.statements_raw?.quarterly_raw?.dates || [])]
@@ -3680,8 +3682,9 @@
   function evaluateMoat(s, explicitTicker) {
     const rawSym = explicitTicker || (s && s.ticker) || "";
     const sym = rawSym.toUpperCase().trim();
+    const excluded = HkUniverse.belowMoatMarketCap(s, sym);
     const stale = s?.ratingSources?.moat?.reason === 'staleEvidence';
-    const moatObj = !stale && s?.moat || {};
+    const moatObj = !excluded && !stale && s?.moat || {};
     const isEn = (currentLang === 'en');
     
     let m = Array(10).fill(null);
@@ -3690,7 +3693,7 @@
     const updatedAt = ratingSource?.updatedAt;
     const updatedDate = typeof updatedAt === 'string' && /^\d{4}-\d{2}-\d{2}(?:T|$)/.test(updatedAt)
       && Number.isFinite(Date.parse(updatedAt)) ? updatedAt.slice(0, 10) : 'N/A';
-    const ref = `${stale ? (isEn ? 'Archived assessment; not refreshed' : '已封存舊評估；未重新評分')
+    const ref = excluded ? '' : `${stale ? (isEn ? 'Archived assessment; not refreshed' : '已封存舊評估；未重新評分')
       : isEn ? 'Updated' : '更新日期'}: ${updatedDate}`;
     let overallComment = isEn ? (moatObj.overall_moat_verdict_en || moatObj.overall_moat_verdict || ratingSource?.reason || "Evidence-grounded analysis unavailable.")
       : (moatObj.overall_moat_verdict_zh || moatObj.overall_moat_verdict || ratingSource?.reason || "尚無具證據支持的分析。");
@@ -3715,7 +3718,7 @@
     const evaluated = m.filter(Number.isFinite);
     const scoredTotal = evaluated.length ? evaluated.reduce((a, b) => a + b, 0) : null;
     const total = evaluated.length === 10 ? scoredTotal : null;
-    const scoreText = total !== null ? `${total} / 100`
+    const scoreText = excluded ? (isEn ? 'N/A - Not assessed' : 'N/A - 尚無評分') : total !== null ? `${total} / 100`
       : scoredTotal !== null ? `${scoredTotal} / ${evaluated.length * 10}` : 'N/A';
     const coverage = isEn ? `${evaluated.length}/10 dimensions assessed` : `已評估 ${evaluated.length}/10 個維度`;
     let grade = isEn ? "Moderate Moat" : "Moderate Moat (中等)";
@@ -3730,6 +3733,17 @@
       overallComment = `${coverage}. ${isEn
         ? 'Unknown dimensions are not zero or a complete /100 score; no overall moat grade is assigned.'
         : '未知維度不作零分，也不換算為完整百分制；不給予整體護城河等級。'} ${overallComment}`;
+      if (globalThis.HKEX_EXPANSION?.moatProgress?.pending?.[sym]) {
+        overallComment = (isEn
+          ? 'Reassessment or result import is not finished. Unknown scores and comments are not filled in. '
+          : '補評分或成果匯入尚未完成；不填入未知分數或評論。') + overallComment;
+      }
+    }
+    if (excluded) {
+      grade = '';
+      overallComment = isEn
+        ? 'Market capitalisation is below HKD 1 billion; no moat score or commentary is provided under the site screening rule.'
+        : '市值低於港幣 10 億元，依網站篩選規則不提供護城河評分或評論。';
     }
 
     const criteriaDefs = [
@@ -3755,7 +3769,7 @@
       sources: moatObj[dimKeys[idx]]?.sources || []
     }));
 
-    return { total, scoredTotal, scoreText, coverage, grade, badgeClass, criteria, comment: overallComment, ref, m };
+    return { total, scoredTotal, scoreText, coverage, grade, badgeClass, criteria, comment: overallComment, ref, m, excluded };
   }
 
   function setValFilter(val) {
@@ -4039,6 +4053,7 @@
 
   let screenerVisibleRows = 100, screenerPageKey = '';
   function showMoreStocks() { screenerVisibleRows += 100; renderScreenerTable(); }
+  function showAllStocks() { screenerVisibleRows = Infinity; renderScreenerTable(); }
   function renderScreenerTable() {
     const tbody = document.getElementById('screener-tbody');
     if (!tbody) return;
@@ -4080,6 +4095,7 @@
       };
     }).filter(x => x !== null);
 
+    const allCalc = list;
     if (currentValFilter === 'UNDERVALUED') list = list.filter(item => item.isUndervalued);
     else if (currentValFilter === 'OVERVALUED') list = list.filter(item => item.isUndervalued === false);
     else if (currentValFilter === 'SAVED') list = list.filter(item => item.isSaved);
@@ -4105,7 +4121,6 @@
       return sortAsc ? va - vb : vb - va;
     });
 
-    const allCalc = Object.keys(stockUniverse).map(t => computeDCF(stockUniverse[t], t)).filter(x => x !== null);
     const totalCount = allCalc.length;
     const underCount = allCalc.filter(x => x.isUndervalued).length;
     const overCount = allCalc.filter(x => x.isUndervalued === false).length;
@@ -4118,7 +4133,7 @@
     document.getElementById('stat-overvalued').innerHTML = `${overCount}<small>${totalCount > 0 ? ((overCount/totalCount)*100).toFixed(0) : 0}%</small>`;
     document.getElementById('stat-saved-count').textContent = savedCount;
 
-    const pageKey = JSON.stringify([searchVal, currentValFilter, currentSectorFilter, currentSubIndustryFilter, sortField, sortAsc]);
+    const pageKey = JSON.stringify([MarketContext.market, searchVal, currentValFilter, currentSectorFilter, currentSubIndustryFilter, sortField, sortAsc]);
     if (pageKey !== screenerPageKey) { screenerVisibleRows = 100; screenerPageKey = pageKey; }
     const visible = MarketContext.market === 'HKEX' && list.length > 200 ? list.slice(0, screenerVisibleRows) : list;
     let more = document.getElementById('screener-more');
@@ -4129,6 +4144,13 @@
     }
     more.hidden = visible.length >= list.length;
     more.textContent = currentLang === 'en' ? `Show 100 more (${visible.length} / ${list.length})` : `再顯示 100 家（${visible.length} / ${list.length}）`;
+    let all = document.getElementById('screener-all');
+    if (!all) {
+      all = document.createElement('button'); all.id = 'screener-all'; all.className = 'f-btn';
+      all.onclick = showAllStocks; more.after(all);
+    }
+    all.hidden = more.hidden;
+    all.textContent = currentLang === 'en' ? `Show all ${list.length} stocks` : `顯示全部 ${list.length} 家`;
     tbody.innerHTML = visible.map(item => {
       const priceNum = Number.isFinite(item.price) ? item.price : null;
       const targetPriceHtml = (item.isSaved && Number.isFinite(item.target_price))
@@ -4150,7 +4172,7 @@
       const favHeart = item.isFav ? '❤' : '♡';
       const favActiveClass = item.isFav ? 'active' : '';
 
-      const moatScore = item.moat?.scoredTotal == null ? 'N/A'
+      const moatScore = item.moat?.excluded ? item.moat.scoreText : item.moat?.scoredTotal == null ? 'N/A'
         : item.moat.total !== null ? `${item.moat.total} pt` : item.moat.scoreText;
       const moatBadgeCls = item.moat?.badgeClass || '';
       const moatGradeText = item.moat?.total === null ? item.moat.grade
@@ -4191,7 +4213,7 @@
           </td>
           <td>${targetSpreadHtml}</td>
           <td style="text-align: center;">
-            <span class="badge-moat ${moatBadgeCls}" title="${[item.moat?.coverage, ratingProvenance(item, 'moat')].filter(Boolean).join(' · ').replace(/"/g, '&quot;')}" onclick="openMoat('${item.ticker}')">${moatScore} · ${moatGradeText}</span>
+            <span class="badge-moat ${moatBadgeCls}" title="${(item.moat?.excluded ? item.moat.comment : [item.moat?.coverage, ratingProvenance(item, 'moat')].filter(Boolean).join(' · ')).replace(/"/g, '&quot;')}" onclick="openMoat('${item.ticker}')">${moatScore}${moatGradeText ? ` · ${moatGradeText}` : ''}</span>
           </td>
           <td>
             <div>${waccVal === null ? 'N/A' : (waccVal * 100).toFixed(2) + '%'}</div>
@@ -5793,8 +5815,10 @@
     document.getElementById('cmp-currency-note').textContent = `${I18N_DICT[currentLang].currency_usd_note} ${
       I18N_DICT[currentLang].currency_original}: ${s.reportedCurrency || 'N/A'}.${
       s.currencyConversion?.reason ? ` ${I18N_DICT[currentLang].currency_missing}` : ''}`;
+    const chineseName = STOCK_NAMES_ZH[ticker] || s.name_zh
+      || (/[\u3400-\u9fff]/.test(s.name || '') ? s.name : null);
     document.getElementById('cmp-full-name').innerText = currentLang === 'zh'
-      ? (STOCK_NAMES_ZH[ticker] ? `${STOCK_NAMES_ZH[ticker]} (${s.company_name || ticker})` : (s.company_name || `${ticker} Inc.`))
+      ? (chineseName ? `${chineseName} (${s.company_name || ticker})` : (s.company_name || `${ticker} Inc.`))
       : (s.company_name || `${ticker} Inc.`);
     document.getElementById('cmp-logo-img').src = s.image || s.logo || `https://assets.financialmodelingprep.com/symbol/${ticker}.png`;
 
@@ -6235,7 +6259,7 @@
       const dcf = computeDCF(s, ticker);
       if (!dcf || !dcf.moat) return;
       const moat = dcf.moat;
-      const research = s.ratingSources?.moat?.businessResearch;
+      const research = !moat.excluded && s.ratingSources?.moat?.businessResearch;
 
       document.getElementById('moat-total-score').innerText = moat.scoreText;
       const elGrade = document.getElementById('moat-grade-badge');
@@ -6259,7 +6283,7 @@
         <div id="moat-overall-text">${escapeAttribute(moat.comment || '')}</div>
       `;
       const commentPanel = document.getElementById('moat-ai-comment');
-      if (s.ratingSources?.moat?.reason === 'staleEvidence' && s.moat) {
+      if (!moat.excluded && s.ratingSources?.moat?.reason === 'staleEvidence' && s.moat) {
         const previous = document.createElement('details');
         previous.id = 'moat-previous-assessment';
         previous.className = 'analysis-note';
@@ -6302,7 +6326,7 @@
               <td><strong>${c.id || ''}. ${c.title || ''}</strong></td>
               <td style="color: var(--text-muted); font-size: 12px;">${c.desc || ''}</td>
               <td class="moat-score-cell">
-                <span title="${scoreVal === null ? I18N_DICT[currentLang].moat_unassessed_help : ''}" style="font-weight: 700; font-size: 13.5px; color: ${scoreVal === null ? 'var(--text-muted)' : barColor}; display: inline-block; min-width: 45px;">${scoreVal === null ? I18N_DICT[currentLang].moat_unassessed : `${scoreVal} / 10`}</span>
+                <span title="${scoreVal === null ? escapeAttribute(moat.excluded ? moat.comment : I18N_DICT[currentLang].moat_unassessed_help) : ''}" style="font-weight: 700; font-size: 13.5px; color: ${scoreVal === null ? 'var(--text-muted)' : barColor}; display: inline-block; min-width: 45px;">${scoreVal === null ? I18N_DICT[currentLang].moat_unassessed : `${scoreVal} / 10`}</span>
                 ${scoreVal === null ? '' : `<div class="moat-bar-bg">
                   <div class="moat-bar-fill" style="width: ${pct}%; background: ${barColor};"></div>
                 </div>`}

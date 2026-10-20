@@ -30,6 +30,23 @@ def response():
 
 
 class BusinessResearchTests(unittest.TestCase):
+    def test_below_one_billion_skips_paid_research_and_preserves_existing_evidence(self):
+        record = {"ticker": "0004.HK", "existing": {"report": {"archived": True}},
+                  "moatScreen": {"calculationCurrency": "HKD", "marketCapMillions": 750}}
+        modules = {"google.genai": SimpleNamespace(types=SimpleNamespace(), errors=SimpleNamespace()),
+                   "google.auth.exceptions": SimpleNamespace(GoogleAuthError=RuntimeError),
+                   "httpx": SimpleNamespace(HTTPError=RuntimeError)}
+        with tempfile.TemporaryDirectory() as directory:
+            source, output, cache = [Path(directory) / name for name in ("input.json", "ready.json", "research.json")]
+            source.write_text(json.dumps([record]), encoding="utf-8")
+            with patch.dict(sys.modules, modules), patch.object(sys, "argv", [
+                    "research_hkex_moat.py", str(source), str(output), str(cache)]), \
+                    patch("scripts.research_hkex_moat.create_client") as client:
+                main()
+            client.assert_not_called()
+            self.assertEqual(json.loads(output.read_text(encoding="utf-8")), [record])
+            self.assertEqual(json.loads(cache.read_text(encoding="utf-8")), {"research": {}, "failures": {}})
+
     def test_interrupted_new_research_preserves_all_cached_companies_even_later_in_the_input(self):
         research = research_result({"ticker": "0700.HK"}, response(), "test-model")
         client = Mock()
