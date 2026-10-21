@@ -364,39 +364,67 @@ function marketLeverage(data, stock) {
   } };
 }
 
-function marketMultiples(data, price, shareSource, shareClassUnverified = false) {
+function marketMultiples(data, price, shareSource, shareClassUnverified = false, mcapMillions = null) {
   const rows = marketIncomeRows(data);
   const reportedTwelveMonths = rows.length === 1 && rows[0].reportType === 'secondInterim';
   const balance = sorted([...data.annual.balance, ...data.quarterly.balance]).at(-1);
-  const shares = !shareClassUnverified && finite(shareSource.shares) && shareSource.shares > 0
+  const shares = !shareClassUnverified && finite(shareSource?.shares) && shareSource.shares > 0
     ? shareSource.shares * 1e6 : null;
+  const mcap = finite(mcapMillions) && mcapMillions > 0 ? mcapMillions : null;
   const reportedEps = reportedTwelveMonths ? value(rows[0], 'epsdiluted') : flowValue(data, 'income', 'epsdiluted');
-  let eps = reportedEps, basis = 'reportedDilutedTtmEps', reason = null;
-  if (!finite(eps)) {
+  let eps = reportedEps, basis = 'reportedDilutedTtmEps', reason = null, pe = null;
+  if (finite(eps)) {
+    if (!finite(price)) reason = 'currentPriceUnavailable';
+    else if (eps === 0) reason = 'zeroEarnings';
+    else pe = divide(price, eps);
+  } else {
     const earnings = sum(rows.map(row => value(row, 'netIncome')));
     const deductions = sum(rows.map(row => value(row, 'netIncomeDeductions')));
     const noPreferred = value(balance, 'preferredStock') === 0;
-    if (shares === null) reason = 'shareBasisUnverified';
-    else if (earnings === null) reason = 'missingTtmEarnings';
+    if (earnings === null) reason = 'missingTtmEarnings';
     else if (!noPreferred && deductions === null) reason = 'preferredEarningsUnverified';
     else {
-      eps = (earnings - (deductions ?? 0)) / shares;
-      basis = 'ttmCommonEarningsOverCurrentOrdinaryShares';
+      const commonEarnings = earnings - (deductions ?? 0);
+      if (shares !== null) {
+        if (!finite(price)) reason = 'currentPriceUnavailable';
+        else {
+          eps = commonEarnings / shares;
+          basis = 'ttmCommonEarningsOverCurrentOrdinaryShares';
+          if (eps === 0) reason = 'zeroEarnings';
+          else pe = divide(price, eps);
+        }
+      } else if (mcap !== null) {
+        // Issuer-wide market cap / TTM common earnings does not require A/H share-class resolution.
+        basis = 'ttmCommonEarningsOverMarketCap';
+        pe = divide(mcap, millions(commonEarnings));
+        if (pe === null) reason = millions(commonEarnings) === 0 ? 'zeroEarnings' : 'invalidCalculation';
+      } else reason = 'shareBasisUnverified';
     }
   }
   const book = value(balance, 'totalStockholdersEquity');
+  let pb = null, pbBasis = 'quotedPriceOverIssuerBookValuePerOrdinaryShare', pbReason = null;
+  if (shares !== null) {
+    pb = divide(price, divide(book, shares));
+    pbReason = !finite(price) ? 'currentPriceUnavailable'
+      : !finite(book) || book === 0 ? 'missingBookEquity' : null;
+  } else if (mcap !== null) {
+    pb = divide(mcap, millions(book));
+    pbBasis = 'marketCapOverReportedParentEquity';
+    pbReason = !finite(book) || book === 0 ? 'missingBookEquity' : null;
+  } else {
+    pbReason = !finite(price) ? 'currentPriceUnavailable' : 'shareBasisUnverified';
+  }
   return {
-    pe_trailing: divide(price, eps),
-    pb_trailing: divide(price, shares === null ? null : divide(book, shares)),
+    pe_trailing: pe,
+    pb_trailing: pb,
     marketRatioSources: {
-      pe: { basis, reason: finite(price) ? reason || (eps === 0 ? 'zeroEarnings' : null) : 'currentPriceUnavailable',
+      pe: { basis, reason,
         ...(reportedTwelveMonths ? { reportType: 'secondInterim', periodLength: 12 } : {}),
         date: rows.at(-1)?.date || null, eps: finite(eps) ? eps : null,
-        dates: rows.map(row => row.date), shareDate: basis === 'reportedDilutedTtmEps' ? null : shareSource.date },
-      pb: { basis: 'quotedPriceOverIssuerBookValuePerOrdinaryShare',
-        reason: !finite(price) ? 'currentPriceUnavailable' : shares === null ? 'shareBasisUnverified'
-          : !finite(book) || book === 0 ? 'missingBookEquity' : null,
-        date: balance?.date || null, shareDate: shareSource.date, bookEquity: book,
+        dates: rows.map(row => row.date),
+        shareDate: basis === 'reportedDilutedTtmEps' ? null : shareSource?.date || null },
+      pb: { basis: pbBasis, reason: pbReason,
+        date: balance?.date || null, shareDate: shareSource?.date || null, bookEquity: book,
         preferredEquityDeducted: false }
     }
   };
@@ -523,8 +551,13 @@ function forwardPriceEarnings(item, evidence, rates, shareSource, price, annualI
     return unavailable('forecastCurrencyScaleUnverified');
   }
   const impliedShares = finite(forecast.netIncomeAvg) ? forecast.netIncomeAvg / forecast.epsAvg : null;
-  const shareScale = impliedShares !== null && finite(shareSource?.shares) && shareSource.shares > 0
-    ? impliedShares / (shareSource.shares * 1e6) : null;
+  // Prefer verified issuer-wide shares; otherwise provider outstanding shares are enough to
+  // cross-check forecast EPS scale for dual-class names awaiting A/H capital review.
+  const scaleSharesMillions = finite(shareSource?.shares) && shareSource.shares > 0 ? shareSource.shares
+    : finite(shareSource?.providerComparison?.shares) && shareSource.providerComparison.shares > 0
+      ? shareSource.providerComparison.shares : null;
+  const shareScale = impliedShares !== null && scaleSharesMillions !== null
+    ? impliedShares / (scaleSharesMillions * 1e6) : null;
   if (shareScale === null || shareScale < 0.75 || shareScale > 1.25) return unavailable('forecastShareScaleUnverified');
   const fx = forecastFxRate(rates, annual.reportedCurrency, 'HKD', asOf);
   if (fx.reason || !finite(fx.rate) || fx.rate <= 0) return unavailable('missingForecastFx');
@@ -540,7 +573,9 @@ function forwardPriceEarnings(item, evidence, rates, shareSource, price, annualI
   return { ...unavailable(null), value, fiscalDate: forecast.date, eps: forecast.epsAvg, epsHkd,
     currency: annual.reportedCurrency, fx, analysts: forecast.numAnalystsEps,
     currencyScaleCheck: { date: annual.date, field: scaleField, ratio: currencyScale },
-    shareScaleCheck: { impliedForecastShares: impliedShares, currentOutstandingShares: shareSource.shares * 1e6, ratio: shareScale },
+    shareScaleCheck: { impliedForecastShares: impliedShares, currentOutstandingShares: scaleSharesMillions * 1e6,
+      ratio: shareScale, shareBasis: finite(shareSource?.shares) && shareSource.shares > 0
+        ? 'verifiedOrdinaryShares' : 'providerOutstandingShares' },
     epsBasis: 'Provider analyst EPS; basic/diluted and adjusted/GAAP definitions are not independently certified',
     noteZh: `下一財年截至 ${forecast.date}：股價 ÷ 分析師預測 EPS。${currencyNoteZh}這是分析師預測，基本／攤薄及經調整／會計準則口徑未獨立核實，不是已公布盈利或 DCF 股數分母。`,
     noteEn: `FY1 ends ${forecast.date}: price / analyst forecast EPS. ${currencyNoteEn} Analyst forecast, not reported earnings or the DCF share denominator; basic/diluted and adjusted/GAAP definitions are not independently certified.` };
@@ -725,15 +760,17 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
   };
   stock.net_debt = finite(stock.debt) && finite(stock.cash_and_short_term) ? stock.debt - stock.cash_and_short_term : null;
   stock.ev = finite(stock.mcap) && finite(stock.net_debt) ? stock.mcap + stock.net_debt : null; stock.fmp_official_ev = stock.ev;
-  Object.assign(stock, marketMultiples(data, stock.price, shareSource, shareClassUnverified));
+  Object.assign(stock, marketMultiples(data, stock.price, shareSource, shareClassUnverified, stock.mcap));
   stock.pe_forward_source = forwardPriceEarnings(item, evidence, rates, shareSource, stock.price, raw.annual.income);
   stock.pe_forward = stock.pe_forward_source.value;
-  stock.ps_ratio = item.shareClassReviewRequired ? null : divide(stock.mcap, millions(flow('income', 'revenue')));
+  stock.ps_ratio = divide(stock.mcap, millions(flow('income', 'revenue')));
   stock.ev_to_ebitda = divide(stock.ev, millions(flow('income', 'ebitda')));
   stock.debt_to_ebitda = divide(stock.debt, millions(flow('income', 'ebitda')));
   stock.net_debt_to_ebitda = divide(stock.net_debt, millions(flow('income', 'ebitda')));
   if (!item.financial) Object.assign(stock, marketLeverage(data, stock));
   stock.fcf_to_ev = divide(stock.fcf0, stock.ev, 100); stock.fcf_to_mcap = divide(stock.fcf0, stock.mcap, 100);
+  // Persist for expansion compact payloads that omit statements_raw on the screener.
+  stock.fcf_to_equity = ratios.storedTtmFcfToEquity(table, data.currencyConversion?.reason);
   stock.div_yield = divide(-flow('cashflow', 'dividendsPaid'), quote.marketCap, 100);
   if (flow('cashflow', 'dividendsPaid') === null) stock.div_yield = null;
   stock.liab_to_assets = divide(balance('totalLiabilities'), balance('totalAssets'), 100);

@@ -61,6 +61,16 @@ test('Moat partial coverage displays actual earned points without inventing a fu
   }
   assert.equal(context.evaluateMoat({ ...small, calculationCurrency: 'USD' }).excluded, false);
   assert.equal(context.evaluateMoat({ ...small, ticker: 'SMALL', calculationCurrency: 'USD' }).total, 72);
+  const incomplete = {
+    ticker: '0901.HK', calculationCurrency: 'HKD', mcap: 130000,
+    qualityWarnings: [{ code: 'providerStatementUnavailable', period: 'annual', type: 'income' }],
+    moat: Object.fromEntries(keys.map((key, i) => [key, { score: i === 6 || i === 9 ? null : 5 }]))
+  };
+  const partial = context.evaluateMoat(incomplete);
+  assert.equal(partial.scoreText, '40 / 80');
+  assert.match(partial.comment, /Provider financial statements are unavailable/);
+  context.currentLang = 'zh';
+  assert.match(context.evaluateMoat(incomplete).comment, /供應商尚未提供/);
 });
 test('a model-only noncontrolling claim scenario cannot rewrite quoted book-based enterprise value', () => {
   const stock = { price: 20, mcap: 2000 };

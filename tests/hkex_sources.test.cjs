@@ -54,6 +54,11 @@ test('verified issuer-wide shares support P/B; missing classes, preferred earnin
   assert.equal(blocked.pb_trailing, null);
   assert.equal(blocked.pe_trailing, null);
   assert.equal(blocked.marketRatioSources.pb.reason, 'shareBasisUnverified');
+  const mcapFallback = marketMultiples(data, 20, shares, true, 40);
+  assert.equal(mcapFallback.pe_trailing, 4);
+  assert.equal(mcapFallback.marketRatioSources.pe.basis, 'ttmCommonEarningsOverMarketCap');
+  assert.equal(mcapFallback.pb_trailing, 2);
+  assert.equal(mcapFallback.marketRatioSources.pb.basis, 'marketCapOverReportedParentEquity');
   data.quarterly.balance[0].preferredStock = 1e6;
   assert.equal(marketMultiples(data, 20, shares).marketRatioSources.pe.reason, 'preferredEarningsUnverified');
   for (const row of data.quarterly.income) row.netIncomeDeductions = 1e6;
@@ -175,6 +180,12 @@ test('forward P/E retains missing/loss forecasts and rejects stale FX, ADR scale
     assert.equal(result.value, null);
     assert.ok(result.reason);
   }
+  const providerShares = forwardFixture();
+  providerShares.shares = { shares: null, providerComparison: { shares: 10, date: '2026-10-16' } };
+  const recovered = forwardPriceEarnings(providerShares.item, providerShares.source,
+    providerShares.rates, providerShares.shares, 20);
+  assert.equal(recovered.value, 7.8125);
+  assert.equal(recovered.shareScaleCheck.shareBasis, 'providerOutstandingShares');
   const f = forwardFixture();
   f.source.responses.annual_income.rows[0].date = '2026-03-31';
   f.source.responses.estimates.rows[1].date = '2026-03-31';
