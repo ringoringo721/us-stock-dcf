@@ -541,6 +541,15 @@
       font-variant-numeric: tabular-nums;
     }
     .fin-num-input:disabled { opacity: 0.55; }
+    .fin-capm-builder {
+      margin: 0 0 16px;
+      padding: 12px 14px;
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      background: var(--surface-bg);
+    }
+    .fin-capm-builder .fin-model-grid { margin-bottom: 8px; }
+    #fin-capm-live { font-variant-numeric: tabular-nums; }
     #fin-ke-history-panel {
       display: block !important; margin-top: 20px; scroll-margin-top: 96px;
       border: 1px solid var(--accent); border-radius: 8px;
@@ -1280,6 +1289,54 @@
               <b data-i18n="fin_ddm_basis">5年兩階段 DDM (前5年成長 6.5%)</b>
             </div>
           </div>
+        </div>
+
+        <div id="fin-capm-builder" class="fin-capm-builder">
+          <div class="panel-title" style="font-size:15px;margin:0 0 8px;" data-i18n="fin_capm_title">自行計算 Ke（CAPM）</div>
+          <p class="analysis-note" data-i18n="fin_capm_basis" id="fin-capm-basis"></p>
+          <div class="fin-model-grid">
+            <div class="slider-row">
+              <div class="slider-head">
+                <span data-i18n="fin_rf">無風險利率 rf (%)</span>
+                <span class="fin-num-wrap">
+                  <input type="number" class="fin-num-input" id="input-fin-rf" inputmode="decimal" step="0.01" min="0" max="20"
+                    aria-label="rf percent" onchange="onFinCapmInput('rf')" onkeydown="if(event.key==='Enter'){this.blur();}">
+                  <span aria-hidden="true">%</span>
+                </span>
+              </div>
+              <div id="fin-rf-tenor-wrap" class="analysis-note" hidden>
+                <label for="fin-rf-tenor" data-i18n="fin_rf_tenor">美債年期（套用曲線）</label>
+                <select id="fin-rf-tenor" onchange="onFinRfTenorChange()">
+                  <option value="1">1Y</option><option value="2">2Y</option><option value="3">3Y</option>
+                  <option value="5" selected>5Y</option><option value="7">7Y</option><option value="10">10Y</option>
+                  <option value="20">20Y</option><option value="30">30Y</option>
+                </select>
+              </div>
+            </div>
+            <div class="slider-row">
+              <div class="slider-head">
+                <span data-i18n="fin_beta">Beta (β)</span>
+                <span class="fin-num-wrap">
+                  <input type="number" class="fin-num-input" id="input-fin-beta" inputmode="decimal" step="0.01" min="-2" max="5"
+                    aria-label="beta" onchange="onFinCapmInput('beta')" onkeydown="if(event.key==='Enter'){this.blur();}">
+                </span>
+              </div>
+            </div>
+            <div class="slider-row">
+              <div class="slider-head">
+                <span data-i18n="fin_erp">股票風險溢價 ERP (%)</span>
+                <span class="fin-num-wrap">
+                  <input type="number" class="fin-num-input" id="input-fin-erp" inputmode="decimal" step="0.05" min="0" max="20"
+                    aria-label="ERP percent" onchange="onFinCapmInput('erp')" onkeydown="if(event.key==='Enter'){this.blur();}">
+                  <span aria-hidden="true">%</span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <p id="fin-capm-live" class="analysis-note" role="status"></p>
+          <label class="analysis-note"><input id="fin-ke-use-calculated" type="checkbox" checked onchange="onFinKeModeChange()">
+            <span data-i18n="fin_ke_use_calculated">使用 CAPM 計算的 Ke（取消勾選＝手動覆寫 Ke）</span></label>
+          <p id="fin-ke-mode-note" class="analysis-note" role="status"></p>
         </div>
 
         <div class="fin-model-grid">
@@ -3228,7 +3285,20 @@
     fin_ke_history_jump: '↓ 捲到最近十年股權成本 Ke 參考表（與上方滑桿今日 Ke 對照）',
     fin_ke_reason_missingBeta: 'N/A：缺少目前可用的個股 Beta，不以虛構 Beta 填補。',
     fin_ke_reason_missingTreasuryObservation: 'N/A：該年缺少美元 10 年期公債觀測。',
-    fin_ke_reason_latestObservationNotYearEnd: '該年尚未結束：採最近一筆有效 DGS10，不是年末定盤。'
+    fin_ke_reason_latestObservationNotYearEnd: '該年尚未結束：採最近一筆有效 DGS10，不是年末定盤。',
+    fin_capm_title: '自行計算 Ke（CAPM）',
+    fin_capm_basis: 'Ke＝rf＋β×ERP。港股 rf 預設為聯匯下的美元公債代理（可改），不是實報港元無風險利率；Beta 起點為 FMP profile；ERP 預設模型假設 4.75%。調整 rf／β／ERP 會即時重算 Ke；直接改 Ke 則進入手動覆寫。',
+    fin_rf: '無風險利率 rf (%)',
+    fin_rf_tenor: '美債年期（套用曲線）',
+    fin_beta: 'Beta (β)',
+    fin_erp: '股票風險溢價 ERP (%)',
+    fin_ke_use_calculated: '使用 CAPM 計算的 Ke（取消勾選＝手動覆寫 Ke）',
+    fin_capm_live: 'CAPM Ke＝rf＋β×ERP＝{rf}%＋{beta}×{erp}%＝{capm}%',
+    fin_capm_live_floor: '；套用下限後 max(CAPM, {floor}%)＝{floored}%',
+    fin_capm_live_active: '；目前模型 Ke＝{ke}%',
+    fin_ke_mode_calculated: '模式：元件驅動（rf／β／ERP → Ke）。',
+    fin_ke_mode_manual: '模式：手動覆寫 Ke（改 rf／β／ERP 只更新 CAPM 顯示，不改模型 Ke）。勾選上方可回到計算值。',
+    fin_capm_missing: 'CAPM 無法計算：請補齊 rf 與 Beta。'
   });
   Object.assign(I18N_DICT.en, {
     fin_rote_history_title: 'Last 10 fiscal years: annual ROTE reference',
@@ -3251,7 +3321,20 @@
     fin_ke_history_jump: '↓ Jump to last-10-year Ke reference (compare with today’s Ke slider)',
     fin_ke_reason_missingBeta: 'N/A: No usable current stock beta; historical betas are not invented.',
     fin_ke_reason_missingTreasuryObservation: 'N/A: No USD 10Y Treasury observation for that year.',
-    fin_ke_reason_latestObservationNotYearEnd: 'Year still in progress: uses the latest valid DGS10 print, not a year-end fix.'
+    fin_ke_reason_latestObservationNotYearEnd: 'Year still in progress: uses the latest valid DGS10 print, not a year-end fix.',
+    fin_capm_title: 'Self-calculate Ke (CAPM)',
+    fin_capm_basis: 'Ke = rf + β × ERP. For HK stocks, rf defaults to the USD Treasury proxy under the HKD/USD peg (editable), not an observed HKD risk-free rate. Beta starts from the FMP profile; ERP defaults to the model assumption 4.75%. Editing rf / β / ERP recalculates Ke live; editing Ke directly marks a manual override.',
+    fin_rf: 'Risk-free rate rf (%)',
+    fin_rf_tenor: 'Treasury tenor (apply curve)',
+    fin_beta: 'Beta (β)',
+    fin_erp: 'Equity risk premium ERP (%)',
+    fin_ke_use_calculated: 'Use CAPM-calculated Ke (uncheck = manual Ke override)',
+    fin_capm_live: 'CAPM Ke = rf + β × ERP = {rf}% + {beta} × {erp}% = {capm}%',
+    fin_capm_live_floor: '; floored max(CAPM, {floor}%) = {floored}%',
+    fin_capm_live_active: '; model Ke = {ke}%',
+    fin_ke_mode_calculated: 'Mode: components drive Ke (rf / β / ERP → Ke).',
+    fin_ke_mode_manual: 'Mode: manual Ke override (editing rf / β / ERP updates CAPM display only). Recheck above to restore calculated Ke.',
+    fin_capm_missing: 'CAPM unavailable: enter both rf and Beta.'
   });
   for (const lang of Object.keys(I18N_DICT)) I18N_DICT[lang] = MarketContext.labels(I18N_DICT[lang]);
   const moneyPrefix = () => MarketContext.currency === 'HKD' ? 'HKD ' : '$';
@@ -3616,6 +3699,162 @@
     renderFinKeFloorControls(stock, fin);
   }
 
+  function ensureFinCapmDefaults(stock) {
+    if (!stock) return;
+    if (!Number.isFinite(stock.erp)) stock.erp = 4.75;
+    if (!Number.isFinite(stock.rf)) {
+      if (stock.calculationCurrency === 'HKD') {
+        stock.rf = (US_TREASURY_CURVE[10] || 0.045) * 100;
+      } else {
+        const tenor = Number.isFinite(stock.rf_tenor) ? Number(stock.rf_tenor) : 10;
+        stock.rf_tenor = tenor;
+        stock.rf = (US_TREASURY_CURVE[tenor] || 0.045) * 100;
+      }
+    }
+  }
+
+  function syncGeneralCapmInputs(stock) {
+    if (!stock) return;
+    const rf = document.getElementById('inp-rf');
+    const beta = document.getElementById('inp-beta');
+    const erp = document.getElementById('inp-erp');
+    const tenor = document.getElementById('inp-rf-tenor');
+    if (rf && Number.isFinite(stock.rf)) rf.value = Number(stock.rf).toFixed(2);
+    if (beta && Number.isFinite(stock.beta)) beta.value = Number(stock.beta).toFixed(3);
+    if (erp && Number.isFinite(stock.erp)) erp.value = Number(stock.erp).toFixed(2);
+    if (tenor && Number.isFinite(stock.rf_tenor)) tenor.value = String(stock.rf_tenor);
+  }
+
+  function renderFinCapmBuilder(stock, fin) {
+    const builder = document.getElementById('fin-capm-builder');
+    if (!builder || !fin?.is_financial || !stock) {
+      if (builder) builder.hidden = true;
+      return;
+    }
+    builder.hidden = false;
+    ensureFinCapmDefaults(stock);
+    const dict = I18N_DICT[currentLang];
+    const basis = document.getElementById('fin-capm-basis');
+    if (basis) basis.textContent = dict.fin_capm_basis;
+    const rfInput = document.getElementById('input-fin-rf');
+    const betaInput = document.getElementById('input-fin-beta');
+    const erpInput = document.getElementById('input-fin-erp');
+    if (rfInput) rfInput.value = Number.isFinite(stock.rf) ? Number(stock.rf).toFixed(2) : '';
+    if (betaInput) betaInput.value = Number.isFinite(stock.beta) ? Number(stock.beta).toFixed(3) : '';
+    if (erpInput) erpInput.value = Number.isFinite(stock.erp) ? Number(stock.erp).toFixed(2) : '';
+    const tenorWrap = document.getElementById('fin-rf-tenor-wrap');
+    const tenorSel = document.getElementById('fin-rf-tenor');
+    const showTenor = stock.calculationCurrency !== 'HKD';
+    if (tenorWrap) tenorWrap.hidden = !showTenor;
+    if (tenorSel && showTenor) {
+      const tenor = Number.isFinite(stock.rf_tenor) ? Number(stock.rf_tenor) : 10;
+      tenorSel.value = String(tenor);
+    }
+    const useCalc = document.getElementById('fin-ke-use-calculated');
+    if (useCalc) useCalc.checked = !fin.ke_manual_override;
+    const resolved = FinancialModels.syncCapmKe(fin, stock);
+    const live = document.getElementById('fin-capm-live');
+    if (live) {
+      if (!Number.isFinite(resolved.ke_capm)) {
+        live.textContent = dict.fin_capm_missing;
+      } else {
+        let text = dict.fin_capm_live
+          .replace('{rf}', Number(stock.rf).toFixed(2))
+          .replace('{beta}', Number(stock.beta).toFixed(3))
+          .replace('{erp}', Number(stock.erp).toFixed(2))
+          .replace('{capm}', resolved.ke_capm.toFixed(2));
+        if (stock.calculationCurrency !== 'HKD') {
+          const floorPct = Number.isFinite(fin.ke_floor_pct) ? fin.ke_floor_pct : FinancialModels.US_KE_FLOOR_PCT;
+          const floored = Math.max(resolved.ke_capm, floorPct);
+          text += dict.fin_capm_live_floor
+            .replace('{floor}', floorPct.toFixed(0))
+            .replace('{floored}', floored.toFixed(2));
+        }
+        if (Number.isFinite(fin.ke)) {
+          text += dict.fin_capm_live_active.replace('{ke}', Number(fin.ke).toFixed(2));
+        }
+        live.textContent = text;
+      }
+    }
+    const modeNote = document.getElementById('fin-ke-mode-note');
+    if (modeNote) {
+      modeNote.textContent = fin.ke_manual_override ? dict.fin_ke_mode_manual : dict.fin_ke_mode_calculated;
+    }
+    syncGeneralCapmInputs(stock);
+  }
+
+  function onFinCapmInput(key) {
+    const stock = stockUniverse[activeDetailTicker], fin = stock?.fin_valuation;
+    if (!stock || !fin?.is_financial || !['rf', 'beta', 'erp'].includes(key)) return;
+    const input = document.getElementById(`input-fin-${key}`);
+    if (!input) return;
+    let value = parseFloat(input.value);
+    if (!Number.isFinite(value)) {
+      ensureFinCapmDefaults(stock);
+      renderFinCapmBuilder(stock, fin);
+      return;
+    }
+    if (key === 'beta') value = Math.min(5, Math.max(-2, value));
+    else value = Math.min(20, Math.max(0, value));
+    stock[key] = value;
+    if (key === 'rf' || key === 'erp') {
+      const general = document.getElementById(key === 'rf' ? 'inp-rf' : 'inp-erp');
+      if (general) general.value = value.toFixed(2);
+    } else {
+      const general = document.getElementById('inp-beta');
+      if (general) general.value = value.toFixed(3);
+    }
+    FinancialModels.syncCapmKe(fin, stock);
+    syncFinParamControl('ke', fin.ke, { expand: true });
+    const elSpread = document.getElementById('fin-spread-disp');
+    if (elSpread) {
+      elSpread.innerText = !(Number.isFinite(fin.ke) && Number.isFinite(fin.rote)) ? 'N/A'
+        : `${(fin.rote - fin.ke) > 0 ? '+' : ''}${(fin.rote - fin.ke).toFixed(2)}%`;
+    }
+    renderFinCapmBuilder(stock, fin);
+    renderFinKeFloorControls(stock, fin);
+    recalculateDetail();
+    if (activeDetailTicker) renderFinancialKeHistory(activeDetailTicker);
+  }
+
+  function onFinKeModeChange() {
+    const stock = stockUniverse[activeDetailTicker], fin = stock?.fin_valuation;
+    if (!stock || !fin?.is_financial) return;
+    const useCalc = document.getElementById('fin-ke-use-calculated')?.checked !== false;
+    fin.ke_manual_override = !useCalc;
+    ensureFinCapmDefaults(stock);
+    FinancialModels.syncCapmKe(fin, stock);
+    syncFinParamControl('ke', fin.ke, { expand: true });
+    renderFinCapmBuilder(stock, fin);
+    renderFinKeFloorControls(stock, fin);
+    recalculateDetail();
+    if (activeDetailTicker) renderFinancialKeHistory(activeDetailTicker);
+  }
+
+  function onFinRfTenorChange() {
+    const stock = stockUniverse[activeDetailTicker], fin = stock?.fin_valuation;
+    if (!stock || !fin?.is_financial || stock.calculationCurrency === 'HKD') return;
+    const sel = document.getElementById('fin-rf-tenor');
+    const tenor = parseInt(sel?.value, 10) || 10;
+    stock.rf_tenor = tenor;
+    stock.rf = (US_TREASURY_CURVE[tenor] || 0.045) * 100;
+    const generalTenor = document.getElementById('inp-rf-tenor');
+    if (generalTenor) generalTenor.value = String(tenor);
+    FinancialModels.syncCapmKe(fin, stock);
+    syncFinParamControl('ke', fin.ke, { expand: true });
+    renderFinCapmBuilder(stock, fin);
+    renderFinKeFloorControls(stock, fin);
+    recalculateDetail();
+    if (activeDetailTicker) renderFinancialKeHistory(activeDetailTicker);
+  }
+
+  function markFinKeManualOverride(fin) {
+    if (!fin) return;
+    fin.ke_manual_override = true;
+    const useCalc = document.getElementById('fin-ke-use-calculated');
+    if (useCalc) useCalc.checked = false;
+  }
+
   function renderFinKeFloorControls(stock, fin) {
     const row = document.getElementById('fin-ke-floor-row');
     const note = document.getElementById('fin-ke-floor-note');
@@ -3626,6 +3865,7 @@
       if (row) row.hidden = true;
       return;
     }
+    ensureFinCapmDefaults(stock);
     if (!Number.isFinite(fin.ke_capm)) {
       const capm = FinancialModels.capmKePercent(stock);
       if (Number.isFinite(capm)) fin.ke_capm = Number(capm.toFixed(4));
@@ -3680,13 +3920,10 @@
     const stock = stockUniverse[activeDetailTicker], fin = stock?.fin_valuation;
     if (!fin || !fin.is_financial) return;
     fin.ke_floor_applied = document.getElementById('fin-ke-floor-toggle').checked;
-    if (!Number.isFinite(fin.ke_capm)) {
-      const capm = FinancialModels.capmKePercent(stock);
-      if (Number.isFinite(capm)) fin.ke_capm = Number(capm.toFixed(4));
-    }
-    const resolved = FinancialModels.resolveKePercent(fin, stock);
-    if (Number.isFinite(resolved.ke)) fin.ke = resolved.ke;
+    ensureFinCapmDefaults(stock);
+    FinancialModels.syncCapmKe(fin, stock);
     syncFinParamControl('ke', fin.ke, { expand: true });
+    renderFinCapmBuilder(stock, fin);
     renderFinKeFloorControls(stock, fin);
     recalculateDetail();
     if (activeDetailTicker) renderFinancialKeHistory(activeDetailTicker);
@@ -3757,10 +3994,13 @@
       elSpread.innerText = valKe === null || valRote === null ? 'N/A'
         : `${(valRote - valKe) > 0 ? '+' : ''}${(valRote - valKe).toFixed(2)}%`;
     }
+    if (Number.isFinite(valKe) && valKe !== s.fin_valuation.ke) markFinKeManualOverride(s.fin_valuation);
     s.fin_valuation.ke = valKe;
     s.fin_valuation.g = valG;
     s.fin_valuation.rote = valRote;
     s.g = valG;
+    renderFinCapmBuilder(s, s.fin_valuation);
+    syncFinParamControl('ke', s.fin_valuation.ke, { expand: true });
     recalculateDetail();
     if (activeDetailTicker) renderFinancialKeHistory(activeDetailTicker);
   }
@@ -3782,6 +4022,7 @@
       slider.max = String(Math.max(max, value));
     }
     value = syncFinParamControl(key, value);
+    if (key === 'ke') markFinKeManualOverride(s.fin_valuation);
     s.fin_valuation[key] = value;
     if (key === 'g') s.g = value;
     const valKe = s.fin_valuation.ke, valRote = s.fin_valuation.rote;
@@ -3790,6 +4031,7 @@
       elSpread.innerText = !(Number.isFinite(valKe) && Number.isFinite(valRote)) ? 'N/A'
         : `${(valRote - valKe) > 0 ? '+' : ''}${(valRote - valKe).toFixed(2)}%`;
     }
+    if (key === 'ke') renderFinCapmBuilder(s, s.fin_valuation);
     recalculateDetail();
     if (activeDetailTicker) renderFinancialKeHistory(activeDetailTicker);
   }
@@ -6307,6 +6549,7 @@
           if (Number.isFinite(savedFin[key]) && (key !== 'rote' || savedFin.reference)) fin[key] = savedFin[key];
         }
         if (typeof savedFin.ke_floor_applied === 'boolean') fin.ke_floor_applied = savedFin.ke_floor_applied;
+        if (typeof savedFin.ke_manual_override === 'boolean') fin.ke_manual_override = savedFin.ke_manual_override;
         if (savedFin.shareScenario && Number.isFinite(saved.params.shares) && saved.params.shares > 0) {
           s.shares = saved.params.shares;
           fin.shareScenario = true;
@@ -6317,6 +6560,14 @@
           fin.pb_tangible = fin.tbvps > 0 ? s.price / fin.tbvps : null;
         }
       }
+      if (saved?.params) {
+        if (Number.isFinite(saved.params.rf)) s.rf = saved.params.rf;
+        if (Number.isFinite(saved.params.beta)) s.beta = saved.params.beta;
+        if (Number.isFinite(saved.params.erp)) s.erp = saved.params.erp;
+        if (Number.isFinite(saved.params.rf_tenor)) s.rf_tenor = saved.params.rf_tenor;
+      }
+      ensureFinCapmDefaults(s);
+      if (!fin.ke_manual_override) FinancialModels.syncCapmKe(fin, s);
       for (const key of ['ke', 'g', 'rote']) syncFinParamControl(key, fin[key], { expand: true });
       document.getElementById('fin-shares').value = Number.isFinite(s.shares) ? s.shares.toFixed(2) : '';
       document.getElementById('fin-shares').dataset.formattedValue = document.getElementById('fin-shares').value;
@@ -6324,6 +6575,7 @@
       document.getElementById('fin-shares-confirm').checked = !!fin.shareScenario;
       document.getElementById('fin-shares-status').textContent = '';
 
+      renderFinCapmBuilder(s, fin);
       renderFinancialReference(fin);
       renderFinancialKeHistory(ticker);
       renderFinancialRoteHistory(ticker);

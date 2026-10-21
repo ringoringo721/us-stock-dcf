@@ -45,6 +45,38 @@ test('US Ke floor resolves max(CAPM, 9%) and can be toggled off', () => {
   assert.equal(raw.ke_floor_applied, false);
 });
 
+test('syncCapmKe drives Ke from rf/beta/ERP unless manual override', () => {
+  const stock = { rf: 5.09, beta: 0.135, erp: 4.75, calculationCurrency: 'HKD' };
+  const fin = { is_financial: true, ke_floor_applied: false };
+  const resolved = FinancialModels.syncCapmKe(fin, stock);
+  assert.equal(resolved.ke_capm, Number((5.09 + 0.135 * 4.75).toFixed(4)));
+  assert.equal(fin.ke, resolved.ke);
+  assert.equal(fin.ke_capm, resolved.ke_capm);
+  fin.ke_manual_override = true;
+  fin.ke = 8.5;
+  stock.rf = 4.0;
+  const manual = FinancialModels.syncCapmKe(fin, stock);
+  assert.equal(manual.ke, 8.5);
+  assert.equal(manual.manual, true);
+  assert.equal(fin.ke_capm, Number((4.0 + 0.135 * 4.75).toFixed(4)));
+  assert.equal(fin.ke, 8.5);
+});
+
+test('US syncCapmKe respects floor toggle and manual Ke', () => {
+  const stock = { rf: 4.3, beta: 0.5, erp: 4.75, calculationCurrency: 'USD' };
+  const fin = { is_financial: true, ke_floor_applied: true };
+  const floored = FinancialModels.syncCapmKe(fin, stock);
+  assert.equal(floored.ke, 9);
+  fin.ke_floor_applied = false;
+  const raw = FinancialModels.syncCapmKe(fin, stock);
+  assert.equal(raw.ke, floored.ke_capm);
+  fin.ke_manual_override = true;
+  fin.ke = 11;
+  const manual = FinancialModels.syncCapmKe(fin, stock);
+  assert.equal(manual.ke, 11);
+  assert.equal(manual.ke_floor_applied, false);
+});
+
 test('buyback cap is min(|buyback|, 1.5×|div|)', () => {
   assert.equal(FinancialModels.totalPayoutFromFlows(-100, -200), 100 + 150);
   assert.equal(FinancialModels.totalPayoutFromFlows(-100, -50), 150);
@@ -67,7 +99,8 @@ test('UI copy discloses blend weights, buyback cap, Ke floor, and insurer caveat
   for (const key of [
     'fin_blend_note', 'fin_buyback_note', 'fin_ke_floor_note', 'fin_ke_floor_toggle',
     'fin_insurer_bank_style', 'fin_insurer_fragile_rote',
-    'fin_ke_history_title', 'fin_ke_history_basis'
+    'fin_ke_history_title', 'fin_ke_history_basis',
+    'fin_capm_title', 'fin_capm_basis', 'fin_ke_use_calculated', 'fin_capm_live'
   ]) {
     assert.match(html, new RegExp(`${key}:`));
   }
@@ -79,6 +112,13 @@ test('UI copy discloses blend weights, buyback cap, Ke floor, and insurer caveat
   assert.match(html, /id="fin-buyback-note"/);
   assert.match(html, /id="fin-insurer-note"/);
   assert.match(html, /id="fin-ke-history-panel"/);
+  assert.match(html, /id="fin-capm-builder"/);
+  assert.match(html, /id="input-fin-rf"/);
+  assert.match(html, /id="input-fin-beta"/);
+  assert.match(html, /id="input-fin-erp"/);
+  assert.match(html, /id="fin-ke-use-calculated"/);
+  assert.match(html, /onFinCapmInput/);
+  assert.match(html, /onFinKeModeChange/);
   assert.match(html, /id="input-fin-ke"/);
   assert.match(html, /id="input-fin-g"/);
   assert.match(html, /id="input-fin-rote"/);

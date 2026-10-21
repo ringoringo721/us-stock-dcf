@@ -33,16 +33,34 @@
     const capm = finite(fin?.ke_capm) ? fin.ke_capm : capmKePercent(stock);
     const floorPct = finite(fin?.ke_floor_pct) ? fin.ke_floor_pct : US_KE_FLOOR_PCT;
     const useFloor = stock.calculationCurrency !== 'HKD' && fin?.ke_floor_applied !== false;
-    const active = useFloor && finite(capm) ? Math.max(capm, floorPct)
-      : finite(fin?.ke) ? fin.ke
-      : capm;
+    let active = null;
+    if (fin?.ke_manual_override && finite(fin.ke)) {
+      active = fin.ke;
+    } else if (finite(capm)) {
+      active = useFloor ? Math.max(capm, floorPct) : capm;
+    } else if (finite(fin?.ke)) {
+      active = fin.ke;
+    }
     return {
       ke: finite(active) ? active : null,
       ke_capm: finite(capm) ? capm : null,
       ke_floor_pct: floorPct,
-      ke_floor_applied: !!(useFloor && finite(capm) && finite(active) && active > capm + 1e-9),
-      useFloor
+      ke_floor_applied: !!(useFloor && finite(capm) && finite(active) && !fin?.ke_manual_override
+        && active > capm + 1e-9),
+      useFloor,
+      manual: !!fin?.ke_manual_override
     };
+  }
+
+  /** Sync stock rf/beta/erp → ke_capm → active ke (unless manual override). */
+  function syncCapmKe(fin, stock = {}) {
+    if (!fin) return null;
+    const capm = capmKePercent(stock);
+    fin.ke_capm = finite(capm) ? Number(capm.toFixed(4)) : null;
+    if (!Number.isFinite(fin.ke_floor_pct)) fin.ke_floor_pct = US_KE_FLOOR_PCT;
+    const resolved = resolveKePercent(fin, stock);
+    if (!fin.ke_manual_override && finite(resolved.ke)) fin.ke = resolved.ke;
+    return resolved;
   }
 
   function totalPayoutFromFlows(dividends, buybacks) {
@@ -196,7 +214,7 @@
   return {
     US_KE_FLOOR_PCT, EXCESS_WEIGHT, DDM_WEIGHT, STAGE1_DPS_GROWTH, BUYBACK_CAP_MULTIPLE,
     FRAGILE_ROTE_ABS, INSURANCE_INDUSTRIES,
-    finite, isInsuranceIndustry, capmKePercent, resolveKePercent, totalPayoutFromFlows,
+    finite, isInsuranceIndustry, capmKePercent, resolveKePercent, syncCapmKe, totalPayoutFromFlows,
     twoStageDdm, excessReturnFair, excessBlockReason, ddmBlockReason, insurerWarnings, valueFinancial,
     buildKeHistory, validateKeTreasuryCache
   };
