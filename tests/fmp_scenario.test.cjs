@@ -461,5 +461,28 @@ test('TSM builds a ten-year scenario from cached model rows despite unverified F
   assert.ok(finite(scenario.years[0].values.ebitda));
   assert.ok(finite(scenario.years[0].values.growth));
   assert.equal(Scenario.missingInputs(scenario).length, 0);
-  assert.equal(typeof Scenario.calculate(scenario).targetPrice, 'number');
+  const fair = Scenario.calculate(scenario).targetPrice;
+  assert.equal(typeof fair, 'number');
+  assert.ok(fair > 0);
+});
+
+test('TSM embedded summary alone cannot recover a base year; company cache must supply historical model rows', () => {
+  const market = require('../full_market_dcf.json').TSM;
+  const shares = Models.issuedShares({ ...market, ticker: 'TSM' });
+  const context = { window: {} };
+  require('node:vm').runInNewContext(fs.readFileSync(path.join(root, 'fmp_model_data.js'), 'utf8'), context);
+  const embedded = context.window.FMP_MODEL_DATA.stocks.TSM;
+  const company = read('TSM');
+  assert.ok((embedded.models.advanced.data || []).length < (company.models.advanced.data || []).length);
+  assert.equal(embedded.capturedAt, company.capturedAt);
+  // Truncated embed fails honestly (base/forecast), never as "missing shares".
+  assert.throws(() => Scenario.defaults(embedded, 'advanced', shares), error => {
+    assert.match(error.message, /SCENARIO_BASE_UNVERIFIED|SCENARIO_FORECAST_UNAVAILABLE/);
+    assert.notEqual(error.message, 'SCENARIO_SOURCE_UNAVAILABLE');
+    assert.notEqual(error.message, 'FMP_ISSUED_SHARES_UNAVAILABLE');
+    return true;
+  });
+  const recovered = Scenario.defaults(company, 'advanced', shares, { stock: { ...market, ticker: 'TSM' } });
+  assert.equal(recovered.recoveredForecastBase, true);
+  assert.ok(Scenario.calculate(recovered).targetPrice > 0);
 });
