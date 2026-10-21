@@ -117,9 +117,10 @@ test('UI copy discloses blend weights, buyback cap, Ke floor, and insurer caveat
   assert.match(html, /id="input-fin-rf"/);
   assert.match(html, /id="input-fin-beta"/);
   assert.match(html, /id="input-fin-erp"/);
-  assert.match(html, /id="fin-ke-use-calculated"/);
+  assert.match(html, /id="fin-ke-use-calculated"[^>]*\bchecked\b/);
   assert.match(html, /onFinCapmInput/);
   assert.match(html, /onFinKeModeChange/);
+  assert.match(html, /ke_manual_override !== true/);
   assert.match(html, /id="input-fin-ke"/);
   assert.match(html, /id="input-fin-g"/);
   assert.match(html, /id="input-fin-rote"/);

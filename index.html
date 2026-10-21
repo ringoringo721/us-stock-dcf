@@ -1349,7 +1349,7 @@
                 <span aria-hidden="true">%</span>
               </span>
             </div>
-            <input type="range" class="fin-slider" id="slider-fin-ke" min="7.0" max="14.0" step="0.05" oninput="onFinSliderChange()">
+            <input type="range" class="fin-slider" id="slider-fin-ke" min="7.0" max="14.0" step="0.05" oninput="onFinSliderChange(event)">
           </div>
           <div class="slider-row">
             <div class="slider-head">
@@ -1360,7 +1360,7 @@
                 <span aria-hidden="true">%</span>
               </span>
             </div>
-            <input type="range" class="fin-slider" id="slider-fin-g" min="1.0" max="3.5" step="0.05" oninput="onFinSliderChange()">
+            <input type="range" class="fin-slider" id="slider-fin-g" min="1.0" max="3.5" step="0.05" oninput="onFinSliderChange(event)">
           </div>
           <div class="slider-row">
             <div class="slider-head">
@@ -1371,7 +1371,7 @@
                 <span aria-hidden="true">%</span>
               </span>
             </div>
-            <input type="range" class="fin-slider" id="slider-fin-rote" min="-25" max="50" step="any" oninput="onFinSliderChange()">
+            <input type="range" class="fin-slider" id="slider-fin-rote" min="-25" max="50" step="any" oninput="onFinSliderChange(event)">
           </div>
         </div>
         <p id="fin-ke-history-jump" class="analysis-note">
@@ -3771,7 +3771,8 @@
       tenorSel.value = String(tenor);
     }
     const useCalc = document.getElementById('fin-ke-use-calculated');
-    if (useCalc) useCalc.checked = !fin.ke_manual_override;
+    // Default = calculated (checked). Only uncheck when explicitly manual.
+    if (useCalc) useCalc.checked = fin.ke_manual_override !== true;
     const resolved = FinancialModels.syncCapmKe(fin, stock);
     const live = document.getElementById('fin-capm-live');
     if (live) {
@@ -3798,7 +3799,7 @@
     }
     const modeNote = document.getElementById('fin-ke-mode-note');
     if (modeNote) {
-      modeNote.textContent = fin.ke_manual_override ? dict.fin_ke_mode_manual : dict.fin_ke_mode_calculated;
+      modeNote.textContent = fin.ke_manual_override === true ? dict.fin_ke_mode_manual : dict.fin_ke_mode_calculated;
     }
     syncGeneralCapmInputs(stock);
   }
@@ -3999,13 +4000,15 @@
     onDetailParamChange();
   }
 
-  function onFinSliderChange() {
+  function onFinSliderChange(event) {
     const s = stockUniverse[activeDetailTicker];
     if (!s || !s.fin_valuation) return;
     const read = key => {
       const input = document.getElementById(`slider-fin-${key}`);
       return input.disabled ? null : Number.isFinite(parseFloat(input.value)) ? parseFloat(input.value) : null;
     };
+    const sourceId = event?.target?.id || '';
+    const keTouched = sourceId === 'slider-fin-ke';
     const valKe = syncFinParamControl('ke', read('ke'));
     const valG = syncFinParamControl('g', read('g'));
     const valRote = syncFinParamControl('rote', read('rote'));
@@ -4014,8 +4017,9 @@
       elSpread.innerText = valKe === null || valRote === null ? 'N/A'
         : `${(valRote - valKe) > 0 ? '+' : ''}${(valRote - valKe).toFixed(2)}%`;
     }
-    if (Number.isFinite(valKe) && valKe !== s.fin_valuation.ke) markFinKeManualOverride(s.fin_valuation);
-    s.fin_valuation.ke = valKe;
+    // Only Ke slider/number marks manual override — not g/ROTE (avoids CAPM rounding false positives).
+    if (keTouched && Number.isFinite(valKe)) markFinKeManualOverride(s.fin_valuation);
+    if (keTouched || s.fin_valuation.ke_manual_override === true) s.fin_valuation.ke = valKe;
     s.fin_valuation.g = valG;
     s.fin_valuation.rote = valRote;
     s.g = valG;
@@ -6569,7 +6573,8 @@
           if (Number.isFinite(savedFin[key]) && (key !== 'rote' || savedFin.reference)) fin[key] = savedFin[key];
         }
         if (typeof savedFin.ke_floor_applied === 'boolean') fin.ke_floor_applied = savedFin.ke_floor_applied;
-        if (typeof savedFin.ke_manual_override === 'boolean') fin.ke_manual_override = savedFin.ke_manual_override;
+        // Only restore explicit manual override; otherwise default to CAPM-calculated (checkbox checked).
+        fin.ke_manual_override = savedFin.ke_manual_override === true;
         if (savedFin.shareScenario && Number.isFinite(saved.params.shares) && saved.params.shares > 0) {
           s.shares = saved.params.shares;
           fin.shareScenario = true;
@@ -6579,6 +6584,8 @@
           if (fin.reference?.reason === 'shareBasisUnverified') fin.reference = { ...fin.reference, reason: null };
           fin.pb_tangible = fin.tbvps > 0 ? s.price / fin.tbvps : null;
         }
+      } else {
+        fin.ke_manual_override = false;
       }
       if (saved?.params) {
         if (Number.isFinite(saved.params.rf)) s.rf = saved.params.rf;
@@ -6587,8 +6594,13 @@
         if (Number.isFinite(saved.params.rf_tenor)) s.rf_tenor = saved.params.rf_tenor;
       }
       ensureFinCapmDefaults(s);
-      if (!fin.ke_manual_override) FinancialModels.syncCapmKe(fin, s);
+      if (fin.ke_manual_override !== true) {
+        fin.ke_manual_override = false;
+        FinancialModels.syncCapmKe(fin, s);
+      }
       for (const key of ['ke', 'g', 'rote']) syncFinParamControl(key, fin[key], { expand: true });
+      const useCalcBox = document.getElementById('fin-ke-use-calculated');
+      if (useCalcBox) useCalcBox.checked = fin.ke_manual_override !== true;
       document.getElementById('fin-shares').value = Number.isFinite(s.shares) ? s.shares.toFixed(2) : '';
       document.getElementById('fin-shares').dataset.formattedValue = document.getElementById('fin-shares').value;
       document.getElementById('fin-shares').dataset.preciseValue = Number.isFinite(s.shares) ? String(s.shares) : '';
