@@ -12,7 +12,7 @@ from scripts.refresh_hkex_moat import (
     RESEARCH_ASSESSMENT_POLICY, business_research, needs_refresh, validate_business_research,
     report_schema,
 )
-from scripts.research_hkex_moat import research_result, main, needs_research, research_prompt
+from scripts.research_hkex_moat import research_result, main, needs_research, research_prompt, research_feedback, research_validation_code
 
 
 def response():
@@ -30,6 +30,18 @@ def response():
 
 
 class BusinessResearchTests(unittest.TestCase):
+    def test_research_retries_receive_safe_grounding_feedback_without_external_error_strings(self):
+        error = ValueError("BUSINESS_RESEARCH_ATTRIBUTION_INCOMPLETE")
+        self.assertEqual(research_validation_code(error), "BUSINESS_RESEARCH_ATTRIBUTION_INCOMPLETE")
+        feedback = research_feedback({"ticker": "1911.HK"}, error)
+        self.assertIn("1911.HK", feedback)
+        self.assertIn("Google Search", feedback)
+        self.assertIn("two actual HTTPS", feedback)
+        external = ValueError("https://example.invalid/?key=private-token")
+        self.assertIsNone(research_validation_code(external))
+        self.assertNotIn("private-token", research_feedback({"ticker": "1911.HK"}, external))
+        self.assertEqual(research_feedback({"ticker": "1911.HK"}, RuntimeError("private-token")), "")
+
     def partial_record(self):
         return {"ticker": "0700.HK", "profile": {"companyName": "Issuer"}, "fScore": {},
                 "statements": {"annual": {"income": [{"date": "2025-12-31", "netIncome": -100}],
