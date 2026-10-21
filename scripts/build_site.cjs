@@ -1,4 +1,5 @@
 const fs = require('node:fs');
+// Publishes cache/beta_benchmarks for on-demand OLS beta lookback previews.
 const path = require('node:path');
 
 const root = path.resolve(__dirname, '..');
@@ -8,7 +9,7 @@ const assets = [
   'usd_currency.js', 'liquidation.js', 'peer_comparison.js', 'fcf_ratios.js', 'financial_models.js',
   'ke_treasury_data.js',
   'balance_sheet.js', 'earnings_trend.js', 'profile_overview.js', 'technical_indicators.js', 'price_history.js', 'stock_search.js', 'company_data.js',
-  'fmp_model_data.js', 'fmp_scenario.js', 'fmp_models.js', 'fmp_cache.js',
+  'fmp_model_data.js', 'fmp_scenario.js', 'fmp_models.js', 'fmp_cache.js', 'beta_lookback.js',
   'hkex_universe.js', 'hkex_universe_data.js', 'hkex_expansion_data.js', 'cache/hkex_universe.json',
   'full_market_dcf.json', 'hk_market_dcf.json',
   'cache/news_translations.json', 'cache/hsi_constituents.json',
@@ -21,7 +22,7 @@ function buildSite(output = path.join(root, 'public')) {
     throw new Error('Static output must not replace the repository root');
   }
   const files = [...assets];
-  for (const directory of ['financials', 'price_charts', 'company', 'rote_history', 'hk_companies', 'ke_history']) {
+  for (const directory of ['financials', 'price_charts', 'company', 'rote_history', 'hk_companies', 'ke_history', 'beta_benchmarks']) {
     if (!fs.existsSync(path.join(root, 'cache', directory))) continue;
     for (const filename of fs.readdirSync(path.join(root, 'cache', directory))) {
       const pattern = directory === 'financials'

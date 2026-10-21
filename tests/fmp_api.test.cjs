@@ -73,6 +73,21 @@ test('Custom parameter units, model restrictions and Berkshire provider aliases 
     'UNSUPPORTED_MODEL_INPUT');
 });
 
+test('historical-price action forwards dated EOD queries for beta benchmarks only when configured', async () => {
+  const handler = createHandler({ apiKey: () => 'test-placeholder', fetch: async url => {
+    assert.equal(url.pathname, '/stable/historical-price-eod/full');
+    assert.equal(url.searchParams.get('symbol'), 'SPY');
+    assert.equal(url.searchParams.get('from'), '2020-01-01');
+    assert.equal(url.searchParams.get('to'), '2021-01-01');
+    return { ok: true, json: async () => [{ symbol: 'SPY', date: '2020-06-01', close: 300, volume: 1 }] };
+  } });
+  const result = await call(handler, '/api/fmp?action=historical-price&symbol=SPY&from=2020-01-01&to=2021-01-01');
+  assert.equal(result.status, 200);
+  assert.equal(result.body.data[0].close, 300);
+  assert.equal(result.body.source.from, '2020-01-01');
+  assert.equal((await call(handler, '/api/fmp?action=historical-price&symbol=SPY')).status, 400);
+});
+
 test('News pagination discloses its bound instead of offering an invalid next page', async () => {
   const handler = createHandler({ apiKey: () => 'test-placeholder', fetch: async () =>
     ({ ok: true, json: async () => Array.from({ length: 50 }, () => ({ symbol: 'AAPL' })) }) });

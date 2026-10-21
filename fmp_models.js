@@ -189,6 +189,22 @@
         state.scenarios[state.kind] = Scenario.defaults(state.sourceData, state.kind, shares, {
           statements: state.actualStatements, stock: state.stock, peers: loadPeers()
         });
+        // If user already chose 1–5y OLS (profile/CAPM), seed the new scenario with that β — not stale FMP.
+        const Beta = root.BetaLookback;
+        const pref = Beta?.getPreference?.(state.ticker);
+        const latest = Beta?.lastResult?.get(state.ticker);
+        const ols = pref && pref !== Beta.PROVIDER && latest?.ticker === state.ticker && finite(latest.beta)
+          ? latest.beta
+          : (pref && pref !== Beta?.PROVIDER && finite(state.stock?.beta) ? state.stock.beta : null);
+        if (finite(ols)) {
+          const years = Number(pref);
+          const origin = [1, 2, 3, 4, 5].includes(years) ? `ols-${years}y` : 'user';
+          for (let index = 0; index < state.scenarios[state.kind].years.length; index++) {
+            Scenario.update(state.scenarios[state.kind], index, 'beta', ols);
+            state.scenarios[state.kind].years[index].origins.beta = origin;
+          }
+          state.scenarioDirty[state.kind] = true;
+        }
       }
       state.scenarios[state.kind] = Scenario.upgradeWorkingCapital(state.scenarios[state.kind]);
       const scenario = state.scenarios[state.kind];
@@ -207,7 +223,7 @@
     }
   }
 
-  const inputValue = (key, number) => finite(number) ? key === 'beta' ? String(number) : number.toFixed(2) : '';
+  const inputValue = (key, number) => finite(number) ? number.toFixed(2) : '';
 
   function loadPeers() {
     const Peer = root.PeerComparison;
@@ -371,6 +387,11 @@
       'retained-capital': text('維持原資本成本設定', 'Retained capital-cost setting'),
       'derived-legacy': text('舊情境等值換算', 'Equivalent legacy conversion'),
       'fmp-base-year': text('建議預設：模型基期實績比率（可改）', 'Suggested default: model base-year ratio (editable)'),
+      'ols-1y': text('1y OLS', '1y OLS'),
+      'ols-2y': text('2y OLS', '2y OLS'),
+      'ols-3y': text('3y OLS', '3y OLS'),
+      'ols-4y': text('4y OLS', '4y OLS'),
+      'ols-5y': text('5y OLS', '5y OLS'),
       unavailable: text('N/A：未提供預測', 'N/A: forecast unavailable')
     })[origin] || origin;
   }
@@ -648,13 +669,89 @@
     </div>`;
   }
 
+  function betaLookbackSelection() {
+    const Beta = root.BetaLookback;
+    const preferred = Beta?.getPreference?.(state.ticker);
+    return preferred === Beta?.PROVIDER || preferred == null ? 'provider' : String(preferred);
+  }
+
+  function betaLookbackOptionsHtml(text, selected, { compact = false } = {}) {
+    const options = compact
+      ? [
+        ['provider', text('FMP 預設', 'FMP default')],
+        ['1', '1y'], ['2', '2y'], ['3', '3y'], ['4', '4y'], ['5', '5y']
+      ]
+      : [
+        ['provider', text('FMP 預設（年期未明）', 'FMP default (window unspecified)')],
+        ['1', text('1 年 OLS', '1y OLS')],
+        ['2', text('2 年 OLS', '2y OLS')],
+        ['3', text('3 年 OLS', '3y OLS')],
+        ['4', text('4 年 OLS', '4y OLS')],
+        ['5', text('5 年 OLS', '5y OLS')]
+      ];
+    return options.map(([value, label]) =>
+      `<option value="${value}" ${selected === value ? 'selected' : ''}>${escape(label)}</option>`).join('');
+  }
+
+  function betaProvenanceText(text, source) {
+    const Beta = root.BetaLookback;
+    const latest = Beta?.lastResult?.get(state.ticker);
+    const olsActive = latest && latest.method === 'ols-daily'
+      && latest.mode !== Beta?.PROVIDER && Beta?.getPreference?.(state.ticker) !== Beta?.PROVIDER;
+    if (olsActive && finite(latest.beta)) {
+      const bench = latest.benchmarkLabel
+        ? (state.language() === 'en' ? latest.benchmarkLabel.labelEn : latest.benchmarkLabel.labelZh)
+        : (latest.benchmark || '');
+      const r2 = finite(latest.r2) ? `, R²=${latest.r2.toFixed(3)}` : '';
+      return `<strong>Beta</strong>: ${latest.beta.toFixed(4)} —
+        ${text(`本站 OLS（${latest.lookbackYears} 年日線）對 ${escape(bench)}；n=${latest.n}${r2}。已寫入下方十年全部 Beta，並以 CAPM 更新 Ke。`,
+          `Site OLS (${latest.lookbackYears}y daily) vs ${escape(bench)}; n=${latest.n}${r2}. Written into every ten-year Beta cell below; Ke updated via CAPM.`)}`;
+    }
+    if (olsActive && latest.reason) {
+      return `<strong>Beta</strong>: N/A —
+        ${text(`所選 ${latest.lookbackYears || ''} 年 OLS 無法估計`, `Selected ${latest.lookbackYears || ''}y OLS could not be estimated`)}:
+        ${escape(Beta.reasonText(latest.reason, state.language()))}.
+        ${text('十年表 Beta 未改寫為虛構值。', 'Ten-year Beta cells were not overwritten with an invented value.')}`;
+    }
+    return `<strong>Beta</strong>: ${finite(source.retainedBeta) ? source.retainedBeta.toFixed(3) : 'N/A'} —
+      ${text('目前為 FMP 模型列保留的 beta（多為 profile.beta；年期／基準未明）。請用上方或 Beta 列的 1–5 年 OLS 選單覆寫十年表全部 Beta／CAPM Ke（僅本股票、隨選擇計算）。',
+        'Currently the retained FMP model beta (usually profile.beta; window/benchmark unspecified). Use the 1–5y OLS selector above or on the Beta row to overwrite every ten-year Beta / CAPM Ke (this ticker only, on demand).')}
+      <small>${escape(source.betaProvenance || '')}</small>`;
+  }
+
+  function betaLookbackControlHtml(text) {
+    const selected = betaLookbackSelection();
+    const Beta = root.BetaLookback;
+    const latest = Beta?.lastResult?.get(state.ticker);
+    const status = latest
+      ? escape(Beta.statusText(latest, state.language()))
+      : text('選擇 1／2／3／4／5 年 OLS（或 FMP 預設）後，以快取日線對基準計算，並寫入下方十年 Beta／CAPM Ke。',
+        'Choose 1/2/3/4/5y OLS (or FMP default) to compute from cached daily prices vs the benchmark and write β into the ten-year Beta / CAPM Ke rows below.');
+    return `<div class="beta-lookback-panel" id="fmp-beta-lookback-panel">
+      <div class="beta-lookback-row">
+        <label for="fmp-beta-lookback">${text('Beta 回看年期（1–5y OLS）', 'Beta lookback (1–5y OLS)')}</label>
+        <select id="fmp-beta-lookback" data-beta-lookback-select aria-label="${text('Beta 回看年期', 'Beta lookback')}"
+          onchange="typeof onBetaLookbackChange==='function'&&onBetaLookbackChange(event)">${betaLookbackOptionsHtml(text, selected)}</select>
+        <span class="beta-lookback-value" id="fmp-beta-lookback-value">${finite(latest?.beta) ? latest.beta.toFixed(2) : (latest?.reason ? 'N/A' : '—')}</span>
+      </div>
+      <p class="analysis-note" data-beta-lookback-status role="status">${status}</p>
+    </div>`;
+  }
+
+  function betaRowLookbackHtml(text) {
+    const selected = betaLookbackSelection();
+    return `<div class="fmp-rf-tenor-control fmp-beta-lookback-inline" id="fmp-beta-row-lookback">
+      <label for="fmp-beta-row-select">${text('回看 1–5y', 'Lookback 1–5y')}</label>
+      <select id="fmp-beta-row-select" data-beta-lookback-select aria-label="${text('Beta 回看年期', 'Beta lookback')}"
+        onchange="typeof onBetaLookbackChange==='function'&&onBetaLookbackChange(event)">${betaLookbackOptionsHtml(text, selected, { compact: true })}</select>
+    </div>`;
+  }
+
   function capitalProvenanceHtml(text, scenario) {
     const source = riskFreeTenorSource();
     return `<section id="fmp-capital-provenance">
-      <p class="analysis-note" id="fmp-beta-provenance"><strong>Beta</strong>: ${finite(source.retainedBeta) ? source.retainedBeta.toFixed(3) : 'N/A'} —
-        ${text('來自 FMP 模型列保留的 beta（最終多為 FMP profile.beta）。供應商未說明回看期、頻率或基準指數；本站不宣稱「準確 5 年週線對 S&P」。可於十年表覆寫。',
-          'From the retained FMP model beta (typically FMP profile.beta). Provider lookback, frequency and benchmark are unspecified; this site does not claim an “accurate 5y weekly vs S&P” beta. Override in the ten-year grid if needed.')}
-        <small>${escape(source.betaProvenance)}</small></p>
+      ${betaLookbackControlHtml(text)}
+      <p class="analysis-note" id="fmp-beta-provenance">${betaProvenanceText(text, source)}</p>
       <p class="analysis-note" id="fmp-rf-provenance"><strong>${text('無風險利率', 'Risk-free rate')}</strong>:
         ${source.hkPegProxy
           ? text('港股採用美元公債／美股無風險利率概念（聯繫匯率代理），非港元曲線。',
@@ -713,10 +810,14 @@
         ${Scenario.activeFields(state.kind, scenario).map(([key, zh, en, min, max]) => {
           const label = key === 'rf'
             ? `${escape(text(zh, en))}${rfTenorControlHtml(text, scenario)}`
-            : escape(text(zh, en));
-          return `<tr data-scenario-field="${key}"><th>${label}</th><td data-actual-key="${key}">${actual.cells[key]}</td>${scenario.years.map((item, index) => `<td class="fmp-assumption-cell">
+            : key === 'beta'
+              ? `${escape(text(zh, en))}${betaRowLookbackHtml(text)}`
+              : escape(text(zh, en));
+          return `<tr data-scenario-field="${key}"><th>${label}</th><td data-actual-key="${key}">${actual.cells[key]}</td>${scenario.years.map((item, index) => `<td class="fmp-assumption-cell" data-year-index="${index}" data-year="${item.year}">
+          <div class="fmp-assumption-stack">
           <input aria-label="${escape(text(zh, en))} ${item.year}" data-scenario-key="${key}" data-scenario-year="${index}" type="number" step="any" min="${min}" max="${max}" required placeholder="N/A" title="${escape(item.values[key] ?? '')}" value="${inputValue(key, item.values[key])}">
-          <small class="fmp-assumption-origin" data-origin="${index}-${key}">${escape(originText(item.origins[key], text))}</small></td>`).join('')}</tr>`;
+          <small class="fmp-assumption-origin" data-origin="${index}-${key}">${escape(originText(item.origins[key], text))}</small>
+          </div></td>`).join('')}</tr>`;
         }).join('')}
       </tbody></table></div>
       ${scenario.currencyWarning ? `<p class="analysis-note text-red" id="fmp-currency-warning">${text(
@@ -1211,7 +1312,21 @@
       if (!root.document.getElementById('fmp-workspace').hidden) render();
     }
   }
+  function applyBetaLookback(beta, lookbackYears = null) {
+    if (!state || !finite(beta) || !state.scenarios?.[state.kind]) return false;
+    const scenario = state.scenarios[state.kind];
+    const years = Number(lookbackYears);
+    const origin = [1, 2, 3, 4, 5].includes(years) ? `ols-${years}y` : 'user';
+    for (let index = 0; index < scenario.years.length; index++) {
+      Scenario.update(scenario, index, 'beta', beta);
+      scenario.years[index].origins.beta = origin;
+    }
+    state.scenarioDirty[state.kind] = true;
+    if (!root.document.getElementById('fmp-workspace').hidden) render();
+    return true;
+  }
+
   return { record, value, issuedShares, reference, dcfApplicable, priceDifference, compatible, load, save, reset, details, detailsError, reasonText, actuals, auditPacket,
-    valuationConfidence, confidenceText, riskFreeTenorSource, applyRfTenor, isHkListing,
+    valuationConfidence, confidenceText, riskFreeTenorSource, applyRfTenor, isHkListing, applyBetaLookback,
     deactivate: () => { state = null; }, rerender: () => { if (state) render(); } };
 });
