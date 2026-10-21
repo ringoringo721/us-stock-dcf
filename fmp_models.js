@@ -1115,18 +1115,26 @@
       ? 'Detailed model source unavailable; only the dated summary is shown'
       : '詳細模型來源無法載入；目前僅顯示附日期的摘要'}: ${reason}`;
   }
+  function modelYearKey(payload, kind) {
+    return (payload?.models?.[kind]?.data || [])
+      .map(row => Number(row.year)).filter(Number.isFinite).sort((a, b) => a - b).join(',');
+  }
+
   function details(data) {
     if (state && state.ticker === data.symbol) {
       if (state.data === record(state.ticker) || state.data === state.sourceData) state.data = data;
       const previous = state.sourceData;
       state.sourceData = data;
-      // Embedded FMP_MODEL_DATA often lacks analystEstimates/forecastActuals. Rebuild pristine
-      // scenarios once the company cache arrives so PR #9 defaults actually apply.
+      // Embedded FMP_MODEL_DATA often truncates to a single forward year and may omit
+      // analystEstimates/forecastActuals. Rebuild pristine scenarios once the company
+      // cache arrives (same capturedAt is common — compare model years too).
       const enriched = (!previous?.analystEstimates?.rows?.length && data.analystEstimates?.rows?.length)
         || (!previous?.forecastActuals?.latest && data.forecastActuals?.latest)
         || (!!previous?.forecastBase?.reason && !data.forecastBase?.reason)
         || (previous?.currencyCheck?.reason !== data.currencyCheck?.reason)
-        || (previous?.capturedAt !== data.capturedAt);
+        || (previous?.capturedAt !== data.capturedAt)
+        || modelYearKey(previous, 'advanced') !== modelYearKey(data, 'advanced')
+        || modelYearKey(previous, 'customLevered') !== modelYearKey(data, 'customLevered');
       if (enriched) {
         for (const kind of ['advanced', 'customLevered']) {
           if (!state.scenarioDirty?.[kind]) delete state.scenarios[kind];
