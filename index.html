@@ -32,7 +32,7 @@
   <script src="fmp_scenario.js"></script>
   <script src="fmp_models.js"></script>
   <script src="fcf_ratios.js?v=sign-trends-1"></script>
-  <script src="financial_models.js?v=fin-ddm-keep-1"></script>
+  <script src="financial_models.js?v=fin-ke-history-1"></script>
   <script src="balance_sheet.js"></script>
   <script src="earnings_trend.js"></script>
   <script src="profile_overview.js?v=forecast-evidence-1"></script>
@@ -1299,6 +1299,17 @@
           <button type="button" onclick="onFinSharesChange()" data-i18n="fin_shares_apply">套用已確認的股數情境</button>
           <p id="fin-shares-status" class="analysis-note" role="status"></p>
         </details>
+      </div>
+      <div class="panel" id="fin-ke-history-panel" style="margin-top: 20px;">
+        <div class="panel-title" data-i18n="fin_ke_history_title">最近十年股權成本 Ke 參考</div>
+        <p class="analysis-note" data-i18n="fin_ke_history_basis"></p>
+        <p id="fin-ke-history-status" class="analysis-note" role="status"></p>
+        <div style="overflow-x: auto;">
+          <table id="fin-ke-history-table" style="width: 100%; min-width: 900px;">
+            <thead id="fin-ke-history-head"></thead>
+            <tbody id="fin-ke-history-body"></tbody>
+          </table>
+        </div>
       </div>
       <div class="panel" id="fin-rote-history-panel" style="margin-top: 20px;">
         <div class="panel-title" data-i18n="fin_rote_history_title">最近十年年度 ROTE 參考</div>
@@ -3165,7 +3176,21 @@
     fin_rote_history_loading: '正在讀取已存的年度 ROTE…',
     fin_rote_history_source: '已存財報快照；開啟此表不會呼叫 FMP 或 AI。擷取：',
     fin_rote_history_error: '年度 ROTE 快取無法讀取：',
-    fin_rote_history_year: '會計年度'
+    fin_rote_history_year: '會計年度',
+    fin_ke_history_title: '最近十年股權成本 Ke 參考',
+    fin_ke_history_basis: 'Ke＝當年美元 10 年期公債殖利率（FRED DGS10，曆年最後一筆有效觀測）＋目前個股 Beta×假設 ERP（預設 4.75%）。港股沿用聯匯下美債代理，不是實報港元無風險利率。Beta 沒有逐年歷史序列，故全程沿用目前 FMP profile Beta，不捏造舊 Beta；ERP 亦非歷史序列。表內為未套用美股 9% Ke 下限的 CAPM 參考，可與上方滑桿今日 Ke 對照。缺 rf／缺 Beta 顯示 N/A 並標原因；不會自動改寫模型假設。',
+    fin_ke_history_loading: '正在讀取已存的美元公債 Ke 參考…',
+    fin_ke_history_source: '已存 FRED DGS10 快照；開啟此表不會呼叫 FMP 或 AI。擷取：',
+    fin_ke_history_error: 'Ke 公債快取無法讀取：',
+    fin_ke_history_year: '曆年',
+    fin_ke_history_row_rf: 'rf 美元10Y (%)',
+    fin_ke_history_row_beta: 'Beta（目前固定）',
+    fin_ke_history_row_erp: 'ERP 假設 (%)',
+    fin_ke_history_row_ke: 'Ke CAPM (%)',
+    fin_ke_history_compare: '今日滑桿 Ke：',
+    fin_ke_reason_missingBeta: 'N/A：缺少目前可用的個股 Beta，不以虛構 Beta 填補。',
+    fin_ke_reason_missingTreasuryObservation: 'N/A：該年缺少美元 10 年期公債觀測。',
+    fin_ke_reason_latestObservationNotYearEnd: '該年尚未結束：採最近一筆有效 DGS10，不是年末定盤。'
   });
   Object.assign(I18N_DICT.en, {
     fin_rote_history_title: 'Last 10 fiscal years: annual ROTE reference',
@@ -3173,7 +3198,21 @@
     fin_rote_history_loading: 'Loading saved annual ROTE…',
     fin_rote_history_source: 'Saved statement snapshot; opening this table makes no FMP or AI calls. Captured: ',
     fin_rote_history_error: 'Annual ROTE cache unavailable: ',
-    fin_rote_history_year: 'Fiscal year'
+    fin_rote_history_year: 'Fiscal year',
+    fin_ke_history_title: 'Last 10 years: cost of equity (Ke) reference',
+    fin_ke_history_basis: 'Ke = that year’s USD 10Y Treasury yield (FRED DGS10, last valid calendar-year observation) + current stock beta × assumed ERP (default 4.75%). For HK stocks this is the USD Treasury proxy under the HKD/USD peg, not an observed HKD risk-free rate. Historical beta series are unavailable, so the current FMP profile beta is held constant — betas are not invented. ERP is a model assumption, not a historical series. Values are unfloored CAPM (US 9% Ke floor not applied) for comparison with today’s Ke slider. Missing rf/beta stay N/A with reasons; model assumptions are not overwritten.',
+    fin_ke_history_loading: 'Loading saved USD Treasury Ke reference…',
+    fin_ke_history_source: 'Saved FRED DGS10 snapshot; opening this table makes no FMP or AI calls. Captured: ',
+    fin_ke_history_error: 'Ke Treasury cache unavailable: ',
+    fin_ke_history_year: 'Calendar year',
+    fin_ke_history_row_rf: 'rf USD 10Y (%)',
+    fin_ke_history_row_beta: 'Beta (current, held)',
+    fin_ke_history_row_erp: 'ERP assumption (%)',
+    fin_ke_history_row_ke: 'Ke CAPM (%)',
+    fin_ke_history_compare: 'Today’s slider Ke: ',
+    fin_ke_reason_missingBeta: 'N/A: No usable current stock beta; historical betas are not invented.',
+    fin_ke_reason_missingTreasuryObservation: 'N/A: No USD 10Y Treasury observation for that year.',
+    fin_ke_reason_latestObservationNotYearEnd: 'Year still in progress: uses the latest valid DGS10 print, not a year-end fix.'
   });
   for (const lang of Object.keys(I18N_DICT)) I18N_DICT[lang] = MarketContext.labels(I18N_DICT[lang]);
   const moneyPrefix = () => MarketContext.currency === 'HKD' ? 'HKD ' : '$';
@@ -3268,7 +3307,10 @@
     if (document.getElementById('detail-view').style.display === 'block') {
       document.getElementById('det-name').textContent = getStockDisplayName(stockUniverse[activeDetailTicker]);
       renderFinancialReference(stockUniverse[activeDetailTicker].fin_valuation);
-      if (stockUniverse[activeDetailTicker].fin_valuation?.is_financial) renderFinancialRoteHistory(activeDetailTicker);
+      if (stockUniverse[activeDetailTicker].fin_valuation?.is_financial) {
+        renderFinancialKeHistory(activeDetailTicker);
+        renderFinancialRoteHistory(activeDetailTicker);
+      }
       recalculateDetail();
     }
 
@@ -3312,6 +3354,101 @@
     }
   });
 
+  const financialKeTreasuryCache = { pending: null };
+  let financialKeRequest = 0;
+  async function loadKeTreasuryCache() {
+    if (!financialKeTreasuryCache.pending) {
+      financialKeTreasuryCache.pending = fetch('cache/ke_history/treasury_usd10y.json').then(async response => {
+        if (!response.ok) throw new Error(`KE_TREASURY_HTTP_${response.status}`);
+        const data = await response.json();
+        if (!FinancialModels.validateKeTreasuryCache(data)) throw new Error('INVALID_KE_TREASURY_CACHE');
+        return data;
+      });
+      financialKeTreasuryCache.pending.catch(() => { financialKeTreasuryCache.pending = null; });
+    }
+    return financialKeTreasuryCache.pending;
+  }
+  async function renderFinancialKeHistory(ticker) {
+    const id = ++financialKeRequest, lang = currentLang, dict = I18N_DICT[lang];
+    const status = document.getElementById('fin-ke-history-status');
+    const head = document.getElementById('fin-ke-history-head'), body = document.getElementById('fin-ke-history-body');
+    if (!status || !head || !body) return;
+    head.replaceChildren(); body.replaceChildren();
+    status.textContent = dict.fin_ke_history_loading;
+    try {
+      const treasury = await loadKeTreasuryCache();
+      const stock = stockUniverse[ticker];
+      if (id !== financialKeRequest || lang !== currentLang || ticker !== activeDetailTicker) return;
+      const history = FinancialModels.buildKeHistory(treasury, {
+        beta: stock?.beta, erp: stock?.erp ?? stock?.fin_valuation?.erp ?? 4.75,
+        calculationCurrency: stock?.calculationCurrency
+      });
+      const years = document.createElement('tr');
+      const heading = document.createElement('th');
+      heading.scope = 'col'; heading.textContent = dict.fin_ke_history_year;
+      years.append(heading);
+      for (const row of history.years) {
+        const year = document.createElement('th');
+        year.scope = 'col'; year.textContent = row.label;
+        if (row.date) {
+          const date = document.createElement('small');
+          date.textContent = row.date;
+          year.append(document.createElement('br'), date);
+        }
+        years.append(year);
+      }
+      head.append(years);
+      const metricRows = [
+        ['rf', dict.fin_ke_history_row_rf, row => row.rf],
+        ['beta', dict.fin_ke_history_row_beta, row => row.beta],
+        ['erp', dict.fin_ke_history_row_erp, row => row.erp],
+        ['ke', dict.fin_ke_history_row_ke, row => row.ke]
+      ];
+      for (const [key, label, pick] of metricRows) {
+        const tr = document.createElement('tr');
+        const metric = document.createElement('th');
+        metric.scope = 'row'; metric.textContent = label;
+        tr.append(metric);
+        for (const row of history.years) {
+          const cell = document.createElement('td');
+          cell.dataset.keYear = row.year;
+          cell.dataset.keMetric = key;
+          const value = pick(row);
+          const unavailable = key === 'ke' ? row.ke === null : value === null;
+          if (unavailable) {
+            cell.textContent = 'N/A';
+            const reasonKey = row.reason ? `fin_ke_reason_${row.reason}` : null;
+            cell.title = (reasonKey && dict[reasonKey]) || row.reason || '';
+            if (key === 'ke' && cell.title) {
+              const small = document.createElement('small');
+              small.textContent = cell.title;
+              cell.append(document.createElement('br'), small);
+            }
+          } else {
+            const flag = key === 'ke' && row.warnings.length ? ' *' : '';
+            cell.textContent = `${Number(value).toFixed(key === 'beta' ? 3 : 2)}${key === 'beta' ? '' : '%'}${flag}`;
+            if (row.warnings.length) {
+              cell.title = row.warnings.map(code => dict[`fin_ke_reason_${code}`] || code).join(' · ');
+            }
+          }
+          tr.append(cell);
+        }
+        body.append(tr);
+      }
+      const sliderKe = stock?.fin_valuation?.ke;
+      const latest = history.years.at(-1);
+      status.textContent = [
+        `${ticker} · ${history.years.filter(row => row.ke !== null).length}/10`,
+        `${dict.fin_ke_history_source}${treasury.capturedAt || 'N/A'}`,
+        Number.isFinite(sliderKe) ? `${dict.fin_ke_history_compare}${sliderKe.toFixed(2)}%` : null,
+        latest && Number.isFinite(latest.ke) ? `CAPM@${latest.year}: ${latest.ke.toFixed(2)}%` : null
+      ].filter(Boolean).join(' · ');
+    } catch (error) {
+      if (id !== financialKeRequest || lang !== currentLang || ticker !== activeDetailTicker) return;
+      console.error('Ke history unavailable', ticker, error.message);
+      status.textContent = `${dict.fin_ke_history_error}${error.message}`;
+    }
+  }
   const financialRoteCache = new Map();
   let financialRoteRequest = 0;
   async function renderFinancialRoteHistory(ticker) {
@@ -3543,6 +3680,7 @@
     s.g = valG;
 
     recalculateDetail();
+    if (activeDetailTicker) renderFinancialKeHistory(activeDetailTicker);
   }
 
   function computeDCF(s, explicitTicker) {
@@ -6091,6 +6229,7 @@
       document.getElementById('disp-fin-g').innerText = Number.isFinite(fin.g) ? `${fin.g.toFixed(2)}%` : 'N/A';
       document.getElementById('disp-fin-rote').innerText = Number.isFinite(fin.rote) ? `${fin.rote.toFixed(2)}%` : 'N/A';
       renderFinancialReference(fin);
+      renderFinancialKeHistory(ticker);
       renderFinancialRoteHistory(ticker);
 
       document.getElementById('fin-tbvps').innerText = fin.tbvps == null ? 'N/A' : `${moneyPrefix()}${Number(fin.tbvps).toFixed(2)}`;

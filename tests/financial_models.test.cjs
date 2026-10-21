@@ -66,7 +66,8 @@ test('UI copy discloses blend weights, buyback cap, Ke floor, and insurer caveat
   const html = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
   for (const key of [
     'fin_blend_note', 'fin_buyback_note', 'fin_ke_floor_note', 'fin_ke_floor_toggle',
-    'fin_insurer_bank_style', 'fin_insurer_fragile_rote'
+    'fin_insurer_bank_style', 'fin_insurer_fragile_rote',
+    'fin_ke_history_title', 'fin_ke_history_basis'
   ]) {
     assert.match(html, new RegExp(`${key}:`));
   }
@@ -77,6 +78,29 @@ test('UI copy discloses blend weights, buyback cap, Ke floor, and insurer caveat
   assert.match(html, /id="fin-blend-note"/);
   assert.match(html, /id="fin-buyback-note"/);
   assert.match(html, /id="fin-insurer-note"/);
+  assert.match(html, /id="fin-ke-history-panel"/);
   assert.match(html, /financial_models\.js/);
   assert.match(html, /超額有形股本回報模型/);
+});
+
+test('Ke history uses dated USD 10Y + current beta; does not invent betas', () => {
+  const treasury = JSON.parse(fs.readFileSync(
+    path.join(__dirname, '..', 'cache', 'ke_history', 'treasury_usd10y.json'), 'utf8'));
+  assert.equal(FinancialModels.validateKeTreasuryCache(treasury), true);
+  const history = FinancialModels.buildKeHistory(treasury, {
+    beta: 0.135, erp: 4.75, calculationCurrency: 'HKD'
+  });
+  assert.equal(history.method, 'usd10yPlusCurrentBetaTimesAssumedErp');
+  assert.equal(history.rfBasis, 'usdTreasury10YProxyUnderHkdUsdPeg');
+  assert.equal(history.betaBasis, 'currentProfileBetaHeldConstant');
+  assert.equal(history.years.length, 10);
+  const y2024 = history.years.find(row => row.year === 2024);
+  assert.ok(y2024);
+  assert.equal(y2024.rf, 4.58);
+  assert.equal(y2024.ke, Number((4.58 + 0.135 * 4.75).toFixed(12)));
+  assert.equal(y2024.reason, null);
+  const missingBeta = FinancialModels.buildKeHistory(treasury, { beta: null, erp: 4.75 });
+  assert.ok(missingBeta.years.every(row => row.ke === null && row.reason === 'missingBeta'));
+  const latest = history.years.at(-1);
+  if (!latest.yearEnd) assert.ok(latest.warnings.includes('latestObservationNotYearEnd'));
 });

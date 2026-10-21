@@ -20,11 +20,12 @@ function buildSite(output = path.join(root, 'public')) {
     throw new Error('Static output must not replace the repository root');
   }
   const files = [...assets];
-  for (const directory of ['financials', 'price_charts', 'company', 'rote_history', 'hk_companies']) {
+  for (const directory of ['financials', 'price_charts', 'company', 'rote_history', 'hk_companies', 'ke_history']) {
     if (!fs.existsSync(path.join(root, 'cache', directory))) continue;
     for (const filename of fs.readdirSync(path.join(root, 'cache', directory))) {
       const pattern = directory === 'financials'
-        ? /^[A-Z0-9.-]+_statements_v2\.json$/ : /^[A-Z0-9.-]+\.json$/;
+        ? /^[A-Z0-9.-]+_statements_v2\.json$/
+        : directory === 'ke_history' ? /^[a-z0-9_]+\.json$/ : /^[A-Z0-9.-]+\.json$/;
       if (pattern.test(filename)) files.push(path.join('cache', directory, filename));
     }
   }

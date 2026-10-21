@@ -132,10 +132,72 @@
     };
   }
 
+  /**
+   * Decade Ke reference from dated USD 10Y rf + current beta × assumed ERP.
+   * Does not invent historical betas; gaps stay N/A with reasons.
+   */
+  function buildKeHistory(treasury, { beta, erp, calculationCurrency } = {}) {
+    if (!treasury || treasury.version !== 1 || treasury.series !== 'DGS10'
+        || treasury.method !== 'calendarYearLastObservation' || !Array.isArray(treasury.years)
+        || treasury.years.length !== 10) {
+      throw new TypeError('INVALID_KE_TREASURY_CACHE');
+    }
+    const erpPct = finite(erp) ? erp : 4.75;
+    const betaOk = finite(beta) && beta > 0;
+    const years = treasury.years.map(row => {
+      const warnings = [];
+      if (row.reason === 'latestObservationNotYearEnd') warnings.push('latestObservationNotYearEnd');
+      if (!finite(row.year10)) {
+        return {
+          year: row.year, label: `CY ${row.year}`, date: row.date || null,
+          rf: null, beta: betaOk ? beta : null, erp: erpPct, ke: null,
+          reason: row.reason || 'missingTreasuryObservation', warnings,
+          yearEnd: row.yearEnd
+        };
+      }
+      if (!betaOk) {
+        return {
+          year: row.year, label: `CY ${row.year}`, date: row.date,
+          rf: row.year10, beta: null, erp: erpPct, ke: null,
+          reason: 'missingBeta', warnings, yearEnd: row.yearEnd
+        };
+      }
+      const ke = row.year10 + beta * erpPct;
+      return {
+        year: row.year, label: `CY ${row.year}`, date: row.date,
+        rf: row.year10, beta, erp: erpPct, ke,
+        reason: null, warnings, yearEnd: row.yearEnd
+      };
+    });
+    return {
+      method: 'usd10yPlusCurrentBetaTimesAssumedErp',
+      formula: 'Ke = rf_USD10Y + beta_current × ERP_assumed',
+      rfBasis: calculationCurrency === 'HKD'
+        ? 'usdTreasury10YProxyUnderHkdUsdPeg'
+        : 'usdTreasury10YConstantMaturity',
+      betaBasis: 'currentProfileBetaHeldConstant',
+      erpBasis: 'modelAssumptionNotHistoricalSeries',
+      treasurySource: treasury.source,
+      treasuryCapturedAt: treasury.capturedAt,
+      years
+    };
+  }
+
+  function validateKeTreasuryCache(data) {
+    return !!(data && data.version === 1 && data.series === 'DGS10'
+      && data.method === 'calendarYearLastObservation' && Array.isArray(data.years)
+      && data.years.length === 10
+      && data.years.every((row, index) => Number.isInteger(row.year)
+        && (index === 0 || row.year === data.years[index - 1].year + 1)
+        && (row.year10 === null || Number.isFinite(row.year10))
+        && (row.year10 === null ? !!row.reason : true)));
+  }
+
   return {
     US_KE_FLOOR_PCT, EXCESS_WEIGHT, DDM_WEIGHT, STAGE1_DPS_GROWTH, BUYBACK_CAP_MULTIPLE,
     FRAGILE_ROTE_ABS, INSURANCE_INDUSTRIES,
     finite, isInsuranceIndustry, capmKePercent, resolveKePercent, totalPayoutFromFlows,
-    twoStageDdm, excessReturnFair, excessBlockReason, ddmBlockReason, insurerWarnings, valueFinancial
+    twoStageDdm, excessReturnFair, excessBlockReason, ddmBlockReason, insurerWarnings, valueFinancial,
+    buildKeHistory, validateKeTreasuryCache
   };
 });
