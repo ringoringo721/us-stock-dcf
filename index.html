@@ -928,6 +928,24 @@
     .profile-support-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-bottom: 20px; }
     #subpage-basic .company-meta-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
     #subpage-basic .company-meta-item { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; border: 1px solid var(--card-border); border-radius: 8px; padding: 16px; background: var(--surface-bg); overflow-wrap: anywhere; min-width: 0; }
+    .beta-lookback-panel {
+      margin: 14px 0 18px; padding: 14px 16px; border: 1px solid var(--card-border); border-left: 4px solid var(--accent);
+      border-radius: 10px; background: var(--surface-bg); display: grid; gap: 10px;
+    }
+    .beta-lookback-panel .beta-lookback-row {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px;
+    }
+    .beta-lookback-panel label { font-weight: 600; color: var(--text); }
+    .beta-lookback-panel select[data-beta-lookback-select],
+    #subpage-basic .company-meta-item select[data-beta-lookback-select],
+    #fin-capm-builder select[data-beta-lookback-select],
+    #fmp-workspace select[data-beta-lookback-select] {
+      min-width: min(100%, 280px); width: auto; max-width: 100%;
+      padding: 10px 12px; font-size: 14px; font-weight: 600; text-align: left;
+      color: var(--text); background: var(--card-bg); border: 2px solid var(--accent); border-radius: 8px;
+    }
+    .beta-lookback-panel .beta-lookback-value { font-size: 18px; font-weight: 700; color: var(--green); font-variant-numeric: tabular-nums; }
+    .beta-lookback-panel [data-beta-lookback-status] { margin: 0; }
     #subpage-basic .table-scroll-wrapper, #subpage-rating .table-scroll-wrapper { border: 1px solid var(--card-border); border-radius: 8px; }
     #subpage-basic .table-scroll-wrapper table { min-width: 740px; }
     #subpage-basic .table-scroll-wrapper th, #subpage-basic .table-scroll-wrapper td,
@@ -1370,6 +1388,18 @@
                     aria-label="beta" onchange="onFinCapmInput('beta')" onkeydown="if(event.key==='Enter'){this.blur();}">
                 </span>
               </div>
+              <label class="analysis-note" style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;">
+                <span data-i18n="lbl_beta_lookback">Beta 回看年期:</span>
+                <select data-beta-lookback-select aria-label="Beta lookback" onchange="onBetaLookbackChange(event)">
+                  <option value="provider" data-i18n="beta_lookback_provider">供應商／年期未明（預設）</option>
+                  <option value="1" data-i18n="beta_lookback_1y">1 年 OLS</option>
+                  <option value="2" data-i18n="beta_lookback_2y">2 年 OLS</option>
+                  <option value="3" data-i18n="beta_lookback_3y">3 年 OLS</option>
+                  <option value="4" data-i18n="beta_lookback_4y">4 年 OLS</option>
+                  <option value="5" data-i18n="beta_lookback_5y">5 年 OLS</option>
+                </select>
+              </label>
+              <p class="analysis-note" data-beta-lookback-status role="status"></p>
             </div>
             <div class="slider-row">
               <div class="slider-head">
@@ -1642,6 +1672,21 @@
       </section>
       <section class="panel historical-ratio-panel profile-overview" id="profile-overview-panel" aria-labelledby="profile-overview-title">
         <div class="panel-title" id="profile-overview-title" data-i18n="profile_overview_title">市場與財務摘要</div>
+        <div class="beta-lookback-panel" id="profile-beta-lookback-panel" aria-label="Beta lookback">
+          <div class="beta-lookback-row">
+            <label for="cmp-beta-lookback" data-i18n="lbl_beta_lookback">Beta 回看年期:</label>
+            <select id="cmp-beta-lookback" data-beta-lookback-select aria-describedby="cmp-beta-status" onchange="onBetaLookbackChange(event)">
+              <option value="provider" data-i18n="beta_lookback_provider">供應商／年期未明（預設）</option>
+              <option value="1" data-i18n="beta_lookback_1y">1 年 OLS</option>
+              <option value="2" data-i18n="beta_lookback_2y">2 年 OLS</option>
+              <option value="3" data-i18n="beta_lookback_3y">3 年 OLS</option>
+              <option value="4" data-i18n="beta_lookback_4y">4 年 OLS</option>
+              <option value="5" data-i18n="beta_lookback_5y">5 年 OLS</option>
+            </select>
+            <span class="beta-lookback-value" id="profile-beta-value">--</span>
+          </div>
+          <p id="cmp-beta-status" class="analysis-note" data-beta-lookback-status role="status" data-i18n="profile_beta_default_note"></p>
+        </div>
         <div class="profile-overview-layout">
           <div class="profile-quote-card">
             <span class="stat-label" data-i18n="profile_quote">最新股價（USD）</span>
@@ -1676,7 +1721,7 @@
           <div class="company-meta-item"><span class="label" data-i18n="lbl_shares_out">總股本 (Shares Out):</span><span class="val text-gold" id="cmp-meta-shares">--</span></div>
           <div class="company-meta-item"><span class="label" data-i18n="lbl_emp">全職員工數:</span><span class="val" id="cmp-meta-emp">--</span></div>
           <div class="company-meta-item"><span class="label" data-i18n="lbl_beta_lookback">Beta 回看年期:</span>
-            <select id="cmp-beta-lookback" aria-describedby="cmp-beta-status" onchange="onBetaLookbackChange()">
+            <select data-beta-lookback-select aria-label="Beta lookback" onchange="onBetaLookbackChange(event)">
               <option value="provider" data-i18n="beta_lookback_provider">供應商／年期未明（預設）</option>
               <option value="1" data-i18n="beta_lookback_1y">1 年 OLS</option>
               <option value="2" data-i18n="beta_lookback_2y">2 年 OLS</option>
@@ -1687,7 +1732,7 @@
           </div>
           <div class="company-meta-item"><span class="label" id="cmp-beta-label" data-i18n="lbl_beta_5y">Beta（年期未明）:</span><span class="val text-green" id="cmp-meta-beta">--</span></div>
         </div>
-        <p id="cmp-beta-status" class="analysis-note" role="status"></p>
+        <p class="analysis-note" data-beta-lookback-status role="status"></p>
       </div>
 
       <div class="profile-support-grid">
@@ -4177,6 +4222,17 @@
         if (stock) ProfileOverview.render(ticker, stock, currentLang, I18N_DICT[currentLang]);
       }
       if (typeof FmpModels !== 'undefined' && FmpModels.rerender) FmpModels.rerender();
+      // FmpModels.rerender rebuilds DOM selects — re-sync lookback + displayed β.
+      const selectValue = result.mode === BetaLookback.PROVIDER ? 'provider' : String(result.lookbackYears || result.mode);
+      syncBetaLookbackSelects(selectValue);
+      const fmpValue = document.getElementById('fmp-beta-lookback-value');
+      if (fmpValue) {
+        fmpValue.textContent = Number.isFinite(result.beta) ? result.beta.toFixed(4)
+          : (result.reason ? 'N/A' : '—');
+      }
+      document.querySelectorAll('[data-beta-lookback-status]').forEach(node => {
+        node.textContent = BetaLookback.statusText(result, currentLang);
+      });
     }
     return result;
   }
@@ -6749,7 +6805,13 @@
         console.error('Actual FMP scenario references could not be loaded', ticker, error.message);
         FmpModels.actuals(ticker, null, error.message);
       });
-      CompanyData.load(ticker).then(data => FmpModels.details(data)).catch(error =>
+      CompanyData.load(ticker).then(data => {
+        FmpModels.details(data);
+        // Re-apply after scenario may have been built from FMP rows so OLS wins over retained-capital.
+        if (BetaLookback.getPreference(ticker) !== BetaLookback.PROVIDER) {
+          return refreshBetaLookback(ticker, undefined, { wireInputs: true });
+        }
+      }).catch(error =>
         { console.error('Detailed FMP model rows could not be loaded', ticker, error.message);
           FmpModels.detailsError(ticker, error.message); });
       if (BetaLookback.getPreference(ticker) !== BetaLookback.PROVIDER) {

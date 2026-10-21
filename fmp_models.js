@@ -189,6 +189,19 @@
         state.scenarios[state.kind] = Scenario.defaults(state.sourceData, state.kind, shares, {
           statements: state.actualStatements, stock: state.stock, peers: loadPeers()
         });
+        // If user already chose 1–5y OLS (profile/CAPM), seed the new scenario with that β — not stale FMP.
+        const Beta = root.BetaLookback;
+        const pref = Beta?.getPreference?.(state.ticker);
+        const latest = Beta?.lastResult?.get(state.ticker);
+        const ols = pref && pref !== Beta.PROVIDER && latest?.ticker === state.ticker && finite(latest.beta)
+          ? latest.beta
+          : (pref && pref !== Beta?.PROVIDER && finite(state.stock?.beta) ? state.stock.beta : null);
+        if (finite(ols)) {
+          for (let index = 0; index < state.scenarios[state.kind].years.length; index++) {
+            Scenario.update(state.scenarios[state.kind], index, 'beta', ols);
+          }
+          state.scenarioDirty[state.kind] = true;
+        }
       }
       state.scenarios[state.kind] = Scenario.upgradeWorkingCapital(state.scenarios[state.kind]);
       const scenario = state.scenarios[state.kind];
@@ -648,12 +661,41 @@
     </div>`;
   }
 
+  function betaLookbackControlHtml(text) {
+    const Beta = root.BetaLookback;
+    const preferred = Beta?.getPreference?.(state.ticker);
+    const selected = preferred === Beta?.PROVIDER || preferred == null ? 'provider' : String(preferred);
+    const options = [
+      ['provider', text('供應商／年期未明（預設）', 'Provider / window unspecified (default)')],
+      ['1', text('1 年 OLS', '1-year OLS')],
+      ['2', text('2 年 OLS', '2-year OLS')],
+      ['3', text('3 年 OLS', '3-year OLS')],
+      ['4', text('4 年 OLS', '4-year OLS')],
+      ['5', text('5 年 OLS', '5-year OLS')]
+    ].map(([value, label]) => `<option value="${value}" ${selected === value ? 'selected' : ''}>${escape(label)}</option>`).join('');
+    const latest = Beta?.lastResult?.get(state.ticker);
+    const status = latest
+      ? escape(Beta.statusText(latest, state.language()))
+      : text('選擇 1–5 年後，以本機快取日線對基準做 OLS，並寫入下方十年 Beta／CAPM Ke。',
+        'Selecting 1–5y runs OLS on cached daily prices vs the market benchmark and writes the β into the ten-year Beta / CAPM Ke rows below.');
+    return `<div class="beta-lookback-panel" id="fmp-beta-lookback-panel">
+      <div class="beta-lookback-row">
+        <label for="fmp-beta-lookback">${text('Beta 回看年期', 'Beta lookback')}</label>
+        <select id="fmp-beta-lookback" data-beta-lookback-select aria-label="${text('Beta 回看年期', 'Beta lookback')}"
+          onchange="typeof onBetaLookbackChange==='function'&&onBetaLookbackChange(event)">${options}</select>
+        <span class="beta-lookback-value" id="fmp-beta-lookback-value">${finite(latest?.beta) ? latest.beta.toFixed(4) : (latest?.reason ? 'N/A' : '—')}</span>
+      </div>
+      <p class="analysis-note" data-beta-lookback-status role="status">${status}</p>
+    </div>`;
+  }
+
   function capitalProvenanceHtml(text, scenario) {
     const source = riskFreeTenorSource();
     return `<section id="fmp-capital-provenance">
+      ${betaLookbackControlHtml(text)}
       <p class="analysis-note" id="fmp-beta-provenance"><strong>Beta</strong>: ${finite(source.retainedBeta) ? source.retainedBeta.toFixed(3) : 'N/A'} —
-        ${text('來自 FMP 模型列保留的 beta（最終多為 FMP profile.beta）。供應商未說明回看期、頻率或基準指數；本站不宣稱「準確 5 年週線對 S&P」。可於十年表覆寫。',
-          'From the retained FMP model beta (typically FMP profile.beta). Provider lookback, frequency and benchmark are unspecified; this site does not claim an “accurate 5y weekly vs S&P” beta. Override in the ten-year grid if needed.')}
+        ${text('預設來自 FMP 模型列保留的 beta（多為 profile.beta；年期／基準未明）。選上方 1–5 年 OLS 後，會覆寫十年表全部 Beta 並以 CAPM 更新 Ke（不夜間全市場重算；僅本股票隨開啟／選擇計算）。',
+          'Default is the retained FMP model beta (usually profile.beta; window/benchmark unspecified). Choosing 1–5y OLS above overwrites every ten-year Beta and CAPM Ke for this ticker only (on-demand; not a full-market nightly recompute).')}
         <small>${escape(source.betaProvenance)}</small></p>
       <p class="analysis-note" id="fmp-rf-provenance"><strong>${text('無風險利率', 'Risk-free rate')}</strong>:
         ${source.hkPegProxy
@@ -671,6 +713,9 @@
   function scenarioHtml(text, money, result) {
     const scenario = state.scenarios[state.kind];
     if (!scenario) return `<p id="fmp-status" role="status">${escape(reasonText(result.reason, state.language()))}</p>`;
+    const Beta = root.BetaLookback;
+    const preferred = Beta?.getPreference?.(state.ticker);
+    const selected = preferred === Beta?.PROVIDER || preferred == null ? 'provider' : String(preferred);
     const actual = actualColumn(text, money);
     const analyst = scenario.assumptionPolicy === 'analyst-consensus-v1';
     const missing = Scenario.missingInputs(scenario);
@@ -713,7 +758,16 @@
         ${Scenario.activeFields(state.kind, scenario).map(([key, zh, en, min, max]) => {
           const label = key === 'rf'
             ? `${escape(text(zh, en))}${rfTenorControlHtml(text, scenario)}`
-            : escape(text(zh, en));
+            : key === 'beta'
+              ? `${escape(text(zh, en))}<div class="fmp-rf-tenor-control">${text('回看', 'Lookback')}: <select data-beta-lookback-select aria-label="${text('Beta 回看年期', 'Beta lookback')}" onchange="typeof onBetaLookbackChange==='function'&&onBetaLookbackChange(event)">
+                  <option value="provider" ${selected === 'provider' ? 'selected' : ''}>${text('供應商預設', 'Provider default')}</option>
+                  <option value="1" ${selected === '1' ? 'selected' : ''}>1y</option>
+                  <option value="2" ${selected === '2' ? 'selected' : ''}>2y</option>
+                  <option value="3" ${selected === '3' ? 'selected' : ''}>3y</option>
+                  <option value="4" ${selected === '4' ? 'selected' : ''}>4y</option>
+                  <option value="5" ${selected === '5' ? 'selected' : ''}>5y</option>
+                </select></div>`
+              : escape(text(zh, en));
           return `<tr data-scenario-field="${key}"><th>${label}</th><td data-actual-key="${key}">${actual.cells[key]}</td>${scenario.years.map((item, index) => `<td class="fmp-assumption-cell">
           <input aria-label="${escape(text(zh, en))} ${item.year}" data-scenario-key="${key}" data-scenario-year="${index}" type="number" step="any" min="${min}" max="${max}" required placeholder="N/A" title="${escape(item.values[key] ?? '')}" value="${inputValue(key, item.values[key])}">
           <small class="fmp-assumption-origin" data-origin="${index}-${key}">${escape(originText(item.origins[key], text))}</small></td>`).join('')}</tr>`;
