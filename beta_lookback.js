@@ -145,36 +145,64 @@
 
   async function fetchSeries(path) {
     const response = await root.fetch(path, { cache: 'default' });
-    if (!response.ok) throw new Error(`BETA_SERIES_HTTP_${response.status}`);
+    if (!response.ok) {
+      const err = new Error(`BETA_SERIES_HTTP_${response.status}`);
+      err.status = response.status;
+      err.path = path;
+      throw err;
+    }
     return response.json();
   }
 
   async function loadSeries(ticker, { reload = false } = {}) {
     if (!tickerOk(ticker)) throw new TypeError('Invalid beta ticker');
     if (!reload && seriesMemory.has(ticker)) return seriesMemory.get(ticker);
+    const priceApi = Price();
+    if (!priceApi || typeof priceApi.validate !== 'function') {
+      const err = new Error('PRICE_HISTORY_API_UNAVAILABLE');
+      err.causeCode = 'priceHistoryApiUnavailable';
+      throw err;
+    }
     const promise = (async () => {
-      // Prefer published price_charts (same cache as Profile charts).
+      const chartPath = `cache/price_charts/${encodeURIComponent(ticker)}.json`;
+      let chartError = null;
+      // Prefer published price_charts (same cache as Profile charts) — any US/HK listing.
       try {
-        const chart = await fetchSeries(`cache/price_charts/${encodeURIComponent(ticker)}.json`);
-        return Price().validate(chart, ticker);
-      } catch (chartError) {
-        // Benchmark bootstrap / committed beta benchmarks (Yahoo or FMP-shaped).
-        try {
-          const bench = await fetchSeries(`cache/beta_benchmarks/${encodeURIComponent(ticker)}.json`);
-          return validateSeries(bench, ticker, { allowBootstrap: true });
-        } catch (benchError) {
-          // On-demand FMP only when static caches miss — minimize API use.
-          const to = new Date().toISOString().slice(0, 10);
-          const fromDate = new Date();
-          fromDate.setUTCFullYear(fromDate.getUTCFullYear() - 20);
-          const from = fromDate.toISOString().slice(0, 10);
-          const query = new URLSearchParams({ action: 'historical-price', symbol: ticker, from, to });
-          const result = await Cache().request(query, { refresh: reload });
-          if (!Array.isArray(result?.data) || result.source?.symbol !== ticker) {
-            throw new Error('FMP_INVALID_HISTORICAL_PRICE');
-          }
-          return fromEodRows(ticker, result.data, from, to);
+        const chart = await fetchSeries(chartPath);
+        return priceApi.validate(chart, ticker);
+      } catch (error) {
+        chartError = error;
+      }
+      // Benchmark bootstrap / committed beta benchmarks (Yahoo or FMP-shaped).
+      try {
+        const bench = await fetchSeries(`cache/beta_benchmarks/${encodeURIComponent(ticker)}.json`);
+        return validateSeries(bench, ticker, { allowBootstrap: true });
+      } catch (_) { /* fall through to FMP */ }
+      // On-demand FMP only when static caches miss — minimize API use.
+      try {
+        const to = new Date().toISOString().slice(0, 10);
+        const fromDate = new Date();
+        fromDate.setUTCFullYear(fromDate.getUTCFullYear() - 20);
+        const from = fromDate.toISOString().slice(0, 10);
+        const query = new URLSearchParams({ action: 'historical-price', symbol: ticker, from, to });
+        const result = await Cache().request(query, { refresh: reload });
+        if (!Array.isArray(result?.data) || result.source?.symbol !== ticker) {
+          throw new Error('FMP_INVALID_HISTORICAL_PRICE');
         }
+        return fromEodRows(ticker, result.data, from, to);
+      } catch (fmpError) {
+        const status = chartError?.status;
+        const code = status === 404 ? 'priceChartMissing'
+          : status ? `priceChartHttp${status}`
+            : /Unsupported|Invalid/.test(String(chartError?.message || '')) ? 'priceChartInvalid'
+              : /PRICE_HISTORY_API/.test(String(chartError?.message || '')) ? 'priceHistoryApiUnavailable'
+                : 'stockPricesUnavailable';
+        const err = new Error(String(fmpError.message || fmpError));
+        err.causeCode = code;
+        err.chartPath = chartPath;
+        err.chartDetail = String(chartError?.message || chartError || '');
+        err.fmpDetail = String(fmpError.message || fmpError);
+        throw err;
       }
     })();
     seriesMemory.set(ticker, promise);
@@ -223,9 +251,13 @@
     catch (error) {
       return finish({
         version: 1, ticker, mode: years, beta: null, n: 0, r2: null, lookbackYears: years,
-        start: null, end: null, reason: 'stockPricesUnavailable', method: 'ols-daily',
+        start: null, end: null,
+        reason: error.causeCode || 'stockPricesUnavailable', method: 'ols-daily',
         benchmark: bench.ticker, benchmarkLabel: bench, cache: { hit: false, key },
-        detail: String(error.message || error)
+        detail: String(error.message || error),
+        chartPath: error.chartPath || null,
+        chartDetail: error.chartDetail || null,
+        fmpDetail: error.fmpDetail || null
       });
     }
     try { benchmark = await loadSeries(bench.ticker, { reload }); }
@@ -268,10 +300,19 @@
       zeroBenchmarkVariance: ['基準報酬變異為零，無法估計 Beta', 'Benchmark return variance is zero; beta not estimated'],
       nonFiniteBeta: ['OLS 結果非有限值', 'OLS result was non-finite'],
       stockPricesUnavailable: ['無法載入個股歷史價格', 'Stock historical prices unavailable'],
+      priceChartMissing: ['本站尚未發布該股票的日線快取（cache/price_charts），且即時 FMP 亦無法取得', 'Published daily price cache missing for this ticker, and live FMP fetch also failed'],
+      priceChartInvalid: ['個股日線快取格式無效，無法估計 Beta', 'Stock daily price cache is invalid; beta not estimated'],
+      priceHistoryApiUnavailable: ['PriceHistory API 尚未載入，無法讀取日線', 'PriceHistory API is not loaded; cannot read daily prices'],
       benchmarkPricesUnavailable: ['無法載入基準歷史價格', 'Benchmark historical prices unavailable'],
       currencyMismatch: ['個股與基準幣別不一致，不估計 Beta', 'Stock and benchmark currencies differ; beta not estimated']
     };
-    return messages[reason]?.[en ? 1 : 0] || reason || '';
+    if (messages[reason]) return messages[reason][en ? 1 : 0];
+    if (/^priceChartHttp\d+$/.test(reason || '')) {
+      return en
+        ? `Stock price cache HTTP ${reason.slice('priceChartHttp'.length)}; live FMP fetch also failed`
+        : `個股日線快取 HTTP ${reason.slice('priceChartHttp'.length)}，且即時 FMP 亦失敗`;
+    }
+    return reason || '';
   }
 
   function statusText(result, language = 'zh') {
@@ -284,9 +325,12 @@
         : '預設：FMP 公司檔 Beta（供應商／年期未明）。選擇年期後才以快取價格對基準做 OLS。';
     }
     if (result.reason) {
+      const detail = result.chartPath
+        ? (en ? ` Path: ${result.chartPath}.` : ` 路徑：${result.chartPath}。`)
+        : '';
       return en
-        ? `N/A — ${reasonText(result.reason, 'en')}. Benchmark: ${benchName}.`
-        : `N/A — ${reasonText(result.reason, 'zh')}。基準：${benchName}。`;
+        ? `N/A — ${reasonText(result.reason, 'en')}.${detail} Benchmark: ${benchName}.`
+        : `N/A — ${reasonText(result.reason, 'zh')}。${detail}基準：${benchName}。`;
     }
     const cacheNote = result.cache?.hit
       ? (en ? 'Cached beta; no recompute.' : '已用快取 Beta；未重算。')

@@ -939,8 +939,7 @@
     .beta-lookback-panel select[data-beta-lookback-select],
     #subpage-basic .company-meta-item select[data-beta-lookback-select],
     #fin-capm-builder select[data-beta-lookback-select],
-    #fmp-workspace select[data-beta-lookback-select],
-    .fmp-beta-lookback-inline select[data-beta-lookback-select] {
+    #fmp-workspace .beta-lookback-panel select[data-beta-lookback-select] {
       min-width: min(100%, 280px); width: auto; max-width: 100%;
       padding: 10px 12px; font-size: 14px; font-weight: 600; text-align: left;
       color: var(--text); background: var(--card-bg); border: 2px solid var(--accent); border-radius: 8px;
@@ -948,7 +947,13 @@
     .fmp-beta-lookback-inline {
       display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 8px;
     }
-    .fmp-beta-lookback-inline select[data-beta-lookback-select] { min-width: 9.5rem; }
+    /* Keep inline Beta-row select compact so sticky label column stays ≤300px (do not use #fmp-workspace select…). */
+    #fmp-workspace .fmp-beta-lookback-inline select[data-beta-lookback-select],
+    .fmp-beta-lookback-inline select[data-beta-lookback-select] {
+      min-width: 9.5rem; width: auto; max-width: 100%;
+      padding: 6px 8px; font-size: 13px; font-weight: 600; text-align: left;
+      color: var(--text); background: var(--card-bg); border: 2px solid var(--accent); border-radius: 8px;
+    }
     .beta-lookback-panel .beta-lookback-value { font-size: 18px; font-weight: 700; color: var(--green); font-variant-numeric: tabular-nums; }
     .beta-lookback-panel [data-beta-lookback-status] { margin: 0; }
     #fmp-capital-provenance .beta-lookback-panel { margin-top: 0; }
@@ -978,30 +983,30 @@
     #fmp-workspace tr > :first-child { text-align: left; }
     #fmp-workspace .analysis-note { overflow-wrap: anywhere; line-height: 1.9; }
     #fmp-workspace > .panel > select { width: 100%; margin: 8px 0 16px; padding: 10px; }
-    #fmp-ten-year-inputs { min-width: 2050px; }
+    #fmp-ten-year-inputs { min-width: 2050px; table-layout: auto; }
     #fmp-ten-year-inputs tr > :first-child { position: sticky; left: 0; min-width: 220px; max-width: 280px; background: var(--sticky-bg); z-index: 2; white-space: normal; }
+    /* Never set display:flex on td — it drops table-cell and stacks year inputs vertically. */
     #fmp-ten-year-inputs td.fmp-assumption-cell {
+      display: table-cell;
       vertical-align: top;
       min-width: 158px;
-    }
-    #fmp-ten-year-inputs .fmp-assumption-cell {
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-      gap: 6px;
       position: relative;
     }
     #fmp-ten-year-inputs input {
+      display: block;
       width: 145px; max-width: 100%; padding: 8px; box-sizing: border-box;
       background: var(--bg); color: var(--text); border: 1px solid var(--card-border); border-radius: 4px;
-      position: static; flex: 0 0 auto;
+      position: static;
     }
     #fmp-ten-year-inputs small,
     #fmp-ten-year-inputs .fmp-assumption-origin {
-      display: block; position: static; max-width: 145px; margin-top: 0;
+      display: block; position: static; max-width: 145px; margin-top: 6px;
       color: var(--text-muted); white-space: normal; line-height: 1.35; font-size: 11px;
     }
-    #fmp-ten-year-inputs tr[data-scenario-field="rf"] > :first-child { min-width: 240px; max-width: 300px; vertical-align: top; }
+    #fmp-ten-year-inputs tr[data-scenario-field="rf"] > :first-child,
+    #fmp-ten-year-inputs tr[data-scenario-field="beta"] > :first-child {
+      min-width: 240px; max-width: 300px; vertical-align: top;
+    }
     #fmp-rf-tenor-control { display: flex; flex-direction: column; align-items: stretch; gap: 6px; margin-top: 10px; padding: 8px; border: 1px solid var(--card-border); border-radius: 6px; background: var(--surface-bg, var(--bg)); }
     #fmp-rf-tenor-control label { font-size: 12px; font-weight: 600; color: var(--text-secondary); line-height: 1.4; }
     #fmp-rf-tenor-control select#fmp-rf-tenor { display: block; width: 100%; max-width: 260px; min-height: 36px; padding: 6px 8px; box-sizing: border-box; background: var(--bg); color: var(--text); border: 1px solid var(--accent, var(--card-border)); border-radius: 4px; font-size: 13px; text-align: left; }

@@ -169,4 +169,78 @@ test('valuation HTML sources expose 1–5y + FMP default beta lookback controls'
   const indexSrc = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
   assert.match(indexSrc, /id="profile-beta-lookback-panel"/);
   assert.match(indexSrc, /FmpModels\.applyBetaLookback/);
+  // Guard against the layout regression that stacked year cells vertically.
+  assert.doesNotMatch(indexSrc, /#fmp-ten-year-inputs \.fmp-assumption-cell \{\s*display:\s*flex/s);
+  assert.match(indexSrc, /#fmp-ten-year-inputs td\.fmp-assumption-cell[\s\S]*?display:\s*table-cell/);
+});
+
+test('spot-check liquid US/HK names and random cached charts yield finite OLS or honest reason', () => {
+  const spy = loadChart('beta_benchmarks', 'SPY');
+  const trahk = loadChart('beta_benchmarks', '2800.HK');
+  const required = ['AAPL', 'GOOGL', 'TSM', 'NVDA', 'MSFT', 'JPM', '0700.HK', '1398.HK'];
+  for (const ticker of required) {
+    const chart = loadChart('price_charts', ticker);
+    const bench = /\.HK$/i.test(ticker) ? trahk : spy;
+    for (const years of [1, 3, 5]) {
+      const result = Beta.olsBeta(chart.rows, bench.rows, years);
+      assert.equal(result.reason, null, `${ticker} ${years}y: ${result.reason}`);
+      assert.ok(Number.isFinite(result.beta), `${ticker} ${years}y beta`);
+      assert.ok(result.beta > -1 && result.beta < 5, `${ticker} ${years}y outlier β=${result.beta}`);
+    }
+  }
+  const chartDir = path.join(__dirname, '..', 'cache', 'price_charts');
+  const usAll = fs.readdirSync(chartDir)
+    .filter(name => /^[A-Z][A-Z0-9.-]*\.json$/.test(name) && !name.includes('.HK.'))
+    .sort();
+  const hkAll = fs.readdirSync(chartDir)
+    .filter(name => /^\d{4}\.HK\.json$/.test(name))
+    .sort();
+  // Deterministic stride samples (≥10 US, ≥5 HK) across the published chart universe.
+  const stride = (list, count) => {
+    const step = Math.max(1, Math.floor(list.length / count));
+    const out = [];
+    for (let i = 0; i < list.length && out.length < count; i += step) out.push(list[i]);
+    return out.map(name => name.replace(/\.json$/, ''));
+  };
+  const usSample = stride(usAll, 12);
+  const hkSample = stride(hkAll, 6);
+  const report = { usOk: 0, usNa: 0, hkOk: 0, hkNa: 0 };
+  for (const ticker of usSample) {
+    const chart = loadChart('price_charts', ticker);
+    const result = Beta.olsBeta(chart.rows, spy.rows, 3);
+    if (result.reason) {
+      report.usNa += 1;
+      assert.ok(['insufficientStockHistory', 'insufficientOverlappingReturns', 'zeroBenchmarkVariance'].includes(result.reason),
+        `${ticker}: unexpected ${result.reason}`);
+      assert.equal(result.beta, null);
+    } else {
+      report.usOk += 1;
+      assert.ok(Number.isFinite(result.beta));
+    }
+  }
+  for (const ticker of hkSample) {
+    const chart = loadChart('price_charts', ticker);
+    const result = Beta.olsBeta(chart.rows, trahk.rows, 3);
+    if (result.reason) {
+      report.hkNa += 1;
+      assert.ok(['insufficientStockHistory', 'insufficientOverlappingReturns', 'zeroBenchmarkVariance'].includes(result.reason),
+        `${ticker}: unexpected ${result.reason}`);
+      assert.equal(result.beta, null);
+    } else {
+      report.hkOk += 1;
+      assert.ok(Number.isFinite(result.beta));
+    }
+  }
+  assert.ok(usSample.length >= 10, `US sample ${usSample.length}`);
+  assert.ok(hkSample.length >= 5, `HK sample ${hkSample.length}`);
+  assert.ok(report.usOk + report.usNa === usSample.length);
+  assert.ok(report.hkOk + report.hkNa === hkSample.length);
+  console.log('SAMPLE_OLS', JSON.stringify({ usSample, hkSample, report }));
+});
+
+test('price-load failure reasons distinguish missing chart vs invalid vs API', () => {
+  assert.match(Beta.reasonText('priceChartMissing', 'en'), /cache missing|Published daily/i);
+  assert.match(Beta.reasonText('priceChartInvalid', 'zh'), /無效|格式/);
+  assert.match(Beta.reasonText('priceHistoryApiUnavailable', 'en'), /PriceHistory API/i);
+  assert.match(Beta.reasonText('priceChartHttp404', 'en'), /HTTP 404/);
 });
