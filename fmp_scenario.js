@@ -259,8 +259,12 @@
     if (!finite(opening.netDebt)
         || source.some(row => row.netDebt !== opening.netDebt)) fail('SCENARIO_SNAPSHOT_NET_DEBT_UNVERIFIED');
     const consensus = data.analystEstimates;
-    const validSource = consensus?.symbol === data.symbol && !consensus.reason
-      && Array.isArray(consensus.rows) && consensus.currency === data.currencyCheck?.sourceCurrency
+    // Soft FX reasons still allow consensus rows when currency/FX could not be certified.
+    const softAnalystReason = consensus?.reason === 'ANALYST_FX_UNVERIFIED';
+    const validSource = consensus?.symbol === data.symbol
+      && (!consensus.reason || softAnalystReason)
+      && Array.isArray(consensus.rows) && consensus.rows.length > 0
+      && consensus.currency === data.currencyCheck?.sourceCurrency
       && consensus.calculationCurrency === data.currency && finite(consensus.fx?.rate) && consensus.fx.rate > 0;
     const actuals = data.forecastActuals?.symbol === data.symbol ? data.forecastActuals : null;
     const latest = actuals?.latest && !actuals.latest.reason ? actuals.latest : null;
@@ -272,7 +276,7 @@
       cfo: opening.operatingCashFlowPercentage, capex: opening.capitalExpenditurePercentage,
       tax: opening.taxRate
     };
-    const years = [], warnings = [];
+    const years = [], warnings = [], providerYears = [];
     const baseRevenue = base.revenueCorrection && base.currency === data.currencyCheck?.sourceCurrency
       && finite(base.revenue) && finite(data.currencyCheck?.fx?.price)
       ? base.revenue * data.currencyCheck.fx.price : opening.revenue;
@@ -285,6 +289,7 @@
       const row = matches.length === 1 ? matches[0] : null;
       const covered = row?.revenueAvg > 0 && Number.isInteger(row.numAnalystsRevenue) && row.numAnalystsRevenue > 0;
       const revenue = covered ? row.revenueAvg * consensus.fx.rate : null;
+      const modelRow = projected.find(item => Number(item.year) === year) || null;
       const values = Object.fromEntries(activeFields(kind).map(([key]) => [key, null]));
       const origins = Object.fromEntries(Object.keys(values).map(key => [key, 'unavailable']));
       const set = (key, value, origin) => {
@@ -295,19 +300,30 @@
         set(key, capitalRow[field], 'retained-capital');
       }
       if (revenue > 0 && previousRevenue > 0) set('growth', (revenue / previousRevenue - 1) * 100, 'analyst-derived');
+      // Prefer year-specific FMP model projection growth when consensus revenue is absent.
+      if (!finite(values.growth) && modelRow && previousRevenue > 0) {
+        if (finite(modelRow.revenuePercentage)) set('growth', modelRow.revenuePercentage, 'fmp');
+        else if (finite(modelRow.revenue) && modelRow.revenue > 0) {
+          set('growth', (modelRow.revenue / previousRevenue - 1) * 100, 'fmp');
+        }
+      }
       const ratio = (key, sourceKey) => {
         if (covered && finite(row[sourceKey])) set(key, row[sourceKey] / row.revenueAvg * 100, 'analyst');
       };
-      const fallback = (key, sourceKey) => {
+      const modelPct = (key, field) => {
+        if (!finite(values[key]) && modelRow && finite(modelRow[field])) set(key, modelRow[field], 'fmp');
+      };
+      const fallback = (key, sourceKey, modelField) => {
         ratio(key, sourceKey);
         if (!finite(values[key])) set(key, latest?.items?.[key]?.percent, 'latest-fy');
+        modelPct(key, modelField);
         if (!finite(values[key])) set(key, modelBaseRatio[key], 'fmp-base-year');
       };
-      fallback('capex', 'capitalExpenditureAvg');
-      if (kind === 'customLevered') fallback('cfo', 'operatingCashFlowAvg');
+      fallback('capex', 'capitalExpenditureAvg', 'capitalExpenditurePercentage');
+      if (kind === 'customLevered') fallback('cfo', 'operatingCashFlowAvg', 'operatingCashFlowPercentage');
       else {
-        fallback('da', 'depreciationAndAmortizationAvg');
-        fallback('ebitda', 'ebitdaAvg');
+        fallback('da', 'depreciationAndAmortizationAvg', 'depreciationPercentage');
+        fallback('ebitda', 'ebitdaAvg', 'ebitdaPercentage');
         if (finite(values.ebitda) && finite(values.da)) set('ebit', values.ebitda - values.da, 'derived');
         else if (covered && finite(row.ebitAvg)) {
           set('ebit', row.ebitAvg / row.revenueAvg * 100, 'analyst');
@@ -315,21 +331,29 @@
         } else if (finite(values.ebitda) && finite(latest?.items?.da?.percent)) {
           set('da', latest.items.da.percent, 'latest-fy');
           set('ebit', values.ebitda - values.da, 'derived');
+        } else if (finite(values.ebitda) && modelRow && finite(modelRow.depreciationPercentage)) {
+          set('da', modelRow.depreciationPercentage, 'fmp');
+          set('ebit', values.ebitda - values.da, 'derived');
         } else if (finite(values.ebitda) && finite(modelBaseRatio.da)) {
           set('da', modelBaseRatio.da, 'fmp-base-year');
           set('ebit', values.ebitda - values.da, 'derived');
         } else if (!finite(values.ebit)) {
-          set('ebit', modelBaseRatio.ebit, 'fmp-base-year');
+          modelPct('ebit', 'ebitPercentage');
+          if (!finite(values.ebit)) set('ebit', modelBaseRatio.ebit, 'fmp-base-year');
           if (finite(values.ebit) && finite(values.da)) set('ebitda', values.ebit + values.da, 'derived');
         }
         set('nwcChange', actuals?.workingCapital?.nwcChange, 'working-capital-average');
       }
       if (!finite(values.tax)) set('tax', taxFive.percent, 'five-year-effective-tax');
       if (!finite(values.tax)) set('tax', latest?.items?.tax?.percent, 'latest-fy');
+      modelPct('tax', 'taxRate');
       if (!finite(values.tax)) set('tax', modelBaseRatio.tax, 'fmp-base-year');
+      const usedProvider = Object.values(origins).includes('fmp');
+      if (usedProvider) providerYears.push(year);
       years.push({ year, values, origins, consensusDate: covered ? row.date : null });
-      // Keep last known consensus revenue so a coverage gap does not poison later YoY growth.
+      // Keep last known consensus/model revenue so a coverage gap does not poison later YoY growth.
       if (revenue > 0) previousRevenue = revenue;
+      else if (modelRow?.revenue > 0) previousRevenue = modelRow.revenue;
     }
     const growthSuggestion = suggestRevenueGrowth({
       statements: context.statements, data, peers: context.peers || []
@@ -360,14 +384,18 @@
         ? opening.receivables + opening.inventories - opening.payable : null : 0;
     const suggestedExit = finite(context.stock?.ev_to_ebitda) && context.stock.ev_to_ebitda > 0
       && context.stock.ev_to_ebitda <= 500 ? context.stock.ev_to_ebitda : null;
+    const analystYears = years.filter(row => row.consensusDate).map(row => row.year);
+    let analystReason = null;
+    if (!validSource) analystReason = consensus?.reason || 'ANALYST_SOURCE_UNAVAILABLE';
+    else if (softAnalystReason) analystReason = consensus.reason;
+    else if (!analystYears.length) analystReason = 'ANALYST_NO_FUTURE_COVERAGE';
     return { version: 1, assumptionPolicy: 'analyst-consensus-v1', kind, symbol: data.symbol, currency: data.currency, shares,
       workingCapitalMethod: 'cash-change-to-revenue',
       baseYear: base.year, baseDate: base.date, baseRevenue, openingNwc,
       baseRevenueSource: base.revenueCorrection ? 'officialReportedRevenue' : 'nativeHistoricalModelRevenue',
       sourceCapturedAt: consensus?.capturedAt || data.capturedAt,
-      providerYears: [], analystYears: years.filter(row => row.consensusDate).map(row => row.year),
-      analystReason: validSource ? null : consensus?.reason || 'ANALYST_SOURCE_UNAVAILABLE',
-      currencyWarning: base.currencyWarning || data.currencyCheck?.reason || null,
+      providerYears, analystYears, analystReason,
+      currencyWarning: base.currencyWarning || data.currencyCheck?.reason || softAnalystReason && 'ANALYST_FX_UNVERIFIED' || null,
       recoveredForecastBase: !!base.recoveredFromModel,
       actualRatioDate: latest?.date || null, workingCapitalYears: actuals?.workingCapitalYears || [],
       warnings, netDebt: opening.netDebt, netDebtDate: base.date,
@@ -627,8 +655,8 @@
     bridge: 'EV = SUM(PV[1:10])+PVTV; Equity = EV-netDebt; Target = Equity/issuedShares. Snapshot net debt subtracted once; projected cash is disclosure only. Primary targetPrice uses Gordon; exit-multiple EV/equity/per-share are reported beside it when available.',
     native: 'Native API internals are not independently reproduced. Site native target = returned equityValue/verified issued common shares. Returned equityValuePerShare and dilutedSharesOutstanding are preserved separately. Reconciliation residuals are checks, not replacements for vendor outputs.',
     taxDefault: 'When analyst operating tax is missing, new scenarios use the arithmetic mean of five consecutive full-FY effective tax rates (tax expense / pretax) from statements; otherwise tax stays N/A.',
-    operatingDefaults: 'Missing consensus CapEx/CFO/D&A/EBITDA use latest full-FY revenue ratios (labeled latest-fy). NWC uses five-year average change/revenue. Missing revenue growth uses suggestRevenueGrowth: historical CAGR (capped), else peer median year-1 growth, else mature 2.5% — or blank with GROWTH_REQUIRES_MANUAL_INPUT when history is hyper-volatile. Flat fill for uncovered years only; no invented fade path. Professional practice: Damodaran uses fundamentals/history then fades to stable growth; many DCF tools prefer analyst estimates, then history, else user input.',
-    growthDefaults: 'Hierarchy when consensus growth is missing: (1) historical revenue CAGR up to 5y if |CAGR|<=30 and not hyper-volatile; (2) peer median of growth_10y[0] from PeerComparison; (3) mature 2.5% band midpoint; else N/A + GROWTH_REQUIRES_MANUAL_INPUT. Labeled suggested defaults; never overwrites analyst or user values.'
+    operatingDefaults: 'Missing consensus CapEx/CFO/D&A/EBITDA use latest full-FY revenue ratios (labeled latest-fy), then year-specific FMP model projection percentages (labeled fmp), then model base-year ratios (fmp-base-year). NWC uses five-year average change/revenue. Missing revenue growth uses FMP model revenuePercentage/YoY when present, else suggestRevenueGrowth. Flat fill for uncovered years only; no invented fade path. Soft ANALYST_FX_UNVERIFIED keeps consensus rows with a warning.',
+    growthDefaults: 'Hierarchy when consensus growth is missing: (1) year-specific FMP model projection growth; (2) historical revenue CAGR up to 5y if |CAGR|<=30 and not hyper-volatile; (3) peer median of growth_10y[0] from PeerComparison; (4) mature 2.5% band midpoint; else N/A + GROWTH_REQUIRES_MANUAL_INPUT. Labeled suggested defaults; never overwrites analyst, FMP model, or user values.'
   };
   return { fields, activeFields, fullAnnualPeriod, verifiedIncomeDocument, baseSource, resolveForecastBase, verifiedRevenueCorrection, defaults, update, calculate, actualReference, missingInputs, upgradeWorkingCapital, exitMultipleTerminal, fiveYearEffectiveTax, fiveYearHistory, suggestRevenueGrowth, TERMINAL_GROWTH_REFERENCE, GROWTH_AUTOFILL_ABS_MAX, MATURE_GROWTH_DEFAULT, formulas };
 });

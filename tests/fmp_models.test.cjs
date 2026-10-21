@@ -93,8 +93,31 @@ test('Source identity, currency, issued shares and terminal-spread failures neve
   const invalid = structuredClone(data);
   invalid.models.advanced.data[0].wacc = invalid.models.advanced.data[0].longTermGrowthRate;
   assert.equal(Models.value(invalid, 'advanced', stock).reason, 'FMP_INVALID_TERMINAL_SPREAD');
+  // Restore a valid terminal spread, then soft-warn on unverified FX instead of blanking fair value.
+  invalid.models.advanced.data[0].wacc = data.models.advanced.data[0].wacc;
   invalid.currencyCheck.reason = 'FMP_MODEL_CURRENCY_UNVERIFIED';
-  assert.equal(Models.value(invalid, 'advanced', stock).reason, 'FMP_MODEL_CURRENCY_UNVERIFIED');
+  const soft = Models.value(invalid, 'advanced', stock);
+  assert.equal(soft.reason, null);
+  assert.equal(soft.currencyWarning, 'FMP_MODEL_CURRENCY_UNVERIFIED');
+  assert.ok(soft.fairVal > 0);
+});
+
+test('TSM native vendor path soft-warns on unverified FX and still shows equity÷shares fair value', () => {
+  const stock = { ...market.TSM, ticker: 'TSM' };
+  const data = records.TSM;
+  assert.equal(data.currencyCheck?.reason, 'FMP_MODEL_CURRENCY_UNVERIFIED');
+  const detailed = JSON.parse(fs.readFileSync(path.join('cache', 'company', 'TSM.json'), 'utf8'));
+  for (const source of [data, detailed]) {
+    const result = Models.value(source, 'advanced', stock);
+    assert.equal(result.reason, null);
+    assert.equal(result.currencyWarning, 'FMP_MODEL_CURRENCY_UNVERIFIED');
+    assert.ok(result.fairVal > 0);
+    assert.equal(result.fairVal, result.row.equityValue / Models.issuedShares(stock));
+    assert.notEqual(result.reason, 'FMP_ISSUED_SHARES_UNAVAILABLE');
+  }
+  assert.equal(Models.valuationConfidence({
+    stock, result: Models.value(detailed, 'advanced', stock)
+  }).level, 'medium');
 });
 
 test('Intrinsic confidence uses existing completeness signals without inventing coverage', () => {

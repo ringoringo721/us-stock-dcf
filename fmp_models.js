@@ -22,18 +22,20 @@
   }
 
   function value(data, kind, stock) {
-    const unavailable = reason => ({ fairVal: null, reason, WACC: null, g: null });
+    const unavailable = reason => ({ fairVal: null, reason, WACC: null, g: null, currencyWarning: null });
     if (stock.corporateDcfApplicability === 'requiresSegmentValuation') return unavailable('FMP_SEGMENT_VALUATION_REQUIRED');
     if (!data || data.symbol !== stock.ticker || data.currency !== (stock.calculationCurrency || 'USD')) return unavailable('FMP_SOURCE_UNAVAILABLE');
     const model = data.models?.[kind];
     if (model?.reason) return unavailable(model.reason);
-    if (data.currencyCheck?.reason) return unavailable(data.currencyCheck.reason);
+    // Soft-warn only: unverified FX still allows equity÷issued-shares when model rows exist
+    // (same recovery posture as the ten-year scenario path). Do not mislabel as missing shares.
+    const currencyWarning = data.currencyCheck?.reason || null;
     const row = first(model?.data);
     if (!row || row.symbol !== stock.ticker || !finite(row.equityValue) || !finite(row.enterpriseValue)) return unavailable('FMP_INVALID_RESPONSE');
     const shares = issuedShares(stock);
     if (shares === null) return unavailable('FMP_ISSUED_SHARES_UNAVAILABLE');
     if (!finite(row.wacc) || !finite(row.longTermGrowthRate) || row.wacc <= row.longTermGrowthRate) return unavailable('FMP_INVALID_TERMINAL_SPREAD');
-    return { fairVal: row.equityValue / shares, reason: null, WACC: row.wacc / 100,
+    return { fairVal: row.equityValue / shares, reason: null, currencyWarning, WACC: row.wacc / 100,
       g: row.longTermGrowthRate, ModelEV: row.enterpriseValue / 1e6, EquityVal: row.equityValue / 1e6,
       NetDebt: finite(row.netDebt) ? row.netDebt / 1e6 : null,
       issuedShares: shares, providerShares: row.dilutedSharesOutstanding,
@@ -97,7 +99,7 @@
       ANALYST_FX_UNVERIFIED: ['預測幣別或換匯依據未能核實，暫不套用。', 'Forecast currency/FX could not be verified; forecasts are not applied.'],
       ANALYST_SOURCE_UNAVAILABLE: ['尚無已核對的分析師預測來源。', 'Verified analyst forecast sources are unavailable.'],
       FMP_NO_COVERAGE: ['FMP 未提供此模型資料；不製造估值。', 'FMP supplies no rows for this model; no valuation is fabricated.'],
-      FMP_MODEL_CURRENCY_UNVERIFIED: ['FMP 模型金額幣別尚未與財報核對，不能冒稱美元或港元。', 'FMP model currency could not be reconciled with financials; amounts are not relabeled as USD/HKD.'],
+      FMP_MODEL_CURRENCY_UNVERIFIED: ['FMP 模型金額幣別尚未與財報完全核對；仍顯示模型股權價值／普通股結果，請審閱換匯假設，不能冒稱已核實美元或港元。', 'FMP model currency could not be fully reconciled with financials; equity÷issued-shares is still shown for review and is not certified as verified USD/HKD FX.'],
       FMP_OFFICIAL_REVENUE_SOURCE_UNVERIFIED: ['官方營收修正與供應商金額未能核對，暫不套用模型。', 'Official revenue correction could not be reconciled with provider amounts; the model is not applied.'],
       FMP_ISSUED_SHARES_UNAVAILABLE: ['缺少已核實的普通股股數；不以稀釋加權平均股數代替。', 'Verified issued common shares are missing; diluted weighted-average shares are not substituted.'],
       FMP_INVALID_TERMINAL_SPREAD: ['FMP 預設 WACC 不高於終值增長率；請調整並重新計算，不採無效終值。', 'FMP default WACC does not exceed terminal growth; adjust and recalculate rather than use an invalid terminal value.'],
@@ -139,6 +141,8 @@
     if (!finite(result?.fairVal)) return pack('unavailable', [reason || 'VALUATION_UNAVAILABLE']);
     const soft = [];
     if (statementsMissing) pushUnique(soft, 'MISSING_STATEMENTS');
+    if (result?.currencyWarning) pushUnique(soft, result.currencyWarning);
+    if (scenario?.currencyWarning) pushUnique(soft, scenario.currencyWarning);
     if (soft.includes('MISSING_STATEMENTS')) return pack('low', soft);
     if (soft.length || stock.balanceClassificationSource || stock.cashflowProvenance || stock.revenueProvenance
         || (result?.result?.warnings || []).length) {
@@ -248,7 +252,7 @@
     };
     const fill = (item, key, value, origin) => {
       if (!finite(value)) return;
-      if (['user', 'analyst', 'analyst-derived', 'derived', 'retained-capital'].includes(item.origins?.[key])) return;
+      if (['user', 'analyst', 'analyst-derived', 'derived', 'retained-capital', 'fmp'].includes(item.origins?.[key])) return;
       // Only fill blanks / unavailable, or refresh the same suggestion origin. Never demote a
       // higher-priority default (e.g. five-year tax) with a weaker fallback.
       if (finite(item.values[key]) && item.origins?.[key] !== 'unavailable' && item.origins?.[key] !== origin) return;
@@ -281,7 +285,8 @@
     scenario.growthSuggestion = growthSuggestion;
     if (finite(growthSuggestion.percent)) {
       for (const item of scenario.years || []) {
-        if (item.origins?.growth === 'user' || item.origins?.growth === 'analyst-derived') continue;
+        if (item.origins?.growth === 'user' || item.origins?.growth === 'analyst-derived'
+            || item.origins?.growth === 'fmp') continue;
         if (!finite(item.values.growth) || item.origins?.growth === 'unavailable'
             || ['historical-cagr', 'peer-median-growth', 'suggested-mature-growth'].includes(item.origins?.growth)) {
           item.values.growth = growthSuggestion.percent;
@@ -632,9 +637,9 @@
       analyst
         ? 'New ten-year scenarios use analyst consensus revenue and EBITDA, not the prebuilt FMP model’s five-year-average operating forecasts. Missing consensus CapEx, CFO and D&A use latest full-FY revenue ratios, explicitly labeled actual-ratio carry-forwards, not analyst forecasts. Only working capital uses five consecutive annual ratio averages. Beta, risk-free rate, risk premium, debt/equity costs and debt/capital retain their existing settings. Other missing operating fields/years stay N/A; no ten-year extension is invented and no new valuation is produced until inputs are complete. Native FMP results and saved scenarios are unchanged.'
         : 'This retained legacy ten-year scenario preserves its FMP ratios, extensions and user inputs. Only newly initialized scenarios after reset use analyst defaults; legacy extensions are not analyst consensus.')}</p>
-      <p class="analysis-note">${text('實際基期', 'Actual baseline')}: ${scenario.baseYear} (${escape(scenario.baseDate)}) · ${text('基期營收', 'Base revenue')}: ${money(scenario.baseRevenue)} (${scenario.baseRevenueSource === 'officialReportedRevenue' ? text('官方財報口徑', 'Official reported basis') : text('原情境口徑', 'Original scenario basis')}) · ${text(analyst ? '共識財年' : '舊版 FMP 預測年度', analyst ? 'Consensus fiscal years' : 'Legacy FMP projection years')}: ${(analyst ? scenario.analystYears : scenario.providerYears).join(', ') || 'N/A'} · ${text('來源擷取', 'Source captured')}: ${escape(scenario.sourceCapturedAt)}</p>
+      <p class="analysis-note">${text('實際基期', 'Actual baseline')}: ${scenario.baseYear} (${escape(scenario.baseDate)}) · ${text('基期營收', 'Base revenue')}: ${money(scenario.baseRevenue)} (${scenario.baseRevenueSource === 'officialReportedRevenue' ? text('官方財報口徑', 'Official reported basis') : text('原情境口徑', 'Original scenario basis')}) · ${text('共識財年', 'Consensus fiscal years')}: ${(scenario.analystYears || []).join(', ') || 'N/A'} · ${text('FMP 模型預測年度', 'FMP model forecast years')}: ${(scenario.providerYears || []).join(', ') || 'N/A'} · ${text('來源擷取', 'Source captured')}: ${escape(scenario.sourceCapturedAt)}</p>
       ${oldRevenueBasis ? `<p class="analysis-note text-red" id="fmp-stale-revenue-basis">${text('此保留情境仍採修正前營收基期；已儲存假設及目標價不會自動改寫。重設後的新情境才採官方營收。', 'This retained scenario still uses the pre-correction revenue baseline. Saved assumptions/targets are not automatically overwritten; a newly reset scenario uses official revenue.')}</p>` : ''}
-      ${analyst ? `<p class="analysis-note" id="fmp-assumption-sources">${text('實績比率來源財年末', 'Actual-ratio source FY end')}: ${escape(scenario.actualRatioDate || 'N/A')} · ${text('營運資金平均財年', 'Working-capital average FYs')}: ${scenario.workingCapitalYears.map(year => year ?? 'N/A').join(', ')}${scenario.analystReason ? ` · ${escape(reasonText(scenario.analystReason, state.language()))}` : ''}.
+      ${analyst ? `<p class="analysis-note" id="fmp-assumption-sources">${text('實績比率來源財年末', 'Actual-ratio source FY end')}: ${escape(scenario.actualRatioDate || 'N/A')} · ${text('營運資金平均財年', 'Working-capital average FYs')}: ${(scenario.workingCapitalYears || []).map(year => year ?? 'N/A').join(', ')}${scenario.analystReason ? ` · ${escape(reasonText(scenario.analystReason, state.language()))}` : ''}${(scenario.providerYears || []).length && scenario.analystReason ? ` · ${text('已改採 FMP 模型預測列（標為 FMP 模型），非分析師共識。', 'Using FMP model projection rows (labeled FMP model), not analyst consensus.')}` : ''}.
         ${text('共識幣別及單位採歷史共識／實績比對核查；不同幣別採已核對的 FMP 模型快照匯率。共識不保證屬同一會計或經調整口徑，且並非每項均有分析師人數。', 'Consensus currency/units are checked against historical consensus/reporting scale; cross-currency amounts use the verified FMP model snapshot FX. Consensus is not certified to share one accounting/adjusted basis, and analyst counts are not supplied for every metric.')}</p>` : ''}
       <p class="analysis-note" id="fmp-nwc-note">${text(
         '營運資金改用單一「淨營運資金變動／營收」：正值為資金增加，從 FCFF 扣除；負值為資金釋放。新預設採最近連續五個完整財年比率的簡單平均，由現金流量表營運資金現金影響取負號（包括其他營運資金），不是只以應收、存貨、應付三項餘額相減。CFO 情境已包含此影響，不會再次扣除。舊情境三項比率按原逐年營收換成等值變動比率，原始輸入保留於下載檔，不自動改寫已儲存目標價。',
@@ -783,8 +788,13 @@
     set('det-res-price', money(stock.price));
     const review = state.sourceData?.sourceReview || record(ticker)?.sourceReview;
     const officialCorrection = !!stock.balanceClassificationSource || !!stock.cashflowProvenance || !!stock.revenueProvenance;
+    const currencyNote = result.currencyWarning
+      || (!local && data?.currencyCheck?.reason)
+      || (local && state.scenarios?.[kind]?.currencyWarning)
+      || null;
     set('det-res-status', (result.reason ? reasonText(result.reason, state.language())
       : `${local ? text('FMP 資料十年情境（本站計算）', 'FMP-based ten-year scenario (site-calculated)') : name(kind)} · ${result.capturedAt || data.capturedAt}`)
+      + (currencyNote && !result.reason ? ` · ${reasonText(currencyNote, state.language())}` : '')
       + (review ? text(' · 注意年報／模型口徑差異；此價未按租賃業務正規化。', ' · Report/model basis differences: this value is not rental-normalized.') : '')
       + (officialCorrection ? text(' · 官方財報已更正；FMP 模型假設仍須獨立審閱。', ' · Official statements corrected; FMP model assumptions still require separate review.') : ''));
     set('det-res-wacc', percent(row?.wacc));
@@ -834,6 +844,9 @@
         ${escape(stock.shareSource?.date || '')} · ${finite(stock.shares_outstanding) ? stock.shares_outstanding.toLocaleString('en-US') : 'N/A'} · ${escape(stock.shareSource?.source || '')}</p>
       <p class="analysis-note">${text('模型金額幣別及 FX 核對', 'Model amount currency / FX reconciliation')}: ${escape(data?.currencyCheck?.reason || data?.currencyCheck?.basis || 'FMP_SOURCE_UNAVAILABLE')}.
         ${text('外幣財報的 FMP 模型採其當前即期換匯，不代表歷史期間平均匯率。', 'Foreign financials in FMP models use its current spot conversion, not historical period-average FX.')}</p>
+      ${result.currencyWarning ? `<p class="analysis-note text-red" id="fmp-currency-warning">${text(
+        '模型金額幣別／FX 尚未與財報完全核對；仍以 FMP 股權價值 ÷ 普通股顯示公允價值，請審閱換匯假設。',
+        'Model currency/FX is not fully reconciled with financials; fair value still uses FMP equity ÷ issued shares — review the FX assumptions.')} ${escape(reasonText(result.currencyWarning, state.language()) || result.currencyWarning)}</p>` : ''}
       <div class="fin-model-grid">${fields.filter(field => !field[5] || field[5] === kind).map(([key, field, zh, english, scale]) => `
         <div class="form-group"><label for="fmp-${key}">${escape(text(zh, english))}</label>
         <input id="fmp-${key}" data-fmp-input="${key}" type="number" step="any" placeholder="${finite(baseline?.[field]) ? baseline[field] : 'N/A'}"
@@ -842,7 +855,9 @@
       <button id="fmp-calculate" type="button" class="btn-save">${text('向 FMP 計算此情境', 'Calculate this scenario with FMP')}</button>
       <p id="fmp-status" role="status">${escape(state.dirty[kind]
         ? text('用戶情境尚未計算；按「儲存目標價」會先向 FMP 計算，成功後才儲存新價格。', 'Overrides are pending: Save target calculates with FMP first and saves only the successful new result.')
-        : result.reason ? reasonText(result.reason, state.language()) : `${name(kind)} · ${result.capturedAt || data?.capturedAt || 'N/A'}`)}</p>
+        : result.reason ? reasonText(result.reason, state.language())
+          : `${name(kind)} · ${result.capturedAt || data?.capturedAt || 'N/A'}${
+            result.currencyWarning ? ` · ${reasonText(result.currencyWarning, state.language())}` : ''}`)}</p>
       <div class="table-scroll-wrapper"><table><tbody>
         <tr><th>${text('供應商原始每股值（稀釋股數）', 'Original provider value per diluted share')}</th><td>${money(row?.equityValuePerShare)}</td></tr>
         <tr><th>${text('供應商模型稀釋股數', 'Provider model diluted shares')}</th><td>${finite(row?.dilutedSharesOutstanding) ? row.dilutedSharesOutstanding.toLocaleString('en-US') : 'N/A'}</td></tr>

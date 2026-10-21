@@ -451,6 +451,8 @@ test('TSM builds a ten-year scenario from cached model rows despite unverified F
   const market = require('../full_market_dcf.json').TSM;
   assert.equal(data.currencyCheck?.reason, 'FMP_MODEL_CURRENCY_UNVERIFIED');
   assert.equal(data.forecastBase?.reason, 'SCENARIO_BASE_UNVERIFIED');
+  assert.equal(data.analystEstimates?.reason, 'ANALYST_ACTUAL_BASE_UNAVAILABLE');
+  assert.deepEqual(data.analystEstimates?.rows || [], []);
   const shares = Models.issuedShares({ ...market, ticker: 'TSM' });
   assert.ok(shares > 0);
   const scenario = Scenario.defaults(data, 'advanced', shares, { stock: { ...market, ticker: 'TSM' } });
@@ -460,6 +462,13 @@ test('TSM builds a ten-year scenario from cached model rows despite unverified F
   assert.ok(finite(scenario.years[0].values.tax));
   assert.ok(finite(scenario.years[0].values.ebitda));
   assert.ok(finite(scenario.years[0].values.growth));
+  // Empty analyst feed stays honest; year-specific FMP model projections fill providerYears.
+  assert.deepEqual(scenario.analystYears, []);
+  assert.equal(scenario.analystReason, 'ANALYST_ACTUAL_BASE_UNAVAILABLE');
+  assert.ok(scenario.providerYears.length >= 5, scenario.providerYears.join(','));
+  assert.equal(scenario.years[0].origins.growth, 'fmp');
+  near(scenario.years[0].values.growth, 25.9);
+  assert.equal(scenario.years[0].origins.ebitda, 'fmp');
   assert.equal(Scenario.missingInputs(scenario).length, 0);
   const fair = Scenario.calculate(scenario).targetPrice;
   assert.equal(typeof fair, 'number');
