@@ -30,7 +30,8 @@
   <script src="company_data.js"></script>
   <script src="fmp_model_data.js"></script>
   <script src="fmp_scenario.js"></script>
-  <script src="fmp_models.js"></script>
+  <!-- tip-marker:ten-year-table-row-display -->
+  <script src="fmp_models.js?v=ten-year-table-row-1"></script>
   <script src="fcf_ratios.js?v=sign-trends-1"></script>
   <script src="financial_models.js?v=fin-ke-history-2"></script>
   <script src="ke_treasury_data.js?v=usd-curve-20261020"></script>
@@ -983,29 +984,66 @@
     #fmp-workspace tr > :first-child { text-align: left; }
     #fmp-workspace .analysis-note { overflow-wrap: anywhere; line-height: 1.9; }
     #fmp-workspace > .panel > select { width: 100%; margin: 8px 0 16px; padding: 10px; }
-    #fmp-ten-year-inputs { min-width: 2050px; table-layout: auto; }
-    #fmp-ten-year-inputs tr > :first-child { position: sticky; left: 0; min-width: 220px; max-width: 280px; background: var(--sticky-bg); z-index: 2; white-space: normal; }
-    /* Never set display:flex on td — it drops table-cell and stacks year inputs vertically. */
+    /* Hard table layout: never let flex/grid on ancestors or cell wrappers collapse year columns. */
+    #fmp-workspace #fmp-ten-year-inputs {
+      display: table !important;
+      width: max-content !important;
+      min-width: 2050px !important;
+      max-width: none !important;
+      table-layout: fixed !important;
+      border-collapse: collapse !important;
+    }
+    #fmp-workspace #fmp-ten-year-inputs > thead { display: table-header-group !important; }
+    #fmp-workspace #fmp-ten-year-inputs > tbody { display: table-row-group !important; }
+    #fmp-workspace #fmp-ten-year-inputs > thead > tr,
+    #fmp-workspace #fmp-ten-year-inputs > tbody > tr {
+      display: table-row !important;
+      flex-direction: unset !important;
+      flex-wrap: nowrap !important;
+    }
+    #fmp-workspace #fmp-ten-year-inputs > thead > tr > th,
+    #fmp-workspace #fmp-ten-year-inputs > tbody > tr > th,
+    #fmp-workspace #fmp-ten-year-inputs > tbody > tr > td {
+      display: table-cell !important;
+      float: none !important;
+      flex: none !important;
+      grid-column: auto !important;
+      grid-row: auto !important;
+      width: auto !important;
+    }
+    #fmp-ten-year-inputs tr > :first-child {
+      position: sticky; left: 0; min-width: 220px; max-width: 280px;
+      background: var(--sticky-bg); z-index: 2; white-space: normal;
+    }
     #fmp-ten-year-inputs td.fmp-assumption-cell {
-      display: table-cell;
-      vertical-align: top;
-      min-width: 158px;
+      vertical-align: top !important;
+      min-width: 158px !important;
+      width: 158px !important;
       position: relative;
     }
+    #fmp-ten-year-inputs .fmp-assumption-stack {
+      display: block !important;
+      width: 145px;
+      max-width: 100%;
+    }
     #fmp-ten-year-inputs input {
-      display: block;
+      display: block !important;
       width: 145px; max-width: 100%; padding: 8px; box-sizing: border-box;
       background: var(--bg); color: var(--text); border: 1px solid var(--card-border); border-radius: 4px;
       position: static;
     }
     #fmp-ten-year-inputs small,
     #fmp-ten-year-inputs .fmp-assumption-origin {
-      display: block; position: static; max-width: 145px; margin-top: 6px;
+      display: block !important; position: static; max-width: 145px; margin-top: 6px;
       color: var(--text-muted); white-space: normal; line-height: 1.35; font-size: 11px;
     }
     #fmp-ten-year-inputs tr[data-scenario-field="rf"] > :first-child,
     #fmp-ten-year-inputs tr[data-scenario-field="beta"] > :first-child {
       min-width: 240px; max-width: 300px; vertical-align: top;
+    }
+    /* Isolate from #subpage-valuation .form-group { display:grid } — table cells are not form-groups. */
+    #fmp-workspace #fmp-ten-year-inputs .form-group {
+      display: contents !important;
     }
     #fmp-rf-tenor-control { display: flex; flex-direction: column; align-items: stretch; gap: 6px; margin-top: 10px; padding: 8px; border: 1px solid var(--card-border); border-radius: 6px; background: var(--surface-bg, var(--bg)); }
     #fmp-rf-tenor-control label { font-size: 12px; font-weight: 600; color: var(--text-secondary); line-height: 1.4; }

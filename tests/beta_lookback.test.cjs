@@ -171,7 +171,10 @@ test('valuation HTML sources expose 1–5y + FMP default beta lookback controls'
   assert.match(indexSrc, /FmpModels\.applyBetaLookback/);
   // Guard against the layout regression that stacked year cells vertically.
   assert.doesNotMatch(indexSrc, /#fmp-ten-year-inputs \.fmp-assumption-cell \{\s*display:\s*flex/s);
-  assert.match(indexSrc, /#fmp-ten-year-inputs td\.fmp-assumption-cell[\s\S]*?display:\s*table-cell/);
+  assert.match(indexSrc, /#fmp-workspace #fmp-ten-year-inputs > tbody > tr \{\s*[\s\S]*?display:\s*table-row !important/);
+  assert.match(indexSrc, /#fmp-workspace #fmp-ten-year-inputs > tbody > tr > td \{\s*[\s\S]*?display:\s*table-cell !important/);
+  assert.match(modelsSrc, /fmp-assumption-stack/);
+  assert.match(modelsSrc, /data-year-index/);
 });
 
 test('spot-check liquid US/HK names and random cached charts yield finite OLS or honest reason', () => {

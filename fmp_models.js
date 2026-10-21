@@ -805,9 +805,11 @@
             : key === 'beta'
               ? `${escape(text(zh, en))}${betaRowLookbackHtml(text)}`
               : escape(text(zh, en));
-          return `<tr data-scenario-field="${key}"><th>${label}</th><td data-actual-key="${key}">${actual.cells[key]}</td>${scenario.years.map((item, index) => `<td class="fmp-assumption-cell">
+          return `<tr data-scenario-field="${key}"><th>${label}</th><td data-actual-key="${key}">${actual.cells[key]}</td>${scenario.years.map((item, index) => `<td class="fmp-assumption-cell" data-year-index="${index}" data-year="${item.year}">
+          <div class="fmp-assumption-stack">
           <input aria-label="${escape(text(zh, en))} ${item.year}" data-scenario-key="${key}" data-scenario-year="${index}" type="number" step="any" min="${min}" max="${max}" required placeholder="N/A" title="${escape(item.values[key] ?? '')}" value="${inputValue(key, item.values[key])}">
-          <small class="fmp-assumption-origin" data-origin="${index}-${key}">${escape(originText(item.origins[key], text))}</small></td>`).join('')}</tr>`;
+          <small class="fmp-assumption-origin" data-origin="${index}-${key}">${escape(originText(item.origins[key], text))}</small>
+          </div></td>`).join('')}</tr>`;
         }).join('')}
       </tbody></table></div>
       ${scenario.currencyWarning ? `<p class="analysis-note text-red" id="fmp-currency-warning">${text(
