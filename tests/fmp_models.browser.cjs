@@ -64,22 +64,22 @@ const handler = createHandler(live ? {} : { apiKey: () => 'test-placeholder', fe
       await page.waitForFunction(() => isAppReady);
       await page.evaluate(() => applyLanguage('en'));
       assert.equal(await page.locator('#screener-tbody tr').count(), count);
-      assert.equal(await page.locator('#screener-tbody tr').first().locator('td').count(), 36);
+      assert.equal(await page.locator('#screener-tbody tr').first().locator('td').count(), 32);
       for (const language of ['zh', 'en']) {
         await page.evaluate(language => applyLanguage(language), language);
-        for (const [preset, columns] of [['overview', 7], ['valuation', 18], ['financial', 20], ['all', 36]]) {
+        for (const [preset, columns] of [['overview', 7], ['valuation', 14], ['financial', 20], ['all', 32]]) {
           await page.selectOption('#screener-columns', preset);
           assert.equal(await page.locator('#screener-table thead th:visible').count(), columns);
           assert.equal(await page.locator('#screener-table th[data-i18n="th_fair"], #screener-table th[data-i18n="th_fair_upside"]').count(), 0);
+          assert.equal(await page.locator('#screener-table th[data-i18n="th_fmp_dcf"], #screener-table th[data-i18n="th_fmp_levered"], #screener-table [onclick="sortTable(\'fmp_dcf\')"], #screener-table [onclick="sortTable(\'fmp_levered\')"]').count(), 0);
           assert.equal(await page.locator('#screener-table [onclick="sortTable(\'fairVal\')"], #screener-table [onclick="sortTable(\'fair_upside\')"], #screener-tbody [data-price-difference="fair"]').count(), 0);
           assert.equal(await page.locator('#screener-tbody tr').evaluateAll((rows, columns) => rows.every(row =>
-            row.cells.length === 36 && [...row.cells].filter(cell => !cell.hidden).length === columns
-            && row.querySelectorAll('[data-fmp-reference]').length === 2
-            && row.querySelectorAll('[data-price-difference]').length === 2), columns), true,
-          `${market}/${language}/${preset}: all ${count} stocks have aligned columns and retain both FMP references`);
+            row.cells.length === 32 && [...row.cells].filter(cell => !cell.hidden).length === columns
+            && row.querySelectorAll('[data-fmp-reference]').length === 0
+            && row.querySelectorAll('[data-price-difference]').length === 0), columns), true,
+          `${market}/${language}/${preset}: all ${count} stocks have aligned columns without FMP screener references`);
         }
       }
-      assert.notEqual(await page.locator('#screener-tbody tr').filter({ hasText: ticker }).locator('[data-fmp-reference="dcf"]').innerText(), 'N/A');
       await page.evaluate(ticker => openCompanyProfile(ticker), ticker);
       await page.waitForFunction(ticker => stockUniverse[ticker].companyDataLoaded, ticker);
       await page.evaluate(() => switchSubPage('valuation'));
