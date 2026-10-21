@@ -6,6 +6,7 @@ const endpoints = {
   'levered-dcf': 'levered-discounted-cash-flow',
   'custom-dcf': 'custom-discounted-cash-flow',
   'custom-levered-dcf': 'custom-levered-discounted-cash-flow',
+  'historical-price': 'historical-price-eod/full',
 };
 const customParameters = {
   revenueGrowthPct: [-0.9, 2], ebitdaPct: [-1, 1], ebitPct: [-1, 1],
@@ -15,6 +16,8 @@ const customParameters = {
   costOfDebt: [0, 100], costOfEquity: [0.01, 100], riskFreeRate: [0, 100],
   marketRiskPremium: [0, 100], beta: [-5, 10], longTermGrowthRate: [-10, 10],
 };
+const validDate = value => typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value)
+  && Number.isFinite(Date.parse(value)) && new Date(value).toISOString().slice(0, 10) === value;
 
 function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => process.env.FMP_API_KEY } = {}) {
   return async function handler(req, res) {
@@ -29,10 +32,12 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
     const action = query.get('action'), symbol = query.get('symbol');
     const custom = ['custom-dcf', 'custom-levered-dcf'].includes(action);
     const technical = action === 'technical';
+    const historical = action === 'historical-price';
     if (!Object.hasOwn(endpoints, action) || !/^[A-Z0-9][A-Z0-9.-]{0,14}$/.test(symbol || '')
         || [...new Set(query.keys())].some(key => query.getAll(key).length !== 1)
         || [...query.keys()].some(key => !['action', 'symbol', 'page'].includes(key)
           && !(technical && ['indicator', 'periodLength', 'from', 'to'].includes(key))
+          && !(historical && ['from', 'to'].includes(key))
           && !(custom && Object.hasOwn(customParameters, key)))) {
       return send(400, { error: 'INVALID_REQUEST' });
     }
@@ -46,6 +51,10 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
         || !technicals.validRequest(indicator, Number(period), from, to))) {
       return send(400, { error: 'INVALID_TECHNICAL_REQUEST' });
     }
+    if (historical && (!validDate(from) || !validDate(to) || from > to
+        || Date.parse(to) - Date.parse(from) > 8000 * 86400000)) {
+      return send(400, { error: 'INVALID_HISTORICAL_PRICE_REQUEST' });
+    }
     const key = apiKey();
     if (!key) return send(503, { error: 'FMP_NOT_CONFIGURED' });
     const endpoint = technical ? `${endpoints[action]}/${indicator}` : endpoints[action];
@@ -56,6 +65,10 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
       for (const [name, value] of Object.entries({ periodLength: period, timeframe: '1day', from, to })) {
         url.searchParams.set(name, value);
       }
+    }
+    if (historical) {
+      url.searchParams.set('from', from);
+      url.searchParams.set('to', to);
     }
     for (const [name, [minimum, maximum]] of Object.entries(customParameters)) {
       if (!query.has(name)) continue;
@@ -75,7 +88,7 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
     url.searchParams.set('apikey', key);
     let response;
     try {
-      response = await fetcher(url, { signal: AbortSignal.timeout(20000), redirect: 'error' });
+      response = await fetcher(url, { signal: AbortSignal.timeout(historical ? 45000 : 20000), redirect: 'error' });
     } catch (error) {
       const timeout = ['TimeoutError', 'AbortError'].includes(error.name);
       console.error('FMP request failed', { action, symbol, reason: timeout ? 'timeout' : 'network' });
@@ -104,16 +117,31 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
         console.error('FMP technical response failed validation', { symbol, indicator, reason: error.message });
         return send(502, { error: 'FMP_INVALID_TECHNICAL_RESPONSE' });
       }
-    } else data = rows.filter(row => row && row.symbol === provider);
-    if (data.length !== rows.length) {
-      console.error('FMP returned another security', { action, symbol });
-      return send(502, { error: 'FMP_SECURITY_MISMATCH' });
+    } else if (historical) {
+      data = rows.filter(row => row && (row.symbol === provider || row.symbol === symbol));
+      if (data.length !== rows.length) {
+        console.error('FMP returned another security', { action, symbol });
+        return send(502, { error: 'FMP_SECURITY_MISMATCH' });
+      }
+      data = data.map(row => ({
+        symbol, providerSymbol: provider, date: String(row.date).slice(0, 10),
+        close: row.close, volume: row.volume == null ? null : row.volume
+      }));
+    } else {
+      data = rows.filter(row => row && row.symbol === provider);
+      if (data.length !== rows.length) {
+        console.error('FMP returned another security', { action, symbol });
+        return send(502, { error: 'FMP_SECURITY_MISMATCH' });
+      }
+      if (provider !== symbol) data = data.map(row => ({ ...row, symbol, providerSymbol: provider }));
     }
-    if (!technical && provider !== symbol) data = data.map(row => ({ ...row, symbol, providerSymbol: provider }));
     res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=600');
     return send(200, { data, source: { provider: 'FMP', endpoint, symbol,
-      capturedAt: new Date().toISOString(), ...(technical ? { indicator, periodLength: Number(period),
-        timeframe: '1day', from, to, priceBasis: 'FMP technical-indicator OHLC close; alignment checked against the displayed price history' } : {}) }, ...(action === 'news' ? {
+      capturedAt: new Date().toISOString(),
+      ...(technical ? { indicator, periodLength: Number(period),
+        timeframe: '1day', from, to, priceBasis: 'FMP technical-indicator OHLC close; alignment checked against the displayed price history' } : {}),
+      ...(historical ? { from, to, priceBasis: 'splitAdjustedClose' } : {}) },
+      ...(action === 'news' ? {
         page: Number(page), hasMore: rows.length === 50 && Number(page) < 1000,
         limitReached: rows.length === 50 && Number(page) === 1000
       } : {}) });

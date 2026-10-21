@@ -5,6 +5,9 @@
 })(typeof globalThis === 'object' ? globalThis : this, function () {
   'use strict';
   const context = typeof module === 'object' && module.exports ? require('./market_context.js') : MarketContext;
+  const Beta = typeof module === 'object' && module.exports
+    ? (typeof require === 'function' ? (() => { try { return require('./beta_lookback.js'); } catch { return null; } })() : null)
+    : (typeof BetaLookback !== 'undefined' ? BetaLookback : null);
   const numeric = value => ((typeof value === 'number' || typeof value === 'string' && value.trim())
     && Number.isFinite(Number(value))) ? Number(value) : null;
 
@@ -199,9 +202,16 @@
         return [label, `${format(ratio?.value, '%')}${ratio?.warnings.length ? ' !' : ''}`, messages.join(' ')];
       };
       get('overview-groups').replaceChildren();
+      const betaResult = Beta?.lastResult?.get(ticker);
+      const betaValue = betaResult && betaResult.mode !== Beta.PROVIDER
+        ? betaResult.beta : context.fcff()?.betaSources?.[ticker]?.value;
+      const betaTitle = betaResult?.reason
+        ? (labels[`beta_reason_${betaResult.reason}`] || Beta.reasonText(betaResult.reason, lang))
+        : (betaResult && betaResult.mode !== Beta.PROVIDER
+          ? Beta.statusText(betaResult, lang) : labels.profile_beta_default_note || '');
       group('profile_market', [
         ['profile_high', usd(stock.year_high)], ['profile_low', usd(stock.year_low)],
-        ['profile_beta', format(context.fcff()?.betaSources?.[ticker]?.value, '', 6)],
+        ['profile_beta', format(betaValue, '', 6), betaTitle],
         ['profile_div_yield', format(stock.div_yield, '%')]
       ]);
       group('profile_capital', [

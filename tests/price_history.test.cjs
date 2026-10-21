@@ -71,7 +71,7 @@ test('every covered stock has validated daily history or honest unavailability, 
       continue;
     }
     assert.ok(data.rows.at(-1)[0] <= data.requestedTo, ticker);
-    for (const period of ['3m', '6m', 'ytd', '1y', '3y', '5y', '10y', 'all']) {
+    for (const period of ['3m', '6m', 'ytd', '1y', '2y', '3y', '4y', '5y', '10y', 'all']) {
       const selected = Price.select(data.rows, ...Price.periodRange(data.rows, period));
       const summary = Price.summarize(selected);
       assert.equal(summary.price, data.rows.at(-1)[1], ticker);
