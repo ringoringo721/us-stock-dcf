@@ -200,6 +200,20 @@ test('Detail and ten-year UI expose confidence and dual-terminal hooks', () => {
 });
 
 test('HK Advanced rf tenor source defaults to USD Treasury curve, not HKD', () => {
+  globalThis.KE_TREASURY_USD10Y = {
+    version: 1, series: 'DGS10', method: 'calendarYearLastObservation',
+    years: Array.from({ length: 10 }, (_, i) => ({ year: 2017 + i, date: `${2017 + i}-12-31`, year10: 2, yearEnd: true, reason: null })),
+    curve: {
+      publishedTenors: [1, 2, 3, 5, 7, 10],
+      unpublishedTenors: [4, 6, 8, 9],
+      unpublishedReason: 'noConstantMaturityTreasuryPublication',
+      latest: { date: '2026-10-20', currency: 'USD', year1: 4.51, year2: 4.79, year3: 4.86, year5: 4.94, year7: 5.02, year10: 5.12 },
+      byDate: {
+        '2026-10-16': { date: '2026-10-16', currency: 'USD', year1: 4.46, year2: 4.74, year3: 4.82, year5: 4.89, year7: 4.98, year10: 5.09 },
+        '2026-10-20': { date: '2026-10-20', currency: 'USD', year1: 4.51, year2: 4.79, year3: 4.86, year5: 4.94, year7: 5.02, year10: 5.12 }
+      }
+    }
+  };
   globalThis.HK_FCFF_DATA = { stocks: {
     '0700.HK': { provenance: {
       treasury: { date: '2026-10-16', year10: 5.09, year5: 4.2, currency: 'USD' },
@@ -217,15 +231,59 @@ test('HK Advanced rf tenor source defaults to USD Treasury curve, not HKD', () =
   assert.equal(source.hkPegProxy, true);
   assert.equal(source.rates[10], 5.09);
   assert.equal(source.rates[5], 4.2);
-  assert.equal(source.rates[2], undefined);
+  // Missing published tenors fill from the dated USD embed (same observation day).
+  assert.equal(source.rates[2], 4.74);
+  assert.equal(source.rates[1], 4.46);
+  assert.deepEqual(source.missing, [4, 6, 8, 9]);
+  assert.equal(source.unpublishedMissing, true);
   assert.match(source.riskFreeNote, /USD Treasury proxy/);
 
   const hkdLabeled = Models.riskFreeTenorSource(
     { ticker: '0001.HK', market: 'HKEX', calculationCurrency: 'HKD' }, '0001.HK');
-  // No own USD capture → fall back to latest USD curve from FCFF_DATA, never calculationCurrency HKD.
+  // No own USD capture → fall back to latest USD curve from FCFF_DATA + embed, never calculationCurrency HKD.
   assert.equal(hkdLabeled.currency, 'USD');
   assert.equal(hkdLabeled.rates[10], 5.12);
   assert.equal(hkdLabeled.rates[2], 3.9);
+  assert.equal(hkdLabeled.rates[1], 4.51);
+});
+
+test('year10-only FCFF provenance still exposes published 1–10Y USD tenors from embed', () => {
+  globalThis.KE_TREASURY_USD10Y = {
+    version: 1, series: 'DGS10', method: 'calendarYearLastObservation',
+    years: Array.from({ length: 10 }, (_, i) => ({ year: 2017 + i, date: `${2017 + i}-12-31`, year10: 2, yearEnd: true, reason: null })),
+    curve: {
+      publishedTenors: [1, 2, 3, 5, 7, 10],
+      unpublishedTenors: [4, 6, 8, 9],
+      latest: { date: '2026-10-20', currency: 'USD', year1: 4.51, year2: 4.79, year3: 4.86, year5: 4.94, year7: 5.02, year10: 5.12 },
+      byDate: {
+        '2026-10-20': { date: '2026-10-20', currency: 'USD', year1: 4.51, year2: 4.79, year3: 4.86, year5: 4.94, year7: 5.02, year10: 5.12 }
+      }
+    }
+  };
+  globalThis.FCFF_DATA = { stocks: {
+    TSM: { provenance: { treasury: { date: '2026-10-20', year10: 5.12, currency: 'USD' } } }
+  } };
+  globalThis.HK_FCFF_DATA = { stocks: {} };
+  const Models = require('../fmp_models.js');
+  const source = Models.riskFreeTenorSource({ ticker: 'TSM' }, 'TSM');
+  assert.equal(source.basis, 'dated-usd-treasury-curve');
+  assert.equal(source.rates[1], 4.51);
+  assert.equal(source.rates[7], 5.02);
+  assert.equal(source.rates[10], 5.12);
+  assert.deepEqual(source.missing, [4, 6, 8, 9]);
+  const scenario = {
+    years: [
+      { values: { rf: 5.12, beta: 1.2, erp: 4.75, ke: 10.82 }, origins: { rf: 'model', beta: 'model', erp: 'model', ke: 'capm' } },
+      { values: { rf: 5.12, beta: 1.2, erp: 4.75, ke: 10.82 }, origins: { rf: 'user', beta: 'model', erp: 'model', ke: 'capm' } }
+    ]
+  };
+  assert.equal(Models.applyRfTenor(scenario, 2), true);
+  assert.equal(scenario.years[0].values.rf, 4.79);
+  assert.equal(scenario.years[0].origins.rf, 'suggested-rf-tenor');
+  assert.equal(scenario.years[0].values.ke, 4.79 + 1.2 * 4.75);
+  assert.equal(scenario.years[1].values.rf, 5.12, 'user rf override preserved');
+  assert.equal(Models.applyRfTenor(scenario, 4), false);
+  assert.equal(scenario.rfTenorSource.reason, 'DATED_CURVE_TENOR_UNAVAILABLE');
 });
 
 test('applyRfTenor code path preserves user rf overrides', () => {

@@ -206,6 +206,31 @@ test('HK rf prefers USD Treasury over a separate HKD benchmark when both are sup
   assert.doesNotMatch(snapshot.provenance.riskFreeRate, /HKD benchmark/);
 });
 
+test('year10-only treasury rows enrich published 1–10Y from the dated USD CMT curve', () => {
+  const { enrichTreasuryFromCurve, prepareSnapshot } = require('../scripts/fcff_sources.cjs');
+  const pack = {
+    version: 1,
+    byDate: {
+      '2026-10-16': {
+        date: '2026-10-16', currency: 'USD',
+        year1: 4.46, year2: 4.74, year3: 4.82, year5: 4.89, year7: 4.98, year10: 5.09
+      }
+    }
+  };
+  const enriched = enrichTreasuryFromCurve(
+    { ok: true, rows: [{ date: '2026-10-16', year10: 5.09 }] }, pack);
+  assert.equal(enriched.rows[0].year1, 4.46);
+  assert.equal(enriched.rows[0].year7, 4.98);
+  assert.equal(enriched.rows[0].year10, 5.09);
+  assert.equal(enriched.rows[0].year4, undefined);
+  const input = hkEvidence();
+  const snapshot = prepareSnapshot('TEST.HK', input,
+    { ok: true, rows: [{ date: '2026-10-16', year10: 4 }] }, hkdRates, null, { usdTreasuryCurve: pack });
+  assert.equal(snapshot.provenance.treasury.year10, 4);
+  assert.equal(snapshot.provenance.treasury.year2, 4.74);
+  assert.equal(snapshot.provenance.treasury.year5, 4.89);
+});
+
 test('latest matched forecast scale controls eligibility and older differences remain disclosed', () => {
   const input = evidence();
   input.responses.annual_income.rows.unshift({ symbol: 'TEST', date: '2024-12-31',

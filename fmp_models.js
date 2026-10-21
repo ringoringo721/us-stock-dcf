@@ -119,7 +119,7 @@
       OFFICIAL_CORRECTION_REVIEW: ['官方財報已更正或需審閱口徑差異；信心降為中。', 'Official statement corrections or basis differences require review; confidence is medium.'],
       GROWTH_REQUIRES_MANUAL_INPUT: ['歷史營收成長過高或波動過大，不自動填入以免假精度；請手動輸入。', 'Historical revenue growth is too high or volatile to autofill without false precision; enter growth manually.'],
       HISTORICAL_GROWTH_OUTLIER: ['歷史營收 CAGR 超出自動填入上限，僅作參考。', 'Historical revenue CAGR exceeds the autofill ceiling; shown as reference only.'],
-      DATED_CURVE_TENOR_UNAVAILABLE: ['此年期在已標日期的公債／基準曲線擷取中不存在（目前多僅有 year10）；未改寫 retained-capital 無風險利率。', 'This tenor is absent from the dated treasury/benchmark capture (often year10 only); the retained-capital risk-free rate was not overwritten.']
+      DATED_CURVE_TENOR_UNAVAILABLE: ['此年期在已標日期的美元公債常數到期曲線中無官方刊載（常見缺 4／6／8／9Y）；未改寫 retained-capital 無風險利率。', 'This tenor has no official constant-maturity Treasury publication on the dated USD curve (typically 4/6/8/9Y); the retained-capital risk-free rate was not overwritten.']
     };
     return messages[reason]?.[language === 'en' ? 1 : 0] || reason || '';
   }
@@ -480,6 +480,50 @@
       && Object.keys(treasuryTenorRates(treasury)).length > 0;
   }
 
+  function embeddedUsdTreasuryPack() {
+    return root.KE_TREASURY_USD10Y?.curve || null;
+  }
+
+  function embeddedUsdTreasuryCurve(date) {
+    const pack = embeddedUsdTreasuryPack();
+    if (!pack || typeof pack !== 'object') return null;
+    const row = (date && pack.byDate?.[date]) || pack.latest || null;
+    if (!row || typeof row !== 'object') return null;
+    return {
+      date: row.date || date || pack.latest?.date || null,
+      currency: 'USD',
+      ...Object.fromEntries(Array.from({ length: 10 }, (_, index) => {
+        const year = index + 1;
+        const value = row[`year${year}`];
+        return finite(value) ? [`year${year}`, value] : null;
+      }).filter(Boolean)),
+      source: pack.source || null,
+      unpublishedTenors: Array.isArray(pack.unpublishedTenors) ? pack.unpublishedTenors : [4, 6, 8, 9],
+      unpublishedReason: pack.unpublishedReason || 'noConstantMaturityTreasuryPublication'
+    };
+  }
+
+  function mergeUsdTreasuryCurve(primary, fallback) {
+    if (!isUsdTreasuryCapture(fallback)) return primary && isUsdTreasuryCapture(primary)
+      ? { ...primary, currency: 'USD' } : null;
+    if (!isUsdTreasuryCapture(primary)) return { ...fallback, currency: 'USD' };
+    // Prefer the FCFF-dated observation day when the embed has that exact curve;
+    // otherwise keep primary year10 and fill only missing published tenors from latest.
+    const sameDate = !!primary.date && primary.date === fallback.date;
+    const merged = { ...primary, currency: 'USD' };
+    if (sameDate || Object.keys(treasuryTenorRates(primary)).length <= 1) {
+      if (!merged.date) merged.date = fallback.date;
+      for (let year = 1; year <= 10; year++) {
+        const key = `year${year}`;
+        if (!finite(merged[key]) && finite(fallback[key])) merged[key] = fallback[key];
+      }
+      if (!sameDate && Object.keys(treasuryTenorRates(primary)).length <= 1 && fallback.date) {
+        merged.date = fallback.date;
+      }
+    }
+    return merged;
+  }
+
   function latestUsdTreasuryCapture(excludeTicker) {
     let best = null;
     for (const bag of [root.FCFF_DATA?.stocks, root.HK_FCFF_DATA?.stocks]) {
@@ -491,7 +535,8 @@
         if (!best || (treasury.date || '') > (best.date || '')) best = treasury;
       }
     }
-    return best ? { ...best, currency: 'USD' } : null;
+    const fromFcff = best ? { ...best, currency: 'USD' } : null;
+    return mergeUsdTreasuryCurve(fromFcff, embeddedUsdTreasuryCurve(fromFcff?.date || null));
   }
 
   function riskFreeTenorSource(stock = state?.stock, ticker = state?.ticker) {
@@ -509,12 +554,16 @@
     } else if (treasury?.currency === 'HKD') {
       treasury = latestUsdTreasuryCapture(ticker);
     }
+    treasury = mergeUsdTreasuryCurve(treasury, embeddedUsdTreasuryCurve(treasury?.date || null));
     const rates = treasuryTenorRates(treasury);
     const missing = [];
     for (let year = 1; year <= 10; year++) {
       if (!finite(rates[year])) missing.push(year);
     }
     const available = Object.keys(rates).map(Number).sort((a, b) => a - b);
+    const pack = embeddedUsdTreasuryPack();
+    const unpublished = new Set(pack?.unpublishedTenors || [4, 6, 8, 9]);
+    const onlyUnpublishedMissing = missing.length > 0 && missing.every(year => unpublished.has(year));
     const riskFreeNote = hk
       ? (fcff?.provenance?.riskFreeRate
         && !/HKD benchmark|港元/i.test(fcff.provenance.riskFreeRate)
@@ -526,6 +575,7 @@
       date: treasury?.date || null,
       rates,
       missing,
+      unpublishedMissing: onlyUnpublishedMissing,
       hkPegProxy: hk,
       basis: available.length === 0 ? 'dated-treasury-unavailable'
         : available.length === 1 && available[0] === 10 ? 'dated-capture-year10-only'
@@ -576,8 +626,11 @@
       return `<option value="${tenor}" ${selected === tenor ? 'selected' : ''} ${available ? '' : 'disabled'}>${tenor}Y${available ? ` · ${rate.toFixed(2)}%` : ` · N/A`}</option>`;
     }).join('');
     const missingNote = source.missing.length
-      ? text(`缺期數：${source.missing.map(year => `${year}Y`).join(', ')}（定存擷取目前多僅 year10；選擇器仍顯示）。`,
-        `Missing tenors: ${source.missing.map(year => `${year}Y`).join(', ')} (dated capture often year10 only; chooser still shown).`)
+      ? (source.unpublishedMissing
+        ? text(`缺期數：${source.missing.map(year => `${year}Y`).join(', ')}（美國公債無對應常數到期刊載；其餘 1／2／3／5／7／10Y 有資料）。`,
+          `Missing tenors: ${source.missing.map(year => `${year}Y`).join(', ')} (no official constant-maturity publication; 1/2/3/5/7/10Y remain selectable).`)
+        : text(`缺期數：${source.missing.map(year => `${year}Y`).join(', ')}（已標日期曲線缺該年期；選擇器仍顯示）。`,
+          `Missing tenors: ${source.missing.map(year => `${year}Y`).join(', ')} (absent from the dated curve; chooser still shown).`))
       : '';
     const rfStatus = scenario.rfTenorSource?.reason
       ? escape(reasonText(scenario.rfTenorSource.reason, state.language()))

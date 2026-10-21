@@ -28,7 +28,14 @@ function apply(sourceDirectory, symbols = ['0027.HK', ...Object.keys(require('..
     const evidence = JSON.parse(fs.readFileSync(path.join(sourceDirectory, `${symbol}.json`), 'utf8'));
     const previous = market[symbol], item = config.find(item => item.ticker === symbol);
     const treasury = previous?.rateSource?.date && Number.isFinite(previous.rateSource.year10)
-      ? { ok: true, rows: [{ date: previous.rateSource.date, year10: previous.rateSource.year10 }] } : capturedTreasury;
+      ? { ok: true, rows: [{
+        date: previous.rateSource.date,
+        ...Object.fromEntries(Array.from({ length: 10 }, (_, index) => {
+          const year = index + 1;
+          const value = previous.rateSource[`year${year}`];
+          return Number.isFinite(value) ? [`year${year}`, value] : null;
+        }).filter(Boolean))
+      }] } : capturedTreasury;
     const result = compileStock(item, evidence, rates, reports, previous, treasury);
     const companyFile = path.join('cache', 'company', `${symbol}.json`);
     const company = fs.existsSync(path.join(root, companyFile)) ? read(companyFile) : null;

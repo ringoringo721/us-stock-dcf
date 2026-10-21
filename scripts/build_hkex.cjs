@@ -717,7 +717,12 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
     mcap: millions(quote.marketCap), debt: millions(balance('totalDebt')), cash: millions(balance('cashAndCashEquivalents')),
     short_term_investments: millions(balance('shortTermInvestments')), cash_and_short_term: millions(balance('cashAndShortTermInvestments')),
     beta: finite(p.beta) ? p.beta : null, beta_5y: null, rf: treasuryCurve?.year10 ?? null, erp: 4.75, kd: null, tax: null,
-    rateSource: { currency: 'USD', date: treasuryCurve?.date || null, year10: treasuryCurve?.year10 ?? null,
+    rateSource: { currency: 'USD', date: treasuryCurve?.date || null,
+      ...Object.fromEntries(Array.from({ length: 10 }, (_, index) => {
+        const year = index + 1;
+        const value = treasuryCurve?.[`year${year}`];
+        return finite(value) ? [`year${year}`, value] : null;
+      }).filter(Boolean)),
       basis: 'userDirectedUsdTreasuryProxyUnderHkdUsdPeg' },
     growth_10y: Array(10).fill(null), g1: null, g2: null, g: 2.25, wacc: null,
     fcf0: millions(flow('cashflow', 'freeCashFlow')), f_score: score.score,
