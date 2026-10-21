@@ -11,7 +11,9 @@ test('static production output contains both markets and required caches, not ba
     const files = buildSite(output);
     for (const filename of assets) assert.ok(fs.existsSync(path.join(output, filename)), filename);
     for (const filename of [path.join('cache', 'fx', 'hkd_rates.json'), path.join('cache', 'fx', 'usd_rates.json'),
-      path.join('cache', 'financials', '0700.HK_statements_v2.json'), path.join('cache', 'price_charts', 'AAPL.json')]) {
+      path.join('cache', 'financials', '0700.HK_statements_v2.json'), path.join('cache', 'price_charts', 'AAPL.json'),
+      path.join('cache', 'beta_benchmarks', 'SPY.json'), path.join('cache', 'beta_benchmarks', '2800.HK.json'),
+      'beta_lookback.js']) {
       assert.ok(fs.existsSync(path.join(output, filename)), filename);
     }
     assert.equal(files.some(filename => /\.py$|\.cjs$|moat-inputs|transcript/.test(filename)), false);

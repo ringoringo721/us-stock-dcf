@@ -41,6 +41,11 @@
     if (query.get('action') === 'technical') return result.source.indicator === query.get('indicator')
       && result.source.periodLength === Number(query.get('periodLength')) && result.source.timeframe === '1day'
       && result.source.from === query.get('from') && result.source.to === query.get('to');
+    if (query.get('action') === 'historical-price') {
+      return result.source.from === query.get('from') && result.source.to === query.get('to')
+        && result.data.every(row => row?.symbol === query.get('symbol')
+          && typeof row.date === 'string' && typeof row.close === 'number' && Number.isFinite(row.close) && row.close > 0);
+    }
     return result.data.every(row => row?.symbol === query.get('symbol'));
   }
   function request(parameters, { scope = '', refresh = false, snapshot = null } = {}) {

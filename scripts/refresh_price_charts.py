@@ -50,8 +50,13 @@ def parse_prices(payload, symbol, start, end):
     return [rows[day] for day in sorted(rows)]
 
 
+def provider_symbol(ticker):
+    return ticker if ticker.endswith(".HK") else ticker.replace(".", "-")
+
+
 def fetch_prices(session, ticker, api_key, today):
-    symbol = ticker.replace(".", "-")
+    symbol = provider_symbol(ticker)
+    currency = "HKD" if ticker.endswith(".HK") else "USD"
     start = years_before(today, 20)
     middle = years_before(today, 10)
     rows = []
@@ -74,12 +79,25 @@ def fetch_prices(session, ticker, api_key, today):
             raise RuntimeError(f"{ticker}: {error}; existing prices retained") from None
         time.sleep(0.12)
     return {
-        "version": 1, "ticker": ticker, "providerSymbol": symbol, "currency": "USD",
+        "version": 1, "ticker": ticker, "providerSymbol": symbol, "currency": currency,
         "source": "FMP historical-price-eod/full", "priceBasis": "splitAdjustedClose",
         "volumeBasis": "providerReported", "requestedFrom": start.isoformat(), "requestedTo": today.isoformat(),
         "fetchedAt": datetime.now(timezone.utc).isoformat(), "columns": ["date", "close", "volume"],
         "rows": rows
     }
+
+
+def write_price_record(folder, ticker, record):
+    folder.mkdir(parents=True, exist_ok=True)
+    target = folder / f"{ticker}.json"
+    with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", dir=folder, delete=False) as destination:
+        temporary = Path(destination.name)
+        json.dump(record, destination, ensure_ascii=False, separators=(",", ":"))
+        destination.write("\n")
+    try:
+        os.replace(temporary, target)
+    finally:
+        temporary.unlink(missing_ok=True)
 
 
 def main():
@@ -89,29 +107,30 @@ def main():
         raise RuntimeError("FMP_API_KEY is required; price charts were not refreshed")
     market = json.loads((root / "full_market_dcf.json").read_text(encoding="utf-8"))
     prices = {}
+    today = datetime.now(timezone.utc).date()
     with requests.Session() as session:
         for ticker in market:
             if not re.fullmatch(r"[A-Z0-9]+(?:[.-][A-Z0-9]+)*", ticker):
                 raise ValueError("Invalid market ticker")
-            prices[ticker] = fetch_prices(session, ticker, key, datetime.now(timezone.utc).date())
+            prices[ticker] = fetch_prices(session, ticker, key, today)
             previous = root / "cache" / "price_charts" / f"{ticker}.json"
             if not prices[ticker]["rows"] and previous.exists():
                 if json.loads(previous.read_text(encoding="utf-8")).get("rows"):
                     raise RuntimeError(f"{ticker}: empty provider response would erase existing history; all caches retained")
             print(f"{ticker}: {len(prices[ticker]['rows'])} real daily price records", flush=True)
+        # Low-cost beta benchmarks: S&P 500 (SPY) + HSI proxy (TraHK 2800.HK).
+        for ticker in ("SPY", "2800.HK"):
+            prices[ticker] = fetch_prices(session, ticker, key, today)
+            print(f"{ticker}: {len(prices[ticker]['rows'])} beta-benchmark daily price records", flush=True)
     # Fetch and validate every company before replacing any published cache.
     folder = root / "cache" / "price_charts"
-    folder.mkdir(parents=True, exist_ok=True)
+    benchmarks = root / "cache" / "beta_benchmarks"
     for ticker, record in prices.items():
-        target = folder / f"{ticker}.json"
-        with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", dir=folder, delete=False) as destination:
-            temporary = Path(destination.name)
-            json.dump(record, destination, ensure_ascii=False, separators=(",", ":"))
-            destination.write("\n")
-        try:
-            os.replace(temporary, target)
-        finally:
-            temporary.unlink(missing_ok=True)
+        write_price_record(folder, ticker, record)
+        if ticker in {"SPY", "2800.HK"}:
+            mirrored = dict(record)
+            mirrored["benchmark"] = "S&P 500 via SPY ETF" if ticker == "SPY" else "Hang Seng Index via TraHK 2800.HK"
+            write_price_record(benchmarks, ticker, mirrored)
     unavailable = [ticker for ticker, record in prices.items() if not record["rows"]]
     print(f"Refreshed {len(prices)} Profile price histories; financial and DCF datasets unchanged", flush=True)
     if unavailable:

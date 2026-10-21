@@ -40,7 +40,7 @@
     let cutoff;
     if (period === 'ytd') cutoff = `${year}-01-01`;
     else {
-      const months = { '3m': 3, '6m': 6, '1y': 12, '3y': 36, '5y': 60, '10y': 120 }[period];
+      const months = { '3m': 3, '6m': 6, '1y': 12, '2y': 24, '3y': 36, '4y': 48, '5y': 60, '10y': 120 }[period];
       if (!months) throw new TypeError('Unknown price period');
       const target = new Date(Date.UTC(year, month - months, 1));
       target.setUTCDate(Math.min(day, new Date(Date.UTC(target.getUTCFullYear(), target.getUTCMonth() + 1, 0)).getUTCDate()));

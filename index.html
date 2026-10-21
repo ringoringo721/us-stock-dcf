@@ -27,6 +27,7 @@
   <script src="peer_comparison.js?v=hk-full-fy-3"></script>
   <script src="stock_search.js"></script>
   <script src="fmp_cache.js"></script>
+  <script src="beta_lookback.js"></script>
   <script src="company_data.js"></script>
   <script src="fmp_model_data.js"></script>
   <script src="fmp_scenario.js"></script>
@@ -1515,8 +1516,19 @@
           <div class="company-meta-item"><span class="label" data-i18n="lbl_ceo">執行長 (CEO):</span><span class="val" id="cmp-meta-ceo">--</span></div>
           <div class="company-meta-item"><span class="label" data-i18n="lbl_shares_out">總股本 (Shares Out):</span><span class="val text-gold" id="cmp-meta-shares">--</span></div>
           <div class="company-meta-item"><span class="label" data-i18n="lbl_emp">全職員工數:</span><span class="val" id="cmp-meta-emp">--</span></div>
-          <div class="company-meta-item"><span class="label" data-i18n="lbl_beta_5y">Beta（年期未明）:</span><span class="val text-green" id="cmp-meta-beta">--</span></div>
+          <div class="company-meta-item"><span class="label" data-i18n="lbl_beta_lookback">Beta 回看年期:</span>
+            <select id="cmp-beta-lookback" aria-describedby="cmp-beta-status" onchange="onBetaLookbackChange()">
+              <option value="provider" data-i18n="beta_lookback_provider">供應商／年期未明（預設）</option>
+              <option value="1" data-i18n="beta_lookback_1y">1 年 OLS</option>
+              <option value="2" data-i18n="beta_lookback_2y">2 年 OLS</option>
+              <option value="3" data-i18n="beta_lookback_3y">3 年 OLS</option>
+              <option value="4" data-i18n="beta_lookback_4y">4 年 OLS</option>
+              <option value="5" data-i18n="beta_lookback_5y">5 年 OLS</option>
+            </select>
+          </div>
+          <div class="company-meta-item"><span class="label" id="cmp-beta-label" data-i18n="lbl_beta_5y">Beta（年期未明）:</span><span class="val text-green" id="cmp-meta-beta">--</span></div>
         </div>
+        <p id="cmp-beta-status" class="analysis-note" role="status"></p>
       </div>
 
       <div class="profile-support-grid">
@@ -2310,7 +2322,18 @@
       profile_income_growth: "淨利年增率",
       profile_high: "52 週最高價",
       profile_low: "52 週最低價",
-      profile_beta: "Beta（FMP；年期未明）",
+      profile_beta: "Beta（可選回看年期）",
+      profile_beta_default_note: "預設為 FMP 公司檔 Beta（供應商／年期未明）。美股基準為標普 500（SPY）；港股基準為恒生指數（盈富 2800.HK）。港股 rf 仍採美元美債／聯匯代理概念。",
+      lbl_beta_lookback: "Beta 回看年期:",
+      beta_lookback_provider: "供應商／年期未明（預設）",
+      beta_lookback_1y: "1 年 OLS",
+      beta_lookback_2y: "2 年 OLS",
+      beta_lookback_3y: "3 年 OLS",
+      beta_lookback_4y: "4 年 OLS",
+      beta_lookback_5y: "5 年 OLS",
+      beta_label_provider: "Beta（供應商／年期未明）:",
+      beta_label_ols: "Beta（OLS 日線）:",
+      beta_applying: "正在以快取價格計算 Beta…",
       profile_div_yield: "股息率",
       profile_market_cap: "市值（USD 百萬）",
       profile_ev: "企業價值（USD 百萬）",
@@ -2511,7 +2534,7 @@
       lbl_ceo: "執行長 (CEO):",
       lbl_shares_out: "總股本 (Shares Out):",
       lbl_emp: "全職員工數:",
-      lbl_beta_5y: "Beta（年期未明）:",
+      lbl_beta_5y: "Beta（供應商／年期未明）:",
       sec_52w_title: "📈 52 週價格區間與歷史高低點",
       lbl_52w_range: "52 週價格區間:",
       lbl_52w_highlow: "52 週最高 / 最低:",
@@ -2750,7 +2773,18 @@
       profile_income_growth: "Net income growth",
       profile_high: "52-week high",
       profile_low: "52-week low",
-      profile_beta: "Beta (FMP; window unspecified)",
+      profile_beta: "Beta (selectable lookback)",
+      profile_beta_default_note: "Default is the FMP profile beta (provider / window unspecified). US benchmark: S&P 500 via SPY; HK benchmark: Hang Seng via TraHK 2800.HK. HK rf still uses the USD Treasury / peg-proxy concept.",
+      lbl_beta_lookback: "Beta lookback:",
+      beta_lookback_provider: "Provider / window unspecified (default)",
+      beta_lookback_1y: "1-year OLS",
+      beta_lookback_2y: "2-year OLS",
+      beta_lookback_3y: "3-year OLS",
+      beta_lookback_4y: "4-year OLS",
+      beta_lookback_5y: "5-year OLS",
+      beta_label_provider: "Beta (provider / window unspecified):",
+      beta_label_ols: "Beta (OLS daily):",
+      beta_applying: "Computing beta from cached prices…",
       profile_div_yield: "Dividend yield",
       profile_market_cap: "Market cap (USD millions)",
       profile_ev: "Enterprise value (USD millions)",
@@ -2951,7 +2985,7 @@
       lbl_ceo: "Chief Executive (CEO):",
       lbl_shares_out: "Shares Outstanding:",
       lbl_emp: "Full-Time Employees:",
-      lbl_beta_5y: "Beta (window unspecified):",
+      lbl_beta_5y: "Beta (provider / window unspecified):",
       sec_52w_title: "📈 52-Week Range & Historical Extremes",
       lbl_52w_range: "52-Week Range:",
       lbl_52w_highlow: "52W High / Low:",
@@ -3452,6 +3486,89 @@
       s.rf = rfVal * 100;
     }
     onDetailParamChange();
+  }
+
+  let betaLookbackRequestId = 0;
+  function applyBetaLookbackResult(ticker, result, { wireInputs = true } = {}) {
+    const labels = I18N_DICT[currentLang] || {};
+    const meta = document.getElementById('cmp-meta-beta');
+    const status = document.getElementById('cmp-beta-status');
+    const label = document.getElementById('cmp-beta-label');
+    const select = document.getElementById('cmp-beta-lookback');
+    if (select && ticker === (activeCompanyTicker || activeDetailTicker)) {
+      select.value = result.mode === BetaLookback.PROVIDER ? 'provider' : String(result.lookbackYears || result.mode);
+    }
+    if (label) {
+      label.textContent = result.mode === BetaLookback.PROVIDER || result.method === 'fmp-profile'
+        ? (labels.beta_label_provider || labels.lbl_beta_5y)
+        : (labels.beta_label_ols || labels.lbl_beta_5y);
+    }
+    if (meta) {
+      meta.innerText = Number.isFinite(result.beta)
+        ? Number(result.beta).toLocaleString(currentLang === 'en' ? 'en-US' : 'zh-TW', { maximumFractionDigits: 6 })
+        : 'N/A';
+      meta.title = result.reason ? BetaLookback.reasonText(result.reason, currentLang) : '';
+    }
+    if (status) status.textContent = BetaLookback.statusText(result, currentLang);
+    if (!wireInputs) return;
+    const stock = stockUniverse[ticker];
+    if (!stock) return;
+    if (Number.isFinite(result.beta)) {
+      stock.beta = result.beta;
+      const inp = document.getElementById('inp-beta');
+      if (inp && (activeDetailTicker === ticker || activeCompanyTicker === ticker)) {
+        inp.value = String(Number(result.beta.toFixed(6)));
+      }
+      if (typeof FmpModels !== 'undefined' && FmpModels.applyBetaLookback) {
+        FmpModels.applyBetaLookback(result.beta);
+      }
+      if (stock.fin_valuation?.is_financial) {
+        const ke = BetaLookback.bankKeFromBeta({ ...stock, ticker }, result.beta);
+        if (Number.isFinite(ke)) {
+          stock.fin_valuation.ke = ke;
+          const slider = document.getElementById('slider-fin-ke');
+          const disp = document.getElementById('disp-fin-ke');
+          if (slider && activeDetailTicker === ticker) {
+            const lo = Number(slider.min), hi = Number(slider.max);
+            if (ke < lo) slider.min = String(Math.floor(ke * 20) / 20);
+            if (ke > hi) slider.max = String(Math.ceil(ke * 20) / 20);
+            slider.value = String(ke);
+          }
+          if (disp && activeDetailTicker === ticker) disp.innerText = `${ke.toFixed(2)}%`;
+        }
+      }
+      if (activeDetailTicker === ticker) onDetailParamChange();
+    }
+  }
+
+  async function refreshBetaLookback(ticker = activeCompanyTicker || activeDetailTicker, selection, { wireInputs = true } = {}) {
+    if (!ticker || typeof BetaLookback === 'undefined') return null;
+    const select = document.getElementById('cmp-beta-lookback');
+    const choice = selection !== undefined ? selection
+      : (select?.value || BetaLookback.getPreference(ticker) || BetaLookback.PROVIDER);
+    const normalized = choice === 'provider' || choice === BetaLookback.PROVIDER
+      ? BetaLookback.PROVIDER : Number(choice);
+    BetaLookback.setPreference(ticker, normalized);
+    const request = ++betaLookbackRequestId;
+    const status = document.getElementById('cmp-beta-status');
+    if (status && normalized !== BetaLookback.PROVIDER) {
+      status.textContent = (I18N_DICT[currentLang] || {}).beta_applying || '';
+    }
+    const result = await BetaLookback.resolve(ticker, normalized);
+    if (request !== betaLookbackRequestId) return result;
+    if (ticker === (activeCompanyTicker || activeDetailTicker)) {
+      applyBetaLookbackResult(ticker, result, { wireInputs });
+      if (document.getElementById('subpage-basic')?.classList.contains('active')) {
+        const stock = stockUniverse[ticker];
+        if (stock) ProfileOverview.render(ticker, stock, currentLang, I18N_DICT[currentLang]);
+      }
+    }
+    return result;
+  }
+
+  function onBetaLookbackChange() {
+    const select = document.getElementById('cmp-beta-lookback');
+    refreshBetaLookback(activeCompanyTicker || activeDetailTicker, select?.value, { wireInputs: true });
   }
 
   function onFinSliderChange() {
@@ -5872,8 +5989,17 @@
     document.getElementById('cmp-meta-ceo').innerText = s.ceo || (isEn ? "Executive Team" : "管理團隊");
     document.getElementById('cmp-meta-emp').innerText = s.full_time_employees ? Number(s.full_time_employees).toLocaleString() : "--";
     document.getElementById('cmp-meta-shares').innerText = profileFormat(s.shares, ` ${shareUnit}`);
+    const betaSelect = document.getElementById('cmp-beta-lookback');
+    if (betaSelect) {
+      const preferred = BetaLookback.getPreference(activeCompanyTicker);
+      betaSelect.value = preferred === BetaLookback.PROVIDER ? 'provider' : String(preferred);
+    }
     document.getElementById('cmp-meta-beta').innerText = profileFormat(
       MarketContext.fcff()?.betaSources?.[activeCompanyTicker]?.value, '', 6);
+    const betaPref = BetaLookback.getPreference(activeCompanyTicker);
+    refreshBetaLookback(activeCompanyTicker, undefined, {
+      wireInputs: betaPref !== BetaLookback.PROVIDER
+    });
 
     const quote = value => profileNumber(value) === null ? 'N/A' : `${MarketContext.currency} ${profileFormat(value)}`;
     document.getElementById('cmp-meta-52w').innerText = s.range_52w || `${quote(s.year_low)} – ${quote(s.year_high)}`;
@@ -6016,6 +6142,9 @@
       CompanyData.load(ticker).then(data => FmpModels.details(data)).catch(error =>
         { console.error('Detailed FMP model rows could not be loaded', ticker, error.message);
           FmpModels.detailsError(ticker, error.message); });
+      if (BetaLookback.getPreference(ticker) !== BetaLookback.PROVIDER) {
+        refreshBetaLookback(ticker, undefined, { wireInputs: true });
+      }
       return;
     }
 
@@ -6099,6 +6228,9 @@
     document.getElementById('inp-g').value = workingParams.g || 2.25;
 
     recalculateDetail();
+    if (BetaLookback.getPreference(ticker) !== BetaLookback.PROVIDER) {
+      refreshBetaLookback(ticker, undefined, { wireInputs: true });
+    }
   }
 
   let paramChangeTimer = null;

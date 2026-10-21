@@ -1075,7 +1075,18 @@
       if (!root.document.getElementById('fmp-workspace').hidden) render();
     }
   }
+  function applyBetaLookback(beta) {
+    if (!state || !finite(beta) || !state.scenarios?.[state.kind]) return false;
+    const scenario = state.scenarios[state.kind];
+    for (let index = 0; index < scenario.years.length; index++) {
+      Scenario.update(scenario, index, 'beta', beta);
+    }
+    state.scenarioDirty[state.kind] = true;
+    if (!root.document.getElementById('fmp-workspace').hidden) render();
+    return true;
+  }
+
   return { record, value, issuedShares, reference, dcfApplicable, priceDifference, compatible, load, save, reset, details, detailsError, reasonText, actuals, auditPacket,
-    valuationConfidence, confidenceText, riskFreeTenorSource, applyRfTenor, isHkListing,
+    valuationConfidence, confidenceText, riskFreeTenorSource, applyRfTenor, isHkListing, applyBetaLookback,
     deactivate: () => { state = null; }, rerender: () => { if (state) render(); } };
 });
