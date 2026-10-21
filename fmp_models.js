@@ -161,6 +161,7 @@
       scenarioDirty: previous?.scenarioDirty || { advanced: false, customLevered: false },
       sourceData: previous?.sourceData || options.data || record(options.ticker),
       actualStatements: previous?.actualStatements || null, actualError: previous?.actualError || null,
+      universe: options.universe || previous?.universe || null,
       params: previous?.params || { advanced: {}, customLevered: {}, ...(saved?.modelType === 'FMP_CUSTOM_DCF' ? { [saved.kind]: saved.params || {} } : {}) },
       dirty: previous?.dirty || { advanced: false, customLevered: false,
         ...(saved?.modelType === 'FMP_CUSTOM_DCF' ? { [saved.kind]: Object.keys(saved.params || {}).length > 0 && !saved.modelSummary } : {}) },
@@ -175,12 +176,15 @@
 
   function scenarioValue() {
     try {
-      if (!state.scenarios[state.kind]) state.scenarios[state.kind] = Scenario.defaults(state.sourceData, state.kind, issuedShares(state.stock));
-      state.scenarios[state.kind] = Scenario.upgradeWorkingCapital(state.scenarios[state.kind]);
-      if (!Object.prototype.hasOwnProperty.call(state.scenarios[state.kind], 'exitMultiple')) {
-        state.scenarios[state.kind].exitMultiple = null;
+      if (!state.scenarios[state.kind]) {
+        state.scenarios[state.kind] = Scenario.defaults(state.sourceData, state.kind, issuedShares(state.stock), {
+          statements: state.actualStatements, stock: state.stock
+        });
       }
-      const scenario = state.scenarios[state.kind], result = Scenario.calculate(scenario);
+      state.scenarios[state.kind] = Scenario.upgradeWorkingCapital(state.scenarios[state.kind]);
+      const scenario = state.scenarios[state.kind];
+      enrichScenarioSuggestions(scenario);
+      const result = Scenario.calculate(scenario);
       if (scenario.symbol !== state.ticker || scenario.currency !== (state.stock.calculationCurrency || 'USD')
           || scenario.shares !== issuedShares(state.stock)) throw new Error('SCENARIO_SOURCE_UNAVAILABLE');
       return { fairVal: result.targetPrice, WACC: result.wacc, g: result.g, reason: null, result,
@@ -195,6 +199,41 @@
   }
 
   const inputValue = (key, number) => finite(number) ? key === 'beta' ? String(number) : number.toFixed(2) : '';
+
+  function enrichScenarioSuggestions(scenario) {
+    if (!scenario) return scenario;
+    if (!Object.prototype.hasOwnProperty.call(scenario, 'exitMultiple')) scenario.exitMultiple = null;
+    if (!scenario.netDebtDate) scenario.netDebtDate = scenario.baseDate || null;
+    if (!scenario.netDebtBasis) {
+      scenario.netDebtBasis = finite(scenario.netDebt) && scenario.netDebt < 0 ? 'net-cash' : 'net-debt';
+    }
+    if (!scenario.terminalGrowthReference) scenario.terminalGrowthReference = { ...Scenario.TERMINAL_GROWTH_REFERENCE };
+    if (!finite(scenario.terminalGrowth)) {
+      scenario.terminalGrowth = Scenario.TERMINAL_GROWTH_REFERENCE.value;
+      scenario.terminalGrowthOrigin = Scenario.TERMINAL_GROWTH_REFERENCE.origin;
+    }
+    if (!finite(scenario.exitMultiple) && finite(state.stock?.ev_to_ebitda)
+        && state.stock.ev_to_ebitda > 0 && state.stock.ev_to_ebitda <= 500) {
+      scenario.exitMultiple = state.stock.ev_to_ebitda;
+      scenario.exitMultipleOrigin = 'suggested-current-multiple';
+    }
+    const taxFive = Scenario.fiveYearEffectiveTax(state.actualStatements, {
+      year: scenario.baseYear, date: scenario.baseDate
+    }, state.sourceData?.currencyCheck?.sourceCurrency);
+    scenario.taxFiveYear = taxFive;
+    if (taxFive.percent != null) {
+      for (const item of scenario.years || []) {
+        if (item.origins?.tax === 'user') continue;
+        if (!finite(item.values.tax) || item.origins?.tax === 'unavailable'
+            || item.origins?.tax === 'five-year-effective-tax') {
+          item.values.tax = taxFive.percent;
+          item.origins.tax = 'five-year-effective-tax';
+        }
+      }
+    }
+    return scenario;
+  }
+
   function actualColumn(text, money) {
     const scenario = state.scenarios[state.kind];
     const reference = Scenario.actualReference(state.sourceData, state.actualStatements,
@@ -248,10 +287,90 @@
       'analyst-derived': text('分析師營收推導', 'Derived from analyst revenue'),
       'latest-fy': text('最近全年實績比率（非共識）', 'Latest FY actual ratio (not consensus)'),
       'working-capital-average': text('營運資金五年平均比率', 'Five-year working-capital ratio'),
+      'five-year-effective-tax': text('建議預設：近五年有效稅率平均（可改）', 'Suggested default: 5y avg effective tax (editable)'),
+      'suggested-default': text('建議預設／可改', 'Suggested default / editable'),
+      'suggested-current-multiple': text('建議預設：現價 EV/EBITDA（可改）', 'Suggested default: current EV/EBITDA (editable)'),
       'retained-capital': text('維持原資本成本設定', 'Retained capital-cost setting'),
       'derived-legacy': text('舊情境等值換算', 'Equivalent legacy conversion'),
       unavailable: text('N/A：未提供預測', 'N/A: forecast unavailable')
     })[origin] || origin;
+  }
+
+  function formatMoneyInput(currency, number) {
+    return finite(number) ? `${currency} ${number.toLocaleString('en-US', { maximumFractionDigits: 2 })}` : 'N/A';
+  }
+
+  function peerMultipleReference(text) {
+    const Peer = root.PeerComparison;
+    const universe = typeof state.universe === 'function' ? state.universe() : state.universe;
+    if (!Peer?.select || !universe || typeof universe !== 'object') {
+      return { html: `<p class="analysis-note" id="fmp-peer-multiples">${text('同業倍數參考', 'Peer multiple reference')}: N/A — ${text('同業宇宙尚未載入', 'peer universe is not loaded')}</p>`, peers: [] };
+    }
+    let selected;
+    try { selected = Peer.select(universe, state.ticker, 5); }
+    catch (error) {
+      return { html: `<p class="analysis-note" id="fmp-peer-multiples">${text('同業倍數參考', 'Peer multiple reference')}: N/A — ${escape(error.message)}</p>`, peers: [] };
+    }
+    const peers = selected.peers || [];
+    if (!peers.length) {
+      return { html: `<p class="analysis-note" id="fmp-peer-multiples">${text('同業倍數參考', 'Peer multiple reference')}: N/A — ${text('找不到可用同業', 'no usable peers found')}</p>`, peers: [] };
+    }
+    const cell = value => finite(value) ? `${Number(value).toFixed(2)}x` : 'N/A';
+    const rows = peers.map(peer => `<tr><th>${escape(peer.ticker)} <small>${escape(peer.basis)}</small></th>
+      <td>${cell(peer.stock?.pe_trailing)}</td><td>${cell(peer.stock?.ev_to_ebitda)}</td></tr>`).join('');
+    return {
+      peers,
+      html: `<div id="fmp-peer-multiples" class="analysis-note"><strong>${text('出場倍數參考（現價／同業）', 'Exit-multiple reference (spot / peers)')}</strong>
+        <p>${text('本股', 'This stock')}: P/E ${cell(state.stock.pe_trailing)} · EV/EBITDA ${cell(state.stock.ev_to_ebitda)}
+        ${finite(state.stock.ev_to_ebitda) ? ` · ${text('新建情境建議預設用現價 EV/EBITDA，可改', 'new scenarios suggest current EV/EBITDA as an editable default')}` : ` · ${text('本股 EV/EBITDA 不可用，不預填出場倍數', 'stock EV/EBITDA unavailable; exit multiple is not prefilled')}`}</p>
+        <div class="table-scroll-wrapper"><table id="fmp-peer-multiple-table"><thead><tr>
+          <th>${text('同業（最多 5）', 'Peers (up to 5)')}</th><th>P/E</th><th>EV/EBITDA</th></tr></thead>
+          <tbody>${rows}</tbody></table></div>
+        <small>${text('同業選取沿用站上 PeerComparison（同子行業／供應商／相關產業），倍數為目前行情快照，不是終值預測。', 'Peer selection reuses site PeerComparison (same sub-industry / provider / related). Multiples are current market snapshots, not terminal forecasts.')}</small></div>`
+    };
+  }
+
+  function historyPanelHtml(text) {
+    const history = Scenario.fiveYearHistory(state.actualStatements, state.sourceData, state.kind);
+    if (history.reason) {
+      return `<section id="fmp-fy-history"><h4>${text('近五年實績參考', 'Last five FY reference')}</h4>
+        <p class="analysis-note">N/A — ${escape(state.actualError || history.reason)}</p></section>`;
+    }
+    const labels = {
+      growth: text('營收成長 %', 'Revenue growth %'),
+      ebitda: 'EBITDA %', da: 'D&A %', nwcChange: text('ΔNWC %', 'ΔNWC %'),
+      capex: 'CapEx %', cfo: 'CFO %', tax: text('有效稅率 %', 'Effective tax %')
+    };
+    const chartKey = state.kind === 'advanced' ? 'ebitda' : 'cfo';
+    const series = history.metrics[chartKey] || [];
+    const max = Math.max(1, ...series.filter(finite).map(Math.abs));
+    const bars = history.years.map((row, index) => {
+      const value = series[index];
+      const height = finite(value) ? Math.max(2, Math.abs(value) / max * 56) : 0;
+      const y = finite(value) && value < 0 ? 64 : 64 - height;
+      return `<g><rect x="${index * 36 + 8}" y="${y}" width="24" height="${height}" fill="var(--accent)" opacity="${finite(value) ? 0.85 : 0.2}"></rect>
+        <text x="${index * 36 + 20}" y="86" text-anchor="middle" font-size="10" fill="var(--text-muted)">${row.year}</text>
+        <text x="${index * 36 + 20}" y="${y - 4}" text-anchor="middle" font-size="9" fill="var(--text-secondary)">${finite(value) ? value.toFixed(1) : '—'}</text></g>`;
+    }).join('');
+    const metricKeys = Object.keys(history.metrics);
+    const head = metricKeys.map(key => `<th>${escape(labels[key] || key)}</th>`).join('');
+    const body = history.years.map((row, index) => `<tr><th>${row.year}<small>${escape(row.date)}</small></th>${
+      metricKeys.map(key => `<td>${finite(history.metrics[key][index]) ? `${history.metrics[key][index].toFixed(2)}%` : 'N/A'}</td>`).join('')
+    }</tr>`).join('');
+    const summaryBits = [
+      finite(history.summary.revenueCagr) ? `${text('營收 CAGR', 'Revenue CAGR')} ${history.summary.revenueCagr.toFixed(2)}%` : null,
+      ...metricKeys.map(key => {
+        const item = history.summary[key];
+        if (!item || !finite(item.average)) return null;
+        const delta = finite(item.changePp) ? ` · Δ ${item.changePp >= 0 ? '+' : ''}${item.changePp.toFixed(2)}pt` : '';
+        return `${labels[key]} ${text('五年平均', '5y avg')} ${item.average.toFixed(2)}%${delta}`;
+      })
+    ].filter(Boolean);
+    return `<section id="fmp-fy-history"><h4>${text('近五年實績參考（協助預測，不改寫輸入）', 'Last five FY reference (for forecasting; does not rewrite inputs)')}</h4>
+      <p class="analysis-note">${escape(summaryBits.join(' · '))}</p>
+      <svg id="fmp-fy-history-chart" viewBox="0 0 190 96" width="100%" height="96" role="img" aria-label="${escape(labels[chartKey])}">${bars}</svg>
+      <p class="analysis-note"><small>${text('圖：', 'Chart: ')}${escape(labels[chartKey])}</small></p>
+      <div class="table-scroll-wrapper"><table id="fmp-fy-history-table"><thead><tr><th>${text('財年', 'FY')}</th>${head}</tr></thead><tbody>${body}</tbody></table></div></section>`;
   }
 
   function scenarioHtml(text, money, result) {
@@ -286,25 +405,40 @@
       ${missing.length ? `<p class="analysis-note text-red" id="fmp-missing-assumptions">${text('缺少假設，估值為 N/A', 'Missing assumptions; valuation is N/A')}: ${escape(missingNames.join(' / '))}</p>` : ''}
       ${(scenario.warnings || []).map(warning => `<p class="analysis-note">${text('來源警示：隱含營運稅率超出可用範圍；此情境明確改採 FMP 列示稅率，非照錄原始估值。', 'Source warning: implied operating tax is outside the supported range; this scenario explicitly uses the stated FMP tax rate instead, not the original API valuation.')} ${warning.year}: ${escape(warning.original)}% → ${escape(warning.replacement)}%</p>`).join('')}
       <p class="analysis-note">${text(
-        'Advanced：EBIT = EBITDA − D&A；修改 EBIT 會連動 EBITDA。有共識 EBITDA 時優先使用，EBIT 為連動推導，不冒稱同時符合供應商獨立 EBIT 預測；僅有共識 EBIT 時，以 EBIT 加 D&A 推導 EBITDA。FCFF = EBIT × (1 − 稅率) + D&A + 負數 CapEx − 營運資金增加。CFO 情境採 CFO + 負數 CapEx，不再加回 D&A；保留 WACC 折現及 EV 減淨債務定義，並非獨立 FCFE／Ke 模型。新預設不以歷史有效稅率或原生模型隱含稅率填補缺少的分析師營運稅率。',
-        'Advanced: EBIT = EBITDA - D&A; editing EBIT updates EBITDA. Consensus EBITDA takes priority, with linked EBIT not claimed to also match a separate provider EBIT forecast. If only consensus EBIT exists, EBITDA derives from EBIT plus D&A. FCFF = EBIT × (1 - tax) + D&A + negative CapEx - increase in working capital. The CFO scenario uses CFO + negative CapEx without adding D&A again. It retains WACC/EV less net debt, not an independent FCFE/Ke model. New defaults do not substitute historical effective tax or native-model implied tax for missing analyst operating tax.')}</p>
+        'Advanced：EBIT = EBITDA − D&A；修改 EBIT 會連動 EBITDA。有共識 EBITDA 時優先使用，EBIT 為連動推導，不冒稱同時符合供應商獨立 EBIT 預測；僅有共識 EBIT 時，以 EBIT 加 D&A 推導 EBITDA。FCFF = EBIT × (1 − 稅率) + D&A + 負數 CapEx − 營運資金增加。CFO 情境採 CFO + 負數 CapEx，不再加回 D&A；保留 WACC 折現及 EV 減淨債務定義，並非獨立 FCFE／Ke 模型。缺分析師營運稅率時，新建情境建議預設為近五年有效稅率平均（可改），不以原生模型隱含稅率冒充。',
+        'Advanced: EBIT = EBITDA - D&A; editing EBIT updates EBITDA. Consensus EBITDA takes priority, with linked EBIT not claimed to also match a separate provider EBIT forecast. If only consensus EBIT exists, EBITDA derives from EBIT plus D&A. FCFF = EBIT × (1 - tax) + D&A + negative CapEx - increase in working capital. The CFO scenario uses CFO + negative CapEx without adding D&A again. It retains WACC/EV less net debt, not an independent FCFE/Ke model. When analyst operating tax is missing, new scenarios suggest a five-year average effective tax (editable) rather than a native-model implied tax.')}</p>
       <p class="analysis-note">${text(
         '逐年 WACC 由股權／稅後債務成本與資本權重計算；修改 Beta、無風險利率或風險溢價會以 CAPM 更新該年的股權成本，亦可直接覆寫股權成本。每年折現因子連乘。終值增長率僅用於第十年後終值。EV 只減一次基期淨債務，不額外加上預測現金。負存貨或負稅率照來源標示，必須審視其適用性，未經獨立核實。',
         'Annual WACC uses equity/after-tax debt costs and capital weights; editing beta, risk-free rate or premium updates that year’s equity cost through CAPM, which can also be overridden directly. Annual discount factors compound. Terminal growth applies only beyond year ten. EV subtracts snapshot net debt once, with no extra addition of projected cash. Negative inventory/tax inputs require review and are not independently certified.')}</p>
       <p class="analysis-note" id="fmp-actual-note">${actual.note}</p>
+      ${historyPanelHtml(text)}
       <div class="table-scroll-wrapper"><table id="fmp-ten-year-inputs"><thead><tr><th>${text('假設／來源', 'Assumption / source')}</th><th id="fmp-actual-period">${actual.header}</th>${scenario.years.map(item => `<th>${item.year}</th>`).join('')}</tr></thead><tbody>
         ${Scenario.activeFields(state.kind, scenario).map(([key, zh, en, min, max]) => `<tr><th>${escape(text(zh, en))}</th><td data-actual-key="${key}">${actual.cells[key]}</td>${scenario.years.map((item, index) => `<td>
           <input aria-label="${escape(text(zh, en))} ${item.year}" data-scenario-key="${key}" data-scenario-year="${index}" type="number" step="any" min="${min}" max="${max}" required placeholder="N/A" title="${escape(item.values[key] ?? '')}" value="${inputValue(key, item.values[key])}">
           <small data-origin="${index}-${key}">${escape(originText(item.origins[key], text))}</small></td>`).join('')}</tr>`).join('')}
       </tbody></table></div>
-      <div class="fin-model-grid"><div class="form-group"><label for="fmp-terminal-growth">${text('第十年後終值增長率 (%)', 'Terminal growth after year ten (%)')}</label>
-      <input id="fmp-terminal-growth" type="number" required step="any" min="-10" max="20" placeholder="N/A" title="${escape(scenario.terminalGrowth ?? '')}" value="${inputValue('terminalGrowth', scenario.terminalGrowth)}"></div>
+      ${(() => {
+        const ref = scenario.terminalGrowthReference || Scenario.TERMINAL_GROWTH_REFERENCE;
+        const tax = scenario.taxFiveYear;
+        const netCash = scenario.netDebtBasis === 'net-cash' || scenario.netDebt < 0;
+        const netLabel = netCash ? text('建議淨現金（可調整）', 'Suggested net cash (editable)')
+          : text('建議淨債務（可調整）', 'Suggested net debt (editable)');
+        const peer = peerMultipleReference(text);
+        return `<div class="fin-model-grid"><div class="form-group"><label for="fmp-terminal-growth">${text('第十年後終值增長率 (%)', 'Terminal growth after year ten (%)')}</label>
+      <input id="fmp-terminal-growth" type="number" required step="any" min="-10" max="20" placeholder="N/A" title="${escape(scenario.terminalGrowth ?? '')}" value="${inputValue('terminalGrowth', scenario.terminalGrowth)}">
+      <small id="fmp-terminal-growth-ref">${text('參考帶', 'Reference band')} ${ref.bandLow.toFixed(1)}%–${ref.bandHigh.toFixed(1)}% · ${text('建議預設', 'Suggested default')} ${ref.value.toFixed(1)}% · ${escape(state.language() === 'en' ? ref.citationEn : ref.citationZh)}</small></div>
       <div class="form-group"><label for="fmp-exit-multiple">${text('出場倍數終值 EV/EBITDA（可覆寫）', 'Exit-multiple terminal EV/EBITDA (optional override)')}</label>
       <input id="fmp-exit-multiple" type="number" step="any" min="0" max="500" placeholder="N/A" title="${escape(scenario.exitMultiple ?? '')}" value="${inputValue('exitMultiple', scenario.exitMultiple)}">
-      <small>${text('不自動帶入現價倍數', 'Current trading multiple is not auto-filled')}: ${finite(state.stock.ev_to_ebitda) ? `${Number(state.stock.ev_to_ebitda).toFixed(2)}x` : 'N/A'}</small></div>
-      <div class="form-group"><label for="fmp-snapshot-net-debt">${text('來源快照淨債務（可調整）', 'Snapshot net debt (editable)')} · ${escape(scenario.currency)}</label>
-      <input id="fmp-snapshot-net-debt" type="number" required step="any" value="${scenario.netDebt}"></div></div>
-      <p class="analysis-note">${text('調整終值增長率不會悄悄改寫已填好的十年增長率；需要時請逐年修改。出場倍數留空則該終值列為 N/A，不會用現價 EV/EBITDA 充當終值倍數。', 'Changing terminal growth does not silently overwrite the ten populated annual growth inputs; edit those years explicitly if needed. Leaving the exit multiple blank keeps that terminal N/A; current trading EV/EBITDA is not used as a terminal multiple.')}</p>
+      <small>${originText(scenario.exitMultipleOrigin || (finite(scenario.exitMultiple) ? 'user' : 'unavailable'), text)}</small></div>
+      <div class="form-group"><label for="fmp-snapshot-net-debt">${netLabel} · ${escape(scenario.currency)}</label>
+      <input id="fmp-snapshot-net-debt" type="number" required step="any" title="${escape(scenario.netDebt)}" value="${scenario.netDebt}">
+      <small id="fmp-snapshot-net-debt-meta">${text('報表／快照日', 'Statement / snapshot date')}: ${escape(scenario.netDebtDate || scenario.baseDate || 'N/A')} · ${text('顯示', 'Display')}: ${formatMoneyInput(scenario.currency, scenario.netDebt)} · ${netCash ? text('負淨債務＝淨現金', 'Negative net debt = net cash') : text('正值＝淨債務', 'Positive = net debt')}</small></div></div>
+      ${peer.html}
+      <p class="analysis-note" id="fmp-tax-default-note">${tax?.percent != null
+        ? text(`預測稅率建議預設為近五年有效稅率平均 ${tax.percent.toFixed(2)}%（財年 ${tax.years.join(', ')}）；標為可改，不會覆寫你已改的格子。`, `Forecast tax suggests the 5y effective-tax average ${tax.percent.toFixed(2)}% (FY ${tax.years.join(', ')}); labeled editable and does not overwrite cells you already changed.`)
+        : text(`預測稅率五年平均不可用：${tax?.reason || 'TAX_UNAVAILABLE'}；缺稅率時維持 N/A。`, `Five-year average tax unavailable: ${tax?.reason || 'TAX_UNAVAILABLE'}; missing tax stays N/A.`)}</p>
+      <p class="analysis-note">${text('調整終值增長率不會悄悄改寫已填好的十年增長率；需要時請逐年修改。缺共識的營運比率可採「建議預設／可改」（最近全年或五年平均）；營收成長不在共識之外虛構。出場倍數新建時可建議現價 EV/EBITDA，並顯示同業 P/E 與 EV/EBITDA 參考；留空則該終值列為 N/A。', 'Changing terminal growth does not silently overwrite the ten populated annual growth inputs; edit those years explicitly if needed. Missing consensus operating ratios may use labeled suggested defaults (latest FY or five-year averages); revenue growth is never invented beyond consensus. New scenarios may suggest current EV/EBITDA as the exit multiple and show peer P/E and EV/EBITDA for reference; leaving it blank keeps that terminal N/A.')}</p>`;
+      })()}
       <button id="fmp-calculate" type="button" class="btn-save">${text('計算十年情境', 'Calculate ten-year scenario')}</button>
       <p id="fmp-status" role="status">${escape(result.reason ? reasonText(result.reason, state.language())
         : text('本站十年情境；不是 FMP 原始結果。可按「儲存目標價」一次計算並儲存。', 'Site-calculated ten-year scenario, not an FMP API result. Save target calculates and saves in one step.'))}</p>
@@ -590,7 +724,12 @@
   function actuals(ticker, statements, reason = null) {
     if (!state || state.ticker !== ticker) return;
     state.actualStatements = statements; state.actualError = reason;
+    if (state.scenarios?.[state.kind]) enrichScenarioSuggestions(state.scenarios[state.kind]);
     if (state.mode !== 'ten-year' || !root.document.getElementById('fmp-actual-period')) return;
+    if (root.document.getElementById('fmp-fy-history') || root.document.getElementById('fmp-ten-year-inputs')) {
+      render();
+      return;
+    }
     const text = (zh, en) => state.language() === 'en' ? en : zh;
     const money = value => finite(value) ? `${state.stock.calculationCurrency || 'USD'} ${value.toLocaleString('en-US', { maximumFractionDigits: 2 })}` : 'N/A';
     const column = actualColumn(text, money);

@@ -10,6 +10,13 @@
     || row.periodLength === undefined && row.period === 'FY' && !row.symbol?.endsWith('.HK'));
   const fail = code => { throw new Error(code); };
   const kinds = ['advanced', 'customLevered'];
+  // Mature-market long-term nominal growth band used in Damodaran / sell-side Gordon practice
+  // (≈ long-run GDP + inflation). Midpoint 2.5% is a suggested default only, not a forecast.
+  const TERMINAL_GROWTH_REFERENCE = {
+    value: 2.5, bandLow: 2, bandHigh: 3, origin: 'suggested-default',
+    citationZh: '參考 Damodaran／賣方常見成熟市場長期名目成長帶（約長期 GDP＋通膨）2%–3%，建議預設取中點 2.5%；可改，不會覆寫你已輸入的值。',
+    citationEn: 'Reference: Damodaran / common sell-side mature-market long-term nominal growth band (~long-run GDP + inflation) of 2%–3%. Suggested default uses the 2.5% midpoint; editable and never overwrites a value you already entered.'
+  };
   const fields = [
     ['growth', '營收成長率 (%)', 'Revenue growth (%)', -99.99, 1000],
     ['ebitda', 'EBITDA／營收 (%)', 'EBITDA / revenue (%)', -1000, 1000, 'advanced'],
@@ -94,7 +101,81 @@
       : { reason: 'SCENARIO_BASE_UNVERIFIED' };
   }
 
-  function defaults(data, kind, shares) {
+  function fiveYearEffectiveTax(statements, base, currency) {
+    const unavailable = reason => ({ percent: null, years: [], rates: [], reason });
+    if (!base || !Number.isInteger(base.year) || !base.date) return unavailable('TAX_BASE_UNAVAILABLE');
+    if (!statements?.annual?.income) return unavailable('TAX_STATEMENTS_UNAVAILABLE');
+    const rows = [];
+    for (let offset = 0; offset < 5; offset++) {
+      const year = base.year - offset;
+      const matches = statements.annual.income.filter(row => Number(row.fiscalYear || row.calendarYear) === year
+        && fullAnnualPeriod(row) && (!currency || row.reportedCurrency === currency));
+      if (matches.length !== 1) return unavailable('TAX_FIVE_YEAR_INCOMPLETE');
+      const row = matches[0];
+      if (!(row.incomeBeforeTax > 0) || !finite(row.incomeTaxExpense)) return unavailable('TAX_PRETAX_OR_EXPENSE_UNAVAILABLE');
+      const rate = row.incomeTaxExpense / row.incomeBeforeTax * 100;
+      if (!finite(rate) || rate < -100 || rate > 100) return unavailable('TAX_RATE_OUT_OF_RANGE');
+      rows.push({ year, date: row.date, rate });
+    }
+    rows.reverse();
+    const percent = rows.reduce((sum, row) => sum + row.rate, 0) / rows.length;
+    return { percent, years: rows.map(row => row.year), rates: rows, reason: null,
+      basis: 'Arithmetic mean of five consecutive full-FY effective tax rates (income tax expense / pretax income).' };
+  }
+
+  function fiveYearHistory(statements, data, kind = 'advanced') {
+    const unavailable = reason => ({ reason, years: [], metrics: {}, summary: {} });
+    const base = data?.forecastBase;
+    if (!base || !Number.isInteger(base.year)) return unavailable('HISTORY_BASE_UNAVAILABLE');
+    if (!statements?.annual?.income) return unavailable('HISTORY_STATEMENTS_UNAVAILABLE');
+    const currency = data.currencyCheck?.sourceCurrency;
+    const years = [];
+    for (let offset = 4; offset >= 0; offset--) {
+      const year = base.year - offset;
+      const incomeMatches = statements.annual.income.filter(row => Number(row.fiscalYear || row.calendarYear) === year
+        && fullAnnualPeriod(row) && (!currency || row.reportedCurrency === currency));
+      if (incomeMatches.length !== 1 || !(incomeMatches[0].revenue > 0)) return unavailable('HISTORY_FIVE_YEAR_INCOMPLETE');
+      const income = incomeMatches[0];
+      const cashMatches = (statements.annual.cashflow || []).filter(row => row.date === income.date
+        && fullAnnualPeriod(row) && (!currency || row.reportedCurrency === currency));
+      const cashflow = cashMatches.length === 1 ? cashMatches[0] : null;
+      const prior = years.at(-1);
+      const growth = prior?.revenue > 0 ? (income.revenue / prior.revenue - 1) * 100 : null;
+      const ratio = amount => finite(amount) ? amount / income.revenue * 100 : null;
+      const da = finite(income.depreciationAndAmortization) ? income.depreciationAndAmortization
+        : cashflow?.depreciationAndAmortization;
+      const tax = income.incomeBeforeTax > 0 && finite(income.incomeTaxExpense)
+        ? income.incomeTaxExpense / income.incomeBeforeTax * 100 : null;
+      years.push({
+        year, date: income.date, revenue: income.revenue, growth,
+        ebitda: ratio(income.ebitda), da: ratio(da),
+        capex: ratio(cashflow?.capitalExpenditure),
+        cfo: ratio(cashflow?.operatingCashFlow ?? cashflow?.netCashProvidedByOperatingActivities),
+        nwcChange: finite(cashflow?.changeInWorkingCapital) ? -cashflow.changeInWorkingCapital / income.revenue * 100 : null,
+        tax
+      });
+    }
+    const keys = kind === 'customLevered'
+      ? ['growth', 'cfo', 'capex', 'tax']
+      : ['growth', 'ebitda', 'da', 'nwcChange', 'capex', 'tax'];
+    const metrics = Object.fromEntries(keys.map(key => [key, years.map(row => row[key])]));
+    const first = years[0], last = years.at(-1);
+    const summary = {
+      revenueCagr: first.revenue > 0 && last.revenue > 0
+        ? (Math.pow(last.revenue / first.revenue, 1 / (years.length - 1)) - 1) * 100 : null,
+      spanYears: years.map(row => row.year)
+    };
+    for (const key of keys) {
+      const series = metrics[key].filter(finite);
+      summary[key] = {
+        average: series.length ? series.reduce((sum, value) => sum + value, 0) / series.length : null,
+        changePp: finite(first[key]) && finite(last[key]) ? last[key] - first[key] : null
+      };
+    }
+    return { reason: null, years, metrics, summary };
+  }
+
+  function defaults(data, kind, shares, context = {}) {
     if (!kinds.includes(kind) || !Number.isSafeInteger(shares) || shares <= 0
         || data.currencyCheck?.reason || data.models?.[kind]?.reason) fail('SCENARIO_SOURCE_UNAVAILABLE');
     const base = data.forecastBase;
@@ -112,6 +193,7 @@
       && consensus.calculationCurrency === data.currency && finite(consensus.fx?.rate) && consensus.fx.rate > 0;
     const actuals = data.forecastActuals?.symbol === data.symbol ? data.forecastActuals : null;
     const latest = !actuals?.latest?.reason ? actuals?.latest : null;
+    const taxFive = fiveYearEffectiveTax(context.statements, base, data.currencyCheck?.sourceCurrency);
     const capitalFields = { beta: 'beta', rf: 'riskFreeRate', erp: 'marketRiskPremium',
       kd: 'costofDebt', ke: 'costOfEquity', debtWeight: 'debtWeighting' };
     const years = [], warnings = [];
@@ -148,20 +230,26 @@
       if (kind === 'customLevered') fallback('cfo', 'operatingCashFlowAvg');
       else {
         fallback('da', 'depreciationAndAmortizationAvg');
-        ratio('ebitda', 'ebitdaAvg');
+        fallback('ebitda', 'ebitdaAvg');
         if (finite(values.ebitda) && finite(values.da)) set('ebit', values.ebitda - values.da, 'derived');
         else if (covered && finite(row.ebitAvg)) {
           set('ebit', row.ebitAvg / row.revenueAvg * 100, 'analyst');
           if (finite(values.da)) set('ebitda', values.ebit + values.da, 'derived');
+        } else if (finite(values.ebitda) && finite(latest?.items?.da?.percent)) {
+          set('da', latest.items.da.percent, 'latest-fy');
+          set('ebit', values.ebitda - values.da, 'derived');
         }
         set('nwcChange', actuals?.workingCapital?.nwcChange, 'working-capital-average');
       }
+      if (!finite(values.tax)) set('tax', taxFive.percent, 'five-year-effective-tax');
       years.push({ year, values, origins, consensusDate: covered ? row.date : null });
       previousRevenue = revenue;
     }
     const openingNwc = kind === 'advanced'
       ? [opening.receivables, opening.inventories, opening.payable].every(finite)
         ? opening.receivables + opening.inventories - opening.payable : null : 0;
+    const suggestedExit = finite(context.stock?.ev_to_ebitda) && context.stock.ev_to_ebitda > 0
+      && context.stock.ev_to_ebitda <= 500 ? context.stock.ev_to_ebitda : null;
     return { version: 1, assumptionPolicy: 'analyst-consensus-v1', kind, symbol: data.symbol, currency: data.currency, shares,
       workingCapitalMethod: 'cash-change-to-revenue',
       baseYear: base.year, baseDate: base.date, baseRevenue, openingNwc,
@@ -170,7 +258,15 @@
       providerYears: [], analystYears: years.filter(row => row.consensusDate).map(row => row.year),
       analystReason: validSource ? null : consensus?.reason || 'ANALYST_SOURCE_UNAVAILABLE',
       actualRatioDate: latest?.date || null, workingCapitalYears: actuals?.workingCapitalYears || [],
-      warnings, netDebt: opening.netDebt, terminalGrowth: null, exitMultiple: null, years };
+      warnings, netDebt: opening.netDebt, netDebtDate: base.date,
+      netDebtBasis: opening.netDebt < 0 ? 'net-cash' : 'net-debt',
+      terminalGrowth: TERMINAL_GROWTH_REFERENCE.value,
+      terminalGrowthOrigin: TERMINAL_GROWTH_REFERENCE.origin,
+      terminalGrowthReference: { ...TERMINAL_GROWTH_REFERENCE },
+      exitMultiple: suggestedExit,
+      exitMultipleOrigin: suggestedExit === null ? null : 'suggested-current-multiple',
+      taxFiveYear: taxFive,
+      years };
   }
 
   function missingInputs(scenario) {
@@ -414,9 +510,11 @@
     capm: 'Editing rf, beta or erp updates ke = rf+beta*erp; direct ke overrides are respected.',
     wacc: 'WACC[t] = ke[t]/100*(1-debtWeight[t]/100)+kd[t]/100*(1-tax[t]/100)*debtWeight[t]/100',
     discount: 'Discount[t] = PRODUCT(1+WACC[1], ..., 1+WACC[t]); PV[t] = CashFlow[t]/Discount[t]. End-of-year convention; no stub-year adjustment.',
-    terminal: 'Primary Gordon TV = CashFlow[10]*(1+terminalGrowth/100)/(WACC[10]-terminalGrowth/100); PVTV = TV/Discount[10]. Requires WACC[10] > terminalGrowth/100. Alternate Advanced exit-multiple TV = EBITDA[10]*exitMultiple when exitMultiple is supplied; missing/invalid multiples stay N/A and do not invent a default.',
+    terminal: 'Primary Gordon TV = CashFlow[10]*(1+terminalGrowth/100)/(WACC[10]-terminalGrowth/100); PVTV = TV/Discount[10]. Requires WACC[10] > terminalGrowth/100. New scenarios suggest Damodaran-style 2.5% terminal growth (2%–3% band) and may suggest current EV/EBITDA as an exit multiple; both are labeled suggested defaults and never overwrite user edits. Alternate Advanced exit-multiple TV = EBITDA[10]*exitMultiple when supplied; otherwise N/A with reason.',
     bridge: 'EV = SUM(PV[1:10])+PVTV; Equity = EV-netDebt; Target = Equity/issuedShares. Snapshot net debt subtracted once; projected cash is disclosure only. Primary targetPrice uses Gordon; exit-multiple EV/equity/per-share are reported beside it when available.',
-    native: 'Native API internals are not independently reproduced. Site native target = returned equityValue/verified issued common shares. Returned equityValuePerShare and dilutedSharesOutstanding are preserved separately. Reconciliation residuals are checks, not replacements for vendor outputs.'
+    native: 'Native API internals are not independently reproduced. Site native target = returned equityValue/verified issued common shares. Returned equityValuePerShare and dilutedSharesOutstanding are preserved separately. Reconciliation residuals are checks, not replacements for vendor outputs.',
+    taxDefault: 'When analyst operating tax is missing, new scenarios use the arithmetic mean of five consecutive full-FY effective tax rates (tax expense / pretax) from statements; otherwise tax stays N/A.',
+    operatingDefaults: 'Missing consensus CapEx/CFO/D&A/EBITDA use latest full-FY revenue ratios (labeled latest-fy). NWC uses five-year average change/revenue. Revenue growth is never invented beyond consensus coverage.'
   };
-  return { fields, activeFields, fullAnnualPeriod, verifiedIncomeDocument, baseSource, verifiedRevenueCorrection, defaults, update, calculate, actualReference, missingInputs, upgradeWorkingCapital, exitMultipleTerminal, formulas };
+  return { fields, activeFields, fullAnnualPeriod, verifiedIncomeDocument, baseSource, verifiedRevenueCorrection, defaults, update, calculate, actualReference, missingInputs, upgradeWorkingCapital, exitMultipleTerminal, fiveYearEffectiveTax, fiveYearHistory, TERMINAL_GROWTH_REFERENCE, formulas };
 });

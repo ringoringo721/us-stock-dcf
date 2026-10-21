@@ -5989,7 +5989,8 @@
           renderScreenerTable();
       };
       FmpModels.load({
-        stock: s, ticker, saved, language: () => currentLang, save, data: CompanyData.peek(ticker)
+        stock: s, ticker, saved, language: () => currentLang, save, data: CompanyData.peek(ticker),
+        universe: () => stockUniverse
       });
       FcfRatios.loadStatements(ticker).then(data => FmpModels.actuals(ticker, data)).catch(error => {
         console.error('Actual FMP scenario references could not be loaded', ticker, error.message);

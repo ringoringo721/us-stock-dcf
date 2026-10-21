@@ -246,7 +246,8 @@ test('analyst values and approved actual ratios replace vendor forecasts without
   assert.equal(input.years[0].origins.ebit, 'derived');
   assert.equal(input.years[5].origins.growth, 'unavailable');
   assert.equal(input.years[9].values.growth, null);
-  assert.equal(input.terminalGrowth, null);
+  assert.equal(input.terminalGrowth, 2.5);
+  assert.equal(input.terminalGrowthOrigin, 'suggested-default');
   near(input.years[0].values.beta, provider.beta);
   near(input.years[9].values.beta, data.models.advanced.data.find(row => row.year === '2030').beta);
   assert.equal(JSON.stringify(data), before);
@@ -326,9 +327,56 @@ test('levered scenarios never invent an EBITDA exit-multiple terminal', () => {
   near(result.targetPrice, result.terminals.gordon.targetPrice);
 });
 
-test('new scenario defaults expose a null exitMultiple override slot', () => {
+test('new scenario defaults expose suggested terminal growth and optional exitMultiple slot', () => {
   const data = read('AAPL');
   const scenario = Scenario.defaults(data, 'advanced', 1000);
   assert.equal(scenario.exitMultiple, null);
-  assert.equal(scenario.terminalGrowth, null);
+  assert.equal(scenario.terminalGrowth, 2.5);
+  assert.equal(scenario.terminalGrowthOrigin, 'suggested-default');
+  assert.equal(scenario.netDebtDate, data.forecastBase.date);
+});
+
+test('five-year effective tax averages consecutive full FY rates and stays N/A when incomplete', () => {
+  const statements = { annual: { income: [] } };
+  for (let year = 2021; year <= 2025; year++) {
+    statements.annual.income.push({
+      date: `${year}-12-31`, fiscalYear: String(year), periodLength: 12, reportedCurrency: 'USD',
+      incomeBeforeTax: 100, incomeTaxExpense: 10 + year - 2021
+    });
+  }
+  const tax = Scenario.fiveYearEffectiveTax(statements, { year: 2025, date: '2025-12-31' }, 'USD');
+  assert.equal(tax.reason, null);
+  near(tax.percent, (10 + 11 + 12 + 13 + 14) / 5);
+  assert.deepEqual(tax.years, [2021, 2022, 2023, 2024, 2025]);
+  delete statements.annual.income[0].incomeTaxExpense;
+  assert.equal(Scenario.fiveYearEffectiveTax(statements, { year: 2025, date: '2025-12-31' }, 'USD').reason,
+    'TAX_PRETAX_OR_EXPENSE_UNAVAILABLE');
+  assert.equal(Scenario.fiveYearEffectiveTax(null, { year: 2025, date: '2025-12-31' }, 'USD').reason,
+    'TAX_STATEMENTS_UNAVAILABLE');
+});
+
+test('new defaults label net cash vs net debt with snapshot date and suggested terminal/exit inputs', () => {
+  const data = read('AAPL');
+  const statements = require('../cache/financials/AAPL_statements_v2.json');
+  const stock = { ...require('../full_market_dcf.json').AAPL, ev_to_ebitda: 25, pe_trailing: 38.4 };
+  const scenario = Scenario.defaults(data, 'advanced', Models.issuedShares(stock), { statements, stock });
+  assert.equal(scenario.netDebtDate, data.forecastBase.date);
+  assert.equal(scenario.netDebtBasis, scenario.netDebt < 0 ? 'net-cash' : 'net-debt');
+  assert.equal(scenario.terminalGrowth, 2.5);
+  assert.equal(scenario.exitMultiple, 25);
+  assert.ok(scenario.taxFiveYear.percent > 0);
+  assert.equal(scenario.years[0].origins.tax, 'five-year-effective-tax');
+  const history = Scenario.fiveYearHistory(statements, data, 'advanced');
+  assert.equal(history.reason, null);
+  assert.equal(history.years.length, 5);
+  assert.ok(Number.isFinite(history.summary.revenueCagr));
+});
+
+test('suggested terminal growth does not overwrite an existing user terminal growth value', () => {
+  const input = flat();
+  input.terminalGrowth = 1.25;
+  input.exitMultiple = 8;
+  const again = Scenario.calculate(input);
+  near(again.g, 1.25);
+  near(again.terminals.exitMultiple.exitMultiple, 8);
 });

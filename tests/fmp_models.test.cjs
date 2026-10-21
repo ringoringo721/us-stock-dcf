@@ -148,4 +148,9 @@ test('Detail and ten-year UI expose confidence and dual-terminal hooks', () => {
   assert.match(models, /id="fmp-dual-terminal"/);
   assert.match(models, /function valuationConfidence/);
   assert.match(models, /EXIT_MULTIPLE_UNAVAILABLE/);
+  assert.match(models, /id="fmp-terminal-growth-ref"/);
+  assert.match(models, /id="fmp-peer-multiples"/);
+  assert.match(models, /id="fmp-fy-history"/);
+  assert.match(models, /id="fmp-snapshot-net-debt-meta"/);
+  assert.match(models, /five-year-effective-tax/);
 });

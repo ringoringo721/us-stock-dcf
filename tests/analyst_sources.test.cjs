@@ -7,7 +7,8 @@ function fixture() {
   const annual = { income: [], balance: [], cashflow: [] };
   for (let year = 2021; year <= 2025; year++) {
     const base = { date: `${year}-12-31`, fiscalYear: String(year), periodLength: 12, reportedCurrency: 'USD' };
-    annual.income.push({ ...base, revenue: 100, ebitda: 30, depreciationAndAmortization: year - 2020 });
+    annual.income.push({ ...base, revenue: 100, ebitda: 30, depreciationAndAmortization: year - 2020,
+      incomeBeforeTax: 20, incomeTaxExpense: 4 });
     annual.balance.push({ ...base, netReceivables: 20, inventory: 10, accountPayables: 5 });
     annual.cashflow.push({ ...base, operatingCashFlow: year === 2025 ? 40 : -30,
       capitalExpenditure: year === 2025 ? -8 : -60, changeInWorkingCapital: year === 2025 ? -10 : 2 });
@@ -28,7 +29,9 @@ function fixture() {
 }
 function seeded(f = fixture()) {
   Object.assign(f.data, buildAnalystSources(f.data, f.statements, f.response, f.data.capturedAt));
-  return { ...f, input: Scenario.defaults(f.data, 'advanced', 10) };
+  return { ...f, input: Scenario.defaults(f.data, 'advanced', 10, {
+    statements: f.statements, stock: { ev_to_ebitda: 12.5, pe_trailing: 18 }
+  }) };
 }
 
 test('analyst revenue uses verified FX; only CFO/CapEx/DA use latest FY, not five-year means', () => {
@@ -44,7 +47,8 @@ test('analyst revenue uses verified FX; only CFO/CapEx/DA use latest FY, not fiv
   assert.equal(input.years[1].values.ebitda, 0, 'A genuine zero forecast remains zero');
   assert.equal(input.years[2].values.growth, null);
   assert.equal(input.years[9].values.capex, -8);
-  assert.equal(input.years[0].values.tax, null);
+  assert.equal(input.years[0].values.tax, 20);
+  assert.equal(input.years[0].origins.tax, 'five-year-effective-tax');
   assert.equal(input.years[0].values.ke, 10.8);
   for (const year of input.years) {
     assert.equal(year.values.beta, 1.2);
@@ -54,7 +58,12 @@ test('analyst revenue uses verified FX; only CFO/CapEx/DA use latest FY, not fiv
     assert.equal(year.values.debtWeight, 15);
     assert.equal(year.origins.beta, 'retained-capital');
   }
-  assert.equal(input.terminalGrowth, null);
+  assert.equal(input.terminalGrowth, 2.5);
+  assert.equal(input.terminalGrowthOrigin, 'suggested-default');
+  assert.equal(input.exitMultiple, 12.5);
+  assert.equal(input.exitMultipleOrigin, 'suggested-current-multiple');
+  assert.equal(input.netDebtDate, '2025-12-31');
+  assert.equal(input.netDebtBasis, 'net-cash');
   assert.equal(input.years[0].origins.capex, 'latest-fy');
   assert.equal(input.years[0].origins.ebitda, 'analyst');
   assert.equal(input.years[2].origins.growth, 'unavailable');
