@@ -1,471 +1,23 @@
 {
-  "top_holders": [
-    {
-      "rank": 1,
-      "name": "Tiger Global Management LLC",
-      "shares": 70789320,
-      "val_m": 2011.8,
-      "pct": 9.8,
-      "change": "+2.61%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 2,
-      "name": "Bridgewater Associates, LP",
-      "shares": 56848158,
-      "val_m": 1615.6,
-      "pct": 7.87,
-      "change": "-1.67%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 3,
-      "name": "Baillie Gifford & Co.",
-      "shares": 41317848,
-      "val_m": 1174.3,
-      "pct": 5.72,
-      "change": "-4.42%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 4,
-      "name": "Coatue Management LLC",
-      "shares": 20153286,
-      "val_m": 572.8,
-      "pct": 2.79,
-      "change": "-3.10%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 5,
-      "name": "Arrowstreet Capital, Limited Partnership",
-      "shares": 18925308,
-      "val_m": 537.9,
-      "pct": 2.62,
-      "change": "+1.07%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 6,
-      "name": "Loomis, Sayles & Co., L.P.",
-      "shares": 17841798,
-      "val_m": 507.1,
-      "pct": 2.47,
-      "change": "+4.25%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 7,
-      "name": "Eaton Vance Management",
-      "shares": 16758287,
-      "val_m": 476.3,
-      "pct": 2.32,
-      "change": "+3.53%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 8,
-      "name": "Parametric Portfolio Associates LLC",
-      "shares": 15747012,
-      "val_m": 447.5,
-      "pct": 2.18,
-      "change": "-0.44%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 9,
-      "name": "Legal & General Group Plc",
-      "shares": 14807969,
-      "val_m": 420.8,
-      "pct": 2.05,
-      "change": "-4.01%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 10,
-      "name": "Amundi Asset Management",
-      "shares": 13941161,
-      "val_m": 396.2,
-      "pct": 1.93,
-      "change": "-3.89%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 11,
-      "name": "Schroders Plc",
-      "shares": 13074354,
-      "val_m": 371.6,
-      "pct": 1.81,
-      "change": "-0.20%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 12,
-      "name": "Credit Suisse Asset Management",
-      "shares": 12279780,
-      "val_m": 349.0,
-      "pct": 1.7,
-      "change": "+3.68%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 13,
-      "name": "M&G Investment Management Ltd",
-      "shares": 11557440,
-      "val_m": 328.5,
-      "pct": 1.6,
-      "change": "+4.17%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 14,
-      "name": "Barclays PLC",
-      "shares": 10835100,
-      "val_m": 307.9,
-      "pct": 1.5,
-      "change": "+0.83%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 15,
-      "name": "Sumitomo Mitsui Trust Holdings, Inc.",
-      "shares": 10184994,
-      "val_m": 289.5,
-      "pct": 1.41,
-      "change": "-3.27%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 16,
-      "name": "Nomura Asset Management Co., Ltd.",
-      "shares": 9607122,
-      "val_m": 273.0,
-      "pct": 1.33,
-      "change": "-4.37%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 17,
-      "name": "The Vanguard Group, Inc.",
-      "shares": 9029250,
-      "val_m": 256.6,
-      "pct": 1.25,
-      "change": "-1.45%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 18,
-      "name": "BlackRock Institutional Trust Company, N.A.",
-      "shares": 8451377,
-      "val_m": 240.2,
-      "pct": 1.17,
-      "change": "+2.80%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 19,
-      "name": "State Street Global Advisors, Inc.",
-      "shares": 7945740,
-      "val_m": 225.8,
-      "pct": 1.1,
-      "change": "+4.48%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 20,
-      "name": "FMR LLC (Fidelity Management & Research)",
-      "shares": 7512336,
-      "val_m": 213.5,
-      "pct": 1.04,
-      "change": "+2.03%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 21,
-      "name": "Geode Capital Management, LLC",
-      "shares": 7006698,
-      "val_m": 199.1,
-      "pct": 0.97,
-      "change": "-2.28%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 22,
-      "name": "T. Rowe Price Associates, Inc.",
-      "shares": 6645528,
-      "val_m": 188.9,
-      "pct": 0.92,
-      "change": "-4.50%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 23,
-      "name": "Morgan Stanley Investment Management",
-      "shares": 6212124,
-      "val_m": 176.5,
-      "pct": 0.86,
-      "change": "-2.58%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 24,
-      "name": "JPMorgan Investment Management, Inc.",
-      "shares": 5850954,
-      "val_m": 166.3,
-      "pct": 0.81,
-      "change": "+1.71%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 25,
-      "name": "Northern Trust Investments, Inc.",
-      "shares": 5489784,
-      "val_m": 156.0,
-      "pct": 0.76,
-      "change": "+4.43%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 26,
-      "name": "Bank of America Merrill Lynch",
-      "shares": 5200848,
-      "val_m": 147.8,
-      "pct": 0.72,
-      "change": "+3.07%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 27,
-      "name": "Capital World Investors",
-      "shares": 4839678,
-      "val_m": 137.5,
-      "pct": 0.67,
-      "change": "-1.10%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 28,
-      "name": "Capital Research Global Investors",
-      "shares": 4550742,
-      "val_m": 129.3,
-      "pct": 0.63,
-      "change": "-4.27%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 29,
-      "name": "Norges Bank Investment Management (挪威主權基金)",
-      "shares": 4261806,
-      "val_m": 121.1,
-      "pct": 0.59,
-      "change": "-3.51%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 30,
-      "name": "Wellington Management Company LLP",
-      "shares": 4045104,
-      "val_m": 115.0,
-      "pct": 0.56,
-      "change": "+0.48%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 31,
-      "name": "Invesco Capital Management LLC",
-      "shares": 3828402,
-      "val_m": 108.8,
-      "pct": 0.53,
-      "change": "+4.02%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 32,
-      "name": "Berkshire Hathaway Inc.",
-      "shares": 3539466,
-      "val_m": 100.6,
-      "pct": 0.49,
-      "change": "+3.87%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 33,
-      "name": "BNY Mellon Asset Management",
-      "shares": 3322764,
-      "val_m": 94.4,
-      "pct": 0.46,
-      "change": "+0.16%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 34,
-      "name": "Goldman Sachs Asset Management, L.P.",
-      "shares": 3178296,
-      "val_m": 90.3,
-      "pct": 0.44,
-      "change": "-3.70%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 35,
-      "name": "Charles Schwab Investment Management",
-      "shares": 2961593,
-      "val_m": 84.2,
-      "pct": 0.41,
-      "change": "-4.16%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 36,
-      "name": "UBS Asset Management Americas, Inc.",
-      "shares": 2817126,
-      "val_m": 80.1,
-      "pct": 0.39,
-      "change": "-0.79%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 37,
-      "name": "AllianceBernstein L.P.",
-      "shares": 2600424,
-      "val_m": 73.9,
-      "pct": 0.36,
-      "change": "+3.30%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 38,
-      "name": "Citigroup Global Markets Inc.",
-      "shares": 2455956,
-      "val_m": 69.8,
-      "pct": 0.34,
-      "change": "+4.36%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 39,
-      "name": "Dimensional Fund Advisors, L.P.",
-      "shares": 2311488,
-      "val_m": 65.7,
-      "pct": 0.32,
-      "change": "+1.41%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 40,
-      "name": "Franklin Advisers, Inc.",
-      "shares": 2167020,
-      "val_m": 61.6,
-      "pct": 0.3,
-      "change": "-2.83%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 41,
-      "name": "Janus Henderson Investors US LLC",
-      "shares": 2022552,
-      "val_m": 57.5,
-      "pct": 0.28,
-      "change": "-4.47%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 42,
-      "name": "MFS Investment Management",
-      "shares": 1950318,
-      "val_m": 55.4,
-      "pct": 0.27,
-      "change": "-2.00%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 43,
-      "name": "Fisher Asset Management, LLC",
-      "shares": 1805850,
-      "val_m": 51.3,
-      "pct": 0.25,
-      "change": "+2.31%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 44,
-      "name": "Renaissance Technologies LLC",
-      "shares": 1661382,
-      "val_m": 47.2,
-      "pct": 0.23,
-      "change": "+4.50%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 45,
-      "name": "Two Sigma Investments, LP",
-      "shares": 1589148,
-      "val_m": 45.2,
-      "pct": 0.22,
-      "change": "+2.55%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 46,
-      "name": "Citadel Advisors LLC",
-      "shares": 1516914,
-      "val_m": 43.1,
-      "pct": 0.21,
-      "change": "-1.75%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 47,
-      "name": "Millennium Management LLC",
-      "shares": 1444680,
-      "val_m": 41.1,
-      "pct": 0.2,
-      "change": "-4.43%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 48,
-      "name": "D. E. Shaw & Co., Inc.",
-      "shares": 1300212,
-      "val_m": 37.0,
-      "pct": 0.18,
-      "change": "-3.05%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 49,
-      "name": "AQR Capital Management, LLC",
-      "shares": 1227978,
-      "val_m": 34.9,
-      "pct": 0.17,
-      "change": "+1.14%",
-      "date": "2026Q2"
-    },
-    {
-      "rank": 50,
-      "name": "Point72 Asset Management, L.P.",
-      "shares": 1155744,
-      "val_m": 32.8,
-      "pct": 0.16,
-      "change": "+4.28%",
-      "date": "2026Q2"
-    }
-  ],
+  "sourceVersion": 2,
+  "top_holders": [],
   "insider_trades": [
     {
       "date": "2026-08-14",
       "name": "de Mattos Cunha Neto Nestor",
       "title": "officer: President, Ind Interm & Infras",
-      "is_buy": true,
+      "is_buy": null,
+      "action": "",
       "shares": 0,
-      "price": 28.42,
+      "price": 0.0,
       "total_val": 0.0
     },
     {
       "date": "2026-08-14",
       "name": "de Mattos Cunha Neto Nestor",
       "title": "officer: President, Ind Interm & Infras",
-      "is_buy": true,
+      "is_buy": null,
+      "action": "",
       "shares": 716,
       "price": 72.77,
       "total_val": 0.05
@@ -474,7 +26,8 @@
       "date": "2026-08-14",
       "name": "de Mattos Cunha Neto Nestor",
       "title": "officer: President, Ind Interm & Infras",
-      "is_buy": true,
+      "is_buy": null,
+      "action": "",
       "shares": 3649,
       "price": 57.67,
       "total_val": 0.21
@@ -483,7 +36,8 @@
       "date": "2026-08-14",
       "name": "de Mattos Cunha Neto Nestor",
       "title": "officer: President, Ind Interm & Infras",
-      "is_buy": true,
+      "is_buy": null,
+      "action": "",
       "shares": 4700,
       "price": 60.95,
       "total_val": 0.29
@@ -492,7 +46,8 @@
       "date": "2026-08-14",
       "name": "de Mattos Cunha Neto Nestor",
       "title": "officer: President, Ind Interm & Infras",
-      "is_buy": true,
+      "is_buy": null,
+      "action": "",
       "shares": 5114,
       "price": 59.08,
       "total_val": 0.3
@@ -501,7 +56,8 @@
       "date": "2026-08-14",
       "name": "de Mattos Cunha Neto Nestor",
       "title": "officer: President, Ind Interm & Infras",
-      "is_buy": true,
+      "is_buy": null,
+      "action": "",
       "shares": 9982,
       "price": 55.17,
       "total_val": 0.55
@@ -510,7 +66,8 @@
       "date": "2026-08-14",
       "name": "de Mattos Cunha Neto Nestor",
       "title": "officer: President, Ind Interm & Infras",
-      "is_buy": true,
+      "is_buy": null,
+      "action": "",
       "shares": 15060,
       "price": 38.34,
       "total_val": 0.58
@@ -519,7 +76,8 @@
       "date": "2026-08-14",
       "name": "de Mattos Cunha Neto Nestor",
       "title": "officer: President, Ind Interm & Infras",
-      "is_buy": true,
+      "is_buy": null,
+      "action": "",
       "shares": 16810,
       "price": 32.65,
       "total_val": 0.55
@@ -528,22 +86,24 @@
       "date": "2026-07-06",
       "name": "Carter Karen S",
       "title": "director, officer: Chief Executive Officer",
-      "is_buy": false,
+      "is_buy": null,
+      "action": "A-Award",
       "shares": 24150,
-      "price": 28.42,
-      "total_val": 0.69
+      "price": 0.0,
+      "total_val": 0.0
     },
     {
       "date": "2026-07-06",
       "name": "Carter Karen S",
       "title": "director, officer: Chief Executive Officer",
-      "is_buy": false,
+      "is_buy": null,
+      "action": "A-Award",
       "shares": 126640,
       "price": 27.02,
       "total_val": 3.42
     }
   ],
   "stock_splits": [],
-  "inst_ownership_pct": 71.5,
-  "insider_ownership_pct": 13.5
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
 }
