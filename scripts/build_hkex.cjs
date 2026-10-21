@@ -15,6 +15,7 @@ const { prepareSnapshot, forecastFxRate } = require('./fcff_sources.cjs');
 const { reconcileValuation } = require('./hkex_valuation_sources.cjs');
 const { reportedGrowth } = require('./reported_growth.cjs');
 const config = require('../hkex_stocks.json');
+const registered = new Map([...require('../cache/hkex_universe.json').stocks, ...config].map(item => [item.ticker, item]));
 const shareCapital = require('../cache/hkex_share_capital.json');
 
 const finite = value => typeof value === 'number' && Number.isFinite(value);
@@ -90,13 +91,13 @@ function valuationShares(item, evidence, capital = shareCapital[item.ticker]) {
       matchingClass: classes.find(row => (row.issuedShares - row.treasuryShares) / 1e6 === provider.shares)?.name || null } };
 }
 
-function prepareStatements(evidence) {
+function prepareStatements(evidence, { allowIncomplete = false, sourceWarnings = [] } = {}) {
   const ticker = evidence.ticker, today = evidence.capturedAt?.slice(0, 10);
-  if (!config.some(stock => stock.ticker === ticker) || evidence.providerSymbol !== ticker || !day(today)) {
+  if (!registered.has(ticker) || evidence.providerSymbol !== ticker || !day(today)) {
     throw new TypeError('Invalid HKEX source identity or capture date');
   }
-  const qualityWarnings = [];
-  const reviewedPeriodsRequired = config.find(stock => stock.ticker === ticker).reviewedPeriodsRequired;
+  const qualityWarnings = [...sourceWarnings];
+  const reviewedPeriodsRequired = registered.get(ticker).reviewedPeriodsRequired;
   const incomeSource = reviewedIncomeSource(ticker);
   const warn = (code, message, extra = {}) => qualityWarnings.push({ code, message, ...extra });
   const statements = { calculationCurrency: 'HKD', fetchedAt: evidence.capturedAt, annual: {}, quarterly: {}, qualityWarnings };
@@ -109,8 +110,10 @@ function prepareStatements(evidence) {
     for (const type of ['income', 'balance', 'cashflow']) {
       const rows = readRows(evidence, `${prefix}${type}`);
       if (!rows.length && period === 'annual') {
-        if (!reviewedPeriodsRequired || !incomeSource) throw new TypeError(`${ticker}: missing annual ${type}`);
-        warn('providerStatementUnavailable', 'Provider statement is unavailable; reviewed income is retained without inventing balance sheets or cash flows.',
+        if (!allowIncomplete && (!reviewedPeriodsRequired || !incomeSource)) throw new TypeError(`${ticker}: missing annual ${type}`);
+        warn('providerStatementUnavailable', allowIncomplete
+          ? 'Provider statement is unavailable; missing financial statements are not fabricated.'
+          : 'Provider statement is unavailable; reviewed income is retained without inventing balance sheets or cash flows.',
           { period, type });
       }
       if (rows.some(row => row.symbol !== ticker || !day(row.date) || row.date > today
@@ -152,7 +155,19 @@ function prepareStatements(evidence) {
           return;
         }
         const previous = rows[i - 1];
-        if (previous && (annual || key(row) === key(previous) + (semiannual ? 2 : 1))) {
+        if (allowIncomplete && !annual && !semiannual && original.length < 4
+            && original.every(row => ['Q2', 'Q4'].includes(row.period))) {
+          row.periodStartDate = null;
+          row.periodLength = null;
+          row.reportingFrequency = 'unknown';
+          row.derivation = 'providerReported';
+          warn('unverifiedProviderPeriod', 'Short Q2/Q4-only source history cannot establish quarter or half-year duration.',
+            { type, date: row.date });
+          return;
+        }
+        const consecutiveAnnual = annual && (!allowIncomplete || previous
+          && Number(row.fiscalYear || row.calendarYear) === Number(previous.fiscalYear || previous.calendarYear) + 1);
+        if (previous && (consecutiveAnnual || !annual && key(row) === key(previous) + (semiannual ? 2 : 1))) {
           row.periodStartDate = nextDay(previous.date);
         } else {
           const end = new Date(row.date), months = annual ? 12 : semiannual ? 6 : 3;
@@ -161,6 +176,21 @@ function prepareStatements(evidence) {
         }
         row.reportingFrequency = annual ? 'annual' : statements.reportingFrequency;
         row.periodLength = annual ? 12 : semiannual ? 6 : 3;
+        if (allowIncomplete && previous && (annual ? consecutiveAnnual : key(row) === key(previous) + (semiannual ? 2 : 1))) {
+          const days = (Date.parse(row.date) - Date.parse(previous.date)) / 86400000;
+          const start = new Date(row.periodStartDate), end = new Date(row.date);
+          const calendarEnd = new Date(Date.UTC(end.getUTCFullYear(), end.getUTCMonth() + 1, 0)).getUTCDate() === end.getUTCDate();
+          const months = start.getUTCDate() === 1 && calendarEnd
+            ? (end.getUTCFullYear() - start.getUTCFullYear()) * 12 + end.getUTCMonth() - start.getUTCMonth() + 1 : null;
+          const expectedMonths = annual ? 12 : semiannual ? 6 : 3;
+          const expectedDays = annual ? [364, 365, 366, 371] : semiannual ? [181, 182, 183, 184, 189] : [89, 90, 91, 92, 98];
+          if (months !== null ? months !== expectedMonths : !expectedDays.includes(days)) {
+            row.periodLength = annual ? months : null;
+            warn(annual ? 'nonFullFiscalPeriod' : 'unverifiedProviderPeriod',
+              `Consecutive reporting dates do not establish the claimed ${expectedMonths}-month period.`,
+              { type, date: row.date, periodLength: row.periodLength });
+          }
+        }
         row.derivation = 'providerReported';
       });
     }
@@ -210,6 +240,12 @@ function prepareStatements(evidence) {
           && row.reportedCurrency === annual.reportedCurrency);
         if (!first || !day(first.periodStartDate) || annual.periodLength !== 12 || first.periodLength !== 6
             || annual.periodStartDate !== first.periodStartDate) continue;
+        if (allowIncomplete && ((Date.parse(annual.date) - Date.parse(first.date)) / 86400000 < 150
+            || (Date.parse(annual.date) - Date.parse(first.date)) / 86400000 > 220)) {
+          warn('annualInterimReconciliation', 'Annual and H1 dates cannot establish a subsequent six-month H2.',
+            { type, date: annual.date, interimDate: first.date });
+          continue;
+        }
         const second = { ...annual, period: 'Q4', periodStartDate: nextDay(first.date),
           periodLength: 6, reportingFrequency: 'semiannual', derivation: 'annualMinusReportedH1',
           sourceDates: [annual.date, first.date] };
@@ -226,10 +262,15 @@ function prepareStatements(evidence) {
       }
       statements.quarterly[type] = sorted([...halves, ...derived]);
     }
-    statements.quarterly.balance = sorted([
-      ...statements.quarterly.balance.filter(row => row.period === 'Q2'),
-      ...statements.annual.balance.map(row => ({ ...row, period: 'Q4', derivation: 'reportedAnnualClosingBalance' }))
-    ]);
+    const interimBalances = statements.quarterly.balance.filter(row => row.period === 'Q2');
+    const annualBalances = statements.annual.balance.filter(row => {
+      if (!allowIncomplete || !interimBalances.some(interim => interim.date === row.date)) return true;
+      warn('annualInterimReconciliation', 'Annual and H1 balance sources assign conflicting fiscal periods to one date; no duplicate Q4 is constructed.',
+        { type: 'balance', date: row.date });
+      return false;
+    });
+    statements.quarterly.balance = sorted([...interimBalances,
+      ...annualBalances.map(row => ({ ...row, period: 'Q4', derivation: 'reportedAnnualClosingBalance' }))]);
   }
   statements.statementFrequencies = Object.fromEntries(['income', 'balance', 'cashflow'].map(type =>
     [type, statements.quarterly[type].length ? statements.reportingFrequency : 'annual']));
@@ -424,6 +465,10 @@ function scoreBreakdown(score, data) {
 }
 
 function priceHistory(evidence) {
+  const tradingCurrency = registered.get(evidence.ticker)?.tradingCurrency;
+  if (tradingCurrency && tradingCurrency !== 'HKD') {
+    throw new TypeError(`${evidence.ticker}: unsupportedTradingCurrency (${tradingCurrency}); original prices are not HKD quotes`);
+  }
   const rows = new Map();
   for (const name of ['prices_older', 'prices_recent']) {
     const sourceRows = readRows(evidence, name);
@@ -534,7 +579,7 @@ function applyNoncontrollingClaimAssumption(snapshot, item) {
   };
 }
 
-function compileStock(item, evidence, rates, moatReports = {}, previousStock = {}, treasury = null) {
+function compileStock(item, evidence, rates, moatReports = {}, previousStock = {}, treasury = null, options = {}) {
   const profile = readRows(evidence, 'profile'), quotes = readRows(evidence, 'quote');
   if (profile.length !== 1 || profile[0].symbol !== item.ticker || profile[0].currency !== 'HKD'
       || quotes.length !== 1 || quotes[0].symbol !== item.ticker || !finite(quotes[0].price) || quotes[0].price <= 0
@@ -547,7 +592,7 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
   const quoteAgeDays = (Date.parse(evidence.capturedAt.slice(0, 10)) - Date.parse(quoteDate)) / 86400000;
   const staleQuote = quoteAgeDays > 14;
   const quote = staleQuote ? { ...observedQuote, price: null, marketCap: null } : observedQuote;
-  const reported = applyOfficialRevenue(applyOfficialCashflows(applyOfficialBalance(prepareStatements(evidence), item.ticker),
+  const reported = applyOfficialRevenue(applyOfficialCashflows(applyOfficialBalance(prepareStatements(evidence, options), item.ticker),
     item.ticker, reviewedSource(item.ticker)), item.ticker);
   if (item.reviewedPeriodsRequired) {
     reported.providerReportedBalance = structuredClone({
@@ -574,7 +619,10 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
   }
   const raw = applyPropertyFv(reported, item.ticker);
   const data = convertStatements(raw, rates);
-  const chart = priceHistory(evidence), latest = sorted(data.quarterly.income).at(-1),
+  const chart = options.allowIncomplete && !['prices_older', 'prices_recent'].some(name => readRows(evidence, name).length)
+    ? { version: 1, ticker: item.ticker, currency: 'HKD', priceBasis: 'splitAdjustedClose', rows: [], reason: 'sourceUnavailable' }
+    : priceHistory(evidence);
+  const latest = sorted(data.quarterly.income).at(-1),
     bs = sorted([...data.annual.balance, ...data.quarterly.balance]).at(-1);
   const balance = field => value(bs, field), flow = (type, field) => flowValue(data, type, field);
   const shareSource = valuationShares(item, evidence);
@@ -599,7 +647,8 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
     && row.date.slice(0, 10) <= evidence.capturedAt.slice(0, 10));
   const moatInput = { methodVersion: 'hkex-qualitative-evidence-v2', ticker: item.ticker,
     profile: { companyName: p.companyName, description: p.description, industry: item.industry },
-    reportingCurrency: latest?.sourceReportedCurrency, statements: { ...raw, fetchedAt: undefined },
+    reportingCurrency: latest?.sourceReportedCurrency || data.annual.income.at(-1)?.sourceReportedCurrency || null,
+    statements: { ...raw, fetchedAt: undefined },
     displayStatements: { ...data, fetchedAt: undefined }, fScore: score, transcripts };
   const fingerprint = hash(moatInput), candidate = moatReports[item.ticker];
   const moat = candidate?.evidenceHash === fingerprint ? candidate.report : null;
@@ -614,7 +663,8 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
   const stock = {
     name: item.name, company_name: p.companyName, ticker: item.ticker, displayCode: item.displayCode,
     market: 'HKEX', exchange: 'HKEX', sector: item.sector, industry: item.industry, fmp_symbol: item.ticker,
-    reportedCurrency: latest?.sourceReportedCurrency, calculationCurrency: 'HKD',
+    reportedCurrency: latest?.sourceReportedCurrency || data.annual.income.at(-1)?.sourceReportedCurrency || null,
+    calculationCurrency: 'HKD',
     reportingFrequency: raw.reportingFrequency, statementFrequencies: raw.statementFrequencies,
     balanceClassificationSource: raw.balanceClassificationSource, cashflowProvenance: raw.cashflowProvenance,
     revenueProvenance: raw.revenueProvenance,
@@ -768,7 +818,9 @@ function compile(directory, output, rates, reports = {}, previous = {}, treasury
     fcff.outcomes[status] = (fcff.outcomes[status] || 0) + 1;
     write(path.join('cache', 'financials', `${item.ticker}_statements_v2.json`), result.statements);
     write(path.join('cache', 'price_charts', `${item.ticker}.json`), result.chart);
-    evidenceInputs.push({ ...result.moatInput, evidenceHash: result.fingerprint, existing: reports[item.ticker] || null });
+    evidenceInputs.push({ ...result.moatInput, evidenceHash: result.fingerprint,
+      moatScreen: { calculationCurrency: result.stock.calculationCurrency, marketCapMillions: result.stock.mcap },
+      existing: reports[item.ticker] || null });
   }
   write('hk_market_dcf.json', market);
   write('hk_market_data.js', market, 'window.HK_MARKET_DATA = ');

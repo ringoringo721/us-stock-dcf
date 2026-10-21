@@ -1,5 +1,103 @@
 # us-stock-dcf
 
+## Full HKEX company expansion
+
+`cache/hkex_universe.json` and `hkex_universe_data.js` import **2,787** ordinary-equity,
+listed investment-company and REIT primary counters from HKEX's official securities
+workbook. Main Board and GEM companies are included; ETPs, debt, warrants, CBBCs,
+preference shares, trading-only securities, depositary receipts and temporary
+Main Board counters are excluded. Verified duplicate ISINs select the HKD counter;
+blank ISINs never collapse unrelated companies. Sole USD/RMB listings remain in
+the catalogue, but unsupported trading currencies do not become HKD quotes.
+The workbook labels itself **20 October 2026**, retrieved **19 October 2026**;
+both dates and the workbook SHA-256 are retained. This is not a point-in-time
+membership/backtest feed. FMP sector/industry enrichment is not official HSICS.
+
+The previously reviewed 114-company dataset and its corrections remain unchanged.
+Additional companies start with explicit unavailable financials, prices and ratings,
+not zero values or template scores. The screener searches the entire catalogue
+but initially renders the 100 highest available market caps, with missing market
+caps last. Both show-more and one-click show-all controls are available; changing
+filters or returning to HKEX restores the initial window. The compact catalogue
+still loads upfront; the window reduces rendered rows, not the catalogue download.
+Chinese names use the [official HKEX Chinese securities list](https://www.hkex.com.hk/chi/services/trading/securities/securitieslists/ListOfSecurities_c.xlsx),
+matched by stock code, ISIN and trading currency. Names without an ISIN require
+same-date lists. The Chinese workbook has separate source/date/hash metadata and
+does not change the financial-evidence identity or original English universe.
+To supplement names without recapturing financials, run
+`python scripts/import_hkex_universe.py --chinese-names-only --chinese-workbook <workbook>`.
+Completed company
+snapshots load on demand from `cache/hk_companies/`; they do not duplicate all
+financial histories in the initial JavaScript asset.
+New-company foreign statements reference content-addressed historical HKD FX
+snapshots. These retain additional supported reporting currencies without
+rewriting the original 114-company FX observations or saved model evidence.
+
+The existing **Read-only valuation source audit** workflow accepts `expand_all_hk`.
+It partitions additional companies into batches of at most twenty, captures actual
+FMP statements, dated prices and native model/company data, calculates supported
+Piotroski tests, researches each business using attributable sources, and assesses
+ten moat dimensions with bilingual comments through Vertex AI. Required source,
+currency, date and share-basis guards remain active; unsupported or incomplete
+inputs carry explicit limitations. A batch/job finishing is not proof of complete
+ratings: each artifact's `manifest.json` records actual coverage counts.
+This mode only uploads `hkex-expanded-*` artifacts: it cannot push, merge, invoke
+a deployment hook or publish the captured results. `resume_run_id` reuses successful
+endpoints from the same batch of a previous run when captured within seven days.
+For ratings-only recovery, also set `moat_only`; this requires a saved run ID
+and reuses its financials, model data, attributable research and exact captured
+FX basis rather than recapturing market data. `hk_batches` restricts recovery
+to selected batch indices. The optional `symbols` input narrows those batches
+to at most twenty additional company tickers while retaining their original
+artifact batch indices; unknown, reviewed or out-of-selection tickers are rejected.
+Ratings-only planning omits already current, complete reports and below-cap
+companies before scheduling workers, without changing the original batch indices.
+Research and assessments checkpoint each completed
+company atomically, so a later timeout cannot erase the earlier results.
+Partial-report retries perform new gap-specific business research rather than
+perpetually reusing the same incomplete summary. The search receives the missing
+criteria, prior caveats and available historical financials, seeks attributable
+issuer disclosures, and retains the previous evidence if research fails.
+Documented losses or volatile cash conversion can support a weak sustained-return
+assessment; they are not automatically missing evidence. Capital-allocation
+judgment uses disclosed actions and outcomes, not unverifiable personal integrity.
+Essential factual gaps still remain unscored, never zero-filled or normalized.
+Moat evidence passes through captured cost/operating-expense breakdowns,
+investment/acquisition/financing cash flows and up to eight available annual
+observations, preserving actual zero/null values and quality warnings. This
+does not recalculate financials or change DCF assumptions. Governance narratives
+must distinguish allegations, convictions and acquittals, and the listed company,
+subsidiaries and former individuals.
+Digit-bearing product codes and similar rejected narrative terms receive a
+bounded, prose-only correction request rather than requiring an otherwise
+supported report to be regenerated wholesale. Corrections cannot change scores,
+null assessments or citations, and the complete report must still pass the
+unchanged evidence and qualitative-only validation before it is saved.
+Recovery also reuses a newer saved company assessment when its financial evidence
+hash still matches, retaining its original assessment date and business research
+instead of replacing it with an older resumed artifact or paying to recreate it.
+Expansion imports also check fiscal closing-date changes before treating a
+provider FY row as twelve months or deriving H2. Conflicting annual/interim
+dates remain flagged; they do not generate duplicate quarterly observations.
+
+Download the artifacts to an ignored directory and explicitly integrate them with
+`node scripts/build_hkex_expansion.cjs integrate <download-directory>`.
+The importer validates universe/source and company identity, refuses to overwrite
+the reviewed 114, and preserves newer snapshots. Build and review before publishing;
+cloud artifacts alone do not update the live site.
+Known unfinished reassessment/result-import batches are labeled separately from
+completed assessments. This status does not supply missing scores or comments.
+For HK stocks with a known positive market capitalisation **below HKD 1 billion**,
+moat displays read **N/A - 尚無評分** (English: **N/A - Not assessed**).
+The screener, peer comparisons and rating page suppress their scores and business
+commentary, including previously saved assessments. Historical source records
+remain stored; PF scores and other financial calculations are unaffected.
+New research and scoring inputs carry an HKD-million market-cap screen outside
+the financial-evidence hash, and both workers skip these companies even on forced
+refresh. Exactly HKD 1 billion remains eligible. Unknown/invalid market caps
+and non-HKD amounts are not treated as zero or assumed below the threshold.
+This is a site screening rule, not a factual claim about Buffett's criteria.
+
 ## Hang Seng Index and gaming extension
 
 Production builds run `node scripts/build_site.cjs` and publish only the
@@ -8,7 +106,10 @@ programs, raw source captures and private rating inputs are not public assets.
 `vercel.json` makes browsers revalidate data rather than retaining stale scores.
 
 The shared interface has a US/HKEX selector, the same 36 screener columns and all
-nine company subpages. The automatic site fair-value and its market-premium
+nine company subpages. Company names and stock codes in peer-comparison headers
+link to that stock's company profile, including lazily loaded HK listings.
+Keyboard activation and browser Back are supported.
+The automatic site fair-value and its market-premium
 columns are omitted from every screener view in both markets; individual
 valuation models, FMP reference prices and saved target prices remain available.
 The HKEX universe contains all **95 Hang Seng Index

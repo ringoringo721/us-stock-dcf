@@ -12,11 +12,19 @@ const Currency = require('../usd_currency.js');
 const hkdRates = require('../cache/fx/hkd_rates.json');
 const Overview = require('../profile_overview.js');
 const root = path.resolve(__dirname, '..', 'public');
+const catalogue = require('../cache/hkex_universe.json');
+const HkUniverse = require('../hkex_universe.js');
 const annualViews = new Map();
 function annualView(ticker) {
   if (!annualViews.has(ticker)) {
-    const data = JSON.parse(fs.readFileSync(path.join(root, 'cache', 'financials', `${ticker}_statements_v2.json`)));
-    annualViews.set(ticker, Peers.annualView(market[ticker], Currency.convertStatements(data, hkdRates)));
+    const financialFile = path.join(root, 'cache', 'financials', `${ticker}_statements_v2.json`);
+    const companyFile = path.join(root, 'cache', 'hk_companies', `${ticker}.json`);
+    const stock = market[ticker] || (fs.existsSync(companyFile)
+      ? JSON.parse(fs.readFileSync(companyFile)).stock
+      : HkUniverse.listingStock(catalogue.stocks.find(item => item.ticker === ticker)));
+    const data = fs.existsSync(financialFile) ? JSON.parse(fs.readFileSync(financialFile)) : HkUniverse.emptyStatements(ticker);
+    const rates = data.hkdFxSource ? JSON.parse(fs.readFileSync(path.join(root, data.hkdFxSource.path))) : hkdRates;
+    annualViews.set(ticker, Peers.annualView(stock, Currency.convertStatements(data, rates)));
   }
   return annualViews.get(ticker);
 }
@@ -112,6 +120,52 @@ function expectedAnnualCells(stock) {
     });
     await page.goto(`${base}/?market=HKEX`, { waitUntil: 'domcontentloaded' });
     await page.waitForFunction(() => isAppReady);
+    assert.equal(await page.locator('#screener-tbody tr').count(), 100);
+    assert.equal(await page.locator('#stat-total').innerText(), '2787');
+    assert.equal(await page.evaluate(() => sortField), 'mcap');
+    assert.equal(await page.evaluate(() => sortAsc), false);
+    const top100 = await page.evaluate(() => Object.entries(stockUniverse)
+      .sort((a, b) => (b[1].mcap ?? -Infinity) - (a[1].mcap ?? -Infinity))
+      .slice(0, 100).map(([ticker]) => ticker));
+    assert.deepEqual(await page.locator('#screener-tbody tr').evaluateAll(rows =>
+      rows.map(row => row.cells[0].textContent.match(/\b\d{4,5}\.HK\b/)[0])), top100);
+    await page.locator('#screener-more').click();
+    assert.equal(await page.locator('#screener-tbody tr').count(), 200);
+    await page.evaluate(() => applyLanguage('en'));
+    assert.match(await page.locator('#screener-all').innerText(), /Show all 2787 stocks/);
+    await page.evaluate(() => applyLanguage('zh'));
+    assert.match(await page.locator('#screener-all').innerText(), /顯示全部 2787 家/);
+    const names = await page.evaluate(() => Object.fromEntries(Object.entries(stockUniverse)
+      .map(([ticker, stock]) => [ticker, getStockDisplayName(stock)])));
+    for (const listing of catalogue.stocks) {
+      assert.equal(names[listing.ticker], market[listing.ticker]?.name || listing.name_zh,
+        `${listing.ticker}: every HK listing has its reviewed or official Chinese-list name`);
+    }
+    await page.locator('#screener-all').click();
+    assert.equal(await page.locator('#screener-tbody tr').count(), 2787);
+    assert.equal(await page.locator('#screener-all').isVisible(), false);
+    await page.evaluate(() => {
+      document.getElementById('search-ticker').value = '上美';
+      renderScreenerTable();
+    });
+    assert.equal(await page.locator('#screener-tbody tr').count(), 1);
+    assert.match(await page.locator('#screener-tbody').innerText(), /2145\.HK[\s\S]*上美股份/);
+    await page.evaluate(() => {
+      document.getElementById('search-ticker').value = '';
+      renderScreenerTable();
+    });
+    assert.equal(await page.locator('#screener-tbody tr').count(), 100);
+    await page.evaluate(() => {
+      document.getElementById('search-ticker').value = '87001';
+      renderScreenerTable();
+    });
+    assert.equal(await page.locator('#screener-tbody tr').count(), 1);
+    assert.match(await page.locator('#screener-tbody').innerText(), /87001\.HK/);
+    await page.evaluate(tickers => {
+      document.getElementById('search-ticker').value = '';
+      localStorage.setItem('M7_FAVORITES', JSON.stringify(tickers));
+      currentValFilter = 'FAVORITES'; renderScreenerTable();
+    }, config.map(item => item.ticker));
     assert.equal(await page.locator('#screener-tbody tr').count(), config.length);
     assert.equal(await page.locator('#screener-table thead th').count(), 36);
     assert.equal(await page.locator('[data-i18n="th_premium"]').count(), 0);
@@ -194,7 +248,8 @@ function expectedAnnualCells(stock) {
             assert.ok(stock, `${ticker}: peer column ${cell.ticker}`);
             const expected = expectedAnnualCells(stock)[cell.metric];
             if (expected !== undefined) assert.equal(cell.text, expected, `${ticker}/${cell.ticker}/${cell.metric}/FY peer`);
-            assert.ok(cell.note.includes(stock.peerAnnual.date), `${ticker}: FY peer source date`);
+            if (stock.peerAnnual.date) assert.ok(cell.note.includes(stock.peerAnnual.date), `${ticker}: FY peer source date`);
+            else assert.ok(cell.note.length, `${ticker}: unavailable FY explanation`);
             if (cell.growthReason) assert.doesNotMatch(cell.growthReason, /^Could not load or parse original statements/,
               `${ticker}/${cell.ticker}: unavailable annual growth is not a loading failure`);
           }
@@ -245,7 +300,12 @@ function expectedAnnualCells(stock) {
           }
           await page.selectOption('#statement-type', 'income');
         }
-        if (tab === 'rating' && stock.ratingSources?.moat?.reason === 'staleEvidence') {
+        if (tab === 'rating' && HkUniverse.belowMoatMarketCap(stock)) {
+          assert.equal(await page.locator('#moat-total-score').innerText(), 'N/A - Not assessed', ticker);
+          assert.equal(await page.locator('#moat-previous-assessment').count(), 0, ticker);
+          assert.equal(await page.locator('#moat-research-note').count(), 0, ticker);
+          assert.ok((await page.locator('.moat-comment-cell').allTextContents()).every(text => !text.trim()), ticker);
+        } else if (tab === 'rating' && stock.ratingSources?.moat?.reason === 'staleEvidence') {
           assert.equal(await page.locator('#moat-total-score').innerText(), 'N/A', ticker);
           assert.match(await page.locator('#moat-updated-date').innerText(), /Archived assessment; not refreshed/);
           assert.equal(await page.locator('#moat-previous-assessment').count(), stock.moat ? 1 : 0);
@@ -278,6 +338,58 @@ function expectedAnnualCells(stock) {
         }
       }
       assert.doesNotMatch(await page.locator('#company-view').innerText(), /\bNaN\b|\bundefined\b/, ticker);
+    }
+    const expansionSamples = await page.evaluate(() => {
+      const stocks = Object.values(stockUniverse).filter(stock => stock.expansion?.status === 'available');
+      return [...new Set(['0004.HK', '0122.HK', '1069.HK', '2145.HK', '87001.HK',
+        stocks.find(stock => stock.statementFrequencies?.income === 'annual')?.ticker,
+        stocks.find(stock => !stock.price)?.ticker,
+        stocks.find(stock => stock.ratingSources?.moat?.reason === 'staleEvidence')?.ticker,
+        stocks.find(stock => stock.moat && !stock.ratingSources?.moat?.reason)?.ticker])]
+        .filter(ticker => ticker && stocks.some(stock => stock.ticker === ticker));
+    });
+    for (const ticker of expansionSamples) {
+      const full = JSON.parse(fs.readFileSync(path.join(root, 'cache', 'hk_companies', `${ticker}.json`)));
+      const stock = full.stock, dimensions = Object.entries(stock.moat || {})
+        .filter(([key, value]) => /^m\d+_/.test(key) && Number.isFinite(value.score));
+      const fresh = stock.ratingSources?.moat?.reason !== 'staleEvidence';
+      const expectedMoat = fresh && dimensions.length
+        ? `${dimensions.reduce((sum, [, value]) => sum + value.score, 0)} / ${dimensions.length * 10}` : 'N/A';
+      for (const language of ['en', 'zh']) {
+        await page.evaluate(({ ticker, language }) => { applyLanguage(language); openCompanyProfile(ticker); }, { ticker, language });
+        await page.waitForFunction(ticker => stockUniverse[ticker]?.expansion?.status === 'loaded'
+          && stockUniverse[ticker].companyDataLoaded
+          && document.getElementById('profile-overview-status').textContent.startsWith(ticker), ticker);
+        if (ticker === '2145.HK' && language === 'zh') {
+          assert.equal(await page.evaluate(() => getStockDisplayName(stockUniverse['2145.HK'])), '上美股份');
+          assert.match(await page.locator('#cmp-full-name').innerText(), /^上美股份 \(/);
+        }
+        assert.equal(await page.locator('.sub-tab-btn').count(), 9, ticker);
+        assert.equal(await page.locator('#profile-quote-price').innerText(), stock.price === null ? 'N/A'
+          : `HKD ${stock.price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`, ticker);
+        const warnings = stock.qualityWarnings || stock.dataAvailability?.financials || [];
+        assert.equal(await page.locator('#cmp-expansion-note').isVisible(), !!stock.expansion.reason
+          || Array.isArray(warnings) && warnings.length > 0, `${ticker}: source limitation is visible`);
+        for (const tab of ['financials', 'ratios', 'peers', 'charts', 'rating', 'valuation', 'news', 'chart']) {
+          await page.evaluate(tab => switchSubPage(tab), tab);
+          if (tab === 'rating') {
+            const excluded = HkUniverse.belowMoatMarketCap(stock);
+            assert.equal(await page.locator('#moat-total-score').innerText(), excluded
+              ? language === 'zh' ? 'N/A - 尚無評分' : 'N/A - Not assessed' : expectedMoat, ticker);
+            const fScore = Number.isInteger(stock.f_score)
+              ? `${stock.f_score} / ${stock.ratingSources.fScore.applicableTests || 9}${language === 'zh' ? ' 分' : ''}` : 'N/A';
+            assert.equal(await page.locator('#fsc-total-score').innerText(), fScore, ticker);
+            if (excluded) {
+              assert.equal(await page.locator('#moat-previous-assessment').count(), 0);
+              assert.equal(await page.locator('#moat-research-note').count(), 0);
+              assert.ok((await page.locator('.moat-comment-cell').allTextContents()).every(text => !text.trim()));
+            }
+            if (!excluded && fresh && stock.moat) assert.ok((await page.locator('#moat-overall-text').innerText())
+              .includes(stock.moat[`overall_moat_verdict_${language}`]), `${ticker}: complete localized research is lazy-loaded`);
+          }
+        }
+        assert.doesNotMatch(await page.locator('#company-view').innerText(), /\bNaN\b|\bundefined\b/, ticker);
+      }
     }
     for (const language of ['en', 'zh']) {
       await page.evaluate(language => applyLanguage(language), language);
@@ -396,10 +508,38 @@ function expectedAnnualCells(stock) {
         assert.equal(cell.value, available ? String(record.value) : '');
       }
     }
+    await page.selectOption('#market-select', 'HKEX');
+    await page.waitForFunction(() => typeof isAppReady !== 'undefined' && isAppReady && MarketContext.market === 'HKEX');
+    assert.equal(await page.evaluate(() => sortField), 'mcap');
+    assert.equal(await page.evaluate(() => sortAsc), false);
+    assert.equal(await page.locator('#screener-tbody tr').count(), 100);
+    for (const language of ['zh', 'en']) {
+      const results = await page.evaluate(language => {
+        applyLanguage(language);
+        const progress = window.HKEX_EXPANSION.moatProgress;
+        try {
+          window.HKEX_EXPANSION.moatProgress = { pending: { '2145.HK': true } };
+          const missing = evaluateMoat({ ticker: '2145.HK', moat: null });
+          const complete = evaluateMoat(stockUniverse['0027.HK'], '2145.HK');
+          window.HKEX_EXPANSION.moatProgress = { pending: {} };
+          const unavailable = evaluateMoat({ ticker: '2145.HK', moat: null });
+          return { missing, complete, unavailable };
+        } finally {
+          window.HKEX_EXPANSION.moatProgress = progress;
+        }
+      }, language);
+      const pendingText = language === 'zh' ? /補評分或成果匯入尚未完成/ : /Reassessment or result import is not finished/;
+      assert.equal(results.missing.total, null);
+      assert.match(results.missing.comment, pendingText);
+      assert.ok(Number.isFinite(results.complete.total));
+      assert.doesNotMatch(results.complete.comment, pendingText);
+      assert.equal(results.unavailable.total, null);
+      assert.doesNotMatch(results.unavailable.comment, pendingText);
+    }
     assert.deepEqual(errors, []);
     assert.deepEqual(failures, []);
     assert.ok(api.every(action => action === 'news'), 'No live model, history or indicator API request is required');
-    console.log(`Browser PASS: all ${config.length} HK company pages/nine tabs, full-FY peer financial values/growth/multiples and source dates, annual load failure/retry/race guards, unchanged TTM screener, all 230 US peer growth and balance/return rows including MS, native models, saved ROTE, both languages and mobile scrolling.`);
+    console.log(`Browser PASS: all ${config.length} reviewed HK company pages and ${expansionSamples.length} captured expansion samples/nine tabs, source limitations, real prices and PF/moat research, full-FY peer financial values/growth/multiples and source dates, annual load failure/retry/race guards, unchanged TTM screener, all 230 US peer growth and balance/return rows including MS, native models, saved ROTE, both languages and mobile scrolling.`);
   } finally {
     await browser.close();
     await new Promise(resolve => server.close(resolve));

@@ -1,16 +1,105 @@
 import unittest
 import os
 import sys
+import json
+from pathlib import Path
+import tempfile
 from types import SimpleNamespace
 from unittest.mock import Mock, patch
 
 from scripts.refresh_hkex_moat import (
     ASSESSMENT_POLICY, DIMENSIONS, MoatReportValidationError, create_client,
-    needs_refresh, validate_report, validation_feedback,
+    needs_refresh, validate_report, validation_feedback, evidence_context, write_json_checkpoint, main,
+    below_moat_market_cap,
+    repair_narratives,
 )
 
 
 class MoatEvidenceTests(unittest.TestCase):
+    def test_market_cap_screen_uses_hkd_millions_and_preserves_unknowns(self):
+        record = {"ticker": "0004.HK", "evidenceHash": "unchanged",
+                  "moatScreen": {"calculationCurrency": "HKD", "marketCapMillions": 999.999}}
+        self.assertTrue(below_moat_market_cap(record))
+        self.assertFalse(needs_refresh(record, retry_incomplete=True, force=True))
+        for amount in [1000, 1000.001, None, 0, -1, True, "999", float("nan"), float("inf")]:
+            record["moatScreen"]["marketCapMillions"] = amount
+            self.assertFalse(below_moat_market_cap(record), repr(amount))
+        record["moatScreen"]["marketCapMillions"] = 750
+        self.assertTrue(below_moat_market_cap(record))
+        record["moatScreen"] = {"calculationCurrency": "USD", "marketCapMillions": 100}
+        self.assertFalse(below_moat_market_cap(record))
+        self.assertFalse(below_moat_market_cap({"ticker": "0004.HK"}))
+
+    def test_excluded_companies_make_no_client_call_and_preserve_stored_reports(self):
+        with tempfile.TemporaryDirectory() as directory:
+            source, output = Path(directory) / "inputs.json", Path(directory) / "reports.json"
+            stored = {"evidenceHash": "old", "report": {"archived": True}}
+            record = {"ticker": "0004.HK", "evidenceHash": "new", "existing": stored,
+                      "moatScreen": {"calculationCurrency": "HKD", "marketCapMillions": 100}}
+            source.write_text(json.dumps([record]), encoding="utf-8")
+            with patch.object(sys, "argv", ["refresh_hkex_moat.py", str(source), str(output), "--force"]), \
+                    patch("scripts.refresh_hkex_moat.create_client") as client:
+                main()
+            client.assert_not_called()
+            self.assertEqual(json.loads(output.read_text(encoding="utf-8"))["0004.HK"], stored)
+
+    def test_legacy_annual_only_inputs_without_currency_metadata_remain_assessable(self):
+        record = {"ticker": "0004.HK", "profile": {"companyName": "Issuer"}, "fScore": {},
+                  "statements": {"annual": {"income": [], "balance": [], "cashflow": []},
+                                 "quarterly": {"income": [], "balance": [], "cashflow": []}}}
+        context = evidence_context(record)
+        self.assertIsNone(context["reportingCurrency"])
+        self.assertEqual(context["ticker"], "0004.HK")
+        self.assertIn("financial-quality", context["allowedSourceIds"])
+
+    def test_existing_cost_and_allocation_fields_and_available_history_reach_the_assessment(self):
+        record = {"ticker": "1911.HK", "profile": {}, "fScore": {},
+                  "statements": {"annual": {
+                      "income": [{"date": f"{year}-12-31", "operatingExpenses": 40, "costOfRevenue": 30,
+                                  "generalAndAdministrativeExpenses": 0} for year in range(2018, 2026)],
+                      "balance": [{"date": "2025-12-31", "goodwill": None, "longTermInvestments": 12}],
+                      "cashflow": [{"date": "2025-12-31", "acquisitionsNet": -10,
+                                    "netDebtIssuance": 15, "purchasesOfInvestments": -20}]},
+                                 "quarterly": {"income": [], "balance": [], "cashflow": []}}}
+        original = json.loads(json.dumps(record))
+        context = evidence_context(record)
+        self.assertEqual(len(context["financials"]["annual"]["income"]), 8)
+        self.assertEqual(context["financials"]["annual"]["income"][-1]["operatingExpenses"], 40)
+        self.assertEqual(context["financials"]["annual"]["income"][-1]["generalAndAdministrativeExpenses"], 0)
+        self.assertIsNone(context["financials"]["annual"]["balance"][0]["goodwill"])
+        self.assertEqual(context["financials"]["annual"]["cashflow"][0]["acquisitionsNet"], -10)
+        self.assertIn("annual:income:2018-12-31", context["allowedSourceIds"])
+        self.assertEqual(record, original)
+
+    def test_completed_company_checkpoints_replace_atomically_and_preserve_prior_results(self):
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "reports.json"
+            write_json_checkpoint(output, {"0004.HK": {"report": {"score": 7}}})
+            write_json_checkpoint(output, {"0004.HK": {"report": {"score": 7}},
+                                           "0008.HK": {"lastError": {"type": "ValueError"}}})
+            saved = json.loads(output.read_text(encoding="utf-8"))
+            self.assertEqual(saved["0004.HK"]["report"]["score"], 7)
+            self.assertEqual(saved["0008.HK"]["lastError"]["type"], "ValueError")
+            self.assertFalse(output.with_name("reports.json.tmp").exists())
+
+    def test_filtered_research_inputs_do_not_erase_existing_report_checkpoints(self):
+        with tempfile.TemporaryDirectory() as directory:
+            source, output = Path(directory) / "inputs.json", Path(directory) / "reports.json"
+            source.write_text("[]", encoding="utf-8")
+            saved = {"0004.HK": {"evidenceHash": "prior-evidence", "report": {"score": 7}}}
+            write_json_checkpoint(output, saved)
+            with patch.object(sys, "argv", ["refresh_hkex_moat.py", str(source), str(output)]):
+                main()
+            self.assertEqual(json.loads(output.read_text(encoding="utf-8")), saved)
+
+    def test_authorized_timeout_is_explicit_and_does_not_change_default_clients(self):
+        client = Mock()
+        google = SimpleNamespace(genai=SimpleNamespace(Client=client))
+        with patch.dict(sys.modules, {"google": google}), patch.dict(os.environ, {
+                "GEMINI_API_KEY": "test-placeholder", "MOAT_REQUEST_TIMEOUT_MS": "120000"}, clear=True):
+            create_client()
+        client.assert_called_once_with(vertexai=True, api_key="test-placeholder", http_options={"timeout": 120000})
+
     def test_service_account_location_can_use_global_without_changing_default_or_exposing_credentials(self):
         credentials = object()
         client = Mock()
@@ -121,6 +210,56 @@ class MoatEvidenceTests(unittest.TestCase):
     def test_external_error_strings_never_enter_retry_prompts(self):
         self.assertEqual(validation_feedback(ValueError("https://example.invalid/?key=private-token")), "")
         self.assertEqual(validation_feedback(TypeError("private-token")), "")
+
+    def test_narrative_correction_changes_only_rejected_prose_and_preserves_scores_and_citations(self):
+        report = self.report()
+        report["m1_brand_pricing"]["comment_en"] = "Its 5G products face competition."
+        report["m3_high_switching_costs"]["score"] = None
+        report["overall_moat_verdict_en"] = "The B2B platform has limited protection."
+        before = json.loads(json.dumps(report))
+        rewrite = Mock(return_value={
+            "m1_brand_pricing.comment_en": "Its next-generation products face competition.",
+            "overall_moat_verdict_en": "The business-facing platform has limited protection.",
+        })
+        corrected = repair_narratives(report, rewrite)
+        rewrite.assert_called_once_with({
+            "m1_brand_pricing.comment_en": before["m1_brand_pricing"]["comment_en"],
+            "overall_moat_verdict_en": before["overall_moat_verdict_en"],
+        })
+        self.assertEqual(report, before)
+        for name in DIMENSIONS:
+            self.assertEqual(corrected[name]["score"], before[name]["score"])
+            self.assertEqual(corrected[name]["sources"], before[name]["sources"])
+            self.assertEqual(corrected[name]["comment_zh"], before[name]["comment_zh"])
+        self.assertEqual(validate_report(corrected, "0700.HK", ["profile"]), corrected)
+
+    def test_narrative_correction_does_not_call_model_for_valid_reports(self):
+        rewrite = Mock()
+        report = self.report()
+        self.assertIs(repair_narratives(report, rewrite), report)
+        rewrite.assert_not_called()
+
+    def test_narrative_correction_rejects_missing_extra_or_invalid_fields(self):
+        report = self.report()
+        report["m1_brand_pricing"]["comment_en"] = "A 5G network."
+        field = "m1_brand_pricing.comment_en"
+        for replacement in [None, {}, {field: "Qualitative.", "score": 10},
+                            {field: ""}, {field: True}, {field: "A 6G network."},
+                            {field: "Cash flow of HKD billion."}]:
+            with self.subTest(replacement=replacement), self.assertRaises(MoatReportValidationError):
+                repair_narratives(report, Mock(return_value=replacement))
+        self.assertEqual(report[field.split(".")[0]]["comment_en"], "A 5G network.")
+
+    def test_narrative_correction_does_not_bypass_score_or_citation_validation(self):
+        for key, value in [("score", 11), ("sources", ["invented-evidence"])]:
+            report = self.report()
+            report["m1_brand_pricing"][key] = value
+            report["m1_brand_pricing"]["comment_en"] = "A 5G network."
+            corrected = repair_narratives(report, Mock(return_value={
+                "m1_brand_pricing.comment_en": "A next-generation network.",
+            }))
+            with self.assertRaises(MoatReportValidationError):
+                validate_report(corrected, "0700.HK", ["profile"])
 
 
 if __name__ == "__main__":

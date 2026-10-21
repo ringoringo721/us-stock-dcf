@@ -4,6 +4,15 @@ This guide and the downloadable JSON/Excel models let you check every input,
 annual cash flow, discount factor and equity bridge. They do not certify FMP's
 forecasts or reproduce unavailable proprietary API internals.
 
+The full HKEX catalogue is a listing universe, not a claim of complete model or
+financial coverage. New company snapshots retain the same source, currency,
+period and share-basis guards as the reviewed set. Piotroski scores require
+supported statement comparisons; moat scores require individually attributable
+business research and bilingual evidence-based assessment. Missing inputs remain
+unavailable. Native FMP model references stay distinct from site scenarios.
+Additional companies use compact screener records and on-demand complete company
+snapshots; cloud batch artifacts are not published automatically.
+
 Ready-to-open captured examples:
 [Link REIT](DCF_calculation_models/0823.HK-dcf-models.xlsx) and
 [HKEX](DCF_calculation_models/0388.HK-dcf-models.xlsx).

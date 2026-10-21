@@ -11,7 +11,9 @@
   }
   const market = resolve();
   const currency = market === 'HKEX' ? 'HKD' : 'USD';
-  const stocks = () => market === 'HKEX' ? root.HK_MARKET_DATA : root.FULL_MARKET_DATA;
+  const stocks = () => market === 'HKEX'
+    ? root.HkUniverse ? root.HkUniverse.merge(root.HK_MARKET_DATA) : root.HK_MARKET_DATA
+    : root.FULL_MARKET_DATA;
   const fcff = () => market === 'HKEX' ? root.HK_FCFF_DATA : root.FCFF_DATA;
   function currencyFor(ticker, stock) {
     return stock?.calculationCurrency || (/\.HK$/i.test(ticker || '') ? 'HKD' : 'USD');

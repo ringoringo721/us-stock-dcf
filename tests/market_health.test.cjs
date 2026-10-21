@@ -25,7 +25,7 @@ test('quoted EV and leverage survive a blocked model without borrowing its lease
 
 test('Moat partial coverage displays actual earned points without inventing a full score or grade', () => {
   const html = fs.readFileSync(require.resolve('../index.html'), 'utf8');
-  const context = { currentLang: 'en', ratingState: () => '' };
+  const context = { currentLang: 'en', ratingState: () => '', HkUniverse: require('../hkex_universe.js') };
   vm.runInNewContext(html.slice(html.indexOf('  function evaluateMoat('), html.indexOf('  function setValFilter(')), context);
   const keys = ['m1_brand_pricing', 'm2_patents_regulatory', 'm3_high_switching_costs', 'm4_network_effects',
     'm5_cost_advantage_scale', 'm6_unique_geography_assets', 'm7_operational_efficiency', 'm8_capital_allocation',
@@ -42,6 +42,25 @@ test('Moat partial coverage displays actual earned points without inventing a fu
   assert.equal(result.total, 72, 'A genuine zero is retained');
   assert.equal(result.scoreText, '72 / 100');
   assert.equal(context.evaluateMoat({}).scoreText, 'N/A');
+  const small = { ...stock, ticker: '0004.HK', calculationCurrency: 'HKD', mcap: 999.999, f_score: 7 };
+  const original = JSON.stringify(small);
+  context.currentLang = 'zh';
+  const excluded = context.evaluateMoat(small);
+  assert.equal(excluded.scoreText, 'N/A - 尚無評分');
+  assert.equal(excluded.total, null);
+  assert.equal(excluded.grade, '');
+  assert.ok(excluded.criteria.every(row => row.score === null && row.comment === ''));
+  assert.equal(excluded.ref, '');
+  assert.equal(JSON.stringify(small), original, 'Stored assessments and PF data are preserved');
+  context.currentLang = 'en';
+  assert.equal(context.evaluateMoat(small).scoreText, 'N/A - Not assessed');
+  assert.equal(context.evaluateMoat({ ...small, mcap: 1000 }).total, 72, 'Exactly HKD 1 billion remains assessable');
+  assert.equal(context.evaluateMoat({ ...small, mcap: 750 }).excluded, true, 'The former HKD 500M threshold no longer applies');
+  for (const mcap of [null, undefined, 0, -1, NaN, Infinity]) {
+    assert.equal(context.evaluateMoat({ ...small, mcap }).excluded, false, 'Unknown/invalid market cap is not zero');
+  }
+  assert.equal(context.evaluateMoat({ ...small, calculationCurrency: 'USD' }).excluded, false);
+  assert.equal(context.evaluateMoat({ ...small, ticker: 'SMALL', calculationCurrency: 'USD' }).total, 72);
 });
 test('a model-only noncontrolling claim scenario cannot rewrite quoted book-based enterprise value', () => {
   const stock = { price: 20, mcap: 2000 };

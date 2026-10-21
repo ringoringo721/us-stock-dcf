@@ -27,13 +27,30 @@ on:
         description: Translate captured news headlines only using Vertex Flash-Lite; save artifacts without publishing
         type: boolean
         default: false
+      expand_all_hk:
+        description: Capture all additional official HKEX companies and researched ratings; unpublished artifacts only
+        type: boolean
+        default: false
+      resume_run_id:
+        description: Optional previous all-HK run ID to reuse successfully captured endpoints
+        type: string
+        default: ''
+      moat_only:
+        description: With expand_all_hk and resume_run_id, reuse saved sources and models and retry ratings only
+        type: boolean
+        default: false
+      hk_batches:
+        description: Optional comma-separated all-HK batch indices; empty selects all
+        type: string
+        default: ''
 
 permissions:
   contents: read
+  actions: read
 
 jobs:
   capture-fmp:
-    if: inputs.translate_news != true
+    if: inputs.translate_news != true && inputs.expand_all_hk != true
     runs-on: ubuntu-latest
     timeout-minutes: 90
     steps:
@@ -88,7 +105,7 @@ jobs:
           path: valuation-audit-output/
           retention-days: 7
   translate-news:
-    if: inputs.translate_news == true
+    if: inputs.translate_news == true && inputs.expand_all_hk != true
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -111,3 +128,117 @@ jobs:
             cache/news_translations.json
             news-translation-usage.json
           retention-days: 7
+  hk-expansion-plan:
+    if: inputs.expand_all_hk == true
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - id: plan
+        env:
+          HK_EXPANSION_BATCHES: ${{ inputs.hk_batches }}
+          HK_EXPANSION_SYMBOLS: ${{ inputs.symbols }}
+          HK_EXPANSION_INCOMPLETE_ONLY: ${{ inputs.moat_only }}
+          MOAT_ONLY: ${{ inputs.moat_only }}
+          RESUME_RUN_ID: ${{ inputs.resume_run_id }}
+        run: |
+          node -e "if(process.env.MOAT_ONLY==='true'&&!/^\d+$/.test(process.env.RESUME_RUN_ID||''))throw Error('Ratings-only mode requires a saved run ID')"
+          echo "matrix=$(node scripts/build_hkex_expansion.cjs matrix)" >> "$GITHUB_OUTPUT"
+  hk-expansion-batch:
+    needs: hk-expansion-plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix: ${{ fromJSON(needs.hk-expansion-plan.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - run: pip install requests google-genai
+      - uses: actions/download-artifact@v4
+        if: inputs.resume_run_id != ''
+        continue-on-error: ${{ inputs.moat_only != true }}
+        with:
+          name: hkex-expanded-${{ matrix.batch }}
+          path: hkex-data-output
+          run-id: ${{ inputs.resume_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Refresh dated historical HKD FX observations in the isolated runner
+        if: inputs.moat_only != true
+        run: |
+          node scripts/refresh_usd_rates.cjs --hkd --all-hkd-currencies
+          mkdir -p hkex-data-output/cache/fx
+          cp cache/fx/hkd_rates.json hkex-data-output/cache/fx/hkd_rates.json
+      - name: Reuse the exact captured FX basis for ratings-only retries
+        if: inputs.moat_only == true
+        run: cp hkex-data-output/cache/fx/hkd_rates.json cache/fx/hkd_rates.json
+      - name: Capture public evidence for twenty additional companies
+        if: inputs.moat_only != true
+        env:
+          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+          CAPTURE_MARKET: HKEX
+          CAPTURE_ALL_HK: 'true'
+          CAPTURE_RESUME: 'true'
+          CAPTURE_REQUEST_DELAY: '1'
+          CAPTURE_SYMBOLS: ${{ matrix.symbols }}
+          CAPTURE_OUTPUT: hkex-data-output/sources
+        run: |
+          mkdir -p hkex-data-output/sources
+          python -u scripts/capture_valuation_sources.py
+      - name: Prepare financials, ratios and Piotroski scores without touching reviewed data
+        env:
+          SYMBOLS: ${{ matrix.symbols }}
+        run: |
+          node scripts/build_hkex_expansion.cjs build hkex-data-output/sources hkex-data-output "$SYMBOLS" hkex-data-output/moat-reports.json
+          cp hkex-data-output/cache/financials/* cache/financials/
+      - name: Capture native models and company-page data
+        if: inputs.moat_only != true
+        continue-on-error: true
+        env:
+          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+          CAPTURE_MARKET_FILE: hkex-data-output/market.json
+          CAPTURE_PARALLELISM: '1'
+          FMP_REQUEST_DELAY: '1'
+        run: |
+          SYMBOLS=$(node -e "console.log(Object.keys(require('./hkex-data-output/market.json')).join(','))")
+          if [ -n "$SYMBOLS" ]; then node scripts/capture_company_data.cjs "$SYMBOLS" hkex-data-output/fmp_model_data.js; fi
+      - name: Research each company's actual business with attributable sources
+        continue-on-error: true
+        env:
+          GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+          GOOGLE_CLOUD_LOCATION: global
+          MOAT_REQUEST_TIMEOUT_MS: '120000'
+        run: python -u scripts/research_hkex_moat.py hkex-data-output/moat-inputs.json hkex-data-output/researched-inputs.json hkex-data-output/business-research.json --retry-incomplete
+      - name: Assess ten moat dimensions and bilingual comments
+        continue-on-error: true
+        env:
+          GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+          GOOGLE_CLOUD_LOCATION: global
+          MOAT_REQUEST_TIMEOUT_MS: '180000'
+        run: python -u scripts/refresh_hkex_moat.py hkex-data-output/researched-inputs.json hkex-data-output/moat-reports.json --retry-incomplete
+      - name: Package real coverage and explicit per-company limitations
+        if: always()
+        env:
+          SYMBOLS: ${{ matrix.symbols }}
+        run: |
+          node scripts/build_hkex_expansion.cjs build hkex-data-output/sources hkex-data-output "$SYMBOLS" hkex-data-output/moat-reports.json
+          node scripts/build_hkex_expansion.cjs package hkex-data-output
+          mkdir -p hkex-data-output/cache/fx
+          cp cache/fx/hkd_rates.json hkex-data-output/cache/fx/hkd_rates.json
+      - name: Preserve evidence and unpublished company snapshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hkex-expanded-${{ matrix.batch }}
+          path: hkex-data-output/
+          retention-days: 14
