@@ -935,17 +935,24 @@
     .beta-lookback-panel .beta-lookback-row {
       display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px;
     }
-    .beta-lookback-panel label { font-weight: 600; color: var(--text); }
+    .beta-lookback-panel label,
+    .fmp-beta-lookback-inline label { font-weight: 600; color: var(--text); }
     .beta-lookback-panel select[data-beta-lookback-select],
     #subpage-basic .company-meta-item select[data-beta-lookback-select],
     #fin-capm-builder select[data-beta-lookback-select],
-    #fmp-workspace select[data-beta-lookback-select] {
+    #fmp-workspace select[data-beta-lookback-select],
+    .fmp-beta-lookback-inline select[data-beta-lookback-select] {
       min-width: min(100%, 280px); width: auto; max-width: 100%;
       padding: 10px 12px; font-size: 14px; font-weight: 600; text-align: left;
       color: var(--text); background: var(--card-bg); border: 2px solid var(--accent); border-radius: 8px;
     }
+    .fmp-beta-lookback-inline {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 8px;
+    }
+    .fmp-beta-lookback-inline select[data-beta-lookback-select] { min-width: 9.5rem; }
     .beta-lookback-panel .beta-lookback-value { font-size: 18px; font-weight: 700; color: var(--green); font-variant-numeric: tabular-nums; }
     .beta-lookback-panel [data-beta-lookback-status] { margin: 0; }
+    #fmp-capital-provenance .beta-lookback-panel { margin-top: 0; }
     #subpage-basic .table-scroll-wrapper, #subpage-rating .table-scroll-wrapper { border: 1px solid var(--card-border); border-radius: 8px; }
     #subpage-basic .table-scroll-wrapper table { min-width: 740px; }
     #subpage-basic .table-scroll-wrapper th, #subpage-basic .table-scroll-wrapper td,

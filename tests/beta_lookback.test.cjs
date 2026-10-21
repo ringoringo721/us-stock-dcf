@@ -155,3 +155,18 @@ test('FmpModels.applyBetaLookback writes the same OLS β into every scenario yea
     assert.equal(year.origins.beta, 'user');
   });
 });
+
+test('valuation HTML sources expose 1–5y + FMP default beta lookback controls', () => {
+  const modelsSrc = fs.readFileSync(path.join(__dirname, '..', 'fmp_models.js'), 'utf8');
+  assert.match(modelsSrc, /id="fmp-beta-lookback-panel"/);
+  assert.match(modelsSrc, /id="fmp-beta-row-lookback"/);
+  assert.match(modelsSrc, /data-beta-lookback-select/);
+  assert.match(modelsSrc, /betaProvenanceText/);
+  assert.match(modelsSrc, /1y OLS|1 年 OLS/);
+  for (const year of ['1', '2', '3', '4', '5']) {
+    assert.match(modelsSrc, new RegExp(`\\['${year}'`));
+  }
+  const indexSrc = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
+  assert.match(indexSrc, /id="profile-beta-lookback-panel"/);
+  assert.match(indexSrc, /FmpModels\.applyBetaLookback/);
+});
