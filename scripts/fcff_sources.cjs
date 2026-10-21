@@ -1,3 +1,5 @@
+const fs = require('node:fs');
+const path = require('node:path');
 const { convertStatements, rateFor } = require('../usd_currency.js');
 const finite = value => typeof value === 'number' && Number.isFinite(value);
 const day = value => typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value)
@@ -8,6 +10,36 @@ const sum = (rows, field) => rows.length && rows.every(row => number(row, field)
   ? rows.reduce((total, row) => total + row[field], 0) : null;
 const millions = value => finite(value) ? value / 1e6 : null;
 const sorted = rows => rows.slice().sort((a, b) => a.date.localeCompare(b.date));
+
+function loadUsdTreasuryCurvePack() {
+  const file = path.join(__dirname, '..', 'cache', 'ke_history', 'treasury_usd_curve.json');
+  if (!fs.existsSync(file)) return null;
+  try {
+    const pack = JSON.parse(fs.readFileSync(file, 'utf8'));
+    return pack?.version === 1 && pack.byDate ? pack : null;
+  } catch {
+    return null;
+  }
+}
+
+/** Fill missing year1–year10 on FMP treasury rows from the dated official CMT curve (same date only). */
+function enrichTreasuryFromCurve(treasury, curvePack = loadUsdTreasuryCurvePack()) {
+  if (!treasury?.ok || !Array.isArray(treasury.rows) || !curvePack?.byDate) return treasury;
+  return {
+    ...treasury,
+    rows: treasury.rows.map(row => {
+      if (!day(row?.date)) return row;
+      const curve = curvePack.byDate[row.date];
+      if (!curve) return row;
+      const merged = { ...row };
+      for (let year = 1; year <= 10; year++) {
+        const key = `year${year}`;
+        if (!finite(merged[key]) && finite(curve[key])) merged[key] = curve[key];
+      }
+      return merged;
+    })
+  };
+}
 
 function forecastFxRate(rates, sourceCurrency, currency, valuationDate) {
   const targetDates = currency === 'USD' ? null : new Set(rates?.currencies?.[currency]?.observations?.map(row => row[0]));
@@ -229,8 +261,9 @@ function prepareSnapshot(ticker, evidence, treasury, rates, leaseEvidence, optio
   const kd = bs.totalDebt === 0 ? 0
     : averageDebt > 0 && interest > 0 ? interest / averageDebt * 100 : null;
   // HK primary default: USD Treasury (US rf / HKD peg proxy). Do not prefer a separate HKD benchmark.
-  const usedUsdTreasury = !!(treasury?.ok && Array.isArray(treasury.rows));
-  const rateSource = usedUsdTreasury ? treasury
+  const enrichedTreasury = enrichTreasuryFromCurve(treasury, options.usdTreasuryCurve);
+  const usedUsdTreasury = !!(enrichedTreasury?.ok && Array.isArray(enrichedTreasury.rows));
+  const rateSource = usedUsdTreasury ? enrichedTreasury
     : (currency === 'HKD' ? options.hkdTreasury : null);
   const curve = rateSource?.ok && Array.isArray(rateSource.rows)
     ? sorted(rateSource.rows.filter(row => day(row.date) && row.date <= valuationDate && finite(row.year10))).at(-1) : null;
@@ -364,4 +397,7 @@ function prepareSnapshot(ticker, evidence, treasury, rates, leaseEvidence, optio
   return snapshot;
 }
 
-module.exports = { prepareSnapshot, financingDebt, workingCapital, outstandingShares, forecastFxRate };
+module.exports = {
+  prepareSnapshot, financingDebt, workingCapital, outstandingShares, forecastFxRate,
+  enrichTreasuryFromCurve, loadUsdTreasuryCurvePack
+};

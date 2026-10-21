@@ -98,6 +98,33 @@ test('currency, identity, ambiguous periods, missing responses and stale scale c
   }
 });
 
+test('unverified FX with a usable spot rate soft-warns but keeps consensus rows', () => {
+  const f = fixture();
+  f.data.currencyCheck.reason = 'FMP_MODEL_CURRENCY_UNVERIFIED';
+  const result = buildAnalystSources(f.data, f.statements, f.response, f.data.capturedAt);
+  assert.equal(result.analystEstimates.reason, 'ANALYST_FX_UNVERIFIED');
+  assert.ok(result.analystEstimates.rows.length >= 1);
+  assert.equal(result.analystEstimates.fx.soft, true);
+  assert.ok(result.analystEstimates.fx.rate > 0);
+});
+
+test('recovered forecastBase year still builds actual ratios when stored base is unverified', () => {
+  const f = fixture();
+  f.data.forecastBase = { reason: 'SCENARIO_BASE_UNVERIFIED' };
+  f.data.currencyCheck = {
+    reason: 'FMP_MODEL_CURRENCY_UNVERIFIED', sourceCurrency: 'USD', sourceDate: '2025-12-31',
+    fx: { price: 7.8 }
+  };
+  // Same-currency case: reporting USD, calculation HKD would need FX; keep fixture currencies aligned.
+  f.data.currency = 'USD';
+  f.data.currencyCheck.sourceCurrency = 'USD';
+  f.data.models.advanced.data[0].revenue = 100;
+  const result = buildAnalystSources(f.data, f.statements, f.response, f.data.capturedAt);
+  assert.ok(result.forecastActuals.latest);
+  assert.equal(result.forecastActuals.latest.year, 2025);
+  assert.ok(result.analystEstimates.rows.length >= 1);
+});
+
 test('five-year NWC averages require all five annual cash changes; missing latest CapEx is not replaced by an older year', () => {
   const f = fixture();
   delete f.statements.annual.cashflow[0].changeInWorkingCapital;
