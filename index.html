@@ -3733,9 +3733,16 @@
     if (total === null) {
       grade = evaluated.length ? (isEn ? 'Partial assessment' : '部分評分') : (isEn ? 'Unavailable' : '尚無評分');
       badgeClass = '';
+      const missingStatements = Array.isArray(s?.qualityWarnings)
+        && s.qualityWarnings.some(row => row?.code === 'providerStatementUnavailable');
       overallComment = `${coverage}. ${isEn
         ? 'Unknown dimensions are not zero or a complete /100 score; no overall moat grade is assigned.'
-        : '未知維度不作零分，也不換算為完整百分制；不給予整體護城河等級。'} ${overallComment}`;
+        : '未知維度不作零分，也不換算為完整百分制；不給予整體護城河等級。'}${
+        missingStatements
+          ? (isEn
+            ? ' Provider financial statements are unavailable for this listing, so capital-return and capital-allocation dimensions stay unscored until statements are captured.'
+            : ' 供應商尚未提供此上市股份的財報，故資本回報與資本配置等維度在財報補齊前維持未評分。')
+          : ''} ${overallComment}`;
       if (globalThis.HKEX_EXPANSION?.moatProgress?.pending?.[sym]) {
         overallComment = (isEn
           ? 'Reassessment or result import is not finished. Unknown scores and comments are not filled in. '
@@ -3964,6 +3971,9 @@
         ? 'Quoted price / (reported parent equity / verified ordinary shares). Preferred equity is not separately deducted.'
         : '報價 ÷（報告母公司股東權益 ÷ 已核實流通普通股）；未另扣優先股權益。')
       : source.basis === 'reportedDilutedTtmEps' ? (en ? 'Reported diluted TTM EPS; half-year EPS is never added.' : '採實報稀釋 TTM 每股盈利，不加總半年 EPS。')
+        : source.basis === 'ttmCommonEarningsOverMarketCap' ? (en
+          ? 'Quoted market capitalization / TTM earnings attributable to common shares; used when issuer-wide ordinary share classes are not yet verified.'
+          : '報價市值 ÷ TTM 普通股應佔盈利；用於全公司普通股股數尚未核實時。')
         : (en ? 'TTM earnings attributable to common shares / current verified ordinary shares; not reported diluted EPS or an addition of half-year EPS.'
           : 'TTM 普通股盈利 ÷ 現時已核實流通普通股；並非實報稀釋 EPS，亦非加總半年 EPS。');
     return [basis, source.reportType === 'secondInterim' && (en
@@ -4089,7 +4099,9 @@
         fmp_dcf: fmpDcf, fmp_levered: fmpLevered,
         fmp_dcf_upside: FmpModels.priceDifference(fmpDcf, s.price),
         fmp_levered_upside: FmpModels.priceDifference(fmpLevered, s.price),
-        fcf_to_equity: FcfRatios.storedTtmFcfToEquity(s.statements_raw, s.currencyConversion?.reason),
+        fcf_to_equity: Number.isFinite(s.fcf_to_equity)
+          ? s.fcf_to_equity
+          : FcfRatios.storedTtmFcfToEquity(s.statements_raw, s.currencyConversion?.reason),
         isSaved, isFav, target_price, target_spread, moat_score,
         liquidationResult,
         liq_val_1: liquidationValues[0],

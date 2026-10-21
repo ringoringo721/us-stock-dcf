@@ -8,6 +8,7 @@ const { listingStock, belowMoatMarketCap } = require('../hkex_universe.js');
 const { compileStock, prepareStatements, statementTable, scoreBreakdown, hash, priceHistory } = require('./build_hkex.cjs');
 const { convertStatements } = require('../usd_currency.js');
 const scores = require('../statement_scores.js');
+const ratios = require('../fcf_ratios.js');
 const rates = require('../cache/fx/hkd_rates.json');
 const read = file => JSON.parse(fs.readFileSync(file, 'utf8'));
 function write(directory, file, data, prefix = '') {
@@ -270,6 +271,10 @@ function integrate(input, output = root) {
         write(output, fx.path, capturedRates);
       }
       const compact = { ...record.stock };
+      if (!Number.isFinite(compact.fcf_to_equity)) {
+        compact.fcf_to_equity = ratios.storedTtmFcfToEquity(record.stock.statements_raw,
+          record.stock.currencyConversion?.reason);
+      }
       for (const key of ['statements_raw', 'real_history', 'news', 'top_holders', 'insider_trades', 'stock_splits',
         'historical_dcf_series', 'real_5y_prices', 'description', 'description_en', 'description_zh', 'reported_growth']) delete compact[key];
       compact.f_score_breakdown = [];
