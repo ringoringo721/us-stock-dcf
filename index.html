@@ -1221,6 +1221,7 @@
         <div class="stat-label" data-i18n="det_label_fair">每股合理內在價值 (公允價值 / 自訂目標)</div>
         <div class="stat-num text-green" id="det-res-fair">$0.00</div>
         <div style="font-size: 11px; color: var(--text-muted);" id="det-res-status">--</div>
+        <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;" id="det-res-confidence" data-level="">--</div>
       </div>
       <div class="stat-box">
         <div class="stat-label" data-i18n="det_label_price">當前市價 vs 溢價幅度</div>
@@ -6142,6 +6143,12 @@
       }
       document.getElementById('det-badge').className = 'badge';
       document.getElementById('det-res-status').innerText = I18N_DICT[currentLang].currency_missing;
+      const confidenceEl = document.getElementById('det-res-confidence');
+      if (confidenceEl) {
+        const confidence = FmpModels.valuationConfidence({ stock: s, result: { fairVal: null, reason: 'VALUATION_UNAVAILABLE' } });
+        confidenceEl.textContent = FmpModels.confidenceText(confidence, currentLang);
+        confidenceEl.dataset.level = confidence.level;
+      }
       return;
     }
 
@@ -6185,6 +6192,16 @@
     document.getElementById('det-res-ev').innerText = Number.isFinite(dcf.EV) ? `${moneyPrefix()}${dcf.EV.toLocaleString(undefined, {maximumFractionDigits: 0})} M` : 'N/A';
     document.getElementById('det-res-evebitda').innerText = `${Number(dcf.ev_to_ebitda).toFixed(1)}x`;
     document.getElementById('det-res-nde').innerText = `${Number(dcf.net_debt_to_ebitda).toFixed(2)}x`;
+
+    const confidenceEl = document.getElementById('det-res-confidence');
+    if (confidenceEl) {
+      const confidence = FmpModels.valuationConfidence({
+        stock: s,
+        result: { fairVal: dcf.fairVal, reason: dcf.reason || null }
+      });
+      confidenceEl.textContent = FmpModels.confidenceText(confidence, currentLang);
+      confidenceEl.dataset.level = confidence.level;
+    }
 
     if (!isFin) {
       renderDCFTable(dcf.growth, dcf.fcfList, dcf.dfList, dcf.pvList);

@@ -170,7 +170,7 @@
       providerYears: [], analystYears: years.filter(row => row.consensusDate).map(row => row.year),
       analystReason: validSource ? null : consensus?.reason || 'ANALYST_SOURCE_UNAVAILABLE',
       actualRatioDate: latest?.date || null, workingCapitalYears: actuals?.workingCapitalYears || [],
-      warnings, netDebt: opening.netDebt, terminalGrowth: null, years };
+      warnings, netDebt: opening.netDebt, terminalGrowth: null, exitMultiple: null, years };
   }
 
   function missingInputs(scenario) {
@@ -183,6 +183,26 @@
       }
     }
     return missing;
+  }
+
+  function exitMultipleTerminal(scenario, last, presentFlows) {
+    const empty = reason => ({ method: 'exit-multiple', available: false, reason,
+      exitMultiple: finite(scenario.exitMultiple) ? scenario.exitMultiple : null,
+      terminalValue: null, presentTerminalValue: null, enterpriseValue: null, equityValue: null, targetPrice: null });
+    if (scenario.kind !== 'advanced') return empty('EXIT_MULTIPLE_ADVANCED_ONLY');
+    if (!finite(scenario.exitMultiple)) return empty('EXIT_MULTIPLE_UNAVAILABLE');
+    if (!(scenario.exitMultiple > 0 && scenario.exitMultiple <= 500)) return empty('EXIT_MULTIPLE_INVALID');
+    if (!(last.ebitda > 0)) return empty('EXIT_MULTIPLE_NONPOSITIVE_EBITDA');
+    const terminalValue = last.ebitda * scenario.exitMultiple;
+    const presentTerminalValue = terminalValue / last.discount;
+    const enterpriseValue = presentFlows + presentTerminalValue;
+    const equityValue = enterpriseValue - scenario.netDebt;
+    const targetPrice = equityValue / scenario.shares;
+    if (![enterpriseValue, equityValue, targetPrice, presentTerminalValue].every(finite)) {
+      return empty('EXIT_MULTIPLE_NONFINITE_RESULT');
+    }
+    return { method: 'exit-multiple', available: true, reason: null, exitMultiple: scenario.exitMultiple,
+      terminalValue, presentTerminalValue, enterpriseValue, equityValue, targetPrice };
   }
 
   function upgradeWorkingCapital(scenario) {
@@ -276,8 +296,13 @@
     const warnings = [];
     if (last.cashFlow <= 0) warnings.push('NONPOSITIVE_TERMINAL_CASH_FLOW');
     if (equityValue < 0) warnings.push('NEGATIVE_EQUITY_VALUE');
+    const gordon = { method: 'gordon', available: true, reason: null, terminalGrowth: scenario.terminalGrowth,
+      terminalValue, presentTerminalValue, enterpriseValue, equityValue, targetPrice };
+    const exit = exitMultipleTerminal(scenario, last, presentFlows);
+    if (exit.available && exit.equityValue < 0) warnings.push('NEGATIVE_EXIT_MULTIPLE_EQUITY_VALUE');
     return { targetPrice, enterpriseValue, equityValue, terminalValue, presentTerminalValue, presentFlows, warnings,
-      netDebt: scenario.netDebt, wacc: last.wacc, g: scenario.terminalGrowth, rows };
+      netDebt: scenario.netDebt, wacc: last.wacc, g: scenario.terminalGrowth, rows,
+      terminalMethod: 'gordon', terminals: { gordon, exitMultiple: exit } };
   }
 
   function actualReference(data, statements, base = data?.forecastBase) {
@@ -389,9 +414,9 @@
     capm: 'Editing rf, beta or erp updates ke = rf+beta*erp; direct ke overrides are respected.',
     wacc: 'WACC[t] = ke[t]/100*(1-debtWeight[t]/100)+kd[t]/100*(1-tax[t]/100)*debtWeight[t]/100',
     discount: 'Discount[t] = PRODUCT(1+WACC[1], ..., 1+WACC[t]); PV[t] = CashFlow[t]/Discount[t]. End-of-year convention; no stub-year adjustment.',
-    terminal: 'TV = CashFlow[10]*(1+terminalGrowth/100)/(WACC[10]-terminalGrowth/100); PVTV = TV/Discount[10]. Requires WACC[10] > terminalGrowth/100.',
-    bridge: 'EV = SUM(PV[1:10])+PVTV; Equity = EV-netDebt; Target = Equity/issuedShares. Snapshot net debt subtracted once; projected cash is disclosure only.',
+    terminal: 'Primary Gordon TV = CashFlow[10]*(1+terminalGrowth/100)/(WACC[10]-terminalGrowth/100); PVTV = TV/Discount[10]. Requires WACC[10] > terminalGrowth/100. Alternate Advanced exit-multiple TV = EBITDA[10]*exitMultiple when exitMultiple is supplied; missing/invalid multiples stay N/A and do not invent a default.',
+    bridge: 'EV = SUM(PV[1:10])+PVTV; Equity = EV-netDebt; Target = Equity/issuedShares. Snapshot net debt subtracted once; projected cash is disclosure only. Primary targetPrice uses Gordon; exit-multiple EV/equity/per-share are reported beside it when available.',
     native: 'Native API internals are not independently reproduced. Site native target = returned equityValue/verified issued common shares. Returned equityValuePerShare and dilutedSharesOutstanding are preserved separately. Reconciliation residuals are checks, not replacements for vendor outputs.'
   };
-  return { fields, activeFields, fullAnnualPeriod, verifiedIncomeDocument, baseSource, verifiedRevenueCorrection, defaults, update, calculate, actualReference, missingInputs, upgradeWorkingCapital, formulas };
+  return { fields, activeFields, fullAnnualPeriod, verifiedIncomeDocument, baseSource, verifiedRevenueCorrection, defaults, update, calculate, actualReference, missingInputs, upgradeWorkingCapital, exitMultipleTerminal, formulas };
 });

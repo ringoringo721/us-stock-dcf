@@ -294,3 +294,41 @@ test('all supported company/model pairs create ten sourced fiscal-year projectio
   assert.equal(count, eligibleModels, 'Every currently source-verified native model supports the corresponding scenario; unsupported coverage is not filled');
   assert.ok(count >= 546, 'The industry extension does not remove existing source-supported scenarios');
 });
+
+test('advanced dual terminal keeps Gordon primary and reports exit-multiple beside it without inventing a multiple', () => {
+  const input = flat();
+  const missing = Scenario.calculate(input);
+  assert.equal(missing.terminalMethod, 'gordon');
+  near(missing.targetPrice, missing.terminals.gordon.targetPrice);
+  assert.equal(missing.terminals.exitMultiple.available, false);
+  assert.equal(missing.terminals.exitMultiple.reason, 'EXIT_MULTIPLE_UNAVAILABLE');
+  input.exitMultiple = 10;
+  const dual = Scenario.calculate(input);
+  near(dual.targetPrice, missing.targetPrice);
+  near(dual.terminals.gordon.enterpriseValue, missing.enterpriseValue);
+  assert.equal(dual.terminals.exitMultiple.available, true);
+  near(dual.terminals.exitMultiple.terminalValue, 300);
+  near(dual.terminals.exitMultiple.targetPrice, dual.terminals.exitMultiple.equityValue / input.shares);
+  assert.ok(Math.abs(dual.terminals.exitMultiple.targetPrice - dual.targetPrice) > 1e-6);
+  input.exitMultiple = 0;
+  assert.equal(Scenario.calculate(input).terminals.exitMultiple.reason, 'EXIT_MULTIPLE_INVALID');
+  input.exitMultiple = 10;
+  input.years.forEach(year => { year.values.ebitda = 0; year.values.ebit = -5; year.values.da = 5; });
+  assert.equal(Scenario.calculate(input).terminals.exitMultiple.reason, 'EXIT_MULTIPLE_NONPOSITIVE_EBITDA');
+});
+
+test('levered scenarios never invent an EBITDA exit-multiple terminal', () => {
+  const input = flat('customLevered');
+  input.exitMultiple = 12;
+  const result = Scenario.calculate(input);
+  assert.equal(result.terminals.exitMultiple.available, false);
+  assert.equal(result.terminals.exitMultiple.reason, 'EXIT_MULTIPLE_ADVANCED_ONLY');
+  near(result.targetPrice, result.terminals.gordon.targetPrice);
+});
+
+test('new scenario defaults expose a null exitMultiple override slot', () => {
+  const data = read('AAPL');
+  const scenario = Scenario.defaults(data, 'advanced', 1000);
+  assert.equal(scenario.exitMultiple, null);
+  assert.equal(scenario.terminalGrowth, null);
+});

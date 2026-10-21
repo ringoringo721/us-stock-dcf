@@ -101,9 +101,56 @@
       FMP_OFFICIAL_REVENUE_SOURCE_UNVERIFIED: ['官方營收修正與供應商金額未能核對，暫不套用模型。', 'Official revenue correction could not be reconciled with provider amounts; the model is not applied.'],
       FMP_ISSUED_SHARES_UNAVAILABLE: ['缺少已核實的普通股股數；不以稀釋加權平均股數代替。', 'Verified issued common shares are missing; diluted weighted-average shares are not substituted.'],
       FMP_INVALID_TERMINAL_SPREAD: ['FMP 預設 WACC 不高於終值增長率；請調整並重新計算，不採無效終值。', 'FMP default WACC does not exceed terminal growth; adjust and recalculate rather than use an invalid terminal value.'],
-      FMP_SOURCE_UNAVAILABLE: ['尚無此股票的 FMP 模型來源。', 'The FMP model source is unavailable for this security.']
+      FMP_SOURCE_UNAVAILABLE: ['尚無此股票的 FMP 模型來源。', 'The FMP model source is unavailable for this security.'],
+      EXIT_MULTIPLE_UNAVAILABLE: ['未提供出場倍數；不套用現價 EV/EBITDA 作為終值倍數。', 'No exit multiple was provided; current trading EV/EBITDA is not used as a terminal multiple.'],
+      EXIT_MULTIPLE_ADVANCED_ONLY: ['出場倍數終值僅適用 Advanced（EBITDA／FCFF）情境。', 'Exit-multiple terminal value applies only to Advanced (EBITDA / FCFF) scenarios.'],
+      EXIT_MULTIPLE_INVALID: ['出場倍數須為大於 0 且不超過 500 的數字。', 'Exit multiple must be a number greater than 0 and at most 500.'],
+      EXIT_MULTIPLE_NONPOSITIVE_EBITDA: ['第十年 EBITDA 非正數，無法計算出場倍數終值。', 'Year-ten EBITDA is nonpositive; an exit-multiple terminal cannot be calculated.'],
+      EXIT_MULTIPLE_NONFINITE_RESULT: ['出場倍數終值結果非有限數。', 'Exit-multiple terminal result is nonfinite.'],
+      FINANCIAL_INSTITUTION: ['金融機構使用超額有形股本／DDM 面板，不套用企業 FCFF 信心標籤。', 'Financial institutions use the tangible-equity / DDM panel; corporate FCFF confidence does not apply.'],
+      SEGMENT_VALUATION: ['須分部估值，單一企業內在價值信心標為不可用。', 'Segment valuation is required; single-corporate intrinsic confidence is unavailable.'],
+      SHARE_BASIS: ['普通股股數未核實。', 'Issued common share basis is unverified.'],
+      TERMINAL_SPREAD: ['終值利差無效（WACC 不高於終值增長率）。', 'Terminal spread is invalid (WACC does not exceed terminal growth).'],
+      INCOMPLETE_SCENARIO: ['十年情境假設未齊備。', 'Ten-year scenario assumptions are incomplete.'],
+      MISSING_STATEMENTS: ['實際財報參考未能載入。', 'Actual financial-statement references could not be loaded.'],
+      VALUATION_UNAVAILABLE: ['目前沒有可用的內在價值結果。', 'No usable intrinsic-value result is available.'],
+      OFFICIAL_CORRECTION_REVIEW: ['官方財報已更正或需審閱口徑差異；信心降為中。', 'Official statement corrections or basis differences require review; confidence is medium.']
     };
     return messages[reason]?.[language === 'en' ? 1 : 0] || reason || '';
+  }
+
+  function valuationConfidence({ stock, result, scenario = null, mode = 'vendor', statementsMissing = false }) {
+    const pushUnique = (list, code) => { if (code && !list.includes(code)) list.push(code); };
+    const pack = (level, reasons) => ({ level, reasons,
+      label: { high: ['高', 'High'], medium: ['中', 'Medium'], low: ['低', 'Low'], unavailable: ['不可用', 'Unavailable'] }[level] });
+    if (stock?.fin_valuation?.is_financial === true) return pack('unavailable', ['FINANCIAL_INSTITUTION']);
+    if (stock?.corporateDcfApplicability === 'requiresSegmentValuation') return pack('unavailable', ['SEGMENT_VALUATION']);
+    if (issuedShares(stock) === null) return pack('unavailable', ['SHARE_BASIS']);
+    const reason = result?.reason || null;
+    if (reason === 'FMP_INVALID_TERMINAL_SPREAD' || reason === 'SCENARIO_INVALID_TERMINAL_SPREAD') {
+      return pack('unavailable', ['TERMINAL_SPREAD']);
+    }
+    const incomplete = reason === 'SCENARIO_INCOMPLETE_ASSUMPTIONS'
+      || (mode === 'ten-year' && scenario && Scenario.missingInputs(scenario).length > 0);
+    if (incomplete) return pack('low', ['INCOMPLETE_SCENARIO']);
+    if (!finite(result?.fairVal)) return pack('unavailable', [reason || 'VALUATION_UNAVAILABLE']);
+    const soft = [];
+    if (statementsMissing) pushUnique(soft, 'MISSING_STATEMENTS');
+    if (soft.includes('MISSING_STATEMENTS')) return pack('low', soft);
+    if (soft.length || stock.balanceClassificationSource || stock.cashflowProvenance || stock.revenueProvenance
+        || (result?.result?.warnings || []).length) {
+      return pack('medium', soft.length ? soft : ['OFFICIAL_CORRECTION_REVIEW']);
+    }
+    return pack('high', []);
+  }
+
+  function confidenceText(confidence, language) {
+    if (!confidence) return '';
+    const en = language === 'en';
+    const label = confidence.label?.[en ? 1 : 0] || confidence.level;
+    const title = en ? 'Intrinsic-value confidence' : '內在價值信心';
+    const detail = (confidence.reasons || []).map(code => reasonText(code, language)).filter(Boolean).join(en ? '; ' : '；');
+    return detail ? `${title}: ${label} — ${detail}` : `${title}: ${label}`;
   }
   function load(options) {
     const previous = state?.ticker === options.ticker ? state : null;
@@ -130,6 +177,9 @@
     try {
       if (!state.scenarios[state.kind]) state.scenarios[state.kind] = Scenario.defaults(state.sourceData, state.kind, issuedShares(state.stock));
       state.scenarios[state.kind] = Scenario.upgradeWorkingCapital(state.scenarios[state.kind]);
+      if (!Object.prototype.hasOwnProperty.call(state.scenarios[state.kind], 'exitMultiple')) {
+        state.scenarios[state.kind].exitMultiple = null;
+      }
       const scenario = state.scenarios[state.kind], result = Scenario.calculate(scenario);
       if (scenario.symbol !== state.ticker || scenario.currency !== (state.stock.calculationCurrency || 'USD')
           || scenario.shares !== issuedShares(state.stock)) throw new Error('SCENARIO_SOURCE_UNAVAILABLE');
@@ -249,9 +299,12 @@
       </tbody></table></div>
       <div class="fin-model-grid"><div class="form-group"><label for="fmp-terminal-growth">${text('第十年後終值增長率 (%)', 'Terminal growth after year ten (%)')}</label>
       <input id="fmp-terminal-growth" type="number" required step="any" min="-10" max="20" placeholder="N/A" title="${escape(scenario.terminalGrowth ?? '')}" value="${inputValue('terminalGrowth', scenario.terminalGrowth)}"></div>
+      <div class="form-group"><label for="fmp-exit-multiple">${text('出場倍數終值 EV/EBITDA（可覆寫）', 'Exit-multiple terminal EV/EBITDA (optional override)')}</label>
+      <input id="fmp-exit-multiple" type="number" step="any" min="0" max="500" placeholder="N/A" title="${escape(scenario.exitMultiple ?? '')}" value="${inputValue('exitMultiple', scenario.exitMultiple)}">
+      <small>${text('不自動帶入現價倍數', 'Current trading multiple is not auto-filled')}: ${finite(state.stock.ev_to_ebitda) ? `${Number(state.stock.ev_to_ebitda).toFixed(2)}x` : 'N/A'}</small></div>
       <div class="form-group"><label for="fmp-snapshot-net-debt">${text('來源快照淨債務（可調整）', 'Snapshot net debt (editable)')} · ${escape(scenario.currency)}</label>
       <input id="fmp-snapshot-net-debt" type="number" required step="any" value="${scenario.netDebt}"></div></div>
-      <p class="analysis-note">${text('調整終值增長率不會悄悄改寫已填好的十年增長率；需要時請逐年修改。', 'Changing terminal growth does not silently overwrite the ten populated annual growth inputs; edit those years explicitly if needed.')}</p>
+      <p class="analysis-note">${text('調整終值增長率不會悄悄改寫已填好的十年增長率；需要時請逐年修改。出場倍數留空則該終值列為 N/A，不會用現價 EV/EBITDA 充當終值倍數。', 'Changing terminal growth does not silently overwrite the ten populated annual growth inputs; edit those years explicitly if needed. Leaving the exit multiple blank keeps that terminal N/A; current trading EV/EBITDA is not used as a terminal multiple.')}</p>
       <button id="fmp-calculate" type="button" class="btn-save">${text('計算十年情境', 'Calculate ten-year scenario')}</button>
       <p id="fmp-status" role="status">${escape(result.reason ? reasonText(result.reason, state.language())
         : text('本站十年情境；不是 FMP 原始結果。可按「儲存目標價」一次計算並儲存。', 'Site-calculated ten-year scenario, not an FMP API result. Save target calculates and saves in one step.'))}</p>
@@ -264,8 +317,38 @@
       ${(result.result?.rows || []).map(row => `<tr><th>${row.year}</th><td>${money(row.revenue)}</td><td>${money(state.kind === 'advanced' ? row.ebitda : row.cfo)}</td><td>${money(row.capex)}</td>
         ${state.kind === 'advanced' ? `<td>${money(row.changeNwc)}</td>` : ''}
         <td>${money(row.cashFlow)}</td><td>${(row.wacc * 100).toFixed(2)}%</td><td>${money(row.pv)}</td></tr>`).join('')}</tbody></table></div>
-      <p class="analysis-note">${text('現金流現值合計／終值現值／EV／淨債務／股權價值', 'PV cash flows / PV terminal / EV / net debt / equity')}: ${[
-        result.result?.presentFlows, result.row?.presentTerminalValue, result.row?.enterpriseValue, scenario.netDebt, result.row?.equityValue].map(money).join(' / ')}</p>`;
+      <p class="analysis-note">${text('現金流現值合計／Gordon 終值現值／EV／淨債務／股權價值（主結果採 Gordon）', 'PV cash flows / Gordon PV terminal / EV / net debt / equity (primary uses Gordon)')}: ${[
+        result.result?.presentFlows, result.row?.presentTerminalValue, result.row?.enterpriseValue, scenario.netDebt, result.row?.equityValue].map(money).join(' / ')}</p>
+      ${dualTerminalHtml(text, money, result, scenario)}`;
+  }
+
+  function dualTerminalHtml(text, money, result, scenario) {
+    const terminals = result.result?.terminals;
+    if (!terminals) return '';
+    const gordon = terminals.gordon;
+    const exit = terminals.exitMultiple;
+    const row = (label, gVal, eVal) => `<tr><th>${escape(label)}</th><td>${gVal}</td><td>${eVal}</td></tr>`;
+    const exitCell = (value, formatter = money) => exit?.available ? formatter(value) : 'N/A';
+    const perShare = value => finite(value) ? money(value) : 'N/A';
+    return `<section id="fmp-dual-terminal"><h4>${text('雙終值比較（Gordon 為主結果）', 'Dual terminal comparison (Gordon is primary)')}</h4>
+      <div class="table-scroll-wrapper"><table id="fmp-dual-terminal-results"><thead><tr>
+        <th>${text('項目', 'Item')}</th><th>${text('Gordon 永續增長', 'Gordon growth')}</th>
+        <th>${text('出場倍數', 'Exit multiple')}</th></tr></thead><tbody>
+        ${row(text('終值方法輸入', 'Terminal input'),
+          finite(gordon?.terminalGrowth) ? `${Number(gordon.terminalGrowth).toFixed(2)}%` : 'N/A',
+          exit?.available ? `${Number(exit.exitMultiple).toFixed(2)}x` : 'N/A')}
+        ${row(text('終值', 'Terminal value'), money(gordon?.terminalValue), exitCell(exit?.terminalValue))}
+        ${row(text('終值現值', 'PV of terminal'), money(gordon?.presentTerminalValue), exitCell(exit?.presentTerminalValue))}
+        ${row(text('企業價值 EV', 'Enterprise value'), money(gordon?.enterpriseValue), exitCell(exit?.enterpriseValue))}
+        ${row(text('股權價值', 'Equity value'), money(gordon?.equityValue), exitCell(exit?.equityValue))}
+        ${row(text('每股目標', 'Per-share target'), perShare(gordon?.targetPrice), exit?.available ? perShare(exit.targetPrice) : 'N/A')}
+      </tbody></table></div>
+      <p class="analysis-note" id="fmp-exit-multiple-status">${exit?.available
+        ? text(`出場倍數 ${Number(exit.exitMultiple).toFixed(2)}x 已計算；主結果仍採 Gordon。`, `Exit multiple ${Number(exit.exitMultiple).toFixed(2)}x calculated; primary result remains Gordon.`)
+        : `${text('出場倍數終值', 'Exit-multiple terminal')}: N/A — ${escape(reasonText(exit?.reason || 'EXIT_MULTIPLE_UNAVAILABLE', state.language()))}${
+          scenario.kind === 'advanced' && finite(state.stock.ev_to_ebitda)
+            ? ` (${text('現價 EV/EBITDA 僅供參考', 'current EV/EBITDA for reference only')}: ${Number(state.stock.ev_to_ebitda).toFixed(2)}x)`
+            : ''}`}</p></section>`;
   }
 
   function sourceReviewHtml(text) {
@@ -334,6 +417,15 @@
     badge.textContent = finite(premium) ? `${premium >= 0 ? '+' : ''}${premium.toFixed(1)}%` : 'N/A';
     set('det-res-evebitda', finite(stock.ev_to_ebitda) ? stock.ev_to_ebitda.toFixed(2) : 'N/A');
     set('det-res-nde', finite(stock.net_debt_to_ebitda) ? stock.net_debt_to_ebitda.toFixed(2) : 'N/A');
+    const confidence = valuationConfidence({
+      stock, result, scenario: local ? state.scenarios[kind] : null, mode: state.mode,
+      statementsMissing: local && !state.actualStatements && !!state.actualError
+    });
+    const confidenceEl = root.document.getElementById('det-res-confidence');
+    if (confidenceEl) {
+      confidenceEl.textContent = confidenceText(confidence, state.language());
+      confidenceEl.dataset.level = confidence.level;
+    }
     root.document.querySelector('[onclick="saveCustomModel()"]').disabled = !!state.busy
       || result.fairVal === null && !(local ? state.scenarioDirty[kind] : state.dirty[kind]);
     box.innerHTML = `<div class="panel">
@@ -427,7 +519,7 @@
       input.value = inputValue(input.dataset.scenarioKey,
         state.scenarios[kind].years[Number(input.dataset.scenarioYear)].values[input.dataset.scenarioKey]);
     }));
-    for (const [id, key] of [['fmp-terminal-growth', 'terminalGrowth'], ['fmp-snapshot-net-debt', 'netDebt']]) {
+    for (const [id, key] of [['fmp-terminal-growth', 'terminalGrowth'], ['fmp-exit-multiple', 'exitMultiple'], ['fmp-snapshot-net-debt', 'netDebt']]) {
       box.querySelector(`#${id}`)?.addEventListener('input', event => {
         state.scenarios[kind][key] = event.target.value.trim() ? event.target.valueAsNumber : null;
         event.target.title = String(state.scenarios[kind][key] ?? '');
@@ -436,6 +528,9 @@
     }
     box.querySelector('#fmp-terminal-growth')?.addEventListener('blur', event => {
       event.target.value = inputValue('terminalGrowth', state.scenarios[kind].terminalGrowth);
+    });
+    box.querySelector('#fmp-exit-multiple')?.addEventListener('blur', event => {
+      event.target.value = inputValue('exitMultiple', state.scenarios[kind].exitMultiple);
     });
     box.querySelector('#fmp-calculate')?.addEventListener('click', calculate);
     box.querySelector('#fmp-download-audit').addEventListener('click', downloadAudit);
@@ -611,5 +706,6 @@
     }
   }
   return { record, value, issuedShares, reference, dcfApplicable, priceDifference, compatible, load, save, reset, details, detailsError, reasonText, actuals, auditPacket,
+    valuationConfidence, confidenceText,
     deactivate: () => { state = null; }, rerender: () => { if (state) render(); } };
 });

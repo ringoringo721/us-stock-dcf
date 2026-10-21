@@ -95,3 +95,57 @@ test('Source identity, currency, issued shares and terminal-spread failures neve
   invalid.currencyCheck.reason = 'FMP_MODEL_CURRENCY_UNVERIFIED';
   assert.equal(Models.value(invalid, 'advanced', stock).reason, 'FMP_MODEL_CURRENCY_UNVERIFIED');
 });
+
+test('Intrinsic confidence uses existing completeness signals without inventing coverage', () => {
+  const stock = { ...market.AAPL, ticker: 'AAPL' };
+  const available = Models.value(records.AAPL, 'advanced', stock);
+  assert.equal(Models.valuationConfidence({ stock, result: available }).level, 'high');
+  assert.match(Models.confidenceText(Models.valuationConfidence({ stock, result: available }), 'zh'), /信心.*高/);
+  assert.match(Models.confidenceText(Models.valuationConfidence({ stock, result: available }), 'en'), /confidence: High/i);
+
+  assert.equal(Models.valuationConfidence({
+    stock: { ...market.JPM, ticker: 'JPM' }, result: { fairVal: 100 }
+  }).level, 'unavailable');
+  assert.deepEqual(Models.valuationConfidence({
+    stock: { ...market.JPM, ticker: 'JPM' }, result: { fairVal: 100 }
+  }).reasons, ['FINANCIAL_INSTITUTION']);
+
+  const segment = Object.entries(market).find(([, row]) => row.corporateDcfApplicability === 'requiresSegmentValuation');
+  assert.ok(segment, 'fixture includes a segment-required name');
+  assert.equal(Models.valuationConfidence({
+    stock: { ...segment[1], ticker: segment[0] }, result: { fairVal: null, reason: 'FMP_SEGMENT_VALUATION_REQUIRED' }
+  }).level, 'unavailable');
+
+  assert.equal(Models.valuationConfidence({
+    stock: { ...stock, shares_outstanding: null, shareSource: { reason: 'unverified' } },
+    result: { fairVal: null, reason: 'FMP_ISSUED_SHARES_UNAVAILABLE' }
+  }).reasons[0], 'SHARE_BASIS');
+
+  assert.equal(Models.valuationConfidence({
+    stock, result: { fairVal: null, reason: 'FMP_INVALID_TERMINAL_SPREAD' }
+  }).reasons[0], 'TERMINAL_SPREAD');
+
+  assert.equal(Models.valuationConfidence({
+    stock, result: { fairVal: null, reason: 'SCENARIO_INCOMPLETE_ASSUMPTIONS' },
+    mode: 'ten-year', scenario: { terminalGrowth: null, years: [] }
+  }).level, 'low');
+
+  assert.equal(Models.valuationConfidence({
+    stock, result: available, mode: 'ten-year', statementsMissing: true
+  }).level, 'low');
+
+  const corrected = Models.valuationConfidence({
+    stock: { ...stock, revenueProvenance: { symbol: 'AAPL' } }, result: available
+  });
+  assert.equal(corrected.level, 'medium');
+});
+
+test('Detail and ten-year UI expose confidence and dual-terminal hooks', () => {
+  const html = fs.readFileSync('index.html', 'utf8');
+  const models = fs.readFileSync('fmp_models.js', 'utf8');
+  assert.match(html, /id="det-res-confidence"/);
+  assert.match(models, /id="fmp-exit-multiple"/);
+  assert.match(models, /id="fmp-dual-terminal"/);
+  assert.match(models, /function valuationConfidence/);
+  assert.match(models, /EXIT_MULTIPLE_UNAVAILABLE/);
+});
