@@ -147,12 +147,16 @@ test('FmpModels.applyBetaLookback writes the same OLS β into every scenario yea
     }))
   };
   const ols = 1.1635;
-  for (let i = 0; i < 10; i++) Scenario.update(scenario, i, 'beta', ols);
+  for (let i = 0; i < 10; i++) {
+    Scenario.update(scenario, i, 'beta', ols);
+    scenario.years[i].origins.beta = 'ols-5y';
+  }
   scenario.years.forEach(year => {
     near(year.values.beta, ols, 1e-12);
     near(year.values.ke, 4.3 + ols * 4.75, 1e-9);
     assert.equal(year.origins.ke, 'capm');
-    assert.equal(year.origins.beta, 'user');
+    assert.equal(year.origins.beta, 'ols-5y');
+    assert.equal(Number(year.values.beta).toFixed(2), '1.16');
   });
 });
 

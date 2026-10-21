@@ -197,8 +197,11 @@
           ? latest.beta
           : (pref && pref !== Beta?.PROVIDER && finite(state.stock?.beta) ? state.stock.beta : null);
         if (finite(ols)) {
+          const years = Number(pref);
+          const origin = [1, 2, 3, 4, 5].includes(years) ? `ols-${years}y` : 'user';
           for (let index = 0; index < state.scenarios[state.kind].years.length; index++) {
             Scenario.update(state.scenarios[state.kind], index, 'beta', ols);
+            state.scenarios[state.kind].years[index].origins.beta = origin;
           }
           state.scenarioDirty[state.kind] = true;
         }
@@ -220,7 +223,7 @@
     }
   }
 
-  const inputValue = (key, number) => finite(number) ? key === 'beta' ? String(number) : number.toFixed(2) : '';
+  const inputValue = (key, number) => finite(number) ? number.toFixed(2) : '';
 
   function loadPeers() {
     const Peer = root.PeerComparison;
@@ -384,6 +387,11 @@
       'retained-capital': text('維持原資本成本設定', 'Retained capital-cost setting'),
       'derived-legacy': text('舊情境等值換算', 'Equivalent legacy conversion'),
       'fmp-base-year': text('建議預設：模型基期實績比率（可改）', 'Suggested default: model base-year ratio (editable)'),
+      'ols-1y': text('1y OLS', '1y OLS'),
+      'ols-2y': text('2y OLS', '2y OLS'),
+      'ols-3y': text('3y OLS', '3y OLS'),
+      'ols-4y': text('4y OLS', '4y OLS'),
+      'ols-5y': text('5y OLS', '5y OLS'),
       unavailable: text('N/A：未提供預測', 'N/A: forecast unavailable')
     })[origin] || origin;
   }
@@ -724,7 +732,7 @@
         <label for="fmp-beta-lookback">${text('Beta 回看年期（1–5y OLS）', 'Beta lookback (1–5y OLS)')}</label>
         <select id="fmp-beta-lookback" data-beta-lookback-select aria-label="${text('Beta 回看年期', 'Beta lookback')}"
           onchange="typeof onBetaLookbackChange==='function'&&onBetaLookbackChange(event)">${betaLookbackOptionsHtml(text, selected)}</select>
-        <span class="beta-lookback-value" id="fmp-beta-lookback-value">${finite(latest?.beta) ? latest.beta.toFixed(4) : (latest?.reason ? 'N/A' : '—')}</span>
+        <span class="beta-lookback-value" id="fmp-beta-lookback-value">${finite(latest?.beta) ? latest.beta.toFixed(2) : (latest?.reason ? 'N/A' : '—')}</span>
       </div>
       <p class="analysis-note" data-beta-lookback-status role="status">${status}</p>
     </div>`;
@@ -1304,11 +1312,14 @@
       if (!root.document.getElementById('fmp-workspace').hidden) render();
     }
   }
-  function applyBetaLookback(beta) {
+  function applyBetaLookback(beta, lookbackYears = null) {
     if (!state || !finite(beta) || !state.scenarios?.[state.kind]) return false;
     const scenario = state.scenarios[state.kind];
+    const years = Number(lookbackYears);
+    const origin = [1, 2, 3, 4, 5].includes(years) ? `ols-${years}y` : 'user';
     for (let index = 0; index < scenario.years.length; index++) {
       Scenario.update(scenario, index, 'beta', beta);
+      scenario.years[index].origins.beta = origin;
     }
     state.scenarioDirty[state.kind] = true;
     if (!root.document.getElementById('fmp-workspace').hidden) render();

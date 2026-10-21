@@ -4196,7 +4196,9 @@
         : (labels.beta_label_ols || labels.lbl_beta_5y);
     }
     const betaText = Number.isFinite(result.beta)
-      ? Number(result.beta).toLocaleString(currentLang === 'en' ? 'en-US' : 'zh-TW', { maximumFractionDigits: 6 })
+      ? Number(result.beta).toLocaleString(currentLang === 'en' ? 'en-US' : 'zh-TW', {
+        minimumFractionDigits: 2, maximumFractionDigits: 2
+      })
       : 'N/A';
     if (meta) {
       meta.innerText = betaText;
@@ -4215,15 +4217,15 @@
       stock.beta = result.beta;
       const inp = document.getElementById('inp-beta');
       if (inp && (activeDetailTicker === ticker || activeCompanyTicker === ticker)) {
-        inp.value = String(Number(result.beta.toFixed(6)));
+        inp.value = result.beta.toFixed(2);
       }
       const finBeta = document.getElementById('input-fin-beta');
       if (finBeta && activeDetailTicker === ticker) {
-        finBeta.value = String(Number(result.beta.toFixed(6)));
+        finBeta.value = result.beta.toFixed(2);
         finBeta.dispatchEvent(new Event('input', { bubbles: true }));
       }
       if (typeof FmpModels !== 'undefined' && FmpModels.applyBetaLookback) {
-        FmpModels.applyBetaLookback(result.beta);
+        FmpModels.applyBetaLookback(result.beta, result.lookbackYears || result.mode);
       }
       if (stock.fin_valuation?.is_financial && typeof FinancialModels !== 'undefined') {
         stock.fin_valuation.beta = result.beta;
@@ -4276,7 +4278,7 @@
       syncBetaLookbackSelects(selectValue);
       const fmpValue = document.getElementById('fmp-beta-lookback-value');
       if (fmpValue) {
-        fmpValue.textContent = Number.isFinite(result.beta) ? result.beta.toFixed(4)
+        fmpValue.textContent = Number.isFinite(result.beta) ? result.beta.toFixed(2)
           : (result.reason ? 'N/A' : '—');
       }
       document.querySelectorAll('[data-beta-lookback-status]').forEach(node => {
