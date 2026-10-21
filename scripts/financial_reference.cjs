@@ -2,6 +2,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { financialReference } = require('../fcf_ratios.js');
 const { convertStatements } = require('../usd_currency.js');
+const FinancialModels = require('../financial_models.js');
 const rates = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'cache', 'fx', 'usd_rates.json'), 'utf8'));
 
 if (process.argv.includes('--stdin')) {
@@ -21,10 +22,11 @@ if (process.argv.includes('--stdin')) {
     fin.rote = reference.rote;
     fin.tbvps = reference.tbvps;
     fin.pb_tangible = reference.tbvps > 0 ? stock.price / reference.tbvps : null;
-    fin.excess_return_fair = reference.reason ? null
-      : reference.tbvps * (1 + (reference.rote - fin.ke) / Math.max(fin.ke - fin.g, 2));
-    stock.fair_val = fin.excess_return_fair === null ? null
-      : Number((fin.excess_return_fair * 0.55 + fin.ddm_fair * 0.45).toFixed(2));
+    const valued = FinancialModels.valueFinancial(fin, { industry: stock.industry });
+    fin.excess_return_fair = valued.excess_return_fair;
+    // Keep an independently computed DDM when payout/Ke allow (do not clear with excess failure).
+    if (valued.ddm_fair !== null) fin.ddm_fair = valued.ddm_fair;
+    stock.fair_val = valued.fair_val;
     stock.default_fair_val = stock.fair_val;
     stock.premium_pct = stock.fair_val > 0 ? (stock.price / stock.fair_val - 1) * 100 : null;
     stock.is_undervalued = stock.premium_pct === null ? null : stock.premium_pct < 0;

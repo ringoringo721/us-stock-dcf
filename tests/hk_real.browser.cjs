@@ -224,7 +224,7 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
         }
         if (tab === 'valuation' && stock.fin_valuation.is_financial) {
           assert.equal(await page.locator('#slider-fin-ke').isDisabled(), false);
-          assert.equal(await page.locator('#disp-fin-ke').innerText(), `${stock.fin_valuation.ke.toFixed(2)}%`);
+          assert.equal(await page.locator('#input-fin-ke').inputValue(), stock.fin_valuation.ke.toFixed(2));
           assert.match(await page.locator('#fin-reference-note').innerText(), /USD Treasury 10Y proxy/);
           assert.equal(stock.fin_valuation.unavailableReason, null);
           assert.match(await page.locator('#fin-shares-mode').innerText(), /Source-default shares are applied automatically/);
