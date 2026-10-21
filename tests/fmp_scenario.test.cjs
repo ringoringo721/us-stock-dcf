@@ -244,13 +244,15 @@ test('analyst values and approved actual ratios replace vendor forecasts without
   near(input.years[0].values.ebitda, consensus.ebitdaAvg / consensus.revenueAvg * 100);
   assert.equal(input.years[0].values.tax, null);
   assert.equal(input.years[0].origins.ebit, 'derived');
-  assert.equal(input.years[5].origins.growth, 'unavailable');
-  assert.equal(input.years[9].values.growth, null);
+  assert.equal(input.years[5].origins.growth, 'suggested-mature-growth',
+    'Without statements, uncovered years use mature growth default rather than inventing consensus');
+  assert.equal(input.years[9].values.growth, 2.5);
   assert.equal(input.terminalGrowth, 2.5);
   assert.equal(input.terminalGrowthOrigin, 'suggested-default');
   near(input.years[0].values.beta, provider.beta);
   near(input.years[9].values.beta, data.models.advanced.data.find(row => row.year === '2030').beta);
   assert.equal(JSON.stringify(data), before);
+  assert.ok(Scenario.missingInputs(input).some(item => item.key === 'tax'));
   assert.throws(() => Scenario.calculate(input), /INCOMPLETE_ASSUMPTIONS/);
 });
 
@@ -379,4 +381,43 @@ test('suggested terminal growth does not overwrite an existing user terminal gro
   const again = Scenario.calculate(input);
   near(again.g, 1.25);
   near(again.terminals.exitMultiple.exitMultiple, 8);
+});
+
+test('revenue growth suggestion prefers historical CAGR then peers then mature default, and blanks outliers', () => {
+  const statements = { annual: { income: [], cashflow: [] } };
+  for (let year = 2021; year <= 2025; year++) {
+    const revenue = 100 * Math.pow(1.05, year - 2021);
+    statements.annual.income.push({
+      date: `${year}-12-31`, fiscalYear: String(year), periodLength: 12, reportedCurrency: 'USD',
+      revenue, ebitda: revenue * 0.3, incomeBeforeTax: 20, incomeTaxExpense: 4
+    });
+    statements.annual.cashflow.push({
+      date: `${year}-12-31`, fiscalYear: String(year), periodLength: 12, reportedCurrency: 'USD',
+      capitalExpenditure: -8, changeInWorkingCapital: -1, operatingCashFlow: 40
+    });
+  }
+  const data = { forecastBase: { year: 2025, date: '2025-12-31' }, currencyCheck: { sourceCurrency: 'USD' } };
+  const historical = Scenario.suggestRevenueGrowth({ statements, data, peers: [] });
+  assert.equal(historical.origin, 'historical-cagr');
+  near(historical.percent, 5);
+
+  statements.annual.income[4].revenue = 1000;
+  const outlier = Scenario.suggestRevenueGrowth({ statements, data, peers: [
+    { stock: { growth_10y: [6] } }, { stock: { growth_10y: [7] } }, { stock: { growth_10y: [8] } }
+  ] });
+  assert.equal(outlier.origin, 'peer-median-growth');
+  near(outlier.percent, 7);
+
+  const mature = Scenario.suggestRevenueGrowth({ statements, data, peers: [] });
+  assert.ok(mature.origin === 'suggested-mature-growth' || mature.reason === 'GROWTH_REQUIRES_MANUAL_INPUT');
+  if (mature.origin === 'suggested-mature-growth') near(mature.percent, 2.5);
+
+  const volatile = structuredClone(statements);
+  volatile.annual.income[1].revenue = 40;
+  volatile.annual.income[2].revenue = 200;
+  volatile.annual.income[3].revenue = 50;
+  volatile.annual.income[4].revenue = 300;
+  const manual = Scenario.suggestRevenueGrowth({ statements: volatile, data, peers: [] });
+  assert.equal(manual.percent, null);
+  assert.equal(manual.reason, 'GROWTH_REQUIRES_MANUAL_INPUT');
 });

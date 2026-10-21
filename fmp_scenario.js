@@ -17,6 +17,10 @@
     citationZh: '參考 Damodaran／賣方常見成熟市場長期名目成長帶（約長期 GDP＋通膨）2%–3%，建議預設取中點 2.5%；可改，不會覆寫你已輸入的值。',
     citationEn: 'Reference: Damodaran / common sell-side mature-market long-term nominal growth band (~long-run GDP + inflation) of 2%–3%. Suggested default uses the 2.5% midpoint; editable and never overwrites a value you already entered.'
   };
+  // Autofill ceiling for suggested revenue growth (percentage points). Beyond this, history is
+  // reference-only; Damodaran-style practice then prefers peer/stable defaults or manual input.
+  const GROWTH_AUTOFILL_ABS_MAX = 30;
+  const MATURE_GROWTH_DEFAULT = TERMINAL_GROWTH_REFERENCE.value;
   const fields = [
     ['growth', '營收成長率 (%)', 'Revenue growth (%)', -99.99, 1000],
     ['ebitda', 'EBITDA／營收 (%)', 'EBITDA / revenue (%)', -1000, 1000, 'advanced'],
@@ -175,6 +179,48 @@
     return { reason: null, years, metrics, summary };
   }
 
+  function suggestRevenueGrowth({ statements, data, peers = [] } = {}) {
+    const pack = (percent, origin, reason, detail = {}) => ({ percent, origin, reason, detail });
+    const history = fiveYearHistory(statements, data, 'advanced');
+    const yoy = history.metrics?.growth?.filter(finite) || [];
+    const cagr = history.summary?.revenueCagr;
+    const volatile = yoy.length >= 3 && (Math.max(...yoy) - Math.min(...yoy) > 50);
+    const historicalOutlier = finite(cagr) && Math.abs(cagr) > GROWTH_AUTOFILL_ABS_MAX;
+    const hyperVolatile = finite(cagr) && volatile && Math.abs(cagr) > 15;
+
+    if (!history.reason && finite(cagr) && !historicalOutlier && !hyperVolatile) {
+      return pack(cagr, 'historical-cagr', null, {
+        cagr, years: history.summary.spanYears, volatile, maxAbs: GROWTH_AUTOFILL_ABS_MAX,
+        basis: 'Historical revenue CAGR over consecutive full fiscal years (up to 5).'
+      });
+    }
+
+    const peerValues = (peers || []).map(peer => peer?.stock?.growth_10y?.[0])
+      .filter(value => finite(value) && Math.abs(value) <= GROWTH_AUTOFILL_ABS_MAX)
+      .sort((a, b) => a - b);
+    if (peerValues.length >= 3) {
+      const median = peerValues[Math.floor(peerValues.length / 2)];
+      return pack(median, 'peer-median-growth', null, {
+        median, samples: peerValues, cagr: finite(cagr) ? cagr : null, volatile,
+        basis: 'Median of peer year-1 model growth (growth_10y[0]) from PeerComparison.'
+      });
+    }
+
+    if (hyperVolatile || (historicalOutlier && volatile)) {
+      return pack(null, null, 'GROWTH_REQUIRES_MANUAL_INPUT', {
+        cagr: finite(cagr) ? cagr : null, volatile, maxAbs: GROWTH_AUTOFILL_ABS_MAX,
+        basis: 'Volatile/high historical growth is shown as reference only; no autofill to avoid false precision.'
+      });
+    }
+
+    return pack(MATURE_GROWTH_DEFAULT, 'suggested-mature-growth', null, {
+      value: MATURE_GROWTH_DEFAULT, bandLow: 2, bandHigh: 3,
+      cagr: finite(cagr) ? cagr : null, volatile,
+      historyReason: history.reason || (historicalOutlier ? 'HISTORICAL_GROWTH_OUTLIER' : null),
+      basis: 'Conservative mature-company default (~long-run nominal GDP / Damodaran stable-growth band midpoint).'
+    });
+  }
+
   function defaults(data, kind, shares, context = {}) {
     if (!kinds.includes(kind) || !Number.isSafeInteger(shares) || shares <= 0
         || data.currencyCheck?.reason || data.models?.[kind]?.reason) fail('SCENARIO_SOURCE_UNAVAILABLE');
@@ -245,6 +291,17 @@
       years.push({ year, values, origins, consensusDate: covered ? row.date : null });
       previousRevenue = revenue;
     }
+    const growthSuggestion = suggestRevenueGrowth({
+      statements: context.statements, data, peers: context.peers || []
+    });
+    if (finite(growthSuggestion.percent)) {
+      for (const item of years) {
+        if (!finite(item.values.growth)) {
+          item.values.growth = growthSuggestion.percent;
+          item.origins.growth = growthSuggestion.origin;
+        }
+      }
+    }
     const openingNwc = kind === 'advanced'
       ? [opening.receivables, opening.inventories, opening.payable].every(finite)
         ? opening.receivables + opening.inventories - opening.payable : null : 0;
@@ -266,6 +323,7 @@
       exitMultiple: suggestedExit,
       exitMultipleOrigin: suggestedExit === null ? null : 'suggested-current-multiple',
       taxFiveYear: taxFive,
+      growthSuggestion,
       years };
   }
 
@@ -514,7 +572,8 @@
     bridge: 'EV = SUM(PV[1:10])+PVTV; Equity = EV-netDebt; Target = Equity/issuedShares. Snapshot net debt subtracted once; projected cash is disclosure only. Primary targetPrice uses Gordon; exit-multiple EV/equity/per-share are reported beside it when available.',
     native: 'Native API internals are not independently reproduced. Site native target = returned equityValue/verified issued common shares. Returned equityValuePerShare and dilutedSharesOutstanding are preserved separately. Reconciliation residuals are checks, not replacements for vendor outputs.',
     taxDefault: 'When analyst operating tax is missing, new scenarios use the arithmetic mean of five consecutive full-FY effective tax rates (tax expense / pretax) from statements; otherwise tax stays N/A.',
-    operatingDefaults: 'Missing consensus CapEx/CFO/D&A/EBITDA use latest full-FY revenue ratios (labeled latest-fy). NWC uses five-year average change/revenue. Revenue growth is never invented beyond consensus coverage.'
+    operatingDefaults: 'Missing consensus CapEx/CFO/D&A/EBITDA use latest full-FY revenue ratios (labeled latest-fy). NWC uses five-year average change/revenue. Missing revenue growth uses suggestRevenueGrowth: historical CAGR (capped), else peer median year-1 growth, else mature 2.5% — or blank with GROWTH_REQUIRES_MANUAL_INPUT when history is hyper-volatile. Flat fill for uncovered years only; no invented fade path. Professional practice: Damodaran uses fundamentals/history then fades to stable growth; many DCF tools prefer analyst estimates, then history, else user input.',
+    growthDefaults: 'Hierarchy when consensus growth is missing: (1) historical revenue CAGR up to 5y if |CAGR|<=30 and not hyper-volatile; (2) peer median of growth_10y[0] from PeerComparison; (3) mature 2.5% band midpoint; else N/A + GROWTH_REQUIRES_MANUAL_INPUT. Labeled suggested defaults; never overwrites analyst or user values.'
   };
-  return { fields, activeFields, fullAnnualPeriod, verifiedIncomeDocument, baseSource, verifiedRevenueCorrection, defaults, update, calculate, actualReference, missingInputs, upgradeWorkingCapital, exitMultipleTerminal, fiveYearEffectiveTax, fiveYearHistory, TERMINAL_GROWTH_REFERENCE, formulas };
+  return { fields, activeFields, fullAnnualPeriod, verifiedIncomeDocument, baseSource, verifiedRevenueCorrection, defaults, update, calculate, actualReference, missingInputs, upgradeWorkingCapital, exitMultipleTerminal, fiveYearEffectiveTax, fiveYearHistory, suggestRevenueGrowth, TERMINAL_GROWTH_REFERENCE, GROWTH_AUTOFILL_ABS_MAX, MATURE_GROWTH_DEFAULT, formulas };
 });

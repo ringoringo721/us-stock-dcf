@@ -114,7 +114,10 @@
       INCOMPLETE_SCENARIO: ['十年情境假設未齊備。', 'Ten-year scenario assumptions are incomplete.'],
       MISSING_STATEMENTS: ['實際財報參考未能載入。', 'Actual financial-statement references could not be loaded.'],
       VALUATION_UNAVAILABLE: ['目前沒有可用的內在價值結果。', 'No usable intrinsic-value result is available.'],
-      OFFICIAL_CORRECTION_REVIEW: ['官方財報已更正或需審閱口徑差異；信心降為中。', 'Official statement corrections or basis differences require review; confidence is medium.']
+      OFFICIAL_CORRECTION_REVIEW: ['官方財報已更正或需審閱口徑差異；信心降為中。', 'Official statement corrections or basis differences require review; confidence is medium.'],
+      GROWTH_REQUIRES_MANUAL_INPUT: ['歷史營收成長過高或波動過大，不自動填入以免假精度；請手動輸入。', 'Historical revenue growth is too high or volatile to autofill without false precision; enter growth manually.'],
+      HISTORICAL_GROWTH_OUTLIER: ['歷史營收 CAGR 超出自動填入上限，僅作參考。', 'Historical revenue CAGR exceeds the autofill ceiling; shown as reference only.'],
+      DATED_CURVE_TENOR_UNAVAILABLE: ['此年期在已標日期的公債／基準曲線擷取中不存在（目前多僅有 year10）；未改寫 retained-capital 無風險利率。', 'This tenor is absent from the dated treasury/benchmark capture (often year10 only); the retained-capital risk-free rate was not overwritten.']
     };
     return messages[reason]?.[language === 'en' ? 1 : 0] || reason || '';
   }
@@ -178,7 +181,7 @@
     try {
       if (!state.scenarios[state.kind]) {
         state.scenarios[state.kind] = Scenario.defaults(state.sourceData, state.kind, issuedShares(state.stock), {
-          statements: state.actualStatements, stock: state.stock
+          statements: state.actualStatements, stock: state.stock, peers: loadPeers()
         });
       }
       state.scenarios[state.kind] = Scenario.upgradeWorkingCapital(state.scenarios[state.kind]);
@@ -199,6 +202,14 @@
   }
 
   const inputValue = (key, number) => finite(number) ? key === 'beta' ? String(number) : number.toFixed(2) : '';
+
+  function loadPeers() {
+    const Peer = root.PeerComparison;
+    const universe = typeof state.universe === 'function' ? state.universe() : state.universe;
+    if (!Peer?.select || !universe || typeof universe !== 'object') return [];
+    try { return Peer.select(universe, state.ticker, 5).peers || []; }
+    catch { return []; }
+  }
 
   function enrichScenarioSuggestions(scenario) {
     if (!scenario) return scenario;
@@ -229,6 +240,20 @@
             || item.origins?.tax === 'five-year-effective-tax') {
           item.values.tax = taxFive.percent;
           item.origins.tax = 'five-year-effective-tax';
+        }
+      }
+    }
+    const growthSuggestion = Scenario.suggestRevenueGrowth({
+      statements: state.actualStatements, data: state.sourceData, peers: loadPeers()
+    });
+    scenario.growthSuggestion = growthSuggestion;
+    if (finite(growthSuggestion.percent)) {
+      for (const item of scenario.years || []) {
+        if (item.origins?.growth === 'user' || item.origins?.growth === 'analyst-derived') continue;
+        if (!finite(item.values.growth) || item.origins?.growth === 'unavailable'
+            || ['historical-cagr', 'peer-median-growth', 'suggested-mature-growth'].includes(item.origins?.growth)) {
+          item.values.growth = growthSuggestion.percent;
+          item.origins.growth = growthSuggestion.origin;
         }
       }
     }
@@ -289,6 +314,10 @@
       'latest-fy': text('最近全年實績比率（非共識）', 'Latest FY actual ratio (not consensus)'),
       'working-capital-average': text('營運資金五年平均比率', 'Five-year working-capital ratio'),
       'five-year-effective-tax': text('建議預設：近五年有效稅率平均（可改）', 'Suggested default: 5y avg effective tax (editable)'),
+      'historical-cagr': text('建議預設：歷史營收 CAGR（可改）', 'Suggested default: historical revenue CAGR (editable)'),
+      'peer-median-growth': text('建議預設：同業成長中位數（可改）', 'Suggested default: peer median growth (editable)'),
+      'suggested-mature-growth': text('建議預設：成熟公司長期成長帶（可改）', 'Suggested default: mature long-term growth band (editable)'),
+      'suggested-rf-tenor': text('建議：依選定公債年期（可改）', 'Suggested: selected treasury tenor (editable)'),
       'suggested-default': text('建議預設／可改', 'Suggested default / editable'),
       'suggested-current-multiple': text('建議預設：現價 EV/EBITDA（可改）', 'Suggested default: current EV/EBITDA (editable)'),
       'retained-capital': text('維持原資本成本設定', 'Retained capital-cost setting'),
@@ -342,17 +371,6 @@
       ebitda: 'EBITDA %', da: 'D&A %', nwcChange: text('ΔNWC %', 'ΔNWC %'),
       capex: 'CapEx %', cfo: 'CFO %', tax: text('有效稅率 %', 'Effective tax %')
     };
-    const chartKey = state.kind === 'advanced' ? 'ebitda' : 'cfo';
-    const series = history.metrics[chartKey] || [];
-    const max = Math.max(1, ...series.filter(finite).map(Math.abs));
-    const bars = history.years.map((row, index) => {
-      const value = series[index];
-      const height = finite(value) ? Math.max(2, Math.abs(value) / max * 56) : 0;
-      const y = finite(value) && value < 0 ? 64 : 64 - height;
-      return `<g><rect x="${index * 36 + 8}" y="${y}" width="24" height="${height}" fill="var(--accent)" opacity="${finite(value) ? 0.85 : 0.2}"></rect>
-        <text x="${index * 36 + 20}" y="86" text-anchor="middle" font-size="10" fill="var(--text-muted)">${row.year}</text>
-        <text x="${index * 36 + 20}" y="${y - 4}" text-anchor="middle" font-size="9" fill="var(--text-secondary)">${finite(value) ? value.toFixed(1) : '—'}</text></g>`;
-    }).join('');
     const metricKeys = Object.keys(history.metrics);
     const head = metricKeys.map(key => `<th>${escape(labels[key] || key)}</th>`).join('');
     const body = history.years.map((row, index) => `<tr><th>${row.year}<small>${escape(row.date)}</small></th>${
@@ -367,11 +385,116 @@
         return `${labels[key]} ${text('五年平均', '5y avg')} ${item.average.toFixed(2)}%${delta}`;
       })
     ].filter(Boolean);
-    return `<section id="fmp-fy-history"><h4>${text('近五年實績參考（協助預測，不改寫輸入）', 'Last five FY reference (for forecasting; does not rewrite inputs)')}</h4>
-      <p class="analysis-note">${escape(summaryBits.join(' · '))}</p>
-      <svg id="fmp-fy-history-chart" viewBox="0 0 190 96" width="100%" height="96" role="img" aria-label="${escape(labels[chartKey])}">${bars}</svg>
-      <p class="analysis-note"><small>${text('圖：', 'Chart: ')}${escape(labels[chartKey])}</small></p>
+    return `<section id="fmp-fy-history"><h4>${text('近五年實績參考（數字摘要，不改寫輸入）', 'Last five FY reference (numeric summary; does not rewrite inputs)')}</h4>
+      <p class="analysis-note" id="fmp-fy-history-summary">${escape(summaryBits.join(' · '))}</p>
       <div class="table-scroll-wrapper"><table id="fmp-fy-history-table"><thead><tr><th>${text('財年', 'FY')}</th>${head}</tr></thead><tbody>${body}</tbody></table></div></section>`;
+  }
+
+  function growthDefaultNoteHtml(text, scenario) {
+    const suggestion = scenario.growthSuggestion;
+    if (!suggestion) return '';
+    const practice = text(
+      '實務參考：Damodaran 多以基本面／歷史成長再向穩定成長收斂；多數 DCF 工具優先分析師預測，其次歷史，否則需手動輸入。本站缺共識時採歷史 CAGR→同業中位→成熟 2.5%，極端波動則留空。',
+      'Practice note: Damodaran typically uses fundamentals/history then fades toward stable growth; many DCF tools prefer analyst estimates, then history, else manual input. This site uses historical CAGR → peer median → mature 2.5% when consensus is missing, and leaves blanks for extreme volatility.'
+    );
+    if (finite(suggestion.percent)) {
+      return `<p class="analysis-note" id="fmp-growth-default-note">${text('營收成長建議預設', 'Suggested revenue-growth default')}: ${suggestion.percent.toFixed(2)}% (${escape(originText(suggestion.origin, text))}).
+        ${text('僅填補缺共識年度，採單一水平值、不編造十年遞減路徑；可改，不覆寫分析師或你已輸入的值。', 'Fills only years without consensus, as one flat rate — no invented 10-year fade path; editable and does not overwrite analyst or user values.')}
+        ${practice}</p>`;
+    }
+    return `<p class="analysis-note text-red" id="fmp-growth-default-note">${text('營收成長', 'Revenue growth')}: N/A — ${escape(reasonText(suggestion.reason || 'GROWTH_REQUIRES_MANUAL_INPUT', state.language()))}
+      ${finite(suggestion.detail?.cagr) ? ` (${text('歷史 CAGR', 'historical CAGR')} ${suggestion.detail.cagr.toFixed(2)}%，${text('僅供參考', 'reference only')})` : ''}.
+      ${practice}</p>`;
+  }
+
+  function fcffRecord(ticker = state?.ticker) {
+    return root.FCFF_DATA?.stocks?.[ticker] || root.HK_FCFF_DATA?.stocks?.[ticker] || null;
+  }
+
+  function riskFreeTenorSource(stock = state?.stock, ticker = state?.ticker) {
+    const fcff = fcffRecord(ticker);
+    const treasury = fcff?.provenance?.treasury;
+    const rates = {};
+    if (treasury && finite(treasury.year10)) rates[10] = treasury.year10;
+    const missing = [];
+    for (let year = 1; year <= 10; year++) {
+      if (!finite(rates[year])) missing.push(year);
+    }
+    return {
+      currency: treasury?.currency || stock?.calculationCurrency || 'USD',
+      date: treasury?.date || null,
+      rates,
+      missing,
+      basis: treasury && finite(treasury.year10)
+        ? 'dated-capture-year10-only'
+        : 'dated-treasury-unavailable',
+      betaProvenance: fcff?.provenance?.beta
+        || 'FMP profile beta; lookback, frequency and benchmark unspecified by the response',
+      riskFreeNote: fcff?.provenance?.riskFreeRate || null,
+      retainedRf: finite(state?.scenarios?.[state.kind]?.years?.[0]?.values?.rf)
+        ? state.scenarios[state.kind].years[0].values.rf : null,
+      retainedBeta: finite(state?.scenarios?.[state.kind]?.years?.[0]?.values?.beta)
+        ? state.scenarios[state.kind].years[0].values.beta : null
+    };
+  }
+
+  function applyRfTenor(scenario, tenor) {
+    const source = riskFreeTenorSource();
+    const rate = source.rates[tenor];
+    scenario.rfTenor = tenor;
+    scenario.rfTenorSource = {
+      currency: source.currency, date: source.date, basis: source.basis,
+      rate: finite(rate) ? rate : null,
+      reason: finite(rate) ? null : 'DATED_CURVE_TENOR_UNAVAILABLE'
+    };
+    if (!finite(rate)) return false;
+    for (const item of scenario.years || []) {
+      if (item.origins?.rf === 'user') continue;
+      item.values.rf = rate;
+      item.origins.rf = 'suggested-rf-tenor';
+      if (item.origins?.ke === 'user') continue;
+      if ([item.values.rf, item.values.beta, item.values.erp].every(finite)) {
+        item.values.ke = item.values.rf + item.values.beta * item.values.erp;
+        item.origins.ke = 'capm';
+      }
+    }
+    return true;
+  }
+
+  function capitalProvenanceHtml(text, scenario) {
+    const source = riskFreeTenorSource();
+    const selected = Number.isInteger(scenario.rfTenor) ? scenario.rfTenor
+      : finite(source.rates[10]) ? 10 : null;
+    const options = Array.from({ length: 10 }, (_, index) => {
+      const tenor = index + 1;
+      const rate = source.rates[tenor];
+      const available = finite(rate);
+      return `<option value="${tenor}" ${selected === tenor ? 'selected' : ''} ${available ? '' : 'disabled'}>${tenor}Y${available ? ` · ${rate.toFixed(2)}%` : ` · N/A`}</option>`;
+    }).join('');
+    const missingNote = source.missing.length
+      ? text(`有期數無已標日期曲線點：${source.missing.map(year => `${year}Y`).join(', ')}（目前定存擷取僅含 year10）。`,
+        `Tenors without a dated curve point: ${source.missing.map(year => `${year}Y`).join(', ')} (dated capture currently includes year10 only).`)
+      : '';
+    const rfStatus = scenario.rfTenorSource?.reason
+      ? escape(reasonText(scenario.rfTenorSource.reason, state.language()))
+      : finite(selected) && finite(source.rates[selected])
+        ? `${source.rates[selected].toFixed(2)}% · ${escape(source.currency)} · ${escape(source.date || 'N/A')}`
+        : text('沿用 FMP 模型列示／retained-capital 無風險利率；未改期數前不覆寫。', 'Retains FMP model / retained-capital risk-free rate until a tenor is applied.');
+    return `<section id="fmp-capital-provenance">
+      <p class="analysis-note" id="fmp-beta-provenance"><strong>Beta</strong>: ${finite(source.retainedBeta) ? source.retainedBeta.toFixed(3) : 'N/A'} —
+        ${text('來自 FMP 模型列保留的 beta（最終多為 FMP profile.beta）。供應商未說明回看期、頻率或基準指數；本站不宣稱「準確 5 年週線對 S&P」。可於十年表覆寫。',
+          'From the retained FMP model beta (typically FMP profile.beta). Provider lookback, frequency and benchmark are unspecified; this site does not claim an “accurate 5y weekly vs S&P” beta. Override in the ten-year grid if needed.')}
+        <small>${escape(source.betaProvenance)}</small></p>
+      <p class="analysis-note" id="fmp-rf-provenance"><strong>${text('無風險利率', 'Risk-free rate')}</strong>:
+        ${text('情境預設沿用 FMP 模型 riskFreeRate（retained-capital）', 'Scenario defaults retain FMP model riskFreeRate (retained-capital)')}${finite(source.retainedRf) ? `: ${source.retainedRf.toFixed(2)}%` : ''}.
+        ${source.date ? text(`定存公債擷取（參考）`, `Dated treasury capture (reference)`) + `: ${escape(source.currency)} ${text('十年期', '10Y')} ${finite(source.rates[10]) ? `${source.rates[10].toFixed(2)}%` : 'N/A'} · ${escape(source.date)}.` : text('尚無已標日期的公債曲線擷取。', 'No dated treasury-curve capture is available.')}
+        ${source.riskFreeNote ? `<small>${escape(source.riskFreeNote)}</small>` : ''}</p>
+      <div class="fin-model-grid"><div class="form-group">
+        <label for="fmp-rf-tenor">${text('無風險利率年期（1–10 年，僅資料有提供的期數可選）', 'Risk-free tenor (1–10y; only data-backed tenors are selectable)')}</label>
+        <select id="fmp-rf-tenor">${options}</select>
+        <small id="fmp-rf-tenor-status">${rfStatus} ${escape(missingNote)}</small>
+      </div></div>
+    </section>`;
   }
 
   function scenarioHtml(text, money, result) {
@@ -412,6 +535,8 @@
         '逐年 WACC 由股權／稅後債務成本與資本權重計算；修改 Beta、無風險利率或風險溢價會以 CAPM 更新該年的股權成本，亦可直接覆寫股權成本。每年折現因子連乘。終值增長率僅用於第十年後終值。EV 只減一次基期淨債務，不額外加上預測現金。負存貨或負稅率照來源標示，必須審視其適用性，未經獨立核實。',
         'Annual WACC uses equity/after-tax debt costs and capital weights; editing beta, risk-free rate or premium updates that year’s equity cost through CAPM, which can also be overridden directly. Annual discount factors compound. Terminal growth applies only beyond year ten. EV subtracts snapshot net debt once, with no extra addition of projected cash. Negative inventory/tax inputs require review and are not independently certified.')}</p>
       <p class="analysis-note" id="fmp-actual-note">${actual.note}</p>
+      ${growthDefaultNoteHtml(text, scenario)}
+      ${capitalProvenanceHtml(text, scenario)}
       ${historyPanelHtml(text)}
       <div class="table-scroll-wrapper"><table id="fmp-ten-year-inputs"><thead><tr><th>${text('假設／來源', 'Assumption / source')}</th><th id="fmp-actual-period">${actual.header}</th>${scenario.years.map(item => `<th>${item.year}</th>`).join('')}</tr></thead><tbody>
         ${Scenario.activeFields(state.kind, scenario).map(([key, zh, en, min, max]) => `<tr><th>${escape(text(zh, en))}</th><td data-actual-key="${key}">${actual.cells[key]}</td>${scenario.years.map((item, index) => `<td>
@@ -681,6 +806,22 @@
     });
     box.querySelector('#fmp-exit-multiple')?.addEventListener('blur', event => {
       event.target.value = inputValue('exitMultiple', state.scenarios[kind].exitMultiple);
+    });
+    box.querySelector('#fmp-rf-tenor')?.addEventListener('change', event => {
+      const tenor = Number(event.target.value);
+      const applied = applyRfTenor(state.scenarios[kind], tenor);
+      const status = box.querySelector('#fmp-rf-tenor-status');
+      if (status) {
+        status.textContent = applied
+          ? `${state.scenarios[kind].rfTenorSource.rate.toFixed(2)}% · ${state.scenarios[kind].rfTenorSource.currency} · ${state.scenarios[kind].rfTenorSource.date || 'N/A'}`
+          : reasonText('DATED_CURVE_TENOR_UNAVAILABLE', state.language());
+      }
+      if (applied) {
+        state.scenarioDirty[kind] = true;
+        render();
+      } else {
+        changed();
+      }
     });
     box.querySelector('#fmp-calculate')?.addEventListener('click', calculate);
     box.querySelector('#fmp-download-audit').addEventListener('click', downloadAudit);

@@ -45,7 +45,8 @@ test('analyst revenue uses verified FX; only CFO/CapEx/DA use latest FY, not fiv
   assert.equal(input.years[0].values.receivables, undefined);
   assert.equal(Scenario.defaults(data, 'customLevered', 10).years[0].values.cfo, 40);
   assert.equal(input.years[1].values.ebitda, 0, 'A genuine zero forecast remains zero');
-  assert.equal(input.years[2].values.growth, null);
+  assert.equal(input.years[2].values.growth, 0, 'Flat history suggests 0% CAGR when consensus coverage ends');
+  assert.equal(input.years[2].origins.growth, 'historical-cagr');
   assert.equal(input.years[9].values.capex, -8);
   assert.equal(input.years[0].values.tax, 20);
   assert.equal(input.years[0].origins.tax, 'five-year-effective-tax');
@@ -66,8 +67,9 @@ test('analyst revenue uses verified FX; only CFO/CapEx/DA use latest FY, not fiv
   assert.equal(input.netDebtBasis, 'net-cash');
   assert.equal(input.years[0].origins.capex, 'latest-fy');
   assert.equal(input.years[0].origins.ebitda, 'analyst');
-  assert.equal(input.years[2].origins.growth, 'unavailable');
-  assert.throws(() => Scenario.calculate(input), /INCOMPLETE_ASSUMPTIONS/);
+  assert.equal(input.growthSuggestion.origin, 'historical-cagr');
+  assert.equal(Scenario.missingInputs(input).length, 0);
+  assert.equal(typeof Scenario.calculate(input).targetPrice, 'number');
 });
 
 test('reported consensus CFO/CapEx/DA takes precedence, including genuine zeros', () => {
@@ -115,8 +117,9 @@ test('fiscal matching tolerates 52/53-week dates but does not select a different
   f.response.rows[2].date = '2028-03-31';
   const { input } = seeded(f);
   assert.equal(input.years[0].consensusDate, '2026-12-25');
-  assert.equal(input.years[1].values.growth, null);
-  assert.equal(input.years[2].values.growth, null);
+  assert.equal(input.years[1].origins.growth, 'historical-cagr', 'Consensus gap is not fabricated from mismatched fiscal dates');
+  assert.equal(input.years[2].origins.growth, 'historical-cagr');
+  assert.notEqual(input.years[1].origins.growth, 'analyst-derived');
 });
 
 test('no D&A is inferred from EBITDA minus EBIT when both explicit D&A and latest actual D&A are missing', () => {
