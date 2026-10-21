@@ -208,11 +208,12 @@
       scenario.netDebtBasis = finite(scenario.netDebt) && scenario.netDebt < 0 ? 'net-cash' : 'net-debt';
     }
     if (!scenario.terminalGrowthReference) scenario.terminalGrowthReference = { ...Scenario.TERMINAL_GROWTH_REFERENCE };
-    if (!finite(scenario.terminalGrowth)) {
+    if (!finite(scenario.terminalGrowth) && scenario.terminalGrowthOrigin !== 'user') {
       scenario.terminalGrowth = Scenario.TERMINAL_GROWTH_REFERENCE.value;
       scenario.terminalGrowthOrigin = Scenario.TERMINAL_GROWTH_REFERENCE.origin;
     }
-    if (!finite(scenario.exitMultiple) && finite(state.stock?.ev_to_ebitda)
+    if (!finite(scenario.exitMultiple) && scenario.exitMultipleOrigin !== 'user'
+        && finite(state.stock?.ev_to_ebitda)
         && state.stock.ev_to_ebitda > 0 && state.stock.ev_to_ebitda <= 500) {
       scenario.exitMultiple = state.stock.ev_to_ebitda;
       scenario.exitMultipleOrigin = 'suggested-current-multiple';
@@ -657,6 +658,21 @@
       box.querySelector(`#${id}`)?.addEventListener('input', event => {
         state.scenarios[kind][key] = event.target.value.trim() ? event.target.valueAsNumber : null;
         event.target.title = String(state.scenarios[kind][key] ?? '');
+        if (key === 'terminalGrowth') {
+          state.scenarios[kind].terminalGrowthOrigin = event.target.value.trim() ? 'user' : null;
+        }
+        if (key === 'exitMultiple') {
+          state.scenarios[kind].exitMultipleOrigin = event.target.value.trim() ? 'user' : null;
+        }
+        if (key === 'netDebt') {
+          state.scenarios[kind].netDebtBasis = finite(state.scenarios[kind].netDebt)
+            && state.scenarios[kind].netDebt < 0 ? 'net-cash' : 'net-debt';
+          const meta = box.querySelector('#fmp-snapshot-net-debt-meta');
+          if (meta) {
+            const netCash = state.scenarios[kind].netDebtBasis === 'net-cash';
+            meta.textContent = `${text('報表／快照日', 'Statement / snapshot date')}: ${state.scenarios[kind].netDebtDate || state.scenarios[kind].baseDate || 'N/A'} · ${text('顯示', 'Display')}: ${formatMoneyInput(state.scenarios[kind].currency, state.scenarios[kind].netDebt)} · ${netCash ? text('負淨債務＝淨現金', 'Negative net debt = net cash') : text('正值＝淨債務', 'Positive = net debt')}`;
+          }
+        }
         changed();
       });
     }
