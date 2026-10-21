@@ -101,9 +101,59 @@
       FMP_OFFICIAL_REVENUE_SOURCE_UNVERIFIED: ['官方營收修正與供應商金額未能核對，暫不套用模型。', 'Official revenue correction could not be reconciled with provider amounts; the model is not applied.'],
       FMP_ISSUED_SHARES_UNAVAILABLE: ['缺少已核實的普通股股數；不以稀釋加權平均股數代替。', 'Verified issued common shares are missing; diluted weighted-average shares are not substituted.'],
       FMP_INVALID_TERMINAL_SPREAD: ['FMP 預設 WACC 不高於終值增長率；請調整並重新計算，不採無效終值。', 'FMP default WACC does not exceed terminal growth; adjust and recalculate rather than use an invalid terminal value.'],
-      FMP_SOURCE_UNAVAILABLE: ['尚無此股票的 FMP 模型來源。', 'The FMP model source is unavailable for this security.']
+      FMP_SOURCE_UNAVAILABLE: ['尚無此股票的 FMP 模型來源。', 'The FMP model source is unavailable for this security.'],
+      EXIT_MULTIPLE_UNAVAILABLE: ['未提供出場倍數；不套用現價 EV/EBITDA 作為終值倍數。', 'No exit multiple was provided; current trading EV/EBITDA is not used as a terminal multiple.'],
+      EXIT_MULTIPLE_ADVANCED_ONLY: ['出場倍數終值僅適用 Advanced（EBITDA／FCFF）情境。', 'Exit-multiple terminal value applies only to Advanced (EBITDA / FCFF) scenarios.'],
+      EXIT_MULTIPLE_INVALID: ['出場倍數須為大於 0 且不超過 500 的數字。', 'Exit multiple must be a number greater than 0 and at most 500.'],
+      EXIT_MULTIPLE_NONPOSITIVE_EBITDA: ['第十年 EBITDA 非正數，無法計算出場倍數終值。', 'Year-ten EBITDA is nonpositive; an exit-multiple terminal cannot be calculated.'],
+      EXIT_MULTIPLE_NONFINITE_RESULT: ['出場倍數終值結果非有限數。', 'Exit-multiple terminal result is nonfinite.'],
+      FINANCIAL_INSTITUTION: ['金融機構使用超額有形股本／DDM 面板，不套用企業 FCFF 信心標籤。', 'Financial institutions use the tangible-equity / DDM panel; corporate FCFF confidence does not apply.'],
+      SEGMENT_VALUATION: ['須分部估值，單一企業內在價值信心標為不可用。', 'Segment valuation is required; single-corporate intrinsic confidence is unavailable.'],
+      SHARE_BASIS: ['普通股股數未核實。', 'Issued common share basis is unverified.'],
+      TERMINAL_SPREAD: ['終值利差無效（WACC 不高於終值增長率）。', 'Terminal spread is invalid (WACC does not exceed terminal growth).'],
+      INCOMPLETE_SCENARIO: ['十年情境假設未齊備。', 'Ten-year scenario assumptions are incomplete.'],
+      MISSING_STATEMENTS: ['實際財報參考未能載入。', 'Actual financial-statement references could not be loaded.'],
+      VALUATION_UNAVAILABLE: ['目前沒有可用的內在價值結果。', 'No usable intrinsic-value result is available.'],
+      OFFICIAL_CORRECTION_REVIEW: ['官方財報已更正或需審閱口徑差異；信心降為中。', 'Official statement corrections or basis differences require review; confidence is medium.'],
+      GROWTH_REQUIRES_MANUAL_INPUT: ['歷史營收成長過高或波動過大，不自動填入以免假精度；請手動輸入。', 'Historical revenue growth is too high or volatile to autofill without false precision; enter growth manually.'],
+      HISTORICAL_GROWTH_OUTLIER: ['歷史營收 CAGR 超出自動填入上限，僅作參考。', 'Historical revenue CAGR exceeds the autofill ceiling; shown as reference only.'],
+      DATED_CURVE_TENOR_UNAVAILABLE: ['此年期在已標日期的公債／基準曲線擷取中不存在（目前多僅有 year10）；未改寫 retained-capital 無風險利率。', 'This tenor is absent from the dated treasury/benchmark capture (often year10 only); the retained-capital risk-free rate was not overwritten.']
     };
     return messages[reason]?.[language === 'en' ? 1 : 0] || reason || '';
+  }
+
+  function valuationConfidence({ stock, result, scenario = null, mode = 'vendor', statementsMissing = false }) {
+    const pushUnique = (list, code) => { if (code && !list.includes(code)) list.push(code); };
+    const pack = (level, reasons) => ({ level, reasons,
+      label: { high: ['高', 'High'], medium: ['中', 'Medium'], low: ['低', 'Low'], unavailable: ['不可用', 'Unavailable'] }[level] });
+    if (stock?.fin_valuation?.is_financial === true) return pack('unavailable', ['FINANCIAL_INSTITUTION']);
+    if (stock?.corporateDcfApplicability === 'requiresSegmentValuation') return pack('unavailable', ['SEGMENT_VALUATION']);
+    if (issuedShares(stock) === null) return pack('unavailable', ['SHARE_BASIS']);
+    const reason = result?.reason || null;
+    if (reason === 'FMP_INVALID_TERMINAL_SPREAD' || reason === 'SCENARIO_INVALID_TERMINAL_SPREAD') {
+      return pack('unavailable', ['TERMINAL_SPREAD']);
+    }
+    const incomplete = reason === 'SCENARIO_INCOMPLETE_ASSUMPTIONS'
+      || (mode === 'ten-year' && scenario && Scenario.missingInputs(scenario).length > 0);
+    if (incomplete) return pack('low', ['INCOMPLETE_SCENARIO']);
+    if (!finite(result?.fairVal)) return pack('unavailable', [reason || 'VALUATION_UNAVAILABLE']);
+    const soft = [];
+    if (statementsMissing) pushUnique(soft, 'MISSING_STATEMENTS');
+    if (soft.includes('MISSING_STATEMENTS')) return pack('low', soft);
+    if (soft.length || stock.balanceClassificationSource || stock.cashflowProvenance || stock.revenueProvenance
+        || (result?.result?.warnings || []).length) {
+      return pack('medium', soft.length ? soft : ['OFFICIAL_CORRECTION_REVIEW']);
+    }
+    return pack('high', []);
+  }
+
+  function confidenceText(confidence, language) {
+    if (!confidence) return '';
+    const en = language === 'en';
+    const label = confidence.label?.[en ? 1 : 0] || confidence.level;
+    const title = en ? 'Intrinsic-value confidence' : '內在價值信心';
+    const detail = (confidence.reasons || []).map(code => reasonText(code, language)).filter(Boolean).join(en ? '; ' : '；');
+    return detail ? `${title}: ${label} — ${detail}` : `${title}: ${label}`;
   }
   function load(options) {
     const previous = state?.ticker === options.ticker ? state : null;
@@ -114,6 +164,7 @@
       scenarioDirty: previous?.scenarioDirty || { advanced: false, customLevered: false },
       sourceData: previous?.sourceData || options.data || record(options.ticker),
       actualStatements: previous?.actualStatements || null, actualError: previous?.actualError || null,
+      universe: options.universe || previous?.universe || null,
       params: previous?.params || { advanced: {}, customLevered: {}, ...(saved?.modelType === 'FMP_CUSTOM_DCF' ? { [saved.kind]: saved.params || {} } : {}) },
       dirty: previous?.dirty || { advanced: false, customLevered: false,
         ...(saved?.modelType === 'FMP_CUSTOM_DCF' ? { [saved.kind]: Object.keys(saved.params || {}).length > 0 && !saved.modelSummary } : {}) },
@@ -128,9 +179,15 @@
 
   function scenarioValue() {
     try {
-      if (!state.scenarios[state.kind]) state.scenarios[state.kind] = Scenario.defaults(state.sourceData, state.kind, issuedShares(state.stock));
+      if (!state.scenarios[state.kind]) {
+        state.scenarios[state.kind] = Scenario.defaults(state.sourceData, state.kind, issuedShares(state.stock), {
+          statements: state.actualStatements, stock: state.stock, peers: loadPeers()
+        });
+      }
       state.scenarios[state.kind] = Scenario.upgradeWorkingCapital(state.scenarios[state.kind]);
-      const scenario = state.scenarios[state.kind], result = Scenario.calculate(scenario);
+      const scenario = state.scenarios[state.kind];
+      enrichScenarioSuggestions(scenario);
+      const result = Scenario.calculate(scenario);
       if (scenario.symbol !== state.ticker || scenario.currency !== (state.stock.calculationCurrency || 'USD')
           || scenario.shares !== issuedShares(state.stock)) throw new Error('SCENARIO_SOURCE_UNAVAILABLE');
       return { fairVal: result.targetPrice, WACC: result.wacc, g: result.g, reason: null, result,
@@ -145,6 +202,64 @@
   }
 
   const inputValue = (key, number) => finite(number) ? key === 'beta' ? String(number) : number.toFixed(2) : '';
+
+  function loadPeers() {
+    const Peer = root.PeerComparison;
+    const universe = typeof state.universe === 'function' ? state.universe() : state.universe;
+    if (!Peer?.select || !universe || typeof universe !== 'object') return [];
+    try { return Peer.select(universe, state.ticker, 5).peers || []; }
+    catch { return []; }
+  }
+
+  function enrichScenarioSuggestions(scenario) {
+    if (!scenario) return scenario;
+    if (!Object.prototype.hasOwnProperty.call(scenario, 'exitMultiple')) scenario.exitMultiple = null;
+    if (!scenario.netDebtDate) scenario.netDebtDate = scenario.baseDate || null;
+    if (!scenario.netDebtBasis) {
+      scenario.netDebtBasis = finite(scenario.netDebt) && scenario.netDebt < 0 ? 'net-cash' : 'net-debt';
+    }
+    if (!scenario.terminalGrowthReference) scenario.terminalGrowthReference = { ...Scenario.TERMINAL_GROWTH_REFERENCE };
+    if (!finite(scenario.terminalGrowth) && scenario.terminalGrowthOrigin !== 'user') {
+      scenario.terminalGrowth = Scenario.TERMINAL_GROWTH_REFERENCE.value;
+      scenario.terminalGrowthOrigin = Scenario.TERMINAL_GROWTH_REFERENCE.origin;
+    }
+    if (!finite(scenario.exitMultiple) && scenario.exitMultipleOrigin !== 'user'
+        && finite(state.stock?.ev_to_ebitda)
+        && state.stock.ev_to_ebitda > 0 && state.stock.ev_to_ebitda <= 500) {
+      scenario.exitMultiple = state.stock.ev_to_ebitda;
+      scenario.exitMultipleOrigin = 'suggested-current-multiple';
+    }
+    const taxFive = Scenario.fiveYearEffectiveTax(state.actualStatements, {
+      year: scenario.baseYear, date: scenario.baseDate
+    }, state.sourceData?.currencyCheck?.sourceCurrency);
+    scenario.taxFiveYear = taxFive;
+    if (taxFive.percent != null) {
+      for (const item of scenario.years || []) {
+        if (item.origins?.tax === 'user') continue;
+        if (!finite(item.values.tax) || item.origins?.tax === 'unavailable'
+            || item.origins?.tax === 'five-year-effective-tax') {
+          item.values.tax = taxFive.percent;
+          item.origins.tax = 'five-year-effective-tax';
+        }
+      }
+    }
+    const growthSuggestion = Scenario.suggestRevenueGrowth({
+      statements: state.actualStatements, data: state.sourceData, peers: loadPeers()
+    });
+    scenario.growthSuggestion = growthSuggestion;
+    if (finite(growthSuggestion.percent)) {
+      for (const item of scenario.years || []) {
+        if (item.origins?.growth === 'user' || item.origins?.growth === 'analyst-derived') continue;
+        if (!finite(item.values.growth) || item.origins?.growth === 'unavailable'
+            || ['historical-cagr', 'peer-median-growth', 'suggested-mature-growth'].includes(item.origins?.growth)) {
+          item.values.growth = growthSuggestion.percent;
+          item.origins.growth = growthSuggestion.origin;
+        }
+      }
+    }
+    return scenario;
+  }
+
   function actualColumn(text, money) {
     const scenario = state.scenarios[state.kind];
     const reference = Scenario.actualReference(state.sourceData, state.actualStatements,
@@ -198,10 +313,257 @@
       'analyst-derived': text('分析師營收推導', 'Derived from analyst revenue'),
       'latest-fy': text('最近全年實績比率（非共識）', 'Latest FY actual ratio (not consensus)'),
       'working-capital-average': text('營運資金五年平均比率', 'Five-year working-capital ratio'),
+      'five-year-effective-tax': text('建議預設：近五年有效稅率平均（可改）', 'Suggested default: 5y avg effective tax (editable)'),
+      'historical-cagr': text('建議預設：歷史營收 CAGR（可改）', 'Suggested default: historical revenue CAGR (editable)'),
+      'peer-median-growth': text('建議預設：同業成長中位數（可改）', 'Suggested default: peer median growth (editable)'),
+      'suggested-mature-growth': text('建議預設：成熟公司長期成長帶（可改）', 'Suggested default: mature long-term growth band (editable)'),
+      'suggested-rf-tenor': text('建議：依選定公債年期（可改）', 'Suggested: selected treasury tenor (editable)'),
+      'suggested-default': text('建議預設／可改', 'Suggested default / editable'),
+      'suggested-current-multiple': text('建議預設：現價 EV/EBITDA（可改）', 'Suggested default: current EV/EBITDA (editable)'),
       'retained-capital': text('維持原資本成本設定', 'Retained capital-cost setting'),
       'derived-legacy': text('舊情境等值換算', 'Equivalent legacy conversion'),
       unavailable: text('N/A：未提供預測', 'N/A: forecast unavailable')
     })[origin] || origin;
+  }
+
+  function formatMoneyInput(currency, number) {
+    return finite(number) ? `${currency} ${number.toLocaleString('en-US', { maximumFractionDigits: 2 })}` : 'N/A';
+  }
+
+  function peerMultipleReference(text) {
+    const Peer = root.PeerComparison;
+    const universe = typeof state.universe === 'function' ? state.universe() : state.universe;
+    if (!Peer?.select || !universe || typeof universe !== 'object') {
+      return { html: `<p class="analysis-note" id="fmp-peer-multiples">${text('同業倍數參考', 'Peer multiple reference')}: N/A — ${text('同業宇宙尚未載入', 'peer universe is not loaded')}</p>`, peers: [] };
+    }
+    let selected;
+    try { selected = Peer.select(universe, state.ticker, 5); }
+    catch (error) {
+      return { html: `<p class="analysis-note" id="fmp-peer-multiples">${text('同業倍數參考', 'Peer multiple reference')}: N/A — ${escape(error.message)}</p>`, peers: [] };
+    }
+    const peers = selected.peers || [];
+    if (!peers.length) {
+      return { html: `<p class="analysis-note" id="fmp-peer-multiples">${text('同業倍數參考', 'Peer multiple reference')}: N/A — ${text('找不到可用同業', 'no usable peers found')}</p>`, peers: [] };
+    }
+    const cell = value => finite(value) ? `${Number(value).toFixed(2)}x` : 'N/A';
+    const rows = peers.map(peer => `<tr><th>${escape(peer.ticker)} <small>${escape(peer.basis)}</small></th>
+      <td>${cell(peer.stock?.pe_trailing)}</td><td>${cell(peer.stock?.ev_to_ebitda)}</td></tr>`).join('');
+    return {
+      peers,
+      html: `<div id="fmp-peer-multiples" class="analysis-note"><strong>${text('出場倍數參考（現價／同業）', 'Exit-multiple reference (spot / peers)')}</strong>
+        <p>${text('本股', 'This stock')}: P/E ${cell(state.stock.pe_trailing)} · EV/EBITDA ${cell(state.stock.ev_to_ebitda)}
+        ${finite(state.stock.ev_to_ebitda) ? ` · ${text('新建情境建議預設用現價 EV/EBITDA，可改', 'new scenarios suggest current EV/EBITDA as an editable default')}` : ` · ${text('本股 EV/EBITDA 不可用，不預填出場倍數', 'stock EV/EBITDA unavailable; exit multiple is not prefilled')}`}</p>
+        <div class="table-scroll-wrapper"><table id="fmp-peer-multiple-table"><thead><tr>
+          <th>${text('同業（最多 5）', 'Peers (up to 5)')}</th><th>P/E</th><th>EV/EBITDA</th></tr></thead>
+          <tbody>${rows}</tbody></table></div>
+        <small>${text('同業選取沿用站上 PeerComparison（同子行業／供應商／相關產業），倍數為目前行情快照，不是終值預測。', 'Peer selection reuses site PeerComparison (same sub-industry / provider / related). Multiples are current market snapshots, not terminal forecasts.')}</small></div>`
+    };
+  }
+
+  function historyPanelHtml(text) {
+    const history = Scenario.fiveYearHistory(state.actualStatements, state.sourceData, state.kind);
+    if (history.reason) {
+      return `<section id="fmp-fy-history"><h4>${text('近五年實績參考', 'Last five FY reference')}</h4>
+        <p class="analysis-note">N/A — ${escape(state.actualError || history.reason)}</p></section>`;
+    }
+    const labels = {
+      growth: text('營收成長 %', 'Revenue growth %'),
+      ebitda: 'EBITDA %', da: 'D&A %', nwcChange: text('ΔNWC %', 'ΔNWC %'),
+      capex: 'CapEx %', cfo: 'CFO %', tax: text('有效稅率 %', 'Effective tax %')
+    };
+    const metricKeys = Object.keys(history.metrics);
+    const head = metricKeys.map(key => `<th>${escape(labels[key] || key)}</th>`).join('');
+    const body = history.years.map((row, index) => `<tr><th>${row.year}<small>${escape(row.date)}</small></th>${
+      metricKeys.map(key => `<td>${finite(history.metrics[key][index]) ? `${history.metrics[key][index].toFixed(2)}%` : 'N/A'}</td>`).join('')
+    }</tr>`).join('');
+    const summaryBits = [
+      finite(history.summary.revenueCagr) ? `${text('營收 CAGR', 'Revenue CAGR')} ${history.summary.revenueCagr.toFixed(2)}%` : null,
+      ...metricKeys.map(key => {
+        const item = history.summary[key];
+        if (!item || !finite(item.average)) return null;
+        const delta = finite(item.changePp) ? ` · Δ ${item.changePp >= 0 ? '+' : ''}${item.changePp.toFixed(2)}pt` : '';
+        return `${labels[key]} ${text('五年平均', '5y avg')} ${item.average.toFixed(2)}%${delta}`;
+      })
+    ].filter(Boolean);
+    return `<section id="fmp-fy-history"><h4>${text('近五年實績參考（數字摘要，不改寫輸入）', 'Last five FY reference (numeric summary; does not rewrite inputs)')}</h4>
+      <p class="analysis-note" id="fmp-fy-history-summary">${escape(summaryBits.join(' · '))}</p>
+      <div class="table-scroll-wrapper"><table id="fmp-fy-history-table"><thead><tr><th>${text('財年', 'FY')}</th>${head}</tr></thead><tbody>${body}</tbody></table></div></section>`;
+  }
+
+  function growthDefaultNoteHtml(text, scenario) {
+    const suggestion = scenario.growthSuggestion;
+    if (!suggestion) return '';
+    const practice = text(
+      '實務參考：Damodaran 多以基本面／歷史成長再向穩定成長收斂；多數 DCF 工具優先分析師預測，其次歷史，否則需手動輸入。本站缺共識時採歷史 CAGR→同業中位→成熟 2.5%，極端波動則留空。',
+      'Practice note: Damodaran typically uses fundamentals/history then fades toward stable growth; many DCF tools prefer analyst estimates, then history, else manual input. This site uses historical CAGR → peer median → mature 2.5% when consensus is missing, and leaves blanks for extreme volatility.'
+    );
+    if (finite(suggestion.percent)) {
+      return `<p class="analysis-note" id="fmp-growth-default-note">${text('營收成長建議預設', 'Suggested revenue-growth default')}: ${suggestion.percent.toFixed(2)}% (${escape(originText(suggestion.origin, text))}).
+        ${text('僅填補缺共識年度，採單一水平值、不編造十年遞減路徑；可改，不覆寫分析師或你已輸入的值。', 'Fills only years without consensus, as one flat rate — no invented 10-year fade path; editable and does not overwrite analyst or user values.')}
+        ${practice}</p>`;
+    }
+    return `<p class="analysis-note text-red" id="fmp-growth-default-note">${text('營收成長', 'Revenue growth')}: N/A — ${escape(reasonText(suggestion.reason || 'GROWTH_REQUIRES_MANUAL_INPUT', state.language()))}
+      ${finite(suggestion.detail?.cagr) ? ` (${text('歷史 CAGR', 'historical CAGR')} ${suggestion.detail.cagr.toFixed(2)}%，${text('僅供參考', 'reference only')})` : ''}.
+      ${practice}</p>`;
+  }
+
+  function fcffRecord(ticker = state?.ticker) {
+    return root.FCFF_DATA?.stocks?.[ticker] || root.HK_FCFF_DATA?.stocks?.[ticker] || null;
+  }
+
+  function isHkListing(stock = state?.stock, ticker = state?.ticker) {
+    const symbol = ticker || stock?.ticker || '';
+    return symbol.endsWith('.HK') || stock?.market === 'HKEX' || stock?.exchange === 'HKEX';
+  }
+
+  function treasuryTenorRates(treasury) {
+    const rates = {};
+    if (!treasury || typeof treasury !== 'object') return rates;
+    for (let year = 1; year <= 10; year++) {
+      const value = treasury[`year${year}`];
+      if (finite(value)) rates[year] = value;
+    }
+    return rates;
+  }
+
+  function isUsdTreasuryCapture(treasury) {
+    return !!treasury && (treasury.currency === 'USD' || treasury.currency == null)
+      && Object.keys(treasuryTenorRates(treasury)).length > 0;
+  }
+
+  function latestUsdTreasuryCapture(excludeTicker) {
+    let best = null;
+    for (const bag of [root.FCFF_DATA?.stocks, root.HK_FCFF_DATA?.stocks]) {
+      if (!bag) continue;
+      for (const [symbol, row] of Object.entries(bag)) {
+        if (symbol === excludeTicker) continue;
+        const treasury = row?.provenance?.treasury;
+        if (!isUsdTreasuryCapture(treasury) || treasury.currency === 'HKD') continue;
+        if (!best || (treasury.date || '') > (best.date || '')) best = treasury;
+      }
+    }
+    return best ? { ...best, currency: 'USD' } : null;
+  }
+
+  function riskFreeTenorSource(stock = state?.stock, ticker = state?.ticker) {
+    const fcff = fcffRecord(ticker);
+    const hk = isHkListing(stock, ticker);
+    let treasury = fcff?.provenance?.treasury || null;
+    // HK Advanced ten-year: primary default is USD Treasury (US rf concept / peg proxy), never HKD curve.
+    if (hk) {
+      if (!isUsdTreasuryCapture(treasury) || treasury?.currency === 'HKD') {
+        treasury = latestUsdTreasuryCapture(ticker) || (isUsdTreasuryCapture(treasury)
+          ? { ...treasury, currency: 'USD' } : null);
+      } else {
+        treasury = { ...treasury, currency: 'USD' };
+      }
+    } else if (treasury?.currency === 'HKD') {
+      treasury = latestUsdTreasuryCapture(ticker);
+    }
+    const rates = treasuryTenorRates(treasury);
+    const missing = [];
+    for (let year = 1; year <= 10; year++) {
+      if (!finite(rates[year])) missing.push(year);
+    }
+    const available = Object.keys(rates).map(Number).sort((a, b) => a - b);
+    const riskFreeNote = hk
+      ? (fcff?.provenance?.riskFreeRate
+        && !/HKD benchmark|港元/i.test(fcff.provenance.riskFreeRate)
+          ? fcff.provenance.riskFreeRate
+          : 'User-directed USD Treasury proxy under the HKD/USD peg; not an observed HKD yield or a copied US-stock WACC')
+      : (fcff?.provenance?.riskFreeRate || null);
+    return {
+      currency: hk ? 'USD' : (treasury?.currency || 'USD'),
+      date: treasury?.date || null,
+      rates,
+      missing,
+      hkPegProxy: hk,
+      basis: available.length === 0 ? 'dated-treasury-unavailable'
+        : available.length === 1 && available[0] === 10 ? 'dated-capture-year10-only'
+        : 'dated-usd-treasury-curve',
+      betaProvenance: fcff?.provenance?.beta
+        || 'FMP profile beta; lookback, frequency and benchmark unspecified by the response',
+      riskFreeNote,
+      retainedRf: finite(state?.scenarios?.[state.kind]?.years?.[0]?.values?.rf)
+        ? state.scenarios[state.kind].years[0].values.rf : null,
+      retainedBeta: finite(state?.scenarios?.[state.kind]?.years?.[0]?.values?.beta)
+        ? state.scenarios[state.kind].years[0].values.beta : null
+    };
+  }
+
+  function applyRfTenor(scenario, tenor) {
+    const source = riskFreeTenorSource();
+    const rate = source.rates[tenor];
+    scenario.rfTenor = tenor;
+    scenario.rfTenorSource = {
+      currency: source.currency, date: source.date, basis: source.basis,
+      rate: finite(rate) ? rate : null,
+      reason: finite(rate) ? null : 'DATED_CURVE_TENOR_UNAVAILABLE'
+    };
+    if (!finite(rate)) return false;
+    for (const item of scenario.years || []) {
+      if (item.origins?.rf === 'user') continue;
+      item.values.rf = rate;
+      item.origins.rf = 'suggested-rf-tenor';
+      if (item.origins?.ke === 'user') continue;
+      if ([item.values.rf, item.values.beta, item.values.erp].every(finite)) {
+        item.values.ke = item.values.rf + item.values.beta * item.values.erp;
+        item.origins.ke = 'capm';
+      }
+    }
+    return true;
+  }
+
+  function rfTenorControlHtml(text, scenario) {
+    // Always render the 1–10y chooser next to the rf row — even when cache only has year10.
+    // Missing tenors stay visible as disabled · N/A; default selection is 10Y when present.
+    const source = riskFreeTenorSource();
+    const selected = Number.isInteger(scenario.rfTenor) ? scenario.rfTenor
+      : finite(source.rates[10]) ? 10 : 10;
+    const options = Array.from({ length: 10 }, (_, index) => {
+      const tenor = index + 1;
+      const rate = source.rates[tenor];
+      const available = finite(rate);
+      return `<option value="${tenor}" ${selected === tenor ? 'selected' : ''} ${available ? '' : 'disabled'}>${tenor}Y${available ? ` · ${rate.toFixed(2)}%` : ` · N/A`}</option>`;
+    }).join('');
+    const missingNote = source.missing.length
+      ? text(`缺期數：${source.missing.map(year => `${year}Y`).join(', ')}（定存擷取目前多僅 year10；選擇器仍顯示）。`,
+        `Missing tenors: ${source.missing.map(year => `${year}Y`).join(', ')} (dated capture often year10 only; chooser still shown).`)
+      : '';
+    const rfStatus = scenario.rfTenorSource?.reason
+      ? escape(reasonText(scenario.rfTenorSource.reason, state.language()))
+      : finite(source.rates[selected])
+        ? `${source.rates[selected].toFixed(2)}% · ${escape(source.currency)} · ${escape(source.date || 'N/A')}`
+        : text('沿用 retained-capital；選有資料的年期才寫入（不覆寫你已改的格子）。',
+          'Retains retained-capital until a data-backed tenor is applied (does not overwrite your edits).');
+    const label = source.hkPegProxy
+      ? text('公債年期（USD／1–10Y）', 'Treasury tenor (USD / 1–10Y)')
+      : text('公債年期（1–10Y）', 'Treasury tenor (1–10Y)');
+    return `<div class="fmp-rf-tenor-control" id="fmp-rf-tenor-control">
+      <label for="fmp-rf-tenor">${label}</label>
+      <select id="fmp-rf-tenor" aria-label="${escape(label)}">${options}</select>
+      <small id="fmp-rf-tenor-status">${rfStatus}${missingNote ? ` ${escape(missingNote)}` : ''}</small>
+    </div>`;
+  }
+
+  function capitalProvenanceHtml(text, scenario) {
+    const source = riskFreeTenorSource();
+    return `<section id="fmp-capital-provenance">
+      <p class="analysis-note" id="fmp-beta-provenance"><strong>Beta</strong>: ${finite(source.retainedBeta) ? source.retainedBeta.toFixed(3) : 'N/A'} —
+        ${text('來自 FMP 模型列保留的 beta（最終多為 FMP profile.beta）。供應商未說明回看期、頻率或基準指數；本站不宣稱「準確 5 年週線對 S&P」。可於十年表覆寫。',
+          'From the retained FMP model beta (typically FMP profile.beta). Provider lookback, frequency and benchmark are unspecified; this site does not claim an “accurate 5y weekly vs S&P” beta. Override in the ten-year grid if needed.')}
+        <small>${escape(source.betaProvenance)}</small></p>
+      <p class="analysis-note" id="fmp-rf-provenance"><strong>${text('無風險利率', 'Risk-free rate')}</strong>:
+        ${source.hkPegProxy
+          ? text('港股採用美元公債／美股無風險利率概念（聯繫匯率代理），非港元曲線。',
+            'HK stocks use the USD Treasury / US-stock risk-free concept (HKD peg proxy), not an HKD curve.')
+          : ''}
+        ${text('情境預設沿用 FMP 模型 riskFreeRate（retained-capital）', 'Scenario defaults retain FMP model riskFreeRate (retained-capital)')}${finite(source.retainedRf) ? `: ${source.retainedRf.toFixed(2)}%` : ''}.
+        ${source.date ? text(`定存美元公債擷取（參考）`, `Dated USD Treasury capture (reference)`) + `: ${escape(source.currency)} ${text('十年期', '10Y')} ${finite(source.rates[10]) ? `${source.rates[10].toFixed(2)}%` : 'N/A'} · ${escape(source.date)}.` : text('尚無已標日期的美元公債曲線擷取。', 'No dated USD Treasury-curve capture is available.')}
+        ${text('1–10 年期下拉選單在下方十年表「無風險利率 (%)」列左側（有資料的期數可選；缺期仍顯示為 N/A）。',
+          'The 1–10y tenor dropdown is on the left of the 「Risk-free rate (%)」 row in the ten-year table below (data-backed years selectable; missing years still shown as N/A).')}
+        ${source.riskFreeNote ? `<small>${escape(source.riskFreeNote)}</small>` : ''}</p>
+    </section>`;
   }
 
   function scenarioHtml(text, money, result) {
@@ -236,22 +598,47 @@
       ${missing.length ? `<p class="analysis-note text-red" id="fmp-missing-assumptions">${text('缺少假設，估值為 N/A', 'Missing assumptions; valuation is N/A')}: ${escape(missingNames.join(' / '))}</p>` : ''}
       ${(scenario.warnings || []).map(warning => `<p class="analysis-note">${text('來源警示：隱含營運稅率超出可用範圍；此情境明確改採 FMP 列示稅率，非照錄原始估值。', 'Source warning: implied operating tax is outside the supported range; this scenario explicitly uses the stated FMP tax rate instead, not the original API valuation.')} ${warning.year}: ${escape(warning.original)}% → ${escape(warning.replacement)}%</p>`).join('')}
       <p class="analysis-note">${text(
-        'Advanced：EBIT = EBITDA − D&A；修改 EBIT 會連動 EBITDA。有共識 EBITDA 時優先使用，EBIT 為連動推導，不冒稱同時符合供應商獨立 EBIT 預測；僅有共識 EBIT 時，以 EBIT 加 D&A 推導 EBITDA。FCFF = EBIT × (1 − 稅率) + D&A + 負數 CapEx − 營運資金增加。CFO 情境採 CFO + 負數 CapEx，不再加回 D&A；保留 WACC 折現及 EV 減淨債務定義，並非獨立 FCFE／Ke 模型。新預設不以歷史有效稅率或原生模型隱含稅率填補缺少的分析師營運稅率。',
-        'Advanced: EBIT = EBITDA - D&A; editing EBIT updates EBITDA. Consensus EBITDA takes priority, with linked EBIT not claimed to also match a separate provider EBIT forecast. If only consensus EBIT exists, EBITDA derives from EBIT plus D&A. FCFF = EBIT × (1 - tax) + D&A + negative CapEx - increase in working capital. The CFO scenario uses CFO + negative CapEx without adding D&A again. It retains WACC/EV less net debt, not an independent FCFE/Ke model. New defaults do not substitute historical effective tax or native-model implied tax for missing analyst operating tax.')}</p>
+        'Advanced：EBIT = EBITDA − D&A；修改 EBIT 會連動 EBITDA。有共識 EBITDA 時優先使用，EBIT 為連動推導，不冒稱同時符合供應商獨立 EBIT 預測；僅有共識 EBIT 時，以 EBIT 加 D&A 推導 EBITDA。FCFF = EBIT × (1 − 稅率) + D&A + 負數 CapEx − 營運資金增加。CFO 情境採 CFO + 負數 CapEx，不再加回 D&A；保留 WACC 折現及 EV 減淨債務定義，並非獨立 FCFE／Ke 模型。缺分析師營運稅率時，新建情境建議預設為近五年有效稅率平均（可改），不以原生模型隱含稅率冒充。',
+        'Advanced: EBIT = EBITDA - D&A; editing EBIT updates EBITDA. Consensus EBITDA takes priority, with linked EBIT not claimed to also match a separate provider EBIT forecast. If only consensus EBIT exists, EBITDA derives from EBIT plus D&A. FCFF = EBIT × (1 - tax) + D&A + negative CapEx - increase in working capital. The CFO scenario uses CFO + negative CapEx without adding D&A again. It retains WACC/EV less net debt, not an independent FCFE/Ke model. When analyst operating tax is missing, new scenarios suggest a five-year average effective tax (editable) rather than a native-model implied tax.')}</p>
       <p class="analysis-note">${text(
         '逐年 WACC 由股權／稅後債務成本與資本權重計算；修改 Beta、無風險利率或風險溢價會以 CAPM 更新該年的股權成本，亦可直接覆寫股權成本。每年折現因子連乘。終值增長率僅用於第十年後終值。EV 只減一次基期淨債務，不額外加上預測現金。負存貨或負稅率照來源標示，必須審視其適用性，未經獨立核實。',
         'Annual WACC uses equity/after-tax debt costs and capital weights; editing beta, risk-free rate or premium updates that year’s equity cost through CAPM, which can also be overridden directly. Annual discount factors compound. Terminal growth applies only beyond year ten. EV subtracts snapshot net debt once, with no extra addition of projected cash. Negative inventory/tax inputs require review and are not independently certified.')}</p>
       <p class="analysis-note" id="fmp-actual-note">${actual.note}</p>
+      ${growthDefaultNoteHtml(text, scenario)}
+      ${capitalProvenanceHtml(text, scenario)}
+      ${historyPanelHtml(text)}
       <div class="table-scroll-wrapper"><table id="fmp-ten-year-inputs"><thead><tr><th>${text('假設／來源', 'Assumption / source')}</th><th id="fmp-actual-period">${actual.header}</th>${scenario.years.map(item => `<th>${item.year}</th>`).join('')}</tr></thead><tbody>
-        ${Scenario.activeFields(state.kind, scenario).map(([key, zh, en, min, max]) => `<tr><th>${escape(text(zh, en))}</th><td data-actual-key="${key}">${actual.cells[key]}</td>${scenario.years.map((item, index) => `<td>
+        ${Scenario.activeFields(state.kind, scenario).map(([key, zh, en, min, max]) => {
+          const label = key === 'rf'
+            ? `${escape(text(zh, en))}${rfTenorControlHtml(text, scenario)}`
+            : escape(text(zh, en));
+          return `<tr data-scenario-field="${key}"><th>${label}</th><td data-actual-key="${key}">${actual.cells[key]}</td>${scenario.years.map((item, index) => `<td>
           <input aria-label="${escape(text(zh, en))} ${item.year}" data-scenario-key="${key}" data-scenario-year="${index}" type="number" step="any" min="${min}" max="${max}" required placeholder="N/A" title="${escape(item.values[key] ?? '')}" value="${inputValue(key, item.values[key])}">
-          <small data-origin="${index}-${key}">${escape(originText(item.origins[key], text))}</small></td>`).join('')}</tr>`).join('')}
+          <small data-origin="${index}-${key}">${escape(originText(item.origins[key], text))}</small></td>`).join('')}</tr>`;
+        }).join('')}
       </tbody></table></div>
-      <div class="fin-model-grid"><div class="form-group"><label for="fmp-terminal-growth">${text('第十年後終值增長率 (%)', 'Terminal growth after year ten (%)')}</label>
-      <input id="fmp-terminal-growth" type="number" required step="any" min="-10" max="20" placeholder="N/A" title="${escape(scenario.terminalGrowth ?? '')}" value="${inputValue('terminalGrowth', scenario.terminalGrowth)}"></div>
-      <div class="form-group"><label for="fmp-snapshot-net-debt">${text('來源快照淨債務（可調整）', 'Snapshot net debt (editable)')} · ${escape(scenario.currency)}</label>
-      <input id="fmp-snapshot-net-debt" type="number" required step="any" value="${scenario.netDebt}"></div></div>
-      <p class="analysis-note">${text('調整終值增長率不會悄悄改寫已填好的十年增長率；需要時請逐年修改。', 'Changing terminal growth does not silently overwrite the ten populated annual growth inputs; edit those years explicitly if needed.')}</p>
+      ${(() => {
+        const ref = scenario.terminalGrowthReference || Scenario.TERMINAL_GROWTH_REFERENCE;
+        const tax = scenario.taxFiveYear;
+        const netCash = scenario.netDebtBasis === 'net-cash' || scenario.netDebt < 0;
+        const netLabel = netCash ? text('建議淨現金（可調整）', 'Suggested net cash (editable)')
+          : text('建議淨債務（可調整）', 'Suggested net debt (editable)');
+        const peer = peerMultipleReference(text);
+        return `<div class="fin-model-grid"><div class="form-group"><label for="fmp-terminal-growth">${text('第十年後終值增長率 (%)', 'Terminal growth after year ten (%)')}</label>
+      <input id="fmp-terminal-growth" type="number" required step="any" min="-10" max="20" placeholder="N/A" title="${escape(scenario.terminalGrowth ?? '')}" value="${inputValue('terminalGrowth', scenario.terminalGrowth)}">
+      <small id="fmp-terminal-growth-ref">${text('參考帶', 'Reference band')} ${ref.bandLow.toFixed(1)}%–${ref.bandHigh.toFixed(1)}% · ${text('建議預設', 'Suggested default')} ${ref.value.toFixed(1)}% · ${escape(state.language() === 'en' ? ref.citationEn : ref.citationZh)}</small></div>
+      <div class="form-group"><label for="fmp-exit-multiple">${text('出場倍數終值 EV/EBITDA（可覆寫）', 'Exit-multiple terminal EV/EBITDA (optional override)')}</label>
+      <input id="fmp-exit-multiple" type="number" step="any" min="0" max="500" placeholder="N/A" title="${escape(scenario.exitMultiple ?? '')}" value="${inputValue('exitMultiple', scenario.exitMultiple)}">
+      <small>${originText(scenario.exitMultipleOrigin || (finite(scenario.exitMultiple) ? 'user' : 'unavailable'), text)}</small></div>
+      <div class="form-group"><label for="fmp-snapshot-net-debt">${netLabel} · ${escape(scenario.currency)}</label>
+      <input id="fmp-snapshot-net-debt" type="number" required step="any" title="${escape(scenario.netDebt)}" value="${scenario.netDebt}">
+      <small id="fmp-snapshot-net-debt-meta">${text('報表／快照日', 'Statement / snapshot date')}: ${escape(scenario.netDebtDate || scenario.baseDate || 'N/A')} · ${text('顯示', 'Display')}: ${formatMoneyInput(scenario.currency, scenario.netDebt)} · ${netCash ? text('負淨債務＝淨現金', 'Negative net debt = net cash') : text('正值＝淨債務', 'Positive = net debt')}</small></div></div>
+      ${peer.html}
+      <p class="analysis-note" id="fmp-tax-default-note">${tax?.percent != null
+        ? text(`預測稅率建議預設為近五年有效稅率平均 ${tax.percent.toFixed(2)}%（財年 ${tax.years.join(', ')}）；標為可改，不會覆寫你已改的格子。`, `Forecast tax suggests the 5y effective-tax average ${tax.percent.toFixed(2)}% (FY ${tax.years.join(', ')}); labeled editable and does not overwrite cells you already changed.`)
+        : text(`預測稅率五年平均不可用：${tax?.reason || 'TAX_UNAVAILABLE'}；缺稅率時維持 N/A。`, `Five-year average tax unavailable: ${tax?.reason || 'TAX_UNAVAILABLE'}; missing tax stays N/A.`)}</p>
+      <p class="analysis-note">${text('調整終值增長率不會悄悄改寫已填好的十年增長率；需要時請逐年修改。缺共識的營運比率可採「建議預設／可改」（最近全年或五年平均）；營收成長不在共識之外虛構。出場倍數新建時可建議現價 EV/EBITDA，並顯示同業 P/E 與 EV/EBITDA 參考；留空則該終值列為 N/A。', 'Changing terminal growth does not silently overwrite the ten populated annual growth inputs; edit those years explicitly if needed. Missing consensus operating ratios may use labeled suggested defaults (latest FY or five-year averages); revenue growth is never invented beyond consensus. New scenarios may suggest current EV/EBITDA as the exit multiple and show peer P/E and EV/EBITDA for reference; leaving it blank keeps that terminal N/A.')}</p>`;
+      })()}
       <button id="fmp-calculate" type="button" class="btn-save">${text('計算十年情境', 'Calculate ten-year scenario')}</button>
       <p id="fmp-status" role="status">${escape(result.reason ? reasonText(result.reason, state.language())
         : text('本站十年情境；不是 FMP 原始結果。可按「儲存目標價」一次計算並儲存。', 'Site-calculated ten-year scenario, not an FMP API result. Save target calculates and saves in one step.'))}</p>
@@ -264,8 +651,38 @@
       ${(result.result?.rows || []).map(row => `<tr><th>${row.year}</th><td>${money(row.revenue)}</td><td>${money(state.kind === 'advanced' ? row.ebitda : row.cfo)}</td><td>${money(row.capex)}</td>
         ${state.kind === 'advanced' ? `<td>${money(row.changeNwc)}</td>` : ''}
         <td>${money(row.cashFlow)}</td><td>${(row.wacc * 100).toFixed(2)}%</td><td>${money(row.pv)}</td></tr>`).join('')}</tbody></table></div>
-      <p class="analysis-note">${text('現金流現值合計／終值現值／EV／淨債務／股權價值', 'PV cash flows / PV terminal / EV / net debt / equity')}: ${[
-        result.result?.presentFlows, result.row?.presentTerminalValue, result.row?.enterpriseValue, scenario.netDebt, result.row?.equityValue].map(money).join(' / ')}</p>`;
+      <p class="analysis-note">${text('現金流現值合計／Gordon 終值現值／EV／淨債務／股權價值（主結果採 Gordon）', 'PV cash flows / Gordon PV terminal / EV / net debt / equity (primary uses Gordon)')}: ${[
+        result.result?.presentFlows, result.row?.presentTerminalValue, result.row?.enterpriseValue, scenario.netDebt, result.row?.equityValue].map(money).join(' / ')}</p>
+      ${dualTerminalHtml(text, money, result, scenario)}`;
+  }
+
+  function dualTerminalHtml(text, money, result, scenario) {
+    const terminals = result.result?.terminals;
+    if (!terminals) return '';
+    const gordon = terminals.gordon;
+    const exit = terminals.exitMultiple;
+    const row = (label, gVal, eVal) => `<tr><th>${escape(label)}</th><td>${gVal}</td><td>${eVal}</td></tr>`;
+    const exitCell = (value, formatter = money) => exit?.available ? formatter(value) : 'N/A';
+    const perShare = value => finite(value) ? money(value) : 'N/A';
+    return `<section id="fmp-dual-terminal"><h4>${text('雙終值比較（Gordon 為主結果）', 'Dual terminal comparison (Gordon is primary)')}</h4>
+      <div class="table-scroll-wrapper"><table id="fmp-dual-terminal-results"><thead><tr>
+        <th>${text('項目', 'Item')}</th><th>${text('Gordon 永續增長', 'Gordon growth')}</th>
+        <th>${text('出場倍數', 'Exit multiple')}</th></tr></thead><tbody>
+        ${row(text('終值方法輸入', 'Terminal input'),
+          finite(gordon?.terminalGrowth) ? `${Number(gordon.terminalGrowth).toFixed(2)}%` : 'N/A',
+          exit?.available ? `${Number(exit.exitMultiple).toFixed(2)}x` : 'N/A')}
+        ${row(text('終值', 'Terminal value'), money(gordon?.terminalValue), exitCell(exit?.terminalValue))}
+        ${row(text('終值現值', 'PV of terminal'), money(gordon?.presentTerminalValue), exitCell(exit?.presentTerminalValue))}
+        ${row(text('企業價值 EV', 'Enterprise value'), money(gordon?.enterpriseValue), exitCell(exit?.enterpriseValue))}
+        ${row(text('股權價值', 'Equity value'), money(gordon?.equityValue), exitCell(exit?.equityValue))}
+        ${row(text('每股目標', 'Per-share target'), perShare(gordon?.targetPrice), exit?.available ? perShare(exit.targetPrice) : 'N/A')}
+      </tbody></table></div>
+      <p class="analysis-note" id="fmp-exit-multiple-status">${exit?.available
+        ? text(`出場倍數 ${Number(exit.exitMultiple).toFixed(2)}x 已計算；主結果仍採 Gordon。`, `Exit multiple ${Number(exit.exitMultiple).toFixed(2)}x calculated; primary result remains Gordon.`)
+        : `${text('出場倍數終值', 'Exit-multiple terminal')}: N/A — ${escape(reasonText(exit?.reason || 'EXIT_MULTIPLE_UNAVAILABLE', state.language()))}${
+          scenario.kind === 'advanced' && finite(state.stock.ev_to_ebitda)
+            ? ` (${text('現價 EV/EBITDA 僅供參考', 'current EV/EBITDA for reference only')}: ${Number(state.stock.ev_to_ebitda).toFixed(2)}x)`
+            : ''}`}</p></section>`;
   }
 
   function sourceReviewHtml(text) {
@@ -334,6 +751,15 @@
     badge.textContent = finite(premium) ? `${premium >= 0 ? '+' : ''}${premium.toFixed(1)}%` : 'N/A';
     set('det-res-evebitda', finite(stock.ev_to_ebitda) ? stock.ev_to_ebitda.toFixed(2) : 'N/A');
     set('det-res-nde', finite(stock.net_debt_to_ebitda) ? stock.net_debt_to_ebitda.toFixed(2) : 'N/A');
+    const confidence = valuationConfidence({
+      stock, result, scenario: local ? state.scenarios[kind] : null, mode: state.mode,
+      statementsMissing: local && !state.actualStatements && !!state.actualError
+    });
+    const confidenceEl = root.document.getElementById('det-res-confidence');
+    if (confidenceEl) {
+      confidenceEl.textContent = confidenceText(confidence, state.language());
+      confidenceEl.dataset.level = confidence.level;
+    }
     root.document.querySelector('[onclick="saveCustomModel()"]').disabled = !!state.busy
       || result.fairVal === null && !(local ? state.scenarioDirty[kind] : state.dirty[kind]);
     box.innerHTML = `<div class="panel">
@@ -427,15 +853,49 @@
       input.value = inputValue(input.dataset.scenarioKey,
         state.scenarios[kind].years[Number(input.dataset.scenarioYear)].values[input.dataset.scenarioKey]);
     }));
-    for (const [id, key] of [['fmp-terminal-growth', 'terminalGrowth'], ['fmp-snapshot-net-debt', 'netDebt']]) {
+    for (const [id, key] of [['fmp-terminal-growth', 'terminalGrowth'], ['fmp-exit-multiple', 'exitMultiple'], ['fmp-snapshot-net-debt', 'netDebt']]) {
       box.querySelector(`#${id}`)?.addEventListener('input', event => {
         state.scenarios[kind][key] = event.target.value.trim() ? event.target.valueAsNumber : null;
         event.target.title = String(state.scenarios[kind][key] ?? '');
+        if (key === 'terminalGrowth') {
+          state.scenarios[kind].terminalGrowthOrigin = event.target.value.trim() ? 'user' : null;
+        }
+        if (key === 'exitMultiple') {
+          state.scenarios[kind].exitMultipleOrigin = event.target.value.trim() ? 'user' : null;
+        }
+        if (key === 'netDebt') {
+          state.scenarios[kind].netDebtBasis = finite(state.scenarios[kind].netDebt)
+            && state.scenarios[kind].netDebt < 0 ? 'net-cash' : 'net-debt';
+          const meta = box.querySelector('#fmp-snapshot-net-debt-meta');
+          if (meta) {
+            const netCash = state.scenarios[kind].netDebtBasis === 'net-cash';
+            meta.textContent = `${text('報表／快照日', 'Statement / snapshot date')}: ${state.scenarios[kind].netDebtDate || state.scenarios[kind].baseDate || 'N/A'} · ${text('顯示', 'Display')}: ${formatMoneyInput(state.scenarios[kind].currency, state.scenarios[kind].netDebt)} · ${netCash ? text('負淨債務＝淨現金', 'Negative net debt = net cash') : text('正值＝淨債務', 'Positive = net debt')}`;
+          }
+        }
         changed();
       });
     }
     box.querySelector('#fmp-terminal-growth')?.addEventListener('blur', event => {
       event.target.value = inputValue('terminalGrowth', state.scenarios[kind].terminalGrowth);
+    });
+    box.querySelector('#fmp-exit-multiple')?.addEventListener('blur', event => {
+      event.target.value = inputValue('exitMultiple', state.scenarios[kind].exitMultiple);
+    });
+    box.querySelector('#fmp-rf-tenor')?.addEventListener('change', event => {
+      const tenor = Number(event.target.value);
+      const applied = applyRfTenor(state.scenarios[kind], tenor);
+      const status = box.querySelector('#fmp-rf-tenor-status');
+      if (status) {
+        status.textContent = applied
+          ? `${state.scenarios[kind].rfTenorSource.rate.toFixed(2)}% · ${state.scenarios[kind].rfTenorSource.currency} · ${state.scenarios[kind].rfTenorSource.date || 'N/A'}`
+          : reasonText('DATED_CURVE_TENOR_UNAVAILABLE', state.language());
+      }
+      if (applied) {
+        state.scenarioDirty[kind] = true;
+        render();
+      } else {
+        changed();
+      }
     });
     box.querySelector('#fmp-calculate')?.addEventListener('click', calculate);
     box.querySelector('#fmp-download-audit').addEventListener('click', downloadAudit);
@@ -495,7 +955,12 @@
   function actuals(ticker, statements, reason = null) {
     if (!state || state.ticker !== ticker) return;
     state.actualStatements = statements; state.actualError = reason;
+    if (state.scenarios?.[state.kind]) enrichScenarioSuggestions(state.scenarios[state.kind]);
     if (state.mode !== 'ten-year' || !root.document.getElementById('fmp-actual-period')) return;
+    if (root.document.getElementById('fmp-fy-history') || root.document.getElementById('fmp-ten-year-inputs')) {
+      render();
+      return;
+    }
     const text = (zh, en) => state.language() === 'en' ? en : zh;
     const money = value => finite(value) ? `${state.stock.calculationCurrency || 'USD'} ${value.toLocaleString('en-US', { maximumFractionDigits: 2 })}` : 'N/A';
     const column = actualColumn(text, money);
@@ -611,5 +1076,6 @@
     }
   }
   return { record, value, issuedShares, reference, dcfApplicable, priceDifference, compatible, load, save, reset, details, detailsError, reasonText, actuals, auditPacket,
+    valuationConfidence, confidenceText, riskFreeTenorSource, applyRfTenor, isHkListing,
     deactivate: () => { state = null; }, rerender: () => { if (state) render(); } };
 });

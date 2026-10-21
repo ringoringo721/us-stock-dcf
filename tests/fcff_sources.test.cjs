@@ -192,6 +192,20 @@ test('HK discount inputs explicitly use a dated USD proxy while retaining compan
   }
 });
 
+test('HK rf prefers USD Treasury over a separate HKD benchmark when both are supplied', () => {
+  const input = hkEvidence();
+  const hkdTreasury = { ok: true, rows: [{ date: '2026-10-16', year10: 9.99, year5: 8.5 }] };
+  const usdMulti = { ok: true, rows: [{ date: '2026-10-16', year10: 4.1, year5: 3.7, year2: 3.2 }] };
+  const snapshot = prepareSnapshot('TEST.HK', input, usdMulti, hkdRates, null, { hkdTreasury });
+  assert.equal(snapshot.defaults.rf, 4.1);
+  assert.equal(snapshot.provenance.treasury.currency, 'USD');
+  assert.equal(snapshot.provenance.treasury.year10, 4.1);
+  assert.equal(snapshot.provenance.treasury.year5, 3.7);
+  assert.equal(snapshot.provenance.treasury.year2, 3.2);
+  assert.match(snapshot.provenance.riskFreeRate, /USD Treasury proxy/);
+  assert.doesNotMatch(snapshot.provenance.riskFreeRate, /HKD benchmark/);
+});
+
 test('latest matched forecast scale controls eligibility and older differences remain disclosed', () => {
   const input = evidence();
   input.responses.annual_income.rows.unshift({ symbol: 'TEST', date: '2024-12-31',

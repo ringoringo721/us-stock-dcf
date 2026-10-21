@@ -10,6 +10,17 @@
     || row.periodLength === undefined && row.period === 'FY' && !row.symbol?.endsWith('.HK'));
   const fail = code => { throw new Error(code); };
   const kinds = ['advanced', 'customLevered'];
+  // Mature-market long-term nominal growth band used in Damodaran / sell-side Gordon practice
+  // (≈ long-run GDP + inflation). Midpoint 2.5% is a suggested default only, not a forecast.
+  const TERMINAL_GROWTH_REFERENCE = {
+    value: 2.5, bandLow: 2, bandHigh: 3, origin: 'suggested-default',
+    citationZh: '參考 Damodaran／賣方常見成熟市場長期名目成長帶（約長期 GDP＋通膨）2%–3%，建議預設取中點 2.5%；可改，不會覆寫你已輸入的值。',
+    citationEn: 'Reference: Damodaran / common sell-side mature-market long-term nominal growth band (~long-run GDP + inflation) of 2%–3%. Suggested default uses the 2.5% midpoint; editable and never overwrites a value you already entered.'
+  };
+  // Autofill ceiling for suggested revenue growth (percentage points). Beyond this, history is
+  // reference-only; Damodaran-style practice then prefers peer/stable defaults or manual input.
+  const GROWTH_AUTOFILL_ABS_MAX = 30;
+  const MATURE_GROWTH_DEFAULT = TERMINAL_GROWTH_REFERENCE.value;
   const fields = [
     ['growth', '營收成長率 (%)', 'Revenue growth (%)', -99.99, 1000],
     ['ebitda', 'EBITDA／營收 (%)', 'EBITDA / revenue (%)', -1000, 1000, 'advanced'],
@@ -94,7 +105,123 @@
       : { reason: 'SCENARIO_BASE_UNVERIFIED' };
   }
 
-  function defaults(data, kind, shares) {
+  function fiveYearEffectiveTax(statements, base, currency) {
+    const unavailable = reason => ({ percent: null, years: [], rates: [], reason });
+    if (!base || !Number.isInteger(base.year) || !base.date) return unavailable('TAX_BASE_UNAVAILABLE');
+    if (!statements?.annual?.income) return unavailable('TAX_STATEMENTS_UNAVAILABLE');
+    const rows = [];
+    for (let offset = 0; offset < 5; offset++) {
+      const year = base.year - offset;
+      const matches = statements.annual.income.filter(row => Number(row.fiscalYear || row.calendarYear) === year
+        && fullAnnualPeriod(row) && (!currency || row.reportedCurrency === currency));
+      if (matches.length !== 1) return unavailable('TAX_FIVE_YEAR_INCOMPLETE');
+      const row = matches[0];
+      if (!(row.incomeBeforeTax > 0) || !finite(row.incomeTaxExpense)) return unavailable('TAX_PRETAX_OR_EXPENSE_UNAVAILABLE');
+      const rate = row.incomeTaxExpense / row.incomeBeforeTax * 100;
+      if (!finite(rate) || rate < -100 || rate > 100) return unavailable('TAX_RATE_OUT_OF_RANGE');
+      rows.push({ year, date: row.date, rate });
+    }
+    rows.reverse();
+    const percent = rows.reduce((sum, row) => sum + row.rate, 0) / rows.length;
+    return { percent, years: rows.map(row => row.year), rates: rows, reason: null,
+      basis: 'Arithmetic mean of five consecutive full-FY effective tax rates (income tax expense / pretax income).' };
+  }
+
+  function fiveYearHistory(statements, data, kind = 'advanced') {
+    const unavailable = reason => ({ reason, years: [], metrics: {}, summary: {} });
+    const base = data?.forecastBase;
+    if (!base || !Number.isInteger(base.year)) return unavailable('HISTORY_BASE_UNAVAILABLE');
+    if (!statements?.annual?.income) return unavailable('HISTORY_STATEMENTS_UNAVAILABLE');
+    const currency = data.currencyCheck?.sourceCurrency;
+    const years = [];
+    for (let offset = 4; offset >= 0; offset--) {
+      const year = base.year - offset;
+      const incomeMatches = statements.annual.income.filter(row => Number(row.fiscalYear || row.calendarYear) === year
+        && fullAnnualPeriod(row) && (!currency || row.reportedCurrency === currency));
+      if (incomeMatches.length !== 1 || !(incomeMatches[0].revenue > 0)) return unavailable('HISTORY_FIVE_YEAR_INCOMPLETE');
+      const income = incomeMatches[0];
+      const cashMatches = (statements.annual.cashflow || []).filter(row => row.date === income.date
+        && fullAnnualPeriod(row) && (!currency || row.reportedCurrency === currency));
+      const cashflow = cashMatches.length === 1 ? cashMatches[0] : null;
+      const prior = years.at(-1);
+      const growth = prior?.revenue > 0 ? (income.revenue / prior.revenue - 1) * 100 : null;
+      const ratio = amount => finite(amount) ? amount / income.revenue * 100 : null;
+      const da = finite(income.depreciationAndAmortization) ? income.depreciationAndAmortization
+        : cashflow?.depreciationAndAmortization;
+      const tax = income.incomeBeforeTax > 0 && finite(income.incomeTaxExpense)
+        ? income.incomeTaxExpense / income.incomeBeforeTax * 100 : null;
+      years.push({
+        year, date: income.date, revenue: income.revenue, growth,
+        ebitda: ratio(income.ebitda), da: ratio(da),
+        capex: ratio(cashflow?.capitalExpenditure),
+        cfo: ratio(cashflow?.operatingCashFlow ?? cashflow?.netCashProvidedByOperatingActivities),
+        nwcChange: finite(cashflow?.changeInWorkingCapital) ? -cashflow.changeInWorkingCapital / income.revenue * 100 : null,
+        tax
+      });
+    }
+    const keys = kind === 'customLevered'
+      ? ['growth', 'cfo', 'capex', 'tax']
+      : ['growth', 'ebitda', 'da', 'nwcChange', 'capex', 'tax'];
+    const metrics = Object.fromEntries(keys.map(key => [key, years.map(row => row[key])]));
+    const first = years[0], last = years.at(-1);
+    const summary = {
+      revenueCagr: first.revenue > 0 && last.revenue > 0
+        ? (Math.pow(last.revenue / first.revenue, 1 / (years.length - 1)) - 1) * 100 : null,
+      spanYears: years.map(row => row.year)
+    };
+    for (const key of keys) {
+      const series = metrics[key].filter(finite);
+      summary[key] = {
+        average: series.length ? series.reduce((sum, value) => sum + value, 0) / series.length : null,
+        changePp: finite(first[key]) && finite(last[key]) ? last[key] - first[key] : null
+      };
+    }
+    return { reason: null, years, metrics, summary };
+  }
+
+  function suggestRevenueGrowth({ statements, data, peers = [] } = {}) {
+    const pack = (percent, origin, reason, detail = {}) => ({ percent, origin, reason, detail });
+    const history = fiveYearHistory(statements, data, 'advanced');
+    const yoy = history.metrics?.growth?.filter(finite) || [];
+    const cagr = history.summary?.revenueCagr;
+    const volatile = yoy.length >= 3 && (Math.max(...yoy) - Math.min(...yoy) > 50);
+    const historicalOutlier = finite(cagr) && Math.abs(cagr) > GROWTH_AUTOFILL_ABS_MAX;
+    const hyperVolatile = finite(cagr) && volatile && Math.abs(cagr) > 15;
+
+    if (!history.reason && finite(cagr) && !historicalOutlier && !hyperVolatile) {
+      return pack(cagr, 'historical-cagr', null, {
+        cagr, years: history.summary.spanYears, volatile, maxAbs: GROWTH_AUTOFILL_ABS_MAX,
+        basis: 'Historical revenue CAGR over consecutive full fiscal years (up to 5).'
+      });
+    }
+
+    const peerValues = (peers || []).map(peer => peer?.stock?.growth_10y?.[0])
+      .filter(value => finite(value) && Math.abs(value) <= GROWTH_AUTOFILL_ABS_MAX)
+      .sort((a, b) => a - b);
+    if (peerValues.length >= 3) {
+      const median = peerValues[Math.floor(peerValues.length / 2)];
+      return pack(median, 'peer-median-growth', null, {
+        median, samples: peerValues, cagr: finite(cagr) ? cagr : null, volatile,
+        basis: 'Median of peer year-1 model growth (growth_10y[0]) from PeerComparison.'
+      });
+    }
+
+    if (hyperVolatile || (historicalOutlier && volatile)) {
+      return pack(null, null, 'GROWTH_REQUIRES_MANUAL_INPUT', {
+        cagr: finite(cagr) ? cagr : null, volatile, maxAbs: GROWTH_AUTOFILL_ABS_MAX,
+        basis: 'Volatile/high historical growth is shown as reference only; no autofill to avoid false precision.'
+      });
+    }
+
+    return pack(MATURE_GROWTH_DEFAULT, 'suggested-mature-growth', null, {
+      value: MATURE_GROWTH_DEFAULT, bandLow: 2, bandHigh: 3,
+      cagr: finite(cagr) ? cagr : null, volatile,
+      historyReason: history.reason || (historicalOutlier ? 'HISTORICAL_GROWTH_OUTLIER' : null),
+      basis: 'Conservative mature-company default (~long-run nominal GDP / Damodaran stable-growth band midpoint).'
+    });
+  }
+
+  function defaults(data, kind, shares, context = {}) {
     if (!kinds.includes(kind) || !Number.isSafeInteger(shares) || shares <= 0
         || data.currencyCheck?.reason || data.models?.[kind]?.reason) fail('SCENARIO_SOURCE_UNAVAILABLE');
     const base = data.forecastBase;
@@ -112,6 +239,7 @@
       && consensus.calculationCurrency === data.currency && finite(consensus.fx?.rate) && consensus.fx.rate > 0;
     const actuals = data.forecastActuals?.symbol === data.symbol ? data.forecastActuals : null;
     const latest = !actuals?.latest?.reason ? actuals?.latest : null;
+    const taxFive = fiveYearEffectiveTax(context.statements, base, data.currencyCheck?.sourceCurrency);
     const capitalFields = { beta: 'beta', rf: 'riskFreeRate', erp: 'marketRiskPremium',
       kd: 'costofDebt', ke: 'costOfEquity', debtWeight: 'debtWeighting' };
     const years = [], warnings = [];
@@ -148,20 +276,37 @@
       if (kind === 'customLevered') fallback('cfo', 'operatingCashFlowAvg');
       else {
         fallback('da', 'depreciationAndAmortizationAvg');
-        ratio('ebitda', 'ebitdaAvg');
+        fallback('ebitda', 'ebitdaAvg');
         if (finite(values.ebitda) && finite(values.da)) set('ebit', values.ebitda - values.da, 'derived');
         else if (covered && finite(row.ebitAvg)) {
           set('ebit', row.ebitAvg / row.revenueAvg * 100, 'analyst');
           if (finite(values.da)) set('ebitda', values.ebit + values.da, 'derived');
+        } else if (finite(values.ebitda) && finite(latest?.items?.da?.percent)) {
+          set('da', latest.items.da.percent, 'latest-fy');
+          set('ebit', values.ebitda - values.da, 'derived');
         }
         set('nwcChange', actuals?.workingCapital?.nwcChange, 'working-capital-average');
       }
+      if (!finite(values.tax)) set('tax', taxFive.percent, 'five-year-effective-tax');
       years.push({ year, values, origins, consensusDate: covered ? row.date : null });
       previousRevenue = revenue;
+    }
+    const growthSuggestion = suggestRevenueGrowth({
+      statements: context.statements, data, peers: context.peers || []
+    });
+    if (finite(growthSuggestion.percent)) {
+      for (const item of years) {
+        if (!finite(item.values.growth)) {
+          item.values.growth = growthSuggestion.percent;
+          item.origins.growth = growthSuggestion.origin;
+        }
+      }
     }
     const openingNwc = kind === 'advanced'
       ? [opening.receivables, opening.inventories, opening.payable].every(finite)
         ? opening.receivables + opening.inventories - opening.payable : null : 0;
+    const suggestedExit = finite(context.stock?.ev_to_ebitda) && context.stock.ev_to_ebitda > 0
+      && context.stock.ev_to_ebitda <= 500 ? context.stock.ev_to_ebitda : null;
     return { version: 1, assumptionPolicy: 'analyst-consensus-v1', kind, symbol: data.symbol, currency: data.currency, shares,
       workingCapitalMethod: 'cash-change-to-revenue',
       baseYear: base.year, baseDate: base.date, baseRevenue, openingNwc,
@@ -170,7 +315,16 @@
       providerYears: [], analystYears: years.filter(row => row.consensusDate).map(row => row.year),
       analystReason: validSource ? null : consensus?.reason || 'ANALYST_SOURCE_UNAVAILABLE',
       actualRatioDate: latest?.date || null, workingCapitalYears: actuals?.workingCapitalYears || [],
-      warnings, netDebt: opening.netDebt, terminalGrowth: null, years };
+      warnings, netDebt: opening.netDebt, netDebtDate: base.date,
+      netDebtBasis: opening.netDebt < 0 ? 'net-cash' : 'net-debt',
+      terminalGrowth: TERMINAL_GROWTH_REFERENCE.value,
+      terminalGrowthOrigin: TERMINAL_GROWTH_REFERENCE.origin,
+      terminalGrowthReference: { ...TERMINAL_GROWTH_REFERENCE },
+      exitMultiple: suggestedExit,
+      exitMultipleOrigin: suggestedExit === null ? null : 'suggested-current-multiple',
+      taxFiveYear: taxFive,
+      growthSuggestion,
+      years };
   }
 
   function missingInputs(scenario) {
@@ -183,6 +337,26 @@
       }
     }
     return missing;
+  }
+
+  function exitMultipleTerminal(scenario, last, presentFlows) {
+    const empty = reason => ({ method: 'exit-multiple', available: false, reason,
+      exitMultiple: finite(scenario.exitMultiple) ? scenario.exitMultiple : null,
+      terminalValue: null, presentTerminalValue: null, enterpriseValue: null, equityValue: null, targetPrice: null });
+    if (scenario.kind !== 'advanced') return empty('EXIT_MULTIPLE_ADVANCED_ONLY');
+    if (!finite(scenario.exitMultiple)) return empty('EXIT_MULTIPLE_UNAVAILABLE');
+    if (!(scenario.exitMultiple > 0 && scenario.exitMultiple <= 500)) return empty('EXIT_MULTIPLE_INVALID');
+    if (!(last.ebitda > 0)) return empty('EXIT_MULTIPLE_NONPOSITIVE_EBITDA');
+    const terminalValue = last.ebitda * scenario.exitMultiple;
+    const presentTerminalValue = terminalValue / last.discount;
+    const enterpriseValue = presentFlows + presentTerminalValue;
+    const equityValue = enterpriseValue - scenario.netDebt;
+    const targetPrice = equityValue / scenario.shares;
+    if (![enterpriseValue, equityValue, targetPrice, presentTerminalValue].every(finite)) {
+      return empty('EXIT_MULTIPLE_NONFINITE_RESULT');
+    }
+    return { method: 'exit-multiple', available: true, reason: null, exitMultiple: scenario.exitMultiple,
+      terminalValue, presentTerminalValue, enterpriseValue, equityValue, targetPrice };
   }
 
   function upgradeWorkingCapital(scenario) {
@@ -276,8 +450,13 @@
     const warnings = [];
     if (last.cashFlow <= 0) warnings.push('NONPOSITIVE_TERMINAL_CASH_FLOW');
     if (equityValue < 0) warnings.push('NEGATIVE_EQUITY_VALUE');
+    const gordon = { method: 'gordon', available: true, reason: null, terminalGrowth: scenario.terminalGrowth,
+      terminalValue, presentTerminalValue, enterpriseValue, equityValue, targetPrice };
+    const exit = exitMultipleTerminal(scenario, last, presentFlows);
+    if (exit.available && exit.equityValue < 0) warnings.push('NEGATIVE_EXIT_MULTIPLE_EQUITY_VALUE');
     return { targetPrice, enterpriseValue, equityValue, terminalValue, presentTerminalValue, presentFlows, warnings,
-      netDebt: scenario.netDebt, wacc: last.wacc, g: scenario.terminalGrowth, rows };
+      netDebt: scenario.netDebt, wacc: last.wacc, g: scenario.terminalGrowth, rows,
+      terminalMethod: 'gordon', terminals: { gordon, exitMultiple: exit } };
   }
 
   function actualReference(data, statements, base = data?.forecastBase) {
@@ -389,9 +568,12 @@
     capm: 'Editing rf, beta or erp updates ke = rf+beta*erp; direct ke overrides are respected.',
     wacc: 'WACC[t] = ke[t]/100*(1-debtWeight[t]/100)+kd[t]/100*(1-tax[t]/100)*debtWeight[t]/100',
     discount: 'Discount[t] = PRODUCT(1+WACC[1], ..., 1+WACC[t]); PV[t] = CashFlow[t]/Discount[t]. End-of-year convention; no stub-year adjustment.',
-    terminal: 'TV = CashFlow[10]*(1+terminalGrowth/100)/(WACC[10]-terminalGrowth/100); PVTV = TV/Discount[10]. Requires WACC[10] > terminalGrowth/100.',
-    bridge: 'EV = SUM(PV[1:10])+PVTV; Equity = EV-netDebt; Target = Equity/issuedShares. Snapshot net debt subtracted once; projected cash is disclosure only.',
-    native: 'Native API internals are not independently reproduced. Site native target = returned equityValue/verified issued common shares. Returned equityValuePerShare and dilutedSharesOutstanding are preserved separately. Reconciliation residuals are checks, not replacements for vendor outputs.'
+    terminal: 'Primary Gordon TV = CashFlow[10]*(1+terminalGrowth/100)/(WACC[10]-terminalGrowth/100); PVTV = TV/Discount[10]. Requires WACC[10] > terminalGrowth/100. New scenarios suggest Damodaran-style 2.5% terminal growth (2%–3% band) and may suggest current EV/EBITDA as an exit multiple; both are labeled suggested defaults and never overwrite user edits. Alternate Advanced exit-multiple TV = EBITDA[10]*exitMultiple when supplied; otherwise N/A with reason.',
+    bridge: 'EV = SUM(PV[1:10])+PVTV; Equity = EV-netDebt; Target = Equity/issuedShares. Snapshot net debt subtracted once; projected cash is disclosure only. Primary targetPrice uses Gordon; exit-multiple EV/equity/per-share are reported beside it when available.',
+    native: 'Native API internals are not independently reproduced. Site native target = returned equityValue/verified issued common shares. Returned equityValuePerShare and dilutedSharesOutstanding are preserved separately. Reconciliation residuals are checks, not replacements for vendor outputs.',
+    taxDefault: 'When analyst operating tax is missing, new scenarios use the arithmetic mean of five consecutive full-FY effective tax rates (tax expense / pretax) from statements; otherwise tax stays N/A.',
+    operatingDefaults: 'Missing consensus CapEx/CFO/D&A/EBITDA use latest full-FY revenue ratios (labeled latest-fy). NWC uses five-year average change/revenue. Missing revenue growth uses suggestRevenueGrowth: historical CAGR (capped), else peer median year-1 growth, else mature 2.5% — or blank with GROWTH_REQUIRES_MANUAL_INPUT when history is hyper-volatile. Flat fill for uncovered years only; no invented fade path. Professional practice: Damodaran uses fundamentals/history then fades to stable growth; many DCF tools prefer analyst estimates, then history, else user input.',
+    growthDefaults: 'Hierarchy when consensus growth is missing: (1) historical revenue CAGR up to 5y if |CAGR|<=30 and not hyper-volatile; (2) peer median of growth_10y[0] from PeerComparison; (3) mature 2.5% band midpoint; else N/A + GROWTH_REQUIRES_MANUAL_INPUT. Labeled suggested defaults; never overwrites analyst or user values.'
   };
-  return { fields, activeFields, fullAnnualPeriod, verifiedIncomeDocument, baseSource, verifiedRevenueCorrection, defaults, update, calculate, actualReference, missingInputs, upgradeWorkingCapital, formulas };
+  return { fields, activeFields, fullAnnualPeriod, verifiedIncomeDocument, baseSource, verifiedRevenueCorrection, defaults, update, calculate, actualReference, missingInputs, upgradeWorkingCapital, exitMultipleTerminal, fiveYearEffectiveTax, fiveYearHistory, suggestRevenueGrowth, TERMINAL_GROWTH_REFERENCE, GROWTH_AUTOFILL_ABS_MAX, MATURE_GROWTH_DEFAULT, formulas };
 });

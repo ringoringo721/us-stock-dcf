@@ -95,3 +95,111 @@ test('Source identity, currency, issued shares and terminal-spread failures neve
   invalid.currencyCheck.reason = 'FMP_MODEL_CURRENCY_UNVERIFIED';
   assert.equal(Models.value(invalid, 'advanced', stock).reason, 'FMP_MODEL_CURRENCY_UNVERIFIED');
 });
+
+test('Intrinsic confidence uses existing completeness signals without inventing coverage', () => {
+  const stock = { ...market.AAPL, ticker: 'AAPL' };
+  const available = Models.value(records.AAPL, 'advanced', stock);
+  assert.equal(Models.valuationConfidence({ stock, result: available }).level, 'high');
+  assert.match(Models.confidenceText(Models.valuationConfidence({ stock, result: available }), 'zh'), /信心.*高/);
+  assert.match(Models.confidenceText(Models.valuationConfidence({ stock, result: available }), 'en'), /confidence: High/i);
+
+  assert.equal(Models.valuationConfidence({
+    stock: { ...market.JPM, ticker: 'JPM' }, result: { fairVal: 100 }
+  }).level, 'unavailable');
+  assert.deepEqual(Models.valuationConfidence({
+    stock: { ...market.JPM, ticker: 'JPM' }, result: { fairVal: 100 }
+  }).reasons, ['FINANCIAL_INSTITUTION']);
+
+  const segment = Object.entries(market).find(([, row]) => row.corporateDcfApplicability === 'requiresSegmentValuation');
+  assert.ok(segment, 'fixture includes a segment-required name');
+  assert.equal(Models.valuationConfidence({
+    stock: { ...segment[1], ticker: segment[0] }, result: { fairVal: null, reason: 'FMP_SEGMENT_VALUATION_REQUIRED' }
+  }).level, 'unavailable');
+
+  assert.equal(Models.valuationConfidence({
+    stock: { ...stock, shares_outstanding: null, shareSource: { reason: 'unverified' } },
+    result: { fairVal: null, reason: 'FMP_ISSUED_SHARES_UNAVAILABLE' }
+  }).reasons[0], 'SHARE_BASIS');
+
+  assert.equal(Models.valuationConfidence({
+    stock, result: { fairVal: null, reason: 'FMP_INVALID_TERMINAL_SPREAD' }
+  }).reasons[0], 'TERMINAL_SPREAD');
+
+  assert.equal(Models.valuationConfidence({
+    stock, result: { fairVal: null, reason: 'SCENARIO_INCOMPLETE_ASSUMPTIONS' },
+    mode: 'ten-year', scenario: { terminalGrowth: null, years: [] }
+  }).level, 'low');
+
+  assert.equal(Models.valuationConfidence({
+    stock, result: available, mode: 'ten-year', statementsMissing: true
+  }).level, 'low');
+
+  const corrected = Models.valuationConfidence({
+    stock: { ...stock, revenueProvenance: { symbol: 'AAPL' } }, result: available
+  });
+  assert.equal(corrected.level, 'medium');
+});
+
+test('Detail and ten-year UI expose confidence and dual-terminal hooks', () => {
+  const html = fs.readFileSync('index.html', 'utf8');
+  const models = fs.readFileSync('fmp_models.js', 'utf8');
+  assert.match(html, /id="det-res-confidence"/);
+  assert.match(models, /id="fmp-exit-multiple"/);
+  assert.match(models, /id="fmp-dual-terminal"/);
+  assert.match(models, /function valuationConfidence/);
+  assert.match(models, /EXIT_MULTIPLE_UNAVAILABLE/);
+  assert.match(models, /id="fmp-terminal-growth-ref"/);
+  assert.match(models, /id="fmp-peer-multiples"/);
+  assert.match(models, /id="fmp-fy-history"/);
+  assert.doesNotMatch(models, /id="fmp-fy-history-chart"/);
+  assert.match(models, /id="fmp-growth-default-note"/);
+  assert.match(models, /id="fmp-capital-provenance"/);
+  assert.match(models, /id="fmp-rf-tenor"/);
+  assert.match(models, /id="fmp-rf-tenor-control"/);
+  assert.match(models, /data-scenario-field="\$\{key\}"/);
+  assert.match(models, /key === 'rf'/);
+  assert.match(models, /rfTenorControlHtml/);
+  assert.match(models, /id="fmp-beta-provenance"/);
+  assert.match(models, /id="fmp-snapshot-net-debt-meta"/);
+  assert.match(models, /five-year-effective-tax/);
+  assert.match(models, /港股採用美元公債／美股無風險利率概念（聯繫匯率代理），非港元曲線/);
+  assert.match(models, /HK stocks use the USD Treasury \/ US-stock risk-free concept/);
+  // Tenor chooser must stay in the rf table row (not only above the history panel).
+  assert.match(models, /無風險利率 \(\%\)」列左側/);
+  assert.doesNotMatch(models, /fin-model-grid"><div class="form-group">\s*<label for="fmp-rf-tenor"/);
+});
+
+test('HK Advanced rf tenor source defaults to USD Treasury curve, not HKD', () => {
+  globalThis.HK_FCFF_DATA = { stocks: {
+    '0700.HK': { provenance: {
+      treasury: { date: '2026-10-16', year10: 5.09, year5: 4.2, currency: 'USD' },
+      riskFreeRate: 'User-directed USD Treasury proxy under the HKD/USD peg; not an observed HKD yield or a copied US-stock WACC',
+      beta: 'FMP profile beta'
+    } }
+  } };
+  globalThis.FCFF_DATA = { stocks: {
+    AAPL: { provenance: { treasury: { date: '2026-10-20', year10: 5.12, year2: 3.9, currency: 'USD' } } }
+  } };
+  const Models = require('../fmp_models.js');
+  const source = Models.riskFreeTenorSource(
+    { ticker: '0700.HK', market: 'HKEX', calculationCurrency: 'HKD' }, '0700.HK');
+  assert.equal(source.currency, 'USD');
+  assert.equal(source.hkPegProxy, true);
+  assert.equal(source.rates[10], 5.09);
+  assert.equal(source.rates[5], 4.2);
+  assert.equal(source.rates[2], undefined);
+  assert.match(source.riskFreeNote, /USD Treasury proxy/);
+
+  const hkdLabeled = Models.riskFreeTenorSource(
+    { ticker: '0001.HK', market: 'HKEX', calculationCurrency: 'HKD' }, '0001.HK');
+  // No own USD capture → fall back to latest USD curve from FCFF_DATA, never calculationCurrency HKD.
+  assert.equal(hkdLabeled.currency, 'USD');
+  assert.equal(hkdLabeled.rates[10], 5.12);
+  assert.equal(hkdLabeled.rates[2], 3.9);
+});
+
+test('applyRfTenor code path preserves user rf overrides', () => {
+  const models = fs.readFileSync('fmp_models.js', 'utf8');
+  assert.match(models, /origins\?\.rf === 'user'\) continue/);
+  assert.match(models, /origins\?\.ke === 'user'\) continue/);
+});

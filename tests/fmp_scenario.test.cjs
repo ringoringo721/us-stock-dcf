@@ -244,12 +244,15 @@ test('analyst values and approved actual ratios replace vendor forecasts without
   near(input.years[0].values.ebitda, consensus.ebitdaAvg / consensus.revenueAvg * 100);
   assert.equal(input.years[0].values.tax, null);
   assert.equal(input.years[0].origins.ebit, 'derived');
-  assert.equal(input.years[5].origins.growth, 'unavailable');
-  assert.equal(input.years[9].values.growth, null);
-  assert.equal(input.terminalGrowth, null);
+  assert.equal(input.years[5].origins.growth, 'suggested-mature-growth',
+    'Without statements, uncovered years use mature growth default rather than inventing consensus');
+  assert.equal(input.years[9].values.growth, 2.5);
+  assert.equal(input.terminalGrowth, 2.5);
+  assert.equal(input.terminalGrowthOrigin, 'suggested-default');
   near(input.years[0].values.beta, provider.beta);
   near(input.years[9].values.beta, data.models.advanced.data.find(row => row.year === '2030').beta);
   assert.equal(JSON.stringify(data), before);
+  assert.ok(Scenario.missingInputs(input).some(item => item.key === 'tax'));
   assert.throws(() => Scenario.calculate(input), /INCOMPLETE_ASSUMPTIONS/);
 });
 
@@ -293,4 +296,128 @@ test('all supported company/model pairs create ten sourced fiscal-year projectio
   }
   assert.equal(count, eligibleModels, 'Every currently source-verified native model supports the corresponding scenario; unsupported coverage is not filled');
   assert.ok(count >= 546, 'The industry extension does not remove existing source-supported scenarios');
+});
+
+test('advanced dual terminal keeps Gordon primary and reports exit-multiple beside it without inventing a multiple', () => {
+  const input = flat();
+  const missing = Scenario.calculate(input);
+  assert.equal(missing.terminalMethod, 'gordon');
+  near(missing.targetPrice, missing.terminals.gordon.targetPrice);
+  assert.equal(missing.terminals.exitMultiple.available, false);
+  assert.equal(missing.terminals.exitMultiple.reason, 'EXIT_MULTIPLE_UNAVAILABLE');
+  input.exitMultiple = 10;
+  const dual = Scenario.calculate(input);
+  near(dual.targetPrice, missing.targetPrice);
+  near(dual.terminals.gordon.enterpriseValue, missing.enterpriseValue);
+  assert.equal(dual.terminals.exitMultiple.available, true);
+  near(dual.terminals.exitMultiple.terminalValue, 300);
+  near(dual.terminals.exitMultiple.targetPrice, dual.terminals.exitMultiple.equityValue / input.shares);
+  assert.ok(Math.abs(dual.terminals.exitMultiple.targetPrice - dual.targetPrice) > 1e-6);
+  input.exitMultiple = 0;
+  assert.equal(Scenario.calculate(input).terminals.exitMultiple.reason, 'EXIT_MULTIPLE_INVALID');
+  input.exitMultiple = 10;
+  input.years.forEach(year => { year.values.ebitda = 0; year.values.ebit = -5; year.values.da = 5; });
+  assert.equal(Scenario.calculate(input).terminals.exitMultiple.reason, 'EXIT_MULTIPLE_NONPOSITIVE_EBITDA');
+});
+
+test('levered scenarios never invent an EBITDA exit-multiple terminal', () => {
+  const input = flat('customLevered');
+  input.exitMultiple = 12;
+  const result = Scenario.calculate(input);
+  assert.equal(result.terminals.exitMultiple.available, false);
+  assert.equal(result.terminals.exitMultiple.reason, 'EXIT_MULTIPLE_ADVANCED_ONLY');
+  near(result.targetPrice, result.terminals.gordon.targetPrice);
+});
+
+test('new scenario defaults expose suggested terminal growth and optional exitMultiple slot', () => {
+  const data = read('AAPL');
+  const scenario = Scenario.defaults(data, 'advanced', 1000);
+  assert.equal(scenario.exitMultiple, null);
+  assert.equal(scenario.terminalGrowth, 2.5);
+  assert.equal(scenario.terminalGrowthOrigin, 'suggested-default');
+  assert.equal(scenario.netDebtDate, data.forecastBase.date);
+});
+
+test('five-year effective tax averages consecutive full FY rates and stays N/A when incomplete', () => {
+  const statements = { annual: { income: [] } };
+  for (let year = 2021; year <= 2025; year++) {
+    statements.annual.income.push({
+      date: `${year}-12-31`, fiscalYear: String(year), periodLength: 12, reportedCurrency: 'USD',
+      incomeBeforeTax: 100, incomeTaxExpense: 10 + year - 2021
+    });
+  }
+  const tax = Scenario.fiveYearEffectiveTax(statements, { year: 2025, date: '2025-12-31' }, 'USD');
+  assert.equal(tax.reason, null);
+  near(tax.percent, (10 + 11 + 12 + 13 + 14) / 5);
+  assert.deepEqual(tax.years, [2021, 2022, 2023, 2024, 2025]);
+  delete statements.annual.income[0].incomeTaxExpense;
+  assert.equal(Scenario.fiveYearEffectiveTax(statements, { year: 2025, date: '2025-12-31' }, 'USD').reason,
+    'TAX_PRETAX_OR_EXPENSE_UNAVAILABLE');
+  assert.equal(Scenario.fiveYearEffectiveTax(null, { year: 2025, date: '2025-12-31' }, 'USD').reason,
+    'TAX_STATEMENTS_UNAVAILABLE');
+});
+
+test('new defaults label net cash vs net debt with snapshot date and suggested terminal/exit inputs', () => {
+  const data = read('AAPL');
+  const statements = require('../cache/financials/AAPL_statements_v2.json');
+  const stock = { ...require('../full_market_dcf.json').AAPL, ev_to_ebitda: 25, pe_trailing: 38.4 };
+  const scenario = Scenario.defaults(data, 'advanced', Models.issuedShares(stock), { statements, stock });
+  assert.equal(scenario.netDebtDate, data.forecastBase.date);
+  assert.equal(scenario.netDebtBasis, scenario.netDebt < 0 ? 'net-cash' : 'net-debt');
+  assert.equal(scenario.terminalGrowth, 2.5);
+  assert.equal(scenario.exitMultiple, 25);
+  assert.ok(scenario.taxFiveYear.percent > 0);
+  assert.equal(scenario.years[0].origins.tax, 'five-year-effective-tax');
+  const history = Scenario.fiveYearHistory(statements, data, 'advanced');
+  assert.equal(history.reason, null);
+  assert.equal(history.years.length, 5);
+  assert.ok(Number.isFinite(history.summary.revenueCagr));
+});
+
+test('suggested terminal growth does not overwrite an existing user terminal growth value', () => {
+  const input = flat();
+  input.terminalGrowth = 1.25;
+  input.exitMultiple = 8;
+  const again = Scenario.calculate(input);
+  near(again.g, 1.25);
+  near(again.terminals.exitMultiple.exitMultiple, 8);
+});
+
+test('revenue growth suggestion prefers historical CAGR then peers then mature default, and blanks outliers', () => {
+  const statements = { annual: { income: [], cashflow: [] } };
+  for (let year = 2021; year <= 2025; year++) {
+    const revenue = 100 * Math.pow(1.05, year - 2021);
+    statements.annual.income.push({
+      date: `${year}-12-31`, fiscalYear: String(year), periodLength: 12, reportedCurrency: 'USD',
+      revenue, ebitda: revenue * 0.3, incomeBeforeTax: 20, incomeTaxExpense: 4
+    });
+    statements.annual.cashflow.push({
+      date: `${year}-12-31`, fiscalYear: String(year), periodLength: 12, reportedCurrency: 'USD',
+      capitalExpenditure: -8, changeInWorkingCapital: -1, operatingCashFlow: 40
+    });
+  }
+  const data = { forecastBase: { year: 2025, date: '2025-12-31' }, currencyCheck: { sourceCurrency: 'USD' } };
+  const historical = Scenario.suggestRevenueGrowth({ statements, data, peers: [] });
+  assert.equal(historical.origin, 'historical-cagr');
+  near(historical.percent, 5);
+
+  statements.annual.income[4].revenue = 1000;
+  const outlier = Scenario.suggestRevenueGrowth({ statements, data, peers: [
+    { stock: { growth_10y: [6] } }, { stock: { growth_10y: [7] } }, { stock: { growth_10y: [8] } }
+  ] });
+  assert.equal(outlier.origin, 'peer-median-growth');
+  near(outlier.percent, 7);
+
+  const mature = Scenario.suggestRevenueGrowth({ statements, data, peers: [] });
+  assert.ok(mature.origin === 'suggested-mature-growth' || mature.reason === 'GROWTH_REQUIRES_MANUAL_INPUT');
+  if (mature.origin === 'suggested-mature-growth') near(mature.percent, 2.5);
+
+  const volatile = structuredClone(statements);
+  volatile.annual.income[1].revenue = 40;
+  volatile.annual.income[2].revenue = 200;
+  volatile.annual.income[3].revenue = 50;
+  volatile.annual.income[4].revenue = 300;
+  const manual = Scenario.suggestRevenueGrowth({ statements: volatile, data, peers: [] });
+  assert.equal(manual.percent, null);
+  assert.equal(manual.reason, 'GROWTH_REQUIRES_MANUAL_INPUT');
 });

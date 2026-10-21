@@ -228,9 +228,21 @@ function prepareSnapshot(ticker, evidence, treasury, rates, leaseEvidence, optio
   const interest = sum(inc, 'interestExpense');
   const kd = bs.totalDebt === 0 ? 0
     : averageDebt > 0 && interest > 0 ? interest / averageDebt * 100 : null;
-  const rateSource = currency === 'HKD' ? options.hkdTreasury || treasury : treasury;
+  // HK primary default: USD Treasury (US rf / HKD peg proxy). Do not prefer a separate HKD benchmark.
+  const usedUsdTreasury = !!(treasury?.ok && Array.isArray(treasury.rows));
+  const rateSource = usedUsdTreasury ? treasury
+    : (currency === 'HKD' ? options.hkdTreasury : null);
   const curve = rateSource?.ok && Array.isArray(rateSource.rows)
     ? sorted(rateSource.rows.filter(row => day(row.date) && row.date <= valuationDate && finite(row.year10))).at(-1) : null;
+  const treasuryCapture = curve ? {
+    date: curve.date,
+    currency: usedUsdTreasury || currency !== 'HKD' ? 'USD' : 'HKD',
+    ...Object.fromEntries(Array.from({ length: 10 }, (_, index) => {
+      const year = index + 1;
+      const value = curve[`year${year}`];
+      return finite(value) ? [`year${year}`, value] : null;
+    }).filter(Boolean))
+  } : null;
   const ttm = {
     reportingFrequency: frequency,
     dates: inc.map(row => row.date), fiscalPeriods: inc.map(period),
@@ -306,9 +318,10 @@ function prepareSnapshot(ticker, evidence, treasury, rates, leaseEvidence, optio
         earlierDifferences: overlaps.filter(row => row.ratio < 0.75 || row.ratio > 1.25) },
       forecastFx: { ...forecastFx, assumption: 'constantLatestAvailableOfficialObservation' },
       shares: shareSource,
-      treasury: curve ? { date: curve.date, year10: curve.year10, currency: currency === 'HKD' && options.hkdTreasury ? 'HKD' : 'USD' } : null,
-      ...(currency === 'HKD' ? { riskFreeRate: options.hkdTreasury ? 'Dated HKD benchmark'
-        : 'User-directed USD Treasury proxy under the HKD/USD peg; not an observed HKD yield or a copied US-stock WACC' } : {}),
+      treasury: treasuryCapture,
+      ...(currency === 'HKD' ? { riskFreeRate: usedUsdTreasury || !options.hkdTreasury
+        ? 'User-directed USD Treasury proxy under the HKD/USD peg; not an observed HKD yield or a copied US-stock WACC'
+        : 'Dated HKD benchmark' } : {}),
       tax: 'TTM effective tax; scenario assumption, not a marginal-rate forecast',
       kd: 'TTM accounting interest / average reported debt; not a current financing quote',
       debtCost: { basis: frequency === 'annual' ? 'reportedAnnualInterestOverAverageAnnualDebt'
