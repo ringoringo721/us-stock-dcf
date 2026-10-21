@@ -1,6 +1,7 @@
 const assert = require('node:assert/strict');
 const { test } = require('node:test');
 const fs = require('node:fs');
+const path = require('node:path');
 const vm = require('node:vm');
 const Models = require('../fmp_models.js');
 const market = { ...require('../full_market_dcf.json'), ...require('../hk_market_dcf.json') };
@@ -24,7 +25,7 @@ test('Every model is an actual matched FMP record and site prices use issued com
       assert.equal(result.WACC, result.row.wacc / 100);
       assert.equal(result.g, result.row.longTermGrowthRate);
       assert.ok(Math.abs(result.row.enterpriseValue - result.row.netDebt - result.row.equityValue) <= 2);
-      const detailed = JSON.parse(fs.readFileSync(`cache\\company\\${ticker}.json`, 'utf8'));
+      const detailed = JSON.parse(fs.readFileSync(path.join('cache', 'company', `${ticker}.json`), 'utf8'));
       assert.ok(detailed.models[kind].data.length >= data.models[kind].data.length);
     }
   }
@@ -167,6 +168,12 @@ test('Detail and ten-year UI expose confidence and dual-terminal hooks', () => {
   // Tenor chooser must stay in the rf table row (not only above the history panel).
   assert.match(models, /無風險利率 \(\%\)」列左側/);
   assert.doesNotMatch(models, /fin-model-grid"><div class="form-group">\s*<label for="fmp-rf-tenor"/);
+  assert.match(models, /fmp-assumption-cell/);
+  assert.match(models, /fmp-assumption-origin/);
+  assert.match(models, /fmp-currency-warning/);
+  assert.match(models, /fmp-base-year/);
+  assert.match(html, /fmp-assumption-cell/);
+  assert.match(html, /#fmp-workspace \.fin-model-grid \.form-group/);
 });
 
 test('HK Advanced rf tenor source defaults to USD Treasury curve, not HKD', () => {
