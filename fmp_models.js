@@ -179,8 +179,10 @@
 
   function scenarioValue() {
     try {
+      const shares = issuedShares(state.stock);
+      if (shares === null) throw new Error('FMP_ISSUED_SHARES_UNAVAILABLE');
       if (!state.scenarios[state.kind]) {
-        state.scenarios[state.kind] = Scenario.defaults(state.sourceData, state.kind, issuedShares(state.stock), {
+        state.scenarios[state.kind] = Scenario.defaults(state.sourceData, state.kind, shares, {
           statements: state.actualStatements, stock: state.stock, peers: loadPeers()
         });
       }
@@ -189,14 +191,14 @@
       enrichScenarioSuggestions(scenario);
       const result = Scenario.calculate(scenario);
       if (scenario.symbol !== state.ticker || scenario.currency !== (state.stock.calculationCurrency || 'USD')
-          || scenario.shares !== issuedShares(state.stock)) throw new Error('SCENARIO_SOURCE_UNAVAILABLE');
+          || scenario.shares !== shares) throw new Error('SCENARIO_SOURCE_UNAVAILABLE');
       return { fairVal: result.targetPrice, WACC: result.wacc, g: result.g, reason: null, result,
         row: { enterpriseValue: result.enterpriseValue, equityValue: result.equityValue, netDebt: result.netDebt,
           terminalValue: result.terminalValue, presentTerminalValue: result.presentTerminalValue,
           wacc: result.wacc * 100, longTermGrowthRate: result.g },
         currency: scenario.currency, capturedAt: scenario.sourceCapturedAt, issuedShares: scenario.shares };
     } catch (error) {
-      if (!error.message.startsWith('SCENARIO_')) throw error;
+      if (!/^(SCENARIO_|FMP_)/.test(error.message)) throw error;
       return { fairVal: null, reason: error.message };
     }
   }
@@ -233,14 +235,44 @@
       year: scenario.baseYear, date: scenario.baseDate
     }, state.sourceData?.currencyCheck?.sourceCurrency);
     scenario.taxFiveYear = taxFive;
-    if (taxFive.percent != null) {
-      for (const item of scenario.years || []) {
-        if (item.origins?.tax === 'user') continue;
-        if (!finite(item.values.tax) || item.origins?.tax === 'unavailable'
-            || item.origins?.tax === 'five-year-effective-tax') {
-          item.values.tax = taxFive.percent;
-          item.origins.tax = 'five-year-effective-tax';
+    const latest = state.sourceData?.forecastActuals?.symbol === state.ticker
+      && state.sourceData.forecastActuals.latest
+      && !state.sourceData.forecastActuals.latest.reason
+      ? state.sourceData.forecastActuals.latest : null;
+    const opening = (state.sourceData?.models?.[scenario.kind]?.data || [])
+      .find(row => Number(row.year) === scenario.baseYear);
+    const modelBase = {
+      ebitda: opening?.ebitdaPercentage, ebit: opening?.ebitPercentage, da: opening?.depreciationPercentage,
+      cfo: opening?.operatingCashFlowPercentage, capex: opening?.capitalExpenditurePercentage,
+      tax: opening?.taxRate
+    };
+    const fill = (item, key, value, origin) => {
+      if (!finite(value)) return;
+      if (['user', 'analyst', 'analyst-derived', 'derived', 'retained-capital'].includes(item.origins?.[key])) return;
+      // Only fill blanks / unavailable, or refresh the same suggestion origin. Never demote a
+      // higher-priority default (e.g. five-year tax) with a weaker fallback.
+      if (finite(item.values[key]) && item.origins?.[key] !== 'unavailable' && item.origins?.[key] !== origin) return;
+      item.values[key] = value;
+      item.origins[key] = origin;
+    };
+    for (const item of scenario.years || []) {
+      if (taxFive.percent != null) fill(item, 'tax', taxFive.percent, 'five-year-effective-tax');
+      if (latest?.items?.tax?.percent != null) fill(item, 'tax', latest.items.tax.percent, 'latest-fy');
+      fill(item, 'tax', modelBase.tax, 'fmp-base-year');
+      for (const key of scenario.kind === 'customLevered'
+        ? ['capex', 'cfo'] : ['capex', 'da', 'ebitda']) {
+        fill(item, key, latest?.items?.[key]?.percent, 'latest-fy');
+        fill(item, key, modelBase[key], 'fmp-base-year');
+      }
+      if (scenario.kind === 'advanced') {
+        if (finite(item.values.ebitda) && finite(item.values.da)
+            && (item.origins?.ebit === 'unavailable' || item.origins?.ebit === 'derived'
+              || !finite(item.values.ebit))) {
+          item.values.ebit = item.values.ebitda - item.values.da;
+          item.origins.ebit = 'derived';
         }
+        const nwc = state.sourceData?.forecastActuals?.workingCapital?.nwcChange;
+        fill(item, 'nwcChange', nwc, 'working-capital-average');
       }
     }
     const growthSuggestion = Scenario.suggestRevenueGrowth({
@@ -254,6 +286,17 @@
             || ['historical-cagr', 'peer-median-growth', 'suggested-mature-growth'].includes(item.origins?.growth)) {
           item.values.growth = growthSuggestion.percent;
           item.origins.growth = growthSuggestion.origin;
+        }
+      }
+    }
+    if (scenario.kind === 'advanced' && opening
+        && [opening.receivablesPercentage, opening.inventoriesPercentage, opening.payablePercentage].every(finite)) {
+      const wcPct = opening.receivablesPercentage + opening.inventoriesPercentage - opening.payablePercentage;
+      for (const item of scenario.years || []) {
+        if (!finite(item.values.nwcChange) && finite(item.values.growth)
+            && item.origins?.nwcChange !== 'user') {
+          item.values.nwcChange = wcPct * item.values.growth / (100 + item.values.growth);
+          item.origins.nwcChange = 'fmp-base-year';
         }
       }
     }
@@ -322,6 +365,7 @@
       'suggested-current-multiple': text('建議預設：現價 EV/EBITDA（可改）', 'Suggested default: current EV/EBITDA (editable)'),
       'retained-capital': text('維持原資本成本設定', 'Retained capital-cost setting'),
       'derived-legacy': text('舊情境等值換算', 'Equivalent legacy conversion'),
+      'fmp-base-year': text('建議預設：模型基期實績比率（可改）', 'Suggested default: model base-year ratio (editable)'),
       unavailable: text('N/A：未提供預測', 'N/A: forecast unavailable')
     })[origin] || origin;
   }
@@ -612,11 +656,14 @@
           const label = key === 'rf'
             ? `${escape(text(zh, en))}${rfTenorControlHtml(text, scenario)}`
             : escape(text(zh, en));
-          return `<tr data-scenario-field="${key}"><th>${label}</th><td data-actual-key="${key}">${actual.cells[key]}</td>${scenario.years.map((item, index) => `<td>
+          return `<tr data-scenario-field="${key}"><th>${label}</th><td data-actual-key="${key}">${actual.cells[key]}</td>${scenario.years.map((item, index) => `<td class="fmp-assumption-cell">
           <input aria-label="${escape(text(zh, en))} ${item.year}" data-scenario-key="${key}" data-scenario-year="${index}" type="number" step="any" min="${min}" max="${max}" required placeholder="N/A" title="${escape(item.values[key] ?? '')}" value="${inputValue(key, item.values[key])}">
-          <small data-origin="${index}-${key}">${escape(originText(item.origins[key], text))}</small></td>`).join('')}</tr>`;
+          <small class="fmp-assumption-origin" data-origin="${index}-${key}">${escape(originText(item.origins[key], text))}</small></td>`).join('')}</tr>`;
         }).join('')}
       </tbody></table></div>
+      ${scenario.currencyWarning ? `<p class="analysis-note text-red" id="fmp-currency-warning">${text(
+        '模型金額幣別／FX 尚未與財報完全核對；十年情境仍可用快取模型列，但請審閱換匯假設。',
+        'Model currency/FX is not fully reconciled with financials; the ten-year scenario still uses cached model rows — review the FX assumptions.')} ${escape(reasonText(scenario.currencyWarning, state.language()) || scenario.currencyWarning)}</p>` : ''}
       ${(() => {
         const ref = scenario.terminalGrowthReference || Scenario.TERMINAL_GROWTH_REFERENCE;
         const tax = scenario.taxFiveYear;
@@ -624,7 +671,7 @@
         const netLabel = netCash ? text('建議淨現金（可調整）', 'Suggested net cash (editable)')
           : text('建議淨債務（可調整）', 'Suggested net debt (editable)');
         const peer = peerMultipleReference(text);
-        return `<div class="fin-model-grid"><div class="form-group"><label for="fmp-terminal-growth">${text('第十年後終值增長率 (%)', 'Terminal growth after year ten (%)')}</label>
+        return `<div class="fin-model-grid fmp-terminal-inputs"><div class="form-group"><label for="fmp-terminal-growth">${text('第十年後終值增長率 (%)', 'Terminal growth after year ten (%)')}</label>
       <input id="fmp-terminal-growth" type="number" required step="any" min="-10" max="20" placeholder="N/A" title="${escape(scenario.terminalGrowth ?? '')}" value="${inputValue('terminalGrowth', scenario.terminalGrowth)}">
       <small id="fmp-terminal-growth-ref">${text('參考帶', 'Reference band')} ${ref.bandLow.toFixed(1)}%–${ref.bandHigh.toFixed(1)}% · ${text('建議預設', 'Suggested default')} ${ref.value.toFixed(1)}% · ${escape(state.language() === 'en' ? ref.citationEn : ref.citationZh)}</small></div>
       <div class="form-group"><label for="fmp-exit-multiple">${text('出場倍數終值 EV/EBITDA（可覆寫）', 'Exit-multiple terminal EV/EBITDA (optional override)')}</label>
@@ -1071,7 +1118,20 @@
   function details(data) {
     if (state && state.ticker === data.symbol) {
       if (state.data === record(state.ticker) || state.data === state.sourceData) state.data = data;
+      const previous = state.sourceData;
       state.sourceData = data;
+      // Embedded FMP_MODEL_DATA often lacks analystEstimates/forecastActuals. Rebuild pristine
+      // scenarios once the company cache arrives so PR #9 defaults actually apply.
+      const enriched = (!previous?.analystEstimates?.rows?.length && data.analystEstimates?.rows?.length)
+        || (!previous?.forecastActuals?.latest && data.forecastActuals?.latest)
+        || (!!previous?.forecastBase?.reason && !data.forecastBase?.reason)
+        || (previous?.currencyCheck?.reason !== data.currencyCheck?.reason)
+        || (previous?.capturedAt !== data.capturedAt);
+      if (enriched) {
+        for (const kind of ['advanced', 'customLevered']) {
+          if (!state.scenarioDirty?.[kind]) delete state.scenarios[kind];
+        }
+      }
       if (!root.document.getElementById('fmp-workspace').hidden) render();
     }
   }

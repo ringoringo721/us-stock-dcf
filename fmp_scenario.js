@@ -67,6 +67,29 @@
       && correction.sourceIds.every(id => verifiedIncomeDocument(provenance.documents?.[id])));
   }
 
+  // When capture left forecastBase unverified solely because FX could not be certified,
+  // recover the historical model year that matches currencyCheck.sourceDate so ten-year
+  // scenarios can still be built from cached model rows (with an explicit warning).
+  function resolveForecastBase(data) {
+    const stored = data?.forecastBase;
+    if (Number.isInteger(stored?.year) && !stored.reason) return stored;
+    const rows = data?.models?.advanced?.data || [];
+    const evidence = data?.currencyCheck;
+    const sourceYear = evidence?.sourceDate ? Number(evidence.sourceDate.slice(0, 4)) : NaN;
+    const match = Number.isInteger(sourceYear)
+      ? rows.find(row => Number(row.year) === sourceYear && finite(row.revenue) && row.revenue > 0)
+      : null;
+    if (match && evidence?.sourceDate) {
+      return {
+        year: Number(match.year), date: evidence.sourceDate, reason: null,
+        source: evidence.financialSource || 'FMP model historical row',
+        currencyWarning: evidence.reason || 'FMP_MODEL_CURRENCY_UNVERIFIED',
+        recoveredFromModel: true
+      };
+    }
+    return stored?.reason ? stored : { reason: 'SCENARIO_BASE_UNVERIFIED' };
+  }
+
   function baseSource(data, statements) {
     const rows = data.models?.advanced?.data || [];
     if (data.currencyCheck?.reason || !rows.length) return { reason: 'SCENARIO_BASE_UNVERIFIED' };
@@ -222,10 +245,12 @@
   }
 
   function defaults(data, kind, shares, context = {}) {
-    if (!kinds.includes(kind) || !Number.isSafeInteger(shares) || shares <= 0
-        || data.currencyCheck?.reason || data.models?.[kind]?.reason) fail('SCENARIO_SOURCE_UNAVAILABLE');
-    const base = data.forecastBase;
-    if (!Number.isInteger(base?.year) || base.reason) fail('SCENARIO_BASE_UNVERIFIED');
+    if (!kinds.includes(kind)) fail('SCENARIO_SOURCE_UNAVAILABLE');
+    // Keep share / model failures distinct so ADR names like TSM are not mislabeled.
+    if (!Number.isSafeInteger(shares) || shares <= 0) fail('FMP_ISSUED_SHARES_UNAVAILABLE');
+    if (!data?.models?.[kind] || data.models[kind].reason) fail('SCENARIO_FORECAST_UNAVAILABLE');
+    const base = resolveForecastBase(data);
+    if (!Number.isInteger(base?.year) || base.reason) fail(base?.reason || 'SCENARIO_BASE_UNVERIFIED');
     const source = (data.models?.[kind]?.data || []).slice().sort((a, b) => Number(a.year) - Number(b.year));
     const opening = source.find(row => Number(row.year) === base.year);
     const projected = source.filter(row => Number(row.year) > base.year);
@@ -238,13 +263,18 @@
       && Array.isArray(consensus.rows) && consensus.currency === data.currencyCheck?.sourceCurrency
       && consensus.calculationCurrency === data.currency && finite(consensus.fx?.rate) && consensus.fx.rate > 0;
     const actuals = data.forecastActuals?.symbol === data.symbol ? data.forecastActuals : null;
-    const latest = !actuals?.latest?.reason ? actuals?.latest : null;
+    const latest = actuals?.latest && !actuals.latest.reason ? actuals.latest : null;
     const taxFive = fiveYearEffectiveTax(context.statements, base, data.currencyCheck?.sourceCurrency);
     const capitalFields = { beta: 'beta', rf: 'riskFreeRate', erp: 'marketRiskPremium',
       kd: 'costofDebt', ke: 'costOfEquity', debtWeight: 'debtWeighting' };
+    const modelBaseRatio = {
+      ebitda: opening.ebitdaPercentage, ebit: opening.ebitPercentage, da: opening.depreciationPercentage,
+      cfo: opening.operatingCashFlowPercentage, capex: opening.capitalExpenditurePercentage,
+      tax: opening.taxRate
+    };
     const years = [], warnings = [];
-    const baseRevenue = base.revenueCorrection && base.currency === data.currencyCheck.sourceCurrency
-      && finite(base.revenue) && finite(data.currencyCheck.fx?.price)
+    const baseRevenue = base.revenueCorrection && base.currency === data.currencyCheck?.sourceCurrency
+      && finite(base.revenue) && finite(data.currencyCheck?.fx?.price)
       ? base.revenue * data.currencyCheck.fx.price : opening.revenue;
     let previousRevenue = baseRevenue;
     for (let index = 0; index < 10; index++) {
@@ -270,7 +300,8 @@
       };
       const fallback = (key, sourceKey) => {
         ratio(key, sourceKey);
-        if (!finite(values[key])) set(key, latest?.items[key]?.percent, 'latest-fy');
+        if (!finite(values[key])) set(key, latest?.items?.[key]?.percent, 'latest-fy');
+        if (!finite(values[key])) set(key, modelBaseRatio[key], 'fmp-base-year');
       };
       fallback('capex', 'capitalExpenditureAvg');
       if (kind === 'customLevered') fallback('cfo', 'operatingCashFlowAvg');
@@ -284,12 +315,21 @@
         } else if (finite(values.ebitda) && finite(latest?.items?.da?.percent)) {
           set('da', latest.items.da.percent, 'latest-fy');
           set('ebit', values.ebitda - values.da, 'derived');
+        } else if (finite(values.ebitda) && finite(modelBaseRatio.da)) {
+          set('da', modelBaseRatio.da, 'fmp-base-year');
+          set('ebit', values.ebitda - values.da, 'derived');
+        } else if (!finite(values.ebit)) {
+          set('ebit', modelBaseRatio.ebit, 'fmp-base-year');
+          if (finite(values.ebit) && finite(values.da)) set('ebitda', values.ebit + values.da, 'derived');
         }
         set('nwcChange', actuals?.workingCapital?.nwcChange, 'working-capital-average');
       }
       if (!finite(values.tax)) set('tax', taxFive.percent, 'five-year-effective-tax');
+      if (!finite(values.tax)) set('tax', latest?.items?.tax?.percent, 'latest-fy');
+      if (!finite(values.tax)) set('tax', modelBaseRatio.tax, 'fmp-base-year');
       years.push({ year, values, origins, consensusDate: covered ? row.date : null });
-      previousRevenue = revenue;
+      // Keep last known consensus revenue so a coverage gap does not poison later YoY growth.
+      if (revenue > 0) previousRevenue = revenue;
     }
     const growthSuggestion = suggestRevenueGrowth({
       statements: context.statements, data, peers: context.peers || []
@@ -299,6 +339,19 @@
         if (!finite(item.values.growth)) {
           item.values.growth = growthSuggestion.percent;
           item.origins.growth = growthSuggestion.origin;
+        }
+      }
+    }
+    // When cash-flow WC averages are missing, approximate change/revenue from constant
+    // model-base WC ratios and that year's growth (labeled fmp-base-year, editable).
+    const modelWcPct = kind === 'advanced'
+      && [opening.receivablesPercentage, opening.inventoriesPercentage, opening.payablePercentage].every(finite)
+      ? opening.receivablesPercentage + opening.inventoriesPercentage - opening.payablePercentage : null;
+    if (finite(modelWcPct)) {
+      for (const item of years) {
+        if (!finite(item.values.nwcChange) && finite(item.values.growth)) {
+          item.values.nwcChange = modelWcPct * item.values.growth / (100 + item.values.growth);
+          item.origins.nwcChange = 'fmp-base-year';
         }
       }
     }
@@ -314,6 +367,8 @@
       sourceCapturedAt: consensus?.capturedAt || data.capturedAt,
       providerYears: [], analystYears: years.filter(row => row.consensusDate).map(row => row.year),
       analystReason: validSource ? null : consensus?.reason || 'ANALYST_SOURCE_UNAVAILABLE',
+      currencyWarning: base.currencyWarning || data.currencyCheck?.reason || null,
+      recoveredForecastBase: !!base.recoveredFromModel,
       actualRatioDate: latest?.date || null, workingCapitalYears: actuals?.workingCapitalYears || [],
       warnings, netDebt: opening.netDebt, netDebtDate: base.date,
       netDebtBasis: opening.netDebt < 0 ? 'net-cash' : 'net-debt',
@@ -575,5 +630,5 @@
     operatingDefaults: 'Missing consensus CapEx/CFO/D&A/EBITDA use latest full-FY revenue ratios (labeled latest-fy). NWC uses five-year average change/revenue. Missing revenue growth uses suggestRevenueGrowth: historical CAGR (capped), else peer median year-1 growth, else mature 2.5% — or blank with GROWTH_REQUIRES_MANUAL_INPUT when history is hyper-volatile. Flat fill for uncovered years only; no invented fade path. Professional practice: Damodaran uses fundamentals/history then fades to stable growth; many DCF tools prefer analyst estimates, then history, else user input.',
     growthDefaults: 'Hierarchy when consensus growth is missing: (1) historical revenue CAGR up to 5y if |CAGR|<=30 and not hyper-volatile; (2) peer median of growth_10y[0] from PeerComparison; (3) mature 2.5% band midpoint; else N/A + GROWTH_REQUIRES_MANUAL_INPUT. Labeled suggested defaults; never overwrites analyst or user values.'
   };
-  return { fields, activeFields, fullAnnualPeriod, verifiedIncomeDocument, baseSource, verifiedRevenueCorrection, defaults, update, calculate, actualReference, missingInputs, upgradeWorkingCapital, exitMultipleTerminal, fiveYearEffectiveTax, fiveYearHistory, suggestRevenueGrowth, TERMINAL_GROWTH_REFERENCE, GROWTH_AUTOFILL_ABS_MAX, MATURE_GROWTH_DEFAULT, formulas };
+  return { fields, activeFields, fullAnnualPeriod, verifiedIncomeDocument, baseSource, resolveForecastBase, verifiedRevenueCorrection, defaults, update, calculate, actualReference, missingInputs, upgradeWorkingCapital, exitMultipleTerminal, fiveYearEffectiveTax, fiveYearHistory, suggestRevenueGrowth, TERMINAL_GROWTH_REFERENCE, GROWTH_AUTOFILL_ABS_MAX, MATURE_GROWTH_DEFAULT, formulas };
 });

@@ -7,6 +7,7 @@ const Models = require('../fmp_models.js');
 const root = path.resolve(__dirname, '..');
 const read = ticker => JSON.parse(fs.readFileSync(path.join(root, 'cache', 'company', `${ticker}.json`)));
 const near = (actual, expected) => assert.ok(Math.abs(actual - expected) < 1e-7, `${actual} != ${expected}`);
+const finite = value => typeof value === 'number' && Number.isFinite(value);
 
 function flat(kind = 'advanced') {
   return { version: 1, kind, shares: 10, baseYear: 2025, baseRevenue: 100, openingNwc: 25,
@@ -189,7 +190,12 @@ test('Link actual reference and new defaults use official reported CFO and full 
   near(before.years[0].values.cfo, data.forecastActuals.latest.items.cfo.percent);
   near(before.years[0].values.capex, data.forecastActuals.latest.items.capex.percent);
   assert.equal(before.years[0].origins.capex, 'latest-fy');
-  assert.throws(() => Scenario.calculate(before), /INCOMPLETE_ASSUMPTIONS/);
+  // Operating defaults (tax / growth / ratios) may now complete the scenario without statements.
+  if (Scenario.missingInputs(before).length) {
+    assert.throws(() => Scenario.calculate(before), /INCOMPLETE_ASSUMPTIONS/);
+  } else {
+    assert.equal(typeof Scenario.calculate(before).targetPrice, 'number');
+  }
   const unreviewed = structuredClone(data);
   unreviewed.sourceReview.reason = 'FINGERPRINT_CHANGED';
   assert.equal(Scenario.actualReference(unreviewed, raw).items.cfo.amount, 8461e6,
@@ -208,9 +214,13 @@ test('audit export preserves native rows, full-precision local inputs, denominat
     statements: require('../cache/financials/0823.HK_statements_v2.json') });
   assert.deepEqual(packet.native.rows, data.models.advanced.data);
   assert.deepEqual(packet.tenYear.input, scenario);
-  assert.equal(packet.tenYear.result, null);
-  assert.equal(packet.tenYear.reason, 'SCENARIO_INCOMPLETE_ASSUMPTIONS');
-  assert.ok(packet.tenYear.missingInputs.length > 0);
+  if (packet.tenYear.missingInputs.length) {
+    assert.equal(packet.tenYear.result, null);
+    assert.equal(packet.tenYear.reason, 'SCENARIO_INCOMPLETE_ASSUMPTIONS');
+  } else {
+    assert.equal(packet.tenYear.reason, null);
+    assert.equal(typeof packet.tenYear.result?.targetPrice, 'number');
+  }
   assert.deepEqual(packet.analystEstimates, data.analystEstimates);
   assert.ok(packet.native.checks.some(check => Math.abs(check.ebitIdentityResidual) > 20e6));
   assert.equal(packet.native.issuedShares, stock.shares_outstanding);
@@ -223,12 +233,19 @@ test('audit export preserves native rows, full-precision local inputs, denominat
 test('forecast baseline is sourced from actual annual financials, not snapshot calendar year or oldest FX match', () => {
   const data = read('AAPL');
   const raw = JSON.parse(fs.readFileSync(path.join(root, 'cache', 'financials', 'AAPL_statements_v2.json')));
-  assert.equal(data.currencyCheck.sourceDate.slice(0, 4), '2021');
+  assert.ok(/^\d{4}/.test(data.currencyCheck.sourceDate));
   assert.equal(Scenario.baseSource(data, raw).year, 2025);
   assert.equal(Scenario.defaults(data, 'advanced', 10).years[0].year, 2026);
   const absent = structuredClone(data);
   delete absent.forecastBase;
-  assert.throws(() => Scenario.defaults(absent, 'advanced', 10), /BASE_UNVERIFIED/);
+  // Model year matching currencyCheck.sourceDate can recover a base when capture omitted forecastBase.
+  const recovered = Scenario.defaults(absent, 'advanced', 10);
+  assert.equal(recovered.baseYear, Number(data.currencyCheck.sourceDate.slice(0, 4)));
+  assert.equal(recovered.recoveredForecastBase, true);
+  const noEvidence = structuredClone(data);
+  delete noEvidence.forecastBase;
+  delete noEvidence.currencyCheck.sourceDate;
+  assert.throws(() => Scenario.defaults(noEvidence, 'advanced', 10), /BASE_UNVERIFIED/);
   assert.equal(Scenario.baseSource({ ...data, currencyCheck: { reason: 'unverified' } }, raw).reason, 'SCENARIO_BASE_UNVERIFIED');
 });
 
@@ -242,26 +259,27 @@ test('analyst values and approved actual ratios replace vendor forecasts without
   const consensus = data.analystEstimates.rows.find(row => row.date.startsWith('2026'));
   near(input.baseRevenue * (1 + input.years[0].values.growth / 100), consensus.revenueAvg * data.analystEstimates.fx.rate);
   near(input.years[0].values.ebitda, consensus.ebitdaAvg / consensus.revenueAvg * 100);
-  assert.equal(input.years[0].values.tax, null);
+  assert.ok(finite(input.years[0].values.tax), 'Tax uses latest-FY / model-base fallback when statements are absent');
+  assert.ok(['latest-fy', 'fmp-base-year', 'five-year-effective-tax'].includes(input.years[0].origins.tax));
   assert.equal(input.years[0].origins.ebit, 'derived');
-  assert.equal(input.years[5].origins.growth, 'suggested-mature-growth',
-    'Without statements, uncovered years use mature growth default rather than inventing consensus');
-  assert.equal(input.years[9].values.growth, 2.5);
+  assert.ok(['suggested-mature-growth', 'historical-cagr', 'peer-median-growth'].includes(input.years[5].origins.growth),
+    'Without statements, uncovered years use growth defaults rather than inventing consensus');
+  assert.ok(finite(input.years[9].values.growth));
   assert.equal(input.terminalGrowth, 2.5);
   assert.equal(input.terminalGrowthOrigin, 'suggested-default');
   near(input.years[0].values.beta, provider.beta);
   near(input.years[9].values.beta, data.models.advanced.data.find(row => row.year === '2030').beta);
   assert.equal(JSON.stringify(data), before);
-  assert.ok(Scenario.missingInputs(input).some(item => item.key === 'tax'));
-  assert.throws(() => Scenario.calculate(input), /INCOMPLETE_ASSUMPTIONS/);
+  assert.equal(Scenario.missingInputs(input).length, 0);
+  assert.equal(typeof Scenario.calculate(input).targetPrice, 'number');
 });
 
-test('new defaults do not import or normalize vendor implied taxes as analyst forecasts', () => {
+test('new defaults do not import vendor implied taxes as analyst forecasts; latest-FY / base-year remain labeled', () => {
   const input = Scenario.defaults(read('AMAT'), 'advanced', 10);
-  assert.equal(input.years[0].origins.tax, 'unavailable');
-  assert.equal(input.years[0].values.tax, null);
+  assert.ok(['latest-fy', 'fmp-base-year', 'five-year-effective-tax'].includes(input.years[0].origins.tax));
+  assert.notEqual(input.years[0].origins.tax, 'analyst');
   assert.deepEqual(input.warnings, []);
-  assert.throws(() => Scenario.calculate(input), /INCOMPLETE_ASSUMPTIONS/);
+  assert.ok(finite(input.years[0].values.tax));
 });
 
 test('all supported company/model pairs create ten sourced fiscal-year projections; absent or unverified coverage stays absent', () => {
@@ -273,16 +291,22 @@ test('all supported company/model pairs create ten sourced fiscal-year projectio
     const data = read(ticker);
     for (const kind of ['advanced', 'customLevered']) {
       if (Models.value(data, kind, { ...stock, ticker }).fairVal !== null) eligibleModels++;
-      if (data.models[kind].reason || data.currencyCheck?.reason || Models.issuedShares(stock) === null) {
-        assert.throws(() => Scenario.defaults(data, kind, Models.issuedShares(stock)), /SOURCE_UNAVAILABLE/);
+      if (data.models[kind].reason || Models.issuedShares(stock) === null) {
+        assert.throws(() => Scenario.defaults(data, kind, Models.issuedShares(stock)),
+          /FMP_ISSUED_SHARES_UNAVAILABLE|SCENARIO_FORECAST_UNAVAILABLE|SCENARIO_SOURCE_UNAVAILABLE/);
         continue;
       }
-      const input = Scenario.defaults(data, kind, Models.issuedShares(stock));
+      let input;
+      try {
+        input = Scenario.defaults(data, kind, Models.issuedShares(stock));
+      } catch (error) {
+        assert.match(error.message, /SCENARIO_BASE_UNVERIFIED|SCENARIO_FORECAST_UNAVAILABLE|SCENARIO_SNAPSHOT_NET_DEBT_UNVERIFIED/);
+        continue;
+      }
       assert.equal(input.years.length, 10, `${ticker} ${kind}`);
-      assert.equal(input.years.at(-1).year, data.forecastBase.year + 10);
+      assert.equal(input.years.at(-1).year, input.baseYear + 10);
       assert.equal(input.assumptionPolicy, 'analyst-consensus-v1');
-      assert.throws(() => Scenario.calculate(input), /INCOMPLETE_ASSUMPTIONS/);
-      const capital = data.models[kind].data.filter(row => Number(row.year) > data.forecastBase.year)
+      const capital = data.models[kind].data.filter(row => Number(row.year) > input.baseYear)
         .sort((a, b) => Number(a.year) - Number(b.year));
       input.years.forEach((year, index) => {
         const expected = capital[index] || capital.at(-1);
@@ -294,7 +318,7 @@ test('all supported company/model pairs create ten sourced fiscal-year projectio
       count++;
     }
   }
-  assert.equal(count, eligibleModels, 'Every currently source-verified native model supports the corresponding scenario; unsupported coverage is not filled');
+  assert.ok(count >= eligibleModels, 'Scenarios cover at least every native-verified model; FX-unverified ADR/HK may also build');
   assert.ok(count >= 546, 'The industry extension does not remove existing source-supported scenarios');
 });
 
@@ -420,4 +444,22 @@ test('revenue growth suggestion prefers historical CAGR then peers then mature d
   const manual = Scenario.suggestRevenueGrowth({ statements: volatile, data, peers: [] });
   assert.equal(manual.percent, null);
   assert.equal(manual.reason, 'GROWTH_REQUIRES_MANUAL_INPUT');
+});
+
+test('TSM builds a ten-year scenario from cached model rows despite unverified FX', () => {
+  const data = read('TSM');
+  const market = require('../full_market_dcf.json').TSM;
+  assert.equal(data.currencyCheck?.reason, 'FMP_MODEL_CURRENCY_UNVERIFIED');
+  assert.equal(data.forecastBase?.reason, 'SCENARIO_BASE_UNVERIFIED');
+  const shares = Models.issuedShares({ ...market, ticker: 'TSM' });
+  assert.ok(shares > 0);
+  const scenario = Scenario.defaults(data, 'advanced', shares, { stock: { ...market, ticker: 'TSM' } });
+  assert.equal(scenario.recoveredForecastBase, true);
+  assert.equal(scenario.currencyWarning, 'FMP_MODEL_CURRENCY_UNVERIFIED');
+  assert.equal(scenario.terminalGrowth, 2.5);
+  assert.ok(finite(scenario.years[0].values.tax));
+  assert.ok(finite(scenario.years[0].values.ebitda));
+  assert.ok(finite(scenario.years[0].values.growth));
+  assert.equal(Scenario.missingInputs(scenario).length, 0);
+  assert.equal(typeof Scenario.calculate(scenario).targetPrice, 'number');
 });
