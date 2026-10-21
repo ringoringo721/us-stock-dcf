@@ -1125,10 +1125,6 @@
             <th onclick="sortTable('sector')" style="text-align: left; width: 120px;" data-i18n="th_sector">主板塊</th>
             <th onclick="sortTable('industry')" style="text-align: left; width: 180px;" data-i18n="th_industry">細分子行業</th>
             <th onclick="sortTable('price')" style="width: 110px;" data-i18n="th_price">最新股價 ($)</th>
-            <th onclick="sortTable('fmp_dcf')" data-i18n="th_fmp_dcf">FMP DCF Valuation</th>
-            <th onclick="sortTable('fmp_dcf_upside')" data-i18n="th_fmp_dcf_upside">FMP DCF vs 市價溢價 (%)</th>
-            <th onclick="sortTable('fmp_levered')" data-i18n="th_fmp_levered">FMP Levered DCF</th>
-            <th onclick="sortTable('fmp_levered_upside')" data-i18n="th_fmp_levered_upside">FMP Levered vs 市價溢價 (%)</th>
             <th onclick="sortTable('target_price')" style="width: 110px;" data-i18n="th_target">目標價值 ($)</th>
             <th style="text-align: center; width: 110px;" data-i18n="th_action">操作</th>
             <th onclick="sortTable('target_spread')" style="width: 125px;" data-i18n="th_target_spread">目標 vs 市價溢價</th>
@@ -3121,32 +3117,20 @@
     fin_shares_missing: '來源預設股數尚未取得；可自行輸入股數作情境分析，但不會視為公司披露。',
     fin_shares_confirm: '我選擇以自訂股數覆寫估值分母；這是我的假設，不是公司披露股數。',
     fin_shares_apply: '套用自訂股數情境' });
-  Object.assign(I18N_DICT.zh, { th_fmp_dcf: 'FMP DCF 參考價', th_fmp_levered: 'FMP Levered DCF 參考價',
-    lbl_own_inst: 'FMP 收錄的 13F 機構披露佔比' });
-  Object.assign(I18N_DICT.en, { th_fmp_dcf: 'FMP DCF Valuation', th_fmp_levered: 'FMP Levered DCF',
-    lbl_own_inst: 'Institutional ownership disclosed in covered 13F filings' });
+  Object.assign(I18N_DICT.zh, { lbl_own_inst: 'FMP 收錄的 13F 機構披露佔比' });
+  Object.assign(I18N_DICT.en, { lbl_own_inst: 'Institutional ownership disclosed in covered 13F filings' });
   Object.assign(I18N_DICT.zh, {
-    th_fmp_dcf_upside: 'FMP DCF vs 市價溢價 (%)',
-    th_fmp_levered_upside: 'FMP Levered vs 市價溢價 (%)',
-    valuation_price_difference_note: '(當前股價 ÷ 估值 − 1) × 100%，與「目標 vs 市價溢價」相同口徑。正值以紅色顯示「高估」，負值以綠色顯示「低估」；顯示一位小數，排序保留完整精度。估值或股價缺失、為零或負數時顯示 N/A；負估值不是可交易的目標價。',
     technical_title: 'FMP 技術指標（日線）', technical_period: '交易日數',
     technical_note: '可同時選用 FMP 九個技術指標，並分別設定 1–500 個交易日。均線疊加於股價，其餘各用獨立座標。只顯示供應商實際回傳且與股價日期／收盤口徑核對相符的資料；缺少暖機資料不補零，覆蓋範圍可能短於股價歷史。指標採收盤日資料，並非即時交易訊號。股價 CSV 不包含指標。',
     technical_loading: '載入中', technical_available: '所選期間有效點數：', technical_error: '無法顯示；可重試',
     technical_refresh: '重新查詢所選指標（FMP API）'
   });
   Object.assign(I18N_DICT.en, {
-    th_fmp_dcf_upside: 'FMP DCF vs market premium (%)',
-    th_fmp_levered_upside: 'FMP Levered vs market premium (%)',
-    valuation_price_difference_note: '(Current price / valuation - 1) × 100%, matching Target vs Market Spread. Positive is red Overvalued; negative is green Undervalued. Displayed to one decimal; sorting retains full precision. Missing, zero or negative valuations/prices show N/A; a negative valuation is not a tradable price target.',
     technical_title: 'FMP technical indicators (daily)', technical_period: 'Sessions',
     technical_note: 'Select any of FMP’s nine indicators together, each with a 1–500-session lookback. Moving averages overlay price; other indicators have separate scales. Only actual provider observations matching price dates and closing-price basis are plotted. Missing warmup values are not zero-filled; coverage may be shorter than price history. End-of-day indicators, not live trading signals. The price CSV does not include indicators.',
     technical_loading: 'Loading', technical_available: 'Valid points in selected range:', technical_error: 'Unavailable; retry supported',
     technical_refresh: 'Refresh selected indicators (FMP API)', technical_coverage: 'Actual indicator coverage:'
   });
-  Object.assign(I18N_DICT.zh, { dcf_not_applicable: '不適用',
-    dcf_not_applicable_note: '銀行及保險公司不採用企業現金流 DCF；保留金融業專用公允價值（超額回報／股息模型）。FMP DCF 及 Levered DCF 參考價與其價格差幅不適用。' });
-  Object.assign(I18N_DICT.en, { dcf_not_applicable: 'Not applicable',
-    dcf_not_applicable_note: 'Banks and insurers use the financial-sector excess-return/dividend valuation, not corporate cash-flow DCF. FMP DCF and Levered DCF reference prices and their price differences are not applicable.' });
   Object.assign(I18N_DICT.en, {
     property_fv_coverage: 'Property-FV adjustments are applied only to independently verified periods and fields (Link FY2019–FY2026); see company-page limitations. Other stocks/periods remain reported unless explicitly noted. Missing isolated FMP tags are not evidence of zero FV change. Native FMP model forecasts and API valuations are not normalized.'
   });
@@ -3891,17 +3875,14 @@
     const mode = document.getElementById('screener-columns').value;
     const presets = {
       overview: { width: 990, fields: ['ticker', 'name', 'price', 'target_price', 'action', 'moat_score', 'f_score'] },
-      valuation: { width: 2170, fields: ['ticker', 'name', 'sector', 'price', 'fmp_dcf', 'fmp_dcf_upside', 'fmp_levered', 'fmp_levered_upside', 'target_price', 'action', 'target_spread', 'moat_score', 'WACC', 'EV', 'mcap', 'liq_val_1', 'liq_val_2', 'liq_val_3'] },
+      valuation: { width: 1670, fields: ['ticker', 'name', 'sector', 'price', 'target_price', 'action', 'target_spread', 'moat_score', 'WACC', 'EV', 'mcap', 'liq_val_1', 'liq_val_2', 'liq_val_3'] },
       financial: { width: 2370, fields: ['ticker', 'name', 'price', 'mcap', 'pe_trailing', 'pe_forward', 'pb_trailing', 'div_yield', 'fcf_to_ev', 'fcf_to_equity', 'fcf_to_mcap', 'cash_to_assets', 'liab_to_assets', 'current_ratio', 'roe', 'roa', 'f_score', 'ev_to_ebitda', 'debt_to_ebitda', 'net_debt_to_ebitda'] },
-      all: { width: 4520, fields: null }
+      all: { width: 4020, fields: null }
     };
     const preset = presets[mode];
     if (!preset) throw new RangeError('Invalid screener column view');
     const table = document.getElementById('screener-table');
     table.querySelector('th[onclick="sortTable(\'fcf_to_equity\')"]').title = I18N_DICT[currentLang].fcf_equity_basis;
-    for (const field of ['fmp_dcf_upside', 'fmp_levered_upside']) {
-      table.querySelector(`th[onclick="sortTable('${field}')"]`).title = I18N_DICT[currentLang].valuation_price_difference_note;
-    }
     formatScreenerHeaders();
     const hideLiquidation = preset.fields !== null && !preset.fields.includes('liq_val_1');
     document.getElementById('screener-liquidation-key').hidden = hideLiquidation;
@@ -3947,11 +3928,6 @@
     const under = value < 0;
     const label = currentLang === 'zh' ? (under ? '低估' : '高估') : (under ? 'Undervalued' : 'Overvalued');
     return `<span class="${under ? 'text-green' : 'text-red'}" style="font-weight: 700;">${label} ${under ? '' : '+'}${value.toFixed(1)}%</span>`;
-  }
-
-  function renderPriceDifference(field, value, applicable = true) {
-    if (!applicable) return `<td data-price-difference="${field}" data-applicable="false" class="text-muted" title="${escapeAttribute(I18N_DICT[currentLang].dcf_not_applicable_note)}">${I18N_DICT[currentLang].dcf_not_applicable}</td>`;
-    return `<td data-price-difference="${field}" data-value="${value ?? ''}" class="${value === null ? 'text-muted' : ''}" title="${escapeAttribute(I18N_DICT[currentLang].valuation_price_difference_note)}">${value === null ? 'N/A' : renderMarketPremium(value)}</td>`;
   }
 
   function marketRatioNote(item, kind) {
@@ -4087,8 +4063,6 @@
       
       const defaultDcf = computeDCF(s, ticker);
       if (!defaultDcf) return null;
-      const fmpDcf = FmpModels.reference(FmpModels.record(ticker), 'dcf', s);
-      const fmpLevered = FmpModels.reference(FmpModels.record(ticker), 'levered', s);
 
       const isSaved = !!savedModels[ticker];
       const isFav = favs.includes(ticker);
@@ -4102,9 +4076,6 @@
 
       return { 
         ticker, ...s, ...defaultDcf, 
-        fmp_dcf: fmpDcf, fmp_levered: fmpLevered,
-        fmp_dcf_upside: FmpModels.priceDifference(fmpDcf, s.price),
-        fmp_levered_upside: FmpModels.priceDifference(fmpLevered, s.price),
         fcf_to_equity: Number.isFinite(s.fcf_to_equity)
           ? s.fcf_to_equity
           : FcfRatios.storedTtmFcfToEquity(s.statements_raw, s.currencyConversion?.reason),
@@ -4219,15 +4190,6 @@
           <td style="color: var(--text-secondary); text-align: left;">${getStockDisplaySector(item)}</td>
           <td style="color: var(--text-muted); font-size: 11px; text-align: left;">${getStockDisplayIndustry(item.industry) || '--'}</td>
           <td style="font-weight: 700; color: var(--accent);">${priceNum === null ? 'N/A' : moneyPrefix() + priceNum.toFixed(2)}</td>
-          ${['dcf', 'levered'].map(kind => {
-            const applicable = FmpModels.dcfApplicable(item);
-            if (!applicable) return `<td data-fmp-reference="${kind}" data-applicable="false" class="text-muted" title="${escapeAttribute(I18N_DICT[currentLang].dcf_not_applicable_note)}">${I18N_DICT[currentLang].dcf_not_applicable}</td>${renderPriceDifference(kind, null, false)}`;
-            const data = FmpModels.record(item.ticker), val = FmpModels.reference(data, kind, item);
-            const note = currentLang === 'en'
-              ? 'Direct FMP reference; provider share denominator and methodology, not the site issued-share custom value.'
-              : 'FMP 直接回傳參考值；保留供應商股數及算法，不是本網站已發行股數自訂估值。';
-            return `<td data-fmp-reference="${kind}" title="${escapeAttribute(`${note} ${data?.models?.[kind]?.reason || data?.currencyCheck?.reason || ''}`)}">${val === null ? 'N/A' : moneyPrefix() + val.toFixed(2)}<small class="liquidation-asof">${data?.models?.[kind]?.data?.[0]?.date || ''}</small></td>${renderPriceDifference(kind, kind === 'dcf' ? item.fmp_dcf_upside : item.fmp_levered_upside)}`;
-          }).join('')}
           <td>${targetPriceHtml}</td>
           <td style="text-align: center;">
             <button class="btn-nav" onclick="openDetail('${item.ticker}')">${currentLang === 'zh' ? '深度模型 →' : 'DCF Model →'}</button>

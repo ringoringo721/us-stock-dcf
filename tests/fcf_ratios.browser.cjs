@@ -142,7 +142,7 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
     assert.equal(await page.locator('#screener-tbody tr').count(), stockCount);
     assert.ok((await page.locator('#stat-total').innerText()).includes(String(stockCount)));
     const initialTickers = await page.locator('#screener-tbody .ticker-link').allTextContents();
-    for (const [preset, count] of [['overview', 7], ['valuation', 18], ['financial', 20], ['all', 36]]) {
+    for (const [preset, count] of [['overview', 7], ['valuation', 14], ['financial', 20], ['all', 32]]) {
       await page.selectOption('#screener-columns', preset);
       assert.equal(await page.locator('#screener-table thead th:visible').count(), count);
       assert.equal(await page.locator('#screener-tbody tr').first().locator('td:visible').count(), count);
@@ -215,7 +215,7 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
     await page.selectOption('#screener-columns', 'all');
     for (const lang of ['en', 'zh', 'en', 'zh']) {
       await page.evaluate(lang => applyLanguage(lang), lang);
-      assert.equal(await page.locator('#screener-table thead .screener-heading').count(), 36);
+      assert.equal(await page.locator('#screener-table thead .screener-heading').count(), 32);
       const headers = await page.locator('#screener-table thead th').evaluateAll(cells => cells.map(cell => {
         const heading = cell.querySelector('.screener-heading');
         const label = heading.querySelector('.screener-heading-label');

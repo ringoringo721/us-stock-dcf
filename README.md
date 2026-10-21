@@ -105,13 +105,14 @@ allowlisted browser assets and financial/price/FX caches in `public/`. Backend
 programs, raw source captures and private rating inputs are not public assets.
 `vercel.json` makes browsers revalidate data rather than retaining stale scores.
 
-The shared interface has a US/HKEX selector, the same 36 screener columns and all
+The shared interface has a US/HKEX selector, the same 32 screener columns and all
 nine company subpages. Company names and stock codes in peer-comparison headers
 link to that stock's company profile, including lazily loaded HK listings.
 Keyboard activation and browser Back are supported.
-The automatic site fair-value and its market-premium
-columns are omitted from every screener view in both markets; individual
-valuation models, FMP reference prices and saved target prices remain available.
+The automatic site fair-value and FMP DCF / Levered DCF screener reference
+columns (and their market-premium neighbours) are omitted from every screener
+view in both markets; company-page FMP valuation panels and saved target prices
+remain available.
 The HKEX universe contains all **95 Hang Seng Index
 constituents effective 7 September 2026**, verified against Appendix 1 of
 [Hang Seng Indexes' 21 August 2026 review](https://www.hsi.com.hk/static/uploads/contents/en/news/pressRelease/20260821T174500.pdf).
@@ -266,16 +267,14 @@ before publishing its outputs.
 Empty HK news coverage is explicit. Users can separately select six verified
 same-issuer US/OTC listings; articles retain their original FMP symbols and are
 not relabelled as dedicated HK feeds. The selection survives language changes;
-saved headline translations and response caches are reused. Fair Value, FMP
-DCF and FMP Levered DCF each have an adjacent `(price / valuation − 1) × 100%`
-market-premium column, matching the saved-target comparison: red
+saved headline translations and response caches are reused. The saved-target
+screener column uses `(price / valuation − 1) × 100%`: red
 `Overvalued +X.X%` or green `Undervalued -X.X%`, with Traditional Chinese labels
 `高估` / `低估`. Display uses one decimal; sorting retains full precision.
 Missing or nonpositive valuations/prices show N/A, not a misleading premium
-against zero/negative equity values. The redundant standalone Fair Spread %
-column is removed; company-model premiums and under/overvaluation filters remain.
-Banks/insurers retain financial
-fair values while corporate DCF references/differences are Not applicable.
+against zero/negative equity values. Company-page FMP valuation panels retain
+their own premiums; under/overvaluation filters remain.
+Banks/insurers retain financial fair values on the company page.
 
 `scripts/build_hkex.cjs` compiles genuine protected FMP captures into separate
 `hk_market_dcf.json`, `hk_market_data.js`, `hk_fcff_data.js` and per-company
@@ -413,8 +412,9 @@ invented analyst forecasts. They are vendor projections/extrapolations, not
 necessarily issuer guidance or analyst consensus. Site custom per-share values
 divide vendor equity value by verified outstanding common shares, excluding
 treasury shares; A/H companies use all ordinary classes. Vendor diluted-share
-values remain separately identified. The two additional screener references,
-DCF Valuation and Levered DCF, retain the vendor's direct per-share values.
+values remain separately identified. Company-page FMP DCF and Levered DCF
+panels retain the vendor's direct per-share values; those references are not
+shown as screener columns.
 Existing bank/insurance models are preserved. The old non-FMP FCFF workspace is
 no longer exposed; its calculation/source modules remain for audit and regression
 coverage. Missing coverage, unverified currency and missing issued

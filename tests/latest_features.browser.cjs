@@ -50,64 +50,15 @@ const priceRows = ticker => JSON.parse(fs.readFileSync(path.join(root, 'cache', 
     await page.goto(`${base}/?market=HKEX`, { waitUntil: 'networkidle' });
     await page.waitForFunction(() => isAppReady);
     await page.evaluate(() => applyLanguage('en'));
-    for (const ticker of ['0388.HK', '0700.HK', '9988.HK', '0823.HK', '0005.HK', '0939.HK']) {
-      const result = await page.locator('#screener-tbody tr').filter({ hasText: ticker }).evaluate(row =>
-        [...row.querySelectorAll('[data-price-difference]')].map(cell => ({
-          field: cell.dataset.priceDifference, value: cell.dataset.value,
-          applicable: cell.dataset.applicable, text: cell.textContent,
-          preceding: cell.previousElementSibling?.textContent,
-          color: cell.querySelector('span')?.className
-        })));
-      assert.equal(result.length, 2);
-      assert.deepEqual(result.map(cell => cell.field), ['dcf', 'levered']);
-      for (const cell of result) {
-        if (cell.applicable === 'false') assert.equal(cell.text, 'Not applicable');
-        else if (!cell.value) assert.equal(cell.text, 'N/A');
-        else {
-          const stockPrice = await page.evaluate(ticker => stockUniverse[ticker].price, ticker);
-          const valuation = Number(cell.preceding.match(/(?:HKD|\$)\s*(-?[\d,.]+)/)?.[1].replaceAll(',', ''));
-          assert.ok(valuation > 0);
-          assert.ok(Math.abs(Number(cell.value) - (stockPrice / valuation - 1) * 100) < 0.02);
-          const under = Number(cell.value) < 0;
-          assert.equal(cell.text, `${under ? 'Undervalued' : 'Overvalued'} ${under ? '' : '+'}${Number(cell.value).toFixed(1)}%`);
-          assert.equal(cell.color, under ? 'text-green' : 'text-red');
-        }
-        for (const lang of ['zh', 'en']) {
-          await page.evaluate(lang => applyLanguage(lang), lang);
-          const cells = await page.locator('[data-price-difference][data-value]').evaluateAll(cells =>
-            cells.map(cell => ({ value: cell.dataset.value, text: cell.textContent })));
-          for (const cell of cells) {
-            if (!cell.value) assert.equal(cell.text, 'N/A');
-            else {
-              const value = Number(cell.value), under = value < 0;
-              const label = lang === 'zh' ? (under ? '低估' : '高估') : (under ? 'Undervalued' : 'Overvalued');
-              assert.equal(cell.text, `${label} ${under ? '' : '+'}${value.toFixed(1)}%`);
-            }
-          }
-          assert.equal(await page.evaluate(() => {
-            const element = document.createElement('tbody');
-            return [-16.666666666666664, 25, 0].every(value => {
-              element.innerHTML = `<tr>${renderPriceDifference('dcf', value)}</tr>`;
-              return element.querySelector('td').innerHTML === renderMarketPremium(value);
-            });
-          }), true, 'Both FMP valuation columns share the saved-target badge renderer');
-        }
-      }
-    }
+    assert.equal(await page.locator('#screener-table th[data-i18n="th_fmp_dcf"], #screener-table th[data-i18n="th_fmp_dcf_upside"], #screener-table th[data-i18n="th_fmp_levered"], #screener-table th[data-i18n="th_fmp_levered_upside"]').count(), 0);
+    assert.equal(await page.locator('#screener-table [onclick="sortTable(\'fmp_dcf\')"], #screener-table [onclick="sortTable(\'fmp_dcf_upside\')"], #screener-table [onclick="sortTable(\'fmp_levered\')"], #screener-table [onclick="sortTable(\'fmp_levered_upside\')"]').count(), 0);
+    assert.equal(await page.locator('#screener-tbody [data-fmp-reference], #screener-tbody [data-price-difference]').count(), 0);
     assert.equal(await page.locator('#screener-table th[data-i18n="th_premium"]').count(), 0);
     assert.equal(await page.locator('#screener-tbody .badge-undervalued, #screener-tbody .badge-overvalued').count(), 0);
-    for (const [preset, expected] of [['overview', 7], ['valuation', 18], ['financial', 20], ['all', 36]]) {
+    for (const [preset, expected] of [['overview', 7], ['valuation', 14], ['financial', 20], ['all', 32]]) {
       await page.selectOption('#screener-columns', preset);
       assert.equal(await page.locator('#screener-table thead th:visible').count(), expected);
       assert.equal(await page.locator('#screener-tbody tr').first().locator('td:visible').count(), expected);
-    }
-    for (const [field, kind] of [['fmp_dcf_upside', 'dcf'], ['fmp_levered_upside', 'levered']]) {
-      await page.evaluate(field => sortTable(field), field);
-      const values = await page.locator(`[data-price-difference="${kind}"][data-value]:visible`).evaluateAll(cells =>
-        cells.filter(cell => cell.dataset.value !== '').map(cell => Number(cell.dataset.value)));
-      assert.ok(values.length > 0);
-      assert.ok(values.every((value, i) => !i || value >= values[i - 1])
-        || values.every((value, i) => !i || value <= values[i - 1]));
     }
     await page.goto(`${base}/#AAPL/profile`, { waitUntil: 'networkidle' });
     await page.waitForFunction(() => isAppReady && !document.getElementById('price-history-plots').hidden);

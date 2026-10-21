@@ -48,15 +48,9 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
     assert.match(await page.locator('#market-select').innerText(), /🇺🇸 United States \(USD\)/);
     assert.match(await page.locator('#market-select').innerText(), /🇭🇰 Hong Kong \(HKD\)/);
     assert.equal(await page.locator('#screener-tbody tr').count(), Object.keys(market).length);
-    assert.equal(await page.locator('#screener-tbody tr').first().locator('td').count(), 36);
+    assert.equal(await page.locator('#screener-tbody tr').first().locator('td').count(), 32);
     assert.deepEqual(await page.evaluate(() => Object.keys(stockUniverse)), Object.keys(market));
-    for (const ticker of ['0005.HK', '0939.HK']) {
-      const row = page.locator('#screener-tbody tr').filter({ hasText: ticker });
-      assert.deepEqual(await row.locator('[data-fmp-reference]').allTextContents(), ['Not applicable', 'Not applicable']);
-      assert.deepEqual(await row.locator('[data-price-difference][data-applicable="false"]').allTextContents(),
-        ['Not applicable', 'Not applicable']);
-      assert.equal(await row.locator('[data-fmp-reference] small').count(), 0);
-    }
+    assert.equal(await page.locator('#screener-table th[data-i18n="th_fmp_dcf"], #screener-table th[data-i18n="th_fmp_levered"], #screener-tbody [data-fmp-reference], #screener-tbody [data-price-difference]').count(), 0);
     const audited = new Set(['0700.HK', '9988.HK', '0005.HK', '0388.HK', '0939.HK', '0823.HK']);
     for (const [ticker, stock] of Object.entries(market).filter(([ticker]) => audited.has(ticker))) {
       assert.equal(await page.locator('#screener-table th[data-i18n="th_fair"], #screener-tbody [data-price-difference="fair"]').count(), 0);
