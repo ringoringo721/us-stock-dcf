@@ -4,8 +4,9 @@
   else root.BetaLookback = api;
 })(typeof globalThis === 'object' ? globalThis : this, function (root) {
   'use strict';
-  const Price = typeof module === 'object' && module.exports ? require('./price_history.js') : root.PriceHistory;
-  const Cache = typeof module === 'object' && module.exports ? require('./fmp_cache.js') : root.FmpCache;
+  // Resolve lazily: browser script order may load this file before price_history.js / after fmp_cache.js.
+  const Price = () => (typeof module === 'object' && module.exports ? require('./price_history.js') : root.PriceHistory);
+  const Cache = () => (typeof module === 'object' && module.exports ? require('./fmp_cache.js') : root.FmpCache);
   const WINDOWS = [1, 2, 3, 4, 5];
   const PROVIDER = 'provider';
   const BENCHMARKS = {
@@ -51,10 +52,10 @@
 
   function alignedReturns(stockRows, benchRows, years) {
     if (!WINDOWS.includes(years)) throw new TypeError('Unsupported beta lookback');
-    const range = Price.periodRange(stockRows, periodOf(years));
+    const range = Price().periodRange(stockRows, periodOf(years));
     if (!range) return { returns: [], start: null, end: null, reason: 'insufficientStockHistory' };
-    const stock = Price.select(stockRows, range[0], range[1]);
-    const bench = Price.select(benchRows, range[0], range[1]);
+    const stock = Price().select(stockRows, range[0], range[1]);
+    const bench = Price().select(benchRows, range[0], range[1]);
     const market = new Map(bench.map(row => [row[0], row[1]]));
     const paired = [];
     for (const row of stock) {
@@ -155,7 +156,7 @@
       // Prefer published price_charts (same cache as Profile charts).
       try {
         const chart = await fetchSeries(`cache/price_charts/${encodeURIComponent(ticker)}.json`);
-        return Price.validate(chart, ticker);
+        return Price().validate(chart, ticker);
       } catch (chartError) {
         // Benchmark bootstrap / committed beta benchmarks (Yahoo or FMP-shaped).
         try {
@@ -168,7 +169,7 @@
           fromDate.setUTCFullYear(fromDate.getUTCFullYear() - 20);
           const from = fromDate.toISOString().slice(0, 10);
           const query = new URLSearchParams({ action: 'historical-price', symbol: ticker, from, to });
-          const result = await Cache.request(query, { refresh: reload });
+          const result = await Cache().request(query, { refresh: reload });
           if (!Array.isArray(result?.data) || result.source?.symbol !== ticker) {
             throw new Error('FMP_INVALID_HISTORICAL_PRICE');
           }
