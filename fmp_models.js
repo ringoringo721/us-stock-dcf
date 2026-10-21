@@ -411,26 +411,79 @@
     return root.FCFF_DATA?.stocks?.[ticker] || root.HK_FCFF_DATA?.stocks?.[ticker] || null;
   }
 
+  function isHkListing(stock = state?.stock, ticker = state?.ticker) {
+    const symbol = ticker || stock?.ticker || '';
+    return symbol.endsWith('.HK') || stock?.market === 'HKEX' || stock?.exchange === 'HKEX';
+  }
+
+  function treasuryTenorRates(treasury) {
+    const rates = {};
+    if (!treasury || typeof treasury !== 'object') return rates;
+    for (let year = 1; year <= 10; year++) {
+      const value = treasury[`year${year}`];
+      if (finite(value)) rates[year] = value;
+    }
+    return rates;
+  }
+
+  function isUsdTreasuryCapture(treasury) {
+    return !!treasury && (treasury.currency === 'USD' || treasury.currency == null)
+      && Object.keys(treasuryTenorRates(treasury)).length > 0;
+  }
+
+  function latestUsdTreasuryCapture(excludeTicker) {
+    let best = null;
+    for (const bag of [root.FCFF_DATA?.stocks, root.HK_FCFF_DATA?.stocks]) {
+      if (!bag) continue;
+      for (const [symbol, row] of Object.entries(bag)) {
+        if (symbol === excludeTicker) continue;
+        const treasury = row?.provenance?.treasury;
+        if (!isUsdTreasuryCapture(treasury) || treasury.currency === 'HKD') continue;
+        if (!best || (treasury.date || '') > (best.date || '')) best = treasury;
+      }
+    }
+    return best ? { ...best, currency: 'USD' } : null;
+  }
+
   function riskFreeTenorSource(stock = state?.stock, ticker = state?.ticker) {
     const fcff = fcffRecord(ticker);
-    const treasury = fcff?.provenance?.treasury;
-    const rates = {};
-    if (treasury && finite(treasury.year10)) rates[10] = treasury.year10;
+    const hk = isHkListing(stock, ticker);
+    let treasury = fcff?.provenance?.treasury || null;
+    // HK Advanced ten-year: primary default is USD Treasury (US rf concept / peg proxy), never HKD curve.
+    if (hk) {
+      if (!isUsdTreasuryCapture(treasury) || treasury?.currency === 'HKD') {
+        treasury = latestUsdTreasuryCapture(ticker) || (isUsdTreasuryCapture(treasury)
+          ? { ...treasury, currency: 'USD' } : null);
+      } else {
+        treasury = { ...treasury, currency: 'USD' };
+      }
+    } else if (treasury?.currency === 'HKD') {
+      treasury = latestUsdTreasuryCapture(ticker);
+    }
+    const rates = treasuryTenorRates(treasury);
     const missing = [];
     for (let year = 1; year <= 10; year++) {
       if (!finite(rates[year])) missing.push(year);
     }
+    const available = Object.keys(rates).map(Number).sort((a, b) => a - b);
+    const riskFreeNote = hk
+      ? (fcff?.provenance?.riskFreeRate
+        && !/HKD benchmark|港元/i.test(fcff.provenance.riskFreeRate)
+          ? fcff.provenance.riskFreeRate
+          : 'User-directed USD Treasury proxy under the HKD/USD peg; not an observed HKD yield or a copied US-stock WACC')
+      : (fcff?.provenance?.riskFreeRate || null);
     return {
-      currency: treasury?.currency || stock?.calculationCurrency || 'USD',
+      currency: hk ? 'USD' : (treasury?.currency || 'USD'),
       date: treasury?.date || null,
       rates,
       missing,
-      basis: treasury && finite(treasury.year10)
-        ? 'dated-capture-year10-only'
-        : 'dated-treasury-unavailable',
+      hkPegProxy: hk,
+      basis: available.length === 0 ? 'dated-treasury-unavailable'
+        : available.length === 1 && available[0] === 10 ? 'dated-capture-year10-only'
+        : 'dated-usd-treasury-curve',
       betaProvenance: fcff?.provenance?.beta
         || 'FMP profile beta; lookback, frequency and benchmark unspecified by the response',
-      riskFreeNote: fcff?.provenance?.riskFreeRate || null,
+      riskFreeNote,
       retainedRf: finite(state?.scenarios?.[state.kind]?.years?.[0]?.values?.rf)
         ? state.scenarios[state.kind].years[0].values.rf : null,
       retainedBeta: finite(state?.scenarios?.[state.kind]?.years?.[0]?.values?.beta)
@@ -486,11 +539,21 @@
           'From the retained FMP model beta (typically FMP profile.beta). Provider lookback, frequency and benchmark are unspecified; this site does not claim an “accurate 5y weekly vs S&P” beta. Override in the ten-year grid if needed.')}
         <small>${escape(source.betaProvenance)}</small></p>
       <p class="analysis-note" id="fmp-rf-provenance"><strong>${text('無風險利率', 'Risk-free rate')}</strong>:
+        ${source.hkPegProxy
+          ? text('港股採用美元公債／美股無風險利率概念（聯繫匯率代理），非港元曲線。',
+            'HK stocks use the USD Treasury / US-stock risk-free concept (HKD peg proxy), not an HKD curve.')
+          : ''}
         ${text('情境預設沿用 FMP 模型 riskFreeRate（retained-capital）', 'Scenario defaults retain FMP model riskFreeRate (retained-capital)')}${finite(source.retainedRf) ? `: ${source.retainedRf.toFixed(2)}%` : ''}.
-        ${source.date ? text(`定存公債擷取（參考）`, `Dated treasury capture (reference)`) + `: ${escape(source.currency)} ${text('十年期', '10Y')} ${finite(source.rates[10]) ? `${source.rates[10].toFixed(2)}%` : 'N/A'} · ${escape(source.date)}.` : text('尚無已標日期的公債曲線擷取。', 'No dated treasury-curve capture is available.')}
+        ${source.date ? text(`定存美元公債擷取（參考）`, `Dated USD Treasury capture (reference)`) + `: ${escape(source.currency)} ${text('十年期', '10Y')} ${finite(source.rates[10]) ? `${source.rates[10].toFixed(2)}%` : 'N/A'} · ${escape(source.date)}.` : text('尚無已標日期的美元公債曲線擷取。', 'No dated USD Treasury-curve capture is available.')}
         ${source.riskFreeNote ? `<small>${escape(source.riskFreeNote)}</small>` : ''}</p>
       <div class="fin-model-grid"><div class="form-group">
-        <label for="fmp-rf-tenor">${text('無風險利率年期（1–10 年，僅資料有提供的期數可選）', 'Risk-free tenor (1–10y; only data-backed tenors are selectable)')}</label>
+        <label for="fmp-rf-tenor">${text(
+          source.hkPegProxy
+            ? '無風險利率年期（1–10 年，讀取美元公債曲線點；僅資料有提供的期數可選）'
+            : '無風險利率年期（1–10 年，僅資料有提供的期數可選）',
+          source.hkPegProxy
+            ? 'Risk-free tenor (1–10y from the USD Treasury curve; only data-backed tenors are selectable)'
+            : 'Risk-free tenor (1–10y; only data-backed tenors are selectable)')}</label>
         <select id="fmp-rf-tenor">${options}</select>
         <small id="fmp-rf-tenor-status">${rfStatus} ${escape(missingNote)}</small>
       </div></div>
@@ -1002,6 +1065,6 @@
     }
   }
   return { record, value, issuedShares, reference, dcfApplicable, priceDifference, compatible, load, save, reset, details, detailsError, reasonText, actuals, auditPacket,
-    valuationConfidence, confidenceText,
+    valuationConfidence, confidenceText, riskFreeTenorSource, applyRfTenor, isHkListing,
     deactivate: () => { state = null; }, rerender: () => { if (state) render(); } };
 });

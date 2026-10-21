@@ -158,4 +158,41 @@ test('Detail and ten-year UI expose confidence and dual-terminal hooks', () => {
   assert.match(models, /id="fmp-beta-provenance"/);
   assert.match(models, /id="fmp-snapshot-net-debt-meta"/);
   assert.match(models, /five-year-effective-tax/);
+  assert.match(models, /港股採用美元公債／美股無風險利率概念（聯繫匯率代理），非港元曲線/);
+  assert.match(models, /HK stocks use the USD Treasury \/ US-stock risk-free concept/);
+});
+
+test('HK Advanced rf tenor source defaults to USD Treasury curve, not HKD', () => {
+  globalThis.HK_FCFF_DATA = { stocks: {
+    '0700.HK': { provenance: {
+      treasury: { date: '2026-10-16', year10: 5.09, year5: 4.2, currency: 'USD' },
+      riskFreeRate: 'User-directed USD Treasury proxy under the HKD/USD peg; not an observed HKD yield or a copied US-stock WACC',
+      beta: 'FMP profile beta'
+    } }
+  } };
+  globalThis.FCFF_DATA = { stocks: {
+    AAPL: { provenance: { treasury: { date: '2026-10-20', year10: 5.12, year2: 3.9, currency: 'USD' } } }
+  } };
+  const Models = require('../fmp_models.js');
+  const source = Models.riskFreeTenorSource(
+    { ticker: '0700.HK', market: 'HKEX', calculationCurrency: 'HKD' }, '0700.HK');
+  assert.equal(source.currency, 'USD');
+  assert.equal(source.hkPegProxy, true);
+  assert.equal(source.rates[10], 5.09);
+  assert.equal(source.rates[5], 4.2);
+  assert.equal(source.rates[2], undefined);
+  assert.match(source.riskFreeNote, /USD Treasury proxy/);
+
+  const hkdLabeled = Models.riskFreeTenorSource(
+    { ticker: '0001.HK', market: 'HKEX', calculationCurrency: 'HKD' }, '0001.HK');
+  // No own USD capture → fall back to latest USD curve from FCFF_DATA, never calculationCurrency HKD.
+  assert.equal(hkdLabeled.currency, 'USD');
+  assert.equal(hkdLabeled.rates[10], 5.12);
+  assert.equal(hkdLabeled.rates[2], 3.9);
+});
+
+test('applyRfTenor code path preserves user rf overrides', () => {
+  const models = fs.readFileSync('fmp_models.js', 'utf8');
+  assert.match(models, /origins\?\.rf === 'user'\) continue/);
+  assert.match(models, /origins\?\.ke === 'user'\) continue/);
 });
