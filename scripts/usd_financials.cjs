@@ -2,6 +2,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { convertStatements } = require('../usd_currency.js');
 const { calculateReturns, financialReference } = require('../fcf_ratios.js');
+const FinancialModels = require('../financial_models.js');
 
 const aliases = {
   epsdiluted: ['epsDiluted'], ebitdaratio: ['ebitdaRatio'],
@@ -243,14 +244,22 @@ function normalizeStock(stock, source, rates) {
     const fin = output.fin_valuation;
     fin.reference = reference; fin.rote = reference.rote; fin.tbvps = reference.tbvps;
     const buybacks = flow('cashflow', 'commonStockRepurchased');
-    fin.dps_total = dividends === null || buybacks === null ? null : (Math.abs(dividends) + Math.abs(buybacks)) / (stock.shares * 1e6);
+    const payout = FinancialModels.totalPayoutFromFlows(dividends, buybacks);
+    fin.dps_total = payout === null || !(stock.shares > 0) ? null : payout / (stock.shares * 1e6);
     fin.pb_tangible = ratio(stock.price, reference.tbvps);
-    fin.excess_return_fair = reference.reason ? null : reference.tbvps * (1 + (reference.rote - fin.ke) / Math.max(fin.ke - fin.g, 2));
-    let dividend = fin.dps_total, ddm = 0;
-    for (let year = 1; year <= 5; year++) { dividend *= 1.065; ddm += dividend / (1 + fin.ke / 100) ** year; }
-    fin.ddm_fair = fin.dps_total === null ? null : ddm + dividend * (1 + fin.g / 100)
-      / Math.max((fin.ke - fin.g) / 100, 0.02) / (1 + fin.ke / 100) ** 5;
-    output.fair_val = reference.reason || fin.ddm_fair === null ? null : fin.excess_return_fair * 0.55 + fin.ddm_fair * 0.45;
+    const capm = FinancialModels.capmKePercent(stock);
+    if (Number.isFinite(capm)) {
+      fin.ke_capm = Number(capm.toFixed(4));
+      fin.ke_floor_pct = FinancialModels.US_KE_FLOOR_PCT;
+      if (fin.ke_floor_applied !== false) {
+        fin.ke_floor_applied = true;
+        fin.ke = Math.max(capm, FinancialModels.US_KE_FLOOR_PCT);
+      }
+    }
+    const valued = FinancialModels.valueFinancial(fin, { industry: stock.industry });
+    fin.excess_return_fair = valued.excess_return_fair;
+    fin.ddm_fair = valued.ddm_fair;
+    output.fair_val = valued.fair_val;
   }
   output.default_fair_val = output.fair_val;
   output.premium_pct = output.fair_val === null ? null : (stock.price / output.fair_val - 1) * 100;

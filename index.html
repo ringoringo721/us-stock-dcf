@@ -32,6 +32,7 @@
   <script src="fmp_scenario.js"></script>
   <script src="fmp_models.js"></script>
   <script src="fcf_ratios.js?v=sign-trends-1"></script>
+  <script src="financial_models.js?v=fin-ddm-keep-1"></script>
   <script src="balance_sheet.js"></script>
   <script src="earnings_trend.js"></script>
   <script src="profile_overview.js?v=forecast-evidence-1"></script>
@@ -1246,9 +1247,12 @@
       <div class="panel">
         <div class="panel-title" data-i18n="fin_title">🏛️ 金融機構專屬估值矩陣 (Excess Return on Tangible Book + DDM)</div>
         <p id="fin-reference-note" role="status" class="model-reference-note"></p>
+        <p id="fin-blend-note" class="analysis-note" data-i18n="fin_blend_note"></p>
+        <p id="fin-buyback-note" class="analysis-note" data-i18n="fin_buyback_note"></p>
+        <p id="fin-insurer-note" class="analysis-note" role="status" hidden></p>
         <div class="fin-model-grid">
           <div class="stat-box" style="border-left: 4px solid var(--accent);">
-            <div class="stat-label" data-i18n="fin_m1">1. 超額有形資產回報模型 (Excess Return)</div>
+            <div class="stat-label" data-i18n="fin_m1">1. 超額有形股本回報模型 (Excess Return)</div>
             <div class="stat-num text-green" id="fin-excess-val">$0.00</div>
             <div style="font-size: 12px; color: var(--text-muted); line-height: 1.5; margin-top: 4px;">
               <span data-i18n="fin_tbvps">每股有形股東權益 TBVPS</span>: <b id="fin-tbvps" style="color: var(--text);">$0.00</b> (P/TBV: <b id="fin-ptbv" style="color: var(--accent);">0.0x</b>)<br>
@@ -1278,6 +1282,11 @@
             <div class="slider-head"><span data-i18n="fin_rote">有形股本報酬率 (ROTE)</span><span class="val" id="disp-fin-rote">17.4%</span></div>
             <input type="range" class="fin-slider" id="slider-fin-rote" min="-25" max="50" step="any" oninput="onFinSliderChange()">
           </div>
+        </div>
+        <div id="fin-ke-floor-row" class="analysis-note" hidden>
+          <p id="fin-ke-floor-note" role="status"></p>
+          <label><input id="fin-ke-floor-toggle" type="checkbox" checked onchange="onFinKeFloorChange()">
+            <span data-i18n="fin_ke_floor_toggle">套用美股 Ke 下限 max(CAPM, 9%)</span></label>
         </div>
         <p id="fin-shares-mode" class="analysis-note" role="status"></p>
         <details>
@@ -2445,7 +2454,7 @@
       det_label_wacc: "加權折現成本 (WACC / Ke) / 終值 g",
       det_label_ev: "企業價值 EV / 槓桿比率",
       fin_title: "🏛️ 金融機構專屬估值矩陣 (Excess Return on Tangible Book + DDM)",
-      fin_m1: "1. 超額有形資產回報模型 (Excess Return)",
+      fin_m1: "1. 超額有形股本回報模型 (Excess Return)",
       fin_m2: "2. 實質股東現金分紅模型 (DDM + Buyback)",
       fin_ke: "股權資本成本 (Ke, 折現率)",
       fin_g: "永續終值增長率 (g)",
@@ -2454,10 +2463,16 @@
       fin_spread: "超額利差 (ROTE - Ke)",
       fin_dps: "每股常態實質分紅",
       fin_ddm_basis: "5 年兩階段 DDM（前 5 年成長 6.5%）",
+      fin_blend_note: "公允價值混合權重：超額報酬 55% ＋ DDM 45%。任一模型 N/A 時，混合公允價值亦為 N/A；DDM 仍可單獨顯示。",
+      fin_buyback_note: "實質分紅＝|現金股利|＋min(|庫藏股回購|, 1.5×|現金股利|)，再除以流通普通股；回購有 1.5 倍股利上限。",
+      fin_ke_floor_note: "美股金融模型預設 Ke＝max(CAPM, 9%)。CAPM＝{capm}%；目前套用下限後 Ke＝{ke}%。可取消勾選改用未下限之 CAPM。",
+      fin_ke_floor_toggle: "套用美股 Ke 下限 max(CAPM, 9%)",
+      fin_insurer_bank_style: "保險業：此面板套用銀行式有形股本殘餘收益／DDM，並非內含價值（EV）或 P/EV；結果僅供情境參考。",
+      fin_insurer_fragile_rote: "警示：ROTE 絕對值偏高（≥25%），永續超額報酬假設對保險業特別脆弱；請勿視為精算公允價值。",
       fin_reference: "財報基準：",
       fin_reference_basis: "TTM／期初有形權益，與趨勢分析預設口徑一致；TBVPS 採同一期末有形權益。滑桿僅調整估值情境，不改寫歷史比率。",
-      fin_unavailable: "N/A：缺少可核對的財報基準，或期末有形權益非正，無法使用超額報酬混合估值。",
-      fin_negative_capital: "警示：有形權益為負；ROTE 保留實際值，但不以虛構正資本產生估值。",
+      fin_unavailable: "N/A：缺少可核對的財報基準，或期末有形權益非正，無法使用超額報酬混合估值；股利折現（DDM）在資料允許時仍可單獨查看。",
+      fin_negative_capital: "警示：有形權益為負；ROTE 保留實際值，但不以虛構正資本產生估值。DDM 在折現率與分紅資料完整時仍可顯示。",
       sec1_title: "1. 基本面與資產負債表 (可手動自訂)",
       lbl_price: "當前每股股價 ($)",
       lbl_shares: "稀釋總股數 (百萬股, M)",
@@ -2894,10 +2909,16 @@
       fin_spread: "Excess spread (ROTE - Ke)",
       fin_dps: "Normalized shareholder distribution per share",
       fin_ddm_basis: "Two-stage 5Y DDM (6.5% growth for the first 5 years)",
+      fin_blend_note: "Headline fair value weights: 55% excess-return + 45% DDM. If either leg is N/A, the blend is N/A; DDM can still display on its own.",
+      fin_buyback_note: "Normalized DPS = (|cash dividends| + min(|share buybacks|, 1.5 × |cash dividends|)) ÷ common shares; buybacks are capped at 1.5× dividends.",
+      fin_ke_floor_note: "US financial Ke defaults to max(CAPM, 9%). CAPM = {capm}%; floored Ke = {ke}%. Uncheck to use unfloored CAPM.",
+      fin_ke_floor_toggle: "Apply US Ke floor max(CAPM, 9%)",
+      fin_insurer_bank_style: "Insurance: this panel applies bank-style tangible-book residual income / DDM, not embedded value (EV) or P/EV. Scenario only.",
+      fin_insurer_fragile_rote: "Warning: |ROTE| is elevated (≥25%). Perpetual excess-return assumptions are especially fragile for insurers; not an actuarial fair value.",
       fin_reference: "Reported baseline: ",
       fin_reference_basis: "TTM / beginning tangible equity, matching Trend Analysis defaults. TBVPS uses tangible equity at the same period end. Sliders adjust valuation scenarios only, never historical ratios.",
-      fin_unavailable: "N/A: A verified statement baseline is missing or closing tangible equity is nonpositive; the excess-return blended valuation is unavailable.",
-      fin_negative_capital: "Warning: Tangible equity is negative. Actual ROTE is retained, but no positive capital is fabricated to produce a valuation.",
+      fin_unavailable: "N/A: A verified statement baseline is missing or closing tangible equity is nonpositive; the excess-return blend is unavailable. DDM can still display when discount-rate and payout inputs allow.",
+      fin_negative_capital: "Warning: Tangible equity is negative. Actual ROTE is retained, but no positive capital is fabricated for excess-return valuation. DDM can still display when Ke and payout inputs are complete.",
       sec1_title: "1. Fundamentals & Balance Sheet (Customizable)",
       lbl_price: "Share Price ($)",
       lbl_shares: "Diluted Shares (M)",
@@ -3386,6 +3407,64 @@
       link.textContent = currentLang === 'en' ? 'Official share-capital return' : '官方股本月報';
       document.getElementById('fin-reference-note').append(' ', link);
     }
+    const insurerNote = document.getElementById('fin-insurer-note');
+    const insurerWarnings = FinancialModels.insurerWarnings(stock?.industry, fin.rote);
+    if (insurerWarnings.length) {
+      insurerNote.hidden = false;
+      insurerNote.textContent = insurerWarnings.map(code => dict[`fin_insurer_${code === 'bankStyleResidualIncomeOnInsurer' ? 'bank_style' : 'fragile_rote'}`]).join(' ');
+    } else {
+      insurerNote.hidden = true;
+      insurerNote.textContent = '';
+    }
+    renderFinKeFloorControls(stock, fin);
+  }
+
+  function renderFinKeFloorControls(stock, fin) {
+    const row = document.getElementById('fin-ke-floor-row');
+    const note = document.getElementById('fin-ke-floor-note');
+    const toggle = document.getElementById('fin-ke-floor-toggle');
+    const dict = I18N_DICT[currentLang];
+    const usFinancial = fin?.is_financial && stock?.calculationCurrency !== 'HKD';
+    if (!row || !usFinancial) {
+      if (row) row.hidden = true;
+      return;
+    }
+    if (!Number.isFinite(fin.ke_capm)) {
+      const capm = FinancialModels.capmKePercent(stock);
+      if (Number.isFinite(capm)) fin.ke_capm = Number(capm.toFixed(4));
+    }
+    if (fin.ke_floor_applied === undefined) {
+      fin.ke_floor_applied = Number.isFinite(fin.ke_capm) && Number.isFinite(fin.ke) && fin.ke > fin.ke_capm + 1e-9
+        || Number.isFinite(fin.ke_capm) && fin.ke_capm < FinancialModels.US_KE_FLOOR_PCT;
+    }
+    if (!Number.isFinite(fin.ke_floor_pct)) fin.ke_floor_pct = FinancialModels.US_KE_FLOOR_PCT;
+    row.hidden = false;
+    toggle.checked = fin.ke_floor_applied !== false;
+    const resolved = FinancialModels.resolveKePercent(fin, stock);
+    const capmText = Number.isFinite(resolved.ke_capm) ? resolved.ke_capm.toFixed(2) : 'N/A';
+    const keText = Number.isFinite(resolved.ke) ? resolved.ke.toFixed(2) : 'N/A';
+    note.textContent = dict.fin_ke_floor_note.replace('{capm}', capmText).replace('{ke}', keText);
+  }
+
+  function onFinKeFloorChange() {
+    const stock = stockUniverse[activeDetailTicker], fin = stock?.fin_valuation;
+    if (!fin || !fin.is_financial) return;
+    fin.ke_floor_applied = document.getElementById('fin-ke-floor-toggle').checked;
+    if (!Number.isFinite(fin.ke_capm)) {
+      const capm = FinancialModels.capmKePercent(stock);
+      if (Number.isFinite(capm)) fin.ke_capm = Number(capm.toFixed(4));
+    }
+    const resolved = FinancialModels.resolveKePercent(fin, stock);
+    if (Number.isFinite(resolved.ke)) fin.ke = resolved.ke;
+    const slider = document.getElementById('slider-fin-ke');
+    if (slider && Number.isFinite(fin.ke)) {
+      slider.min = Math.min(0.01, fin.ke);
+      slider.max = Math.max(30, fin.ke);
+      slider.value = String(fin.ke);
+    }
+    document.getElementById('disp-fin-ke').innerText = Number.isFinite(fin.ke) ? `${fin.ke.toFixed(2)}%` : 'N/A';
+    renderFinKeFloorControls(stock, fin);
+    recalculateDetail();
   }
 
   function onFinSharesChange() {
@@ -3549,42 +3628,27 @@
 
     if (isFin) {
       const fin = s.fin_valuation;
-      const ke_val = Number.isFinite(fin.ke) ? fin.ke / 100 : null;
-      const g_val = Number.isFinite(fin.g) ? fin.g / 100 : null;
-      const rote_val = Number.isFinite(fin.rote) ? fin.rote / 100 : null;
-      const tbvps = Number.isFinite(fin.tbvps) ? fin.tbvps : null;
-      const dps = Number.isFinite(fin.dps_total) ? fin.dps_total : null;
-
-      const spread = rote_val - ke_val;
-      const exVal = !fin.reference || fin.reference.reason || rote_val === null || ke_val === null || g_val === null || !(tbvps > 0)
-        ? null : tbvps + (tbvps * spread) / Math.max(ke_val - g_val, 0.02);
-
-      let ddmSum = 0;
-      let curD = dps;
-      const g_dps = 0.065;
-      for (let t = 1; t <= 5; t++) {
-        curD *= (1 + g_dps);
-        ddmSum += curD / Math.pow(1 + ke_val, t);
+      if (s.calculationCurrency === 'HKD' && !Number.isFinite(fin.ke)) {
+        fin.unavailableReason = fin.unavailableReason || 'missingHkdRiskFreeRate';
       }
-      const tvDDM = (curD * (1 + g_val)) / Math.max(ke_val - g_val, 0.02);
-      const ddmVal = ddmSum + (tvDDM / Math.pow(1 + ke_val, 5));
-
-      fairVal = exVal === null || dps === null ? null : Number(((exVal * 0.55) + (ddmVal * 0.45)).toFixed(2));
-      fin.excess_return_fair = exVal === null ? null : Number(exVal.toFixed(2));
-      fin.ddm_fair = dps === null ? null : Number(ddmVal.toFixed(2));
+      const valued = FinancialModels.valueFinancial(fin, { industry: s.industry });
+      fairVal = valued.fair_val;
+      fin.excess_return_fair = valued.excess_return_fair;
+      fin.ddm_fair = valued.ddm_fair;
+      fin._blendReason = valued.blendReason;
+      fin._ddmReason = valued.ddmReason;
+      fin._excessReason = valued.excessReason;
     } else {
       fairVal = (shares > 0 ? (EquityVal / shares) : currentPrice);
     }
 
-    const financialReason = s.fin_valuation?.unavailableReason || s.fin_valuation?.reason || s.fin_valuation?.reference?.reason
-      || (s.calculationCurrency === 'HKD' && !Number.isFinite(s.fin_valuation?.ke) ? 'missingHkdRiskFreeRate' : null)
-      || (!['ke', 'g', 'rote', 'tbvps', 'dps_total'].every(key => Number.isFinite(s.fin_valuation?.[key])) ? 'missingParameters' : null)
-      || (!(s.fin_valuation.ke > s.fin_valuation.g) || s.fin_valuation.ke <= 0 ? 'invalidTerminalSpread' : null);
-    if (financialReason) {
-      s.fin_valuation.excess_return_fair = null;
-      s.fin_valuation.ddm_fair = null;
-    }
-    const safeFairVal = s.currencyConversion?.reason || financialReason || !Number.isFinite(fairVal) ? null : Math.max(fairVal, 0.01);
+    const financialReason = isFin
+      ? (s.fin_valuation?._blendReason
+        || (s.calculationCurrency === 'HKD' && !Number.isFinite(s.fin_valuation?.ke) ? 'missingHkdRiskFreeRate' : null))
+      : null;
+    const safeFairVal = s.currencyConversion?.reason || (isFin && financialReason) || !Number.isFinite(fairVal)
+      ? null
+      : Math.max(fairVal, 0.01);
     const premiumPct = safeFairVal === null ? null : ((currentPrice / safeFairVal) - 1) * 100;
     const estimatedEbitda = Math.max(localFCF0 * 1.25, 100);
 
@@ -5990,9 +6054,10 @@
       const fin = s.fin_valuation;
       const savedFin = saved && saved.params && saved.params.fin_valuation;
       if (savedFin) {
-        for (const key of ['ke', 'g', 'rote']) {
+        for (const key of ['ke', 'g', 'rote', 'ke_capm', 'ke_floor_pct']) {
           if (Number.isFinite(savedFin[key]) && (key !== 'rote' || savedFin.reference)) fin[key] = savedFin[key];
         }
+        if (typeof savedFin.ke_floor_applied === 'boolean') fin.ke_floor_applied = savedFin.ke_floor_applied;
         if (savedFin.shareScenario && Number.isFinite(saved.params.shares) && saved.params.shares > 0) {
           s.shares = saved.params.shares;
           fin.shareScenario = true;

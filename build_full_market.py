@@ -1429,24 +1429,32 @@ def main():
             dps_bb = (ttm_buybacks_paid / shares_count) if shares_count > 0 else 0.0
             dps_total = round(dps_div + min(dps_bb, dps_div * 1.5), 2)
 
+            ke_capm = ke
             ke_rate = max(ke, 0.09)
+            ke_floor_applied = ke_rate > ke_capm + 1e-12
             rote_rate = reference["rote"] / 100.0 if reference["rote"] is not None else None
             excess_return_val = None
-            if not reference["reason"]:
+            if not reference["reason"] and rote_rate is not None and tbvps and tbvps > 0 and ke_rate > DEFAULT_G:
                 spread = rote_rate - ke_rate
                 excess_return_val = tbvps + (tbvps * spread) / max(ke_rate - DEFAULT_G, 0.02)
 
             ddm_sum = 0.0
             cur_dps = dps_total
             g_dps = min(float(stock_item.get("default_g1", 6.0)) / 100.0, 0.065)
-            for t in range(1, 6):
-                cur_dps *= (1.0 + g_dps)
-                ddm_sum += cur_dps / ((1.0 + ke_rate) ** t)
-            tv_ddm = (cur_dps * (1.0 + DEFAULT_G)) / max(ke_rate - DEFAULT_G, 0.02)
-            pv_tv_ddm = tv_ddm / ((1.0 + ke_rate) ** 5)
-            ddm_val = round(ddm_sum + pv_tv_ddm, 2)
+            ddm_val = None
+            if dps_total is not None and ke_rate > DEFAULT_G and ke_rate > 0:
+                for t in range(1, 6):
+                    cur_dps *= (1.0 + g_dps)
+                    ddm_sum += cur_dps / ((1.0 + ke_rate) ** t)
+                tv_ddm = (cur_dps * (1.0 + DEFAULT_G)) / max(ke_rate - DEFAULT_G, 0.02)
+                pv_tv_ddm = tv_ddm / ((1.0 + ke_rate) ** 5)
+                ddm_val = round(ddm_sum + pv_tv_ddm, 2)
 
-            fair_val = round((excess_return_val * 0.55) + (ddm_val * 0.45), 2) if excess_return_val is not None else None
+            # Blend needs both legs; DDM remains stored when excess/reference fails (README).
+            fair_val = (
+                round((excess_return_val * 0.55) + (ddm_val * 0.45), 2)
+                if excess_return_val is not None and ddm_val is not None else None
+            )
             premium_pct = round(((price / fair_val) - 1.0) * 100.0, 1) if fair_val and fair_val > 0 else None
 
             fin_valuation = {
@@ -1456,9 +1464,12 @@ def main():
                 "rote": reference["rote"],
                 "reference": reference,
                 "ke": round(ke_rate * 100.0, 2),
+                "ke_capm": round(ke_capm * 100.0, 2),
+                "ke_floor_pct": 9.0,
+                "ke_floor_applied": ke_floor_applied,
                 "g": round(DEFAULT_G * 100.0, 2),
                 "dps_total": dps_total,
-                "excess_return_fair": excess_return_val,
+                "excess_return_fair": None if excess_return_val is None else round(excess_return_val, 2),
                 "ddm_fair": ddm_val,
                 "pb_tangible": round(price / tbvps, 2) if tbvps and tbvps > 0 else None
             }
