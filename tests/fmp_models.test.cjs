@@ -155,11 +155,18 @@ test('Detail and ten-year UI expose confidence and dual-terminal hooks', () => {
   assert.match(models, /id="fmp-growth-default-note"/);
   assert.match(models, /id="fmp-capital-provenance"/);
   assert.match(models, /id="fmp-rf-tenor"/);
+  assert.match(models, /id="fmp-rf-tenor-control"/);
+  assert.match(models, /data-scenario-field="\$\{key\}"/);
+  assert.match(models, /key === 'rf'/);
+  assert.match(models, /rfTenorControlHtml/);
   assert.match(models, /id="fmp-beta-provenance"/);
   assert.match(models, /id="fmp-snapshot-net-debt-meta"/);
   assert.match(models, /five-year-effective-tax/);
   assert.match(models, /港股採用美元公債／美股無風險利率概念（聯繫匯率代理），非港元曲線/);
   assert.match(models, /HK stocks use the USD Treasury \/ US-stock risk-free concept/);
+  // Tenor chooser must stay in the rf table row (not only above the history panel).
+  assert.match(models, /無風險利率 \(\%\)」列左側/);
+  assert.doesNotMatch(models, /fin-model-grid"><div class="form-group">\s*<label for="fmp-rf-tenor"/);
 });
 
 test('HK Advanced rf tenor source defaults to USD Treasury curve, not HKD', () => {

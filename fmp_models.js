@@ -514,10 +514,12 @@
     return true;
   }
 
-  function capitalProvenanceHtml(text, scenario) {
+  function rfTenorControlHtml(text, scenario) {
+    // Always render the 1–10y chooser next to the rf row — even when cache only has year10.
+    // Missing tenors stay visible as disabled · N/A; default selection is 10Y when present.
     const source = riskFreeTenorSource();
     const selected = Number.isInteger(scenario.rfTenor) ? scenario.rfTenor
-      : finite(source.rates[10]) ? 10 : null;
+      : finite(source.rates[10]) ? 10 : 10;
     const options = Array.from({ length: 10 }, (_, index) => {
       const tenor = index + 1;
       const rate = source.rates[tenor];
@@ -525,14 +527,27 @@
       return `<option value="${tenor}" ${selected === tenor ? 'selected' : ''} ${available ? '' : 'disabled'}>${tenor}Y${available ? ` · ${rate.toFixed(2)}%` : ` · N/A`}</option>`;
     }).join('');
     const missingNote = source.missing.length
-      ? text(`有期數無已標日期曲線點：${source.missing.map(year => `${year}Y`).join(', ')}（目前定存擷取僅含 year10）。`,
-        `Tenors without a dated curve point: ${source.missing.map(year => `${year}Y`).join(', ')} (dated capture currently includes year10 only).`)
+      ? text(`缺期數：${source.missing.map(year => `${year}Y`).join(', ')}（定存擷取目前多僅 year10；選擇器仍顯示）。`,
+        `Missing tenors: ${source.missing.map(year => `${year}Y`).join(', ')} (dated capture often year10 only; chooser still shown).`)
       : '';
     const rfStatus = scenario.rfTenorSource?.reason
       ? escape(reasonText(scenario.rfTenorSource.reason, state.language()))
-      : finite(selected) && finite(source.rates[selected])
+      : finite(source.rates[selected])
         ? `${source.rates[selected].toFixed(2)}% · ${escape(source.currency)} · ${escape(source.date || 'N/A')}`
-        : text('沿用 FMP 模型列示／retained-capital 無風險利率；未改期數前不覆寫。', 'Retains FMP model / retained-capital risk-free rate until a tenor is applied.');
+        : text('沿用 retained-capital；選有資料的年期才寫入（不覆寫你已改的格子）。',
+          'Retains retained-capital until a data-backed tenor is applied (does not overwrite your edits).');
+    const label = source.hkPegProxy
+      ? text('公債年期（USD／1–10Y）', 'Treasury tenor (USD / 1–10Y)')
+      : text('公債年期（1–10Y）', 'Treasury tenor (1–10Y)');
+    return `<div class="fmp-rf-tenor-control" id="fmp-rf-tenor-control">
+      <label for="fmp-rf-tenor">${label}</label>
+      <select id="fmp-rf-tenor" aria-label="${escape(label)}">${options}</select>
+      <small id="fmp-rf-tenor-status">${rfStatus}${missingNote ? ` ${escape(missingNote)}` : ''}</small>
+    </div>`;
+  }
+
+  function capitalProvenanceHtml(text, scenario) {
+    const source = riskFreeTenorSource();
     return `<section id="fmp-capital-provenance">
       <p class="analysis-note" id="fmp-beta-provenance"><strong>Beta</strong>: ${finite(source.retainedBeta) ? source.retainedBeta.toFixed(3) : 'N/A'} —
         ${text('來自 FMP 模型列保留的 beta（最終多為 FMP profile.beta）。供應商未說明回看期、頻率或基準指數；本站不宣稱「準確 5 年週線對 S&P」。可於十年表覆寫。',
@@ -545,18 +560,9 @@
           : ''}
         ${text('情境預設沿用 FMP 模型 riskFreeRate（retained-capital）', 'Scenario defaults retain FMP model riskFreeRate (retained-capital)')}${finite(source.retainedRf) ? `: ${source.retainedRf.toFixed(2)}%` : ''}.
         ${source.date ? text(`定存美元公債擷取（參考）`, `Dated USD Treasury capture (reference)`) + `: ${escape(source.currency)} ${text('十年期', '10Y')} ${finite(source.rates[10]) ? `${source.rates[10].toFixed(2)}%` : 'N/A'} · ${escape(source.date)}.` : text('尚無已標日期的美元公債曲線擷取。', 'No dated USD Treasury-curve capture is available.')}
+        ${text('1–10 年期下拉選單在下方十年表「無風險利率 (%)」列左側（有資料的期數可選；缺期仍顯示為 N/A）。',
+          'The 1–10y tenor dropdown is on the left of the 「Risk-free rate (%)」 row in the ten-year table below (data-backed years selectable; missing years still shown as N/A).')}
         ${source.riskFreeNote ? `<small>${escape(source.riskFreeNote)}</small>` : ''}</p>
-      <div class="fin-model-grid"><div class="form-group">
-        <label for="fmp-rf-tenor">${text(
-          source.hkPegProxy
-            ? '無風險利率年期（1–10 年，讀取美元公債曲線點；僅資料有提供的期數可選）'
-            : '無風險利率年期（1–10 年，僅資料有提供的期數可選）',
-          source.hkPegProxy
-            ? 'Risk-free tenor (1–10y from the USD Treasury curve; only data-backed tenors are selectable)'
-            : 'Risk-free tenor (1–10y; only data-backed tenors are selectable)')}</label>
-        <select id="fmp-rf-tenor">${options}</select>
-        <small id="fmp-rf-tenor-status">${rfStatus} ${escape(missingNote)}</small>
-      </div></div>
     </section>`;
   }
 
@@ -602,9 +608,14 @@
       ${capitalProvenanceHtml(text, scenario)}
       ${historyPanelHtml(text)}
       <div class="table-scroll-wrapper"><table id="fmp-ten-year-inputs"><thead><tr><th>${text('假設／來源', 'Assumption / source')}</th><th id="fmp-actual-period">${actual.header}</th>${scenario.years.map(item => `<th>${item.year}</th>`).join('')}</tr></thead><tbody>
-        ${Scenario.activeFields(state.kind, scenario).map(([key, zh, en, min, max]) => `<tr><th>${escape(text(zh, en))}</th><td data-actual-key="${key}">${actual.cells[key]}</td>${scenario.years.map((item, index) => `<td>
+        ${Scenario.activeFields(state.kind, scenario).map(([key, zh, en, min, max]) => {
+          const label = key === 'rf'
+            ? `${escape(text(zh, en))}${rfTenorControlHtml(text, scenario)}`
+            : escape(text(zh, en));
+          return `<tr data-scenario-field="${key}"><th>${label}</th><td data-actual-key="${key}">${actual.cells[key]}</td>${scenario.years.map((item, index) => `<td>
           <input aria-label="${escape(text(zh, en))} ${item.year}" data-scenario-key="${key}" data-scenario-year="${index}" type="number" step="any" min="${min}" max="${max}" required placeholder="N/A" title="${escape(item.values[key] ?? '')}" value="${inputValue(key, item.values[key])}">
-          <small data-origin="${index}-${key}">${escape(originText(item.origins[key], text))}</small></td>`).join('')}</tr>`).join('')}
+          <small data-origin="${index}-${key}">${escape(originText(item.origins[key], text))}</small></td>`).join('')}</tr>`;
+        }).join('')}
       </tbody></table></div>
       ${(() => {
         const ref = scenario.terminalGrowthReference || Scenario.TERMINAL_GROWTH_REFERENCE;
