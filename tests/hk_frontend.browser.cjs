@@ -138,7 +138,8 @@ const price = ticker => ({ version: 1, ticker, providerSymbol: ticker, currency:
         }
         if (tab === 'valuation' && ['0005.HK', '0939.HK'].includes(ticker)) {
           assert.equal(await page.locator('#det-res-fair').innerText(), 'N/A');
-          assert.equal(await page.locator('#disp-fin-ke').innerText(), 'N/A');
+          assert.equal(await page.locator('#input-fin-ke').inputValue(), '');
+          assert.equal(await page.locator('#input-fin-ke').isDisabled(), true);
           assert.equal(await page.locator('#slider-fin-ke').isDisabled(), true);
           assert.doesNotMatch(await page.locator('#panel-fin-models').innerText(), /NaN|null|undefined/);
         }

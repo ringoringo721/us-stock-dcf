@@ -79,8 +79,22 @@ test('UI copy discloses blend weights, buyback cap, Ke floor, and insurer caveat
   assert.match(html, /id="fin-buyback-note"/);
   assert.match(html, /id="fin-insurer-note"/);
   assert.match(html, /id="fin-ke-history-panel"/);
+  assert.match(html, /id="input-fin-ke"/);
+  assert.match(html, /id="input-fin-g"/);
+  assert.match(html, /id="input-fin-rote"/);
+  assert.match(html, /onFinNumberInput/);
+  assert.match(html, /ke_treasury_data\.js/);
   assert.match(html, /financial_models\.js/);
   assert.match(html, /超額有形股本回報模型/);
+});
+
+test('embedded Ke treasury snapshot validates and builds history without fetch', () => {
+  const embedded = fs.readFileSync(path.join(__dirname, '..', 'ke_treasury_data.js'), 'utf8');
+  assert.match(embedded, /window\.KE_TREASURY_USD10Y\s*=/);
+  const data = JSON.parse(embedded.replace(/^[\s\S]*?=\s*/, '').replace(/;\s*$/, ''));
+  assert.equal(FinancialModels.validateKeTreasuryCache(data), true);
+  const history = FinancialModels.buildKeHistory(data, { beta: 0.135, erp: 4.75, calculationCurrency: 'HKD' });
+  assert.equal(history.years.filter(row => row.ke !== null).length, 10);
 });
 
 test('Ke history uses dated USD 10Y + current beta; does not invent betas', () => {

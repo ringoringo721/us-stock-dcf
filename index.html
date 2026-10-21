@@ -32,7 +32,8 @@
   <script src="fmp_scenario.js"></script>
   <script src="fmp_models.js"></script>
   <script src="fcf_ratios.js?v=sign-trends-1"></script>
-  <script src="financial_models.js?v=fin-ke-history-1"></script>
+  <script src="financial_models.js?v=fin-ke-history-2"></script>
+  <script src="ke_treasury_data.js?v=dgs10-20261019"></script>
   <script src="balance_sheet.js"></script>
   <script src="earnings_trend.js"></script>
   <script src="profile_overview.js?v=forecast-evidence-1"></script>
@@ -531,8 +532,20 @@
       border-radius: 6px;
       border: 1px solid var(--card-border);
     }
-    .slider-head { display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; color: var(--text-secondary); }
+    .slider-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 13px; font-weight: 600; color: var(--text-secondary); }
     .slider-head span.val { color: var(--accent); font-weight: 700; }
+    .fin-num-wrap { display: inline-flex; align-items: center; gap: 4px; color: var(--accent); font-weight: 700; }
+    .fin-num-input {
+      width: 5.5rem; padding: 4px 6px; text-align: right; font: inherit; font-weight: 700;
+      color: var(--accent); background: var(--bg); border: 1px solid var(--card-border); border-radius: 4px;
+      font-variant-numeric: tabular-nums;
+    }
+    .fin-num-input:disabled { opacity: 0.55; }
+    #fin-ke-history-panel {
+      display: block !important; margin-top: 20px; scroll-margin-top: 96px;
+      border: 1px solid var(--accent); border-radius: 8px;
+    }
+    #fin-ke-history-jump { margin: 8px 0 0; font-size: 13px; }
     .fin-slider {
       -webkit-appearance: none;
       width: 100%;
@@ -1271,18 +1284,42 @@
 
         <div class="fin-model-grid">
           <div class="slider-row">
-            <div class="slider-head"><span data-i18n="fin_ke">股權資本成本 (Ke, 折現率)</span><span class="val" id="disp-fin-ke">9.49%</span></div>
+            <div class="slider-head">
+              <span data-i18n="fin_ke">股權資本成本 (Ke, 折現率)</span>
+              <span class="fin-num-wrap">
+                <input type="number" class="fin-num-input" id="input-fin-ke" inputmode="decimal" step="any"
+                  aria-label="Ke percent" onchange="onFinNumberInput('ke')" onkeydown="if(event.key==='Enter'){this.blur();}">
+                <span aria-hidden="true">%</span>
+              </span>
+            </div>
             <input type="range" class="fin-slider" id="slider-fin-ke" min="7.0" max="14.0" step="0.05" oninput="onFinSliderChange()">
           </div>
           <div class="slider-row">
-            <div class="slider-head"><span data-i18n="fin_g">永續終值增長率 (g)</span><span class="val" id="disp-fin-g">2.25%</span></div>
+            <div class="slider-head">
+              <span data-i18n="fin_g">永續終值增長率 (g)</span>
+              <span class="fin-num-wrap">
+                <input type="number" class="fin-num-input" id="input-fin-g" inputmode="decimal" step="any"
+                  aria-label="g percent" onchange="onFinNumberInput('g')" onkeydown="if(event.key==='Enter'){this.blur();}">
+                <span aria-hidden="true">%</span>
+              </span>
+            </div>
             <input type="range" class="fin-slider" id="slider-fin-g" min="1.0" max="3.5" step="0.05" oninput="onFinSliderChange()">
           </div>
           <div class="slider-row">
-            <div class="slider-head"><span data-i18n="fin_rote">有形股本報酬率 (ROTE)</span><span class="val" id="disp-fin-rote">17.4%</span></div>
+            <div class="slider-head">
+              <span data-i18n="fin_rote">有形股本報酬率 (ROTE)</span>
+              <span class="fin-num-wrap">
+                <input type="number" class="fin-num-input" id="input-fin-rote" inputmode="decimal" step="any"
+                  aria-label="ROTE percent" onchange="onFinNumberInput('rote')" onkeydown="if(event.key==='Enter'){this.blur();}">
+                <span aria-hidden="true">%</span>
+              </span>
+            </div>
             <input type="range" class="fin-slider" id="slider-fin-rote" min="-25" max="50" step="any" oninput="onFinSliderChange()">
           </div>
         </div>
+        <p id="fin-ke-history-jump" class="analysis-note">
+          <a href="#fin-ke-history-panel" data-i18n="fin_ke_history_jump">↓ 捲到最近十年股權成本 Ke 參考表（與上方滑桿今日 Ke 對照）</a>
+        </p>
         <div id="fin-ke-floor-row" class="analysis-note" hidden>
           <p id="fin-ke-floor-note" role="status"></p>
           <label><input id="fin-ke-floor-toggle" type="checkbox" checked onchange="onFinKeFloorChange()">
@@ -1300,12 +1337,12 @@
           <p id="fin-shares-status" class="analysis-note" role="status"></p>
         </details>
       </div>
-      <div class="panel" id="fin-ke-history-panel" style="margin-top: 20px;">
+      <div class="panel" id="fin-ke-history-panel">
         <div class="panel-title" data-i18n="fin_ke_history_title">最近十年股權成本 Ke 參考</div>
         <p class="analysis-note" data-i18n="fin_ke_history_basis"></p>
-        <p id="fin-ke-history-status" class="analysis-note" role="status"></p>
+        <p id="fin-ke-history-status" class="analysis-note" role="status" data-i18n="fin_ke_history_loading">正在讀取已存的美元公債 Ke 參考…</p>
         <div style="overflow-x: auto;">
-          <table id="fin-ke-history-table" style="width: 100%; min-width: 900px;">
+          <table id="fin-ke-history-table" style="width: 100%; min-width: 900px;" aria-describedby="fin-ke-history-status">
             <thead id="fin-ke-history-head"></thead>
             <tbody id="fin-ke-history-body"></tbody>
           </table>
@@ -3188,6 +3225,7 @@
     fin_ke_history_row_erp: 'ERP 假設 (%)',
     fin_ke_history_row_ke: 'Ke CAPM (%)',
     fin_ke_history_compare: '今日滑桿 Ke：',
+    fin_ke_history_jump: '↓ 捲到最近十年股權成本 Ke 參考表（與上方滑桿今日 Ke 對照）',
     fin_ke_reason_missingBeta: 'N/A：缺少目前可用的個股 Beta，不以虛構 Beta 填補。',
     fin_ke_reason_missingTreasuryObservation: 'N/A：該年缺少美元 10 年期公債觀測。',
     fin_ke_reason_latestObservationNotYearEnd: '該年尚未結束：採最近一筆有效 DGS10，不是年末定盤。'
@@ -3210,6 +3248,7 @@
     fin_ke_history_row_erp: 'ERP assumption (%)',
     fin_ke_history_row_ke: 'Ke CAPM (%)',
     fin_ke_history_compare: 'Today’s slider Ke: ',
+    fin_ke_history_jump: '↓ Jump to last-10-year Ke reference (compare with today’s Ke slider)',
     fin_ke_reason_missingBeta: 'N/A: No usable current stock beta; historical betas are not invented.',
     fin_ke_reason_missingTreasuryObservation: 'N/A: No USD 10Y Treasury observation for that year.',
     fin_ke_reason_latestObservationNotYearEnd: 'Year still in progress: uses the latest valid DGS10 print, not a year-end fix.'
@@ -3354,9 +3393,17 @@
     }
   });
 
-  const financialKeTreasuryCache = { pending: null };
+  const financialKeTreasuryCache = { pending: null, embedded: null };
   let financialKeRequest = 0;
+  function embeddedKeTreasury() {
+    if (financialKeTreasuryCache.embedded) return financialKeTreasuryCache.embedded;
+    const data = typeof KE_TREASURY_USD10Y !== 'undefined' ? KE_TREASURY_USD10Y : null;
+    if (data && FinancialModels.validateKeTreasuryCache(data)) financialKeTreasuryCache.embedded = data;
+    return financialKeTreasuryCache.embedded;
+  }
   async function loadKeTreasuryCache() {
+    const embedded = embeddedKeTreasury();
+    if (embedded) return embedded;
     if (!financialKeTreasuryCache.pending) {
       financialKeTreasuryCache.pending = fetch('cache/ke_history/treasury_usd10y.json').then(async response => {
         if (!response.ok) throw new Error(`KE_TREASURY_HTTP_${response.status}`);
@@ -3368,14 +3415,85 @@
     }
     return financialKeTreasuryCache.pending;
   }
+  function paintKeHistoryTable(history, treasury, ticker, dict) {
+    const panel = document.getElementById('fin-ke-history-panel');
+    const status = document.getElementById('fin-ke-history-status');
+    const head = document.getElementById('fin-ke-history-head'), body = document.getElementById('fin-ke-history-body');
+    if (!panel || !status || !head || !body) throw new Error('KE_HISTORY_PANEL_MISSING');
+    panel.hidden = false;
+    panel.style.display = 'block';
+    head.replaceChildren(); body.replaceChildren();
+    const years = document.createElement('tr');
+    const heading = document.createElement('th');
+    heading.scope = 'col'; heading.textContent = dict.fin_ke_history_year;
+    years.append(heading);
+    for (const row of history.years) {
+      const year = document.createElement('th');
+      year.scope = 'col'; year.textContent = row.label;
+      if (row.date) {
+        const date = document.createElement('small');
+        date.textContent = row.date;
+        year.append(document.createElement('br'), date);
+      }
+      years.append(year);
+    }
+    head.append(years);
+    const metricRows = [
+      ['rf', dict.fin_ke_history_row_rf, row => row.rf],
+      ['beta', dict.fin_ke_history_row_beta, row => row.beta],
+      ['erp', dict.fin_ke_history_row_erp, row => row.erp],
+      ['ke', dict.fin_ke_history_row_ke, row => row.ke]
+    ];
+    for (const [key, label, pick] of metricRows) {
+      const tr = document.createElement('tr');
+      const metric = document.createElement('th');
+      metric.scope = 'row'; metric.textContent = label;
+      tr.append(metric);
+      for (const row of history.years) {
+        const cell = document.createElement('td');
+        cell.dataset.keYear = row.year;
+        cell.dataset.keMetric = key;
+        const value = pick(row);
+        const unavailable = key === 'ke' ? row.ke === null : value === null;
+        if (unavailable) {
+          cell.textContent = 'N/A';
+          const reasonKey = row.reason ? `fin_ke_reason_${row.reason}` : null;
+          cell.title = (reasonKey && dict[reasonKey]) || row.reason || '';
+          if (key === 'ke' && cell.title) {
+            const small = document.createElement('small');
+            small.textContent = cell.title;
+            cell.append(document.createElement('br'), small);
+          }
+        } else {
+          const flag = key === 'ke' && row.warnings.length ? ' *' : '';
+          cell.textContent = `${Number(value).toFixed(key === 'beta' ? 3 : 2)}${key === 'beta' ? '' : '%'}${flag}`;
+          if (row.warnings.length) {
+            cell.title = row.warnings.map(code => dict[`fin_ke_reason_${code}`] || code).join(' · ');
+          }
+        }
+        tr.append(cell);
+      }
+      body.append(tr);
+    }
+    const stock = stockUniverse[ticker];
+    const sliderKe = stock?.fin_valuation?.ke;
+    const latest = history.years.at(-1);
+    status.textContent = [
+      `${ticker} · ${history.years.filter(row => row.ke !== null).length}/10`,
+      `${dict.fin_ke_history_source}${treasury.capturedAt || 'N/A'}`,
+      embeddedKeTreasury() ? (currentLang === 'en' ? 'embedded snapshot' : '內嵌快照') : null,
+      Number.isFinite(sliderKe) ? `${dict.fin_ke_history_compare}${sliderKe.toFixed(2)}%` : null,
+      latest && Number.isFinite(latest.ke) ? `CAPM@${latest.year}: ${latest.ke.toFixed(2)}%` : null
+    ].filter(Boolean).join(' · ');
+  }
   async function renderFinancialKeHistory(ticker) {
     const id = ++financialKeRequest, lang = currentLang, dict = I18N_DICT[lang];
     const status = document.getElementById('fin-ke-history-status');
-    const head = document.getElementById('fin-ke-history-head'), body = document.getElementById('fin-ke-history-body');
-    if (!status || !head || !body) return;
-    head.replaceChildren(); body.replaceChildren();
-    status.textContent = dict.fin_ke_history_loading;
+    const panel = document.getElementById('fin-ke-history-panel');
+    if (panel) { panel.hidden = false; panel.style.display = 'block'; }
+    if (status) status.textContent = dict.fin_ke_history_loading;
     try {
+      if (typeof FinancialModels === 'undefined') throw new Error('FINANCIAL_MODELS_MISSING');
       const treasury = await loadKeTreasuryCache();
       const stock = stockUniverse[ticker];
       if (id !== financialKeRequest || lang !== currentLang || ticker !== activeDetailTicker) return;
@@ -3383,70 +3501,12 @@
         beta: stock?.beta, erp: stock?.erp ?? stock?.fin_valuation?.erp ?? 4.75,
         calculationCurrency: stock?.calculationCurrency
       });
-      const years = document.createElement('tr');
-      const heading = document.createElement('th');
-      heading.scope = 'col'; heading.textContent = dict.fin_ke_history_year;
-      years.append(heading);
-      for (const row of history.years) {
-        const year = document.createElement('th');
-        year.scope = 'col'; year.textContent = row.label;
-        if (row.date) {
-          const date = document.createElement('small');
-          date.textContent = row.date;
-          year.append(document.createElement('br'), date);
-        }
-        years.append(year);
-      }
-      head.append(years);
-      const metricRows = [
-        ['rf', dict.fin_ke_history_row_rf, row => row.rf],
-        ['beta', dict.fin_ke_history_row_beta, row => row.beta],
-        ['erp', dict.fin_ke_history_row_erp, row => row.erp],
-        ['ke', dict.fin_ke_history_row_ke, row => row.ke]
-      ];
-      for (const [key, label, pick] of metricRows) {
-        const tr = document.createElement('tr');
-        const metric = document.createElement('th');
-        metric.scope = 'row'; metric.textContent = label;
-        tr.append(metric);
-        for (const row of history.years) {
-          const cell = document.createElement('td');
-          cell.dataset.keYear = row.year;
-          cell.dataset.keMetric = key;
-          const value = pick(row);
-          const unavailable = key === 'ke' ? row.ke === null : value === null;
-          if (unavailable) {
-            cell.textContent = 'N/A';
-            const reasonKey = row.reason ? `fin_ke_reason_${row.reason}` : null;
-            cell.title = (reasonKey && dict[reasonKey]) || row.reason || '';
-            if (key === 'ke' && cell.title) {
-              const small = document.createElement('small');
-              small.textContent = cell.title;
-              cell.append(document.createElement('br'), small);
-            }
-          } else {
-            const flag = key === 'ke' && row.warnings.length ? ' *' : '';
-            cell.textContent = `${Number(value).toFixed(key === 'beta' ? 3 : 2)}${key === 'beta' ? '' : '%'}${flag}`;
-            if (row.warnings.length) {
-              cell.title = row.warnings.map(code => dict[`fin_ke_reason_${code}`] || code).join(' · ');
-            }
-          }
-          tr.append(cell);
-        }
-        body.append(tr);
-      }
-      const sliderKe = stock?.fin_valuation?.ke;
-      const latest = history.years.at(-1);
-      status.textContent = [
-        `${ticker} · ${history.years.filter(row => row.ke !== null).length}/10`,
-        `${dict.fin_ke_history_source}${treasury.capturedAt || 'N/A'}`,
-        Number.isFinite(sliderKe) ? `${dict.fin_ke_history_compare}${sliderKe.toFixed(2)}%` : null,
-        latest && Number.isFinite(latest.ke) ? `CAPM@${latest.year}: ${latest.ke.toFixed(2)}%` : null
-      ].filter(Boolean).join(' · ');
+      paintKeHistoryTable(history, treasury, ticker, dict);
     } catch (error) {
       if (id !== financialKeRequest || lang !== currentLang || ticker !== activeDetailTicker) return;
       console.error('Ke history unavailable', ticker, error.message);
-      status.textContent = `${dict.fin_ke_history_error}${error.message}`;
+      if (status) status.textContent = `${dict.fin_ke_history_error}${error.message}`;
+      if (panel) { panel.hidden = false; panel.style.display = 'block'; }
     }
   }
   const financialRoteCache = new Map();
@@ -3583,6 +3643,39 @@
     note.textContent = dict.fin_ke_floor_note.replace('{capm}', capmText).replace('{ke}', keText);
   }
 
+  function syncFinParamControl(key, value, { expand = false } = {}) {
+    const slider = document.getElementById(`slider-fin-${key}`);
+    const number = document.getElementById(`input-fin-${key}`);
+    const finiteValue = Number.isFinite(value);
+    if (slider) {
+      slider.disabled = !finiteValue;
+      if (finiteValue && expand) {
+        const lo = key === 'rote' ? Math.min(-25, Math.floor(value / 5) * 5)
+          : key === 'ke' ? Math.min(0.01, value) : Math.min(-5, value);
+        const hi = key === 'rote' ? Math.max(50, Math.ceil(value / 5) * 5)
+          : key === 'ke' ? Math.max(30, value) : Math.max(10, value);
+        slider.min = String(lo);
+        slider.max = String(hi);
+        slider.step = 'any';
+      }
+      if (finiteValue) {
+        const min = parseFloat(slider.min), max = parseFloat(slider.max);
+        const clamped = Math.min(max, Math.max(min, value));
+        slider.value = String(clamped);
+      }
+    }
+    if (number) {
+      number.disabled = !finiteValue;
+      if (slider) {
+        number.min = slider.min;
+        number.max = slider.max;
+        number.step = slider.step === 'any' ? 'any' : slider.step;
+      }
+      number.value = finiteValue ? Number(value).toFixed(2) : '';
+    }
+    return finiteValue ? parseFloat(slider?.value ?? value) : null;
+  }
+
   function onFinKeFloorChange() {
     const stock = stockUniverse[activeDetailTicker], fin = stock?.fin_valuation;
     if (!fin || !fin.is_financial) return;
@@ -3593,15 +3686,10 @@
     }
     const resolved = FinancialModels.resolveKePercent(fin, stock);
     if (Number.isFinite(resolved.ke)) fin.ke = resolved.ke;
-    const slider = document.getElementById('slider-fin-ke');
-    if (slider && Number.isFinite(fin.ke)) {
-      slider.min = Math.min(0.01, fin.ke);
-      slider.max = Math.max(30, fin.ke);
-      slider.value = String(fin.ke);
-    }
-    document.getElementById('disp-fin-ke').innerText = Number.isFinite(fin.ke) ? `${fin.ke.toFixed(2)}%` : 'N/A';
+    syncFinParamControl('ke', fin.ke, { expand: true });
     renderFinKeFloorControls(stock, fin);
     recalculateDetail();
+    if (activeDetailTicker) renderFinancialKeHistory(activeDetailTicker);
   }
 
   function onFinSharesChange() {
@@ -3657,28 +3745,51 @@
   function onFinSliderChange() {
     const s = stockUniverse[activeDetailTicker];
     if (!s || !s.fin_valuation) return;
-
     const read = key => {
       const input = document.getElementById(`slider-fin-${key}`);
       return input.disabled ? null : Number.isFinite(parseFloat(input.value)) ? parseFloat(input.value) : null;
     };
-    const valKe = read('ke'), valG = read('g'), valRote = read('rote');
-
-    document.getElementById('disp-fin-ke').innerText = valKe === null ? 'N/A' : `${valKe.toFixed(2)}%`;
-    document.getElementById('disp-fin-g').innerText = valG === null ? 'N/A' : `${valG.toFixed(2)}%`;
-    document.getElementById('disp-fin-rote').innerText = valRote === null ? 'N/A' : `${valRote.toFixed(2)}%`;
-
-    const spreadVal = valRote - valKe;
+    const valKe = syncFinParamControl('ke', read('ke'));
+    const valG = syncFinParamControl('g', read('g'));
+    const valRote = syncFinParamControl('rote', read('rote'));
     const elSpread = document.getElementById('fin-spread-disp');
     if (elSpread) {
-      elSpread.innerText = valKe === null || valRote === null ? 'N/A' : `${spreadVal > 0 ? '+' : ''}${spreadVal.toFixed(2)}%`;
+      elSpread.innerText = valKe === null || valRote === null ? 'N/A'
+        : `${(valRote - valKe) > 0 ? '+' : ''}${(valRote - valKe).toFixed(2)}%`;
     }
-
     s.fin_valuation.ke = valKe;
     s.fin_valuation.g = valG;
     s.fin_valuation.rote = valRote;
     s.g = valG;
+    recalculateDetail();
+    if (activeDetailTicker) renderFinancialKeHistory(activeDetailTicker);
+  }
 
+  function onFinNumberInput(key) {
+    const s = stockUniverse[activeDetailTicker];
+    if (!s || !s.fin_valuation || !['ke', 'g', 'rote'].includes(key)) return;
+    const number = document.getElementById(`input-fin-${key}`);
+    const slider = document.getElementById(`slider-fin-${key}`);
+    if (!number || !slider || number.disabled) return;
+    let value = parseFloat(number.value);
+    if (!Number.isFinite(value)) {
+      syncFinParamControl(key, s.fin_valuation[key]);
+      return;
+    }
+    const min = parseFloat(slider.min), max = parseFloat(slider.max);
+    if (value < min || value > max) {
+      slider.min = String(Math.min(min, value));
+      slider.max = String(Math.max(max, value));
+    }
+    value = syncFinParamControl(key, value);
+    s.fin_valuation[key] = value;
+    if (key === 'g') s.g = value;
+    const valKe = s.fin_valuation.ke, valRote = s.fin_valuation.rote;
+    const elSpread = document.getElementById('fin-spread-disp');
+    if (elSpread) {
+      elSpread.innerText = !(Number.isFinite(valKe) && Number.isFinite(valRote)) ? 'N/A'
+        : `${(valRote - valKe) > 0 ? '+' : ''}${(valRote - valKe).toFixed(2)}%`;
+    }
     recalculateDetail();
     if (activeDetailTicker) renderFinancialKeHistory(activeDetailTicker);
   }
@@ -6206,28 +6317,13 @@
           fin.pb_tangible = fin.tbvps > 0 ? s.price / fin.tbvps : null;
         }
       }
-      for (const key of ['ke', 'g']) {
-        const slider = document.getElementById(`slider-fin-${key}`);
-        slider.disabled = !Number.isFinite(fin[key]);
-        slider.min = key === 'ke' ? Math.min(0.01, fin[key] ?? 0.01) : Math.min(-5, fin[key] ?? -5);
-        slider.max = Math.max(key === 'ke' ? 30 : 10, fin[key] ?? 0);
-        slider.step = 'any';
-        if (!slider.disabled) slider.value = String(fin[key]);
-      }
+      for (const key of ['ke', 'g', 'rote']) syncFinParamControl(key, fin[key], { expand: true });
       document.getElementById('fin-shares').value = Number.isFinite(s.shares) ? s.shares.toFixed(2) : '';
       document.getElementById('fin-shares').dataset.formattedValue = document.getElementById('fin-shares').value;
       document.getElementById('fin-shares').dataset.preciseValue = Number.isFinite(s.shares) ? String(s.shares) : '';
       document.getElementById('fin-shares-confirm').checked = !!fin.shareScenario;
       document.getElementById('fin-shares-status').textContent = '';
-      const roteSlider = document.getElementById('slider-fin-rote');
-      roteSlider.disabled = !Number.isFinite(fin.rote);
-      roteSlider.min = Math.min(-25, Math.floor((fin.rote || 0) / 5) * 5);
-      roteSlider.max = Math.max(50, Math.ceil((fin.rote || 0) / 5) * 5);
-      if (!roteSlider.disabled) roteSlider.value = String(fin.rote);
 
-      document.getElementById('disp-fin-ke').innerText = Number.isFinite(fin.ke) ? `${fin.ke.toFixed(2)}%` : 'N/A';
-      document.getElementById('disp-fin-g').innerText = Number.isFinite(fin.g) ? `${fin.g.toFixed(2)}%` : 'N/A';
-      document.getElementById('disp-fin-rote').innerText = Number.isFinite(fin.rote) ? `${fin.rote.toFixed(2)}%` : 'N/A';
       renderFinancialReference(fin);
       renderFinancialKeHistory(ticker);
       renderFinancialRoteHistory(ticker);

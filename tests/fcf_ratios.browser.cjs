@@ -851,7 +851,7 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
       const shares = await page.evaluate(ticker => stockUniverse[ticker].shares, ticker);
       const reference = financialReference(source, { shares });
       await page.evaluate(ticker => openDetail(ticker), ticker);
-      assert.equal(await page.locator('#disp-fin-rote').innerText(), `${reference.rote.toFixed(2)}%`, ticker);
+      assert.equal(await page.locator('#input-fin-rote').inputValue(), reference.rote.toFixed(2), ticker);
       assert.ok(Math.abs(Number(await page.locator('#slider-fin-rote').inputValue()) - reference.rote) < 1e-10, ticker);
       assert.ok((await page.locator('#fin-reference-note').innerText()).includes(reference.date), ticker);
       assert.equal(await page.locator('#det-res-fair').innerText() === 'N/A', Boolean(reference.reason), ticker);
@@ -862,7 +862,7 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
       input.value = '0';
       input.dispatchEvent(new Event('input', { bubbles: true }));
     });
-    assert.equal(await page.locator('#disp-fin-rote').innerText(), '0.00%');
+    assert.equal(await page.locator('#input-fin-rote').inputValue(), '0.00');
     assert.equal(await page.evaluate(() => stockUniverse.JPM.fin_valuation.rote), 0);
     assert.equal(await page.evaluate(() => stockUniverse.JPM.fin_valuation.reference.rote), baselineRote);
     await page.evaluate(() => resetToFmpDefaults());

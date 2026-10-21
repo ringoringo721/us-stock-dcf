@@ -67,6 +67,9 @@ async function capture() {
   };
   fs.mkdirSync(outDir, { recursive: true });
   fs.writeFileSync(outFile, JSON.stringify(payload, null, 2) + '\n');
+  // Embed for Preview/static hosts so Ke history never depends solely on JSON fetch.
+  fs.writeFileSync(path.join(root, 'ke_treasury_data.js'),
+    `window.KE_TREASURY_USD10Y = ${JSON.stringify(payload)};\n`);
   console.log(`Wrote ${years.filter(y => y.year10 !== null).length}/${years.length} USD 10Y year points → ${path.relative(root, outFile)}`);
   return payload;
 }
