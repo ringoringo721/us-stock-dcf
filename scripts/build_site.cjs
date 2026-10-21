@@ -1,4 +1,5 @@
 const fs = require('node:fs');
+// Publishes cache/beta_benchmarks for on-demand OLS beta lookback previews.
 const path = require('node:path');
 
 const root = path.resolve(__dirname, '..');
