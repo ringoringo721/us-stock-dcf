@@ -112,6 +112,7 @@ test('UI copy discloses blend weights, buyback cap, Ke floor, and insurer caveat
   assert.match(html, /id="fin-buyback-note"/);
   assert.match(html, /id="fin-insurer-note"/);
   assert.match(html, /id="fin-ke-history-panel"/);
+  assert.match(html, /jumpToFinKeHistory/);
   assert.match(html, /id="fin-capm-builder"/);
   assert.match(html, /id="input-fin-rf"/);
   assert.match(html, /id="input-fin-beta"/);

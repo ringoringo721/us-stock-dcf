@@ -1375,7 +1375,8 @@
           </div>
         </div>
         <p id="fin-ke-history-jump" class="analysis-note">
-          <a href="#fin-ke-history-panel" data-i18n="fin_ke_history_jump">↓ 捲到最近十年股權成本 Ke 參考表（與上方滑桿今日 Ke 對照）</a>
+          <a href="#fin-ke-history-panel" data-i18n="fin_ke_history_jump"
+            onclick="return jumpToFinKeHistory(event)">↓ 捲到最近十年股權成本 Ke 參考表（與上方滑桿今日 Ke 對照）</a>
         </p>
         <div id="fin-ke-floor-row" class="analysis-note" hidden>
           <p id="fin-ke-floor-note" role="status"></p>
@@ -3498,6 +3499,25 @@
     }
     return financialKeTreasuryCache.pending;
   }
+  /** Scroll to decade Ke panel without rewriting SPA hash (#TICKER/valuation). */
+  function jumpToFinKeHistory(event) {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    const finPanel = document.getElementById('panel-fin-models');
+    const panel = document.getElementById('fin-ke-history-panel');
+    if (finPanel) {
+      finPanel.hidden = false;
+      finPanel.style.display = 'block';
+    }
+    if (!panel) return false;
+    panel.hidden = false;
+    panel.style.display = 'block';
+    panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    return false;
+  }
+
   function paintKeHistoryTable(history, treasury, ticker, dict) {
     const panel = document.getElementById('fin-ke-history-panel');
     const status = document.getElementById('fin-ke-history-status');
