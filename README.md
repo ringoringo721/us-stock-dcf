@@ -587,7 +587,10 @@ authentication and appropriate project permissions must already be configured.
 remain outside the repository and published assets.
 
 An assessment-policy change triggers reassessment even if financial evidence
-has not changed. `--retry-incomplete` additionally retries partial reports.
+has not changed. `--retry-incomplete` additionally retries partial reports and
+is preferred for null-score gaps. `--force` remoats nearly all eligible HK names
+and requires `FORCE_MOAT_CONFIRM=YES` (or `1`/`true`) so accidental full remoats
+are hard; scheduled `refresh_hkex.yml` never passes `--force`.
 All new scores still require cited evidence and bilingual qualitative comments;
 insufficient evidence may legitimately remain unassessed. Failed authorization
 does not count as a successful refresh or replace prior reports with invented
@@ -615,9 +618,12 @@ and may include sources published after the financial statements, not
 point-in-time history.
 Saved research, financial hashes and assessment policy determine cache reuse.
 
-The read-only `valuation_audit.yml` workflow accepts `build_hkex=true` and
-`force_moat=true` to regenerate all configured HKEX assessments with GitHub Secrets, without
-committing data or invoking a deploy hook. Download its `hkex-pilot-data`
+The read-only `valuation_audit.yml` workflow accepts `build_hkex=true` with
+`retry_incomplete_moat=true` (preferred) or `force_moat=true` (DANGER: nearly all
+HK names; sets `FORCE_MOAT_CONFIRM` only when that toggle is on) to regenerate
+HKEX assessments with GitHub Secrets, without committing data or invoking a
+deploy hook. Keep both toggles default false; never schedule full remoats or
+news translation. Download its `hkex-pilot-data`
 artifact and run `node scripts/apply_hkex_moat.cjs <assessment-json-path>` to apply
 only matching reports locally. This refuses mismatched evidence hashes or failed
 assessments and preserves financials, quoted prices and valuation inputs.

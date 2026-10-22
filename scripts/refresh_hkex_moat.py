@@ -300,15 +300,47 @@ def create_client():
     return None
 
 
+def require_force_moat_confirm():
+    """Block accidental --force: remoats nearly all eligible HK names (high Vertex spend).
+
+    Operators must set FORCE_MOAT_CONFIRM=YES (or 1/true). Prefer --retry-incomplete for
+    null-score gaps; scheduled refresh_hkex.yml must never pass --force.
+    """
+    confirm = os.environ.get("FORCE_MOAT_CONFIRM", "").strip().upper()
+    if confirm in ("YES", "1", "TRUE"):
+        banner = (
+            "\n" + "=" * 72 + "\n"
+            "WARNING: --force regenerates moat for nearly ALL eligible HK tickers\n"
+            "(scores + bilingual comments). Prefer --retry-incomplete for partial/\n"
+            "null-score gaps. Proceeding because FORCE_MOAT_CONFIRM is set.\n"
+            + "=" * 72
+        )
+        print(banner, flush=True)
+        return
+    raise SystemExit(
+        "--force remoats nearly all eligible HK names and requires FORCE_MOAT_CONFIRM=YES "
+        "(or 1/true). Prefer --retry-incomplete for incomplete scores; keep --force for "
+        "intentional recovery only."
+    )
+
+
 def main():
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(
+        description=(
+            "Refresh HKEX moat reports on evidence/policy change. "
+            "Prefer --retry-incomplete for null-score gaps. "
+            "--force remoats nearly all names and requires FORCE_MOAT_CONFIRM=YES."
+        )
+    )
     parser.add_argument("input")
     parser.add_argument("output")
     parser.add_argument("--retry-incomplete", action="store_true",
-                        help="Explicitly reassess partial reports even when their source evidence is unchanged")
+                        help="Reassess partial/incomplete reports only (preferred over --force)")
     parser.add_argument("--force", action="store_true",
-                        help="Explicitly regenerate all reports, including scores and bilingual comments")
+                        help="DANGER: regenerate nearly all reports; requires FORCE_MOAT_CONFIRM=YES")
     args = parser.parse_args()
+    if args.force:
+        require_force_moat_confirm()
     records = json.loads(Path(args.input).read_text(encoding="utf-8"))
     reports = json.loads(Path(args.output).read_text(encoding="utf-8")) if Path(args.output).exists() else {}
     if not isinstance(reports, dict):
@@ -319,6 +351,9 @@ def main():
     excluded = sum(below_moat_market_cap(row) for row in records)
     if excluded:
         print(f"Moat market-cap screen: {excluded} below HKD 1 billion; no assessment requested.")
+    if args.force:
+        print(f"--force pending refresh count: {len(pending)} (nearly all eligible names if evidence exists)",
+              flush=True)
     updated, failed = 0, 0
     client = create_client() if pending else None
     if pending and client is None:
