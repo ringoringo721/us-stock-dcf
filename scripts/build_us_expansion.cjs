@@ -134,7 +134,33 @@ function ingest(output, marketFile, reports = {}) {
       moat: !!recordStock.moat && !recordStock.ratingSources?.moat?.reason
     });
   }
-  write(output, 'market.json', Object.fromEntries(manifest.map(item => {
+  const skippedFile = path.join(path.dirname(marketFile), 'skipped.json');
+  const skippedBesideOutput = path.join(output, 'skipped.json');
+  const skippedPath = fs.existsSync(skippedFile) ? skippedFile
+    : fs.existsSync(skippedBesideOutput) ? skippedBesideOutput : null;
+  if (skippedPath) {
+    const skipped = read(skippedPath);
+    const seen = new Set(manifest.map(item => item.ticker));
+    for (const item of skipped.stocks || []) {
+      const ticker = String(item.ticker || '').trim().toUpperCase();
+      if (!ticker || seen.has(ticker)) continue;
+      if (!approved.has(ticker) || reviewed.has(ticker)) {
+        throw new Error(`Expansion may not overwrite reviewed or unregistered stocks: ${ticker}`);
+      }
+      seen.add(ticker);
+      manifest.push({
+        ticker,
+        status: 'unavailable',
+        reason: item.reason || 'verifiedOutstandingSharesUnavailable',
+        fScore: null,
+        moat: false
+      });
+    }
+    if (skippedPath !== skippedBesideOutput) {
+      write(output, 'skipped.json', skipped);
+    }
+  }
+  write(output, 'market.json', Object.fromEntries(manifest.filter(item => item.status === 'available').map(item => {
     const record = read(path.join(output, 'cache', 'us_companies', `${item.ticker}.json`));
     return [item.ticker, record.stock];
   })));
@@ -147,7 +173,9 @@ function packageResults(output) {
   if (fs.existsSync(modelFile)) vm.runInNewContext(fs.readFileSync(modelFile, 'utf8'), context);
   const models = context.window.FMP_MODEL_DATA?.stocks || {};
   const manifest = read(path.join(output, 'manifest.json'));
-  const counts = { companies: manifest.stocks.length, financialSnapshots: 0, fScores: 0, completeMoats: 0, nativeAdvancedModels: 0 };
+  const unavailable = manifest.stocks.filter(item => item.status !== 'available').length;
+  const counts = { companies: manifest.stocks.length, available: manifest.stocks.length - unavailable,
+    unavailable, financialSnapshots: 0, fScores: 0, completeMoats: 0, nativeAdvancedModels: 0 };
   const market = read(path.join(output, 'market.json'));
   for (const [ticker, stock] of Object.entries(market)) {
     const file = `cache/us_companies/${ticker}.json`;

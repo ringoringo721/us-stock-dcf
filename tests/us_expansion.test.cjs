@@ -110,6 +110,58 @@ test('ingest accepts build_full_market payloads that omit ticker and calculation
   }
 });
 
+test('ingest records skipped tickers as unavailable without aborting available peers', () => {
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'us-expansion-skip-'));
+  const cataloguePath = path.join(root, 'cache', 'us_universe.json');
+  const previous = fs.readFileSync(cataloguePath, 'utf8');
+  const catalogue = {
+    version: 1,
+    source: { provider: 'Financial Modeling Prep company/stock screener', retrievedAt: '2026-10-21T00:00:00Z' },
+    screen: { exchanges: ['NYSE', 'NASDAQ', 'AMEX'], marketCapMoreThanUsd: 1e10 },
+    stocks: [
+      { ticker: 'GOOD', name_en: 'Good Co', exchange: 'NYSE', sector: 'Test', industry: 'Test', marketCap: 12e9,
+        universeMembership: 'test' },
+      { ticker: 'AEFC', name_en: 'Preferred Stub', exchange: 'NYSE', sector: 'Test', industry: 'Test', marketCap: 12e9,
+        universeMembership: 'test' }
+    ]
+  };
+  fs.writeFileSync(cataloguePath, JSON.stringify(catalogue));
+  try {
+    const marketFile = path.join(tmp, 'market.json');
+    fs.writeFileSync(marketFile, JSON.stringify({
+      GOOD: {
+        name: 'Good Co', exchange: 'NYSE', price: 10, mcap: 10000, f_score: 6, moat: null,
+        ratingSources: { moat: { reason: 'analysisUnavailable' } },
+        expansion: { capturedAt: '2026-10-22T00:00:00Z' }
+      }
+    }));
+    fs.writeFileSync(path.join(tmp, 'skipped.json'), JSON.stringify({
+      version: 1,
+      stocks: [{ ticker: 'AEFC', reason: 'verifiedOutstandingSharesUnavailable' }]
+    }));
+    const manifest = ingest(tmp, marketFile);
+    assert.equal(manifest.length, 2);
+    assert.equal(manifest.find(item => item.ticker === 'GOOD').status, 'available');
+    assert.equal(manifest.find(item => item.ticker === 'AEFC').status, 'unavailable');
+    assert.equal(manifest.find(item => item.ticker === 'AEFC').reason, 'verifiedOutstandingSharesUnavailable');
+    assert.ok(fs.existsSync(path.join(tmp, 'cache', 'us_companies', 'GOOD.json')));
+    assert.equal(fs.existsSync(path.join(tmp, 'cache', 'us_companies', 'AEFC.json')), false);
+    packageResults(tmp);
+    const coverage = readManifest(tmp).coverage;
+    assert.equal(coverage.available, 1);
+    assert.equal(coverage.unavailable, 1);
+    const out = fs.mkdtempSync(path.join(os.tmpdir(), 'us-integrate-skip-'));
+    integrate(tmp, out);
+    const expansion = JSON.parse(fs.readFileSync(path.join(out, 'us_expansion_data.js'), 'utf8')
+      .replace(/^window\.US_EXPANSION = /, '').replace(/;\n$/, ''));
+    assert.equal(expansion.stocks.GOOD.expansion.status, 'available');
+    assert.equal(expansion.stocks.AEFC.expansion.status, 'unavailable');
+    assert.equal(expansion.stocks.AEFC.expansion.reason, 'verifiedOutstandingSharesUnavailable');
+  } finally {
+    fs.writeFileSync(cataloguePath, previous);
+  }
+});
+
 test('browser helper rejects HK tickers for US lazy loads', async () => {
   const context = { US_LISTINGS: { stocks: [] }, fetch: async () => ({ ok: false, status: 404 }) };
   vm.runInNewContext(fs.readFileSync(path.join(root, 'us_universe.js'), 'utf8'), context);
