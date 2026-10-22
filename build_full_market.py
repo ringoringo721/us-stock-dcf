@@ -1287,6 +1287,17 @@ def _print_gemini_budget_backlog():
         )
 
 
+def resolve_outstanding_shares(sym: str, share_row: Optional[dict], *, expansion_mode: bool) -> Optional[dict]:
+    """Require verified outstanding shares; in US expansion mode skip instead of aborting the batch."""
+    if share_row:
+        return share_row
+    message = f"{sym}: verified outstanding-share count is required; no diluted or market-cap proxy"
+    if expansion_mode:
+        print(f"⚠️ SKIP {message}", flush=True)
+        return None
+    raise ValueError(message)
+
+
 def main():
     print("=" * 80, flush=True)
     print("🚀 美股 / 港股 DCF/金融雙軌模型 + Gemini 護城河雙核心引擎啟動", flush=True)
@@ -1294,6 +1305,7 @@ def main():
     _log_gemini_budgets_once()
     results = {}
     entity_moat_cache = {}
+    us_expansion_skipped: List[Dict[str, str]] = []
 
     for stock_idx, stock_item in enumerate(UNIQUE_STOCKS, 1):
         sym = stock_item.get("ticker", "").strip().upper()
@@ -1333,8 +1345,18 @@ def main():
         share_rows = fetch_json("shares-float", {"symbol": sym.replace(".", "-")})
         today = time.strftime("%Y-%m-%d", time.gmtime())
         share_row = outstanding_share_record(share_rows, sym.replace(".", "-"), today)
+        share_row = resolve_outstanding_shares(sym, share_row, expansion_mode=US_EXPANSION_MODE)
         if not share_row:
-            raise ValueError(f"{sym}: verified outstanding-share count is required; no diluted or market-cap proxy")
+            us_expansion_skipped.append({
+                "ticker": sym,
+                "reason": "verifiedOutstandingSharesUnavailable",
+            })
+            print(
+                f"[{stock_idx:03d}/{len(UNIQUE_STOCKS)}] ⏭️ {sym} skipped (no verified outstanding shares); "
+                f"continuing batch",
+                flush=True,
+            )
+            continue
         shares = share_row["outstandingShares"] / 1e6
         share_source = {"shares": shares, "date": share_row["date"][:10],
                         "basis": "commonSharesOutstandingExcludingTreasury",
@@ -2001,8 +2023,18 @@ def main():
         market_path = os.path.join(output_dir, "market.json")
         with open(market_path, "w", encoding="utf-8") as f:
             json.dump(results, f, ensure_ascii=False, indent=2)
+        skipped_path = os.path.join(output_dir, "skipped.json")
+        with open(skipped_path, "w", encoding="utf-8") as f:
+            json.dump({"version": 1, "stocks": us_expansion_skipped}, f, ensure_ascii=False, indent=2)
         _print_gemini_budget_backlog()
-        print(f"\nUS expansion batch wrote {len(results)} stocks to {market_path} (baseline full_market_dcf.json unchanged).", flush=True)
+        print(
+            f"\nUS expansion batch wrote {len(results)} stocks to {market_path}"
+            f" (skipped {len(us_expansion_skipped)}; baseline full_market_dcf.json unchanged).",
+            flush=True,
+        )
+        if us_expansion_skipped:
+            preview = ", ".join(item["ticker"] for item in us_expansion_skipped[:20])
+            print(f"📋 US expansion skipped (no verified shares): {preview}", flush=True)
         return
 
     with open("full_market_dcf.json", "w", encoding="utf-8") as f:

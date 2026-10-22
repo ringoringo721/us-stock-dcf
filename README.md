@@ -125,7 +125,10 @@ The **Read-only valuation source audit** workflow accepts `expand_all_us`.
 It re-screens FMP, partitions candidates into batches of at most twenty, captures
 valuation sources, runs `build_full_market.py` in `US_EXPANSION_*` mode (writes
 only under `us-data-output/`, never overwrites the reviewed baseline), packages
-coverage manifests, and uploads `us-expanded-*` artifacts. Vertex / Gemini
+coverage manifests, and uploads `us-expanded-*` artifacts. In expansion mode, a
+ticker without a **verified outstanding-share** count is **skipped** (recorded in
+`skipped.json` / manifest `unavailable`) so one preferred or incomplete name does
+not abort the rest of the batch; baseline builds still hard-fail. Vertex / Gemini
 (`GCP_SA_KEY` or `GEMINI_API_KEY`) are required for real moat text; without them
 expansion names keep `ratingSources.moat.reason = analysisUnavailable` and **do
 not** publish fallback score-5 templates. `resume_run_id`, `moat_only`,
