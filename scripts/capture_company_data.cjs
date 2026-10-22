@@ -14,10 +14,22 @@ if (!key && !repack) throw new Error('FMP_API_KEY is required; no embedded fallb
 const markets = { ...require('../full_market_dcf.json'), ...require('../hk_market_dcf.json') };
 if (process.env.CAPTURE_MARKET_FILE) {
   const extra = JSON.parse(fs.readFileSync(process.env.CAPTURE_MARKET_FILE, 'utf8'));
-  const approved = new Set(require('../cache/hkex_universe.json').stocks.map(item => item.ticker));
+  const hkex = new Set(require('../cache/hkex_universe.json').stocks.map(item => item.ticker));
+  const us = fs.existsSync(path.join(root, 'cache', 'us_universe.json'))
+    ? new Set(require('../cache/us_universe.json').stocks.map(item => item.ticker)) : new Set();
   for (const [ticker, stock] of Object.entries(extra)) {
-    if (!approved.has(ticker) || stock.ticker !== ticker) throw new Error('Unregistered HKEX capture identity');
-    markets[ticker] = stock;
+    // build_full_market may omit stock.ticker; treat object key as identity when currency is USD.
+    const identity = stock?.ticker == null ? ticker : stock.ticker;
+    if (!stock || identity !== ticker) throw new Error(`Unregistered capture identity: ${ticker}`);
+    const usCompany = fs.existsSync(path.join(root, 'cache', 'us_companies', `${ticker}.json`));
+    if (hkex.has(ticker)) {
+      markets[ticker] = stock;
+    } else if (us.has(ticker) || usCompany) {
+      // Accept catalogue members or already-ingested expansion snapshots (Actions / local resume).
+      markets[ticker] = { ...stock, ticker, calculationCurrency: stock.calculationCurrency || 'USD' };
+    } else {
+      throw new Error(`Unregistered capture identity: ${ticker}`);
+    }
   }
 }
 const symbols = repack ? [] : process.argv[2] ? process.argv[2].split(',') : Object.keys(markets);
