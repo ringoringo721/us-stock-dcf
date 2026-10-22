@@ -459,9 +459,10 @@ function expectedAnnualCells(stock) {
     await page.selectOption('#screener-columns', 'all');
     assert.ok(await page.locator('#main-scroll-box').evaluate(element => element.scrollWidth > element.clientWidth));
     const usMarket = require('../full_market_dcf.json');
+    const usBaselineTickers = Object.keys(usMarket);
     await page.setViewportSize({ width: 1440, height: 1000 });
     await page.goto(`${base}/?market=US`, { waitUntil: 'domcontentloaded' });
-    await page.waitForFunction(() => isAppReady && Object.keys(stockUniverse).length === 230);
+    await page.waitForFunction(() => isAppReady && Object.keys(stockUniverse).length === 982);
     for (const language of ['en', 'zh']) {
       await page.evaluate(language => applyLanguage(language), language);
       const rendered = await page.locator('#screener-tbody tr').evaluateAll(rows => rows.map(row => ({
@@ -472,8 +473,10 @@ function expectedAnnualCells(stock) {
             return [field, { text: cell.textContent.trim(), title: cell.title }];
           }))
       })));
-      assert.equal(rendered.length, 230);
-      for (const row of rendered) {
+      assert.equal(rendered.length, 982);
+      const baselineRendered = rendered.filter(row => usMarket[row.ticker]);
+      assert.equal(baselineRendered.length, 230);
+      for (const row of baselineRendered) {
         const stock = usMarket[row.ticker];
         assert.ok(stock, row.ticker);
         for (const [field, cell] of Object.entries(row.metrics)) {
@@ -490,13 +493,13 @@ function expectedAnnualCells(stock) {
       assert.doesNotMatch(ms.metrics.roe.text, /2022600000000/);
     }
     await page.evaluate(() => applyLanguage('en'));
-    const usPeers = await page.evaluate(() => Object.keys(stockUniverse).map(ticker => {
+    const usPeers = await page.evaluate(tickers => tickers.map(ticker => {
       renderPeersSubPage({ ...stockUniverse[ticker], ticker });
       return { ticker, period: document.getElementById('cmp-peers-table').dataset.peerPeriod,
         growth: [...document.querySelectorAll('td.peer-current [data-peer-growth]')].map(cell => ({
           field: cell.dataset.peerGrowth, value: cell.dataset.growthValue, text: cell.textContent.trim()
         })) };
-    }));
+    }), usBaselineTickers);
     for (const row of usPeers) {
       assert.equal(row.period, 'ttm', row.ticker);
       assert.equal(row.growth.length, 7, row.ticker);
@@ -539,7 +542,7 @@ function expectedAnnualCells(stock) {
     assert.deepEqual(errors, []);
     assert.deepEqual(failures, []);
     assert.ok(api.every(action => action === 'news'), 'No live model, history or indicator API request is required');
-    console.log(`Browser PASS: all ${config.length} reviewed HK company pages and ${expansionSamples.length} captured expansion samples/nine tabs, source limitations, real prices and PF/moat research, full-FY peer financial values/growth/multiples and source dates, annual load failure/retry/race guards, unchanged TTM screener, all 230 US peer growth and balance/return rows including MS, native models, saved ROTE, both languages and mobile scrolling.`);
+    console.log(`Browser PASS: all ${config.length} reviewed HK company pages and ${expansionSamples.length} captured expansion samples/nine tabs, source limitations, real prices and PF/moat research, full-FY peer financial values/growth/multiples and source dates, annual load failure/retry/race guards, unchanged TTM screener, merged 982 US screener with 230 baseline peer growth/balance/return rows including MS, native models, saved ROTE, both languages and mobile scrolling.`);
   } finally {
     await browser.close();
     await new Promise(resolve => server.close(resolve));

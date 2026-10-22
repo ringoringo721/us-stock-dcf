@@ -16,7 +16,8 @@ const amount = value => value === null ? 'N/A' : value < 0
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
     await page.goto(baseUrl, { waitUntil: 'networkidle' });
-    await page.waitForFunction(() => document.querySelectorAll('#screener-tbody tr').length === 230);
+    await page.waitForFunction(() => typeof isAppReady !== 'undefined' && isAppReady
+      && document.querySelectorAll('#screener-tbody tr').length === 982);
     await page.locator('#screener-columns').selectOption('valuation');
     const readRows = () => page.evaluate(() => [...document.querySelectorAll('#screener-tbody tr')].map(row => ({
       ticker: row.querySelector('.ticker-link').textContent,
@@ -29,7 +30,10 @@ const amount = value => value === null ? 'N/A' : value < 0
     for (const lang of ['zh', 'en']) {
       await page.evaluate(lang => applyLanguage(lang), lang);
       const rows = await readRows();
-      for (const row of rows) {
+      assert.equal(rows.length, 982);
+      const baselineRows = rows.filter(row => market[row.ticker]);
+      assert.equal(baselineRows.length, 230);
+      for (const row of baselineRows) {
         const source = market[row.ticker].liquidation, result = calculate(source, row.ticker);
         row.cells.forEach((cell, index) => {
           const rounded = result.values[index] === null ? null : Number(result.values[index].toFixed(2));
@@ -98,6 +102,6 @@ const amount = value => value === null ? 'N/A' : value < 0
     assert.deepEqual(probes.missingSnapshot, ['N/A', 'N/A', 'N/A']);
     assert.deepEqual(probes.restored, nvdaAmounts);
     assert.deepEqual(errors, []);
-    console.log(`Liquidation browser: 230 stocks / 690 values, dates, source details, languages, themes, mobile and N/A checks passed (${baseUrl})`);
+    console.log(`Liquidation browser: 982 screener rows / 230 baseline liquidation checks, dates, source details, languages, themes, mobile and N/A checks passed (${baseUrl})`);
   } finally { await browser.close(); }
 })().catch(error => { console.error(error); process.exitCode = 1; });

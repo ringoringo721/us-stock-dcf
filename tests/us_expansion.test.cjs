@@ -26,6 +26,29 @@ test('US listings merge keeps the reviewed baseline and marks uncaptured names p
   assert.equal(merged.NEWCO.ratingSources.moat.reason, 'analysisUnavailable');
 });
 
+test('shipped US universe+expansion merge is baseline+catalogue (not market_data alone)', () => {
+  const context = { window: {}, console };
+  context.window = context;
+  vm.runInNewContext(fs.readFileSync(path.join(root, 'us_universe_data.js'), 'utf8'), context);
+  vm.runInNewContext(fs.readFileSync(path.join(root, 'us_expansion_data.js'), 'utf8'), context);
+  vm.runInNewContext(fs.readFileSync(path.join(root, 'market_data.js'), 'utf8'), context);
+  vm.runInNewContext(fs.readFileSync(path.join(root, 'us_universe.js'), 'utf8'), context);
+  const baseline = Object.keys(context.FULL_MARKET_DATA).length;
+  const expansion = Object.keys(context.US_EXPANSION.stocks).length;
+  const merged = context.UsUniverse.merge(context.FULL_MARKET_DATA, context.US_LISTINGS, context.US_EXPANSION);
+  const keys = Object.keys(merged);
+  assert.equal(baseline, 230);
+  assert.equal(expansion, 732);
+  assert.equal(context.US_LISTINGS.stocks.length, 965);
+  assert.equal(keys.length, 982);
+  assert.ok(keys.length > baseline, 'frontpage must not stay on sync market_data.js alone');
+  let expansionWithMoat = 0;
+  for (const ticker of Object.keys(context.US_EXPANSION.stocks)) {
+    if (!context.FULL_MARKET_DATA[ticker] && merged[ticker]?.moat) expansionWithMoat++;
+  }
+  assert.equal(expansionWithMoat, 732);
+});
+
 test('incomplete US moat recovery refuses invented or partial scores', () => {
   assert.equal(needsMoatRecovery(null), true);
   assert.equal(needsMoatRecovery({ ratingSources: { moat: { reason: 'analysisUnavailable' } } }), true);

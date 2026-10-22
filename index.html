@@ -7517,10 +7517,13 @@
     if (isAppReady || !data || Object.keys(data).length === 0) return;
     if (MarketContext.market === 'HKEX' && !MarketContext.fcff()) return;
     if (MarketContext.market === 'HKEX' && !window.HKEX_LISTINGS) return;
+    // Match HK: wait for dynamically injected universe/expansion before locking ready,
+    // otherwise sync market_data.js (≈230) wins and UsUniverse.merge is skipped forever.
+    if (MarketContext.market === 'US' && (!window.US_LISTINGS?.stocks?.length || !window.US_EXPANSION)) return;
     HkUniverse.install();
     UsUniverse.install();
     if (MarketContext.market === 'HKEX') data = HkUniverse.merge(window.HK_MARKET_DATA || data);
-    else if (window.US_LISTINGS?.stocks?.length) data = UsUniverse.merge(window.FULL_MARKET_DATA || data);
+    else data = UsUniverse.merge(window.FULL_MARKET_DATA || data);
     isAppReady = true;
     stockUniverse = JSON.parse(JSON.stringify(data));
     for (const [ticker, stock] of Object.entries(stockUniverse)) {
