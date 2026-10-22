@@ -5138,8 +5138,8 @@
       const screen = window.US_LISTINGS.screen || {};
       const retrieved = typeof source.retrievedAt === 'string' ? source.retrievedAt.slice(0, 10) : 'N/A';
       universeNote.textContent = currentLang === 'en'
-        ? `US expansion screen: NYSE/NASDAQ/AMEX, market cap > USD ${(screen.marketCapMoreThanUsd || 2e9) / 1e9}B; retrieved ${retrieved}. Additional names load on demand; missing financials or moat scores are not zeros.`
-        : `美股擴充篩選：NYSE／NASDAQ／AMEX、市值 > USD ${(screen.marketCapMoreThanUsd || 2e9) / 1e8} 億；擷取 ${retrieved}。新增標的按需載入；缺財報或護城河評分不等於零。`;
+        ? `US expansion screen: NYSE/NASDAQ/AMEX, market cap > USD ${(screen.marketCapMoreThanUsd || 1e10) / 1e9}B; retrieved ${retrieved}. Additional names load on demand; missing financials or moat scores are not zeros.`
+        : `美股擴充篩選：NYSE／NASDAQ／AMEX、市值 > USD ${(screen.marketCapMoreThanUsd || 1e10) / 1e8} 億；擷取 ${retrieved}。新增標的按需載入；缺財報或護城河評分不等於零。`;
     } else if (universeNote) {
       universeNote.remove();
     }
@@ -5279,11 +5279,11 @@
     note.textContent = currentLang === 'en'
       ? available ? 'Loading saved company evidence. A failed request can be retried; unavailable values are not zero.'
         : isUsExpansion
-          ? 'Listed in the US >USD 2B expansion universe. Financial statements, price history, Piotroski F-score and researched moat assessment are not yet available in this saved dataset; no values or ratings have been invented.'
+          ? 'Listed in the US >USD 10B expansion universe. Financial statements, price history, Piotroski F-score and researched moat assessment are not yet available in this saved dataset; no values or ratings have been invented.'
           : 'Listed in the official HKEX universe. Financial statements, price history, Piotroski F-score and researched moat assessment are not yet available in this saved dataset; no values or ratings have been invented.'
       : available ? '正在載入已保存的公司來源資料。載入失敗可重試；缺值不等於零。'
         : isUsExpansion
-          ? '已納入美股市值 > USD 20 億擴充名單。目前保存資料尚未提供此公司的財報、歷史股價、Piotroski F-score 及經研究的護城河評分；不會以假數字或預設分數填補。'
+          ? '已納入美股市值 > USD 100 億擴充名單。目前保存資料尚未提供此公司的財報、歷史股價、Piotroski F-score 及經研究的護城河評分；不會以假數字或預設分數填補。'
           : '已納入港交所官方公司名單。目前保存資料尚未提供此公司的財報、歷史股價、Piotroski F-score 及經研究的護城河評分；不會以假數字或預設分數填補。';
     const reason = document.createElement('p');
     reason.textContent = stock.expansion.error || stock.expansion.reason || stock.expansion.status;

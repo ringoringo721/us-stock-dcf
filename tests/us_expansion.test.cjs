@@ -14,7 +14,7 @@ test('US listings merge keeps the reviewed baseline and marks uncaptured names p
     stocks: [
       { ticker: 'AAPL', name: 'Apple', name_en: 'Apple', exchange: 'NASDAQ', sector: 'Technology', industry: 'Hardware', marketCap: 3e12 },
       { ticker: 'NEWCO', name: 'New Co', name_en: 'New Co', exchange: 'NYSE', sector: 'Industrials', industry: 'Machinery', marketCap: 3e9,
-        universeMembership: 'FMP US equity screener (NYSE/NASDAQ/AMEX, marketCap > USD 2B)' }
+        universeMembership: 'FMP US equity screener (NYSE/NASDAQ/AMEX, marketCap > USD 10B)' }
     ]
   };
   const merged = universe.merge(market, catalogue);
@@ -48,7 +48,7 @@ test('ingest packages expansion names without inventing moat scores', () => {
   const catalogue = {
     version: 1,
     source: { provider: 'Financial Modeling Prep company/stock screener', retrievedAt: '2026-10-21T00:00:00Z' },
-    screen: { exchanges: ['NYSE', 'NASDAQ', 'AMEX'], marketCapMoreThanUsd: 2e9 },
+    screen: { exchanges: ['NYSE', 'NASDAQ', 'AMEX'], marketCapMoreThanUsd: 1e10 },
     stocks: [
       { ticker: 'ZZZZ', name_en: 'Zeta Test', exchange: 'NYSE', sector: 'Test', industry: 'Test', marketCap: 3e9,
         universeMembership: 'test' }

@@ -1,4 +1,4 @@
-"""Import NYSE / NASDAQ / AMEX equities with market cap above USD 2 billion from FMP.
+"""Import NYSE / NASDAQ / AMEX equities with market cap above USD 10 billion from FMP.
 
 Does not invent financials, moat scores or PF scores. Requires FMP_API_KEY.
 Reviewed companies already in full_market_dcf.json remain the published baseline;
@@ -19,7 +19,7 @@ import time
 
 import requests
 
-MIN_MARKET_CAP = 2_000_000_000
+MIN_MARKET_CAP = 10_000_000_000
 EXCHANGES = ("NYSE", "NASDAQ", "AMEX")
 EXCHANGE_ALIASES = {
     "NYSE": {"NYSE"},
@@ -30,6 +30,8 @@ SCREENER_URLS = (
     "https://financialmodelingprep.com/stable/company-screener",
     "https://financialmodelingprep.com/api/v3/stock-screener",
 )
+# Independent public estimate (totalmarketindex.com, close 2026-10-20): 914 companies ≥ $10B.
+EXTERNAL_ESTIMATE_ABOVE_10B = 914
 
 
 def normalize_exchange(value: str | None) -> str | None:
@@ -111,8 +113,8 @@ def select_listings(rows: list[dict]) -> tuple[list[dict], dict]:
             continue
         market_cap = row.get("marketCap")
         if type(market_cap) not in (int, float) or not (market_cap > MIN_MARKET_CAP):
-            # Strict greater-than USD 2B; exact 2B is out of scope for this screen.
-            excluded["marketCapNotAbove2B"] += 1
+            # Strict greater-than USD 10B; exact 10B is out of scope for this screen.
+            excluded["marketCapNotAbove10B"] += 1
             continue
         symbol = str(row["symbol"]).strip().upper()
         item = {
@@ -125,7 +127,7 @@ def select_listings(rows: list[dict]) -> tuple[list[dict], dict]:
             "marketCap": int(market_cap) if float(market_cap).is_integer() else float(market_cap),
             "isActivelyTrading": bool(row.get("isActivelyTrading", True)),
             "country": row.get("country") or None,
-            "universeMembership": "FMP US equity screener (NYSE/NASDAQ/AMEX, marketCap > USD 2B)",
+            "universeMembership": "FMP US equity screener (NYSE/NASDAQ/AMEX, marketCap > USD 10B)",
         }
         previous = by_symbol.get(symbol)
         if previous and previous["marketCap"] >= item["marketCap"]:
@@ -174,16 +176,22 @@ def write_catalogue(path: Path, stocks: list[dict], excluded: dict, retrieved_at
     return payload
 
 
-def inventory_only(reviewed: set[str], stocks: list[dict] | None = None) -> dict:
+def inventory_only(reviewed: set[str], stocks: list[dict] | None = None,
+                   reviewed_above_10b: int | None = None) -> dict:
+    already = reviewed_above_10b if reviewed_above_10b is not None else None
+    gap = None if already is None else max(EXTERNAL_ESTIMATE_ABOVE_10B - already, 0)
     baseline = {
         "reviewedBaseline": len(reviewed),
+        "reviewedBaselineAbove10B": already,
         "reviewedExchanges": "see full_market_dcf.json",
-        "externalEstimateAbove2B": 2001,
+        "externalEstimateAbove10B": EXTERNAL_ESTIMATE_ABOVE_10B,
         "externalEstimateSource": (
             "totalmarketindex.com US exchange company count by size, "
-            "close 2026-10-20 (914 ≥ $10B + 1,081 in $2–10B)"
+            "close 2026-10-20 (914 companies with market cap of $10 billion or more). "
+            "Screen uses strict greater-than USD 10B; FMP live screen remains authoritative."
         ),
-        "estimatedGapVsBaseline": 2001 - len(reviewed),
+        "estimatedGapVsBaselineAbove10B": gap,
+        "estimatedGapVsFullBaseline": EXTERNAL_ESTIMATE_ABOVE_10B - len(reviewed),
     }
     if stocks is None:
         return {"status": "fmpUnavailable", **baseline}
@@ -197,6 +205,20 @@ def inventory_only(reviewed: set[str], stocks: list[dict] | None = None) -> dict
     }
 
 
+def count_reviewed_above_10b(root: Path, reviewed: set[str]) -> int:
+    market_path = root / "full_market_dcf.json"
+    if not market_path.exists():
+        return 0
+    market = json.loads(market_path.read_text(encoding="utf-8"))
+    # Stored mcap is USD millions.
+    return sum(
+        1 for ticker in reviewed
+        if isinstance(market.get(ticker), dict)
+        and type(market[ticker].get("mcap")) in (int, float)
+        and market[ticker]["mcap"] * 1_000_000 > MIN_MARKET_CAP
+    )
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=Path("cache/us_universe.json"))
@@ -206,9 +228,10 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
     root = Path(__file__).resolve().parents[1]
     reviewed = set(json.loads((root / "full_market_dcf.json").read_text(encoding="utf-8")))
+    reviewed_above = count_reviewed_above_10b(root, reviewed)
     key = os.environ.get("FMP_API_KEY", "").strip()
     if not key:
-        report = inventory_only(reviewed)
+        report = inventory_only(reviewed, reviewed_above_10b=reviewed_above)
         report["blocker"] = "FMP_API_KEY missing; cannot screen live US universe"
         print(json.dumps(report, ensure_ascii=False, indent=2))
         return 2 if not args.inventory_only else 0
@@ -221,7 +244,7 @@ def main(argv: list[str] | None = None) -> int:
             rows.extend(batch)
             time.sleep(0.35)
     stocks, excluded = select_listings(rows)
-    report = inventory_only(reviewed, stocks)
+    report = inventory_only(reviewed, stocks, reviewed_above_10b=reviewed_above)
     report["excluded"] = excluded
     if args.inventory_only or args.dry_run:
         print(json.dumps(report, ensure_ascii=False, indent=2))

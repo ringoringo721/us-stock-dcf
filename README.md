@@ -98,20 +98,21 @@ refresh. Exactly HKD 1 billion remains eligible. Unknown/invalid market caps
 and non-HKD amounts are not treated as zero or assumed below the threshold.
 This is a site screening rule, not a factual claim about Buffett's criteria.
 
-## Full US company expansion (NYSE / NASDAQ / AMEX, market cap > USD 2B)
+## Full US company expansion (NYSE / NASDAQ / AMEX, market cap > USD 10B)
 
 The reviewed US baseline remains the **230** names embedded in `full_market_dcf.json`
-/ `market_data.js` (all currently above USD 2B; NYSE + NASDAQ only; no AMEX).
+/ `market_data.js` (NYSE + NASDAQ only; no AMEX; **218** currently above USD 10B).
 Additional eligible listings are screened from FMP into `cache/us_universe.json`
-and `us_universe_data.js` with **`marketCap > USD 2,000,000,000`**, actively
+and `us_universe_data.js` with **`marketCap > USD 10,000,000,000`**, actively
 trading, on **NYSE / NASDAQ / AMEX** (including NYSE American aliases), excluding
-ETFs/funds. Exact USD 2B is out of scope. The catalogue invents no financials,
+ETFs/funds. Exact USD 10B is out of scope. The catalogue invents no financials,
 moat scores or PF scores.
 
 An independent public count (totalmarketindex.com, close **20 October 2026**)
-puts about **2,001** US-listed companies above USD 2B, so the expansion gap versus
-the 230-name baseline is on the order of **~1,770** tickers pending live FMP
-confirmation. Cloud agents without `FMP_API_KEY` cannot materialize the catalogue;
+puts **914** US-listed companies at **$10B or more**, so the expansion gap versus
+the **218** baseline names already above USD 10B is on the order of **~696**
+tickers pending live FMP confirmation (strict `>` may trim a few at the boundary).
+Cloud agents without `FMP_API_KEY` cannot materialize the catalogue;
 `python scripts/import_us_universe.py --inventory-only` reports the blocker.
 
 The US screener page merges the catalogue through `us_universe.js` the same way

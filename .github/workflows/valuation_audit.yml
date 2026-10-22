@@ -32,7 +32,7 @@ on:
         type: boolean
         default: false
       expand_all_us:
-        description: Capture NYSE/NASDAQ/AMEX names above USD 2B market cap (beyond the reviewed US baseline); unpublished artifacts only
+        description: Capture NYSE/NASDAQ/AMEX names above USD 10B market cap (beyond the reviewed US baseline); unpublished artifacts only
         type: boolean
         default: false
       resume_run_id:
@@ -264,7 +264,7 @@ jobs:
         with:
           node-version: '24'
       - run: pip install requests
-      - name: Screen FMP for NYSE/NASDAQ/AMEX market cap above USD 2B
+      - name: Screen FMP for NYSE/NASDAQ/AMEX market cap above USD 10B
         env:
           FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
         run: python -u scripts/import_us_universe.py
