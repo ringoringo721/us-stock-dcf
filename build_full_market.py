@@ -290,7 +290,8 @@ def _log_gemini_budgets_once():
 
 
 # Bump when US moat prompt/schema policy changes (forces remoat even if fin summary unchanged).
-US_MOAT_ASSESSMENT_POLICY = "us-buffett-moat-v2-short"
+# v3: restore fuller per-dimension bilingual comments (~150 EN words); not the v2-short style.
+US_MOAT_ASSESSMENT_POLICY = "us-buffett-moat-v3"
 
 
 def _moat_cache_is_valid(cached_data: Dict[str, Any]) -> bool:
@@ -487,8 +488,20 @@ TAX_RATE = 21.0
 
 class MoatDimension(BaseModel):
     score: int = Field(..., ge=0, le=10, description="0到10整數打分")
-    comment_zh: str = Field(..., description="40至80字繁體中文評語：點出具體壁壘或競對差異，勿長文")
-    comment_en: str = Field(..., description="Concise English comment (about 40-80 Chinese-equivalent chars / ~25-50 words); specific moat point only.")
+    comment_zh: str = Field(
+        ...,
+        description=(
+            "繁體中文深入評語，上限約 150–250 字：緊扣巴菲特哲學，說明具體壁壘、"
+            "競對差異與商業模式邏輯，可含適度細節，勿空泛套話"
+        ),
+    )
+    comment_en: str = Field(
+        ...,
+        description=(
+            "In-depth English moat comment up to about 150 words; Buffett-aligned analysis "
+            "of the specific barrier, competitive differences, and business logic."
+        ),
+    )
 
 class StockMoatReport(BaseModel):
     ticker: str
@@ -503,8 +516,14 @@ class StockMoatReport(BaseModel):
     m8_capital_allocation: MoatDimension = Field(..., description="M8. Asset Irreproducibility & Moat Fortress")
     m9_customer_retention: MoatDimension = Field(..., description="M9. Disruption Immunity & Durability")
     m10_durability: MoatDimension = Field(..., description="M10. Management Integrity & Capital Allocation")
-    overall_moat_verdict_zh: str = Field(..., description="60至100字繁體中文護城河總結定性")
-    overall_moat_verdict_en: str = Field(..., description="Short Buffett-style moat verdict in English (~40-70 words)")
+    overall_moat_verdict_zh: str = Field(
+        ...,
+        description="約 120–200 字繁體中文巴菲特護城河總結定性（可含特許經營／收費橋／商品型等定性）",
+    )
+    overall_moat_verdict_en: str = Field(
+        ...,
+        description="Buffett-style overall moat verdict in English, up to about 150 words",
+    )
 
 def analyze_stock_moat(ticker: str, latest_period: str, fin_context: Dict[str, Any], force_refresh: bool = False) -> Optional[Dict[str, Any]]:
     """US moat with HK-style evidence hash: remoat only when fin summary/policy changes.
@@ -618,9 +637,9 @@ def analyze_stock_moat(ticker: str, latest_period: str, fin_context: Dict[str, A
 
     【規則】
     1. 分數 0–10 整數（0–3 極弱；4–6 中等；7–8 堅固；9–10 罕見壁壘）。
-    2. 每維度 comment_zh / comment_en 各約 40–80 字（或英文對等篇幅），點出具體壁壘即可，禁止長文。
-    3. overall_moat_verdict_zh 約 60–100 字；overall_moat_verdict_en 約 40–70 words；需有巴菲特式定性（特許經營、收費橋、商品型等）。
-    4. 必須回傳指定 JSON Schema；保留全部 10 個分數與雙語欄位。
+    2. 每維度 comment_en 最多約 150 English words；comment_zh 最多約 150–250 字。請寫有資訊量的深入評語（壁壘機制、競對差異、商業模式）；勿用約 40–80 字的短評風格，也勿空泛套話或無意義灌水。
+    3. overall_moat_verdict_zh 約 120–200 字；overall_moat_verdict_en 最多約 150 words；需有巴菲特式定性（特許經營、收費橋、商品型等）。
+    4. 必須回傳指定 JSON Schema；保留全部 10 個分數與雙語欄位（形狀與 UI 相容）。
     """
 
     for attempt in range(3):
