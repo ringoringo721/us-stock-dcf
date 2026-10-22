@@ -38,6 +38,17 @@ class UsMoatBudgetTests(unittest.TestCase):
         self.assertTrue(market._moat_cache_is_valid(prior))
 
 
+class UsMoatPolicyTests(unittest.TestCase):
+    def test_assessment_policy_is_v3_not_short(self):
+        policy = market.US_MOAT_ASSESSMENT_POLICY
+        self.assertEqual(policy, "us-buffett-moat-v3")
+        self.assertNotIn("short", policy)
+        zh_desc = market.MoatDimension.model_fields["comment_zh"].description
+        en_desc = market.MoatDimension.model_fields["comment_en"].description
+        self.assertIn("150", zh_desc)
+        self.assertIn("150", en_desc)
+
+
 class UsMoatEvidenceHashTests(unittest.TestCase):
     def test_hash_stable_and_ignores_mcap(self):
         base = {
