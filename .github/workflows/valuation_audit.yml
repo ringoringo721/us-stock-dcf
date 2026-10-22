@@ -31,16 +31,24 @@ on:
         description: Capture all additional official HKEX companies and researched ratings; unpublished artifacts only
         type: boolean
         default: false
+      expand_all_us:
+        description: Capture NYSE/NASDAQ/AMEX names above USD 2B market cap (beyond the reviewed US baseline); unpublished artifacts only
+        type: boolean
+        default: false
       resume_run_id:
-        description: Optional previous all-HK run ID to reuse successfully captured endpoints
+        description: Optional previous all-HK or all-US run ID to reuse successfully captured endpoints
         type: string
         default: ''
       moat_only:
-        description: With expand_all_hk and resume_run_id, reuse saved sources and models and retry ratings only
+        description: With expand_all_hk/expand_all_us and resume_run_id, reuse saved sources and models and retry ratings only
         type: boolean
         default: false
       hk_batches:
         description: Optional comma-separated all-HK batch indices; empty selects all
+        type: string
+        default: ''
+      us_batches:
+        description: Optional comma-separated all-US batch indices; empty selects all
         type: string
         default: ''
 
@@ -50,7 +58,7 @@ permissions:
 
 jobs:
   capture-fmp:
-    if: inputs.translate_news != true && inputs.expand_all_hk != true
+    if: inputs.translate_news != true && inputs.expand_all_hk != true && inputs.expand_all_us != true
     runs-on: ubuntu-latest
     timeout-minutes: 90
     steps:
@@ -105,7 +113,7 @@ jobs:
           path: valuation-audit-output/
           retention-days: 7
   translate-news:
-    if: inputs.translate_news == true && inputs.expand_all_hk != true
+    if: inputs.translate_news == true && inputs.expand_all_hk != true && inputs.expand_all_us != true
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -241,4 +249,112 @@ jobs:
         with:
           name: hkex-expanded-${{ matrix.batch }}
           path: hkex-data-output/
+          retention-days: 14
+  us-expansion-plan:
+    if: inputs.expand_all_us == true
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: pip install requests
+      - name: Screen FMP for NYSE/NASDAQ/AMEX market cap above USD 2B
+        env:
+          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+        run: python -u scripts/import_us_universe.py
+      - id: plan
+        env:
+          US_EXPANSION_BATCHES: ${{ inputs.us_batches }}
+          US_EXPANSION_SYMBOLS: ${{ inputs.symbols }}
+          US_EXPANSION_INCOMPLETE_ONLY: ${{ inputs.moat_only }}
+          MOAT_ONLY: ${{ inputs.moat_only }}
+          RESUME_RUN_ID: ${{ inputs.resume_run_id }}
+        run: |
+          node -e "if(process.env.MOAT_ONLY==='true'&&!/^\d+$/.test(process.env.RESUME_RUN_ID||''))throw Error('Ratings-only mode requires a saved run ID')"
+          echo "matrix=$(node scripts/build_us_expansion.cjs matrix)" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: us-universe-catalogue
+          path: |
+            cache/us_universe.json
+            us_universe_data.js
+          retention-days: 14
+  us-expansion-batch:
+    needs: us-expansion-plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix: ${{ fromJSON(needs.us-expansion-plan.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - run: pip install requests pydantic google-genai
+      - uses: actions/download-artifact@v4
+        with:
+          name: us-universe-catalogue
+          path: .
+      - uses: actions/download-artifact@v4
+        if: inputs.resume_run_id != ''
+        continue-on-error: ${{ inputs.moat_only != true }}
+        with:
+          name: us-expanded-${{ matrix.batch }}
+          path: us-data-output
+          run-id: ${{ inputs.resume_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Capture public evidence for up to twenty additional US companies
+        if: inputs.moat_only != true
+        env:
+          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+          CAPTURE_MARKET: US
+          CAPTURE_ALL_US: 'true'
+          CAPTURE_RESUME: 'true'
+          CAPTURE_REQUEST_DELAY: '1'
+          CAPTURE_SYMBOLS: ${{ matrix.symbols }}
+          CAPTURE_OUTPUT: us-data-output/sources
+        run: |
+          mkdir -p us-data-output/sources
+          python -u scripts/capture_valuation_sources.py
+      - name: Build DCF, PF scores and Vertex moat without publishing baseline
+        env:
+          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+          US_EXPANSION_SYMBOLS: ${{ matrix.symbols }}
+          US_EXPANSION_OUTPUT: us-data-output
+        run: python -u build_full_market.py
+      - name: Ingest expansion market into unpublished company snapshots
+        run: node scripts/build_us_expansion.cjs ingest us-data-output/market.json us-data-output
+      - name: Capture native models and company-page data
+        if: inputs.moat_only != true
+        continue-on-error: true
+        env:
+          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+          CAPTURE_MARKET_FILE: us-data-output/market.json
+          CAPTURE_PARALLELISM: '1'
+          FMP_REQUEST_DELAY: '1'
+        run: |
+          SYMBOLS=$(node -e "console.log(Object.keys(require('./us-data-output/market.json')).join(','))")
+          if [ -n "$SYMBOLS" ]; then node scripts/capture_company_data.cjs "$SYMBOLS" us-data-output/fmp_model_data.js; fi
+      - name: Package real coverage and explicit per-company limitations
+        if: always()
+        run: node scripts/build_us_expansion.cjs package us-data-output
+      - name: Preserve evidence and unpublished US company snapshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: us-expanded-${{ matrix.batch }}
+          path: us-data-output/
           retention-days: 14
