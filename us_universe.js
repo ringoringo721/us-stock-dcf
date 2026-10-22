@@ -9,6 +9,9 @@
   const US_TICKER = /^[A-Z][A-Z0-9.-]{0,14}$/;
 
   function listingStock(item) {
+    const Industry = typeof module === 'object' && module.exports
+      ? require('./financial_industry.js') : root.FinancialIndustry;
+    const financial = !!Industry?.usesFinancialValuationModel(item.industry, item.ticker);
     return {
       ticker: item.ticker, name: item.name || item.name_en, name_en: item.name_en || item.name,
       company_name: item.name_en || item.name, market: 'US', exchange: item.exchange,
@@ -23,7 +26,7 @@
       statementFrequencies: { income: 'quarterly', balance: 'quarterly', cashflow: 'quarterly' },
       statements_raw: { annual_dates: [], income: {}, balance: {}, cashflow: {},
         quarterly_raw: { dates: [], income: {}, balance: {}, cashflow: {} } },
-      fin_valuation: { is_financial: false }, real_history: {}, real_5y_prices: [],
+      fin_valuation: { is_financial: financial }, real_history: {}, real_5y_prices: [],
       peers: [], top_holders: [], insider_trades: [], stock_splits: [], news: [],
       dataAvailability: { currentPrice: 'pendingCapture', financials: 'pendingCapture' },
       ratingSources: { moat: { reason: 'analysisUnavailable' }, fScore: { reason: 'pendingCapture' } },
