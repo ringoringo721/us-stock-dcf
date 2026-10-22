@@ -1793,14 +1793,19 @@ def main():
 
         f_score, f_score_breakdown = calculate_piotroski_score(roa, fcf0, cr, liab_r, ttm_net_income)
 
-        FINANCIAL_SPECIAL_INDUSTRIES = [
+        FINANCIAL_SPECIAL_INDUSTRIES = {
+            # Baseline (legacy FMP labels)
             "Diversified Banks", "Consumer Finance", "Investment Banking & Brokerage",
-            "Property & Casualty Insurance", "Life & Health Insurance", "Multi-line Insurance"
-        ]
+            "Property & Casualty Insurance", "Life & Health Insurance", "Multi-line Insurance",
+            # Current FMP screener labels (US expansion / refreshed profiles)
+            "Banks", "Banks - Regional", "Banks - Diversified",
+            "Financial - Credit Services", "Investment - Banking & Investment Services",
+            "Insurance - Property & Casualty", "Insurance - Life", "Insurance - Diversified",
+            "Insurance - Reinsurance", "Insurance - Specialty",
+        }
         is_financial_model = (
-            stock_item.get("sector", "") == "金融" 
-            and stock_item.get("industry", "") in FINANCIAL_SPECIAL_INDUSTRIES 
-            and sym != "BRK.B"
+            stock_item.get("industry", "") in FINANCIAL_SPECIAL_INDUSTRIES
+            and sym not in {"BRK.B", "BRK-B", "BRK.A", "BRK-A"}
         )
 
         fin_valuation = {"is_financial": False}

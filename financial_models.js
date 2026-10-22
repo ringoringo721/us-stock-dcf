@@ -9,11 +9,20 @@
   const STAGE1_DPS_GROWTH = 0.065;
   const BUYBACK_CAP_MULTIPLE = 1.5;
   const FRAGILE_ROTE_ABS = 25;
-  const INSURANCE_INDUSTRIES = new Set([
+  const Industry = typeof module === 'object' && module.exports
+    ? require('./financial_industry.js')
+    : (typeof globalThis !== 'undefined' ? globalThis.FinancialIndustry : null);
+  const INSURANCE_INDUSTRIES = Industry?.INSURANCE || new Set([
     'Life & Health Insurance',
     'Multi-line Insurance',
     'Property & Casualty Insurance',
-    'Insurance Brokers'
+    'Insurance Brokers',
+    'Insurance - Property & Casualty',
+    'Insurance - Life',
+    'Insurance - Diversified',
+    'Insurance - Reinsurance',
+    'Insurance - Specialty',
+    'Insurance - Brokers'
   ]);
 
   function finite(value) {
@@ -21,7 +30,13 @@
   }
 
   function isInsuranceIndustry(industry) {
-    return INSURANCE_INDUSTRIES.has(industry);
+    return Industry ? Industry.isInsuranceIndustry(industry) : INSURANCE_INDUSTRIES.has(industry);
+  }
+
+  function usesFinancialValuationModel(industry, ticker) {
+    return Industry
+      ? Industry.usesFinancialValuationModel(industry, ticker)
+      : INSURANCE_INDUSTRIES.has(industry) || /Banks|Consumer Finance|Investment Banking/i.test(industry || '');
   }
 
   function capmKePercent({ rf, beta, erp }) {
@@ -214,8 +229,8 @@
   return {
     US_KE_FLOOR_PCT, EXCESS_WEIGHT, DDM_WEIGHT, STAGE1_DPS_GROWTH, BUYBACK_CAP_MULTIPLE,
     FRAGILE_ROTE_ABS, INSURANCE_INDUSTRIES,
-    finite, isInsuranceIndustry, capmKePercent, resolveKePercent, syncCapmKe, totalPayoutFromFlows,
-    twoStageDdm, excessReturnFair, excessBlockReason, ddmBlockReason, insurerWarnings, valueFinancial,
-    buildKeHistory, validateKeTreasuryCache
+    finite, isInsuranceIndustry, usesFinancialValuationModel, capmKePercent, resolveKePercent, syncCapmKe,
+    totalPayoutFromFlows, twoStageDdm, excessReturnFair, excessBlockReason, ddmBlockReason,
+    insurerWarnings, valueFinancial, buildKeHistory, validateKeTreasuryCache
   };
 });

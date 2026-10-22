@@ -78,11 +78,27 @@
     ? require('./fmp_scenario.js') : root.FmpScenario);
   const Cache = () => (typeof module === 'object' && module.exports
     ? require('./fmp_cache.js') : root.FmpCache);
+  const Industry = () => (typeof module === 'object' && module.exports
+    ? require('./financial_industry.js') : root.FinancialIndustry);
+  const StatementsPack = () => (typeof module === 'object' && module.exports
+    ? require('./statements_model_pack.js') : root.StatementsModelPack);
 
   function expansionEligible(ticker) {
     if (/\.HK$/i.test(ticker) || root.FULL_MARKET_DATA?.[ticker]) return false;
     return !!(root.US_EXPANSION?.stocks?.[ticker]
       || root.US_LISTINGS?.stocks?.some(item => item.ticker === ticker));
+  }
+
+  function expansionStock(ticker) {
+    return root.US_EXPANSION?.stocks?.[ticker]
+      || root.US_LISTINGS?.stocks?.find(item => item.ticker === ticker)
+      || null;
+  }
+
+  function isFinancialExpansion(ticker) {
+    const stock = expansionStock(ticker);
+    if (stock?.fin_valuation?.is_financial === true) return true;
+    return !!Industry()?.usesFinancialValuationModel(stock?.industry, ticker);
   }
 
   function calculationCurrency(ticker) {
@@ -130,11 +146,80 @@
     };
   }
 
+  function publishModelSummary(ticker, data) {
+    if (!root.FMP_MODEL_DATA?.stocks) return;
+    const { news, ownership, holders, insiders, analystEstimates, forecastActuals, ...summary } = data;
+    summary.models = Object.fromEntries(Object.entries(data.models).map(([name, model]) => [name, {
+      ...model,
+      data: model.data.length ? [model.data.slice().sort((a, b) => Number(b.year || 0) - Number(a.year || 0))[0]] : []
+    }]));
+    root.FMP_MODEL_DATA.stocks[ticker] = summary;
+  }
+
+  function financialStubPack(ticker, currency, capturedAt) {
+    return {
+      symbol: ticker, currency, capturedAt,
+      models: {
+        dcf: { data: [], reason: 'FINANCIAL_INSTITUTION', endpoint: null, capturedAt },
+        levered: { data: [], reason: 'FINANCIAL_INSTITUTION', endpoint: null, capturedAt }
+      },
+      currencyCheck: {
+        reason: null, currency,
+        basis: 'financialInstitutionUsesExcessReturnModel'
+      },
+      hydratedFrom: 'financial-institution-stub',
+      news: { data: [], reason: 'FMP_COMPANY_CACHE_MISSING' },
+      ownership: { data: [], reason: 'FMP_COMPANY_CACHE_MISSING' },
+      holders: { data: [], reason: 'FMP_COMPANY_CACHE_MISSING' },
+      insiders: { data: [], reason: 'FMP_COMPANY_CACHE_MISSING' }
+    };
+  }
+
+  async function attachAnalystEstimates(data, ticker, statements, currency, capturedAt) {
+    try {
+      const estimates = await Cache().request(new URLSearchParams({
+        action: 'analyst-estimates', symbol: ticker, period: 'annual', limit: '12'
+      }));
+      if (typeof module === 'object' && module.exports) {
+        const { buildAnalystSources } = require('./scripts/analyst_sources.cjs');
+        Object.assign(data, buildAnalystSources(data, statements, estimates, capturedAt));
+      } else if (Array.isArray(estimates?.data) && estimates.source?.symbol === ticker) {
+        // Browser: same-currency consensus only when a matching fiscal row scales within 25%.
+        const latest = (statements.annual?.income || []).filter(row => Scenario().fullAnnualPeriod(row)
+          && row.reportedCurrency === currency).sort((a, b) => b.date.localeCompare(a.date))[0];
+        const matched = latest?.revenue > 0 ? estimates.data.filter(row => row?.symbol === ticker
+          && day(row.date) && Math.abs(Date.parse(row.date) - Date.parse(latest.date)) <= 10 * 86400000) : [];
+        const scale = matched.length === 1 && typeof matched[0].revenueAvg === 'number'
+          && Number.isFinite(matched[0].revenueAvg) ? matched[0].revenueAvg / latest.revenue : null;
+        if (latest?.revenue > 0 && scale != null && scale >= 0.75 && scale <= 1.25) {
+          const cutoff = data.forecastBase?.date || latest.date;
+          data.analystEstimates = {
+            provider: 'FMP', endpoint: 'analyst-estimates', period: 'annual', symbol: ticker,
+            capturedAt, currency, calculationCurrency: currency,
+            rows: estimates.data.filter(row => row?.symbol === ticker && day(row.date)
+              && (!cutoff || row.date > cutoff)).map(row => ({
+              date: row.date,
+              revenueAvg: row.revenueAvg, ebitdaAvg: row.ebitdaAvg, ebitAvg: row.ebitAvg,
+              netIncomeAvg: row.netIncomeAvg, epsAvg: row.epsAvg,
+              operatingCashFlowAvg: row.operatingCashFlowAvg,
+              capitalExpenditureAvg: row.capitalExpenditureAvg,
+              depreciationAndAmortizationAvg: row.depreciationAndAmortizationAvg,
+              numAnalystsRevenue: row.numAnalystsRevenue, numAnalystsEps: row.numAnalystsEps
+            })).sort((a, b) => a.date.localeCompare(b.date)),
+            reason: null, fx: { rate: 1, basis: 'Same reporting and calculation currency' }
+          };
+          if (!data.analystEstimates.rows.length) {
+            data.analystEstimates.reason = 'ANALYST_NO_FUTURE_COVERAGE';
+          }
+        }
+      }
+    } catch (error) {
+      console.error('Live analyst estimates unavailable', ticker, error.message);
+    }
+  }
+
   async function hydrateUsExpansion(ticker) {
     if (!expansionEligible(ticker)) throw new Error('COMPANY_DATA_HTTP_404');
-    if (!root.FmpCache && !(typeof module === 'object' && module.exports)) {
-      throw new Error('COMPANY_DATA_HTTP_404');
-    }
     const statementsResponse = await root.fetch(
       `cache/financials/${encodeURIComponent(ticker)}_statements_v2.json`);
     if (!statementsResponse.ok) {
@@ -143,21 +228,38 @@
     const statements = await statementsResponse.json();
     const currency = calculationCurrency(ticker);
     const capturedAt = new Date().toISOString();
-    const stock = root.US_EXPANSION?.stocks?.[ticker];
-    const financial = !!stock?.fin_valuation?.is_financial;
-    const names = financial
-      ? { dcf: 'dcf', levered: 'levered-dcf' }
-      : { dcf: 'dcf', levered: 'levered-dcf', advanced: 'custom-dcf', customLevered: 'custom-levered-dcf' };
-    const models = {};
-    for (const [name, action] of Object.entries(names)) {
-      models[name] = await fetchModel(action, ticker);
+    const stock = root.US_EXPANSION?.stocks?.[ticker] || expansionStock(ticker);
+    const financial = isFinancialExpansion(ticker);
+    if (financial) {
+      const data = financialStubPack(ticker, currency, capturedAt);
+      publishModelSummary(ticker, data);
+      return data;
+    }
+    const names = {
+      dcf: 'dcf', levered: 'levered-dcf', advanced: 'custom-dcf', customLevered: 'custom-levered-dcf'
+    };
+    let models = {};
+    let usedProxy = false;
+    try {
+      if (!root.FmpCache && !(typeof module === 'object' && module.exports)) {
+        throw new Error('FMP_NOT_CONFIGURED');
+      }
+      for (const [name, action] of Object.entries(names)) {
+        models[name] = await fetchModel(action, ticker);
+      }
+      usedProxy = true;
+    } catch (error) {
+      console.error('FMP proxy hydrate unavailable; using statements pack', ticker, error.message);
+      const pack = StatementsPack().build(ticker, statements, stock || { ticker }, currency, capturedAt);
+      publishModelSummary(ticker, pack);
+      return pack;
     }
     const currencyCheck = models.advanced?.data?.length
       ? currencyEvidence(ticker, currency, models, statements)
       : { reason: 'FMP_MODEL_CURRENCY_UNVERIFIED' };
     const data = {
       symbol: ticker, currency, capturedAt, models, currencyCheck,
-      hydratedFrom: 'fmp-proxy+statements_v2',
+      hydratedFrom: usedProxy ? 'fmp-proxy+statements_v2' : 'statements_v2-offline',
       news: { data: [], reason: 'FMP_COMPANY_CACHE_MISSING' },
       ownership: { data: [], reason: 'FMP_COMPANY_CACHE_MISSING' },
       holders: { data: [], reason: 'FMP_COMPANY_CACHE_MISSING' },
@@ -169,55 +271,14 @@
         const recovered = Scenario().resolveForecastBase(data);
         if (Number.isInteger(recovered?.year) && !recovered.reason) data.forecastBase = recovered;
       }
-      try {
-        const estimates = await Cache().request(new URLSearchParams({
-          action: 'analyst-estimates', symbol: ticker, period: 'annual', limit: '12'
-        }));
-        if (typeof module === 'object' && module.exports) {
-          const { buildAnalystSources } = require('./scripts/analyst_sources.cjs');
-          Object.assign(data, buildAnalystSources(data, statements, estimates, capturedAt));
-        } else if (Array.isArray(estimates?.data) && estimates.source?.symbol === ticker) {
-          // Browser: same-currency consensus only when a matching fiscal row scales within 25%.
-          const latest = (statements.annual?.income || []).filter(row => Scenario().fullAnnualPeriod(row)
-            && row.reportedCurrency === currency).sort((a, b) => b.date.localeCompare(a.date))[0];
-          const matched = latest?.revenue > 0 ? estimates.data.filter(row => row?.symbol === ticker
-            && day(row.date) && Math.abs(Date.parse(row.date) - Date.parse(latest.date)) <= 10 * 86400000) : [];
-          const scale = matched.length === 1 && typeof matched[0].revenueAvg === 'number'
-            && Number.isFinite(matched[0].revenueAvg) ? matched[0].revenueAvg / latest.revenue : null;
-          if (latest?.revenue > 0 && scale != null && scale >= 0.75 && scale <= 1.25) {
-            const cutoff = data.forecastBase?.date || latest.date;
-            data.analystEstimates = {
-              provider: 'FMP', endpoint: 'analyst-estimates', period: 'annual', symbol: ticker,
-              capturedAt, currency, calculationCurrency: currency,
-              rows: estimates.data.filter(row => row?.symbol === ticker && day(row.date)
-                && (!cutoff || row.date > cutoff)).map(row => ({
-                date: row.date,
-                revenueAvg: row.revenueAvg, ebitdaAvg: row.ebitdaAvg, ebitAvg: row.ebitAvg,
-                netIncomeAvg: row.netIncomeAvg, epsAvg: row.epsAvg,
-                operatingCashFlowAvg: row.operatingCashFlowAvg,
-                capitalExpenditureAvg: row.capitalExpenditureAvg,
-                depreciationAndAmortizationAvg: row.depreciationAndAmortizationAvg,
-                numAnalystsRevenue: row.numAnalystsRevenue, numAnalystsEps: row.numAnalystsEps
-              })).sort((a, b) => a.date.localeCompare(b.date)),
-              reason: null, fx: { rate: 1, basis: 'Same reporting and calculation currency' }
-            };
-            if (!data.analystEstimates.rows.length) {
-              data.analystEstimates.reason = 'ANALYST_NO_FUTURE_COVERAGE';
-            }
-          }
-        }
-      } catch (error) {
-        console.error('Live analyst estimates unavailable', ticker, error.message);
-      }
+      await attachAnalystEstimates(data, ticker, statements, currency, capturedAt);
+    } else {
+      // Proxy returned empty advanced rows — still enable ten-year defaults from statements.
+      const pack = StatementsPack().build(ticker, statements, stock || { ticker }, currency, capturedAt);
+      publishModelSummary(ticker, pack);
+      return pack;
     }
-    if (root.FMP_MODEL_DATA?.stocks) {
-      const { news, ownership, holders, insiders, analystEstimates, forecastActuals, ...summary } = data;
-      summary.models = Object.fromEntries(Object.entries(data.models).map(([name, model]) => [name, {
-        ...model,
-        data: model.data.length ? [model.data.slice().sort((a, b) => Number(b.year || 0) - Number(a.year || 0))[0]] : []
-      }]));
-      root.FMP_MODEL_DATA.stocks[ticker] = summary;
-    }
+    publishModelSummary(ticker, data);
     return data;
   }
 

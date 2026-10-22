@@ -123,7 +123,9 @@ test('CompanyData hydrates US expansion packs from statements + FMP proxy when c
         throw new Error(`Unexpected FMP action ${action}`);
       }
     },
-    FmpScenario: require('../fmp_scenario.js')
+    FmpScenario: require('../fmp_scenario.js'),
+    FinancialIndustry: require('../financial_industry.js'),
+    StatementsModelPack: require('../statements_model_pack.js')
   };
   sandbox.globalThis = sandbox;
   vm.runInNewContext(
@@ -137,6 +139,83 @@ test('CompanyData hydrates US expansion packs from statements + FMP proxy when c
   assert.equal(data.forecastBase.reason, null);
   assert.ok(Number.isInteger(data.forecastBase.year));
   assert.equal(sandbox.FMP_MODEL_DATA.stocks.FERG.symbol, 'FERG');
+});
+
+test('CompanyData stubs financial expansion banks without calling FMP', async () => {
+  const sandbox = {
+    console, URL, URLSearchParams, Map, Set, Promise, Object, Array, Number, String, Date, Math, JSON,
+    Error, TypeError,
+    US_EXPANSION: { stocks: {
+      DB: { ticker: 'DB', calculationCurrency: 'USD', industry: 'Banks - Regional',
+        fin_valuation: { is_financial: true } }
+    } },
+    US_LISTINGS: { stocks: [{ ticker: 'DB', industry: 'Banks - Regional' }] },
+    FMP_MODEL_DATA: { version: 1, stocks: {} },
+    fetch: async url => {
+      if (String(url).includes('cache/company/DB.json')) {
+        return { ok: false, status: 404, json: async () => ({}) };
+      }
+      if (String(url).includes('cache/financials/DB_statements_v2.json')) {
+        return {
+          ok: true, status: 200,
+          json: async () => JSON.parse(fs.readFileSync(
+            path.join(root, 'cache', 'financials', 'DB_statements_v2.json'), 'utf8'))
+        };
+      }
+      throw new Error(`Unexpected fetch ${url}`);
+    },
+    FmpCache: { request: async () => { throw new Error('FMP should not be called for banks'); } },
+    FmpScenario: require('../fmp_scenario.js'),
+    FinancialIndustry: require('../financial_industry.js'),
+    StatementsModelPack: require('../statements_model_pack.js')
+  };
+  sandbox.globalThis = sandbox;
+  vm.runInNewContext(
+    `${fs.readFileSync(path.join(root, 'company_data.js'), 'utf8')}\nthis.api = this.CompanyData;`,
+    sandbox);
+  const data = await sandbox.api.load('DB');
+  assert.equal(data.hydratedFrom, 'financial-institution-stub');
+  assert.equal(data.models.dcf.reason, 'FINANCIAL_INSTITUTION');
+  assert.equal(data.models.advanced, undefined);
+});
+
+test('CompanyData falls back to statements pack when FMP proxy is not configured', async () => {
+  const cqpStock = JSON.parse(fs.readFileSync(
+    path.join(root, 'cache', 'us_companies', 'CQP.json'), 'utf8')).stock;
+  const sandbox = {
+    console, URL, URLSearchParams, Map, Set, Promise, Object, Array, Number, String, Date, Math, JSON,
+    Error, TypeError,
+    US_EXPANSION: { stocks: { CQP: cqpStock } },
+    US_LISTINGS: { stocks: [{ ticker: 'CQP', industry: cqpStock.industry }] },
+    FMP_MODEL_DATA: { version: 1, stocks: {} },
+    fetch: async url => {
+      if (String(url).includes('cache/company/CQP.json')) {
+        return { ok: false, status: 404, json: async () => ({}) };
+      }
+      if (String(url).includes('cache/financials/CQP_statements_v2.json')) {
+        return {
+          ok: true, status: 200,
+          json: async () => JSON.parse(fs.readFileSync(
+            path.join(root, 'cache', 'financials', 'CQP_statements_v2.json'), 'utf8'))
+        };
+      }
+      throw new Error(`Unexpected fetch ${url}`);
+    },
+    FmpCache: {
+      request: async () => { throw new Error('FMP_NOT_CONFIGURED'); }
+    },
+    FmpScenario: require('../fmp_scenario.js'),
+    FinancialIndustry: require('../financial_industry.js'),
+    StatementsModelPack: require('../statements_model_pack.js')
+  };
+  sandbox.globalThis = sandbox;
+  vm.runInNewContext(
+    `${fs.readFileSync(path.join(root, 'company_data.js'), 'utf8')}\nthis.api = this.CompanyData;`,
+    sandbox);
+  const data = await sandbox.api.load('CQP');
+  assert.equal(data.hydratedFrom, 'statements_v2-offline');
+  assert.ok(data.models.advanced.data.length >= 11);
+  assert.equal(data.forecastBase.reason, null);
 });
 
 test('capture_company_data accepts US expansion CAPTURE_MARKET_FILE identities', t => {

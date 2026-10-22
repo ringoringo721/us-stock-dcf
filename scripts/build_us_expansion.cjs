@@ -3,6 +3,8 @@ const path = require('node:path');
 const vm = require('node:vm');
 const root = path.resolve(__dirname, '..');
 const { listingStock } = require('../us_universe.js');
+const { applyFinancialValuation } = require('./expansion_financial_models.cjs');
+const { usesFinancialValuationModel } = require('../financial_industry.js');
 
 function read(file) { return JSON.parse(fs.readFileSync(file, 'utf8')); }
 function write(directory, file, data, prefix = '') {
@@ -99,7 +101,7 @@ function ingest(output, marketFile, reports = {}) {
     const ratingMoat = reports[ticker]
       ? { ...reports[ticker], report: undefined, reason: null, currentEvidenceHash: reports[ticker].evidenceHash }
       : stock.ratingSources?.moat || { reason: moat ? null : 'analysisUnavailable' };
-    const recordStock = {
+    let recordStock = {
       ...stock,
       ticker,
       calculationCurrency: 'USD',
@@ -113,8 +115,15 @@ function ingest(output, marketFile, reports = {}) {
       expansion: { status: 'available', capturedAt: stock.expansion?.capturedAt || new Date().toISOString(),
         reason: stock.expansion?.reason || null, detailPath: `cache/us_companies/${ticker}.json` }
     };
-    write(output, `cache/us_companies/${ticker}.json`, { version: 1, ticker, stock: recordStock, snapshot: null });
     const finSrc = path.join(root, 'cache', 'financials', `${ticker}_statements_v2.json`);
+    if (usesFinancialValuationModel(recordStock.industry, ticker) && fs.existsSync(finSrc)) {
+      recordStock = applyFinancialValuation(recordStock, read(finSrc));
+    } else if (!recordStock.fin_valuation) {
+      recordStock.fin_valuation = {
+        is_financial: usesFinancialValuationModel(recordStock.industry, ticker)
+      };
+    }
+    write(output, `cache/us_companies/${ticker}.json`, { version: 1, ticker, stock: recordStock, snapshot: null });
     if (fs.existsSync(finSrc)) {
       write(output, `cache/financials/${ticker}_statements_v2.json`, read(finSrc));
     }
