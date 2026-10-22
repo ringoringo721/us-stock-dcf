@@ -7,6 +7,7 @@ const endpoints = {
   'custom-dcf': 'custom-discounted-cash-flow',
   'custom-levered-dcf': 'custom-levered-discounted-cash-flow',
   'historical-price': 'historical-price-eod/full',
+  'analyst-estimates': 'analyst-estimates',
 };
 const customParameters = {
   revenueGrowthPct: [-0.9, 2], ebitdaPct: [-1, 1], ebitPct: [-1, 1],
@@ -33,11 +34,13 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
     const custom = ['custom-dcf', 'custom-levered-dcf'].includes(action);
     const technical = action === 'technical';
     const historical = action === 'historical-price';
+    const estimates = action === 'analyst-estimates';
     if (!Object.hasOwn(endpoints, action) || !/^[A-Z0-9][A-Z0-9.-]{0,14}$/.test(symbol || '')
         || [...new Set(query.keys())].some(key => query.getAll(key).length !== 1)
         || [...query.keys()].some(key => !['action', 'symbol', 'page'].includes(key)
           && !(technical && ['indicator', 'periodLength', 'from', 'to'].includes(key))
           && !(historical && ['from', 'to'].includes(key))
+          && !(estimates && ['period', 'limit'].includes(key))
           && !(custom && Object.hasOwn(customParameters, key)))) {
       return send(400, { error: 'INVALID_REQUEST' });
     }
@@ -47,6 +50,7 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
     }
     const indicator = query.get('indicator'), period = query.get('periodLength');
     const from = query.get('from'), to = query.get('to');
+    const estimatePeriod = query.get('period'), estimateLimit = query.get('limit');
     if (technical && (!/^\d{1,3}$/.test(period || '')
         || !technicals.validRequest(indicator, Number(period), from, to))) {
       return send(400, { error: 'INVALID_TECHNICAL_REQUEST' });
@@ -54,6 +58,10 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
     if (historical && (!validDate(from) || !validDate(to) || from > to
         || Date.parse(to) - Date.parse(from) > 8000 * 86400000)) {
       return send(400, { error: 'INVALID_HISTORICAL_PRICE_REQUEST' });
+    }
+    if (estimates && (estimatePeriod !== 'annual' || !/^\d{1,2}$/.test(estimateLimit || '')
+        || Number(estimateLimit) < 1 || Number(estimateLimit) > 40)) {
+      return send(400, { error: 'INVALID_ANALYST_ESTIMATES_REQUEST' });
     }
     const key = apiKey();
     if (!key) return send(503, { error: 'FMP_NOT_CONFIGURED' });
@@ -69,6 +77,10 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
     if (historical) {
       url.searchParams.set('from', from);
       url.searchParams.set('to', to);
+    }
+    if (estimates) {
+      url.searchParams.set('period', estimatePeriod);
+      url.searchParams.set('limit', estimateLimit);
     }
     for (const [name, [minimum, maximum]] of Object.entries(customParameters)) {
       if (!query.has(name)) continue;
