@@ -41,7 +41,7 @@ test('incomplete US moat recovery refuses invented or partial scores', () => {
   assert.equal(needsMoatRecovery(stock), true);
 });
 
-test('ingest packages expansion names without inventing moat scores', () => {
+test('ingest accepts build_full_market payloads that omit ticker and calculationCurrency', () => {
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'us-expansion-'));
   const cataloguePath = path.join(root, 'cache', 'us_universe.json');
   const previous = fs.readFileSync(cataloguePath, 'utf8');
@@ -50,16 +50,16 @@ test('ingest packages expansion names without inventing moat scores', () => {
     source: { provider: 'Financial Modeling Prep company/stock screener', retrievedAt: '2026-10-21T00:00:00Z' },
     screen: { exchanges: ['NYSE', 'NASDAQ', 'AMEX'], marketCapMoreThanUsd: 1e10 },
     stocks: [
-      { ticker: 'ZZZZ', name_en: 'Zeta Test', exchange: 'NYSE', sector: 'Test', industry: 'Test', marketCap: 3e9,
+      { ticker: 'ZZZZ', name_en: 'Zeta Test', exchange: 'NYSE', sector: 'Test', industry: 'Test', marketCap: 12e9,
         universeMembership: 'test' }
     ]
   };
   fs.writeFileSync(cataloguePath, JSON.stringify(catalogue));
   try {
+    // Mimic Actions market.json: key is the ticker; fields may be absent.
     const market = {
       ZZZZ: {
-        ticker: 'ZZZZ', calculationCurrency: 'USD', name: 'Zeta Test', exchange: 'NYSE',
-        price: 12, mcap: 3000, f_score: 7, moat: null,
+        name: 'Zeta Test', exchange: 'NYSE', price: 12, mcap: 12000, f_score: 7, moat: null,
         ratingSources: { moat: { reason: 'analysisUnavailable' } },
         expansion: { capturedAt: '2026-10-21T01:00:00Z' }
       }
