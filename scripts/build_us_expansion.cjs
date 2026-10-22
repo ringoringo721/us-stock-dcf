@@ -85,7 +85,13 @@ function ingest(output, marketFile, reports = {}) {
     if (!approved.has(ticker) || reviewed.has(ticker)) {
       throw new Error(`Expansion may not overwrite reviewed or unregistered stocks: ${ticker}`);
     }
-    if (stock?.ticker !== ticker || stock.calculationCurrency !== 'USD') {
+    // build_full_market keys results by ticker but historically omits stock.ticker /
+    // calculationCurrency; treat missing currency as USD for the US expansion path.
+    if (!stock || (stock.ticker != null && stock.ticker !== ticker)) {
+      throw new Error(`Invalid US expansion stock identity: ${ticker}`);
+    }
+    const currency = stock.calculationCurrency || 'USD';
+    if (currency !== 'USD') {
       throw new Error(`Invalid US expansion stock identity: ${ticker}`);
     }
     const listing = approved.get(ticker);
@@ -95,6 +101,8 @@ function ingest(output, marketFile, reports = {}) {
       : stock.ratingSources?.moat || { reason: moat ? null : 'analysisUnavailable' };
     const recordStock = {
       ...stock,
+      ticker,
+      calculationCurrency: 'USD',
       name: stock.name || listing.name_en,
       name_en: stock.name_en || listing.name_en,
       exchange: stock.exchange || listing.exchange,

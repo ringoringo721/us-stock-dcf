@@ -1894,6 +1894,8 @@ def main():
 
         # 2. 然後再組裝進 results[sym] 字典中
         results[sym] = {
+            "ticker": sym,
+            "calculationCurrency": "USD",
             "name": stock_item.get("name", sym),
             "company_name": company_full_name,
             "exchange": stock_item.get("exchange", "US"),
