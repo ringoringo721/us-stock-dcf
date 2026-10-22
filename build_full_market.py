@@ -293,7 +293,7 @@ class StockMoatReport(BaseModel):
     overall_moat_verdict_zh: str = Field(..., description="150至200字繁體中文巴菲特護城河總結定性")
     overall_moat_verdict_en: str = Field(..., description="Comprehensive Buffett moat verdict in English (150-200 words)")
 
-def analyze_stock_moat(ticker: str, latest_period: str, fin_context: Dict[str, Any], force_refresh: bool = False) -> Dict[str, Any]:
+def analyze_stock_moat(ticker: str, latest_period: str, fin_context: Dict[str, Any], force_refresh: bool = False) -> Optional[Dict[str, Any]]:
     if not latest_period or latest_period == "LATEST":
         import datetime
         now = datetime.datetime.now()
@@ -327,6 +327,9 @@ def analyze_stock_moat(ticker: str, latest_period: str, fin_context: Dict[str, A
             pass
 
     if not gemini_client:
+        # Expansion batches must not publish invented neutral scores when Vertex/Gemini is absent.
+        if US_EXPANSION_MODE:
+            return None
         return _build_fallback_moat(ticker, safe_period)
 
     prompt = f"""
@@ -380,6 +383,8 @@ def analyze_stock_moat(ticker: str, latest_period: str, fin_context: Dict[str, A
             wait_time = (attempt + 1) * 3
             time.sleep(wait_time)
 
+    if US_EXPANSION_MODE:
+        return None
     return _build_fallback_moat(ticker, safe_period)
 
 def _build_fallback_moat(ticker: str, period: str) -> Dict[str, Any]:
@@ -655,6 +660,54 @@ for item in RAW_STOCK_LIST:
     if sym and sym not in seen:
         seen.add(sym)
         UNIQUE_STOCKS.append(item)
+
+US_EXPANSION_SYMBOLS = [
+    value.strip().upper()
+    for value in os.environ.get("US_EXPANSION_SYMBOLS", "").split(",")
+    if value.strip()
+]
+US_EXPANSION_OUTPUT = os.environ.get("US_EXPANSION_OUTPUT", "").strip()
+US_EXPANSION_MODE = bool(US_EXPANSION_SYMBOLS or US_EXPANSION_OUTPUT)
+
+
+def load_us_expansion_seeds(symbols):
+    """Build RAW-compatible seeds from cache/us_universe.json without inventing fundamentals."""
+    universe_path = os.path.join(os.path.dirname(__file__) or ".", "cache", "us_universe.json")
+    if not os.path.exists(universe_path):
+        raise FileNotFoundError("cache/us_universe.json is required for US expansion mode")
+    with open(universe_path, "r", encoding="utf-8") as handle:
+        catalogue = json.load(handle)
+    approved = {item["ticker"]: item for item in catalogue.get("stocks", [])}
+    reviewed = set()
+    market_path = os.path.join(os.path.dirname(__file__) or ".", "full_market_dcf.json")
+    if os.path.exists(market_path):
+        with open(market_path, "r", encoding="utf-8") as handle:
+            reviewed = set(json.load(handle))
+    seeds = []
+    for sym in symbols:
+        if sym in reviewed:
+            raise ValueError(f"US expansion refuses to overwrite reviewed baseline ticker {sym}")
+        item = approved.get(sym)
+        if not item:
+            raise ValueError(f"US expansion ticker not in screened universe: {sym}")
+        seeds.append({
+            "ticker": sym,
+            "name": item.get("name_en") or item.get("name") or sym,
+            "exchange": item.get("exchange") or "NYSE",
+            "sector": item.get("sector") or "Unclassified",
+            "industry": item.get("industry") or "Unclassified",
+            "default_g1": 6.0,
+        })
+    return seeds
+
+
+if US_EXPANSION_MODE:
+    if not US_EXPANSION_SYMBOLS:
+        raise ValueError("US_EXPANSION_SYMBOLS is required when US_EXPANSION_OUTPUT is set")
+    if len(US_EXPANSION_SYMBOLS) > 20 or len(set(US_EXPANSION_SYMBOLS)) != len(US_EXPANSION_SYMBOLS):
+        raise ValueError("US expansion accepts 1-20 unique symbols per batch")
+    UNIQUE_STOCKS = load_us_expansion_seeds(US_EXPANSION_SYMBOLS)
+    print(f"US expansion mode: {len(UNIQUE_STOCKS)} symbols → {US_EXPANSION_OUTPUT or 'stdout market only'}", flush=True)
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0",
@@ -1474,9 +1527,15 @@ def main():
                 "pb_tangible": round(price / tbvps, 2) if tbvps and tbvps > 0 else None
             }
 
+        moat_rating_source = None
         if entity_id in entity_moat_cache:
-            moat_data = copy.deepcopy(entity_moat_cache[entity_id])
-            moat_data["ticker"] = sym
+            cached_moat = entity_moat_cache[entity_id]
+            if cached_moat is None:
+                moat_data = None
+                moat_rating_source = {"reason": "analysisUnavailable"}
+            else:
+                moat_data = copy.deepcopy(cached_moat)
+                moat_data["ticker"] = sym
         else:
             fin_context = {
                 "name": stock_item.get("name", sym),
@@ -1499,6 +1558,8 @@ def main():
                 force_refresh=False
             )
             entity_moat_cache[entity_id] = moat_data
+            if moat_data is None:
+                moat_rating_source = {"reason": "analysisUnavailable"}
 
         # 呼叫歷史 DCF 與復權股價計算
         hist_data = calculate_historical_5y_dcf_and_prices(fmp_sym, {
@@ -1578,6 +1639,10 @@ def main():
             "roe": roe,
             "roa": roa,
             "moat": moat_data,
+            "ratingSources": {
+                "moat": moat_rating_source or ({"reason": None} if moat_data else {"reason": "analysisUnavailable"}),
+                "fScore": {"score": f_score, "checkedAt": None},
+            },
             "fin_valuation": fin_valuation,
             "image": image_url,
             "logo": image_url,
@@ -1610,7 +1675,17 @@ def main():
             "historical_dcf_series": hist_data["historical_dcf_series"]
         }
 
-        print(f"[{stock_idx:03d}/{len(UNIQUE_STOCKS)}] ✅ {sym} ({stock_item.get('exchange', 'US')}) - 股價=${price} | 5Y Beta={beta_5y} | 公允價值=${fair_val} | 護城河: {moat_data.get('overall_moat_verdict_zh', '')[:30]}...", flush=True)
+        moat_preview = (moat_data or {}).get("overall_moat_verdict_zh") or (moat_rating_source or {}).get("reason") or "N/A"
+        print(f"[{stock_idx:03d}/{len(UNIQUE_STOCKS)}] ✅ {sym} ({stock_item.get('exchange', 'US')}) - 股價=${price} | 5Y Beta={beta_5y} | 公允價值=${fair_val} | 護城河: {str(moat_preview)[:30]}...", flush=True)
+
+    if US_EXPANSION_MODE:
+        output_dir = US_EXPANSION_OUTPUT or "us-data-output"
+        os.makedirs(output_dir, exist_ok=True)
+        market_path = os.path.join(output_dir, "market.json")
+        with open(market_path, "w", encoding="utf-8") as f:
+            json.dump(results, f, ensure_ascii=False, indent=2)
+        print(f"\nUS expansion batch wrote {len(results)} stocks to {market_path} (baseline full_market_dcf.json unchanged).", flush=True)
+        return
 
     with open("full_market_dcf.json", "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=2)

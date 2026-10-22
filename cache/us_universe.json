@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "screen": {
+    "exchanges": ["NYSE", "NASDAQ", "AMEX"],
+    "marketCapMoreThanUsd": 10000000000,
+    "isActivelyTrading": true,
+    "excludeEtfsAndFunds": true
+  },
+  "source": {
+    "provider": "Financial Modeling Prep company/stock screener",
+    "retrievedAt": null,
+    "endpoints": [
+      "https://financialmodelingprep.com/stable/company-screener",
+      "https://financialmodelingprep.com/api/v3/stock-screener"
+    ],
+    "status": "awaitingFmpImport",
+    "noteZh": "需以 repo Secrets 的 FMP_API_KEY 執行 scripts/import_us_universe.py 後才會寫入合格名單（市值 > USD 100 億）；此骨架不含虛構股票。",
+    "noteEn": "Run scripts/import_us_universe.py with repository secret FMP_API_KEY before expansion (market cap > USD 10B); this skeleton invents no tickers."
+  },
+  "counts": {
+    "eligible": 0,
+    "reviewedBaseline": 230,
+    "alreadyInBaseline": 0,
+    "expansionCandidates": 0,
+    "excluded": {}
+  },
+  "stocks": []
+}

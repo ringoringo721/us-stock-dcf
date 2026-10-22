@@ -45,7 +45,11 @@ def configured_market(root, name):
             if os.environ.get("CAPTURE_ALL_HK") == "true" else []
         return {stock["ticker"]: stock for stock in [*listed, *reviewed]}
     if name == "US":
-        return json.loads((root / "full_market_dcf.json").read_text(encoding="utf-8"))
+        reviewed = json.loads((root / "full_market_dcf.json").read_text(encoding="utf-8"))
+        if os.environ.get("CAPTURE_ALL_US") == "true":
+            listed = json.loads((root / "cache" / "us_universe.json").read_text(encoding="utf-8"))["stocks"]
+            return {**{stock["ticker"]: stock for stock in listed}, **reviewed}
+        return reviewed
     raise ValueError("CAPTURE_MARKET must be US or HKEX")
 
 

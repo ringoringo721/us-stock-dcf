@@ -98,6 +98,44 @@ refresh. Exactly HKD 1 billion remains eligible. Unknown/invalid market caps
 and non-HKD amounts are not treated as zero or assumed below the threshold.
 This is a site screening rule, not a factual claim about Buffett's criteria.
 
+## Full US company expansion (NYSE / NASDAQ / AMEX, market cap > USD 10B)
+
+The reviewed US baseline remains the **230** names embedded in `full_market_dcf.json`
+/ `market_data.js` (NYSE + NASDAQ only; no AMEX; **218** currently above USD 10B).
+Additional eligible listings are screened from FMP into `cache/us_universe.json`
+and `us_universe_data.js` with **`marketCap > USD 10,000,000,000`**, actively
+trading, on **NYSE / NASDAQ / AMEX** (including NYSE American aliases), excluding
+ETFs/funds. Exact USD 10B is out of scope. The catalogue invents no financials,
+moat scores or PF scores.
+
+An independent public count (totalmarketindex.com, close **20 October 2026**)
+puts **914** US-listed companies at **$10B or more**, so the expansion gap versus
+the **218** baseline names already above USD 10B is on the order of **~696**
+tickers pending live FMP confirmation (strict `>` may trim a few at the boundary).
+Cloud agents without `FMP_API_KEY` cannot materialize the catalogue;
+`python scripts/import_us_universe.py --inventory-only` reports the blocker.
+
+The US screener page merges the catalogue through `us_universe.js` the same way
+HKEX uses `hkex_universe.js`: reviewed baseline wins, uncaptured names render as
+explicit `pendingCapture` rows (null prices/scores, not zeros). Captured company
+snapshots load on demand from `cache/us_companies/`. Compact expansion rows live
+in `us_expansion_data.js` after a human `integrate` step.
+
+The **Read-only valuation source audit** workflow accepts `expand_all_us`.
+It re-screens FMP, partitions candidates into batches of at most twenty, captures
+valuation sources, runs `build_full_market.py` in `US_EXPANSION_*` mode (writes
+only under `us-data-output/`, never overwrites the reviewed baseline), packages
+coverage manifests, and uploads `us-expanded-*` artifacts. Vertex / Gemini
+(`GCP_SA_KEY` or `GEMINI_API_KEY`) are required for real moat text; without them
+expansion names keep `ratingSources.moat.reason = analysisUnavailable` and **do
+not** publish fallback score-5 templates. `resume_run_id`, `moat_only`,
+`us_batches` and optional `symbols` mirror the HK controls.
+
+Required secrets: `FMP_API_KEY` (screen + capture + DCF), plus `GCP_SA_KEY`
+(preferred) or `GEMINI_API_KEY` for moat. After artifacts land, integrate with
+`node scripts/build_us_expansion.cjs integrate <download-directory>` and review
+before publishing. Artifacts alone do not update production.
+
 ## Hang Seng Index and gaming extension
 
 Production builds run `node scripts/build_site.cjs` and publish only the
