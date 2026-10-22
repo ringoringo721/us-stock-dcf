@@ -19,12 +19,20 @@ on:
         description: Build configured HSI constituents and evidence-based ratings as review artifacts only
         type: boolean
         default: false
+      # DANGER: force_moat / --force remoats nearly ALL eligible HK names (huge Vertex bill).
+      # Prefer retry_incomplete_moat for null-score gaps. Keep default false; never schedule force.
       force_moat:
-        description: Regenerate all HKEX moat scores and bilingual comments using Vertex AI (artifacts only)
+        description: 'DANGER: --force remoats nearly all HK names (artifacts only). Prefer retry_incomplete_moat. Default false.'
         type: boolean
         default: false
+      retry_incomplete_moat:
+        description: Retry only incomplete HK moat scores (null gaps); cheaper than force_moat. Default false.
+        type: boolean
+        default: false
+      # WARNING: Never add a schedule that runs full news translation. Keep default false.
+      # Manual only — prepare/translate process new pending titles (optionally baseline tickers).
       translate_news:
-        description: Translate captured news headlines only using Vertex Flash-Lite; save artifacts without publishing
+        description: 'Manual only: translate NEW pending headlines (Flash-Lite); never schedule. Default false; artifacts only.'
         type: boolean
         default: false
       expand_all_hk:
@@ -94,7 +102,14 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
-        run: python -u scripts/refresh_hkex_moat.py valuation-audit-output/hkex-moat-inputs.json hkex-data-output/cache/hkex_moat.json ${{ inputs.force_moat && '--force' || '' }}
+          # Required by refresh_hkex_moat.py when --force is set (prevents accidental full remoat).
+          FORCE_MOAT_CONFIRM: ${{ inputs.force_moat && 'YES' || '' }}
+        run: >
+          python -u scripts/refresh_hkex_moat.py
+          valuation-audit-output/hkex-moat-inputs.json
+          hkex-data-output/cache/hkex_moat.json
+          ${{ inputs.force_moat && '--force' || '' }}
+          ${{ inputs.retry_incomplete_moat && '--retry-incomplete' || '' }}
       - name: Build final dated HKEX review artifact
         if: inputs.build_hkex == true
         run: node scripts/build_hkex.cjs valuation-audit-output hkex-data-output hkex-data-output/cache/hkex_moat.json
@@ -112,21 +127,29 @@ jobs:
           name: valuation-fmp-sources
           path: valuation-audit-output/
           retention-days: 7
+  # WARNING: Do NOT add `schedule:` for news translation. Full-corpus translate is expensive;
+  # keep workflow_dispatch + translate_news default false. Only new pending titles are sent.
   translate-news:
     if: inputs.translate_news == true && inputs.expand_all_hk != true && inputs.expand_all_us != true
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
       - uses: actions/setup-python@v5
         with:
           python-version: '3.10'
       - run: pip install google-genai
-      - name: Translate and save exact-title matches, without articles or deployment
+      - name: Prepare pending headlines for baseline/frontpage US tickers only
+        run: node scripts/prepare_news_translation.cjs --baseline-only
+      - name: Translate NEW pending titles only (Flash-Lite; no articles or deploy)
         env:
           GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
           GOOGLE_CLOUD_LOCATION: global
-        run: python -u scripts/translate_news.py
+        # Cap per manual run; already-translated titles are skipped by pending_titles().
+        run: python -u scripts/translate_news.py --limit 500
       - name: Preserve translations and actual token usage
         if: always()
         uses: actions/upload-artifact@v4
@@ -134,6 +157,7 @@ jobs:
           name: news-title-translations
           path: |
             cache/news_translations.json
+            cache/news_translation_source.json
             news-translation-usage.json
           retention-days: 7
   hk-expansion-plan:
@@ -327,6 +351,8 @@ jobs:
         run: |
           mkdir -p us-data-output/sources
           python -u scripts/capture_valuation_sources.py
+      # Expansion: leave MAX_US_MOAT_GEMINI / MAX_US_DESC_GEMINI unset → uncapped so new names get moats.
+      # Override to a number only if intentionally throttling an expansion batch.
       - name: Build DCF, PF scores and Vertex moat without publishing baseline
         env:
           FMP_API_KEY: ${{ secrets.FMP_API_KEY }}

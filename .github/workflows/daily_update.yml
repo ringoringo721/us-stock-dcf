@@ -56,12 +56,19 @@ jobs:
         if: inputs.peers_only != true && inputs.prices_only != true
         run: node scripts/refresh_usd_rates.cjs
 
+      # Gemini cost levers: daily remoat/desc caps (see MAX_US_* below). Expansion jobs
+      # leave these unset so new names stay uncapped unless explicitly overridden.
       - name: Run Market Engine with FMP Key
         if: inputs.peers_only != true && inputs.prices_only != true && inputs.liquidation_only != true
         env:
           FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+          # Hard cap on *new* US moat Gemini calls per daily run (cache miss only).
+          # Beyond the cap: reuse prior-period moat cache when available; backlog is logged.
+          MAX_US_MOAT_GEMINI: '30'
+          # Smaller separate budget for ZH company descriptions (usually cache-warm).
+          MAX_US_DESC_GEMINI: '15'
         run: |
           python -u build_full_market.py
 

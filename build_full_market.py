@@ -1,12 +1,13 @@
 import os
 import json
+import hashlib
 import requests
 import time
 import copy
 import re
 import math
 import subprocess
-from typing import Dict, Any, Optional
+from typing import Dict, Any, Optional, List, Tuple
 from pydantic import BaseModel, Field
 from scripts.peer_cache import get_stock_peers_cached
 from scripts.capture_valuation_sources import outstanding_share_record
@@ -189,7 +190,11 @@ GEMINI_KEY = os.environ.get("GEMINI_API_KEY", "").strip()
 GCP_SA_KEY = os.environ.get("GCP_SA_KEY", "").strip()
 
 gemini_client = None
-PRIMARY_MODEL = "gemini-2.5-flash"
+# US moat + ZH descriptions default to Flash-Lite (thinking off) to cut output tokens.
+# Override with US_MOAT_MODEL / US_DESC_MODEL if needed.
+PRIMARY_MODEL = "gemini-2.5-flash-lite"
+US_MOAT_MODEL = os.environ.get("US_MOAT_MODEL", "gemini-2.5-flash-lite").strip() or "gemini-2.5-flash-lite"
+US_DESC_MODEL = os.environ.get("US_DESC_MODEL", "gemini-2.5-flash-lite").strip() or "gemini-2.5-flash-lite"
 
 if HAS_GENAI:
     try:
@@ -204,12 +209,14 @@ if HAS_GENAI:
                 project="dcf-moat-ai",
                 location="us-central1"
             )
-            PRIMARY_MODEL = "gemini-2.5-flash"
+            PRIMARY_MODEL = US_MOAT_MODEL
             print("🚀 已啟用 Vertex AI 企業級高速模式 (專案: dcf-moat-ai)", flush=True)
+            print(f"   US moat model={US_MOAT_MODEL} | ZH desc model={US_DESC_MODEL}", flush=True)
         elif GEMINI_KEY:
             gemini_client = genai.Client(api_key=GEMINI_KEY)
-            PRIMARY_MODEL = "gemini-2.5-flash"
+            PRIMARY_MODEL = US_MOAT_MODEL
             print("ℹ️ 使用一般 Gemini API Key 模式", flush=True)
+            print(f"   US moat model={US_MOAT_MODEL} | ZH desc model={US_DESC_MODEL}", flush=True)
     except Exception as e:
         print(f"⚠️ Gemini Client 初始化失敗: {e}", flush=True)
 
@@ -224,7 +231,200 @@ os.makedirs(FIN_CACHE_DIR, exist_ok=True)
 os.makedirs(META_CACHE_DIR, exist_ok=True)
 os.makedirs(PEER_CACHE_DIR, exist_ok=True)
 
+# Daily remoat / description budgets (lever #2). Parsed lazily after US_EXPANSION_MODE is known.
+# Defaults: daily run caps new Gemini calls; expansion is uncapped unless env overrides.
+DEFAULT_DAILY_MOAT_BUDGET = 30
+DEFAULT_DAILY_DESC_BUDGET = 15
+_moat_gemini_used = 0
+_desc_gemini_used = 0
+_moat_budget_skipped = []  # backlog of tickers deferred past the daily remoat cap
+_desc_budget_skipped = []
+_gemini_budgets_logged = False
+
+
+def _parse_gemini_budget(env_name: str, daily_default: int):
+    """Return int cap, or None for uncapped.
+
+    Unset: daily mode → daily_default; US expansion → uncapped.
+    Explicit 0 / none / unlimited / -1 → uncapped (expansion-friendly override).
+    """
+    raw = os.environ.get(env_name)
+    if raw is None or str(raw).strip() == "":
+        return None if US_EXPANSION_MODE else daily_default
+    token = str(raw).strip().lower()
+    if token in ("0", "none", "unlimited", "-1"):
+        return None
+    try:
+        value = int(token)
+    except ValueError as err:
+        raise ValueError(f"{env_name} must be an integer or unlimited, got {raw!r}") from err
+    if value < 0:
+        return None
+    return value
+
+
+def us_moat_gemini_budget():
+    return _parse_gemini_budget("MAX_US_MOAT_GEMINI", DEFAULT_DAILY_MOAT_BUDGET)
+
+
+def us_desc_gemini_budget():
+    return _parse_gemini_budget("MAX_US_DESC_GEMINI", DEFAULT_DAILY_DESC_BUDGET)
+
+
+def _log_gemini_budgets_once():
+    global _gemini_budgets_logged
+    if _gemini_budgets_logged:
+        return
+    _gemini_budgets_logged = True
+    moat_cap = us_moat_gemini_budget()
+    desc_cap = us_desc_gemini_budget()
+    mode = "expansion (default uncapped)" if US_EXPANSION_MODE else "daily (capped)"
+    print(
+        f"Gemini US budgets [{mode}]: "
+        f"moat={moat_cap if moat_cap is not None else 'unlimited'} "
+        f"(MAX_US_MOAT_GEMINI) | "
+        f"desc={desc_cap if desc_cap is not None else 'unlimited'} "
+        f"(MAX_US_DESC_GEMINI)",
+        flush=True,
+    )
+
+
+# Bump when US moat prompt/schema policy changes (forces remoat even if fin summary unchanged).
+US_MOAT_ASSESSMENT_POLICY = "us-buffett-moat-v2-short"
+
+
+def _moat_cache_is_valid(cached_data: Dict[str, Any]) -> bool:
+    m1_data = cached_data.get("m1_brand_pricing", {}) or {}
+    has_bilingual = (
+        "comment_zh" in m1_data
+        and "comment_en" in m1_data
+        and "overall_moat_verdict_zh" in cached_data
+    )
+    is_valid_text = (
+        "暫未取得" not in cached_data.get("overall_moat_verdict_zh", "")
+        and "暫未取得" not in cached_data.get("overall_moat_verdict", "")
+    )
+    return bool(has_bilingual and is_valid_text)
+
+
+def _period_sort_key(period: str):
+    match = re.match(r"^(\d{4})Q([1-4])$", str(period or "").strip(), re.IGNORECASE)
+    if match:
+        return (int(match.group(1)), int(match.group(2)))
+    return (0, 0)
+
+
+def _round_fin(value, ndigits=1):
+    try:
+        number = float(value)
+    except (TypeError, ValueError):
+        return None
+    if not math.isfinite(number):
+        return None
+    return round(number, ndigits)
+
+
+def us_moat_evidence_payload(fin_context: Dict[str, Any]) -> Dict[str, Any]:
+    """Stable qualitative/fundamental fingerprint — excludes volatile mcap/price."""
+    return {
+        "name": str((fin_context or {}).get("name") or "").strip(),
+        "sector": str((fin_context or {}).get("sector") or "").strip(),
+        "industry": str((fin_context or {}).get("industry") or "").strip(),
+        "roe": _round_fin((fin_context or {}).get("roe"), 2),
+        "roa": _round_fin((fin_context or {}).get("roa"), 2),
+        "f_score": int((fin_context or {}).get("f_score") or 0),
+        "fcf0": _round_fin((fin_context or {}).get("fcf0"), 0),
+        "debt": _round_fin((fin_context or {}).get("debt"), 0),
+        "cash": _round_fin((fin_context or {}).get("cash"), 0),
+    }
+
+
+def us_moat_evidence_hash(fin_context: Dict[str, Any]) -> str:
+    payload = us_moat_evidence_payload(fin_context)
+    encoded = json.dumps(payload, sort_keys=True, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
+    return hashlib.sha256(encoded).hexdigest()
+
+
+def _iter_ticker_moat_caches(ticker: str) -> List[Tuple[str, str, Dict[str, Any]]]:
+    """Yield (period, path, data) for valid bilingual moat caches of a ticker."""
+    prefix = f"{ticker}_"
+    rows = []
+    try:
+        names = os.listdir(CACHE_DIR)
+    except FileNotFoundError:
+        return rows
+    for name in names:
+        if not (name.startswith(prefix) and name.endswith(".json")):
+            continue
+        period = name[len(prefix):-len(".json")]
+        path = os.path.join(CACHE_DIR, name)
+        try:
+            with open(path, "r", encoding="utf-8") as handle:
+                data = json.load(handle)
+        except Exception:
+            continue
+        if not _moat_cache_is_valid(data):
+            continue
+        rows.append((period, path, data))
+    rows.sort(key=lambda item: _period_sort_key(item[0]), reverse=True)
+    return rows
+
+
+def load_prior_period_moat(ticker: str, exclude_period: str) -> Optional[Dict[str, Any]]:
+    """Newest valid prior-period moat cache (budget / offline fallback)."""
+    for period, _path, data in _iter_ticker_moat_caches(ticker):
+        if period != exclude_period:
+            return data
+    return None
+
+
+def find_moat_by_evidence_hash(
+    ticker: str, evidence_hash: str, assessment_policy: str
+) -> Optional[Tuple[str, Dict[str, Any]]]:
+    """Return (source_period, data) when a cache matches HK-style evidenceHash + policy."""
+    for period, _path, data in _iter_ticker_moat_caches(ticker):
+        if (
+            data.get("evidenceHash") == evidence_hash
+            and data.get("assessmentPolicy") == assessment_policy
+        ):
+            return period, data
+    return None
+
+
+def _stamp_moat_metadata(
+    data: Dict[str, Any],
+    *,
+    ticker: str,
+    period: str,
+    evidence_hash: str,
+    assessment_policy: str,
+) -> Dict[str, Any]:
+    stamped = copy.deepcopy(data)
+    stamped["ticker"] = ticker
+    stamped["period"] = period
+    stamped["evidenceHash"] = evidence_hash
+    stamped["assessmentPolicy"] = assessment_policy
+    return stamped
+
+
+def _write_moat_cache(cache_file: str, data: Dict[str, Any]) -> None:
+    with open(cache_file, "w", encoding="utf-8") as handle:
+        json.dump(data, handle, ensure_ascii=False, indent=2)
+
+
+def _gemini_generate_config(**kwargs):
+    """Flash-Lite friendly config: thinking off when the SDK supports it."""
+    config_kwargs = dict(kwargs)
+    try:
+        config_kwargs["thinking_config"] = types.ThinkingConfig(thinking_budget=0)
+        return types.GenerateContentConfig(**config_kwargs)
+    except Exception:
+        config_kwargs.pop("thinking_config", None)
+        return types.GenerateContentConfig(**config_kwargs)
+
+
 def get_deep_chinese_description(ticker: str, company_name: str, en_desc: str) -> str:
+    global _desc_gemini_used
     if not en_desc or len(en_desc.strip()) < 30:
         return ""
 
@@ -241,6 +441,17 @@ def get_deep_chinese_description(ticker: str, company_name: str, en_desc: str) -
     if not gemini_client:
         return ""
 
+    _log_gemini_budgets_once()
+    desc_cap = us_desc_gemini_budget()
+    if desc_cap is not None and _desc_gemini_used >= desc_cap:
+        _desc_budget_skipped.append(ticker)
+        print(
+            f"⏳ DESC budget skip {ticker}: reused empty/template path "
+            f"(used {_desc_gemini_used}/{desc_cap}; backlog later)",
+            flush=True,
+        )
+        return ""
+
     prompt = f"""
 你是一名資深證券分析師。請將以下企業 【{company_name} ({ticker})】 的官方業務營運描述翻譯並精煉為「繁體中文（台灣財經用語）」。
 要求：
@@ -254,12 +465,14 @@ def get_deep_chinese_description(ticker: str, company_name: str, en_desc: str) -
     for attempt in range(2):
         try:
             response = gemini_client.models.generate_content(
-                model=PRIMARY_MODEL,
-                contents=prompt
+                model=US_DESC_MODEL,
+                contents=prompt,
+                config=_gemini_generate_config(temperature=0.2),
             )
             desc_zh = response.text.strip()
             with open(cache_file, "w", encoding="utf-8") as f:
                 json.dump({"description_zh": desc_zh}, f, ensure_ascii=False, indent=2)
+            _desc_gemini_used += 1
             return desc_zh
         except Exception:
             time.sleep(1.5)
@@ -274,8 +487,8 @@ TAX_RATE = 21.0
 
 class MoatDimension(BaseModel):
     score: int = Field(..., ge=0, le=10, description="0到10整數打分")
-    comment_zh: str = Field(..., description="120至180字繁體中文深入透徹評語，緊扣巴菲特投資哲學，點出具體商業壁壘或競對差異")
-    comment_en: str = Field(..., description="In-depth English analysis (120-180 words) aligned with Warren Buffett's moat principles.")
+    comment_zh: str = Field(..., description="40至80字繁體中文評語：點出具體壁壘或競對差異，勿長文")
+    comment_en: str = Field(..., description="Concise English comment (about 40-80 Chinese-equivalent chars / ~25-50 words); specific moat point only.")
 
 class StockMoatReport(BaseModel):
     ticker: str
@@ -290,10 +503,16 @@ class StockMoatReport(BaseModel):
     m8_capital_allocation: MoatDimension = Field(..., description="M8. Asset Irreproducibility & Moat Fortress")
     m9_customer_retention: MoatDimension = Field(..., description="M9. Disruption Immunity & Durability")
     m10_durability: MoatDimension = Field(..., description="M10. Management Integrity & Capital Allocation")
-    overall_moat_verdict_zh: str = Field(..., description="150至200字繁體中文巴菲特護城河總結定性")
-    overall_moat_verdict_en: str = Field(..., description="Comprehensive Buffett moat verdict in English (150-200 words)")
+    overall_moat_verdict_zh: str = Field(..., description="60至100字繁體中文護城河總結定性")
+    overall_moat_verdict_en: str = Field(..., description="Short Buffett-style moat verdict in English (~40-70 words)")
 
 def analyze_stock_moat(ticker: str, latest_period: str, fin_context: Dict[str, Any], force_refresh: bool = False) -> Optional[Dict[str, Any]]:
+    """US moat with HK-style evidence hash: remoat only when fin summary/policy changes.
+
+    Fiscal period remains metadata (and the on-disk filename suffix) but is not the sole
+    reuse key. Legacy period-keyed files without evidenceHash remain readable.
+    """
+    global _moat_gemini_used
     if not latest_period or latest_period == "LATEST":
         import datetime
         now = datetime.datetime.now()
@@ -303,86 +522,133 @@ def analyze_stock_moat(ticker: str, latest_period: str, fin_context: Dict[str, A
         safe_period = str(latest_period).replace("/", "_").strip()
 
     cache_file = os.path.join(CACHE_DIR, f"{ticker}_{safe_period}.json")
+    evidence_hash = us_moat_evidence_hash(fin_context)
+    policy = US_MOAT_ASSESSMENT_POLICY
 
-    if not force_refresh and os.path.exists(cache_file):
-        try:
-            with open(cache_file, "r", encoding="utf-8") as f:
-                cached_data = json.load(f)
-                
-                m1_data = cached_data.get("m1_brand_pricing", {})
-                has_bilingual = (
-                    "comment_zh" in m1_data 
-                    and "comment_en" in m1_data 
-                    and "overall_moat_verdict_zh" in cached_data
+    if not force_refresh:
+        # 1) Exact evidenceHash + assessmentPolicy hit (any period) → reuse; refresh period metadata.
+        matched = find_moat_by_evidence_hash(ticker, evidence_hash, policy)
+        if matched is not None:
+            source_period, cached = matched
+            stamped = _stamp_moat_metadata(
+                cached, ticker=ticker, period=safe_period,
+                evidence_hash=evidence_hash, assessment_policy=policy,
+            )
+            if source_period != safe_period or cached.get("period") != safe_period \
+                    or cached.get("evidenceHash") != evidence_hash \
+                    or cached.get("assessmentPolicy") != policy:
+                _write_moat_cache(cache_file, stamped)
+                print(
+                    f"♻️ {ticker}: evidenceHash hit (from {source_period}) → period={safe_period}, no Gemini",
+                    flush=True,
                 )
-                
-                is_valid_text = (
-                    "暫未取得" not in cached_data.get("overall_moat_verdict_zh", "") 
-                    and "暫未取得" not in cached_data.get("overall_moat_verdict", "")
-                )
+            return stamped
 
-                if has_bilingual and is_valid_text:
-                    return cached_data
-        except Exception:
-            pass
+        # 2) Same-period legacy file (pre-hash): reuse and backfill hash/policy for future runs.
+        if os.path.exists(cache_file):
+            try:
+                with open(cache_file, "r", encoding="utf-8") as handle:
+                    legacy = json.load(handle)
+                if _moat_cache_is_valid(legacy):
+                    stored_hash = legacy.get("evidenceHash")
+                    stored_policy = legacy.get("assessmentPolicy")
+                    if not stored_hash:
+                        stamped = _stamp_moat_metadata(
+                            legacy, ticker=ticker, period=safe_period,
+                            evidence_hash=evidence_hash, assessment_policy=policy,
+                        )
+                        _write_moat_cache(cache_file, stamped)
+                        print(
+                            f"♻️ {ticker}@{safe_period}: legacy moat cache stamped with evidenceHash",
+                            flush=True,
+                        )
+                        return stamped
+                    # Hash present but mismatched → fall through to remoat / budget path.
+                    if stored_hash == evidence_hash and stored_policy == policy:
+                        return _stamp_moat_metadata(
+                            legacy, ticker=ticker, period=safe_period,
+                            evidence_hash=evidence_hash, assessment_policy=policy,
+                        )
+            except Exception:
+                pass
+
+    prior = None if force_refresh else load_prior_period_moat(ticker, safe_period)
 
     if not gemini_client:
-        # Expansion batches must not publish invented neutral scores when Vertex/Gemini is absent.
+        if prior is not None:
+            print(f"♻️ {ticker}: no Gemini client; reusing prior-period moat cache", flush=True)
+            return prior
+        if US_EXPANSION_MODE:
+            return None
+        return _build_fallback_moat(ticker, safe_period)
+
+    _log_gemini_budgets_once()
+    moat_cap = us_moat_gemini_budget()
+    if moat_cap is not None and _moat_gemini_used >= moat_cap:
+        _moat_budget_skipped.append(ticker)
+        if prior is not None:
+            prior_period = prior.get("period") or "prior"
+            print(
+                f"⏳ MOAT budget skip {ticker}@{safe_period}: evidence changed; reuse prior {prior_period} "
+                f"(used {_moat_gemini_used}/{moat_cap}; queued for later runs)",
+                flush=True,
+            )
+            return prior
+        print(
+            f"⏳ MOAT budget skip {ticker}@{safe_period}: evidence changed; no prior cache "
+            f"(used {_moat_gemini_used}/{moat_cap}; fallback / unavailable)",
+            flush=True,
+        )
         if US_EXPANSION_MODE:
             return None
         return _build_fallback_moat(ticker, safe_period)
 
     prompt = f"""
-    請以沃倫·巴菲特（Warren Buffett）與查理·蒙格（Charlie Munger）的長期價值投資哲學視角，對上市公司 【{ticker}】 的 10 大經濟護城河（M1 至 M10）進行客觀、深度評估與嚴格打分。
-    當前分析基準季度：{safe_period}
+    請以沃倫·巴菲特與查理·蒙格的長期價值投資哲學，對 【{ticker}】 的 10 大經濟護城河（M1–M10）客觀打分。
+    基準季度：{safe_period}
 
-    【公司基本面與財務參考數據】
-    - 公司名稱: {fin_context.get('name', ticker)}
-    - 所屬板塊與產業: {fin_context.get('sector', 'N/A')} / {fin_context.get('industry', 'N/A')}
-    - 市值 (USD): ${fin_context.get('mcap', 0):,.1f} M
-    - ROE: {fin_context.get('roe', 0)}% | ROA: {fin_context.get('roa', 0)}%
-    - 皮氏 F-Score (9分制): {fin_context.get('f_score', 0)} / 9
-    - 自由現金流 (FCF TTM): ${fin_context.get('fcf0', 0):,.1f} M
-    - 現金與負債: 現金 ${fin_context.get('cash', 0):,.1f}M / 總負債 ${fin_context.get('debt', 0):,.1f}M
+    【參考數據】
+    - 名稱: {fin_context.get('name', ticker)}
+    - 板塊/產業: {fin_context.get('sector', 'N/A')} / {fin_context.get('industry', 'N/A')}
+    - 市值 (USD M): {fin_context.get('mcap', 0):,.1f} | ROE {fin_context.get('roe', 0)}% | ROA {fin_context.get('roa', 0)}%
+    - F-Score: {fin_context.get('f_score', 0)}/9 | FCF TTM: ${fin_context.get('fcf0', 0):,.1f}M
+    - 現金 ${fin_context.get('cash', 0):,.1f}M / 負債 ${fin_context.get('debt', 0):,.1f}M
 
-    【必須評估的 10 大維度標準 (M1 - M10)】
-    M1. 品牌心智與定價權 (Pricing Power): 加價後客戶是否依然離不開？是否具備強大產品提價權且不失銷量。
-    M2. 專利壁壘與特許許可 (Patents & Regulatory): 獨家專利集群、政府監管准入或法定特許經營收費橋樑。
-    M3. 黏性與替代成本 (Switching Costs): 更換產品是否會造成重大財務損失、營運中斷或高昂遷移成本。
-    M4. 雙向網絡正反饋 (Network Effects): 每多一個用戶加入，整個生態系統對所有參與者的價值呈幾何級上升。
-    M5. 極致規模經濟與工藝 (Scale Advantage): 能夠以對手無法企及的超低邊際成本供貨或掌握獨家工藝良率。
-    M6. 利基市場天然寡占 (Efficient Scale): 市場容量有限或具備獨佔性地理區位，新競爭者進入只會引發雙輸局面的天然理性寡占。
-    M7. 長週期超額 ROIC 韌性 (ROIC vs WACC): 投入資本回報率持續遠超加權資本成本，創造實質股東複利能力。
-    M8. 資本不可複製性 (Irreproducibility): 即便給對手 1,000 億美元資金，也無法在幾年內複製該企業核心戰略資產。
-    M9. 技術/典範轉移抗性 (Disruption Immunity): 需求確定性極高，對技術變革或 AI 顛覆具備強大免疫力。
-    M10. 管理層誠信與回購配置 (Capital Allocation): 不盲目溢價併購，低估時積極回購註銷股本以最大化股東利益。
+    【維度】M1 定價權/品牌 · M2 專利/特許 · M3 轉換成本 · M4 網絡效應 · M5 規模成本 · M6 利基寡占 · M7 超額ROIC · M8 不可複製資產 · M9 抗顛覆 · M10 管理層資本配置
 
-    【評估規則與要求】
-    1. 評分標準：0 到 10 分整數（0-3分：極弱或無護城河；4-6分：中等壁壘；7-8分：堅固護城河；9-10分：全球罕見定價權或壟斷級壁壘）。
-    2. 點評要求：每一條護城河 (M1~M10) 的 comment 必須深入透徹，字數嚴格控制在 120 至 180 字以內。必須明確點出具體商業模式優勢、同業競爭對手差異或財務數字佐證。
-    3. overall_moat_verdict 必須對該企業的本質做出巴菲特式的精準定性（例如定性為特許經營權平台、收費橋樑或商品型企業），字數在 150～200 字以內。
-    4. 必須回傳指定 JSON Schema 結構。
+    【規則】
+    1. 分數 0–10 整數（0–3 極弱；4–6 中等；7–8 堅固；9–10 罕見壁壘）。
+    2. 每維度 comment_zh / comment_en 各約 40–80 字（或英文對等篇幅），點出具體壁壘即可，禁止長文。
+    3. overall_moat_verdict_zh 約 60–100 字；overall_moat_verdict_en 約 40–70 words；需有巴菲特式定性（特許經營、收費橋、商品型等）。
+    4. 必須回傳指定 JSON Schema；保留全部 10 個分數與雙語欄位。
     """
 
     for attempt in range(3):
         try:
             response = gemini_client.models.generate_content(
-                model=PRIMARY_MODEL,
+                model=US_MOAT_MODEL,
                 contents=prompt,
-                config=types.GenerateContentConfig(
+                config=_gemini_generate_config(
                     response_mime_type="application/json",
                     response_schema=StockMoatReport,
                     temperature=0.2,
                 ),
             )
             data = json.loads(response.text)
-            with open(cache_file, "w", encoding="utf-8") as f:
-                json.dump(data, f, ensure_ascii=False, indent=2)
+            data = _stamp_moat_metadata(
+                data, ticker=ticker, period=safe_period,
+                evidence_hash=evidence_hash, assessment_policy=policy,
+            )
+            _write_moat_cache(cache_file, data)
+            _moat_gemini_used += 1
             return data
         except Exception as err:
             wait_time = (attempt + 1) * 3
             time.sleep(wait_time)
 
+    if prior is not None:
+        print(f"♻️ {ticker}: Gemini moat failed; reusing prior-period cache", flush=True)
+        return prior
     if US_EXPANSION_MODE:
         return None
     return _build_fallback_moat(ticker, safe_period)
@@ -973,10 +1239,40 @@ def get_canonical_entity_id(prof: dict, ticker: str) -> str:
     root_sym = re.split(r"[\.\-\/]", ticker)[0]
     return f"ROOT_{root_sym}"
 
+def _print_gemini_budget_backlog():
+    """Log deferred remoat / description work when daily caps were hit."""
+    moat_cap = us_moat_gemini_budget()
+    desc_cap = us_desc_gemini_budget()
+    print(
+        f"Gemini US usage this run: moat_calls={_moat_gemini_used}"
+        f"{'' if moat_cap is None else f'/{moat_cap}'} | "
+        f"desc_calls={_desc_gemini_used}"
+        f"{'' if desc_cap is None else f'/{desc_cap}'}",
+        flush=True,
+    )
+    if _moat_budget_skipped:
+        preview = ", ".join(_moat_budget_skipped[:40])
+        more = "" if len(_moat_budget_skipped) <= 40 else f" …(+{len(_moat_budget_skipped) - 40})"
+        print(
+            f"📋 MOAT remoat backlog ({len(_moat_budget_skipped)} tickers, prior cache reused when available): "
+            f"{preview}{more}",
+            flush=True,
+        )
+    if _desc_budget_skipped:
+        preview = ", ".join(_desc_budget_skipped[:40])
+        more = "" if len(_desc_budget_skipped) <= 40 else f" …(+{len(_desc_budget_skipped) - 40})"
+        print(
+            f"📋 DESC backlog ({len(_desc_budget_skipped)} tickers skipped for budget): "
+            f"{preview}{more}",
+            flush=True,
+        )
+
+
 def main():
     print("=" * 80, flush=True)
     print("🚀 美股 / 港股 DCF/金融雙軌模型 + Gemini 護城河雙核心引擎啟動", flush=True)
     print("=" * 80, flush=True)
+    _log_gemini_budgets_once()
     results = {}
     entity_moat_cache = {}
 
@@ -1684,6 +1980,7 @@ def main():
         market_path = os.path.join(output_dir, "market.json")
         with open(market_path, "w", encoding="utf-8") as f:
             json.dump(results, f, ensure_ascii=False, indent=2)
+        _print_gemini_budget_backlog()
         print(f"\nUS expansion batch wrote {len(results)} stocks to {market_path} (baseline full_market_dcf.json unchanged).", flush=True)
         return
 
@@ -1710,6 +2007,7 @@ def main():
         check=True
     )
 
+    _print_gemini_budget_backlog()
     print(f"\n🎉 成功！全市場 {len(UNIQUE_STOCKS)} 檔標的已全部完成估值、5年Beta校準與護城河分析！", flush=True)
 
 if __name__ == "__main__":

@@ -38,10 +38,23 @@ class MoatEvidenceTests(unittest.TestCase):
                       "moatScreen": {"calculationCurrency": "HKD", "marketCapMillions": 100}}
             source.write_text(json.dumps([record]), encoding="utf-8")
             with patch.object(sys, "argv", ["refresh_hkex_moat.py", str(source), str(output), "--force"]), \
+                    patch.dict(os.environ, {"FORCE_MOAT_CONFIRM": "YES"}), \
                     patch("scripts.refresh_hkex_moat.create_client") as client:
                 main()
             client.assert_not_called()
             self.assertEqual(json.loads(output.read_text(encoding="utf-8"))["0004.HK"], stored)
+
+    def test_force_requires_explicit_confirm_env(self):
+        with tempfile.TemporaryDirectory() as directory:
+            source, output = Path(directory) / "inputs.json", Path(directory) / "reports.json"
+            source.write_text(json.dumps([{"ticker": "0005.HK", "evidenceHash": "h"}]), encoding="utf-8")
+            with patch.object(sys, "argv", ["refresh_hkex_moat.py", str(source), str(output), "--force"]), \
+                    patch.dict(os.environ, {"FORCE_MOAT_CONFIRM": ""}, clear=False), \
+                    patch("scripts.refresh_hkex_moat.create_client") as client:
+                with self.assertRaises(SystemExit) as raised:
+                    main()
+            self.assertIn("FORCE_MOAT_CONFIRM", str(raised.exception))
+            client.assert_not_called()
 
     def test_legacy_annual_only_inputs_without_currency_metadata_remain_assessable(self):
         record = {"ticker": "0004.HK", "profile": {"companyName": "Issuer"}, "fScore": {},

@@ -42,6 +42,9 @@ jobs:
         env:
           MOAT_EVIDENCE_OUTPUT: hkex-source-output/moat-inputs.json
         run: node scripts/build_hkex.cjs hkex-source-output hkex-data-output
+      # Scheduled path: evidence/policy-hash refresh only. Never pass --force here
+      # (--force remoats nearly all HK names; use valuation_audit force_moat + FORCE_MOAT_CONFIRM for recovery).
+      # Prefer --retry-incomplete for null-score gaps (manual / recover scripts).
       - name: Reassess moat only on changed evidence
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}

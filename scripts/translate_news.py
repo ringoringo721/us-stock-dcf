@@ -1,4 +1,9 @@
-"""Translate only supplied public news headlines; persist exact-title translations."""
+"""Translate only supplied public news headlines; persist exact-title translations.
+
+Manual / workflow_dispatch only — never schedule a full news translate cron.
+pending_titles() skips titles already in the cache; prepare_news_translation.cjs
+--baseline-only limits the source list to reviewed frontpage US tickers.
+"""
 
 import argparse
 from datetime import datetime, timezone
