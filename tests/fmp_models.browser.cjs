@@ -59,7 +59,7 @@ const handler = createHandler(live ? {} : { apiKey: () => 'test-placeholder', fe
     page.on('pageerror', error => errors.push(error.message));
     await page.route('**/s3.tradingview.com/**', route => route.abort());
     const base = `http://127.0.0.1:${server.address().port}`;
-    for (const [market, ticker, count] of [['US', 'AAPL', 230], ['HKEX', '0700.HK', require('../hkex_stocks.json').length]]) {
+    for (const [market, ticker, count] of [['US', 'AAPL', 982], ['HKEX', '0700.HK', require('../hkex_stocks.json').length]]) {
       await page.goto(`${base}/?market=${market}`, { waitUntil: 'networkidle' });
       await page.waitForFunction(() => isAppReady);
       await page.evaluate(() => applyLanguage('en'));

@@ -923,7 +923,7 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
       'Financial valuation cards and sliders fit on mobile');
     await navigationPage.locator('#company-view > .detail-header [onclick="navigateBack()"]').click();
     assert.equal(await navigationPage.locator('#screener-view').isVisible(), true);
-    assert.equal(await navigationPage.locator('#screener-tbody tr').count(), 230);
+    assert.equal(await navigationPage.locator('#screener-tbody tr').count(), 982);
     await navigationPage.close();
     assert.deepEqual(errors, []);
     assert.deepEqual(firstPartyFailures, []);
@@ -983,7 +983,7 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
     await checkTable(racePage, 'AAPL', {}, 'return-ratio');
     await checkBalances(racePage, 'AAPL');
     await checkEarnings(racePage, 'AAPL');
-    console.log('PASS: Profile snapshots/localization/races, styled rating, embedded valuation/routes/back/save/reset/unsaved assumptions/mobile; existing 230-stock screener, financial tables, trends, ROTE, themes and retries.');
+    console.log('PASS: Profile snapshots/localization/races, styled rating, embedded valuation/routes/back/save/reset/unsaved assumptions/mobile; merged 982-stock US screener, financial tables, trends, ROTE, themes and retries.');
   } finally {
     await browser.close();
   }
