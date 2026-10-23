@@ -591,9 +591,12 @@ remain outside the repository and published assets.
 
 An assessment-policy change triggers reassessment even if financial evidence
 has not changed. `--retry-incomplete` additionally retries partial reports and
-is preferred for null-score gaps. `--force` remoats nearly all eligible HK names
+is preferred for null-score gaps. `--limit N` caps remoats in one run so a large
+policy remoat (for example all names above HKD 1 billion) can resume on the next
+dispatch without `--force`. `--force` remoats nearly all eligible HK names
 and requires `FORCE_MOAT_CONFIRM=YES` (or `1`/`true`) so accidental full remoats
-are hard; scheduled `refresh_hkex.yml` never passes `--force`.
+are hard; scheduled `refresh_hkex.yml` never passes `--force`. Manual Refresh
+HKEX accepts an optional `moat_limit` input wired to `--limit`.
 All new scores still require cited evidence and bilingual qualitative comments;
 insufficient evidence may legitimately remain unassessed. Failed authorization
 does not count as a successful refresh or replace prior reports with invented

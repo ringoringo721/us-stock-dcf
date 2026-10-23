@@ -199,14 +199,16 @@ def report_schema(ticker, source_ids):
         score: int | None = Field(default=None, ge=0, le=10)
         comment_zh: str = Field(
             description=(
-                "Traditional Chinese in-depth qualitative prose, about 150–250 characters: "
+                "Traditional Chinese in-depth qualitative prose, target about 150–250 characters "
+                "(not the short ~40–80 character style): "
                 "barrier mechanism, competitive differences and business logic; "
                 "no digits, amounts, dates or currency units; avoid empty boilerplate"
             ),
         )
         comment_en: str = Field(
             description=(
-                "In-depth English qualitative moat comment up to about 150 words: "
+                "In-depth English qualitative moat comment, target about 150 words "
+                "(approximately 150; not the short ~40–80 word style): "
                 "barrier mechanism, competitive differences and business logic; "
                 "no digits, amounts, dates or currency units"
             ),
@@ -231,7 +233,8 @@ def report_schema(ticker, source_ids):
             str,
             Field(
                 description=(
-                    "English overall moat verdict up to about 150 words; "
+                    "English overall moat verdict, target about 150 words "
+                    "(approximately 150; not a short blurb); "
                     "qualitative only—no digits, amounts, dates or currency units"
                 ),
             ),
@@ -374,9 +377,13 @@ def main():
                         help="Reassess partial/incomplete reports only (preferred over --force)")
     parser.add_argument("--force", action="store_true",
                         help="DANGER: regenerate nearly all reports; requires FORCE_MOAT_CONFIRM=YES")
+    parser.add_argument("--limit", type=int, default=None,
+                        help="Cap remoats this run (resume-friendly; remaining stay pending via policy/evidence)")
     args = parser.parse_args()
     if args.force:
         require_force_moat_confirm()
+    if args.limit is not None and not 1 <= args.limit <= 5000:
+        raise SystemExit("--limit must be between 1 and 5000")
     records = json.loads(Path(args.input).read_text(encoding="utf-8"))
     reports = json.loads(Path(args.output).read_text(encoding="utf-8")) if Path(args.output).exists() else {}
     if not isinstance(reports, dict):
@@ -387,6 +394,12 @@ def main():
     excluded = sum(below_moat_market_cap(row) for row in records)
     if excluded:
         print(f"Moat market-cap screen: {excluded} below HKD 1 billion; no assessment requested.")
+    deferred = 0
+    if args.limit is not None and len(pending) > args.limit:
+        deferred = len(pending) - args.limit
+        pending = pending[: args.limit]
+        print(f"--limit {args.limit}: remoating {len(pending)} now; {deferred} remain for a later run "
+              f"(policy/evidence mismatch resume; no --force).", flush=True)
     if args.force:
         print(f"--force pending refresh count: {len(pending)} (nearly all eligible names if evidence exists)",
               flush=True)
@@ -461,10 +474,11 @@ def main():
                 "Mention missing/reconciliation-limited evidence and the period actually available; annual "
                 "cash flows are NOT current TTM flows. No transcript means no claim to have reviewed a call. "
                 "Each dimension needs in-depth Traditional Chinese and English explanations and source IDs drawn "
-                "only from allowedSourceIds. Target length: comment_en up to about 150 English words; "
+                "only from allowedSourceIds. HARD LENGTH TARGET per dimension: comment_en approximately 150 "
+                "English words (aim for ~150; do not ship short ~40–80 word comments); "
                 "comment_zh about 150–250 Chinese characters—informative analysis of the barrier, competitive "
                 "differences and business model; not the short ~40–80 character style, and not empty padding. "
-                "overall_moat_verdict_en up to about 150 words; overall_moat_verdict_zh about 120–200 characters. "
+                "overall_moat_verdict_en approximately 150 words; overall_moat_verdict_zh about 120–200 characters. "
                 "Summarize/paraphrase; do not reproduce transcript passages. "
                 "Financial facts have already been translated to HKD using dated FX; amounts are full HKD units, "
                 "not millions. They provide evidence for qualitative assessment, not numbers to repeat in prose. "

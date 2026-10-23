@@ -5,6 +5,11 @@ on:
     - cron: '30 11 * * 1-5'
     - cron: '30 23 * * 0-4'
   workflow_dispatch:
+    inputs:
+      moat_limit:
+        description: Optional max moat remoats this run (empty = all pending ≥ HKD 1B). Use to batch/resume under time pressure; next run continues via policy/evidence mismatch (no --force).
+        type: string
+        default: ''
 
 permissions:
   contents: write
@@ -15,14 +20,28 @@ concurrency:
 
 jobs:
   refresh-hkex:
-    if: github.ref == 'refs/heads/main'
+    # Schedule stays on main. workflow_dispatch may run from a tooling PR branch so
+    # timeout / FX / prompt fixes can remoat before that PR merges (data still commits to main).
+    if: github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    # ~104 ≥HKD1B remoats at ~150-word/dim take ~80–100+ min of Vertex alone after capture;
+    # 90m was cancelling mid-moat and discarding checkpoints (no commit).
+    timeout-minutes: 240
     steps:
       - uses: actions/checkout@v4
         with:
           ref: main
           fetch-depth: 0
+      - name: Overlay moat refresh tooling from workflow ref
+        if: github.event_name == 'workflow_dispatch' && github.ref != 'refs/heads/main'
+        run: |
+          git fetch origin "${{ github.ref }}"
+          git checkout FETCH_HEAD -- \
+            scripts/refresh_hkex_moat.py \
+            scripts/refresh_usd_rates.cjs \
+            tests/test_hkex_moat.py \
+            README.md
+          echo "Overlaid moat/FX tooling from ${{ github.ref }} @ ${{ github.sha }}"
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
@@ -45,11 +64,22 @@ jobs:
       # Scheduled path: evidence/policy-hash refresh only. Never pass --force here
       # (--force remoats nearly all HK names; use valuation_audit force_moat + FORCE_MOAT_CONFIRM for recovery).
       # Prefer --retry-incomplete for null-score gaps (manual / recover scripts).
+      # Market-cap screen already skips known caps below HKD 1B; optional moat_limit batches resume.
       - name: Reassess moat only on changed evidence
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
-        run: python -u scripts/refresh_hkex_moat.py hkex-source-output/moat-inputs.json hkex-data-output/cache/hkex_moat.json
+        run: |
+          LIMIT_ARGS=()
+          # github.event.inputs is empty on schedule; only set for workflow_dispatch.
+          MOAT_LIMIT="${{ github.event.inputs.moat_limit }}"
+          if [ -n "$MOAT_LIMIT" ]; then
+            LIMIT_ARGS=(--limit "$MOAT_LIMIT")
+          fi
+          python -u scripts/refresh_hkex_moat.py \
+            hkex-source-output/moat-inputs.json \
+            hkex-data-output/cache/hkex_moat.json \
+            "${LIMIT_ARGS[@]}"
       - name: Apply configured HKEX listings and dated score provenance
         run: |
           node scripts/build_hkex.cjs hkex-source-output . hkex-data-output/cache/hkex_moat.json

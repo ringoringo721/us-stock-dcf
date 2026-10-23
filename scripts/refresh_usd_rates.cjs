@@ -4,7 +4,11 @@ const { spawnSync } = require('node:child_process');
 
 const source = 'https://www.federalreserve.gov/releases/h10/data/FRB_h10_xml.zip';
 const extension = process.argv.find(arg => arg.startsWith('--extend-from='));
-const from = extension ? extension.slice('--extend-from='.length) : '2018-01-01';
+// HKD cross-rates must retain 2010+ history for gaming JPY conversions / hkd_currency tests.
+// Plain `--hkd` used to default to 2018-01-01 and overwrite the cache, truncating early years
+// and failing Refresh HKEX after a successful moat remoat (no commit).
+const hkdFlag = process.argv.includes('--hkd');
+const from = extension ? extension.slice('--extend-from='.length) : (hkdFlag ? '2010-01-01' : '2018-01-01');
 if (!/^\d{4}-\d{2}-\d{2}$/.test(from) || !Number.isFinite(Date.parse(from))
     || new Date(from).toISOString().slice(0, 10) !== from) throw new Error('Invalid historical FX start date');
 const parser = `
@@ -51,7 +55,7 @@ print(json.dumps({'version': 1, 'source': '${source}', 'prepared': prepared, 'un
   });
   if (parsed.status !== 0) throw new Error(parsed.stderr || parsed.error?.message || 'FX parser failed');
   const rates = JSON.parse(parsed.stdout);
-  const hkd = process.argv.includes('--hkd');
+  const hkd = hkdFlag;
   if (hkd) {
     if (!['HKD', 'CNY', 'JPY'].every(currency => rates.currencies[currency])) {
       throw new Error('Required HKD cross-rate observations are absent');
