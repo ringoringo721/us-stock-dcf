@@ -52,8 +52,10 @@ function expectedAnnualCells(stock) {
     'P/E (latest full FY)': Number.isFinite(stock.pe_trailing) ? `${stock.pe_trailing.toFixed(1)}x` : 'N/A',
     'P/B (latest FY-end)': multiple(stock.pb_trailing),
     'FY Cash Dividends / Current Market Cap %': percent(stock.div_yield),
-    'Revenue ($M)': money(rev), 'Gross Profit ($M)': money(number('income', 'grossProfit')),
-    'Gross Profit Margin %': percent(number('income', 'grossProfit') / rev * 100),
+    'Revenue ($M)': money(rev),
+    'Gross Profit ($M)': stock.fin_valuation?.is_financial ? '--' : money(number('income', 'grossProfit')),
+    'Gross Profit Margin %': stock.fin_valuation?.is_financial ? '--'
+      : percent(number('income', 'grossProfit') / rev * 100),
     'Operating Profit ($M)': money(op), 'Operating Margin %': percent(op / rev * 100),
     'Net Profit ($M)': money(ni), 'Net Profit Margin %': percent(ni / rev * 100),
     'EBITDA ($M)': money(eb), 'EBITDA Margin %': percent(eb / rev * 100),
@@ -78,6 +80,10 @@ function expectedAnnualCells(stock) {
     ['Operating Profit YoY %', 'operatingIncome'], ['Net Profit Growth YoY %', 'netIncome'],
     ['EBITDA Growth YoY %', 'ebitda'], ['Operating Cashflow YoY %', 'operatingCashFlow'],
     ['Free Cash Flow YoY %', 'freeCashFlow']]) {
+    if (field === 'grossProfit' && stock.fin_valuation?.is_financial) {
+      cells[label] = '--';
+      continue;
+    }
     const { value, transition } = fy.growth[field];
     cells[label] = transition === 'positiveToNegative' ? 'Positive to negative'
       : transition === 'negativeToPositive' ? 'Negative to positive'

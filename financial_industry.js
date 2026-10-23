@@ -51,5 +51,14 @@
     return INSURANCE.has(industry || '');
   }
 
-  return { usesFinancialValuationModel, isInsuranceIndustry, BASELINE, EXPANSION, INSURANCE, EXCLUDED_TICKERS };
+  // Banks / credit / most insurers do not report industrial Cost of Revenue / Gross Profit.
+  // FMP still fills those fields inconsistently (interest expense as CoGS, GP > revenue, etc.).
+  function suppressIndustrialGrossProfit(industry, ticker) {
+    return usesFinancialValuationModel(industry, ticker);
+  }
+
+  return {
+    usesFinancialValuationModel, isInsuranceIndustry, suppressIndustrialGrossProfit,
+    BASELINE, EXPANSION, INSURANCE, EXCLUDED_TICKERS
+  };
 });
