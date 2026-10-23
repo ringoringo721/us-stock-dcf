@@ -84,3 +84,17 @@ test('matches filters by canonical parent + sub (aliases share a chip)', () => {
   );
   assert.equal(preferred.full, 'Banks - Diversified');
 });
+
+test('parent-only sub chip filters to exact parent with no sub', () => {
+  const parentOnly = IndustryTaxonomy.canonicalSubKey(IndustryTaxonomy.parse('Banks'));
+  assert.equal(parentOnly, IndustryTaxonomy.PARENT_ONLY_SUB);
+  assert.notEqual(parentOnly, '');
+  assert.equal(IndustryTaxonomy.matches('Banks', 'Banks', parentOnly), true);
+  assert.equal(IndustryTaxonomy.matches('Banks - Regional', 'Banks', parentOnly), false);
+  assert.equal(IndustryTaxonomy.matches('Banks - Diversified', 'Banks', parentOnly), false);
+  assert.equal(IndustryTaxonomy.matches('Diversified Banks', 'Banks', parentOnly), false);
+  assert.equal(IndustryTaxonomy.matches('Chemicals', 'Chemicals',
+    IndustryTaxonomy.canonicalSubKey(IndustryTaxonomy.parse('Chemicals'))), true);
+  assert.equal(IndustryTaxonomy.matches('Chemicals - Specialty', 'Chemicals',
+    IndustryTaxonomy.canonicalSubKey(IndustryTaxonomy.parse('Chemicals'))), false);
+});

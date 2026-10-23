@@ -397,10 +397,14 @@
     return key;
   }
 
+  // Sentinel for industries that map to a parent with no sub (e.g. bare "Banks").
+  // Must be non-empty so chip filters are never treated as falsy "no sub filter".
+  const PARENT_ONLY_SUB = '__parent__';
+
   // Chip / filter identity within a parent: aliases that share parent+sub collapse together.
   function canonicalSubKey(parts) {
-    if (!parts) return '';
-    return parts.sub == null ? '' : String(parts.sub);
+    if (!parts) return PARENT_ONLY_SUB;
+    return parts.sub == null ? PARENT_ONLY_SUB : String(parts.sub);
   }
 
   // Prefer FMP "Parent - Sub" rows when choosing a label for a merged chip group.
@@ -430,8 +434,9 @@
 
   function matches(industry, parentFilter, subFilter) {
     const parts = parse(industry);
-    if (parentFilter && parentFilter !== 'ALL' && parts.parent !== parentFilter) return false;
-    if (subFilter && subFilter !== 'ALL' && canonicalSubKey(parts) !== subFilter) return false;
+    if (parentFilter != null && parentFilter !== 'ALL' && parts.parent !== parentFilter) return false;
+    // Empty string must not mean "no filter": parent-only chips use PARENT_ONLY_SUB.
+    if (subFilter != null && subFilter !== 'ALL' && canonicalSubKey(parts) !== subFilter) return false;
     return true;
   }
 
@@ -440,6 +445,7 @@
     PARENT_NAMES_ZH,
     PARENT_ALIASES,
     SECTOR_CANONICAL,
+    PARENT_ONLY_SUB,
     canonicalSector,
     parse,
     canonicalSubKey,
