@@ -7,7 +7,7 @@ const assets = [
   'index.html', 'site_theme.js', 'market_context.js', 'market_data.js', 'fcff_data.js',
   'hk_market_data.js', 'hk_fcff_data.js', 'dcf_drivers.js', 'fcff.js', 'fcff_view.js',
   'usd_currency.js', 'liquidation.js', 'peer_comparison.js', 'fcf_ratios.js', 'financial_industry.js',
-  'financial_models.js', 'statements_model_pack.js',
+  'industry_taxonomy.js', 'financial_models.js', 'statements_model_pack.js',
   'ke_treasury_data.js',
   'balance_sheet.js', 'earnings_trend.js', 'profile_overview.js', 'technical_indicators.js', 'price_history.js', 'stock_search.js', 'company_data.js',
   'fmp_model_data.js', 'fmp_scenario.js', 'fmp_models.js', 'fmp_cache.js', 'beta_lookback.js',
