@@ -4576,14 +4576,17 @@
   }
 
   function industriesInScope() {
+    // parent → Map(canonicalSubKey → representative parts); aliases share one chip.
     const byParent = new Map();
     Object.values(stockUniverse).forEach(s => {
       if (!s?.industry) return;
       if (currentSectorFilter !== 'ALL'
           && IndustryTaxonomy.canonicalSector(s.sector) !== currentSectorFilter) return;
       const parts = IndustryTaxonomy.parse(s.industry);
+      const subKey = IndustryTaxonomy.canonicalSubKey(parts);
       if (!byParent.has(parts.parent)) byParent.set(parts.parent, new Map());
-      byParent.get(parts.parent).set(parts.full, parts);
+      const group = byParent.get(parts.parent);
+      group.set(subKey, IndustryTaxonomy.preferParts(group.get(subKey), parts));
     });
     return byParent;
   }
@@ -4618,17 +4621,18 @@
 
     const children = currentIndustryParentFilter === 'ALL'
       ? []
-      : [...(byParent.get(currentIndustryParentFilter)?.values() || [])];
+      : [...(byParent.get(currentIndustryParentFilter)?.entries() || [])]
+        .map(([subKey, parts]) => ({ subKey, parts }));
     const showSubs = currentIndustryParentFilter !== 'ALL'
-      && (children.length > 1 || children.some(parts => parts.sub));
+      && (children.length > 1 || children.some(({ parts }) => parts.sub));
 
     if (!showSubs) {
-      if (currentIndustryParentFilter !== 'ALL' && children.length === 1 && !children[0].sub) {
+      if (currentIndustryParentFilter !== 'ALL' && children.length === 1 && !children[0].parts.sub) {
         currentSubIndustryFilter = 'ALL';
       } else if (currentIndustryParentFilter === 'ALL') {
         currentSubIndustryFilter = 'ALL';
       } else if (currentSubIndustryFilter !== 'ALL'
-          && !children.some(parts => parts.full === currentSubIndustryFilter)) {
+          && !children.some(({ subKey }) => subKey === currentSubIndustryFilter)) {
         currentSubIndustryFilter = 'ALL';
       }
       subRow.hidden = true;
@@ -4637,19 +4641,19 @@
     }
 
     if (currentSubIndustryFilter !== 'ALL'
-        && !children.some(parts => parts.full === currentSubIndustryFilter)) {
+        && !children.some(({ subKey }) => subKey === currentSubIndustryFilter)) {
       currentSubIndustryFilter = 'ALL';
     }
 
     subRow.hidden = false;
     const allSubLabel = isZh ? '全部子行業' : 'All Sub-Industries';
     const sortedChildren = children.sort((a, b) =>
-      IndustryTaxonomy.labelSub(a, lang).localeCompare(IndustryTaxonomy.labelSub(b, lang), locale));
+      IndustryTaxonomy.labelSub(a.parts, lang).localeCompare(IndustryTaxonomy.labelSub(b.parts, lang), locale));
     let subHtml = `<button class="f-btn ${currentSubIndustryFilter === 'ALL' ? 'active' : ''}" onclick="setSubIndustryFilter('ALL')">${allSubLabel}</button>`;
-    sortedChildren.forEach(parts => {
+    sortedChildren.forEach(({ subKey, parts }) => {
       const label = IndustryTaxonomy.labelSub(parts, lang);
-      const isActive = currentSubIndustryFilter === parts.full ? 'active' : '';
-      subHtml += `<button class="f-btn ${isActive}" data-sub="${encodeURIComponent(parts.full)}" onclick="setSubIndustryFilter(decodeURIComponent(this.getAttribute('data-sub')))">${label}</button>`;
+      const isActive = currentSubIndustryFilter === subKey ? 'active' : '';
+      subHtml += `<button class="f-btn ${isActive}" data-sub="${encodeURIComponent(subKey)}" onclick="setSubIndustryFilter(decodeURIComponent(this.getAttribute('data-sub')))">${label}</button>`;
     });
     subContainer.innerHTML = subHtml;
   }

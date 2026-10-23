@@ -397,6 +397,22 @@
     return key;
   }
 
+  // Chip / filter identity within a parent: aliases that share parent+sub collapse together.
+  function canonicalSubKey(parts) {
+    if (!parts) return '';
+    return parts.sub == null ? '' : String(parts.sub);
+  }
+
+  // Prefer FMP "Parent - Sub" rows when choosing a label for a merged chip group.
+  function preferParts(existing, next) {
+    if (!existing) return next;
+    if (!next) return existing;
+    const existingDash = existing.full.includes(' - ');
+    const nextDash = next.full.includes(' - ');
+    if (nextDash && !existingDash) return next;
+    return existing;
+  }
+
   function labelSub(parts, lang) {
     if (!parts) return '';
     if (lang === 'zh') {
@@ -415,7 +431,7 @@
   function matches(industry, parentFilter, subFilter) {
     const parts = parse(industry);
     if (parentFilter && parentFilter !== 'ALL' && parts.parent !== parentFilter) return false;
-    if (subFilter && subFilter !== 'ALL' && parts.full !== subFilter) return false;
+    if (subFilter && subFilter !== 'ALL' && canonicalSubKey(parts) !== subFilter) return false;
     return true;
   }
 
@@ -426,6 +442,8 @@
     SECTOR_CANONICAL,
     canonicalSector,
     parse,
+    canonicalSubKey,
+    preferParts,
     labelIndustry,
     labelParent,
     labelSub,

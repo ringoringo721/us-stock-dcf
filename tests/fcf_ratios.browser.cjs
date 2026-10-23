@@ -211,9 +211,10 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
         === currentSectorFilter)), true);
     const nested = await page.evaluate(() => {
       for (const [parent, map] of industriesInScope()) {
-        const children = [...map.values()];
-        if (children.length > 1 || children.some(parts => parts.sub)) {
-          return { parent, full: (children.find(parts => parts.sub) || children[0]).full };
+        const children = [...map.entries()].map(([subKey, parts]) => ({ subKey, parts }));
+        if (children.length > 1 || children.some(({ parts }) => parts.sub)) {
+          const pick = children.find(({ parts }) => parts.sub) || children[0];
+          return { parent, subKey: pick.subKey };
         }
       }
       return null;
@@ -224,9 +225,18 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
       .every(link => IndustryTaxonomy.parse(stockUniverse[link.textContent].industry).parent
         === currentIndustryParentFilter)), true);
     assert.equal(await page.locator('#subindustry-row').isVisible(), true);
-    await page.evaluate(full => setSubIndustryFilter(full), nested.full);
+    await page.evaluate(subKey => setSubIndustryFilter(subKey), nested.subKey);
     assert.equal(await page.evaluate(() => [...document.querySelectorAll('#screener-tbody .ticker-link')]
-      .every(link => stockUniverse[link.textContent].industry === currentSubIndustryFilter)), true);
+      .every(link => IndustryTaxonomy.matches(
+        stockUniverse[link.textContent].industry,
+        currentIndustryParentFilter,
+        currentSubIndustryFilter))), true);
+    const subChipLabels = await page.evaluate(() =>
+      [...document.querySelectorAll('#subindustry-filters button')]
+        .slice(1)
+        .map(button => button.textContent.trim()));
+    assert.equal(new Set(subChipLabels).size, subChipLabels.length,
+      'Alias-equivalent sub-industries collapse to one chip');
     const zhLabels = await page.evaluate(() =>
       [...document.querySelectorAll('#industry-parent-filters button, #subindustry-filters button')]
         .map(button => button.textContent.trim()));

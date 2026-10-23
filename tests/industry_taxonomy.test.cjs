@@ -58,11 +58,29 @@ test('sector canonicalization maps FMP English sectors onto filter keys', () => 
   assert.equal(IndustryTaxonomy.canonicalSector('資訊科技'), '資訊科技');
 });
 
-test('matches filters by parent and exact full industry', () => {
+test('matches filters by canonical parent + sub (aliases share a chip)', () => {
   assert.equal(IndustryTaxonomy.matches('Banks - Regional', 'Banks', 'ALL'), true);
   assert.equal(IndustryTaxonomy.matches('Banks - Diversified', 'Banks', 'ALL'), true);
   assert.equal(IndustryTaxonomy.matches('Diversified Banks', 'Banks', 'ALL'), true);
   assert.equal(IndustryTaxonomy.matches('Apparel - Retail', 'Banks', 'ALL'), false);
-  assert.equal(IndustryTaxonomy.matches('Banks - Regional', 'Banks', 'Banks - Regional'), true);
-  assert.equal(IndustryTaxonomy.matches('Banks - Diversified', 'Banks', 'Banks - Regional'), false);
+
+  const diversified = IndustryTaxonomy.canonicalSubKey(IndustryTaxonomy.parse('Banks - Diversified'));
+  assert.equal(diversified, 'Diversified');
+  assert.equal(
+    IndustryTaxonomy.canonicalSubKey(IndustryTaxonomy.parse('Diversified Banks')),
+    diversified
+  );
+  assert.equal(IndustryTaxonomy.matches('Banks - Diversified', 'Banks', diversified), true);
+  assert.equal(IndustryTaxonomy.matches('Diversified Banks', 'Banks', diversified), true);
+  assert.equal(IndustryTaxonomy.matches('Banks - Regional', 'Banks', diversified), false);
+
+  const infra = IndustryTaxonomy.canonicalSubKey(IndustryTaxonomy.parse('Software - Infrastructure'));
+  assert.equal(IndustryTaxonomy.matches('Systems Software', 'Software', infra), true);
+  assert.equal(IndustryTaxonomy.matches('Application Software', 'Software', infra), false);
+
+  const preferred = IndustryTaxonomy.preferParts(
+    IndustryTaxonomy.parse('Diversified Banks'),
+    IndustryTaxonomy.parse('Banks - Diversified')
+  );
+  assert.equal(preferred.full, 'Banks - Diversified');
 });
