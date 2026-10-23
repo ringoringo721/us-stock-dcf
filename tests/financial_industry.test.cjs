@@ -1,6 +1,12 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { usesFinancialValuationModel, isInsuranceIndustry } = require('../financial_industry.js');
+const fs = require('node:fs');
+const path = require('node:path');
+const {
+  usesFinancialValuationModel, isInsuranceIndustry, shouldNormalizeBankRevenue,
+  bankRevenueUsesGrossInterest, bankOperatingRevenue, normalizeBankIncomeRow,
+  normalizeBankStatements
+} = require('../financial_industry.js');
 
 test('baseline and expansion bank/insurance industries use financial models', () => {
   assert.equal(usesFinancialValuationModel('Diversified Banks', 'JPM'), true);
@@ -33,4 +39,66 @@ test('banks and insurers suppress industrial gross-profit display', () => {
   assert.equal(suppressIndustrialGrossProfit('Insurance - Life', 'AFL'), true);
   assert.equal(suppressIndustrialGrossProfit('Semiconductors', 'NVDA'), false);
   assert.equal(suppressIndustrialGrossProfit('Software - Infrastructure', 'NET'), false);
+});
+
+test('bank revenue normalization targets banks/credit, not insurers', () => {
+  assert.equal(shouldNormalizeBankRevenue('Banks - Diversified', '3988.HK'), true);
+  assert.equal(shouldNormalizeBankRevenue('Diversified Banks', 'JPM'), true);
+  assert.equal(shouldNormalizeBankRevenue('Financial - Credit Services', 'AXP'), true);
+  assert.equal(shouldNormalizeBankRevenue('Insurance - Life', 'AFL'), false);
+  assert.equal(shouldNormalizeBankRevenue('Semiconductors', 'NVDA'), false);
+});
+
+test('gross-interest revenue framing is detected and converted to NII + non-interest', () => {
+  const gross = {
+    revenue: 1217380000000,
+    interestIncome: 1000907000000,
+    interestExpense: 560202000000,
+    netInterestIncome: 440705000000
+  };
+  const netStyle = {
+    revenue: 531258000000,
+    interestIncome: 1071539000000,
+    interestExpense: 622605000000,
+    netInterestIncome: 448934000000
+  };
+  assert.equal(bankRevenueUsesGrossInterest(gross), true);
+  assert.equal(bankRevenueUsesGrossInterest(netStyle), false);
+  assert.equal(bankOperatingRevenue(gross), 440705000000 + (1217380000000 - 1000907000000));
+  assert.equal(bankOperatingRevenue(netStyle), netStyle.revenue);
+  const normalized = normalizeBankIncomeRow(gross, 'Banks - Diversified', '3988.HK');
+  assert.equal(normalized.revenue, bankOperatingRevenue(gross));
+  assert.equal(normalized.providerRevenue, gross.revenue);
+  assert.equal(normalizeBankIncomeRow(gross, 'Insurance - Life', 'AFL').revenue, gross.revenue);
+});
+
+test('3988.HK 2025 annual revenue spike normalizes while earlier net-style years stay put', () => {
+  const source = JSON.parse(fs.readFileSync(
+    path.join(__dirname, '..', 'cache', 'financials', '3988.HK_statements_v2.json'), 'utf8'));
+  const normalized = normalizeBankStatements(source, 'Banks - Diversified', '3988.HK');
+  const byYear = Object.fromEntries(normalized.annual.income.map(row => [row.date.slice(0, 4), row]));
+  assert.equal(byYear['2024'].revenue, 531258000000);
+  assert.ok(!byYear['2024'].revenueNormalization);
+  assert.equal(byYear['2025'].revenue, 657178000000);
+  assert.equal(byYear['2025'].providerRevenue, 1217380000000);
+  const growth = byYear['2025'].revenue / byYear['2024'].revenue - 1;
+  assert.ok(growth < 0.5, `corrected YoY should be far below the broken +129% (got ${(growth * 100).toFixed(1)}%)`);
+});
+
+test('peer annualView uses normalized bank revenue for 3988.HK growth', () => {
+  const { annualView } = require('../peer_comparison.js');
+  const { convertStatements } = require('../usd_currency.js');
+  const rates = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'cache', 'fx', 'usd_rates.json'), 'utf8'));
+  const source = JSON.parse(fs.readFileSync(
+    path.join(__dirname, '..', 'cache', 'financials', '3988.HK_statements_v2.json'), 'utf8'));
+  const data = convertStatements(source, rates);
+  const stock = {
+    ticker: '3988.HK', industry: 'Banks - Diversified', calculationCurrency: 'HKD',
+    mcap: 1e6, shares: 1, shareBasis: 'commonSharesOutstandingExcludingTreasury', price: 1
+  };
+  const view = annualView(stock, data);
+  assert.ok(view.peerAnnual.growth.revenue);
+  assert.ok(!view.peerAnnual.growth.revenue.reason, view.peerAnnual.growth.revenue.reason);
+  assert.ok(Math.abs(view.peerAnnual.growth.revenue.value) < 50,
+    `peer revenue YoY should not stay near +129% (got ${view.peerAnnual.growth.revenue.value})`);
 });

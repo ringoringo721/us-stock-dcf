@@ -231,6 +231,80 @@ os.makedirs(FIN_CACHE_DIR, exist_ok=True)
 os.makedirs(META_CACHE_DIR, exist_ok=True)
 os.makedirs(PEER_CACHE_DIR, exist_ok=True)
 
+# Mirror financial_industry.js: banks/credit only (not insurers / brokers).
+_BANK_REVENUE_INDUSTRIES = {
+    "Diversified Banks", "Consumer Finance", "Investment Banking & Brokerage",
+    "Banks", "Banks - Regional", "Banks - Diversified",
+    "Financial - Credit Services", "Investment - Banking & Investment Services",
+}
+_INSURANCE_REVENUE_INDUSTRIES = {
+    "Property & Casualty Insurance", "Life & Health Insurance", "Multi-line Insurance",
+    "Insurance Brokers", "Insurance - Property & Casualty", "Insurance - Life",
+    "Insurance - Diversified", "Insurance - Reinsurance", "Insurance - Specialty",
+    "Insurance - Brokers",
+}
+
+
+def _finite_number(value):
+    try:
+        number = float(value)
+    except (TypeError, ValueError):
+        return None
+    return number if number == number and abs(number) != float("inf") else None
+
+
+def _net_interest_income(row):
+    reported = _finite_number(row.get("netInterestIncome"))
+    if reported is not None:
+        return reported
+    income = _finite_number(row.get("interestIncome"))
+    expense = _finite_number(row.get("interestExpense"))
+    if income is None or expense is None:
+        return None
+    return income - expense
+
+
+def _bank_revenue_uses_gross_interest(row):
+    revenue = _finite_number(row.get("revenue"))
+    interest_income = _finite_number(row.get("interestIncome"))
+    net_interest = _net_interest_income(row)
+    if not (revenue and revenue > 0 and interest_income and interest_income > 0
+            and net_interest and net_interest > 0):
+        return False
+    if interest_income < revenue * 0.4:
+        return False
+    return revenue > net_interest * 1.5 and revenue >= interest_income * 0.9
+
+
+def _normalize_bank_income_row(row, industry, ticker):
+    if not isinstance(row, dict):
+        return row
+    if industry in _INSURANCE_REVENUE_INDUSTRIES:
+        return row
+    if industry and industry not in _BANK_REVENUE_INDUSTRIES:
+        return row
+    if ticker in {"BRK.B", "BRK-B", "BRK.A", "BRK-A"}:
+        return row
+    if not _bank_revenue_uses_gross_interest(row):
+        return row
+    revenue = _finite_number(row.get("revenue"))
+    interest_income = _finite_number(row.get("interestIncome"))
+    net_interest = _net_interest_income(row)
+    operating = net_interest + max(0.0, revenue - interest_income)
+    if operating == revenue:
+        return row
+    normalized = dict(row)
+    normalized["providerRevenue"] = revenue
+    normalized["revenue"] = operating
+    normalized["revenueNormalization"] = "bankOperatingFromGrossInterest"
+    return normalized
+
+
+def normalize_bank_income_rows(rows, industry, ticker):
+    if not isinstance(rows, list):
+        return rows
+    return [_normalize_bank_income_row(row, industry, ticker) for row in rows]
+
 # Daily remoat / description budgets (lever #2). Parsed lazily after US_EXPANSION_MODE is known.
 # Defaults: daily run caps new Gemini calls; expansion is uncapped unless env overrides.
 DEFAULT_DAILY_MOAT_BUDGET = 30
@@ -1454,12 +1528,13 @@ def main():
         fx_rate = 1.0  # Monetary statement fields have already been translated by the shared USD engine.
         annual_data = fin_cache.get("annual", {})
         quarterly_data = fin_cache.get("quarterly", {})
+        bank_industry = stock_item.get("industry", "")
 
-        inc_annual = annual_data.get("income", [])
+        inc_annual = normalize_bank_income_rows(annual_data.get("income", []), bank_industry, sym)
         bs_annual = annual_data.get("balance", [])
         cf_annual = annual_data.get("cashflow", [])
 
-        inc_quarter = quarterly_data.get("income", [])
+        inc_quarter = normalize_bank_income_rows(quarterly_data.get("income", []), bank_industry, sym)
         bs_quarter = quarterly_data.get("balance", [])
         cf_quarter = quarterly_data.get("cashflow", [])
 

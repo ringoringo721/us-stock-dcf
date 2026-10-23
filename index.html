@@ -5631,8 +5631,8 @@
     };
     if (activeStatementType === 'income' && s.fin_valuation?.is_financial) {
       status.append(document.createTextNode(isEn
-        ? ' · Bank/insurance income statements do not use industrial Cost of Revenue or Gross Profit; those provider fields are hidden here. Interest income/expense and net interest income are shown instead. Raw FMP gross-profit rows remain in cache for audit only.'
-        : ' · 銀行／保險損益不以工業口徑「營業成本／毛利」呈報；此處隱藏供應商該等欄位，改列利息收入／支出與淨利息收入。快取中的 FMP 毛利列僅供稽核、不作畫面顯示。'));
+        ? ' · Bank/insurance income statements do not use industrial Cost of Revenue or Gross Profit; those provider fields are hidden here. Interest income/expense and net interest income are shown instead. For banks/credit, Revenue periods that FMP framed as gross interest income are shown as operating revenue (NII + non-interest). Raw FMP rows remain in cache for audit only.'
+        : ' · 銀行／保險損益不以工業口徑「營業成本／毛利」呈報；此處隱藏供應商該等欄位，改列利息收入／支出與淨利息收入。銀行／信用業務若供應商把「營業收入」寫成利息收入（毛額）口徑，畫面改列營業收入＝淨利息＋非利息收入。快取中的 FMP 原列僅供稽核。'));
     }
     if (activeStatementType === 'income' && s.revenueProvenance) {
       status.append(document.createTextNode(isEn
@@ -5710,6 +5710,27 @@
       }
     }
 
+    const isFinancialIncome = !!(s.fin_valuation && s.fin_valuation.is_financial);
+    const normalizeBankRevenue = typeof FinancialIndustry !== 'undefined'
+      && FinancialIndustry.shouldNormalizeBankRevenue(s.industry, s.ticker);
+
+    function bankRevenueSeries() {
+      if (!normalizeBankRevenue) return getSeries('revenue');
+      const revenue = getSeries('revenue');
+      const interestIncome = getSeries('interestIncome');
+      const interestExpense = getSeries('interestExpense');
+      const netInterestIncome = getSeries('netInterestIncome');
+      return revenue.map((value, index) => {
+        const operating = FinancialIndustry.bankOperatingRevenue({
+          revenue: value,
+          interestIncome: interestIncome[index],
+          interestExpense: interestExpense[index],
+          netInterestIncome: netInterestIncome[index]
+        });
+        return Number.isFinite(operating) ? operating : NaN;
+      });
+    }
+
     // Prefer GP/rev (etc.) arithmetic so fraction vs percent storage and GP>rev cannot show as "1.20%".
     function getRatioSeries(field, numeratorField, denominatorField) {
       if (s.revenueProvenance && Array.isArray(incStmt[field])) {
@@ -5719,9 +5740,11 @@
         const numArr = isQuarter
           ? (incStmt[numeratorField] || [])
           : getSeries(numeratorField);
-        const denArr = isQuarter
-          ? (incStmt[denominatorField] || [])
-          : getSeries(denominatorField);
+        const denArr = denominatorField === 'revenue' && normalizeBankRevenue
+          ? bankRevenueSeries()
+          : isQuarter
+            ? (incStmt[denominatorField] || [])
+            : getSeries(denominatorField);
         const computed = numArr.map((n, i) => {
           const d = denArr[i];
           return Number.isFinite(n) && Number.isFinite(d) && Math.abs(d) > 0.01 ? (n / d) * 100 : NaN;
@@ -5731,7 +5754,6 @@
       return getSeries(field).map(v => Number.isFinite(v) ? (Math.abs(v) <= 1.5 ? v * 100 : v) : NaN);
     }
 
-    const isFinancialIncome = !!(s.fin_valuation && s.fin_valuation.is_financial);
     function netInterestSeries() {
       const nii = getSeries('netInterestIncome');
       if (nii.some(Number.isFinite)) return nii;
@@ -5747,7 +5769,7 @@
         isFinancialIncome ? {
           groupTitleZh: "核心營收與淨利息", groupTitleEn: "Revenue & Net Interest",
           items: [
-            { nameZh: "營業收入 (Revenue)", nameEn: "Revenue", series: getSeries('revenue'), highlight: true },
+            { nameZh: "營業收入 (Revenue)", nameEn: "Revenue", series: bankRevenueSeries(), highlight: true },
             { nameZh: "利息收入 (Interest Income)", nameEn: "Interest Income", series: getSeries('interestIncome') },
             { nameZh: "利息支出 (Interest Expense)", nameEn: "Interest Expense", series: getSeries('interestExpense'), color: "text-red" },
             { nameZh: "淨利息收入 (Net Interest Income)", nameEn: "Net Interest Income", series: netInterestSeries(), highlight: true }
@@ -6203,7 +6225,22 @@
       return Array(count).fill(NaN);
     }
 
-    const rev = getArr('income', 'revenue');
+    let rev = getArr('income', 'revenue');
+    if (typeof FinancialIndustry !== 'undefined'
+        && FinancialIndustry.shouldNormalizeBankRevenue(s.industry, s.ticker)) {
+      const interestIncome = getArr('income', 'interestIncome');
+      const interestExpense = getArr('income', 'interestExpense');
+      const netInterestIncome = getArr('income', 'netInterestIncome');
+      rev = rev.map((revenue, index) => {
+        const operating = FinancialIndustry.bankOperatingRevenue({
+          revenue,
+          interestIncome: interestIncome[index],
+          interestExpense: interestExpense[index],
+          netInterestIncome: netInterestIncome[index]
+        });
+        return Number.isFinite(operating) ? operating : NaN;
+      });
+    }
     const gp = getArr('income', 'grossProfit');
     const ebit = getArr('income', 'operatingIncome');
     const ni = getArr('income', 'netIncome');
@@ -6380,6 +6417,19 @@
         return Number.isFinite(value) ? value : NaN;
       }
       const stmts = (stock && stock.statements_raw && stock.statements_raw[stmtKey]) || {};
+      if (stmtKey === 'income' && fieldKey === 'revenue'
+          && typeof FinancialIndustry !== 'undefined'
+          && FinancialIndustry.shouldNormalizeBankRevenue(stock.industry, stock.ticker)) {
+        const revenue = stmts.revenue || [];
+        const targetIdx = idx === -1 ? revenue.length - 1 : (idx < 0 ? revenue.length + idx : idx);
+        const operating = FinancialIndustry.bankOperatingRevenue({
+          revenue: revenue[targetIdx],
+          interestIncome: stmts.interestIncome?.[targetIdx],
+          interestExpense: stmts.interestExpense?.[targetIdx],
+          netInterestIncome: stmts.netInterestIncome?.[targetIdx]
+        });
+        return Number.isFinite(operating) ? operating : NaN;
+      }
       const arr = stmts[fieldKey];
       if (Array.isArray(arr) && arr.length > 0) {
         if (idx === -1) return Number.isFinite(arr[arr.length - 1]) ? arr[arr.length - 1] : NaN;

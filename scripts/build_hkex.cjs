@@ -3,6 +3,7 @@ const path = require('node:path');
 const crypto = require('node:crypto');
 const { convertStatements, rateFor } = require('../usd_currency.js');
 const { value } = require('./usd_financials.cjs');
+const { normalizeBankStatements } = require('../financial_industry.js');
 const scores = require('../statement_scores.js');
 const ratios = require('../fcf_ratios.js');
 const context = require('../market_context.js');
@@ -653,7 +654,7 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
     });
   }
   const raw = applyPropertyFv(reported, item.ticker);
-  const data = convertStatements(raw, rates);
+  const data = normalizeBankStatements(convertStatements(raw, rates), item.industry, item.ticker);
   const chart = options.allowIncomplete && !['prices_older', 'prices_recent'].some(name => readRows(evidence, name).length)
     ? { version: 1, ticker: item.ticker, currency: 'HKD', priceBasis: 'splitAdjustedClose', rows: [], reason: 'sourceUnavailable' }
     : priceHistory(evidence);

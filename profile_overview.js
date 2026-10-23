@@ -5,6 +5,9 @@
 })(typeof globalThis === 'object' ? globalThis : this, function () {
   'use strict';
   const context = typeof module === 'object' && module.exports ? require('./market_context.js') : MarketContext;
+  const industryApi = typeof module === 'object' && module.exports
+    ? require('./financial_industry.js')
+    : (typeof globalThis !== 'undefined' ? globalThis.FinancialIndustry : null);
   const Beta = typeof module === 'object' && module.exports
     ? (typeof require === 'function' ? (() => { try { return require('./beta_lookback.js'); } catch { return null; } })() : null)
     : (typeof BetaLookback !== 'undefined' ? BetaLookback : null);
@@ -238,8 +241,11 @@
     };
     draw(null, null);
     try {
-      const data = await FcfRatios.loadStatements(ticker, reload);
+      const loaded = await FcfRatios.loadStatements(ticker, reload);
       if (id !== requestId) return;
+      const data = industryApi
+        ? industryApi.normalizeBankStatements(loaded, stock.industry, ticker)
+        : loaded;
       labels = context.localize(get('overview-groups').parentElement, labels, data);
       context.renderProvenance(get('overview-groups').parentElement, data, ticker);
       const summary = calculate(data);

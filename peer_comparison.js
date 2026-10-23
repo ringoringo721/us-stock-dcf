@@ -1,11 +1,13 @@
 (function (root, factory) {
   const api = factory(
     () => typeof module === 'object' && module.exports ? require('./fcf_ratios.js') : root.FcfRatios,
-    () => typeof module === 'object' && module.exports ? require('./profile_overview.js') : root.ProfileOverview);
+    () => typeof module === 'object' && module.exports ? require('./profile_overview.js') : root.ProfileOverview,
+    () => typeof module === 'object' && module.exports ? require('./financial_industry.js') : root.FinancialIndustry);
   if (typeof module === 'object' && module.exports) module.exports = api;
   else root.PeerComparison = api;
-})(typeof globalThis === 'object' ? globalThis : this, function (returnsEngine, growthEngine) {
+})(typeof globalThis === 'object' ? globalThis : this, function (returnsEngine, growthEngine, financialIndustry) {
   'use strict';
+  const industryApi = () => financialIndustry();
   // Comparison families broaden coverage; membership does not imply direct competition.
   const families = [
     ['Technology Hardware, Storage & Peripherals', 'Communications Equipment', 'Electronic Equipment & Instruments', 'Electronic Components'],
@@ -91,6 +93,7 @@
     if (data.calculationCurrency !== (stock.calculationCurrency || 'HKD')) {
       throw new TypeError('Annual peer statement currency mismatch');
     }
+    data = industryApi().normalizeBankStatements(data, stock.industry, stock.ticker);
     const finite = Number.isFinite;
     const sorted = rows => rows.slice().sort((a, b) => a.date.localeCompare(b.date));
     const fullYears = rows => sorted(rows.filter(row => row.period === 'FY' && row.periodLength === 12
