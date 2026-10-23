@@ -730,7 +730,7 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
     f_score_breakdown: scoreBreakdown(score, raw.propertyFvProvenance ? convertStatements(reported, rates) : data), moat: priorMoat,
     fair_val: null, default_fair_val: null, premium_pct: null, is_undervalued: null,
     pe_forward: null, pb_forward: null, target_price: null, dcf_model_ev: null,
-    statements_raw: table, reported_growth: reportedGrowth(data, rates), real_history: {},
+    statements_raw: table, reported_growth: reportedGrowth(data, rates, { industry: item.industry, ticker: item.ticker }), real_history: {},
     peers: readRows(evidence, 'peers').map(row => row.symbol).filter(symbol => typeof symbol === 'string'),
     fin_valuation: { is_financial: !!item.financial }, image: p.image || null, logo: p.image || null,
     website: p.website || null, ceo: p.ceo || null, full_time_employees: Number(p.fullTimeEmployees) > 0 ? Number(p.fullTimeEmployees) : null,

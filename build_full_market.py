@@ -265,6 +265,8 @@ def _net_interest_income(row):
 
 
 def _bank_revenue_uses_gross_interest(row):
+    if row.get("revenueNormalization") == "bankOperatingFromGrossInterest":
+        return False
     revenue = _finite_number(row.get("revenue"))
     interest_income = _finite_number(row.get("interestIncome"))
     net_interest = _net_interest_income(row)
@@ -273,11 +275,14 @@ def _bank_revenue_uses_gross_interest(row):
         return False
     if interest_income < revenue * 0.4:
         return False
-    return revenue > net_interest * 1.5 and revenue >= interest_income * 0.9
+    # revenue >= interestIncome keeps NII+fee operating rows from being re-normalized.
+    return revenue > net_interest * 1.5 and revenue >= interest_income
 
 
 def _normalize_bank_income_row(row, industry, ticker):
     if not isinstance(row, dict):
+        return row
+    if row.get("revenueNormalization") == "bankOperatingFromGrossInterest":
         return row
     if industry in _INSURANCE_REVENUE_INDUSTRIES:
         return row
@@ -294,7 +299,7 @@ def _normalize_bank_income_row(row, industry, ticker):
     if operating == revenue:
         return row
     normalized = dict(row)
-    normalized["providerRevenue"] = revenue
+    normalized["providerRevenue"] = row.get("providerRevenue", revenue)
     normalized["revenue"] = operating
     normalized["revenueNormalization"] = "bankOperatingFromGrossInterest"
     return normalized

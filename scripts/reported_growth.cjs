@@ -1,6 +1,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { convertStatements } = require('../usd_currency.js');
+const { normalizeBankStatements } = require('../financial_industry.js');
 const { calculate, growth, annualGrowth } = require('../profile_overview.js');
 const { cadence } = require('../market_context.js');
 const fields = {
@@ -8,8 +9,9 @@ const fields = {
   ebitda: 'income', epsDiluted: 'income', operatingCashFlow: 'cashflow', freeCashFlow: 'cashflow'
 };
 
-function reportedGrowth(source, rates) {
-  const data = convertStatements(source, rates);
+function reportedGrowth(source, rates, options = {}) {
+  const converted = convertStatements(source, rates);
+  const data = normalizeBankStatements(converted, options.industry, options.ticker);
   return {
     version: 1, currency: data.calculationCurrency || 'USD', basis: 'TTM versus prior-year TTM',
     date: calculate(data).date,
@@ -24,9 +26,9 @@ function main() {
   const market = JSON.parse(fs.readFileSync(path.join(root, 'full_market_dcf.json'), 'utf8'));
   const rates = JSON.parse(fs.readFileSync(path.join(root, 'cache', 'fx', 'usd_rates.json'), 'utf8'));
   const records = {};
-  for (const ticker of Object.keys(market)) {
+  for (const [ticker, stock] of Object.entries(market)) {
     const source = JSON.parse(fs.readFileSync(path.join(root, 'cache', 'financials', `${ticker}_statements_v2.json`), 'utf8'));
-    records[ticker] = reportedGrowth(source, rates);
+    records[ticker] = reportedGrowth(source, rates, { industry: stock.industry, ticker });
   }
   for (const file of ['full_market_dcf.json', 'market_data.js']) {
     const target = path.join(root, file);

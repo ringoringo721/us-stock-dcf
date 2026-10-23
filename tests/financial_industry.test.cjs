@@ -85,6 +85,23 @@ test('3988.HK 2025 annual revenue spike normalizes while earlier net-style years
   assert.ok(growth < 0.5, `corrected YoY should be far below the broken +129% (got ${(growth * 100).toFixed(1)}%)`);
 });
 
+test('bank revenue normalization is idempotent across convert/reportedGrowth passes', () => {
+  const { convertStatements } = require('../usd_currency.js');
+  const { reportedGrowth } = require('../scripts/reported_growth.cjs');
+  const rates = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'cache', 'fx', 'usd_rates.json'), 'utf8'));
+  const source = JSON.parse(fs.readFileSync(
+    path.join(__dirname, '..', 'cache', 'financials', 'JPM_statements_v2.json'), 'utf8'));
+  const once = normalizeBankStatements(convertStatements(source, rates), 'Diversified Banks', 'JPM');
+  const twice = normalizeBankStatements(structuredClone(once), 'Diversified Banks', 'JPM');
+  assert.deepEqual(
+    twice.quarterly.income.map(row => row.revenue),
+    once.quarterly.income.map(row => row.revenue)
+  );
+  const fromSource = reportedGrowth(source, rates, { industry: 'Diversified Banks', ticker: 'JPM' });
+  const fromNormalized = reportedGrowth(once, rates, { industry: 'Diversified Banks', ticker: 'JPM' });
+  assert.equal(fromNormalized.fields.revenue.value, fromSource.fields.revenue.value);
+});
+
 test('peer annualView uses normalized bank revenue for 3988.HK growth', () => {
   const { annualView } = require('../peer_comparison.js');
   const { convertStatements } = require('../usd_currency.js');

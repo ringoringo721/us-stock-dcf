@@ -79,13 +79,16 @@
   // FMP often stores bank "revenue" as gross interest income (+ fees) for some periods,
   // while other years use net operating income (NII + non-interest). Detect the gross framing.
   function bankRevenueUsesGrossInterest(row) {
+    if (row?.revenueNormalization === 'bankOperatingFromGrossInterest') return false;
     const revenue = finiteNumber(row?.revenue);
     const interestIncome = finiteNumber(row?.interestIncome);
     const netInterest = netInterestIncomeOf(row);
     if (!(revenue > 0 && interestIncome > 0 && netInterest > 0)) return false;
     // Interest income must be a major share of reported revenue (excludes premium-led insurers).
     if (interestIncome < revenue * 0.4) return false;
-    return revenue > netInterest * 1.5 && revenue >= interestIncome * 0.9;
+    // Require revenue at/above interest income so NII+fee operating rows (often < II) are not
+    // re-detected on a second pass.
+    return revenue > netInterest * 1.5 && revenue >= interestIncome;
   }
 
   // Operating revenue ≈ NII + non-interest income. When revenue includes gross interest,
@@ -101,13 +104,14 @@
 
   function normalizeBankIncomeRow(row, industry, ticker) {
     if (!row || !shouldNormalizeBankRevenue(industry, ticker)) return row;
+    if (row.revenueNormalization === 'bankOperatingFromGrossInterest') return row;
     if (!bankRevenueUsesGrossInterest(row)) return row;
     const operating = bankOperatingRevenue(row);
     if (operating === null || operating === row.revenue) return row;
     return {
       ...row,
       revenue: operating,
-      providerRevenue: row.revenue,
+      providerRevenue: row.providerRevenue ?? row.revenue,
       revenueNormalization: 'bankOperatingFromGrossInterest'
     };
   }

@@ -21,10 +21,11 @@ test('MU and LRCX growth uses prior-year fiscal TTM, not a duplicate current ann
 });
 
 test('All eight stored growth metrics agree with independently summed, USD-normalized source quarters for every stock', () => {
+  const { normalizeBankStatements } = require('../financial_industry.js');
   let unavailable = 0;
   for (const [ticker, stock] of Object.entries(market)) {
-    const data = convertStatements(source(ticker), rates);
-    assert.deepEqual(stock.reported_growth, reportedGrowth(data, rates), ticker);
+    const data = normalizeBankStatements(convertStatements(source(ticker), rates), stock.industry, ticker);
+    assert.deepEqual(stock.reported_growth, reportedGrowth(data, rates, { industry: stock.industry, ticker }), ticker);
     const income = data.quarterly.income.slice().sort((a, b) => a.date.localeCompare(b.date)).slice(-8);
     for (const [field, statement] of Object.entries(fields)) {
       const rows = income.map(anchor => data.quarterly[statement].find(row => row.date === anchor.date));
@@ -44,6 +45,22 @@ test('All eight stored growth metrics agree with independently summed, USD-norma
     assert.equal(summary.netIncomeGrowth, stock.reported_growth.fields.netIncome.value);
   }
   console.log(`Growth health: ${Object.keys(market).length * Object.keys(fields).length} stock/metric combinations; ${unavailable} explicitly unavailable, not fake zeros`);
+});
+
+test('US bank TTM revenue growth uses operating revenue, not raw FMP gross-interest revenue', () => {
+  const { normalizeBankStatements } = require('../financial_industry.js');
+  for (const ticker of ['JPM', 'GS', 'BAC']) {
+    const stock = market[ticker];
+    assert.ok(stock, ticker);
+    const raw = convertStatements(source(ticker), rates);
+    const normalized = normalizeBankStatements(structuredClone(raw), stock.industry, ticker);
+    const rawGrowth = growth(raw, 'income', 'revenue').value;
+    const operatingGrowth = growth(normalized, 'income', 'revenue').value;
+    const stored = stock.reported_growth.fields.revenue.value;
+    assert.equal(stored, reportedGrowth(source(ticker), rates, { industry: stock.industry, ticker }).fields.revenue.value, ticker);
+    assert.ok(Math.abs(stored - operatingGrowth) < 1e-9, `${ticker}: stored TTM growth must match normalized operating revenue`);
+    assert.ok(Math.abs(rawGrowth - operatingGrowth) > 0.01, `${ticker}: fixture must differ raw vs operating so the regression is meaningful`);
+  }
 });
 
 test('Growth retains genuine unchanged, zero and negative current results, but rejects nonpositive prior bases', () => {
