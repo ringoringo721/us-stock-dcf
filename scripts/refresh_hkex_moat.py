@@ -25,8 +25,10 @@ DIMENSIONS = {
     "m9_customer_retention": "Resistance to technological and demand disruption",
     "m10_durability": "Management integrity and capital allocation",
 }
-ASSESSMENT_POLICY = "grounded-business-judgment-v3"
-RESEARCH_ASSESSMENT_POLICY = "researched-business-judgment-v4"
+# v4 / researched-v5: fuller bilingual comments (~150 EN words / ~150–250 字 per dimension),
+# aligned with US us-buffett-moat-v3. Policy bump remoats on next evidence/policy refresh.
+ASSESSMENT_POLICY = "grounded-business-judgment-v4"
+RESEARCH_ASSESSMENT_POLICY = "researched-business-judgment-v5"
 FACT_FIELDS = (
     "date", "period", "fiscalYear", "reportedCurrency", "sourceReportedCurrency", "periodStartDate", "periodLength",
     "reportType", "comparabilityGroup", "operatingIncomeBasis", "earningsIncludeDiscontinued",
@@ -195,13 +197,47 @@ def report_schema(ticker, source_ids):
 
     class Dimension(BaseModel):
         score: int | None = Field(default=None, ge=0, le=10)
-        comment_zh: str = Field(description="Traditional Chinese qualitative prose; no digits, amounts, dates or currency units")
-        comment_en: str = Field(description="English qualitative prose; no digits, amounts, dates or currency units")
+        comment_zh: str = Field(
+            description=(
+                "Traditional Chinese in-depth qualitative prose, about 150–250 characters: "
+                "barrier mechanism, competitive differences and business logic; "
+                "no digits, amounts, dates or currency units; avoid empty boilerplate"
+            ),
+        )
+        comment_en: str = Field(
+            description=(
+                "In-depth English qualitative moat comment up to about 150 words: "
+                "barrier mechanism, competitive differences and business logic; "
+                "no digits, amounts, dates or currency units"
+            ),
+        )
         sources: list[Literal[tuple(source_ids)]]
 
-    return create_model("EvidenceMoatReport", ticker=(Literal[ticker], ...), period=(str, ...),
-                        description_zh=(str, ...), overall_moat_verdict_zh=(str, ...),
-                        overall_moat_verdict_en=(str, ...), **{name: (Dimension, ...) for name in DIMENSIONS})
+    return create_model(
+        "EvidenceMoatReport",
+        ticker=(Literal[ticker], ...),
+        period=(str, ...),
+        description_zh=(str, ...),
+        overall_moat_verdict_zh=(
+            str,
+            Field(
+                description=(
+                    "Traditional Chinese overall moat verdict about 120–200 characters; "
+                    "qualitative only—no digits, amounts, dates or currency units"
+                ),
+            ),
+        ),
+        overall_moat_verdict_en=(
+            str,
+            Field(
+                description=(
+                    "English overall moat verdict up to about 150 words; "
+                    "qualitative only—no digits, amounts, dates or currency units"
+                ),
+            ),
+        ),
+        **{name: (Dimension, ...) for name in DIMENSIONS},
+    )
 
 
 def validate_narrative(text):
@@ -424,8 +460,12 @@ def main():
                 "to convictions or attribute a former manager's conduct to current management. "
                 "Mention missing/reconciliation-limited evidence and the period actually available; annual "
                 "cash flows are NOT current TTM flows. No transcript means no claim to have reviewed a call. "
-                "Each dimension needs short Traditional Chinese and English explanations and source IDs drawn "
-                "only from allowedSourceIds. Summarize/paraphrase; do not reproduce transcript passages. "
+                "Each dimension needs in-depth Traditional Chinese and English explanations and source IDs drawn "
+                "only from allowedSourceIds. Target length: comment_en up to about 150 English words; "
+                "comment_zh about 150–250 Chinese characters—informative analysis of the barrier, competitive "
+                "differences and business model; not the short ~40–80 character style, and not empty padding. "
+                "overall_moat_verdict_en up to about 150 words; overall_moat_verdict_zh about 120–200 characters. "
+                "Summarize/paraphrase; do not reproduce transcript passages. "
                 "Financial facts have already been translated to HKD using dated FX; amounts are full HKD units, "
                 "not millions. They provide evidence for qualitative assessment, not numbers to repeat in prose. "
                 "Do not copy foreign-currency monetary figures from the transcript into the verdict or invent a "

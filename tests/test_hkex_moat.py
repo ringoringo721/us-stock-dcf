@@ -8,10 +8,10 @@ from types import SimpleNamespace
 from unittest.mock import Mock, patch
 
 from scripts.refresh_hkex_moat import (
-    ASSESSMENT_POLICY, DIMENSIONS, MoatReportValidationError, create_client,
+    ASSESSMENT_POLICY, RESEARCH_ASSESSMENT_POLICY, DIMENSIONS, MoatReportValidationError, create_client,
     needs_refresh, validate_report, validation_feedback, evidence_context, write_json_checkpoint, main,
     below_moat_market_cap,
-    repair_narratives,
+    repair_narratives, report_schema,
 )
 
 
@@ -171,6 +171,24 @@ class MoatEvidenceTests(unittest.TestCase):
         record["existing"]["report"]["m2_patents_regulatory"]["score"] = None
         self.assertFalse(needs_refresh(record))
         self.assertTrue(needs_refresh(record, retry_incomplete=True))
+
+    def test_assessment_policy_is_v4_fuller_comments_not_prior_short_ids(self):
+        self.assertEqual(ASSESSMENT_POLICY, "grounded-business-judgment-v4")
+        self.assertEqual(RESEARCH_ASSESSMENT_POLICY, "researched-business-judgment-v5")
+        self.assertNotIn("v3", ASSESSMENT_POLICY)
+        schema = report_schema("0700.HK", ["profile"])
+        dimension = schema.model_json_schema()["$defs"]["Dimension"]
+        self.assertIn("150", dimension["properties"]["comment_zh"]["description"])
+        self.assertIn("150", dimension["properties"]["comment_en"]["description"])
+        props = schema.model_json_schema()["properties"]
+        self.assertIn("150", props["overall_moat_verdict_en"]["description"])
+        # Prior grounded-v3 / researched-v4 caches must remoat on policy mismatch (no --force).
+        prior = {"evidenceHash": "same", "existing": {
+            "evidenceHash": "same", "assessmentPolicy": "grounded-business-judgment-v3",
+            "report": self.report()}}
+        self.assertTrue(needs_refresh(prior))
+        prior["existing"]["assessmentPolicy"] = "researched-business-judgment-v4"
+        self.assertTrue(needs_refresh(prior))
 
     def test_unavailable_dimensions_are_not_neutral_scores(self):
         report = self.report()
