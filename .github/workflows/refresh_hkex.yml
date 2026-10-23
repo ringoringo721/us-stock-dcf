@@ -35,13 +35,32 @@ jobs:
       - name: Overlay moat refresh tooling from workflow ref
         if: github.event_name == 'workflow_dispatch' && github.ref != 'refs/heads/main'
         run: |
+          # Worktree-only overlay: do NOT `git checkout FETCH_HEAD --` (that stages
+          # tooling into the index and the persist commit would push it to main).
           git fetch origin "${{ github.ref }}"
-          git checkout FETCH_HEAD -- \
+          for path in \
             scripts/refresh_hkex_moat.py \
             scripts/refresh_usd_rates.cjs \
             tests/test_hkex_moat.py \
             README.md
-          echo "Overlaid moat/FX tooling from ${{ github.ref }} @ ${{ github.sha }}"
+          do
+            git show "FETCH_HEAD:$path" > "$path"
+          done
+          git update-index --refresh >/dev/null 2>&1 || true
+          if ! git diff --quiet -- \
+              scripts/refresh_hkex_moat.py \
+              scripts/refresh_usd_rates.cjs \
+              tests/test_hkex_moat.py \
+              README.md; then
+            echo "Overlaid moat/FX tooling in worktree only from ${{ github.ref }} @ ${{ github.sha }}"
+          else
+            echo "Tooling already matches ${{ github.ref }}"
+          fi
+          if ! git diff --cached --quiet; then
+            echo "::error::Overlay must not stage index changes"
+            git diff --cached --name-only
+            exit 1
+          fi
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
@@ -101,11 +120,24 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Moat/validate already ran. Drop worktree-only tooling overlay and any staged
+          # non-data paths so rebase/push to main cannot carry scripts/tests/README.
+          git restore --source=HEAD --worktree --staged -- \
+            scripts/refresh_hkex_moat.py \
+            scripts/refresh_usd_rates.cjs \
+            tests/test_hkex_moat.py \
+            README.md || true
+          git reset HEAD
           git add hk_market_dcf.json hk_market_data.js hk_fcff_data.js
           git add fmp_model_data.js
           git add -f cache/company/*.HK.json
           git add -f cache/rote_history/*.HK.json
           git add -f cache/hkex_moat.json cache/financials/*.HK_statements_v2.json cache/price_charts/*.HK.json cache/fx/hkd_rates.json
+          if git diff --cached --name-only | grep -Eiv '^(hk_market_dcf\.json|hk_market_data\.js|hk_fcff_data\.js|fmp_model_data\.js|cache/(company|rote_history|financials|price_charts|fx|hkex_moat))'; then
+            echo "::error::Persist staging includes paths outside the HKEX data allowlist:"
+            git diff --cached --name-only
+            exit 1
+          fi
           if ! git diff --cached --quiet; then
             git commit -m "Refresh real HKEX data and evidence-based ratings [skip ci]" -m "Co-authored-by: Copilot App <223556219+Copilot@users.noreply.github.com>"
             git pull --rebase origin main
