@@ -3,6 +3,7 @@ const path = require('node:path');
 const { convertStatements } = require('../usd_currency.js');
 const { calculateReturns, financialReference } = require('../fcf_ratios.js');
 const FinancialModels = require('../financial_models.js');
+const { normalizeBankStatements } = require('../financial_industry.js');
 
 const aliases = {
   epsdiluted: ['epsDiluted'], ebitdaratio: ['ebitdaRatio'],
@@ -140,7 +141,7 @@ function refreshMarketRatios(root) {
 }
 
 function normalizeStock(stock, source, rates) {
-  const data = convertStatements(source, rates);
+  const data = normalizeBankStatements(convertStatements(source, rates), stock.industry, stock.ticker);
   const balanceMetrics = marketBalanceRatios(stock, data);
   const output = structuredClone(stock);
   const sorted = (period, type) => data[period][type].slice().sort((a, b) => a.date.localeCompare(b.date));
