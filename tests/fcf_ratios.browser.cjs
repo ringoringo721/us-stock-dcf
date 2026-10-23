@@ -176,7 +176,7 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
       await page.evaluate(lang => applyLanguage(lang), lang);
       await page.setViewportSize({ width, height: 1080 });
       const alignment = await page.locator('.screener-industries').evaluate(panel => {
-        const rows = [...panel.querySelectorAll('.filter-row')];
+        const rows = [...panel.querySelectorAll('.filter-row')].filter(row => !row.hidden);
         const rect = element => element.getBoundingClientRect();
         return rows.map(row => ({
           label: rect(row.querySelector('.filter-title')).toJSON(),
@@ -187,6 +187,7 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
           }))
         }));
       });
+      assert.ok(alignment.length >= 2, 'Sector and industry parent rows are visible');
       assert.ok(Math.abs(alignment[0].grid.left - alignment[1].grid.left) < 1,
         'Sector and industry grids start on the same vertical line');
       assert.ok(Math.abs(alignment[0].grid.width - alignment[1].grid.width) < 1);
@@ -206,10 +207,48 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
     await page.setViewportSize({ width: 1440, height: 1000 });
     await page.locator('#sector-filters button').nth(1).click();
     assert.equal(await page.evaluate(() => [...document.querySelectorAll('#screener-tbody .ticker-link')]
-      .every(link => stockUniverse[link.textContent].sector === currentSectorFilter)), true);
-    await page.locator('#subindustry-filters button').nth(1).click();
+      .every(link => IndustryTaxonomy.canonicalSector(stockUniverse[link.textContent].sector)
+        === currentSectorFilter)), true);
+    const nested = await page.evaluate(() => {
+      for (const [parent, map] of industriesInScope()) {
+        const children = [...map.entries()].map(([subKey, parts]) => ({ subKey, parts }));
+        if (children.length > 1 || children.some(({ parts }) => parts.sub)) {
+          const pick = children.find(({ parts }) => parts.sub) || children[0];
+          return { parent, subKey: pick.subKey };
+        }
+      }
+      return null;
+    });
+    assert.ok(nested, 'Selected sector exposes a nested industry parent');
+    await page.evaluate(parent => setIndustryParentFilter(parent), nested.parent);
     assert.equal(await page.evaluate(() => [...document.querySelectorAll('#screener-tbody .ticker-link')]
-      .every(link => stockUniverse[link.textContent].industry === currentSubIndustryFilter)), true);
+      .every(link => IndustryTaxonomy.parse(stockUniverse[link.textContent].industry).parent
+        === currentIndustryParentFilter)), true);
+    assert.equal(await page.locator('#subindustry-row').isVisible(), true);
+    await page.evaluate(subKey => setSubIndustryFilter(subKey), nested.subKey);
+    assert.equal(await page.evaluate(() => [...document.querySelectorAll('#screener-tbody .ticker-link')]
+      .every(link => IndustryTaxonomy.matches(
+        stockUniverse[link.textContent].industry,
+        currentIndustryParentFilter,
+        currentSubIndustryFilter))), true);
+    const subChipLabels = await page.evaluate(() =>
+      [...document.querySelectorAll('#subindustry-filters button')]
+        .slice(1)
+        .map(button => button.textContent.trim()));
+    assert.equal(new Set(subChipLabels).size, subChipLabels.length,
+      'Alias-equivalent sub-industries collapse to one chip');
+    const zhLabels = await page.evaluate(() =>
+      [...document.querySelectorAll('#industry-parent-filters button, #subindustry-filters button')]
+        .map(button => button.textContent.trim()));
+    assert.ok(zhLabels.every(label => /[\u4e00-\u9fff]/.test(label)),
+      'Chinese UI shows only Traditional Chinese industry chips');
+    await page.evaluate(() => applyLanguage('en'));
+    const enLabels = await page.evaluate(() =>
+      [...document.querySelectorAll('#industry-parent-filters button, #subindustry-filters button')]
+        .map(button => button.textContent.trim()));
+    assert.ok(enLabels.every(label => !/[\u4e00-\u9fff]/.test(label)),
+      'English UI shows only English industry chips');
+    await page.evaluate(() => applyLanguage('zh'));
     await page.locator('button[onclick="resetScreenerFilters()"]').click();
     await page.locator('.screener-industries summary').click();
     await page.selectOption('#screener-columns', 'all');
