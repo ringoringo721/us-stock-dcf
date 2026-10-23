@@ -25,3 +25,12 @@ test('insurance industry helper covers old and new FMP labels', () => {
   assert.equal(isInsuranceIndustry('Insurance - Life'), true);
   assert.equal(isInsuranceIndustry('Banks - Regional'), false);
 });
+
+test('banks and insurers suppress industrial gross-profit display', () => {
+  const { suppressIndustrialGrossProfit } = require('../financial_industry.js');
+  assert.equal(suppressIndustrialGrossProfit('Banks - Diversified', '3988.HK'), true);
+  assert.equal(suppressIndustrialGrossProfit('Diversified Banks', 'JPM'), true);
+  assert.equal(suppressIndustrialGrossProfit('Insurance - Life', 'AFL'), true);
+  assert.equal(suppressIndustrialGrossProfit('Semiconductors', 'NVDA'), false);
+  assert.equal(suppressIndustrialGrossProfit('Software - Infrastructure', 'NET'), false);
+});

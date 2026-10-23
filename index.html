@@ -5657,6 +5657,11 @@
       link.textContent = label;
       status.append(document.createTextNode(' · '), link);
     };
+    if (activeStatementType === 'income' && s.fin_valuation?.is_financial) {
+      status.append(document.createTextNode(isEn
+        ? ' · Bank/insurance income statements do not use industrial Cost of Revenue or Gross Profit; those provider fields are hidden here. Interest income/expense and net interest income are shown instead. Raw FMP gross-profit rows remain in cache for audit only.'
+        : ' · 銀行／保險損益不以工業口徑「營業成本／毛利」呈報；此處隱藏供應商該等欄位，改列利息收入／支出與淨利息收入。快取中的 FMP 毛利列僅供稽核、不作畫面顯示。'));
+    }
     if (activeStatementType === 'income' && s.revenueProvenance) {
       status.append(document.createTextNode(isEn
         ? ' · Reviewed revenue and specified income lines use cited issuer reports; other fields are not certified. Operating profit may be a cited derived subtotal, not reported/adjusted EBITDA. Reported gross profit is preserved where available, otherwise N/A. Net margin requires earnings compatible with continuing revenue. I2 means a second interim report, not another half-year; transition durations are shown explicitly. Published accounting changes, comparative restatements and historical EPS share bases are retained; periods are not automatically like-for-like or restated to current shares. No historical DCF or unpublished bridge is invented.'
@@ -5733,39 +5738,49 @@
       }
     }
 
-    // 季度視角：各項利潤率直接除以當季營收計算
+    // Prefer GP/rev (etc.) arithmetic so fraction vs percent storage and GP>rev cannot show as "1.20%".
     function getRatioSeries(field, numeratorField, denominatorField) {
       if (s.revenueProvenance && Array.isArray(incStmt[field])) {
         return incStmt[field].map(value => Number.isFinite(value) ? value * 100 : NaN);
       }
-      if (isQuarter) {
-        const numArr = incStmt[numeratorField] || [];
-        const denArr = incStmt[denominatorField] || [];
-        return numArr.map((n, i) => {
+      if (numeratorField && denominatorField) {
+        const numArr = isQuarter
+          ? (incStmt[numeratorField] || [])
+          : getSeries(numeratorField);
+        const denArr = isQuarter
+          ? (incStmt[denominatorField] || [])
+          : getSeries(denominatorField);
+        const computed = numArr.map((n, i) => {
           const d = denArr[i];
           return Number.isFinite(n) && Number.isFinite(d) && Math.abs(d) > 0.01 ? (n / d) * 100 : NaN;
         });
+        if (computed.some(Number.isFinite)) return computed;
       }
-      let raw = getSeries(field).map(v => v > 1 ? v : v * 100);
-      const isAllZero = raw.every(v => Math.abs(v) < 0.0001);
-      if (isAllZero && numeratorField && denominatorField) {
-        const numArr = (curStmt[numeratorField] || incStmt[numeratorField] || []);
-        const denArr = (curStmt[denominatorField] || incStmt[denominatorField] || []);
-        if (numArr.length === 6 && denArr.length === 6) {
-          raw = numArr.map((n, i) => {
-            const d = denArr[i];
-            return Number.isFinite(n) && Number.isFinite(d) && Math.abs(d) > 0.01 ? (n / d) * 100 : NaN;
-          });
-        }
-      }
-      return raw;
+      return getSeries(field).map(v => Number.isFinite(v) ? (Math.abs(v) <= 1.5 ? v * 100 : v) : NaN);
+    }
+
+    const isFinancialIncome = !!(s.fin_valuation && s.fin_valuation.is_financial);
+    function netInterestSeries() {
+      const nii = getSeries('netInterestIncome');
+      if (nii.some(Number.isFinite)) return nii;
+      const income = getSeries('interestIncome');
+      const expense = getSeries('interestExpense');
+      return income.map((v, i) => Number.isFinite(v) && Number.isFinite(expense[i]) ? v - expense[i] : NaN);
     }
 
     let sections = [];
 
     if (activeStatementType === 'income') {
       sections = [
-        {
+        isFinancialIncome ? {
+          groupTitleZh: "核心營收與淨利息", groupTitleEn: "Revenue & Net Interest",
+          items: [
+            { nameZh: "營業收入 (Revenue)", nameEn: "Revenue", series: getSeries('revenue'), highlight: true },
+            { nameZh: "利息收入 (Interest Income)", nameEn: "Interest Income", series: getSeries('interestIncome') },
+            { nameZh: "利息支出 (Interest Expense)", nameEn: "Interest Expense", series: getSeries('interestExpense'), color: "text-red" },
+            { nameZh: "淨利息收入 (Net Interest Income)", nameEn: "Net Interest Income", series: netInterestSeries(), highlight: true }
+          ]
+        } : {
           groupTitleZh: "核心營收與毛利", groupTitleEn: "Revenue & Gross Profit",
           items: [
             { nameZh: "營業收入 (Revenue)", nameEn: "Revenue", series: getSeries('revenue'), highlight: true },
@@ -5795,7 +5810,9 @@
         },
         {
           groupTitleZh: "非營業收支與融資成本", groupTitleEn: "Non-Operating & Financials",
-          items: [
+          items: isFinancialIncome ? [
+            { nameZh: "其他淨收支合計 (Total Other Income/Exp Net)", nameEn: "Other Income/Expense Net", series: getSeries('totalOtherIncomeExpensesNet') }
+          ] : [
             { nameZh: "其他淨收支合計 (Total Other Income/Exp Net)", nameEn: "Other Income/Expense Net", series: getSeries('totalOtherIncomeExpensesNet') },
             { nameZh: "利息收入 (Interest Income)", nameEn: "Interest Income", series: getSeries('interestIncome') },
             { nameZh: "利息支出 (Interest Expense)", nameEn: "Interest Expense", series: getSeries('interestExpense'), color: "text-red" }
@@ -6183,6 +6200,11 @@
     const ratioLabels = MarketContext.localize(document.getElementById('subpage-ratios'), I18N_DICT[currentLang],
       activeRatioPeriod === 'semiannual' ? { reportingFrequency: 'semiannual', periodView: s.reportingFrequency !== 'semiannual' ? 'semiannual' : null } : s);
     document.getElementById('ratio-status').textContent = `${activeCompanyTicker} · ${ratioLabels[activeRatioPeriod === 'semiannual' ? 'btn_ratio_half' : isQuarter ? 'btn_ratio_quarter' : 'btn_ratio_annual']} · ${count} ${ratioLabels.analysis_columns}`;
+    if (s.fin_valuation?.is_financial) {
+      document.getElementById('ratio-status').textContent += currentLang === 'en'
+        ? ' · Gross margin is N/A for banks/insurers (industrial Gross Profit is not applicable).'
+        : ' · 銀行／保險不適用工業口徑毛利率，毛利率列為 N/A。';
+    }
     if (s.revenueProvenance) {
       const beforeGamingTax = s.revenueProvenance.basisCode === 'issuerRevenueBeforeGamingTax'
         || s.revenueProvenance.symbol === '0027.HK';
@@ -6260,13 +6282,14 @@
           ? FcfRatios.storedTtmFcfToEquity(rawStmts, s.currencyConversion?.reason)
           : FcfRatios.fcfToEquity(value, equity[i]));
 
+    const hideGrossMargin = !!(s.fin_valuation && s.fin_valuation.is_financial);
     const ratioGroups = [
       {
         groupTitleZh: "1. 盈利能力與股東回報 (Profitability)", groupTitleEn: "1. Profitability & Shareholder Returns",
         items: [
           { nameZh: "營業收入 (Revenue, $M)", nameEn: "Revenue ($M)", series: rev, highlight: true },
           { nameZh: isQuarter ? "營收季增率 % (Revenue Growth QoQ)" : "營收年增率 % (Revenue Growth YoY)", nameEn: isQuarter ? "Revenue Growth % (QoQ)" : "Revenue Growth % (YoY)", series: revGrowth, isPercent: true, color: "text-green" },
-          { nameZh: "毛利率 % (Gross Profit Margin)", nameEn: "Gross Profit Margin %", series: gp.map((g, i) => (rev[i] ? (g / rev[i]) * 100 : NaN)), isPercent: true, color: "text-gold" },
+          { nameZh: "毛利率 % (Gross Profit Margin)", nameEn: "Gross Profit Margin %", series: hideGrossMargin ? rev.map(() => NaN) : gp.map((g, i) => (rev[i] ? (g / rev[i]) * 100 : NaN)), isPercent: true, color: "text-gold" },
           { nameZh: "息稅前利潤 (EBIT, $M)", nameEn: "EBIT ($M)", series: ebit, highlight: true },
           { nameZh: isQuarter ? "EBIT 季增率 % (EBIT Growth QoQ)" : "EBIT 年增率 % (EBIT Growth YoY)", nameEn: isQuarter ? "EBIT Growth % (QoQ)" : "EBIT Growth % (YoY)", series: ebitGrowth, isPercent: true },
           { nameZh: "EBIT 利潤率 % (EBIT Margin)", nameEn: "EBIT Margin %", series: ebit.map((e, i) => (rev[i] ? (e / rev[i]) * 100 : NaN)), isPercent: true },
@@ -6465,7 +6488,7 @@
         titleEn: "2. Growth Dynamics",
         items: [
           { labelZh: "營業收入年增率 (Revenue YoY %)", labelEn: "Revenue Growth YoY %", fn: x => growthCell(x, 'revenue') },
-          { labelZh: "毛利年增率 (Gross Profit YoY %)", labelEn: "Gross Profit Growth YoY %", fn: x => growthCell(x, 'grossProfit') },
+          { labelZh: "毛利年增率 (Gross Profit YoY %)", labelEn: "Gross Profit Growth YoY %", fn: x => x.fin_valuation?.is_financial ? '--' : growthCell(x, 'grossProfit') },
           { labelZh: "營業利益年增率 (Operating Profit YoY %)", labelEn: "Operating Profit YoY %", fn: x => growthCell(x, 'operatingIncome') },
           { labelZh: "淨利年增率 (Net Profit YoY %)", labelEn: "Net Profit Growth YoY %", fn: x => growthCell(x, 'netIncome') },
           { labelZh: "EBITDA 年增率 (EBITDA YoY %)", labelEn: "EBITDA Growth YoY %", fn: x => growthCell(x, 'ebitda') },
@@ -6479,8 +6502,8 @@
         items: [
           { labelZh: "巴菲特護城河評分 (Moat Score)", labelEn: "Buffett Moat Score", fn: x => { const moat = annual ? evaluateMoat(x) : computeDCF(x, x.ticker)?.moat; return `<b title="${ratingProvenance(x, 'moat').replace(/"/g, '&quot;')}" style="color:var(--accent);">${moat?.scoreText ?? 'N/A'} ${ratingState(x, 'moat')}</b>`; } },
           { labelZh: "營業收入 (Revenue, $M)", labelEn: "Revenue ($M)", fn: x => fmtM(getFinVal(x, 'income', 'revenue')) },
-          { labelZh: "毛利 (Gross Profit, $M)", labelEn: "Gross Profit ($M)", fn: x => fmtM(getFinVal(x, 'income', 'grossProfit')) },
-          { labelZh: "毛利率 % (Gross Margin)", labelEn: "Gross Profit Margin %", fn: x => { const r = getFinVal(x, 'income', 'revenue'), g = getFinVal(x, 'income', 'grossProfit'); return Number.isFinite(r) && r !== 0 && Number.isFinite(g) ? fmtPct((g/r)*100) : '--'; } },
+          { labelZh: "毛利 (Gross Profit, $M)", labelEn: "Gross Profit ($M)", fn: x => x.fin_valuation?.is_financial ? '--' : fmtM(getFinVal(x, 'income', 'grossProfit')) },
+          { labelZh: "毛利率 % (Gross Margin)", labelEn: "Gross Profit Margin %", fn: x => { if (x.fin_valuation?.is_financial) return '--'; const r = getFinVal(x, 'income', 'revenue'), g = getFinVal(x, 'income', 'grossProfit'); return Number.isFinite(r) && r !== 0 && Number.isFinite(g) ? fmtPct((g/r)*100) : '--'; } },
           { labelZh: "營業利益 (Operating Income, $M)", labelEn: "Operating Profit ($M)", fn: x => fmtM(getFinVal(x, 'income', 'operatingIncome')) },
           { labelZh: "營業利益率 % (Operating Margin)", labelEn: "Operating Margin %", fn: x => { const r = getFinVal(x, 'income', 'revenue'), op = getFinVal(x, 'income', 'operatingIncome'); return r ? fmtPct((op/r)*100) : '--'; } },
           { labelZh: "稅後淨利 (Net Income, $M)", labelEn: "Net Profit ($M)", fn: x => fmtM(getFinVal(x, 'income', 'netIncome')) },
