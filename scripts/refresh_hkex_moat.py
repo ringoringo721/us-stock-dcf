@@ -82,6 +82,27 @@ def below_moat_market_cap(record):
             and type(value) in (int, float) and math.isfinite(value) and 0 < value < 1000)
 
 
+_EN_MAGNITUDE_WORDS = frozenset({"million", "billion", "trillion"})
+_PROHIBITED_TOKEN_RE = re.compile(r"prohibited token:\s*([^\s).]+)", re.IGNORECASE)
+
+
+def magnitude_retry_guidance(detail):
+    """Actionable rewrite hint when Lite tripped on English magnitude words (e.g. bare 'billion')."""
+    text = detail or ""
+    match = _PROHIBITED_TOKEN_RE.search(text)
+    token = (match.group(1) if match else "").strip()
+    token_l = token.lower()
+    if token_l not in _EN_MAGNITUDE_WORDS and not any(word in text.lower() for word in _EN_MAGNITUDE_WORDS):
+        return ""
+    shown = token if token_l in _EN_MAGNITUDE_WORDS else "million/billion/trillion"
+    return (
+        f" MAGNITUDE RETRY (prohibited token: {shown}): Never use the English words million, billion, "
+        "or trillion at all — even without digits or currency. Never pair Chinese 億/萬/千 with digits. "
+        "Rewrite with qualitative scale language only (e.g. vast scale, large customer base, "
+        "龐大規模, 大型客戶基礎) and do not invent numerical or currency claims."
+    )
+
+
 def validation_feedback(error):
     if isinstance(error, MoatReportValidationError):
         detail = str(error)
@@ -94,12 +115,21 @@ def validation_feedback(error):
                 + " Regenerate the complete report using the same evidence and scores. "
                 "Keep comments qualitative (no digits, currency units, amounts, dates or percentages)."
             )
+        magnitude_hint = magnitude_retry_guidance(detail)
+        if magnitude_hint:
+            return (
+                "\nOUTPUT CORRECTION: " + detail + "." + magnitude_hint
+                + " Regenerate the complete report using the same evidence and scores. "
+                "Keep all comments and verdicts qualitative."
+            )
         return ("\nOUTPUT CORRECTION: " + detail + ". Regenerate the complete report using the same evidence. "
                 "Use qualitative words only in comments and verdicts, including technology/product terms and "
                 "regulatory acronyms. Say core capital instead of numbered capital tiers or digit-bearing "
                 "capital acronyms, and flagship properties instead of numbered property names. "
                 "Also paraphrase numbered industry tiers, customer segments, licence classes and gaming terms; "
-                "do not include digits, currency names or units, amounts, dates or percentages.")
+                "do not include digits, currency names or units, amounts, dates or percentages. "
+                "Never use English million/billion/trillion; never pair Chinese 億/萬/千 with digits — "
+                "use qualitative scale language instead.")
     if isinstance(error, json.JSONDecodeError):
         return "\nOUTPUT CORRECTION: Return one valid JSON object matching the requested schema."
     return ""
@@ -285,6 +315,8 @@ def report_schema(ticker, source_ids):
 
 def validate_narrative(text):
     # Monetary facts belong in the FX-verified tables, not model-generated prose.
+    # Bare English magnitude words (million/billion/trillion) stay hard-banned even without
+    # digits — Lite must use qualitative scale language instead (see magnitude_retry_guidance).
     match = re.search(r"[0-9$]|HKD|USD|RMB|CNY|\u6e2f\u5143|\u6e2f\u5e63|\u4eba\u6c11\u5e63|\u7f8e\u5143"
                       r"|\b(?:million|billion|trillion)\b", text, re.IGNORECASE)
     if match:
@@ -482,8 +514,12 @@ def main():
                         "do not add facts or infer a replacement numerical claim. Describe digit-bearing "
                         "product codes, drug targets, platform names and media formats qualitatively "
                         "instead of repeating their codes. Do not spell numerical claims out in words "
-                        "to evade validation. Include no digits, dates, percentages, monetary amounts, "
-                        "currency units or million/billion/trillion magnitudes. "
+                        "to evade validation. Include no digits, dates, percentages, monetary amounts or "
+                        "currency units. NEVER use the English words million, billion, or trillion at all "
+                        "(even without digits). NEVER pair Chinese 億/萬/千 with digits. If a field was "
+                        "rejected for a magnitude token, replace it with qualitative scale language "
+                        "(e.g. vast scale, large customer base, 龐大規模, 大型客戶基礎) that does not use "
+                        "those banned tokens. "
                         + zh_primary_prompt_rules() +
                         " Return exactly the requested "
                         "field names and their rewritten text; scores and citations cannot be changed.\n"
@@ -535,9 +571,11 @@ def main():
                 "Do not copy foreign-currency monetary figures from the transcript into the verdict or invent a "
                 "conversion. Use its qualitative discussion and the supplied HKD financial facts instead. "
                 "CRITICAL: Comments and overall verdicts must be QUALITATIVE ONLY. Include NO digits, dates, "
-                "percentages, monetary amounts, currency units or million/billion/trillion magnitudes in those "
-                "prose fields. Avoid digits even inside regulatory capital acronyms, technology terms and "
-                "property names, industry tiers, customer segments, licence classes and gaming terms: "
+                "percentages, monetary amounts or currency units in those prose fields. NEVER use the English "
+                "words million, billion, or trillion at all (even without digits). NEVER pair Chinese 億/萬/千 "
+                "with digits — use qualitative scale language instead (vast scale, large customer base, "
+                "龐大規模, 大型客戶基礎). Avoid digits even inside regulatory capital acronyms, technology terms "
+                "and property names, industry tiers, customer segments, licence classes and gaming terms: "
                 "describe core capital, next-generation technology or flagship properties "
                 "qualitatively instead. Software displays verified dates, scores and financial numbers separately. "
                 "All supplied financial rows are historical reported or explicitly derived actuals, NEVER "

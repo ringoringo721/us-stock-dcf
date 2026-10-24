@@ -3,8 +3,16 @@ name: Lite Buffett-v3 moat pilot (5 HK + 5 US)
 # Human-only. Agent tokens cannot workflow_dispatch (403).
 # Pilot only — uploads artifacts; does not commit production US/HK caches.
 # Partial success: job stays green when all US pass and HK failures ≤1 (overall_pass
-# in JSON may still be false). Re-run a single miss with hk_tickers=0941.HK and
-# us_tickers empty (or the same US list); confirm=PILOT; tooling_ref = this PR branch or main.
+# in JSON may still be false).
+#
+# Ticker inputs (important):
+# - Empty string or whitespace-only = SKIP that market. Defaults are intentionally
+#   empty so clearing the box does NOT resurrect AAPL/MSFT/... or the five HK names
+#   (GitHub Actions otherwise reinjects a non-empty default when the field is cleared).
+# - Type DEFAULT_HK or DEFAULT_US (exact sentinel) to expand the suggested five-name
+#   pilot sets, or paste an explicit comma-separated list.
+# - 0941-only re-run: confirm=PILOT; hk_tickers=0941.HK; us_tickers left empty;
+#   tooling_ref = this PR branch or main after merge.
 
 on:
   workflow_dispatch:
@@ -19,15 +27,15 @@ on:
         type: string
         default: 'main'
       hk_tickers:
-        description: 'HK tickers (comma-separated, mcap ≥ HKD 1B). Re-run miss only: 0941.HK'
+        description: 'HK CSV, or DEFAULT_HK for 0700.HK,0005.HK,0388.HK,0941.HK,1299.HK. Empty/whitespace = skip HK (does not fall back to the five). Re-run miss: 0941.HK'
         required: false
         type: string
-        default: '0700.HK,0005.HK,0388.HK,0941.HK,1299.HK'
+        default: ''
       us_tickers:
-        description: 'US tickers (comma-separated). Empty = skip US (HK-only re-run).'
+        description: 'US CSV, or DEFAULT_US for AAPL,MSFT,JPM,AMZN,BRK.B. Empty/whitespace = skip US (HK-only; does not fall back to the five).'
         required: false
         type: string
-        default: 'AAPL,MSFT,JPM,AMZN,BRK.B'
+        default: ''
       allow_hk_failures:
         description: 'Exit 0 when all US pass and HK failures ≤ this (default 1). overall_pass JSON still requires all pass.'
         required: false
@@ -75,18 +83,49 @@ jobs:
         with:
           node-version: '24'
       - run: pip install requests google-genai pydantic
+      - name: Resolve ticker lists (empty = skip; DEFAULT_* = pilot set)
+        id: resolve
+        env:
+          RAW_HK: ${{ inputs.hk_tickers }}
+          RAW_US: ${{ inputs.us_tickers }}
+        run: |
+          python3 <<'PY' >> "$GITHUB_OUTPUT"
+          import os
+          import sys
+          from pathlib import Path
+          sys.path.insert(0, str(Path.cwd()))
+          from scripts.run_lite_buffett_pilot import (
+              DEFAULT_HK,
+              DEFAULT_US,
+              SENTINEL_DEFAULT_HK,
+              SENTINEL_DEFAULT_US,
+              parse_ticker_list,
+          )
+          hk = parse_ticker_list(os.environ.get("RAW_HK"), sentinel=SENTINEL_DEFAULT_HK, default_list=DEFAULT_HK)
+          us = parse_ticker_list(os.environ.get("RAW_US"), sentinel=SENTINEL_DEFAULT_US, default_list=DEFAULT_US)
+          print(f"hk={','.join(hk)}")
+          print(f"us={','.join(us)}")
+          print(f"has_hk={'true' if hk else 'false'}")
+          print(f"has_us={'true' if us else 'false'}")
+          if not hk and not us:
+              raise SystemExit(
+                  "Both hk_tickers and us_tickers are empty after resolve. "
+                  "Pass DEFAULT_HK / DEFAULT_US or a CSV list; leave a box empty only to skip that market."
+              )
+          print(f"Resolved pilot tickers: HK={hk or ['(skip)']} US={us or ['(skip)']}", file=sys.stderr)
+          PY
       - name: Capture HK pilot tickers only
-        if: inputs.hk_tickers != ''
+        if: steps.resolve.outputs.has_hk == 'true'
         env:
           FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
           CAPTURE_MARKET: HKEX
           CAPTURE_OUTPUT: hkex-source-output
-          CAPTURE_SYMBOLS: ${{ inputs.hk_tickers }}
+          CAPTURE_SYMBOLS: ${{ steps.resolve.outputs.hk }}
         run: python -u scripts/capture_valuation_sources.py
       - name: Build HK moat evidence for pilot tickers only
-        if: inputs.hk_tickers != ''
+        if: steps.resolve.outputs.has_hk == 'true'
         env:
-          HKEX_BUILD_TICKERS: ${{ inputs.hk_tickers }}
+          HKEX_BUILD_TICKERS: ${{ steps.resolve.outputs.hk }}
           MOAT_EVIDENCE_OUTPUT: cache/lite_buffett_pilot/moat-inputs.json
         run: |
           mkdir -p cache/lite_buffett_pilot
@@ -103,8 +142,8 @@ jobs:
         run: |
           mkdir -p cache/lite_buffett_pilot
           python -u scripts/run_lite_buffett_pilot.py \
-            --hk "${{ inputs.hk_tickers }}" \
-            --us "${{ inputs.us_tickers }}" \
+            --hk "${{ steps.resolve.outputs.hk }}" \
+            --us "${{ steps.resolve.outputs.us }}" \
             --hk-inputs cache/lite_buffett_pilot/moat-inputs.json \
             --out-dir cache/lite_buffett_pilot \
             --allow-hk-failures "${{ inputs.allow_hk_failures }}" \
