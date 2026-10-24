@@ -1,0 +1,105 @@
+name: Lite Buffett-v3 moat pilot (5 HK + 5 US)
+
+# Human-only. Agent tokens cannot workflow_dispatch (403).
+# Pilot only — uploads artifacts; does not commit production US/HK caches.
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: 'Type PILOT to run (blocks accidental clicks)'
+        required: true
+        type: string
+      tooling_ref:
+        description: 'Git ref with Lite Buffett-v3 code (branch or SHA). Empty = this workflow revision on main after merge.'
+        required: false
+        type: string
+        default: 'cursor/lite-buffett-pilot-3a53'
+      hk_tickers:
+        description: 'HK tickers (comma-separated, mcap ≥ HKD 1B)'
+        required: false
+        type: string
+        default: '0700.HK,0005.HK,0388.HK,0941.HK,1299.HK'
+      us_tickers:
+        description: 'US tickers (comma-separated)'
+        required: false
+        type: string
+        default: 'AAPL,MSFT,JPM,AMZN,BRK.B'
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: lite-buffett-pilot
+  cancel-in-progress: false
+
+jobs:
+  pilot:
+    if: inputs.confirm == 'PILOT'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Checkout main datasets
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Overlay pilot tooling
+        run: |
+          REF='${{ inputs.tooling_ref }}'
+          git fetch origin "$REF"
+          git checkout "origin/$REF" -- \
+            scripts/buffett_moat_v3.py \
+            scripts/refresh_hkex_moat.py \
+            scripts/run_lite_buffett_pilot.py \
+            scripts/build_hkex.cjs \
+            build_full_market.py \
+            tests/test_hkex_moat.py \
+            tests/test_us_moat_budget.py \
+            tests/test_buffett_moat_v3.py \
+            .github/workflows/lite_buffett_pilot.yml
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: pip install requests google-genai pydantic
+      - name: Capture HK pilot tickers only
+        env:
+          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+          CAPTURE_MARKET: HKEX
+          CAPTURE_OUTPUT: hkex-source-output
+          CAPTURE_SYMBOLS: ${{ inputs.hk_tickers }}
+        run: python -u scripts/capture_valuation_sources.py
+      - name: Build HK moat evidence for pilot tickers only
+        env:
+          HKEX_BUILD_TICKERS: ${{ inputs.hk_tickers }}
+          MOAT_EVIDENCE_OUTPUT: cache/lite_buffett_pilot/moat-inputs.json
+        run: |
+          mkdir -p cache/lite_buffett_pilot
+          node scripts/build_hkex.cjs hkex-source-output hkex-data-output
+          test -f cache/lite_buffett_pilot/moat-inputs.json
+      - name: Run Lite Buffett-v3 pilot (HK + US)
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+          MOAT_MODEL: gemini-2.5-flash-lite
+          US_MOAT_MODEL: gemini-2.5-flash-lite
+          FORCE_MOAT_CONFIRM: YES
+          MAX_US_MOAT_GEMINI: 'unlimited'
+        run: |
+          python -u scripts/run_lite_buffett_pilot.py \
+            --hk "${{ inputs.hk_tickers }}" \
+            --us "${{ inputs.us_tickers }}" \
+            --hk-inputs cache/lite_buffett_pilot/moat-inputs.json \
+            --out-dir cache/lite_buffett_pilot \
+            --force
+      - name: Upload pilot artifacts (no production commit)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lite-buffett-pilot
+          path: cache/lite_buffett_pilot/
+          retention-days: 14

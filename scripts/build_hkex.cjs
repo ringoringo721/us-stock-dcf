@@ -844,13 +844,22 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
   return { stock, statements: raw, chart, snapshot, moatInput, fingerprint };
 }
 
+function selectedBuildConfig() {
+  const raw = process.env.HKEX_BUILD_TICKERS || '';
+  if (!raw.trim()) return config;
+  const wanted = new Set(raw.split(',').map(value => value.trim().toUpperCase()).filter(Boolean));
+  const filtered = config.filter(item => wanted.has(String(item.ticker).toUpperCase()));
+  if (!filtered.length) throw new Error('HKEX_BUILD_TICKERS matched no hkex_stocks.json listings');
+  return filtered;
+}
+
 function compile(directory, output, rates, reports = {}, previous = {}, treasury = null) {
   const market = {}, fcff = { version: 1, method: 'FCFF', stocks: {}, betaSources: {}, outcomes: {} }, evidenceInputs = [];
   const write = (file, data, prefix = '') => {
     const target = path.join(output, file); fs.mkdirSync(path.dirname(target), { recursive: true });
     fs.writeFileSync(target, prefix + JSON.stringify(data) + (prefix ? ';' : '') + '\n');
   };
-  for (const item of config) {
+  for (const item of selectedBuildConfig()) {
     const evidence = JSON.parse(fs.readFileSync(path.join(directory, `${item.ticker}.json`), 'utf8'));
     const result = compileStock(item, evidence, rates, reports, previous[item.ticker], treasury);
     market[item.ticker] = result.stock;

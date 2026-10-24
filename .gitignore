@@ -7,3 +7,7 @@ __pycache__/
 /public/
 .vercel
 .env*
+/cache/lite_buffett_pilot/us_moat/
+/cache/lite_buffett_pilot/hkex_moat_pilot.json
+/cache/lite_buffett_pilot/moat-inputs.json
+/cache/lite_buffett_pilot/pilot_summary.json

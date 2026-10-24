@@ -369,8 +369,25 @@ def _log_gemini_budgets_once():
 
 
 # Bump when US moat prompt/schema policy changes (forces remoat even if fin summary unchanged).
-# v3: restore fuller per-dimension bilingual comments (~150 EN words); not the v2-short style.
-US_MOAT_ASSESSMENT_POLICY = "us-buffett-moat-v3"
+# buffett-moat-v3: unified US/HK Lite standard — ZH ~100–300 字 primary; EN translation (not gated).
+try:
+    from scripts.buffett_moat_v3 import (
+        BUFFETT_MOAT_ASSESSMENT_POLICY,
+        MAX_COMMENT_ZH_CHARS,
+        MIN_COMMENT_ZH_CHARS,
+        validate_dimension_zh_lengths,
+        zh_primary_prompt_rules,
+    )
+except ImportError:
+    from buffett_moat_v3 import (  # type: ignore
+        BUFFETT_MOAT_ASSESSMENT_POLICY,
+        MAX_COMMENT_ZH_CHARS,
+        MIN_COMMENT_ZH_CHARS,
+        validate_dimension_zh_lengths,
+        zh_primary_prompt_rules,
+    )
+
+US_MOAT_ASSESSMENT_POLICY = BUFFETT_MOAT_ASSESSMENT_POLICY
 
 
 def _moat_cache_is_valid(cached_data: Dict[str, Any]) -> bool:
@@ -484,6 +501,8 @@ def _stamp_moat_metadata(
     stamped["period"] = period
     stamped["evidenceHash"] = evidence_hash
     stamped["assessmentPolicy"] = assessment_policy
+    stamped["model"] = US_MOAT_MODEL
+    stamped["provider"] = "Vertex AI" if os.environ.get("GCP_SA_KEY") or os.environ.get("GOOGLE_CLOUD_PROJECT") else "Gemini"
     return stamped
 
 
@@ -570,15 +589,15 @@ class MoatDimension(BaseModel):
     comment_zh: str = Field(
         ...,
         description=(
-            "繁體中文深入評語，上限約 150–250 字：緊扣巴菲特哲學，說明具體壁壘、"
-            "競對差異與商業模式邏輯，可含適度細節，勿空泛套話"
+            f"繁體中文評語，鎖定 {MIN_COMMENT_ZH_CHARS}–{MAX_COMMENT_ZH_CHARS} 字："
+            "緊扣巴菲特哲學，說明具體壁壘、競對差異與商業模式邏輯；勿空泛套話或灌水超長"
         ),
     )
     comment_en: str = Field(
         ...,
         description=(
-            "In-depth English moat comment up to about 150 words; Buffett-aligned analysis "
-            "of the specific barrier, competitive differences, and business logic."
+            "Faithful English translation of comment_zh (length not gated); Buffett-aligned "
+            "wording of the same barrier, competitive differences, and business logic."
         ),
     )
 
@@ -597,11 +616,11 @@ class StockMoatReport(BaseModel):
     m10_durability: MoatDimension = Field(..., description="M10. Management Integrity & Capital Allocation")
     overall_moat_verdict_zh: str = Field(
         ...,
-        description="約 120–200 字繁體中文巴菲特護城河總結定性（可含特許經營／收費橋／商品型等定性）",
+        description="約 100–180 字繁體中文巴菲特護城河總結定性（可含特許經營／收費橋／商品型等定性）",
     )
     overall_moat_verdict_en: str = Field(
         ...,
-        description="Buffett-style overall moat verdict in English, up to about 150 words",
+        description="English translation of overall_moat_verdict_zh (length not gated)",
     )
 
 def analyze_stock_moat(ticker: str, latest_period: str, fin_context: Dict[str, Any], force_refresh: bool = False) -> Optional[Dict[str, Any]]:
@@ -715,17 +734,21 @@ def analyze_stock_moat(ticker: str, latest_period: str, fin_context: Dict[str, A
     【維度】M1 定價權/品牌 · M2 專利/特許 · M3 轉換成本 · M4 網絡效應 · M5 規模成本 · M6 利基寡占 · M7 超額ROIC · M8 不可複製資產 · M9 抗顛覆 · M10 管理層資本配置
 
     【規則】
-    1. 分數 0–10 整數（0–3 極弱；4–6 中等；7–8 堅固；9–10 罕見壁壘）。
-    2. 每維度 comment_en 最多約 150 English words；comment_zh 最多約 150–250 字。請寫有資訊量的深入評語（壁壘機制、競對差異、商業模式）；勿用約 40–80 字的短評風格，也勿空泛套話或無意義灌水。
-    3. overall_moat_verdict_zh 約 120–200 字；overall_moat_verdict_en 最多約 150 words；需有巴菲特式定性（特許經營、收費橋、商品型等）。
-    4. 必須回傳指定 JSON Schema；保留全部 10 個分數與雙語欄位（形狀與 UI 相容）。
+    1. 分數 0–10 整數（0–3 極弱；4–6 中等；7–8 堅固；9–10 罕見壁壘）。與港股同一 Buffett-v3 評分尺。
+    2. {zh_primary_prompt_rules()}
+    3. overall_moat_verdict_zh 約 100–180 字；overall_moat_verdict_en 為其中文總結的英譯；需有巴菲特式定性（特許經營、收費橋、商品型等）。
+    4. 必須回傳指定 JSON Schema；保留全部 10 個分數與雙語欄位（形狀與 UI 相容）。翻譯時不得改寫分數。
     """
 
+    last_error = None
     for attempt in range(3):
         try:
             response = gemini_client.models.generate_content(
                 model=US_MOAT_MODEL,
-                contents=prompt,
+                contents=prompt if attempt == 0 else (
+                    prompt + "\n\nOUTPUT CORRECTION: " + str(last_error)
+                    + ". Regenerate the complete report. Keep the same scores; fix only prose lengths."
+                ),
                 config=_gemini_generate_config(
                     response_mime_type="application/json",
                     response_schema=StockMoatReport,
@@ -733,6 +756,7 @@ def analyze_stock_moat(ticker: str, latest_period: str, fin_context: Dict[str, A
                 ),
             )
             data = json.loads(response.text)
+            validate_dimension_zh_lengths(data)
             data = _stamp_moat_metadata(
                 data, ticker=ticker, period=safe_period,
                 evidence_hash=evidence_hash, assessment_policy=policy,
@@ -741,6 +765,7 @@ def analyze_stock_moat(ticker: str, latest_period: str, fin_context: Dict[str, A
             _moat_gemini_used += 1
             return data
         except Exception as err:
+            last_error = err
             wait_time = (attempt + 1) * 3
             time.sleep(wait_time)
 
