@@ -39,14 +39,16 @@ class UsMoatBudgetTests(unittest.TestCase):
 
 
 class UsMoatPolicyTests(unittest.TestCase):
-    def test_assessment_policy_is_v3_not_short(self):
+    def test_assessment_policy_is_unified_buffett_v3_zh_primary(self):
         policy = market.US_MOAT_ASSESSMENT_POLICY
-        self.assertEqual(policy, "us-buffett-moat-v3")
+        self.assertEqual(policy, "buffett-moat-v3")
         self.assertNotIn("short", policy)
         zh_desc = market.MoatDimension.model_fields["comment_zh"].description
         en_desc = market.MoatDimension.model_fields["comment_en"].description
+        self.assertIn("100", zh_desc)
         self.assertIn("150", zh_desc)
-        self.assertIn("150", en_desc)
+        self.assertIn("translation", en_desc.lower())
+        self.assertEqual(market.US_MOAT_MODEL, "gemini-2.5-flash-lite")
 
 
 class UsMoatEvidenceHashTests(unittest.TestCase):

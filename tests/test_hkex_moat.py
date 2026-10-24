@@ -11,8 +11,23 @@ from scripts.refresh_hkex_moat import (
     ASSESSMENT_POLICY, RESEARCH_ASSESSMENT_POLICY, DIMENSIONS, MoatReportValidationError, create_client,
     needs_refresh, validate_report, validation_feedback, evidence_context, write_json_checkpoint, main,
     below_moat_market_cap,
-    repair_narratives, report_schema,
+    repair_narratives, report_schema, validate_comment_lengths,
 )
+from scripts.buffett_moat_v3 import BUFFETT_MOAT_ASSESSMENT_POLICY, MIN_COMMENT_ZH_CHARS, MAX_COMMENT_ZH_CHARS
+
+# Locked band sample (~120 字) used wherever validate_report runs.
+_ZH120 = (
+    "該公司憑藉品牌心智與產品生態形成可辨識的定價權，客戶轉換成本來自工作流程與資料黏著，"
+    "規模攤銷固定研發與通路後具備成本優勢，管理層資本配置偏重股東回報與核心再投資，"
+    "整體護城河屬穩固而非短暫行情，惟仍須留意技術更迭與監管變化對壁壘耐久度的侵蝕風險。"
+)
+_EN_TR = (
+    "The company has recognizable pricing power from brand and product ecosystem; switching costs "
+    "come from workflow and data stickiness; scale amortizes fixed R&D and distribution into a cost "
+    "edge; capital allocation favors shareholder returns and core reinvestment; the moat is durable "
+    "rather than cyclical, though technology and regulation can still erode it."
+)
+assert MIN_COMMENT_ZH_CHARS <= len(_ZH120) <= MAX_COMMENT_ZH_CHARS, len(_ZH120)
 
 
 class MoatEvidenceTests(unittest.TestCase):
@@ -152,8 +167,8 @@ class MoatEvidenceTests(unittest.TestCase):
         google.genai.Client.assert_not_called()
 
     def report(self):
-        return {"ticker": "0700.HK", "overall_moat_verdict_zh": "Evidence", "overall_moat_verdict_en": "Evidence",
-                **{name: {"score": 7, "sources": ["profile"], "comment_zh": "Evidence", "comment_en": "Evidence"}
+        return {"ticker": "0700.HK", "overall_moat_verdict_zh": _ZH120, "overall_moat_verdict_en": _EN_TR,
+                **{name: {"score": 7, "sources": ["profile"], "comment_zh": _ZH120, "comment_en": _EN_TR}
                    for name in DIMENSIONS}}
 
     def test_only_actual_evidence_changes_trigger_refresh(self):
@@ -172,23 +187,34 @@ class MoatEvidenceTests(unittest.TestCase):
         self.assertFalse(needs_refresh(record))
         self.assertTrue(needs_refresh(record, retry_incomplete=True))
 
-    def test_assessment_policy_is_v4_fuller_comments_not_prior_short_ids(self):
-        self.assertEqual(ASSESSMENT_POLICY, "grounded-business-judgment-v4")
-        self.assertEqual(RESEARCH_ASSESSMENT_POLICY, "researched-business-judgment-v5")
-        self.assertNotIn("v3", ASSESSMENT_POLICY)
+    def test_assessment_policy_is_unified_buffett_v3_zh_primary(self):
+        self.assertEqual(ASSESSMENT_POLICY, BUFFETT_MOAT_ASSESSMENT_POLICY)
+        self.assertEqual(RESEARCH_ASSESSMENT_POLICY, BUFFETT_MOAT_ASSESSMENT_POLICY)
+        self.assertEqual(ASSESSMENT_POLICY, "buffett-moat-v3")
         schema = report_schema("0700.HK", ["profile"])
         dimension = schema.model_json_schema()["$defs"]["Dimension"]
+        self.assertIn("100", dimension["properties"]["comment_zh"]["description"])
         self.assertIn("150", dimension["properties"]["comment_zh"]["description"])
-        self.assertIn("150", dimension["properties"]["comment_en"]["description"])
-        props = schema.model_json_schema()["properties"]
-        self.assertIn("150", props["overall_moat_verdict_en"]["description"])
-        # Prior grounded-v3 / researched-v4 caches must remoat on policy mismatch (no --force).
+        self.assertIn("translation", dimension["properties"]["comment_en"]["description"].lower())
+        # Prior grounded/researched caches must remoat on policy mismatch (no --force).
         prior = {"evidenceHash": "same", "existing": {
-            "evidenceHash": "same", "assessmentPolicy": "grounded-business-judgment-v3",
+            "evidenceHash": "same", "assessmentPolicy": "grounded-business-judgment-v5",
             "report": self.report()}}
         self.assertTrue(needs_refresh(prior))
-        prior["existing"]["assessmentPolicy"] = "researched-business-judgment-v4"
+        prior["existing"]["assessmentPolicy"] = "researched-business-judgment-v6"
         self.assertTrue(needs_refresh(prior))
+        prior["existing"]["assessmentPolicy"] = "us-buffett-moat-v3"
+        self.assertTrue(needs_refresh(prior))
+
+    def test_zh_comment_length_band_is_enforced(self):
+        report = self.report()
+        validate_comment_lengths(report)
+        report["m1_brand_pricing"]["comment_zh"] = "短評不足一百字。" * 2
+        with self.assertRaises(MoatReportValidationError):
+            validate_comment_lengths(report)
+        report["m1_brand_pricing"]["comment_zh"] = _ZH120 + ("再加一段灌水文字用於超過一百五十字上限的拒絕測試。" * 3)
+        with self.assertRaises(MoatReportValidationError):
+            validate_comment_lengths(report)
 
     def test_unavailable_dimensions_are_not_neutral_scores(self):
         report = self.report()
