@@ -3,56 +3,56 @@
   "period": "2026Q3",
   "m1_brand_pricing": {
     "score": 7,
-    "comment_zh": "聯合太平洋鐵路作為美國主要的貨運鐵路公司之一，在基礎設施建設和營運上具有顯著的定價權。其龐大的鐵路網絡和運輸能力，使其在長距離、大宗貨物的運輸市場中，面對其他運輸方式（如卡車）時，能展現出相對的價格優勢，尤其是在成本和效率方面。然而，鐵路運輸的價格仍會受到總體經濟狀況、燃料成本以及監管環境的影響，因此品牌和定價權的壁壘雖強固，但非絕對。",
-    "comment_en": "Union Pacific, as a major freight railroad operator in the US, possesses significant pricing power derived from its extensive infrastructure and operational scale. Its vast rail network and transport capacity provide a cost and efficiency advantage over other modes, particularly for long-haul, bulk cargo. While this grants a strong pricing advantage, it's not absolute, as rates are influenced by economic cycles, fuel costs, and regulatory environments. The brand and pricing power are robust but not impenetrable."
+    "comment_zh": "聯合太平洋鐵路作為美國主要的貨運鐵路公司之一，在特定區域和路線上擁有顯著的定價權。其品牌代表著可靠、高效的長途貨運服務，尤其在難以替代的鐵路運輸領域，客戶對其服務的依賴性較高。雖然鐵路運輸本身商品屬性較強，但聯合太平洋透過其龐大的網絡和營運效率，能夠在一定程度上轉嫁成本並維持穩定的利潤率，展現出一定的品牌價值和定價能力。",
+    "comment_en": "Union Pacific, as a major freight railroad operator in the US, possesses significant pricing power on specific routes and within its service areas. Its brand signifies reliable and efficient long-haul freight transportation. Customers exhibit a high degree of reliance, particularly for services that are difficult to substitute, such as long-distance rail transport. While rail transport is inherently commodity-like, Union Pacific leverages its vast network and operational efficiency to pass on costs and maintain stable profit margins, demonstrating considerable brand value and pricing capability."
   },
   "m2_patents_regulatory": {
     "score": 8,
-    "comment_zh": "鐵路行業的進入壁壘極高，主要體現在巨額的基礎設施投資、複雜的土地使用權、嚴格的安全與環境法規，以及政府的特許經營權。聯合太平洋擁有廣泛的鐵路網絡，這本身就是一種受監管的特許經營權，新競爭者難以複製。雖然沒有傳統意義上的專利，但其營運許可和對關鍵路線的控制構成了強大的監管壁壘。",
-    "comment_en": "The railroad industry has extremely high barriers to entry, primarily due to massive infrastructure investment, complex land rights, stringent safety and environmental regulations, and government-granted operating authorities. Union Pacific's extensive network acts as a de facto regulated franchise. While not possessing traditional patents, its operating licenses and control over critical routes form a formidable regulatory moat, making replication by new entrants nearly impossible."
+    "comment_zh": "鐵路行業受到嚴格的政府監管，聯合太平洋的營運執照和對關鍵鐵路線的壟斷權構成了強大的監管壁壘。這些特許經營權難以被新進入者複製，尤其是在已開發的鐵路網絡上。雖然沒有傳統意義上的專利，但其對基礎設施的長期投資和運營許可證，實際上形成了類似於特許經營的保護，限制了競爭的產生。",
+    "comment_en": "The railroad industry is heavily regulated, and Union Pacific's operating licenses and control over critical rail lines form a formidable regulatory moat. These franchises are exceptionally difficult for new entrants to replicate, especially within established rail networks. While not possessing traditional patents, its long-term investment in infrastructure and operating permits effectively create a barrier akin to a franchise, limiting the emergence of direct competition."
   },
   "m3_high_switching_costs": {
-    "score": 9,
-    "comment_zh": "對於依賴聯合太平洋運輸的客戶而言，轉換成本極高。改變運輸方式不僅需要重新規劃供應鏈、尋找新的物流夥伴，還可能涉及基礎設施的調整（如裝卸設施）。對於大宗商品和工業品生產商而言，鐵路運輸的穩定性和經濟性是關鍵，一旦建立合作關係，轉換到其他運輸模式（如卡車或水運）的成本和複雜性將非常可觀，這為聯合太平洋提供了極強的客戶黏性。",
-    "comment_en": "Switching costs for customers relying on Union Pacific are exceptionally high. Changing transportation modes requires significant supply chain reconfigurations, finding new logistics partners, and potentially adjusting infrastructure like loading/unloading facilities. For bulk commodity and industrial producers, the stability and economics of rail are paramount. Once a relationship is established, the cost and complexity of shifting to trucking or water transport are substantial, creating very strong customer stickiness."
+    "score": 8,
+    "comment_zh": "對於依賴聯合太平洋進行長途貨運的企業而言，轉換至其他運輸方式（如卡車或海運）的成本極高。這不僅涉及物流鏈的重新設計、基礎設施的投資，還包括時間延誤和潛在的供應鏈中斷風險。鐵路運輸的規模經濟和效率使其成為許多大宗商品和重型貨物的首選，一旦客戶習慣並整合了其服務，轉換的障礙就非常高。",
+    "comment_en": "For businesses relying on Union Pacific for long-haul freight, the costs associated with switching to alternative transportation methods like trucking or maritime shipping are exceptionally high. This involves not only redesigning logistics chains and investing in new infrastructure but also managing potential time delays and supply chain disruptions. The economies of scale and efficiency offered by rail transport make it the preferred choice for many bulk commodities and heavy goods. Once a customer integrates its services, the barriers to switching become substantial."
   },
   "m4_network_effects": {
     "score": 6,
-    "comment_zh": "聯合太平洋的網絡效應體現在其廣泛的鐵路網絡覆蓋範圍，能夠連接美國西部地區的眾多生產基地和消費市場。網絡的廣度和效率越高，對客戶的吸引力越大，從而吸引更多貨運量，進一步增強網絡價值。然而，這種網絡效應更多是基於基礎設施的物理連接，而非典型的「使用者越多，價值越大」的雙邊網絡效應，因此評分為中等偏上。",
-    "comment_en": "Union Pacific's network effect stems from its extensive rail coverage, connecting numerous production sites and consumer markets across the Western US. A broader and more efficient network is more attractive to customers, drawing in more freight volume and thus enhancing the network's value. However, this is primarily a physical infrastructure connectivity effect rather than a classic 'more users equals more value' two-sided network effect, hence the score is moderately strong."
+    "comment_zh": "聯合太平洋的網絡效應體現在其廣泛的鐵路線路覆蓋和與其他鐵路公司的連接能力上。網絡越大，其連接的起點和終點越多，為客戶提供的價值就越高，這反過來又吸引更多客戶加入網絡。雖然不是典型的社交網絡效應，但這種基礎設施的互聯互通性增強了其服務的吸引力和效率，形成了一種遞歸的優勢。",
+    "comment_en": "Union Pacific's network effect is evident in its extensive rail line coverage and its ability to connect with other railroad companies. A larger network, serving more origins and destinations, enhances the value proposition for customers, which in turn attracts more business. While not a classic social network effect, this interconnectedness of infrastructure strengthens the attractiveness and efficiency of its services, creating a recursive advantage."
   },
   "m5_cost_advantage_scale": {
     "score": 9,
-    "comment_zh": "聯合太平洋擁有顯著的規模經濟和成本優勢。鐵路運輸在單位貨物里程的成本遠低於卡車運輸，尤其是在運輸大宗商品和重型貨物時。其龐大的營運規模、專用基礎設施和高載重能力，使其能夠以極低的單位成本提供服務。這種成本結構是新進入者難以企及的，構成了強大的競爭壁壘。",
-    "comment_en": "Union Pacific benefits from significant economies of scale and cost advantages. Per-unit-mile costs for rail transport are substantially lower than trucking, especially for bulk and heavy goods. Its massive operational scale, dedicated infrastructure, and high carrying capacity allow it to provide services at extremely low unit costs. This cost structure is a formidable barrier for new entrants to overcome."
+    "comment_zh": "聯合太平洋受益於鐵路運輸的顯著規模經濟。運輸大量貨物的單位成本遠低於卡車運輸，尤其是在長距離運輸方面。其龐大的基礎設施、車隊和營運規模，使得其在單位運輸成本上具有難以匹敵的優勢。這種成本結構是其核心競爭力，也是其他運輸方式難以逾越的障礙。",
+    "comment_en": "Union Pacific benefits from significant economies of scale inherent in rail transportation. The cost per unit for moving large volumes of freight is substantially lower than trucking, especially over long distances. Its vast infrastructure, rolling stock, and operational scale provide an unparalleled cost advantage on a per-unit basis. This cost structure is a core competitive strength and a formidable barrier for alternative transportation modes."
   },
   "m6_unique_geography_assets": {
     "score": 9,
-    "comment_zh": "聯合太平洋的核心資產是其橫跨美國西部地區的龐大、關鍵且難以複製的鐵路網絡。這些資產遍及戰略要地，連接主要港口、工業中心和農業區，形成了獨特的地理優勢。這些基礎設施的建設耗時數十年，且土地取得和建設成本極高，使其成為一種近乎不可複製的資產，構成了極為堅固的護城河。",
-    "comment_en": "Union Pacific's core asset is its vast, critical, and largely irreplicable rail network spanning the Western United States. These assets are strategically located, connecting major ports, industrial hubs, and agricultural regions, creating a unique geographical advantage. Decades of construction and immense land acquisition and building costs make this infrastructure nearly impossible to duplicate, forming an extremely strong moat."
+    "comment_zh": "聯合太平洋擁有對美國西部廣闊地區的關鍵鐵路線路和地理位置的獨特控制權。這些資產是基礎設施，具有極高的進入壁壘，其地理位置和覆蓋範圍是數十年投資和規劃的結果，難以被競爭對手複製。其網絡橫跨美國西部，連接主要港口、城市和工業中心，形成了獨一無二的地理資產優勢。",
+    "comment_en": "Union Pacific holds unique control over critical rail lines and geographic assets across a vast expanse of the Western United States. These assets are infrastructure with extremely high barriers to entry. Their geographic reach and coverage are the result of decades of investment and planning, making them nearly impossible for competitors to replicate. Its network spans the American West, connecting major ports, cities, and industrial hubs, creating an unparalleled geographic asset advantage."
   },
   "m7_operational_efficiency": {
-    "score": 7,
-    "comment_zh": "聯合太平洋在營運效率方面持續投入，透過技術升級（如先進的列車調度系統、軌道監測技術）和流程優化，不斷提高貨物運輸的準時性和效率。雖然鐵路營運的複雜性很高，但公司透過精細化管理和對效率的追求，能夠在維持高載重和長距離運輸的同時，控制營運成本。其營運效率是其競爭優勢的重要組成部分。",
-    "comment_en": "Union Pacific consistently invests in operational efficiency through technological upgrades, such as advanced train scheduling and track monitoring systems, and process optimization to improve on-time performance and efficiency. Despite the inherent complexity of railroad operations, the company strives for refined management and efficiency gains, controlling operating costs while maintaining high capacity and long-haul capabilities. This operational efficiency is a key component of its competitive advantage."
+    "score": 8,
+    "comment_zh": "聯合太平洋在營運效率方面表現出色，透過先進的技術、優化的調度系統和持續的流程改進，不斷提高貨物運輸的速度和可靠性。其營運效率直接轉化為成本優勢和客戶服務的提升，使其能夠在競爭激烈的環境中保持領先地位。持續的效率提升是其維持高 ROIC 的關鍵因素。",
+    "comment_en": "Union Pacific demonstrates strong operational efficiency through advanced technology, optimized scheduling systems, and continuous process improvements, enhancing the speed and reliability of freight movement. This operational efficiency translates directly into cost advantages and improved customer service, allowing it to maintain a leading position in a competitive landscape. Ongoing efficiency gains are a key factor in sustaining its high returns on invested capital."
   },
   "m8_capital_allocation": {
-    "score": 8,
-    "comment_zh": "聯合太平洋展現出良好的資本配置能力。公司歷史上透過股息和股票回購向股東返還大量資本，同時也持續投資於基礎設施維護和現代化，以維持其網絡的競爭力。其資本配置決策通常著眼於長期資產價值和股東回報的平衡，展現出穩健的財務紀律和對價值的關注。",
-    "comment_en": "Union Pacific demonstrates strong capital allocation capabilities. Historically, the company has returned significant capital to shareholders through dividends and share repurchases, while also investing consistently in infrastructure maintenance and modernization to preserve its network's competitiveness. Its capital allocation decisions typically balance long-term asset value with shareholder returns, reflecting sound financial discipline and a focus on value."
+    "score": 7,
+    "comment_zh": "聯合太平洋展現出穩健的資本配置能力，透過股息、股票回購和戰略性基礎設施投資來平衡股東回報與長期增長。公司歷史上展現了將自由現金流有效分配的能力，既維持了對網絡的投資，也為股東創造了價值。雖然偶有收購，但其資本配置策略主要聚焦於有機增長和股東回報。",
+    "comment_en": "Union Pacific exhibits sound capital allocation capabilities, balancing shareholder returns with long-term growth through dividends, share repurchases, and strategic infrastructure investments. The company has a history of effectively deploying free cash flow, reinvesting in its network while also returning value to shareholders. While occasional acquisitions occur, its capital allocation strategy primarily focuses on organic growth and shareholder returns."
   },
   "m9_customer_retention": {
-    "score": 9,
-    "comment_zh": "如前所述，由於極高的轉換成本和鐵路運輸的不可替代性（對於某些大宗商品和長距離運輸），聯合太平洋擁有極高的客戶保留率。一旦客戶將其供應鏈與聯合太平洋的網絡整合，並依賴其穩定、經濟的服務，轉換的阻力將非常大。這種黏性使得客戶關係非常穩固，構成了強大的護城河。",
-    "comment_en": "As previously noted, due to exceptionally high switching costs and the irreplaceable nature of rail transport for certain bulk and long-haul goods, Union Pacific enjoys very high customer retention. Once customers integrate their supply chains with Union Pacific's network and rely on its stable, economical service, the barriers to switching are immense. This stickiness results in very strong customer relationships, forming a significant moat."
+    "score": 8,
+    "comment_zh": "由於高轉換成本和鐵路運輸的基礎設施屬性，聯合太平洋擁有極高的客戶保留率。一旦客戶將其供應鏈與聯合太平洋的網絡深度整合，更換供應商的成本和複雜性將非常高。這種深度整合和對可靠性的依賴，形成了穩固的客戶關係和極高的客戶忠誠度。",
+    "comment_en": "Due to high switching costs and the infrastructure-based nature of rail transport, Union Pacific enjoys exceptionally high customer retention rates. Once customers deeply integrate their supply chains with Union Pacific's network, the cost and complexity of changing providers become prohibitive. This deep integration and reliance on reliability foster strong customer relationships and significant loyalty."
   },
   "m10_durability": {
     "score": 8,
-    "comment_zh": "聯合太平洋的業務模式具有高度的持久性。鐵路運輸作為國家基礎設施的重要組成部分，其需求相對穩定，不易受到短期經濟波動的劇烈影響。其龐大的固定資產和網絡壁壘，加上持續的維護和現代化投資，確保了其長期營運能力。儘管面臨來自其他運輸方式的競爭和監管壓力，但其核心業務的持久性依然非常強固。",
-    "comment_en": "Union Pacific's business model exhibits high durability. As a critical component of national infrastructure, demand for rail transport is relatively stable and less susceptible to severe short-term economic fluctuations. Its vast fixed assets and network barriers, coupled with ongoing investment in maintenance and modernization, ensure its long-term operational viability. Despite competition from other transport modes and regulatory pressures, the durability of its core business remains very robust."
+    "comment_zh": "聯合太平洋的業務模式具有高度的持久性。鐵路基礎設施的生命週期長，且其在現代物流中的核心作用難以被顛覆。儘管面臨來自卡車運輸的競爭，但其在長距離、大批量運輸方面的成本和環境優勢使其地位穩固。技術進步（如自動駕駛）可能影響行業，但預計不會根本性地顛覆鐵路運輸的核心價值。",
+    "comment_en": "Union Pacific's business model possesses high durability. Railroad infrastructure has a long lifespan, and its core role in modern logistics is difficult to disrupt. Despite competition from trucking, its cost and environmental advantages for long-haul, high-volume transport ensure a stable position. While technological advancements like autonomous driving may impact the industry, they are unlikely to fundamentally disrupt the core value proposition of rail transport."
   },
-  "overall_moat_verdict_zh": "聯合太平洋展現出一個典型的「收費橋」或「基礎設施型」經濟護城河。其核心競爭優勢來自於龐大且難以複製的鐵路網絡（M6），這構成了極高的進入壁壘和轉換成本（M3, M9）。規模經濟（M5）和相對的定價權（M1）使其在運輸成本上具有顯著優勢。雖然網絡效應（M4）非典型，但其營運效率（M7）和資本配置（M8）亦支持其穩固地位。監管和特許經營權（M2）進一步加強了其壁壘。整體而言，聯合太平洋擁有一個極為堅固且持久的護城河。",
-  "overall_moat_verdict_en": "Union Pacific embodies a classic 'toll bridge' or 'infrastructure' economic moat. Its primary competitive advantage stems from its vast and irreplicable rail network (M6), creating exceptionally high barriers to entry and switching costs (M3, M9). Economies of scale (M5) and relative pricing power (M1) provide significant cost advantages. While network effects (M4) are not typical, its operational efficiency (M7) and capital allocation (M8) further solidify its position. Regulatory and franchise aspects (M2) add to the moat. Overall, Union Pacific possesses a highly durable and robust economic moat.",
-  "evidenceHash": "5122c8004eb5d21d3963d1e37eddc764e59009b8fd5541f13150b7b89f7852f0",
+  "overall_moat_verdict_zh": "聯合太平洋展現出一個典型的「收費公路」型經濟護城河，其核心競爭力來自於龐大的、難以複製的鐵路基礎設施網絡，這構成了極高的進入壁壘和轉換成本。其規模經濟帶來了無與倫比的成本優勢，尤其是在長途貨運領域。監管許可和地理位置的獨特性進一步鞏固了其市場地位。雖然品牌效應和網絡效應不如科技公司顯著，但其營運效率和客戶保留率極高，共同構成了一個堅固且持久的護城河，使其能夠持續產生優異的回報。",
+  "overall_moat_verdict_en": "Union Pacific exhibits a classic 'toll road' economic moat, underpinned by its vast and difficult-to-replicate rail infrastructure network, which creates formidable barriers to entry and high switching costs. Its economies of scale provide an unparalleled cost advantage, particularly for long-haul freight. Regulatory franchises and unique geographic assets further solidify its market position. While brand and network effects are less pronounced than in tech firms, its operational efficiency and high customer retention collectively form a robust and durable moat, enabling sustained superior returns.",
+  "evidenceHash": "8f33709f8e78240ad784a275aa656f361087c2e797d1720212bc15c0fe500562",
   "assessmentPolicy": "us-buffett-moat-v3"
 }
