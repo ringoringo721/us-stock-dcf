@@ -23,8 +23,8 @@ const baseUrl = process.env.TEST_BASE_URL || 'http://127.0.0.1:8766';
     assert.ok(tickers.length > 0);
     let references = 0;
     for (const ticker of tickers) {
-      const result = await page.evaluate(ticker => {
-        renderPeersSubPage({ ...stockUniverse[ticker], ticker });
+      const result = await page.evaluate(async ticker => {
+        await renderPeersSubPage({ ...stockUniverse[ticker], ticker });
         renderRatiosSubPage(stockUniverse[ticker]);
         const table = document.getElementById('cmp-peers-table');
         const headers = [...table.querySelectorAll('thead th[data-peer-ticker]')];
@@ -105,9 +105,9 @@ const baseUrl = process.env.TEST_BASE_URL || 'http://127.0.0.1:8766';
         }
       }
     }
-    await page.evaluate(() => {
+    await page.evaluate(async () => {
       stockUniverse.CAT = { ...stockUniverse.CAT, industry: 'Unknown test industry', peers: [] };
-      renderPeersSubPage({ ...stockUniverse.CAT, ticker: 'CAT' });
+      await renderPeersSubPage({ ...stockUniverse.CAT, ticker: 'CAT' });
     });
     assert.equal(await page.locator('#peer-comparison-count').innerText(), '0');
     assert.match(await page.locator('#peer-coverage-note').innerText(), /not mean.*no competitors/);
