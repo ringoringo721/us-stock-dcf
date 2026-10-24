@@ -88,12 +88,19 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+          # Pass via env (not ${{ }} inside run:) to avoid shell injection with secrets present.
+          MOAT_LIMIT: ${{ github.event.inputs.moat_limit }}
         run: |
           LIMIT_ARGS=()
-          # github.event.inputs is empty on schedule; only set for workflow_dispatch.
-          MOAT_LIMIT="${{ github.event.inputs.moat_limit }}"
-          if [ -n "$MOAT_LIMIT" ]; then
-            LIMIT_ARGS=(--limit "$MOAT_LIMIT")
+          # Empty on schedule. Digits-only so a malicious dispatch string cannot break out.
+          if [ -n "${MOAT_LIMIT}" ]; then
+            case "${MOAT_LIMIT}" in
+              ''|*[!0-9]*)
+                echo "::error::moat_limit must be digits only (got rejected input)"
+                exit 1
+                ;;
+            esac
+            LIMIT_ARGS=(--limit "${MOAT_LIMIT}")
           fi
           python -u scripts/refresh_hkex_moat.py \
             hkex-source-output/moat-inputs.json \
