@@ -35,6 +35,24 @@ from scripts.buffett_moat_v3 import (  # noqa: E402
 
 DEFAULT_HK = ["0700.HK", "0005.HK", "0388.HK", "0941.HK", "1299.HK"]
 DEFAULT_US = ["AAPL", "MSFT", "JPM", "AMZN", "BRK.B"]
+# Workflow sentinels: empty/whitespace → skip market; these exact tokens expand to the lists above.
+SENTINEL_DEFAULT_HK = "DEFAULT_HK"
+SENTINEL_DEFAULT_US = "DEFAULT_US"
+
+
+def parse_ticker_list(raw, *, sentinel: str, default_list: list) -> list:
+    """Parse a workflow/CLI ticker field.
+
+    - Empty or whitespace-only → [] (skip that market; do NOT resurrect a default list).
+    - Exact sentinel (e.g. DEFAULT_US / DEFAULT_HK, case-insensitive) → copy of default_list.
+    - Otherwise comma-separated tickers (blanks around commas ignored).
+    """
+    text = (raw or "").strip()
+    if not text:
+        return []
+    if text.casefold() == sentinel.casefold():
+        return list(default_list)
+    return [part.strip().upper() for part in text.split(",") if part.strip()]
 
 
 def _load_js_object(path: Path, prefix: str):
@@ -254,8 +272,14 @@ def evaluate_pilot_job(rows: list, *, allow_hk_failures: int = 1, min_pass: int 
 
 def main():
     parser = argparse.ArgumentParser(description="Lite Buffett-v3 pilot (~5 HK + ~5 US only)")
-    parser.add_argument("--hk", default=",".join(DEFAULT_HK), help="Comma-separated HK tickers (empty OK for US-only)")
-    parser.add_argument("--us", default=",".join(DEFAULT_US), help="Comma-separated US tickers (empty OK for HK-only)")
+    parser.add_argument(
+        "--hk", default="",
+        help="HK tickers CSV, or DEFAULT_HK for the five-name pilot set. Empty/whitespace = skip HK.",
+    )
+    parser.add_argument(
+        "--us", default="",
+        help="US tickers CSV, or DEFAULT_US for AAPL,MSFT,JPM,AMZN,BRK.B. Empty/whitespace = skip US.",
+    )
     parser.add_argument("--hk-inputs", default="cache/lite_buffett_pilot/moat-inputs.json",
                         help="HK moat evidence JSON from build_hkex (MOAT_EVIDENCE_OUTPUT)")
     parser.add_argument("--out-dir", default="cache/lite_buffett_pilot")
@@ -276,8 +300,13 @@ def main():
     )
     args = parser.parse_args()
 
-    hk_tickers = [t.strip().upper() for t in args.hk.split(",") if t.strip()]
-    us_tickers = [t.strip().upper() for t in args.us.split(",") if t.strip()]
+    hk_tickers = parse_ticker_list(args.hk, sentinel=SENTINEL_DEFAULT_HK, default_list=DEFAULT_HK)
+    us_tickers = parse_ticker_list(args.us, sentinel=SENTINEL_DEFAULT_US, default_list=DEFAULT_US)
+    if not args.skip_hk and not args.skip_us and not hk_tickers and not us_tickers and not args.baseline_only:
+        parser.error(
+            "Both --hk and --us are empty after resolve. "
+            "Pass DEFAULT_HK / DEFAULT_US or a comma-separated list; empty means skip that market."
+        )
 
     out_dir = ROOT / args.out_dir
     out_dir.mkdir(parents=True, exist_ok=True)

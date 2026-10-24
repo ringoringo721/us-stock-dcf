@@ -2,11 +2,51 @@
 
 import unittest
 
-from scripts.run_lite_buffett_pilot import evaluate_pilot_job
+from scripts.run_lite_buffett_pilot import (
+    DEFAULT_HK,
+    DEFAULT_US,
+    SENTINEL_DEFAULT_HK,
+    SENTINEL_DEFAULT_US,
+    evaluate_pilot_job,
+    parse_ticker_list,
+)
 
 
 def _row(ticker, market, ok):
     return {"ticker": ticker, "market": market, "pass_zh_100_300": ok, "status": "generated" if ok else "fail"}
+
+
+class LiteBuffettPilotTickerParseTests(unittest.TestCase):
+    def test_empty_or_whitespace_means_skip_not_default_list(self):
+        for raw in (None, "", "   ", "\t\n"):
+            self.assertEqual(
+                parse_ticker_list(raw, sentinel=SENTINEL_DEFAULT_US, default_list=DEFAULT_US),
+                [],
+            )
+            self.assertEqual(
+                parse_ticker_list(raw, sentinel=SENTINEL_DEFAULT_HK, default_list=DEFAULT_HK),
+                [],
+            )
+
+    def test_sentinel_expands_suggested_pilot_set(self):
+        self.assertEqual(
+            parse_ticker_list("DEFAULT_US", sentinel=SENTINEL_DEFAULT_US, default_list=DEFAULT_US),
+            DEFAULT_US,
+        )
+        self.assertEqual(
+            parse_ticker_list("default_hk", sentinel=SENTINEL_DEFAULT_HK, default_list=DEFAULT_HK),
+            DEFAULT_HK,
+        )
+
+    def test_explicit_csv_and_0941_only(self):
+        self.assertEqual(
+            parse_ticker_list("0941.HK", sentinel=SENTINEL_DEFAULT_HK, default_list=DEFAULT_HK),
+            ["0941.HK"],
+        )
+        self.assertEqual(
+            parse_ticker_list(" aapl , msft ", sentinel=SENTINEL_DEFAULT_US, default_list=DEFAULT_US),
+            ["AAPL", "MSFT"],
+        )
 
 
 class LiteBuffettPilotExitTests(unittest.TestCase):

@@ -12,6 +12,7 @@ from scripts.refresh_hkex_moat import (
     needs_refresh, validate_report, validation_feedback, evidence_context, write_json_checkpoint, main,
     below_moat_market_cap,
     repair_narratives, report_schema, validate_comment_lengths,
+    validate_narrative, magnitude_retry_guidance,
 )
 from scripts.buffett_moat_v3 import BUFFETT_MOAT_ASSESSMENT_POLICY, MIN_COMMENT_ZH_CHARS, MAX_COMMENT_ZH_CHARS
 
@@ -263,6 +264,38 @@ class MoatEvidenceTests(unittest.TestCase):
             report["overall_moat_verdict_en"] = text
             with self.assertRaises(ValueError):
                 validate_report(report, "0700.HK", ["profile"])
+
+    def test_bare_english_magnitude_words_remain_hard_banned(self):
+        for word in ("million", "billion", "trillion", "Billion"):
+            text = f"The issuer has {word} of subscribers at vast scale."
+            with self.assertRaises(MoatReportValidationError) as rejected:
+                validate_narrative(text)
+            self.assertIn("prohibited token:", str(rejected.exception))
+            self.assertTrue(
+                any(mag in str(rejected.exception).lower() for mag in ("million", "billion", "trillion"))
+            )
+        # Qualitative scale language without banned tokens must pass.
+        validate_narrative("The issuer has a vast subscriber base and large-scale network reach.")
+        validate_narrative("電訊商具備龐大規模與大型客戶基礎，護城河來自網路效應而非短期行情。")
+
+    def test_magnitude_retry_feedback_quotes_token_and_asks_for_qualitative_scale(self):
+        err = MoatReportValidationError(
+            "m5_cost_advantage_scale.comment_en: Moat narrative must not invent numerical or "
+            "currency claims (prohibited token: billion)"
+        )
+        feedback = validation_feedback(err)
+        self.assertIn("prohibited token: billion", feedback)
+        self.assertIn("MAGNITUDE RETRY", feedback)
+        self.assertIn("qualitative scale language", feedback)
+        self.assertIn("億/萬/千", feedback)
+        self.assertIn(magnitude_retry_guidance(str(err)), feedback)
+        # Digits still get the generic (non-magnitude-first) path.
+        report = self.report()
+        report["m1_brand_pricing"]["comment_en"] = "A leading 5G network"
+        with self.assertRaises(MoatReportValidationError) as rejected:
+            validate_report(report, "0700.HK", ["profile"])
+        digit_feedback = validation_feedback(rejected.exception)
+        self.assertNotIn("MAGNITUDE RETRY", digit_feedback)
 
     def test_invalid_report_retries_receive_safe_actionable_feedback_without_weakening_validation(self):
         report = self.report()
