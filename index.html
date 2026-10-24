@@ -5514,6 +5514,12 @@
     const aDates = rawStmts.annual_dates || [];
     const qDates = qRaw.dates || [];
 
+    if (thead && MarketContext.statementsUnavailable(s)) {
+      const metricTitle = (currentLang === 'en') ? 'Ratio Metric / Dimension' : '比率指標 / 財務維度';
+      thead.innerHTML = `<th class="table-sticky-col" style="text-align: left; width: 320px;" data-i18n="th_ratio_metric">${metricTitle}</th>`;
+      return;
+    }
+
     if (thead) {
       if (period === 'annual') {
         const trendTitle = (currentLang === 'en') ? '5Y/TTM Trend' : '歷史趨勢';
@@ -5582,6 +5588,20 @@
     loadFinancialProvenance(document.getElementById('subpage-financials'), ticker, s);
 
     const isEn = (currentLang === 'en');
+    if (MarketContext.statementsUnavailable(s)) {
+      const theadRow = document.getElementById('cmp-fin-thead');
+      if (theadRow) {
+        theadRow.innerHTML = `<th class="table-sticky-col" style="text-align: left;">${
+          isEn ? 'Statement line' : '報表項目'}</th>`;
+      }
+      document.getElementById('statement-status').textContent = `${ticker} · ${
+        MarketContext.statementsUnavailableMessage(currentLang)}`;
+      tbody.innerHTML = `<tr><td class="table-sticky-col text-muted" style="text-align: left; padding: 18px;">${
+        MarketContext.statementsUnavailableMessage(currentLang)}</td></tr>`;
+      const finBox = document.querySelector('#subpage-financials .table-scroll-wrapper');
+      if (finBox) makeScrollable(finBox);
+      return;
+    }
     const rawStmts = s.statements_raw || {};
     const nativeCadence = MarketContext.cadence(s, activeStatementType);
     if (nativeCadence.frequency === 'annual') activeStatementPeriod = 'annual';
@@ -6187,6 +6207,12 @@
     loadFinancialProvenance(document.getElementById('subpage-ratios'), activeCompanyTicker, s);
 
     const isEn = (currentLang === 'en');
+    if (MarketContext.statementsUnavailable(s)) {
+      const message = MarketContext.statementsUnavailableMessage(currentLang);
+      document.getElementById('ratio-status').textContent = `${activeCompanyTicker} · ${message}`;
+      tbody.innerHTML = `<tr><td class="table-sticky-col text-muted" style="text-align: left; padding: 18px;">${message}</td></tr>`;
+      return;
+    }
     const isQuarter = activeRatioPeriod !== 'annual';
 
     const rawStmts = s.statements_raw || {};
@@ -6777,17 +6803,21 @@
       expansionNote = document.createElement('p'); expansionNote.id = 'cmp-expansion-note';
       expansionNote.className = 'analysis-note'; propertyNote.after(expansionNote);
     }
-    const sourceWarnings = Array.isArray(s.qualityWarnings) ? s.qualityWarnings
-      : Array.isArray(s.dataAvailability?.financials) ? s.dataAvailability.financials : [];
-    const sourceLimited = !!s.expansion && (!!s.expansion.reason || sourceWarnings.length > 0);
+    const sourceWarnings = MarketContext.qualityWarningList(s);
+    const statementsMissing = MarketContext.statementsUnavailable(s);
+    const sourceLimited = !!s.expansion && (!!s.expansion.reason || sourceWarnings.length > 0 || statementsMissing);
     expansionNote.hidden = !sourceLimited;
-    const sourceReason = s.expansion?.reason || (currentLang === 'en'
-      ? 'Annual/interim reporting periods or financial coverage could not be fully reconciled.'
-      : '年度／中期報告期間或財報涵蓋範圍未能完全核實。');
+    const sourceReason = statementsMissing
+      ? MarketContext.statementsUnavailableMessage(currentLang)
+      : (s.expansion?.reason || (currentLang === 'en'
+        ? 'Annual/interim reporting periods or financial coverage could not be fully reconciled.'
+        : '年度／中期報告期間或財報涵蓋範圍未能完全核實。'));
     expansionNote.title = sourceLimited ? sourceWarnings.map(row => row.message).filter(Boolean).join('\n') : '';
-    expansionNote.textContent = sourceLimited ? (currentLang === 'en'
-      ? 'Some source data could not be verified. Available financials are retained; unavailable values are not zero. Reason: '
-      : '部分來源未能核實；已保留可用財報，缺值不等於零。原因：')       + sourceReason : '';
+    expansionNote.textContent = sourceLimited ? (statementsMissing
+      ? sourceReason
+      : (currentLang === 'en'
+        ? 'Some source data could not be verified. Available financials are retained; unavailable values are not zero. Reason: '
+        : '部分來源未能核實；已保留可用財報，缺值不等於零。原因：') + sourceReason) : '';
     propertyNote.textContent = MarketContext.propertyFvNote(s, currentLang);
     propertyNote.hidden = !propertyNote.textContent;
     if (s.propertyFvProvenance) {

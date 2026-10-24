@@ -105,6 +105,33 @@
       ? 'Link FY2019–FY2026: operating income and EBIT exclude independently verified consolidated investment-property FV changes, retaining other impairments; EBITDA adds FMP D&A. Unseparated JV FV may remain in EBIT/EBITDA. Attributable NPAT uses the issuer’s property-FV/deferred-tax bridge, respecting JV/NCI scope; combined, inseparable adjustments show N/A. Basic EPS uses verified units; adjusted diluted EPS/P-E are unavailable pending convertible dilution review. Pretax, tax and other statement rows remain reported, not a restated GAAP income statement. CFO is statutory, already FV-free: no second addback. FCF deducts cash investment-property plus PPE additions, before financing-classified interest, not distributable equity cash. Native FMP forecasts/valuations and reported-basis F-score are unchanged. Earlier history is unreviewed; original FMP statements and official source pages are saved in the statement audit data.'
       : '領展 FY2019–FY2026：營業利益及 EBIT 按已核實的合併投資物業公允值變動調整，保留其他減值；EBITDA 加回 FMP 折舊攤銷。EBIT／EBITDA 仍可能含未能分拆的合營公允值影響。股東 NPAT 採官方分派調節中的物業公允值及遞延稅調整，保留合營／非控股歸屬；無法分拆的合併調整顯示 N/A。基本 EPS 採核實單位數；調整後稀釋 EPS／本益比因需重測可換股攤薄而不可用。稅前、稅項及其他列仍為報告值，並非重編會計損益表。CFO 採法定現金流，已排除非現金公允值，不再加回；FCF 扣投資物業及固定資產現金投入，未扣融資分類利息，非可分派股東現金。FMP 原生預測／估值及按報告值計算的 F-score 不變。更早歷史未核實；原始 FMP 數據及官方頁碼已存入報表審核資料。';
   }
+  function qualityWarningList(stock) {
+    if (Array.isArray(stock?.qualityWarnings)) return stock.qualityWarnings;
+    if (Array.isArray(stock?.dataAvailability?.financials)) return stock.dataAvailability.financials;
+    if (Array.isArray(stock?.statements_raw?.qualityWarnings)) return stock.statements_raw.qualityWarnings;
+    return [];
+  }
+  function hasDatedStatementColumns(raw) {
+    if (!raw || typeof raw !== 'object') return false;
+    const dated = value => typeof value === 'string' && /^\d{4}-\d{2}/.test(value);
+    return (raw.annual_dates || []).some(dated)
+      || (raw.quarterly_raw?.dates || []).some(dated)
+      || (raw.semiannual_raw?.dates || []).some(dated);
+  }
+  // True when the provider left income/balance/cashflow empty — not when a real period
+  // merely failed duration verification (those keep dates and may still show figures).
+  function statementsUnavailable(stock) {
+    if (!stock) return false;
+    const raw = stock.statements_raw;
+    if (raw?.providerStatementsUnavailable) return true;
+    if (hasDatedStatementColumns(raw)) return false;
+    return qualityWarningList(stock).some(row => row?.code === 'providerStatementUnavailable');
+  }
+  function statementsUnavailableMessage(language = 'en') {
+    return language === 'en'
+      ? 'Provider financial statements are unavailable for this listing. Period columns are not shown as “duration unverified”; missing statements are not filled with zeros or fabricated figures.'
+      : '供應商未提供此上市股份的財務報表。欄位不會顯示為「期間未核實」；缺漏財報不以零或虛構數字填補。';
+  }
   function renderProvenance(panel, data, ticker) {
     if (!panel || !data) return;
     let details = panel.querySelector('[data-financial-provenance]');
@@ -140,5 +167,6 @@
     }, null, 2);
   }
   return { market, currency, resolve, stocks, fcff, currencyFor, compatibleSaved, cadence, label, labels, localize,
-    propertyFvNote, renderProvenance };
+    propertyFvNote, qualityWarningList, hasDatedStatementColumns, statementsUnavailable,
+    statementsUnavailableMessage, renderProvenance };
 });
