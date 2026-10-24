@@ -11,6 +11,7 @@ from scripts.buffett_moat_v3 import (
     NEAR_FLOOR_ZH_CHARS,
     dimension_zh_counts,
     policy_compatible_for_reuse,
+    report_scores_complete,
     report_zh_pass,
     validate_dimension_zh_lengths,
     zh_char_count,
@@ -59,8 +60,13 @@ class BuffettMoatV3Tests(unittest.TestCase):
                   for key in DIMENSION_KEYS}
         validate_dimension_zh_lengths(report)
         self.assertTrue(report_zh_pass(report))
+        self.assertTrue(report_scores_complete(report))
         counts = dimension_zh_counts(report)
         self.assertEqual(len(counts), 10)
+        report["m1_brand_pricing"]["score"] = None
+        self.assertTrue(report_zh_pass(report), "ZH can pass while a score is still null")
+        self.assertFalse(report_scores_complete(report))
+        report["m1_brand_pricing"]["score"] = 7
         report["m1_brand_pricing"]["comment_zh"] = "太短"
         with self.assertRaises(ValueError):
             validate_dimension_zh_lengths(report)

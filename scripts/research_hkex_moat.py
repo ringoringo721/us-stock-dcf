@@ -166,7 +166,7 @@ def main():
     checkpoint()
     for record in records:
         if below_moat_market_cap(record):
-            print(f"{record['ticker']}: below HKD 1 billion; no new moat research requested", flush=True)
+            print(f"{record['ticker']}: below HKD 5 billion; no new moat research requested", flush=True)
             continue
         if record["ticker"] not in pending:
             print(f"{record['ticker']}: cached business research reused", flush=True)

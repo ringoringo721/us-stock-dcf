@@ -12,7 +12,9 @@ test('the 14 large-cap empty-statement targets stay explicitly unavailable, neve
     assert.equal(record.ticker, ticker);
     const stock = record.stock;
     assert.equal(stock.calculationCurrency, 'HKD');
-    assert.ok(Number.isFinite(stock.mcap) && stock.mcap >= 1000, `${ticker} must clear HKD 1B screen`);
+    // Historical recovery set (2026-10-20) was ≥ HKD 1B; site moat screen is now ≥ HKD 5B.
+    // Keep asserting a known positive HKD mcap, not the current remoat floor.
+    assert.ok(Number.isFinite(stock.mcap) && stock.mcap > 0, `${ticker} must retain a known positive HKD mcap`);
     const warnings = stock.qualityWarnings || [];
     assert.ok(warnings.some(row => row.code === 'providerStatementUnavailable'),
       `${ticker} must retain providerStatementUnavailable rather than fabricating statements`);

@@ -87,16 +87,18 @@ the reviewed 114, and preserves newer snapshots. Build and review before publish
 cloud artifacts alone do not update the live site.
 Known unfinished reassessment/result-import batches are labeled separately from
 completed assessments. This status does not supply missing scores or comments.
-For HK stocks with a known positive market capitalisation **below HKD 1 billion**,
+For HK stocks with a known positive market capitalisation **below HKD 5 billion**,
 moat displays read **N/A - 尚無評分** (English: **N/A - Not assessed**).
 The screener, peer comparisons and rating page suppress their scores and business
 commentary, including previously saved assessments. Historical source records
 remain stored; PF scores and other financial calculations are unaffected.
 New research and scoring inputs carry an HKD-million market-cap screen outside
 the financial-evidence hash, and both workers skip these companies even on forced
-refresh. Exactly HKD 1 billion remains eligible. Unknown/invalid market caps
+refresh. Exactly HKD 5 billion remains eligible. Unknown/invalid market caps
 and non-HKD amounts are not treated as zero or assumed below the threshold.
 This is a site screening rule, not a factual claim about Buffett's criteria.
+Partial / null dimension scores never invent a full **/100** total: the UI shows
+per-dimension **未評分 / Not assessed** and an honest overall **N/A · 部分評分**.
 
 ## Full US company expansion (NYSE / NASDAQ / AMEX, market cap > USD 10B)
 
@@ -590,16 +592,18 @@ authentication and appropriate project permissions must already be configured.
 remain outside the repository and published assets.
 
 An assessment-policy change triggers reassessment even if financial evidence
-has not changed. `--retry-incomplete` additionally retries partial reports and
-is preferred for null-score gaps. `--force` remoats nearly all eligible HK names
-and requires `FORCE_MOAT_CONFIRM=YES` (or `1`/`true`) so accidental full remoats
-are hard; scheduled `refresh_hkex.yml` never passes `--force`.
+has not changed. Comment-present + score-null (and any null M1–M10 score) is
+treated as incomplete and remoats without `--force`; `--retry-incomplete` remains
+an explicit alias for the same path. `--force` remoats nearly all eligible HK
+names and requires `FORCE_MOAT_CONFIRM=YES` (or `1`/`true`) so accidental full
+remoats are hard; scheduled `refresh_hkex.yml` never passes `--force`.
 Manual **Refresh HKEX** accepts optional `moat_limit` (digits, e.g. `25`) to
-batch Lite Buffett-v3 remoats for mcap ≥ HKD 1B under time/cost pressure; already
-`buffett-moat-v3` + matching evidence hashes are skipped. Partial successes still
-Persist. US baseline remoats use Daily `moat_limit` / `MAX_US_MOAT_GEMINI`; legacy
-`us-buffett-moat-v3` caches with ZH already in the 100–300 band restamp without
-Gemini. US expansion batches use **Full remoat batch** (`us-expansion`, ≤20/run).
+batch Lite Buffett-v3 remoats for mcap ≥ HKD 5B under time/cost pressure; already
+`buffett-moat-v3` + matching evidence hashes + complete scores are skipped.
+Partial successes still Persist. US baseline remoats use Daily `moat_limit` /
+`MAX_US_MOAT_GEMINI`; legacy `us-buffett-moat-v3` caches with ZH already in the
+100–300 band restamp without Gemini. US expansion batches use **Full remoat
+batch** (`us-expansion`, ≤20/run).
 Count backlog with `python3 scripts/remoat_remaining.py`.
 All new scores still require cited evidence and bilingual qualitative comments;
 insufficient evidence may legitimately remain unassessed. Failed authorization

@@ -4,7 +4,7 @@ name: Full remoat batch (Lite + Buffett-v3)
 # Production persist: HK via Refresh HKEX allowlist commit; US baseline via daily commit;
 # US expansion via integrate into us_expansion_data.js on main.
 # Spec: gemini-2.5-flash-lite, buffett-moat-v3, ZH comment_zh 100–300 繁中字.
-# Order: HK ≥ HKD 1B first (moat_limit≈20–30), then US baseline restamp/remoat, then US expansion.
+# Order: HK ≥ HKD 5B first (moat_limit≈20–30), then US baseline restamp/remoat, then US expansion.
 
 on:
   workflow_dispatch:

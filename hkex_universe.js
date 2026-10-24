@@ -7,8 +7,9 @@
   let cached, previousMarket, previousList, previousExpansion;
   const pending = new Map();
   function belowMoatMarketCap(stock, ticker = stock?.ticker) {
+    // Site screen: known positive HKD mcap below HKD 5 billion → no moat assessment.
     return /^\d{4,5}\.HK$/.test(ticker || '') && stock?.calculationCurrency === 'HKD'
-      && Number.isFinite(stock.mcap) && stock.mcap > 0 && stock.mcap < 1000;
+      && Number.isFinite(stock.mcap) && stock.mcap > 0 && stock.mcap < 5000;
   }
   function emptyStatements(ticker) {
     return { ticker, calculationCurrency: 'HKD', sourceAvailability: 'pendingCapture',

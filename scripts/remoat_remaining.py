@@ -18,6 +18,7 @@ from scripts.buffett_moat_v3 import (  # noqa: E402
     BUFFETT_MOAT_ASSESSMENT_POLICY,
     BUFFETT_MOAT_MODEL,
     policy_compatible_for_reuse,
+    report_scores_complete,
     report_zh_pass,
 )
 from scripts.refresh_hkex_moat import below_moat_market_cap  # noqa: E402
@@ -49,7 +50,9 @@ def _hk_good(entry: dict) -> bool:
     model = (entry.get("model") or "").strip()
     if model and model != BUFFETT_MOAT_MODEL and "flash-lite" not in model:
         return False
-    return report_zh_pass(entry.get("report") or {})
+    report = entry.get("report") or {}
+    # ZH band alone is not enough — comment-present + score-null counts as incomplete.
+    return report_zh_pass(report) and report_scores_complete(report)
 
 
 def hk_remaining() -> dict:
@@ -63,7 +66,7 @@ def hk_remaining() -> dict:
             need.append(ticker)
     return {
         "market": "HK",
-        "eligible_ge_hkd_1b": len(eligible),
+        "eligible_ge_hkd_5b": len(eligible),
         "already_good": len(good),
         "remaining": len(need),
         "good_tickers": good,
@@ -159,7 +162,7 @@ def main() -> None:
     for key, block in payload.items():
         print(f"== {key.upper()} ==")
         for field in (
-            "eligible_ge_hkd_1b", "published", "already_good", "remaining",
+            "eligible_ge_hkd_5b", "published", "already_good", "remaining",
             "remaining_baseline", "remaining_expansion",
         ):
             if field in block:

@@ -122,7 +122,7 @@ class BusinessResearchTests(unittest.TestCase):
             self.assertIn("0700.HK", json.loads(cache.read_text(encoding="utf-8"))["failures"])
         self.assertEqual(client.models.generate_content.call_count, 3)
 
-    def test_below_one_billion_skips_paid_research_and_preserves_existing_evidence(self):
+    def test_below_five_billion_skips_paid_research_and_preserves_existing_evidence(self):
         record = {"ticker": "0004.HK", "existing": {"report": {"archived": True}},
                   "moatScreen": {"calculationCurrency": "HKD", "marketCapMillions": 750}}
         modules = {"google.genai": SimpleNamespace(types=SimpleNamespace(), errors=SimpleNamespace()),
@@ -204,10 +204,21 @@ class BusinessResearchTests(unittest.TestCase):
                 validate_business_research(research, "0700.HK")
 
     def test_researched_assessments_reuse_saved_evidence_without_another_model_call(self):
+        from scripts.refresh_hkex_moat import DIMENSIONS
+        from scripts.buffett_moat_v3 import MIN_COMMENT_ZH_CHARS, MAX_COMMENT_ZH_CHARS
+        zh = (
+            "該公司憑藉品牌心智與產品生態形成可辨識的定價權，客戶轉換成本來自工作流程與資料黏著，"
+            "規模攤銷固定研發與通路後具備成本優勢，管理層資本配置偏重股東回報與核心再投資，"
+            "整體護城河屬穩固而非短暫行情，惟仍須留意技術更迭與監管變化對壁壘耐久度的侵蝕風險。"
+        )
+        assert MIN_COMMENT_ZH_CHARS <= len(zh) <= MAX_COMMENT_ZH_CHARS
+        complete = {"ticker": "0700.HK", "overall_moat_verdict_zh": zh, "overall_moat_verdict_en": "Verdict.",
+                    **{name: {"score": 7, "sources": ["profile"], "comment_zh": zh, "comment_en": "Comment."}
+                       for name in DIMENSIONS}}
         research = research_result({"ticker": "0700.HK"}, response(), "test-model")
         record = {"ticker": "0700.HK", "evidenceHash": "financials",
                   "existing": {"businessResearch": research, "evidenceHash": "financials",
-                               "assessmentPolicy": RESEARCH_ASSESSMENT_POLICY, "report": {"score": 7}}}
+                               "assessmentPolicy": RESEARCH_ASSESSMENT_POLICY, "report": complete}}
         self.assertEqual(business_research(record), research)
         self.assertFalse(needs_refresh(record))
         changed = copy.deepcopy(research)
