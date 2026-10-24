@@ -431,8 +431,33 @@ function marketMultiples(data, price, shareSource, shareClassUnverified = false,
   };
 }
 
+function emptyStatementTable(data) {
+  const emptyPeriods = { income: [], balance: [], cashflow: [] };
+  const quarterly = { dates: [], periodLengths: [], periods: [], derivations: [],
+    statementPeriodLengths: { ...emptyPeriods }, income: {}, balance: {}, cashflow: {} };
+  return {
+    annual_dates: [], annual_period_lengths: [],
+    calculationCurrency: data.calculationCurrency || 'HKD',
+    reportingFrequency: data.reportingFrequency || 'annual',
+    statementPeriodLengths: { ...emptyPeriods },
+    quarterly_raw: quarterly, semiannual_raw: { ...quarterly },
+    income: {}, balance: {}, cashflow: {},
+    tradeAccountsReceivables: [], vendorNonTradeReceivables: [],
+    providerStatementsUnavailable: true,
+    qualityWarnings: Array.isArray(data.qualityWarnings) ? data.qualityWarnings : []
+  };
+}
+
 function statementTable(data, includeHalfYears = true) {
-  const dates = annualColumns(data.annual.income), quarters = sorted(data.quarterly.income).slice(-20);
+  const annualIncome = data.annual?.income || [];
+  const quarterlyIncome = data.quarterly?.income || [];
+  // Completely missing provider statements must not pad six null "N/A (duration unverified)" columns.
+  if (!annualIncome.length && !quarterlyIncome.length
+      && !(data.annual?.balance || []).length && !(data.quarterly?.balance || []).length
+      && !(data.annual?.cashflow || []).length && !(data.quarterly?.cashflow || []).length) {
+    return emptyStatementTable(data);
+  }
+  const dates = annualColumns(annualIncome), quarters = sorted(quarterlyIncome).slice(-20);
   const latest = quarters.at(-1), raw = { annual_dates: [...dates.map(row => row?.date.slice(0, 7) || null), latest?.date.slice(0, 7)],
     annual_period_lengths: [...dates.map(row => row?.periodLength), null],
     calculationCurrency: 'HKD', reportingFrequency: data.reportingFrequency,
