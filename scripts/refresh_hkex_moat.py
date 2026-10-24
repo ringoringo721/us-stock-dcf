@@ -25,10 +25,13 @@ DIMENSIONS = {
     "m9_customer_retention": "Resistance to technological and demand disruption",
     "m10_durability": "Management integrity and capital allocation",
 }
-# v4 / researched-v5: fuller bilingual comments (~150 EN words / ~150–250 字 per dimension),
-# aligned with US us-buffett-moat-v3. Policy bump remoats on next evidence/policy refresh.
-ASSESSMENT_POLICY = "grounded-business-judgment-v4"
-RESEARCH_ASSESSMENT_POLICY = "researched-business-judgment-v5"
+# v5 / researched-v6: enforce ~150 EN words / dim (v4/researched-v5 still undershot ~80–95).
+# Policy bump remoats short batch-1 caches and remaining names without --force.
+ASSESSMENT_POLICY = "grounded-business-judgment-v5"
+RESEARCH_ASSESSMENT_POLICY = "researched-business-judgment-v6"
+# Soft floor for retry loop (prompt still targets ~150). Rejects the short ~40–100 style.
+MIN_COMMENT_EN_WORDS = 130
+MIN_COMMENT_ZH_CHARS = 120
 FACT_FIELDS = (
     "date", "period", "fiscalYear", "reportedCurrency", "sourceReportedCurrency", "periodStartDate", "periodLength",
     "reportType", "comparabilityGroup", "operatingIncomeBasis", "earningsIncludeDiscontinued",
@@ -199,18 +202,18 @@ def report_schema(ticker, source_ids):
         score: int | None = Field(default=None, ge=0, le=10)
         comment_zh: str = Field(
             description=(
-                "Traditional Chinese in-depth qualitative prose, target about 150–250 characters "
-                "(not the short ~40–80 character style): "
-                "barrier mechanism, competitive differences and business logic; "
-                "no digits, amounts, dates or currency units; avoid empty boilerplate"
+                "REQUIRED length: Traditional Chinese qualitative prose of about 150–250 characters "
+                "(aim ≥150 字; reject short ~40–100 字 blurbs). Cover barrier mechanism, competitive "
+                "differences and business logic. No digits, amounts, dates or currency units; "
+                "no empty boilerplate"
             ),
         )
         comment_en: str = Field(
             description=(
-                "In-depth English qualitative moat comment, target about 150 words "
-                "(approximately 150; not the short ~40–80 word style): "
-                "barrier mechanism, competitive differences and business logic; "
-                "no digits, amounts, dates or currency units"
+                "REQUIRED length: English qualitative moat comment of approximately 150 words "
+                "(write about 150; minimum roughly 130–140 words is still short of target—aim for 150). "
+                "Do NOT write the short ~40–100 word style. Cover barrier mechanism, competitive "
+                "differences and business logic. No digits, amounts, dates or currency units"
             ),
         )
         sources: list[Literal[tuple(source_ids)]]
@@ -233,8 +236,8 @@ def report_schema(ticker, source_ids):
             str,
             Field(
                 description=(
-                    "English overall moat verdict, target about 150 words "
-                    "(approximately 150; not a short blurb); "
+                    "English overall moat verdict of approximately 150 words "
+                    "(write about 150; not a short blurb); "
                     "qualitative only—no digits, amounts, dates or currency units"
                 ),
             ),
@@ -250,6 +253,26 @@ def validate_narrative(text):
     if match:
         raise MoatReportValidationError(
             f"Moat narrative must not invent numerical or currency claims (prohibited token: {match.group()})")
+
+
+def validate_comment_lengths(report):
+    """Reject undersized dimension prose so the remoat loop retries (batch-1 hit ~77–96 EN words)."""
+    for name in DIMENSIONS:
+        item = report.get(name) or {}
+        en = item.get("comment_en") if isinstance(item, dict) else None
+        zh = item.get("comment_zh") if isinstance(item, dict) else None
+        if not isinstance(en, str) or not isinstance(zh, str):
+            raise MoatReportValidationError(f"{name}: missing bilingual comments for length check")
+        en_words = len(en.split())
+        zh_chars = len(zh.strip())
+        if en_words < MIN_COMMENT_EN_WORDS:
+            raise MoatReportValidationError(
+                f"{name}.comment_en: too short ({en_words} words); rewrite to about 150 English words "
+                f"(minimum {MIN_COMMENT_EN_WORDS}; do not use the short ~40–100 word style)")
+        if zh_chars < MIN_COMMENT_ZH_CHARS:
+            raise MoatReportValidationError(
+                f"{name}.comment_zh: too short ({zh_chars} characters); rewrite to about 150–250 "
+                f"Chinese characters (minimum {MIN_COMMENT_ZH_CHARS})")
 
 
 def repair_narratives(report, rewrite):
@@ -474,10 +497,11 @@ def main():
                 "Mention missing/reconciliation-limited evidence and the period actually available; annual "
                 "cash flows are NOT current TTM flows. No transcript means no claim to have reviewed a call. "
                 "Each dimension needs in-depth Traditional Chinese and English explanations and source IDs drawn "
-                "only from allowedSourceIds. HARD LENGTH TARGET per dimension: comment_en approximately 150 "
-                "English words (aim for ~150; do not ship short ~40–80 word comments); "
-                "comment_zh about 150–250 Chinese characters—informative analysis of the barrier, competitive "
-                "differences and business model; not the short ~40–80 character style, and not empty padding. "
+                "only from allowedSourceIds. LENGTH IS MANDATORY per dimension (outputs below the floor are "
+                "rejected and regenerated): comment_en MUST be about 150 English words—write a full analytical "
+                "paragraph (roughly 150 words; never the short ~40–100 word blurb used in older caches); "
+                "comment_zh MUST be about 150–250 Chinese characters with the same depth. Expand on how the "
+                "barrier works, who it disadvantages, durability and limits—without padding or repetition. "
                 "overall_moat_verdict_en approximately 150 words; overall_moat_verdict_zh about 120–200 characters. "
                 "Summarize/paraphrase; do not reproduce transcript passages. "
                 "Financial facts have already been translated to HKD using dated FX; amounts are full HKD units, "
@@ -547,6 +571,7 @@ def main():
                     if isinstance(candidate, dict):
                         candidate = repair_narratives(candidate, rewrite)
                     report = validate_report(candidate, record["ticker"], context["allowedSourceIds"])
+                    validate_comment_lengths(report)
                     quarterly = record["statements"]["quarterly"]["income"]
                     latest = max(quarterly or record["statements"]["annual"]["income"],
                                  key=lambda row: row["date"], default=None)
