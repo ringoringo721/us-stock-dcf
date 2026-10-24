@@ -23,7 +23,7 @@ test('quoted EV and leverage survive a blocked model without borrowing its lease
   assert.equal(View.metrics(stock, source, {}).EV, null, 'An unknown priority claim is not filled with zero');
 });
 
-test('Moat partial coverage displays actual earned points without inventing a full score or grade', () => {
+test('Moat partial coverage shows N/A overall without inventing a /100 or partial-sum total', () => {
   const html = fs.readFileSync(require.resolve('../index.html'), 'utf8');
   const context = { currentLang: 'en', ratingState: () => '', HkUniverse: require('../hkex_universe.js') };
   vm.runInNewContext(html.slice(html.indexOf('  function evaluateMoat('), html.indexOf('  function setValFilter(')), context);
@@ -33,7 +33,7 @@ test('Moat partial coverage displays actual earned points without inventing a fu
   const stock = { moat: Object.fromEntries(keys.map((key, i) => [key, { score: i === 6 ? null : 8 }])) };
   let result = context.evaluateMoat(stock);
   assert.equal(result.total, null);
-  assert.equal(result.scoreText, '72 / 90');
+  assert.equal(result.scoreText, 'N/A · Partial (9/10)');
   assert.equal(result.coverage, '9/10 dimensions assessed');
   assert.equal(result.grade, 'Partial assessment');
   assert.equal(result.criteria[6].score, null);
@@ -42,7 +42,7 @@ test('Moat partial coverage displays actual earned points without inventing a fu
   assert.equal(result.total, 72, 'A genuine zero is retained');
   assert.equal(result.scoreText, '72 / 100');
   assert.equal(context.evaluateMoat({}).scoreText, 'N/A');
-  const small = { ...stock, ticker: '0004.HK', calculationCurrency: 'HKD', mcap: 999.999, f_score: 7 };
+  const small = { ...stock, ticker: '0004.HK', calculationCurrency: 'HKD', mcap: 4999.999, f_score: 7 };
   const original = JSON.stringify(small);
   context.currentLang = 'zh';
   const excluded = context.evaluateMoat(small);
@@ -54,7 +54,8 @@ test('Moat partial coverage displays actual earned points without inventing a fu
   assert.equal(JSON.stringify(small), original, 'Stored assessments and PF data are preserved');
   context.currentLang = 'en';
   assert.equal(context.evaluateMoat(small).scoreText, 'N/A - Not assessed');
-  assert.equal(context.evaluateMoat({ ...small, mcap: 1000 }).total, 72, 'Exactly HKD 1 billion remains assessable');
+  assert.equal(context.evaluateMoat({ ...small, mcap: 5000 }).total, 72, 'Exactly HKD 5 billion remains assessable');
+  assert.equal(context.evaluateMoat({ ...small, mcap: 1000 }).excluded, true, 'Former HKD 1B floor no longer applies');
   assert.equal(context.evaluateMoat({ ...small, mcap: 750 }).excluded, true, 'The former HKD 500M threshold no longer applies');
   for (const mcap of [null, undefined, 0, -1, NaN, Infinity]) {
     assert.equal(context.evaluateMoat({ ...small, mcap }).excluded, false, 'Unknown/invalid market cap is not zero');
@@ -67,9 +68,10 @@ test('Moat partial coverage displays actual earned points without inventing a fu
     moat: Object.fromEntries(keys.map((key, i) => [key, { score: i === 6 || i === 9 ? null : 5 }]))
   };
   const partial = context.evaluateMoat(incomplete);
-  assert.equal(partial.scoreText, '40 / 80');
+  assert.equal(partial.scoreText, 'N/A · Partial (8/10)');
   assert.match(partial.comment, /Provider financial statements are unavailable/);
   context.currentLang = 'zh';
+  assert.equal(context.evaluateMoat(incomplete).scoreText, 'N/A · 部分評分（8/10）');
   assert.match(context.evaluateMoat(incomplete).comment, /供應商尚未提供/);
 });
 test('a model-only noncontrolling claim scenario cannot rewrite quoted book-based enterprise value', () => {

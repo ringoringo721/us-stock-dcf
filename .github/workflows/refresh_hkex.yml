@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       moat_limit:
-        description: Optional max moat remoats this run (empty = all pending ≥ HKD 1B). Batch/resume with 20–30; next run continues via policy/evidence mismatch (no --force).
+        description: Optional max moat remoats this run (empty = all pending ≥ HKD 5B). Batch/resume with 20–30; next run continues via policy/evidence/incomplete-score mismatch (no --force).
         type: string
         default: ''
 
@@ -24,7 +24,7 @@ jobs:
     # timeout / FX / Lite Buffett-v3 fixes can remoat before that PR merges (data still commits to main).
     if: github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
-    # Batched remoats (~20–30) fit comfortably; full pending ≥1B still needs headroom after capture.
+    # Batched remoats (~20–30) fit comfortably; full pending ≥5B still needs headroom after capture.
     timeout-minutes: 240
     steps:
       - uses: actions/checkout@v4
@@ -87,9 +87,9 @@ jobs:
         run: node scripts/build_hkex.cjs hkex-source-output hkex-data-output
       # Scheduled path: evidence/policy-hash refresh only. Never pass --force here
       # (--force remoats nearly all HK names; use valuation_audit force_moat + FORCE_MOAT_CONFIRM for recovery).
-      # Prefer --retry-incomplete for null-score gaps (manual / recover scripts).
-      # Market-cap screen already skips known caps below HKD 1B; optional moat_limit batches resume.
-      # Skips already buffett-moat-v3 + matching evidence (pilot salvage / prior batches).
+      # Null-score / comment-without-score gaps auto-remoat (needs_refresh); --retry-incomplete still ok.
+      # Market-cap screen already skips known caps below HKD 5B; optional moat_limit batches resume.
+      # Skips already buffett-moat-v3 + matching evidence + complete scores (pilot salvage / prior batches).
       - name: Reassess moat only on changed evidence
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}

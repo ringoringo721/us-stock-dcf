@@ -34,14 +34,16 @@ assert MIN_COMMENT_ZH_CHARS <= len(_ZH120) <= MAX_COMMENT_ZH_CHARS, len(_ZH120)
 class MoatEvidenceTests(unittest.TestCase):
     def test_market_cap_screen_uses_hkd_millions_and_preserves_unknowns(self):
         record = {"ticker": "0004.HK", "evidenceHash": "unchanged",
-                  "moatScreen": {"calculationCurrency": "HKD", "marketCapMillions": 999.999}}
+                  "moatScreen": {"calculationCurrency": "HKD", "marketCapMillions": 4999.999}}
         self.assertTrue(below_moat_market_cap(record))
         self.assertFalse(needs_refresh(record, retry_incomplete=True, force=True))
-        for amount in [1000, 1000.001, None, 0, -1, True, "999", float("nan"), float("inf")]:
+        for amount in [5000, 5000.001, None, 0, -1, True, "999", float("nan"), float("inf")]:
             record["moatScreen"]["marketCapMillions"] = amount
             self.assertFalse(below_moat_market_cap(record), repr(amount))
-        record["moatScreen"]["marketCapMillions"] = 750
-        self.assertTrue(below_moat_market_cap(record))
+        # Former HKD 1B floor no longer applies — 1B–5B names are excluded.
+        for amount in [750, 999.999, 1000, 1000.001, 4999]:
+            record["moatScreen"]["marketCapMillions"] = amount
+            self.assertTrue(below_moat_market_cap(record), repr(amount))
         record["moatScreen"] = {"calculationCurrency": "USD", "marketCapMillions": 100}
         self.assertFalse(below_moat_market_cap(record))
         self.assertFalse(below_moat_market_cap({"ticker": "0004.HK"}))
@@ -173,10 +175,15 @@ class MoatEvidenceTests(unittest.TestCase):
                    for name in DIMENSIONS}}
 
     def test_only_actual_evidence_changes_trigger_refresh(self):
+        complete = self.report()
         self.assertTrue(needs_refresh({"evidenceHash": "new", "existing": None}))
         self.assertFalse(needs_refresh({"evidenceHash": "old", "existing": {
+            "evidenceHash": "old", "assessmentPolicy": ASSESSMENT_POLICY, "report": complete}}))
+        self.assertTrue(needs_refresh({"evidenceHash": "new", "existing": {
+            "evidenceHash": "old", "assessmentPolicy": ASSESSMENT_POLICY, "report": complete}}))
+        # Stub / missing M1–M10 scores count as incomplete even when evidence hash matches.
+        self.assertTrue(needs_refresh({"evidenceHash": "old", "existing": {
             "evidenceHash": "old", "assessmentPolicy": ASSESSMENT_POLICY, "report": {"score": 7}}}))
-        self.assertTrue(needs_refresh({"evidenceHash": "new", "existing": {"evidenceHash": "old", "report": {"score": 7}}}))
 
     def test_policy_changes_and_explicit_partial_retry_trigger_reassessment(self):
         record = {"evidenceHash": "same", "existing": {"evidenceHash": "same", "report": self.report()}}
@@ -184,8 +191,9 @@ class MoatEvidenceTests(unittest.TestCase):
         record["existing"]["assessmentPolicy"] = ASSESSMENT_POLICY
         self.assertFalse(needs_refresh(record))
         self.assertTrue(needs_refresh(record, force=True))
+        # Comment-present + score-null is incomplete and remoats without requiring --retry-incomplete.
         record["existing"]["report"]["m2_patents_regulatory"]["score"] = None
-        self.assertFalse(needs_refresh(record))
+        self.assertTrue(needs_refresh(record))
         self.assertTrue(needs_refresh(record, retry_incomplete=True))
 
     def test_assessment_policy_is_unified_buffett_v3_zh_primary(self):

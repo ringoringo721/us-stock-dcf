@@ -5,7 +5,7 @@ Locked 2026-10-24 (updated):
 - Model: gemini-2.5-flash-lite
 - Each M1–M10 comment_zh: about 100–300 Traditional Chinese characters (字)
 - comment_en: translation of the Chinese (length not the gate)
-- Same band for US and HK (mcap ≥ HKD 1B for HK remoats)
+- Same band for US and HK (mcap ≥ HKD 5B for HK remoats)
 """
 
 from __future__ import annotations
@@ -26,7 +26,7 @@ COMPATIBLE_BUFFETT_MOAT_POLICIES = frozenset({
 })
 
 # Hard acceptance band for Traditional Chinese dimension comments (Unicode code points after strip).
-# User-locked target ~100–300 繁中字 (US already often lands here; HK ≥1B must match).
+# User-locked target ~100–300 繁中字 (US already often lands here; HK ≥5B must match).
 MIN_COMMENT_ZH_CHARS = 100
 MAX_COMMENT_ZH_CHARS = 300
 
@@ -180,6 +180,18 @@ def dimension_zh_counts(report: Mapping, dimensions: Iterable[str] = DIMENSION_K
 def report_zh_pass(report: Mapping, dimensions: Iterable[str] = DIMENSION_KEYS) -> bool:
     counts = dimension_zh_counts(report, dimensions)
     return all(row["zh_ok"] and row["en_present"] for row in counts.values())
+
+
+def report_scores_complete(report: Mapping, dimensions: Iterable[str] = DIMENSION_KEYS) -> bool:
+    """True when every M1–M10 dimension has an integer 0–10 score (no null / partial gaps)."""
+    for name in dimensions:
+        item = report.get(name) if isinstance(report, Mapping) else None
+        if not isinstance(item, Mapping):
+            return False
+        score = item.get("score")
+        if type(score) is not int or isinstance(score, bool) or not 0 <= score <= 10:
+            return False
+    return True
 
 
 def zh_primary_prompt_rules() -> str:

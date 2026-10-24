@@ -4497,8 +4497,12 @@
     const evaluated = m.filter(Number.isFinite);
     const scoredTotal = evaluated.length ? evaluated.reduce((a, b) => a + b, 0) : null;
     const total = evaluated.length === 10 ? scoredTotal : null;
+    // Never invent a /100 (or /90-style) total when any dim is null — show N/A + explicit partial.
     const scoreText = excluded ? (isEn ? 'N/A - Not assessed' : 'N/A - 尚無評分') : total !== null ? `${total} / 100`
-      : scoredTotal !== null ? `${scoredTotal} / ${evaluated.length * 10}` : 'N/A';
+      : evaluated.length ? (isEn
+        ? `N/A · Partial (${evaluated.length}/10)`
+        : `N/A · 部分評分（${evaluated.length}/10）`)
+      : 'N/A';
     const coverage = isEn ? `${evaluated.length}/10 dimensions assessed` : `已評估 ${evaluated.length}/10 個維度`;
     let grade = isEn ? "Moderate Moat" : "Moderate Moat (中等)";
     let badgeClass = "moat-weak";
@@ -4528,8 +4532,8 @@
     if (excluded) {
       grade = '';
       overallComment = isEn
-        ? 'Market capitalisation is below HKD 1 billion; no moat score or commentary is provided under the site screening rule.'
-        : '市值低於港幣 10 億元，依網站篩選規則不提供護城河評分或評論。';
+        ? 'Market capitalisation is below HKD 5 billion; no moat score or commentary is provided under the site screening rule.'
+        : '市值低於港幣 50 億元，依網站篩選規則不提供護城河評分或評論。';
     }
 
     const criteriaDefs = [
@@ -7298,8 +7302,14 @@
       const m = moat.m || Array(10).fill(null);
       const categoryScore = values => {
         const assessed = values.filter(Number.isFinite);
-        return assessed.length ? `${assessed.reduce((a, b) => a + b, 0)} / ${assessed.length * 10}${assessed.length < values.length ? ` · ${assessed.length}/${values.length}` : ''}`
-          : I18N_DICT[currentLang].moat_unassessed;
+        if (assessed.length === values.length) {
+          return `${assessed.reduce((a, b) => a + b, 0)} / ${values.length * 10}`;
+        }
+        if (!assessed.length) return I18N_DICT[currentLang].moat_unassessed;
+        // Incomplete category: no partial numeric total (same honesty rule as overall /100).
+        return currentLang === 'en'
+          ? `N/A · Partial (${assessed.length}/${values.length})`
+          : `N/A · 部分評分（${assessed.length}/${values.length}）`;
       };
       document.getElementById('moat-cat-intangible').innerText = categoryScore(m.slice(0, 2));
       document.getElementById('moat-cat-structural').innerText = categoryScore(m.slice(2, 6));

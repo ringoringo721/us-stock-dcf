@@ -75,11 +75,34 @@ class MoatReportValidationError(ValueError):
 
 
 def below_moat_market_cap(record):
+    """True when a known HKD market cap is below the HKD 5 billion moat screen."""
     screen = record.get("moatScreen") or {}
     value = screen.get("marketCapMillions")
     return (bool(re.fullmatch(r"\d{4,5}\.HK", record.get("ticker", "")))
             and screen.get("calculationCurrency") == "HKD"
-            and type(value) in (int, float) and math.isfinite(value) and 0 < value < 1000)
+            and type(value) in (int, float) and math.isfinite(value) and 0 < value < 5000)
+
+
+def incomplete_score_dimensions(report):
+    """M1–M10 keys whose score is missing (None) or whose dimension object is absent."""
+    report = report or {}
+    return [name for name in DIMENSIONS
+            if not isinstance(report.get(name), dict) or report[name].get("score") is None]
+
+
+def comment_without_score_dimensions(report):
+    """Dimensions that have bilingual prose but score=null (silent/partial gaps to remoat)."""
+    report = report or {}
+    gaps = []
+    for name in DIMENSIONS:
+        item = report.get(name) if isinstance(report.get(name), dict) else {}
+        if item.get("score") is not None:
+            continue
+        zh = item.get("comment_zh") if isinstance(item.get("comment_zh"), str) else ""
+        en = item.get("comment_en") if isinstance(item.get("comment_en"), str) else ""
+        if zh.strip() or en.strip():
+            gaps.append(name)
+    return gaps
 
 
 _EN_MAGNITUDE_WORDS = frozenset({"million", "billion", "trillion"})
@@ -403,10 +426,14 @@ def needs_refresh(record, retry_incomplete=False, force=False):
     report = existing.get("report") or {}
     research = business_research(record)
     changed_research = bool(research and research["evidenceHash"] != (existing.get("businessResearch") or {}).get("evidenceHash"))
+    # Incomplete scores (esp. comment-present + score-null) always remoat — do not leave
+    # silent nulls on an otherwise policy/evidence-matching report. --retry-incomplete
+    # remains supported as an explicit alias for the same incomplete-score path.
+    incomplete = bool(incomplete_score_dimensions(report) or comment_without_score_dimensions(report))
     return (force or existing.get("evidenceHash") != record["evidenceHash"] or not report
             or changed_research
             or existing.get("assessmentPolicy") != assessment_policy(record)
-            or retry_incomplete and any(report.get(name, {}).get("score") is None for name in DIMENSIONS))
+            or incomplete or (retry_incomplete and incomplete))
 
 
 def write_json_checkpoint(output, value):
@@ -511,7 +538,7 @@ def main():
     pending = [row for row in records if needs_refresh(row, args.retry_incomplete, args.force)]
     excluded = sum(below_moat_market_cap(row) for row in records)
     if excluded:
-        print(f"Moat market-cap screen: {excluded} below HKD 1 billion; no assessment requested.")
+        print(f"Moat market-cap screen: {excluded} below HKD 5 billion; no assessment requested.")
     deferred = 0
     if args.limit is not None and len(pending) > args.limit:
         deferred = len(pending) - args.limit
@@ -626,6 +653,18 @@ def main():
                 "into Traditional Chinese without adding facts (description_zh). Dimensions: "
                 + json.dumps(DIMENSIONS) + "\nSOURCE DATA:\n" + json.dumps(context, ensure_ascii=False)
             )
+            prior_report = (record.get("existing") or {}).get("report") or {}
+            prior_gaps = comment_without_score_dimensions(prior_report) or incomplete_score_dimensions(prior_report)
+            if prior_gaps:
+                instructions += (
+                    "\nINCOMPLETE SCORE RETRY: The previous assessment left score=null on dimension(s) "
+                    + ", ".join(prior_gaps)
+                    + " while comments may already exist. Prefer a supported 0–10 integer score for each "
+                    "named gap when the supplied evidence and research reasonably support qualitative "
+                    "judgment (including an explicitly LOW score for weak protection). Use null only when "
+                    "a specific essential factual gap still prevents reasoned judgment, and explain that gap. "
+                    "Do not leave comment-without-score gaps when the model can score."
+                )
             research = business_research(record)
             if research:
                 instructions += (

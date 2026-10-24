@@ -10,7 +10,8 @@
  *      sources, rebuilds company snapshots, and optionally retries incomplete
  *      moat assessments via the existing expansion pipeline.
  *
- * Tickers (mcap ≥ HKD 1B, partial moat, empty FMP statements as of 2026-10-20):
+ * Tickers (historical large-cap recovery set; partial moat, empty FMP statements as of 2026-10-20).
+ * Site moat screen is now ≥ HKD 5B — several of these fall below and are skipped for remoat:
  *   0668.HK 0901.HK 1021.HK 1770.HK 1956.HK 2361.HK 2566.HK
  *   2569.HK 2585.HK 2697.HK 3228.HK 3661.HK 3752.HK 6686.HK
  *
