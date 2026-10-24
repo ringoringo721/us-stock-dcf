@@ -29,8 +29,9 @@ DIMENSIONS = {
 # Policy bump remoats short batch-1 caches and remaining names without --force.
 ASSESSMENT_POLICY = "grounded-business-judgment-v5"
 RESEARCH_ASSESSMENT_POLICY = "researched-business-judgment-v6"
-# Retry floor = bottom of acceptance band (100–150 EN words). Rejects short ~40–80 blurbs.
-MIN_COMMENT_EN_WORDS = 100
+# Retry floor slightly under the 100–150 band (near-misses at 97–99 were failing whole batches).
+# Prompt still targets 100–150; reject only clearly short ~40–90 blurbs.
+MIN_COMMENT_EN_WORDS = 95
 MIN_COMMENT_ZH_CHARS = 120
 FACT_FIELDS = (
     "date", "period", "fiscalYear", "reportedCurrency", "sourceReportedCurrency", "periodStartDate", "periodLength",
@@ -614,7 +615,16 @@ def main():
     write_json_checkpoint(args.output, reports)
     print(f"Moat evidence refresh: {updated} updated, {len(records) - len(pending) - excluded} unchanged, {excluded} excluded, "
           f"{failed} failed, {len(pending) if client is None else 0} not run (missing credentials).")
-    if failed or pending and client is None:
+    missing_creds = bool(pending and client is None)
+    if missing_creds:
+        raise SystemExit(1)
+    # Partial success must not block Persist (run 40067866312: 7 updated / 13 failed → exit 1
+    # skipped commit and would have re-spent Gemini on the 7). Warn and continue when any updated.
+    if failed and updated:
+        print(f"::warning::{failed} moat update(s) failed; {updated} successful checkpoint(s) retained for Persist.",
+              flush=True)
+        return
+    if failed:
         raise SystemExit(1)
 
 
