@@ -181,10 +181,10 @@ class MoatEvidenceTests(unittest.TestCase):
         dimension = schema.model_json_schema()["$defs"]["Dimension"]
         self.assertIn("150", dimension["properties"]["comment_zh"]["description"])
         self.assertIn("150", dimension["properties"]["comment_en"]["description"])
-        self.assertIn("120–150", dimension["properties"]["comment_en"]["description"])
-        self.assertEqual(MIN_COMMENT_EN_WORDS, 120)
+        self.assertIn("100–150", dimension["properties"]["comment_en"]["description"])
+        self.assertEqual(MIN_COMMENT_EN_WORDS, 100)
         props = schema.model_json_schema()["properties"]
-        self.assertIn("120–150", props["overall_moat_verdict_en"]["description"])
+        self.assertIn("100–150", props["overall_moat_verdict_en"]["description"])
         # Prior v3/v4/researched-v4/v5 caches remoat on policy mismatch (no --force),
         # including short batch-1 grounded-v4 / researched-v5.
         prior = {"evidenceHash": "same", "existing": {

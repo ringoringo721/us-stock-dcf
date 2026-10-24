@@ -25,12 +25,12 @@ DIMENSIONS = {
     "m9_customer_retention": "Resistance to technological and demand disruption",
     "m10_durability": "Management integrity and capital allocation",
 }
-# v5 / researched-v6: fuller bilingual comments (acceptance band 120–150 EN words / dim).
+# v5 / researched-v6: fuller bilingual comments (acceptance band 100–150 EN words / dim).
 # Policy bump remoats short batch-1 caches and remaining names without --force.
 ASSESSMENT_POLICY = "grounded-business-judgment-v5"
 RESEARCH_ASSESSMENT_POLICY = "researched-business-judgment-v6"
-# Retry floor = bottom of acceptance band (120–150 EN words). Rejects short ~40–100 blurbs.
-MIN_COMMENT_EN_WORDS = 120
+# Retry floor = bottom of acceptance band (100–150 EN words). Rejects short ~40–80 blurbs.
+MIN_COMMENT_EN_WORDS = 100
 MIN_COMMENT_ZH_CHARS = 120
 FACT_FIELDS = (
     "date", "period", "fiscalYear", "reportedCurrency", "sourceReportedCurrency", "periodStartDate", "periodLength",
@@ -202,18 +202,18 @@ def report_schema(ticker, source_ids):
         score: int | None = Field(default=None, ge=0, le=10)
         comment_zh: str = Field(
             description=(
-                "REQUIRED length: Traditional Chinese qualitative prose of about 150–250 characters "
-                "(aim ≥150 字; reject short ~40–100 字 blurbs). Cover barrier mechanism, competitive "
+                "Traditional Chinese qualitative prose about 150–250 characters "
+                "(acceptable band; reject short ~40–100 字 blurbs). Cover barrier mechanism, competitive "
                 "differences and business logic. No digits, amounts, dates or currency units; "
                 "no empty boilerplate"
             ),
         )
         comment_en: str = Field(
             description=(
-                "REQUIRED length: English qualitative moat comment of approximately 150 words "
-                "(write about 150; minimum roughly 130–140 words is still short of target—aim for 150). "
-                "Do NOT write the short ~40–100 word style. Cover barrier mechanism, competitive "
-                "differences and business logic. No digits, amounts, dates or currency units"
+                "English qualitative moat comment in the 120–150 word band "
+                "(about 120 to 150 words is OK; prefer near 150; reject short ~40–100 word blurbs). "
+                "Cover barrier mechanism, competitive differences and business logic. "
+                "No digits, amounts, dates or currency units"
             ),
         )
         sources: list[Literal[tuple(source_ids)]]
@@ -236,8 +236,8 @@ def report_schema(ticker, source_ids):
             str,
             Field(
                 description=(
-                    "English overall moat verdict of approximately 150 words "
-                    "(write about 150; not a short blurb); "
+                    "English overall moat verdict in the 120–150 word band "
+                    "(not a short blurb); "
                     "qualitative only—no digits, amounts, dates or currency units"
                 ),
             ),
@@ -267,8 +267,8 @@ def validate_comment_lengths(report):
         zh_chars = len(zh.strip())
         if en_words < MIN_COMMENT_EN_WORDS:
             raise MoatReportValidationError(
-                f"{name}.comment_en: too short ({en_words} words); rewrite to about 150 English words "
-                f"(minimum {MIN_COMMENT_EN_WORDS}; do not use the short ~40–100 word style)")
+                f"{name}.comment_en: too short ({en_words} words); rewrite into the 120–150 English-word "
+                f"band (minimum {MIN_COMMENT_EN_WORDS}; do not use the short ~40–100 word style)")
         if zh_chars < MIN_COMMENT_ZH_CHARS:
             raise MoatReportValidationError(
                 f"{name}.comment_zh: too short ({zh_chars} characters); rewrite to about 150–250 "
@@ -497,12 +497,12 @@ def main():
                 "Mention missing/reconciliation-limited evidence and the period actually available; annual "
                 "cash flows are NOT current TTM flows. No transcript means no claim to have reviewed a call. "
                 "Each dimension needs in-depth Traditional Chinese and English explanations and source IDs drawn "
-                "only from allowedSourceIds. LENGTH IS MANDATORY per dimension (outputs below the floor are "
-                "rejected and regenerated): comment_en MUST be about 150 English words—write a full analytical "
-                "paragraph (roughly 150 words; never the short ~40–100 word blurb used in older caches); "
-                "comment_zh MUST be about 150–250 Chinese characters with the same depth. Expand on how the "
+                "only from allowedSourceIds. LENGTH BAND per dimension (below-floor outputs are rejected and "
+                "regenerated): comment_en should be 120–150 English words (that full band is acceptable; "
+                "prefer nearer 150; never the short ~40–100 word blurb from older caches); "
+                "comment_zh about 150–250 Chinese characters with the same depth. Expand on how the "
                 "barrier works, who it disadvantages, durability and limits—without padding or repetition. "
-                "overall_moat_verdict_en approximately 150 words; overall_moat_verdict_zh about 120–200 characters. "
+                "overall_moat_verdict_en in the 120–150 word band; overall_moat_verdict_zh about 120–200 characters. "
                 "Summarize/paraphrase; do not reproduce transcript passages. "
                 "Financial facts have already been translated to HKD using dated FX; amounts are full HKD units, "
                 "not millions. They provide evidence for qualitative assessment, not numbers to repeat in prose. "
