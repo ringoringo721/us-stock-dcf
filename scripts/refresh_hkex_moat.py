@@ -25,10 +25,14 @@ DIMENSIONS = {
     "m9_customer_retention": "Resistance to technological and demand disruption",
     "m10_durability": "Management integrity and capital allocation",
 }
-# v4 / researched-v5: fuller bilingual comments (~150 EN words / ~150–250 字 per dimension),
-# aligned with US us-buffett-moat-v3. Policy bump remoats on next evidence/policy refresh.
-ASSESSMENT_POLICY = "grounded-business-judgment-v4"
-RESEARCH_ASSESSMENT_POLICY = "researched-business-judgment-v5"
+# v5 / researched-v6: fuller bilingual comments (acceptance band 100–150 EN words / dim).
+# Policy bump remoats short batch-1 caches and remaining names without --force.
+ASSESSMENT_POLICY = "grounded-business-judgment-v5"
+RESEARCH_ASSESSMENT_POLICY = "researched-business-judgment-v6"
+# Retry floor slightly under the 100–150 band (near-misses at 97–99 were failing whole batches).
+# Prompt still targets 100–150; reject only clearly short ~40–90 blurbs.
+MIN_COMMENT_EN_WORDS = 95
+MIN_COMMENT_ZH_CHARS = 120
 FACT_FIELDS = (
     "date", "period", "fiscalYear", "reportedCurrency", "sourceReportedCurrency", "periodStartDate", "periodLength",
     "reportType", "comparabilityGroup", "operatingIncomeBasis", "earningsIncludeDiscontinued",
@@ -199,16 +203,18 @@ def report_schema(ticker, source_ids):
         score: int | None = Field(default=None, ge=0, le=10)
         comment_zh: str = Field(
             description=(
-                "Traditional Chinese in-depth qualitative prose, about 150–250 characters: "
-                "barrier mechanism, competitive differences and business logic; "
-                "no digits, amounts, dates or currency units; avoid empty boilerplate"
+                "Traditional Chinese qualitative prose about 150–250 characters "
+                "(acceptable band; reject short ~40–100 字 blurbs). Cover barrier mechanism, competitive "
+                "differences and business logic. No digits, amounts, dates or currency units; "
+                "no empty boilerplate"
             ),
         )
         comment_en: str = Field(
             description=(
-                "In-depth English qualitative moat comment up to about 150 words: "
-                "barrier mechanism, competitive differences and business logic; "
-                "no digits, amounts, dates or currency units"
+                "English qualitative moat comment in the 100–150 word band "
+                "(about 100 to 150 words is OK; prefer near 150; reject short ~40–80 word blurbs). "
+                "Cover barrier mechanism, competitive differences and business logic. "
+                "No digits, amounts, dates or currency units"
             ),
         )
         sources: list[Literal[tuple(source_ids)]]
@@ -231,7 +237,8 @@ def report_schema(ticker, source_ids):
             str,
             Field(
                 description=(
-                    "English overall moat verdict up to about 150 words; "
+                    "English overall moat verdict in the 100–150 word band "
+                    "(not a short blurb); "
                     "qualitative only—no digits, amounts, dates or currency units"
                 ),
             ),
@@ -247,6 +254,26 @@ def validate_narrative(text):
     if match:
         raise MoatReportValidationError(
             f"Moat narrative must not invent numerical or currency claims (prohibited token: {match.group()})")
+
+
+def validate_comment_lengths(report):
+    """Reject undersized dimension prose so the remoat loop retries (batch-1 hit ~77–96 EN words)."""
+    for name in DIMENSIONS:
+        item = report.get(name) or {}
+        en = item.get("comment_en") if isinstance(item, dict) else None
+        zh = item.get("comment_zh") if isinstance(item, dict) else None
+        if not isinstance(en, str) or not isinstance(zh, str):
+            raise MoatReportValidationError(f"{name}: missing bilingual comments for length check")
+        en_words = len(en.split())
+        zh_chars = len(zh.strip())
+        if en_words < MIN_COMMENT_EN_WORDS:
+            raise MoatReportValidationError(
+                f"{name}.comment_en: too short ({en_words} words); rewrite into the 100–150 English-word "
+                f"band (minimum {MIN_COMMENT_EN_WORDS}; do not use the short ~40–80 word style)")
+        if zh_chars < MIN_COMMENT_ZH_CHARS:
+            raise MoatReportValidationError(
+                f"{name}.comment_zh: too short ({zh_chars} characters); rewrite to about 150–250 "
+                f"Chinese characters (minimum {MIN_COMMENT_ZH_CHARS})")
 
 
 def repair_narratives(report, rewrite):
@@ -374,9 +401,13 @@ def main():
                         help="Reassess partial/incomplete reports only (preferred over --force)")
     parser.add_argument("--force", action="store_true",
                         help="DANGER: regenerate nearly all reports; requires FORCE_MOAT_CONFIRM=YES")
+    parser.add_argument("--limit", type=int, default=None,
+                        help="Cap remoats this run (resume-friendly; remaining stay pending via policy/evidence)")
     args = parser.parse_args()
     if args.force:
         require_force_moat_confirm()
+    if args.limit is not None and not 1 <= args.limit <= 5000:
+        raise SystemExit("--limit must be between 1 and 5000")
     records = json.loads(Path(args.input).read_text(encoding="utf-8"))
     reports = json.loads(Path(args.output).read_text(encoding="utf-8")) if Path(args.output).exists() else {}
     if not isinstance(reports, dict):
@@ -387,6 +418,12 @@ def main():
     excluded = sum(below_moat_market_cap(row) for row in records)
     if excluded:
         print(f"Moat market-cap screen: {excluded} below HKD 1 billion; no assessment requested.")
+    deferred = 0
+    if args.limit is not None and len(pending) > args.limit:
+        deferred = len(pending) - args.limit
+        pending = pending[: args.limit]
+        print(f"--limit {args.limit}: remoating {len(pending)} now; {deferred} remain for a later run "
+              f"(policy/evidence mismatch resume; no --force).", flush=True)
     if args.force:
         print(f"--force pending refresh count: {len(pending)} (nearly all eligible names if evidence exists)",
               flush=True)
@@ -461,10 +498,12 @@ def main():
                 "Mention missing/reconciliation-limited evidence and the period actually available; annual "
                 "cash flows are NOT current TTM flows. No transcript means no claim to have reviewed a call. "
                 "Each dimension needs in-depth Traditional Chinese and English explanations and source IDs drawn "
-                "only from allowedSourceIds. Target length: comment_en up to about 150 English words; "
-                "comment_zh about 150–250 Chinese characters—informative analysis of the barrier, competitive "
-                "differences and business model; not the short ~40–80 character style, and not empty padding. "
-                "overall_moat_verdict_en up to about 150 words; overall_moat_verdict_zh about 120–200 characters. "
+                "only from allowedSourceIds. LENGTH BAND per dimension (below-floor outputs are rejected and "
+                "regenerated): comment_en should be 100–150 English words (that full band is acceptable; "
+                "prefer nearer 150; never the short ~40–80 word blurb from older caches); "
+                "comment_zh about 150–250 Chinese characters with the same depth. Expand on how the "
+                "barrier works, who it disadvantages, durability and limits—without padding or repetition. "
+                "overall_moat_verdict_en in the 100–150 word band; overall_moat_verdict_zh about 120–200 characters. "
                 "Summarize/paraphrase; do not reproduce transcript passages. "
                 "Financial facts have already been translated to HKD using dated FX; amounts are full HKD units, "
                 "not millions. They provide evidence for qualitative assessment, not numbers to repeat in prose. "
@@ -533,6 +572,7 @@ def main():
                     if isinstance(candidate, dict):
                         candidate = repair_narratives(candidate, rewrite)
                     report = validate_report(candidate, record["ticker"], context["allowedSourceIds"])
+                    validate_comment_lengths(report)
                     quarterly = record["statements"]["quarterly"]["income"]
                     latest = max(quarterly or record["statements"]["annual"]["income"],
                                  key=lambda row: row["date"], default=None)
@@ -575,7 +615,16 @@ def main():
     write_json_checkpoint(args.output, reports)
     print(f"Moat evidence refresh: {updated} updated, {len(records) - len(pending) - excluded} unchanged, {excluded} excluded, "
           f"{failed} failed, {len(pending) if client is None else 0} not run (missing credentials).")
-    if failed or pending and client is None:
+    missing_creds = bool(pending and client is None)
+    if missing_creds:
+        raise SystemExit(1)
+    # Partial success must not block Persist (run 40067866312: 7 updated / 13 failed → exit 1
+    # skipped commit and would have re-spent Gemini on the 7). Warn and continue when any updated.
+    if failed and updated:
+        print(f"::warning::{failed} moat update(s) failed; {updated} successful checkpoint(s) retained for Persist.",
+              flush=True)
+        return
+    if failed:
         raise SystemExit(1)
 
 

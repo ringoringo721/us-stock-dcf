@@ -9,8 +9,8 @@ from unittest.mock import Mock, patch
 
 from scripts.refresh_hkex_moat import (
     ASSESSMENT_POLICY, RESEARCH_ASSESSMENT_POLICY, DIMENSIONS, MoatReportValidationError, create_client,
-    needs_refresh, validate_report, validation_feedback, evidence_context, write_json_checkpoint, main,
-    below_moat_market_cap,
+    needs_refresh, validate_report, validate_comment_lengths, validation_feedback, evidence_context,
+    write_json_checkpoint, main, below_moat_market_cap, MIN_COMMENT_EN_WORDS,
     repair_narratives, report_schema,
 )
 
@@ -172,23 +172,68 @@ class MoatEvidenceTests(unittest.TestCase):
         self.assertFalse(needs_refresh(record))
         self.assertTrue(needs_refresh(record, retry_incomplete=True))
 
-    def test_assessment_policy_is_v4_fuller_comments_not_prior_short_ids(self):
-        self.assertEqual(ASSESSMENT_POLICY, "grounded-business-judgment-v4")
-        self.assertEqual(RESEARCH_ASSESSMENT_POLICY, "researched-business-judgment-v5")
+    def test_assessment_policy_is_v5_enforced_length_not_prior_short_ids(self):
+        self.assertEqual(ASSESSMENT_POLICY, "grounded-business-judgment-v5")
+        self.assertEqual(RESEARCH_ASSESSMENT_POLICY, "researched-business-judgment-v6")
         self.assertNotIn("v3", ASSESSMENT_POLICY)
+        self.assertNotIn("v4", ASSESSMENT_POLICY)
         schema = report_schema("0700.HK", ["profile"])
         dimension = schema.model_json_schema()["$defs"]["Dimension"]
         self.assertIn("150", dimension["properties"]["comment_zh"]["description"])
         self.assertIn("150", dimension["properties"]["comment_en"]["description"])
+        self.assertIn("100–150", dimension["properties"]["comment_en"]["description"])
+        self.assertEqual(MIN_COMMENT_EN_WORDS, 95)
         props = schema.model_json_schema()["properties"]
-        self.assertIn("150", props["overall_moat_verdict_en"]["description"])
-        # Prior grounded-v3 / researched-v4 caches must remoat on policy mismatch (no --force).
+        self.assertIn("100–150", props["overall_moat_verdict_en"]["description"])
+        # Prior v3/v4/researched-v4/v5 caches remoat on policy mismatch (no --force),
+        # including short batch-1 grounded-v4 / researched-v5.
         prior = {"evidenceHash": "same", "existing": {
             "evidenceHash": "same", "assessmentPolicy": "grounded-business-judgment-v3",
             "report": self.report()}}
         self.assertTrue(needs_refresh(prior))
-        prior["existing"]["assessmentPolicy"] = "researched-business-judgment-v4"
-        self.assertTrue(needs_refresh(prior))
+        for stale in ("researched-business-judgment-v4", "grounded-business-judgment-v4",
+                      "researched-business-judgment-v5"):
+            prior["existing"]["assessmentPolicy"] = stale
+            self.assertTrue(needs_refresh(prior), stale)
+
+    def test_comment_length_floor_rejects_short_batch1_style_prose(self):
+        report = self.report()
+        short = " ".join(["word"] * 90)
+        report["m1_brand_pricing"]["comment_en"] = short
+        with self.assertRaises(MoatReportValidationError) as raised:
+            validate_comment_lengths(report)
+        self.assertIn("too short", str(raised.exception))
+        report["m1_brand_pricing"]["comment_en"] = " ".join(["word"] * MIN_COMMENT_EN_WORDS)
+        report["m1_brand_pricing"]["comment_zh"] = "字" * 120
+        for name in DIMENSIONS:
+            if name == "m1_brand_pricing":
+                continue
+            report[name]["comment_en"] = " ".join(["word"] * MIN_COMMENT_EN_WORDS)
+            report[name]["comment_zh"] = "字" * 120
+        validate_comment_lengths(report)
+
+    def test_limit_caps_remoats_without_force(self):
+        with tempfile.TemporaryDirectory() as directory:
+            source, output = Path(directory) / "inputs.json", Path(directory) / "reports.json"
+            records = []
+            for ticker in ("0005.HK", "0700.HK", "0941.HK"):
+                records.append({
+                    "ticker": ticker, "evidenceHash": "new",
+                    "moatScreen": {"calculationCurrency": "HKD", "marketCapMillions": 5000},
+                    "existing": {"evidenceHash": "old", "assessmentPolicy": "grounded-business-judgment-v3",
+                                 "report": {"score": 7}},
+                    "profile": {}, "fScore": {},
+                    "statements": {"annual": {"income": [], "balance": [], "cashflow": []},
+                                   "quarterly": {"income": [], "balance": [], "cashflow": []}},
+                })
+            source.write_text(json.dumps(records), encoding="utf-8")
+            with patch.object(sys, "argv", ["refresh_hkex_moat.py", str(source), str(output), "--limit", "1"]), \
+                    patch("scripts.refresh_hkex_moat.create_client", return_value=None):
+                with self.assertRaises(SystemExit) as raised:
+                    main()
+            self.assertEqual(raised.exception.code, 1)  # pending + no credentials
+            saved = json.loads(output.read_text(encoding="utf-8"))
+            self.assertEqual(set(saved), {"0005.HK", "0700.HK", "0941.HK"})
 
     def test_unavailable_dimensions_are_not_neutral_scores(self):
         report = self.report()
