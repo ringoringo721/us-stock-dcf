@@ -99,6 +99,16 @@ jobs:
             hkex-source-output/moat-inputs.json \
             hkex-data-output/cache/hkex_moat.json \
             "${LIMIT_ARGS[@]}"
+      # Always keep remoat checkpoint even if later Persist fails (0-Gemini salvage).
+      - name: Upload moat checkpoint after remoat
+        if: always() && !cancelled()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hkex-moat-checkpoint
+          path: |
+            hkex-data-output/cache/hkex_moat.json
+          retention-days: 14
+          if-no-files-found: warn
       - name: Apply configured HKEX listings and dated score provenance
         run: |
           node scripts/build_hkex.cjs hkex-source-output . hkex-data-output/cache/hkex_moat.json
