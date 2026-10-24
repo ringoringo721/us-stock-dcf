@@ -7,11 +7,14 @@ from scripts.buffett_moat_v3 import (
     BUFFETT_MOAT_MODEL,
     MAX_COMMENT_ZH_CHARS,
     MIN_COMMENT_ZH_CHARS,
+    NEAR_FLOOR_ZH_CHARS,
     dimension_zh_counts,
     report_zh_pass,
     validate_dimension_zh_lengths,
     zh_char_count,
     zh_length_ok,
+    zh_length_retry_guidance,
+    zh_length_violation_message,
 )
 
 
@@ -60,6 +63,26 @@ class BuffettMoatV3Tests(unittest.TestCase):
         with self.assertRaises(ValueError):
             validate_dimension_zh_lengths(report)
 
+    def test_near_floor_length_message_asks_to_expand_by_a_few(self):
+        self.assertEqual(NEAR_FLOOR_ZH_CHARS, 90)
+        msg = zh_length_violation_message("m7_operational_efficiency", 98)
+        self.assertIn("NEAR-FLOOR", msg)
+        self.assertIn("EXPAND BY A FEW CHARACTERS", msg)
+        self.assertIn("98", msg)
+        guidance = zh_length_retry_guidance(msg)
+        self.assertIn("near floor", guidance.lower())
+        with self.assertRaises(ValueError) as raised:
+            from scripts.buffett_moat_v3 import DIMENSION_KEYS
+            report = {
+                key: {"score": 7, "comment_zh": _ZH, "comment_en": "Translation of the Chinese moat comment."}
+                for key in DIMENSION_KEYS
+            }
+            report["m7_operational_efficiency"]["comment_zh"] = "甲" * 98
+            validate_dimension_zh_lengths(report)
+        self.assertIn("NEAR-FLOOR", str(raised.exception))
+        self.assertIn("EXPAND BY A FEW CHARACTERS", str(raised.exception))
+
 
 if __name__ == "__main__":
     unittest.main()
+

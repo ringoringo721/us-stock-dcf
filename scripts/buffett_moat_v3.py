@@ -25,6 +25,9 @@ MAX_COMMENT_ZH_CHARS = 300
 
 RETRY_MIN_COMMENT_ZH_CHARS = 100
 RETRY_MAX_COMMENT_ZH_CHARS = 300
+# Near the floor (e.g. 90–99): still reject, but retry feedback must say "expand by a few characters"
+# so Lite does not keep regenerating ~98-char near-misses that waste the attempt budget.
+NEAR_FLOOR_ZH_CHARS = 90
 
 DIMENSION_KEYS = (
     "m1_brand_pricing",
@@ -61,6 +64,66 @@ def zh_length_ok(text: str, minimum: int = MIN_COMMENT_ZH_CHARS, maximum: int = 
     return minimum <= count <= maximum
 
 
+def zh_length_violation_message(
+    name: str,
+    count: int,
+    *,
+    minimum: int = RETRY_MIN_COMMENT_ZH_CHARS,
+    maximum: int = RETRY_MAX_COMMENT_ZH_CHARS,
+    near_floor: int = NEAR_FLOOR_ZH_CHARS,
+) -> str:
+    """Actionable length error for validators and Lite retry prompts."""
+    band = f"{minimum}–{maximum}"
+    if near_floor <= count < minimum:
+        need = minimum - count
+        return (
+            f"{name}.comment_zh: length {count} is a NEAR-FLOOR miss "
+            f"(in {near_floor}–{minimum - 1}; locked band is {band} 繁中字). "
+            f"EXPAND BY A FEW CHARACTERS — add about {need} more Traditional Chinese characters "
+            f"(aim ~{minimum + 10}–{minimum + 40}, stay ≤{maximum}); keep the same score and meaning; "
+            f"then re-translate comment_en. Do not shorten other dimensions."
+        )
+    if count < near_floor:
+        return (
+            f"{name}.comment_zh: length {count} is TOO SHORT for locked {band} 繁中字 band "
+            f"(English is a translation only; do not use EN word count as the gate). "
+            f"Expand the Chinese analysis substantially to at least {minimum} characters "
+            f"(prefer ~{minimum + 20}–{minimum + 80}), then translate."
+        )
+    if count > maximum:
+        over = count - maximum
+        return (
+            f"{name}.comment_zh: length {count} is TOO LONG for locked {band} 繁中字 band "
+            f"(over by ~{over}). Tighten the Chinese to ≤{maximum} characters "
+            f"(prefer ~{minimum + 20}–{maximum - 20}), then translate; keep the same score."
+        )
+    return (
+        f"{name}.comment_zh: length {count} outside locked {band} 繁中字 band; "
+        f"rewrite Chinese to {band} characters then translate"
+    )
+
+
+def zh_length_retry_guidance(error_text: str) -> str:
+    """Extra OUTPUT CORRECTION lines when a length / near-floor miss triggered the retry."""
+    text = error_text or ""
+    if "NEAR-FLOOR" in text or "near-floor" in text.lower() or "EXPAND BY A FEW" in text:
+        return (
+            " LENGTH RETRY (near floor): one or more comment_zh values are only a few characters "
+            "short of the minimum. Expand those Chinese comments by a few characters into the "
+            f"{MIN_COMMENT_ZH_CHARS}–{MAX_COMMENT_ZH_CHARS} band; do not rewrite scores; "
+            "re-translate EN after expanding ZH."
+        )
+    if "comment_zh" in text and ("length" in text or "TOO SHORT" in text or "TOO LONG" in text):
+        return (
+            " LENGTH RETRY: every comment_zh must land in "
+            f"{MIN_COMMENT_ZH_CHARS}–{MAX_COMMENT_ZH_CHARS} 繁中字. "
+            f"Regenerate dims outside that band (including {NEAR_FLOOR_ZH_CHARS}–"
+            f"{MIN_COMMENT_ZH_CHARS - 1} near-misses); expand short ones, tighten long ones; "
+            "then translate."
+        )
+    return ""
+
+
 def validate_dimension_zh_lengths(
     report: Mapping,
     dimensions: Iterable[str] = DIMENSION_KEYS,
@@ -69,6 +132,9 @@ def validate_dimension_zh_lengths(
     maximum: int = RETRY_MAX_COMMENT_ZH_CHARS,
 ) -> None:
     """Raise ValueError if any M1–M10 comment_zh is outside the locked band.
+
+    Treats 90–99 (near floor) and any other out-of-band length as hard rejects with
+    actionable expand/tighten guidance for Lite retries.
 
     English is required to be present but is not length-gated (translation of ZH).
     """
@@ -84,11 +150,7 @@ def validate_dimension_zh_lengths(
             raise ValueError(f"{name}.comment_en: missing English translation of the Chinese comment")
         count = zh_char_count(zh)
         if count < minimum or count > maximum:
-            raise ValueError(
-                f"{name}.comment_zh: length {count} outside locked {minimum}–{maximum} 繁中字 band "
-                f"(English is a translation only; do not use EN word count as the gate; "
-                f"rewrite Chinese to {minimum}–{maximum} characters then translate)"
-            )
+            raise ValueError(zh_length_violation_message(name, count, minimum=minimum, maximum=maximum))
 
 
 def dimension_zh_counts(report: Mapping, dimensions: Iterable[str] = DIMENSION_KEYS) -> dict:

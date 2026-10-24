@@ -34,6 +34,7 @@ try:
         MAX_COMMENT_ZH_CHARS,
         MIN_COMMENT_ZH_CHARS,
         validate_dimension_zh_lengths,
+        zh_length_retry_guidance,
         zh_primary_prompt_rules,
     )
 except ImportError:  # script executed as a file inside scripts/
@@ -43,6 +44,7 @@ except ImportError:  # script executed as a file inside scripts/
         MAX_COMMENT_ZH_CHARS,
         MIN_COMMENT_ZH_CHARS,
         validate_dimension_zh_lengths,
+        zh_length_retry_guidance,
         zh_primary_prompt_rules,
     )
 
@@ -82,7 +84,17 @@ def below_moat_market_cap(record):
 
 def validation_feedback(error):
     if isinstance(error, MoatReportValidationError):
-        return ("\nOUTPUT CORRECTION: " + str(error) + ". Regenerate the complete report using the same evidence. "
+        detail = str(error)
+        length_hint = zh_length_retry_guidance(detail)
+        if length_hint:
+            # Length / near-floor misses: keep feedback focused so Lite expands by a few chars
+            # instead of drowning the retry in digit/currency rules.
+            return (
+                "\nOUTPUT CORRECTION: " + detail + "." + length_hint
+                + " Regenerate the complete report using the same evidence and scores. "
+                "Keep comments qualitative (no digits, currency units, amounts, dates or percentages)."
+            )
+        return ("\nOUTPUT CORRECTION: " + detail + ". Regenerate the complete report using the same evidence. "
                 "Use qualitative words only in comments and verdicts, including technology/product terms and "
                 "regulatory acronyms. Say core capital instead of numbered capital tiers or digit-bearing "
                 "capital acronyms, and flagship properties instead of numbered property names. "

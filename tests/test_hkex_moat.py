@@ -217,6 +217,19 @@ class MoatEvidenceTests(unittest.TestCase):
         with self.assertRaises(MoatReportValidationError):
             validate_comment_lengths(report)
 
+    def test_near_floor_zh_length_retry_asks_to_expand_by_a_few_characters(self):
+        report = self.report()
+        report["m7_operational_efficiency"]["comment_zh"] = "甲" * 98
+        with self.assertRaises(MoatReportValidationError) as rejected:
+            validate_comment_lengths(report)
+        self.assertIn("NEAR-FLOOR", str(rejected.exception))
+        self.assertIn("EXPAND BY A FEW CHARACTERS", str(rejected.exception))
+        feedback = validation_feedback(rejected.exception)
+        self.assertIn("EXPAND BY A FEW CHARACTERS", feedback)
+        self.assertIn("LENGTH RETRY", feedback)
+        # Length-focused retry should not bury the model in the long digit/currency paragraph.
+        self.assertNotIn("numbered industry tiers", feedback)
+
     def test_unavailable_dimensions_are_not_neutral_scores(self):
         report = self.report()
         report["m7_operational_efficiency"].update(score=None, sources=[])

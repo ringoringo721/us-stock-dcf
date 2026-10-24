@@ -4,6 +4,13 @@
 Does NOT remoat the full universe. Writes artifacts under cache/lite_buffett_pilot/
 and a review JSON summary. Requires Vertex / Gemini credentials (GCP_SA_KEY or
 GEMINI_API_KEY). Prefer --tickers / --limit over --force for production refresh.
+
+Exit policy (partial success):
+- Always write pilot_summary.json when possible.
+- overall_pass in JSON is true only when every ticker passes ZH 100–300.
+- Job exit 0 (green) when all attempted US pass and HK failures ≤ --allow-hk-failures
+  (default 1), so a single near-miss like 0941 M7=98 does not red-X the Actions run.
+- Otherwise exit 2. Partial success prints ::warning with a clear summary.
 """
 
 from __future__ import annotations
@@ -24,7 +31,6 @@ from scripts.buffett_moat_v3 import (  # noqa: E402
     DIMENSION_KEYS,
     dimension_zh_counts,
     report_zh_pass,
-    zh_char_count,
 )
 
 DEFAULT_HK = ["0700.HK", "0005.HK", "0388.HK", "0941.HK", "1299.HK"]
@@ -183,22 +189,73 @@ def run_hk_pilot(tickers: list, inputs_path: Path, out_path: Path, force: bool, 
     results = []
     for ticker in tickers:
         envelope = reports.get(ticker) or {}
+        last_error = envelope.get("lastError")
         if not envelope.get("report"):
             results.append({
                 "ticker": ticker, "market": "HK", "status": "not_updated",
-                "pass_zh_100_300": False, "retries_or_errors": envelope.get("lastError"),
+                "pass_zh_100_300": False, "retries_or_errors": last_error,
             })
             continue
         summary = summarize_report(ticker, "HK", envelope)
-        summary["status"] = "generated" if summary["pass_zh_100_300"] else "generated_fail_length"
+        if summary["pass_zh_100_300"] and not last_error:
+            summary["status"] = "generated"
+        elif last_error and not summary["pass_zh_100_300"]:
+            # Retained prior short report after rejected near-miss / failed remoat.
+            summary["status"] = "refresh_failed_retained"
+        elif summary["pass_zh_100_300"]:
+            summary["status"] = "generated"
+        else:
+            summary["status"] = "generated_fail_length"
         results.append(summary)
     return results
 
 
+def _is_pass_row(row: dict) -> bool:
+    return bool(row.get("pass_zh_100_300"))
+
+
+def evaluate_pilot_job(rows: list, *, allow_hk_failures: int = 1, min_pass: int | None = None) -> dict:
+    """Decide Actions job green vs red without requiring every ticker to pass.
+
+    Preferred rule: all US pass and HK failures ≤ allow_hk_failures (default 1).
+    Optional floor: pass_count ≥ min_pass (e.g. 9 for a 10-ticker pilot).
+    """
+    us_rows = [r for r in rows if r.get("market") == "US"]
+    hk_rows = [r for r in rows if r.get("market") == "HK"]
+    us_fail = [r for r in us_rows if not _is_pass_row(r)]
+    hk_fail = [r for r in hk_rows if not _is_pass_row(r)]
+    pass_rows = [r for r in rows if _is_pass_row(r)]
+    pass_count = len(pass_rows)
+    total = len(rows)
+    overall_pass = total > 0 and pass_count == total
+
+    us_ok = len(us_fail) == 0
+    hk_ok = len(hk_fail) <= max(0, allow_hk_failures)
+    job_ok = bool(rows) and us_ok and hk_ok
+    if min_pass is not None:
+        job_ok = job_ok and pass_count >= min_pass
+
+    failed_tickers = [r.get("ticker") for r in rows if not _is_pass_row(r)]
+    return {
+        "overall_pass": overall_pass,
+        "job_ok": job_ok,
+        "pass_count": pass_count,
+        "total": total,
+        "us_pass": len(us_rows) - len(us_fail),
+        "us_total": len(us_rows),
+        "hk_pass": len(hk_rows) - len(hk_fail),
+        "hk_total": len(hk_rows),
+        "hk_failures": len(hk_fail),
+        "allow_hk_failures": allow_hk_failures,
+        "min_pass": min_pass,
+        "failed_tickers": failed_tickers,
+    }
+
+
 def main():
     parser = argparse.ArgumentParser(description="Lite Buffett-v3 pilot (~5 HK + ~5 US only)")
-    parser.add_argument("--hk", default=",".join(DEFAULT_HK), help="Comma-separated HK tickers")
-    parser.add_argument("--us", default=",".join(DEFAULT_US), help="Comma-separated US tickers")
+    parser.add_argument("--hk", default=",".join(DEFAULT_HK), help="Comma-separated HK tickers (empty OK for US-only)")
+    parser.add_argument("--us", default=",".join(DEFAULT_US), help="Comma-separated US tickers (empty OK for HK-only)")
     parser.add_argument("--hk-inputs", default="cache/lite_buffett_pilot/moat-inputs.json",
                         help="HK moat evidence JSON from build_hkex (MOAT_EVIDENCE_OUTPUT)")
     parser.add_argument("--out-dir", default="cache/lite_buffett_pilot")
@@ -208,6 +265,15 @@ def main():
     parser.add_argument("--skip-us", action="store_true")
     parser.add_argument("--skip-hk", action="store_true")
     parser.add_argument("--limit", type=int, default=None)
+    parser.add_argument(
+        "--allow-hk-failures", type=int, default=1,
+        help="Exit 0 when all US pass and HK failures ≤ this count (default 1). "
+             "overall_pass in JSON stays false unless every ticker passes.",
+    )
+    parser.add_argument(
+        "--min-pass", type=int, default=None,
+        help="Optional extra floor: also require pass_count ≥ N (e.g. 9 for 10-ticker pilot).",
+    )
     args = parser.parse_args()
 
     hk_tickers = [t.strip().upper() for t in args.hk.split(",") if t.strip()]
@@ -218,6 +284,7 @@ def main():
 
     if args.baseline_only:
         rows = baseline_from_cache(hk_tickers, us_tickers)
+        verdict = evaluate_pilot_job(rows, allow_hk_failures=args.allow_hk_failures, min_pass=args.min_pass)
         payload = {
             "generatedAt": datetime.now(timezone.utc).isoformat(),
             "mode": "baseline_only",
@@ -225,20 +292,31 @@ def main():
             "model_target": BUFFETT_MOAT_MODEL,
             "zh_band": [100, 300],
             "rows": rows,
-            "overall_pass": all(r.get("pass_zh_100_300") for r in rows),
+            "overall_pass": verdict["overall_pass"],
+            "job_ok": verdict["job_ok"],
+            "pass_count": verdict["pass_count"],
+            "total": verdict["total"],
+            "failed_tickers": verdict["failed_tickers"],
         }
         path = out_dir / "pilot_baseline_summary.json"
         path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-        print(json.dumps({"wrote": str(path), "overall_pass": payload["overall_pass"], "n": len(rows)}, ensure_ascii=False))
+        print(json.dumps({
+            "wrote": str(path),
+            "overall_pass": payload["overall_pass"],
+            "job_ok": payload["job_ok"],
+            "n": len(rows),
+            "pass_count": verdict["pass_count"],
+        }, ensure_ascii=False))
         return
 
     rows = []
-    if not args.skip_hk:
+    if not args.skip_hk and hk_tickers:
         hk_out = out_dir / "hkex_moat_pilot.json"
         rows.extend(run_hk_pilot(hk_tickers, ROOT / args.hk_inputs, hk_out, args.force, args.limit))
-    if not args.skip_us:
+    if not args.skip_us and us_tickers:
         rows.extend(run_us_pilot(us_tickers, out_dir, force=True))
 
+    verdict = evaluate_pilot_job(rows, allow_hk_failures=args.allow_hk_failures, min_pass=args.min_pass)
     payload = {
         "generatedAt": datetime.now(timezone.utc).isoformat(),
         "mode": "pilot",
@@ -246,18 +324,49 @@ def main():
         "model_target": BUFFETT_MOAT_MODEL,
         "zh_band": [100, 300],
         "rows": rows,
-        "overall_pass": all(r.get("pass_zh_100_300") for r in rows if r.get("status", "").startswith("generated")),
-        "all_generated_ok": all(r.get("pass_zh_100_300") for r in rows),
+        "overall_pass": verdict["overall_pass"],
+        "all_generated_ok": verdict["overall_pass"],
+        "job_ok": verdict["job_ok"],
+        "pass_count": verdict["pass_count"],
+        "total": verdict["total"],
+        "us_pass": f"{verdict['us_pass']}/{verdict['us_total']}",
+        "hk_pass": f"{verdict['hk_pass']}/{verdict['hk_total']}",
+        "allow_hk_failures": verdict["allow_hk_failures"],
+        "failed_tickers": verdict["failed_tickers"],
     }
     path = out_dir / "pilot_summary.json"
     path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+    summary_line = (
+        f"pilot {verdict['pass_count']}/{verdict['total']} pass; "
+        f"US {verdict['us_pass']}/{verdict['us_total']}; "
+        f"HK {verdict['hk_pass']}/{verdict['hk_total']} "
+        f"(allow_hk_failures={verdict['allow_hk_failures']}); "
+        f"overall_pass={verdict['overall_pass']}; job_ok={verdict['job_ok']}; "
+        f"failed={verdict['failed_tickers'] or []}"
+    )
     print(json.dumps({
         "wrote": str(path),
-        "overall_pass": payload["all_generated_ok"],
+        "overall_pass": payload["overall_pass"],
+        "job_ok": payload["job_ok"],
+        "pass_count": verdict["pass_count"],
+        "total": verdict["total"],
         "statuses": {r["ticker"]: r.get("status") for r in rows},
+        "failed_tickers": verdict["failed_tickers"],
     }, ensure_ascii=False))
-    if not payload["all_generated_ok"]:
-        raise SystemExit(2)
+    print(summary_line, flush=True)
+
+    if verdict["overall_pass"]:
+        return
+    if verdict["job_ok"]:
+        print(
+            f"::warning::Lite Buffett pilot partial success — {summary_line}. "
+            "Artifact uploaded; review failed tickers (e.g. re-run with hk_tickers=0941.HK only).",
+            flush=True,
+        )
+        return
+    print(f"::error::Lite Buffett pilot failed job gate — {summary_line}", flush=True)
+    raise SystemExit(2)
 
 
 if __name__ == "__main__":
