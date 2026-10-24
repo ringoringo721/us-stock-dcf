@@ -3,56 +3,58 @@
   "period": "2026Q2",
   "m1_brand_pricing": {
     "score": 8,
-    "comment_zh": "亞馬遜的品牌價值極高，代表著便利、選擇多樣和可靠的購物體驗。雖然其核心電商業務商品化程度高，但Prime會員制度和對客戶體驗的持續投入，使其在消費者心中建立了難以撼動的地位。這種品牌忠誠度轉化為定價權，尤其是在其自有品牌和AWS服務上。競爭對手難以複製其龐大的客戶基礎和品牌信任度，這構成了顯著的護城河。",
-    "comment_en": "Amazon's brand is exceptionally strong, synonymous with convenience, vast selection, and reliability. While its core e-commerce is highly commoditized, the Prime membership program and relentless focus on customer experience have built immense brand loyalty. This translates into pricing power, particularly with its private label offerings and AWS services. Competitors struggle to replicate its massive customer base and brand trust, forming a significant moat."
+    "comment_zh": "亞馬遜的品牌價值已深入人心，成為線上購物的代名詞。其強大的定價權體現在 Prime 會員制度上，透過提供快速配送、獨家內容和優惠，有效鎖定用戶，並讓用戶對其平台產生高度依賴。這種品牌忠誠度轉化為持續的消費行為，即使面對競爭對手，亞馬遜也能維持一定的價格彈性。然而，低價電商的本質仍限制了其品牌溢價的極致發揮，故給予8分。",
+    "comment_en": "Amazon's brand value is deeply ingrained, making it synonymous with online shopping. Its strong pricing power is evident in the Prime membership program, which effectively locks in users by offering fast delivery, exclusive content, and discounts, fostering high dependency on its platform. This brand loyalty translates into sustained consumer behavior, allowing Amazon to maintain a degree of pricing flexibility even against competitors. However, the inherent nature of low-price e-commerce limits the ultimate realization of its brand premium, hence the score of 8."
   },
   "m2_patents_regulatory": {
     "score": 6,
-    "comment_zh": "亞馬遜在物流、雲端運算（AWS）和AI等領域擁有大量專利和技術創新，這構成了其競爭優勢。AWS的技術領先地位和不斷的服務創新，使其在雲端市場擁有強大的壁壘。然而，電商領域的監管壓力日益增加，可能對其未來發展構成挑戰。專利保護了其技術創新，但監管風險是需要關注的因素。",
-    "comment_en": "Amazon holds numerous patents and technological innovations in areas like logistics, cloud computing (AWS), and AI, providing a competitive edge. AWS's technological leadership and continuous service innovation create a strong barrier in the cloud market. However, increasing regulatory scrutiny in e-commerce could pose future challenges. Patents protect its innovations, but regulatory risks are a factor to monitor."
+    "comment_zh": "亞馬遜在專利和監管方面擁有一定的優勢，尤其是在其雲端運算服務 AWS 領域，擁有諸多技術專利和行業標準的制定權。然而，其核心電商業務面臨的監管壓力日益增加，反壟斷調查和數據隱私法規可能對其未來發展構成挑戰。儘管如此，其在物流技術和人工智能等領域的專利布局仍能提供一定的保護，故給予6分。",
+    "comment_en": "Amazon possesses certain advantages in patents and regulatory aspects, particularly in its cloud computing service AWS, where it holds numerous technological patents and influence over industry standards. However, its core e-commerce business faces increasing regulatory pressure, with antitrust investigations and data privacy regulations potentially posing challenges to its future development. Despite this, its patent portfolio in areas like logistics technology and artificial intelligence still offers some protection, warranting a score of 6."
   },
   "m3_high_switching_costs": {
     "score": 9,
-    "comment_zh": "亞馬遜的Prime會員制度是極高的轉換成本壁壘。一旦消費者習慣了Prime的免費快速配送、影音串流和其他福利，轉向其他平台將意味著失去這些價值。對於AWS客戶而言，遷移雲端基礎設施的成本和複雜性極高，鎖定了大量企業客戶。這種黏性極大地提高了客戶轉換的門檻。",
-    "comment_en": "Amazon's Prime membership creates an exceptionally high switching cost barrier. Once consumers are accustomed to Prime's free fast shipping, streaming benefits, and other perks, switching to other platforms means losing significant value. For AWS clients, the cost and complexity of migrating cloud infrastructure are immense, locking in a vast enterprise customer base. This stickiness significantly raises the hurdle for customer churn."
+    "comment_zh": "亞馬遜的轉換成本極高，主要體現在其龐大的 Prime 會員生態系統。一旦用戶習慣了 Prime 的便利性（如免費快速配送、Prime Video、音樂等），轉向其他平台將意味著放棄這些增值服務，並可能面臨更長的配送時間和更高的費用。此外，用戶在亞馬遜上累積的購買歷史、評論和願望清單等數據，也增加了遷移的複雜性。這構成了強大的客戶黏性，故給予9分。",
+    "comment_en": "Amazon's switching costs are extremely high, primarily reflected in its vast Prime membership ecosystem. Once users become accustomed to the convenience of Prime (e.g., free fast delivery, Prime Video, music), switching to other platforms means forfeiting these value-added services and potentially facing longer delivery times and higher costs. Furthermore, accumulated purchase history, reviews, and wish lists on Amazon add complexity to migration. This constitutes strong customer stickiness, hence the score of 9."
   },
   "m4_network_effects": {
-    "score": 10,
-    "comment_zh": "亞馬遜的電商平台展現了強烈的網絡效應。越多的買家吸引越多的賣家，提供更多樣化的商品；越多的賣家和商品，又吸引越多的買家。這種正向循環不斷強化其市場主導地位。AWS也受益於網絡效應，越多的用戶和開發者使用其平台，就越能吸引更多第三方服務和工具，形成一個不斷增強的生態系統。",
-    "comment_en": "Amazon's e-commerce platform exhibits powerful network effects. More buyers attract more sellers, leading to a wider product selection; more sellers and products, in turn, attract more buyers. This virtuous cycle continuously strengthens its market dominance. AWS also benefits from network effects; a larger user and developer base attracts more third-party services and tools, creating a self-reinforcing ecosystem."
+    "score": 9,
+    "comment_zh": "亞馬遜的網絡效應體現在其電商平台和 AWS 兩大業務。在電商方面，越多的買家吸引越多的賣家，從而提供更豐富的商品選擇，這反過來又吸引更多買家，形成正向循環。在 AWS 方面，越多的開發者和企業使用 AWS，就越能吸引更多的第三方服務和工具集成，進一步增強其平台的吸引力。這種雙邊網絡效應是其核心競爭力之一，故給予9分。",
+    "comment_en": "Amazon's network effects are evident in both its e-commerce platform and AWS. For e-commerce, more buyers attract more sellers, leading to a wider selection of goods, which in turn attracts more buyers, creating a virtuous cycle. For AWS, the more developers and businesses use AWS, the more third-party services and tools are integrated, further enhancing the platform's appeal. This two-sided network effect is one of its core competitive strengths, hence the score of 9."
   },
   "m5_cost_advantage_scale": {
     "score": 10,
-    "comment_zh": "亞馬遜憑藉其龐大的規模，在採購、物流和基礎設施方面擁有無與倫比的成本優勢。其全球化的物流網絡和自動化倉儲系統，使其能夠以極低的單位成本運營。AWS的規模經濟效應更是顯著，能夠以更低的成本提供計算資源，並持續投資於更高效的數據中心技術，這使得新進入者難以匹敵。",
-    "comment_en": "Amazon's immense scale provides an unparalleled cost advantage in procurement, logistics, and infrastructure. Its global logistics network and automated warehousing enable operations at extremely low unit costs. The economies of scale in AWS are particularly pronounced, allowing it to offer computing resources at lower prices while continuously investing in more efficient data center technology, making it difficult for new entrants to compete."
+    "comment_zh": "亞馬遜憑藉其無與倫比的規模，在採購、物流和營運上建立了巨大的成本優勢。其龐大的採購量使其能夠從供應商處獲得更低的價格，而其遍佈全球的物流網絡則能實現極致的效率和最低的單位配送成本。此外，AWS 的規模經濟效應也使其能夠以更低的成本提供領先的雲端服務。這種規模帶來的成本優勢是其難以被超越的護城河，故給予10分。",
+    "comment_en": "Amazon has established a massive cost advantage in procurement, logistics, and operations due to its unparalleled scale. Its enormous purchasing volume allows it to secure lower prices from suppliers, while its global logistics network achieves ultimate efficiency and the lowest unit delivery costs. Furthermore, the economies of scale in AWS enable it to offer leading cloud services at a lower cost. This scale-driven cost advantage is a moat that is difficult to surmount, hence the score of 10."
   },
   "m6_unique_geography_assets": {
-    "score": 4,
-    "comment_zh": "亞馬遜的護城河主要來自其技術和網絡，而非獨特的地理資產。雖然其全球物流網絡遍布各地，但這些資產在理論上是可以被複製的，只是成本極高。其核心優勢在於全球化的運營能力和對客戶的滲透，而非特定地理位置的稀缺性。",
-    "comment_en": "Amazon's moat stems primarily from its technology and network, rather than unique geographical assets. While its global logistics network is widespread, these assets are theoretically replicable, albeit at immense cost. Its core strength lies in global operational capability and customer penetration, not scarcity tied to specific locations."
+    "score": 7,
+    "comment_zh": "亞馬遜的獨特地理資產主要體現在其全球化的物流倉儲網絡和數據中心佈局。這些遍佈各地的設施使其能夠快速、高效地服務全球客戶，並為 AWS 提供穩定的基礎設施支持。雖然這些資產並非絕對獨特，但其龐大的規模和精密的佈局，使其競爭對手難以在短期內複製。這種地理上的優勢為其提供了堅實的競爭壁壘，故給予7分。",
+    "comment_en": "Amazon's unique geographical assets are primarily reflected in its global network of logistics warehouses and data center footprint. These facilities located worldwide enable it to serve global customers quickly and efficiently, and provide stable infrastructure support for AWS. While these assets are not absolutely unique, their sheer scale and sophisticated deployment make them difficult for competitors to replicate in the short term. This geographical advantage provides a solid competitive barrier, hence the score of 7."
   },
   "m7_operational_efficiency": {
     "score": 9,
-    "comment_zh": "亞馬遜以其極致的運營效率聞名，尤其是在其物流和AWS業務中。通過持續的技術投入和流程優化，它能夠實現極高的訂單處理速度和準確性，以及AWS的穩定可靠服務。這種卓越的運營能力是其核心競爭力之一，也是難以被競爭對手超越的壁壘。",
-    "comment_en": "Amazon is renowned for its extreme operational efficiency, particularly in its logistics and AWS businesses. Through continuous technological investment and process optimization, it achieves remarkable order fulfillment speed and accuracy, alongside AWS's stable and reliable services. This operational excellence is a core competitive strength and a barrier difficult for rivals to overcome."
+    "comment_zh": "亞馬遜在營運效率方面堪稱典範，尤其是在其物流和供應鏈管理上。透過先進的技術、自動化和數據分析，它不斷優化庫存管理、訂單處理和配送流程，實現了極高的營運效率和成本控制。AWS 的營運效率同樣令人印象深刻，能夠在保證服務穩定性的同時，持續降低成本。這種卓越的營運能力是其持續盈利的關鍵，故給予9分。",
+    "comment_en": "Amazon is a paragon of operational efficiency, especially in its logistics and supply chain management. Through advanced technology, automation, and data analytics, it continuously optimizes inventory management, order processing, and delivery workflows, achieving extremely high operational efficiency and cost control. The operational efficiency of AWS is equally impressive, enabling continuous cost reduction while ensuring service stability. This outstanding operational capability is key to its sustained profitability, hence the score of 9."
   },
   "m8_capital_allocation": {
     "score": 8,
-    "comment_zh": "亞馬遜的管理層在資本配置方面展現了卓越的遠見，能夠在核心電商、AWS、廣告、物流基礎設施以及新興領域（如AI）之間進行有效的資源分配。儘管早期投入巨大且回報週期長，但其對高增長領域的戰略性投資，如AWS，已證明其決策的成功。其對自由現金流的有效利用，支持了持續的創新和擴張。",
-    "comment_en": "Amazon's management demonstrates exceptional foresight in capital allocation, effectively distributing resources across core e-commerce, AWS, advertising, logistics infrastructure, and emerging areas like AI. Despite significant early investments with long payback periods, its strategic bets on high-growth sectors, like AWS, have proven successful. Effective utilization of free cash flow supports continuous innovation and expansion."
+    "comment_zh": "亞馬遜在資本配置方面展現了長期主義和戰略眼光。公司持續將大量資金投入到基礎設施建設（如物流網絡、數據中心）、技術研發（如人工智能、AWS）以及新興業務（如廣告、健康醫療）的拓展。儘管有時會犧牲短期利潤，但這些投資為公司帶來了長期的成長動能和競爭優勢。其對股東的回報主要體現在股價的長期增長，而非直接分紅，這符合其成長型公司的定位，故給予8分。",
+    "comment_en": "Amazon demonstrates long-termism and strategic vision in its capital allocation. The company continuously invests heavily in infrastructure development (e.g., logistics networks, data centers), technological R&D (e.g., AI, AWS), and expansion into emerging businesses (e.g., advertising, healthcare). Although this sometimes sacrifices short-term profits, these investments generate long-term growth momentum and competitive advantages. Its returns to shareholders are primarily reflected in long-term stock price appreciation rather than direct dividends, aligning with its growth company positioning, hence the score of 8."
   },
   "m9_customer_retention": {
     "score": 9,
-    "comment_zh": "Prime會員制度是亞馬遜客戶留存的關鍵。它通過提供免費快速配送、獨家優惠和多樣化的內容服務，極大地提高了客戶忠誠度和重複購買率。這種基於價值的會員模式，使得客戶一旦加入，就難以離開，從而形成了強大的客戶留存壁壘。",
-    "comment_en": "The Prime membership program is central to Amazon's customer retention strategy. By offering free fast shipping, exclusive deals, and diverse content services, it significantly enhances customer loyalty and repeat purchase rates. This value-driven membership model makes it difficult for customers to leave once they've joined, creating a robust retention moat."
+    "comment_zh": "亞馬遜的客戶留存率極高，Prime 會員制度是關鍵。一旦用戶加入 Prime，其消費行為便高度集中在亞馬遜平台上，因為放棄 Prime 意味著失去快速配送、獨家內容等諸多福利。此外，亞馬遜不斷優化購物體驗，提供個性化推薦和便捷的客戶服務，進一步鞏固了客戶關係。這種高度的客戶黏性確保了穩定的經常性收入和用戶基礎，故給予9分。",
+    "comment_en": "Amazon boasts extremely high customer retention rates, with the Prime membership program being the key driver. Once users join Prime, their spending behavior becomes highly concentrated on Amazon's platform, as abandoning Prime means losing numerous benefits like fast delivery and exclusive content. Furthermore, Amazon continuously optimizes the shopping experience, offering personalized recommendations and convenient customer service, further solidifying customer relationships. This high degree of customer stickiness ensures stable recurring revenue and a user base, hence the score of 9."
   },
   "m10_durability": {
-    "score": 8,
-    "comment_zh": "亞馬遜的商業模式具有高度的持久性。其電商業務雖然面臨競爭，但憑藉網絡效應和規模經濟，能夠持續保持領先。AWS作為雲端運算領域的領導者，受益於數位化轉型的長期趨勢，增長潛力巨大。公司不斷創新和擴張到新領域，展現了其適應和發展的韌性。",
-    "comment_en": "Amazon's business model exhibits high durability. While its e-commerce business faces competition, network effects and economies of scale allow it to maintain leadership. As the cloud computing leader, AWS benefits from the long-term trend of digital transformation, offering significant growth potential. The company's continuous innovation and expansion into new areas demonstrate its resilience and adaptability."
+    "score": 9,
+    "comment_zh": "亞馬遜的護城河具有顯著的持久性。其龐大的規模經濟、強大的網絡效應、極高的轉換成本以及持續的技術創新，共同構建了一個難以被顛覆的商業模式。儘管面臨來自各方的競爭和監管壓力，但其核心業務（電商和 AWS）的領導地位依然穩固。其不斷擴張的業務版圖和對未來趨勢的佈局，也為其長期的可持續發展奠定了基礎，故給予9分。",
+    "comment_en": "Amazon's moat exhibits significant durability. Its massive economies of scale, strong network effects, extremely high switching costs, and continuous technological innovation collectively build a business model that is difficult to disrupt. Despite facing competition and regulatory pressure from various fronts, the company's leadership in its core businesses (e-commerce and AWS) remains solid. Its expanding business scope and strategic positioning for future trends also lay the foundation for its long-term sustainable development, hence the score of 9."
   },
-  "overall_moat_verdict_zh": "亞馬遜展現了強大的經濟護城河，尤其體現在其網絡效應（M4）、規模成本優勢（M5）和極高的客戶轉換成本（M3），這使其在電商和雲端運算領域具有顯著的競爭優勢。Prime會員制度和AWS的領導地位構成了類似於「收費橋」的模式，為公司帶來穩定的現金流和持續的增長動力。雖然其品牌（M1）和運營效率（M7）也極為出色，但電商業務的商品化屬性限制了其品牌定價權的極致發揮。監管風險（M2）是潛在的挑戰。總體而言，亞馬遜的護城河堅固且多元，使其能夠在數位時代持續擴張和獲利。",
-  "overall_moat_verdict_en": "Amazon possesses a formidable economic moat, primarily driven by its powerful network effects (M4), cost advantages from scale (M5), and exceptionally high switching costs (M3), granting it significant competitive advantages in both e-commerce and cloud computing. The Prime membership ecosystem and AWS's market leadership function akin to a 'toll bridge,' generating stable cash flows and sustained growth. While its brand (M1) and operational efficiency (M7) are outstanding, the commoditized nature of e-commerce limits the ultimate pricing power of its brand. Regulatory risks (M2) present a potential challenge. Overall, Amazon's moat is robust and multifaceted, enabling its continued expansion and profitability in the digital age.",
-  "evidenceHash": "ccf83df5e6db96e1491277ce2471338a9a5cdf2002ff7fad9813c0704fa6613d",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "overall_moat_verdict_zh": "亞馬遜展現了強大的經濟護城河，尤其在規模經濟、網絡效應和轉換成本方面構築了難以逾越的壁壘。其 Prime 會員生態系統不僅鎖定了龐大的用戶群，更創造了持續的經常性收入和極高的客戶黏性，堪稱現代版的「收費橋」。AWS 作為雲端運算領域的領導者，也受益於網絡效應和規模經濟。儘管面臨監管挑戰，但其持續的創新能力和卓越的營運效率，使其在可預見的未來，仍將是線上零售和雲端服務領域的巨擘，展現出卓越的特許經營權特徵。",
+  "overall_moat_verdict_en": "Amazon demonstrates a formidable economic moat, particularly in economies of scale, network effects, and switching costs, creating insurmountable barriers. Its Prime membership ecosystem not only locks in a vast user base but also generates consistent recurring revenue and extremely high customer stickiness, akin to a modern 'toll bridge.' AWS, as a leader in cloud computing, also benefits from network effects and economies of scale. Despite facing regulatory challenges, its continuous innovation and exceptional operational efficiency position it as a titan in online retail and cloud services for the foreseeable future, exhibiting remarkable franchise-like characteristics.",
+  "evidenceHash": "892ebe984fc1af3668e8e76b83371ec86d08cce5c29b78d236f9c3b13ef805e5",
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

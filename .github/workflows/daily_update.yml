@@ -18,6 +18,10 @@ on:
         description: Refresh latest-quarter liquidation inputs only, preserving DCF calculations
         type: boolean
         default: false
+      moat_limit:
+        description: Cap NEW US baseline moat Gemini calls this run (digits; empty = daily default 30). Use 20–30 for full remoat batches. Skips already buffett-moat-v3 / legacy us-buffett-moat-v3 with ZH in band.
+        type: string
+        default: ''
 
 permissions:
   contents: write
@@ -64,12 +68,27 @@ jobs:
           FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+          US_MOAT_MODEL: gemini-2.5-flash-lite
+          MOAT_MODEL: gemini-2.5-flash-lite
           # Hard cap on *new* US moat Gemini calls per daily run (cache miss only).
           # Beyond the cap: reuse prior-period moat cache when available; backlog is logged.
-          MAX_US_MOAT_GEMINI: '30'
+          # workflow_dispatch may override via moat_limit (digits only).
+          MOAT_LIMIT: ${{ github.event.inputs.moat_limit }}
           # Smaller separate budget for ZH company descriptions (usually cache-warm).
           MAX_US_DESC_GEMINI: '15'
         run: |
+          if [ -n "${MOAT_LIMIT}" ]; then
+            case "${MOAT_LIMIT}" in
+              ''|*[!0-9]*)
+                echo "::error::moat_limit must be digits only"
+                exit 1
+                ;;
+            esac
+            export MAX_US_MOAT_GEMINI="${MOAT_LIMIT}"
+          else
+            export MAX_US_MOAT_GEMINI=30
+          fi
+          echo "MAX_US_MOAT_GEMINI=${MAX_US_MOAT_GEMINI}"
           python -u build_full_market.py
 
       - name: Refresh provider peer lists only

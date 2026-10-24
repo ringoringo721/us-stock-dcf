@@ -17,6 +17,13 @@ from typing import Iterable, Mapping, MutableMapping, Optional
 # Unified policy id (replaces us-buffett-moat-v3 and grounded/researched-v4–v6 for new remoats).
 BUFFETT_MOAT_ASSESSMENT_POLICY = "buffett-moat-v3"
 BUFFETT_MOAT_MODEL = "gemini-2.5-flash-lite"
+# US caches stamped before the unified id still share the same Lite + ZH 100–300 standard.
+# Safe to restamp → buffett-moat-v3 without a Gemini call when ZH is already in band.
+LEGACY_US_BUFFETT_MOAT_POLICY = "us-buffett-moat-v3"
+COMPATIBLE_BUFFETT_MOAT_POLICIES = frozenset({
+    BUFFETT_MOAT_ASSESSMENT_POLICY,
+    LEGACY_US_BUFFETT_MOAT_POLICY,
+})
 
 # Hard acceptance band for Traditional Chinese dimension comments (Unicode code points after strip).
 # User-locked target ~100–300 繁中字 (US already often lands here; HK ≥1B must match).
@@ -191,3 +198,16 @@ def stamp_policy(record: MutableMapping, *, model: Optional[str] = None) -> Muta
     if model is not None:
         record["model"] = model
     return record
+
+
+def policy_compatible_for_reuse(policy: Optional[str], report: Mapping | None = None) -> bool:
+    """True when a cached US report can be reused / restamped without Gemini.
+
+    Requires a Buffett-v3 family policy id and ZH comments already in the locked band.
+    HK grounded/researched-v* are intentionally excluded (must remoat).
+    """
+    if policy not in COMPATIBLE_BUFFETT_MOAT_POLICIES:
+        return False
+    if report is None:
+        return policy == BUFFETT_MOAT_ASSESSMENT_POLICY
+    return report_zh_pass(report)

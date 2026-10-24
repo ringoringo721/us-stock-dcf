@@ -375,6 +375,7 @@ try:
         BUFFETT_MOAT_ASSESSMENT_POLICY,
         MAX_COMMENT_ZH_CHARS,
         MIN_COMMENT_ZH_CHARS,
+        policy_compatible_for_reuse,
         validate_dimension_zh_lengths,
         zh_length_retry_guidance,
         zh_primary_prompt_rules,
@@ -384,6 +385,7 @@ except ImportError:
         BUFFETT_MOAT_ASSESSMENT_POLICY,
         MAX_COMMENT_ZH_CHARS,
         MIN_COMMENT_ZH_CHARS,
+        policy_compatible_for_reuse,
         validate_dimension_zh_lengths,
         zh_length_retry_guidance,
         zh_primary_prompt_rules,
@@ -480,12 +482,18 @@ def load_prior_period_moat(ticker: str, exclude_period: str) -> Optional[Dict[st
 def find_moat_by_evidence_hash(
     ticker: str, evidence_hash: str, assessment_policy: str
 ) -> Optional[Tuple[str, Dict[str, Any]]]:
-    """Return (source_period, data) when a cache matches HK-style evidenceHash + policy."""
+    """Return (source_period, data) when a cache matches HK-style evidenceHash + policy.
+
+    Also accepts legacy ``us-buffett-moat-v3`` when ZH is already in the locked 100–300
+    band so production remoats can restamp to ``buffett-moat-v3`` without Gemini.
+    """
     for period, _path, data in _iter_ticker_moat_caches(ticker):
-        if (
-            data.get("evidenceHash") == evidence_hash
-            and data.get("assessmentPolicy") == assessment_policy
-        ):
+        if data.get("evidenceHash") != evidence_hash:
+            continue
+        stored_policy = data.get("assessmentPolicy")
+        if stored_policy == assessment_policy:
+            return period, data
+        if policy_compatible_for_reuse(stored_policy, data):
             return period, data
     return None
 
@@ -683,11 +691,23 @@ def analyze_stock_moat(ticker: str, latest_period: str, fin_context: Dict[str, A
                         )
                         return stamped
                     # Hash present but mismatched → fall through to remoat / budget path.
-                    if stored_hash == evidence_hash and stored_policy == policy:
-                        return _stamp_moat_metadata(
+                    # Same-hash legacy us-buffett-moat-v3 with ZH in band → restamp, no Gemini.
+                    if stored_hash == evidence_hash and (
+                        stored_policy == policy
+                        or policy_compatible_for_reuse(stored_policy, legacy)
+                    ):
+                        stamped = _stamp_moat_metadata(
                             legacy, ticker=ticker, period=safe_period,
                             evidence_hash=evidence_hash, assessment_policy=policy,
                         )
+                        if stored_policy != policy:
+                            _write_moat_cache(cache_file, stamped)
+                            print(
+                                f"♻️ {ticker}@{safe_period}: restamped {stored_policy} → {policy} "
+                                f"(ZH in band; no Gemini)",
+                                flush=True,
+                            )
+                        return stamped
             except Exception:
                 pass
 

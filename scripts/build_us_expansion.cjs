@@ -30,10 +30,18 @@ function needsMoatRecovery(stock) {
   if (source?.reason === 'analysisUnavailable' || source?.reason === 'pendingCapture') return true;
   if (!source?.evidenceHash || source.evidenceHash !== source.currentEvidenceHash || source.reason
       || !Number.isFinite(Date.parse(source.updatedAt))) return true;
+  // Production remoat target: unified buffett-moat-v3 (legacy us-buffett-moat-v3 OK if ZH in band).
+  const policy = source?.assessmentPolicy || report?.assessmentPolicy;
+  const policyOk = policy === 'buffett-moat-v3' || policy === 'us-buffett-moat-v3';
+  if (!policyOk) return true;
   const dimensions = Object.entries(report || {}).filter(([key]) => /^m\d+_/.test(key)).map(([, value]) => value);
-  return dimensions.length !== 10 || dimensions.some(value => !Number.isInteger(value?.score)
-    || value.score < 0 || value.score > 10 || typeof value.comment_zh !== 'string' || !value.comment_zh.trim()
-    || typeof value.comment_en !== 'string' || !value.comment_en.trim())
+  const zhOk = dimensions.length === 10 && dimensions.every(value => {
+    const zh = typeof value?.comment_zh === 'string' ? value.comment_zh.trim() : '';
+    return zh.length >= 100 && zh.length <= 300
+      && typeof value?.comment_en === 'string' && value.comment_en.trim()
+      && Number.isInteger(value?.score) && value.score >= 0 && value.score <= 10;
+  });
+  return !zhOk
     || typeof report.overall_moat_verdict_zh !== 'string' || !report.overall_moat_verdict_zh.trim()
     || typeof report.overall_moat_verdict_en !== 'string' || !report.overall_moat_verdict_en.trim();
 }

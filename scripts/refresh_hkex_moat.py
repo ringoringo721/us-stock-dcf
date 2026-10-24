@@ -677,7 +677,16 @@ def main():
     write_json_checkpoint(args.output, reports)
     print(f"Moat evidence refresh: {updated} updated, {len(records) - len(pending) - excluded} unchanged, {excluded} excluded, "
           f"{failed} failed, {len(pending) if client is None else 0} not run (missing credentials).")
-    if failed or pending and client is None:
+    missing_creds = bool(pending and client is None)
+    if missing_creds:
+        raise SystemExit(1)
+    # Partial success must not block Persist (run 40067866312: 7 updated / 13 failed → exit 1
+    # skipped commit and would have re-spent Gemini on the 7). Warn and continue when any updated.
+    if failed and updated:
+        print(f"::warning::{failed} moat update(s) failed; {updated} successful checkpoint(s) retained for Persist.",
+              flush=True)
+        return
+    if failed:
         raise SystemExit(1)
 
 
