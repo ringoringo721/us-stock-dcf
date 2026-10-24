@@ -121,13 +121,13 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           # Moat/validate already ran. Drop worktree-only tooling overlay and any staged
-          # non-data paths so rebase/push to main cannot carry scripts/tests/README.
+          # non-data paths so the data commit cannot carry scripts/tests/README.
           git restore --source=HEAD --worktree --staged -- \
             scripts/refresh_hkex_moat.py \
             scripts/refresh_usd_rates.cjs \
             tests/test_hkex_moat.py \
             README.md || true
-          git reset HEAD
+          git reset --quiet HEAD
           git add hk_market_dcf.json hk_market_data.js hk_fcff_data.js
           git add fmp_model_data.js
           git add -f cache/company/*.HK.json
@@ -140,6 +140,11 @@ jobs:
           fi
           if ! git diff --cached --quiet; then
             git commit -m "Refresh real HKEX data and evidence-based ratings [skip ci]" -m "Co-authored-by: Copilot App <223556219+Copilot@users.noreply.github.com>"
+            # capture_rote_history may dirty US rote_history/* (outside HK allowlist).
+            # Those leftovers + any discarded overlay dirt block `git pull --rebase`
+            # (run 40051067414: commit ok locally, push never ran). Hard-reset to the
+            # just-created allowlist commit so only that commit is rebased/pushed.
+            git reset --hard HEAD
             git pull --rebase origin main
             git push origin HEAD:main
           fi
@@ -158,5 +163,10 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: hkex-refresh-failure-evidence
-          path: hkex-source-output/
+          # Include moat checkpoints so a late persist failure does not discard an 80m+ remoat.
+          path: |
+            hkex-source-output/
+            hkex-data-output/cache/hkex_moat.json
+            cache/hkex_moat.json
           retention-days: 7
+          if-no-files-found: warn
