@@ -5,10 +5,12 @@ import unittest
 from scripts.buffett_moat_v3 import (
     BUFFETT_MOAT_ASSESSMENT_POLICY,
     BUFFETT_MOAT_MODEL,
+    LEGACY_US_BUFFETT_MOAT_POLICY,
     MAX_COMMENT_ZH_CHARS,
     MIN_COMMENT_ZH_CHARS,
     NEAR_FLOOR_ZH_CHARS,
     dimension_zh_counts,
+    policy_compatible_for_reuse,
     report_zh_pass,
     validate_dimension_zh_lengths,
     zh_char_count,
@@ -81,6 +83,19 @@ class BuffettMoatV3Tests(unittest.TestCase):
             validate_dimension_zh_lengths(report)
         self.assertIn("NEAR-FLOOR", str(raised.exception))
         self.assertIn("EXPAND BY A FEW CHARACTERS", str(raised.exception))
+
+    def test_legacy_us_policy_reuse_requires_zh_band(self):
+        from scripts.buffett_moat_v3 import DIMENSION_KEYS
+        report = {
+            key: {"score": 7, "comment_zh": _ZH, "comment_en": "Translation of the Chinese moat comment."}
+            for key in DIMENSION_KEYS
+        }
+        self.assertTrue(policy_compatible_for_reuse(LEGACY_US_BUFFETT_MOAT_POLICY, report))
+        self.assertTrue(policy_compatible_for_reuse(BUFFETT_MOAT_ASSESSMENT_POLICY, report))
+        self.assertFalse(policy_compatible_for_reuse("grounded-business-judgment-v5", report))
+        short = dict(report)
+        short["m1_brand_pricing"] = {"score": 7, "comment_zh": "太短", "comment_en": "short"}
+        self.assertFalse(policy_compatible_for_reuse(LEGACY_US_BUFFETT_MOAT_POLICY, short))
 
 
 if __name__ == "__main__":

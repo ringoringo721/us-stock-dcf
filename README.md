@@ -594,6 +594,13 @@ has not changed. `--retry-incomplete` additionally retries partial reports and
 is preferred for null-score gaps. `--force` remoats nearly all eligible HK names
 and requires `FORCE_MOAT_CONFIRM=YES` (or `1`/`true`) so accidental full remoats
 are hard; scheduled `refresh_hkex.yml` never passes `--force`.
+Manual **Refresh HKEX** accepts optional `moat_limit` (digits, e.g. `25`) to
+batch Lite Buffett-v3 remoats for mcap ≥ HKD 1B under time/cost pressure; already
+`buffett-moat-v3` + matching evidence hashes are skipped. Partial successes still
+Persist. US baseline remoats use Daily `moat_limit` / `MAX_US_MOAT_GEMINI`; legacy
+`us-buffett-moat-v3` caches with ZH already in the 100–300 band restamp without
+Gemini. US expansion batches use **Full remoat batch** (`us-expansion`, ≤20/run).
+Count backlog with `python3 scripts/remoat_remaining.py`.
 All new scores still require cited evidence and bilingual qualitative comments;
 insufficient evidence may legitimately remain unassessed. Failed authorization
 does not count as a successful refresh or replace prior reports with invented

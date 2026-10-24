@@ -365,6 +365,73 @@ class MoatEvidenceTests(unittest.TestCase):
             with self.assertRaises(MoatReportValidationError):
                 validate_report(corrected, "0700.HK", ["profile"])
 
+    def test_limit_caps_remoats_without_force(self):
+        with tempfile.TemporaryDirectory() as directory:
+            source, output = Path(directory) / "inputs.json", Path(directory) / "reports.json"
+            records = []
+            for ticker in ("0005.HK", "0700.HK", "0941.HK"):
+                records.append({
+                    "ticker": ticker, "evidenceHash": "new",
+                    "moatScreen": {"calculationCurrency": "HKD", "marketCapMillions": 5000},
+                    "existing": {"evidenceHash": "old", "assessmentPolicy": "grounded-business-judgment-v3",
+                                 "report": {"score": 7}},
+                    "profile": {}, "fScore": {},
+                    "statements": {"annual": {"income": [], "balance": [], "cashflow": []},
+                                   "quarterly": {"income": [], "balance": [], "cashflow": []}},
+                })
+            source.write_text(json.dumps(records), encoding="utf-8")
+            with patch.object(sys, "argv", ["refresh_hkex_moat.py", str(source), str(output), "--limit", "1"]), \
+                    patch("scripts.refresh_hkex_moat.create_client", return_value=None):
+                with self.assertRaises(SystemExit) as raised:
+                    main()
+            self.assertEqual(raised.exception.code, 1)  # pending + no credentials
+            saved = json.loads(output.read_text(encoding="utf-8"))
+            self.assertEqual(set(saved), {"0005.HK", "0700.HK", "0941.HK"})
+
+    def test_partial_success_does_not_block_persist_exit(self):
+        """When some remoats succeed and others fail, exit 0 so Persist can commit winners."""
+        with tempfile.TemporaryDirectory() as directory:
+            source, output = Path(directory) / "inputs.json", Path(directory) / "reports.json"
+
+            def make_record(ticker):
+                report = self.report()
+                report["ticker"] = ticker
+                return {
+                    "ticker": ticker, "evidenceHash": "new",
+                    "moatScreen": {"calculationCurrency": "HKD", "marketCapMillions": 5000},
+                    "existing": {"evidenceHash": "old", "assessmentPolicy": "grounded-business-judgment-v3",
+                                 "report": report},
+                    "profile": {"companyName": ticker}, "fScore": {},
+                    "statements": {
+                        "annual": {"income": [{"date": "2025-12-31", "fiscalYear": "2025", "period": "FY"}],
+                                   "balance": [], "cashflow": []},
+                        "quarterly": {"income": [], "balance": [], "cashflow": []},
+                    },
+                }
+
+            source.write_text(json.dumps([make_record("0005.HK"), make_record("0700.HK")]), encoding="utf-8")
+
+            class _Resp:
+                def __init__(self, text):
+                    self.text = text
+
+            ok_0005 = self.report()
+            ok_0005["ticker"] = "0005.HK"
+            client = Mock()
+            # 0005 succeeds on first try; 0700 fails all 3 attempts (invalid JSON)
+            client.models.generate_content.side_effect = [
+                _Resp(json.dumps(ok_0005)),
+                _Resp("{"), _Resp("{"), _Resp("{"),
+            ]
+            with patch.object(sys, "argv", ["refresh_hkex_moat.py", str(source), str(output)]), \
+                    patch("scripts.refresh_hkex_moat.create_client", return_value=client), \
+                    patch.dict(os.environ, {"MOAT_MODEL": "gemini-2.5-flash-lite"}):
+                # Should not raise — partial success returns normally for Persist.
+                main()
+            saved = json.loads(output.read_text(encoding="utf-8"))
+            self.assertEqual(saved["0005.HK"]["assessmentPolicy"], BUFFETT_MOAT_ASSESSMENT_POLICY)
+            self.assertIn("lastError", saved["0700.HK"])
+
 
 if __name__ == "__main__":
     unittest.main()

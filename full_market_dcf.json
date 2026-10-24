@@ -6843,66 +6843,68 @@
     "roe": 195.85295457997873,
     "roa": 38.893497639481744,
     "moat": {
-      "ticker": "AAPL",
-      "period": "2026Q3",
       "m1_brand_pricing": {
         "score": 9,
-        "comment_zh": "蘋果的品牌心智與定價權無與倫比。其「Apple」品牌已成為高品質、創新與設計的代名詞，消費者願意為此支付顯著溢價。無論是iPhone、Mac或Apple Watch，即使面對市場競爭，蘋果仍能維持高毛利率並持續提價，而客戶流失率極低。這種強大的品牌忠誠度與情感連結，使其產品不僅是工具，更是身份象徵，構建了巴菲特所稱的「消費者特許經營權」，遠超一般電子產品製造商，是其最核心的護城河之一。",
-        "comment_en": "Apple's brand mindshare and pricing power are unparalleled. The \"Apple\" brand is synonymous with quality, innovation, and design, for which consumers are willing to pay a significant premium. Whether it's the iPhone, Mac, or Apple Watch, Apple consistently maintains high margins and raises prices even amidst market competition, with minimal customer attrition. This strong brand loyalty and emotional connection transform its products from mere tools into status symbols, establishing what Buffett calls a \"consumer franchise\" that far surpasses typical electronics manufacturers, making it one of its core moats."
+        "comment_zh": "蘋果的品牌是其最顯著的護城河之一，具有極高的客戶忠誠度和溢價能力。其產品生態系統，從 iPhone 到 Mac 再到 Apple Watch，創造了一種無縫的用戶體驗，使得用戶難以轉向競爭對手。這種品牌忠誠度轉化為強大的定價權，蘋果能夠在其產品上收取高於市場平均水平的價格，同時保持強勁的銷售。與其他科技公司相比，蘋果的品牌不僅僅是產品的標誌，更是一種生活方式的象徵，這使其在消費者心中佔據獨特地位，難以被模仿。",
+        "comment_en": "Apple's brand is one of its most significant moats, possessing exceptionally high customer loyalty and premium pricing power. Its product ecosystem, from iPhone to Mac to Apple Watch, creates a seamless user experience that makes it difficult for customers to switch to competitors. This brand loyalty translates into formidable pricing power, allowing Apple to charge above-market prices for its products while maintaining robust sales. Compared to other tech companies, Apple's brand is more than just a product logo; it's a symbol of a lifestyle, giving it a unique position in consumers' minds that is hard to replicate."
       },
       "m2_patents_regulatory": {
-        "score": 8,
-        "comment_zh": "蘋果在專利壁壘方面表現強勁，尤其是在其自研晶片（如A系列、M系列）的架構設計、工業設計以及軟體創新上擁有大量獨家專利。這些專利不僅保護了其核心技術不被輕易模仿，更賦予其產品獨特的性能優勢。此外，App Store作為其生態系統的入口，雖非傳統意義上的政府特許，但其對應用分發的嚴格控制和抽成機制，實質上構建了一個高利潤的「收費橋樑」，為其帶來持續且豐厚的服務收入，形成強大的商業壁壘。",
-        "comment_en": "Apple demonstrates strong patent barriers, particularly in its proprietary chip architectures (e.g., A-series, M-series), industrial design, and software innovations, holding numerous exclusive patents. These patents not only protect its core technologies from easy imitation but also grant its products unique performance advantages. Furthermore, the App Store, as the gateway to its ecosystem, while not a traditional government franchise, effectively operates as a highly profitable \"toll bridge\" through its strict control over app distribution and commission structure. This generates continuous and substantial service revenue, forming a robust business barrier."
+        "score": 7,
+        "comment_zh": "蘋果在技術創新和專利保護方面投入巨大，這為其產品提供了重要的競爭優勢。雖然專利本身可能被規避，但蘋果的專利組合涵蓋了其硬件、軟件和服務的關鍵方面，增加了競爭對手的模仿難度。此外，蘋果在設計和用戶體驗方面的專利，尤其是在移動設備領域，構建了難以逾越的壁壘。監管環境對科技巨頭而言是雙刃劍，但蘋果通過其對隱私和安全的重視，在一定程度上建立了信任壁壘，這在日益關注數據保護的時代尤為重要。",
+        "comment_en": "Apple invests heavily in technological innovation and patent protection, providing significant competitive advantages for its products. While patents themselves can be circumvented, Apple's patent portfolio covers critical aspects of its hardware, software, and services, increasing the difficulty for competitors to imitate. Furthermore, Apple's patents in design and user experience, particularly in the mobile device sector, have built formidable barriers. The regulatory environment is a double-edged sword for tech giants, but Apple has, to some extent, built a trust barrier through its emphasis on privacy and security, which is particularly important in an era of increasing data protection concerns."
       },
       "m3_high_switching_costs": {
-        "score": 9,
-        "comment_zh": "蘋果生態系統的黏性與高轉換成本是其最堅固的護城河之一。用戶一旦深入蘋果生態（iPhone、iPad、Mac、Apple Watch、AirPods、iCloud等），要轉換到其他平台將面臨巨大的時間、數據遷移和學習成本。例如，iMessage的社交慣性、AirDrop的便捷性、iCloud的數據同步，以及在App Store中累積的應用購買，都使得用戶難以割捨。這種深度的整合體驗，讓用戶在轉換平台時會感到顯著的「痛苦」，從而極大地提高了客戶留存率。",
-        "comment_en": "The stickiness and high switching costs of Apple's ecosystem represent one of its most robust moats. Once users are deeply embedded in the Apple ecosystem (iPhone, iPad, Mac, Apple Watch, AirPods, iCloud, etc.), transitioning to another platform incurs significant time, data migration, and learning costs. For instance, the social inertia of iMessage, the convenience of AirDrop, iCloud's data synchronization, and accumulated app purchases in the App Store make it difficult for users to leave. This deeply integrated experience creates considerable \"pain\" for users considering a platform switch, thereby greatly enhancing customer retention."
+        "score": 8,
+        "comment_zh": "蘋果生態系統的轉換成本極高，這主要歸功於其軟硬件的高度整合以及用戶對其操作系統和服務的深度依賴。一旦用戶購買了蘋果的設備並習慣了其操作界面、iCloud 服務、App Store 生態以及與其他蘋果設備的無縫協同，轉換到 Android 或 Windows 等其他平台將面臨巨大的時間、金錢和學習成本。這種鎖定效應極大地提高了客戶留存率，並為蘋果提供了穩定的經常性收入來源，是其強大護城河的關鍵組成部分。",
+        "comment_en": "The switching costs within Apple's ecosystem are extremely high, primarily due to the tight integration of its hardware and software and users' deep reliance on its operating systems and services. Once users purchase Apple devices and become accustomed to its interface, iCloud services, App Store ecosystem, and seamless synergy with other Apple devices, switching to other platforms like Android or Windows involves significant time, financial, and learning costs. This lock-in effect greatly enhances customer retention and provides Apple with a stable stream of recurring revenue, forming a crucial component of its strong moat."
       },
       "m4_network_effects": {
-        "score": 8,
-        "comment_zh": "蘋果的網絡效應主要體現在其App Store和配件生態系統。龐大的用戶基礎吸引了全球頂尖的開發者為iOS平台開發應用，進而豐富了App Store的內容，吸引更多用戶加入。同時，Apple Watch、AirPods等配件的普及，也因為iPhone用戶的廣泛存在而更具吸引力，形成正向循環。iMessage在特定市場的社交網絡效應也強化了用戶黏性。這種「雞生蛋、蛋生雞」的良性循環，使得生態系統的價值隨著用戶數量的增加而呈指數級增長，對競爭對手構成巨大挑戰。",
-        "comment_en": "Apple's network effects are primarily evident in its App Store and accessory ecosystem. Its vast user base attracts top global developers to create applications for the iOS platform, enriching App Store content and drawing in more users. Concurrently, the widespread adoption of accessories like Apple Watch and AirPods becomes more appealing due to the extensive iPhone user base, creating a positive feedback loop. iMessage's social network effect in certain markets also strengthens user stickiness. This virtuous \"chicken-and-egg\" cycle causes the ecosystem's value to grow exponentially with increasing users, posing a significant challenge to competitors."
+        "score": 7,
+        "comment_zh": "蘋果的網絡效應主要體現在其 App Store 和 iMessage 等服務上。App Store 的龐大用戶基礎吸引了大量的開發者，他們不斷推出創新的應用程序，這反過來又吸引了更多用戶，形成一個正向循環。iMessage 雖然主要局限於蘋果設備用戶，但在特定用戶群體中，其便利性和獨特性也產生了類似網絡效應的鎖定作用。雖然不如某些社交平台那樣典型的網絡效應，但這種生態系統內的協同效應依然是蘋果維持競爭優勢的重要因素。",
+        "comment_en": "Apple's network effects are primarily evident in services like the App Store and iMessage. The vast user base of the App Store attracts a large number of developers, who continuously release innovative applications, which in turn attracts more users, creating a virtuous cycle. While iMessage is mainly limited to Apple device users, within certain user groups, its convenience and uniqueness also create a lock-in effect similar to network effects. Although not as typical as network effects in some social platforms, this synergistic effect within the ecosystem remains an important factor in Apple's sustained competitive advantage."
       },
       "m5_cost_advantage_scale": {
-        "score": 9,
-        "comment_zh": "蘋果的規模經濟優勢無與倫比。憑藉其龐大的出貨量，蘋果在全球供應鏈中擁有極強的議價能力，能以更低的成本採購關鍵零組件。同時，其巨額的研發投入使其能夠自主設計M系列和A系列晶片，這些晶片在性能和功耗效率上領先業界，且成本效益極高。這種規模效應不僅降低了生產成本，還使其能夠持續投入創新，維持技術領先，是其他競爭對手難以望其項背的巨大壁壘，確保了其產品的高毛利率。",
-        "comment_en": "Apple's scale advantage is unparalleled. Leveraging its massive shipment volumes, Apple wields immense bargaining power within the global supply chain, enabling it to procure key components at lower costs. Simultaneously, its substantial R&D investment allows for the in-house design of M-series and A-series chips, which lead the industry in performance and power efficiency while being highly cost-effective. This scale not only reduces production costs but also enables continuous innovation, maintaining technological leadership. This represents a formidable barrier that competitors struggle to match, ensuring high product margins."
+        "score": 8,
+        "comment_zh": "蘋果憑藉其巨大的採購量和生產規模，在供應鏈管理和生產成本控制方面擁有顯著的規模經濟優勢。其與供應商的長期合作關係和對關鍵零部件的巨額採購，使其能夠獲得更優惠的價格和優先的供應。這種規模優勢不僅降低了其生產成本，還使其能夠投入巨資進行研發和市場營銷，進一步鞏固其市場地位。相較於規模較小的競爭對手，蘋果在成本控制和資源獲取上具有天然的領先優勢。",
+        "comment_en": "Leveraging its massive procurement volume and production scale, Apple possesses significant economies of scale in supply chain management and production cost control. Its long-term relationships with suppliers and substantial purchases of key components allow it to secure more favorable pricing and priority supply. This scale advantage not only reduces its production costs but also enables it to invest heavily in research and development and marketing, further solidifying its market position. Compared to smaller competitors, Apple has a natural leading advantage in cost control and resource acquisition."
       },
       "m6_unique_geography_assets": {
-        "score": 7,
-        "comment_zh": "蘋果在高效規模（Efficient Scale）方面，雖然不是傳統意義上的地理寡占，但在高端消費電子市場中，它與少數幾個品牌共同形成了事實上的寡頭壟斷。這個市場的特點是品牌忠誠度高、研發投入巨大、供應鏈管理複雜，新進入者難以在短期內建立起足夠的品牌認知和生態系統。蘋果憑藉其品牌、技術和生態系統，在高端市場佔據主導地位，使得任何新競爭者若想進入，都將面臨極高的壁壘和激烈的價格戰，最終可能導致雙輸局面，從而鞏固了其市場地位。",
-        "comment_en": "Regarding Efficient Scale, while not a traditional geographic oligopoly, Apple, alongside a few other brands, forms a de facto oligopoly in the high-end consumer electronics market. This market is characterized by high brand loyalty, massive R&D investment, and complex supply chain management, making it difficult for new entrants to quickly establish sufficient brand recognition and an ecosystem. Apple's brand, technology, and ecosystem dominate the premium segment, meaning any new competitor attempting to enter would face extremely high barriers and intense price wars, potentially leading to a lose-lose scenario, thus solidifying Apple's market position."
+        "score": 4,
+        "comment_zh": "蘋果的業務模式並非依賴於特定的地理位置或獨特的實物資產，其核心競爭力在於技術、品牌和生態系統。雖然其總部設在加州，並在全球範圍內設有零售店和辦公室，但這些並非構成傳統意義上的地理壁壘。其產品的全球化銷售和生產模式，使其能夠適應不同市場的需求，但並不構成獨特的地理資產優勢。因此，在這一維度上，蘋果的護城河相對較弱。",
+        "comment_en": "Apple's business model does not rely on specific geographic locations or unique physical assets; its core competitiveness lies in technology, brand, and ecosystem. Although its headquarters are in California and it has retail stores and offices worldwide, these do not constitute geographic barriers in the traditional sense. Its global sales and production model allows it to adapt to the needs of different markets but does not represent a unique geographic asset advantage. Therefore, Apple's moat in this dimension is relatively weak."
       },
       "m7_operational_efficiency": {
         "score": 9,
-        "comment_zh": "蘋果展現出卓越的長週期超額ROIC韌性。其高達119.9%的ROE和33.6%的ROA，遠超行業平均水平，證明了其資本配置效率極高，能夠持續將投入資本轉化為豐厚利潤。這不僅反映了其強大的定價權和成本控制能力，更重要的是，它表明蘋果的商業模式能夠長期創造遠超其加權平均資本成本（WACC）的回報。這種持續的超額回報能力，是巴菲特衡量企業「經濟護城河」寬度的關鍵指標，證明了其核心業務的持久競爭優勢。",
-        "comment_en": "Apple demonstrates exceptional long-term ROIC resilience. Its remarkably high ROE of 119.9% and ROA of 33.6% significantly surpass industry averages, proving its highly efficient capital allocation and ability to consistently convert invested capital into substantial profits. This not only reflects its strong pricing power and cost control but, more importantly, indicates that Apple's business model can generate returns far exceeding its Weighted Average Cost of Capital (WACC) over the long term. This sustained ability to generate excess returns is a key metric Buffett uses to gauge the width of a company's \"economic moat,\" affirming its durable competitive advantage."
+        "comment_zh": "蘋果在運營效率方面表現卓越，尤其體現在其精密的供應鏈管理、高效的生產流程和精準的庫存控制上。其通過對生產流程的嚴格把控和與供應商的緊密協作，能夠實現高產出和低損耗。此外，其零售網絡的運營效率，以及線上線下銷售渠道的整合，也極大地提升了客戶體驗和銷售轉化率。這種卓越的運營能力是其能夠持續提供高品質產品和服務的關鍵，並在激烈的市場競爭中保持領先地位。",
+        "comment_en": "Apple demonstrates exceptional operational efficiency, particularly evident in its sophisticated supply chain management, streamlined production processes, and precise inventory control. Through strict control over production processes and close collaboration with suppliers, it achieves high output and low waste. Furthermore, the operational efficiency of its retail network, along with the integration of online and offline sales channels, significantly enhances customer experience and sales conversion rates. This outstanding operational capability is key to its ability to consistently deliver high-quality products and services and maintain a leading position in intense market competition."
       },
       "m8_capital_allocation": {
         "score": 9,
-        "comment_zh": "蘋果的資本不可複製性極高。即使給予競爭對手數千億美元的資金，也無法在短時間內複製蘋果的核心戰略資產。這不僅包括其全球無與倫比的品牌價值、數十年積累的軟硬體整合能力、遍布全球的供應鏈網絡、數十億用戶的生態系統黏性，以及其自研晶片的技術領先性。這些要素是長期投入、持續創新和文化沉澱的結果，而非單純資金堆砌所能達成。這種獨特的綜合優勢，構成了其難以逾越的護城河。",
-        "comment_en": "Apple's irreproducibility is extremely high. Even if competitors were given hundreds of billions of dollars, they could not replicate Apple's core strategic assets in a short period. This includes its unparalleled global brand value, decades of accumulated hardware-software integration capabilities, a worldwide supply chain network, the stickiness of its multi-billion user ecosystem, and the technological leadership of its proprietary chips. These elements are the result of long-term investment, continuous innovation, and cultural accumulation, not merely the deployment of capital. This unique combination of advantages forms an insurmountable moat."
+        "comment_zh": "蘋果的管理層在資本配置方面展現了極高的智慧和紀律性。公司不僅持續投入巨資進行研發和創新，以維持其技術領先地位，同時也通過股票回購和股息支付，有效地將資本回報給股東。其對戰略性收購的選擇也十分謹慎，旨在增強核心業務或拓展新興領域。儘管擁有龐大的現金儲備，蘋果並未進行魯莽的擴張，而是專注於能夠產生長期價值的投資，這與巴菲特強調的審慎資本配置原則高度一致。",
+        "comment_en": "Apple's management demonstrates exceptional wisdom and discipline in capital allocation. The company not only continuously invests heavily in research, development, and innovation to maintain its technological leadership but also effectively returns capital to shareholders through share buybacks and dividend payments. Its selection of strategic acquisitions is also highly prudent, aimed at strengthening core businesses or expanding into emerging areas. Despite its substantial cash reserves, Apple avoids reckless expansion, focusing instead on investments that generate long-term value, which aligns closely with Buffett's principles of prudent capital allocation."
       },
       "m9_customer_retention": {
-        "score": 8,
-        "comment_zh": "蘋果對技術/典範轉移具備強大抗性。儘管科技行業變化迅速，但蘋果憑藉其強大的研發能力和對用戶體驗的深刻理解，總能將新技術（如AI、AR/VR）有效整合到其生態系統中，甚至引領潮流。其核心產品（智慧手機、個人電腦）的需求依然穩固，且蘋果已證明其能成功從iPod轉型至iPhone，並持續拓展服務業務。這種適應性和創新能力，使其能夠在技術變革浪潮中保持領先地位，而非被顛覆，展現出極高的韌性。",
-        "comment_en": "Apple possesses strong immunity to technological/paradigm shifts. Despite the rapid changes in the tech industry, Apple, with its robust R&D capabilities and deep understanding of user experience, consistently integrates new technologies (like AI, AR/VR) effectively into its ecosystem, often leading trends. Demand for its core products (smartphones, personal computers) remains robust, and Apple has proven its ability to successfully transition from iPod to iPhone and continuously expand its services business. This adaptability and innovation allow it to maintain a leading position amidst technological shifts rather than being disrupted, demonstrating exceptional resilience."
+        "score": 9,
+        "comment_zh": "蘋果的客戶留存率極高，這得益於其強大的品牌忠誠度、無縫的生態系統體驗以及不斷優化的產品和服務。一旦用戶進入蘋果生態，他們往往會持續購買蘋果的產品，並深度使用其提供的各種服務，如 iCloud、Apple Music、Apple TV+ 等。這種高度的客戶黏性不僅保證了穩定的經常性收入，也為蘋果提供了持續創新的基礎。與競爭對手相比，蘋果在維持客戶忠誠度和減少客戶流失方面表現出色。",
+        "comment_en": "Apple's customer retention rate is exceptionally high, thanks to its strong brand loyalty, seamless ecosystem experience, and continuously optimized products and services. Once users enter the Apple ecosystem, they tend to continue purchasing Apple products and deeply utilize its various services, such as iCloud, Apple Music, and Apple TV+. This high degree of customer stickiness not only ensures stable recurring revenue but also provides a foundation for continuous innovation. Compared to competitors, Apple excels at maintaining customer loyalty and minimizing churn."
       },
       "m10_durability": {
         "score": 9,
-        "comment_zh": "蘋果的管理層在資本配置方面表現卓越。公司持續進行大規模股票回購，在股價被低估時積極註銷股份，顯著提升了每股收益和股東價值。同時，穩健增長的股息政策也回饋了股東。在併購方面，蘋果保持高度紀律性，避免了高溢價的大型收購，而是專注於小型、戰略性的技術或人才收購，以補充其核心能力。這種以股東利益為核心的資本管理策略，是其長期價值創造的關鍵驅動力，符合巴菲特對優秀管理層的期望。",
-        "comment_en": "Apple's management demonstrates exceptional capital allocation. The company consistently executes large-scale share buybacks, actively retiring shares when undervalued, significantly boosting EPS and shareholder value. Concurrently, a steadily growing dividend policy rewards shareholders. In M&A, Apple maintains high discipline, avoiding large, high-premium acquisitions, instead focusing on smaller, strategic technology or talent acquisitions to complement its core capabilities. This shareholder-centric capital management strategy is a key driver of its long-term value creation, aligning with Buffett's expectations for excellent management."
+        "comment_zh": "蘋果的護城河具有顯著的持久性。其強大的品牌、高度整合的生態系統、龐大的用戶基礎以及持續的創新能力，共同構建了一個難以被顛覆的競爭壁壘。雖然科技行業變化迅速，但蘋果通過不斷適應和引領趨勢，成功地將其核心競爭力轉化為持久的市場優勢。其產品的生命週期雖然相對較短，但其生態系統的黏性和品牌價值卻能長久維持，使其能夠在未來很長一段時間內保持其市場領導地位。",
+        "comment_en": "Apple's moat possesses significant durability. Its strong brand, highly integrated ecosystem, vast user base, and continuous innovation capabilities collectively build a competitive barrier that is difficult to disrupt. Although the technology industry changes rapidly, Apple has successfully transformed its core competencies into lasting market advantages by continuously adapting and leading trends. While the lifecycle of its products may be relatively short, the stickiness of its ecosystem and brand value can be maintained for a long time, enabling it to retain its market leadership position for an extended period."
       },
-      "overall_moat_verdict_zh": "蘋果擁有一個極其寬廣且多層次的經濟護城河，本質上是一個「特許經營權平台」與「數位收費橋樑」的結合體。其無與倫比的品牌忠誠度、深度整合的軟硬體生態系統、極高的用戶轉換成本，共同構建了強大的消費者鎖定效應。結合其在供應鏈、自研晶片方面的規模經濟優勢，以及龐大的專利組合和網絡效應，蘋果在高端消費電子和服務市場中建立了難以撼動的地位。管理層卓越的資本配置能力，透過大規模回購和戰略性研發投入，持續為股東創造價值。這使得蘋果能夠長期維持超額的投入資本回報率，成為巴菲特哲學中典型的「偉大企業」。",
-      "overall_moat_verdict_en": "Apple possesses an exceptionally wide and multi-layered economic moat, essentially a hybrid of a \"franchise platform\" and a \"digital toll bridge.\" Its unparalleled brand loyalty, deeply integrated hardware-software ecosystem, and extremely high user switching costs collectively create a powerful consumer lock-in effect. Combined with its scale advantages in supply chain and proprietary chip development, a vast patent portfolio, and strong network effects, Apple has established an unshakeable position in the premium consumer electronics and services markets. The management's excellent capital allocation, through massive buybacks and strategic R&D investments, continuously creates shareholder value. This enables Apple to sustain superior returns on invested capital over the long term, making it a quintessential \"great business\" in Buffett's philosophy.",
-      "evidenceHash": "a4d485653bcc1028b66e443587a5f38450230485ac7eb480eac54555a622457b",
-      "assessmentPolicy": "us-buffett-moat-v3"
+      "overall_moat_verdict_zh": "蘋果公司展現了強大的特許經營權特徵，其品牌價值、用戶忠誠度和高度整合的生態系統構成了難以逾越的護城河。雖然不屬於傳統的「收費橋」模式，但其極高的用戶轉換成本和網絡效應，使其能夠持續從用戶和開發者身上獲取價值。蘋果的產品並非純粹的商品，其品牌溢價和獨特的使用體驗使其在市場中佔據獨特地位。憑藉卓越的運營效率和審慎的資本配置，蘋果的護城河預計將在可預見的未來保持堅固，使其成為長期價值投資的典範。",
+      "overall_moat_verdict_en": "Apple Inc. exhibits strong characteristics of a franchise business, with its brand value, user loyalty, and highly integrated ecosystem forming an insurmountable moat. While not a traditional 'toll bridge' model, its extremely high user switching costs and network effects allow it to continuously extract value from both users and developers. Apple's products are not pure commodities; its brand premium and unique user experience give it a distinct market position. With exceptional operational efficiency and prudent capital allocation, Apple's moat is expected to remain robust for the foreseeable future, making it a paradigm for long-term value investing.",
+      "model": "gemini-2.5-flash-lite",
+      "period": "2026Q3"
     },
     "ratingSources": {
       "moat": {
-        "reason": null
+        "reason": null,
+        "assessmentPolicy": "buffett-moat-v3",
+        "model": "gemini-2.5-flash-lite",
+        "provider": "Vertex AI",
+        "evidenceHash": "2e2b676f68d0793fd52bf7f9b1aa0d5265385d6fca5b43e65597fa98e4c37eb5"
       },
       "fScore": {
         "score": 7,
@@ -7115,7 +7117,8 @@
         "providerSource": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000020/aapl-20260627.htm",
         "capturedAt": "2026-10-23T23:54:55Z"
       }
-    }
+    },
+    "assessmentPolicy": "buffett-moat-v3"
   },
   "MSFT": {
     "reported_growth": {
@@ -10399,66 +10402,68 @@
     "roe": 38.93949848462351,
     "roa": 21.607165070282374,
     "moat": {
-      "ticker": "MSFT",
-      "period": "2026Q4",
       "m1_brand_pricing": {
         "score": 9,
-        "comment_zh": "微軟憑藉其Windows作業系統、Office生產力套件以及Azure雲服務，建立了無可匹敵的品牌心智與定價權。這些產品已成為全球企業與個人日常運作的基礎設施，客戶對其高度依賴，即使提價也難以輕易轉換。Office 365的訂閱模式確保了穩定的經常性收入，而Azure在雲市場的強勁增長，更凸顯其在關鍵技術領域的領先地位與議價能力。這種深植人心的品牌信任和生態系統黏性，讓微軟能夠在不顯著流失客戶的情況下，持續優化產品定價，展現出巴菲特所推崇的特許經營權特徵。",
-        "comment_en": "Microsoft commands exceptional brand recognition and pricing power, primarily through its ubiquitous Windows operating system, Office productivity suite, and Azure cloud services. These products are foundational to global businesses and individual workflows, creating high dependency. Customers are generally willing to absorb price adjustments due to the essential nature and perceived value. The subscription model of Office 365 ensures stable recurring revenue, while Azure's robust growth in the cloud market underscores its leadership and pricing leverage in critical tech domains. This deep-seated brand trust and ecosystem stickiness allow Microsoft to optimize pricing without significant customer attrition, embodying a true franchise-like quality as admired by Buffett."
+        "comment_zh": "微軟的品牌價值極為強大，尤其是在企業級市場。其Windows作業系統和Office生產力套件已成為行業標準，深入滲透到全球數億用戶的工作流程中。這種廣泛的採用不僅僅是習慣，更是一種依賴，使得用戶在尋找替代品時面臨巨大的時間和學習成本。儘管面臨開源軟體和雲端競爭對手的挑戰，微軟通過持續的產品迭代和雲端服務（如Azure和Microsoft 365）的整合，成功地將其品牌影響力延伸至新興領域，並維持了其產品的高價值的定價能力。其品牌代表著可靠性、生產力和企業級解決方案，這在競爭激烈的科技市場中是難以複製的優勢。",
+        "comment_en": "Microsoft's brand value is extremely powerful, especially in the enterprise market. Its Windows operating system and Office productivity suite have become industry standards, deeply penetrating the workflows of hundreds of millions of users globally. This widespread adoption is not merely habit but a form of dependency, imposing significant time and learning costs on users seeking alternatives. Despite challenges from open-source software and cloud competitors, Microsoft has successfully extended its brand influence into emerging areas through continuous product iteration and integration of cloud services (like Azure and Microsoft 365), maintaining its products' high pricing power. Its brand signifies reliability, productivity, and enterprise-grade solutions, a difficult-to-replicate advantage in the competitive tech landscape."
       },
       "m2_patents_regulatory": {
-        "score": 8,
-        "comment_zh": "微軟擁有龐大且多元的專利組合，涵蓋作業系統、辦公軟體、雲端運算、人工智慧及硬體等多個關鍵技術領域。這些專利雖非單一獨佔性，但其廣度與深度共同構築了強大的知識產權壁壘，使潛在競爭者難以在短期內複製其技術基礎。此外，Windows和Office在企業級市場的長期主導地位，使其產品成為事實上的行業標準，這種生態系統的既有優勢，為其帶來了類似特許經營的市場准入與整合優勢，有效阻礙了新進者的挑戰，符合巴菲特對具備持久競爭優勢企業的定義。",
-        "comment_en": "Microsoft possesses an extensive and diverse patent portfolio spanning operating systems, office software, cloud computing, artificial intelligence, and hardware. While not always single, exclusive patents, their sheer breadth and depth collectively form a formidable intellectual property barrier, making it difficult for competitors to replicate its technological foundation quickly. Furthermore, Windows and Office's long-standing dominance in the enterprise market has established them as de facto industry standards. This entrenched ecosystem advantage grants Microsoft a quasi-franchise-like market access and integration benefit, effectively deterring new entrants and aligning with Buffett's criteria for businesses with durable competitive advantages."
+        "score": 7,
+        "comment_zh": "微軟擁有龐大的專利組合，涵蓋了從作業系統、軟體應用到雲端運算和人工智慧的廣泛領域。這些專利為其產品提供了重要的法律保護，限制了競爭對手直接模仿其核心技術。雖然科技行業的專利壁壘不像製藥業那樣絕對，但微軟的專利廣度和深度，加上其在標準制定組織中的影響力，確實構成了一道堅實的防線。此外，其在企業級軟體和雲服務領域的合規性與安全認證，也為其贏得了客戶的信任，尤其是在對數據隱私和安全要求極高的政府和金融行業，這形成了一種監管上的優勢。",
+        "comment_en": "Microsoft possesses a vast patent portfolio, covering a wide range of areas from operating systems and software applications to cloud computing and artificial intelligence. These patents provide significant legal protection for its products, limiting direct imitation of its core technologies by competitors. While patent barriers in the tech industry are not as absolute as in pharmaceuticals, the breadth and depth of Microsoft's patents, coupled with its influence in standards-setting organizations, do form a solid defense. Furthermore, its compliance and security certifications in enterprise software and cloud services have earned customer trust, particularly in government and financial sectors with stringent data privacy and security requirements, creating a regulatory advantage."
       },
       "m3_high_switching_costs": {
         "score": 9,
-        "comment_zh": "微軟產品的黏性極高，為客戶帶來巨大的轉換成本。對於企業而言，從Windows Server、SQL Server或Office 365遷移至其他解決方案，不僅涉及龐大的財務支出，還需重新培訓員工、面臨潛在的數據遺失風險及營運中斷。Azure雲服務與現有微軟生態系統的深度整合，更進一步鎖定企業客戶。這種轉換成本不僅是金錢上的，更是時間、效率與風險上的考量，使得客戶即使面對競爭對手的誘惑，也難以輕易割捨。這正是巴菲特所強調的，企業一旦被「套牢」，便難以脫身，為微軟提供了穩定的收入來源。",
-        "comment_en": "Microsoft's products exhibit extremely high stickiness, imposing significant switching costs on customers. For enterprises, migrating from Windows Server, SQL Server, or Office 365 to alternative solutions entails substantial financial outlays, extensive staff retraining, potential data loss risks, and operational disruptions. Azure's deep integration with existing Microsoft ecosystems further locks in corporate clients. These switching costs are not merely monetary but also involve considerations of time, efficiency, and risk, making it difficult for customers to abandon Microsoft's offerings even when faced with competitive alternatives. This \"lock-in\" effect, as emphasized by Buffett, provides Microsoft with a highly stable revenue stream."
+        "comment_zh": "微軟產品的轉換成本極高，這主要體現在其深度整合的生態系統。企業用戶依賴Windows和Office進行日常運營，數據、文件格式、使用者習慣以及IT基礎設施都與這些產品緊密綁定。遷移到新的作業系統或生產力套件不僅需要昂貴的軟體和硬體投資，還伴隨著員工培訓、生產力中斷以及潛在的數據兼容性問題。這種深度綁定使得企業在選擇微軟產品時，實際上已經鎖定了長期的使用承諾，即使有更具吸引力的替代方案出現，轉換的阻力也相當巨大，這為微軟構建了極高的客戶黏性。",
+        "comment_en": "The switching costs for Microsoft's products are extremely high, primarily reflected in its deeply integrated ecosystem. Enterprise users rely on Windows and Office for daily operations, with data, file formats, user habits, and IT infrastructure tightly bound to these products. Migrating to a new operating system or productivity suite requires not only substantial software and hardware investment but also entails employee training, productivity disruptions, and potential data compatibility issues. This deep entanglement effectively locks in long-term usage commitments when businesses choose Microsoft products. Even with more attractive alternatives emerging, the resistance to switching remains immense, creating very high customer stickiness for Microsoft."
       },
       "m4_network_effects": {
         "score": 8,
-        "comment_zh": "微軟在多個核心產品上享有強大的網絡效應。Windows作業系統的普及，吸引了海量開發者為其開發應用程式，進一步鞏固了其市場主導地位，形成正向循環。Office生產力套件的全球普及，使其成為文件共享與協作的行業標準，個人與企業若不使用，將面臨巨大的兼容性與協作障礙。LinkedIn作為全球最大的專業社交平台，其價值隨著每位新用戶的加入而呈指數級增長。這些網絡效應共同構建了難以逾越的壁壘，使得微軟的產品對新用戶更具吸引力，對現有用戶更具黏性，是巴菲特眼中極具價值的護城河。",
-        "comment_en": "Microsoft benefits from powerful network effects across several core products. The widespread adoption of the Windows operating system attracts a vast number of developers to create applications for it, further solidifying its market dominance in a virtuous cycle. The global ubiquity of the Office productivity suite has made it the industry standard for document sharing and collaboration, creating significant compatibility and collaboration hurdles for individuals and businesses not using it. LinkedIn, as the world's largest professional social platform, sees its value grow exponentially with each new user. These network effects collectively build an insurmountable barrier, making Microsoft's products more attractive to new users and stickier for existing ones, representing a highly valuable moat in Buffett's view."
+        "comment_zh": "微軟的產品，特別是Windows和Office，展現了顯著的網絡效應。越多的用戶使用Windows，就越吸引更多的軟體開發者為其平台開發應用程式，這反過來又增加了Windows對用戶的吸引力。同樣，Office的普及使得文件共享和協作變得更加容易，因為大多數人都擁有兼容的軟體。在雲端領域，Azure的網絡效應體現在其不斷增長的客戶基礎和合作夥伴生態系統，這使得平台更加強大和有吸引力。這種正向循環效應，雖然不像社交網絡那樣直接，但在企業級軟體和雲服務領域，是築起強大壁壘的關鍵因素。",
+        "comment_en": "Microsoft's products, particularly Windows and Office, exhibit significant network effects. The more users adopt Windows, the more software developers are attracted to build applications for its platform, which in turn enhances Windows' appeal to users. Similarly, the widespread use of Office facilitates easier file sharing and collaboration, as most people possess compatible software. In the cloud domain, Azure's network effect is evident in its growing customer base and partner ecosystem, making the platform more robust and attractive. This positive feedback loop, while not as direct as in social networks, is a key factor in building strong barriers in the enterprise software and cloud services sectors."
       },
       "m5_cost_advantage_scale": {
         "score": 9,
-        "comment_zh": "微軟在軟體開發、雲端基礎設施（Azure）及全球分銷方面的巨大規模，使其能實現競爭對手難以匹敵的成本效益。Windows、Office和Azure的研發投入雖巨，但攤分至數十億用戶與客戶，單位成本極低。Azure遍布全球的數據中心基礎設施和營運專業知識，在雲端運算領域提供了顯著的成本優勢。這種規模經濟不僅體現在生產成本上，更體現在其全球銷售、行銷和客戶支援體系上，使得微軟能夠以更低的邊際成本提供服務，並將部分成本優勢轉化為更具競爭力的價格或更高的利潤率，是典型的巴菲特式護城河。",
-        "comment_en": "Microsoft's immense scale in software development, cloud infrastructure (Azure), and global distribution enables it to achieve cost efficiencies that smaller competitors simply cannot match. While R&D investments for Windows, Office, and Azure are substantial, when spread across billions of users and customers, the per-unit cost becomes minimal. Azure's global data center footprint and operational expertise provide a significant cost advantage in cloud computing. This scale economy is evident not only in production costs but also in its global sales, marketing, and customer support systems, allowing Microsoft to deliver services at lower marginal costs and translate these advantages into more competitive pricing or higher profit margins, a classic Buffett-style moat."
+        "comment_zh": "微軟作為全球最大的軟體公司之一，其規模經濟效益顯著。在軟體開發和分發方面，邊際成本趨近於零，而龐大的用戶基礎攤薄了研發和營銷成本。在雲端服務領域，Azure通過大規模的數據中心投資，實現了顯著的規模經濟，使其能夠以具有競爭力的價格提供服務，並持續吸引更多客戶。這種規模優勢不僅體現在成本上，也體現在其強大的採購能力、人才吸引力以及對基礎設施的持續投入上，這些都使得新進入者難以匹敵。",
+        "comment_en": "As one of the world's largest software companies, Microsoft benefits from significant economies of scale. In software development and distribution, marginal costs approach zero, and its vast user base dilutes R&D and marketing expenses. In cloud services, Azure achieves substantial economies of scale through massive data center investments, enabling it to offer services at competitive prices and continuously attract more customers. This scale advantage is reflected not only in costs but also in its strong purchasing power, talent attraction, and continuous investment in infrastructure, making it difficult for new entrants to compete."
       },
       "m6_unique_geography_assets": {
-        "score": 7,
-        "comment_zh": "儘管微軟涉足多個大型市場，但在其企業級解決方案的某些特定領域，例如SQL Server資料庫或高度專業化的商業應用，確實展現出利基市場的天然寡占特性。對於已將核心業務系統建立在微軟技術棧上的企業而言，轉換至其他供應商的成本和潛在營運中斷是極高的，這為微軟創造了一種針對該客戶的「有效規模」護城河。Azure在特定企業級客戶中，透過提供深度客製化和整合服務，也形成了類似的鎖定效應，使得新競爭者難以有效切入，符合巴菲特對特定市場壁壘的洞察。",
-        "comment_en": "While Microsoft operates in numerous large markets, certain segments within its enterprise solutions, such as SQL Server databases or highly specialized business applications, do exhibit characteristics of efficient scale. For enterprises that have built their core business systems on Microsoft's technology stack, the costs and potential operational disruptions of switching to another vendor are prohibitively high, creating an \"efficient scale\" moat specific to that customer. Azure, by offering deep customization and integrated services to particular enterprise clients, also forms a similar lock-in effect, making it difficult for new competitors to penetrate effectively, aligning with Buffett's insights into specific market barriers."
+        "score": 5,
+        "comment_zh": "微軟的業務遍及全球，但其核心競爭力並非依賴於特定的地理位置或獨特的實體資產。其價值在於軟體、技術和服務的無形資產。雖然其全球數據中心網絡是重要的基礎設施，但這些資產的建立和擴展相對標準化，並非獨一無二。與擁有稀缺礦產或特定地理位置優勢的公司相比，微軟的優勢更多地體現在其全球化的市場滲透和服務能力上，而非特定地理位置的獨佔性。",
+        "comment_en": "Microsoft's operations span the globe, but its core competitiveness does not rely on specific geographic locations or unique physical assets. Its value lies in intangible assets such as software, technology, and services. While its global data center network is crucial infrastructure, the establishment and expansion of these assets are relatively standardized and not unique. Compared to companies with scarce mineral resources or specific geographical advantages, Microsoft's strengths are more evident in its global market penetration and service capabilities rather than exclusivity tied to a particular location."
       },
       "m7_operational_efficiency": {
-        "score": 9,
-        "comment_zh": "微軟長期以來展現出卓越的投入資本回報率（ROIC），遠高於其加權平均資本成本（WACC），這正是巴菲特衡量企業創造股東價值能力的關鍵指標。其高達30.2%的股東權益報酬率（ROE）和17.6%的資產報酬率（ROA），強烈證明了公司資本運用的高效性與持續的超額盈利能力。這種在漫長週期中持續產生高於資本成本的回報，是其堅固護城河的直接體現，表明微軟擁有強大的競爭優勢，能夠不斷為股東創造複利增長，而非僅僅消耗資本。",
-        "comment_en": "Microsoft has consistently demonstrated exceptional Returns on Invested Capital (ROIC), significantly exceeding its Weighted Average Cost of Capital (WACC), which is a key metric Buffett uses to assess a company's ability to create shareholder value. Its high Return on Equity (ROE) of 30.2% and Return on Assets (ROA) of 17.6% strongly attest to the company's efficient capital utilization and sustained superior profitability. This long-term ability to generate returns well above the cost of capital is a direct manifestation of its robust moat, indicating that Microsoft possesses strong competitive advantages that continuously compound shareholder wealth, rather than merely consuming capital."
+        "score": 8,
+        "comment_zh": "微軟在營運效率方面表現出色，尤其是在其雲端服務Azure的快速擴張和盈利能力上。公司能夠有效地管理其龐大的全球基礎設施，並持續優化其軟體產品的交付和支持。其高達38.9%的ROE和21.6%的ROA顯示了其卓越的盈利能力和資產運用效率。儘管軟體行業的利潤率普遍較高，但微軟能在如此巨大的規模下保持如此高的效率指標，實屬不易，這反映了其精細化的管理和持續的流程改進。",
+        "comment_en": "Microsoft demonstrates excellent operational efficiency, particularly in the rapid expansion and profitability of its cloud service, Azure. The company effectively manages its vast global infrastructure and continuously optimizes the delivery and support of its software products. Its high ROE of 38.9% and ROA of 21.6% indicate exceptional profitability and asset utilization efficiency. Although profit margins in the software industry are generally high, Microsoft's ability to maintain such high efficiency metrics at such a massive scale is remarkable, reflecting its meticulous management and continuous process improvements."
       },
       "m8_capital_allocation": {
-        "score": 10,
-        "comment_zh": "即使給予競爭對手千億美元資金，也幾乎不可能在數年內複製微軟的整個生態系統。這不僅包括Windows的市場滲透率、Office的全球普及、Azure的龐大雲端基礎設施，還有LinkedIn的專業網絡，以及其與全球企業建立的深厚關係。微軟數十年累積的品牌信任、龐大的開發者生態系統、持續的研發投入，都是金錢無法快速購買或重建的無形資產。這些無形資產共同構成了極高的進入壁壘，使得微軟成為一個真正不可複製的企業，其核心戰略資產具有獨一無二的價值，完美符合巴菲特對「不可複製性」護城河的定義。",
-        "comment_en": "Even with a hundred billion dollars, it would be virtually impossible for a competitor to replicate Microsoft's entire ecosystem within a few years. This includes not only Windows' market penetration, Office's global ubiquity, Azure's vast cloud infrastructure, and LinkedIn's professional network, but also its deep-seated relationships with enterprises worldwide. Microsoft's decades of accumulated brand trust, its massive developer ecosystem, and continuous R&D investments are intangible assets that money alone cannot quickly buy or rebuild. These intangible assets collectively form an extremely high barrier to entry, making Microsoft a truly irreproducible enterprise whose core strategic assets possess unique value, perfectly aligning with Buffett's definition of an \"irreproducibility\" moat."
+        "score": 8,
+        "comment_zh": "微軟在資本配置方面展現了相當的智慧和紀律。公司在維持核心業務穩健增長的同時，積極投資於前沿技術，如人工智慧和雲端運算，這兩者已成為其未來增長的關鍵引擎。透過戰略性收購（例如收購Activision Blizzard以加強遊戲業務）和內部研發，微軟有效地擴展了其業務版圖。此外，公司也透過股票回購和股息向股東返還價值，同時保持健康的資產負債表（現金 $76.8B / 負債 $128.8B）。其F-Score為7/9，顯示其財務狀況良好，能夠支持其積極的資本配置策略。",
+        "comment_en": "Microsoft has demonstrated considerable wisdom and discipline in capital allocation. While maintaining steady growth in its core businesses, the company actively invests in cutting-edge technologies like artificial intelligence and cloud computing, which have become key engines for its future growth. Through strategic acquisitions (such as Activision Blizzard to strengthen its gaming division) and internal R&D, Microsoft has effectively expanded its business scope. Furthermore, the company returns value to shareholders via share buybacks and dividends while maintaining a healthy balance sheet (Cash $76.8B / Debt $128.8B). Its F-Score of 7/9 indicates a sound financial position, capable of supporting its aggressive capital allocation strategy."
       },
       "m9_customer_retention": {
-        "score": 8,
-        "comment_zh": "微軟展現出卓越的技術適應性與對典範轉移的強大韌性。它成功地從一家桌面軟體公司轉型為雲端優先、行動友善的企業，證明了其應對變革的能力。公司對人工智慧的積極投資，例如與OpenAI的合作以及Copilot的推出，使其站在下一波技術浪潮的最前沿。儘管沒有任何企業能完全免疫於顛覆，但微軟多元化的產品組合、深厚的研發實力以及前瞻性的創新策略，為其提供了強大的抗風險能力，確保其在不斷變化的科技格局中保持領先地位，這正是巴菲特所欣賞的持久競爭力。",
-        "comment_en": "Microsoft has demonstrated remarkable technological adaptability and strong resilience to paradigm shifts. It successfully transitioned from a desktop software company to a cloud-first, mobile-friendly enterprise, proving its ability to navigate change. The company's aggressive investments in artificial intelligence, such as its partnership with OpenAI and the launch of Copilot, position it at the forefront of the next technological wave. While no company is entirely immune to disruption, Microsoft's diversified product portfolio, deep R&D capabilities, and proactive innovation strategy provide strong resistance to risk, ensuring its leading position in an ever-evolving tech landscape, which is precisely the kind of durable competitive advantage Buffett admires."
+        "score": 9,
+        "comment_zh": "微軟的客戶保留率極高，這得益於其深度整合的產品生態系統和極高的轉換成本。一旦企業客戶將其核心運營流程建立在Windows、Office 365和Azure之上，遷移的難度和成本就變得非常高昂。微軟透過持續的產品更新、客戶支持和不斷擴展的服務組合（如Dynamics 365、Power Platform等），不斷為客戶提供新的價值，進一步鞏固了客戶關係。這種黏性使得客戶傾向於長期續約和擴大使用量，而非尋找替代方案，這為微軟創造了穩定的經常性收入。",
+        "comment_en": "Microsoft's customer retention rate is exceptionally high, thanks to its deeply integrated product ecosystem and very high switching costs. Once enterprise clients establish their core operational processes on Windows, Office 365, and Azure, the difficulty and cost of migration become extremely high. Microsoft continuously provides new value to customers through ongoing product updates, customer support, and an ever-expanding service portfolio (such as Dynamics 365, Power Platform, etc.), further solidifying customer relationships. This stickiness encourages customers to renew long-term contracts and increase usage rather than seeking alternatives, creating stable recurring revenue for Microsoft."
       },
       "m10_durability": {
         "score": 9,
-        "comment_zh": "微軟的管理層，尤其是在薩蒂亞·納德拉的領導下，展現出卓越且審慎的資本配置能力。他們進行的策略性併購（如LinkedIn、GitHub、動視暴雪）大多取得了成功並有效整合，為公司帶來了顯著的協同效應和增長。公司持續透過股息和股票回購將資本返還股東，且往往能在股價被低估時積極回購註銷股本，最大化股東利益。其強勁的自由現金流和健康的資產負債表，以及7/9的皮氏F-Score，都證明了管理層在財務管理和資本配置上的誠信與效率，符合巴菲特對優秀管理層的嚴格要求。",
-        "comment_en": "Microsoft's management, particularly under Satya Nadella, has demonstrated excellent and prudent capital allocation capabilities. Their strategic acquisitions (e.g., LinkedIn, GitHub, Activision Blizzard) have largely been successful and effectively integrated, bringing significant synergies and growth to the company. The company consistently returns capital to shareholders through dividends and share buybacks, often actively repurchasing shares when undervalued to maximize shareholder interests. Its strong free cash flow, healthy balance sheet, and a Piotroski F-Score of 7/9 all attest to management's integrity and efficiency in financial management and capital allocation, meeting Buffett's stringent requirements for excellent leadership."
+        "comment_zh": "微軟的護城河具有極高的持久性。其核心的Windows和Office業務雖然面臨挑戰，但由於極高的轉換成本和網絡效應，其主導地位短期內難以撼動。更重要的是，微軟成功地將其影響力擴展到雲端運算（Azure）和人工智能領域，這些是未來科技發展的關鍵。Azure的快速增長和在企業級市場的強勁勢頭，為公司提供了新的增長動力，並加強了其生態系統的整體韌性。這種在核心業務穩固的基礎上，成功開拓新興高增長領域的能力，使得微軟的競爭優勢能夠持續數十年。",
+        "comment_en": "Microsoft's moat possesses extremely high durability. While its core Windows and Office businesses face challenges, their dominant position is difficult to shake in the short term due to extremely high switching costs and network effects. More importantly, Microsoft has successfully extended its influence into cloud computing (Azure) and artificial intelligence, which are critical areas for future technological development. Azure's rapid growth and strong momentum in the enterprise market provide new growth drivers and enhance the overall resilience of its ecosystem. This ability to successfully pioneer new, high-growth sectors on the foundation of a stable core business ensures that Microsoft's competitive advantage can endure for decades."
       },
-      "overall_moat_verdict_zh": "微軟無疑是巴菲特眼中具備多重堅固護城河的「特許經營權」企業典範。其核心優勢源於無可匹敵的品牌心智、極高的客戶轉換成本、強大的網絡效應以及規模經濟帶來的成本優勢。Windows和Office的普及性使其成為全球企業和個人的基礎設施，形成難以撼動的市場地位。Azure雲服務的快速增長則為其開闢了新的增長引擎，並透過深度整合進一步鞏固了企業客戶的黏性。管理層在資本配置上的審慎與效率，加上對技術變革的卓越適應性，確保了公司能長期維持高投入資本回報率，持續為股東創造複利價值。微軟的護城河不僅深且廣，使其在科技巨頭中獨樹一幟，具備長期投資的吸引力。",
-      "overall_moat_verdict_en": "Microsoft unequivocally stands as a prime example of a \"franchise\" business with multiple robust moats in Buffett's view. Its core strengths stem from unparalleled brand recognition, exceptionally high customer switching costs, powerful network effects, and cost advantages derived from extreme scale. The ubiquity of Windows and Office has established them as foundational infrastructure for businesses and individuals globally, creating an unshakeable market position. The rapid growth of Azure cloud services has opened new growth engines, further solidifying enterprise customer stickiness through deep integration. Management's prudent and efficient capital allocation, coupled with exceptional adaptability to technological change, ensures the company can sustain high returns on invested capital over the long term, continuously compounding shareholder value. Microsoft's moat is not only deep but also wide, making it stand out among tech giants and highly attractive for long-term investment.",
-      "evidenceHash": "a1b4e1e9b6825d174c32e06d23f7a6927b5f7d7b1245cba1048a5a27e46b8646",
-      "assessmentPolicy": "us-buffett-moat-v3"
+      "overall_moat_verdict_zh": "微軟展現了極為寬廣且深厚的護城河，堪稱現代科技業的「收費橋」典範。其Windows作業系統與Office生產力套件，透過極高的轉換成本和強大的網絡效應，深度綁定了全球數億企業用戶，形成難以逾越的壁壘。品牌忠誠度與規模經濟效益，使其在軟體開發、分發及雲端服務（Azure）上擁有顯著的成本優勢和定價權。儘管面臨競爭，但其持續的創新投入、戰略性併購以及在AI領域的佈局，正不斷加固其護城河，使其在可預見的未來，仍將是科技領域的領導者，持續從數位化轉型中獲利。",
+      "overall_moat_verdict_en": "Microsoft exhibits an exceptionally wide and deep moat, serving as a prime example of a modern tech 'toll bridge'. Its Windows operating system and Office productivity suite, through extremely high switching costs and powerful network effects, have deeply entrenched hundreds of millions of enterprise users globally, forming an insurmountable barrier. Brand loyalty and economies of scale grant it significant cost advantages and pricing power in software development, distribution, and cloud services (Azure). Despite competition, its continuous investment in innovation, strategic acquisitions, and AI initiatives are constantly reinforcing its moat, ensuring it remains a leader in the tech sector and continues to profit from digital transformation for the foreseeable future.",
+      "model": "gemini-2.5-flash-lite",
+      "period": "2026Q4"
     },
     "ratingSources": {
       "moat": {
-        "reason": null
+        "reason": null,
+        "assessmentPolicy": "buffett-moat-v3",
+        "model": "gemini-2.5-flash-lite",
+        "provider": "Vertex AI",
+        "evidenceHash": "350ad6e157f90e919a300fdfd2026a5b618367bb1bb838058ccd8612f7f8c2c1"
       },
       "fScore": {
         "score": 7,
@@ -10695,7 +10700,8 @@
         "providerSource": "https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm",
         "capturedAt": "2026-10-23T23:54:59Z"
       }
-    }
+    },
+    "assessmentPolicy": "buffett-moat-v3"
   },
   "AVGO": {
     "reported_growth": {
@@ -67798,7 +67804,7 @@
           12.388569059816925,
           -6.070006643984212,
           38.31830675025423,
-          -0.00003214206376061281,
+          -3.214206376061281e-05,
           -163.7615972807727
         ],
         "operatingExpenses": [
@@ -191381,66 +191387,68 @@
     "roe": 40.53059695902929,
     "roa": 19.830980547370892,
     "moat": {
-      "ticker": "AMZN",
-      "period": "2026Q2",
       "m1_brand_pricing": {
         "score": 8,
-        "comment_zh": "亞馬遜的品牌價值極高，代表著便利、選擇多樣和可靠的購物體驗。雖然其核心電商業務商品化程度高，但Prime會員制度和對客戶體驗的持續投入，使其在消費者心中建立了難以撼動的地位。這種品牌忠誠度轉化為定價權，尤其是在其自有品牌和AWS服務上。競爭對手難以複製其龐大的客戶基礎和品牌信任度，這構成了顯著的護城河。",
-        "comment_en": "Amazon's brand is exceptionally strong, synonymous with convenience, vast selection, and reliability. While its core e-commerce is highly commoditized, the Prime membership program and relentless focus on customer experience have built immense brand loyalty. This translates into pricing power, particularly with its private label offerings and AWS services. Competitors struggle to replicate its massive customer base and brand trust, forming a significant moat."
+        "comment_zh": "亞馬遜的品牌價值已深入人心，成為線上購物的代名詞。其強大的定價權體現在 Prime 會員制度上，透過提供快速配送、獨家內容和優惠，有效鎖定用戶，並讓用戶對其平台產生高度依賴。這種品牌忠誠度轉化為持續的消費行為，即使面對競爭對手，亞馬遜也能維持一定的價格彈性。然而，低價電商的本質仍限制了其品牌溢價的極致發揮，故給予8分。",
+        "comment_en": "Amazon's brand value is deeply ingrained, making it synonymous with online shopping. Its strong pricing power is evident in the Prime membership program, which effectively locks in users by offering fast delivery, exclusive content, and discounts, fostering high dependency on its platform. This brand loyalty translates into sustained consumer behavior, allowing Amazon to maintain a degree of pricing flexibility even against competitors. However, the inherent nature of low-price e-commerce limits the ultimate realization of its brand premium, hence the score of 8."
       },
       "m2_patents_regulatory": {
         "score": 6,
-        "comment_zh": "亞馬遜在物流、雲端運算（AWS）和AI等領域擁有大量專利和技術創新，這構成了其競爭優勢。AWS的技術領先地位和不斷的服務創新，使其在雲端市場擁有強大的壁壘。然而，電商領域的監管壓力日益增加，可能對其未來發展構成挑戰。專利保護了其技術創新，但監管風險是需要關注的因素。",
-        "comment_en": "Amazon holds numerous patents and technological innovations in areas like logistics, cloud computing (AWS), and AI, providing a competitive edge. AWS's technological leadership and continuous service innovation create a strong barrier in the cloud market. However, increasing regulatory scrutiny in e-commerce could pose future challenges. Patents protect its innovations, but regulatory risks are a factor to monitor."
+        "comment_zh": "亞馬遜在專利和監管方面擁有一定的優勢，尤其是在其雲端運算服務 AWS 領域，擁有諸多技術專利和行業標準的制定權。然而，其核心電商業務面臨的監管壓力日益增加，反壟斷調查和數據隱私法規可能對其未來發展構成挑戰。儘管如此，其在物流技術和人工智能等領域的專利布局仍能提供一定的保護，故給予6分。",
+        "comment_en": "Amazon possesses certain advantages in patents and regulatory aspects, particularly in its cloud computing service AWS, where it holds numerous technological patents and influence over industry standards. However, its core e-commerce business faces increasing regulatory pressure, with antitrust investigations and data privacy regulations potentially posing challenges to its future development. Despite this, its patent portfolio in areas like logistics technology and artificial intelligence still offers some protection, warranting a score of 6."
       },
       "m3_high_switching_costs": {
         "score": 9,
-        "comment_zh": "亞馬遜的Prime會員制度是極高的轉換成本壁壘。一旦消費者習慣了Prime的免費快速配送、影音串流和其他福利，轉向其他平台將意味著失去這些價值。對於AWS客戶而言，遷移雲端基礎設施的成本和複雜性極高，鎖定了大量企業客戶。這種黏性極大地提高了客戶轉換的門檻。",
-        "comment_en": "Amazon's Prime membership creates an exceptionally high switching cost barrier. Once consumers are accustomed to Prime's free fast shipping, streaming benefits, and other perks, switching to other platforms means losing significant value. For AWS clients, the cost and complexity of migrating cloud infrastructure are immense, locking in a vast enterprise customer base. This stickiness significantly raises the hurdle for customer churn."
+        "comment_zh": "亞馬遜的轉換成本極高，主要體現在其龐大的 Prime 會員生態系統。一旦用戶習慣了 Prime 的便利性（如免費快速配送、Prime Video、音樂等），轉向其他平台將意味著放棄這些增值服務，並可能面臨更長的配送時間和更高的費用。此外，用戶在亞馬遜上累積的購買歷史、評論和願望清單等數據，也增加了遷移的複雜性。這構成了強大的客戶黏性，故給予9分。",
+        "comment_en": "Amazon's switching costs are extremely high, primarily reflected in its vast Prime membership ecosystem. Once users become accustomed to the convenience of Prime (e.g., free fast delivery, Prime Video, music), switching to other platforms means forfeiting these value-added services and potentially facing longer delivery times and higher costs. Furthermore, accumulated purchase history, reviews, and wish lists on Amazon add complexity to migration. This constitutes strong customer stickiness, hence the score of 9."
       },
       "m4_network_effects": {
-        "score": 10,
-        "comment_zh": "亞馬遜的電商平台展現了強烈的網絡效應。越多的買家吸引越多的賣家，提供更多樣化的商品；越多的賣家和商品，又吸引越多的買家。這種正向循環不斷強化其市場主導地位。AWS也受益於網絡效應，越多的用戶和開發者使用其平台，就越能吸引更多第三方服務和工具，形成一個不斷增強的生態系統。",
-        "comment_en": "Amazon's e-commerce platform exhibits powerful network effects. More buyers attract more sellers, leading to a wider product selection; more sellers and products, in turn, attract more buyers. This virtuous cycle continuously strengthens its market dominance. AWS also benefits from network effects; a larger user and developer base attracts more third-party services and tools, creating a self-reinforcing ecosystem."
+        "score": 9,
+        "comment_zh": "亞馬遜的網絡效應體現在其電商平台和 AWS 兩大業務。在電商方面，越多的買家吸引越多的賣家，從而提供更豐富的商品選擇，這反過來又吸引更多買家，形成正向循環。在 AWS 方面，越多的開發者和企業使用 AWS，就越能吸引更多的第三方服務和工具集成，進一步增強其平台的吸引力。這種雙邊網絡效應是其核心競爭力之一，故給予9分。",
+        "comment_en": "Amazon's network effects are evident in both its e-commerce platform and AWS. For e-commerce, more buyers attract more sellers, leading to a wider selection of goods, which in turn attracts more buyers, creating a virtuous cycle. For AWS, the more developers and businesses use AWS, the more third-party services and tools are integrated, further enhancing the platform's appeal. This two-sided network effect is one of its core competitive strengths, hence the score of 9."
       },
       "m5_cost_advantage_scale": {
         "score": 10,
-        "comment_zh": "亞馬遜憑藉其龐大的規模，在採購、物流和基礎設施方面擁有無與倫比的成本優勢。其全球化的物流網絡和自動化倉儲系統，使其能夠以極低的單位成本運營。AWS的規模經濟效應更是顯著，能夠以更低的成本提供計算資源，並持續投資於更高效的數據中心技術，這使得新進入者難以匹敵。",
-        "comment_en": "Amazon's immense scale provides an unparalleled cost advantage in procurement, logistics, and infrastructure. Its global logistics network and automated warehousing enable operations at extremely low unit costs. The economies of scale in AWS are particularly pronounced, allowing it to offer computing resources at lower prices while continuously investing in more efficient data center technology, making it difficult for new entrants to compete."
+        "comment_zh": "亞馬遜憑藉其無與倫比的規模，在採購、物流和營運上建立了巨大的成本優勢。其龐大的採購量使其能夠從供應商處獲得更低的價格，而其遍佈全球的物流網絡則能實現極致的效率和最低的單位配送成本。此外，AWS 的規模經濟效應也使其能夠以更低的成本提供領先的雲端服務。這種規模帶來的成本優勢是其難以被超越的護城河，故給予10分。",
+        "comment_en": "Amazon has established a massive cost advantage in procurement, logistics, and operations due to its unparalleled scale. Its enormous purchasing volume allows it to secure lower prices from suppliers, while its global logistics network achieves ultimate efficiency and the lowest unit delivery costs. Furthermore, the economies of scale in AWS enable it to offer leading cloud services at a lower cost. This scale-driven cost advantage is a moat that is difficult to surmount, hence the score of 10."
       },
       "m6_unique_geography_assets": {
-        "score": 4,
-        "comment_zh": "亞馬遜的護城河主要來自其技術和網絡，而非獨特的地理資產。雖然其全球物流網絡遍布各地，但這些資產在理論上是可以被複製的，只是成本極高。其核心優勢在於全球化的運營能力和對客戶的滲透，而非特定地理位置的稀缺性。",
-        "comment_en": "Amazon's moat stems primarily from its technology and network, rather than unique geographical assets. While its global logistics network is widespread, these assets are theoretically replicable, albeit at immense cost. Its core strength lies in global operational capability and customer penetration, not scarcity tied to specific locations."
+        "score": 7,
+        "comment_zh": "亞馬遜的獨特地理資產主要體現在其全球化的物流倉儲網絡和數據中心佈局。這些遍佈各地的設施使其能夠快速、高效地服務全球客戶，並為 AWS 提供穩定的基礎設施支持。雖然這些資產並非絕對獨特，但其龐大的規模和精密的佈局，使其競爭對手難以在短期內複製。這種地理上的優勢為其提供了堅實的競爭壁壘，故給予7分。",
+        "comment_en": "Amazon's unique geographical assets are primarily reflected in its global network of logistics warehouses and data center footprint. These facilities located worldwide enable it to serve global customers quickly and efficiently, and provide stable infrastructure support for AWS. While these assets are not absolutely unique, their sheer scale and sophisticated deployment make them difficult for competitors to replicate in the short term. This geographical advantage provides a solid competitive barrier, hence the score of 7."
       },
       "m7_operational_efficiency": {
         "score": 9,
-        "comment_zh": "亞馬遜以其極致的運營效率聞名，尤其是在其物流和AWS業務中。通過持續的技術投入和流程優化，它能夠實現極高的訂單處理速度和準確性，以及AWS的穩定可靠服務。這種卓越的運營能力是其核心競爭力之一，也是難以被競爭對手超越的壁壘。",
-        "comment_en": "Amazon is renowned for its extreme operational efficiency, particularly in its logistics and AWS businesses. Through continuous technological investment and process optimization, it achieves remarkable order fulfillment speed and accuracy, alongside AWS's stable and reliable services. This operational excellence is a core competitive strength and a barrier difficult for rivals to overcome."
+        "comment_zh": "亞馬遜在營運效率方面堪稱典範，尤其是在其物流和供應鏈管理上。透過先進的技術、自動化和數據分析，它不斷優化庫存管理、訂單處理和配送流程，實現了極高的營運效率和成本控制。AWS 的營運效率同樣令人印象深刻，能夠在保證服務穩定性的同時，持續降低成本。這種卓越的營運能力是其持續盈利的關鍵，故給予9分。",
+        "comment_en": "Amazon is a paragon of operational efficiency, especially in its logistics and supply chain management. Through advanced technology, automation, and data analytics, it continuously optimizes inventory management, order processing, and delivery workflows, achieving extremely high operational efficiency and cost control. The operational efficiency of AWS is equally impressive, enabling continuous cost reduction while ensuring service stability. This outstanding operational capability is key to its sustained profitability, hence the score of 9."
       },
       "m8_capital_allocation": {
         "score": 8,
-        "comment_zh": "亞馬遜的管理層在資本配置方面展現了卓越的遠見，能夠在核心電商、AWS、廣告、物流基礎設施以及新興領域（如AI）之間進行有效的資源分配。儘管早期投入巨大且回報週期長，但其對高增長領域的戰略性投資，如AWS，已證明其決策的成功。其對自由現金流的有效利用，支持了持續的創新和擴張。",
-        "comment_en": "Amazon's management demonstrates exceptional foresight in capital allocation, effectively distributing resources across core e-commerce, AWS, advertising, logistics infrastructure, and emerging areas like AI. Despite significant early investments with long payback periods, its strategic bets on high-growth sectors, like AWS, have proven successful. Effective utilization of free cash flow supports continuous innovation and expansion."
+        "comment_zh": "亞馬遜在資本配置方面展現了長期主義和戰略眼光。公司持續將大量資金投入到基礎設施建設（如物流網絡、數據中心）、技術研發（如人工智能、AWS）以及新興業務（如廣告、健康醫療）的拓展。儘管有時會犧牲短期利潤，但這些投資為公司帶來了長期的成長動能和競爭優勢。其對股東的回報主要體現在股價的長期增長，而非直接分紅，這符合其成長型公司的定位，故給予8分。",
+        "comment_en": "Amazon demonstrates long-termism and strategic vision in its capital allocation. The company continuously invests heavily in infrastructure development (e.g., logistics networks, data centers), technological R&D (e.g., AI, AWS), and expansion into emerging businesses (e.g., advertising, healthcare). Although this sometimes sacrifices short-term profits, these investments generate long-term growth momentum and competitive advantages. Its returns to shareholders are primarily reflected in long-term stock price appreciation rather than direct dividends, aligning with its growth company positioning, hence the score of 8."
       },
       "m9_customer_retention": {
         "score": 9,
-        "comment_zh": "Prime會員制度是亞馬遜客戶留存的關鍵。它通過提供免費快速配送、獨家優惠和多樣化的內容服務，極大地提高了客戶忠誠度和重複購買率。這種基於價值的會員模式，使得客戶一旦加入，就難以離開，從而形成了強大的客戶留存壁壘。",
-        "comment_en": "The Prime membership program is central to Amazon's customer retention strategy. By offering free fast shipping, exclusive deals, and diverse content services, it significantly enhances customer loyalty and repeat purchase rates. This value-driven membership model makes it difficult for customers to leave once they've joined, creating a robust retention moat."
+        "comment_zh": "亞馬遜的客戶留存率極高，Prime 會員制度是關鍵。一旦用戶加入 Prime，其消費行為便高度集中在亞馬遜平台上，因為放棄 Prime 意味著失去快速配送、獨家內容等諸多福利。此外，亞馬遜不斷優化購物體驗，提供個性化推薦和便捷的客戶服務，進一步鞏固了客戶關係。這種高度的客戶黏性確保了穩定的經常性收入和用戶基礎，故給予9分。",
+        "comment_en": "Amazon boasts extremely high customer retention rates, with the Prime membership program being the key driver. Once users join Prime, their spending behavior becomes highly concentrated on Amazon's platform, as abandoning Prime means losing numerous benefits like fast delivery and exclusive content. Furthermore, Amazon continuously optimizes the shopping experience, offering personalized recommendations and convenient customer service, further solidifying customer relationships. This high degree of customer stickiness ensures stable recurring revenue and a user base, hence the score of 9."
       },
       "m10_durability": {
-        "score": 8,
-        "comment_zh": "亞馬遜的商業模式具有高度的持久性。其電商業務雖然面臨競爭，但憑藉網絡效應和規模經濟，能夠持續保持領先。AWS作為雲端運算領域的領導者，受益於數位化轉型的長期趨勢，增長潛力巨大。公司不斷創新和擴張到新領域，展現了其適應和發展的韌性。",
-        "comment_en": "Amazon's business model exhibits high durability. While its e-commerce business faces competition, network effects and economies of scale allow it to maintain leadership. As the cloud computing leader, AWS benefits from the long-term trend of digital transformation, offering significant growth potential. The company's continuous innovation and expansion into new areas demonstrate its resilience and adaptability."
+        "score": 9,
+        "comment_zh": "亞馬遜的護城河具有顯著的持久性。其龐大的規模經濟、強大的網絡效應、極高的轉換成本以及持續的技術創新，共同構建了一個難以被顛覆的商業模式。儘管面臨來自各方的競爭和監管壓力，但其核心業務（電商和 AWS）的領導地位依然穩固。其不斷擴張的業務版圖和對未來趨勢的佈局，也為其長期的可持續發展奠定了基礎，故給予9分。",
+        "comment_en": "Amazon's moat exhibits significant durability. Its massive economies of scale, strong network effects, extremely high switching costs, and continuous technological innovation collectively build a business model that is difficult to disrupt. Despite facing competition and regulatory pressure from various fronts, the company's leadership in its core businesses (e-commerce and AWS) remains solid. Its expanding business scope and strategic positioning for future trends also lay the foundation for its long-term sustainable development, hence the score of 9."
       },
-      "overall_moat_verdict_zh": "亞馬遜展現了強大的經濟護城河，尤其體現在其網絡效應（M4）、規模成本優勢（M5）和極高的客戶轉換成本（M3），這使其在電商和雲端運算領域具有顯著的競爭優勢。Prime會員制度和AWS的領導地位構成了類似於「收費橋」的模式，為公司帶來穩定的現金流和持續的增長動力。雖然其品牌（M1）和運營效率（M7）也極為出色，但電商業務的商品化屬性限制了其品牌定價權的極致發揮。監管風險（M2）是潛在的挑戰。總體而言，亞馬遜的護城河堅固且多元，使其能夠在數位時代持續擴張和獲利。",
-      "overall_moat_verdict_en": "Amazon possesses a formidable economic moat, primarily driven by its powerful network effects (M4), cost advantages from scale (M5), and exceptionally high switching costs (M3), granting it significant competitive advantages in both e-commerce and cloud computing. The Prime membership ecosystem and AWS's market leadership function akin to a 'toll bridge,' generating stable cash flows and sustained growth. While its brand (M1) and operational efficiency (M7) are outstanding, the commoditized nature of e-commerce limits the ultimate pricing power of its brand. Regulatory risks (M2) present a potential challenge. Overall, Amazon's moat is robust and multifaceted, enabling its continued expansion and profitability in the digital age.",
-      "evidenceHash": "ccf83df5e6db96e1491277ce2471338a9a5cdf2002ff7fad9813c0704fa6613d",
-      "assessmentPolicy": "us-buffett-moat-v3"
+      "overall_moat_verdict_zh": "亞馬遜展現了強大的經濟護城河，尤其在規模經濟、網絡效應和轉換成本方面構築了難以逾越的壁壘。其 Prime 會員生態系統不僅鎖定了龐大的用戶群，更創造了持續的經常性收入和極高的客戶黏性，堪稱現代版的「收費橋」。AWS 作為雲端運算領域的領導者，也受益於網絡效應和規模經濟。儘管面臨監管挑戰，但其持續的創新能力和卓越的營運效率，使其在可預見的未來，仍將是線上零售和雲端服務領域的巨擘，展現出卓越的特許經營權特徵。",
+      "overall_moat_verdict_en": "Amazon demonstrates a formidable economic moat, particularly in economies of scale, network effects, and switching costs, creating insurmountable barriers. Its Prime membership ecosystem not only locks in a vast user base but also generates consistent recurring revenue and extremely high customer stickiness, akin to a modern 'toll bridge.' AWS, as a leader in cloud computing, also benefits from network effects and economies of scale. Despite facing regulatory challenges, its continuous innovation and exceptional operational efficiency position it as a titan in online retail and cloud services for the foreseeable future, exhibiting remarkable franchise-like characteristics.",
+      "model": "gemini-2.5-flash-lite",
+      "period": "2026Q2"
     },
     "ratingSources": {
       "moat": {
-        "reason": null
+        "reason": null,
+        "assessmentPolicy": "buffett-moat-v3",
+        "model": "gemini-2.5-flash-lite",
+        "provider": "Vertex AI",
+        "evidenceHash": "892ebe984fc1af3668e8e76b83371ec86d08cce5c29b78d236f9c3b13ef805e5"
       },
       "fScore": {
         "score": 7,
@@ -191647,7 +191655,8 @@
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/amzn-20260630.htm",
         "capturedAt": "2026-10-23T23:59:06Z"
       }
-    }
+    },
+    "assessmentPolicy": "buffett-moat-v3"
   },
   "TSLA": {
     "reported_growth": {
@@ -276605,66 +276614,68 @@
     "roe": 2.6455973129254464,
     "roa": 1.3210617226460764,
     "moat": {
-      "ticker": "BRK.B",
-      "period": "2020Q1",
       "m1_brand_pricing": {
-        "score": 7,
-        "comment_zh": "波克夏海瑟威旗下擁有多元化業務，其中許多子公司如GEICO保險、See's Candies等，在其特定市場中享有強大的品牌認知度和客戶忠誠度，賦予其一定的定價權。雖然波克夏本身並非消費品牌，但巴菲特的個人聲譽和公司穩健的財務實力，使其在吸引優質資產和人才方面具備獨特優勢。這種品牌效應降低了客戶轉換意願，並允許其在合理範圍內調整價格，而不致大幅流失市場份額，體現了其在不同行業中的綜合性品牌護城河。",
-        "comment_en": "Berkshire Hathaway's diverse portfolio includes subsidiaries like GEICO and See's Candies, which possess strong brand recognition and customer loyalty within their respective markets, granting them pricing power. While Berkshire itself isn't a consumer brand, Warren Buffett's reputation and the company's robust financial strength provide a unique advantage in attracting high-quality assets and talent. This brand effect reduces customer churn and allows for reasonable price adjustments without significant market share loss, demonstrating a composite brand moat across its varied industries."
+        "score": 8,
+        "comment_zh": "波克夏的品牌價值體現在其子公司，如GEICO和See's Candies，它們擁有強大的客戶忠誠度和定價能力。GEICO透過直接銷售模式降低成本，將節省的費用回饋給客戶，從而提供更具吸引力的價格，這是一種難以複製的競爭優勢。See's Candies則憑藉其高品質和節日傳統，能夠在不犧牲銷量的情況下維持較高的毛利率。這些品牌不僅是營收的來源，更是波克夏長期價值的重要組成部分，體現了巴菲特所重視的特許經營權。",
+        "comment_en": "Berkshire's brand value is evident in its subsidiaries, such as GEICO and See's Candies, which possess strong customer loyalty and pricing power. GEICO, through its direct-to-consumer model, reduces costs and passes these savings on to customers, offering more attractive prices – a difficult-to-replicate competitive advantage. See's Candies, leveraging its high quality and holiday traditions, can maintain higher gross margins without sacrificing sales volume. These brands are not just revenue sources but crucial components of Berkshire's long-term value, embodying the 'franchise' quality Buffett values."
       },
       "m2_patents_regulatory": {
-        "score": 8,
-        "comment_zh": "波克夏海瑟威旗下許多核心業務，特別是公用事業（如電力、天然氣）和鐵路運輸（BNSF），受益於嚴格的政府監管和特許經營權。這些行業的進入壁壘極高，新競爭者難以獲得必要的許可證和基礎設施。BNSF鐵路在北美擁有廣闊的獨家路線網絡，形成天然的地理壟斷。保險業務也受資本要求和監管審批限制。這些非專利性的監管和特許經營壁壘，為波克夏提供了極其穩固且難以複製的競爭優勢，確保了其在關鍵基礎設施領域的長期盈利能力。",
-        "comment_en": "Many of Berkshire Hathaway's core businesses, particularly utilities (e.g., energy, gas) and railroad transportation (BNSF), benefit from stringent government regulation and exclusive operating licenses. Entry barriers in these sectors are exceptionally high, making it difficult for new competitors to acquire necessary permits and infrastructure. BNSF Railway, for instance, boasts an extensive network of exclusive routes across North America, creating a natural geographic monopoly. The insurance sector also faces significant capital requirements and regulatory approvals. These non-patent regulatory and franchise barriers provide Berkshire with an extremely robust and difficult-to-replicate competitive advantage, ensuring long-term profitability in critical infrastructure sectors."
+        "score": 3,
+        "comment_zh": "波克夏的核心業務並非依賴專利或特許經營權，而是透過收購擁有穩定現金流和競爭優勢的企業。雖然旗下部分子公司可能在特定領域擁有專利（例如製造業），但這並非其整體護城河的主要來源。其價值更多體現在對現有成熟產業的投資和經營，而非創新驅動的專利壁壘。因此，在此維度上得分較低，與其多元化、價值導向的投資策略一致。",
+        "comment_en": "Berkshire's core business does not rely on patents or regulatory licenses; instead, it thrives by acquiring companies with stable cash flows and competitive advantages. While some subsidiaries might hold patents in specific niches (e.g., manufacturing), these are not the primary source of its overall moat. Its value is more deeply rooted in investing in and operating established, mature industries rather than patent-driven barriers to entry. Consequently, its score in this dimension is lower, aligning with its diversified, value-oriented investment strategy."
       },
       "m3_high_switching_costs": {
-        "score": 6,
-        "comment_zh": "波克夏旗下部分業務，特別是BNSF鐵路和某些工業產品製造商，為客戶帶來顯著的轉換成本。例如，企業一旦將其供應鏈深度整合至BNSF的鐵路網絡，轉換至其他運輸方式或供應商將涉及巨大的物流調整、合同變更及潛在的營運中斷成本。然而，其消費品和部分保險業務的轉換成本相對較低。儘管如此，波克夏的多元化組合中，仍有足夠多的業務能透過深度整合和專業服務，有效提升客戶黏性，使其在面對競爭時保持優勢。",
-        "comment_en": "Certain Berkshire businesses, notably BNSF Railway and some industrial product manufacturers, impose significant switching costs on customers. For instance, once a company's supply chain is deeply integrated with BNSF's rail network, transitioning to alternative transportation methods or suppliers would entail substantial logistical adjustments, contract renegotiations, and potential operational disruptions. However, switching costs for its consumer goods and some insurance operations are relatively lower. Nevertheless, within Berkshire's diversified portfolio, a sufficient number of businesses effectively enhance customer stickiness through deep integration and specialized services, maintaining their competitive edge."
+        "score": 7,
+        "comment_zh": "波克夏的轉換成本體現在其保險業務和公用事業領域。例如，GEICO的客戶一旦習慣了其便捷的服務和具競爭力的價格，轉換到其他保險公司的意願可能不高。同樣，其公用事業（如BNSF鐵路）的客戶，由於基礎設施的特殊性和運輸的剛性需求，轉換成本極高。這些業務的客戶黏性為波克夏提供了穩定的現金流和可預測性，是其護城河的重要組成部分。",
+        "comment_en": "Berkshire's switching costs are evident in its insurance and utility segments. For instance, once GEICO customers become accustomed to its convenient service and competitive pricing, their willingness to switch to other insurers may be low. Similarly, customers of its utilities (like BNSF Railway) face extremely high switching costs due to the specialized nature of the infrastructure and the inelastic demand for transportation. The customer stickiness in these businesses provides Berkshire with stable cash flows and predictability, forming a significant part of its moat."
       },
       "m4_network_effects": {
-        "score": 3,
-        "comment_zh": "波克夏海瑟威的業務組合以多元化實體資產和服務為主，其整體營運模式較少直接受益於傳統意義上的網絡效應。雖然旗下某些小型業務，如房地產經紀或地方性服務，可能存在有限的網絡效應，但這並非驅動波克夏整體價值的核心要素。其保險業務雖因規模龐大而累積大量數據，有助於精準定價，但這更多是規模優勢而非直接的雙向網絡正反饋。因此，相較於科技平台型企業，網絡效應對波克夏的護城河貢獻較為有限。",
-        "comment_en": "Berkshire Hathaway's business portfolio primarily consists of diversified physical assets and services, and its overall operating model rarely benefits directly from traditional network effects. While some smaller subsidiaries, such as real estate brokerage or local services, might exhibit limited network effects, this is not a core driver of Berkshire's overall value. Although its insurance operations accumulate vast amounts of data due to their scale, aiding in precise pricing, this is more a scale advantage than a direct two-sided network effect. Consequently, network effects contribute less to Berkshire's moat compared to technology platform companies."
+        "score": 2,
+        "comment_zh": "波克夏的業務組合廣泛，但大多數核心業務並未顯著受益於網絡效應。雖然其保險經紀業務（如Acquisitions）可能在撮合買賣雙方時產生一定的網絡效應，但這並非其整體競爭優勢的關鍵。與社交媒體或電商平台不同，波克夏的價值更多來自於其對資產的擁有權和經營效率，而非用戶間互動產生的價值增長。因此，在此維度上得分較低。",
+        "comment_en": "Berkshire's business portfolio is extensive, but most of its core operations do not significantly benefit from network effects. While its insurance brokerage operations (like Acquisitions) might generate some network effects in matching buyers and sellers, this is not central to its overall competitive advantage. Unlike social media or e-commerce platforms, Berkshire's value stems more from its ownership of assets and operational efficiency rather than value growth generated by user interactions. Therefore, its score in this dimension is low."
       },
       "m5_cost_advantage_scale": {
         "score": 9,
-        "comment_zh": "波克夏海瑟威在多個核心業務領域展現出極致的規模經濟優勢。其保險業務（如GEICO）憑藉龐大的保費浮存金，不僅能進行大規模投資，還能攤薄營運成本，實現比競爭對手更低的承保費用。BNSF鐵路擁有廣闊的基礎設施網絡，其固定成本高，但隨著運輸量增加，邊際成本極低，形成強大的成本優勢。公用事業亦然，巨額的資本投入創造了天然的規模壁壘。這種規模優勢使得波克夏能夠以更低的成本提供服務或生產產品，對新進入者構成巨大挑戰，是其最堅固的護城河之一。",
-        "comment_en": "Berkshire Hathaway demonstrates extreme economies of scale across several core business segments. Its insurance operations (e.g., GEICO) leverage vast insurance float for large-scale investments and to spread operational costs, achieving lower underwriting expenses than competitors. BNSF Railway, with its extensive infrastructure network, has high fixed costs but very low marginal costs as volume increases, creating a powerful cost advantage. Utilities similarly benefit from massive capital investments, forming natural scale barriers. This scale advantage enables Berkshire to offer services or produce goods at lower costs, posing a significant challenge to new entrants, and is one of its most robust moats."
+        "comment_zh": "波克夏的規模經濟是其最顯著的護城河之一。作為全球最大的企業集團之一，其龐大的營運規模帶來了顯著的成本優勢。在保險業務中，龐大的保費池使其能夠獲得更優惠的再保險費率，並在投資組合上獲得更大的靈活性。在鐵路運輸（BNSF）和能源領域，規模化經營降低了單位成本。此外，其龐大的現金儲備也使其在市場低迷時能以優惠價格收購優質資產，進一步鞏固其成本優勢。",
+        "comment_en": "Berkshire's economies of scale are one of its most significant moats. As one of the world's largest conglomerates, its vast operational scale provides substantial cost advantages. In its insurance operations, a large premium pool allows for more favorable reinsurance rates and greater flexibility in its investment portfolio. In railroad transportation (BNSF) and energy sectors, scaled operations reduce per-unit costs. Furthermore, its massive cash reserves enable it to acquire quality assets at favorable prices during market downturns, further solidifying its cost advantage."
       },
       "m6_unique_geography_assets": {
-        "score": 8,
-        "comment_zh": "波克夏海瑟威旗下許多業務在特定市場中享有天然的寡占地位，這正是高效規模護城河的體現。例如，BNSF鐵路在北美許多關鍵貨運走廊上與少數幾家大型鐵路公司形成寡頭壟斷，新競爭者幾乎不可能複製其龐大的基礎設施網絡。公用事業公司則在服務區域內擁有受監管的獨家經營權。這些市場的特點是初始投資巨大、市場容量相對有限，任何新進入者都將面臨極高的壁壘，且可能導致行業整體利潤率下降，從而形成一種理性寡占，確保了波克夏在這些領域的長期穩定收益。",
-        "comment_en": "Many of Berkshire Hathaway's businesses enjoy natural oligopolistic positions in specific markets, exemplifying the efficient scale moat. For instance, BNSF Railway forms an oligopoly with a few other major rail companies along many critical freight corridors in North America, where replicating its vast infrastructure network is virtually impossible for new entrants. Utility companies, meanwhile, possess regulated exclusive operating rights within their service areas. These markets are characterized by immense initial investment and relatively limited capacity, meaning any new entrant would face extremely high barriers and likely depress overall industry profitability, thus fostering a rational oligopoly that ensures Berkshire's long-term stable returns in these sectors."
+        "score": 6,
+        "comment_zh": "波克夏擁有部分具有地理優勢的資產，特別是在公用事業和基礎設施領域。例如，BNSF鐵路橫跨美國，擁有關鍵的運輸網絡，其軌道資產在特定區域具有難以替代的價值。其能源業務也遍布多個州，為特定地區提供關鍵的電力和天然氣服務。然而，其投資組合的多元化意味著並非所有資產都具有獨特的地理壁壘，因此在此維度上得分為中等偏上。",
+        "comment_en": "Berkshire possesses certain assets with geographical advantages, particularly in utilities and infrastructure. For example, BNSF Railway, spanning across the US, commands a critical transportation network, and its track assets hold irreplaceable value in specific regions. Its energy business also operates across multiple states, providing essential electricity and natural gas services to particular areas. However, the diversification of its portfolio means not all assets possess unique geographical barriers, hence the score is moderately high in this dimension."
       },
       "m7_operational_efficiency": {
-        "score": 7,
-        "comment_zh": "波克夏海瑟威的長期投資策略著重於收購具有高資本回報率的優質企業。儘管單一季度或因會計處理（如投資組合的未實現損益）導致表面ROE波動，但從長期來看，波克夏旗下核心業務，特別是保險浮存金的運用和鐵路、公用事業的穩定現金流，持續產生遠超其加權平均資本成本（WACC）的投資回報。這種持續的超額ROIC韌性，是巴菲特資本配置能力的直接體現，確保了股東價值的長期複利增長，證明其具備堅實的經濟護城河。",
-        "comment_en": "Berkshire Hathaway's long-term investment strategy focuses on acquiring high-return businesses. While single-quarter ROE might fluctuate due to accounting treatments (e.g., unrealized gains/losses from investments), over the long term, Berkshire's core operations, particularly the deployment of insurance float and stable cash flows from railroads and utilities, consistently generate returns on invested capital (ROIC) significantly exceeding its weighted average cost of capital (WACC). This sustained ROIC resilience is a direct reflection of Buffett's capital allocation prowess, ensuring long-term compounding of shareholder value and demonstrating a robust economic moat."
+        "score": 8,
+        "comment_zh": "波克夏以其卓越的營運效率和對成本控制的嚴格要求而聞名。其管理哲學強調去中心化經營，賦予子公司自主權，同時由總部嚴格監控財務表現和資本配置。GEICO的低成本營運模式和See's Candies的高利潤率都證明了其營運效率。儘管並非所有子公司都追求極致的效率，但整體而言，波克夏能夠持續從其龐大的資產組合中榨取可觀的現金流，體現了其高效的營運能力。",
+        "comment_en": "Berkshire is renowned for its exceptional operational efficiency and stringent cost controls. Its management philosophy emphasizes decentralized operations, granting subsidiaries autonomy while maintaining strict oversight of financial performance and capital allocation from headquarters. GEICO's low-cost operating model and See's Candies' high profit margins exemplify its operational prowess. While not all subsidiaries pursue extreme efficiency, Berkshire, as a whole, consistently extracts significant cash flow from its vast asset portfolio, demonstrating its efficient operational capabilities."
       },
       "m8_capital_allocation": {
-        "score": 9,
-        "comment_zh": "波克夏海瑟威的資本不可複製性極強。即使給予競爭對手數千億美元，也無法在短時間內複製其橫跨保險、鐵路、公用事業、製造業等多個行業的多元化優質資產組合。這些資產許多是歷史悠久、市場領先的企業，其建立需要數十年時間。更重要的是，巴菲特和蒙格數十年來建立的卓越聲譽、獨特的企業文化以及在資本配置上的無與倫比的專業知識，是任何資金都無法買到的。這種無形資產的累積，構成了極其堅固且無法模仿的護城河。",
-        "comment_en": "Berkshire Hathaway possesses extremely high irreproducibility. Even with hundreds of billions of dollars, a competitor could not replicate its diversified portfolio of high-quality assets spanning insurance, railroads, utilities, manufacturing, and other sectors in a short period. Many of these assets are long-established, market-leading businesses that took decades to build. More importantly, the unparalleled reputation, unique corporate culture, and exceptional capital allocation expertise built by Buffett and Munger over decades are invaluable and cannot be bought with any amount of money. This accumulation of intangible assets forms an incredibly robust and inimitable moat."
+        "score": 10,
+        "comment_zh": "資本配置是波克夏和巴菲特的核心競爭力，也是其最堅實的護城河。巴菲特以其數十年如一日的精準投資決策和對價值評估的深刻理解而聞名。他能夠準確識別被低估的優質資產，並在合適的時機進行收購或增持。同時，他也能夠有效地將營運產生的現金進行再投資或回購股票，為股東創造長期價值。這種卓越的資本配置能力是波克夏成功的關鍵，堪稱典範。",
+        "comment_en": "Capital allocation is Berkshire's and Buffett's core competency and its most robust moat. Buffett is renowned for his decades of precise investment decisions and profound understanding of value assessment. He accurately identifies undervalued quality assets and acquires or increases holdings at opportune moments. Concurrently, he effectively reinvests operating cash flow or repurchases shares, creating long-term value for shareholders. This exceptional capital allocation ability is the linchpin of Berkshire's success and serves as a benchmark."
       },
       "m9_customer_retention": {
-        "score": 8,
-        "comment_zh": "波克夏海瑟威的投資組合刻意偏重於「舊經濟」領域的實體資產和基礎服務，使其對技術顛覆和典範轉移具有強大的免疫力。鐵路運輸、公用事業、能源生產以及許多製造業子公司提供的是社會運作不可或缺的基礎服務和產品，這些需求具有高度確定性，且難以被新興技術或AI完全取代。儘管部分零售或金融服務業務可能面臨一定程度的技術挑戰，但整體而言，波克夏的多元化佈局和對穩定現金流業務的偏好，使其能夠有效抵禦快速變革帶來的衝擊，確保了其業務的長期穩定性。",
-        "comment_en": "Berkshire Hathaway's investment portfolio deliberately emphasizes \"old economy\" physical assets and essential services, granting it strong immunity to technological disruption and paradigm shifts. Railroad transportation, utilities, energy production, and many manufacturing subsidiaries provide fundamental services and products indispensable to society's functioning. These demands are highly certain and unlikely to be fully replaced by emerging technologies or AI. While some retail or financial service operations might face technological challenges, Berkshire's diversified approach and preference for stable cash-flow businesses enable it to effectively withstand the impact of rapid change, ensuring the long-term stability of its operations."
+        "score": 7,
+        "comment_zh": "波克夏在多個業務領域展現了良好的客戶留存能力。GEICO的客戶忠誠度，部分歸因於其價格優勢和服務質量。其公用事業和鐵路業務，由於基礎設施的剛性需求和轉換成本，客戶黏性自然較高。See's Candies的重複購買率也相當可觀，這得益於其品牌的情感連結和產品的穩定品質。雖然不是所有業務都像訂閱制服務那樣具有極高的客戶留存率，但整體而言，波克夏的客戶黏性是其穩定的收入來源。",
+        "comment_en": "Berkshire demonstrates strong customer retention across several business segments. GEICO's customer loyalty is partly attributed to its price advantage and service quality. Its utility and railroad businesses naturally have high customer stickiness due to inelastic demand for infrastructure and switching costs. See's Candies also enjoys considerable repeat purchase rates, benefiting from the brand's emotional connection and consistent product quality. While not all businesses exhibit the extremely high retention rates of subscription services, Berkshire's overall customer stickiness contributes to its stable revenue streams."
       },
       "m10_durability": {
-        "score": 10,
-        "comment_zh": "波克夏海瑟威最核心且無可匹敵的護城河，正是其由巴菲特和蒙格領導的卓越資本配置能力。他們以極高的誠信和紀律，專注於收購具有持久競爭優勢的優質企業，並堅持以合理價格甚至折價買入。當公司股價被低估時，他們會毫不猶豫地進行大規模股票回購，有效提升每股內在價值，而非盲目進行高溢價併購。這種以股東利益為核心、長期主義的資本管理哲學，是波克夏數十年來持續創造超額回報的根本原因，也是其最堅不可摧的護城河。",
-        "comment_en": "Berkshire Hathaway's most fundamental and unparalleled moat is its exceptional capital allocation capability, led by Buffett and Munger. With utmost integrity and discipline, they focus on acquiring high-quality businesses with enduring competitive advantages, always insisting on purchasing at reasonable or even discounted prices. When the company's stock is undervalued, they unhesitatingly execute large-scale share buybacks to effectively enhance per-share intrinsic value, rather than pursuing blind, high-premium acquisitions. This shareholder-centric, long-term capital management philosophy is the root cause of Berkshire's decades of sustained outperformance and its most impregnable moat."
+        "score": 9,
+        "comment_zh": "波克夏的業務模式具有極高的持久性。其核心的保險和公用事業業務，以及對鐵路、能源等基礎設施的投資，都是經濟體系中不可或缺且難以被顛覆的行業。這些業務能夠產生穩定且可預測的現金流，不受短期經濟波動的劇烈影響。巴菲特專注於長期持有優質企業，避免投資於快速變化的科技行業，這進一步增強了其業務的持久性。其龐大的現金儲備也為其抵禦潛在的經濟衝擊提供了緩衝。",
+        "comment_en": "Berkshire's business model exhibits exceptional durability. Its core insurance and utility operations, along with investments in infrastructure like railroads and energy, are indispensable and difficult-to-disrupt sectors within the economy. These businesses generate stable and predictable cash flows, largely unaffected by short-term economic fluctuations. Buffett's focus on long-term holdings of quality companies and avoidance of rapidly changing tech sectors further enhances the durability of its operations. Its substantial cash reserves also provide a buffer against potential economic shocks."
       },
-      "overall_moat_verdict_zh": "波克夏海瑟威本質上是一個由巴菲特和蒙格精心打造的「護城河集合體」與「資本配置平台」。它並非單一業務，而是透過保險浮存金的低成本資金，持續收購並持有大量具備堅實經濟護城河的優質企業，如鐵路、公用事業、品牌消費品等。其核心競爭力在於管理層無與倫比的資本配置智慧、對企業內在價值的深刻理解，以及在市場低估時果斷回購股票的紀律。這使其成為一個獨特的「收費橋樑」，將資本引導至高回報領域，並透過時間的複利效應為股東創造巨大價值，其護城河是多層次且極難複製的。",
-      "overall_moat_verdict_en": "Berkshire Hathaway is fundamentally a \"collection of moats\" and a \"capital allocation platform\" meticulously built by Buffett and Munger. It is not a single business but continuously acquires and holds numerous high-quality enterprises with robust economic moats, such as railroads, utilities, and branded consumer goods, financed by low-cost insurance float. Its core competitive advantage lies in management's unparalleled capital allocation wisdom, profound understanding of intrinsic value, and disciplined share repurchases when the market undervalues the stock. This makes it a unique \"toll bridge,\" directing capital to high-return areas and compounding immense value for shareholders over time, establishing a multi-layered and extremely difficult-to-replicate moat.",
-      "evidenceHash": "bf29cb66b2f4ca7bc08d66adf8dde3f6516270d8a1dea233cc8637e842644e77",
-      "assessmentPolicy": "us-buffett-moat-v3"
+      "overall_moat_verdict_zh": "波克夏哈薩威的護城河主要建立在其龐大的規模經濟（M5）和卓越的資本配置能力（M8）之上，這兩者共同構成了其最為堅固的壁壘。其保險業務（如GEICO）的品牌定價權（M1）和客戶黏性（M3, M9）也提供了重要的競爭優勢。雖然缺乏專利（M2）和網絡效應（M4）的顯著壁壘，但其在公用事業和鐵路等領域的獨特地理資產（M6）和高效營運（M7）彌補了部分不足。整體而言，波克夏展現了典型的「收費橋」和「特許經營」特質，其業務的持久性（M10）使其能夠在長期內持續產生可觀的回報，堪稱價值投資的典範。",
+      "overall_moat_verdict_en": "Berkshire Hathaway's moat is primarily built upon its immense economies of scale (M5) and exceptional capital allocation prowess (M8), forming its most formidable barriers. The brand pricing power (M1) and customer stickiness (M3, M9) within its insurance operations (like GEICO) also provide significant competitive advantages. While lacking notable barriers from patents (M2) or network effects (M4), its unique geographical assets (M6) in utilities and railroads, coupled with operational efficiency (M7), compensate for these gaps. Overall, Berkshire exhibits classic 'toll bridge' and 'franchise' characteristics, with the durability (M10) of its businesses enabling sustained, considerable returns over the long term, making it a paragon of value investing.",
+      "model": "gemini-2.5-flash-lite",
+      "period": "2020Q1"
     },
     "ratingSources": {
       "moat": {
-        "reason": null
+        "reason": null,
+        "assessmentPolicy": "buffett-moat-v3",
+        "model": "gemini-2.5-flash-lite",
+        "provider": "Vertex AI",
+        "evidenceHash": "7e2e6c0cc2ec457f76a304c418a0a5c048477c8a378d3da079d1363c73c085f4"
       },
       "fScore": {
         "score": 6,
@@ -276776,7 +276787,8 @@
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526341032/brka-20260630.htm",
         "capturedAt": "2026-10-24T00:01:22Z"
       }
-    }
+    },
+    "assessmentPolicy": "buffett-moat-v3"
   },
   "JPM": {
     "reported_growth": {
@@ -280060,66 +280072,68 @@
     "roe": 18.229931301901807,
     "roa": 1.429264300221286,
     "moat": {
-      "ticker": "JPM",
-      "period": "2026Q3",
       "m1_brand_pricing": {
         "score": 8,
-        "comment_zh": "摩根大通作為全球頂級金融機構，其品牌價值是無可取代的無形資產。客戶信任與聲譽是其定價權的基石，尤其在財富管理、投資銀行等高附加價值業務上，客戶願意支付溢價以換取其專業服務與穩定性。這種品牌忠誠度難以被競爭對手模仿，尤其在市場動盪時期，其品牌更能吸引尋求安全感的資金。",
-        "comment_en": "JPMorgan Chase's brand is an invaluable intangible asset, representing trust and reputation built over decades. This allows for premium pricing, particularly in wealth management and investment banking, where clients value expertise and stability. This brand loyalty is a significant barrier, attracting capital especially during market uncertainty, differentiating it from less established competitors."
+        "comment_zh": "JPMorgan Chase 作為全球領先的金融機構，其品牌價值是無可置疑的護城河。在高度競爭的銀行業，強大的品牌代表著客戶的信任、可靠性以及卓越的服務水平。這使得 JPM 能夠在存款、貸款和投資銀行等業務中吸引並留住高端客戶，並在一定程度上實現定價優勢，尤其是在財富管理和投資諮詢領域。雖然金融產品本身同質化程度較高，但 JPM 的品牌效應使其在獲取客戶和維持客戶關係方面具有顯著優勢，這與巴菲特所欣賞的特許經營權有異曲同工之妙。",
+        "comment_en": "JPMorgan Chase, as a leading global financial institution, possesses an undeniable brand value moat. In the highly competitive banking industry, a strong brand signifies customer trust, reliability, and superior service levels. This allows JPM to attract and retain high-end clients in deposit, lending, and investment banking businesses, and to some extent, achieve pricing advantages, particularly in wealth management and investment advisory. Although financial products themselves have a high degree of homogeneity, JPM's brand effect gives it a significant advantage in acquiring and maintaining customer relationships, which is akin to the franchise power Buffett admires."
       },
       "m2_patents_regulatory": {
-        "score": 7,
-        "comment_zh": "金融業的進入門檻極高，受到嚴格的監管與牌照要求，這構成了天然的特許經營壁壘。摩根大通擁有眾多業務所需的複雜牌照與合規體系，這使得新進入者難以複製。雖然沒有傳統意義上的專利，但其在金融科技、風險管理等領域的專有技術和流程，以及長期建立的監管關係，都形成了有效的保護。",
-        "comment_en": "The financial industry is heavily regulated, creating a significant moat through licensing and compliance requirements, akin to a franchise. JPMorgan Chase possesses the necessary licenses and robust compliance infrastructure, making it difficult for new entrants to replicate. While not possessing traditional patents, proprietary technologies in areas like fintech and risk management, coupled with established regulatory relationships, provide substantial protection."
+        "score": 6,
+        "comment_zh": "金融行業的進入壁壘主要體現在嚴格的監管和牌照要求，而非傳統意義上的專利。JPMorgan Chase 在全球範圍內持有眾多金融牌照，並嚴格遵守各地的監管法規，這構成了其運營的基礎和一定的壁壘。然而，這些監管也限制了其業務的創新和擴張速度。與科技公司依賴專利保護不同，銀行的監管壁壘更多是維持現有業務的穩定性，而非創造持續的超額利潤。因此，此項護城河得分中等，代表了其運營的合規性和市場准入的門檻。",
+        "comment_en": "The barriers to entry in the financial industry are primarily reflected in strict regulatory and licensing requirements, rather than patents in the traditional sense. JPMorgan Chase holds numerous financial licenses globally and strictly adheres to regulatory laws in various regions, forming the foundation of its operations and a certain barrier. However, these regulations also limit the pace of innovation and expansion. Unlike tech companies relying on patent protection, the regulatory moat for banks is more about maintaining the stability of existing businesses rather than generating sustained excess profits. Therefore, this moat score is moderate, representing its operational compliance and market access thresholds."
       },
       "m3_high_switching_costs": {
         "score": 7,
-        "comment_zh": "對於企業客戶和高淨值個人而言，轉換銀行服務涉及複雜的流程、數據遷移以及潛在的業務中斷風險。摩根大通提供一站式的綜合金融服務，從存款、貸款到複雜的金融衍生品和資產管理，客戶一旦深度整合其服務，轉換成本將非常高昂。這種黏性確保了客戶群的穩定性。",
-        "comment_en": "Switching banking services for corporate clients and high-net-worth individuals involves complex processes, data migration, and potential business disruption. JPMorgan Chase's integrated suite of services, from basic banking to complex derivatives and asset management, creates high switching costs once deeply embedded in a client's operations. This stickiness ensures a stable customer base."
+        "comment_zh": "對於個人和企業客戶而言，更換銀行的成本相對較高。這不僅涉及時間和精力，還可能面臨賬戶遷移、自動付款設置更新、貸款合同變更等複雜問題。特別是對於企業客戶，其與銀行的合作往往涉及複雜的信貸額度、支付系統和外匯服務，一旦建立穩固關係，轉換的成本和風險都會顯著增加。JPMorgan Chase 作為一家綜合性金融服務提供商，其客戶群體龐大且業務多元，這種客戶黏性構成了較強的轉換成本壁壘。",
+        "comment_en": "For individual and corporate clients, the cost of switching banks is relatively high. This involves not only time and effort but also potential complexities such as account migration, updating automatic payment settings, and changing loan agreements. Especially for corporate clients, their banking relationships often involve complex credit lines, payment systems, and foreign exchange services. Once a stable relationship is established, the cost and risk of switching increase significantly. JPMorgan Chase, as a comprehensive financial services provider with a vast customer base and diverse operations, benefits from this stickiness, forming a considerable switching cost moat."
       },
       "m4_network_effects": {
         "score": 6,
-        "comment_zh": "摩根大通的網絡效應體現在其龐大的客戶基礎和廣泛的合作夥伴關係上。例如，在投資銀行業務中，其與眾多發行人和投資者的聯繫，使其能更有效地撮合交易。在支付和清算領域，其網絡的廣泛使用也帶來了效率和便利性，進一步鞏固了其市場地位。",
-        "comment_en": "Network effects are evident in JPMorgan Chase's vast client base and extensive partnerships. In investment banking, its connections with numerous issuers and investors facilitate more efficient deal-making. The widespread use of its payment and clearing networks also enhances efficiency and convenience, further solidifying its market position and creating a virtuous cycle."
+        "comment_zh": "JPMorgan Chase 在某些業務領域體現了網絡效應。例如，在其投資銀行業務中，龐大的客戶網絡和交易對手方網絡能夠吸引更多的發行人和投資者參與，從而提高交易撮合的效率和成功率。同樣，在其支付和結算網絡中，參與者的增多會增加平台的價值。然而，與社交媒體或市場平台相比，銀行業的網絡效應相對較弱，因為客戶的選擇更多基於信任、服務和價格，而非純粹的網絡規模。因此，此項得分反映了其在特定業務中的網絡優勢，但並非其核心競爭力的全部。",
+        "comment_en": "JPMorgan Chase exhibits network effects in certain business areas. For instance, in its investment banking operations, a large network of clients and counterparties attracts more issuers and investors, thereby enhancing the efficiency and success rate of deal matchmaking. Similarly, in its payment and settlement networks, an increase in participants adds value to the platform. However, compared to social media or marketplace platforms, network effects in banking are relatively weaker, as customer choices are more based on trust, service, and price rather than purely network size. Thus, this score reflects its network advantages in specific businesses but does not represent its entire core competitiveness."
       },
       "m5_cost_advantage_scale": {
-        "score": 8,
-        "comment_zh": "作為全球最大的銀行之一，摩根大通享有顯著的規模經濟效益。其龐大的資產規模使其能夠以更低的單位成本獲取資金，並在技術投資、風險管理和合規方面分攤固定成本。這使其在提供貸款和金融服務時，能夠保持較低的成本結構，從而獲得競爭優勢。",
-        "comment_en": "As one of the world's largest banks, JPMorgan Chase benefits from significant economies of scale. Its massive asset base allows for lower unit costs in funding acquisition and spreads fixed costs like technology investment, risk management, and compliance over a larger base. This enables a more competitive cost structure in offering loans and financial services."
+        "score": 9,
+        "comment_zh": "作為全球最大的銀行之一，JPMorgan Chase 在規模經濟方面具有顯著優勢。龐大的資產規模使其能夠在資金成本上獲得優惠，並能承擔更大規模的交易和項目。同時，其全球化的運營網絡和先進的技術平台，能夠分攤高昂的固定成本，降低單位運營成本。這種規模優勢使其在與中小銀行的競爭中處於有利地位，能夠提供更具競爭力的價格和更全面的服務，這類似於巴菲特所稱的「收費橋」模式，通過規模效應獲取穩定收益。",
+        "comment_en": "As one of the world's largest banks, JPMorgan Chase possesses a significant advantage in economies of scale. Its massive asset base allows it to secure favorable funding costs and undertake larger transactions and projects. Concurrently, its global operational network and advanced technology platforms enable the absorption of high fixed costs, reducing per-unit operating expenses. This scale advantage places it in a favorable position against smaller banks, enabling it to offer more competitive pricing and comprehensive services, akin to the 'toll bridge' model Buffett refers to, generating stable returns through scale."
       },
       "m6_unique_geography_assets": {
-        "score": 5,
-        "comment_zh": "摩根大通在全球範圍內擁有廣泛的業務網絡和分支機構，尤其在主要金融中心佔據重要地位。然而，金融服務業的本質使其地理位置的重要性相對較低，因為數位化服務可以跨越地理界限。其優勢更多體現在全球佈局的協同效應，而非單一地點的獨特性。",
-        "comment_en": "JPMorgan Chase possesses an extensive global network of operations and branches, particularly strong in major financial centers. However, the nature of financial services means geographic location is less of a unique asset compared to other industries, as digital services transcend borders. Its strength lies more in the synergistic effects of its global footprint rather than the uniqueness of any single location."
+        "score": 7,
+        "comment_zh": "JPMorgan Chase 擁有遍布全球主要金融中心的廣泛網絡和深厚的客戶關係，這使其能夠在不同地區提供定制化的金融服務。其在美國本土市場的領導地位尤為突出，同時在歐洲和亞洲等關鍵市場也佔有重要份額。這種地理上的多元化和市場滲透能力，使其能夠分散風險，並抓住不同區域的增長機遇。雖然金融資產本身並非不可複製，但其在全球範圍內建立的這種廣泛而深入的業務佈局，構成了獨特的競爭優勢。",
+        "comment_en": "JPMorgan Chase boasts an extensive network across major global financial centers and deep customer relationships, enabling it to offer customized financial services in various regions. Its leadership position in the U.S. domestic market is particularly prominent, while it also holds significant shares in key markets like Europe and Asia. This geographical diversification and market penetration capability allow it to mitigate risks and seize growth opportunities in different regions. While financial assets themselves are not unique, the broad and deep business footprint it has established globally constitutes a unique competitive advantage."
       },
       "m7_operational_efficiency": {
-        "score": 7,
-        "comment_zh": "摩根大通在營運效率方面表現出色，透過持續的技術投資和流程優化，不斷提升服務效率和降低營運成本。其在風險管理和合規方面的嚴謹態度，雖然增加了成本，但也降低了潛在的損失風險，從長遠來看有助於提升整體營運的穩健性與盈利能力。",
-        "comment_en": "JPMorgan Chase demonstrates strong operational efficiency through continuous investment in technology and process optimization, enhancing service delivery and reducing costs. Its rigorous approach to risk management and compliance, while incurring costs, mitigates potential losses, contributing to long-term operational stability and profitability. This focus on efficiency is crucial in the competitive banking landscape."
+        "score": 8,
+        "comment_zh": "JPMorgan Chase 在提升運營效率方面投入巨大，尤其是在數字化轉型和技術創新上。通過優化後台系統、自動化流程以及利用大數據分析，公司能夠顯著降低運營成本，提高服務速度和準確性。其不斷追求的效率提升，不僅增強了盈利能力，也鞏固了其在行業內的領先地位。這種對效率的持續關注和投入，是其能夠在激烈競爭中保持高 ROE 和 ROA 的關鍵因素之一，體現了其卓越的管理能力。",
+        "comment_en": "JPMorgan Chase invests heavily in improving operational efficiency, particularly in digital transformation and technological innovation. By optimizing back-end systems, automating processes, and utilizing big data analytics, the company can significantly reduce operating costs and enhance service speed and accuracy. Its continuous pursuit of efficiency not only strengthens profitability but also solidifies its leading position in the industry. This sustained focus and investment in efficiency are key factors enabling it to maintain high ROE and ROA amidst fierce competition, reflecting its excellent management capabilities."
       },
       "m8_capital_allocation": {
-        "score": 8,
-        "comment_zh": "管理層在資本配置方面展現出卓越的紀律和遠見。摩根大通在維持強健的資本緩衝、進行戰略性併購、回購股份以及向股東返還資本之間取得了良好平衡。其對風險的審慎態度和對長期價值的關注，使其資本配置決策能夠持續為股東創造價值。",
-        "comment_en": "Management exhibits excellent discipline and foresight in capital allocation. JPMorgan Chase balances maintaining strong capital buffers, strategic acquisitions, share buybacks, and returning capital to shareholders effectively. Its prudent approach to risk and focus on long-term value creation ensure that capital allocation decisions consistently generate shareholder value."
+        "score": 9,
+        "comment_zh": "沃倫·巴菲特高度重視管理層的資本配置能力。JPMorgan Chase 的管理層在過去的週期中展現了卓越的資本配置智慧，能夠在維持穩健的資本充足率的同時，通過股息、股票回購以及戰略性併購來回報股東。他們在經濟下行週期中保持審慎，並在市場機會出現時果斷出手。這種在風險管理和價值創造之間取得平衡的能力，是其長期穩健增長的關鍵。其對資本的有效運用，使其能夠在複雜的金融環境中持續創造價值。",
+        "comment_en": "Warren Buffett places great importance on management's capital allocation ability. JPMorgan Chase's management has demonstrated exceptional capital allocation wisdom over past cycles, effectively returning value to shareholders through dividends, share buybacks, and strategic acquisitions while maintaining robust capital adequacy ratios. They have remained prudent during economic downturns and acted decisively when market opportunities arose. This ability to balance risk management with value creation is crucial for its long-term, stable growth. Its effective use of capital allows it to continuously create value in a complex financial environment."
       },
       "m9_customer_retention": {
         "score": 7,
-        "comment_zh": "結合了品牌忠誠度、轉換成本和綜合服務優勢，摩根大通在客戶保留方面表現穩健。其為不同客戶群體提供量身定制的解決方案，並透過卓越的客戶服務來維繫關係。雖然金融業存在競爭，但其提供的全面性服務和長期建立的信任關係，使得客戶流失率相對較低。",
-        "comment_en": "Leveraging brand loyalty, high switching costs, and comprehensive service offerings, JPMorgan Chase excels in customer retention. It provides tailored solutions for diverse client segments and fosters relationships through excellent customer service. Despite industry competition, its holistic approach and long-established trust contribute to relatively low customer churn rates."
+        "comment_zh": "JPMorgan Chase 通過提供全方位、高質量的金融服務，以及建立深厚的客戶關係，實現了較高的客戶留存率。其綜合性的產品線，從零售銀行到投資銀行，再到財富管理，能夠滿足客戶不同階段的需求。此外，其強大的客戶服務團隊和不斷優化的數字化平台，也提升了客戶體驗和忠誠度。對於企業客戶而言，其提供的複雜金融解決方案和長期合作關係，進一步鞏固了客戶黏性。這種基於信任和價值的客戶關係，是其業務穩定性的重要保障。",
+        "comment_en": "JPMorgan Chase achieves a relatively high customer retention rate by offering comprehensive, high-quality financial services and building deep customer relationships. Its integrated product line, from retail banking to investment banking and wealth management, caters to clients' needs at different life stages. Furthermore, its strong customer service teams and continuously optimized digital platforms enhance customer experience and loyalty. For corporate clients, the complex financial solutions and long-term partnerships it provides further solidify customer stickiness. These customer relationships, based on trust and value, are an important guarantee of its business stability."
       },
       "m10_durability": {
         "score": 8,
-        "comment_zh": "金融業的本質使其具有一定的週期性，但摩根大通作為系統重要性金融機構，其業務模式具有高度的韌性與持久性。透過多元化的收入來源（如商業銀行、投資銀行、資產管理）和嚴謹的風險管理，能夠抵禦經濟週期的波動。其龐大的規模和深厚的客戶關係，確保了其在長期內的持續經營能力。",
-        "comment_en": "While the financial industry is inherently cyclical, JPMorgan Chase, as a systemically important institution, possesses a highly resilient and durable business model. Diversified revenue streams (commercial banking, investment banking, asset management) and rigorous risk management enable it to withstand economic cycles. Its immense scale and deep client relationships ensure its continued viability over the long term."
+        "comment_zh": "金融行業的本質是提供信任和管理風險，這使得具有長期穩健聲譽的機構具有天然的持久性。JPMorgan Chase 作為一家擁有超過兩百年曆史的銀行，經歷了多次經濟週期和金融危機，依然保持領先地位，證明了其業務模式的韌性和持久性。儘管面臨金融科技的挑戰和監管的變化，但其龐大的客戶基礎、多元化的收入來源以及持續的技術投入，使其能夠適應變革並保持競爭力。這種穿越週期的能力，是其作為價值投資標的的重要特徵。",
+        "comment_en": "The essence of the financial industry is providing trust and managing risk, giving institutions with a long-standing, stable reputation inherent durability. JPMorgan Chase, as a bank with over two centuries of history, has weathered numerous economic cycles and financial crises while maintaining its leading position, demonstrating the resilience and durability of its business model. Despite challenges from fintech and regulatory changes, its vast customer base, diversified revenue streams, and continuous technological investment enable it to adapt to change and remain competitive. This ability to endure through cycles is a key characteristic as a value investment target."
       },
-      "overall_moat_verdict_zh": "摩根大通展現了強大的經濟護城河，主要體現為一種「特許經營」與「收費橋」的結合。其無與倫比的品牌聲譽和嚴格的行業監管構成了進入壁壘，使其能夠收取費用並維持穩定的客戶關係。龐大的規模帶來成本優勢，而高昂的轉換成本則鎖定了客戶。儘管面臨金融科技的挑戰，但其持續的技術投入和卓越的資本配置能力，使其能夠不斷適應並鞏固其作為全球領先金融服務提供者的地位，具備顯著的長期價值。",
-      "overall_moat_verdict_en": "JPMorgan Chase possesses a formidable economic moat, best characterized as a blend of a 'franchise' and a 'toll bridge.' Its unparalleled brand reputation and stringent regulatory environment create high barriers to entry, allowing it to charge fees and maintain stable customer relationships. Significant scale provides cost advantages, while high switching costs lock in clients. Despite fintech challenges, continuous technological investment and superior capital allocation enable adaptation and solidify its position as a leading global financial services provider with durable long-term value.",
-      "evidenceHash": "08f8e64913f745e0e11fa4b5addef182c410ab5e89008f24689336bb3bb06e1b",
-      "assessmentPolicy": "us-buffett-moat-v3"
+      "overall_moat_verdict_zh": "JPMorgan Chase 作為全球金融巨頭，其經濟護城河主要體現在規模經濟（M5）和卓越的資本配置能力（M8）上，這使其能夠在成本和回報股東方面具備顯著優勢，堪比巴菲特所鍾愛的「收費橋」模式。其強大的品牌（M1）和相對較高的客戶轉換成本（M3）也提供了穩定的客戶基礎。儘管面臨監管（M2）和行業變革，但其全球佈局（M6）、運營效率（M7）和客戶留存（M9）共同構成了其業務的持久性（M10）。網絡效應（M4）在特定領域有所體現，但非核心。整體而言，JPM 擁有堅固且多元化的護城河，使其在金融行業中具備長期競爭優勢。",
+      "overall_moat_verdict_en": "JPMorgan Chase, a global financial giant, possesses economic moats primarily rooted in economies of scale (M5) and exceptional capital allocation capabilities (M8), granting it significant advantages in cost and shareholder returns, akin to Buffett's favored 'toll bridge' model. Its strong brand (M1) and relatively high customer switching costs (M3) also provide a stable customer base. Despite facing regulatory (M2) and industry transformations, its global presence (M6), operational efficiency (M7), and customer retention (M9) collectively contribute to its business durability (M10). Network effects (M4) are present in specific areas but are not core. Overall, JPM exhibits a robust and diversified moat, providing it with a long-term competitive advantage in the financial industry.",
+      "model": "gemini-2.5-flash-lite",
+      "period": "2026Q3"
     },
     "ratingSources": {
       "moat": {
-        "reason": null
+        "reason": null,
+        "assessmentPolicy": "buffett-moat-v3",
+        "model": "gemini-2.5-flash-lite",
+        "provider": "Vertex AI",
+        "evidenceHash": "899b4247856a36443d60a5edfd7e7eef12407b8e00bf51e15018ec1bc16839ad"
       },
       "fScore": {
         "score": 3,
@@ -280349,7 +280363,8 @@
         "providerSource": "https://www.sec.gov/Archives/edgar/data/19617/000162828026065582/a3q26erfex992supplement.htm",
         "capturedAt": "2026-10-24T00:01:27Z"
       }
-    }
+    },
+    "assessmentPolicy": "buffett-moat-v3"
   },
   "V": {
     "reported_growth": {
@@ -602001,7 +602016,7 @@
             114.68073476315827,
             151.502429343735,
             179.66254540819577,
-            0.000002973579642081539,
+            2.973579642081539e-06,
             261.30492010863225,
             0,
             0
