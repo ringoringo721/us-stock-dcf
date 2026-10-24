@@ -376,6 +376,7 @@ try:
         MAX_COMMENT_ZH_CHARS,
         MIN_COMMENT_ZH_CHARS,
         validate_dimension_zh_lengths,
+        zh_length_retry_guidance,
         zh_primary_prompt_rules,
     )
 except ImportError:
@@ -384,6 +385,7 @@ except ImportError:
         MAX_COMMENT_ZH_CHARS,
         MIN_COMMENT_ZH_CHARS,
         validate_dimension_zh_lengths,
+        zh_length_retry_guidance,
         zh_primary_prompt_rules,
     )
 
@@ -743,12 +745,19 @@ def analyze_stock_moat(ticker: str, latest_period: str, fin_context: Dict[str, A
     last_error = None
     for attempt in range(3):
         try:
+            correction = ""
+            if attempt > 0 and last_error is not None:
+                err_text = str(last_error)
+                correction = (
+                    "\n\nOUTPUT CORRECTION: " + err_text + "."
+                    + zh_length_retry_guidance(err_text)
+                    + " Regenerate the complete report. Keep the same scores; fix only prose lengths "
+                    f"(each comment_zh must be {MIN_COMMENT_ZH_CHARS}–{MAX_COMMENT_ZH_CHARS} 繁中字; "
+                    "near-floor 90–99 misses must expand by a few characters)."
+                )
             response = gemini_client.models.generate_content(
                 model=US_MOAT_MODEL,
-                contents=prompt if attempt == 0 else (
-                    prompt + "\n\nOUTPUT CORRECTION: " + str(last_error)
-                    + ". Regenerate the complete report. Keep the same scores; fix only prose lengths."
-                ),
+                contents=prompt + correction,
                 config=_gemini_generate_config(
                     response_mime_type="application/json",
                     response_schema=StockMoatReport,

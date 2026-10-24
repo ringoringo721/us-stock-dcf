@@ -2,6 +2,9 @@ name: Lite Buffett-v3 moat pilot (5 HK + 5 US)
 
 # Human-only. Agent tokens cannot workflow_dispatch (403).
 # Pilot only — uploads artifacts; does not commit production US/HK caches.
+# Partial success: job stays green when all US pass and HK failures ≤1 (overall_pass
+# in JSON may still be false). Re-run a single miss with hk_tickers=0941.HK and
+# us_tickers empty (or the same US list); confirm=PILOT; tooling_ref = this PR branch or main.
 
 on:
   workflow_dispatch:
@@ -14,17 +17,22 @@ on:
         description: 'Git ref with Lite Buffett-v3 code (branch or SHA). Empty = this workflow revision on main after merge.'
         required: false
         type: string
-        default: 'cursor/lite-buffett-pilot-3a53'
+        default: 'main'
       hk_tickers:
-        description: 'HK tickers (comma-separated, mcap ≥ HKD 1B)'
+        description: 'HK tickers (comma-separated, mcap ≥ HKD 1B). Re-run miss only: 0941.HK'
         required: false
         type: string
         default: '0700.HK,0005.HK,0388.HK,0941.HK,1299.HK'
       us_tickers:
-        description: 'US tickers (comma-separated)'
+        description: 'US tickers (comma-separated). Empty = skip US (HK-only re-run).'
         required: false
         type: string
         default: 'AAPL,MSFT,JPM,AMZN,BRK.B'
+      allow_hk_failures:
+        description: 'Exit 0 when all US pass and HK failures ≤ this (default 1). overall_pass JSON still requires all pass.'
+        required: false
+        type: string
+        default: '1'
 
 permissions:
   contents: read
@@ -58,6 +66,7 @@ jobs:
             tests/test_hkex_moat.py \
             tests/test_us_moat_budget.py \
             tests/test_buffett_moat_v3.py \
+            tests/test_lite_buffett_pilot.py \
             .github/workflows/lite_buffett_pilot.yml
       - uses: actions/setup-python@v5
         with:
@@ -67,6 +76,7 @@ jobs:
           node-version: '24'
       - run: pip install requests google-genai pydantic
       - name: Capture HK pilot tickers only
+        if: inputs.hk_tickers != ''
         env:
           FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
           CAPTURE_MARKET: HKEX
@@ -74,6 +84,7 @@ jobs:
           CAPTURE_SYMBOLS: ${{ inputs.hk_tickers }}
         run: python -u scripts/capture_valuation_sources.py
       - name: Build HK moat evidence for pilot tickers only
+        if: inputs.hk_tickers != ''
         env:
           HKEX_BUILD_TICKERS: ${{ inputs.hk_tickers }}
           MOAT_EVIDENCE_OUTPUT: cache/lite_buffett_pilot/moat-inputs.json
@@ -90,11 +101,13 @@ jobs:
           FORCE_MOAT_CONFIRM: YES
           MAX_US_MOAT_GEMINI: 'unlimited'
         run: |
+          mkdir -p cache/lite_buffett_pilot
           python -u scripts/run_lite_buffett_pilot.py \
             --hk "${{ inputs.hk_tickers }}" \
             --us "${{ inputs.us_tickers }}" \
             --hk-inputs cache/lite_buffett_pilot/moat-inputs.json \
             --out-dir cache/lite_buffett_pilot \
+            --allow-hk-failures "${{ inputs.allow_hk_failures }}" \
             --force
       - name: Upload pilot artifacts (no production commit)
         if: always()
@@ -103,3 +116,4 @@ jobs:
           name: lite-buffett-pilot
           path: cache/lite_buffett_pilot/
           retention-days: 14
+          if-no-files-found: warn
