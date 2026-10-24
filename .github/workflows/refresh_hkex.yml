@@ -99,9 +99,11 @@ jobs:
             hkex-source-output/moat-inputs.json \
             hkex-data-output/cache/hkex_moat.json \
             "${LIMIT_ARGS[@]}"
-      # Always keep remoat checkpoint even if later Persist fails (0-Gemini salvage).
+      # Keep remoat checkpoint even on job timeout (timeout == cancelled in Actions)
+      # or later Persist failure. continue-on-error so upload blips never skip Persist.
       - name: Upload moat checkpoint after remoat
-        if: always() && !cancelled()
+        if: always()
+        continue-on-error: true
         uses: actions/upload-artifact@v4
         with:
           name: hkex-moat-checkpoint
@@ -169,7 +171,9 @@ jobs:
           curl --fail --silent --show-error --request POST "$VERCEL_DEPLOY_HOOK" --output /tmp/hkex-deployment.json
           node -e "const r=require('/tmp/hkex-deployment.json');if(!r.job?.id)throw new Error('Deployment request not confirmed');console.log('Production deployment requested; final readiness is reported by Vercel.');"
       - name: Preserve explicit source and model failures for diagnosis
-        if: failure()
+        # failure() alone misses timeout-minutes (treated as cancelled).
+        if: failure() || cancelled()
+        continue-on-error: true
         uses: actions/upload-artifact@v4
         with:
           name: hkex-refresh-failure-evidence
