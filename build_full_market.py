@@ -369,7 +369,7 @@ def _log_gemini_budgets_once():
 
 
 # Bump when US moat prompt/schema policy changes (forces remoat even if fin summary unchanged).
-# buffett-moat-v3: unified US/HK Lite standard — ZH 100–150 字 primary; EN translation (not gated).
+# buffett-moat-v3: unified US/HK Lite standard — ZH ~100–300 字 primary; EN translation (not gated).
 try:
     from scripts.buffett_moat_v3 import (
         BUFFETT_MOAT_ASSESSMENT_POLICY,

@@ -25,7 +25,7 @@ DIMENSIONS = {
     "m9_customer_retention": "Resistance to technological and demand disruption",
     "m10_durability": "Management integrity and capital allocation",
 }
-# Unified US/HK Buffett-v3 + Lite: ZH 100–150 字 primary gate; EN is translation (not the gate).
+# Unified US/HK Buffett-v3 + Lite: ZH ~100–300 字 primary gate; EN is translation (not the gate).
 # One assessmentPolicy family for both markets. Policy bump remoats on next evidence/policy refresh.
 try:
     from scripts.buffett_moat_v3 import (
@@ -217,7 +217,7 @@ def validate_report(report, ticker, source_ids):
 
 
 def validate_comment_lengths(report):
-    """Reject dimension prose outside the locked ZH 100–150 字 band (EN is translation-only)."""
+    """Reject dimension prose outside the locked ZH 100–300 字 band (EN is translation-only)."""
     try:
         validate_dimension_zh_lengths(report, DIMENSIONS)
     except ValueError as error:

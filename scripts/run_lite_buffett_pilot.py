@@ -48,7 +48,7 @@ def summarize_report(ticker: str, market: str, envelope: dict) -> dict:
         "assessmentPolicy": envelope.get("assessmentPolicy") or report.get("assessmentPolicy"),
         "model": envelope.get("model") or report.get("model"),
         "period": report.get("period"),
-        "pass_zh_100_150": report_zh_pass(report),
+        "pass_zh_100_300": report_zh_pass(report),
         "zh_chars_by_dim": {key: dims[key]["zh_chars"] for key in DIMENSION_KEYS},
         "en_present_by_dim": {key: dims[key]["en_present"] for key in DIMENSION_KEYS},
         "scores_by_dim": {key: dims[key]["score"] for key in DIMENSION_KEYS},
@@ -69,7 +69,7 @@ def baseline_from_cache(hk_tickers, us_tickers) -> list:
             envelope = hk.get(ticker) or {}
             report = envelope.get("report") or {}
             if not report:
-                rows.append({"ticker": ticker, "market": "HK", "status": "missing", "pass_zh_100_150": False})
+                rows.append({"ticker": ticker, "market": "HK", "status": "missing", "pass_zh_100_300": False})
                 continue
             summary = summarize_report(ticker, "HK", envelope)
             summary["status"] = "baseline_cache"
@@ -78,7 +78,7 @@ def baseline_from_cache(hk_tickers, us_tickers) -> list:
     for ticker in us_tickers:
         files = sorted(moat_dir.glob(f"{ticker}_*.json"))
         if not files:
-            rows.append({"ticker": ticker, "market": "US", "status": "missing", "pass_zh_100_150": False})
+            rows.append({"ticker": ticker, "market": "US", "status": "missing", "pass_zh_100_300": False})
             continue
         data = json.loads(files[-1].read_text(encoding="utf-8"))
         summary = summarize_report(ticker, "US", data)
@@ -105,7 +105,7 @@ def run_us_pilot(tickers: list, out_dir: Path, force: bool) -> list:
     for ticker in tickers:
         stock = full.get(ticker) or full.get(ticker.replace("-", ".")) or {}
         if not stock:
-            results.append({"ticker": ticker, "market": "US", "status": "not_in_market_data", "pass_zh_100_150": False})
+            results.append({"ticker": ticker, "market": "US", "status": "not_in_market_data", "pass_zh_100_300": False})
             continue
         fin_context = {
             "name": stock.get("name") or stock.get("company_name") or ticker,
@@ -123,13 +123,13 @@ def run_us_pilot(tickers: list, out_dir: Path, force: bool) -> list:
         if not market.gemini_client:
             results.append({
                 "ticker": ticker, "market": "US", "status": "no_credentials",
-                "pass_zh_100_150": False, "assessmentPolicy": BUFFETT_MOAT_ASSESSMENT_POLICY,
+                "pass_zh_100_300": False, "assessmentPolicy": BUFFETT_MOAT_ASSESSMENT_POLICY,
                 "model": BUFFETT_MOAT_MODEL,
             })
             continue
         data = market.analyze_stock_moat(ticker, period, fin_context, force_refresh=force)
         if not data:
-            results.append({"ticker": ticker, "market": "US", "status": "moat_unavailable", "pass_zh_100_150": False})
+            results.append({"ticker": ticker, "market": "US", "status": "moat_unavailable", "pass_zh_100_300": False})
             continue
         summary = summarize_report(ticker, "US", data)
         summary["status"] = "generated" if report_zh_pass(data) else "generated_fail_length"
@@ -145,14 +145,14 @@ def run_hk_pilot(tickers: list, inputs_path: Path, out_path: Path, force: bool, 
             "ticker": ",".join(tickers),
             "market": "HK",
             "status": "missing_moat_inputs",
-            "pass_zh_100_150": False,
+            "pass_zh_100_300": False,
             "hint": f"Build moat inputs first (MOAT_EVIDENCE_OUTPUT) then pass --hk-inputs {inputs_path}",
         }]
 
     if create_client() is None:
         return [{
             "ticker": t, "market": "HK", "status": "no_credentials",
-            "pass_zh_100_150": False, "assessmentPolicy": BUFFETT_MOAT_ASSESSMENT_POLICY,
+            "pass_zh_100_300": False, "assessmentPolicy": BUFFETT_MOAT_ASSESSMENT_POLICY,
             "model": BUFFETT_MOAT_MODEL,
         } for t in tickers]
 
@@ -186,11 +186,11 @@ def run_hk_pilot(tickers: list, inputs_path: Path, out_path: Path, force: bool, 
         if not envelope.get("report"):
             results.append({
                 "ticker": ticker, "market": "HK", "status": "not_updated",
-                "pass_zh_100_150": False, "retries_or_errors": envelope.get("lastError"),
+                "pass_zh_100_300": False, "retries_or_errors": envelope.get("lastError"),
             })
             continue
         summary = summarize_report(ticker, "HK", envelope)
-        summary["status"] = "generated" if summary["pass_zh_100_150"] else "generated_fail_length"
+        summary["status"] = "generated" if summary["pass_zh_100_300"] else "generated_fail_length"
         results.append(summary)
     return results
 
@@ -203,7 +203,7 @@ def main():
                         help="HK moat evidence JSON from build_hkex (MOAT_EVIDENCE_OUTPUT)")
     parser.add_argument("--out-dir", default="cache/lite_buffett_pilot")
     parser.add_argument("--baseline-only", action="store_true",
-                        help="Measure existing caches vs ZH 100–150; no Gemini calls")
+                        help="Measure existing caches vs ZH 100–300; no Gemini calls")
     parser.add_argument("--force", action="store_true", help="Force remoat for selected pilot tickers")
     parser.add_argument("--skip-us", action="store_true")
     parser.add_argument("--skip-hk", action="store_true")
@@ -223,9 +223,9 @@ def main():
             "mode": "baseline_only",
             "policy": BUFFETT_MOAT_ASSESSMENT_POLICY,
             "model_target": BUFFETT_MOAT_MODEL,
-            "zh_band": [100, 150],
+            "zh_band": [100, 300],
             "rows": rows,
-            "overall_pass": all(r.get("pass_zh_100_150") for r in rows),
+            "overall_pass": all(r.get("pass_zh_100_300") for r in rows),
         }
         path = out_dir / "pilot_baseline_summary.json"
         path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -244,10 +244,10 @@ def main():
         "mode": "pilot",
         "policy": BUFFETT_MOAT_ASSESSMENT_POLICY,
         "model_target": BUFFETT_MOAT_MODEL,
-        "zh_band": [100, 150],
+        "zh_band": [100, 300],
         "rows": rows,
-        "overall_pass": all(r.get("pass_zh_100_150") for r in rows if r.get("status", "").startswith("generated")),
-        "all_generated_ok": all(r.get("pass_zh_100_150") for r in rows),
+        "overall_pass": all(r.get("pass_zh_100_300") for r in rows if r.get("status", "").startswith("generated")),
+        "all_generated_ok": all(r.get("pass_zh_100_300") for r in rows),
     }
     path = out_dir / "pilot_summary.json"
     path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

@@ -1,10 +1,11 @@
 """Shared Buffett-v3 / Lite moat standard for US and HK.
 
-Locked 2026-10-24:
+Locked 2026-10-24 (updated):
 - One assessment policy family for both markets
 - Model: gemini-2.5-flash-lite
-- Each M1–M10 comment_zh: 100–150 Traditional Chinese characters (字)
+- Each M1–M10 comment_zh: about 100–300 Traditional Chinese characters (字)
 - comment_en: translation of the Chinese (length not the gate)
+- Same band for US and HK (mcap ≥ HKD 1B for HK remoats)
 """
 
 from __future__ import annotations
@@ -18,13 +19,12 @@ BUFFETT_MOAT_ASSESSMENT_POLICY = "buffett-moat-v3"
 BUFFETT_MOAT_MODEL = "gemini-2.5-flash-lite"
 
 # Hard acceptance band for Traditional Chinese dimension comments (Unicode code points after strip).
+# User-locked target ~100–300 繁中字 (US already often lands here; HK ≥1B must match).
 MIN_COMMENT_ZH_CHARS = 100
-MAX_COMMENT_ZH_CHARS = 150
+MAX_COMMENT_ZH_CHARS = 300
 
-# Retry floor/ceiling slightly soft so 98–99 / 151–152 near-misses still get a useful correction message
-# while the prompt still targets the locked 100–150 band.
 RETRY_MIN_COMMENT_ZH_CHARS = 100
-RETRY_MAX_COMMENT_ZH_CHARS = 150
+RETRY_MAX_COMMENT_ZH_CHARS = 300
 
 DIMENSION_KEYS = (
     "m1_brand_pricing",

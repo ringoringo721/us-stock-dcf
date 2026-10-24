@@ -46,7 +46,7 @@ class UsMoatPolicyTests(unittest.TestCase):
         zh_desc = market.MoatDimension.model_fields["comment_zh"].description
         en_desc = market.MoatDimension.model_fields["comment_en"].description
         self.assertIn("100", zh_desc)
-        self.assertIn("150", zh_desc)
+        self.assertIn("300", zh_desc)
         self.assertIn("translation", en_desc.lower())
         self.assertEqual(market.US_MOAT_MODEL, "gemini-2.5-flash-lite")
 

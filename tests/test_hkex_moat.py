@@ -194,7 +194,7 @@ class MoatEvidenceTests(unittest.TestCase):
         schema = report_schema("0700.HK", ["profile"])
         dimension = schema.model_json_schema()["$defs"]["Dimension"]
         self.assertIn("100", dimension["properties"]["comment_zh"]["description"])
-        self.assertIn("150", dimension["properties"]["comment_zh"]["description"])
+        self.assertIn("300", dimension["properties"]["comment_zh"]["description"])
         self.assertIn("translation", dimension["properties"]["comment_en"]["description"].lower())
         # Prior grounded/researched caches must remoat on policy mismatch (no --force).
         prior = {"evidenceHash": "same", "existing": {
@@ -212,7 +212,8 @@ class MoatEvidenceTests(unittest.TestCase):
         report["m1_brand_pricing"]["comment_zh"] = "短評不足一百字。" * 2
         with self.assertRaises(MoatReportValidationError):
             validate_comment_lengths(report)
-        report["m1_brand_pricing"]["comment_zh"] = _ZH120 + ("再加一段灌水文字用於超過一百五十字上限的拒絕測試。" * 3)
+        report["m1_brand_pricing"]["comment_zh"] = _ZH120 + ("再加一段灌水文字用於超過三百字上限的拒絕測試。" * 12)
+        self.assertGreater(len(report["m1_brand_pricing"]["comment_zh"]), MAX_COMMENT_ZH_CHARS)
         with self.assertRaises(MoatReportValidationError):
             validate_comment_lengths(report)
 

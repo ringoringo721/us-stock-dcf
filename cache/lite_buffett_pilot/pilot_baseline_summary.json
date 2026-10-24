@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-10-24T07:46:22.321518+00:00",
+  "generatedAt": "2026-10-24T08:02:06.797012+00:00",
   "mode": "baseline_only",
   "policy": "buffett-moat-v3",
   "model_target": "gemini-2.5-flash-lite",
   "zh_band": [
     100,
-    150
+    300
   ],
   "rows": [
     {
@@ -14,7 +14,7 @@
       "assessmentPolicy": "grounded-business-judgment-v5",
       "model": "gemini-2.5-flash",
       "period": "2026Q2",
-      "pass_zh_100_150": false,
+      "pass_zh_100_300": true,
       "zh_chars_by_dim": {
         "m1_brand_pricing": 211,
         "m2_patents_regulatory": 212,
@@ -63,7 +63,7 @@
       "assessmentPolicy": "researched-business-judgment-v6",
       "model": "gemini-2.5-flash",
       "period": "2026Q2",
-      "pass_zh_100_150": false,
+      "pass_zh_100_300": true,
       "zh_chars_by_dim": {
         "m1_brand_pricing": 205,
         "m2_patents_regulatory": 211,
@@ -112,7 +112,7 @@
       "assessmentPolicy": "researched-business-judgment-v6",
       "model": "gemini-2.5-flash",
       "period": "2026Q2",
-      "pass_zh_100_150": false,
+      "pass_zh_100_300": true,
       "zh_chars_by_dim": {
         "m1_brand_pricing": 193,
         "m2_patents_regulatory": 177,
@@ -161,7 +161,7 @@
       "assessmentPolicy": "researched-business-judgment-v4",
       "model": "gemini-2.5-flash",
       "period": "2026Q2",
-      "pass_zh_100_150": false,
+      "pass_zh_100_300": false,
       "zh_chars_by_dim": {
         "m1_brand_pricing": 73,
         "m2_patents_regulatory": 71,
@@ -210,7 +210,7 @@
       "assessmentPolicy": "researched-business-judgment-v6",
       "model": "gemini-2.5-flash",
       "period": "2026H1",
-      "pass_zh_100_150": false,
+      "pass_zh_100_300": true,
       "zh_chars_by_dim": {
         "m1_brand_pricing": 150,
         "m2_patents_regulatory": 149,
@@ -259,7 +259,7 @@
       "assessmentPolicy": "us-buffett-moat-v3",
       "model": null,
       "period": "2026Q3",
-      "pass_zh_100_150": false,
+      "pass_zh_100_300": true,
       "zh_chars_by_dim": {
         "m1_brand_pricing": 194,
         "m2_patents_regulatory": 192,
@@ -309,7 +309,7 @@
       "assessmentPolicy": "us-buffett-moat-v3",
       "model": null,
       "period": "2026Q4",
-      "pass_zh_100_150": false,
+      "pass_zh_100_300": true,
       "zh_chars_by_dim": {
         "m1_brand_pricing": 230,
         "m2_patents_regulatory": 215,
@@ -359,7 +359,7 @@
       "assessmentPolicy": "us-buffett-moat-v3",
       "model": null,
       "period": "2026Q3",
-      "pass_zh_100_150": true,
+      "pass_zh_100_300": true,
       "zh_chars_by_dim": {
         "m1_brand_pricing": 133,
         "m2_patents_regulatory": 132,
@@ -409,7 +409,7 @@
       "assessmentPolicy": "us-buffett-moat-v3",
       "model": null,
       "period": "2026Q2",
-      "pass_zh_100_150": false,
+      "pass_zh_100_300": true,
       "zh_chars_by_dim": {
         "m1_brand_pricing": 152,
         "m2_patents_regulatory": 133,
@@ -459,7 +459,7 @@
       "assessmentPolicy": "us-buffett-moat-v3",
       "model": null,
       "period": "2020Q1",
-      "pass_zh_100_150": false,
+      "pass_zh_100_300": true,
       "zh_chars_by_dim": {
         "m1_brand_pricing": 199,
         "m2_patents_regulatory": 201,

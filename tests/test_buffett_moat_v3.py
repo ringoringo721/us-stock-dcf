@@ -27,13 +27,13 @@ class BuffettMoatV3Tests(unittest.TestCase):
         self.assertEqual(BUFFETT_MOAT_ASSESSMENT_POLICY, "buffett-moat-v3")
         self.assertEqual(BUFFETT_MOAT_MODEL, "gemini-2.5-flash-lite")
         self.assertEqual(MIN_COMMENT_ZH_CHARS, 100)
-        self.assertEqual(MAX_COMMENT_ZH_CHARS, 150)
+        self.assertEqual(MAX_COMMENT_ZH_CHARS, 300)
 
     def test_zh_band(self):
         self.assertTrue(MIN_COMMENT_ZH_CHARS <= zh_char_count(_ZH) <= MAX_COMMENT_ZH_CHARS)
         self.assertTrue(zh_length_ok(_ZH))
         self.assertFalse(zh_length_ok("短"))
-        self.assertFalse(zh_length_ok(_ZH + ("超長灌水。" * 20)))
+        self.assertFalse(zh_length_ok(_ZH + ("超長灌水。" * 40)))
 
     def test_validate_report_dims(self):
         report = {
