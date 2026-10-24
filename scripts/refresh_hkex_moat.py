@@ -84,6 +84,8 @@ def below_moat_market_cap(record):
 
 _EN_MAGNITUDE_WORDS = frozenset({"million", "billion", "trillion"})
 _PROHIBITED_TOKEN_RE = re.compile(r"prohibited token:\s*([^\s).]+)", re.IGNORECASE)
+# Bare currency names/codes are allowed; digit-bearing monetary claims stay banned via [0-9$].
+_BARE_CURRENCY_OK = "人民幣, 港元, HKD, USD, CNY (and similar) without digits or amounts"
 
 
 def magnitude_retry_guidance(detail):
@@ -99,7 +101,29 @@ def magnitude_retry_guidance(detail):
         f" MAGNITUDE RETRY (prohibited token: {shown}): Never use the English words million, billion, "
         "or trillion at all — even without digits or currency. Never pair Chinese 億/萬/千 with digits. "
         "Rewrite with qualitative scale language only (e.g. vast scale, large customer base, "
-        "龐大規模, 大型客戶基礎) and do not invent numerical or currency claims."
+        "龐大規模, 大型客戶基礎) and do not invent numerical or digit-bearing monetary claims. "
+        f"Bare currency names ({_BARE_CURRENCY_OK}) are fine."
+    )
+
+
+def digit_retry_guidance(detail):
+    """Actionable rewrite hint when Lite tripped on an isolated digit or $ (common on bank prose)."""
+    text = detail or ""
+    match = _PROHIBITED_TOKEN_RE.search(text)
+    token = (match.group(1) if match else "").strip()
+    if not token or token.lower() in _EN_MAGNITUDE_WORDS:
+        return ""
+    # validate_narrative reports a single [0-9$] char, or a magnitude word (handled above).
+    if token != "$" and not re.fullmatch(r"[0-9]+", token):
+        return ""
+    return (
+        f" DIGIT RETRY (prohibited token: {token}): Paraphrase WITHOUT any numerals or dollar signs. "
+        "Banks and insurers: say core capital / regulatory capital buffers instead of Tier 1 / Basel III; "
+        "describe franchise scale qualitatively instead of counting branches or 'big-four' ranks. "
+        "Also paraphrase 5G, B2B-style digit labels, numbered towers/properties, licence classes and "
+        "industry tiers. Bare currency names alone are allowed "
+        f"({_BARE_CURRENCY_OK}); never write 人民幣100, HKD 1.8, or $1. "
+        "Do not spell numbers out in words to evade validation."
     )
 
 
@@ -113,7 +137,8 @@ def validation_feedback(error):
             return (
                 "\nOUTPUT CORRECTION: " + detail + "." + length_hint
                 + " Regenerate the complete report using the same evidence and scores. "
-                "Keep comments qualitative (no digits, currency units, amounts, dates or percentages)."
+                "Keep comments qualitative (no digits, amounts, dates or percentages; "
+                f"bare currency names without amounts are fine: {_BARE_CURRENCY_OK})."
             )
         magnitude_hint = magnitude_retry_guidance(detail)
         if magnitude_hint:
@@ -122,12 +147,21 @@ def validation_feedback(error):
                 + " Regenerate the complete report using the same evidence and scores. "
                 "Keep all comments and verdicts qualitative."
             )
+        digit_hint = digit_retry_guidance(detail)
+        if digit_hint:
+            return (
+                "\nOUTPUT CORRECTION: " + detail + "." + digit_hint
+                + " Regenerate the complete report using the same evidence and scores. "
+                "Keep all comments and verdicts qualitative."
+            )
         return ("\nOUTPUT CORRECTION: " + detail + ". Regenerate the complete report using the same evidence. "
                 "Use qualitative words only in comments and verdicts, including technology/product terms and "
                 "regulatory acronyms. Say core capital instead of numbered capital tiers or digit-bearing "
                 "capital acronyms, and flagship properties instead of numbered property names. "
                 "Also paraphrase numbered industry tiers, customer segments, licence classes and gaming terms; "
-                "do not include digits, currency names or units, amounts, dates or percentages. "
+                "do not include digits, amounts, dates or percentages. "
+                f"Bare currency names without amounts are fine ({_BARE_CURRENCY_OK}); "
+                "never invent digit-bearing monetary claims. "
                 "Never use English million/billion/trillion; never pair Chinese 億/萬/千 with digits — "
                 "use qualitative scale language instead.")
     if isinstance(error, json.JSONDecodeError):
@@ -275,13 +309,14 @@ def report_schema(ticker, source_ids):
             description=(
                 f"Traditional Chinese qualitative moat comment in the locked {MIN_COMMENT_ZH_CHARS}–"
                 f"{MAX_COMMENT_ZH_CHARS} character (字) band: barrier mechanism, competitive differences "
-                "and business logic; no digits, amounts, dates or currency units; avoid empty boilerplate"
+                "and business logic; no digits, amounts or dates; bare currency names without amounts "
+                "are allowed; avoid empty boilerplate"
             ),
         )
         comment_en: str = Field(
             description=(
                 "English translation of comment_zh (faithful translation; length not gated); "
-                "no digits, amounts, dates or currency units"
+                "no digits, amounts or dates; bare currency names without amounts are allowed"
             ),
         )
         sources: list[Literal[tuple(source_ids)]]
@@ -296,7 +331,7 @@ def report_schema(ticker, source_ids):
             Field(
                 description=(
                     "Traditional Chinese overall moat verdict about 100–180 characters; "
-                    "qualitative only—no digits, amounts, dates or currency units"
+                    "qualitative only—no digits, amounts or dates; bare currency names without amounts OK"
                 ),
             ),
         ),
@@ -305,7 +340,7 @@ def report_schema(ticker, source_ids):
             Field(
                 description=(
                     "English translation of overall_moat_verdict_zh; "
-                    "qualitative only—no digits, amounts, dates or currency units"
+                    "qualitative only—no digits, amounts or dates; bare currency names without amounts OK"
                 ),
             ),
         ),
@@ -314,11 +349,12 @@ def report_schema(ticker, source_ids):
 
 
 def validate_narrative(text):
-    # Monetary facts belong in the FX-verified tables, not model-generated prose.
+    # Digit-bearing monetary claims belong in FX-verified tables, not model-generated prose.
+    # Bare currency names/codes (人民幣 / 港元 / HKD / USD / CNY / …) are allowed when they
+    # appear without digits or amounts — digit pairing is still caught by [0-9$].
     # Bare English magnitude words (million/billion/trillion) stay hard-banned even without
     # digits — Lite must use qualitative scale language instead (see magnitude_retry_guidance).
-    match = re.search(r"[0-9$]|HKD|USD|RMB|CNY|\u6e2f\u5143|\u6e2f\u5e63|\u4eba\u6c11\u5e63|\u7f8e\u5143"
-                      r"|\b(?:million|billion|trillion)\b", text, re.IGNORECASE)
+    match = re.search(r"[0-9$]|\b(?:million|billion|trillion)\b", text, re.IGNORECASE)
     if match:
         raise MoatReportValidationError(
             f"Moat narrative must not invent numerical or currency claims (prohibited token: {match.group()})")
@@ -514,12 +550,15 @@ def main():
                         "do not add facts or infer a replacement numerical claim. Describe digit-bearing "
                         "product codes, drug targets, platform names and media formats qualitatively "
                         "instead of repeating their codes. Do not spell numerical claims out in words "
-                        "to evade validation. Include no digits, dates, percentages, monetary amounts or "
-                        "currency units. NEVER use the English words million, billion, or trillion at all "
+                        "to evade validation. Include no digits, dates, percentages or monetary amounts. "
+                        "Bare currency names without amounts are allowed "
+                        f"({_BARE_CURRENCY_OK}); never write digit-bearing claims like 人民幣100 or $1. "
+                        "NEVER use the English words million, billion, or trillion at all "
                         "(even without digits). NEVER pair Chinese 億/萬/千 with digits. If a field was "
                         "rejected for a magnitude token, replace it with qualitative scale language "
                         "(e.g. vast scale, large customer base, 龐大規模, 大型客戶基礎) that does not use "
-                        "those banned tokens. "
+                        "those banned tokens. If rejected for a digit, paraphrase without numerals "
+                        "(core capital not Tier 1; next-generation network not 5G). "
                         + zh_primary_prompt_rules() +
                         " Return exactly the requested "
                         "field names and their rewritten text; scores and citations cannot be changed.\n"
@@ -571,7 +610,9 @@ def main():
                 "Do not copy foreign-currency monetary figures from the transcript into the verdict or invent a "
                 "conversion. Use its qualitative discussion and the supplied HKD financial facts instead. "
                 "CRITICAL: Comments and overall verdicts must be QUALITATIVE ONLY. Include NO digits, dates, "
-                "percentages, monetary amounts or currency units in those prose fields. NEVER use the English "
+                "percentages or monetary amounts in those prose fields. Bare currency names without amounts "
+                f"are allowed ({_BARE_CURRENCY_OK}); never invent digit-bearing monetary claims "
+                "(e.g. 人民幣100, HKD 1.8, $1). NEVER use the English "
                 "words million, billion, or trillion at all (even without digits). NEVER pair Chinese 億/萬/千 "
                 "with digits — use qualitative scale language instead (vast scale, large customer base, "
                 "龐大規模, 大型客戶基礎). Avoid digits even inside regulatory capital acronyms, technology terms "
