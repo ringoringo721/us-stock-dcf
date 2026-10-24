@@ -25,12 +25,12 @@ DIMENSIONS = {
     "m9_customer_retention": "Resistance to technological and demand disruption",
     "m10_durability": "Management integrity and capital allocation",
 }
-# v5 / researched-v6: enforce ~150 EN words / dim (v4/researched-v5 still undershot ~80–95).
+# v5 / researched-v6: fuller bilingual comments (acceptance band 120–150 EN words / dim).
 # Policy bump remoats short batch-1 caches and remaining names without --force.
 ASSESSMENT_POLICY = "grounded-business-judgment-v5"
 RESEARCH_ASSESSMENT_POLICY = "researched-business-judgment-v6"
-# Soft floor for retry loop (prompt still targets ~150). Rejects the short ~40–100 style.
-MIN_COMMENT_EN_WORDS = 130
+# Retry floor = bottom of acceptance band (120–150 EN words). Rejects short ~40–100 blurbs.
+MIN_COMMENT_EN_WORDS = 120
 MIN_COMMENT_ZH_CHARS = 120
 FACT_FIELDS = (
     "date", "period", "fiscalYear", "reportedCurrency", "sourceReportedCurrency", "periodStartDate", "periodLength",

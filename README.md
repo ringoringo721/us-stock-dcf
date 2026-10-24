@@ -611,8 +611,8 @@ Google Search Suggestions HTML, and validates issuer identity and the research
 hash. Valid saved research is reused without another search. Researched
 assessments use the distinct `researched-business-judgment-v6` policy (grounded
 assessments use `grounded-business-judgment-v5`); both require fuller bilingual
-comments (~150 English words / ~150–250 Chinese characters per dimension; short
-prose is rejected and regenerated), aligned with US `us-buffett-moat-v3`. The
+comments (120–150 English words / ~150–250 Chinese characters per dimension;
+shorter blurbs are rejected and regenerated), aligned with US `us-buffett-moat-v3`. The
 response schema limits citation IDs to actual supplied evidence. Supported weak
 moats may receive low qualitative scores rather than being mislabeled unknown;
 genuine essential gaps still remain unassessed. The rating page displays scores,
