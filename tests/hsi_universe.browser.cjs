@@ -499,13 +499,17 @@ function expectedAnnualCells(stock) {
       assert.doesNotMatch(ms.metrics.roe.text, /2022600000000/);
     }
     await page.evaluate(() => applyLanguage('en'));
-    const usPeers = await page.evaluate(tickers => tickers.map(ticker => {
-      renderPeersSubPage({ ...stockUniverse[ticker], ticker });
-      return { ticker, period: document.getElementById('cmp-peers-table').dataset.peerPeriod,
-        growth: [...document.querySelectorAll('td.peer-current [data-peer-growth]')].map(cell => ({
-          field: cell.dataset.peerGrowth, value: cell.dataset.growthValue, text: cell.textContent.trim()
-        })) };
-    }), usBaselineTickers);
+    const usPeers = await page.evaluate(async tickers => {
+      const rows = [];
+      for (const ticker of tickers) {
+        await renderPeersSubPage({ ...stockUniverse[ticker], ticker });
+        rows.push({ ticker, period: document.getElementById('cmp-peers-table').dataset.peerPeriod,
+          growth: [...document.querySelectorAll('td.peer-current [data-peer-growth]')].map(cell => ({
+            field: cell.dataset.peerGrowth, value: cell.dataset.growthValue, text: cell.textContent.trim()
+          })) });
+      }
+      return rows;
+    }, usBaselineTickers);
     for (const row of usPeers) {
       assert.equal(row.period, 'ttm', row.ticker);
       assert.equal(row.growth.length, 7, row.ticker);

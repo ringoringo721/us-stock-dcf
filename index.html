@@ -6377,6 +6377,39 @@
   // 4. 直向 5 家同行深度財務矩陣 (雙語切換 + 雙向滾動凍結 + 45+ 項指標)
   // ========================================================
   let peerRenderRequestId = 0;
+  function peerHasTtmStatements(stock) {
+    const revenue = stock?.statements_raw?.income?.revenue;
+    return Array.isArray(revenue) && revenue.some(Number.isFinite);
+  }
+  function peerNeedsEvidenceHydration(stock) {
+    const live = stockUniverse[stock.ticker] || stock;
+    if (peerHasTtmStatements(live) && live.expansion?.status !== 'available') return false;
+    return ['available', 'loaded', 'loadFailed', 'loading'].includes(live.expansion?.status);
+  }
+  async function hydratePeerColumn(stock, reload = false) {
+    const ticker = stock.ticker;
+    const live = stockUniverse[ticker] || stock;
+    if (!reload && peerHasTtmStatements(live) && live.expansion?.status !== 'available') {
+      return { ...live, ticker, peerBasis: stock.peerBasis };
+    }
+    if (!peerNeedsEvidenceHydration({ ...live, ticker })) {
+      return { ...live, ticker, peerBasis: stock.peerBasis };
+    }
+    try {
+      const full = await (/\.HK$/i.test(ticker) ? HkUniverse.load(ticker, reload) : UsUniverse.load(ticker, reload));
+      stockUniverse[ticker] = { ...full, expansion: { ...(full.expansion || {}), status: 'loaded' } };
+      return { ...stockUniverse[ticker], ticker, peerBasis: stock.peerBasis };
+    } catch (error) {
+      console.error('Peer company evidence failed to load', ticker, error);
+      if (stockUniverse[ticker]?.expansion) {
+        stockUniverse[ticker] = {
+          ...stockUniverse[ticker],
+          expansion: { ...stockUniverse[ticker].expansion, status: 'loadFailed', error: error.message }
+        };
+      }
+      return { ...live, ticker, peerBasis: stock.peerBasis };
+    }
+  }
   async function renderPeersSubPage(s, reload = false) {
     const container = document.getElementById('subpage-peers');
     if (!container || !s) return;
@@ -6408,6 +6441,16 @@
         document.getElementById('peer-annual-retry').onclick = () => renderPeersSubPage(s, true);
         return;
       }
+    } else if (reload || allCols.some(peerNeedsEvidenceHydration)) {
+      // US expansion compact catalogues omit statements_raw; hydrate every in-universe peer column.
+      container.innerHTML = `<p role="status" class="analysis-note">${I18N_DICT[currentLang].fcf_loading}</p>`;
+      allCols = await Promise.all(allCols.map(stock => hydratePeerColumn(stock, reload)));
+      if (requestId !== peerRenderRequestId || market !== MarketContext.market) return;
+    } else {
+      allCols = allCols.map(stock => {
+        const live = stockUniverse[stock.ticker] || stock;
+        return { ...live, ticker: stock.ticker, peerBasis: stock.peerBasis };
+      });
     }
 
     // 依比較口徑讀取財務數值。
@@ -6474,7 +6517,11 @@
     const leverageCell = (stock, kind) => `<span data-peer-metric="${kind}" title="${escapeAttribute(annual ? annualNote(stock) : leverageRatioNote(stock, kind))}">${Number.isFinite(stock[kind]) ? stock[kind].toFixed(2) + 'x' : 'N/A'}</span>`;
     const valuationMultiple = (numerator, denominator) => Number.isFinite(numerator) && denominator > 0
       ? numerator / denominator : null;
-    const marketEv = stock => annual ? stock.EV : Number(stock.EV || stock.mcap);
+    const quotedEv = stock => {
+      const value = Number(stock.EV ?? stock.ev ?? stock.fmp_official_ev);
+      return Number.isFinite(value) ? value : Number(stock.mcap);
+    };
+    const marketEv = stock => annual ? stock.EV : quotedEv(stock);
     const fmtPct = (v, colorize = false) => {
       if (annual && !Number.isFinite(v)) return 'N/A';
       if (v === null || isNaN(v)) return '--';
@@ -6492,10 +6539,10 @@
         items: [
           { labelZh: "市值 ($M)", labelEn: "Market Cap ($M)", fn: x => fmtM(Number.isFinite(x.mcap) ? x.mcap : null) },
           { labelZh: `最新股價 (${MarketContext.currency})`, labelEn: `Stock Price (${MarketContext.currency})`, fn: x => Number.isFinite(x.price) ? `${moneyPrefix()}${x.price.toFixed(2)}` : 'N/A' },
-          { labelZh: "企業價值 EV ($M)", labelEn: "Enterprise Value EV ($M)", fn: x => fmtM(annual ? x.EV : x.EV ?? x.fmp_official_ev ?? null) },
-          { labelZh: "EV / FCF", labelEn: "EV / FCF", fn: x => { const f = getFinVal(x, 'cashflow', 'freeCashFlow'); return annual ? fmtX(valuationMultiple(marketEv(x), f)) : f > 0 ? fmtX((Number(x.EV || x.mcap)) / f) : '--'; } },
+          { labelZh: "企業價值 EV ($M)", labelEn: "Enterprise Value EV ($M)", fn: x => fmtM(annual ? x.EV : (Number.isFinite(Number(x.EV ?? x.ev ?? x.fmp_official_ev)) ? Number(x.EV ?? x.ev ?? x.fmp_official_ev) : null)) },
+          { labelZh: "EV / FCF", labelEn: "EV / FCF", fn: x => { const f = getFinVal(x, 'cashflow', 'freeCashFlow'); return annual ? fmtX(valuationMultiple(marketEv(x), f)) : f > 0 ? fmtX(quotedEv(x) / f) : '--'; } },
           { labelZh: "EV / EBITDA", labelEn: "EV / EBITDA", fn: x => leverageCell(x, 'ev_to_ebitda') },
-          { labelZh: "EV / Revenue", labelEn: "EV / Revenue", fn: x => { const r = getFinVal(x, 'income', 'revenue'); return annual ? fmtX(valuationMultiple(marketEv(x), r)) : r > 0 ? fmtX((Number(x.EV || x.mcap)) / r) : '--'; } },
+          { labelZh: "EV / Revenue", labelEn: "EV / Revenue", fn: x => { const r = getFinVal(x, 'income', 'revenue'); return annual ? fmtX(valuationMultiple(marketEv(x), r)) : r > 0 ? fmtX(quotedEv(x) / r) : '--'; } },
           { labelZh: "Market Cap / FCF", labelEn: "Market Cap / FCF", fn: x => { const f = getFinVal(x, 'cashflow', 'freeCashFlow'); return annual ? fmtX(valuationMultiple(x.mcap, f)) : f > 0 ? fmtX(Number(x.mcap) / f) : '--'; } },
           { labelZh: "Market Cap / EBITDA", labelEn: "Market Cap / EBITDA", fn: x => { const eb = getFinVal(x, 'income', 'ebitda'); return annual ? fmtX(valuationMultiple(x.mcap, eb)) : eb > 0 ? fmtX(Number(x.mcap) / eb) : '--'; } },
           { labelZh: annual ? "P/E（最新完整財年）" : "靜態 P/E", labelEn: annual ? "P/E (latest full FY)" : "Trailing P/E", fn: x => annual ? Number.isFinite(x.pe_trailing) ? `${x.pe_trailing.toFixed(1)}x` : 'N/A' : x.pe_trailing ? `${Number(x.pe_trailing).toFixed(1)}x` : '--' },
