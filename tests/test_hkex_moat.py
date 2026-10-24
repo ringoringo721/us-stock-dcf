@@ -12,7 +12,7 @@ from scripts.refresh_hkex_moat import (
     needs_refresh, validate_report, validation_feedback, evidence_context, write_json_checkpoint, main,
     below_moat_market_cap,
     repair_narratives, report_schema, validate_comment_lengths,
-    validate_narrative, magnitude_retry_guidance,
+    validate_narrative, magnitude_retry_guidance, digit_retry_guidance,
 )
 from scripts.buffett_moat_v3 import BUFFETT_MOAT_ASSESSMENT_POLICY, MIN_COMMENT_ZH_CHARS, MAX_COMMENT_ZH_CHARS
 
@@ -255,7 +255,9 @@ class MoatEvidenceTests(unittest.TestCase):
     def test_generated_prose_cannot_relabel_foreign_money_or_invent_numerical_claims(self):
         for text in ["Deposits are HKD 1.8 trillion (USD 1.8 trillion)",
                      "Cash flow grew 20%", "FY2025 projections",
-                     "\u5b58\u6b3e\u9054\u842c\u5104\u6e2f\u5143"]:
+                     "\u5b58\u6b3e\u9054100\u842c\u5104\u6e2f\u5143",  # 存款達100萬億港元
+                     "\u4eba\u6c11\u5e63100",  # 人民幣100
+                     "$1"]:
             report = self.report()
             report["m1_brand_pricing"]["comment_en"] = text
             with self.assertRaises(ValueError):
@@ -264,6 +266,24 @@ class MoatEvidenceTests(unittest.TestCase):
             report["overall_moat_verdict_en"] = text
             with self.assertRaises(ValueError):
                 validate_report(report, "0700.HK", ["profile"])
+
+    def test_bare_currency_names_allowed_without_digits(self):
+        # Bank-style qualitative currency mentions (batch-1 1398/3988 failure mode).
+        for text in (
+            "以人民幣計價的存款與貸款業務強化客戶黏著。",
+            "The franchise clears mainly in HKD and USD without quoting amounts.",
+            "結算以港元為主，偶爾涉及美元與人民幣資金池。",
+            "Reporting currency is CNY; calculation currency is HKD.",
+            "存款達萬億港元規模，護城河來自網路與牌照壁壘。",  # bare 港元 + Chinese magnitude words, no digits
+        ):
+            validate_narrative(text)
+        # Digit-bearing monetary claims stay rejected.
+        for text in ("人民幣100", "港元1.8", "HKD 1.8", "USD 100", "CNY50", "$1", "RMB 20"):
+            with self.assertRaises(MoatReportValidationError) as rejected:
+                validate_narrative(text)
+            self.assertIn("prohibited token:", str(rejected.exception))
+            token = str(rejected.exception).split("prohibited token:", 1)[1].strip()
+            self.assertTrue(token[0].isdigit() or token.startswith("$"), token)
 
     def test_bare_english_magnitude_words_remain_hard_banned(self):
         for word in ("million", "billion", "trillion", "Billion"):
@@ -289,13 +309,15 @@ class MoatEvidenceTests(unittest.TestCase):
         self.assertIn("qualitative scale language", feedback)
         self.assertIn("億/萬/千", feedback)
         self.assertIn(magnitude_retry_guidance(str(err)), feedback)
-        # Digits still get the generic (non-magnitude-first) path.
+        # Digits take the digit-retry path (not magnitude-first).
         report = self.report()
         report["m1_brand_pricing"]["comment_en"] = "A leading 5G network"
         with self.assertRaises(MoatReportValidationError) as rejected:
             validate_report(report, "0700.HK", ["profile"])
         digit_feedback = validation_feedback(rejected.exception)
         self.assertNotIn("MAGNITUDE RETRY", digit_feedback)
+        self.assertIn("DIGIT RETRY", digit_feedback)
+        self.assertIn(digit_retry_guidance(str(rejected.exception)), digit_feedback)
 
     def test_invalid_report_retries_receive_safe_actionable_feedback_without_weakening_validation(self):
         report = self.report()
@@ -304,10 +326,12 @@ class MoatEvidenceTests(unittest.TestCase):
             validate_report(report, "0700.HK", ["profile"])
         feedback = validation_feedback(rejected.exception)
         self.assertIn("numerical or currency claims", feedback)
-        self.assertIn("technology/product terms", feedback)
-        self.assertIn("numbered industry tiers", feedback)
+        self.assertIn("DIGIT RETRY", feedback)
+        self.assertIn("Paraphrase WITHOUT any numerals", feedback)
+        self.assertIn("core capital", feedback)
         self.assertIn("m1_brand_pricing.comment_en", feedback)
         self.assertIn("prohibited token: 5", feedback)
+        self.assertIn("人民幣", feedback)  # bare currency still allowed guidance
         report["m1_brand_pricing"]["comment_en"] = "A leading next-generation network"
         self.assertEqual(validate_report(report, "0700.HK", ["profile"]), report)
 
