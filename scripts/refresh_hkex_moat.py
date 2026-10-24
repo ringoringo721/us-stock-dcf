@@ -210,8 +210,8 @@ def report_schema(ticker, source_ids):
         )
         comment_en: str = Field(
             description=(
-                "English qualitative moat comment in the 120–150 word band "
-                "(about 120 to 150 words is OK; prefer near 150; reject short ~40–100 word blurbs). "
+                "English qualitative moat comment in the 100–150 word band "
+                "(about 100 to 150 words is OK; prefer near 150; reject short ~40–80 word blurbs). "
                 "Cover barrier mechanism, competitive differences and business logic. "
                 "No digits, amounts, dates or currency units"
             ),
@@ -236,7 +236,7 @@ def report_schema(ticker, source_ids):
             str,
             Field(
                 description=(
-                    "English overall moat verdict in the 120–150 word band "
+                    "English overall moat verdict in the 100–150 word band "
                     "(not a short blurb); "
                     "qualitative only—no digits, amounts, dates or currency units"
                 ),
@@ -267,8 +267,8 @@ def validate_comment_lengths(report):
         zh_chars = len(zh.strip())
         if en_words < MIN_COMMENT_EN_WORDS:
             raise MoatReportValidationError(
-                f"{name}.comment_en: too short ({en_words} words); rewrite into the 120–150 English-word "
-                f"band (minimum {MIN_COMMENT_EN_WORDS}; do not use the short ~40–100 word style)")
+                f"{name}.comment_en: too short ({en_words} words); rewrite into the 100–150 English-word "
+                f"band (minimum {MIN_COMMENT_EN_WORDS}; do not use the short ~40–80 word style)")
         if zh_chars < MIN_COMMENT_ZH_CHARS:
             raise MoatReportValidationError(
                 f"{name}.comment_zh: too short ({zh_chars} characters); rewrite to about 150–250 "
@@ -498,11 +498,11 @@ def main():
                 "cash flows are NOT current TTM flows. No transcript means no claim to have reviewed a call. "
                 "Each dimension needs in-depth Traditional Chinese and English explanations and source IDs drawn "
                 "only from allowedSourceIds. LENGTH BAND per dimension (below-floor outputs are rejected and "
-                "regenerated): comment_en should be 120–150 English words (that full band is acceptable; "
-                "prefer nearer 150; never the short ~40–100 word blurb from older caches); "
+                "regenerated): comment_en should be 100–150 English words (that full band is acceptable; "
+                "prefer nearer 150; never the short ~40–80 word blurb from older caches); "
                 "comment_zh about 150–250 Chinese characters with the same depth. Expand on how the "
                 "barrier works, who it disadvantages, durability and limits—without padding or repetition. "
-                "overall_moat_verdict_en in the 120–150 word band; overall_moat_verdict_zh about 120–200 characters. "
+                "overall_moat_verdict_en in the 100–150 word band; overall_moat_verdict_zh about 120–200 characters. "
                 "Summarize/paraphrase; do not reproduce transcript passages. "
                 "Financial facts have already been translated to HKD using dated FX; amounts are full HKD units, "
                 "not millions. They provide evidence for qualitative assessment, not numbers to repeat in prose. "
