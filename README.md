@@ -603,8 +603,11 @@ batch Lite Buffett-v3 remoats for mcap ≥ HKD 5B under time/cost pressure; alre
 Partial successes still Persist. US baseline remoats use Daily `moat_limit` /
 `MAX_US_MOAT_GEMINI`; legacy `us-buffett-moat-v3` caches with ZH already in the
 100–300 band restamp without Gemini. US expansion batches use **Full remoat
-batch** (`us-expansion`, ≤20/run).
-Count backlog with `python3 scripts/remoat_remaining.py`.
+batch** (`us-expansion`, ≤20/run). HK expansion incomplete/partial moats
+(mcap ≥ HKD 5B or unknown/null mcap) use the same workflow with
+`market=hk-expansion` (separate concurrency from Refresh HKEX; no `--force`).
+Count backlog with `python3 scripts/remoat_remaining.py` and
+`python3 scripts/remoat_remaining.py --market hk --scope expansion`.
 All new scores still require cited evidence and bilingual qualitative comments;
 insufficient evidence may legitimately remain unassessed. Failed authorization
 does not count as a successful refresh or replace prior reports with invented

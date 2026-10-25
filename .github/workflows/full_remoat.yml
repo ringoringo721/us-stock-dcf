@@ -1,10 +1,14 @@
 name: Full remoat batch (Lite + Buffett-v3)
 
 # Human-only. Agent tokens cannot workflow_dispatch (403).
-# Production persist: HK via Refresh HKEX allowlist commit; US baseline via daily commit;
+# Production persist: HK core via Refresh HKEX allowlist commit; HK expansion via
+# this workflow (hk-expansion → hkex_expansion_data.js); US baseline via daily commit;
 # US expansion via integrate into us_expansion_data.js on main.
 # Spec: gemini-2.5-flash-lite, buffett-moat-v3, ZH comment_zh 100–300 繁中字.
-# Order: HK ≥ HKD 5B first (moat_limit≈20–30), then US baseline restamp/remoat, then US expansion.
+# Order: HK core ≥ HKD 5B first, then HK expansion incomplete (separate concurrency),
+# then US baseline, then US expansion.
+# hk-expansion concurrency group is full-remoat-hk-expansion — does NOT share
+# hkex-data-refresh with Refresh HKEX (#30-safe).
 
 on:
   workflow_dispatch:
@@ -19,11 +23,12 @@ on:
         type: choice
         options:
           - hk
+          - hk-expansion
           - us-baseline
           - us-expansion
         default: hk
       moat_limit:
-        description: Max Gemini remoats this batch (20–30 recommended)
+        description: Max Gemini remoats this batch (20–30 recommended; hk-expansion clamps to 20)
         required: true
         type: string
         default: '25'
@@ -42,14 +47,14 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # HK batches reuse Refresh HKEX production path (same persist/salvage guarantees).
+  # HK core batches reuse Refresh HKEX production path (same persist/salvage guarantees).
   # This job only documents the recipe — operators should prefer the Refresh HKEX
-  # workflow UI for HK so scheduled concurrency + deploy hook stay shared.
+  # workflow UI for HK core so scheduled concurrency + deploy hook stay shared.
   hk-recipe:
     if: inputs.confirm == 'FULL' && inputs.market == 'hk'
     runs-on: ubuntu-latest
     steps:
-      - name: Print HK first-batch recipe (use Refresh HKEX)
+      - name: Print HK core recipe (use Refresh HKEX)
         env:
           MOAT_LIMIT: ${{ inputs.moat_limit }}
           TOOLING_REF: ${{ inputs.tooling_ref }}
@@ -58,13 +63,176 @@ jobs:
             ''|*[!0-9]*) echo "::error::moat_limit must be digits"; exit 1 ;;
           esac
           REF="${TOOLING_REF:-${{ github.ref_name }}}"
-          echo "::notice::HK remoat must be dispatched on Refresh HKEX (shared persist/deploy)."
+          echo "::notice::HK core remoat must be dispatched on Refresh HKEX (shared persist/deploy)."
           echo "Actions URL: https://github.com/ringoringo721/us-stock-dcf/actions/workflows/refresh_hkex.yml"
           echo "Branch: ${REF}"
           echo "moat_limit: ${MOAT_LIMIT}"
           echo "Model/policy: gemini-2.5-flash-lite / buffett-moat-v3 / ZH 100–300"
+          echo "For expansion incomplete (partial scores / null mcap), use market=hk-expansion on this workflow instead."
           echo "Then confirm Persist pushed a [skip ci] Refresh commit on main and spot-check cache/hkex_moat.json."
           exit 0
+
+  # HK expansion incomplete/partial remoat (systemic: ≥5B OR null mcap; skip complete).
+  # Separate from Refresh HKEX concurrency — safe while core #30-style runs are in flight.
+  hk-expansion:
+    if: inputs.confirm == 'FULL' && inputs.market == 'hk-expansion'
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Overlay tooling from workflow ref
+        if: github.ref != 'refs/heads/main'
+        run: |
+          git fetch origin "${{ github.ref }}"
+          for path in \
+            scripts/remoat_remaining.py \
+            scripts/refresh_hkex_moat.py \
+            scripts/buffett_moat_v3.py \
+            scripts/build_hkex_expansion.cjs \
+            scripts/build_hkex.cjs \
+            scripts/refresh_usd_rates.cjs \
+            tests/test_remoat_remaining.py \
+            tests/test_hkex_moat.py \
+            tests/test_buffett_moat_v3.py
+          do
+            if git cat-file -e "FETCH_HEAD:$path" 2>/dev/null; then
+              git show "FETCH_HEAD:$path" > "$path"
+            fi
+          done
+          if ! git diff --cached --quiet; then
+            echo "::error::Overlay must not stage index changes"
+            exit 1
+          fi
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: pip install requests pydantic google-genai
+      - name: Select next HK expansion incomplete remoat batch
+        id: batch
+        env:
+          MOAT_LIMIT: ${{ inputs.moat_limit }}
+        run: |
+          case "${MOAT_LIMIT}" in
+            ''|*[!0-9]*) echo "::error::moat_limit must be digits"; exit 1 ;;
+          esac
+          if [ "${MOAT_LIMIT}" -gt 20 ]; then
+            echo "::warning::HK expansion batch clamps moat_limit to 20"
+            MOAT_LIMIT=20
+          fi
+          SYMBOLS=$(python -u scripts/remoat_remaining.py --market hk --scope expansion --limit "${MOAT_LIMIT}" --json \
+            | python -c "import json,sys; d=json.load(sys.stdin); print(','.join(d['hk_expansion'].get('next_batch') or []))")
+          if [ -z "${SYMBOLS}" ]; then
+            echo "No HK expansion incomplete remoat backlog."
+            echo "symbols=" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "symbols=${SYMBOLS}" >> "$GITHUB_OUTPUT"
+          echo "Selected: ${SYMBOLS}"
+      - name: Refresh HKD FX observations for expansion build
+        if: steps.batch.outputs.symbols != ''
+        run: |
+          node scripts/refresh_usd_rates.cjs --hkd --all-hkd-currencies
+          mkdir -p hkex-data-output/cache/fx
+          cp cache/fx/hkd_rates.json hkex-data-output/cache/fx/hkd_rates.json
+      - name: Capture public evidence for expansion remoat batch
+        if: steps.batch.outputs.symbols != ''
+        env:
+          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+          CAPTURE_MARKET: HKEX
+          CAPTURE_ALL_HK: 'true'
+          CAPTURE_RESUME: 'true'
+          CAPTURE_REQUEST_DELAY: '1'
+          CAPTURE_SYMBOLS: ${{ steps.batch.outputs.symbols }}
+          CAPTURE_OUTPUT: hkex-data-output/sources
+        run: |
+          mkdir -p hkex-data-output/sources
+          python -u scripts/capture_valuation_sources.py
+      - name: Build expansion moat inputs (reuse saved company assessments)
+        if: steps.batch.outputs.symbols != ''
+        env:
+          SYMBOLS: ${{ steps.batch.outputs.symbols }}
+        run: |
+          node scripts/build_hkex_expansion.cjs build \
+            hkex-data-output/sources hkex-data-output "$SYMBOLS" hkex-data-output/moat-reports.json
+      - name: Remoat incomplete expansion with Lite + Buffett-v3 (no --force)
+        if: steps.batch.outputs.symbols != ''
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+          MOAT_MODEL: gemini-2.5-flash-lite
+          MOAT_REQUEST_TIMEOUT_MS: '180000'
+          SYMBOLS: ${{ steps.batch.outputs.symbols }}
+        run: |
+          python -u scripts/refresh_hkex_moat.py \
+            hkex-data-output/moat-inputs.json \
+            hkex-data-output/moat-reports.json \
+            --tickers "${SYMBOLS}"
+      - name: Package and integrate expansion moat into published catalogue
+        if: steps.batch.outputs.symbols != ''
+        env:
+          SYMBOLS: ${{ steps.batch.outputs.symbols }}
+        run: |
+          node scripts/build_hkex_expansion.cjs build \
+            hkex-data-output/sources hkex-data-output "$SYMBOLS" hkex-data-output/moat-reports.json
+          node scripts/build_hkex_expansion.cjs package hkex-data-output
+          node scripts/build_hkex_expansion.cjs integrate hkex-data-output .
+      - name: Upload HK expansion remoat checkpoint
+        if: always() && steps.batch.outputs.symbols != ''
+        continue-on-error: true
+        uses: actions/upload-artifact@v4
+        with:
+          name: hk-expansion-remoat-checkpoint
+          path: hkex-data-output/
+          retention-days: 14
+          if-no-files-found: warn
+      - name: Persist HK expansion remoat
+        if: steps.batch.outputs.symbols != ''
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git restore --source=HEAD --worktree --staged -- \
+            scripts/remoat_remaining.py \
+            scripts/refresh_hkex_moat.py \
+            scripts/buffett_moat_v3.py \
+            scripts/build_hkex_expansion.cjs \
+            scripts/build_hkex.cjs \
+            scripts/refresh_usd_rates.cjs \
+            tests/test_remoat_remaining.py \
+            tests/test_hkex_moat.py \
+            tests/test_buffett_moat_v3.py || true
+          git reset --quiet HEAD
+          git add hkex_expansion_data.js
+          git add -f cache/hk_companies/ cache/financials/ cache/price_charts/ cache/fx/ || true
+          if git diff --cached --name-only | grep -Eiv '^(hkex_expansion_data\.js|cache/(hk_companies|financials|price_charts|fx)/)'; then
+            echo "::error::Persist staging includes paths outside the HK expansion allowlist:"
+            git diff --cached --name-only
+            exit 1
+          fi
+          if ! git diff --cached --quiet; then
+            git commit -m "HK expansion moat remoat batch (Lite Buffett-v3) [skip ci]"
+            git reset --hard HEAD
+            git pull --rebase origin main
+            git push origin HEAD:main
+          else
+            echo "No HK expansion data changes."
+          fi
+      - name: Request production publication of the committed expansion data
+        if: steps.batch.outputs.symbols != ''
+        env:
+          VERCEL_DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$VERCEL_DEPLOY_HOOK" ]; then
+            echo "::warning::No production deploy hook configured. Repository data is refreshed; production publication is not confirmed."
+            exit 0
+          fi
+          curl --fail --silent --show-error --request POST "$VERCEL_DEPLOY_HOOK" --output /tmp/hk-expansion-deployment.json
+          node -e "const r=require('/tmp/hk-expansion-deployment.json');if(!r.job?.id)throw new Error('Deployment request not confirmed');console.log('Production deployment requested; final readiness is reported by Vercel.');"
 
   us-baseline:
     if: inputs.confirm == 'FULL' && inputs.market == 'us-baseline'
