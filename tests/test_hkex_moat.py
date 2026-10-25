@@ -11,10 +11,14 @@ from scripts.refresh_hkex_moat import (
     ASSESSMENT_POLICY, RESEARCH_ASSESSMENT_POLICY, DIMENSIONS, MoatReportValidationError, create_client,
     needs_refresh, validate_report, validation_feedback, evidence_context, write_json_checkpoint, main,
     below_moat_market_cap,
-    repair_narratives, report_schema, validate_comment_lengths,
+    repair_narratives, repair_simplified_zh, report_schema, validate_comment_lengths,
     validate_narrative, magnitude_retry_guidance, digit_retry_guidance,
+    is_digit_prohibited_error,
 )
-from scripts.buffett_moat_v3 import BUFFETT_MOAT_ASSESSMENT_POLICY, MIN_COMMENT_ZH_CHARS, MAX_COMMENT_ZH_CHARS
+from scripts.buffett_moat_v3 import (
+    BUFFETT_MOAT_ASSESSMENT_POLICY, MIN_COMMENT_ZH_CHARS, MAX_COMMENT_ZH_CHARS,
+    zh_primary_prompt_rules, zh_script_retry_guidance,
+)
 
 # Locked band sample (~120 字) used wherever validate_report runs.
 _ZH120 = (
@@ -335,13 +339,90 @@ class MoatEvidenceTests(unittest.TestCase):
         feedback = validation_feedback(rejected.exception)
         self.assertIn("numerical or currency claims", feedback)
         self.assertIn("DIGIT RETRY", feedback)
-        self.assertIn("Paraphrase WITHOUT any numerals", feedback)
+        self.assertIn("HARD SCRUB", feedback)
+        self.assertIn("comment_zh", feedback)
+        self.assertIn("comment_en", feedback)
         self.assertIn("core capital", feedback)
         self.assertIn("m1_brand_pricing.comment_en", feedback)
         self.assertIn("prohibited token: 5", feedback)
         self.assertIn("人民幣", feedback)  # bare currency still allowed guidance
+        self.assertTrue(is_digit_prohibited_error(rejected.exception))
         report["m1_brand_pricing"]["comment_en"] = "A leading next-generation network"
         self.assertEqual(validate_report(report, "0700.HK", ["profile"]), report)
+
+    def test_digit_token_four_gets_digit_retry_not_magnitude(self):
+        err = MoatReportValidationError(
+            "Moat narrative must not invent numerical or currency claims (prohibited token: 4)"
+        )
+        self.assertTrue(is_digit_prohibited_error(err))
+        feedback = validation_feedback(err)
+        self.assertIn("DIGIT RETRY", feedback)
+        self.assertIn("prohibited token: 4", feedback)
+        self.assertNotIn("MAGNITUDE RETRY", feedback)
+        self.assertIn("繁體", feedback)
+
+    def test_simplified_chinese_comment_zh_is_rejected_and_gets_script_retry(self):
+        report = self.report()
+        report["m1_brand_pricing"]["comment_zh"] = (
+            "公司业务描述不详，缺乏品牌定价与客户证据，无法评估护城河强度，"
+            "网络效应与运营资产均无充分信息支持，整体竞争优势极弱且难以确认。"
+            + ("补充说明。" * 8)
+        )
+        with self.assertRaises(MoatReportValidationError) as rejected:
+            validate_report(report, "0700.HK", ["profile"])
+        detail = str(rejected.exception)
+        self.assertIn("Traditional Chinese", detail)
+        self.assertIn("Simplified Chinese", detail)
+        self.assertIn("m1_brand_pricing.comment_zh", detail)
+        feedback = validation_feedback(rejected.exception)
+        self.assertIn("TRADITIONAL CHINESE RETRY", feedback)
+        self.assertFalse(is_digit_prohibited_error(rejected.exception))
+
+    def test_repair_simplified_zh_converts_without_model(self):
+        report = self.report()
+        report["m1_brand_pricing"]["comment_zh"] = (
+            "公司业务描述不详，缺乏品牌定价与客户证据，无法评估护城河强度，"
+            "网络效应与运营资产均无充分信息支持，整体竞争优势极弱且难以确认。"
+            + ("補充說明。" * 8)
+        )
+        before = report["m1_brand_pricing"]["comment_zh"]
+        fixed = repair_simplified_zh(report)
+        self.assertNotEqual(fixed["m1_brand_pricing"]["comment_zh"], before)
+        self.assertIn("業務", fixed["m1_brand_pricing"]["comment_zh"])
+        self.assertEqual(validate_report(fixed, "0700.HK", ["profile"]), fixed)
+
+    def test_primary_prompt_rules_require_traditional_only(self):
+        rules = zh_primary_prompt_rules()
+        self.assertIn("Traditional Chinese", rules)
+        self.assertIn("繁體", rules)
+        self.assertIn("簡體", rules)
+        self.assertIn(zh_script_retry_guidance(
+            "m1.comment_zh: Moat ZH prose must be Traditional Chinese (繁體) only — "
+            "Simplified Chinese (簡體) is prohibited (sample: 业)"
+        ), validation_feedback(MoatReportValidationError(
+            "m1.comment_zh: Moat ZH prose must be Traditional Chinese (繁體) only — "
+            "Simplified Chinese (簡體) is prohibited (sample: 业)"
+        )))
+
+    def test_digit_scrub_extra_pass_retries_until_clean(self):
+        report = self.report()
+        report["m1_brand_pricing"]["comment_en"] = "ORI-4000 listing lacks pricing power."
+        report["m1_brand_pricing"]["comment_zh"] = _ZH120
+        calls = {"n": 0}
+
+        def rewrite(invalid):
+            calls["n"] += 1
+            if calls["n"] == 1:
+                return {key: ("Still has 4 inside." if key.endswith("comment_en") else val)
+                        for key, val in invalid.items()}
+            return {key: "Qualitative paraphrase without numerals for the successor listing."
+                    if key.endswith("comment_en") else val
+                    for key, val in invalid.items()}
+
+        corrected = repair_narratives(report, rewrite)
+        self.assertGreaterEqual(calls["n"], 2)
+        self.assertEqual(validate_report(corrected, "0700.HK", ["profile"]), corrected)
+        self.assertNotIn("4", corrected["m1_brand_pricing"]["comment_en"])
 
     def test_external_error_strings_never_enter_retry_prompts(self):
         self.assertEqual(validation_feedback(ValueError("https://example.invalid/?key=private-token")), "")

@@ -37,13 +37,17 @@ jobs:
           # Worktree-only overlay: do NOT `git checkout FETCH_HEAD --` (that stages
           # tooling into the index and the persist commit would push it to main).
           git fetch origin "${{ github.ref }}"
+          mkdir -p scripts/data
           for path in \
             scripts/refresh_hkex_moat.py \
             scripts/buffett_moat_v3.py \
+            scripts/zh_traditional.py \
+            scripts/data/opencc_st_characters.txt \
             scripts/refresh_usd_rates.cjs \
             scripts/build_hkex.cjs \
             tests/test_hkex_moat.py \
-            tests/test_buffett_moat_v3.py
+            tests/test_buffett_moat_v3.py \
+            tests/test_zh_traditional.py
           do
             if git cat-file -e "FETCH_HEAD:$path" 2>/dev/null; then
               git show "FETCH_HEAD:$path" > "$path"
@@ -53,10 +57,13 @@ jobs:
           if ! git diff --quiet -- \
               scripts/refresh_hkex_moat.py \
               scripts/buffett_moat_v3.py \
+              scripts/zh_traditional.py \
+              scripts/data/opencc_st_characters.txt \
               scripts/refresh_usd_rates.cjs \
               scripts/build_hkex.cjs \
               tests/test_hkex_moat.py \
-              tests/test_buffett_moat_v3.py 2>/dev/null; then
+              tests/test_buffett_moat_v3.py \
+              tests/test_zh_traditional.py 2>/dev/null; then
             echo "Overlaid moat/FX tooling in worktree only from ${{ github.ref }} @ ${{ github.sha }}"
           else
             echo "Tooling already matches ${{ github.ref }}"
@@ -151,10 +158,13 @@ jobs:
           git restore --source=HEAD --worktree --staged -- \
             scripts/refresh_hkex_moat.py \
             scripts/buffett_moat_v3.py \
+            scripts/zh_traditional.py \
+            scripts/data/opencc_st_characters.txt \
             scripts/refresh_usd_rates.cjs \
             scripts/build_hkex.cjs \
             tests/test_hkex_moat.py \
-            tests/test_buffett_moat_v3.py || true
+            tests/test_buffett_moat_v3.py \
+            tests/test_zh_traditional.py || true
           git reset --quiet HEAD
           git add hk_market_dcf.json hk_market_data.js hk_fcff_data.js
           git add fmp_model_data.js
