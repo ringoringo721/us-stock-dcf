@@ -132,6 +132,20 @@
       ? 'Provider financial statements are unavailable for this listing. Period columns are not shown as “duration unverified”; missing statements are not filled with zeros or fabricated figures.'
       : '供應商未提供此上市股份的財務報表。欄位不會顯示為「期間未核實」；缺漏財報不以零或虛構數字填補。';
   }
+  // Compact peers-column label (header / cell); full explanation stays in title + page note.
+  function statementsUnavailableShortMessage(language = 'en') {
+    return language === 'en' ? 'No provider statements' : '供應商無財報';
+  }
+  // statements_v2 pack used by HK annual peers (FcfRatios.loadStatements) — same empty class as financials.
+  function statementsPackUnavailable(data) {
+    if (!data || typeof data !== 'object') return false;
+    if (data.providerStatementsUnavailable) return true;
+    const empty = ['annual', 'quarterly'].every(period => ['income', 'balance', 'cashflow']
+      .every(type => Array.isArray(data?.[period]?.[type]) && data[period][type].length === 0));
+    if (!empty) return false;
+    return (Array.isArray(data.qualityWarnings) ? data.qualityWarnings : [])
+      .some(row => row?.code === 'providerStatementUnavailable') || empty;
+  }
   function renderProvenance(panel, data, ticker) {
     if (!panel || !data) return;
     let details = panel.querySelector('[data-financial-provenance]');
@@ -168,5 +182,6 @@
   }
   return { market, currency, resolve, stocks, fcff, currencyFor, compatibleSaved, cadence, label, labels, localize,
     propertyFvNote, qualityWarningList, hasDatedStatementColumns, statementsUnavailable,
-    statementsUnavailableMessage, renderProvenance };
+    statementsUnavailableMessage, statementsUnavailableShortMessage, statementsPackUnavailable,
+    renderProvenance };
 });

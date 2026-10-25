@@ -84,6 +84,16 @@ test('MarketContext.statementsUnavailable distinguishes empty provider coverage 
   }), false, 'TTM-only from interim rows is not treated as total absence');
   assert.match(MarketContext.statementsUnavailableMessage('zh'), /供應商未提供/);
   assert.match(MarketContext.statementsUnavailableMessage('en'), /Provider financial statements are unavailable/);
+  assert.equal(MarketContext.statementsUnavailableShortMessage('zh'), '供應商無財報');
+  assert.equal(MarketContext.statementsPackUnavailable({
+    annual: { income: [], balance: [], cashflow: [] },
+    quarterly: { income: [], balance: [], cashflow: [] },
+    qualityWarnings: [{ code: 'providerStatementUnavailable' }]
+  }), true);
+  assert.equal(MarketContext.statementsPackUnavailable({
+    annual: { income: [{ date: '2024-12-31' }], balance: [], cashflow: [] },
+    quarterly: { income: [], balance: [], cashflow: [] }
+  }), false);
 });
 
 test('0627.HK and 2677.HK cache still mark provider statements unavailable without inventing rows', () => {

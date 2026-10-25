@@ -6461,7 +6461,20 @@
       try {
         const data = await Promise.all(allCols.map(stock => FcfRatios.loadStatements(stock.ticker, reload)));
         if (requestId !== peerRenderRequestId || market !== MarketContext.market) return;
-        allCols = allCols.map((stock, index) => PeerComparison.annualView(stock, data[index]));
+        allCols = allCols.map((stock, index) => {
+          const pack = data[index];
+          const viewed = PeerComparison.annualView(stock, pack);
+          const unavailable = !!(viewed.peerAnnual?.providerStatementsUnavailable
+            || MarketContext.statementsUnavailable(stock)
+            || MarketContext.statementsPackUnavailable(pack));
+          return {
+            ...viewed,
+            peerAnnual: {
+              ...viewed.peerAnnual,
+              providerStatementsUnavailable: unavailable
+            }
+          };
+        });
       } catch (error) {
         if (requestId !== peerRenderRequestId || market !== MarketContext.market) return;
         console.error('Annual peer financial statements could not be loaded', targetTicker, error);
@@ -6482,6 +6495,10 @@
         return { ...live, ticker: stock.ticker, peerBasis: stock.peerBasis };
       });
     }
+
+    const peerUnavailable = stock => !!(annual && stock?.peerAnnual?.providerStatementsUnavailable);
+    const peerUnavailableLabel = () => MarketContext.statementsUnavailableShortMessage(currentLang);
+    const peerUnavailableTitle = () => MarketContext.statementsUnavailableMessage(currentLang);
 
     // 依比較口徑讀取財務數值。
     function getFinVal(stock, stmtKey, fieldKey, idx = -1) {
@@ -6513,6 +6530,9 @@
     }
 
     function growthCell(stock, field) {
+      if (peerUnavailable(stock)) {
+        return `<span data-peer-growth="${field}" data-peer-statements="unavailable" title="${escapeAttribute(peerUnavailableTitle())}">${peerUnavailableLabel()}</span>`;
+      }
       const record = annual ? stock.peerAnnual.growth[field] : ProfileOverview.storedGrowth(stock, field);
       const labels = I18N_DICT[currentLang];
       const reason = record?.reason === 'nonPositivePrior' ? labels.analysis_growth_non_positive
@@ -6529,7 +6549,10 @@
 
     // 取得最新申報月份 (YYYY-MM)
     function getLatestDate(stock) {
-      if (annual) return stock.peerAnnual.date ? `${stock.peerAnnual.label} · ${stock.peerAnnual.date}` : 'N/A';
+      if (annual) {
+        if (peerUnavailable(stock)) return peerUnavailableLabel();
+        return stock.peerAnnual.date ? `${stock.peerAnnual.label} · ${stock.peerAnnual.date}` : 'N/A';
+      }
       const dates = (stock && stock.statements_raw && stock.statements_raw.annual_dates) || [];
       if (dates.length > 0) return dates[dates.length - 1];
       const qDates = (stock && stock.statements_raw && stock.statements_raw.quarterly_raw && stock.statements_raw.quarterly_raw.dates) || [];
@@ -6541,10 +6564,25 @@
     const fmtM = v => (annual ? !Number.isFinite(v) : v === null || isNaN(v)) ? 'N/A' : `${moneyPrefix()}${Math.round(v).toLocaleString()}M`;
     const fmtX = v => annual ? Number.isFinite(v) ? `${v.toFixed(2)}x` : 'N/A'
       : (v === null || isNaN(v) || v === 0) ? '--' : `${Number(v).toFixed(2)}x`;
-    const annualNote = stock => isEn
-      ? `${getLatestDate(stock)}. Actual full-year flows and matching fiscal year-end balances; current quote ${stock.quoteDate || 'N/A'}. P/E uses ${stock.peerAnnual.epsBasis === 'reportedAnnualDilutedEps' ? 'reported diluted annual EPS' : 'annual common earnings / dated verified common shares'}; P/B uses FY-end parent equity / dated verified shares (${stock.shareSource?.date || 'N/A'}). EV includes preferred/noncontrolling book proxies; net debt deducts cash/short-term investments. Missing inputs and nonpositive FCF/EBITDA denominators remain N/A.`
-      : `${getLatestDate(stock)}。採完整年度實績及同一財年期末餘額；目前報價日期 ${stock.quoteDate || 'N/A'}。P/E 採${stock.peerAnnual.epsBasis === 'reportedAnnualDilutedEps' ? '實報年度稀釋 EPS' : '年度普通股盈利／有日期已核實普通股股數'}；P/B 採財年末母公司權益／有日期已核實股數（${stock.shareSource?.date || 'N/A'}）。EV 包括優先股及非控制權益帳面代理；淨債務扣除現金與短投。缺值及非正 FCF／EBITDA 倍數分母保留 N/A。`;
-    const leverageCell = (stock, kind) => `<span data-peer-metric="${kind}" title="${escapeAttribute(annual ? annualNote(stock) : leverageRatioNote(stock, kind))}">${Number.isFinite(stock[kind]) ? stock[kind].toFixed(2) + 'x' : 'N/A'}</span>`;
+    const annualNote = stock => {
+      if (peerUnavailable(stock)) return peerUnavailableTitle();
+      return isEn
+        ? `${getLatestDate(stock)}. Actual full-year flows and matching fiscal year-end balances; current quote ${stock.quoteDate || 'N/A'}. P/E uses ${stock.peerAnnual.epsBasis === 'reportedAnnualDilutedEps' ? 'reported diluted annual EPS' : 'annual common earnings / dated verified common shares'}; P/B uses FY-end parent equity / dated verified shares (${stock.shareSource?.date || 'N/A'}). EV includes preferred/noncontrolling book proxies; net debt deducts cash/short-term investments. Missing inputs and nonpositive FCF/EBITDA denominators remain N/A.`
+        : `${getLatestDate(stock)}。採完整年度實績及同一財年期末餘額；目前報價日期 ${stock.quoteDate || 'N/A'}。P/E 採${stock.peerAnnual.epsBasis === 'reportedAnnualDilutedEps' ? '實報年度稀釋 EPS' : '年度普通股盈利／有日期已核實普通股股數'}；P/B 採財年末母公司權益／有日期已核實股數（${stock.shareSource?.date || 'N/A'}）。EV 包括優先股及非控制權益帳面代理；淨債務扣除現金與短投。缺值及非正 FCF／EBITDA 倍數分母保留 N/A。`;
+    };
+    const nonPositiveMultipleTitle = (stock, levelLabel, levelValue) => isEn
+      ? `${levelLabel} is ${Number(levelValue).toFixed(1)}M (non-positive); valuation multiples that require a positive denominator stay N/A. ${annualNote(stock)}`
+      : `${levelLabel} 為 ${Number(levelValue).toFixed(1)}M（非正）；需正數分母的估值倍數保留 N/A。${annualNote(stock)}`;
+    const leverageCell = (stock, kind) => {
+      if (peerUnavailable(stock)) {
+        return `<span data-peer-metric="${kind}" data-peer-statements="unavailable" title="${escapeAttribute(peerUnavailableTitle())}">${peerUnavailableLabel()}</span>`;
+      }
+      const title = annual && !Number.isFinite(stock[kind]) && kind === 'ev_to_ebitda'
+        && Number.isFinite(stock.peerAnnual?.income?.ebitda) && stock.peerAnnual.income.ebitda <= 0
+        ? nonPositiveMultipleTitle(stock, 'EBITDA', stock.peerAnnual.income.ebitda)
+        : (annual ? annualNote(stock) : leverageRatioNote(stock, kind));
+      return `<span data-peer-metric="${kind}" title="${escapeAttribute(title)}">${Number.isFinite(stock[kind]) ? stock[kind].toFixed(2) + 'x' : 'N/A'}</span>`;
+    };
     const valuationMultiple = (numerator, denominator) => Number.isFinite(numerator) && denominator > 0
       ? numerator / denominator : null;
     const quotedEv = stock => {
@@ -6552,6 +6590,15 @@
       return Number.isFinite(value) ? value : Number(stock.mcap);
     };
     const marketEv = stock => annual ? stock.EV : quotedEv(stock);
+    const unavailableCell = () => `<span data-peer-statements="unavailable" title="${escapeAttribute(peerUnavailableTitle())}">${peerUnavailableLabel()}</span>`;
+    const multipleCell = (stock, numerator, denominator, levelLabel) => {
+      if (peerUnavailable(stock)) return unavailableCell();
+      const mult = valuationMultiple(numerator, denominator);
+      if (annual && !Number.isFinite(mult) && Number.isFinite(denominator) && denominator <= 0) {
+        return `<span title="${escapeAttribute(nonPositiveMultipleTitle(stock, levelLabel, denominator))}">${fmtX(null)}</span>`;
+      }
+      return fmtX(mult);
+    };
     const fmtPct = (v, colorize = false) => {
       if (annual && !Number.isFinite(v)) return 'N/A';
       if (v === null || isNaN(v)) return '--';
@@ -6562,19 +6609,20 @@
     };
 
     // 定義 5 大維度所有指標 (動態支援中英文標籤)
+    // quoteOnly: still show when provider statements are empty (price / mcap / moat).
     const metricGroups = [
       {
         titleZh: "1. 規模與市場定價 (Size & Valuation)",
         titleEn: "1. Size & Valuation",
         items: [
-          { labelZh: "市值 ($M)", labelEn: "Market Cap ($M)", fn: x => fmtM(Number.isFinite(x.mcap) ? x.mcap : null) },
-          { labelZh: `最新股價 (${MarketContext.currency})`, labelEn: `Stock Price (${MarketContext.currency})`, fn: x => Number.isFinite(x.price) ? `${moneyPrefix()}${x.price.toFixed(2)}` : 'N/A' },
+          { quoteOnly: true, labelZh: "市值 ($M)", labelEn: "Market Cap ($M)", fn: x => fmtM(Number.isFinite(x.mcap) ? x.mcap : null) },
+          { quoteOnly: true, labelZh: `最新股價 (${MarketContext.currency})`, labelEn: `Stock Price (${MarketContext.currency})`, fn: x => Number.isFinite(x.price) ? `${moneyPrefix()}${x.price.toFixed(2)}` : 'N/A' },
           { labelZh: "企業價值 EV ($M)", labelEn: "Enterprise Value EV ($M)", fn: x => fmtM(annual ? x.EV : (Number.isFinite(Number(x.EV ?? x.ev ?? x.fmp_official_ev)) ? Number(x.EV ?? x.ev ?? x.fmp_official_ev) : null)) },
-          { labelZh: "EV / FCF", labelEn: "EV / FCF", fn: x => { const f = getFinVal(x, 'cashflow', 'freeCashFlow'); return annual ? fmtX(valuationMultiple(marketEv(x), f)) : f > 0 ? fmtX(quotedEv(x) / f) : '--'; } },
+          { labelZh: "EV / FCF", labelEn: "EV / FCF", fn: x => { const f = getFinVal(x, 'cashflow', 'freeCashFlow'); return annual ? multipleCell(x, marketEv(x), f, 'FCF') : f > 0 ? fmtX(quotedEv(x) / f) : '--'; } },
           { labelZh: "EV / EBITDA", labelEn: "EV / EBITDA", fn: x => leverageCell(x, 'ev_to_ebitda') },
-          { labelZh: "EV / Revenue", labelEn: "EV / Revenue", fn: x => { const r = getFinVal(x, 'income', 'revenue'); return annual ? fmtX(valuationMultiple(marketEv(x), r)) : r > 0 ? fmtX(quotedEv(x) / r) : '--'; } },
-          { labelZh: "Market Cap / FCF", labelEn: "Market Cap / FCF", fn: x => { const f = getFinVal(x, 'cashflow', 'freeCashFlow'); return annual ? fmtX(valuationMultiple(x.mcap, f)) : f > 0 ? fmtX(Number(x.mcap) / f) : '--'; } },
-          { labelZh: "Market Cap / EBITDA", labelEn: "Market Cap / EBITDA", fn: x => { const eb = getFinVal(x, 'income', 'ebitda'); return annual ? fmtX(valuationMultiple(x.mcap, eb)) : eb > 0 ? fmtX(Number(x.mcap) / eb) : '--'; } },
+          { labelZh: "EV / Revenue", labelEn: "EV / Revenue", fn: x => { const r = getFinVal(x, 'income', 'revenue'); return annual ? multipleCell(x, marketEv(x), r, 'Revenue') : r > 0 ? fmtX(quotedEv(x) / r) : '--'; } },
+          { labelZh: "Market Cap / FCF", labelEn: "Market Cap / FCF", fn: x => { const f = getFinVal(x, 'cashflow', 'freeCashFlow'); return annual ? multipleCell(x, x.mcap, f, 'FCF') : f > 0 ? fmtX(Number(x.mcap) / f) : '--'; } },
+          { labelZh: "Market Cap / EBITDA", labelEn: "Market Cap / EBITDA", fn: x => { const eb = getFinVal(x, 'income', 'ebitda'); return annual ? multipleCell(x, x.mcap, eb, 'EBITDA') : eb > 0 ? fmtX(Number(x.mcap) / eb) : '--'; } },
           { labelZh: annual ? "P/E（最新完整財年）" : "靜態 P/E", labelEn: annual ? "P/E (latest full FY)" : "Trailing P/E", fn: x => annual ? Number.isFinite(x.pe_trailing) ? `${x.pe_trailing.toFixed(1)}x` : 'N/A' : x.pe_trailing ? `${Number(x.pe_trailing).toFixed(1)}x` : '--' },
           { labelZh: "動態 P/E", labelEn: "Forward P/E", fn: x => `<span title="${escapeAttribute(forwardPeNote(x))}">${Number.isFinite(x.pe_forward) && x.pe_forward > 0 ? `${x.pe_forward.toFixed(1)}x` : '--'}</span>` },
           { labelZh: annual ? "P/B（最新財年末）" : "靜態 P/B", labelEn: annual ? "P/B (latest FY-end)" : "Trailing P/B", fn: x => annual ? Number.isFinite(x.pb_trailing) ? `${x.pb_trailing.toFixed(2)}x` : 'N/A' : x.pb_trailing ? `${Number(x.pb_trailing).toFixed(2)}x` : '--' },
@@ -6599,7 +6647,7 @@
         titleZh: "3. 獲利品質與商業壁壘 (Profitability & Moat)",
         titleEn: "3. Profitability & Moat",
         items: [
-          { labelZh: "巴菲特護城河評分 (Moat Score)", labelEn: "Buffett Moat Score", fn: x => { const moat = annual ? evaluateMoat(x) : computeDCF(x, x.ticker)?.moat; return `<b title="${ratingProvenance(x, 'moat').replace(/"/g, '&quot;')}" style="color:var(--accent);">${moat?.scoreText ?? 'N/A'} ${ratingState(x, 'moat')}</b>`; } },
+          { quoteOnly: true, labelZh: "巴菲特護城河評分 (Moat Score)", labelEn: "Buffett Moat Score", fn: x => { const moat = annual ? evaluateMoat(x) : computeDCF(x, x.ticker)?.moat; return `<b title="${ratingProvenance(x, 'moat').replace(/"/g, '&quot;')}" style="color:var(--accent);">${moat?.scoreText ?? 'N/A'} ${ratingState(x, 'moat')}</b>`; } },
           { labelZh: "營業收入 (Revenue, $M)", labelEn: "Revenue ($M)", fn: x => fmtM(getFinVal(x, 'income', 'revenue')) },
           { labelZh: "毛利 (Gross Profit, $M)", labelEn: "Gross Profit ($M)", fn: x => x.fin_valuation?.is_financial ? '--' : fmtM(getFinVal(x, 'income', 'grossProfit')) },
           { labelZh: "毛利率 % (Gross Margin)", labelEn: "Gross Profit Margin %", fn: x => { if (x.fin_valuation?.is_financial) return '--'; const r = getFinVal(x, 'income', 'revenue'), g = getFinVal(x, 'income', 'grossProfit'); return Number.isFinite(r) && r !== 0 && Number.isFinite(g) ? fmtPct((g/r)*100) : '--'; } },
@@ -6699,6 +6747,15 @@
         <p id="peer-coverage-note" class="analysis-note">${!peerStocks.length ? labels.analysis_peer_empty
           : selection.counts.industry === 0 ? labels.analysis_peer_no_exact : ''}</p>
         ${selection.unavailable.length ? `<p id="peer-unavailable-note" class="analysis-note">${labels.analysis_peer_unavailable.replace('{count}', selection.unavailable.length)}</p>` : ''}
+        ${(() => {
+          const missing = annual ? allCols.filter(peerUnavailable).map(col => col.ticker) : [];
+          if (!missing.length) return '';
+          const list = missing.join(', ');
+          const text = isEn
+            ? `Provider financial statements are unavailable for ${list}. Those columns keep quote/moat fields only; statement metrics are labeled “No provider statements” rather than a fiscal-year N/A. Missing statements are not filled with zeros.`
+            : `以下欄位供應商未提供財報：${list}。該欄保留報價／護城河；財報指標標示「供應商無財報」，不以財年 N/A 或零填補。`;
+          return `<p id="peer-statements-unavailable-note" class="analysis-note" title="${escapeAttribute(peerUnavailableTitle())}">${text}</p>`;
+        })()}
         <div class="balance-cards peer-summary-cards">
           <div class="balance-card"><span class="stat-label">${labels.analysis_peer_current}</span><strong>${targetTicker}</strong></div>
           <div class="balance-card"><span class="stat-label">${labels.analysis_peer_count}</span><strong id="peer-comparison-count">${peerStocks.length}</strong><small id="peer-comparison-breakdown">${labels.analysis_peer_counts.replace('{industry}', selection.counts.industry).replace('{provider}', selection.counts.provider).replace('{related}', selection.counts.related)}</small></div>
@@ -6755,9 +6812,16 @@
             </td>
             ${allCols.map((c, idx) => {
               const isCurrent = (idx === 0);
-              const value = !annual && c.currencyConversion?.reason && !['Market Cap ($M)', 'Stock Price ($)'].includes(it.labelEn) ? 'N/A' : it.fn(c);
+              let value;
+              if (annual && peerUnavailable(c) && !it.quoteOnly) {
+                value = unavailableCell();
+              } else if (!annual && c.currencyConversion?.reason && !['Market Cap ($M)', 'Stock Price ($)'].includes(it.labelEn)) {
+                value = 'N/A';
+              } else {
+                value = it.fn(c);
+              }
               return `
-                <td class="${isCurrent ? 'peer-current' : ''}"${annual ? ` title="${escapeAttribute(annualNote(c))}"` : ''}>
+                <td class="${isCurrent ? 'peer-current' : ''}"${annual ? ` title="${escapeAttribute(annualNote(c))}"` : ''}${annual && peerUnavailable(c) ? ' data-peer-statements="unavailable"' : ''}>
                   ${annual && value === '--' ? 'N/A' : value}
                 </td>
               `;
