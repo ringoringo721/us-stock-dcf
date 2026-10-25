@@ -87,16 +87,20 @@ jobs:
         if: github.ref != 'refs/heads/main'
         run: |
           git fetch origin "${{ github.ref }}"
+          mkdir -p scripts/data
           for path in \
             scripts/remoat_remaining.py \
             scripts/refresh_hkex_moat.py \
             scripts/buffett_moat_v3.py \
+            scripts/zh_traditional.py \
+            scripts/data/opencc_st_characters.txt \
             scripts/build_hkex_expansion.cjs \
             scripts/build_hkex.cjs \
             scripts/refresh_usd_rates.cjs \
             tests/test_remoat_remaining.py \
             tests/test_hkex_moat.py \
-            tests/test_buffett_moat_v3.py
+            tests/test_buffett_moat_v3.py \
+            tests/test_zh_traditional.py
           do
             if git cat-file -e "FETCH_HEAD:$path" 2>/dev/null; then
               git show "FETCH_HEAD:$path" > "$path"
@@ -200,12 +204,15 @@ jobs:
             scripts/remoat_remaining.py \
             scripts/refresh_hkex_moat.py \
             scripts/buffett_moat_v3.py \
+            scripts/zh_traditional.py \
+            scripts/data/opencc_st_characters.txt \
             scripts/build_hkex_expansion.cjs \
             scripts/build_hkex.cjs \
             scripts/refresh_usd_rates.cjs \
             tests/test_remoat_remaining.py \
             tests/test_hkex_moat.py \
-            tests/test_buffett_moat_v3.py || true
+            tests/test_buffett_moat_v3.py \
+            tests/test_zh_traditional.py || true
           git reset --quiet HEAD
           git add hkex_expansion_data.js
           git add -f cache/hk_companies/ cache/financials/ cache/price_charts/ cache/fx/ || true

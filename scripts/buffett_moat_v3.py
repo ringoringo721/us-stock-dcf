@@ -198,10 +198,28 @@ def zh_primary_prompt_rules() -> str:
     return (
         f"PRIMARY LENGTH GATE (locked): each dimension comment_zh MUST be {MIN_COMMENT_ZH_CHARS}–"
         f"{MAX_COMMENT_ZH_CHARS} Traditional Chinese characters (字, Unicode code points after trim). "
+        "SCRIPT GATE (locked): comment_zh, overall_moat_verdict_zh and description_zh MUST be "
+        "Traditional Chinese (繁體中文) ONLY — Hong Kong / Taiwan orthography. "
+        "NEVER write Simplified Chinese (簡體中文). Examples of forbidden Simplified forms: "
+        "业务→業務, 证据→證據, 网络→網路, 运营→營運, 资产→資產, 竞争→競爭, 护城河→護城河. "
         "Write the Chinese analysis first. comment_en MUST be a faithful English translation of that "
         "Chinese comment — do not invent a separate English-first essay; EN length is NOT the acceptance gate. "
         "Do not change scores when translating. Avoid empty padding and the old short ~40–80 字 blurb style, "
         f"and do not exceed {MAX_COMMENT_ZH_CHARS} 字."
+    )
+
+
+def zh_script_retry_guidance(detail: str) -> str:
+    """Actionable rewrite hint when Lite emitted Simplified Chinese in ZH prose."""
+    text = detail or ""
+    if "Simplified Chinese" not in text and "簡體" not in text and "simplified" not in text.lower():
+        return ""
+    return (
+        " TRADITIONAL CHINESE RETRY (繁體 only): Rewrite every rejected ZH field in Traditional Chinese "
+        "(繁體中文) — Hong Kong / Taiwan forms. Do NOT use Simplified Chinese (簡體). "
+        "Replace forms such as 业务→業務, 证据→證據, 网络→網路, 运营→營運, 资产→資產, "
+        "竞争→競爭, 护城河→護城河, 定价→定價, 显示→顯示. Keep meaning, scores and evidence unchanged; "
+        "do not add digits or invent facts."
     )
 
 

@@ -65,15 +65,19 @@ jobs:
         run: |
           REF='${{ inputs.tooling_ref }}'
           git fetch origin "$REF"
+          mkdir -p scripts/data
           git checkout "origin/$REF" -- \
             scripts/buffett_moat_v3.py \
             scripts/refresh_hkex_moat.py \
+            scripts/zh_traditional.py \
+            scripts/data/opencc_st_characters.txt \
             scripts/run_lite_buffett_pilot.py \
             scripts/build_hkex.cjs \
             build_full_market.py \
             tests/test_hkex_moat.py \
             tests/test_us_moat_budget.py \
             tests/test_buffett_moat_v3.py \
+            tests/test_zh_traditional.py \
             tests/test_lite_buffett_pilot.py \
             .github/workflows/lite_buffett_pilot.yml
       - uses: actions/setup-python@v5
