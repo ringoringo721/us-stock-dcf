@@ -159,9 +159,20 @@
     const detail = (confidence.reasons || []).map(code => reasonText(code, language)).filter(Boolean).join(en ? '; ' : '；');
     return detail ? `${title}: ${label} — ${detail}` : `${title}: ${label}`;
   }
+  function savedTargetRecord(saved, stock) {
+    const CustomTarget = root.CustomTargetPrice;
+    if (!saved || !CustomTarget) return null;
+    const currency = stock?.calculationCurrency || 'USD';
+    if ((saved.currency || currency) !== currency) return null;
+    if (CustomTarget.isOverride(saved) || CustomTarget.fromSaved(saved) != null) return saved;
+    return null;
+  }
+
   function load(options) {
     const previous = state?.ticker === options.ticker ? state : null;
     const saved = compatible(options.saved) && options.saved.currency === (options.stock.calculationCurrency || 'USD') ? options.saved : null;
+    const savedTarget = savedTargetRecord(options.saved, options.stock)
+      || (previous?.ticker === options.ticker ? previous.savedTarget : null);
     state = { ...options, kind: previous?.kind || saved?.kind || 'advanced',
       mode: previous?.mode || (saved?.modelType === 'FMP_TEN_YEAR_SCENARIO' ? 'ten-year' : 'vendor'),
       scenarios: previous?.scenarios || (saved?.modelType === 'FMP_TEN_YEAR_SCENARIO' ? { [saved.kind]: structuredClone(saved.scenario) } : {}),
@@ -172,7 +183,8 @@
       params: previous?.params || { advanced: {}, customLevered: {}, ...(saved?.modelType === 'FMP_CUSTOM_DCF' ? { [saved.kind]: saved.params || {} } : {}) },
       dirty: previous?.dirty || { advanced: false, customLevered: false,
         ...(saved?.modelType === 'FMP_CUSTOM_DCF' ? { [saved.kind]: Object.keys(saved.params || {}).length > 0 && !saved.modelSummary } : {}) },
-      data: previous?.data || options.data || record(options.ticker), requestId: (state?.requestId || 0) + 1 };
+      data: previous?.data || options.data || record(options.ticker), requestId: (state?.requestId || 0) + 1,
+      savedTarget };
     if (!previous && saved?.modelSummary && saved.ticker === options.ticker && saved.issuedShares === issuedShares(options.stock)) {
       state.data = { ...state.data, models: { ...state.data.models,
         [saved.kind]: { ...state.data.models[saved.kind], data: [saved.modelSummary],
@@ -938,11 +950,16 @@
     const set = (id, value) => { root.document.getElementById(id).textContent = value; };
     const CustomTarget = root.CustomTargetPrice;
     const customInput = root.document.getElementById('inp-custom-target');
-    if (customInput && finite(result.fairVal) && result.fairVal > 0 && !customInput.dataset.userEdited) {
+    const preferCustom = !!(customInput?.dataset.userEdited);
+    if (customInput && finite(result.fairVal) && result.fairVal > 0 && !preferCustom
+        && !(CustomTarget && CustomTarget.isOverride(state.savedTarget))) {
       customInput.value = Number(result.fairVal).toFixed(2);
     }
+    const targetSaved = state.savedTarget || state.saved;
     const display = CustomTarget
-      ? CustomTarget.resolve(result.fairVal, { input: customInput?.value, saved: state.saved })
+      ? CustomTarget.resolve(result.fairVal, {
+        input: customInput?.value, saved: targetSaved, preferCustom
+      })
       : { value: result.fairVal, source: finite(result.fairVal) ? 'model' : null };
     set('det-res-fair', money(display.value));
     root.document.getElementById('det-res-fair').className = `stat-num ${display.value == null
@@ -986,7 +1003,7 @@
       confidenceEl.dataset.level = confidence.level;
     }
     const canOverride = !!(CustomTarget && CustomTarget.canSave(result.fairVal, {
-      input: customInput?.value, saved: state.saved
+      input: customInput?.value, saved: targetSaved, preferCustom
     }));
     root.document.querySelector('[onclick="saveCustomModel()"]').disabled = !!state.busy
       || (result.fairVal === null && !(local ? state.scenarioDirty[kind] : state.dirty[kind]) && !canOverride);
@@ -1269,12 +1286,16 @@
     const CustomTarget = root.CustomTargetPrice;
     if (!CustomTarget || !state) return false;
     const input = root.document.getElementById('inp-custom-target');
-    const resolved = CustomTarget.resolve(null, { input: input?.value, saved: state.saved });
+    const resolved = CustomTarget.resolveForSave(null, {
+      input: input?.value, saved: state.savedTarget || state.saved
+    });
     if (resolved.value == null) return false;
     const currency = state.stock.calculationCurrency || 'USD';
-    state.save(CustomTarget.buildOverrideRecord({
+    const record = CustomTarget.buildOverrideRecord({
       ticker: state.ticker, targetPrice: resolved.value, currency, reason: reason || 'MODEL_FAIR_VALUE_UNAVAILABLE'
-    }));
+    });
+    state.savedTarget = record;
+    state.save(record);
     if (input) {
       input.value = resolved.value.toFixed(2);
       input.dataset.userEdited = '';
@@ -1282,21 +1303,48 @@
     return true;
   }
 
+  function wantsCustomOverride(input) {
+    const CustomTarget = root.CustomTargetPrice;
+    if (!CustomTarget || !state) return false;
+    if (input?.dataset.userEdited && CustomTarget.parseInput(input.value) != null) return true;
+    return CustomTarget.isOverride(state.savedTarget);
+  }
+
   async function save() {
-    if (!state || state.busy || root.document.querySelector('[onclick="saveCustomModel()"]').disabled) return;
+    if (!state || state.busy) return;
+    const input = root.document.getElementById('inp-custom-target');
+    const forceOverride = wantsCustomOverride(input);
+    if (!forceOverride && root.document.querySelector('[onclick="saveCustomModel()"]').disabled) return;
     const current = state, kind = state.kind, mode = state.mode;
+    if (forceOverride) {
+      if (!saveCustomOverride('CUSTOM_TARGET_USER_OVERRIDE')) {
+        root.alert?.(state.language() === 'en'
+          ? 'Enter a positive custom target price before saving.'
+          : '請先輸入正數自訂目標價再儲存。');
+      }
+      return;
+    }
     if (mode === 'ten-year' || state.dirty[kind]) {
       if (!await calculate() || state !== current || kind !== state.kind || mode !== state.mode) {
-        saveCustomOverride('MODEL_CALCULATION_UNAVAILABLE');
+        if (!saveCustomOverride('MODEL_CALCULATION_UNAVAILABLE')) {
+          root.alert?.(state.language() === 'en'
+            ? 'Model calculation failed; enter a custom target to save an override.'
+            : '模型計算失敗；請輸入自訂目標價以儲存覆寫。');
+        }
         return;
       }
     }
     if (mode === 'ten-year') {
       const result = scenarioValue();
       if (result.reason) {
-        saveCustomOverride(result.reason);
+        if (!saveCustomOverride(result.reason)) {
+          root.alert?.(state.language() === 'en'
+            ? 'Model fair value unavailable; enter a custom target to save.'
+            : '模型公允價值不可用；請輸入自訂目標價後再儲存。');
+        }
         return;
       }
+      state.savedTarget = null;
       state.save({ schemaVersion: 2, modelType: 'FMP_TEN_YEAR_SCENARIO', kind, ticker: state.ticker,
         currency: result.currency, targetPrice: result.fairVal, issuedShares: result.issuedShares,
         shareSource: state.stock.shareSource, scenario: structuredClone(state.scenarios[kind]),
@@ -1306,9 +1354,14 @@
     }
     const result = value(state.data, state.kind, state.stock);
     if (result.fairVal === null) {
-      saveCustomOverride(result.reason);
+      if (!saveCustomOverride(result.reason)) {
+        root.alert?.(state.language() === 'en'
+          ? 'Model fair value unavailable; enter a custom target to save.'
+          : '模型公允價值不可用；請輸入自訂目標價後再儲存。');
+      }
       return;
     }
+    state.savedTarget = null;
     state.save({ schemaVersion: 1, modelType: 'FMP_CUSTOM_DCF', kind: state.kind, ticker: state.ticker,
       currency: result.currency, targetPrice: result.fairVal, issuedShares: result.issuedShares,
       sourceReviewRequired: !!state.sourceData?.sourceReview || !!state.stock.balanceClassificationSource || !!state.stock.cashflowProvenance,

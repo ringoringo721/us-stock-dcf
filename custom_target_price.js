@@ -25,22 +25,41 @@
     return finitePositive(Number(text));
   }
 
+  function isOverride(saved) {
+    return !!saved && saved.modelType === MODEL_TYPES.OVERRIDE && fromSaved(saved) != null;
+  }
+
   /**
    * Prefer live model fair value; otherwise typed custom input; otherwise saved target.
    * Model N/A must not erase a saved or typed custom target.
+   * An explicit CUSTOM_TARGET_OVERRIDE stays visible until the user resets defaults.
    */
-  function resolve(modelFairVal, { input = null, saved = null } = {}) {
+  function resolve(modelFairVal, { input = null, saved = null, preferCustom = false } = {}) {
+    const typed = parseInput(input);
+    if (preferCustom && typed != null) return { value: typed, source: 'custom' };
+    if (isOverride(saved)) {
+      if (typed != null) return { value: typed, source: 'custom' };
+      const stored = fromSaved(saved);
+      if (stored != null) return { value: stored, source: 'saved' };
+    }
     const model = finitePositive(modelFairVal);
     if (model != null) return { value: model, source: 'model' };
-    const typed = parseInput(input);
     if (typed != null) return { value: typed, source: 'custom' };
     const stored = fromSaved(saved);
     if (stored != null) return { value: stored, source: 'saved' };
     return { value: null, source: null };
   }
 
-  function canSave(modelFairVal, { input = null, saved = null } = {}) {
-    return resolve(modelFairVal, { input, saved }).value != null;
+  /**
+   * Persist intent: typed custom wins; else model FV; else previously saved override.
+   * Allows saving a hand-entered target even when the model still has a number.
+   */
+  function resolveForSave(modelFairVal, { input = null, saved = null } = {}) {
+    return resolve(modelFairVal, { input, saved, preferCustom: true });
+  }
+
+  function canSave(modelFairVal, { input = null, saved = null, preferCustom = false } = {}) {
+    return resolve(modelFairVal, { input, saved, preferCustom }).value != null;
   }
 
   function buildOverrideRecord({ ticker, targetPrice, currency, reason = null, params = null }) {
@@ -58,5 +77,8 @@
     };
   }
 
-  return { MODEL_TYPES, finitePositive, fromSaved, parseInput, resolve, canSave, buildOverrideRecord };
+  return {
+    MODEL_TYPES, finitePositive, fromSaved, parseInput, isOverride,
+    resolve, resolveForSave, canSave, buildOverrideRecord
+  };
 });

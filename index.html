@@ -29,7 +29,7 @@
   </script>
   <script src="dcf_drivers.js?v=official-operating-2"></script>
   <script src="fcff.js"></script>
-  <script src="fcff_view.js?v=reported-multiples-1"></script>
+  <script src="fcff_view.js?v=reported-multiples-2"></script>
   <script src="usd_currency.js"></script>
   <script src="liquidation.js"></script>
   <script src="peer_comparison.js?v=hk-full-fy-3"></script>
@@ -42,8 +42,8 @@
   <script src="company_data.js"></script>
   <script src="fmp_model_data.js"></script>
   <!-- tip-marker:ten-year-table-row-display -->
-  <script src="custom_target_price.js?v=override-1"></script>
-  <script src="fmp_models.js?v=ten-year-table-row-1"></script>
+  <script src="custom_target_price.js?v=override-2"></script>
+  <script src="fmp_models.js?v=ten-year-table-row-2"></script>
   <script src="fcf_ratios.js?v=sign-trends-1"></script>
   <script src="financial_models.js?v=fin-ke-history-2"></script>
   <script src="ke_treasury_data.js?v=usd-curve-20261020"></script>
@@ -7248,19 +7248,20 @@
 
     const saved = getSavedModels()[activeDetailTicker];
     const customInput = document.getElementById('inp-custom-target');
+    const preferCustom = !!(customInput?.dataset.userEdited);
     if (customInput && dcf.fairVal != null && CustomTargetPrice.finitePositive(dcf.fairVal) != null
-        && !customInput.dataset.userEdited) {
+        && !preferCustom && !CustomTargetPrice.isOverride(saved)) {
       customInput.value = Number(dcf.fairVal).toFixed(2);
     }
     const display = CustomTargetPrice.resolve(dcf.fairVal, {
-      input: customInput?.value, saved
+      input: customInput?.value, saved, preferCustom
     });
     document.getElementById('det-res-fair').className = `stat-num ${display.value == null
       ? 'text-muted' : display.value < 0 ? 'text-red' : 'text-green'}`;
     document.getElementById('det-res-fair').innerText = display.value == null
       ? 'N/A' : `${moneyPrefix()}${display.value.toFixed(2)}`;
     document.querySelector('[onclick="saveCustomModel()"]').disabled =
-      !CustomTargetPrice.canSave(dcf.fairVal, { input: customInput?.value, saved });
+      !CustomTargetPrice.canSave(dcf.fairVal, { input: customInput?.value, saved, preferCustom });
     document.getElementById('det-res-price').innerText = `${moneyPrefix()}${Number(tempS.price).toFixed(2)}`;
     if (s.currencyConversion?.reason) {
       for (const id of ['det-res-fair', 'det-res-wacc', 'det-res-g', 'det-res-spread',
@@ -7671,9 +7672,11 @@
     const dcf = computeDCF(tempS, activeDetailTicker);
     const customInput = document.getElementById('inp-custom-target');
     const previous = getSavedModels()[activeDetailTicker];
-    const targetPrice = CustomTargetPrice.resolve(dcf.fairVal, {
+    const preferCustom = !!(customInput?.dataset.userEdited);
+    const resolved = CustomTargetPrice.resolveForSave(dcf.fairVal, {
       input: customInput?.value, saved: previous
-    }).value;
+    });
+    const targetPrice = resolved.value;
     if (targetPrice == null) {
       alert(I18N_DICT[currentLang].custom_target_required || I18N_DICT[currentLang].fin_unavailable);
       return;
@@ -7695,12 +7698,15 @@
       growth_10y: [...(tempS.growth_10y || [])],
       fin_valuation: isFin ? { ...tempS.fin_valuation } : undefined
     };
-    models[activeDetailTicker] = dcf.fairVal != null
-      ? { targetPrice, currency: MarketContext.currency, savedAt: new Date().toISOString(), params }
-      : CustomTargetPrice.buildOverrideRecord({
+    const useOverride = preferCustom || resolved.source === 'custom' || resolved.source === 'saved'
+      || dcf.fairVal == null || CustomTargetPrice.isOverride(previous);
+    models[activeDetailTicker] = useOverride
+      ? CustomTargetPrice.buildOverrideRecord({
         ticker: activeDetailTicker, targetPrice, currency: MarketContext.currency,
-        reason: dcf.reason || 'MODEL_FAIR_VALUE_UNAVAILABLE', params
-      });
+        reason: dcf.reason || (preferCustom ? 'CUSTOM_TARGET_USER_OVERRIDE' : 'MODEL_FAIR_VALUE_UNAVAILABLE'),
+        params
+      })
+      : { targetPrice, currency: MarketContext.currency, savedAt: new Date().toISOString(), params };
 
     storeSavedModels(models);
     if (customInput) {
