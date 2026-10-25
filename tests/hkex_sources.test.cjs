@@ -289,9 +289,13 @@ test('every reviewed mixed-class issuer covers its actual ordinary classes and e
       source.responses.shares_float.rows[0].outstandingShares++;
       assert.equal(valuationShares(item, source).reason, 'issuerShareReturnNeedsReview', item.ticker);
       source.responses.shares_float.rows[0].outstandingShares--;
-      source.responses.shares_float.rows[0].date = '2026-10-20';
-      source.capturedAt = '2026-10-20T23:00:00Z';
-      assert.equal(valuationShares(item, source).reason, 'issuerShareReturnNeedsReview', item.ticker);
+      // Newer FMP as-of date with the same reviewed mismatched count must keep issuer capital.
+      source.responses.shares_float.rows[0].date = '2026-10-25';
+      source.capturedAt = '2026-10-25T23:00:00Z';
+      const republished = valuationShares(item, source);
+      assert.equal(republished.outstandingShares, expected, item.ticker);
+      assert.equal(republished.reason, undefined, item.ticker);
+      assert.ok(Number.isFinite(republished.shares) && republished.shares > 0, item.ticker);
     }
   }
   for (const [ticker, shares] of Object.entries({
@@ -319,7 +323,7 @@ test('ICBC and BOC use verified A/H ordinary shares despite the specifically rev
     const item = config.find(row => row.ticker === ticker), review = capital[ticker].providerReview;
     const source = ccbShares(review.outstandingShares);
     source.ticker = source.providerSymbol = source.responses.shares_float.rows[0].symbol = ticker;
-    source.capturedAt = '2026-10-18T23:00:00Z';
+    source.capturedAt = `${review.providerDate}T23:00:00Z`;
     source.responses.shares_float.rows[0].date = review.providerDate;
     const result = valuationShares(item, source);
     assert.equal(result.outstandingShares, ticker === '1398.HK' ? 356406257089 : 322212411814);
@@ -329,8 +333,12 @@ test('ICBC and BOC use verified A/H ordinary shares despite the specifically rev
     source.responses.shares_float.rows[0].outstandingShares += 1;
     assert.equal(valuationShares(item, source).reason, 'issuerShareReturnNeedsReview');
     source.responses.shares_float.rows[0].outstandingShares -= 1;
-    source.capturedAt = '2026-10-19T00:00:00Z';
-    assert.equal(valuationShares(item, source).reason, 'issuerShareReturnNeedsReview');
+    // Date-only republish of the same reviewed mismatched count remains accepted.
+    source.responses.shares_float.rows[0].date = '2026-10-28';
+    source.capturedAt = '2026-10-28T00:00:00Z';
+    const later = valuationShares(item, source);
+    assert.equal(later.outstandingShares, result.outstandingShares);
+    assert.equal(later.providerComparison.reason, 'reviewedProviderShareMismatch');
   }
 });
 

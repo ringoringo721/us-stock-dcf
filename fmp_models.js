@@ -936,9 +936,17 @@
     const text = (zh, english) => en ? english : zh;
     const percent = number => finite(number) ? `${number.toFixed(2)}%` : 'N/A';
     const set = (id, value) => { root.document.getElementById(id).textContent = value; };
-    set('det-res-fair', money(result.fairVal));
-    root.document.getElementById('det-res-fair').className = `stat-num ${result.fairVal === null
-      ? 'text-muted' : result.fairVal < 0 ? 'text-red' : 'text-green'}`;
+    const CustomTarget = root.CustomTargetPrice;
+    const customInput = root.document.getElementById('inp-custom-target');
+    if (customInput && finite(result.fairVal) && result.fairVal > 0 && !customInput.dataset.userEdited) {
+      customInput.value = Number(result.fairVal).toFixed(2);
+    }
+    const display = CustomTarget
+      ? CustomTarget.resolve(result.fairVal, { input: customInput?.value, saved: state.saved })
+      : { value: result.fairVal, source: finite(result.fairVal) ? 'model' : null };
+    set('det-res-fair', money(display.value));
+    root.document.getElementById('det-res-fair').className = `stat-num ${display.value == null
+      ? 'text-muted' : display.value < 0 ? 'text-red' : 'text-green'}`;
     set('det-res-price', money(stock.price));
     const review = state.sourceData?.sourceReview || record(ticker)?.sourceReview;
     const officialCorrection = !!stock.balanceClassificationSource || !!stock.cashflowProvenance || !!stock.revenueProvenance;
@@ -946,8 +954,13 @@
       || (!local && data?.currencyCheck?.reason)
       || (local && state.scenarios?.[kind]?.currencyWarning)
       || null;
+    const overrideNote = !finite(result.fairVal) && display.source && display.source !== 'model'
+      ? text(' · 模型公允價值暫不可用；顯示已存／手填自訂目標價（覆寫）。',
+        ' · Model fair value unavailable; showing saved/typed custom target (override).')
+      : '';
     set('det-res-status', (result.reason ? reasonText(result.reason, state.language())
       : `${local ? text('FMP 資料十年情境（本站計算）', 'FMP-based ten-year scenario (site-calculated)') : name(kind)} · ${result.capturedAt || data.capturedAt}`)
+      + overrideNote
       + (currencyNote && !result.reason ? ` · ${reasonText(currencyNote, state.language())}` : '')
       + (review ? text(' · 注意年報／模型口徑差異；此價未按租賃業務正規化。', ' · Report/model basis differences: this value is not rental-normalized.') : '')
       + (officialCorrection ? text(' · 官方財報已更正；FMP 模型假設仍須獨立審閱。', ' · Official statements corrected; FMP model assumptions still require separate review.') : ''));
@@ -955,7 +968,8 @@
     set('det-res-g', percent(row?.longTermGrowthRate));
     set('det-res-spread', row ? percent(row.wacc - row.longTermGrowthRate) : 'N/A');
     set('det-res-ev', finite(row?.enterpriseValue) ? `${money(row.enterpriseValue / 1e6)} M` : 'N/A');
-    const premium = result.fairVal > 0 && finite(stock.price) ? (stock.price / result.fairVal - 1) * 100 : null;
+    const premiumBase = finite(display.value) ? display.value : result.fairVal;
+    const premium = premiumBase > 0 && finite(stock.price) ? (stock.price / premiumBase - 1) * 100 : null;
     set('det-res-premium', percent(premium));
     const badge = root.document.getElementById('det-badge');
     badge.className = finite(premium) ? `badge badge-${premium < 0 ? 'undervalued' : 'overvalued'}` : 'badge';
@@ -971,8 +985,11 @@
       confidenceEl.textContent = confidenceText(confidence, state.language());
       confidenceEl.dataset.level = confidence.level;
     }
+    const canOverride = !!(CustomTarget && CustomTarget.canSave(result.fairVal, {
+      input: customInput?.value, saved: state.saved
+    }));
     root.document.querySelector('[onclick="saveCustomModel()"]').disabled = !!state.busy
-      || result.fairVal === null && !(local ? state.scenarioDirty[kind] : state.dirty[kind]);
+      || (result.fairVal === null && !(local ? state.scenarioDirty[kind] : state.dirty[kind]) && !canOverride);
     box.innerHTML = `<div class="panel">
       <h3>${text('FMP 雙軌可編輯估值模型', 'Two editable FMP valuation models')}</h3>
       <label for="fmp-mode">${text('計算來源', 'Calculation source')}</label>
@@ -1248,15 +1265,38 @@
     }
   }
 
+  function saveCustomOverride(reason) {
+    const CustomTarget = root.CustomTargetPrice;
+    if (!CustomTarget || !state) return false;
+    const input = root.document.getElementById('inp-custom-target');
+    const resolved = CustomTarget.resolve(null, { input: input?.value, saved: state.saved });
+    if (resolved.value == null) return false;
+    const currency = state.stock.calculationCurrency || 'USD';
+    state.save(CustomTarget.buildOverrideRecord({
+      ticker: state.ticker, targetPrice: resolved.value, currency, reason: reason || 'MODEL_FAIR_VALUE_UNAVAILABLE'
+    }));
+    if (input) {
+      input.value = resolved.value.toFixed(2);
+      input.dataset.userEdited = '';
+    }
+    return true;
+  }
+
   async function save() {
     if (!state || state.busy || root.document.querySelector('[onclick="saveCustomModel()"]').disabled) return;
     const current = state, kind = state.kind, mode = state.mode;
     if (mode === 'ten-year' || state.dirty[kind]) {
-      if (!await calculate() || state !== current || kind !== state.kind || mode !== state.mode) return;
+      if (!await calculate() || state !== current || kind !== state.kind || mode !== state.mode) {
+        saveCustomOverride('MODEL_CALCULATION_UNAVAILABLE');
+        return;
+      }
     }
     if (mode === 'ten-year') {
       const result = scenarioValue();
-      if (result.reason) return;
+      if (result.reason) {
+        saveCustomOverride(result.reason);
+        return;
+      }
       state.save({ schemaVersion: 2, modelType: 'FMP_TEN_YEAR_SCENARIO', kind, ticker: state.ticker,
         currency: result.currency, targetPrice: result.fairVal, issuedShares: result.issuedShares,
         shareSource: state.stock.shareSource, scenario: structuredClone(state.scenarios[kind]),
@@ -1265,7 +1305,10 @@
       return;
     }
     const result = value(state.data, state.kind, state.stock);
-    if (result.fairVal === null) return;
+    if (result.fairVal === null) {
+      saveCustomOverride(result.reason);
+      return;
+    }
     state.save({ schemaVersion: 1, modelType: 'FMP_CUSTOM_DCF', kind: state.kind, ticker: state.ticker,
       currency: result.currency, targetPrice: result.fairVal, issuedShares: result.issuedShares,
       sourceReviewRequired: !!state.sourceData?.sourceReview || !!state.stock.balanceClassificationSource || !!state.stock.cashflowProvenance,

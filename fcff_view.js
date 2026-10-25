@@ -361,9 +361,17 @@
     if (forecastTaxNote) document.getElementById('fcff-status').textContent += ` ${forecastTaxNote}`;
     if (noncontrollingNote) document.getElementById('fcff-status').textContent += ` ${noncontrollingNote}`;
     if (rentalNote) document.getElementById('fcff-status').textContent += ` ${rentalNote}`;
-    document.getElementById('det-res-fair').textContent = finite(result.fairVal) ? `${money()}${amount(result.fairVal)}` : 'N/A';
-    document.getElementById('det-res-fair').className = `stat-num ${result.fairVal === null
-      ? 'text-muted' : result.fairVal < 0 ? 'text-red' : 'text-green'}`;
+    const CustomTarget = window.CustomTargetPrice;
+    const customInput = document.getElementById('inp-custom-target');
+    if (customInput && finite(result.fairVal) && result.fairVal > 0 && !customInput.dataset.userEdited) {
+      customInput.value = Number(result.fairVal).toFixed(2);
+    }
+    const display = CustomTarget
+      ? CustomTarget.resolve(result.fairVal, { input: customInput?.value, saved: context.saved })
+      : { value: result.fairVal, source: finite(result.fairVal) ? 'model' : null };
+    document.getElementById('det-res-fair').textContent = finite(display.value) ? `${money()}${amount(display.value)}` : 'N/A';
+    document.getElementById('det-res-fair').className = `stat-num ${display.value == null
+      ? 'text-muted' : display.value < 0 ? 'text-red' : 'text-green'}`;
     const displayedPrice = finite(scenario.price) ? scenario.price : context.stock.price;
     document.getElementById('det-res-price').textContent = finite(displayedPrice) ? `${money()}${amount(displayedPrice)}` : 'N/A';
     document.getElementById('det-res-wacc').textContent = percent(result.WACC);
@@ -383,7 +391,10 @@
       ? reasonText(result.reason, context.language())
       : finite(premium) ? text('目前情境的模型估值，非投資建議。', 'Model value for this scenario, not investment advice.')
         : text('普通股權模型值非正數；不計算溢價百分比。', 'Modeled common equity is nonpositive; no premium percentage is calculated.');
-    document.querySelector('[onclick="saveCustomModel()"]').disabled = result.fairVal === null;
+    const canOverride = !!(CustomTarget && CustomTarget.canSave(result.fairVal, {
+      input: customInput?.value, saved: context.saved
+    }));
+    document.querySelector('[onclick="saveCustomModel()"]').disabled = result.fairVal === null && !canOverride;
     renderTable(result);
     renderBridge(result);
     renderSensitivity(source, scenario, result);
@@ -706,7 +717,18 @@
   }
   function save() {
     const result = recalculate();
-    if (!result || result.fairVal === null) return;
+    if (!result || result.fairVal === null) {
+      const CustomTarget = window.CustomTargetPrice;
+      const input = document.getElementById('inp-custom-target');
+      if (!CustomTarget) return;
+      const resolved = CustomTarget.resolve(null, { input: input?.value, saved: context.saved });
+      if (resolved.value == null) return;
+      context.save(CustomTarget.buildOverrideRecord({
+        ticker: context.ticker, targetPrice: resolved.value, currency: market.currency,
+        reason: result?.reason || 'MODEL_FAIR_VALUE_UNAVAILABLE', params: readScenario()
+      }));
+      return;
+    }
     context.save({ targetPrice: result.fairVal, currency: market.currency, savedAt: new Date().toISOString(), params: readScenario() });
     context.saved = { params: readScenario(), currency: market.currency };
     document.getElementById('fcff-legacy').textContent = '';
