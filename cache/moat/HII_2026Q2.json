@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "亨廷頓英格爾斯（HII）本質上是一家為美國政府提供關鍵國家安全服務的「特許經營權」企業，其商業模式類似於一條不可或缺的「收費橋樑」。公司在軍用造船領域，特別是航空母艦和核潛艇的建造上，享有近乎壟斷的地位。其護城河主要由極高的轉換成本、嚴格的監管壁壘、巨大的規模經濟、利基市場的天然寡占以及資產的不可複製性構成。儘管缺乏網絡效應且利潤率受政府合同限制，但其業務的確定性、穩定性和對技術顛覆的強大免疫力，使其成為巴菲特眼中典型的、擁有深厚護城河的優質企業，能夠長期為股東創造可預測的價值。",
   "overall_moat_verdict_en": "Huntington Ingalls (HII) is essentially a 'franchise' enterprise providing critical national security services to the U.S. government, with a business model akin to an indispensable 'toll bridge.' The company enjoys a near-monopoly in military shipbuilding, particularly for aircraft carriers and nuclear submarines. Its moat is primarily composed of extremely high switching costs, stringent regulatory barriers, significant economies of scale, natural oligopoly in a niche market, and the irreproducible nature of its assets. Despite lacking network effects and having profit margins constrained by government contracts, the certainty, stability, and strong immunity to technological disruption of its business make it a quintessential high-quality company with a deep moat in Buffett's view, capable of generating predictable long-term value for shareholders.",
   "evidenceHash": "71344a407fd009cb63ad8d3654b6854b9999370a12b996cfcc4cb60b479a00c7",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

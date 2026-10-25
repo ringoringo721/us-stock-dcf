@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Tradeweb Markets本質上是一個極具巴菲特式「收費橋樑」特徵的企業。它在機構級電子交易市場中，憑藉其強大的網絡效應、高轉換成本和嚴格的監管壁壘，構建了多重且相互強化的經濟護城河。公司不僅提供關鍵的市場基礎設施，更成為流動性匯聚的中心，使得其服務對客戶而言不可或缺。其輕資產、高效率的商業模式，結合卓越的資本回報能力，確保了長期穩定的盈利增長。Tradeweb的競爭優勢深植於其作為金融市場核心樞紐的地位，使其能夠持續創造股東價值。",
   "overall_moat_verdict_en": "Tradeweb Markets fundamentally operates as a quintessential \"toll bridge\" business in the Buffettian sense. It has constructed multiple, mutually reinforcing economic moats within the institutional electronic trading market, primarily through powerful network effects, high switching costs, and stringent regulatory barriers. The company not only provides critical market infrastructure but also serves as a central hub for liquidity, rendering its services indispensable to clients. Its asset-light, highly efficient business model, combined with exceptional capital returns, ensures stable and predictable long-term earnings growth. Tradeweb's competitive advantages are deeply embedded in its role as a core nexus of financial markets, enabling it to consistently generate substantial shareholder value.",
   "evidenceHash": "c2bf3b002ec1e8dc295b20e52c95d9e2e3a904afe3ab303adb313f12231f21da",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

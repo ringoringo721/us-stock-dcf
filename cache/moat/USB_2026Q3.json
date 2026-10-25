@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "U.S. Bancorp 是一家典型的「收費橋樑」型企業，其護城河主要來自於高度管制的銀行業環境所形成的進入壁壘 (M2)，以及其龐大營運規模帶來的成本優勢 (M5)。長期建立的品牌信任度 (M1) 和為客戶提供的多元化金融服務，創造了顯著的轉換成本 (M3)，尤其對於企業客戶而言。複製其數十年累積的客戶基礎、監管關係和複雜基礎設施幾乎不可能 (M8)。儘管面臨金融科技的挑戰，但其核心銀行服務的剛性需求賦予其一定的技術轉型抗性 (M9)。整體而言，U.S. Bancorp 憑藉其穩固的市場地位、規模經濟和客戶黏性，在特定區域市場享有特許經營權般的優勢，使其能夠持續創造超越資本成本的回報。",
   "overall_moat_verdict_en": "U.S. Bancorp is a quintessential \"toll bridge\" enterprise, with its moat primarily stemming from the significant entry barriers created by the highly regulated banking industry (M2) and the cost advantages derived from its massive operational scale (M5). Its long-established brand trust (M1) and diverse financial services offered to clients generate substantial switching costs (M3), particularly for business customers. Replicating its decades of accumulated customer base, regulatory relationships, and complex infrastructure is nearly impossible (M8). Despite facing FinTech challenges, the inelastic demand for its core banking services grants it a degree of immunity to technological disruption (M9). Overall, U.S. Bancorp, by virtue of its robust market position, economies of scale, and customer stickiness, enjoys franchise-like advantages in its specific regional markets, enabling it to consistently generate returns exceeding its cost of capital.",
   "evidenceHash": "f16216dbd75664a45687acaf55abc01db55becd63db08ffb642d939f3a28a03f",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Vertex Pharmaceuticals 是一家典型的「收費橋樑」型企業，其護城河深厚且多樣。公司在囊性纖維化治療領域建立了近乎壟斷的地位，主要得益於其強大的專利組合、患者對生命線藥物的極高黏性以及由此帶來的卓越定價權。這是一個典型的利基市場，新競爭者難以進入。Vertex的成功並非偶然，而是數十年專注研發和臨床驗證的結果，其核心資產和科學積累具有極高的不可複製性。管理層的審慎資本配置和持續的超額ROIC，進一步印證了其護城河的堅固性。儘管面臨潛在的技術顛覆風險，但其前瞻性佈局和多元化策略使其具備較強的抗性，確保了其作為一家特許經營權企業的長期價值。",
   "overall_moat_verdict_en": "Vertex Pharmaceuticals is a quintessential \"toll bridge\" enterprise, possessing a deep and multifaceted economic moat. The company has established a near-monopoly in cystic fibrosis treatment, primarily due to its robust patent portfolio, the extremely high switching costs for patients relying on life-saving medications, and the resulting exceptional pricing power. This is a classic niche market, highly difficult for new competitors to enter. Vertex's success is not accidental but the culmination of decades of focused R&D and clinical validation, rendering its core assets and scientific accumulation highly irreproducible. Management's prudent capital allocation and consistently high ROIC further affirm the robustness of its moat. Despite facing potential technological disruption risks, its proactive strategic positioning and diversification provide strong resilience, securing its long-term value as a franchise business.",
   "evidenceHash": "4c66701e54d38ae556f7479b4c165cf8ae25d9575116d689f159c796e3b455aa",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Zimmer Biomet本質上是一家在高度專業化、受嚴格監管的醫療器械市場中運營的「特許經營權」企業。其護城河主要來自於強大的品牌信任、龐大的專利組合、外科醫生的高轉換成本以及規模經濟帶來的成本優勢。這些因素共同構建了堅實的進入壁壘，使其能夠在寡頭壟斷的市場中保持領先地位。儘管資本回報率表現中等，且負債水平較高，但其產品需求的確定性與資產的不可複製性，賦予了公司長期穩定的盈利潛力，如同一個收取「過路費」的醫療基礎設施提供者。",
   "overall_moat_verdict_en": "Zimmer Biomet is fundamentally a \"franchise\" business operating in a highly specialized and strictly regulated medical device market. Its moats primarily stem from strong brand trust, an extensive patent portfolio, high switching costs for surgeons, and cost advantages derived from economies of scale. These factors collectively build robust barriers to entry, enabling it to maintain a leading position in an oligopolistic market. Despite moderate returns on capital and a relatively high debt level, the certainty of demand for its products and the irreproducibility of its assets grant the company long-term stable earning potential, akin to a provider of essential medical infrastructure collecting \"tolls.\"",
   "evidenceHash": "80322674ac82736226fe447f9fea9f8f4e5c8290e9d75369fab67e6ad0a1f0e2",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

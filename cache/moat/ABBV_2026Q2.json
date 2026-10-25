@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "艾伯維本質上是一家擁有「特許經營權」的生物製藥平台，其護城河主要由政府授予的藥物專利（M2）所構築。這使其在免疫學和腫瘤學等關鍵治療領域享有強大的定價權（M1）和極高的患者轉換成本（M3）。公司憑藉其龐大的研發規模（M5）和難以複製的科學創新能力（M8），持續推出能解決未滿足醫療需求的重磅藥物。儘管面臨專利懸崖的週期性挑戰，但其核心業務對技術顛覆具有較強抗性（M9）。然而，高額債務和持續的研發投入要求管理層具備卓越的資本配置能力（M10），以確保其「收費橋樑」的長期盈利能力和韌性。",
   "overall_moat_verdict_en": "AbbVie fundamentally operates as a \"franchise\" biopharmaceutical platform, with its moat primarily constructed by government-granted drug patents (M2). This affords it significant pricing power (M1) and extremely high patient switching costs (M3) in critical therapeutic areas like immunology and oncology. Leveraging its vast R&D scale (M5) and irreproducible scientific innovation capabilities (M8), the company consistently launches blockbuster drugs addressing unmet medical needs. Despite facing cyclical patent cliff challenges, its core business exhibits strong resistance to technological disruption (M9). However, substantial debt and continuous R&D investment demand exceptional capital allocation skills from management (M10) to ensure the long-term profitability and resilience of its \"toll bridge.\"",
   "evidenceHash": "e12e561fcd562ec069681685a2c566a200860c517320b82dd081f2f679c11590",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

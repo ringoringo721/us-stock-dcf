@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "林德（LIN）是一家典型的「收費橋樑」型企業，其護城河深邃而廣闊。它並非依賴單一優勢，而是由多重堅固壁壘共同構築：極致的規模經濟、高昂的客戶轉換成本、關鍵的地理位置資產、嚴格的監管准入以及無可替代的產品屬性。這些因素共同賦予林德強大的定價權和穩定的現金流，使其能夠持續產生高於平均水平的資本回報。在巴菲特的視角下，林德的業務本質是提供現代社會不可或缺的基礎設施服務，其盈利能力和抗風險能力使其成為長期價值投資的典範。",
   "overall_moat_verdict_en": "Linde (LIN) is a quintessential \"toll bridge\" business, possessing a deep and wide moat. It doesn't rely on a single advantage but is built upon multiple robust barriers: extreme economies of scale, high customer switching costs, critical geographic assets, stringent regulatory entry barriers, and indispensable product attributes. These factors collectively grant Linde strong pricing power and stable cash flow, enabling it to consistently generate above-average returns on capital. From Buffett's perspective, Linde's business essence is providing indispensable infrastructure services to modern society, and its profitability and resilience make it a prime example for long-term value investing.",
   "evidenceHash": "be8d7c70ee1bbd812ed3baefa9f9595dd4ca6816ecd350427bf39bddf48f65c2",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

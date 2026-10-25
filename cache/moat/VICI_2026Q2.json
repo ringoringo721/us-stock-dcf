@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "VICI Properties本質上是一個「特許經營權地產平台」與「收費橋樑」的結合體。它透過擁有並租賃全球頂級博弈與酒店綜合度假村的實體資產，受益於這些資產的稀缺性、高昂的轉換成本以及博弈產業嚴格的監管壁壘。其長期、通脹掛鉤的淨租賃合約提供了極其穩定且可預測的現金流，如同收取過路費。即使沒有直接的消費者品牌，其資產的不可複製性與對技術顛覆的強大免疫力，共同構築了堅實的經濟護城河，使其成為一個具備長期複利潛力的優質REIT。",
   "overall_moat_verdict_en": "VICI Properties fundamentally operates as a \"franchise real estate platform\" combined with a \"toll bridge.\" By owning and leasing the physical assets of premier global gaming and hospitality integrated resorts, it benefits from the scarcity of these assets, the prohibitively high switching costs for tenants, and the stringent regulatory barriers of the gaming industry. Its long-term, inflation-indexed triple-net leases provide exceptionally stable and predictable cash flows, akin to collecting tolls. Even without a direct consumer brand, the irreproducibility of its assets and strong immunity to technological disruption collectively form a robust economic moat, positioning it as a high-quality REIT with long-term compounding potential.",
   "evidenceHash": "1192b01948b32599f6ee1379a5db243e7027526ccc0f459c2b449347c6ce70b5",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

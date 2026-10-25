@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Thermo Fisher Scientific本質上是一家為全球生命科學產業提供「鏟子和鎬」的特許經營平台，其商業模式如同收取過路費的橋樑。公司擁有多重且相互強化的經濟護城河：旗下品牌在科學界享有高度信任與定價權；龐大的專利組合構建了堅實的技術壁壘；客戶因深度整合的儀器與工作流程而面臨極高的轉換成本；巨大的規模經濟使其在成本和效率上無人能及；以及數十年累積的、幾乎無法複製的戰略資產。這些護城河共同賦予公司卓越的盈利能力和抵禦競爭的韌性，使其成為科學進步不可或缺的基石，具備長期穩健增長的潛力。",
   "overall_moat_verdict_en": "Thermo Fisher Scientific fundamentally operates as a \"picks and shovels\" franchise platform for the global life sciences industry, akin to a toll bridge. The company possesses multiple, reinforcing economic moats: its brands command high trust and pricing power within the scientific community; a vast patent portfolio constructs robust technological barriers; customers face exceptionally high switching costs due to deeply integrated instruments and workflows; immense economies of scale provide unparalleled cost and efficiency advantages; and its strategic assets, accumulated over decades, are virtually irreproducible. These moats collectively grant the company exceptional profitability and resilience against competition, positioning it as an indispensable cornerstone for scientific advancement with strong long-term growth potential.",
   "evidenceHash": "5e0f69295e4b97b6dce1420de9c411c10abbe436122a768b3c7370a7a220dd5f",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

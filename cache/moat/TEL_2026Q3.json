@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "TE Connectivity 是一家典型的「收費橋樑」型企業，其核心業務是提供現代工業不可或缺的連接與傳感解決方案。公司憑藉其在B2B領域的強大品牌信譽、龐大的專利組合、客戶轉換成本高昂的產品特性，以及全球領先的規模經濟效益，構築了多重堅固的護城河。其產品深度嵌入客戶系統，需求穩定且對技術顛覆具備較強免疫力。卓越的資本回報率和充沛的自由現金流，進一步印證了其作為特許經營權平台的本質，能夠持續為股東創造超額價值，是巴菲特和蒙格會青睞的優質企業。",
   "overall_moat_verdict_en": "TE Connectivity is a quintessential \"toll bridge\" type enterprise, whose core business involves providing indispensable connectivity and sensor solutions for modern industries. The company has built multiple robust moats through its strong brand reputation in the B2B sector, an extensive patent portfolio, products characterized by high customer switching costs, and leading global economies of scale. Its products are deeply embedded in customer systems, ensuring stable demand and strong immunity to technological disruption. Excellent capital returns and abundant free cash flow further confirm its nature as a franchise platform, capable of consistently generating superior shareholder value, making it a high-quality business that Buffett and Munger would favor.",
   "evidenceHash": "0dbefde1ffb91373f497476951d2e6e49d9d19e5ed5d82787648b167595d7459",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

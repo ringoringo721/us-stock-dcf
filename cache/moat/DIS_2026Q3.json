@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "迪士尼本質上是一個擁有全球頂級「特許經營權平台」的企業，其核心護城河建立在無可比擬的品牌心智、龐大且受保護的知識產權寶庫，以及提供沉浸式體驗的能力之上。儘管近期在串流媒體投資和疫情影響下，財務表現有所波動，但其獨特的文化影響力、規模經濟和難以複製的資產，使其在娛樂產業中佔據了收費橋樑般的地位。管理層若能有效整合資源、優化資本結構並專注於核心盈利能力，迪士尼將持續為股東創造長期價值，抵禦市場變動。",
   "overall_moat_verdict_en": "Disney fundamentally operates as a \"franchise platform\" with unparalleled global reach. Its core moat is built upon an incomparable brand mindshare, a vast and protected intellectual property treasure trove, and the ability to deliver immersive experiences. Despite recent financial fluctuations due to streaming investments and pandemic impacts, its unique cultural influence, economies of scale, and irreplicable assets position it as a toll bridge in the entertainment industry. Should management effectively integrate resources, optimize the capital structure, and focus on core profitability, Disney will continue to generate long-term shareholder value, resilient against market shifts.",
   "evidenceHash": "9b0357076df96dc9bc52267b188fd037b84f92fc487ce235cd2c9d56a53dce2d",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

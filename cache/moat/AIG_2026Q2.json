@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "AIG本質上是一家全球性的「金融收費橋樑」型企業，其護城河主要建立在高度監管的行業壁壘、龐大的營運規模帶來的成本優勢，以及在複雜商業和專業險領域積累的深厚承保經驗。儘管2008年危機曾重創其品牌，但其在全球範圍內獲取牌照的難度、客戶轉換成本以及難以複製的全球網絡和專業知識，共同構成了堅實的競爭壁壘。公司龐大的浮存金為其提供了獨特的投資優勢。管理層在危機後展現出更為審慎的資本配置策略，專注於核心業務並回饋股東。AIG並非依靠單一的超級品牌或網絡效應，而是憑藉多重結構性優勢，在金融服務領域築起了一道複合型護城河。",
   "overall_moat_verdict_en": "AIG is fundamentally a global \"financial toll bridge\" enterprise, with its moat primarily built upon highly regulated industry barriers, cost advantages derived from its vast operational scale, and deep underwriting expertise accumulated in complex commercial and specialty insurance sectors. Although the 2008 crisis severely impacted its brand, the difficulty of obtaining licenses globally, high customer switching costs, and an irreproducible global network and specialized knowledge collectively form robust competitive barriers. The company's substantial float provides it with a unique investment advantage. Post-crisis, management has demonstrated a more prudent capital allocation strategy, focusing on core businesses and returning value to shareholders. AIG does not rely on a single dominant brand or network effect but rather on multiple structural advantages to construct a composite moat in the financial services sector.",
   "evidenceHash": "23fd5d37c3062145e6ff2f9a70d02cdcbc6475d2589529017eb38d0dd420f622",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

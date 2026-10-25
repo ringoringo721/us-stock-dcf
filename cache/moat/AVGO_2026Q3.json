@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "博通（AVGO）擁有一條由多重堅固壁壘構築而成的深廣護城河，其本質是一家為數位經濟提供關鍵基礎設施的「特許經營權平台」與「收費橋樑」。公司在半導體和企業軟體領域均具備極高的轉換成本、龐大的專利集群與規模經濟優勢。特別是VMware等軟體產品，深度嵌入客戶IT系統，使其難以替代。博通憑藉其不可或缺的產品與技術，享有強大的定價權，並透過精準的併購策略不斷強化其市場地位與現金流生成能力。這使其能夠持續產生超額的投入資本回報，為股東創造長期價值，符合巴菲特對卓越企業的定義。",
   "overall_moat_verdict_en": "Broadcom (AVGO) possesses a deep and wide moat constructed from multiple robust barriers, essentially operating as a 'franchise platform' and 'toll bridge' providing critical infrastructure for the digital economy. The company benefits from extremely high switching costs, extensive patent portfolios, and significant economies of scale in both semiconductors and enterprise software. Software products like VMware are deeply embedded in customer IT systems, making them indispensable. Leveraging its essential products and technology, Broadcom enjoys strong pricing power and continuously strengthens its market position and cash flow generation through precise M&A strategies. This enables it to consistently generate superior returns on invested capital, creating long-term value for shareholders, aligning with Buffett's definition of an outstanding business.",
   "evidenceHash": "49947613c0678c9c5e211e345acc45baf2c6f7237c46a35dfc3ed627221841e5",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Tyler Technologies 本質上是一家在政府軟體領域築起堅固「收費橋樑」的特許經營型企業。其核心護城河源於極高的客戶轉換成本，一旦政府機構採用其關鍵運營軟體，替換的代價幾乎無法承受。輔以對政府複雜法規的深刻理解、規模經濟帶來的成本優勢，以及數十年累積的客戶信任與專業知識的不可複製性，共同構建了其難以逾越的競爭壁壘。公司在一個需求穩定、對技術變革抗性強的利基市場中，享有持續的定價權和穩定的現金流，使其成為典型的巴菲特式「好生意」，具備長期投資價值。",
   "overall_moat_verdict_en": "Tyler Technologies fundamentally operates as a 'toll bridge' franchise within the government software sector, fortified by an exceptionally robust economic moat. Its core competitive advantage stems from extremely high customer switching costs; once government agencies adopt its critical operational software, the cost of replacement becomes almost prohibitive. This is further bolstered by a profound understanding of complex government regulations, cost advantages derived from economies of scale, and the irreproducibility of decades of accumulated customer trust and specialized expertise. Operating in a stable, niche market with strong immunity to technological disruption, the company enjoys sustained pricing power and predictable cash flows, making it a quintessential Buffett-style 'good business' with long-term investment value.",
   "evidenceHash": "0e9a92dd18412a4a860d7675c740c0f9d30f80f8e1d89cb8dcf1a779362baf34",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

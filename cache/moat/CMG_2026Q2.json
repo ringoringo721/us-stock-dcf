@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Chipotle本質上是一家擁有堅實「特許經營權」特徵的餐飲企業，其護城河主要建立在強大的品牌心智與定價權（M1）之上。公司成功將「新鮮、健康、客製化」的理念深植人心，使其能持續獲得超額的投入資本回報（M7）。儘管餐飲業競爭激烈，但Chipotle的規模經濟（M5）和難以複製的營運體系（M8），使其成為快休閒墨西哥菜市場的「收費橋樑」。消費者願意為其獨特價值支付溢價，且對技術顛覆具備高度免疫力（M9），確保了其長期盈利的韌性。",
   "overall_moat_verdict_en": "Chipotle fundamentally operates as a restaurant enterprise with strong \"franchise-like\" characteristics, its moat primarily built upon powerful brand equity and pricing power (M1). The company has successfully ingrained the concept of \"fresh, healthy, and customizable\" food in consumers' minds, allowing it to consistently generate superior returns on invested capital (M7). Despite intense competition in the dining sector, Chipotle's scale advantages (M5) and difficult-to-replicate operational system (M8) position it as a \"toll bridge\" in the fast-casual Mexican food market. Consumers are willing to pay a premium for its unique value, and it possesses high immunity to technological disruption (M9), ensuring its long-term profitability resilience.",
   "evidenceHash": "8bedfedac935aceb3a37d899a40b7e26b5bea69055f3a82413f42c2b5e0310f4",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

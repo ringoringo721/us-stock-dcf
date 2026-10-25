@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "McKesson是一家典型的「收費橋樑」型企業，其護城河主要源於醫療保健分銷行業的天然寡占格局、極致的規模經濟、高昂的客戶轉換成本以及嚴格的監管壁壘。儘管利潤率不高，但其作為藥品供應鏈不可或缺的環節，確保了穩定的需求和現金流。這使其具備強大的防禦性，能夠長期為股東創造價值，而非依賴品牌溢價或技術創新。這是一個巴菲特會欣賞的、具備持久競爭優勢的基礎設施型業務。",
   "overall_moat_verdict_en": "McKesson is a quintessential \"toll bridge\" business, with its moat primarily stemming from the natural oligopoly of the healthcare distribution industry, extreme economies of scale, high customer switching costs, and stringent regulatory barriers. Although profit margins are not high, its indispensable role in the pharmaceutical supply chain ensures stable demand and cash flow. This grants it strong defensive characteristics, allowing it to create long-term shareholder value, rather than relying on brand premium or technological innovation. It represents an infrastructure-like business with durable competitive advantages that Warren Buffett would appreciate.",
   "evidenceHash": "c953ecd4999b8643e5afa032fb20daa0931c6f5ff3e972d59df1b53df2926869",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

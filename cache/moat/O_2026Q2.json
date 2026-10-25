@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Realty Income本質上是一家「收費橋樑」型企業，透過持有並租賃必需品相關的實體資產，為股東提供穩定且持續增長的現金流。其護城河主要來自於龐大的規模經濟、租戶的高轉換成本、難以複製的多元化資產組合，以及對技術顛覆的強大免疫力。儘管缺乏傳統的品牌或專利壁壘，但其作為基礎設施提供者的角色，使其成為一個具備堅固護城河的長期價值投資標的。",
   "overall_moat_verdict_en": "Realty Income fundamentally operates as a \"toll bridge\" business, providing stable and consistently growing cash flows to shareholders by owning and leasing essential physical assets. Its moat primarily derives from significant economies of scale, high tenant switching costs, a highly diversified and difficult-to-replicate asset portfolio, and strong immunity to technological disruption. While lacking traditional brand or patent barriers, its role as an infrastructure provider makes it a long-term value investment with a robust economic moat.",
   "evidenceHash": "8da0447fc64227b66ead97c7cf96a0784fe429160d6f15e91ca0a7015b1110fe",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

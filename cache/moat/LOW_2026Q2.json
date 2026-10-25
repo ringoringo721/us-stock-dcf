@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Lowe's 是一家典型的「收費橋樑」型企業，受益於其在北美家居裝修市場的雙寡頭地位。其護城河主要來自於巨大的規模經濟、難以複製的實體網絡和供應鏈，以及消費者對其品牌的認知和專業承包商的轉換成本。儘管不具備專利或網絡效應等技術型護城河，但其核心業務對經濟週期和技術變革具有較強的韌性。管理層穩健的資本配置策略，包括積極回購股票，進一步鞏固了其長期價值創造能力。這使得 Lowe's 能夠持續產生穩定的現金流和超額資本回報，為股東提供堅實的投資基礎。",
   "overall_moat_verdict_en": "Lowe's can be characterized as a \"toll bridge\" type of business, benefiting significantly from its duopoly position in the North American home improvement market. Its economic moats primarily stem from immense economies of scale, an irreproducible physical network and supply chain, strong brand recognition among consumers, and moderate switching costs for professional contractors. While lacking technology-driven moats like patents or network effects, its core business demonstrates strong resilience against economic cycles and technological disruption. Management's sound capital allocation strategy, including active share buybacks, further solidifies its long-term value creation capability. This enables Lowe's to consistently generate stable cash flows and superior returns on capital, providing a solid investment foundation for shareholders.",
   "evidenceHash": "278bebd241cfc2c62249f659dcb58e371927c5a0a020b694f1ebc438d6132b54",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

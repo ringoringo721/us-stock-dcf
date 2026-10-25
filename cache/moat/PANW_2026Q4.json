@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Palo Alto Networks 是一家在數位時代扮演「數位堡壘」角色的企業，其護城河主要來自於強大的品牌聲譽、極高的客戶轉換成本、規模經濟帶來的研發優勢，以及其整合式平台難以複製的複雜性。儘管其報告的 ROE/ROA 數據較低，但強勁的自由現金流生成能力顯示其經濟實力。公司透過持續創新和戰略併購，不斷強化其在網路安全領域的領導地位，為企業提供不可或缺的保護。這使其成為一個具備特許經營權特徵的企業，客戶對其服務的依賴性極高，能夠在不斷變化的威脅環境中保持穩定的盈利能力。",
   "overall_moat_verdict_en": "Palo Alto Networks operates as a 'digital fortress' in the digital age, with its moat primarily stemming from a strong brand reputation, exceptionally high customer switching costs, R&D advantages derived from economies of scale, and the irreproducible complexity of its integrated platform. Despite lower reported ROE/ROA figures, its robust free cash flow generation indicates underlying economic strength. The company continuously reinforces its leadership in cybersecurity through ongoing innovation and strategic acquisitions, providing indispensable protection to enterprises. This positions it as a business with franchise-like characteristics, where customer dependency on its services is extremely high, enabling it to maintain stable profitability amidst an evolving threat landscape.",
   "evidenceHash": "bac0c8f1a97a4f47049ef2555cc0869716fc9792645dd7259a49c9a983251035",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "花旗銀行（C）的護城河體現為一個複雜的全球金融網絡和深厚的企業客戶關係，這構成了一定的進入壁壘（M2、M3、M6）和規模經濟優勢（M5）。其品牌（M1）和網絡效應（M4）在全球範圍內具有價值，尤其是在跨境金融服務領域。然而，銀行業固有的週期性（M10）、嚴格的監管環境以及相對較低的營運效率（M7）和資本配置靈活性（M8），限制了其護城河的強度和持久性。總體而言，花旗的護城河更接近於一個受監管的、具有規模優勢的「收費橋」模式，而非巴菲特所青睞的、具有強大定價權和持久壟斷力的「特許經營」模式。其競爭優勢雖穩固，但難以稱得上是罕見或難以逾越的壁壘。",
   "overall_moat_verdict_en": "Citigroup (C) possesses a moat characterized by its extensive global financial network and deep corporate client relationships, creating barriers to entry (M2, M3, M6) and economies of scale (M5). Its brand (M1) and network effects (M4) hold global value, particularly in cross-border financial services. However, the inherent cyclicality of banking (M10), stringent regulatory oversight, relatively moderate operational efficiency (M7), and constrained capital allocation flexibility (M8) limit the moat's strength and durability. Overall, Citigroup's moat aligns more with a regulated, scaled 'toll bridge' model rather than the 'franchise' businesses with pricing power and enduring monopolies that Buffett favors. Its competitive advantages are solid but not exceptionally rare or insurmountable.",
   "evidenceHash": "abfc01f63841a522ff99d4497a348961096a6fa6d7cb466f6246a3409829685e",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

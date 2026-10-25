@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Labcorp在本質上是一家醫療保健基礎設施的「收費橋樑」型企業，其護城河主要由多重堅固壁壘構成。首先，嚴格的監管要求和認證體系構成了強大的進入障礙。其次，對於醫療機構和製藥客戶而言，更換實驗室或CRO服務商將產生極高的轉換成本，確保了客戶黏性。再者，其龐大的全國性實驗室網絡和檢測量帶來了顯著的規模經濟效益，使其能以更低成本運營。市場呈現天然寡占格局，新競爭者難以撼動。這些核心戰略資產的不可複製性，加上醫療檢測需求的高度確定性，共同賦予Labcorp穩定的盈利能力和持續超越資本成本的回報。這使其成為一個具備特許經營權特徵的優質企業。",
   "overall_moat_verdict_en": "Labcorp fundamentally operates as a \"toll bridge\" enterprise within the healthcare infrastructure, with its moat primarily constructed from multiple robust barriers. Firstly, stringent regulatory requirements and accreditation systems form powerful entry barriers. Secondly, for healthcare providers and pharmaceutical clients, switching laboratory or CRO service providers incurs extremely high costs, ensuring customer stickiness. Furthermore, its vast national laboratory network and testing volume generate significant economies of scale, allowing it to operate at lower costs. The market exhibits a natural oligopoly, making it difficult for new competitors to dislodge incumbents. The irreproducibility of these core strategic assets, coupled with the high certainty of demand for medical testing, collectively grants Labcorp stable profitability and returns consistently exceeding its cost of capital. This positions it as a high-quality business with franchise-like characteristics.",
   "evidenceHash": "c931360147210055acf8c38867cd8a5d9a23ba803af6ca52982eaf468bded434",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

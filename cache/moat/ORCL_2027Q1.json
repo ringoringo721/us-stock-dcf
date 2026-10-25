@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Oracle 的護城河主要由極高的客戶轉換成本（M3）和穩固的客戶留存率（M9）構成，這使其在企業級軟體市場擁有類似「收費橋」的特徵，客戶一旦進入便難以離開。其強大的品牌（M1）和規模經濟（M5）也提供了支持。然而，面對雲端市場的激烈競爭，其專利（M2）和網絡效應（M4）壁壘相對較弱。整體而言，Oracle 擁有堅固的護城河，尤其是在其傳統數據庫業務和企業級應用領域，但其雲端業務的長期競爭格局仍需持續觀察。",
   "overall_moat_verdict_en": "Oracle's moat is primarily built on extremely high customer switching costs (M3) and robust customer retention (M9), giving it 'toll bridge' characteristics in the enterprise software market where customers find it difficult to exit. Strong brand recognition (M1) and economies of scale (M5) provide further support. However, patent (M2) and network effect (M4) moats are less pronounced amidst intense cloud competition. Overall, Oracle possesses a solid moat, particularly in its traditional database and enterprise application segments, though the long-term competitive dynamics in its cloud business warrant ongoing observation.",
   "evidenceHash": "7c676c7050a6455fc74ac2dce782b6bc972250735dc6d658119b56917180399d",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

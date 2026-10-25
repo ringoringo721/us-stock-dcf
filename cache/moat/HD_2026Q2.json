@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "家得寶是一家典型的「特許經營權」企業，其護城河並非單一，而是由多個相互強化的因素構成。核心在於其無與倫比的規模經濟，使其在採購和運營成本上具備巨大優勢，遠超競爭對手。其次，強大的品牌認知度和客戶忠誠度，尤其是在專業承包商市場的深度滲透，形成了顯著的轉換成本。其遍布北美、位置優越的實體網絡，結合高效的供應鏈管理和卓越的資本配置能力，共同築起了難以逾越的壁壘。這使得家得寶能夠在競爭激烈的家裝零售市場中，長期保持高額的投入資本回報率，持續為股東創造價值。",
   "overall_moat_verdict_en": "Home Depot is a quintessential \"franchise\" business, whose moat is not singular but composed of multiple reinforcing factors. At its core lies unparalleled economies of scale, granting it a significant advantage in procurement and operational costs, far surpassing competitors. Secondly, strong brand recognition and customer loyalty, particularly its deep penetration into the professional contractor market, create substantial switching costs. Its extensive network of well-located physical stores across North America, combined with highly efficient supply chain management and excellent capital allocation capabilities, collectively form formidable barriers to entry. This enables Home Depot to consistently maintain high returns on invested capital in the competitive home improvement retail market, continuously creating value for shareholders.",
   "evidenceHash": "c861ab039eec3d572fff1aeb6eb2c8fed4e067e42a6df2ec18ccebd28d50fbf6",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

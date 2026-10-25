@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Equinix本質上是一個數字經濟的「收費橋樑」和「互聯樞紐」，擁有極其堅固的護城河。其核心競爭力來自於無與倫比的網絡效應和高昂的客戶轉換成本。Equinix在全球關鍵市場建立的龐大互聯生態系統，使得其成為網絡、雲服務商和企業之間不可或缺的連接點，這種「網絡密度」是任何競爭對手都難以在短時間內複製的。儘管作為資本密集型REIT，其資本配置策略受限，且需持續投入，但其在數字基礎設施中的核心地位，賦予其強大的定價權和對技術變革的免疫力。這是一個具備特許經營權特徵的優質基礎設施企業，能長期為股東創造價值。",
   "overall_moat_verdict_en": "Equinix is fundamentally a \"toll bridge\" and \"interconnection hub\" for the digital economy, possessing an exceptionally robust economic moat. Its core competitive advantage stems from unparalleled network effects and extremely high customer switching costs. The vast interconnection ecosystem Equinix has built in key global markets makes it an indispensable nexus for networks, cloud providers, and enterprises. This \"network density\" is virtually impossible for any competitor to replicate in the short term. Although it operates as a capital-intensive REIT with constrained capital allocation strategies and continuous investment needs, its pivotal role in digital infrastructure grants it significant pricing power and immunity to technological disruption. This is a high-quality infrastructure enterprise with franchise-like characteristics, capable of generating long-term shareholder value.",
   "evidenceHash": "33d41b96f438ca5228b116b662e9101699097c00639bd12c72bd88d365683ded",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

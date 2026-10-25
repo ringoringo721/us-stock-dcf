@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Live Nation本質上是一個在現場娛樂產業中築起堅實護城河的「收費橋樑」和「特許經營權」平台。它透過對藝人、場館和票務系統的深度整合，創造了一個難以複製的生態系統。強大的品牌心智、網絡效應、規模經濟和高轉換成本共同構成了其核心競爭優勢，使其能夠在市場上擁有顯著的定價權。儘管其高負債率和相對較低的資產回報率需要關注，但人們對現場體驗的永恆需求賦予了其業務模式極高的抗顛覆性。對於巴菲特而言，這是一個擁有持久競爭優勢，能夠持續產生現金流的優質企業，儘管其財務槓桿策略需要投資者仔細權衡。",
   "overall_moat_verdict_en": "Live Nation fundamentally operates as a \"toll bridge\" and \"franchise\" platform, having built an exceptionally robust moat within the live entertainment industry. Through deep integration of artists, venues, and ticketing systems, it has created an irreplicable ecosystem. Strong brand mindshare, network effects, economies of scale, and high switching costs collectively form its core competitive advantages, granting it significant pricing power in the market. While its high debt-to-cash ratio and relatively low return on assets warrant attention, the enduring human demand for live experiences provides its business model with high disruption immunity. For Buffett, this represents a quality enterprise with a durable competitive advantage, capable of consistently generating cash flow, though its financial leverage strategy requires careful consideration from investors.",
   "evidenceHash": "e75bfcc23b0a3455e70023078c98b8f751ef69f73341d8da98625e4c156b181b",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

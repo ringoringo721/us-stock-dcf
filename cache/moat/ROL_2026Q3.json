@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Rollins本質上是一家典型的「特許經營權」型企業，在害蟲防治這一基本且持續的需求領域築起了多重堅固護城河。其核心優勢在於Orkin等歷史悠久的強勢品牌，這些品牌在消費者心中建立了無可取代的信任與專業形象，賦予公司強大的定價權。結合其全球領先的規模經濟，Rollins在採購、營運效率及市場覆蓋上均具備壓倒性優勢，使得新競爭者難以望其項背。此外，害蟲防治服務的客戶黏性高，轉換成本顯著，且業務對技術變革具備強大免疫力。管理層穩健的資本配置策略，確保了公司能持續創造超額股東價值。Rollins的護城河深厚且廣闊，使其成為一個能夠長期穩定增長的優質企業。",
   "overall_moat_verdict_en": "Rollins fundamentally operates as a classic \"franchise-like\" business, having built multiple robust moats in the essential and enduring pest control sector. Its core strength lies in powerful, long-established brands like Orkin, which have cultivated irreplaceable trust and a professional image in consumers' minds, granting the company significant pricing power. Combined with its global leading scale economies, Rollins possesses overwhelming advantages in procurement, operational efficiency, and market coverage, making it incredibly difficult for new competitors to contend. Furthermore, pest control services exhibit high customer stickiness with substantial switching costs, and the business is highly immune to technological disruption. The management's prudent capital allocation strategy ensures the company consistently creates superior shareholder value. Rollins' moats are deep and wide, positioning it as a high-quality enterprise capable of sustained long-term growth.",
   "evidenceHash": "904007d6d690295122ac38825402aa60bd7fb214ed2b8684fadb59077821943d",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

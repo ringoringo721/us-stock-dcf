@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "T-Mobile US在本質上是一家具備強大「收費橋樑」特徵的電信基礎設施與服務提供商。其最堅固的護城河源於政府對頻譜資源的嚴格管制與稀缺性，以及建立全國性5G網絡所需的天文數字般資本投入，這構成了極高的進入壁壘。公司龐大的用戶基礎帶來顯著的規模經濟效益，使其能以更低的成本運營。此外，其「非運營商」品牌策略成功建立客戶忠誠度與一定的定價權。儘管行業競爭激烈，但T-Mobile的戰略資產（頻譜、網絡、客戶群）幾乎不可複製，使其在美國無線通訊寡占市場中佔據穩固地位，持續產生豐厚自由現金流。",
   "overall_moat_verdict_en": "T-Mobile US fundamentally operates as a telecommunications infrastructure and service provider with strong \"toll bridge\" characteristics. Its most robust moats stem from the government's strict regulation and scarcity of spectrum resources, coupled with the astronomical capital investment required to build a nationwide 5G network, which together form an extremely high barrier to entry. The company's massive subscriber base drives significant economies of scale, enabling it to operate at lower costs. Furthermore, its \"Un-carrier\" brand strategy has successfully built customer loyalty and some pricing power. Despite intense industry competition, T-Mobile's strategic assets (spectrum, network, customer base) are virtually irreproducible, securing its solid position in the U.S. wireless communication oligopoly and consistently generating substantial free cash flow.",
   "evidenceHash": "05a6066dd0e8f566e144faddd9f834a65fbaf2b91219d8c653ae3c161b79a84e",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

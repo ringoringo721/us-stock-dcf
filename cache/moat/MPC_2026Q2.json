@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "馬拉松石油是一家在成熟、資本密集型產業中運營的巨頭。其核心護城河在於無與倫比的規模經濟、難以複製的龐大資產基礎以及行業固有的高效寡占格局。這些因素使其成為一個極其高效的低成本生產者，並在煉油和分銷領域享有強大的市場地位。然而，其本質仍是一個商品型企業，缺乏定價權和品牌忠誠度，且不具備網絡效應。最大的長期挑戰是全球能源轉型對化石燃料需求的結構性衝擊。儘管管理層在資本配置上表現出色，但公司更像是一個在夕陽產業中運營的「高效工業巨頭」，而非巴菲特理想中擁有永續特許經營權的「收費橋樑」或「消費壟斷」企業。",
   "overall_moat_verdict_en": "Marathon Petroleum is a giant operating in a mature, capital-intensive industry. Its core moats lie in unparalleled economies of scale, an irreplicable vast asset base, and the industry's inherent efficient oligopoly structure. These factors position it as an exceptionally efficient low-cost producer with a strong market presence in refining and distribution. However, it remains fundamentally a commodity business, lacking pricing power and brand loyalty, and exhibiting no network effects. The most significant long-term challenge is the structural impact of the global energy transition on fossil fuel demand. While management excels in capital allocation, the company is more akin to an 'efficient industrial giant' operating in a sunset industry, rather than Buffett's ideal 'toll bridge' or 'consumer monopoly' with perpetual franchise characteristics.",
   "evidenceHash": "4f794907a17e728d17b700ea0b320b527a1fabc4a4ffc2877741b7f6fe8c06f9",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

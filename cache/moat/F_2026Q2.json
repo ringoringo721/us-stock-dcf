@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "福特汽車本質上是一家成熟、資本密集且具週期性的商品型企業。其主要護城河來自於強大的品牌認知度（特別是F系列皮卡）和巨大的規模經濟效益，使其在成本控制和市場份額上具備一定優勢。然而，這些優勢被汽車產業的激烈競爭、低轉換成本、缺乏網絡效應以及電動車轉型帶來的巨大技術顛覆風險所抵消。福特難以擁有持續的定價權，其盈利能力受經濟週期和產品更新週期影響甚鉅，不具備巴菲特所青睞的「收費橋樑」或「特許經營權」特徵。",
   "overall_moat_verdict_en": "Ford Motor Company is essentially a mature, capital-intensive, and cyclical commodity-like business. Its primary moats stem from strong brand recognition (especially for its F-series trucks) and immense economies of scale, providing some advantage in cost control and market share. However, these benefits are largely offset by intense competition within the automotive industry, low switching costs, a lack of network effects, and significant technological disruption risks posed by the EV transition. Ford struggles to maintain consistent pricing power, and its profitability is heavily influenced by economic cycles and product refresh cycles. It does not possess the 'toll bridge' or 'franchise' characteristics favored by Warren Buffett.",
   "evidenceHash": "1cf2ae54337a9b5bccf6f77b4c7c61af049b2b0ddc84ceb243630dd115e650a6",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

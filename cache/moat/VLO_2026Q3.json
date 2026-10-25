@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Valero Energy 的護城河主要建立在其龐大的規模經濟（M5）和卓越的營運效率（M7）之上，使其能夠以更低的成本生產和銷售燃料，並在煉油價差擴大時獲取豐厚利潤。其戰略性的地理資產（M6）和相對穩健的資本配置（M8）也提供了重要的競爭優勢。然而，其業務本質上屬於商品型，品牌（M1）、轉換成本（M3）和網絡效應（M4）方面的壁壘較弱，客戶忠誠度不高（M9）。專利和特許權（M2）也不是其核心優勢。總體而言，Valero 是一家高效的煉油商，其護城河更偏向於成本領先和營運卓越，而非典型的特許經營或收費橋模式，具有一定的持久性但易受大宗商品價格波動影響。",
   "overall_moat_verdict_en": "Valero Energy's moat is primarily built upon significant economies of scale (M5) and exceptional operational efficiency (M7), enabling cost-effective production and sales, and strong profitability during favorable refining margins. Its strategic geographic assets (M6) and disciplined capital allocation (M8) also provide key advantages. However, the commoditized nature of its business means weaker moats in branding (M1), switching costs (M3), and network effects (M4), leading to lower customer loyalty (M9). Patents and regulatory advantages (M2) are not core strengths. Overall, Valero is an efficient refiner whose moat leans towards cost leadership and operational excellence rather than a typical franchise or toll bridge model, possessing durability but susceptible to commodity price volatility.",
   "evidenceHash": "5d58970039cdf0c7ab5bac4af2afd3036548d151710a6c9a85ed7356f3f9b19d",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "麥當勞本質上是一個全球性的「特許經營權平台」與「收費橋樑」企業。其護城河深植於無可匹敵的全球品牌認知度、遍布各地的黃金地段房地產所有權，以及透過規模經濟實現的極致成本優勢。公司將運營風險與資本支出轉嫁給加盟商，自身則穩健收取特許權使用費與租金，創造了豐沛且可預期的自由現金流。儘管速食產業競爭激烈，但麥當勞憑藉其品牌黏性、高效供應鏈和難以複製的全球網絡，築起了堅實的商業壁壘，使其能夠持續創造超額回報，是典型的巴菲特式「簡單、可理解、有護城河」的優質企業。",
   "overall_moat_verdict_en": "McDonald's is fundamentally a global \"franchise platform\" and \"toll bridge\" business. Its moat is deeply rooted in unparalleled global brand recognition, ownership of prime real estate locations worldwide, and extreme cost advantages achieved through economies of scale. The company shifts operational risks and capital expenditures to franchisees, while steadily collecting royalties and rent, generating abundant and predictable free cash flow. Despite intense competition in the fast-food industry, McDonald's has built robust business barriers through its brand stickiness, efficient supply chain, and irreplicable global network, enabling it to consistently generate superior returns. It is a quintessential Buffett-style \"simple, understandable, moated\" quality enterprise.",
   "evidenceHash": "c417aa0defd2fee1796c67d9a4d8587438290fd356d3f0a6388dbc997bb6c85b",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

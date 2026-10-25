@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Illinois Tool Works (ITW) 展現出一個由多個堅固護城河組成的複合型商業模式，可被視為在眾多工業利基市場中擁有一系列「特許經營權」的集合體。其核心競爭優勢源於高度專業化的產品所帶來的客戶高轉換成本、卓越的規模經濟效益、以及數十年累積的專有技術與深厚客戶關係。ITW的去中心化運營模式使其能更貼近客戶需求，提供定制化解決方案，進一步強化了客戶黏性。儘管缺乏傳統意義上的網絡效應，但其持續超額的資本回報率和難以複製的複雜運營體系，共同構建了其抵禦競爭和技術顛覆的堅實壁壘，確保了長期穩定的盈利能力。",
   "overall_moat_verdict_en": "Illinois Tool Works (ITW) exhibits a composite business model fortified by multiple robust moats, effectively operating as a collection of \"franchises\" across numerous industrial niche markets. Its core competitive advantages stem from high customer switching costs driven by highly specialized products, superior economies of scale, and decades of accumulated proprietary technology and deep customer relationships. ITW's decentralized operating model enables it to stay closer to customer needs, offering customized solutions that further enhance customer stickiness. While lacking traditional network effects, its consistently superior returns on capital and the irreproducibility of its complex operational system collectively form formidable barriers against competition and technological disruption, ensuring long-term stable profitability.",
   "evidenceHash": "bfe174c085a3664796f95bb15e40488e0b834cd035ab81c0728986834bd2b612",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

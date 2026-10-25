@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Clear Secure本質上是一個在高度監管環境下運營的「收費橋樑」或「特許經營權」企業，其核心業務是為機場等高安全場所提供快速身份驗證服務。公司的護城河主要建立在與政府機構的深度合作、廣泛的機場網絡、強大的品牌認知以及規模經濟帶來的成本優勢之上。對於重視時間效率的旅客而言，其服務具有顯著的轉換成本。Clear的商業模式資本投入相對輕巧，一旦建立便能產生豐厚的自由現金流，並展現出卓越的資本回報率。這些特徵使其成為一個擁有堅固競爭優勢、難以被複製和顛覆的優質企業，符合巴菲特對具有持久定價權和可預測現金流公司的投資偏好。",
   "overall_moat_verdict_en": "Clear Secure fundamentally operates as a \"toll bridge\" or \"franchise\" business within a highly regulated environment, providing expedited identity verification services primarily for high-security venues like airports. Its moat is primarily built upon deep cooperation with government agencies, an extensive airport network, strong brand recognition, and cost advantages derived from economies of scale. For travelers who prioritize time efficiency, its service presents significant switching costs. Clear's business model is relatively capital-light, generating substantial free cash flow once established, and demonstrating excellent returns on capital. These characteristics position it as a high-quality enterprise with a robust competitive advantage, difficult to replicate and disrupt, aligning with Buffett's investment preference for companies with durable pricing power and predictable cash flows.",
   "evidenceHash": "b5f156bb47fa2a29a88272f33b1e58d7b1ceac35176e36d6bfe75791ccb53cd0",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Copart本質上是一個在報廢車輛處理與拍賣市場中運營的「收費橋樑」型企業，具備極為堅固的經濟護城河。其核心優勢來自於強大的雙邊網絡效應，賣家與買家數量相互促進，形成難以打破的良性循環。同時，保險公司等賣家因系統整合與流程依賴而產生高昂的轉換成本。公司龐大的實體網絡、物流體系及專有技術平台帶來了顯著的規模經濟與成本優勢。這些結合了監管壁壘、資本不可複製性及對技術變革的強大免疫力，共同鑄就了其長期穩定的盈利能力與市場領導地位，是典型的巴菲特式優質特許經營權。",
   "overall_moat_verdict_en": "Copart is essentially a \"toll bridge\" type of business operating in the salvage vehicle processing and auction market, possessing extremely robust economic moats. Its core advantages stem from powerful two-sided network effects, where the number of sellers and buyers mutually reinforces each other, creating a virtuous cycle that is difficult to break. Simultaneously, sellers like insurance companies face high switching costs due to system integration and process dependency. The company's vast physical network, logistics system, and proprietary technology platform bring significant economies of scale and cost advantages. These, combined with regulatory barriers, capital irreproducibility, and strong immunity to technological disruption, collectively forge its long-term stable profitability and market leadership, making it a classic Buffett-style quality franchise.",
   "evidenceHash": "4fec6be17e5a8084bf24086f3c87798c3e3761546a02fc6cc0f914a38b25cb01",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

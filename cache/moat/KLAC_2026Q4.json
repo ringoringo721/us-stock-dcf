@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "KLA在半導體製程控制領域構築了極為堅固的護城河，其核心優勢源於領先的專有技術、龐大的專利組合、客戶極高的轉換成本以及在利基市場形成的有效規模寡占。公司如同半導體產業的「收費橋樑」，其檢測與量測設備是晶片製造不可或缺的關鍵環節，確保了其強大的定價權與持續超額的資本回報率。這是一個典型的特許經營權企業，具備長期穩定的盈利能力與抗風險性，符合巴菲特對卓越企業的定義。",
   "overall_moat_verdict_en": "KLA has built an exceptionally robust moat in the semiconductor process control sector. Its core advantages stem from leading proprietary technology, an extensive patent portfolio, extremely high customer switching costs, and an efficient scale oligopoly within a niche market. The company acts as a \"toll bridge\" for the semiconductor industry, with its inspection and metrology equipment being an indispensable component of chip manufacturing, ensuring strong pricing power and consistently superior returns on capital. This is a quintessential franchise business, possessing long-term stable profitability and resilience, aligning with Buffett's definition of an outstanding enterprise.",
   "evidenceHash": "d0a696723bd13636ee9cc465379f9ae36f40a0c288e4425c9af20932b435d00e",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

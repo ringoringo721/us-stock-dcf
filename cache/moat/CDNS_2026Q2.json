@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Cadence Design Systems 是一家典型的「收費橋樑」型企業，為全球半導體產業提供不可或缺的基礎設施。其經濟護城河極為深厚，主要由極高的客戶轉換成本、龐大的專利組合、規模經濟帶來的研發優勢以及在寡佔市場中的主導地位所構築。公司深度嵌入客戶的晶片設計流程，使其產品成為行業標準，難以被替代。這種強大的競爭優勢，加上其持續的創新能力和高效的資本配置，使得Cadence能夠長期維持高利潤率和卓越的資本回報，是巴菲特眼中具備特許經營權特徵的優質企業。",
   "overall_moat_verdict_en": "Cadence Design Systems is a quintessential 'toll bridge' business, providing indispensable infrastructure for the global semiconductor industry. Its economic moat is exceptionally deep, primarily constructed from extremely high customer switching costs, an extensive patent portfolio, R&D advantages derived from economies of scale, and its dominant position in an oligopolistic market. The company is deeply embedded in clients' chip design workflows, making its products industry standards and virtually irreplaceable. This formidable competitive advantage, coupled with its continuous innovation and efficient capital allocation, enables Cadence to sustain high profit margins and superior returns on capital over the long term, marking it as a high-quality enterprise with franchise-like characteristics in Buffett's view.",
   "evidenceHash": "009648c8aef85d9bdb33894fedf3e3ea4c661a6fe2bbca020a55df4759d257d5",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

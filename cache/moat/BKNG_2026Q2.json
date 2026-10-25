@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Booking Holdings本質上是一個全球性的「特許經營權平台」，透過其強大的品牌組合和雙邊網絡效應，在線上旅遊市場築起了極為堅固的護城河。它並非傳統意義上的商品型企業，而是作為連接全球數億旅行者與數百萬住宿及交通供應商的「收費橋樑」。其規模經濟、不可複製的全球網絡以及對技術變革的適應能力，使其能夠持續產生超額資本回報。儘管消費者轉換成本相對較低，但供應商的黏性、品牌心智佔有率和管理層穩健的資本配置策略，共同構成了其長期競爭優勢，使其成為巴菲特哲學下值得關注的優質企業。",
   "overall_moat_verdict_en": "Booking Holdings is fundamentally a global \"franchise platform\" that has built an exceptionally robust moat in the online travel market through its powerful brand portfolio and strong two-sided network effects. It is not a commodity business in the traditional sense, but rather acts as a \"toll bridge\" connecting hundreds of millions of global travelers with millions of accommodation and transportation suppliers. Its economies of scale, irreproducible global network, and adaptability to technological changes enable it to consistently generate superior returns on capital. While consumer switching costs are relatively low, supplier stickiness, strong brand mindshare, and management's prudent capital allocation strategy collectively form its long-term competitive advantage, making it a high-quality enterprise worthy of attention under Buffett's philosophy.",
   "evidenceHash": "cc9eee980be0ab73c17b97701497bd2f54e2d864312ecd9afdb8863e0461ffa5",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

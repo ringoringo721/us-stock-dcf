@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "摩根士丹利作為一家領先的全球金融服務機構，其護城河主要體現在品牌聲譽、規模經濟和客戶轉換成本上，這些構成了其核心競爭優勢。其品牌價值使其能在高端市場獲得定價權，龐大的業務規模帶來了顯著的成本效率，而與客戶建立的長期信任關係則提高了轉換門檻。儘管面臨金融業固有的監管風險和市場波動，但其卓越的資本配置能力和持續的運營效率優化，為其提供了抵禦競爭和維持長期盈利能力的堅實基礎。整體而言，摩根士丹利可被視為一個具有特許經營性質的金融服務提供者，其護城河雖非無懈可擊，但在其所處的行業內具有相當的強度和持久性。",
   "overall_moat_verdict_en": "Morgan Stanley, a leading global financial services firm, possesses a moat primarily built on brand reputation, economies of scale, and client switching costs. Its brand commands pricing power in premium segments, its vast scale drives significant cost efficiencies, and established client relationships create high barriers to switching. While exposed to inherent industry risks like regulatory changes and market volatility, its strong capital allocation and operational efficiency provide a robust foundation against competition and for sustained profitability. Overall, it operates akin to a 'toll bridge' or franchise business within the financial sector, with a moat that is substantial and durable, though not impenetrable.",
   "evidenceHash": "4ffd3f905402a226e97162cb9eb77aff07a03fd9065c699a7c74603a092daad4",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

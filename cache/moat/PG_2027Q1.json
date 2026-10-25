@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "寶僑的核心護城河來自其無與倫比的品牌資產和規模經濟帶來的成本優勢，這使其在必需消費品領域擁有類似特許經營的定價權和客戶忠誠度。其產品的日常必需屬性構成了穩定的「收費橋」，不易受經濟週期影響。儘管在專利和網絡效應方面壁壘較弱，但寶僑透過卓越的運營效率、穩健的資本配置以及對客戶關係的長期維護，成功構築了堅實且持久的競爭優勢。其多元化的品牌組合和全球佈局，進一步鞏固了其在消費品行業的領導地位，展現了長期價值投資的典範。",
   "overall_moat_verdict_en": "Procter & Gamble's primary moat lies in its unparalleled brand equity and cost advantages derived from economies of scale, granting it franchise-like pricing power and customer loyalty in the essential consumer goods sector. The necessity of its products acts as a stable 'toll bridge,' resilient to economic cycles. While weaker in patents and network effects, P&G effectively builds a robust and enduring competitive advantage through operational excellence, sound capital allocation, and sustained customer relationships. Its diversified brand portfolio and global reach further solidify its leadership in the consumer goods industry, exemplifying a long-term value investment.",
   "evidenceHash": "8120e1154cf396219e249f04737ae1e65a92d8d2fd0f08f284991223d610af09",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

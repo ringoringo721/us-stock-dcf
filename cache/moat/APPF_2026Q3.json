@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "AppFolio 在租賃管理軟體領域建立了一個以高轉換成本、強大品牌聲譽和卓越營運效率為核心的護城河。其 SaaS 模式和持續的產品創新使其能夠在市場中保持領先地位，並從規模經濟中獲益。雖然缺乏專利或網絡效應等傳統壁壘，但其客戶黏性和穩健的財務狀況，使其具備了類似於「收費橋」的特徵，能夠穩定地從行業增長中獲取價值。其護城河堅固，足以應對競爭壓力，並為股東創造長期價值。",
   "overall_moat_verdict_en": "AppFolio has built a durable economic moat in the property management software space, primarily centered around high switching costs, a strong brand reputation, and operational efficiency. Its SaaS model and continuous innovation allow it to maintain a leading position and benefit from economies of scale. While lacking traditional moats like patents or network effects, its customer stickiness and solid financials create a 'toll bridge'-like characteristic, enabling it to capture value from industry growth reliably. The moat is robust, capable of withstanding competitive pressures and generating long-term shareholder value.",
   "evidenceHash": "06edf19e4377cf20dbf8fdadafc1f2ffbdf96b4a1cb0e7e503ceaeaf8fd4c67b",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

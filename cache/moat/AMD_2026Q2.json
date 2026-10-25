@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "AMD本質上是一家技術驅動型的「特許經營權」企業，其護城河主要源於其在高性能半導體設計領域的深厚技術積累、龐大的專利組合以及在資料中心和AI加速器市場形成的寡佔地位。儘管身處競爭激烈的產業，但其卓越的產品性能、Chiplet設計帶來的成本優勢、企業級客戶的高轉換成本，以及與頂級代工廠的戰略合作，共同構築了堅實的壁壘。管理層在資本配置上的智慧和持續創新能力，使其能夠在快速變革的環境中保持領先，為股東創造長期價值。",
   "overall_moat_verdict_en": "AMD is fundamentally a technology-driven \"franchise\" business, with its moat primarily stemming from its deep technological accumulation in high-performance semiconductor design, its vast patent portfolio, and its oligopolistic position in the data center and AI accelerator markets. Despite operating in a highly competitive industry, its superior product performance, cost advantages from Chiplet design, high switching costs for enterprise clients, and strategic partnerships with top foundries collectively form robust barriers. Management's astute capital allocation and continuous innovation capabilities enable it to maintain leadership in a rapidly changing environment, creating long-term value for shareholders.",
   "evidenceHash": "0382a2140fb4c27b3ab8c21b0e1cdeb9f8572384eb95a723fd4c605410e42f3a",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

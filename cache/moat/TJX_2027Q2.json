@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "TJX公司在巴菲特投資哲學的審視下，可被定性為一個擁有堅固「成本優勢」和「高效規模」護城河的卓越零售商。其核心競爭力在於作為全球最大的折扣零售商，憑藉龐大的採購規模和高效的供應鏈，能夠以無與倫比的低成本獲取品牌商品，並以極具吸引力的價格提供給消費者。這種「尋寶」式的購物體驗，結合其強大的「價值」品牌心智，培養了高度忠誠的客戶群。儘管缺乏專利或網絡效應等傳統護城河，但其卓越的營運效率、持續的超額ROIC以及管理層審慎的資本配置，共同構建了一個難以複製的商業模式，使其能夠在競爭激烈的零售市場中長期保持盈利能力和增長。",
   "overall_moat_verdict_en": "Under the lens of Buffett's investment philosophy, TJX Companies can be characterized as an exceptional retailer possessing robust 'cost advantage' and 'efficient scale' moats. Its core competitive strength lies in being the world's largest off-price retailer, leveraging immense purchasing power and an efficient supply chain to acquire branded merchandise at unparalleled low costs, offering them to consumers at highly attractive prices. This 'treasure hunt' shopping experience, combined with its strong 'value' brand perception, cultivates a highly loyal customer base. While lacking traditional moats like patents or network effects, its superior operational efficiency, consistent excess ROIC, and prudent capital allocation by management collectively form a difficult-to-replicate business model, enabling it to sustain profitability and growth in the highly competitive retail market over the long term.",
   "evidenceHash": "5591349079f79c7efb4983d8cedb3a64f910653f871ae47e227d3c0edf7fa3f2",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

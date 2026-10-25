@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "STERIS展現出極為堅固的「特許經營權」型護城河，其核心競爭優勢源於醫療保健領域的關鍵性、高監管壁壘和客戶的極高轉換成本。公司憑藉其在滅菌和感染預防方面的強大品牌信譽、廣泛的專利組合以及全球規模經濟，築起了令競爭對手難以逾越的壁壘。其產品和服務深度嵌入醫療機構的日常運作，確保了穩定的經常性收入和強勁的自由現金流。這是一個典型的「收費橋樑」業務，為醫療系統提供不可或缺的基礎設施，且對技術顛覆具有高度免疫力。管理層的穩健資本配置策略進一步鞏固了其長期價值創造能力，使其成為巴菲特和蒙格眼中理想的「好生意」。",
   "overall_moat_verdict_en": "STERIS exhibits an exceptionally robust \"franchise\" type economic moat, with its core competitive advantages stemming from the critical nature of the healthcare sector, high regulatory barriers, and extremely high customer switching costs. The company has built formidable barriers to entry for competitors through its strong brand reputation in sterilization and infection prevention, extensive patent portfolio, and global economies of scale. Its products and services are deeply embedded in the daily operations of healthcare institutions, ensuring stable recurring revenue and strong free cash flow. This is a classic \"toll bridge\" business, providing indispensable infrastructure to the healthcare system, and possessing high immunity to technological disruption. Management's prudent capital allocation strategy further solidifies its long-term value creation capability, making it an ideal \"good business\" in the eyes of Buffett and Munger.",
   "evidenceHash": "c9372390c9748bd675559acf80f2cddae3d4d5fecc5c66bf147d55c5a6fe78da",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Fortinet 是一家在關鍵資訊科技基礎設施領域，具備多重堅固護城河的企業。其核心競爭優勢來自於高轉換成本、專有技術（ASIC 晶片與專利集群）、數據驅動的網路效應（FortiGuard Labs）以及卓越的營運效率（高 ROE/ROA）。公司如同數位世界的「收費橋樑」，為企業提供不可或缺的網路安全服務，客戶一旦依賴其整合式安全平台，便難以脫離。穩健的財務狀況和審慎的資本配置策略，進一步鞏固了其長期價值創造能力。儘管市場競爭激烈，Fortinet 憑藉其技術深度和廣度，已築起一道難以逾越的壁壘，使其成為巴菲特眼中具備持久競爭優勢的優質企業。",
   "overall_moat_verdict_en": "Fortinet is a company with multiple robust moats in the critical information technology infrastructure sector. Its core competitive advantages stem from high switching costs, proprietary technology (ASIC chips and patent clusters), data-driven network effects (FortiGuard Labs), and exceptional operational efficiency (high ROE/ROA). The company acts as a 'toll bridge' in the digital world, providing indispensable cybersecurity services to enterprises; once clients rely on its integrated security platform, they are difficult to dislodge. A strong financial position and prudent capital allocation strategy further solidify its long-term value creation capability. Despite intense market competition, Fortinet has built an insurmountable barrier through its technological depth and breadth, making it a high-quality business with durable competitive advantages in Buffett's view.",
   "evidenceHash": "65fb59f330c6d43e41bb71ce4520c2c326218d1ab6a7cdda0885feb778129a2a",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

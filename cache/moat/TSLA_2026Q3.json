@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Tesla 的護城河呈現出科技驅動的特徵，而非傳統的特許經營或收費橋模式。其最強的壁壘體現在品牌吸引力、規模化生產成本優勢以及領先的電動車技術（尤其在軟體和自動駕駛方面）。超級充電網絡也構成了顯著的網絡效應。然而，汽車行業的資本密集度和激烈競爭，加上技術快速變革，使得其護城河面臨持續的挑戰。相較於擁有強大定價權的必需消費品公司，Tesla 的護城河更像是一個不斷進化、依賴技術創新的「科技型」護城河，其持久性取決於能否持續保持技術領先和擴大生態系統。",
   "overall_moat_verdict_en": "Tesla's moat is characterized by technological prowess rather than traditional franchise or toll bridge models. Its strongest barriers lie in brand appeal, cost advantages from scaled production, and leading EV technology, particularly in software and autonomous driving. The Supercharger network also provides significant network effects. However, the capital-intensive and highly competitive nature of the automotive industry, coupled with rapid technological change, presents ongoing challenges to its moat. Unlike companies with strong pricing power in essential goods, Tesla's moat is more akin to an evolving 'technological' moat reliant on continuous innovation. Its durability hinges on maintaining technological leadership and expanding its ecosystem.",
   "evidenceHash": "08eac9784a6c5c588e3af457f903afa56268d0a938944f422c43ce2517f8748d",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "美光本質上是一家具備強大技術壁壘與規模經濟的「收費橋樑」型企業。儘管其記憶體產品具商品化特性，缺乏顯著的品牌定價權與網絡效應，但其龐大的專利組合、極高的資本投入門檻、關鍵應用領域的轉換成本以及難以複製的製造資產，共同構築了堅實的護城河。管理層穩健的資本配置與對技術趨勢的適應能力，使其在週期性行業中保持領先。然而，其盈利能力仍受產業供需波動影響，並非巴菲特所鍾愛的純粹特許經營權，而是一個在關鍵基礎設施中不可或缺的技術寡頭。",
   "overall_moat_verdict_en": "Micron is fundamentally a \"toll bridge\" enterprise, characterized by formidable technological barriers and immense economies of scale, rather than a pure \"franchise\" with unassailable pricing power. While its memory products are largely commoditized, lacking significant brand pricing power and direct network effects, its vast patent portfolio, prohibitively high capital expenditure requirements, substantial switching costs in critical enterprise applications, and irreplicable manufacturing assets collectively forge a robust and enduring moat. Management's prudent capital allocation and proactive adaptability to evolving technological trends enable it to maintain a leading position within a highly cyclical industry. However, its profitability remains inherently susceptible to the volatile supply-demand dynamics of the semiconductor market, positioning it as an indispensable technological oligopoly within critical digital infrastructure, yet not entirely immune to industry-specific volatility.",
   "evidenceHash": "3ae4c5cf6e27ec6faf38d1c939f80248e63553aeca918e9700bec9631d140584",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

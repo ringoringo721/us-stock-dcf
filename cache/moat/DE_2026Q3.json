@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Deere & Company本質上是一家擁有堅固護城河的「特許經營權平台」與「收費橋樑」型企業。其核心競爭力源於無可匹敵的品牌忠誠度、極高的客戶轉換成本、全球領先的規模經濟效益，以及遍布全球的經銷商與服務網絡。這些要素共同構建了一個難以被複製的商業生態系統，使得農民對其產品與服務產生高度依賴。儘管農業機械行業資本密集，且存在一定的週期性，但Deere憑藉其持續的技術創新（尤其在精準農業領域）和穩固的市場地位，確保了長期穩定的盈利能力與現金流，為股東創造持續價值。",
   "overall_moat_verdict_en": "Deere & Company fundamentally operates as a \"franchise platform\" and \"toll bridge\" enterprise with a robust economic moat. Its core competitive advantages stem from unparalleled brand loyalty, exceptionally high customer switching costs, leading global economies of scale, and an extensive worldwide dealer and service network. These elements collectively forge an irreplicable business ecosystem, fostering high dependency among farmers on its products and services. Despite the capital-intensive and somewhat cyclical nature of the agricultural machinery industry, Deere's continuous technological innovation (especially in precision agriculture) and solid market position ensure long-term stable profitability and cash flow, consistently creating value for shareholders.",
   "evidenceHash": "40235e8784f246bc6b8c830ed832893b4574ffcc2acc8da29b3971cf8892adb3",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

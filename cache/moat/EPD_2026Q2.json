@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Enterprise Products 本質上是一家能源基礎設施的「收費橋樑」型企業，其護城河深厚且多樣。公司憑藉其龐大且不可複製的管線、加工和儲存網絡，在北美能源物流中扮演著不可或缺的角色。嚴格的監管壁壘、高昂的客戶轉換成本以及顯著的規模經濟，共同築起了強大的進入障礙。儘管其定價權受合約和監管約束，但其服務的必要性確保了穩定的現金流。在能源轉型的大背景下，對傳統化石燃料的需求仍將持續數十年，賦予其業務模式較強的抗顛覆性。管理層通過穩健的資本配置和持續的基礎設施擴張，為股東創造長期價值。這是一個典型的巴菲特會欣賞的、具備持久競爭優勢的「特許經營權」業務。",
   "overall_moat_verdict_en": "Enterprise Products is fundamentally a \"toll bridge\" business in energy infrastructure, possessing a deep and multifaceted moat. Leveraging its vast and irreplicable network of pipelines, processing, and storage facilities, the company plays an indispensable role in North American energy logistics. Stringent regulatory barriers, high customer switching costs, and significant economies of scale collectively form formidable entry barriers. Although its pricing power is constrained by contracts and regulation, the essential nature of its services ensures stable cash flow. Amidst the energy transition, demand for traditional hydrocarbons is expected to persist for decades, granting its business model strong resilience against disruption. Management's prudent capital allocation and continuous infrastructure expansion create long-term value for shareholders. This is a classic \"franchise\" business with enduring competitive advantages that Warren Buffett would appreciate.",
   "evidenceHash": "b1b8656aa56e42ecc33b60582430965b993cf0af7d61bb5610e774bcc970d4b5",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Stryker本質上是一家擁有堅固護城河的「特許經營權」企業，尤其在醫療科技領域扮演著關鍵的「收費橋樑」角色。其核心競爭力源於卓越的品牌信譽、龐大的專利組合、嚴格的監管壁壘以及客戶極高的轉換成本。公司產品直接關乎病患生命與醫療品質，使得醫院和外科醫生對其高度依賴。憑藉規模經濟和難以複製的戰略資產，Stryker能夠持續產生超額的資本回報。儘管醫療行業不斷創新，但其對基本醫療需求的滿足和積極的技術整合，使其具備強大的抗顛覆能力，為股東創造長期穩定的價值。",
   "overall_moat_verdict_en": "Stryker fundamentally operates as a \"franchise\" business with a robust moat, serving as a critical \"toll bridge\" within the medical technology sector. Its core competitive advantages stem from an exceptional brand reputation, an extensive patent portfolio, stringent regulatory barriers, and extremely high customer switching costs. The company's products are directly vital to patient lives and healthcare quality, leading to high dependency from hospitals and surgeons. Leveraging economies of scale and irreproducible strategic assets, Stryker consistently generates superior returns on capital. Despite continuous innovation in the medical industry, its fulfillment of essential healthcare needs and proactive technological integration grant it strong disruption immunity, thereby creating long-term, stable value for shareholders.",
   "evidenceHash": "8ca4d64b9e7b798438cf37b56ac9f1393157500264f0bb31412fd60f3b0dec8d",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

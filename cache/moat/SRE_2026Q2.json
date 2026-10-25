@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Sempra的經濟護城河主要建立在其公用事業的特許經營權和高轉換成本之上，這使其業務模式類似於一個受監管的“收費橋”。其在特定區域的基礎設施網絡是不可替代的，為其帶來了穩定的客戶基礎和可預測的現金流。規模經濟也提供了成本優勢。然而，其定價權受監管限制，網絡效應幾乎為零。公司面臨能源轉型壓力，但其核心業務的持久性以及對清潔能源的戰略投資，為其長期價值提供了保障。總體而言，Sempra擁有一個堅固但受監管的護城河。",
   "overall_moat_verdict_en": "Sempra's economic moat is primarily built upon its regulated utility franchises and high switching costs, creating a business model akin to a regulated 'toll bridge.' Its essential infrastructure in specific regions is irreplaceable, ensuring a stable customer base and predictable cash flows. Economies of scale further contribute to its cost advantages. However, pricing power is constrained by regulation, and network effects are negligible. While facing the energy transition, the durability of its core services and strategic investments in clean energy underpin its long-term value. Overall, Sempra possesses a strong, albeit regulated, moat.",
   "evidenceHash": "0fb5d14908351e3c2b050ffcea3f9423949bc13cdea56bed5b9c7d8b8571a3c0",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

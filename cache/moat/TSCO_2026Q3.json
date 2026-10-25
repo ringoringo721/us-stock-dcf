@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Tractor Supply 的護城河主要體現為一種「收費橋」與「商品型」的混合體。其龐大的規模經濟（M5）和對鄉村市場的深度滲透（M6）構成了顯著的成本優勢和地理壁壘，類似於一條難以逾越的收費橋，讓競爭對手難以進入。同時，其品牌定位（M1）和客戶忠誠度（M9）使其核心商品具有一定的不可替代性，吸引著特定需求的消費者。雖然缺乏專利或網絡效應等強勢壁壘，但其穩健的運營效率（M7）和資本配置（M8）進一步鞏固了其市場地位，使其在可預見的未來能夠持續獲利。",
   "overall_moat_verdict_en": "Tractor Supply's moat is best described as a hybrid of a 'toll bridge' and a 'commodity-like' business. Its significant economies of scale (M5) and deep penetration into rural markets (M6) create substantial cost advantages and geographical barriers, akin to a difficult-to-cross toll bridge for competitors. Concurrently, its brand positioning (M1) and customer loyalty (M9) lend a degree of indispensability to its core products, attracting consumers with specific needs. While lacking strong moats like patents or network effects, its solid operational efficiency (M7) and capital allocation (M8) further solidify its market position, enabling sustained profitability in the foreseeable future.",
   "evidenceHash": "1687df20897f590927fdb190f8dddcd91de4d7d7dcc2ccf49eb366e94dddc569",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

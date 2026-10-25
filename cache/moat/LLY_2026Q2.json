@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "禮來公司本質上是一個擁有極其堅固「特許經營權」的企業，其護城河深度與廣度令人印象深刻。它不僅是創新藥物的「收費橋樑」，更是人類健康領域的關鍵解決方案提供者。其核心競爭優勢源於專利保護、卓越的研發能力、強大的品牌定價權以及高昂的客戶轉換成本。這些因素共同構築了難以逾越的進入壁壘，使其能夠長期維持高於行業平均水平的資本回報率。禮來並非商品型企業，而是通過持續的科學突破，為社會提供不可或缺的價值，並因此獲得豐厚回報。",
   "overall_moat_verdict_en": "Eli Lilly fundamentally operates as a business with an exceptionally robust \"franchise,\" boasting an impressive depth and breadth of economic moats. It functions not merely as a \"toll bridge\" for innovative medicines but as a critical solution provider in human health. Its core competitive advantages stem from patent protection, superior R&D capabilities, strong brand pricing power, and high customer switching costs. These factors collectively construct formidable barriers to entry, enabling the company to consistently maintain returns on capital well above the industry average. Eli Lilly is not a commodity business; rather, through continuous scientific breakthroughs, it provides indispensable value to society and is richly rewarded for it.",
   "evidenceHash": "dca0f7a85966d394ac3f75f983674868e1145dfb134bee7dfc8622dff39db278",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

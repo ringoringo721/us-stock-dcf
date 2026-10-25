@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "AT&T作為電信服務巨頭，其護城河主要建立在政府特許的頻譜資源、龐大的全國性網絡基礎設施所帶來的極致規模經濟，以及由此形成的天然寡占市場結構之上。這些「收費橋樑」式的資產具有極高的資本不可複製性，使得新競爭者難以進入。然而，其品牌定價權受限於激烈競爭，網絡效應趨於商品化，且過往的資本配置決策導致高負債，削弱了其長期超額ROIC的韌性。儘管對基礎連接需求具備一定抗顛覆性，但管理層的歷史決策仍需審慎評估。總體而言，AT&T是一個擁有堅實基礎設施護城河，但需警惕其財務槓桿與競爭壓力的「必要服務提供商」。",
   "overall_moat_verdict_en": "AT&T, as a telecommunications giant, primarily builds its moat on government-granted spectrum licenses, extreme economies of scale derived from its vast nationwide network infrastructure, and the resulting natural oligopolistic market structure. These \"toll bridge\" like assets possess extremely high capital irreproducibility, making it difficult for new competitors to enter. However, its brand pricing power is limited by intense competition, network effects are commoditized, and past capital allocation decisions have led to high debt, weakening its long-term excess ROIC resilience. While it possesses some disruption immunity for essential connectivity demand, management's historical decisions still require careful evaluation. Overall, AT&T is an \"essential service provider\" with a solid infrastructure moat, but one that requires vigilance regarding its financial leverage and competitive pressures.",
   "evidenceHash": "8b8a323e8bdf8eefcd005768265652ffe569909f1bd0a17e41a9e63b70ac8fa7",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

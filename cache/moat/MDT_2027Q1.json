@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "美敦力本質上是一家擁有堅固「收費橋樑」特性的企業，其護城河主要由專利集群、嚴格的監管壁壘和極高的客戶轉換成本所構築。在心血管、糖尿病和神經科學等關鍵醫療領域，美敦力憑藉其領先的技術、值得信賴的品牌和龐大的全球分銷網絡，成為醫療體系不可或缺的一部分。其產品直接關乎患者生命，使得醫院和醫生對其產品產生高度依賴和黏性。儘管面臨醫療成本控制壓力，但其在生命科學領域的剛性需求和持續創新能力，確保了長期穩定的盈利能力和市場領導地位，使其成為巴菲特眼中具備持久競爭優勢的優質企業。",
   "overall_moat_verdict_en": "Medtronic fundamentally operates as a robust \"toll bridge\" enterprise, with its formidable economic moat primarily constructed from an extensive and strategically managed patent portfolio, exceptionally stringent regulatory barriers, and profoundly high customer switching costs. In critical medical domains such as cardiovascular health, diabetes management, and neuroscience, Medtronic has become an indispensable cornerstone of the global healthcare system, leveraging its cutting-edge technology, highly trusted brand, and vast, efficient global distribution network. Its life-sustaining products directly impact patient well-being, fostering an unparalleled level of dependency and stickiness among hospitals and physicians. Despite persistent pressures for healthcare cost containment, the inelastic demand for its life-saving innovations and its unwavering commitment to continuous R&D ensure long-term stable profitability and sustained market leadership, firmly establishing it as a quintessential high-quality enterprise with enduring competitive advantages in the discerning view of Warren Buffett.",
   "evidenceHash": "5243ba7173c1a591b978817aac7a64648519589bea6179aeb55ebefbb885bdda",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

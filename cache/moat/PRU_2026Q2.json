@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Prudential Financial本質上是一家以信任為基石的「金融收費橋樑」型企業。其護城河主要由強大的品牌信譽、全球性的監管壁壘、客戶轉換成本高昂以及巨大的規模經濟效益所構築。公司在人壽保險和資產管理領域的深厚積累與廣泛分銷網絡，使其在全球市場中佔據穩固地位。儘管缺乏網絡效應，但其業務模式對技術顛覆具有較強免疫力，且管理層在資本配置上展現出穩健性。這使其成為一個長期穩健的價值創造者，而非高成長型企業。",
   "overall_moat_verdict_en": "Prudential Financial is fundamentally a \"financial toll bridge\" enterprise, with its core business built upon a foundation of deep trust and long-term financial commitments. Its formidable economic moat is primarily constructed from a powerful and globally recognized brand reputation, significant regulatory barriers to entry, high customer switching costs for its essential products, and immense economies of scale. The company's extensive historical accumulation in life insurance and asset management, coupled with its vast distribution networks, secures its entrenched position in global markets. While it may not exhibit strong network effects, its business model demonstrates robust immunity to technological disruption, and management consistently applies prudent capital allocation strategies. This combination positions Prudential as a stable, long-term value compounder, rather than a high-growth, disruptive innovator.",
   "evidenceHash": "b02977cfc5b3ce83968e27cb1c931928fb7f385b3cf3e2c42b8b0da7daee0a6d",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

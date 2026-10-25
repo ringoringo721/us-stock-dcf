@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Arista Networks本質上是一家在雲端網路和AI基礎設施領域擁有「特許經營權」特徵的技術領導者。其護城河主要由極高的客戶轉換成本（M3）、難以複製的專有EOS軟體與頂尖工程人才（M8），以及在規模經濟上（M5）的顯著優勢所構築。公司在超大規模資料中心市場建立的品牌心智（M1）和信任，使其具備強大定價權。管理層卓越的資本配置（M10）和持續超額的投入資本回報率（M7），進一步鞏固了其財務韌性。儘管網路效應（M4）和專利壁壘（M2）相對次要，但綜合來看，Arista已為其核心業務築起了堅固的競爭壁壘，使其能長期享有超額利潤，類似於為數位時代的關鍵基礎設施收取「過路費」。",
   "overall_moat_verdict_en": "Arista Networks is essentially a technology leader with \"franchise-like\" characteristics in the cloud networking and AI infrastructure domain. Its moat is primarily built upon exceptionally high customer switching costs (M3), irreproducible proprietary EOS software and top-tier engineering talent (M8), and significant advantages in economies of scale (M5). The brand mindshare (M1) and trust established with hyperscale data centers grant it strong pricing power. The management's excellent capital allocation (M10) and consistently superior Return on Invested Capital (M7) further solidify its financial resilience. While network effects (M4) and patent barriers (M2) are relatively secondary, collectively, Arista has constructed robust competitive barriers for its core business, enabling it to enjoy long-term excess profits, akin to collecting \"tolls\" for critical digital infrastructure.",
   "evidenceHash": "d20e48d795f02aaa99f3ac0e23eb5516f4ef36f6f7a20c1447d77fc346762af9",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

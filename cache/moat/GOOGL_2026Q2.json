@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Alphabet擁有極為寬廣且深厚的經濟護城河，其核心業務Google搜尋與廣告平台構成數位經濟的「特許經營權平台」與「收費橋樑」。憑藉無與倫比的網絡效應、全球領先的品牌心智、龐大的規模經濟以及高昂的客戶轉換成本，Alphabet在多個關鍵領域築起了難以逾越的壁壘。其持續的AI創新能力和審慎的資本配置策略，使其能夠不斷適應技術變革並創造超額股東回報。儘管面臨監管壓力，但其核心競爭力與現金流產生能力，使其成為一家具備長期複利增長潛力的優質企業。",
   "overall_moat_verdict_en": "Alphabet possesses an exceptionally wide and deep economic moat, with its core Google Search and advertising platforms acting as a 'franchise platform' and 'toll bridge' for the digital economy. Leveraging unparalleled network effects, globally leading brand recognition, massive economies of scale, and high customer switching costs, Alphabet has built insurmountable barriers in multiple key areas. Its continuous AI innovation capabilities and prudent capital allocation strategy enable it to constantly adapt to technological changes and generate superior shareholder returns. Despite facing regulatory pressures, its core competitiveness and cash flow generation position it as a high-quality enterprise with long-term compounding growth potential.",
   "evidenceHash": "3f0a26205bb2826a4d0b074337a47a1cc55ab92650887adc6e29d6bc777d7bf1",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

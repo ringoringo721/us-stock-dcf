@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "SLB 作為全球油田服務的領導者，其護城河主要建立在深厚的技術實力、龐大的規模經濟和顯著的客戶轉換成本之上。公司在鑽井、測井等核心技術領域的專利和經驗，以及其全球化的運營網絡，構成了堅實的競爭壁壘。雖然網絡效應不顯著，但其卓越的運營效率和品牌聲譽，使其能夠維持較高的客戶留存率和一定的定價能力。面對能源轉型，SLB 正積極拓展新興能源服務，展現其業務的持久性和適應性。整體而言，SLB 擁有一個由技術、規模和客戶關係構成的、相對穩固的護城河，類似於一個提供關鍵基礎設施服務的『收費橋』，但其價值受能源週期影響較大。",
   "overall_moat_verdict_en": "Schlumberger (SLB) possesses a moat primarily built on deep technological expertise, significant economies of scale, and high customer switching costs, positioning it as a leader in oilfield services. Its patents, extensive experience in core technologies like drilling and logging, and global operational network form substantial barriers to entry. While lacking strong network effects, SLB's operational efficiency and brand reputation foster high customer retention and some pricing power. Facing the energy transition, SLB is adapting by expanding into new energy services, demonstrating business durability. Overall, SLB's moat, characterized by technology, scale, and client relationships, resembles a 'toll bridge' for essential infrastructure services, though its value is significantly influenced by energy market cycles.",
   "evidenceHash": "9e15aab27ad5ee92bf724ed8038e6aaa7cd6c598d6b28830586bb157b0cc2c65",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

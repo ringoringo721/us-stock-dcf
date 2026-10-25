@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Mastercard無疑是巴菲特和蒙格眼中典型的「特許經營權」企業，其商業模式堪稱典範。它不承擔庫存風險，不製造實體產品，卻能從全球數十億筆交易中抽取微薄但穩定的「過路費」。其護城河深且廣，主要由強大的品牌心智、無可匹敵的網絡效應、高昂的轉換成本、規模經濟帶來的成本優勢以及嚴格的監管壁壘共同構築。這些因素共同創造了一個幾乎不可複製的全球支付基礎設施，使其能夠持續產生超額的投入資本回報。Mastercard本質上是一個「收費橋樑」平台，受益於全球商業活動的增長，且對技術變革具有高度適應性，管理層的資本配置亦屬上乘，是長期持有的優質資產。",
   "overall_moat_verdict_en": "Mastercard is unequivocally a quintessential 'franchise' business in the eyes of Buffett and Munger, with an exemplary business model. It carries no inventory risk, manufactures no physical products, yet extracts a small but stable 'toll' from billions of global transactions. Its moat is deep and wide, primarily constructed by a powerful brand, unparalleled network effects, high switching costs, cost advantages derived from economies of scale, and stringent regulatory barriers. These factors collectively create a virtually irreplicable global payment infrastructure, enabling it to consistently generate superior returns on invested capital. Mastercard is essentially a 'toll bridge' platform, benefiting from the growth of global commerce, highly adaptable to technological changes, and boasts excellent capital allocation by management, making it a high-quality asset for long-term holding.",
   "evidenceHash": "1356c3be6987f85dfe0e8bac7ddbe95ed59e507028182b8af6bb43806d863710",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

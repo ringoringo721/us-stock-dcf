@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "陶氏化學的護城河主要體現在其龐大的規模經濟（M5）和較高的客戶轉換成本（M3），這使其在商品化學品市場中具有顯著的成本優勢和客戶黏性。其卓越的運營效率（M7）和穩健的資本配置（M8）也提供了支持。然而，其業務的商品屬性限制了品牌定價權（M1）和網絡效應（M4）。專利（M2）和地理資產（M6）提供中等程度的保護，而業務的持久性（M10）則受行業週期影響。總體而言，陶氏化學更像一個具有強大執行力的“收費橋”模式，依賴規模和效率來獲取利潤，而非擁有強大的特許經營權。",
   "overall_moat_verdict_en": "Dow's moat is primarily built on significant economies of scale (M5) and substantial customer switching costs (M3), providing a cost advantage and customer stickiness in the commodity chemical market. Its operational efficiency (M7) and sound capital allocation (M8) further bolster its position. However, the commodity nature of its products limits brand pricing power (M1) and network effects (M4). Patents (M2) and geographic assets (M6) offer moderate protection, while business durability (M10) is subject to industry cycles. Overall, Dow operates more like a highly efficient 'toll bridge' business, relying on scale and execution rather than a strong franchise.",
   "evidenceHash": "19c7ca66b92d8650fd0e1855e627ed72c3e4c230fd739fe86465221527db7e89",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

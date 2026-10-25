@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Illumina本質上是一家在基因測序領域擁有強大「特許經營權」的平台型企業，如同基因探索高速公路上的「收費橋樑」。其護城河主要由無可匹敵的技術領先地位、龐大的專利集群、以及客戶極高的轉換成本所構築。公司在一個高增長、高技術門檻的利基市場中佔據主導地位，其規模經濟和成熟生態系統為新進入者設置了難以逾越的壁壘。儘管在資本配置上曾有瑕疵（如Grail收購案），但其核心業務的盈利能力和財務穩健性（高ROE/ROA、F-Score 9/9）證明了其持續創造超額回報的能力。Illumina的商業模式使其能夠長期享有超額利潤，是巴菲特眼中典型的優質企業。",
   "overall_moat_verdict_en": "Illumina is fundamentally a platform enterprise with a strong \"franchise\" in gene sequencing, akin to a \"toll bridge\" on the highway of genetic discovery. Its moat is primarily constructed from unparalleled technological leadership, an extensive patent thicket, and extremely high customer switching costs. The company dominates a high-growth, high-barrier niche market, where its scale economies and mature ecosystem create formidable barriers to entry for new competitors. While there have been capital allocation missteps (e.g., the Grail acquisition), the profitability and financial robustness of its core business (high ROE/ROA, F-Score 9/9) attest to its sustained ability to generate superior returns. Illumina's business model allows it to enjoy supernormal profits over the long term, making it a quintessential high-quality business in Buffett's view.",
   "evidenceHash": "296728600894e79d9e413dadd4671829186f212b39a1dac3d0a05aad27b6f664",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

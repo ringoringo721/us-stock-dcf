@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Phillips 66本質上是一家擁有強大實體資產和戰略地理位置的「收費橋樑」型企業，而非具備強大品牌定價權的消費品公司。其核心護城河在於極高的進入壁壘，包括嚴格的監管要求、龐大的資本支出、難以複製的煉油基礎設施網絡以及規模經濟帶來的成本優勢。儘管產品商品化限制了其品牌溢價和客戶轉換成本，但其在煉油和石化領域的運營效率、多元化業務組合以及對股東友好的資本配置策略，使其能夠在週期性行業中保持穩健的盈利能力和超額資本回報。面對能源轉型，公司具備一定的韌性，但需持續關注其在低碳經濟中的戰略調整。",
   "overall_moat_verdict_en": "Phillips 66 is fundamentally a \"toll bridge\" type of business, characterized by robust physical assets and strategic geographical locations, rather than a consumer goods company with strong brand pricing power. Its core moats lie in extremely high barriers to entry, including stringent regulatory requirements, massive capital expenditures, an irreplicable refining infrastructure network, and cost advantages derived from economies of scale. While product commoditization limits its brand premium and customer switching costs, its operational efficiency in refining and petrochemicals, diversified business portfolio, and shareholder-friendly capital allocation strategy enable it to maintain solid profitability and superior capital returns in a cyclical industry. Facing the energy transition, the company possesses some resilience, but its strategic adjustments in a low-carbon economy warrant continuous attention.",
   "evidenceHash": "513538bd1ab446750d8a7d04b732571156fb1abad25657ca8ee9d4a6c2d33019",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

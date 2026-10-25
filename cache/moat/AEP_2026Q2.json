@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "AEP本質上是一家受監管的「收費橋樑」型企業，其護城河主要由政府特許經營權和巨大的基礎設施資本壁壘構成。它在服務區域內享有壟斷地位，客戶轉換成本極高，且電力需求具備高度抗顛覆性。這種商業模式確保了穩定的現金流和可預測的盈利能力，使其成為一個可靠的收入型投資標的。然而，其盈利能力受到監管限制，無法產生超額市場回報，且高額負債是行業固有特徵。AEP並非高成長型企業，而是提供必要服務、具備堅固但受限護城河的公用事業巨頭。",
   "overall_moat_verdict_en": "AEP is fundamentally a regulated \"toll bridge\" type of business, with its moat primarily constructed by government-granted franchises and immense capital barriers for infrastructure. It enjoys a monopolistic position within its service territories, boasts extremely high customer switching costs, and benefits from highly disruption-resistant electricity demand. This business model ensures stable cash flow and predictable profitability, making it a reliable income-generating investment. However, its profitability is constrained by regulation, preventing supernormal market returns, and high debt is an inherent industry characteristic. AEP is not a high-growth company but a utility giant providing essential services with a robust yet constrained moat.",
   "evidenceHash": "6ed8dec14ee3dae78a3d62f6a4f54913ae1b10e0cead92164cb9646d5729e66c",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

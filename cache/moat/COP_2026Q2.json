@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "ConocoPhillips本質上是一家大型、高效的商品生產商，其護城河主要來自於規模經濟、對優質油氣儲量的獨家開採權以及在關鍵盆地建立的「高效規模」寡占地位。儘管缺乏品牌定價權和網絡效應，且面臨能源轉型的長期挑戰，但其深厚的運營專業知識、龐大的資本不可複製性資產，以及管理層紀律性的資本配置，使其在高度週期性的行業中仍能保持競爭優勢和盈利韌性。這是一座建立在稀缺資源和運營效率基礎上的「收費橋樑」，而非巴菲特最青睞的「特許經營權」企業。",
   "overall_moat_verdict_en": "ConocoPhillips is fundamentally a large, efficient commodity producer whose moat primarily stems from economies of scale, exclusive access to high-quality oil and gas reserves, and an \"efficient scale\" oligopoly established in key basins. Despite lacking brand pricing power and network effects, and facing long-term energy transition challenges, its deep operational expertise, vast irreproducible capital assets, and disciplined management capital allocation enable it to maintain a competitive edge and profitability resilience in a highly cyclical industry. This represents a \"toll bridge\" built on scarce resources and operational efficiency, rather than Buffett's most favored \"franchise\" business.",
   "evidenceHash": "6f1a242eb3ac9419b1fd7e5abd45bfa91ebbfcf8677e0416e438ac364c477ab9",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

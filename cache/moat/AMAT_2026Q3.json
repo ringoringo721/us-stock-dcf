@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "應用材料是一家典型的「收費橋樑」型企業，在數位經濟的基石——半導體製造產業中扮演著不可或缺的角色。其護城河深厚且多樣，主要由技術領先的專利壁壘、極高的客戶轉換成本、規模經濟帶來的成本與工藝優勢，以及在關鍵細分市場形成的天然寡占格局所構成。AMAT的設備是晶片製造商的生命線，無論技術如何演進，對其精密工具的需求只會增長。這使得公司能夠持續產生高額的投入資本回報率，並在管理層穩健的資本配置下，為長期股東創造豐厚價值。它不是一個商品型企業，而是一個擁有強大議價能力的特許經營權平台。",
   "overall_moat_verdict_en": "Applied Materials is a quintessential \"toll bridge\" business, playing an indispensable role in semiconductor manufacturing, the bedrock of the digital economy. Its moat is deep and multifaceted, primarily built upon patent barriers from technological leadership, extremely high customer switching costs, cost and process advantages derived from economies of scale, and a natural oligopoly in critical niche markets. AMAT's equipment is the lifeline for chip manufacturers; regardless of technological evolution, demand for its precision tools only grows. This enables the company to consistently generate high returns on invested capital, creating substantial value for long-term shareholders under prudent capital allocation. It is not a commodity business but a franchise platform with significant pricing power.",
   "evidenceHash": "650439c2422935e821bf27c1da498fc1c714392b4657fa19697aaac5eff4162c",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

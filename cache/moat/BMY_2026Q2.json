@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Bristol-Myers Squibb本質上是一家由專利保護的「特許經營權」企業，其核心護城河建立在創新藥物的獨家銷售權、嚴格的監管壁壘以及醫生和患者的高度黏性之上。它如同一個收取「健康通行費」的收費橋樑，為全球患者提供不可或缺的治療方案。儘管面臨專利懸崖和高昂的研發成本，但其強大的品牌信譽、規模經濟、高效的資本配置以及在腫瘤和免疫學等高價值領域的領導地位，使其能夠持續創造超額回報。這是一個典型的巴菲特式「好生意」，擁有深厚的護城河，能夠抵禦競爭並長期為股東創造價值。",
   "overall_moat_verdict_en": "Bristol-Myers Squibb is fundamentally a 'franchise' business protected by patents, with its core moat built upon exclusive sales rights for innovative drugs, stringent regulatory barriers, and high physician and patient stickiness. It operates like a 'toll bridge' collecting 'health tolls,' providing indispensable treatment solutions to patients worldwide. Despite facing patent cliffs and high R&D costs, its strong brand reputation, economies of scale, efficient capital allocation, and leadership in high-value areas like oncology and immunology enable it to consistently generate superior returns. This is a classic Buffett-style 'good business' with a deep moat, capable of fending off competition and creating long-term shareholder value.",
   "evidenceHash": "f474a67c38b982b1f630699c38f2badaa3a789d58993ac65ce1f1c3abd796be8",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

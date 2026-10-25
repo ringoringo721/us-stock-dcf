@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Arthur J. Gallagher 是一家典型的「收費橋樑」型企業，其經濟護城河主要源於保險經紀行業的內在特性。公司憑藉其強大的品牌聲譽、遍布全球的監管許可壁壘以及客戶極高的轉換成本，築起了堅實的防禦工事。其龐大的規模帶來了議價能力和營運效率，而近百年積累的專業知識和客戶網絡更是難以複製的核心資產。儘管積極的併購策略需要審慎的資本配置，但其作為風險管理顧問的不可或缺性，使其在面對技術變革時仍具備強大韌性，為股東創造長期穩定的價值。",
   "overall_moat_verdict_en": "Arthur J. Gallagher exemplifies a \"toll bridge\" type of business, with its economic moat primarily stemming from the inherent characteristics of the insurance brokerage industry. The company has built robust defenses through its strong brand reputation, global regulatory barriers, and exceptionally high client switching costs. Its substantial scale provides significant bargaining power and operational efficiencies, while nearly a century of accumulated expertise and client networks represent core, irreproducible assets. Although its aggressive acquisition strategy demands prudent capital allocation, AJG's indispensable role as a risk management advisor grants it strong resilience against technological shifts, positioning it to generate long-term, stable value for shareholders.",
   "evidenceHash": "bc84a9b3246107de2a284d757cd06cc800b8497b86977040963f2f2c81d48e32",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

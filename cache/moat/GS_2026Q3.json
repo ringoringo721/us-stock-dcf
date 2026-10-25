@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "高盛的護城河主要體現為一種強大的「特許經營」模式，其核心在於無與倫比的品牌聲譽、深厚的客戶關係網絡以及卓越的資本配置能力。這些因素共同構建了高進入壁壘的市場地位。雖然金融行業受監管影響，但高盛憑藉其規模經濟、網絡效應和高客戶轉換成本，在投資銀行和諮詢服務領域形成了難以逾越的優勢。其品牌不僅是定價權的來源，更是吸引頂尖人才和客戶的磁石。儘管面臨市場波動和技術變革的挑戰，高盛的綜合護城河使其能夠在長期內持續產生可觀的回報，堪稱金融界的「收費橋」。",
   "overall_moat_verdict_en": "Goldman Sachs' moat is primarily characterized as a powerful 'franchise' business, built upon its unparalleled brand reputation, extensive client network, and superior capital allocation. These elements collectively establish a market position with high barriers to entry. While the financial industry is subject to regulation, Goldman leverages its economies of scale, network effects, and high customer switching costs to create an insurmountable advantage in investment banking and advisory services. Its brand serves not only as a source of pricing power but also as a magnet for top talent and clients. Despite challenges from market volatility and technological disruption, Goldman's comprehensive moat enables it to generate substantial returns over the long term, functioning akin to a financial 'toll bridge'.",
   "evidenceHash": "ef6b6d8044fe4a01e8266a41535824dd8b980dc2feb3123139e055ead360ba14",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Marsh McLennan本質上是一家基於信任、專業知識和全球網絡的「收費橋樑」型企業。其護城河主要由強大的品牌心智、高昂的客戶轉換成本、全球規模經濟以及嚴格的監管壁壘共同構築。公司在風險管理、保險經紀和諮詢領域的領導地位，使其能夠持續產生高額自由現金流和超額資本回報。這不僅是其服務的不可或缺性，更是其數十年來積累的無形資產——包括客戶關係、人才和知識——所形成的難以複製的競爭優勢。MMC並非商品型企業，而是提供高度定制化、高附加值的專業服務，使其在市場中擁有持久的定價權和盈利能力。",
   "overall_moat_verdict_en": "Marsh McLennan is fundamentally a \"toll bridge\" enterprise built on trust, specialized expertise, and a global network. Its economic moat is primarily constructed from powerful brand recognition, high customer switching costs, global economies of scale, and stringent regulatory barriers. The company's leadership in risk management, insurance brokerage, and consulting enables it to consistently generate substantial free cash flow and superior returns on capital. This stems not only from the indispensable nature of its services but also from its decades-long accumulation of intangible assets—including client relationships, talent, and knowledge—forming an irreplicable competitive advantage. MMC is not a commodity business but provides highly customized, high-value professional services, granting it enduring pricing power and profitability in the market.",
   "evidenceHash": "fba11b0cd75375f851f15ced54cfa7fa3297084063e78d81c643a9af6b00c4e0",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

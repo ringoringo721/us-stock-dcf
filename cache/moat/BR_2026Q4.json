@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Broadridge Financial無疑是一家擁有極其堅固護城河的「收費橋樑」型企業。其核心業務深度嵌入全球金融機構的關鍵營運流程，提供不可或缺的投資者溝通與交易處理服務。這種「非買不可」的特性，結合極高的轉換成本、對複雜監管環境的獨特理解、以及規模經濟帶來的成本優勢，共同築起了難以逾越的壁壘。公司在高度專業化的利基市場中形成天然寡占，並展現出卓越的資本回報能力和對技術變革的強大抗性。Broadridge的護城河並非依賴單一因素，而是多重壁壘的綜合作用，使其成為巴菲特眼中理想的長期持有標的，能夠持續創造穩定的超額利潤。",
   "overall_moat_verdict_en": "Broadridge Financial is unequivocally a \"toll bridge\" type enterprise possessing an exceptionally robust economic moat. Its core business is deeply embedded in the critical operational processes of global financial institutions, providing indispensable investor communication and transaction processing services. This \"must-have\" characteristic, combined with extremely high switching costs, a unique understanding of complex regulatory environments, and cost advantages derived from economies of scale, collectively forms an insurmountable barrier. The company has established a natural oligopoly within a highly specialized niche market, demonstrating exceptional capital return capabilities and strong resilience against technological disruption. Broadridge's moat is not reliant on a single factor but rather the synergistic effect of multiple barriers, making it an ideal long-term holding in Buffett's view, capable of consistently generating superior profits.",
   "evidenceHash": "97a6ef439c03d5ea968cc1ec5d20bd11303fced3ac56d7da018bf220696f32b9",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Regal Rexnord本質上是一家為全球工業提供關鍵「收費橋樑」的企業。其護城河主要由高轉換成本、規模經濟、難以複製的技術與客戶關係，以及對技術顛覆的較強免疫力所構築。客戶一旦採用其高度工程化的電氣元件與設備，便會因停機風險、重新認證與整合成本而難以轉換供應商。龐大的生產規模與專業工藝使其具備成本優勢，而數十年積累的技術專長與全球供應鏈更是難以被新進入者複製。儘管當前資本回報率偏低且負債較高，管理層需展現卓越的資本配置能力，但其在工業領域的基礎性地位與產品的不可或缺性，賦予了其長期穩定的盈利潛力。",
   "overall_moat_verdict_en": "Regal Rexnord fundamentally operates as a critical \"toll bridge\" for global industrial operations. Its economic moats are primarily built upon high switching costs, significant economies of scale, irreproducible technological expertise and customer relationships, and a strong immunity to technological disruption. Once customers integrate RRX's highly engineered electrical components and equipment, the risks of downtime, re-certification, and integration costs make switching suppliers prohibitively expensive. Its vast production scale and specialized manufacturing processes provide a cost advantage, while decades of accumulated technical know-how and a global supply chain are virtually impossible for new entrants to replicate quickly. Despite current lower capital returns and higher debt, demanding astute capital allocation from management, RRX's foundational role in the industrial sector and the indispensability of its products grant it long-term stable earning potential.",
   "evidenceHash": "c02b4b4323e4a25d81d0e3daafa22a65e79c4904f5b4cd84b19c46ac37e8e667",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

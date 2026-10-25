@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Dominion Energy 的護城河主要建立在其公用事業業務的特許經營權和極高的客戶轉換成本之上，這使其成為一個典型的「收費橋」或「必需品壟斷」型企業。其在特定地理區域內對基礎設施的壟斷權，加上嚴格的監管框架，有效阻止了競爭，並保證了穩定的收入流。規模經濟和運營效率也提供了支持，但網絡效應幾乎為零。儘管面臨能源轉型的挑戰，但其核心業務的持久性和客戶的強制保留，使其護城河在可預見的未來依然堅固，儘管其資本配置決策偶爾存在波動。",
   "overall_moat_verdict_en": "Dominion Energy's moat is primarily built upon the franchise rights and extremely high switching costs inherent in its utility operations, positioning it as a classic 'toll bridge' or 'essential monopoly' business. Its control over infrastructure within specific geographic territories, coupled with a stringent regulatory framework, effectively deters competition and ensures a stable revenue stream. Economies of scale and operational efficiencies provide further support, though network effects are virtually non-existent. Despite facing energy transition challenges, the durability of its core business and mandated customer retention maintain a robust moat for the foreseeable future, albeit with occasional fluctuations in capital allocation decisions.",
   "evidenceHash": "476203c927f90177340d4347d5f09f024da60f97a6b404044337c14e3ee565b1",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

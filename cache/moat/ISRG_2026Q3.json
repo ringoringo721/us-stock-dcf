@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Intuitive Surgical (ISRG) 是一家典型的「收費橋樑」型企業，其達文西機器人手術系統在醫療領域建立了無可匹敵的特許經營權。公司憑藉其專利集群、極高的客戶轉換成本、強大的品牌心智和規模經濟，構築了多重堅固的護城河。每台系統的安裝都像在關鍵醫療路徑上設立了一個收費站，通過高利潤的耗材和服務持續產生現金流。其在外科醫生群體中建立的信任和培訓生態系統，使其成為行業標準，難以被複製或顛覆。這是一個具備長期競爭優勢和可預測現金流的卓越企業，符合巴菲特對優質企業的所有標準。",
   "overall_moat_verdict_en": "Intuitive Surgical (ISRG) is a quintessential 'toll bridge' business, having established an unparalleled franchise in the medical field with its Da Vinci robotic surgical systems. The company has built multiple robust moats through its patent portfolio, extremely high customer switching costs, strong brand mindshare, and economies of scale. Each system installation acts like a tollbooth on a critical medical pathway, continuously generating cash flow from high-margin consumables and services. The trust and training ecosystem built within the surgical community have made it the industry standard, making it incredibly difficult to replicate or disrupt. This is an exceptional enterprise with long-term competitive advantages and predictable cash flows, meeting all of Warren Buffett's criteria for a high-quality business.",
   "evidenceHash": "f1b8738da8a330aeed29358ee448558fb4c8cb330986cb521e2b18e0aa93defa",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

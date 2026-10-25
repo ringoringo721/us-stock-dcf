@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "ResMed是一家典型的「特許經營權」型企業，其護城河深且廣，符合巴菲特與蒙格的長期價值投資標準。公司在睡眠呼吸中止症與呼吸照護領域建立了不可撼動的領導地位，憑藉強大的品牌信任、龐大的專利壁壘、極高的客戶轉換成本以及數據驅動的網絡效應，構築了多重防禦。其卓越的營運效率、穩健的財務狀況和對慢性疾病的剛性需求，確保了長期穩定的現金流與超額資本回報。即使給予競爭對手巨額資金，也難以在短時間內複製其累積的技術、品牌與市場滲透，使其成為一個極具吸引力的長期投資標的。",
   "overall_moat_verdict_en": "ResMed is a quintessential 'franchise' business, possessing a deep and wide economic moat that aligns with Buffett and Munger's long-term value investing criteria. The company has established an unassailable leadership position in the sleep apnea and respiratory care sectors, building multiple layers of defense through strong brand trust, extensive patent barriers, extremely high customer switching costs, and data-driven network effects. Its exceptional operational efficiency, robust financial health, and the inelastic demand for chronic disease treatment ensure long-term stable cash flow and superior returns on capital. Even with vast capital, competitors would find it challenging to replicate its accumulated technology, brand, and market penetration in a short period, making it a highly attractive long-term investment.",
   "evidenceHash": "c4a6ae093300b01f39cca2f269fc6317b37c4c19fbf181ec7d1606ec11996785",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

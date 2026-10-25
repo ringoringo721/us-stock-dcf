@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "埃克森美孚本質上是一家全球性的「能源收費橋樑」與「基礎商品供應商」。其護城河主要源於無與倫比的規模經濟、對全球關鍵油氣儲備的獨家控制權、以及難以複製的垂直整合基礎設施。儘管能源產業面臨轉型壓力，但其產品在可預見的未來仍是全球經濟不可或缺的基石。公司憑藉其巨大的資本壁壘、技術累積和審慎的資本配置，確保了其在商品屬性行業中的領先地位和長期盈利能力。",
   "overall_moat_verdict_en": "ExxonMobil fundamentally operates as a quintessential \"energy toll bridge\" and an indispensable \"essential commodity provider\" to the global economy. Its robust economic moats are primarily rooted in unparalleled economies of scale, exclusive and long-term control over vast, irreplaceable global oil and gas reserves, and an irreplicable, vertically integrated infrastructure spanning exploration, production, refining, and distribution. While the company navigates the long-term energy transition, its core products remain an undeniable cornerstone of global commerce and industry for the foreseeable future. Through immense capital barriers, deep technological expertise, and a disciplined capital allocation strategy, ExxonMobil maintains a formidable competitive advantage and ensures sustained profitability within its commodity-driven yet strategically vital industry.",
   "evidenceHash": "c1a28596e1ad862f6a557f88a8e99802745ec62825e20474cf2b85aff3a88d89",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

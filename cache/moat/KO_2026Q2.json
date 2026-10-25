@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "可口可樂無疑是巴菲特投資哲學中「特許經營權」企業的典範。其核心護城河建立在全球無可匹敵的品牌力量、無處不在的分銷網絡、極致的規模經濟以及與裝瓶商形成的深厚商業黏性之上。這些要素共同築起了一道幾乎無法被複製的競爭壁壘，使其能夠長期維持高利潤率和卓越的資本回報。儘管面臨消費者口味變化的挑戰，但公司憑藉其適應能力和多元化策略，持續鞏固其在飲料行業的領導地位。這是一個擁有強大定價權和穩定現金流的企業，如同收費橋樑般，持續為股東創造價值。",
   "overall_moat_verdict_en": "Coca-Cola unequivocally stands as a quintessential \"franchise\" business within Buffett's investment philosophy. Its core moat is built upon an unparalleled global brand power, ubiquitous distribution network, extreme economies of scale, and deep commercial stickiness with its bottlers. These elements collectively form a competitive barrier that is nearly impossible to replicate, enabling the company to sustain high profit margins and exceptional returns on capital over the long term. Despite challenges from evolving consumer tastes, the company, through its adaptability and diversification strategies, continues to solidify its leadership in the beverage industry. This is a business with strong pricing power and stable cash flow, akin to a toll bridge, consistently creating value for shareholders.",
   "evidenceHash": "0e153712ecaabb5b7a415e35e3e5a53010a8cc157c1a4f0b8747e38ca04400d7",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

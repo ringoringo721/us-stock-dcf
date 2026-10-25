@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "NVIDIA是一家典型的「特許經營權平台」企業，其核心護城河是基於CUDA軟體生態系統與頂尖GPU硬體技術的深度整合所形成的「飛輪效應」。這不僅賦予其強大的品牌定價權和極高的客戶轉換成本，更通過網絡效應不斷強化其市場主導地位。公司在AI和數據中心領域的技術壁壘、規模經濟以及資本不可複製性，使其能夠持續產生超額的投入資本回報率。儘管面臨技術快速迭代的挑戰，NVIDIA憑藉其前瞻性研發和戰略佈局，展現出強大的技術典範轉移抗性。這是一個由創新、生態系統和規模共同構築的堅固堡壘，使其在未來數十年內仍能享有可持續的競爭優勢。",
   "overall_moat_verdict_en": "NVIDIA is a quintessential \"franchise platform\" enterprise, whose core moat is built upon a \"flywheel effect\" stemming from the deep integration of its CUDA software ecosystem and cutting-edge GPU hardware technology. This not only grants it formidable brand pricing power and exceptionally high customer switching costs but also continuously reinforces its market dominance through network effects. The company's technological barriers, scale advantages, and irreproducibility of capital in the AI and data center sectors enable it to consistently generate superior returns on invested capital. Despite the challenges of rapid technological iteration, NVIDIA demonstrates strong resilience against paradigm shifts through its proactive R&D and strategic positioning. This is a robust fortress constructed by innovation, ecosystem, and scale, ensuring its sustainable competitive advantage for decades to come.",
   "evidenceHash": "fbceeb1b3bc62515bca8fa40af8c451bffbff13b195e12066684b14787261672",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

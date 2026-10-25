@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Comcast 的護城河主要體現在其龐大且難以複製的基礎設施網絡（規模成本、地理資產）以及由此產生的顯著客戶轉換成本和高客戶保留率。這使其在傳統的有線電視和寬頻市場中具有類似「收費橋」的特徵，用戶依賴其網絡進行日常連接。儘管面臨來自無線和新技術的競爭，但其現有網絡的規模經濟和運營效率構成了強大的壁壘。品牌定價權和資本配置能力也提供了一定支持，但網絡效應較弱。總體而言，Comcast 擁有一個堅固但非無懈可擊的護城河，其持久性取決於其適應技術變革和監管環境的能力。",
   "overall_moat_verdict_en": "Comcast's moat is primarily anchored in its vast and difficult-to-replicate infrastructure network, creating significant switching costs and high customer retention, akin to a 'toll bridge' business. This dominance in its service territories provides a strong cost advantage and geographic asset moat. While facing competition from wireless and emerging technologies, its scale economies and operational efficiency offer substantial protection. Brand pricing power and capital allocation are supportive, though network effects are weak. Overall, Comcast possesses a durable, though not impenetrable, moat, contingent on its adaptability to technological shifts and regulatory landscapes.",
   "evidenceHash": "85ee70f84c9880e7da144bd7a7b163bfebb3a4704fe7bd5ec529d0011c28e6fa",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

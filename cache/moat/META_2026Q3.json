@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Meta Platforms的核心護城河深厚而多樣，主要由其無與倫比的網絡效應、極高的用戶轉換成本以及龐大的規模經濟所構築。其旗下Facebook、Instagram和WhatsApp等平台已成為全球數十億人日常生活中不可或缺的「收費橋樑」，賦予公司對廣告商強大的定價權。這種特許經營權般的地位，使得Meta能夠持續產生巨額自由現金流，並展現出卓越的資本回報率。儘管公司面臨日益嚴峻的監管壓力，且對元宇宙的巨額投資帶來不確定性，但其核心廣告業務的不可複製性與強大韌性，使其在可預見的未來仍能維持其市場主導地位。這是一個擁有強大「品牌心智」和「社交圖譜」特許經營權的企業。",
   "overall_moat_verdict_en": "Meta Platforms possesses a deep and multifaceted economic moat, primarily constructed from its unparalleled network effects, exceptionally high user switching costs, and vast economies of scale. Its platforms, including Facebook, Instagram, and WhatsApp, have become indispensable \"toll bridges\" in the daily lives of billions globally, granting the company significant pricing power over advertisers. This franchise-like position enables Meta to consistently generate substantial free cash flow and demonstrate excellent returns on capital. Despite facing increasing regulatory pressures and the uncertainties surrounding its massive metaverse investments, the irreproducibility and robust resilience of its core advertising business ensure its market dominance for the foreseeable future. This is a business with a powerful \"mindshare\" and \"social graph\" franchise.",
   "evidenceHash": "31028671b19a497b9732f0dce6c863120aa0f1819c9661ec75ad51891ab52330",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

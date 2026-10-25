@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "貝萊德本質上是一家「收費橋樑」型的特許經營企業，其護城河堅固而深廣。公司憑藉全球最大的資產管理規模，建立了無可匹敵的品牌信任和定價權，尤其在iShares ETF和機構資產管理領域。其Aladdin風險管理平台是獨一無二的技術壁壘，為客戶帶來極高轉換成本。資產管理行業的嚴格監管、貝萊德的規模經濟效益以及其在特定市場形成的寡占地位，共同構築了難以逾越的競爭優勢。管理層穩健的資本配置策略，加上其資本輕型業務模式帶來的持續高ROIC，確保了股東價值的長期增長。這是一個典型的巴菲特式「好生意」，能夠持續產生豐厚現金流並有效抵禦競爭。",
   "overall_moat_verdict_en": "BlackRock is fundamentally a \"toll bridge\" type of franchise business, possessing a robust and deep economic moat. Leveraging its position as the world's largest asset manager, the company has established unparalleled brand trust and pricing power, particularly in iShares ETFs and institutional asset management. Its Aladdin risk management platform serves as a unique technological barrier, imposing extremely high switching costs on clients. The stringent regulatory environment of the asset management industry, BlackRock's economies of scale, and its oligopolistic position in specific markets collectively form an insurmountable competitive advantage. The management's prudent capital allocation strategy, coupled with its capital-light business model yielding consistently high ROIC, ensures long-term shareholder value growth. This is a classic Buffett-esque \"good business\" capable of generating substantial cash flow consistently and effectively fending off competition.",
   "evidenceHash": "bdbf39b7a3243cc7fdbcbd534a057ae7a8fa4d682fc0a5db701ca5811c56441d",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

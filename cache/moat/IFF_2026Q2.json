@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "IFF本質上是一家在高度專業化的B2B市場中運營的「收費橋樑」型企業，其核心價值在於為全球食品、飲料及消費品巨頭提供不可或缺的香精香料解決方案。公司受益於客戶的高轉換成本、廣泛的專利組合、規模經濟以及難以複製的科學專業知識。然而，其當前極低的股東權益報酬率和資產報酬率，以及較高的負債水平，顯示其護城河尚未能有效轉化為持續的超額資本回報。這可能與過去的併購整合挑戰和資本配置效率有關。儘管具備堅實的結構性優勢，但其盈利能力仍需顯著改善，才能真正體現巴菲特所追求的「特許經營權」價值。",
   "overall_moat_verdict_en": "IFF is fundamentally a \"toll bridge\" type of business operating in a highly specialized B2B market, with its core value lying in providing indispensable flavor and fragrance solutions to global food, beverage, and consumer product giants. The company benefits from high customer switching costs, an extensive patent portfolio, economies of scale, and irreproducible scientific expertise. However, its currently very low Return on Equity and Return on Assets, coupled with a high debt level, indicate that its moats have not yet effectively translated into sustained excess returns on capital. This may be related to past acquisition integration challenges and capital allocation efficiency. Despite possessing robust structural advantages, its profitability needs significant improvement to truly embody the \"franchise\" value sought by Warren Buffett.",
   "evidenceHash": "0a998f5c55dcfbc3763635112cd1a4cd7849b7b19c323f35df40e86b03023802",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

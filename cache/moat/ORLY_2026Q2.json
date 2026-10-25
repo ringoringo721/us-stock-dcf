@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "O'Reilly Automotive 是一家在汽車售後零件市場中擁有堅實護城河的零售巨頭。其核心競爭優勢來自於卓越的「規模經濟」和「有效規模」，透過龐大的門店網絡和高效供應鏈實現成本領先，並在區域市場形成理性寡占。公司展現出色的「營運效率」，持續創造高於資本成本的回報，且管理層在「資本配置」上紀律嚴明，積極回購股票。儘管不具備專利或網絡效應，但其品牌信譽和對專業客戶的黏性也構築了部分壁壘。然而，電動車的長期趨勢對其傳統業務構成顯著的「典範轉移」風險，這將是未來十年最大的挑戰。總體而言，O'Reilly 是一家現金流充沛、管理優異的「必需品零售商」，但需警惕產業結構性變革帶來的長期影響。",
   "overall_moat_verdict_en": "O'Reilly Automotive stands as a retail giant with a robust moat in the automotive aftermarket. Its core competitive advantages stem from superior 'economies of scale' and 'efficient scale,' achieving cost leadership through its vast store network and efficient supply chain, and forming rational oligopolies in regional markets. The company demonstrates excellent 'operational efficiency,' consistently generating returns above its cost of capital, and its management exhibits disciplined 'capital allocation' through active share buybacks. While lacking patents or network effects, its brand reputation and stickiness with professional customers also form partial barriers. However, the long-term trend of electric vehicles poses a significant 'paradigm shift' risk to its traditional business, representing the biggest challenge over the next decade. Overall, O'Reilly is a cash-rich, well-managed 'essential goods retailer,' but one must be wary of the long-term impacts of structural industry changes.",
   "evidenceHash": "e481905b21a765e0589a461562684c1c68c75c0adc42f914c0905a66881c7b13",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

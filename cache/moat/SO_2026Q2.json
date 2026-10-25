@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Southern Company本質上是一家受政府嚴格監管的「收費橋樑」型企業，其護城河深厚且多樣。核心優勢在於其在特定地理區域內的獨家特許經營權，這創造了極高的進入壁壘和客戶轉換成本。龐大的基礎設施網絡帶來顯著的規模經濟效益和幾乎不可複製的資產價值。儘管其定價權受監管限制，但確保了穩定且可預測的合理回報，且對技術顛覆具有強大免疫力。雖然負債水平較高，但這是公用事業的行業特性。總體而言，Southern Company憑藉其不可或缺的服務、受保護的市場地位和巨大的實體資產，構建了一個堅固的經濟護城河，使其能夠長期穩定地為股東創造價值。",
   "overall_moat_verdict_en": "Southern Company is fundamentally a \"toll bridge\" enterprise, strictly regulated by the government, possessing deep and diverse economic moats. Its core strength lies in exclusive franchises within specific geographic areas, creating extremely high barriers to entry and customer switching costs. The vast infrastructure network provides significant economies of scale and virtually irreproducible asset value. Although its pricing power is constrained by regulation, it ensures stable and predictable reasonable returns and exhibits strong immunity to technological disruption. While debt levels are high, this is characteristic of the utility industry. Overall, Southern Company, with its indispensable services, protected market position, and immense physical assets, has built a robust economic moat, enabling it to consistently create long-term value for shareholders.",
   "evidenceHash": "17562bdefc8131c630c1fc1953c7050903e194c58721e10ebb89b5c66fe2edb0",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

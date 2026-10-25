@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Martin Marietta本質上是一家由眾多區域性「收費橋樑」組成的企業，其經濟護城河極為深厚且多樣。核心優勢源於其在建築材料行業中不可複製的資產組合：戰略性地理位置的採石場網絡、極高的監管進入壁壘、以及規模經濟帶來的成本優勢。這些因素共同創造了一個天然寡占的市場結構，使得新競爭者難以進入，現有客戶轉換成本高昂。公司提供的骨料和水泥是基礎建設的必需品，需求穩定且不易受技術顛覆。管理層在資本配置上的穩健，進一步鞏固了其長期價值創造能力。MLM是一家典型的「永恆」企業，能夠在長期內持續為股東創造超額回報。",
   "overall_moat_verdict_en": "Martin Marietta is fundamentally a business comprised of numerous regional \"toll bridges,\" possessing an exceptionally deep and multifaceted economic moat. Its core strength derives from an irreproducible asset portfolio within the construction materials industry: strategically located quarry networks, extremely high regulatory barriers to entry, and cost advantages stemming from economies of scale. These factors collectively create a naturally oligopolistic market structure, making it difficult for new competitors to enter and costly for existing customers to switch. The aggregates and cement it provides are essential for infrastructure, with stable demand largely immune to technological disruption. Prudent capital allocation by management further solidifies its long-term value creation capability. MLM is a classic \"forever\" business, poised to consistently generate superior returns for shareholders over the long term.",
   "evidenceHash": "217654f2b1ac173aa8a650f322f0cb069f99042fb62c5dcb0e6029ba561451f7",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

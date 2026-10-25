@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Honeywell 展現出一個典型的多元化工業集團的護城河特徵，其優勢主要體現在規模經濟（M5）、運營效率（M7）和技術專利（M2）上，這些共同構成了其堅實的成本和技術壁壘。高轉換成本（M3）和穩定的品牌聲譽（M1）進一步鞏固了其市場地位，尤其是在航空航天和自動化等關鍵領域。雖然網絡效應（M4）和獨特地理資產（M6）相對較弱，但其卓越的資本配置能力（M8）和客戶保留率（M9）彌補了這些不足。整體而言，Honeywell 類似於一個擁有強大工程能力和規模優勢的「收費橋」模式，能夠在多個工業領域提供關鍵基礎設施和解決方案，具備較強的經濟持久性（M10）。",
   "overall_moat_verdict_en": "Honeywell exhibits moat characteristics typical of a diversified industrial conglomerate. Its strengths lie primarily in economies of scale (M5), operational efficiency (M7), and technological patents (M2), collectively forming robust cost and technological barriers. High switching costs (M3) and a solid brand reputation (M1) further solidify its market position, especially in critical sectors like aerospace and automation. While network effects (M4) and unique geographical assets (M6) are weaker, its strong capital allocation (M8) and customer retention (M9) compensate. Overall, Honeywell operates like a 'toll bridge' model with significant engineering prowess and scale, providing essential infrastructure and solutions across multiple industrial domains, demonstrating considerable economic durability (M10).",
   "evidenceHash": "4bd0b8707681057bf4ee427622d93c52c9efe3f35d89bc22dbf78fce2279f8b5",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

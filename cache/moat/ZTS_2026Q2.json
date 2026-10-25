@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Zoetis本質上是一家擁有堅實「特許經營權」特徵的企業，其在動物保健領域構築了多重且難以逾越的護城河。公司憑藉強大的品牌認知、持續的創新專利保護、嚴格的監管壁壘以及客戶高度黏性所帶來的轉換成本，使其產品具備顯著的定價權。同時，其全球規模經濟優勢和在專業細分市場的寡頭地位，進一步鞏固了其市場領導地位。Zoetis的業務需求確定性高，對技術變革具備強大免疫力，加之管理層高效的資本配置能力，使其能夠持續產生超額回報，為股東創造長期複利價值。這是一座在動物健康剛需上架設的「收費橋樑」。",
   "overall_moat_verdict_en": "Zoetis fundamentally operates as a \"franchise\" business, having constructed multiple, formidable moats within the animal health sector. The company leverages strong brand recognition, continuous patent protection from innovation, stringent regulatory barriers, and high customer stickiness leading to significant switching costs, all contributing to substantial pricing power for its products. Concurrently, its global economies of scale and oligopolistic position in specialized market segments further solidify its market leadership. Zoetis's business benefits from highly certain demand, strong immunity to technological disruption, and efficient capital allocation by management, enabling it to consistently generate excess returns and compound long-term value for shareholders. It is essentially a \"toll bridge\" built upon the inelastic demand for animal health.",
   "evidenceHash": "a7c119d4117af4729cb0a51c40db382f396ce5ac8751bf1f0d5e9e5540fccfee",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

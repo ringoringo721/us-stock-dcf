@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Aflac 是一家典型的「收費橋樑」型企業，其護城河主要由強大的品牌心智、高度監管的行業壁壘和顯著的規模經濟所構築。公司在日本和美國補充保險市場的領導地位，使其能夠享有穩定的現金流和可預測的盈利能力。儘管缺乏傳統意義上的網絡效應，但其高客戶保留率和難以複製的銷售網絡，加上管理層審慎的資本配置，共同構建了一個堅固的競爭優勢。這使得 Aflac 能夠長期維持高於平均水平的資本回報，是一家具備巴菲特所青睞的「特許經營權」特徵的優質企業。",
   "overall_moat_verdict_en": "Aflac is a quintessential 'toll bridge' business, with its moat primarily constructed from a strong brand mindshare, highly regulated industry barriers, and significant economies of scale. Its leadership position in the supplemental insurance markets of Japan and the US enables stable cash flows and predictable profitability. While lacking traditional network effects, its high customer retention and difficult-to-replicate sales network, coupled with prudent capital allocation by management, collectively form a robust competitive advantage. This allows Aflac to consistently generate above-average returns on capital, making it a high-quality enterprise possessing the 'franchise' characteristics favored by Warren Buffett.",
   "evidenceHash": "ede11624da2cafaaadb4657c287d63b0fd35640fcb4ef9cce46099fa3c0f8bda",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

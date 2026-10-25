@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Aon plc本質上是一家具有堅固護城河的「特許經營權平台」或「收費橋樑」型企業。其核心競爭優勢源於全球領先的品牌聲譽、為大型企業客戶提供複雜解決方案的專業知識、極高的客戶轉換成本、以及無可比擬的全球規模經濟。儘管身處競爭激烈的金融服務業，Aon透過其深度整合的服務、龐大的數據洞察和嚴格的監管壁壘，成功地將自身定位為客戶不可或缺的戰略夥伴。其輕資產模式帶來的高資本回報率和穩健的自由現金流，進一步印證了其卓越的盈利能力和管理層有效的資本配置。Aon的護城河並非單一維度，而是多重壁壘的綜合體，使其能夠長期保持超額收益。",
   "overall_moat_verdict_en": "Aon plc is fundamentally a 'franchise platform' or 'toll bridge' business with a robust economic moat. Its core competitive advantages stem from its globally leading brand reputation, specialized expertise in delivering complex solutions to large corporate clients, extremely high customer switching costs, and unparalleled global economies of scale. Despite operating in a competitive financial services industry, Aon has successfully positioned itself as an indispensable strategic partner to its clients through deeply integrated services, vast data insights, and stringent regulatory barriers. Its asset-light model yields high returns on invested capital and strong free cash flow, further affirming its exceptional profitability and management's effective capital allocation. Aon's moat is not singular but a composite of multiple barriers, enabling it to sustain superior returns over the long term.",
   "evidenceHash": "3022a7cbef30a1cc2387f7809b731e81670a3aadc7310bcedc0bc73c5d386ce4",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

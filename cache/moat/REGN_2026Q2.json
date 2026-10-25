@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Regeneron本質上是一家由深厚科學創新驅動的「特許經營權」企業，護城河主要由獨家專利集群、嚴格監管准入壁壘及患者對有效療法的極高轉換成本構築。公司在眼科和免疫學等關鍵醫療領域，憑藉重磅藥物建立強大品牌心智和定價權。其卓越研發能力和規模經濟優勢，使其能持續推出創新產品並維持領先。管理層審慎資本配置策略，進一步鞏固長期價值創造潛力，使其成為具備堅固護城河的優質投資標的。",
   "overall_moat_verdict_en": "Regeneron is fundamentally a \"franchise\" business driven by profound scientific innovation, with its moat primarily constructed from exclusive patent clusters, stringent regulatory barriers to entry, and exceptionally high switching costs for patients relying on effective therapies. The company has established strong brand recognition and pricing power in critical medical fields like ophthalmology and immunology, thanks to its blockbuster drugs. Its superior R&D capabilities and economies of scale enable it to continuously launch innovative products and maintain a leading position. Management's prudent capital allocation strategy further solidifies its potential for long-term value creation, making it a high-quality investment with a robust economic moat.",
   "evidenceHash": "47ca031c6bbc7989f09d369d6fd88443481950858fde57cbc2c6674784b7dbae",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Enbridge本質上是一家典型的「收費橋樑」型企業，其核心護城河深植於其龐大且不可複製的能源基礎設施網絡。政府特許經營權、嚴格的監管壁壘以及客戶極高的轉換成本，共同構建了難以逾越的競爭優勢。其規模經濟和在關鍵能源走廊的天然寡占地位，確保了穩定的現金流和可預測的盈利能力。儘管其業務增長潛力有限，且負債水平較高，但其對技術顛覆的強大免疫力以及能源運輸的確定性需求，使其成為巴菲特眼中具備長期防禦性和穩定回報的優質資產。",
   "overall_moat_verdict_en": "Enbridge is fundamentally a classic \"toll bridge\" type of business, with its core moats deeply embedded in its vast and irreplicable energy infrastructure network. Government concessions, stringent regulatory barriers, and extremely high customer switching costs collectively form insurmountable competitive advantages. Its economies of scale and natural oligopoly position in critical energy corridors ensure stable cash flows and predictable profitability. Despite limited growth potential and a relatively high debt level, its strong immunity to technological disruption and the certain demand for energy transportation make it a high-quality asset in Buffett's view, offering long-term defensiveness and stable returns.",
   "evidenceHash": "54d27b475ef00070cd583aff9c2282fbf45bc2a5918c4dcadd06548fb67229cc",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

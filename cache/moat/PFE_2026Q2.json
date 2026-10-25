@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "輝瑞（Pfizer）本質上是一家由強大專利組合和嚴格監管壁壘所保護的「特許經營權」型企業，尤其是在其創新藥物和疫苗領域。其巨大的規模經濟、全球分銷網絡以及患者和醫生的轉換成本，共同構建了堅固的護城河。然而，這並非永恆的特許經營權，因為專利有期限，且新藥研發存在高風險和不確定性。公司必須持續投入巨資於研發，以不斷補充其產品管線，並應對學名藥競爭和新興技術的挑戰。儘管品牌強大，但藥品定價權受限於監管。其資本配置策略，特別是大型併購，需審慎評估其長期價值創造能力。總體而言，輝瑞是一艘在波濤洶湧的醫藥海洋中航行的巨輪，擁有強大的引擎和船體，但仍需不斷調整航向以避開冰山。",
   "overall_moat_verdict_en": "Pfizer is fundamentally a 'franchise' type enterprise, protected by a robust patent portfolio and stringent regulatory barriers, particularly in its innovative drugs and vaccines. Its immense economies of scale, global distribution network, and high switching costs for patients and physicians collectively form a solid moat. However, this is not an eternal franchise, as patents expire, and new drug development carries high risks and uncertainties. The company must continuously invest heavily in R&D to replenish its product pipeline and counter generic competition and emerging technological challenges. Despite a strong brand, drug pricing power is constrained by regulation. Its capital allocation strategy, especially large M&A, requires careful evaluation of its long-term value creation capability. Overall, Pfizer is a giant vessel navigating the turbulent seas of pharmaceuticals, possessing a powerful engine and hull, but still needing constant course adjustments to avoid icebergs.",
   "evidenceHash": "8d4c1f6fb94790797ad7abff0882a92084727cf47b2718685d3e23b2ef2b5696",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

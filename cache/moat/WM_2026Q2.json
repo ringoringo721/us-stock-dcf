@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Waste Management本質上是一家擁有強大特許經營權的基礎設施公司，類似於收費橋樑或受監管的公用事業。其經濟護城河主要源於嚴格的監管壁壘（垃圾掩埋場許可證、獨家市政合同）、無與倫比的規模經濟（廣泛的資產網絡和優化運營）、以及極高的資本不可複製性。廢棄物處理服務的不可或缺性賦予其穩定的定價權和對經濟波動的強大韌性。WM的商業模式具備巴菲特所推崇的「簡單、可理解、有護城河」的特徵，其穩定的現金流和高進入壁壘使其成為一個長期價值投資的典範。",
   "overall_moat_verdict_en": "Waste Management is fundamentally an infrastructure company with strong franchise characteristics, akin to a toll bridge or a regulated utility. Its economic moat primarily stems from stringent regulatory barriers (landfill permits, exclusive municipal contracts), unparalleled economies of scale (extensive asset network and optimized operations), and extremely high capital irreproducibility. The indispensable nature of waste management services grants it stable pricing power and robust resilience against economic fluctuations. WM's business model embodies Buffett's favored traits of being 'simple, understandable, and having a moat,' with its stable cash flows and high barriers to entry making it a prime example for long-term value investing.",
   "evidenceHash": "8f54044eb20da7a0dfad2564797c41081031840adbf0c5649e28ce2f3eb6cbb1",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

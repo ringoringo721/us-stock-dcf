@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Caterpillar無疑擁有一條堅固且多維度的經濟護城河，使其在重型機械行業中穩如磐石。其核心優勢在於全球無可匹敵的「CAT」品牌心智與定價權，以及由此帶來的極高客戶轉換成本。公司憑藉其龐大的全球規模，實現了極致的成本優勢和難以複製的全球分銷與服務網絡。在基礎設施建設和資源開採等剛性需求領域，CAT的產品需求具有強大的抗顛覆性。管理層穩健的資本配置策略，確保了股東價值的長期增長。綜合來看，Caterpillar不僅是設備製造商，更是一個在全球關鍵產業中收取「通行費」的特許經營權平台，其護城河深度足以抵禦大多數競爭者。",
   "overall_moat_verdict_en": "Caterpillar undoubtedly possesses a robust and multi-faceted economic moat, making it a steadfast leader in the heavy machinery industry. Its core strengths lie in the unparalleled global \"CAT\" brand mindshare and pricing power, leading to exceptionally high customer switching costs. The company leverages its immense global scale to achieve extreme cost advantages and an irreplicable global distribution and service network. In essential sectors like infrastructure development and resource extraction, CAT's product demand exhibits strong resilience against disruption. The management's prudent capital allocation strategy ensures long-term shareholder value growth. Overall, Caterpillar is not merely an equipment manufacturer but a franchise platform that collects \"tolls\" in critical global industries, with a moat deep enough to withstand most competitors.",
   "evidenceHash": "6889f627b97b18b63fcdbd5963b4681d73bab1b65cd9a1ccba3be394b1430611",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

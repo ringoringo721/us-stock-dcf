@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "波音的護城河主要體現為強大的品牌聲譽、極高的客戶轉換成本、以及顯著的規模經濟優勢。這使其在航空製造業這個高度集中的市場中，能夠維持類似於「收費橋」的地位，即客戶（航空公司）必須依賴其提供的關鍵基礎設施（飛機）。然而，其護城河並非無懈可擊，技術壁壘雖高但面臨激烈競爭，運營效率和資本配置的波動性也帶來風險。監管環境和地緣政治因素亦可能影響其長期穩定性。總體而言，波音擁有堅固的護城河，但需警惕其面臨的挑戰。",
   "overall_moat_verdict_en": "Boeing's moat is primarily characterized by its strong brand reputation, exceptionally high customer switching costs, and significant economies of scale. This positions it akin to a 'toll bridge' within the highly concentrated aerospace manufacturing industry, where customers (airlines) depend on its critical infrastructure (aircraft). However, its moat is not impregnable; while technological barriers are high, intense competition exists, and volatility in operational efficiency and capital allocation pose risks. Regulatory environments and geopolitical factors can also impact its long-term stability. Overall, Boeing possesses a robust moat but must remain vigilant against its challenges.",
   "evidenceHash": "65d0d497b40e4e2eeae4d2bcd3a91832ba1752c9b8036dc7eae6d98e9f310346",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

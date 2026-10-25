@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Yum! Brands本質上是一個典型的「收費橋樑」型企業，透過其全球公認的品牌（肯德基、必勝客、塔可鐘）和龐大的特許經營體系，構築了堅實的經濟護城河。其核心競爭優勢源於強大的品牌資產、對加盟商而言的高轉換成本，以及在採購和營銷方面的巨大規模經濟效益。輕資產的特許經營模式使其資本效率極高，ROIC表現優異，成為一台持續為股東創造複利的機器。儘管面臨競爭，但其已建立的全球足跡和運營專長幾乎無法複製。公司業務滿足基本人類需求，對顛覆性技術具有較強免疫力，且管理層在資本配置上表現穩健。綜合來看，Yum! Brands具備持久的競爭優勢，符合巴菲特對擁有堅固護城河企業的投資偏好。",
   "overall_moat_verdict_en": "Yum! Brands fundamentally operates as a classic \"toll bridge\" business, leveraging its globally recognized brands (KFC, Pizza Hut, Taco Bell) and extensive franchise system to build a robust economic moat. Its core competitive advantages stem from powerful brand equity, high switching costs for franchisees, and immense economies of scale in procurement and marketing. The asset-light franchise model inherently leads to superior capital efficiency and high ROIC, making it a compounding machine for shareholders. Despite facing competition, its established global footprint and operational expertise are virtually irreplicable. The company's business addresses fundamental human needs, granting it strong immunity to disruptive technologies, and management demonstrates prudent capital allocation. Overall, Yum! Brands possesses durable competitive advantages, aligning well with Buffett's preference for businesses with enduring economic moats.",
   "evidenceHash": "109a0e286ced147f3be8f371c0aa2fd19aa26d47e690a567d8cfb78a509eb27f",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

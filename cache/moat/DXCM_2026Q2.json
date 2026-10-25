@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Dexcom本質上是一家擁有「特許經營權」特徵的醫療科技公司，其護城河深厚且多樣。核心在於其在連續血糖監測（CGM）領域的技術領先地位、龐大的專利組合以及嚴格的監管壁壘，共同構築了一道難以逾越的「收費橋樑」。患者對產品的醫療必需性導致高品牌忠誠度和轉換成本，賦予公司強大的定價權。同時，其卓越的資本回報率和規模經濟效應，確保了持續的盈利能力和市場主導地位。儘管網絡效應不顯著，但其產品的不可替代性、管理層的穩健財務管理以及對技術顛覆的強大免疫力，共同鞏固了其作為一家高品質、高確定性投資標的的地位。",
   "overall_moat_verdict_en": "Dexcom is fundamentally a medical technology company exhibiting characteristics of a \"franchise,\" possessing a deep and multifaceted moat. Its core strength lies in its technological leadership in Continuous Glucose Monitoring (CGM), extensive patent portfolio, and stringent regulatory barriers, collectively forming an insurmountable \"toll bridge.\" The medical necessity of its products for patients drives high brand loyalty and switching costs, granting the company significant pricing power. Concurrently, its exceptional return on invested capital and economies of scale ensure sustained profitability and market dominance. While network effects are not prominent, the indispensability of its products, prudent financial management, and strong immunity to technological disruption collectively solidify its position as a high-quality, high-certainty investment candidate.",
   "evidenceHash": "b3e36b4a16b636a4ae7d0bff2cfb39048638e749ece9cc81f6e81a57fe1ea7eb",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

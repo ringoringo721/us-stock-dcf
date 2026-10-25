@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "ADP本質上是一家擁有強大「收費橋樑」特徵的特許經營型企業。其護城河深植於企業對薪資與人力資源管理服務的剛性需求、極高的客戶轉換成本、以及在複雜監管環境下的專業合規能力。公司憑藉其卓越的品牌信譽、規模經濟和高效的營運，在市場中築起了難以逾越的壁壘。儘管技術不斷演進，但ADP的核心服務需求穩定，且公司具備將新技術融入自身服務的能力，而非被其顛覆。穩健的自由現金流和負責任的資本配置策略，進一步鞏固了其作為長期價值投資標的的吸引力。",
   "overall_moat_verdict_en": "ADP is fundamentally a franchise-like business characterized by strong \"toll bridge\" attributes. Its moat is deeply rooted in businesses' inelastic demand for payroll and HR management services, exceptionally high customer switching costs, and its expert compliance capabilities within complex regulatory environments. The company has built formidable barriers to entry through its outstanding brand reputation, economies of scale, and highly efficient operations. Despite continuous technological evolution, the core demand for ADP's services remains stable, and the company possesses the ability to integrate new technologies into its offerings rather than being disrupted by them. Robust free cash flow generation and a responsible capital allocation strategy further solidify its appeal as a long-term value investment.",
   "evidenceHash": "a7d534ebc03351136232b94a5a6fde5dc9d22d93f392fa0ed29435e30a644190",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

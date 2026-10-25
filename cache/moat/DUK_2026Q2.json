@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Duke Energy (DUK) 是一家典型的特許經營型公用事業公司，其護城河主要建立在極高的進入壁壘和穩定的客戶基礎之上。監管許可和廣泛的輸配電網絡構成了強大的壁壘（M2, M6），使得新競爭者難以進入。用戶更換電力供應商的成本極高（M3, M9），保證了公司穩定的收入流。規模經濟（M5）和運營效率（M7）進一步鞏固了其成本競爭力。儘管網絡效應（M4）和品牌定價權（M1）相對較弱，但其業務的基礎性需求和長期的資產屬性賦予了其極高的持久性（M10）。資本配置（M8）主要用於維持和升級現有資產，體現了其穩定增長的策略。總體而言，DUK 擁有一個堅固的、由監管和基礎設施構成的護城河。",
   "overall_moat_verdict_en": "Duke Energy (DUK) operates as a classic regulated utility, deriving its moat primarily from extremely high barriers to entry and a stable customer base. Regulatory approvals and extensive transmission/distribution networks form a formidable moat (M2, M6), deterring new entrants. High switching costs for customers (M3, M9) ensure predictable revenue streams. Economies of scale (M5) and operational efficiencies (M7) bolster its cost competitiveness. While network effects (M4) and brand pricing power (M1) are weaker, the essential nature of its services and long-lived assets provide exceptional durability (M10). Capital allocation (M8) focuses on maintaining and upgrading infrastructure, reflecting a strategy of stable growth. Overall, DUK possesses a robust moat built on regulation and essential infrastructure.",
   "evidenceHash": "1e51f9ed33a1a8732319b38aa005070fb5bde074a46731eb8d869354d481db17",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

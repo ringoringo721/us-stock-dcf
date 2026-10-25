@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Target作為一家大型綜合零售商，其護城河主要建立在強大的品牌認知度、規模經濟帶來的成本優勢以及高效的運營管理上。它成功地將「平價時尚」的品牌形象深植人心，並透過龐大的採購量和物流網絡實現了顯著的成本領先。儘管其產品不具備高轉換成本或網絡效應，且所處市場競爭激烈，但管理層在資本配置上的審慎以及對全通路策略的有效執行，使其在不斷變化的零售環境中保持了韌性。Target本質上是一家高效運營的商品型企業，透過差異化的購物體驗和自有品牌，在高度競爭的市場中開闢了一條穩健的道路。",
   "overall_moat_verdict_en": "Target, as a large general merchandise retailer, primarily builds its economic moat on strong brand recognition, cost advantages derived from economies of scale, and efficient operational management. It has successfully ingrained its \"cheap chic\" brand image in consumers' minds and achieved significant cost leadership through vast purchasing volumes and an extensive logistics network. While its products lack high switching costs or network effects, and it operates in a fiercely competitive market, management's prudent capital allocation and effective execution of omnichannel strategies have enabled it to maintain resilience in an evolving retail landscape. Fundamentally, Target is an efficiently operated commodity-like business that, through differentiated shopping experiences and private labels, has carved out a stable path in a highly competitive market.",
   "evidenceHash": "e4f51ad4a0fddcff8b76a2ad1088396749914d6a7f997a77bf59afd939a8baf5",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

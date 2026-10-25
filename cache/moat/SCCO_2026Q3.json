@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Southern Copper 本質上是一家擁有世界級稀缺資源的低成本商品生產商，而非巴菲特偏愛的特許經營權或品牌型企業。其核心護城河來自於對大規模、長壽命、高品位銅礦資源的獨家佔有，以及由此帶來的極致規模經濟和成本優勢。政府授予的採礦特許權構成了難以逾越的進入壁壘。儘管缺乏定價權和網絡效應，但其產品需求對技術變革具有強大免疫力，且管理層展現出卓越的資本配置能力，持續創造超額股東價值。這使其成為一個在商品領域中具備堅固護城河的優質資產，能夠在商品週期中保持韌性。",
   "overall_moat_verdict_en": "Southern Copper is fundamentally a low-cost commodity producer with world-class scarce resources, rather than a franchise or brand-driven business favored by Buffett. Its core moat stems from the exclusive ownership of large-scale, long-life, high-grade copper mining resources, leading to extreme economies of scale and cost advantages. Government-granted mining concessions constitute formidable barriers to entry. Although it lacks pricing power and network effects, its product demand exhibits strong immunity to technological disruption, and management demonstrates excellent capital allocation, consistently creating excess shareholder value. This positions it as a high-quality asset with a robust moat within the commodity sector, capable of maintaining resilience throughout commodity cycles.",
   "evidenceHash": "07f4efb79e8f6cf86ab10c9b80154adae701487c3b426e8d96a67ae0ba2dcea6",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "通用磨坊本質上是一家擁有強大品牌組合和規模經濟優勢的「特許經營權」型企業。其護城河主要由家喻戶曉的品牌心智資產、廣泛的分銷網絡以及在採購、生產和營銷方面的成本領先地位所構築。儘管缺乏專利壁壘、高轉換成本或網絡效應等護城河，但其產品對技術顛覆具有極強的免疫力，且能持續產生穩定的現金流。這使其成為一個能夠穿越經濟週期的「好生意」，而非巴菲特所言的「收費橋樑」或「壟斷平台」。公司依賴消費者習慣和品牌忠誠度，而非技術鎖定或市場結構壟斷，來維持其長期競爭力。",
   "overall_moat_verdict_en": "General Mills is fundamentally a \"franchise\" type business, characterized by a powerful portfolio of brands and significant economies of scale. Its moat is primarily constructed from well-established brand equity, extensive distribution networks, and cost leadership in procurement, production, and marketing. While lacking moats from patent barriers, high switching costs, or network effects, its products exhibit strong immunity to technological disruption and consistently generate stable cash flows. This positions it as a \"good business\" capable of navigating economic cycles, rather than a \"toll bridge\" or \"monopoly platform\" in Buffett's terms. The company relies on consumer habits and brand loyalty, rather than technological lock-in or market structural monopolies, to sustain its long-term competitiveness.",
   "evidenceHash": "1f1079d00e868c24919e100935169463c87e5bc770d835b94b2fcbd3ac69af54",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Electronic Arts 是一家擁有堅固護城河的特許經營權平台型企業，其核心競爭優勢源於獨家體育聯盟授權、強大的品牌心智與高轉換成本。這些因素共同構建了難以逾越的壁壘，使其在特定遊戲細分市場中享有近乎壟斷的地位。其規模經濟、網絡效應以及難以複製的 IP 組合進一步強化了其市場領導地位。儘管遊戲產業技術迭代迅速，EA 憑藉其適應能力和穩健的財務表現，展現出長期創造超額回報的潛力，符合巴菲特對具備持久競爭優勢企業的投資標準。",
   "overall_moat_verdict_en": "Electronic Arts is a franchise-platform business with a robust economic moat, primarily stemming from exclusive sports league licenses, strong brand equity, and high switching costs. These factors collectively create formidable barriers to entry, granting EA a near-monopoly in specific gaming niches. Its economies of scale, network effects, and an irreplicable portfolio of intellectual properties further solidify its market leadership. Despite the rapid technological evolution in the gaming industry, EA's adaptability and sound financial performance demonstrate its potential for long-term excess returns, aligning with Buffett's investment criteria for businesses with durable competitive advantages.",
   "evidenceHash": "1eb4abfdb0da39ae271c598a9667f964f11b858d8abfd8f1818c47ba094bcbc5",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

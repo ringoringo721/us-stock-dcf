@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Williams Companies (WMB) 的護城河主要建立在其龐大的規模經濟和高昂的轉換成本之上，使其在能源運輸領域具有類似「收費橋」的特徵。其關鍵的地理位置資產和受監管的行業特性也構成了一定的進入壁壘。然而，其品牌定價權和網絡效應較弱。儘管面臨能源轉型的長期挑戰，但其核心業務的持久性以及客戶的高度依賴性，為公司提供了一個相對穩固但非無懈可擊的護城河。資本配置和債務水平是需要關注的風險點。",
   "overall_moat_verdict_en": "Williams Companies (WMB) possesses a moat primarily built upon significant economies of scale and high switching costs, giving it 'toll bridge'-like characteristics in the energy transportation sector. Its strategically located assets and the regulated nature of the industry also present entry barriers. However, its brand pricing power and network effects are weak. Despite long-term challenges from the energy transition, the durability of its core business and high customer dependency provide a relatively solid, though not impenetrable, moat. Capital allocation and debt levels remain points of attention.",
   "evidenceHash": "346ee4f46e7ed277c1b198a9ab87c18d4af881ac3a2a739aa23f50c872d4f453",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

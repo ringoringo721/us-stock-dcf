@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "達納赫本質上是一家卓越的「特許經營權平台」與「收費橋樑」型企業。它透過收購並運用其獨特的「達納赫商業系統」（DBS），將一系列在生命科學與診斷領域具備強大護城河的利基品牌整合並優化。其產品與服務對客戶而言是不可或缺的關鍵投入，具備高轉換成本、監管壁壘與技術專利保護。這種模式使其能持續產生豐厚現金流，並在面對競爭時保持強勁的定價權與市場地位，是巴菲特會青睞的優質企業。",
   "overall_moat_verdict_en": "Danaher fundamentally operates as an exceptional \"franchise platform\" and \"toll bridge\" business. It strategically acquires and optimizes a portfolio of niche brands with robust moats in the life sciences and diagnostics sectors, leveraging its unique Danaher Business System (DBS). Its products and services are indispensable, critical inputs for customers, characterized by high switching costs, significant regulatory barriers, and strong patent protection. This model enables the company to consistently generate substantial free cash flow and maintain strong pricing power and market position against competitors, embodying the qualities of a high-quality enterprise that Warren Buffett would admire.",
   "evidenceHash": "5a60c3ed35a1be7a987e6d8a2fd6afec883efaf08e5d97a48ad3247215861976",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

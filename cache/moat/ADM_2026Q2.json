@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Archer-Daniels-Midland (ADM) 本質上是一家全球性的「農業商品收費橋樑」與「基礎設施型企業」。其護城河並非來自於獨特的消費品牌或專利技術，而是建立在極致的規模經濟、遍布全球的採購、加工與分銷網絡，以及對大宗商品市場的深刻理解和風險管理能力之上。對於其B2B客戶而言，轉換供應商的成本高昂，形成了堅實的客戶黏性。新競爭者難以在短時間內複製其龐大的實體資產和複雜的供應鏈體系。儘管身處商品化行業，利潤受週期性影響，但其對人類基本需求的滿足和運營效率，賦予了其長期穩健的競爭優勢。",
   "overall_moat_verdict_en": "Archer-Daniels-Midland (ADM) is fundamentally a global \"agricultural commodity toll bridge\" and \"infrastructure-type enterprise.\" Its moat does not stem from unique consumer brands or proprietary technology, but rather from extreme economies of scale, a worldwide network for sourcing, processing, and distribution, and a deep understanding of commodity markets coupled with robust risk management capabilities. For its B2B customers, switching suppliers entails high costs, creating strong customer stickiness. New competitors would find it nearly impossible to replicate its vast physical assets and complex supply chain system in a short period. Despite operating in a commoditized industry where profits are subject to cyclicality, its fulfillment of basic human needs and operational efficiency grant it a long-term, stable competitive advantage.",
   "evidenceHash": "b6f70499e59c63e0dddc5cdc40e5020e6061eea0234c30eb3ba3807cd3a5154d",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

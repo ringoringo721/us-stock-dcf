@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Cencora本質上是一個在醫療保健供應鏈中扮演關鍵角色的「收費橋樑」型企業。其護城河並非來自於品牌溢價或專利技術，而是根植於其無與倫比的規模經濟、極高的客戶轉換成本、嚴格的監管壁壘以及難以複製的龐大分銷網絡。醫療保健分銷市場是一個典型的天然寡占市場，新競爭者幾乎不可能在成本和效率上與Cencora匹敵。儘管毛利率不高，但其穩定的需求和堅固的營運壁壘，使其能持續產生強勁的自由現金流，為股東創造長期價值。這是一個「無聊但不可或缺」的基礎設施型業務。",
   "overall_moat_verdict_en": "Cencora fundamentally operates as a \"toll bridge\" enterprise, playing a critical role in the healthcare supply chain. Its moat does not stem from brand premium or proprietary patents but is deeply rooted in its unparalleled economies of scale, exceptionally high customer switching costs, stringent regulatory barriers, and an irreproducible, vast distribution network. The healthcare distribution market is a classic natural oligopoly, making it nearly impossible for new competitors to match Cencora's cost and efficiency. Despite thin margins, its stable demand and robust operational barriers enable it to consistently generate strong free cash flow, creating long-term value for shareholders. This is an \"unexciting but indispensable\" infrastructure-type business.",
   "evidenceHash": "b001ecde009725a2a1f772a2df487e1491e4ad03032991a6ebb3a27b670163d5",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

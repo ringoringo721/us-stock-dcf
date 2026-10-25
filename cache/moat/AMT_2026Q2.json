@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "美國電塔本質上是一家擁有全球特許經營權的「數位收費公路」運營商。其核心護城河深植於電信基礎設施的不可或缺性、極高的客戶轉換成本、嚴格的監管壁壘以及顯著的規模經濟。它並非傳統意義上的品牌企業，而是通過提供關鍵的物理基礎設施，讓所有電信運營商都必須「過路繳費」。這種商業模式賦予其強大的定價權和穩定的現金流，使其能夠在技術變革中保持韌性，並持續產生超越資本成本的回報。其資產的不可複製性，加上市場的天然寡頭壟斷格局，共同構建了一道極其寬廣的護城河，使其成為巴菲特眼中理想的「特許經營權」型企業。",
   "overall_moat_verdict_en": "American Tower is essentially a \"digital toll road\" operator with a global franchise. Its core moat is deeply embedded in the indispensable nature of telecom infrastructure, exceptionally high customer switching costs, stringent regulatory barriers, and significant economies of scale. It is not a brand in the traditional sense but rather provides critical physical infrastructure that all telecom carriers must \"pay to pass.\" This business model grants it strong pricing power and stable cash flows, allowing it to remain resilient amidst technological changes and consistently generate returns exceeding its cost of capital. The irreproducibility of its assets, coupled with the natural oligopolistic market structure, collectively form an exceptionally wide moat, positioning it as an ideal \"franchise\" type business in Buffett's view.",
   "evidenceHash": "d37a2b248583b684818fbe7e3474a35fe29f93eafd997ac72c1224e21ccec80c",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

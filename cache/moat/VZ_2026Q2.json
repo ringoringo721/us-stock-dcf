@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Verizon本質上是一家數位通訊的「收費橋樑」和基礎設施特許經營商，在天然寡占市場中運營。其最堅固的護城河來自於政府授予的稀缺頻譜許可證（監管壁壘）、建立和維護全國性網絡所需的巨大規模（成本優勢和不可複製性），以及對許多客戶而言較高的轉換成本。這些因素共同構成了極高的進入壁壘，有效保護了其市場份額和收入來源。然而，該業務的資本密集特性，加上激烈的市場競爭和過去混合的資本配置決策，在一定程度上削弱了其整體護城河的強度。儘管因其高負債和資本需求，它並非巴菲特眼中的「完美」企業，但其提供的基礎性服務和結構性的市場優勢，賦予了它一個持久但並非無懈可擊的競爭優勢。",
   "overall_moat_verdict_en": "Verizon operates as a critical infrastructure provider in a natural oligopoly, akin to a toll bridge for digital communication. Its strongest moats are the government-granted spectrum licenses (regulatory barrier), the immense scale required to build and maintain a nationwide network (cost advantage and irreproducibility), and the high switching costs for many customers. These factors create substantial barriers to entry, protecting its market share and revenue streams. However, the capital-intensive nature of the business, coupled with intense competition and a history of mixed capital allocation decisions, somewhat tempers its overall moat strength. While not a \"perfect\" business in Buffett's eyes due to its debt and capital demands, its essential service and structural market advantages provide a durable, albeit not impenetrable, competitive advantage.",
   "evidenceHash": "d057ad2b8cc39928fcf635c2529c0af55584ed13aef483156673321dac441e5d",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }

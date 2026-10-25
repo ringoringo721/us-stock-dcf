@@ -54,5 +54,7 @@
   "overall_moat_verdict_zh": "Gilead Sciences 是一家擁有堅固且多面向經濟護城河的專業製藥特許經營企業。其核心優勢在於針對HIV等慢性疾病的專利保護型救命藥物，這賦予了公司強大的定價權，並為患者和醫療服務提供者創造了高昂的轉換成本。藥物研發、臨床試驗和監管審批所需的巨額資本和漫長時間，構成了難以逾越的進入壁壘，使其戰略資產幾乎不可複製。儘管不具備直接的網絡效應，但其在研發和製造上的規模帶來了顯著的成本優勢。Gilead持續產生的高自由現金流和強勁的投入資本回報率，進一步證明了其競爭優勢的持久性，使其成為尋求具備持久盈利能力企業的長期投資者眼中極具價值的標的。",
   "overall_moat_verdict_en": "Gilead Sciences operates as a specialized pharmaceutical franchise with a robust and multi-faceted economic moat. Its core strength lies in its patent-protected, life-saving drugs for chronic diseases like HIV, which grant it significant pricing power and create high switching costs for patients and healthcare providers. The immense capital and time required for drug discovery, clinical trials, and regulatory approvals act as formidable barriers to entry, making its strategic assets virtually irreproducible. While not exhibiting direct network effects, its scale in R&D and manufacturing provides a substantial cost advantage. Gilead's consistent generation of high free cash flow and strong ROIC further underscore the durability of its competitive advantages, positioning it as a valuable long-term holding for investors seeking businesses with enduring profitability.",
   "evidenceHash": "d7705f173dee39062c272c0bfc5191aebde0b5254a452cb3eb06c0df46128be9",
-  "assessmentPolicy": "us-buffett-moat-v3"
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
 }
