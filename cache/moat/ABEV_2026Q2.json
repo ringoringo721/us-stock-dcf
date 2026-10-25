@@ -1,0 +1,60 @@
+{
+  "ticker": "ABEV",
+  "period": "2026Q2",
+  "m1_brand_pricing": {
+    "score": 8,
+    "comment_zh": "Ambev 擁有眾多強勢的區域性品牌，如 Brahma、Skol 和 Antarctica，這些品牌在巴西及其他拉丁美洲市場享有極高的知名度和忠誠度。這種品牌實力賦予了公司一定的定價權，使其能夠在不嚴重損害銷量的情況下，適度轉嫁成本壓力。儘管啤酒行業整體競爭激烈，但 Ambev 的品牌組合使其在消費者心中佔據獨特地位，形成了一道穩固的護城河。然而，面對新興的精釀啤酒和非酒精飲料的挑戰，以及消費者口味的變化，其定價能力並非絕對，故給予 8 分。",
+    "comment_en": "Ambev possesses numerous strong regional brands like Brahma, Skol, and Antarctica, which enjoy high recognition and loyalty in Brazil and other Latin American markets. This brand strength grants the company a degree of pricing power, allowing it to pass on cost pressures moderately without significantly impacting sales volume. Despite intense competition in the overall beer industry, Ambev's brand portfolio secures a unique position in consumers' minds, forming a solid moat. However, facing challenges from emerging craft beers and non-alcoholic beverages, as well as evolving consumer tastes, its pricing power is not absolute, hence the score of 8."
+  },
+  "m2_patents_regulatory": {
+    "score": 3,
+    "comment_zh": "啤酒行業的進入壁壘主要來自於規模經濟和品牌忠誠度，而非專利或特許經營權。Ambev 的產品配方和生產流程並無顯著的專利保護，其業務模式也不依賴於政府特許。雖然某些地區的酒類銷售可能受到特定法規的約束，但這些並未構成實質性的、可持續的競爭壁壘。與製藥或科技公司不同，Ambev 的核心競爭力不在於知識產權，因此此項護城河得分較低。",
+    "comment_en": "Barriers to entry in the beer industry primarily stem from economies of scale and brand loyalty, rather than patents or exclusive licenses. Ambev's product formulations and production processes lack significant patent protection, nor does its business model rely on government franchises. While alcohol sales in certain regions may be subject to specific regulations, these do not constitute substantial, sustainable competitive barriers. Unlike pharmaceutical or technology companies, Ambev's core strength does not lie in intellectual property, thus this moat dimension scores low."
+  },
+  "m3_high_switching_costs": {
+    "score": 4,
+    "comment_zh": "對於終端消費者而言，轉換啤酒品牌的成本極低，只需改變購買習慣即可。然而，對於經銷商和零售商而言，與 Ambev 建立穩固的合作關係，並在其分銷網絡中佔據重要位置，意味著一定的轉換成本。Ambev 龐大的分銷網絡和產品線使其成為許多零售商不可或缺的供應商。但這更多是基於供應鏈的效率和產品的廣度，而非消費者對品牌的強烈依賴，因此轉換成本的壁壘相對有限。",
+    "comment_en": "For end consumers, the cost of switching beer brands is extremely low, requiring only a change in purchasing habits. However, for distributors and retailers, establishing a stable partnership with Ambev and securing a significant position within its distribution network entails certain switching costs. Ambev's vast distribution network and product line make it an indispensable supplier for many retailers. This is more based on supply chain efficiency and product breadth rather than strong consumer brand dependence, thus the barrier from switching costs is relatively limited."
+  },
+  "m4_network_effects": {
+    "score": 2,
+    "comment_zh": "啤酒行業的網絡效應非常有限。與社交媒體或市場平台不同，Ambev 的產品銷售不直接受益於用戶數量的增加。雖然其龐大的分銷網絡可以被視為一種間接的網絡效應，即越多的零售商加入，其分銷能力越強，但這更多是規模優勢的體現，而非典型的網絡效應。消費者購買啤酒的決策主要基於品牌、口味和價格，而非其他用戶的使用情況。因此，此項護城河幾乎不存在。",
+    "comment_en": "Network effects in the beer industry are very limited. Unlike social media or marketplace platforms, Ambev's product sales do not directly benefit from an increase in user numbers. While its extensive distribution network could be seen as an indirect network effect, where more retailers joining strengthens its distribution capabilities, this is more a manifestation of scale advantage rather than typical network effects. Consumer decisions to purchase beer are primarily based on brand, taste, and price, not on the usage of other users. Therefore, this moat dimension is virtually non-existent."
+  },
+  "m5_cost_advantage_scale": {
+    "score": 9,
+    "comment_zh": "Ambev 作為全球最大的啤酒公司之一，其規模經濟效應極為顯著。龐大的生產量帶來了在採購原材料（如大麥、啤酒花）、生產製造、物流運輸以及市場營銷方面的成本優勢。這種規模化的運營能力使得其單位生產成本遠低於小型競爭對手，能夠在價格競爭中保持領先地位，並為其品牌建設和市場拓展提供堅實的財務支持。這是其最核心的競爭壁壘之一。",
+    "comment_en": "As one of the world's largest brewing companies, Ambev benefits from extremely significant economies of scale. Its massive production volume translates into cost advantages in sourcing raw materials (like barley and hops), manufacturing, logistics, and marketing. This scaled operational capability allows for unit production costs far lower than those of smaller competitors, enabling it to maintain a leading position in price competition and providing solid financial support for brand building and market expansion. This is one of its most core competitive moats."
+  },
+  "m6_unique_geography_assets": {
+    "score": 7,
+    "comment_zh": "Ambev 在拉丁美洲，特別是巴西，擁有無可匹敵的市場份額和深入的銷售網絡。這種在特定地理區域的深耕細作，使其能夠精準把握當地消費者偏好，並建立起難以被外來者複製的經銷體系。其擁有的眾多本地化品牌，也與當地文化緊密結合。雖然這並非獨一無二的地理資產（如礦產），但其在特定區域市場的絕對主導地位，構成了強大的區域性壁壘。",
+    "comment_en": "Ambev holds an unparalleled market share and deeply entrenched sales network in Latin America, particularly in Brazil. This deep cultivation within specific geographic regions allows it to precisely grasp local consumer preferences and establish a distribution system that is difficult for outsiders to replicate. Its numerous localized brands are also closely integrated with local culture. While these are not unique geographical assets like mineral resources, its absolute dominance in specific regional markets constitutes a strong regional barrier."
+  },
+  "m7_operational_efficiency": {
+    "score": 8,
+    "comment_zh": "Ambev 在生產、分銷和供應鏈管理方面展現出高度的營運效率。透過持續的技術投資和流程優化，公司能夠有效控制成本，提高產能利用率，並確保產品的及時交付。其高效的物流網絡覆蓋廣泛，能夠將產品快速送達各個銷售點。這種卓越的營運能力，加上其規模優勢，使其在行業內保持領先地位，並能更好地應對市場波動和競爭壓力。",
+    "comment_en": "Ambev demonstrates high operational efficiency in production, distribution, and supply chain management. Through continuous technological investment and process optimization, the company effectively controls costs, improves production capacity utilization, and ensures timely product delivery. Its efficient logistics network is extensive, capable of rapidly delivering products to various points of sale. This superior operational capability, combined with its scale advantage, keeps it at the forefront of the industry and better equipped to handle market fluctuations and competitive pressures."
+  },
+  "m8_capital_allocation": {
+    "score": 7,
+    "comment_zh": "Ambev 的母公司百威英博（AB InBev）在資本配置方面擁有豐富的經驗，儘管 Ambev 作為上市公司，其資本配置決策需考量股東利益。歷史數據顯示，公司在維持穩健的盈利能力和現金流的同時，也進行了有效的再投資以支持增長，並透過股息和股票回購回饋股東。其對併購的審慎態度和對核心業務的專注，顯示出相對理性的資本配置策略。然而，過去的併購整合也帶來挑戰，故給予 7 分。",
+    "comment_en": "Ambev's parent company, AB InBev, has extensive experience in capital allocation, although as a listed company, Ambev's capital allocation decisions must consider shareholder interests. Historical data indicates that while maintaining robust profitability and cash flow, the company has effectively reinvested to support growth and returned value to shareholders through dividends and share buybacks. Its prudent approach to mergers and acquisitions and focus on core businesses demonstrate a relatively rational capital allocation strategy. However, past M&A integrations have also presented challenges, hence the score of 7."
+  },
+  "m9_customer_retention": {
+    "score": 7,
+    "comment_zh": "Ambev 的客戶保留率主要體現在其強大品牌所建立的消費者忠誠度上。透過持續的品牌推廣、贊助活動以及對產品品質的堅持，公司成功培養了一批忠實的消費者群體，他們傾向於重複購買熟悉的品牌。此外，其廣泛的產品線能夠滿足不同消費者的需求，進一步鞏固了客戶關係。雖然啤酒行業的忠誠度不如某些必需消費品，但 Ambev 的品牌實力使其在客戶保留方面表現出色。",
+    "comment_en": "Ambev's customer retention is primarily reflected in the consumer loyalty built by its strong brands. Through continuous brand promotion, sponsorship activities, and adherence to product quality, the company has successfully cultivated a loyal consumer base that tends to repurchase familiar brands. Furthermore, its extensive product line caters to diverse consumer needs, further solidifying customer relationships. While loyalty in the beer industry may not be as strong as in some essential consumer goods, Ambev's brand strength allows it to perform exceptionally well in customer retention."
+  },
+  "m10_durability": {
+    "score": 8,
+    "comment_zh": "Ambev 的業務模式具有相當的持久性。啤酒作為一種傳統且廣受歡迎的飲品，其長期需求相對穩定。公司在拉丁美洲市場的領導地位，以及其強大的品牌組合和規模經濟，為其抵禦短期市場波動和新興競爭者提供了堅實的基礎。儘管面臨健康意識提升和飲料市場多元化的挑戰，但其核心業務的韌性以及持續的品牌投資，使其能夠在可預見的未來保持其市場地位和盈利能力。",
+    "comment_en": "Ambev's business model possesses considerable durability. Beer, as a traditional and widely popular beverage, has relatively stable long-term demand. The company's leadership position in Latin American markets, coupled with its strong brand portfolio and economies of scale, provides a solid foundation to withstand short-term market fluctuations and emerging competitors. Despite challenges from rising health consciousness and diversification in the beverage market, the resilience of its core business and continuous brand investment enable it to maintain its market position and profitability for the foreseeable future."
+  },
+  "overall_moat_verdict_zh": "Ambev 的護城河主要建立在其龐大的規模經濟（M5）和在拉丁美洲市場的領導地位（M6）之上，這兩者共同構成了其核心競爭力。強勢的區域品牌（M1）和穩定的客戶群（M9）進一步鞏固了其市場地位，使其能夠在一定程度上抵禦競爭。然而，其業務模式缺乏專利或顯著的網絡效應（M2, M4），且消費者轉換成本不高（M3），這限制了其護城河的絕對強度。儘管如此，憑藉卓越的營運效率（M7）和相對穩健的資本配置（M8），Ambev 在其所處的行業中仍可被視為一個具有相當持久性（M10）的「收費橋」型企業，能夠持續產生穩定的現金流。",
+  "overall_moat_verdict_en": "Ambev's moat is primarily built upon its substantial economies of scale (M5) and its leadership position in Latin American markets (M6), which together form its core competitive strength. Strong regional brands (M1) and a stable customer base (M9) further solidify its market standing, allowing it to withstand competition to a certain extent. However, its business model lacks patents or significant network effects (M2, M4), and consumer switching costs are not high (M3), limiting the absolute strength of its moat. Nevertheless, with excellent operational efficiency (M7) and relatively sound capital allocation (M8), Ambev can still be considered a 'toll bridge' type enterprise with considerable durability (M10) in its industry, capable of consistently generating stable cash flows.",
+  "evidenceHash": "697ce2eccab2b0773c77c58ea98122397da882885159c58f31f2b69b7a9e5fbd",
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
+}
