@@ -87,6 +87,12 @@
       unavailable: [...provided].filter(key => key !== symbol(targetTicker) && !available.has(key))
     };
   }
+  // True when the provider pack has no income/balance/cashflow rows at all (HK expansion gap).
+  function statementsPackEmpty(data) {
+    return ['annual', 'quarterly'].every(period => ['income', 'balance', 'cashflow']
+      .every(type => Array.isArray(data?.[period]?.[type]) && data[period][type].length === 0));
+  }
+
   function annualView(stock, data) {
     if (!Array.isArray(data?.annual?.income) || !Array.isArray(data?.annual?.balance)
         || !Array.isArray(data?.annual?.cashflow)) throw new TypeError('Missing annual peer statements');
@@ -115,9 +121,15 @@
       cashflow: ['operatingCashFlow', 'netCashProvidedByOperatingActivities', 'capitalExpenditure',
         'freeCashFlow', 'dividendsPaid', 'commonDividendsPaid', 'commonStockDividendsPaid', 'netDividendsPaid']
     };
+    const packEmpty = statementsPackEmpty(data);
+    const warnedUnavailable = (Array.isArray(data.qualityWarnings) ? data.qualityWarnings : [])
+      .concat(Array.isArray(stock?.qualityWarnings) ? stock.qualityWarnings : [])
+      .some(row => row?.code === 'providerStatementUnavailable');
     const reference = { basis: 'latestFullFiscalYear', currency: data.calculationCurrency, date,
       label: latest ? `FY ${latest.fiscalYear || latest.calendarYear || date.slice(0, 4)}` : 'N/A',
-      reason: latest ? null : 'missingFullFiscalYear' };
+      reason: latest ? null : 'missingFullFiscalYear',
+      // Empty provider packs must not look like a FY-date / duration bug on the peers table.
+      providerStatementsUnavailable: packEmpty || (!latest && warnedUnavailable && !years.length) };
     for (const [type, names] of Object.entries(fields)) {
       const row = matching(type);
       reference[type] = Object.fromEntries(names.map(field => [field,
@@ -178,5 +190,5 @@
       net_debt_to_ebitda: divide(balance.netDebt, income.ebitda, true)
     };
   }
-  return { select, annualView };
+  return { select, annualView, statementsPackEmpty };
 });
