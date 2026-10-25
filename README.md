@@ -810,8 +810,10 @@ ordinary classes, including Haier's A/D/H shares, domestic/unlisted classes and
 Hong Kong/RMB classes; it does not assume every issuer is A/H. Each class's
 treasury shares are explicitly excluded. The dated returns are references,
 not certification that shares remained unchanged after September month-end.
-Provider discrepancies are reviewed only for the exact captured count/date;
-changed or later mismatches remain blocked.
+Provider discrepancies are reviewed against the mismatched provider *count*
+while the dated official capital return remains current. FMP republishing the
+same reviewed count under a newer as-of date does not blank issuer-wide shares;
+a material change in the provider count still requires a fresh review.
 
 Trailing P/E prefers supported reported diluted TTM EPS. When semiannual EPS
 cannot legitimately be added, it uses compatible actual TTM earnings

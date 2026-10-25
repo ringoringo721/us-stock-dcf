@@ -73,11 +73,24 @@ function valuationShares(item, evidence, capital = shareCapital[item.ticker]) {
   }
   const knownCounts = [outstanding, ...classes.map(row => row.issuedShares - row.treasuryShares)];
   const review = capital.providerReview;
+  // A dated provider-discrepancy review stays valid when the mismatched provider *count*
+  // is unchanged, even if FMP republishes the same count under a newer as-of date.
+  // Hard calendar expiry (reviewedThrough) and exact providerDate equality previously
+  // blanked issuer-wide shares on every daily refresh after the review day — cascading
+  // fair value / WACC / EV / inputs to N/A despite intact monthly-return capital.
+  // Material provider-count drift still requires a fresh review.
+  const providerCountMatchesReview = (providerShares, reviewOutstanding) => {
+    if (!finite(providerShares) || !Number.isSafeInteger(reviewOutstanding) || reviewOutstanding <= 0) return false;
+    // Compare on the millionths float FMP publishes AND the integer share count.
+    // Either exact form may round-trip cleanly; a +1 share change must still fail.
+    return providerShares === reviewOutstanding / 1e6
+      || Math.round(providerShares * 1e6) === reviewOutstanding;
+  };
   const reviewedMismatch = review?.basis === 'officialOrdinaryShareReturnOverridesReviewedProviderMismatch'
-    && day(review.providerDate) && review.providerDate === provider.date
-    && day(review.reviewedThrough) && review.reviewedThrough >= asOf
+    && day(review.providerDate)
+    && (!day(review.capitalDate) || review.capitalDate === capital.date)
     && Number.isSafeInteger(review.outstandingShares) && review.outstandingShares > 0
-    && review.outstandingShares / 1e6 === provider.shares
+    && providerCountMatchesReview(provider.shares, review.outstandingShares)
     && typeof review.note === 'string' && review.note.trim().length > 0;
   if (provider.date > capital.date && provider.shares !== null
       && !knownCounts.some(count => count / 1e6 === provider.shares) && !reviewedMismatch) {

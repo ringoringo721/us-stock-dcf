@@ -10,7 +10,7 @@ const assets = [
   'industry_taxonomy.js', 'financial_models.js', 'statements_model_pack.js',
   'ke_treasury_data.js',
   'balance_sheet.js', 'earnings_trend.js', 'profile_overview.js', 'technical_indicators.js', 'price_history.js', 'stock_search.js', 'company_data.js',
-  'fmp_model_data.js', 'fmp_scenario.js', 'fmp_models.js', 'fmp_cache.js', 'beta_lookback.js',
+  'fmp_model_data.js', 'fmp_scenario.js', 'fmp_models.js', 'custom_target_price.js', 'fmp_cache.js', 'beta_lookback.js',
   'hkex_universe.js', 'hkex_universe_data.js', 'hkex_expansion_data.js', 'cache/hkex_universe.json',
   'us_universe.js', 'us_universe_data.js', 'us_expansion_data.js', 'cache/us_universe.json',
   'full_market_dcf.json', 'hk_market_dcf.json',

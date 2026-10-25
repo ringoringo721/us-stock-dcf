@@ -42,6 +42,7 @@
   <script src="company_data.js"></script>
   <script src="fmp_model_data.js"></script>
   <!-- tip-marker:ten-year-table-row-display -->
+  <script src="custom_target_price.js?v=override-1"></script>
   <script src="fmp_models.js?v=ten-year-table-row-1"></script>
   <script src="fcf_ratios.js?v=sign-trends-1"></script>
   <script src="financial_models.js?v=fin-ke-history-2"></script>
@@ -1367,7 +1368,12 @@
         <span id="det-badge" class="badge">--</span>
         <span id="det-saved-badge" class="badge badge-target" style="display: none;">已儲存目標價</span>
       </div>
-      <div style="display: flex; gap: 8px;">
+      <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+        <label class="custom-target-wrap" style="display:flex;align-items:center;gap:6px;font-size:13px;color:var(--text-secondary);">
+          <span data-i18n="lbl_custom_target">自訂目標價</span>
+          <input type="number" id="inp-custom-target" min="0.01" step="0.01" inputmode="decimal"
+            style="width:7.5rem;" oninput="onCustomTargetInput()" aria-label="Custom target price">
+        </label>
         <button class="btn-save" onclick="saveCustomModel()" data-i18n="btn_save_target">💾 儲存自訂目標價</button>
         <button class="btn-reset" onclick="resetToFmpDefaults()" data-i18n="btn_reset_defaults">恢復官方預設</button>
         <button class="btn-back" onclick="navigateBack()" data-i18n="btn_back_list">← 返回總表</button>
@@ -2629,6 +2635,9 @@
       th_curr_ratio: "流動比率",
       th_fscore: "PF score 評分",
       btn_save_target: "💾 儲存自訂目標價",
+      lbl_custom_target: "自訂目標價",
+      custom_target_override_status: "模型公允價值暫不可用；顯示已存／手填自訂目標價（覆寫）。",
+      custom_target_required: "模型公允價值為 N/A：請先輸入正數自訂目標價再儲存。",
       btn_reset_defaults: "恢復來源與模型預設",
       btn_back_list: "← 返回總表",
       btn_goto_dcf: "📈 前往估值模型",
@@ -3088,6 +3097,9 @@
       th_curr_ratio: "Current Ratio",
       th_fscore: "PF score",
       btn_save_target: "💾 Save Custom Target",
+      lbl_custom_target: "Custom target",
+      custom_target_override_status: "Model fair value unavailable; showing saved/typed custom target (override).",
+      custom_target_required: "Model fair value is N/A: enter a positive custom target before saving.",
       btn_reset_defaults: "Reset Source / Model Defaults",
       btn_back_list: "← Back to List",
       btn_goto_dcf: "📈 DCF Valuation Model",
@@ -7014,9 +7026,14 @@
     const saved = getSavedModels()[ticker];
     const workingParams = saved ? { ...s, ...saved.params } : { ...s };
 
-    if (saved) {
+    const customTargetInput = document.getElementById('inp-custom-target');
+    if (customTargetInput) {
+      const savedTarget = CustomTargetPrice.fromSaved(saved);
+      customTargetInput.value = savedTarget != null ? savedTarget.toFixed(2) : '';
+    }
+    if (saved && CustomTargetPrice.fromSaved(saved) != null) {
       document.getElementById('det-saved-badge').style.display = 'inline-block';
-      document.getElementById('det-saved-badge').innerText = `${currentLang === 'zh' ? '已存目標價' : 'Saved target'}: ${moneyPrefix()}${Number(saved.targetPrice).toFixed(2)}`;
+      document.getElementById('det-saved-badge').innerText = `${currentLang === 'zh' ? '已存自訂目標價' : 'Saved custom target'}: ${moneyPrefix()}${Number(saved.targetPrice).toFixed(2)}`;
     } else {
       document.getElementById('det-saved-badge').style.display = 'none';
     }
@@ -7229,10 +7246,21 @@
     const dcf = computeDCF(tempS, activeDetailTicker);
     if (!dcf) return;
 
-    document.getElementById('det-res-fair').className = `stat-num ${dcf.fairVal === null
-      ? 'text-muted' : dcf.fairVal < 0 ? 'text-red' : 'text-green'}`;
-    document.getElementById('det-res-fair').innerText = dcf.fairVal === null ? 'N/A' : `${moneyPrefix()}${dcf.fairVal.toFixed(2)}`;
-    document.querySelector('[onclick="saveCustomModel()"]').disabled = dcf.fairVal === null;
+    const saved = getSavedModels()[activeDetailTicker];
+    const customInput = document.getElementById('inp-custom-target');
+    if (customInput && dcf.fairVal != null && CustomTargetPrice.finitePositive(dcf.fairVal) != null
+        && !customInput.dataset.userEdited) {
+      customInput.value = Number(dcf.fairVal).toFixed(2);
+    }
+    const display = CustomTargetPrice.resolve(dcf.fairVal, {
+      input: customInput?.value, saved
+    });
+    document.getElementById('det-res-fair').className = `stat-num ${display.value == null
+      ? 'text-muted' : display.value < 0 ? 'text-red' : 'text-green'}`;
+    document.getElementById('det-res-fair').innerText = display.value == null
+      ? 'N/A' : `${moneyPrefix()}${display.value.toFixed(2)}`;
+    document.querySelector('[onclick="saveCustomModel()"]').disabled =
+      !CustomTargetPrice.canSave(dcf.fairVal, { input: customInput?.value, saved });
     document.getElementById('det-res-price').innerText = `${moneyPrefix()}${Number(tempS.price).toFixed(2)}`;
     if (s.currencyConversion?.reason) {
       for (const id of ['det-res-fair', 'det-res-wacc', 'det-res-g', 'det-res-spread',
@@ -7269,12 +7297,25 @@
 
     const badgeEl = document.getElementById('det-badge');
     const premEl = document.getElementById('det-res-premium');
-    if (dcf.fairVal === null) {
+    const displayTarget = CustomTargetPrice.resolve(dcf.fairVal, {
+      input: document.getElementById('inp-custom-target')?.value,
+      saved: getSavedModels()[activeDetailTicker]
+    }).value;
+    const premiumPct = displayTarget != null && Number.isFinite(tempS.price) && displayTarget > 0
+      ? (tempS.price / displayTarget - 1) * 100 : null;
+    if (dcf.fairVal === null && displayTarget == null) {
       badgeEl.className = 'badge';
       badgeEl.innerText = 'N/A';
       premEl.innerText = 'N/A';
       document.getElementById('det-res-status').innerText = dcf.reason
         ? FcffView.reasonText(dcf.reason, currentLang) : I18N_DICT[currentLang].fin_unavailable;
+    } else if (dcf.fairVal === null && displayTarget != null) {
+      badgeEl.className = Number.isFinite(premiumPct)
+        ? `badge badge-${premiumPct < 0 ? 'undervalued' : 'overvalued'}` : 'badge';
+      badgeEl.innerText = Number.isFinite(premiumPct)
+        ? `${premiumPct >= 0 ? '+' : ''}${premiumPct.toFixed(1)}%` : 'N/A';
+      premEl.innerText = badgeEl.innerText;
+      document.getElementById('det-res-status').innerText = I18N_DICT[currentLang].custom_target_override_status;
     } else if (dcf.isUndervalued) {
       badgeEl.className = "badge badge-undervalued";
       badgeEl.innerText = `${currentLang === 'zh' ? '低估' : 'Undervalued'} ${dcf.premiumPct.toFixed(1)}%`;
@@ -7591,6 +7632,15 @@
   // ========================================================
   // 8. 儲存模型與還原官方預設
   // ========================================================
+  function onCustomTargetInput() {
+    const input = document.getElementById('inp-custom-target');
+    if (input) input.dataset.userEdited = input.value.trim() ? '1' : '';
+    const s = stockUniverse[activeDetailTicker];
+    if (!s) return;
+    if (s.fin_valuation?.is_financial) recalculateDetail();
+    else if (typeof FmpModels?.rerender === 'function') FmpModels.rerender();
+  }
+
   function saveCustomModel() {
     const s = stockUniverse[activeDetailTicker];
     if (!s) return;
@@ -7619,40 +7669,49 @@
     };
 
     const dcf = computeDCF(tempS, activeDetailTicker);
-    if (dcf.fairVal === null) {
-      alert(I18N_DICT[currentLang].fin_unavailable);
+    const customInput = document.getElementById('inp-custom-target');
+    const previous = getSavedModels()[activeDetailTicker];
+    const targetPrice = CustomTargetPrice.resolve(dcf.fairVal, {
+      input: customInput?.value, saved: previous
+    }).value;
+    if (targetPrice == null) {
+      alert(I18N_DICT[currentLang].custom_target_required || I18N_DICT[currentLang].fin_unavailable);
       return;
     }
     const models = getSavedModels();
-
-    models[activeDetailTicker] = {
-      targetPrice: dcf.fairVal,
-      currency: MarketContext.currency,
-      savedAt: new Date().toISOString(),
-      params: {
-        price: tempS.price,
-        shares: tempS.shares,
-        debt: tempS.debt,
-        cash: tempS.cash,
-        fcf0: tempS.fcf0,
-        beta: tempS.beta,
-        rf: tempS.rf,
-        rf_tenor: parseInt(document.getElementById('inp-rf-tenor').value) || 5,
-        erp: tempS.erp,
-        kd: tempS.kd,
-        tax: tempS.tax,
-        g: tempS.g,
-        growth_10y: [...(tempS.growth_10y || [])],
-        fin_valuation: isFin ? { ...tempS.fin_valuation } : undefined
-      }
+    const params = {
+      price: tempS.price,
+      shares: tempS.shares,
+      debt: tempS.debt,
+      cash: tempS.cash,
+      fcf0: tempS.fcf0,
+      beta: tempS.beta,
+      rf: tempS.rf,
+      rf_tenor: parseInt(document.getElementById('inp-rf-tenor').value) || 5,
+      erp: tempS.erp,
+      kd: tempS.kd,
+      tax: tempS.tax,
+      g: tempS.g,
+      growth_10y: [...(tempS.growth_10y || [])],
+      fin_valuation: isFin ? { ...tempS.fin_valuation } : undefined
     };
+    models[activeDetailTicker] = dcf.fairVal != null
+      ? { targetPrice, currency: MarketContext.currency, savedAt: new Date().toISOString(), params }
+      : CustomTargetPrice.buildOverrideRecord({
+        ticker: activeDetailTicker, targetPrice, currency: MarketContext.currency,
+        reason: dcf.reason || 'MODEL_FAIR_VALUE_UNAVAILABLE', params
+      });
 
     storeSavedModels(models);
+    if (customInput) {
+      customInput.value = targetPrice.toFixed(2);
+      customInput.dataset.userEdited = '';
+    }
     document.getElementById('det-saved-badge').style.display = 'inline-block';
-    document.getElementById('det-saved-badge').innerText = `${currentLang === 'zh' ? '已存目標價' : 'Saved target'}: ${moneyPrefix()}${dcf.fairVal.toFixed(2)}`;
+    document.getElementById('det-saved-badge').innerText = `${currentLang === 'zh' ? '已存自訂目標價' : 'Saved custom target'}: ${moneyPrefix()}${targetPrice.toFixed(2)}`;
     alert(currentLang === 'en'
-      ? `Saved ${getStockDisplayName(s)} target price: ${moneyPrefix()}${dcf.fairVal.toFixed(2)}.`
-      : `✅ 已成功儲存 ${getStockDisplayName(s)} 的自訂目標價值：${moneyPrefix()}${dcf.fairVal.toFixed(2)}！`);
+      ? `Saved ${getStockDisplayName(s)} target price: ${moneyPrefix()}${targetPrice.toFixed(2)}.`
+      : `✅ 已成功儲存 ${getStockDisplayName(s)} 的自訂目標價值：${moneyPrefix()}${targetPrice.toFixed(2)}！`);
   }
 
   function resetToFmpDefaults() {
@@ -7669,6 +7728,8 @@
       }
     }
     if (!stockUniverse[activeDetailTicker]?.fin_valuation?.is_financial) FmpModels.reset();
+    const customInput = document.getElementById('inp-custom-target');
+    if (customInput) { customInput.value = ''; customInput.dataset.userEdited = ''; }
     loadDetailTicker(activeDetailTicker);
     document.getElementById('det-saved-badge').style.display = 'none';
   }

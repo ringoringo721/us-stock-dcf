@@ -24,7 +24,15 @@
         "issuedShares": 240417319880,
         "treasuryShares": 0
       }
-    ]
+    ],
+    "providerReview": {
+      "providerDate": "2026-10-25",
+      "outstandingShares": 240417319880,
+      "capitalDate": "2026-09-30",
+      "reviewedThrough": "2026-10-25",
+      "basis": "officialOrdinaryShareReturnOverridesReviewedProviderMismatch",
+      "note": "The captured provider outstanding-share count does not reconcile to the dated official monthly return total or any disclosed ordinary class. Use the explicitly dated September return (all ordinary classes, excluding treasury). Same mismatched provider *count* remains accepted when FMP republishes under a newer as-of date while this capital.date is current; a material change in the provider count still requires a fresh review. This is not a claim that no share movements occurred after month-end."
+    }
   },
   "1398.HK": {
     "ticker": "1398.HK",
@@ -55,11 +63,12 @@
       }
     ],
     "providerReview": {
-      "providerDate": "2026-10-18",
+      "providerDate": "2026-10-25",
       "outstandingShares": 467855860366,
-      "reviewedThrough": "2026-10-18",
+      "capitalDate": "2026-09-30",
+      "reviewedThrough": "2026-10-25",
       "basis": "officialOrdinaryShareReturnOverridesReviewedProviderMismatch",
-      "note": "The captured FMP count does not match total ordinary A/H shares or either class in the official return. Use the documented ordinary share count, not nominal share capital including RMB100 preference shares. This review does not authorize a different or later provider snapshot."
+      "note": "The captured provider outstanding-share count does not reconcile to the dated official monthly return total or any disclosed ordinary class. Use the explicitly dated September return (all ordinary classes, excluding treasury). Same mismatched provider *count* remains accepted when FMP republishes under a newer as-of date while this capital.date is current; a material change in the provider count still requires a fresh review. This is not a claim that no share movements occurred after month-end."
     }
   },
   "3988.HK": {
@@ -91,11 +100,12 @@
       }
     ],
     "providerReview": {
-      "providerDate": "2026-10-18",
+      "providerDate": "2026-10-25",
       "outstandingShares": 424532127511,
-      "reviewedThrough": "2026-10-18",
+      "capitalDate": "2026-09-30",
+      "reviewedThrough": "2026-10-25",
       "basis": "officialOrdinaryShareReturnOverridesReviewedProviderMismatch",
-      "note": "The captured FMP count does not match total ordinary A/H shares or either class in the official return. Use the documented ordinary share count, not nominal share capital including RMB100 preference shares. This review does not authorize a different or later provider snapshot."
+      "note": "The captured provider outstanding-share count does not reconcile to the dated official monthly return total or any disclosed ordinary class. Use the explicitly dated September return (all ordinary classes, excluding treasury). Same mismatched provider *count* remains accepted when FMP republishes under a newer as-of date while this capital.date is current; a material change in the provider count still requires a fresh review. This is not a claim that no share movements occurred after month-end."
     }
   },
   "0300.HK": {
@@ -129,11 +139,12 @@
       }
     ],
     "providerReview": {
-      "providerDate": "2026-10-18",
-      "outstandingShares": 7630138491,
-      "reviewedThrough": "2026-10-18",
+      "providerDate": "2026-10-24",
+      "outstandingShares": 7630236727,
+      "capitalDate": "2026-09-30",
+      "reviewedThrough": "2026-10-24",
       "basis": "officialOrdinaryShareReturnOverridesReviewedProviderMismatch",
-      "note": "The exact captured provider count does not reconcile to the dated official return total or any disclosed ordinary class. Use the explicitly dated September return reference, excluding disclosed treasury shares. This is not a claim that no share movements occurred after month-end, and does not authorize other or later provider snapshots."
+      "note": "The captured provider outstanding-share count does not reconcile to the dated official monthly return total or any disclosed ordinary class. Use the explicitly dated September return (all ordinary classes, excluding treasury). Same mismatched provider *count* remains accepted when FMP republishes under a newer as-of date while this capital.date is current; a material change in the provider count still requires a fresh review. This is not a claim that no share movements occurred after month-end."
     }
   },
   "0386.HK": {
@@ -166,11 +177,12 @@
       }
     ],
     "providerReview": {
-      "providerDate": "2026-10-18",
+      "providerDate": "2026-10-24",
       "outstandingShares": 167061080028,
-      "reviewedThrough": "2026-10-18",
+      "capitalDate": "2026-09-30",
+      "reviewedThrough": "2026-10-24",
       "basis": "officialOrdinaryShareReturnOverridesReviewedProviderMismatch",
-      "note": "The exact captured provider count does not reconcile to the dated official return total or any disclosed ordinary class. Use the explicitly dated September return reference, excluding disclosed treasury shares. This is not a claim that no share movements occurred after month-end, and does not authorize other or later provider snapshots."
+      "note": "The captured provider outstanding-share count does not reconcile to the dated official monthly return total or any disclosed ordinary class. Use the explicitly dated September return (all ordinary classes, excluding treasury). Same mismatched provider *count* remains accepted when FMP republishes under a newer as-of date while this capital.date is current; a material change in the provider count still requires a fresh review. This is not a claim that no share movements occurred after month-end."
     }
   },
   "0728.HK": {
@@ -203,11 +215,12 @@
       }
     ],
     "providerReview": {
-      "providerDate": "2026-10-18",
+      "providerDate": "2026-10-25",
       "outstandingShares": 114603547052,
-      "reviewedThrough": "2026-10-18",
+      "capitalDate": "2026-09-30",
+      "reviewedThrough": "2026-10-25",
       "basis": "officialOrdinaryShareReturnOverridesReviewedProviderMismatch",
-      "note": "The exact captured provider count does not reconcile to the dated official return total or any disclosed ordinary class. Use the explicitly dated September return reference, excluding disclosed treasury shares. This is not a claim that no share movements occurred after month-end, and does not authorize other or later provider snapshots."
+      "note": "The captured provider outstanding-share count does not reconcile to the dated official monthly return total or any disclosed ordinary class. Use the explicitly dated September return (all ordinary classes, excluding treasury). Same mismatched provider *count* remains accepted when FMP republishes under a newer as-of date while this capital.date is current; a material change in the provider count still requires a fresh review. This is not a claim that no share movements occurred after month-end."
     }
   },
   "0857.HK": {
@@ -240,11 +253,12 @@
       }
     ],
     "providerReview": {
-      "providerDate": "2026-10-18",
+      "providerDate": "2026-10-24",
       "outstandingShares": 244806140442,
-      "reviewedThrough": "2026-10-18",
+      "capitalDate": "2026-09-30",
+      "reviewedThrough": "2026-10-24",
       "basis": "officialOrdinaryShareReturnOverridesReviewedProviderMismatch",
-      "note": "The exact captured provider count does not reconcile to the dated official return total or any disclosed ordinary class. Use the explicitly dated September return reference, excluding disclosed treasury shares. This is not a claim that no share movements occurred after month-end, and does not authorize other or later provider snapshots."
+      "note": "The captured provider outstanding-share count does not reconcile to the dated official monthly return total or any disclosed ordinary class. Use the explicitly dated September return (all ordinary classes, excluding treasury). Same mismatched provider *count* remains accepted when FMP republishes under a newer as-of date while this capital.date is current; a material change in the provider count still requires a fresh review. This is not a claim that no share movements occurred after month-end."
     }
   },
   "0883.HK": {
@@ -278,11 +292,12 @@
       }
     ],
     "providerReview": {
-      "providerDate": "2026-10-18",
-      "outstandingShares": 47529951177,
-      "reviewedThrough": "2026-10-18",
+      "providerDate": "2026-10-24",
+      "outstandingShares": 47529955653,
+      "capitalDate": "2026-09-30",
+      "reviewedThrough": "2026-10-24",
       "basis": "officialOrdinaryShareReturnOverridesReviewedProviderMismatch",
-      "note": "The exact captured provider count does not reconcile to the dated official return total or any disclosed ordinary class. Use the explicitly dated September return reference, excluding disclosed treasury shares. This is not a claim that no share movements occurred after month-end, and does not authorize other or later provider snapshots."
+      "note": "The captured provider outstanding-share count does not reconcile to the dated official monthly return total or any disclosed ordinary class. Use the explicitly dated September return (all ordinary classes, excluding treasury). Same mismatched provider *count* remains accepted when FMP republishes under a newer as-of date while this capital.date is current; a material change in the provider count still requires a fresh review. This is not a claim that no share movements occurred after month-end."
     }
   },
   "0941.HK": {
@@ -315,11 +330,12 @@
       }
     ],
     "providerReview": {
-      "providerDate": "2026-10-18",
+      "providerDate": "2026-10-24",
       "outstandingShares": 20780928456,
-      "reviewedThrough": "2026-10-18",
+      "capitalDate": "2026-09-30",
+      "reviewedThrough": "2026-10-24",
       "basis": "officialOrdinaryShareReturnOverridesReviewedProviderMismatch",
-      "note": "The exact captured provider count does not reconcile to the dated official return total or any disclosed ordinary class. Use the explicitly dated September return reference, excluding disclosed treasury shares. This is not a claim that no share movements occurred after month-end, and does not authorize other or later provider snapshots."
+      "note": "The captured provider outstanding-share count does not reconcile to the dated official monthly return total or any disclosed ordinary class. Use the explicitly dated September return (all ordinary classes, excluding treasury). Same mismatched provider *count* remains accepted when FMP republishes under a newer as-of date while this capital.date is current; a material change in the provider count still requires a fresh review. This is not a claim that no share movements occurred after month-end."
     }
   },
   "0981.HK": {
@@ -352,11 +368,12 @@
       }
     ],
     "providerReview": {
-      "providerDate": "2026-10-18",
+      "providerDate": "2026-10-25",
       "outstandingShares": 10118172665,
-      "reviewedThrough": "2026-10-18",
+      "capitalDate": "2026-09-30",
+      "reviewedThrough": "2026-10-25",
       "basis": "officialOrdinaryShareReturnOverridesReviewedProviderMismatch",
-      "note": "The exact captured provider count does not reconcile to the dated official return total or any disclosed ordinary class. Use the explicitly dated September return reference, excluding disclosed treasury shares. This is not a claim that no share movements occurred after month-end, and does not authorize other or later provider snapshots."
+      "note": "The captured provider outstanding-share count does not reconcile to the dated official monthly return total or any disclosed ordinary class. Use the explicitly dated September return (all ordinary classes, excluding treasury). Same mismatched provider *count* remains accepted when FMP republishes under a newer as-of date while this capital.date is current; a material change in the provider count still requires a fresh review. This is not a claim that no share movements occurred after month-end."
     }
   },
   "1088.HK": {
@@ -389,11 +406,12 @@
       }
     ],
     "providerReview": {
-      "providerDate": "2026-10-18",
+      "providerDate": "2026-10-25",
       "outstandingShares": 19929104975,
-      "reviewedThrough": "2026-10-18",
+      "capitalDate": "2026-09-30",
+      "reviewedThrough": "2026-10-25",
       "basis": "officialOrdinaryShareReturnOverridesReviewedProviderMismatch",
-      "note": "The exact captured provider count does not reconcile to the dated official return total or any disclosed ordinary class. Use the explicitly dated September return reference, excluding disclosed treasury shares. This is not a claim that no share movements occurred after month-end, and does not authorize other or later provider snapshots."
+      "note": "The captured provider outstanding-share count does not reconcile to the dated official monthly return total or any disclosed ordinary class. Use the explicitly dated September return (all ordinary classes, excluding treasury). Same mismatched provider *count* remains accepted when FMP republishes under a newer as-of date while this capital.date is current; a material change in the provider count still requires a fresh review. This is not a claim that no share movements occurred after month-end."
     }
   },
   "1099.HK": {
@@ -426,11 +444,12 @@
       }
     ],
     "providerReview": {
-      "providerDate": "2026-10-18",
+      "providerDate": "2026-10-24",
       "outstandingShares": 3120656154,
-      "reviewedThrough": "2026-10-18",
+      "capitalDate": "2026-09-30",
+      "reviewedThrough": "2026-10-24",
       "basis": "officialOrdinaryShareReturnOverridesReviewedProviderMismatch",
-      "note": "The exact captured provider count does not reconcile to the dated official return total or any disclosed ordinary class. Use the explicitly dated September return reference, excluding disclosed treasury shares. This is not a claim that no share movements occurred after month-end, and does not authorize other or later provider snapshots."
+      "note": "The captured provider outstanding-share count does not reconcile to the dated official monthly return total or any disclosed ordinary class. Use the explicitly dated September return (all ordinary classes, excluding treasury). Same mismatched provider *count* remains accepted when FMP republishes under a newer as-of date while this capital.date is current; a material change in the provider count still requires a fresh review. This is not a claim that no share movements occurred after month-end."
     }
   },
   "1211.HK": {
@@ -463,11 +482,12 @@
       }
     ],
     "providerReview": {
-      "providerDate": "2026-10-18",
-      "outstandingShares": 9117197704,
-      "reviewedThrough": "2026-10-18",
+      "providerDate": "2026-10-25",
+      "outstandingShares": 9117197157,
+      "capitalDate": "2026-09-30",
+      "reviewedThrough": "2026-10-25",
       "basis": "officialOrdinaryShareReturnOverridesReviewedProviderMismatch",
-      "note": "The exact captured provider count does not reconcile to the dated official return total or any disclosed ordinary class. Use the explicitly dated September return reference, excluding disclosed treasury shares. This is not a claim that no share movements occurred after month-end, and does not authorize other or later provider snapshots."
+      "note": "The captured provider outstanding-share count does not reconcile to the dated official monthly return total or any disclosed ordinary class. Use the explicitly dated September return (all ordinary classes, excluding treasury). Same mismatched provider *count* remains accepted when FMP republishes under a newer as-of date while this capital.date is current; a material change in the provider count still requires a fresh review. This is not a claim that no share movements occurred after month-end."
     }
   },
   "1347.HK": {
@@ -498,7 +518,15 @@
         "treasuryShares": 0,
         "reportedType": "A"
       }
-    ]
+    ],
+    "providerReview": {
+      "providerDate": "2026-10-25",
+      "outstandingShares": 1928494794,
+      "capitalDate": "2026-09-30",
+      "reviewedThrough": "2026-10-25",
+      "basis": "officialOrdinaryShareReturnOverridesReviewedProviderMismatch",
+      "note": "The captured provider outstanding-share count does not reconcile to the dated official monthly return total or any disclosed ordinary class. Use the explicitly dated September return (all ordinary classes, excluding treasury). Same mismatched provider *count* remains accepted when FMP republishes under a newer as-of date while this capital.date is current; a material change in the provider count still requires a fresh review. This is not a claim that no share movements occurred after month-end."
+    }
   },
   "2318.HK": {
     "ticker": "2318.HK",
@@ -530,11 +558,12 @@
       }
     ],
     "providerReview": {
-      "providerDate": "2026-10-18",
-      "outstandingShares": 18107641319,
-      "reviewedThrough": "2026-10-18",
+      "providerDate": "2026-10-24",
+      "outstandingShares": 18107642107,
+      "capitalDate": "2026-09-30",
+      "reviewedThrough": "2026-10-24",
       "basis": "officialOrdinaryShareReturnOverridesReviewedProviderMismatch",
-      "note": "The exact captured provider count does not reconcile to the dated official return total or any disclosed ordinary class. Use the explicitly dated September return reference, excluding disclosed treasury shares. This is not a claim that no share movements occurred after month-end, and does not authorize other or later provider snapshots."
+      "note": "The captured provider outstanding-share count does not reconcile to the dated official monthly return total or any disclosed ordinary class. Use the explicitly dated September return (all ordinary classes, excluding treasury). Same mismatched provider *count* remains accepted when FMP republishes under a newer as-of date while this capital.date is current; a material change in the provider count still requires a fresh review. This is not a claim that no share movements occurred after month-end."
     }
   },
   "2338.HK": {
@@ -567,11 +596,12 @@
       }
     ],
     "providerReview": {
-      "providerDate": "2026-10-18",
-      "outstandingShares": 8640220349,
-      "reviewedThrough": "2026-10-18",
+      "providerDate": "2026-10-25",
+      "outstandingShares": 8640220284,
+      "capitalDate": "2026-09-30",
+      "reviewedThrough": "2026-10-25",
       "basis": "officialOrdinaryShareReturnOverridesReviewedProviderMismatch",
-      "note": "The exact captured provider count does not reconcile to the dated official return total or any disclosed ordinary class. Use the explicitly dated September return reference, excluding disclosed treasury shares. This is not a claim that no share movements occurred after month-end, and does not authorize other or later provider snapshots."
+      "note": "The captured provider outstanding-share count does not reconcile to the dated official monthly return total or any disclosed ordinary class. Use the explicitly dated September return (all ordinary classes, excluding treasury). Same mismatched provider *count* remains accepted when FMP republishes under a newer as-of date while this capital.date is current; a material change in the provider count still requires a fresh review. This is not a claim that no share movements occurred after month-end."
     }
   },
   "2359.HK": {
@@ -605,11 +635,12 @@
       }
     ],
     "providerReview": {
-      "providerDate": "2026-10-18",
-      "outstandingShares": 2794575549,
-      "reviewedThrough": "2026-10-18",
+      "providerDate": "2026-10-25",
+      "outstandingShares": 3034904157,
+      "capitalDate": "2026-09-30",
+      "reviewedThrough": "2026-10-25",
       "basis": "officialOrdinaryShareReturnOverridesReviewedProviderMismatch",
-      "note": "The exact captured provider count does not reconcile to the dated official return total or any disclosed ordinary class. Use the explicitly dated September return reference, excluding disclosed treasury shares. This is not a claim that no share movements occurred after month-end, and does not authorize other or later provider snapshots."
+      "note": "The captured provider outstanding-share count does not reconcile to the dated official monthly return total or any disclosed ordinary class. Use the explicitly dated September return (all ordinary classes, excluding treasury). Same mismatched provider *count* remains accepted when FMP republishes under a newer as-of date while this capital.date is current; a material change in the provider count still requires a fresh review. This is not a claim that no share movements occurred after month-end."
     }
   },
   "2600.HK": {
@@ -642,11 +673,12 @@
       }
     ],
     "providerReview": {
-      "providerDate": "2026-10-18",
+      "providerDate": "2026-10-24",
       "outstandingShares": 17154972073,
-      "reviewedThrough": "2026-10-18",
+      "capitalDate": "2026-09-30",
+      "reviewedThrough": "2026-10-24",
       "basis": "officialOrdinaryShareReturnOverridesReviewedProviderMismatch",
-      "note": "The exact captured provider count does not reconcile to the dated official return total or any disclosed ordinary class. Use the explicitly dated September return reference, excluding disclosed treasury shares. This is not a claim that no share movements occurred after month-end, and does not authorize other or later provider snapshots."
+      "note": "The captured provider outstanding-share count does not reconcile to the dated official monthly return total or any disclosed ordinary class. Use the explicitly dated September return (all ordinary classes, excluding treasury). Same mismatched provider *count* remains accepted when FMP republishes under a newer as-of date while this capital.date is current; a material change in the provider count still requires a fresh review. This is not a claim that no share movements occurred after month-end."
     }
   },
   "2628.HK": {
@@ -679,11 +711,12 @@
       }
     ],
     "providerReview": {
-      "providerDate": "2026-10-18",
+      "providerDate": "2026-10-25",
       "outstandingShares": 45842740347,
-      "reviewedThrough": "2026-10-18",
+      "capitalDate": "2026-09-30",
+      "reviewedThrough": "2026-10-25",
       "basis": "officialOrdinaryShareReturnOverridesReviewedProviderMismatch",
-      "note": "The exact captured provider count does not reconcile to the dated official return total or any disclosed ordinary class. Use the explicitly dated September return reference, excluding disclosed treasury shares. This is not a claim that no share movements occurred after month-end, and does not authorize other or later provider snapshots."
+      "note": "The captured provider outstanding-share count does not reconcile to the dated official monthly return total or any disclosed ordinary class. Use the explicitly dated September return (all ordinary classes, excluding treasury). Same mismatched provider *count* remains accepted when FMP republishes under a newer as-of date while this capital.date is current; a material change in the provider count still requires a fresh review. This is not a claim that no share movements occurred after month-end."
     }
   },
   "2899.HK": {
@@ -716,11 +749,12 @@
       }
     ],
     "providerReview": {
-      "providerDate": "2026-10-18",
-      "outstandingShares": 26590797280,
-      "reviewedThrough": "2026-10-18",
+      "providerDate": "2026-10-25",
+      "outstandingShares": 26590795983,
+      "capitalDate": "2026-09-30",
+      "reviewedThrough": "2026-10-25",
       "basis": "officialOrdinaryShareReturnOverridesReviewedProviderMismatch",
-      "note": "The exact captured provider count does not reconcile to the dated official return total or any disclosed ordinary class. Use the explicitly dated September return reference, excluding disclosed treasury shares. This is not a claim that no share movements occurred after month-end, and does not authorize other or later provider snapshots."
+      "note": "The captured provider outstanding-share count does not reconcile to the dated official monthly return total or any disclosed ordinary class. Use the explicitly dated September return (all ordinary classes, excluding treasury). Same mismatched provider *count* remains accepted when FMP republishes under a newer as-of date while this capital.date is current; a material change in the provider count still requires a fresh review. This is not a claim that no share movements occurred after month-end."
     }
   },
   "3750.HK": {
@@ -754,11 +788,12 @@
       }
     ],
     "providerReview": {
-      "providerDate": "2026-10-18",
-      "outstandingShares": 4546447780,
-      "reviewedThrough": "2026-10-18",
+      "providerDate": "2026-10-24",
+      "outstandingShares": 4250247448,
+      "capitalDate": "2026-09-30",
+      "reviewedThrough": "2026-10-24",
       "basis": "officialOrdinaryShareReturnOverridesReviewedProviderMismatch",
-      "note": "The exact captured provider count does not reconcile to the dated official return total or any disclosed ordinary class. Use the explicitly dated September return reference, excluding disclosed treasury shares. This is not a claim that no share movements occurred after month-end, and does not authorize other or later provider snapshots."
+      "note": "The captured provider outstanding-share count does not reconcile to the dated official monthly return total or any disclosed ordinary class. Use the explicitly dated September return (all ordinary classes, excluding treasury). Same mismatched provider *count* remains accepted when FMP republishes under a newer as-of date while this capital.date is current; a material change in the provider count still requires a fresh review. This is not a claim that no share movements occurred after month-end."
     }
   },
   "3968.HK": {
@@ -791,11 +826,12 @@
       }
     ],
     "providerReview": {
-      "providerDate": "2026-10-18",
-      "outstandingShares": 25219845355,
-      "reviewedThrough": "2026-10-18",
+      "providerDate": "2026-10-25",
+      "outstandingShares": 25219847573,
+      "capitalDate": "2026-09-30",
+      "reviewedThrough": "2026-10-25",
       "basis": "officialOrdinaryShareReturnOverridesReviewedProviderMismatch",
-      "note": "The exact captured provider count does not reconcile to the dated official return total or any disclosed ordinary class. Use the explicitly dated September return reference, excluding disclosed treasury shares. This is not a claim that no share movements occurred after month-end, and does not authorize other or later provider snapshots."
+      "note": "The captured provider outstanding-share count does not reconcile to the dated official monthly return total or any disclosed ordinary class. Use the explicitly dated September return (all ordinary classes, excluding treasury). Same mismatched provider *count* remains accepted when FMP republishes under a newer as-of date while this capital.date is current; a material change in the provider count still requires a fresh review. This is not a claim that no share movements occurred after month-end."
     }
   },
   "3993.HK": {
@@ -828,11 +864,12 @@
       }
     ],
     "providerReview": {
-      "providerDate": "2026-10-18",
+      "providerDate": "2026-10-25",
       "outstandingShares": 21394309974,
-      "reviewedThrough": "2026-10-18",
+      "capitalDate": "2026-09-30",
+      "reviewedThrough": "2026-10-25",
       "basis": "officialOrdinaryShareReturnOverridesReviewedProviderMismatch",
-      "note": "The exact captured provider count does not reconcile to the dated official return total or any disclosed ordinary class. Use the explicitly dated September return reference, excluding disclosed treasury shares. This is not a claim that no share movements occurred after month-end, and does not authorize other or later provider snapshots."
+      "note": "The captured provider outstanding-share count does not reconcile to the dated official monthly return total or any disclosed ordinary class. Use the explicitly dated September return (all ordinary classes, excluding treasury). Same mismatched provider *count* remains accepted when FMP republishes under a newer as-of date while this capital.date is current; a material change in the provider count still requires a fresh review. This is not a claim that no share movements occurred after month-end."
     }
   },
   "6181.HK": {
@@ -865,11 +902,12 @@
       }
     ],
     "providerReview": {
-      "providerDate": "2026-10-18",
-      "outstandingShares": 176744495,
-      "reviewedThrough": "2026-10-18",
+      "providerDate": "2026-10-24",
+      "outstandingShares": 176744501,
+      "capitalDate": "2026-09-30",
+      "reviewedThrough": "2026-10-24",
       "basis": "officialOrdinaryShareReturnOverridesReviewedProviderMismatch",
-      "note": "The exact captured provider count does not reconcile to the dated official return total or any disclosed ordinary class. Use the explicitly dated September return reference, excluding disclosed treasury shares. This is not a claim that no share movements occurred after month-end, and does not authorize other or later provider snapshots."
+      "note": "The captured provider outstanding-share count does not reconcile to the dated official monthly return total or any disclosed ordinary class. Use the explicitly dated September return (all ordinary classes, excluding treasury). Same mismatched provider *count* remains accepted when FMP republishes under a newer as-of date while this capital.date is current; a material change in the provider count still requires a fresh review. This is not a claim that no share movements occurred after month-end."
     }
   },
   "6690.HK": {
@@ -910,11 +948,12 @@
       }
     ],
     "providerReview": {
-      "providerDate": "2026-10-18",
-      "outstandingShares": 9303088451,
-      "reviewedThrough": "2026-10-18",
+      "providerDate": "2026-10-24",
+      "outstandingShares": 9298538932,
+      "capitalDate": "2026-09-30",
+      "reviewedThrough": "2026-10-24",
       "basis": "officialOrdinaryShareReturnOverridesReviewedProviderMismatch",
-      "note": "The exact captured provider count does not reconcile to the dated official return total or any disclosed ordinary class. Use the explicitly dated September return reference, excluding disclosed treasury shares. This is not a claim that no share movements occurred after month-end, and does not authorize other or later provider snapshots."
+      "note": "The captured provider outstanding-share count does not reconcile to the dated official monthly return total or any disclosed ordinary class. Use the explicitly dated September return (all ordinary classes, excluding treasury). Same mismatched provider *count* remains accepted when FMP republishes under a newer as-of date while this capital.date is current; a material change in the provider count still requires a fresh review. This is not a claim that no share movements occurred after month-end."
     }
   },
   "9633.HK": {
@@ -947,11 +986,12 @@
       }
     ],
     "providerReview": {
-      "providerDate": "2026-10-18",
-      "outstandingShares": 11246465938,
-      "reviewedThrough": "2026-10-18",
+      "providerDate": "2026-10-24",
+      "outstandingShares": 11246466121,
+      "capitalDate": "2026-09-30",
+      "reviewedThrough": "2026-10-24",
       "basis": "officialOrdinaryShareReturnOverridesReviewedProviderMismatch",
-      "note": "The exact captured provider count does not reconcile to the dated official return total or any disclosed ordinary class. Use the explicitly dated September return reference, excluding disclosed treasury shares. This is not a claim that no share movements occurred after month-end, and does not authorize other or later provider snapshots."
+      "note": "The captured provider outstanding-share count does not reconcile to the dated official monthly return total or any disclosed ordinary class. Use the explicitly dated September return (all ordinary classes, excluding treasury). Same mismatched provider *count* remains accepted when FMP republishes under a newer as-of date while this capital.date is current; a material change in the provider count still requires a fresh review. This is not a claim that no share movements occurred after month-end."
     }
   }
 }
