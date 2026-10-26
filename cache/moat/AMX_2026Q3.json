@@ -1,0 +1,60 @@
+{
+  "ticker": "AMX",
+  "period": "2026Q3",
+  "m1_brand_pricing": {
+    "score": 7,
+    "comment_zh": "América Móvil 在拉丁美洲電信市場擁有強大的品牌聲譽和定價能力。其龐大的客戶基礎和廣泛的網絡覆蓋，使得新進入者難以匹敵。儘管面臨競爭，但其品牌忠誠度和服務的必要性，賦予了公司一定的定價權，尤其是在基礎通訊服務領域。然而，電信行業的價格競爭激烈，且監管壓力可能限制其完全的定價自由，因此評分為 7 分。",
+    "comment_en": "América Móvil possesses a strong brand reputation and pricing power within the Latin American telecommunications market. Its vast customer base and extensive network coverage make it difficult for new entrants to compete. Despite facing competition, its brand loyalty and the essential nature of its services grant the company a degree of pricing power, particularly in basic communication services. However, the telecommunications industry is characterized by intense price competition, and regulatory pressures may limit its full pricing freedom, hence the score of 7."
+  },
+  "m2_patents_regulatory": {
+    "score": 6,
+    "comment_zh": "電信行業的進入壁壘主要來自於政府特許經營權和頻譜分配，而非技術專利。América Móvil 在其營運的各個國家都獲得了關鍵的營運許可和頻譜資源，這構成了重要的進入障礙。這些特許經營權的獲取和維持需要與政府進行複雜的協調，並遵守嚴格的監管要求。雖然這提供了穩定的營運基礎，但監管環境的變化和政府政策的調整可能帶來不確定性，因此評分為 6 分。",
+    "comment_en": "Barriers to entry in the telecommunications industry stem primarily from government concessions and spectrum allocation, rather than technological patents. América Móvil has secured crucial operating licenses and spectrum resources in the countries where it operates, forming a significant entry barrier. Acquiring and maintaining these concessions requires complex coordination with governments and adherence to strict regulatory requirements. While this provides a stable operating foundation, changes in the regulatory environment and government policy adjustments can introduce uncertainty, thus the score is 6."
+  },
+  "m3_high_switching_costs": {
+    "score": 7,
+    "comment_zh": "對於大多數消費者而言，更換電信服務供應商的轉換成本相對較高。這包括了學習新系統、更換號碼（儘管有攜碼服務）、重新設定設備以及潛在的服務中斷。對於企業客戶，轉換成本可能更高，涉及合同條款、整合新系統以及員工培訓。América Móvil 的廣泛客戶基礎表明，這些轉換成本在一定程度上起到了客戶留存的作用，因此評分為 7 分。",
+    "comment_en": "For most consumers, the cost of switching telecommunications service providers is relatively high. This includes learning new systems, changing numbers (despite number portability), reconfiguring devices, and potential service disruptions. For business clients, the switching costs can be even higher, involving contract terms, integration of new systems, and employee training. América Móvil's extensive customer base indicates that these switching costs play a role in customer retention to some extent, hence the score of 7."
+  },
+  "m4_network_effects": {
+    "score": 5,
+    "comment_zh": "電信網絡本身具有一定的網絡效應，即網絡越大，對用戶越有價值。然而，與社交媒體或市場平台不同，América Móvil 的核心業務（語音、數據、寬頻）的網絡效應相對較弱。用戶選擇服務商更多基於價格、覆蓋範圍和服務質量，而非網絡內其他用戶的存在。儘管其龐大的網絡規模帶來優勢，但嚴格意義上的網絡效應貢獻有限，因此評分為 5 分。",
+    "comment_en": "Telecommunications networks inherently possess some network effects, where a larger network is more valuable to users. However, unlike social media or marketplace platforms, the network effects in América Móvil's core business (voice, data, broadband) are relatively weaker. Users primarily choose providers based on price, coverage, and service quality, rather than the presence of other users within the network. While its vast network scale offers advantages, the contribution of strict network effects is limited, hence the score of 5."
+  },
+  "m5_cost_advantage_scale": {
+    "score": 9,
+    "comment_zh": "América Móvil 作為拉丁美洲最大的電信營運商之一，享有顯著的規模經濟優勢。其龐大的用戶基礎和廣泛的基礎設施網絡，使其能夠攤薄固定成本，並在採購、營運和維護方面獲得更低的單位成本。這種規模優勢使其在價格競爭中具有強大的實力，並能有效抵禦規模較小的競爭對手。其高達 77.7 億美元的自由現金流（TTM）也印證了其強大的成本控制和規模效益，因此評分為 9 分。",
+    "comment_en": "As one of the largest telecommunications operators in Latin America, América Móvil benefits from significant economies of scale. Its massive subscriber base and extensive infrastructure network allow it to spread fixed costs and achieve lower unit costs in procurement, operations, and maintenance. This scale advantage provides it with strong leverage in price competition and enables it to effectively fend off smaller competitors. Its substantial Free Cash Flow of $7,773.7 million (TTM) also attests to its strong cost control and economies of scale, hence the score of 9."
+  },
+  "m6_unique_geography_assets": {
+    "score": 8,
+    "comment_zh": "América Móvil 在拉丁美洲市場的深耕和廣泛的基礎設施佈局，構成了其獨特的地理資產壁壘。公司在多個國家擁有廣泛的光纖網絡、移動基站和數據中心，這些資產的建設和維護成本極高，且在特定區域內難以被複製。這種深厚的本地市場滲透和基礎設施網絡，為其提供了穩固的競爭優勢，尤其是在基礎設施相對落後的地區，因此評分為 8 分。",
+    "comment_en": "América Móvil's deep penetration and extensive infrastructure deployment in the Latin American market constitute its unique geographical asset barrier. The company owns vast fiber optic networks, mobile base stations, and data centers across multiple countries. The construction and maintenance costs of these assets are extremely high, and they are difficult to replicate within specific regions. This profound local market penetration and infrastructure network provide it with a solid competitive advantage, especially in areas with relatively underdeveloped infrastructure, hence the score of 8."
+  },
+  "m7_operational_efficiency": {
+    "score": 7,
+    "comment_zh": "América Móvil 展現了相當高的營運效率，這從其 22.9% 的股東權益報酬率（ROE）和 5.0% 的資產報酬率（ROA）可以看出。儘管電信行業資本密集，但公司能夠持續產生強勁的自由現金流，並在多個市場保持盈利能力。其 F-Score 為 5/9，顯示其財務狀況相對穩健，但仍有進步空間。持續的營運優化和成本控制是其維持競爭力的關鍵，因此評分為 7 分。",
+    "comment_en": "América Móvil demonstrates considerable operational efficiency, as evidenced by its Return on Equity (ROE) of 22.9% and Return on Assets (ROA) of 5.0%. Despite the capital-intensive nature of the telecommunications industry, the company consistently generates strong free cash flow and maintains profitability across multiple markets. Its F-Score of 5/9 indicates a relatively sound financial position, though there is room for improvement. Continuous operational optimization and cost control are key to maintaining its competitiveness, hence the score of 7."
+  },
+  "m8_capital_allocation": {
+    "score": 8,
+    "comment_zh": "América Móvil 在資本配置方面展現了較為審慎和有效的策略。公司能夠持續產生大量的自由現金流，並將其用於償還債務、進行戰略性收購以及向股東返還價值。其相對較低的淨負債對 EBITDA 比率（儘管未提供具體數據，但可從其現金與負債比例推斷）和穩定的股息支付，顯示了其對財務紀律的重視。管理層在平衡增長投資與維持財務健康方面做得不錯，因此評分為 8 分。",
+    "comment_en": "América Móvil exhibits a relatively prudent and effective strategy in capital allocation. The company consistently generates substantial free cash flow, which it utilizes for debt repayment, strategic acquisitions, and returning value to shareholders. Its relatively low net debt-to-EBITDA ratio (inferred from its cash-to-debt proportion, though not explicitly provided) and stable dividend payments demonstrate its emphasis on financial discipline. Management has done a commendable job balancing investment for growth with maintaining financial health, hence the score of 8."
+  },
+  "m9_customer_retention": {
+    "score": 7,
+    "comment_zh": "如前所述，電信服務的轉換成本以及 América Móvil 在拉丁美洲的廣泛網絡覆蓋和品牌忠誠度，共同促成了較高的客戶留存率。公司透過提供可靠的服務、多元化的產品組合（包括移動、寬頻和電視服務）以及客戶忠誠度計劃來鞏固客戶關係。儘管市場競爭激烈，但其龐大的客戶基礎證明了其在客戶留存方面的相對成功，因此評分為 7 分。",
+    "comment_en": "As mentioned earlier, the switching costs associated with telecommunications services, combined with América Móvil's extensive network coverage and brand loyalty in Latin America, contribute to a relatively high customer retention rate. The company solidifies customer relationships by providing reliable services, a diverse product portfolio (including mobile, broadband, and TV services), and customer loyalty programs. Despite intense market competition, its large customer base attests to its relative success in customer retention, hence the score of 7."
+  },
+  "m10_durability": {
+    "score": 7,
+    "comment_zh": "América Móvil 的業務具有一定的持久性，因為其提供的基礎通訊服務是現代社會不可或缺的。然而，電信行業面臨技術快速變革（如 5G、物聯網）和日益激烈的競爭壓力，這對其長期持久性構成挑戰。監管環境的變化和新興技術的顛覆性潛力也需要關注。儘管如此，其在拉丁美洲的領導地位和持續的基礎設施投資，使其能夠在可預見的未來保持其市場地位，因此評分為 7 分。",
+    "comment_en": "América Móvil's business possesses a degree of durability, as the basic communication services it provides are indispensable in modern society. However, the telecommunications industry faces challenges to its long-term durability due to rapid technological changes (such as 5G, IoT) and increasing competitive pressures. Changes in the regulatory environment and the disruptive potential of emerging technologies also warrant attention. Nevertheless, its leadership position in Latin America and ongoing infrastructure investments enable it to maintain its market standing for the foreseeable future, hence the score of 7."
+  },
+  "overall_moat_verdict_zh": "América Móvil 在拉丁美洲電信市場築起了堅實的護城河，主要體現在其無可匹敵的規模經濟（M5）和廣泛的地理基礎設施資產（M6）。這兩者結合，構成了極高的進入壁壘，使其能夠在競爭激烈的市場中保持領先地位。此外，較高的客戶轉換成本（M3）和穩健的品牌聲譽（M1）進一步鞏固了其市場地位。雖然網絡效應（M4）相對較弱，但其營運效率（M7）和資本配置能力（M8）亦屬上乘。整體而言，América Móvil 類似於一個擁有特許經營權的基礎設施公司，其業務的基礎性和必要性賦予了其類似收費橋的穩定現金流特性，展現出相當的持久性。",
+  "overall_moat_verdict_en": "América Móvil has established a robust economic moat in the Latin American telecommunications market, primarily driven by its unparalleled economies of scale (M5) and extensive geographical infrastructure assets (M6). These factors combined create extremely high barriers to entry, allowing it to maintain a leading position in a competitive landscape. Furthermore, relatively high customer switching costs (M3) and a solid brand reputation (M1) further solidify its market standing. While network effects (M4) are less pronounced, its operational efficiency (M7) and capital allocation capabilities (M8) are also commendable. Overall, América Móvil resembles a regulated utility or infrastructure company with a franchise, whose essential and indispensable services provide characteristics of a toll bridge, generating stable cash flows and demonstrating considerable durability.",
+  "evidenceHash": "1600c269ef191fe2137aed6ca929bd7240b1c95f7bb407842054f655df7f0f7f",
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
+}
