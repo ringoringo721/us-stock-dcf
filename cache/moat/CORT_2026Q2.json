@@ -1,0 +1,60 @@
+{
+  "ticker": "CORT",
+  "period": "2026Q2",
+  "m1_brand_pricing": {
+    "score": 7,
+    "comment_zh": "Corcept Therapeutics 的品牌價值主要體現在其在皮質醇相關疾病治療領域的專業聲譽和臨床認可。雖然不像消費品牌那樣廣為人知，但其在特定醫療領域的專業知識和藥物療效，為其贏得了醫生和患者的信任。這種信任轉化為一定的定價能力，尤其是在其專注的利基市場。然而，與頂級製藥巨頭相比，其品牌影響力仍有提升空間，且藥品定價仍需考量保險支付方和市場競爭壓力，因此給予 7 分。",
+    "comment_en": "Corcept Therapeutics' brand value is primarily reflected in its professional reputation and clinical recognition in the treatment of cortisol-related diseases. While not as widely known as consumer brands, its specialized expertise and drug efficacy in specific medical fields have earned it the trust of physicians and patients. This trust translates into a certain pricing power, especially in its niche markets. However, compared to top pharmaceutical giants, its brand influence still has room for improvement, and drug pricing still needs to consider insurance payers and market competition. Therefore, a score of 7 is assigned."
+  },
+  "m2_patents_regulatory": {
+    "score": 9,
+    "comment_zh": "Corcept Therapeutics 的核心競爭力來自其專利保護的藥物，特別是其在皮質醇拮抗劑領域的領先地位。專利為其產品提供了長期的市場獨占權，有效阻止了競爭對手的仿製。此外，藥品監管機構的批准本身就是一道嚴格的壁壘，新藥研發週期長、成本高，且成功率低。Corcept 在此領域的深耕和專利組合，構成了強大的進入壁壘，使其能夠維持較高的利潤率。給予 9 分。",
+    "comment_en": "Corcept Therapeutics' core competitiveness stems from its patented drugs, particularly its leading position in the field of cortisol antagonists. Patents provide its products with long-term market exclusivity, effectively preventing generic competition. Furthermore, drug regulatory approval itself is a stringent barrier; new drug development is a long, costly, and low-success-rate process. Corcept's deep cultivation in this area and its patent portfolio constitute a strong entry barrier, enabling it to maintain relatively high profit margins. A score of 9 is assigned."
+  },
+  "m3_high_switching_costs": {
+    "score": 6,
+    "comment_zh": "對於患者而言，一旦其病情通過 Corcept 的藥物得到有效控制，更換治療方案的意願通常不高。醫生也傾向於繼續使用已經證實有效的治療方法，以避免潛在的治療中斷或療效下降。這種臨床上的慣性，以及患者對特定療效的依賴，構成了中等程度的轉換成本。然而，相較於某些需要深度整合或長期合同的行業，這種轉換成本並非絕對，因此給予 6 分。",
+    "comment_en": "For patients, once their condition is effectively controlled by Corcept's drugs, the willingness to switch treatment regimens is usually low. Physicians also tend to continue using treatments that have proven effective to avoid potential treatment interruptions or reduced efficacy. This clinical inertia, coupled with patients' reliance on specific therapeutic outcomes, constitutes a moderate level of switching costs. However, compared to certain industries requiring deep integration or long-term contracts, these switching costs are not absolute, hence a score of 6 is assigned."
+  },
+  "m4_network_effects": {
+    "score": 2,
+    "comment_zh": "Corcept Therapeutics 的業務模式主要基於藥物的研發、生產和銷售，其核心價值在於藥品的療效和專利保護，而非用戶之間的互動。網絡效應在此類製藥企業中通常不顯著。雖然醫生和患者的口碑傳播可能產生一定的正面影響，但這並非典型的網絡效應，即產品或服務的價值隨著用戶數量的增加而增加。因此，在此維度上，Corcept 的護城河較弱，給予 2 分。",
+    "comment_en": "Corcept Therapeutics' business model is primarily based on drug research, development, production, and sales. Its core value lies in the efficacy and patent protection of its drugs, rather than user-to-user interaction. Network effects are typically not significant in such pharmaceutical companies. While word-of-mouth among physicians and patients might have some positive impact, this is not a typical network effect where the value of a product or service increases with the number of users. Therefore, Corcept's moat in this dimension is weak, and a score of 2 is assigned."
+  },
+  "m5_cost_advantage_scale": {
+    "score": 5,
+    "comment_zh": "Corcept Therapeutics 在其專注的利基市場中，通過規模化生產和供應鏈管理，可能獲得一定的成本優勢。然而，與大型綜合性製藥公司相比，其整體規模相對較小，因此在採購、研發投入分攤等方面，可能無法達到最大的規模經濟效益。其成本優勢更多體現在對特定生產流程的優化和對供應商的議價能力上，而非壓倒性的規模優勢。給予 5 分。",
+    "comment_en": "Corcept Therapeutics may achieve certain cost advantages in its focused niche markets through scaled production and supply chain management. However, compared to large, diversified pharmaceutical companies, its overall scale is relatively smaller, thus it may not achieve maximum economies of scale in areas such as procurement and R&D cost allocation. Its cost advantage is more reflected in the optimization of specific production processes and bargaining power with suppliers, rather than an overwhelming scale advantage. A score of 5 is assigned."
+  },
+  "m6_unique_geography_assets": {
+    "score": 3,
+    "comment_zh": "Corcept Therapeutics 的核心資產是其專利藥物和相關的知識產權，這些資產並非地理位置獨特或不可複製的實物資產。其藥品銷售遍及全球主要市場，但並無特定地理區域的獨占性。雖然其研發中心和生產設施可能集中在特定區域，但這些並非構成傳統意義上的地理資產壁壘。因此，在此維度上，其護城河較弱，給予 3 分。",
+    "comment_en": "Corcept Therapeutics' core assets are its patented drugs and related intellectual property, which are not geographically unique or irreproducible physical assets. Its drugs are sold in major global markets, but there is no exclusivity in specific geographical regions. Although its R&D centers and manufacturing facilities may be concentrated in certain areas, these do not constitute a geographical asset barrier in the traditional sense. Therefore, its moat in this dimension is weak, and a score of 3 is assigned."
+  },
+  "m7_operational_efficiency": {
+    "score": 7,
+    "comment_zh": "Corcept Therapeutics 在其專注的領域展現了較高的營運效率。其 F-Score 為 8/9，顯示其財務狀況穩健，營運能力良好。穩定的自由現金流 (FCF TTM: $106.9M) 和健康的現金餘額 (現金 $308.2M / 負債 $9.4M) 進一步證明了其營運效率和財務紀律。公司能夠有效地將研發成果轉化為商業產品，並維持盈利能力，這歸功於其對核心業務的專注和精細化的管理。給予 7 分。",
+    "comment_en": "Corcept Therapeutics demonstrates high operational efficiency in its focused areas. Its F-Score of 8/9 indicates a sound financial position and good operational capabilities. Stable free cash flow (FCF TTM: $106.9M) and a healthy cash balance (Cash $308.2M / Debt $9.4M) further attest to its operational efficiency and financial discipline. The company effectively translates R&D outcomes into commercial products and maintains profitability, thanks to its focus on core business and refined management. A score of 7 is assigned."
+  },
+  "m8_capital_allocation": {
+    "score": 8,
+    "comment_zh": "Corcept Therapeutics 的資本配置策略似乎相當明智。公司擁有健康的現金流和資產負債表，並將資源集中用於核心藥物的研發和商業化，同時也進行戰略性的併購或合作。其 ROE (7.8%) 和 ROA (6.2%) 雖然不算頂尖，但考慮到其所處的製藥行業特性，以及持續的研發投入，這些指標顯示了公司在資源配置上的有效性。管理層似乎能謹慎地平衡增長投資與股東回報。給予 8 分。",
+    "comment_en": "Corcept Therapeutics' capital allocation strategy appears quite prudent. The company possesses a healthy cash flow and balance sheet, concentrating resources on the R&D and commercialization of its core drugs, while also engaging in strategic acquisitions or collaborations. Its ROE (7.8%) and ROA (6.2%), while not top-tier, considering the characteristics of the pharmaceutical industry and ongoing R&D investments, indicate the effectiveness of the company's resource allocation. Management seems to carefully balance growth investments with shareholder returns. A score of 8 is assigned."
+  },
+  "m9_customer_retention": {
+    "score": 7,
+    "comment_zh": "Corcept Therapeutics 的客戶留存率主要體現在患者對其藥物的持續使用上。由於其藥物針對的是慢性或長期性疾病，一旦患者找到有效的治療方案，通常會長期依賴。醫生基於臨床療效和患者反應，也會傾向於維持處方。這種基於療效的客戶忠誠度，構成了較強的客戶留存壁壘。雖然不是典型的訂閱模式，但藥物的長期使用需求確保了相對穩定的客戶基礎。給予 7 分。",
+    "comment_en": "Corcept Therapeutics' customer retention is primarily reflected in patients' continued use of its drugs. As its medications target chronic or long-term conditions, once patients find an effective treatment regimen, they typically rely on it long-term. Physicians, based on clinical efficacy and patient response, also tend to maintain prescriptions. This efficacy-based customer loyalty constitutes a relatively strong customer retention barrier. Although not a typical subscription model, the long-term usage needs for the drugs ensure a relatively stable customer base. A score of 7 is assigned."
+  },
+  "m10_durability": {
+    "score": 8,
+    "comment_zh": "Corcept Therapeutics 的業務模式具有較強的持久性。其專注於特定疾病領域，並通過專利保護建立起穩固的市場地位。皮質醇相關疾病的治療需求是持續存在的，且隨著人口老齡化和對疾病認識的加深，這種需求可能還會增長。公司的穩健財務狀況和持續的研發投入，使其能夠抵禦行業波動，並在未來繼續提供價值。其專利壁壘的到期是潛在風險，但目前來看，其核心產品的持久性較強。給予 8 分。",
+    "comment_en": "Corcept Therapeutics' business model possesses strong durability. It focuses on specific disease areas and has established a solid market position through patent protection. The treatment needs for cortisol-related diseases are persistent, and with an aging population and deeper understanding of diseases, this demand may even grow. The company's sound financial condition and continuous R&D investment enable it to withstand industry fluctuations and continue providing value in the future. Patent expiry is a potential risk, but currently, the durability of its core products is strong. A score of 8 is assigned."
+  },
+  "overall_moat_verdict_zh": "Corcept Therapeutics 的護城河主要建立在其專利藥物所帶來的監管壁壘和市場獨占性之上，這使其在特定治療領域擁有顯著的定價權和客戶忠誠度。雖然其品牌影響力和網絡效應相對較弱，但其在研發、營運效率和資本配置方面的穩健表現，以及患者對其藥物的長期依賴，共同構成了堅實的經濟護城河。這是一家典型的「收費橋」模式公司，其專利藥物如同獨特的橋樑，為患者提供必需的治療，並收取相應的費用。其持久性較強，但需關注專利到期風險。",
+  "overall_moat_verdict_en": "Corcept Therapeutics' moat is primarily built upon the regulatory barriers and market exclusivity provided by its patented drugs, granting it significant pricing power and customer loyalty within its specific therapeutic areas. While its brand influence and network effects are relatively weaker, its solid performance in R&D, operational efficiency, and capital allocation, along with patients' long-term reliance on its medications, collectively form a robust economic moat. This is a typical 'toll bridge' model company, where its patented drugs act as a unique bridge, providing essential treatments for patients and charging corresponding fees. Its durability is relatively strong, but attention must be paid to patent expiry risks.",
+  "evidenceHash": "13c15b5633645db126041c23fe6a57db0f16bfb6bc366cb5128fb84713897a98",
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
+}
