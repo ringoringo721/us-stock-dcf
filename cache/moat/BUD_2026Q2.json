@@ -1,0 +1,60 @@
+{
+  "ticker": "BUD",
+  "period": "2026Q2",
+  "m1_brand_pricing": {
+    "score": 9,
+    "comment_zh": "百威英博擁有全球最頂級的啤酒品牌組合，如 Budweiser、Stella Artois 和 Corona，這些品牌在全球範圍內享有極高的知名度和忠誠度。這種品牌資產是其強大定價權的基石，使其能夠在不顯著犧牲銷量的基礎上，將成本轉嫁給消費者。儘管面臨區域性競爭對手的挑戰，但其全球分銷網絡和品牌影響力構成了難以逾越的壁壘。其品牌價值不僅體現在銷售額上，更在於消費者心中形成的無形資產，這是巴菲特所鍾愛的特許經營權的體現。",
+    "comment_en": "Anheuser-Busch InBev boasts a portfolio of the world's premier beer brands, including Budweiser, Stella Artois, and Corona, which enjoy immense global recognition and loyalty. This brand equity is the bedrock of its formidable pricing power, enabling it to pass costs onto consumers without significant sales erosion. Despite challenges from regional competitors, its global distribution network and brand influence form an almost insurmountable barrier. The brand value is reflected not just in sales figures but in the intangible asset formed in the consumer's mind, a manifestation of the 'franchise' Warren Buffett favors."
+  },
+  "m2_patents_regulatory": {
+    "score": 2,
+    "comment_zh": "啤酒行業的進入壁壘主要來自於品牌、分銷和規模經濟，而非專利或嚴格的監管保護。百威英博的產品本身不涉及核心技術專利，其生產流程相對成熟且易於複製。雖然在某些市場可能存在生產許可或特定法規要求，但這些通常不構成顯著的、持久的競爭優勢。與製藥或高科技行業不同，啤酒行業的監管環境對其護城河的貢獻相對有限，更多的是營運的合規性而非戰略性壁壘。",
+    "comment_en": "The primary barriers to entry in the beer industry stem from branding, distribution, and economies of scale, rather than patents or stringent regulatory protection. Anheuser-Busch InBev's products do not involve core technological patents, and its production processes are relatively mature and replicable. While production licenses or specific regulatory requirements may exist in certain markets, these typically do not constitute significant, enduring competitive advantages. Unlike the pharmaceutical or high-tech sectors, the regulatory environment's contribution to the beer industry's moat is relatively limited, focusing more on operational compliance than strategic barriers."
+  },
+  "m3_high_switching_costs": {
+    "score": 3,
+    "comment_zh": "對於終端消費者而言，轉換啤酒品牌的成本極低，消費者可以輕易地從一個品牌轉向另一個品牌，尤其是在價格敏感或追求新奇體驗的場景下。然而，對於經銷商和零售商而言，與百威英博建立的長期合作關係、龐大的分銷網絡以及產品的穩定供應，確實構成了一定的轉換難度。但這種難度更多是基於供應鏈的慣性而非消費者端的忠誠度鎖定，因此整體轉換成本壁壘不高。",
+    "comment_en": "For end consumers, the cost of switching beer brands is extremely low; consumers can easily move from one brand to another, especially in price-sensitive situations or when seeking novel experiences. However, for distributors and retailers, the long-standing partnerships, extensive distribution networks, and stable product supply established with Anheuser-Busch InBev do present some switching difficulties. This difficulty is more rooted in supply chain inertia than in locking in consumer loyalty, thus the overall switching cost barrier is not high."
+  },
+  "m4_network_effects": {
+    "score": 1,
+    "comment_zh": "啤酒行業本質上不具備顯著的網絡效應。產品的消費是獨立的，一個消費者購買或飲用某品牌啤酒的行為，不會直接增加或減少其他消費者購買該品牌啤酒的價值或意願。雖然強大的品牌和分銷網絡可以帶來規模優勢，但這與網絡效應（即用戶數量增加帶來價值指數級增長）的定義不同。百威英博的優勢在於其品牌和規模，而非用戶間的互動產生的價值。",
+    "comment_en": "The beer industry inherently lacks significant network effects. Product consumption is individual; one consumer's purchase or consumption of a particular beer brand does not directly increase or decrease the value or willingness of other consumers to purchase that same brand. While a strong brand and distribution network can lead to scale advantages, this differs from the definition of network effects, where an increase in user numbers leads to an exponential increase in value. Anheuser-Busch InBev's strengths lie in its brand and scale, not in value generated through user interactions."
+  },
+  "m5_cost_advantage_scale": {
+    "score": 9,
+    "comment_zh": "百威英博是全球最大的啤酒製造商，其規模經濟效應極為顯著。龐大的採購量使其在原材料（如大麥、啤酒花、玉米）和包裝材料上獲得極低的採購價格。同時，其全球化的生產基地和高效的供應鏈管理，進一步降低了生產和運輸成本。這種規模帶來的成本優勢，使其能夠在價格上對小型競爭對手形成壓倒性優勢，並在盈利能力上保持領先，這是典型的規模經濟壁壘。",
+    "comment_en": "As the world's largest beer manufacturer, Anheuser-Busch InBev benefits from extremely significant economies of scale. Its massive purchasing volume grants it exceptionally low prices for raw materials (like barley, hops, and corn) and packaging. Concurrently, its globalized production facilities and efficient supply chain management further reduce production and transportation costs. This scale-driven cost advantage allows it to exert overwhelming pricing pressure on smaller competitors and maintain leading profitability, a classic barrier of economies of scale."
+  },
+  "m6_unique_geography_assets": {
+    "score": 3,
+    "comment_zh": "百威英博在全球範圍內擁有廣泛的生產和分銷網絡，這本身就是一種重要的地理資產。然而，這些資產並非獨一無二到無法複製，許多大型飲料公司也擁有類似的全球佈局。其價值更多體現在運營效率和市場覆蓋面上，而非某個特定地點的稀缺性或不可替代性。雖然在某些新興市場的早期佈局可能帶來先發優勢，但這並非傳統意義上的「利基寡占」或「獨特地理資產」壁壘。",
+    "comment_en": "Anheuser-Busch InBev possesses an extensive global production and distribution network, which in itself is a significant geographical asset. However, these assets are not so unique as to be irreplicable; many large beverage companies have similar global footprints. Their value lies more in operational efficiency and market coverage rather than scarcity or irreplaceability at a specific location. While early entry into certain emerging markets might offer a first-mover advantage, this does not constitute a 'niche oligopoly' or 'unique geographical asset' barrier in the traditional sense."
+  },
+  "m7_operational_efficiency": {
+    "score": 8,
+    "comment_zh": "百威英博在運營效率方面表現出色，尤其體現在其全球供應鏈管理、生產流程優化和成本控制上。通過持續的技術投入和管理改進，公司能夠在保證產品質量的同時，最大化生產效率並最小化浪費。這種卓越的運營能力，結合其規模優勢，使其能夠持續提供具有競爭力的產品價格和穩定的盈利能力。這是一種難以被追趕的執行力壁壘，體現了優秀的管理層對資源的有效利用。",
+    "comment_en": "Anheuser-Busch InBev excels in operational efficiency, particularly evident in its global supply chain management, production process optimization, and cost control. Through continuous technological investment and management improvements, the company maximizes production efficiency and minimizes waste while ensuring product quality. This outstanding operational capability, combined with its scale advantage, enables it to consistently offer competitively priced products and stable profitability. This represents an execution barrier that is difficult to match, reflecting management's effective utilization of resources."
+  },
+  "m8_capital_allocation": {
+    "score": 7,
+    "comment_zh": "百威英博在資本配置方面展現了較強的能力，尤其是在通過大規模併購來實現行業整合和擴張方面。公司歷史上多次成功的併購，如 AB InBev 與 SABMiller 的合併，極大地增強了其市場地位和規模。儘管併購也帶來了較高的債務負擔，但管理層在隨後的幾年裡積極進行債務削減和資產剝離，以優化資本結構。其對股息和股票回購的策略也相對穩健，顯示出對股東回報的關注。",
+    "comment_en": "Anheuser-Busch InBev has demonstrated strong capital allocation capabilities, particularly in achieving industry consolidation and expansion through large-scale mergers and acquisitions. The company's history of successful M&A, such as the merger of AB InBev and SABMiller, significantly enhanced its market position and scale. Although acquisitions have also led to a substantial debt burden, management has actively pursued debt reduction and asset divestitures in subsequent years to optimize the capital structure. Its strategies regarding dividends and share buybacks are also relatively prudent, indicating a focus on shareholder returns."
+  },
+  "m9_customer_retention": {
+    "score": 5,
+    "comment_zh": "百威英博通過其強大的品牌組合和廣泛的市場滲透，在一定程度上實現了客戶留存。消費者對特定品牌的偏好，以及經銷商與公司間的緊密合作關係，都對留存起到了積極作用。然而，啤酒市場的競爭激烈，消費者口味多變，且新興品牌不斷湧現，這使得完全鎖定客戶變得困難。其留存更多依賴於品牌吸引力而非高轉換成本，因此客戶忠誠度並非絕對穩固，護城河相對有限。",
+    "comment_en": "Anheuser-Busch InBev achieves a degree of customer retention through its powerful brand portfolio and extensive market penetration. Consumer preference for specific brands and close relationships with distributors contribute positively to retention. However, the beer market is highly competitive, consumer tastes are fickle, and new brands continually emerge, making it difficult to completely lock in customers. Its retention relies more on brand appeal than high switching costs, thus customer loyalty is not absolutely solid, and the moat is relatively limited."
+  },
+  "m10_durability": {
+    "score": 8,
+    "comment_zh": "百威英博的護城河具有相當的持久性，主要得益於其無與倫比的品牌資產和規模經濟。這些核心競爭優勢經過數十年的建立和鞏固，難以被新進入者或小型競爭對手在短期內撼動。儘管行業會經歷週期性波動和消費者偏好的變化，但其多元化的品牌組合和全球佈局能夠分散風險。只要公司能持續投入品牌建設和維持運營效率，其市場領導地位和盈利能力預計將保持長期穩定，體現了其商業模式的韌性。",
+    "comment_en": "Anheuser-Busch InBev's moat possesses considerable durability, primarily due to its unparalleled brand equity and economies of scale. These core competitive advantages have been built and solidified over decades, making them difficult for new entrants or smaller competitors to shake in the short term. Although the industry experiences cyclical fluctuations and shifts in consumer preferences, its diversified brand portfolio and global presence help mitigate risks. As long as the company continues to invest in brand building and maintain operational efficiency, its market leadership and profitability are expected to remain stable long-term, reflecting the resilience of its business model."
+  },
+  "overall_moat_verdict_zh": "百威英博的核心護城河來自於其強大的品牌定價權（M1）和顯著的規模經濟成本優勢（M5），這使其在全球啤酒市場中佔據領先地位，堪稱「特許經營權」的典型代表。其卓越的運營效率（M7）和穩健的資本配置能力（M8）進一步鞏固了其競爭地位。然而，行業進入壁壘相對較低（M2），消費者轉換成本不高（M3），且缺乏網絡效應（M4），這限制了其護城河的絕對強度。客戶留存（M9）依賴品牌吸引力而非鎖定。總體而言，百威英博擁有一個堅固但非無懈可擊的經濟護城河，其持久性（M10）主要由品牌和規模支撐。",
+  "overall_moat_verdict_en": "Anheuser-Busch InBev's core moat stems from its powerful brand pricing power (M1) and significant cost advantages from economies of scale (M5), positioning it as a leader in the global beer market and a prime example of a 'franchise.' Its excellent operational efficiency (M7) and solid capital allocation capabilities (M8) further solidify its competitive standing. However, relatively low industry entry barriers (M2), low consumer switching costs (M3), and the absence of network effects (M4) limit the absolute strength of its moat. Customer retention (M9) relies on brand appeal rather than lock-in. Overall, Anheuser-Busch InBev possesses a strong, though not impenetrable, economic moat, whose durability (M10) is primarily supported by brand and scale.",
+  "evidenceHash": "9fe96c26df7d727d699cbedec3d49f51224e7ccc28213af928da5820879d435f",
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
+}

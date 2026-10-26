@@ -1,0 +1,60 @@
+{
+  "ticker": "BRK-A",
+  "period": "2026Q2",
+  "m1_brand_pricing": {
+    "score": 9,
+    "comment_zh": "波克夏的品牌價值深植人心，尤其在保險業務（如GEICO）和其多元化的子公司（如BNSF鐵路、See's Candies）中，展現了強大的定價權。客戶對其品牌信任度高，願意支付溢價，這使得公司在面對競爭時具有顯著優勢。這種品牌忠誠度是巴菲特所欣賞的特質，代表著一種難以複製的無形資產，能夠抵禦短期市場波動，並在長期內維持穩定的獲利能力。其品牌不僅是行銷工具，更是其商業模式核心的體現。",
+    "comment_en": "Berkshire's brand value is deeply ingrained, particularly in its insurance operations (like GEICO) and its diversified subsidiaries (such as BNSF Railway, See's Candies), demonstrating strong pricing power. Customers have high trust in its brands and are willing to pay a premium, giving the company a significant advantage against competitors. This brand loyalty is a characteristic Buffett admires, representing an intangible asset that is difficult to replicate, capable of withstanding short-term market fluctuations, and maintaining stable profitability in the long run. Its brand is not just a marketing tool but a reflection of its core business model."
+  },
+  "m2_patents_regulatory": {
+    "score": 3,
+    "comment_zh": "波克夏的核心業務，特別是保險和鐵路，並不依賴專利或特許權來建立護城河。雖然部分子公司可能在特定領域擁有監管優勢，但這並非其主要的競爭壁壘。巴菲特更傾向於那些擁有持久競爭優勢的企業，而非依賴政府保護或技術壟斷。因此，在專利和監管壁壘方面，波克夏的得分相對較低，這也反映了其業務模式的性質。",
+    "comment_en": "Berkshire's core businesses, especially insurance and railroads, do not rely on patents or regulatory licenses for their moats. While some subsidiaries might have regulatory advantages in specific areas, these are not its primary competitive barriers. Buffett favors companies with enduring competitive advantages over those dependent on government protection or technological monopolies. Therefore, Berkshire's score is relatively low in terms of patents and regulatory barriers, reflecting the nature of its business model."
+  },
+  "m3_high_switching_costs": {
+    "score": 7,
+    "comment_zh": "波克夏的子公司，特別是保險業務，具有相當高的客戶轉換成本。一旦客戶選擇了GEICO等保險公司，由於保險合約的性質、熟悉度以及重新評估保險需求的複雜性，轉換到其他保險公司的意願和成本都相對較高。同樣，對於企業客戶而言，更換如BNSF這樣的鐵路運輸服務商也面臨著巨大的物流和協調成本。這為波克夏提供了穩定的客戶基礎和可預測的收入。",
+    "comment_en": "Berkshire's subsidiaries, particularly in the insurance sector, have quite high customer switching costs. Once a customer chooses an insurance company like GEICO, due to the nature of insurance contracts, familiarity, and the complexity of re-evaluating insurance needs, the willingness and cost to switch to another insurer are relatively high. Similarly, for corporate clients, changing a railway transportation service provider like BNSF involves significant logistical and coordination costs. This provides Berkshire with a stable customer base and predictable revenue."
+  },
+  "m4_network_effects": {
+    "score": 2,
+    "comment_zh": "波克夏的大部分業務，如保險、鐵路、能源和製造業，並不直接受益於網絡效應。網絡效應通常出現在平台型或社交型企業，用戶越多，價值越大。波克夏的價值來自於其多元化的業務組合、卓越的管理和資本配置能力，而非用戶之間的互動。雖然某些子公司可能在供應鏈或客戶網絡中有一定聯繫，但這並非典型的、能自我強化的網絡效應壁壘。",
+    "comment_en": "Most of Berkshire's businesses, such as insurance, railroads, energy, and manufacturing, do not directly benefit from network effects. Network effects typically occur in platform or social businesses where more users lead to greater value. Berkshire's value stems from its diversified business portfolio, excellent management, and capital allocation capabilities, rather than user interactions. While some subsidiaries might have certain connections within supply chains or customer networks, these do not constitute typical, self-reinforcing network effect moats."
+  },
+  "m5_cost_advantage_scale": {
+    "score": 9,
+    "comment_zh": "波克夏透過其龐大的規模，在多個領域建立了顯著的成本優勢。尤其在保險業務中，其巨大的保費規模使其能夠獲得更優惠的再保險條款，並在投資組合上獲得更高的回報。BNSF鐵路作為美國最大的鐵路網絡之一，其規模經濟效應極為明顯，單位運輸成本遠低於其他運輸方式。這種規模帶來的成本優勢是其長期獲利能力的關鍵。",
+    "comment_en": "Berkshire has established significant cost advantages in multiple sectors through its immense scale. Particularly in its insurance operations, its vast premium volume allows it to secure more favorable reinsurance terms and achieve higher returns on its investment portfolio. BNSF Railway, as one of the largest rail networks in the US, exhibits pronounced economies of scale, with unit transportation costs far lower than other modes of transport. This scale-driven cost advantage is key to its long-term profitability."
+  },
+  "m6_unique_geography_assets": {
+    "score": 6,
+    "comment_zh": "波克夏擁有的部分資產具有獨特的地理位置優勢，例如BNSF鐵路橫跨美國大陸，連接了重要的生產和消費區域，這是其他鐵路公司難以完全複製的。其能源業務也掌握了關鍵的基礎設施。然而，這並非其護城河的絕對核心，因為地理位置優勢的影響力會隨著時間和技術的發展而變化，且部分業務的地理集中度並非極高。",
+    "comment_en": "Some of Berkshire's assets possess unique geographical advantages, such as BNSF Railway spanning the continental US, connecting vital production and consumption areas, which is difficult for other railroad companies to fully replicate. Its energy business also controls critical infrastructure. However, this is not the absolute core of its moat, as the influence of geographical advantage can change with time and technological development, and the geographical concentration of some businesses is not extremely high."
+  },
+  "m7_operational_efficiency": {
+    "score": 8,
+    "comment_zh": "波克夏以其卓越的營運效率聞名，特別是在其保險業務的承保和理賠流程，以及BNSF鐵路的營運管理上。公司擅長精簡流程、控制成本並最大化資源利用。這種效率不僅體現在財務報表中，更體現在其子公司持續穩定的獲利能力上。巴菲特對效率的重視，確保了公司在競爭激烈的市場中保持領先地位。",
+    "comment_en": "Berkshire is renowned for its exceptional operational efficiency, particularly in the underwriting and claims processes of its insurance operations and the operational management of BNSF Railway. The company excels at streamlining processes, controlling costs, and maximizing resource utilization. This efficiency is reflected not only in its financial statements but also in the sustained and stable profitability of its subsidiaries. Buffett's emphasis on efficiency ensures the company maintains a leading position in competitive markets."
+  },
+  "m8_capital_allocation": {
+    "score": 10,
+    "comment_zh": "沃倫·巴菲特本人及其領導的團隊是資本配置的大師。波克夏的護城河很大程度上建立在其無與倫比的資本配置能力之上。公司能夠準確判斷價值、有效 redeploy 資本於內外部投資，並在適當時機進行股票回購。這種將資本導向最優回報的能力，是其長期超越市場的關鍵，也是其最為堅固的護城河之一，堪稱典範。",
+    "comment_en": "Warren Buffett himself and his leadership team are masters of capital allocation. Berkshire's moat is largely built upon its unparalleled ability to allocate capital. The company can accurately assess value, effectively redeploy capital into both internal and external investments, and conduct share buybacks at opportune moments. This ability to direct capital towards the optimal returns is key to its long-term outperformance and stands as one of its most robust moats, serving as a prime example."
+  },
+  "m9_customer_retention": {
+    "score": 7,
+    "comment_zh": "波克夏的客戶保留率在其核心業務中表現穩健。保險業務依賴於長期的客戶關係和信任，而BNSF鐵路等基礎設施服務則因其不可替代性和高轉換成本而具有天然的客戶黏性。雖然並非所有業務都像軟體服務那樣具有極高的客戶留存率，但其多元化的業務組合和對客戶價值的長期承諾，共同構成了穩固的客戶基礎。",
+    "comment_en": "Berkshire's customer retention rates are solid across its core businesses. Its insurance operations rely on long-term customer relationships and trust, while infrastructure services like BNSF Railway possess inherent customer stickiness due to their indispensability and high switching costs. Although not all businesses exhibit extremely high customer retention rates like software services, its diversified business portfolio and long-term commitment to customer value collectively form a stable customer base."
+  },
+  "m10_durability": {
+    "score": 9,
+    "comment_zh": "波克夏的商業模式具有極高的持久性。其核心的保險業務能夠穿越經濟週期，而鐵路、能源等基礎設施業務更是具有長期的穩定性。公司不斷透過精明的資本配置和對優質資產的收購，來鞏固和擴大其護城河。這種對持久性價值的追求，使得波克夏能夠在數十年甚至更長時間內保持競爭優勢，是典型的「收費橋」模式的體現。",
+    "comment_en": "Berkshire's business model possesses exceptional durability. Its core insurance operations can weather economic cycles, while infrastructure businesses like railroads and energy offer long-term stability. The company continuously strengthens and expands its moat through astute capital allocation and acquisitions of quality assets. This pursuit of enduring value allows Berkshire to maintain its competitive advantage for decades or even longer, embodying a classic 'toll bridge' model."
+  },
+  "overall_moat_verdict_zh": "波克夏海瑟威（BRK-A）展現了極為寬廣且深厚的護城河，其核心優勢來自於無與倫比的資本配置能力（M8），這使其能持續將資源投入到具有持久競爭優勢的業務中。其龐大的規模（M5）在保險和鐵路等領域帶來顯著的成本優勢，而強大的品牌價值（M1）和穩定的客戶基礎（M3, M9）則提供了定價權和可預測性。雖然在專利和網絡效應方面得分不高，但其核心業務的持久性（M10）和卓越的營運效率（M7）彌補了這些不足。整體而言，波克夏堪稱「收費橋」與「特許經營權」的結合體，其護城河堅固且難以撼動。",
+  "overall_moat_verdict_en": "Berkshire Hathaway (BRK-A) exhibits an exceptionally wide and deep moat, with its core strength stemming from unparalleled capital allocation ability (M8), enabling it to continuously invest resources into businesses with enduring competitive advantages. Its immense scale (M5) provides significant cost advantages in areas like insurance and railroads, while strong brand value (M1) and a stable customer base (M3, M9) offer pricing power and predictability. Although scoring low in patents and network effects, the durability (M10) and outstanding operational efficiency (M7) of its core businesses compensate for these weaknesses. Overall, Berkshire is a combination of a 'toll bridge' and 'franchise' business, possessing a robust and unshakeable moat.",
+  "evidenceHash": "5b3941e4e49cb2222c5e52d13f06a971f7c762f175fb1ba25c7ac6f2020b4923",
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
+}
