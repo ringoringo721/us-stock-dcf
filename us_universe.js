@@ -22,12 +22,22 @@
     return true;
   }
 
+  function chineseNameFor(ticker, item) {
+    if (item?.name_zh) return item.name_zh;
+    const map = root.US_CHINESE_NAMES?.names;
+    if (!map) return undefined;
+    const key = String(ticker || '').toUpperCase().trim();
+    return map[key] || undefined;
+  }
+
   function listingStock(item) {
     const Industry = typeof module === 'object' && module.exports
       ? require('./financial_industry.js') : root.FinancialIndustry;
     const financial = !!Industry?.usesFinancialValuationModel(item.industry, item.ticker);
+    const nameZh = chineseNameFor(item.ticker, item);
     return {
       ticker: item.ticker, name: item.name || item.name_en, name_en: item.name_en || item.name,
+      ...(nameZh ? { name_zh: nameZh } : {}),
       company_name: item.name_en || item.name, market: 'US', exchange: item.exchange,
       sector: item.sector || 'Unclassified', industry: item.industry || 'Unclassified',
       calculationCurrency: 'USD', tradingCurrency: 'USD',
@@ -61,10 +71,20 @@
       return cached;
     }
     const listings = (list.stocks || []).filter(isCommonEquityListing);
-    const result = Object.fromEntries(listings.map(item => [item.ticker,
-      (isCommonEquityListing(expansion?.stocks?.[item.ticker]) && expansion.stocks[item.ticker])
-        || listingStock(item)]));
+    const result = Object.fromEntries(listings.map(item => {
+      const fromExpansion = isCommonEquityListing(expansion?.stocks?.[item.ticker])
+        && expansion.stocks[item.ticker];
+      const stock = fromExpansion || listingStock(item);
+      const nameZh = chineseNameFor(item.ticker, item) || chineseNameFor(item.ticker, stock);
+      return [item.ticker, nameZh && !stock.name_zh ? { ...stock, name_zh: nameZh } : stock];
+    }));
     Object.assign(result, market);
+    // Attach ZH names onto baseline/market rows that lack name_zh (display + search).
+    for (const [ticker, stock] of Object.entries(result)) {
+      if (!stock || stock.name_zh) continue;
+      const nameZh = chineseNameFor(ticker, stock);
+      if (nameZh) result[ticker] = { ...stock, name_zh: nameZh };
+    }
     previousMarket = market; previousList = list; previousExpansion = expansion; cached = result;
     return result;
   }
@@ -105,5 +125,5 @@
     return pending.get(ticker);
   }
 
-  return { merge, listingStock, install, load, uncaptured, isCommonEquityListing };
+  return { merge, listingStock, install, load, uncaptured, isCommonEquityListing, chineseNameFor };
 });

@@ -1,0 +1,1979 @@
+{
+  "version": 1,
+  "generatedAt": "2026-10-27T16:41:58Z",
+  "policy": {
+    "preferTraditionalChinese": true,
+    "noInventedTranslations": true,
+    "priority": [
+      "STOCK_NAMES_ZH",
+      "HKEX_dual_list",
+      "description_zh_full_market",
+      "description_zh_us_companies"
+    ],
+    "notes": "FMP company profiles do not provide Chinese names. Gaps keep English company_name in the Chinese UI until a curated Traditional Chinese short name is supplied."
+  },
+  "coverage": {
+    "universeTickers": 951,
+    "withNameZh": 326,
+    "missingNameZh": 625,
+    "pct": 34.3,
+    "bySource": {
+      "STOCK_NAMES_ZH": 214,
+      "HKEX_dual_list": 14,
+      "description_zh_full_market": 3,
+      "description_zh_us_companies": 99
+    },
+    "curatedMapSize": 230,
+    "beforeCuratedOnly": 214,
+    "beforePct": 22.5
+  },
+  "missingTickers": [
+    "SPCX",
+    "SKHY",
+    "ASML",
+    "PLTR",
+    "DELL",
+    "SAP",
+    "AZN",
+    "GEV",
+    "ARM",
+    "SHOP",
+    "TD",
+    "BHP",
+    "TTE",
+    "SNDK",
+    "ADI",
+    "SAN",
+    "AMRO",
+    "WELL",
+    "BUD",
+    "PBR-A",
+    "TBB",
+    "IBKR",
+    "SONY",
+    "BBVA",
+    "WDC",
+    "UBER",
+    "BP",
+    "COF",
+    "BTI",
+    "MO",
+    "PH",
+    "CVS",
+    "BMO",
+    "HDB",
+    "GLW",
+    "BNS",
+    "SNOW",
+    "CNQ",
+    "PDD",
+    "EQNR",
+    "NET",
+    "SPOT",
+    "ITUB",
+    "IBN",
+    "CM",
+    "ABNB",
+    "TT",
+    "GSK",
+    "HCA",
+    "BNY",
+    "MRNA",
+    "DDOG",
+    "ING",
+    "AEM",
+    "ELV",
+    "MELI",
+    "GD",
+    "ASX",
+    "JCI",
+    "EMR",
+    "MRSH",
+    "PWR",
+    "MMM",
+    "APP",
+    "CSX",
+    "PNC",
+    "CTAS",
+    "E",
+    "BNH",
+    "BNJ",
+    "BN",
+    "HWM",
+    "VRT",
+    "KKR",
+    "HOOD",
+    "CI",
+    "DASH",
+    "LYG",
+    "CP",
+    "MSI",
+    "HPE",
+    "LITE",
+    "BCS",
+    "CMI",
+    "BAM",
+    "NU",
+    "AMX",
+    "FDX",
+    "RSG",
+    "BE",
+    "RACE",
+    "RELX",
+    "B",
+    "URI",
+    "APO",
+    "APOS",
+    "IMO",
+    "DLR",
+    "CVNA",
+    "TRP",
+    "BSX",
+    "GWW",
+    "TRGP",
+    "MPWR",
+    "MSTR",
+    "CVE",
+    "DB",
+    "FAST",
+    "NUE",
+    "NTRA",
+    "MPLX",
+    "OKE",
+    "LNG",
+    "TFC",
+    "PCAR",
+    "AME",
+    "CRH",
+    "TEAM",
+    "FANG",
+    "GRMN",
+    "ARGX",
+    "PSA",
+    "DVN",
+    "VST",
+    "INFY",
+    "HONA",
+    "CIEN",
+    "DAL",
+    "HUM",
+    "ABEV",
+    "EW",
+    "ETR",
+    "ALAB",
+    "VYLR",
+    "FIX",
+    "PYPL",
+    "CCEP",
+    "XEL",
+    "FITB",
+    "MT",
+    "SE",
+    "TEVA",
+    "XYZ",
+    "FNV",
+    "KDP",
+    "COHR",
+    "COIN",
+    "CARR",
+    "STT",
+    "AU",
+    "LHX",
+    "ELC",
+    "IQV",
+    "WAT",
+    "WDS",
+    "EXC",
+    "FERG",
+    "HMC",
+    "HLN",
+    "VTR",
+    "P",
+    "IDXX",
+    "FMX",
+    "AMP",
+    "BBD",
+    "NTAP",
+    "KB",
+    "BSBR",
+    "WCN",
+    "MCHP",
+    "RVMD",
+    "HEI",
+    "ED",
+    "NBIS",
+    "TWLO",
+    "SYY",
+    "ROP",
+    "ODFL",
+    "CBRE",
+    "DHI",
+    "VIK",
+    "ARES",
+    "CLS",
+    "KR",
+    "ZS",
+    "EL",
+    "RBLX",
+    "UI",
+    "HIG",
+    "CCL",
+    "KVUE",
+    "FER",
+    "MCHPP",
+    "CCJ",
+    "BIIB",
+    "NWG",
+    "STLD",
+    "EC",
+    "WEC",
+    "PCG",
+    "PPLC",
+    "OKTA",
+    "ESLT",
+    "CNC",
+    "CCI",
+    "CRDO",
+    "ACGL",
+    "IRM",
+    "CRWV",
+    "ERIC",
+    "EQT",
+    "MTD",
+    "STRC",
+    "GFI",
+    "AXON",
+    "EXPE",
+    "ALC",
+    "NTR",
+    "SUNB",
+    "VG",
+    "RKLB",
+    "FLEX",
+    "HBAN",
+    "MTB",
+    "TS",
+    "MDB",
+    "RKT",
+    "CTSH",
+    "GEHC",
+    "MDLN",
+    "CQP",
+    "BAP",
+    "EME",
+    "NTRS",
+    "ALNY",
+    "RJF",
+    "WSM",
+    "EXR",
+    "RDDT",
+    "WTW",
+    "AEE",
+    "TDY",
+    "DG",
+    "ZM",
+    "FTS",
+    "HPQ",
+    "ATO",
+    "BSP",
+    "SN",
+    "VRSN",
+    "FOXA",
+    "WST",
+    "RPRX",
+    "JBS",
+    "WRB",
+    "FTI",
+    "CFG",
+    "DTE",
+    "DOV",
+    "CPAY",
+    "CBRS",
+    "CINF",
+    "ROIV",
+    "CNP",
+    "DGX",
+    "FE",
+    "GFS",
+    "FOX",
+    "PPL",
+    "FFIV",
+    "ULTA",
+    "QSR",
+    "CASY",
+    "FISV",
+    "EXPD",
+    "IOT",
+    "LPLA",
+    "SYM",
+    "Q",
+    "IHG",
+    "CPNG",
+    "RBRK",
+    "KOF",
+    "ES",
+    "VLTO",
+    "ATI",
+    "PPG",
+    "HUBB",
+    "GMAB",
+    "DRI",
+    "FCNCA",
+    "SYF",
+    "RF",
+    "NVT",
+    "BRO",
+    "DLTR",
+    "SMCI",
+    "AER",
+    "VMRK",
+    "MKL",
+    "CIB",
+    "INCY",
+    "BNTX",
+    "FWONK",
+    "TPR",
+    "L",
+    "CRCL",
+    "KEY",
+    "RL",
+    "ENTG",
+    "GH",
+    "STZ",
+    "DINO",
+    "GPN",
+    "USFD",
+    "OMC",
+    "XPO",
+    "TROW",
+    "EIX",
+    "AFRM",
+    "SW",
+    "STRK",
+    "THC",
+    "TSEM",
+    "PHM",
+    "RS",
+    "EXE",
+    "JBHT",
+    "CMS",
+    "CMSA",
+    "PKG",
+    "WIT",
+    "AMRZ",
+    "VTRS",
+    "PTC",
+    "NRG",
+    "FWONA",
+    "AMCR",
+    "MTSI",
+    "ROKU",
+    "PR",
+    "VIV",
+    "NI",
+    "RGLD",
+    "INSM",
+    "LYB",
+    "SSNC",
+    "TCPA",
+    "SNX",
+    "BCH",
+    "CDW",
+    "YPF",
+    "BBY",
+    "BG",
+    "OVV",
+    "SOFI",
+    "WWD",
+    "EVRG",
+    "SNA",
+    "NTNX",
+    "DT",
+    "FSLR",
+    "FIS",
+    "AQNB",
+    "BCE",
+    "ZBRA",
+    "MEDP",
+    "LEN",
+    "NDSN",
+    "WES",
+    "SBAC",
+    "PAA",
+    "CW",
+    "CRS",
+    "U",
+    "EWBC",
+    "RIVN",
+    "ITT",
+    "KSPI",
+    "LNT",
+    "FTV",
+    "ESS",
+    "CF",
+    "RZC",
+    "RVTY",
+    "APA",
+    "APG",
+    "IEX",
+    "WF",
+    "PKX",
+    "AS",
+    "GPC",
+    "HST",
+    "RCI",
+    "MGA",
+    "TLN",
+    "WCC",
+    "BALL",
+    "TPG",
+    "CLH",
+    "FTAI",
+    "TOST",
+    "BIP",
+    "ASTS",
+    "J",
+    "CRL",
+    "CHRW",
+    "VNOM",
+    "CCZ",
+    "EXEL",
+    "LDOS",
+    "FDXF",
+    "BEN",
+    "DUKB",
+    "RBC",
+    "INVH",
+    "NVR",
+    "LAMR",
+    "CRBG",
+    "XP",
+    "CDE",
+    "BURL",
+    "BSAC",
+    "W",
+    "JHX",
+    "SITM",
+    "KIM",
+    "DOCU",
+    "PFGC",
+    "RBA",
+    "GFL",
+    "EG",
+    "CX",
+    "ULS",
+    "GWRE",
+    "ASND",
+    "EQH",
+    "PNFP",
+    "UNM",
+    "UNMA",
+    "SOLV",
+    "FUTU",
+    "MAS",
+    "ARMK",
+    "ECHO",
+    "CHKP",
+    "MKSI",
+    "TRMB",
+    "GIB",
+    "EMA",
+    "MTZ",
+    "SGI",
+    "CHTR",
+    "GEN",
+    "NBIX",
+    "ICLR",
+    "CNH",
+    "WPC",
+    "SUI",
+    "HALO",
+    "AIZ",
+    "AIZN",
+    "COKE",
+    "PAG",
+    "IT",
+    "LTM",
+    "JAZZ",
+    "MANH",
+    "CACI",
+    "GDDY",
+    "TIGO",
+    "WY",
+    "MAA",
+    "SJM",
+    "BMNR",
+    "BMNP",
+    "FLUT",
+    "NLY",
+    "ALLE",
+    "AEFC",
+    "CSL",
+    "OHI",
+    "KKRS",
+    "EMBJ",
+    "TXT",
+    "AGI",
+    "GME",
+    "BBIO",
+    "REG",
+    "SMTC",
+    "ARCC",
+    "TU",
+    "IONQ",
+    "CNA",
+    "BF-B",
+    "GL",
+    "SEIC",
+    "PINS",
+    "AKAM",
+    "BJ",
+    "EQX",
+    "HUBS",
+    "BAX",
+    "FN",
+    "PEN",
+    "DOC",
+    "MLI",
+    "MKC-V",
+    "DTM",
+    "LII",
+    "INIO",
+    "CCK",
+    "STRL",
+    "SMMT",
+    "DKS",
+    "PNW",
+    "WSO",
+    "AEG",
+    "CORT",
+    "BIPI",
+    "BNT",
+    "AIT",
+    "TOL",
+    "AFG",
+    "NXT",
+    "FIVE",
+    "BWXT",
+    "SWKS",
+    "BTSG",
+    "SKM",
+    "SNN",
+    "STLA",
+    "WTS",
+    "GNRC",
+    "CART",
+    "DOCN",
+    "EHC",
+    "TEM",
+    "AR",
+    "CR",
+    "ALLY",
+    "PAYC",
+    "RML",
+    "BWA",
+    "AVTR",
+    "FROG",
+    "MAIR",
+    "DECK",
+    "MOG-A",
+    "TLK",
+    "MICC",
+    "TX",
+    "WTRG",
+    "AHR",
+    "CHYM",
+    "ELS",
+    "RGEN",
+    "FRO",
+    "TECH",
+    "DVA",
+    "ERIE",
+    "ONON",
+    "ELAN",
+    "UDR",
+    "HRL",
+    "SAIL",
+    "COO",
+    "MOH",
+    "GRAB",
+    "FIG",
+    "GLPI",
+    "ARW",
+    "BSY",
+    "AMH",
+    "WSE",
+    "FRHC",
+    "RDY",
+    "IREN",
+    "EGP",
+    "ONTO",
+    "FNF",
+    "AMKR",
+    "GSAT",
+    "TTMI",
+    "JKHY",
+    "AA",
+    "SNAP",
+    "QXO",
+    "BMRN",
+    "AES",
+    "HBM",
+    "MTCH",
+    "HMY",
+    "MDGL",
+    "GMED",
+    "NVMI",
+    "GKOS",
+    "SUZ",
+    "AGNC",
+    "PAYP",
+    "SSL",
+    "ESTC",
+    "BPOP",
+    "SOLS",
+    "GGB",
+    "QGEN",
+    "KNX",
+    "DPZ",
+    "DKNG",
+    "AMG",
+    "QNT",
+    "IAG",
+    "HL",
+    "MGRB",
+    "MGRE",
+    "ENSG",
+    "UMBF",
+    "MGRD",
+    "CPT",
+    "RMBS",
+    "ENLT",
+    "AUR",
+    "RRC",
+    "SF",
+    "CIG-C"
+  ],
+  "names": {
+    "NVDA": {
+      "name_zh": "輝達",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "AAPL": {
+      "name_zh": "蘋果",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "GOOG": {
+      "name_zh": "Alphabet (Class C)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "MSFT": {
+      "name_zh": "微軟",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "AMZN": {
+      "name_zh": "亞馬遜",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "TSM": {
+      "name_zh": "台積電 ADR",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "META": {
+      "name_zh": "Meta (臉書)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "AVGO": {
+      "name_zh": "博通",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "TSLA": {
+      "name_zh": "特斯拉",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "LLY": {
+      "name_zh": "禮來公司",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "BRK-A": {
+      "name_zh": "波克夏海瑟威 (A)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "MU": {
+      "name_zh": "美光科技",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "WMT": {
+      "name_zh": "沃爾瑪",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "AMD": {
+      "name_zh": "超微半導體",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "JPM": {
+      "name_zh": "摩根大通",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "V": {
+      "name_zh": "威士卡",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "XOM": {
+      "name_zh": "埃克森美孚",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "JNJ": {
+      "name_zh": "嬌生",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "MA": {
+      "name_zh": "萬事達卡",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "ABBV": {
+      "name_zh": "艾伯維",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "INTC": {
+      "name_zh": "英特爾",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "CVX": {
+      "name_zh": "雪佛龍",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "COST": {
+      "name_zh": "好市多",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "CSCO": {
+      "name_zh": "思科",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "KO": {
+      "name_zh": "可口可樂",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "ORCL": {
+      "name_zh": "甲骨文",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "UNH": {
+      "name_zh": "聯合健康集團",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "MRK": {
+      "name_zh": "默沙東",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "PG": {
+      "name_zh": "寶僑",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "BAC": {
+      "name_zh": "美國銀行",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "CAT": {
+      "name_zh": "開拓重工",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "LRCX": {
+      "name_zh": "科林研發",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "AMAT": {
+      "name_zh": "應用材料",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "HD": {
+      "name_zh": "家得寶",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "PM": {
+      "name_zh": "菲利普莫里斯",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "GE": {
+      "name_zh": "奇異航太 (GE Aerospace)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "MS": {
+      "name_zh": "摩根士丹利",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "PANW": {
+      "name_zh": "派拓網路",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "NFLX": {
+      "name_zh": "網飛",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "GS": {
+      "name_zh": "高盛集團",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "TXN": {
+      "name_zh": "德州儀器",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "RTX": {
+      "name_zh": "雷神技術",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "TMO": {
+      "name_zh": "賽默飛世爾",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "WFC": {
+      "name_zh": "富國銀行",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "CRWD": {
+      "name_zh": "CrowdStrike",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "AMGN": {
+      "name_zh": "安進",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "IBM": {
+      "name_zh": "IBM",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "ANET": {
+      "name_zh": "Arista 網路",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "LIN": {
+      "name_zh": "林德集團",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "AXP": {
+      "name_zh": "美國運通",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "MRVL": {
+      "name_zh": "邁威爾科技",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "KLAC": {
+      "name_zh": "科磊",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "C": {
+      "name_zh": "花旗集團",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "CRM": {
+      "name_zh": "賽富時",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "APH": {
+      "name_zh": "安費諾",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "DIS": {
+      "name_zh": "迪士尼",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "GILD": {
+      "name_zh": "吉利德科學",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "QCOM": {
+      "name_zh": "高通",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "PEP": {
+      "name_zh": "百事可樂",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "VZ": {
+      "name_zh": "威訊通訊",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "BLK": {
+      "name_zh": "貝萊德",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "COP": {
+      "name_zh": "康菲石油",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "MCD": {
+      "name_zh": "麥當勞",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "ABT": {
+      "name_zh": "亞培",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "DE": {
+      "name_zh": "強鹿公司 (Deere)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "UNP": {
+      "name_zh": "聯合太平洋鐵路",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "PFE": {
+      "name_zh": "輝瑞",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "SCCO": {
+      "name_zh": "南方銅業",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "TMUS": {
+      "name_zh": "T-Mobile 美國",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "DHR": {
+      "name_zh": "丹納赫",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "NEE": {
+      "name_zh": "新紀元能源",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "TJX": {
+      "name_zh": "TJX 公司",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "NOW": {
+      "name_zh": "ServiceNow",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "BA": {
+      "name_zh": "波音公司",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "ISRG": {
+      "name_zh": "直覺外科 (達文西)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "T": {
+      "name_zh": "AT&T",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "ACN": {
+      "name_zh": "埃森哲",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "CB": {
+      "name_zh": "安達保險",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "VRTX": {
+      "name_zh": "福泰製藥",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "MPC": {
+      "name_zh": "馬拉松原油",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "SPGI": {
+      "name_zh": "標普全球",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "PGR": {
+      "name_zh": "前進保險",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "FTNT": {
+      "name_zh": "飛塔資訊",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "LMT": {
+      "name_zh": "洛克希德·馬丁",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "VLO": {
+      "name_zh": "瓦萊羅能源",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "BMY": {
+      "name_zh": "必貴寶 (施貴寶)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "NEM": {
+      "name_zh": "紐蒙特黃金",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "PLD": {
+      "name_zh": "普洛斯 (Prologis)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "BKNG": {
+      "name_zh": "Booking 控股",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "MDT": {
+      "name_zh": "美敦力",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "MCK": {
+      "name_zh": "麥克森",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "ADP": {
+      "name_zh": "安德普翰 (ADP)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "PSX": {
+      "name_zh": "菲利普斯66",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "SYK": {
+      "name_zh": "史賽克",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "SBUX": {
+      "name_zh": "星巴克",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "LOW": {
+      "name_zh": "勞氏",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "ENB": {
+      "name_zh": "恩橋公司",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "CME": {
+      "name_zh": "芝商所集團",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "MAR": {
+      "name_zh": "萬豪國際",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "SO": {
+      "name_zh": "南方電力",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "ADBE": {
+      "name_zh": "Adobe",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "FCX": {
+      "name_zh": "自由港麥克莫蘭",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "EQIX": {
+      "name_zh": "易華電腦 (Equinix)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "CEG": {
+      "name_zh": "星座能源",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "DUK": {
+      "name_zh": "杜克能源",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "USB": {
+      "name_zh": "美國合眾銀行",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "WM": {
+      "name_zh": "廢品管理 (Waste Management)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "MNST": {
+      "name_zh": "怪獸飲料 (Monster)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "CDNS": {
+      "name_zh": "益華電腦",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "INTU": {
+      "name_zh": "直覺電腦",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "WMB": {
+      "name_zh": "威廉斯公司",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "ICE": {
+      "name_zh": "洲際交易所",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "SNPS": {
+      "name_zh": "新思科技",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "MCO": {
+      "name_zh": "穆迪評級",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "TRV": {
+      "name_zh": "旅行者保險",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "REGN": {
+      "name_zh": "再生元製藥",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "EOG": {
+      "name_zh": "EOG 能源",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "AMT": {
+      "name_zh": "美國電塔",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "SHW": {
+      "name_zh": "宣偉塗料",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "HLT": {
+      "name_zh": "希爾頓酒店",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "ECL": {
+      "name_zh": "藝康集團",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "MDLZ": {
+      "name_zh": "億滋國際",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "EPD": {
+      "name_zh": "企業產品合夥",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "ITW": {
+      "name_zh": "伊利諾工具",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "CMCSA": {
+      "name_zh": "康卡斯特",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "SLB": {
+      "name_zh": "斯倫貝謝",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "KMI": {
+      "name_zh": "金德摩根",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "ROST": {
+      "name_zh": "羅斯百貨",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "UPS": {
+      "name_zh": "優比速",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "CL": {
+      "name_zh": "高露潔-棕欖",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "CNI": {
+      "name_zh": "加拿大國家鐵路",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "ORLY": {
+      "name_zh": "奧萊利汽車",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "AEP": {
+      "name_zh": "美國電力",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "TGT": {
+      "name_zh": "目標百貨 (Target)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "HON": {
+      "name_zh": "漢威聯合",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "APD": {
+      "name_zh": "空氣化工",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "GM": {
+      "name_zh": "通用汽車",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "SPG": {
+      "name_zh": "西蒙地產",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "AJG": {
+      "name_zh": "亞瑟加拉格爾",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "COR": {
+      "name_zh": "信卡拉 (前美源伯根)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "MET": {
+      "name_zh": "大都會人壽",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "ALL": {
+      "name_zh": "全州保險",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "OXY": {
+      "name_zh": "西方石油",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "AON": {
+      "name_zh": "怡安集團",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "TDG": {
+      "name_zh": "天寶集團 (TransDigm)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "TEL": {
+      "name_zh": "泰科電子",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "AFL": {
+      "name_zh": "美國家庭人壽",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "NKE": {
+      "name_zh": "耐吉",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "BKR": {
+      "name_zh": "貝克休斯",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "D": {
+      "name_zh": "多明尼昂資源",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "EBAY": {
+      "name_zh": "eBay",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "SRE": {
+      "name_zh": "桑普拉能源",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "BDX": {
+      "name_zh": "碧迪醫療",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "O": {
+      "name_zh": "Realty Income",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "VEEV": {
+      "name_zh": "維瓦系統 (Veeva)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "AZO": {
+      "name_zh": "汽車地帶 (AutoZone)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "ADSK": {
+      "name_zh": "歐特克",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "WDAY": {
+      "name_zh": "Workday",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "F": {
+      "name_zh": "福特汽車",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "MSCI": {
+      "name_zh": "明晟 (MSCI)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "AIG": {
+      "name_zh": "美國國際集團",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "ILMN": {
+      "name_zh": "因美納",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "YUM": {
+      "name_zh": "百勝餐飲",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "LYV": {
+      "name_zh": "理想國演藝",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "PAYX": {
+      "name_zh": "培沛客 (Paychex)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "PRU": {
+      "name_zh": "保德信金融",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "TTWO": {
+      "name_zh": "Take-Two 互動",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "ADM": {
+      "name_zh": "阿徹丹尼爾斯米德蘭",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "CMG": {
+      "name_zh": "奇波雷墨西哥燒烤",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "KMB": {
+      "name_zh": "金百利克拉克",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "RMD": {
+      "name_zh": "瑞思邁",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "VMC": {
+      "name_zh": "瓦爾肯建材",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "HSY": {
+      "name_zh": "好時公司",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "ZTS": {
+      "name_zh": "碩騰 (Zoetis)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "MLM": {
+      "name_zh": "馬丁瑪麗埃塔",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "DXCM": {
+      "name_zh": "德康醫療",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "HAL": {
+      "name_zh": "哈里伯頓",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "KHC": {
+      "name_zh": "卡夫亨氏",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "OTIS": {
+      "name_zh": "奧的斯電梯",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "AWK": {
+      "name_zh": "美國水務",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "LH": {
+      "name_zh": "來博科",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "TW": {
+      "name_zh": "Tradeweb 市場",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "CPRT": {
+      "name_zh": "科帕特 (Copart)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "VICI": {
+      "name_zh": "維奇房產 (VICI)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "VRSK": {
+      "name_zh": "威瑞斯克",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "CHD": {
+      "name_zh": "巧手先生 (Church & Dwight)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "XYL": {
+      "name_zh": "賽萊默 (Xylem)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "IFF": {
+      "name_zh": "國際香精香料",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "DOW": {
+      "name_zh": "陶氏化學",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "STE": {
+      "name_zh": "思泰瑞醫療",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "EFX": {
+      "name_zh": "艾可飛 (Equifax)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "BR": {
+      "name_zh": "寬嶺金融",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "DD": {
+      "name_zh": "杜邦公司",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "ZBH": {
+      "name_zh": "捷邁邦美",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "GIS": {
+      "name_zh": "通用磨坊",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "FICO": {
+      "name_zh": "費埃哲 (FICO)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "TSCO": {
+      "name_zh": "拖拉機供應",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "ROL": {
+      "name_zh": "羅林斯 (Rollins)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "TYL": {
+      "name_zh": "泰勒科技",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "TRU": {
+      "name_zh": "全聯徵信 (TransUnion)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "CSGP": {
+      "name_zh": "科斯塔集團",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "GGG": {
+      "name_zh": "固瑞克 (Graco)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "TKO": {
+      "name_zh": "TKO 控股 (WWE/UFC)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "RPM": {
+      "name_zh": "RPM 國際",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "MKC": {
+      "name_zh": "味好美",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "FMS": {
+      "name_zh": "費森尤斯醫藥",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "FDS": {
+      "name_zh": "輝盛研究 (FactSet)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "LULU": {
+      "name_zh": "露露檸檬",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "SCI": {
+      "name_zh": "Service Corp (安儀)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "HII": {
+      "name_zh": "亨廷頓英格爾斯",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "ALGN": {
+      "name_zh": "愛齊科技 (隱適美)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "RRX": {
+      "name_zh": "雷諾德 (Regal Rexnord)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "DCI": {
+      "name_zh": "唐納森",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "CLX": {
+      "name_zh": "高樂氏",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "HSBC": {
+      "name_zh": "匯豐控股",
+      "source": "HKEX_dual_list"
+    },
+    "BABA": {
+      "name_zh": "阿里巴巴",
+      "source": "HKEX_dual_list"
+    },
+    "NTES": {
+      "name_zh": "網易",
+      "source": "HKEX_dual_list"
+    },
+    "MFC": {
+      "name_zh": "宏利金融",
+      "source": "HKEX_dual_list"
+    },
+    "ONC": {
+      "name_zh": "百濟神州",
+      "source": "HKEX_dual_list"
+    },
+    "JD": {
+      "name_zh": "京東集團",
+      "source": "HKEX_dual_list"
+    },
+    "PUK": {
+      "name_zh": "保誠",
+      "source": "HKEX_dual_list"
+    },
+    "BIDU": {
+      "name_zh": "百度集團",
+      "source": "HKEX_dual_list"
+    },
+    "TCOM": {
+      "name_zh": "攜程集團",
+      "source": "HKEX_dual_list"
+    },
+    "YUMC": {
+      "name_zh": "百勝中國",
+      "source": "HKEX_dual_list"
+    },
+    "ZTO": {
+      "name_zh": "中通快遞",
+      "source": "HKEX_dual_list"
+    },
+    "HTHT": {
+      "name_zh": "華住集團",
+      "source": "HKEX_dual_list"
+    },
+    "TME": {
+      "name_zh": "騰訊音樂",
+      "source": "HKEX_dual_list"
+    },
+    "LI": {
+      "name_zh": "理想汽車",
+      "source": "HKEX_dual_list"
+    },
+    "EA": {
+      "name_zh": "美商藝電公司",
+      "source": "description_zh_full_market"
+    },
+    "WBD": {
+      "name_zh": "華納兄弟探索公司",
+      "source": "description_zh_full_market"
+    },
+    "BRK.B": {
+      "name_zh": "波克夏海瑟威",
+      "source": "description_zh_full_market"
+    },
+    "A": {
+      "name_zh": "惠普公司",
+      "source": "description_zh_us_companies"
+    },
+    "ALB": {
+      "name_zh": "雅保公司",
+      "source": "description_zh_us_companies"
+    },
+    "AVY": {
+      "name_zh": "艾利丹尼森公司",
+      "source": "description_zh_us_companies"
+    },
+    "BBDO": {
+      "name_zh": "巴西布拉德斯科銀行",
+      "source": "description_zh_us_companies"
+    },
+    "BEKE": {
+      "name_zh": "貝殼控股",
+      "source": "description_zh_us_companies"
+    },
+    "BX": {
+      "name_zh": "博瀚",
+      "source": "description_zh_us_companies"
+    },
+    "CAH": {
+      "name_zh": "康德樂股份有限公司",
+      "source": "description_zh_us_companies"
+    },
+    "CG": {
+      "name_zh": "凱雷投資集團",
+      "source": "description_zh_us_companies"
+    },
+    "CHT": {
+      "name_zh": "中華電信股份有限公司",
+      "source": "description_zh_us_companies"
+    },
+    "DEO": {
+      "name_zh": "帝亞吉歐",
+      "source": "description_zh_us_companies"
+    },
+    "ETN": {
+      "name_zh": "伊頓公司",
+      "source": "description_zh_us_companies"
+    },
+    "FHN": {
+      "name_zh": "第一地平線公司",
+      "source": "description_zh_us_companies"
+    },
+    "H": {
+      "name_zh": "凱悅酒店集團",
+      "source": "description_zh_us_companies"
+    },
+    "HAS": {
+      "name_zh": "孩之寶",
+      "source": "description_zh_us_companies"
+    },
+    "IP": {
+      "name_zh": "國際紙業",
+      "source": "description_zh_us_companies"
+    },
+    "IR": {
+      "name_zh": "英格索蘭",
+      "source": "description_zh_us_companies"
+    },
+    "IVZ": {
+      "name_zh": "景順集團",
+      "source": "description_zh_us_companies"
+    },
+    "IX": {
+      "name_zh": "歐力士集團",
+      "source": "description_zh_us_companies"
+    },
+    "JBL": {
+      "name_zh": "捷普公司",
+      "source": "description_zh_us_companies"
+    },
+    "JLL": {
+      "name_zh": "瓊斯朗蘇",
+      "source": "description_zh_us_companies"
+    },
+    "KEP": {
+      "name_zh": "韓國電力公社",
+      "source": "description_zh_us_companies"
+    },
+    "KEYS": {
+      "name_zh": "是德科技",
+      "source": "description_zh_us_companies"
+    },
+    "KGC": {
+      "name_zh": "金羅斯金礦公司",
+      "source": "description_zh_us_companies"
+    },
+    "LECO": {
+      "name_zh": "林肯電氣控股公司",
+      "source": "description_zh_us_companies"
+    },
+    "LOGI": {
+      "name_zh": "羅技國際",
+      "source": "description_zh_us_companies"
+    },
+    "LSCC": {
+      "name_zh": "萊迪思半導體",
+      "source": "description_zh_us_companies"
+    },
+    "LUV": {
+      "name_zh": "西南航空",
+      "source": "description_zh_us_companies"
+    },
+    "LVS": {
+      "name_zh": "拉斯維加斯金沙集團",
+      "source": "description_zh_us_companies"
+    },
+    "MFG": {
+      "name_zh": "瑞穗金融集團",
+      "source": "description_zh_us_companies"
+    },
+    "MUFG": {
+      "name_zh": "三菱日聯金融集團",
+      "source": "description_zh_us_companies"
+    },
+    "NDAQ": {
+      "name_zh": "那斯達克公司",
+      "source": "description_zh_us_companies"
+    },
+    "NGG": {
+      "name_zh": "英國國家電網公司",
+      "source": "description_zh_us_companies"
+    },
+    "NMR": {
+      "name_zh": "野村控股",
+      "source": "description_zh_us_companies"
+    },
+    "NOC": {
+      "name_zh": "諾斯羅普·格魯曼公司",
+      "source": "description_zh_us_companies"
+    },
+    "NOK": {
+      "name_zh": "諾基亞",
+      "source": "description_zh_us_companies"
+    },
+    "NSC": {
+      "name_zh": "諾福克南方公司",
+      "source": "description_zh_us_companies"
+    },
+    "NVO": {
+      "name_zh": "諾和諾德",
+      "source": "description_zh_us_companies"
+    },
+    "NVS": {
+      "name_zh": "諾華",
+      "source": "description_zh_us_companies"
+    },
+    "NWS": {
+      "name_zh": "新聞集團",
+      "source": "description_zh_us_companies"
+    },
+    "NWSA": {
+      "name_zh": "新聞集團",
+      "source": "description_zh_us_companies"
+    },
+    "NXPI": {
+      "name_zh": "恩智浦半導體",
+      "source": "description_zh_us_companies"
+    },
+    "NYT": {
+      "name_zh": "紐約時報公司",
+      "source": "description_zh_us_companies"
+    },
+    "ON": {
+      "name_zh": "安森美半導體",
+      "source": "description_zh_us_companies"
+    },
+    "OWL": {
+      "name_zh": "藍鳥資本",
+      "source": "description_zh_us_companies"
+    },
+    "PAAS": {
+      "name_zh": "泛美銀礦公司",
+      "source": "description_zh_us_companies"
+    },
+    "PAC": {
+      "name_zh": "太平洋機場集團",
+      "source": "description_zh_us_companies"
+    },
+    "PBA": {
+      "name_zh": "磐達管線公司",
+      "source": "description_zh_us_companies"
+    },
+    "PBR": {
+      "name_zh": "巴西國家石油公司",
+      "source": "description_zh_us_companies"
+    },
+    "PEG": {
+      "name_zh": "公共事業企業集團股份有限公司",
+      "source": "description_zh_us_companies"
+    },
+    "PFG": {
+      "name_zh": "美國保德信金融集團",
+      "source": "description_zh_us_companies"
+    },
+    "PFH": {
+      "name_zh": "保德信金融集團",
+      "source": "description_zh_us_companies"
+    },
+    "PHG": {
+      "name_zh": "皇家飛利浦",
+      "source": "description_zh_us_companies"
+    },
+    "PS": {
+      "name_zh": "柏林廣場股份有限公司",
+      "source": "description_zh_us_companies"
+    },
+    "PSO": {
+      "name_zh": "皮爾森",
+      "source": "description_zh_us_companies"
+    },
+    "RCL": {
+      "name_zh": "皇家加勒比郵輪公司",
+      "source": "description_zh_us_companies"
+    },
+    "RGA": {
+      "name_zh": "再保險集團股份有限公司",
+      "source": "description_zh_us_companies"
+    },
+    "RIO": {
+      "name_zh": "力拓集團",
+      "source": "description_zh_us_companies"
+    },
+    "RNR": {
+      "name_zh": "隆堡控股有限公司",
+      "source": "description_zh_us_companies"
+    },
+    "ROK": {
+      "name_zh": "洛克威爾自動化公司",
+      "source": "description_zh_us_companies"
+    },
+    "RTO": {
+      "name_zh": "力高國際",
+      "source": "description_zh_us_companies"
+    },
+    "RY": {
+      "name_zh": "皇家銀行",
+      "source": "description_zh_us_companies"
+    },
+    "RYAAY": {
+      "name_zh": "瑞安航空控股公司",
+      "source": "description_zh_us_companies"
+    },
+    "SBS": {
+      "name_zh": "聖保羅州基礎環保公司",
+      "source": "description_zh_us_companies"
+    },
+    "SCHW": {
+      "name_zh": "嘉信金融集團",
+      "source": "description_zh_us_companies"
+    },
+    "SHEL": {
+      "name_zh": "殼牌公司",
+      "source": "description_zh_us_companies"
+    },
+    "SHG": {
+      "name_zh": "新韓金融集團",
+      "source": "description_zh_us_companies"
+    },
+    "SLF": {
+      "name_zh": "永明金融",
+      "source": "description_zh_us_companies"
+    },
+    "SMCIP": {
+      "name_zh": "美超微電腦股份有限公司",
+      "source": "description_zh_us_companies"
+    },
+    "SMFG": {
+      "name_zh": "住友三井金融集團",
+      "source": "description_zh_us_companies"
+    },
+    "SNY": {
+      "name_zh": "賽諾菲",
+      "source": "description_zh_us_companies"
+    },
+    "SOJC": {
+      "name_zh": "南方公司",
+      "source": "description_zh_us_companies"
+    },
+    "SOJD": {
+      "name_zh": "南方公司",
+      "source": "description_zh_us_companies"
+    },
+    "SOJE": {
+      "name_zh": "南方公司",
+      "source": "description_zh_us_companies"
+    },
+    "SOMN": {
+      "name_zh": "南方公司",
+      "source": "description_zh_us_companies"
+    },
+    "SQM": {
+      "name_zh": "智利化工礦業公司",
+      "source": "description_zh_us_companies"
+    },
+    "SREA": {
+      "name_zh": "森普拉能源",
+      "source": "description_zh_us_companies"
+    },
+    "STM": {
+      "name_zh": "意法半導體",
+      "source": "description_zh_us_companies"
+    },
+    "STX": {
+      "name_zh": "希捷科技",
+      "source": "description_zh_us_companies"
+    },
+    "SU": {
+      "name_zh": "盛諾能源",
+      "source": "description_zh_us_companies"
+    },
+    "SWK": {
+      "name_zh": "史丹利百得公司",
+      "source": "description_zh_us_companies"
+    },
+    "TAK": {
+      "name_zh": "武田藥品工業株式會社",
+      "source": "description_zh_us_companies"
+    },
+    "TECK": {
+      "name_zh": "泰克資源有限公司",
+      "source": "description_zh_us_companies"
+    },
+    "TER": {
+      "name_zh": "泰瑞達",
+      "source": "description_zh_us_companies"
+    },
+    "TM": {
+      "name_zh": "豐田汽車公司",
+      "source": "description_zh_us_companies"
+    },
+    "TPL": {
+      "name_zh": "德州太平洋土地公司",
+      "source": "description_zh_us_companies"
+    },
+    "TRI": {
+      "name_zh": "湯森路透",
+      "source": "description_zh_us_companies"
+    },
+    "TSN": {
+      "name_zh": "泰森食品",
+      "source": "description_zh_us_companies"
+    },
+    "TXRH": {
+      "name_zh": "德州牛排館公司",
+      "source": "description_zh_us_companies"
+    },
+    "UAL": {
+      "name_zh": "聯合航空控股公司",
+      "source": "description_zh_us_companies"
+    },
+    "UBS": {
+      "name_zh": "瑞銀集團",
+      "source": "description_zh_us_companies"
+    },
+    "UHS": {
+      "name_zh": "環球醫療保健服務公司",
+      "source": "description_zh_us_companies"
+    },
+    "UL": {
+      "name_zh": "聯合利華",
+      "source": "description_zh_us_companies"
+    },
+    "UMC": {
+      "name_zh": "聯華電子股份有限公司",
+      "source": "description_zh_us_companies"
+    },
+    "UTHR": {
+      "name_zh": "聯合治療公司",
+      "source": "description_zh_us_companies"
+    },
+    "VALE": {
+      "name_zh": "力拓公司",
+      "source": "description_zh_us_companies"
+    },
+    "VOD": {
+      "name_zh": "和記電訊國際股份有限公司",
+      "source": "description_zh_us_companies"
+    },
+    "WAB": {
+      "name_zh": "威斯汀豪斯空氣煞車技術公司",
+      "source": "description_zh_us_companies"
+    },
+    "WMG": {
+      "name_zh": "華納音樂集團",
+      "source": "description_zh_us_companies"
+    },
+    "WPM": {
+      "name_zh": "惠頓貴金屬公司",
+      "source": "description_zh_us_companies"
+    }
+  }
+}
