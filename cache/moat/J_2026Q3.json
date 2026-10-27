@@ -1,0 +1,60 @@
+{
+  "ticker": "J",
+  "period": "2026Q3",
+  "m1_brand_pricing": {
+    "score": 5,
+    "comment_zh": "Jacobs Solutions 在工程與建築領域擁有一定的品牌聲譽，但其品牌定價權相對有限。公司主要服務於政府和企業客戶，項目合同通常基於成本加成或固定價格，而非品牌溢價。雖然其在特定專業領域（如航空航天、建築）的專業知識是其價值的一部分，但這更多體現為技術能力而非強勢品牌。與消費品行業的品牌不同，其品牌價值難以轉化為顯著的價格優勢，尤其是在面對大型公共項目招標時，價格競爭依然激烈。因此，其品牌在護城河維度上僅能給予中等分數。",
+    "comment_en": "Jacobs Solutions possesses a certain brand reputation in the engineering and construction sector, but its brand pricing power is relatively limited. The company primarily serves government and corporate clients, with project contracts typically based on cost-plus or fixed prices rather than brand premiums. While its expertise in specific specialized fields (like aerospace, construction) is part of its value, this reflects technical capability more than a strong brand. Unlike brands in consumer goods, its brand value is difficult to translate into significant pricing advantages, especially when facing bids for large public projects where price competition remains intense. Therefore, its brand can only be assigned a moderate score in terms of moat."
+  },
+  "m2_patents_regulatory": {
+    "score": 4,
+    "comment_zh": "Jacobs Solutions 的業務模式高度依賴專業技術知識和項目執行能力，而非專利保護。雖然在某些工程技術或設計方面可能擁有專利，但這些專利通常不構成其核心競爭壁壘。其業務的監管環境相對複雜，尤其是在涉及公共基礎設施和政府項目時，需要符合嚴格的行業標準和法規。然而，這些監管要求更多的是進入門檻，而非能產生持續競爭優勢的專利壁壘。相較於製藥或科技公司，其專利和監管壁壘的強度較弱，難以形成持久的護城河。",
+    "comment_en": "Jacobs Solutions' business model relies heavily on specialized technical knowledge and project execution capabilities, rather than patent protection. While it may hold patents in certain engineering technologies or designs, these patents generally do not constitute its core competitive barrier. The regulatory environment for its business is relatively complex, especially when involving public infrastructure and government projects, requiring compliance with strict industry standards and regulations. However, these regulatory requirements act more as entry barriers than patent barriers that can generate sustained competitive advantages. Compared to pharmaceutical or technology companies, the strength of its patents and regulatory barriers is weaker, making it difficult to form a durable moat."
+  },
+  "m3_high_switching_costs": {
+    "score": 7,
+    "comment_zh": "Jacobs Solutions 的客戶在更換工程與建築服務供應商時，面臨較高的轉換成本。這主要體現在項目複雜性、長期合作關係以及對供應商專業知識和信任的依賴。一旦客戶與 Jacobs 建立起合作關係，並深入了解其技術能力和項目管理流程，更換供應商將涉及重新評估、培訓、項目延遲以及潛在的質量風險。尤其是在大型、長期的基礎設施項目中，這種依賴性更加明顯。因此，客戶轉換的成本相對較高，為公司提供了一定的護城河。",
+    "comment_en": "Jacobs Solutions' clients face relatively high switching costs when changing engineering and construction service providers. This is mainly reflected in project complexity, long-term relationships, and reliance on the supplier's expertise and trust. Once a client establishes a working relationship with Jacobs and gains a deep understanding of its technical capabilities and project management processes, changing suppliers would involve re-evaluation, training, project delays, and potential quality risks. This dependency is particularly evident in large, long-term infrastructure projects. Consequently, the cost of client switching is relatively high, providing the company with a certain moat."
+  },
+  "m4_network_effects": {
+    "score": 2,
+    "comment_zh": "Jacobs Solutions 的業務模式幾乎不存在網絡效應。其服務是高度定制化的，主要基於項目本身的獨特性和客戶需求。公司與客戶之間的關係是點對點的，一個客戶的參與並不會直接增加其他客戶的價值，反之亦然。雖然公司在行業內的聲譽和過往項目經驗有助於吸引新客戶，但這並非典型的網絡效應。其業務的增長更多依賴於市場擴張、項目獲取能力和技術創新，而非用戶基數的擴大帶來的價值遞增。因此，網絡效應在此幾乎為零。",
+    "comment_en": "Jacobs Solutions' business model exhibits virtually no network effects. Its services are highly customized, primarily based on the uniqueness of the project itself and client needs. The relationship between the company and its clients is point-to-point; the participation of one client does not directly increase the value for other clients, and vice versa. While the company's reputation within the industry and past project experience help attract new clients, this is not a typical network effect. Its growth relies more on market expansion, project acquisition capabilities, and technological innovation, rather than value accretion from an expanding user base. Therefore, network effects are almost non-existent here."
+  },
+  "m5_cost_advantage_scale": {
+    "score": 6,
+    "comment_zh": "Jacobs Solutions 作為一家大型工程與建築服務公司，在規模經濟方面具有一定的優勢。其龐大的營運規模有助於在採購、資源調配和項目管理上實現效率提升，從而降低單位成本。大型項目能夠攤薄固定成本，並可能獲得更好的供應商條款。然而，工程與建築行業的利潤率普遍不高，且項目執行成本受材料、勞動力和複雜性影響較大，規模優勢的轉化能力相對有限。與某些製造業或平台型企業相比，其規模帶來的成本優勢並非壓倒性的。",
+    "comment_en": "As a large engineering and construction services company, Jacobs Solutions possesses certain advantages in economies of scale. Its vast operational scale helps achieve efficiency improvements in procurement, resource allocation, and project management, thereby reducing unit costs. Large projects can spread fixed costs and potentially secure better supplier terms. However, the profit margins in the engineering and construction industry are generally not high, and project execution costs are significantly influenced by materials, labor, and complexity, limiting the transformative power of scale advantages. Compared to certain manufacturing or platform companies, the cost advantage derived from its scale is not overwhelming."
+  },
+  "m6_unique_geography_assets": {
+    "score": 3,
+    "comment_zh": "Jacobs Solutions 的業務遍及全球，但其核心競爭力在於專業技術和項目管理能力，而非特定地理位置的獨特資產。雖然公司可能在某些地區擁有重要的項目經驗或客戶關係，但這些資產的獨特性和不可複製性相對較低。工程與建築服務的本質使其難以形成類似礦產或房地產那樣的地理資產壁壘。其全球佈局更多是為了獲取項目機會，而非依賴於某個特定地點的稀缺性。因此，在這一維度上，其護城河較弱。",
+    "comment_en": "Jacobs Solutions operates globally, but its core competitiveness lies in its specialized technology and project management capabilities, rather than unique assets in specific geographic locations. While the company may possess significant project experience or client relationships in certain regions, the uniqueness and irreproducibility of these assets are relatively low. The nature of engineering and construction services makes it difficult to form geographic asset barriers similar to those found in mining or real estate. Its global presence is more about capturing project opportunities than relying on the scarcity of a particular location. Therefore, its moat in this dimension is weak."
+  },
+  "m7_operational_efficiency": {
+    "score": 7,
+    "comment_zh": "Jacobs Solutions 在營運效率方面展現出較強的能力，這得益於其在複雜項目管理、流程優化和技術應用方面的經驗。公司持續投入於提升項目執行效率，通過數字化工具和精益管理方法來控制成本、縮短週期並確保質量。其較高的 ROE 和 ROA（儘管 ROA 相對較低）以及穩定的自由現金流（FCF TTM $644.5M）也側面印證了其營運效率。在工程與建築行業中，高效的項目交付能力是關鍵的競爭優勢，為公司構建了堅實的護城河。",
+    "comment_en": "Jacobs Solutions demonstrates strong operational efficiency, benefiting from its experience in complex project management, process optimization, and technology application. The company continuously invests in improving project execution efficiency, utilizing digital tools and lean management methods to control costs, shorten cycles, and ensure quality. Its relatively high ROE and ROA (although ROA is comparatively lower) along with stable free cash flow (FCF TTM $644.5M) also indirectly support its operational efficiency. In the engineering and construction industry, efficient project delivery capability is a key competitive advantage, forming a solid moat for the company."
+  },
+  "m8_capital_allocation": {
+    "score": 6,
+    "comment_zh": "Jacobs Solutions 的資本配置能力表現尚可，但有提升空間。公司在有機增長、戰略收購和股東回報之間進行權衡。其現金儲備相對充足，但債務水平也較高，這限制了其進一步擴張或進行大規模資本支出的靈活性。近年來，公司在剝離非核心業務和聚焦核心工程服務方面有所動作，顯示出一定的戰略調整。然而，相較於巴菲特所欣賞的那些能夠持續產生高額資本回報並明智進行再投資的公司，其資本配置的精準度和效率還有待加強。",
+    "comment_en": "Jacobs Solutions' capital allocation capabilities are acceptable, but there is room for improvement. The company balances organic growth, strategic acquisitions, and shareholder returns. Its cash reserves are relatively ample, but its debt level is also high, limiting its flexibility for further expansion or large-scale capital expenditures. In recent years, the company has taken steps to divest non-core businesses and focus on core engineering services, indicating some strategic adjustments. However, compared to companies that Warren Buffett admires for their ability to consistently generate high capital returns and make wise reinvestments, the precision and efficiency of its capital allocation need further strengthening."
+  },
+  "m9_customer_retention": {
+    "score": 7,
+    "comment_zh": "Jacobs Solutions 在客戶留存方面表現良好，這主要歸功於其專業技術的深度、項目執行的可靠性以及與客戶建立的長期合作關係。在工程與建築領域，項目週期長且複雜，客戶傾向於與信譽良好、經驗豐富的供應商維持長期合作，以降低風險和確保項目成功。Jacobs 在關鍵領域的專業知識和解決複雜問題的能力，使其成為客戶的首選夥伴。這種基於信任和績效的客戶關係，有效提高了客戶的忠誠度和留存率，構成了其重要的護城河。",
+    "comment_en": "Jacobs Solutions performs well in customer retention, largely due to the depth of its specialized expertise, reliability in project execution, and the long-term partnerships it has established with clients. In the engineering and construction sector, projects are long and complex, leading clients to prefer maintaining long-term relationships with reputable and experienced suppliers to mitigate risks and ensure project success. Jacobs' expertise in critical areas and its ability to solve complex problems make it a preferred partner for its clients. This client relationship, based on trust and performance, effectively enhances customer loyalty and retention rates, forming a significant moat for the company."
+  },
+  "m10_durability": {
+    "score": 6,
+    "comment_zh": "Jacobs Solutions 的業務具有一定的週期性和對宏觀經濟的敏感性，這影響了其長期穩定性。雖然其服務於基礎設施、航空航天等相對穩定的領域，但經濟下行時，政府和企業的投資意願可能下降，影響項目獲取。然而，其在關鍵基礎設施和政府項目中的角色，以及長期合同的性質，為其業務提供了一定的韌性。相較於完全的特許經營權或具有強大網絡效應的企業，其業務的持久性屬於中等水平，面臨一定的外部風險。",
+    "comment_en": "Jacobs Solutions' business is somewhat cyclical and sensitive to macroeconomic conditions, which affects its long-term stability. Although it serves relatively stable sectors like infrastructure and aerospace, economic downturns can reduce the investment appetite of governments and corporations, impacting project acquisition. However, its role in critical infrastructure and government projects, along with the nature of long-term contracts, provides a degree of resilience to its business. Compared to pure franchises or businesses with strong network effects, the durability of its operations is at a moderate level, facing certain external risks."
+  },
+  "overall_moat_verdict_zh": "Jacobs Solutions 在工程與建築領域展現出中等偏上的經濟護城河。其核心優勢在於客戶轉換成本高、營運效率和客戶留存能力，這些構成了其主要的競爭壁壘。然而，其品牌定價權、專利壁壘相對較弱，且幾乎無網絡效應。規模經濟和業務的持久性提供了一定的支持，但並非壓倒性優勢。整體而言，Jacobs 類似於一個提供專業服務的「收費橋」，客戶因其專業性和項目複雜性而依賴它，但其護城河的深度和廣度不及擁有強大品牌或網絡效應的企業。",
+  "overall_moat_verdict_en": "Jacobs Solutions exhibits an above-average economic moat in the engineering and construction sector. Its core strengths lie in high customer switching costs, operational efficiency, and customer retention capabilities, which form its primary competitive barriers. However, its brand pricing power and patent barriers are relatively weak, and it possesses virtually no network effects. Economies of scale and business durability offer some support but are not overwhelming advantages. Overall, Jacobs resembles a 'toll bridge' providing specialized services, where clients depend on its expertise and project complexity, but the depth and breadth of its moat do not match companies with strong brands or network effects.",
+  "evidenceHash": "859232ae9de98447e67d9b57912f3f4f3c618bed774c6e68dec265f1dce86ad1",
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
+}

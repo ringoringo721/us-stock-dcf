@@ -4,6 +4,9 @@ name: Full remoat batch (Lite + Buffett-v3)
 # Production persist: HK core via Refresh HKEX allowlist commit; HK expansion via
 # this workflow (hk-expansion → hkex_expansion_data.js); US baseline via daily commit;
 # US expansion via integrate into us_expansion_data.js on main.
+# US expansion persist is durable: re-integrate the us-data-output checkpoint onto
+# latest origin/main (ticker-level merge) instead of git rebase of the JS blob —
+# avoids CONFLICT when main moved (Z/M, names, excludes) during a long remoat.
 # Spec: gemini-2.5-flash-lite, buffett-moat-v3, ZH comment_zh 100–300 繁中字.
 # Order: HK core ≥ HKD 5B first, then HK expansion incomplete (separate concurrency),
 # then US baseline, then US expansion.
@@ -412,19 +415,78 @@ jobs:
       - name: Persist US expansion remoat
         if: steps.batch.outputs.symbols != ''
         run: |
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git restore --source=HEAD --worktree --staged -- \
-            build_full_market.py scripts/buffett_moat_v3.py scripts/remoat_remaining.py \
-            scripts/build_us_expansion.cjs scripts/expansion_financial_models.cjs || true
-          git reset --quiet HEAD
+          if [ ! -d us-data-output ] || [ ! -f us-data-output/manifest.json ]; then
+            echo "::error::Missing us-data-output checkpoint; cannot durable-persist"
+            exit 1
+          fi
+          # Keep the remoat checkpoint; discard any stale integrate against the pre-fetch tip.
+          # Re-apply integrate + moat caches onto latest main so concurrent catalogue
+          # edits (Z/M, ZH names, excludes) never fight a blind rebase of us_expansion_data.js.
+          git fetch origin main
+          git reset --hard origin/main
+          if [ "${{ github.ref }}" != "refs/heads/main" ]; then
+            git fetch origin "${{ github.ref }}"
+            for path in \
+              scripts/build_us_expansion.cjs \
+              scripts/expansion_financial_models.cjs \
+              scripts/distress_score_fields.cjs
+            do
+              if git cat-file -e "FETCH_HEAD:$path" 2>/dev/null; then
+                git show "FETCH_HEAD:$path" > "$path"
+              fi
+            done
+          fi
+          # Financial snapshots used by ingest/distress live under repo cache/; copy from checkpoint.
+          mkdir -p cache/financials
+          if [ -d us-data-output/cache/financials ]; then
+            cp -a us-data-output/cache/financials/. cache/financials/
+          fi
+          node scripts/build_us_expansion.cjs integrate us-data-output .
+          node scripts/build_us_expansion.cjs write-moat-caches us-data-output .
           git add us_expansion_data.js
           git add -f cache/us_companies/ cache/moat/ cache/financials/ || true
-          if ! git diff --cached --quiet; then
-            git commit -m "US expansion moat remoat batch (Lite Buffett-v3) [skip ci]"
-            git reset --hard HEAD
-            git pull --rebase origin main
-            git push origin HEAD:main
-          else
+          if git diff --cached --quiet; then
             echo "No US expansion data changes."
+            exit 0
           fi
+          git commit -m "US expansion moat remoat batch (Lite Buffett-v3) [skip ci]"
+          # Push with short retries if another bot commit landed between fetch and push.
+          for attempt in 1 2 3; do
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "::warning::Push rejected (attempt ${attempt}); re-integrate onto newer main"
+            git fetch origin main
+            git reset --hard origin/main
+            if [ "${{ github.ref }}" != "refs/heads/main" ]; then
+              git fetch origin "${{ github.ref }}"
+              for path in \
+                scripts/build_us_expansion.cjs \
+                scripts/expansion_financial_models.cjs \
+                scripts/distress_score_fields.cjs
+              do
+                if git cat-file -e "FETCH_HEAD:$path" 2>/dev/null; then
+                  git show "FETCH_HEAD:$path" > "$path"
+                fi
+              done
+            fi
+            mkdir -p cache/financials
+            if [ -d us-data-output/cache/financials ]; then
+              cp -a us-data-output/cache/financials/. cache/financials/
+            fi
+            node scripts/build_us_expansion.cjs integrate us-data-output .
+            node scripts/build_us_expansion.cjs write-moat-caches us-data-output .
+            git add us_expansion_data.js
+            git add -f cache/us_companies/ cache/moat/ cache/financials/ || true
+            if git diff --cached --quiet; then
+              echo "No US expansion data changes after re-integrate."
+              exit 0
+            fi
+            git commit -m "US expansion moat remoat batch (Lite Buffett-v3) [skip ci]"
+            sleep $((attempt * 2))
+          done
+          echo "::error::Failed to push US expansion remoat after retries"
+          exit 1

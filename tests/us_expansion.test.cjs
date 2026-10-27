@@ -5,7 +5,9 @@ const os = require('node:os');
 const path = require('node:path');
 const vm = require('node:vm');
 const universe = require('../us_universe.js');
-const { needsMoatRecovery, ingest, packageResults, integrate } = require('../scripts/build_us_expansion.cjs');
+const {
+  needsMoatRecovery, ingest, packageResults, integrate, writeMoatCaches
+} = require('../scripts/build_us_expansion.cjs');
 const root = path.resolve(__dirname, '..');
 
 test('US listings merge keeps the reviewed baseline and marks uncaptured names pending', () => {
@@ -38,27 +40,38 @@ test('shipped US universe+expansion merge is baseline+catalogue (not market_data
   const merged = context.UsUniverse.merge(context.FULL_MARKET_DATA, context.US_LISTINGS, context.US_EXPANSION);
   const keys = Object.keys(merged);
   assert.equal(baseline, 230);
-  assert.equal(expansion, 739); // 738 available + AEFC unavailable
-  assert.equal(context.US_LISTINGS.stocks.length, 965);
-  assert.equal(keys.length, 982);
+  // After NOTES/preferred + TBB excludes: 723 available + AEFC unavailable.
+  assert.equal(expansion, 724);
+  assert.equal(context.US_LISTINGS.stocks.length, 950);
+  assert.equal(keys.length, 967);
   assert.ok(keys.length > baseline, 'frontpage must not stay on sync market_data.js alone');
   let expansionWithMoat = 0;
   for (const ticker of Object.keys(context.US_EXPANSION.stocks)) {
     if (!context.FULL_MARKET_DATA[ticker] && merged[ticker]?.moat) expansionWithMoat++;
   }
-  assert.equal(expansionWithMoat, 738);
+  assert.equal(expansionWithMoat, 723);
   assert.equal(context.US_EXPANSION.stocks.AEFC?.expansion?.status, 'unavailable');
 });
 
 test('incomplete US moat recovery refuses invented or partial scores', () => {
   assert.equal(needsMoatRecovery(null), true);
   assert.equal(needsMoatRecovery({ ratingSources: { moat: { reason: 'analysisUnavailable' } } }), true);
+  const zh = '繁體護城河評分註解用以通過字數門檻測試用字串補滿到足夠長度並確認回收邏輯。'.repeat(4);
   const stock = {
-    ratingSources: { moat: { evidenceHash: 'same', currentEvidenceHash: 'same', updatedAt: '2026-10-20T00:00:00Z' } },
+    ratingSources: {
+      moat: {
+        evidenceHash: 'same',
+        currentEvidenceHash: 'same',
+        updatedAt: '2026-10-20T00:00:00Z',
+        assessmentPolicy: 'buffett-moat-v3'
+      }
+    },
     moat: Object.fromEntries(Array.from({ length: 10 }, (_, i) =>
-      [`m${i + 1}_test`, { score: 8, comment_zh: '有據評分。', comment_en: 'Evidence-based.' }]))
+      [`m${i + 1}_test`, { score: 8, comment_zh: zh, comment_en: 'Evidence-based Traditional Chinese comment.' }]))
   };
-  stock.moat.overall_moat_verdict_zh = stock.moat.overall_moat_verdict_en = 'Evidence-based.';
+  stock.moat.assessmentPolicy = 'buffett-moat-v3';
+  stock.moat.overall_moat_verdict_zh = zh;
+  stock.moat.overall_moat_verdict_en = 'Evidence-based.';
   assert.equal(needsMoatRecovery(stock), false);
   stock.moat.m1_test.score = 5;
   stock.moat.m1_test.comment_zh = '';
@@ -161,6 +174,52 @@ test('ingest records skipped tickers as unavailable without aborting available p
   } finally {
     fs.writeFileSync(cataloguePath, previous);
   }
+});
+
+test('writeMoatCaches materializes period-stamped cache/moat JSON from company records', () => {
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'us-moat-cache-'));
+  const out = fs.mkdtempSync(path.join(os.tmpdir(), 'us-moat-out-'));
+  const dim = (score) => ({
+    score,
+    comment_zh: '測'.repeat(120),
+    comment_en: 'x'.repeat(40)
+  });
+  const moat = {
+    ticker: 'ZZZZ',
+    period: '2026Q2',
+    assessmentPolicy: 'buffett-moat-v3',
+    model: 'gemini-2.5-flash-lite',
+    m1_brand_pricing: dim(5),
+    m2_patents_regulatory: dim(5),
+    m3_high_switching_costs: dim(5),
+    m4_network_effects: dim(5),
+    m5_cost_advantage_scale: dim(5),
+    m6_unique_geography_assets: dim(5),
+    m7_operational_efficiency: dim(5),
+    m8_capital_allocation: dim(5),
+    m9_customer_retention: dim(5),
+    m10_durability: dim(5),
+    overall_moat_verdict_zh: '護'.repeat(40),
+    overall_moat_verdict_en: 'verdict'
+  };
+  fs.mkdirSync(path.join(tmp, 'cache', 'us_companies'), { recursive: true });
+  fs.writeFileSync(path.join(tmp, 'cache', 'us_companies', 'ZZZZ.json'), JSON.stringify({
+    version: 1,
+    ticker: 'ZZZZ',
+    stock: {
+      ticker: 'ZZZZ',
+      calculationCurrency: 'USD',
+      moat,
+      ratingSources: { moat: { reason: null, assessmentPolicy: 'buffett-moat-v3' } }
+    },
+    snapshot: null
+  }));
+  const written = writeMoatCaches(tmp, out);
+  assert.deepEqual(written, ['cache/moat/ZZZZ_2026Q2.json']);
+  const cached = JSON.parse(fs.readFileSync(path.join(out, 'cache', 'moat', 'ZZZZ_2026Q2.json'), 'utf8'));
+  assert.equal(cached.assessmentPolicy, 'buffett-moat-v3');
+  assert.equal(cached.m1_brand_pricing.score, 5);
+  assert.equal(cached.m1_brand_pricing.comment_zh.length, 120);
 });
 
 test('browser helper rejects HK tickers for US lazy loads', async () => {

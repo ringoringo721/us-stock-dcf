@@ -315,6 +315,39 @@ function integrate(input, output = root) {
   return Object.keys(expansion.stocks).length;
 }
 
+/**
+ * Materialize cache/moat/{TICKER}_{period}.json from packaged company records.
+ * Remoat backlog scoring prefers these caches (ZH comments intact). Persist must
+ * rewrite them after a hard reset onto latest main — they are not inside us-data-output
+ * alone when only integrate ran against an older tip.
+ */
+function writeMoatCaches(input, output = root) {
+  const companiesDir = path.join(input, 'cache', 'us_companies');
+  if (!fs.existsSync(companiesDir)) {
+    throw new Error(`Missing ${companiesDir}; run ingest/package before write-moat-caches`);
+  }
+  const moatDir = path.join(output, 'cache', 'moat');
+  fs.mkdirSync(moatDir, { recursive: true });
+  const written = [];
+  for (const name of fs.readdirSync(companiesDir).sort()) {
+    if (!name.endsWith('.json')) continue;
+    const record = read(path.join(companiesDir, name));
+    const stock = record?.stock;
+    const moat = stock?.moat;
+    if (!stock?.ticker || !moat || typeof moat !== 'object') continue;
+    if (stock.ratingSources?.moat?.reason) continue;
+    const dimensions = Object.entries(moat).filter(([key]) => /^m\d+_/.test(key));
+    if (dimensions.length !== 10) continue;
+    const period = String(moat.period || 'unknown');
+    const safePeriod = period.replace(/[^A-Za-z0-9._-]+/g, '_');
+    const payload = { ...moat, ticker: stock.ticker, period };
+    const target = path.join(moatDir, `${stock.ticker}_${safePeriod}.json`);
+    fs.writeFileSync(target, `${JSON.stringify(payload, null, 2)}\n`);
+    written.push(path.relative(output, target));
+  }
+  return written;
+}
+
 if (require.main === module) {
   const [command, input, output, reportsFile] = process.argv.slice(2);
   if (command === 'matrix') {
@@ -326,7 +359,12 @@ if (require.main === module) {
   } else if (command === 'package') packageResults(input);
   else if (command === 'integrate') {
     console.log(`Integrated ${integrate(input, output)} additional US company outcomes without replacing reviewed stocks.`);
-  } else throw new Error('Expected matrix, ingest, package or integrate');
+  } else if (command === 'write-moat-caches') {
+    const written = writeMoatCaches(input, output || root);
+    console.log(`Wrote ${written.length} US moat cache file(s).`);
+  } else throw new Error('Expected matrix, ingest, package, integrate or write-moat-caches');
 }
 
-module.exports = { matrix, ingest, packageResults, integrate, needsMoatRecovery, listingStock };
+module.exports = {
+  matrix, ingest, packageResults, integrate, writeMoatCaches, needsMoatRecovery, listingStock
+};

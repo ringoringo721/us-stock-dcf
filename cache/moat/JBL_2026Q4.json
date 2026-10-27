@@ -1,0 +1,60 @@
+{
+  "ticker": "JBL",
+  "period": "2026Q4",
+  "m1_brand_pricing": {
+    "score": 3,
+    "comment_zh": "Jabil 作為一家電子製造服務 (EMS) 公司，其品牌價值主要體現在可靠性與效率上，而非消費者端的品牌忠誠度。客戶選擇 Jabil 是基於其技術能力、生產規模和成本效益，而非品牌偏好。因此，Jabil 在品牌定價權方面壁壘極弱，難以像消費品牌那樣收取溢價。其商業模式是為客戶提供製造解決方案，利潤率受行業競爭和客戶議價能力的高度影響，缺乏獨立的品牌定價能力。",
+    "comment_en": "Jabil, as an Electronic Manufacturing Services (EMS) company, derives its brand value from reliability and efficiency rather than consumer-facing brand loyalty. Customers choose Jabil based on its technical capabilities, production scale, and cost-effectiveness, not brand preference. Consequently, Jabil has a very weak barrier in brand pricing power, making it difficult to charge premiums like consumer brands. Its business model is to provide manufacturing solutions to clients, with profit margins highly influenced by industry competition and customer bargaining power, lacking independent brand pricing ability."
+  },
+  "m2_patents_regulatory": {
+    "score": 2,
+    "comment_zh": "Jabil 的業務模式是為客戶提供製造服務，其核心競爭力在於生產流程的優化、供應鏈管理和技術整合能力，而非擁有獨特的專利或受到嚴格的監管保護。雖然其在某些製造技術上可能擁有專利，但這些專利通常是為特定客戶的產品服務，且易被模仿或被其他技術替代。監管壁壘對其業務影響不大，這意味著其專利和監管方面的護城河非常薄弱，難以形成持久的競爭優勢。",
+    "comment_en": "Jabil's business model involves providing manufacturing services to clients. Its core competitiveness lies in optimizing production processes, supply chain management, and technological integration, rather than owning unique patents or being protected by stringent regulations. While it may hold patents in certain manufacturing technologies, these are typically for specific client products and are easily imitated or superseded by other technologies. Regulatory barriers have minimal impact on its business, indicating a very weak moat in patents and regulatory aspects, making it difficult to form a sustainable competitive advantage."
+  },
+  "m3_high_switching_costs": {
+    "score": 6,
+    "comment_zh": "對於 Jabil 的客戶而言，更換供應商的成本相對較高。這涉及到重新設計、驗證生產流程、供應鏈重塑以及潛在的生產中斷風險。特別是對於高度客製化和複雜的電子產品，轉換成本會顯著增加。然而，由於 EMS 產業的競爭激烈，客戶仍有選擇其他供應商的空間，因此轉換成本雖有一定程度的保護，但並非不可逾越的壁壘，屬於中等水平的護城河。",
+    "comment_en": "For Jabil's customers, the cost of switching suppliers is relatively high. This involves redesign, validation of production processes, supply chain restructuring, and potential risks of production disruption. Especially for highly customized and complex electronic products, the switching costs increase significantly. However, due to intense competition in the EMS industry, customers still have options to choose other suppliers. Therefore, while switching costs offer a degree of protection, they are not insurmountable barriers, representing a moderate level of moat."
+  },
+  "m4_network_effects": {
+    "score": 1,
+    "comment_zh": "Jabil 的業務模式不具備網絡效應的特徵。其價值主要來自於為單一客戶提供製造服務，而非通過用戶之間的互動來增加價值。客戶選擇 Jabil 是基於其服務能力和成本，而非其他用戶的使用情況。因此，網絡效應幾乎不存在，這意味著 Jabil 在這方面沒有任何經濟護城河可言。",
+    "comment_en": "Jabil's business model does not exhibit characteristics of network effects. Its value primarily comes from providing manufacturing services to individual clients, rather than increasing value through user interactions. Customers choose Jabil based on its service capabilities and cost, not on the usage patterns of other users. Therefore, network effects are virtually non-existent, meaning Jabil has no economic moat in this regard."
+  },
+  "m5_cost_advantage_scale": {
+    "score": 8,
+    "comment_zh": "Jabil 作為全球領先的電子製造服務商之一，其龐大的生產規模帶來了顯著的成本優勢。透過規模經濟，Jabil 能夠在採購原材料、優化生產流程、物流運輸等方面獲得更低的單位成本。這種規模優勢使其能夠為客戶提供更具競爭力的價格，並在與規模較小的競爭對手相比時，擁有較強的議價能力。這是其重要的護城河之一。",
+    "comment_en": "As one of the world's leading electronic manufacturing service providers, Jabil's vast production scale provides a significant cost advantage. Through economies of scale, Jabil can achieve lower unit costs in raw material procurement, production process optimization, and logistics. This scale advantage allows it to offer more competitive pricing to its clients and possess stronger bargaining power compared to smaller competitors. This is one of its important moats."
+  },
+  "m6_unique_geography_assets": {
+    "score": 4,
+    "comment_zh": "Jabil 在全球範圍內擁有廣泛的生產基地和供應鏈網絡，這使其能夠靈活地服務不同地區的客戶，並在供應鏈中尋找成本和效率的最佳組合。然而，這些地理資產並非獨一無二，許多競爭對手也擁有類似的全球佈局。因此，雖然其全球網絡帶來了一定的運營效率和彈性，但其獨特性和壁壘強度相對有限，屬於中等偏弱的護城河。",
+    "comment_en": "Jabil possesses an extensive network of manufacturing facilities and supply chains globally, enabling it to flexibly serve clients in different regions and optimize for cost and efficiency within the supply chain. However, these geographical assets are not unique, as many competitors also have similar global footprints. Therefore, while its global network offers certain operational efficiencies and flexibility, its uniqueness and barrier strength are relatively limited, representing a moderately weak moat."
+  },
+  "m7_operational_efficiency": {
+    "score": 8,
+    "comment_zh": "Jabil 在營運效率方面表現出色，這得益於其長期的行業經驗、對生產流程的持續優化以及先進的製造技術應用。公司能夠有效地管理複雜的供應鏈，精準控制生產節奏，並快速響應客戶需求。高 ROE (64.6%) 和 ROA (3.8%) 反映了其卓越的營運能力和盈利效率。這種持續的營運優勢構成了其堅實的護城河。",
+    "comment_en": "Jabil demonstrates excellent operational efficiency, stemming from its long industry experience, continuous optimization of production processes, and application of advanced manufacturing technologies. The company effectively manages complex supply chains, precisely controls production rhythms, and responds rapidly to customer demands. High ROE (64.6%) and ROA (3.8%) reflect its outstanding operational capabilities and profitability efficiency. This sustained operational advantage forms a solid moat."
+  },
+  "m8_capital_allocation": {
+    "score": 7,
+    "comment_zh": "Jabil 的資本配置能力體現在其穩健的財務狀況（現金對負債比率合理）和持續的自由現金流生成能力（FCF TTM $1,723.0M）。公司能夠有效地將資本投入到擴大產能、技術升級和戰略收購中，以支持業務增長。雖然其資本配置策略旨在提升股東價值，但相較於擁有獨特商業模式或強大品牌的公司，其資本配置的護城河強度相對較弱，屬於堅固但非罕見的水平。",
+    "comment_en": "Jabil's capital allocation capability is reflected in its sound financial position (reasonable cash-to-debt ratio) and consistent free cash flow generation (FCF TTM $1,723.0M). The company effectively invests capital in expanding production capacity, technological upgrades, and strategic acquisitions to support business growth. While its capital allocation strategy aims to enhance shareholder value, its moat strength in capital allocation is relatively weaker compared to companies with unique business models or strong brands, falling into the solid but not rare category."
+  },
+  "m9_customer_retention": {
+    "score": 6,
+    "comment_zh": "Jabil 通過提供高質量的製造服務、可靠的交付和技術支持，與客戶建立了穩定的合作關係，從而實現了較高的客戶留存率。對於大型、複雜的項目，客戶傾向於與熟悉的供應商 Jabil 保持長期合作，以降低風險和確保生產連續性。然而，EMS 行業的競爭依然激烈，客戶仍可能尋求性價比更高的替代方案，因此客戶留存的壁壘屬於中等水平。",
+    "comment_en": "Jabil achieves a relatively high customer retention rate by providing high-quality manufacturing services, reliable delivery, and technical support, fostering stable partnerships. For large, complex projects, clients tend to maintain long-term cooperation with familiar suppliers like Jabil to mitigate risks and ensure production continuity. However, competition in the EMS industry remains fierce, and customers may still seek more cost-effective alternatives. Therefore, the barrier for customer retention is at a moderate level."
+  },
+  "m10_durability": {
+    "score": 7,
+    "comment_zh": "Jabil 的業務模式具有一定的持久性，因為電子產品的製造外包趨勢仍在持續，特別是對於複雜的電子設備。其在全球範圍內的規模化生產能力和運營效率使其能夠適應市場變化，並在行業整合中保持競爭力。然而，科技行業的快速變革和潛在的顛覆性技術可能對其長期穩定性構成挑戰。總體而言，其業務模式的持久性較強，屬於堅固的護城河。",
+    "comment_en": "Jabil's business model possesses a degree of durability, as the trend of outsourcing electronic product manufacturing continues, especially for complex electronic devices. Its global-scale production capabilities and operational efficiency enable it to adapt to market changes and remain competitive amidst industry consolidation. However, rapid technological shifts and potential disruptive innovations in the tech sector could pose challenges to its long-term stability. Overall, the durability of its business model is strong, representing a solid moat."
+  },
+  "overall_moat_verdict_zh": "Jabil 作為一家領先的電子製造服務 (EMS) 公司，其護城河主要建立在規模經濟和卓越的營運效率之上。龐大的生產規模帶來了成本優勢，而精湛的生產流程管理和供應鏈優化則保證了服務的可靠性與效率。客戶轉換成本和一定的客戶留存率提供了中等程度的保護。然而，Jabil 缺乏強大的品牌定價權、專利壁壘和網絡效應，使其難以形成類似特許經營權的持久優勢。其商業模式更接近於一種高效的「收費橋」，依賴於規模和效率來獲取利潤，而非獨特的產品或服務。",
+  "overall_moat_verdict_en": "Jabil, as a leading Electronic Manufacturing Services (EMS) company, builds its moat primarily on economies of scale and excellent operational efficiency. Its vast production scale provides cost advantages, while sophisticated production process management and supply chain optimization ensure service reliability and efficiency. Customer switching costs and a degree of customer retention offer moderate protection. However, Jabil lacks strong brand pricing power, patent barriers, and network effects, making it difficult to form a durable advantage akin to a franchise. Its business model is more akin to an efficient 'toll bridge,' relying on scale and efficiency for profits rather than unique products or services.",
+  "evidenceHash": "65b3095e2abf275cac001e86f5df87b417fca88656b51dcb33550798bb465c7a",
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
+}
