@@ -146,6 +146,27 @@
     return (Array.isArray(data.qualityWarnings) ? data.qualityWarnings : [])
       .some(row => row?.code === 'providerStatementUnavailable') || empty;
   }
+  function edgarOverwriteWarnings(source) {
+    const lists = [];
+    if (Array.isArray(source)) lists.push(source);
+    else if (source && typeof source === 'object') {
+      if (Array.isArray(source.qualityWarnings)) lists.push(source.qualityWarnings);
+      if (Array.isArray(source.statements)) lists.push(source.statements);
+      if (Array.isArray(source.stock)) lists.push(source.stock);
+      if (Array.isArray(source.statements_raw?.qualityWarnings)) lists.push(source.statements_raw.qualityWarnings);
+    }
+    return lists.flat().filter(row => row?.code === 'edgarCompanyfactsOverwrite');
+  }
+  function edgarSourceBadge(source, language = 'en') {
+    const rows = edgarOverwriteWarnings(source);
+    if (!rows.length) return '';
+    const fields = [...new Set(rows.map(row => row.field).filter(Boolean))];
+    const dates = [...new Set(rows.map(row => row.date).filter(Boolean))];
+    if (language === 'en') {
+      return `SEC EDGAR companyfacts overwrite applied (${fields.join(', ') || 'key lines'}; ${dates.length} period(s)). Original FMP values kept in audit metadata; no invented figures.`;
+    }
+    return `已由 SEC EDGAR companyfacts 覆寫（${fields.join('、') || '關鍵列'}；${dates.length} 個期間）。FMP 原值保留於稽核中繼資料；未虛構數字。`;
+  }
   function renderProvenance(panel, data, ticker) {
     if (!panel || !data) return;
     let details = panel.querySelector('[data-financial-provenance]');
@@ -183,5 +204,5 @@
   return { market, currency, resolve, stocks, fcff, currencyFor, compatibleSaved, cadence, label, labels, localize,
     propertyFvNote, qualityWarningList, hasDatedStatementColumns, statementsUnavailable,
     statementsUnavailableMessage, statementsUnavailableShortMessage, statementsPackUnavailable,
-    renderProvenance };
+    edgarOverwriteWarnings, edgarSourceBadge, renderProvenance };
 });

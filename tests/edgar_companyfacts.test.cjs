@@ -1,0 +1,119 @@
+'use strict';
+
+const { test } = require('node:test');
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+const {
+  isUsTicker,
+  normalizeCik,
+  resolveCik,
+  companyfactsUrl,
+  requireUserAgent,
+  inspectStatements,
+  applyOverwrites,
+  summarizeFindings,
+  deriveFreeCashFlow,
+  differs
+} = require('../scripts/edgar_companyfacts.cjs');
+
+const fixture = JSON.parse(fs.readFileSync(
+  path.join(__dirname, 'fixtures', 'aapl_companyfacts_sample.json'), 'utf8'));
+
+const sampleStatements = {
+  annual: {
+    income: [{
+      date: '2025-09-27', symbol: 'AAPL', cik: '0000320193', fiscalYear: '2025', period: 'FY',
+      revenue: 416161000000, netIncome: 112010000000, weightedAverageShsOutDil: 15004697000
+    }, {
+      date: '2024-09-28', symbol: 'AAPL', cik: '0000320193', fiscalYear: '2024', period: 'FY',
+      revenue: 391035000000, netIncome: 93736000000, weightedAverageShsOutDil: 15108780000
+    }],
+    cashflow: [{
+      date: '2025-09-27', symbol: 'AAPL', cik: '0000320193', fiscalYear: '2025', period: 'FY',
+      operatingCashFlow: 111482000000, capitalExpenditure: -12715000000, freeCashFlow: 98767000000
+    }]
+  },
+  quarterly: { income: [], balance: [], cashflow: [] }
+};
+
+test('US gate and CIK helpers reject HK and zero CIKs', () => {
+  assert.equal(isUsTicker('AAPL'), true);
+  assert.equal(isUsTicker('0700.HK'), false);
+  assert.equal(normalizeCik('320193'), '0000320193');
+  assert.equal(normalizeCik('0000000000'), null);
+  assert.equal(resolveCik(sampleStatements), '0000320193');
+  assert.equal(companyfactsUrl('320193'), 'https://data.sec.gov/api/xbrl/companyfacts/CIK0000320193.json');
+  assert.throws(() => requireUserAgent('Mozilla/5.0'), /SEC_USER_AGENT/);
+  assert.equal(requireUserAgent('Example Research contact@example.com'), 'Example Research contact@example.com');
+});
+
+test('FCF derivation and mismatch tolerance', () => {
+  assert.equal(deriveFreeCashFlow(100, -20), 80);
+  assert.equal(deriveFreeCashFlow(100, 20), 80);
+  assert.equal(deriveFreeCashFlow(100, null), null);
+  assert.equal(differs(100, 101, { toleranceRatio: 0.02, toleranceAbs: 0 }), false);
+  assert.equal(differs(100, 110, { toleranceRatio: 0.02, toleranceAbs: 0 }), true);
+});
+
+test('inspect agrees on FY2025 and flags FY2024 revenue mismatch from fixture', () => {
+  const findings = inspectStatements(sampleStatements, fixture, {
+    fields: ['revenue', 'netIncome', 'operatingCashFlow', 'weightedAverageShsOutDil', 'freeCashFlow'],
+    toleranceRatio: 0.02,
+    toleranceAbs: 1e6
+  });
+  const fy25Rev = findings.find(row => row.field === 'revenue' && row.date === '2025-09-27');
+  const fy24Rev = findings.find(row => row.field === 'revenue' && row.date === '2024-09-28');
+  const fy25Fcf = findings.find(row => row.field === 'freeCashFlow' && row.date === '2025-09-27');
+  assert.equal(fy25Rev.trigger, 'agree');
+  assert.equal(fy24Rev.trigger, 'fmpEdgarMismatch');
+  assert.equal(fy24Rev.action, 'overwrite');
+  assert.equal(fy25Fcf.trigger, 'agree');
+  const summary = summarizeFindings(findings);
+  assert.ok(summary.overwrite >= 1);
+});
+
+test('applyOverwrites writes EDGAR values and Traditional Chinese qualityWarnings without inventing', () => {
+  const findings = inspectStatements(sampleStatements, fixture, {
+    fields: ['revenue', 'netIncome', 'operatingCashFlow', 'weightedAverageShsOutDil', 'freeCashFlow']
+  });
+  const { statements, applied, qualityWarnings } = applyOverwrites(sampleStatements, findings, {
+    cik: '0000320193', language: 'zh'
+  });
+  assert.ok(applied.length >= 1);
+  const fy24 = statements.annual.income.find(row => row.date === '2024-09-28');
+  assert.equal(fy24.revenue, findings.find(row => row.date === '2024-09-28' && row.field === 'revenue').edgarValue);
+  assert.ok(fy24.edgarCorrection.revenue);
+  assert.ok(qualityWarnings.some(row => row.code === 'edgarCompanyfactsOverwrite'
+    && /SEC EDGAR companyfacts/.test(row.message)));
+  // Missing EDGAR concept must not invent a number
+  const sparse = {
+    annual: {
+      income: [{ date: '2020-01-01', fiscalYear: '2020', period: 'FY', revenue: null, netIncome: null }],
+      cashflow: []
+    },
+    quarterly: { income: [], balance: [], cashflow: [] }
+  };
+  const emptyFindings = inspectStatements(sparse, { facts: { 'us-gaap': {} } }, {
+    fields: ['revenue', 'netIncome']
+  });
+  assert.ok(emptyFindings.every(row => row.action === 'none' && row.edgarValue == null));
+  const untouched = applyOverwrites(sparse, emptyFindings);
+  assert.equal(untouched.applied.length, 0);
+  assert.equal(untouched.statements.annual.income[0].revenue, null);
+});
+
+test('verify CLI dry-run with fixture does not write', async () => {
+  const { spawnSync } = require('node:child_process');
+  const root = path.join(__dirname, '..');
+  const result = spawnSync(process.execPath, [
+    path.join(root, 'scripts', 'verify_us_statements_edgar.cjs'),
+    '--ticker', 'AAPL',
+    '--facts', path.join(root, 'tests', 'fixtures', 'aapl_companyfacts_sample.json')
+  ], { encoding: 'utf8', cwd: root });
+  assert.equal(result.status, 0, result.stderr);
+  const report = JSON.parse(result.stdout);
+  assert.equal(report.ticker, 'AAPL');
+  assert.equal(report.write, false);
+  assert.ok(report.summary.total > 0);
+});
