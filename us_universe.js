@@ -10,7 +10,8 @@
   // Keep in sync with scripts/import_us_universe.py is_excluded_security:
   // debt NOTES / preferred notes / NYSE -P* preferred share classes are not common equity.
   const PREFERRED_OR_NOTE_SYMBOL = /^[A-Z][A-Z0-9]*-P[A-Z]?$/;
-  const DEBT_NOTE_NAME = /\b(?:Notes?|Junior\s+Subordinated|Income\s+Capital\s+Obligations|Subordinated\s+Debentures?|Debentures?)\b/i;
+  // Include abbreviated exchange titles such as "GLB NTS" (Global Notes), e.g. TBB.
+  const DEBT_NOTE_NAME = /\b(?:Notes?|NTS|Junior\s+Subordinated|Income\s+Capital\s+Obligations|Subordinated\s+Debentures?|Debentures?)\b/i;
   const PREFERRED_NAME = /\b(?:Preferred(?:\s+Stock)?|Pref\.?|Pfd\.?|Cum\.?\s+Pfd|Perp(?:etual)?\.?\s+Pfd)\b/i;
 
   function isCommonEquityListing(item) {

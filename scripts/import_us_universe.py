@@ -45,8 +45,9 @@ def normalize_exchange(value: str | None) -> str | None:
 # NYSE/NASDAQ preferred & exchange-traded note share classes (e.g. MER-PK, CTA-PA).
 # Dual-class commons use other letters (BRK-A, BF-B) and are kept.
 PREFERRED_OR_NOTE_SYMBOL = re.compile(r"^[A-Z][A-Z0-9]*-P[A-Z]?$")
+# Include abbreviated exchange titles such as "GLB NTS" (Global Notes), e.g. TBB.
 DEBT_NOTE_NAME = re.compile(
-    r"\b(?:Notes?|Junior\s+Subordinated|Income\s+Capital\s+Obligations|"
+    r"\b(?:Notes?|NTS|Junior\s+Subordinated|Income\s+Capital\s+Obligations|"
     r"Subordinated\s+Debentures?|Debentures?)\b",
     re.I,
 )
@@ -199,6 +200,7 @@ def write_catalogue(path: Path, stocks: list[dict], excluded: dict, retrieved_at
             "marketCapMoreThanUsd": MIN_MARKET_CAP,
             "isActivelyTrading": True,
             "excludeEtfsAndFunds": True,
+            "excludeDebtNotesAndPreferred": True,
         },
         "source": {
             "provider": "Financial Modeling Prep company/stock screener",
