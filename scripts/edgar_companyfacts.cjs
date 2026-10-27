@@ -97,6 +97,29 @@ function periodToken(row) {
   return period || null;
 }
 
+function durationDays(entry) {
+  if (!entry?.start || !entry?.end) return null;
+  const startMs = Date.parse(String(entry.start).slice(0, 10));
+  const endMs = Date.parse(String(entry.end).slice(0, 10));
+  if (!Number.isFinite(startMs) || !Number.isFinite(endMs) || endMs < startMs) return null;
+  return Math.round((endMs - startMs) / 86400000);
+}
+
+/** Expected XBRL duration window for an FMP statement period. Rejects YTD/cumulative when matching quarters. */
+function expectedDurationRange(fp) {
+  if (fp === 'FY') return { min: 300, max: 400, allowMissingStart: true };
+  if (/^Q[1-4]$/.test(fp)) return { min: 70, max: 110, allowMissingStart: false };
+  return null;
+}
+
+function durationCompatible(entry, fp) {
+  const expected = expectedDurationRange(fp);
+  if (!expected) return true;
+  const days = durationDays(entry);
+  if (days == null) return expected.allowMissingStart;
+  return days >= expected.min && days <= expected.max;
+}
+
 function unitEntries(companyfacts, concept) {
   const node = companyfacts?.facts?.['us-gaap']?.[concept]
     || companyfacts?.facts?.dei?.[concept];
@@ -105,6 +128,18 @@ function unitEntries(companyfacts, concept) {
   return Array.isArray(preferred) ? preferred : [];
 }
 
+function hasFactsForEnd(entries, end) {
+  const target = String(end || '').slice(0, 10);
+  return Array.isArray(entries) && entries.some(entry => String(entry?.end || '').slice(0, 10) === target
+    && Number.isFinite(Number(entry?.val)));
+}
+
+/**
+ * Match a companyfacts unit entry to an FMP statement row.
+ * Requires the same period end; prefers fy/fp; for duration facts requires
+ * quarter-length (~90d) for Q1–Q4 and year-length (~365d) for FY so YTD/cumulative
+ * values are never compared to single-quarter FMP rows.
+ */
 function matchFact(entries, row, { formPrefer = ['10-K', '10-Q'] } = {}) {
   if (!Array.isArray(entries) || !entries.length || !row?.date) return null;
   const end = String(row.date).slice(0, 10);
@@ -112,37 +147,53 @@ function matchFact(entries, row, { formPrefer = ['10-K', '10-Q'] } = {}) {
   const fp = periodToken(row);
   const scored = entries
     .filter(entry => entry && Number.isFinite(Number(entry.val)))
+    .filter(entry => String(entry.end || '').slice(0, 10) === end)
+    .filter(entry => {
+      if (!fp || !entry.fp) return true;
+      return String(entry.fp).toUpperCase() === fp;
+    })
+    .filter(entry => durationCompatible(entry, fp))
     .map(entry => {
-      let score = 0;
-      if (String(entry.end || '').slice(0, 10) === end) score += 8;
+      let score = 10; // exact end already required
       if (fy && String(entry.fy) === fy) score += 3;
       if (fp && String(entry.fp || '').toUpperCase() === fp) score += 3;
       if (formPrefer.includes(String(entry.form || ''))) score += 1;
-      return { entry, score };
+      if (entry.frame) score += 1; // framed single-period facts preferred over unlabeled duplicates
+      const days = durationDays(entry);
+      if (fp && /^Q[1-4]$/.test(fp) && days != null && days >= 70 && days <= 110) score += 2;
+      if (fp === 'FY' && days != null && days >= 300) score += 2;
+      return { entry, score, days };
     })
-    .filter(item => item.score >= 8 || (item.score >= 6 && String(item.entry.end || '').slice(0, 10) === end))
-    .sort((a, b) => b.score - a.score || String(b.entry.filed || '').localeCompare(String(a.entry.filed || '')));
+    .sort((a, b) => b.score - a.score
+      || (a.days ?? 1e9) - (b.days ?? 1e9) // prefer tighter/shorter compatible duration
+      || String(b.entry.filed || '').localeCompare(String(a.entry.filed || '')));
   return scored[0]?.entry || null;
 }
 
 function pickConceptValue(companyfacts, field, row) {
   const concepts = CONCEPT_CANDIDATES[field] || [];
+  let sawEndMatch = false;
   for (const concept of concepts) {
-    const entry = matchFact(unitEntries(companyfacts, concept), row);
+    const entries = unitEntries(companyfacts, concept);
+    if (hasFactsForEnd(entries, row?.date)) sawEndMatch = true;
+    const entry = matchFact(entries, row);
     if (entry) {
       return {
         concept,
         value: Number(entry.val),
         end: entry.end,
+        start: entry.start || null,
+        days: durationDays(entry),
         fy: entry.fy,
         fp: entry.fp,
         form: entry.form,
+        frame: entry.frame || null,
         filed: entry.filed,
         accn: entry.accn
       };
     }
   }
-  return null;
+  return { missing: true, periodUnmatched: sawEndMatch };
 }
 
 function finiteNumber(value) {
@@ -187,14 +238,14 @@ function deriveFreeCashFlow(ocf, capex) {
 function compareRowField(row, field, companyfacts, options = {}) {
   const fmpValue = finiteNumber(row?.[field]);
   const picked = pickConceptValue(companyfacts, field, row);
-  if (!picked) {
+  if (!picked || picked.missing) {
     return {
       field,
       date: row?.date || null,
       period: row?.period || null,
       fmpValue,
       edgarValue: null,
-      trigger: fmpValue == null ? 'edgarConceptMissing' : 'edgarConceptMissing',
+      trigger: picked?.periodUnmatched ? 'periodUnmatched' : 'edgarConceptMissing',
       action: 'none'
     };
   }
@@ -202,25 +253,18 @@ function compareRowField(row, field, companyfacts, options = {}) {
   if (field === 'capitalExpenditure') {
     edgarValue = normalizeCapexSign(row?.capitalExpenditure, picked.value);
   }
-  if (isMissing(fmpValue) && edgarValue != null) {
-    return {
-      field, date: row.date, period: row.period, fmpValue, edgarValue,
-      concept: picked.concept, accn: picked.accn, filed: picked.filed,
-      trigger: 'fmpMissingEdgarPresent', action: 'overwrite'
-    };
-  }
-  if (differs(fmpValue, edgarValue, options)) {
-    return {
-      field, date: row.date, period: row.period, fmpValue, edgarValue,
-      concept: picked.concept, accn: picked.accn, filed: picked.filed,
-      trigger: 'fmpEdgarMismatch', action: 'overwrite'
-    };
-  }
-  return {
+  const meta = {
     field, date: row.date, period: row.period, fmpValue, edgarValue,
     concept: picked.concept, accn: picked.accn, filed: picked.filed,
-    trigger: 'agree', action: 'none'
+    start: picked.start, days: picked.days, frame: picked.frame, fp: picked.fp, fy: picked.fy
   };
+  if (isMissing(fmpValue) && edgarValue != null) {
+    return { ...meta, trigger: 'fmpMissingEdgarPresent', action: 'overwrite' };
+  }
+  if (differs(fmpValue, edgarValue, options)) {
+    return { ...meta, trigger: 'fmpEdgarMismatch', action: 'overwrite' };
+  }
+  return { ...meta, trigger: 'agree', action: 'none' };
 }
 
 function inspectStatements(statements, companyfacts, options = {}) {
@@ -241,15 +285,20 @@ function inspectStatements(statements, companyfacts, options = {}) {
           const ocfFinding = findings.find(item => item.frequency === frequency && item.type === 'cashflow'
             && item.date === row.date && item.field === 'operatingCashFlow');
           const capexPick = pickConceptValue(companyfacts, 'capitalExpenditure', row);
-          const edgarCapex = capexPick
+          const capexMissing = !capexPick || capexPick.missing;
+          const edgarCapex = !capexMissing
             ? normalizeCapexSign(row.capitalExpenditure, capexPick.value) : null;
           const edgarOcf = ocfFinding?.edgarValue ?? null;
           const edgarFcf = deriveFreeCashFlow(edgarOcf, edgarCapex);
           const fmpFcf = finiteNumber(row.freeCashFlow);
           if (edgarFcf == null) {
+            const periodUnmatched = ocfFinding?.trigger === 'periodUnmatched'
+              || (!!capexPick && capexPick.periodUnmatched);
             findings.push({
               frequency, type, field: 'freeCashFlow', date: row.date, period: row.period,
-              fmpValue: fmpFcf, edgarValue: null, trigger: 'edgarConceptMissing', action: 'none'
+              fmpValue: fmpFcf, edgarValue: null,
+              trigger: periodUnmatched ? 'periodUnmatched' : 'edgarConceptMissing',
+              action: 'none'
             });
           } else if (isMissing(fmpFcf)) {
             findings.push({
@@ -361,6 +410,7 @@ function summarizeFindings(findings) {
     agree: 0,
     overwrite: 0,
     missingConcept: 0,
+    periodUnmatched: 0,
     byTrigger: {}
   };
   for (const item of findings) {
@@ -368,6 +418,7 @@ function summarizeFindings(findings) {
     if (item.trigger === 'agree') summary.agree += 1;
     if (item.action === 'overwrite') summary.overwrite += 1;
     if (item.trigger === 'edgarConceptMissing') summary.missingConcept += 1;
+    if (item.trigger === 'periodUnmatched') summary.periodUnmatched += 1;
   }
   return summary;
 }
@@ -383,6 +434,10 @@ module.exports = {
   companyfactsUrl,
   requireUserAgent,
   fetchCompanyfacts,
+  durationDays,
+  expectedDurationRange,
+  durationCompatible,
+  matchFact,
   pickConceptValue,
   compareRowField,
   inspectStatements,

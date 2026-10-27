@@ -14,11 +14,16 @@ const {
   applyOverwrites,
   summarizeFindings,
   deriveFreeCashFlow,
-  differs
+  differs,
+  matchFact,
+  pickConceptValue,
+  durationDays
 } = require('../scripts/edgar_companyfacts.cjs');
 
 const fixture = JSON.parse(fs.readFileSync(
   path.join(__dirname, 'fixtures', 'aapl_companyfacts_sample.json'), 'utf8'));
+const periodFixture = JSON.parse(fs.readFileSync(
+  path.join(__dirname, 'fixtures', 'aapl_companyfacts_period_alignment.json'), 'utf8'));
 
 const sampleStatements = {
   annual: {
@@ -54,6 +59,73 @@ test('FCF derivation and mismatch tolerance', () => {
   assert.equal(deriveFreeCashFlow(100, null), null);
   assert.equal(differs(100, 101, { toleranceRatio: 0.02, toleranceAbs: 0 }), false);
   assert.equal(differs(100, 110, { toleranceRatio: 0.02, toleranceAbs: 0 }), true);
+});
+
+test('quarter matching prefers ~90-day facts and rejects YTD/cumulative on same end/fp', () => {
+  const revenueUnits = periodFixture.facts['us-gaap']
+    .RevenueFromContractWithCustomerExcludingAssessedTax.units.USD;
+  const q3Row = {
+    date: '2026-06-27', fiscalYear: '2026', period: 'Q3',
+    revenue: 109417000000, netIncome: 29789000000
+  };
+  const matched = matchFact(revenueUnits, q3Row);
+  assert.equal(matched.val, 109417000000);
+  assert.equal(durationDays(matched), 90);
+  assert.notEqual(matched.val, 364357000000);
+
+  const picked = pickConceptValue(periodFixture, 'revenue', q3Row);
+  assert.equal(picked.value, 109417000000);
+  assert.equal(picked.days, 90);
+
+  // FMP Q4 at FY end must not bind the annual/YTD cumulative fact
+  const q4Row = { date: '2025-09-27', fiscalYear: '2025', period: 'Q4', revenue: 102466000000 };
+  const q4Pick = pickConceptValue(periodFixture, 'revenue', q4Row);
+  assert.equal(q4Pick.missing, true);
+  assert.equal(q4Pick.periodUnmatched, true);
+
+  const statements = {
+    annual: {
+      income: [{
+        date: '2025-09-27', fiscalYear: '2025', period: 'FY',
+        revenue: 416161000000, netIncome: 112010000000
+      }],
+      cashflow: [{
+        date: '2025-09-27', fiscalYear: '2025', period: 'FY',
+        operatingCashFlow: 111482000000, capitalExpenditure: -12715000000, freeCashFlow: 98767000000
+      }]
+    },
+    quarterly: {
+      income: [
+        q3Row,
+        { date: '2026-03-28', fiscalYear: '2026', period: 'Q2', revenue: 111184000000, netIncome: 29578000000 },
+        q4Row
+      ],
+      cashflow: [{
+        date: '2026-06-27', fiscalYear: '2026', period: 'Q3',
+        operatingCashFlow: 34369000000, capitalExpenditure: -2455000000, freeCashFlow: 31914000000
+      }]
+    }
+  };
+  const findings = inspectStatements(statements, periodFixture, {
+    fields: ['revenue', 'netIncome', 'operatingCashFlow', 'freeCashFlow']
+  });
+  const q3Rev = findings.find(row => row.field === 'revenue' && row.date === '2026-06-27');
+  const q3Ni = findings.find(row => row.field === 'netIncome' && row.date === '2026-06-27');
+  const q2Rev = findings.find(row => row.field === 'revenue' && row.date === '2026-03-28');
+  const q4Rev = findings.find(row => row.field === 'revenue' && row.date === '2025-09-27' && row.frequency === 'quarterly');
+  const q3Ocf = findings.find(row => row.field === 'operatingCashFlow' && row.date === '2026-06-27');
+  const fyRev = findings.find(row => row.field === 'revenue' && row.date === '2025-09-27' && row.frequency === 'annual');
+
+  assert.equal(q3Rev.trigger, 'agree');
+  assert.equal(q3Rev.edgarValue, 109417000000);
+  assert.equal(q3Ni.trigger, 'agree');
+  assert.equal(q2Rev.trigger, 'agree');
+  assert.equal(q2Rev.edgarValue, 111184000000);
+  assert.equal(q4Rev.trigger, 'periodUnmatched');
+  assert.equal(q4Rev.action, 'none');
+  assert.equal(q3Ocf.trigger, 'periodUnmatched'); // only YTD OCF present in fixture
+  assert.equal(fyRev.trigger, 'agree');
+  assert.equal(summarizeFindings(findings).overwrite, 0);
 });
 
 test('inspect agrees on FY2025 and flags FY2024 revenue mismatch from fixture', () => {
