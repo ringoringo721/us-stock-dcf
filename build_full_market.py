@@ -1792,7 +1792,16 @@ def main():
         stmt_cashflow = {}
         for f, is_ratio in cashflow_fields:
             s_data = extract_series(cf_5y, f, is_ratio)
-            s_data.append(get_ttm_val(cf_latest_4q, f, is_sum=True, is_ratio_or_per_share=is_ratio))
+            # Cash stock balances are point-in-time, not flows: never sum across quarters.
+            # cf_latest_4q is newest-first, so TTM end = Q0 and TTM begin = oldest of the window.
+            if f == "cashAtEndOfPeriod":
+                s_data.append(get_ttm_val(cf_latest_4q, f, is_sum=False, is_ratio_or_per_share=is_ratio))
+            elif f == "cashAtBeginningOfPeriod":
+                oldest = cf_latest_4q[min(3, len(cf_latest_4q) - 1)] if cf_latest_4q else None
+                s_data.append(get_ttm_val([oldest] if oldest else [], f, is_sum=False,
+                                          is_ratio_or_per_share=is_ratio))
+            else:
+                s_data.append(get_ttm_val(cf_latest_4q, f, is_sum=True, is_ratio_or_per_share=is_ratio))
             stmt_cashflow[f] = s_data
 
         # 封裝近 20 季資料集 (依時間由舊到新排序)
