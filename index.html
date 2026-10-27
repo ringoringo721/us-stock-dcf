@@ -5130,8 +5130,8 @@
       const screen = window.US_LISTINGS.screen || {};
       const retrieved = typeof source.retrievedAt === 'string' ? source.retrievedAt.slice(0, 10) : 'N/A';
       universeNote.textContent = currentLang === 'en'
-        ? `US expansion screen: NYSE/NASDAQ/AMEX, market cap > USD ${(screen.marketCapMoreThanUsd || 1e10) / 1e9}B; retrieved ${retrieved}. Additional names load on demand; missing financials or moat scores are not zeros.`
-        : `美股擴充篩選：NYSE／NASDAQ／AMEX、市值 > USD ${(screen.marketCapMoreThanUsd || 1e10) / 1e8} 億；擷取 ${retrieved}。新增標的按需載入；缺財報或護城河評分不等於零。`;
+        ? `US expansion screen: NYSE/NASDAQ/AMEX common equity, market cap > USD ${(screen.marketCapMoreThanUsd || 1e10) / 1e9}B (debt NOTES and preferred notes excluded); retrieved ${retrieved}. Additional names load on demand; missing financials or moat scores are not zeros.`
+        : `美股擴充篩選：NYSE／NASDAQ／AMEX 普通股、市值 > USD ${(screen.marketCapMoreThanUsd || 1e10) / 1e8} 億（排除債券 NOTES／特別股 notes）；擷取 ${retrieved}。新增標的按需載入；缺財報或護城河評分不等於零。`;
     } else if (universeNote) {
       universeNote.remove();
     }

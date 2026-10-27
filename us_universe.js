@@ -7,6 +7,20 @@
   let cached, previousMarket, previousList, previousExpansion;
   const pending = new Map();
   const US_TICKER = /^[A-Z][A-Z0-9.-]{0,14}$/;
+  // Keep in sync with scripts/import_us_universe.py is_excluded_security:
+  // debt NOTES / preferred notes / NYSE -P* preferred share classes are not common equity.
+  const PREFERRED_OR_NOTE_SYMBOL = /^[A-Z][A-Z0-9]*-P[A-Z]?$/;
+  const DEBT_NOTE_NAME = /\b(?:Notes?|Junior\s+Subordinated|Income\s+Capital\s+Obligations|Subordinated\s+Debentures?|Debentures?)\b/i;
+  const PREFERRED_NAME = /\b(?:Preferred(?:\s+Stock)?|Pref\.?|Pfd\.?|Cum\.?\s+Pfd|Perp(?:etual)?\.?\s+Pfd)\b/i;
+
+  function isCommonEquityListing(item) {
+    if (!item) return false;
+    const ticker = String(item.ticker || '').toUpperCase();
+    const name = String(item.name || item.name_en || item.company_name || '');
+    if (PREFERRED_OR_NOTE_SYMBOL.test(ticker)) return false;
+    if (DEBT_NOTE_NAME.test(name) || PREFERRED_NAME.test(name)) return false;
+    return true;
+  }
 
   function listingStock(item) {
     const Industry = typeof module === 'object' && module.exports
@@ -39,8 +53,10 @@
     if (cached && market === previousMarket && list === previousList && expansion === previousExpansion) {
       return cached;
     }
-    const result = Object.fromEntries(list.stocks.map(item => [item.ticker,
-      expansion?.stocks?.[item.ticker] || listingStock(item)]));
+    const listings = (list.stocks || []).filter(isCommonEquityListing);
+    const result = Object.fromEntries(listings.map(item => [item.ticker,
+      (isCommonEquityListing(expansion?.stocks?.[item.ticker]) && expansion.stocks[item.ticker])
+        || listingStock(item)]));
     Object.assign(result, market);
     previousMarket = market; previousList = list; previousExpansion = expansion; cached = result;
     return result;
@@ -82,5 +98,5 @@
     return pending.get(ticker);
   }
 
-  return { merge, listingStock, install, load, uncaptured };
+  return { merge, listingStock, install, load, uncaptured, isCommonEquityListing };
 });
