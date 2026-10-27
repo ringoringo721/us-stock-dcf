@@ -17,8 +17,6 @@ import re
 import sys
 import time
 
-import requests
-
 MIN_MARKET_CAP = 10_000_000_000
 EXCHANGES = ("NYSE", "NASDAQ", "AMEX")
 EXCHANGE_ALIASES = {
@@ -44,24 +42,73 @@ def normalize_exchange(value: str | None) -> str | None:
     return None
 
 
+# NYSE/NASDAQ preferred & exchange-traded note share classes (e.g. MER-PK, CTA-PA).
+# Dual-class commons use other letters (BRK-A, BF-B) and are kept.
+PREFERRED_OR_NOTE_SYMBOL = re.compile(r"^[A-Z][A-Z0-9]*-P[A-Z]?$")
+DEBT_NOTE_NAME = re.compile(
+    r"\b(?:Notes?|Junior\s+Subordinated|Income\s+Capital\s+Obligations|"
+    r"Subordinated\s+Debentures?|Debentures?)\b",
+    re.I,
+)
+PREFERRED_NAME = re.compile(
+    r"\b(?:Preferred(?:\s+Stock)?|Pref\.?|Pfd\.?|Cum\.?\s+Pfd|"
+    r"Perp(?:etual)?\.?\s+Pfd)\b",
+    re.I,
+)
+NON_COMMON_NAME = re.compile(r"\b(?:ETF|ETN|ETP|Warrants?|Rights?|Units?)\b", re.I)
+COMMON_SECURITY_TYPES = {"", "stock", "equity", "common stock", "commonstock"}
+NON_COMMON_TYPE_TOKENS = (
+    "etf", "fund", "warrant", "preferred", "unit", "right",
+    "note", "bond", "debenture", "preference",
+)
+
+
 def is_excluded_security(row: dict) -> str | None:
-    symbol = str(row.get("symbol") or "").strip().upper()
+    """Return an exclusion reason for non-common US listings, else None.
+
+    Drops debt NOTES, preferred notes/stock, and exchange preferred/note symbols
+    so the website universe stays common-equity only (DCF-applicable names).
+    """
+    symbol = str(row.get("symbol") or row.get("ticker") or "").strip().upper()
     if not symbol or not re.fullmatch(r"[A-Z][A-Z0-9.-]{0,14}", symbol):
         return "invalidSymbol"
     if row.get("isEtf") is True or row.get("isFund") is True:
         return "etfOrFund"
-    name = str(row.get("companyName") or row.get("name") or "")
-    if re.search(r"\b(ETF|ETN|ETP|Fund|Trust|Warrant|Right|Unit|Preferred)\b", name, re.I):
-        if re.search(r"\b(ETF|ETN|ETP)\b", name, re.I) or re.search(r"\bWarrant|\bRight\b|\bUnit\b", name, re.I):
-            return "nonCommonName"
-    security = str(row.get("type") or row.get("securityType") or "").lower()
-    if security and security not in {"stock", "equity", "common stock", "commonstock", ""}:
-        if any(token in security for token in ("etf", "fund", "warrant", "preferred", "unit", "right")):
+    if PREFERRED_OR_NOTE_SYMBOL.fullmatch(symbol):
+        return "preferredOrNoteSymbol"
+    name = str(
+        row.get("companyName")
+        or row.get("name")
+        or row.get("name_en")
+        or row.get("company_name")
+        or ""
+    )
+    if DEBT_NOTE_NAME.search(name):
+        return "debtNoteName"
+    if PREFERRED_NAME.search(name):
+        return "preferredName"
+    if NON_COMMON_NAME.search(name):
+        return "nonCommonName"
+    security = str(row.get("type") or row.get("securityType") or "").lower().strip()
+    if security not in COMMON_SECURITY_TYPES:
+        if any(token in security for token in NON_COMMON_TYPE_TOKENS):
             return "nonCommonType"
     return None
 
 
-def fetch_exchange(session: requests.Session, key: str, exchange: str) -> list[dict]:
+def listing_exclusion_reason(item: dict) -> str | None:
+    """Map a catalogue / expansion row onto is_excluded_security."""
+    return is_excluded_security({
+        "symbol": item.get("ticker") or item.get("symbol"),
+        "companyName": item.get("name") or item.get("name_en") or item.get("company_name"),
+        "type": item.get("securityType") or item.get("type"),
+        "isEtf": item.get("isEtf"),
+        "isFund": item.get("isFund"),
+    })
+
+
+def fetch_exchange(session, key: str, exchange: str) -> list[dict]:
+    import requests  # Imported here so filter helpers stay testable without requests installed.
     params = {
         "marketCapMoreThan": MIN_MARKET_CAP,
         "exchange": exchange,
@@ -236,6 +283,7 @@ def main(argv: list[str] | None = None) -> int:
         print(json.dumps(report, ensure_ascii=False, indent=2))
         return 2 if not args.inventory_only else 0
     retrieved_at = datetime.now(timezone.utc).isoformat()
+    import requests
     rows = []
     with requests.Session() as session:
         for exchange in EXCHANGES:
