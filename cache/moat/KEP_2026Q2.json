@@ -1,0 +1,60 @@
+{
+  "ticker": "KEP",
+  "period": "2026Q2",
+  "m1_brand_pricing": {
+    "score": 3,
+    "comment_zh": "KEP 作為韓國主要的電力供應商，其品牌價值主要建立在穩定可靠的服務上，而非強勢的定價權。由於電力價格受到政府嚴格監管，KEP 無法自由定價以反映其成本或創造超額利潤。其品牌在國內市場具有一定認知度，但與國際知名消費品牌相比，其品牌溢價能力微乎其微。在競爭激烈的公用事業領域，KEP 的品牌更多是穩定性的象徵，而非驅動高利潤的引擎。因此，在品牌定價權方面，KEP 的護城河相對較弱，難以形成獨立的定價優勢。",
+    "comment_en": "KEP, as South Korea's primary electricity provider, derives its brand value primarily from stable and reliable service rather than strong pricing power. Due to strict government regulation of electricity prices, KEP cannot freely set prices to reflect its costs or generate excess profits. While its brand has some recognition domestically, its ability to command a premium is minimal compared to internationally renowned consumer brands. In the competitive utility sector, KEP's brand is more a symbol of stability than an engine for high profits. Therefore, KEP's moat in terms of brand pricing power is relatively weak, making it difficult to form an independent pricing advantage."
+  },
+  "m2_patents_regulatory": {
+    "score": 8,
+    "comment_zh": "KEP 的核心業務是電力供應，這是一個高度依賴政府特許經營和監管的行業。其在韓國電力市場的營運地位，很大程度上是基於國家授予的特許權和牌照，這構成了強大的進入壁壘。雖然電力行業的專利壁壘相對較低，但政府的監管框架、能源政策以及對關鍵基礎設施的控制，實際上為 KEP 提供了類似於專利的保護。這種監管壁壘使得新競爭者難以進入市場，並確保了 KEP 在其服務區域內的壟斷或寡占地位，是其重要的護城河。",
+    "comment_en": "KEP's core business is electricity supply, an industry heavily reliant on government concessions and regulations. Its operational position in the South Korean electricity market is largely based on state-granted franchises and licenses, forming a formidable barrier to entry. While patent barriers in the power industry are relatively low, the government's regulatory framework, energy policies, and control over critical infrastructure effectively provide KEP with patent-like protection. This regulatory moat makes it difficult for new competitors to enter the market, ensuring KEP's monopoly or oligopoly status within its service areas, which is a significant aspect of its economic moat."
+  },
+  "m3_high_switching_costs": {
+    "score": 7,
+    "comment_zh": "對於終端用戶而言，更換電力供應商的成本相對較低，因為這通常是電信或網路服務等需要技術整合的場景。然而，對於工業用戶和大型商業客戶，轉換電力供應商可能涉及複雜的合同談判、基礎設施的重新評估以及對供應穩定性的擔憂。更重要的是，KEP 作為國家級電網運營商，其基礎設施的鋪設和維護本身就構成了極高的轉換成本。用戶無法輕易更換其電力接入點或電網基礎設施，這為 KEP 提供了穩固的客戶黏性，儘管其品牌定價權有限。",
+    "comment_en": "For end-users, the cost of switching electricity providers is relatively low, unlike scenarios involving technical integration such as telecommunications or internet services. However, for industrial and large commercial clients, switching electricity suppliers may involve complex contract negotiations, re-evaluation of infrastructure, and concerns about supply stability. More importantly, as a national grid operator, KEP's infrastructure deployment and maintenance inherently represent extremely high switching costs. Customers cannot easily change their power connection points or grid infrastructure, providing KEP with solid customer stickiness, despite its limited pricing power."
+  },
+  "m4_network_effects": {
+    "score": 6,
+    "comment_zh": "電力網絡本身具有一定的網絡效應，即電網的覆蓋範圍越廣、連接的用戶越多，其價值和效率就越高。KEP 作為韓國最大的電力公司，其龐大的輸配電網絡是其核心資產。更多的用戶接入意味著更高的總體需求和更穩定的發電計劃，從而可能降低單位成本。然而，這種網絡效應更多體現在基礎設施的規模和效率上，而非像社交媒體或市場平台那樣的雙邊網絡效應，後者能產生指數級的增長和強大的鎖定能力。KEP 的網絡效應是基礎設施驅動的，相對穩定但增長潛力有限。",
+    "comment_en": "The electricity grid itself possesses certain network effects; the wider its coverage and the more users it connects, the higher its value and efficiency. As South Korea's largest power company, KEP's vast transmission and distribution network is its core asset. More user connections imply higher overall demand and more stable generation planning, potentially lowering unit costs. However, this network effect is more about the scale and efficiency of infrastructure rather than the two-sided network effects seen in social media or marketplaces, which can generate exponential growth and strong lock-in. KEP's network effect is infrastructure-driven, relatively stable but with limited growth potential."
+  },
+  "m5_cost_advantage_scale": {
+    "score": 8,
+    "comment_zh": "作為韓國最大的電力公司，KEP 在規模經濟方面具有顯著優勢。其龐大的發電、輸電和配電網絡，使其能夠以較低的單位成本運營。規模化的採購能力有助於降低燃料和其他運營成本。此外，KEP 能夠分攤固定成本（如電網維護、管理費用）到更廣泛的用戶基礎上，從而降低平均成本。這種規模優勢在公用事業行業尤為重要，因為基礎設施的建設和維護成本高昂，只有規模化的運營才能實現顯著的成本效益，這構成了其重要的護城河。",
+    "comment_en": "As South Korea's largest power company, KEP enjoys significant advantages in economies of scale. Its vast generation, transmission, and distribution network allows it to operate at lower unit costs. Its large-scale procurement capabilities help reduce fuel and other operating expenses. Furthermore, KEP can spread fixed costs (such as grid maintenance and administrative expenses) over a broader customer base, thereby lowering average costs. This scale advantage is particularly crucial in the utility sector due to the high costs of infrastructure construction and maintenance; only scaled operations can achieve significant cost efficiencies, forming a substantial moat."
+  },
+  "m6_unique_geography_assets": {
+    "score": 7,
+    "comment_zh": "KEP 在韓國境內擁有廣泛且關鍵的電力基礎設施，包括發電廠、輸電線路和變電站。這些資產在地理上分佈廣泛，並且是維持韓國全國電力供應的命脈。由於土地取得的限制、環境法規以及高昂的建設成本，在韓國複製如此龐大且關鍵的電力網絡幾乎是不可能的。這些地理上獨特的資產，特別是其輸配電網絡，構成了難以逾越的進入壁壘，確保了 KEP 在其服務區域內的關鍵地位。",
+    "comment_en": "KEP possesses extensive and critical electricity infrastructure across South Korea, including power plants, transmission lines, and substations. These assets are geographically widespread and are the lifeline for maintaining the nation's power supply. Due to land acquisition constraints, environmental regulations, and high construction costs, replicating such a vast and critical power network in South Korea is nearly impossible. These geographically unique assets, particularly its transmission and distribution network, form insurmountable barriers to entry, securing KEP's crucial position within its service areas."
+  },
+  "m7_operational_efficiency": {
+    "score": 6,
+    "comment_zh": "KEP 作為一家國營公用事業公司，其營運效率受到政府監管和政策導向的影響。雖然公司致力於提高效率以降低成本，但其營運模式可能不如純粹的商業公司那樣靈活和追求利潤最大化。近年來，KEP 在提升營運效率方面取得了一些進展，例如通過技術升級和流程優化。然而，相較於一些高度市場化、以利潤為導向的競爭對手，其營運效率的提升空間可能受到一定限制。其 ROE 和 ROA 表現尚可，但並非頂尖水平，顯示其營運效率有待加強。",
+    "comment_en": "As a state-owned utility, KEP's operational efficiency is influenced by government regulation and policy direction. While the company strives to improve efficiency to reduce costs, its operational model may not be as agile or profit-maximizing as purely commercial entities. In recent years, KEP has made some progress in enhancing operational efficiency through technological upgrades and process optimization. However, compared to some highly market-oriented, profit-driven competitors, its scope for improving operational efficiency might be somewhat constrained. Its ROE and ROA performance is acceptable but not top-tier, indicating room for improvement in operational efficiency."
+  },
+  "m8_capital_allocation": {
+    "score": 5,
+    "comment_zh": "KEP 的資本配置決策受到政府政策和國家能源戰略的顯著影響。作為一家國營企業，其投資重點可能更多地放在確保電力供應的穩定性和國家能源安全上，而非單純追求股東回報最大化。這意味著其資本配置可能涉及大量對基礎設施的長期投資，以及對可再生能源等政策導向項目的投入。雖然這些投資對國家有利，但其對股東回報的直接影響可能不如市場化的公司那樣顯著。其較高的負債水平也限制了其進一步擴張或進行激進資本配置的能力。",
+    "comment_en": "KEP's capital allocation decisions are significantly influenced by government policy and national energy strategy. As a state-owned enterprise, its investment focus may lean more towards ensuring the stability of electricity supply and national energy security rather than solely maximizing shareholder returns. This implies its capital allocation might involve substantial long-term investments in infrastructure and policy-driven projects like renewable energy. While these investments benefit the nation, their direct impact on shareholder returns may be less pronounced than in market-driven companies. Its relatively high debt level also constrains its ability for further expansion or aggressive capital allocation."
+  },
+  "m9_customer_retention": {
+    "score": 7,
+    "comment_zh": "由於電力供應的基礎設施屬性，KEP 在其服務區域內享有高度的客戶黏性。用戶依賴其電網獲取電力，更換供應商的實際操作複雜且成本高昂，尤其對於無法輕易遷移的固定設施。這種情況類似於「收費橋」模式，用戶別無選擇，只能使用現有的基礎設施。儘管政府對電力價格進行監管，限制了 KEP 的定價能力，但這種基礎設施的獨佔性確保了其穩定的客戶基礎和持續的收入來源，構成了有效的客戶保留壁壘。",
+    "comment_en": "Due to the infrastructure nature of electricity supply, KEP enjoys high customer stickiness within its service areas. Users depend on its grid for electricity, and switching providers involves operational complexity and high costs, especially for fixed installations that cannot be easily relocated. This resembles a 'toll bridge' model where users have no alternative but to utilize the existing infrastructure. Although government regulation on electricity prices limits KEP's pricing power, this infrastructural exclusivity ensures a stable customer base and a continuous revenue stream, forming an effective customer retention moat."
+  },
+  "m10_durability": {
+    "score": 8,
+    "comment_zh": "KEP 的業務具有高度的持久性，電力是現代社會不可或缺的基本需求，其需求相對穩定且不易受經濟週期劇烈波動影響。作為韓國主要的電力供應商，其在國家能源基礎設施中的核心地位確保了其長期營運的穩定性。儘管面臨來自可再生能源的潛在顛覆，但傳統電力供應在可預見的未來仍將是能源結構的重要組成部分。政府的監管和支持也為其業務的持久性提供了額外的保障。KEP 的業務模式，類似於一個受監管的公用事業特許經營權，具有顯著的長期穩定性。",
+    "comment_en": "KEP's business exhibits high durability. Electricity is an indispensable basic need in modern society, with demand being relatively stable and less susceptible to drastic economic cycle fluctuations. As South Korea's primary electricity provider, its core position in the nation's energy infrastructure ensures long-term operational stability. Despite potential disruption from renewable energy sources, traditional power supply will remain a crucial component of the energy mix for the foreseeable future. Government regulation and support further bolster the durability of its operations. KEP's business model, akin to a regulated utility franchise, possesses significant long-term stability."
+  },
+  "overall_moat_verdict_zh": "KEP 的經濟護城河主要建立在其作為韓國國家級電力基礎設施運營商的特許經營權和規模經濟上。其龐大的輸配電網絡（M6, M5）構成了難以逾越的進入壁壘，類似於「收費橋」模式，確保了穩定的客戶基礎（M9）。政府的嚴格監管（M2）雖然限制了其定價權（M1），但也為其業務提供了持久性（M10）和相對穩定的營運環境。網絡效應（M4）和營運效率（M7）方面表現尚可，但資本配置（M8）受政策影響較大。總體而言，KEP 擁有一個受監管的公用事業型護城河，其穩定性高，但增長潛力有限，且受制於政府政策。",
+  "overall_moat_verdict_en": "KEP's economic moat is primarily built upon its franchise as South Korea's national electricity infrastructure operator and its economies of scale. Its vast transmission and distribution network (M6, M5) forms an insurmountable barrier to entry, akin to a 'toll bridge' model, ensuring a stable customer base (M9). Strict government regulation (M2), while limiting its pricing power (M1), also provides durability (M10) and a relatively stable operating environment. Its network effects (M4) and operational efficiency (M7) are adequate, but capital allocation (M8) is significantly influenced by policy. Overall, KEP possesses a regulated utility-style moat characterized by high stability but limited growth potential, and is constrained by government policy.",
+  "evidenceHash": "7934f38aab9e1e83861813f374a21eadc8d6db5847a4510fad050d204bccbe02",
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
+}

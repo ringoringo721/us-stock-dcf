@@ -1,0 +1,60 @@
+{
+  "ticker": "JKHY",
+  "period": "2026Q4",
+  "m1_brand_pricing": {
+    "score": 7,
+    "comment_zh": "Jack Henry 的品牌在金融科技服務領域具有一定的聲譽，尤其是在社區銀行和地區性銀行的客戶群中。然而，與頂級科技品牌相比，其品牌影響力相對有限，定價權並非其核心競爭優勢。公司主要透過提供可靠、穩定的核心銀行系統來獲取客戶，而非依賴強勢品牌溢價。其產品的價格主要由市場競爭和服務價值決定，而非品牌本身帶來的獨特議價能力。因此，品牌在護城河中的貢獻是穩固但非決定性的。",
+    "comment_en": "Jack Henry's brand has a certain reputation in the fintech services sector, particularly among its customer base of community and regional banks. However, compared to top-tier technology brands, its brand influence is relatively limited, and pricing power is not its core competitive advantage. The company primarily acquires customers by providing reliable and stable core banking systems, rather than relying on strong brand premiums. The pricing of its products is mainly determined by market competition and service value, rather than unique bargaining power derived from the brand itself. Therefore, the brand's contribution to the moat is solid but not decisive."
+  },
+  "m2_patents_regulatory": {
+    "score": 6,
+    "comment_zh": "金融科技行業的專利保護相對較弱，Jack Henry 的核心競爭力更多體現在其軟體系統的穩定性、安全性以及對銀行業務流程的深度整合能力上，而非依賴於特定的專利技術。監管環境對金融科技公司至關重要，Jack Henry 在合規性方面投入巨大，這構成了一定的進入壁壘，因為新進入者需要滿足嚴格的監管要求。然而，這更多是行業的普遍要求，而非公司獨有的專利或特許權。",
+    "comment_en": "Patent protection in the fintech industry is relatively weak. Jack Henry's core competitiveness lies more in the stability, security of its software systems, and its deep integration capabilities with banking business processes, rather than relying on specific patented technologies. The regulatory environment is crucial for fintech companies, and Jack Henry invests heavily in compliance, which constitutes a certain barrier to entry, as new entrants must meet strict regulatory requirements. However, this is more of a general industry requirement than a unique patent or license held by the company."
+  },
+  "m3_high_switching_costs": {
+    "score": 9,
+    "comment_zh": "這是 Jack Henry 最顯著的護城河之一。銀行業的核心系統涉及極其複雜的數據遷移、業務流程重塑和員工培訓。一旦銀行採用了 Jack Henry 的系統，更換供應商的成本（包括時間、金錢和潛在的業務中斷風險）將是天文數字。這種高度的轉換成本極大地鎖定了客戶，使得客戶極少會主動尋求更換，為公司提供了極為穩定的收入來源和市場份額。",
+    "comment_en": "This is one of Jack Henry's most significant moats. Core banking systems involve extremely complex data migration, business process reengineering, and employee training. Once a bank adopts Jack Henry's system, the cost of switching vendors (including time, money, and potential business disruption risks) is astronomical. These high switching costs effectively lock in customers, making them very unlikely to proactively seek replacements, thereby providing the company with an extremely stable revenue stream and market share."
+  },
+  "m4_network_effects": {
+    "score": 5,
+    "comment_zh": "Jack Henry 的網絡效應相對有限。雖然其平台連接了眾多金融機構，促進了某些標準化流程的實現，但這種連接更多是點對點的交易或服務關係，而非典型的、能產生病毒式增長的網絡效應（如社交媒體或市場平台）。客戶之間的直接互動和價值創造相對較少，因此網絡效應在此處的護城河作用較為中等。",
+    "comment_en": "Jack Henry's network effects are relatively limited. While its platform connects numerous financial institutions, facilitating certain standardized processes, this connection is more of a peer-to-peer transaction or service relationship rather than the typical viral growth-generating network effects seen in social media or marketplace platforms. Direct interaction and value creation among customers are relatively scarce, thus the moat effect of network effects here is moderate."
+  },
+  "m5_cost_advantage_scale": {
+    "score": 7,
+    "comment_zh": "作為一家在金融科技領域服務眾多客戶的公司，Jack Henry 能夠透過規模經濟來降低其軟體開發、維護和客戶服務的單位成本。其龐大的客戶基礎分攤了固定成本，使其在價格上相較於小型競爭對手具有一定的優勢。此外，長期的運營經驗也帶來了流程上的效率，進一步鞏固了其成本結構的競爭力。",
+    "comment_en": "As a company serving numerous clients in the fintech sector, Jack Henry can reduce its per-unit costs for software development, maintenance, and customer service through economies of scale. Its large customer base spreads fixed costs, giving it a certain price advantage over smaller competitors. Furthermore, long-term operational experience also leads to process efficiencies, further strengthening the competitiveness of its cost structure."
+  },
+  "m6_unique_geography_assets": {
+    "score": 4,
+    "comment_zh": "Jack Henry 的業務主要集中在美國市場，其客戶群體也以美國的社區銀行和地區性銀行為主。雖然其在特定區域或特定客戶群體中建立了深厚的根基，但這並非典型的地理獨特性或稀缺資產。其競爭優勢更多來自於服務能力和客戶關係，而非特定地理位置的資源或市場壟斷地位。",
+    "comment_en": "Jack Henry's business is primarily focused on the US market, with its customer base mainly consisting of US community and regional banks. While it has established deep roots in specific regions or customer segments, this does not represent typical geographical uniqueness or scarce assets. Its competitive advantage stems more from service capabilities and customer relationships rather than resources in specific geographic locations or market monopolies."
+  },
+  "m7_operational_efficiency": {
+    "score": 8,
+    "comment_zh": "Jack Henry 在運營效率方面表現出色。公司長期以來專注於提供穩定、可靠的核心銀行解決方案，並不斷優化其軟體架構和服務流程。其高 F-Score 和穩健的自由現金流（FCF）證明了其卓越的運營管理能力。這種高效的運營不僅降低了成本，也確保了服務的質量和可靠性，是其維持客戶關係和市場地位的重要基石。",
+    "comment_en": "Jack Henry demonstrates excellent operational efficiency. The company has long focused on providing stable and reliable core banking solutions, continuously optimizing its software architecture and service processes. Its high F-Score and robust Free Cash Flow (FCF) are testaments to its outstanding operational management capabilities. This high efficiency not only reduces costs but also ensures the quality and reliability of its services, serving as a crucial cornerstone for maintaining customer relationships and market position."
+  },
+  "m8_capital_allocation": {
+    "score": 7,
+    "comment_zh": "Jack Henry 的資本配置策略相對穩健。公司傾向於透過股票回購和股息來回饋股東，同時也進行適度的研發投入以維持產品的競爭力。其較低的負債水平和穩定的現金流為其提供了靈活性。雖然其併購活動相對謹慎，但整體而言，管理層在維持公司穩健增長和股東回報方面展現了良好的判斷力。",
+    "comment_en": "Jack Henry's capital allocation strategy is relatively sound. The company tends to return capital to shareholders through share buybacks and dividends, while also making moderate R&D investments to maintain product competitiveness. Its low debt levels and stable cash flow provide flexibility. Although its M&A activities are relatively cautious, overall, management has demonstrated good judgment in maintaining the company's steady growth and shareholder returns."
+  },
+  "m9_customer_retention": {
+    "score": 9,
+    "comment_zh": "結合了高轉換成本（M3）和穩定的服務質量，Jack Henry 擁有極高的客戶保留率。一旦銀行將其核心業務託付給 Jack Henry，更換的難度極大，這自然形成了極強的客戶黏性。公司透過持續的服務升級和對客戶需求的響應，進一步鞏固了這種關係。這種近乎永久的客戶關係是其商業模式的基石，提供了可預測且持續的收入。",
+    "comment_en": "Combined with high switching costs (M3) and stable service quality, Jack Henry boasts extremely high customer retention rates. Once a bank entrusts its core operations to Jack Henry, the difficulty of switching is immense, naturally creating very strong customer stickiness. The company further solidifies this relationship through continuous service upgrades and responsiveness to customer needs. This near-perpetual customer relationship is the cornerstone of its business model, providing predictable and ongoing revenue."
+  },
+  "m10_durability": {
+    "score": 8,
+    "comment_zh": "Jack Henry 的業務模式具有顯著的持久性。金融機構的核心系統更換週期長，且對穩定性和可靠性的要求極高。只要 Jack Henry 能持續提供符合監管要求且技術上不過時的服務，其業務就能長期維持。雖然科技不斷進步，但銀行業的保守性以及轉換成本的約束，使得 Jack Henry 的核心業務能夠抵禦較長時間的市場變遷，展現出強大的業務韌性。",
+    "comment_en": "Jack Henry's business model possesses significant durability. Financial institutions have long replacement cycles for their core systems and demand extremely high levels of stability and reliability. As long as Jack Henry can continue to provide services that meet regulatory requirements and remain technologically current, its business can be sustained long-term. Although technology constantly advances, the conservatism of the banking industry and the constraints of switching costs allow Jack Henry's core business to withstand market changes for extended periods, demonstrating strong business resilience."
+  },
+  "overall_moat_verdict_zh": "Jack Henry 的護城河主要建立在極高的客戶轉換成本和卓越的運營效率之上，這兩者共同造就了其近乎牢不可破的客戶保留率。其業務模式類似於一個高度專業化的「收費橋」，一旦銀行接入，便難以脫離。雖然品牌影響力和專利壁壘相對較弱，但其在金融科技服務領域的深耕細作，以及為社區銀行提供的穩定可靠解決方案，使其成為一個穩健的特許經營權體現。管理層的審慎資本配置也進一步鞏固了其持久的競爭優勢。",
+  "overall_moat_verdict_en": "Jack Henry's moat is primarily built upon extremely high customer switching costs and excellent operational efficiency, which together create its near-unbreakable customer retention rate. Its business model resembles a highly specialized 'toll bridge'; once banks are connected, it is difficult for them to disconnect. While brand influence and patent barriers are relatively weak, its deep cultivation in the fintech services sector and the stable, reliable solutions provided to community banks make it a solid embodiment of a franchise. Prudent capital allocation by management further solidifies its durable competitive advantage.",
+  "evidenceHash": "c934fec2d955324dd8d0cc5e112771779cde0c3c3be5a444902c8987dcae8e4a",
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
+}

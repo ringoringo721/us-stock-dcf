@@ -1,0 +1,60 @@
+{
+  "ticker": "KEYS",
+  "period": "2026Q3",
+  "m1_brand_pricing": {
+    "score": 7,
+    "comment_zh": "Keysight 在電子測試與測量領域擁有強大的品牌聲譽，尤其在專業領域如無線通訊、航空航太與國防等，客戶高度認可其產品的精確度、可靠性與技術領先性。這種品牌忠誠度使其在面對競爭時，能夠維持相對穩定的定價能力，尤其是在高階客製化解決方案上。然而，與消費性品牌不同，其品牌價值更多體現在專業技術的信任而非廣泛的消費者認知，這限制了其極高的定價權，但仍構成堅實的護城河。",
+    "comment_en": "Keysight boasts a strong brand reputation in the electronic test and measurement sector, particularly in specialized fields like wireless communications, aerospace, and defense. Customers highly value the precision, reliability, and technological leadership of its products. This brand loyalty allows it to maintain relatively stable pricing power against competitors, especially for high-end customized solutions. However, unlike consumer brands, its brand value stems more from trust in professional technology than broad consumer recognition, which limits extreme pricing power but still forms a solid moat."
+  },
+  "m2_patents_regulatory": {
+    "score": 8,
+    "comment_zh": "Keysight 在其核心技術領域擁有廣泛的專利組合，這些專利涵蓋了先進的測試方法、儀器設計與軟體演算法。這些專利構成重要的技術壁壘，使得競爭對手難以在短時間內複製其產品的性能與功能。雖然電子測試領域的監管要求相對較少，但其專利保護在維持技術領先地位和防止仿冒方面起著關鍵作用，為公司提供了顯著的競爭優勢。",
+    "comment_en": "Keysight possesses an extensive patent portfolio in its core technology areas, covering advanced testing methodologies, instrument designs, and software algorithms. These patents form significant technological barriers, making it difficult for competitors to replicate the performance and functionality of its products in a short timeframe. While regulatory requirements are relatively minimal in the electronic test and measurement sector, its patent protection plays a crucial role in maintaining technological leadership and preventing imitation, providing the company with a distinct competitive advantage."
+  },
+  "m3_high_switching_costs": {
+    "score": 8,
+    "comment_zh": "Keysight 的產品廣泛應用於複雜的研發與生產流程中，客戶一旦採用其測試設備與軟體，便會投入大量時間與資源進行系統整合、校準與人員培訓。這些高度客製化的解決方案與客戶現有的工作流程緊密結合，使得更換供應商的成本極高，不僅涉及設備採購，更包含重新驗證、軟體開發及員工再培訓等隱性成本。這種高轉換成本是其堅實的護城河。",
+    "comment_en": "Keysight's products are extensively used in complex R&D and production processes. Once customers adopt its test equipment and software, they invest significant time and resources in system integration, calibration, and personnel training. These highly customized solutions are tightly integrated with existing customer workflows, making the cost of switching suppliers extremely high. This includes not only equipment procurement but also hidden costs such as re-validation, software development, and employee retraining. Such high switching costs represent a robust moat."
+  },
+  "m4_network_effects": {
+    "score": 3,
+    "comment_zh": "Keysight 的業務模式主要基於提供高品質的硬體和軟體解決方案，其價值主要體現在產品本身的性能和技術支援上，而非直接的網絡效應。雖然其客戶群體龐大，且在特定產業鏈中可能形成一定的協同效應，但並不存在典型的「使用者越多，價值越大」的網絡效應。客戶選擇 Keysight 主要是基於技術能力和產品性能，而非其他用戶的使用行為，因此此維度護城河較弱。",
+    "comment_en": "Keysight's business model primarily relies on providing high-quality hardware and software solutions, with value derived mainly from the product's performance and technical support, rather than direct network effects. Although it has a large customer base and potential synergistic effects within specific industry chains, it does not exhibit typical 'the more users, the greater the value' network effects. Customers choose Keysight based on technical capabilities and product performance, not on the usage behavior of other users, thus this dimension's moat is weak."
+  },
+  "m5_cost_advantage_scale": {
+    "score": 7,
+    "comment_zh": "作為全球領先的電子測試與測量解決方案供應商，Keysight 受惠於其龐大的生產規模和全球供應鏈管理能力。這使其在採購原材料、生產製造和研發投入方面，能夠獲得一定的成本優勢。規模經濟有助於其維持產品的價格競爭力，並支持持續的技術創新。雖然其產品技術含量高，成本結構複雜，但規模效應仍是其重要的競爭優勢之一。",
+    "comment_en": "As a leading global provider of electronic test and measurement solutions, Keysight benefits from its large-scale production and global supply chain management capabilities. This allows it to achieve certain cost advantages in raw material procurement, manufacturing, and R&D investment. Economies of scale help maintain the price competitiveness of its products and support continuous technological innovation. Although its products are technologically advanced and have a complex cost structure, economies of scale remain one of its significant competitive advantages."
+  },
+  "m6_unique_geography_assets": {
+    "score": 3,
+    "comment_zh": "Keysight 的業務遍及全球，服務於各主要科技產業中心，但其核心競爭力並非來自於特定的地理位置或獨特的實體資產。其價值主要體現在技術、品牌和客戶關係上，這些是可移動且可複製的。雖然其全球佈局有助於服務客戶和獲取市場資訊，但並未形成像礦產或特定地理位置那樣的、難以複製的地理資產壁壘。",
+    "comment_en": "Keysight's operations span globally, serving major technology industry hubs, but its core competitiveness does not stem from specific geographic locations or unique physical assets. Its value is primarily embodied in technology, brand, and customer relationships, which are mobile and replicable. While its global presence facilitates customer service and market intelligence gathering, it does not constitute an irreplicable geographical asset barrier akin to mineral resources or specific locations."
+  },
+  "m7_operational_efficiency": {
+    "score": 8,
+    "comment_zh": "Keysight 在營運效率方面表現出色，體現在其持續優化的生產流程、精準的庫存管理以及高效的全球供應鏈。公司透過精實生產和自動化技術，不斷提升製造效率並降低成本。同時，其強大的售後服務和技術支援體系，也確保了客戶滿意度，進一步鞏固了其市場地位。高 ROE (19.1%) 和 ROA (10.5%) 以及 F-Score (9/9) 都印證了其卓越的營運管理能力。",
+    "comment_en": "Keysight demonstrates excellent operational efficiency, reflected in its continuously optimized production processes, precise inventory management, and efficient global supply chain. Through lean manufacturing and automation technologies, the company constantly enhances production efficiency and reduces costs. Furthermore, its robust after-sales service and technical support system ensure customer satisfaction, further solidifying its market position. High ROE (19.1%) and ROA (10.5%), along with an F-Score of 9/9, attest to its outstanding operational management capabilities."
+  },
+  "m8_capital_allocation": {
+    "score": 8,
+    "comment_zh": "Keysight 的管理層在資本配置方面展現了高度的紀律性和智慧。公司透過穩定的自由現金流（FCF TTM: $1,469.0M）進行戰略性投資，包括研發創新、擴張產能以及選擇性地進行收購以增強技術實力。同時，公司也透過股票回購和股息向股東返還價值。其穩健的資產負債表（現金 $2,605.0M / 負債 $2,746.0M）顯示了其審慎的財務管理，能夠在追求成長的同時維持財務靈活性。",
+    "comment_en": "Keysight's management demonstrates high discipline and wisdom in capital allocation. The company strategically invests its stable free cash flow (FCF TTM: $1,469.0M) in R&D innovation, capacity expansion, and selective acquisitions to enhance technological capabilities. Concurrently, it returns value to shareholders through share buybacks and dividends. Its sound balance sheet (Cash $2,605.0M / Debt $2,746.0M) reflects prudent financial management, enabling it to pursue growth while maintaining financial flexibility."
+  },
+  "m9_customer_retention": {
+    "score": 8,
+    "comment_zh": "Keysight 的客戶留存率極高，這得益於其產品的技術深度、可靠性以及完善的客戶服務體系。一旦客戶將 Keysight 的設備整合到其關鍵的研發和生產流程中，由於高昂的轉換成本和對穩定性的需求，他們極少更換供應商。公司透過持續的技術升級、軟體更新和專業的技術支援，不斷滿足客戶日益增長的需求，從而鞏固了長期的客戶關係，形成了強大的客戶黏性。",
+    "comment_en": "Keysight enjoys extremely high customer retention, attributable to the technical depth and reliability of its products, coupled with a comprehensive customer service system. Once customers integrate Keysight's equipment into their critical R&D and production processes, they rarely switch suppliers due to high switching costs and the need for stability. By continuously providing technological upgrades, software updates, and professional technical support, the company consistently meets evolving customer demands, thereby solidifying long-term customer relationships and fostering strong customer stickiness."
+  },
+  "m10_durability": {
+    "score": 7,
+    "comment_zh": "Keysight 的業務展現了良好的持久性。其所在的電子測試與測量市場是高科技產業的基礎設施，隨著技術不斷演進（如 5G、物聯網、電動車等），對精確測試的需求持續存在且不斷增長。公司憑藉其技術領先地位、強大的品牌和客戶忠誠度，能夠適應行業變化並抓住新興機遇。雖然面臨技術快速迭代的挑戰，但其核心競爭力使其能夠在長期內保持市場地位。",
+    "comment_en": "Keysight's business exhibits good durability. The electronic test and measurement market it operates in is fundamental to the high-tech industry. As technology continuously evolves (e.g., 5G, IoT, EVs), the demand for precise testing persists and grows. Leveraging its technological leadership, strong brand, and customer loyalty, the company can adapt to industry changes and seize emerging opportunities. Despite the challenge of rapid technological iteration, its core competencies enable it to maintain its market position over the long term."
+  },
+  "overall_moat_verdict_zh": "Keysight Technologies 在電子測試與測量領域建立了堅實的經濟護城河，主要體現為其強大的品牌聲譽（M1）、廣泛的專利組合（M2）、極高的客戶轉換成本（M3）以及卓越的營運效率（M7）和資本配置能力（M8）。這些因素共同構成了其競爭優勢，使其能夠在技術快速變革的市場中保持領先地位。雖然網絡效應（M4）和地理資產（M6）並非其核心壁壘，但其在規模經濟（M5）、客戶留存（M9）和業務持久性（M10）方面的表現亦相當穩固。整體而言，Keysight 具備類似於「收費橋」的特質，其專業技術和整合方案為客戶提供了不可或缺的價值，並產生了高度的依賴性。",
+  "overall_moat_verdict_en": "Keysight Technologies has established a solid economic moat in the electronic test and measurement sector, primarily characterized by its strong brand reputation (M1), extensive patent portfolio (M2), very high customer switching costs (M3), and excellent operational efficiency (M7) and capital allocation capabilities (M8). These factors collectively form its competitive advantage, enabling it to maintain a leading position in a rapidly evolving technological market. While network effects (M4) and geographic assets (M6) are not its core barriers, its performance in economies of scale (M5), customer retention (M9), and business durability (M10) is also quite robust. Overall, Keysight exhibits characteristics akin to a 'toll bridge,' where its specialized technology and integrated solutions provide indispensable value to customers, creating high dependency.",
+  "evidenceHash": "7fe7beec1556cb440dd0207a50b039469347a4c72627e29d9694497394d23a6d",
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
+}
