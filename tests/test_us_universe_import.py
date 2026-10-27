@@ -42,6 +42,8 @@ class UsUniverseImportTest(unittest.TestCase):
              "debtNoteName"),
             ({"symbol": "XELLL", "companyName": "Xcel Energy Inc. 6.25% Junior Subordinated Notes, Series due 2085"},
              "debtNoteName"),
+            ({"symbol": "TBB", "companyName": "AT&T Inc. 5.35% GLB NTS 66"},
+             "debtNoteName"),
             ({"symbol": "STRF", "companyName": "MicroStrategy Incorporated 10.00% Series A Perpetual Strife Preferred Stock"},
              "preferredName"),
             ({"symbol": "SATA", "companyName": "Strive Inc. Perp. Pfd. Series A"},
