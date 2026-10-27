@@ -2447,6 +2447,8 @@
       liquidation_reason_invalidCalculation: '計算結果無效',
       screener_formula: "計算說明",
       currency_usd_note: "金額與每股數據統一以 USD 計算及呈現。損益／現金流採各期每日 USD 換算率平均，資產負債餘額採期末最近可用交易日匯率；TTM 先逐季換算再合計。股數與比率不直接乘匯率。資料來源：美國聯準會 H.10。缺少匯率顯示 N/A，不用固定匯率代替。",
+      edgar_source_overwrite: "已由 SEC EDGAR companyfacts 覆寫",
+      edgar_source_overwrite_note: "FMP 缺值或與 companyfacts 不符時，已採 SEC 公開數字覆寫關鍵列；FMP 原值保留於稽核中繼資料，未虛構數字。",
       currency_original: "原始財報幣別",
       currency_missing: "缺少所需財報、對齊期間或歷史匯率，相關美元數值暫不可用。",
       fcf_reason_missingFx: "N/A：缺少此財報期間所需的歷史匯率；不以最新匯率、固定匯率或 1:1 補值。",
@@ -2909,6 +2911,8 @@
       liquidation_reason_invalidCalculation: 'Invalid calculation result',
       screener_formula: "Calculation details",
       currency_usd_note: "Monetary amounts and per-share figures are calculated and displayed in USD. Income/cash flows use each period's average daily USD conversion rate; balance sheet amounts use the latest available observation at period end. TTM sums separately converted quarters. Share counts and ratios are not multiplied by FX rates. Source: Federal Reserve H.10. Missing rates remain N/A; no fixed-rate substitutions.",
+      edgar_source_overwrite: "Overwritten from SEC EDGAR companyfacts",
+      edgar_source_overwrite_note: "When FMP was missing or disagreed with companyfacts, key lines were overwritten from SEC public facts. Original FMP values remain in audit metadata; no invented figures.",
       currency_original: "Original reporting currency",
       currency_missing: "Required financial data, aligned periods or historical FX are missing; affected USD values are unavailable.",
       fcf_reason_missingFx: "N/A: Required historical period FX is unavailable. No latest-rate, fixed-rate or 1:1 substitution.",
@@ -5657,6 +5661,8 @@
       activeStatementPeriod === 'semiannual' && nativeCadence.frequency === 'quarterly'
         ? (isEn ? ' · Derived from two reported quarters; closing balances are not summed. Nonadditive EPS remains N/A.' : ' · 合計兩個實報季度；資產負債採期末餘額、不加總。不可加總的 EPS 維持 N/A。') : ''}`;
     const status = document.getElementById('statement-status');
+    delete status.dataset.edgarBadge;
+    status.removeAttribute('title');
     const addSource = (source, label) => {
       const link = document.createElement('a');
       link.href = source.url;
@@ -5665,6 +5671,21 @@
       link.textContent = label;
       status.append(document.createTextNode(' · '), link);
     };
+    const edgarBadgeFromStock = MarketContext.edgarSourceBadge(s, currentLang);
+    if (edgarBadgeFromStock) {
+      status.dataset.edgarBadge = '1';
+      status.append(document.createTextNode(` · ${I18N_DICT[currentLang].edgar_source_overwrite}`));
+      status.title = I18N_DICT[currentLang].edgar_source_overwrite_note;
+    }
+    FcfRatios.loadStatements(ticker).then(data => {
+      if (activeCompanyTicker !== ticker) return;
+      const badge = MarketContext.edgarSourceBadge(data, currentLang);
+      if (!badge || status.dataset.edgarBadge === '1') return;
+      status.dataset.edgarBadge = '1';
+      status.append(document.createTextNode(` · ${I18N_DICT[currentLang].edgar_source_overwrite}`));
+      status.title = [I18N_DICT[currentLang].edgar_source_overwrite_note, badge]
+        .filter(Boolean).join(' ');
+    }).catch(() => {});
     if (activeStatementType === 'income' && s.fin_valuation?.is_financial) {
       status.append(document.createTextNode(isEn
         ? ' · Bank/insurance income statements do not use industrial Cost of Revenue or Gross Profit; those provider fields are hidden here. Interest income/expense and net interest income are shown instead. For banks/credit, Revenue periods that FMP framed as gross interest income are shown as operating revenue (NII + non-interest). Raw FMP rows remain in cache for audit only.'

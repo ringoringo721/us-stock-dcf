@@ -1,0 +1,90 @@
+name: US EDGAR companyfacts annotate (read-only)
+
+# Annotate-only: compare FMP statement caches to SEC companyfacts and upload reports.
+# Never passes --write. Does not mutate cache/financials or publish market_data.js.
+on:
+  workflow_dispatch:
+    inputs:
+      tickers:
+        description: Optional comma-separated US tickers (e.g. AAPL,MSFT). Empty = sample from cache.
+        type: string
+        default: ''
+      limit:
+        description: Max US tickers when sampling from cache (digits). Ignored when tickers is set. Default 25.
+        type: string
+        default: '25'
+      delay_ms:
+        description: Delay between live SEC companyfacts fetches (milliseconds).
+        type: string
+        default: '350'
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  annotate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Validate annotate inputs
+        env:
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+          LIMIT: ${{ inputs.limit }}
+          DELAY_MS: ${{ inputs.delay_ms }}
+        run: |
+          case "${LIMIT}" in
+            ''|*[!0-9]*)
+              echo "::error::limit must be digits only"
+              exit 1
+              ;;
+          esac
+          case "${DELAY_MS}" in
+            ''|*[!0-9]*)
+              echo "::error::delay_ms must be digits only"
+              exit 1
+              ;;
+          esac
+          if [ -z "${SEC_USER_AGENT}" ]; then
+            echo "::error::SEC_USER_AGENT secret is required for live EDGAR annotate"
+            exit 1
+          fi
+
+      - name: Annotate US statements vs SEC companyfacts (no overwrite)
+        env:
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+          # Explicitly unset — annotate-only policy; never enable overwrite in CI.
+          EDGAR_ALLOW_WRITE: ''
+          TICKERS: ${{ inputs.tickers }}
+          LIMIT: ${{ inputs.limit }}
+          DELAY_MS: ${{ inputs.delay_ms }}
+        run: |
+          mkdir -p edgar-annotate-output cache/edgar/companyfacts
+          if [ -n "${TICKERS}" ]; then
+            node scripts/verify_us_statements_edgar.cjs \
+              --tickers "${TICKERS}" \
+              --delay-ms "${DELAY_MS}" \
+              --out edgar-annotate-output
+          else
+            node scripts/verify_us_statements_edgar.cjs \
+              --from-cache \
+              --limit "${LIMIT}" \
+              --delay-ms "${DELAY_MS}" \
+              --out edgar-annotate-output
+          fi
+
+      - name: Upload annotate reports (artifacts only)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: edgar-annotate-reports
+          path: |
+            edgar-annotate-output/
+            cache/edgar/companyfacts/
+          retention-days: 14
