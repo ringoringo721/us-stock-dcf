@@ -1,8 +1,10 @@
 __pycache__/
 /valuation-audit-output/
+/edgar-annotate-output/
 /hkex-source-output/
 /hkex-data-output/
 /us-data-output/
+/cache/edgar/
 /.vercel/
 /public/
 .vercel

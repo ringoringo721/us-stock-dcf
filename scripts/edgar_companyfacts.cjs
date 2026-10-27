@@ -1,8 +1,9 @@
 'use strict';
 
 /**
- * SEC EDGAR companyfacts helpers for US FMP anomaly verify/overwrite.
- * Never invents numbers: overwrite only when an EDGAR fact exists for a matched period.
+ * SEC EDGAR companyfacts helpers for US FMP anomaly annotate / optional overwrite.
+ * Default product policy is annotate-only (reports); applyOverwrites is a gated escape hatch.
+ * Never invents numbers: values change only when an EDGAR fact exists for a matched period.
  * HK tickers (.HK) are out of scope.
  */
 

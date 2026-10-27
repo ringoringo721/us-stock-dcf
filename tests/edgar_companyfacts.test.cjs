@@ -103,17 +103,52 @@ test('applyOverwrites writes EDGAR values and Traditional Chinese qualityWarning
   assert.equal(untouched.statements.annual.income[0].revenue, null);
 });
 
-test('verify CLI dry-run with fixture does not write', async () => {
+test('verify CLI annotate/dry-run with fixture does not write', () => {
   const { spawnSync } = require('node:child_process');
   const root = path.join(__dirname, '..');
   const result = spawnSync(process.execPath, [
     path.join(root, 'scripts', 'verify_us_statements_edgar.cjs'),
     '--ticker', 'AAPL',
     '--facts', path.join(root, 'tests', 'fixtures', 'aapl_companyfacts_sample.json')
-  ], { encoding: 'utf8', cwd: root });
+  ], { encoding: 'utf8', cwd: root, env: { ...process.env, EDGAR_ALLOW_WRITE: '' } });
   assert.equal(result.status, 0, result.stderr);
   const report = JSON.parse(result.stdout);
   assert.equal(report.ticker, 'AAPL');
   assert.equal(report.write, false);
+  assert.equal(report.mode, 'annotate');
   assert.ok(report.summary.total > 0);
+});
+
+test('--write is blocked without EDGAR_ALLOW_WRITE=1 under annotate-only policy', () => {
+  const { spawnSync } = require('node:child_process');
+  const root = path.join(__dirname, '..');
+  const blocked = spawnSync(process.execPath, [
+    path.join(root, 'scripts', 'verify_us_statements_edgar.cjs'),
+    '--ticker', 'AAPL',
+    '--write',
+    '--facts', path.join(root, 'tests', 'fixtures', 'aapl_companyfacts_sample.json')
+  ], { encoding: 'utf8', cwd: root, env: { ...process.env, EDGAR_ALLOW_WRITE: '' } });
+  assert.notEqual(blocked.status, 0);
+  assert.match(blocked.stderr, /EDGAR_ALLOW_WRITE/);
+});
+
+test('batch annotate writes report artifacts without mutating statements', () => {
+  const { spawnSync } = require('node:child_process');
+  const fs = require('node:fs');
+  const os = require('node:os');
+  const root = path.join(__dirname, '..');
+  const out = fs.mkdtempSync(path.join(os.tmpdir(), 'edgar-annotate-'));
+  const before = fs.readFileSync(path.join(root, 'cache', 'financials', 'AAPL_statements_v2.json'), 'utf8');
+  const result = spawnSync(process.execPath, [
+    path.join(root, 'scripts', 'verify_us_statements_edgar.cjs'),
+    '--tickers', 'AAPL',
+    '--facts', path.join(root, 'tests', 'fixtures', 'aapl_companyfacts_sample.json'),
+    '--out', out
+  ], { encoding: 'utf8', cwd: root });
+  assert.equal(result.status, 0, result.stderr);
+  assert.equal(fs.readFileSync(path.join(root, 'cache', 'financials', 'AAPL_statements_v2.json'), 'utf8'), before);
+  const summary = JSON.parse(fs.readFileSync(path.join(out, 'summary.json'), 'utf8'));
+  assert.equal(summary.mode, 'annotate');
+  assert.equal(summary.write, false);
+  assert.ok(fs.existsSync(path.join(out, 'AAPL.json')));
 });
