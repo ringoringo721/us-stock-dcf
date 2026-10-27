@@ -1,0 +1,60 @@
+{
+  "ticker": "EXC",
+  "period": "2026Q2",
+  "m1_brand_pricing": {
+    "score": 7,
+    "comment_zh": "Exelon 在受監管的公用事業行業中，其品牌定價權相對有限，主要受監管機構設定的費率所約束。然而，其作為大型、成熟且可靠的電力供應商的聲譽，確實賦予了其一定的品牌價值，使其在面對潛在競爭時具有一定的優勢。這種品牌信任度有助於維持穩定的客戶基礎，並在一定程度上影響監管機構的決策。相較於非受監管行業，其定價權的強度較弱，但仍是其營運穩定性的重要支撐。",
+    "comment_en": "Exelon's brand pricing power is relatively limited within the regulated utility sector, primarily constrained by rates set by regulatory bodies. However, its reputation as a large, established, and reliable electricity provider does confer a certain brand value, offering an advantage when facing potential competition. This brand trust helps maintain a stable customer base and influences regulatory decisions to some extent. While weaker than in unregulated industries, it remains a significant support for its operational stability."
+  },
+  "m2_patents_regulatory": {
+    "score": 8,
+    "comment_zh": "Exelon 的核心業務，即電力傳輸與配電，受到嚴格的政府監管和特許經營權的保護。這些監管壁壘極大地限制了新進入者的競爭，確保了公司在特定地理區域內的壟斷地位。雖然沒有傳統意義上的專利，但這些特許經營權和嚴格的行業准入規則構成了強大的經濟護城河，使其能夠在可預見的未來維持穩定的營收和現金流。這是公用事業行業典型的、高度受保護的壁壘。",
+    "comment_en": "Exelon's core business of electricity transmission and distribution is protected by stringent government regulation and operating franchises. These regulatory barriers significantly limit new entrants, ensuring the company's monopolistic position within specific geographic areas. While not patents in the traditional sense, these franchises and strict industry entry rules form a strong economic moat, enabling stable revenue and cash flow for the foreseeable future. This is a typical, highly protected barrier in the utility sector."
+  },
+  "m3_high_switching_costs": {
+    "score": 9,
+    "comment_zh": "對於 Exelon 服務區域內的住宅和商業客戶而言，更換電力供應商的轉換成本極高。基礎設施的鋪設和維護是高度資本密集且受監管的，客戶無法輕易地從一家電力公司轉向另一家，因為他們依賴於現有的電網基礎設施。這種對特定基礎設施的依賴，以及監管機構對服務區域的劃分，使得客戶幾乎沒有轉換的動機或可能性，從而為 Exelon 提供了極其穩固的客戶黏性。",
+    "comment_en": "For residential and commercial customers within Exelon's service territories, the switching costs to change electricity providers are extremely high. The installation and maintenance of infrastructure are capital-intensive and regulated, preventing customers from easily switching between electricity companies as they rely on existing grid infrastructure. This dependence on specific infrastructure, coupled with regulatory service area designations, leaves customers with virtually no incentive or possibility to switch, providing Exelon with exceptionally strong customer stickiness."
+  },
+  "m4_network_effects": {
+    "score": 2,
+    "comment_zh": "Exelon 的電力傳輸和配電業務不具備顯著的網絡效應。其業務模式依賴於物理基礎設施的擴張和維護，而非用戶數量增加帶來的邊際效益遞增。雖然電網的擴展可以服務更多用戶，但這更多是規模經濟的體現，而非網絡效應。用戶數量的增加並不會直接提升現有用戶的價值或使用體驗，因此這不是 Exelon 的主要護城河。",
+    "comment_en": "Exelon's electricity transmission and distribution business does not exhibit significant network effects. Its business model relies on the expansion and maintenance of physical infrastructure, rather than the increasing marginal benefits derived from a growing user base. While grid expansion can serve more users, this is more a reflection of economies of scale than network effects. An increase in user numbers does not directly enhance the value or user experience for existing customers, thus it is not a primary moat for Exelon."
+  },
+  "m5_cost_advantage_scale": {
+    "score": 8,
+    "comment_zh": "作為美國最大的電力傳輸和配電公司之一，Exelon 受益於顯著的規模經濟。其龐大的基礎設施網絡、營運效率和採購能力，使其能夠以低於小型競爭對手的成本運營。這種規模優勢不僅體現在成本控制上，也體現在其能夠承擔大型基礎設施投資和技術升級的能力。對於新進入者而言，複製如此龐大的、經過時間考驗的基礎設施網絡需要巨額的資本投入和時間，構成了顯著的成本壁壘。",
+    "comment_en": "As one of the largest electricity transmission and distribution companies in the United States, Exelon benefits from significant economies of scale. Its vast infrastructure network, operational efficiency, and purchasing power allow it to operate at a lower cost than smaller competitors. This scale advantage is reflected not only in cost control but also in its capacity to undertake large infrastructure investments and technological upgrades. For new entrants, replicating such a massive, time-tested infrastructure network requires immense capital and time, forming a substantial cost barrier."
+  },
+  "m6_unique_geography_assets": {
+    "score": 7,
+    "comment_zh": "Exelon 在美國東北部和中西部地區擁有廣泛且關鍵的電力基礎設施資產，這些資產在地理上具有一定的獨特性和戰略重要性。這些資產的地理位置使其能夠服務於人口稠密且工業發達的地區，確保了穩定的電力需求。由於基礎設施建設的複雜性和監管限制，在這些核心區域內複製或替代其現有網絡的難度極高，為其提供了區域性的護城河。",
+    "comment_en": "Exelon possesses extensive and critical electricity infrastructure assets in the Northeastern and Midwestern regions of the United States, which are geographically unique and strategically important. The location of these assets allows it to serve densely populated and industrialized areas, ensuring stable electricity demand. Due to the complexity of infrastructure development and regulatory constraints, replicating or replacing its existing network within these core regions is extremely difficult, providing it with a regional moat."
+  },
+  "m7_operational_efficiency": {
+    "score": 7,
+    "comment_zh": "Exelon 在營運效率方面表現穩健，透過持續的技術投資和流程優化，努力降低營運成本並提高服務可靠性。其 F-Score 為 3/9，顯示在某些營運指標上可能存在改進空間，但其作為大型公用事業公司的經驗和專業知識，使其能夠有效管理複雜的電網運營。持續的資本支出用於維護和升級基礎設施，確保了長期營運的穩定性和效率，這對於維持其監管下的盈利能力至關重要。",
+    "comment_en": "Exelon demonstrates solid operational efficiency, striving to reduce operating costs and improve service reliability through continuous technological investment and process optimization. Its F-Score of 3/9 suggests potential areas for improvement in certain operational metrics, but its experience and expertise as a large utility company enable it to effectively manage complex grid operations. Ongoing capital expenditures for infrastructure maintenance and upgrades ensure long-term operational stability and efficiency, which is crucial for maintaining its regulated profitability."
+  },
+  "m8_capital_allocation": {
+    "score": 6,
+    "comment_zh": "Exelon 的資本配置策略主要圍繞著對其受監管公用事業資產的持續投資，以維持和升級基礎設施，並支付股息。雖然其現金流相對穩定，但其高額的負債（現金 $1,250M / 負債 $52,283M）表明其財務槓桿較高，限制了其進行大規模激進投資或股票回購的能力。其資本配置的重點在於維持現有業務的穩定性和可靠性，而非追求高成長的戰略性收購或投資。",
+    "comment_en": "Exelon's capital allocation strategy primarily revolves around continuous investment in its regulated utility assets for maintenance and upgrades, and dividend payments. While its cash flow is relatively stable, its high debt level (Cash $1,250M / Debt $52,283M) indicates significant financial leverage, limiting its capacity for large, aggressive investments or share buybacks. Its capital allocation focuses on maintaining the stability and reliability of its existing operations rather than pursuing high-growth strategic acquisitions or investments."
+  },
+  "m9_customer_retention": {
+    "score": 9,
+    "comment_zh": "如 M3 所述，Exelon 的客戶保留率極高，這主要歸因於其公用事業業務的基礎設施依賴性和監管結構。客戶幾乎無法更換電力供應商，因此一旦接入 Exelon 的電網，便成為其長期客戶。這種強制性的客戶黏性是其最為堅固的護城河之一，確保了收入的穩定性和可預測性，使其能夠在監管框架內持續獲利。",
+    "comment_en": "As noted in M3, Exelon's customer retention rate is extremely high, primarily due to the infrastructure dependency and regulatory structure of its utility business. Customers have virtually no ability to switch electricity providers, making them long-term customers once connected to Exelon's grid. This enforced customer stickiness is one of its most robust moats, ensuring stable and predictable revenue, allowing for sustained profitability within the regulatory framework."
+  },
+  "m10_durability": {
+    "score": 8,
+    "comment_zh": "Exelon 的業務具有高度的持久性。作為提供必需能源的公用事業公司，其服務需求在經濟週期中相對穩定。其龐大的、受監管的基礎設施網絡構成了長期的進入壁壘，並且由於其服務的基礎性，不太可能被顛覆性技術在短期內取代。雖然面臨能源轉型和監管變化的挑戰，但其核心業務的持久性使其能夠在長期內維持穩定的營運和現金流。",
+    "comment_en": "Exelon's business possesses high durability. As a utility company providing essential energy, its service demand is relatively stable across economic cycles. Its vast, regulated infrastructure network forms long-term entry barriers, and due to the fundamental nature of its service, it is unlikely to be replaced by disruptive technologies in the short term. Despite facing challenges from energy transition and regulatory changes, the durability of its core business allows it to maintain stable operations and cash flow over the long term."
+  },
+  "overall_moat_verdict_zh": "Exelon 的經濟護城河主要建立在其受監管的公用事業特許經營權和極高的客戶轉換成本之上，這構成了其業務的基石。作為一個提供必需能源的公用事業公司，其業務具有高度的持久性與穩定性，不易受經濟週期影響。龐大的基礎設施規模帶來了顯著的成本優勢，並在特定地理區域內形成了區域性的壁壘。然而，其品牌定價權和網絡效應相對較弱。總體而言，Exelon 是一家典型的「收費橋」型企業，其價值在於提供穩定、可靠且受監管的基礎設施服務，為股東帶來持續的現金流。",
+  "overall_moat_verdict_en": "Exelon's economic moat is primarily built upon its regulated utility franchises and extremely high customer switching costs, forming the cornerstone of its business. As a utility company providing essential energy, its operations exhibit high durability and stability, being relatively insensitive to economic cycles. Its vast infrastructure scale provides significant cost advantages and creates regional barriers within specific geographic areas. However, its brand pricing power and network effects are relatively weak. Overall, Exelon is a classic 'toll bridge' type of business, deriving its value from providing stable, reliable, and regulated infrastructure services that generate consistent cash flow for shareholders.",
+  "evidenceHash": "53b74bdf5270f90e2ce11a9dbb7d41c2528635765dfc94125073307270e18c6e",
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
+}
