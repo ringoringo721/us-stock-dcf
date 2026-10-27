@@ -123,6 +123,23 @@ explicit `pendingCapture` rows (null prices/scores, not zeros). Captured company
 snapshots load on demand from `cache/us_companies/`. Compact expansion rows live
 in `us_expansion_data.js` after a human `integrate` step.
 
+### US Chinese company names (Traditional Chinese UI)
+
+Unlike HKEX (official Chinese short names), FMP US profiles are English-only.
+The Chinese UI therefore uses a best-effort catalogue (`us_chinese_names_data.js`,
+built by `python scripts/build_us_chinese_names.py`) with this priority:
+
+1. Curated `STOCK_NAMES_ZH` in `index.html` (reviewed baseline)
+2. HKEX dual-listed Chinese short names (exact English legal-name match)
+
+`description_zh` lead-in extraction is **not** used: many expansion texts open
+with an unrelated Chinese entity (e.g. Agilent→惠普, Vale→力拓), so those labels
+are unsafe without a verified company match.
+
+No machine-invented translations: tickers without a sourced ZH short name keep
+the English `company_name` in the Chinese UI. Regenerate after updating the
+curated map or HK dual-list inputs; see coverage in `cache/us_chinese_names.json`.
+
 The **Read-only valuation source audit** workflow accepts `expand_all_us`.
 It re-screens FMP, partitions candidates into batches of at most twenty, captures
 valuation sources, runs `build_full_market.py` in `US_EXPANSION_*` mode (writes

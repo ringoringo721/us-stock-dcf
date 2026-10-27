@@ -19,7 +19,7 @@
         document.head.append(script);
       }
     } else {
-      for (const filename of ['us_universe_data.js', 'us_expansion_data.js']) {
+      for (const filename of ['us_universe_data.js', 'us_expansion_data.js', 'us_chinese_names_data.js']) {
         const script = document.createElement('script');
         script.src = filename;
         script.async = false;
@@ -2465,7 +2465,10 @@
     if (!s) return "";
     const ticker = (s.ticker || "").toUpperCase().trim();
     if (typeof currentLang !== 'undefined' && currentLang === 'zh') {
-      return STOCK_NAMES_ZH[ticker] || s.name_zh || s.name || s.company_name || ticker;
+      const fromCatalogue = (typeof US_CHINESE_NAMES !== 'undefined' && US_CHINESE_NAMES?.names)
+        ? US_CHINESE_NAMES.names[ticker]
+        : undefined;
+      return STOCK_NAMES_ZH[ticker] || s.name_zh || fromCatalogue || s.name || s.company_name || ticker;
     } else {
       return s.name_en || s.company_name || s.name || ticker;
     }
@@ -7183,6 +7186,7 @@
       I18N_DICT[currentLang].currency_original}: ${s.reportedCurrency || 'N/A'}.${
       s.currencyConversion?.reason ? ` ${I18N_DICT[currentLang].currency_missing}` : ''}`;
     const chineseName = STOCK_NAMES_ZH[ticker] || s.name_zh
+      || (typeof US_CHINESE_NAMES !== 'undefined' && US_CHINESE_NAMES?.names?.[ticker])
       || (/[\u3400-\u9fff]/.test(s.name || '') ? s.name : null);
     document.getElementById('cmp-full-name').innerText = currentLang === 'zh'
       ? (chineseName ? `${chineseName} (${s.company_name || ticker})` : (s.company_name || `${ticker} Inc.`))
