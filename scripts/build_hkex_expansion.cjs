@@ -8,6 +8,7 @@ const { listingStock, belowMoatMarketCap } = require('../hkex_universe.js');
 const { compileStock, prepareStatements, statementTable, scoreBreakdown, hash, priceHistory } = require('./build_hkex.cjs');
 const { convertStatements } = require('../usd_currency.js');
 const scores = require('../statement_scores.js');
+const { attachDistressScores, stripCompactBreakdowns } = require('./distress_score_fields.cjs');
 const ratios = require('../fcf_ratios.js');
 const rates = require('../cache/fx/hkd_rates.json');
 const read = file => JSON.parse(fs.readFileSync(file, 'utf8'));
@@ -92,10 +93,29 @@ function partial(item, original, error, reports, treasury, capturedRates = rates
   }
   const stock = listingStock(item), profile = evidence.responses.profile?.rows?.find(row => row.symbol === item.ticker);
   const statements = prepareStatements(evidence, { allowIncomplete: true, sourceWarnings });
-  const display = convertStatements(statements, capturedRates), score = scores.calculate(statements);
+  const display = convertStatements(statements, capturedRates);
+  const financial = !!item.financial || !!stock.fin_valuation?.is_financial;
+  const score = financial
+    ? { score: null, items: [], date: null, period: null, basis: null, evaluatedTests: 0,
+      passedTests: 0, reason: 'financialSectorNotApplicable' }
+    : scores.calculate(statements);
   stock.statements_raw = statementTable(display);
-  stock.f_score = score.score; stock.f_score_breakdown = scoreBreakdown(score, display);
-  stock.ratingSources.fScore = { ...score, checkedAt: evidence.capturedAt, evidenceHash: hash(statements) };
+  stock.f_score = financial ? null : score.score;
+  stock.f_score_breakdown = financial ? [] : scoreBreakdown(score, display);
+  stock.ratingSources.fScore = {
+    ...score,
+    checkedAt: evidence.capturedAt,
+    evidenceHash: hash(statements),
+    ...(financial ? {
+      applicability: 'Banks and insurers use regulatory-capital metrics; standard PF / Altman / Beneish tests are not applicable'
+    } : {})
+  };
+  attachDistressScores(stock, statements, {
+    ticker: item.ticker,
+    checkedAt: evidence.capturedAt,
+    evidenceHash: hash(statements),
+    nullPfForFinancials: true
+  });
   stock.company_name = profile?.companyName || stock.company_name;
   stock.description = profile?.description || null;
   stock.description_en = profile?.description || null;
@@ -278,6 +298,7 @@ function integrate(input, output = root) {
       for (const key of ['statements_raw', 'real_history', 'news', 'top_holders', 'insider_trades', 'stock_splits',
         'historical_dcf_series', 'real_5y_prices', 'description', 'description_en', 'description_zh', 'reported_growth']) delete compact[key];
       compact.f_score_breakdown = [];
+      stripCompactBreakdowns(compact);
       if (compact.ratingSources?.moat?.businessResearch) {
         const { businessResearch, ...provenance } = compact.ratingSources.moat;
         compact.ratingSources = { ...compact.ratingSources, moat: {

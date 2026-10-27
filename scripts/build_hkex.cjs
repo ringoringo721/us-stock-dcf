@@ -5,6 +5,7 @@ const { convertStatements, rateFor } = require('../usd_currency.js');
 const { value } = require('./usd_financials.cjs');
 const { normalizeBankStatements } = require('../financial_industry.js');
 const scores = require('../statement_scores.js');
+const { attachDistressScores } = require('./distress_score_fields.cjs');
 const ratios = require('../fcf_ratios.js');
 const context = require('../market_context.js');
 const { applyOfficialBalance } = require('./official_balance.cjs');
@@ -704,10 +705,18 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
   const treasuryCurve = treasury?.ok && Array.isArray(treasury.rows) ? sorted(treasury.rows.filter(row =>
     day(row.date) && row.date <= evidence.capturedAt.slice(0, 10) && finite(row.year10)
     && (Date.parse(evidence.capturedAt.slice(0, 10)) - Date.parse(row.date)) / 86400000 <= 14)).at(-1) : null;
-  const currentRatioNotApplicable = require('../cache/pf_applicability.json').tickers[item.ticker] || null;
-  const table = statementTable(data), score = scores.calculate(reported, { currentRatioNotApplicable });
+  const currentRatioNotApplicable = item.financial
+    ? null
+    : (require('../cache/pf_applicability.json').tickers[item.ticker] || null);
+  const table = statementTable(data);
+  // Banks / insurers: PF, Altman Z and Beneish M are not applicable (regulatory-capital metrics).
+  const score = item.financial
+    ? { score: null, items: [], date: null, period: null, basis: null, evaluatedTests: 0,
+      passedTests: 0, reason: 'financialSectorNotApplicable' }
+    : scores.calculate(reported, { currentRatioNotApplicable });
   const scoreHash = hash({ annual: reported.annual, interim: reported.quarterly,
-    ...(score.applicability ? { applicability: score.applicability } : {}) });
+    ...(score.applicability ? { applicability: score.applicability } : {}),
+    ...(item.financial ? { financialSectorNotApplicable: true } : {}) });
   const previousScore = previousStock.ratingSources?.fScore;
   const scoreRelease = readRows(evidence, 'transcript_dates').find(row => {
     const sourceRow = [...raw.quarterly.income, ...raw.annual.income].find(row => row.date === score.date);
@@ -764,8 +773,11 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
       }).filter(Boolean)),
       basis: 'userDirectedUsdTreasuryProxyUnderHkdUsdPeg' },
     growth_10y: Array(10).fill(null), g1: null, g2: null, g: 2.25, wacc: null,
-    fcf0: millions(flow('cashflow', 'freeCashFlow')), f_score: score.score,
-    f_score_breakdown: scoreBreakdown(score, raw.propertyFvProvenance ? convertStatements(reported, rates) : data), moat: priorMoat,
+    fcf0: millions(flow('cashflow', 'freeCashFlow')),
+    f_score: item.financial ? null : score.score,
+    f_score_breakdown: item.financial ? []
+      : scoreBreakdown(score, raw.propertyFvProvenance ? convertStatements(reported, rates) : data),
+    moat: priorMoat,
     fair_val: null, default_fair_val: null, premium_pct: null, is_undervalued: null,
     pe_forward: null, pb_forward: null, target_price: null, dcf_model_ev: null,
     statements_raw: table, reported_growth: reportedGrowth(data, rates, { industry: item.industry, ticker: item.ticker }), real_history: {},
@@ -788,10 +800,13 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
         passedTests: score.passedTests, reason: score.reason, evidenceHash: scoreHash, checkedAt: evidence.capturedAt,
         ...(score.assessmentType ? { assessmentType: score.assessmentType, applicableTests: score.applicableTests,
           standardScore: score.standardScore, currentRatioApplicability: score.applicability } : {}),
-        releaseDate: release?.date || null, relatedCallDate: scoreRelease?.date || null,
+        releaseDate: item.financial ? null : (release?.date || null),
+        relatedCallDate: item.financial ? null : (scoreRelease?.date || null),
         scoringCurrency: raw.annual.income.at(-1)?.reportedCurrency || null,
         updatedAt: previousScore?.evidenceHash === scoreHash ? previousScore.updatedAt : evidence.capturedAt,
-        applicability: item.financial ? 'Financial-sector accounting limits comparability of standard nonfinancial-company tests' : null },
+        applicability: item.financial
+          ? 'Banks and insurers use regulatory-capital metrics; standard PF / Altman / Beneish tests are not applicable'
+          : null },
       moat: { asOfDate: latest?.date || null, period: latest ? `${latest.fiscalYear || latest.calendarYear}${latest.period}` : null,
         evidenceHash: candidate?.evidenceHash || null, currentEvidenceHash: fingerprint, updatedAt: candidate?.updatedAt || null,
         reason: moat ? null : priorMoat ? 'staleEvidence' : 'analysisUnavailable',
@@ -802,6 +817,12 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
         method: 'AI qualitative assessment anchored to dated financial statements and available transcript; not a reported accounting measure' }
     }
   };
+  attachDistressScores(stock, reported, {
+    ticker: item.ticker,
+    checkedAt: evidence.capturedAt,
+    evidenceHash: scoreHash,
+    nullPfForFinancials: true
+  });
   stock.net_debt = finite(stock.debt) && finite(stock.cash_and_short_term) ? stock.debt - stock.cash_and_short_term : null;
   stock.ev = finite(stock.mcap) && finite(stock.net_debt) ? stock.mcap + stock.net_debt : null; stock.fmp_official_ev = stock.ev;
   Object.assign(stock, marketMultiples(data, stock.price, shareSource, shareClassUnverified, stock.mcap));

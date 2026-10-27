@@ -16,20 +16,28 @@
       annual: { income: [], balance: [], cashflow: [] }, quarterly: { income: [], balance: [], cashflow: [] } };
   }
   function listingStock(item) {
+    const financial = !!item.financial;
     return { ticker: item.ticker, displayCode: item.displayCode, name: item.name, name_zh: item.name_zh, name_en: item.name_en,
       company_name: item.name_en, market: 'HKEX', exchange: 'HKEX',
       sector: item.sector || 'Unclassified', industry: item.industry || 'Unclassified',
       calculationCurrency: 'HKD', tradingCurrency: item.tradingCurrency, universeMembership: item.universeMembership,
       price: null, mcap: null, shares: null, shares_outstanding: null, debt: null, cash: null,
-      cash_and_short_term: null, fcf0: null, f_score: null, f_score_breakdown: [], moat: null,
+      cash_and_short_term: null, fcf0: null, f_score: null, f_score_breakdown: [],
+      z_score: null, z_score_model: null, z_score_zone: null, z_score_breakdown: [],
+      m_score: null, m_score_zone: null, m_score_breakdown: [], moat: null,
       pe_trailing: null, pb_trailing: null, div_yield: null, beta: null,
       fair_val: null, reportingFrequency: 'annual', statementFrequencies: { income: 'annual', balance: 'annual', cashflow: 'annual' },
       statements_raw: { annual_dates: [], income: {}, balance: {}, cashflow: {},
         quarterly_raw: { dates: [], income: {}, balance: {}, cashflow: {} } },
-      fin_valuation: { is_financial: false }, real_history: {}, real_5y_prices: [],
+      fin_valuation: { is_financial: financial }, real_history: {}, real_5y_prices: [],
       peers: [], top_holders: [], insider_trades: [], stock_splits: [], news: [],
       dataAvailability: { currentPrice: 'pendingCapture', financials: 'pendingCapture' },
-      ratingSources: { moat: { reason: 'analysisUnavailable' }, fScore: { reason: 'pendingCapture' } },
+      ratingSources: {
+        moat: { reason: 'analysisUnavailable' },
+        fScore: { reason: financial ? 'financialSectorNotApplicable' : 'pendingCapture' },
+        zScore: { reason: financial ? 'financialSectorNotApplicable' : 'pendingCapture' },
+        mScore: { reason: financial ? 'financialSectorNotApplicable' : 'pendingCapture' }
+      },
       expansion: { status: 'pendingCapture', source: item.universeMembership } };
   }
   function listingNames(stock, item) {

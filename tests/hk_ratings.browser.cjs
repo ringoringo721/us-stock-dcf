@@ -99,23 +99,25 @@ const root = path.resolve(__dirname, '..', 'public');
     assert.ok(researched.length > 0, 'Saved researched assessments must be applied before this check');
     for (const language of ['zh', 'en']) {
       await page.evaluate(value => applyLanguage(value), language);
-      for (const [ticker, expected] of Object.entries({ '1299.HK': 5, '2318.HK': 6, '2628.HK': 7 })) {
+      for (const ticker of ['1299.HK', '2318.HK', '2628.HK', '1398.HK']) {
         await page.evaluate(ticker => { openCompanyProfile(ticker); switchSubPage('rating'); }, ticker);
         await page.waitForFunction(ticker => stockUniverse[ticker].companyDataLoaded, ticker);
-        assert.match(await page.locator('#fsc-total-score').innerText(), new RegExp(`${expected} / 8`));
-        assert.match(await page.locator('#fsc-health-level').innerText(), language === 'en' ? /nonstandard/ : /非標準/);
+        assert.match(await page.locator('#fsc-total-score').innerText(), /N\/A/);
+        assert.match(await page.locator('#fsc-health-level').innerText(),
+          language === 'en' ? /Not applicable \(financials\)/i : /金融業不適用/);
         assert.equal(await page.locator('[data-i18n="fsc_health_bands"]').isVisible(), false);
-        assert.match(await page.locator('#fsc-cat-leverage').innerText(), /\/ 2/);
-        assert.match((await page.locator('#fscore-breakdown-body tr').allTextContents())[5],
-          language === 'en' ? /Not applicable/ : /不適用/);
-        assert.equal(await page.locator('#fsc-health-comment a').count(), 2);
         const score = await page.evaluate(ticker => financialHealthAssessment(stockUniverse[ticker].f_score,
-          stockUniverse[ticker].f_score_breakdown, stockUniverse[ticker].ratingSources.fScore), ticker);
-        assert.equal(score.validBreakdown, true);
-        assert.equal(score.level, 'adjusted');
+          stockUniverse[ticker].f_score_breakdown, stockUniverse[ticker].ratingSources.fScore,
+          stockUniverse[ticker]), ticker);
+        assert.equal(score.financialNa, true);
+        assert.equal(score.validScore, false);
+        assert.match(await page.locator('#zsc-total-score').innerText(), /N\/A/);
+        assert.match(await page.locator('#msc-total-score').innerText(), /N\/A/);
         await page.evaluate(() => navigateBack());
         const row = page.locator('#screener-tbody tr').filter({ hasText: ticker });
-        assert.match(await row.locator('.badge-fscore').innerText(), new RegExp(`${expected} / 8`));
+        assert.match(await row.locator('.badge-fscore').innerText(), /N\/A/);
+        assert.match(await row.locator('.badge-zscore').innerText(), /N\/A/);
+        assert.match(await row.locator('.badge-mscore').innerText(), /N\/A/);
       }
       for (const ticker of ['1398.HK', '3988.HK']) {
         await page.evaluate(ticker => { openCompanyProfile(ticker); switchSubPage('valuation'); }, ticker);

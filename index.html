@@ -433,14 +433,20 @@
     .badge-overvalued { background: var(--red-bg); color: var(--red); border: 1px solid rgba(248, 113, 113, 0.3); }
     .badge-target { background: var(--gold-bg); color: var(--gold); border: 1px solid rgba(251, 191, 36, 0.4); font-weight: 700; }
     
-    .badge-fscore { cursor: pointer; text-decoration: none; padding: 4px 8px; font-weight: 700; border-radius: 4px; font-size: 11px; display: inline-block; }
-    .badge-fscore:hover { transform: scale(1.1); filter: brightness(1.2); }
-    .fscore-green { background: rgba(74, 222, 128, 0.2); color: var(--green); border: 1px solid rgba(74, 222, 128, 0.5); }
-    .fscore-yellow { background: rgba(251, 191, 36, 0.2); color: var(--gold); border: 1px solid rgba(251, 191, 36, 0.5); }
-    .fscore-red { background: rgba(248, 113, 113, 0.2); color: var(--red); border: 1px solid rgba(248, 113, 113, 0.5); }
+    .badge-fscore, .badge-zscore, .badge-mscore { cursor: pointer; text-decoration: none; padding: 4px 8px; font-weight: 700; border-radius: 4px; font-size: 11px; display: inline-block; }
+    .badge-fscore:hover, .badge-zscore:hover, .badge-mscore:hover { transform: scale(1.1); filter: brightness(1.2); }
+    .fscore-green, .zscore-green { background: rgba(74, 222, 128, 0.2); color: var(--green); border: 1px solid rgba(74, 222, 128, 0.5); }
+    .fscore-yellow, .zscore-yellow { background: rgba(251, 191, 36, 0.2); color: var(--gold); border: 1px solid rgba(251, 191, 36, 0.5); }
+    .fscore-red, .zscore-red, .mscore-red { background: rgba(248, 113, 113, 0.2); color: var(--red); border: 1px solid rgba(248, 113, 113, 0.5); }
+    .zscore-elite { background: rgba(34, 197, 94, 0.28); color: var(--green); border: 1px solid rgba(34, 197, 94, 0.7); }
+    .mscore-green { background: rgba(74, 222, 128, 0.2); color: var(--green); border: 1px solid rgba(74, 222, 128, 0.5); }
+    .mscore-yellow { background: rgba(251, 191, 36, 0.2); color: var(--gold); border: 1px solid rgba(251, 191, 36, 0.5); }
     .financial-health-level { display: inline-block; padding: 4px 8px; margin-top: 8px; border-radius: 4px; font-size: 12px; font-weight: 700; }
-    #fsc-comment-title { color: var(--accent); font-weight: 700; margin-bottom: 6px; }
-    #fsc-health-comment p + p { margin-top: 8px; }
+    #fsc-comment-title, #zsc-comment-title, #msc-comment-title { color: var(--accent); font-weight: 700; margin-bottom: 6px; }
+    #fsc-health-comment p + p, #zsc-health-comment p + p, #msc-health-comment p + p { margin-top: 8px; }
+    #zscore-view, #mscore-view { margin-top: 34px; padding-top: 16px; border-top: 1px solid var(--card-border); }
+    #zscore-view .ai-comment-card { border-left-color: var(--green); }
+    #mscore-view .ai-comment-card { border-left-color: var(--red); }
 
     .badge-moat { cursor: pointer; text-decoration: none; padding: 4px 8px; font-weight: 700; border-radius: 4px; font-size: 11px; display: inline-block; }
     .badge-moat:hover { transform: scale(1.08); filter: brightness(1.2); }
@@ -1115,7 +1121,8 @@
       #subpage-valuation .main-layout { grid-template-columns: minmax(0, 1fr); }
       #subpage-valuation .form-group { grid-template-columns: minmax(0, 1fr) 105px; }
     }
-    #screener-table .badge, #screener-table .badge-moat, #screener-table .badge-fscore { font-size: 12px; line-height: 1.5; }
+    #screener-table .badge, #screener-table .badge-moat, #screener-table .badge-fscore,
+    #screener-table .badge-zscore, #screener-table .badge-mscore { font-size: 12px; line-height: 1.5; }
     #main-scroll-box { max-height: 68vh !important; border-radius: 12px; }
     @media (max-width: 1000px) {
       #screener-view .top-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -1340,6 +1347,8 @@
             <th onclick="sortTable('roe')" style="width: 90px;">ROE (%)</th>
             <th onclick="sortTable('roa')" style="width: 90px;">ROA (%)</th>
             <th onclick="sortTable('f_score')" style="width: 115px; text-align: center;" data-i18n="th_fscore">PF score 評分</th>
+            <th onclick="sortTable('z_score')" style="width: 125px; text-align: center;" data-i18n="th_zscore">Altman Z · 破產風險</th>
+            <th onclick="sortTable('m_score')" style="width: 125px; text-align: center;" data-i18n="th_mscore">Beneish M · 造假警訊</th>
             <th onclick="sortTable('ev_to_ebitda')" style="width: 115px;">EV / EBITDA</th>
             <th onclick="sortTable('debt_to_ebitda')" style="width: 120px;">Debt / EBITDA</th>
             <th onclick="sortTable('net_debt_to_ebitda')" style="width: 135px;">Net Debt / EBITDA</th>
@@ -1365,6 +1374,8 @@
         <span id="det-name" style="font-size: 16px; color: var(--text-secondary);">輝達</span>
         <span id="det-moat-badge" class="badge-moat moat-wide" onclick="openMoat(activeDetailTicker)">護城河: 90/100 🏆</span>
         <span id="det-fscore-badge" class="badge-fscore fscore-green" onclick="openFScore(activeDetailTicker)">PF score: 8/9</span>
+        <span id="det-zscore-badge" class="badge-zscore zscore-green" onclick="openZScore(activeDetailTicker)">Z: --</span>
+        <span id="det-mscore-badge" class="badge-mscore mscore-green" onclick="openMScore(activeDetailTicker)">M: --</span>
         <span id="det-badge" class="badge">--</span>
         <span id="det-saved-badge" class="badge badge-target" style="display: none;">已儲存目標價</span>
       </div>
@@ -2273,6 +2284,88 @@
       </table></div>
     </div>
   </div>
+
+  <div id="zscore-view">
+    <div class="detail-header">
+      <div class="detail-title">
+        <span id="zsc-ticker" style="color: var(--accent);">NVDA</span>
+        <span id="zsc-exchange" class="badge">NASDAQ</span>
+        <span id="zsc-name" style="font-size: 16px; color: var(--text-secondary);">輝達</span>
+        <span style="font-size: 14px; color: var(--text-muted);" id="zsc-header-sub" data-i18n="zsc_header_sub">— Altman Z-Score · 破產風險</span>
+      </div>
+      <div style="display: flex; gap: 8px;">
+        <button class="btn-save" onclick="openDetail(activeZScoreTicker)" data-i18n="btn_goto_dcf">📈 前往估值模型</button>
+        <button class="btn-back" onclick="navigateBack()" data-i18n="btn_back_list">← 返回總表</button>
+      </div>
+    </div>
+    <div class="top-stats">
+      <div class="stat-box"><div class="stat-label" data-i18n="zsc_total_lbl">Altman Z-Score</div><div class="stat-num" id="zsc-total-score">N/A</div><div id="zsc-health-level" class="financial-health-level"></div></div>
+      <div class="stat-box"><div class="stat-label" data-i18n="zsc_model_lbl">模型</div><div class="stat-num" id="zsc-model" style="font-size: 18px;">Classic Z</div></div>
+      <div class="stat-box"><div class="stat-label" data-i18n="zsc_period_lbl">財報期間</div><div class="stat-num" id="zsc-period" style="font-size: 18px;">--</div></div>
+      <div class="stat-box"><div class="stat-label" data-i18n="zsc_components_lbl">組成項目</div><div class="stat-num" id="zsc-components">5</div></div>
+    </div>
+    <section class="ai-comment-card" aria-labelledby="zsc-comment-title">
+      <div id="zsc-comment-title" data-i18n="zsc_comment_title">破產風險解讀 · Altman Z</div>
+      <div id="zsc-health-comment"></div>
+      <p class="analysis-note" data-i18n="zsc_health_bands"></p>
+      <p class="analysis-note" data-i18n="zsc_health_caution"></p>
+    </section>
+    <div class="panel">
+      <div class="panel-title" data-i18n="zsc_table_title">Altman Z 組成明細</div>
+      <div class="table-scroll-wrapper"><table class="fscore-table">
+        <thead>
+          <tr>
+            <th style="width: 70px; text-align: center;" data-i18n="th_score">#</th>
+            <th style="width: 140px;" data-i18n="th_dim">核心維度</th>
+            <th data-i18n="zsc_th_test">比率與權重</th>
+            <th data-i18n="zsc_th_actual">數值與貢獻</th>
+          </tr>
+        </thead>
+        <tbody id="zscore-breakdown-body"></tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <div id="mscore-view">
+    <div class="detail-header">
+      <div class="detail-title">
+        <span id="msc-ticker" style="color: var(--accent);">NVDA</span>
+        <span id="msc-exchange" class="badge">NASDAQ</span>
+        <span id="msc-name" style="font-size: 16px; color: var(--text-secondary);">輝達</span>
+        <span style="font-size: 14px; color: var(--text-muted);" id="msc-header-sub" data-i18n="msc_header_sub">— Beneish M-Score · 造假警訊</span>
+      </div>
+      <div style="display: flex; gap: 8px;">
+        <button class="btn-save" onclick="openDetail(activeMScoreTicker)" data-i18n="btn_goto_dcf">📈 前往估值模型</button>
+        <button class="btn-back" onclick="navigateBack()" data-i18n="btn_back_list">← 返回總表</button>
+      </div>
+    </div>
+    <div class="top-stats">
+      <div class="stat-box"><div class="stat-label" data-i18n="msc_total_lbl">Beneish M-Score</div><div class="stat-num" id="msc-total-score">N/A</div><div id="msc-health-level" class="financial-health-level"></div></div>
+      <div class="stat-box"><div class="stat-label" data-i18n="msc_model_lbl">模型</div><div class="stat-num" id="msc-model" style="font-size: 18px;">8-variable</div></div>
+      <div class="stat-box"><div class="stat-label" data-i18n="msc_period_lbl">財報期間</div><div class="stat-num" id="msc-period" style="font-size: 18px;">--</div></div>
+      <div class="stat-box"><div class="stat-label" data-i18n="msc_components_lbl">組成指數</div><div class="stat-num" id="msc-components">8</div></div>
+    </div>
+    <section class="ai-comment-card" aria-labelledby="msc-comment-title">
+      <div id="msc-comment-title" data-i18n="msc_comment_title">造假警訊解讀 · Beneish M</div>
+      <div id="msc-health-comment"></div>
+      <p class="analysis-note" data-i18n="msc_health_bands"></p>
+      <p class="analysis-note" data-i18n="msc_health_caution"></p>
+    </section>
+    <div class="panel">
+      <div class="panel-title" data-i18n="msc_table_title">Beneish M 八指數明細</div>
+      <div class="table-scroll-wrapper"><table class="fscore-table">
+        <thead>
+          <tr>
+            <th style="width: 70px; text-align: center;" data-i18n="th_score">#</th>
+            <th style="width: 140px;" data-i18n="th_dim">核心維度</th>
+            <th data-i18n="msc_th_test">指數與權重</th>
+            <th data-i18n="msc_th_actual">數值與貢獻</th>
+          </tr>
+        </thead>
+        <tbody id="mscore-breakdown-body"></tbody>
+      </table></div>
+    </div>
+  </div>
   </div>
   </div>
 </div>
@@ -2393,6 +2486,8 @@
   let activeDetailTicker = 'NVDA';
   let loadedValuationTicker = null;
   let activeFScoreTicker = 'NVDA';
+  let activeZScoreTicker = 'NVDA';
+  let activeMScoreTicker = 'NVDA';
   let activeMoatTicker = 'NVDA';
   let activeCompanyTicker = 'NVDA';
 
@@ -2522,7 +2617,7 @@
       profile_statement_basis: "獲利率以連續四季實際損益計算；ROA／ROE 沿用趨勢分析 TTM／期初口徑；財報日與幣別",
       profile_missing_holders: "目前資料未提供持有人明細，不推算機構持股。",
       profile_source_note: "僅呈現現有資料來源提供的紀錄；缺失資料顯示 N/A，不推算補齊。TTM 年增率比較連續八季中的前後四季；前期基數必須為正，否則顯示 N/A。這不是預測成長率。",
-      rating_note: "先看評分總覽，再閱讀解讀與檢驗明細。護城河代表競爭優勢評估；PF score 為財務篩選訊號，兩者不是信用評等或買賣建議。",
+      rating_note: "先看評分總覽，再閱讀解讀與檢驗明細。護城河代表競爭優勢評估；PF / Altman Z / Beneish M 為財務篩選訊號，不是信用評等、審計結論或買賣建議。銀行與保險業此三項顯示 N/A。",
       valuation_title: "估值模型與情境分析",
       valuation_note: "一般企業保留 FMP Custom DCF Advanced 及 Custom DCF Levered 原始模型。另設本站十年情境：使用可用分析師共識；CapEx、CFO、D&A 缺共識時採最近全年實績比率，淨營運資金變動／營收採五年平均，資本成本設定保留。缺項為 N/A，未補齊前不產生新估值；來源及用戶修改分開標示，已儲存情境不自動重設。金融企業保留有形權益超額報酬及股利模型，財報及歷史資料不變。",
       treasury_1y: "1 年期美國公債",
@@ -2636,6 +2731,8 @@
       th_liab_assets: "負債/資產 (%)",
       th_curr_ratio: "流動比率",
       th_fscore: "PF score 評分",
+      th_zscore: "Altman Z · 破產風險",
+      th_mscore: "Beneish M · 造假警訊",
       btn_save_target: "💾 儲存自訂目標價",
       lbl_custom_target: "自訂目標價",
       custom_target_override_status: "模型公允價值暫不可用；顯示已存／手填自訂目標價（覆寫）。",
@@ -2791,6 +2888,49 @@
       fsc_table_title: "皮氏 9 分檢驗標準明細表",
       fsc_th_test: "測試項目與標準",
       fsc_th_actual: "實際財務指標判定",
+      fsc_health_financial_na: "金融業不適用",
+      fsc_health_financial_na_comment: "銀行與保險業採用監管資本與產業專屬指標；標準 PF / Altman Z / Beneish M 對非金融企業設計，此處標示 N/A，不計算分數。",
+      zsc_header_sub: "— Altman Z-Score · 破產風險（經典公開公司模型）",
+      zsc_total_lbl: "Altman Z-Score",
+      zsc_model_lbl: "模型",
+      zsc_period_lbl: "財報期間",
+      zsc_components_lbl: "組成項目",
+      zsc_comment_title: "破產風險解讀 · Altman Z",
+      zsc_zone_superRobust: "超穩健",
+      zsc_zone_safe: "安全",
+      zsc_zone_grey: "灰色",
+      zsc_zone_distress: "破產警示",
+      zsc_zone_unavailable: "資料不足 / 不適用",
+      zsc_zone_superRobust_comment: "Z > 4，財務結構與償債緩衝偏強（超穩健／頂級）。仍須結合產業週期與現金流判讀，評分不是信用評等。",
+      zsc_zone_safe_comment: "Z > 2.99，落在傳統「安全區」。評分僅反映財報比率組合，不能保證不會陷入財務困境。",
+      zsc_zone_grey_comment: "Z 介於 1.8–2.99，屬灰色地帶；宜逐項檢視營運資金、獲利與槓桿，並對照後續財報。",
+      zsc_zone_distress_comment: "Z < 1.8，屬破產警示區間。這是統計篩選訊號，不是破產預測或違約判決。",
+      zsc_zone_unavailable_comment: "缺少可比年度財報、市值或關鍵科目，或屬銀行／保險業，暫不計算 Altman Z。",
+      zsc_health_bands: "分級（經典 Z）：Z > 4 超穩健；Z > 2.99 安全；1.8–2.99 灰色；< 1.8 破產警示。本站預設使用市值權益的經典公開公司 Z（非 Z′ 帳面權益版）。",
+      zsc_health_caution: "規則式解讀，不是審計、信用評等或投資建議。銀行與保險業標示 N/A。",
+      zsc_table_title: "Altman Z 組成明細（權重 × 比率）",
+      zsc_th_test: "比率與權重",
+      zsc_th_actual: "數值與貢獻",
+      zsc_badge_elite: "頂級",
+      msc_header_sub: "— Beneish M-Score · 造假警訊（八變數）",
+      msc_total_lbl: "Beneish M-Score",
+      msc_model_lbl: "模型",
+      msc_period_lbl: "財報期間",
+      msc_components_lbl: "組成指數",
+      msc_comment_title: "造假警訊解讀 · Beneish M",
+      msc_zone_clean: "誠實",
+      msc_zone_windowDressing: "財務美化",
+      msc_zone_highRisk: "高造假可能",
+      msc_zone_unavailable: "資料不足 / 不適用",
+      msc_zone_clean_comment: "M < −2，操縱風險訊號偏低（誠實區間）。這不是審計結論，也不能證明財報完全無瑕。",
+      msc_zone_windowDressing_comment: "M 介於 −2 至 −1.78，接近門檻，可能存在財務美化跡象；宜對照應收、毛利與應計項目。",
+      msc_zone_highRisk_comment: "M > −1.78，造假／盈餘操縱風險訊號偏高。這是篩選警訊，不是詐欺判決。",
+      msc_zone_unavailable_comment: "缺少連續可比年度或關鍵科目（如 SGA、PPE），或屬銀行／保險業，暫不計算 Beneish M。",
+      msc_health_bands: "分級：M < −2 誠實；−2 至 −1.78 財務美化；> −1.78 高造假可能（Beneish 門檻）。",
+      msc_health_caution: "規則式解讀，不是審計、監管裁罰或投資建議。銀行與保險業標示 N/A。",
+      msc_table_title: "Beneish M 八指數明細（權重 × 指數）",
+      msc_th_test: "指數與權重",
+      msc_th_actual: "數值與貢獻",
       sec_tech: "資訊科技", sec_comm: "通訊服務", sec_c_disc: "非必需消費", sec_c_stap: "必需消費",
       sec_fin: "金融", sec_health: "醫療保健", sec_energy: "能源", sec_ind: "工業",
       sec_mat: "原物料", sec_util: "公用事業", sec_re: "房地產",
@@ -2986,7 +3126,7 @@
       profile_statement_basis: "Margins use four consecutive reported income quarters; ROA/ROE match Trend Analysis TTM/beginning. Statement date and currency",
       profile_missing_holders: "Holder details are unavailable in the current data; institutional positions are not estimated.",
       profile_source_note: "Only records supplied by the existing data source are shown. Missing data remains N/A rather than being estimated. TTM growth compares successive four-quarter totals from eight consecutive quarters, with a positive prior-year base; otherwise N/A. These are reported results, not growth forecasts.",
-      rating_note: "Start with the scorecards, then review the interpretation and individual tests. Economic Moat assesses competitive advantages; PF score screens financial signals. Neither is a credit rating or an investment recommendation.",
+      rating_note: "Start with the scorecards, then review the interpretation and tests. Economic Moat assesses competitive advantages; PF / Altman Z / Beneish M screen financial signals — not credit ratings, audits, or investment advice. Banks and insurers show N/A for those three.",
       valuation_title: "Valuation Model & Scenario Analysis",
       valuation_note: "General companies retain the original FMP Custom DCF Advanced and Custom DCF Levered models. New site-calculated ten-year scenarios use available analyst consensus; missing CapEx/CFO/D&A forecasts use latest full-FY actual ratios, change-in-NWC/revenue uses a five-year mean, and capital settings are retained. Missing inputs stay N/A and block new valuations until complete. Sources/user edits are distinguished; saved scenarios are not reseeded. Financial institutions retain tangible-equity excess-return and dividend models. Financial statements and history are unchanged.",
       treasury_1y: "1Y Treasury",
@@ -3100,6 +3240,8 @@
       th_liab_assets: "Liab / Assets (%)",
       th_curr_ratio: "Current Ratio",
       th_fscore: "PF score",
+      th_zscore: "Altman Z · Distress",
+      th_mscore: "Beneish M · Manipulation",
       btn_save_target: "💾 Save Custom Target",
       lbl_custom_target: "Custom target",
       custom_target_override_status: "Model fair value unavailable; showing saved/typed custom target (override).",
@@ -3248,6 +3390,49 @@
       fsc_table_title: "Piotroski 9-Criteria Test Breakdown",
       fsc_th_test: "Criteria & Standard",
       fsc_th_actual: "Reported Metric Determination",
+      fsc_health_financial_na: "Not applicable (financials)",
+      fsc_health_financial_na_comment: "Banks and insurers rely on regulatory-capital metrics. Standard PF / Altman Z / Beneish M were designed for non-financial firms, so these scores are shown as N/A.",
+      zsc_header_sub: "— Altman Z-Score · Bankruptcy risk (classic public-firm model)",
+      zsc_total_lbl: "Altman Z-Score",
+      zsc_model_lbl: "Model",
+      zsc_period_lbl: "Statement period",
+      zsc_components_lbl: "Components",
+      zsc_comment_title: "Distress interpretation · Altman Z",
+      zsc_zone_superRobust: "Super robust",
+      zsc_zone_safe: "Safe",
+      zsc_zone_grey: "Grey zone",
+      zsc_zone_distress: "Distress warning",
+      zsc_zone_unavailable: "Insufficient / not applicable",
+      zsc_zone_superRobust_comment: "Z > 4 indicates a stronger solvency buffer (super robust / top tier). Still combine with industry cycle and cash-flow review; this is not a credit rating.",
+      zsc_zone_safe_comment: "Z > 2.99 falls in the traditional safe zone. The score only reflects a ratio combination and does not guarantee solvency.",
+      zsc_zone_grey_comment: "Z between 1.8 and 2.99 is the grey zone; review working capital, profitability and leverage against later filings.",
+      zsc_zone_distress_comment: "Z < 1.8 is the distress-warning band. This is a statistical screen, not a bankruptcy prediction or default judgment.",
+      zsc_zone_unavailable_comment: "Comparable annual statements, market cap or key line items are missing, or the issuer is a bank/insurer — Altman Z is not computed.",
+      zsc_health_bands: "Bands (classic Z): Z > 4 super robust; Z > 2.99 safe; 1.8–2.99 grey; < 1.8 distress. Site default is classic public-firm Z with market equity (not book-equity Z′).",
+      zsc_health_caution: "Rule-based interpretation only — not an audit, credit rating or investment advice. Banks and insurers are N/A.",
+      zsc_table_title: "Altman Z component breakdown (weight × ratio)",
+      zsc_th_test: "Ratio & weight",
+      zsc_th_actual: "Value & contribution",
+      zsc_badge_elite: "Top tier",
+      msc_header_sub: "— Beneish M-Score · Manipulation screen (8-variable)",
+      msc_total_lbl: "Beneish M-Score",
+      msc_model_lbl: "Model",
+      msc_period_lbl: "Statement period",
+      msc_components_lbl: "Indices",
+      msc_comment_title: "Manipulation interpretation · Beneish M",
+      msc_zone_clean: "Clean",
+      msc_zone_windowDressing: "Window dressing",
+      msc_zone_highRisk: "High manipulation risk",
+      msc_zone_unavailable: "Insufficient / not applicable",
+      msc_zone_clean_comment: "M < −2 suggests lower manipulation risk (clean band). This is not an audit conclusion and does not prove flawless reporting.",
+      msc_zone_windowDressing_comment: "M between −2 and −1.78 is near the threshold and may indicate window dressing; review receivables, margins and accruals.",
+      msc_zone_highRisk_comment: "M > −1.78 indicates higher earnings-manipulation risk. This is a screen, not a fraud verdict.",
+      msc_zone_unavailable_comment: "Two comparable annual years or key fields (e.g. SGA, PPE) are missing, or the issuer is a bank/insurer — Beneish M is not computed.",
+      msc_health_bands: "Bands: M < −2 clean; −2 to −1.78 window dressing; > −1.78 high manipulation risk (Beneish cutoff).",
+      msc_health_caution: "Rule-based interpretation only — not an audit, regulatory finding or investment advice. Banks and insurers are N/A.",
+      msc_table_title: "Beneish M eight-index breakdown (weight × index)",
+      msc_th_test: "Index & weight",
+      msc_th_actual: "Value & contribution",
       sec_tech: "Technology", sec_comm: "Communication", sec_c_disc: "Consumer Discretionary", sec_c_stap: "Consumer Staples",
       sec_fin: "Financials", sec_health: "Healthcare", sec_energy: "Energy", sec_ind: "Industrials",
       sec_mat: "Materials", sec_util: "Utilities", sec_re: "Real Estate",
@@ -3461,6 +3646,10 @@
     if (kind === 'moat' && HkUniverse.belowMoatMarketCap(stock)) return '';
     const source = stock?.ratingSources?.[kind];
     if (!source) return '';
+    if (source.reason === 'financialSectorNotApplicable' || source.applicability === 'financialSector'
+        || (kind === 'fScore' && stock?.fin_valuation?.is_financial && source.reason === 'financialSectorNotApplicable')) {
+      return currentLang === 'en' ? 'N/A for banks & insurers' : '銀行／保險業不適用';
+    }
     const latest = [...(stock.statements_raw?.annual_dates || []), ...(stock.statements_raw?.quarterly_raw?.dates || [])]
       .filter(date => /^\d{4}-\d{2}(?:-\d{2})?$/.test(date)).sort().at(-1);
     const outdated = source.asOfDate && latest && (latest.length === 7 ? source.asOfDate.slice(0, 7) < latest : source.asOfDate < latest);
@@ -3468,7 +3657,46 @@
     if (kind === 'fScore' && source.assessmentType === 'applicableItems') return currentLang === 'en'
       ? 'Applicable items only; not standard 9-test PF' : '僅計適用項目；非標準九項 PF';
     if (kind === 'fScore' && source.evaluatedTests != null && source.evaluatedTests < 9) return `${currentLang === 'en' ? 'Partial' : '部分評分'} (${source.evaluatedTests}/9)`;
+    if ((kind === 'zScore' || kind === 'mScore') && source.zone) return source.zone;
     return source.status || '';
+  }
+
+  function distressFinancialNa(stock, kind = 'fScore') {
+    const source = stock?.ratingSources?.[kind];
+    return !!(stock?.fin_valuation?.is_financial
+      || source?.reason === 'financialSectorNotApplicable'
+      || source?.applicability === 'financialSector');
+  }
+
+  function zScoreAssessment(score, zone, stock) {
+    if (distressFinancialNa(stock, 'zScore')) {
+      return { level: 'unavailable', labelKey: 'zsc_zone_unavailable', className: '', elite: false, financialNa: true };
+    }
+    if (!Number.isFinite(score)) {
+      return { level: 'unavailable', labelKey: 'zsc_zone_unavailable', className: '', elite: false, financialNa: false };
+    }
+    const resolved = zone || (score > 4 ? 'superRobust' : score > 2.99 ? 'safe' : score >= 1.8 ? 'grey' : 'distress');
+    const className = resolved === 'superRobust' ? 'zscore-elite' : resolved === 'safe' ? 'zscore-green'
+      : resolved === 'grey' ? 'zscore-yellow' : 'zscore-red';
+    return {
+      level: resolved,
+      labelKey: `zsc_zone_${resolved}`,
+      className,
+      elite: resolved === 'superRobust',
+      financialNa: false
+    };
+  }
+
+  function mScoreAssessment(score, zone, stock) {
+    if (distressFinancialNa(stock, 'mScore')) {
+      return { level: 'unavailable', labelKey: 'msc_zone_unavailable', className: '', financialNa: true };
+    }
+    if (!Number.isFinite(score)) {
+      return { level: 'unavailable', labelKey: 'msc_zone_unavailable', className: '', financialNa: false };
+    }
+    const resolved = zone || (score < -2 ? 'clean' : score <= -1.78 ? 'windowDressing' : 'highRisk');
+    const className = resolved === 'clean' ? 'mscore-green' : resolved === 'windowDressing' ? 'mscore-yellow' : 'mscore-red';
+    return { level: resolved, labelKey: `msc_zone_${resolved}`, className, financialNa: false };
   }
   function loadFinancialProvenance(panel, ticker, stock) {
     MarketContext.renderProvenance(panel, stock, ticker);
@@ -4740,10 +4968,10 @@
   function applyScreenerColumns(resetScroll = false) {
     const mode = document.getElementById('screener-columns').value;
     const presets = {
-      overview: { width: 990, fields: ['ticker', 'name', 'price', 'target_price', 'action', 'moat_score', 'f_score'] },
+      overview: { width: 1240, fields: ['ticker', 'name', 'price', 'target_price', 'action', 'moat_score', 'f_score', 'z_score', 'm_score'] },
       valuation: { width: 1670, fields: ['ticker', 'name', 'sector', 'price', 'target_price', 'action', 'target_spread', 'moat_score', 'WACC', 'EV', 'mcap', 'liq_val_1', 'liq_val_2', 'liq_val_3'] },
-      financial: { width: 2370, fields: ['ticker', 'name', 'price', 'mcap', 'pe_trailing', 'pe_forward', 'pb_trailing', 'div_yield', 'fcf_to_ev', 'fcf_to_equity', 'fcf_to_mcap', 'cash_to_assets', 'liab_to_assets', 'current_ratio', 'roe', 'roa', 'f_score', 'ev_to_ebitda', 'debt_to_ebitda', 'net_debt_to_ebitda'] },
-      all: { width: 4020, fields: null }
+      financial: { width: 2620, fields: ['ticker', 'name', 'price', 'mcap', 'pe_trailing', 'pe_forward', 'pb_trailing', 'div_yield', 'fcf_to_ev', 'fcf_to_equity', 'fcf_to_mcap', 'cash_to_assets', 'liab_to_assets', 'current_ratio', 'roe', 'roa', 'f_score', 'z_score', 'm_score', 'ev_to_ebitda', 'debt_to_ebitda', 'net_debt_to_ebitda'] },
+      all: { width: 4270, fields: null }
     };
     const preset = presets[mode];
     if (!preset) throw new RangeError('Invalid screener column view');
@@ -5041,9 +5269,16 @@
       const moatBadgeCls = item.moat?.badgeClass || '';
       const moatGradeText = item.moat?.total === null ? item.moat.grade
         : (item.moat && item.moat.grade) ? item.moat.grade.split(' ')[0] : 'Moat';
-      const health = financialHealthAssessment(fScoreVal, item.f_score_breakdown, item.ratingSources?.fScore);
-      if (health.adjusted) fScoreClass = '';
+      const health = financialHealthAssessment(fScoreVal, item.f_score_breakdown, item.ratingSources?.fScore, item);
+      if (health.adjusted || health.financialNa) fScoreClass = '';
       const healthComment = I18N_DICT[currentLang][`fsc_health_${health.level}`];
+      const zVal = Number.isFinite(item.z_score) ? item.z_score : null;
+      const mVal = Number.isFinite(item.m_score) ? item.m_score : null;
+      const zHealth = zScoreAssessment(zVal, item.z_score_zone || item.ratingSources?.zScore?.zone, item);
+      const mHealth = mScoreAssessment(mVal, item.m_score_zone || item.ratingSources?.mScore?.zone, item);
+      const zLabel = I18N_DICT[currentLang][zHealth.labelKey];
+      const mLabel = I18N_DICT[currentLang][mHealth.labelKey];
+      const zElite = zHealth.elite ? ` · ${I18N_DICT[currentLang].zsc_badge_elite}` : '';
 
       const waccVal = Number.isFinite(item.WACC) ? item.WACC : null;
       const gVal = item.fin_valuation?.is_financial ? item.g
@@ -5094,8 +5329,16 @@
           <td data-metric="roe" title="${escapeAttribute(balanceRatioNote(item, 'roe'))}" style="font-weight: 600; color: var(--gold);">${Number.isFinite(item.roe) ? item.roe.toFixed(1) + '%' : 'N/A'}</td>
           <td data-metric="roa" title="${escapeAttribute(balanceRatioNote(item, 'roa'))}" style="color: var(--green);">${Number.isFinite(item.roa) ? item.roa.toFixed(1) + '%' : 'N/A'}</td>
           <td style="text-align: center;">
-            <span class="badge-fscore ${fScoreClass}" title="${ratingProvenance(item, 'fScore').replace(/"/g, '&quot;')}" onclick="openFScore('${item.ticker}')">${fScoreVal ?? 'N/A'} / ${health.applicableTests} · ${healthComment}</span>
+            <span class="badge-fscore ${fScoreClass}" title="${ratingProvenance(item, 'fScore').replace(/"/g, '&quot;')}" onclick="openFScore('${item.ticker}')">${health.financialNa || fScoreVal == null ? 'N/A' : `${fScoreVal} / ${health.applicableTests}`} · ${healthComment}</span>
             ${ratingState(item, 'fScore') ? `<small class="liquidation-asof">${ratingState(item, 'fScore')}</small>` : ''}
+          </td>
+          <td style="text-align: center;">
+            <span class="badge-zscore ${zHealth.className}" title="${ratingProvenance(item, 'zScore').replace(/"/g, '&quot;')}" onclick="openZScore('${item.ticker}')">${zVal == null ? 'N/A' : zVal.toFixed(2)} · ${zLabel}${zElite}</span>
+            ${ratingState(item, 'zScore') ? `<small class="liquidation-asof">${ratingState(item, 'zScore')}</small>` : ''}
+          </td>
+          <td style="text-align: center;">
+            <span class="badge-mscore ${mHealth.className}" title="${ratingProvenance(item, 'mScore').replace(/"/g, '&quot;')}" onclick="openMScore('${item.ticker}')">${mVal == null ? 'N/A' : mVal.toFixed(2)} · ${mLabel}</span>
+            ${ratingState(item, 'mScore') ? `<small class="liquidation-asof">${ratingState(item, 'mScore')}</small>` : ''}
           </td>
           <td data-metric="ev_to_ebitda" title="${escapeAttribute(leverageRatioNote(item, 'ev_to_ebitda'))}" style="font-weight: 700; color: ${Number.isFinite(item.ev_to_ebitda) ? 'var(--accent)' : 'var(--text-muted)'};">${Number.isFinite(item.ev_to_ebitda) ? item.ev_to_ebitda.toFixed(1) + 'x' : 'N/A'}</td>
           <td data-metric="debt_to_ebitda" title="${escapeAttribute(leverageRatioNote(item, 'debt_to_ebitda'))}" style="color: var(--text-secondary);">${Number.isFinite(item.debt_to_ebitda) ? item.debt_to_ebitda.toFixed(2) + 'x' : 'N/A'}</td>
@@ -5205,9 +5448,12 @@
     EarningsTrend.deactivate();
     ProfileOverview.deactivate();
     PriceHistory.deactivate();
-    if (viewName === 'moat' || viewName === 'fscore' || viewName === 'detail') {
+    if (viewName === 'moat' || viewName === 'fscore' || viewName === 'zscore' || viewName === 'mscore' || viewName === 'detail') {
       activeCompanyTicker = viewName === 'detail' ? activeDetailTicker
-        : viewName === 'moat' ? activeMoatTicker : activeFScoreTicker;
+        : viewName === 'moat' ? activeMoatTicker
+          : viewName === 'zscore' ? activeZScoreTicker
+            : viewName === 'mscore' ? activeMScoreTicker
+              : activeFScoreTicker;
       showView('company', false);
       const tab = viewName === 'detail' ? 'valuation' : 'rating';
       switchSubPage(tab, false);
@@ -5241,6 +5487,8 @@
     }
     else if (e.state && e.state.view === 'moat' && e.state.ticker) { activeMoatTicker = e.state.ticker; showView('moat', false); }
     else if (e.state && e.state.view === 'fscore' && e.state.ticker) { activeFScoreTicker = e.state.ticker; showView('fscore', false); }
+    else if (e.state && e.state.view === 'zscore' && e.state.ticker) { activeZScoreTicker = e.state.ticker; showView('zscore', false); }
+    else if (e.state && e.state.view === 'mscore' && e.state.ticker) { activeMScoreTicker = e.state.ticker; showView('mscore', false); }
     else if (e.state && e.state.view === 'detail' && e.state.ticker) { activeDetailTicker = e.state.ticker; showView('detail', false); }
     else { handleInitialNavigation(); }
   };
@@ -5251,6 +5499,8 @@
   }
   function openDetail(ticker) { activeDetailTicker = ticker; showView('detail', true); }
   function openFScore(ticker) { activeFScoreTicker = ticker; showView('fscore', true); }
+  function openZScore(ticker) { activeZScoreTicker = ticker; showView('zscore', true); }
+  function openMScore(ticker) { activeMScoreTicker = ticker; showView('mscore', true); }
   function openMoat(ticker) { activeMoatTicker = ticker; showView('moat', true); }
 
   function showExpansionStock(ticker, tabKey, retry = false) {
@@ -5364,9 +5614,11 @@
         recalculateDetail();
       }
     } else if (tabKey === 'rating') {
-      activeMoatTicker = activeFScoreTicker = curTicker;
+      activeMoatTicker = activeFScoreTicker = activeZScoreTicker = activeMScoreTicker = curTicker;
       loadMoatView(curTicker);
       loadFScoreView(curTicker);
+      loadZScoreView(curTicker);
+      loadMScoreView(curTicker);
     } else if (tabKey === 'financials') {
       renderFinancialsSubPage(curStock);
     } else if (tabKey === 'ratios') {
@@ -7073,10 +7325,26 @@
 
     const fscoreBadge = document.getElementById('det-fscore-badge');
     const fval = defaultDcf.f_score;
-    const fHealth = financialHealthAssessment(fval, s.f_score_breakdown, s.ratingSources?.fScore);
-    fscoreBadge.innerText = `PF score: ${fval ?? 'N/A'}/${fHealth.applicableTests}${fHealth.adjusted ? (currentLang === 'en' ? ' (applicable items)' : '（適用項目）') : ''}`;
+    const fHealth = financialHealthAssessment(fval, s.f_score_breakdown, s.ratingSources?.fScore, s);
+    fscoreBadge.innerText = fHealth.financialNa || fval == null
+      ? `PF score: N/A`
+      : `PF score: ${fval}/${fHealth.applicableTests}${fHealth.adjusted ? (currentLang === 'en' ? ' (applicable items)' : '（適用項目）') : ''}`;
     fscoreBadge.title = ratingProvenance(s, 'fScore');
-    fscoreBadge.className = `badge-fscore ${fval == null || fHealth.adjusted ? '' : fval >= 7 ? 'fscore-green' : fval <= 3 ? 'fscore-red' : 'fscore-yellow'}`;
+    fscoreBadge.className = `badge-fscore ${fval == null || fHealth.adjusted || fHealth.financialNa ? '' : fval >= 7 ? 'fscore-green' : fval <= 3 ? 'fscore-red' : 'fscore-yellow'}`;
+
+    const zBadge = document.getElementById('det-zscore-badge');
+    const zVal = Number.isFinite(s.z_score) ? s.z_score : null;
+    const zHealth = zScoreAssessment(zVal, s.z_score_zone || s.ratingSources?.zScore?.zone, s);
+    zBadge.innerText = `Z: ${zVal == null ? 'N/A' : zVal.toFixed(2)} · ${I18N_DICT[currentLang][zHealth.labelKey]}${zHealth.elite ? ` · ${I18N_DICT[currentLang].zsc_badge_elite}` : ''}`;
+    zBadge.title = ratingProvenance(s, 'zScore');
+    zBadge.className = `badge-zscore ${zHealth.className}`;
+
+    const mBadge = document.getElementById('det-mscore-badge');
+    const mVal = Number.isFinite(s.m_score) ? s.m_score : null;
+    const mHealth = mScoreAssessment(mVal, s.m_score_zone || s.ratingSources?.mScore?.zone, s);
+    mBadge.innerText = `M: ${mVal == null ? 'N/A' : mVal.toFixed(2)} · ${I18N_DICT[currentLang][mHealth.labelKey]}`;
+    mBadge.title = ratingProvenance(s, 'mScore');
+    mBadge.className = `badge-mscore ${mHealth.className}`;
 
     updateDetailFavButton();
 
@@ -7535,7 +7803,102 @@
     }
   }
 
-  function financialHealthAssessment(score, breakdown, source) {
+
+  function loadDistressBreakdown(tbodyId, items, isEn) {
+    const tbody = document.getElementById(tbodyId);
+    if (!tbody) return;
+    if (!Array.isArray(items) || !items.length) {
+      tbody.innerHTML = `<tr><td colspan="4" class="text-muted">N/A</td></tr>`;
+      return;
+    }
+    tbody.innerHTML = items.map(item => `
+      <tr>
+        <td style="text-align: center; font-weight: 700;">${item.id || ''}</td>
+        <td style="font-weight: 600; color: var(--text-secondary);">${isEn
+          ? ({ '營運資金': 'Working capital', '保留盈餘': 'Retained earnings', '獲利能力': 'Profitability',
+            '財務結構': 'Capital structure', '資產週轉': 'Asset turnover', '應收帳款': 'Receivables',
+            '毛利率': 'Gross margin', '資產質素': 'Asset quality', '營收成長': 'Sales growth',
+            '折舊': 'Depreciation', '管銷費用': 'SG&A', '應計項目': 'Accruals', '槓桿': 'Leverage'
+          }[item.category] || item.category) : item.category}</td>
+        <td><strong>${isEn ? (item.desc_en || item.desc) : item.desc}</strong></td>
+        <td style="color: var(--text-muted);">${isEn ? (item.detail_en || item.detail || '') : (item.detail_zh || item.detail || '')}</td>
+      </tr>`).join('');
+  }
+
+  function loadZScoreView(ticker) {
+    const s = stockUniverse[ticker];
+    if (!s) return;
+    const isEn = currentLang === 'en';
+    const labels = I18N_DICT[currentLang];
+    const score = Number.isFinite(s.z_score) ? s.z_score : null;
+    const health = zScoreAssessment(score, s.z_score_zone || s.ratingSources?.zScore?.zone, s);
+    document.getElementById('zsc-ticker').innerText = ticker;
+    document.getElementById('zsc-name').innerText = getStockDisplayName(s);
+    document.getElementById('zsc-exchange').innerText = s.exchange;
+    document.getElementById('zsc-total-score').innerText = score == null ? 'N/A' : score.toFixed(2);
+    document.getElementById('zsc-model').innerText = (s.z_score_model || s.ratingSources?.zScore?.model || 'z') === 'zPrime'
+      ? (isEn ? 'Z′ (book equity)' : 'Z′（帳面權益）')
+      : (isEn ? 'Classic Z (market equity)' : '經典 Z（市值權益）');
+    document.getElementById('zsc-period').innerText = s.ratingSources?.zScore?.period || s.ratingSources?.zScore?.asOfDate || '--';
+    document.getElementById('zsc-components').innerText = Array.isArray(s.z_score_breakdown) && s.z_score_breakdown.length
+      ? String(s.z_score_breakdown.length) : '5';
+    const badge = document.getElementById('zsc-health-level');
+    badge.textContent = `${labels[health.labelKey]}${health.elite ? ` · ${labels.zsc_badge_elite}` : ''}`;
+    badge.className = `financial-health-level ${health.className || 'text-muted'}`;
+    const comment = document.getElementById('zsc-health-comment');
+    comment.replaceChildren();
+    const paragraph = text => {
+      const p = document.createElement('p');
+      p.textContent = text;
+      comment.append(p);
+    };
+    paragraph(`${ticker} · ${labels[`${health.labelKey}_comment`] || labels.zsc_zone_unavailable_comment}`);
+    if (health.financialNa) paragraph(labels.fsc_health_financial_na_comment);
+    if (ratingProvenance(s, 'zScore')) paragraph(ratingProvenance(s, 'zScore'));
+    loadDistressBreakdown('zscore-breakdown-body', s.z_score_breakdown, isEn);
+  }
+
+  function loadMScoreView(ticker) {
+    const s = stockUniverse[ticker];
+    if (!s) return;
+    const isEn = currentLang === 'en';
+    const labels = I18N_DICT[currentLang];
+    const score = Number.isFinite(s.m_score) ? s.m_score : null;
+    const health = mScoreAssessment(score, s.m_score_zone || s.ratingSources?.mScore?.zone, s);
+    document.getElementById('msc-ticker').innerText = ticker;
+    document.getElementById('msc-name').innerText = getStockDisplayName(s);
+    document.getElementById('msc-exchange').innerText = s.exchange;
+    document.getElementById('msc-total-score').innerText = score == null ? 'N/A' : score.toFixed(2);
+    document.getElementById('msc-model').innerText = isEn ? '8-variable Beneish' : '八變數 Beneish';
+    document.getElementById('msc-period').innerText = s.ratingSources?.mScore?.period || s.ratingSources?.mScore?.asOfDate || '--';
+    document.getElementById('msc-components').innerText = Array.isArray(s.m_score_breakdown) && s.m_score_breakdown.length
+      ? String(s.m_score_breakdown.length) : '8';
+    const badge = document.getElementById('msc-health-level');
+    badge.textContent = labels[health.labelKey];
+    badge.className = `financial-health-level ${health.className || 'text-muted'}`;
+    const comment = document.getElementById('msc-health-comment');
+    comment.replaceChildren();
+    const paragraph = text => {
+      const p = document.createElement('p');
+      p.textContent = text;
+      comment.append(p);
+    };
+    paragraph(`${ticker} · ${labels[`${health.labelKey}_comment`] || labels.msc_zone_unavailable_comment}`);
+    if (health.financialNa) paragraph(labels.fsc_health_financial_na_comment);
+    if (ratingProvenance(s, 'mScore')) paragraph(ratingProvenance(s, 'mScore'));
+    loadDistressBreakdown('mscore-breakdown-body', s.m_score_breakdown, isEn);
+  }
+
+  function financialHealthAssessment(score, breakdown, source, stock = null) {
+    const financialNa = !!(stock?.fin_valuation?.is_financial
+      || source?.reason === 'financialSectorNotApplicable'
+      || source?.applicability === 'financialSector');
+    if (financialNa) {
+      return {
+        level: 'financial_na', validScore: false, validBreakdown: false, adjusted: false,
+        applicableTests: 9, financialNa: true, passed: [], failed: []
+      };
+    }
     const adjusted = source?.assessmentType === 'applicableItems' && source.applicableTests === 8;
     const applicableTests = adjusted ? 8 : 9;
     const validScore = Number.isInteger(score) && score >= 0 && score <= applicableTests;
@@ -7547,12 +7910,11 @@
           : item.passed === 0 || item.passed === 1))
       && breakdown.reduce((sum, item) => sum + (item.passed || 0), 0) === score;
     return {
-      level, validScore, validBreakdown, adjusted, applicableTests,
+      level, validScore, validBreakdown, adjusted, applicableTests, financialNa: false,
       passed: validBreakdown ? breakdown.filter(item => item.passed === 1) : [],
       failed: validBreakdown ? breakdown.filter(item => item.passed === 0) : []
     };
   }
-
   function loadFScoreView(ticker) {
     const s = stockUniverse[ticker];
     if (!s) return;
@@ -7568,15 +7930,16 @@
     const unit = isEn ? '' : ' 分';
 
     const rawBreakdown = dcf.f_score_breakdown;
-    const health = financialHealthAssessment(score, rawBreakdown, s.ratingSources?.fScore);
+    const health = financialHealthAssessment(score, rawBreakdown, s.ratingSources?.fScore, s);
     const breakdown = Array.from({ length: 9 }, (_, i) => (Array.isArray(rawBreakdown) && rawBreakdown.find(item => item?.id === i + 1))
       || { id: i + 1, passed: null, category: i < 4 ? '盈利能力' : i < 7 ? '槓桿與償債' : '營運效率', reason: s.ratingSources?.fScore?.reason || 'N/A' });
     document.getElementById('fsc-total-score').innerText = health.validScore ? `${score} / ${health.applicableTests}${unit}` : 'N/A';
-    document.querySelector('[data-i18n="fsc_health_bands"]').hidden = health.adjusted;
+    document.querySelector('[data-i18n="fsc_health_bands"]').hidden = health.adjusted || health.financialNa;
     const healthBadge = document.getElementById('fsc-health-level');
     healthBadge.textContent = labels[`fsc_health_${health.level}`];
     healthBadge.className = `financial-health-level ${{
-      strong: 'fscore-green', moderate: 'fscore-yellow', weak: 'fscore-red', unavailable: 'text-muted', adjusted: 'text-muted'
+      strong: 'fscore-green', moderate: 'fscore-yellow', weak: 'fscore-red', unavailable: 'text-muted',
+      adjusted: 'text-muted', financial_na: 'text-muted'
     }[health.level]}`;
     const descriptions = ['ROA > 0', 'Operating cash flow > 0', 'Change in ROA > 0',
       'Operating cash flow > net income', 'Change in leverage ≤ 0', 'Change in liquidity > 0',
@@ -7605,7 +7968,9 @@
       }
       comment.append(links);
     }
-    if (health.validBreakdown) {
+    if (health.financialNa) {
+      // Banks / insurers: leave category totals and table as N/A without incomplete-data wording.
+    } else if (health.validBreakdown) {
       const tests = items => items.map(item => `#${item.id} ${isEn ? descriptions[item.id - 1] : item.desc}`).join(isEn ? '; ' : '；');
       if (health.passed.length) paragraph(labels.fsc_health_passed + tests(health.passed));
       if (health.failed.length) paragraph(labels.fsc_health_review + tests(health.failed));
