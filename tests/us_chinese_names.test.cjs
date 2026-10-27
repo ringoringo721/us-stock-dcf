@@ -28,13 +28,18 @@ test('US Chinese names catalogue attaches name_zh on merge for known sources', (
     context.FULL_MARKET_DATA, context.US_LISTINGS, context.US_EXPANSION
   );
   assert.equal(merged.LMT.name_zh, '洛克希德·馬丁');
-  assert.equal(merged.ETN.name_zh, '伊頓公司');
   assert.equal(merged.BABA.name_zh, '阿里巴巴');
   assert.equal(merged['BRK-A'].name_zh, '波克夏海瑟威 (A)');
-  // No invented translation when description_zh has no Chinese short name.
+  // Description lead-ins are not shipped (unsafe false ticker attribution).
+  assert.equal(merged.ETN?.name_zh, undefined);
+  assert.equal(merged.A?.name_zh, undefined);
+  assert.equal(merged.VALE?.name_zh, undefined);
   assert.equal(merged.IBKR?.name_zh, undefined);
   assert.equal(merged.WDC?.name_zh, undefined);
-  assert.ok(context.US_CHINESE_NAMES.coverage.pct >= 30);
+  const sources = new Set(Object.values(context.US_CHINESE_NAMES.sources || {}));
+  for (const source of sources) {
+    assert.ok(source === 'STOCK_NAMES_ZH' || source === 'HKEX_dual_list', source);
+  }
 });
 
 test('listingStock copies catalogue name_zh for uncaptured equities', () => {

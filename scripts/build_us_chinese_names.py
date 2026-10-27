@@ -4,8 +4,10 @@
 Sources (priority order — never invent translations):
   1. Curated STOCK_NAMES_ZH map embedded in index.html
   2. HKEX dual-listed Chinese short names (exact English legal-name match)
-  3. Leading Chinese company name already present in description_zh
-     (FULL_MARKET_DATA + cache/us_companies/*.json)
+
+Description_zh lead-in extraction was tried and **removed**: many expansions
+open with an unrelated Chinese entity name (e.g. Agilent→惠普, Vale→力拓),
+so shipping those labels is unsafe without a verified company match.
 
 FMP profiles are English-only; remaining gaps need a curated/ADR backfill
 (see docs note). Prefer Traditional Chinese; do not machine-translate stubs.
@@ -21,22 +23,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-CJK = re.compile(r"[\u4e00-\u9fff]")
 STOCK_NAMES_BLOCK = re.compile(r"const STOCK_NAMES_ZH = \{([\s\S]*?)\n  \};")
 STOCK_NAMES_ENTRY = re.compile(r'"([A-Z0-9.]+)":\s*"([^"]*)"')
 WINDOW_JSON = re.compile(r"window\.(\w+)\s*=\s*(\{[\s\S]*\})\s*;?\s*$")
-
-# Markdown / title noise then Chinese short name before an English paren.
-DESC_NAME_PATS = (
-    re.compile(
-        r"^([\u4e00-\u9fff·、]{2,30}"
-        r"(?:公司|集團|控股|銀行|航空|能源|科技|國際|電子|通訊|製藥|保險|"
-        r"資本|證券|工業|汽車|娛樂|媒體|食品|藥業|醫療|化學|石油|電力|"
-        r"地產|物流|快遞|遊戲|音樂|酒店|飯店|信託)?)"
-        r"\s*\**\s*[（(]"
-    ),
-    re.compile(r"^([\u4e00-\u9fff·、]{2,24})\s*\**\s*[（(]"),
-)
 
 # Legal-suffix tokens stripped for dual-list English matching.
 LEGAL_SUFFIX = re.compile(
@@ -71,27 +60,6 @@ def load_stock_names_zh(index_html: Path) -> dict[str, str]:
     if not block:
         raise ValueError("STOCK_NAMES_ZH not found in index.html")
     return dict(STOCK_NAMES_ENTRY.findall(block.group(1)))
-
-
-def normalize_lead(description: str) -> str:
-    text = (description or "").strip()
-    text = re.sub(r"^\*+\s*", "", text)
-    text = re.sub(r"^#+\s*", "", text)
-    return text.strip()
-
-
-def extract_name_from_description(description: str) -> str | None:
-    lead = normalize_lead(description)
-    if not lead or not CJK.search(lead[:8]):
-        return None
-    for pattern in DESC_NAME_PATS:
-        match = pattern.match(lead)
-        if not match:
-            continue
-        name = match.group(1).strip(" *")
-        if len(CJK.findall(name)) >= 2:
-            return name
-    return None
 
 
 def normalize_english_name(value: str | None) -> str:
@@ -129,31 +97,6 @@ def hk_dual_list_names(hk_listings: dict, us_listings: dict) -> dict[str, str]:
     return matches
 
 
-def names_from_full_market(market: dict) -> dict[str, str]:
-    out: dict[str, str] = {}
-    for ticker, stock in market.items():
-        name = extract_name_from_description(stock.get("description_zh") or "")
-        if name:
-            out[ticker] = name
-    return out
-
-
-def names_from_us_companies(cache_dir: Path) -> dict[str, str]:
-    out: dict[str, str] = {}
-    if not cache_dir.is_dir():
-        return out
-    for path in sorted(cache_dir.glob("*.json")):
-        try:
-            payload = json.loads(path.read_text(encoding="utf-8"))
-        except (OSError, json.JSONDecodeError):
-            continue
-        stock = payload.get("stock") or {}
-        name = extract_name_from_description(stock.get("description_zh") or "")
-        if name:
-            out[path.stem.upper()] = name
-    return out
-
-
 def resolve_alias(ticker: str, curated: dict[str, str]) -> str | None:
     if ticker in curated:
         return curated[ticker]
@@ -177,8 +120,6 @@ def resolve_alias(ticker: str, curated: dict[str, str]) -> str | None:
 def build_catalogue(
     curated: dict[str, str],
     hk_matches: dict[str, str],
-    desc_market: dict[str, str],
-    desc_companies: dict[str, str],
     us_tickers: list[str],
 ) -> dict:
     names: dict[str, dict] = {}
@@ -198,12 +139,6 @@ def build_catalogue(
     for ticker, name_zh in hk_matches.items():
         put(ticker, name_zh, "HKEX_dual_list")
 
-    for ticker, name_zh in desc_market.items():
-        put(ticker, name_zh, "description_zh_full_market")
-
-    for ticker, name_zh in desc_companies.items():
-        put(ticker, name_zh, "description_zh_us_companies")
-
     covered = sum(1 for t in us_tickers if t in names)
     total = len(us_tickers)
     missing = [t for t in us_tickers if t not in names]
@@ -216,11 +151,15 @@ def build_catalogue(
             "priority": [
                 "STOCK_NAMES_ZH",
                 "HKEX_dual_list",
+            ],
+            "excludedSources": [
                 "description_zh_full_market",
                 "description_zh_us_companies",
             ],
             "notes": (
                 "FMP company profiles do not provide Chinese names. "
+                "description_zh lead-in extraction is excluded because many texts "
+                "open with an unrelated Chinese entity (false ticker attribution). "
                 "Gaps keep English company_name in the Chinese UI until a curated "
                 "Traditional Chinese short name is supplied."
             ),
@@ -275,15 +214,12 @@ def main() -> int:
     curated = load_stock_names_zh(root / "index.html")
     us_listings = load_window_json(root / "us_universe_data.js", "US_LISTINGS")
     hk_listings = load_window_json(root / "hkex_universe_data.js", "HKEX_LISTINGS")
-    market = load_window_json(root / "market_data.js", "FULL_MARKET_DATA")
 
     us_tickers = [stock["ticker"] for stock in us_listings.get("stocks") or []]
     hk_matches = hk_dual_list_names(hk_listings, us_listings)
-    desc_market = names_from_full_market(market)
-    desc_companies = names_from_us_companies(root / "cache" / "us_companies")
 
     before = sum(1 for t in us_tickers if resolve_alias(t, curated))
-    catalogue = build_catalogue(curated, hk_matches, desc_market, desc_companies, us_tickers)
+    catalogue = build_catalogue(curated, hk_matches, us_tickers)
     catalogue["coverage"]["beforeCuratedOnly"] = before
     catalogue["coverage"]["beforePct"] = round(100.0 * before / len(us_tickers), 1) if us_tickers else 0.0
 
@@ -302,7 +238,7 @@ def main() -> int:
                 "jsOut": str(js_out),
                 "samples": {
                     t: catalogue["names"].get(t)
-                    for t in ("ETN", "IBKR", "WDC", "LMT", "BABA", "SCHW", "BRK-A")
+                    for t in ("ETN", "IBKR", "WDC", "LMT", "BABA", "SCHW", "BRK-A", "A", "VALE")
                 },
             },
             ensure_ascii=False,

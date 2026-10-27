@@ -131,12 +131,14 @@ built by `python scripts/build_us_chinese_names.py`) with this priority:
 
 1. Curated `STOCK_NAMES_ZH` in `index.html` (reviewed baseline)
 2. HKEX dual-listed Chinese short names (exact English legal-name match)
-3. Leading Traditional Chinese short name already present in `description_zh`
-   (baseline market data + `cache/us_companies/`)
+
+`description_zh` lead-in extraction is **not** used: many expansion texts open
+with an unrelated Chinese entity (e.g. Agilent→惠普, Vale→力拓), so those labels
+are unsafe without a verified company match.
 
 No machine-invented translations: tickers without a sourced ZH short name keep
-the English `company_name` in the Chinese UI. Regenerate after refreshing
-descriptions or the curated map; see coverage in `cache/us_chinese_names.json`.
+the English `company_name` in the Chinese UI. Regenerate after updating the
+curated map or HK dual-list inputs; see coverage in `cache/us_chinese_names.json`.
 
 The **Read-only valuation source audit** workflow accepts `expand_all_us`.
 It re-screens FMP, partitions candidates into batches of at most twenty, captures

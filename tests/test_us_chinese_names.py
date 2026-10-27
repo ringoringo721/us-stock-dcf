@@ -3,40 +3,14 @@
 from __future__ import annotations
 
 import json
-import tempfile
 import unittest
 from pathlib import Path
 
 from scripts.build_us_chinese_names import (
     build_catalogue,
-    extract_name_from_description,
     hk_dual_list_names,
     resolve_alias,
 )
-
-
-class ExtractDescriptionNameTests(unittest.TestCase):
-    def test_markdown_bold_leading_chinese(self):
-        self.assertEqual(
-            extract_name_from_description(
-                "**伊頓公司 (Eaton Corporation plc, ETN) 業務營運精煉報告**\n\n伊頓公司為全球"
-            ),
-            "伊頓公司",
-        )
-
-    def test_skips_english_only_stub(self):
-        self.assertIsNone(
-            extract_name_from_description(
-                "Interactive Brokers Group, Inc.（美股代碼：IBKR）為 Financial Services 領域之重要企業"
-            )
-        )
-
-    def test_skips_english_markdown_title(self):
-        self.assertIsNone(
-            extract_name_from_description(
-                "**Western Digital Corporation (WDC) 業務營運概述**\n\nWestern Digital"
-            )
-        )
 
 
 class AliasAndDualListTests(unittest.TestCase):
@@ -62,38 +36,44 @@ class AliasAndDualListTests(unittest.TestCase):
 
 
 class CataloguePriorityTests(unittest.TestCase):
-    def test_curated_wins_over_description(self):
+    def test_curated_and_hk_only_no_description_source(self):
         curated = {"LMT": "洛克希德·馬丁"}
         catalogue = build_catalogue(
             curated,
-            {},
-            {"LMT": "洛克希德馬丁公司"},
-            {"ETN": "伊頓公司"},
-            ["LMT", "ETN", "IBKR"],
+            {"BABA": "阿里巴巴"},
+            ["LMT", "BABA", "ETN", "A", "VALE"],
         )
         self.assertEqual(catalogue["names"]["LMT"]["source"], "STOCK_NAMES_ZH")
-        self.assertEqual(catalogue["names"]["LMT"]["name_zh"], "洛克希德·馬丁")
-        self.assertEqual(catalogue["names"]["ETN"]["name_zh"], "伊頓公司")
-        self.assertNotIn("IBKR", catalogue["names"])
+        self.assertEqual(catalogue["names"]["BABA"]["name_zh"], "阿里巴巴")
+        self.assertNotIn("ETN", catalogue["names"])
+        self.assertNotIn("A", catalogue["names"])
+        self.assertNotIn("VALE", catalogue["names"])
         self.assertEqual(catalogue["coverage"]["withNameZh"], 2)
-        self.assertEqual(catalogue["coverage"]["universeTickers"], 3)
+        self.assertEqual(
+            catalogue["policy"]["excludedSources"],
+            ["description_zh_full_market", "description_zh_us_companies"],
+        )
 
 
 class ShippedCatalogueSmokeTests(unittest.TestCase):
-    def test_generated_files_cover_etn_and_lmt(self):
+    def test_generated_files_drop_unsafe_description_names(self):
         root = Path(__file__).resolve().parents[1]
         js_path = root / "us_chinese_names_data.js"
         json_path = root / "cache" / "us_chinese_names.json"
         self.assertTrue(js_path.exists(), "run scripts/build_us_chinese_names.py first")
         self.assertTrue(json_path.exists())
         catalogue = json.loads(json_path.read_text(encoding="utf-8"))
-        self.assertGreaterEqual(catalogue["coverage"]["pct"], 30.0)
         self.assertEqual(catalogue["names"]["LMT"]["name_zh"], "洛克希德·馬丁")
-        self.assertEqual(catalogue["names"]["ETN"]["name_zh"], "伊頓公司")
-        self.assertNotIn("IBKR", catalogue["names"])
-        self.assertNotIn("WDC", catalogue["names"])
+        self.assertEqual(catalogue["names"]["BABA"]["name_zh"], "阿里巴巴")
+        # Bugbot false positives must not ship.
+        for ticker in ("A", "VALE", "VOD", "PS", "PFG", "ETN", "SCHW"):
+            self.assertNotIn(ticker, catalogue["names"])
+        sources = {entry["source"] for entry in catalogue["names"].values()}
+        self.assertTrue(sources <= {"STOCK_NAMES_ZH", "HKEX_dual_list"})
         text = js_path.read_text(encoding="utf-8")
         self.assertTrue(text.startswith("window.US_CHINESE_NAMES = "))
+        self.assertNotIn("惠普公司", text)
+        self.assertNotIn("力拓公司", text)
 
 
 if __name__ == "__main__":

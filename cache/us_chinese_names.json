@@ -1,27 +1,27 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-27T16:41:58Z",
+  "generatedAt": "2026-10-27T16:52:06Z",
   "policy": {
     "preferTraditionalChinese": true,
     "noInventedTranslations": true,
     "priority": [
       "STOCK_NAMES_ZH",
-      "HKEX_dual_list",
+      "HKEX_dual_list"
+    ],
+    "excludedSources": [
       "description_zh_full_market",
       "description_zh_us_companies"
     ],
-    "notes": "FMP company profiles do not provide Chinese names. Gaps keep English company_name in the Chinese UI until a curated Traditional Chinese short name is supplied."
+    "notes": "FMP company profiles do not provide Chinese names. description_zh lead-in extraction is excluded because many texts open with an unrelated Chinese entity (false ticker attribution). Gaps keep English company_name in the Chinese UI until a curated Traditional Chinese short name is supplied."
   },
   "coverage": {
     "universeTickers": 951,
-    "withNameZh": 326,
-    "missingNameZh": 625,
-    "pct": 34.3,
+    "withNameZh": 228,
+    "missingNameZh": 723,
+    "pct": 24.0,
     "bySource": {
       "STOCK_NAMES_ZH": 214,
-      "HKEX_dual_list": 14,
-      "description_zh_full_market": 3,
-      "description_zh_us_companies": 99
+      "HKEX_dual_list": 14
     },
     "curatedMapSize": 230,
     "beforeCuratedOnly": 214,
@@ -33,10 +33,15 @@
     "ASML",
     "PLTR",
     "DELL",
+    "SHEL",
+    "NVS",
+    "RY",
     "SAP",
     "AZN",
+    "MUFG",
     "GEV",
     "ARM",
+    "TM",
     "SHOP",
     "TD",
     "BHP",
@@ -45,18 +50,28 @@
     "ADI",
     "SAN",
     "AMRO",
+    "NVO",
     "WELL",
+    "PBR",
     "BUD",
+    "SCHW",
+    "STX",
     "PBR-A",
+    "ETN",
     "TBB",
     "IBKR",
     "SONY",
+    "UBS",
     "BBVA",
     "WDC",
+    "RIO",
+    "UL",
     "UBER",
     "BP",
+    "MFG",
     "COF",
     "BTI",
+    "BX",
     "MO",
     "PH",
     "CVS",
@@ -74,16 +89,21 @@
     "IBN",
     "CM",
     "ABNB",
+    "SOJE",
+    "SOMN",
     "TT",
     "GSK",
     "HCA",
     "BNY",
+    "SNY",
     "MRNA",
     "DDOG",
+    "SMFG",
     "ING",
     "AEM",
     "ELV",
     "MELI",
+    "SU",
     "GD",
     "ASX",
     "JCI",
@@ -101,6 +121,7 @@
     "BN",
     "HWM",
     "VRT",
+    "NGG",
     "KKR",
     "HOOD",
     "CI",
@@ -109,9 +130,12 @@
     "CP",
     "MSI",
     "HPE",
+    "RCL",
     "LITE",
+    "NOC",
     "BCS",
     "CMI",
+    "NSC",
     "BAM",
     "NU",
     "AMX",
@@ -132,16 +156,21 @@
     "GWW",
     "TRGP",
     "MPWR",
+    "TAK",
     "MSTR",
+    "NXPI",
     "CVE",
     "DB",
     "FAST",
+    "WPM",
     "NUE",
+    "CAH",
     "NTRA",
     "MPLX",
     "OKE",
     "LNG",
     "TFC",
+    "KEYS",
     "PCAR",
     "AME",
     "CRH",
@@ -151,8 +180,12 @@
     "ARGX",
     "PSA",
     "DVN",
+    "VALE",
+    "TER",
+    "NDAQ",
     "VST",
     "INFY",
+    "DEO",
     "HONA",
     "CIEN",
     "DAL",
@@ -161,10 +194,16 @@
     "EW",
     "ETR",
     "ALAB",
+    "A",
+    "NOK",
+    "TRI",
     "VYLR",
+    "UMC",
     "FIX",
     "PYPL",
     "CCEP",
+    "ROK",
+    "WAB",
     "XEL",
     "FITB",
     "MT",
@@ -182,6 +221,7 @@
     "ELC",
     "IQV",
     "WAT",
+    "SLF",
     "WDS",
     "EXC",
     "FERG",
@@ -197,13 +237,17 @@
     "KB",
     "BSBR",
     "WCN",
+    "STM",
+    "BBDO",
     "MCHP",
     "RVMD",
     "HEI",
     "ED",
     "NBIS",
+    "IX",
     "TWLO",
     "SYY",
+    "SMCIP",
     "ROP",
     "ODFL",
     "CBRE",
@@ -215,7 +259,9 @@
     "ZS",
     "EL",
     "RBLX",
+    "VOD",
     "UI",
+    "CHT",
     "HIG",
     "CCL",
     "KVUE",
@@ -226,6 +272,7 @@
     "NWG",
     "STLD",
     "EC",
+    "PEG",
     "WEC",
     "PCG",
     "PPLC",
@@ -240,6 +287,8 @@
     "ERIC",
     "EQT",
     "MTD",
+    "UAL",
+    "SHG",
     "STRC",
     "GFI",
     "AXON",
@@ -261,21 +310,28 @@
     "CQP",
     "BAP",
     "EME",
+    "IR",
     "NTRS",
+    "TECK",
     "ALNY",
+    "ON",
     "RJF",
     "WSM",
     "EXR",
     "RDDT",
     "WTW",
     "AEE",
+    "JBL",
+    "PBA",
     "TDY",
     "DG",
     "ZM",
     "FTS",
+    "KGC",
     "HPQ",
     "ATO",
     "BSP",
+    "RYAAY",
     "SN",
     "VRSN",
     "FOXA",
@@ -286,6 +342,7 @@
     "FTI",
     "CFG",
     "DTE",
+    "NMR",
     "DOV",
     "CPAY",
     "CBRS",
@@ -306,6 +363,7 @@
     "IOT",
     "LPLA",
     "SYM",
+    "PHG",
     "Q",
     "IHG",
     "CPNG",
@@ -317,16 +375,20 @@
     "PPG",
     "HUBB",
     "GMAB",
+    "LVS",
     "DRI",
     "FCNCA",
+    "UTHR",
     "SYF",
     "RF",
+    "TPL",
     "NVT",
     "BRO",
     "DLTR",
     "SMCI",
     "AER",
     "VMRK",
+    "PFG",
     "MKL",
     "CIB",
     "INCY",
@@ -351,6 +413,7 @@
     "SW",
     "STRK",
     "THC",
+    "SBS",
     "TSEM",
     "PHM",
     "RS",
@@ -378,10 +441,14 @@
     "TCPA",
     "SNX",
     "BCH",
+    "SOJD",
+    "BEKE",
     "CDW",
     "YPF",
     "BBY",
+    "TSN",
     "BG",
+    "LUV",
     "OVV",
     "SOFI",
     "WWD",
@@ -392,6 +459,7 @@
     "FSLR",
     "FIS",
     "AQNB",
+    "PS",
     "BCE",
     "ZBRA",
     "MEDP",
@@ -399,18 +467,23 @@
     "NDSN",
     "WES",
     "SBAC",
+    "SOJC",
     "PAA",
     "CW",
     "CRS",
     "U",
+    "PAAS",
     "EWBC",
     "RIVN",
+    "NWS",
     "ITT",
+    "IP",
     "KSPI",
     "LNT",
     "FTV",
     "ESS",
     "CF",
+    "RGA",
     "RZC",
     "RVTY",
     "APA",
@@ -426,14 +499,18 @@
     "TLN",
     "WCC",
     "BALL",
+    "NWSA",
     "TPG",
+    "H",
     "CLH",
     "FTAI",
     "TOST",
     "BIP",
     "ASTS",
+    "SQM",
     "J",
     "CRL",
+    "WMG",
     "CHRW",
     "VNOM",
     "CCZ",
@@ -441,10 +518,12 @@
     "LDOS",
     "FDXF",
     "BEN",
+    "HAS",
     "DUKB",
     "RBC",
     "INVH",
     "NVR",
+    "LOGI",
     "LAMR",
     "CRBG",
     "XP",
@@ -452,6 +531,7 @@
     "BURL",
     "BSAC",
     "W",
+    "LSCC",
     "JHX",
     "SITM",
     "KIM",
@@ -468,6 +548,7 @@
     "PNFP",
     "UNM",
     "UNMA",
+    "RNR",
     "SOLV",
     "FUTU",
     "MAS",
@@ -482,18 +563,23 @@
     "SGI",
     "CHTR",
     "GEN",
+    "SWK",
     "NBIX",
+    "LECO",
+    "OWL",
     "ICLR",
     "CNH",
     "WPC",
     "SUI",
     "HALO",
+    "JLL",
     "AIZ",
     "AIZN",
     "COKE",
     "PAG",
     "IT",
     "LTM",
+    "KEP",
     "JAZZ",
     "MANH",
     "CACI",
@@ -506,6 +592,7 @@
     "BMNP",
     "FLUT",
     "NLY",
+    "AVY",
     "ALLE",
     "AEFC",
     "CSL",
@@ -513,6 +600,7 @@
     "KKRS",
     "EMBJ",
     "TXT",
+    "CG",
     "AGI",
     "GME",
     "BBIO",
@@ -528,6 +616,7 @@
     "PINS",
     "AKAM",
     "BJ",
+    "IVZ",
     "EQX",
     "HUBS",
     "BAX",
@@ -556,6 +645,7 @@
     "FIVE",
     "BWXT",
     "SWKS",
+    "SREA",
     "BTSG",
     "SKM",
     "SNN",
@@ -581,6 +671,7 @@
     "MICC",
     "TX",
     "WTRG",
+    "PAC",
     "AHR",
     "CHYM",
     "ELS",
@@ -600,17 +691,23 @@
     "FIG",
     "GLPI",
     "ARW",
+    "ALB",
     "BSY",
     "AMH",
+    "NYT",
     "WSE",
+    "TXRH",
+    "FHN",
     "FRHC",
     "RDY",
     "IREN",
     "EGP",
+    "PSO",
     "ONTO",
     "FNF",
     "AMKR",
     "GSAT",
+    "UHS",
     "TTMI",
     "JKHY",
     "AA",
@@ -621,6 +718,7 @@
     "HBM",
     "MTCH",
     "HMY",
+    "RTO",
     "MDGL",
     "GMED",
     "NVMI",
@@ -1566,414 +1664,6 @@
     "LI": {
       "name_zh": "理想汽車",
       "source": "HKEX_dual_list"
-    },
-    "EA": {
-      "name_zh": "美商藝電公司",
-      "source": "description_zh_full_market"
-    },
-    "WBD": {
-      "name_zh": "華納兄弟探索公司",
-      "source": "description_zh_full_market"
-    },
-    "BRK.B": {
-      "name_zh": "波克夏海瑟威",
-      "source": "description_zh_full_market"
-    },
-    "A": {
-      "name_zh": "惠普公司",
-      "source": "description_zh_us_companies"
-    },
-    "ALB": {
-      "name_zh": "雅保公司",
-      "source": "description_zh_us_companies"
-    },
-    "AVY": {
-      "name_zh": "艾利丹尼森公司",
-      "source": "description_zh_us_companies"
-    },
-    "BBDO": {
-      "name_zh": "巴西布拉德斯科銀行",
-      "source": "description_zh_us_companies"
-    },
-    "BEKE": {
-      "name_zh": "貝殼控股",
-      "source": "description_zh_us_companies"
-    },
-    "BX": {
-      "name_zh": "博瀚",
-      "source": "description_zh_us_companies"
-    },
-    "CAH": {
-      "name_zh": "康德樂股份有限公司",
-      "source": "description_zh_us_companies"
-    },
-    "CG": {
-      "name_zh": "凱雷投資集團",
-      "source": "description_zh_us_companies"
-    },
-    "CHT": {
-      "name_zh": "中華電信股份有限公司",
-      "source": "description_zh_us_companies"
-    },
-    "DEO": {
-      "name_zh": "帝亞吉歐",
-      "source": "description_zh_us_companies"
-    },
-    "ETN": {
-      "name_zh": "伊頓公司",
-      "source": "description_zh_us_companies"
-    },
-    "FHN": {
-      "name_zh": "第一地平線公司",
-      "source": "description_zh_us_companies"
-    },
-    "H": {
-      "name_zh": "凱悅酒店集團",
-      "source": "description_zh_us_companies"
-    },
-    "HAS": {
-      "name_zh": "孩之寶",
-      "source": "description_zh_us_companies"
-    },
-    "IP": {
-      "name_zh": "國際紙業",
-      "source": "description_zh_us_companies"
-    },
-    "IR": {
-      "name_zh": "英格索蘭",
-      "source": "description_zh_us_companies"
-    },
-    "IVZ": {
-      "name_zh": "景順集團",
-      "source": "description_zh_us_companies"
-    },
-    "IX": {
-      "name_zh": "歐力士集團",
-      "source": "description_zh_us_companies"
-    },
-    "JBL": {
-      "name_zh": "捷普公司",
-      "source": "description_zh_us_companies"
-    },
-    "JLL": {
-      "name_zh": "瓊斯朗蘇",
-      "source": "description_zh_us_companies"
-    },
-    "KEP": {
-      "name_zh": "韓國電力公社",
-      "source": "description_zh_us_companies"
-    },
-    "KEYS": {
-      "name_zh": "是德科技",
-      "source": "description_zh_us_companies"
-    },
-    "KGC": {
-      "name_zh": "金羅斯金礦公司",
-      "source": "description_zh_us_companies"
-    },
-    "LECO": {
-      "name_zh": "林肯電氣控股公司",
-      "source": "description_zh_us_companies"
-    },
-    "LOGI": {
-      "name_zh": "羅技國際",
-      "source": "description_zh_us_companies"
-    },
-    "LSCC": {
-      "name_zh": "萊迪思半導體",
-      "source": "description_zh_us_companies"
-    },
-    "LUV": {
-      "name_zh": "西南航空",
-      "source": "description_zh_us_companies"
-    },
-    "LVS": {
-      "name_zh": "拉斯維加斯金沙集團",
-      "source": "description_zh_us_companies"
-    },
-    "MFG": {
-      "name_zh": "瑞穗金融集團",
-      "source": "description_zh_us_companies"
-    },
-    "MUFG": {
-      "name_zh": "三菱日聯金融集團",
-      "source": "description_zh_us_companies"
-    },
-    "NDAQ": {
-      "name_zh": "那斯達克公司",
-      "source": "description_zh_us_companies"
-    },
-    "NGG": {
-      "name_zh": "英國國家電網公司",
-      "source": "description_zh_us_companies"
-    },
-    "NMR": {
-      "name_zh": "野村控股",
-      "source": "description_zh_us_companies"
-    },
-    "NOC": {
-      "name_zh": "諾斯羅普·格魯曼公司",
-      "source": "description_zh_us_companies"
-    },
-    "NOK": {
-      "name_zh": "諾基亞",
-      "source": "description_zh_us_companies"
-    },
-    "NSC": {
-      "name_zh": "諾福克南方公司",
-      "source": "description_zh_us_companies"
-    },
-    "NVO": {
-      "name_zh": "諾和諾德",
-      "source": "description_zh_us_companies"
-    },
-    "NVS": {
-      "name_zh": "諾華",
-      "source": "description_zh_us_companies"
-    },
-    "NWS": {
-      "name_zh": "新聞集團",
-      "source": "description_zh_us_companies"
-    },
-    "NWSA": {
-      "name_zh": "新聞集團",
-      "source": "description_zh_us_companies"
-    },
-    "NXPI": {
-      "name_zh": "恩智浦半導體",
-      "source": "description_zh_us_companies"
-    },
-    "NYT": {
-      "name_zh": "紐約時報公司",
-      "source": "description_zh_us_companies"
-    },
-    "ON": {
-      "name_zh": "安森美半導體",
-      "source": "description_zh_us_companies"
-    },
-    "OWL": {
-      "name_zh": "藍鳥資本",
-      "source": "description_zh_us_companies"
-    },
-    "PAAS": {
-      "name_zh": "泛美銀礦公司",
-      "source": "description_zh_us_companies"
-    },
-    "PAC": {
-      "name_zh": "太平洋機場集團",
-      "source": "description_zh_us_companies"
-    },
-    "PBA": {
-      "name_zh": "磐達管線公司",
-      "source": "description_zh_us_companies"
-    },
-    "PBR": {
-      "name_zh": "巴西國家石油公司",
-      "source": "description_zh_us_companies"
-    },
-    "PEG": {
-      "name_zh": "公共事業企業集團股份有限公司",
-      "source": "description_zh_us_companies"
-    },
-    "PFG": {
-      "name_zh": "美國保德信金融集團",
-      "source": "description_zh_us_companies"
-    },
-    "PFH": {
-      "name_zh": "保德信金融集團",
-      "source": "description_zh_us_companies"
-    },
-    "PHG": {
-      "name_zh": "皇家飛利浦",
-      "source": "description_zh_us_companies"
-    },
-    "PS": {
-      "name_zh": "柏林廣場股份有限公司",
-      "source": "description_zh_us_companies"
-    },
-    "PSO": {
-      "name_zh": "皮爾森",
-      "source": "description_zh_us_companies"
-    },
-    "RCL": {
-      "name_zh": "皇家加勒比郵輪公司",
-      "source": "description_zh_us_companies"
-    },
-    "RGA": {
-      "name_zh": "再保險集團股份有限公司",
-      "source": "description_zh_us_companies"
-    },
-    "RIO": {
-      "name_zh": "力拓集團",
-      "source": "description_zh_us_companies"
-    },
-    "RNR": {
-      "name_zh": "隆堡控股有限公司",
-      "source": "description_zh_us_companies"
-    },
-    "ROK": {
-      "name_zh": "洛克威爾自動化公司",
-      "source": "description_zh_us_companies"
-    },
-    "RTO": {
-      "name_zh": "力高國際",
-      "source": "description_zh_us_companies"
-    },
-    "RY": {
-      "name_zh": "皇家銀行",
-      "source": "description_zh_us_companies"
-    },
-    "RYAAY": {
-      "name_zh": "瑞安航空控股公司",
-      "source": "description_zh_us_companies"
-    },
-    "SBS": {
-      "name_zh": "聖保羅州基礎環保公司",
-      "source": "description_zh_us_companies"
-    },
-    "SCHW": {
-      "name_zh": "嘉信金融集團",
-      "source": "description_zh_us_companies"
-    },
-    "SHEL": {
-      "name_zh": "殼牌公司",
-      "source": "description_zh_us_companies"
-    },
-    "SHG": {
-      "name_zh": "新韓金融集團",
-      "source": "description_zh_us_companies"
-    },
-    "SLF": {
-      "name_zh": "永明金融",
-      "source": "description_zh_us_companies"
-    },
-    "SMCIP": {
-      "name_zh": "美超微電腦股份有限公司",
-      "source": "description_zh_us_companies"
-    },
-    "SMFG": {
-      "name_zh": "住友三井金融集團",
-      "source": "description_zh_us_companies"
-    },
-    "SNY": {
-      "name_zh": "賽諾菲",
-      "source": "description_zh_us_companies"
-    },
-    "SOJC": {
-      "name_zh": "南方公司",
-      "source": "description_zh_us_companies"
-    },
-    "SOJD": {
-      "name_zh": "南方公司",
-      "source": "description_zh_us_companies"
-    },
-    "SOJE": {
-      "name_zh": "南方公司",
-      "source": "description_zh_us_companies"
-    },
-    "SOMN": {
-      "name_zh": "南方公司",
-      "source": "description_zh_us_companies"
-    },
-    "SQM": {
-      "name_zh": "智利化工礦業公司",
-      "source": "description_zh_us_companies"
-    },
-    "SREA": {
-      "name_zh": "森普拉能源",
-      "source": "description_zh_us_companies"
-    },
-    "STM": {
-      "name_zh": "意法半導體",
-      "source": "description_zh_us_companies"
-    },
-    "STX": {
-      "name_zh": "希捷科技",
-      "source": "description_zh_us_companies"
-    },
-    "SU": {
-      "name_zh": "盛諾能源",
-      "source": "description_zh_us_companies"
-    },
-    "SWK": {
-      "name_zh": "史丹利百得公司",
-      "source": "description_zh_us_companies"
-    },
-    "TAK": {
-      "name_zh": "武田藥品工業株式會社",
-      "source": "description_zh_us_companies"
-    },
-    "TECK": {
-      "name_zh": "泰克資源有限公司",
-      "source": "description_zh_us_companies"
-    },
-    "TER": {
-      "name_zh": "泰瑞達",
-      "source": "description_zh_us_companies"
-    },
-    "TM": {
-      "name_zh": "豐田汽車公司",
-      "source": "description_zh_us_companies"
-    },
-    "TPL": {
-      "name_zh": "德州太平洋土地公司",
-      "source": "description_zh_us_companies"
-    },
-    "TRI": {
-      "name_zh": "湯森路透",
-      "source": "description_zh_us_companies"
-    },
-    "TSN": {
-      "name_zh": "泰森食品",
-      "source": "description_zh_us_companies"
-    },
-    "TXRH": {
-      "name_zh": "德州牛排館公司",
-      "source": "description_zh_us_companies"
-    },
-    "UAL": {
-      "name_zh": "聯合航空控股公司",
-      "source": "description_zh_us_companies"
-    },
-    "UBS": {
-      "name_zh": "瑞銀集團",
-      "source": "description_zh_us_companies"
-    },
-    "UHS": {
-      "name_zh": "環球醫療保健服務公司",
-      "source": "description_zh_us_companies"
-    },
-    "UL": {
-      "name_zh": "聯合利華",
-      "source": "description_zh_us_companies"
-    },
-    "UMC": {
-      "name_zh": "聯華電子股份有限公司",
-      "source": "description_zh_us_companies"
-    },
-    "UTHR": {
-      "name_zh": "聯合治療公司",
-      "source": "description_zh_us_companies"
-    },
-    "VALE": {
-      "name_zh": "力拓公司",
-      "source": "description_zh_us_companies"
-    },
-    "VOD": {
-      "name_zh": "和記電訊國際股份有限公司",
-      "source": "description_zh_us_companies"
-    },
-    "WAB": {
-      "name_zh": "威斯汀豪斯空氣煞車技術公司",
-      "source": "description_zh_us_companies"
-    },
-    "WMG": {
-      "name_zh": "華納音樂集團",
-      "source": "description_zh_us_companies"
-    },
-    "WPM": {
-      "name_zh": "惠頓貴金屬公司",
-      "source": "description_zh_us_companies"
     }
   }
 }
