@@ -5,6 +5,8 @@ const root = path.resolve(__dirname, '..');
 const { listingStock } = require('../us_universe.js');
 const { applyFinancialValuation } = require('./expansion_financial_models.cjs');
 const { usesFinancialValuationModel } = require('../financial_industry.js');
+const { attachDistressScores, stripCompactBreakdowns } = require('./distress_score_fields.cjs');
+const crypto = require('node:crypto');
 
 function read(file) { return JSON.parse(fs.readFileSync(file, 'utf8')); }
 function write(directory, file, data, prefix = '') {
@@ -131,6 +133,18 @@ function ingest(output, marketFile, reports = {}) {
         is_financial: usesFinancialValuationModel(recordStock.industry, ticker)
       };
     }
+    const statements = fs.existsSync(finSrc) ? read(finSrc) : null;
+    const evidenceHash = statements
+      ? crypto.createHash('sha256').update(JSON.stringify({
+        annual: statements.annual, interim: statements.quarterly
+      })).digest('hex')
+      : null;
+    attachDistressScores(recordStock, statements || {}, {
+      ticker,
+      checkedAt: recordStock.expansion?.capturedAt || new Date().toISOString(),
+      evidenceHash,
+      nullPfForFinancials: true
+    });
     write(output, `cache/us_companies/${ticker}.json`, { version: 1, ticker, stock: recordStock, snapshot: null });
     if (fs.existsSync(finSrc)) {
       write(output, `cache/financials/${ticker}_statements_v2.json`, read(finSrc));
@@ -278,6 +292,7 @@ function integrate(input, output = root) {
         delete compact[key];
       }
       compact.f_score_breakdown = [];
+      stripCompactBreakdowns(compact);
       if (compact.moat && compact.ratingSources?.moat?.reason) {
         // Do not publish invented or incomplete moat payloads in the compact screener catalogue.
         compact.moat = null;

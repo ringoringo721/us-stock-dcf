@@ -342,22 +342,38 @@ test('ICBC and BOC use verified A/H ordinary shares despite the specifically rev
   }
 });
 
-test('cached insurer PF scores show audited applicable-item totals without silently assigning current-ratio points', () => {
+test('cached banks and insurers mark PF / Altman Z / Beneish M as N/A', () => {
   const market = require('../hk_market_dcf.json');
-  for (const [ticker, expected] of Object.entries({ '1299.HK': 5, '2318.HK': 6, '2628.HK': 7 })) {
-    const stock = market[ticker], source = stock.ratingSources.fScore;
-    assert.equal(stock.f_score, expected);
-    assert.equal(source.assessmentType, 'applicableItems');
-    assert.equal(source.applicableTests, 8);
-    assert.equal(source.evaluatedTests, 8);
-    assert.equal(source.standardScore, null);
-    assert.equal(source.reason, null);
-    const criterion = stock.f_score_breakdown.find(item => item.id === 6);
-    assert.equal(criterion.applicable, false);
-    assert.equal(criterion.passed, null);
-    assert.ok(criterion.sources.length >= 2);
-    assert.equal(stock.f_score_breakdown.reduce((sum, item) => sum + (item.passed || 0), 0), expected);
+  for (const ticker of ['1299.HK', '2318.HK', '2628.HK', '1398.HK', '0005.HK']) {
+    const stock = market[ticker];
+    assert.equal(stock.fin_valuation?.is_financial, true);
+    assert.equal(stock.f_score, null);
+    assert.equal(stock.z_score, null);
+    assert.equal(stock.m_score, null);
+    assert.equal(stock.ratingSources.fScore.reason, 'financialSectorNotApplicable');
+    assert.equal(stock.ratingSources.zScore.reason, 'financialSectorNotApplicable');
+    assert.equal(stock.ratingSources.mScore.reason, 'financialSectorNotApplicable');
   }
+});
+
+test('audited insurer current-ratio exclusion still works in StatementScores engine', () => {
+  const { calculate } = require('../statement_scores.js');
+  const review = require('../cache/pf_applicability.json').tickers['1299.HK'];
+  const row = (year, fields) => ({ date: `${year}-12-31`, fiscalYear: year, period: 'FY', reportedCurrency: 'HKD', ...fields });
+  const data = { annual: {
+    income: [row(2023, { revenue: 100, netIncome: 8, grossProfit: 25 }),
+      row(2024, { revenue: 150, netIncome: 10, grossProfit: 40 }),
+      row(2025, { revenue: 200, netIncome: 14, grossProfit: 80 })],
+    balance: [row(2023, { totalAssets: 100 }),
+      row(2024, { totalAssets: 110, longTermDebt: 22, totalCurrentAssets: 44, totalCurrentLiabilities: 22 }),
+      row(2025, { totalAssets: 120, longTermDebt: 12, totalCurrentAssets: 60, totalCurrentLiabilities: 0 })],
+    cashflow: [row(2024, { operatingCashFlow: 12, commonStockIssuance: 0 }),
+      row(2025, { operatingCashFlow: 18, freeCashFlow: -20, commonStockIssuance: 0 })]
+  }, quarterly: { income: [], balance: [], cashflow: [] } };
+  const result = calculate(data, { currentRatioNotApplicable: review });
+  assert.equal(result.score, 8);
+  assert.equal(result.applicableTests, 8);
+  assert.equal(result.items[5].applicable, false);
 });
 
 function evidence(half = false) {

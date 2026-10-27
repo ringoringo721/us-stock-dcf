@@ -34,7 +34,9 @@
       universeMembership: item.universeMembership,
       price: null, mcap: item.marketCap != null ? item.marketCap / 1e6 : null,
       shares: null, shares_outstanding: null, debt: null, cash: null,
-      cash_and_short_term: null, fcf0: null, f_score: null, f_score_breakdown: [], moat: null,
+      cash_and_short_term: null, fcf0: null, f_score: null, f_score_breakdown: [],
+      z_score: null, z_score_model: null, z_score_zone: null, z_score_breakdown: [],
+      m_score: null, m_score_zone: null, m_score_breakdown: [], moat: null,
       pe_trailing: null, pb_trailing: null, div_yield: null, beta: null,
       fair_val: null, reportingFrequency: 'quarterly',
       statementFrequencies: { income: 'quarterly', balance: 'quarterly', cashflow: 'quarterly' },
@@ -43,7 +45,12 @@
       fin_valuation: { is_financial: financial }, real_history: {}, real_5y_prices: [],
       peers: [], top_holders: [], insider_trades: [], stock_splits: [], news: [],
       dataAvailability: { currentPrice: 'pendingCapture', financials: 'pendingCapture' },
-      ratingSources: { moat: { reason: 'analysisUnavailable' }, fScore: { reason: 'pendingCapture' } },
+      ratingSources: {
+        moat: { reason: 'analysisUnavailable' },
+        fScore: { reason: financial ? 'financialSectorNotApplicable' : 'pendingCapture' },
+        zScore: { reason: financial ? 'financialSectorNotApplicable' : 'pendingCapture' },
+        mScore: { reason: financial ? 'financialSectorNotApplicable' : 'pendingCapture' }
+      },
       expansion: { status: 'pendingCapture', source: item.universeMembership }
     };
   }

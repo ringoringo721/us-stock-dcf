@@ -411,20 +411,21 @@ cash common-equity issuance. Comparable TTM is preferred; otherwise the last
 comparable full fiscal year is explicitly identified. Missing tests remain
 unknown and the overall score is N/A, not a neutral score or automatic point.
 Comparisons use original reporting currency to avoid spurious FX signals;
-displayed monetary diagnostics are HKD. Standard PF tests have reduced
-comparability for banks, which is disclosed.
+displayed monetary diagnostics are HKD.
 
-AIA (1299.HK), Ping An (2318.HK) and China Life (2628.HK) have a separately
-labeled **applicable-items score**, respectively **5/8, 6/8 and 7/8** in the
-current cache, not a standard nine-test Piotroski score. Their official
-consolidated statements do not supply current/non-current totals suitable for
-the liquidity-improvement test. `cache/pf_applicability.json` records the
-reviewed statement-date window, official PDF pages and document hashes.
-Criterion six is **Not applicable**, not an automatic pass, zero or missing
-extraction to be estimated. No normalization to /9 or standard health band is
-applied; the leverage-category denominator is two. Other genuinely missing
-criteria still prevent a complete applicable-items score. The exclusion does
-not automatically extend to other insurers or unreviewed future statements.
+**Banks and insurers** (`fin_valuation.is_financial` / financial-industry taxonomy)
+show **N/A** for PF score, Altman Z-Score and Beneish M-Score on both US and HK
+listings. Those screens were designed for non-financial firms; use regulatory
+capital and industry metrics instead. `cache/pf_applicability.json` remains as
+historical evidence for the insurer current-ratio exclusion inside the raw
+StatementScores engine, but published site scores for financials are N/A.
+
+**Altman Z-Score** (classic public-firm model, market equity for X4) and
+**Beneish M-Score** (8-variable) are computed from FMP `statements_v2` annuals
+with the same incomplete→N/A discipline as PF. Site Z bands: Z > 4 super robust;
+Z > 2.99 safe; 1.8–2.99 grey; < 1.8 distress. M bands: M < −2 clean; −2 to −1.78
+window dressing; > −1.78 high manipulation risk. No Gemini/LLM is used for these
+scores.
 
 Economic Moat is a separately labeled AI qualitative assessment, anchored to
 dated financial evidence and the latest available earnings-call transcript.
@@ -1175,14 +1176,18 @@ ROA／ROE 共用趨勢分析的 TTM／期初口徑。摘要附最新財報日及
 
 ## 企業評分與 EPS／FCF／股息趨勢
 
-公司頁面第二個頁籤「企業評分 / Company Rating」集中完整經濟護城河及 PF score
-（Piotroski 九項評分，僅更改顯示名稱，原評分方法不變）。首頁與 DCF 的評分連結及舊護城河／評分網址也導向此頁。
+公司頁面第二個頁籤「企業評分 / Company Rating」集中完整經濟護城河、PF score
+（Piotroski 九項）、Altman Z-Score（破產風險）與 Beneish M-Score（造假警訊）。
+首頁與 DCF 的評分連結及舊護城河／評分網址也導向此頁。
 原「EPS & Dividends」頁籤已移除。
 
 PF score 下方提供財務健康訊號等級：7–9 分較強（綠）、4–6 分中等（黃）、0–3 分較弱（紅）。
 解讀卡依現有九項明細列出通過與未通過的檢驗；明細必須有九個不同項目、有效 0／1 結果，
 且加總與總分一致，否則提示先核對資料，不推定逐項優劣。缺少有效總分時不分級。
-此為規則式篩選解讀，不是新增財報審計、信用評等、償債保證或投資建議；評分計算不變。
+Altman Z：Z > 4 超穩健（可顯示頂級）、Z > 2.99 安全、1.8–2.99 灰色、< 1.8 破產警示。
+Beneish M：M < −2 誠實、−2 至 −1.78 財務美化、> −1.78 高造假可能。
+銀行與保險業之 PF／Z／M 一律 N/A。此為規則式篩選解讀，不是財報審計、信用評等、
+造假判決、償債保證或投資建議。
 
 「趨勢分析」的資產負債分析下方新增 EPS、FCF 與股息趨勢，沿用摘要卡、重點財報日、
 趨勢圖／明細表及季度／年度控制；季度預設 TTM，也可選單季。
