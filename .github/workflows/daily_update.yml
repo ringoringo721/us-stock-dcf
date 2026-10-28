@@ -166,6 +166,7 @@ jobs:
           
           # 暫存資料集與強制追蹤快取資料夾
           git add full_market_dcf.json market_data.js 2>/dev/null || true
+          git add us_expansion_data.js 2>/dev/null || true
           git add fcff_data.js
           git add fmp_model_data.js
           git add -f cache/
