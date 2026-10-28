@@ -1,0 +1,60 @@
+{
+  "ticker": "MTZ",
+  "period": "2026Q2",
+  "m1_brand_pricing": {
+    "score": 3,
+    "comment_zh": "MasTec 在工程和建築行業的品牌知名度有限，缺乏顯著的定價權。其業務性質偏向商品化，客戶主要關注成本效益和項目執行能力，而非品牌忠誠度。與頂級的消費品牌或專有技術公司相比，MasTec 的品牌價值無法支撐溢價定價。該行業的競爭激烈，利潤率受到嚴格的成本控制和招標過程的擠壓，這限制了其在品牌和定價方面的護城河強度。",
+    "comment_en": "MasTec has limited brand recognition in the engineering and construction sector, lacking significant pricing power. The nature of its business is largely commoditized, with clients primarily focused on cost-effectiveness and project execution rather than brand loyalty. Compared to top consumer brands or proprietary technology firms, MasTec's brand value cannot support premium pricing. The industry is highly competitive, with margins squeezed by stringent cost controls and bidding processes, which limits the strength of its moat in branding and pricing."
+  },
+  "m2_patents_regulatory": {
+    "score": 2,
+    "comment_zh": "MasTec 的核心業務是基礎設施建設，這類業務通常不依賴專利或獨特的監管壁壘。雖然某些項目可能涉及特定的工程技術或合規要求，但這些並非構成可持續的競爭優勢。行業准入相對開放，主要的進入門檻在於資本、經驗和聲譽，而非知識產權。因此，在專利和監管壁壘方面，MasTec 的護城河非常薄弱。",
+    "comment_en": "MasTec's core business is infrastructure construction, which typically does not rely on patents or unique regulatory barriers. While certain projects may involve specific engineering techniques or compliance requirements, these do not constitute a sustainable competitive advantage. Industry entry is relatively open, with the primary barriers being capital, experience, and reputation, rather than intellectual property. Therefore, MasTec's moat in terms of patents and regulatory barriers is very weak."
+  },
+  "m3_high_switching_costs": {
+    "score": 5,
+    "comment_zh": "MasTec 的客戶在更換供應商時會面臨一定的轉換成本，尤其是在大型、複雜的基礎設施項目中。項目啟動需要時間來熟悉供應商的流程、團隊和技術能力。然而，這些成本並非高到足以形成牢固的壁壘。客戶仍有相當大的空間去尋找和評估新的承包商，特別是當價格或項目管理出現問題時。因此，轉換成本提供了一定的黏性，但不足以構成強大的護城河。",
+    "comment_en": "MasTec's clients face some switching costs when changing suppliers, especially in large, complex infrastructure projects. Project initiation requires time to familiarize with the supplier's processes, team, and technical capabilities. However, these costs are not high enough to form a strong barrier. Clients still have considerable room to seek and evaluate new contractors, particularly if there are issues with pricing or project management. Thus, switching costs provide some stickiness but are not sufficient to constitute a robust moat."
+  },
+  "m4_network_effects": {
+    "score": 1,
+    "comment_zh": "MasTec 的業務模式不具備網絡效應的特徵。其服務是點對點的，客戶與公司之間的互動不涉及多邊市場或用戶增長帶來的價值提升。公司與客戶的關係主要基於項目執行和合同條款，而非用戶網絡的擴大。因此，網絡效應幾乎不存在，無法構成其護城河的一部分。",
+    "comment_en": "MasTec's business model does not exhibit characteristics of network effects. Its services are point-to-point, and interactions between clients and the company do not involve multi-sided markets or value enhancement from user growth. The relationship between the company and its clients is primarily based on project execution and contractual terms, not on the expansion of a user network. Therefore, network effects are virtually non-existent and cannot form part of its moat."
+  },
+  "m5_cost_advantage_scale": {
+    "score": 7,
+    "comment_zh": "MasTec 作為一家大型基礎設施承包商，在採購、設備利用和項目管理方面享有一定的規模經濟優勢。其龐大的業務量使其能夠與供應商協商更有利的價格，並更有效地分攤固定成本。在某些細分市場，如電力傳輸和電信基礎設施，其規模使其能夠承接更大、更複雜的項目，這對小型競爭對手構成了挑戰。然而，建築行業的利潤率普遍不高，規模優勢的轉化能力有限。",
+    "comment_en": "As a large infrastructure contractor, MasTec benefits from certain economies of scale in procurement, equipment utilization, and project management. Its substantial business volume allows it to negotiate more favorable prices with suppliers and spread fixed costs more efficiently. In certain sub-sectors, such as power transmission and telecommunications infrastructure, its scale enables it to undertake larger and more complex projects, posing a challenge to smaller competitors. However, profit margins in the construction industry are generally not high, limiting the translation of scale advantages."
+  },
+  "m6_unique_geography_assets": {
+    "score": 3,
+    "comment_zh": "MasTec 的業務遍及美國，但其地理位置並非獨特或稀缺。雖然在某些地區可能擁有較強的本地關係和項目經驗，但這些優勢並非不可複製。行業內的公司可以通過招標和擴張進入新的地理市場。其擁有的資產，如設備和勞動力，也非獨一無二。因此，在獨特的地理位置或資產方面，MasTec 的護城河較弱。",
+    "comment_en": "MasTec operates across the United States, but its geographical presence is neither unique nor scarce. While it may possess strong local relationships and project experience in certain regions, these advantages are not irreplicable. Companies within the industry can enter new geographical markets through bidding and expansion. Its assets, such as equipment and labor, are also not unique. Therefore, MasTec's moat in terms of unique geography or assets is weak."
+  },
+  "m7_operational_efficiency": {
+    "score": 7,
+    "comment_zh": "MasTec 在項目執行和運營效率方面展現出一定的能力，尤其是在管理複雜的大型工程項目時。其能夠在預算內按時交付項目是其競爭力的重要組成部分。然而，工程建設行業本身就面臨著固有的波動性和執行風險，即使是高效的公司也難以完全避免項目延誤或成本超支。其 ROE 和 ROA 表現尚可，但並未達到頂尖水平，顯示運營效率有提升空間。",
+    "comment_en": "MasTec demonstrates a certain capability in project execution and operational efficiency, particularly when managing complex, large-scale engineering projects. Its ability to deliver projects on time and within budget is a significant component of its competitiveness. However, the engineering and construction industry inherently faces volatility and execution risks, making it difficult even for efficient companies to completely avoid project delays or cost overruns. Its ROE and ROA performance is acceptable but not top-tier, indicating room for improvement in operational efficiency."
+  },
+  "m8_capital_allocation": {
+    "score": 6,
+    "comment_zh": "MasTec 的管理層在資本配置方面表現出一定的審慎，尤其是在通過收購擴張和管理債務方面。公司在 2026Q2 的財務數據顯示其現金餘額相對較高，但負債水平也較為顯著。其歷史上的資本配置決策，包括對有機增長和戰略收購的權衡，對其整體表現產生了影響。雖然管理層努力平衡增長與風險，但其資本配置的記錄並非一貫卓越，仍有待觀察其長期效益。",
+    "comment_en": "MasTec's management exhibits a degree of prudence in capital allocation, particularly in expanding through acquisitions and managing debt. The company's financial data for 2026Q2 shows a relatively high cash balance, but also a significant level of debt. Its historical capital allocation decisions, including the balance between organic growth and strategic acquisitions, have impacted its overall performance. While management strives to balance growth and risk, its track record in capital allocation is not consistently outstanding and its long-term benefits remain to be seen."
+  },
+  "m9_customer_retention": {
+    "score": 5,
+    "comment_zh": "MasTec 在其服務的基礎設施領域，特別是電力傳輸和電信，與客戶建立了長期的合作關係。重複的項目和合同表明了一定的客戶忠誠度。然而，由於行業的項目導向性質，客戶關係更多是基於項目成功執行和信任，而非難以擺脫的依賴。在大型項目招標中，競爭對手仍有機會爭取客戶。因此，客戶保留度尚可，但非牢不可破。",
+    "comment_en": "MasTec has established long-term relationships with clients in the infrastructure sectors it serves, particularly in power transmission and telecommunications. Repeat projects and contracts indicate a degree of customer loyalty. However, due to the project-oriented nature of the industry, client relationships are more based on successful project execution and trust rather than inescapable dependency. Competitors still have opportunities to bid for clients in large project tenders. Therefore, customer retention is acceptable but not unbreakable."
+  },
+  "m10_durability": {
+    "score": 6,
+    "comment_zh": "MasTec 的業務受益於基礎設施建設的持續需求，尤其是在能源轉型和通信網絡升級等領域。這些是長期趨勢，為公司提供了相對穩定的業務前景。然而，該行業易受宏觀經濟週期、政府支出和利率波動的影響。此外，行業內的激烈競爭和項目執行風險也對業務的持久性構成挑戰。總體而言，其業務具有一定的韌性，但並非完全不受外部衝擊。",
+    "comment_en": "MasTec's business benefits from the ongoing demand for infrastructure construction, especially in areas like energy transition and communication network upgrades. These are long-term trends that provide the company with a relatively stable business outlook. However, the industry is susceptible to macroeconomic cycles, government spending, and interest rate fluctuations. Furthermore, intense competition and project execution risks within the industry also pose challenges to business durability. Overall, its business possesses a degree of resilience but is not entirely immune to external shocks."
+  },
+  "overall_moat_verdict_zh": "MasTec 的經濟護城河整體偏弱，主要體現在其業務的商品化性質和行業的激烈競爭。雖然在規模經濟和運營效率方面具備一定優勢（M5, M7），使其能夠承接大型項目並保持一定的客戶關係（M9），但其品牌定價權（M1）、專利壁壘（M2）和網絡效應（M4）幾乎不存在。轉換成本（M3）和地理資產（M6）提供的保護有限。管理層的資本配置（M8）尚可，業務的長期需求（M10）提供了一定支撐，但整體而言，MasTec 更像是一個週期性強、利潤率受擠壓的工程承包商，而非擁有顯著、可持續競爭壁壘的企業。",
+  "overall_moat_verdict_en": "MasTec's economic moat is generally weak, primarily due to the commoditized nature of its business and intense industry competition. While it possesses certain advantages in economies of scale and operational efficiency (M5, M7), enabling it to undertake large projects and maintain some customer relationships (M9), its brand pricing power (M1), patent barriers (M2), and network effects (M4) are virtually non-existent. Switching costs (M3) and geographical assets (M6) offer limited protection. Management's capital allocation (M8) is adequate, and the long-term demand for its services (M10) provides some support. Overall, MasTec is more akin to a cyclical engineering contractor with squeezed margins, rather than a business with significant, sustainable competitive advantages.",
+  "evidenceHash": "6ff98a55405b438871a24b19568b43f3058f35faefe1be11c3a12f94517db6b6",
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
+}
