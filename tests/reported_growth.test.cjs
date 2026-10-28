@@ -2,7 +2,7 @@ const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
-const { calculate, growth, storedGrowth } = require('../profile_overview.js');
+const { calculate, growth, storedGrowth, buildReportedGrowth } = require('../profile_overview.js');
 const { convertStatements } = require('../usd_currency.js');
 const { reportedGrowth, fields } = require('../scripts/reported_growth.cjs');
 const market = require('../full_market_dcf.json');
@@ -108,4 +108,14 @@ test('Stale or unconverted stored growth is not used as a fallback', () => {
   assert.equal(storedGrowth(stock, 'revenue'), null);
   delete stock.reported_growth;
   assert.equal(storedGrowth(stock, 'revenue'), null);
+});
+
+test('buildReportedGrowth matches the FX convert + normalize pipeline used by reportedGrowth()', () => {
+  for (const ticker of ['MU', 'JPM', 'SKHY']) {
+    const stock = market[ticker] || JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'cache', 'us_companies', `${ticker}.json`), 'utf8')).stock;
+    const data = source(ticker);
+    const fromScript = reportedGrowth(data, rates, { industry: stock.industry, ticker });
+    const fromOverview = buildReportedGrowth(convertStatements(data, rates), { industry: stock.industry, ticker });
+    assert.deepEqual(fromOverview, fromScript, ticker);
+  }
 });

@@ -5,6 +5,9 @@ const path = require('node:path');
 const vm = require('node:vm');
 const http = require('node:http');
 const { select } = require('../peer_comparison.js');
+const { buildReportedGrowth, storedGrowth } = require('../profile_overview.js');
+const { convertStatements } = require('../usd_currency.js');
+const rates = require('../cache/fx/usd_rates.json');
 
 const root = path.resolve(__dirname, '..');
 
@@ -63,5 +66,27 @@ test('UsUniverse.load restores statements_raw for PYPL peer GPN', async () => {
     assert.ok(stock.statements_raw.balance.totalStockholdersEquity.some(Number.isFinite));
   } finally {
     await new Promise(resolve => server.close(resolve));
+  }
+});
+
+test('SKHY TTM peers lack stored reported_growth until rebuilt from statement packs', () => {
+  const { universe } = loadMergedUsUniverse();
+  const selection = select(universe, 'SKHY');
+  assert.deepEqual(selection.peers.map(peer => peer.ticker), ['ASML', 'ARM', 'ADI', 'ASX', 'MPWR']);
+  for (const ticker of ['SKHY', ...selection.peers.map(peer => peer.ticker)]) {
+    const compact = universe[ticker];
+    assert.equal(compact.reported_growth, undefined, `${ticker} compact omits reported_growth`);
+    assert.equal(storedGrowth(compact, 'revenue'), null, `${ticker} storedGrowth empty before hydrate`);
+    const record = JSON.parse(fs.readFileSync(path.join(root, 'cache', 'us_companies', `${ticker}.json`), 'utf8'));
+    assert.equal(record.stock.reported_growth, undefined, `${ticker} company cache also omits reported_growth`);
+    const source = JSON.parse(fs.readFileSync(path.join(root, 'cache', 'financials', `${ticker}_statements_v2.json`), 'utf8'));
+    const reported_growth = buildReportedGrowth(convertStatements(source, rates), {
+      industry: record.stock.industry, ticker
+    });
+    const hydrated = { ...record.stock, reported_growth };
+    const revenue = storedGrowth(hydrated, 'revenue');
+    assert.ok(revenue, `${ticker} revenue growth metadata`);
+    assert.equal(revenue.reason, null, `${ticker} prior TTM window exists`);
+    assert.ok(Number.isFinite(revenue.value), `${ticker} revenue YoY ${revenue.value}`);
   }
 });
