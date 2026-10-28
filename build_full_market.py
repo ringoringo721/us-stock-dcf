@@ -1348,24 +1348,46 @@ def build_10y_growth_schedule(est_data, default_g1, terminal_g):
 
     return schedule[:10]
 
+def _piotroski_num(value) -> Optional[float]:
+    """Coerce ratio/cash inputs; None/invalid → None (missing → fail criterion)."""
+    if value is None:
+        return None
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return None
+
+
 def calculate_piotroski_score(roa, fcf0, cr, liab_r, ttm_net_income):
-    p1 = 1 if roa > 0 else 0
-    p2 = 1 if fcf0 > 0 else 0
-    p3 = 1 if roa > 6.0 else 0
-    p4 = 1 if (fcf0 * 1e6) > ttm_net_income else 0
-    p5 = 1 if liab_r < 65.0 else 0
-    p6 = 1 if cr > 1.25 else 0
+    # Missing inputs must not TypeError (e.g. NGG when ROA is None); treat as fail.
+    roa_n = _piotroski_num(roa)
+    fcf0_n = _piotroski_num(fcf0)
+    cr_n = _piotroski_num(cr)
+    liab_r_n = _piotroski_num(liab_r)
+    ni_n = _piotroski_num(ttm_net_income)
+
+    p1 = 1 if roa_n is not None and roa_n > 0 else 0
+    p2 = 1 if fcf0_n is not None and fcf0_n > 0 else 0
+    p3 = 1 if roa_n is not None and roa_n > 6.0 else 0
+    p4 = 1 if fcf0_n is not None and ni_n is not None and (fcf0_n * 1e6) > ni_n else 0
+    p5 = 1 if liab_r_n is not None and liab_r_n < 65.0 else 0
+    p6 = 1 if cr_n is not None and cr_n > 1.25 else 0
     p7 = 1
-    p8 = 1 if roa > 8.0 else 0
-    p9 = 1 if roa > 4.0 else 0
+    p8 = 1 if roa_n is not None and roa_n > 8.0 else 0
+    p9 = 1 if roa_n is not None and roa_n > 4.0 else 0
+
+    roa_detail = f"當期 ROA = {roa_n:.1f}%" if roa_n is not None else "當期 ROA = N/A"
+    fcf_detail = f"自由現金流 = ${fcf0_n:,.0f}M" if fcf0_n is not None else "自由現金流 = N/A"
+    liab_detail = f"總負債資產比率 = {liab_r_n:.1f}%" if liab_r_n is not None else "總負債資產比率 = N/A"
+    cr_detail = f"流動比率 = {cr_n:.2f}" if cr_n is not None else "流動比率 = N/A"
 
     items = [
-        {"id": 1, "category": "盈利能力", "desc": "資產回報率 ROA > 0", "passed": p1, "detail": f"當期 ROA = {roa:.1f}%"},
-        {"id": 2, "category": "盈利能力", "desc": "營業現金流 CFO > 0", "passed": p2, "detail": f"自由現金流 = ${fcf0:,.0f}M"},
+        {"id": 1, "category": "盈利能力", "desc": "資產回報率 ROA > 0", "passed": p1, "detail": roa_detail},
+        {"id": 2, "category": "盈利能力", "desc": "營業現金流 CFO > 0", "passed": p2, "detail": fcf_detail},
         {"id": 3, "category": "盈利能力", "desc": "資產回報率持續擴張 (ΔROA > 0)", "passed": p3, "detail": "回報率穩步領先同業基準"},
         {"id": 4, "category": "盈利能力", "desc": "應計利潤品質高 (CFO > 淨利潤)", "passed": p4, "detail": "真實現金流充沛，無虛報帳面獲利"},
-        {"id": 5, "category": "槓桿與償債", "desc": "財務槓桿未惡化 (ΔLeverage ≤ 0)", "passed": p5, "detail": f"總負債資產比率 = {liab_r:.1f}%"},
-        {"id": 6, "category": "槓桿與償債", "desc": "短期流動性安全 (ΔLiquidity > 0)", "passed": p6, "detail": f"流動比率 = {cr:.2f}"},
+        {"id": 5, "category": "槓桿與償債", "desc": "財務槓桿未惡化 (ΔLeverage ≤ 0)", "passed": p5, "detail": liab_detail},
+        {"id": 6, "category": "槓桿與償債", "desc": "短期流動性安全 (ΔLiquidity > 0)", "passed": p6, "detail": cr_detail},
         {"id": 7, "category": "槓桿與償債", "desc": "股本未遭稀釋 (ΔShares ≤ 0)", "passed": p7, "detail": "未大幅增發新股割韭菜"},
         {"id": 8, "category": "營運效率", "desc": "毛利率擴張 (ΔMargin > 0)", "passed": p8, "detail": "產品定價權增強，毛利結構健康"},
         {"id": 9, "category": "營運效率", "desc": "資產週轉率提升 (ΔTurnover > 0)", "passed": p9, "detail": "每單位資產產出效益改善"}
@@ -1894,10 +1916,19 @@ def main():
             pb_trailing = None
             pb_forward = None
         pe_trailing = round((mcap * 1e6) / ttm_net_income, 1) if ttm_net_income > 0 else 24.0
-        roe = round((ttm_net_income / equity) * 100.0, 1) if equity and equity != 0 and ttm_net_income else None
+        # Use `is not None` so NI=0 yields ROE/ROA 0.0 instead of None (Piotroski crash).
+        roe = (
+            round((ttm_net_income / equity) * 100.0, 1)
+            if equity and equity != 0 and ttm_net_income is not None
+            else None
+        )
         if roe is None and has_balance_sheet is False:
             roe = 18.0
-        roa = round((ttm_net_income / total_assets) * 100.0, 1) if total_assets and total_assets > 0 and ttm_net_income else None
+        roa = (
+            round((ttm_net_income / total_assets) * 100.0, 1)
+            if total_assets and total_assets > 0 and ttm_net_income is not None
+            else None
+        )
         if roa is None and has_balance_sheet is False:
             roa = 8.0
         time.sleep(0.04)
