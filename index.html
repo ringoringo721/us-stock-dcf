@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>美股 DCF 估值雷達</title>
   <script src="site_theme.js"></script>
-  <script src="market_data.js?v=us-core-zm-1"></script>
+  <script src="market_data.js?v=us-zm-coverage-2"></script>
   <script src="fcff_data.js"></script>
   <script src="market_context.js"></script>
   <script src="hkex_universe.js"></script>
@@ -8297,7 +8297,7 @@
       // tabs that cached the pre-score payload cannot keep showing N/A after deploy.
       const marketFile = MarketContext.market === 'HKEX'
         ? 'hk_market_data.js'
-        : 'market_data.js?v=us-core-zm-1';
+        : 'market_data.js?v=us-zm-coverage-2';
       fetch(marketFile + (marketFile.includes('?') ? '&' : '?') + 't=' + Date.now())
         .then(r => r.text())
         .then(text => {

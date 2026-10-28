@@ -39,6 +39,7 @@ test('US core non-financials with statements_v2 get Z; banks stay N/A', () => {
   const md = loadCoreMarket();
   let nonFin = 0;
   let nonFinZ = 0;
+  let nonFinM = 0;
   for (const [ticker, stock] of Object.entries(md)) {
     const financial = stock.fin_valuation?.is_financial === true;
     if (financial) {
@@ -51,9 +52,15 @@ test('US core non-financials with statements_v2 get Z; banks stay N/A', () => {
     const statementsPath = path.join(root, 'cache/financials', `${ticker}_statements_v2.json`);
     assert.ok(fs.existsSync(statementsPath), `${ticker} statements`);
     if (Number.isFinite(stock.z_score)) nonFinZ++;
+    if (Number.isFinite(stock.m_score)) nonFinM++;
   }
   assert.ok(nonFin >= 200);
   assert.equal(nonFinZ, nonFin, 'every non-financial core name should have Altman Z');
+  // LOW/AZO remain M N/A (AR spike from 0 / DA=0) — everything else with statements should score.
+  assert.ok(nonFinM >= nonFin - 2, `core Beneish M coverage ${nonFinM}/${nonFin}`);
+  for (const ticker of ['NEE', 'SO', 'UNH', 'MMC', 'BRK.B', 'UNP', 'CNI', 'ENB']) {
+    assert.ok(Number.isFinite(md[ticker].m_score), `${ticker} m_score`);
+  }
 });
 
 test('applyToStock recomputes NVDA Z/M from statements_v2', () => {

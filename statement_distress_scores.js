@@ -17,6 +17,53 @@
     const currencies = [...new Set(rows.filter(Boolean).map(row => row.reportedCurrency).filter(Boolean))];
     return currencies.length === 1 ? currencies[0] : null;
   };
+  const fiscalYearOf = row => {
+    const year = Number(row?.fiscalYear || row?.calendarYear);
+    return Number.isFinite(year) ? year : null;
+  };
+  // Retail / 52-53 week filers often post BS dates a few days off the income/CF date.
+  // Match exact date, else same fiscal year, else nearest row within 7 days.
+  function matchStatementRow(rows, incomeRow, { maxDayDelta = 7 } = {}) {
+    const list = rows || [];
+    if (!incomeRow?.date) return null;
+    const exact = list.find(row => row.date === incomeRow.date);
+    if (exact) return exact;
+    const year = fiscalYearOf(incomeRow);
+    if (year !== null) {
+      const byYear = list.filter(row => fiscalYearOf(row) === year);
+      if (byYear.length === 1) return byYear[0];
+      if (byYear.length > 1) {
+        const target = Date.parse(incomeRow.date);
+        return byYear.slice().sort((a, b) =>
+          Math.abs(Date.parse(a.date) - target) - Math.abs(Date.parse(b.date) - target))[0];
+      }
+    }
+    const target = Date.parse(incomeRow.date);
+    let best = null;
+    let bestAbs = Infinity;
+    for (const row of list) {
+      const delta = Math.abs(Date.parse(row.date) - target);
+      if (delta < bestAbs) {
+        bestAbs = delta;
+        best = row;
+      }
+    }
+    return bestAbs <= maxDayDelta * 86400000 ? best : null;
+  }
+  // Beneish YoY indexes: 0/0 → neutral 1 (same intensity both years). Missing or prior-only
+  // zero still blocks the score (do not invent a spike magnitude).
+  function indexRatio(numerator, denominator, reasonBuf) {
+    if (!finite(numerator) || !finite(denominator)) {
+      reasonBuf.reason = 'incompleteCriteria';
+      return null;
+    }
+    if (numerator === 0 && denominator === 0) return 1;
+    if (denominator === 0) {
+      reasonBuf.reason = 'incompleteCriteria';
+      return null;
+    }
+    return numerator / denominator;
+  }
 
   function annualObservation(data, { needPrior = false } = {}) {
     const annualIncome = sorted(data?.annual?.income);
@@ -33,12 +80,10 @@
         const duration = (Date.parse(current.date) - Date.parse(previous.date)) / 86400000;
         if (duration < 330 || duration > 400) continue;
       }
-      const balance = (data.annual.balance || []).find(row => row.date === current.date);
-      const priorBalance = previous
-        ? (data.annual.balance || []).find(row => row.date === previous.date) : null;
-      const cashflow = (data.annual.cashflow || []).find(row => row.date === current.date);
-      const priorCashflow = previous
-        ? (data.annual.cashflow || []).find(row => row.date === previous.date) : null;
+      const balance = matchStatementRow(data.annual.balance, current);
+      const priorBalance = previous ? matchStatementRow(data.annual.balance, previous) : null;
+      const cashflow = matchStatementRow(data.annual.cashflow, current);
+      const priorCashflow = previous ? matchStatementRow(data.annual.cashflow, previous) : null;
       if (!balance || !cashflow) continue;
       if (needPrior && (!priorBalance || !priorCashflow || !previous)) continue;
       const rows = needPrior
@@ -229,12 +274,12 @@
     };
   }
 
-  function indexOrNull(value, reasonBag) {
-    if (!finite(value)) {
-      reasonBag.reason = 'incompleteCriteria';
-      return null;
-    }
-    return value;
+  function depRateOf(da, ppe) {
+    if (!finite(da) || !finite(ppe)) return null;
+    // Both zero ⇒ no depreciable base; treat as zero rate so DEPI can resolve 0/0 → 1.
+    // Missing (null) DA/PPE still blocks.
+    if (da + ppe === 0) return 0;
+    return da / (da + ppe);
   }
 
   function calculateBeneish(data, { isFinancial = false } = {}) {
@@ -268,24 +313,45 @@
     const ni = number(income, 'netIncome');
     const cfo = number(cashflow, 'operatingCashFlow', 'netCashProvidedByOperatingActivities');
 
-    const reasonBag = { reason: null };
+    const reasonBuf = { reason: null };
     const gm = positiveRatio(gp, sales);
     const priorGm = positiveRatio(priorGp, priorSales);
     const aq = finite(ca) && finite(ppe) && finite(ta) && ta > 0 ? 1 - ((ca + ppe) / ta) : null;
     const priorAq = finite(priorCa) && finite(priorPpe) && finite(priorTa) && priorTa > 0
       ? 1 - ((priorCa + priorPpe) / priorTa) : null;
-    const depRate = finite(da) && finite(ppe) && (da + ppe) > 0 ? da / (da + ppe) : null;
-    const priorDepRate = finite(priorDa) && finite(priorPpe) && (priorDa + priorPpe) > 0
-      ? priorDa / (priorDa + priorPpe) : null;
+    const depRate = depRateOf(da, ppe);
+    const priorDepRate = depRateOf(priorDa, priorPpe);
+    // Intensity levels allow explicit 0 (cash AR, SGA rolled into COGS). indexRatio maps
+    // 0/0 → neutral 1; prior-only zero still incomplete (do not invent a spike).
+    const arSales = finite(ar) && finite(sales) && sales > 0 ? ar / sales : null;
+    const priorArSales = finite(priorAr) && finite(priorSales) && priorSales > 0 ? priorAr / priorSales : null;
+    // FMP often stores SGA as 0 when the 10-K rolls SG&A into operating expenses.
+    // Treat non-positive SGA as undisclosed; SGAI defaults to neutral 1 (common Beneish practice).
+    const sgaSales = finite(sga) && sga > 0 && finite(sales) && sales > 0 ? sga / sales : null;
+    const priorSgaSales = finite(priorSga) && priorSga > 0 && finite(priorSales) && priorSales > 0
+      ? priorSga / priorSales : null;
 
-    const dsri = indexOrNull(ratio(positiveRatio(ar, sales), positiveRatio(priorAr, priorSales)), reasonBag);
-    const gmi = indexOrNull(ratio(priorGm, gm), reasonBag);
-    const aqi = indexOrNull(ratio(aq, priorAq), reasonBag);
-    const sgi = indexOrNull(positiveRatio(sales, priorSales), reasonBag);
-    const depi = indexOrNull(ratio(priorDepRate, depRate), reasonBag);
-    const sgai = indexOrNull(ratio(positiveRatio(sga, sales), positiveRatio(priorSga, priorSales)), reasonBag);
-    const lvgi = indexOrNull(ratio(positiveRatio(tl, ta), positiveRatio(priorTl, priorTa)), reasonBag);
-    const tata = indexOrNull(ratio(finite(ni) && finite(cfo) ? ni - cfo : null, ta), reasonBag);
+    const dsri = indexRatio(arSales, priorArSales, reasonBuf);
+    const gmi = indexRatio(priorGm, gm, reasonBuf);
+    const aqi = indexRatio(aq, priorAq, reasonBuf);
+    const sgi = indexRatio(sales, priorSales, reasonBuf);
+    const depi = indexRatio(priorDepRate, depRate, reasonBuf);
+    const sgai = (sgaSales === null || priorSgaSales === null)
+      ? 1
+      : indexRatio(sgaSales, priorSgaSales, reasonBuf);
+    const lvgi = indexRatio(
+      finite(tl) && finite(ta) && ta > 0 ? tl / ta : null,
+      finite(priorTl) && finite(priorTa) && priorTa > 0 ? priorTl / priorTa : null,
+      reasonBuf
+    );
+    const tata = (() => {
+      if (!(finite(ni) && finite(cfo) && finite(ta) && ta !== 0)) {
+        reasonBuf.reason = 'incompleteCriteria';
+        return null;
+      }
+      return (ni - cfo) / ta;
+    })();
+
 
     const indices = { DSRI: dsri, GMI: gmi, AQI: aqi, SGI: sgi, DEPI: depi, SGAI: sgai, TATA: tata, LVGI: lvgi };
     if (Object.values(indices).some(value => !finite(value))) {
