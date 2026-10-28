@@ -45,23 +45,26 @@ for (const [ticker, compact] of Object.entries(expansion.stocks || {})) {
     skipped.push({ ticker, reason: 'missingMcapOrNetDebt' });
     continue;
   }
-  if (Number.isFinite(before) && Math.abs(before - computed) < 0.15) {
+  if (!(Number.isFinite(before) && Math.abs(before - computed) < 0.15)) {
+    applyEnterpriseValue(stock, computed);
+    repaired.push({
+      ticker,
+      reportedCurrency: stock.reportedCurrency,
+      before,
+      after: stock.ev,
+      mcap: stock.mcap,
+      net_debt: stock.net_debt
+    });
+    if (!dryRun) {
+      record.stock = stock;
+      fs.writeFileSync(companyPath, JSON.stringify(record) + '\n');
+    }
+  } else {
     skipped.push({ ticker, reason: 'alreadyAligned' });
-    continue;
   }
-  applyEnterpriseValue(stock, computed);
-  repaired.push({
-    ticker,
-    reportedCurrency: stock.reportedCurrency,
-    before,
-    after: stock.ev,
-    mcap: stock.mcap,
-    net_debt: stock.net_debt
-  });
   if (!dryRun) {
-    record.stock = stock;
-    fs.writeFileSync(companyPath, JSON.stringify(record) + '\n');
-    // Keep compact catalogue fields in sync (omit heavy statements_raw etc. already absent).
+    // Always sync compact catalogue EV fields from company cache (covers remoat
+    // rebases that restore a stale us_expansion_data.js while caches stay fixed).
     const next = { ...compact, ...Object.fromEntries([
       'ev', 'fmp_official_ev', 'enterpriseValueBasis', 'ev_to_ebitda', 'fcf_to_ev',
       'debt', 'cash', 'cash_and_short_term', 'net_debt', 'mcap', 'reportedCurrency', 'calculationCurrency'
