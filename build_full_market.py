@@ -2235,6 +2235,13 @@ def main():
         ["node", os.path.join(os.path.dirname(__file__), "scripts", "usd_financials.cjs"), "--market-ratios"],
         check=True
     )
+    # Altman Z / Beneish M for the 230-name US baseline (statements_v2). Without
+    # this post-step, build_full_market.py rewrites market_data.js / full_market_dcf.json
+    # without z_score/m_score and the frontpage shows N/A for mega-caps.
+    subprocess.run(
+        ["node", os.path.join(os.path.dirname(__file__), "scripts", "apply_distress_scores.cjs"), "--us-core-only"],
+        check=True
+    )
 
     _print_gemini_budget_backlog()
     print(f"\n🎉 成功！全市場 {len(UNIQUE_STOCKS)} 檔標的已全部完成估值、5年Beta校準與護城河分析！", flush=True)
