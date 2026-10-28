@@ -1520,12 +1520,13 @@ def main():
             )
             fin_cache = json.loads(normalized.stdout)
             bs_data = fin_cache.get("quarterly", {}).get("balance", [])[:1]
-        debt, cash, equity, total_assets = 0.0, 0.0, 1.0, 1.0
+        debt, cash, equity, total_assets = 0.0, 0.0, None, None
         short_term_inv = 0.0
         goodwill_and_intangibles = 0.0
         liab_r, cash_to_assets, cr = 40.0, 0.0, 1.50
         reported_currency = "USD"
         latest_period = "LATEST"
+        has_balance_sheet = False
 
         if sym in ["TSM"]:
             reported_currency = "TWD"
@@ -1567,18 +1568,32 @@ def main():
             if sym in ["GOOGL", "GOOG"] and cash > 200000:
                 cash = round(cash / 2.5, 1)
 
-            equity = float(bs.get("totalStockholdersEquity") or 1.0)
-            
+            # Never substitute missing equity with 1.0 — that made P/B ≈ mcap×1e6 (AMRO-class).
+            equity_raw = bs.get("totalStockholdersEquity")
+            try:
+                equity = float(equity_raw) if equity_raw is not None and equity_raw != "" else None
+            except (TypeError, ValueError):
+                equity = None
+            if equity is not None and not math.isfinite(equity):
+                equity = None
+            has_balance_sheet = True
+
             gw = float(bs.get("goodwill") or 0.0)
             intangibles = float(bs.get("intangibleAssets") or bs.get("goodwillAndIntangibleAssets") or 0.0)
             goodwill_and_intangibles = max(gw + intangibles, float(bs.get("goodwillAndIntangibleAssets") or 0.0))
 
             total_liab = float(bs.get("totalLiabilities") or 0.0)
-            total_assets = float(bs.get("totalAssets") or 1.0)
-            cur_assets = float(bs.get("totalCurrentAssets") or 1.0)
-            cur_liab = float(bs.get("totalCurrentLiabilities") or 1.0)
-            liab_r = round((total_liab / total_assets) * 100.0, 1) if total_assets > 0 else 40.0
-            cash_to_assets = round((tot_cash_raw / total_assets) * 100.0, 1) if total_assets > 0 else 0.0
+            assets_raw = bs.get("totalAssets")
+            try:
+                total_assets = float(assets_raw) if assets_raw is not None and assets_raw != "" else None
+            except (TypeError, ValueError):
+                total_assets = None
+            if total_assets is not None and not math.isfinite(total_assets):
+                total_assets = None
+            cur_assets = float(bs.get("totalCurrentAssets") or 0.0)
+            cur_liab = float(bs.get("totalCurrentLiabilities") or 0.0)
+            liab_r = round((total_liab / total_assets) * 100.0, 1) if total_assets and total_assets > 0 else 40.0
+            cash_to_assets = round((tot_cash_raw / total_assets) * 100.0, 1) if total_assets and total_assets > 0 else 0.0
             cr = round(cur_assets / cur_liab, 2) if cur_liab > 0 else 1.5
 
         time.sleep(0.04)
@@ -1854,9 +1869,11 @@ def main():
             debt = round(debt * fx_rate, 1)
             cash = round(cash * fx_rate, 1)
             short_term_inv = round(short_term_inv * fx_rate, 1)
-            equity = equity * fx_rate
+            if equity is not None:
+                equity = equity * fx_rate
             goodwill_and_intangibles = goodwill_and_intangibles * fx_rate
-            total_assets = total_assets * fx_rate
+            if total_assets is not None:
+                total_assets = total_assets * fx_rate
             ttm_net_income = ttm_net_income * fx_rate
             ttm_ebitda = ttm_ebitda * fx_rate
             fcf0 = round(fcf0 * fx_rate, 1)
@@ -1869,11 +1886,20 @@ def main():
         if mcap > 0 and ttm_dividends_paid > 0:
             div_yield_real = round((ttm_dividends_paid / (mcap * 1e6)) * 100.0, 2)
 
-        pb_trailing = round((mcap * 1e6) / equity, 1) if equity > 0 else 5.0
-        pb_forward = round(pb_trailing * 0.90, 1)
+        # P/B requires real parent equity. Missing/zero equity → null (never invent $1 book).
+        if equity is not None and equity != 0 and mcap > 0:
+            pb_trailing = round((mcap * 1e6) / equity, 1)
+            pb_forward = round(pb_trailing * 0.90, 1)
+        else:
+            pb_trailing = None
+            pb_forward = None
         pe_trailing = round((mcap * 1e6) / ttm_net_income, 1) if ttm_net_income > 0 else 24.0
-        roe = round((ttm_net_income / equity) * 100.0, 1) if equity > 0 and ttm_net_income > 0 else 18.0
-        roa = round((ttm_net_income / total_assets) * 100.0, 1) if total_assets > 0 and ttm_net_income > 0 else 8.0
+        roe = round((ttm_net_income / equity) * 100.0, 1) if equity and equity != 0 and ttm_net_income else None
+        if roe is None and has_balance_sheet is False:
+            roe = 18.0
+        roa = round((ttm_net_income / total_assets) * 100.0, 1) if total_assets and total_assets > 0 and ttm_net_income else None
+        if roa is None and has_balance_sheet is False:
+            roa = 8.0
         time.sleep(0.04)
 
         est_data = fetch_json("analyst-estimates", {"symbol": fmp_sym, "limit": 4})

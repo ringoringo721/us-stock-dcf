@@ -5176,7 +5176,10 @@
         value === null ? null : Number(value.toFixed(2)));
 
       return { 
-        ticker, ...s, ...defaultDcf, 
+        ticker, ...s, ...defaultDcf,
+        // Prefer live FCFF quoted EV; fall back to catalogue fcf_to_ev when snapshot omitted preferred/NCI.
+        fcf_to_ev: Number.isFinite(defaultDcf.fcf_to_ev) ? defaultDcf.fcf_to_ev
+          : (Number.isFinite(s.fcf_to_ev) ? s.fcf_to_ev : null),
         fcf_to_equity: Number.isFinite(s.fcf_to_equity)
           ? s.fcf_to_equity
           : FcfRatios.storedTtmFcfToEquity(s.statements_raw, s.currencyConversion?.reason),
