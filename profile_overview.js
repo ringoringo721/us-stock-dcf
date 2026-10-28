@@ -242,7 +242,9 @@
         ['profile_div_yield', format(stock.div_yield, '%')]
       ]);
       group('profile_capital', [
-        ['profile_market_cap', usd(stock.mcap)], ['profile_ev', usd(stock.ev)],
+        ['profile_market_cap', usd(stock.mcap)],
+        ['profile_ev', usd((typeof MarketEv !== 'undefined' && MarketEv.quotedEnterpriseValue)
+          ? MarketEv.quotedEnterpriseValue(stock) : stock.ev)],
         ['profile_shares', format(stock.shares)], ['profile_net_debt', usd(stock.net_debt)]
       ]);
       group('profile_efficiency', [
