@@ -29,9 +29,9 @@
   </script>
   <script src="dcf_drivers.js?v=official-operating-2"></script>
   <script src="fcff.js"></script>
-  <script src="fcff_view.js?v=reported-multiples-2"></script>
+  <script src="market_ev.js?v=front-table-ev-2"></script>
+  <script src="fcff_view.js?v=front-table-ev-2"></script>
   <script src="usd_currency.js"></script>
-  <script src="market_ev.js"></script>
   <script src="liquidation.js"></script>
   <script src="peer_comparison.js?v=hk-full-fy-3"></script>
   <script src="stock_search.js"></script>
@@ -5292,7 +5292,7 @@
       const waccVal = Number.isFinite(item.WACC) ? item.WACC : null;
       const gVal = item.fin_valuation?.is_financial ? item.g
         : MarketContext.fcff()?.stocks?.[item.ticker]?.defaults?.g;
-      // Front-table EV: live DCF/FcffView first, else MarketEv (mcap + debt − cash).
+      // Front-table EV: live DCF/FcffView first, else MarketEv / catalogue / balance formula.
       // Catalogue stores lowercase `ev`; never require uppercase `EV` on the raw stock.
       const evVal = (() => {
         if (Number.isFinite(item.EV)) return item.EV;
@@ -5301,7 +5301,13 @@
           if (Number.isFinite(quoted)) return quoted;
         }
         const stored = Number(item.ev ?? item.fmp_official_ev);
-        return Number.isFinite(stored) ? stored : null;
+        if (Number.isFinite(stored)) return stored;
+        const mcap = Number(item.mcap);
+        const debt = Number(item.debt);
+        const cash = Number(item.cash_and_short_term ?? item.cash);
+        const net = Number.isFinite(Number(item.net_debt)) ? Number(item.net_debt)
+          : (Number.isFinite(debt) && Number.isFinite(cash) ? debt - cash : null);
+        return Number.isFinite(mcap) && Number.isFinite(net) ? mcap + net : null;
       })();
       const mcapVal = Number.isFinite(item.mcap) ? item.mcap : null;
 

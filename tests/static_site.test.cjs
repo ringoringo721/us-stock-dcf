@@ -13,9 +13,10 @@ test('static production output contains both markets and required caches, not ba
     for (const filename of [path.join('cache', 'fx', 'hkd_rates.json'), path.join('cache', 'fx', 'usd_rates.json'),
       path.join('cache', 'financials', '0700.HK_statements_v2.json'), path.join('cache', 'price_charts', 'AAPL.json'),
       path.join('cache', 'beta_benchmarks', 'SPY.json'), path.join('cache', 'beta_benchmarks', '2800.HK.json'),
-      'beta_lookback.js']) {
+      'beta_lookback.js', 'market_ev.js']) {
       assert.ok(fs.existsSync(path.join(output, filename)), filename);
     }
+    assert.ok(assets.includes('market_ev.js'), 'market_ev.js must stay on the publish allowlist');
     assert.equal(files.some(filename => /\.py$|\.cjs$|moat-inputs|transcript/.test(filename)), false);
     assert.equal(fs.existsSync(path.join(output, 'scripts')), false);
     assert.equal(fs.existsSync(path.join(output, '.github')), false);

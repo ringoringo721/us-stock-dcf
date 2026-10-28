@@ -5,8 +5,15 @@ const path = require('node:path');
 const vm = require('node:vm');
 const { computedEnterpriseValue, quotedEnterpriseValue } = require('../market_ev.js');
 const View = require('../fcff_view.js');
+const { assets, buildSite } = require('../scripts/build_site.cjs');
 
 const root = path.resolve(__dirname, '..');
+
+const REPORTED_NA = [
+  'GEV', 'TM', 'SHOP', 'ARM', 'AMRO',
+  'ASML', 'PLTR', 'SHEL', 'DELL', 'NVS', 'SAP', 'AZN',
+  'BNTX', 'NTES', 'CBRS', 'PDD', 'SPOT'
+];
 
 function loadWindow(file, key) {
   const context = { window: {} };
@@ -14,9 +21,28 @@ function loadWindow(file, key) {
   return context.window[key];
 }
 
-test('screenshot expansion tickers expose balance-derived EV for the front table', () => {
+function mergeUniverse() {
+  const core = loadWindow('market_data.js', 'FULL_MARKET_DATA');
+  const listings = loadWindow('us_universe_data.js', 'US_LISTINGS');
+  const expansion = loadWindow('us_expansion_data.js', 'US_EXPANSION');
+  const context = {
+    window: {},
+    FULL_MARKET_DATA: core,
+    US_LISTINGS: listings,
+    US_EXPANSION: expansion,
+    US_CHINESE_NAMES: { names: {} },
+    FinancialIndustry: {
+      usesFinancialValuationModel: (industry) => /Bank|Insurance|Capital Markets|Credit Services|Financial/i.test(String(industry || ''))
+    }
+  };
+  context.window = context;
+  vm.runInNewContext(fs.readFileSync(path.join(root, 'us_universe.js'), 'utf8'), context);
+  return context.UsUniverse.merge(core, listings, expansion);
+}
+
+test('reported production N/A tickers expose balance-derived EV for the front table', () => {
   const stocks = loadWindow('us_expansion_data.js', 'US_EXPANSION').stocks;
-  for (const ticker of ['BNTX', 'NTES', 'CBRS', 'PDD', 'SPOT']) {
+  for (const ticker of REPORTED_NA) {
     const stock = stocks[ticker];
     assert.ok(stock, ticker);
     assert.ok(Number.isFinite(stock.mcap), `${ticker} mcap`);
@@ -53,6 +79,32 @@ test('US expansion EV coverage is nearly complete (mcap + debt − cash)', () =>
   }
 });
 
+test('full merged US universe fills EV whenever mcap + debt − cash is available', () => {
+  const universe = mergeUniverse();
+  const fcff = loadWindow('fcff_data.js', 'FCFF_DATA').stocks;
+  const missingComputable = [];
+  const missingByDesign = [];
+  for (const [ticker, stock] of Object.entries(universe)) {
+    const metrics = View.metrics(stock, fcff[ticker], { E: stock.mcap, fairVal: null });
+    const computable = computedEnterpriseValue(stock);
+    if (Number.isFinite(metrics.EV) || Number.isFinite(quotedEnterpriseValue(stock))) continue;
+    if (Number.isFinite(computable)) missingComputable.push(ticker);
+    else missingByDesign.push(ticker);
+  }
+  assert.deepEqual(missingComputable, [], `computable EV still N/A: ${missingComputable.join(',')}`);
+  for (const ticker of missingByDesign) {
+    const stock = universe[ticker];
+    assert.ok(Number.isFinite(stock.mcap), `${ticker} should at least have mcap`);
+    assert.equal(computedEnterpriseValue(stock), null, ticker);
+  }
+  for (const ticker of REPORTED_NA) {
+    const stock = universe[ticker];
+    assert.ok(stock, ticker);
+    const metrics = View.metrics(stock, fcff[ticker], { E: stock.mcap, fairVal: null });
+    assert.ok(Number.isFinite(metrics.EV), `${ticker} front-table EV`);
+  }
+});
+
 test('incomplete core FCFF stubs (EA/WBD/MMC) no longer blank screener EV', () => {
   const core = loadWindow('market_data.js', 'FULL_MARKET_DATA');
   const fcff = loadWindow('fcff_data.js', 'FCFF_DATA').stocks;
@@ -65,4 +117,36 @@ test('incomplete core FCFF stubs (EA/WBD/MMC) no longer blank screener EV', () =
     assert.equal(metrics.EV, quotedEnterpriseValue(stock));
     assert.ok(Number.isFinite(metrics.EV), ticker);
   }
+});
+
+test('market_ev.js is published with the static site (production allowlist)', () => {
+  assert.ok(assets.includes('market_ev.js'), 'build_site assets must include market_ev.js');
+  const output = fs.mkdtempSync(path.join(require('node:os').tmpdir(), 'ev-public-'));
+  try {
+    buildSite(output);
+    assert.ok(fs.existsSync(path.join(output, 'market_ev.js')));
+    const html = fs.readFileSync(path.join(output, 'index.html'), 'utf8');
+    assert.match(html, /market_ev\.js\?v=front-table-ev-2/);
+    const marketEvIdx = html.indexOf('market_ev.js');
+    const fcffViewIdx = html.indexOf('fcff_view.js');
+    assert.ok(marketEvIdx > 0 && marketEvIdx < fcffViewIdx, 'market_ev.js must load before fcff_view.js');
+  } finally {
+    fs.rmSync(output, { recursive: true, force: true });
+  }
+});
+
+test('FcffView still fills EV when MarketEv global is absent (publish 404 regression)', () => {
+  // Browser factory path: load fcff_view without MarketEv, then ensure inline balance fallback works.
+  const context = {
+    window: {},
+    MarketContext: { labels: dict => dict, compatibleSaved: () => true, fcff: () => null }
+  };
+  context.window = context;
+  context.globalThis = context;
+  vm.runInNewContext(fs.readFileSync(path.join(root, 'fcff_view.js'), 'utf8'), context);
+  assert.equal(typeof context.MarketEv, 'undefined');
+  const stock = loadWindow('us_expansion_data.js', 'US_EXPANSION').stocks.GEV;
+  const metrics = context.FcffView.metrics(stock, undefined, { fairVal: null });
+  assert.ok(Number.isFinite(metrics.EV), 'GEV EV without MarketEv global');
+  assert.ok(Math.abs(metrics.EV - (stock.mcap + stock.net_debt)) < 0.2);
 });

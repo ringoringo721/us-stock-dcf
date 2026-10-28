@@ -49,6 +49,20 @@ test('incomplete FCFF stub without preferred/NCI still falls back to MarketEv', 
   assert.ok(Number.isFinite(metrics.fcf_to_ev));
 });
 
+test('screenshot GEV/TM/SHOP/ARM/AMRO fill EV without FCFF snapshot', () => {
+  for (const stock of [
+    { ticker: 'GEV', mcap: 232226.9, debt: 3960, cash_and_short_term: 13120, net_debt: -9160, ev: 223066.9, fcf0: 1 },
+    { ticker: 'TM', mcap: 230750.2, debt: 268513.5, cash_and_short_term: 63186.8, net_debt: 205326.7, ev: 436076.9, fcf0: 1 },
+    { ticker: 'SHOP', mcap: 226168.2, debt: 178, cash_and_short_term: 4947, net_debt: -4769, ev: 221399.2, fcf0: 1 },
+    { ticker: 'ARM', mcap: 224632.1, debt: 485, cash_and_short_term: 3888, net_debt: -3403, ev: 221229.1, fcf0: 1 },
+    { ticker: 'AMRO', mcap: 222697.2, debt: 0, cash_and_short_term: 0, net_debt: 0, ev: 222697.2, fcf0: 1 }
+  ]) {
+    const metrics = View.metrics(stock, undefined, { fairVal: null });
+    assert.equal(metrics.EV, quotedEnterpriseValue(stock), stock.ticker);
+    assert.ok(Number.isFinite(metrics.EV), stock.ticker);
+  }
+});
+
 test('loaded preferred and minority still form quoted EV with priority claims', () => {
   const stock = { mcap: 2000, fcf0: 30 };
   const source = { defaults: { reportedDebt: 100, cash: 200, preferred: 15, minority: 20 },
