@@ -1,5 +1,6 @@
 const fs = require('node:fs');
 const path = require('node:path');
+const vm = require('node:vm');
 const { rateFor } = require('../usd_currency.js');
 const { calculate } = require('../liquidation.js');
 const finite = value => typeof value === 'number' && Number.isFinite(value);
@@ -71,6 +72,43 @@ function patchMarketText(text, updates) {
   return result + text.slice(text.lastIndexOf('\n}'));
 }
 
+function readExpansion(root) {
+  const file = path.join(root, 'us_expansion_data.js');
+  if (!fs.existsSync(file)) return null;
+  const context = { window: {} };
+  vm.runInNewContext(fs.readFileSync(file, 'utf8'), context);
+  return context.window.US_EXPANSION || null;
+}
+
+function applyExpansionUpdates(root, sources, rates) {
+  const expansion = readExpansion(root);
+  if (!expansion?.stocks) return { updated: 0, available: 0, unavailable: [] };
+  const market = expansion.stocks;
+  const tickers = Object.keys(market).filter(ticker => sources.stocks[ticker]);
+  if (!tickers.length) return { updated: 0, available: 0, unavailable: [] };
+  const subset = Object.fromEntries(tickers.map(ticker => [ticker, market[ticker]]));
+  const updates = applyToMarket(subset, sources, rates);
+  let available = 0;
+  const unavailable = [];
+  for (const [ticker, update] of Object.entries(updates)) {
+    // Catalogue rows are already compact; only attach liquidation fields.
+    market[ticker] = { ...market[ticker], ...update };
+    const companyPath = path.join(root, 'cache', 'us_companies', `${ticker}.json`);
+    if (fs.existsSync(companyPath)) {
+      const record = JSON.parse(fs.readFileSync(companyPath, 'utf8'));
+      const full = record.stock || record;
+      Object.assign(full, update);
+      if (record.stock) record.stock = full;
+      fs.writeFileSync(companyPath, `${JSON.stringify(record)}\n`);
+    }
+    if (update.liq_val_1 != null && update.liq_val_2 != null && update.liq_val_3 != null) available++;
+    else unavailable.push(ticker);
+  }
+  fs.writeFileSync(path.join(root, 'us_expansion_data.js'),
+    `window.US_EXPANSION = ${JSON.stringify(expansion)};\n`);
+  return { updated: Object.keys(updates).length, available, unavailable };
+}
+
 function main() {
   const root = path.join(__dirname, '..');
   const market = JSON.parse(fs.readFileSync(path.join(root, 'full_market_dcf.json'), 'utf8'));
@@ -88,10 +126,17 @@ function main() {
     throw new TypeError('JSON and browser market datasets disagree; files were not written');
   }
   for (const file of output) fs.writeFileSync(file.target, file.content);
+  const expansion = applyExpansionUpdates(root, sources, rates);
   const unavailable = Object.keys(updates).filter(ticker =>
     calculate(updates[ticker].liquidation, ticker).values.some(value => value === null));
-  console.log(`Applied shared liquidation calculations to ${Object.keys(updates).length} stocks; DCF values unchanged`);
-  if (unavailable.length) console.warn(`Liquidation inputs unavailable (N/A): ${unavailable.join(', ')}`);
+  console.log(`Applied shared liquidation calculations to ${Object.keys(updates).length} core stocks; DCF values unchanged`);
+  if (expansion.updated) {
+    console.log(`Applied liquidation to ${expansion.updated} expansion stocks (${expansion.available} fully available)`);
+  }
+  if (unavailable.length) console.warn(`Core liquidation inputs unavailable (N/A): ${unavailable.join(', ')}`);
+  if (expansion.unavailable.length) {
+    console.warn(`Expansion liquidation inputs unavailable (N/A): ${expansion.unavailable.join(', ')}`);
+  }
 }
 if (require.main === module) main();
-module.exports = { prepareSnapshot, applyToMarket, patchMarketText };
+module.exports = { prepareSnapshot, applyToMarket, patchMarketText, applyExpansionUpdates, readExpansion };

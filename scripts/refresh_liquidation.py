@@ -96,28 +96,66 @@ def fetch_rows(session, endpoint, params, key):
     return {"ok": True, "rows": payload}
 
 
+def expansion_tickers(root):
+    path = root / "us_expansion_data.js"
+    if not path.exists():
+        return []
+    text = path.read_text(encoding="utf-8")
+    payload = text.split("=", 1)[1].strip().rstrip(";")
+    data = json.loads(payload)
+    return sorted(data.get("stocks", {}))
+
+
+def fetch_record(session, ticker, key, captured_at):
+    if not re.fullmatch(r"[A-Z0-9]+(?:[.-][A-Z0-9]+)*", ticker):
+        raise ValueError("Invalid market ticker")
+    symbol = ticker.replace(".", "-")
+    responses = {
+        "balance": fetch_rows(session, "balance-sheet-statement",
+                              {"symbol": symbol, "period": "quarter", "limit": 4}, key),
+        "quote": fetch_rows(session, "quote", {"symbol": symbol}, key),
+        "profile": fetch_rows(session, "profile", {"symbol": symbol}, key)
+    }
+    return build_record(ticker, responses, captured_at)
+
+
 def main():
     root = Path(__file__).resolve().parent.parent
     key = os.environ.get("FMP_API_KEY")
     if not key:
         raise RuntimeError("FMP_API_KEY is required; liquidation sources were not refreshed")
     market = json.loads((root / "full_market_dcf.json").read_text(encoding="utf-8"))
+    previous = {}
+    previous_path = root / "cache" / "liquidation_sources.json"
+    if previous_path.exists():
+        try:
+            previous = json.loads(previous_path.read_text(encoding="utf-8")).get("stocks") or {}
+        except (TypeError, ValueError, json.JSONDecodeError):
+            previous = {}
     records = {}
+    captured_at = datetime.now(timezone.utc).isoformat()
+    expansion_ok = expansion_retained = expansion_failed = 0
     with requests.Session() as session:
         for ticker in market:
-            if not re.fullmatch(r"[A-Z0-9]+(?:[.-][A-Z0-9]+)*", ticker):
-                raise ValueError("Invalid market ticker")
-            symbol = ticker.replace(".", "-")
-            responses = {
-                "balance": fetch_rows(session, "balance-sheet-statement",
-                                      {"symbol": symbol, "period": "quarter", "limit": 4}, key),
-                "quote": fetch_rows(session, "quote", {"symbol": symbol}, key),
-                "profile": fetch_rows(session, "profile", {"symbol": symbol}, key)
-            }
-            records[ticker] = build_record(ticker, responses, datetime.now(timezone.utc).isoformat())
+            records[ticker] = fetch_record(session, ticker, key, captured_at)
             print(f"{ticker}: liquidation balance {records[ticker]['balance']['date']}", flush=True)
+        for ticker in expansion_tickers(root):
+            if ticker in market:
+                continue
+            try:
+                records[ticker] = fetch_record(session, ticker, key, captured_at)
+                expansion_ok += 1
+                print(f"{ticker}: liquidation balance {records[ticker]['balance']['date']}", flush=True)
+            except (ValueError, RuntimeError) as error:
+                if ticker in previous:
+                    records[ticker] = previous[ticker]
+                    expansion_retained += 1
+                    print(f"{ticker}: retained previous liquidation source ({error})", flush=True)
+                else:
+                    expansion_failed += 1
+                    print(f"{ticker}: expansion liquidation skipped ({error})", flush=True)
     output = {"version": 1, "source": "FMP stable balance-sheet-statement, quote, profile",
-              "refreshedAt": datetime.now(timezone.utc).isoformat(), "stocks": records}
+              "refreshedAt": captured_at, "stocks": records}
     folder = root / "cache"
     folder.mkdir(exist_ok=True)
     with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", dir=folder, delete=False) as destination:
@@ -128,7 +166,9 @@ def main():
         os.replace(temporary, folder / "liquidation_sources.json")
     finally:
         temporary.unlink(missing_ok=True)
-    print(f"Refreshed {len(records)} liquidation sources; DCF inputs unchanged", flush=True)
+    print(f"Refreshed {len(records)} liquidation sources "
+          f"(expansion ok={expansion_ok}, retained={expansion_retained}, skipped={expansion_failed}); "
+          f"DCF inputs unchanged", flush=True)
 
 
 if __name__ == "__main__":

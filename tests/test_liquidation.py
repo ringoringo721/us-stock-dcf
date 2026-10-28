@@ -4,7 +4,7 @@ import tempfile
 import unittest
 from unittest.mock import Mock, patch
 
-from scripts.refresh_liquidation import build_record, fetch_rows, main
+from scripts.refresh_liquidation import build_record, expansion_tickers, fetch_rows, main
 
 
 def responses(symbol="BRK-B"):
@@ -90,6 +90,12 @@ class LiquidationTests(unittest.TestCase):
                 with self.assertRaisesRegex(RuntimeError, "HTTP 403"):
                     main()
             self.assertEqual(target.read_text(encoding="utf-8"), previous)
+
+    def test_expansion_tickers_are_read_from_us_expansion_catalogue(self):
+        tickers = expansion_tickers(Path(__file__).resolve().parent.parent)
+        self.assertGreaterEqual(len(tickers), 700)
+        self.assertIn("ABNB", tickers)
+        self.assertTrue(all(isinstance(ticker, str) and ticker for ticker in tickers))
 
 
 if __name__ == "__main__":
