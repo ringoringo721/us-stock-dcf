@@ -3,7 +3,7 @@ const path = require('node:path');
 const vm = require('node:vm');
 const root = path.resolve(__dirname, '..');
 const { listingStock } = require('../us_universe.js');
-const { applyFinancialValuation } = require('./expansion_financial_models.cjs');
+const { applyFinancialValuation, compactForExpansion } = require('./expansion_financial_models.cjs');
 const { usesFinancialValuationModel } = require('../financial_industry.js');
 const { attachDistressScores, stripCompactBreakdowns } = require('./distress_score_fields.cjs');
 const crypto = require('node:crypto');
@@ -286,21 +286,8 @@ function integrate(input, output = root) {
         if (!fs.existsSync(source)) continue;
         write(output, path.join('cache', folder, filename), read(source));
       }
-      const compact = { ...record.stock };
-      for (const key of ['statements_raw', 'real_history', 'news', 'top_holders', 'insider_trades', 'stock_splits',
-        'historical_dcf_series', 'real_5y_prices', 'description', 'description_en', 'description_zh', 'reported_growth']) {
-        delete compact[key];
-      }
-      compact.f_score_breakdown = [];
+      const compact = compactForExpansion(record.stock);
       stripCompactBreakdowns(compact);
-      if (compact.moat && compact.ratingSources?.moat?.reason) {
-        // Do not publish invented or incomplete moat payloads in the compact screener catalogue.
-        compact.moat = null;
-      } else if (compact.moat) {
-        compact.moat = Object.fromEntries(Object.entries(compact.moat).filter(([key]) =>
-          /^m\d+_/.test(key) || key.startsWith('overall_moat_verdict')).map(([key, value]) =>
-          [key, /^m\d+_/.test(key) ? { score: value.score } : value]));
-      }
       expansion.stocks[ticker] = compact;
       if (record.model) expansion.models[ticker] = record.model;
       if (record.snapshot) {

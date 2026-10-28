@@ -2,7 +2,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { convertStatements } = require('../usd_currency.js');
-const { financialReference } = require('../fcf_ratios.js');
+const { financialReference, storedTtmFcfToEquity } = require('../fcf_ratios.js');
 const FinancialModels = require('../financial_models.js');
 const { usesFinancialValuationModel } = require('../financial_industry.js');
 
@@ -119,6 +119,10 @@ function applyFinancialValuation(stock, statements, { rates: fx = rates } = {}) 
 
 function compactForExpansion(stock) {
   const compact = { ...stock };
+  // Persist FCF/parent-equity before stripping statements_raw (HKEX compact does the same).
+  if (!Number.isFinite(compact.fcf_to_equity)) {
+    compact.fcf_to_equity = storedTtmFcfToEquity(stock.statements_raw, stock.currencyConversion?.reason);
+  }
   for (const key of ['statements_raw', 'real_history', 'news', 'top_holders', 'insider_trades',
     'stock_splits', 'historical_dcf_series', 'real_5y_prices', 'description', 'description_en',
     'description_zh', 'reported_growth']) {

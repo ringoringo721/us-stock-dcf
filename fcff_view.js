@@ -5,6 +5,8 @@
 })(typeof globalThis === 'object' ? globalThis : this, function () {
   'use strict';
   const market = typeof module === 'object' && module.exports ? require('./market_context.js') : MarketContext;
+  const marketEv = typeof module === 'object' && module.exports ? require('./market_ev.js')
+    : (typeof MarketEv !== 'undefined' ? MarketEv : null);
   const finite = value => typeof value === 'number' && Number.isFinite(value);
   const compatible = saved => saved?.params?.modelVersion === 'fcff-v2'
     && (!context || market.compatibleSaved(saved, context.ticker, context.stock))
@@ -71,8 +73,20 @@
     const minority = reported ? reported.minority : snapshot?.quotedCapital ? defaults.minority
       : snapshot?.noncontrollingClaimAssumption?.reportedBookValue ?? defaults.minority;
     const net = finite(debt) && finite(cash) ? debt - cash : null;
-    const ev = finite(net) && finite(mcap) && [preferred, minority].every(finite)
+    let ev = finite(net) && finite(mcap) && [preferred, minority].every(finite)
       ? mcap + net + preferred + minority : null;
+    // Screener / expansion path often has no FCFF snapshot. Do not blank FCF/EV solely
+    // because preferred/NCI claims were never loaded — fall back to MarketEv (mcap+net debt).
+    // When a snapshot explicitly leaves preferred/minority unknown, keep EV null.
+    if (!finite(ev) && !snapshot && !reported && marketEv?.quotedEnterpriseValue) {
+      ev = marketEv.quotedEnterpriseValue({
+        ...stock,
+        mcap: finite(mcap) ? mcap : stock.mcap,
+        debt: finite(debt) ? debt : stock.debt,
+        cash_and_short_term: finite(cash) ? cash : stock.cash_and_short_term,
+        net_debt: finite(net) ? net : stock.net_debt
+      });
+    }
     const quotedTtm = snapshot?.quotedTtm || snapshot?.ttm;
     const ebitda = reported ? reported.ebitda : quotedTtm?.ebitda;
     const fcf = snapshot?.quotedTtm ? quotedTtm.reportedFcf : quotedTtm?.reportedFcf ?? stock.fcf0;
