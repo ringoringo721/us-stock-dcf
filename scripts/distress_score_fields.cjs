@@ -1,11 +1,56 @@
 'use strict';
 
+const fs = require('fs');
+const path = require('path');
 const Distress = require('../statement_distress_scores.js');
 const { usesFinancialValuationModel } = require('../financial_industry.js');
 
 function isDistressFinancial(stock, ticker = stock?.ticker) {
   if (stock?.fin_valuation?.is_financial === true) return true;
   return usesFinancialValuationModel(stock?.industry, ticker);
+}
+
+function hasAnnualIncome(statements) {
+  return Array.isArray(statements?.annual?.income) && statements.annual.income.length > 0;
+}
+
+// Preferred / unit tickers (SMCIP, MCHPP) often ship empty FMP packs; issuer common
+// stock statements (SMCI, MCHP) are the correct Beneish/Altman inputs.
+const STATEMENT_PARENT_ALIASES = Object.freeze({
+  SMCIP: 'SMCI',
+  MCHPP: 'MCHP',
+  BIPI: 'BIP' // BIP Bermuda Holdings I — use Brookfield Infrastructure Partner packs
+});
+
+function preferredParentTicker(ticker) {
+  const symbol = String(ticker || '').toUpperCase();
+  if (STATEMENT_PARENT_ALIASES[symbol]) return STATEMENT_PARENT_ALIASES[symbol];
+  if (!/^[A-Z0-9]{1,5}P$/.test(symbol)) return null;
+  return symbol.slice(0, -1);
+}
+
+function resolveDistressStatements(ticker, statements, { rootDir = path.join(__dirname, '..') } = {}) {
+  const parent = preferredParentTicker(ticker);
+  const ownUsable = hasAnnualIncome(statements);
+  // Prefer own pack when it can form scores; otherwise fall back to issuer common.
+  // BIPI has misaligned cashflow years — force parent even if income rows exist.
+  const forceParent = parent && STATEMENT_PARENT_ALIASES[String(ticker || '').toUpperCase()] === parent
+    && String(ticker || '').toUpperCase() === 'BIPI';
+  if (ownUsable && !forceParent) {
+    return { statements, sourceTicker: ticker, inheritedFrom: null };
+  }
+  if (!parent) {
+    return { statements: statements || null, sourceTicker: ticker, inheritedFrom: null };
+  }
+  const parentFile = path.join(rootDir, 'cache/financials', `${parent}_statements_v2.json`);
+  if (!fs.existsSync(parentFile)) {
+    return { statements: statements || null, sourceTicker: ticker, inheritedFrom: null };
+  }
+  const parentStatements = JSON.parse(fs.readFileSync(parentFile, 'utf8'));
+  if (!hasAnnualIncome(parentStatements)) {
+    return { statements: statements || null, sourceTicker: ticker, inheritedFrom: null };
+  }
+  return { statements: parentStatements, sourceTicker: parent, inheritedFrom: parent };
 }
 
 function ratingPayload(result, checkedAt = new Date().toISOString()) {
@@ -28,10 +73,12 @@ function attachDistressScores(stock, statements, {
   ticker = stock?.ticker,
   checkedAt = new Date().toISOString(),
   evidenceHash = null,
-  nullPfForFinancials = true
+  nullPfForFinancials = true,
+  rootDir = path.join(__dirname, '..')
 } = {}) {
   const financial = isDistressFinancial(stock, ticker);
-  const { altman, beneish } = Distress.calculateAll(statements || {}, {
+  const resolved = resolveDistressStatements(ticker, statements, { rootDir });
+  const { altman, beneish } = Distress.calculateAll(resolved.statements || {}, {
     isFinancial: financial,
     mcapMillions: Number.isFinite(stock?.mcap) ? stock.mcap : null,
     altmanModel: 'z'
@@ -62,10 +109,13 @@ function attachDistressScores(stock, statements, {
   stock.m_score_zone = beneish.zone;
   stock.m_score_breakdown = Array.isArray(beneish.items) ? beneish.items : [];
 
+  const inheritMeta = resolved.inheritedFrom
+    ? { statementSourceTicker: resolved.inheritedFrom, statementSource: 'preferredParentCommon' }
+    : {};
   stock.ratingSources = stock.ratingSources || {};
-  stock.ratingSources.zScore = { ...ratingPayload(altman, checkedAt), evidenceHash };
-  stock.ratingSources.mScore = { ...ratingPayload(beneish, checkedAt), evidenceHash };
-  return { altman, beneish, financial };
+  stock.ratingSources.zScore = { ...ratingPayload(altman, checkedAt), evidenceHash, ...inheritMeta };
+  stock.ratingSources.mScore = { ...ratingPayload(beneish, checkedAt), evidenceHash, ...inheritMeta };
+  return { altman, beneish, financial, inheritedFrom: resolved.inheritedFrom };
 }
 
 function stripCompactBreakdowns(stock) {
@@ -79,5 +129,8 @@ module.exports = {
   isDistressFinancial,
   attachDistressScores,
   stripCompactBreakdowns,
-  ratingPayload
+  ratingPayload,
+  preferredParentTicker,
+  resolveDistressStatements,
+  hasAnnualIncome
 };

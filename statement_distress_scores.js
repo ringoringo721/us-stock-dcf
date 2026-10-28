@@ -282,10 +282,7 @@
     return da / (da + ppe);
   }
 
-  function calculateBeneish(data, { isFinancial = false } = {}) {
-    if (isFinancial) {
-      return naResult('beneish', 'financialSectorNotApplicable', { applicability: 'financialSector' });
-    }
+  function calculateBeneishAtLatest(data) {
     const source = annualObservation(data, { needPrior: true });
     if (!source) return naResult('beneish', 'missingComparableStatements');
 
@@ -351,7 +348,6 @@
       }
       return (ni - cfo) / ta;
     })();
-
 
     const indices = { DSRI: dsri, GMI: gmi, AQI: aqi, SGI: sgi, DEPI: depi, SGAI: sgai, TATA: tata, LVGI: lvgi };
     if (Object.values(indices).some(value => !finite(value))) {
@@ -421,6 +417,30 @@
       reason: null,
       scoringCurrency: source.scoringCurrency
     };
+  }
+
+  // Newest FY pair can be incomplete (FMP zero AR/DA spikes). Walk older comparable
+  // annual pairs so scores publish whenever any valid two-year window exists.
+  function calculateBeneish(data, { isFinancial = false } = {}) {
+    if (isFinancial) {
+      return naResult('beneish', 'financialSectorNotApplicable', { applicability: 'financialSector' });
+    }
+    const annualIncome = sorted(data?.annual?.income);
+    let last = naResult('beneish', 'missingComparableStatements');
+    for (let end = annualIncome.length - 1; end >= 1; end--) {
+      const truncated = {
+        annual: {
+          income: annualIncome.slice(0, end + 1),
+          balance: data?.annual?.balance || [],
+          cashflow: data?.annual?.cashflow || []
+        },
+        quarterly: data?.quarterly
+      };
+      const result = calculateBeneishAtLatest(truncated);
+      if (Number.isFinite(result.score)) return result;
+      last = result;
+    }
+    return last;
   }
 
   function calculateAll(data, options = {}) {
