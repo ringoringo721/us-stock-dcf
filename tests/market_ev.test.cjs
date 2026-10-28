@@ -40,7 +40,7 @@ test('ASX-like TWD FMP EV is rejected', () => {
   assert.equal(Math.round(quotedEnterpriseValue(asx) * 10) / 10, 91008.2);
 });
 
-test('USD reporters keep stored FMP EV when close to balances', () => {
+test('USD reporters prefer balance-derived EV (mcap + net debt) over FMP storage', () => {
   const adi = {
     reportedCurrency: 'USD',
     calculationCurrency: 'USD',
@@ -49,7 +49,8 @@ test('USD reporters keep stored FMP EV when close to balances', () => {
     ev: 186068.1,
     fmp_official_ev: 186068.1
   };
-  assert.equal(quotedEnterpriseValue(adi), 186068.1);
+  assert.equal(quotedEnterpriseValue(adi), 196295.7);
+  assert.equal(quotedEnterpriseValue(adi), computedEnterpriseValue(adi));
 });
 
 test('applyEnterpriseValue rewrites multiples from balance-derived EV', () => {
@@ -89,7 +90,7 @@ test('US expansion catalogue SKHY/ASX EV matches USD mcap + net debt', () => {
     const record = JSON.parse(fs.readFileSync(path.join(root, 'cache', 'us_companies', `${ticker}.json`), 'utf8'));
     assert.ok(Math.abs(record.stock.ev - computed) < 0.2, `${ticker} company cache EV`);
   }
-  // Screenshot USD peers keep their stored values (ARM may stay elevated vs balances).
+  // USD peers also quote balance-derived EV when mcap + net debt are present.
   assert.equal(stocks.ADI.reportedCurrency, 'USD');
-  assert.equal(quotedEnterpriseValue(stocks.ADI), stocks.ADI.ev);
+  assert.equal(quotedEnterpriseValue(stocks.ADI), computedEnterpriseValue(stocks.ADI));
 });

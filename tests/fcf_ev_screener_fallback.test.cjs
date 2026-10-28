@@ -31,6 +31,24 @@ test('explicit unknown preferred claim in an FCFF snapshot still blanks EV', () 
   assert.equal(View.metrics(stock, source, {}).fcf_to_ev, null);
 });
 
+test('incomplete FCFF stub without preferred/NCI still falls back to MarketEv', () => {
+  // EA/WBD/MMC-class: truthy FCFF entry but empty defaults used to blank front-table EV.
+  const stock = {
+    ticker: 'EA',
+    reportedCurrency: 'USD',
+    mcap: 52925.6,
+    debt: 1486,
+    cash_and_short_term: 2404,
+    net_debt: -918,
+    fcf0: 1000,
+    ev: 50868.1
+  };
+  const source = { /* no defaults */ };
+  const metrics = View.metrics(stock, source, { reason: 'incompleteTtm', fairVal: null });
+  assert.equal(metrics.EV, quotedEnterpriseValue(stock));
+  assert.ok(Number.isFinite(metrics.fcf_to_ev));
+});
+
 test('loaded preferred and minority still form quoted EV with priority claims', () => {
   const stock = { mcap: 2000, fcf0: 30 };
   const source = { defaults: { reportedDebt: 100, cash: 200, preferred: 15, minority: 20 },

@@ -67,13 +67,15 @@
   function quotedEnterpriseValue(stock) {
     const computed = computedEnterpriseValue(stock);
     const stored = storedEnterpriseValue(stock);
-    // Foreign reporters: balances are FX-translated; FMP enterprise-values often are not.
-    if (needsTranslatedMarketEv(stock) && finite(computed)) return computed;
-    if (finite(stored) && looksUnconvertedLocalEv(stored, computed, stock.mcap) && finite(computed)) {
+    // Prefer balance-derived EV (mcap + debt − cash) in the calculation currency.
+    // FMP `/enterprise-values` can lag the quote or remain in reportedCurrency after FX
+    // translation (#56 SKHY/ASX). Front-table / screener coverage follows this formula.
+    if (finite(computed)) {
+      if (needsTranslatedMarketEv(stock)) return computed;
+      if (finite(stored) && looksUnconvertedLocalEv(stored, computed, stock.mcap)) return computed;
       return computed;
     }
-    if (finite(stored)) return stored;
-    return computed;
+    return stored;
   }
 
   function ttmEbitdaMillions(stock) {

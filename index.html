@@ -5292,7 +5292,17 @@
       const waccVal = Number.isFinite(item.WACC) ? item.WACC : null;
       const gVal = item.fin_valuation?.is_financial ? item.g
         : MarketContext.fcff()?.stocks?.[item.ticker]?.defaults?.g;
-      const evVal = Number.isFinite(item.EV) ? item.EV : null;
+      // Front-table EV: live DCF/FcffView first, else MarketEv (mcap + debt − cash).
+      // Catalogue stores lowercase `ev`; never require uppercase `EV` on the raw stock.
+      const evVal = (() => {
+        if (Number.isFinite(item.EV)) return item.EV;
+        if (typeof MarketEv !== 'undefined' && MarketEv.quotedEnterpriseValue) {
+          const quoted = MarketEv.quotedEnterpriseValue(item);
+          if (Number.isFinite(quoted)) return quoted;
+        }
+        const stored = Number(item.ev ?? item.fmp_official_ev);
+        return Number.isFinite(stored) ? stored : null;
+      })();
       const mcapVal = Number.isFinite(item.mcap) ? item.mcap : null;
 
       return `
