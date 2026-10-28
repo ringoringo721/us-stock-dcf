@@ -5294,20 +5294,23 @@
         : MarketContext.fcff()?.stocks?.[item.ticker]?.defaults?.g;
       // Front-table EV: live DCF/FcffView first, else MarketEv / catalogue / balance formula.
       // Catalogue stores lowercase `ev`; never require uppercase `EV` on the raw stock.
+      // Use typeof==='number' (not Number(null)→0) so AEFC/listingStock stubs stay N/A.
       const evVal = (() => {
-        if (Number.isFinite(item.EV)) return item.EV;
+        const finite = value => typeof value === 'number' && Number.isFinite(value);
+        if (finite(item.EV)) return item.EV;
         if (typeof MarketEv !== 'undefined' && MarketEv.quotedEnterpriseValue) {
           const quoted = MarketEv.quotedEnterpriseValue(item);
-          if (Number.isFinite(quoted)) return quoted;
+          if (finite(quoted)) return quoted;
         }
-        const stored = Number(item.ev ?? item.fmp_official_ev);
-        if (Number.isFinite(stored)) return stored;
-        const mcap = Number(item.mcap);
-        const debt = Number(item.debt);
-        const cash = Number(item.cash_and_short_term ?? item.cash);
-        const net = Number.isFinite(Number(item.net_debt)) ? Number(item.net_debt)
-          : (Number.isFinite(debt) && Number.isFinite(cash) ? debt - cash : null);
-        return Number.isFinite(mcap) && Number.isFinite(net) ? mcap + net : null;
+        if (finite(item.ev)) return item.ev;
+        if (finite(item.fmp_official_ev)) return item.fmp_official_ev;
+        const mcap = finite(item.mcap) ? item.mcap : null;
+        const debt = finite(item.debt) ? item.debt : null;
+        const cash = finite(item.cash_and_short_term) ? item.cash_and_short_term
+          : finite(item.cash) ? item.cash : null;
+        const net = finite(item.net_debt) ? item.net_debt
+          : (finite(debt) && finite(cash) ? debt - cash : null);
+        return finite(mcap) && finite(net) ? mcap + net : null;
       })();
       const mcapVal = Number.isFinite(item.mcap) ? item.mcap : null;
 

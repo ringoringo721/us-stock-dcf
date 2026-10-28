@@ -135,6 +135,31 @@ test('market_ev.js is published with the static site (production allowlist)', ()
   }
 });
 
+test('screener last-resort rejects null debt/cash so AEFC/listing stubs stay N/A', () => {
+  const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+  assert.equal(/const debt = Number\(item\.debt\)/.test(html), false);
+  assert.match(html, /typeof value === 'number' && Number\.isFinite\(value\)/);
+
+  // Mirror the fixed last-resort: Number(null)===0 must not invent EV≈mcap.
+  const finite = value => typeof value === 'number' && Number.isFinite(value);
+  const lastResort = (item) => {
+    if (finite(item.EV)) return item.EV;
+    if (finite(item.ev)) return item.ev;
+    if (finite(item.fmp_official_ev)) return item.fmp_official_ev;
+    const mcap = finite(item.mcap) ? item.mcap : null;
+    const debt = finite(item.debt) ? item.debt : null;
+    const cash = finite(item.cash_and_short_term) ? item.cash_and_short_term
+      : finite(item.cash) ? item.cash : null;
+    const net = finite(item.net_debt) ? item.net_debt
+      : (finite(debt) && finite(cash) ? debt - cash : null);
+    return finite(mcap) && finite(net) ? mcap + net : null;
+  };
+  assert.equal(lastResort({ mcap: 13516.44, debt: null, cash: null, cash_and_short_term: null }), null);
+  assert.equal(lastResort({ mcap: 13516.44, debt: null, cash: null, net_debt: null }), null);
+  assert.equal(lastResort({ mcap: 232226.9, debt: 3960, cash_and_short_term: 13120, net_debt: -9160 }), 223066.9);
+  assert.equal(computedEnterpriseValue({ mcap: 13516.44, debt: null, cash: null }), null);
+});
+
 test('FcffView still fills EV when MarketEv global is absent (publish 404 regression)', () => {
   // Browser factory path: load fcff_view without MarketEv, then ensure inline balance fallback works.
   const context = {
