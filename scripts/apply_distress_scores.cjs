@@ -175,11 +175,23 @@ function enrichUsCoreOnly() {
   return counts;
 }
 
+function enrichUsOnly() {
+  enrichUsCoreOnly();
+  enrichCompanyDir('cache/us_companies');
+  enrichExpansionModule('us_expansion_data.js', { compact: true });
+}
+
 function main(argv = process.argv.slice(2)) {
   const usCoreOnly = argv.includes('--us-core-only');
+  const usOnly = argv.includes('--us-only');
   if (usCoreOnly) {
     enrichUsCoreOnly();
     console.log(`mode=us-core-only checkedAt=${checkedAt}`);
+    return;
+  }
+  if (usOnly) {
+    enrichUsOnly();
+    console.log(`mode=us-only checkedAt=${checkedAt}`);
     return;
   }
   enrichMarketFile('full_market_dcf.json', { pretty: true });
@@ -200,6 +212,7 @@ module.exports = {
   applyToStock,
   enrichMarketFile,
   enrichUsCoreOnly,
+  enrichUsOnly,
   collectUsCorePatch,
   main
 };

@@ -450,7 +450,9 @@ scores. US expansion / HK builds attach scores during `build_us_expansion.cjs` /
 `build_hkex*.cjs`. The reviewed **230-name US baseline** (`full_market_dcf.json` /
 `market_data.js`) is filled by `node scripts/apply_distress_scores.cjs --us-core-only`
 (also run automatically at the end of `build_full_market.py`); that mode merges
-only Z/M fields so parallel EV repairs are not clobbered.
+only Z/M fields so parallel EV repairs are not clobbered. Recompute core +
+expansion together with `--us-only`. Beneish treats reported SGA `0` as
+undisclosed (SGAI=1) and matches retail BS dates that sit a few days off income.
 
 Economic Moat is a separately labeled AI qualitative assessment, anchored to
 dated financial evidence and the latest available earnings-call transcript.

@@ -87,13 +87,46 @@ test('banks and insurers are N/A for Z, M (and callers should null PF the same w
   assert.equal(all.beneish.reason, 'financialSectorNotApplicable');
 });
 
-test('missing market cap blocks classic Z; missing SGA blocks Beneish without inventing values', () => {
+test('missing market cap blocks classic Z; undisclosed SGA uses neutral SGAI=1', () => {
   assert.equal(calculateAltman(industrialFixture(), { model: 'z' }).reason, 'missingMarketCap');
   const data = industrialFixture();
   delete data.annual.income.at(-1).sellingGeneralAndAdministrativeExpenses;
+  data.annual.income[0].sellingGeneralAndAdministrativeExpenses = 0;
   const m = calculateBeneish(data);
-  assert.equal(m.score, null);
-  assert.equal(m.reason, 'incompleteCriteria');
+  assert.equal(m.reason, null);
+  assert.ok(Number.isFinite(m.score));
+  assert.equal(m.indices.SGAI, 1);
+});
+
+test('Beneish 0/0 receivable intensity is neutral DSRI; prior-only zero stays incomplete', () => {
+  const bothZero = industrialFixture();
+  bothZero.annual.balance[0].accountsReceivables = 0;
+  bothZero.annual.balance[0].netReceivables = 0;
+  bothZero.annual.balance[1].accountsReceivables = 0;
+  bothZero.annual.balance[1].netReceivables = 0;
+  const clean = calculateBeneish(bothZero);
+  assert.equal(clean.reason, null);
+  assert.equal(clean.indices.DSRI, 1);
+
+  const spike = industrialFixture();
+  spike.annual.balance[0].accountsReceivables = 0;
+  spike.annual.balance[0].netReceivables = 0;
+  const blocked = calculateBeneish(spike);
+  assert.equal(blocked.score, null);
+  assert.equal(blocked.reason, 'incompleteCriteria');
+  assert.equal(blocked.indices.DSRI, null);
+});
+
+test('fiscal balance dates a few days off income still yield Altman/Beneish', () => {
+  const data = industrialFixture();
+  data.annual.balance[0].date = '2023-12-28';
+  data.annual.balance[1].date = '2024-12-29';
+  const z = calculateAltman(data, { mcapMillions: 5000, model: 'z' });
+  const m = calculateBeneish(data);
+  assert.equal(z.reason, null);
+  assert.ok(Number.isFinite(z.score));
+  assert.equal(m.reason, null);
+  assert.ok(Number.isFinite(m.score));
 });
 
 test('currency breaks cannot silently compare Beneish years', () => {
