@@ -91,6 +91,30 @@
     return Number.isFinite(value) ? { ...result, value } : unavailable('missingField');
   }
 
+  const growthFields = {
+    revenue: 'income', grossProfit: 'income', operatingIncome: 'income', netIncome: 'income',
+    ebitda: 'income', epsDiluted: 'income', operatingCashFlow: 'cashflow', freeCashFlow: 'cashflow'
+  };
+
+  // Build the same reported_growth payload peers/profile store; data must already be FX-normalized.
+  function buildReportedGrowth(data, options = {}) {
+    const normalized = industryApi && (options.industry || options.ticker)
+      ? industryApi.normalizeBankStatements(data, options.industry, options.ticker)
+      : data;
+    return {
+      version: 1,
+      currency: normalized.calculationCurrency || 'USD',
+      basis: 'TTM versus prior-year TTM',
+      date: calculate(normalized).date,
+      ...(context.cadence(normalized, 'cashflow').frequency === 'annual'
+        ? { annualDate: normalized.annual?.cashflow?.at(-1)?.date || null } : {}),
+      fields: Object.fromEntries(Object.entries(growthFields).map(([field, statement]) => [field,
+        context.cadence(normalized, statement).frequency === 'annual'
+          ? annualGrowth(normalized, statement, field)
+          : growth(normalized, statement, field)]))
+    };
+  }
+
   function storedGrowth(stock, field) {
     const record = stock?.reported_growth;
     const result = record?.fields?.[field];
@@ -259,5 +283,5 @@
       get('overview-retry').hidden = false;
     }
   }
-  return { calculate, growth, annualGrowth, storedGrowth, render, deactivate };
+  return { calculate, growth, annualGrowth, buildReportedGrowth, growthFields, storedGrowth, render, deactivate };
 });

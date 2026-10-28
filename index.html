@@ -6704,6 +6704,17 @@
     if (peerHasTtmStatements(live) && live.expansion?.status !== 'available') return false;
     return ['available', 'loaded', 'loadFailed', 'loading'].includes(live.expansion?.status);
   }
+  // Expansion company caches omit reported_growth; TTM peers growth cells read only that payload.
+  function peerHasReportedGrowth(stock) {
+    const live = stockUniverse[stock.ticker] || stock;
+    const record = live?.reported_growth;
+    return !!(record && record.version === 1
+      && record.currency === (live.calculationCurrency || 'USD')
+      && record.fields && typeof record.fields === 'object');
+  }
+  function peerNeedsReportedGrowth(stock) {
+    return !peerHasReportedGrowth(stock);
+  }
   async function hydratePeerColumn(stock, reload = false) {
     const ticker = stock.ticker;
     const live = stockUniverse[ticker] || stock;
@@ -6726,6 +6737,24 @@
         };
       }
       return { ...live, ticker, peerBasis: stock.peerBasis };
+    }
+  }
+  async function hydratePeerReportedGrowth(stock, reload = false) {
+    const ticker = stock.ticker;
+    const live = { ...(stockUniverse[ticker] || stock), ticker, peerBasis: stock.peerBasis };
+    if (!reload && peerHasReportedGrowth(live)) return live;
+    try {
+      const pack = await FcfRatios.loadStatements(ticker, reload);
+      const reported_growth = ProfileOverview.buildReportedGrowth(pack, {
+        industry: live.industry, ticker
+      });
+      if (stockUniverse[ticker]) {
+        stockUniverse[ticker] = { ...stockUniverse[ticker], reported_growth };
+      }
+      return { ...live, reported_growth };
+    } catch (error) {
+      console.error('Peer reported growth could not be computed', ticker, error);
+      return live;
     }
   }
   async function renderPeersSubPage(s, reload = false) {
@@ -6772,16 +6801,31 @@
         document.getElementById('peer-annual-retry').onclick = () => renderPeersSubPage(s, true);
         return;
       }
-    } else if (reload || allCols.some(peerNeedsEvidenceHydration)) {
-      // US expansion compact catalogues omit statements_raw; hydrate every in-universe peer column.
-      container.innerHTML = `<p role="status" class="analysis-note">${I18N_DICT[currentLang].fcf_loading}</p>`;
-      allCols = await Promise.all(allCols.map(stock => hydratePeerColumn(stock, reload)));
-      if (requestId !== peerRenderRequestId || market !== MarketContext.market) return;
     } else {
-      allCols = allCols.map(stock => {
-        const live = stockUniverse[stock.ticker] || stock;
-        return { ...live, ticker: stock.ticker, peerBasis: stock.peerBasis };
-      });
+      // US TTM: hydrate expansion statements_raw (#33) and missing reported_growth for YoY cells.
+      const needsEvidence = reload || allCols.some(peerNeedsEvidenceHydration);
+      const needsGrowth = reload || allCols.some(peerNeedsReportedGrowth);
+      if (needsEvidence || needsGrowth) {
+        container.innerHTML = `<p role="status" class="analysis-note">${I18N_DICT[currentLang].fcf_loading}</p>`;
+        if (needsEvidence) {
+          allCols = await Promise.all(allCols.map(stock => hydratePeerColumn(stock, reload)));
+          if (requestId !== peerRenderRequestId || market !== MarketContext.market) return;
+        } else {
+          allCols = allCols.map(stock => {
+            const live = stockUniverse[stock.ticker] || stock;
+            return { ...live, ticker: stock.ticker, peerBasis: stock.peerBasis };
+          });
+        }
+        if (needsGrowth) {
+          allCols = await Promise.all(allCols.map(stock => hydratePeerReportedGrowth(stock, reload)));
+          if (requestId !== peerRenderRequestId || market !== MarketContext.market) return;
+        }
+      } else {
+        allCols = allCols.map(stock => {
+          const live = stockUniverse[stock.ticker] || stock;
+          return { ...live, ticker: stock.ticker, peerBasis: stock.peerBasis };
+        });
+      }
     }
 
     const peerUnavailable = stock => !!(annual && stock?.peerAnnual?.providerStatementsUnavailable);
