@@ -442,7 +442,11 @@ StatementScores engine, but published site scores for financials are N/A.
 with the same incomplete→N/A discipline as PF. Site Z bands: Z > 4 super robust;
 Z > 2.99 safe; 1.8–2.99 grey; < 1.8 distress. M bands: M < −2 clean; −2 to −1.78
 window dressing; > −1.78 high manipulation risk. No Gemini/LLM is used for these
-scores.
+scores. US expansion / HK builds attach scores during `build_us_expansion.cjs` /
+`build_hkex*.cjs`. The reviewed **230-name US baseline** (`full_market_dcf.json` /
+`market_data.js`) is filled by `node scripts/apply_distress_scores.cjs --us-core-only`
+(also run automatically at the end of `build_full_market.py`); that mode merges
+only Z/M fields so parallel EV repairs are not clobbered.
 
 Economic Moat is a separately labeled AI qualitative assessment, anchored to
 dated financial evidence and the latest available earnings-call transcript.
