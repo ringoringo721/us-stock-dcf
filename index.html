@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>美股 DCF 估值雷達</title>
   <script src="site_theme.js"></script>
-  <script src="market_data.js"></script>
+  <script src="market_data.js?v=us-core-zm-1"></script>
   <script src="fcff_data.js"></script>
   <script src="market_context.js"></script>
   <script src="hkex_universe.js"></script>
@@ -8293,7 +8293,12 @@
 
   document.addEventListener('DOMContentLoaded', () => {
     if (!checkGlobalData()) {
-      fetch((MarketContext.market === 'HKEX' ? 'hk_market_data.js' : 'market_data.js') + '?t=' + Date.now())
+      // Bump market_data.js?v= when US-core Z/M (or other baseline fields) republish so
+      // tabs that cached the pre-score payload cannot keep showing N/A after deploy.
+      const marketFile = MarketContext.market === 'HKEX'
+        ? 'hk_market_data.js'
+        : 'market_data.js?v=us-core-zm-1';
+      fetch(marketFile + (marketFile.includes('?') ? '&' : '?') + 't=' + Date.now())
         .then(r => r.text())
         .then(text => {
           const m = text.match(MarketContext.market === 'HKEX' ? /window\.HK_MARKET_DATA\s*=\s*({[\s\S]*?});/ : /window\.FULL_MARKET_DATA\s*=\s*({[\s\S]*?});/);

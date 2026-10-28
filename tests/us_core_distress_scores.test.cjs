@@ -22,7 +22,7 @@ function loadMarketJs() {
 test('US core mega-caps publish Altman Z and Beneish M (not N/A)', () => {
   const md = loadCoreMarket();
   const js = loadMarketJs();
-  for (const ticker of ['NVDA', 'AAPL', 'MSFT', 'GOOGL', 'GOOG', 'AMZN', 'TSM', 'AVGO']) {
+  for (const ticker of ['NVDA', 'AAPL', 'MSFT', 'GOOGL', 'GOOG', 'AMZN', 'TSM', 'AVGO', 'TSLA']) {
     const stock = md[ticker];
     assert.ok(stock, `${ticker} missing from full_market_dcf.json`);
     assert.equal(stock.fin_valuation?.is_financial, false);
