@@ -31,6 +31,7 @@
   <script src="fcff.js"></script>
   <script src="fcff_view.js?v=reported-multiples-2"></script>
   <script src="usd_currency.js"></script>
+  <script src="market_ev.js"></script>
   <script src="liquidation.js"></script>
   <script src="peer_comparison.js?v=hk-full-fy-3"></script>
   <script src="stock_search.js"></script>
@@ -4587,8 +4588,10 @@
     const ModelEV = sumPV + pvTV;
     const EquityVal = ModelEV - NetDebt;
 
-    let officialMarketEV = Number(s.fmp_official_ev) || Number(s.ev) || 0;
-    if (officialMarketEV <= 0) {
+    let officialMarketEV = (typeof MarketEv !== 'undefined' && MarketEv.quotedEnterpriseValue)
+      ? MarketEv.quotedEnterpriseValue({ ...s, mcap: baseMcap, net_debt: NetDebt, EV: s.EV, ev: s.ev, fmp_official_ev: s.fmp_official_ev })
+      : (Number(s.fmp_official_ev) || Number(s.ev) || 0);
+    if (!Number.isFinite(officialMarketEV) || officialMarketEV <= 0) {
       officialMarketEV = baseMcap + NetDebt;
     }
 
@@ -6918,7 +6921,9 @@
     const valuationMultiple = (numerator, denominator) => Number.isFinite(numerator) && denominator > 0
       ? numerator / denominator : null;
     const quotedEv = stock => {
-      const value = Number(stock.EV ?? stock.ev ?? stock.fmp_official_ev);
+      const value = (typeof MarketEv !== 'undefined' && MarketEv.quotedEnterpriseValue)
+        ? MarketEv.quotedEnterpriseValue(stock)
+        : Number(stock.EV ?? stock.ev ?? stock.fmp_official_ev);
       return Number.isFinite(value) ? value : Number(stock.mcap);
     };
     const marketEv = stock => annual ? stock.EV : quotedEv(stock);
@@ -6949,7 +6954,7 @@
         items: [
           { quoteOnly: true, labelZh: "市值 ($M)", labelEn: "Market Cap ($M)", fn: x => fmtM(Number.isFinite(x.mcap) ? x.mcap : null) },
           { quoteOnly: true, labelZh: `最新股價 (${MarketContext.currency})`, labelEn: `Stock Price (${MarketContext.currency})`, fn: x => Number.isFinite(x.price) ? `${moneyPrefix()}${x.price.toFixed(2)}` : 'N/A' },
-          { labelZh: "企業價值 EV ($M)", labelEn: "Enterprise Value EV ($M)", fn: x => fmtM(annual ? x.EV : (Number.isFinite(Number(x.EV ?? x.ev ?? x.fmp_official_ev)) ? Number(x.EV ?? x.ev ?? x.fmp_official_ev) : null)) },
+          { labelZh: "企業價值 EV ($M)", labelEn: "Enterprise Value EV ($M)", fn: x => fmtM(annual ? x.EV : quotedEv(x)) },
           { labelZh: "EV / FCF", labelEn: "EV / FCF", fn: x => { const f = getFinVal(x, 'cashflow', 'freeCashFlow'); return annual ? multipleCell(x, marketEv(x), f, 'FCF') : f > 0 ? fmtX(quotedEv(x) / f) : '--'; } },
           { labelZh: "EV / EBITDA", labelEn: "EV / EBITDA", fn: x => leverageCell(x, 'ev_to_ebitda') },
           { labelZh: "EV / Revenue", labelEn: "EV / Revenue", fn: x => { const r = getFinVal(x, 'income', 'revenue'); return annual ? multipleCell(x, marketEv(x), r, 'Revenue') : r > 0 ? fmtX(quotedEv(x) / r) : '--'; } },

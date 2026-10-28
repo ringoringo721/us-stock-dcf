@@ -1902,14 +1902,14 @@ def main():
 
         net_debt = round(debt - cash, 1)
 
-        fmp_ev_data = fetch_json("enterprise-values", {"symbol": fmp_sym, "period": "quarter", "limit": 1})
-        fmp_official_ev = 0.0
-        if fmp_ev_data and isinstance(fmp_ev_data, list) and len(fmp_ev_data) > 0:
-            raw_ev = float(fmp_ev_data[0].get("enterpriseValue") or 0.0)
-            fmp_official_ev = round(raw_ev * fx_rate / 1e6, 1)
-
-        if fmp_official_ev <= 0:
-            fmp_official_ev = max(round(mcap + net_debt, 1), round(mcap * 0.8, 1))
+        # Market EV in calculation-currency millions: mcap + debt − cash/STI.
+        # Do NOT scale FMP `/enterprise-values` with fx_rate=1 after the shared USD
+        # statement translator — that endpoint stays in reportedCurrency (KRW/TWD/JPY/…)
+        # and produced SKHY/ASX-class absurd EVs on US expansion (which skips the
+        # post-pass usd_financials.cjs rewrite used by the baseline).
+        fmp_official_ev = round(mcap + net_debt, 1)
+        if fmp_official_ev == 0:
+            fmp_official_ev = round(mcap * 0.8, 1)
 
         sum_pv = 0
         cur_fcf = fcf0
@@ -2101,8 +2101,9 @@ def main():
             "g2": growth_10y[5],
             "g": round(DEFAULT_G * 100.0, 2),
             "wacc": round(wacc * 100.0, 2),
-            "ev": fmp_official_ev,          
+            "ev": fmp_official_ev,
             "fmp_official_ev": fmp_official_ev,
+            "enterpriseValueBasis": "USD market capitalization + USD debt - USD cash and short-term investments",
             "dcf_model_ev": ev,
             "ev_to_ebitda": round(fmp_official_ev / ebitda_m, 1) if ebitda_m > 0 else ev_to_ebitda,
             "debt_to_ebitda": debt_to_ebitda,
@@ -2119,7 +2120,7 @@ def main():
             "pb_forward": pb_forward,
             "div_yield": div_yield_real,
             "ps_ratio": round(mcap / max(fcf0 * 4.0, 1.0), 1),
-            "fcf_to_ev": round((fcf0 / ev) * 100.0, 2) if ev > 0 else 0.0,
+            "fcf_to_ev": round((fcf0 / fmp_official_ev) * 100.0, 2) if fmp_official_ev > 0 else 0.0,
             "fcf_to_mcap": round((fcf0 / mcap) * 100.0, 2) if mcap > 0 else 0.0,
             "liab_to_assets": liab_r,
             "cash_to_assets": cash_to_assets,

@@ -64,7 +64,8 @@ function ttmMetricAvailability(stock) {
   const fcf = lastFinite(cashflow.freeCashFlow);
   const equity = lastFinite(balance.totalStockholdersEquity);
   const mcap = Number(stock.mcap);
-  const ev = Number(stock.EV ?? stock.ev ?? stock.fmp_official_ev);
+  const { quotedEnterpriseValue } = require('../market_ev.js');
+  const ev = quotedEnterpriseValue(stock);
   const quotedEv = Number.isFinite(ev) ? ev : mcap;
   const financial = !!stock.fin_valuation?.is_financial;
   return {
