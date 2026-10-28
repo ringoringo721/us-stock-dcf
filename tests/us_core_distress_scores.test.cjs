@@ -56,9 +56,9 @@ test('US core non-financials with statements_v2 get Z; banks stay N/A', () => {
   }
   assert.ok(nonFin >= 200);
   assert.equal(nonFinZ, nonFin, 'every non-financial core name should have Altman Z');
-  // LOW/AZO remain M N/A (AR spike from 0 / DA=0) — everything else with statements should score.
-  assert.ok(nonFinM >= nonFin - 2, `core Beneish M coverage ${nonFinM}/${nonFin}`);
-  for (const ticker of ['NEE', 'SO', 'UNH', 'MMC', 'BRK.B', 'UNP', 'CNI', 'ENB']) {
+  // Walk-back fills LOW/AZO; every non-financial core name should have M.
+  assert.equal(nonFinM, nonFin, `core Beneish M coverage ${nonFinM}/${nonFin}`);
+  for (const ticker of ['NEE', 'SO', 'UNH', 'MMC', 'BRK.B', 'UNP', 'CNI', 'ENB', 'LOW', 'AZO']) {
     assert.ok(Number.isFinite(md[ticker].m_score), `${ticker} m_score`);
   }
 });

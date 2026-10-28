@@ -165,3 +165,30 @@ test('JPM financial flag yields N/A even when statements exist', () => {
   assert.equal(all.altman.reason, 'financialSectorNotApplicable');
   assert.equal(all.beneish.reason, 'financialSectorNotApplicable');
 });
+
+test('Beneish walks back to an older annual pair when latest is incomplete', () => {
+  const fs = require('fs');
+  const path = require('path');
+  const file = path.join(__dirname, '../cache/financials/AZO_statements_v2.json');
+  if (!fs.existsSync(file)) return;
+  const statements = JSON.parse(fs.readFileSync(file, 'utf8'));
+  const m = calculateBeneish(statements);
+  assert.equal(m.reason, null);
+  assert.ok(Number.isFinite(m.score));
+  // Latest FY has DA=0; walk-back should land on an earlier complete pair.
+  assert.ok(m.period && !String(m.period).includes('2026'));
+});
+
+test('preferred empty packs inherit issuer common statements (SMCIP→SMCI)', () => {
+  const { attachDistressScores } = require('../scripts/distress_score_fields.cjs');
+  const fs = require('fs');
+  const path = require('path');
+  const expText = fs.readFileSync(path.join(__dirname, '../us_expansion_data.js'), 'utf8');
+  const exp = JSON.parse(expText.slice(expText.indexOf('=') + 1).replace(/;\s*$/, ''));
+  const stock = JSON.parse(JSON.stringify(exp.stocks.SMCIP));
+  const empty = { annual: { income: [], balance: [], cashflow: [] }, quarterly: { income: [], balance: [], cashflow: [] } };
+  const result = attachDistressScores(stock, empty, { ticker: 'SMCIP' });
+  assert.equal(result.inheritedFrom, 'SMCI');
+  assert.ok(Number.isFinite(stock.z_score));
+  assert.ok(Number.isFinite(stock.m_score));
+});

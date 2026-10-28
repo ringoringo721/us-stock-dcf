@@ -15,7 +15,7 @@ function loadExpansion() {
   return JSON.parse(text.slice(prefix.length).replace(/;\s*$/, '')).stocks;
 }
 
-test('expansion non-financials keep high Z/M coverage; WSM rescued', () => {
+test('expansion non-financials keep high Z/M coverage; walk-back + preferred inherit', () => {
   const stocks = loadExpansion();
   let nonFin = 0, z = 0, m = 0;
   for (const [ticker, stock] of Object.entries(stocks)) {
@@ -30,4 +30,10 @@ test('expansion non-financials keep high Z/M coverage; WSM rescued', () => {
   assert.ok(m / nonFin >= 0.95, `M coverage ${m}/${nonFin}`);
   assert.ok(Number.isFinite(stocks.WSM.z_score), 'WSM z');
   assert.ok(Number.isFinite(stocks.WSM.m_score), 'WSM m');
+  assert.ok(Number.isFinite(stocks.SMCIP.z_score), 'SMCIP z via SMCI');
+  assert.ok(Number.isFinite(stocks.SMCIP.m_score), 'SMCIP m via SMCI');
+  assert.ok(Number.isFinite(stocks.MCHPP.z_score), 'MCHPP z');
+  assert.ok(Number.isFinite(stocks.PSA.m_score), 'PSA m walk-back');
+  assert.ok(Number.isFinite(stocks.RVMD.m_score), 'RVMD m walk-back');
+  assert.ok(Number.isFinite(stocks.PHM.m_score), 'PHM m walk-back');
 });
