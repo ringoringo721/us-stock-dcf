@@ -41,15 +41,26 @@ test('Missing years/opening balances, duplicates, zero and negative equity are n
   assert.equal(annualRoteHistory(negative).at(-1).reason, 'zeroDenominator');
 });
 test('All financial-model stocks have ten saved auditable values matching the shared engine and exact FX snapshot', () => {
-  const markets = { ...require('../full_market_dcf.json'), ...require('../hk_market_dcf.json') };
+  const { financialMarkets } = require('../scripts/capture_rote_history.cjs');
+  const markets = financialMarkets();
+  const core = { ...require('../full_market_dcf.json'), ...require('../hk_market_dcf.json') };
   const symbols = Object.keys(markets).filter(symbol => markets[symbol].fin_valuation?.is_financial === true);
-  assert.equal(symbols.length, 25);
+  const coreSymbols = Object.keys(core).filter(symbol => core[symbol].fin_valuation?.is_financial === true);
+  assert.equal(coreSymbols.length, 25);
+  assert.ok(symbols.length >= coreSymbols.length);
+  assert.ok(fs.existsSync(path.join(__dirname, '..', 'cache', 'rote_history', 'SMFG.json')),
+    'expansion banks/insurers must publish ROTE history (SMFG regression)');
   for (const symbol of symbols) {
     const saved = require(`../cache/rote_history/${symbol}.json`);
     const rates = require(saved.calculationCurrency === 'HKD' ? '../cache/fx/hkd_rates.json' : '../cache/fx/usd_rates.json');
     assert.equal(saved.symbol, symbol);
     assert.equal(saved.method, 'reportedNetIncomeOverBeginningTangibleEquity');
-    assert.equal(saved.years.filter(row => row.value !== null).length, 10, symbol);
+    assert.equal(saved.years.length, 10, symbol);
+    if (coreSymbols.includes(symbol)) {
+      assert.equal(saved.years.filter(row => row.value !== null).length, 10, symbol);
+    } else {
+      assert.ok(saved.years.some(row => row.value !== null || row.reason), symbol);
+    }
     assert.equal(saved.source.fxSnapshotHash, crypto.createHash('sha256').update(JSON.stringify(rates)).digest('hex'));
     const data = { calculationCurrency: saved.calculationCurrency, annual: saved.annual,
       quarterly: { income: [], balance: [], cashflow: [] } };
