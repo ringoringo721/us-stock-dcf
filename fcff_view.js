@@ -75,10 +75,11 @@
     const net = finite(debt) && finite(cash) ? debt - cash : null;
     let ev = finite(net) && finite(mcap) && [preferred, minority].every(finite)
       ? mcap + net + preferred + minority : null;
-    // Screener / expansion path often has no FCFF snapshot. Do not blank FCF/EV solely
-    // because preferred/NCI claims were never loaded — fall back to MarketEv (mcap+net debt).
-    // When a snapshot explicitly leaves preferred/minority unknown, keep EV null.
-    if (!finite(ev) && !snapshot && !reported && marketEv?.quotedEnterpriseValue) {
+    // Prefer MarketEv (mcap + debt − cash) when preferred/NCI were never loaded.
+    // Incomplete FCFF stubs (truthy snapshot, missing defaults) used to blank front-table EV.
+    // Only keep EV null when preferred or minority is explicitly null (unknown claims).
+    const claimsExplicitlyUnknown = preferred === null || minority === null;
+    if (!finite(ev) && !reported && !claimsExplicitlyUnknown && marketEv?.quotedEnterpriseValue) {
       ev = marketEv.quotedEnterpriseValue({
         ...stock,
         mcap: finite(mcap) ? mcap : stock.mcap,
