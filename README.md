@@ -256,13 +256,17 @@ adjusted ROTE, current TTM, or automatically applied forecast assumptions.
 Missing values remain N/A with reasons; losses/negative tangible equity are
 retained with warnings. Figures display two decimal places.
 
-`cache/rote_history/` persists annual inputs, all ten calculated references,
-capture dates and input/FX hashes for all 25 financial-model stocks. Opening the
-reference table needs no FMP or AI call. `node scripts/capture_rote_history.cjs`
-reuses matching saved inputs; `--refresh` explicitly requests new FMP data.
-Eleven year-end balance periods support ten beginning-equity returns. Older
-HKD/CNY FX observations were appended from the Federal Reserve without changing
-any previously saved observation.
+`cache/rote_history/` persists annual inputs, ten calculated references,
+capture dates and input/FX hashes for **every** financial-model stock (core plus
+US/HK expansion banks and insurers). Opening the reference table needs no FMP or
+AI call. `node scripts/build_site.cjs` copies `cache/rote_history/*.json` into
+`public/` (same allowlist path as `ke_history`). `node scripts/capture_rote_history.cjs`
+reuses matching saved inputs; `--refresh` requests new FMP data when
+`FMP_API_KEY` is set; `--existing-only` seeds missing tickers from saved
+statements (older years stay N/A until FMP refresh). Eleven year-end balance
+periods support ten beginning-equity returns. Older HKD/CNY FX observations were
+appended from the Federal Reserve without changing any previously saved
+observation.
 
 Live technical indicators, custom FMP calculation responses and news pages also
 persist in IndexedDB in the same browser and site origin. Identical requests
