@@ -29,9 +29,9 @@
   </script>
   <script src="dcf_drivers.js?v=official-operating-2"></script>
   <script src="fcff.js"></script>
-  <script src="fcff_view.js?v=reported-multiples-2"></script>
+  <script src="market_ev.js?v=front-table-ev-2"></script>
+  <script src="fcff_view.js?v=front-table-ev-2"></script>
   <script src="usd_currency.js"></script>
-  <script src="market_ev.js"></script>
   <script src="liquidation.js"></script>
   <script src="peer_comparison.js?v=hk-full-fy-3"></script>
   <script src="stock_search.js"></script>
@@ -5292,16 +5292,25 @@
       const waccVal = Number.isFinite(item.WACC) ? item.WACC : null;
       const gVal = item.fin_valuation?.is_financial ? item.g
         : MarketContext.fcff()?.stocks?.[item.ticker]?.defaults?.g;
-      // Front-table EV: live DCF/FcffView first, else MarketEv (mcap + debt − cash).
+      // Front-table EV: live DCF/FcffView first, else MarketEv / catalogue / balance formula.
       // Catalogue stores lowercase `ev`; never require uppercase `EV` on the raw stock.
+      // Use typeof==='number' (not Number(null)→0) so AEFC/listingStock stubs stay N/A.
       const evVal = (() => {
-        if (Number.isFinite(item.EV)) return item.EV;
+        const finite = value => typeof value === 'number' && Number.isFinite(value);
+        if (finite(item.EV)) return item.EV;
         if (typeof MarketEv !== 'undefined' && MarketEv.quotedEnterpriseValue) {
           const quoted = MarketEv.quotedEnterpriseValue(item);
-          if (Number.isFinite(quoted)) return quoted;
+          if (finite(quoted)) return quoted;
         }
-        const stored = Number(item.ev ?? item.fmp_official_ev);
-        return Number.isFinite(stored) ? stored : null;
+        if (finite(item.ev)) return item.ev;
+        if (finite(item.fmp_official_ev)) return item.fmp_official_ev;
+        const mcap = finite(item.mcap) ? item.mcap : null;
+        const debt = finite(item.debt) ? item.debt : null;
+        const cash = finite(item.cash_and_short_term) ? item.cash_and_short_term
+          : finite(item.cash) ? item.cash : null;
+        const net = finite(item.net_debt) ? item.net_debt
+          : (finite(debt) && finite(cash) ? debt - cash : null);
+        return finite(mcap) && finite(net) ? mcap + net : null;
       })();
       const mcapVal = Number.isFinite(item.mcap) ? item.mcap : null;
 

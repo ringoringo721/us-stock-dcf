@@ -5,7 +5,7 @@ const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const assets = [
   'index.html', 'site_theme.js', 'market_context.js', 'market_data.js', 'fcff_data.js',
-  'hk_market_data.js', 'hk_fcff_data.js', 'dcf_drivers.js', 'fcff.js', 'fcff_view.js',
+  'hk_market_data.js', 'hk_fcff_data.js', 'dcf_drivers.js', 'fcff.js', 'market_ev.js', 'fcff_view.js',
   'usd_currency.js', 'liquidation.js', 'peer_comparison.js', 'fcf_ratios.js', 'financial_industry.js',
   'industry_taxonomy.js', 'financial_models.js', 'statements_model_pack.js',
   'ke_treasury_data.js',

@@ -5,8 +5,11 @@
 })(typeof globalThis === 'object' ? globalThis : this, function () {
   'use strict';
   const market = typeof module === 'object' && module.exports ? require('./market_context.js') : MarketContext;
-  const marketEv = typeof module === 'object' && module.exports ? require('./market_ev.js')
-    : (typeof MarketEv !== 'undefined' ? MarketEv : null);
+  // Resolve MarketEv at call time: browser scripts load market_ev.js after this file, and a
+  // load-time capture stays null forever when the script is missing from the static publish.
+  const resolveMarketEv = () => (typeof module === 'object' && module.exports
+    ? require('./market_ev.js')
+    : (typeof MarketEv !== 'undefined' ? MarketEv : null));
   const finite = value => typeof value === 'number' && Number.isFinite(value);
   const compatible = saved => saved?.params?.modelVersion === 'fcff-v2'
     && (!context || market.compatibleSaved(saved, context.ticker, context.stock))
@@ -79,14 +82,26 @@
     // Incomplete FCFF stubs (truthy snapshot, missing defaults) used to blank front-table EV.
     // Only keep EV null when preferred or minority is explicitly null (unknown claims).
     const claimsExplicitlyUnknown = preferred === null || minority === null;
-    if (!finite(ev) && !reported && !claimsExplicitlyUnknown && marketEv?.quotedEnterpriseValue) {
-      ev = marketEv.quotedEnterpriseValue({
+    if (!finite(ev) && !reported && !claimsExplicitlyUnknown) {
+      const marketEv = resolveMarketEv();
+      const payload = {
         ...stock,
         mcap: finite(mcap) ? mcap : stock.mcap,
         debt: finite(debt) ? debt : stock.debt,
         cash_and_short_term: finite(cash) ? cash : stock.cash_and_short_term,
         net_debt: finite(net) ? net : stock.net_debt
-      });
+      };
+      if (marketEv?.quotedEnterpriseValue) {
+        ev = marketEv.quotedEnterpriseValue(payload);
+      } else if (finite(payload.mcap) && finite(payload.net_debt)) {
+        ev = payload.mcap + payload.net_debt;
+      } else if (finite(payload.mcap) && finite(payload.debt) && finite(payload.cash_and_short_term)) {
+        ev = payload.mcap + payload.debt - payload.cash_and_short_term;
+      } else if (finite(stock.ev)) {
+        ev = stock.ev;
+      } else if (finite(stock.fmp_official_ev)) {
+        ev = stock.fmp_official_ev;
+      }
     }
     const quotedTtm = snapshot?.quotedTtm || snapshot?.ttm;
     const ebitda = reported ? reported.ebitda : quotedTtm?.ebitda;
