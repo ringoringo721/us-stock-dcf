@@ -1,0 +1,60 @@
+{
+  "ticker": "NGG",
+  "period": "2026Q4",
+  "m1_brand_pricing": {
+    "score": 2,
+    "comment_zh": "NGG 作為一家受監管的公用事業公司，其品牌和定價權受到嚴格的監管框架限制。雖然其服務對社會至關重要，但其利潤率和價格調整必須獲得監管機構的批准，這大大削弱了其定價能力。與消費品牌不同，NGG 的品牌價值更多體現在可靠性和穩定性上，而非溢價能力。因此，在巴菲特重視的定價權方面，NGG 的護城河相對較弱，難以實現顯著的利潤增長。",
+    "comment_en": "As a regulated utility company, NGG's brand and pricing power are constrained by a strict regulatory framework. While its services are essential to society, its profit margins and price adjustments require approval from regulatory bodies, significantly limiting its pricing ability. Unlike consumer brands, NGG's brand value lies more in reliability and stability rather than premium pricing. Therefore, in terms of pricing power, which Buffett values, NGG's moat is relatively weak, making significant profit growth difficult."
+  },
+  "m2_patents_regulatory": {
+    "score": 8,
+    "comment_zh": "NGG 的核心競爭壁壘來自於其在特定區域的公用事業特許經營權。這些特許經營權是政府授予的，具有高度的排他性，其他競爭者難以進入。這種監管壁壘有效地阻止了潛在的競爭，確保了 NGG 在其服務區域內的壟斷地位。雖然不是專利技術，但這種監管許可證在公用事業行業中扮演著類似的角色，提供了穩定的收入來源和市場保護。",
+    "comment_en": "NGG's core competitive barrier stems from its utility franchises in specific regions. These franchises are granted by the government and possess a high degree of exclusivity, making it difficult for other competitors to enter. This regulatory barrier effectively prevents potential competition, ensuring NGG's monopolistic position within its service areas. While not patents, these regulatory licenses play a similar role in the utility sector, providing a stable revenue stream and market protection."
+  },
+  "m3_high_switching_costs": {
+    "score": 7,
+    "comment_zh": "對於終端用戶而言，更換電力和燃氣供應商的轉換成本非常高。用戶需要進行複雜的申請程序，可能涉及基礎設施的改動，並且需要時間來適應新的服務條款和計費方式。這種固有的轉換障礙使得客戶傾向於維持現狀，為 NGG 提供了穩定的客戶基礎和收入流。這種黏性是公用事業行業普遍存在的特徵，構成了重要的經濟護城河。",
+    "comment_en": "For end-users, the switching costs of changing electricity and gas suppliers are very high. Users need to go through complex application procedures, potentially involving infrastructure modifications, and require time to adapt to new service terms and billing methods. These inherent switching barriers make customers inclined to maintain the status quo, providing NGG with a stable customer base and revenue stream. This stickiness is a common characteristic of the utility industry and constitutes a significant economic moat."
+  },
+  "m4_network_effects": {
+    "score": 1,
+    "comment_zh": "NGG 的業務模式本質上不具備網絡效應。其基礎設施（電網和燃氣管道）雖然是連接用戶的網絡，但其價值並非隨著用戶數量的增加而呈指數級增長。用戶的增加只會帶來線性的收入增長，而不會產生像社交媒體或市場平台那樣的網絡效應。因此，在網絡效應這一維度上，NGG 的護城河幾乎不存在。",
+    "comment_en": "NGG's business model inherently lacks network effects. While its infrastructure (electricity grids and gas pipelines) forms a network connecting users, its value does not increase exponentially with the number of users. An increase in users only leads to linear revenue growth, rather than generating network effects like those seen in social media or marketplace platforms. Therefore, in terms of network effects, NGG's moat is virtually non-existent."
+  },
+  "m5_cost_advantage_scale": {
+    "score": 8,
+    "comment_zh": "作為一家大型公用事業公司，NGG 受益於顯著的規模經濟。其龐大的基礎設施網絡、集中的採購能力以及統一的運營管理，使其能夠以比小型競爭者更低的單位成本提供服務。這種規模優勢在資本密集型的公用事業行業中尤為重要，能夠有效抵禦潛在的競爭者進入，並在與供應商談判時獲得更有利的條件。",
+    "comment_en": "As a large utility company, NGG benefits from significant economies of scale. Its vast infrastructure network, centralized procurement capabilities, and unified operational management allow it to provide services at a lower unit cost than smaller competitors. This scale advantage is particularly crucial in the capital-intensive utility industry, effectively deterring potential new entrants and securing more favorable terms in negotiations with suppliers."
+  },
+  "m6_unique_geography_assets": {
+    "score": 9,
+    "comment_zh": "NGG 在英國和美國東海岸擁有廣泛且關鍵的能源基礎設施資產，這些資產的地理位置具有獨特性和不可替代性。這些資產的建設需要巨額的資本投入和漫長的時間，並且受到嚴格的監管審批。在這些特定區域內，NGG 實際上處於一種自然壟斷的地位，其資產的稀缺性和戰略重要性構成了極強的護城河。",
+    "comment_en": "NGG possesses extensive and critical energy infrastructure assets in the UK and the US East Coast, whose geographical locations are unique and irreplaceable. The construction of these assets requires enormous capital investment and considerable time, along with stringent regulatory approvals. Within these specific regions, NGG effectively holds a position of natural monopoly. The scarcity and strategic importance of its assets constitute a very strong moat."
+  },
+  "m7_operational_efficiency": {
+    "score": 7,
+    "comment_zh": "NGG 作為一家成熟的公用事業公司，在運營效率方面有著長期的積累和優化。通過持續的技術升級、流程改進和精細化管理，公司能夠在保證服務質量的前提下，盡可能地降低運營成本。儘管受到監管的約束，但持續提升效率的能力仍然是其維持競爭力、保障股東回報的重要因素。",
+    "comment_en": "As a mature utility company, NGG has accumulated and optimized operational efficiency over a long period. Through continuous technological upgrades, process improvements, and refined management, the company can minimize operating costs while ensuring service quality. Despite regulatory constraints, the ability to continuously improve efficiency remains a crucial factor in maintaining competitiveness and safeguarding shareholder returns."
+  },
+  "m8_capital_allocation": {
+    "score": 6,
+    "comment_zh": "NGG 的資本配置主要集中在維護和擴展其受監管的基礎設施網絡，這是一項相對穩定但回報率有限的業務。雖然公司在可再生能源領域有所投資，但其整體資本配置策略更側重於穩定性而非高增長。相較於巴菲特所青睞的那些能夠將資本高效配置於高回報機會的公司，NGG 在此方面的表現屬於中等水平。",
+    "comment_en": "NGG's capital allocation is primarily focused on maintaining and expanding its regulated infrastructure network, a business that is relatively stable but offers limited returns. While the company invests in renewable energy, its overall capital allocation strategy emphasizes stability over high growth. Compared to companies that Buffett favors for their ability to efficiently allocate capital to high-return opportunities, NGG's performance in this area is moderate."
+  },
+  "m9_customer_retention": {
+    "score": 7,
+    "comment_zh": "如前所述，公用事業服務的強制性需求和高轉換成本，使得 NGG 擁有極高的客戶保留率。一旦用戶接入其網絡，除非搬遷或主動尋求替代方案（在某些地區可能有限），否則將持續使用其服務。這種客戶黏性為公司提供了高度可預測的收入，是其穩健經營的基石。",
+    "comment_en": "As mentioned earlier, the essential nature of utility services and high switching costs grant NGG exceptionally high customer retention rates. Once a customer is connected to its network, they will continue to use its services unless they relocate or actively seek alternatives (which may be limited in some areas). This customer stickiness provides the company with highly predictable revenue, forming the cornerstone of its stable operations."
+  },
+  "m10_durability": {
+    "score": 8,
+    "comment_zh": "NGG 的業務具有極強的持久性。能源供應是現代社會的基礎，需求穩定且長期。儘管面臨能源轉型和監管變化的挑戰，但其核心業務的必要性確保了其長期生存能力。只要社會需要電力和燃氣，NGG 這樣的基礎設施提供者就將持續存在，其護城河具有顯著的持久性。",
+    "comment_en": "NGG's business possesses strong durability. Energy supply is fundamental to modern society, with stable and long-term demand. Despite challenges from energy transition and regulatory changes, the necessity of its core business ensures its long-term viability. As long as society requires electricity and gas, infrastructure providers like NGG will continue to exist, giving its moat significant durability."
+  },
+  "overall_moat_verdict_zh": "National Grid plc (NGG) 是一家典型的受監管公用事業公司，其經濟護城河主要建立在特許經營權（M2）和獨特的地理資產（M6）之上，這兩者構成了其業務的基石，提供了近乎壟斷的市場地位和穩定的收入來源。高轉換成本（M3）和規模經濟（M5）進一步鞏固了其市場地位。然而，其定價權（M1）受到嚴格監管，網絡效應（M4）幾乎為零，這限制了其利潤增長空間。總體而言，NGG 屬於一種「收費橋」或「特許經營」類型的商業模式，其護城河堅固且持久，適合尋求穩定現金流的長期投資者，但增長潛力有限。",
+  "overall_moat_verdict_en": "National Grid plc (NGG) is a typical regulated utility company whose economic moat is primarily built upon its franchises (M2) and unique geographical assets (M6). These form the bedrock of its business, providing a near-monopolistic market position and a stable revenue stream. High switching costs (M3) and economies of scale (M5) further solidify its market standing. However, its pricing power (M1) is strictly regulated, and network effects (M4) are virtually non-existent, limiting its profit growth potential. Overall, NGG operates a 'toll bridge' or 'franchise' type business model. Its moat is robust and durable, suitable for long-term investors seeking stable cash flows, albeit with limited growth prospects.",
+  "evidenceHash": "a3a76c99389a989d4db1b4324b6da2aa33916a74897cda7ca9498963ce8ade7a",
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
+}
