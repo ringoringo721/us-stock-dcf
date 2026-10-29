@@ -10,13 +10,31 @@ const rates = require('../cache/fx/usd_rates.json');
 const source = ticker => JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'cache', 'financials', `${ticker}_statements_v2.json`)));
 
 test('MU and LRCX growth uses prior-year fiscal TTM, not a duplicate current annual column', () => {
-  for (const [ticker, expected] of [['MU', 256.3272513243084], ['LRCX', 26.020858240997]]) {
+  // Absolute growth floats go stale on every earnings refresh; assert structure + live TTM math.
+  for (const ticker of ['MU', 'LRCX']) {
     const data = source(ticker);
     const value = growth(data, 'income', 'revenue');
-    assert.ok(Math.abs(value.value - expected) < 1e-12);
-    assert.notEqual(value.date, value.previousDate);
-    assert.equal(market[ticker].statements_raw.annual_dates.at(-1), market[ticker].statements_raw.annual_dates.at(-2));
-    assert.equal(value.value, market[ticker].reported_growth.fields.revenue.value);
+    assert.equal(value.reason, null, ticker);
+    assert.ok(Number.isFinite(value.value), ticker);
+    assert.notEqual(value.date, value.previousDate, ticker);
+    assert.equal(market[ticker].statements_raw.annual_dates.at(-1),
+      market[ticker].statements_raw.annual_dates.at(-2), ticker);
+    assert.equal(value.value, market[ticker].reported_growth.fields.revenue.value, ticker);
+    const income = data.quarterly.income.slice().sort((a, b) => a.date.localeCompare(b.date));
+    const latest = income.findLast(row => row.date === value.date) || income.at(-1);
+    const year = Number(latest.fiscalYear || latest.calendarYear);
+    const key = year * 4 + Number(latest.period[1]) - 1;
+    const byKey = new Map();
+    for (const row of income) {
+      const y = Number(row.fiscalYear || row.calendarYear);
+      if (!Number.isInteger(y) || !/^Q[1-4]$/.test(row.period)) continue;
+      byKey.set(y * 4 + Number(row.period[1]) - 1, row);
+    }
+    const window = Array.from({ length: 8 }, (_, i) => byKey.get(key - (7 - i)));
+    assert.ok(window.every(Boolean), `${ticker}: eight fiscal quarters for TTM`);
+    const previous = window.slice(0, 4).reduce((sum, row) => sum + row.revenue, 0);
+    const present = window.slice(4).reduce((sum, row) => sum + row.revenue, 0);
+    assert.ok(Math.abs(value.value - (present / previous - 1) * 100) < 1e-9, ticker);
   }
 });
 
@@ -95,7 +113,11 @@ test('Gaps, duplicate periods, missing fields, mismatched dates and unavailable 
     assert.equal(record.reason, reason);
   }
   const data = source('LRCX');
-  data.quarterly.cashflow[0].date = '2026-06-27';
+  // Nudge the latest cashflow date by one day vs the income anchor. A hardcoded
+  // calendar date (e.g. 2026-06-27) becomes nonConsecutive once a newer quarter lands.
+  const anchor = data.quarterly.income[0].date;
+  const shifted = new Date(Date.parse(anchor) - 86400000).toISOString().slice(0, 10);
+  data.quarterly.cashflow[0].date = shifted;
   assert.equal(growth(data, 'cashflow', 'freeCashFlow').reason, 'dateMismatch');
 });
 
