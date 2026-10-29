@@ -1161,13 +1161,25 @@ def _load_statements_cache(cache_path: str) -> Optional[Dict[str, Any]]:
     return None
 
 
+def _valid_statement_rows(payload: Any) -> bool:
+    """Accept only non-empty FMP statement row lists.
+
+    HTTP 200 bodies such as ``{"Error Message": "..."}`` or ``[]`` must not be
+    treated as a successful refresh that can wipe an existing cache file.
+    """
+    if not isinstance(payload, list) or not payload:
+        return False
+    return all(isinstance(row, dict) for row in payload)
+
+
 def fetch_cached_financial_statements(fmp_sym: str, sym: str) -> Dict[str, Any]:
     """Fetch annual/quarter statements from FMP and refresh the on-disk cache.
 
     Previously any existing *_statements_v2.json was returned forever, so daily
     refreshes never picked up new fiscal quarters after earnings. Set
     FINANCIALS_CACHE_ONLY=1 to reuse the file (offline / unit fixtures).
-    On FMP failure, retain the prior cache instead of wiping it to empty lists.
+    On FMP failure (None, error object, empty/non-list body), retain the prior
+    cache and do not write empty statements.
     """
     default_payload = {
         "annual": {"income": [], "balance": [], "cashflow": []},
@@ -1194,22 +1206,23 @@ def fetch_cached_financial_statements(fmp_sym: str, sym: str) -> Dict[str, Any]:
     time.sleep(0.04)
 
     fetched = [inc_annual, bs_annual, cf_annual, inc_quarter, bs_quarter, cf_quarter]
-    if any(row is None for row in fetched):
+    if not all(_valid_statement_rows(rows) for rows in fetched):
         if cached is not None:
             print(f"⚠️ [{sym}] FMP statement refresh incomplete; retaining cached statements", flush=True)
             return cached
         print(f"⚠️ [{sym}] FMP statement refresh incomplete; no cache to retain", flush=True)
+        return default_payload
 
     payload = {
         "annual": {
-            "income": inc_annual if isinstance(inc_annual, list) else [],
-            "balance": bs_annual if isinstance(bs_annual, list) else [],
-            "cashflow": cf_annual if isinstance(cf_annual, list) else []
+            "income": inc_annual,
+            "balance": bs_annual,
+            "cashflow": cf_annual
         },
         "quarterly": {
-            "income": inc_quarter if isinstance(inc_quarter, list) else [],
-            "balance": bs_quarter if isinstance(bs_quarter, list) else [],
-            "cashflow": cf_quarter if isinstance(cf_quarter, list) else []
+            "income": inc_quarter,
+            "balance": bs_quarter,
+            "cashflow": cf_quarter
         }
     }
 
@@ -1219,7 +1232,7 @@ def fetch_cached_financial_statements(fmp_sym: str, sym: str) -> Dict[str, Any]:
     except Exception as e:
         print(f"⚠️ [{sym}] 寫入報表快取失敗: {e}", flush=True)
 
-    return payload or default_payload
+    return payload
 
 def fetch_fmp_api(endpoint_or_url: str, params: Optional[dict] = None) -> Optional[Any]:
     if params is None:
