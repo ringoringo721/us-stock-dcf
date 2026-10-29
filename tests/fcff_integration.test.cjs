@@ -62,9 +62,10 @@ test('unverified lease sources never fall back to legacy prices or fabricated EB
   assert.equal(result.reason, 'leaseClassificationRequired');
   const value = metrics({ ...market.NVDA, fair_val: 99999, fcf0: 99999 }, snapshot, result);
   assert.equal(value.fairVal, null);
-  assert.equal(value.EV, null);
+  // Quoted EV (mcap + debt − cash) may still resolve via MarketEv; FCFF fair value must not.
   assert.equal(value.ev_to_ebitda, null);
   assert.equal(value.isUndervalued, null);
+  assert.notEqual(value.fairVal, 99999);
   assert.equal(calculate({ reason: 'leaseMappingUnverified' }).reason, 'leaseMappingUnverified');
 });
 

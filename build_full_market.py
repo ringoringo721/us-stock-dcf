@@ -1148,34 +1148,57 @@ def fetch_json(endpoint, params):
             time.sleep(0.5)
     return None
 
+def _load_statements_cache(cache_path: str) -> Optional[Dict[str, Any]]:
+    if not os.path.exists(cache_path):
+        return None
+    try:
+        with open(cache_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            if isinstance(data, dict) and "quarterly" in data:
+                return data
+    except Exception:
+        pass
+    return None
+
+
 def fetch_cached_financial_statements(fmp_sym: str, sym: str) -> Dict[str, Any]:
+    """Fetch annual/quarter statements from FMP and refresh the on-disk cache.
+
+    Previously any existing *_statements_v2.json was returned forever, so daily
+    refreshes never picked up new fiscal quarters after earnings. Set
+    FINANCIALS_CACHE_ONLY=1 to reuse the file (offline / unit fixtures).
+    On FMP failure, retain the prior cache instead of wiping it to empty lists.
+    """
     default_payload = {
         "annual": {"income": [], "balance": [], "cashflow": []},
         "quarterly": {"income": [], "balance": [], "cashflow": []}
     }
     cache_path = os.path.join(FIN_CACHE_DIR, f"{sym}_statements_v2.json")
-    if os.path.exists(cache_path):
-        try:
-            with open(cache_path, "r", encoding="utf-8") as f:
-                data = json.load(f)
-                if isinstance(data, dict) and "quarterly" in data:
-                    return data
-        except Exception:
-            pass
+    cached = _load_statements_cache(cache_path)
+    cache_only = os.environ.get("FINANCIALS_CACHE_ONLY", "").strip().lower() in {"1", "true", "yes"}
+    if cache_only and cached is not None:
+        return cached
 
-    inc_annual = fetch_json("income-statement", {"symbol": fmp_sym, "period": "annual", "limit": 5}) or []
+    inc_annual = fetch_json("income-statement", {"symbol": fmp_sym, "period": "annual", "limit": 5})
     time.sleep(0.04)
-    bs_annual = fetch_json("balance-sheet-statement", {"symbol": fmp_sym, "period": "annual", "limit": 5}) or []
+    bs_annual = fetch_json("balance-sheet-statement", {"symbol": fmp_sym, "period": "annual", "limit": 5})
     time.sleep(0.04)
-    cf_annual = fetch_json("cash-flow-statement", {"symbol": fmp_sym, "period": "annual", "limit": 5}) or []
+    cf_annual = fetch_json("cash-flow-statement", {"symbol": fmp_sym, "period": "annual", "limit": 5})
     time.sleep(0.04)
 
-    inc_quarter = fetch_json("income-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 20}) or []
+    inc_quarter = fetch_json("income-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 20})
     time.sleep(0.04)
-    bs_quarter = fetch_json("balance-sheet-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 20}) or []
+    bs_quarter = fetch_json("balance-sheet-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 20})
     time.sleep(0.04)
-    cf_quarter = fetch_json("cash-flow-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 20}) or []
+    cf_quarter = fetch_json("cash-flow-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 20})
     time.sleep(0.04)
+
+    fetched = [inc_annual, bs_annual, cf_annual, inc_quarter, bs_quarter, cf_quarter]
+    if any(row is None for row in fetched):
+        if cached is not None:
+            print(f"⚠️ [{sym}] FMP statement refresh incomplete; retaining cached statements", flush=True)
+            return cached
+        print(f"⚠️ [{sym}] FMP statement refresh incomplete; no cache to retain", flush=True)
 
     payload = {
         "annual": {

@@ -62,6 +62,9 @@ jobs:
 
       # Gemini cost levers: daily remoat/desc caps (see MAX_US_* below). Expansion jobs
       # leave these unset so new names stay uncapped unless explicitly overridden.
+      # Statements: build_full_market re-fetches FMP income/balance/cashflow each run
+      # (overwrites cache/financials/*_statements_v2.json). Set FINANCIALS_CACHE_ONLY=1
+      # only for offline debugging — otherwise post-earnings quarters never land on the site.
       - name: Run Market Engine with FMP Key
         if: inputs.peers_only != true && inputs.prices_only != true && inputs.liquidation_only != true
         env:
