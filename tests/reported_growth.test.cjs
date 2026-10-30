@@ -10,15 +10,17 @@ const rates = require('../cache/fx/usd_rates.json');
 const source = ticker => JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'cache', 'financials', `${ticker}_statements_v2.json`)));
 
 test('MU and LRCX growth uses prior-year fiscal TTM, not a duplicate current annual column', () => {
-  // Absolute growth floats go stale on every earnings refresh; assert structure + live TTM math.
+  // Do not require trailing annual_dates to match: FMP appends latest quarter YYYY-MM after
+  // the last FY label, so mid-year quarters (e.g. LRCX 2026-09 after FY 2026-06) differ.
   for (const ticker of ['MU', 'LRCX']) {
     const data = source(ticker);
     const value = growth(data, 'income', 'revenue');
+    const annualDates = market[ticker].statements_raw.annual_dates;
     assert.equal(value.reason, null, ticker);
     assert.ok(Number.isFinite(value.value), ticker);
     assert.notEqual(value.date, value.previousDate, ticker);
-    assert.equal(market[ticker].statements_raw.annual_dates.at(-1),
-      market[ticker].statements_raw.annual_dates.at(-2), ticker);
+    assert.ok(/^\d{4}-\d{2}-\d{2}$/.test(value.date), ticker);
+    assert.equal(value.date.slice(0, 7), annualDates.at(-1), `${ticker}: growth tracks rolling latest quarter`);
     assert.equal(value.value, market[ticker].reported_growth.fields.revenue.value, ticker);
     const income = data.quarterly.income.slice().sort((a, b) => a.date.localeCompare(b.date));
     const latest = income.findLast(row => row.date === value.date) || income.at(-1);
@@ -35,6 +37,10 @@ test('MU and LRCX growth uses prior-year fiscal TTM, not a duplicate current ann
     const previous = window.slice(0, 4).reduce((sum, row) => sum + row.revenue, 0);
     const present = window.slice(4).reduce((sum, row) => sum + row.revenue, 0);
     assert.ok(Math.abs(value.value - (present / previous - 1) * 100) < 1e-9, ticker);
+    // When the trailing annual label is duplicated (FY-end quarter), TTM must still look back a year.
+    if (annualDates.at(-1) === annualDates.at(-2)) {
+      assert.notEqual(value.date.slice(0, 7), value.previousDate.slice(0, 7), ticker);
+    }
   }
 });
 
