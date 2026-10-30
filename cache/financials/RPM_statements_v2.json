@@ -2885,8 +2885,8 @@
         "otherInvestingActivities": 27396000,
         "netCashProvidedByInvestingActivities": -39826000,
         "netDebtIssuance": -127562000,
-        "longTermNetDebtIssuance": 0,
-        "shortTermNetDebtIssuance": -127562000,
+        "longTermNetDebtIssuance": -127562000,
+        "shortTermNetDebtIssuance": 0,
         "netStockIssuance": -31373000,
         "netCommonStockIssuance": -31373000,
         "commonStockIssuance": 0,
@@ -2904,8 +2904,8 @@
         "operatingCashFlow": 263936000,
         "capitalExpenditure": -58505000,
         "freeCashFlow": 205431000,
-        "incomeTaxesPaid": 0,
-        "interestPaid": 0
+        "incomeTaxesPaid": 63677000,
+        "interestPaid": 26529000
       },
       {
         "date": "2026-05-31",
