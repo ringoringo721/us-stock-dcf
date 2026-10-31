@@ -40,17 +40,18 @@ test('shipped US universe+expansion merge is baseline+catalogue (not market_data
   const merged = context.UsUniverse.merge(context.FULL_MARKET_DATA, context.US_LISTINGS, context.US_EXPANSION);
   const keys = Object.keys(merged);
   assert.equal(baseline, 230);
-  // After NOTES/preferred + TBB excludes: 723 available + AEFC unavailable.
-  assert.equal(expansion, 724);
-  assert.equal(context.US_LISTINGS.stocks.length, 950);
-  assert.equal(keys.length, 967);
+  // After NOTES/preferred + TBB + AEFC (funding vehicle) excludes: all expansion rows available.
+  assert.equal(expansion, 723);
+  assert.equal(context.US_LISTINGS.stocks.length, 949);
+  assert.equal(keys.length, 966);
   assert.ok(keys.length > baseline, 'frontpage must not stay on sync market_data.js alone');
   let expansionWithMoat = 0;
   for (const ticker of Object.keys(context.US_EXPANSION.stocks)) {
     if (!context.FULL_MARKET_DATA[ticker] && merged[ticker]?.moat) expansionWithMoat++;
   }
   assert.equal(expansionWithMoat, 723);
-  assert.equal(context.US_EXPANSION.stocks.AEFC?.expansion?.status, 'unavailable');
+  assert.equal(context.US_EXPANSION.stocks.AEFC, undefined);
+  assert.equal(merged.AEFC, undefined);
 });
 
 test('incomplete US moat recovery refuses invented or partial scores', () => {
