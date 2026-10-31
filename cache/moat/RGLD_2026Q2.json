@@ -1,0 +1,60 @@
+{
+  "ticker": "RGLD",
+  "period": "2026Q2",
+  "m1_brand_pricing": {
+    "score": 7,
+    "comment_zh": "Royal Gold 作為一家貴金屬 royalty 和流轉權公司，其品牌價值體現在與礦業公司建立的長期合作關係和信譽上。公司透過提供早期資金換取未來產出權，這種商業模式本身就帶有獨特的定價權，因為其收入與金價直接掛鉤，且不受礦山運營成本波動的影響。相較於直接礦業公司，Royal Gold 的風險更低，收入更具預測性，這使其在投資者心中建立了穩固的品牌形象。然而，其定價權的上限受限於標的礦產的品位和產量，以及全球金價的宏觀波動，因此得分為 7 分。",
+    "comment_en": "Royal Gold, as a precious metals royalty and stream company, derives its brand value from long-term partnerships and reputation built with mining companies. By providing early-stage funding in exchange for future production rights, its business model inherently possesses unique pricing power, as its revenue is directly linked to gold prices and unaffected by mining operational cost fluctuations. Compared to direct mining companies, Royal Gold faces lower risks and more predictable revenues, establishing a solid brand image among investors. However, its pricing power is capped by the grade and output of the underlying mineral assets, as well as global gold price macro-volatility, hence the score of 7."
+  },
+  "m2_patents_regulatory": {
+    "score": 2,
+    "comment_zh": "Royal Gold 的業務模式主要依賴於對礦產資源的權利協議，而非技術專利或受監管的特許經營權。雖然公司需要遵守各國的礦業法規和環境標準，但這些並非其核心競爭壁壘。其商業模式的建立更多是基於對礦產權的談判和獲取能力，而非受專利保護的創新技術。因此，在專利和監管壁壘方面，Royal Gold 的得分較低，僅為 2 分。",
+    "comment_en": "Royal Gold's business model primarily relies on agreements for mineral resource rights, rather than technical patents or regulated operating licenses. While the company must comply with various countries' mining regulations and environmental standards, these do not constitute its core competitive barriers. The establishment of its business model is more dependent on its ability to negotiate and acquire mineral rights, rather than patent-protected innovative technologies. Therefore, Royal Gold scores low in terms of patents and regulatory barriers, at only 2 points."
+  },
+  "m3_high_switching_costs": {
+    "score": 3,
+    "comment_zh": "對於 Royal Gold 而言，其客戶（礦業公司）轉換成本相對較低。一旦礦業公司找到更優渥的融資條件或其自身財務狀況改善，理論上可以尋求重新談判 Royalty 或 Stream 協議，儘管這可能涉及複雜的法律程序和聲譽影響。然而，與軟體服務或長期供應鏈合約相比，礦業公司與 Royalty 公司之間的轉換並非日常操作，且建立信任關係需要時間。但由於缺乏強制性的長期綁定條款，其轉換成本的壁壘不高，得分為 3 分。",
+    "comment_en": "For Royal Gold, the switching costs for its clients (mining companies) are relatively low. If a mining company finds more favorable financing terms or improves its own financial situation, it could theoretically seek to renegotiate royalty or stream agreements, although this might involve complex legal procedures and reputational consequences. However, compared to software services or long-term supply chain contracts, switching between mining companies and royalty companies is not a routine operation, and building trust takes time. Due to the lack of mandatory long-term binding clauses, the barrier of switching costs is not high, hence a score of 3."
+  },
+  "m4_network_effects": {
+    "score": 2,
+    "comment_zh": "Royal Gold 的業務模式並不存在顯著的網絡效應。其收入來源於對單一礦產項目權利的獲取，而非依賴於用戶數量的增長來提升產品或服務的價值。雖然公司聲譽和過往成功案例有助於吸引新的交易機會，但這更多是基於其專業能力和財務實力，而非傳統意義上的網絡效應，即用戶越多，價值越高的情況。因此，在此維度上，Royal Gold 的得分為 2 分。",
+    "comment_en": "Royal Gold's business model does not exhibit significant network effects. Its revenue stems from acquiring rights to individual mineral projects, rather than relying on user growth to enhance the value of its products or services. While the company's reputation and past successful track record help attract new deal opportunities, this is more based on its expertise and financial strength, rather than traditional network effects where more users lead to greater value. Therefore, on this dimension, Royal Gold scores a 2."
+  },
+  "m5_cost_advantage_scale": {
+    "score": 7,
+    "comment_zh": "Royal Gold 作為行業內的領先者之一，其規模帶來了一定的成本優勢。公司能夠承擔更大規模的交易，獲取更優質的 Royalty 和 Stream 權益，並在盡職調查和交易結構設計上擁有更豐富的經驗和專業知識。這使得其在與小型礦業公司談判時處於更有利的地位。此外，較大的資產組合也有助於分散風險，並可能在融資成本上獲得一定優勢。然而，與大規模生產型企業相比，其規模優勢的體現方式不同，得分為 7 分。",
+    "comment_en": "As one of the industry leaders, Royal Gold's scale provides certain cost advantages. The company can undertake larger transactions, acquire higher-quality royalty and stream interests, and possesses extensive experience and expertise in due diligence and deal structuring. This places it in a more advantageous position when negotiating with smaller mining companies. Furthermore, a larger asset portfolio helps diversify risks and may offer some advantages in financing costs. However, compared to large-scale production companies, the manifestation of its scale advantage differs, hence a score of 7."
+  },
+  "m6_unique_geography_assets": {
+    "score": 8,
+    "comment_zh": "Royal Gold 透過收購和投資於全球範圍內的礦產 Royalty 和 Stream 權益，建立了一個多元化的資產組合。這些資產遍佈於多個國家和地區，涵蓋了不同類型的礦產資源（主要是黃金）。這種地理和資源的多樣性，以及對特定高潛力礦區的早期佈局，構成了其獨特的資產壁壘。公司能夠識別並獲取那些具有長期價值潛力的礦產權，這需要深厚的行業知識和對地質條件的判斷力。其資產的獨特性和地理分佈帶來了顯著的競爭優勢，得分為 8 分。",
+    "comment_en": "By acquiring and investing in mineral royalty and stream interests globally, Royal Gold has built a diversified asset portfolio. These assets are spread across multiple countries and regions, covering various types of mineral resources (primarily gold). This geographical and resource diversity, along with early positioning in specific high-potential mining areas, constitutes its unique asset barrier. The company's ability to identify and acquire mineral rights with long-term value potential requires deep industry knowledge and judgment of geological conditions. The uniqueness and geographical distribution of its assets provide a significant competitive advantage, earning a score of 8."
+  },
+  "m7_operational_efficiency": {
+    "score": 7,
+    "comment_zh": "Royal Gold 的核心競爭力在於其對礦產 Royalty 和 Stream 交易的專業判斷和結構設計能力，而非直接的礦山運營效率。公司透過精準的盡職調查和對未來現金流的預測，能夠以合理的價格獲取權益。其營運模式的效率體現在低資本投入下獲取穩定現金流的能力，以及對標的資產表現的持續監控。相較於需要管理複雜生產流程的礦業公司，Royal Gold 的營運模式更為輕資產化，效率體現在其交易的選擇和管理上，得分為 7 分。",
+    "comment_en": "Royal Gold's core competency lies in its expertise in judging and structuring mineral royalty and stream transactions, rather than direct mine operational efficiency. Through precise due diligence and forecasting future cash flows, the company can acquire interests at reasonable prices. The efficiency of its operating model is reflected in its ability to generate stable cash flows with low capital investment and continuous monitoring of the underlying asset performance. Compared to mining companies that manage complex production processes, Royal Gold's operating model is more asset-light, with efficiency manifested in its transaction selection and management, hence a score of 7."
+  },
+  "m8_capital_allocation": {
+    "score": 8,
+    "comment_zh": "巴菲特高度重視資本配置能力。Royal Gold 在此方面表現出色，公司專注於收購能產生穩定現金流且具有長期增長潛力的 Royalty 和 Stream 權益。其資本配置策略清晰，旨在透過低資本投入獲取高回報，並將現金流再投資於新的優質資產或回饋股東。公司在評估交易時，會仔細考量風險回報比，避免過度擴張或投資於低質量的項目。這種審慎且聚焦的資本配置能力是其長期成功的關鍵，得分為 8 分。",
+    "comment_en": "Buffett places high importance on capital allocation ability. Royal Gold excels in this regard, focusing on acquiring royalty and stream interests that generate stable cash flows and possess long-term growth potential. Its capital allocation strategy is clear, aiming to achieve high returns with low capital investment and reinvesting cash flows into new quality assets or returning capital to shareholders. When evaluating transactions, the company carefully considers the risk-reward ratio, avoiding over-expansion or investment in low-quality projects. This prudent and focused capital allocation ability is key to its long-term success, earning a score of 8."
+  },
+  "m9_customer_retention": {
+    "score": 6,
+    "comment_zh": "Royal Gold 的「客戶」是簽訂 Royalty 或 Stream 協議的礦業公司。一旦協議簽訂，礦業公司就有義務按照合約條款支付權利金或交付相應份額的礦產品。從這個角度看，客戶的「留存」是基於合約的強制性。然而，這並非基於客戶滿意度或持續的服務互動所產生的忠誠度。礦業公司若面臨財務困境或尋求更佳融資，可能試圖修改合約。因此，雖然合約提供了基礎的穩定性，但其客戶留存的壁壘不如品牌忠誠度高的消費品公司，得分為 6 分。",
+    "comment_en": "Royal Gold's 'customers' are the mining companies that sign royalty or stream agreements. Once an agreement is signed, the mining company is obligated to pay royalties or deliver the corresponding share of mineral products according to the contract terms. From this perspective, customer 'retention' is contractually mandated. However, this is not based on loyalty generated from customer satisfaction or continuous service interaction. Mining companies facing financial difficulties or seeking better financing might attempt to modify contracts. Therefore, while the contract provides a basic level of stability, the barrier to customer retention is not as strong as in consumer goods companies with high brand loyalty, hence a score of 6."
+  },
+  "m10_durability": {
+    "score": 8,
+    "comment_zh": "Royal Gold 的業務模式具有顯著的持久性。其 Royalty 和 Stream 權益通常與礦產資源的壽命掛鉤，許多優質礦產的壽命長達數十年甚至更久。這種長期收入來源，加上公司專注於黃金等貴金屬，使其能夠抵禦短期市場波動。與直接礦業公司相比，Royal Gold 不受運營風險、勞工問題或環境事故的直接影響，其收入更為穩定和可預測。只要標的礦產仍在開採，Royal Gold 就能持續獲得收入，這種模式具有很強的持久性，得分為 8 分。",
+    "comment_en": "Royal Gold's business model possesses significant durability. Its royalty and stream interests are typically tied to the lifespan of mineral resources, with many high-quality mineral deposits having lifespans of decades or even longer. This long-term revenue stream, coupled with the company's focus on precious metals like gold, allows it to withstand short-term market fluctuations. Compared to direct mining companies, Royal Gold is not directly affected by operational risks, labor issues, or environmental accidents, making its revenue more stable and predictable. As long as the underlying mineral deposits are being mined, Royal Gold continues to receive income, demonstrating a highly durable business model, hence a score of 8."
+  },
+  "overall_moat_verdict_zh": "Royal Gold 是一家典型的「收費橋」或「特許經營」模式公司，其經濟護城河主要體現在其獨特的資產組合（M6）和穩健的資本配置能力（M8）上。公司透過獲取全球優質礦產的 Royalty 和 Stream 權益，建立了一個長期、穩定的現金流來源，且不受礦業運營的直接風險影響。其規模優勢（M5）和品牌信譽（M1）也為其帶來了談判能力和行業地位。雖然轉換成本（M3）和客戶留存（M9）壁壘相對較弱，且缺乏網絡效應（M4）和專利壁壘（M2），但其業務模式的持久性（M10）和營運效率（M7）彌補了這些不足。整體而言，Royal Gold 擁有堅固的護城河，適合長期持有。",
+  "overall_moat_verdict_en": "Royal Gold operates as a classic 'toll bridge' or 'franchise' model company, with its economic moat primarily stemming from its unique asset portfolio (M6) and robust capital allocation capabilities (M8). By acquiring royalty and stream interests in high-quality global mineral assets, the company has established a long-term, stable source of cash flow, insulated from the direct risks of mining operations. Its scale advantages (M5) and brand reputation (M1) also grant it negotiation power and industry standing. While switching costs (M3) and customer retention (M9) barriers are relatively weaker, and it lacks network effects (M4) and patent barriers (M2), the durability of its business model (M10) and operational efficiency (M7) compensate for these shortcomings. Overall, Royal Gold possesses a solid moat, making it suitable for long-term holding.",
+  "evidenceHash": "609c5bcfacde484bad129d1fd973582beb2921046aaacf20fa04f406f105e4fc",
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
+}
