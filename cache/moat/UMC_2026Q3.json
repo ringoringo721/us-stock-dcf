@@ -1,0 +1,60 @@
+{
+  "ticker": "UMC",
+  "period": "2026Q3",
+  "m1_brand_pricing": {
+    "score": 6,
+    "comment_zh": "聯電作為晶圓代工廠，其品牌價值主要體現在客戶信任與長期合作關係上。雖然不像消費品牌那樣有直接的定價權，但在成熟製程領域，聯電憑藉其穩定可靠的產能和品質，能獲得客戶的青睞，並在一定程度上影響價格。然而，面對來自台積電等更先進製程的競爭者，以及中國大陸廠商的崛起，聯電的品牌定價能力受到限制。其品牌優勢更多體現在技術穩定性與服務上，而非高溢價能力。",
+    "comment_en": "UMC, as a foundry, derives its brand value primarily from customer trust and long-term partnerships. Unlike consumer brands, it doesn't possess direct pricing power. However, in the mature process segment, UMC's reliable capacity and quality attract customers, allowing it some influence over pricing. Nevertheless, competition from players with more advanced processes, like TSMC, and the rise of mainland Chinese manufacturers limit UMC's brand pricing power. Its brand strength lies more in technological stability and service rather than the ability to command high premiums."
+  },
+  "m2_patents_regulatory": {
+    "score": 5,
+    "comment_zh": "晶圓代工產業的技術迭代迅速，專利壁壘雖然存在，但更重要的是持續的研發投入以跟上製程演進。聯電在專利布局上有所投入，但相較於專注於最先進製程的領導者，其專利組合的獨特性和防禦性相對較弱。此外，半導體產業受到地緣政治和各國政府的監管影響較大，這可能帶來不確定性，而非構成穩固的護城河。其專利和監管環境更多是維持競爭力的要素，而非絕對的壟斷優勢。",
+    "comment_en": "The semiconductor foundry industry is characterized by rapid technological iteration. While patent barriers exist, continuous R&D investment to keep pace with process evolution is more critical. UMC invests in patent portfolios, but compared to leaders focused on cutting-edge processes, the uniqueness and defensive strength of its patents are relatively weaker. Furthermore, the semiconductor industry is significantly influenced by geopolitical factors and government regulations, introducing uncertainties rather than forming a solid moat. Its patents and regulatory environment are more about maintaining competitiveness than establishing absolute monopolistic advantages."
+  },
+  "m3_high_switching_costs": {
+    "score": 7,
+    "comment_zh": "對於晶圓代工客戶而言，更換供應商的轉換成本相當高昂。這不僅涉及重新設計和驗證產品線，還包括供應鏈的重新整合與風險評估。一旦客戶與聯電建立起穩定的生產關係，並在其製程節點上投入大量資源，轉換到其他代工廠將面臨巨大的時間、金錢和技術風險。這種依賴性為聯電提供了一定的客戶黏性，使其在成熟製程領域具有較強的客戶保留能力。",
+    "comment_en": "For foundry customers, the cost of switching suppliers is considerably high. This involves not only redesigning and revalidating product lines but also reintegrating supply chains and assessing risks. Once a customer establishes a stable production relationship with UMC and invests significant resources in its process nodes, switching to another foundry entails substantial time, financial, and technical risks. This dependency provides UMC with a degree of customer stickiness, giving it strong customer retention capabilities in the mature process segment."
+  },
+  "m4_network_effects": {
+    "score": 2,
+    "comment_zh": "晶圓代工產業的網絡效應相對較弱。客戶選擇代工廠主要基於技術能力、產能、價格和可靠性，而非其他客戶的使用情況。雖然大型客戶的加入可能吸引更多中小型客戶，但這種效應並非指數級增長，也不像社交網絡或平台經濟那樣形成強大的網絡外部性。聯電的客戶群體相對分散，並未形成顯著的網絡效應壁壘。",
+    "comment_en": "Network effects in the semiconductor foundry industry are relatively weak. Customers primarily choose foundries based on technological capabilities, capacity, price, and reliability, rather than the usage patterns of other customers. While the addition of large clients might attract more small and medium-sized ones, this effect is not exponential and does not create strong network externalities like social networks or platform economies. UMC's customer base is relatively dispersed, and significant network effect barriers have not formed."
+  },
+  "m5_cost_advantage_scale": {
+    "score": 8,
+    "comment_zh": "聯電作為全球領先的晶圓代工廠之一，尤其在成熟製程領域，其規模經濟效益顯著。龐大的產能和高度自動化的生產線有助於降低單位生產成本。透過持續的製程優化和產能擴張，聯電能夠在成本上與競爭對手抗衡，尤其是在 28 奈米及以上的成熟製程節點，這使其在價格敏感的市場中具有競爭力。規模優勢是其維持市場份額和盈利能力的重要基石。",
+    "comment_en": "As one of the world's leading foundries, particularly in mature process technologies, UMC benefits from significant economies of scale. Its vast production capacity and highly automated manufacturing lines contribute to lower unit production costs. Through continuous process optimization and capacity expansion, UMC can compete effectively on cost against rivals, especially in mature nodes like 28nm and above. This makes it competitive in price-sensitive markets. Scale advantage is a crucial cornerstone for maintaining its market share and profitability."
+  },
+  "m6_unique_geography_assets": {
+    "score": 3,
+    "comment_zh": "聯電在全球設有生產基地，但其地理位置並非構成獨特的、難以複製的資產壁壘。雖然在特定地區的設廠有助於貼近客戶或利用當地資源，但晶圓代工廠的選址具有一定的替代性。主要的競爭對手同樣在全球佈局，且技術和產能的優勢遠超地理位置的單一考量。因此，地理位置並非聯電的核心護城河。",
+    "comment_en": "UMC operates manufacturing facilities globally, but its geographical locations do not constitute unique, irreplicable asset barriers. While establishing plants in specific regions can help serve local customers or leverage local resources, the site selection for foundries has a degree of substitutability. Major competitors also have global footprints, and their technological and capacity advantages far outweigh geographical considerations alone. Therefore, location is not a core moat for UMC."
+  },
+  "m7_operational_efficiency": {
+    "score": 8,
+    "comment_zh": "聯電在營運效率方面表現出色，尤其是在成熟製程的生產管理上。透過精進的製程控制、嚴格的品質管理和持續的自動化升級，公司能夠維持高良率和穩定的產出。其F-Score為8/9，顯示其財務狀況穩健，營運效率良好。這種高效的營運能力是其在激烈競爭中保持盈利和提供可靠服務的關鍵，也是其重要的競爭優勢之一。",
+    "comment_en": "UMC demonstrates excellent operational efficiency, particularly in the production management of mature processes. Through sophisticated process control, stringent quality management, and continuous automation upgrades, the company maintains high yields and stable output. Its F-Score of 8/9 indicates a robust financial position and good operational efficiency. This high level of operational capability is key to its profitability and reliable service delivery amidst intense competition, making it a significant competitive advantage."
+  },
+  "m8_capital_allocation": {
+    "score": 7,
+    "comment_zh": "聯電近年來在資本配置上展現出較為審慎的態度，專注於成熟製程的擴產和技術升級，並適度回饋股東。其現金部位充足，負債水平相對較低，顯示財務結構健康。雖然相較於專注於先進製程的對手，其在資本支出上的策略較為保守，但這種務實的資本配置有助於維持穩定的獲利能力，並在市場波動時提供緩衝。管理層在擴張與風險控制之間取得平衡。",
+    "comment_en": "In recent years, UMC has adopted a relatively prudent approach to capital allocation, focusing on capacity expansion and technological upgrades in mature processes while moderately returning value to shareholders. Its cash reserves are ample, and its debt levels are relatively low, indicating a healthy financial structure. Although its capital expenditure strategy is more conservative compared to competitors focused on advanced processes, this pragmatic allocation helps maintain stable profitability and provides a buffer during market volatility. Management strikes a balance between expansion and risk control."
+  },
+  "m9_customer_retention": {
+    "score": 7,
+    "comment_zh": "如 M3 所述，高轉換成本是聯電客戶黏性的重要來源。公司與眾多汽車、消費性電子和通訊領域的客戶建立了長期的合作關係。透過提供穩定的產能、可靠的品質和客製化的解決方案，聯電成功地留住了大部分客戶，尤其是在對製程成熟度要求較高的應用領域。這種穩固的客戶基礎是其營收和獲利穩定的重要保障。",
+    "comment_en": "As mentioned in M3, high switching costs are a significant source of customer stickiness for UMC. The company has established long-term partnerships with numerous clients in the automotive, consumer electronics, and communications sectors. By providing stable capacity, reliable quality, and customized solutions, UMC has successfully retained most of its customers, especially in application areas requiring mature process technologies. This solid customer base is a crucial guarantee for its stable revenue and profitability."
+  },
+  "m10_durability": {
+    "score": 7,
+    "comment_zh": "聯電在成熟製程領域的領導地位，使其在可預見的未來具有相當的營運韌性。儘管先進製程是技術發展的趨勢，但全球對成熟製程晶片的需求依然龐大且穩定，尤其是在汽車、工業和物聯網等領域。聯電憑藉其規模、成本和客戶關係，能夠持續滿足這些市場的需求，不易受到顛覆性技術的劇烈衝擊。其商業模式具有較強的持久性。",
+    "comment_en": "UMC's leading position in mature process technologies provides it with considerable operational resilience for the foreseeable future. While advanced processes represent the trend in technological development, the global demand for chips manufactured using mature processes remains substantial and stable, particularly in sectors like automotive, industrial, and IoT. Leveraging its scale, cost advantages, and customer relationships, UMC can continue to meet the demands of these markets, making it less susceptible to severe disruption from breakthrough technologies. Its business model possesses strong durability."
+  },
+  "overall_moat_verdict_zh": "聯電（UMC）在晶圓代工領域，尤其是在成熟製程方面，建立起了一定的經濟護城河。其主要優勢體現在高轉換成本（M3）、規模經濟帶來的成本優勢（M5）以及穩定的營運效率（M7）上。這些因素共同作用，使其能夠在價格敏感的市場中保持競爭力並留住客戶（M9）。雖然其品牌定價權（M1）和專利壁壘（M2）相對有限，網絡效應（M4）幾乎不存在，但其在成熟製程的持久性（M10）和相對務實的資本配置（M8）為公司提供了穩健的基礎。總體而言，聯電的護城河更接近於一個穩固的「收費橋」模式，在特定領域提供不可或缺的服務，而非擁有強大的特許經營權。",
+  "overall_moat_verdict_en": "UMC has established a certain economic moat in the foundry sector, particularly in mature process technologies. Its primary strengths lie in high switching costs (M3), cost advantages derived from economies of scale (M5), and stable operational efficiency (M7). These factors collectively enable it to remain competitive and retain customers (M9) in price-sensitive markets. While its brand pricing power (M1) and patent barriers (M2) are relatively limited, and network effects (M4) are almost non-existent, its durability in mature processes (M10) and relatively pragmatic capital allocation (M8) provide a solid foundation. Overall, UMC's moat more closely resembles a robust 'toll bridge' model, providing indispensable services in specific segments rather than possessing strong franchise power.",
+  "evidenceHash": "7a3fa03cf8afd904fc010115600cc67cbcb82df4ca39dd63df004abc505d6873",
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
+}
