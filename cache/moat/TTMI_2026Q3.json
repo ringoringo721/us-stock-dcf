@@ -1,0 +1,60 @@
+{
+  "ticker": "TTMI",
+  "period": "2026Q3",
+  "m1_brand_pricing": {
+    "score": 7,
+    "comment_zh": "TTM Technologies 在印刷電路板 (PCB) 製造領域擁有穩固的品牌聲譽，尤其在複雜和高階產品市場。雖然 PCB 本身屬於高度競爭的商品化產業，但 TTM 透過專注於技術領先和可靠性，建立起一定的品牌溢價。其客戶群多為大型電子設備製造商，這些客戶對供應商的品質、穩定性和技術能力有嚴格要求，因此 TTM 的品牌在特定細分市場中具有相當的吸引力。然而，與消費品牌不同，其品牌價值更多體現在 B2B 合作夥伴的信任和長期關係上，而非直接面向終端消費者。",
+    "comment_en": "TTM Technologies possesses a solid brand reputation in the printed circuit board (PCB) manufacturing sector, particularly in the market for complex and high-end products. Although PCBs are inherently a highly competitive and commoditized industry, TTM has established a certain brand premium by focusing on technological leadership and reliability. Its customer base largely consists of major electronic equipment manufacturers who have stringent requirements for supplier quality, stability, and technical capabilities. Consequently, TTM's brand holds considerable appeal in specific market segments. However, unlike consumer brands, its brand value is more reflected in the trust and long-term relationships with B2B partners rather than direct appeal to end consumers."
+  },
+  "m2_patents_regulatory": {
+    "score": 4,
+    "comment_zh": "TTM Technologies 的業務模式主要依賴製造工藝和技術的持續改進，而非專利保護。雖然公司在生產技術上可能擁有專利，但這些專利通常難以構成強大的、持久的護城河，因為 PCB 製造技術的迭代速度快，且競爭對手容易透過研發模仿或超越。此外，該行業的監管壁壘相對較低，進入門檻主要在於資本投入和技術積累，而非嚴格的法規許可。因此，專利和監管在 TTM 的護城河中扮演的角色較為有限。",
+    "comment_en": "TTM Technologies' business model primarily relies on continuous improvements in manufacturing processes and technology, rather than patent protection. While the company may hold patents for its production techniques, these patents generally struggle to form a strong, lasting moat, as PCB manufacturing technology evolves rapidly, and competitors can easily imitate or surpass them through R&D. Furthermore, regulatory barriers in this industry are relatively low; the entry barriers are mainly in capital investment and technological accumulation, rather than strict regulatory approvals. Therefore, patents and regulations play a limited role in TTM's moat."
+  },
+  "m3_high_switching_costs": {
+    "score": 7,
+    "comment_zh": "TTM Technologies 的客戶轉換成本相對較高。一旦客戶選擇了 TTM 作為其 PCB 供應商，並將其產品設計與 TTM 的製造能力相匹配，更換供應商將涉及重大的重新驗證、測試和生產線調整成本。特別是對於那些高度整合的電子產品，PCB 的設計和製造參數至關重要，任何變動都可能影響產品的性能和可靠性。這種對供應鏈穩定性的依賴，以及對 TTM 製造能力的熟悉度，構成了客戶轉換的顯著障礙。",
+    "comment_en": "The switching costs for TTM Technologies' customers are relatively high. Once a customer selects TTM as its PCB supplier and aligns its product designs with TTM's manufacturing capabilities, changing suppliers involves significant costs for re-validation, testing, and production line adjustments. This is particularly true for highly integrated electronic products where PCB design and manufacturing parameters are critical, and any change could impact product performance and reliability. This reliance on supply chain stability, coupled with familiarity with TTM's manufacturing expertise, constitutes a significant barrier to customer switching."
+  },
+  "m4_network_effects": {
+    "score": 2,
+    "comment_zh": "TTM Technologies 的業務模式幾乎不存在網絡效應。PCB 製造是一個典型的 B2B 交易，其價值主要體現在產品本身的品質、成本和交付能力上，而非用戶之間的互動或連接。公司與客戶之間的關係是基於供應鏈的合作，而非網絡效應驅動的用戶增長或價值提升。因此，網絡效應無法作為 TTM 的經濟護城河。",
+    "comment_en": "TTM Technologies' business model exhibits virtually no network effects. PCB manufacturing is a typical B2B transaction where value is primarily derived from the quality, cost, and delivery capabilities of the product itself, rather than interactions or connections among users. The relationship between the company and its customers is based on supply chain collaboration, not on network effect-driven user growth or value enhancement. Therefore, network effects cannot serve as an economic moat for TTM."
+  },
+  "m5_cost_advantage_scale": {
+    "score": 8,
+    "comment_zh": "TTM Technologies 作為全球領先的 PCB 製造商之一，其規模經濟效應顯著。龐大的生產規模使其能夠在採購原材料、優化生產流程和分攤固定成本方面獲得優勢。透過集中採購和規模化生產，TTM 能夠降低單位生產成本，從而提供更具競爭力的價格，或在保持價格競爭力的同時獲得更高的利潤率。這種規模優勢是其在價格敏感的 PCB 市場中保持競爭力的關鍵因素。",
+    "comment_en": "As one of the world's leading PCB manufacturers, TTM Technologies benefits significantly from economies of scale. Its vast production scale allows it to gain advantages in purchasing raw materials, optimizing production processes, and spreading fixed costs. Through centralized procurement and large-scale manufacturing, TTM can reduce unit production costs, enabling it to offer more competitive pricing or achieve higher profit margins while maintaining price competitiveness. This scale advantage is a key factor in its ability to remain competitive in the price-sensitive PCB market."
+  },
+  "m6_unique_geography_assets": {
+    "score": 5,
+    "comment_zh": "TTM Technologies 在全球範圍內擁有廣泛的生產基地佈局，這使其能夠服務不同地區的客戶，並在一定程度上分散地緣政治和供應鏈風險。然而，PCB 製造業的地理位置優勢並非絕對的壁壘，因為許多地區都有成熟的製造基礎設施。TTM 的地理佈局更多是為了優化運營效率和客戶服務，而非構成獨特的、難以複製的資產。其價值在於全球化的供應鏈管理能力，而非單一地點的稀缺性。",
+    "comment_en": "TTM Technologies has an extensive network of manufacturing facilities globally, enabling it to serve customers in different regions and to some extent diversify geopolitical and supply chain risks. However, geographical advantages in the PCB manufacturing industry are not absolute barriers, as many regions possess mature manufacturing infrastructure. TTM's geographical footprint is more about optimizing operational efficiency and customer service rather than constituting unique, irreplicable assets. Its value lies in its global supply chain management capabilities rather than the scarcity of any single location."
+  },
+  "m7_operational_efficiency": {
+    "score": 8,
+    "comment_zh": "TTM Technologies 在運營效率方面表現出色，這在其持續的盈利能力和自由現金流生成中得到體現。公司透過精益生產、自動化和持續的工藝改進來提高生產效率，降低成本。其高 ROE 和 ROA 表明了其資產的有效利用。在高度競爭的 PCB 行業中，卓越的運營效率是維持競爭優勢和盈利能力的關鍵，TTM 在這方面展現了較強的能力，能夠在複雜的製造環境中保持領先。",
+    "comment_en": "TTM Technologies demonstrates strong operational efficiency, as evidenced by its consistent profitability and free cash flow generation. The company enhances production efficiency and reduces costs through lean manufacturing, automation, and continuous process improvements. Its high ROE and ROA indicate effective utilization of assets. In the highly competitive PCB industry, superior operational efficiency is crucial for maintaining a competitive edge and profitability, and TTM exhibits strong capabilities in this area, allowing it to stay ahead in a complex manufacturing environment."
+  },
+  "m8_capital_allocation": {
+    "score": 7,
+    "comment_zh": "TTM Technologies 的資本配置策略似乎傾向於支持其核心業務的增長和運營效率的提升。公司透過再投資於先進製造技術和擴大產能來維持其市場地位。同時，其穩健的自由現金流（FCF TTM: $332.0M）和相對健康的資產負債表（現金 $876.3M / 負債 $1,643.9M）表明其有能力進行戰略性投資和償還債務。雖然其資本配置的具體細節可能不為外界完全知曉，但從財務表現來看，管理層在資源分配上展現了較為審慎和有效的態度。",
+    "comment_en": "TTM Technologies' capital allocation strategy appears to favor supporting the growth of its core business and enhancing operational efficiency. The company maintains its market position by reinvesting in advanced manufacturing technologies and expanding production capacity. Concurrently, its robust free cash flow (FCF TTM: $332.0M) and a relatively healthy balance sheet (Cash $876.3M / Debt $1,643.9M) indicate its capacity for strategic investments and debt repayment. While the specific details of its capital allocation may not be fully public, its financial performance suggests that management adopts a prudent and effective approach to resource allocation."
+  },
+  "m9_customer_retention": {
+    "score": 7,
+    "comment_zh": "TTM Technologies 的客戶留存率較高，這得益於其在 PCB 製造領域的技術專長、產品質量和可靠的交付記錄。一旦客戶與 TTM 建立起穩定的合作關係，並將其產品設計與 TTM 的生產能力緊密結合，轉換成本（如前所述）會成為一個重要的約束因素。此外，TTM 作為大型電子產品供應鏈中的關鍵一環，其服務的穩定性對於客戶的生產連續性至關重要，這進一步增強了客戶的忠誠度。",
+    "comment_en": "TTM Technologies enjoys a relatively high customer retention rate, attributed to its technical expertise in PCB manufacturing, product quality, and a reliable delivery track record. Once customers establish a stable working relationship with TTM and closely integrate their product designs with TTM's production capabilities, the switching costs (as mentioned earlier) become a significant constraint. Furthermore, as a critical component in the supply chain for major electronic products, the stability of TTM's service is vital for its customers' production continuity, which further enhances customer loyalty."
+  },
+  "m10_durability": {
+    "score": 7,
+    "comment_zh": "TTM Technologies 的業務模式展現了較強的持久性，儘管 PCB 行業本身面臨技術快速變革和價格競爭的挑戰。公司透過持續的技術創新、對高階和複雜產品的專注，以及卓越的運營效率，成功地在市場中保持了競爭力。其服務於關鍵行業（如通信、數據中心、醫療和國防）的能力，使其能夠從長期技術趨勢中受益。只要 TTM 能夠持續適應技術變革並維持其成本和質量優勢，其業務模式就能保持相當的持久性。",
+    "comment_en": "TTM Technologies' business model demonstrates considerable durability, despite the challenges of rapid technological change and price competition inherent in the PCB industry. The company successfully maintains its competitiveness through continuous technological innovation, a focus on high-end and complex products, and superior operational efficiency. Its ability to serve critical industries such as communications, data centers, medical, and defense allows it to benefit from long-term technological trends. As long as TTM can continue to adapt to technological shifts and sustain its cost and quality advantages, its business model can maintain significant durability."
+  },
+  "overall_moat_verdict_zh": "TTM Technologies 的經濟護城河主要建立在其規模經濟、卓越的運營效率以及相對較高的客戶轉換成本之上。作為全球領先的 PCB 製造商，其龐大的生產規模帶來了成本優勢，而精益求精的製造工藝和技術能力則確保了產品的質量和可靠性，進而提高了客戶的轉換門檻。雖然其品牌效應和技術專利壁壘相對較弱，網絡效應幾乎為零，但公司透過專注於高階、複雜的 PCB 市場，並在全球範圍內優化佈局，成功地構建了一個具有一定持久性的商業模式。其護城河可被視為一種「製造型收費橋」，客戶依賴其專業製造能力和穩定的供應鏈，難以輕易轉向其他供應商。",
+  "overall_moat_verdict_en": "TTM Technologies' economic moat is primarily built upon its economies of scale, superior operational efficiency, and relatively high customer switching costs. As a leading global PCB manufacturer, its vast production scale provides cost advantages, while its meticulous manufacturing processes and technical capabilities ensure product quality and reliability, thereby raising the barrier for customer switching. Although its brand effect and technological patent barriers are relatively weak, and network effects are almost non-existent, the company has successfully constructed a business model with considerable durability by focusing on the high-end, complex PCB market and optimizing its global footprint. Its moat can be considered a form of 'manufacturing toll bridge,' where customers rely on its specialized manufacturing capabilities and stable supply chain, making it difficult to easily switch to other suppliers.",
+  "evidenceHash": "73cbe525e02dc5645f8ec90414d5858fca9ea8613c42325f6bef9173fb015280",
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
+}
