@@ -1,0 +1,60 @@
+{
+  "ticker": "QSR",
+  "period": "2026Q3",
+  "m1_brand_pricing": {
+    "score": 7,
+    "comment_zh": "QSR旗下擁有Burger King、Tim Hortons、Popeyes等知名餐飲品牌，這些品牌在全球擁有廣泛的知名度和忠實客戶群，形成了強大的品牌資產。然而，餐飲業競爭激烈，尤其是在快餐領域，品牌之間的同質化競爭日益加劇，定價權受到一定限制。儘管品牌具有一定的溢價能力，但面對不斷變化的消費者口味和競爭對手的價格戰，其定價能力並非無懈可擊。品牌價值是其核心資產，但需持續投入以維持和提升，並應對市場變化。",
+    "comment_en": "QSR owns well-known brands like Burger King, Tim Hortons, and Popeyes, which possess extensive global recognition and loyal customer bases, forming significant brand equity. However, the restaurant industry is intensely competitive, especially in the fast-food segment, where brand homogenization is increasing, somewhat limiting pricing power. While the brands can command a premium, they face evolving consumer tastes and competitor price wars, meaning their pricing ability is not unassailable. Brand value is a core asset, but requires continuous investment to maintain and enhance, and to adapt to market changes."
+  },
+  "m2_patents_regulatory": {
+    "score": 2,
+    "comment_zh": "餐飲業，特別是快餐連鎖，其核心競爭力主要來自於營運模式、品牌和供應鏈管理，而非技術專利。QSR的業務模式不依賴於受專利保護的技術，因此在這一維度上護城河極為薄弱。雖然食品安全和衛生法規是行業的必要條件，但這些標準是普遍性的，並未構成獨特的競爭壁壘。公司需要遵守的法規與同行相同，無法形成差異化優勢。",
+    "comment_en": "The restaurant industry, particularly fast-food chains, derives its core competitiveness from operational models, branding, and supply chain management, rather than technological patents. QSR's business model does not rely on patent-protected technology, making its moat in this dimension extremely weak. While food safety and hygiene regulations are industry necessities, these standards are universal and do not constitute a unique competitive barrier. The regulations the company must adhere to are the same as its peers, failing to create a differentiated advantage."
+  },
+  "m3_high_switching_costs": {
+    "score": 3,
+    "comment_zh": "對於消費者而言，更換快餐品牌的成本幾乎為零。消費者可以輕易地從一家快餐店轉向另一家，僅需考慮口味、價格和便利性等因素。QSR的品牌雖然有一定吸引力，但不足以構成顯著的轉換成本壁壘。加盟商在合約期內有一定約束，但合約結束後轉換品牌的意願和可行性也相對較高。因此，消費者和加盟商的轉換成本低是其顯著劣勢。",
+    "comment_en": "For consumers, the cost of switching fast-food brands is virtually zero. Customers can easily move from one fast-food outlet to another, considering only factors like taste, price, and convenience. While QSR's brands have some appeal, they are insufficient to form a significant switching cost barrier. Franchisees have some contractual constraints during their term, but their willingness and feasibility to switch brands after the contract expires are relatively high. Therefore, low switching costs for both consumers and franchisees represent a significant disadvantage."
+  },
+  "m4_network_effects": {
+    "score": 3,
+    "comment_zh": "QSR的業務模式並未展現出明顯的網絡效應。其品牌（如Tim Hortons）在某些地區可能形成一定的社群聚集效應，但這種效應並非指數級增長，也無法形成自我強化的正反饋循環。與社交媒體或市場平台不同，顧客的增加並不會直接提升其他顧客的價值。雖然品牌知名度有助於吸引新顧客，但這更多是品牌效應而非網絡效應。",
+    "comment_en": "QSR's business model does not exhibit significant network effects. While its brands (like Tim Hortons) might create some community gathering effects in certain regions, this effect is not exponential and does not form a self-reinforcing positive feedback loop. Unlike social media or marketplace platforms, an increase in customers does not directly enhance the value for other customers. Although brand recognition helps attract new customers, this is more of a branding effect than a network effect."
+  },
+  "m5_cost_advantage_scale": {
+    "score": 7,
+    "comment_zh": "作為全球領先的餐飲集團，QSR透過其龐大的全球網絡，在採購、供應鏈管理和營運效率方面享有顯著的規模經濟優勢。大規模採購能夠降低單位食材成本，優化的物流網絡減少運輸費用，標準化的營運流程則有助於控制人力和管理成本。這種規模優勢使其能夠在價格上與競爭對手抗衡，並維持一定的利潤率，是其重要的競爭壁壘之一。",
+    "comment_en": "As a leading global restaurant group, QSR benefits from significant economies of scale in procurement, supply chain management, and operational efficiency due to its vast global network. Large-scale purchasing reduces the cost of ingredients per unit, optimized logistics networks decrease transportation expenses, and standardized operational processes help control labor and management costs. This scale advantage allows it to compete on price with rivals and maintain reasonable profit margins, constituting one of its important competitive barriers."
+  },
+  "m6_unique_geography_assets": {
+    "score": 5,
+    "comment_zh": "QSR在全球範圍內擁有廣泛的門店網絡，尤其在北美市場，Tim Hortons和Burger King佔據了重要的市場份額。這些地理位置的佈局和品牌在特定區域的滲透率，構成了其一定的競爭優勢。然而，餐飲業的地理優勢相對容易被複製，競爭對手可以透過開設新店或併購來進入或擴大在同一區域的市場份額。因此，其地理優勢並非獨一無二，而是依賴於持續的擴張和市場佔有率。",
+    "comment_en": "QSR possesses an extensive store network globally, particularly in the North American market where Tim Hortons and Burger King hold significant market share. The strategic placement of these locations and brand penetration in specific regions constitute a certain competitive advantage. However, geographical advantages in the restaurant industry are relatively easy to replicate, as competitors can enter or expand their market share in the same area through new store openings or acquisitions. Therefore, its geographical advantage is not unique but relies on continuous expansion and market share."
+  },
+  "m7_operational_efficiency": {
+    "score": 8,
+    "comment_zh": "QSR在標準化營運流程、供應鏈管理和後勤支持方面展現出高度的效率。透過精確的庫存管理、高效的廚房作業流程和強大的供應鏈網絡，公司能夠有效控制成本，確保產品質量穩定，並快速響應市場需求。其加盟模式也要求標準化的營運，這有助於維持整體服務水平。這種卓越的營運效率是其能夠在激烈競爭中保持盈利能力和市場地位的關鍵。",
+    "comment_en": "QSR demonstrates high efficiency in standardized operational processes, supply chain management, and logistical support. Through precise inventory management, efficient kitchen workflows, and a robust supply chain network, the company effectively controls costs, ensures consistent product quality, and responds rapidly to market demands. Its franchise model also mandates standardized operations, which helps maintain overall service levels. This operational excellence is key to its ability to remain profitable and maintain its market position amidst intense competition."
+  },
+  "m8_capital_allocation": {
+    "score": 7,
+    "comment_zh": "QSR過往在資本配置上展現出一定的策略性，透過併購擴張品牌組合，並在營運效率和門店網絡優化上進行投資。公司亦透過股票回購和股息支付回饋股東。然而，其資產負債表顯示較高的債務水平，這可能限制其未來的進一步擴張或應對潛在風險的能力。管理層在平衡債務、再投資和股東回報方面的決策，將是評估其資本配置能力的重要指標。",
+    "comment_en": "QSR has historically shown a degree of strategic capital allocation, expanding its brand portfolio through acquisitions and investing in operational efficiency and store network optimization. The company also returns capital to shareholders through share buybacks and dividends. However, its balance sheet indicates a relatively high debt level, which could limit its future expansion capabilities or its ability to respond to potential risks. Management's decisions in balancing debt, reinvestment, and shareholder returns will be crucial indicators for evaluating its capital allocation prowess."
+  },
+  "m9_customer_retention": {
+    "score": 6,
+    "comment_zh": "QSR透過其品牌忠誠度計劃、會員優惠和持續的產品創新來維持客戶。Tim Hortons的忠誠度計劃在加拿大市場尤其成功。然而，快餐業的客戶忠誠度普遍不高，消費者容易受到價格、促銷和新品的影響而轉移。QSR需要不斷投入資源來維護現有客戶關係，並透過優質的產品和服務吸引新客戶，以應對行業內的高度競爭和客戶流失的風險。",
+    "comment_en": "QSR maintains its customer base through loyalty programs, member benefits, and continuous product innovation. The loyalty program at Tim Hortons has been particularly successful in the Canadian market. However, customer loyalty in the fast-food industry is generally not very high, as consumers are easily influenced by price, promotions, and new offerings, leading to potential shifts. QSR needs to continuously invest resources to nurture existing customer relationships and attract new customers with quality products and services to counter the intense industry competition and the risk of customer churn."
+  },
+  "m10_durability": {
+    "score": 7,
+    "comment_zh": "QSR的商業模式具有一定的持久性，快餐服務是消費者日常生活中不可或缺的一部分，尤其是在經濟不確定時期，其相對較低的價格點更具吸引力。公司擁有多個歷史悠久且廣受歡迎的品牌，這為其提供了穩定的客戶基礎。然而，餐飲業面臨著不斷變化的消費者偏好、健康飲食趨勢以及新興的競爭模式（如線上外賣平台的崛起）的挑戰。QSR需要持續適應這些變化，才能維持其長期的競爭優勢。",
+    "comment_en": "QSR's business model possesses a degree of durability, as fast-food services are an integral part of consumers' daily lives. Especially during times of economic uncertainty, its relatively lower price points become more attractive. The company owns multiple long-standing and popular brands, providing a stable customer base. However, the restaurant industry faces challenges from evolving consumer preferences, health-conscious eating trends, and emerging competitive models (like the rise of online delivery platforms). QSR must continuously adapt to these changes to maintain its long-term competitive advantage."
+  },
+  "overall_moat_verdict_zh": "Restaurant Brands International (QSR) 是一家擁有強大品牌組合的餐飲集團，其護城河主要體現在規模經濟帶來的成本優勢（M5）和卓越的營運效率（M7）。龐大的全球網絡使其在採購和供應鏈管理上具備顯著的成本控制能力。然而，其護城河並非無懈可擊，品牌定價權（M1）受制於激烈競爭，轉換成本（M3）和網絡效應（M4）極為薄弱。儘管管理層在資本配置（M8）和客戶維繫（M9）上有所努力，但整體而言，QSR的商業模式更接近於一個高效的營運商，而非擁有強大特許經營權或收費橋模式的企業，其持久性（M10）依賴於持續的創新與適應。",
+  "overall_moat_verdict_en": "Restaurant Brands International (QSR) is a restaurant group with a strong brand portfolio. Its moat primarily lies in the cost advantages derived from economies of scale (M5) and excellent operational efficiency (M7). Its vast global network provides significant cost control capabilities in procurement and supply chain management. However, its moat is not impregnable; brand pricing power (M1) is constrained by intense competition, and switching costs (M3) and network effects (M4) are extremely weak. Although management strives in capital allocation (M8) and customer retention (M9), overall, QSR's business model is more akin to an efficient operator rather than a company with strong franchise rights or a toll-bridge model. Its durability (M10) depends on continuous innovation and adaptation.",
+  "evidenceHash": "1880b97900f85a731480ca57b51cbc677e92905d57460b4f38351582e348273b",
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
+}
