@@ -243,7 +243,7 @@
         "accruedExpenses": 1155478000,
         "shortTermDebt": 0,
         "capitalLeaseObligationsCurrent": 300102000,
-        "taxPayables": 54365000,
+        "taxPayables": 0,
         "deferredRevenue": 0,
         "otherCurrentLiabilities": 54365000,
         "totalCurrentLiabilities": 10106530000,
@@ -1606,7 +1606,7 @@
         "fiscalYear": "2026",
         "period": "Q4",
         "cashAndCashEquivalents": 326115000,
-        "shortTermInvestments": 13969000,
+        "shortTermInvestments": 0,
         "cashAndShortTermInvestments": 326115000,
         "netReceivables": 755026000,
         "accountsReceivables": 755026000,
@@ -1655,9 +1655,9 @@
         "totalEquity": -2502470000,
         "minorityInterest": 0,
         "totalLiabilitiesAndTotalEquity": 21630510000,
-        "totalInvestments": 186876000,
+        "totalInvestments": 172907000,
         "totalDebt": 13164869000,
-        "netDebt": 12421426000
+        "netDebt": 12838754000
       },
       {
         "date": "2026-05-09",
